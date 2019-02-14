@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 以慣用的術語和樣式，使用 Microsoft Translator Hub 建置您自己的電腦翻譯系統。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: e4e512a69fc783e6c4878298d848a9dccf8768c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c2ff97c61cee1f2f773710103ac422fc6f1d8714
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226915"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876057"
 ---
 # <a name="customize-your-text-translations"></a>自訂文字翻譯
 
@@ -50,10 +50,10 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 |:-----|:----:|:----:|
 |自訂功能狀態   | 正式運作  | 正式運作 |
 | 文字 API 版本  | 僅限第 2 版   | 僅限第 3 版 |
-| SMT 自訂 | 是   | 否 |
-| NMT 自訂 | 否    | 是 |
-| 新的統一語音服務自訂 | 否    | 是 |
-| [不追蹤](https://www.aka.ms/notrace) | 是  | 是 |
+| SMT 自訂 | yes   | 否 |
+| NMT 自訂 | 否    | yes |
+| 新的統一語音服務自訂 | 否    | yes |
+| [不追蹤](https://www.aka.ms/notrace) | yes  | yes |
 
 ## <a name="collaborative-translations-framework"></a>共同作業翻譯架構
 

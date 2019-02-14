@@ -2,21 +2,22 @@
 title: 設定使用者同意應用程式 - Azure Active Directory | Microsoft Docs
 description: 了解如何管理使用者同意應用程式權限的方式。 您可以授與管理員同意，以簡化使用者體驗。 這些方法適用於 Azure Active Directory (Azure AD) 租用戶中的所有使用者。
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 8f2d1580cfbf23bd54498243a8bfac43c32973ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d35f8b440fe748f91c9e01003fe83a3a5343c8df
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183011"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203721"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>在 Azure Active Directory 設定使用者同意應用程式的方式
 了解如何設定使用者同意應用程式權限的方式。 您可以授與管理員同意，以簡化使用者體驗。 本文提供不同的方式供您設定使用者同意。 這些方法適用於 Azure Active Directory (Azure AD) 租用戶中的所有使用者。 

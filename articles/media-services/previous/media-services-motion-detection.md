@@ -4,21 +4,21 @@ description: 「Azure 媒體動作偵測器」媒體處理器 (MP) 能讓您在�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26090067923c468b7102ac5b7bb78b9d7b7960bb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820966"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995607"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測動作
 ## <a name="overview"></a>概觀

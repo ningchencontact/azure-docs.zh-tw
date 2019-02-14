@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 4befcbb6b2297c6f80fb577b1fe22053a8c77ada
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331073"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980545"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(已淘汰) 使用 Azure DevOps 的完整 CI/CD 管線，搭配 ACS 引擎和 Docker Swarm 模式在 Azure Container Service 上部署多容器應用程式
 
@@ -227,7 +227,9 @@ Azure DevOps 可讓您[跨環境管理發行](https://www.visualstudio.com/team-
 
 2. 設定第二個工作以在主要節點上執行 Bash 命令以執行 `docker` 和 `docker stack deploy` 命令。 請參閱以下畫面了解詳細資料。
 
-    ```docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth```
+    ```
+    docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth
+    ```
 
     ![Azure DevOps - 發行 Bash](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 

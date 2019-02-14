@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39a3164c27fa30250fe08e864db889eac844f646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c27be7da2aceea8581fd4a5baef96103faa0c1d4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172998"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107305"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C：使用 OpenID Connect 的 Web 登入
 OpenID Connect 是建置在 OAuth 2.0 之上的驗證通訊協定，可用來將使用者安全地登入 Web 應用程式。 藉由使用 OpenID Connect 的 Azure Active Directory B2C (Azure AD B2C) 實作，您就能將 Web 應用程式中的註冊、登入及其他識別管理體驗外包給 Azure Active Directory (Azure AD)。 本指南會以與語言無關的方式示範如何執行此動作。 而是在說明如何傳送和接收 HTTP 訊息，但不使用我們的任何開放原始碼程式庫。
@@ -27,7 +27,7 @@ OpenID Connect 是建置在 OAuth 2.0 之上的驗證通訊協定，可用來將
 Azure AD B2C 擴充標準的 OpenID Connect 通訊協定，功能更強大，而不僅止於簡單的驗證和授權。 它引進[使用者流程參數](active-directory-b2c-reference-policies.md)，讓您能利用 OpenID Connect 來為應用程式新增使用者體驗，例如註冊、登入和設定檔管理。 以下我們將示範如何利用 OpenID Connect 和使用者流程，在您的 Web 應用程式中實作上述每一種體驗。 我們也會示範如何取得用來存取 Web API 的存取權杖。
 
 下一節的範例 HTTP 要求使用我們的範例 B2C 目錄 fabrikamb2c.onmicrosoft.com，以及我們的範例應用程式、 https://aadb2cplayground.azurewebsites.net 和使用者流程。 您可以隨意使用這些值來自行試驗要求，也可以把它們換成您自己的值。
-了解如何[取得您自己的 B2C 租用戶、應用程式和使用者流程](#use-your-own-b2c-directory)。
+了解如何[取得您自己的 B2C 租用戶、應用程式和使用者流程](#use-your-own-b2c-tenant)。
 
 ## <a name="send-authentication-requests"></a>傳送驗證要求
 當 Web 應用程式需要驗證使用者和執行使用者流程時，它可以將使用者導向至 `/authorize` 端點。 這是流程中的互動部分，可根據使用者流程讓使用者能夠採取行動。

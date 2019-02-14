@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 47b9d25f8db2241bb578528780e28f43d56371e5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413178"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963075"
 ---
 # <a name="create-a-netapp-account"></a>建立 NetApp 帳戶
 建立 NetApp 帳戶可讓您設定容量集區，並接著建立磁碟區。 您可以使用 [Azure NetApp Files] 刀鋒視窗來建立新的 NetApp 帳戶。
@@ -31,8 +31,8 @@ ms.locfileid: "53413178"
 
 ## <a name="steps"></a>步驟 
 
-1. 從您的預覽邀請找到預覽 Azure 入口網站 URL，然後登入入口網站。 
-2.  使用下列其中一個方法存取 [Azure NetApp Files] 刀鋒視窗：  
+1. 登入 Azure 入口網站。 
+2. 使用下列其中一個方法存取 [Azure NetApp Files] 刀鋒視窗：  
   * 在 Azure 入口網站搜尋方塊中搜尋 **Azure NetApp Files**。  
   * 按一下導覽中的 [所有服務]，然後篩選為 Azure NetApp Files。  
 
@@ -50,7 +50,6 @@ ms.locfileid: "53413178"
     使用現有的資源群組或建立新群組。
   * **位置**  
     選取您想要帳戶及其子資源位在哪個區域。  
-    目前，Azure NetApp Files 服務僅在美國東部區域受到支援。  
 
     ![新增 NetApp 帳戶](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 

@@ -4,7 +4,7 @@ description: Azure 資訊安全中心監控的 Azure 原則定義。
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 925bf325d128f1757d24d29013f4e27eb788d7e2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbc9fa5586b848de79c52142f75b22b744fdae38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180665"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105945"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure 資訊安全中心監控的 Azure 安全性原則
 本文提供可在資訊安全中心監控的 Azure 原則定義清單。 如需有關安全性原則的詳細資訊，請參閱[搭配使用安全性原則](tutorial-security-policy.md)。

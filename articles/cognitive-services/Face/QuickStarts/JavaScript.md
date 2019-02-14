@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用認知服務的臉部 API 搭配 JavaScript，偵測影像中的臉部。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 02066ac7425b5b4843ae8a74c37a928242f2a092
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 07868fd70c1b2601fa676f7069f2508468e2be0e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225443"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866945"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>快速入門：使用 REST API 和 JavaScript 偵測影像中的人臉
 

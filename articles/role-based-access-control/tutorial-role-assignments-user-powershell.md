@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 27b48e1d6aabf9cde7152bfb0dbf3e58bc619107
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696773"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109022"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>教學課程：使用 RBAC 與 Azure PowerShell 為使用者授與存取權
 
@@ -111,7 +111,7 @@ ms.locfileid: "55696773"
 
 若要為使用者授與存取權，您可以使用 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 命令來指派角色。 您必須指定安全性主體、角色定義和範圍。
 
-1. 使用 [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) 命令取得訂用帳戶的識別碼。
+1. 使用 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) 命令取得訂用帳戶的識別碼。
 
     ```azurepowershell
     Get-AzSubscription

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 02/06/2019
 ms.author: alkohli
-ms.openlocfilehash: f7b3cc638e28e4f28694f668660a28ffe6e9fa51
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 24af2150438d3db13323aaecdfd89302b8152fa9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817991"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879117"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>對 Azure 資料箱磁碟中的問題進行疑難排解
 
@@ -98,7 +98,7 @@ ms.locfileid: "54817991"
 
 將磁碟機重新掛接為讀寫不適用於資料箱磁碟。 此情節不適用於由 dislocker 解密的磁碟機。 您可能已經使用下列命令成功重新掛接磁碟機： 
 
-    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
 雖然已經成功重新掛接，但資料不會保存。
 

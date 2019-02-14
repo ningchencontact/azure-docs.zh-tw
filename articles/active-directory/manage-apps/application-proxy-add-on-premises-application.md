@@ -2,21 +2,22 @@
 title: 新增內部部署應用程式：Azure Active Directory 中的應用程式 Proxy | Microsoft Docs
 description: Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使用者使用其 Azure AD 帳戶登入來存取內部部署應用程式。 本教學課程會示範如何準備環境以便與應用程式 Proxy 搭配使用，然後會使用 Azure 入口網站將內部部署應用程式新增至 Azure AD 租用戶。
 services: active-directory
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 1f6962f0313b6b0ca187512185c990606789da6e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f29b55b03d28728ad038f0071a7ba8a75a7acd2c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661950"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199437"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 

@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 77157cdf245546816aee748f3d388bde620c4b5f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a76f61902c6affdab9f70526d2de40852747f34e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165174"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888448"
 ---
-<!--author=alkohli last changed: 06/22/17-->
-
 #### <a name="to-get-the-storsimple-service-registration-key"></a>取得 StorSimple 服務註冊金鑰
 
 1. 在 [StorSimple 裝置管理員] 刀鋒視窗上，按一下您建立的服務。 這會在右邊開啟新的刀鋒視窗。

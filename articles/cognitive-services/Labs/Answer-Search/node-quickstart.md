@@ -3,18 +3,18 @@ title: 快速入門：專案答案搜尋 (Node)
 description: 開始使用專案答案搜尋與 Node。
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2e79a2d248a81298cb1dd19415a0d9eb75a275c4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7a749efca0e8acacff4dac49e7a524d25ef5acad
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224491"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878573"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>快速入門：使用 Node 進行專案答案搜尋
 
@@ -31,9 +31,9 @@ ms.locfileid: "55224491"
 下列程式碼取得答案。
 實際進行步驟如下：
 1. 宣告變數以依主機及路徑指定端點。
-2. 指定要預覽的查詢 URL，並新增查詢參數。  
+2. 指定要預覽的查詢 URL，並加入查詢參數。  
 3. 建立回應的處理常式函式。
-4. 定義建立要求的搜尋函式，並新增 *Ocp-Apim-Subscription-Key* 標頭。
+4. 定義建立要求的搜尋函式，並加入 *Ocp-Apim-Subscription-Key* 標頭。
 5. 執行搜尋函式。 
 
 此示範的完整程式碼如下：

@@ -4,25 +4,25 @@ titlesuffix: Azure Cognitive Services
 description: 逐步說明如何使用 Azure 自訂決策服務註冊新應用程式。
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
 ms.reviewer: marcozo
-ms.openlocfilehash: f642e0d4e21c180a92b4b76d05fb2c9bac9f2976
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c56aef180f5e16d2ec1931caabe04295ef288ca9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219731"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980681"
 ---
 # <a name="register-your-application"></a>註冊您的應用程式
 
 若要為您的應用程式使用自訂決策服務，請在入口網站上進行註冊。 本文說明執行方法。
 
-1. 移至自訂決策服務的[首頁](https://ds.microsoft.com/)。 在功能區中，按一下 [我的入口網站]，如映像中反白顯示的部分：
+1. 移至自訂決策服務的[首頁](https://portal.ds.microsoft.com/)。 在功能區中，按一下 [我的入口網站]，如映像中反白顯示的部分：
 
     ![我的入口網站](./media/portal.png)
 

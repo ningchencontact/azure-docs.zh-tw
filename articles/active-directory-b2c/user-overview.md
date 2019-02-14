@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a901072875d6810711cb0b23d17555d9492c240a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157970"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100120"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者帳戶概觀
 
@@ -47,21 +47,21 @@ ms.locfileid: "55157970"
 您可以使用下列資訊來建立新的公司帳戶：
 
 - [Azure 入口網站](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>更新使用者設定檔
 
 您可以使用下列資訊來更新使用者的設定檔：
 
 - [Azure 入口網站](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>重設使用者的密碼
 
 您可以使用下列資訊來重設使用者的密碼： 
 
 - [Azure 入口網站](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>來賓使用者
 
@@ -69,7 +69,7 @@ ms.locfileid: "55157970"
 
 將來賓使用者邀請到租用戶時，您必須提供收件者的電子郵件地址和描述邀請詳情的訊息。 邀請連結會將使用者帶往同意頁面，該頁面已選取 [開始使用] 按鈕，並已接受權限檢閱。 如果收件匣並未連結至電子郵件地址，使用者可以使用受邀認證移至 Microsoft 頁面以瀏覽至同意頁面。 接著，系統會強制使用者兌換邀請，方式和在電子郵件中按一下連結時相同。 例如： `https://myapps.microsoft.com/B2CTENANTNAME` 。
 
-您也可以使用 [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/invitation_post) 邀請來賓使用者。
+您也可以使用 [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) 邀請來賓使用者。
 
 ## <a name="consumer-user"></a>取用者使用者
 

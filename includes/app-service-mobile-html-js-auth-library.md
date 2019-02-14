@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5fe9fe8ced675f68161f0df9f2665b47f9d47ac5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52973233"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905085"
 ---
 ### <a name="server-auth"></a>操作說明：向提供者驗證 (伺服器流程)
 若要讓 Mobile Apps 管理應用程式中的驗證程序，您必須向識別提供者註冊應用程式。 接著在您的 Azure App Service 中，您必須設定提供者所提供的應用程式識別碼和密碼。
@@ -17,7 +17,7 @@ ms.locfileid: "52973233"
 
 註冊識別提供者之後，請以提供者的名稱來呼叫 `.login()` 方法。 例如，若要以 Facebook 登入，請使用下列程式碼：
 
-```
+```javascript
 client.login("facebook").done(function (results) {
      alert("You are now signed in as: " + results.userId);
 }, function (err) {
@@ -40,7 +40,7 @@ client.login("facebook").done(function (results) {
 
 這個範例會使用 Facebook 用戶端 SDK 進行驗證：
 
-```
+```javascript
 client.login(
      "facebook",
      {"access_token": token})
@@ -57,7 +57,7 @@ client.login(
 
 您可以使用 HTTP 呼叫搭配任何 AJAX 程式庫，從 `/.auth/me` 端點擷取驗證資訊。  請確定您設定 `X-ZUMO-AUTH` 標頭至您的驗證 Token。  驗證 Token 儲存於 `client.currentUser.mobileServiceAuthenticationToken`。  例如，若要使用提取 API：
 
-```
+```javascript
 var url = client.applicationUrl + '/.auth/me';
 var headers = new Headers();
 headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);

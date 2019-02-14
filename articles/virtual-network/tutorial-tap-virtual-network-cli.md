@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kaanan
-ms.openlocfilehash: 0662b66d44533a888d491810ba45efac9a397aa1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 48ccbedd6e3a7da0ec487f27709a47f9364f7da3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700837"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100052"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>使用 Azure CLI 來處理虛擬網路 TAP
 
@@ -110,7 +110,7 @@ Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將您的虛擬機器
 1. 擷取現有虛擬網路 TAP 資源的識別碼。 下列範例會擷取名為 *myResourceGroup* 之資源群組中名為 *myTap* 的虛擬網路 TAP：
 
    ```azurecli-interactive
-   tapId=$(az network tap show show \
+   tapId=$(az network vnet tap show \
    --name myTap \
    --resource-group myResourceGroup \
    --query id \
@@ -144,7 +144,7 @@ Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將您的虛擬機器
    az network nic vtap-config delete \
    --resource-group myResourceGroup \
    --nic myNetworkInterface \
-   --tap-configuration-name myTapConfig \
+   --name myTapConfig \
    --subscription subscriptionId
    ```
 

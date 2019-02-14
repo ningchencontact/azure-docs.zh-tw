@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: 在這個 C# 快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的用意。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 81a05ed3e981c2a35221830a16b5859ee5c1bd4f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6d72299e4350c472ef552fa6afd96e48fd1869b9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225511"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876959"
 ---
 # <a name="quickstart-get-intent-using-c"></a>快速入門：使用 C# 取得意圖
 

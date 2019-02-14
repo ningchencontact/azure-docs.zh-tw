@@ -4,7 +4,7 @@ description: 媒體分析公開預覽、企業規模的語音和電腦視覺服�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0ac8b9fad35267ceaec5b5acec4722b6005f68a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783587"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003759"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析
+# <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析 
+
 ## <a name="overview"></a>概觀
 越來越多組織採用影片做為慣用的媒體，用來訓練員工、連絡客戶與記錄商務功能。 雖然雲端運算可供儲存、串流及存取大型媒體檔案， 但隨著公司影片庫內容的成長，需要同樣有效的方法深入分析內容。 
 

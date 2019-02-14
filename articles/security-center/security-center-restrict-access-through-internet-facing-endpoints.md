@@ -4,7 +4,7 @@ description: 本文件說明了如何實作 Azure 資訊安全中心建議的**�
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a1677e2c5518fec4412adb87cd058571bd435dd4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338478"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110518"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>在 Azure 資訊安全中心限制透過網際網路面向端點的存取
 如果您的任一網路安全性群組 (NSG) 有一或多個輸入規則允許來自任何來源 IP 位址的存取，Azure 資訊安全中心會建議您限制透過網際網路面向端點的存取。 開放任一來源 IP 位址的存取可能會讓攻擊者存取您的資源。 資訊安全中心會建議您編輯這些輸入規則，以限制只有實際上需要存取權的來源 IP 位址才能存取。

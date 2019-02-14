@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 使用 Bing Web 搜尋 SDK 將搜尋功能新增至您的 Python、Node.js、C# 或 Java 應用程式。
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: sample
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: 2325ccee501d625063a5054a77f3eb163185437d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b1559abaf95e4af5915ffbf180be4ade8a3ffdb0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183708"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864905"
 ---
 # <a name="bing-web-search-sdk-samples"></a>Bing Web 搜尋 SDK 範例
 

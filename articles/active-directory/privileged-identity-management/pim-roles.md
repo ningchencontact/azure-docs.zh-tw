@@ -13,12 +13,13 @@ ms.subservice: pim
 ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 80fbad64cda9267e468f9385d48dd5d40468eaca
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 666b534c3ab07be2b1e2335015fc4723782a1249
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203414"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181570"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>您無法在 PIM 中管理的角色
 
@@ -43,6 +44,5 @@ Exchange Online 或 SharePoint Online 內的角色 (除了 Exchange 管理員和
 
 ## <a name="next-steps"></a>後續步驟
 
-- [開始使用 PIM](pim-getting-started.md)
 - [在 PIM 中指派 Azure AD 目錄角色](pim-how-to-add-role-to-user.md)
 - [在 PIM 中指派 Azure 資源角色](pim-resource-roles-assign-roles.md)

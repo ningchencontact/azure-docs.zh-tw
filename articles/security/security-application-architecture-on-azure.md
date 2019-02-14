@@ -4,7 +4,7 @@ description: " 本文將協助您了解 Azure 上的應用程式及服務架構�
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 4f2d9386-bda3-4ec8-8b1a-cd0c11242ffc
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 78746324c240e0a1bfab81ca1e45f231909328c0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661185"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108070"
 ---
 # <a name="application-architecture-on-azure"></a>Azure 的應用程式架構
 為了協助保護您在 Microsoft Azure 上以雲端為基礎的解決方案，堅強的架構基礎相當重要。 架構設計人員、設計人員和實作者都受益於對於應用程式及服務架構的強大知識。 此基本知識將幫助您了解所有以雲端為基礎的解決方案的元件，並輕鬆地將安全性整合至您的設計和實作的所有層面。

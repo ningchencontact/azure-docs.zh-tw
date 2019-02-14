@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 6eca534f933742e4797ca164637e7d536d194ba3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5ba2bde039cec65a1afe33efac58752d26f22c2b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181498"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171888"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>教學課程：Azure Active Directory 與 Zscaler Private Access Administrator 整合
 
@@ -190,7 +191,7 @@ ms.locfileid: "55181498"
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立]。
+    d. 按一下頁面底部的 [新增] 。
   
 ### <a name="create-a-zscaler-private-access-administrator-test-user"></a>建立 Zscaler Private Access Administrator 測試使用者
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 21eec258b14bb0524170c9307d06fee7b7abc644
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8d9e59a11957e8d108ae86ebba157a06129efa58
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466637"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111538"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -881,7 +881,7 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 此逐步解說範例及其隨附的指令碼和 IPython Notebook 是在 MIT 授權下由 Microsoft 所共用。 如需詳細資料，請查看 GitHub 上範例程式碼目錄中的 LICENSE.txt 檔案。
 
 ## <a name="references"></a>參考
-•    [Andrés Monroy 紐約市計程車行程下載頁面](http://www.andresmh.com/nyctaxitrips/) (英文) •    [FOILing 紐約市計程車行程資料 (作者 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (英文)•    [紐約市計程車和豪華轎車委員會研究與統計資料](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml) (英文)
+•    [Andrés Monroy 紐約市計程車行程下載頁面](http://www.andresmh.com/nyctaxitrips/) (英文) •    [FOILing 紐約市計程車行程資料 (作者 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (英文)•    [紐約市計程車和豪華轎車委員會研究與統計資料](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) (英文)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

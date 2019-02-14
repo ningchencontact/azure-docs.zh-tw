@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 本文將概述 Azure 專案個人化聊天，這是可加強您 Bot 對話能力的雲端式 API。
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personality-chat
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 053d43d0f17df2008106bda38318615e60778935
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c7f7a8c65717acd5a19e92b7e0437dc4b8628909
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207508"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867081"
 ---
 # <a name="what-is-project-personality-chat"></a>什麼是專案特質交談？
 

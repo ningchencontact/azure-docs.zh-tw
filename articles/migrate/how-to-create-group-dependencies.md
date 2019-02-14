@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472570"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895426"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
 
@@ -104,7 +104,7 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 3. 若要檢視更細微的相依性，請按一下時間範圍以進行修改。 根據預設，範圍是一小時。 您可以修改時間範圍，或指定開始和結束日期，以及持續時間。
 
     > [!NOTE]
-      目前，相依性視覺效果 UI 不支援選取超過一小時的時間範圍。 使用 Log Analytics 可在較長的持續期間內[查詢相依性資料](https://docs.microsoft.com/azure/migrate/how-to-create-a-group#query-dependency-data-from-log-analytics)。
+      目前，相依性視覺效果 UI 不支援選取超過一小時的時間範圍。 使用 Log Analytics 可在較長的持續期間內[查詢相依性資料](https://docs.microsoft.com/azure/migrate/how-to-create-a-group)。
 
 4. 確認相依機器、在每部機器內部執行的處理序，並識別應該新增到群組或從中移除的機器。
 5. 使用「Ctrl+按一下」選取對應上的多部機器，以將它們新增到群組或從中移除。

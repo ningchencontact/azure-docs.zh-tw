@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，協助您在 Azure上快速開始使用 Microsoft 認知服務中的文字分析 API。
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 0d35fa388b9300804243b8144372be0eb2a97e02
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a211bcedb0f3de41dbd62f137230bdf5d85d7fdf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211809"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868920"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 PHP 來呼叫文字分析認知服務
 <a name="HOLTop"></a>
@@ -245,7 +245,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 ## <a name="extract-key-phrases"></a>擷取關鍵片語
 
-關鍵片語擷取 API 會使用[關鍵片語方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 以下範例會擷取英文和西班牙文文件的關鍵片語。
+關鍵片語擷取 API 會使用[關鍵片語方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 下列範例會擷取英文和西班牙文文件的關鍵片語。
 
 1. 在您最愛的 IDE 中建立新的 PHP 專案。
 2. 新增下方提供的程式碼。

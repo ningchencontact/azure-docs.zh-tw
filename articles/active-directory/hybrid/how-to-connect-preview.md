@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: afbd48b8793e8b16597efb1e3996058b7450e03e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497089"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173329"
 ---
 # <a name="more-details-about-features-in-preview"></a>有關預覽中之功能的其他詳細資料
 本主題描述如何使用預覽中目前的功能。

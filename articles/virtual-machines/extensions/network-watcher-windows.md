@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142303"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976909"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>適用於 Windows 的網路監看員代理程式虛擬機器擴充功能
 
@@ -65,7 +65,7 @@ ms.locfileid: "42142303"
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 |
+| Name | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
@@ -79,10 +79,10 @@ ms.locfileid: "42142303"
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
 
-`Set-AzureRmVMExtension` 命令可以用來將網路監看員代理程式虛擬機器擴充功能部署到現有的虛擬機器：
+`Set-AzVMExtension` 命令可以用來將網路監看員代理程式虛擬機器擴充功能部署到現有的虛擬機器：
 
 ```powershell
-Set-AzureRmVMExtension `
+Set-AzVMExtension `
   -ResourceGroupName "myResourceGroup1" `
   -Location "WestUS" `
   -VMName "myVM1" `
@@ -99,7 +99,7 @@ Set-AzureRmVMExtension `
 您可以從 Azure 入口網站和 PowerShell 擷取有關擴充功能部署狀態的資料。 若要查看所指定 VM 的擴充功能部署狀態，請使用 Azure PowerShell 模組來執行下列命令：
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
+Get-AzVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
 擴充功能執行輸出會記錄至下列目錄中的檔案︰

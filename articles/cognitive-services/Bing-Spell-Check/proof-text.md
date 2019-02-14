@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing 拼字檢查 API 會使用機器學習服務和統計機器翻譯進行內容的拼字檢查。
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a8f5e029966f074add34a7017f42158070b872d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149766"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864004"
 ---
 # <a name="what-is-bing-spell-check-api"></a>什麼是 Bing 拼字檢查 API？
 

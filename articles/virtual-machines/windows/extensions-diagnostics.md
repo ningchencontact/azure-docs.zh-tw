@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 772c0a4b6cf57aa428f722fb90a0673f9e703627
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322818"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982789"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>適用於 Windows VM 的 Azure 診斷延伸模組
 
@@ -59,13 +59,17 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
 
-`Set-AzureRmVMDiagnosticsExtension` 命令可用來將「Azure 診斷」延伸模組新增到現有的虛擬機器。 另請參閱[使用 PowerShell 在執行 Windows 的虛擬機器中啟用 Azure 診斷](ps-extensions-diagnostics.md)。
+`Set-AzVMDiagnosticsExtension` 命令可用來將「Azure 診斷」延伸模組新增到現有的虛擬機器。 另請參閱[使用 PowerShell 在執行 Windows 的虛擬機器中啟用 Azure 診斷](ps-extensions-diagnostics.md)。
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+
 ```powershell
 $vm_resourcegroup = "myvmresourcegroup"
 $vm_name = "myvm"
 $diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
 
-Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
+Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
   -VMName $vm_name `
   -DiagnosticsConfigurationPath $diagnosticsconfig_path
 ```

@@ -7,12 +7,12 @@ ms.service: terraform
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 2c2ebaf362c2d6e8b07a19e3b878f83bff2d857a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 408e07e9b6214dbd223bd4ec7959b00ecc414f1e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757194"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869172"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>建立 Azure 的 Terraform 組態
 
@@ -87,7 +87,7 @@ terraform apply plan.out
 
 完成之後，您會看到資源群組已建立，且有 Azure Cosmos DB 執行個體放置在資源群組中。
 
-## <a name="update-configuration"></a>更新組態
+## <a name="update-configuration"></a>更新設定
 
 更新組態以包含 Azure 容器執行個體。 容器會執行對 Cosmos DB 讀取和寫入資料的應用程式。
 

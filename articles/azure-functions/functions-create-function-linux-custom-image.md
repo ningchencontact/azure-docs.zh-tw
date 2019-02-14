@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 7b7a239d6c96d1d5b257828ebd49c25c5bafc827
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2c80f988583571f3394a29747a6f452951cea878
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700803"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978029"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>在使用自訂映像 (預覽版) 的 Linux 上建立函式
 
@@ -93,7 +93,7 @@ cd MyFunctionProj
 
 請看一下專案根資料夾中的 Dockerfile。 此檔案描述在 Linux 上執行函式應用程式所需的環境。 下列 Dockerfile 範例會建立容器，用來在 JavaScript (Node.js) 背景工作角色執行階段上執行函式應用程式： 
 
-```docker
+```Dockerfile
 FROM mcr.microsoft.com/azure-functions/node:2.0
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
@@ -232,7 +232,7 @@ _deployment-container-image-name_ 參數表示裝載於 Docker Hub 上用於建�
 在本例中，`<storage_account>` 是您建立的儲存體帳戶名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 命令，在函式應用程式中新增這些應用程式設定。
 
 ```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
+$storageConnectionString=$(az storage account show-connection-string \
 --resource-group myResourceGroup --name <storage_account> \
 --query connectionString --output tsv)
 

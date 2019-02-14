@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/04/2019
-ms.openlocfilehash: 73c7acb563f0f6236ff49274bb1880692a3742e6
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 10bc12879ea30f75ee5af3bd9226ff1626b72ae3
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563113"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962735"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何透過 Python 使用通知中樞
 
@@ -369,11 +369,11 @@ hub.send_baidu_notification(baidu_payload)
 例如，您會看到詳細的通知中樞結果。
 
 - 訊息成功傳送至推播通知服務的時間。
-    ```text
+    ```xml
     <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
     ```
 - 如果找不到任何推播通知的目標，您可能會看到下列輸出作為回應 (這表示找不到可傳遞通知的註冊，可能是因為註冊有一些不相符的標記)
-    ```text
+    ```xml
     '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
     ```
 

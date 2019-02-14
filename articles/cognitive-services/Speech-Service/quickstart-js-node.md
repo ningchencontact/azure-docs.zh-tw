@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 您可以使用本指南，透過適用於 Node.js 的語音 SDK 建立語音轉換文字的主控台應用程式。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 99938f8b64339556c0ee4b9caa9124c609159af6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5fa0b6d2a361fdbf372ba73fed9d8e2c48cb3630
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747266"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871212"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的語音 SDK 來辨識語音
 

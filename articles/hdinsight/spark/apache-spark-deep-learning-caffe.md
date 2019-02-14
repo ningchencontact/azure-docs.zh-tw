@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 451ccff9747988ee019f2be9e0cccec12c9c1ef9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118229"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891074"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 
@@ -64,7 +64,7 @@ ms.locfileid: "54118229"
 
 第二個步驟是在執行階段期間下載、編譯和安裝 Caffe 的 protobuf 2.5.0。 [需要](https://github.com/yahoo/CaffeOnSpark/issues/87) Protobuf 2.5.0，但這個版本不在 Ubuntu 16 以套件形式提供，因此您需要從原始程式碼編譯它。 另外在網際網路上還有一些關於如何加以編譯的資源。 如需詳細資訊，請參閱[這裡](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)。
 
-若要開始，您可以僅對叢集執行此指令碼動作至所有背景工作角色節點和前端節點 (適用於 HDInsight 3.5)。 您可以在現有的叢集上執行指令碼動作，或在叢集建立期間使用指令碼動作。 如需有關指令碼動作的詳細資訊，請參閱文件[這裡](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions)。
+若要開始，您可以僅對叢集執行此指令碼動作至所有背景工作角色節點和前端節點 (適用於 HDInsight 3.5)。 您可以在現有的叢集上執行指令碼動作，或在叢集建立期間使用指令碼動作。 如需有關指令碼動作的詳細資訊，請參閱文件[這裡](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)。
 
 ![安裝相依性的指令碼動作](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 

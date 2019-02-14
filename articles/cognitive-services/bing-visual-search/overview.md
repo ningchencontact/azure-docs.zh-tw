@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bing 圖像式搜尋可提供影像的相關詳細資料或深入解析，例如類似影像或購物來源。
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 61a851b0efbcc4fdb55308e47447d218014ef9e0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9e323e9ec928d9f8b0592850adcd088a589ebf28
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154349"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863086"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>什麼是 Bing 圖像式搜尋 API？
 

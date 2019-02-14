@@ -4,18 +4,18 @@ description: 了解如何新增清單實體以協助 LUIS 標記字組或片語�
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fe9276cb0af96baa8d818b1f2e965c83cb6b26c2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fc6d68e862f6a2f3c95f5ca6d130e42c96649eb1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211486"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874605"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用清單實體增加實體偵測 
 本教學課程將示範如何使用[清單實體](luis-concept-entity-types.md)增加實體偵測。 清單實體不需要標籤，因為其與字詞完全相符。  

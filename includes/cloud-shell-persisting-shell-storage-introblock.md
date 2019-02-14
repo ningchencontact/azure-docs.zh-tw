@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886235"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246757"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>在 Azure Cloud Shell 中保存檔案
 Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。 在初始啟動時，Cloud Shell 會提示您關聯新的或現有的檔案共用，以在工作階段間保存檔案。
@@ -40,7 +40,7 @@ Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。 在
 當儲存體設定提示出現時，請選取 [顯示進階設定] 以檢視其他選項。 已填入的儲存體選項會篩選本地備援儲存體 (LRS)、異地備援儲存體 (GRS) 和區域備援儲存體 (ZRS) 帳戶。 
 
 > [!NOTE]
-> 建議使用 GRS 或 ZRS 儲存體帳戶，如此您的備份檔案共用能獲得更多復原能力。 備援類型取決於您的目標和偏好的價格。 [深入了解 Azure 儲存體帳戶的複寫選項](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option)。
+> 建議使用 GRS 或 ZRS 儲存體帳戶，如此您的備份檔案共用能獲得更多復原能力。 備援類型取決於您的目標和偏好的價格。 [深入了解 Azure 儲存體帳戶的複寫選項](https://docs.microsoft.com/azure/storage/common/storage-redundancy)。
 
 ![資源群組設定](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

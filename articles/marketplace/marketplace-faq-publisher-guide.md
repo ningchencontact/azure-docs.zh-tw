@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658329"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894151"
 ---
 # <a name="marketplace-faqs"></a>Marketplace 常見問題集
 
@@ -350,7 +350,7 @@ Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。  您可以直�
 
 **為何需要開發人員中心帳戶？**
 
-必須要有開發人員中心帳戶，Microsoft 才能代表發行者向客戶收取交易清單類型的費用。 開發人員中心帳戶註冊可讓 Microsoft 驗證法律、稅務和銀行相關資訊。 如需詳細資訊，請參閱[在開發人員中心註冊](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)。
+必須要有開發人員中心帳戶，Microsoft 才能代表發行者向客戶收取交易清單類型的費用。 開發人員中心帳戶註冊可讓 Microsoft 驗證法律、稅務和銀行相關資訊。 如需詳細資訊，請參閱[在開發人員中心註冊](https://docs.microsoft.com/azure/marketplace/become-publisher)。
 
 **哪些發行者必須進行開發人員中心帳戶註冊？**
 

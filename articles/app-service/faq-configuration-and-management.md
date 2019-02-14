@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190896"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118440"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -244,7 +244,7 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
 
 1. 建立 settings.job 檔案。
 2. 在此 JSON 檔案中，使用 Cron 運算式以包含排程屬性： 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -262,6 +262,8 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>我的 App Service 憑證標示為詐騙。 如何解決這個問題？
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 在 App Service 憑證購買的網域驗證期間，您可能會看到下列訊息：
 
 「您的憑證已標示為可能詐騙。 要求目前正在進行檢閱。 如果憑證在 24 小時內無法成為可使用，請連絡 Azure 支援」。
@@ -270,13 +272,13 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
 
 如果您的 App Service 憑證在 24 小時後持續顯示此訊息，請執行下列 PowerShell 指令碼。 指令碼會直接連絡[憑證提供者](https://www.godaddy.com/)以解決此問題。
 
-```
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <subId>
+```powershell
+Connect-AzAccount
+Set-AzContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
     };
-Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
+Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
 
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>驗證和授權如何在 App Service 中運作？
@@ -312,10 +314,10 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 若要同時對靜態和動態內容類型開啟壓縮，請將下列程式碼新增至應用程式層級的 web.config 檔案：
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 您也可以指定您想要壓縮的特定動態和靜態 MIME 類型。 如需詳細資訊，請參閱[簡單 Azure 網站上的 httpCompression 設定](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview)中，我們對於論壇問題的回應。

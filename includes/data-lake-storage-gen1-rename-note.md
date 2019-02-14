@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 3a6679f2cc599d2ec9aff5e31422be799140b7ff
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f5c395bd03fab2613a28aa35c9975ec71ffa34eb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032141"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55885135"
 ---
 > [!NOTE]
-> Azure Data Lake Store 已重新命名為 Azure Data Lake Storage Gen1。 如果您有興趣了解 Azure Data Lake Storage Gen2 的預覽版，請參閱[產品頁面](https://aka.ms/adlsgen2-product)。
+> Azure Data Lake Storage Gen2 現已全面上市。 我們建議您現在就開始使用。 如需詳細資訊，請參閱[產品頁面](https://aka.ms/adlsgen2-product)。
 > 
 
 

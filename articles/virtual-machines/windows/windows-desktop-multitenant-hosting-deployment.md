@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5952c602a90568a9ce9e71dfa2c0dd383aed4e16
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dc798dc78ed0cdbf11bbe3bc2dd805433b127a4d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915366"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976908"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>如何使用多租用戶主機權限在 Azure 上部署 Windows 10 
 對於每位使用者都具有 Windows 10 企業版 E3/E5 或每位使用者都具有 Windows 虛擬桌面存取 (使用者訂用帳戶授權或附加元件使用者訂用帳戶授權) 的客戶，適用於 Windows 10 的多租用戶主機權限可讓您將 Windows 10 授權帶到雲端，並在 Azure 上執行 Windows 10 虛擬機器，而不必付費取得其他授權。 如需詳細資訊，請參閱[適用於 Windows 10 的多租用戶主機](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)。
@@ -33,7 +33,7 @@ ms.locfileid: "30915366"
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>從 Azure Marketplace 部署 Windows 10 映像 
 若要進行 PowerShell、CLI 和 Azure Resource Manager 範本的部署，您可以找到具有下列 PublisherName、供應項目和 SKU 的 Windows 10 映像。
 
-| 作業系統  |      PublisherName      |  提供項目 | SKU |
+| 作業系統  |      PublisherName      |  供應項目 | SKU |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
@@ -62,10 +62,10 @@ if($adminAccount.Disabled)
 
 
 ## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>使用多租用戶主機權限部署 Windows 10
-確定您已 [安裝並設定最新的 Azure PowerShell](/powershell/azure/overview)。 備妥 VHD 之後，請使用 `Add-AzureRmVhd` Cmdlet，將 VHD 上傳到 Azure 儲存體帳戶，如下所示：
+確定您已 [安裝並設定最新的 Azure PowerShell](/powershell/azure/overview)。 備妥 VHD 之後，請使用 `Add-AzVhd` Cmdlet，將 VHD 上傳到 Azure 儲存體帳戶，如下所示：
 
 ```powershell
-Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
+Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
     -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd"
 ```
 
@@ -79,15 +79,15 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
    }
 ```
 
-**透過 PowerShell 部署** 透過 PowerShell 部署 Windows Server VM 時，您會有另外的 `-LicenseType` 參數。 將 VHD 上傳至 Azure 之後，使用 `New-AzureRmVM` 建立 VM 並指定授權類型，如下所示：
+**透過 PowerShell 部署** 透過 PowerShell 部署 Windows Server VM 時，您會有另外的 `-LicenseType` 參數。 將 VHD 上傳至 Azure 之後，使用 `New-AzVM` 建立 VM 並指定授權類型，如下所示：
 ```powershell
-New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
+New-AzVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
 ## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>確認您的 VM 可享受授權權益
-透過 PowerShell 或 Resource Manager 部署方法部署 VM 之後，請依下列方式使用 `Get-AzureRmVM` 來驗證授權類型：
+透過 PowerShell 或 Resource Manager 部署方法部署 VM 之後，請依下列方式使用 `Get-AzVM` 來驗證授權類型：
 ```powershell
-Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
 Windows 10 的輸出類似下列範例，並且會有正確的授權類型：

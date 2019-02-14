@@ -4,21 +4,21 @@ description: Azure Media Indexer 讓您能將媒體檔案的內容變成可搜�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae06f397fd0ed3f1a1b5ebbdc418abc02789fe91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785677"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000910"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>使用 Azure Media Indexer 2 Preview 編製媒體檔案索引
 ## <a name="overview"></a>概觀
@@ -87,7 +87,7 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
 * 日文 [JaJp]
 * 俄文 [RuRu]
 * 英式英文 [EnGb]
-* 墨西哥西班牙文 [EsMx] 
+* 墨西哥西班牙文 [EsMx] 
 
 ## <a name="supported-file-types"></a>支援的檔案類型
 

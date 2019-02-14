@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 43e08298618f059ff706d11ce6bbb3d486642872
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 1515a026ae297a960f220a97449d2258c0b75e58
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291814"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004532"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>管理連線到 Azure 的影片索引器帳戶
 
@@ -75,6 +75,6 @@ ms.locfileid: "52291814"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要以程式設計方式與連線到 Azure 的試用帳戶和/或影片索引器帳戶互動，請遵循[使用 API](video-indexer-use-apis.md) 中的指示。
+若要以程式設計方式與連線到 Azure 的試用帳戶和/或 Video Indexer 帳戶互動，請遵循以下指示：[使用 API](video-indexer-use-apis.md)。
 
 您應使用連線至 Azure 時使用的相同 Azure AD 使用者。

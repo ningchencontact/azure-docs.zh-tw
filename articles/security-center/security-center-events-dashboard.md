@@ -4,7 +4,7 @@ description: 了解如何使用資訊安全中心的事件儀表板，查看 Azu
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 5b50e9fea8edd9d73a1d382ae4135edb4e4241ec
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967822"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114054"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>在 Azure 資訊安全中心監視和處理安全性事件
 事件儀表板可對一段時間下來收集的安全性事件提供事件數的概觀，並列出可能需要注意的事件。  

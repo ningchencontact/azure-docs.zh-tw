@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: 了解應用程式儀表板，這個視覺化報告工具可讓您以速覽方式監視您的應用程式。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 3f263e6e6b74c1d9392ec58f176962b0c37d70c5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209990"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869954"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>在儀表板中的模型和使用量統計資料
 應用程式儀表板可讓您以速覽方式監視您的應用程式。 [儀表板] 會在您開啟應用程式時顯示，做法是在 [我的應用程式] 頁面上按一下應用程式名稱，然後從頂端面板中選取 [儀表板]。 

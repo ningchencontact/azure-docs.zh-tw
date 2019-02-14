@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105792"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999363"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
@@ -53,7 +53,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 ## <a name="parameters"></a>參數
 [Parameters](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) 是您在使用者安裝解決方案時向他們要求的值。  所有解決方案都會有標準參數，而您可以視需要針對特定解決方案新增額外的參數。  使用者在安裝解決方案時提供參數值的方式，將取決於特定參數以及解決方案的安裝方式。
 
-當使用者透過 Azure Marketplace 或 Azure 快速入門範本[安裝您的管理解決方案](solutions.md#install-a-management-solution)時，系統會提示他們選取 [Log Analytics 工作區和自動化帳戶](solutions.md#log-analytics-workspace-and-automation-account)。  這些用來填入每個標準參數的值。  系統不會提示使用者直接提供標準參數的值，但會提示他們提供任何其他參數的值。
+當使用者透過 Azure Marketplace 或 Azure 快速入門範本[安裝您的管理解決方案](solutions.md#install-a-monitoring-solution)時，系統會提示他們選取 [Log Analytics 工作區和自動化帳戶](solutions.md#log-analytics-workspace-and-automation-account)。  這些用來填入每個標準參數的值。  系統不會提示使用者直接提供標準參數的值，但會提示他們提供任何其他參數的值。
 
 
 範例參數如下所示。  

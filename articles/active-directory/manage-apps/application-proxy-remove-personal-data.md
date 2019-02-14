@@ -2,8 +2,8 @@
 title: 移除個人資料 - Azure Active Directory 應用程式 Proxy | Microsoft Docs
 description: 從安裝在裝置上的連接器移除 Azure Active Directory 應用程式 Proxy 的個人資料。
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,15 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 9b17d3b339bf2c873e8e4c02586e814febfefaec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d5f3c1883f156562cfab59cb102fb0cf18b03803
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177333"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186585"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>移除 Azure Active Directory 應用程式 Proxy 的個人資料  
 

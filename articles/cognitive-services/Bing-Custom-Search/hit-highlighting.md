@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 示範如何啟用搜尋回應中的文字裝飾。
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: a535a31678dcdb611acb1606e6091a1a40a6d42e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184065"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237496"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>使用裝飾標記醒目提示文字
 

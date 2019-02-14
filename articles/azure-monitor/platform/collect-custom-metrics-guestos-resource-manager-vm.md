@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 49c37c5dd2910cda234c479dc624f6c6ae92f6c1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1eaf73e1d8b3c60ea32fa7d4aaf51a212d24a18c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467900"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894593"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>使用 Windows 虛擬機器的 Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
 
@@ -27,7 +27,7 @@ ms.locfileid: "54467900"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal) 註冊您的訂用帳戶。
+- 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 註冊您的訂用帳戶。
 
 - 您需要安裝 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 或 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。
 

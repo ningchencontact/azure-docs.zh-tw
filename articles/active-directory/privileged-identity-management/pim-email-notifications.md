@@ -15,12 +15,13 @@ ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: b6ef0f46bae454a4656694496d411a5a4cff0da5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5f4eab44a55574f84f29488e78cd60522d7a52eb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178387"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171191"
 ---
 # <a name="email-notifications-in-pim"></a>PIM 中的電子郵件通知
 
@@ -49,9 +50,9 @@ PIM 針對 Azure AD 和 Azure 資源角色傳送的電子郵件具有下列寄�
 
 | 使用者 | 角色啟用正在等待核准 | 角色啟用要求已完成 | RDP 已啟用 |
 | --- | --- | --- | --- |
-| 特殊權限角色管理員</br>(已啟用/合格) | 是</br>(唯有未指定任何明確核准者時) | 是* | 是 |
-| 安全性系統管理員</br>(已啟用/合格) | 否 | 是* | 是 |
-| 全域管理員</br>(已啟用/合格) | 否 | 是* | 是 |
+| 特殊權限角色管理員</br>(已啟用/合格) | yes</br>(唯有未指定任何明確核准者時) | 是* | yes |
+| 安全性系統管理員</br>(已啟用/合格) | 否 | 是* | yes |
+| 全域管理員</br>(已啟用/合格) | 否 | 是* | yes |
 
 \* 如果 [**[通知]** 設定](pim-how-to-change-default-settings.md#notifications)設為 [啟用] 時。
 

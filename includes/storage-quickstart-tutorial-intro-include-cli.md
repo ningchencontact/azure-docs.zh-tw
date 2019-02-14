@@ -4,16 +4,16 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: c5cb1c5a005265950f8dcd02c8e7675918751dab
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 82b3349afd10b585a10619229a2bc6d849d71524
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164170"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246756"
 ---
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立 Azure 資源群組。 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+使用 [az group create](/cli/azure/group) 命令來建立 Azure 資源群組。 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
 ```azurecli-interactive
 az group create \
@@ -23,7 +23,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account#create) 命令建立一般用途的儲存體帳戶。 一般用途的儲存體帳戶可以用於所有四個服務：Blob、檔案、資料表和佇列。 
+使用 [az storage account create](/cli/azure/storage/account) 命令建立一般用途的儲存體帳戶。 一般用途的儲存體帳戶可以用於所有四個服務：Blob、檔案、資料表和佇列。 
 
 ```azurecli-interactive
 az storage account create \
@@ -38,7 +38,7 @@ az storage account create \
 
 對於本教學課程中的大部分命令，Azure CLI 需要您的儲存體帳戶認證。 儘管有幾個選項可以這麼做，其中一種最輕鬆的方式就是設定 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_ACCESS_KEY` 環境變數。
 
-首先，使用 [az storage account keys list](/cli/azure/storage/account/keys#list) 命令顯示您的儲存體帳戶金鑰：
+首先，使用 [az storage account keys list](/cli/azure/storage/account/keys) 命令顯示您的儲存體帳戶金鑰：
 
 ```azurecli-interactive
 az storage account keys list \

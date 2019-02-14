@@ -4,7 +4,7 @@ description: 本文提供來自 Microsoft Virtual Academy 的策劃 Azure 安全
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: f1d7da18-bfd1-4338-abbb-2c558fb780f9
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f06c8ec60831314dad30673fec4d2ea5901e11b6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248073"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115210"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy 中的 Azure 安全性課程
 Microsoft Virtual Academy 提供免費線上訓練，協助開發人員、IT 和資料專業人員以及學生學習最新技術、發展其技能，並讓其生涯更進一步。

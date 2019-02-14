@@ -4,19 +4,19 @@ titleSuffix: QnA Maker - Azure Cognitive Services
 description: 這個以 REST 為基礎的教學課程會逐步引導您以程式設計方式建立及發佈知識庫，然後從知識庫回答問題。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: fb1f315744c4bdfc058ef004dc0dfb07cccb9459
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 348cb6a451f15ddec6b7ee013832ad6c563bb2da
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911569"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874938"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>教學課程：使用 C# 來建立知識庫然後回答問題
 

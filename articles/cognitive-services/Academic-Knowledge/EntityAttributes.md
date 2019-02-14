@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 了解您可以在學術知識 API 中搭配學術圖表使用的實體屬性。
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: f227cc03578adcfbf73fec3ae8941045e8352513
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: accc2803895f3892075cdd9877ca98344ab88bd1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182994"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884812"
 ---
 # <a name="entity-attributes"></a>實體屬性
 

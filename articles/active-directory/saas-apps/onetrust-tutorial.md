@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 46480119579513839024d89e7657661e12e5509c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d907ec5cc40bcf9127fc20fbbc8e2e0aca476c3b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167286"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56195850"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>教學課程：Azure Active Directory 與 OneTrust Privacy Management Software 整合
 
@@ -166,7 +167,7 @@ OneTrust Privacy Management Software 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立]。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-onetrust-privacy-management-software-test-user"></a>建立 OneTrust Privacy Management Software 測試使用者
 

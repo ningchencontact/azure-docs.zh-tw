@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 這個以 Java REST 為基礎的快速入門會逐步引導您以程式設計方式從知識庫取得答案。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 34630b2d2852da37bdcb3e5f097b2d3f6ebc6f1a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5cdec31775258b4748609e994cc5455dc24eb1e2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217402"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863273"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>使用 Java 從知識庫取得答案
 

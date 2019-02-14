@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在這些快速入門中，您會使用電腦視覺 API，來分析影像、建立縮圖，以及擷取印刷文字和手寫文字。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 79ca49ddeb6f9b7f9f3f74c41d20f57d49b5ab86
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 15b3d634599a88468b24d64b6d41c2d6b1ff59a1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225787"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865118"
 ---
 # <a name="quickstart-summary"></a>快速入門：總結
 

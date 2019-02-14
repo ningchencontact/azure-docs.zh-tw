@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 81cdde409841ad3f5952147a7d3ab2b1adbcbd59
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a68deb2cb6de90c577f2d828e24a1747662c7e2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474185"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>教學課程：Azure Active Directory 與 Aha! 整合
 
@@ -38,7 +39,7 @@ ms.locfileid: "55474185"
 若要設定 Azure AD 與 Aha! 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* Aha! 已啟用單一登入的訂用帳戶
+* Aha! 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -72,7 +73,7 @@ ms.locfileid: "55474185"
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
 在本節中，您會設定及測試與 Aha! 搭配運作的 Azure AD 單一登入 (以名為 **Britta Simon** 的測試使用者為基礎)。
-若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Aha! 中相關使用者之間的連結關聯性。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Aha! 建立連結關聯性。
 
 若要設定及測試與 Aha! 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
@@ -103,7 +104,7 @@ ms.locfileid: "55474185"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Aha! 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Aha! 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.aha.io/session/new`
 
@@ -217,7 +218,7 @@ ms.locfileid: "55474185"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Aha!] 圖格時，應該會自動登入 您已設定 SSO 的 Aha!。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Aha!] 圖格時，應該會自動登入 您已設定 SSO 的 Aha!。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

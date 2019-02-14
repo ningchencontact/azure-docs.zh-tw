@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 6276231f8d63840dcf46f7456d584880315533bf
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 68593087c1fbb912cafb9c886f43f947744c5651
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299906"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189373"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA 
 
@@ -151,7 +152,7 @@ ms.locfileid: "55299906"
 
     ![啟用原則](./media/app-based-mfa/18.png)
 
-13. 按一下 [建立]。
+13. 按一下頁面底部的 [新增] 。
 
 
 ## <a name="evaluate-a-simulated-sign-in"></a>評估模擬的登入狀況

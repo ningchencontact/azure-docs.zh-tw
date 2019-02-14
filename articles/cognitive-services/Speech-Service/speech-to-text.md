@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 語音轉換文字 API 可將音訊資料流轉譯成可供應用程式顯示或當作輸入來處理的文字。 此服務可透過 SDK 和 RESTful 端點來存取。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4884756c50e181e5536ad93ae795543bf1edf8ba
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5012245a79295f1e05079f6c0a368ac832b8974a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220215"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978573"
 ---
 # <a name="about-the-speech-to-text-api"></a>關於語音轉換文字 API
 
@@ -44,17 +44,17 @@ ms.locfileid: "55220215"
 
 | 使用案例 | REST | SDK |
 |-----|-----|-----|----|
-| 謄寫簡短的語句，如命令 (長度小於 15 秒)；沒有過渡結果 | 是 | 是 |
-| 謄寫較長的語句 (大於 15 秒) | 否 | 是 |
-| 謄寫含選擇性過渡結果的串流音訊 | 否 | 是 |
-| 透過 LUIS 了解說話者的意圖 | 否\* | 是 |
-| 建立正確性測試 | 是 | 否 |
-| 上傳資料集供模型調整使用 | 是 | 否 |
-| 建立及管理語音模型 | 是 | 否 |
-| 建立及管理模型部署 | 是 | 否 |
-| 管理訂用帳戶 | 是 | 否 |
-| 建立及管理模型部署 | 是 | 否 |
-| 建立及管理模型部署 | 是 | 否 |
+| 謄寫簡短的語句，如命令 (長度小於 15 秒)；沒有過渡結果 | yes | yes |
+| 謄寫較長的語句 (大於 15 秒) | 否 | yes |
+| 謄寫含選擇性過渡結果的串流音訊 | 否 | yes |
+| 透過 LUIS 了解說話者的意圖 | 否\* | yes |
+| 建立正確性測試 | yes | 否 |
+| 上傳資料集供模型調整使用 | yes | 否 |
+| 建立及管理語音模型 | yes | 否 |
+| 建立及管理模型部署 | yes | 否 |
+| 管理訂用帳戶 | yes | 否 |
+| 建立及管理模型部署 | yes | 否 |
+| 建立及管理模型部署 | yes | 否 |
 
 > [!NOTE]
 > REST API 會實作節流，該節流會將 API 要求限制為每 5 秒 25 個。 訊息標頭會通知限制

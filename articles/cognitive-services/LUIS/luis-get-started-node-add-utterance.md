@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在此 Node.js 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/17/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccb076615b9db7010deb216febbde5b8d64eb6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2a8bed2b07934bf178ea338e074ec8e239ee646
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206846"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874833"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>快速入門：使用 Node.js 變更模型
 

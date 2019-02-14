@@ -4,16 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8e6db54853efcba4d648c1d3bc793a9d1ce57441
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9b9922602218280d58331a755ed0dfed7df96f40
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165535"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889043"
 ---
-<!--author=alkohli last changed: 9/16/15-->
-
-
 #### <a name="to-cable-your-device-for-power"></a>將您的裝置接上纜線，以取得電源
 > [!NOTE]
 > 在 StorSimple 裝置上的兩個機箱都包括備援 PCM。 針對每個機箱，PCM 都必須安裝，並且連接到不同的電源來源，以確保高可用性。

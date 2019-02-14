@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2d910c5f031329e952f4892431877ec690c2a5a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809576"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991187"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 透過 Media Encoder Standard 為資產編碼 
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 透過 Media Encoder Standard 為資產編碼  
+
 編碼工作是媒體服務中最常見的處理作業。 您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。 編碼時，您可以使用媒體服務內建的 Media Encoder。 您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。 
 
 本文說明如何使用 .NET 透過媒體編碼器標準 (MES) 將您的資產編碼。 媒體編碼器標準是使用[這裡](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)所描述的其中一個編碼器預設來進行設定。

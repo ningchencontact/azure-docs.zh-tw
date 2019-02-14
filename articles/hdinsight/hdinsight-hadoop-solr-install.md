@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 749a599936825f5f69ae18affad0fa89a4f1118f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 95b5bbb6c227b5001865a751abddddc4924e7b2d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259626"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981072"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Apache Solr
 
@@ -46,17 +46,12 @@ ms.locfileid: "54259626"
 
     ![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "使用指令碼動作以自訂叢集")
 
-    <table border='1'>
-        <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>Name</td>
-            <td>指定指令碼動作的名稱。 例如，<b>安裝 Solr</b>。</td></tr>
-        <tr><td>指令碼 URI</td>
-            <td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，<i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
-        <tr><td>節點類型</td>
-            <td>指定執行自訂指令碼的節點。 您可以選擇 [所有節點]<b></b>、[僅限前端節點]<b></b> 或 [僅限背景工作節點]<b></b>。
-        <tr><td>參數</td>
-            <td>如果指令碼要求，請指定參數。 用來安裝 Solr 的指令碼不需要任何參數，因此可以讓此處空白。</td></tr>
-    </table>
+    |屬性|值|
+    |---|---|
+    |Name|指定指令碼動作的名稱。 例如，**安裝 Solr**。|
+    |指令碼 URI|指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，*https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1*|
+    |節點類型|指定執行自訂指令碼的節點。 您可以選擇 [所有節點]、[僅限前端節點] 或 [僅限背景工作節點]。
+    |參數|如果指令碼要求，請指定參數。 用來安裝 Solr 的指令碼不需要任何參數，因此可以讓此處空白。|
 
     您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。 加入指令碼之後，請按一下核取記號以開始建立叢集。
 

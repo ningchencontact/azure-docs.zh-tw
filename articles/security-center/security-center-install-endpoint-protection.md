@@ -4,7 +4,7 @@ description: 了解如何管理 Azure 資訊安全中心中的端點保護問題
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1e1401d7f7f383f60b37a3af3a18569bd5a2520a
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1ce1faa13c541939335d188866e15c683b6ffc28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336913"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110263"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>使用 Azure 資訊安全中心管理端點保護
 Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端點保護問題] 刀鋒視窗下報告此狀態。 資訊安全中心會強調問題所在，例如偵測到威脅和防護不足，這些問題會造成虛擬機器 (VM) 和電腦容易遭受反惡意程式碼軟體威脅。 您可以使用 [端點保護問題] 的資訊，找出可解決找出的問題的方案。

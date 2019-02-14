@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: fec075a744b5f47a4be7f1b960cceedfea7b9a2c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 3641833f0b55f20066302de350bfab17adfade0e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632984"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106999"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>將 Azure 資源部署至多個訂用帳戶和資源群組
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 一般而言，您要將範本中的所有資源都部署至單一[資源群組](resource-group-overview.md)。 不過，在某些情況下，您要將一組資源部署在一起，但將它們放在不同的資源群組或訂用帳戶中。 例如，建議您將 Azure Site Recovery 的備份虛擬機器部署至不同的資源群組和位置。 Resource Manager 可讓您使用巢狀的範本，將目標放在與父範本所使用之訂用帳戶和資源群組不同的訂用帳戶和資源群組。
 
@@ -180,10 +182,10 @@ ms.locfileid: "35632984"
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
+New-AzResourceGroup -Name $firstRG -Location southcentralus
+New-AzResourceGroup -Name $secondRG -Location eastus
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $firstRG `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
   -storagePrefix storage `
@@ -200,13 +202,13 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzureRmSubscription -Subscription $secondSub
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
+Select-AzSubscription -Subscription $secondSub
+New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzureRmSubscription -Subscription $firstSub
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+Select-AzSubscription -Subscription $firstSub
+New-AzResourceGroup -Name $firstRG -Location southcentralus
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $firstRG `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
   -storagePrefix storage `
@@ -218,11 +220,11 @@ New-AzureRmResourceGroupDeployment `
 在 PowerShell 中，若要測試如何解析父代範本、內嵌範本和連結範本的**資源群組物件**，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
-New-AzureRmResourceGroup -Name inlineGroup -Location southcentralus
-New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
+New-AzResourceGroup -Name parentGroup -Location southcentralus
+New-AzResourceGroup -Name inlineGroup -Location southcentralus
+New-AzResourceGroup -Name linkedGroup -Location southcentralus
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName parentGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```

@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d3478e647114749647c18b75d624e0d73482b82a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6ea68e9e1320dd76566e1d8d8e5eab3693372979
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460126"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171565"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>教學課程：Azure Active Directory 與 ASC Contracts
 
 在本教學課程中，您將了解如何整合 ASC Contracts 與 Azure Active Directory (Azure AD)。
-將 ASC Contracts 與 Azure AD 整合可提供下列優點：
+ASC Contracts 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 ASC Contracts 的人員。
 * 您可以讓使用者使用其 Azure AD 帳戶自動登入 ASC Contracts (單一登入)。
@@ -35,7 +36,7 @@ ms.locfileid: "55460126"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 ASC Contracts 的整合，您需要下列項目：
+若要設定與 ASC Contracts 的 Azure AD 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 ASC Contracts 單一登入的訂用帳戶
@@ -73,7 +74,7 @@ ms.locfileid: "55460126"
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 ASC Contracts 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 ASC Contracts 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 ASC Contracts 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試對 ASC Contracts 的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 ASC Contracts 單一登入](#configure-asc-contracts-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -188,7 +189,7 @@ ms.locfileid: "55460126"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [ASC Contracts] 圖格時，應該會自動登入您已設定 SSO 的 ASC Contracts。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 [ASC Contracts] 圖格時，應該會自動登入您已設定 SSO 的 ASC Contracts。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

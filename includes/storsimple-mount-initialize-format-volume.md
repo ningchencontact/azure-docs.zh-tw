@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9a3cb06e662699b214d9cdf0aa9699b8953e4aa9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 592131bf6cca4c4c3c827de23742e8d52bcb4d1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165358"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888917"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-mount-initialize-and-format-a-volume"></a>掛接、初始化及格式化磁碟區
 1. 啟動 Microsoft iSCSI 啟動器。
 2. 在 [iSCSI 啟動器屬性] 視窗的 [探索] 索引標籤上，按一下 [探索入口網站]。

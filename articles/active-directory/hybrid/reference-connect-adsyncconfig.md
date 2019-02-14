@@ -9,12 +9,13 @@ ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
-ms.openlocfilehash: 01b138fff437e41366b8442729fba89c82ed9073
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487960"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162385"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect：ADSyncConfig PowerShell 參考
 以下文件提供 Azure AD Connect 所隨附 ADSyncConfig.psm1 PowerShell 模組的參考資訊。

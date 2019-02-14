@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 使用 Bing 實體搜尋 API，可透過搜尋查詢擷取和搜尋實體和地點。
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9190c87b7afff66162e25fb3cd08bfeac76aff74
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 957a104b8fea7274763f16320cc094ede1f94567
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757896"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871827"
 ---
 # <a name="what-is-bing-entity-search-api"></a>什麼是 Bing 實體搜尋 API？
 

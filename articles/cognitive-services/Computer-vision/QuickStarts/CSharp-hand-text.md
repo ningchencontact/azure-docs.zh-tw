@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用電腦視覺 API 搭配 C# 擷取影像中的手寫文字。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7f9531542f6c2bab139ca4fe500afd69d5fec1c8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 160d42725abdb91af4f83696c2bceae38bbab67d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226990"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869325"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 C&#35; 擷取手寫文字
 

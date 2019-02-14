@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 887f376eafadfb556ce69611195301b25b24bbd5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2541a1d76b56f92b250fb422951769db7877213e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104247"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181740"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>在 Azure Active Directory 中新增或移除群組擁有者
 Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理。 群組擁有者是由資源擁有者 (系統管理員) 指派來管理群組與其成員。 群組擁有者不需要是該群組的成員。 指派群組擁有者之後，只有資源擁有者可以新增或移除擁有者。

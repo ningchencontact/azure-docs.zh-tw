@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 使用 C# 建置與 LUIS 應用程式和 Application Insights 整合的 Bot。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: dce0a34ea9d195748c47dd30cdd5f591ba597c2f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d546951cf283cf15874b1b6d95da75549a8a93ac
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228146"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884931"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>在 C# 中的 Bot 將 LUIS 結果新增至 Application Insights
 

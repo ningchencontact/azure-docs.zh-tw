@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 24feef28edac73f625de1c1b7dfd9a4aaf9883af
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734618"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893591"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -65,14 +65,14 @@ ms.locfileid: "55734618"
 
 | 監視資料庫的遙測 | 單一資料庫和集區式資料庫支援 | 受控執行個體支援 |
 | :------------------- | ------------------- | ------------------- |
-| [所有計量](sql-database-metrics-diag-logging.md#all-metrics)：包含 DTU/CPU 百分比、DTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作角色百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | yes | 否 |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics)：包含關於查詢執行階段統計資料的資訊，例如 CPU 使用率和查詢持續時間統計資料。 | yes | yes |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)：包含關於查詢等候統計資料 (查詢等候的內容) 的資訊，例如 CPU、LOG 和 LOCKING。 | yes | yes |
-| [錯誤](sql-database-metrics-diag-logging.md#errors-dataset)：包含在資料庫上的 SQL 錯誤有關的資訊。 | yes | yes |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | yes | 否 |
-| [逾時](sql-database-metrics-diag-logging.md#time-outs-dataset)：包含資料庫的逾時有關的資訊。 | yes | 否 |
-| [封鎖](sql-database-metrics-diag-logging.md#blockings-dataset)：包含與資料庫上發生的封鎖事件有關的資訊。 | yes | 否 |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset)：將 Intelligent Insights 納入效能。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | yes | yes |
+| [所有計量](#all-metrics)：包含 DTU/CPU 百分比、DTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作角色百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | yes | 否 |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含關於查詢執行階段統計資料的資訊，例如 CPU 使用率和查詢持續時間統計資料。 | yes | yes |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含關於查詢等候統計資料 (查詢等候的內容) 的資訊，例如 CPU、LOG 和 LOCKING。 | yes | yes |
+| [錯誤](#errors-dataset)：包含在資料庫上的 SQL 錯誤有關的資訊。 | yes | yes |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | yes | 否 |
+| [逾時](#time-outs-dataset)：包含資料庫的逾時有關的資訊。 | yes | 否 |
+| [封鎖](#blockings-dataset)：包含與資料庫上發生的封鎖事件有關的資訊。 | yes | 否 |
+| [SQLInsights](#intelligent-insights-dataset)：將 Intelligent Insights 納入效能。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | yes | yes |
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -169,7 +169,7 @@ ms.locfileid: "55734618"
 
 | 資源 | 監視遙測 |
 | :------------------- | ------------------- |
-| **受控執行個體** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) 包含 V 核心計數、平均 CPU 百分比、IO 要求、讀取/寫入的位元組、保留的儲存空間，以及使用的儲存空間。 |
+| **受控執行個體** | [ResourceUsageStats](#logs-for-managed-instances) 包含 V 核心計數、平均 CPU 百分比、IO 要求、讀取/寫入的位元組、保留的儲存空間，以及使用的儲存空間。 |
 
 若要啟用受控執行個體資源診斷遙測的串流，請遵循下列步驟：
 

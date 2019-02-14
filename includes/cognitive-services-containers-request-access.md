@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/24/2019
-ms.openlocfilehash: 08e6b5d109d6647f2a291f117f4993bae7598464
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d5a6692aceedb6dc7fad7a434a433882cdbea015
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302290"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984884"
 ---
 您必須先填寫完成並提交[認知服務視覺容器要求表單](https://aka.ms/VisionContainersPreview)，以要求存取容器。 該表格需要有關您本身、您的公司，以及您將會使用該容器之使用者情節的資訊。 提交之後，Azure 認知服務小組會檢閱該表單，以確保您符合存取私人容器登錄的準則。
 
@@ -24,13 +24,13 @@ ms.locfileid: "55302290"
 
 使用下列範例中所示的 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令來登入 `containerpreview.azurecr.io` (認知服務容器的私人容器登錄)。 將 *\<username\>* 取代為使用者名稱，並將 *\<password\>* 取代為您從 Azure 認知服務小組收到的認證所提供的密碼。
 
-```docker
+```
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
 如果您已經將您的認證保護在文字檔中，您可以將該文字檔的內容串連 (使用 `cat` 命令) 至 `docker login` 命令，如下列範例所示。 將 *\<passwordFile\>* 取代為包含密碼之文字檔的路徑和名稱，並將 *\<username\>* 取代為您認證中提供的使用者名稱。
 
-```docker
+```
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
 ```
 

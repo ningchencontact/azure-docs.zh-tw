@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: be2d2a56bf19c91224fc09e9bf36b669db87ef81
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0afdcef546d53c2caf13828576338c47e03c4fc9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660250"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894820"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>保護虛擬機器之間的網路流量
 
@@ -49,12 +49,12 @@ az group delete --name myResourceGroup --yes
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | 建立 Azure 虛擬網路和子網路。 |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | 建立子網路。 |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及 NSG。 此命令也會指定要使用的虛擬機器映像和管理認證。  |
-| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_update) | 更新 NSG 規則。 此範例會將後端規則更新為只傳遞來自前端子網路的流量。 |
-| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_list) | 傳回網路安全性群組規則的相關資訊。 在此範例中，規則名稱會儲存在變數中，以供稍後在指令碼中使用。 |
+| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet) | 建立子網路。 |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及 NSG。 此命令也會指定要使用的虛擬機器映像和管理認證。  |
+| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule) | 更新 NSG 規則。 此範例會將後端規則更新為只傳遞來自前端子網路的流量。 |
+| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule) | 傳回網路安全性群組規則的相關資訊。 在此範例中，規則名稱會儲存在變數中，以供稍後在指令碼中使用。 |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您快速開始使用翻譯工具語音 API。
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3cecb09488c40ee23ea34c75e666788a4ec47fdb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 34d397412a6d461325465ccc5dd41a62d91c6fc5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459276"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872045"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>快速入門：翻譯工具語音 API (使用 Python)
 <a name="HOLTop"></a>

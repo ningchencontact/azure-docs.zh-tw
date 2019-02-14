@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您可以使用 .NET Core 和翻譯工具文字 API，取得字詞的替代翻譯，以及這些替代翻譯的使用範例。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: a51485e383be4c7a492328064d0afcf92a385242
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7ab37122697170d62789ef5872a2815cd8c55bb0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218626"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884676"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>快速入門：使用 C# 在雙語字典中查詢單字
 

@@ -2,7 +2,7 @@
 title: 媒體編碼器標準 (MES) 的工作預設 | Microsoft Docs
 description: 本主題提供「媒體編碼器標準」(MES) 之服務所定義範例預設的概觀。
 author: Juliako
-manager: cfow
+manager: femila
 editor: johndeu
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9d32397773a5ede4ddc2a27c367f2750078e28c6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783317"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998094"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>媒體編碼器標準 (MES) 的範例預設
 

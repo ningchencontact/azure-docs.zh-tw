@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: b286ebc2e50166e8491b45346a81b161227f8d21
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415961"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979712"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 代理程式擴充功能
 
@@ -147,7 +147,7 @@ Retrace 是唯一能以單一平台中在所有環境中提供下列功能的工
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
 
-`Set-AzureRmVMExtension` 命令可以用來將 Stackify Retrace Linux 代理程式虛擬機器擴充功能部署到現有的虛擬機器。 執行命令之前，必須將公用和私人組態儲存在 PowerShell 雜湊表中。
+`Set-AzVMExtension` 命令可以用來將 Stackify Retrace Linux 代理程式虛擬機器擴充功能部署到現有的虛擬機器。 執行命令之前，必須將公用和私人組態儲存在 PowerShell 雜湊表中。
 
 擴充功能需要 `environment` 和 `activationKey`。
 
@@ -155,7 +155,7 @@ Retrace 是唯一能以單一平台中在所有環境中提供下列功能的工
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 
-Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
+Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Stackify.LinuxAgent.Extension" `
@@ -195,4 +195,4 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 110 | 停用錯誤 | 服務移除失敗 |
 | 120 | 解除安裝發生錯誤 | 服務停止失敗 |
 
-如果您需要更多協助，請連絡 Stackify 支援部門：https://support.stackify.com。
+如果您需要更多協助，請連絡 Stackify 支援部門： https://support.stackify.com。

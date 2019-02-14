@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238653"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989141"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知 
+
 執行作業時，您通常需要設法追蹤作業進度。 您可以使用 Azure Webhook 或 [Azure 佇列儲存體](media-services-dotnet-check-job-progress-with-queues.md)來監視媒體服務作業通知。 本文說明如何使用 Webhook。
 
 本文將說明如何
@@ -57,7 +58,7 @@ ms.locfileid: "50238653"
 
 [應用程式設定](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings)區段會定義用於本文所定義之 Webhook 的參數。 另外，請將下列參數新增至應用程式設定。 
 
-|名稱|定義|範例| 
+|Name|定義|範例| 
 |---|---|---|
 |SigningKey |簽署金鑰。| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | 一個 webhook 端點位址。 建立您的 Webhook 函式之後，您就可以從 [取得函式 URL] 連結複製 URL。 | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g== 。|

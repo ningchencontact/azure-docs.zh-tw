@@ -15,18 +15,18 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: 03a0f8885d51e6d45fabda86714afdeefc01f992
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: ec8254478786825d0333e8be24b0dfbea8c18e60
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213479"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245145"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>計算 Blob 儲存體容器的大小
 
 此指令碼會加總容器中 Blob 的大小，計算出 Azure Blob 儲存體的容器大小。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

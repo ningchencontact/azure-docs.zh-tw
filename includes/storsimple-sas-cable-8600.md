@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 792589f4aa2a80c05378224ffe4e4d1dad2f935c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165446"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889547"
 ---
-<!--author=alkohli last changed:02/22/16-->
-
 #### <a name="to-attach-the-sas-cables"></a>連接 SAS 纜線
 1. 識別主要機箱與 EBOD 機箱。 可以藉由查看個別後擋板來識別兩個機箱。 如需指引，請參閱下圖。 
    

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰 (預覽)
-description: 此文章說明如何使用您自己在 Azure Key Vault 中的金鑰，來加密 Azure HDInsight 上的 Apache Kafka 中所儲存的資料。
+description: 本文說明如何使用您自己在 Azure Key Vault 中的金鑰，來加密 Azure HDInsight 上的 Apache Kafka 中所儲存的資料。
 services: hdinsight
 ms.service: hdinsight
 author: mamccrea
@@ -8,16 +8,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314366"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109483"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰 (預覽)
 
-Azure HDInsight 可針對 Apache Kafka 支援攜帶您自己的金鑰 (BYOK)。 此功能可讓您擁有及管理用來加密待用資料的金鑰。 
+Azure HDInsight 可針對 Apache Kafka 支援攜帶您自己的金鑰 (BYOK)。 這項功能可讓您擁有及管理用來加密待用資料的金鑰。 
 
 HDInsight 中的所有受控磁碟都會使用 Azure 儲存體服務加密 (SSE) 來加以保護。 根據預設，這些磁碟上的資料會使用 Microsoft 所管理的金鑰來加密。 如果您啟用 BYOK，您會對 HDInsight 提供加密金鑰，以透過 Azure Key Vault 來進行使用及管理。 
 
@@ -39,7 +39,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
    HDInsight 僅支援 Azure Key Vault。 如果您有自己的金鑰保存庫，則可以將自己的金鑰匯入 Azure Key Vault 中。 請記住，金鑰必須啟用「虛刪除」和「不要清除」。 「虛刪除」和「不要清除」功能可透過 REST、.NET/C#、PowerShell 及 Azure CLI 介面來使用。
 
-   若要建立新的金鑰保存庫，請遵循 [Azure Key Vault](../../key-vault/key-vault-get-started.md) 快速入門。 如需如何匯入現有金鑰的詳細資訊，請瀏覽[關於金鑰、祕密和憑證](../../key-vault/about-keys-secrets-and-certificates.md)。
+   若要建立新的金鑰保存庫，請遵循 [Azure Key Vault](../../key-vault/key-vault-overview.md) 快速入門。 如需如何匯入現有金鑰的詳細資訊，請瀏覽[關於金鑰、祕密和憑證](../../key-vault/about-keys-secrets-and-certificates.md)。
 
    若要建立新的金鑰，從 [設定] 下方的 [金鑰] 功能表中選取 [產生/匯入]。
 
@@ -89,7 +89,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
    在叢集建立期間，將受控識別與 HDInsight Kafka 叢集相關聯。 您可以在叢集建立之前或建立期間，建立這個受控識別。 您也需要對受控識別授與權限，使其能夠存取金鑰儲存所在的金鑰保存庫。
 
-**此功能是否適用於 HDInsight 上的所有 Kafka 叢集？**
+**這項功能是否適用於 HDInsight 上的所有 Kafka 叢集？**
 
    BYOK 加密僅適用於 Kafka 1.1 和更新版本的叢集。
 
@@ -107,7 +107,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
 **是否也會加密 OS 磁碟/資源磁碟？**
 
-   否。 不會加密 OS 磁碟和資源磁碟。
+   沒有。 不會加密 OS 磁碟和資源磁碟。
 
 **如果將叢集相應增加，新的訊息代理程式是否也會順暢地支援 BYOK？**
 
@@ -120,4 +120,4 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 ## <a name="next-steps"></a>後續步驟
 
 * 如需 Azure 金鑰保存庫的詳細資訊，請參閱[什麼是 Azure 金鑰保存庫](../../key-vault/key-vault-whatis.md)？
-* 若要開始使用 Azure Key Vault，請參閱[開始使用 Azure Key Vault](../../key-vault/key-vault-get-started.md)。
+* 若要開始使用 Azure Key Vault，請參閱[開始使用 Azure Key Vault](../../key-vault/key-vault-overview.md)。

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 使用解譯方法，根據 Microsoft 認知服務中的學術圖表資料和學術文法，傳回使用者查詢字串的格式化解譯。
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171647"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860519"
 ---
 # <a name="interpret-method"></a>解譯事件
 
@@ -31,7 +31,7 @@ ms.locfileid: "55171647"
 
 Name     | 值 | 必要？  | 說明
 ---------|---------|---------|---------
-**query**    | 文字字串 | 是 | 使用者所輸入的查詢。  如果 complete 設為 1，則查詢會解譯為一個前置詞，以供產生查詢自動完成建議。        
+**query**    | 文字字串 | yes | 使用者所輸入的查詢。  如果 complete 設為 1，則查詢會解譯為一個前置詞，以供產生查詢自動完成建議。        
 **model**    | 文字字串 | 否  | 想要查詢的模型名稱。  目前，此值會預設為 latest。        
 **complete** | 0 或 1 | 否<br>預設值：0  | 1 表示根據文法與圖表資料產生自動完成建議。         
 **count**    | 數字 | 否<br>預設值︰10 | 要傳回的解譯數目上限。         

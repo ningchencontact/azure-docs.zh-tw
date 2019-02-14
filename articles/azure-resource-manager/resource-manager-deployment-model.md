@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e7d271ce37209a49e1c75d6114ed07b11558df44
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486804"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104987"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 與傳統部署：了解資源的部署模型和狀態
 
@@ -48,6 +48,9 @@ Azure 原本指提供傳統部署模型。 在此模型中，每個資源會獨�
 加入資源管理員時，所有資源會追溯地加入至預設資源群組。 如果您現在透過傳統部署建立資源，資源會自動在該服務的預設資源群組內建立，即使您在部署時未指定該資源群組。 不過，只是存在於資源群組內並不表示該資源已轉換成資源管理員模型。
 
 ## <a name="understand-support-for-the-models"></a>了解模型支援
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 以下是三個要注意的情況：
 
 1. 雲端服務不支援 Resource Manager 部署模型。
@@ -120,7 +123,7 @@ Get-AzVM -ResourceGroupName ExampleGroup
 | 保留 IP 位址 |您可以將 IP 位址保留在 Azure 中，然後與雲端服務建立關聯，確保 IP 位址不會變動。 |您可以在靜態模式中建立公用 IP 位址，然後它就具有與保留 IP 位址一樣的功能。 |
 | 每一個 VM 的公用 IP 位址 (PIP) |公用 IP 位址也可以直接與 VM 建立關聯。 |公用 IP 位址是 Microsoft.Network 提供者所公開的資源。 公用 IP 位址可以是靜態 (保留) 或動態。 |
 | 端點 |輸入端點需要在開放特定連接埠連線的虛擬機器上設定。 設定輸入端點之後，就能完成幾個常見的虛擬機器連線模式之一。 |您可以在負載平衡器上設定「傳入 NAT 規則」，以達到啟用特定連接埠上的端點以連線至 VM 的相同功能。 |
-| DNS 名稱 |雲端服務會取得隱含的全域唯一 DNS 名稱。 例如：`mycoffeeshop.cloudapp.net`。 |DNS 名稱是可以在公用 IP 位址資源上指定的選用參數。 FQDN 的格式如下 - `<domainlabel>.<region>.cloudapp.azure.com`。 |
+| DNS 名稱 |雲端服務會取得隱含的全域唯一 DNS 名稱。 例如： `mycoffeeshop.cloudapp.net`。 |DNS 名稱是可以在公用 IP 位址資源上指定的選用參數。 FQDN 的格式如下 - `<domainlabel>.<region>.cloudapp.azure.com`。 |
 | 網路介面 |主要和次要網路介面與其屬性會定義為虛擬機器的網路組態。 |網路介面是 Microsoft.Network 提供者所公開的資源。 網路介面的生命週期與虛擬機器無關。 它會參考虛擬機器指派的 IP 位址 (必要)、虛擬機器之虛擬網路的子網路 (必要)，以及網路安全性群組 (選擇性)。 |
 
 若要了解從不同部署模型連接虛擬網路，請參閱[在入口網站中從不同部署模型連接虛擬網路](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)。

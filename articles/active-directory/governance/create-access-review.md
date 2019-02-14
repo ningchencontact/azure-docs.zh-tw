@@ -14,12 +14,13 @@ ms.subservice: compliance
 ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 1c71333a49643647bae3730e4f14f26939388c4f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1616230e3cad765246bcf03d59fb517c99d9b044
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153738"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176912"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>使用 Azure AD 建立群組成員或應用程式存取的存取權檢閱
 
@@ -115,7 +116,7 @@ ms.locfileid: "55153738"
 
 ## <a name="create-reviews-via-apis"></a>透過 API 建立檢閱
 
-您也可以使用 API 來建立存取權檢閱。 您在 Azure 入口網站中為群組和應用程式使用者的存取權檢閱所做的管理工作，也可以使用 Microsoft Graph API 來執行。 如需詳細資訊，請參閱 [Azure AD 存取權檢閱 API 參考](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/accessreviews_root)。 如需程式碼範例，請參閱[透過 Microsoft Graph 擷取 Azure AD 存取權檢閱的範例](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)。
+您也可以使用 API 來建立存取權檢閱。 您在 Azure 入口網站中為群組和應用程式使用者的存取權檢閱所做的管理工作，也可以使用 Microsoft Graph API 來執行。 如需詳細資訊，請參閱 [Azure AD 存取權檢閱 API 參考](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta)。 如需程式碼範例，請參閱[透過 Microsoft Graph 擷取 Azure AD 存取權檢閱的範例](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)。
 
 ## <a name="next-steps"></a>後續步驟
 

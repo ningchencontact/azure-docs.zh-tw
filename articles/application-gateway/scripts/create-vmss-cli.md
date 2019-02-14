@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b2485b65c54bdd5dcd523226e17c180bf1eb86a6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 99d0939b30d04fbd5c0eb7a287105bb4cf27e9f4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734193"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116757"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>使用 Azure CLI 管理網路流量
 
@@ -47,12 +47,12 @@ az group delete --name myResourceGroupAG --yes
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | 建立虛擬網路。 |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnetwork) | 在虛擬網路中建立子網路。 |
+| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | 在虛擬網路中建立子網路。 |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | 建立應用程式閘道的公用 IP 位址。 |
 | [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | 建立應用程式閘道。 |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | 建立虛擬機器擴展集。 |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | 建立虛擬機器擴展集。 |
 | [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip) | 取得應用程式閘道的公用 IP 位址。 |
 
 ## <a name="next-steps"></a>後續步驟

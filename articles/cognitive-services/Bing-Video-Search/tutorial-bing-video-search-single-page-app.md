@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 說明如何在單頁 Web 應用程式中使用 Bing 影片搜尋 API。
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: f3a13bf15ed1ef1629cd17af43a0f71df80b1349
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 034ea49322f213971f549673a1d179a301585c96
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567531"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875200"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>教學課程：單頁影片搜尋應用程式
 Bing 影片搜尋 API 可讓您搜尋網頁，並取得與搜尋查詢相關的影片結果。 在本教學課程中，我們會建置單頁 Web 應用程式，以使用 Bing 影片搜尋 API 在頁面中顯示搜尋結果。 該應用程式包含 HTML、CSS 和 JavaScript 元件。

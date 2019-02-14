@@ -4,7 +4,7 @@ description: 本主題描述如何讓通道接收內部部署編碼器的多位�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809019"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990210"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用會建立多位元速率串流的內部部署編碼器執行即時串流
 
@@ -187,7 +187,7 @@ ms.locfileid: "54809019"
 | 通道狀態 | 入口網站 UI 指標 | 是否計費？ |
 | --- | --- | --- | --- |
 | **啟動中** |**啟動中** |無 (暫時性狀態) |
-| **執行中** |**就緒** (沒有執行中的程式)<p><p>或<p>**串流** (至少一個執行中的程式) |是 |
+| **執行中** |**就緒** (沒有執行中的程式)<p><p>或<p>**串流** (至少一個執行中的程式) |yes |
 | **停止中** |**停止中** |無 (暫時性狀態) |
 | **已停止** |**已停止** |否 |
 

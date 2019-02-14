@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822624"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100777"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -982,7 +982,7 @@ Webhook 可讓您回應 Microsoft Graph 中的事件。 若要支援 webhook，�
 - [Microsoft Graph webhook 訂用帳戶輸入繫結](#webhook-input)可讓您列出現有的訂用帳戶，並選擇性地加以重新整理。
 - [Microsoft Graph webhook 訂用帳戶輸出繫結](#webhook-output)可讓您建立或刪除 webhook 訂用帳戶。
 
-繫結本身不需要任何 Azure AD 權限，但您必須要求與所需回應之資源類型相關的權限。 如需每個資源類型所需權限的清單，請參閱[訂用帳戶權限](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions)。
+繫結本身不需要任何 Azure AD 權限，但您必須要求與所需回應之資源類型相關的權限。 如需每個資源類型所需權限的清單，請參閱[訂用帳戶權限](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0)。
 
 如需 Webhook 的詳細資訊，請參閱[在 Microsoft Graph 中使用 Webhook]。
 

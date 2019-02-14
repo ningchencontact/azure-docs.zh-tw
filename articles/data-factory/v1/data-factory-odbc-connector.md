@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 20a769736efb1232e9605e322bfda6136687cec4
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c05c2e8941790dd30c42aca8d434a3b914d79de7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023578"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107275"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ ms.locfileid: "54023578"
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從內部部署的 ODBC 資料存放區移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
 
-您可以將資料從 ODBC 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 Data Factory 目前只支援將資料從 ODBC 資料存放區移到其他資料存放區，而不支援將資料從其他資料存放區移到 ODBC 資料存放區。 
+您可以將資料從 ODBC 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 Data Factory 目前只支援將資料從 ODBC 資料存放區移到其他資料存放區，而不支援將資料從其他資料存放區移到 ODBC 資料存放區。
 
 ## <a name="enabling-connectivity"></a>啟用連線
 Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC 來源。 請參閱 [在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文來了解資料管理閘道和設定閘道的逐步指示。 即使 ODBC 資料存放區裝載於 Azure IaaS VM 中，仍請使用閘道來與其連接。
@@ -48,15 +48,15 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
-不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線： 
+不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
 1. 建立**連結服務**，將輸入和輸出資料存放區連結到資料處理站。
-2. 建立**資料集**，代表複製作業的輸入和輸出資料。 
-3. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 
+2. 建立**資料集**，代表複製作業的輸入和輸出資料。
+3. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。
 
-使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來從 ODBC 資料存放區複製資料之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例：將資料從 ODBC 資料存放區複製到 Azure Blob](#json-example-copy-data-from-odbc-data-store-to-azure-blob) 一節。 
+使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。 如需相關範例，其中含有用來從 ODBC 資料存放區複製資料之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例：將資料從 ODBC 資料存放區複製到 Azure Blob](#json-example-copy-data-from-odbc-data-store-to-azure-blob) 一節。
 
 下列各節提供 JSON 屬性的相關詳細資料，這些屬性是用來定義 ODBC 資料存放區特定的 Data Factory 實體：
 
@@ -65,13 +65,13 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設定為：**OnPremisesOdbc** |是 |
-| connectionString |連接字串的非存取認證部分和選擇性的加密認證。 請參閱下列幾節中的範例。 <br/><br/>您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在閘道電腦上以 `"DSN=<name of the DSN>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。 |是 |
+| type |類型屬性必須設定為：**OnPremisesOdbc** |yes |
+| connectionString |連接字串的非存取認證部分和選擇性的加密認證。 請參閱下列幾節中的範例。 <br/><br/>您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在閘道電腦上以 `"DSN=<name of the DSN>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。 |yes |
 | 認證 |以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例： `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |否 |
-| authenticationType |用來連接到 ODBC 資料存放區的驗證類型。 可能的值包括：匿名和基本。 |是 |
+| authenticationType |用來連接到 ODBC 資料存放區的驗證類型。 可能的值包括：匿名和基本。 |yes |
 | username |如果您要使用 Basic 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
-| gatewayName |Data Factory 服務應該用來連接到 ODBC 資料存放區的閘道器名稱。 |是 |
+| gatewayName |Data Factory 服務應該用來連接到 ODBC 資料存放區的閘道器名稱。 |yes |
 
 ### <a name="using-basic-authentication"></a>使用基本驗證
 
@@ -93,7 +93,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>使用基本驗證與加密認證
-您可以使用 [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 版的 Azure PowerShell) Cmdlet 或 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 或更舊版的 Azure PowerShell) 來加密認證。  
+您可以使用 [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 版的 Azure PowerShell) Cmdlet 或 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 或更舊版的 Azure PowerShell) 來加密認證。
 
 ```json
 {
@@ -130,7 +130,6 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 }
 ```
 
-
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
 
@@ -138,7 +137,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| tableName |ODBC 資料存放區中資料表的名稱。 |是 |
+| tableName |ODBC 資料存放區中資料表的名稱。 |yes |
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。
@@ -149,7 +148,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |是 |
+| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |yes |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON 範例：從 ODBC 資料存放區複製資料到 Azure Blob
@@ -193,10 +192,10 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-    }
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
     }
 }
 ```
@@ -290,7 +289,6 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
     }
 }
 ```
-
 
 **具有 ODBC 來源 (RelationalSource) 和 Blob 接收器 (BlobSink) 的管線中複製活動**
 

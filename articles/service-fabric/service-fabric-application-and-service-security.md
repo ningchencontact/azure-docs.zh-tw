@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: f83f7afa4173316f127c76f20967054bf13c9a6b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 91e7fdd215d246156f601d3b5e6e05b7f8f71f59
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097882"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116451"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 應用程式和服務安全性
 微服務架構可以帶來[許多優點](service-fabric-overview-microservices.md)。 不過，管理微服務的安全性是一種挑戰，而且與管理傳統的整合型應用程式安全性有所不同。 
@@ -31,7 +31,7 @@ ms.locfileid: "55097882"
 ## <a name="authentication-and-authorization"></a>驗證和授權
 通常需要將服務所公開的資源和 API 限制為適用於特定信任的使用者或用戶端。 驗證是可靠地查明使用者身分識別的程序。  授權是讓 API 或服務可供某些已驗證使用者使用 (其他使用者無法使用) 的程序。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 進行 API 層級信任決策的第一個步驟是驗證。 驗證是可靠地查明使用者身分識別的程序。  在微服務案例中，驗證通常會集中處理。 如果您使用 API 閘道，您可以[將驗證卸載](/azure/architecture/patterns/gateway-offloading)至閘道。 如果您使用此方法，請確定可以直接與個別服務連線 (不需要 API 閘道)，除非設立了額外的安全性來驗證訊息是否來自閘道。
 
 如果可以直接存取服務，則驗證服務 (例如 Azure Active Directory 或專用驗證微服務) 會作為安全性權杖服務 (STS)，可用來驗證使用者。 信任決策會在服務與安全性權杖或 Cookie 之間共用。 
@@ -110,7 +110,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [深入了解叢集安全性](service-fabric-cluster-security.md)
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-get-started.md
+[key-vault-get-started]:../key-vault/key-vault-overview.md
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 

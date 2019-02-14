@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: 使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c39faa72c844a3bdbf6f1367351be382533179a6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d1534f76c4ef0c1edd8d83522f2d0855def48f25
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210007"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880865"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>C# 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 

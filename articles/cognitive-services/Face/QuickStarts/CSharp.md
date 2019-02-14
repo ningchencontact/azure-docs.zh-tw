@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將使用 Azure Face REST API 搭配 C# 來偵測影像中的臉部。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 6dce69b06d00ef41f4ffee46f644fb0dc3560ecc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 587005fa183c11a24ea2083ee28c8faca616b4a4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220598"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866639"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>快速入門：使用 Face REST API 和 C# 偵測影像中的臉部
 

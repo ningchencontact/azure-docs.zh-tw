@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 10a333e8521c781a223c767660ae6acaa1286929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251810"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184902"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack 容量規劃
 評估 Azure Stack 解決方案時，可以選擇硬體組態，因為這直接影響到 Azure Stack 雲端的整體容量。 其中包括 CPU、記憶體密度、儲存體組態和整體解決方案規模或伺服器的數目等典型選項。 不同於傳統的虛擬化解決方案，簡單地計算這些元件不適用於決定可用的容量。 其第一個原因是 Azure Stack 的架構是解決方案本身就裝載基礎結構或管理元件。 第二個原因是解決方案的部分容量會為支援恢復功能而保留；透過將租用戶工作負載中斷情形降到最低的方式，來更新解決方案的軟體。

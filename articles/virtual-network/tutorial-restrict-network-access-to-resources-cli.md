@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e4f8b99cfeaa35644ed51fd8ad712fe4744c0226
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751492"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890938"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>透過使用 Azure CLI 的虛擬網路服務端點來限制對 PaaS 資源的網路存取
 
@@ -72,7 +72,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) 在虛擬網路中建立其他的子網路。 在此範例中，系統會針對子網路建立 Microsoft.Storage 的服務端點： 
+使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 在虛擬網路中建立其他的子網路。 在此範例中，系統會針對子網路建立 Microsoft.Storage 的服務端點： 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -85,7 +85,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>限制子網路的網路存取
 
-使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 建立網路安全性群組。 下列範例會建立名為 myNsgPrivate 的網路安全性群組。
+使用 [az network nsg create](/cli/azure/network/nsg) 建立網路安全性群組。 下列範例會建立名為 myNsgPrivate 的網路安全性群組。
 
 ```azurecli-interactive
 az network nsg create \
@@ -93,7 +93,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-請使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) 將網路安全性群組與「私人」子網路建立關聯。 下列範例會將 myNsgPrivate 網路安全性群組與「私人」子網路建立關聯：
+請使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet) 將網路安全性群組與「私人」子網路建立關聯。 下列範例會將 myNsgPrivate 網路安全性群組與「私人」子網路建立關聯：
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ az network nsg rule create \
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 建立 Azure 儲存體帳戶。 請將 `<replace-with-your-unique-storage-account-name>` 取代為在所有 Azure 位置間具有唯一性、長度介於 3-24 個字元，且僅使用數字和小寫字母的名稱。
+使用 [az storage account create](/cli/azure/storage/account) 建立 Azure 儲存體帳戶。 請將 `<replace-with-your-unique-storage-account-name>` 取代為在所有 Azure 位置間具有唯一性、長度介於 3-24 個字元，且僅使用數字和小寫字母的名稱。
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -197,7 +197,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>拒絕所有對儲存體帳戶的網路存取
 
-根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線。 若要限制對選取網路的存取，請使用 [az storage account update](/cli/azure/storage/account#az_storage_account_update) 將預設動作變更為「拒絕」。 一旦網路存取遭到拒絕後，就無法從任何網路存取儲存體帳戶。
+根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線。 若要限制對選取網路的存取，請使用 [az storage account update](/cli/azure/storage/account) 將預設動作變更為「拒絕」。 一旦網路存取遭到拒絕後，就無法從任何網路存取儲存體帳戶。
 
 ```azurecli-interactive
 az storage account update \
@@ -208,7 +208,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>啟用子網路的網路存取
 
-使用 [az storage account network-rule add](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add) 允許從「私人」子網路對儲存體帳戶的網路存取。
+使用 [az storage account network-rule add](/cli/azure/storage/account/network-rule) 允許從「私人」子網路對儲存體帳戶的網路存取。
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -334,7 +334,7 @@ az storage share list \
 
 ## <a name="clean-up-resources"></a>清除資源
 
-請使用 [az group delete](/cli/azure#az_group_delete) 來移除不再需要的資源群組以及其所包含的所有資源。
+請使用 [az group delete](/cli/azure) 來移除不再需要的資源群組以及其所包含的所有資源。
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

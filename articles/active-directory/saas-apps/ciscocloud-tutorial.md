@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: c5809426da95e2295c5bf318b6f17345002f536d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d2f4d379f01d072bbfdcd95cd5bb19ccc0f9546d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197937"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>教學課程：Azure Active Directory 與 Cisco Cloud 整合
 
@@ -145,7 +146,7 @@ ms.locfileid: "55197937"
 
     d. 將 [命名空間] 值保留為空白。
 
-    e. 按一下 [確定]。
+    e. 按一下 [確定] 。
 
 1. 在 ****[SAML 簽署憑證] 區段上，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將它貼到記事本中。
 
@@ -187,7 +188,7 @@ ms.locfileid: "55197937"
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立]。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-cisco-cloud-test-user"></a>建立 Cisco Cloud 測試使用者
 

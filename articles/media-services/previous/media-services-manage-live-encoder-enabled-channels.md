@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682651"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003341"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務執行即時串流，以建立多位元速率串流
 
@@ -314,7 +314,7 @@ slate 的持續時間，以秒為單位。 必須為非零的正整數值才能�
 | 通道狀態 | 入口網站 UI 指標 | 是否計費？ |
 | --- | --- | --- |
 | 啟動中 |啟動中 |無 (暫時性狀態) |
-| 執行中 |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式) |是 |
+| 執行中 |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式) |yes |
 | 停止中 |停止中 |無 (暫時性狀態) |
 | 已停止 |已停止 |否 |
 

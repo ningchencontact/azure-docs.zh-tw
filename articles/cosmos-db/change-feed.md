@@ -1,19 +1,19 @@
 ---
 title: 使用 Azure Cosmos DB 中的變更摘要支援
 description: 使用 Azure Cosmos DB 的變更摘要支援來追蹤文件中的變更，並執行以事件為基礎的處理 (例如觸發程序)，以及讓快取和分析系統保持最新狀態。
-author: rafats
-ms.author: rafats
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 95fd5b753d2018ebf422c4d9c88c2e3f6aba7bd8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452255"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244431"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的變更摘要 - 概觀
 
@@ -35,10 +35,10 @@ Azure Cosmos DB 中的變更摘要可讓您針對每一個模式建置有效率�
 
 | **用戶端驅動程式** | **Azure CLI** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API**|**資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | 是 | 否 | 否 | 是 | 否 |
-|Java|NA|是|否|否|是|否|
-|Python|NA|是|否|否|是|否|
-|節點/JS|NA|是|否|否|是|否|
+| .NET | NA | yes | 否 | 否 | yes | 否 |
+|Java|NA|yes|否|否|yes|否|
+|Python|NA|yes|否|否|yes|否|
+|節點/JS|NA|yes|否|否|yes|否|
 
 ## <a name="change-feed-and-different-operations"></a>變更摘要和不同的作業
 

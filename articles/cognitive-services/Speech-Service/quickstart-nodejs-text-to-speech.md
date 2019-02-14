@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將了解如何使用 Node.js 和文字轉語音 REST API 將文字轉換為語音。 本指南中所包含的範例文字已建構為語音合成標記語言 (SSML)。 這可讓您選擇語音回應的語音和語言。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 808466e9d2546472a4f86dd0d7eacd48e75cb94a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7faa69e4adf96af7f7df9724521ee5ee1cacaad1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224474"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861641"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>快速入門：使用 Node.js 將文字轉換為語音
 

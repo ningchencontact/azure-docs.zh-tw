@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 示範如何使用 Bing RankingResponse 答案，以順位的順序顯示搜尋結果。
 services: cognitive-services
 author: bradumbaugh
-manager: cgronlun
+manager: nitinme
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: 90ad2ff87e9541c892262edb2e48366826b2a388
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188434"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872512"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>使用 C# 建置主控台應用程式搜尋用戶端
 

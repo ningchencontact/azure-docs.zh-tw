@@ -14,12 +14,13 @@ ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
-ms.openlocfilehash: 9cef490d22a013b952d6692d0ac0e932a35c9ba3
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0af2628e1da24bd790e94306703aab797a0d56a1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297628"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164765"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？](directory-self-service-signup.md)

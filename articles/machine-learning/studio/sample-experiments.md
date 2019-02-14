@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 653b9aa0d6083436a394cf886f8c7d8d1ed2e2ab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e62e5a1df2b5ad3099d2ef7e5dc33b0d11683988
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465515"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245927"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>從 Azure AI 資源庫中的工作範例建立 Azure Machine Learning Studio 實驗
 
-了解如何從 [Azure AI 資源庫](https://gallery.cortanaintelligence.com/)的範例實驗開始，而不是從頭建立機器學習服務實驗。 您可以使用範例來建立自己的機器學習服務解決方案。
+了解如何從 [Azure AI 資源庫](https://gallery.azure.ai/)的範例實驗開始，而不是從頭建立機器學習服務實驗。 您可以使用範例來建立自己的機器學習服務解決方案。
 
 資源庫有 Microsoft Azure Machine Learning 小組的範例實驗，以及由 Machine Learning 社群共用的範例。 您也可以提出有關實驗的問題或張貼意見。
 
@@ -28,7 +28,7 @@ ms.locfileid: "55465515"
 
 
 ## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>在 Azure AI 資源庫中尋找要複製的實驗
-若要查看有哪些可用的實驗，請移至[資源庫](https://gallery.cortanaintelligence.com/)，然後按一下頁面頂端的 [實驗]。
+若要查看有哪些可用的實驗，請移至[資源庫](https://gallery.azure.ai/)，然後按一下頁面頂端的 [實驗]。
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>尋找最新或最受歡迎的實驗
 在此頁面上，您可以查看 [最近新增] 實驗，或往下捲動查看 [熱門項目] 或最新的 [熱門的 Microsoft 實驗]。

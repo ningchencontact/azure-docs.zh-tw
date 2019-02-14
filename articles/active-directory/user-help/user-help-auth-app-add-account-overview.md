@@ -11,16 +11,17 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
-ms.openlocfilehash: b67cf5b8c4f3973f2978742df32d7cd73ce0fc72
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e53afdfc4d2d8288a612cfb461751e6f78ebb2fa
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812837"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179258"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>將帳戶新增至 Microsoft Authenticator 應用程式的概觀
 
-當您使用雙因素驗證時，Microsoft Authenticator 應用程式可協助您登入帳戶。 雙因素驗證有助於您以更安全的方式存取帳戶，尤其是在檢視機密資訊時。 您有可能忘記密碼，或密碼有可能遭竊或遭到破解，因此雙因素驗證是一個額外的安全性步驟，透過使他人難以入侵來協助您保護帳戶。
+當您使用雙因素驗證時，Microsoft Authenticator 應用程式可協助您登入帳戶。 雙因素驗證有助於您以更安全的方式存取帳戶，尤其是在檢視機密資訊時。 您有可能忘記密碼，或密碼有可能遭竊或遭到破解，而雙因素驗證可作為額外的安全性步驟，協助您保護帳戶而使他人難以入侵。
 
 >[!Important]
 >Microsoft Authenticator 應用程式適用於任何使用雙因素驗證的應用程式，以及任何支援限時單次密碼 (TOTP) 標準的帳戶。

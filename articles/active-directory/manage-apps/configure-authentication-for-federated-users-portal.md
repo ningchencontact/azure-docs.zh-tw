@@ -3,8 +3,8 @@ title: 使用主領域探索原則為應用程式設定登入自動加速 | Micr
 description: 說明什麼是 Azure AD 租用戶，以及如何透過 Azure Active Directory 管理 Azure。
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: barbkess
-ms.openlocfilehash: eaadd24789baf9da49397a65f9cd1a18b40ff918
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168689"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190257"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>使用主領域探索原則為應用程式設定 Azure Active Directory 登入行為
 

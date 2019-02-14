@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: b04e4a83862cdec26e0432eb7d8b3419e36d5a7a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: feb6cebca0fe165315215813eb939dc2d5d120cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176415"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177318"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>教學課程：Azure Active Directory 與 Salesforce Sandbox 整合
 
@@ -162,7 +163,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-13. 按一下 [選擇檔案] ****以上傳您從 Azure 入口網站下載的中繼資料 XML 檔案，然後按一下 [建立]**** 。
+13. 按一下 [選擇檔案]****以上傳您從 Azure 入口網站下載的中繼資料 XML 檔案，然後按一下 [建立]****。
 
     ![設定單一登入](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 

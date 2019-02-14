@@ -4,7 +4,7 @@ description: 本文說明資訊安全中心如何協助您保護 Azure SQL Datab
 services: sql-database
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
-ms.openlocfilehash: 839c8bfe6748c1aeaf7c8804ef4388cf8a623bdb
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337830"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114082"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure 資訊安全中心和 Azure SQL Database 服務
 [Azure 資訊安全中心](https://azure.microsoft.com/documentation/services/security-center/)可協助您保護、偵測威脅並採取相應的措施。 它提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理，協助您偵測可能會忽略的威脅，且適用於廣泛的安全性解決方案生態系統。

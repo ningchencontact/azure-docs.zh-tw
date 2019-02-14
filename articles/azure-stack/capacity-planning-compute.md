@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: e756b48003ebfaff98271d93a3d8f0231571b5f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242428"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160906"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack 計算容量規劃
 [Azure Stack 中支援的虛擬機器大小](./user/azure-stack-vm-sizes.md)屬於 Azure 支援的虛擬機器 (VM) 的一小部分。 Azure 會在許多方面施加資源限制，來避免資源 (伺服器本機和服務層級) 過度耗用。 若未加以限制租用戶的耗用量，當其他租用戶過度耗用資源時，租用戶的體驗就會受到影響。 對於 VM 的網路輸出，在 Azure Stack 上已有符合 Azure 限制的頻寬上限。 至於儲存體資源，已在 Azure Stack 上實施儲存體的 IOP 限制，以免租用戶為了存取儲存體而造成基本的資源過度耗用。  

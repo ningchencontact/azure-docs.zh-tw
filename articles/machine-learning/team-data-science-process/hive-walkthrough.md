@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 57f20a6b3a8d2845b0459f05e7b9d9ccd8d44424
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463288"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108716"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
 在此逐步解說中，我們在端對端案例中使用 [Team Data Science Process (TDSP)](overview.md)。 我們使用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)，以對 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。 若要處理二元和多元分類和迴歸預測工作，我們使用 Azure Machine Learning 建置資料的模型。 
@@ -824,7 +824,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 ## <a name="references"></a>參考
 •    [Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) \(英文\)  
 •    [FOILing NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [NYC 計程車和禮車委託研究和統計資料](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+•    [NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

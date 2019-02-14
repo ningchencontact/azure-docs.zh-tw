@@ -13,14 +13,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 25a1913fba3e66e65b3c785eb6ce1738c5f00a26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9846422405df491124a101a7898f356a1d9fb1d8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247920"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998666"
 ---
-# <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>使用 .NET SDK 建立資料處理站和管線
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>快速入門：使用 .NET SDK 建立資料處理站和管線
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [目前的版本](quickstart-create-data-factory-dot-net.md)
@@ -67,7 +68,6 @@ ms.locfileid: "51247920"
     Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
     Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
     ```
 
 ## <a name="create-a-data-factory-client"></a>建立資料處理站用戶端
@@ -299,7 +299,8 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 主控台會印出建立資料處理站、連結服務、資料集、管線和管線執行的進度。 然後會檢查管線執行狀態。 請等待出現複製活動執行詳細資料及讀取/寫入的資料大小。 然後，使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)之類的工具，檢查 Blob 已從 "inputBlobPath" 複製到 "outputBlobPath" (您在變數中指定)。
 
-### <a name="sample-output"></a>範例輸出： 
+### <a name="sample-output"></a>範例輸出
+
 ```json
 Creating data factory SPv2Factory0907...
 {

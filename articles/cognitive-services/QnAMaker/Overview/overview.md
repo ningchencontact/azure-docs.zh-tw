@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker 是雲端式 API 服務，會對使用者的自然語言問題套用自訂的機器學習智慧以提供最佳解答。
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 1295d071fa3ad99aabd2649f7b7e0b7fe1f86584
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1fa15c4420cb1e42fcaa34c56a1b0aef9c4102b1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226854"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872453"
 ---
 # <a name="what-is-qna-maker"></a>什麼是 QnA Maker？
 

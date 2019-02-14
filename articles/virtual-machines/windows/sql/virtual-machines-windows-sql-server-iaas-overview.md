@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43305efc146151d131152e712869e283af65f0b2
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ddf36c97a8aebd3cd7446dca07e77c7f743afcb9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359760"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982942"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure 虛擬機器上的 SQL Server 是什麼？ (Windows)
 
@@ -86,7 +86,7 @@ Azure 虛擬機器提供不同的機器大小，以符合各種工作負載需�
 較舊而無法在 Azure 入口網站中使用的 SQL Server 映像，可以使用 PowerShell 來部署。 若要使用 Powershell 檢視所有可用的映像，請使用下列命令：
 
   ```PowerShell
-  Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+  Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 
 如需使用 PowerShell 部署 SQL Server VM 的詳細資訊，請檢視[如何使用 Azure PowerShell 佈建 SQL Server 虛擬機器](virtual-machines-windows-ps-sql-create.md)。

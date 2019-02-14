@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7d2ca54b279509011a1f93269d236c556c827b4f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 564a0948d09e4726800d19858b4c23924fc56973
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485522"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187333"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步處理服務陰影屬性
 大部分屬性是以它們在內部部署 Active Directory 中的相同方式，在 Azure AD 中表示。 但是某些屬性有一些特殊處理，而且在 Azure AD 中的屬性值可能不同於 Azure AD Connect 同步處理。

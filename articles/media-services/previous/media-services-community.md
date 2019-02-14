@@ -4,7 +4,7 @@ description: 'Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: dc6a1259eb3bb15793d0b48a883d4bbfb69e48c3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 641218e6a9a366d8c3b0d269223a98c08b860bdb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782697"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001148"
 ---
-# <a name="azure-media-services-community"></a>Azure 媒體服務社群
+# <a name="azure-media-services-community"></a>Azure 媒體服務社群  
+
 Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新的不同方式。 您也可以檢視新的影片和播客、提出問題，以及提供意見反應。   
 
 ## <a name="videos-and-podcasts"></a>影片和播客

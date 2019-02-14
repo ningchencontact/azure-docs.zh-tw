@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 09/10/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247726"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984268"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>從命令列部署 ASDK
 ASDK 是種測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 要讓其正常執行，您將需要準備環境硬體並執行一些指令碼 (這將需要數小時的時間)。 在那之後，您就可以登入系統管理員和使用者入口網站，開始使用 Azure Stack。
@@ -134,7 +134,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 如果您的環境並未啟用 DHCP，則您必須將下列其他參數包含在上述其中一個選項 (已提供範例使用方式)： 
 
 ```powershell
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 10.222.112.26
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 選用參數
@@ -146,9 +146,6 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 |InfraAzureDirectoryTenantAdminCredential|選用|設定 Azure Active Directory 使用者名稱與密碼。 這些 Azure 認證必須是組織識別碼。|
 |InfraAzureEnvironment|選用|選取您要用來註冊此 Azure Stack 部署的 Azure 環境。 選項包括公用 Azure、Azure - 中國、Azure - 美國政府。|
 |DNSForwarder|選用|DNS 伺服器會在 Azure Stack 部署期間建立。 若要允許解決方案內的電腦解析戳記以外的名稱，請提供您現有架構 DNS 伺服器。 戳記內的 DNS 伺服器會將未知的名稱解析要求轉送至這部伺服器。|
-|NatIPv4Address|DHCP NAT 支援所需|設定 MAS-BGPNAT01 的靜態 IP 位址。 只有當 DHCP 無法指派有效的 IP 位址來存取網際網路時，才使用此參數。|
-|NatIPv4Subnet|DHCP NAT 支援所需|透過 NAT 支援用於 DHCP 的 IP 子網路前置詞。 只有當 DHCP 無法指派有效的 IP 位址來存取網際網路時，才使用此參數。|
-|PublicVlanId|選用|設定 VLAN 識別碼。 只有當主機與 MAS-BGPNAT01 必須設定 VLAN 識別碼來存取實體網路 (以及網際網路) 時，才使用此參數。 例如，.\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
 |Rerun|選用|使用這個旗標來重新執行部署。 系統會使用所有先前的輸入。 不支援重新輸入先前提供的資料，因為會產生數個唯一值並使用於部署。|
 
 

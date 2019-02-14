@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您會了解如何建立簡單的 Java 應用程式，以擷取及轉譯來自電腦麥克風的使用者語音。
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 9185d8d236b2a3283cf5a542002adadd0ac74686
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 87360d49892698458a021287d88240d98ba2ee19
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820533"
+ms.locfileid: "55881500"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來辨識語音
 

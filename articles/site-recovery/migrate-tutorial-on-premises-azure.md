@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4ba25da1f356f6164137dead467bd8bc948ce3d7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037832"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116162"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -135,7 +135,7 @@ ms.locfileid: "54037832"
 - 執行任何移轉後應用程式調整，例如更新資料庫連接字串和 Web 伺服器設定。 
 - 在現在於 Azure 中執行的已移轉應用程式上，執行最終的應用程式和移轉接受度測試。
 - [Azure VM 代理程式](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)可管理 VM 與「Azure 網狀架構控制器」之間的互動。 它對某些 Azure 服務 (例如 Azure 備份、Site Recovery 及 Azure 安全性) 來說是必要的。
-    - 如果您要移轉 VMware 機器和實體伺服器，「行動服務」安裝程式就會在 Windows 機器上安裝可用的 Azure VM 代理程式。 在 Linux VM 上，建議您在容錯移轉後安裝代理程式。 a
+    - 如果您要移轉 VMware 機器和實體伺服器，「行動服務」安裝程式就會在 Windows 機器上安裝可用的 Azure VM 代理程式。 在 Linux VM 上，建議您在容錯移轉後安裝代理程式。
     - 如果您要將 Azure VM 移轉至次要區域，就必須在移轉前將 Azure VM 代理程式佈建在 VM 上。
     - 如果您要將 Hyper-V VM 移轉至 Azure，請在移轉後將 Azure VM 代理程式安裝在 Azure VM 上。
 - 請從 VM 中手動移除任何 Site Recovery 提供者/代理程式。 如果您移轉 VMware VM 或實體伺服器，請從 Azure VM 中 [解除安裝行動服務][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer]。

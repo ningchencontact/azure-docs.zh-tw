@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 透過 REST API 呼叫在應用程式中使用 Content Moderator。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: ad26f4e4c7b4adf2228d620e98625250ea1f461a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9448cb2279b78143007f460c17427d91dfa397c7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217351"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878369"
 ---
 # <a name="content-moderator-rest-samples-in-c"></a>使用 C# 的 Content Moderator REST 範例
 

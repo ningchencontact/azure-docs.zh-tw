@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 本教學課程會逐步引導您在 Azure 入口網站上使用 Azure Bot 服務 v3 建置 QnA Bot。
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker`
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 1e1152f810bffb2ab4dfe230c2d3b3c2a8198492
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 930d2d7279f23974e937fd0d858891d0bcaa1291
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811914"
+ms.locfileid: "55869155"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>教學課程：使用 Azure Bot 服務 v3 建立 QnA Bot
 

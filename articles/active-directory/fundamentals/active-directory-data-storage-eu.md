@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 4e231d1e5af2107367a6fa2b72342bf1667e9ce1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e3a2f243b1a8b891419de7e3ca949e7591f55879
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102777"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211354"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory 中歐洲客戶的身分識別資料儲存體
 Azure Active Directory (Azure AD) 可協助您管理使用者身分識別，以及建立以資訊為依據的存取原則，以利確保組織資源的安全。 身分識別資料的儲存位置，會以組織在您訂閱服務時所提供的位址為基礎。 例如，當您訂閱 Office 365 或 Azure 時。 若想了解有關於您的身分識別資料儲存於何處的特定資訊，您可以使用 Microsoft 信任中心的 [您的資料所在位置](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 區段。

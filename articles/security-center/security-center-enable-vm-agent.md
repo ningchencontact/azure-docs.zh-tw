@@ -4,7 +4,7 @@ description: 本文件說明如何實作 Azure 資訊安全中心建議的**啟�
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 5b431c25-4241-45b7-9556-cf2a1956f3da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c4fff902614b3979fcc28833c5352afe2bdd84b0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 12934ad53050d16b89dd5b4175ca19a24d1ec4d9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341488"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118185"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>在 Azure 資訊安全中心啟用 VM 代理程式
 VM 代理程式必須安裝在虛擬機器 (VM) 上，才能 [啟用資料收集](security-center-enable-data-collection.md)。  Azure 資訊安全中心可讓您查看哪些 VM 需要 VM 代理程式，而且會建議您在那些 VM 上啟用 VM 代理程式。

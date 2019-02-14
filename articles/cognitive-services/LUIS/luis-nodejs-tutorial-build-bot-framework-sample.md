@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot來建置與 LUIS 應用程式整合的 Bot。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8539c108409a5aea521f919eb9e015764eb0dd29
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 92cd927b2cac9c30a5552d632468763de91c54db
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490136"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861658"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Node.js 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 

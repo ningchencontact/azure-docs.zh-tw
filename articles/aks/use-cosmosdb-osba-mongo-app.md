@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 04b513de1d47749bb87b7aaf79839389ab4d7290
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082594"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977010"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>將現有的 MongoDB 應用程式與適用於 MongoDB 的 Azure Cosmos DB API 和 Open Service Broker for Azure (OSBA) 整合
 
@@ -83,7 +83,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 在瀏覽器中瀏覽至 http://localhost:8080。
 
-![具有預設資料的 Spring 音樂應用程式](media/music-app.png)
+![有預設資料的春天音樂應用程式](media/music-app.png)
 
 請注意，應用程式已填入一些[預設資料](https://github.com/cloudfoundry-samples/spring-music/blob/master/src/main/resources/albums.json)。 請刪除一些現有專輯並建立幾個新專輯，來與其進行互動。
 
@@ -208,7 +208,7 @@ azds prep --public
 
 使用下列內容，在您專案的根目錄建立一個名為 *Dockerfile* 的檔案：
 
-```dockerfile
+```Dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app

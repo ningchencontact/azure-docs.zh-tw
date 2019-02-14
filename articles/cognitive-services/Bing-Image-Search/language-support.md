@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 了解 Bing 影像搜尋 API 支援哪些國家/地區和語言。
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: aahi
-ms.openlocfilehash: d214c227171066e0a401e22d20538014790a58d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3b1c4108b18d744eb526a765a98f740d6e27a444
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157324"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868390"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Bing 影像搜尋 API 支援的語言和區域
 

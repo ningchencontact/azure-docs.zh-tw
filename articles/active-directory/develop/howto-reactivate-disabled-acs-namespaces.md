@@ -15,12 +15,13 @@ ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: a8e1d1b73d360b55375e5164670ff16268941ede
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d0078c260e09ec9fd31ecf2124bc4bf7ad7f92b0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092206"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173737"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>作法：重新啟用已停用的存取控制服務命名空間
 

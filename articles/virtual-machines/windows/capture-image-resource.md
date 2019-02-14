@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: ff2352005470755c8ca0f472c4a790a820fea6b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 48aa634ad28236564223c1a78a2e190cd2a0e668
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754382"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107459"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
 您可以從在儲存體帳戶中儲存為受控磁碟或非受控磁碟的一般化虛擬機器 (VM)，建立受控映像資源。 映像接著便可用來建立多個 VM。 如需受控映像計費方式的相關資訊，請參閱[受控磁碟定價](https://azure.microsoft.com/pricing/details/managed-disks/)。 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>使用 Sysprep 將 Windows VM 一般化
 
@@ -85,11 +87,11 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 直接從 VM 建立映像，可確保映像包含 VM 的所有相關磁碟，包括 OS 磁碟與任何資料磁碟。 此範例示範如何從使用受控磁碟的 VM 建立受控映像。
 
 
-開始之前，請確定您擁有最新版的 AzureRM.Compute PowerShell 模組 (必須是 5.7.0 版或更新版本)。 若要尋找版本，請在 PowerShell 中執行 `Get-Module -ListAvailable AzureRM.Compute`。 若要升級，請參閱[使用 PowerShellGet 在 Windows 上 安裝 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，請執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+開始之前，請確定您擁有最新版的 AzureRM.Compute PowerShell 模組 (必須是 5.7.0 版或更新版本)。 若要尋找版本，請在 PowerShell 中執行 `Get-Module -ListAvailable AzureRM.Compute`。 若要升級，請參閱[使用 PowerShellGet 在 Windows 上 安裝 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，請執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 
 > [!NOTE]
-> 如果您想要將映像儲存於區域備援的儲存體中，則需要在支援[可用性區域](../../availability-zones/az-overview.md)且在映像設定 (`New-AzureRmImageConfig` 命令) 中包含 `-ZoneResilient` 參數的區域中建立它。
+> 如果您想要將映像儲存於區域備援的儲存體中，則需要在支援[可用性區域](../../availability-zones/az-overview.md)且在映像設定 (`New-AzImageConfig` 命令) 中包含 `-ZoneResilient` 參數的區域中建立它。
 
 若要建立 VM 映像，請依照下列步驟執行：
 
@@ -104,30 +106,30 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 2. 確定已解除配置 VM。
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. 將虛擬機器的狀態設定為 [一般化] 。 
    
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
 4. 取得虛擬機器。 
 
     ```azurepowershell-interactive
-    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
+    $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
     ```
 
 5. 建立映像組態。
 
     ```azurepowershell-interactive
-    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
+    $image = New-AzImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
     ```
 6. 建立映像。
 
     ```azurepowershell-interactive
-    New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
+    New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>使用 PowerShell 從受控磁碟建立受控映像
@@ -148,7 +150,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 2. 取得 VM。
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
+   $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. 取得受控磁碟的識別碼。
@@ -160,14 +162,14 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 3. 建立映像組態。
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
     ```
     
 4. 建立映像。
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -188,19 +190,19 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 2. 取得快照集。
 
    ```azurepowershell-interactive
-   $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
+   $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
 3. 建立映像組態。
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
 4. 建立映像。
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -221,20 +223,20 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 2. 停止/解除配置 VM。
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. 將 VM 標示為一般化。
 
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized  
     ```
 4.  使用一般化 OS VHD 建立映像。
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
     

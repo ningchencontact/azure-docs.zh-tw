@@ -4,7 +4,7 @@ description: 示範如何使用 CLI 將專用 HSM 部署到現有虛擬網路中
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c8713c4d3f6bd7835fed8e668407ea9ee55cc712
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080311"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111827"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>教學課程：使用 CLI 將 HSM 部署至現有的虛擬網路
 

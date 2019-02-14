@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 6658cc2db28fb58821afbc320ed4f7227fb3ccc2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 79c1257b58477cf9daa734b28f1da1475a1be825
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194980"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>教學課程：Azure Active Directory 與 SumTotalCentral 整合
 
@@ -161,7 +162,7 @@ ms.locfileid: "55194980"
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立]。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-sumtotalcentral-test-user"></a>建立 SumTotalCentral 測試使用者
 

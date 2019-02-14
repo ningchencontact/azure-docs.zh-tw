@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: pareshmu
-ms.openlocfilehash: f3b8ab2d40cf077d856b506a54ef98dbb5b699fe
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 913661b1d4360eba90d7e827d08d1b48bc7b4e71
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746535"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244397"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -82,7 +82,7 @@ ms.locfileid: "55746535"
 | **[Ascenty Data Centers](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |支援 |支援 |聖保羅 |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、倫敦、矽谷、新加坡、雪梨、東京、多倫多、華盛頓特區 |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |支援 |支援 |蒙特婁、多倫多、魁北克市 |
-| **[British Telecom](https://globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |支援 |支援 |阿姆斯特丹、香港、倫敦、聖保羅、矽谷、新加坡、雪梨、東京、華盛頓特區 |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |支援 |支援 |阿姆斯特丹、香港、倫敦、聖保羅、矽谷、新加坡、雪梨、東京、華盛頓特區 |
 | **C3ntro** |敬請期待 |敬請期待 |邁阿密 |
 | **CDC** | 支援 | 支援 | 坎培拉、坎培拉 2 |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |支援 |支援 |拉斯維加斯、紐約、聖安東尼奧、矽谷、東京、多倫多 |

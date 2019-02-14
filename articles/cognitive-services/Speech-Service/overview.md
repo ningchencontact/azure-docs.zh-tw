@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 語音服務為 Azure 認知服務的一部分，可結合數個先前單獨提供的語音服務：Bing 語音 (包含語音辨識和文字轉換語音)、自訂語音及語音翻譯。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: beb1382d2e076052583dd5bbc546259c8aae2f96
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217963"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858821"
 ---
 # <a name="what-is-speech-services"></a>什麼是語音服務？
 
@@ -55,8 +55,8 @@ ms.locfileid: "55217963"
 
 |<br>方法|語音<br>轉換文字|文字轉換<br>語音|語音<br>翻譯|<br>說明|
 |-|-|-|-|-|
-|[語音 SDK](speech-sdk.md)|是|否|是|適用於 C#、C++ 和 Java 的原生 API，可簡化開發工作。|
-|[REST APIs](rest-apis.md)|是|是|否|以 HTTP 為基礎的簡單 API，可讓您輕鬆地將語音新增至您的應用程式。|
+|[語音 SDK](speech-sdk.md)|yes|否|yes|適用於 C#、C++ 和 Java 的原生 API，可簡化開發工作。|
+|[REST APIs](rest-apis.md)|yes|是|否|以 HTTP 為基礎的簡單 API，可讓您輕鬆地將語音新增至您的應用程式。|
 
 ### <a name="websockets"></a>WebSocket
 

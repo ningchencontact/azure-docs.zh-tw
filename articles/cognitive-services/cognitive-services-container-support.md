@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 了解 Docker 容器如何使認知服務更接近您的資料。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 4ee98c2d8170df5ef5878f5b534b545eb105667e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6d3895ab288b7826e54e75c7518d325800a9a238
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543902"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875700"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 

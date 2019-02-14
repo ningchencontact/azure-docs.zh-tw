@@ -4,18 +4,18 @@ titleSuffix: Azure cognitive Services
 description: 了解如何將搜尋要求傳送至 Bing 實體搜尋 API
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 9058a97b6d13d0b4af421d4d612b56fb9c5c1298
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 8eab941f9589e84d7193cc32f91d080d7cda7c08
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757886"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864752"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>將搜尋要求傳送至 Bing 實體搜尋 API
 
@@ -33,11 +33,11 @@ https://api.cognitive.microsoft.com/bing/v7.0/entities
 
 要求必須使用 HTTPS 通訊協定。
 
-建議所有要求均應來自伺服器。 隨著用戶端應用程式散佈金鑰，會讓惡意的第三方有更多機會存取該應用程式。 此外，從伺服器進行呼叫可為 API 的未來版本提供單一升級點。
+建議讓所有要求來自伺服器。 隨著用戶端應用程式散佈金鑰，會讓惡意的第三方有更多機會存取該應用程式。 此外，從伺服器進行呼叫可為 API 的未來版本提供單一升級點。
 
 ## <a name="specifying-query-parameters-and-headers"></a>指定查詢參數和標頭
 
-要求必須指定 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) 查詢參數，其中包含使用者的搜尋字詞。 要求也必須指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) 查詢參數，其可識別您希望結果來自哪個市場。 如需選用查詢參數的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters)。 對所有查詢參數進行 URL 編碼。  
+要求必須指定 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) 查詢參數，其包含使用者的搜尋字詞。 要求也必須指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) 查詢參數，其可識別您希望結果來自哪個市場。 如需選用查詢參數的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters)。 對所有查詢參數進行 URL 編碼。  
   
 要求必須指定 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey) 標頭。 雖然是選擇性的，但我們仍建議使用以下標頭：  
   

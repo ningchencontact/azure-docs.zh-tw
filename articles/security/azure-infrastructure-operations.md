@@ -4,7 +4,7 @@ description: 本文提供 Azure 生產網路管理和操作的一般描述。
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 21ae81f1d8423a9d05208ec6d8c4f31d909d2f9f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173154"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104546"
 ---
 # <a name="azure-production-operations-and-management"></a>Azure 生產環境運作與管理    
 Azure 生產網路的管理和運作是 Azure 運作小組與 Azure SQL Database 之間的協調工作。 小組在環境中使用了數個系統和應用程式效能監視工具。 此外，他們會使用適當的工具監視網路裝置、伺服器、服務和應用程式程序。

@@ -3,9 +3,8 @@ title: Azure Active Directory 中企業應用程式的使用者佈建管理 |Mic
 description: 了解如何使用 Azure Active Directory 管理企業應用程式的使用者帳戶佈建
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -13,14 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: ca0be0d4e2b9f76a521d8fc04195311b3603e411
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4239c07c73825f75dd39053e312ae731f6f0d7d1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180546"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162708"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
 本文說明如何使用 [Azure 入口網站](https://portal.azure.com)管理自動使用者帳戶的佈建和解除佈建，以用於支援它的應用程式。 如需深入了解自動化使用者佈建，請參閱 [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](user-provisioning.md)。

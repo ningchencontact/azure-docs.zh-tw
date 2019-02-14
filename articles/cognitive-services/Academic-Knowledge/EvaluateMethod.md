@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 使用評估方法來傳回一組以查詢運算式為基礎的學術實體。
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187287"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871314"
 ---
 # <a name="evaluate-method"></a>評估模型
 
@@ -30,7 +30,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ## <a name="request-parameters"></a>要求參數  
 Name     | 值 | 必要？  | 說明
 -----------|-----------|---------|--------
-**expr**       | 文字字串 | 是 | 可指定應傳回哪些實體的查詢運算式。
+**expr**       | 文字字串 | yes | 可指定應傳回哪些實體的查詢運算式。
 **model**      | 文字字串 | 否  | 想要查詢的模型名稱。  目前，此值會預設為 latest。        
 **attributes** | 文字字串 | 否<br>預設值：id | 以逗號分隔的清單，可指定回應中包含的屬性值。 屬性名稱區分大小寫。
 **count**        | 數字 | 否<br>預設值：10 | 要傳回的結果數目。

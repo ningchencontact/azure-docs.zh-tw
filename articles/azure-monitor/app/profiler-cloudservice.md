@@ -3,21 +3,21 @@ title: 使用 Application Insights 來分析即時 Azure 雲端服務 | Microsof
 description: 啟用 Azure 雲端服務的 Application Insights Profiler。
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
-ms.openlocfilehash: 76512a2c930f44ae5a9b57d85ca34544788a538a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: cweining
+ms.openlocfilehash: e050122984c19e46f3782c8364331323b403caad
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435884"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893828"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>使用 Application Insights 來分析即時 Azure 雲端服務
 
@@ -45,7 +45,7 @@ Application Insights Profiler 會與 Azure 診斷擴充功能一起安裝。 您
 
       ![診斷組態檔的位置](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      如果您找不到檔案，請參閱[為 Azure 雲端服務和虛擬機器設定診斷](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them)。
+      如果您找不到檔案，請參閱[為 Azure 雲端服務和虛擬機器設定診斷](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
 
     b. 新增下列 `SinksConfig` 區段作為 `WadCfg` 的子元素：  
 

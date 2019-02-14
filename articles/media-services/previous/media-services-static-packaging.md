@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1ea4639d547616f2cfdf1d5e2b78c1388ef09dc4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80c9f1c7e2bec3e3f3fa696134a23f0760598a29
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826117"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001131"
 ---
-# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure Media Packager 完成靜態封裝工作
+# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure Media Packager 完成靜態封裝工作  
 > [!NOTE]
 > Microsoft Azure Media Packager 和 Microsoft Azure Media Encryptor 的生命週期結束日已展延至 2017 年 3 月 1 日。 在此日期之前，這些處理器的功能將會新增到媒體編碼器標準 (MES)。 客戶會收到有關如何移轉工作流程以傳送作業到 MES 的指示。 格式轉換和加密功能也可透過動態封裝與動態加密進行。
 > 

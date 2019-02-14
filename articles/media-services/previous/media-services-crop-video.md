@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: anilmur;juliako;
-ms.openlocfilehash: 3a8888148e1f58cdf2b1893c624b74ec6d6c93da
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 34db659232a27a18344ed492897641b92c0c1fa9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282538"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001325"
 ---
-# <a name="crop-videos-with-media-encoder-standard"></a>以 Media Encoder Standard 裁剪影片
+# <a name="crop-videos-with-media-encoder-standard"></a>以 Media Encoder Standard 裁剪影片  
+
 若要裁剪輸入影片，您可以使用 Media Encoder Standard (MES)。 裁剪是指在視訊畫面內選取矩形視窗，並只編碼該視窗內之像素的程序。 下圖有助於說明此程序。
 
 ![裁剪影片](./media/media-services-crop-video/media-services-crop-video01.png)

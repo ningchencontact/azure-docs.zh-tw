@@ -4,7 +4,7 @@ description: 本主題示範如何使用 Azure 媒體分析偵測臉部和情緒
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5aab8a5d48b7a7d17aa44b74d65ee70cb9322944
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: fa51290623f68e94db9cb1b28cd69c88b5d5cf18
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817549"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000058"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測臉部和情緒
 ## <a name="overview"></a>概觀
@@ -152,7 +152,7 @@ ms.locfileid: "54817549"
 #### <a name="attribute-descriptions"></a>屬性描述
 | 屬性名稱 | 說明 |
 | --- | --- |
-| 模式 |臉部：僅臉部偵測。<br/>PerFaceEmotion：將每個臉部偵測的情緒單獨傳回。<br/>AggregateEmotion：傳回該畫面中所有臉部的平均情緒值。 |
+| Mode |臉部：僅臉部偵測。<br/>PerFaceEmotion：將每個臉部偵測的情緒單獨傳回。<br/>AggregateEmotion：傳回該畫面中所有臉部的平均情緒值。 |
 | AggregateEmotionWindowMs |在已選取 AggregateEmotion 模式時使用。 指定要用來產生每個彙總結果之影片的長度，以毫秒為單位。 |
 | AggregateEmotionIntervalMs |在已選取 AggregateEmotion 模式時使用。 指定產生彙總結果的頻率。 |
 
