@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6f49eb0359db6184b5ecd146d7328a64611a9f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e6da35eeb98d4017baae6aa2c8e19fa3f9d5ac1b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245560"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752563"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>開始使用適用於 Visual Studio Code 的 Azure Machine Learning
 
@@ -23,10 +23,10 @@ ms.locfileid: "55245560"
 
 利用 Visual Studio Code 中的 Azure Machine Learning 擴充功能，使用 Azure Machine Learning 服務來準備您的資料、定型，以及在本機和遠端計算目標上測試機器學習模型、部署那些模型，並追蹤自訂計量和實驗。
 
-## <a name="prerequisite"></a>必要條件
+## <a name="prerequisites"></a>必要條件
 
 
-+ 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
++ 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 + 必須安裝 Visual Studio Code。 VS Code 是一個功能強大的輕量型原始程式碼編輯器，其會在您的桌面上執行。 它隨附 Python 和其他更多產品的內建支援。  [了解如何安裝 VS Code](https://code.visualstudio.com/docs/setup/setup-overview) \(英文\)。
 
@@ -60,19 +60,17 @@ ms.locfileid: "55245560"
 > [!Tip] 
 > 請查看[適用於 VS Code 的 IntelliCode 擴充功能 (預覽)](https://go.microsoft.com/fwlink/?linkid=2006060) \(英文\)。 IntelliCode 會在 Python 中提供一組適用於 IntelliSense 的 AI 輔助功能，例如，根據目前的程式碼內容來推斷最相關的自動完成。
 
-## <a name="install-the-sdk"></a>安裝 SDK
+## <a name="azure-ml-sdk-installation"></a>Azure ML SDK 安裝
 
 1. 確定已安裝 Python 3.5 或更新版本，並透過 VS Code 來辨識。 如果您立即安裝它，接著重新啟動 VS Code，然後使用 https://code.visualstudio.com/docs/python/python-tutorial 上的指示來選取 Python 解譯器。
-
-1. 在 VS Code 中，使用 **Ctrl+Shift+P** 開啟命令選擇區。
-
-1. 輸入 'Install Azure ML SDK' 來尋找適用於 SDK 的 pip 安裝命令。 隨即會建立本機私人 Python 環境，使其具備適用於 Azure Machine Learning 的 Visual Studio Code 先決條件。
-
-   ![安裝適用於 Python 的 Azure Machine Learning SDK](./media/vscode-tools-for-ai/install-sdk.png)
 
 1. 在整合式終端機視窗中，指定要使用的 Python 解譯器，或者您可以按 **Enter** 來使用預設的 Python 解譯器。
 
    ![選擇解譯器](./media/vscode-tools-for-ai/python.png)
+
+1. 視窗的右下角會出現通知，指出正在自動安裝 Azure ML SDK。    隨即會建立本機私人 Python 環境，使其具備適用於 Azure Machine Learning 的 Visual Studio Code 先決條件。
+
+   ![安裝適用於 Python 的 Azure Machine Learning SDK](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>開始使用 Azure Machine Learning
 

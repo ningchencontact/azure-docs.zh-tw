@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: f381285d29d70d6f5da6a6cd319c682cd0c6a235
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444533"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766311"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>使用 Jenkins 建置和部署您的 Linux 應用程式
 Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 Jenkins 建置和部署 Azure Service Fabric 應用程式的方式。
@@ -301,7 +301,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
    * 依照主題中的步驟進行時，請務必複製並儲存下列值：*應用程式 ID*、*應用程式金鑰*、*目錄 ID (租用戶 ID)*，和*訂用帳戶 ID*。 您需要它們才能在 Jenkins 中設定 Azure 認證。
    * 如果您沒有目錄的[必要權限](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) \(英文\)，將需要要求系統管理員授予權限，或為您建立服務主體，或者您需要針對 Jenkins 中的工作，在 [建置後動作] 中為叢集設定管理端點。
    * 在[建立 Azure Active Directory 應用程式](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application)[登入 URL] 輸入任何格式正確的 URL。
-   * 在[指派應用程式給角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) 一節中，您可以將叢集資源群組的 *Reader* 角色指派給應用程式。
+   * 在[指派應用程式給角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) 一節中，您可以將叢集資源群組的 *Reader* 角色指派給應用程式。
 
 1. 回到 Jenkins 作業，按一下 [建置後動作] 索引標籤。
 1. 從 [建置後動作] 下拉式清單，選取 [部署 Service Fabric 專案]。 
@@ -309,10 +309,10 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 1. 在 Jenkins 認證提供者中，從 [種類] 下拉式清單中，選取 [Microsoft Azure 服務主體]。
 1. 使用您在步驟 1 設定服務主體時儲存的值設定下列欄位：
 
-   * [用戶端識別碼]：[應用程式識別碼]
-   * [用戶端祕密]：[應用程式金鑰]
-   * [租用戶識別碼]：[目錄識別碼]
-   * [訂用帳戶識別碼]：[訂用帳戶識別碼]
+   * **用戶端識別碼**：*應用程式識別碼*
+   * **用戶端密碼**：*應用程式金鑰*
+   * **租用戶識別碼**：*目錄識別碼*
+   * **訂用帳戶識別碼**：*訂用帳戶識別碼*
 1. 輸入您用來在 Jenkins 中選取認證的描述性 [識別碼]，和簡短的 [描述]。 然後按一下 [驗證服務主體]。 如果驗證成功，請按一下 [新增]。
 
    ![Service Fabric Jenkins 輸入 Azure 認證](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)

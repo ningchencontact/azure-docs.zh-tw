@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429629"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819785"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>診斷虛擬機器路由問題
 
@@ -116,7 +116,7 @@ az vm show \
 - 確定您已定義的任何自訂路由所屬的路由表已與網路介面所在的子網路相關聯。 了解如何[建立路由表與子網路的關聯](manage-route-table.md#associate-a-route-table-to-a-subnet)。
 - 確定您已部署的裝置 (例如 Azure VPN 閘道或網路虛擬設備) 是可執行的。 使用網路監看員的 [VPN 診斷](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json)功能判斷 Azure VPN 閘道是否有任何問題。
 
-如果仍有通訊問題，請參閱[考量](#considerations)和[其他診斷](#additional-dignosis)。
+如果仍有通訊問題，請參閱[考量](#considerations)和其他診斷。
 
 ## <a name="considerations"></a>考量
 

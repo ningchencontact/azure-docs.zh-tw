@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 7f629ceb9fe5bd19c0558d1fde45d0bddcee744e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458868"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813002"
 ---
 # <a name="modeling-relationships"></a>將關聯性模型化
 本文討論的模型化程序有助於您設計 Azure 表格儲存體解決方案。
@@ -101,7 +101,7 @@ ms.locfileid: "55458868"
 也有可能會導致您在表格服務中實作一對一關聯性的實作考量：  
 
 * 處理大型實體 (如需詳細資訊，請參閱 [大型實體模式](table-storage-design-patterns.md#large-entities-pattern))。  
-* 實作存取控制 (如需詳細資訊，請參閱 [使用共用存取簽章控制存取](#controlling-access-with-shared-access-signatures))。  
+* 實作存取控制 (如需詳細資訊，請參閱使用共用存取簽章控制存取)。  
 
 ## <a name="join-in-the-client"></a>用戶端中的聯結
 雖然有多種方式可以模型化資料表服務中的關聯性，但您應該記住，使用資料表服務的兩個主要原因是延展性和效能。 如果您發現您將許多包含方案的效能和延展性的關聯性模型化，您應該自問是否需要在資料表設計中建置所有的資料關聯性。 如果您讓用戶端應用程式執行任何必要的聯結，或許可以簡化設計並改善方案的效能與延展性。  
@@ -117,7 +117,7 @@ ms.locfileid: "55458868"
 
 ![人員資料表](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-如需在用戶端程式碼中於相同資料表上使用多個實體類型的詳細資訊，請參閱本指南稍後的 [使用異質性實體類型](#working-with-heterogeneous-entity-types) 一節。 其中提供如何在用戶端程式碼中辨識實體類型的範例。  
+如需在用戶端程式碼中於相同資料表上使用多個實體類型的詳細資訊，請參閱本指南稍後的使用異質性實體類型一節。 其中提供如何在用戶端程式碼中辨識實體類型的範例。  
 
 
 ## <a name="next-steps"></a>後續步驟

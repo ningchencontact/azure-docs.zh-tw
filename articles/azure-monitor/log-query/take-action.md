@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8730070e1b235324a53ad81957339f4ef17db6dc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193684"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809624"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>從 Log Analytics 記錄搜尋結果利用自動化 Runbook 採取動作
 
-從 Azure Log Analytics 中的記錄搜尋結果，您現在可以選取 [採取動作] 執行自動化 Runbook。  Runbook 可用來修復問題或採取其他動作，例如收集疑難排解資訊、傳送電子郵件，或建立服務要求。 
+從 Azure Log Analytics 中的記錄搜尋結果，您現在可以選取 [採取動作] 執行自動化 Runbook。 Runbook 可用來修復問題或採取其他動作，例如收集疑難排解資訊、傳送電子郵件，或建立服務要求。 
 
 ## <a name="components-and-features-used"></a>使用的元件和功能
 * [Azure 自動化帳戶](../../automation/automation-quickstart-create-account.md)
@@ -30,11 +30,11 @@ ms.locfileid: "53193684"
 
 ## <a name="to-initiate-runbook-from-log-search"></a>從記錄搜尋初始化 Runbook
 
-若要對事件採取動作，並從記錄搜尋結果初始化 Runbook，首先請建立記錄搜尋，然後就可以從結果中視需要叫用 Runbook。  您可以利用 [Azure 入口網站](../../azure-monitor/log-query/log-query-overview.md)中的記錄搜尋功能達到此目的。  在此範例中，我們會透過這項功能的基本示範，從 Azure 入口網站執行記錄搜尋。
+若要對事件採取動作，並從記錄搜尋結果初始化 Runbook，首先請建立記錄搜尋，然後就可以從結果中視需要叫用 Runbook。 您可以利用 [Azure 入口網站](../../azure-monitor/log-query/log-query-overview.md)中的傳統記錄搜尋功能達到此目的。 在此範例中，我們會透過這項功能的基本示範，從 Azure 入口網站執行記錄搜尋。
 
 1. 在 Azure 入口網站中，按一下 [所有服務]，然後選取 [Log Analytics]。  
 2. 選取 Log Analytics 工作區。
-3. 在工作區上，選取 [記錄搜尋]。  
+3. 在工作區上，選取 [記錄 (傳統)\]。  
 4. 在 [記錄搜尋] 頁面中，執行記錄搜尋。  
 5. 從記錄搜尋結果中，按一下其中一個欄位左邊的省略符號，然後從快顯視窗中，選取 [對...採取動作]。<br><br> ![從搜尋結果中選取採取動作](./media/take-action/log-search-takeaction-menuoption.png) 
 6. 選取 [執行 Runbook]，並選取要執行的 Runbook。  您可以在連結至記錄 Log Analytics 工作區的自動化帳戶中選取任何 Runbook。  請注意：

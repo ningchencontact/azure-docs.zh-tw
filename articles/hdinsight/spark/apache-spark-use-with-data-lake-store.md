@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 29fef9177e40bd89dd0f179b028d2f044af8addb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913082"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821352"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>使用 HDInsight Spark 叢集分析 Data Lake Storage 中的資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "54913082"
 ## <a name="prepare-the-data"></a>準備資料
 
 > [!NOTE]  
-> 如果您建立以 Data Lake Storage 作為預設儲存體的 HDInsight 叢集，則不需執行此步驟。 叢集建立程序會在您建立叢集時所指定的 Data Lake Storage 帳戶中新增一些範例資料。 請略過[使用具有 Data Lake Storage 的 HDInsight Spark 叢集](#use-an-hdinsight-spark-cluster-with-data-lake-store)一節。
+> 如果您建立以 Data Lake Storage 作為預設儲存體的 HDInsight 叢集，則不需執行此步驟。 叢集建立程序會在您建立叢集時所指定的 Data Lake Storage 帳戶中新增一些範例資料。 請略過使用具有 Data Lake Storage 的 HDInsight Spark 叢集一節。
 
 如果您所建立的 HDInsight Spark 叢集會以 Data Lake Storage 作為額外的儲存體並以 Azure 儲存體 Blob 作為預設儲存體，則應該先將某些範例資料複製到 Data Lake Storage 帳戶。 您可以使用與 HDInsight 叢集相關聯之 Azure 儲存體 Blob 中的資料範例。 您可以使用 [ADLCopy 工具](https://aka.ms/downloadadlcopy) 來執行此動作。 從連結下載並安裝此工具。
 

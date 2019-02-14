@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3b5425bd9f86bce289cc1f60c088febfd8f05ee3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 8731857d133e60cad4ecdca21874916949e05ff3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332620"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813512"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>使用 Data Factory 從 Data Lake Storage Gen1 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,8 +72,8 @@ Data Lake Store 連接器支援這些驗證類型：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **type** | 類型屬性必須設定為 **AzureDataLakeStore**。 | 是 |
-| **dataLakeStoreUri** | Azure Data Lake Store 帳戶相關資訊。 此資訊會採用下列其中一種格式：`https://[accountname].azuredatalakestore.net/webhdfs/v1` 或 `adl://[accountname].azuredatalakestore.net/`。 | 是 |
+| **type** | 類型屬性必須設定為 **AzureDataLakeStore**。 | yes |
+| **dataLakeStoreUri** | Azure Data Lake Store 帳戶相關資訊。 此資訊會採用下列其中一種格式：`https://[accountname].azuredatalakestore.net/webhdfs/v1` 或 `adl://[accountname].azuredatalakestore.net/`。 | yes |
 | **subscriptionId** | Data Lake Store 帳戶所屬的 Azure 訂用帳戶識別碼。 | 接收 (Sink) 的必要項目 |
 | **resourceGroupName** | Data Lake Store 帳戶所屬的 Azure 資源群組名稱。 | 接收 (Sink) 的必要項目 |
 
@@ -93,9 +93,9 @@ Data Lake Store 連接器支援這些驗證類型：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | 是 |
-| **servicePrincipalKey** | 指定應用程式的金鑰。 | 是 |
-| **tenant** | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
+| **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | yes |
+| **servicePrincipalKey** | 指定應用程式的金鑰。 | yes |
+| **tenant** | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | yes |
 
 **範例：服務主體驗證**
 ```json
@@ -120,8 +120,8 @@ Data Lake Store 連接器支援這些驗證類型：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
-| **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | 是 |
+| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | yes |
+| **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | yes |
 
 > [!IMPORTANT]
 > 請確定您將 Azure Data Lake Store 中適當的權限授與使用者：
@@ -239,9 +239,9 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **folderPath** |Data Lake Store 中容器與資料夾的路徑。 |是 |
+| **folderPath** |Data Lake Store 中容器與資料夾的路徑。 |yes |
 | **fileName** |Azure Data Lake Store 中的檔案名稱。 fileName 屬性是選擇性的，而且區分大小寫。 <br/><br/>如果您指定 fileName，活動 (包括複製) 適用於特定的檔案。<br/><br/>如果您未指定 fileName，複製會在輸入資料集中包含 folderPath 中的所有檔案。<br/><br/>當未指定輸出資料集的 fileName，且在活動接收中未指定 preserveHierarchy 時，所產生檔案的名稱格式為 Data._Guid_.txt`。 例如︰Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt。 |否 |
-| **partitionedBy** |partitionedBy 屬性為選擇性。 您可以用來指定時間序列資料的動態路徑與檔案名稱。 例如，folderPath 可針對每小時的資料進行參數化。 如需詳細資料和範例，請參閱 [partitionedBy 屬性](#using-partitionedby-property)一節。 |否 |
+| **partitionedBy** |partitionedBy 屬性為選擇性。 您可以用來指定時間序列資料的動態路徑與檔案名稱。 例如，folderPath 可針對每小時的資料進行參數化。 如需詳細資料和範例，請參閱「partitionedBy 屬性」。 |否 |
 | **format** | 以下是支援的檔案類型：TextFormat、JsonFormat、AvroFormat、OrcFormat 和 ParquetFormat。 將 [format] 下的 [type] 屬性設定為下列其中一個值。 如需詳細資訊，請參閱 [Azure Data Factory 支援的檔案與壓縮格式](data-factory-supported-file-and-compression-formats.md)一文中[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[JSON 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[ORC 格式](data-factory-supported-file-and-compression-formats.md#orc-format)及 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)各節。 <br><br> 如果您想要在以檔案為基礎的存放區之間「依原樣」複製檔案 (二進位複本)，請略過輸入和輸出資料集定義中的 `format` 區段。 |否 |
 | **compression** | 指定此資料的壓縮類型和層級。 支援的類型為：GZip、Deflate、BZip2 及 ZipDeflate。 支援的層級為 **Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 支援的檔案與壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
 

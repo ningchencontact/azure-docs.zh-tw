@@ -2,18 +2,17 @@
 title: Azure Container Registry Webhook
 description: 了解如何在您的登錄存放庫發生特定動作時，使用 Webhook 來觸發事件。
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
-ms.author: marsma
-ms.openlocfilehash: c424e81b13c3c60e975d3721693b1f80e00cfdd7
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.author: danlep
+ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145558"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770596"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure Container Registry Webhook
 
@@ -36,7 +35,7 @@ Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方�
 
 | 值 | 說明 |
 |---|---|
-| 名稱 | 您想要提供給 Webhook 的名稱。 它只能包含小寫字母和數字，且長度必須介於 5-50 個字元。 |
+| Name | 您想要提供給 Webhook 的名稱。 它只能包含小寫字母和數字，且長度必須介於 5-50 個字元。 |
 | 服務 URI | Webhook 需在當中傳送 POST 通知的 URI。 |
 | 自訂標頭 | 您想要與 POST 要求一起傳遞的標頭。 它們應該為「金鑰：值」的格式。 |
 | 觸發程序動作 | 觸發 Webhook 的動作。 可藉由推送映像及/或刪除動作來觸發 Webhook。 |
@@ -75,7 +74,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-若要查看結果，請使用 [az acr webhook list-events](/cli/azure/acr/webhook#list-events) 命令。
+若要查看結果，請使用 [az acr webhook list-events](/cli/azure/acr/webhook) 命令。
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01

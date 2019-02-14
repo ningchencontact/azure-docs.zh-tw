@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542827"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813903"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的使用者帳戶執行工作
 
@@ -66,7 +66,7 @@ Azure Batch 提供執行工作所需的兩種使用者帳戶類型︰
 
 根據預設，Batch 中的工作會在自動使用者帳戶下執行，以標準使用者身分執行，沒有提高權限的存取權，並具有工作範圍。 針對工作範圍設定自動使用者規格之後，Batch 服務只會建立該工作的自動使用者帳戶。
 
-工作範圍的替代方案是集區範圍。 當針對集區範圍設定工作的自動使用者規格時，會在集區中任何工作可用的自動使用者帳戶下執行工作。 如需集區範圍的詳細資訊，請參閱標題為[以自動使用者身分在集區範圍中執行工作](#run-a-task-as-the-autouser-with-pool-scope)的章節。   
+工作範圍的替代方案是集區範圍。 當針對集區範圍設定工作的自動使用者規格時，會在集區中任何工作可用的自動使用者帳戶下執行工作。 如需集區範圍的詳細資訊，請參閱標題為「以自動使用者身分在集區範圍中執行工作」的章節。   
 
 預設範圍在 Windows 和 Linux 節點上有所差異︰
 

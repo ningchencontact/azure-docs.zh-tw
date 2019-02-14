@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/19/2019
 ms.author: jeedes
-ms.openlocfilehash: cad00b5c133f9e33be8dda65417a75d494aacb04
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3145e2ffd7e5fab1ecfc5c7cd83746e6cd8d5936
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460143"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>教學課程：Azure Active Directory 與 Asset Bank 整合
 
@@ -35,7 +36,7 @@ ms.locfileid: "55460143"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Asset Bank 的整合，您需要下列項目：
+若要設定與 Asset Bank 的 Azure AD 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Asset Bank 單一登入的訂用帳戶
@@ -192,7 +193,7 @@ ms.locfileid: "55460143"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Asset Bank] 圖格時，應該會自動登入您已設定 SSO 的 Asset Bank。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 [Asset Bank] 圖格時，應該會自動登入您已設定 SSO 的 Asset Bank。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

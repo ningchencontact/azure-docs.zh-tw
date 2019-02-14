@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382441"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816606"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>因應 Azure Kubernetes Service (AKS) 中商務持續性和災害復原的最佳做法
 
@@ -21,11 +21,11 @@ ms.locfileid: "54382441"
 本最佳做法文章所著重的考量重點，在於協助您規劃 AKS 中的商務持續性和災害復原。 您會了解如何：
 
 > [!div class="checklist"]
-* [規劃多個區域中的 AKS 叢集](#region-planning)
-* [使用 Azure 流量管理員跨多個叢集路由傳送流量](#ingress-traffic)
-* [針對容器映像登錄使用異地複寫](#container-registry)
-* [規劃跨多個叢集的應用程式狀態](#managing-application-state)
-* [跨多個區域複寫儲存體](#storage)
+* 規劃多個區域中的 AKS 叢集
+* 使用 Azure 流量管理員跨多個叢集路由傳送流量
+* 針對容器映像登錄使用異地複寫
+* 規劃跨多個叢集的應用程式狀態
+* 跨多個區域複寫儲存體
 
 ## <a name="plan-for-multi-region-deployment"></a>規劃多重區域部署
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 在 Azure 的 Microsoft 認知服務中開始使用 URL 預覽。
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 33bc6cd74dc0dd61f727a7ebcbbfc1d0bb85506f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5c373505cd381108366206c21ff09f25516d7969
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209072"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884278"
 ---
 # <a name="quickstart-url-preview-with-nodejs"></a>快速入門：使用 Node.js 的 URL 預覽 
 
@@ -30,9 +30,9 @@ ms.locfileid: "55209072"
 下列程式碼會取得 URL 預覽資料。
 實際進行步驟如下：
 1. 宣告變數以依主機及路徑指定端點。
-2. 指定要預覽的查詢 URL，並新增查詢參數。  
+2. 指定要預覽的查詢 URL，並加入查詢參數。  
 3. 建立回應的處理常式函式。
-4. 定義建立要求的搜尋函式，並新增 *Ocp-Apim-Subscription-Key* 標頭。
+4. 定義建立要求的搜尋函式，並加入 *Ocp-Apim-Subscription-Key* 標頭。
 5. 執行搜尋函式。 
 
 此示範的完整程式碼如下：

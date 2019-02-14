@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 專案 URL 預覽簡介。
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 2e974acb1a7583fbd1a961eda4daa3732fbeff7c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218168"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865330"
 ---
 # <a name="what-is-project-url-preview"></a>什麼是專案 URL 預覽？
 預覽 URL 端點使用 URL 查詢參數，並傳回 JSON 回應，其中包含目標資源的名稱、簡短描述，以及在預覽中顯示影像的連結。 回應也包含 [isFamilyFriendly](url-preview-reference.md#query-parameters) 旗標，指出 URL 是否包含成人、盜版或其他不合法的內容。 

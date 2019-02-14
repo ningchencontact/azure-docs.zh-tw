@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 9877698c8c6af68c5ffd88dab37150274ce87b37
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8a0300eeda49d85ffc08db8f285550e217613dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077329"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821608"
 ---
 # <a name="secure-your-key-vault"></a>保護您的金鑰保存庫
 
@@ -34,7 +34,7 @@ Azure Key Vault 是用來保護加密金鑰和祕密 (例如憑證、連接字�
 
 以下是所涵蓋主題的簡短概觀︰
 
-[使用 Azure Active Directory 進行驗證](#authentication-using-azure-active-directory) - 本節說明呼叫者如何使用 Azure Active Directory 進行驗證，以透過管理平面和資料平面存取金鑰保存庫。 
+使用 Azure Active Directory 進行驗證 - 本節說明呼叫者如何使用 Azure Active Directory 進行驗證，以透過管理平面和資料平面存取金鑰保存庫。 
 
 針對驗證，兩個平台都使用 Azure Active Directory (Azure AD)。 至於授權，管理平面使用角色型存取控制 (RBAC)，資料平面則使用 Key Vault 存取原則。
 

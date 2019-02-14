@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26578868"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822301"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>使用 StorSimple 裝置管理員服務來管理磁碟區 (Update 3 或更新版本)
 
@@ -34,7 +34,7 @@ StorSimple 裝置管理員服務是 Azure 入口網站中的一項擴充，可�
 StorSimple 磁碟區可以是：
 
 * **固定在本機的磁碟區**：這些磁碟區中的資料隨時都會保留在本機 StorSimple 裝置。
-* **分層磁碟區**：這些磁碟區中的資料可以溢出至雲端。
+* **階層式磁碟區**：這些磁碟區中的資料可能流向雲端。
 
 封存的磁碟區是一種分層磁碟區。 用於封存磁碟區的較大重複資料刪除區塊大小，可讓裝置將資料的較大區段傳輸至雲端。
 
@@ -120,9 +120,9 @@ StorSimple 磁碟區可以是：
       
        如果您在 8100 裝置上佈建 8.5 TB (允許的大小上限) 且固定在本機的磁碟區，則您會用盡裝置上所有可用的本機空間。 從那時起，您就無法建立任何分層磁碟區，因為裝置上已沒有任何本機空間，可用來裝載分層磁碟區的工作集。 現有的分層磁碟區也會影響可用的空間。 例如，如果您的 8100 裝置已經有大約 106 TB 的分層磁碟區，則固定在本機的磁碟區僅只有 4 TB 的可用空間。
 
-    6. 在 [已連線的主機] 欄位中，按一下箭號。 在 [已連線的主機] 刀鋒視窗中，選擇現有的 ACR 或新的 ACR。 如果您選擇新的 ACR，請提供 ACR 的 [名稱]，並提供 Windows 主機的 [iSCSI 限定名稱]\(IQN)。 如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN](#get-the-iqn-of-a-windows-server-host)。 按一下頁面底部的 [新增] 。 使用指定的設定來建立磁碟區。
+    6. 在 [已連線的主機] 欄位中，按一下箭號。 在 [已連線的主機] 刀鋒視窗中，選擇現有的 ACR 或新的 ACR。 如果您選擇新的 ACR，請提供 ACR 的 [名稱]，並提供 Windows 主機的 [iSCSI 限定名稱]\(IQN)。 如果沒有 IQN，請移至「取得 Windows Server 主機的 IQN」。 按一下頁面底部的 [新增] 。 使用指定的設定來建立磁碟區。
 
-        ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![按一下 [建立專案]。](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
 新的磁碟區現在已備妥可供使用。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 982a639fe7a57c2db484acc6b272e5314637d1c4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b033cae63668c1b2af968d5c5b9df4e7b42dc35
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167660"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>教學課程：Azure Active Directory 與 ChronicX® 整合
 
@@ -86,7 +86,7 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 ChronicX® 測試使用者](#create-a-chronicx®-test-user)** - 讓 ChronicX® 中的 Britta Simon 對應項目得以連結至 Azure AD 中代表該使用者的項目。
+1. **建立 ChronicX® 測試使用者** - 讓 ChronicX® 中的 Britta Simon 對應項目得以連結至 Azure AD 中代表該使用者的項目。
 1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 

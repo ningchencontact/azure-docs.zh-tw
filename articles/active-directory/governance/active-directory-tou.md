@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: be8a6ba83de81c5a82797ecf3d30c7a7fcaa65fa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162764"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822505"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用使用規定。
@@ -257,10 +257,10 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | 其他 |
 > | --- | --- | --- | --- | --- |
-> | **原生應用程式** | 是 | 是 | 是 |  |
-> | **Microsoft Edge** | 是 | 是 | 是 |  |
-> | **Internet Explorer** | 是 | 是 | 是 |  |
-> | **Chrome (搭配擴充功能)** | 是 | 是 | 是 |  |
+> | **原生應用程式** | yes | 是 | yes |  |
+> | **Microsoft Edge** | yes | 是 | yes |  |
+> | **Internet Explorer** | yes | 是 | yes |  |
+> | **Chrome (搭配擴充功能)** | yes | 是 | yes |  |
 
 每部裝置的使用規定具有下列限制：
 
@@ -337,7 +337,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 **問：如何查看使用者何時或是否已接受使用規定？**<br />
-答：在 [使用規定] 刀鋒視窗上，按一下 [已接受] 底下的數字。 您也可以檢視或搜尋 Azure AD 稽核記錄中的接受活動。 如需詳細資訊，請參閱[檢視已接受和已拒絕的人員報表](#view-who-has-accepted-and-declined)和[檢視 Azure AD 稽核記錄](#view-azure-ad-audit-logs)。
+答：在 [使用規定] 刀鋒視窗上，按一下 [已接受] 底下的數字。 您也可以檢視或搜尋 Azure AD 稽核記錄中的接受活動。 如需詳細資訊，請參閱檢視已接受和已拒絕的人員報表和[檢視 Azure AD 稽核記錄](#view-azure-ad-audit-logs)。
 
 **問：資訊會儲存多久時間？**<br />
 答：使用規定報表中的使用者計數和已接受/已拒絕的人員都會儲存到使用規定的存留期結束。 Azure AD 稽核記錄會儲存 30 天。

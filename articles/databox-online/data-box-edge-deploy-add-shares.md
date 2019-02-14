@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6c6553ace250aa9cbc06dfdfea77fc5e1637cd41
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6810818e48329d883961c840fa83857d84b98fd4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384814"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112864"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge-preview"></a>教學課程：使用 Azure Data Box Edge 傳輸資料 (預覽)
 
@@ -135,14 +135,14 @@ ms.locfileid: "53384814"
 
 1. 安裝 NFS 用戶端之後，請使用下列命令掛接您在 Data Box Edge 裝置上建立的 NFS 共用：
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
     > 掛接共用之前，請確定已建立要在本機電腦上作為掛接點的目錄。 這些目錄不應包含任何檔案或子資料夾。
 
     下列範例說明如何透過 NFS 連線到 Data Box Edge 裝置上的共用。 裝置 IP 為 `10.10.10.60`。 共用 `mylinuxshare2` 會掛接在 ubuntuVM 上。 共用掛接點為 `/home/databoxubuntuhost/edge`。
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
 > [!NOTE] 
 > 下列需要注意的事項適用於預覽版本︰

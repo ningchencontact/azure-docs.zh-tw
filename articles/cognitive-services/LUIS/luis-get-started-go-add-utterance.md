@@ -3,19 +3,19 @@ title: 變更、定型應用程式 (Go)
 description: 在此 Go 語言快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且訓練應用程式。
 titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: edbc7066beebe9b54446bee086578c0836d93a1d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4bc76f67b2d8908abe601aa1fcdfd1962678c548
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220173"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865646"
 ---
 # <a name="quickstart-change-model-using-go"></a>快速入門：使用 Go 變更模型
 

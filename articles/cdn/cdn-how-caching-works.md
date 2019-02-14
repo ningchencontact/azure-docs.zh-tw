@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
-ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092381"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813036"
 ---
 # <a name="how-caching-works"></a>快取的運作方式
 
@@ -126,10 +126,10 @@ Azure CDN 支援下列 HTTP 快取指示詞標頭，這些標頭會定義快取�
 
 |    | Microsoft：一般 Web 傳遞 | Verizon：一般 Web 傳遞 | Verizon：DSA | Akamai：一般 Web 傳遞 | Akamai：DSA | Akamai：大型檔案下載 | Akamai：一般或 VOD 媒體串流處理 |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **接受來源**       | 是    | yes   | 否   | 是    | 否   | yes   | 是    |
+| **接受來源**       | yes    | 是   | 否   | yes    | 否   | yes   | yes    |
 | **CDN 快取持續時間** | 2 天 |7 天 | None | 7 天 | None | 1 天 | 1 年 |
 
-**接受來源**：指定如果[支援的快取指示詞標頭](#http-cache-directive-headers)存在於原始伺服器的 HTTP 回應中，是否要加以接受。
+**接受來源**：指定如果支援的快取指示詞標頭存在於原始伺服器的 HTTP 回應中，是否要加以接受。
 
 **CDN 快取持續時間**：指定資源會在 Azure CDN 快取的時間量。 不過，如果**接受來源**為 [是]，且來自原始伺服器的 HTTP 回應中包含快取指示詞標頭 `Expires` 或 `Cache-Control: max-age`，Azure CDN 就會改為使用標頭所指定的持續時間值。 
 

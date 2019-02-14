@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 容器會將您已定型或發佈的應用程式載入 Docker 容器中，並提供從容器的 API 端點存取查詢預測的權限。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296893"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982381"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -60,7 +60,7 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 使用 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 命令從 `mcr.microsoft.com/azure-cognitive-services/luis` 存放庫下載容器映像：
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -252,7 +252,7 @@ ApiKey={ENDPOINT_KEY}
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 已發佈 (預備或生產) 應用程式的端點具有與已定型應用程式的端點_不同_的路由。 
 
-針對容器 API 請使用主機 https://localhost:5000。 
+針對容器 API 請使用主機 `https://localhost:5000`。 
 
 |套件類型|方法|路由|查詢參數|
 |--|--|--|--|
@@ -324,18 +324,7 @@ curl -X GET \
 
 LUIS 容器會使用您 Azure 帳戶上的 _Language Understanding_ 資源將帳單資訊傳送至 Azure。 
 
-認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (語句) 傳送至 Microsoft。 
-
-`docker run` 會使用下列引數進行計費：
-
-| 選項 | 說明 |
-|--------|-------------|
-| `ApiKey` | 用來追蹤帳單資訊的 _Language Understanding_ 資源的 API 金鑰。<br/>此選項的值必須設定為已佈建 LUIS Azure 資源的 API 金鑰，如 `Billing` 所指定。 |
-| `Billing` | 用來追蹤帳單資訊的 _Language Understanding_ 資源的端點。<br/>此選項的值必須設定為已佈建 LUIS Azure 資源的端點 URI。|
-| `Eula` | 表示您已接受容器的授權。<br/>此選項的值必須設定為 `accept`。 |
-
-> [!IMPORTANT]
-> 這三個選項都必須指定為有效的值，否則將無法啟動容器。
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 如需這些選項的詳細資訊，請參閱[設定容器](luis-container-configuration.md)。
 

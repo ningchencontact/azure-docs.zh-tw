@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 328471292ea6cbe07e96cc18af7f9c524407de3d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317187"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809465"
 ---
 # <a name="high-availability-ports-overview"></a>高可用性連接埠概觀
 
@@ -100,7 +100,7 @@ HA 連接埠功能適用於所有全域 Azure 區域。
 
 - HA 連接埠功能不適用於 IPv6。
 
-- 只有在以如上述[圖表](#diagram)所示的方式使用並使用 HA 連接埠負載平衡規則時，後端執行個體和單一 NIC (以及單一 IP 設定) 才會支援流程對稱 (主要針對 NVA 案例)。 任何其他案例中均不提供此支援。 這表示兩個或多個 Load Balancer 資源及其各自規則均會進行獨立決策，而且絕對不會進行協調。 請參閱[網路虛擬設備](#nva)的描述和圖表。 當您使用多個 NIC 或將 NVA 插入公用和內部 Load Balancer 之間時，無法使用流程對稱。  您可以藉由對輸入流程進行來源 NAT 為應用裝置 IP，以允許回覆到達相同 NVA，來解決這個問題。  不過，我們強烈建議使用單一 NIC 和使用上述[圖表](#diagram)所示的參考架構。
+- 只有在以如上述圖表所示的方式使用並使用 HA 連接埠負載平衡規則時，後端執行個體和單一 NIC (以及單一 IP 設定) 才會支援流程對稱 (主要針對 NVA 案例)。 任何其他案例中均不提供此支援。 這表示兩個或多個 Load Balancer 資源及其各自規則均會進行獨立決策，而且絕對不會進行協調。 請參閱[網路虛擬設備](#nva)的描述和圖表。 當您使用多個 NIC 或將 NVA 插入公用和內部 Load Balancer 之間時，無法使用流程對稱。  您可以藉由對輸入流程進行來源 NAT 為應用裝置 IP，以允許回覆到達相同 NVA，來解決這個問題。  不過，我們強烈建議使用單一 NIC 和使用上述圖表所示的參考架構。
 
 
 ## <a name="next-steps"></a>後續步驟

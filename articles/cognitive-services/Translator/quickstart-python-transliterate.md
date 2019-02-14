@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您會了解如何搭配使用 Python 和翻譯工具文字 REST API，將文字從一個字集直譯 (轉換) 成另一個字集。 在此範例中，日文會直譯為使用拉丁字母。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: dd875fe19bdf9d02fc7217b66c8fd442abef2d42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 845ce074b503dc395ce3444734b16d4ab8224e89
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700259"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876261"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來直譯文字
 

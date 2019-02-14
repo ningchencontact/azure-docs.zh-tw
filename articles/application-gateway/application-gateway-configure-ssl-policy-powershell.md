@@ -8,16 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5f5b389c66821282668f0b4fce9e0b67af028e9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157457"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816946"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>在應用程式閘道上設定 SSL 原則版本和加密套件
 
-了解如何在應用程式閘道上設定 SSL 原則版本和加密套件。 您可以從[預先定義的原則清單](#predefined-ssl-policies)中選取，清單包含 SSL 原則版本和已啟用加密套件的不同設定。 您也可以根據您的需求定義[自訂 SSL 原則](#configure-a-custom-ssl-policy)。
+了解如何在應用程式閘道上設定 SSL 原則版本和加密套件。 您可以從預先定義的原則清單中選取，其中包含 SSL 原則版本和已啟用加密套件的不同設定。 您也可以根據您的需求定義[自訂 SSL 原則](#configure-a-custom-ssl-policy)。
 
 ## <a name="get-available-ssl-options"></a>取得可用的 SSL 選項
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358978"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767332"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -86,7 +86,7 @@ ms.locfileid: "54358978"
 
 1. **如果是從其中一個隨收隨付資源庫映像建立，可以將 VM 變更為使用自己的 SQL Server 授權嗎？**
 
-   是。 您可以輕鬆地在兩個授權模型中切換，不論原先部署的映像為何。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模型](virtual-machines-windows-sql-ahb.md)。
+   是。 如果您最初開始使用預付型方案資源庫映像，則可輕鬆地在兩個授權模型中切換。 不過，如果您最初開始使用 BYOL 映像，則無法將您的授權切換為 PAYG。 如需詳細資訊，請參閱[如何變更 SQL Server VM 的授權模式](virtual-machines-windows-sql-ahb.md)。
 
 1. **我應該使用 BYOL 映像或 SQL VM RP 來建立新 SQL VM？**
 
@@ -94,11 +94,11 @@ ms.locfileid: "54358978"
 
 1. **切換授權模型是否必須讓 SQL Server 停機？**
 
-   沒有。 [變更授權模型](virtual-machines-windows-sql-ahb.md)不需要將 SQL Server 停機，因為變更會立即生效，且不需要重新啟動 VM。 
+   沒有。 [變更授權模型](virtual-machines-windows-sql-ahb.md)不需要將 SQL Server 停機，因為變更會立即生效，且不需要重新啟動 VM。 不過，若要向 SQL VM 資源提供者註冊您的 SQL Server VM，[SQL IaaS 擴充功能](virtual-machines-windows-sql-server-agent-extension.md)是必要條件，而且安裝 SQL IaaS 擴充功能會重新啟動 SQL Server 服務。 因此，如果需要安裝 SQL IaaS 擴充功能，然後應該在維護期間完成此作業。 
 
 1. **CSP 訂用帳戶是否能啟用 Azure Hybrid Benefit？**
 
-   是。 [變更授權模型](virtual-machines-windows-sql-ahb.md)適用於 CSP 訂用帳戶。 
+   是，Azure Hybrid Benefit 適用於 CSP 訂用帳戶。 CSP 客戶應該先部署預付型方案映像，然後將[授權模式變更](virtual-machines-windows-sql-ahb.md)為自備授權。  
 
 1. **使用新的 SQL VM 資源提供者註冊我的 VM 是否會產生額外的成本？**
 

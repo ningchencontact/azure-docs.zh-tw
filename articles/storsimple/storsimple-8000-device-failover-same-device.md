@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: acc8929dc3476e9590e8e4d9526b38b7c0719570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108196"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809056"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>將您的 StorSimple 實體裝置容錯移轉至相同的裝置
 
@@ -32,7 +32,7 @@ ms.locfileid: "23108196"
 若要將實體裝置容錯移轉至另一個實體裝置，請移至[容錯移轉至相同的 StorSimple 實體裝置](storsimple-8000-device-failover-physical-device.md)。 若要將 StorSimple 實體裝置容錯移轉至 StorSimple 雲端設備，請移至[容錯移轉至 StorSimple 雲端設備](storsimple-8000-device-failover-cloud-appliance.md)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 請確定您已檢閱裝置容錯移轉的注意事項。 如需詳細資訊，請移至[裝置容錯移轉的一般注意事項](storsimple-8000-device-failover-disaster-recovery.md)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "23108196"
 4. 設定裝置，並再次使用 StorSimple 裝置管理員服務重新註冊裝置。 新註冊的裝置應該會顯示成 [準備好進行設定]。 新裝置的裝置名稱與舊裝置的相同，但會加上數字來表示裝置已重設為原廠預設值，並重新註冊。
 
     ![新註冊的裝置已準備好進行設定](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
-5. 請完成新裝置的裝置設定。 如需詳細資訊，請移至[步驟 4：完成基本裝置設定](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup)。 在 [裝置] 刀鋒視窗中，裝置的狀態會變更為 [線上]。
+5. 請完成新裝置的裝置設定。 如需詳細資訊，請移至[步驟 4：完成最小裝置設定](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup)。 在 [裝置] 刀鋒視窗中，裝置的狀態會變更為 [線上]。
 
    > [!IMPORTANT]
    > **請先完成基本設定，否則您的 DR 可能會失敗。**
@@ -61,7 +61,7 @@ ms.locfileid: "23108196"
 
     ![容錯移轉摘要](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev11.png)
 
-    如需詳細指示，請參閱 [容錯移轉到另一個實體裝置](#fail-over-to-another-physical-device)。
+    如需詳細指示，請參閱「容錯移轉到另一個實體裝置」。
 
 7. 您可以從 [作業] 刀鋒視窗來監視建立的裝置還原作業。
 

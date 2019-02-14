@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228282"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821944"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>整合 Azure ExpressRoute 與 Azure VM 的災害復原
 
@@ -190,7 +190,7 @@ ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部�
 ### <a name="example-steps"></a>範例步驟
 若要將此範例中的復原自動化，您必須執行下列作業：
 
-1. 執行[設定複寫](#azure-vm-replication-steps)的步驟。
+1. 執行設定複寫的步驟。
 2. 執行容錯移轉期間或之後的其他步驟，[進行 Azure VM 的容錯移轉](azure-to-azure-tutorial-failover-failback.md)。
 
     a. 在目標區域中樞 VNet 中建立 Azure ExpressRoute 閘道。 必須有此閘道，才能將目標中樞 vNet 連線至 ExpressRoute 線路。

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022533"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813835"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>使用資料管理閘道針對問題進行疑難排解
 本文提供使用資料管理閘道進行疑難問題排解的相關資訊。
@@ -138,7 +138,7 @@ ms.locfileid: "54022533"
 您的閘道處於需要 HTTP Proxy 才能存取網際網路資源的環境中，或 Proxy 的驗證密碼已變更但未在您的閘道中相應更新時，就會發生此錯誤。
 
 #### <a name="resolution"></a>解決方案
-遵循本文章的 [Proxy 伺服器考量](#proxy-server-considerations)一節中的指示，並透過「資料管理閘道組態管理員」設定 Proxy 設定。
+遵循本文章的「Proxy 伺服器考量」一節中的指示，並透過「資料管理閘道組態管理員」設定 Proxy 設定。
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>閘道在線上但功能受限
 ### <a name="1-problem"></a>1.問題
@@ -169,8 +169,8 @@ ms.locfileid: "54022533"
 請依照下列步驟操作，讓閘道回到線上：
 
 1. 允許在閘道電腦和公司防火牆上執行 IP 位址輸出規則。 您可以從 Windows 事件記錄 (識別碼 = 401) 找到 IP 位址：嘗試存取通訊端被拒絕，因為存取權限不足 XX.XX.XX.XX:9350。
-* 設定閘道上的 Proxy 設定。 如需詳細資料，請參閱 [Proxy 伺服器考量](#proxy-server-considerations)一節。
-* 在閘道電腦的 Windows 防火牆上與公司防火牆上啟用輸出連接埠 5671 和 9350-9354。 如需詳細資料，請參閱[連接埠和防火牆](#ports-and-firewall)一節。 此步驟為選用步驟，但基於效能考量，還是建議執行。
+* 設定閘道上的 Proxy 設定。 如需詳細資料，請參閱「Proxy 伺服器考量」一節。
+* 在閘道電腦的 Windows 防火牆上與公司防火牆上啟用輸出連接埠 5671 和 9350-9354。 如需詳細資料，請參閱「連接埠和防火牆」一節。 此步驟為選用步驟，但基於效能考量，還是建議執行。
 
 ### <a name="3-problem"></a>3.問題
 您看到下列錯誤。

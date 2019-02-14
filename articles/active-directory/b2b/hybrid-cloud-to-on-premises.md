@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ef70b9e58a669695f3bdec7ad8ea4bab93e7e4b9
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 084784af256fdf31cf1661109c0535cb91ef1db5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082039"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817406"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權
 
@@ -43,7 +43,7 @@ ms.locfileid: "55082039"
 
    B2B 使用者案例提供兩種方法，供您建立在內部部署目錄中進行授權所需的來賓使用者物件：
 
-   - Microsoft Identity Manager (MIM) 和 [Microsoft Graph 的 MIM 管理代理程式](#create-b2b-guest-user-objects-through-mim-preview)。 
+   - Microsoft Identity Manager (MIM) 和 Microsoft Graph 的 MIM 管理代理程式。 
    - [PowerShell 指令碼](#create-b2b-guest-user-objects-through-a-script-preview)。 使用指令碼會是更輕量的解決方案，不需要 MIM 就可運作。 
 
 下圖可針對 Azure AD 應用程式 Proxy 如何與內部部署目錄的 B2B 使用者物件產生一起運作，以對 B2B 使用者授與內部部署 IWA 和 KCD 應用程式的存取權，提供高階的概觀。 圖表下方有各編號步驟的詳細說明。

@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469391"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814107"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>搭配 Azure SQL Database 中獨立、集區和執行個體資料庫使用的異動複寫
 
-異動複寫是 Azure SQL Database、受控執行個體和 SQL Server 的功能，可讓您將 Azure SQL Database 或 SQL Server 中資料表的資料複寫到遠端資料庫上的資料表。 此功能可讓您同步處理不同資料庫中的多個資料表。
+異動複寫是 Azure SQL Database 和 SQL Server 的功能，可讓您將 Azure SQL Database 或 SQL Server 中資料表的資料複寫到遠端資料庫上的資料表。 此功能可讓您同步處理不同資料庫中的多個資料表。
 
 ## <a name="when-to-use-transactional-replication"></a>使用異動複寫的時機
 
@@ -38,15 +38,15 @@ ms.locfileid: "55469391"
 ![使用 SQL Database 的複寫](media/replication-to-sql-database/replication-to-sql-database.png)
 
 
-**發行者**是執行個體或伺服器，它會藉由將更新傳送到散發者，來發行在某些資料表 (文章) 上的變更。 在下列 SQL Server 版本上支援從內部部署 SQL Server 發行到 Azure SQL Database：
+**發行者**是執行個體或伺服器，它會藉由將更新傳送到散發者，來發行在某些資料表 (文章) 上的變更。 下列 SQL Server 版本支援從內部部署 SQL Server 發佈至任何 Azure SQL Database：
 
-    - SQL Server 2019 (預覽)
-    - SQL Server 2016 至 SQL 2017
-    - SQL Server 2014 SP1 CU3 或更新版本 (12.00.4427)
-    - SQL Server 2014 RTM CU10 (12.00.2556)
-    - SQL Server 2012 SP3 或更新版本 (11.0.6020)
-    - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-    - 針對其他不支援發行到 Azure 中物件的 SQL Server 版本，可以利用[重新發行](https://docs.microsoft.com/sql/relational-databases/replication/republish-data)資料方法將資料移動到版本較新的 SQL Server。 
+   - SQL Server 2019 (預覽)
+   - SQL Server 2016 至 SQL 2017
+   - SQL Server 2014 SP1 CU3 或更新版本 (12.00.4427)
+   - SQL Server 2014 RTM CU10 (12.00.2556)
+   - SQL Server 2012 SP3 或更新版本 (11.0.6020)
+   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
+   - 針對其他不支援發行到 Azure 中物件的 SQL Server 版本，可以利用[重新發行](https://docs.microsoft.com/sql/relational-databases/replication/republish-data)資料方法將資料移動到版本較新的 SQL Server。 
 
 **散發者**是執行個體過伺服器，它會從發行者收集文章中的變更，然後將變更散發到訂閱者。 散發者可以是 Azure SQL Database 受控執行個體或 SQL 伺服器 (只要是任何與發行者相同的版本或更新版本都可以)。 
 
@@ -54,10 +54,10 @@ ms.locfileid: "55469391"
 
 | 角色 | 獨立和集區資料庫 | 執行個體資料庫 |
 | :----| :------------- | :--------------- |
-| **發行者** | 否 | 是 | 
-| **散發者** | 否 | 是|
-| **提取訂閱者** | 否 | 是|
-| **發送訂閱者**| 是 | 是|
+| **發行者** | 否 | yes | 
+| **散發者** | 否 | yes|
+| **提取訂閱者** | 否 | yes|
+| **發送訂閱者**| yes | yes|
 | &nbsp; | &nbsp; | &nbsp; |
 
 [複寫有不同類型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017)：
@@ -65,12 +65,12 @@ ms.locfileid: "55469391"
 
 | 複寫 | 獨立和集區資料庫 | 執行個體資料庫|
 | :----| :------------- | :--------------- |
-| [**交易式**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 是 (僅作為訂閱者) | 是 | 
-| [**快照集**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 是 (僅作為訂閱者) | 是|
+| [**交易式**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 是 (僅作為訂閱者) | yes | 
+| [**快照集**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 是 (僅作為訂閱者) | yes|
 | [**合併式複寫**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 否 | 否|
 | [**點對點**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 否 | 否|
-| **單向** | 是 | 是|
-| [**雙向**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 否 | 是|
+| **單向** | yes | yes|
+| [**雙向**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 否 | yes|
 | [**可更新訂閱**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 否 | 否|
 | &nbsp; | &nbsp; | &nbsp; |
 

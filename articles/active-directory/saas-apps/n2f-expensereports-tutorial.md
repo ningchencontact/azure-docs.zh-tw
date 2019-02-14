@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 27fb299bc3bbbbf75bdf40ae02eac627763ce6d4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d8d3d9c14ee1eaa5e5d6dc3245c0d4071306f12a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007110"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811625"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>教學課程：Azure Active Directory 與 N2F - Expense reports 整合
 
@@ -87,7 +87,7 @@ N2F - Expense reports 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 N2F - Expense reports 測試使用者](#create-a-n2f---expense-reports-test-use)** - 在 N2F - Expense reports 中建立 Britta Simon 的對應項目，且該項目須與 Azure AD 中代表使用者的項目連結。
+3. **建立 N2F - Expense reports 測試使用者** - 在 N2F - Expense reports 中建立 Britta Simon 的對應項目，且該項目須與 Azure AD 中代表使用者的項目連結。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
@@ -259,7 +259,7 @@ N2F - Expense reports 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 N2F - Expense reports 圖格時，應該會自動登入您的 N2F - Expense reports 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -1,6 +1,6 @@
 ---
-title: 因增 XML 驗證的結構描述 - Azure Logic Apps | Microsoft Docs
-description: 建立結構描述以在採用 Enterprise Integration Pack 的 Azure Logic Apps 中驗證 XML 文件
+title: 使用結構描述驗證 XML - Azure Logic Apps | Microsoft Docs
+description: 新增結構描述，以在採用 Enterprise Integration Pack 的 Azure Logic Apps 中驗證 XML 文件
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,124 +9,185 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
-ms.date: 07/29/2016
-ms.openlocfilehash: e03346da1c2b77f885c39d5329f990684979c56e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 02/06/2019
+ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123068"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768297"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中使用結構描述來驗證 XML
 
-結構描述可確認您收到的 XML 文件都有效，而且包含具有預先定義格式的預期資料。 結構描述也可用來驗證在 B2B 案例中交換的訊息。
+若要確認文件使用有效的 XML ，且其預期資料採用針對 Azure Logic Apps 中企業整合案例預先定義的格式，您的邏輯應用程式可以使用結構描述。 結構描述也可以驗證邏輯應用程式在企業對企業 (B2B) 案例中交換的訊息。
 
-## <a name="add-a-schema"></a>新增結構描述
+如需整合帳戶和成品 (例如結構描述) 的相關限制，請參閱 [Azure Logic Apps 的限制與設定資訊](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)。
 
-1. 在 Azure 入口網站中，選取 [所有服務]。
+## <a name="prerequisites"></a>必要條件
 
-    ![Azure 入口網站中的 [所有服務]](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+* Azure 訂用帳戶。 如果您沒有訂用帳戶，請<a href="https://azure.microsoft.com/free/" target="_blank">註冊一個免費的 Azure 帳戶</a>。
 
-2. 在篩選搜尋方塊中輸入**整合**，然後從結果清單中選取 [整合帳戶]。
+* [整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，您在其中為企業整合和企業對企業 (B2B) 解決方案儲存您的結構描述與其他成品。 
 
-    ![篩選搜尋方塊](media/logic-apps-enterprise-integration-schemas/overview-21.png)
+  若您的結構描述為 [2 MB 或更小](#smaller-schema)，您可以直接從 Azure 入口網站將結構描述新增到您的整合帳戶。 不過，如果結構描述大於 2 MB，但未大於[結構描述大小限制](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)，您即可將結構描述上傳到 Azure 儲存體帳戶。 
+  若要將該結構描述新增至您的整合帳戶，您可以接著從您的整合帳戶連結至儲存體帳戶。 
+  對於這項工作，以下是您需要的項目： 
 
-3. 選取要在其中新增結構描述的**整合帳戶**。
+  * [Azure 儲存體帳戶](../storage/common/storage-account-overview.md)，您在其中為您的結構描述建立 Blob 容器。 了解如何[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。 
 
-    ![整合帳戶清單](media/logic-apps-enterprise-integration-schemas/overview-31.png)
+  * 用來儲存結構描述的 Blob 容器。 了解如何[建立 Blob 容器](../storage/blobs/storage-quickstart-blobs-portal.md)。 
+  當您將結構描述新增到您的整合帳戶時，您需要容器的內容 URI。
 
-4. 選擇 [結構描述] 圖格。
+  * [Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)，您可用來管理儲存體帳戶和 Blob 容器。 
+  若要使用儲存體總管，請選擇以下其中一個選項：
+  
+    * 在 Azure 入口網站中，尋找並選取您的儲存體帳戶。 
+    從您的儲存體帳戶功能表，選取 [儲存體總管]。
 
-    ![範例整合帳戶 "Schemas"](media/logic-apps-enterprise-integration-schemas/schema-11.png)
+    * 對於傳統型版本，[下載並安裝 Azure 儲存體總管](https://www.storageexplorer.com/)。 
+    接著，依照[開始使用儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md) [儲存體總管] 連線到您的儲存體帳戶。 
+    若要深入了解，請參閱[快速入門：使用 Azure 儲存體總管在物件儲存體中建立 Blob](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)。
 
-### <a name="add-a-schema-file-smaller-than-2-mb"></a>新增小於 2 MB 的結構描述檔案
+建立並新增結構描述時，不需要邏輯應用程式。 不過，若要使用結構描述，您的邏輯應用程式必須連結到您在其中儲存結構描述的整合帳戶。 了解[如何將邏輯應用程式連結到整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)。 如果您尚未擁有邏輯應用程式，請了解[如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 在開啟的 [結構描述] 刀鋒視窗中 (從先前的步驟)，選擇 [新增]。
+## <a name="add-schemas"></a>新增結構描述
 
-    ![[結構描述] 刀鋒視窗，[新增]](media/logic-apps-enterprise-integration-schemas/schema-21.png)
+1. 使用您的 Azure 帳戶認證登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>。
 
-2. 輸入結構描述名稱。 選取 [結構描述] 方塊旁的資料夾圖示以上傳結構描述檔案。 上傳程序完成之後，請選取 [確定]。
+1. 若要尋找並開啟您的整合帳戶，請開啟主 Azure 功能表，然後選取 [所有服務]。 在搜尋方塊中，輸入「整合帳戶」。 選取 [整合帳戶]。
 
-    ![[新增結構描述] 的螢幕擷取畫面，反白顯示了 [小型檔案]](media/logic-apps-enterprise-integration-schemas/schema-31.png)
+   ![尋找整合帳戶](./media/logic-apps-enterprise-integration-schemas/find-integration-account.png)
 
-### <a name="add-a-schema-file-larger-than-2-mb-up-to-8-mb-maximum"></a>新增大於 2 MB 的結構描述檔案 (最大 8 MB)
+1. 選取要將結構描述新增到其中的整合帳戶，例如：
 
-這些步驟視 Blob 容器存取層級而異：[公開] 或 [無匿名存取]。
+   ![選取企業整合帳戶](./media/logic-apps-enterprise-integration-schemas/select-integration-account.png)
 
-**判斷此存取層級**
+1. 在您的整合帳戶的 [概觀] 頁面上的 [元件] 下，選取 [結構描述] 圖格。
 
-1.  開啟 [Azure 儲存體總管]。 
+   ![選取 [結構描述]](./media/logic-apps-enterprise-integration-schemas/select-schemas.png)
 
-2.  在 [Blob 容器] 下，選取您要的 Blob 容器。 
+1. 在 [結構描述] 頁面開啟之後，選擇 [新增]。
 
-3.  選取 [安全性]、[存取層級]。
+   ![選擇 [新增]](./media/logic-apps-enterprise-integration-schemas/add-schema.png)
 
-如果 blob 安全性存取層級為**公用**，請遵循下列步驟。
+根據您的結構描述 (.xsd) 檔案大小，依照相關步驟上傳[最多 2 MB](#smaller-schema) 或[超過 2 MB 但最多 8 MB](#larger-schema) 的結構描述。
 
-![Azure 儲存體總管，已反白選取 [Blob 容器]、[安全性] 與 [公開]](media/logic-apps-enterprise-integration-schemas/blob-public.png)
+<a name="smaller-schema"></a>
 
-1. 將結構描述上傳至儲存體帳戶，並複製 URI。
+### <a name="add-schemas-up-to-2-mb"></a>新增最多 2 MB 的結構描述
 
-    ![儲存體帳戶，已反白顯示 URI](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
+1. 在 [新增結構描述] 下方，輸入結構描述的名稱。 
+   維持選取 [小型檔案]。 在 [結構描述] 方塊旁，選擇資料夾圖示。 尋找並選取您要上傳的結構描述，例如：
 
-2. 在 [新增結構描述] 中選取 [大型檔案]，然後在 [內容 URI] 文字方塊中提供 URI。
+   ![上傳小型結構描述](./media/logic-apps-enterprise-integration-schemas/upload-smaller-schema-file.png)
 
-    ![[結構描述]，已反白顯示 [新增] 按鈕和 [大型檔案]](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+1. 當您就緒時，請選擇 [確定]。
 
-如果 blob 安全性存取層級為**無匿名存取**，請遵循下列步驟。
+   當您的結構描述完成上傳之後，結構描述會出現在 [結構描述] 清單中。
 
-![Azure 儲存體總管，已反白顯示 [Blob 容器]、[安全性] 和 [無匿名存取]](media/logic-apps-enterprise-integration-schemas/blob-1.png)
+<a name="larger-schema"></a>
 
-1. 將結構描述上傳至儲存體帳戶。
+### <a name="add-schemas-more-than-2-mb"></a>新增超過 2 MB 的結構描述
 
-    ![儲存體帳戶](media/logic-apps-enterprise-integration-schemas/blob-3.png)
+若要新增較大的結構描述，您可以在您的 Azure 儲存體帳戶中將結構描述上傳到 Azure Blob 容器。 新增結構描述的步驟取決於您的 Blob 容器是否包含公用讀取權限。 因此，請先依照下列步驟檢查您的 Blob 容器是否有公用讀取權限：[為 Blob 容器設定公用存取層級](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
-2. 產生結構描述的共用存取簽章。
+#### <a name="check-container-access-level"></a>檢查容器存取層級
 
-    ![儲存體帳戶，已反白顯示 [共用存取簽章] 索引標籤](media/logic-apps-enterprise-integration-schemas/blob-2.png)
+1. 開啟 [Azure 儲存體總管]。 在 [總管] 視窗中，展開您的 Azure 訂用帳戶 (若尚未展開)。
 
-3. 在 [新增結構描述] 中選取 [大型檔案]，然後在 [內容 URI] 文字方塊中提供共用存取簽章 URI。
+1. 展開 [儲存體帳戶] > {*您的儲存體帳戶*} > [Blob 容器]。 選取您的 Blob 容器。
 
-    ![[結構描述]，已反白顯示 [新增] 按鈕和 [大型檔案]](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+1. 從 Blob 容器的快顯功能表，選取 [設定公用存取層級]。
 
-4. 在整合帳戶的 [結構描述] 刀鋒視窗中，您現在應該會看到新增的結構描述。
+   * 若您的 Blob 容器有最低公用存取權，請選擇 [取消]，然後依照此頁面稍後的下列步驟執行：[上傳到具有公用存取權的容器](#public-access)
 
-    ![整合帳戶，已反白顯示 [結構描述] 和新的結構描述](media/logic-apps-enterprise-integration-schemas/schema-41.png)
+     ![公用存取權](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
+
+   * 若您的 Blob 容器沒有公用存取權，請選擇 [取消]，然後依照此頁面稍後的下列步驟執行：[上傳到沒有公用存取權的容器](#public-access)
+
+     ![沒有公用存取權](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
+
+<a name="public-access"></a>
+
+#### <a name="upload-to-containers-with-public-access"></a>上傳到具有公用存取權的容器
+
+1. 將結構描述上傳至儲存體帳戶。 
+   在右邊的視窗中，選擇 [上傳]。
+
+1. 完成上傳之後，請選取您已上傳的結構描述。 在工具列上，選擇 [複製 URL] 以複製結構描述的 URL。
+
+1. 返回 Azure 入口網站，其中 [新增結構描述] 窗格已開啟。 
+   輸入您的組件名稱。 
+   選擇 [大型檔案 (大於 2MB)]。 
+
+   現在會出現 [內容 URI] 方塊，而非 [結構描述] 方塊。
+
+1. 在 [內容 URI] 方塊中，貼上您的結構描述 URL。 
+   尋找並新增您的結構描述。
+
+當您的結構描述完成上傳之後，結構描述會出現在 [結構描述] 清單中。 在您整合帳戶的 [概觀] 頁面上的 [元件] 下，[結構描述] 圖格現在會顯示已上傳的結構描述數目。
+
+<a name="no-public-access"></a>
+
+#### <a name="upload-to-containers-without-public-access"></a>上傳到沒有公用存取權的容器
+
+1. 將結構描述上傳至儲存體帳戶。 
+   在右邊的視窗中，選擇 [上傳]。
+
+1. 完成上傳之後，為您的結構描述產生共用存取簽章 (SAS)。 
+   從結構描述的快顯功能表，選取 [取得共用存取簽章]。
+
+1. 在 [共用存取簽章] 窗格中，選取 [產生容器層級共用存取簽章 URI] > [建立]。 
+   產生 SAS URL 之後，選擇 [URL] 方塊旁的 [複製]。
+
+1. 返回 Azure 入口網站，其中 [新增結構描述] 窗格已開啟。 選擇 [大型檔案]。
+
+   現在會出現 [內容 URI] 方塊，而非 [結構描述] 方塊。
+
+1. 在 [內容 URI] 方塊中，貼上您先前產生的 SAS URI。 尋找並新增您的結構描述。
+
+當您的結構描述完成上傳之後，結構描述會出現在 [結構描述] 清單中。 在您整合帳戶的 [概觀] 頁面上的 [元件] 下，[結構描述] 圖格現在會顯示已上傳的結構描述數目。
 
 ## <a name="edit-schemas"></a>編輯結構描述
 
-1. 選擇 [結構描述] 圖格。
+若要更新現有的結構描述，您必須上傳包含您所要變更的新結構描述檔案。 不過，您可以先下載現有的結構描述來編輯。
 
-2. 在 [結構描述] 刀鋒視窗開啟之後，選取您要編輯的結構描述。
+1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中，尋找並開啟您的整合帳戶 (若它尚未開啟)。
 
-3. 在 [結構描述] 刀鋒視窗上，選擇 [編輯]。
+1. 在主要 Azure 功能表上，選取 [所有服務]。 
+   在搜尋方塊中，輸入「整合帳戶」。 
+   選取 [整合帳戶]。
 
-    ![[結構描述] 刀鋒視窗](media/logic-apps-enterprise-integration-schemas/edit-12.png)
+1. 選取要在其中更新結構描述的整合帳戶。
 
-4. 選取您要編輯的結構描述檔案，然後選取 [開啟]。
+1. 在您的整合帳戶的 [概觀] 頁面上的 [元件] 下，選取 [結構描述] 圖格。
 
-    ![開啟要編輯的結構描述檔案](media/logic-apps-enterprise-integration-schemas/edit-31.png)
+1. 在 [結構描述] 頁面開啟之後，選取您的結構描述。 
+   若要先下載並編輯結構描述，請選擇 [下載]，然後儲存結構描述。
 
-Azure 會顯示訊息，說明結構描述已順利上傳。
+1. 當您準備好上傳已更新的結構描述時，請在 [結構描述] 頁面上選取您要更新的結構描述，然後選擇 [更新]。
+
+1. 尋找並選取您要上傳的已更新結構描述。 
+   當您的結構描述檔案完成上傳之後，已更新的結構描述會出現在 [結構描述] 清單中。
 
 ## <a name="delete-schemas"></a>刪除結構描述
 
-1. 選擇 [結構描述] 圖格。
+1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中，尋找並開啟您的整合帳戶 (若它尚未開啟)。
 
-2. 在 [結構描述] 刀鋒視窗開啟之後，選取您要刪除的結構描述。
+1. 在主要 Azure 功能表上，選取 [所有服務]。 
+   在搜尋方塊中，輸入「整合帳戶」。 
+   選取 [整合帳戶]。
 
-3. 在 [結構描述] 刀鋒視窗上，選擇 [刪除]。
+1. 選取要在其中刪除結構描述的整合帳戶。
 
-    ![[結構描述] 刀鋒視窗](media/logic-apps-enterprise-integration-schemas/delete-12.png)
+1. 在您的整合帳戶的 [概觀] 頁面上的 [元件] 下，選取 [結構描述] 圖格。
 
-4. 若要確認您要刪除選取的結構描述，請選擇 [是]。
+1. 在 [結構描述] 頁面開啟之後，選取您的結構描述，然後選擇 [刪除]。
 
-    ![[刪除結構描述] 確認訊息](media/logic-apps-enterprise-integration-schemas/delete-21.png)
-
-    在 [結構描述] 刀鋒視窗中，結構描述清單會重新整理，而且已不再包含您刪除的結構描述。
-
-    ![您的整合帳戶，已反白顯示 [結構描述]](media/logic-apps-enterprise-integration-schemas/delete-31.png)
+1. 若要確認您要刪除結構描述，請選擇 [是]。
 
 ## <a name="next-steps"></a>後續步驟
-* [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "了解企業整合套件")。  
 
+* [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md)
+* [深入了解對應](../logic-apps/logic-apps-enterprise-integration-maps.md)
+* [深入了解轉換](../logic-apps/logic-apps-enterprise-integration-transform.md)

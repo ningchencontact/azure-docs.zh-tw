@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 93d7a6e884cf02fa41838d4a07644c122a43823b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e2831191905da1b9e0ad55131be9eaa7aa13950e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823822"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894355"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>教學課程：追蹤實驗室在 Azure 實驗室服務中的使用情形
 本教學課程會說明實驗室建立者/擁有者如何追蹤實驗室的使用情況。
@@ -55,6 +55,9 @@ ms.locfileid: "54823822"
 - 啟動 VM
 - 停止 VM
 - 刪除 VM
+
+
+![VM 控制項](../media/tutorial-track-usage/vm-controls.png)
 
 您也可以使用工具列按鈕來啟動、停止或刪除 VM。 
 

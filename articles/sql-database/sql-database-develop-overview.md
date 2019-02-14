@@ -6,83 +6,57 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7473f89b711e804dbe96d299bc6f47adaceb6859
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: d9de6100e3bb7c3cc71a7a251d790df4907be5f2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465209"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820346"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 應用程式開發概觀
 
-本文將逐步解說開發人員在撰寫程式碼以連接到 Azure SQL Database 時應注意的基本考量事項。
+本文將逐步解說開發人員在撰寫程式碼以連接到 Azure SQL Database 時應注意的基本考量事項。 本文適用於 Azure SQL Database (單一資料庫、彈性集區、受控執行個體) 的所有部署模型。
 
 > [!TIP]
-> 如需示範如何建立伺服器、建立伺服器型防火牆、檢視伺服器屬性、使用 SQL Server Management Studio 進行連接、查詢 Master 資料庫、建立範例資料庫和空白資料庫、查詢資料庫屬性、使用 SQL Server Management Studio 進行連接，以及查詢範例資料庫的教學課程，請參閱[開始使用教學課程](sql-database-get-started-portal.md)。
+> 若您需要設定 Azure SQL Database，請查看快速入門指南，了解[單一資料庫](sql-database-single-database-quickstart-guide.md)和[受控執行個體](sql-database-managed-instance-quickstart-guide.md)。
 >
 
 ## <a name="language-and-platform"></a>語言和平台
-有一些程式碼範例可供各種程式設計語言和平台使用。 您可以在下列位置找到程式碼範例的連結：
 
-詳細資訊：[SQL Database 和 SQL Server 的連接庫](sql-database-libraries.md)。
+您可以使用各種[程式設計語言與平台](sql-database-connect-query.md)連線及查詢 Azure SQL Database。 您可以找到可用於連線至 Azure SQL Database 的[範例應用程式](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0)。
 
-## <a name="tools"></a>工具
+您可以利用 [cheetah](https://github.com/wunderlist/cheetah)、[sql-cli](https://www.npmjs.com/package/sql-cli)、[VS Code](https://code.visualstudio.com/) 等開放原始碼工具。 此外，Azure SQL Database 使用 [Visual Studio](https://www.visualstudio.com/downloads/) 和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) 等 Microsoft 工具。 您也可以使用 Azure 入口網站、PowerShell 和 REST API 協助您獲得額外生產力。
 
-您可以利用 [cheetah](https://github.com/wunderlist/cheetah)、[sql-cli](https://www.npmjs.com/package/sql-cli)、[VS Code](https://code.visualstudio.com/) 等開放原始碼工具。 此外，Azure SQL Database 使用 [Visual Studio](https://www.visualstudio.com/downloads/) 和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) 等 Microsoft 工具。  您也可以使用 Azure 管理入口網站、PowerShell 和 REST API 協助您獲得額外生產力。
+## <a name="authentication"></a>Authentication
 
-## <a name="resource-limitations"></a>資源限制
+Azure SQL Database 的存取受到登入及防火牆的保護。 Azure SQL Database 支援 SQL Server 及 [Azure Active Directory (AAD) 驗證](sql-database-aad-authentication.md) 的使用者和登入。 AAD 登入僅適用於受控執行個體。 
 
-Azure SQL Database 會使用兩個種不同機制來管理可供資料庫使用的資源：資源管理和強制執行限制。 如需詳細資訊，請參閱
+深入了解[管理資料庫存取和登入](sql-database-manage-logins.md)。
 
-- [以 DTU 為基礎的資源模型限制 - 單一資料庫](sql-database-dtu-resource-limits-single-databases.md)
-- [以 DTU 為基礎的資源模型限制 - 彈性集區](sql-database-dtu-resource-limits-elastic-pools.md)
-- [以虛擬核心為基礎的資源限制 - 單一資料庫](sql-database-vcore-resource-limits-single-databases.md)
-- [以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)
+## <a name="connections"></a>連線
 
-## <a name="security"></a>安全性
+在您的用戶端連線邏輯中，將預設的逾時覆寫為 30 秒。 預設 15 秒對於依賴網際網路的連線而言太短。
 
-Azure SQL Database 提供資源以在 SQL Database 上限制存取、保護資料，以及監視活動。
+如果您使用的是 [連接集區](https://msdn.microsoft.com/library/8xx3tyca.aspx)，請確定在程式未主動使用時即時關閉連接，而不是準備重複使用連接。
 
-* 詳細資訊：[保護您的 SQL Database](sql-database-security-overview.md)。
-
-## <a name="authentication"></a>驗證
-
-- Azure SQL Database 支援 SQL Server 驗證使用者和登入，以及 [Azure Active Directory 驗證](sql-database-aad-authentication.md) 使用者和登入。
-- 您必須指定特定的資料庫，而非預設為 master  資料庫。
-- 您無法在 SQL Database 上使用 **USE myDatabaseName;** 陳述式來切換到其他資料庫。
-- 詳細資訊：[SQL Database 安全性：管理資料庫存取和登入的安全性](sql-database-manage-logins.md)。
+請避免長時間執行的交易，因為任何基礎結構或連線失敗可能會復原交易。 可能的話，請將交易分割成多個較小的交易，並使用[批次處理來改善效能](sql-database-use-batching-to-improve-performance.md)。
 
 ## <a name="resiliency"></a>災害復原
 
-當連接到 SQL Database 發生暫時性錯誤時，您的程式碼應該重試呼叫。  我們建議重試邏輯使用輪詢邏輯，因此它不會同時重試多個用戶端而讓 SQL Database 超過負荷。
-
-- 程式碼範例：如需示範重試邏輯的程式碼範例，請在以下位置參閱您選擇語言的範例：[SQL Database 和 SQL Server 的連接庫](sql-database-libraries.md)。
-- 詳細資訊：[SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)。
-
-## <a name="managing-connections"></a>管理連線
-
-- 在您的用戶端連線邏輯中，將預設的逾時覆寫為 30 秒。  預設 15 秒對於依賴網際網路的連線而言太短。
-- 如果您使用的是 [連接集區](https://msdn.microsoft.com/library/8xx3tyca.aspx)，請確定在程式未主動使用時即時關閉連接，而不是準備重複使用連接。
+Azure SQL Database 為雲端服務，因此基礎結構或雲端實體之間的通訊可能會發生暫時性錯誤。
+雖然 Azure SQL Database 會從可轉移的基礎結構失敗中復原，但這些失敗可能會影響您的連線。 當連接到 SQL Database 發生暫時性錯誤時，您的程式碼應該[重試呼叫](sql-database-connectivity-issues.md)。 我們建議重試邏輯使用輪詢邏輯，因此它不會同時重試多個用戶端而讓 SQL Database 超過負荷。 重試邏輯取決於 [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)。
 
 ## <a name="network-considerations"></a>網路考量事項
 
 - 在託管您的用戶端程式的電腦上，請確定防火牆允許連接埠 1433 上的傳出 TCP 通訊。  詳細資訊：[如何設定 Azure SQL Database 防火牆](sql-database-configure-firewall-settings.md)。
 - 如果您的用戶端程式是在 Azure 虛擬機器 (VM) 上執行，而用戶端程式會連線至 SQL Database，您就必須開啟該 VM 上特定的連接埠範圍。 詳細資訊：[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 - 與 Azure SQL Database 的用戶端連線有時會略過 proxy 並直接與資料庫互動。 1433 以外的連接埠變得重要。 如需詳細資訊，請參閱 [Azure SQL Database 連線架構](sql-database-connectivity-architecture.md)和[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)一節。
-
-## <a name="data-sharding-with-elastic-scale"></a>使用 Elastic Scale 的資料分區化
-
-彈性擴縮會簡化相應放大 (和相應縮小) 的程序。 
-
-- [多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
-- [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。
-- [開始使用 Azure SQL Database 彈性擴縮預覽](sql-database-elastic-scale-get-started.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 89d5c9c4e553ac82b604c1d3a20eb67b4055e6c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 38ad75d22d21a141d48e9664ae580dfb5577a389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492883"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184919"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>使用 SQL 委派的管理員權限安裝 Azure AD Connect
 最新的 Azure AD Connect 組建之前的版本在部署需要 SQL 的設定時不支援管理委派。  想要安裝 Azure AD Connect 的使用者必須在 SQL 伺服器上擁有伺服器管理員 (SA) 權限。
@@ -54,10 +55,7 @@ Azure AD Connect 系統管理員|安裝 Azure AD Connect，並在自訂安裝期
 ## <a name="additional-information"></a>其他資訊
 資料庫佈建好之後，Azure AD Connect 系統管理員就可以在他們方便的時候安裝及設定內部部署同步處理。  
 
-使用預先建立的資料庫時，需要有 **/UseExistingDatabase** 旗標。  它不僅用於復原情況。
-
-除了支援新的 Azure AD Connect 安裝外，這項功能也可讓您在任何與 **/UseExistingDatabase** 旗標相關的案例中執行委派。  如需使用現有資料庫來安裝 Azure AD Connect 的詳細資訊，請參閱[使用現有的 ADSync 資料庫安裝 Azure AD Connect](how-to-connect-install-existing-database.md)
-
+如需使用現有資料庫來安裝 Azure AD Connect 的詳細資訊，請參閱[使用現有的 ADSync 資料庫安裝 Azure AD Connect](how-to-connect-install-existing-database.md)
 
 ## <a name="next-steps"></a>後續步驟
 - [使用快速設定開始使用 Azure AD Connect](how-to-connect-install-express.md)

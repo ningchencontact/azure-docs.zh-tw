@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380496"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818986"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式和叢集的安全性概念
 
@@ -24,7 +24,7 @@ ms.locfileid: "49380496"
 - [節點安全性](#node-security)
 - [叢集升級](#cluster-upgrades)
 - [網路安全性](#network-security)
-- [Kubernetes 秘密](#secrets)
+- Kubernetes 秘密
 
 ## <a name="master-security"></a>主要元件安全性
 
@@ -41,6 +41,8 @@ Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如
 節點會部署至私人虛擬網路子網路中，且不會指派公用 IP 位址。 基於疑難排解和管理用途，依預設會啟用 SSH。 此 SSH 存取僅供內部 IP 位址使用。 Azure 網路安全性群組規則可用來進一步限制可存取 AKS 節點的 IP 範圍。 在節點上刪除預設網路安全性群組 SSH 規則並停用 SSH 服務，可防止 Azure 平台執行維護工作。
 
 若要防止儲存，節點應使用 Azure 受控磁碟。 就大部分的 VM 節點大小而言，這是指採用高效能 SSD 的進階磁碟。 儲存於受控磁碟上的資料會自動加密，並在 Azure 平台內待用。 若要提高備援性，這些磁碟也會安全地複寫於 Azure 資料中心內。
+
+目前，多租用戶如有惡意的使用，AKS 或其他位置中的 Kubernetes 環境就並不完全安全。 將其他安全功能 (例如 *Pod 安全性原則*或更精細的角色型存取控制 (RBAC)) 用於節點，可以提高攻擊的難度。 不過，在執行惡意的多租用戶工作負載時若要保有真正的安全性，Hypervisor 才是您唯一可信賴的安全性層級。 Kubernetes 的安全性網域會成為整個叢集，而非個別節點。 對於這些類型的惡意多租用戶工作負載，您應使用實際隔離的叢集。 如需有關如何隔離工作負載的詳細資訊，請參閱[在 AKS 隔離叢集的最佳做法][cluster-isolation]。
 
 ## <a name="cluster-upgrades"></a>叢集升級
 
@@ -96,3 +98,4 @@ Kubernetes *祕密*可用來將敏感性資料插入 Pod 中，例如存取認�
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[cluster-isolation]: operator-best-practices-cluster-isolation.md

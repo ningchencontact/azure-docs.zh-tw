@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022014"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817330"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54022014"
 > [!NOTE]
 > 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 Amazon Redshift 連接器](../connector-amazon-redshift.md)。
 
-本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Amazon Redshift 移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。 
+本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Amazon Redshift 移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
 
 Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 不支援從其他資料存放區將資料移至 Amazon Redshift。
 
@@ -44,15 +44,15 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 建立管線的最簡單方式就是使用「Azure Data Factory 複製精靈」。 如需使用複製精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
 
-您也可以使用 Azure 入口網站、Visual Studio、Azure PowerShell 或其他工具來建立管線。 Azure Resource Manager 範本、.NET API 或 REST API 也可以用來建立管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+您也可以使用 Azure 入口網站、Visual Studio、Azure PowerShell 或其他工具來建立管線。 Azure Resource Manager 範本、.NET API 或 REST API 也可以用來建立管線。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
-不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線： 
+不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
 1. 建立連結服務，將輸入和輸出資料存放區連結到資料處理站。
-2. 建立資料集，代表複製作業的輸入和輸出資料。 
-3. 建立管線，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 
+2. 建立資料集，代表複製作業的輸入和輸出資料。
+3. 建立管線，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。
 
-使用複製精靈時，精靈會自動為您建立 Data Factory 實體的 JSON 定義。 使用工具或 API (.NET API 除外) 時，您需使用 JSON 格式來定義資料處理站實體。 [JSON 範例：將資料從 Amazon Redshift 複製到 Azure Blob 儲存體](#json-example-copy-data-from-amazon-redshift-to-azure-blob)顯示用來從 Amazon Redshift 資料存放區複製資料的 Data Factory 實體本身的 JSON 定義。
+使用複製精靈時，精靈會自動為您建立 Data Factory 實體的 JSON 定義。 使用工具或 API (.NET API 除外) 時，您需使用 JSON 格式來定義資料處理站實體。 JSON 範例：將資料從 Amazon Redshift 複製到 Azure Blob 儲存體顯示用來從 Amazon Redshift 資料存放區複製資料的 Data Factory 實體本身的 JSON 定義。
 
 下列各節描述 JSON 屬性，這些屬性是用來定義 Amazon Redshift 的 Data Factory 實體。
 
@@ -62,12 +62,12 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| **type** |屬性必須設為 **AmazonRedshift**。 |是 |
-| **server** |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
+| **type** |屬性必須設為 **AmazonRedshift**。 |yes |
+| **server** |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |yes |
 | **port** |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否 (預設值為 5439) |
-| **database** |Amazon Redshift 資料庫的名稱。 |是 |
-| **username** |可存取資料庫之使用者的名稱。 |是 |
-| **password** |使用者帳戶的密碼。 |是 |
+| **database** |Amazon Redshift 資料庫的名稱。 |yes |
+| **username** |可存取資料庫之使用者的名稱。 |yes |
+| **password** |使用者帳戶的密碼。 |yes |
 
 ## <a name="dataset-properties"></a>資料集屬性
 
@@ -81,13 +81,13 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需定義活動的區段和屬性清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 **name** **description**、**inputs** 資料表、**outputs** 資料表和 **policy** 屬性適用於所有活動。 **typeProperties** 區段中的可用屬性，會因為活動類型不同而有所差異。 就複製活動而言，屬性會根據資料來源和接收的類型而有所不同。
+如需定義活動的區段和屬性清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 **name****description**、**inputs** 資料表、**outputs** 資料表和 **policy** 屬性適用於所有活動。 **typeProperties** 區段中的可用屬性，會因為活動類型不同而有所差異。 就複製活動而言，屬性會根據資料來源和接收的類型而有所不同。
 
 對於複製活動，當來源類型為 **AmazonRedshiftSource** 時，**typeProperties** 區段中可使用下列屬性：
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| **查詢** | 使用自訂查詢來讀取資料。 |否 (如果已指定資料集的 **tableName** 屬性) |
+| **query** | 使用自訂查詢來讀取資料。 |否 (如果已指定資料集的 **tableName** 屬性) |
 | **redshiftUnloadSettings** | 在使用 Redshift **UNLOAD** 命令時包含屬性群組。 | 否 |
 | **s3LinkedServiceName** | 要作為暫時存放區的 Amazon S3。 連結服務是使用類型為 **AwsAccessKey** 的 Azure Data Factory 名稱來指定。 | 使用 **redshiftUnloadSettings** 屬性時為必要 |
 | **bucketName** | 表示要用來儲存暫時資料的 Amazon S3 貯體。 如果未提供此屬性，複製活動會自動產生貯體。 | 使用 **redshiftUnloadSettings** 屬性時為必要 |
@@ -96,7 +96,7 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| **查詢** |使用自訂查詢來讀取資料。 | 否 (如果已指定資料集的 **tableName** 屬性) |
+| **query** |使用自訂查詢來讀取資料。 | 否 (如果已指定資料集的 **tableName** 屬性) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>使用 UNLOAD 複製 Amazon Redshift 中的資料
 
@@ -139,7 +139,7 @@ Amazon Redshift [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNL
 ```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>JSON 範例：將資料從 Amazon Redshift 複製到 Azure Blob 儲存體
-此範例示範如何將資料從 Amazon Redshift 資料庫複製到 Azure Blob 儲存體。 使用複製活動，可以將資料直接複製到任何[支援的接收資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。  
+此範例示範如何將資料從 Amazon Redshift 資料庫複製到 Azure Blob 儲存體。 使用複製活動，可以將資料直接複製到任何[支援的接收資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。
 
 此範例具有下列 Data Factory 實體：
 
@@ -162,7 +162,7 @@ Amazon Redshift [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNL
         "typeProperties":
         {
             "server": "< The IP address or host name of the Amazon Redshift server >",
-            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
+            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
             "database": "<The database name of the Amazon Redshift database>",
             "username": "<username>",
             "password": "<password>"
@@ -333,14 +333,14 @@ Amazon Redshift [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNL
 | SMALLINT |Int16 |
 | INTEGER |Int32 |
 | BIGINT |Int64 |
-| DECIMAL |十進位 |
+| DECIMAL |Decimal |
 | REAL |單一 |
-| DOUBLE PRECISION |兩倍 |
+| DOUBLE PRECISION |Double |
 | BOOLEAN |字串 |
 | CHAR |字串 |
 | VARCHAR |字串 |
-| 日期 |Datetime |
-| 時間戳記 |Datetime |
+| 日期 |DateTime |
+| 時間戳記 |DateTime |
 | TEXT |字串 |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
@@ -350,7 +350,7 @@ Amazon Redshift [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNL
 從關聯式資料存放區複製資料時，請留意可重複性，以避免產生非預期的結果。 在 Azure Data Factory 中，您可以手動重新執行配量。 您也可以為資料集設定重試**原則**，使得在發生失敗時，重新執行配量。 確定無論配量將執行多少次，均讀取相同的資料。 也請確定無論重新執行配量的方式為何，均讀取相同的資料。 如需詳細資訊，請參閱[從關聯式來源進行可重複的讀取](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)。
 
 ## <a name="performance-and-tuning"></a>效能和微調
-請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)，了解影響複製活動效能的重要因素，以及達到最佳效能的各種方法。 
+請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)，了解影響複製活動效能的重要因素，以及達到最佳效能的各種方法。
 
 ## <a name="next-steps"></a>後續步驟
 如需使用複製活動來建立管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。

@@ -1,23 +1,26 @@
 ---
-title: 如何使用 Java Storage SDK v7 在 Azure 儲存體中建立 Blob | Microsoft Docs
+title: 如何使用適用於 Java v7 的用戶端程式庫在 Azure 儲存體中建立 Blob | Microsoft Docs
 description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Java v7 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: be994c9b3c9ee4f3c6ccd5c01e762c05f740be09
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469639"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753209"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>如何使用 Java SDK v7 上傳、下載及列出 Blob
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>如何使用適用於 Java v7 的用戶端程式庫上傳、下載及列出 Blob
 
-在本操作指南中，您會了解如何使用 Java 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。
+在本操作指南中，您會了解如何使用適用於 Java v7 的用戶端程式庫，在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。
+
+> [!TIP]
+> 適用於 Java 的最新 Azure 儲存體用戶端程式庫版本是 v10。 Microsoft 建議您盡可能使用最新版的用戶端程式庫。 若要開始使用 v10，請參閱[快速入門：使用 Java Storage SDK V10 上傳、下載及列出 Blob](storage-quickstart-blobs-java-v10.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -130,7 +133,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
 
-若要將檔案上傳至區塊 Blob，請取得目標容器中的 Blob 參考。 取得 Blob 參考之後，即可使用 [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long) 將資料上傳至 Blob。 如果沒有 Blob，此作業會建立 Blob，如已存在，則予以覆寫。
+若要將檔案上傳至區塊 Blob，請取得目標容器中的 Blob 參考。 取得 Blob 參考之後，即可使用 [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload) 將資料上傳至 Blob。 如果沒有 Blob，此作業會建立 Blob，如已存在，則予以覆寫。
 
 範例程式碼會建立用於上傳和下載的本機檔案，將要上傳的檔案以 **blob** 中的 Blob 名稱儲存為 **source**。 下列範例會將檔案上傳到名為 **quickstartcontainer** 的容器。
 
@@ -156,7 +159,7 @@ blob.uploadFromFile(sourceFile.getAbsolutePath());
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-您可以使用 [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs#com_microsoft_azure_storage_blob__cloud_blob_container_listBlobs) 來取得容器中的檔案清單。 下列程式碼會擷取 Blob 的清單，透過它們執行迴圈，顯示找到的 Blob URI。 您可以複製命令視窗中的 URI，將它貼入至瀏覽器來檢視檔案。
+您可以使用 [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs) 來取得容器中的檔案清單。 下列程式碼會擷取 Blob 的清單，透過它們執行迴圈，顯示找到的 Blob URI。 您可以複製命令視窗中的 URI，將它貼入至瀏覽器來檢視檔案。
 
 ```java
 //Listing contents of container
@@ -182,7 +185,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>清除資源
 
-如果不再需要您所上傳的 Blob，您可以使用 [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists) 刪除整個容器。 此方法也會刪除容器中的檔案。
+如果不再需要您所上傳的 Blob，您可以使用 [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists) 刪除整個容器。 此方法也會刪除容器中的檔案。
 
 ```java
 try {
@@ -206,8 +209,6 @@ sourceFile.deleteOnExit();
 在本文中，您已了解如何使用 Java 在本機磁碟和 Azure Blob 儲存體之間傳送檔案。 若要深入了解 Java 的用法，請繼續使用我們的 GitHub 開放原始碼存放庫。
 
 > [!div class="nextstepaction"]
-> [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java) 
-> [API 參考](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+> [Microsoft Azure Storage SDK v10 for Java](https://github.com/azure/azure-storage-java) 
+> [Java API 參考](https://docs.microsoft.com/java/azure/)
 > [Java 的程式碼範例](../common/storage-samples-java.md)
-
-* 如需儲存體總管和 Blob 的詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。

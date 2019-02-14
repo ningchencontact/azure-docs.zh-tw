@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5ba12e48092c02f9628e15166c84e871310d7556
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052763"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816368"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>搭配使用 Data Lake Storage 與 Azure HDInsight 叢集
 
@@ -39,11 +39,11 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Storage︰
 
 | HDInsight 叢集類型 | Data Lake Storage 作為預設儲存體 | Data Lake Storage 作為其他儲存體| 注意 |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight 3.6 版 | 是 | 是 | HBase 的例外狀況|
-| HDInsight 3.5 版 | 是 | 是 | HBase 的例外狀況|
-| HDInsight 3.4 版 | 否 | 是 | |
+| HDInsight 3.6 版 | yes | yes | HBase 的例外狀況|
+| HDInsight 3.5 版 | yes | yes | HBase 的例外狀況|
+| HDInsight 3.4 版 | 否 | yes | |
 | HDInsight 3.3 版 | 否 | 否 | |
-| HDInsight 3.2 版 | 否 | 是 | |
+| HDInsight 3.2 版 | 否 | yes | |
 | Storm | | |您可以使用 Data Lake Storage 從 Storm 拓撲寫入資料。 您也可以使用 Data Lake Storage 做為參考資料，該資料稍後可以由 Storm 拓撲讀取。|
 
 > [!WARNING]  
@@ -69,7 +69,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Storage︰
 - 所有叢集資料夾的資料夾。  例如：adl://mydatalakestore/clusters。
 - 叢集的資料夾。  例如：adl://mydatalakestore/clusters/cluster1storage。
 
-如需建立服務主體和授與存取權的詳細資訊，請參閱[設定 Data Lake Storage 存取](#configure-data-lake-store-access)。
+如需建立服務主體和授與存取權的詳細資訊，請參閱設定 Data Lake Storage 存取。
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>從 Azure Key Vault 擷取憑證以用於建立叢集
 
@@ -117,12 +117,12 @@ New-AzureRmResourceGroupDeployment `
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-如需建立服務主體和授與存取權的詳細資訊，請參閱[設定 Data Lake Storage 存取](#configure-data-lake-store-access)。
+如需建立服務主體和授與存取權的詳細資訊，請參閱設定 Data Lake Storage 存取。
 
 
 ## <a name="use-more-than-one-data-lake-storage-accounts"></a>使用多個 Data Lake Storage 帳戶
 
-在一個或多個 Data Lake Storage 帳戶中提供 HDInsight 叢集的權限，即可完成新增 Data Lake Storage 帳戶作為其他帳戶，以及新增一個以上的 Data Lake Storage 帳戶。 請參閱[設定 Data Lake Storage 存取](#configure-data-lake-store-access)。
+在一個或多個 Data Lake Storage 帳戶中提供 HDInsight 叢集的權限，即可完成新增 Data Lake Storage 帳戶作為其他帳戶，以及新增一個以上的 Data Lake Storage 帳戶。 請參閱設定 Data Lake Storage 存取。
 
 ## <a name="configure-data-lake-storage-access"></a>設定 Data Lake Storage 存取
 

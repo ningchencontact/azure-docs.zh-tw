@@ -16,12 +16,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6174dd210cf85bfa6a3daf38965d1da65801321c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d137f2217575bfddec5a2bc2ead4e210b8cf1865
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076327"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815332"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory 中的簽署金鑰變換
 本文討論 Azure Active Directory (Azure AD) 中用來簽署安全性權杖的公開金鑰須知事項。 請務必注意這些金鑰會定期變換，且在緊急狀況下可以立即變換。 所有使用 Azure AD 的應用程式都應該能夠以程式設計方式處理金鑰變換程序或建立定期手動變換程序。 請繼續閱讀以了解金鑰的運作方式、如何評估變換對應用程式的影響，以及必要時如何更新應用程式或建立定期手動變換程序來處理金鑰變換。
@@ -44,7 +44,7 @@ OpenID Connect 探索文件和同盟中繼資料文件中永遠有一個以上�
 * [使用 Node.js passport-azure-ad 模組保護資源的 Web 應用程式 / API](#passport)
 * [保護資源且使用 Visual Studio 2015 或 Visual Studio 2017 建立的 Web 應用程式 / API](#vs2015)
 * [保護資源且使用 Visual Studio 2013 建立的 Web 應用程式](#vs2013)
-* [保護資源且使用 Visual Studio 2013 建立的 Web API](#vs2013_webapi)
+* 保護資源且使用 Visual Studio 2013 建立的 Web API
 * [保護資源且使用 Visual Studio 2012 建立的 Web 應用程式](#vs2012)
 * [保護資源且使用 Visual Studio 2010、2008 或使用 Windows Identity Foundation 建立的 Web 應用程式](#vs2010)
 * [保護資源且使用任何其他程式庫或手動實作任何支援的通訊協定的 Web 應用程式 / API](#other)

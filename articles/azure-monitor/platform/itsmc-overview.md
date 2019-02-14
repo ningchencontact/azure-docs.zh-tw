@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: cd27a4d43333674ec1928fbd873e873afe84d26d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262875"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813121"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT Service Management Connector 將 Azure 連線到 ITSM 工具
 
@@ -44,7 +44,7 @@ ITSMC 支援與下列 ITSM 工具連線：
 您可以使用下列步驟，開始使用 ITSM Connector：
 
 1.  [新增 ITSM Connector 解決方案](#adding-the-it-service-management-connector-solution)
-2.  [建立 ITSM 連線](#creating-an-itsm-connection)
+2.  建立 ITSM 連線
 3.  [使用連線](#using-the-solution)
 
 

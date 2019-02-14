@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13e00acaf287a9e153aaa8e5ce7d630f8d198f02
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a7789f9a3f3da46305a9d8cd7cda24019658f2ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330410"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811473"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure SQL Database 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,8 @@ Azure SQL 已連結服務可將 Azure SQL Database 連結到您的 Data Factory�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設定為：**AzureSqlDatabase** |是 |
-| connectionString |針對 connectionString 屬性指定連接到 Azure SQL Database 執行個體所需的資訊。 僅支援基本驗證。 |是 |
+| type |類型屬性必須設定為：**AzureSqlDatabase** |yes |
+| connectionString |針對 connectionString 屬性指定連接到 Azure SQL Database 執行個體所需的資訊。 僅支援基本驗證。 |yes |
 
 > [!IMPORTANT]
 > 設定 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)和資料庫伺服器，以[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。 此外，如果您要從 Azure 外部 (包括從具有 Fata Factory 閘道器的內部部署資料來源) 將資料複製到 Azure SQL Database，請為傳送資料到 Azure SQL Database 的機器設定適當的 IP 位址範圍。
@@ -80,7 +80,7 @@ Azure SQL 已連結服務可將 Azure SQL Database 連結到您的 Data Factory�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| tableName |Azure SQL Database 執行個體中連結服務所參考的資料表或檢視的名稱。 |是 |
+| tableName |Azure SQL Database 執行個體中連結服務所參考的資料表或檢視的名稱。 |yes |
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。
@@ -199,7 +199,7 @@ GO
   }
 }
 ```
-如需這個連結的服務所支援屬性的清單，請參閱 [Azure SQL 連結的服務](#linked-service) 一文。
+如需這個連結的服務所支援屬性的清單，請參閱「Azure SQL 連結的服務」一節。
 
 **Azure Blob 儲存體連結服務：**
 
@@ -248,7 +248,7 @@ GO
 }
 ```
 
-如需這個資料集類型所支援屬性的清單，請參閱 [Azure SQL 資料集型別屬性](#dataset) 小節。
+如需這個資料集類型所支援屬性的清單，請參閱「Azure SQL 資料集型別屬性」一節。
 
 **Azure Blob 輸出資料集：**
 
@@ -391,7 +391,7 @@ GO
   }
 }
 ```
-如需這個連結的服務所支援屬性的清單，請參閱 [Azure SQL 連結的服務](#linked-service) 一文。
+如需這個連結的服務所支援屬性的清單，請參閱「Azure SQL 連結的服務」一節。
 
 **Azure Blob 儲存體連結服務：**
 
@@ -499,7 +499,7 @@ GO
   }
 }
 ```
-如需這個資料集類型所支援屬性的清單，請參閱 [Azure SQL 資料集型別屬性](#dataset) 小節。
+如需這個資料集類型所支援屬性的清單，請參閱「Azure SQL 資料集型別屬性」一節。
 
 **具有 Blob 來源和 SQL 接收器的管線中複製活動：**
 
@@ -641,28 +641,28 @@ create table dbo.TargetTbl
 | binary |Byte[] |
 | bit |BOOLEAN |
 | char |String、Char[] |
-| 日期 |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| 日期 |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| 十進位 |十進位 |
+| Decimal |Decimal |
 | FILESTREAM 屬性 (varbinary(max)) |Byte[] |
-| Float |兩倍 |
+| Float |Double |
 | 映像 |Byte[] |
 | int |Int32 |
-| money |十進位 |
+| money |Decimal |
 | nchar |String、Char[] |
 | ntext |String、Char[] |
-| numeric |十進位 |
+| numeric |Decimal |
 | nvarchar |String、Char[] |
-| real |單一 |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |十進位 |
+| smallmoney |Decimal |
 | sql_variant |物件 * |
 | text |String、Char[] |
-| 分析 |時間範圍 |
+| 分析 |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |

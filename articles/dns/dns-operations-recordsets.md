@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990173"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818816"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure DNS 中的 DNS 記錄和記錄集
 
@@ -50,7 +50,7 @@ ms.locfileid: "46990173"
 
 您可以使用 `New-AzureRmDnsRecordSet` Cmdlet 來建立記錄集。 建立記錄集時，您必須指定記錄集名稱、區域、存留時間 (TTL) 和記錄類型，與要建立的記錄。
 
-將記錄加入至記錄集的參數，根據記錄集的類型而所有不同。 例如，使用 'A' 類型的記錄集時，您需要使用參數 `-IPv4Address` 來指定 IP 位址。 若是其他記錄類型，則使用其他變數。 請參閱[其他記錄類型範例](#additional-record-type-examples)，以了解詳細資訊。
+將記錄加入至記錄集的參數，根據記錄集的類型而所有不同。 例如，使用 'A' 類型的記錄集時，您需要使用參數 `-IPv4Address` 來指定 IP 位址。 若是其他記錄類型，則使用其他變數。 請參閱其他記錄類型範例，以了解詳細資訊。
 
 下列範例會在 DNS 區域 'contoso.com' 中建立具有相對名稱 'www' 的記錄集。 記錄集的完整名稱是 'www.contoso.com'。 記錄類型為 'A'，且 TTL 為 3600 秒。 此記錄集都會包含一筆記錄，其中 IP 位址為 '1.2.3.4'。
 
@@ -236,7 +236,7 @@ $recordsets = Get-AzureRmDnsRecordSet -Zone $zone
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-上述範例顯示如何將 'A' 記錄新增至類型 'A' 的現有記錄集。 作業的類似序列也可用來將記錄新增至其他類型的記錄集，可透過每一個記錄類型專屬的其他變數取代 `Add-AzureRmDnsRecordConfig` 的 `-Ipv4Address` 變數。 每個記錄類型的參數對 `New-AzureRmDnsRecordConfig`cmdlet 而言是相同的，如以上[其他記錄類型範例](#additional-record-type-examples)所示。
+上述範例顯示如何將 'A' 記錄新增至類型 'A' 的現有記錄集。 作業的類似序列也可用來將記錄新增至其他類型的記錄集，可透過每一個記錄類型專屬的其他變數取代 `Add-AzureRmDnsRecordConfig` 的 `-Ipv4Address` 變數。 每個記錄類型的參數對 `New-AzureRmDnsRecordConfig` Cmdlet 而言是相同的，如以上「其他記錄類型範例」所示。
 
 類型 'CNAME' 或 'SOA' 的記錄集不能包含多個記錄。 這個條件是起因於 DNS 標準。 而非 Azure DNS 的限制。
 
@@ -270,7 +270,7 @@ Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-藉由將特定類型的適當參數傳遞至 `Remove-AzureRmDnsRecordSet`，以支援不同的記錄類型。 每個記錄類型的參數對 `New-AzureRmDnsRecordConfig`cmdlet 而言是相同的，如以上[其他記錄類型範例](#additional-record-type-examples)所示。
+藉由將特定類型的適當參數傳遞至 `Remove-AzureRmDnsRecordSet`，以支援不同的記錄類型。 每個記錄類型的參數對 `New-AzureRmDnsRecordConfig` Cmdlet 而言是相同的，如以上「其他記錄類型範例」所示。
 
 
 ## <a name="modify-an-existing-record-set"></a>修改現有記錄集

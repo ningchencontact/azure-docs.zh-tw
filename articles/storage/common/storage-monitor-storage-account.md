@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452638"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817269"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中監視儲存體帳戶
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452638"
 
 1. 監視組態完成時，選取 [儲存]。
 
-[儲存體帳戶] 刀鋒視窗以及個別服務的刀鋒視窗 (Blob、佇列、資料表和檔案) 會以圖表顯示一組預設的計量。 為服務啟用計量後，資料最慢可能需要一小時才會出現在其圖表中。 您可以在任何計量圖表上選取 [編輯]，以[設定哪些計量](#how-to-customize-metrics-charts)要顯示在圖表中。
+[儲存體帳戶] 刀鋒視窗以及個別服務的刀鋒視窗 (Blob、佇列、資料表和檔案) 會以圖表顯示一組預設的計量。 為服務啟用計量後，資料最慢可能需要一小時才會出現在其圖表中。 您可以在任何計量圖表上選取 [編輯]，以設定哪些計量要顯示在圖表中。
 
 您可以將 [狀態] 設定為 [關閉] 來停用計量收集和記錄。
 
@@ -116,7 +116,7 @@ ms.locfileid: "55452638"
    ![Azure 入口網站中的圖格庫](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. 新增完圖表時，請選取儀表板頂端附近的 [自訂完成]。
 
-在儀表板中新增圖表後，您可以進一步自訂這些圖表，如[自訂計量圖表](#how-to-customize-metrics-charts)所述。
+在儀表板中新增圖表後，您可以進一步自訂這些圖表，如「自訂計量圖表」所述。
 
 ## <a name="configure-logging"></a>設定記錄
 

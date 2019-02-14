@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: fa7deb8a1ef536ef0c2b7fbb0a184a950821aebf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477331"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816912"
 ---
 # <a name="filter-events-for-event-grid"></a>針對事件格線篩選事件
 
@@ -20,7 +20,7 @@ ms.locfileid: "54477331"
 
 ## <a name="filter-by-event-type"></a>依事件類型進行篩選
 
-建立事件格線訂用帳戶時，您可以指定要將哪些[事件類型](event-schema.md)傳送至端點。 本節中的範例會為資源群組建立事件訂閱，但會限制傳送至 `Microsoft.Resources.ResourceWriteFailure` 和 `Microsoft.Resources.ResourceWriteSuccess` 的事件。 如果您在依事件類型篩選事件時需要更多彈性，請參閱[依進階運算子和資料欄位進行篩選](#filter-by-advanced-operators-and-data-fields)。
+建立事件格線訂用帳戶時，您可以指定要將哪些[事件類型](event-schema.md)傳送至端點。 本節中的範例會為資源群組建立事件訂閱，但會限制傳送至 `Microsoft.Resources.ResourceWriteFailure` 和 `Microsoft.Resources.ResourceWriteSuccess` 的事件。 如果您在依事件類型篩選事件時需要更多彈性，請參閱依進階運算子和資料欄位進行篩選。
 
 針對 PowerShell，請在建立訂閱時使用 `-IncludedEventType` 參數。
 
@@ -77,7 +77,7 @@ az eventgrid event-subscription create \
 
 ## <a name="filter-by-subject"></a>依主旨進行篩選
 
-您可以依事件資料中的主旨來篩選事件。 您可以指定要符合主旨開頭或結尾的值。 如果您在依主旨篩選事件時需要更多彈性，請參閱[依進階運算子和資料欄位進行篩選](#filter-by-advanced-operators-and-data-fields)。
+您可以依事件資料中的主旨來篩選事件。 您可以指定要符合主旨開頭或結尾的值。 如果您在依主旨篩選事件時需要更多彈性，請參閱依進階運算子和資料欄位進行篩選。
 
 在下列 PowerShell 範例中，您會建立能依主旨開頭進行篩選的事件訂閱。 您會使用 `-SubjectBeginsWith` 參數來將事件限制為適用於特定資源的事件。 您會傳遞網路安全性群組的資源識別碼。
 

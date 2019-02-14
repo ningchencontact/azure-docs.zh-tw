@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186798"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817377"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics 中的檢視設計工具圖格參考指南
 藉由使用 Azure Log Analytics 中的檢視設計工具，您可以在 Azure 入口網站中建立能顯示 Log Analytics 工作區中各種資料視覺效果的自訂檢視。 本文章是自訂檢視中可用的圖格設定的參考指南。
@@ -36,7 +36,7 @@ ms.locfileid: "53186798"
 | [Number](#number-tile) |來自查詢的記錄計數。 |
 | [雙數字](#two-numbers-tile) |來自兩個不同查詢的記錄計數。 |
 | [環圈](#donut-tile) | 以查詢為依據的圖表，中央有彙總值。 |
-| [折線圖與圖說文字](#line-chart-amp-callout-tile) | 以查詢為依據的折線圖，以及有彙總值的圖說文字。 |
+| 折線圖與圖說文字 | 以查詢為依據的折線圖，以及有彙總值的圖說文字。 |
 | [折線圖](#line-chart-tile) |根據查詢的折線圖。 |
 | [雙時間軸](#two-timelines-tile) | 有兩個數列的直條圖，數列各以不同查詢為依據。 |
 

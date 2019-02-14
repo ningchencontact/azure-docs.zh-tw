@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 本文是「文字轉換語音」語音自訂功能的概觀，此功能可讓您建立可辨識且獨一無二的品牌語音。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
-ms.openlocfilehash: 783679d3d989fe40c6a5ef0c8592ed10aae26643
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239888"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868322"
 ---
 # <a name="creating-custom-voice-fonts"></a>建立客製化聲音音調
 

@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: d5425cf7c2ea39770bbc3e9368f34d57d7279842
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534871"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818289"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 Azure Log Analytics 監視 B2B 訊息
 
-當您在整合帳戶中的交易夥伴之間設定了 B2B 通訊之後，那些合作夥伴就可以彼此交換訊息。 若要檢查此通訊會以您預期的方式運作，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)，針對您的整合帳戶監視 AS2、X12 和 EDIFACT 訊息並設定診斷記錄。 此服務會監視您的雲端和內部部署環境，協助您維護其可用性和效能，並收集執行階段詳細資料和事件，以進行更豐富的偵錯。 您也可以[將此資料與其他服務搭配使用](#extend-diagnostic-data)，例如 Azure 儲存體和 Azure 事件中樞。
+當您在整合帳戶中的交易夥伴之間設定了 B2B 通訊之後，那些合作夥伴就可以彼此交換訊息。 若要檢查此通訊會以您預期的方式運作，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)，針對您的整合帳戶監視 AS2、X12 和 EDIFACT 訊息並設定診斷記錄。 此服務會監視您的雲端和內部部署環境，協助您維護其可用性和效能，並收集執行階段詳細資料和事件，以進行更豐富的偵錯。 您也可以將此資料與其他服務搭配使用，例如 Azure 儲存體和 Azure 事件中樞。
 
 > [!NOTE]
 > 此頁面可能仍會參考 Microsoft Operations Management Suite (OMS) (此套件將[在 2019 年 1 月淘汰](../azure-monitor/platform/oms-portal-transition.md))，但將盡可能地使用 Azure Log Analytics 來取代那些步驟。 

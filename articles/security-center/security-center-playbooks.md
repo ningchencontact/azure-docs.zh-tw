@@ -4,7 +4,7 @@ description: 這份文件可協助您使用 Azure 資訊安全中心的安全性
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619906"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116740"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure 資訊安全中心的安全性劇本 (預覽)
 這份文件可協助您使用 Azure 資訊安全中心的安全性劇本，以回應安全性相關問題。
@@ -93,7 +93,7 @@ ms.locfileid: "52619906"
 您可以變更資訊安全中心的現有劇本，以新增動作或條件。 若要這樣做，您只需要在 [劇本] 索引標籤中按一下您想要變更之劇本的名稱，[邏輯應用程式設計工具] 隨即開啟。
 
 > [!NOTE]
-> 如需如何使用 Azure Logic App 來建立自己的劇本的詳細資訊，請參閱[建立第一個邏輯應用程式工作流程來自動執行雲端應用程式與雲端服務之間的程序](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger)。
+> 如需如何使用 Azure Logic App 來建立自己的劇本的詳細資訊，請參閱[建立第一個邏輯應用程式工作流程來自動執行雲端應用程式與雲端服務之間的程序](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)。
 
 
 ## <a name="see-also"></a>另請參閱

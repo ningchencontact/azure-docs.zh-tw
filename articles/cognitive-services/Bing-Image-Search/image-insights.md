@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: f0f3396852720bbbb31e46f7a9913d9d1bdc4a6c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8798ecd15c673c26c5b1be0920887ff493cc6a85
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157236"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818680"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>使用 Bing 影像搜尋 API 取得影像見解
 
@@ -221,7 +221,7 @@ Host: api.cognitive.microsoft.com
 -   右：290 / 300 = 0.9667...  
 -   下：150 / 200 = 0.75  
 
-您可以使用 Bing 在後續見解呼叫中傳回的區域。 例如，針對已辨識的實體取得在視覺效果上類似的影像。 如需詳細資訊，請參閱[裁剪影像以使用視覺效果類似和實體辨識模組](#croppingimages)。 以下顯示區域欄位和您用來裁剪影像的查詢參數之間的對應。  
+您可以使用 Bing 在後續見解呼叫中傳回的區域。 例如，針對已辨識的實體取得在視覺效果上類似的影像。 如需詳細資訊，請參閱裁剪影像以使用視覺效果類似和實體辨識模組。 以下顯示區域欄位和您用來裁剪影像的查詢參數之間的對應。  
 
 -   Left 對應至 [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
 -   Top 對應至 [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  

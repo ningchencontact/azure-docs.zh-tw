@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 了解如何將搜尋查詢傳送至 Bing 影片搜尋 API。
 services: cognitive-services
 author: aahi
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahill
-ms.openlocfilehash: bbe9f19e11cda4a6f0df16a66ed72fe34db61d63
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e9df2f9cf7a8ecabdce9b5bc877fdc82fd61d1f5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568012"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865925"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>將搜尋要求傳送至 Bing 影片搜尋 API
 
@@ -39,10 +39,10 @@ https://api.cognitive.microsoft.com/bing/v7.0/videos/search
    
 要求必須使用 HTTPS 通訊協定。
 
-建議所有要求均應來自伺服器。 隨著用戶端應用程式散佈金鑰，會讓惡意的第三方有更多機會存取該應用程式。 從伺服器進行呼叫，API 未來也就能以同個升級點更新版本。
+我們建議所有要求均應來自伺服器。 隨著用戶端應用程式散佈金鑰，會讓惡意的第三方有更多機會存取該應用程式。 從伺服器進行呼叫，API 未來也就能以同個升級點更新版本。
 
   
-要求必須指定 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query) 查詢參數，其中包含使用者的搜尋字詞。 雖是選擇性，但請在要求中指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#mkt) 查詢參數，其可識別您希望從哪個市場取得結果。 如需選用查詢參數 (例如 `pricing`) 的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query-parameters)。 所有查詢參數值均須為 URL 編碼。  
+要求必須指定 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query) 查詢參數，其中含有使用者的搜尋字詞。 雖是選擇性，但請在要求中指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#mkt) 查詢參數，其可識別您希望從哪個市場取得結果。 如需選用查詢參數 (例如 `pricing`) 的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query-parameters)。 所有查詢參數值均須為 URL 編碼。  
   
 要求必須指定 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#subscriptionkey) 標頭。 雖然是選擇性的，但我們仍建議使用以下標頭：  
   

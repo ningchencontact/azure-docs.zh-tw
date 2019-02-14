@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 494acc55001bd3180d345801ef8d62800dd5e837
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174022"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817524"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 針對警示進行疑難排解
 本文提供的疑難排解指引，適用於受控網域上可能會遇到的任何警示。
@@ -42,7 +42,7 @@ ms.locfileid: "55174022"
 | AADDS108 | *Azure AD Domain Services 所使用的訂用帳戶已移至另一個目錄。Azure AD 網域服務必須在相同目錄中有有效的訂用帳戶才能正確運作。* | [訂用帳戶移動目錄](#aadds108-subscription-moved-directories) |
 | AADDS109 | *用於受控網域的資源已遭刪除。Azure AD Domain Services 需要這項資源才能正常運作。* | [資源已遭刪除](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *所選取要部署 Azure AD Domain Services 的子網路已滿，而且也沒有空間可供建立其他必要的網域控制站。* | [子網路已滿](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | *Azure AD Domain Services 用來為您的網域提供服務的服務主體未獲授權，無法管理 Azure 訂用帳戶的資源。 服務主體必須取得權限，才能為您的受控網域提供服務。 * | [服務主體未獲授權](#aadds111-service-principal-unauthorized) |
+| AADDS111 | *Azure AD Domain Services 用來為您的網域提供服務的服務主體未獲授權，無法管理 Azure 訂用帳戶的資源。 服務主體必須取得權限，才能為您的受控網域提供服務。 * | 服務主體未獲授權 |
 | AADDS112 | *我們發現此網域中的虛擬網路子網路可能沒有足夠的 IP 位址。在啟用 Azure AD Domain Services 的子網路內，需要至少有兩個可用的 IP 位址。我們建議在該子網路內至少要有 3-5 個備用 IP 位址。如果在子網路內部署其他虛擬機器，因而耗盡可用的 IP 位址數目，或子網路中的可用 IP 位址數目有限時，就可能會發生這種情況。* | [IP 位址不足](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *偵測到 Azure AD Domain Services 使用的資源處於非預期狀態且無法復原。* | [無法復原資源](#aadds113-resources-are-unrecoverable) |
 | AADDS114 | * 選取用於部署 Azure AD Domain Services 的子網路無效，因此無法使用。 * | [子網路無效](#aadds114-subnet-invalid) |
@@ -201,7 +201,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 **解決方案：**
 
-1. 從租用戶中[刪除受控網域](#active-directory-ds-disable-aadds.md)。
+1. 從租用戶中刪除受控網域。
 2. 修正子網路的 IP 位址範圍
   1. 瀏覽至 [Azure 入口網站上的虛擬網路頁面](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)。
   2. 選取您打算用於 Azure AD Domain Services 的虛擬網路。

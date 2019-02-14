@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186118"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819853"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 
@@ -55,7 +55,7 @@ ms.locfileid: "53186118"
 
  若要透過 Operations Manager Operations 主控台設定評定，請依下列順序執行下面的步驟：
 1. [設定 System Center Operations Manager 健康情況檢查的執行身分帳戶](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [設定 System Center Operations Manager 健康情況檢查規則](#configure-the-assessment-rule)
+2. 設定 System Center Operations Manager 健全狀況檢查規則
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>收集 System Center Operations Manager 評定資料的詳細資料
 

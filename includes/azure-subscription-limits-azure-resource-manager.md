@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4cc115d068736f61f9edb4ec609ac592607e7fa0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458841"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246767"
 ---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "49458841"
 
 <sup>2</sup>這包括標準和進階儲存體帳戶。 如果您需要超過 200 個儲存體帳戶，請透過 [Azure 支援](https://azure.microsoft.com/support/faq/)提出要求。 Azure 儲存體團隊將會檢閱您的商務案例，而且可以核准多達 250 個儲存體帳戶。
 
-<sup>3</sup>您可以套用每個訂用帳戶的標記數目不受限。 每個資源或資源群組的標記數目受限於 15。 當標記數目為 10,000 或更少時，Resource Manager 只會傳回訂用帳戶中[唯一標記名稱和值的清單](/rest/api/resources/tags#Tags_List)。 不過，當數目超出 10,000 時，您仍然可以依照標記尋找資源。  
+<sup>3</sup>您可以套用每個訂用帳戶的標記數目不受限。 每個資源或資源群組的標記數目受限於 15。 當標記數目為 10,000 或更少時，Resource Manager 只會傳回訂用帳戶中[唯一標記名稱和值的清單](/rest/api/resources/tags)。 不過，當數目超出 10,000 時，您仍然可以依照標記尋找資源。  
 
 <sup>4</sup>Azure 資源群組和 Azure 資源管理員已不再需要這些功能。
 

@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: raynew
-ms.openlocfilehash: b790cbf6c3c9ec04dfdbf0299e337d32e54e9708
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 202f3fea2445c50398b6ac228b2e58553c9b1076
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299755"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767578"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -63,6 +63,7 @@ Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 **元件** | **詳細資料**
 --- | ---
 機器設定 | 複寫到 Azure 的電腦必須符合 [Azure 需求](#azure-vm-requirements)。
+機器工作負載 | Site Recovery 支援複寫任何執行於所支援機器上的工作負載 (如 Active Directory、SQL server 等)。 若要深入了解，請按一下[這裡](https://aka.ms/asr_workload)
 Windows 作業系統 | 64 位元 Windows Server 2016 (Server Core，使用桌面體驗的伺服器)、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少加裝 SP1)。 </br></br>  [至少含 SP2 的 Windows Server 2008 -32 位元和 64 位元](migrate-tutorial-windows-server-2008.md) (僅限移轉)。 </br></br> 不支援 Windows 2016 Nano Server。
 Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.6 <br/><br/>CentOS：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.6 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (支援的核心版本)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [ (支援的核心版本)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>、SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4、6.5、6.6、6.7、6.8、6.9、6.10、7.0、7.1、7.2、7.3、7.4、7.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/></br>- 不支援將所複寫的機器從 SUSE Linux Enterprise Server 11 SP3 升級至 SP4。 若要升級，請停用複寫，然後在升級之後再次加以啟用。</br></br> - [深入了解](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)Azure 中對 Linux 及開放原始碼技術的支援。 Site Recovery 會協調容錯移轉以在 Azure 中執行 Linux 伺服器。 不過，Linux 廠商可能會將支援僅限於生命週期尚未結束的發行版本。<br/><br/> - 在 Linux 發行版本上，僅支援屬於發行版本之次要版本發行/更新的原生核心。<br/><br/> - 不支援跨主要 Linux 發行版本升級受保護的機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。<br/><br/> - 執行 Red Hat Enterprise Linux 5.2-5.11 或 CentOS 5.2-5.11 的伺服器應該安裝 [Linux Integration Services (LIS) 元件](https://www.microsoft.com/download/details.aspx?id=55106)，如此機器才能在 Azure 中啟動。
 
@@ -80,28 +81,26 @@ Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 �
 16.04 LTS | [9.21][9.21 UR] | 4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-42-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1035-azure|
 16.04 LTS | [9.20][9.20 UR] | 4.4.0-21-generic 至 4.4.0-138-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-38-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1025-azure|
 16.04 LTS | [9.19][9.19 UR] | 4.4.0-21-generic 至 4.4.0-131-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-30-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1019-azure|
-16.04 LTS | [9.18][9.18 UR] | 4.4.0-21-generic 至 4.4.0-130-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic |
 
 ### <a name="debian-kernel-versions"></a>Debian 核心版本
 
 
 **支援的版本** | **Azure Site Recovery 行動服務版本** | **核心版本** |
 --- | --- | --- |
-Debian 7 | [9.18][9.18 UR]、[9.19][9.19 UR]、[9.20][9.20 UR]、[9.21][9.21 UR] | 3.2.0-4-amd64 至 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.19][9.19 UR]、[9.20][9.20 UR]、[9.21][9.21 UR]、[9.22][9.22 UR]| 3.2.0-4-amd64 至 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.20][9.20 UR]、[9.21][9.21 UR] | 3.16.0-4-amd64 至 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR] | 3.16.0-4-amd64 至 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.8-amd64 |
 Debian 8 | [9.19][9.19 UR] | 3.16.0-4-amd64 至 3.16.0-6-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.7-amd64 |
-Debian 8 | [9.18][9.18 UR] | 3.16.0-4-amd64 至 3.16.0-6-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.6-amd64 |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 支援的核心版本
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.156-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.20][9.20 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.156-94.64-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.19][9.19 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default 至 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.18][9.18 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default 至 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 檔案系統/客體儲存體
 
@@ -145,15 +144,15 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.18][9.18 UR] | SP1 3.12.4
 
 **元件** | **支援**
 --- | ---
-Azure ExpressRoute | 是
-ILB | 是
-ELB | 是
-Azure 流量管理員 | 是
-多個 NIC | 是
-保留的 IP 位址 | 是
-IPv4 | 是
-保留來源 IP 位址 | 是
-Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是
+Azure ExpressRoute | yes
+ILB | yes
+ELB | yes
+Azure 流量管理員 | yes
+多個 NIC | yes
+保留的 IP 位址 | yes
+IPv4 | yes
+保留來源 IP 位址 | yes
+Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | yes
 加速網路 | 否
 
 ## <a name="storage"></a>儲存體
@@ -161,24 +160,24 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是
 --- | ---
 動態磁碟 | 作業系統磁碟必須是基本磁碟。 <br/><br/>資料磁碟可以是動態磁碟
 主機 NFS | VMware 為是<br/><br/> 實體伺服器為否
-主機 SAN (iSCSI/FC) | 是
+主機 SAN (iSCSI/FC) | yes
 主機 vSAN | VMware 為是<br/><br/> 實體伺服器為 N/A
 主機多重路徑 (MPIO) | 是，通過 Microsoft DSM、EMC PowerPath 5.7 SP4、EMC PowerPath DSM for CLARiiON 測試
 主機虛擬磁碟區 (VVol) | VMware 為是<br/><br/> 實體伺服器為 N/A
-客體/伺服器 VMDK | 是
+客體/伺服器 VMDK | yes
 客體/伺服器 EFI/UEFI| 部分 (適用於 Windows Server 2012 和更新版本移轉到 Azure) <br/><br/> 請參閱表格結尾處的附註
 客體/伺服器共用叢集磁碟 | 否
 客體/伺服器加密磁碟 | 否
 客體/伺服器 NFS | 否
 客體/伺服器 SMB 3.0 | 否
-客體/伺服器 RDM | 是<br/><br/> 實體伺服器為 N/A
-客體/伺服器磁碟 > 1 TB | 是<br/><br/>最多 4,095 GB<br/><br/> 磁碟必須大於 1024 MB。
-客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | 是
-客體/伺服器磁碟使用 4K 邏輯與 512 位元組實體磁區大小 | 是
-客體/伺服器磁碟區使用等量磁碟 > 4 TB <br/><br/>邏輯磁碟區管理 (LVM)| 是
+客體/伺服器 RDM | yes<br/><br/> 實體伺服器為 N/A
+客體/伺服器磁碟 > 1 TB | yes<br/><br/>最多 4,095 GB<br/><br/> 磁碟必須大於 1024 MB。
+客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | yes
+客體/伺服器磁碟使用 4K 邏輯與 512 位元組實體磁區大小 | yes
+客體/伺服器磁碟區使用等量磁碟 > 4 TB <br/><br/>邏輯磁碟區管理 (LVM)| yes
 客體/伺服器 - 儲存體空間 | 否
 客體/伺服器 熱新增/移除磁碟 | 否
-客體/伺服器 - 排除磁碟 | 是
+客體/伺服器 - 排除磁碟 | yes
 客體/伺服器多重路徑 (MPIO) | 否
 
 > [!NOTE]
@@ -192,14 +191,14 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是
 
 **元件** | **支援**
 --- | ---
-本地備援儲存體 | 是
-異地備援儲存體 | 是
-讀取權限異地備援儲存體 | 是
+本地備援儲存體 | yes
+異地備援儲存體 | yes
+讀取權限異地備援儲存體 | yes
 非經常性儲存體 | 否
 經常性存取儲存體| 否
 區塊 Blob | 否
-待用資料加密 (儲存體服務加密)| 是
-進階儲存體 | 是
+待用資料加密 (儲存體服務加密)| yes
+進階儲存體 | yes
 匯入/匯出服務 | 否
 設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 否
 一般用途 v2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否
@@ -208,9 +207,9 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是
 
 **功能** | **支援**
 --- | ---
-可用性設定組 | 是
-中樞 | 是
-受控磁碟 | 是
+可用性設定組 | yes
+中樞 | yes
+受控磁碟 | yes
 
 ## <a name="azure-vm-requirements"></a>Azure VM 需求
 
@@ -253,7 +252,7 @@ VM 名稱 | 從 1 到 63 個字元。<br/><br/> 只能使用字母、數字和�
 ## <a name="next-steps"></a>後續步驟
 [了解如何](tutorial-prepare-azure.md)準備 Azure 的 VMware VM 災害復原。
 
-[9.22 UR]: https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery
+[9.22 UR]: https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery
 [9.21 UR]: https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery
 [9.20 UR]: https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery
 [9.19 UR]: https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30

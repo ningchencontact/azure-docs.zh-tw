@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 860d24bf9de02d1b2ca46f05f1e09843a826aaf9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466824"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816640"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>適用於預測性維護解決方案的 AI 指南
 
@@ -325,7 +325,7 @@ PdM 有另一個實用的技巧，就是使用可偵測資料異常的演算法�
 ### <a name="time-dependent-split"></a>時間相依分割
 這一節說明實作時間相依分割的最佳做法。 下面會說明訓練與測試集之間的時間相依雙向分割。
 
-假設有一連串的時間戳記事件，例如來自各種感應器的測量資料。 針對包含多個事件的時間範圍，定義訓練和測試範例的特徵及標籤。 例如，對於二元分類，根據過去的事件建立特徵，並根據未來 "X" 個時間單位內的未來事件建立標籤 (請參閱[特徵設計](#Feature-engineering)和[模型化技巧](#Modeling-techniques-applied-to-PdM-use-cases)章節)。 因此，範例的標記時間範圍會晚於其特徵的時間範圍。
+假設有一連串的時間戳記事件，例如來自各種感應器的測量資料。 針對包含多個事件的時間範圍，定義訓練和測試範例的特徵及標籤。 例如，對於二元分類，根據過去的事件建立特徵，並根據未來 "X" 個時間單位內的未來事件建立標籤 (請參閱[特徵設計](#Feature-engineering)和模型化技巧章節)。 因此，範例的標記時間範圍會晚於其特徵的時間範圍。
 
 對於時間相依分割，挑選「訓練截止時間 T<sub>c</sub>」，以便使用截至 T<sub>c</sub> 為止的過去資料微調的超參數來訓練模型。 為了避免超出 T<sub>c</sub> 的未來標籤外洩至訓練資料中，請選擇最新的時間，以將訓練範例標記為 T<sub>c</sub> 前的 X 個時間單位。 在 圖 7 所示的範例中，每個方塊都代表資料集中的一筆記錄，其特徵和標籤的計算方式如上所述。 此圖顯示當 X=2 和 W=3 時，應該進入訓練和測試集的記錄：
 

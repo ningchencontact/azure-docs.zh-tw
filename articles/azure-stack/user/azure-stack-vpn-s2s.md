@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9a14c819acbc46d8a281f73fd4f3185caa8a1e02
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478146"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815671"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>設定站對站 VPN 連線的 IPsec/IKE 原則
 
 本文會逐步說明用來為 Azure Stack 中的站對站 (S2S) VPN 設定 IPsec/IKE 原則的步驟。
+
+>[!NOTE]
+> 您必須執行 Azure Stack 組建 **1809** 或更新版本，才能使用這項功能。  如果您目前執行 1809 之前的組建，請先將您的 Azure Stack 系統更新為最新組建，再嘗試使用這項功能，或依照本文中的步驟操作。
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>VPN 閘道的 IPsec 和 IKE 原則參數
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 120f88e6bb8b2c6a1408ef98eadfcbb520b5cdb3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d5b44011607a393a682112e56aff1803c6d7cf72
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332654"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811591"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能指導方針
 
@@ -40,11 +40,11 @@ ms.locfileid: "54332654"
 
 | 領域 | 最佳化 |
 | --- | --- |
-| [VM 大小](#vm-size-guidance) |SQL Enterprise 版的 [DS3_v2](../sizes-general.md) 或更高版本。<br/><br/>SQL Standard 和 Web 版的 [DS2_v2](../sizes-general.md) 或更高版本。 |
-| [儲存體](#storage-guidance) |使用[進階儲存體](../premium-storage.md)。 標準儲存體只建議用於開發/測試。<br/><br/>將[儲存體帳戶](../../../storage/common/storage-create-storage-account.md)和 SQL Server VM 置於同一個區域。<br/><br/>停用儲存體帳戶上的 Azure [異地備援儲存體](../../../storage/common/storage-redundancy.md) (異地複寫)。 |
-| [磁碟](#disks-guidance) |使用至少 2 個 [P30 磁碟](../premium-storage.md#scalability-and-performance-targets) (1 個用於記錄檔，另 1 個用於資料檔案，包括 TempDB)。<br/><br/>避免使用作業系統或暫存磁碟作為資料儲存體或進行記錄。<br/><br/>啟用裝載資料檔案和 TempDB 資料檔案的磁碟上的 [讀取快取] 功能。<br/><br/>不要啟用裝載記錄檔案的磁碟上的 [快取] 功能。<br/><br/>重要：變更 Azure VM 磁碟的快取設定時，請停止 SQL Server 服務。<br/><br/>分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/>以文件上記載的配置大小格式化。 |
-| [I/O](#io-guidance) |啟用 [資料庫頁面壓縮] 功能　。<br/><br/>針對資料檔案，啟用 [立即檔案初始化] 功能。<br/><br/>限制資料庫上的 [自動成長] 功能。<br/><br/>停用資料庫上的 [自動壓縮] 功能。<br/><br/>將所有的資料庫 (包括系統資料庫) 移到資料磁碟。<br/><br/>將 SQL Server 的錯誤記錄檔和追蹤檔案目錄移至資料磁碟。<br/><br/>設定預設備份和資料庫檔案位置。<br/><br/>啟用鎖定的頁面。<br/><br/>套用 SQL Server 效能修正程式。 |
-| [特定功能](#feature-specific-guidance) |直接備份至 Blob 儲存體。 |
+| [VM 大小](#vm-size-guidance) | SQL Enterprise 版的 - [DS3_v2](../sizes-general.md) 或更高版本。<br/><br/> SQL Standard 和 Web 版的 - [DS2_v2](../sizes-general.md) 或更高版本。 |
+| [儲存體](#storage-guidance) | - 使用[進階儲存體](../premium-storage.md)。 標準儲存體只建議用於開發/測試。<br/><br/> - 將[儲存體帳戶](../../../storage/common/storage-create-storage-account.md)和 SQL Server VM 置於同一個區域。<br/><br/> * 停用儲存體帳戶上的 Azure [異地備援儲存體](../../../storage/common/storage-redundancy.md) (異地複寫)。 |
+| [磁碟](#disks-guidance) | - 使用至少 2 個 [P30 磁碟](../premium-storage.md#scalability-and-performance-targets) (1 個用於記錄檔，另 1 個用於資料檔案，包括 TempDB)。 對於需要 ~ 50,000 IOPS 的工作負載，請考慮使用 Ultra SSD。 <br/><br/> - 避免使用作業系統或暫存磁碟作為資料儲存體或進行記錄。<br/><br/> - 啟用裝載資料檔案和 TempDB 資料檔案的磁碟上的 [讀取快取] 功能。<br/><br/> - 不要啟用裝載記錄檔案的磁碟上的 [快取] 功能。  **重要**：變更 Azure VM 磁碟的快取設定時，請停止 SQL Server 服務。<br/><br/> - 分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/> - 以文件上記載的配置大小格式化。 <br/><br/> - 將 TempDB 置於任務關鍵性 SQL Server 工作負載的本機 SSD 上 (在選擇正確的 VM 大小之後)。 |
+| [I/O](#io-guidance) |- 啟用 [資料庫頁面壓縮] 功能　。<br/><br/> - 針對資料檔案，啟用 [立即檔案初始化] 功能。<br/><br/> - 限制資料庫的 [自動成長] 功能。<br/><br/> - 停用資料庫的 [自動壓縮] 功能。<br/><br/> - 將所有的資料庫 (包括系統資料庫) 移到資料磁碟。<br/><br/> - 將 SQL Server 的錯誤記錄檔和追蹤檔案目錄移至資料磁碟。<br/><br/> - 設定預設備份和資料庫檔案位置。<br/><br/> - 啟用鎖定的頁面。<br/><br/> - 套用 SQL Server 效能修正程式。 |
+| [特定功能](#feature-specific-guidance) | - 直接備份至 Blob 儲存體。 |
 
 如需有關「如何」和「為何」進行這些最佳化的詳細資訊，請檢閱下列各節提供的詳細資料與指引。
 
@@ -86,16 +86,19 @@ Azure VM 上有三種主要的磁碟類型︰
 
 標示為 **D**: 磁碟機的暫存磁碟機不會保存至 Azure blob 儲存體。 請勿將使用者資料庫檔案或使用者交易記錄檔儲存在 **D**: 磁碟機。
 
-D 系列、Dv2 系列和 G 系列 VM 的暫存磁碟機皆為 SSD 式。 如果您的工作負載大量使用 TempDB (例如用於暫存物件或複雜的聯結)，將 TempDB 儲存在 **D** 磁碟機可能會產生較高的 TempDB 輸送量和較低的 TempDB 延遲。 如需範例案例，請參閱下列部落格文章中的 TempDB 討論：[Azure VM 上的 SQL Server 儲存體設定指導方針](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) \(英文\)。
+D 系列、Dv2 系列和 G 系列 VM 的暫存磁碟機皆為 SSD 式。 如果您的工作負載大量使用 TempDB (例如用於暫存物件或複雜的聯結)，將 TempDB 儲存在 **D** 磁碟機可能會產生較高的 TempDB 輸送量和較低的 TempDB 延遲。 如需範例案例，請參閱下列部落格文章中的 TempDB 討論：[Azure VM 上的 SQL Server 儲存體設定指導方針](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm) \(英文\)。
 
-對於支援「進階儲存體」的 VM (DS 系列、DSv2 系列與 GS 系列)，建議您將 TempDB 儲存在支援「進階儲存體」且啟用讀取快取的磁碟上。 這項建議有一個例外，如果 TempDB 使用方式是密集寫入，您可以將 TempDB 儲存在本機的 **D** 磁碟機 (在這些機器大小上也是 SSD 型) 上以達到更高的效能。
+對於支援「進階儲存體」的 VM (DS 系列、DSv2 系列與 GS 系列)，建議您將 TempDB 儲存在支援「進階儲存體」且啟用讀取快取的磁碟上。 
+
+這項建議有一個例外：_如果 TempDB 使用方式是密集寫入，您可以將 TempDB 儲存在本機的 **D** 磁碟機 (在這些機器大小上也是 SSD 型) 上以達到更高的效能。_ 
 
 ### <a name="data-disks"></a>資料磁碟
 
 * **將資料磁碟用於資料檔和記錄檔**：如果您未使用磁碟等量分割，請使用兩個進階儲存體 [P30 磁碟](../premium-storage.md#scalability-and-performance-targets)；其中一個磁碟包含記錄檔，另一個則包含資料和 TempDB 檔案。 每個進階儲存體磁碟會根據其大小提供數個 IOPS 和頻寬 (MB/s)，如[針對磁碟使用進階儲存體](../premium-storage.md)一文所述。 如果您使用磁碟等量化技術 (例如儲存空間)，您將會有兩個集區 (一個用於記錄檔，另一個用於資料檔案)，而達到最佳效能。 不過，如果您打算使用 SQL Server 容錯移轉叢集執行個體 (FCI)，則必須設定一個集區。
 
    > [!TIP]
-   > 如需各種磁碟和工作負載設定的測試結果，請參閱下列部落格文章：[Azure VM 上的 SQL Server 儲存體設定指導方針](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) \(英文\)。
+   > - 如需各種磁碟和工作負載設定的測試結果，請參閱下列部落格文章：[Azure VM 上的 SQL Server 儲存體設定指導方針](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) \(英文\)。
+   > - 需要 ~ 50,000 IOPS 的 SQL Server 若要達到任務關鍵性效能，請考慮以 Ultra SSD 取代 10 個 -P30 磁碟。 如需詳細資訊，請參閱以下部落格文章：[Ultra SSD 的任務關鍵性效能](https://azure.microsoft.com/blog/mission-critical-performance-with-ultra-ssd-for-sql-server-on-azure-vm/)。
 
    > [!NOTE]
    > 當您在入口網站中佈建 SQL Server VM 時，您可以選擇編輯儲存體組態。 根據您的設定，Azure 會設定一或多個磁碟。 多個磁碟會利用串接合併成單一儲存體集區。 資料和記錄檔皆在此設定中。 如需詳細資訊，請參閱 [SQL Server VM 的儲存體組態](virtual-machines-windows-sql-server-storage-configuration.md)。
@@ -143,6 +146,7 @@ D 系列、Dv2 系列和 G 系列 VM 的暫存磁碟機皆為 SSD 式。 如果�
 
   > [!WARNING]
   > 如果在這些作業期間無法停止 SQL Server 服務，可能就會造成資料庫損毀。
+
 
 ## <a name="io-guidance"></a>I/O 指引
 

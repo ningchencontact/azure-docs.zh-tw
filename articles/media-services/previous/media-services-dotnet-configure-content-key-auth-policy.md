@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 0c16369cca4fae89733ad281aa3332c393be2aff
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4fdfbb17670cd30438a8906a6b00bb4db354aedb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828412"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820247"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -279,7 +279,7 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
 ```
 
 ### <a name="token-restriction"></a>權杖限制
-若要設定權杖限制選項，您需要使用 XML 來描述權杖的授權需求。 權杖限制設定 XML 必須符合[權杖限制結構描述](#token-restriction-schema)一節中所述的 XML 結構描述。
+若要設定權杖限制選項，您需要使用 XML 來描述權杖的授權需求。 權杖限制設定 XML 必須符合權杖限制結構描述一節中所述的 XML 結構描述。
 
 ```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)

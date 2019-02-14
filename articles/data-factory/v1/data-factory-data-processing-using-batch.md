@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021572"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822743"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 來處理大型資料集
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021572"
 
 本文說明範例解決方案的架構，此解決方案能以自動且排程的方式移動和處理大型資料集。 本文也提供如何使用 Data Factory 和 Azure Batch 來實作解決方案的端對端逐步解說。
 
-這篇文章比一般文章還長，因為它包含整個範例解決方案的逐步解說。 如果您不熟悉 Batch 和 Data Factory，您可以了解這兩項服務以及它們如何搭配運作。 如果您有這些服務的一些相關知識，而要設計解決方案或建立解決方案架構，您可以將焦點放在本文的[架構小節](#architecture-of-sample-solution)。 如果您要開發原型或解決方案，則可以試著依照[逐步解說](#implementation-of-sample-solution)中的逐步指示進行操作。 歡迎您對此內容以及您如何使用它提出看法。
+這篇文章比一般文章還長，因為它包含整個範例解決方案的逐步解說。 如果您不熟悉 Batch 和 Data Factory，您可以了解這兩項服務以及它們如何搭配運作。 如果您有這些服務的一些相關知識，而要設計解決方案或建立解決方案架構，您可以將焦點放在本文的架構一節。 如果您要開發原型或解決方案，則可以試著依照逐步解說中的逐步指示進行操作。 歡迎您對此內容以及您如何使用它提出看法。
 
 讓我們先看看 Data Factory 和 Batch 服務如何協助您處理雲端中的大型資料集。     
 

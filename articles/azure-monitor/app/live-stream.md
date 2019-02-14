@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104596"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814940"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流：以 1 秒的延遲進行監視與診斷
 
@@ -64,7 +64,7 @@ ms.locfileid: "55104596"
 |隨選|當您開啟即時計量時會串流處理資料|每當安裝並啟用 SDK 時都會傳送資料|
 |免費|即時資料流資料免費|依[價格](../../azure-monitor/app/pricing.md)付費
 |取樣|傳輸所有選取的計量和計數器。 取樣失敗和堆疊追蹤。 不會套用 TelemetryProcessors。|可能[取樣](../../azure-monitor/app/api-filtering-sampling.md)事件|
-|控制通道|篩選控制項訊號會傳送至 SDK。 建議您[保護這個通道](#secure-channel)。|對入口網站的單向通訊|
+|控制通道|篩選控制項訊號會傳送至 SDK。 建議您保護這個通道。|對入口網站的單向通訊|
 
 
 ## <a name="select-and-filter-your-metrics"></a>選取並篩選您的計量

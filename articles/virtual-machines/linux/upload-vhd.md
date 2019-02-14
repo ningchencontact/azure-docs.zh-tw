@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: edebd2efda7d8217c9b554f2d1f54135203502cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638100"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821553"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 從自訂磁碟建立 Linux VM
 
@@ -31,8 +31,8 @@ ms.locfileid: "49638100"
 若要從自訂磁碟建立多個 VM，先從您的 VM 或 VHD 建立映像。 如需詳細資訊，請參閱[使用 CLI 建立 Azure VM 的自訂映像](tutorial-custom-images.md)。
 
 您有兩個選項可用來建立自訂磁碟：
-* [上傳 VHD](#option-1-upload-a-specialized-vhd)
-* [複製現有的 Azure VM](#option-2-copy-an-existing-azure-vm)
+* 上傳 VHD
+* 複製現有的 Azure VM
 
 ## <a name="quick-commands"></a>快速命令
 
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account#az-storageaccount-create) 為自訂磁碟和 VM 建立儲存體帳戶。 下列範例會在先前建立的資源群組中建立名為 mystorageaccount 的儲存體帳戶：
+使用 [az storage account create](/cli/azure/storage/account) 為自訂磁碟和 VM 建立儲存體帳戶。 下列範例會在先前建立的資源群組中建立名為 mystorageaccount 的儲存體帳戶：
 
 ```azurecli
 az storage account create \

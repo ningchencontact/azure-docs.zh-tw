@@ -16,12 +16,13 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e786a2af8f86b69116b612c266dd40bbe7580e30
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: be5220c5f28505bd83110705e08a6b1c7fb12529
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161846"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210691"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>對 Azure Active Directory 活動記錄內容套件錯誤進行疑難排解 
 
@@ -34,7 +35,7 @@ ms.locfileid: "55161846"
 
 - [重新整理失敗](troubleshoot-content-pack.md#refresh-failed) 
 - [無法更新資料來源認證](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [匯入資料的時間太長](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+- [匯入資料的時間太長](#data-import-is-too-slow) 
 
 本文為您提供可能的原因以及如何修正這些錯誤的相關資訊。
  

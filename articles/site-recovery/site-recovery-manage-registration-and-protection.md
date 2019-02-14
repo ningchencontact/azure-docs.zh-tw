@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 7a9c0ec081b676631f950270f9234284a102d7fa
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212183"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810315"
 ---
 # <a name="remove-servers-and-disable-protection"></a>移除伺服器並停用保護
 
@@ -154,7 +154,7 @@ ms.locfileid: "55212183"
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>停用 Hyper-V 虛擬機器的保護 (Hyper-V 至 Azure)
 
 > [!NOTE]
-> 如果您是在沒有 VMM 伺服器的情況下將 Hyper-V VM 複寫到 Azure，請使用此程序。 如果您要使用 **System Center VMM 至 Azure** 案例複寫虛擬機器，則依照[使用 System Center VMM 至 Azure 案例，停用 Hyper-V 虛擬機器複寫的保護](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)中的指示進行
+> 如果您是在沒有 VMM 伺服器的情況下將 Hyper-V VM 複寫到 Azure，請使用此程序。 如果您要使用 **System Center VMM 至 Azure** 案例複寫虛擬機器，則依照「使用 System Center VMM 至 Azure 案例，停用 Hyper-V 虛擬機器複寫的保護」中的指示進行
 
 1. 在 [受保護的項目] > [已複寫的項目] 中，以滑鼠右鍵按一下機器 > [停用複寫]。
 2. 在 [停用複寫] 中，您可以選取下列選項：

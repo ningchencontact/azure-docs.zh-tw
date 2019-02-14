@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469187"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821351"
 ---
 # <a name="table-design-patterns"></a>資料表設計模式
 本文將說明一些適用於表格服務方案的模式。 此外，您會了解如何有效處理其他表格儲存體設計文章中討論的一些問題和取捨。 下圖摘要說明不同模式之間的關聯性：  
@@ -73,7 +73,7 @@ ms.locfileid: "55469187"
 
 * [間分割次要索引模式](#inter-partition-secondary-index-pattern)
 * [複合索引鍵模式](#compound-key-pattern)
-* [實體群組交易](#entity-group-transactions)
+* 實體群組交易
 * [使用異質性實體類型](#working-with-heterogeneous-entity-types)
 
 ## <a name="inter-partition-secondary-index-pattern"></a>間資料分割次要索引模式
@@ -128,7 +128,7 @@ ms.locfileid: "55469187"
 * [最終一致的交易模式](#eventually-consistent-transactions-pattern)  
 * [內部資料分割次要索引模式](#intra-partition-secondary-index-pattern)  
 * [複合索引鍵模式](#compound-key-pattern)  
-* [實體群組交易](#entity-group-transactions)  
+* 實體群組交易  
 * [使用異質性實體類型](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>最終一致的交易模式
@@ -172,7 +172,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 ### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
-* [實體群組交易](#entity-group-transactions)  
+* 實體群組交易  
 * [合併或取代](#merge-or-replace)  
 
 > [!NOTE]
@@ -212,7 +212,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 下列步驟概述您在使用第二個選項並且要新增員工時所應遵循的程序。 在此範例中，我們會新增在銷售部門中識別碼為 000152、且姓氏為 Jones 的員工：  
 
 1. 擷取具有 **PartitionKey** 值 "Sales" 和 **RowKey** 值 "Jones" 的索引實體。 儲存此實體的 ETag　以在步驟 2 中使用。  
-2. 建立實體群組交易 (也就是批次作業)，插入新的員工實體 (**PartitionKey** 值 "Sales" 和 **RowKey** 值 "000152") 並更新索引實體 (**PartitionKey** 值 "Sales" 和 **RowKey**值 "Jones")，方法是將新員工識別碼加入 EmployeeIDs 欄位中的清單。 如需實體群組交易的詳細資訊，請參閱 [實體群組交易](#entity-group-transactions)。  
+2. 建立實體群組交易 (也就是批次作業)，插入新的員工實體 (**PartitionKey** 值 "Sales" 和 **RowKey** 值 "000152") 並更新索引實體 (**PartitionKey** 值 "Sales" 和 **RowKey**值 "Jones")，方法是將新員工識別碼加入 EmployeeIDs 欄位中的清單。 如需實體群組交易的詳細資訊，請參閱實體群組交易。  
 3. 如果實體群組交易因為開放式並行存取錯誤而失敗 (其他人剛修改過索引實體)，您就必須從步驟 1 重新執行。  
 
 如果您使用第二個選項，您可以使用類似的方法來刪除某位員工。 變更員工的姓氏會稍微複雜一點，因為您需要執行會更新三個實體的實體群組交易：員工實體、舊姓氏的索引實體，與新姓氏的索引實體。 您必須先擷取每個實體才能進行變更，以擷取接著可以用來透過開放式並行存取執行更新的 ETag 值。  
@@ -251,7 +251,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 * [複合索引鍵模式](#compound-key-pattern)  
 * [最終一致的交易模式](#eventually-consistent-transactions-pattern)  
-* [實體群組交易](#entity-group-transactions)  
+* 實體群組交易  
 * [使用異質性實體類型](#working-with-heterogeneous-entity-types)  
 
 ## <a name="denormalization-pattern"></a>反正規化模式
@@ -282,7 +282,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
 * [複合索引鍵模式](#compound-key-pattern)  
-* [實體群組交易](#entity-group-transactions)  
+* 實體群組交易  
 * [使用異質性實體類型](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>複合索引鍵模式
@@ -325,7 +325,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
-* [實體群組交易](#entity-group-transactions)  
+* 實體群組交易  
 * [使用異質性實體類型](#working-with-heterogeneous-entity-types)  
 * [最終一致的交易模式](#eventually-consistent-transactions-pattern)  
 
@@ -394,7 +394,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
-* [實體群組交易](#entity-group-transactions)
+* 實體群組交易
 * [修改實體](#modifying-entities)  
 
 ## <a name="data-series-pattern"></a>資料序列模式
@@ -454,7 +454,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
-* [實體群組交易](#entity-group-transactions)
+* 實體群組交易
 * [合併或取代](#merge-or-replace)
 
 ## <a name="large-entities-pattern"></a>大型實體模式
@@ -556,7 +556,7 @@ Storage Analytics 會在內部緩衝處理記錄訊息，然後定期更新適�
 本節討論您在實作前面幾節說明的模式時應謹記在心的注意事項。 本節中的範例大多是以 C# 撰寫，並使用儲存體用戶端程式庫 (撰寫本文時為 4.3.0 版)。  
 
 ## <a name="retrieving-entities"></a>擷取實體
-如 [查詢的設計](#design-for-querying)一節中所述，最有效率的查詢是點查詢。 但在某些情況下，您可能需要擷取多個實體。 本節說明使用儲存體用戶端程式庫來擷取實體的一些常見方法。  
+如查詢的設計一節中所述，最有效率的查詢是點查詢。 但在某些情況下，您可能需要擷取多個實體。 本節說明使用儲存體用戶端程式庫來擷取實體的一些常見方法。  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>使用儲存體用戶端程式庫執行點查詢
 要執行點查詢，最簡單的方式是使用下列 C# 程式碼片段中展示的**擷取**資料表作業，來擷取 **PartitionKey** 值為 "Sales" 和 **RowKey** 值為 "212" 的實體：  

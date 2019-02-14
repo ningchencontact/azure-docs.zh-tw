@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 842c0d5e3dff0c21545405624f0f536c80359b19
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428154"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809890"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>檢視 Azure 虛擬網路的拓撲
 
@@ -56,7 +56,7 @@ ms.locfileid: "54428154"
 
 您所使用的帳戶必須具有必要的[權限](required-rbac-permissions.md)。
 
-1. 如果您在要建立拓撲的虛擬網路所在的相同區域中已有網路監看員，請跳至步驟 3。 使用 [az group create](/cli/azure/group#az_group_create) 建立包含網路監看員的資源群組： 下列範例會在 *eastus* 區域中建立資源群組：
+1. 如果您在要建立拓撲的虛擬網路所在的相同區域中已有網路監看員，請跳至步驟 3。 使用 [az group create](/cli/azure/group) 建立包含網路監看員的資源群組： 下列範例會在 *eastus* 區域中建立資源群組：
 
     ```azurecli-interactive
     az group create --name NetworkWatcherRG --location eastus
@@ -79,7 +79,7 @@ ms.locfileid: "54428154"
 
     只有與 *MyResourceGroup* 資源群組位於相同資源群組內的資源，以及與網路監看員位於相同區域的資源，才會傳回拓撲資訊。 例如，存在於 *MyResourceGroup* 以外的資源群組中的網路安全性群組並不會顯示，即使該網路安全性群組與 *MyVnet* 虛擬網路中的子網路相關聯，仍是如此。
 
-  深入了解傳回的輸出中的[關聯性](#relationhips)和[屬性](#properties)。 如果您沒有可檢視拓撲的現有虛擬網路，您可以使用[透過網路虛擬設備來路由傳送流量](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)指令碼範例建立一個。 若要檢視拓撲的圖表，並以可編輯檔案的形式加以下載，請使用[入口網站](#azure-portal)。
+  深入了解傳回的輸出中的關聯性和[屬性](#properties)。 如果您沒有可檢視拓撲的現有虛擬網路，您可以使用[透過網路虛擬設備來路由傳送流量](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)指令碼範例建立一個。 若要檢視拓撲的圖表，並以可編輯檔案的形式加以下載，請使用[入口網站](#azure-portal)。
 
 ## <a name = "powershell"></a>檢視拓撲 - PowerShell
 
@@ -123,7 +123,7 @@ ms.locfileid: "54428154"
 
    只有與 *MyResourceGroup* 資源群組位於相同資源群組內的資源，以及與網路監看員位於相同區域的資源，才會傳回拓撲資訊。 例如，存在於 *MyResourceGroup* 以外的資源群組中的網路安全性群組並不會顯示，即使該網路安全性群組與 *MyVnet* 虛擬網路中的子網路相關聯，仍是如此。
 
-  深入了解傳回的輸出中的[關聯性](#relationhips)和[屬性](#properties)。 如果您沒有可檢視拓撲的現有虛擬網路，您可以使用[透過網路虛擬設備來路由傳送流量](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)指令碼範例建立一個。 若要檢視拓撲的圖表，並以可編輯檔案的形式加以下載，請使用[入口網站](#azure-portal)。
+  深入了解傳回的輸出中的關聯性和[屬性](#properties)。 如果您沒有可檢視拓撲的現有虛擬網路，您可以使用[透過網路虛擬設備來路由傳送流量](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)指令碼範例建立一個。 若要檢視拓撲的圖表，並以可編輯檔案的形式加以下載，請使用[入口網站](#azure-portal)。
 
 ## <a name="relationships"></a>關聯性
 

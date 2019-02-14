@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633022"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752887"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>連線至 Azure SQL Database 並使用 Azure 搜尋服務索引子為內容編製索引
 
@@ -209,6 +209,9 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
     }
 
 使用 SQL 整合式變更追蹤原則時，請不要指定個別的資料刪除偵測原則，因為本原則已內建支援刪除資料列的識別。 不過，針對要「自動」偵測的刪除，您搜尋索引中的文件索引鍵必須與 SQL 資料表中的主索引鍵一樣。 
+
+> [!NOTE]  
+> 使用 [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) 來移除 SQL 資料表中的大量資料列時，必須[重設](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)索引子，才能重設變更追蹤狀態，以挑選資料列刪除。
 
 <a name="HighWaterMarkPolicy"></a>
 

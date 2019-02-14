@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 「自訂語音服務」現在已是「語音服務」的一部分。 切換至「語音服務」即可享有最新品質與功能更新的好處。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 594233b9e345f9578c218b042a64ea167d50addb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211027"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856882"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>從自訂語音服務移轉至語音服務
 
@@ -40,12 +40,6 @@ ms.locfileid: "55211027"
 3. 依照快速入門指南和 SDK 範例以使用正確的 API。 如果您使用 REST API，則也必須使用正確的端點和資源索引鍵。
 
 4. 更新用戶端應用程式以使用語音服務和 API。
-
-> [!NOTE]
-> * 如果您已在 Language Understanding (LUIS) 中啟用語音，則相同區域中的單一 LUIS 資源不僅適用於 LUIS，也適用於所有語音服務。 如需詳細資訊，請參閱[從語音識別意圖](how-to-recognize-intents-from-speech-csharp.md)。
-> * 文字轉換文字翻譯不是語音服務的一部分。 此功能需要個別的 Azure 資源訂用帳戶。
- 
-
 
 ## <a name="migration-for-existing-customers"></a>現有客戶的移轉
 

@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7dd2b60a985291311328407b07ef290e962f147b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 110397e8399d153356a574b00d34a4cb781ec1b5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080560"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811557"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 存取權杖
 
@@ -239,6 +239,8 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 > 「非密碼型」登入是讓使用者不需輸入密碼就能取得它的方式。 例如，使用您的臉部搭配 Windows Hello、FIDO 金鑰或 PIN。 
 >
 > 有已知與 Windows 主要重新整理權杖有關的問題存在。 如果 PRT 是透過密碼取得，接著使用者會透過 Hello 登入，則這不會變更 PRT 的來源，而且如果使用者變更其密碼，將會撤銷它。
+>
+> 使用重新整理權杖來擷取新的存取權杖和重新整理權杖時，不會使該權杖失效或撤銷。  
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,16 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353034"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822607"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>在無網際網路存取下使用 Log Analytics 閘道連線電腦
+
+>[!NOTE]
+>因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 閘道將稱為稱為 Log Analytics 閘道。 
+>
+
 本文件說明如何在直接連線或受 Operations Manager 監視的電腦沒有網際網路存取時，設定使用 Log Analytics 閘道與 Azure 自動化和 Log Analytics 的通訊。  Log Analytics 閘道是使用 HTTP CONNECT 命令支援 HTTP 通道的 HTTP 正向 Proxy，可以代表這些電腦收集資料並傳送給 Azure 自動化和 Log Analytics 服務。  
 
 Log Analytics 閘道支援︰
@@ -29,7 +34,7 @@ Log Analytics 閘道支援︰
 * Azure 自動化混合式 Runbook 背景工作  
 * 直接連線到 Log Analytics 工作區、具有 Microsoft Monitoring Agent 的 Windows 電腦
 * 將適用於 Linux 的 Log Analytics 代理程式直接連線到 Log Analytics 工作區的 Linux 電腦  
-* System Center Operations Manager 2012 SP1 (含 UR7)、Operations Manager 2012 R2 (含 UR3)、Operations Manager 2016 和與 Log Analytics 整合的 Operations Manager 1801 版管理群組。  
+* System Center Operations Manager 2012 SP1 (含 UR7)、Operations Manager 2012 R2 (含 UR3)、Operations Manager 2016 或與 Log Analytics 整合的較新管理群組。  
 
 如果您的 IT 安全性原則不允許網路上的電腦連線到網際網路，例如銷售點 (POS) 裝置或支援 IT 服務的伺服器，但您需要將它們連線至 Azure 自動化或 Log Analytics 來加以管理和監視，則可以將它們設定為直接與 Log Analytics 閘道通訊，以代表它們接收組態和轉送資料。  如果您為這些電腦設定了 Log Analytics 代理程式以直接連線到 Log Analytics 工作區，所有電腦會改為與 Log Analytics 閘道通訊。  閘道會將資料直接從代理程式傳輸到服務，而不會分析傳輸中的任何資料。
 

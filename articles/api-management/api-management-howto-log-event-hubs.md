@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: a8cda04ccc39e53962ec8c4b57d24df539f38825
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 77ada606412506e3d3d23189d8a5267e1f58a8f7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233893"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733071"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>如何將事件記錄到 Azure API 管理中的 Azure 事件中樞
 事件中樞是可高度調整的資料輸入服務，每秒可擷取數百萬個事件，可讓您處理和分析連接的裝置和應用程式所產生的大量資料。 事件中樞能做為事件管線的「大門」，一旦收集的資料進入事件中樞，它可以使用任何即時分析提供者或批次/儲存配接器轉換及儲存資料。 事件中樞能分隔事件串流的生產與這些事件的使用，讓事件消費者依照自己的排程存取事件。
@@ -33,7 +33,7 @@ ms.locfileid: "51233893"
 ## <a name="create-an-api-management-logger"></a>建立 API 管理記錄器
 現在您已經有事件中樞，下一步是在 API 管理服務中設定 [記錄器](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) ，以將事件記錄至事件中樞。
 
-可使用 [API 管理 REST API](https://aka.ms/smapi)來設定 API 管理記錄器。 在第一次使用 REST API 之前，請先檢閱[必要條件](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites)，確定您已[啟用 REST API 的存取](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI)。
+可使用 [API 管理 REST API](https://aka.ms/smapi)來設定 API 管理記錄器。 在第一次使用 REST API 之前，請先檢閱[必要條件](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest)，確定您已[啟用 REST API 的存取](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI)。
 
 若要建立記錄器，請使用下列 URL 範本提出 HTTP PUT 要求：
 
@@ -45,7 +45,7 @@ ms.locfileid: "51233893"
 將下列標頭新增至要求中：
 
 * Content-Type : application/json
-* Authorization : SharedAccessSignature 58...
+* 授權：SharedAccessSignature 58...
   * 如需產生 `SharedAccessSignature` 的相關指示，請參閱 [Azure API 管理 REST API 驗證](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication)。
 
 使用下列範本指定要求本文：

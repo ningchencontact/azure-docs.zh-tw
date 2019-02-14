@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 02/05/2019
+ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232119"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768557"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 串流分析預覽功能
 
@@ -23,13 +23,13 @@ ms.locfileid: "54232119"
 
 下列功能目前處於公開預覽狀態。 您目前可以利用這些功能，但請勿將其用於生產環境。
 
+### <a name="sql-database-reference-data"></a>SQL Database 參考資料
+
+Azure 串流分析支援以 Azure SQL Database 作為參考資料輸入的來源。 在 Azure 入口網站和 Visual Studio 中，您可以搭配串流分析工具使用 SQL Database 作為串流分析作業的參考資料。 如需詳細資訊，請造訪[將來自 SQL Database 的參考資料用於 Azure 串流分析作業](sql-reference-data.md)。
+
 ### <a name="integration-with-azure-machine-learning"></a>與 Azure Machine Learning 整合
 
 您可以使用 Machine Learning (ML) 函式來調整串流分析作業。 若要深入了解如何在串流分析作業中使用 ML 函式，請造訪[使用 Azure Machine Learning 函式調整串流分析作業](stream-analytics-scale-with-machine-learning-functions.md)。 透過[使用 Azure 串流分析和 Azure Machine Learning 執行情感分析](stream-analytics-machine-learning-integration-tutorial.md)來了解真實案例。
-
-### <a name="blob-output-partitioning-by-custom-time"></a>透過自訂時間來分割 Blob 輸出
-
-Azure 串流分析可以根據自訂時間屬性來輸出至 Blob 儲存體。 如需詳細資訊，請造訪 [Azure 串流分析 Blob 儲存體輸出的自訂日期時間路徑模式](stream-analytics-custom-path-patterns-blob-storage-output.md)。
 
 ### <a name="javascript-user-defined-aggregate"></a>JavaScript 使用者定義彙總
 
@@ -45,7 +45,7 @@ Azure 串流分析的 Visual Studio 工具加強了本機測試功能，讓您�
 
 ## <a name="private-previews"></a>個人預覽版
 
-下列功能目前處於個人預覽狀態。 若要存取這些預覽功能，請造訪 Azure 串流分析個人預覽版[註冊](https://aka.ms/ASApreview1)頁面。
+下列功能目前處於個人預覽狀態。
 
 ### <a name="anomaly-detection"></a>異常偵測
 
@@ -55,13 +55,13 @@ Azure 串流分析導入了新的機器學習模型，其可支援「尖峰」�
 
 開發人員現在可以在 C# 實作自訂 Deserializer，以將 Azure 串流分析所收到的事件還原序列化。 可以還原序列化的格式範例包括 Parquet、Protobuf、XML 或任何二進位格式。
 
-### <a name="blob-output-partitioning-by-custom-attribute"></a>透過自訂屬性來分割 Blob 輸出
-
-您現在可以根據查詢中的任何資料行，來分割 Azure 串流分析對 Blob 儲存體的輸出。
-
-### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Azure Data Lake Storage 的 Azure 資源驗證受控識別
+### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Azure Data Lake Storage 的 Azure 資源驗證受控識別
 
 您現在可以在寫入至 Azure Data Lake Storage Gen1 時，使用 Azure 資源型驗證的受控識別將即時管線運作化，從而讓您以程式設計方式建立作業。 如需詳細資訊，請造訪[使用 Azure 資源的受控識別來向 Azure Data Lake Storage Gen1 輸出驗證 Azure 串流分析作業](stream-analytics-managed-identities-adls.md)。
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>適用於 Azure 串流分析的 Visual Studio Code
+
+Azure 串流分析作業可以在 Visual Studio Code 中撰寫。
 
 ## <a name="next-steps"></a>後續步驟
 

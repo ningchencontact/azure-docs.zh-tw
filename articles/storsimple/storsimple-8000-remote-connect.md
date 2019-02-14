@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103950"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816487"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>遠端連線至 StorSimple 8000 系列裝置
 
@@ -46,7 +46,7 @@ ms.locfileid: "28103950"
 
 您可以使用 Azure 入口網站或序列主控台來設定遠端管理。 選擇下列程序之一：
 
-* [使用 Azure 入口網站來啟用透過 HTTP 的遠端管理](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
+* 使用 Azure 入口網站來啟用透過 HTTP 的遠端管理
 * [使用序列主控台啟用透過 HTTP 的遠端管理](#use-the-serial-console-to-enable-remote-management-over-http)
 
 啟用遠端管理後，使用下列程序準備遠端連線的用戶端。
@@ -124,7 +124,7 @@ ms.locfileid: "28103950"
 
 您可以使用 Azure 入口網站或序列主控台來設定遠端管理。 選擇下列程序之一：
 
-* [使用 Azure 入口網站來啟用透過 HTTPS 的遠端管理](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
+* 使用 Azure 入口網站來啟用透過 HTTPS 的遠端管理
 * [使用序列主控台啟用透過 HTTPS 的遠端管理](#use-the-serial-console-to-enable-remote-management-over-https)
 
 啟用遠端管理後，使用下列程序準備遠端管理的主機，並從該遠端主機連線至裝置。
@@ -203,7 +203,7 @@ ms.locfileid: "28103950"
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>將裝置序號新增至遠端主機
 1. 以管理員的身分啟動 [記事本]，然後開啟位於 \Windows\System32\Drivers\etc 的主機檔案。
-2. 將下列三個項目新增至主機檔案：**DATA 0 IP 位址**、**控制器 0 固定 IP 位址**、**控制器 1 固定 IP 位址**。
+2. 將下列三個項目新增至 hosts 檔案：**DATA 0 IP 位址**、**控制器 0 固定 IP 位址**、**控制器 1 固定 IP 位址**。
 3. 輸入您稍早儲存的裝置序號。 對應至 IP 位址，如下圖所示。 對於控制器 0 及控制器 1，在序號 (CN 名稱) 結尾後附加 **Controller0** 和 **Controller1**。
    
     ![將 CN 名稱加入至主機檔案](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)

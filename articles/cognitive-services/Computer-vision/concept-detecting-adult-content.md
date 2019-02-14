@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 使用電腦視覺 API 偵測影像中成人和猥褻內容的相關概念。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7f343f22eb881cf58a024f8464ffd0d615fe06e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 64db05e5e40b76d219ea0e3214c20297f32da4b5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158888"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861267"
 ---
 # <a name="detecting-adult-and-racy-content"></a>偵測成人和猥褻內容
 

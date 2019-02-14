@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7234c1a5f7914ad3ce0ff415b387bfee386198c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: abfdf75c6460efe50dcc9959ffb297f77a72f8c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169598"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813206"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶和權限
 
@@ -67,10 +67,10 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 如果您是從 DirSync 升級，可透過 AD DS 企業系統管理員認證來重設 DirSync 所使用帳戶的密碼。 您也需要 Azure AD 全域管理員認證。
 
 ### <a name="azure-ad-global-admin-credentials"></a>Azure AD 全域管理員認證
-這些認證只能在安裝期間使用，安裝完成後則無法使用。 其會用來建立 [Azure AD 連接器帳戶](#azure-ad-service-account)，以用於將變更同步處理至 Azure AD。 帳戶也會在 Azure AD 中啟用同步處理做為一項功能。
+這些認證只能在安裝期間使用，安裝完成後則無法使用。 其會用來建立 Azure AD 連接器帳戶，以用於將變更同步處理至 Azure AD。 帳戶也會在 Azure AD 中啟用同步處理做為一項功能。
 
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>AD DS 連接器帳戶針對快速設定所需的權限
-[AD DS 連接器帳戶](#active-directory-account)是為了在 Windows Server AD 中讀取和寫入而建立的，而且在由快速設定建立時，會具有下列權限：
+AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立的，而且在由快速設定建立時，會具有下列權限：
 
 | 權限 | 用於 |
 | --- | --- |
@@ -89,9 +89,9 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 
 | 精靈頁面 | 收集的認證 | 所需的權限 | 用於 |
 | --- | --- | --- | --- |
-| N/A |執行安裝精靈的使用者 |本機伺服器的系統管理員 |<li>建立 [ADSync 服務帳戶](#azure-ad-connect-sync-service-account)帳戶，以用來執行同步處理服務。 |
-| 連接至 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 [Azure AD 連接器帳戶](#azure-ad-service-account)。</li> |
-| 連線到 AD DS |內部部署 Active Directory 認證 |Active Directory 中 Enterprise Admins (EA) 群組成員 |<li>在 Active Directory 中建立 [AD DS 連接器帳戶](#active-directory-account)並對其授與權限。 這個建立的帳戶是在同步處理期間用來讀取和寫入目錄資訊。</li> |
+| N/A |執行安裝精靈的使用者 |本機伺服器的系統管理員 |<li>建立 ADSync 服務帳戶，以用來執行同步處理服務。 |
+| 連接至 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 Azure AD 連接器帳戶。</li> |
+| 連線到 AD DS |內部部署 Active Directory 認證 |Active Directory 中 Enterprise Admins (EA) 群組成員 |<li>在 Active Directory 中建立 AD DS 連接器帳戶並對其授與權限。 這個建立的帳戶是在同步處理期間用來讀取和寫入目錄資訊。</li> |
 
 
 ## <a name="custom-installation-settings"></a>自訂安裝設定
@@ -106,10 +106,10 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 
 | 精靈頁面 | 收集的認證 | 所需的權限 | 用於 |
 | --- | --- | --- | --- |
-| N/A |執行安裝精靈的使用者 |<li>本機伺服器的系統管理員</li><li>如果使用完整的 SQL Server，使用者必須是 SQL 中的系統管理員 (SA)</li> |預設會建立用來作為 [同步引擎服務帳戶](#azure-ad-connect-sync-service-account)的本機帳戶。 只有在管理員未指定特定帳戶時才會建立帳戶。 |
+| N/A |執行安裝精靈的使用者 |<li>本機伺服器的系統管理員</li><li>如果使用完整的 SQL Server，使用者必須是 SQL 中的系統管理員 (SA)</li> |預設會建立用來作為同步引擎服務帳戶的本機帳戶。 只有在管理員未指定特定帳戶時才會建立帳戶。 |
 | 安裝同步處理服務，服務帳戶選項 |AD 或本機使用者帳戶認證 |使用者權限會由安裝精靈授與 |如果系統管理員指定帳戶，則此帳戶會做為同步處理服務帳戶。 |
-| 連接至 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 [Azure AD 連接器帳戶](#azure-ad-service-account)。</li> |
-| 連接您的目錄 |各個連線至 Azure AD 之樹系的內部部署 Active Directory 認證 |權限取決於所啟用的功能，並且可在[建立 AD DS 連接器帳戶](#create-the-ad-dso-connector-account)中找到 |這個帳戶是在同步處理期間用來讀取和寫入目錄資訊。 |
+| 連接至 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 Azure AD 連接器帳戶。</li> |
+| 連接您的目錄 |各個連線至 Azure AD 之樹系的內部部署 Active Directory 認證 |權限取決於所啟用的功能，並且可在建立 AD DS 連接器帳戶中找到 |這個帳戶是在同步處理期間用來讀取和寫入目錄資訊。 |
 | AD FS 伺服器 |如果執行精靈的使用者登入認證權限不足無法連線，精靈就會收集清單中每個伺服器的認證 |網域系統管理員 |安裝和設定 AD FS 伺服器角色。 |
 | Web 應用程式 Proxy 伺服器 |如果執行精靈的使用者登入認證權限不足無法連線，精靈就會收集清單中每個伺服器的認證 |目標電腦上的本機系統管理員 |安裝和設定 WAP 伺服器角色。 |
 | Proxy 信任憑證 |Federation Service 信任認證 (Proxy 用來註冊 FS 信任憑證的認證) |網域帳戶是 AD FS 伺服器的本機系統管理員 |FS-WAP 信任憑證的首次註冊。 |
@@ -157,7 +157,7 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 
 ![AD 帳戶](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
-如果您使用自訂設定，您就必須負責在開始安裝之前建立帳戶。  請參閱[建立 AD DS 連接器帳戶](#create-the-ad-dso-connector-account)。
+如果您使用自訂設定，您就必須負責在開始安裝之前建立帳戶。  請參閱建立 AD DS 連接器帳戶。
 
 ### <a name="adsync-service-account"></a>ADSync 服務帳戶
 同步處理服務可以在不同帳戶下執行。 它可以在**虛擬服務帳戶** (VSA)、**群組受控服務帳戶** (gMSA/sMSA) 或一般使用者帳戶下執行。 當您執行全新安裝時，2017 年 4 月版之 Connect 的支援選項已變更。 如果您從舊版的 Azure AD Connect 升級，將無法使用這些額外選項。
@@ -198,7 +198,7 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 
 ![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
-VSA 適用於同步處理引擎和 SQL 位於相同伺服器的情況。 如果您使用遠端 SQL，我們會建議您改用[群組受控服務帳戶](#managed-service-account)。
+VSA 適用於同步處理引擎和 SQL 位於相同伺服器的情況。 如果您使用遠端 SQL，我們會建議您改用群組受控服務帳戶。
 
 這項功能需要 Windows Server 2008 R2 或更新版本。 如果您在 Windows Server 2008 上安裝 Azure AD Connect，則安裝會改回使用[使用者帳戶](#user-account)。
 

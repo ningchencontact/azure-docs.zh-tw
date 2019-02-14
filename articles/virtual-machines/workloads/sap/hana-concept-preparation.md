@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492811"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822539"
 ---
 # <a name="disaster-recovery-principles"></a>災害復原原則
 
@@ -48,7 +48,7 @@ HANA 大型執行個體提供了能在不同 Azure 區域的 HANA 大型執行�
 
 
 >[!NOTE]
->HANA 大型執行個體儲存體複寫功能會鏡像處理及複寫儲存體快照集。 如果您未依照本文的[備份與還原](#backup-and-restore)章節所說的方式來執行儲存體快照集，系統就完全不會複寫到災害復原網站。 若要執行儲存體複寫到災害復原網站的作業，就必須先執行儲存體快照集。
+>HANA 大型執行個體儲存體複寫功能會鏡像處理及複寫儲存體快照集。 如果您未依照本文的備份與還原章節所說的方式來執行儲存體快照集，系統就完全不會複寫到災害復原網站。 若要執行儲存體複寫到災害復原網站的作業，就必須先執行儲存體快照集。
 
 
 
@@ -81,7 +81,7 @@ HANA 大型執行個體提供了能在不同 Azure 區域的 HANA 大型執行�
 - 針對交易記錄備份磁碟區 (快照集類型為 **logs**)，設定為每隔 3 分鐘就會複寫到災害復原網站中對等的存放磁碟區目標。
 
 若要盡量縮減復原點目標，請設定下列各項：
-- 每隔 30 分鐘到 1 小時執行一次 **hana** 類型的儲存體快照集 (請參閱「步驟 7：執行快照集」)。
+- 執行 **hana** 類型的儲存體快照集 (請參閱「步驟 7：執行快照集」)，每隔 30 分鐘到 1 小時執行一次。
 - 每隔 5 分鐘執行一次 SAP HANA 交易記錄備份。
 - 每隔 5-15 分鐘執行一次 **logs** 類型的儲存體快照集。 使用此間隔期間，您會達到約 15-25 分鐘的 RPO。
 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579323"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816572"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure 監視器中建立、檢視及管理活動記錄警示  
 
@@ -93,7 +93,7 @@ ms.locfileid: "53579323"
 
     活動記錄的新警示規則隨即建立，而且視窗右上方會顯示確認訊息。
 
-    您可以啟用、停用、編輯或刪除規則。 [深入了解](#view-and-manage-activity-log-alert-rules-in-azure-portal)如何管理活動記錄規則。
+    您可以啟用、停用、編輯或刪除規則。 深入了解如何管理活動記錄規則。
 
 
 或者，有一個簡單類比可用來了解哪些警示規則可在活動記錄上建立，就是透過 [Azure 入口網站中的活動記錄](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal)探索或篩選事件。 在 Azure 監視器 - 活動記錄中，您可以篩選或尋找必要事件，然後透過使用 [新增活動記錄警示] 按鈕來建立警示；然後依照以上教學課程中所述的步驟 4 開始。
@@ -203,14 +203,14 @@ ms.locfileid: "53579323"
 [Azure 監視器 - 活動記錄警示 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) 是 REST API，並且可與 Azure Resource Manager REST API 完全相容。 因此它可以透過 Powershell 和 Azure CLI 搭配資源管理員 Cmdlet 來使用。
 
 ## <a name="powershell"></a>PowerShell
-以下說明透過 Azure Resource Manager PowerShell Cmdlet 使用上述[資源範本一節](#manage-alert-rules-for-activity-log-using-azure-resource-template)中資源範本範例 (sampleActivityLogAlert.json) 的方式：
+以下說明如何透過 Azure Resource Manager PowerShell Cmdlet 使用前述「資源範本」一節中的範例資源範本 (sampleActivityLogAlert.json)：
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 其中，sampleActivityLogAlert.parameters.json 具有提供給警示規則建立所需參數的值。
 
 ## <a name="cli"></a>CLI
-以下說明透過 Azure CLI 中的 Azure Resource Manager 命令使用上述[資源範本一節](#manage-alert-rules-for-activity-log-using-azure-resource-template)中資源範本範例 (sampleActivityLogAlert.json) 的方式：
+以下說明如何透過 Azure CLI 中的 Azure Resource Manager 命令使用前述「資源範本」一節中的範例資源範本 (sampleActivityLogAlert.json)：
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json

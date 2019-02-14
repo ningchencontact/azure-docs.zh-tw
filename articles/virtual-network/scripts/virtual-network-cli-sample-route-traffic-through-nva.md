@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 667d32c825f61751970bbcaa47045929ad708490
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e935aff95c0a37525de343e808cf2e88791fce30
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160261"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893872"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>透過網路虛擬設備路由流量的指令碼範例
 
@@ -49,17 +49,17 @@ az group delete --name MyResourceGroup --yes
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | 建立 Azure 虛擬網路和前端子網路。 |
-| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | 建立後端和 DMZ 子網路。 |
-| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | 建立公用 IP 位址以從網際網路存取 VM。 |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | 建立虛擬網路介面並為它啟用 IP 轉送功能。 |
-| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | 建立網路安全性群組 (NSG)。 |
+| [az group create](/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
+| [az network vnet create](/cli/azure/network/vnet) | 建立 Azure 虛擬網路和前端子網路。 |
+| [az network subnet create](/cli/azure/network/vnet/subnet) | 建立後端和 DMZ 子網路。 |
+| [az network public-ip create](/cli/azure/network/public-ip) | 建立公用 IP 位址以從網際網路存取 VM。 |
+| [az network nic create](/cli/azure/network/nic) | 建立虛擬網路介面並為它啟用 IP 轉送功能。 |
+| [az network nsg create](/cli/azure/network/nsg) | 建立網路安全性群組 (NSG)。 |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | 建立允許對 VM 進行 HTTP 和 HTTPS 連接埠輸入的 NSG 規則。 |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| 將 NSG 和路由表與子網路建立關聯。 |
 | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| 為所有路由建立一個路由表。 |
 | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| 建立路由，以透過 VM 在子網路與網際網路之間路由傳送流量。 |
-| [az vm create](/cli/azure/vm#az_vm_create) | 建立虛擬機器，並將 NIC 連結到此虛擬機器。 此命令也會指定要使用的虛擬機器映像和系統管理認證。 |
+| [az vm create](/cli/azure/vm) | 建立虛擬機器，並將 NIC 連結到此虛擬機器。 此命令也會指定要使用的虛擬機器映像和系統管理認證。 |
 | [az group delete](/cli/azure/group) | 刪除資源群組及其包含的所有資源。 |
 
 ## <a name="next-steps"></a>後續步驟

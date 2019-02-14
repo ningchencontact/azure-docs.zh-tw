@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972034"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818119"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結
 
@@ -57,7 +57,7 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[略過觸發程序範例](#trigger---attributes)
+略過觸發程序範例
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[略過觸發程序範例](#trigger---attributes)
+略過觸發程序範例
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
@@ -131,7 +131,7 @@ namespace CosmosDBSamplesV2
     }
 ```
 
-[略過觸發程序範例](#trigger---attributes)
+略過觸發程序範例
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
@@ -199,7 +199,7 @@ namespace CosmosDBSamplesV2
 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的參數使用 `@CosmosDBTrigger` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用「選擇性」<T>的可為 Null 值一起使用。
 
 
-[略過觸發程序範例](#trigger---attributes)
+略過觸發程序範例
 
 ### <a name="trigger---python-example"></a>觸發程序 - Python 範例
 
@@ -274,9 +274,9 @@ namespace CosmosDBSamplesV2
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| (選擇性) 如果設定，將會以毫秒為單位定義啟動工作以計算分割區是否平均分散到已知主機執行個體的間隔。 預設值為 13000 (13 秒)。
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (選擇性) 如果設定，將會以毫秒為單位定義租用代表分割區的間隔。 未在此間隔內更新的租用將會過期，且分割區的擁有權會移轉給另一個執行個體。 預設值為 60000 (60 秒)。
 |**leaseRenewInterval**| **LeaseRenewInterval**| (選擇性) 如果設定，將會以毫秒為單位定義目前由執行個體保有之分割區的所有租用所適用的更新間隔。 預設值為 17000 (17 秒)。
-|**checkpointFrequency**| **CheckpointFrequency**| (選擇性) 如果設定，將會以毫秒為單位定義租用檢查點的間隔。 預設皆為各函式呼叫後。
+|**checkpointFrequency**| **CheckpointFrequency**| (選擇性) 如果設定，將會以毫秒為單位定義租用檢查點的間隔。 預設永遠是各函式呼叫後。
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (選擇性) 如果設定，將會自訂每個函式呼叫所接收的項目數量上限。
-|**startFromBeginning**| **StartFromBeginning**| (選擇性) 設定時，它會告訴觸發程序從集合記錄的開頭 (而非當前的時間) 開始讀取變更。 這只會在觸發程序第一次啟動時運作，因為在後續執行時，檢查點已經儲存。 若已經建立租用，將此設為 `true` 則不會有任何作用。
+|**startFromBeginning**| **StartFromBeginning**| (選擇性) 如果設定此項，它會告訴觸發程序從集合記錄 (而非當前的時間) 起始點讀取變更。 因為在後續執行中，檢查點已儲存，所以這只會在觸發程序第一次啟動時運作。 若已經建立租用，將此項設為 `true` 不會有任何作用。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1727,7 +1727,7 @@ public class DocsFromRouteSqlQuery {
 
 在 C# 和 F# 函式中，當函式順利結束時，系統會自動保留透過具名輸入參數對輸入文件所做的任何變更。
 
-在 JavaScript 函數中，不會在函數結束時自動執行更新。 請改用 `context.bindings.<documentName>In` 和 `context.bindings.<documentName>Out` 來進行更新。 請參閱 [JavaScript 範例](#input---javascript-example)。
+在 JavaScript 函數中，不會在函數結束時自動執行更新。 請改用 `context.bindings.<documentName>In` 和 `context.bindings.<documentName>Out` 來進行更新。 請參閱 JavaScript 範例。
 
 ## <a name="output"></a>輸出
 

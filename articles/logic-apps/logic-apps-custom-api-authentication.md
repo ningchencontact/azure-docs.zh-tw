@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719589"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245944"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>保護從 Azure Logic Apps 對自訂 API 發出的呼叫
 
@@ -94,13 +94,15 @@ ms.locfileid: "53719589"
 
 **在 PowerShell 中建立邏輯應用程式的應用程式識別碼**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 您可以使用 PowerShell，透過 Azure Resource Manager 來執行這項工作中。 在 PowerShell 中，執行以下命令：
 
-1. `Add-AzureRmAccount`
+1. `Add-AzAccount`
 
 2. `$SecurePassword = Read-Host -AsSecureString` (輸入密碼並按 Enter 鍵)
 
-3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. 請務必複製 [租用戶識別碼] \(您 Azure AD 租用戶的 GUID)、[應用程式識別碼] 和您所使用的密碼。
 
@@ -188,11 +190,11 @@ ms.locfileid: "53719589"
 
 | 元素 | 必要 | 說明 | 
 | ------- | -------- | ----------- | 
-| tenant | 是 | Azure AD 租用戶的 GUID | 
-| audience | 是 | 您想要存取之目標資源的 GUID - 這是來自您 Web 應用程式或 API 應用程式之應用程式識別碼的用戶端識別碼 | 
-| clientId | 是 | 要求存取權之用戶端的 GUID - 這是來自您邏輯應用程式之應用程式識別碼的用戶端識別碼 | 
-| secret | 是 | 來自要求存取權杖的用戶端之應用程式識別碼的金鑰或密碼 | 
-| type | 是 | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
+| tenant | yes | Azure AD 租用戶的 GUID | 
+| audience | yes | 您想要存取之目標資源的 GUID - 這是來自您 Web 應用程式或 API 應用程式之應用程式識別碼的用戶端識別碼 | 
+| clientId | yes | 要求存取權之用戶端的 GUID - 這是來自您邏輯應用程式之應用程式識別碼的用戶端識別碼 | 
+| secret | yes | 來自要求存取權杖的用戶端之應用程式識別碼的金鑰或密碼 | 
+| type | yes | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
 |||| 
 
 例如︰
@@ -234,9 +236,9 @@ ms.locfileid: "53719589"
 
 | 元素 | 必要 | 說明 | 
 | ------- | -------- | ----------- | 
-| type | 是 | 驗證類型。 若為 SSL 用戶端憑證，值必須是 `ClientCertificate`。 | 
-| password | 是 | 用以存取用戶端憑證的密碼 (PFX 檔案) | 
-| pfx | 是 | 用戶端憑證的 Base64 編碼內容 (PFX 檔案) | 
+| type | yes | 驗證類型。 若為 SSL 用戶端憑證，值必須是 `ClientCertificate`。 | 
+| password | yes | 用以存取用戶端憑證的密碼 (PFX 檔案) | 
+| pfx | yes | 用戶端憑證的 Base64 編碼內容 (PFX 檔案) | 
 |||| 
 
 <a name="basic"></a>
@@ -251,9 +253,9 @@ ms.locfileid: "53719589"
 
 | 元素 | 必要 | 說明 | 
 | ------- | -------- | ----------- | 
-| type | 是 | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
-| username | 是 | 您想要用來進行驗證的使用者名稱 | 
-| password | 是 | 您想要用來進行驗證的密碼 | 
+| type | yes | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
+| username | yes | 您想要用來進行驗證的使用者名稱 | 
+| password | yes | 您想要用來進行驗證的密碼 | 
 |||| 
 
 <a name="azure-ad-code"></a>

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 331a8d07004a8915d27b28ca0fba940b1aa3ab72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bcbb3d5d25fdc3de71045cedfd4634e47b3947bf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164804"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>教學課程：Azure Active Directory 與 Attendance Management Services 整合
 
@@ -86,7 +86,7 @@ Attendance Management Services 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 Attendance Management Services 測試使用者](#create-an-attendance-management-service-test-user)** - 使 Attendance Management Services 中對應的 Britta Simon 連結到使用者在 Azure AD 中的代表項目。
+1. **建立 Attendance Management Services 測試使用者** - 使 Attendance Management Services 中對應的 Britta Simon 連結到使用者在 Azure AD 中的代表項目。
 1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 

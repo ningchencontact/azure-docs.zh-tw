@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 331a71d4f807e1e596a91c1463064e3f6dcbd1e1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7d719ee6bdb8ce1f4131b474fe7602b492e69cd3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247029"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810665"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>將 Azure 認知服務部署至 Azure Stack
 
@@ -144,7 +144,7 @@ spec:
 | ImageLocation | 表示 ACR 中特定認知服務容器映像的位置。 例如，臉部服務：`aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |在[建立 Azure 資源](#create-azure-resources)的步驟中記下端點 URL |
 | ApiKey | 在[建立 Azure 資源](#create-azure-resources)的步驟中記下訂用帳戶金鑰 |
-| SecretName | 剛才在[建立密碼來存取私人容器登錄](#create-secrete-to-access-the-private-container-registry)的步驟中記下密碼名稱 |
+| SecretName | 您剛才在「建立秘密來存取私人容器登錄」的步驟中記下秘密名稱 |
 
 ## <a name="deploy-the-cognitive-service"></a>部署認知服務
 

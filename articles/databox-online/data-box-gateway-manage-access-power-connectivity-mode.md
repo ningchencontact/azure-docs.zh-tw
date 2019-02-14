@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f9172418f15b129a71242038efd4cdb7683bbf7
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516456"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873014"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>管理 Azure 資料箱閘道 (預覽) 的存取、電源和連線模式
 
@@ -35,7 +35,7 @@ ms.locfileid: "51516456"
 
 ### <a name="change-device-administrator-password"></a>變更裝置管理員密碼
 
-如果您忘記密碼，則可以變更密碼。 請在本機 UI 中依照下列步驟變更裝置管理員密碼。
+請在本機 UI 中依照下列步驟變更裝置管理員密碼。
 
 1. 在本機 Web UI 中，移至 [維護] > [密碼變更]。
 2. 輸入目前的密碼，然後輸入新密碼。 所提供的密碼必須介於 8 到 16 個字元。 此密碼必須有下列其中 3 種字元：大寫、小寫、數字和特殊字元。 確認新的密碼。

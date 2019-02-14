@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 0e1a0919975253e24318bb8029249958cbc50d62
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473158"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811523"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 診斷 1.0 組態結構描述
 > [!NOTE]
@@ -109,7 +109,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs 元素  
 針對基本診斷基礎結構所產生的記錄定義緩衝區組態。
 
-父元素名稱：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。  
+父元素名稱：DiagnosticMonitorConfiguration 元素。  
 
 屬性：
 
@@ -122,7 +122,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="logs-element"></a>Logs 元素  
  定義基本 Azure 記錄的緩衝區組態。
 
- 父元素名稱：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。  
+ 父元素名稱：DiagnosticMonitorConfiguration 元素。  
 
 屬性：  
 
@@ -135,7 +135,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="directories-element"></a>Directories 元素  
 定義您可以定義之檔案式記錄的緩衝區組態。
 
-父元素名稱：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。  
+父元素名稱：DiagnosticMonitorConfiguration 元素。  
 
 
 屬性：  
@@ -148,7 +148,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="crashdumps-element"></a>CrashDumps 元素  
  定義損毀傾印目錄。
 
- 父元素名稱：[Directories 元素](#Directories)。  
+ 父元素名稱：Directories 元素。  
 
 屬性：  
 
@@ -160,7 +160,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs 元素  
  定義失敗的要求記錄目錄。
 
- 父元素︰[Directories 元素](#Directories)。  
+ 父元素︰Directories 元素。  
 
 屬性：  
 
@@ -172,7 +172,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ##  <a name="iislogs-element"></a>IISLogs 元素  
  定義 IIS 記錄目錄。
 
- 父元素︰[Directories 元素](#Directories)。  
+ 父元素︰Directories 元素。  
 
 屬性：  
 
@@ -184,12 +184,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="datasources-element"></a>DataSources 元素  
  定義零或多個額外的記錄目錄。
 
- 父元素名稱：[Directories 元素](#Directories)。
+ 父元素名稱：Directories 元素。
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration 元素  
  定義要監視的記錄檔目錄。
 
- 父元素名稱：[DataSources 元素](#DataSources)。
+ 父元素名稱：DataSources 元素。
 
 屬性：
 
@@ -201,7 +201,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="absolute-element"></a>Absolute 元素  
  搭配選擇性環境變數展開來定義要監視之目錄的絕對路徑。
 
- 父元素名稱：[DirectoryConfiguration 元素](#DirectoryConfiguration)。  
+ 父元素名稱：DirectoryConfiguration 元素。  
 
 屬性：  
 
@@ -213,7 +213,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="localresource-element"></a>LocalResource 元素  
  定義相對於服務定義中所定義之本機資源的路徑。
 
- 父元素名稱：[DirectoryConfiguration 元素](#DirectoryConfiguration)。  
+ 父元素名稱：DirectoryConfiguration 元素。  
 
 屬性：  
 
@@ -225,7 +225,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="performancecounters-element"></a>PerformanceCounters 元素  
  定義要收集之效能計數器的路徑。
 
- 父元素名稱：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。
+ 父元素名稱：DiagnosticMonitorConfiguration 元素。
 
 
  屬性：  
@@ -238,7 +238,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration 元素  
  定義要收集的效能計數器。
 
- 父元素名稱：[PerformanceCounters 元素](#PerformanceCounters)。  
+ 父元素名稱：PerformanceCounters 元素。  
 
  屬性：  
 
@@ -250,7 +250,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素  
  定義要監視的事件記錄。
 
- 父元素名稱：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。
+ 父元素名稱：DiagnosticMonitorConfiguration 元素。
 
   屬性：
 
@@ -263,7 +263,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="datasource-element"></a>DataSource 元素  
  定義要監視的事件記錄。
 
- 父元素名稱：[WindowsEventLog 元素](#windowsEventLog)。  
+ 父元素名稱：WindowsEventLog 元素。  
 
  屬性：
 

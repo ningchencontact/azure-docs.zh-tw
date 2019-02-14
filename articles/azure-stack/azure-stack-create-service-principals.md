@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245264"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809243"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>為 Azure Stack 提供應用程式存取
 
@@ -38,10 +38,10 @@ ms.locfileid: "55245264"
 
 根據您部署 Azure Stack 的方式，您會從建立服務主體開始。 本文件說明如何為下列項目建立服務主體：
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad)。 Azure AD 是一個多租用戶雲端式目錄和身分識別管理服務。 您可以將 Azure AD 與已連線的 Azure Stack 搭配使用。
-- [Active Directory 同盟服務 (AD FS)](#create-service-principal-for-ad-fs)。 AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功能。 您可以將 AD FS 與已連線和中斷連線的 Azure Stack 執行個體搭配使用。
+- Azure Active Directory (Azure AD)。 Azure AD 是一個多租用戶雲端式目錄和身分識別管理服務。 您可以將 Azure AD 與已連線的 Azure Stack 搭配使用。
+- Active Directory 同盟服務 (AD FS)。 AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功能。 您可以將 AD FS 與已連線和中斷連線的 Azure Stack 執行個體搭配使用。
 
-一旦您已建立服務主體，會使用 AD FS 與 Azure Active Directory 的一組共通步驟來對角色[委派權限](#assign-role-to-service-principal)。
+一旦您已建立服務主體，會使用 AD FS 與 Azure Active Directory 的一組共通步驟來對角色委派權限。
 
 ## <a name="manage-service-principal-for-azure-ad"></a>管理 Azure AD 的服務主體
 
@@ -63,7 +63,7 @@ ms.locfileid: "55245264"
 
 1. 在 Active Directory 中，從 [應用程式註冊]選取您的應用程式。
 
-2. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 [範例應用程式](#sample-applications) 區段中的應用程式會參考此值作為用戶端識別碼。
+2. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 範例應用程式區段中的應用程式會參考此值作為用戶端識別碼。
 
      ![用戶端識別碼](./media/azure-stack-create-service-principal/image12.png)
 3. 若要產生 Web 應用程式 / API 的驗證金鑰，請選取 [設定] > [金鑰]。 
@@ -74,7 +74,7 @@ ms.locfileid: "55245264"
 
 ![儲存的金鑰](./media/azure-stack-create-service-principal/image15.png)
 
-完成之後，您便可以[為應用程式指派角色](#assign-role-to-service-principal)。
+完成之後，您便可以為應用程式指派角色。
 
 ## <a name="manage-service-principal-for-ad-fs"></a>管理 AD FS 的服務主體
 

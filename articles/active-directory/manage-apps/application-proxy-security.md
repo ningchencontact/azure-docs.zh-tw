@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0937ad12ad74209e84ee1316a090af8a6469a044
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151612"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813818"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 遠端存取應用程式的安全性考量
 
@@ -48,7 +48,7 @@ Azure AD 應用程式 Proxy 依賴 Azure AD Security Token Service (STS) 來進�
 
 使用[條件式存取](../conditional-access/overview.md)，就可以定義允許哪些流量存取後端應用程式上的限制。 您可以位置、驗證強度和使用者風險狀況作為基礎，來建立限制登入的原則。
 
-您也可以使用條件式存取來設定 Multi-Factor Authentication 原則，為您的使用者驗證新增另一層的安全性。 此外，您的應用程式也可透過 Azure AD 條件式存取路由至 Microsoft Cloud App Security，以透過[存取權](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad)和[工作階段](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad)原則提供即時的監視與控制能力
+您也可以使用條件式存取來設定 Multi-Factor Authentication 原則，為您的使用者驗證新增另一層的安全性。 此外，您的應用程式也可透過 Azure AD 條件式存取路由至 Microsoft Cloud App Security，以透過[存取權](https://docs.microsoft.com/cloud-app-security/access-policy-aad)和[工作階段](https://docs.microsoft.com/cloud-app-security/session-policy-aad)原則提供即時的監視與控制能力
 
 ### <a name="traffic-termination"></a>流量終止
 
@@ -128,11 +128,11 @@ Azure AD 應用程式 Proxy 是由兩個部分組成︰
 
 當使用者存取已發佈的應用程式時，會在應用程式 Proxy 服務和應用程式 Proxy 連接器之間進行下列事件：
 
-1. [服務會驗證應用程式的使用者](#the-service-checks-the-configuration-settings-for-the-app)
-2. [服務會將要求放在連接器佇列中](#The-service-places-a-request-in-the-connector-queue)
-3. [連接器會處理來自佇列的要求](#the-connector-receives-the-request-from-the-queue)
-4. [連接器會等候回應](#the-connector-waits-for-a-response)
-5. [服務會將資料串流給使用者](#the-service-streams-data-to-the-user)
+1. 服務會驗證應用程式的使用者
+2. 服務會將要求放在連接器佇列中
+3. 連接器會處理來自佇列的要求
+4. 連接器會等候回應
+5. 服務會將資料串流給使用者
 
 若要深入了解每個步驟中所發生的事項，請繼續閱讀。
 

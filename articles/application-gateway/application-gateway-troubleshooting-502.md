@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356030"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819438"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>疑難排解應用程式閘道中閘道不正確的錯誤
 
@@ -28,11 +28,11 @@ ms.locfileid: "34356030"
 
 ## <a name="overview"></a>概觀
 
-設定應用程式閘道之後，使用者可能遇到的其中一個錯誤是「伺服器錯誤︰502 - 網頁伺服器作為閘道器或 Proxy 伺服器時收到無效的回應」。 此錯誤可能是由於下列主要原因所導致：
+設定應用程式閘道之後，使用者可能遇到的其中一個錯誤是「伺服器錯誤︰502 - 網頁伺服器做為閘道或 Proxy 伺服器時收到無效的回應」。 此錯誤可能是由於下列主要原因所導致：
 
 * NSG、UDR 或自訂 DNS 封鎖對後端集區成員的存取。
-* 虛擬機器擴展集的後端虛擬機器或執行個體[未回應預設健康情況探查](#problems-with-default-health-probe.md)。
-* 無效或不適當的[自訂健康情況探查設定](#problems-with-custom-health-probe.md)。
+* 虛擬機器擴展集的後端虛擬機器或執行個體未回應預設健康情況探查。
+* 無效或不適當的自訂健全狀況探查組態。
 * Azure 應用程式閘道的[後端集區未設定或空白](#empty-backendaddresspool)。
 * [虛擬機器擴展集的虛擬機器或執行個體都不是良好健康情況](#unhealthy-instances-in-backendaddresspool)。
 * 使用者要求發生[要求逾期或連線能力問題](#request-time-out)。

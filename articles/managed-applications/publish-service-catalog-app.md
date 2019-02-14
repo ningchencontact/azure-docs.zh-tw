@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e9db85fb91dd0c9a33cc8205bdb30a648dfd38a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438732"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112773"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>建立及發佈受控應用程式定義
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 您可以建立及發佈 Azure [受控應用程式](overview.md)，以供組織成員使用。 例如，IT 部門可以發佈符合組織標準的受控應用程式。 這些受控應用程式可透過服務類別目錄取得，而非 Azure Marketplace。
 
@@ -30,7 +32,7 @@ ms.locfileid: "54438732"
 
 在本文中，受控應用程式只有一個儲存體帳戶。 它是用來說明發佈受控應用程式的步驟。 如需完整範例，請參閱[適用於 Azure 受控應用程式之範例專案](sample-projects.md)。
 
-本文中的 PowerShell 範例需要 Azure PowerShell 6.2 或更新版本。 如有需要，[請更新您的版本](/powershell/azure/azurerm/install-azurerm-ps)。
+本文中的 PowerShell 範例需要 Azure PowerShell 6.2 或更新版本。 如有需要，[請更新您的版本](/powershell/azure/install-Az-ps)。
 
 ## <a name="create-the-resource-template"></a>建立資源範本
 
@@ -149,8 +151,8 @@ Azure 入口網站會使用 **createUiDefinition.json** 檔案，為建立受控
 將套件上傳至可從中取用它的可存取位置。 
 
 ```powershell
-New-AzureRmResourceGroup -Name storageGroup -Location eastus
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
+New-AzResourceGroup -Name storageGroup -Location eastus
+$storageAccount = New-AzStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
@@ -158,9 +160,9 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
 
 $ctx = $storageAccount.Context
 
-New-AzureStorageContainer -Name appcontainer -Context $ctx -Permission blob
+New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
 
-Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
+Set-AzStorageBlobContent -File "D:\myapplications\app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
   -Context $ctx 
@@ -175,7 +177,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
 您需要使用者群組的物件識別碼，以便用於管理資源。 
 
 ```powershell
-$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+$groupID=(Get-AzADGroup -DisplayName mygroup).Id
 ```
 
 ### <a name="get-the-role-definition-id"></a>取得角色定義識別碼
@@ -183,7 +185,7 @@ $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 接下來，您需要的角色定義識別碼，是您想要授與使用者、使用者群組或應用程式存取權的 RBAC 內建角色。 您通常會使用「擁有者」或「參與者」或「讀取者」角色。 下列命令會顯示如何取得「擁有者」角色的角色定義識別碼：
 
 ```powershell
-$ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
+$ownerID=(Get-AzRoleDefinition -Name Owner).Id
 ```
 
 ### <a name="create-the-managed-application-definition"></a>建立受控應用程式定義
@@ -191,15 +193,15 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 如果您尚未有可儲存受控應用程式定義的資源群組，請立即建立一個：
 
 ```powershell
-New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
+New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
 現在，建立受控應用程式定義資源。
 
 ```powershell
-$blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
+$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
-New-AzureRmManagedApplicationDefinition `
+New-AzManagedApplicationDefinition `
   -Name "ManagedStorage" `
   -Location "westcentralus" `
   -ResourceGroupName appDefinitionGroup `

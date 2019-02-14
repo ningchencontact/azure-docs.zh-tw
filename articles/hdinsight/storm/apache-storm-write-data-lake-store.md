@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912828"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819156"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>從 HDInsight 上的 Apache Storm 寫入 Apache Hadoop HDFS
 
@@ -45,7 +45,7 @@ ms.locfileid: "54912828"
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>如何搭配 HDInsight 使用 HdfsBolt
 
 > [!IMPORTANT]  
-> 在搭配 Storm on HDInsight 使用 HdfsBolt 之前，您必須先使用指令碼動作，將所需的 Jar 檔案複製到 Storm 的 `extpath`。 如需詳細資訊，請參閱[設定叢集](#configure)一節。
+> 在搭配 Storm on HDInsight 使用 HdfsBolt 之前，您必須先使用指令碼動作，將所需的 Jar 檔案複製到 Storm 的 `extpath`。 如需詳細資訊，請參閱設定叢集一節。
 
 HdfsBolt 會使用您提供的檔案配置來了解如何寫入 HDFS。 利用 HDInsight 時，請使用下列其中一項配置：
 

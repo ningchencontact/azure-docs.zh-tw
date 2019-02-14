@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 0f36439cba4a946fb05466f2d961e537196f0095
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 60296400c40a1e79758dc53d60d2f1c61d79fd88
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818595"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108189"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -34,7 +34,7 @@ ms.locfileid: "55818595"
 - **[適用於 PostgreSQL 的 Azure 資料庫伺服器](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
 - **[適用於 MySQL 的 Azure 資料庫伺服器](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。
-- **[Azure 金鑰保存庫](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**：已在所有 Azure 公用雲端區域正式推出。
+- **[Azure 金鑰保存庫](../key-vault/key-vault-overview-vnet-service-endpoints.md)**：已在所有 Azure 公用雲端區域正式推出。
 - **[Azure 服務匯流排](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。
 - **[Azure 事件中樞](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在可使用 ADLS Gen1 的所有 Azure 區域中正式推出。

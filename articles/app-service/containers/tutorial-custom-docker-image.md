@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632971"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984812"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>針對用於容器的 Web 應用程式使用自訂 Docker 映像
 
@@ -59,7 +59,7 @@ cd docker-django-webapp-linux
 
 在 Git 存放庫中，看看 _Dockerfile_。 此檔案會描述執行您應用程式所需的 Python 環境。 此外，映像會設定 [SSH](https://www.ssh.com/ssh/protocol/) 伺服器，以在容器與主機之間進行安全通訊。
 
-```docker
+```Dockerfile
 FROM python:3.4
 
 RUN mkdir /code
@@ -254,7 +254,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="test-the-web-app"></a>測試 Web 應用程式
 
-瀏覽至 Web 應用程式以確認它可運作 (`http://<app_name>azurewebsites.net`)。 
+瀏覽至 Web 應用程式以確認它可運作 (`http://<app_name>.azurewebsites.net`)。 
 
 ![測試 web 應用程式連接埠設定](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -280,7 +280,7 @@ SSH 可讓容器和用戶端之間進行安全通訊。 您必須將自訂的 Do
 
 * [執行](https://docs.docker.com/engine/reference/builder/#run)指示會呼叫 `apt-get`，然後將根帳戶的密碼設為 `"Docker!"`。
 
-    ```docker
+    ```Dockerfile
     ENV SSH_PASSWD "root:Docker!"
     RUN apt-get update \
             && apt-get install -y --no-install-recommends dialog \
@@ -294,7 +294,7 @@ SSH 可讓容器和用戶端之間進行安全通訊。 您必須將自訂的 Do
 
 * [複製](https://docs.docker.com/engine/reference/builder/#copy)指示會指示 Docker 引擎將 [sshd_config](https://man.openbsd.org/sshd_config) 檔案複製到 /etc/ssh/ 目錄。 您的組態檔應該以 [這個 sshd_config 檔案](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config)作為基礎。
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
@@ -305,7 +305,7 @@ SSH 可讓容器和用戶端之間進行安全通訊。 您必須將自訂的 Do
 
 * [公開](https://docs.docker.com/engine/reference/builder/#expose)指示會在容器中公開連接埠 2222。 雖然已知根密碼，但無法從網際網路存取連接埠 2222。 它是供內部使用的連接埠，只有私人虛擬網路之橋接網路內的容器可以存取。 在這之後，命令會複製 SSH 設定詳細資料並啟動 `ssh` 服務。
 
-    ```docker
+    ```Dockerfile
     EXPOSE 8000 2222
     ```
 

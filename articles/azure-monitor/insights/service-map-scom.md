@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187206"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818748"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服務對應與 System Center Operations Manager 的整合
-  > [!NOTE]
-  > 這項功能處於公開預覽狀態。
-  > 
-  
+
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 服務對應可讓您以您對伺服器的理解方式 (一個提供重要服務的互連系統) 來檢視它們。 服務對應不需要進行任何設定，只要安裝代理程式就能顯示橫跨任何 TCP 連接架構的伺服器、處理程序和連接埠之間的連線。 如需詳細資訊，請參閱[服務對應文件]( service-map.md)。
 
 透過這項服務對應與 System Center Operations Manager 之間的整合，您便可以在根據服務對應中動態相依性對應的 Operations Manager 中，自動建立分散式應用程式圖表。
@@ -43,7 +40,7 @@ ms.locfileid: "53187206"
 * Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>設定服務對應整合
-在您安裝服務對應管理組件之後，[管理] 窗格中的 [Operations Management Suite] 底下會顯示新的節點 [服務對應]。 
+在您安裝服務對應管理組件之後，[管理] 窗格中的 [Operations Management Suite] 底下會顯示新的節點 [服務對應]。
 
 >[!NOTE]
 >[Operations Management Suite 為包含 Log Analytics 的一系列服務](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)，現在已納入 [Azure 監視器](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md)。
@@ -54,7 +51,7 @@ ms.locfileid: "53187206"
 
     ![[服務對應概觀] 窗格](media/service-map-scom/scom-configuration.png)
 
-2. 在 [連線設定] 視窗中，輸入租用戶名稱或識別碼、應用程式識別碼 (也稱為使用者名稱或用戶端識別碼) 以及服務主體的密碼，然後按一下 [下一步]。 如需詳細資訊，請移至[建立服務主體](#creating-a-service-principal)。
+2. 在 [連線設定] 視窗中，輸入租用戶名稱或識別碼、應用程式識別碼 (也稱為使用者名稱或用戶端識別碼) 以及服務主體的密碼，然後按一下 [下一步]。 如需詳細資訊，請移至 [建立服務主體]。
 
     ![[連線設定] 視窗](media/service-map-scom/scom-config-spn.png)
 
@@ -63,11 +60,11 @@ ms.locfileid: "53187206"
     ![Operations Manager 設定工作區](media/service-map-scom/scom-config-workspace.png)
 
 4. 在 [機器群組選取項目] 視窗中，您要選擇您想要同步至 Operations Manager 的服務對應機器群組。 按一下 [新增/移除機器群組]，從 [可用的機器群組] 清單中選擇群組，然後按一下 [新增]。  當您完成群組選取時，按一下 [確定] 來完成。
-    
+
     ![Operations Manager 設定機器群組](media/service-map-scom/scom-config-machine-groups.png)
-    
+
 5. 在 [伺服器選取] 視窗中，設定服務對應伺服器群組，以及您想要在 Operations Manager 和服務對應之間同步的伺服器。 按一下 [新增/移除伺服器]。   
-    
+
     若要讓整合針對伺服器建立分散式應用程式圖表，該伺服器必須是︰
 
     * 由 Operations Manager 管理
@@ -91,7 +88,7 @@ ms.locfileid: "53187206"
 ![Operations Manager [監視] 窗格](media/service-map-scom/scom-monitoring.png)
 
 服務對應資料夾有四個節點︰
-* **作用中警示**：列出有關在 Operations Manager 和服務對應之間通訊的所有作用中警示。  請注意，這些警示不是要同步至 Operations Manager 的 Log Analytics 警示。 
+* **作用中警示**：列出有關在 Operations Manager 和服務對應之間通訊的所有作用中警示。  請注意，這些警示不是要同步至 Operations Manager 的 Log Analytics 警示。
 
 * **伺服器**：列出設定為從服務對應同步處理的受監視伺服器。
 
@@ -120,9 +117,9 @@ ms.locfileid: "53187206"
 
 ![Operations Manager [覆寫內容] 視窗](media/service-map-scom/scom-overrides.png)
 
-* **Enabled**：啟用或停用自動更新。 
+* **Enabled**：啟用或停用自動更新。
 * **IntervalMinutes**：重設更新之間的時間。 預設間隔是一小時。 如果您想要更頻繁地同步伺服器對應，您可以變更此值。
-* **TimeoutSeconds**：重設要求逾時之前的時間長度。 
+* **TimeoutSeconds**：重設要求逾時之前的時間長度。
 * **TimeWindowMinutes**：重設查詢資料的時間間隔。 預設間隔為 60 分鐘。 服務對應所允許的最大值為 60 分鐘。
 
 ## <a name="known-issues-and-limitations"></a>已知問題與限制

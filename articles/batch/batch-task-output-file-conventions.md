@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ede0b7cbeee9227a7023e5c0550a951897cc43e4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472978"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821179"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用適用於 .NET 的 Batch 檔案慣例程式庫將作業和工作輸出保存到 Azure 儲存體
 
@@ -112,7 +112,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) 方法的 `kind` 參數會分類保存的檔案。 有四個預先定義的 [TaskOutputKind][net_taskoutputkind] 類型：`TaskOutput`、`TaskPreview`、`TaskLog` 和 `TaskIntermediate.`。您也可以定義輸出的自訂類別。
 
-這些輸出類型可供您在稍後針對特定工作的保存輸出查詢 Batch 時，指定要列出的輸出類型。 換句話說，當您列出某個工作的輸出時，可以根據其中一個輸出類型來篩選清單。 例如，「給我工作 *109* 的 *preview* 輸出」。 本文稍後的 [擷取輸出](#retrieve-output) 會提供列出和擷取輸出的詳細資訊。
+這些輸出類型可供您在稍後針對特定工作的保存輸出查詢 Batch 時，指定要列出的輸出類型。 換句話說，當您列出某個工作的輸出時，可以根據其中一個輸出類型來篩選清單。 例如，「給我工作 *109* 的 *preview* 輸出」。 本文稍後的「擷取輸出」會提供列出和擷取輸出的詳細資訊。
 
 > [!TIP]
 > 輸出類型也會決定特定檔案出現在 Azure 入口網站的位置：*TaskOutput* 類別的檔案會出現在 [工作輸出檔案] 底下，而 TaskLog 檔案會出現在 [工作記錄] 底下。
@@ -197,7 +197,7 @@ Azure 入口網站會顯示使用 [Batch 檔案慣例標準](https://github.com/
 
 若要讓您的輸出檔案顯示在入口網站中，您必須滿足下列需求：
 
-1. [連結 Azure 儲存體帳戶](#requirement-linked-storage-account) 到您的 Batch 帳戶。
+1. 將 Azure 儲存體帳戶連結到您的 Batch 帳戶。
 1. 保存輸出時，依照預先定義的儲存體容器命名與檔案命名慣例。 您可以在檔案慣例程式庫的[讀我檔案][github_file_conventions_readme]中找到這些慣例的定義。 如果您使用 [Azure Batch 檔案慣例][nuget_package]程式庫來保存您的輸出，您的檔案會根據檔案慣例標準進行保存。
 
 若要在 Azure 入口網站中檢視工作輸出檔案和記錄，請瀏覽到您對其輸出有興趣的工作，然後按一下 [已儲存的輸出檔案] 或 [已儲存的記錄]。 此影像顯示識別碼為 "007" 之工作的 [已儲存的輸出檔案]  ：
