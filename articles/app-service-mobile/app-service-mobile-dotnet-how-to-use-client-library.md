@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 01294ec8aa65a8405bc99be215008dad66a73d8d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157323"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960739"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何針對 Azure Mobile Apps 使用受控用戶端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 * [依據識別碼查詢記錄](#lookingup)
 * [處理不具類型的查詢](#untypedqueries)
 * [插入資料](#inserting)
-* [更新資料](#updating)
+* 更新資料
 * [刪除資料](#deleting)
 * [衝突解決和開放式並行存取](#optimisticconcurrency)
 * [繫結至 Windows 使用者介面](#binding)
@@ -609,7 +609,7 @@ SDK 會在提取記錄之前執行隱含 `PushAsync()`。
 
 若要呼叫自訂 API，您可以呼叫用戶端上的其中一個 [InvokeApiAsync] 方法。 例如，下列程式碼行會將 POST 要求傳送至後端的 **completeAll** API：
 
-```
+```javascript
 var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 ```
 
@@ -902,7 +902,7 @@ private async void InitNotificationsAsync()
 如果您要推送到 WNS，則必須[取得 Microsoft Store 套件 SID](#package-sid)。  如需 Windows 應用程式的詳細資訊，包括如何註冊範本，請參閱 [將推播通知新增至您的應用程式]。
 
 不支援從用戶端要求標記。  註冊時會自動捨棄標記要求。
-如果您想要利用標記註冊裝置，請建立自訂 API，以使用通知中樞 API 代替您執行註冊。  [呼叫自訂 API](#customapi) 而不是 `RegisterNativeAsync()` 方法。
+如果您想要利用標記註冊裝置，請建立自訂 API，以使用通知中樞 API 代替您執行註冊。  呼叫自訂 API，而不是 `RegisterNativeAsync()` 方法。
 
 ### <a name="package-sid"></a>操作說明：取得 Microsoft Store 套件 SID
 在 Microsoft Store 應用程式中啟用推播通知需有套件 SID。  若要收到套件 SID，請向 Microsoft Store 註冊應用程式。

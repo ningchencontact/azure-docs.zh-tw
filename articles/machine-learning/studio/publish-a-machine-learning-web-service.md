@@ -1,8 +1,21 @@
 ---
-標題：部署 Machine Learning Studio Web 服務標題字尾： Azure Machine Learning Studio 說明：如何將訓練實驗轉換為預測實驗，將其準備妥當進行部署，然後當做 Azure Machine Learning Studio Web 服務發佈。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date:01/06/2017
+title: 部署 Machine Learning Studio Web 服務
+titleSuffix: Azure Machine Learning Studio
+description: 如何將訓練實驗轉換為預測實驗，將其準備妥當進行部署，然後當做 Azure Machine Learning Studio Web 服務發佈。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 01/06/2017
+ms.openlocfilehash: 8e9d41131228c2399277e59a6d0edd78efda307b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999108"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>部署 Azure Machine Learning Studio Web 服務
 Azure Machine Learning 可讓您建置、測試以及部署預測性分析解決方案。
@@ -21,7 +34,7 @@ Azure Machine Learning 可讓您建置、測試以及部署預測性分析解決
 關於建立和管理訓練實驗的處理，其他地方有更詳盡的說明。 如需詳細資訊，請參閱這些文章：
 
 * [在 Azure Machine Learning Studio 中建立簡單實驗](create-experiment.md)
-* [使用 Azure Machine Learning 開發預測解決方案](walkthrough-develop-predictive-solution.md)
+* [使用 Azure Machine Learning 開發預測解決方案](tutorial-part1-credit-risk.md)
 * [將訓練資料匯入 Azure Machine Learning Studio](import-data.md)
 * [在 Azure Machine Learning Studio 中管理實驗逐一查看](manage-experiment-iterations.md)
 

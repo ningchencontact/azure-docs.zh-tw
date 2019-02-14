@@ -11,16 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a59a7610a067a292d9b5dd7bb1a611b4bade05e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193806"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171820"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步：了解宣告式佈建
 本主題說明 Azure AD Connect 中的組態模型。 此模型稱為宣告式佈建，它可讓您輕鬆地進行組態變更。 本主題中所述的許多項目都是進階的，而且在大部分客戶案例中並非必要。
@@ -37,7 +38,7 @@ ms.locfileid: "55193806"
 * 資料：來源物件
 * [範圍](#scope)：尋找所有適用的同步處理規則
 * [聯結](#join)：判斷連接器空間和 Metaverse 之間的關聯性
-* [轉換](#transform)：計算屬性應如何轉換和流動
+* 轉換：計算屬性應如何轉換和流動
 * [優先順序](#precedence)：解決衝突的屬性貢獻
 * 目標：目標物件
 

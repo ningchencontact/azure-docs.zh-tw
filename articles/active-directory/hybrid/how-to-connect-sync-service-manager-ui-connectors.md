@@ -11,17 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87b39c400d189c7be6ead9770fb833f7c5e3036b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3a0d42ff70bfaebf4d544fd81e6767592198ccef
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191246"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205591"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>使用連接器搭配 Auzre AD Connect Sync Service Manager
 
@@ -42,7 +43,7 @@ ms.locfileid: "55191246"
 | 匯入連接器 |請勿使用。 |
 | 更新連接器 |請勿使用。 |
 | 重新整理結構描述 |重新整理快取的結構描述。 最好是改為在安裝精靈中使用此選項，因為其也會更新同步處理規則。 |
-| [搜尋連接器空間](#search-connector-space) |用來尋找物件，以及 [在整個系統中追隨物件及其資料](#follow-an-object-and-its-data-through-the-system)。 |
+| [搜尋連接器空間](#search-connector-space) |用來尋找物件，以及在整個系統中追隨物件及其資料。 |
 
 ### <a name="delete"></a>刪除
 刪除動作適用於兩個不同的用途。  

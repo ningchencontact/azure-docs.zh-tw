@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 55668b8ef8019e1ee808bc0cba9d98c0db53c584
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478649"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198735"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>針對未同步至 Azure AD 的物件進行疑難排解
 
@@ -28,6 +29,34 @@ ms.locfileid: "54478649"
 
 >[!IMPORTANT]
 >對於 1.1.749.0 版或更新版本的 Azure Active Directory (AAD) Connect 部署，請在精靈中使用[疑難排解工作](tshoot-connect-objectsync.md)，針對物件同步處理問題進行疑難排解。 
+
+## <a name="synchronization-process"></a>同步處理程序
+
+在調查同步處理問題之前，先讓我們了解一下 **Azure AD Connect** 的同步處理程序：
+
+  ![Azure AD Connect 同步處理程序](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+
+### <a name="terminology"></a>**術語**
+
+* **CS：** 連接器空間，是資料庫中的資料表。
+* **MV：** Metaverse，是資料庫中的資料表。
+* **AD：** Active Directory
+* **AAD：** Azure Active Directory
+
+### <a name="synchronization-steps"></a>**同步處理步驟**
+同步處理程序包含下列步驟：
+
+1. **從 AD 匯入：** 系統會將 **Active Directory** 物件帶入到 **AD CS**。
+
+2. **從 AAD 匯入：** 系統會將 **Azure Active Directory** 物件帶入到 **AAD CS**。
+
+3. **同步處理：****輸入同步處理規則**和**輸出同步處理規則**會依優先順序數字以由低至高的順序執行。 若要檢視同步處理規則，您可以從桌面應用程式移至**同步處理規則編輯器**。 **輸入同步化規則**會從 CS 將資料帶入到 MV。 **輸出同步處理規則**會從 MV 將資料帶入到 CS。
+
+4. **匯出至 AD：** 在執行同步處理之後，物件會從 AD CS 匯出到 **Active Directory**。
+
+5. **匯出至 AAD：** 在執行同步處理之後，物件會從 AAD CS 匯出到 **Azure Active Directory**。
+
+## <a name="troubleshooting"></a>疑難排解
 
 為了尋找錯誤，您將依下列順序查看幾個不同的地方：
 
@@ -115,7 +144,7 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 [記錄] 頁面可用來查看密碼同步狀態和歷程記錄。 如需詳細資訊，請參閱[針對密碼雜湊同步處理進行疑難排解](tshoot-connect-password-hash-synchronization.md)。
 
 ## <a name="metaverse-object-properties"></a>Metaverse 物件屬性
-通常最好是從來源 Active Directory [連接器空間](#connector-space)開始搜尋。 但是您也可以從 Metaverse 開始搜尋。
+通常最好是從來源 Active Directory 連接器空間開始搜尋。 但是您也可以從 Metaverse 開始搜尋。
 
 ### <a name="search-for-an-object-in-the-mv"></a>在 MV 中搜尋物件
 在 [Synchronization Service Manager] 中，按一下 [Metaverse 搜尋]。 建立一個您知道可以找到使用者的查詢。 您可以搜尋通用的屬性，例如 accountName (sAMAccountName) 和 userPrincipalName。 如需詳細資訊，請參閱 [Metaverse 搜尋](how-to-connect-sync-service-manager-ui-mvsearch.md)。
@@ -123,7 +152,28 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 
 在 [搜尋結果] 視窗中，按一下該物件。
 
-如果您沒有找到該物件，表示它尚未抵達 Metaverse。 請繼續在 Active Directory [連接器空間](#connector-space-object-properties)中搜尋該物件。 可能有來自同步處理的錯誤導致物件無法到達 Metaverse，或是可能套用了某個篩選。
+如果您沒有找到該物件，表示它尚未抵達 Metaverse。 請繼續在 **Active Directory** [連接器空間](#connector-space-object-properties)中搜尋該物件。 如果您在 **Active Directory** 連接器空間中發現該物件，則表示可能有來自同步處理的錯誤導致物件無法到達 Metaverse，或是可能套用了某個同步處理規則範圍篩選器。
+
+### <a name="object-not-found-in-the-mv"></a>MV 中找不到物件
+如果物件位於 **Active Directory** CS 中，但是不存在於 MV 中，則會套用範圍篩選器。 
+
+* 若要查看範圍篩選器，請移至桌面應用程式的功能表，並按一下 [同步處理規則編輯器]。 藉由調整以下篩選器，來篩選物件適用的規則。
+
+  ![輸入同步處理規則搜尋](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+
+* 檢視上述清單中的每個規則，並檢查**範圍篩選器**。 在下列範圍篩選器中，如果 **isCriticalSystemObject** 值為 Null、FALSE 或空白，則其在範圍內。
+
+  ![輸入同步處理規則搜尋](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+
+* 移至 [CS 匯入](#cs-import)屬性清單，並檢查是哪一個篩選器在阻止物件移到 MV。 **連接器空間**屬性清單的該部分只會顯示非 Null 或非空白的屬性。 例如，如果 **isCriticalSystemObject** 未在清單中顯示出來，則表示此屬性的值為 Null 或空白。
+
+### <a name="object-not-found-in-the-aad-cs"></a>AAD CS 中找不到物件
+如果物件不存在於 **Azure Active Directory** 的**連接器空間**中。 但卻存在於 MV 中，則請查看對應**連接器空間****輸出**規則的範圍篩選器，並檢查該物件是否因為 [MV屬性](#mv-attributes)不符合準則而篩選掉。
+
+* 若要查看輸出範圍篩選器，請藉由調整以下篩選器來選取該物件適用的規則。 檢視每個規則，並查看對應的 [MV 屬性](#mv-attributes)值。
+
+  ![輸出同步處理規則搜尋](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+
 
 ### <a name="mv-attributes"></a>MV 屬性
 在 [屬性] 索引標籤上，您可以看到值，以及是由哪一個連接器提供它。  
@@ -146,6 +196,5 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 此索引標籤也可讓您瀏覽至[連接器空間物件](#connector-space-object-properties)。 請選取一個資料列，然後按一下 [屬性]。
 
 ## <a name="next-steps"></a>後續步驟
-深入了解 [Azure AD Connect 同步](how-to-connect-sync-whatis.md) 組態。
-
-深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。
+- [Azure AD Connect 同步](how-to-connect-sync-whatis.md)。
+- [什麼是混合式身分識別？](whatis-hybrid-identity.md)。

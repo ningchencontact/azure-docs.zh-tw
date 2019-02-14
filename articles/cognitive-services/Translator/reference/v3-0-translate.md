@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 翻譯方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47496be907726ca8cd0e235775cdb1a8493310d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470870"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879100"
 ---
 # <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：Translate
 
@@ -54,7 +54,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>category</td>
-    <td>選擇性參數。<br/>字串，指定翻譯的分類 (定義域)。 此參數用來從使用 [Custom Translator](../customization.md) 所建置的自訂系統取得翻譯。 預設值為：`general`。</td>
+    <td>選擇性參數。<br/>字串，指定翻譯的分類 (定義域)。 此參數用來從使用 [Custom Translator](../customization.md) 所建置的自訂系統取得翻譯。 將來自自訂翻譯專案的類別識別碼新增至此參數，以使用您部署的自訂系統。 預設值為：`general`。</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -126,7 +126,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 套用下列限制：
 
-* 陣列最多可以有 25 個項目。
+* 陣列最多可以有 100 個項目。
 * 要求中包含的完整文字不能超過 5,000 個字元，包括空格。
 
 ## <a name="response-body"></a>Response body
@@ -224,6 +224,8 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
     <td>暫時無法使用伺服器。 重試要求。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
 </table> 
+
+如果發生錯誤，要求也會傳回 JSON 錯誤回應。 錯誤碼是 6 位數的數字，其中結合了 3 位數的 HTTP 狀態碼，後面接著將錯誤進一步分類的 3 位數數字。 [v3 翻譯工具文字 API 參考頁面](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)上可找到常見的錯誤碼。 
 
 ## <a name="examples"></a>範例
 

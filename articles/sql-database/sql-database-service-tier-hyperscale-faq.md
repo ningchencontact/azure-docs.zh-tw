@@ -3,7 +3,7 @@ title: Azure SQL Database 超大規模常見問題集 | Microsoft Docs
 description: 回答客戶針對超大規模服務層中的 Azure SQL 資料庫 (通常稱為「超大規模」資料庫) 經常提出的問題。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 02/06/2019
+ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242147"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099766"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -75,9 +75,9 @@ ms.locfileid: "51242147"
 
 超大規模目前可在下列區域的單一資料庫中使用：美國西部 1、美國西部 2、美國東部 1、美國中部、西歐、北歐、英國西部、東南亞、日本東部、韓國中部、澳大利亞東南部和澳大利亞東部。
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>是否可為每個邏輯伺服器建立多個超大規模資料庫
+### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>是否可為每個 SQL Database 伺服器建立多個超大規模資料庫
 
-是。 如需每個邏輯伺服器的超大規模資料庫數目限制的詳細資訊，請參閱[適用於邏輯伺服器上之單一和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-logical-server.md)。
+是。 如需每個 SQL Database 伺服器的超大規模資料庫數目限制的詳細資訊，請參閱[適用於 SQL Database 伺服器上之單一和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-database-server.md)。
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>超大規模資料庫有哪些效能特性
 
@@ -98,9 +98,9 @@ SQL Database 超大規模架構不僅支援大型資料庫，同時也可提供�
 
 ## <a name="deep-dive-questions"></a>深入問題
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-logical-server"></a>是否可在邏輯伺服器中混用超大規模與單一資料庫
+### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>是否可在 SQL Database 伺服器中混用超大規模與單一資料庫
 
-是，您可以這麼做。
+ 是，您可以這麼做。
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>使用「超大規模」時是否需要變更應用程式設計模型
 
@@ -128,15 +128,15 @@ SQL Database 超大規模架構不僅支援大型資料庫，同時也可提供�
 
 ### <a name="can-i-pause-my-compute-at-any-time"></a>我是否可隨時暫停計算
 
-否。
+沒有。
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>我是否可為記憶體密集工作負載佈建額外增加 RAM 的計算
 
-否。 若要有更多的 RAM，您需要升級至更高的計算大小。 Gen4 硬體提供的 RAM 比 Gen5 硬體多。 如需詳細資訊，請參閱[超大規模儲存體和計算大小](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview)。
+沒有。 若要有更多的 RAM，您需要升級至更高的計算大小。 Gen4 硬體提供的 RAM 比 Gen5 硬體多。 如需詳細資訊，請參閱[超大規模儲存體和計算大小](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview)。
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>我是否可以佈建不同大小的多個計算節點
 
-否。
+沒有。
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>可支援多少個讀取規模複本
 
@@ -198,7 +198,7 @@ SQL Database 超大規模架構不僅支援大型資料庫，同時也可提供�
 
 ### <a name="is-database-compression-supported"></a>是否支援資料庫壓縮
 
-是
+yes
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>如果我有很大的資料表，資料表的資料是否會分散到多個資料檔案
 
@@ -212,7 +212,7 @@ SQL Database 超大規模架構不僅支援大型資料庫，同時也可提供�
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>是否可將超大規模資料庫移至其他版本
 
-否。 在公開預覽階段，您無法將超大規模資料庫移至其他服務層。
+沒有。 在公開預覽階段，您無法將超大規模資料庫移至其他服務層。
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>移轉至超大規模服務層之後是否會失去任何運作性或功能
 
@@ -222,7 +222,7 @@ SQL Database 超大規模架構不僅支援大型資料庫，同時也可提供�
 
 是。 您可以使用所有現有的移轉技術來移轉至「超大規模」，包括 BACPAC、異動複寫、邏輯資料載入等。 另請參閱 [Azure 資料庫移轉服務](../dms/dms-overview.md)。
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>從內部部署或虛擬機器環境移轉至「超大規模」期間的停機時間是什麼？如何盡量縮短
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>從內部部署或虛擬機器環境移轉至「超大規模」期間的停機時間有多長？如何盡量縮短
 
 此停機時間與您將資料庫移轉至 Azure SQL Database 中的單一資料庫時產生的停機時間相同。 移轉大小未超過 10 TB 的資料庫時，您可以使用[異動複寫](replication-to-sql-database.md#data-migration-scenario
 )盡可能縮短停機時間。 針對非常大型的資料庫 (10+ TB)，則應考慮使用 ADF、Spark 或其他資料移動技術來移轉資料。
@@ -235,15 +235,15 @@ SQL Database 超大規模架構不僅支援大型資料庫，同時也可提供�
 
 您可以從 Azure 儲存體讀取資料，並將資料載入超大規模資料庫中 (就像使用一般的單一資料庫一樣)。 Azure SQL Database 目前不支援 PolyBase。 您可以使用 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)，或透過 [SQL 的 Spark 連接器](sql-database-spark-connector.md)在 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) 中執行 Spark 作業，藉以執行 Polybase。 SQL 的 Spark 連接器支援大量插入。
 
-「超大規模」不支援簡單復原或大量記錄模式。 若要提供高可用性，必須使用完整復原模式。 不過，「超大規模」憑藉新的記錄架構，而可提供優於單一 Azure SQL 資料庫的資料擷取速率。
+「超大規模」不支援簡單復原或大量記錄模式。 若要提供高可用性，必須使用完整復原模式。 不過，「超大規模」憑藉新的記錄架構，而可提供優於單一資料庫的資料擷取速率。
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>「SQL Database 超大規模」是否允許佈建多個節點以擷取大量資料
 
-否。 「SQL Database 超大規模」屬於 SMP 架構，而不是非對稱多工處理或多重主機架構。 您只能建立多個複本以相應放大唯讀工作負載。
+沒有。 「SQL Database 超大規模」屬於 SMP 架構，而不是非對稱多工處理或多重主機架構。 您只能建立多個複本以相應放大唯讀工作負載。
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>可移轉至「SQL Database 超大規模」的 SQL Server 最舊版本為何
 
-SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集區資料庫](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database)。 若要了解相容性問題，請參閱[解決資料庫移轉相容性問題](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)。
+SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集區資料庫](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database)。 若要了解相容性問題，請參閱[解決資料庫移轉相容性問題](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues)。
 
 ### <a name="does-sql-database-hyperscale-support-migration-from-other-data-sources-such-as-aurora-mysql-oracle-db2-and-other-database-platforms"></a>「SQL Database 超大規模」是否支援從其他資料來源進行移轉，例如 Aurora、MySQL、Oracle、DB2 和其他資料庫平台
 
@@ -257,7 +257,7 @@ SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Azure SQL Database 服務是否會為我管理資料庫備份
 
-是
+yes
 
 ### <a name="how-often-are-the-database-backups-taken"></a>資料庫備份多久執行一次
 
@@ -265,7 +265,7 @@ SQL Database 超大規模資料庫並沒有傳統的完整、差異和記錄備�
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>「SQL Database 超大規模」是否支援時間點還原
 
-是
+yes
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>「SQL Database 超大規模」中的備份/還原具有怎樣的復原點目標 (RPO)/復原時間目標 (RTO)
 
@@ -273,7 +273,7 @@ RPO 為 0 分鐘。RTO 目標小於 10 分鐘，無論資料庫大小為何。 �
 
 ### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>大型資料庫的備份是否會影響主要資料庫的計算效能
 
-否。 備份由儲存子系統管理，並使用檔案快照集。 這並不會影響到主要資料庫上的使用者工作負載。
+沒有。 備份由儲存子系統管理，並使用檔案快照集。 這並不會影響到主要資料庫上的使用者工作負載。
 
 ### <a name="can-i-perform-geo-restore-with-a-sql-database-hyperscale-database"></a>是否可使用 SQL Database 超大規模資料庫執行異地還原
 
@@ -289,7 +289,7 @@ RPO 為 0 分鐘。RTO 目標小於 10 分鐘，無論資料庫大小為何。 �
 
 ### <a name="can-i-take-a-sql-database-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-sql-server-in-vm"></a>是否可建立 SQL Database 超大規模資料庫備份，而後將其還原至內部部署伺服器或 VM 中 SQL Server
 
-否。 超大規模資料庫的儲存格式會與傳統 SQL Server 不同，且您無法控制備份或加以存取。 若要從 SQL Database 超大規模資料庫中取出您的資料，請使用匯出服務，或搭配使用指令碼和 BCP。
+沒有。 超大規模資料庫的儲存格式會與傳統 SQL Server 不同，且您無法控制備份或加以存取。 若要從 SQL Database 超大規模資料庫中取出您的資料，請使用匯出服務，或搭配使用指令碼和 BCP。
 
 ## <a name="cross-feature-questions"></a>跨功能問題
 
@@ -299,15 +299,15 @@ RPO 為 0 分鐘。RTO 目標小於 10 分鐘，無論資料庫大小為何。 �
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>Polybase 適用於「SQL Database 超大規模」
 
-否。 Azure SQL Database 不支援 PolyBase。
+沒有。 Azure SQL Database 不支援 PolyBase。
 
 ### <a name="does-the-compute-have-support-for-r-and-python"></a>計算是否支援 R 和 Python
 
-否。 Azure SQL Database 不支援 R 和 Python。
+沒有。 Azure SQL Database 不支援 R 和 Python。
 
 ### <a name="are-the-compute-nodes-containerized"></a>計算節點是否會容器化
 
-否。 您的資料庫位於計算 VM 上，而不是容器中。
+沒有。 您的資料庫位於計算 VM 上，而不是容器中。
 
 ## <a name="performance-questions"></a>效能問題
 
@@ -321,7 +321,7 @@ RPO 為 0 分鐘。RTO 目標小於 10 分鐘，無論資料庫大小為何。 �
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>備份是否會影響到輸送量
 
-否。 計算會分離於儲存層以外，以避免影響到計算。
+沒有。 計算會分離於儲存層以外，以避免影響到計算。
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-nodes"></a>在佈建額外的計算節點時是否會影響到輸送量
 
@@ -335,7 +335,7 @@ RPO 為 0 分鐘。RTO 目標小於 10 分鐘，無論資料庫大小為何。 �
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>我的資料庫在相應增加/減少作業進行時是否會離線
 
-否。 相應增加和相應減少會在線上執行。
+沒有。 相應增加和相應減少會在線上執行。
 
 ### <a name="should-i-expect-connection-drop-when-the-scaling-operations-are-in-progress"></a>進行調整作業時是否可能發生連線中斷
 
@@ -351,7 +351,7 @@ RPO 為 0 分鐘。RTO 目標小於 10 分鐘，無論資料庫大小為何。 �
 
 ### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>我是否可以佈建多個主要計算，例如有多個主要計算前端可提高並行層級的多重主機系統
 
-否。 只有主要計算節點會接受讀取/寫入要求。 次要計算節點僅接受唯讀要求。
+沒有。 只有主要計算節點會接受讀取/寫入要求。 次要計算節點僅接受唯讀要求。
 
 ## <a name="read-scale-questions"></a>讀取規模問題
 
@@ -365,11 +365,11 @@ RPO 為 0 分鐘。RTO 目標小於 10 分鐘，無論資料庫大小為何。 �
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>是否可以建立讀取規模複本的專用端點
 
-否。 在公開預覽期間，您只能藉由指定 `ApplicationIntent=ReadOnly` 來連線至讀取規模複本。
+沒有。 在公開預覽期間，您只能藉由指定 `ApplicationIntent=ReadOnly` 來連線至讀取規模複本。
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>系統是否會對讀取工作負載進行智慧型負載平衡
 
-否。 在預覽期間，唯讀工作負載會重新導向至隨機的讀取規模複本。
+沒有。 在預覽期間，唯讀工作負載會重新導向至隨機的讀取規模複本。
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>是否可在主要計算節點外獨立相應增加/減少次要計算節點
 
@@ -377,11 +377,11 @@ RPO 為 0 分鐘。RTO 目標小於 10 分鐘，無論資料庫大小為何。 �
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>主要計算節點和其他次要計算節點是否可以有不同的暫存資料庫大小
 
-否。 您的 `tempdb` 會根據計算大小佈建而設定，在公開預覽期間，次要計算節點的大小會與主要計算節點相同。
+沒有。 您的 `tempdb` 會根據計算大小佈建而設定，在公開預覽期間，次要計算節點的大小會與主要計算節點相同。
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>是否可以在次要計算節點上新增索引和檢視
 
-否。 超大規模資料庫會共用儲存體，這表示所有計算節點會看到相同的資料表、索引和檢視。 如果您希望次要節點上有適用於讀取的額外索引 – 您必須在主要節點上加以新增。
+沒有。 超大規模資料庫會共用儲存體，這表示所有計算節點會看到相同的資料表、索引和檢視。 如果您希望次要節點上有適用於讀取的額外索引 – 您必須在主要節點上加以新增。
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-node"></a>主要和次要計算節點之間會有多少延遲
 
