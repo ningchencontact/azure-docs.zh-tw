@@ -1,26 +1,26 @@
 ---
 title: 了解如何搭配使用 Azure Cache for Redis 與 Java 的快速入門 | Microsoft Docs
 description: 在本快速入門中，您將會建立可使用 Azure Cache for Redis 的新 Java 應用程式
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
 ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/23/2018
-ms.author: wesmc
+ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: bd0bb1c967885aa5e74728156a073e9ccc0ca48f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 047350fa957d9ca1fdec50f97a590ba90a42e1b2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105877"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237761"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>快速入門：如何搭配使用 Azure Cache for Redis 與 Java
 

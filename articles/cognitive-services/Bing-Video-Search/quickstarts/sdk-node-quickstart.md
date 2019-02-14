@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 透過本快速入門，使用適用於 Node.js 的 Bing 影片搜尋 SDK 來傳送影片搜尋要求
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ffb04634b41d14e151c5a14d052d0d9f70b34d70
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ffd03a900ec304a930dfc64e7860e28e0374da55
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568000"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863750"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing 影片搜尋 SDK 來執行影片搜尋
 

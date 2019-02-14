@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bing 搜尋 API 在應用程式中顯示搜尋結果的需求。
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 088d4ba763e8f2996dfbed1dbcc11c8eeaad3a06
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 25636cad514df18a289c9c81ea95bc53e6ec203c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513146"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861318"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Bing 搜尋 API 使用和顯示需求
 

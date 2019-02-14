@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197546"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991271"
 ---
 # <a name="create-highlights-from-existing-videos"></a>從現有影片建立醒目提示
 
@@ -27,17 +27,14 @@ ms.locfileid: "55197546"
     頁面會顯示影片的深入解析摘要。 
 
     ![深入解析](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
-
 3. 按下 [編輯] 按鈕。
 
     此頁面會顯示影片的完整明細。 明細會分成多個區塊。 這裡的區塊是為了讓您能更輕鬆地瀏覽資料。 例如，區塊的分割點可能會在說話者變更或長時間暫停時。 您可以建立您自己的播放清單，其中只包含您想要的時段。 若只要顯示來源影片的特定部分，您可以篩選主題/關鍵字、情緒、人員、說話者。 您可以選擇僅檢視影片文字記錄或 OCR。    
 
     ![深入解析](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
-
 4. 建立您的播放清單。
 
     若要從播放清單中新增或移除時段，請按 **+**/**-**。
-
 5. 預覽您的播放清單。
 
     完成播放清單的建立後，請按 [預覽]。

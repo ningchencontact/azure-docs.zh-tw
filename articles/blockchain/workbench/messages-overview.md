@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 48e7de2798d9c34942df281febcc1d4ec443010d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fd723304e2219c457e982cbe54529d00afe526f4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662222"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55896004"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 訊息整合
 
@@ -568,7 +568,7 @@ Blockchain Workbench 中的 *ContractMessage* 範例：
 | contractLedgerIdentifier    | 總帳所含合約的唯一識別碼 |
 | functionName                | 函式的名稱 |
 | parameters                  | [參數資訊](#parameter-information) |
-| 交易                 | [交易資訊](#eventmessage-transaction-information) |
+| 交易                 | 交易資訊 |
 | inTransactionSequenceNumber | 交易在區塊中的序號 |
 | connectionId                | 連線的唯一識別碼 |
 | messageSchemaVersion        | 傳訊結構描述版本 |

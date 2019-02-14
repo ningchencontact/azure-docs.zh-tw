@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 了解您可以在學術知識 API 中搭配作者實體使用的屬性。
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 48758ac9ec8c993bbdb490229ae20fcce1fb0a49
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175174"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878930"
 ---
 # <a name="author-entity"></a>作者實體
 <sub> *下列屬性專屬於作者實體。(Ty = '1') </sub>

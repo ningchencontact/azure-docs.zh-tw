@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 8d2d8d0595099081498202a3103caa10df8cf67d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657836"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891448"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>使用 Azure Active Directory 將 Kubernetes 部署至 Azure Stack
 
@@ -37,7 +37,7 @@ ms.locfileid: "55657836"
 
 1. 確認您可以在 Azure Active Directory (Azure AD) 租用戶中建立應用程式。 您必須具備這些權限才能進行 Kubernetes 部署。
 
-    如需檢查權限的指示，請參閱[檢查 Azure Active Directory 權限](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#check-azure-active-directory-permissions)。
+    如需檢查權限的指示，請參閱[檢查 Azure Active Directory 權限](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)。
 
 1. 產生在 Azure Stack 上用來登入 Linux VM 的 SSH 公開和私密金鑰組。 您在建立叢集時將需要用到公開金鑰。
 

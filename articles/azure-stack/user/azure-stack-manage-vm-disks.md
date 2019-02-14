@@ -3,7 +3,7 @@ title: 管理 Azure Stack 中的 VM 磁碟 | Microsoft Docs
 description: 在 Azure Stack 中建立虛擬機器的磁碟。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: b5254b45fcd71901876d9e77d1f29c0a0d40ce3f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5719d5c49d3061acd167f51f74aac109dc22ec49
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813869"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961392"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中建立虛擬機器磁碟儲存體
 
@@ -115,7 +115,7 @@ ms.locfileid: "55813869"
 
     -  選取 [建立] 。 Azure Stack 會建立並驗證受控磁碟。
 
-5.  在 Azure Stack 建立磁碟並將它連結至虛擬機器之後，新的磁碟會列在虛擬機器之磁碟設定的 [資料磁碟] 下。   
+5.  在 Azure Stack 建立磁碟並將它連結至虛擬機器之後，新的磁碟會列在虛擬機器之磁碟設定的 [資料磁碟] 底下。   
 
     ![範例：檢視磁碟](media/azure-stack-manage-vm-disks/view-data-disk.png)
 

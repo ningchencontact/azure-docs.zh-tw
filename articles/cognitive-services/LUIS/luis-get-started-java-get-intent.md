@@ -3,19 +3,19 @@ title: 取得意圖 (Java)
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: 在這個 Java 快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的用意。
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fc86a11310142bd403f0550997fccbbb8edc54f1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f7ecf2aaedfda9f7c78146b6e355cf4d8be02003
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213040"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879723"
 ---
 # <a name="quickstart-get-intent-using-java"></a>快速入門：使用 Java 取得意圖
 

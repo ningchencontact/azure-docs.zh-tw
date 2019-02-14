@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659502"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894046"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
 Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 若要在「媒體服務 v3」中設定即時串流事件，您必須了解本文中所討論的概念：
 
 * [實況活動](#live-events)
-* [實況活動類型](#live-vent-types)
-* [實況活動類型比較](#live-event-types-comparison)
+* 實況活動類型
+* 實況活動類型比較
 * [實況活動建立選項](#live-event-creation-options)
 * [實況活動內嵌 URL](#live-event-ingest-urls)
 * [實況活動預覽 URL](#live-event-preview-url)

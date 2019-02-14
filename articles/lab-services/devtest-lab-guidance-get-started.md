@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 21837265a963829539f12cf7911191a61be43fbc
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876531"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243038"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>開始使用 Azure DevTest Labs
 一旦您決定要探索 DevTest Labs 之後，可依循兩個一般途徑繼續前進：概念證明與經過調整的部署。 

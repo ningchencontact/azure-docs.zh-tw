@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: af57721c99fb5f5c855e037d145e4fa5d122b9f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2ab3b089ce65c9f27457fd1cfb360d6776ed6244
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165922"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888733"
 ---
-<!--author=alkohli last changed: 01/02/17-->
-
 #### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>若要加入或修改 StorSimple 備份排程
 
 1. 請移至 StorSimple 裝置，並按一下 [備份原則]。

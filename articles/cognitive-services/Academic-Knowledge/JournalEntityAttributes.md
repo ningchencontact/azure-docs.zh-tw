@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 了解您可以在認知服務的學術知識 API 中搭配期刊實體使用的屬性。
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 397293c17320ef75daa5c31af76d49183b6c435c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ffb159dc684b4b6663dcb966706d4745ab88a403
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193823"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872572"
 ---
 # <a name="journal-entity"></a>期刊實體
 
