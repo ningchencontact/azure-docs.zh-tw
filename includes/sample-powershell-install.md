@@ -1,14 +1,14 @@
 ---
 author: sptramer
-ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 01/30/2019
+ms.service: azure-powershell
 ms.author: sttramer
-ms.openlocfilehash: 82fb5e2c55f2f95d18a97f88462065ca19729a45
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3c88d94eb763edc2562ad9cd640c63c4a7b9622d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54899320"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246774"
 ---
-您可以視需要使用 [Azure PowerShell 指南 (英文)](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) 中的指示來安裝 Azure PowerShell 模組，然後執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。 此外，您在使用者設定檔的 .ssh 目錄中需要有一個名為 `id_rsa.pub` 的 SSH 公開金鑰。
+您可以視需要使用 [Azure PowerShell 指南 (英文)](/powershell/azure/azurerm/) 中的指示來安裝 Azure PowerShell 模組，然後執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。 此外，您在使用者設定檔的 .ssh 目錄中需要有一個名為 `id_rsa.pub` 的 SSH 公開金鑰。

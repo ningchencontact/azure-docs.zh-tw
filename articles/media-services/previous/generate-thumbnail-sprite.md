@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b4d760d8520f43b223665f17c85d3932761ebe17
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190712"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003103"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>產生縮圖原件 
+# <a name="generate-a-thumbnail-sprite"></a>產生縮圖原件  
 
 您可以使用媒體編碼器標準產生縮圖原件，其中包含以多個低解析度縮圖結合成單一 (大型) 影像的 JPEG 檔案，和一個 VTT 檔案。 這個 VTT 檔案會在每個縮圖所代表的輸入影像中指定時間範圍，以及該縮圖在大型 JPEG 檔案中的大小和座標。 影片播放程式會使用 VTT 檔案和原件影像顯示「視覺化」搜尋列，讓檢視者在使用影片時間軸向前或向後刪除時獲得視覺化回饋。
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c9bdbcfe07eeee39733b39c074001f5caaa98ba
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700667"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106166"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>使用 RBAC 和 Azure PowerShell 來管理存取權
 
@@ -221,7 +221,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 若要指派角色，您必須識別物件 (使用者、群組或應用程式) 和範圍。
 
-如果您不知道訂用帳戶 ID，可以在 Azure 入口網站的 [訂用帳戶] 刀鋒視窗中找到，或者，可以使用 [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription)。
+如果您不知道訂用帳戶 ID，可以在 Azure 入口網站的 [訂用帳戶] 刀鋒視窗中找到，或者，可以使用 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription)。
 
 若要取得 Azure AD 群組的物件識別碼，使用 [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup)：
 

@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure CLI 建立 Azure DNS 私人區域
-description: 在此教學課程中，您可以建立並測試私人 DNS 區域，並記錄在 Azure DNS 中。 這份逐步指南將引導您使用 Azure CLI，來建立和管理第一個私人 DNS 區域和第一筆記錄。
+description: 在本教學課程中，您可以建立並測試私人 DNS 區域，並記錄在 Azure DNS 中。 這份逐步指南將引導您使用 Azure CLI，來建立和管理第一個私人 DNS 區域和第一筆記錄。
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
 ms.date: 7/25/2018
 ms.author: victorh
-ms.openlocfilehash: 27a27cfb81362b070deb0bad367ff62e8c39460c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5559e2fc9b9cce95bd7d5d02a64d134e5eaa03be
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964374"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100609"
 ---
 # <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>使用 Azure CLI 建立 Azure DNS 私人區域
 
@@ -22,7 +22,7 @@ ms.locfileid: "46964374"
 
 DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 接著在此 DNS 區域內，建立網域的每筆 DNS 記錄。 若要將私人 DNS 區域發佈至虛擬網路，指定可以在區域內解析記錄的虛擬網路清單。  這稱為「解析虛擬網路」。 您也可以指定一個虛擬網路，每當 VM 建立、變更 IP 或刪除時，Azure DNS 就會維護其主機名稱記錄。  這稱為「註冊虛擬網路」。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立 DNS 私人區域
@@ -32,7 +32,7 @@ DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-如果您想要的話，可以使用 [Azure PowerShell](private-dns-getstarted-powershell.md) 完成此教學課程。
+如果您想要的話，可以使用 [Azure PowerShell](private-dns-getstarted-powershell.md) 完成本教學課程。
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -58,7 +58,7 @@ az network vnet create \
   --location eastus \
   --address-prefix 10.2.0.0/16 \
   --subnet-name backendSubnet \
-  --subnet-prefix 10.2.0.0/24
+  --subnet-prefixes 10.2.0.0/24
 
 az network dns zone create -g MyAzureResourceGroup \
    -n contoso.local \
@@ -201,7 +201,7 @@ az network dns record-set list \
 
 ## <a name="delete-all-resources"></a>刪除所有資源
 
-當不再需要時，請刪除 **MyAzureResourceGroup** 資源群組，來刪除此教學課程中建立的資源。
+當不再需要時，請刪除 **MyAzureResourceGroup** 資源群組，來刪除本教學課程中建立的資源。
 
 ```azurecli
 az group delete --name MyAzureResourceGroup
@@ -209,7 +209,7 @@ az group delete --name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已部署私人 DNS 區域、建立 DNS 記錄以及測試區域。
+在本教學課程中，您已部署私人 DNS 區域、建立 DNS 記錄以及測試區域。
 接下來，您可以深入了解私人 DNS 區域。
 
 > [!div class="nextstepaction"]

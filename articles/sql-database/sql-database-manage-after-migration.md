@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751934"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099729"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的資料庫
 
@@ -310,7 +310,7 @@ SQL Database 會使用的一些智慧技術可讓它自動處理特定類別的�
 您有幾種方式來達到此目的：
 
 - **[資料同步](sql-database-sync-data.md)** - 此功能可協助您在多個內部部署 SQL Server 資料庫與 SQL Database 之間雙向同步處理資料。 若要與內部部署 SQL Server 資料庫同步，您需要在本機電腦上安裝並設定同步處理代理程式，以及開放輸出 TCP 連接埠 1433。
-- **[交易複寫](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** - 您可以利用交易複寫，從內部部署將資料同步處理到 Azure SQL DB，以內部部署作為發行者和 Azure SQL DB 作為訂閱者。 目前僅支援此安裝程式。 如需有關如何將資料從內部部署移轉到 Azure SQL 且具有最少停機時間的詳細資訊，請參閱：[使用交易複寫](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[交易複寫](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** - 您可以利用交易複寫，從內部部署將資料同步處理到 Azure SQL DB，以內部部署作為發行者和 Azure SQL DB 作為訂閱者。 目前僅支援此安裝程式。 如需有關如何將資料從內部部署移轉到 Azure SQL 且具有最少停機時間的詳細資訊，請參閱：[使用交易複寫](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>後續步驟
 

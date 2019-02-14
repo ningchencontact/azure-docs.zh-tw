@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 780d2134aa00f828a614af6938978e24df3534cd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015197"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105106"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本部署 Web 應用程式的指引
 
@@ -113,12 +113,14 @@ Web 應用程式的名稱必須是全域唯一的。 您可以使用很可能是
 
 ## <a name="deploy-web-app-certificate-from-key-vault"></a>部署 Key Vault 中的 Web 應用程式憑證
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 如果您的範本包括 [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) 資源來繫結 SSL，而且憑證儲存在 Key Vault 中，則您必須確定 App Service 身分識別可以存取憑證。
 
 在全域 Azure 中，App Service 服務主體的識別碼為 **abfa0a7c-a6b6-4736-8310-5855508787cd**。 若要授與 App Service 服務主體的 Key Vault 存取，請使用：
 
 ```azurepowershell-interactive
-Set-AzureRmKeyVaultAccessPolicy `
+Set-AzKeyVaultAccessPolicy `
   -VaultName KEY_VAULT_NAME `
   -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
   -PermissionsToSecrets get `

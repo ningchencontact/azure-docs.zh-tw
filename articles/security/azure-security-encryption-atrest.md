@@ -4,7 +4,7 @@ description: 本文提供 Microsoft Azure 資料靜態加密概觀、整體功�
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994397"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117896"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
@@ -260,30 +260,30 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 |                                  | **使用服務管理金鑰的伺服器端**     | **在 Key Vault 中使用客戶管理的伺服器端**             | **使用用戶端管理的用戶端**      |
 | **儲存體和資料庫**        |                    |                    |                    |                    |
 | 磁碟 (IaaS)                      | -                  | 是，RSA 2048 位元  | -                  |
-| SQL Server (IaaS)                | 是                | 是，RSA 2048 位元  | 是                |
-| Azure SQL (資料庫/資料倉儲) | 是                | 是，RSA 2048 位元  | 是                |
-| Azure SQL (資料庫受控執行個體) | 是                | 預覽，RSA 2048 位元  | 是                |
-| Azure 儲存體 (區塊/分頁 Blob) | 是                | 是，RSA 2048 位元  | 是                |
-| Azure 儲存體 (檔案)            | 是                | 是，RSA 2048 位元  | -                  |
-| Azure 儲存體 (資料表、佇列)   | 是                | -                  | 是                |
-| Cosmos DB (文件 DB)          | 是                | -                  | -                  |
-| StorSimple                       | 是                | -                  | 是                |
-| Backup                            | -                  | -                  | 是                |
+| SQL Server (IaaS)                | yes                | 是，RSA 2048 位元  | yes                |
+| Azure SQL (資料庫/資料倉儲) | yes                | 是，RSA 2048 位元  | yes                |
+| Azure SQL (資料庫受控執行個體) | yes                | 預覽，RSA 2048 位元  | yes                |
+| Azure 儲存體 (區塊/分頁 Blob) | yes                | 是，RSA 2048 位元  | yes                |
+| Azure 儲存體 (檔案)            | yes                | 是，RSA 2048 位元  | -                  |
+| Azure 儲存體 (資料表、佇列)   | yes                | -                  | yes                |
+| Cosmos DB (文件 DB)          | yes                | -                  | -                  |
+| StorSimple                       | yes                | -                  | yes                |
+| Backup                            | -                  | -                  | yes                |
 | **智慧和分析**   |                    |                    |                    |
-| Azure Data Factory               | 是                | -                  | -                  |
+| Azure Data Factory               | yes                | -                  | -                  |
 | Azure Machine Learning           | -                  | 預覽，RSA 2048 位元 | -                  |
-| Azure 串流分析           | 是                | -                  | -                  |
-| HDInsight (Azure Blob 儲存體)   | 是                | -                  | -                  |
-| HDInsight (Data Lake 儲存體)    | 是                | -                  | -                  |
-| Apache Kafka for HDInsight       | 是                | 預覽，所有 RSA 長度 | -                  |
-| Azure Data Lake Store            | 是                | 是，RSA 2048 位元  | -                  |
-| Azure 資料目錄               | 是                | -                  | -                  |
-| Power BI                         | 是                | -                  | -                  |
+| Azure 串流分析           | yes                | -                  | -                  |
+| HDInsight (Azure Blob 儲存體)   | yes                | -                  | -                  |
+| HDInsight (Data Lake 儲存體)    | yes                | -                  | -                  |
+| Apache Kafka for HDInsight       | yes                | 預覽，所有 RSA 長度 | -                  |
+| Azure Data Lake Store            | yes                | 是，RSA 2048 位元  | -                  |
+| Azure 資料目錄               | yes                | -                  | -                  |
+| Power BI                         | yes                | -                  | -                  |
 | **IoT 服務**                 |                    |                    |                    |
-| IoT 中樞                          | -                  | -                  | 是                |
-| 服務匯流排                      | 是                | -                  | 是                |
-| 事件中樞                       | 是                | -                  | -                  |
-| Event Grid                       | 是                | -                  | -                  |
+| IoT 中樞                          | -                  | -                  | yes                |
+| 服務匯流排                      | yes                | -                  | yes                |
+| 事件中樞                       | yes                | -                  | -                  |
+| Event Grid                       | yes                | -                  | -                  |
 
 
 ## <a name="conclusion"></a>結論

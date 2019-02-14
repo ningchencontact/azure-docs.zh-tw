@@ -4,7 +4,7 @@ description: 本文描述備援層級，以提供客戶資料的最大可用性�
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 3679361522105d1f3c55eae6b1f33c1c6baa1d55
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171488"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105870"
 ---
 # <a name="azure-infrastructure-availability"></a>Azure 基礎結構可用性
 Azure 會根據透過虛擬化技術達到的龐大備援能力，提供穩定的可用性。 Azure 提供許多備援層級，以提供客戶資料的最大可用性。

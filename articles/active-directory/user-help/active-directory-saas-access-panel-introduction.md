@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: eee58708d6aec717d0f79f5c79a0c879b52d56a5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9682611467311f06d60f6f393ebd7788f95f7f12
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176364"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177864"
 ---
 # <a name="what-is-the-myapps-portal"></a>什麼是 MyApps 入口網站？
 
@@ -49,7 +50,7 @@ MyApps 入口網站會與 Azure 入口網站分開。 您不需要具有 Azure �
 
 將 URL 散佈給要登入與 Azure AD 整合之應用程式的所有使用者。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 若要前往 MyApps 入口網站，您必須透過 Azure AD 中的公司或學校帳戶進行驗證。 Azure AD 可以直接驗證您。 或者，如果組織已經使用 Active Directory 同盟服務 (ADFS) 或其他技術設定同盟，則可由 Windows Server Active Directory 驗證您。
 

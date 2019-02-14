@@ -2,22 +2,23 @@
 title: Azure Active Directory 應用程式 Proxy 與 Tableau | Microsoft Docs
 description: 了解如何使用 Azure Active Directory (Azure AD) 應用程式 Proxy 提供對 Tableau 部署的遠端存取。
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: b775d9377b95c3c63e3c38cd477ce47209a6f419
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e154a53dc32aea0b3fbe093526546b080b02ceff
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149964"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188455"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 應用程式 Proxy 與 Tableau 
 

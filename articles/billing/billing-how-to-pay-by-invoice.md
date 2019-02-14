@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 478b03c979f5f2b588d51306ffa7b3c84ef25887
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 4cac603b0d575a4cf70cf4c5df6924be19bdfa2e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902477"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100273"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>提交按發票支付 Azure 訂用帳戶的要求
 
@@ -44,7 +44,7 @@ ms.locfileid: "54902477"
 
     * 公司名稱
     * 帳單地址
-    * [帳戶管理員的電子郵件地址](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
+    * [帳戶管理員的電子郵件地址](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
 
 1. 確認您的連絡資訊和慣用的連絡方法，然後按一下 [建立]。
 

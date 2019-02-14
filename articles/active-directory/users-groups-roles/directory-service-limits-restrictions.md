@@ -14,12 +14,13 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
-ms.openlocfilehash: 6a984c641608d5fd84a2fc6a88e30fd7f457ce9c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2e4364f025dcfdceb724dd251d2df89acf9f9a2b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506085"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182726"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Azure Active Directory 服務限制
 本文包含 Azure Active Directory (Azure AD) 服務的使用條件約束和其他服務限制。 如需完整的 Microsoft Azure 服務限制，請參閱 [Azure 訂用帳戶及服務限制、配額與條件約束](../../azure-subscription-service-limits.md)。

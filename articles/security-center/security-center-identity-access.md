@@ -4,7 +4,7 @@ description: 了解如何在 Azure 資訊安全中心使用身分識別和存取
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012066"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105547"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>在 Azure 資訊安全中心監視身分識別和存取 (預覽)
 這篇文章可協助您使用 Azure 資訊安全中心來監視使用者的身分識別和存取活動。
@@ -109,8 +109,8 @@ ms.locfileid: "51012066"
 |資源類型|安全分數|建議|說明|
 |----|----|----|----|
 |訂用帳戶|50|為訂用帳戶上具有擁有者權限的 Azure 管理應用程式帳戶啟用 MFA|為具有系統管理員權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
-|訂用帳戶|50|在訂用帳戶上啟用資訊安全中心 |在您的所有訂用帳戶上啟用資訊安全中心，以取得進階威脅偵測、JIT、應用程式白名單及進階建議功能 |
-|訂用帳戶|50|在訂用帳戶上啟用資訊安全中心標準層 |在您的所有訂用帳戶上啟用資訊安全中心標準層，以取得進階威脅偵測、JIT、應用程式白名單及進階建議功能。|
+|訂用帳戶|50|在訂用帳戶上啟用資訊安全中心 |在您的所有訂用帳戶上啟用資訊安全中心，以取得進階威脅偵測、JIT、應用程式允許清單及進階建議功能 |
+|訂用帳戶|50|在訂用帳戶上啟用資訊安全中心標準層 |在您的所有訂用帳戶上啟用資訊安全中心標準層，以取得進階威脅偵測、JIT、應用程式允許清單及進階建議功能。|
 |訂用帳戶|40|為訂用帳戶上具有寫入權限的 Azure 管理應用程式帳戶啟用 MFA|為具有寫入權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
 |訂用帳戶|30|移除您訂用帳戶中具有擁有者權限的外部帳戶|從訂用帳戶中移除具有擁有者權限的外部帳戶，以避免出現未受監視的存取。 |
 |訂用帳戶|30|為訂用帳戶上具有讀取權限的 Azure 管理應用程式帳戶啟用 MFA|為具有讀取權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|

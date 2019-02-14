@@ -4,7 +4,7 @@ description: 本文可協助您開始在「Azure 資訊安全中心」內保護 
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: bf3ceb0d5f12783957e127b3596ab07b7531ad5a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f90ad2707e42c4b5b2c4188d7f0f18bb9c5ea31b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491938"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105021"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>使用 Azure 資訊安全中心來保護 App Service
 本文可協助您使用「Azure 資訊安全中心」來監視及保護在 App Service 上執行的應用程式。

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 了解 Bing 實體搜尋 API 端點並對其傳送要求。
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: cae65c8fb7deb9f68a297de2058a86249b60136b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 3c2aa4b22c8e679f73692978d9e1f8009f11a46b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753975"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875224"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Bing 實體搜尋 API 端點
 
