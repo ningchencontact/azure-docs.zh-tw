@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 翻譯工具文字 API V3.0 參考文件。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 767021772fc86013cd8192216eb03840f1160807
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459058"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878692"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -49,7 +49,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 它們目�
 |Azure|亞太地區|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 訂閱 Translator Text API 或 Microsoft 認知服務中的[全方位認知服務](https://azure.microsoft.com/pricing/details/cognitive-services/)，並使用您的訂用帳戶金鑰 (可在 Azure 入口網站中取得) 來進行驗證。 
 

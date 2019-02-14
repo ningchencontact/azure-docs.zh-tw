@@ -4,7 +4,7 @@ description: 了解如何使用 Azure 媒體服務建立可用 XML MediaElement 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828310"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992138"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何建置 Smooth Streaming Windows 市集應用程式
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何建置 Smooth Streaming Windows 市集應用程式  
 
 Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放隨選與即時 Smooth Streaming 內容的 Windows 市集應用程式。 除了將 Smooth Streaming 內容進行基本播放，SDK 也提供 Microsoft PlayReady 保護、品質等級限制、Live DVR、音訊資料流切換、接聽狀態更新 (例如品質等級變更) 和錯誤事件等這類豐富的功能。 如需所支援功能的詳細資訊，請參閱 [版本資訊](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)(英文)。 如需詳細資訊，請參閱 [Player Framework for Windows 8](http://playerframework.codeplex.com/)。 
 

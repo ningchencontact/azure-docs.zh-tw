@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: cc72fb39bf62915be10493a780538121f26ca835
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002266"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56212962"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(已淘汰) 保護 Azure Container Service 中的 Docker 容器
 
@@ -60,7 +60,7 @@ Azure Container Service 中提供的每個 Orchestrator 都有它自己的安全
 
 * **Kubernetes**：[Kubernetes 部署的安全性最佳做法](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/) (英文)
 
-* **DC/OS**：[保護您的叢集](https://dcos.io/docs/1.8/administration/securing-your-cluster/) (英文)
+* **DC/OS**：[保護您的叢集](http://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster) (英文)
 
 * **Docker Swarm**：[Docker 安全性](https://www.docker.com/docker-security) (英文)
 

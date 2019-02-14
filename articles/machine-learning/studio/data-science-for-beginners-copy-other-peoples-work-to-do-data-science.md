@@ -1,8 +1,21 @@
 ---
-標題：複製其他人的資料科學範例 titleSuffix：Azure Machine Learning Studio description:'資料科學的商業機密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。'
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date:2018/01/05
+title: 複製其他人的資料科學範例
+titleSuffix: Azure Machine Learning Studio
+description: 資料科學的商業機密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 01/05/2018
+ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492992"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>複製其他人的工作進行資料科學
 ## <a name="video-5-data-science-for-beginners-series"></a>影片 5：適用於初學者的資料科學系列

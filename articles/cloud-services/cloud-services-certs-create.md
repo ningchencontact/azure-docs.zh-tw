@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282198"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812373"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 雲端服務的憑證概觀
-在 Azure 中，憑證用於雲端服務 ([服務憑證](#what-are-service-certificates)) 與驗證管理 API ([管理憑證](#what-are-management-certificates))。 本主題提供兩種憑證類型的一般概觀、如何[建立](#create)這些憑證類型，以及如何將其[部署](#deploy)到 Azure。
+在 Azure 中，憑證用於雲端服務 ([服務憑證](#what-are-service-certificates)) 與驗證管理 API ([管理憑證](#what-are-management-certificates))。 本主題提供兩種憑證類型、如何[建立](#create)這些憑證類型，以及如何將其部署到 Azure 的一般概觀。
 
 在 Azure 中使用的憑證是 x.509 v3 憑證，而且可以由其他受信任的憑證簽署，或者可以自我簽署。 自我簽署的憑證是由自己的建立者簽署，因此預設不受到信任。 大部分的瀏覽器都可以忽略這個問題。 您應該僅在開發和測試雲端服務時使用自我簽署的憑證。 
 
@@ -64,7 +64,7 @@ Azure 所使用的憑證可以包含私密或公開金鑰。 憑證具有指紋�
     > 您無法取得 cloudapp.net 網域 (或針對任何 Azure 相關網域) 的 SSL 憑證；憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。 例如，**contoso.net**，而非 **contoso.cloudapp.net**。
 
 * 至少為 2048 位元加密。
-* **僅限服務憑證**：用戶端憑證必須位於 *個人* 憑證存放區。
+* **僅限服務憑證**：用戶端憑證必須位於「個人」憑證存放區。
 
 在 Windows 上建立憑證有兩個簡單的方法：使用 `makecert.exe` 公用程式或 IIS。
 
@@ -91,7 +91,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ### <a name="internet-information-services-iis"></a>網際網路資訊服務 (IIS)
 在網際網路上有許多涵蓋如何使用 IIS 執行這項操作的網頁。 [這裡](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) 是我找到的其中一個我認為說明得很好的網頁。 
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 [本文](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)說明如何使用 SSH 建立憑證。
 
 ## <a name="next-steps"></a>後續步驟

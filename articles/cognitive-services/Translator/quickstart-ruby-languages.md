@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以取得使用翻譯工具文字 API 搭配 Ruby 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 67f1a7b4a064aa46ef7d258dd72b1d686a797349
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1b92adcf528a1ccd00983e6c0dd952fefab5dd7d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458103"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975461"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>快速入門：使用翻譯工具文字 REST API (Ruby) 取得支援的語言
 
@@ -25,16 +25,13 @@ ms.locfileid: "55458103"
 
 您將需要有 [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) (英文) 或更新版本，才能執行此程式碼。
 
-若要使用翻譯工具文字 API，您也需要有訂用帳戶金鑰；請參閱[如何註冊翻譯工具文字 API](translator-text-how-to-signup.md)。
-
 ## <a name="languages-request"></a>Languages 要求
 
 下列程式碼會使用 [Languages](./reference/v3-0-languages.md) 方法取得在翻譯、音譯及查詢字典時，所支援的語言清單及範例。
 
 1. 在您慣用的程式碼編輯器中，建立新的 Ruby 專案。
 2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
-4. 執行程式。
+3. 執行程式。
 
 ```ruby
 require 'net/https'
@@ -42,20 +39,12 @@ require 'uri'
 require 'cgi'
 require 'json'
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the key string value with your valid subscription key.
-key = 'ENTER KEY HERE'
-
 host = 'https://api.cognitive.microsofttranslator.com'
 path = '/languages?api-version=3.0'
 
 uri = URI (host + path)
 
 request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = key
 
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request (request)
@@ -67,6 +56,7 @@ json = JSON.pretty_generate(JSON.parse(result))
 
 output_path = 'output.txt'
 
+# Write response to file
 File.open(output_path, 'w' ) do |output|
     output.print json
 end

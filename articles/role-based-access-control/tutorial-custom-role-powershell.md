@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7ea9ce47b82dd4ad31caf935fd10e04daa07faba
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9dddef43e1ac5f3bcedcc08b313eea300436ea61
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699970"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106422"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立自訂角色
 
@@ -95,7 +95,7 @@ ms.locfileid: "55699970"
     
 1. 編輯 JSON 檔案，以將 `"Microsoft.Support/*"` 作業新增至 `Actions` 屬性。 請務必在讀取作業之後包含逗號。 這個動作將允許使用者建立支援票證。
 
-1. 使用 [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) 命令取得訂用帳戶的識別碼。
+1. 使用 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) 命令取得訂用帳戶的識別碼。
 
     ```azurepowershell
     Get-AzSubscription
@@ -103,7 +103,7 @@ ms.locfileid: "55699970"
 
 1. 在 `AssignableScopes` 中，新增格式如下的訂用帳戶識別碼：`"/subscriptions/00000000-0000-0000-0000-000000000000"`
 
-    您必須新增明確的訂用帳戶識別碼，否則無法將角色匯入您的訂用帳戶。
+    您必須新增明確的訂用帳戶識別碼，否則不允許您將角色匯入您的訂用帳戶。
 
 1. 刪除 `Id` 屬性行並將 `IsCustom` 屬性變更為 `true`。
 

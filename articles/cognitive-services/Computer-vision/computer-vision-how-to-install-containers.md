@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 本逐步解說教學課程的內容包含如何下載、安裝及執行適用於電腦視覺的容器。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1e7f62d35e9850202b7d55c3c3440ff88413931d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 58a22253efb6928c87937e4aba852dd93a3e4422
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473488"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978539"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>安裝及執行辨識文字容器
 
@@ -72,7 +72,7 @@ ms.locfileid: "55473488"
 
 ### <a name="docker-pull-for-the-recognize-text-container"></a>辨識文字容器的 Docker Pull
 
-```Docker
+```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
@@ -146,18 +146,7 @@ ApiKey={BILLING_KEY}
 
 辨識文字容器會使用您 Azure 帳戶上的_辨識文字_資源傳送計費資訊至 Azure。 
 
-認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料傳送至 Microsoft。 
-
-`docker run` 命令會使用下列引數進行計費：
-
-| 選項 | 說明 |
-|--------|-------------|
-| `ApiKey` | 用來追蹤帳單資訊的_辨識文字_資源 API 金鑰。 |
-| `Billing` | 用來追蹤帳單資訊的_辨識文字_資源端點。|
-| `Eula` | 表示您已接受容器的授權。<br/>此選項的值必須設定為 `accept`。 |
-
-> [!IMPORTANT]
-> 這三個選項都必須指定為有效的值，否則將無法啟動容器。
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 如需這些選項的詳細資訊，請參閱[設定容器](./computer-vision-resource-container-config.md)。
 

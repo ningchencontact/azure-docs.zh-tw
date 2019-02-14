@@ -4,7 +4,7 @@ description: 如何解決將支援 SCIM 2.0 且不在資源庫的應用程式新
 services: active-directory
 documentationcenter: ''
 author: asmalser
-manager: daveba
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: 48328a3ee379fc76fa6e70ea082395b37751d235
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181107"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190512"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 使用者佈建服務 SCIM 2.0 通訊協定相容性的已知問題和解決方法
 
@@ -36,10 +37,10 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 
 | **SCIM 2.0 相容性問題** |  **已修正？** | **修正日期**  |  
 |---|---|---|
-| Azure AD 要求應用程式的 SCIM 端點 URL 根目錄中必須有 "/scim"  | 是  |  2018 年 12 月 18 日 | 
-| 延伸模組屬性在屬性名稱前面使用點 "." 標記法，而不是冒號 ":" 標記法 |  是  | 2018 年 12 月 18 日  | 
-|  多重值屬性的修補程式要求包含無效的路徑篩選語法 | 是  |  2018 年 12 月 18 日  | 
-|  群組建立要求包含無效的結構描述 URI | 是  |  2018 年 12 月 18 日  |  
+| Azure AD 要求應用程式的 SCIM 端點 URL 根目錄中必須有 "/scim"  | yes  |  2018 年 12 月 18 日 | 
+| 延伸模組屬性在屬性名稱前面使用點 "." 標記法，而不是冒號 ":" 標記法 |  yes  | 2018 年 12 月 18 日  | 
+|  多重值屬性的修補程式要求包含無效的路徑篩選語法 | yes  |  2018 年 12 月 18 日  | 
+|  群組建立要求包含無效的結構描述 URI | yes  |  2018 年 12 月 18 日  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>上述服務修正會自動套用至我既存的 SCIM 應用程式嗎？
 
@@ -59,7 +60,7 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 1. 登入 Azure 入口網站 https://portal.azure.com。
 2. 在 Azure 入口網站的 [Azure Active Directory] > [企業應用程式] 區段中，尋找並選取您現有的 SCIM 應用程式。
 3.  在您現有 SCIM 應用程式的 [屬性] 區段中，複製 [物件識別碼]。
-4.  在新的網頁瀏覽器視窗中，前往 https://developer.microsoft.com/en-us/graph/graph-explorer 並以新增應用程式所在的 Azure AD 租用戶系統管理員身分登入。
+4.  在新的網頁瀏覽器視窗中，前往 https://developer.microsoft.com/graph/graph-explorer 並以新增應用程式所在的 Azure AD 租用戶系統管理員身分登入。
 5. 在 [Graph 總管] 中，執行下列命令以尋找您佈建作業的識別碼。 將 "[object-id]" 取代為您從第三個步驟複製的服務主體識別碼 (物件識別碼)。
  
  `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -99,7 +100,7 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 1.  登入 Azure 入口網站 https://portal.azure.com。
 2. 在 Azure 入口網站的 [Azure Active Directory] > [企業應用程式] > [建立應用程式] 區段中，建立**不在資源庫內**的新應用程式。
 3.  在新自訂應用程式的 [屬性] 區段中，複製 [物件識別碼]。
-4.  在新的網頁瀏覽器視窗中，前往 https://developer.microsoft.com/en-us/graph/graph-explorer 並以新增應用程式所在的 Azure AD 租用戶系統管理員身分登入。
+4.  在新的網頁瀏覽器視窗中，前往 https://developer.microsoft.com/graph/graph-explorer 並以新增應用程式所在的 Azure AD 租用戶系統管理員身分登入。
 5. 在 [Graph 總管] 中，執行下列命令以初始化應用程式的佈建設定。
 將 "[object-id]" 取代為您從第三個步驟複製的服務主體識別碼 (物件識別碼)。
 

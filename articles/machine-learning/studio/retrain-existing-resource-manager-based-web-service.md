@@ -1,8 +1,21 @@
 ---
-標題：重新定型現有的預測性 Studio Web 服務 titleSuffix:Azure Machine Learning Studio description:了解如何在 Azure Machine Learning Studio 中重新定型模型，以及使用新定型的模型來更新 Web 服務。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date:2017/11/07
+title: 重新定型現有的預測性 Studio Web 服務
+titleSuffix: Azure Machine Learning Studio
+description: 了解如何在 Azure Machine Learning Studio 中重新定型模型，以及使用新定型的模型來更新 Web 服務。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 11/07/2017
+ms.openlocfilehash: cb33b32be276c2deb61a1a718a609612c6a4989e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511950"
 ---
 # <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>重新定型現有的預測性 Azure Machine Learning Studio Web 服務
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331635"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812084"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 
@@ -176,7 +176,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 >
 >
 
-若要更妥善地使用這兩個屬性，以及增強您的資料移動輸送量，請參閱 [範例使用案例](#case-study-use-parallel-copy)。 您不需要設定 **parallelCopies** 就能利用預設行為。 如果您有設定且 **parallelCopies** 太小，將可能無法充分利用多個雲端 DMU。
+若要更妥善地使用這兩個屬性，以及增強您的資料移動輸送量，請參閱範例使用案例。 您不需要設定 **parallelCopies** 就能利用預設行為。 如果您有設定且 **parallelCopies** 太小，將可能無法充分利用多個雲端 DMU。
 
 ### <a name="billing-impact"></a>計費影響
 請 **務必** 要記住，您必須根據複製作業的總時間付費。 若過去某複製作業使用 1 個雲端單位花費 1 小時，現在使用 4 個雲端單位花費 15 分鐘，則兩者的整體費用幾乎相同。 例如，您使用 4 個雲端單位。 第 1 個雲端單位費時 10 分鐘、第 2 個單位費時 10 分鐘、第 3 個單位費時 5 分鐘、第 4 個單位費時 5 分鐘，以上全都在一個複製活動執行內。 您必須支付總複製 (資料移動) 時間的費用，亦即 10 + 10 + 5 + 5 = 30 分鐘。 是否使用 **parallelCopies** 對計費沒有任何影響。
@@ -210,7 +210,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 | --- | --- | --- | --- |
 | **enableStaging** |指定您是否要透過過渡暫存存放區複製資料。 |False |否 |
 | **linkedServiceName** |指定 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 或 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 連結服務的名稱，以代表您用來做為過渡暫存存放區的儲存體執行個體。 <br/><br/>  您無法使用具有共用存取簽章的儲存體來透過 PolyBase 將資料載入至 SQL 資料倉儲。 您可以將它用於其他所有案例。 |N/A |是，當 **enableStaging** 設為 TRUE |
-| **路徑** |指定要包含分段資料的 Blob 儲存體路徑。 如果未提供路徑，服務會建立容器來儲存暫存資料。 <br/><br/>  只有在使用具有共用存取簽章的儲存體時，或需要讓暫存資料位於特定位置時，才指定路徑。 |N/A |否 |
+| **路徑** |指定要包含分段資料的 Blob 儲存體路徑。 如果未提供路徑，服務會建立容器來儲存暫存資料。 <br/><br/> 只有在使用具有共用存取簽章的儲存體時，或需要讓暫存資料位於特定位置時，才指定路徑。 |N/A |否 |
 | **enableCompression** |指定將資料複製到目的地之前，是否應該壓縮資料。 此設定可減少傳輸的資料量。 |False |否 |
 
 以下是具有上表所述屬性的「複製活動」的範例定義︰
@@ -297,7 +297,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 * **資料模式**：資料表結構描述對複製輸送量會有影響。 若要複製相同的資料量，較大的資料列大小會有優於較小資料列大小的效能。 這是因為資料庫可以更有效率地擷取包含較少資料列的較少資料批次。
 * **查詢或預存程序**：最佳化您在複製活動來源中指定的查詢或預存程序邏輯，以更有效率地擷取資料。
-* 對於必須使用**資料管理閘道**的**內部部署關聯式資料庫** (例如 SQL Server 和 Oracle)，請參閱[資料管理閘道的考量](#considerations-on-data-management-gateway)一節。
+* 對於必須使用 [資料管理閘道] 的**內部部署關聯式資料庫** (例如 SQL Server 和 Oracle)，請參閱「資料管理閘道的考量」一節。
 
 ## <a name="considerations-for-the-sink"></a>接收的考量
 ### <a name="general"></a>一般

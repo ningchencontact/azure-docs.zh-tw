@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468388"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694077"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
 
@@ -87,7 +87,8 @@ ProgressMessage            : OS disk successfully encrypted, please reboot the V
 任何套用的網路安全性群組設定仍然必須允許端點，從而符合磁碟加密的記載網路設定[必要條件](azure-security-disk-encryption-prerequisites.md#bkmk_GPO)。
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>防火牆後方的 Azure Key Vault
-在啟用 [Azure AD 認證](azure-security-disk-encryption-prerequisites-aad.md)的加密時，目標 VM 必須取得 Azure AD 驗證端點及 Key Vault 端點的存取權。  如需此程序的詳細資訊，請參閱由 [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) 小組所維護的指引，當中說明如何從防火牆後方存取金鑰保存庫。 
+
+使用 [Azure AD 認證](azure-security-disk-encryption-prerequisites-aad.md)啟用加密時，目標 VM 必須允許連線到 Azure Active Directory 端點和金鑰保存庫端點。 目前的 Azure Active Directory 驗證端點列在 [Office 365 URL 與 IP 位址範圍](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges)文件的第 56 和 59 節。 如需金鑰保存庫的指示，請參閱文件中的如何[在防火牆後存取 Azure 金鑰保存庫](../key-vault/key-vault-access-behind-firewall.md)。
 
 ### <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務 
 VM 必須能夠存取 [Azure 執行個體中繼資料服務](../virtual-machines/windows/instance-metadata-service.md)端點；此端點會使用只能從 VM 內存取且無法路由的已知 IP 位址 (`169.254.169.254`)。

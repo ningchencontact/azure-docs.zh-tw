@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2018
+ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841398"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648639"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -223,7 +223,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
 
-是
+yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>受控磁碟和儲存體服務加密
 
@@ -260,7 +260,7 @@ Microsoft 負責管理加密金鑰。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 轉換為受控磁碟？**
 
-是
+yes
 
 **從受控磁碟或快照集匯出的 VHD 是否也會加密？**
 
@@ -347,7 +347,7 @@ Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB�
 
 **有哪些區域支援超過 4 TiB 的受控磁碟大小？**
 
-在目前的預覽版中，只有美國中西部支援此受控磁碟大小。
+現階段在預覽版中，美國中西部、北歐、西歐、美國西部 2、美國東部 2、美國東部可支援受控磁碟大小。
 
 **是否支援在較新的磁碟大小上啟用主機快取？**
 

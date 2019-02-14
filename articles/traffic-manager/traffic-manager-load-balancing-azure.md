@@ -1,10 +1,10 @@
 ---
 title: 在 Azure 中使用負載平衡服務 | Microsoft Docs
-description: 本教學課程會示範如何使用 Azure 負載平衡組合建立案例︰流量管理員、應用程式閘道和負載平衡器。
+description: 本教學課程會示範如何使用 Azure 負載平衡組合建立案例：流量管理員、應用程式閘道和負載平衡器。
 services: traffic-manager
 documentationcenter: ''
 author: liumichelle
-manager: vitinnan
+manager: dkays
 editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: 86867a9d6d2c43e6505b1a06672546a017172bfe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a6f7a690cac5718216636d3191f348c71bcfb5d6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401101"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734346"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>在 Azure 中使用負載平衡服務
 
@@ -35,8 +35,11 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
   * 效能路由，根據延遲將要求者傳送到最接近的端點。
   * 優先順序路由，可將所有流量導向端點，而其他端點做為備份。
   * 加權循環配置資源路由，可根據指派給各端點的加權分散流量。
+  * 以地理位置為基礎的路由，會根據使用者的地理位置將流量分散到您的應用程式端點。
+  * 以子網路為基礎的路由，會根據使用者的子網路 (IP 位址範圍) 將流量分散到您的應用程式端點。
+  * 多值路由，可讓您在單一 DNS 回應中傳送多個應用程式端點的 IP 位址。
 
-  用戶端直接連線至該端點。 Azure 流量管理員會在偵測到端點狀況不良時，將用戶端重新導向至另一個狀況良好的執行個體。 若要了解服務的相關資訊，請參閱 [Azure 流量管理員文件](traffic-manager-overview.md)。
+  用戶端直接連接到流量管理員傳回的端點。 Azure 流量管理員會在偵測到端點狀況不良時，將用戶端重新導向至另一個狀況良好的執行個體。 若要了解服務的相關資訊，請參閱 [Azure 流量管理員文件](traffic-manager-overview.md)。
 * **應用程式閘道**會以服務形式提供應用程式傳遞控制器 (ADC)，為您的應用程式提供各種第 7 層負載平衡功能。 它會將 CPU 密集 SSL 終止卸載至應用程式閘道，讓客戶最佳化 Web 伺服陣列的產能。 其他第 7 層路由功能包括循環配置連入流量、以 Cookie 為基礎的工作階段同質、URL 路徑型路由，以及在單一應用程式閘道背後代管多個網站的能力。 應用程式閘道可以設定為連結網際網路的閘道、內部專用閘道或兩者混合。 應用程式閘道完全由 Azure 管理、可調整且可用性極高。 它提供一組豐富的診斷和記錄功能，很好管理。
 * **負載平衡器**是 Azure SDN 堆疊不可或缺的一部分，針對所有 UDP 和 TCP 通訊協定提供高效能、低延遲的第 4 層負載平衡服務。 它會管理輸入及輸出連線。 您可以設定公用和內部負載平衡端點，並使用 TCP 和 HTTP 健全狀況探查選項定義規則，將輸入連線對應至後端集區目的地，以管理服務可用性。
 
@@ -62,14 +65,14 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
 ## <a name="setting-up-the-load-balancing-stack"></a>設定負載平衡堆疊
 
-### <a name="step-1-create-a-traffic-manager-profile"></a>步驟 1︰建立流量管理員設定檔
+### <a name="step-1-create-a-traffic-manager-profile"></a>步驟 1：建立流量管理員設定檔
 
 1. 在 Azure 入口網站中，按一下 [建立資源] > [網路] > [流量管理員設定檔] > [建立]。
 2. 輸入下列基本資訊：
 
   * **名稱**：為您的流量管理員設定檔提供一個 DNS 首碼名稱。
   * **路由方法**：選取流量路由方法原則。 如需方法的詳細資訊，請參閱[關於流量管理員流量路由方法](traffic-manager-routing-methods.md)。
-  * **訂閱**：選取包含設定檔的訂用帳戶。
+  * 訂用帳戶：選取包含設定檔的訂用帳戶。
   * **資源群組**：選取包含設定檔的資源群組。 可以是新的或現有的資源群組。
   * **資源群組位置**：流量管理員服務為全域服務，無法繫結至某個位置。 不過，您必須針對群組指定一個與流量管理員設定檔相關聯之中繼資料所在的區域。 這個位置對於設定檔的執行階段可用性沒有任何影響。
 
@@ -87,10 +90,10 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
   * **執行個體計數**：執行個體的數目，從 2 到 10 的值。
   * **資源群組**：保存應用程式閘道的資源群組。 它可以是現有的或新的資源群組。
   * **位置**：應用程式閘道的區域，它是與資源群組所在相同的位置。 位置相當重要，因為虛擬網路和公用 IP 必須與閘道位於相同位置。
-3. 按一下 [SERVICEPRINCIPAL] 。
+3. 按一下 [確定]。
 4. 接下來，針對應用程式閘道定義虛擬網路、子網路、前端 IP 與接聽程式設定。 在此案例中，前端 IP 位址是**公用**，以允許它稍後做為端點新增至流量管理員設定檔。
 5. 使用下列其中一個選項設定接聽程式︰
-    * 如果您使用 HTTP，則無需設定。 按一下 [SERVICEPRINCIPAL] 。
+    * 如果您使用 HTTP，則無需設定。 按一下 [確定]。
     * 如果您使用 HTTPS，則需要設定進一步的設定。 請參閱[建立應用程式閘道](../application-gateway/application-gateway-create-gateway-portal.md)，由步驟 9 開始。 完成設定後，按一下 [確定]。
 
 #### <a name="configure-url-routing-for-application-gateways"></a>設定應用程式閘道的 URL 路由
@@ -130,7 +133,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
    ![應用程式閘道器「新增路徑型規則」刀鋒視窗](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
-### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>步驟 3︰將應用程式閘道新增至流量管理員端點
+### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>步驟 3：將應用程式閘道新增至流量管理員端點
 
 在此案例中，流量管理員會連結到位於不同區域中的應用程式閘道 (如前述步驟中所設定)。 現在已設定應用程式閘道，下一步是將它們連接至您的流量管理員設定檔。
 
@@ -200,7 +203,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 8. 在 [浮點 IP] 下，選取 [停用] 或 [啟用]。
 9. 按一下 [確定] 以建立規則。
 
-### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>步驟 5︰將 Web 層 VM 連線到負載平衡器
+### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>步驟 5：將 Web 層 VM 連線到負載平衡器
 
 現在我們針對任何資料庫連接，在 Web 層 VM 上執行的應用程式中設定 IP 位址和負載平衡器前端連接埠。 此設定是在這些 VM 上執行之應用程式所特有的。 若要設定目的地 IP 位址和連接埠，請參閱應用程式文件。 若要尋找前端 IP 位址，請在 Azure 入口網站中，移至 [負載平衡器設定] 上的前端 IP 集區。
 

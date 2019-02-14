@@ -6,25 +6,25 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/24/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421330"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507329"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>針對變更追蹤和清查進行疑難排解
 
 ## <a name="windows"></a> Windows
 
-### <a name="records-not-showing-windows"></a>案例：變更追蹤記錄不會顯示在 Azure 入口網站中
+### <a name="records-not-showing-windows"></a>案例：Windows 機器不會顯示變更追蹤記錄
 
 #### <a name="issue"></a>問題
 
-對於加入變更追蹤的機器，您看不到任何清查或變更追蹤結果。
+對於加入變更追蹤的 Windows 機器，您看不到任何清查或變更追蹤結果。
 
 #### <a name="cause"></a>原因
 
@@ -38,12 +38,13 @@ ms.locfileid: "54421330"
 #### <a name="resolution"></a>解決方案
 
 1. 確認 **Microsoft Monitoring Agent** (HealthService.exe) 是否正在機器上執行。
-2. 請瀏覽[網路規劃](../automation-hybrid-runbook-worker.md#network-planning)，了解必須允許哪些位址和連接埠，變更追蹤才能運作。
-3. 請確認下列變更追蹤和清查管理組件存在於本機：
+1. 請檢查機器上的**事件檢視器**，並尋找其中有 `changetracking` 字組的任何事件。
+1. 請瀏覽[網路規劃](../automation-hybrid-runbook-worker.md#network-planning)，了解必須允許哪些位址和連接埠，變更追蹤才能運作。
+1. 請確認下列變更追蹤和清查管理組件存在於本機：
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
     * Microsoft.IntelligencePacks.InventoryChangeTracking.*
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-4. 如果使用複製的映像，請先對映像執行 sysprep，然後再安裝 Microsoft Monitoring Agent 代理程式。
+1. 如果使用複製的映像，請先對映像執行 sysprep，然後再安裝 Microsoft Monitoring Agent 代理程式。
 
 如果這些解決方案都不能解決您的問題，而且您連絡了支援服務，則可執行下列命令以在代理程式上收集診斷
 

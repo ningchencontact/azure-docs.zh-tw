@@ -1,8 +1,21 @@
 ---
-標題：建立 Web 服務端點 titleSuffix:Azure Machine Learning Studio description:在 Azure Machine Learning 中建立 Web 服務端點。 Web 服務的每個端點都是個別定址、節流以及管理。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:2016/10/04
+title: 建立 Web 服務端點
+titleSuffix: Azure Machine Learning Studio
+description: 在 Azure Machine Learning 中建立 Web 服務端點。 Web 服務的每個端點都是個別定址、節流以及管理。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 10/04/2016
+ms.openlocfilehash: fc3a92aaf13f13682cfc56333618436ffe3d65ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493366"
 ---
 # <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>針對已部署的 Azure Machine Learning Studio Web 服務建立端點
 > [!NOTE]

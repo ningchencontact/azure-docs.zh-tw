@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159735"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005449"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>媒體服務作業 REST API 概觀
+# <a name="media-services-operations-rest-api-overview"></a>媒體服務作業 REST API 概觀 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 **媒體服務作業 REST** API 用於在媒體服務帳戶中建立作業、資產、直播頻道和其他資源。 如需詳細資訊，請參閱[媒體服務作業 REST API 參考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)。
@@ -58,9 +58,9 @@ ms.locfileid: "54159735"
 | 頁首 | 類型 | 值 |
 | --- | --- | --- |
 | Authorization |Bearer |Bearer 是唯一接受的授權機制。 此值也必須包含 Azure Active Directory 所提供的存取權杖。 |
-| x-ms-version |十進位 |2.17 (或最新版本)|
-| DataServiceVersion |十進位 |3.0 |
-| MaxDataServiceVersion |十進位 |3.0 |
+| x-ms-version |Decimal |2.17 (或最新版本)|
+| DataServiceVersion |Decimal |3.0 |
+| MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
 > 因為媒體服務使用 OData 來公開其 REST API，因此 DataServiceVersion 和 MaxDataServiceVersion 標頭應該包含在所有要求中。不過，如果沒有，則目前媒體服務會假設使用的 DataServiceVersion 值是 3.0。

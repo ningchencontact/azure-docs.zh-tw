@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 524e10b93905372377fe388a38c5dc55fdcee877
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509983"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991216"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>最多 100 TB 的超大規模服務層級 (預覽)
 
@@ -32,7 +32,7 @@ Azure SQL Database 中的超大規模服務層是 V 核心形式購買模型中�
 > [!IMPORTANT]
 > 超大規模服務層級目前為公開預覽版本，且僅在有限的 Azure 區域中提供。 如需完整的區域清單，請參閱[超大規模服務層級的可用區域](#available-regions)。 我們不建議在超大規模資料庫中執行任何生產環境工作負載。 您無法將超大規模資料庫更新為其他服務層級。 基於測試目的，我們建議您建立目前資料庫的複本，並將該複本更新至超大規模服務層級。
 > [!NOTE]
-> 若要深入了解 V 核心形式購買模型中的一般用途與商務關鍵服務層級，請參閱[一般目的](sql-database-service-tier-general-purpose.md)與[業務關鍵](sql-database-service-tier-business-critical.md)服務層。 如需 V 核心形式購買模型與 DTU 形式購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-service-tiers.md)。
+> 若要深入了解 V 核心形式購買模型中的一般用途與商務關鍵服務層級，請參閱[一般目的](sql-database-service-tier-general-purpose.md)與[業務關鍵](sql-database-service-tier-business-critical.md)服務層。 如需 V 核心形式購買模型與 DTU 形式購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
 > [!IMPORTANT]
 > 超大規模服務層級目前處於公開預覽狀態。 我們不建議在超大規模資料庫中執行任何生產環境工作負載。 您無法將超大規模資料庫更新為其他服務層級。 基於測試目的，我們建議您建立目前資料庫的複本，並將該複本更新至超大規模服務層級。
 
@@ -162,7 +162,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 ## <a name="next-steps"></a>後續步驟
 
 - 如需超大規模的常見問題集，請參閱[關於超大規模的常見問題集](sql-database-service-tier-hyperscale-faq.md)。
-- 如需服務層的資訊，請參閱[服務層](sql-database-service-tiers.md)
+- 如需服務層的資訊，請參閱[服務層](sql-database-purchase-models.md)
 - 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md) \(英文\)。
 - 如需單一資料庫的購買模型限制相關資訊，請參閱[適用於單一資料庫的 Azure SQL Database V 核心形式購買模型限制](sql-database-vcore-resource-limits-single-databases.md)。
 - 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。

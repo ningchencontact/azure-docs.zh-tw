@@ -1,14 +1,30 @@
 ---
-標題：適用於 Machine Learning Studio 作業的 Azure Batch 服務 titleSuffix:Azure Machine Learning Studio description:適用於 Machine Learning 作業的 Azure Batch 服務概觀。 批次集區處理可讓您建立集區，以便提交批次作業。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='批次執行服務作業的專用容量 - Azure Machine Learning Studio | Microsoft Docs' ms.date:2017/04/19
+title: 適用於 Machine Learning Studio 作業的 Azure Batch 服務
+titleSuffix: Azure Machine Learning Studio
+description: 適用於 Machine Learning 作業的 Azure Batch 服務概觀。 批次集區處理可讓您建立集區，以便提交批次作業。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.date: 04/19/2017
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697495"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>適用於 Azure Machine Learning Studio 作業的 Azure Batch 服務
 
 Machine Learning 批次集區處理提供客戶管理的 Azure Machine Learning 批次執行服務級別。 機器學習服務的傳統批次處理發生於多租用戶環境中，其限制您可以提交的並行作業數目，而且作業會以先進先出為原則排入佇列中。 這種不確定性，表示您無法準確地預測何時會執行您的作業。
 
 批次集區處理可讓您建立集區，以便提交批次作業。 您可控制集區的大小，以及作業要提交至哪個集區。 BES 作業會在自己的處理空間中執行，以提供可預測的處理效能以及建立資源集區 (對應至您提交的處理負載) 的功能。
+
+> [!NOTE]
+> 您必須擁有全新 Resource Manager 型的 Machine Learning Web 服務，才能建立集區。 建立之後，您可以在集區上執行任何 BES Web 服務 (全新 Resource Manager 型和傳統)。
 
 ## <a name="how-to-use-batch-pool-processing"></a>如何使用批次集區處理
 
@@ -23,7 +39,7 @@ Machine Learning 批次集區處理提供客戶管理的 Azure Machine Learning 
 
 ![批次集區服務架構。](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-您可以在 CSS 提供給您的集區服務 URL 上呼叫「建立集區」作業，以建立集區。 當您建立集區時，請指定 VM 數目和全新 Resource Manager 型 Machine Learning Web 服務的 swagger.json URL。 此 Web 服務可供建立計費關聯。 批次集區服務會使用 swagger.json 將集區與計費方案建立關聯。 您可以執行您在集區上選擇的任何 BES Web 服務 (全新 Resource Manager 型和傳統)。
+您可以在 CSS 提供給您的集區服務 URL 上呼叫「建立集區」作業，以建立集區。 當您建立集區時，請指定 VM 數目和全新 Resource Manager 型 Machine Learning Web 服務的 swagger.json URL。 此 Web 服務可供建立計費關聯。 批次集區服務會使用 swagger.json 將集區與計費方案建立關聯。 您可以在集區上執行任何 BES Web 服務 (全新 Resource Manager 型和傳統)。
 
 您可以使用任何全新 Resource Manager 型 Web 服務，但請注意，作業是根據與該服務相關聯的計費方案收費。 您可以特別建立 Web 服務和新的計費方案，以便執行批次集區作業。
 

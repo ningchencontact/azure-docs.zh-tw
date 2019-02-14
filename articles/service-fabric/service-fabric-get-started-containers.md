@@ -4,7 +4,7 @@ description: 在 Azure Service Fabric 上建立第一個 Windows 容器應用程
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: timlt
+manager: jpconnock
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 01/25/2019
 ms.author: twhitney
-ms.openlocfilehash: 38979d80e25e0430082b7819d506b653c35697e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e1024fadf6a68307e42b57ee3c383977b7b4fb9b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172948"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562499"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-在 Service Fabric 叢集上的 Windows 容器中執行現有的應用程式，不需要變更您的應用程式。 本文會逐步引導您建立包含 Python [Flask](http://flask.pocoo.org/) Web 應用程式的 Docker 映像，並將它部署到 Service Fabric 叢集。 您也將透過 [Azure Container Registry](/azure/container-registry/) 共用容器化應用程式。 本文假設您對 Docker 有基本認識。 您可藉由閱讀 [Docker 概觀](https://docs.docker.com/engine/understanding-docker/)來了解 Docker。
+在 Service Fabric 叢集上的 Windows 容器中執行現有的應用程式，不需要變更您的應用程式。 本文會逐步引導您建立包含 Python [Flask](http://flask.pocoo.org/) Web 應用程式的 Docker 映像，並將它部署到您本機電腦上執行的 Service Fabric 叢集。 您也將透過 [Azure Container Registry](/azure/container-registry/) 共用容器化應用程式。 本文假設您對 Docker 有基本認識。 您可藉由閱讀 [Docker 概觀](https://docs.docker.com/engine/understanding-docker/)來了解 Docker。
 
 > [!NOTE]
 > 本文適用於 Windows 開發環境。  Service Fabric 叢集執行階段與 Docker 執行階段必須在相同的作業系統上執行。  您無法在 Linux 叢集上執行 Windows 容器。
 
 ## <a name="prerequisites"></a>必要條件
+
 * 執行下列項目的開發電腦︰
   * Visual Studio 2015 或 Visual Studio 2017。
   * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
@@ -41,10 +43,10 @@ ms.locfileid: "55172948"
 
   在本文中，在您的叢集節點上執行且具有容器的 Windows Server 版本 (組建) 必須符合您開發電腦上的 Windows Server 版本。 這是因為您會在開發電腦上建立 Docker 映像，而且容器 OS 版本與其部署所在主機 OS 版本之間有相容性條件約束。 如需詳細資訊，請參閱 [Windows Server 容器作業系統和主機作業系統的相容性](#windows-server-container-os-and-host-os-compatibility)。 
   
-  若要判斷具有您叢集所需容器的 Windows Server 版本，請在開發電腦上從 Windows 命令提示字元執行 `ver` 命令：
+若要判斷具有您叢集所需容器的 Windows Server 版本，請在開發電腦上從 Windows 命令提示字元執行 `ver` 命令：
 
-  * 如果版本包含 x.x.14323.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServer 2016-Datacenter-with-Containers] 作為作業系統。 您也可以對合作對象叢集[免費試用 Service Fabric](https://aka.ms/tryservicefabric)。
-  * 如果版本包含 x.x.16299.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers] 作為作業系統。 不過，您無法使用合作對象叢集。
+* 如果版本包含 x.x.14323.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServer 2016-Datacenter-with-Containers] 作為作業系統。
+  * 如果版本包含 x.x.16299.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers] 作為作業系統。
 
 * Azure Container Registry 中的登錄 - 在 Azure 訂用帳戶中[建立容器登錄](../container-registry/container-registry-get-started-portal.md)。
 
@@ -57,6 +59,7 @@ ms.locfileid: "55172948"
 > 
 
 ## <a name="define-the-docker-container"></a>定義 Docker 容器
+
 根據位於 Docker 中樞的 [Python 映像](https://hub.docker.com/_/python/)建立映像。
 
 在 Dockerfile 中指定您的 Docker 容器。 Dockerfile 包含下列相關指示：設定您容器內的環境、載入您要執行的應用程式，以及對應連接埠。 Dockerfile 是 `docker build` 命令的輸入，該命令可建立映像。
@@ -166,6 +169,7 @@ docker rm my-web-site
 
 <a id="Push-Containers"></a>
 ## <a name="push-the-image-to-the-container-registry"></a>將映像推送至容器登錄
+
 確認容器在開發電腦上執行後，將映像發送到 Azure Container Registry 中您的登錄。
 
 使用您的[登錄認證](../container-registry/container-registry-authentication.md)執行 ``docker login`` 登入容器登錄庫。
@@ -257,6 +261,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您建立容器�
 > 透過適用的屬性值來宣告其他 PortBinding 元素，即可為服務新增其他 PortBinding。
 
 ## <a name="configure-container-registry-authentication"></a>設定容器登錄驗證
+
 將 `RepositoryCredentials` 新增至 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 中，以設定容器登錄驗證。 為 myregistry.azurecr.io 容器登錄新增帳戶和密碼，讓服務從存放庫中下載容器映像。
 
 ```xml
@@ -448,7 +453,8 @@ Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處
 開啟瀏覽器並瀏覽至 http://containercluster.westus2.cloudapp.azure.com:8081 。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ## <a name="clean-up"></a>清除
-當叢集在執行時，您需要繼續支付費用，請考慮[刪除您的叢集](service-fabric-cluster-delete.md)。 [合作對象叢集](https://try.servicefabric.azure.com/)會在幾個小時後自動刪除。
+
+當叢集在執行時，您需要繼續支付費用，請考慮[刪除您的叢集](service-fabric-cluster-delete.md)。
 
 將映像推送至容器登錄之後，您可以從開發電腦刪除本機映像︰
 

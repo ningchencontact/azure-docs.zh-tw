@@ -1,8 +1,21 @@
 ---
-標題：使用 Excel 取用 Web 服務標題字尾：Azure Machine Learning Studio 說明：Azure Machine Learning Studio 可以讓您直接從 Excel 輕鬆呼叫 Web 服務，而不需要撰寫任何程式碼。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:02/01/2018
+title: 在 Excel 中取用 Web 服務
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio 可以讓您直接從 Excel 輕鬆呼叫 Web 服務，而不需要撰寫任何程式碼。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/01/2018
+ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492873"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>從 Excel 取用 Azure Machine Learning Studio Web 服務
 

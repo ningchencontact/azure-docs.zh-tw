@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0af7a7fd43bba46de6faa770bf3042fbf58a90f6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195527"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890887"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 應用程式 SKU 索引標籤
 
@@ -90,7 +90,7 @@ ms.locfileid: "53195527"
   >[!NOTE]
   >儲存您的定價變更，以啟用匯出/匯入的定價資料。
 
-- **簡化的貨幣定價** – 輸入 SKU 價格 (以美元為單位的每月價格)。 這必須與舊的定價相同。 如需詳細資訊，請參閱[簡化的貨幣定價](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer#simplified-currency-pricing)。
+- **簡化的貨幣定價** – 輸入 SKU 價格 (以美元為單位的每月價格)。 這必須與舊的定價相同。 如需詳細資訊，請參閱[簡化的貨幣定價](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer)。
 
 ### <a name="package-details-for-solution-template"></a>解決方案範本的套件詳細資料
 

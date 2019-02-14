@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331957"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820958"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可擴充且效能良好的資料表
 
@@ -207,7 +207,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 | **年齡** |整數  |
 | **EmailAddress** |字串 |
 
-先前的章節＜ [Azure 資料表服務概觀](#overview) ＞說明了某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+稍早的「Azure 資料表服務概觀」一節說明了某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 * ***點查詢***是使用上最有效率的查閱，建議用於高容量查閱或只能容許最低延遲的查閱。 這類查詢可使用索引有效率地尋找個別實體，做法是同時指定 **PartitionKey** 和 **RowKey** 值。 例如：$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
 * 次佳的是***範圍查詢***，它使用 **PartitionKey**，並篩選特定範圍的 **RowKey** 值，以傳回多個實體。 **PartitionKey** 值會識別特定的分割，而 **RowKey** 值會識別該分割中實體的子集。 例如：$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
@@ -252,7 +252,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 
 ### <a name="sorting-data-in-the-table-service"></a>在表格服務中排序資料
 
-系統會先根據 **PartitionKey**再根據 **RowKey**，以遞增順序排序傳回的查詢結果。
+系統會先根據 **PartitionKey** 再根據 **RowKey**，以遞增順序排序「資料表」服務所傳回的查詢結果。
 
 > [!NOTE]
 > Azure 資料表 API 在 Azure Cosmso DB 中傳回的查詢結果不會依照分割索引鍵或資料列索引鍵排序。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
@@ -1294,7 +1294,7 @@ foreach (var e in entities)
 
 如果兩個不同類型的實體可能有相同的索引鍵值，第一個選項 (在 **RowKey**前面加上實體類型) 可能會很有用。 它也會將屬於相同類型的實體分組在資料分割中。  
 
-本節討論的方法與本指南稍早的[模型化關聯性](#modelling-relationships)一節，對於[繼承關聯性](#inheritance-relationships)的討論有密切關聯。  
+本節討論的方法與本指南稍早的「模型化關聯性」一節，對於[繼承關聯性](#inheritance-relationships)的討論有密切關聯。  
 
 > [!NOTE]
 > 您應考慮在實體類型值中包含版本號碼，讓用戶端應用程式能夠演化 POCO 物件，並與不同版本搭配使用。  

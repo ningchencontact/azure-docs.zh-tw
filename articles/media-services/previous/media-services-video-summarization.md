@@ -4,7 +4,7 @@ description: 視訊摘要可自動選取來源視訊的有趣片段，協助您�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: aba01314b26f11df41aef25215697389bc7f46b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786007"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004797"
 ---
-# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒體視訊縮圖建立視訊摘要
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒體視訊縮圖建立視訊摘要  
 ## <a name="overview"></a>概觀
 **Azure 媒體視訊縮圖** 媒體處理器 (MP) 可讓您建立視訊的摘要；當視訊較長而客戶只想預覽摘要時，就非常實用。 例如，客戶可能會想在將滑鼠移至縮圖上時，查看簡短的「視訊摘要」。 透過設定預設值，調整 **Azure 媒體視訊縮圖** 的參數，您即可使用 MP 強大的拍攝偵測和串連技術，以演算法來產生描述性的子剪輯。  
 
@@ -55,8 +55,8 @@ ms.locfileid: "33786007"
 
 | 參數 | 說明 |
 | --- | --- |
-| outputAudio |指定結果視訊是否要包含任何音訊。 <br/>允許的值為 True 或 False。 預設值是 True。 |
-| fadeInFadeOut |指定不同的動作縮圖之間是否要使用淡化轉換。  <br/>允許的值為 True 或 False。  預設值是 True。 |
+| outputAudio |指定結果視訊是否要包含任何音訊。 <br/>允許的值包括：True 或 False。 預設值是 True。 |
+| fadeInFadeOut |指定不同的動作縮圖之間是否要使用淡化轉換。  <br/>允許的值包括：True 或 False。  預設值是 True。 |
 | maxMotionThumbnailDurationInSecs |整數，指定整個結果視訊的片長。  預設值取決於原始視訊的持續時間。 |
 
 下表說明未使用 **maxMotionThumbnailInSecs** 時的預設持續時間。

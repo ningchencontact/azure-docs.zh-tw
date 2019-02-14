@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b2f8a299dfc52bcc1f2eaa17e658b841d27bf62c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54154924"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747317"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure 資料箱磁碟系統需求
 
@@ -30,7 +30,7 @@ ms.locfileid: "54154924"
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 |  Windows |7, 8, 10 |
-|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04、16.04、18.04 <br> 8.11、9 <br> 7.0 <br> 6.5、6.9、7.0、7.5 |  
+| Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04、16.04、18.04 <br> 8.11、9 <br> 7.0 <br> 6.5、6.9、7.0、7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Windows 用戶端的其他必要軟體
 
@@ -49,6 +49,10 @@ ms.locfileid: "54154924"
 
 - dislocker
 - OpenSSL
+
+## <a name="supported-connection"></a>支援的連線
+
+包含資料的用戶端電腦必須具有 USB 3.0 或更新版本的連接埠。 使用提供的纜線將磁碟連接到此用戶端。 
 
 ## <a name="supported-storage-accounts"></a>支援的儲存體帳戶
 

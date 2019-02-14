@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: API 參考提供 Person Management、LargePersonGroup/PersonGroup Management、LargeFaceList/FaceList Management 和 Face Algorithms API 的資訊。
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 6c5bfb052fc887bb189edb06247642419b14ecf7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a82bd4b06680c0f7763136af70dcfcae5f10af52
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296965"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877197"
 ---
 # <a name="api-reference"></a>API 參考
 

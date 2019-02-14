@@ -1,28 +1,76 @@
 ---
-title: Azure 串流分析 Blob 輸出的日期時間路徑模式 (預覽)
-description: 本文說明 Azure 串流分析作業的 Blob 儲存體輸出所適用的自訂日期時間路徑模式功能。
+title: Azure 串流分析自訂 Blob 輸出資料分割
+description: 本文說明 Azure 串流分析作業的 Blob 儲存體輸出所適用的自訂日期時間路徑模式與自訂欄位或屬性功能。
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090772"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765190"
 ---
-# <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Azure 串流分析 Blob 儲存體輸出的自訂日期時間路徑模式 (預覽)
+# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 串流分析自訂 Blob 輸出資料分割
 
-Azure 串流分析支援在 Blob 儲存體輸出檔案路徑中使用自訂日期和時間格式規範。 自訂日期時間路徑模式可讓您指定與 Hive 串流慣例一致的輸出格式，讓 Azure 串流分析得以將資料傳送至 Azure HDInsight 和 Azure Databricks 以進行下游處理。 自訂日期時間路徑模式可以使用您 Blob 輸出 [路徑前置詞] 欄位中的 `datetime` 關鍵字，輕易地實作。 例如： `{datetime:yyyy}`。
+Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路徑模式的自訂 Blob 輸出資料分割。 
+
+## <a name="custom-field-or-attributes"></a>自訂欄位或屬性
+
+自訂欄位或輸入屬性透過允許更充分掌控輸出，來改進下游資料處理和報告工作流程。
+
+### <a name="partition-key-options"></a>分割區索引鍵選項
+
+用於分割輸入資料的分割區索引鍵或資料行名稱可能包含帶有連字號、底線和空白字元的英數字元。 除非搭配別名使用，否則無法將巢狀欄位作為分割區索引鍵。
+
+### <a name="example"></a>範例
+
+假設作業會從連接到視訊遊戲服務的即時使用者工作階段取得輸入資料，其中所擷取的資料包含資料行 **client_id** 以識別工作階段。 若要依 **client_id** 對資料進行分割，請在建立作業時將 [Blob 路徑模式] 欄位設定為在 Blob 輸出屬性中包含分割區權杖 **{client_id}**。 由於具有各種 **client_id** 值的資料流經串流分析作業，因此輸出資料將根據每個文件夾的單一 **client_id** 值儲存到不同的資料夾中。
+
+![路徑模式與用戶端識別碼](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
+
+同樣地，如果作業輸入是來自數百萬個感應器的感應器資料，其中每個感應器具有 **sensor_id**，則路徑模式將是 **{sensor_id}** 以將每個感應器資料分割至不同的資料夾。  
+
+
+使用 REST API，用於該要求的 JSON 檔案的輸出區段可能看起來如下所示：  
+
+![REST API 輸出](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
+
+作業開始執行後，用戶端容器可能如下所示：  
+
+![用戶端容器](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
+
+每個資料夾可能包含多個 Blob，其中每個 Blob 包含一或多個記錄。 在上述範例中，標記為 "06000000" 的資料夾中有一個 Blob，其中包含下列內容：
+
+![Blob 內容](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
+
+請注意，Blob 中的每一筆記錄都有一個與資料夾名稱相符的 **client_id** 資料行，因為用來對輸出路徑中的輸出進行分割的資料行為 **client_id**。
+
+### <a name="limitations"></a>限制
+
+1. 路徑模式 Blob 輸出屬性中只允許一個自訂分割區索引鍵。 下列所有路徑模式均有效：
+
+   * cluster1/{date}/{aFieldInMyData}  
+   * cluster1/{time}/{aFieldInMyData}  
+   * cluster1/{aFieldInMyData}  
+   * cluster1/{date}/{time}/{aFieldInMyData}  
+
+2. 分割區索引鍵不區分大小寫，因此 "John" 和 "john" 之類的分割區索引鍵是相等的。 此外，運算式不能作為分割區索引鍵。 例如，**{columnA + columnB}** 無法運作。  
+
+3. 當輸入資料流由分割區索引鍵基數低於 8000 的記錄組成時，記錄將附加至現有的 Blob，並且僅在必要時建立新的 Blob。 如果基數超過 8000，則不保證會寫入至現有的 Blob，並且不會為具有相同分割區索引鍵的任意數目的記錄建立新的 Blob。  
+
+## <a name="custom-datetime-path-patterns"></a>自訂日期時間路徑模式
+
+自訂日期時間路徑模式可讓您指定與 Hive 串流慣例一致的輸出格式，讓 Azure 串流分析得以將資料傳送至 Azure HDInsight 和 Azure Databricks 以進行下游處理。 自訂日期時間路徑模式可以使用您 Blob 輸出 [路徑前置詞] 欄位中的 `datetime` 關鍵字，輕易地實作。 例如： `{datetime:yyyy}`。
 
 針對 [Azure 入口網站](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true)使用此連結切換功能旗標，該旗標會啟用 Blob 儲存體輸出預覽的自訂日期時間路徑模式。 此功能即將在主要入口網站中啟用。
 
-## <a name="supported-tokens"></a>支援的權杖
+### <a name="supported-tokens"></a>支援的權杖
 
 下列格式規範權杖可以單獨使用，或者合併使用以達成自訂日期時間格式：
 
@@ -42,7 +90,7 @@ Azure 串流分析支援在 Blob 儲存體輸出檔案路徑中使用自訂日�
 
 ![串流分析舊日期時間格式](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 
-## <a name="extensibility-and-restrictions"></a>擴充性及限制
+### <a name="extensibility-and-restrictions"></a>擴充性及限制
 
 您可以在路徑模式中使用任意數量的權杖、`{datetime:<specifier>}`，直到達到 [路徑前置詞] 的字元限制為止。 若是單一權杖內的格式規範無法合併，應是其超過已由日期和時間下拉式清單列出的合併。 
 
@@ -54,7 +102,7 @@ Azure 串流分析支援在 Blob 儲存體輸出檔案路徑中使用自訂日�
 
 您可能會在 [路徑前置詞] 中使用相同的格式規範多次。 每次都必須重複權杖。
 
-## <a name="hive-streaming-conventions"></a>Hive 串流慣例
+### <a name="hive-streaming-conventions"></a>Hive 串流慣例
 
 Blob 儲存體的自訂路徑模式可與 Hive 串流慣例一起使用，該慣例預期資料夾以資料夾名稱中的 `column=` 標示。
 

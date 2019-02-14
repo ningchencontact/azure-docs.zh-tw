@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: a7d34b76eb6184e546c8217aa6b3723819be70be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 02/05/2019
+ms.openlocfilehash: c3057934d960efd0a846ef31c5fac5abd63a21f6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189525"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768463"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>在 Azure Logic Apps 中安全存取
 
@@ -120,7 +120,7 @@ POST
 
 #### <a name="set-ip-ranges---logic-app-deployment-template"></a>設定 IP 範圍 - 邏輯應用程式部署範例
 
-如果您要使用 [Azure Resource Manager 部署範本](logic-apps-create-deploy-template.md)將邏輯應用程式部署自動化，您可以在該範本中設定 IP 範圍，例如：
+如果您要使用 [Azure Resource Manager 部署範本](../logic-apps/logic-apps-create-deploy-template.md)將邏輯應用程式部署自動化，您可以在該範本中設定 IP 範圍，例如：
 
 ``` json
 {
@@ -131,7 +131,7 @@ POST
          "triggers": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -175,14 +175,15 @@ POST
 
 1. 在邏輯應用程式功能表的 [設定] 底下，選取 [工作流程設定]。
 
-1. 在 [存取控制設定] > 
-[允許的輸入 IP 位址] 底下，選取 [特定 IP 範圍]。
+1. 在 [存取控制設定]****> 
+   [允許的輸入 IP 位址]**** 底下，選取 [特定 IP 範圍]****。
 
-1. 在 [內容的 IP 範圍] 底下，指定可存取輸入和輸出內容的 IP 位址範圍。 有效的 IP 範圍使用這些格式：*x.x.x.x/x* 或 *x.x.x.x-x.x.x.x* 
+1. 在 [內容的 IP 範圍] 底下，指定可存取輸入和輸出內容的 IP 位址範圍。 
+   有效的 IP 範圍使用這些格式：*x.x.x.x/x* 或 *x.x.x.x-x.x.x.x* 
 
 ### <a name="set-ip-ranges---logic-app-deployment-template"></a>設定 IP 範圍 - 邏輯應用程式部署範例
 
-如果您要使用 [Azure Resource Manager 部署範本](logic-apps-create-deploy-template.md)將邏輯應用程式部署自動化，您可以在該範本中設定 IP 範圍，例如：
+如果您要使用 [Azure Resource Manager 部署範本](../logic-apps/logic-apps-create-deploy-template.md)將邏輯應用程式部署自動化，您可以在該範本中設定 IP 範圍，例如：
 
 ``` json
 {
@@ -193,7 +194,7 @@ POST
          "contents": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -210,44 +211,99 @@ POST
 
 ## <a name="secure-action-parameters-and-inputs"></a>保護動作參數和輸入
 
-在各種環境中部署時，您可能會想要將邏輯應用程式工作流程定義中的特定層面參數化。 例如，您可以在 [Azure Resource Manager 部署範本](../azure-resource-manager/resource-group-authoring-templates.md#parameters)中指定參數。 若要在執行階段其間存取資源的參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。 
+在各種環境中部署時，您可能會想要將邏輯應用程式工作流程定義中的特定元素參數化。 如此一來，您就可以根據所使用的環境提供輸入，並保護敏感性資訊。 例如，如果您要使用 [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication) 驗證 HTTP 動作，而定義並保護接受用於驗證之用戶端識別碼和用戶端祕密的參數。 針對這些參數，您的邏輯應用程式定義有自己的 `parameters` 區段。
+若要在執行階段期間存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。 
 
-您也可以在編輯邏輯應用程式工作流程時使用 `securestring` 參數類型，來保護您不想顯示的特定參數。 舉例來說，您可以保護用於向 [Azure Active Directory](../connectors/connectors-native-http.md#authentication) 驗證 HTTP 動作的用戶端識別碼和用戶端密碼參數。
-當您將參數類型指定為 `securestring`，將無法透過資源定義傳回此參數，而且在部署之後，將無法藉由檢視資源存取此資源。 
+若要保護您不希望在編輯邏輯應用程式或檢視執行記錄時顯示的參數和值，您可以使用 `securestring` 型別定義參數，並視需要使用編碼。 具有此型別的參數無法透過資源定義傳回，且部署之後也無法在檢視資源時存取。
 
 > [!NOTE]
-> 如果您在要求的標頭或本文中使用參數，當存取邏輯應用程式的執行歷程記錄及連出 HTTP 要求時，可能會看見該參數。 請務必適當地設定您的內容存取原則。
-> 授權標頭絕對不會透過輸入或輸出來顯示。 因此如果該處有使用密碼，就無法擷取密碼。
+> 如果您在要求的標頭或本文中使用參數，當存取邏輯應用程式的執行歷程記錄及連出 HTTP 要求時，可能會看見該參數。 另外請務必適當地設定您的內容存取原則。
+> 授權標頭絕對不會透過輸入或輸出來顯示。 如此一來如果該處有使用密碼，就無法擷取密碼。
 
-此範例顯示使用多個執行階段參數搭配 `securestring` 類型的 Azure Resource Manager 部署範本： 
+如需保護邏輯應用程式定義中之參數的詳細資訊，請參閱此頁面稍後的[保護邏輯應用程式定義中的參數](#secure-parameters-workflow)。
+
+如果您使用 [Azure Resource Manager 部署範本](../azure-resource-manager/resource-group-authoring-templates.md#parameters)將部署自動化，您也可以在那些範本中使用受保護的參數。 例如，您可以使用參數來取得建立邏輯應用程式時的 KeyVault 祕密。 您的部署範本定義擁有自己的 `parameters` 區段，不同於您邏輯應用程式的 `parameters` 區段。 如需保護部署範本中之參數的詳細資訊，請參閱此頁面稍後的[保護部署範本中的參數](#secure-parameters-deployment-template)。
+
+<a name="secure-parameters-workflow"></a>
+
+### <a name="secure-parameters-in-logic-app-definitions"></a>保護邏輯應用程式定義中的參數
+
+若要保護您邏輯應用程式工作流程定義中的敏感性資訊，使用受保護的參數可讓此資訊在您儲存邏輯應用程式之後隱藏。 例如，假設您在 HTTP 動作定義中使用 `Basic` 驗證。 此範例包括定義動作定義之參數的 `parameters` 區段，加上接受 `username` 和 `password` 參數值的 `authentication` 區段。 若要提供這些參數的值，您可以使用不同的參數檔，例如：
+
+```json
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+         "type": "Http",
+         "inputs": {
+            "method": "GET",
+            "uri": "http://www.microsoft.com",
+            "authentication": {
+               "type": "Basic",
+               "username": "@parameters('usernameParam')",
+               "password": "@parameters('passwordParam')"
+            }
+         },
+         "runAfter": {}
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "manual": {
+         "type": "Request",
+         "kind": "Http",
+         "inputs": {
+            "schema": {}
+         }
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+}
+```
+
+如果您使用祕密，您可以使用 [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 取得部署階段的那些祕密。
+
+<a name="secure-parameters-deployment-template"></a>
+
+### <a name="secure-parameters-in-azure-resource-manager-deployment-templates"></a>保護 Azure Resource Manager 部署範本中的參數
+
+此範例顯示使用多個執行階段參數搭配 `securestring` 類型的 Resource Manager 部署範本：
 
 * `armTemplatePasswordParam`，這是邏輯應用程式定義之 `logicAppWfParam` 參數的輸入
 
 * `logicAppWfParam`，這是使用基本驗證的 HTTP 動作輸入
 
-在個別的參數檔中，您可以為 `armTemplatePasswordParam` 參數指定環境值，或是使用 [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 擷取部署階段的密碼。
-內部的 `parameters` 區段屬於邏輯應用程式的工作流程定義，而外部的 `parameters` 區段屬於部署範本。
+此範例包含內部的 `parameters` 區段，其屬於邏輯應用程式的工作流程定義，而外部的 `parameters` 區段屬於部署範本。 若要指定參數的環境值，您可以使用不同的參數檔。 
 
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-      "logicAppName": {       
+      "logicAppName": {
          "type": "string",
          "minLength": 1,
          "maxLength": 80,
-         "metadata": {         
-            "description": "Name of the Logic App."       
-         }     
+         "metadata": {
+            "description": "Name of the Logic App."
+         }
       },
       "armTemplatePasswordParam": {
-         "type": "securestring"     
-      },     
-      "logicAppLocation": {       
+         "type": "securestring"
+      },
+      "logicAppLocation": {
          "type": "string",
          "defaultValue": "[resourceGroup().location]",
-         "allowedValues": [         
+         "allowedValues": [
             "[resourceGroup().location]",
             "eastasia",
             "southeastasia",
@@ -281,7 +337,7 @@ POST
    },
    "variables": {},
    "resources": [
-      {       
+      {
          "name": "[parameters('logicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('logicAppLocation')]",
@@ -300,15 +356,18 @@ POST
                         "uri": "http://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
-                           "username": "username",
-                              "password": "@parameters('logicAppWfParam')"
+                           "username": "@parameters('usernameParam')",
+                           "password": "@parameters('logicAppWfParam')"
                         }
                      },
                   "runAfter": {}
                   }
                },
-               "parameters": { 
+               "parameters": {
                   "logicAppWfParam": {
+                     "type": "securestring"
+                  },
+                  "userNameParam": {
                      "type": "securestring"
                   }
                },
@@ -332,9 +391,11 @@ POST
          }
       }
    ],
-   "outputs": {} 
-}   
+   "outputs": {}
+}
 ```
+
+如果您使用祕密，您可以使用 [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 取得部署階段的那些祕密。
 
 <a name="secure-requests"></a>
 
@@ -344,7 +405,7 @@ POST
 
 ### <a name="add-authentication-on-outbound-requests"></a>在外送要求上新增驗證
 
-當使用 HTTP、HTTP + Swagger (Open API)，或 Webhook 動作時，您可以將驗證新增到邏輯應用程式所傳送的要求。 例如，您可以使用基本驗證、憑證驗證或 Azure Active Directory 驗證。 如需詳細資訊，請參閱[驗證觸發程序或動作](logic-apps-workflow-actions-triggers.md#connector-authentication)和[驗證 HTTP 動作](../connectors/connectors-native-http.md#authentication)。
+當使用 HTTP、HTTP + Swagger (Open API)，或 Webhook 動作時，您可以將驗證新增到邏輯應用程式所傳送的要求。 例如，您可以使用基本驗證、憑證驗證或 Azure Active Directory 驗證。 如需詳細資訊，請參閱[驗證觸發程序或動作](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)。
 
 ### <a name="restrict-access-to-logic-app-ip-addresses"></a>限制對邏輯應用程式 IP 位址的存取
 

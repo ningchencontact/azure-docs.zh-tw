@@ -4,7 +4,7 @@ description: 使用 Key Vault 向 AD 驗證
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 4d897512e5c53222cb77906200e1a33e2eeec78e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 57f04a79396cd286ea87e6a8cc7b37f5459fa14c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074048"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111521"
 ---
 # <a name="authentication-requests-and-responses"></a>驗證、要求和回應
 
@@ -91,7 +91,7 @@ Azure Key Vault 支援 JSON 格式化要求和回應。 搭配使用 HTTPS 與�
 
 ```  
 
-## <a name="authentication"></a>驗證  
+## <a name="authentication"></a>Authentication  
  必須驗證所有對 Azure Key Vault 的要求。 Azure Key Vault 支援可使用 OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)] 取得的 Azure Active Directory 存取權杖。 
  
  如需註冊應用程式並使用 Azure Key Vault 驗證的詳細資訊，請參閱[使用 Azure AD 註冊用戶端應用程式](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)。

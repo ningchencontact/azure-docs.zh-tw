@@ -1,8 +1,21 @@
 ---
-標題：R 語言所適用的快速入門教學課程 titleSuffix:Azure Machine Learning Studio 說明：請透過此 R 程式設計教學課程快速開始搭配 Azure Machine Learning Studio 使用 R 語言來建立預測解決方案。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:01/06/2017
+title: R 語言所適用的快速入門教學課程
+titleSuffix: Azure Machine Learning Studio
+description: 請透過此 R 程式設計教學課程快速開始搭配 Azure Machine Learning Studio 使用 R 語言來建立預測解決方案。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/06/2017
+ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822369"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio 適用之 R 程式設計語言的快速入門教學課程
 
@@ -732,7 +745,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 
 `ts.detrend()` 函式中進行的事情不少。 此程式碼中大部分會檢查引數的潛在問題，或是處理仍可能在計算期間發生的例外狀況。 此程式碼中實際上只有幾行在進行計算。
 
-我們已經在[值轉換](#valuetransformations)中討論過防禦型程式設計的範例。 兩個計算區塊皆包裝在 `tryCatch()` 中。 就某些錯誤而言，傳回原始輸入向量相當合理，而在其他情況下，我會傳回零向量。  
+我們已經在「值轉換」中討論過防禦型程式設計的範例。 兩個計算區塊皆包裝在 `tryCatch()` 中。 就某些錯誤而言，傳回原始輸入向量相當合理，而在其他情況下，我會傳回零向量。  
 
 請注意，用於去除趨勢的線性迴歸是時間序列迴歸。 預測工具變數是時間序列物件。  
 

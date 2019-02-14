@@ -3,18 +3,18 @@ title: 文字仲裁 - Content Moderator
 description: 針對可能不想要的文字、PII 及自訂字詞清單使用文字仲裁。
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0b5cfdd69539caa7f9dcceb3e1d435d3a7e97fed
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225460"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864293"
 ---
 # <a name="learn-text-moderation-concepts"></a>了解文字仲裁概念
 

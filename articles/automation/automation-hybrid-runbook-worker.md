@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820677"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512205"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -37,7 +37,7 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 |作業系統  |部署類型  |
 |---------|---------|
 | Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[手動](automation-windows-hrw-install.md#manual-deployment)        |
-|Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
+| Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
 > 若要使用 Desired State Configuration (DSC) 來管理支援混合式 Runbook 背景工作角色的伺服器設定，您必須將它們新增為 DSC 節點。 如需有關讓它們上線以透過 DSC 進行管理的詳細資訊，請參閱[讓機器上線以透過 Azure 自動化 DSC 進行管理](automation-dsc-onboarding.md)。
@@ -51,13 +51,13 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 您可以移除群組中的一或多個混合式 Runbook 背景工作角色，或移除該群組，視您的需求而定。 若要從內部部署電腦中移除混合式 Runbook 背景工作角色，請使用下列步驟：
 
 1. 在 Azure 入口網站中，前往您的自動化帳戶。
-2. 在 [設定] 下，選取 [金鑰] 並記下 [URL] 和 [主要存取金鑰] 的值。 下一個步驟需要此資訊。
+2. 在 [帳戶設定] 下，選取 [金鑰] 並記下 [URL] 和 [主要存取金鑰] 的值。 下一個步驟需要此資訊。
 
 ### <a name="windows"></a> Windows
 
 在系統管理員模式中開啟 PowerShell 工作階段，並執行下列命令。 使用 **-Verbose** 參數可取得移除程序的詳細記錄。
 
-```powershell
+```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
@@ -67,7 +67,9 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
 ```
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
+
+您可以在混合式 Runbook 背景工作角色上使用 `ls /var/opt/microsoft/omsagent` 命令，以取得工作區識別碼。 目錄中有一個資料夾，其資料夾名稱就是工作區識別碼。
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -81,11 +83,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 若要移除群組，您必須先使用先前所示的程序，從群組的每一部成員電腦中移除混合式 Runbook 背景工作角色。 然後，使用下列步驟移除群組：
 
 1. 在 Azure 入口網站中，開啟自動化帳戶。
-1. 在 [程序自動化] 底下選取 [混合式背景工作角色群組]。 選取您要刪除的群組。 該群組的屬性頁面隨即出現。
+2. 在 [程序自動化] 底下選取 [混合式背景工作角色群組]。 選取您要刪除的群組。 該群組的屬性頁面隨即出現。
 
    ![屬性頁面](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. 在所選群組的屬性頁面上，選取 [刪除]。 這會顯示訊息要求您確認此動作。 如果您確定要繼續，請選取 [是]。
+3. 在所選群組的屬性頁面上，選取 [刪除]。 這會顯示訊息要求您確認此動作。 如果您確定要繼續，請選取 [是]。
 
    ![確認訊息](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 
@@ -101,7 +103,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 若要讓混合式 Runbook 背景工作角色與自動化進行通訊，需要下列連接埠和 URL：
 
-* 連接埠：只需 TCP 443，就能對外存取網際網路。
+* 連接埠：只需要 TCP 443 以便進行傳出網際網路存取。
 * 全域 URL：*.azure-automation.net
 * US Gov 維吉尼亞州的全域 URL： *.azure automation.us
 * 代理程式服務： https://\<workspaceId\>.agentsvc.azure-automation.net

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118987"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960729"
 ---
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
 透過 [Azure App Service 的公開上市版]，Azure 行動服務網站將可輕易地就地移轉，以使用 Azure App Service 的所有功能。  本文件說明將您的網站從 Azure 行動服務移轉至 Azure App Service 時的情形。
@@ -332,7 +332,7 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 ### <a name="changing-webconfig-does-not-work"></a>變更 Web.config 並未發生作用
 如果您有 ASP.NET 網站，不會套用 `Web.config` 檔案的變更。  Azure App Service 會在啟動期間建置適合的 `Web.config` 檔案，以支援行動服務執行階段。  您可以使用 XML 轉換檔案來覆寫特定設定 (例如自訂標頭)。  建立名稱為 `applicationHost.xdt` 的檔案 - 這個檔案必須在 Azure 服務上的 `D:\home\site` 目錄中結束。  透過自訂部署指令碼或直接使用 Kudu 上傳 `applicationHost.xdt` 檔案。  下圖顯示範例文件：
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>

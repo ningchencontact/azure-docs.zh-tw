@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f4da0f992914037f5c95050324af5762e90a2ca4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015282"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696817"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>建立、變更或刪除公用 IP 位址首碼
 
@@ -51,8 +51,8 @@ ms.locfileid: "54015282"
    |訂用帳戶|是|所在的[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)必須與您想要與公用 IP 位址建立關聯的資源相同。|
    |資源群組|是|所在的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)可以與您想要與公用 IP 位址建立關聯的資源相同或不同。|
    |Name|是|名稱必須是您選取的資源群組中唯一的名稱。|
-   |區域|是|必須與您從範圍指派位址的公用 IP 位址存在於相同[區域](https://azure.microsoft.com/regions)。 首碼目前在下列區域已供預覽：美國中西部、美國西部、美國西部 2、美國中部、北歐、西歐和東南亞。|
-   |首碼大小|是| 您需要的首碼大小。 /28 或 16 個 IP 位址為預設值。 
+   |區域|yes|必須與您從範圍指派位址的公用 IP 位址存在於相同[區域](https://azure.microsoft.com/regions)。 首碼目前在下列區域已供預覽：美國中西部、美國西部、美國西部 2、美國中部、北歐、西歐和東南亞。|
+   |首碼大小|yes| 您需要的首碼大小。 /28 或 16 個 IP 位址為預設值。 
 
 **命令**
 
@@ -72,7 +72,7 @@ ms.locfileid: "54015282"
 
    |設定|必要？|詳細資料|
     |---|---|---|
-    |Name|是|公用 IP 位址名稱在您選取的資源群組中必須是唯一。|
+    |Name|yes|公用 IP 位址名稱在您選取的資源群組中必須是唯一。|
    |閒置逾時 (分鐘)|否|不需依賴用戶端傳送保持連線訊息，讓 TCP 或 HTTP 連線保持開啟的分鐘數。 |
    |DNS 名稱標籤|否|在您建立名稱的 Azure 區域 (跨越所有訂用帳戶和所有客戶) 中必須是唯一。 Azure 會在其 DNS 中自動登錄名稱和 IP 位址，以便您連線至具有此名稱的資源。 Azure 會將 *location.cloudapp.azure.com* (其中 location 是您選取的位置) 之類的預設子網路附加至您提供的名稱，以建立完整的 DNS 名稱。如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。|
 

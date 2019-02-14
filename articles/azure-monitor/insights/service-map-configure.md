@@ -11,14 +11,14 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381660"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822694"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉以檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -72,6 +72,7 @@ ms.locfileid: "54381660"
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 ### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
@@ -87,6 +88,7 @@ ms.locfileid: "54381660"
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -125,16 +127,16 @@ ms.locfileid: "54381660"
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) |  Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>連接的來源
 服務對應會從 Microsoft Dependency Agent 取得它的資料。 Dependency Agent 須憑藉 Log Analytics 代理程式才能連線至 Log Analytics。 這表示，伺服器必須先安裝 Log Analytics 代理程式，並設定 Dependency Agent。  下表描述服務對應解決方案支援的連線來源。
 
 | 連線的來源 | 支援 | 說明 |
 |:--|:--|:--|
-| Windows 代理程式 | 是 | 服務對應會分析並收集來自 Windows 電腦的資料。 <br><br>除了[適用於 Windows 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Windows 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
-| Linux 代理程式 | 是 | 服務對應會分析並收集來自 Linux 電腦的資料。 <br><br>除了[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Linux 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
-| System Center Operations Manager 管理群組 | 是 | 服務對應會在連線的 [System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Log Analytics。 |
+| Windows 代理程式 | yes | 服務對應會分析並收集來自 Windows 電腦的資料。 <br><br>除了[適用於 Windows 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Windows 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱＜支援的作業系統＞。 |
+| Linux 代理程式 | yes | 服務對應會分析並收集來自 Linux 電腦的資料。 <br><br>除了[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Linux 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱＜支援的作業系統＞。 |
+| System Center Operations Manager 管理群組 | yes | 服務對應會在連線的 [System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Log Analytics。 |
 | Azure 儲存體帳戶 | 否 | 服務對應會收集來自代理程式電腦的資料，因此不會從 Azure 儲存體收集資料。 |
 
 在 Windows 上，System Center Operations Manager 和 Log Analytics 會使用 Microsoft Monitoring Agent (MMA) 來收集和傳送監視資料。 (視內容而定，此代理程式可稱為 System Center Operations Manager 代理程式、Log Analytics 代理程式、MMA 或直接代理程式)System Center Operations Manager 和 Log Analytics 提供的預設 MMA 版本不同。 這些版本可以各自向 System Center Operations Manager 或 Log Analytics 報告，或同時向兩者報告。  
@@ -383,11 +385,11 @@ Microsoft Dependency Agent 建置於 Microsoft Visual Studio 執行階段程式�
 **Windows**：尋找名稱為 "Microsoft Dependency Agent" 的服務。<br>
 **Linux**：尋找執行中的處理序 "microsoft-dependency-agent"。
 
-* 您是否屬於 [Operations Management Suite/Log Analytics 的免費定價層](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)？ 免費方案允許最多五個唯一的服務對應伺服器。 任何後續伺服器則不會顯示在服務對應中，即使先前五個伺服器不會再傳送資料。
+* 您是否屬於 [Operations Management Suite/Log Analytics 的免費定價層](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)？ 免費方案允許最多五個唯一的服務對應伺服器。 任何後續伺服器則不會顯示在服務對應中，即使先前五個伺服器不會再傳送資料。
 
 * 您的伺服器是否將記錄和效能資料傳送到 Log Analytics？ 移至 [記錄搜尋]，然後為您的電腦執行下列查詢︰ 
 
-    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
 您是否在結果中取得各種事件？ 是否為最新的資料？ 如果是，您的 Log Analytics 代理程式會正確運作並與 Log Analytics 通訊。 如果不是，請檢查您伺服器上的代理程式︰[適用於 Windows 的 Log Analytics 代理程式疑難排解](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues)或[適用於 Linux 的 Log Analytics 代理程式疑難排解](../../azure-monitor/platform/agent-linux-troubleshoot.md)。
 

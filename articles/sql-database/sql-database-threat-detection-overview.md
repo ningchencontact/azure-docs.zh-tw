@@ -1,6 +1,6 @@
 ---
 title: 威脅偵測 - Azure SQL Database | Microsoft Docs
-description: 「威脅偵測」會偵測異常資料庫活動，指出 Azure SQL 資料庫有潛在的安全性威脅。
+description: 「威脅偵測」會偵測異常資料庫活動，指出 Azure SQL Database 有潛在的安全性威脅。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,32 +11,32 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451711"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729501"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 威脅偵測
 
-適用於 [Azure SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的 Azure SQL 威脅偵測會偵測意圖存取或惡意探索資料庫，並可能會造成損害的異常活動。
+適用於 [Azure SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的威脅偵測會偵測意圖存取或惡意探索資料庫，並可能會造成損害的異常活動。
 
-威脅偵測是 [SQL 進階資料安全性](sql-advanced-threat-protection.md) (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 威脅偵測可以透過中央 SQL ADS 入口網站存取及管理。
+威脅偵測是[進階資料安全性](sql-database-advanced-data-security.md) (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 威脅偵測可以透過中央 SQL ADS 入口網站存取及管理。
 
 > [!NOTE]
 > 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
 
-## <a name="what-is-threat-detection"></a>什麼是威脅偵測？
+## <a name="what-is-threat-detection"></a>什麼是威脅偵測
 
-SQL 威脅偵測提供新的一層安全性，在發生異常活動時會提供安全性警示，讓客戶偵測並回應潛在威脅。 一旦有可疑活動、潛在弱點、SQL 插入式攻擊以及異常的資料庫存取和查詢模式發生時，使用者就會收到警示。 SQL 威脅偵測會整合警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)，其包括可疑活動的詳細資料，以及如何調查與降低威脅的建議。 您不必是安全性專家，也不需要管理進階的安全性監視系統，SQL 威脅偵測可讓您輕鬆解決資料庫的潛在威脅。
+威脅偵測提供新的一層安全性，在發生異常活動時會提供安全性警示，讓客戶偵測並回應潛在威脅。 一旦有可疑活動、潛在弱點、SQL 插入式攻擊以及異常的資料庫存取和查詢模式發生時，使用者就會收到警示。 威脅偵測會整合警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)，其包括可疑活動的詳細資料，以及如何調查與降低威脅的建議動作。 您不必是安全性專家，也不需要管理進階的安全性監視系統，威脅偵測讓您輕鬆解決資料庫的潛在威脅。
 
 如需完整的調查體驗，建議您啟用 [SQL Database 稽核](sql-database-auditing.md)，這會將資料庫事件寫入您 Azure 儲存體帳戶中的稽核記錄。  
 
-## <a name="azure-sql-database-threat-detection-alerts"></a>Azure SQL Database 威脅偵測警示
+## <a name="threat-detection-alerts"></a>威脅偵測警示
 
-Azure SQL Database 的威脅偵測會偵測意圖存取或攻擊資料庫，而可能會造成損害的異常活動，並觸發下列警示：
+Azure SQL Database 的威脅偵測會偵測意圖存取或探索資料庫，而可能會造成損害的異常活動，並觸發下列警示：
 
 - **SQL 插入式攻擊的弱點**：應用程式在資料庫中產生錯誤的 SQL 陳述式時，會觸發此警示。 此警示表示 SQL 插入式攻擊的可能弱點。 錯誤的陳述式之所以產生，有兩項可能的原因：
 
@@ -67,7 +67,7 @@ Azure SQL Database 的威脅偵測會偵測意圖存取或攻擊資料庫，而�
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>在 Azure 入口網站中探索資料庫的威脅偵測警示
 
-SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合。 在 Azure 入口網站中，資料庫和 SQL ADS 刀鋒視窗內的 SQL 動態威脅偵測圖格會追蹤作用中威脅的狀態。
+威脅偵測將自有的警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合。 在 Azure 入口網站中，資料庫和 SQL ADS 刀鋒視窗內的 SQL 動態威脅偵測圖格會追蹤作用中威脅的狀態。
 
 按一下 [威脅偵測警示] 會啟動 Azure 資訊安全中心的警示頁面，並獲得在資料庫或資料倉儲中偵測到的作用中 SQL 威脅概觀。
 
@@ -79,7 +79,7 @@ SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https:
 
 - 深入了解[獨立和集區資料庫中的威脅偵測](sql-database-threat-detection.md)。
 - 深入了解[受控執行個體中的威脅偵測](sql-database-managed-instance-threat-detection.md)。
-- 深入了解 [SQL 進階資料安全性](sql-advanced-threat-protection.md)。
+- 深入了解[進階資料安全性](sql-database-advanced-data-security.md)。
 - 深入了解 [Azure SQL Database 稽核](sql-database-auditing.md)
 - 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- 如需有關價格的詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)  
+- 如需有關定價的詳細資訊，請參閱 [SQL Database 定價頁面](https://azure.microsoft.com/pricing/details/sql-database/)  

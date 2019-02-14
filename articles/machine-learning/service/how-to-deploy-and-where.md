@@ -11,16 +11,16 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8b318626947c1d1147e43ca6c183ae724080a59
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251600"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766617"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
-Azure Machine Learning 服務會使用 SDK 來提供數種可部署已定型模型的方式。 在此文件中，了解如何將模型部署為 Azure 雲端中的 Web 服務，或部署到 IoT 邊緣裝置。
+Azure Machine Learning 服務會使用 SDK 來提供數種可部署已定型模型的方式。 在本文中，了解如何將模型部署為 Azure 雲端的 Web 服務，或部署到 IoT Edge 裝置。
 
 > [!IMPORTANT]
 > 將模型部署為 Web 服務時，目前不支援跨原始來源資源共用 (CORS)。
@@ -244,9 +244,6 @@ image = ContainerImage.create(name = "myimage",
 
     **估計時間**：約 3 分鐘。
 
-    > [!TIP]
-    > 如果部署期間發生錯誤，請使用 `service.get_logs()` 來檢視服務記錄。 記錄資訊可能會指出發生錯誤的原因。
-
 如需詳細資訊，請參閱 [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) \(英文\) 和 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) \(英文\) 類別的參考文件。
 
 ### <a id="aks"></a> 部署到 Azure Kubernetes 服務
@@ -333,9 +330,6 @@ print(service.state)
 ```
 
 **估計時間**：約 3 分鐘。
-
-> [!TIP]
-> 如果部署期間發生錯誤，請使用 `service.get_logs()` 來檢視服務記錄。 記錄資訊可能會指出發生錯誤的原因。
 
 如需詳細資訊，請參閱 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) \(英文\) 和 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) \(英文\) 類別的參考文件。
 
@@ -469,7 +463,7 @@ Webservice 是 REST API，因此您可以使用各種程式設計語言建立用
 
 ## <a id="update"></a> 更新 Web 服務
 
-若要更新 Web 服務，請使用 `update` 方法。 下列程式碼示範如何更新 Web 服務以使用新的映像：
+建立新映像時，您必須手動更新您想要使用新映像的每個服務。 若要更新 Web 服務，請使用 `update` 方法。 下列程式碼示範如何更新 Web 服務以使用新的映像：
 
 ```python
 from azureml.core.webservice import Webservice
@@ -487,9 +481,6 @@ service.update(image = new_image)
 print(service.state)
 ```
 
-> [!NOTE]
-> 當您更新映像時，不會自動更新 Web 服務。 您必須手動更新您想要使用新映像的每個服務。
-
 如需詳細資訊，請參閱 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 類別的參考文件。
 
 ## <a name="clean-up"></a>清除
@@ -502,6 +493,19 @@ print(service.state)
 
 如需詳細資訊，請參閱 [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--)、[Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) 和 [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--) 參考文件。
 
+## <a name="troubleshooting"></a>疑難排解
+
+* __如果部署期間發生錯誤__，請使用 `service.get_logs()` 來檢視服務記錄。 記錄資訊可能會指出發生錯誤的原因。
+
+* 記錄檔可能包含錯誤，指示您__將記錄層級設為 DEBUG__。 若要設定記錄層級，請將下列幾行加入到您的評分指令碼、建立映像，然後使用該映像建立服務：
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    此變更允許進行其他記錄，而且可能會傳回發生錯誤原因的詳細資訊。
+
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 SSL 保護 Azure Machine Learning Web 服務](how-to-secure-web-service.md)
@@ -511,3 +515,5 @@ print(service.state)
 * [在生產環境中收集模型資料](how-to-enable-data-collection.md)
 * [Azure Machine Learning 服務 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [透過 Azure 虛擬網路使用 Azure Machine Learning 服務](how-to-enable-virtual-network.md)
+* [建置建議系統的最佳作法](https://github.com/Microsoft/Recommenders)
+* [在 Azure 上建置即時建議 API](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

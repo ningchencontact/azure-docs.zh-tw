@@ -4,18 +4,18 @@ titleSuffix: Azure cognitive services
 description: 「Bing 影像搜尋 API」可讓您搜尋 Web 來尋找高品質的相關影像。 您可以使用此教學課程來建置可將搜尋查詢傳送給該 API 並在網頁內顯示結果的單頁 Web 應用程式。
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: a0fd10d48b3dc46435c2cbd3d43ff0f839343e10
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1c8e08cdf6238064e6ec2468a00bbc65ec46b675
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188145"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880744"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>教學課程：使用 Bing 影像搜尋 API 來建立單頁應用程式
 

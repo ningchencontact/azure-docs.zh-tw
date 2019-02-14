@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 1f6be45e7f53aff7f9b8957ca88efe7605e4a984
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 37e2da00ecbecdddcc8757e64c57b03774092e14
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889037"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814984"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>部署適用於 VM 的 Azure 監視器 (預覽)
 本文說明如何設定適用於 VM 的 Azure 監視器。 此服務會監視 Azure 虛擬機器 (VM) 和虛擬機器擴展集的作業系統健康情況，以及您環境中的虛擬機器。 此監控包括探索及對應可能會在其上裝載的應用程式相依性。 
@@ -62,7 +62,7 @@ ms.locfileid: "54889037"
 * 安裝 ServiceMap 和 InfrastructureInsights 解決方案。 您僅能使用本文中提供的 Azure Resource Manager 範本，完成此安裝。
 * 設定 Log Analytics 工作區，以收集效能計數器。
 
-若要針對大規模案例設定您的工作區，請參閱[針對大規模部署設定 Log Analytics 工作區](#setup-log-analytics-workspace)。
+若要針對大規模案例設定您的工作區，請參閱＜針對大規模部署設定 Log Analytics 工作區＞。
 
 ### <a name="supported-operating-systems"></a>受支援的作業系統
 
@@ -70,6 +70,7 @@ ms.locfileid: "54889037"
 
 |作業系統版本 |效能 |地圖 |健康情況 |
 |-----------|------------|-----|-------|
+|Windows Server 2019 | X | X |  |
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |
 |Windows Server 2012 R2 | X | X | |
@@ -102,6 +103,7 @@ ms.locfileid: "54889037"
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
@@ -117,6 +119,7 @@ ms.locfileid: "54889037"
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -161,8 +164,8 @@ ms.locfileid: "54889037"
 
 | 連線的來源 | 支援 | 說明 |
 |:--|:--|:--|
-| Windows 代理程式 | 是 | 除了[適用於 Windows 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Windows 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
-| Linux 代理程式 | 是 | 除了[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Linux 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
+| Windows 代理程式 | yes | 除了[適用於 Windows 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Windows 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
+| Linux 代理程式 | yes | 除了[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Linux 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
 | System Center Operations Manager 管理群組 | 否 | |
 
 您可以從下列位置下載 Dependency Agent：

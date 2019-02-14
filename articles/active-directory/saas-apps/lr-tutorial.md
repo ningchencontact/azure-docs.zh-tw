@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 90fda216fc1e4bd4e96714c625aaa9c01d11a70c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cddd239bba7d9b0f0a90e23f146263777806b187
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160137"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>教學課程：Azure Active Directory 與 LoginRadius 整合
 
@@ -158,7 +159,7 @@ LoginRadius 與 Azure AD 整合可提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立]。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-loginradius-test-user"></a>建立 LoginRadius 測試使用者
 

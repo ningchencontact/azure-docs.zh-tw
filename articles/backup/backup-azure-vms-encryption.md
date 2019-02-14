@@ -2,19 +2,18 @@
 title: 使用 Azure 備份來備份和還原已加密的 VM
 description: 本文討論使用「Azure 磁碟加密」加密之 VM 的備份與還原經驗。
 services: backup
-author: sogup
+author: geetha
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
-ms.author: sogup
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3a059e8edc286b2c1433c9b414dc275a433e2fd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: geetha
+ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217674"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809992"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 備份來備份及還原加密的虛擬機器
 本文討論使用 Azure 備份來備份和還原虛擬機器 (VM) 的步驟。 它也提供有關支援的案例、必要條件的詳細資料，以及的錯誤案例的疑難排解步驟。
@@ -25,8 +24,8 @@ ms.locfileid: "55217674"
 
    |  | BEK + KEK VM | 僅限 BEK VM |
    | --- | --- | --- |
-   | **非受控 VM**  | 是 | 是  |
-   | **受控 VM**  | 是 | 是  |
+   | **非受控 VM**  | yes | yes  |
+   | **受控 VM**  | yes | yes  |
 
    > [!NOTE]
    > Azure 備份支援使用獨立金鑰加密的 VM。 目前不支援任何屬於用來加密 VM 之憑證的金鑰。
@@ -37,7 +36,7 @@ ms.locfileid: "55217674"
 
 * 已建立復原服務保存庫，並且藉由遵循[準備環境以便備份](backup-azure-arm-vms-prepare.md)中的步驟來設定儲存體複寫。
 
-* 備份已獲得[存取金鑰保存庫的權限](#provide-permissions-to-backup)，該保存庫包含已加密 VM 的金鑰和祕密。
+* 備份已獲得存取金鑰保存庫的權限，該保存庫包含已加密 VM 的金鑰和祕密。
 
 ## <a name="backup-encrypted-vm"></a>備份加密的 VM
 使用下列步驟來設定備份目標、定義原則、設定項目和觸發備份。
@@ -77,7 +76,7 @@ ms.locfileid: "55217674"
 
    ![加密的 VM 訊息](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   針對**來賓使用者**，您則必須將金鑰保存庫的存取權限提供給備份服務，才能進行備份。 您可以依照[下一節所述的步驟](#provide-permissions-to-backup)來提供這些權限
+   針對**來賓使用者**，您則必須將金鑰保存庫的存取權限提供給備份服務，才能進行備份。 您可以依照下一節所述的步驟來提供這些權限
 
    ![加密的 VM 訊息](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
 

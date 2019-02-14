@@ -4,7 +4,7 @@ description: 本文探討管理 Microsoft Azure 環境時提升遠端管理安�
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: c2b7935cc110b2ad05f4af2773158c2e1b658d4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242002"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117917"
 ---
 # <a name="security-management-in-azure"></a>Azure 的安全性管理
 Azure 訂閱者可從多種裝置管理其雲端環境，這些裝置包括管理工作站、開發人員的電腦，甚至是具有工作專用權限的特殊權限使用者裝置。 有時候，管理功能是透過 Web 式主控台來執行，例如 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。 至於其他時候，則可能會從內部部署系統，透過虛擬私人網路 (VPN)、終端機服務、用戶端應用程式通訊協定或 Azure 服務管理 API (SMAPI) (以程式設計方式) 直接連線至 Azure。 此外，用戶端端點也可以加入網域或是遭到隔離且非受控，例如平板電腦或智慧型手機。
@@ -117,7 +117,7 @@ Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows P
 ## <a name="security-guidelines"></a>安全性方針
 協助保護搭配雲端使用之系統管理員工作站的做法，通常會與用於任何內部部署工作站的做法類似 - 例如，最小化的組建和嚴格的權限。 雲端管理的幾項特點則更類似於遠端或頻外企業管理。 這些特點包括使用和稽核認證、增強安全性的遠端存取以及威脅偵測和回應。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 您可以使用 Azure 登入限制來限制用於存取系統管理工具的來源 IP 位址和稽核存取要求。 若要協助 Azure 識別管理用戶端 (工作站及/或應用程式)，您可以同時設定 SMAPI (透過客戶開發的工具，例如 Windows PowerShell Cmdlet) 和 Azure 入口網站，要求除了 SSL 憑證外，還必須安裝用戶端管理憑證。 我們也建議系統管理員存取需要 Multi-Factor Authentication。
 
 您部署至 Azure 的某些應用程式或服務可能會針對使用者和系統管理員存取擁有自己的驗證機制，而其他應用程式或服務則會充分利用 Azure AD。 根據您是透過 Active Directory Federation Services (AD FS)、使用目錄同步作業或僅在雲端中維護使用者帳戶來同盟認證，使用 [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (Azure AD Premium 的一部分) 可協助您管理資源之間的身分識別生命週期。

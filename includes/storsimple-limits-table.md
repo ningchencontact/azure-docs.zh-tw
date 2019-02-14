@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8a349916d0c0efc0f7895368a614897e3c6a15dc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: db05ce33a9fb602d6d48d1a1606f48a7fbde246e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964532"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888674"
 ---
-<!--author=alkohli last changed: 12/15/15-->
-
 | 限制識別碼 | 限制 | 註解 |
 | --- | --- | --- |
 | 儲存體帳戶認證的數目上限 |64 | |
@@ -20,8 +18,8 @@ ms.locfileid: "50964532"
 | 磁碟區的數目上限 |255 | |
 | 每個頻寬範本之排程的數目上限 |168 |每週每天 (24*7)、每小時的排程。 |
 | 實體裝置上之分層磁碟區的大小上限 |64 TB (適用於 8100 和 8600) |8100 和 8600 為實體裝置。 |
-| Azure 中的虛擬裝置上之分層磁碟區的大小上限 |30 TB (適用於 8010)  <br></br> 64 TB (適用於 8020) |8010 和 8020 為 Azure 中的虛擬裝置，分別使用了「標準儲存體」和「進階儲存體」。 |
-| 實體裝置上之固定在本機的磁碟區的大小上限 |9 TB (適用於 8100)  <br></br> 24 TB (適用於 8600) |8100 和 8600 為實體裝置。 |
+| Azure 中的虛擬裝置上之分層磁碟區的大小上限 |30 TB (適用於 8010)  <br></br>  64 TB (適用於 8020) |8010 和 8020 為 Azure 中的虛擬裝置，分別使用了「標準儲存體」和「進階儲存體」。 |
+| 實體裝置上之固定在本機的磁碟區的大小上限 |9 TB (適用於 8100)  <br></br>  24 TB (適用於 8600) |8100 和 8600 為實體裝置。 |
 | iSCSI 連線的數目上限 |512 | |
 | 從起始端之 iSCSI 連線的數目上限 |512 | |
 | 每個裝置的存取控制記錄的數目上限 |64 | |

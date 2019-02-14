@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker 服務相關常見問題的策畫清單可協助您更快速地採用服務，並獲得更好的結果。
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 95a8653d946e9896a13e7ecc9f05592467734576
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6399fe3e53a572c8aea6b804c0e82ffed41cab77
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208970"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873949"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>QnA Maker 的常見問題集
 

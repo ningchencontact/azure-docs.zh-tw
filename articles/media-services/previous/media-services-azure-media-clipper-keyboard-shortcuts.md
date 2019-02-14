@@ -6,17 +6,18 @@ keywords: clip;subclip;encoding;media;剪輯;子剪輯;編碼;媒體
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d6fa463f71c00787c994b41d84bb349dce676de5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6d50c99b64442bf009707b7619ec19f3d40e604e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782577"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992495"
 ---
-# <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>設定 Azure Media Clipper 鍵盤快速鍵
+# <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>設定 Azure Media Clipper 鍵盤快速鍵 
+
 Azure Media Clipper 支援藉由提供選擇性 `keymap` JSON 參數，自訂預設鍵盤快速鍵。
 
 下列範例 JSON 說明預設鍵盤快速鍵。 您可以藉由變更鍵值欄位，並且在初始化 Clipper 時傳入參數，來自訂這些設定。

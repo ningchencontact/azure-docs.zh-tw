@@ -1,6 +1,6 @@
 ---
 title: 搭配 App Service 環境進行異地分散調整 - Azure
-description: 了解如何搭配「流量管理員」和「App Service 環境」使用異地分散來水平調整應用程式。
+description: 了解如何透過流量管理員和 App Service 環境，使用異地分散功能水平調整應用程式。
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273862"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113686"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service 環境的異地分散調整
 ## <a name="overview"></a>概觀
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 需要極高延展性的應用程式案例，可能會超過單一應用程式部署可用的運算資源容量。  例如，投票應用程式、體育活動及電視娛樂活動，都屬於需要極高延展性的案例。 只要對單一區域內和跨區域的多個應用程式部署進行應用程式的水平相應放大，即可達到高延展性需求，以處理極高的負載需求。
 
 App Service 環境是水平相應放大的理想平台。在選取可支援已知要求率的 App Service 環境組態後，開發人員即可透過「千篇一律」的方式部署其他 App Service 環境，以獲得所需的尖峰負載容量。
@@ -68,13 +71,13 @@ App Service 環境是水平相應放大的理想平台。在選取可支援已�
 
 在建立設定檔後，每個應用程式執行個體都會新增至設定檔做為原生 Azure 端點。  下列程式碼會擷取每個前端 Web 應用程式的參考，然後透過「TargetResourceId」  參數將每個應用程式新增為流量管理員端點。
 
-    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    $webapp1 = Get-AzWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    $webapp2 = Get-AzWebApp -Name webfrontend2
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    $webapp3 = Get-AzWebApp -Name webfrontend3
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile

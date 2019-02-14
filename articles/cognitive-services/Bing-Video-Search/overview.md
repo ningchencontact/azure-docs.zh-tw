@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 了解如何使用 Bing 影片搜尋 API 在 Web 上搜尋影片。
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 86722f1a69d2f12ec1689854999db52f0ff8f158
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a7fbd9eb70c50f3bbd154726bdaa807c2bc41818
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567989"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863953"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>什麼是 Bing 影片搜尋 API？
 

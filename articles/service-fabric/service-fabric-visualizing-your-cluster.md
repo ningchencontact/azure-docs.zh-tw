@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 8a2a1b70290f48b3189bfae2f67dd19c5ef4c9f2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093252"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203704"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric 總管視覺化叢集
 
@@ -62,17 +62,6 @@ Service Fabric Explorer 也裝載於 Service Fabric 叢集的 HTTP 管理端點�
 您可以為使用憑證或使用 Azure Active Directory (AAD) 來控制用戶端對您 Service Fabric 叢集的存取。
 
 如果您嘗試連線到安全叢集，則視叢集的設定而定，您將必須出示用戶端憑證或使用 AAD 來登入。
-
-## <a name="video-tutorial"></a>影片教學課程
-
-若要了解如何使用 Service Fabric Explorer，請觀賞下列 Microsoft Virtual Academy 影片︰
-
-> [!NOTE]
-> 這段影片會示範裝載於 Service Fabric 叢集的 Service Fabric Explorer，而非桌面版本。
->
->
-
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>了解 Service Fabric 總管配置
 您可以使用左邊的樹狀目錄來瀏覽 Service Fabric 總管。 在樹狀目錄的根目錄，叢集儀表板會提供您叢集的概觀，包括應用程式和節點健康情況的摘要。

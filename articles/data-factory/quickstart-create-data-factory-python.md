@@ -13,14 +13,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 49a2e16d198130d1c72d36377be1d914cbe3351b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745243"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001863"
 ---
-# <a name="create-a-data-factory-and-pipeline-using-python"></a>使用 Python 建立資料處理站和管線
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>快速入門：使用 Python 建立資料處理站和管線
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [目前的版本](quickstart-create-data-factory-python.md)
@@ -31,7 +32,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)一文，按照步驟來建立帳戶。
 * 請遵循[此指示](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 遵循相同文件中的指示，將應用程式指派給「**參與者**」角色。
@@ -47,6 +48,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 2.  使用 [Azure 儲存體總管](http://storageexplorer.com/)之類的工具建立 **adfv2tutorial** 容器，然後在容器中建立 **input**。 然後，將 **input.txt** 檔案上傳至 **input** 資料夾。
 
 ## <a name="install-the-python-package"></a>安裝 Python 封裝
+
 1. 以系統管理員權限開啟終端機或命令提示字元。 
 2. 首先，針對 Azure 管理資源安裝 Python 套件：
 
@@ -104,7 +106,6 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
         else:
             print("\tErrors: {}".format(activity_run.error['message']))
-
     ```
 3. 將下列程式碼新增至 **Main** 方法，以建立 DataFactoryManagementClient 類別的執行個體。 您會使用此物件來建立資料處理站、連結服務、資料集和管線。 您也可以使用此物件來監視管線執行的詳細資料。 將 **subscription_id** 變數設定為 Azure 訂用帳戶的識別碼。 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
@@ -165,9 +166,11 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     print_item(ls)
 ```
 ## <a name="create-datasets"></a>建立資料集
+
 在本節中，您會建立兩個資料集：一個作為來源，另一個作為接收。
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>建立來源 Azure Blob 的資料集
+
 將下列程式碼新增至 Main 方法，以建立 Azure Blob 資料集。 如需 Azure Blob 資料集屬性的相關資訊，請參閱 [Azure Blob 連接器](connector-azure-blob-storage.md#dataset-properties)文章。
 
 您可以定義資料集來代表 Azure Blob 中的來源資料。 此 Blob 資料集會參考您在前一個步驟中建立的 Azure 儲存體連結服務。
@@ -184,6 +187,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>建立接收 Azure Blob 的資料集
+
 將下列程式碼新增至 Main 方法，以建立 Azure Blob 資料集。 如需 Azure Blob 資料集屬性的相關資訊，請參閱 [Azure Blob 連接器](connector-azure-blob-storage.md#dataset-properties)文章。
 
 您可以定義資料集來代表 Azure Blob 中的來源資料。 此 Blob 資料集會參考您在前一個步驟中建立的 Azure 儲存體連結服務。
@@ -218,7 +222,6 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     print_item(p)
 ```
 
-
 ## <a name="create-a-pipeline-run"></a>建立管線執行
 
 將下列程式碼新增至 **Main** 方法，以**觸發管線執行**。
@@ -232,6 +235,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>監視管線執行
+
 若要監視管道執行，將下列程式碼新增至 **Main** 方法：
 
 ```python
@@ -251,6 +255,7 @@ main()
 ```
 
 ## <a name="full-script"></a>完整指令碼
+
 以下是完整的 Python 程式碼：
 
 ```python
@@ -381,6 +386,7 @@ main()
 ```
 
 ## <a name="run-the-code"></a>執行程式碼
+
 建置並啟動應用程式，然後確認管線執行。
 
 主控台會印出建立資料處理站、連結服務、資料集、管線和管線執行的進度。 請等待出現複製活動執行詳細資料及讀取/寫入的資料大小。 然後，使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)之類的工具，檢查 Blob 已從 "inputBlobPath" 複製到 "outputBlobPath" (您在變數中指定)。
@@ -417,8 +423,8 @@ Number of bytes written: 18
 Copy duration: 4
 ```
 
-
 ## <a name="clean-up-resources"></a>清除資源
+
 若要刪除資料處理站，請將下列程式碼新增至程式：
 
 ```python
@@ -426,4 +432,5 @@ adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 瀏覽[教學課程](tutorial-copy-data-dot-net.md)以了解使用 Data Factory 的更多案例。

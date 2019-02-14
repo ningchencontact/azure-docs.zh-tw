@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 37fe2e2adb947e2e9ddc86a34baf6994b5771be6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a21c9682cfeaa7421d089bf75eb9d8b45e1d3d46
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091198"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982755"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>使用 Azure 入口網站為 ExpressRoute 設定虛擬網路閘道
 > [!div class="op_single_selector"]
@@ -42,9 +42,8 @@ ms.locfileid: "53091198"
 * 閘道子網路名稱："GatewaySubnet"，您必須一律將閘道器子網路命名為 *GatewaySubnet*。
     * 閘道子網路位址空間 = "192.168.200.0/26"
 * 閘道名稱 = "ERGW"
-* 閘道 IP 名稱 = "MyERGWVIP"
-* 閘道類型 = "ExpressRoute"，ExpressRoute 組態需要這個類型。
 * 閘道公用 IP 名稱 = "MyERGWVIP"
+* 閘道類型 = "ExpressRoute"，ExpressRoute 組態需要這個類型。
 
 您可以先檢視這些步驟的[影片](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)，再開始進行設定。
 

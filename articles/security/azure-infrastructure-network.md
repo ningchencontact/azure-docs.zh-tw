@@ -4,7 +4,7 @@ description: 本文提供 Microsoft Azure 基礎結構網路的一般描述。
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505376"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112208"
 ---
 # <a name="azure-network-architecture"></a>Azure 網路架構
 Azure 網路架構會遵循改良版業界標準核心/散發/存取模型 (具有不同的硬體層級)。 這些層級包括：
@@ -45,7 +45,7 @@ Azure 有兩個不同的架構。 某些現有的 Azure 客戶與共用服務位
 ![Azure 網路圖表][1]
 
 ### <a name="quantum-10-devices"></a>Quantum 10 裝置
-Quantum 10 設計會進行遍佈於關閉/網格設計中多個裝置的第 3 層交換。 Q10 設計的優點包括容量更大，以及更有能力調整現有的網路基礎結構。 此設計運用邊界分葉路由器、主幹式交換器和機櫃頂端交換器，來將流量跨多個路由傳遞至叢集，進而允許容錯。 軟體負載平衡，而不是硬體裝置，處理安全性服務，例如網路位址轉譯。
+Quantum 10 設計會進行遍佈於 Clos/網格設計中多個裝置的第 3 層交換。 Q10 設計的優點包括容量更大，以及更有能力調整現有的網路基礎結構。 此設計運用邊界分葉路由器、主幹式交換器和機櫃頂端交換器，來將流量跨多個路由傳遞至叢集，進而允許容錯。 軟體負載平衡，而不是硬體裝置，處理安全性服務，例如網路位址轉譯。
 
 ### <a name="access-routers"></a>存取路由器
 散發/存取 L3 路由器 (AR) 可執行散發和存取層的主要路由功能。 這些裝置會成對部署，而且是子網路的預設閘道。 視容量而定，每個 AR 組對都可以支援多個 L2 彙總交換器組。 最大數目取決於裝置的容量，以及失敗網域。 典型的數字是每個 AR 組配三個 L2 彙總交換器組。

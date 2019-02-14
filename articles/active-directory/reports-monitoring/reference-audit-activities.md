@@ -16,12 +16,13 @@ ms.subservice: report-monitor
 ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da800b80c89aa0b63a386341a9b010d67f22e85a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a60f95bc8a98ea15c174f48bc3c3e63eae534d1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186530"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164052"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 稽核活動參考
 
@@ -134,11 +135,11 @@ Azure AD 中的報告架構包含下列元件：
 |應用程式管理|AdminPolicyDatas-SetResources|
 |應用程式管理|AdminUserJourneys-GetResources|
 |應用程式管理|AdminUserJourneys-RemoveResources|
-|驗證|AdminUserJourneys-SetResources|
-|驗證|Create IdentityProvider|
-|驗證|建立 V1 應用程式|
-|驗證|建立 V2 應用程式|
-|驗證|在租用戶中建立自訂網域|
+|Authentication|AdminUserJourneys-SetResources|
+|Authentication|Create IdentityProvider|
+|Authentication|建立 V1 應用程式|
+|Authentication|建立 V2 應用程式|
+|Authentication|在租用戶中建立自訂網域|
 |Authorization|建立新的 AdminUserJourney|
 |Authorization|建立當地語系化資源 json|
 |Authorization|建立新的自訂 IDP|

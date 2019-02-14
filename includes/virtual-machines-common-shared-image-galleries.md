@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: c65fb1f0f635e79d594a7f080124827e3218f612
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193338"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985385"
 ---
 共用映像庫服務可協助您圍繞自訂受控虛擬機器映像來建置結構和組織。 使用共用映像庫，即可在組織內對於不同的使用者、服務主體或 AD 群組共用您的映像。 共用映像可以複寫至多個區域，以更快速調整您的部署。
 
@@ -74,9 +74,9 @@ ms.locfileid: "54193338"
 
 | 與使用者共用     | 共用映像庫 | 共用映像 | 共用映像版本 |
 |----------------------|----------------------|--------------|----------------------|
-| 共用映像庫 | 是                  | 是          | 是                  |
-| 共用映像         | 否                   | yes          | 是                  |
-| 共用映像版本 | 否                   | 否           | 是                  |
+| 共用映像庫 | yes                  | 是          | yes                  |
+| 共用映像         | 否                   | yes          | yes                  |
+| 共用映像版本 | 否                   | 否           | yes                  |
 
 
 
@@ -120,8 +120,8 @@ az provider register --name Microsoft.Compute
 **PowerShell**: 
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 **問：** 如何列出訂用帳戶之間的所有共用映像庫資源？ 

@@ -4,7 +4,7 @@ description: 本文說明 Azure 資料中心，包括實體基礎結構、安全
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 69a54640ae3b4e71d7782712ad1764babab7104a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170672"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112039"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure 設施、廠房以及實體安全性
 Azure 是由[分散在世界各地的資料中心基礎結構](https://azure.microsoft.com/global-infrastructure/)所組成，可支援支援數千項線上服務，並且橫跨全球超過 100 個高度安全的設施。

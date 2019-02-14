@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 04ab94d8b0b8f012707bb88a52c44b91063cbe39
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: ce425278bfc0f9b95285c33e9863b508246d5e79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402178"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992283"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
@@ -73,47 +73,47 @@ ms.locfileid: "54402178"
 2. 在檔案中新增下列 HTML 元件：
 
    ```HTML
-   <!DOCTYPE html>
-   <html>
-   <head>
-      <title>Map Search</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-      <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
-      <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
-
-      <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-      <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
-
-      <script>      
-         var map, datasource, client, popup;
-
-         function GetMap(){
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Map Search</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        
+        <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
+        
+        <script>        
+        var map, datasource, client, popup;
+        
+        function GetMap(){
             //Add Map Control JavaScript code here.
-         }
-      </script>
-      <style>
-      html,
-      body {
-         width: 100%;
-         height: 100%;
-         padding: 0;
-         margin: 0;
-      }
-
-      #myMap {
-         width: 100%;
-         height: 100%;
-      }
-      </style>
-   </head>
-   <body onload="GetMap()">
-      <div id="myMap"></div>
-   </body>
-   </html>
-   ```
+        }
+        </script>
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            
+            #map {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body onload="GetMap()">
+        <div id="myMap"></div>
+    </body>
+    </html>
+    ```
 
    請注意，HTML 標頭包含 Azure 地圖控制項程式庫所裝載的 CSS 和 JavaScript 資源檔案。 請注意頁面本文上的 `onload` 事件，此事件在頁面本文載入時將會呼叫 `GetMap` 函式。 此函式會包含內嵌的 JavaScript 程式碼，以便存取 Azure 地圖服務 API。
 
@@ -228,8 +228,9 @@ ms.locfileid: "54402178"
 2. 在 [指令碼] 標記中，在 `GetMap` 函式後面新增下列程式碼，以在快顯視窗中顯示滑鼠停駐的結果資訊。 
 
    ```JavaScript
-   function showPopup(e) {
-        //Get the properties and coordinates of the first shape that the event occurred on.
+    function showPopup(e) {
+        //Get the properties and coordinates of the first shape that the event occured on.
+
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();
 
@@ -246,7 +247,7 @@ ms.locfileid: "54402178"
 
         //Open the popup.
         popup.open(map);
-   }
+    }
    ```
 
 2. 儲存檔案並重新整理瀏覽器。 現在，當您將滑鼠停留在任何搜尋圖釘上時，瀏覽器中的地圖會顯示資訊快顯視窗。

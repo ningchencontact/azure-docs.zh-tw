@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 68c87b0fd892d5972e8c6b225c7c7bce3b3704db
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 45ff4ff79a443e49a7d01a41a249db9e4d0a070b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449957"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560799"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>如何從 Java 使用通知中樞
 
@@ -39,7 +39,7 @@ SDK 目前支援：
 * 定期傳送
 * 排程的傳送
 * 透過 Java NIO 的非同步作業
-* 支援的平台：APNS (iOS)、GCM (Android)、WNS (Windows 市集應用程式)、MPNS (Windows Phone)、ADM (Amazon Kindle Fire)、Baidu (沒有 Google 服務的 Android)
+* 支援的平台：APNS (iOS)、FCM (Android)、WNS (Windows 市集應用程式)、MPNS (Windows Phone)、ADM (Amazon Kindle Fire)、Baidu (沒有 Google 服務的 Android)
 
 ## <a name="sdk-usage"></a>SDK 的使用方式
 
@@ -120,7 +120,7 @@ SDK 目前支援：
     hub.createRegistration(reg);
     ```
 
-同樣地，您可以建立 Android (GCM)、Windows Phone (MPNS) 和 Kindle Fire (ADM) 的註冊。
+同樣地，您可以建立 Android (FCM)、Windows Phone (MPNS) 和 Kindle Fire (ADM) 的註冊。
 
 **建立範本註冊：**
 
@@ -318,7 +318,7 @@ SDK 目前支援：
 
     ```java
     String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-    Notification n = Notification.createGcmNotification(message);
+    Notification n = Notification.createFcmNotification(message);
     hub.sendNotification(n);
     ```
 

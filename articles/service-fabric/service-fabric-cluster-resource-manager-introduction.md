@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096903"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203194"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric 叢集資源管理員簡介
 以傳統方式管理 IT 系統或線上服務，意味著要讓特定實體或虛擬機器專屬於這些特定的服務或系統。 服務已建構為層次。 有「Web」層和「資料」或「儲存體」層。 應用程式會有訊息層，要求在其中流入或流出，以及專用於快取的一組機器。 每個層次或工作負載類型都有專屬的特定機器︰資料庫會取得一些專屬的機器，Web 伺服器也會取得一些。 如果特定類型的工作負載造成執行它的機器太忙碌，請以該層次的相同設定新增更多機器。 不過，並非所有工作負載都可以如此輕易地相應放大 - 特別是您通常會以較大型機器來取代機器的資料層。 簡單。 如果某台電腦失敗，則在還原該電腦之前，整體應用程式中的那一個部分會以較低容量來執行。 仍然相當簡單 (但不一定有趣)。
@@ -43,10 +43,6 @@ Orchestrator (不是人類) 是當機器失敗或工作負載基於某些意外�
 1. 強制執行規則
 2. 將您的環境最佳化
 3. 協助其他程序
-
-如需了解叢集資源管理員的運作方式，請觀賞下列 Microsoft Virtual Academy 影片︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
-<img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="what-it-isnt"></a>哪些不是它的性質
 在傳統的多層式架構應用程式中，總是有[負載平衡器](https://en.wikipedia.org/wiki/Load_balancing_(computing))。 這通常是網路負載平衡 (NLB) 或應用程式負載平衡器 (ALB)，根據它在網路堆疊中的位置而定。 某些負載平衡器是以硬體為基礎 (例如 F5 的 BigIP 供應項目)，有些則是以軟體為基礎 (例如 Microsoft 的 NLB)。 在其他環境中，您可能會在這個角色中看到像 HAProxy、nginx、Istio 或 Envoy 這樣的項目。 在這些架構中，負載平衡的工作是確保無狀態工作負載收到 (大約) 相同的工作量。 平衡負載策略各不相同。 某些平衡器會將每個不同的呼叫傳送至不同的伺服器。 有些則是提供工作階段關聯/綁定。 更進階的平衡器會使用實際負載估計或報告，根據預期的成本和目前的電腦工作負載來路由傳送呼叫。

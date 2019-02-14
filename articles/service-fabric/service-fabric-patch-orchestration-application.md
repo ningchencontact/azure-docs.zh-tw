@@ -3,7 +3,7 @@ title: Azure Service Fabric 修補程式協調流程應用程式 | Microsoft Doc
 description: 在 Service Fabric 叢集上將作業系統修補自動化的應用程式。
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
-ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 2/01/2019
+ms.author: brkhande
+ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155301"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732306"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -131,7 +131,7 @@ POA 是一種 Azure Service Fabric 應用程式，可在 Service Fabric 叢集�
     ],
     ```
 
-3. 以這些變更更新您的叢集資訊清單，使用更新後的叢集資訊清單[建立新叢集](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升級叢集設定](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration)。 叢集開始以更新的資訊清單執行後，您現在可以在 Service Fabric Explorer 的系統服務區段下，看到修復管理器系統服務 (亦稱為 `fabric:/System/RepairManagerService`) 在叢集中執行。
+3. 以這些變更更新您的叢集資訊清單，使用更新後的叢集資訊清單[建立新叢集](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升級叢集設定](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server)。 叢集開始以更新的資訊清單執行後，您現在可以在 Service Fabric Explorer 的系統服務區段下，看到修復管理器系統服務 (亦稱為 `fabric:/System/RepairManagerService`) 在叢集中執行。
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>停用所有節點上的自動 Windows Update
 
@@ -154,9 +154,9 @@ Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA.sfpkg
 |LogsDiskQuotaInMB   |long  <br> (預設值：1024)               |修補程式協調流程應用程式記錄的大小上限 (以 MB 為單位)，可在節點上本機保留。
 | WUQuery               | 字串<br>(預設值："IsInstalled=0")                | 用以取得 Windows 更新的查詢。 如需詳細資訊，請參閱 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
 | InstallWindowsOSOnlyUpdates | BOOLEAN <br> (預設值：False)                 | 使用此旗標可控制所應下載並安裝的更新。 允許下列值 <br>true - 只安裝 Windows 作業系統的更新。<br>false - 在電腦上安裝所有可用的更新。          |
-| WUOperationTimeOutInMinutes | int <br>(預設值：90)                   | 指定任何 Windows Update 作業的逾時 (搜尋或下載或安裝)。 如果作業未在指定的逾時內完成，它就會中止。       |
-| WURescheduleCount     | int <br> (預設值：5)                  | 如果作業持續失敗，服務會將 Windows Update 重新排程的次數上限。          |
-| WURescheduleTimeInMinutes | int <br>(預設值：30) | 如果作業持續失敗，服務會將 Windows Update 重新排程的時間間隔。 |
+| WUOperationTimeOutInMinutes | Int <br>(預設值：90)                   | 指定任何 Windows Update 作業的逾時 (搜尋或下載或安裝)。 如果作業未在指定的逾時內完成，它就會中止。       |
+| WURescheduleCount     | Int <br> (預設值：5)                  | 如果作業持續失敗，服務會將 Windows Update 重新排程的次數上限。          |
+| WURescheduleTimeInMinutes | Int <br>(預設值：30) | 如果作業持續失敗，服務會將 Windows Update 重新排程的時間間隔。 |
 | WUFrequency           | 以逗號分隔的字串 (預設值︰"Weekly, Wednesday, 7:00:00")     | 安裝 Windows Update 的頻率。 格式與可能的值如下： <br>-   Monthly, DD, HH:MM:SS，例如 Monthly, 5,12:22:32。<br>欄位 DD (天) 所允許的值為 1 到 28 範圍內的數字和「最後」。 <br> -   Weekly, DAY, HH:MM:SS，例如 Weekly, Tuesday, 12:22:32。  <br> -   Daily, HH:MM:SS，例如 Daily, 12:22:32。  <br> -  None 表示不應該進行 Windows Update。  <br><br> 請注意，時間會採用 UTC 格式。|
 | AcceptWindowsUpdateEula | BOOLEAN <br>(預設值︰true) | 藉由設定這個旗標，應用程式會代表電腦的擁有者接受 Windows Update 的使用者授權合約 (EULA)。              |
 
@@ -413,3 +413,6 @@ A. 否，修補協調流程應用程式無法用來修補單一節點的叢集�
 - 修正 POA 1.3.0 在 Windows Server 2012 R2 或較低版本上因為停用自動更新失敗而無法運作的迴歸。 
 - 修正 InstallWindowsOSOnlyUpdates 組態一律挑選為 True 的錯誤 (bug)。
 - 將 InstallWindowsOSOnlyUpdates 的預設值變更為 False。
+
+### <a name="version-132"></a>1.3.2 版
+- 修正一個問題，如果有節點的名稱是目前節點名稱的子集，此問題會影響節點的修補生命週期。 對於這類節點，很可能會遺漏修補或者會擱置重新開機。 

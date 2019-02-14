@@ -1,8 +1,21 @@
 ---
-標題：重新定型 Machine Learning Studio 模型 titleSuffix:Azure Machine Learning Studio description:了解如何在 Azure Machine Learning 中重新定型模型，以及使用新定型的模型來更新 Web 服務。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:2017/04/19
+title: 重新定型 Machine Learning Studio 模型
+titleSuffix: Azure Machine Learning Studio
+description: 了解如何在 Azure Machine Learning 中重新定型模型，以及使用新定型的模型來更新 Web 服務。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509570"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>重新定型 Azure Machine Learning Studio 模型
 在 Azure Machine Learning 中進行機器學習服務模型的實作程序時，需要定型並儲存您的模型。 接著，使用它來建立預測性 Web 服務。 接著才能在網站、儀表板及行動應用程式取用 Web 服務。 

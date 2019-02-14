@@ -1,8 +1,21 @@
 ---
-標題：調整 Machine Learning Studio Web 服務 titleSuffix:Azure Machine Learning Studio description:了解如何藉由新增其他端點來提高 Azure Machine Learning Studio Web 服務的並行。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date:2017/01/23
+title: 擴展 Machine Learning Studio Web 服務
+titleSuffix: Azure Machine Learning Studio
+description: 了解如何藉由新增其他端點來提高 Azure Machine Learning Studio Web 服務的並行。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 01/23/2017
+ms.openlocfilehash: c5874029e17b0ad7c9787beb0177b8211cbf6e6b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512069"
 ---
 # <a name="scaling-an-azure-machine-learning-studio-web-service-by-adding-additional-endpoints"></a>藉由新增其他端點來調整 Azure Machine Learning Studio Web 服務
 > [!NOTE]

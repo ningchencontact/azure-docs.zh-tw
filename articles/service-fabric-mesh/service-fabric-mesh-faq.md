@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 8d6dcdd4de8fb56935d2f66bfff045b2115d4004
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063568"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979746"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh 的常見問題
 
@@ -88,7 +88,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 - Windows：windowsservercore 和 nanoserver
     - Windows Server 1709 版
     - Windows Server 1803 版
-- Linux
+-  Linux
     - 沒有已知的限制
 
 ## <a name="developer-experience-issues"></a>開發人員體驗問題
@@ -101,7 +101,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 - 如果只有服務名稱時無法運作，請嘗試完整名稱：ServiceName.ApplicationName。
 - 在您服務的 Docker 檔案中新增 `EXPOSE <port>`，其中的 port 是您公開服務的連接埠。 例如︰
 
-```DockerFile
+```Dockerfile
 EXPOSE 80
 ```
 

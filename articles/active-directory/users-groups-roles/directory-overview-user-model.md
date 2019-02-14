@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
-ms.openlocfilehash: d578794a258faa9ad0222207f73e108e11f3281f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 65983a5c9273b0eb88dbb7f2e3a8779b326352b3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770447"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205387"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>大型組織的使用者、群組、授權和角色
 
@@ -58,7 +59,7 @@ ms.locfileid: "55770447"
 
 ## <a name="assign-app-access"></a>指派應用程式存取權
 
-您可以使用 Azure AD 將群組存取權指派給[部署在 Azure AD 租用戶中的企業應用程式](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context)。 如果您將具有群組指派的動態群組合併至應用程式，您就可以在組織成長時，自動化使用者應用程式的存取權指派。 您需要 Azure Active Directory Premium P1 或 Premium P2 授權，才能將存取權指派給企業應用程式。
+您可以使用 Azure AD 將群組存取權指派給[部署在 Azure AD 租用戶中的企業應用程式](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)。 如果您將具有群組指派的動態群組合併至應用程式，您就可以在組織成長時，自動化使用者應用程式的存取權指派。 您需要 Azure Active Directory Premium P1 或 Premium P2 授權，才能將存取權指派給企業應用程式。
 
 Azure AD 也可讓您更精細地控制在應用程式與群組 (您對其指派存取權) 之間流動的資料。 在[企業應用程式](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)中，開啟應用程式，然後選取 [佈建] 來：
 
@@ -72,4 +73,4 @@ Azure AD 也可讓您更精細地控制在應用程式與群組 (您對其指派
 
 如果您剛開始成為 Azure AD 系統管理員，請在 [Azure Active Directory 基礎](https://docs.microsoft.com/azure/active-directory/fundamentals/index)中取得基本概念。
 
-或者您可以開始[建立群組](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context)、[指派授權](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)、[指派應用程式存取權](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context)或[指派系統管理員角色](directory-assign-admin-roles.md)。
+或者您可以開始[建立群組](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context)、[指派授權](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)、[指派應用程式存取權](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)或[指派系統管理員角色](directory-assign-admin-roles.md)。

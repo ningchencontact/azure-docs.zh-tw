@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123167"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817745"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>透過 Azure Logic Apps 中的 HTTP + Swagger 連接器呼叫 REST 端點
 
@@ -40,7 +40,7 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 4. 輸入 Swagger 文件的 URL：
    
    * 若要從邏輯應用程式設計工具使用，此 URL 必須是 HTTPS 端點並已啟用 CORS。
-   * 如果 Swagger 文件不符合此需求，您可以使用 [已啟用 CORS 的 Azure 儲存體](#hosting-swagger-from-storage) 來儲存文件。
+   * 如果 Swagger 文件不符合此需求，您可以使用已啟用 CORS 的 Azure 儲存體來儲存文件。
 5. 按一下 [下一步]  以從 Swagger 文件讀取和轉譯。
 6. 新增 HTTP 呼叫所需的任何參數。
    
@@ -72,16 +72,16 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 以下是此 HTTP + Swagger 連接器所支援觸發程序和動作的詳細資料。
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger 觸發程序
-觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 [深入了解觸發程序。](connectors-overview.md) HTTP + Swagger 連接器有一個觸發程序。
+觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 [深入了解觸發程序。](connectors-overview.md)  HTTP + Swagger 連接器有一個觸發程序。
 
 | 觸發程序 | 說明 |
 | --- | --- |
 | HTTP + Swagger |進行 HTTP 呼叫並傳回回應內容 |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger 動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作。](connectors-overview.md) HTTP + Swagger 連接器有一個可能的動作。
+動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作。](connectors-overview.md)  HTTP + Swagger 連接器有一個可能的動作。
 
-| 動作 | 說明 |
+|  動作 | 說明 |
 | --- | --- |
 | HTTP + Swagger |進行 HTTP 呼叫並傳回回應內容 |
 
@@ -113,7 +113,7 @@ HTTP 回應
 ### <a name="http-responses"></a>HTTP 回應
 呼叫不同動作時，您可能會收到特定回應。 下表概述對應的回應及說明。
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | --- | --- |
 | 200 |OK |
 | 202 |已接受 |

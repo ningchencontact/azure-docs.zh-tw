@@ -13,14 +13,15 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: ae3fcfe4e76988d2ff9b7686566941db01ceb08e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 45f0cbc25028f3708c2f649287bc7fa8581e001f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426704"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005296"
 ---
-# <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>使用 REST API 建立 Azure 資料處理站和管線
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>快速入門：使用 REST API 建立 Azure 資料處理站和管線
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [目前的版本](quickstart-create-data-factory-rest-api.md)

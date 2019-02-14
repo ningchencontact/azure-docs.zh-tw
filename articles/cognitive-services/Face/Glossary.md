@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 17167271df81914c76882fc4d06717043e1befc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06c385b1ca43277b59c337646c41cae360ce48a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214291"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816555"
 ---
 # <a name="glossary"></a>詞彙
 
@@ -23,14 +23,14 @@ ms.locfileid: "55214291"
 
 #### <a name="attributes"></a>屬性
 
-屬性在[偵測](#Detection-Face-Detection)結果中為選擇性，例如[年齡](#Age-Attribute)、[性別](#Gender-Attribute)、[頭部姿勢](#Head-Pose-Attribute)、[臉部毛髮](#Facial-Hair-Attribute)、[微笑](#Smile-Attribute)。
-從[偵測](#Detection-Face-Detection) API 即可取得這些屬性，方法是指定查詢參數：returnFaceAttributes。 屬性提供除了[臉部識別碼](#Face-ID)和[矩形](#Face-Rectangle)之外，所選[臉部](#Face)的額外相關資訊。
+屬性在偵測結果中為選擇性，例如[年齡](#Age-Attribute)、[性別](#Gender-Attribute)、[頭部姿勢](#Head-Pose-Attribute)、[臉部毛髮](#Facial-Hair-Attribute)、[微笑](#Smile-Attribute)。
+從偵測 API 即可取得這些屬性，方法是指定查詢參數：returnFaceAttributes。 屬性提供除了[臉部識別碼](#Face-ID)和[矩形](#Face-Rectangle)之外，所選[臉部](#Face)的額外相關資訊。
 
 如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
 
 #### <a name="age-attribute"></a>年齡 (屬性)
 
-年齡是其中一個描述特定臉部年齡的[屬性](#Attributes)。 年齡屬性在[偵測](#Detection-Face-Detection)結果中為選擇性，並可透過指定 returnFaceAttributes 參數，以[偵測](#Detection-Face-Detection)要求加以控制。
+年齡是其中一個描述特定臉部年齡的[屬性](#Attributes)。 年齡屬性在偵測結果中為選擇性，並可透過指定 returnFaceAttributes 參數，以偵測要求加以控制。
 
 如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
 
@@ -64,13 +64,13 @@ ms.locfileid: "55214291"
 
 #### <a name="face"></a>臉部
 
-臉部是從「臉部 API」所衍生結果的統一字詞，與所偵測到的臉部相關。 臉部最後會由統一的身分識別 ([臉部識別碼](#Face-ID))、影像中的指定區域 ([臉部矩形](#Face-Rectangle)) 及其他臉部相關[屬性](#Face-Attributes-Facial-Attributes) (例如[年齡](#Age-Attribute)、[性別](#Gender-Attribute)、[特徵點](#Face-Landmarks-Facial-Landmarks)及[頭部姿勢](#Head-Pose-Attribute)) 代表。 此外，也可以從[偵測](#Detection-Face-Detection)傳回臉部。
+臉部是從「臉部 API」所衍生結果的統一字詞，與所偵測到的臉部相關。 臉部最後會由統一的身分識別 ([臉部識別碼](#Face-ID))、影像中的指定區域 ([臉部矩形](#Face-Rectangle)) 及其他臉部相關屬性 (例如[年齡](#Age-Attribute)[性別](#Gender-Attribute)、特徵點及[頭部姿勢](#Head-Pose-Attribute)) 代表。 此外，也可以從偵測傳回臉部。
 
 如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
 
 #### <a name="face-api"></a>人臉識別 API
 
-「臉部 API」是一個雲端式 API，提供最先進的臉部偵測和辨識演算法。 「臉部 API」的主要功能可以分成兩個類別：臉部[屬性](#Face-Attributes-Facial-Attributes)[偵測](#Detection-Face-Detection)，以及臉部[辨識](#Recognition)。
+「臉部 API」是一個雲端式 API，提供最先進的臉部偵測和辨識演算法。 「臉部 API」的主要功能可以分成兩個類別：臉部屬性偵測，以及臉部屬性[辨識](#Recognition)。
 
 如需詳細資訊，請參閱下列指南：[臉部 API 概觀](./Overview.md)、[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) \(英文\)、[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\)、[臉部 - 分組](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) \(英文\)、[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)、[臉部 - 驗證](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) \(英文\)。
 
@@ -80,13 +80,13 @@ ms.locfileid: "55214291"
 
 #### <a name="face-id"></a>臉部識別碼
 
-「臉部識別碼」衍生自[偵測](#Detection-Face-Detection)結果，其中一個字串代表[臉部 API](#Face-API) 中的一個[臉部](#Face)。
+「臉部識別碼」衍生自偵測結果，其中一個字串代表[臉部 API ](#Face-API)中的一個[臉部](#Face)。
 
 如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
 
 #### <a name="face-landmarksfacial-landmarks"></a>臉部特徵點
 
-特徵點在[偵測](#Detection-Face-Detection)結果中為選擇性；這些是語意上的臉部點，例如眼睛、鼻子及嘴巴 (如下圖所示)。 您可以透過布林值數字 returnFaceLandmarks，以[偵測](#Detection-Face-Detection)要求控制特徵點。 如果將 returnFaceLandmarks 設定為 true，傳回的臉部就會包含特徵點屬性。
+特徵點在偵測結果中為選擇性；這些是語意上的臉部點，例如眼睛、鼻子及嘴巴 (如下圖所示)。 您可以透過布林值數字 returnFaceLandmarks，以偵測要求控制特徵點。 如果將 returnFaceLandmarks 設定為 true，傳回的臉部就會包含特徵點屬性。
 
 如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
 
@@ -94,19 +94,19 @@ ms.locfileid: "55214291"
 
 #### <a name="face-rectangle"></a>臉部矩形
 
-臉部矩形衍生自[偵測](#Detection-Face-Detection)結果，這是影像中以像素為單位的直向矩形 (left、top、width、height)。 除了寬和高之外，[臉部](#Face)的左上角 (left、top) 分別以 X 和 Y 軸指出臉部大小。
+臉部矩形衍生自偵測結果，這是影像中以像素為單位的直向矩形 (left、top、width、height)。 除了寬和高之外，[臉部](#Face)的左上角 (left、top) 分別以 X 和 Y 軸指出臉部大小。
 
 如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
 
 #### <a name="facial-hair-attribute"></a>臉部毛髮 (屬性)
 
-臉部毛髮是其中一個用來描述可用臉孔臉部毛髮長度的[屬性](#Attributes)。 臉部毛髮屬性在[偵測](#Detection-Face-Detection)結果中為選擇性，並可透過 returnFaceAttributes，以[偵測](#Detection-Face-Detection)要求加以控制。 如果 returnFaceAttributes 包含 'facialHair'，傳回的臉部就會包含臉部毛髮屬性。
+臉部毛髮是其中一個用來描述可用臉孔臉部毛髮長度的[屬性](#Attributes)。 臉部毛髮屬性在偵測結果中為選擇性，並可透過 returnFaceAttributes，以偵測要求加以控制。 如果 returnFaceAttributes 包含 'facialHair'，傳回的臉部就會包含臉部毛髮屬性。
 
 如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
 
 #### <a name="facelist"></a>FaceList
 
-FaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項目](#Find-Similar)的單位。 FaceList 隨附 [FaceList 識別碼](#FaceList-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
+FaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項目](#Find-Similar)的單位。 FaceList 隨附 [FaceList 識別碼](#FaceList-ID)以及其他屬性，例如名稱和使用者資料。
 
 如需詳細資訊，請參閱下列指南：[FaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) \(英文\)、[FaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) \(英文\)。
 
@@ -118,7 +118,7 @@ FaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項�
 
 #### <a name="find-similar"></a>尋找類似項目
 
-此 API 可用來根據臉部集合，搜尋/查詢相似的臉部。 查詢臉部和臉部集合在要求中會以[臉部識別碼](#Face-ID)或 [FceList 識別碼](#FaceList-ID)/[LargeFaceList 識別碼](#LargeFaceList-ID)表示。 傳回的結果是所搜尋到的相似臉部，以[臉部識別碼](#Face-ID)或 [PersistedFace 識別碼](#PersistedFace-ID)代表。
+此 API 可用來根據臉部集合，搜尋/查詢相似的臉部。 查詢臉部和臉部集合在要求中會以[臉部識別碼](#Face-ID)或 [FceList 識別碼](#FaceList-ID)/[LargeFaceList 識別碼](#LargeFaceList-ID)表示。 傳回的結果是所搜尋到的相似臉部，以[臉部識別碼](#Face-ID)或 PersistedFace 識別碼代表。
 
 如需詳細資訊，請參閱下列指南：[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\)、[LargeFaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) \(英文\)、[FaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) \(英文\)。
 
@@ -126,7 +126,7 @@ FaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項�
 
 #### <a name="gender-attribute"></a>性別 (屬性)
 
-性別是其中一個用來描述可用臉孔性別的[屬性](#Attributes)。 性別屬性在[偵測](#Detection-Face-Detection)結果中為選擇性，並可透過 returnFaceAttributes，以[偵測](#Detection-Face-Detection)要求加以控制。 如果 returnFaceAttributes 包含 'gender'，傳回的臉部就會包含性別屬性。
+性別是其中一個用來描述可用臉孔性別的[屬性](#Attributes)。 性別屬性在偵測結果中為選擇性，並可透過 returnFaceAttributes，以偵測要求加以控制。 如果 returnFaceAttributes 包含 'gender'，傳回的臉部就會包含性別屬性。
 
 如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
 
@@ -146,7 +146,7 @@ FaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項�
 
 #### <a name="head-pose-attribute"></a>頭部姿勢 (屬性)
 
-頭部姿勢是其中一個根據轉動、傾斜、繞 Y 軸旋轉角度，代表 3D 空間中臉部方向的[屬性](#Attributes)，如下圖所示。 轉動和繞 Y 軸旋轉的值範圍是 [-180, 180] 和 [-90, 90] 度。 在目前的版本中，從偵測傳回的傾斜值一律為 0。 頭部姿勢屬性在[偵測](#Detection-Face-Detection)結果中為選擇性，並可透過 returnFaceAttributes 參數，以[偵測](#Detection-Face-Detection)要求加以控制。 如果 returnFaceAttributes 參數包含 'headPose'，傳回的臉部就會包含頭部姿勢屬性。
+頭部姿勢是其中一個根據轉動、傾斜、繞 Y 軸旋轉角度，代表 3D 空間中臉部方向的[屬性](#Attributes)，如下圖所示。 轉動和繞 Y 軸旋轉的值範圍是 [-180, 180] 和 [-90, 90] 度。 在目前的版本中，從偵測傳回的傾斜值一律為 0。 頭部姿勢屬性在偵測結果中為選擇性，並可透過 returnFaceAttributes 參數，以偵測要求加以控制。 如果 returnFaceAttributes 參數包含 'headPose'，傳回的臉部就會包含頭部姿勢屬性。
 
 如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
 
@@ -182,11 +182,11 @@ IsIdentical 是[驗證](#Verification)結果的布林值欄位，用來表示兩
 
 #### <a name="landmarks"></a>特徵點
 
-請參閱[臉部特徵點](#Face-Landmarks-Facial-Landmarks)。
+請參閱臉部特徵點。
 
 #### <a name="largefacelist"></a>LargeFaceList
 
-LargeFaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項目](#Find-Similar)的單位。 LargeFaceList 隨附 [LargeFaceList 識別碼](#LargeFaceList-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
+LargeFaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項目](#Find-Similar)的單位。 LargeFaceList 隨附 [LargeFaceList 識別碼](#LargeFaceList-ID)以及其他屬性，例如名稱和使用者資料。
 
 如需詳細資訊，請參閱下列指南：[LargeFaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) \(英文\)、[LargeFaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce) \(英文\)、[LargeFaceList - 列出臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6) \(英文\)。
 
@@ -198,7 +198,7 @@ LargeFaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相�
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
-LargePersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的單位。 LargePersonGroup 隨附 [LargePersonGroup 識別碼](#LargePersonGroup-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
+LargePersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的單位。 LargePersonGroup 隨附 [LargePersonGroup 識別碼](#LargePersonGroup-ID)以及其他屬性，例如名稱和使用者資料。
 
 如需詳細資訊，請參閱下列指南：[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) \(英文\)、[LargePersonGroup 人員 - 列出](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1) \(英文\)。
 
@@ -236,7 +236,7 @@ LargePersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace 是「臉部 API」中的資料結構。 PersistedFace 隨附 [PersistedFace 識別碼](#PersistedFace-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
+PersistedFace 是「臉部 API」中的資料結構。 PersistedFace 隨附 PersistedFace 識別碼以及其他屬性，例如名稱和使用者資料。
 
 如需詳細資訊，請參閱下列指南：[LargeFaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3) \(英文\)、[FaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) \(英文\)、[LargePersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) \(英文\)、[PersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) \(英文\)。
 
@@ -248,7 +248,7 @@ PersistedFace 是「臉部 API」中的資料結構。 PersistedFace 隨附 [Per
 
 #### <a name="person"></a>Person
 
-人員是「臉部 API」中所管理的一個資料結構。 人員隨附[人員識別碼](#Person-ID)以及其他屬性，例如[名稱](#Name)、[PersistedFace](#PersistedFace) 的集合和[使用者資料](#UserData-User-Data)。
+人員是「臉部 API」中所管理的一個資料結構。 人員隨附[人員識別碼](#Person-ID)以及其他屬性，例如名稱、[PersistedFace](#PersistedFace) 的集合和使用者資料。
 
 如需詳細資訊，請參閱下列指南：[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) \(英文\)。
 
@@ -260,7 +260,7 @@ PersistedFace 是「臉部 API」中的資料結構。 PersistedFace 隨附 [Per
 
 #### <a name="persongroup"></a>PersonGroup
 
-PersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的單位。 PersonGroup 隨附 [PersonGroup 識別碼](#PersonGroup-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
+PersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的單位。 PersonGroup 隨附 [PersonGroup 識別碼](#PersonGroup-ID)以及其他屬性，例如名稱和使用者資料。
 
 如需詳細資訊，請參閱下列指南：[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) \(英文\)、[PersonGroup - 列出](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) \(英文\)。
 
@@ -290,19 +290,25 @@ PersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的�
 
 ## <a name="s"></a>S
 
-#### <a name="smile-attribute"></a>微笑 (屬性)
-
-微笑是其中一個用來描述可用臉孔微笑表情的[屬性](#Attributes)。 微笑屬性在[偵測](#Detection-Face-Detection)結果中為選擇性，並可透過 returnFaceAttributes，以[偵測](#Detection-Face-Detection)要求加以控制。 如果 returnFaceAttributes 包含 'smile'，傳回的臉部就會包含微笑屬性。
-
-如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
-
 #### <a name="similar-face-searching"></a>相似臉部搜尋
 
 請參閱[尋找類似項目](#Find-Similar)。
 
+#### <a name="smile-attribute"></a>微笑 (屬性)
+
+微笑是其中一個用來描述可用臉孔微笑表情的[屬性](#Attributes)。 微笑屬性在偵測結果中為選擇性，並可透過 returnFaceAttributes，以偵測要求加以控制。 如果 returnFaceAttributes 包含 'smile'，傳回的臉部就會包含微笑屬性。
+
+如需更多詳細資料，請參閱[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)(英文\) 指南。
+
+#### <a name="snapshot"></a>快照
+
+快照集是某些臉部資料類型的暫時性遠端存放。 將資料從一個訂用帳戶複製到另一個訂用帳戶時，它的功能是類似剪貼簿。 首先，使用者「建立」來源訂用帳戶中資料的快照集，然後他們將它「套用」至目標訂用帳戶中的資料物件。 
+
+如需詳細資訊，請參閱[臉部移轉指南](./face-api-how-to-topics/how-to-migrate-face-data.md)，以及[快照集 - 取得](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/take)和[快照集 - 套用](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/apply)參考文件 (REST)。
+
 #### <a name="status-train"></a>狀態 (定型)
 
-狀態是一個用來描述 [LargeFaceList/LargePersonGroups/PersonGroups 定型](#Train)程序的字串，包括 'notstarted'、'running'、'succeeded'、'failed'。
+狀態是一個用來描述 LargeFaceList/LargePersonGroups/PersonGroups 定型程序的字串，包括 'notstarted'、'running'、'succeeded'、'failed'。
 
 如需更多詳細資料，請參考下列指南：[LargeFaceList - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1) \(英文\)、[LargePersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) \(英文\)、[PersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) \(英文\)。
 
@@ -330,7 +336,7 @@ PersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的�
 
 #### <a name="verification"></a>驗證
 
-此 API 可用來驗證兩張臉是否相同。 兩張臉在要求中都會由臉部識別碼代表。 驗證的結果會包含一個布林值欄位 ([isIdentical](#Is-Identical))，如果為 true，即表示相同，還包含一個數字欄位 ([confidence](#Confidence))，可指出信賴度等級。
+此 API 可用來驗證兩張臉是否相同。 兩張臉在要求中都會由臉部識別碼代表。 驗證的結果會包含一個布林值欄位 (isIdentical)，如果為 true，即表示相同，還包含一個數字欄位 ([confidence](#Confidence))，可指出信賴度等級。
 
 如需更多詳細資料，請參閱[臉部 - 驗證](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) \(英文\) 指南。
 

@@ -6,26 +6,26 @@ keywords: encoding;encoders;media;編碼;編碼器;媒體
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4d25e4cd94fec35f31594544b619aa054a35d58d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: c3e42ba9fe84ded8c60fc71f19de785945852116
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302335"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656663"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建議使用即時串流編碼器
 
-在媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) (通道) 代表處理即時串流內容的管線。 LiveEvent 會以兩種方式之一收到即時輸入串流：
+在媒體服務中，[即時事件](https://docs.microsoft.com/rest/api/media/liveevents) (通道) 代表處理即時串流內容的管線。 即時事件會以兩種方式之一收到即時輸入資料流：
 
-* 內部部署即時編碼器會將多位元速率 RTMP 或 Smooth Streaming (分散式 MP4) 串流傳送到未啟用執行媒體服務即時編碼的 LiveEvent。 內嵌的串流會通過 LiveEvent，而不需任何進一步處理。 此方法稱為 **傳遞**。 即時編碼器可傳送單一位元速率資料流至傳遞通道，但不建議使用此設定，因為它不允序針對用戶端使用彈性位元速率串流。
+* 內部部署即時編碼器會將多位元速率 RTMP 或 Smooth Streaming (分散式 MP4) 串流傳送到未啟用執行媒體服務即時編碼的即時事件。 內嵌的資料流會通過即時事件，而不需任何進一步處理。 此方法稱為 **傳遞**。 即時編碼器可傳送單一位元速率資料流至傳遞通道，但不建議使用此設定，因為它不允序針對用戶端使用彈性位元速率串流。
 
   > [!NOTE]
   > 使用傳遞方法是進行即時串流的最經濟實惠方式。
 
-* 內部部署即時編碼器會將單一位元速率串流傳送至 LiveEvent，可以使用下列格式之一，以媒體服務執行即時編碼：RTMP 或 Smooth Streaming (分散的 MP4)。 LiveEvent 接著會執行即時編碼，將內送單一位元速率資料流編碼成多位元速率 (自適性) 視訊資料流。
+* 內部部署即時編碼器會將單一位元速率串流傳送至即時編碼，可以使用下列格式之一，以媒體服務執行即時編碼：RTMP 或 Smooth Streaming (分散的 MP4)。 即時事件接著會執行即時編碼，將內送單一位元速率資料流編碼成多位元速率 (自適性) 視訊資料流。
 
 如需媒體服務即時編碼的詳細資訊，請參閱[使用媒體服務 v3 進行即時串流](live-streaming-overview.md)。
 
@@ -61,46 +61,69 @@ ms.locfileid: "54302335"
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live 和 Hero 4K (UHD/HEVC)
 
+## <a name="configuring-on-premises-live-encoder-settings"></a>設定內部部署即時編碼器設定
+
+如需您的即時事件類型可取得哪些設定的資訊，請參閱[即時事件類型比較](live-event-types-comparison.md)。
+
+### <a name="playback-requirements"></a>播放需求
+
+音訊和視訊資料流必須都存在才能播放內容。 不支援僅播放視訊資料流。
+
+### <a name="configuration-tips"></a>設定提示
+
+- 請盡可能使用實體的有線網際網路連線。
+- 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
+- 使用軟體型編碼器時，請關閉任何不必要的程式。
+- 編碼器開始推送之後，請勿變更其設定。 這樣對事件有負面影響，且可能造成事件不穩定。 
+- 請確保您有充足的時間來設定事件。 針對大型事件，建議您在一小時之前開始設定事件。
+
 ## <a name="how-to-become-an-on-premises-encoder-partner"></a>如何成為內部部署編碼器合作夥伴
 
 身為 Azure 媒體服務內部部署編碼器合作夥伴，媒體服務將會向企業客戶建議您的編碼器，以協助推廣您的產品。 若要成為內部部署編碼器合作夥伴，您必須向媒體服務驗證您內部部署編碼器的相容性。 若要這樣做，請完成下列驗證：
 
-### <a name="pass-through-liveevent-verification"></a>即時通行 LiveEvent 驗證
+### <a name="pass-through-live-event-verification"></a>傳遞即時事件驗證
 
-1. 建立或造訪您的 Azure 媒體服務帳戶。
-2. 建立並啟動**即時通行** LiveEvent。
-3. 設定您的編碼器以推送多位元速率即時資料流。
-4. 建立已發行的即時事件。
-5. 將您的即時編碼器執行約 10 分鐘的時間。
-6. 停止即時事件。
-7. 建立、啟動串流端點，使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在步驟 6 之前的即時工作階段期間透過預覽 URL 觀看和驗證)。
-8. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本。
-9. 於建立每個範例之後，重設 LiveEvent 狀態。
-10. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號/字幕/不同的編碼速度) 重複步驟 3 到步驟 9。
+1. 在您的媒體服務帳戶中，確認**串流端點**正在執行。 
+2. 建立並啟動**傳遞**即時事件。 <br/> 如需詳細資訊，請參閱[即時事件狀態和計費](live-event-states-billing.md)。
+3. 取得內嵌 URL 並設定您的內部部署編碼器使用該 URL，以將多位元速率即時資料流傳送到媒體服務。
+4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
+5. 建立新的 [資產] 物件。
+6. 建立 [即時輸出] 並使用您建立的資產名稱。
+7. 使用內建的**串流原則**類型來建立**串流定位器**。
+8. 列出**串流定位器**上的路徑，以取回要使用的 URL。
+9. 取得您想要串流的來源**串流端點**主機名稱。
+10. 結合步驟 8 的 URL 和步驟 9 的主機名稱，即可取得完整的 URL。
+11. 將您的即時編碼器執行約 10 分鐘的時間。
+12. 停止即時事件。 
+13. 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在即時工作階段期間透過預覽 URL 觀看和驗證)。
+14. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本。
+15. 於建立每個範例之後，重設即時事件狀態。
+16. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號/字幕/不同的編碼速度) 重複步驟 5 到步驟 15。
 
-### <a name="live-encoding-liveevent-verification"></a>即時編碼 LiveEvent 驗證
+### <a name="live-encoding-live-event-verification"></a>即時編碼即時事件驗證
 
-1. 建立或造訪您的 Azure 媒體服務帳戶。
-2. 建立及啟動**即時編碼** LiveEvent。
-3. 設定您的編碼器以推送單一位元速率即時資料流。
-4. 建立已發行的即時事件。
-5. 將您的即時編碼器執行約 10 分鐘的時間。
-6. 停止即時事件。
-7. 建立、啟動串流端點，使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在步驟 6 之前的即時工作階段期間透過預覽 URL 觀看和驗證)。
-8. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本。
-9. 於建立每個範例之後，重設 LiveEvent 狀態。
-10. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號/字幕/各種編碼速度) 重複步驟 3 到步驟 9。
+1. 在您的媒體服務帳戶中，確認**串流端點**正在執行。 
+2. 建立並啟動**即時編碼**即時事件。 <br/> 如需詳細資訊，請參閱[即時事件狀態和計費](live-event-states-billing.md)。
+3. 取得內嵌 URL 並設定您的編碼器將單一位元速率即時資料流推送到媒體服務。
+4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
+5. 建立新的 [資產] 物件。
+6. 建立 [即時輸出] 並使用您建立的資產名稱。
+7. 使用內建的**串流原則**類型來建立**串流定位器**。
+8. 列出**串流定位器**上的路徑，以取回要使用的 URL。
+9. 取得您想要串流的來源**串流端點**主機名稱。
+10. 結合步驟 8 的 URL 和步驟 9 的主機名稱，即可取得完整的 URL。
+11. 將您的即時編碼器執行約 10 分鐘的時間。
+12. 停止即時事件。
+13. 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在即時工作階段期間透過預覽 URL 觀看和驗證)。
+14. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本。
+15. 於建立每個範例之後，重設即時事件狀態。
+16. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號/字幕/不同的編碼速度) 重複步驟 5 到步驟 15。
 
 ### <a name="longevity-verification"></a>使用壽命驗證
 
-1. 建立或造訪您的 Azure 媒體服務帳戶。
-2. 建立並啟動**傳遞**通道。
-3. 設定您的編碼器以推送多位元速率即時資料流。
-4. 建立已發行的即時事件。
-5. 將您的即時編碼器執行一週或更久的時間。
-6. 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式不時觀看即時串流 (或已封存的資產)，以確保播放沒有可見問題。
-7. 停止即時事件。
-8. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本。
+除了步驟 11 外，其他步驟與[傳遞即時事件驗證](#pass-through-live-event-verification)中的相同。 <br/>讓您的即時編碼器執行一週或更久，而不是 10 分鐘。 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式不時觀看即時串流 (或已封存的資產)，以確保播放沒有可見問題。
+
+### <a name="email-your-recorded-settings"></a>用電子郵件傳送記錄的設定
 
 最後，以電子郵件將記錄的設定和即時封存參數傳送到 amsstreaming@microsoft.com 的 Azure 媒體服務，做為所有自我驗證檢查已通過的通知。 此外，包含任何後續動作的連絡資訊。 若有任何關於此程序的問題，請連絡 Azure 媒體服務團隊。
 

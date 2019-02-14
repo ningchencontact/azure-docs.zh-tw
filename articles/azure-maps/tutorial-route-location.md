@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a3807dc792c2e56c3e7c1b74f7d3e8f73ac0f4b0
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7fb382c6c57972484eff80c0d7355319a1f9178a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705084"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893546"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>使用 Azure 地圖服務的景點路線
 
@@ -202,7 +202,7 @@ ms.locfileid: "51705084"
         endPoint.geometry.coordinates[0];
     ```
 
-3. 若要取得路線，請將下列程式碼區塊新增至指令碼。 它會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 方法來查詢 Azure 地圖服務路線服務，然後使用 [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) 將回應剖析為 GeoJSON 格式。 接著，它會新增路線以回應資料來源，繼而自動呈現在地圖上。
+3. 若要取得路線，請將下列程式碼區塊新增至指令碼。 它會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) 方法來查詢 Azure 地圖服務路線服務，然後使用 [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) 將回應剖析為 GeoJSON 格式。 接著，它會新增路線以回應資料來源，繼而自動呈現在地圖上。
 
     ```JavaScript
     //Execute the car route query then add the route to the map once a response is received.

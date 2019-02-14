@@ -4,7 +4,7 @@ description: 本文件可協助您使用「Azure 資訊安全中心」功能來�
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 40e46ed99684877e829068c209ab318913b79e2a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 68bcd2b1916ccdf68eaa31ed251661a6b7e1bca0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633923"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106778"
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>在 Azure 資訊安全中心處理安全性事件
 對安全性警示進行分級和調查是很耗時的工作，即使是最熟練的安全性分析師也是如此，而且對許多人來說，即使要知道從何著手都相當困難。 透過使用[分析](security-center-detection-capabilities.md)來連結不同[安全性警示](security-center-managing-and-responding-alerts.md)之間的資訊，資訊安全中心可以提供關於攻擊活動和所有相關警示的單一檢視，讓您快速了解攻擊者所採取的動作以及受到影響的資源。

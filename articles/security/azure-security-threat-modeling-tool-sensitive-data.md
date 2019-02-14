@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002057"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892553"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全性架構：敏感性資料 | 風險降低 
 | 產品/服務 | 文章 |
@@ -349,7 +349,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、Xamarin  |
 | **屬性**              | N/A  |
-| **參考**              | [使用 Microsoft Intune 原則管理裝置上的設定和功能](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy)、[金鑰鏈貼身](https://components.xamarin.com/view/square.valet) |
+| **參考**              | [使用 Microsoft Intune 原則管理裝置上的設定和功能](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies)、[金鑰鏈貼身](https://components.xamarin.com/view/square.valet) |
 | **步驟** | <p>如果應用程式在行動裝置的檔案系統上寫入敏感性資訊，例如使用者的 PII (電子郵件、電話號碼、名字、姓氏、喜好設定等)，則應先將它加密再寫入本機檔案系統。 如果應用程式是企業應用程式，則請探究使用 Windows Intune 發佈應用程式的可能性。</p>|
 
 ### <a name="example"></a>範例

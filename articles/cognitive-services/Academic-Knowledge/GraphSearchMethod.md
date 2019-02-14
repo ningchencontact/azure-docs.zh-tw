@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 使用學術知識 API 中的圖表搜尋方法，根據特定圖表模式傳回一組學術實體。
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197631"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864463"
 ---
 # <a name="graph-search-method"></a>圖表搜尋方法
 
@@ -31,7 +31,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 ## <a name="request-parameters"></a>要求參數  
 Name     | 值 | 必要？  | 說明
 -----------|-----------|---------|--------
-**mode**       | 文字字串 | 是 | 想要使用的模型名稱。 值為 *json* 或 *lambda*。
+**mode**       | 文字字串 | yes | 想要使用的模型名稱。 值為 *json* 或 *lambda*。
 
 必須透過 HTTP POST 要求呼叫圖表搜尋方法。 POST 要求應包含內容類型標頭：**application/json**。
 

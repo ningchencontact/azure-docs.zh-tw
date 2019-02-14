@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e51803a8baffc904c8d68a8cf22d1ff584e065d1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e40d8e7c05213e99fc2ef65f5dc05f17ba0d185e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456199"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890530"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>擷取匯入/匯出作業的狀態資訊
-您可以呼叫 [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) 作業來擷取關於匯入和匯出作業的資訊。 傳回的資訊包括︰
+您可以呼叫 [Get Job](/rest/api/storageimportexport/jobs) 作業來擷取關於匯入和匯出作業的資訊。 傳回的資訊包括︰
 
 -   作業的目前狀態。
 

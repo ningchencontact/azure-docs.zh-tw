@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e7ec07c29f742202b17e94d96d88b0dfb223100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464342"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963840"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
@@ -34,6 +34,9 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
+
+> [!IMPORTANT]
+> 彈性集區沒有每一資料庫的費用。 對於集區存在的每個小時，您均需要支付最高的 eDTU 或 vCore，不論使用量多高，或使用集區的時間是否少於一小時。
 
 彈性集區可讓開發人員為由多個資料庫共用的集區購買資源，以容納個別資料庫無法預期的使用量期間。 您可以根據 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)或[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)，為集區設定資源。 集區的資源需求取決於其資料庫的彙總使用量。 集區可用的資源數量是由開發人員預算控制。 開發人員只需將資料庫新增至集區、設定資料庫的資源下限和上限 (不是 DTU 下限和上限就是虛擬核心下限或上限，這取決於您的資源模型選擇)，然後根據其預算設定集區的資源。 開發人員可以使用集區順暢地擴大其服務，以漸增的規模從精簡的新創公司到成熟的企業。
 

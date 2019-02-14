@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: 在本快速入門中，會將將語句傳遞至 LUIS 端點，並取回意圖和實體。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 93ae7e0cc6898648e8b49677070512b919890d29
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 043b31aaaad30e9f2663b0a53273874e8c84ff6d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218218"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884013"
 ---
 # <a name="quickstart-get-intent-using-python"></a>快速入門：使用 Python 取得意圖
 在本快速入門中，會將將語句傳遞至 LUIS 端點，並取回意圖和實體。

@@ -1,8 +1,21 @@
 ---
-標題：使用範例資料集 titleSuffix:Azure Machine Learning Studio 說明：Machine Learning Studio 中包含的範例模型所使用之資料集的描述。 您可以為您的實驗使用這些範例資料集。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:01/19/2018
+title: 使用範例資料集
+titleSuffix: Azure Machine Learning Studio
+description: Machine Learning Studio 中包含的範例模型所使用之資料集的描述。 您可以為您的實驗使用這些範例資料集。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/19/2018
+ms.openlocfilehash: de809ef1455e4c8c4c2284c2139e962f1829770b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510165"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中使用範例資料集
 [top]: #machine-learning-sample-datasets

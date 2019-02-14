@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 使用 CalcHistogram 方法計算一組論文實體的屬性值分佈。
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e922f1c02876f09dcf51b192bc08c4f4fccac9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192531"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879015"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram 方法
 
@@ -32,7 +32,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 Name  |值 | 必要？  |說明
 -----------|----------|--------|----------
-**expr**    |文字字串 | 是  |查詢運算式，用來指定用於計算長條圖的實體。
+**expr**    |文字字串 | yes  |查詢運算式，用來指定用於計算長條圖的實體。
 **model** |文字字串 | 否 |選取您想要查詢的模型名稱。  目前，此值會預設為 latest。
 **attributes** | 文字字串 | 否<br>預設值： | 以逗號分隔的清單，可指定回應中包含的屬性值。 屬性名稱區分大小寫。
 **count** |數字 | 否<br>預設值：10 |要傳回的結果數目。

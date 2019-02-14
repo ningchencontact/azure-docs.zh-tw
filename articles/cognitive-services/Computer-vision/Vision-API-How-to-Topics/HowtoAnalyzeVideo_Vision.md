@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 了解如何使用電腦視覺 API，針對從即時影片資料流中擷取的畫面，執行近乎即時的分析。
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: b27db1edc60a4eede297ac1ecd8afda671912685
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0a605a7a0c29bc78686c7c50abb582ebe8fd2269
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222395"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871075"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>如何即時分析影片
 本指南將示範如何在從即時視訊資料流擷取的畫面上，執行近乎即時的分析。 這類系統中的基本元件如下：

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd7254a9ec1ce5671aa5271ca26c678b20ef48cb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608625"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978063"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞
 
@@ -127,7 +127,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
     * 將 `key.converter=` 和 `value.converter=` 這兩行變更為下列值：
 
-        ```text
+        ```ini
         key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
@@ -189,7 +189,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
         請將 `myhubname` 取代為您的 IoT 中樞名稱。 回應會類似於下列文字：
 
-        ```text
+        ```json
         "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
         "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
         "Partitions": 2
@@ -239,14 +239,14 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
     在編輯器中找出下列項目，並加以變更：
 
-    * `Kafka.Topic=PLACEHOLDER`：將 `PLACEHOLDER` 取代為 `iotin`。 從 IoT 中樞接收到的訊息會放在 `iotin` 主題中。
+    * `Kafka.Topic=PLACEHOLDER`：將  取代為 `iotin`。 從 IoT 中樞接收到的訊息會放在 `iotin` 主題中。
     * `IotHub.EventHubCompatibleName=PLACEHOLDER`：將 `PLACEHOLDER` 取代為事件中樞相容名稱。
     * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`：將 `PLACEHOLDER` 取代為事件中樞相容端點。
     * `IotHub.Partitions=PLACEHOLDER`：將 `PLACEHOLDER` 取代為前述步驟中的分割區數目。
-    * `IotHub.AccessKeyName=PLACEHOLDER`：將 `PLACEHOLDER` 取代為 `service`。
+    * `IotHub.AccessKeyName=PLACEHOLDER`：將  取代為 `service`。
     * `IotHub.AccessKeyValue=PLACEHOLDER`：將 `PLACEHOLDER` 取代為 `service` 原則的主要金鑰。
     * `IotHub.StartType=PLACEHOLDER`：將 `PLACEHOLDER` 取代為 UTC 日期。 此日期是連接器開始檢查訊息的時間。 日期格式為 `yyyy-mm-ddThh:mm:ssZ`。
-    * `BatchSize=100`：將 `100` 取代為 `5`。 此變更會使連接器在 IoT 中樞內有五個新訊息之後，將訊息讀取到 Kafka 中。
+    * `BatchSize=100`：將  取代為 `5`。 此變更會使連接器在 IoT 中樞內有五個新訊息之後，將訊息讀取到 Kafka 中。
 
     如需範例組態，請參閱 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)。
 
@@ -272,7 +272,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
     在編輯器中找出下列項目，並加以變更：
 
-    * `topics=PLACEHOLDER`：將 `PLACEHOLDER` 取代為 `iotout`。 寫入 `iotout` 主題的訊息會轉送至 IoT 中樞。
+    * `topics=PLACEHOLDER`：將  取代為 `iotout`。 寫入 `iotout` 主題的訊息會轉送至 IoT 中樞。
     * `IotHub.ConnectionString=PLACEHOLDER`：將 `PLACEHOLDER` 取代為 `service` 原則的連接字串。
 
     如需範例組態，請參閱 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
@@ -349,7 +349,7 @@ t.runtime.WorkerSinkTask:262)
     > [!IMPORTANT]  
     > 您必須將 `"deviceId"` 項目的值設定為您的裝置識別碼。 在下列範例中，裝置會命名為 `fakepi`：
 
-    ```text
+    ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
     ```
 

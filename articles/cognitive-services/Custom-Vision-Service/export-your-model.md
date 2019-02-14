@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 了解如何匯出您的模型，用以建立行動應用程式。
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: b0078e27e4d06b814a62ed0f04a4f31230ab9838
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 080a4691869c4deaf86f0e27961e80b60d439f05
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209379"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857238"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>匯出您的模型以用於行動裝置
 

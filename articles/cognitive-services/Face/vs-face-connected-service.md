@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 建立使用認知服務臉部 API 的簡單 Windows 應用程式，以偵測影像中的臉部特徵。
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: 00b1d3ed636bb1690e9d5026c558ca989de95375
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a8c3bc7a3a659809f1602ffae303f9bd26f2c35a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209429"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857778"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>使用 Visual Studio 中的連線服務連線至認知服務臉部 API
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cbb15ff084c3639be801458d071f3966873c2509
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300263"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815644"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 ## <a name="overview"></a>概觀
@@ -1191,7 +1191,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 如果您在容錯移轉現有的主要項目之前，使移轉的次要項目上線，並新增適用於新雲端服務的新 IP 位址資源，就應該在叢集容錯移轉管理員內執行下列步驟：
 
-若要新增 IP 位址，請參閱 [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的步驟 14。
+若要新增 IP 位址，請參閱「附錄」中的步驟 14。
 
 1. 針對目前的「IP 位址」資源，將 [可能的擁有者] 變更為「現有的主要 SQL Server」，在範例中為 ‘dansqlams4’：
 

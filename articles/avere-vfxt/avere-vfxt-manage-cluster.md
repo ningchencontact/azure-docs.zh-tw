@@ -4,20 +4,20 @@ description: 如何管理 Avere 叢集 - 新增或移除節點、重新啟動、
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189604"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745549"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>管理 Avere vFXT 叢集
 
 建立叢集之後，您可能需要新增叢集節點或停止或重新啟動叢集。 此外，您的專案完成時，您需要了解如何停止並永久移除叢集。 
 
-根據叢集管理工作，您可能需要使用 Avere 控制台、vfxt.py 叢集建立指令碼，或 Azure 入口網站執行這個動作。 
+根據叢集管理工作，您可能需要使用 Avere 控制台、vfxt.py 叢集命令列建立指令碼，或 Azure 入口網站執行這個動作。 
 
 下表提供可用於每個工作之工具的概觀。 
 
@@ -71,7 +71,11 @@ Avere 控制台會設定資料完整性的優先順序，因此它會嘗試在�
 
 當叢集正在關閉時，它會先將訊息張貼至 [儀表板] 索引標籤。 幾分鐘之後，Avere 控制台工作階段將會停止回應，這表示叢集已經關閉。
 
-## <a name="manage-the-cluster-with-vfxtpy"></a>使用 vfxt.py 管理叢集 
+## <a name="manage-the-cluster-with-vfxtpy"></a>使用 vfxt.py 管理叢集
+
+vfxt.py 是用來建立和管理叢集的命令列工具。 
+
+vfxt.py 已預先安裝在叢集控制器 VM 上。 如果您想要將其安裝在另一個系統上，請參閱 <https://github.com/Azure/AvereSDK> 上的文件。
 
 vfxt.py 指令碼可以用於以下叢集管理工作：
 
@@ -80,8 +84,6 @@ vfxt.py 指令碼可以用於以下叢集管理工作：
 * 終結叢集
 
 如同 Avere 控制台，vfxt.py 作業會嘗試確認已變更的資料永久儲存在後端儲存體，然後再關閉或終結叢集或節點。 如此可讓它成為比 Avere 入口網站更安全的選項。
-
-vfxt.py 已預先安裝在叢集控制器 VM 上。 <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 完整的 vfxt.py 使用指南可在 GitHub 上取得：[使用 vfxt.py 的雲端叢集管理](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
@@ -200,7 +202,7 @@ Azure 入口網站可以用於以下叢集管理工作：
 
 ### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>從 Azure 入口網站刪除叢集的資源群組
 
-如果您專為叢集建立資源群組，可以終結資源群組來終結叢集的所有相關資源。 
+如果您專為放入叢集而建立資源群組，可以終結資源群組來終結叢集的所有相關資源。 
 
 > [!Caution] 
 > 只有在您確定群組中沒有任何值時，才能終結資源群組。 例如，請確定您已經從資源群組內的任何儲存體容器中，移動所需的任何資料。  

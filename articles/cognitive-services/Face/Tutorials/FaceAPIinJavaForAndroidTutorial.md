@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在此教學課程中，您會建立簡單的 Android 應用程式，以使用臉部 API 來偵測並框出影像中的人臉。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 2c28aa58e64253d5a25dbdfc8f1473e0e462af57
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 18e7323f16970b5ab365688b2af896b2c90b9099
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220003"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858700"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教學課程：建立 Android 應用程式來偵測並框出影像中的臉部
 

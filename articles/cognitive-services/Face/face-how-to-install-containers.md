@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: 本逐步解說教學課程的內容包含如何下載、安裝及執行適用於臉部的容器。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/11/2019
 ms.author: diberry
-ms.openlocfilehash: d738f089ff7af59c340a2ea9f67918c1298f9e47
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769788"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099083"
 ---
 # <a name="install-and-run-containers"></a>安裝及執行容器
 
@@ -68,8 +68,8 @@ ms.locfileid: "55769788"
 
 ### <a name="docker-pull-for-the-face-container"></a>臉部容器的 docker pull
 
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>如何使用容器
@@ -132,18 +132,7 @@ ApiKey={BILLING_KEY}
 
 臉部 API 容器會使用您 Azure 帳戶上的_臉部 API_ 資源傳送計費資訊至 Azure。 
 
-認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料傳送至 Microsoft。 
-
-`docker run` 命令會使用下列引數進行計費：
-
-| 選項 | 說明 |
-|--------|-------------|
-| `ApiKey` | 用來追蹤帳單資訊的_臉部 API_ 資源的 API 金鑰。 |
-| `Billing` | 用來追蹤帳單資訊的_臉部 API_ 資源的端點。|
-| `Eula` | 表示您已接受容器的授權。<br/>此選項的值必須設定為 `accept`。 |
-
-> [!IMPORTANT]
-> 這三個選項都必須指定為有效的值，否則將無法啟動容器。
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 如需這些選項的詳細資訊，請參閱[設定容器](./face-resource-container-config.md)。
 

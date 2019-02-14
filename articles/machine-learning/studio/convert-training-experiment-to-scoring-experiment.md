@@ -1,8 +1,20 @@
 ---
-標題：準備模型進行部署 titleSuffix:Azure Machine Learning Studio description:如何將 Machine Learning Studio 訓練實驗轉換為預測實驗，將其準備妥當進行部署，然後當做 Web 服務部署。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.date:2017/03/28
+title: 準備模型進行部署
+titleSuffix: Azure Machine Learning Studio
+description: 如何將 Machine Learning Studio 訓練實驗轉換為預測實驗，將其準備妥當進行部署，然後當做 Web 服務部署。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.date: 03/28/2017
+ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496069"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>如何準備您的模型以在 Azure Machine Learning Studio 中部署
 

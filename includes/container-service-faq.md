@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615237"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56212961"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(已被取代) Container Service 常見問題集
 
@@ -85,7 +85,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>如何在部署之後升級 Orchestrator？
 
-目前，Azure Container Service 並未提供工具，可以升級您部署在叢集上的 Orchestrator 版本。 如果 Container Service 支援較新版本，您可以部署新的叢集。 另一個選項是使用 Orchestrator 專屬工具，在適用的地方就地升級叢集。 例如，請參閱 [DC/OS 升級](https://dcos.io/docs/1.8/administration/upgrading/)。
+目前，Azure Container Service 並未提供工具，可以升級您部署在叢集上的 Orchestrator 版本。 如果 Container Service 支援較新版本，您可以部署新的叢集。 另一個選項是使用 Orchestrator 專屬工具，在適用的地方就地升級叢集。 例如，請參閱 [DC/OS 升級](http://docs.mesosphere.com/1.12/installing/production/upgrading)。
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>哪裡可以找到叢集的 SSH 連接字串？
 

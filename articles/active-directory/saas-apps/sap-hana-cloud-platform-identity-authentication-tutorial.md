@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b5b664581a1f3da367f74318cfb6bf5564e5b39
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d8e14d54ca30c0e46d3bef0202784a35493663ef
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472876"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>教學課程：Azure Active Directory 與 SAP Cloud Platform Identity Authentication 整合
 
 在本教學課程中，您會了解如何整合 SAP Cloud Platform Identity Authentication 與 Azure Active Directory (Azure AD)。
-將 SAP Cloud Platform Identity Authentication 與 Azure AD 整合可提供下列優點：
+整合 SAP Cloud Platform Identity Authentication 與 Azure AD 提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 SAP Cloud Platform Identity Authentication 的人員。
 * 您可以讓使用者使用其 Azure AD 帳戶自動登入 SAP Cloud Platform Identity Authentication (單一登入)。
@@ -139,7 +140,7 @@ SAP Cloud Platform Identity Authentication 目前作為 SAP 應用程式的領�
     > [!NOTE]
     > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請使用您特有的商務應用程式登入 URL。 如有任何疑問，請連絡 [SAP Cloud Platform Identity Authentication 客戶支援小組](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)。
 
-6. SAP Cloud Platform Identity Authentication 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+6. SAP Cloud Platform Identity Authentication 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
     ![映像](common/edit-attribute.png)
 
@@ -259,7 +260,7 @@ SAP Cloud Platform Identity Authentication 支援 [識別身分同盟] 選項。
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [SAP Cloud Platform Identity Authentication] 圖格時，應該會自動登入您已設定 SSO 的 SAP Cloud Platform Identity Authentication。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 [SAP Cloud Platform Identity Authentication] 圖格時，應該會自動登入您已設定 SSO 的 SAP Cloud Platform Identity Authentication。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

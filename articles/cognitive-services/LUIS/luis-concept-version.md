@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 中的版本類似於傳統程式設計中的版本。 每個版本都是應用程式階段的快照集。 在變更應用程式之前，請建立新版本。 很容易就能回到確切的應用程式，然後嘗試讓應用程式的意圖和語句回到先前的狀態。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: e71fc5bb0bd8ce54b471829df20336a9dea0ccda
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b363f68b625a6f0987e58609477f51c7098423bf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217079"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874074"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>了解如何及何時使用 LUIS 版本
 
