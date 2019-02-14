@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，使用簡單實體，從語句中擷取雇用職位名稱的機器學習資料。 若要增加擷取精確度，請新增簡單實體特有的字詞片語清單。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 53e975719b911a27667afc8565bd86261f927068
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820975"
+ms.locfileid: "55867234"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教學課程：使用簡單實體和片語清單來擷取名稱
 

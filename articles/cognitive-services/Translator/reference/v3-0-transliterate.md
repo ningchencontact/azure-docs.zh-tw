@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 使用翻譯文字 API 轉換方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: bafe2d92a6c0176f1bcd9e56b067b5bf90a36007
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a0fcd7159be075f0e311e9a242d389dca62f4a37
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693950"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859603"
 ---
 # <a name="translator-text-api-30-transliterate"></a>翻譯工具文字 API 3.0：Transliterate
 

@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3f37b996caa60a54c18388cb1f65873bf0aa4ed9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259779"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877689"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>比較 Azure Data Lake Storage Gen1 和 Azure Blob 儲存體
-  >[!NOTE] 
-    >[Azure Data Lake Storage Gen2 預覽版](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)已在最近推出。 Data Lake Storage Gen2 預覽版是融合我們現有的兩項儲存體服務 (Azure Blob 儲存體和 [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index)) 功能的結果。 Azure Data Lake Storage Gen1 的功能 (例如檔案系統語意、檔案層級安全性和級別) 結合了 [Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)的低成本、分層式儲存體、高可用性/災害復原功能。 <br> 我們強烈建議您開始使用 Data Lake Storage Gen2 預覽版來作為建置企業 Data Lake 的基礎，而且您可同時具有 Azure Blob 儲存體和 Azure Data Lake Storage Gen1 的優勢。
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
 本文章中的表格摘要說明 Azure Data Lake Storage Gen1 與 Azure Blob 儲存體之間的差異，以及巨量資料處理的一些重要層面。 Azure Blob 儲存體是一般用途的可調整物件存放區，針對各種不同的儲存體案例所設計。 Azure Data Lake Storage Gen1 是超大規模儲存機制，已針對巨量資料分析的工作負載最佳化。
-
-
-
-
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob 儲存體 |
 | --- | --- | --- |
@@ -37,7 +33,7 @@ ms.locfileid: "54259779"
 | Structure |階層式檔案系統 |具有扁平命名空間的物件存放區 |
 | API |透過 HTTPS 的 REST API |透過 HTTP/HTTPS 的 REST API |
 | 伺服器端 API |[WebHDFS 相容的 REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob 儲存體 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Hadoop 檔案系統用戶端 |是 |是 |
+| Hadoop 檔案系統用戶端 |yes |yes |
 | 資料作業 - 驗證 |採用 [Azure Active Directory 身分識別](../active-directory/develop/authentication-scenarios.md) |採用共用密碼 - [帳戶存取金鑰](../storage/common/storage-account-manage.md#access-keys)和[共用存取簽章金鑰](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。 |
 | 資料作業 - 驗證通訊協定 |OAuth 2.0。 呼叫必須包含由 Azure Active Directory 發行的有效 JWT (JSON Web 權杖) |雜湊式訊息驗證碼 (HMAC)。 呼叫必須包含透過 HTTP 要求之一部分的 Base64 編碼 SHA-256 雜湊。 |
 | 資料作業 - 授權 |POSIX 存取控制清單 (ACL)  ACL 採用 Azure Active Directory 身分識別，可設為檔案或資料夾層級。 |針對帳戶層級授權 – 使用[帳戶存取金鑰](../storage/common/storage-account-manage.md#access-keys)<br>針對帳戶、容器或 Blob 授權 - 使用[共用存取簽章金鑰](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |

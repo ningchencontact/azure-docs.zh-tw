@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 本文件說明如何在 Project Acoustics 工作流程的所有三個階段中表達您的設計意圖。
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb5f309a96feac2caea85fbe81b7216eecfc4b79
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470480"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873932"
 ---
 # <a name="design-process-overview"></a>設計流程概觀
 您可以在 Project Acoustics 工作流程的所有三個階段中表達您的設計意圖：製作前場景設定、聲音來源位置，以及製作後設計。 此流程在放置殘響音量方面所需的標記較少，同時又保留了設計人員對場景音效的控制。

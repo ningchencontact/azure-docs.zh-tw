@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: 意圖代表使用者想要執行的工作或動作。 它是使用者語句中表達的目的或目標。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ce95e5c9f5a71a23f4da6273a01c8f89fe687c1a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ae1dd16e3296c11d6bce6ea623f590deaee8f65d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215311"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871348"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>在您 LUIS 應用程式中關於意圖的概念
 

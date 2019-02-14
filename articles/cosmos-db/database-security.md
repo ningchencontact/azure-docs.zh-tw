@@ -1,17 +1,17 @@
 ---
 title: 資料庫安全性 - Azure Cosmos DB
 description: 了解 Azure Cosmos DB 如何為您的資料提供資料庫保護和資料安全性。
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: rafats
-ms.openlocfilehash: a4fadf64826dff43f044df00ff610f81c964b582
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: rimman
+ms.openlocfilehash: 3d05da5f62a076dc168bef029cd0babc3946ee6b
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822794"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243139"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 的安全性 - 概觀
 

@@ -2,21 +2,22 @@
 title: 在 Azure Active Directory 中將使用者或群組指派給企業應用程式 | Microsoft Docs
 description: 如何在 Azure Active Directory 中選取企業應用程式以將使用者或群組指派給它
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: luleon
-ms.openlocfilehash: 6596a814841619d7b42599d381d79c98f672ec85
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0dd3bd1f3f9f175ba7bf841b1fce45bb7938c02b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196475"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209501"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中將使用者或群組指派給企業應用程式
 若要將使用者或群組指派給企業應用程式，您必須具備適當的權限，才能管理企業應用程式，而且必須是目錄的全域管理員。

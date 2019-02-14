@@ -6,17 +6,18 @@ keywords: clip;subclip;encoding;media;剪輯;子剪輯;編碼;媒體
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 585cb88ca853954b23369c8e097583e7e8656355
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821442"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002134"
 ---
-# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>從 Azure Media Clipper 提交剪輯作業
+# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>從 Azure Media Clipper 提交剪輯作業 
+
 Azure Media Clipper 需要實作 **submitSubclipCallback** 方法，以處理剪輯作業提交。 此函式是用於將 Clipper 輸出的 HTTP POST 實作至 Web 服務。 此 Web 服務是您可以提交編碼作業的位置。 Clipper 的輸出是為轉譯作業的媒體編碼器標準編碼預設，或是動態資訊清單篩選條件呼叫的 REST API 裝載。 需要這個傳遞模型，因為媒體服務帳戶認證在用戶端瀏覽器中不安全。
 
 下列順序圖表說明瀏覽器用戶端、您的 Web 服務與 Azure 媒體服務之間的工作流程：![Azure Media Clipper 順序圖表](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)

@@ -13,12 +13,13 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 198fb3376d44123d39a0b3ca2fb1edbd070f1f09
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 797ac714d3205a271fe6590a3a320e1b9e2a073e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510981"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194728"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自訂網域名稱
 
@@ -66,7 +67,7 @@ ms.locfileid: "55510981"
 
 ### <a name="forcedelete-option"></a>ForceDelete 選項
 
-您可以 **ForceDelete** [Azure AD 管理中心](https://aad.portal.azure.com)中的網域名稱，或使用 [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)。 這些選項會使用非同步作業，並更新所有從自訂網域名稱 (例如「user@contoso.com」) 到初始預設網域名稱 (例如「user@contoso.onmicrosoft.com」) 的參考。 
+您可以 **ForceDelete** [Azure AD 管理中心](https://aad.portal.azure.com)中的網域名稱，或使用 [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)。 這些選項會使用非同步作業，並更新所有從自訂網域名稱 (例如「user@contoso.com」) 到初始預設網域名稱 (例如「user@contoso.onmicrosoft.com」) 的參考。 
 
 若要在 Azure 入口網站呼叫 **ForceDelete**，您必須確保網域名稱擁有低於 1000 個參考，且必須更新或移除 [Exchange 管理中心](https://outlook.office365.com/ecp/)的所有以 Exchange 作為佈建服務的參考。 這包括 Exchange 已啟用郵件的安全性群組和分散式清單；如需詳細資訊，請參閱[移除已啟用郵件的安全性群組](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)。 此外，如果下列任一項為真，**ForceDelete** 作業就會失敗：
 
@@ -112,4 +113,4 @@ ms.locfileid: "55510981"
 
 * [新增自訂網域名稱](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [在 Azure AD 中的自訂網域名稱上移除 Exchange 管理中心的 Exchange 已啟用郵件安全性群組](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [使用 Microsoft Graph API 以強制刪除自訂網域名稱](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)
+* [使用 Microsoft Graph API 以強制刪除自訂網域名稱](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)

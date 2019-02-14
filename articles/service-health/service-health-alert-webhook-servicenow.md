@@ -1,23 +1,17 @@
 ---
 title: 使用 ServiceNow 設定 Azure 服務健康情況警示 | Microsoft Docs
 description: 取得關於 ServiceNow 執行個體服務健康情況事件的個人化通知。
-author: shawntabrizi
-services: service-health
-documentationcenter: service-health
-ms.assetid: ''
-ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: stephbaron
+ms.author: stbaron
 ms.topic: article
+ms.service: service-health
 ms.date: 11/14/2017
-ms.author: shtabriz
-ms.openlocfilehash: c1de3a914e3505e46ab0a4eeae4f3b2c8fe84790
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158358"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858853"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>使用 ServiceNow 設定服務健康情況警示
 

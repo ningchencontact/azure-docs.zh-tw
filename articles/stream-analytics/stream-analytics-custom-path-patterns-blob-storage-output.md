@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765190"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982670"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 串流分析自訂 Blob 輸出資料分割
 
@@ -67,8 +67,6 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 ## <a name="custom-datetime-path-patterns"></a>自訂日期時間路徑模式
 
 自訂日期時間路徑模式可讓您指定與 Hive 串流慣例一致的輸出格式，讓 Azure 串流分析得以將資料傳送至 Azure HDInsight 和 Azure Databricks 以進行下游處理。 自訂日期時間路徑模式可以使用您 Blob 輸出 [路徑前置詞] 欄位中的 `datetime` 關鍵字，輕易地實作。 例如： `{datetime:yyyy}`。
-
-針對 [Azure 入口網站](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true)使用此連結切換功能旗標，該旗標會啟用 Blob 儲存體輸出預覽的自訂日期時間路徑模式。 此功能即將在主要入口網站中啟用。
 
 ### <a name="supported-tokens"></a>支援的權杖
 

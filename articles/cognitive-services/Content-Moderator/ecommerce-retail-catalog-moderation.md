@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 設定應用程式分析產品影像，並使用指定的標籤加以分類 (使用 Azure 電腦視覺和自訂視覺)，然後標記令人反感的影像以供進一步地審核 (使用 Azure Content Moderator)。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 833aa9caed3d1fd5d39a0c15e9fc03ad32091834
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 41437933f715af092dea563b0b1be4794c71925c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218898"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863154"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>教學課程：使用 Azure Content Moderator 仲裁電子商務產品影像
 

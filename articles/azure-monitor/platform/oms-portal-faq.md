@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883393"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990423"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Log Analytics 使用者從 OMS 入口網站轉換到 Azure 入口網站的常見問題
 Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網站) 來管理其設定和分析收集到的資料。  這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。
@@ -105,7 +105,7 @@ OMS 入口網站之 [設定] 區段中的許多設定，都位於 Azure 入口�
 在工作區的 [解決方案] 功能表中管理解決方案。 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>如何安裝及移除管理解決方案？
-在 OMS 入口網站中，您可從 [方案庫] 安裝管理解決方案，並從 [設定] 移除這些解決方案。 在 Azure 入口網站中，請從 Azure Marketplace [ 安裝管理解決方案](../insights/solutions.md#install-a-management-solution)， 並從已安裝的解決方案清單中[移除解決方案](../insights/solutions.md#remove-a-management-solution)。
+在 OMS 入口網站中，您可從 [方案庫] 安裝管理解決方案，並從 [設定] 移除這些解決方案。 在 Azure 入口網站中，請從 Azure Marketplace [ 安裝管理解決方案](../insights/solutions.md#install-a-monitoring-solution)， 並從已安裝的解決方案清單中[移除解決方案](../insights/solutions.md#remove-a-monitoring-solution)。
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>如何建立及管理警示？
 根據 Log Analytics 查詢的警示規則現在是以[統一的警示體驗](../../azure-monitor/platform/alerts-metric.md)進行管理。 如需在 Azure 入口網站中設定和使用警示的詳細資料，請參閱[如何將警示從 Log Analytics 延伸到 Azure 警示](../../azure-monitor/platform/alerts-extend-tool.md)。

@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 取得 Azure 認知服務中電腦視覺 API 的 86 個分類法類別。
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: reference
 ms.date: 12/19/2016
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 06556372b89a3a3bf8969ed838934e25197fd216
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: efdcf68799dcd0d3fd83365c36ca00500c3fbbc6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196679"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865180"
 ---
 # <a name="86-categories-taxonomy"></a>86 個類別的分類法
 

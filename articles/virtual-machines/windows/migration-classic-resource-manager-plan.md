@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 540abeed3587959af5ca229f59343774b824547b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566232"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982891"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。
@@ -131,23 +131,25 @@ ms.locfileid: "55566232"
     - 路由表
 
     您可以透過最新版本的 Azure PowerShell，使用下列命令來檢查您目前的 Azure Resource Manager 配額。
+    
+    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
     **計算** *(核心，可用性設定組)*
 
     ```powershell
-    Get-AzureRmVMUsage -Location <azure-region>
+    Get-AzVMUsage -Location <azure-region>
     ```
 
     **網路** *(虛擬網路、靜態公用 IP、公用 IP、網路安全性群組、網路介面、負載平衡器、路由表)*
 
     ```powershell
-    Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
+    Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
     **儲存體** *(儲存體帳戶)*
 
     ```powershell
-    Get-AzureRmStorageUsage
+    Get-AzStorageUsage
     ```
 
 - **Azure Resource Manager API 節流限制** - 如果您有一個夠大的環境 (例如， VNET 中 > 400 個 VM)，您在 Azure Resource Manager 中可能會達到寫入時預設的 API 節流限制 (目前為 `1200 writes/hour`)。 開始之前移轉，您應該提出支援票證來為您的訂用帳戶提高此限制。

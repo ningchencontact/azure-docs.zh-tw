@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bbe26b19f9467034a4612ac1b40124122bee7f0c
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291711"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004537"
 ---
 # <a name="find-exact-moments-within-videos"></a>尋找影片中的確切時間
 
@@ -26,7 +26,6 @@ ms.locfileid: "52291711"
     在下列範例中，我們會搜尋所有由 Channel9 與 Scott Hanselman 建立的影片。
 
     ![Search](./media/video-indexer-search/video-indexer-search01.png)
-    
 3. 搜尋影片的深入解析摘要。
 
     接著，藉由在影片上按一下 [播放]，您就可以在影片中進行搜尋。 然後，您可以選取 [搜尋] 索引標籤並在影片中進行搜尋。例如，我們已搜尋所有使用「身分識別保護」文字的位置。 
@@ -34,8 +33,6 @@ ms.locfileid: "52291711"
     ![Search](./media/video-indexer-search/video-indexer-search02.png)
 
     如果您按一下其中一個結果，播放程式就會將您帶往影片中的該時間點。 您可以在應用程式中實現播放程式/深入解析檢視和同步處理。 如需詳細資訊，請參閱[將索引器介面控件內嵌到應用程式](video-indexer-embed-widgets.md)。 
-
-    
 4. 搜尋影片的明細。
 
     如果您想要根據所找到的影片建立自己的明細，請按下 [編輯] 按鈕。 此頁面會顯示影片的完整明細。 您可以在明細中搜尋，讓其只顯示您感興趣的時段。 如需詳細資訊，請參閱[檢視和編輯影片索引器的深入解析](video-indexer-view-edit.md)。

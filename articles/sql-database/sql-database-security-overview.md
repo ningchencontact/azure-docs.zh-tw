@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728397"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235983"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -98,7 +98,7 @@ SQL Database 稽核會將資料庫事件記錄到客戶自有 Azure 儲存體帳
 
 ### <a name="transport-layer-security-tls-encryption-in-transit"></a>傳輸層安全性 TLS (傳輸中加密)
 
-SQL Database 可藉由使用[傳輸層安全性](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server)將移動中的資料加密來保護客戶資料。
+SQL Database 可藉由使用[傳輸層安全性](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)將移動中的資料加密來保護客戶資料。
 
 > [!IMPORTANT]
 > Azure SQL Database 一律會針對所有連線強制執行加密 (SSL/TLS)，以確保所有資料在資料庫與用戶端之間「傳輸中」都會加密。 不論連接字串中 **Encrypt** 或 **TrustServerCertificate** 的設定為何，都將發生此情況。

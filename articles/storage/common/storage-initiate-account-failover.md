@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1290a990515cd68f46d137c276e8bb36834ff482
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d1fb921f72af58eacde5f1ef35ee3aec80f767c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513263"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994671"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>起始儲存體帳戶容錯移轉 (預覽)
 
@@ -82,7 +82,7 @@ ms.locfileid: "55513263"
 1. 安裝支援 Azure AD 的 Azure 儲存體預覽模組：
    
     ```powershell
-    Install-Module -Name AzureRM.Storage -AllowPrerelease
+    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
 1. 關閉並重新開啟 PowerShell 視窗。
  
@@ -90,7 +90,7 @@ ms.locfileid: "55513263"
 若要從 PowerShell 起始帳戶容錯移轉，請執行下列命令：
 
 ```powershell
-Invoke-AzureRmStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
+Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
 ## <a name="azure-cli"></a>Azure CLI

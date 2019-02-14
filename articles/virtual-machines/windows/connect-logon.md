@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296880"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978925"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>如何連接和登入執行 Windows 的 Azure 虛擬機器
 您會使用 Azure 入口網站中的 [連線] 按鈕，從 Windows 桌面啟動遠端桌面 (RDP) 工作階段。 首先您必須連線到虛擬機器，然後登入。
@@ -56,18 +56,18 @@ ms.locfileid: "55296880"
 
 ## <a name="connect-to-the-virtual-machine-using-powershell"></a>使用 PowerShell 連線到虛擬機器
 
-如果您使用 PowerShell 並已安裝 AzureRM 模組，則也可以使用 `Get-AzureRmRemoteDesktopFile` Cmdlet 來連線，如下所示。
+如果您使用 PowerShell 並已安裝 AzureRM 模組，則也可以使用 `Get-AzRemoteDesktopFile` Cmdlet 來連線，如下所示。
 
 此範例會立即啟動 RDP 連線，帶您進行類似上面的提示。
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
 ```
 
 您也可以儲存 RDP 檔案供日後使用。
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
 ```
 
 ## <a name="next-steps"></a>後續步驟

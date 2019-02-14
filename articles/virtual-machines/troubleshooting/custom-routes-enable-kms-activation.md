@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 71330e72ef27b62472622472b37e2ec8c78211d7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b121996530ea0618fc757f1ae12dfafde10ed7bb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075561"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979372"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>強制通道案例中的 Windows 啟用失敗
 
@@ -51,21 +51,23 @@ Azure Global 雲端其 KMS 伺服器的 IP 位址是 23.102.135.246。 其 DNS �
 
 ### <a name="for-resource-manager-vms"></a>針對 Resource Manager VM
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 1. 開啟 Azure PowerShell，然後[登入您的 Azure 訂用帳戶](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 2. 執行下列命令：
 
     ```powershell
     # First, get the virtual network that hosts the VMs that have activation problems. In this case, we get virtual network ArmVNet-DM in Resource Group ArmVNet-DM:
 
-    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "ArmVNet-DM" -Name "ArmVNet-DM"
+    $vnet = Get-AzVirtualNetwork -ResourceGroupName "ArmVNet-DM" -Name "ArmVNet-DM"
 
     # Next, create a route table and specify that traffic bound to the KMS IP (23.102.135.246) will go directly out:
 
-    $RouteTable = New-AzureRmRouteTable -Name "ArmVNet-DM-KmsDirectRoute" -ResourceGroupName "ArmVNet-DM" -Location "centralus"
+    $RouteTable = New-AzRouteTable -Name "ArmVNet-DM-KmsDirectRoute" -ResourceGroupName "ArmVNet-DM" -Location "centralus"
 
-    Add-AzureRmRouteConfig -Name "DirectRouteToKMS" -AddressPrefix 23.102.135.246/32 -NextHopType Internet -RouteTable $RouteTable
+    Add-AzRouteConfig -Name "DirectRouteToKMS" -AddressPrefix 23.102.135.246/32 -NextHopType Internet -RouteTable $RouteTable
 
-    Set-AzureRmRouteTable -RouteTable $RouteTable
+    Set-AzRouteTable -RouteTable $RouteTable
     ```
 3. 移至有啟用問題的 VM。 使用 [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) 測試是否能與 KMS 伺服器連線：
 

@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 分析器 REST API 提供語言分析 API 目前支援的分析器清單。
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8bf13bffe763b88e95da94f885e30d271e36da42
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9338e87644554ac8b3121c5341cea6f2bc512a97
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221676"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878182"
 ---
 # <a name="analyzers-method"></a>分析器方法
 

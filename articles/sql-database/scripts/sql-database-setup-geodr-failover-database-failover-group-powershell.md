@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例-異地複寫容錯移轉群組 - 獨立 Azure SQL Database | Microsoft Docs
+title: PowerShell 範例-異地複寫容錯移轉群組-單一 Azure SQL Database | Microsoft Docs
 description: 為 Azure SQL Database 中的單一資料庫設定作用中異地複寫容錯移轉群組並且進行容錯移轉的 Azure PowerShell 範例指令碼。
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 31027e266f29ae0308ed70abfea5dbec3736f824
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 8b3d92829fa3209565435df458fc8d501b338f4e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469289"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992835"
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>使用 PowerShell 為 Azure SQL Database 中的單一資料庫設定作用中異地複寫容錯移轉群組
 

@@ -14,16 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 34b70b1a6a77a20a034a7822d9c4961c36cdd51c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2e30f3bb40e23e5b0b1951759bdff3a9f02cc9d5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663956"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236058"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>適用於 Linux 的 DSC 擴充功能 (Microsoft.OSTCExtensions.DSCForLinux)
-
-## <a name="overview"></a>概觀
 
 期望的狀態設定 (DSC) 是一個管理平台，可讓您以組態作為程式碼來管理 IT 和開發基礎結構。
 
@@ -36,11 +34,13 @@ DSCForLinux 擴充功能由 Microsoft 所發佈及支援。 此擴充功能可�
 - 將自訂 DSC 模組安裝至 Linux VM (安裝 ExtensionAction)
 - 移除 Linux VM 的自訂 DSC 模組 (移除 ExtensionAction)
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
-DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros)，但下列項目除外：
+DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)，但下列項目除外：
 
 | 配送映像 | 版本 |
 |---|---|
@@ -366,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 您可以執行下列命令，以登入您的 Azure 帳戶 (Azure Resource Manager 模式)：
 
 ```powershell>
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 按一下[**這裡**](../../azure-resource-manager/powershell-azure-resource-manager.md)，以深入了解如何搭配使用 Azure PowerShell 與 Azure Resource Manager。
@@ -398,7 +398,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```

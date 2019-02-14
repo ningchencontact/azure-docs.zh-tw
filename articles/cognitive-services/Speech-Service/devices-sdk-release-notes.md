@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 版本資訊 - 最近版本中的變更
 services: cognitive-services
 author: wsturman
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 25e5b1fd1e1513fbfd64448b334e2fa26361ad6f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2e51bdd24f33789a95017c9fe5df88b0bb55de26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213084"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870702"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>認知服務語音裝置 SDK 的版本資訊
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509570"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236255"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>重新定型 Azure Machine Learning Studio 模型
 在 Azure Machine Learning 中進行機器學習服務模型的實作程序時，需要定型並儲存您的模型。 接著，使用它來建立預測性 Web 服務。 接著才能在網站、儀表板及行動應用程式取用 Web 服務。 
@@ -53,8 +53,6 @@ ms.locfileid: "55509570"
 * 部署重新訓練的 Web 服務
 * 使用批次執行服務程式碼重新定型模型
 
-如需上述步驟的逐步解說，請參閱[以程式設計方式重新定型機器學習服務模型](retrain-models-programmatically.md)。
-
 > [!NOTE] 
 > 若要部署新的 Web 服務，您必須在要部署 Web 服務的訂用帳戶中具備足夠的權限。 如需詳細資訊，請參閱[使用 Azure Machine Learning Web 服務入口網站管理 Web 服務](manage-new-webservice.md)。 
 
@@ -63,8 +61,6 @@ ms.locfileid: "55509570"
 * 在預測性 Web 服務上建立新端點
 * 取得 PATCH URL 和程式碼
 * 使用 PATCH URL 以指出位於重新定型模型中的新端點 
-
-如需上述步驟的逐步解說，請參閱[重新定型傳統 Web 服務](retrain-a-classic-web-service.md)。
 
 如果您在重新定型傳統 Web 服務時遇到麻煩，請參閱[針對 Azure Machine Learning 傳統 Web 服務的重新訓練進行疑難排解](troubleshooting-retraining-models.md)。
 
@@ -76,8 +72,6 @@ ms.locfileid: "55509570"
 * 在 JSON 中更新 `ilearner` Blob 的參考
 * 將 JSON 匯入至 Web 服務定義
 * 使用新的 Web 服務定義更新 Web 服務
-
-如需上述步驟的逐步解說，請參閱[使用 Machine Learning Management PowerShell Cmdlet 重新定型新的 Web 服務](retrain-new-web-service-using-powershell.md)。
 
 傳統 Web 服務設定重新定型的程序包含下列步驟：
 

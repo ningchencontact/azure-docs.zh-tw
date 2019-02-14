@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755164"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960872"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL Database 的商務持續性概觀
 
@@ -101,6 +101,7 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 
 當您採取行動時，復原所需的時間以及會遺失多少資料，取決於您如何決定在應用程式中使用這些商務持續性功能。 事實上，您可以根據應用程式需求，選擇使用資料庫備份和主動式異地複寫的組合。 若要探討使用這些商務持續性功能針對獨立資料庫和彈性集區進行應用程式設計時的考量，請參閱[設計雲端災害復原應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)和[彈性集區災害復原策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
 
+
 下列各節概述使用資料庫備份或主動式異地複寫來進行復原的步驟。 如需包括規劃需求的詳細步驟、復原後步驟，以及有關如何模擬中斷以執行災害復原演練的資訊，請參閱[從中斷復原 SQL Database](sql-database-disaster-recovery.md)。
 
 ### <a name="prepare-for-an-outage"></a>準備中斷
@@ -132,7 +133,7 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 從其中任何一種復原機制復原之後，您都必須執行下列額外的工作，您的使用者和應用程式才能回復正常執行狀態︰
 
 - 重新導向用戶端與用戶端應用程式到新的伺服器與還原的資料庫
-- 確定有適當的伺服器層級 IP 防火牆規則供使用者連線或使用[資料庫層級防火牆](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal)，才能啟用適當的規則。
+- 確定有適當的伺服器層級 IP 防火牆規則供使用者連線或使用[資料庫層級防火牆](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal)，才能啟用適當的規則。
 - 確定有適當的登入和 master 資料庫層級權限 (或使用 [自主的使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - 依適當情況設定稽核
 - 依適當情況設定警示

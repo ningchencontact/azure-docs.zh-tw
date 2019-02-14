@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 「文字轉換語音 API」在超過 45 種的語言和地區設定中提供超過 75 種的語音。 若要使用標準音型，您只需在呼叫「語音服務」時，指定語音名稱搭配一些其他參數即可。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251549"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859329"
 ---
 # <a name="about-the-text-to-speech-api"></a>關於文字轉換語音 API
 
@@ -55,11 +55,11 @@ Microsoft **文字轉換語音**服務在 45 個以上的語言和地區設定�
 
 | 使用案例 | REST | SDK |
 |-----|-----|-----|----|
-| 上傳適用於語音調適的資料集 | 是 | 否 |
-| 建立及管理音型模型 | 是 | 否 |
-| 建立及管理音型部署 | 是 | 否 |
-| 建立及管理音型測試| 是 | 否 |
-| 管理訂用帳戶 | 是 | 否 |
+| 上傳適用於語音調適的資料集 | yes | 否 |
+| 建立及管理音型模型 | yes | 否 |
+| 建立及管理音型部署 | yes | 否 |
+| 建立及管理音型測試| yes | 否 |
+| 管理訂用帳戶 | yes | 否 |
 
 > [!NOTE]
 > API 會實作節流以將 API 要求限制為每 5 秒 25 個。 訊息標頭會通知限制。

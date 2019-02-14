@@ -81,7 +81,7 @@ items:
         href: native-app.md
       - name: 精靈或伺服器應用程式
         href: service-to-service.md
-    - name: 驗證
+    - name: Authentication
       items:
       - name: 驗證基本概念
         href: authentication-scenarios.md
@@ -142,7 +142,7 @@ items:
       href: authentication-national-cloud.md
   - name: 使用說明指南
     items:
-    - name: 驗證
+    - name: Authentication
       items:
       - name: 設定單一登入
         displayName: SSO
@@ -320,7 +320,7 @@ items:
       href: azure-ad-endpoint-comparison.md
     - name: 應用程式類型
       href: v2-app-types.md
-    - name: 驗證
+    - name: Authentication
       items:
       - name: 驗證基本概念
         href: authentication-scenarios.md
@@ -366,7 +366,7 @@ items:
       href: authentication-national-cloud.md
   - name: 使用說明指南
     items:
-    - name: 驗證
+    - name: Authentication
       items:
       - name: 設定角色宣告
         href: active-directory-enterprise-app-role-management.md
@@ -439,12 +439,13 @@ items:
   - name: 嘗試使用 Microsoft 登入
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: 取得說明
+    displayName: support, help options
     href: developer-support-help-options.md
   - name: 適用於 Azure 資源的受控識別
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 667076d5bafc1b7cc3577a49446af58aee806b87
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9b02dc22bbe27b02d608130eac72a00c7d1471c3
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251702"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238448"

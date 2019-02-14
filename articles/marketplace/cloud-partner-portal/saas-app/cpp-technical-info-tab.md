@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7a49e69b2e27a38b1a89fedbd6bbd70066b37dc2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451216"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895392"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS 應用程式技術資訊索引標籤
 
@@ -42,7 +42,7 @@ ms.locfileid: "54451216"
 若要建置這項體驗，您需要設定下列部分：
 
 - 將您的 SaaS 服務網站連線至 Microsoft 的 SaaS API。 [SaaS 透過 Azure 銷售 - API ](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) 一文會說明建立此連線的方法。
-- 在 Cloud Partner 入口網站的 [技術設定] 表單中啟用 [透過 Azure 銷售]，並提供必要資訊。 如需此計費模型及其實作方式的詳細資訊，請參閱 [SaaS - 透過 Azure 銷售](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions#overview)。
+- 在 Cloud Partner 入口網站的 [技術設定] 表單中啟用 [透過 Azure 銷售]，並提供必要資訊。 如需此計費模型及其實作方式的詳細資訊，請參閱 [SaaS - 透過 Azure 銷售](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions)。
 
  ![[透過 Microsoft 銷售] 表單](./media/saas-techinfo-sellthrough-ms.png)
 

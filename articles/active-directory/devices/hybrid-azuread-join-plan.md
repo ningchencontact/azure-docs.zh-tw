@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746416"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234097"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>作法：規劃混合式 Azure Active Directory Join 實作
 
@@ -145,7 +146,7 @@ ms.locfileid: "55746416"
 - [設定適用於受控網域的混合式 Azure Active Directory Join](hybrid-azuread-join-managed-domains.md)
 
 
- 如果安裝必要的 Azure AD Connect 版本不適合您，請參閱[如何手動設定裝置註冊](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual)。 
+ 如果安裝必要的 Azure AD Connect 版本不適合您，請參閱[如何手動設定裝置註冊](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual)。 
 
 
 ## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>混合式 Azure AD Join 中的內部部署 AD UPN 支援

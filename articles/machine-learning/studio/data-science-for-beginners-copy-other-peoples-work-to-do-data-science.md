@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492992"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56241439"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>複製其他人的工作進行資料科學
 ## <a name="video-5-data-science-for-beginners-series"></a>影片 5：適用於初學者的資料科學系列
@@ -52,7 +52,7 @@ ms.locfileid: "55492992"
 
 Microsoft 提供一個稱為 [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) \(英文\) 的雲端服務，歡迎您免費試用。 其會提供您工作區，讓您可以試驗不同的機器學習演算法，當您制定您的解決方案時，您可以將其啟動為 Web 服務。
 
-此服務有一個部分稱為 **[Azure AI 資源庫](https://gallery.cortanaintelligence.com/)**。 其包含各種資源，包括一系列的 Azure Machine Learning 實驗或模型 (前人建置並貢獻予他人使用)。 這些實驗是運用思考的好方法，以及是其他人的挑戰，他們會協助您開始您自己的解決方案。 歡迎每個人前往瀏覽。
+此服務有一個部分稱為 **[Azure AI 資源庫](https://gallery.azure.ai/)**。 其包含各種資源，包括一系列的 Azure Machine Learning 實驗或模型 (前人建置並貢獻予他人使用)。 這些實驗是運用思考的好方法，以及是其他人的挑戰，他們會協助您開始您自己的解決方案。 歡迎每個人前往瀏覽。
 
 ![Azure AI 資源庫](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -82,11 +82,11 @@ Microsoft 提供一個稱為 [Azure Machine Learning Studio](https://azure.micro
 而我現在有一個起點。 我可以抽換為自己的資料，並且可以自己調整模型。 這給了我好的開始，可以讓我建置他人的工作，而這些人確實知道他們正在做什麼。
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>尋找示範機器學習技術的實驗
-在 [Azure AI 資源庫](https://gallery.cortanaintelligence.com) 中有其他實驗，是特別為了資料科學入門者所提供的使用說明範例。 比方說，資源庫中有一個示範如何處理遺漏值的實驗 ([處理遺漏值的方法](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1))。 此範例將逐步引導您透過 15 個不同方法來取代空白值，並討論每一種方法的優點以及使用時機。
+在 [Azure AI 資源庫](https://gallery.azure.ai) 中有其他實驗，是特別為了資料科學入門者所提供的使用說明範例。 比方說，資源庫中有一個示範如何處理遺漏值的實驗 ([處理遺漏值的方法](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1))。 此範例將逐步引導您透過 15 個不同方法來取代空白值，並討論每一種方法的優點以及使用時機。
 
 ![在 Machine Learning Studio 中開啟資源庫實驗 - 用於遺漏值的方法](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-您可以在 [Azure AI 資源庫](https://gallery.cortanaintelligence.com)找到工作實驗，做為您自己的解決方案起點。
+您可以在 [Azure AI 資源庫](https://gallery.azure.ai)找到工作實驗，做為您自己的解決方案起點。
 
 請務必查看 Microsoft Azure Machine Learning 中「適用於初學者的資料科學」的其他影片。
 

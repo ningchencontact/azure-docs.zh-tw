@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492822"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244293"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>使用 PowerShell 從一個實驗建立 Studio 模型和 Web 服務端點
 
@@ -35,7 +35,7 @@ ms.locfileid: "55492822"
 > 
 
 ## <a name="set-up-the-training-experiment"></a>設定訓練實驗
-請使用 [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) 中的[訓練實驗](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1)範例。 在 [Azure Machine Learning Studio](https://studio.azureml.net) 工作區開啟此實驗。
+請使用 [Cortana Intelligence Gallery](http://gallery.azure.ai) 中的[訓練實驗](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1)範例。 在 [Azure Machine Learning Studio](https://studio.azureml.net) 工作區開啟此實驗。
 
 > [!NOTE]
 > 為了依照此範例進行，建議您使用標準工作區，而不是免費工作區。 您將為每個客戶建立一個端點 (總共 10 個端點)，而這需要標準工作區，因為免費工作區只能有 3 個端點。 如果您只有免費工作區，請變更指令碼，而僅允許有三個地點。
@@ -63,7 +63,7 @@ ms.locfileid: "55492822"
 若要這樣做，請按一下畫布下方的 [設定 Web 服務]，然後選取 [預測性 Web 服務]。 這會建立評分實驗。
 您必須做一些微幅調整，使其以 Web 服務的形式運作。 請從輸入資料中移除標籤資料行 "cnt"，並限制只輸出執行個體識別碼和對應的預測值。
 
-為了省去這項工作的麻煩，您可以開啟資源庫中已備妥的[預測性實驗](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1)。
+為了省去這項工作的麻煩，您可以開啟資源庫中已備妥的[預測性實驗](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1)。
 
 若要部署 Web 服務，請執行預測性實驗，然後按一下畫布下方的 [部署 Web 服務]  按鈕。 將此評分 Web 服務命名為「自行車出租評分」。
 

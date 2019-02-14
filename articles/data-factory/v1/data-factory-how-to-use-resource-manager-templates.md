@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e9a99fcbe161e0b6cdabf1363ab3121a77869df7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024853"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111317"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>使用範本來建立 Azure Data Factory 實體
 > [!NOTE]
@@ -236,7 +236,7 @@ dataFactoryName 在 “variables” 中定義為：
 * 設定會因環境 (範例︰開發、測試和生產) 而不同
 * 機密資料 (例如密碼)
 
-如果您在使用範本部署 Azure Data Factory 實體時需要從 [Azure 金鑰保存庫](../../key-vault/key-vault-get-started.md)提取密碼，請指定 **金鑰保存庫**和**密碼名稱**，如下列範例所示︰
+如果您在使用範本部署 Azure Data Factory 實體時需要從 [Azure 金鑰保存庫](../../key-vault/key-vault-overview.md)提取密碼，請指定 **金鑰保存庫**和**密碼名稱**，如下列範例所示︰
 
 ```JSON
 "parameters": {

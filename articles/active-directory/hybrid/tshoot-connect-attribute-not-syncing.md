@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef167866cb682cec71b618e972d3d402c8e050c9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772103"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180820"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>針對 Azure AD Connect 中不會同步處理屬性的問題進行疑難排解
 
@@ -90,4 +91,4 @@ ms.locfileid: "55772103"
 ## <a name="next-steps"></a>後續步驟
 
 - [Azure AD Connect 同步](how-to-connect-sync-whatis.md)。
-- [什麼是混合式身分識別？](whatis-hybrid-identity.md)
+- [什麼是混合式身分識別？](whatis-hybrid-identity.md)。

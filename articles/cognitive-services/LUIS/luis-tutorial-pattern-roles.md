@@ -5,18 +5,18 @@ description: 使用模式來從正確格式的語句範本擷取資料。 語句
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 18c02babe401ed995062e792fab6920a88379729
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 866e93c81e5c4f7ad38528ae937317fde3a3f45d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212116"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857051"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>教學課程：使用角色擷取內容相關的模式
 

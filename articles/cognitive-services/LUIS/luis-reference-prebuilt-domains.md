@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: 預先建立的定義域參考是從 Language Understanding Intelligent Service (LUIS) 預先建立的意圖和實體集合。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f03efe13cdc31381cd67317879b7bd936fc35e8f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221006"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868951"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>您 LUIS 應用程式預先建置的網域參考
 此參考提供[預先建立的定義域](luis-how-to-use-prebuilt-domains.md)相關資訊，這是 LUIS 提供之預先建立的意圖和實體集合。
@@ -103,7 +103,7 @@ Communication 定義域提供與電子郵件、訊息和電話相關的意圖和
 | AssignContactNickname| 為連絡人指派暱稱。|將 Isaac 變更為爸爸 <br/>編輯 Jim 的暱稱<br/>新增 Patti Owens 的暱稱|
 | CallVoiceMail| 連線到使用者的語音信箱。|讓我連線到自己的語音信箱 <br/>語音信箱<br/>撥打語音信箱|
 | CheckIMStatus| 檢查 Skype 中的連絡人狀態。|Jim 的連線狀態是否設定為離開？ <br/>Carol 是否有空交談？|
-| 確認| 確認動作。|是<br/>確定<br/>好的<br/>我確認要傳送此電子郵件。<br/>|
+| 確認| 確認動作。|yes<br/>確定<br/>好的<br/>我確認要傳送此電子郵件。<br/>|
 | 撥號| 撥打電話。|撥打電話給 Jim<br/>請撥打 311<br/>|
 | FindContact| 依名稱尋找連絡人資訊。|尋找 Carol 的號碼<br/>顯示 Carol 的號碼<br/>|
 | FindSpeedDial| 尋找電話號碼設成的快速撥號，或尋找設為快速撥號的電話號碼。|我的撥號 5 為何？<br/>我是否已設定快速撥號？<br/>941-5555-333 的快速撥號為何？|

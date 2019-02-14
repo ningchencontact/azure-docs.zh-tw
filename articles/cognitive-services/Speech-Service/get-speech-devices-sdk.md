@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 語音服務可與各種裝置和音訊來源搭配運作。 您現在可以利用相符的硬體和軟體，將語音應用程式提升至下一個層級。 在本文中，您將了解如何取得語音裝置 SDK 的存取權，並開始進行開發。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 905f3dde7c9c728c2a57858578cef8cff2777d81
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733462"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872147"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>取得認知服務語音裝置 SDK
 

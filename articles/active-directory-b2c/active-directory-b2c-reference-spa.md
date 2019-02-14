@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7342849af63ef2f153a89418fbf87f60bd4c4833
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183283"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104833"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C：使用 OAuth 2.0 隱含流程的單一頁面應用程式登入
 
@@ -30,7 +30,7 @@ ms.locfileid: "55183283"
 Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而不僅止於簡單的驗證與授權。 Azure AD B2C 導入了[原則參數](active-directory-b2c-reference-policies.md)。 利用原則參數，您可以使用 OAuth 2.0 來為應用程式新增原則，例如註冊、登入和設定檔管理使用者流程。 在本文中，我們會說明如何使用隱含流程與 Azure AD，在您的單一頁面應用程式中實作這些體驗。 為了協助您快速入門，請查看我們的 [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) \(英文\) 或 [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) \(英文\) 範例。
 
 在本文的範例 HTTP 要求中，我們會使用範例 Azure AD B2C 目錄 **fabrikamb2c.onmicrosoft.com**。 此外，也會使用我們自己的範例應用程式和使用者流程。 您可以使用這些值來自行試驗要求，也可以將它們換成您自己的值。
-了解如何[取得您自己的 Azure AD B2C 目錄、應用程式和使用者流程](#use-your-own-b2c-tenant)。
+了解如何[取得您自己的 Azure AD B2C 目錄、應用程式和使用者流程](#use-your-own-azure-ad-b2c-tenant)。
 
 
 ## <a name="protocol-diagram"></a>通訊協定圖表

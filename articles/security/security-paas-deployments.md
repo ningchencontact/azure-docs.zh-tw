@@ -4,7 +4,7 @@ description: " 了解 PaaS 與其他雲端服務模型相較之下的安全性�
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: techlake
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488402"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117794"
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
 
@@ -111,7 +111,7 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 
 | Threat | 安全性屬性 | 潛在的 Azure 平台風險降低 |
 | --- | --- | --- |
-| 詐騙 | 驗證 | 需要 HTTPS 連線。 |
+| 詐騙 | Authentication | 需要 HTTPS 連線。 |
 | 竄改 | 完整性 | 驗證 SSL 憑證。 |
 | 否認性 | 不可否認性 | 啟用 Azure [監視和診斷](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)。 |
 | 資訊洩漏 | 保密 | 使用[服務憑證](https://docs.microsoft.com/rest/api/appservice/certificates)將待用的敏感性資料加密。 |

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251285"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984458"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -58,7 +58,7 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
     > [!NOTE]
     > 此設定不允許容器的外部連線。 只可透過使用發佈認證進行驗證的 Kudu / SCM 網站存取 SSH。
 
-    ```docker
+    ```Dockerfile
     # ------------------------
     # SSH Server support
     # ------------------------
@@ -74,13 +74,13 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
     > * `Ciphers` 必須至少包含下列其中一個：`aes128-cbc,3des-cbc,aes256-cbc`。
     > * `MACs` 必須至少包含下列其中一個：`hmac-sha1,hmac-sha1-96`。
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
 3. 針對 Dockerfile，請納入 [`EXPOSE` 指示](https://docs.docker.com/engine/reference/builder/#expose) 中的連接埠 2222。 雖然已知根密碼，但無法從網際網路存取連接埠 2222。 它是僅供內部使用的連接埠，只有私人虛擬網路之橋接網路內的容器可以存取。
 
-    ```docker
+    ```Dockerfile
     EXPOSE 2222 80
     ```
 
@@ -93,7 +93,7 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
 
 Dockerfile 會使用 [`ENTRYPOINT` 指示](https://docs.docker.com/engine/reference/builder/#entrypoint)來執行指令碼。
 
-    ```docker
+    ```Dockerfile
     COPY init_container.sh /opt/startup
     ...
     RUN chmod 755 /opt/startup/init_container.sh
@@ -203,4 +203,4 @@ Load average: 0.07 0.04 0.08 4/765 45738
 * [如何針對用於容器的 Web 應用程式使用自訂 Docker 映像](quickstart-docker-go.md)
 * [在 Linux 上的 Azure App Service 中使用 .NET Core](quickstart-dotnetcore.md)
 * [在 Linux 上的 Azure App Service 中使用 Ruby](quickstart-ruby.md)
-* [Azure App Service 用於容器的 Web App 常見問題集](app-service-linux-faq.md)
+* [Azure App Service Web App for Containers 常見問題集](app-service-linux-faq.md)

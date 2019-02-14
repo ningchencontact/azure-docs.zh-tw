@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: a2e7c45615c1f9d07ef3392ee10579a1b5e3588f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31005077c9c149f9aff055432d9577a63bac8e1c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477976"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992267"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio 模型如何從實驗進展為實際運作的 Web 服務
 Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行、測試及反覆運算代表預測性分析模型的***實驗***。 有各種可用的模組可以︰
@@ -46,7 +46,7 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 *圖 1 - 一般預測性分析模型的階段*
 
 ### <a name="the-training-experiment"></a>訓練實驗
-***訓練實驗***Machine Learning Studio 中開發 Web 服務的初始階段。 訓練實驗的目的是要提供您開發、測試、逐一查看和最終定型機器學習模型的位置。 尋求最佳的解決方案時，您甚至可以同時定型多個模型，但是一旦完成實驗，您將選取單一定型的模型，並從實驗消除其餘部分。 如需開發預測性分析實驗的範例，請參閱 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)。
+***訓練實驗***Machine Learning Studio 中開發 Web 服務的初始階段。 訓練實驗的目的是要提供您開發、測試、逐一查看和最終定型機器學習模型的位置。 尋求最佳的解決方案時，您甚至可以同時定型多個模型，但是一旦完成實驗，您將選取單一定型的模型，並從實驗消除其餘部分。 如需開發預測性分析實驗的範例，請參閱 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](tutorial-part1-credit-risk.md)。
 
 ### <a name="the-predictive-experiment"></a>預測性實驗
 當您在訓練實驗中產生定型模型之後，請在 Machine Learning Studio 中按一下 [設定 Web 服務]，並選取 [預測性 Web 服務]將訓練實驗轉換為***預測實驗***。 預測實驗的目的是要使用您的定型模型對新資料進行計分，以最終目標成為實際運作的 Azure Web 服務。
@@ -114,5 +114,5 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 如需整個程序的範例，請參閱：
 
 * [機器學習教學課程：在 Azure Machine Learning Studio 中建立您的第一個實驗](create-experiment.md)
-* [逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
+* [逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](tutorial-part1-credit-risk.md)
 

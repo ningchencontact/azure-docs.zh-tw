@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 7b8516566709c024043c413098c948965e255e13
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746654"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982874"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何重設 Azure Windows VM 的網路介面 
 
@@ -61,14 +61,14 @@ ms.locfileid: "55746654"
     $IP = "NEWIP"
 
     #Log in to the subscription 
-    Add-AzureRMAccount
-    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
+    Add-AzAccount
+    Select-AzSubscription -SubscriptionId $SubscriptionId 
     
     #Check whether the new IP address is available in the virtual network.
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
+    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. 嘗試使用 RDP 連線到您的電腦。  如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。
 

@@ -4,23 +4,23 @@ description: 本文提供適用於 Azure 媒體服務 REST 呼叫之 Postman 集
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ea88d6a85fb0b22d12c9d30baf23c33074666568
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 98c687b620aea484a4ced1385d7a2301db55ce79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786377"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998445"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>使用即時串流匯入 Postman 集合作業
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>使用即時串流匯入 Postman 集合作業 
 
 本文內有 **Postman** 集合的定義，集合內有呼叫**即時串流** Azure 媒體服務 REST API 的分組 HTTP 要求。 如需有關如何設定 **Postman** 讓它可以用來呼叫媒體服務 REST API 的詳細資訊，請參閱[設定 Postman 以進行媒體服務 REST API 呼叫](media-rest-apis-with-postman.md)教學課程。
 

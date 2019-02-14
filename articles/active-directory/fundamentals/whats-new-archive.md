@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7478921d55e6851f06e3d806bf05fd51c66b9202
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b6c1e0e7b1b5aa97137dc59e3e5cee1eb544af5a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664211"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199397"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 新增功能的封存檔
 
@@ -1241,7 +1242,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 下列應用程式已列入[已核准的用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)清單：
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/) \(英文\)
-- [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
+- Microsoft StaffHub
 
 如需詳細資訊，請參閱
 

@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 如何使用語言分析 API 中的分析方法，來分析某些自然語言輸入。
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208630"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861675"
 ---
 # <a name="analyze-method"></a>分析方法
 
@@ -40,9 +40,9 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 Name | 類型 | 必要 | 說明
 -----|-------|----------|------------
-**language**    | 字串 | 是 | 要用於分析的雙字母 ISO 語言代碼。 例如，英文是 "en"。
-**analyzerIds** | 字串的清單 | 是 | 要套用的分析器 GUID 清單。 如需詳細資訊，請參閱分析器文件。
-**text**        | 字串 | 是 | 要分析的原始輸入。 這可能是簡短字串 (例如，字組或片語)、完整句子，或完整的段落或語篇。
+**language**    | 字串 | yes | 要用於分析的雙字母 ISO 語言代碼。 例如，英文是 "en"。
+**analyzerIds** | 字串的清單 | yes | 要套用的分析器 GUID 清單。 如需詳細資訊，請參閱分析器文件。
+**text**        | 字串 | yes | 要分析的原始輸入。 這可能是簡短字串 (例如，字組或片語)、完整句子，或完整的段落或語篇。
 
 ## <a name="response-json"></a>回應 (JSON)
 

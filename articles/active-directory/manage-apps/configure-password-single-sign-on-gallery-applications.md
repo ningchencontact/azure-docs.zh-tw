@@ -3,8 +3,8 @@ title: 如何為 Azure AD 資源庫應用程式設定密碼單一登入 | Micros
 description: 當應用程式已列在 Azure AD 應用程式庫時，如何為它設定以密碼為基礎的安全單一登入
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bc06583b73bc9ec21aca6d8ff1a1fe191f59dadd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815399"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161960"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>如何為 Azure AD 資源庫應用程式設定密碼單一登入
 

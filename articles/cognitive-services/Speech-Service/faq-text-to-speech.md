@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 了解文字轉換語音服務最熱門問題的解答。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 9b8340221c61bedbe010b9ef280ada62cfee7a21
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d93de4ff3f6dd00ac049ea9d83aebb7aad07137e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754861"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883280"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>文字轉換語音常見問題集
 

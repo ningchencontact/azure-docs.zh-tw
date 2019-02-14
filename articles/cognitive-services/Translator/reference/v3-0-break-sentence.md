@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API BreakSentence 方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a74b3ba4fe9f12ce9d205b3865435edfb99566a8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8aa726d8a00e76c1b4311140a433e6c7e476dc50
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693695"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884897"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>翻譯工具文字 API 3.0：BreakSentence
 
