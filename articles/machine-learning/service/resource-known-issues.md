@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c327d973170a4556471663c3bea9dcae9b5794fb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238606"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746485"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
 
@@ -26,7 +26,8 @@ ms.locfileid: "55238606"
 
 **錯誤訊息：無法解除安裝 'PyYAML'**
 
-適用於 Python 的 Azure Machine Learning SDK：PyYAML 是已安裝 distutils 的專案。 因此，我們無法在部分解決安裝的事件中，精確地判斷哪些檔案屬於它。 若要繼續安裝 SDK，但略過此錯誤，請使用：
+適用於 Python 的 Azure Machine Learning SDK：PyYAML 是已安裝 distutils 的專案。 因此，在有部分解決安裝的情況下，我們無法精確判斷哪些檔案屬於它。 若要繼續安裝 SDK，但略過此錯誤，請使用：
+
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
@@ -41,7 +42,7 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 
 ## <a name="deployment-failure"></a>部署失敗
 
-如果您觀察到 'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' 終止於 < Signals.SIGKILL:9> - 請將部署中所使用 VM 的 SKU 變更為具有更多記憶體的 SKU。
+如果您發現 `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`，請將部署中所使用 VM 的 SKU 變更為具有更多記憶體的 SKU。
 
 ## <a name="fpgas"></a>FPGA
 您將無法在 FPGA 上部署模型，直到您已針對 FPGA 配額提出要求並已獲得核准。 若要要求存取權，請填妥配額要求表單： https://aka.ms/aml-real-time-ai
@@ -50,7 +51,7 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 
 Databricks 與 Azure Machine Learning 問題。
 
-1. 已安裝更多套件時，在 Databricks 上安裝 AML SDK 會失敗。
+1. 在安裝多個套件時，Databricks 上的 Azure 機器學習服務 SDK 安裝失敗。
 
    有些套件 (例如 `psutil`) 會導致發生衝突。 若要避免發生安裝錯誤，請透過凍結 lib 版本來安裝套件。 此問題與 Databricks 有關，和 Azure Machine Learning 服務 SDK 無關 - 您可能也會在其他程式庫遇到相同的問題。 範例：
    ```python
@@ -60,7 +61,7 @@ Databricks 與 Azure Machine Learning 問題。
 
 2. 在 Databricks 上使用自動化機器學習時，如果您想要取消某個回合並開始新的實驗回合，請重新啟動您的 Azure Databricks 叢集。
 
-3. 在自動化機器學習設定中，如果您有超過 10 個反覆項目，請在提交回合時將 show_output 設定為 False。
+3. 在自動化 ml 設定中，如果您有 10 個以上的反覆項目，在您提交執行時將 `show_output` 設定為 `False`。
 
 
 ## <a name="azure-portal"></a>Azure 入口網站
@@ -73,6 +74,20 @@ Databricks 與 Azure Machine Learning 問題。
 ## <a name="resource-quotas"></a>資源配額
 
 深入了解使用 Azure Machine Learning 時可能會遇到的[資源配額](how-to-manage-quotas.md)。
+
+## <a name="authentication-errors"></a>驗證錯誤
+
+如果您從遠端工作執行計算目標的管理作業，您會收到下列錯誤的其中一個：
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+例如，如果您嘗試從 ML 管線建立或連結為遠端執行所提交的計算目標，您會收到錯誤。
 
 ## <a name="get-more-support"></a>取得更多支援
 

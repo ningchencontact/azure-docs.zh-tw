@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1ce937f5c9a378494e66867b6f919ee10eef2bf8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 652591fc4539e6f19c0606c1502609a823327f2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259473"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811013"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights 中度量圖表上的註解
 
-[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)圖表上的註解會顯示您在哪裡部署了新的組建，或是其他重要事件。 註解可讓您輕鬆查看變更是否對應用程式的效能有任何影響。 [Azure DevOps Services 建置系統](https://docs.microsoft.com/azure/devops/pipelines/tasks/)可以自動建立這些註解。 您也可以[從 PowerShell 建立註解](#create-annotations-from-powershell)來標幟您想要的任何事件。
+[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)圖表上的註解會顯示您在哪裡部署了新的組建，或是其他重要事件。 註解可讓您輕鬆查看變更是否對應用程式的效能有任何影響。 [Azure DevOps Services 建置系統](https://docs.microsoft.com/azure/devops/pipelines/tasks/)可以自動建立這些註解。 您也可以從 PowerShell 建立註解來標記您想要的任何事件。
 
 > [!NOTE]
 > 本文反映已被取代的**傳統計量體驗**。 註解目前僅適用於傳統經驗和**[活頁簿](../../azure-monitor/app/usage-workbooks.md)** 中。 若要深入了解目前的計量體驗，您可以查閱[這篇文章](../../azure-monitor/platform/metrics-charts.md)。

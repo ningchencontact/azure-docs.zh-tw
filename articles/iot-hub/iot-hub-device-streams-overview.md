@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884957"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770783"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT 中樞裝置串流 (預覽)
 
@@ -82,8 +82,22 @@ IoT 中樞裝置串流提供下列優點：
 或者，端點資訊也可以使用 Azure CLI 從中樞的屬性區段 (具體而言為 `property.hostname` 和 `property.deviceStreams` 索引鍵) 擷取。
 
 ```azurecli-interactive
-az iot hub show --name <YourIoTHubName>
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+輸出是中樞的裝置和服務為了建立裝置串流而可能需要連線之所有端點的 JSON 物件。
+
+```json
+{
+  "streamingEndpoints": [
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
+  ]
+}
+```
+
+> [!NOTE]
+> 請確定您已安裝 Azure CLI 2.0.57 版或更新版本。 您可以在 [此處](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)下載最新版本。
+> 
 
 ## <a name="whitelist-device-streaming-endpoints"></a>將裝置串流端點列入白名單
 
@@ -92,9 +106,14 @@ az iot hub show --name <YourIoTHubName>
 裝置串流端點的主機名稱可以在 Azure IoT 中樞入口網站上的 [概觀] 索引標籤下找到。![替代文字](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "裝置串流端點")
 
 或者，您也可以使用 Azure CLI 找到此資訊：
-```cmd/sh
-az iot hub show --name <YourIoTHubName>
+
+```azurecli-interactive
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+> [!NOTE]
+> 請確定您已安裝 Azure CLI 2.0.57 版或更新版本。 您可以在 [此處](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)下載最新版本。
+> 
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>透過裝置串流活動記錄進行疑難排解
 

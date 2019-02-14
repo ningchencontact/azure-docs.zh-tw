@@ -6,19 +6,19 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 5d55879a5a8487636e2252abd359accf07e60ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669475"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809156"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>掛接 Avere vFXT 叢集  
 
 請依照下列步驟將用戶端電腦連線到 vFXT 叢集。
 
 1. 決定如何在您的叢集節點之間進行用戶端流量的負載平衡。 如需詳細資訊，請參閱[平衡用戶端負載](#balance-client-load)。 
-1. 識別要掛接的 [IP 位址和連接點路徑](#identify-ip-addresses-and-paths-to-mount)。
+1. 識別要掛接的 IP 位址和連接點路徑。
 1. 使用適當的引數發出[掛接命令](#mount-command-arguments)。
 
 ## <a name="balance-client-load"></a>平衡用戶端負載
@@ -68,7 +68,7 @@ function mount_round_robin() {
 
 掛接命令有三個元素： 
 
-* vFXT 路徑 - (IP 位址與命名空間連接點路徑的組合，說明[如下](#junction-and-ip-address))
+* vFXT 路徑 - (IP 位址與命名空間連接點路徑的組合，說明如下)
 * 本機路徑 - 用戶端上的路徑 
 * 掛接命令選項 - (列於[掛接命令引數](#mount-command-arguments)中)
 

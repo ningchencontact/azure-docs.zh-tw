@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/8/2019
+ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3e5f84a6f05e451b1eafa98c373f9d838421016e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a497784a665c62d23a017b71acf709120e34c369
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229294"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746960"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery 中的服務更新
 作為一個組織，您必須了解如何維持資料安全，以及發生計劃性和非計劃性中斷時，如何讓應用程式/工作負載持續執行。 Azure Site Recovery 可在網站關閉時，讓您的應用程式持續在可用的 VM 和實體伺服器上執行，藉此參與您的 BCDR 策略。 Site Recovery 會複寫在 VM 和實體伺服器上執行的工作負載，因此如果主要網站無法使用，仍可在次要位置中使用工作負載。 當主要網站再次開始運作及執行時，它會將工作負載復原至其中。
@@ -97,10 +97,13 @@ Azure Site Recovery 會定期發佈服務更新，包括加入新功能、改善
 
 ## <a name="between-an-on-premises-vmware-or-physical-site-to-azure"></a>在內部部署 VMware 或 Azure 實體網站之間
 
-1. 先在內部部署管理伺服器上安裝更新。 這是具備組態伺服器和處理序伺服器角色的伺服器。 
-2. 如果您已相應放大處理序伺服器，請接著更新這些伺服器。
-3. 移至 Azure 入口網站，然後移至 [受保護的項目] > [複寫的項目] 頁面。
-在此頁面上選取 VM。 選取出現在每部 VM 頁面底部的 [更新代理程式] 按鈕。 這會在所有受保護的 VM 上更新行動服務代理程式。
+繼續進行更新之前，請參閱 [Site Recovery 支援聲明](#support-statement-for-azure-site-recovery)了解升級途徑。
+
+1. 根據您目前版本和以上的支援陳述式，先按照[此處](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server)提供的指導方針，在內部部署管理伺服器上安裝更新。 這是具備組態伺服器和處理序伺服器角色的伺服器。
+2. 如果您已相應放大處理序伺服器，請接著按照[此處](vmware-azure-manage-process-server.md#upgrade-a-process-server)提供的指導方針更新這些伺服器。
+3. 然後，若要更新每個受保護項目上的行動代理程式，請移至 Azure 入口網站，然後移至 [受保護的項目] > [複寫的項目] 頁面。 在此頁面上選取 VM。 選取出現在每部 VM 頁面底部的 [更新代理程式] 按鈕。 這會在所有受保護的 VM 上更新行動服務代理程式。
+
+### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>升級行動代理程式之後，重新啟動來源機器
 
 建議在每次升級行動代理程式之後重新開機，以確保在來源機器上載入所有的最新變更。 不過，**並非強制**。 如果上次重新開機期間的代理程式版本與目前版本之間的差異大於 4，則必須重新開機。 請參考下表中的詳細說明。
 
@@ -111,14 +114,12 @@ Azure Site Recovery 會定期發佈服務更新，包括加入新功能、改善
 | 9.16 | 9.20 | 非強制性
  | 9.16 | 9.21 | 是，先升級至 9.20，然後在升級至 9.21 之前重新開機，因為版本 (執行上次重新開機的 9.16 與目標版本 9.21) 之間的差異小於 4。
 
-
-
 ## <a name="links-to-currently-supported-update-rollups"></a>目前支援的更新彙總套件連結
-
 
 |更新彙總套件  |提供者  |統一安裝| OVF  |MARS|
 |---------|---------|---------|---------|--------|
-|[更新彙總套件 32](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
+|[更新彙總套件 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
+|[更新彙總套件 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[更新彙總套件 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[更新彙總套件 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[更新彙總套件 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0

@@ -3,7 +3,7 @@ title: 在移轉後進行管理 - Azure SQL Database | Microsoft Docs
 description: 了解如何在移轉至 Azure SQL Database 之後管理資料庫。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478469"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751934"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的資料庫
 
@@ -108,7 +108,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 
 藉由僅允許特定實體存取您的 SQL Database 伺服器，防火牆可防止外部實體存取您的伺服器。 預設將禁止 SQL Database 伺服器內的所有連線和資料庫，除非連線是來自其他 Azure 服務。 利用防火牆規則，您可以僅對核准的實體 (例如，開發人員電腦) 開放對伺服器的存取，方法是允許該電腦的 IP 位址通過防火牆。 也可讓您指定想要允許存取 SQL Database 伺服器的某個範圍 IP。 比方說，可以在 [防火牆設定] 頁面中指定範圍，一次新增您組織中開發人員電腦的 IP 位址。
 
-您可以在伺服器層級或資料庫層級建立防火牆規則。 可以使用 Azure 入口網站或 SSMS 建立伺服器層級防火牆規則。 若要深入了解如何設定伺服器和資料庫層級防火牆規則，請參閱：[在 SQL Database 中建立防火牆規則](sql-database-security-tutorial.md#create-firewall-rules)。
+您可以在伺服器層級或資料庫層級建立防火牆規則。 可以使用 Azure 入口網站或 SSMS 建立伺服器層級 IP 防火牆規則。 若要深入了解如何設定伺服器層級和資料庫層級的防火牆規則，請參閱：[在 SQL Database 中建立 IP 防火牆規則](sql-database-security-tutorial.md#create-firewall-rules)。
 
 #### <a name="service-endpoints"></a>服務端點
 
@@ -134,7 +134,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 
 #### <a name="threat-detection"></a>威脅偵測
 
-利用[威脅偵測](sql-database-threat-detection.md)，您就能非常輕鬆地因應稽核所探索到的安全性或原則違規。 您不需要是安全性專家，也能解決您的系統中的潛在威脅或違規。 威脅偵測也有一些內建的功能，例如 SQL 插入式攻擊偵測。 SQL 插入式攻擊是一種變更或危害資料的嘗試，並且通常是攻擊資料庫應用程式的很常見方式。 SQL Database 威脅偵測會執行多組演算法，以偵測潛在弱點和 SQL 插入式攻擊，以及異常資料庫存取模式 (例如從不尋常的位置存取或由不熟悉的主體存取)。 如果在資料庫上偵測到威脅，安全性人員或其他指定的管理員會收到一封電子郵件通知。 每個通知都會提供可疑活動的詳細資料，以及建議如何進一步調查並減輕威脅。 若要了解如何開啟威脅偵測，請參閱：[啟用 SQL Database 威脅偵測](sql-database-security-tutorial.md#enable-security-features)。
+利用[威脅偵測](sql-database-threat-detection.md)，您就能非常輕鬆地因應稽核所探索到的安全性或原則違規。 您不需要是安全性專家，也能解決您的系統中的潛在威脅或違規。 威脅偵測也有一些內建的功能，例如 SQL 插入式攻擊偵測。 SQL 插入式攻擊是一種變更或危害資料的嘗試，並且通常是攻擊資料庫應用程式的很常見方式。 威脅偵測會執行多組演算法，以偵測潛在弱點和 SQL 插入式攻擊，以及異常資料庫存取模式 (例如從不尋常的位置存取或由不熟悉的主體存取)。 如果在資料庫上偵測到威脅，安全性人員或其他指定的管理員會收到一封電子郵件通知。 每個通知都會提供可疑活動的詳細資料，以及建議如何進一步調查並減輕威脅。 若要了解如何開啟威脅偵測，請參閱：[啟用威脅偵測](sql-database-security-tutorial.md#enable-security-features)。
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>一般而言，我如何在 SQL Database 上保護資料
 
@@ -220,7 +220,7 @@ SQL Database 符合各種法規規範。 若要檢視已符合的最新一組規
 
 ### <a name="security-optimization"></a>安全性最佳化
 
-SQL Database 提供可採取動作的安全性建議，以幫助您保護您的資料，以及威脅偵測可用來識別及調查可能會對資料庫造成潛在威脅的可疑資料庫活動。 [SQL 漏洞評估](sql-vulnerability-assessment.md)是一項資料庫掃描和報告服務，可讓您大規模監視資料庫的安全性狀態，以及找出安全性風險和您所定義的安全性基準偏離。 每次掃描後，系統會提供自訂的可行步驟和補救指令碼清單，以及可用於協助符合規範需求的評估報告。
+SQL Database 提供可採取動作的安全性建議，以幫助您保護您的資料，以及威脅偵測可用來識別及調查可能會對資料庫造成潛在威脅的可疑資料庫活動。 [漏洞評估](sql-vulnerability-assessment.md)是一項資料庫掃描和報告服務，可讓您大規模監視資料庫的安全性狀態，以及找出安全性風險和您所定義的安全性基準偏離。 每次掃描後，系統會提供自訂的可行步驟和補救指令碼清單，以及可用於協助符合規範需求的評估報告。
 
 有了 Azure 資訊安全中心，您可以全面識別安全性建議，並且只要按一下即可將其套用。
 

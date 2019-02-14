@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: c44eb4bbf4945973e075ff88bccde19053b812be
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2458dadb8a97deee67a6df9b00ca5390fccb2902
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133468"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812271"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 必要條件和檢查清單
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須確認是否符合以下各節中所列的下列需求。
@@ -22,7 +22,7 @@ ms.locfileid: "53133468"
 
 ## <a name="azure-account"></a>Azure 帳戶
 * 使用中的有效 Microsoft Azure 帳戶。 需要有此帳戶才能設定 ExpressRoute 循環。 ExpressRoute 循環是 Azure 訂用帳戶內的資源。 即使連線只限於非 Azure Microsoft 雲端服務 (例如 Office 365 服務和 Dynamics 365)，Azure 訂用帳戶還是一項需求。
-* 使用中的 Office 365 訂用帳戶 (如果使用的是 Office 365 服務)。 如需詳細資訊，請參閱本文的 [Office 365 特定需求](#office-365-specific-requirements)一節。
+* 使用中的 Office 365 訂用帳戶 (如果使用的是 Office 365 服務)。 如需詳細資訊，請參閱本文的「Office 365 特定需求」一節。
 
 ## <a name="connectivity-provider"></a>連線提供者
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86c62c021c6668783b3f843a908f4b17845f8c72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172981"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768329"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C：要求存取權杖
 
@@ -78,8 +78,15 @@ ms.locfileid: "55172981"
 > [!NOTE]
 > 目前，自訂網域並未和存取權杖一起受到支援。 您必須在要求 URL 中使用您的 tenantName.onmicrosoft.com 網域。
 
+在下列範例中，您可以取代下列值：
+
+- `<tenant-name>` - Azure AD B2C 租用戶的名稱。
+- `<policy-name>` - 您的自訂原則或使用者流程名稱。
+- `<application-ID>` - 您所註冊用戶端應用程式的應用程式識別碼。
+- `<redirect-uri>` - 您註冊用戶端應用程式時所輸入的 [重新導向 URI]。
+
 ```
-https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 要在相同的要求中取得多個權限，您可以在單一**範圍**參數中新增多個項目，以空格分隔。 例如︰

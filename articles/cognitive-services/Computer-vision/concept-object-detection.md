@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3468f9341e0a8406733877a05798e427dd454fff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93ce86a438fca47100a34da2524515b46bcad574
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167558"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567157"
 ---
 # <a name="object-detection"></a>物件偵測
 
@@ -87,6 +87,15 @@ ms.locfileid: "55167558"
 }
 ```
 
-## <a name="next-steps"></a>後續步驟
+## <a name="limitations"></a>限制
 
-了解[分類影像](concept-categorizing-images.md)和[描述影像](concept-describing-images.md)的相關概念。
+請務必注意物件偵測功能的限制，以避免或降低誤判 (遺失物件) 和限制細節的影響。
+* 通常不會偵測到太小的物件 (低於影像的 5%)。
+* 通常不會偵測到排列過於緊密的物件 (例如堆疊的盤子)。
+* 無法依品牌或產品名稱區分物件 (例如貨架上有不同種類的汽水)。 不過，您可以使用[品牌偵測](concept-brand-detection.md)功能，從影像中取得品牌資訊。
+
+## <a name="use-the-api"></a>使用 API
+物件偵測功能是[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 的一部分。 您可以透過原生 SDK 或 REST 呼叫來呼叫此 API。 您取得完整的 JSON 回應時，只需要對於 `"objects"` 一節的內容剖析字串。
+
+* [快速入門：分析影像 (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [快速入門：分析影像 (REST API)](./quickstarts/csharp-analyze.md)

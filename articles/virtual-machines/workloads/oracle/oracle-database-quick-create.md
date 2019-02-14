@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f6e5dab5059086efc1e00c78b85296ff2b7a48c
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 490ac613adac968cc323c2d8351b59aece181b68
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139137"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734380"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>在 Azure VM 中建立 Oracle 資料庫
 
@@ -34,7 +34,7 @@ ms.locfileid: "50139137"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+使用 [az group create](/cli/azure/group) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 
-若要建立虛擬機器，請使用 [az vm create](/cli/azure/vm#az_vm_create) 命令。 
+若要建立虛擬機器，請使用 [az vm create](/cli/azure/vm) 命令。 
 
 下列範例會建立名為 `myVM` 的 VM。 如果預設的金鑰位置還沒有 SSH 金鑰的話，此範例也會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
 
@@ -271,7 +271,7 @@ export ORACLE_SID=cdb1
 
 最後一項工作是設定一些外部端點。 若要設定可保護 VM 的 Azure 網路安全性群組，請先結束 VM 中您的 SSH 工作階段 (應已在前一個步驟中重新啟動時被移出 SSH)。 
 
-1.  若要開啟您用來從遠端存取 Oracle 資料庫的端點，請使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 建立網路安全性群組規則，如下所示： 
+1.  若要開啟您用來從遠端存取 Oracle 資料庫的端點，請使用 [az network nsg rule create](/cli/azure/network/nsg/rule) 建立網路安全性群組規則，如下所示： 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -283,7 +283,7 @@ export ORACLE_SID=cdb1
         --destination-port-range 1521
     ```
 
-2.  若要開啟您用來從遠端存取 Oracle EM Express 的端點，請使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 建立網路安全性群組規則，如下所示：
+2.  若要開啟您用來從遠端存取 Oracle EM Express 的端點，請使用 [az network nsg rule create](/cli/azure/network/nsg/rule) 建立網路安全性群組規則，如下所示：
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -295,7 +295,7 @@ export ORACLE_SID=cdb1
         --destination-port-range 5502
     ```
 
-3. 如有需要，請使用 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) 再次取得 VM 的公用 IP 位址，如下所示：
+3. 如有需要，請使用 [az network public-ip show](/cli/azure/network/public-ip) 再次取得 VM 的公用 IP 位址，如下所示：
 
     ```azurecli-interactive
     az network public-ip show \
@@ -317,7 +317,7 @@ export ORACLE_SID=cdb1
 
 ## <a name="clean-up-resources"></a>清除資源
 
-完成在 Azure 上探索第一個 Oracle 資料庫而且不再需要 VM 之後，就可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令移除資源群組、VM 和所有相關資源。
+完成在 Azure 上探索第一個 Oracle 資料庫而且不再需要 VM 之後，就可以使用 [az group delete](/cli/azure/group) 命令移除資源群組、VM 和所有相關資源。
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

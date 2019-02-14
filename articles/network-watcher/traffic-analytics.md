@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429084"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815841"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -164,7 +164,7 @@ New-AzureRmStorageAccount `
 2. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。
 3. 將 [保留] 設為您要儲存資料的天數。
 4. 針對 [流量分析狀態]，選取 [開啟]。
-5. 選取現有的 Log Analytics 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#traffic-analytics-supported-regions)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+5. 選取現有的 Log Analytics 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個支援區域中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
     裝載流量分析解決方案和 NSG 的 Log Analytics 工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
 6. 選取 [ **儲存**]。

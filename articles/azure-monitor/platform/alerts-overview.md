@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156406"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486295"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -174,7 +174,7 @@ ms.locfileid: "55156406"
 
 2018 年 6 月之前的 Azure 監視器計量和活動記錄警示功能稱為「警示 (傳統)」。 
 
-如需詳細資訊，請參閱[警示 (傳統)](./../../azure-monitor/platform/alerts-classic.overview.md)
+如需詳細資訊，請參閱[傳統警示](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## <a name="next-steps"></a>後續步驟

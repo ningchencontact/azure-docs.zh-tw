@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: cherylmc
-ms.openlocfilehash: a23a969f1381e3a10c81a903793bad2870b436f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a0fc21c469658da637f15c820c105ec3ff31a04e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603635"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507921"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>使用 PowerShell 刪除虛擬網路閘道
 > [!div class="op_single_selector"]
@@ -66,8 +66,8 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 
 若要刪除 S2S 組態的虛擬網路閘道，您必須先刪除虛擬網路閘道的每個相關資源。 由於相依性，您必須依照特定順序刪除資源。 使用下面的範例時，某些值必須特別指定，而其他值則為輸出結果。 我們在範例中使用下列特定值，做為示範之用︰
 
-VNet 名稱︰VNet1<br>
-資源群組名稱：GW1<br>
+VNet 名稱：VNet1<br>
+資源群組名稱：RG1<br>
 虛擬網路閘道名稱：GW1<br>
 
 下列步驟適用於 Resource Manager 部署模型。
@@ -149,8 +149,8 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
 若要刪除 V2V 組態的虛擬網路閘道，您必須先刪除虛擬網路閘道的每個相關資源。 由於相依性，您必須依照特定順序刪除資源。 使用下面的範例時，某些值必須特別指定，而其他值則為輸出結果。 我們在範例中使用下列特定值，做為示範之用︰
 
-VNet 名稱︰VNet1<br>
-資源群組名稱：GW1<br>
+VNet 名稱：VNet1<br>
+資源群組名稱：RG1<br>
 虛擬網路閘道名稱：GW1<br>
 
 下列步驟適用於 Resource Manager 部署模型。
@@ -237,8 +237,8 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
 若要刪除 P2S 組態的虛擬網路閘道，您必須先刪除每個與虛擬網路閘道相關的資源。 由於相依性，您必須依照特定順序刪除資源。 使用下面的範例時，某些值必須特別指定，而其他值則為輸出結果。 我們在範例中使用下列特定值，做為示範之用︰
 
-VNet 名稱︰VNet1<br>
-資源群組名稱：GW1<br>
+VNet 名稱：VNet1<br>
+資源群組名稱：RG1<br>
 虛擬網路閘道名稱：GW1<br>
 
 下列步驟適用於 Resource Manager 部署模型。

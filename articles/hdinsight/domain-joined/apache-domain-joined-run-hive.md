@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435510"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821213"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight 中設定 Apache Hive 原則
 了解如何針對 Apache Hive 設定 Apache Ranger 原則。 在本文中，您會建立兩個 Ranger 原則來限制 hivesampletable 的存取權。 HDInsight 叢集隨附 hivesampletable。 設定原則之後，您可以使用 Excel 和 ODBC 驅動程式連接到 HDInsight 中的 Hive 資料表。
@@ -45,7 +45,7 @@ ms.locfileid: "53435510"
 
 **建立 Ranger 原則**
 
-1. 開啟 Ranger 系統管理 UI。 請參閱[連接到 Apache Ranger 系統管理 UI](#connect-to-apache-ranager-admin-ui)。
+1. 開啟 Ranger 系統管理 UI。 請參閱連接到 Apache Ranger 系統管理 UI。
 2. 按一下 [Hive] 下的 **&lt;ClusterName>_hive**。 您會看到兩個預先設定的原則。
 3. 按一下 [新增原則]，然後輸入下列值︰
 
@@ -56,7 +56,7 @@ ms.locfileid: "53435510"
    * 選取使用者：hiveuser1
    * 權限：選取
 
-     ![HDInsight ESP Ranger Hive 原則設定](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+     ![HDInsight ESP Ranger Hive 原則設定](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png)上也提供本文中使用的原始碼。
 
      > [!NOTE]  
      > 如果 [選取使用者] 中未填入網域使用者，請稍等一下讓 Ranger 與 AAD 同步處理。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: bbe29f112d752be432c0f922b1cd07b8afe2d45e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: d67085d2e90e318a8f134103f0798554b8967d6d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232464"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814413"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -774,7 +774,7 @@ appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
 *屬性* 是可在使用情況報告中用來篩選遙測的字串值。 例如，如果您的應用程式提供數個遊戲，則您可以將遊戲的名稱附加至每個事件，以了解哪些遊戲較受歡迎。
 
-字串長度限制為 8192 個。 (如果您想要傳送大量的資料區塊，請使用訊息參數 [TrackTrace](#track-trace)。)
+字串長度限制為 8192 個。 (如果您想要傳送大量的資料區塊，請使用訊息參數 TrackTrace。)
 
 *度量* 是可以用圖表方式呈現的數值。 例如，您可能想要查看玩家達到的分數是否逐漸增加。 圖表可以依據隨事件傳送的屬性分割，讓您可以針對不同遊戲取得個別或堆疊圖表。
 
@@ -992,7 +992,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 個別遙測呼叫可以覆寫其屬性字典中的預設值。
 
-*針對 JavaScript Web 用戶端*， [請使用 JavaScript 遙測初始設定式](#js-initializer)。
+*針對 JavaScript Web 用戶端*，請使用 JavaScript 遙測初始設定式。
 
 *若要將屬性新增至所有遙測*，並包括來自標準集合模組的資料，請[實作 `ITelemetryInitializer`](../../azure-monitor/app/api-filtering-sampling.md#add-properties)。
 
@@ -1002,7 +1002,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 實作 `ITelemetryInitializer` 以[屬性](../../azure-monitor/app/api-filtering-sampling.md#add-properties)至遙測資料。 例如，您可以新增版本號碼或從其他屬性計算得出的值。
 
-[篩選](../../azure-monitor/app/api-filtering-sampling.md#filtering)可以先修改或捨棄遙測，再藉由實作 `ITelemetryProcesor` 從 SDK 傳送遙測。 您可控制要傳送或捨棄的項目，但是您必須考量這對您的度量的影響。 視您捨棄項目的方式而定，您可能會喪失在相關項目之間瀏覽的能力。
+[篩選](../../azure-monitor/app/api-filtering-sampling.md#filtering)可以先修改或捨棄遙測，再藉由實作 `ITelemetryProcessor` 從 SDK 傳送遙測。 您可控制要傳送或捨棄的項目，但是您必須考量這對您的度量的影響。 視您捨棄項目的方式而定，您可能會喪失在相關項目之間瀏覽的能力。
 
 [取樣](../../azure-monitor/app/api-filtering-sampling.md)是減少從應用程式傳送至入口網站的資料量的套件方案。 它在這麼做時並不會影響顯示的度量。 而且它在這麼做時可藉由在相關項目 (如例外狀況、要求和頁面檢視) 之間瀏覽，而不會影響您診斷問題的能力。
 

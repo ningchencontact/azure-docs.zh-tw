@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229246"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567837"
 ---
 # <a name="how-traffic-manager-works"></a>流量管理員的運作方式
 
@@ -47,7 +47,7 @@ Contoso Corp 開發出新的合作夥伴入口網站。 此入口網站的 URL �
 ![流量管理員 DNS 組態][1]
 
 > [!NOTE]
-> 虛名網域配合 Azure 流量管理員使用時，您必須使用 CNAME 將虛名網域名稱指向流量管理員網域名稱。 DNS 標準不允許您在網域的「頂點」(或根) 上建立 CNAME。 因此，您無法建立 'contoso.com' 的 CNAME (有時稱為「裸」網域)。 您只能為 'contoso.com' 下的網域建立 CNAME，例如 'www.contoso.com'。 為了克服這項限制，我們建議使用簡單的 HTTP 重新導向，將 'contoso.com' 的要求導向替代名稱，例如 'www.contoso.com'。
+> 虛名網域配合 Azure 流量管理員使用時，您必須使用 CNAME 將虛名網域名稱指向流量管理員網域名稱。 DNS 標準不允許您在網域的「頂點」(或根) 上建立 CNAME。 因此，您無法建立 'contoso.com' 的 CNAME (有時稱為「裸」網域)。 您只能為 'contoso.com' 下的網域建立 CNAME，例如 'www.contoso.com'。 為因應這項限制，我們建議您將 DNS 網域裝載於 [Azure DNS](../dns/dns-overview.md)，並使用[別名記錄](../dns/tutorial-alias-tm.md)來指向您的流量管理員設定檔。 或是，您可以使用簡單的 HTTP 重新導向，將 'contoso.com' 的要求指向至替代名稱，例如 'www.contoso.com'。
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>用戶端連接如何使用流量管理員
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 72f85761db08652f0dff7f36fbcb2ef90654e078
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334392"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568527"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 的疑難排解和限制
 
@@ -30,56 +30,56 @@ ms.locfileid: "52334392"
 ### <a name="early-timeouts-in-firefox"></a>在 FireFox 中提前逾時
 
 - **詳細資料**：Cloud Shell 會利用開放式 Websocket 將輸入/輸出傳遞至瀏覽器。 FireFox 預設的原則會提早關閉 Websocket，而造成在 Cloud Shell 中提前逾時。
-- **解決辦法**：開啟 FireFox，然後在 URL 方塊中瀏覽至 "about:config"。 搜尋 "network.websocket.timeout.ping.request"，然後將值從 0 變更為 10。
+- **解決方案**︰開啟 FireFox，然後在 URL 方塊中瀏覽至 "about:config"。 搜尋 "network.websocket.timeout.ping.request"，然後將值從 0 變更為 10。
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>在鎖定的網路環境中停用 Cloud Shell
 
 - **詳細資料**：建議系統管理員阻止其使用者存取 Cloud Shell。 Cloud Shell 存取 `ux.console.azure.com` 網域時可能會遭到拒絕，進而停止任何對 Cloud Shell 進入點的存取，例如 portal.azure.com、shell.azure.com、Visual Studio Code 的 Azure 帳戶擴充及 docs.microsoft.com。
-- **解決方法**：透過環境的網路設定來限制 `ux.console.azure.com` 的存取權。 Cloud Shell 圖示仍會顯示在 portal.azure.com 中，但無法成功連線至該服務。
+- **解決方案**︰透過環境的網路設定來限制 `ux.console.azure.com` 的存取權。 Cloud Shell 圖示仍會顯示在 portal.azure.com 中，但無法成功連線至該服務。
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>儲存體對話方塊 - 錯誤：403 RequestDisallowedByPolicy
 
 - **詳細資料**：因為您的系統管理員設置的 Azure 原則，透過 Cloud Shell 建立儲存體帳戶失敗。錯誤訊息包括：`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **解決辦法**：連絡您的 Azure 系統管理員，請他移除或更新拒絕儲存體建立的 Azure 原則。
+- **解決方案**︰連絡您的 Azure 系統管理員，請他移除或更新拒絕儲存體建立的 Azure 原則。
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>儲存體對話方塊 - 錯誤：400 DisallowedOperation
 
 - **詳細資料**：使用 Azure Active Directory 訂用帳戶時，您無法建立儲存體。
-- **解決方式**：使用能夠建立儲存體資源的 Azure 訂用帳戶。 Azure AD 訂用帳戶無法建立 Azure 資源。
+- **解決方案**︰使用能夠建立儲存體資源的 Azure 訂用帳戶。 Azure AD 訂用帳戶無法建立 Azure 資源。
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>終端機輸出 - 錯誤：無法與終端機連線: 無法建立 websocket。 按 `Enter` 重新連線。
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>終端機輸出 - 錯誤：無法與終端機連線：無法建立 websocket。 按 `Enter` 重新連線。
 - **詳細資料**：Cloud Shell 必須能夠與 Cloud Shell 基礎結構建立 websocket 連線。
-- **解決辦法**：確認您已將您的網路設定設定為啟用傳送 https 要求和 websocket 要求至 *.console.azure.com 中的網域。
+- **解決方案**︰確認您已將您的網路設定設定為啟用傳送 https 要求和 websocket 要求至 *.console.azure.com 中的網域。
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>設定您的 Cloud Shell 連線以支援使用 TLS 1.2
  - **詳細資料**：若要定義 Cloud Shell 連線的 TLS 版本，您必須設定瀏覽器特有的設定。
- - **解決方式**：瀏覽至瀏覽器的安全性設定，然後選取 [使用 TLS 1.2] 旁的核取方塊。
+ - **解決方案**︰瀏覽至瀏覽器的安全性設定，然後選取 [使用 TLS 1.2] 旁的核取方塊。
 
 ## <a name="bash-troubleshooting"></a>Bash 疑難排解
 
 ### <a name="cannot-run-the-docker-daemon"></a>無法執行 Docker 精靈
 
 - **詳細資料**：Cloud Shell 會運用容器來裝載您的殼層環境，因此系統會不允許執行精靈。
-- **解決方式**：運用預設安裝的 [docker-machine](https://docs.docker.com/machine/overview/) 以從遠端 Docker 主機管理 Docker 容器。
+- **解決方案**︰運用預設安裝的 [docker-machine](https://docs.docker.com/machine/overview/) 以從遠端 Docker 主機管理 Docker 容器。
 
 ## <a name="powershell-troubleshooting"></a>PowerShell 疑難排解
 
 ### <a name="gui-applications-are-not-supported"></a>不支援 GUI 應用程式
 
 - **詳細資料**：使用者啟動 GUI 應用程式時，不會傳回提示。 例如，當使用者複製已啟用雙因素驗證的私人 GitHub 存放庫時，會顯示一個對話方塊，用以完成雙因素驗證。
-- **解決方式**：關閉並重新開啟殼層。
+- **解決方案**︰關閉並重新開啟殼層。
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>針對 Azure VM 遠端管理進行疑難排解
 > [!NOTE]
 > Azure VM 必須具有公用 IP 位址。
 
 - **詳細資料**：基於 WinRM 的預設 Windows 防火牆設定，使用者可能會看到下列錯誤：`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **解決方式**：執行 `Enable-AzureRmVMPSRemoting`，在所有目標機器上啟用 PowerShell 遠端所有層面的功能。
+- **解決方案**︰執行 `Enable-AzureRmVMPSRemoting`，在所有目標機器上啟用 PowerShell 遠端所有層面的功能。
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` 不會更新 Azure 磁碟機中的結果
 
 - **詳細資料**：根據預設，為了最佳化使用者體驗，`dir` 的結果會快取到 Azure 磁碟機中。
-- **解決方式**：在您建立、更新或移除 Azure 資源後，請執行 `dir -force` 以更新 Azure 磁碟機中的結果。
+- **解決方案**︰在您建立、更新或移除 Azure 資源後，請執行 `dir -force` 以更新 Azure 磁碟機中的結果。
 
 ## <a name="general-limitations"></a>一般限制
 
@@ -143,7 +143,7 @@ Cloud Shell 主要用於互動式的使用案例。 因此，任何長時間執�
 
 ### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>不支援建立 GUI 快顯視窗的命令
 
-如果使用者執行的命令會建立 Windows 對話方塊，例如 `Connect-AzureAD` 或 `Connect-AzureRmAccount`，其將會看到如下錯誤訊息：`Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`。
+如果使用者執行的命令會建立 Windows 對話方塊，例如 `Connect-AzureAD`、`Connect-AzureRmAccount` 或 `Connect-AzAccount`，其將會看到如下錯誤訊息：`Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`。
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Tab 鍵自動完成可能擲回 PSReadline 例外狀況
 

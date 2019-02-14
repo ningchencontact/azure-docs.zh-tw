@@ -1,25 +1,24 @@
 ---
-title: Azure Active Directory 中的自動群組成員資格規則參考 | Microsoft Docs
+title: 動態且自動的群組成員資格規則 - Azure Active Directory | Microsoft Docs
 description: 如何建立成員資格規則，以自動填入群組和規則參考。
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 98638c2fbd3f60ec0db009b52507eadcadd87ab4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 309e686d563798c34d2ab40af0ac1a6e6368b4e7
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172318"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509111"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 

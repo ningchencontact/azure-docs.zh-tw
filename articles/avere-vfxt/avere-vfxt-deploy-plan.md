@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298920"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744651"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>規劃您的 Avere vFXT 系統
 
@@ -37,6 +37,9 @@ ms.locfileid: "55298920"
 * 找出接近 vFXT 叢集的用戶端計算系統。 後端儲存體可能更加遙遠。  
 
 * 為了簡單起見，請在相同的虛擬網路 (Vnet) 和相同的資源群組中，找出 vFXT 叢集與叢集控制器 VM。 它們也應該使用相同的儲存體帳戶。 (叢集控制器會建立叢集，還可用於管理命令列叢集。)  
+
+  > [!NOTE] 
+  > 叢集建立範本可以建立新的資源群組和叢集的新儲存體帳戶。 您可以指定現有的資源群組，但是該資源群組必須是空的。
 
 * 此叢集必須位於自己的子網路中，以避免 IP 位址與用戶端或計算資源發生衝突。 
 
@@ -117,7 +120,7 @@ Avere vFXT for Azure 位於私人子網路，叢集並沒有公用 IP 位址。 
 
 如果您在叢集控制器上設定公用 IP 位址，您可以將其作為跳板主機，從私人子網路外連絡 Avere vFXT 叢集。 不過，由於控制器有修改叢集節點的存取權限，因此會產生輕微的安全性風險。  
 
-為了提升公用 IP 位址的安全性，請使用網路安全性群組來允許只透過連接埠 22 進行輸入存取。
+為了提升公用 IP 位址的安全性，請使用網路安全性群組來允許只透過連接埠 22 進行輸入存取。 或者，若要進一步保護系統，您也可以鎖定 IP 來源位址範圍的存取，也就是只允許從要用來存取叢集的機器進行連線。
 
 建立叢集時，您可以選擇是否要在叢集控制器上建立公用 IP 位址。 
 

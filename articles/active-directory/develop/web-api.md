@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 58cff9be154e693a378f55941e8662563c366b27
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097294"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820210"
 ---
 # <a name="web-api"></a>Web API
 
@@ -47,7 +47,7 @@ Web API 應用程式是必須從 Web API 取得資源的 Web 應用程式。 在
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>採用 OpenID Connect 的委派使用者識別
 
-1. 使用者使用 Azure AD 登入 Web 應用程式 (請參閱上方的 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application) 一節)。 如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。 應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。 此同意程序僅適用於多租用戶應用程式，而非單一租用戶應用程式，因為應用程式已具有必要的權限。 使用者登入後，Web 應用程式會收到識別碼權杖和使用者相關資訊，以及授權碼。
+1. 使用者使用 Azure AD 登入 Web 應用程式 (請參閱上方的＜Web 瀏覽器到 Web 應用程式＞一節)。 如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。 應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。 此同意程序僅適用於多租用戶應用程式，而非單一租用戶應用程式，因為應用程式已具有必要的權限。 使用者登入後，Web 應用程式會收到識別碼權杖和使用者相關資訊，以及授權碼。
 1. Web 應用程式會使用 Azure AD 簽發的授權碼，傳送要求至 Azure AD 的權杖端點，此要求包含授權碼、用戶端應用程式的詳細資料 (應用程式識別碼和重新導向 URI)，以及所需的資源 (Web API 的應用程式識別碼 URI)。
 1. Azure AD 驗證授權碼及 Web 應用程式和 Web API 的相關資訊。 成功驗證後，Azure AD 會傳回兩個權杖：JWT 存取權杖和 JWT 重新整理權杖。
 1. Web 應用程式使用傳回的 JWT 存取權杖，透過 HTTPS，在對 Web API 的要求的 Authorization 標頭中加上 JWT 字串並指定 "Bearer"。 接著，Web API 驗證 JWT 權杖，如果驗證成功，則傳回所需的資源。

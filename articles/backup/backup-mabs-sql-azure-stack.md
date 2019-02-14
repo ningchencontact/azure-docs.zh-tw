@@ -2,18 +2,18 @@
 title: 備份 Azure Stack 中的 SQL Server 工作負載
 description: 使用 Azure 備份伺服器來保護 Azure Stack 中的 SQL Server 工作負載。
 services: backup
-author: pvrk
-manager: Shivamg
+author: adigan
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: adigan
+ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751792"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493502"
 ---
 # <a name="back-up-sql-server-on-stack"></a>備份 Stack 上的 SQL Server
 運用本文資訊來設定 Microsoft Azure 備份伺服器 (MABS)，以保護 Azure Stack 中的 SQL Server 資料庫。

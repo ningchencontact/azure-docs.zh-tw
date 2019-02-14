@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 565b4c66c98d62fdcbd23f6446f522b810db1430
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 61752ad9feda7ad6b8d91f1b996b68f27f24b2c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999464"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821978"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -38,6 +38,9 @@ ms.locfileid: "52999464"
 [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 套件 3.x 版中提供佇列儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="encoding"></a>編碼
+Functions 預期有 base64 編碼的字串。 任何對於編碼類型的調整 (以便準備資料作為 base64 編碼的字串) 都必須在呼叫服務中實作。
 
 ## <a name="trigger"></a>觸發程序
 
@@ -496,7 +499,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 如需完整範例，請參閱[輸出 - C# 範例](#output---c-example)。
 
-您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attribute)。
+您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱「觸發程序 - 屬性」。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 

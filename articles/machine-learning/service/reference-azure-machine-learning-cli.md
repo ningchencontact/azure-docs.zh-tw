@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d7baa4faf718852e5bddd89f99e4ffc1248a403c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 65936348dcb40c6ceb71ebf735da8bb2120af654
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249726"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694511"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的 CLI 擴充功能
 
@@ -52,7 +52,7 @@ CLI 不是 Azure Machine Learning SDK 的取代項目。 它是已經過最佳�
 若要安裝 Machine Learning CLI 擴充功能，請使用下列命令：
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.6-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.10-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 出現提示時，請選取 `y` 來安裝擴充功能。
@@ -90,20 +90,8 @@ az extension remove -n azure-cli-ml
     ```azurecli-interactive
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
-
-+ 建立分散式訓練的受控計算目標：
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
-    ```
-
-* 更新受控計算目標：
-
-    ```azurecli-interactive
-    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
-    ```
-
-* 附加訓練或部署用的非受控計算目標：
+    
+* 連結 AKS 叢集
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace

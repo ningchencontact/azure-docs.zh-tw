@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: af605f4ad7c4167936a07f2ae8ffd3d2850cda75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 643ef7f9960b2a91c88b4e13fe318748d175e036
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185193"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692697"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>透過 Azure Active Directory 應用程式 Proxy 遠端存取內部部署應用程式 
 
@@ -28,7 +28,7 @@ Azure AD 應用程式 Proxy：
 
 - **安全**。 內部部署應用程式可以使用 Azure 的授權控制項和安全性分析。 例如，內部部署應用程式可以使用條件式存取和雙步驟驗證。 應用程式 Proxy 不需要您穿過防火牆開啟輸入連線。
  
-- **符合成本效益**。 內部部署解決方案則一般需要您設定及維護非軍事區 (DMV)、Edge Server 或其他複雜的基礎結構。 應用程式 Proxy 在雲端中執行，這使其更容易使用。 若要使用應用程式 Proxy，您不需要變更網路基礎結構，或在內部部署環境中安裝額外的設備。
+- **符合成本效益**。 內部部署解決方案則一般需要您設定及維護非軍事區 (DMZ)、Edge Server 或其他複雜的基礎結構。 應用程式 Proxy 在雲端中執行，這使其更容易使用。 若要使用應用程式 Proxy，您不需要變更網路基礎結構，或在內部部署環境中安裝額外的設備。
 
 ## <a name="what-is-application-proxy"></a>什麼是應用程式 Proxy？
 應用程式 Proxy 是 Azure AD 的一項功能，可讓使用者從遠端用戶端存取內部部署 Web 應用程式。 應用程式 Proxy 包括在雲端中執行的應用程式 Proxy 服務，和在內部部署伺服器上執行的應用程式 Proxy 連接器。 Azure AD、應用程式 Proxy 服務和應用程式 Proxy 連接器，可以將使用者登入權杖從 Azure AD 安全地傳遞至 Web 應用程式。

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 257e9f72f21d523dfa2390814b786d1963dd671c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903999"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743628"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>管理 Azure 資源的保留
 
@@ -36,11 +36,11 @@ ms.locfileid: "54903999"
 2. 選取 [所有服務] > [保留]。
 3. 選取保留。
 4. 選取 [設定] > [組態]。
-5. 變更範圍。 
+5. 變更範圍。
 
 如果您從共用變更為單一範圍，您只能選取擁有者是您的訂用帳戶。 只能選取與保留屬於相同計費內容的訂用帳戶。
 
-該範圍僅適用於預付型方案供應項目的 MS-AZR-0003P、企業供應項目的 MS-AZR-0017P 或 CSP 訂用帳戶類型。 對於企業合約，開發/測試訂用帳戶沒有取得保留折扣的資格。
+該範圍僅適用於預付型方案供應項目的 MS-AZR-0003P 或 MS-AZR-0023P、企業供應項目的 MS-AZR-0017P 或 MS-AZR-0148P，或 CSP 訂用帳戶類型。
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>新增或變更可以管理保留的使用者
 

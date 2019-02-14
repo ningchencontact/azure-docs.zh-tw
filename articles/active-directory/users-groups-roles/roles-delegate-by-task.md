@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Active Directory 中依工作委派最低特殊權限角色 | Microsoft Docs
+title: 依管理員工作委派最低特殊權限角色 - Azure Active Directory | Microsoft Docs
 description: 在 Azure Active Directory 中針對身分識別工作委派的角色
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 3b6c5b08fa3f915c541837abe5f52c7ec3d9b87e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6307fe4875d9fd5f55db8078ab9440f989fb58f3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185191"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508210"
 ---
-# <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>在 Azure Active Directory 中依身分識別工作的系統管理員角色
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
 在本文中，您可以找到藉由在 Azure Active Directory (Azure AD) 中指派最低特殊權限角色來限制使用者之系統管理員權限所需的資訊。 您將會發現依功能區域組織的系統管理員工作與執行每個工作所需的最低特殊權限角色，以及其他可執行工作的非全域系統管理員角色。
 

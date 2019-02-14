@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: f690625fda07bdbff671567f0292cc8e1cabeda1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 62bda3a1c9cb9d53578c2d471b9e63d1f0873234
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078690"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663293"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>預覽：Azure AD 密碼保護內部部署 - 常見問題集
 
@@ -28,7 +28,7 @@ ms.locfileid: "55078690"
 
 **問：Azure AD 密碼保護何時公開上市 (GA)？**
 
-我們尚未宣布公開上市日期。
+預計在 Q1 CY2019 公開上市 (2019 年 3 月底之前)。 感謝至今每一位提供功能意見反應的你們 - 我們由衷感謝！
 
 **問：非公用雲端是否支援內部部署 Azure AD 密碼保護？**
 

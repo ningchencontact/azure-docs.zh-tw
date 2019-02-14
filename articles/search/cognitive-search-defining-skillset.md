@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320790"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751968"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>如何在擴充管線中建立技能集
 
@@ -142,11 +142,11 @@ Content-Type: application/json
 
 ## <a name="add-predefined-skills"></a>新增預先定義的技能
 
-讓我們看看第一項技能，也就是預先定義的[具名實體辨識技能](cognitive-search-skill-named-entity-recognition.md)：
+讓我們看看第一項技能，也就是預先定義的[實體辨識技能](cognitive-search-skill-entity-recognition.md)：
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -155,7 +155,8 @@ Content-Type: application/json
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -228,7 +229,7 @@ Content-Type: application/json
     }
 ```
 
-此定義是一種自訂技能，會在擴充的過程中呼叫 Web API。 對於每個具名實體辨識所識別的組織，此技能都會呼叫 Web API，以尋找該組織的說明。 何時應呼叫 Web API 以及如何傳輸接收到的資訊等協調流程，由擴充引擎在內部處理。 不過，呼叫此自訂 API 所需的初始化，必須提供於 JSON 中 (例如 URI、httpHeaders 和預期的輸入)。 如需為擴充管線建立自訂 Web API 的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)。
+此定義是一種[自訂技能](cognitive-search-custom-skill-web-api.md)，會在擴充的過程中呼叫 Web API。 對於每個具名實體辨識所識別的組織，此技能都會呼叫 Web API，以尋找該組織的說明。 何時應呼叫 Web API 以及如何傳輸接收到的資訊等協調流程，由擴充引擎在內部處理。 不過，呼叫此自訂 API 所需的初始化，必須提供於 JSON 中 (例如 URI、httpHeaders 和預期的輸入)。 如需為擴充管線建立自訂 Web API 的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)。
 
 請注意，[內容] 欄位設定為附有星號的 ```"/document/organizations/*"```，這表示擴充步驟是對 ```"/document/organizations"``` 下的「每個」組織而呼叫的。 
 

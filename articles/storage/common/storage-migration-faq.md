@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 095c592e53f44cb674994c440258bcca1bfa760c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77963377d322a1c70226ceb772273127bec380de
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467164"
+ms.locfileid: "55506800"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
 
@@ -272,7 +272,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
 **對於複寫的儲存體帳戶 (例如，區域備援儲存體、異地備援儲存體或讀取權限異地備援儲存體)，如何存取儲存在次要區域的資料？**
 
--   如果您使用的是區域備援儲存體或異地備援儲存體，除非發生容錯移轉，否則無法從次要區域存取資料。 如需更多容錯移轉程序的相關資訊，請參閱[如果 Azure 儲存體發生中斷怎麼辦](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs)。
+-   如果您使用的是區域備援儲存體或異地備援儲存體，除非您起始以該區域為目的地的容錯移轉，否則無法從次要區域存取資料。 如需容錯移轉程序的詳細資訊，請參閱 [Azure 儲存體的災害復原和儲存體帳戶容錯移轉 (預覽)](storage-disaster-recovery-guidance.md)。
 
 -   如果您使用的是讀取權限異地備援儲存體，可以隨時存取次要區域中的資料。 使用下列其中一種方法：  
       

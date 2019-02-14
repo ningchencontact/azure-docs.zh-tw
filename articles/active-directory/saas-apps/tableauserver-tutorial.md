@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: a68ffb867a738e11c9895416bbdf2009b268c0c6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 69ae32f63005d3d5ea83dce5aa349bb6c0c92e0c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155806"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818425"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>教學課程：Azure Active Directory 與 Tableau Server 整合
 
@@ -215,7 +215,7 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
 本節目標是在 Tableau Server 中建立名為 Britta Simon 的使用者。 您必須在 Tableau Server 中佈建所有使用者。 
 
-使用者的使用者名稱應符合您在 Azure AD 自訂屬性 **username** 中設定的值。 透過正確的對應，應該可以有效整合， [設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)。
+使用者的使用者名稱應符合您在 Azure AD 自訂屬性 **username** 中設定的值。 透過正確的對應，應該可以有效整合，設定 Azure AD 單一登入。
 
 >[!NOTE]
 >如果您需要以手動方式建立使用者，您必須連絡貴組織的 Tableau Server 系統管理員。

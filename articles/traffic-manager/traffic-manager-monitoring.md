@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 40852b9457e703334350402489feb68ac92832a0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199625"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693782"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理員端點監視
 
@@ -135,7 +135,7 @@ Azure 流量管理員包含內建的端點監視和自動端點容錯移轉。 �
 * **加權**。 根據指派的加權和其他可用端點的加權，隨機選擇任何可用的端點。
 * **效能**。 會傳回最接近使用者的端點。 如果該端點無法使用，流量管理員會將流量移至最接近的下一個 Azure 區域中的端點。 您可以使用[巢狀流量管理員設定檔](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region)來設定效能流量路由的替代容錯移轉計劃。
 * **地理**。 會傳回根據查詢要求 IP，對地理位置提供服務的已對應端點。 如果該端點無法使用，則不會選取要容錯移轉的另一個端點，因為地理位置只能對應至設定檔中的一個端點 (更多詳細資料位於[常見問題集](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method))。 使用地理路由時的最佳做法是，建議客戶使用具有多個端點作為設定檔端點的巢狀流量管理員設定檔。
-* **多重值**傳回對應到 IPv4/IPv6 位址的多個端點。 收到此設定檔的查詢時，狀況良好的端點會根據**回應中的記錄計數上限**值 (已指定)，傳回狀況良好的端點數。 回應的預設數目是兩個端點。
+* **多重值** 傳回對應到 IPv4/IPv6 位址的多個端點。 收到此設定檔的查詢時，狀況良好的端點會根據**回應中的記錄計數上限**值 (已指定)，傳回狀況良好的端點數。 回應的預設數目是兩個端點。
 * **子網路**傳回對應至一組 IP 位址範圍的端點。 從該 IP 位址收到要求時，傳回的端點會是該 IP 位址對應的端點。 
 
 如需詳細資訊，請參閱 [流量管理員流量路由方法](traffic-manager-routing-methods.md)。

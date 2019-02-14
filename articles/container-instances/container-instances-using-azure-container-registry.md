@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064639"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727903"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>從 Azure Container Registry 部署至 Azure 容器執行個體
 
@@ -29,7 +29,7 @@ ms.locfileid: "54064639"
 
 在任何生產案例中，應該使用[服務主體](../container-registry/container-registry-auth-service-principal.md)提供 Azure 容器登錄的存取。 服務主體可讓您針對容器映像提供[角色型存取控制](../container-registry/container-registry-roles.md)。 例如，您可以設定服務主體具有僅限提取登錄的存取權。
 
-本節中，您會建立 Azure 金鑰保存庫和服務主體，並將服務主體的認證儲存在保存庫中。
+在下一節中，您會建立 Azure 金鑰保存庫和服務主體，並將服務主體的認證儲存在保存庫中。 
 
 ### <a name="create-key-vault"></a>建立金鑰保存庫
 
@@ -134,9 +134,11 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_L
 
 ## <a name="deploy-with-azure-portal"></a>使用 Azure 入口網站進行部署
 
-如果您在 Azure Container Registry 中保有容器映像，您就可以使用 Azure 入口網站在 Azure Container Instances 中輕鬆地建立容器。
+如果您在 Azure Container Registry 中保有容器映像，您就可以使用 Azure 入口網站在 Azure Container Instances 中輕鬆地建立容器。 使用入口網站從容器登錄部署容器執行個體時，您必須啟用登錄的[管理帳戶](../container-registry/container-registry-authentication.md#admin-account)。 管理帳戶是專為讓單一使用者存取登錄而設計，主要用於測試。 
 
 1. 在 Azure 入口網站中，瀏覽到您的容器登錄。
+
+1. 若要確認已啟用管理帳戶，請選取 [存取金鑰]，然後在 [管理使用者] 之下選取 [啟用]。
 
 1. 選取 [存放庫]，接著選取您想要從中部署的存放庫、以滑鼠右鍵按一下您想要部署之容器映像的標籤，然後選取 [執行執行個體]。
 

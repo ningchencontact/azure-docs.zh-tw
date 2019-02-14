@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 85b05e50dd989ef8db737df0a43f29b20aefb596
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812585"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657751"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -61,7 +61,7 @@ ms.locfileid: "54812585"
 
 **問：** 在擴展集內使用多個延伸模組時，是否可以強制執行「執行順序」？
 
-**答：** 不是直接，但針對 customScript 擴充，您的指令碼可以等候另一個擴充完成。 您可以在部落格文章︰[Extension Sequencing in Azure virtual machine Scale Sets (Azure 虛擬機器擴展集中的擴充排序)](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) 中取得有關擴充排序的其他指導方針。
+**答：** 是，您可以使用擴展集[擴充功能排序](virtual-machine-scale-sets-extension-sequencing.md)。
 
 **問：** 擴展集是否可與 Azure 可用性設定組組搭配使用？
 
@@ -176,7 +176,7 @@ az sf cluster create -h
 
 請檢閱 KeyVault 文件，了解 Azure 中最新 API 支援的憑證作業。
 
-自我簽署的憑證無法用於憑證授權單位提供的分散式信任，也不應該用於任何預期託管企業生產解決方案的 Service Fabric 叢集；如需其他 Service Fabric 安全性指引，請檢閱 [Azure Service Fabric 安全性最佳做法](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices)和 [Service Fabric 叢集安全性案例](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)。
+自我簽署的憑證無法用於憑證授權單位提供的分散式信任，也不應該用於任何預期託管企業生產解決方案的 Service Fabric 叢集；如需其他 Service Fabric 安全性指引，請檢閱 [Azure Service Fabric 安全性最佳做法](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)和 [Service Fabric 叢集安全性案例](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)。
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>是否可指定 SSH 金鑰組以便透過 Resource Manager 範本中的 Linux 虛擬機器擴展集來進行 SSH 驗證？
 
@@ -230,13 +230,14 @@ OS 設定檔也會使用於 [grelayhost.json GitHub 快速入門範本](https://
             }
         ]
     }
+}
 ```
 
 linuxConfiguration 元素名稱 | 必要 | 類型 | 說明
 --- | --- | --- | --- |  ---
 ssh | 否 | 集合 | 指定 Linux OS 的 SSH 金鑰組態
-path | 是 | 字串 | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
-keyData | 是 | 字串 | 指定 base64 編碼的 SSH 公開金鑰
+path | yes | 字串 | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
+keyData | yes | 字串 | 指定 base64 編碼的 SSH 公開金鑰
 
 如需範例，請參閱 [101-vm-sshkey GitHub 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)。
 
@@ -392,13 +393,13 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
 - 使用虛擬機器存取延伸模組來重設密碼。
 
     使用下列 PowerShell 範例：
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -630,7 +631,9 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 在此範例中，警示會在觸達臨界值時移至 Pagerduty.com。

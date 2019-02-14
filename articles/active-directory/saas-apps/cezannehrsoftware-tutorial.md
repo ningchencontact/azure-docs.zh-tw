@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 7515d1d88e3652ba609286b1805e58853763434d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28a699f62a97120a27ba4d6f555182f090249dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183217"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812291"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>教學課程：Azure Active Directory 與 Cezanne HR Software 整合
 
@@ -88,7 +88,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 Cezanne HR Software 測試使用者](#create-a-cezannehrsoftware-test-user)** - 在 Cezanne HR Software 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
+1. **建立 Cezanne HR Software 測試使用者** - 在 Cezanne HR Software 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
 1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 

@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352798"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755014"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>將 Windows 電腦連接到 Azure 中的 Log Analytics 服務
 
-為了要使用 Log Analytics 監視及管理本機資料中心或其他雲端環境中的虛擬機器或實體電腦，您需要部署 Microsoft Monitoring Agent (MMA)，並將它設定為向一或多個 Log Analytics 工作區報告。  此代理程式也支援 Azure 自動化的混合式 Runbook 背景工作角色。  
+為了要使用 Log Analytics 監視及管理本機資料中心或其他雲端環境中的虛擬機器或實體電腦，您需要部署 Log Analytics 代理程式 (也稱為 Microsoft Monitoring Agent (MMA))，並將它設定為向一或多個 Log Analytics 工作區報告。 此代理程式也支援 Azure 自動化的混合式 Runbook 背景工作角色。  
 
 在受監視的 Windows 電腦上，會將此代理程式列為 Microsoft Monitoring Agent 服務。 Microsoft Monitoring Agent 服務會從記錄檔和 Windows 事件記錄檔、效能資料及其他遙測收集事件。 即使代理程式無法與 Log Analytics 服務 (它的報告對象) 通訊，代理程式仍會繼續執行，並將收集到的資料佇列在受監視電腦的磁碟上。 當連線恢復時，Microsoft Monitoring Agent 服務會將收集的資料傳送給服務。
 
@@ -36,7 +36,7 @@ ms.locfileid: "54352798"
 若要了解支援的組態，請檢閱[支援的 Windows 作業系統](log-analytics-agent.md#supported-windows-operating-systems)和[網路防火牆組態](log-analytics-agent.md#network-firewall-requirements)。
 
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
-安裝適用於 Windows 的 Microsoft Monitoring Agent 之前，您必須有 Log Analytics 工作區的工作區識別碼和金鑰。  每種安裝方法都需要這項資訊，才能正確設定代理程式，並確保它能與 Azure Commercial 和 US Government 雲端中的 Log Analytics 順利進行通訊。  
+安裝適用於 Windows 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  每種安裝方法都需要這項資訊，才能正確設定代理程式，並確保它能與 Azure Commercial 和 US Government 雲端中的 Log Analytics 順利進行通訊。  
 
 1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在您的 Log Analytics 工作區清單中，選取您要設定讓代理程式向哪個工作區報告。
@@ -64,7 +64,7 @@ ms.locfileid: "54352798"
 5. 重新啟動系統來使設定生效。 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>使用安裝精靈安裝代理程式
-下列步驟會在您的電腦上，使用 Microsoft Monitoring Agent 的安裝精靈來安裝並設定適用於 Azure 和 Azure Government Cloud 中 Log Analytics 的代理程式。 如果您想要了解如何設定代理程式，以同時回報至 System Center Operations Manager 管理群組，請參閱[使用代理程式安裝精靈部署 Operations Manager 代理程式](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)。
+下列步驟會在您的電腦上，使用代理程式的安裝精靈來安裝並設定適用於 Azure 和 Azure Government Cloud 中 Log Analytics 的代理程式。 如果您想要了解如何設定代理程式，以同時回報至 System Center Operations Manager 管理群組，請參閱[使用代理程式安裝精靈部署 Operations Manager 代理程式](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)。
 
 1. 在 Log Analyics 工作區中，從您稍早瀏覽的 [Windows 伺服器] 頁面，根據 Windows 作業系統的處理器架構，選取適當的 [下載 Windows 代理程式] 版本來下載。   
 2. 執行安裝程式以在您的電腦上安裝代理程式。
@@ -87,7 +87,7 @@ ms.locfileid: "54352798"
 >[!NOTE]
 >如果您想要升級代理程式，您需要使用 Log Analytics 指令碼 API。 如需更多資訊，請參閱[管理和維護適用於 Windows 和 Linux 的 Log Analytics 代理程式](agent-manage.md)。
 
-下表特別列出代理程式安裝支援的 Log Analytics 參數，包括使用 Automation DSC 部署時的參數。
+下表特別列出代理程式安裝支援的特定參數，包括使用 Automation DSC 部署時的參數。
 
 |MMA 專屬選項                   |注意         |
 |---------------------------------------|--------------|

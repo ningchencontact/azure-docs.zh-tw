@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473420"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755164"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL Database 的商務持續性概觀
 
@@ -107,7 +107,7 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 
 無論您要使用何種商務持續性功能，您都必須︰
 
-- 識別並準備目標伺服器，包括伺服器層級防火牆規則、登入和 master 資料庫層級權限。
+- 識別並準備目標伺服器，包括伺服器層級 IP 防火牆規則、登入和 master 資料庫層級權限。
 - 決定如何將用戶端和用戶端應用程式重新導向到新的伺服器
 - 記錄其他相依性，例如稽核設定和警示
 
@@ -132,7 +132,7 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 從其中任何一種復原機制復原之後，您都必須執行下列額外的工作，您的使用者和應用程式才能回復正常執行狀態︰
 
 - 重新導向用戶端與用戶端應用程式到新的伺服器與還原的資料庫
-- 確定有適當的伺服器層級防火牆規則供使用者連線 (或使用 [資料庫層級防火牆](sql-database-firewall-configure.md#creating-and-managing-firewall-rules))
+- 確定有適當的伺服器層級 IP 防火牆規則供使用者連線或使用[資料庫層級防火牆](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal)，才能啟用適當的規則。
 - 確定有適當的登入和 master 資料庫層級權限 (或使用 [自主的使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - 依適當情況設定稽核
 - 依適當情況設定警示

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015129"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816725"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>使用 Azure Data Factory 複製活動從 DB2 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ ms.locfileid: "54015129"
 2. 建立資料集，代表複製作業的輸入和輸出資料。 
 3. 建立管線，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 
 
-使用複製精靈時，精靈會自動為您建立已連結 Data Factory 之服務、資料集及管線實體的 JSON 定義。 使用工具或 API (.NET API 除外) 時，您需使用 JSON 格式來定義資料處理站實體。 [JSON 範例：將資料從 DB2 複製到 Azure Blob 儲存體](#json-example-copy-data-from-db2-to-azure-blob)顯示用來從內部部署 DB2 資料存放區複製資料的 Data Factory 實體本身的 JSON 定義。
+使用複製精靈時，精靈會自動為您建立已連結 Data Factory 之服務、資料集及管線實體的 JSON 定義。 使用工具或 API (.NET API 除外) 時，您需使用 JSON 格式來定義資料處理站實體。 JSON 範例：將資料從 DB2 複製到 Azure Blob 儲存體顯示用來從內部部署 DB2 資料存放區複製資料的 Data Factory 實體本身的 JSON 定義。
 
 下列各節提供 JSON 屬性的相關詳細資料，這些屬性是用來定義 DB2 資料存放區特定的 Data Factory 實體。
 
@@ -81,14 +81,14 @@ ms.locfileid: "54015129"
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| **type** |此屬性必須設為 **OnPremisesDB2**。 |是 |
-| **server** |DB2 伺服器的名稱。 |是 |
-| **database** |DB2 資料庫的名稱。 |是 |
+| **type** |此屬性必須設為 **OnPremisesDB2**。 |yes |
+| **server** |DB2 伺服器的名稱。 |yes |
+| **database** |DB2 資料庫的名稱。 |yes |
 | **schema** |在 DB2 資料庫中的結構描述名稱。 此屬性必須區分大小寫。 |否 |
-| **authenticationType** |用來連接到 DB2 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
+| **authenticationType** |用來連接到 DB2 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |yes |
 | **username** |使用者帳戶的名稱 (如果您使用基本或 Windows 驗證)。 |否 |
 | **password** |使用者帳戶的密碼。 |否 |
-| **gatewayName** |Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 |是 |
+| **gatewayName** |Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 |yes |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的**結構**、**可用性**和**原則**等區段類似於所有的資料集類型 (Azure SQL、Azure Blob 儲存體、Azure 資料表儲存體等)。
@@ -106,7 +106,7 @@ ms.locfileid: "54015129"
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| **查詢** |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：`"query": "select * from "MySchema"."MyTable""` |否 (如果已指定資料集的 **tableName** 屬性) |
+| **query** |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：`"query": "select * from "MySchema"."MyTable""` |否 (如果已指定資料集的 **tableName** 屬性) |
 
 > [!NOTE]
 > 結構描述和資料表名稱會區分大小寫。 在查詢陳述式中，使用 "" (雙引號) 括住屬性名稱。
@@ -311,14 +311,14 @@ ms.locfileid: "54015129"
 | SmallInt |Int16 |
 | 整數  |Int32 |
 | BigInt |Int64 |
-| Real |單一 |
-| 兩倍 |兩倍 |
-| Float |兩倍 |
-| 十進位 |十進位 |
-| DecimalFloat |十進位 |
-| 數值 |十進位 |
-| 日期 |Datetime |
-| 時間 |時間範圍 |
+| Real |Single |
+| Double |Double |
+| Float |Double |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| 數值 |Decimal |
+| 日期 |DateTime |
+| 時間 |TimeSpan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |字串 |
@@ -337,14 +337,14 @@ ms.locfileid: "54015129"
 | SmallInt |Int16 |
 | 整數  |Int32 |
 | BigInt |Int64 |
-| Real |單一 |
-| 兩倍 |兩倍 |
-| Float |兩倍 |
-| 十進位 |十進位 |
-| DecimalFloat |十進位 |
-| 數值 |十進位 |
-| 日期 |Datetime |
-| 時間 |時間範圍 |
+| Real |Single |
+| Double |Double |
+| Float |Double |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| 數值 |Decimal |
+| 日期 |DateTime |
+| 時間 |TimeSpan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |字串 |

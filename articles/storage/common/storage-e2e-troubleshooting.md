@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473199"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746297"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,10 +98,10 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 若要開始使用 Azure PowerShell，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。
 
-1. 使用 [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) Cmdlet 將您的 Azure 使用者帳戶新增至 PowerShell 視窗：
+1. 使用 [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) Cmdlet 將您的 Azure 使用者帳戶新增至 PowerShell 視窗：
    
     ```powershell
-    Add-AzureAccount
+    Add-AzAccount
     ```
 
 2. 在 [登入 Microsoft Azure]  視窗中，輸入電子郵件地址以及與您的帳戶相關聯的密碼。 Azure 會驗證並儲存認證資訊，然後關閉視窗。
@@ -110,7 +110,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. 啟用 Blob 服務的儲存體記錄：

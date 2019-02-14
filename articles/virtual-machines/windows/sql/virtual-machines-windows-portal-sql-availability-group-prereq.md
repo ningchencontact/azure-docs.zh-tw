@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359828"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818017"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>完成在 Azure 虛擬機器上建立 Always On 可用性群組的必要條件
 
@@ -413,7 +413,7 @@ Azure 會建立虛擬機器。
 
 ### <a name="setServiceAccount"></a>設定 SQL Server 服務帳戶
 
-在每個 SQL Server VM 上，設定 SQL Server 服務帳戶。 使用您[設定網域帳戶](#DomainAccounts)時所建立的帳戶。
+在每個 SQL Server VM 上，設定 SQL Server 服務帳戶。 使用您設定網域帳戶時所建立的帳戶。
 
 1. 啟動 **SQL Server 組態管理員**。
 2. 在 SQL Server 服務上按一下滑鼠右鍵，然後按一下 [屬性]。

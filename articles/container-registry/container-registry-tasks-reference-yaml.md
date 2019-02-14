@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c9b4a27ff1b5467eb752e8cfc09f697ca1a966ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334477"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820380"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 工作參考：YAML
 
@@ -86,8 +86,8 @@ az configure --defaults acr=myregistry
 | 屬性 | 類型 | 選用 | 說明 | 支援覆寫 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | 字串 | 否 | 「ACR 工作」服務所剖析的 `acr-task.yaml` 檔案版本。 在「ACR 工作」努力維持回溯相容性的同時，此值則可讓「ACR 工作」在已定義的版本內維持相容性。 | 否 | None |
-| `stepTimeout` | 整數 (秒) | 是 | 步驟的可執行秒數上限。 設定步驟的 [timeout](#timeout) 屬性即可在步驟中覆寫此屬性。 | 是 | 600 (10 分鐘) |
-| `totalTimeout` | 整數 (秒) | 是 | 工作的可執行秒數上限。 「執行」包括執行及完成工作中的所有步驟，不論成功或失敗。 此外，也包括列印工作輸出，例如偵測到的映像相依性和工作執行狀態。 | 否 | 3600 (1 小時) |
+| `stepTimeout` | 整數 (秒) | yes | 步驟的可執行秒數上限。 設定步驟的 timeout 屬性即可在步驟中覆寫此屬性。 | yes | 600 (10 分鐘) |
+| `totalTimeout` | 整數 (秒) | yes | 工作的可執行秒數上限。 「執行」包括執行及完成工作中的所有步驟，不論成功或失敗。 此外，也包括列印工作輸出，例如偵測到的映像相依性和工作執行狀態。 | 否 | 3600 (1 小時) |
 
 ## <a name="task-step-types"></a>工作步驟類型
 
@@ -116,8 +116,8 @@ steps:
 
 | 參數 | 說明 | 選用 |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | 定義所建置映像的完整 `image:tag`。<br /><br />由於映像可能會用於內部工作驗證 (例如功能測試)，因此並非所有映像都需要 `push` 來推送至登錄。 不過，若要在工作執行內將某個映像執行個體化，則該映像確實需要一個可供參考的名稱。<br /><br />與 `az acr build` 不同，執行「ACR 工作」並不會提供預設的推送行為。 使用「ACR 工作」時，預設案例會能夠建置、驗證，然後推送映像。 如需了解如何視需要推送所建置的映像，請參閱 [push](#push)。 | 是 |
-| `-f` &#124; `--file` | 指定傳遞給 `docker build` 的 Dockerfile。 如果未指定，則會假設使用內容根目錄中的預設 Dockerfile。 若要指定替代的 Dockerfile，請傳遞內容根目錄的相對檔案名稱。 | 是 |
+| `-t` &#124; `--image` | 定義所建置映像的完整 `image:tag`。<br /><br />由於映像可能會用於內部工作驗證 (例如功能測試)，因此並非所有映像都需要 `push` 來推送至登錄。 不過，若要在工作執行內將某個映像執行個體化，則該映像確實需要一個可供參考的名稱。<br /><br />與 `az acr build` 不同，執行「ACR 工作」並不會提供預設的推送行為。 使用「ACR 工作」時，預設案例會能夠建置、驗證，然後推送映像。 如需了解如何視需要推送所建置的映像，請參閱 [push](#push)。 | yes |
+| `-f` &#124; `--file` | 指定傳遞給 `docker build` 的 Dockerfile。 如果未指定，則會假設使用內容根目錄中的預設 Dockerfile。 若要指定替代的 Dockerfile，請傳遞內容根目錄的相對檔案名稱。 | yes |
 | `context` | 傳遞給 `docker build` 的根目錄。 每個工作的根目錄都會設定為共用的 [workingDirectory](#task-step-properties)，並且包含相關 Git 複製目錄的根目錄。 | 否 |
 
 ### <a name="properties-build"></a>屬性：build
@@ -317,16 +317,16 @@ steps:
 
 | 屬性 | 類型 | 選用 | 說明 |
 | -------- | ---- | -------- | ----------- |
-| `detach` | 布林 | 是 | 執行時是否應將容器中斷連結。 |
-| `entryPoint` | 字串 | 是 | 覆寫步驟容器的 `[ENTRYPOINT]`。 |
-| `env` | [字串, 字串, ...] | 是 | `key=value` 格式的字串陣列，用來定義步驟的環境變數。 |
-| [`id`](#example-id) | 字串 | 是 | 可唯一識別工作內的步驟。 工作內的其他步驟可以參考步驟的 `id`，例如使用 `when`進行相依性檢查。<br /><br />`id` 同時也是執行中容器的名稱。 舉例來說，在工作內其他容器中執行的程序可以參考 `id` 作為其 DNS 主機名稱，或藉由 docker logs [id] 來存取它。 |
-| `ignoreErrors` | 布林 | 是 | 當設定為 `true` 時，不論步驟在執行期間是否發生錯誤，系統都會將其標示為已完成。 預設：`false`。 |
-| `keep` | 布林 | 是 | 在執行後是否應保留步驟的容器。 |
-| `startDelay` | 整數 (秒) | 是 | 延遲步驟執行的秒數。 |
-| `timeout` | 整數 (秒) | 是 | 終止步驟前可允許步驟執行的秒數上限。 |
-| [`when`](#example-when) | [字串, 字串, ...] | 是 | 設定步驟與工作內一或多個其他步驟的相依性。 |
-| `workingDirectory` | 字串 | 是 | 設定步驟的工作目錄。 「ACR 工作」預設會建立根目錄作為工作目錄。 不過，如果您的組建含有數個步驟，則可藉由指定相同的工作目錄，讓較前面的步驟與較後面的步驟共用成品。 |
+| `detach` | 布林 | yes | 執行時是否應將容器中斷連結。 |
+| `entryPoint` | 字串 | yes | 覆寫步驟容器的 `[ENTRYPOINT]`。 |
+| `env` | [字串, 字串, ...] | yes | `key=value` 格式的字串陣列，用來定義步驟的環境變數。 |
+| [`id`](#example-id) | 字串 | yes | 可唯一識別工作內的步驟。 工作內的其他步驟可以參考步驟的 `id`，例如使用 `when`進行相依性檢查。<br /><br />`id` 同時也是執行中容器的名稱。 舉例來說，在工作內其他容器中執行的程序可以參考 `id` 作為其 DNS 主機名稱，或藉由 docker logs [id] 來存取它。 |
+| `ignoreErrors` | 布林 | yes | 當設定為 `true` 時，不論步驟在執行期間是否發生錯誤，系統都會將其標示為已完成。 預設：`false`。 |
+| `keep` | 布林 | yes | 在執行後是否應保留步驟的容器。 |
+| `startDelay` | 整數 (秒) | yes | 延遲步驟執行的秒數。 |
+| `timeout` | 整數 (秒) | yes | 終止步驟前可允許步驟執行的秒數上限。 |
+| [`when`](#example-when) | [字串, 字串, ...] | yes | 設定步驟與工作內一或多個其他步驟的相依性。 |
+| `workingDirectory` | 字串 | yes | 設定步驟的工作目錄。 「ACR 工作」預設會建立根目錄作為工作目錄。 不過，如果您的組建含有數個步驟，則可藉由指定相同的工作目錄，讓較前面的步驟與較後面的步驟共用成品。 |
 
 ### <a name="examples-task-step-properties"></a>範例：工作步驟屬性
 

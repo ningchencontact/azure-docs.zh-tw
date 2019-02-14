@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 676eac6853c8cead40cb702855090eac5e2ce7d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9bf90c9d3ce593ba5bf6339cd9cec31bb49f14f1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025641"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658516"
 ---
-# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Netezza 複製資料 
+# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Netezza 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Netezza 複製資料。 本文是以 [Azure Data Factory 中的複製活動](copy-activity-overview.md)為基礎，該文提供複製活動的一般概觀。
 
@@ -41,8 +41,8 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | **type** 屬性必須設為 **Netezza**。 | 是 |
-| connectionString | 連線到 Netezza 的 ODBC 連接字串。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 是 |
+| type | **type** 屬性必須設為 **Netezza**。 | yes |
+| connectionString | 連線到 Netezza 的 ODBC 連接字串。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `pwd` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | yes |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以選擇自我裝載整合執行階段或 Azure Integration Runtime (如果您的資料存放區可公開存取)。 如果未指定，則會使用預設的 Azure Integration Runtime。 |否 |
 
 一般的連接字串為 `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`。 下表描述更多您可設定的屬性：
@@ -61,8 +61,37 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
         "type": "Netezza",
         "typeProperties": {
             "connectionString": {
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**範例：在 Azure Key Vault 中儲存密碼**
+
+```json
+{
+    "name": "NetezzaLinkedService",
+    "properties": {
+        "type": "Netezza",
+        "typeProperties": {
+            "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;"
+            },
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -77,13 +106,13 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 本節提供 Netezza 資料集所支援的屬性清單。
 
-如需定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)。 
+如需定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)。
 
 若要從 Netezza 複製資料，請將資料集的 **type** 屬性設定為 **NetezzaTable**。 以下是支援的屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**NetezzaTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**NetezzaTable** | yes |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -106,7 +135,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 本節提供 Netezza 來源所支援的屬性清單。
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)。 
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)。
 
 ### <a name="netezza-as-source"></a>Netezza 作為來源
 
@@ -114,7 +143,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 **type** 屬性必須設定為 **NetezzaSource**。 | 是 |
+| type | 複製活動來源的 **type** 屬性必須設定為 **NetezzaSource**。 | yes |
 | query | 使用自訂 SQL 查詢來讀取資料。 範例： `"SELECT * FROM MyTable"` | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**

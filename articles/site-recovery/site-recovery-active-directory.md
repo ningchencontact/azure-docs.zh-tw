@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851006"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821383"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>設定 Active Directory 和 DNS 的災害復原
 
@@ -31,10 +31,10 @@ ms.locfileid: "52851006"
 
 ## <a name="replicate-the-domain-controller"></a>複寫網域控制站
 
-- 您必須在至少一個裝載網域控制站和 DNS 的 VM 上設定 [Site Recovery 複寫](#enable-protection-using-site-recovery)。
-- 如果您的環境中有[多個網域控制站](#environment-with-multiple-domain-controllers)，則您也必須在目標站台上設定[額外的網域控制站](#protect-active-directory-with-active-directory-replication)。 額外的網域控制站可位於 Azure 中，或位於次要內部部署資料中心。
+- 您必須在至少一個裝載網域控制站和 DNS 的 VM 上設定 Site Recovery 複寫。
+- 如果您的環境中有多個網域控制站，則您也必須在目標站台上設定額外的網域控制站。 額外的網域控制站可位於 Azure 中，或位於次要內部部署資料中心。
 - 如果您有只有少數幾個應用程式和一個網域控制站，您可以將整個站台一併容錯移轉。 在此情況下，建議您使用 Site Recovery 將網域控制站複寫至目標站台 (位於 Azure 或次要內部部署資料中心)。 相同的複寫網域控制站或 DNS 虛擬機器也可用於[測試容錯移轉](#test-failover-considerations)。
-- - 如果您的環境中有許多應用程式和多個網域控制站，或您打算一次容錯移轉數個應用程式，建議您除了使用 Site Recovery 複寫網域控制站虛擬機器之外，也應在目標站台 (位於 Azure 或次要內部部署資料中心) 上設定[額外的網域控制站](#protect-active-directory-with-active-directory-replication)。 對於[測試容錯移轉](#test-failover-considerations)，您可以使用 Site Recovery 所複寫的網域控制站。 對於容錯移轉，您可以在目標站台上使用額外的網域控制站。
+- - 如果您的環境中有許多應用程式和多個網域控制站，或您打算一次容錯移轉數個應用程式，建議您除了使用 Site Recovery 複寫網域控制站虛擬機器之外，也應在目標站台 (位於 Azure 或次要內部部署資料中心) 上設定額外的網域控制站。 對於[測試容錯移轉](#test-failover-considerations)，您可以使用 Site Recovery 所複寫的網域控制站。 對於容錯移轉，您可以在目標站台上使用額外的網域控制站。
 
 ## <a name="enable-protection-with-site-recovery"></a>使用 Site Recovery 啟用保護
 
@@ -174,7 +174,7 @@ ms.locfileid: "52851006"
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
-    如需詳細資訊，請參閱[疑難排解 DNS 事件識別碼 4013：DNS 伺服器無法載入 AD 整合的 DNS 區域](https://support.microsoft.com/kb/2001093)。
+    如需詳細資訊，請參閱[針對 DNS 事件識別碼 4013 進行疑難排解：DNS 伺服器無法載入 AD 整合的 DNS 區域](https://support.microsoft.com/kb/2001093)。
 
 3. 停用讓通用類別目錄伺服器可用來驗證使用者登入的需求。 若要這麼做，請在內部部署網域控制站中，將下列登錄機碼設為 **1**。 如果此 DWORD 不存在，您可以在 **Lsa** 節點下加以建立。
 

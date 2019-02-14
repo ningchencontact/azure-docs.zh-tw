@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b95a9b2243dda83be7de67802a8b6678419e335f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 84c6a88449844d3a2f59b3b93dd95b102b653679
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102579"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817609"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何針對 Log Analytics Linux 代理程式的問題進行疑難排解 
 
@@ -60,7 +60,7 @@ ms.locfileid: "54102579"
 | NOT_DEFINED | 未安裝必要的相依性，所以不會安裝 auoms auditd 外掛程式 | auoms 安裝失敗，安裝套件 auditd。 |
 | 2 | 提供給殼層組合的選項無效。 請執行 `sudo sh ./omsagent-*.universal*.sh --help` 以了解使用方式 |
 | 3 | 未提供任何選項給殼層組合。 請執行 `sudo sh ./omsagent-*.universal*.sh --help` 以了解使用方式。 |
-| 4 | 套件類型無效或 Proxy 設定無效；omsagent-rpm.sh 套件只能安裝在以 RPM 為基礎的系統上，至於 omsagent-deb.sh 套件，則只能安裝在以 Debian 為基礎的系統上。 建議您使用來自[最新版本](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux)的通用安裝程式。 也請進行[檢閱](#issue:-unable-to-connect-through-proxy-to-log-analytics)，以驗證 Proxy 設定。 |
+| 4 | 套件類型無效或 Proxy 設定無效；omsagent-rpm.sh 套件只能安裝在以 RPM 為基礎的系統上，至於 omsagent-deb.sh 套件，則只能安裝在以 Debian 為基礎的系統上。 建議您使用來自[最新版本](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux)的通用安裝程式。 也請進行檢閱，以驗證 Proxy 設定。 |
 | 5 | 必須以 root 身分執行殼層組合，否則上架期間會傳回 403 錯誤。 請使用 `sudo` 執行命令。 |
 | 6 | 套件架構無效，或是在上架期間傳回錯誤 200 錯誤；omsagent-x64.sh 套件只能安裝在 64 位元系統上，而 omsagent-x86.sh 套件則只能安裝在 32 位元系統上。 從[最新版本](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)下載架構的正確套件。 |
 | 17 | OMS 套件安裝失敗。 查看命令的輸出中是否有 root 失敗。 |

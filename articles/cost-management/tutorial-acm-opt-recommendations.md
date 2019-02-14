@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077066"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766855"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>教學課程：透過建議最佳化成本
 
@@ -29,7 +29,7 @@ Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure
 > * 驗證動作，確保虛擬機器的大小已成功調整
 
 ## <a name="prerequisites"></a>必要條件
-「建議」適用於所有 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。
+這些建議適用於各種不同的 Azure 帳戶類型，包括 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。
 
 - 訂用帳戶
 - 資源群組
@@ -53,7 +53,7 @@ Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure
 
 Azure Advisor 可監視過去 14 天的虛擬機器使用量，並找出使用量過低的虛擬機器。 CPU 使用量小於 (含) 5% 且網路使用量小於 (含) 7 MB 長達 4 天 (含) 以上的虛擬機器，將會視為低使用量虛擬機器。
 
-5% 以下 (含) 的 CPU 使用量設定為預設，但您可以調整設定。 如需調整設定的詳細資訊，請參閱[低使用量虛擬機器建議](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation)的[設定平均 CPU 使用量規則](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation)一文。
+5% 以下 (含) 的 CPU 使用量設定為預設，但您可以調整設定。 如需調整設定的詳細資訊，請參閱[針對低使用量虛擬機器建議設定平均 CPU 使用量規則](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation)。
 
 雖然根據設計，某些案例可能會導致低使用量，但您通常可以藉由將虛擬機器的大小變更為較不昂貴的大小，來節省費用。 若您選擇調整大小動作，則您實際節省的成本可能會有所不同。 讓我們逐步完成調整虛擬機器大小的範例。
 

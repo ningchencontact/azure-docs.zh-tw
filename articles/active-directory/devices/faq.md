@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c923023cec03e36b1795619bc9da09aee8def629
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296154"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700378"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
 **問：我最近註冊了裝置。為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？或為什麼就已加入混合式 Azure Active Directory (Azure AD) 的裝置而言，裝置擁有者被標示為 N/A？**
 
 **答：** 已加入混合式 Azure AD 的 Windows 10 裝置不會顯示在 [使用者裝置] 底下。
-請使用 Azure 入口網站中的 [所有裝置] 檢視。 您也可以使用 PowerShell [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
+請使用 Azure 入口網站中的 [所有裝置] 檢視。 您也可以使用 PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
 
 只有下列裝置會列在 [使用者裝置] 底下：
 
@@ -176,7 +176,7 @@ ms.locfileid: "55296154"
 
 **問：當我嘗試將電腦加入 Azure AD 時，為什麼會看到「糟糕，發生錯誤!」對話方塊？**
 
-**答：** 當您使用 Intune 來設定 Azure Active Directory 註冊時，就會發生此錯誤。 請確定嘗試加入 Azure AD 的使用者已獲指派正確的 Intune 授權。 如需詳細資訊，請參閱[設定 Windows 裝置的註冊](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment)。  
+**答：** 當您使用 Intune 來設定 Azure Active Directory 註冊時，就會發生此錯誤。 請確定嘗試加入 Azure AD 的使用者已獲指派正確的 Intune 授權。 如需詳細資訊，請參閱[設定 Windows 裝置的註冊](https://docs.microsoft.com/intune/windows-enroll)。  
 
 ---
 
@@ -221,6 +221,12 @@ ms.locfileid: "55296154"
 **問：為什麼使用者在變更其 UPN 之後，會在使用已加入 Windows 10 混合式 Azure AD 的裝置時發生問題？**
 
 **答：** 目前，已加入混合式 Azure AD 的裝置並未完全支援 UPN 變更。 雖然使用者可以登入裝置，並存取其內部部署應用程式，但在變更 UPN 之後，向 Azure AD 進行驗證會失敗。 所以使用者會在其裝置上遇到 SSO 和條件式存取的問題。 目前，您必須先讓裝置取消加入 Azure AD (使用較高的權限執行 "dsregcmd /leave") 再重新加入 (會自動發生)，以解決此問題。 我們目前正努力解決此問題。 不過，使用 Windows Hello 企業版來登入的使用者不會遇到這個問題。 
+
+---
+
+**問：Windows 10 混合式 Azure AD 聯結裝置是否需要網域控制站的視線，才能取得雲端資源的存取權？**
+
+**答：** 沒有。 Windows 10 混合式 Azure AD 聯結完成而且使用者至少登入一次後，裝置不需要網域控制站的視線，即可存取雲端資源。 除了密碼變更時，Windows 10 可以透過網際網路連線在任何地方取得 Azure AD 應用程式的單一登入。 如果在公司網路外部變更密碼 (例如，藉由使用 Azure AD SSPR)，使用者需要有網域控制站的視線，才能使用新密碼登入裝置。 否則，使用者只能使用舊密碼登入，而舊密碼已由 Azure AD 撤銷而無法進行單一登入。 不過，您使用 Windows Hello 企業版時，不會發生此問題。 即使沒有網域控制站的視線，使用 Windows hello 企業版登入的使用者仍然可以在密碼變更後繼續進行 Azure AD 應用程式的單一登入。 
 
 ---
 

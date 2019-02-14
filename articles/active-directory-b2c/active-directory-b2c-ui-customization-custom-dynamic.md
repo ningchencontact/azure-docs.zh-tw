@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 54d98c02ee9e5202c09e333843f8c16955f4e2d4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187074"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819242"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則設定具有動態內容的 UI
 
@@ -155,7 +155,7 @@ ms.locfileid: "55187074"
     [建立 App Service] 視窗隨即開啟。 您可以在此開始建立所有必要 Azure 資源，以在 Azure 中執行 ASP.NET Web 應用程式。
 
     > [!NOTE]
-    > 如需有關發佈的詳細資訊，請參閱[在 Azure 中建立 ASP.NET Web 應用程式](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure)。
+    > 如需有關發佈的詳細資訊，請參閱[在 Azure 中建立 ASP.NET Web 應用程式](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)。
 
 3. 在 [Web 應用程式名稱] 方塊中，輸入唯一的應用程式名稱 (有效字元為 a-z、A-Z、0-9 及連字號 (-))。 Web 應用程式的 URL 是 `http://<app_name>.azurewebsites.NET`，其中 `<app_name>` 是您的 Web 應用程式名稱。 您可以接受自動產生的名稱 (這是唯一的)。
 
@@ -247,16 +247,18 @@ ms.locfileid: "55187074"
 執行下列動作來新增 `ContentDefinitionParameters` 元素：
 1. 開啟您的原則的 SignUpOrSignin 檔案 (例如，SignUpOrSignin.xml)。
 
-2. 搜尋 `<DefaultUserJourney>` 節點。 
-
-3. 在 `<DefaultUserJourney>` 節點中，新增下列 XML 程式碼片段：  
+2. 在 `<DefaultUserJourney>` 節點底下，新增 `UserJourneyBehaviors` 節點：  
 
     ```XML
-    <UserJourneyBehaviors>
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <UserJourneyBehaviors>
         <ContentDefinitionParameters>
-            <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+          <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
         </ContentDefinitionParameters>
-    </UserJourneyBehaviors>
+      </UserJourneyBehaviors>
+      ...
+    </RelyingParty>
     ```
 
 ### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>步驟 8.2：將您的程式碼變更為接受查詢字串參數，並取代背景影像

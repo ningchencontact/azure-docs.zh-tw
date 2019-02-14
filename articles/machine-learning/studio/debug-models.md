@@ -1,8 +1,21 @@
 ---
-標題：偵錯您的模型標題字尾：Azure Machine Learning Studio 說明：如何在 Azure Machine Learning Studio 中，針對定型模型和計分模型模組所產生的錯誤進行偵錯。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:03/14/2017
+title: 對您的模型進行偵錯
+titleSuffix: Azure Machine Learning Studio
+description: 如何在 Azure Machine Learning Studio 中，針對定型模型和計分模型模組所產生的錯誤進行偵錯。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/14/2017
+ms.openlocfilehash: a6708a1c414277cd4ee9b90851e19a94ea86c55b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491666"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中為模型偵錯
 

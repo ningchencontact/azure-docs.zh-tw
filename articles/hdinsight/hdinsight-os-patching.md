@@ -8,25 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 402a4d59b57803b8a9c0094799ceee6a92df43f9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911348"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694613"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight 的作業系統修補 
 
 > [!IMPORTANT]
-> Ubuntu 映像在發行後的 3 個月內就會變成可用於建立新的 HDInsight 叢集。 截至 2019 年 1 月為止，執行中的叢集都**不會**自動修補。 客戶必須使用指令碼動作或其他機制修補執行中的叢集。
+> Ubuntu 映像在發行後的 3 個月內就會變成可用於建立新的 HDInsight 叢集。 截至 2019 年 1 月為止，執行中的叢集都**不會**自動修補。 客戶必須使用指令碼動作或其他機制修補執行中的叢集。 新建立的叢集一律會有最新可用的更新，包括最新的安全性修補程式。
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>如何為以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程
-HDInsight 叢集中的虛擬機器有時候需要重新開機，以便系統可以安裝重要的安全性修補程式。 自 2016 年 8 月 1 日起，新式的以 Linux 為基礎的 HDInsight 叢集 (3.4 版或更新版本) 會使用下列排程來重新開機︰
-
-1. 在 30 天的期間內，叢集中的虛擬機器最多只能為了修補而重新開機一次。
-2. 重新開機作業會於 12AM UTC 開始。
-3. 叢集中的虛擬機器會錯開進行重新開機程序，因此在重新開機程序進行期間，叢集仍可供使用。
-4. 新建立之叢集的第一次重新開機，最快要在叢集建立日期的 30 天之後才會發生。
+HDInsight 叢集中的虛擬機器有時候需要重新開機，以便系統可以安裝重要的安全性修補程式。 
 
 您可以使用本文所述的指令碼動作來修改作業系統修補排程，如下所示︰
 1. 啟用或停用自動重新開機

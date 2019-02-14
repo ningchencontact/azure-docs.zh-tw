@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: b702b6de5c9f33058e9b486547530d071969bd97
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 70f6f8a7837b9e87b2720a866f14983356d23691
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855377"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487671"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>檢視活動記錄以稽核對資源的動作
 
@@ -35,7 +35,10 @@ ms.locfileid: "54855377"
 
 您可以透過入口網站、PowerShell、Azure CLI、Insights REST API 或 [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/)擷取活動記錄檔中的資訊。
 
-## <a name="portal"></a>入口網站
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="the-azure-portal"></a>Azure 入口網站
 
 1. 若要透過入口網站檢視活動記錄，請選取 [監視]。
 
@@ -71,52 +74,52 @@ ms.locfileid: "54855377"
 
 ## <a name="powershell"></a>PowerShell
 
-* 若要擷取記錄檔項目，請執行 **Get-AzureRmLog** 命令。 您可提供額外的參數來篩選項目清單。 如果未指定開始和結束時間，則會傳回最後七天的項目。
+* 若要擷取記錄項目，請執行 **Get-AzLog** 命令。 您可提供額外的參數來篩選項目清單。 如果未指定開始和結束時間，則會傳回最後七天的項目。
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup
+  Get-AzLog -ResourceGroup ExampleGroup
   ```
 
     下列範例示範如何使用活動記錄來研究指定期間所採取的作業。 以日期格式指定開始和結束日期。
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
+  Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
   ```
 
     或者，您可以使用日期函數來指定日期範圍，例如過去 14 天。
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+  Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
 * 您可以查閱由特定使用者採取的動作，即使是針對已不存在的資源群組。
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+  Get-AzLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
 * 您可以篩選失敗的作業。
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+  Get-AzLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
 * 您可以查看該項目的狀態訊息，專注於一個錯誤。
 
   ```azurepowershell-interactive
-  ((Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
+  ((Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
   ```
 
 * 您可以選取特定值來限制傳回的資料。
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+  Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
   ```
 
 * 視您指定的開始時間而定，先前的命令可以傳回該資源群組的一長串作業。 您可以提供搜尋準則，以篩選您所尋找的結果。 例如，您可以依照作業類型篩選。
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+  Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
   ```
 
 ## <a name="azure-cli"></a>Azure CLI

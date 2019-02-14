@@ -1,5 +1,5 @@
 ---
-title: 將傳統虛擬網路連接到 Azure Resource Manager VNet：入口網站 | Microsoft Docs
+title: 將傳統虛擬網路連線到 Azure Resource Manager VNet：入口網站 | Microsoft Docs
 description: 使用 VPN 閘道和入口網站將傳統 VNet 連線到 Resource Manager VNet 的步驟
 services: vpn-gateway
 author: cherylmc
@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404999"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508329"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用入口網站從不同的部署模型連接虛擬網路
 
@@ -113,7 +113,7 @@ SKU = VpnGw1 <br>
 2. 按一下 [選擇性閘道組態] 可開啟 [閘道組態] 頁面。
 
   ![開啟 [閘道組態] 頁面](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "開啟 [閘道組態] 頁面")
-3. 按一下 [子網路 - 設定必要設定] 以開啟 [新增子網路] 頁面。 [名稱] 已使用必要值 **GatewaySubnet** 進行設定。
+3. 按一下 [子網路 - 設定必要設定] 以開啟 [新增子網路] 頁面。 [名稱] 已使用必要值進行設定：**GatewaySubnet**。
 4. [位址範圍] 指的是閘道子網路的範圍。 雖然您可以使用 /29 位址範圍 (3 個位址) 建立閘道子網路，但是我們建議您建立包含更多 IP 位址的閘道子網路。 這可以容納未來可能需要更多可用 IP 位址的組態。 可能的話，請使用 /27 或 /28。 如果您使用這些步驟作為練習，您可以參考[範例值](#values)。 在此範例中，我們使用 '10.0.0.32/28'。 按一下 [確定] 以建立閘道子網路。
 5. 在 [閘道設定] 頁面上，[大小] 指的是閘道 SKU。 選取您 VPN 閘道的閘道 SKU。
 6. 確認 [路由類型] 是 [動態]，然後按一下 [確定] 以返回 [新增 VPN 連線] 頁面。
@@ -261,7 +261,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2.檢視網路組態檔值
 
-當您在 Azure 入口網站中建立 VNet 時，不會在 Azure 入口網站中顯示 Azure 所使用的完整名稱。 例如，在 Azure 入口網站中名稱顯示為 'ClassicVNet' 的 VNet，在網路組態檔中的名稱可能更長。 名稱可能如下︰'Group ClassicRG ClassicVNet'。 在這些步驟中，您下載網路組態檔並且檢視值。
+當您在 Azure 入口網站中建立 VNet 時，不會在 Azure 入口網站中顯示 Azure 所使用的完整名稱。 例如，在 Azure 入口網站中名稱顯示為 'ClassicVNet' 的 VNet，在網路組態檔中的名稱可能更長。 名稱可能如下所示：'Group ClassicRG ClassicVNet'。 在這些步驟中，您下載網路組態檔並且檢視值。
 
 在您的電腦上建立目錄，然後將網路組態檔匯出到該目錄。 在此範例中，會將網路組態檔匯出到 C:\AzureNet。
 

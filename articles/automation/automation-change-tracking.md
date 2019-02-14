@@ -10,12 +10,12 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301436"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487229"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -111,7 +111,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 遞迴可讓您指定萬用字元，以簡化跨目錄的追蹤，而環境變數則可讓您以多個或動態的磁碟機名稱跨環境追蹤檔案。 以下清單顯示您在設定遞迴時所應知悉的一般資訊：
 
 * 追蹤多個檔案時需使用萬用字元
-* 使用萬用字元時，這些字元只能在路徑的最後一個部分使用。 (例如 C:\folder\\**file** 或 /etc/*.conf)
+* 使用萬用字元時，這些字元只能在路徑的最後一個部分使用。 (例如 `c:\folder\*file*` 或 `/etc/*.conf`)
 * 如果環境變數具有無效路徑，驗證仍會成功，但執行清查時，該路徑將會失敗。
 * 在設定路徑應避免使用 `c:\*.*` 這類的一般路徑，因為這會導致過多資料夾的周遊。
 
@@ -132,9 +132,9 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 |屬性  |說明  |
 |---------|---------|
 |已啟用     | 判斷是否已套用設定。        |
-|項目名稱     | 要追蹤之檔案的易記名稱。        |
-|群組     | 以邏輯方式分組檔案的群組名稱。        |
-|Windows 登錄機碼   | 要檢查檔案的路徑。 例如︰"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|項目名稱     | 要追蹤之登錄機碼的易記名稱。        |
+|群組     | 以邏輯方式分組登錄機碼的群組名稱。        |
+|Windows 登錄機碼   | 要檢查登錄機碼的路徑。 例如︰"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>限制
 
@@ -278,7 +278,7 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 
 ![顯示 hosts 檔案變更的圖表](./media/automation-change-tracking/changes.png)
 
-若要進一步分析這項變更，請按一下 **Log Analytics** 移至記錄搜尋。 在記錄搜尋中，透過查詢 `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` 搜尋 Hosts 檔案的內容變更。 此查詢會尋找變更，其中包括完整路徑包含 "hosts" 這個字的檔案的檔案內容變更。 您也可以將路徑部分變更為其完整形式 (例如 `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`)，以要求特定檔案。
+若要進一步分析這項變更，請按一下 **Log Analytics** 移至記錄搜尋。 在記錄搜尋中，透過查詢 `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` 搜尋 Hosts 檔案的內容變更。 此查詢會尋找變更，其中包括完整路徑包含 "hosts" 這個字的檔案的檔案內容變更。 您也可以將路徑部分變更為其完整形式 (例如 `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`)，以要求特定檔案。
 
 在查詢傳回所需的結果之後，按一下記錄搜尋體驗中的 [新增警示規則] 按鈕，以開啟警示建立頁面。 您也可以在 Azure 入口網站中透過 [Azure 監視器] 瀏覽至此體驗。 在警示建立體驗中，再次檢查我們的查詢並修改警示邏輯。 在此情況下，即使在環境中的所有電腦上偵測到一項變更，也要觸發警示。
 

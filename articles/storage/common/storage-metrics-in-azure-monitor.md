@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467640"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811762"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -39,7 +39,7 @@ Azure 監視器提供了多種方法供您存取計量。 您可以從 [Azure �
 
 ### <a name="access-metrics-with-the-rest-api"></a>使用 REST API 存取計量
 
-Azure 監視器提供了 [REST API](/rest/api/monitor/) 來讀取計量定義和值。 本節說明如何讀取儲存體計量。 所有 REST API 都會使用資源識別碼。 如需詳細資訊，請參閱[了解儲存體所含服務的資源識別碼](#understanding-resource-id-for-services-in-storage)。
+Azure 監視器提供了 [REST API](/rest/api/monitor/) 來讀取計量定義和值。 本節說明如何讀取儲存體計量。 所有 REST API 都會使用資源識別碼。 如需詳細資訊，請參閱「了解儲存體所含服務的資源識別碼」。
 
 下列範例說明如何在命令列使用 [ArmClient](https://github.com/projectkudu/ARMClient)，以簡化使用 REST API 來進行測試的方式。
 
@@ -136,7 +136,7 @@ Azure 監視器提供了 [REST API](/rest/api/monitor/) 來讀取計量定義和
 
 ### <a name="access-metrics-with-the-net-sdk"></a>使用 .Net SDK 存取計量
 
-Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) 來讀取計量定義和值。 [範例程式碼](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)示範如何使用 SDK 搭配不同的參數。 您必須使用 `0.18.0-preview` 或更新版本的儲存體計量。 .Net SDK 使用資源識別碼。 如需詳細資訊，請參閱[了解儲存體所含服務的資源識別碼](#understanding-resource-id-for-services-in-storage)。
+Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) 來讀取計量定義和值。 [範例程式碼](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)示範如何使用 SDK 搭配不同的參數。 您必須使用 `0.18.0-preview` 或更新版本的儲存體計量。 .Net SDK 使用資源識別碼。 如需詳細資訊，請參閱「了解儲存體所含服務的資源識別碼」。
 
 下列範例示範如何使用 Azure 監視器 .Net SDK 讀取儲存體計量。
 
@@ -391,7 +391,7 @@ Azure 儲存體支援下列 Azure 監視器計量維度。
 | BlobType | 只適用於 Blob 計量的 Blob 類型。 支援的值有 **BlockBlob** 和 **PageBlob**。 附加 Blob 隨附於 BlockBlob。 |
 | ResponseType | 交易回應類型。 可用的值包括： <br/><br/> <li>ServerOtherError：描述項目之外的其他所有伺服器端錯誤 </li> <li> ServerBusyError：傳回 HTTP 503 狀態碼的已驗證要求。 </li> <li> ServerTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 逾時是因為伺服器錯誤而發生。 </li> <li> AuthorizationError：由於未經授權存取資料或授權失敗，從而發生失敗的已驗證要求。 </li> <li> NetworkError：由於網路錯誤而失敗的已驗證要求。 當用戶端在逾時到期前就過早關閉連線時，最常會發生這個情況。 </li> <li>    ClientThrottlingError：用戶端節流錯誤。 </li> <li> ClientTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 如果用戶端的網路逾時或要求逾時設定為比儲存體服務預期的值還低，則此值是符合預期的逾時。 否則，它會回報為 ServerTimeoutError。 </li> <li> ClientOtherError：描述項目之外的其他所有用戶端錯誤。 </li> <li> 成功：成功的要求|
 | GeoType | 來自主要或次要叢集的交易。 可用的值包括 Primary 和 Secondary。 在從次要租用戶讀取物件時，此維度會套用到讀取權限異地備援儲存體 (RA-GRS)。 |
-| ApiName | 作業的名稱。 例如︰ <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 如需所有的作業名稱，請參閱[文件](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)。 |
+| ApiName | 作業的名稱。 例如︰ <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 如需所有的作業名稱，請參閱[文件](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)。 |
 | 驗證 | 交易中所使用的驗證類型。 可用的值包括： <br/> <li>AccountKey：交易會使用儲存體帳戶金鑰進行驗證。</li> <li>SAS：交易會使用共用存取簽章進行驗證。</li> <li>OAuth：交易會使用 OAuth 存取權杖進行驗證。</li> <li>Anonymous：以匿名方式要求交易。 不包括預檢要求。</li> <li>AnonymousPreflight：交易是預檢要求。</li> |
 
 對於計量支援維度，您必須指定維度值才能查看對應的計量值。 例如，如果您要查看成功回應的 **Transactions** 值，則需要篩選具有 **Success** 值的 **ResponseType** 維度。 或者，如果您要查看區塊 Blob 的 **BlobCount** 值，就需要篩選具有 **BlockBlob** 值的 **BlobType** 維度。
@@ -401,6 +401,10 @@ Azure 儲存體支援下列 Azure 監視器計量維度。
 舊版計量可與 Azure 監視器管理的計量並存。 在 Azure 儲存體結束舊版計量的服務之前，支援不會改變。
 
 ## <a name="faq"></a>常見問題集
+
+**新計量是否支援傳統儲存體帳戶？**
+
+否，Azure 監視器中的新計量只支援 Azure Resource Manager 儲存體帳戶。 如果您想要在儲存體帳戶上使用計量，則必須遷移至 Azure Resource Manager 儲存體帳戶。 請參閱[遷移至 Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview)。
 
 **Azure 儲存體是否支援受控磁碟或非受控磁碟的計量？**
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 10/02/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c82c39de9b403e2e35f40c0290c8642c702790f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248056"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769316"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>使用 SSL 來保護具有 Azure Machine Learning 服務的 Web 服務
 
@@ -103,5 +103,6 @@ SSL 會加密在用戶端與 Web 服務之間傳送的資料。 用戶端也會�
 目前不支援對部署到 FPGA 的服務使用 SSL。
 
 ## <a name="next-steps"></a>後續步驟
-
-了解如何[取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)。
+了解如何：
++ [使用部署為 Web 服務的機器學習模型](how-to-consume-web-service.md)
++ [在 Azure 虛擬網路內安全地執行實驗與推斷](how-to-enable-virtual-network.md)

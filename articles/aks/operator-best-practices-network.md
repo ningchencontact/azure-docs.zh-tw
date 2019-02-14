@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ad6ab27a51cf082be71262b887a459f6c7cc906
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101967"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699120"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路連線和安全性最佳做法
 
@@ -21,44 +21,44 @@ ms.locfileid: "54101967"
 此最佳做法文章著重於叢集操作員的網路連線能力和安全性。 在本文中，您將了解：
 
 > [!div class="checklist"]
-> * 比較 AKS 中的基本和進階網路模式
+> * 比較 AKS 中的 Kubenet 和 Azure CNI 網路模式
 > * 規劃所需的 IP 位址和連線能力
 > * 使用負載平衡器、輸入控制器或 Web 應用程式防火牆 (WAF) 來分配流量
 > * 安全地連線到叢集節點
 
 ## <a name="choose-the-appropriate-network-model"></a>選擇適當的網路模型
 
-**最佳作法指引** - 若要整合現有虛擬網路或內部部署網路，請使用 AKS 中的進階網路功能。 此網路模型也可讓企業環境中的資源和控制項達到更有效的區隔。
+**最佳做法指引** - 若要整合現有虛擬網路或內部部署網路，請使用 AKS 中的 Azure CNI 網路功能。 此網路模型也可讓企業環境中的資源和控制項達到更有效的區隔。
 
 虛擬網路會提供存取您應用程式的基本連線能力給 AKS 節點和客戶。 將 AKS 叢集部署到虛擬網路有兩種不同的方式：
 
-* **基本網路功能** - Azure 會在叢集部署好之後管理虛擬網路資源，並使用 [kubenet][kubenet] Kubernetes 外掛程式。
-* **進階網路功能** - 部署到現有的虛擬網路中，並使用 [Azure 容器網路介面 (CNI)][cni-networking] Kubernetes 外掛程式。 Pod 會收到可路由到其他網路服務或內部部署資源的個別 IP。
+* **Kubenet 網路功能** - Azure 會在叢集部署好之後管理虛擬網路資源，並使用 [kubenet][kubenet] Kubernetes 外掛程式。
+* **Azure CNI 網路功能** - 部署到現有的虛擬網路中，並使用 [Azure 容器網路介面 (CNI)][cni-networking] Kubernetes 外掛程式。 Pod 會收到可路由到其他網路服務或內部部署資源的個別 IP。
 
 容器網路介面 (CNI) 是一個「廠商中立」通訊協定，可讓容器執行階段對網路提供者提出要求。 Azure CNI 會將 IP 位址指派給 Pod 和節點，並在您連線至現有 Azure 虛擬網路時提供 IP 位址管理 (IPAM) 功能。 每個節點和 Pod 資源都會收到 Azure 虛擬網路中的 IP 位址，並且不需要使用額外路由來與其他資源或服務通訊。
 
 ![此圖表顯示兩個節點，且各有橋接器將其連線至單一 Azure VNet](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-您應對大部分的生產環境部署使用進階網路功能。 此網路模型可用來區隔資源的控制和管理。 從安全性觀點來看，您通常會想讓不同小組來管理及保護這些資源。 進階網路功能可讓您透過指派給每個 Pod 的 IP 位址，直接連線到現有的 Azure 資源、內部部署資源或其他服務。
+您應對大部分的生產環境部署使用 Azure CNI 網路功能。 此網路模型可用來區隔資源的控制和管理。 從安全性觀點來看，您通常會想讓不同小組來管理及保護這些資源。 Azure CNI 網路功能可讓您透過指派給每個 Pod 的 IP 位址，直接連線到現有的 Azure 資源、內部部署資源或其他服務。
 
-當您使用進階網路功能時，虛擬網路資源會在 AKS 叢集的不同資源群組中。 您可以將存取和管理這些資源的權限委派給 AKS 服務主體。 AKS 叢集所使用的服務主體在您虛擬網路內的子網路上必須至少具有[網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)權限。 如果您想要定義[自訂角色](../role-based-access-control/custom-roles.md)，而不使用內建的網路參與者角色，則需要下列權限：
+當您使用 Azure CNI 網路功能時，虛擬網路資源會在 AKS 叢集的不同資源群組中。 您可以將存取和管理這些資源的權限委派給 AKS 服務主體。 AKS 叢集所使用的服務主體在您虛擬網路內的子網路上必須至少具有[網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)權限。 如果您想要定義[自訂角色](../role-based-access-control/custom-roles.md)，而不使用內建的網路參與者角色，則需要下列權限：
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 如需有關 AKS 服務主體委派的詳細資訊，請參閱[委派其他 Azure 資源的存取權][sp-delegation]。
 
-當每個節點和 Pod 收到自己的 IP 位址時，請規劃 AKS 子網路的位址範圍。 子網路必須夠大，才能為您部署的每個節點、Pod 和網路資源提供 IP 位址。 每個 AKS 叢集必須放在自己的子網路中。 若要在 Azure 中允許對內部部署或對等互連網路進行連線，請不要使用與現有網路資源重疊的 IP 位址範圍。 基本和進階網路功能都有預設每個節點可執行的 Pod 數目限制。 若要處理相應增加事件或叢集升級，您也需要其他可在所指派子網路中使用的 IP 位址。
+當每個節點和 Pod 收到自己的 IP 位址時，請規劃 AKS 子網路的位址範圍。 子網路必須夠大，才能為您部署的每個節點、Pod 和網路資源提供 IP 位址。 每個 AKS 叢集必須放在自己的子網路中。 若要在 Azure 中允許對內部部署或對等互連網路進行連線，請不要使用與現有網路資源重疊的 IP 位址範圍。 Kubenet 和 Azure CNI 網路功能都有預設每個節點可執行的 Pod 數目限制。 若要處理相應增加事件或叢集升級，您也需要其他可在所指派子網路中使用的 IP 位址。
 
-若要計算所需的 IP 位址，請參閱[在 AKS 中設定進階網路功能][advanced-networking]。
+若要計算所需的 IP 位址，請參閱[在 AKS 中設定 Azure CNI 網路功能][advanced-networking]。
 
-### <a name="basic-networking-with-kubenet"></a>採用 Kubenet 的基本網路功能
+### <a name="kubenet-networking"></a>Kubenet 網路功能
 
-雖然基本網路不需要在部署叢集之前先設定虛擬網路，但也有些缺點：
+雖然 Kubenet 不需要在部署叢集之前先設定虛擬網路，但也有些缺點：
 
 * 節點和 Pod 放置於不同的 IP 子網路。 使用者定義路由 (UDR) 和 IP 轉送會用來路由 Pod 和節點之間的流量。 這個額外的路由會降低網路效能。
-* 連線至現有內部部署網路或與其他 Azure 虛擬網路對等互連很複雜。
+* 連線至現有內部部署網路或與其他 Azure 虛擬網路對等互連可能會很複雜。
 
-基本網路功能適合用於小型的開發或測試工作負載，因為您不需要從 AKS 叢集分別建立虛擬網路和子網路。 使用基本網路功能部署的簡單 AKS 叢集適用於流量低的簡易網站，或用於將工作負載隨即轉移到容器中。 您應對大部分的生產環境部署規劃及使用進階網路功能。
+Kubenet 適用於小型的開發或測試工作負載，因為您不需要從 AKS 叢集分別建立虛擬網路和子網路。 使用 Kubenet 網路功能部署的簡單 AKS 叢集適用於流量低的簡易網站，或用於將工作負載隨即轉移到容器中。 您應對大部分的生產環境部署規劃並使用 Azure CNI 網路功能。 您也可以[使用 Kubenet 設定自己的 IP 位址範圍和虛擬網路][aks-configure-kubenet-networking]。
 
 ## <a name="distribute-ingress-traffic"></a>分配輸入流量
 
@@ -155,4 +155,5 @@ AKS 中的大部分作業都可使用 Azure 管理工具或透過 Kubernetes API
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
-[advanced-networking]: configure-advanced-networking.md
+[advanced-networking]: configure-azure-cni.md
+[aks-configure-kubenet-networking]: configure-kubenet.md

@@ -5,27 +5,31 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 267919900fe68271365a73c3cbea7b1f0befc8a7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052133"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766807"
 ---
 # <a name="assign-access-to-cost-management-data"></a>指派成本管理資料的存取權
 
-對於大部分的使用者，在 Azure 入口網站和企業 (EA) 入口網站中授與的權限組合，定義了使用者對 Azure 成本管理資料的存取權層級。 本文逐步引導您指派對 Azure 成本管理資料的存取權。 指派權限組合之後，使用者依他們有存取權的範圍和他們在 Azure 入口網站中選取的範圍，來檢視成本管理中的資料。
+對於具有 Azure Enterprise 合約的使用者，在 Azure 入口網站和企業 (EA) 入口網站中授與的權限組合，定義了使用者對 Azure 成本管理資料的存取權層級。 對於其他 Azure 帳戶類型的使用者，使用者在成本管理資料上的存取層級會比較簡單。 本文逐步引導您指派對 Azure 成本管理資料的存取權。 指派權限組合之後，使用者依他們有存取權的範圍和他們在 Azure 入口網站中選取的範圍，來檢視成本管理中的資料。
 
 使用者選取的範圍使用於成本管理，以提供資料彙總及控制對成本資訊的存取權。 使用範圍時，使用者不能多重選取範圍。 相反地，他們是選取子範圍彙總至的較大範圍，然後再篩選出想要檢視的部分。 請務必了解資料彙總，因為有些人員不應存取子範圍所彙總至的父範圍。
 
 ## <a name="cost-management-scopes"></a>成本管理範圍
 
-若檢視成本資料，使用者必須至少有一或多個下列範圍的讀取存取。
+成本管理支援各種不同的 Azure 帳戶類型。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 帳戶類型會決定可用範圍。
+
+### <a name="azure-ea-subscription-scopes"></a>Azure EA 訂用帳戶的範圍
+
+若要檢視 Azure EA 訂用帳戶的成本資料，使用者必須至少有一或多個下列範圍的讀取存取。
 
 | **範圍** | **定義於** | **檢視資料所需的存取權** | **事先的 EA 設定** | **資料彙總至** |
 | --- | --- | --- | --- | --- |
@@ -43,6 +47,18 @@ ms.locfileid: "54052133"
 下圖說明成本管理範圍之間的關係，以及角色和 EA 入口網站設定。
 
 ![圖表顯示成本管理範圍之間的關係，以及角色和 EA 入口網站設定](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+
+當 EA 入口網站中的 [DA 檢視費用] 停用時，若您嘗試檢視部門和帳戶的成本，則會看到訊息指出「您組織的成本已停用」。
+
+同樣地，當 EA 入口網站中的 [AO 檢視費用] 停用時，若您嘗試檢視註冊帳戶、管理群組、訂用帳戶和資源群組的成本，則會看到訊息指出「您組織的成本已停用」。
+
+## <a name="other-azure-account-scopes"></a>其他 Azure 帳戶的範圍
+
+若要檢視其他 Azure 訂用帳戶的成本資料，使用者必須至少有一或多個下列範圍的讀取存取：
+
+- Azure 帳戶
+- 管理群組
+- 資源群組
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>在 EA 入口網站中啟用對成本的存取權
 
@@ -109,7 +125,7 @@ ms.locfileid: "54052133"
 
 ## <a name="assign-management-group-scope-access"></a>指派管理群組範圍存取權
 
-對管理群組範圍的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對管理群組的權限。 您必須至少有管理群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
+對管理群組範圍的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對管理群組的權限。 您必須至少有管理群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在側邊欄中選取 [所有服務]，再搜尋「管理群組」，然後選取 [管理群組]。
@@ -125,7 +141,7 @@ ms.locfileid: "54052133"
 
 ## <a name="assign-subscription-scope-access"></a>指派訂用帳戶範圍存取權
 
-對訂用帳戶的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對訂用帳戶的權限。 您必須至少有訂用帳戶的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
+對訂用帳戶的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對訂用帳戶的權限。 您必須至少有訂用帳戶的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在側邊欄中選取 [所有服務]，再搜尋「訂用帳戶」，然後選取 [訂用帳戶]。
@@ -139,7 +155,7 @@ ms.locfileid: "54052133"
 
 ## <a name="assign-resource-group-scope-access"></a>指派資源群組範圍存取權
 
-對資源群組的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對資源群組的權限。 您必須至少有資源群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
+對資源群組的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對資源群組的權限。 您必須至少有資源群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在側邊欄中選取 [所有服務]，再搜尋「資源群組」，然後選取 [資源群組]。

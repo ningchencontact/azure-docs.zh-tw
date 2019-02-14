@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 7574ac1a5937fbe963ef764d42f04d00f6c02d69
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241764"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732510"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>為 Azure VM 之間的連線問題疑難排解
 
@@ -95,7 +95,7 @@ ms.locfileid: "50241764"
 
 ### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>步驟 6：檢查傳統 VM 的 ACL 是否封鎖流量
 
-存取控制清單 (ACL) 提供針對虛擬機器端點選擇性允許或拒絕流量的功能。 如需詳細資訊，請參閱[在端點上管理 ACL](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
+存取控制清單 (ACL) 提供針對虛擬機器端點選擇性允許或拒絕流量的功能。 如需詳細資訊，請參閱[在端點上管理 ACL](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)。
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>步驟 7：檢查是否已為傳統 VM 建立端點
 

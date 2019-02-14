@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 41a5f2eab78d68bdb1f51b423955cfefa5a541b8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538579"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564199"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用傾印和還原來移轉 PostgreSQL 資料庫
 您可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 將 PostgreSQL 資料庫擷取到傾印檔案，並使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 從 pg_dump 所建立的封存檔案還原 PostgreSQL 資料庫。
@@ -69,7 +69,9 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 
 ### <a name="for-the-restore"></a>進行還原
 - 建議您將備份檔案移至 Azure VM，而其和您即將移轉到的適用於 PostgreSQL 的 Azure 資料庫伺服器位於相同區域，然後從該 VM 執行 pg_restore，以減少網路延遲。 我們也建議您建立 VM 時，啟用[加速網路](../virtual-network/create-vm-accelerated-networking-powershell.md)。
+
 - 根據預設，這應已完成，但請開啟傾印檔案，確認 Create Index 陳述式位在插入的資料之後。 若非如此，請將 Create Index 陳述式移至插入的資料之後。
+
 - 還原時使用參數-Fc 和-j *#*，可對還原進行平行處理。 *#* 是目標伺服器上的核心數目。 您也可以嘗試將 *#* 設定為目標伺服器核心數目的兩倍，以查看所產生的影響。 例如︰
 
     ```
@@ -77,6 +79,13 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
     ```
 
 - 您也可以在開頭處新增 *set synchronous_commit = off;* 命令並在結尾處新增 *set synchronous_commit = on;*，來編輯傾印檔案。 在應用程式變更資料之前，未在結尾處將它設為開啟，可能會造成後續遺失資料。
+
+- 在適用於 PostgreSQL 的 Azure 資料庫目標伺服器上，請在還原前考慮下列事項：
+    - 關閉查詢效能追蹤，因為在移轉期間不需要這些統計資料。 將 pg_stat_statements.track、pg_qs.query_capture_mode 和 pgms_wait_sampling.query_capture_mode 設定為 NONE，即可達成。
+
+    - 使用高計算和高記憶體 sku (例如最佳化的 32 虛擬核心記憶體) 來加速移轉。 完成還原之後，您可以輕鬆地調降回您慣用的 sku。 sku 越高，您即可藉由在 pg_restore 命令中增加對應 `-j` 參數 達成更多的平行處理原則。 
+
+    - 目標伺服器上的 IOPS 越多，可能改善還原效能。 您可以增加伺服器的儲存體大小，以佈建更多 IOPS。 此設定無法復原，但請考慮較高的 IOPS 對您未來的實際工作負載是否有所助益。
 
 請務必在測試環境中測試和驗證這些命令之後，再於在生產環境中使用。
 

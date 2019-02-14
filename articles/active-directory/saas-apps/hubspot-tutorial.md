@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: bf3302f4f7323307163ec540accb4cc652512463
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2bd47c7955625eb43de40e61515bf7814a8c8355
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178795"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>教學課程：Azure Active Directory 與 HubSpot 整合
 
@@ -87,7 +87,7 @@ HubSpot 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 HubSpot 測試使用者](#creating-a-hubspot-saml-test-user)** - 在 HubSpot 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+3. **建立 HubSpot 測試使用者** - 在 HubSpot 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
 4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 

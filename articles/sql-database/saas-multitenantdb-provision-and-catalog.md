@@ -1,22 +1,23 @@
 ---
 title: SaaS 多租用戶 Azure 中的佈建 | Microsoft Docs
 description: 了解如何在 Azure SQL Database 多租用戶 SaaS 應用程式中佈建及編目新租用戶
-keywords: SQL Database Azure
 services: sql-database
-author: MightyPen
-manager: craigg
-ms.reviewer: billgib;andrela;genemi
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: billgib
-ms.openlocfilehash: 42f4aff50a5e3b89ee58f59c0db87f6a174e9be2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib,andrela,stein
+manager: craigg
+ms.date: 09/24/2018
+ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645958"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562890"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>使用分區化多租用 Azure SQL 資料庫在 SaaS 應用程式中對新的租用戶進行佈建及編目
 
@@ -27,7 +28,7 @@ ms.locfileid: "34645958"
 - 對新租用戶進行佈建和編目的[概念討論](#goto_2_conceptual)。
 
 - 強調說明完成佈建和編目之 PowerShell 指令碼的[教學課程](#goto_1_tutorial)。
-    - 本教學課程使用 Wingtip Tickets SaaS 應用程式，並針對多租用戶分區化資料庫模式進行調整。
+  - 本教學課程使用 Wingtip Tickets SaaS 應用程式，並針對多租用戶分區化資料庫模式進行調整。
 
 <a name="goto_2_conceptual"/>
 
@@ -122,7 +123,7 @@ ms.locfileid: "34645958"
 > * 將一批租用戶佈建到多租用戶和單一租用戶資料庫
 > * 在目錄中註冊資料庫和租用戶對應
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定已完成下列必要條件：
 
@@ -142,11 +143,11 @@ ms.locfileid: "34645958"
 
 以下是您逐步執行佈建工作流程的重要元素：
 
-- **計算新的租用戶金鑰**：使用雜湊函式，從租用戶名稱建立租用戶金鑰。
-- **檢查租用戶金鑰是否已經存在**：檢查目錄以確保尚未註冊金鑰。
-- **初始化預設租用戶資料庫中的租用戶**：更新租用戶資料庫，以新增新的租用戶資訊。  
+- **計算新的租用戶金鑰**：會使用雜湊函式從租用戶名稱建立租用戶索引鍵。
+- **檢查租用戶金鑰是否已經存在**：會檢查目錄以確保尚未註冊金鑰。
+- **在預設租用戶資料庫中初始化租用戶**：會更新租用戶資料庫來新增新的租用戶資訊。  
 - **在目錄中註冊租用戶**：將新租用戶金鑰與現有 tenants1 資料庫之間的對應新增至目錄。 
-- **將租用戶的名稱新增至目錄延伸模組資料表**：將場地名稱新增至目錄中的租用戶資料表。  這個新增項目說明如何擴充目錄資料庫，以支援其他應用程式特定的資料。
+- **將租用戶的名稱新增至目錄延伸模組資料表**：場地名稱會新增至目錄中的租用戶資料表。  這個新增項目說明如何擴充目錄資料庫，以支援其他應用程式特定的資料。
 - **開啟新租用戶的事件頁面**：*Bushwillow Blues* 事件頁面隨即在瀏覽器中開啟。
 
    ![活動](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
@@ -180,14 +181,14 @@ ms.locfileid: "34645958"
 
 以下是您在追蹤指令碼時，逐步執行工作流程的重要元素：
 
-- **計算新的租用戶金鑰**：使用雜湊函式，從租用戶名稱建立租用戶金鑰。
-- **檢查租用戶金鑰是否已經存在**：檢查目錄以確保尚未註冊金鑰。
-- **建立新的租用戶資料庫**：使用 Resource Manager 範本複製 *basetenantdb* 資料庫以建立資料庫。  新的資料庫名稱是以租用戶的名稱作為基礎。
-- **新增要編目的資料庫**：新的租用戶資料庫會在目錄中註冊為分區。
-- **初始化預設租用戶資料庫中的租用戶**：更新租用戶資料庫，以新增新的租用戶資訊。  
-- **在目錄中註冊租用戶**：將新租用戶金鑰與 *sequoiasoccer* 資料庫之間的對應新增至目錄。
-- **將租用戶名稱新增至目錄**：將場地名稱新增至目錄中的租用戶延伸模組資料表。
-- **開啟新租用戶的事件頁面**：*Sequoia Soccer* 事件頁面隨即在瀏覽器中開啟。
+- **計算新的租用戶金鑰**：會使用雜湊函式從租用戶名稱建立租用戶索引鍵。
+- **檢查租用戶金鑰是否已經存在**：會檢查目錄以確保尚未註冊金鑰。
+- **建立新的租用戶資料庫**：資料庫的建立方式為使用 Resource Manager 範本複製 basetenantdb 資料庫。  新的資料庫名稱是以租用戶的名稱作為基礎。
+- **將資料庫新增至目錄**：新租用戶資料庫在目錄中會註冊為分區。
+- **在預設租用戶資料庫中初始化租用戶**：會更新租用戶資料庫來新增新的租用戶資訊。  
+- **在目錄中註冊租用戶**：將新租用戶金鑰與 sequoiasoccer 資料庫之間的對應新增至目錄。
+- **租用戶名稱會新增至目錄**：場地名稱會新增至目錄中的租用戶延伸模組資料表。
+- **開啟新租用戶的事件頁面**：Sequoia Soccer 事件頁面隨即在瀏覽器中開啟。
 
    ![活動](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 

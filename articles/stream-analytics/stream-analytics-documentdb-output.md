@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4be3de8de4332e8ffb0e88e612a3041829ccd606
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267125"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658567"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure 串流分析輸出至 Azure Cosmos DB  
 「串流分析」可以將 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 設定為 JSON 輸出的目標，讓您能夠針對非結構化的 JSON 資料進行資料封存和低延遲查詢。 本文件涵蓋實作這種組態的一些最佳作法。
@@ -49,7 +49,7 @@ ms.locfileid: "54267125"
 如果您想要儲存「所有」<i></i>文件 (包括具有重複識別碼的文件)，請重新命名查詢中的「識別碼」欄位 (搭配 AS 關鍵字)，並讓 Cosmos DB 建立「識別碼」欄位或以另一個資料行的值取代識別碼 (使用 AS 關鍵字或使用 'Document ID' 設定)。
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB 中的資料分割
-Azure Cosmos DB [無限制](../cosmos-db/partition-data.md)是建議的資料分割方法，因為 Azure Cosmos DB 會根據您的工作負載自動調整資料分割。 當寫入無限制的容器時，串流分析會使用與先前查詢步驟或輸入資料分割配置同樣數目的平行寫入器。
+Azure Cosmos DB [無限制](../cosmos-db/partition-data.md)容器是建議的資料分割方法，因為 Azure Cosmos DB 會根據您的工作負載自動調整資料分割。 當寫入無限制的容器時，串流分析會使用與先前查詢步驟或輸入資料分割配置同樣數目的平行寫入器。
 > [!Note]
 > 目前，「Azure 串流分析」只支援分割區索引鍵位於頂層的無限制集合。 例如，支援 `/region`。 不支援巢狀分割區索引鍵 (例如 `/region/name`)。 
 

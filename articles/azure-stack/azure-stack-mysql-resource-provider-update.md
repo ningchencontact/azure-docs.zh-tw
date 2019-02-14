@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f3129c27d123aa448f8293f7e1827dc3ebc5c82e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239072"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817286"
 ---
 # <a name="update-the-mysql-resource-provider"></a>更新 MySQL 資源提供者 
 
@@ -30,7 +30,7 @@ ms.locfileid: "55239072"
 
 從 MySQL 資源提供者 1.1.33.0 版開始，更新會不斷累加，而不需要依其發行順序來安裝；只要您是從 1.1.24.0 版或更新版本開始就行。 例如，如果您執行 1.1.24.0 版的 MySQL 資源提供者，則不需要先安裝 1.1.30.0 版就能升級至 1.1.33.0 版或更新版本。 若要檢閱可用的資源提供者版本，以及其支援的 Azure Stack 版本，請參閱[部署資源提供者必要條件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本清單。
 
-若要更新資源提供者，您需使用 **UpdateMySQLProvider.ps1** 指令碼。 此程序與用來安裝資源提供者的程序類似，如本文的[部署資源提供者](#deploy-the-resource-provider)一節所述。 指令碼隨附於所下載的資源提供者中。 
+若要更新資源提供者，您需使用 **UpdateMySQLProvider.ps1** 指令碼。 此程序與用來安裝資源提供者的程序類似，如本文的＜部署資源提供者＞一節所述。 指令碼隨附於所下載的資源提供者中。 
 
  > [!IMPORTANT]
  > 在升級資源提供者之前，請先檢閱版本資訊，以了解有哪些新功能、修正，以及任何可能對部署造成影響的已知問題。

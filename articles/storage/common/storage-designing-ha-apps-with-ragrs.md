@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure 讀取權限異地備援儲存體 (RA-GRS) 設計高可用性應用程式 | Microsoft Docs
+title: 使用讀取權限異地備援儲存體 (RA-GRS) 設計高可用性應用程式 | Microsoft Docs
 description: 如何使用 Azure RA-GRS 儲存體來設計高可用性應用程式的架構，使其有足夠的彈性來處理中斷。
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454938"
+ms.locfileid: "55512239"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
 
@@ -24,7 +24,7 @@ ms.locfileid: "55454938"
 
 本文的重點在於 GRS 和 RA-GRS。 使用 GRS 時，會在您設定儲存體帳戶時選取的主要區域中保留三份您的資料。 另外會以非同步方式在 Azure 所指定的次要區域中保留三個額外複本。 RA-GRS 提供具有次要複本讀取存取權的異地備援儲存體。
 
-如需主要區域與次要區域配對的相關資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
+如需主要區域與次要區域配對的相關資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
 本文提供一些程式碼片段，並在結尾處提供完整範例的連結，可供您下載並執行。
 
@@ -43,9 +43,7 @@ ms.locfileid: "55454938"
 
 * 您可以使用儲存體用戶端程式庫，來與主要或次要區域中的資料進行互動。 如果對主要區域的讀取要求逾時，您也可以將讀取要求自動重新導向到次要區域。
 
-* 如果產生會影響主要區域中資料可存取性的主要問題，Azure 團隊可能會觸發異地複寫容錯移轉，此時指向主要區域的 DNS 項目將會變更為指向次要區域。
-
-* 發生異地複寫容錯移轉時，Azure 將會選取新的次要位置並將資料複寫到該位置，然後將次要 DNS 項目指向它。 次要端點要到儲存體帳戶複寫完成之後才能使用。 如需詳細資訊，請參閱[如果 Azure 儲存體發生中斷怎麼辦](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance)。
+* 如果主要區域無法使用，您可以進行帳戶容錯移轉。 您容錯移轉到次要區域時，指向主要區域的 DNS 項目會變更為指向次要區域。 完成容錯移轉之後，會還原 GRS 和 RA-GRS 帳戶的寫入權限。 如需詳細資訊，請參閱 [Azure 儲存體中的災害復原和儲存體帳戶容錯移轉 (預覽)](storage-disaster-recovery-guidance.md)。
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>使用 RA-GRS 時的應用程式設計考量
 

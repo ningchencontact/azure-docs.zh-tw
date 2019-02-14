@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 中的 Office 365 群組到期日 | Microsoft Docs
+title: 設定 Office 365 群組的到期日 - Azure Active Directory | Microsoft Docs
 description: 如何為 Azure Active Directory 中的 Office 365 群組設定到期日
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 12b23b8a062859da111a067b2655425a611b6c20
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166164"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658244"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>為 Office 365 群組設定到期原則
 
@@ -53,15 +53,16 @@ ms.locfileid: "55166164"
   
   ![[到期] 刀鋒視窗](./media/groups-lifecycle/expiration-settings.png)
 
-4. 在 [到期] 刀鋒視窗中，您可以：
+3. 在 [到期] 刀鋒視窗中，您可以：
 
   * 設定群組的存留期 (以天為單位)。 您可以選取其中一個預設值或自訂值 (應為 31 天或更多)。 
   * 指定當群組沒有擁有者時應該傳送續訂和到期通知的電子郵件地址。 
   * 選取到期的 Office 365 群組。 您可以啟用 **所有**  Office 365 群組的到期日，也可以選擇僅啟用**已選取的** Office 365 群組，或選取 [無] ****  以停用所有群組的到期日。
   * 當您完成時，選取 [儲存] 會儲存您的設定。
 
+## <a name="email-notifications"></a>電子郵件通知
 
-這種電子郵件通知會在群組到期前 30 天、前 15 天和前 1 天傳送給 Office 365 群組擁有者。
+這種電子郵件通知會在群組到期前 30 天、前 15 天和前 1 天傳送給 Office 365 群組擁有者。 電子郵件的語言取決於群組擁有者的慣用語言或租用戶語言。 如果群組擁有者已定義慣用語言，或多個擁有者都有相同的慣用語言，則會使用該語言。 對於其他所有情況，則會使用租用戶語言。
 
 ![到期電子郵件通知](./media/groups-lifecycle/expiration-notification.png)
 

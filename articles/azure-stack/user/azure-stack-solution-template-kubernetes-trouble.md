@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237846"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752291"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>針對 Azure Stack 上的 Kubernetes 部署進行疑難排解
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 > [!Note]  
-> Azure Stack 上的 Kubernetes 處於預覽狀態。
+> Azure Stack 上的 Kubernetes 處於預覽狀態。 預覽版目前不支援 Azure Stack 中斷連線的案例。
 
 下列文章探討 Kubernetes 叢集的疑難排解方法。 您可以檢閱部署警示，並根據部署所需元素來檢閱部署狀態。 您可能需要從 Azure Stack 或裝載 Kubernetes 的 Linux VM 收集部署記錄。 您也可能需要與 Azure Stack 系統管理員合作，從系統管理端點擷取記錄。
 
@@ -53,7 +53,7 @@ ms.locfileid: "55237846"
 
 2. 建立部署 VM 和自訂指令碼擴充功能。
     -  使用 Marketplace Linux 映像 **Ubuntu Server 16.04-LTS** 來建立部署 Linux VM。
-    -  從 Marketplace 下載並執行客戶指令碼擴充功能。 此指令碼為 **Custom Script for Linux 2.0**。
+    -  從 Marketplace 下載並執行自訂指令碼擴充功能。 此指令碼為 **Custom Script for Linux 2.0**。
     -  執行 DVM 自訂指令碼。 指令碼會執行下列工作：
         1. 從 Azure Resource Manager 中繼資料端點取得資源庫端點。
         2. 從 Azure Resource Manager 中繼資料端點取得 Active Directory 資源識別碼。
@@ -61,7 +61,7 @@ ms.locfileid: "55237846"
         4. 將 ACS 引擎部署到 Kubernetes 叢集，並將 Azure Stack 雲端設定檔儲存到 `/etc/kubernetes/azurestackcloud.json`。
 3. 建立主要 VM。
 
-4. 下載並執行客戶指令碼擴充功能。
+4. 下載並執行自訂指令碼擴充功能。
 
 5. 執行主要指令碼。
 
@@ -75,7 +75,7 @@ ms.locfileid: "55237846"
         3. 啟動排程器服務。
 6. 建立代理程式 VM。
 
-7. 下載並執行客戶指令碼擴充功能。
+7. 下載並執行自訂指令碼擴充功能。
 
 7. 執行代理程式指令碼。 代理程式自訂指令碼會執行下列工作：
     - 安裝 etcd

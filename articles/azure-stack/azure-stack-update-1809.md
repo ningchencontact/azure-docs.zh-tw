@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 81501c79f00c2c0f8ef81532f3b8e7f61fc9eba0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250601"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694375"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -50,7 +50,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 
 - 您現在可以在 Azure 上的資源群組之間[移動註冊資源](azure-stack-registration.md#move-a-registration-resource)，而不需要重新註冊。 只要新和舊訂用帳戶都對應至相同的 CSP 合作夥伴識別碼，雲端解決方案提供者 (CSP) 也可以在訂用帳戶之間移動註冊資源。 這不會影響現有的客戶租用戶對應。 
 
-- 已新增可每個網路介面指派多個 IP 位址的支援。  如需詳細資料，請參閱[使用 PowerShell 對虛擬機器指派多個 IP 位址](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell)。
+- 已新增可每個網路介面指派多個 IP 位址的支援。  如需詳細資料，請參閱[使用 PowerShell 對虛擬機器指派多個 IP 位址](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell)。
 
 ### <a name="fixed-issues"></a>已修正的問題
 

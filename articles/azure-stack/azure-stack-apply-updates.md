@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ff70b1f8eda7bd48f0fba25aa66db42c15acab54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252127"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729927"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中套用更新
 
@@ -37,6 +37,9 @@ ms.locfileid: "55252127"
 - 對應 `<PackageName>.bin` 檔案。 這些檔案提供與 *PackageName*.exe 檔案相關的承載壓縮。
 
 - `Metadata.xml` 檔案。 此檔案包含更新的相關基本資訊，例如發行者、名稱、先決條件、大小及支援路徑 URL。
+
+> [!IMPORTANT]  
+> 套用 Azure Stack 1901 更新套件之後，Azure Stack 更新套件的封裝格式將會從 .exe、.bin(s) 和 .xml 格式移至 .zip(s) 和 .xml 格式。 已連線戳記的 Azure Stack 操作員不受影響。 已中斷連線的 Azure Stack 操作員只會用使如下所述的相同程序匯入 .xml 和 .zip 檔。
 
 ## <a name="import-and-install-updates"></a>匯入及安裝更新
 

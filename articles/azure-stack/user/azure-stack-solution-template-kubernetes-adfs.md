@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b032dea67bba6f78b8172e772ab2f8fe492f39f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: df84562c3ff95ac6fef65ea7c9911d5e12e558ef
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250430"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744958"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>使用 Active Directory 同盟服務將 Kubernetes 部署至 Azure Stack
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 > [!Note]  
-> Azure Stack 上的 Kubernetes 處於預覽狀態。
+> Azure Stack 上的 Kubernetes 處於預覽狀態。 預覽版目前不支援 Azure Stack 中斷連線的案例。
 
 您可以遵循本文中的步驟部署及設定 Kubernetes 的資源。 當 Active Directory 同盟服務 (AD FS) 是您的身分識別管理服務時，請使用下列步驟。
 
@@ -94,7 +94,7 @@ ms.locfileid: "55250430"
         New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
         
         # Note, Do not omit -EnabledForTemplateDeployment flag
-        New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location local -EnabledForTemplateDeployment
+        New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location $resource_group_location -EnabledForTemplateDeployment
         
         # Obtain the security identifier(SID) of the active directory user
         $adUser = Get-ADUser -Filter "Name -eq '$username'" -Credential $mycreds

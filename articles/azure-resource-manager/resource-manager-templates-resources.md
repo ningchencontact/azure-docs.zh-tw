@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5a2b38e5d627341b3684ee55d13ee06881fbae55
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 01aacf8815ce4150eb1c243d4337f52c4e0b03e9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728358"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697030"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本的 Resources 區段
 
@@ -84,12 +84,12 @@ ms.locfileid: "53728358"
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
 | condition | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 |
-| apiVersion |是 |要用來建立資源的 REST API 版本。 |
-| type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 |
-| name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定並非嘗試詐騙其他身分識別。 |
+| apiVersion |yes |要用來建立資源的 REST API 版本。 |
+| type |yes |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 |
+| name |yes |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定並非嘗試詐騙其他身分識別。 |
 | location |視情況而異 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 |
 | tags |否 |與資源相關聯的標記。 套用標籤，既可以邏輯方式組織訂用帳戶中的資源。 |
-| comments |否 |您在範本中記錄資源的註解 |
+| comments |否 |您在範本中記錄資源的註解。 如需詳細資訊，請參閱[範本中的註解](resource-group-authoring-templates.md#comments)。 |
 | copy |否 |如果需要多個執行個體，要建立的資源數目。 預設模式為平行。 如果您不想要同時部署所有或某些資源，請指定序列模式。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的數個執行個體](resource-group-create-multiple.md)。 |
 | dependsOn |否 |在部署這項資源之前必須部署的資源。 Resource Manager 會評估資源之間的相依性，並依正確的順序進行部署。 資源若不互相依賴，則會平行部署資源。 值可以是以逗號分隔的資源名稱或資源唯一識別碼清單。 只會列出此範本中已部署的資源。 此範本中未定義的資源必須已經存在。 避免加入不必要的相依性，因為可能會降低部署速度並產生循環相依性。 如需設定相依性的指引，請參閱[定義 Azure Resource Manager 範本中的相依性](resource-group-define-dependencies.md)。 |
 | properties |否 |資源特定的組態設定。 屬性的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是一樣的。 您也可以指定複本陣列，以建立屬性的數個執行個體。 |
@@ -184,48 +184,60 @@ ms.locfileid: "53728358"
 ```
 
 ## <a name="location"></a>位置
-在部署範本時，您必須為每個資源提供一個位置。 不同的位置支援不同的資源類型。 若要查看特定資源類型可供您的訂用帳戶使用的位置清單，請使用 Azure PowerShell 或 Azure CLI。 
+在部署範本時，您必須為每個資源提供一個位置。 不同的位置支援不同的資源類型。 若要取得資源類型所支援的位置，請參閱 [Azure 資源提供者和類型](resource-manager-supported-services.md)。
 
-下列範例使用 PowerShell 來取得 `Microsoft.Web\sites` 資源類型的位置︰
+請使用參數來指定資源的位置，並將預設值設定為 `resourceGroup().location`。
 
-```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-```
-
-下列範例使用 Azure CLI 來取得 `Microsoft.Web\sites` 資源類型的位置：
-
-```azurecli
-az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
-```
-
-決定支援資源的位置之後，您可在範本中設定該位置。 設定此值最簡單的方式是在支援資源類型的位置建立一個資源群組，而且將每個位置設定為 `[resourceGroup().location]`。 您可以將範本重新部署到不同位置的資源群組，而且無需變更範本中的任何值或參數。 
-
-下列範例顯示部署到與資源群組相同位置的儲存體帳戶：
+下列範例顯示部署至某個 (已指定為參數) 位置的儲存體帳戶：
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "variables": {
-      "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
     },
-    "resources": [
-    {
-      "apiVersion": "2016-01-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "Dept": "Finance",
-        "Environment": "Production"
-      },
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": { }
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
-    ]
+  },
+  "variables": {
+    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
 }
 ```
 

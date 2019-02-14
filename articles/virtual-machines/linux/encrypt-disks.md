@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 2a057c311a8b080b695492664df0eaabc5609b35
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 15bd3cf2ab6ea5285662610c2c0a850bb180e2f8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856786"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658757"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中將 Linux 虛擬機器加密
 
@@ -107,7 +107,7 @@ az keyvault key create \
 az vm create \
     --resource-group $resourcegroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
     --admin-username azureuser \
     --generate-ssh-keys \
     --data-disk-sizes-gb 5
@@ -119,7 +119,7 @@ az vm create \
 ## <a name="encrypt-the-virtual-machine"></a>將虛擬機器加密
 
 
-使用 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) 將您的 VM 加密。 下列範例使用先前 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 命令中的 *$sp_id* 和 *$sp_password* 變數︰
+使用 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) 將您的 VM 加密：
 
 ```azurecli-interactive
 az vm encryption enable \

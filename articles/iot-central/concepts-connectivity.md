@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ae57fc5366e1ed99febcd9a9d08e7f95f3bbf196
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247668"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487348"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central 中的裝置連線能力
 
@@ -56,7 +56,7 @@ Azure IoT Central 使用 [Azure IoT 中樞裝置佈建服務 (DPS)](https://docs
 
     *   **C 語言：** 如果您所使用的是 C 語言，請遵循[這份 C 語言裝置用戶端範例](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)來將範例裝置連線。 在範例中使用下列設定。   
 
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -118,7 +118,7 @@ CSV 檔案應該具有下列資料行 (及標頭)
 以下是其他可能會用到的語言參考。
 
    *   **C 語言：** 如果您所使用的是 C 語言，請遵循[這份 C 語言裝置用戶端範例](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)來將範例裝置連線。 在範例中使用下列設定。   
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -163,7 +163,7 @@ CSV 檔案應該具有下列資料行 (及標頭)
 
     使用佈建服務資訊對裝置進行程式設計，讓它可在啟動時取得其連線詳細資料和 IoT Central 應用程式指派。    
 
-    **其他參考資料** 
+    **進一步的參考** 
     *   適用於 [RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases) 的範例實作。  
 
     *   [C 範例裝置用戶端](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)。
@@ -211,12 +211,12 @@ IoT Central 的其中一個主要使用案例是讓 OEM 大量製造裝置、產
 
 1. **將裝置連線到 IoT Central：** 啟動裝置之後，連線到 DPS/IoT Central 進行註冊。
 
-1. **將裝置關聯到範本：** 連線的裝置將會顯示在 **Device Explorer** 中的 [UnAssociated Devices] \(未關聯的裝置\) 下。 裝置佈建狀態為 [已註冊]。 將裝置**關聯**到適當的裝置範本，並核准裝置以連線到 IoT Central 應用程式。 裝置會取得 IoT Central 應用程式的連線詳細資料，然後連線並開始傳送資料。 裝置佈建現已完成，而且「佈建狀態」會變成 [已佈建]。
+1. **將裝置關聯到範本：** 連線的裝置將會顯示在 **Device Explorer** 中的 [UnAssociated Devices] \(未關聯的裝置\) 下。 裝置佈建狀態為 [已註冊]。 將裝置**關聯**到適當的裝置範本，並核准裝置以連線到 IoT Central 應用程式。 裝置會取得 IoT Central 應用程式的連線詳細資料，然後加以連線並開始傳送資料。 裝置佈建現已完成，而且「佈建狀態」會變成 [已佈建]。
 
 ## <a name="device-provisioning-status"></a>裝置佈建狀態
 當真實裝置連線到 Azure IoT Central 時，需要執行一連串步驟 
 1. **已註冊**：裝置會先**註冊**，這表示裝置是在 IoT Central 中建立，並具有裝置的裝置識別碼。
-在下列情況下，裝置為 [已註冊]  
+在下列情況下註冊裝置  
     *   在 **Explorer** 上新增的真實裝置
     *   在 **Explorer** 上使用 [匯入] 新增的一組裝置
     *   尚未註冊但使用有效的認證連線，並顯示在 [未關聯] 裝置下的裝置。 
@@ -233,7 +233,7 @@ IoT Central 的其中一個主要使用案例是讓 OEM 大量製造裝置、產
 
     ![連線詳細資料](media/concepts-connectivity/device-connect.PNG)
 
-1. 使用以下命令列工具來取得裝置連接字串。
+1. 使用以下命令列工具取得裝置連接字串。
     使用以下指示來取得裝置連接字串  
 
     ```cmd/sh

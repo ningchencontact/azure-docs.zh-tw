@@ -1,25 +1,25 @@
 ---
-title: 解決 Azure Active Directory 中群組的授權問題 | Microsoft Docs
+title: 解決群組的授權指派問題 - Azure Active Directory | Microsoft Docs
 description: 當您使用 Azure Active Directory 以群組為基礎的授權時，如何識別及解決授權指派問題
 services: active-directory
 keywords: Azure AD 授權
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a238b6b8ad64dec443110d922e2684ebde507d7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: sumitp
+ms.custom: it-pro
+ms.openlocfilehash: 2d12f07f8c65d3559f88de2c38c418ce4cc54188
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198107"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510182"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>識別及解決 Azure Active Directory 中群組的授權指派問題
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251974"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810281"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -32,6 +32,8 @@ ms.locfileid: "55251974"
 > * 若要將免費試用升級，請參閱[將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付](..//billing/billing-upgrade-azure-subscription.md)。
 > * 若要變更預付型方案帳戶，請參閱[將您的 Azure 預付型方案訂閱變更為其他供應項目](../billing/billing-how-to-switch-azure-offer.md)。
 > * 如果您無法轉換訂用帳戶，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="when-to-call-azure-support"></a>連絡 Azure 支援的時機
 
@@ -237,7 +239,7 @@ ms.locfileid: "55251974"
 * 一次只能移動一個儲存體帳戶 (傳統)。
 * 透過相同的作業，儲存體帳戶 (傳統) 不能與虛擬機器或雲端服務一起移動。
 
-若要將傳統資源移到相同訂用帳戶內的新資源群組，請透過[入口網站](#use-portal)、[Azure PowerShell](#use-powershell)、[Azure CLI](#use-azure-cli) 或 [REST API](#use-rest-api)，使用標準移動作業。 當您移動 Resource Manager 資源時，您會使用相同的作業。
+若要將傳統資源移到相同訂用帳戶內的新資源群組，請透過[入口網站](#use-portal)、Azure PowerShell、Azure CLI 或 REST API，使用標準移動作業。 當您移動 Resource Manager 資源時，您會使用相同的作業。
 
 #### <a name="new-subscription"></a>新的訂用帳戶
 

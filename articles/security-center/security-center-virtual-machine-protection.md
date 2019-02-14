@@ -3,7 +3,7 @@ title: 保護 Azure 資訊安全中心內的機器和應用程式 | Microsoft Do
 description: 本文件說明資訊安全中心為了協助您保護虛擬機器和電腦以及 Web 應用程式和 App Service 環境所提供的建議。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 411fc025f5a25e961f69f5e6f66a9f6d115689a7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181464"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487738"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>保護 Azure 資訊安全中心內的機器和應用程式
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。 這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM) 和電腦、應用程式、網路、SQL、身分識別與存取。
@@ -42,7 +42,7 @@ ms.locfileid: "55181464"
 - **概觀**：資訊安全中心所識別的監視和建議。
 - **VM 和電腦**：列出您的 VM、電腦和各項目目前的安全性狀態。
 - **雲端服務**︰列出資訊安全中心所監視的 Web 和背景工作角色。
-- **應用程式服務 (預覽)**：列出您的應用程式服務環境和各項目目前的安全性狀態。
+- **應用程式服務**：列出您的應用程式服務環境和各項目目前的安全性狀態。
 - **容器 (預覽)**：列出在 IaaS Linux 電腦上所裝載的容器，以及其 Docker 設定的安全性評定。
 - **計算資源 (預覽)**：列出您計算資源所適用的建議，例如 Service Fabric 叢集和事件中樞。
 
@@ -124,12 +124,11 @@ ms.locfileid: "55181464"
 
 ![更新作業系統版本](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### <a name="app-services-preview"></a>應用程式服務 (預覽)
+### <a name="app-services"></a>應用程式服務
+您需要啟用您訂用帳戶中的 App Service，才能檢視 App Service 的資訊。 如需有關如何啟用此功能的指示，請參閱[使用 Azure 資訊安全中心來保護 App Service](security-center-app-services.md)。
+[!NOTE]
+> 監視 App Service 是預覽功能，僅適用於資訊安全中心的標準層。
 
-> [!NOTE]
-> 監視 App Service 是預覽功能，僅適用於資訊安全中心的標準層。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
->
->
 
 在 [應用程式服務] 下方，您會看到應用程式服務環境的清單，並可根據資訊安全中心執行的評估檢視健康情況摘要。
 
@@ -171,19 +170,9 @@ ms.locfileid: "55181464"
 |App Service|10|Web 應用程式的遠端偵錯應關閉|如果您不再需要使用 Web 應用程式的偵錯功能，請將該功能關閉。 遠端偵錯需要在函式應用程式上開啟輸入連接埠。|
 |App Service|10|函數應用程式的遠端偵錯應關閉|如果您不再需要使用函數應用程式的偵錯功能，請將該功能關閉。 遠端偵錯需要在函式應用程式上開啟輸入連接埠。|
 |App Service|10|設定 Web 應用程式的 IP 限制|定義獲允許存取應用程式的 IP 位址清單。 使用 IP 限制可防止 Web 應用程式遭受常見攻擊。|
-|App Service|10|設定函式應用程式的 IP 限制| 定義獲允許存取應用程式的 IP 位址清單。 使用 IP 限制可防止函式應用程式遭受常見攻擊。|
 |App Service|10|請勿允許所有 ('*') 資源來存取應用程式| 請勿允許將 WEBSITE_LOAD_CERTIFICATES 參數設定為 ""。 將此參數設定為 ‘’ 意謂著會將所有憑證都載入至 Web 應用程式個人憑證存放區。 這會導致最小權限的原則遭到濫用，原因是網站不可能需要在執行階段存取所有憑證。|
-|App Service|5|Web 應用程式應停用 Web 通訊端|請檢閱 Web 應用程式內 Web 通訊端的使用狀況。 Web 通訊端通訊協定易受不同類型的安全性威脅攻擊。|
-|App Service|5|函數應用程式應停用 Web 通訊端|請檢閱函數應用程式內 Web 通訊端的使用狀況。 Web 通訊端通訊協定易受不同類型的安全性威脅攻擊。|
-|App Service|5|對 Web 應用程式使用自訂網域|使用自訂網域來防止 Web 應用程式遭受常見的攻擊，例如網路釣魚及其他 DNS 相關攻擊。|
-|App Service|5|對函式應用程式使用自訂網域|使用自訂網域來防止函數應用程式遭受常見的攻擊，例如網路釣魚及其他 DNS 相關攻擊。|
 |App Service|20|CORS 不應允許每項資源存取您的 Web 應用程式|請只允許必要網域與您的 Web 應用程式互動。 跨原始資源共用 (CORS) 不應允許所有網域存取 Web 應用程式。|
 |App Service|20|CORS 不應允許每項資源存取函式應用程式| 請只允許必要網域與您的函數應用程式互動。 跨原始資源共用 (CORS) 不應允許所有網域存取函式應用程式。|
-|App Service|10|為 Web 應用程式使用支援的最新 .NET Framework|請使用最新的 .NET Framework 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。|
-|App Service|10|為 Web 應用程式使用支援的最新 JAVA 版本|請使用最新的 JAVA 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。|
-|App Service|10|為 Web 應用程式使用支援的最新 PHP 版本|請使用最新的 PHP 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。|
-|App Service|10|為 Web 應用程式使用支援的最新 Node.js 版本|請使用最新的 Node.js 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。|
-|App Service|10|為 Web 應用程式使用支援的最新 Python 版本|請使用最新的 Python 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。|
 |計算資源 (Batch)|1|為 Batch 帳戶設定計量警示規則|為 Batch 帳戶設定計量警示規則，並啟用計量的「集區刪除完成事件」與「集區刪除開始事件」|
 |計算資源 (Service Fabric)|10|在 Service Fabric 中使用 Azure Active Directory 來執行用戶端驗證|在 Service Fabric 中只透過 Azure Active Directory 來執行用戶端驗證。|
 |計算資源 (自動化帳戶)|5| 啟用自動化帳戶加密|儲存敏感性資料時，啟用自動化帳戶變數資產加密。|

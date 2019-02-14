@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 647f54d8252c594a280f81d661a3de6270bf692b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eb5eecaca65cc8394bcc12fc5a475cf5e762f1c9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001342"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729960"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>如何使用 SDK 中提供的工具來簡化開發以進行佈建
 IoT 中樞裝置佈建服務會以安全且可擴充的方式，透過零接觸的 Just-In-Time [自動佈建](concepts-auto-provisioning.md)來簡化佈建程序。  需要有 X.509 憑證或信賴平台模組 (TPM) 形式的安全性證明。  Microsoft 也與[其他安全性硬體合作夥伴](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) \(英文\) 合作，以提升保護 IoT 部署安全的信心。 對於開發人員而言，了解硬體安全性需求可能會是相當大的挑戰。 我們提供一組 Azure IoT 佈建服務 SDK，讓開發人員能夠輕鬆撰寫要與佈建服務交談之用戶端。 SDK 也提供適用於常見案例的範例以及一組工具，來簡化開發中的安全性證明。
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>信賴平台模組 (TPM) 模擬器
-[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security#trusted-platform-module-tpm) 可以參考安全地儲存金鑰以驗證平台的標準，或者參考用來與實作標準之模組互動的 I/O 介面。 TPM 可以是獨立硬體、整合式硬體、韌體或軟體。  在生產環境中，TPM 位於裝置上，作為個別的硬體、整合式硬體，或是以韌體為基礎。 在測試階段，會針對開發人員提供以軟體為基礎的 TPM 模擬器。  這個模擬器目前只適合用來在 Windows 平台上進行開發。
+[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) 可以參考安全地儲存金鑰以驗證平台的標準，或者參考用來與實作標準之模組互動的 I/O 介面。 TPM 可以是獨立硬體、整合式硬體、韌體或軟體。  在生產環境中，TPM 位於裝置上，作為個別的硬體、整合式硬體，或是以韌體為基礎。 在測試階段，會針對開發人員提供以軟體為基礎的 TPM 模擬器。  這個模擬器目前只適合用來在 Windows 平台上進行開發。
 
 使用 TPM 模擬器的步驟如下：
-1. [準備開發環境](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment)並複製 GitHub 存放庫：
+1. [準備開發環境](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java)並複製 GitHub 存放庫：
 ```
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
@@ -46,7 +46,7 @@ SDK 提供搭配 DICE 模擬器的 X.509 憑證產生器，其位於 [Java SDK](
 目前，DICE 模擬器會輸出根憑證、中繼憑證、分葉憑證和相關聯的私密金鑰。  不過，根憑證或中繼憑證無法用於簽署個別的分葉憑證。  如果您想要測試使用單一簽署憑證來簽署多個裝置之分葉憑證的群組註冊案例，您可以使用 OpenSSL 來產生憑證鏈結。
 
 使用這個產生器來產生 X.509 憑證：
-1. [準備開發環境](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment)並複製 GitHub 存放庫：
+1. [準備開發環境](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java)並複製 GitHub 存放庫：
 ```
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```

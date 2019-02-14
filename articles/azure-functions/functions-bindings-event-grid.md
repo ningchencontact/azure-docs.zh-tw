@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d865028a2ddc7315192030b704a77a332dab14aa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810929"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822695"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -103,7 +103,7 @@ namespace Company.Function
 }
 ```
 
-如需詳細資訊，請參閱[套件](#packages)、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
+如需詳細資訊，請參閱套件、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
 
 ### <a name="c-script-example"></a>C# 指令碼範例
 
@@ -155,7 +155,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-如需詳細資訊，請參閱[套件](#packages)、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
+如需詳細資訊，請參閱套件、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
 
 ### <a name="javascript-example"></a>JavaScript 範例
 

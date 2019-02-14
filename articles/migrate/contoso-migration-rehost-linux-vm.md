@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 4f4c52bd217bf67206fe1208c1d5402216bd8178
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879446"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698321"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso 移轉：將內部部署 Linux 應用程式重新裝載至 Azure VM
 
@@ -465,7 +465,7 @@ Contoso 安全性小組會檢閱 OSTICKETWEB 和 OSTICKETMYSQLVM，判斷是否�
 - 小組會檢閱 VM 的網路安全性群組 (NSG) 來控制存取權。 NSG 可用來確保只可以傳遞該應用程式允許的流量。
 - 小組也會考慮使用磁碟加密和 Azure KeyVault 來保護 VM 磁碟上的資料。
 
-[深入了解](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) VM 的安全措施。
+[深入了解](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) VM 的安全措施。
 
 ### <a name="bcdr"></a>BCDR
 

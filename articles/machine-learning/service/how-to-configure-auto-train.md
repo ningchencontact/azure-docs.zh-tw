@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 310963d5593dde0540c95920214a14a4195c346a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242326"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734652"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>設定自動化機器學習實驗
 
@@ -174,7 +174,7 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 
 如需具有本機與遠端計算目標的範例筆記本，請參閱 [GitHub 網站](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl)。
 
-<a name='configure-experiment'/>
+<a name='configure-experiment'></a>
 
 ## <a name="configure-your-experiment-settings"></a>設定您的實驗設定
 
@@ -207,36 +207,48 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
         n_cross_validations=5)
     ```
 
-下表列出您的實驗適用的參數設定及其預設值。
+有三個不同的 `task` 參數值，可決定要套用的演算法清單。  使用 `whitelist` 或 `blacklist` 參數，以進一步修改可用的演算法來包含或排除反覆項目。
+* 分類
+    * LogisticRegression
+    * SGD
+    * MultinomialNaiveBayes
+    * BernoulliNaiveBayes
+    * SVM
+    * LinearSVM
+    * KNN
+    * DecisionTree
+    * RandomForest
+    * ExtremeRandomTrees
+    * LightGBM
+    * GradientBoosting
+    * TensorFlowDNN
+    * TensorFlowLinearClassifier
+* 迴歸
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
+* 預測
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
 
-屬性 |  說明 | 預設值
---|--|--
-`task`  |指定機器學習問題的類型。 允許的值包括 <li>分類</li><li>迴歸</li><li>預測</li>    | None |
-`primary_metric` |您在建置模型時想要最佳化的計量。 例如，如果您將精確度指定為 primary_metric，則自動化機器學習會尋找具有最大精確度的模型。 在每個實驗中只能指定一個 primary_metric。 允許的值包括 <br/>**分類**：<br/><li> 精確度  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**迴歸**： <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score  </li> | 分類：精確度 <br/>迴歸：spearman_correlation <br/> |
-`experiment_exit_score` |   您可以設定 primary_metric 的目標值。 一旦發現模型符合 primary_metric 目標，自動化機器學習即會停止反覆運算，且實驗會終止。 如果未設定此值 (預設值)，自動化機器學習實驗將會繼續依據反覆運算中指定的次數執行反覆運算。 採用雙精度浮點數值。 如果尚未達到目標，則自動化機器學習將會繼續執行，直到達到反覆運算中指定的反覆運算次數。| None
-`iterations` |反覆運算次數上限。 每次反覆運算相當於一個產生管線的訓練作業。 管線是資料前置處理和模型。 若要取得高品質的模型，請使用 250 或更高的值    | 100
-`max_concurrent_iterations`|    要平行執行的反覆運算次數上限。 這項設定僅適用於遠端計算。|   1
-`max_cores_per_iteration`   | 指出在計算目標上將使用多少個核心來訓練單一管線。 如果演算法可以使用多個核心，這將可提高多核心電腦的效能。 您可以將它設定為 -1，以使用電腦上所有可用的核心。|  1
-`iteration_timeout_minutes` |   限制特定反覆運算所花費的時間量 (分鐘)。 如果反覆運算超過指定的時間量，則會取消該反覆運算。 如果未設定，則反覆運算會繼續執行直到完成。 |   None
-`n_cross_validations`   |交叉驗證分割數目| None
-`validation_size`   |驗證集的大小，以所有訓練範例的百分比表示。|  None
-`preprocess` | True/False <br/>True 會啟用實驗，以對輸入執行前置處理。 以下是前置處理的子集<li>遺漏資料：插補遺漏資料 - 平均數值，最常出現的文字 </li><li>類別值：如果資料類型是數值，而唯一值的數目小於 5%，則會轉換為 one-hot 編碼 </li><li>如需完整清單，請查看 [GitHub 存放庫](https://aka.ms/aml-notebooks)</li><br/>注意：如果是疏鬆資料，則無法使用 preprocess = true |  False |
-`enable_cache`  | True/False <br/>設定為 True 會預先處理完成一次，然後針對所有反覆項目重複使用相同的已處理資料。 | True |
-`blacklist_models`  | 自動化機器學習實驗中有許多它會嘗試的不同演算法。 設定自動化機器學習以從實驗中排除特定演算法。 如果您知道特定演算法不適用於您的資料集，則有所幫助。 排除演算法可為您節省計算資源和訓練時間。<br/>允許的分類值<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>允許的迴歸值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>允許的預測值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   None
-`whitelist_models`  | 自動化機器學習實驗中有許多它會嘗試的不同演算法。 設定要為實驗包含的特定演算法。 如果您知道演算法不適用於您的資料集，這有所幫助。 <br/>允許的分類值<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>允許的迴歸值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>允許的預測值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  None
-`verbosity` |控制記錄層級，INFO 最詳細，CRITICAL 最簡要。 詳細資訊層級會使用與在 Python 記錄套件中所定義相同的值。 允許的值包括：<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li>
-`X` | 所有要用於訓練的特徵 |  None
-`y` |   要用於訓練的標籤資料。 就分類而言，應為整數的陣列。|  None
-`X_valid`|_選擇性_ 所有要用於驗證的特徵。 如果未指定，則 X 會分割至訓練和驗證之間 |   None
-`y_valid`   |_選擇性_ 要用於驗證的標籤資料。 如果未指定，則 y 會分割至訓練和驗證之間    | None
-`sample_weight` |   _選擇性_ 每個範例的加權值。 如果您想要為資料點指派不同的加權，則應使用 |   None
-`sample_weight_valid`   |   _選擇性_ 每個驗證範例的加權值。 如果未指定，則 sample_weight 會分割至訓練和驗證之間   | None
-`run_configuration` |   RunConfiguration 物件。  用於遠端回合。 |None
-`data_script`  |    包含 get_data 方法的檔案路徑。  遠端回合的必要項目。   |None
-`model_explainability` | _選擇性_ True/False <br/>  True 允許實驗為每個反覆項目執行特徵重要性。 您也可以在特定的反覆項目上使用 explain_model() 方法，在實驗完成後視需要為該反覆項目啟用特徵重要性。 | False
-`enable_ensembling`|加註旗標以在所有其他反覆項目完成後啟用集體反覆項目。| True
-`ensemble_iterations`|在我們選擇要加入最後集體的適合管線期間的反覆項目數目。| 15
-`experiment_timeout_minutes`| 限制整個實驗執行所需的時間 (分鐘) | None
+如需完整的參數清單，請參閱 [AutoMLConfig 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)。  
 
 ## <a name="data-pre-processing-and-featurization"></a>資料預先處理與特徵化
 

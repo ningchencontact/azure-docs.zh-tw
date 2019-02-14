@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.openlocfilehash: 145273d48060955005f1d93f30e79014244cf4ba
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 02/01/2019
+ms.openlocfilehash: ff5890dcaf642d51c53b054e986689290be773ca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321376"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699239"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -126,5 +126,5 @@ ms.locfileid: "54321376"
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解如何[在入口網站中建立 MySQL 伺服器](howto-create-manage-server-portal.md)。
-- 了解如何[使用 Azure CLI 監視和調整適用於 MySQL 伺服器的 Azure 資料庫](scripts/sample-scale-server.md)。
 - 了解[服務限制](concepts-limits.md)。
+- 了解如何[使用讀取複本來擴充 (服務)](howto-read-replicas-portal.md)。

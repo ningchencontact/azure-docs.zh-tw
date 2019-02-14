@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03b4cc919086ff2a8eb038ad9c4f45200e9a6246
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 79bc9310eb3f7c8dd2b295405cea70c514d343d3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715099"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820858"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>使用 Apache Ambari REST API 來管理 HDInsight 叢集
 
@@ -132,7 +132,7 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]  
-> 雖然此文件的大多數範例使用 `ConvertFrom-Json` 來顯示回應文件的元素，而[更新 Ambari 組態](#example-update-ambari-configuration)範例會使用 jq。 此範例使用 jq，從 JSON 回應文件建構新的範本。
+> 雖然此文件的大多數範例使用 `ConvertFrom-Json` 來顯示回應文件中的元素，而「更新 Ambari 組態」範例會使用 jq。 此範例使用 jq，從 JSON 回應文件建構新的範本。
 
 如需 REST API 的完整參考，請參閱 [Apache Ambari API 參考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md) \(英文\)。
 

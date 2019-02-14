@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/31/2019
+ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: 0c8a600342e0240d435999b1b5ddabc0234c142f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461435"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743645"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>自動調整規模和區域備援應用程式閘道 (公開預覽)
 
@@ -34,7 +34,7 @@ ms.locfileid: "55461435"
 
 ## <a name="supported-regions"></a>支援區域
 
-自動調整 SKU 適用於下列區域：eastus2、westus2、westeurope、southeastasia、centralus、francecentral、eastus、japaneast、northeurope、southcentralus、ukwest、northcentralus、westus、eastus (BL)、centralus (DM)、japanwest (OS)。
+自動調整 SKU 可在以下區域取得：美國中北部、美國中南部、美國西部、美國西部 2、美國東部、美國東部 2、美國中部、北歐、西歐、東南亞、法國中部、英國西部、日本東部、日本西部。
 
 ## <a name="pricing"></a>價格
 

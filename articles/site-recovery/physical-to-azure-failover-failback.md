@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848624"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813669"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>將複寫的實體伺服器容錯移轉及容錯回復至 Azure
 
@@ -36,7 +36,7 @@ ms.locfileid: "52848624"
 1. 在 [受保護的項目]中，按一下 [複寫的項目]，然後選取機器。
 
 2. 在 [複寫的項目] 窗格中，將會呈現機器資訊、健康情況狀態，以及最新可用復原點的摘要。 如需檢視詳細資訊，請按一下 [屬性]。
-3. 在 [計算與網路] 中，您可以修改 Azure 的名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)及[受控磁碟設定](#managed-disk-considerations)。
+3. 在 [計算與網路] 中，您可以修改 Azure 名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)及受控磁碟設定。
 4. 您可以檢視及修改網路設定，包括在容錯移轉後 Azure VM 所在的網路/子網路，以及要指派給它的 IP 位址。
 5. 在 [磁碟] 中，您可以看見機器作業系統和資料磁碟的相關資訊。
 

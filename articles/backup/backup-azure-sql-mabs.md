@@ -2,18 +2,18 @@
 title: 使用 Azure 備份伺服器進行 SQL Server 工作負載的 Azure 備份
 description: 使用 Azure 備份伺服器來備份 SQL Server 資料庫的簡介
 services: backup
-author: pvrk
-manager: Shivamg
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: pullabhk
-ms.openlocfilehash: 5d0fc66ff81672116d3d98ee9970456515ab3c9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: kasinh
+ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606387"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490460"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>使用 Azure 備份伺服器將 SQL Server 備份至 Azure
 本文將引導您逐步完成使用 Microsoft Azure 備份伺服器 (MABS) 來備份 SQL Server 資料庫的設定步驟。
@@ -66,7 +66,7 @@ ms.locfileid: "34606387"
 
     ![初始複寫方法](./media/backup-azure-backup-sql/pg-manual.png)
 
-    初始備份複本要求將整個資料來源 (SQL Server 資料庫) 從生產伺服器 (SQL Server 機器) 傳輸到 MABS。 這些資料可能會很大，因此透過網路傳輸資料可能會超出頻寬。 基於這個理由，系統管理員可以選擇傳送初始備份的方式︰**手動** (使用卸除式媒體，可避免頻寬壅塞) 或**自動透過網路** (在指定時間)。
+    初始備份複本要求將整個資料來源 (SQL Server 資料庫) 從生產伺服器 (SQL Server 機器) 傳輸到 MABS。 這些資料可能會很大，因此透過網路傳輸資料可能會超出頻寬。 基於這個理由，系統管理員可以選擇傳送初始備份的方式︰[手動] (使用卸除式媒體) 可避免頻寬壅塞，也可選擇 [自動透過網路] 在指定時間傳輸。
 
     一旦完成初始備份，其餘的備份會是初始備份複本的增量備份。 增量備份通常都非常小，因此有利於透過網路傳輸。
 10. 選擇是否想要執行一致性檢查，然後按一下 [下一步] 。
@@ -88,7 +88,7 @@ ms.locfileid: "34606387"
     >
     >
 
-    **最佳作法**︰請確定 Azure 備份已排在使用 DPM 完成本機磁碟備份之後。 這可讓您將最新的磁碟備份複製到 Azure。
+    **最佳做法**：請確定 Azure 備份已排在使用 DPM 完成本機磁碟備份之後。 這可讓您將最新的磁碟備份複製到 Azure。
 
 13. 選擇保留原則排程。 如需保留原則運作方式的詳細資訊，請參閱 [使用 Azure 備份來取代您的磁帶基礎結構](backup-azure-backup-cloud-as-tape.md)一文。
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9f5d5abc2a5e7291e8b699f151bd84b10b7eb4ad
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 912d5ec399ac59d81a7d9da9b494d8ee50e720e1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226444"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736062"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>從傳統到 Azure Resource Manager 移轉的常見錯誤
 本文收錄將 IaaS 資源從 Azure 傳統部署模型移轉至 Azure Resource Manager 堆疊的常見錯誤和緩和措施。
@@ -17,9 +17,9 @@ ms.locfileid: "50226444"
 ## <a name="list-of-errors"></a>錯誤清單
 | 錯誤字串 | 緩和 |
 | --- | --- |
-| 內部伺服器錯誤 |在某些情況下，這是隨著重試消失的暫時性錯誤。 如果持續發生，請[連絡 Azure 支援](../articles/azure-supportability/how-to-create-azure-support-request.md)，因為需要平台記錄檔的調查。 <br><br> **注意︰** 一旦支援小組追蹤事件，請不要嘗試任何自我緩和，這可能會使您的環境中產生非預期的結果。 |
+| 內部伺服器錯誤 |在某些情況下，這是隨著重試消失的暫時性錯誤。 如果持續發生，請[連絡 Azure 支援](../articles/azure-supportability/how-to-create-azure-support-request.md)，因為需要平台記錄檔的調查。 <br><br> **注意：** 一旦支援小組追蹤事件，請不要嘗試任何自我緩和，這可能會使您的環境中產生非預期的結果。 |
 | 移轉不支援 HostedService {hosted-service-name} 中的部署 {deployment-name}，因為它是 PaaS 部署 (Web/背景工作角色)。 |這會在部署包含 Web/背景工作角色時發生。 因為移轉僅支援虛擬機器，請從部署移除 Web/背景工作角色，然後再試一次移轉。 |
-| 範本 {template-name} 部署失敗。 相互關聯識別碼 = {guid} |在移轉服務後端，我們可以使用 Azure Resource Manager 範本來建立 Azure Resource Manager 堆疊中的資源。 因為範本具有等冪性，通常您可以安全地重試移轉作業，以通過這項錯誤。 如果此錯誤持續存在，請[連絡 Azure 支援](../articles/azure-supportability/how-to-create-azure-support-request.md)，並給予他們相互關聯識別碼。 <br><br> **注意︰** 一旦支援小組追蹤事件，請不要嘗試任何自我緩和，這可能會使您的環境中產生非預期的結果。 |
+| 範本 {template-name} 部署失敗。 相互關聯識別碼 = {guid} |在移轉服務後端，我們可以使用 Azure Resource Manager 範本來建立 Azure Resource Manager 堆疊中的資源。 因為範本具有等冪性，通常您可以安全地重試移轉作業，以通過這項錯誤。 如果此錯誤持續存在，請[連絡 Azure 支援](../articles/azure-supportability/how-to-create-azure-support-request.md)，並給予他們相互關聯識別碼。 <br><br> **注意：** 一旦支援小組追蹤事件，請不要嘗試任何自我緩和，這可能會使您的環境中產生非預期的結果。 |
 | 虛擬網路 {virtual-network-name} 不存在。 |如果您在新的 Azure 入口網站中建立虛擬網路，會發生這種情形。 實際虛擬網路名稱遵循 "Group * <VNET name>" 模式 |
 | HostedService {hosted-service-name} 中的 VM {vm-name} 包含擴充 {extension-name}，在 Azure Resource Manager 中不支援。 建議您先從 VM 中將它解除安裝，再繼續進行移轉。 |XML 擴充，例如 BGInfo 1.*，在 Azure Resource Manager 中不支援。 因此，這些擴充功能不能移轉。 如果這些擴充功能保持安裝在虛擬機器上，它們會在完成移轉之前自動解除安裝。 |
 | HostedService {hosted-service-name} 中的 VM {vm-name} 包含擴充 VMSnapshot/VMSnapshotLinux，目前不支援移轉。 從 VM 解除安裝，並且在移轉完成之後使用 Azure Resource Manager 將它新增回來 |這是虛擬機器針對 Azure 備份進行設定的案例。 由於這是目前不支援的案例，請遵循 https://aka.ms/vmbackupmigration 的因應措施 |
@@ -31,7 +31,7 @@ ms.locfileid: "50226444"
 | HostedService {hosted-service-name} 中的部署 {deployment-name} 包含具有資料磁碟 {data-disk-name} 的 VM {vm-name}，其實體 blob 大小 {size-of-the-vhd-blob-backing-the-data-disk} 個位元組不符合 VM 資料磁碟邏輯大小 {size-of-the-data-disk-specified-in-the-vm-api} 個位元組。 移轉會繼續進行，但不需指定 Azure Resource Manager VM 的資料磁碟大小。 | 如果您已調整 VHD blob 的大小，但未更新 VM API 模型中的大小，則會發生此錯誤。 詳細的緩和步驟說明[如下](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes)。|
 | 驗證具有雲端服務 {Cloud Service name} 中 VM {VM name} 之媒體連結 {data disk Uri} 的資料磁碟 {data disk name} 時發生儲存體例外狀況。 請確定此虛擬機器的 VHD 媒體連結可供存取 | 如果 VM 的磁碟已被刪除或不再可供存取，就可能發生此錯誤。 請確定 VM 的磁碟存在。|
 | HostedService {cloud-service-name} 中的 VM {vm-name} 包含 Disk with MediaLink {vhd-uri}，其具有 Azure Resource Manager 不支援的 blob 名稱 {vhd-blob-name}。 | 當 blob 的名稱包含計算資源提供者目前不支援的 "/" 時，就會發生此錯誤。 |
-| HostedService {cloud-service-name} 中的 Deployment {deployment-name} 不允許移轉，因為它不在區域範圍中。 請參閱 http://aka.ms/regionalscope 以便將此部署移到區域範圍。 | 在 2014 年，Azure 宣布網路資源會從叢集層級範圍移到區域範圍。 如需詳細資訊，請參閱 [http://aka.ms/regionalscope] (http://aka.ms/regionalscope)。 當正在移轉的部署還沒有可自動將它移至區域範圍的更新作業時，就會發生此錯誤。 最佳的解決方法是將端點新增至 VM 或將資料磁碟新增至 VM，然後再試一次移轉。 <br> 請參閱[如何在 Azure 中的傳統 Windows 虛擬機器上設定端點](../articles/virtual-machines/windows/classic/setup-endpoints.md#create-an-endpoint)或[將資料磁碟連結至使用傳統部署模型建立的 Windows 虛擬機器](../articles/virtual-machines/windows/classic/attach-disk.md)|
+| HostedService {cloud-service-name} 中的 Deployment {deployment-name} 不允許移轉，因為它不在區域範圍中。 請參閱 http://aka.ms/regionalscope 以便將此部署移到區域範圍。 | 在 2014 年，Azure 宣布網路資源會從叢集層級範圍移到區域範圍。 如需詳細資訊，請參閱 [http://aka.ms/regionalscope] (http://aka.ms/regionalscope)。 當正在移轉的部署還沒有可自動將它移至區域範圍的更新作業時，就會發生此錯誤。 最佳的解決方法是將端點新增至 VM 或將資料磁碟新增至 VM，然後再試一次移轉。 <br> 請參閱[如何在 Azure 中的傳統 Windows 虛擬機器上設定端點](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint)或[將資料磁碟連結至使用傳統部署模型建立的 Windows 虛擬機器](../articles/virtual-machines/windows/classic/attach-disk.md)|
 | 因為虛擬網路 {vnet-name} 有非閘道的 PaaS 部署，所以無法移轉。 | 當您有非閘道 PaaS 部署 (例如，連線到虛擬網路的應用程式閘道或 API 管理服務) 時，就會發生此錯誤。|
 
 

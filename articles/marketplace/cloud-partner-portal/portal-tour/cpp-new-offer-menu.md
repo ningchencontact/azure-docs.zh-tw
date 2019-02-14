@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e45cf028740a05fa35bcf933f727053ab82bdcfa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 04cac492fd044471a646444afc21bc70f92537d2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195065"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656846"
 ---
 # <a name="new-offer-menu"></a>新增供應項目功能表
 
@@ -34,6 +34,7 @@ ms.locfileid: "55195065"
 | ![Dynamics 365 for Customer Engagement 功能表項目](./media/new-offer-menu5.png) | [Dynamics 365 for Customer Engagement 供應項目](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Dynamics 365 for Operations 功能表項目](./media/new-offer-menu6.png) | [Dynamics 365 for Operations 供應項目](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
 | ![IoT Edge 模組功能表項目](./media/new-offer-menu7.png) | [IoT Edge 模組供應項目](./../iot-edge-module/cpp-offer-process-parts.md) |
+| ![Power BI 應用程式功能表項目](./media/new-offer-pbi.png)   |  [Power BI 應用程式供應項目](../power-bi/cpp-power-bi-offer.md)  |
 | ![ SasS 應用程式功能表項目](./media/new-offer-menu8.png) | [SasS 應用程式供應項目](../saas-app/cpp-saas-offer.md) |
 | ![ 虛擬機器功能表項目](./media/new-offer-menu9.png) | [虛擬機器供應項目](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |

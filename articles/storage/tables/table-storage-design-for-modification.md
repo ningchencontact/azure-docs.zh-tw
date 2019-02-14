@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470530"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809510"
 ---
 # <a name="design-for-data-modification"></a>資料修改的設計
-本文著重於最佳化插入、更新和刪除的設計考量。 在某些情況下，您必須在查詢最佳化的設計與資料修改最佳化的設計之間評估取捨，如同您在設計關聯式資料庫時一般 (雖然在關聯式資料庫中用來管理設計取捨的方法有所不同)。 [資料表設計模式](#table-design-patterns) 一節會說明資料表服務的一些詳細設計模式，並強調說明一些相關取捨。 在實務上，您會發現許多針對查詢實體而最佳化的設計也適用於修改實體。  
+本文著重於最佳化插入、更新和刪除的設計考量。 在某些情況下，您必須在查詢最佳化的設計與資料修改最佳化的設計之間評估取捨，如同您在設計關聯式資料庫時一般 (雖然在關聯式資料庫中用來管理設計取捨的方法有所不同)。 資料表設計模式一節會說明資料表服務的一些詳細設計模式，並強調說明一些相關取捨。 在實務上，您會發現許多針對查詢實體而最佳化的設計也適用於修改實體。  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>最佳化插入、更新和刪除作業的效能
 若要更新或刪除實體，您必須能夠使用 **PartitionKey** 和 **RowKey** 值加以識別。 在這方面，您選擇用來修改實體的 **PartitionKey** 和 **RowKey**，應遵循您在支援點查詢時進行選擇的類似準則，因為您想要盡可能有效率地識別實體。 您不應使用效率不佳的資料分割或資料表掃描來尋找實體以探索 **PartitionKey** 和 **RowKey** 值，而導致您必須加以更新或刪除。  
 
-[資料表設計模式](#table-design-patterns) 一節中的下列模式可因應最佳化效能或插入、更新和刪除作業：  
+資料表設計模式一節中的下列模式可因應最佳化效能或插入、更新和刪除作業：  
 
 * [大量刪除模式](table-storage-design-patterns.md#high-volume-delete-pattern) - 藉由將所有要同時刪除的實體儲存在其本身的個別資料表中，讓您能夠刪除大量的實體；您可以藉由刪除資料表來刪除實體。  
 * [資料序列模式](table-storage-design-patterns.md#data-series-pattern) - 將完整資料序列儲存在單一實體中，以盡可能減少您提出的要求數。  

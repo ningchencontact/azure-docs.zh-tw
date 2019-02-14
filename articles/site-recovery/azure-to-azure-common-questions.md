@@ -7,19 +7,30 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449549"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770481"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>常見問題：Azure 對 Azure 複寫
 
 本文針對有關使用 Azure Site Recovery 來部署從 Azure VM 至另一個 Azure 區域之災害復原 (DR) 的常見問題，提供解答。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
 
 
+## <a name="in-this-article"></a>本文內容 
+1.  **[關於 Azure 至 Azure 的一般問題](#general)** 
+1.  **[複寫](#replication)** 
+1.  **[複寫原則](#replication-policy)** 
+1.  **[多 VM 一致性](#multi-vm-consistency)** 
+1.  **[復原計畫](#recovery-plan)** 
+1.  **[重新保護和容錯回復](#reprotection-and-failback)** 
+1.  **[安全性](#security)** 
+
+
 ## <a name="general"></a>一般
+
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 是如何定價的？
 請檢閱[Azure Site Recovery 定價](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/)詳細資料。
 
@@ -198,7 +209,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>容錯回復需要花費多久時間？
 進行重新保護之後，容錯回復所需的時間通常與從主要區域容錯移轉至次要區域類似。 
 
-## <a name="security"></a>安全性
+## <a name="a-namesecuritysecurity"></a><a name="security">安全性
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>複寫資料會傳送到 Site Recovery 服務嗎？
 否，Site Recovery 不會攔截複寫的資料，也不會擁有任何關於您虛擬機器上執行哪些項目的資訊。 只有協調複寫與容錯移轉所需的中繼資料會被傳送給 Site Recovery 服務。  
 Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正在進行 SOC2 和 FedRAMP JAB 評定程序。

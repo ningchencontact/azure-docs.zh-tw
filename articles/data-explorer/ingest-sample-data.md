@@ -8,19 +8,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ebe362b89eb6ffcde006ff824fbee40b1a9175d3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394573"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733394"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>將範例資料擷取至 Azure 資料總管
 
 本文說明如何將範例資料擷取 (載入) 至「Azure 資料總管」資料庫。 [數種擷取資料的方式有數種](ingest-data-overview.md)；本文將焦點放在適用於測試用途的基本方法。
 
 > [!NOTE]
-> 如果您已完成[快速入門：使用 Azure 資料總管 Python 程式庫來擷取資料](python-ingest-data.md)，則您已經擁有此資料。
+> 如果您已完成下列文章，就會有這項資料：[快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -57,6 +57,11 @@ ms.locfileid: "49394573"
 
 ## <a name="next-steps"></a>後續步驟
 
-[撰寫查詢](write-queries.md)
+> [!div class="nextstepaction"]
+> [快速入門：在 Azure 資料總管中查詢資料](web-query-data.md)
 
-[Azure 資料總管資料擷取](ingest-data-overview.md)
+> [!div class="nextstepaction"]
+> [撰寫查詢](write-queries.md)
+
+> [!div class="nextstepaction"]
+> [Azure 資料總管資料擷取](ingest-data-overview.md)

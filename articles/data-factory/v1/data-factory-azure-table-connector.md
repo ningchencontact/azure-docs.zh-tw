@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6ab3e918feda3dcf898928f159ebf8e317a95527
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7156249e720416161cd56af7589ed85827c6034b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331838"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812543"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure 資料表來回移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,7 +137,7 @@ DivisionID 被指定為分割區索引鍵。
 1. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 類型的連結服務 (同時用於資料表和 Blob)。
 2. [AzureTable](#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
 3. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
-4. 具有使用 [AzureTableSource](#activity-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
+4. 具有使用 AzureTableSource 和 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
 
 此範例會每小時將 Azure 資料表中屬於預設資料分割的資料複製到 Blob。 範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
@@ -477,7 +477,7 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 | --- | --- | --- |
 | Edm.Binary |byte[] |上限為 64 KB 的位元組陣列。 |
 | Edm.Boolean |布林 |布林值。 |
-| Edm.DateTime |Datetime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜 12:00 開始 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
+| Edm.DateTime |DateTime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜 12:00 開始 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
 | Edm.Double |double |64 位元的浮點值。 |
 | Edm.Guid |Guid |128 位元的全域唯一識別碼。 |
 | Edm.Int32 |Int32 |32 位元的整數。 |

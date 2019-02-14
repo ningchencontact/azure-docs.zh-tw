@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b3329f591d8478499b8270eb8a211d311465b020
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2a3c26c6a815cf934724fba4e8e0f9637803a4ce
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457015"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562380"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -104,7 +104,7 @@ ms.locfileid: "55457015"
 
 * <a id="afs-storage-redundancy"></a>
 **Azure 檔案同步是否支援異地備援儲存體？**  
-    是，Azure 檔案服務同時支援本機備援儲存體 (LRS) 和異地備援儲存體 (GRS)。 如果配對區域之間發生 GRS 容錯移轉，則建議您將新的區域僅視為資料的備份。 Azure 檔案同步不會自動開始同步處理新的主要區域。 
+    是，Azure 檔案服務同時支援本機備援儲存體 (LRS) 和異地備援儲存體 (GRS)。 如果您從針對 GRS 設定的帳戶起始配對區域之間的儲存體帳戶容錯移轉，Microsoft 會建議您將新的區域視為僅只資料的備份。 Azure 檔案同步不會自動開始同步處理新的主要區域。 
 
 * <a id="sizeondisk-versus-size"></a>
 **使用 Azure 檔案同步之後，為什麼檔案的「磁碟大小」屬性不符合「大小」屬性？**  
@@ -116,7 +116,6 @@ ms.locfileid: "55457015"
 
 * <a id="afs-recall-file"></a>**我想要使用的檔案已分層。如何將檔案回收到磁碟，以便在本機使用？**  
  請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md#afs-recall-file)。
-
 
 * <a id="afs-force-tiering"></a>
 **如何強制讓檔案或目錄分層？**  
@@ -242,7 +241,7 @@ ms.locfileid: "55457015"
 * <a id="data-compliance-policies"></a>
 **Azure 檔案服務支援哪些資料合規性原則？**  
 
-   Azure 檔案服務和 Azure 儲存體的其他儲存體中所使用的服務都是在相同的儲存體架構上運作。 Azure 檔案服務會套用其他 Azure 儲存體服務中所使用的相同資料合規性原則。 如需 Azure 儲存體資料合規性的詳細資訊，您可以參閱 [Azure 儲存體合規性供應項目](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)，並前往 [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/default.aspx)。
+   Azure 檔案服務和 Azure 儲存體的其他儲存體中所使用的服務都是在相同的儲存體架構上運作。 Azure 檔案服務會套用其他 Azure 儲存體服務中所使用的相同資料合規性原則。 如需 Azure 儲存體資料合規性的詳細資訊，您可以參閱 [Azure 儲存體合規性供應項目](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)，並前往 [Microsoft 信任中心](https://microsoft.com/trustcenter/default.aspx)。
 
 ## <a name="on-premises-access"></a>內部部署存取
 * <a id="expressroute-not-required"></a>

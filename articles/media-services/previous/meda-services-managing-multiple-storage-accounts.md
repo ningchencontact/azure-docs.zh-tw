@@ -4,24 +4,25 @@ description: 此文件指引您如何管理跨多個儲存體帳戶的媒體服�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 01/31/2018
 ms.author: juliako
-ms.openlocfilehash: 8c67ce4fd9597c66e795269972d2048ddd5a60c1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886334"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565899"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>跨多個儲存體帳戶管理媒體服務資產
-從 Microsoft Azure 媒體服務 2.2 版起，您可以將多個儲存體帳戶附加至單一媒體服務帳戶。 將多個儲存體帳戶附加到媒體服務帳戶的能力提供下列優點：
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>管理多個儲存體帳戶間的媒體服務資產
+
+您可以將多個儲存體帳戶附加至單一媒體服務帳戶。 將多個儲存體帳戶附加到媒體服務帳戶的能力提供下列優點：
 
 * 在多個儲存體帳戶之間平衡您資產的負載。
 * 調整媒體服務進行大量的內容處理 (因為目前單一儲存體帳戶的最大上限為 500 TB)。 
@@ -29,12 +30,13 @@ ms.locfileid: "54886334"
 本文章示範如何使用 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 和 [Powershell](/powershell/module/azurerm.media)，將多個儲存體帳戶附加到媒體服務帳戶。 同時也會示範如何在使用媒體服務 SDK 建立資產時，指定不同的儲存體帳戶。 
 
 ## <a name="considerations"></a>考量
+
 當您在媒體服務帳戶中附加多個儲存體帳戶時，適用下列考量事項：
 
-* 所有附加到媒體服務帳戶的儲存體帳戶必須與該媒體服務帳戶位於相同的資料中心。
-* 目前，一旦儲存體帳戶附加到指定的媒體服務帳戶後，將無法卸離。
+* 媒體服務帳戶和所有相關聯的儲存體帳戶必須位於相同的 Azure 訂用帳戶中。 建議使用與媒體服務帳戶位於相同位置的儲存體帳戶。
+* 一旦儲存體帳戶附加到指定的媒體服務帳戶後，將無法卸離。
 * 在建立媒體服務帳戶時指出的儲存體帳戶，即為主要儲存體帳戶。 目前您無法變更預設的儲存體帳戶。 
-* 目前，如果您要新增非經常性儲存體帳戶到 AMS 帳戶，儲存體帳戶必須是 Blob 類型，並且設定為非主要。
+* 如果您要新增非經常性儲存體帳戶到 AMS 帳戶，儲存體帳戶必須是 Blob 類型，並且設定為非主要。
 
 其他考量：
 

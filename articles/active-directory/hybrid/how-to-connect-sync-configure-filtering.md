@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 28f35fd1098e055b22dada703cd7e68de591eea7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6198d16b25330fb02cf5642addba0093ec437cab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192616"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811478"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步：設定篩選
 使用篩選功能可讓您控制內部部署目錄中的哪些物件應該出現在 Azure Active Directory 中。 預設組態會擷取所設定樹系中所有網域內的所有物件。 一般會建議使用者使用這個組態。 完整的全域通訊清單對於使用 Exchange Online 和商務用 Skype 等 Office 365 工作負載的使用者來說十分方便，因為如此一來，他們就可以傳送電子郵件和呼叫每個人。 使用預設設定時，所獲得的體驗與使用 Exchange 或 Lync 的內部部署實作相同。
@@ -93,8 +93,8 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。 如果 A
 
 網域型篩選組態包含下列步驟：
 
-1. [選取網域](#select-domains-to-be-synchronized)，這些是您要納入同步處理作業的網域。
-2. 針對所新增和移除的每個網域，調整 [執行設定檔](#update-run-profiles)。
+1. 選取網域，這些是您要納入同步處理作業的網域。
+2. 針對所新增和移除的每個網域，調整執行設定檔。
 3. [套用並驗證變更](#apply-and-verify-changes)。
 
 ### <a name="select-the-domains-to-be-synchronized"></a>選取要同步處理的網域
@@ -110,7 +110,7 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。 如果 A
    如果您變更了內部部署 Active Directory 基礎結構並在樹系中新增或移除網域，則請按一下 [重新整理] 按鈕以取得更新後的清單。 當您重新整理時，系統會要求您提供認證。 請提供具有內部部署 Windows Server Active Directory 讀取權限的任何認證。 您不一定要使用對話方塊中預先填入的使用者。  
    ![需要重新整理](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. 當您完成時，請按一下 [確定] 來關閉 [屬性] 對話方塊。 如果您已移除樹系中的網域，畫面上將會出現快顯訊息，指出已移除網域且將會清除組態。
-7. 繼續調整 [執行設定檔](#update-run-profiles)。
+7. 繼續調整執行設定檔。
 
 ### <a name="update-the-run-profiles"></a>更新執行設定檔
 如果您已更新網域篩選，則也需更新執行設定檔。

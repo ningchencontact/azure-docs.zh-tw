@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 1f2e136810194ad044255f9d129b5c03549221b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128655"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732918"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立、編輯或擴充邏輯應用程式定義的 JSON
 
@@ -24,7 +24,8 @@ ms.locfileid: "43128655"
 若要以 JSON 編寫邏輯應用程式定義，可以在 Azure 入口網站或 Visual Studio 中開啟程式碼檢視編輯器，或將定義複製到任何您想要的編輯器中。 如果您還不熟悉邏輯應用程式，請先檢閱[如何建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 > [!NOTE]
-> 有些 Azure Logic Apps 功能只支援 JSON，不支援 Logic Apps 設計工具，例如在邏輯應用程式定義中定義參數和多個觸發程序。 因此針對這些工作，您必須使用程式碼檢視或其他編輯器。
+> 有些 Azure Logic Apps 功能只支援 JSON，不支援 Logic Apps 設計工具，例如在邏輯應用程式定義中定義參數和多個觸發程序。
+> 因此針對這些工作，您必須使用程式碼檢視或其他編輯器。
 
 ## <a name="edit-json---azure-portal"></a>編輯 JSON - Azure 入口網站
 
@@ -38,7 +39,7 @@ ms.locfileid: "43128655"
 
 ## <a name="edit-json---visual-studio"></a>編輯 JSON - Visual Studio
 
-在 Visual Studio 中編寫邏輯應用程式定義之前，請先確定您已經[安裝必要的工具](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)。 若要使用 Visual Studio 建立邏輯應用程式，請檢閱[快速入門：使用 Azure Logic Apps 自動化工作和程序 - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
+在 Visual Studio 中編寫邏輯應用程式定義之前，請先確定您已經[安裝必要的工具](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)。 若要使用 Visual Studio 建立邏輯應用程式，請檢閱[快速入門：使用 Azure Logic Apps 自動執行工作和程序 - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
 在 Visual Studio 中，您可以開啟直接從 Azure 入口網站建立或部署的邏輯應用程式，或開啟 Visual Studio 中以 Azure Resource Manager 專案形式建立或部署的邏輯應用程式。
 
@@ -58,7 +59,7 @@ ms.locfileid: "43128655"
 
 ## <a name="parameters"></a>參數
 
-參數可讓您在整個邏輯應用程式中重複使用值，且適用於取代您可能經常變更的值。 例如，如果您想要在多個位置中使用同一個電子郵件地址，您應將該電子郵件地址定義為參數。 
+參數可讓您在整個邏輯應用程式中重複使用值，且適用於取代您可能經常變更的值。 例如，如果您想要在多個位置中使用同一個電子郵件地址，您應將該電子郵件地址定義為參數。
 
 當您必須在不同的環境中覆寫參數時，參數也很有用。深入了解[用於部署的參數](#deployment-parameters)和 [Azure Logic Apps 文件的 REST API](https://docs.microsoft.com/rest/api/logic)。
 
@@ -70,13 +71,13 @@ ms.locfileid: "43128655"
 1. 在程式碼檢視中，尋找 `parameters : {}` 物件，並新增 `currentFeedUrl` 物件：
 
    ``` json
-     "currentFeedUrl" : {
+   "currentFeedUrl" : {
       "type" : "string",
-            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
    }
    ```
 
-2. 在 `When_a_feed-item_is_published` 動作中，尋找 `queries` 區段，然後以 `"feedUrl": "#@{parameters('currentFeedUrl')}"` 取代查詢值。 
+2. 在 `When_a_feed-item_is_published` 動作中，尋找 `queries` 區段，然後以 `"feedUrl": "#@{parameters('currentFeedUrl')}"` 取代查詢值。
 
    **之前**
    ``` json
@@ -84,7 +85,7 @@ ms.locfileid: "43128655"
       "queries": {
           "feedUrl": "https://s.ch9.ms/Feeds/RSS"
        }
-   },   
+   },
    ```
 
    **之後**
@@ -93,13 +94,13 @@ ms.locfileid: "43128655"
       "queries": {
           "feedUrl": "#@{parameters('currentFeedUrl')}"
        }
-   },   
+   },
    ```
 
    若要加入兩或多個字串，您也可以使用 `concat` 函式。 
    例如，`"@concat('#',parameters('currentFeedUrl'))"` 的運作方式與上述範例相同。
 
-3.  完成之後，請選擇 [儲存]。 
+3.  完成之後，請選擇 [儲存]。
 
 現在您可以透過 `currentFeedURL` 物件傳遞不同的 URL，藉以變更網站的 RSS 摘要。
 
@@ -107,9 +108,9 @@ ms.locfileid: "43128655"
 
 ## <a name="deployment-parameters-for-different-environments"></a>不同環境的部署參數
 
-通常，部署生命週期具有開發、預備及生產的環境。 例如，您可以在所有這些環境中使用相同的邏輯應用程式定義，但使用不同的資料庫。 同樣地，建議您在不同的區域使用相同的定義，以發揮高可用性，但希望每個邏輯應用程式執行個體使用該區域的資料庫。 
+通常，部署生命週期具有開發、預備及生產的環境。 例如，您可以在所有這些環境中使用相同的邏輯應用程式定義，但使用不同的資料庫。 同樣地，建議您在不同的區域使用相同的定義，以發揮高可用性，但希望每個邏輯應用程式執行個體使用該區域的資料庫。
 
-> [!NOTE] 
+> [!NOTE]
 > 這種情況與在執行階段採用參數不同，您反而應該使用 `trigger()` 函式。
 
 以下是基本定義：
@@ -157,13 +158,13 @@ ms.locfileid: "43128655"
     },
     "location": "westus"
 }
-``` 
+```
 
 若要深入了解，請參閱 [Azure Logic Apps 文件的 REST API](https://docs.microsoft.com/rest/api/logic/)。
 
 ## <a name="process-strings-with-functions"></a>使用函式處理字串
 
-Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公司名稱從訂單傳遞至另一個系統。 不過，您不確定字元編碼的正確處理方式。 您可以在這個字串上執行 base64 編碼，但若要避免在 URL 中逸出，您可改為取代數個字元。 此外，公司名稱只需要一個子字串，因為不會用到前五個字元。 
+Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公司名稱從訂單傳遞至另一個系統。 不過，您不確定字元編碼的正確處理方式。 您可以在這個字串上執行 base64 編碼，但若要避免在 URL 中逸出，您可改為取代數個字元。 此外，公司名稱只需要一個子字串，因為不會用到前五個字元。
 
 ``` json
 {
@@ -200,7 +201,7 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
 
 下列步驟說明此範例從內部到外部處理這個字串的方式：
 
-``` 
+```
 "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
@@ -218,7 +219,7 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>將清單項目對應到屬性值，然後使用對應作為參數
 
-若要根據屬性值取得不同的結果，您可以建立可比對每個屬性值與結果的對應，然後使用該對應作為參數。 
+若要根據屬性值取得不同的結果，您可以建立可比對每個屬性值與結果的對應，然後使用該對應作為參數。
 
 例如，此工作流程會將某些類別定義為參數，以及定義可比對這些類別與特定 URL 的對應。 首先，工作流程會取得文章清單。 接著，工作流程會使用此對應來尋找符合每篇文章之類別的 URL。
 
@@ -302,13 +303,13 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. 從 `order` 動作，擷取 `startTime`。 
+1. 從 `order` 動作，擷取 `startTime`。
 2. 使用 `utcNow()` 取得目前時間。
 3. 減去一秒：
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
 
-   您可以使用其他的時間單位，例如 `minutes` 或 `hours`。 
+   您可以使用其他的時間單位，例如 `minutes` 或 `hours`。
 
 3. 現在，您可以比較這兩個值。 
 
@@ -365,7 +366,6 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
   "outputs": {}
 }
 ```
-
 
 ## <a name="next-steps"></a>後續步驟
 

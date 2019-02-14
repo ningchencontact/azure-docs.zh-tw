@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: ee338e2011a7b86a069bd42a028d65b23a123037
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427092"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693019"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>如何透過 PHP 使用 SendGrid 電子郵件服務
 
@@ -46,7 +46,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 
 在 Azure PHP 應用程式中使用 SendGrid 並不需要特殊的組態或程式碼。 SendGrid 是一項服務，因此可以透過雲端應用程式來存取，和透過內部部署應用程式來存取的方式相同。
 
-## <a name="how-to-send-an-email"></a>如何：傳送電子郵件
+## <a name="how-to-send-an-email"></a>作法：傳送電子郵件
 
 您可以使用 SendGrid 提供的 SMTP 或 Web API 傳送電子郵件。
 
@@ -161,7 +161,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 
 SendGrid 的 Web API 與 REST API 十分類似，但並非真的是 REST 型 API，因為在大部分的呼叫中，GET 和 POST 動詞可以交換使用。
 
-## <a name="how-to-add-an-attachment"></a>如何：新增附件
+## <a name="how-to-add-an-attachment"></a>作法：新增附件
 
 ### <a name="smtp-api"></a>SMTP API
 
@@ -296,7 +296,7 @@ SendGrid 的 Web API 與 REST API 十分類似，但並非真的是 REST 型 API
  print_r($response);
 ```
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>如何：使用篩選器來啟用頁尾、追蹤和分析
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>作法：使用篩選條件來啟用頁尾、追蹤和分析
 
 SendGrid 運用「篩選器」提供其他電子郵件功能。 這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。
 
@@ -349,7 +349,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  // support@yourcompany.com, info@yourcompany.com
  $from = 'someone@example.com';
 
- // If you do not specify a sender list above, you can specifiy the user here. If
+ // If you do not specify a sender list above, you can specify the user here. If
  // a sender list IS specified above, this email address becomes irrelevant.
  $to = 'john@contoso.com';
 

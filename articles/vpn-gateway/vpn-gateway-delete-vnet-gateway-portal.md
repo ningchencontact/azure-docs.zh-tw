@@ -7,12 +7,12 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 78af43510e5fc2bed38e109a546944d4a649241c
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d0c54a00afd723b68bedc0a305cfb0f16edf4ac9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984106"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816249"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用入口網站刪除虛擬網路閘道
 
@@ -60,5 +60,5 @@ ms.locfileid: "49984106"
 如果您不在乎保留資源群組中任何資源，而只想要從頭開始，您可以刪除整個資源群組。 這是移除所有項目的快速方法。 下列步驟僅適用於 Resource Manager 部署模型。
 
 1. 在 [所有資源] 中，找出資源群組，然後按一下以開啟刀鋒視窗。
-2. 按一下 [刪除] 。 在 [刪除] 刀鋒視窗中，檢視受影響的資源。 請確定您想要刪除所有資源。 如果不是，請使用這篇文章上方之[刪除 VPN 閘道](#deletegw)中的步驟。
+2. 按一下 [刪除] 。 在 [刪除] 刀鋒視窗中，檢視受影響的資源。 請確定您想要刪除所有資源。 如果不是，請使用這篇文章上方之刪除 VPN 閘道中的步驟。
 3. 若要繼續，請輸入您想要刪除之資源群組的名稱，然後按一下 [刪除]。

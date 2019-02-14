@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 8fc2c487a374a34cd9a7642a45fd59c04061b398
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51251997"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817813"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>建立和安裝 VPN 用戶端組態檔以便進行 P2S RADIUS 驗證
 
@@ -98,10 +98,10 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 
 2. 在 Mac 上找出 **mobileconfig** 檔案。
 
-   ![mobilconfig 檔案的位置](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
+   ![mobileconfig 檔案的位置](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. 選擇性步驟 - 如果您想要指定自訂的 DNS，請將下列行新增到 **mobileconfig** 檔案：
-```
+```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -260,17 +260,17 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | 
 
 若要使用不同的驗證類型 (例如 OTP)，或使用不同的驗證通訊協定 (例如 PEAP-MSCHAPv2，而不是 EAP-MSCHAPv2)，您必須建立自己的 VPN 用戶端組態設定檔。 若要建立設定檔，您需要虛擬網路閘道 IP 位址、通道類型以及分割通道路由等資訊。 您可以使用下列步驟來取得此資訊：
 
-1. 使用 `Get-AzureRmVpnClientConfiguration` Cmdlet 來產生 EapMSChapv2 的 VPN 用戶端組態。 如需相關指示，請參閱本文的[這一節](#ccradius)。
+1. 使用 `Get-AzureRmVpnClientConfiguration` Cmdlet 來產生 EapMSChapv2 的 VPN 用戶端組態。 如需相關指示，請參閱本文的這一節。
 
-2. 解壓縮 VpnClientConfiguration.zip 檔案，並找出 **GenenericDevice** 資料夾。 忽略包含 64 位元和 32 位元架構之 Windows 安裝程式的資料夾。
+2. 解壓縮 VpnClientConfiguration.zip 檔案，並找出 **GenericDevice** 資料夾。 忽略包含 64 位元和 32 位元架構之 Windows 安裝程式的資料夾。
  
-3. **GenenericDevice** 資料夾包含名為 **VpnSettings** 的 XML 檔案。 這個檔案包含所有必要資訊：
+3. **GenericDevice** 資料夾包含名為 **VpnSettings** 的 XML 檔案。 這個檔案包含所有必要資訊：
 
    * **VpnServer**：Azure VPN 閘道的 FQDN。 這是用戶端所連線至的位址。
    * **VpnType**：您用來連線的通道類型。
    * **Routes**：您必須在設定檔中設定的路由，以便只有前往 Azure 虛擬網路的流量會透過 P2S 通道傳送。
    
-   **GenenericDevice** 資料夾也包含一個稱為 **VpnServerRoot** 的 .cer 檔案。 此檔案包含在 P2S 連線設定期間驗證 Azure VPN 閘道所需的根憑證。 在將連線到 Azure 虛擬網路的所有裝置上安裝憑證。
+   **GenericDevice** 資料夾也包含一個稱為 **VpnServerRoot** 的 .cer 檔案。 此檔案包含在 P2S 連線設定期間驗證 Azure VPN 閘道所需的根憑證。 在將連線到 Azure 虛擬網路的所有裝置上安裝憑證。
 
 ## <a name="next-steps"></a>後續步驟
 

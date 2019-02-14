@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
-ms.openlocfilehash: b7ccdcf1cb1e75ab9a8113adc05b02196a0a2023
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: eebc19f5bd14e835b8174695b2d0d87fe8ddc4bc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166572"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822046"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>了解如何在 Azure VM 上使用 Azure 資源受控識別來取得存取權杖 
 
@@ -55,7 +55,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | [使用 Go 取得權杖](#get-a-token-using-go) | 從 Go 用戶端使用 Azure 資源受控識別 REST 端點的範例 |
 | [使用 Azure PowerShell 取得權杖](#get-a-token-using-azure-powershell) | 從 PowerShell 用戶端使用 Azure 資源受控識別 REST 端點的範例 |
 | [使用 CURL 取得權杖](#get-a-token-using-curl) | 從 Bash/CURL 用戶端使用 Azure 資源受控識別 REST 端點的範例 |
-| [處理權杖快取](#handling-token-caching) | 處理過期存取權杖的指引 |
+| 處理權杖快取 | 處理過期存取權杖的指引 |
 | [錯誤處理](#error-handling) | 此指引可處理從 Azure 資源受控識別權杖端點傳回的 HTTP 錯誤 |
 | [Azure 服務的資源識別碼](#resource-ids-for-azure-services) | 取得所支援 Azure 服務資源識別碼的地方 |
 
@@ -373,14 +373,14 @@ Azure 資源受控識別端點會透過 HTTP 回應訊息標頭的狀態碼欄�
 | 狀態碼 | Error | 錯誤說明 | 解決方法 |
 | ----------- | ----- | ----------------- | -------- |
 | 400 不正確的要求 | invalid_resource | AADSTS50001：在名為 \<TENANT-ID\> 的租用戶中找不到名為 \<URI\> 的應用程式。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 您可能會將驗證要求傳送至錯誤的租用戶。\ | (僅限 Linux) |
-| 400 不正確的要求 | bad_request_102 | 未指定必要的中繼資料標頭 | 要求中遺漏 `Metadata` 要求標頭欄位，或欄位的格式不正確。 值必須指定為 `true` (全部小寫)。 相關範例請參閱[前一節 REST](#rest) 中的「範例要求」。|
-| 401 未經授權 | unknown_source | 未知的來源 *\<URI\>* | 請確認 HTTP GET 要求 URI 的格式正確。 `scheme:host/resource-path` 部分必須指定為 `http://localhost:50342/oauth2/token`。 相關範例請參閱[前一節 REST](#rest) 中的「範例要求」。|
+| 400 不正確的要求 | bad_request_102 | 未指定必要的中繼資料標頭 | 要求中遺漏 `Metadata` 要求標頭欄位，或欄位的格式不正確。 值必須指定為 `true` (全部小寫)。 相關範例請參閱前一節 REST 中的「範例要求」。|
+| 401 未經授權 | unknown_source | 未知的來源 *\<URI\>* | 請確認 HTTP GET 要求 URI 的格式正確。 `scheme:host/resource-path` 部分必須指定為 `http://localhost:50342/oauth2/token`。 相關範例請參閱前一節 REST 中的「範例要求」。|
 |           | invalid_request | 要求遺漏必要參數、包含無效參數值、多次包含某個參數或格式不正確。 |  |
 |           | unauthorized_client | 用戶端無權使用此方法要求存取權杖。 | 因為要求並未使用本機回送呼叫擴充功能，或是所在的虛擬機器沒有正確設定 Azure 資源受控識別。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站在虛擬機器上設定 Azure 資源受控識別](qs-configure-portal-windows-vm.md)。 |
 |           | access_denied | 資源擁有者或授權伺服器已拒絕要求。 |  |
 |           | unsupported_response_type | 授權伺服器不支援使用此方法取得存取權杖。 |  |
 |           | invalid_scope | 要求的範圍無效、未知或格式不正確。 |  |
-| 500 內部伺服器錯誤 | 未知 | 無法從 Active 目錄擷取權杖。 如需詳細資訊，請參閱\<檔案路徑\>中的記錄 | 確認已在虛擬機器上啟用 Azure 資源受控識別。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站在虛擬機器上設定 Azure 資源受控識別](qs-configure-portal-windows-vm.md)。<br><br>也請確認 HTTP GET 要求 URI 的格式正確，尤其是查詢字串中指定的資源 URI。 相關範例請參閱[前一節 REST](#rest) 中的「範例要求」，或請參閱[支援 Azure AD 驗證的 Azure 服務](services-support-msi.md)，以取得服務及其各自資源識別碼的清單。
+| 500 內部伺服器錯誤 | 未知 | 無法從 Active 目錄擷取權杖。 如需詳細資訊，請參閱\<檔案路徑\>中的記錄 | 確認已在虛擬機器上啟用 Azure 資源受控識別。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站在虛擬機器上設定 Azure 資源受控識別](qs-configure-portal-windows-vm.md)。<br><br>也請確認 HTTP GET 要求 URI 的格式正確，尤其是查詢字串中指定的資源 URI。 相關範例請參閱前一節 REST 中的「範例要求」，或請參閱[支援 Azure AD 驗證的 Azure 服務](services-support-msi.md)，以取得服務及其各自資源識別碼的清單。
 
 ## <a name="retry-guidance"></a>重試指引 
 

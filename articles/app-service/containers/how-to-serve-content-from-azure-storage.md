@@ -6,15 +6,15 @@ manager: jeconnoc
 ms.service: app-service
 ms.workload: web
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 2/04/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 855df2820db6bba2b47d543ab671bee2193d7d9b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 29f2b725972f5ce92e756cb21621a19850ba9386
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250907"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732935"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>從 Azure 儲存體在 Linux 上的 App Service 中提供內容
 
@@ -22,7 +22,7 @@ ms.locfileid: "53250907"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 現有的 Web 應用程式 (Linux 上的 App Service 或 用於容器的 Web App)。
+- 現有的 Web 應用程式 (Linux 上的 App Service 或適用於容器的 Web 應用程式)。
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 或更新版本)。
 
 ## <a name="create-azure-storage"></a>建立 Azure 儲存體
@@ -49,7 +49,7 @@ az storage container create --name <storage_container_name> --account-name <stor
 az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
 ```
 
-## <a name="link-storage-to-your-web-app"></a>將儲存體連結到您的 Web 應用程式
+## <a name="link-storage-to-your-web-app-preview"></a>將儲存體連結到您的 Web 應用程式 (預覽)
 
 > [!CAUTION]
 > 將 Web 應用程式中的現有目錄連結至儲存體帳戶將會刪除目錄內容。 如果您是移轉現有應用程式的檔案，請先備份您的應用程式和其內容再開始移轉。

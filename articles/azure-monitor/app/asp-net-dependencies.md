@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119980"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812444"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>設定 Application Insights：相依性追蹤
 「相依性」  是由應用程式呼叫的外部元件。 這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 會測量您應用程式等待相依性所花費的時間，以及相依性呼叫失敗的頻率。 您可以調查特定的呼叫，然後將它們與要求和例外狀況建立關聯。
@@ -52,7 +52,7 @@ ms.locfileid: "54119980"
 * [應用程式對應](#application-map)會以視覺化方式顯示您應用程式與相鄰元件之間的相依性。
 * [效能、瀏覽器及失敗刀鋒視窗](#performance-and-blades)會顯示伺服器相依性資料。
 * [瀏覽器刀鋒視窗](#ajax-calls)會顯示來自您使用者瀏覽器的 AJAX 呼叫。
-* [從速度緩慢或失敗的要求逐一點選](#diagnose-slow-requests)來檢查它們的相依性呼叫。
+* 從速度緩慢或失敗的要求逐一點選以檢查其相依性呼叫。
 * [分析](#analytics)可用來查詢相依性資料。
 
 ## <a name="application-map"></a>應用程式對應

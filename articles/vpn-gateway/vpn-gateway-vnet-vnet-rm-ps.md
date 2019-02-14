@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686954"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695499"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -68,11 +68,11 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 在此練習中，您可以合併組態，或只選擇您需要使用的一個組態。 所有組態都會使用 VNet 對 VNet 連線類型。 網路流量會在彼此直接連線的 VNet 之間流動。 在此練習中，來自 TestVNet4 的流量不會路由傳送至 TestVNet5。
 
-* [位於相同訂用帳戶中的 VNet：](#samesub)此組態的步驟會使用 TestVNet1 和 TestVNet4。
+* [位於相同訂用帳戶中的 VNet](#samesub)：此組態的步驟是使用 TestVNet1 和 TestVNet4。
 
   ![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [位於不同訂用帳戶中的 VNet：](#difsub)此組態的步驟會使用 TestVNet1 和 TestVNet5。
+* [位於不同訂用帳戶中的 VNet](#difsub)：此組態的步驟使用 TestVNet1 和 TestVNet5。
 
   ![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -90,23 +90,23 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 **TestVNet1 的值︰**
 
-* VNet 名稱︰TestVNet1
-* 資源群組︰TestRG1
+* VNet 名稱：TestVNet1
+* 資源群組：TestRG1
 * 位置：美國東部
 * TestVNet1：10.11.0.0/16 和 10.12.0.0/16
 * FrontEnd：10.11.0.0/24
 * BackEnd：10.12.0.0/24
 * GatewaySubnet：10.12.255.0/27
 * GatewayName：VNet1GW
-* 公用 IP: VNet1GWIP
+* 公用 IP：VNet1GWIP
 * VPNType：RouteBased
 * Connection(1to4)：VNet1toVNet4
-* Connection(1to5)：VNet1toVNet5 (適用於不同訂用帳戶中的 Vnet)
+* Connection(1to5)：VNet1toVNet5 (適用於不同訂用帳戶中的 VNet)
 * ConnectionType：VNet2VNet
 
 **TestVNet4 的值︰**
 
-* VNet 名稱︰TestVNet4
+* VNet 名稱：TestVNet4
 * TestVNet2：10.41.0.0/16 和 10.42.0.0/16
 * FrontEnd：10.41.0.0/24
 * BackEnd：10.42.0.0/24
@@ -116,7 +116,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 * GatewayName：VNet4GW
 * 公用 IP：VNet4GWIP
 * VPNType：RouteBased
-* 連線︰VNet4toVNet1
+* 連線：VNet4toVNet1
 * ConnectionType：VNet2VNet
 
 
@@ -303,7 +303,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 **TestVNet5 的值︰**
 
-* VNet 名稱︰TestVNet5
+* VNet 名稱：TestVNet5
 * 資源群組：TestRG5
 * 位置：日本東部
 * TestVNet5：10.51.0.0/16 和 10.52.0.0/16
@@ -313,7 +313,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 * GatewayName：VNet5GW
 * 公用 IP：VNet5GWIP
 * VPNType：RouteBased
-* 連線︰VNet5toVNet1
+* 連線：VNet5toVNet1
 * ConnectionType：VNet2VNet
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>步驟 7 - 建立及設定 TestVNet5
@@ -476,5 +476,5 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱 [虛擬機器文件](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) 。
+* 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱 [虛擬機器文件](https://docs.microsoft.com/azure/) 。
 * 如需 BGP 的相關資訊，請參閱 [BGP 概觀](vpn-gateway-bgp-overview.md)和[如何設定 BGP](vpn-gateway-bgp-resource-manager-ps.md)。

@@ -2,23 +2,23 @@
 title: 使用 Azure 備份伺服器將 Exchange Server 備份至 Azure 備份
 description: 了解如何使用 Azure 備份伺服器將 Exchange Server 備份至 Azure 備份
 services: backup
-author: pvrk
-manager: shivamg
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: pullabhk
-ms.openlocfilehash: d64c273a189b1fe2337c4430b156874e0adf54b2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: kasinh
+ms.openlocfilehash: 40541596b4da9e0590d497785afd7d6d7f4cbcb4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605955"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495389"
 ---
-# <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>使用 Azure 備份伺服器將 Exchange Server 備份至 Azure 備份
+# <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>使用 Azure 備份伺服器將 Exchange Server 備份至 Azure
 本文說明如何設定 Microsoft Azure 備份伺服器 (MABS)，以將 Microsoft Exchange Server 備份至 Azure。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 繼續之前，請確定已[安裝並備妥](backup-azure-microsoft-azure-backup.md) Azure 備份伺服器。
 
 ## <a name="mabs-protection-agent"></a>MABS 保護代理程式

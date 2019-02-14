@@ -3,7 +3,7 @@ title: 在 Azure 資訊安全中心內保護 App Service | Microsoft Docs
 description: 本文可協助您開始在「Azure 資訊安全中心」內保護 App Service。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/9/2018
-ms.author: rkarlin
-ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: bf3ceb0d5f12783957e127b3596ab07b7531ad5a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343865"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491938"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>使用 Azure 資訊安全中心來保護 App Service
 本文可協助您使用「Azure 資訊安全中心」來監視及保護在 App Service 上執行的應用程式。
@@ -65,6 +65,7 @@ Web 應用程式中的弱點經常會遭到攻擊者利用，因為對網際網�
 
 * [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md)：了解如何在 Azure 資訊安全中心設定安全性設定。
 * [管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)：了解如何管理和回應安全性警示。
+* [應用程式服務](security-center-virtual-machine-protection.md#app-services)：檢視所列出應用程式服務環境的健康情況摘要。
 * [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)：了解如何監視合作夥伴解決方案的健全狀態。
 * [Azure 資訊安全中心常見問題](security-center-faq.md)：尋找有關使用服務的常見問題。
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)：尋找有關 Azure 安全性與相容性的部落格文章。

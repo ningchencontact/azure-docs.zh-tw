@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: aafc960c0c26a94a8be672d0d72a46dfcb559013
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157001"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810196"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 的登入體驗
 > [!NOTE]
@@ -31,8 +31,8 @@ ms.locfileid: "55157001"
 | --- |
 | [透過電話撥打我的行動或辦公室電話](#signing-in-with-a-phone-call) |
 | [傳送簡訊到我的行動電話號碼](#signing-in-with-a-text-message)
-| [從 Microsoft 驗證器應用程式使用通知](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [從 Microsoft 驗證器應用程式使用驗證碼](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| 從 Microsoft Authenticator 應用程式使用通知 |
+| 從 Microsoft Authenticator 應用程式使用驗證碼 |
 | [使用替代方法，因為現在無法使用我慣用的方法](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>透過撥打電話來登入
@@ -87,4 +87,4 @@ ms.locfileid: "55157001"
 
 了解如何[管理雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)。
 
-了解如何[開始使用 Microsoft 驗證器應用程式](microsoft-authenticator-app-how-to.md)，如此一來，因此您可以使用通知登入，而不是經由文字訊息和來電。
+了解如何[開始使用 Microsoft 驗證器應用程式](user-help-auth-app-download-install.md)，如此一來，因此您可以使用通知登入，而不是經由文字訊息和來電。

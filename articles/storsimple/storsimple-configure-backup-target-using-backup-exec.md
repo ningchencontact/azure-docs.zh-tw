@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 0f9f300f589a4818afb0c0de5ede94e5c4fab15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248723"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747589"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>使用 StorSimple 做為 Backup Exec 的備份目標
 
@@ -183,7 +183,7 @@ StorSimple 提供下列優點︰
 
 | StorSimple 部署工作  | 其他註解 |
 |---|---|
-| 部署您的內部部署 StorSimple 裝置。 | 支援的版本：Update 3 及更新版本。 |
+| 部署您的內部部署 StorSimple 裝置。 | 支援的版本：Update 3 和更新版本。 |
 | 開啟備份目標。 | 使用下列命令來開啟或關閉備份目標模式，以及取得狀態。 如需詳細資訊，請參閱[從遠端連接至 StorSimple 裝置](storsimple-remote-connect.md)。</br> 若要開啟備份模式︰`Set-HCSBackupApplianceMode -enable`。 </br> 若要關閉備份模式︰`Set-HCSBackupApplianceMode -disable`。 </br> 若要取得備份模式設定的目前狀態：`Get-HCSBackupApplianceMode`。 |
 | 為儲存備份資料的磁碟區建立一般的磁碟區容器。 磁碟區容器中的所有資料都已刪除重複資料。 | StorSimple 磁碟區容器定義重複資料刪除網域。  |
 | 建立 StorSimple 磁碟區。 | 建立大小盡可能接近預期使用量的磁碟區，因為磁碟區大小會影響雲端快照集的持續時間。 如需有關如何調整磁碟區大小的資訊，請參閱[保留原則](#retention-policies)。</br> </br> 使用 StorSimple 分層磁碟區，並選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊。 </br> 不支援只使用固定在本機的磁碟區。 |
@@ -430,7 +430,7 @@ StorSimple 雲端快照集可保護位於 StorSimple 裝置中的資料。 建�
 ### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>使用指令碼啟動和刪除雲端快照集
 
 > [!NOTE]
-> 在刪除 StorSimple 快照集之前，請先仔細評估合規性和資料保留的影響。 如需有關如何執行備份後指令碼的詳細資訊，請參閱 [Backup Exec 文件](https://www.veritas.com/support/en_US/15047.html)。
+> 在刪除 StorSimple 快照集之前，請先仔細評估合規性和資料保留的影響。 如需有關如何執行備份後指令碼的詳細資訊，請參閱 [Backup Exec 文件](https://www.veritas.com/support/en_US/article.100032497.html)。
 
 ### <a name="backup-lifecycle"></a>備份生命週期
 
@@ -480,7 +480,7 @@ StorSimple 雲端快照集可保護位於 StorSimple 裝置中的資料。 建�
 本文中參考下列文件︰
 
 - [StorSimple 多重路徑 I/O 設定](storsimple-configure-mpio-windows-server.md)
-- [儲存體案例︰精簡佈建 (英文)](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [儲存體案例：精簡佈建](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [使用 GPT 磁碟機 (英文)](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [設定共用資料夾的陰影複製](https://technet.microsoft.com/library/cc771893.aspx)
 

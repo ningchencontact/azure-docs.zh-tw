@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 6ac5a44f941f8ebcecc3a1d7e6b5e9dccf5704de
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242199"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813155"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>建立服務主體以將應用程式存取權提供給 Azure Stack 資源
 
@@ -73,7 +73,7 @@ ms.locfileid: "55242199"
 
 1. 在 Active Directory 中，從 [應用程式註冊]選取您的應用程式。
 
-2. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 [範例應用程式](#sample-applications)中的應用程式會在參考 [應用程式識別碼] 時使用**用戶端識別碼**。
+2. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 範例應用程式中的應用程式會在參考 [應用程式識別碼] 時使用**用戶端識別碼**。
 
      ![應用程式的應用程式識別碼](./media/azure-stack-create-service-principal/image12.png)
 3. 若要產生驗證金鑰，請選取 [金鑰]。

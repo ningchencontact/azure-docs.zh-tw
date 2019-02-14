@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: afaa4c090508ee5a2306c2be1515076e6bd4f100
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225720"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486821"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>使用 StorSimple 裝置管理員服務來管理儲存體帳戶認證
 
@@ -31,7 +31,7 @@ StorSimple 裝置管理員服務的刀鋒視窗中，[設定] 區段會顯示所
 * 頻寬範本 
 * 存取控制記錄 
 
-此教學課程說明如何新增、編輯或刪除儲存體帳戶認證，或替換儲存體帳戶的安全性金鑰。
+本教學課程說明如何新增、編輯或刪除儲存體帳戶認證，或替換儲存體帳戶的安全性金鑰。
 
  ![儲存體帳戶認證的清單](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
@@ -54,7 +54,7 @@ StorSimple 裝置管理員服務的刀鋒視窗中，[設定] 區段會顯示所
 
 有三種儲存體帳戶類型能與 StorSimple 裝置搭配使用。
 
-* **自動產生的儲存體帳戶** – 正如其名，這類型的儲存體帳戶是在初次建立服務時自動產生。 若要深入了解如何建立此儲存體帳戶，請參閱[部署您的內部部署 StorSimple 裝置](storsimple-8000-deployment-walkthrough-u2.md)中的[步驟 1：建立新的服務](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service)。 
+* **自動產生的儲存體帳戶** – 正如其名，這類型的儲存體帳戶是在初次建立服務時自動產生。 如要深入了解此儲存體帳戶的建立方式，請參閱[步驟 1：建立新的服務](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) (在[部署您的內部部署 StorSimple 裝置](storsimple-8000-deployment-walkthrough-u2.md)中)。 
 * **服務訂用帳戶中的儲存體帳戶** – 這些是與相同服務訂用帳戶相關聯的 Azure 儲存體帳戶。 若要深入了解如何建立這些儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)。 
 * **服務訂用帳戶外的儲存體帳戶** – 這些是與服務毫無關聯的 Azure 儲存體帳戶，而且可能在服務建立之前便已存在 。
 
@@ -147,7 +147,7 @@ StorSimple 裝置管理員服務的刀鋒視窗中，[設定] 區段會顯示所
 
 ## <a name="rotation-workflow"></a>替換工作流程
 
-Microsoft Azure 系統管理員可以直接存取儲存體帳戶 (透過 Microsoft Azure 儲存體服務) 來重新產生或變更主要金鑰或次要金鑰。 StorSimple 裝置管理員服務不會自動發現此變更。
+Microsoft Azure 系統管理員可以直接存取儲存體帳戶 (透過 Microsoft Azure 儲存體服務) 來重新產生或變更主要金鑰或次要金鑰。 StorSimple 裝置管理員服務不會自動發現這項變更。
 
 若要向 StorSimple 裝置管理員服務通知此變更，您需要存取 StorSimple 裝置管理員服務，存取儲存體帳戶，然後同步處理主要金鑰或次要金鑰 (根據何者已變更而定)。 服務接著會取得最新的金鑰，將金鑰加密，然後將加密的金鑰傳送給裝置。
 

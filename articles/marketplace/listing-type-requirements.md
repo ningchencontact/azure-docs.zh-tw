@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264677"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818527"
 ---
 # <a name="requirements-by-listing-type"></a>依清單類型別需求  
 技術與行銷內容需求會因店面、供應項目類型和清單類型而異。 請檢閱以下規格，檢查您的合規性。  
@@ -64,10 +64,10 @@ ms.locfileid: "54264677"
 
 | 供應項目類型 | 店面 | 詳細資料 |  
 |:---        |:---        |:---     |  
-| 諮詢服務 | AppSource | [需求：AppSource：清單：諮詢服務](#requirements-appsource-list-consulting-services) |  
-| 諮詢服務 | Azure Marketplace | [需求：Azure Marketplace：清單：諮詢服務](#requirements-azure-marketplace-list-consulting-services) |  
+| 諮詢服務 | AppSource | 需求：AppSource：清單：諮詢服務 |  
+| 諮詢服務 | Azure Marketplace | 需求：Azure Marketplace：清單：諮詢服務 |  
 | 與我連絡 | AppSource | [](#) |  
-| 與我連絡 | Azure Marketplace | [需求：AppSource：清單：與我連絡](#requirements-azure-marketplace-list-contact-me) |  
+| 與我連絡 | Azure Marketplace | 需求：AppSource：清單：與我連絡 |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>需求：AppSource：清單：諮詢服務  
 
@@ -91,11 +91,11 @@ ms.locfileid: "54264677"
 
 | 供應項目類型 | 店面 | 詳細資料 |  
 |:---        |:---        |:---     |  
-| 免費 / SaaS 試用版 | AppSource | [清單類型需求：試用版](#listing-type-requirements-trial) |  
-| 免費 / SaaS 試用版 | Azure Marketplace | [需求：Azure Marketplace：試用版：免費試用 / SaaS 試用版](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| 互動式示範 | AppSource | [清單類型需求：試用版](#listing-type-requirements-trial) |  
+| 免費 / SaaS 試用版 | AppSource | 清單類型需求：試用版 |  
+| 免費 / SaaS 試用版 | Azure Marketplace | 需求：Azure Marketplace：試用版：免費試用 / SaaS 試用版 |  
+| 互動式示範 | AppSource | 清單類型需求：試用版 |  
 | 互動式示範 | Azure Marketplace | [需求：Azure Marketplace：試用版：互動式示範](#requirements-azure-marketplace-trial-interactive-demo) |  
-| 試用產品 | AppSource | [清單類型需求：試用版](#listing-type-requirements-trial) |  
+| 試用產品 | AppSource | 清單類型需求：試用版 |  
 | 試用產品 | Azure Marketplace | [需求：Azure Marketplace：試用版：試用產品](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>需求：Azure Marketplace：試用版  
@@ -133,8 +133,8 @@ ms.locfileid: "54264677"
 
 | 供應項目類型 | 店面 | 詳細資料 |   
 |:---        |:---        | :--- |  
-| Azure 應用程式：受控應用程式 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：受控應用程式](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Azure 應用程式：解決方案範本 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：解決方案範本](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Azure 應用程式：受控應用程式 | Azure Marketplace | 需求：Azure Marketplace：交易：Azure 應用程式：受控應用程式 |  
+| Azure 應用程式：解決方案範本 | Azure Marketplace | 需求：Azure Marketplace：交易：Azure 應用程式：解決方案範本 |  
 | 容器 | Azure Marketplace | [需求：Azure Marketplace：交易：容器](#requirements-azure-marketplace-transact-container) |  
 | SaaS 應用程式  | Azure Marketplace | [需求：Azure Marketplace：交易：SaaS 應用程式](#requirements-azure-marketplace-transact-saas-app) |  
 | 虛擬機器 | Azure Marketplace | [需求：Azure Marketplace：交易：虛擬機器](#requirements-azure-marketplace-transact-virtual-machine) |  

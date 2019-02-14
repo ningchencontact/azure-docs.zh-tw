@@ -7,14 +7,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d32a201da5befbc8b68148f0b051e283ec289
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412382"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769473"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>設定 Azure 串流分析工作的警示
 
@@ -46,17 +46,17 @@ ms.locfileid: "54412382"
 
    ![設定 Azure 串流分析作業的警示](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. [資源]、[條件] 和 [動作群組] 應該各有一個項目。
+7. [資源]、[條件] 和 [動作群組] 應該各有一個項目。 請注意，若要引發警示，則必須符合所定義的條件。 例如，您可以在過去 15 分鐘內每隔 5 分鐘測量計量的平均值。
 
    ![建立串流分析警示規則](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    將 [警示規則名稱]、[描述] 和您的 [資源群組] 新增至 [警示詳細資料]，然後按一下 [建立警示規則] 來建立串流分析作業的規則。
 
    ![建立串流分析警示規則](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-
+   
 ## <a name="scenarios-to-monitor"></a>要監視的案例
 
-建議將下列警示用於監視串流分析作業的效能。 這些計量應該在最後 5 分鐘的期間內每分鐘評估。 如果您的作業遭遇效能問題，您可以使用查詢平行化作業進行更佳化，並嘗試增加串流單位數目。
+建議將下列警示用於監視串流分析作業的效能。 這些計量應該在最後 5 分鐘的期間內每分鐘評估。
 
 |計量|條件|時間彙總|閾值|更正措施|
 |-|-|-|-|-|

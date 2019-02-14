@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378749"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820788"
 ---
 # <a name="plan-virtual-networks"></a>規劃虛擬網路
 
@@ -53,7 +53,7 @@ ms.locfileid: "49378749"
 - 組織是否有任何將虛擬網路隔離到不同[訂用帳戶](#subscriptions)或[區域](#regions)的需求？
 - [網路介面](virtual-network-network-interface.md)可讓 VM 與其他資源進行通訊。 每個網路介面都會被指派一或多個私人 IP 位址。 您在虛擬網路中需要多少個網路介面和[私人 IP 位址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)？ 您在虛擬網路內可以擁有的網路介面和私人 IP 位址數目是有[限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)的。
 - 您是否要將虛擬網路連線至另一個虛擬網路或內部部署網路？ 您可以選擇讓虛擬網路互相連線，或是連線到內部部署網路，但不能連線到其他網路。 如需詳細資訊，請參閱[連線能力](#connectivity)。 您連線到其他虛擬網路或內部部署網路的每個虛擬網路，都必須有唯一的位址空間。 每個虛擬網路都要有一或多個公用或私人位址範圍指派至其位址空間。 位址範圍是以無類別網域間路由選擇 (CIDR) 格式指定，例如 10.0.0.0/16。 深入了解虛擬網路的[位址範圍](manage-virtual-network.md#add-or-remove-an-address-range)。
-- 您針對不同虛擬網路中的資源，是否有任何組織管理需求？ 如果是，您可以將資源分散至不同的虛擬網路，以簡化對組織中個人的[權限指派](#permissions)，或對不同的虛擬網路指派不同的[原則](#policies)。
+- 您針對不同虛擬網路中的資源，是否有任何組織管理需求？ 如果是，您可以將資源分散至不同的虛擬網路，以簡化對組織中個人的[權限指派](#permissions)，或對不同的虛擬網路指派不同的原則。
 - 當您將某些 Azure 服務資源部署到虛擬網路時，它們會建立自己的虛擬網路。 若要判斷 Azure 服務是否會建立自己的虛擬網路，請參閱針對每個[可部署到虛擬網路的 Azure 服務](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)的資訊。
 
 ### <a name="subnets"></a>子網路
@@ -113,7 +113,7 @@ Azure 會針對資源使用[角色型存取控制](../role-based-access-control/
 
 Azure 原則可讓您建立、指派和管理原則定義。 原則定義會對您的資源強制執行不同的規則，讓資源能持續符合組織標準和服務等級協定的規範。 Azure 原則會針對資源執行評估，掃描出不符合您所擁有原則定義規範的資源。 例如，您可以定義並套用一個原則，以允許只在特定資源群組或區域中建立虛擬網路。 另一個原則可能會要求每個子網路都要有相關聯的網路安全性群組。 接著，在建立和更新資源時，系統就會評估這些原則。
 
-原則會套用到下列階層：訂用帳戶、管理群組和資源群組。 深入了解 [Azure 原則](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，或是部署某些虛擬網路[原則範本](policy-samples.md)範例。
+這些原則會套用到下列階層：訂用帳戶、管理群組和資源群組。 深入了解 [Azure 原則](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，或是部署某些虛擬網路[原則範本](policy-samples.md)範例。
 
 ## <a name="next-steps"></a>後續步驟
 

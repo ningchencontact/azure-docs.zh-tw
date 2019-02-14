@@ -1,29 +1,29 @@
 ---
-title: Azure 儲存體中的資料複寫 | Microsoft Docs
-description: 系統會 複製Microsoft Azure 儲存體帳戶中的資料，以維持持久性和高可用性。 複寫選項包括本地備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。
+title: Azure 儲存體中的資料備援 | Microsoft Docs
+description: 系統會 複製Microsoft Azure 儲存體帳戶中的資料，以維持持久性和高可用性。 備援選項包括本地備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455502"
+ms.locfileid: "55506782"
 ---
-# <a name="azure-storage-replication"></a>Azure 儲存體複寫
+# <a name="azure-storage-redundancy"></a>Azure 儲存體備援
 
-Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久性及高可用性。 「Azure 儲存體」複寫會複製您的資料，以保護該資料不受計劃性和非計劃性事件影響，包括暫時性硬體故障、網路或電力中斷、大規模天然災害等。 您可以選擇在相同的資料中內、跨相同地區內的不同區域資料中心，甚至是跨地區，進行資料複寫。
+Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久性及高可用性。 「Azure 儲存體」會複製您的資料，以保護該資料不受計劃性和非計劃性事件影響，包括暫時性硬體故障、網路或電力中斷和大規模天然災害。 您可以選擇在相同資料中心內、在相同地區的不同資料中心內、或跨不同區域複寫您的資料。
 
 複寫可確保您的儲存體帳戶符合[儲存體的服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) 即使遇到失敗時也一樣。 請參閱 SLA 以取得 Azure 儲存體持續性和可用性保證的相關資訊。
 
-## <a name="choosing-a-replication-option"></a>選擇複寫選項
+## <a name="choosing-a-redundancy-option"></a>選擇備援選項
 
-建立儲存體帳戶時，您可以選取下列其中一個複寫選項：
+建立儲存體帳戶時，您可以選取下列其中一個備援選項：
 
 * [本地備援儲存體 (LRS)](storage-redundancy-lrs.md)
 * [區域備援儲存體 (ZRS)](storage-redundancy-zrs.md)
@@ -34,10 +34,10 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 
 | 案例                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| 資料中心內的節點無法供使用                                                                 | 是                             | 是                              | 是                                  | 是                                  |
-| 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | yes                              | 是                                  | 是                                  |
-| 全區域服務中斷                                                                                     | 否                              | 否                               | yes                                  | 是                                  |
-| 在全區域服務無法供使用的情況下對資料 (位於遠端、異地複寫區域) 進行讀取存取 | 否                              | 否                               | 否                                   | 是                                  |
+| 資料中心內的節點無法供使用                                                                 | yes                             | 是                              | 是                                  | yes                                  |
+| 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | yes                              | 是                                  | yes                                  |
+| 全區域服務中斷                                                                                     | 否                              | 否                               | yes                                  | yes                                  |
+| 在全區域服務無法供使用的情況下對資料 (位於遠端、異地複寫區域) 進行讀取存取 | 否                              | 否                               | 否                                   | yes                                  |
 | 設計為可在指定的一年中讓物件持久性達到 \_\_                                          | 至少 99.999999999% (11 個 9) | 至少 99.9999999999% (12 個 9) | 至少 99.99999999999999% (16 個 9) | 至少 99.99999999999999% (16 個 9) |
 | 支援的儲存體帳戶類型                                                                   | GPv2、GPv1、Blob                | GPv2                             | GPv2、GPv1、Blob                     | GPv2、GPv1、Blob                     |
 | 讀取要求的可用性 SLA | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.99% (非經常性存取層為 99.9%) |

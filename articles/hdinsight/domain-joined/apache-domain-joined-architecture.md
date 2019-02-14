@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: acae8076350c26e7a7157fd2063f64220b167771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462423"
+ms.locfileid: "55486056"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -73,23 +73,23 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 
  3. 檢查是否已建立 “Microsoft Azure Powershell” 服務主體
 
-```
- $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
-```
+ ```
+  $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+ ```
 
- 4. 如果不存在 (亦即，如果 ($powershellSPN -q $null))，則建立服務主體
+ 4. 如果不存在 (亦即，如果 ($powershellSPN -eq $null))，則建立服務主體
 
-```
- $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
-```
+ ```
+  $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+ ```
 
  5. 建立原則並將其附加至此服務主體： 
 
-```
+ ```
  $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
 
  Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
-```
+ ```
 
 ## <a name="next-steps"></a>後續步驟
 

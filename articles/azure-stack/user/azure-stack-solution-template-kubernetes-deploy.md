@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 9d542f7c2cdeb20806a2db98005ffc03cf72144c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238011"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658414"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>將 Kubernetes 部署至 Azure Stack
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 > [!Note]  
-> Azure Stack 上的 Kubernetes 處於預覽狀態。
+> Azure Stack 上的 Kubernetes 處於預覽狀態。 預覽版目前不支援 Azure Stack 中斷連線的案例。
 
 您可以遵循本文中的步驟，在單一協調作業中部署及設定 Kubernetes 的資源。 這些步驟會使用 Azure Resource Manager 解決方案範本。 您必須收集 Azure Stack 安裝所需的相關資訊、產生範本，然後部署至您的雲端。 Azure Stack 範本不會使用全域 Azure 中提供的相同受控 AKS 服務。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: f640ea2e8af8c8ae2bc8a6a1224adca17e897b81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320922"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811319"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -105,7 +105,7 @@ Azure 角色型存取控制 (RBAC) 原則會決定哪些人可以登入 VM。 �
 > [!NOTE]
 > 若要讓使用者透過 SSH 登入 VM，您必須指派 [虛擬機器系統管理員登入] 或 [虛擬機器使用者登入] 角色。 被指派 VM 的 [擁有者] 或 [參與者] 角色的 Azure 使用者，並不會自動取得透過 SSH 登入 VM 的權限。
 
-下列範例會使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) 將 [虛擬機器系統管理員登入] 角色指派給您目前 Azure 使用者的 VM。 作用中 Azure 帳戶的使用者名稱可透過 [az account show](/cli/azure/account#az-account-show) 來取得，而*範圍*會設定為在上一個步驟中使用 [az vm show](/cli/azure/vm#az-vm-show) 建立的 VM。 範圍也可指派於資源群組或訂用帳戶層級上，並套用一般 RBAC 繼承權限。 如需詳細資訊，請參閱[角色型存取控制](../../azure-resource-manager/resource-group-overview.md#access-control)
+下列範例會使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) 將 [虛擬機器系統管理員登入] 角色指派給您目前 Azure 使用者的 VM。 作用中 Azure 帳戶的使用者名稱可透過 [az account show](/cli/azure/account#az-account-show) 來取得，而*範圍*會設定為在上一個步驟中使用 [az vm show](/cli/azure/vm#az-vm-show) 建立的 VM。 範圍也可指派於資源群組或訂用帳戶層級上，並套用一般 RBAC 繼承權限。 如需詳細資訊，請參閱[角色型存取控制](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -171,7 +171,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>拒絕存取：未指派 RBAC 角色
 
-如果您在 SSH 提示字元中看到下列錯誤，請確認您已為 VM [設定 RBAC 原則](#configure-rbac-policy-for-the-virtual-machine)，而可為使用者授與 [虛擬機器系統管理員登入] 或 [虛擬機器使用者登入] 角色：
+如果您在 SSH 提示字元中看到下列錯誤，請確認您已為 VM 設定 RBAC 原則，而可為使用者授與 [虛擬機器系統管理員登入] 或 [虛擬機器使用者登入] 角色：
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/12/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 34a695daa077e882e911d3fb59f8a30e39c3a9d2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432960"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756626"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>從「自動化」將工作狀態和工作資料流轉送到 Log Analytics
 
@@ -64,11 +64,12 @@ Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-執行這個指令碼之後，您將會在寫入新 JobLogs 或 JobStreams 的 10 分鐘內，於 Log Analytics 中看見記錄。
+執行這個指令碼之後，可能在一小時後，您才會開始在 Log Analytics 中看見寫入新 JobLogs 或 JobStreams 的記錄。
 
 若要查看記錄，請在 Log Analytics 記錄搜尋中執行下列查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>驗證組態
+
 若要確認您的「自動化」帳戶會將記錄傳送到 Log Analytics 工作區，請使用下列 PowerShell 來確認已在「自動化」帳戶上正確設定診斷：
 
 ```powershell-interactive
@@ -76,14 +77,16 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 在輸出中，確定：
-+ 在 *Logs* 下方，*Enabled* 的值為 *True*。
-+ *WorkspaceId* 的值已設為 Log Analytics 工作區的 ResourceId。
+
+* 在 *Logs* 下方，*Enabled* 的值為 *True*。
+* *WorkspaceId* 的值已設為 Log Analytics 工作區的 ResourceId。
 
 ## <a name="log-analytics-records"></a>Log Analytics 記錄
 
 來自「Azure 自動化」的診斷會在 Log Analytics 中建立兩種類型的記錄，並標記為 **AzureDiagnostics**。 下列查詢會使用 Log Analytics 的已升級查詢語言。 如需有關舊版查詢語言與新版 Azure Log Analytics 查詢語言之間通用查詢的資訊，請瀏覽[舊版到新版 Azure Log Analytics 查詢語言速查表](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language) \(英文\)
 
 ### <a name="job-logs"></a>作業記錄檔
+
 | 屬性 | 說明 |
 | --- | --- |
 | TimeGenerated |Runbook 作業的執行日期和時間。 |
@@ -128,6 +131,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>在 Log Analytics 中檢視自動化記錄檔
+
 既然您已經開始將「自動化」作業記錄傳送到 Log Analytics，讓我們來看看這些記錄在 Log Analytics 中的運用方式。
 
 若要查看記錄，請執行下列查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
@@ -141,7 +145,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 2. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  您也可以透過使用下列內容來依 RunbookName 分組：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    如果您將來自多個「自動化」帳戶或訂用帳戶的記錄設定到您的工作區，就能依訂用帳戶或「自動化」帳戶來將警示分組。 您可以在搜尋 JobLogs 時，在 [資源] 欄位中找到「自動化」帳戶名稱。
-1. 若要開啟 [建立規則] 畫面，按一下頁面頂端的 [+ 新增警示規則]。 如需設定警示選項的詳細資訊，請參閱 [Azure 中的記錄警示](../azure-monitor/platform/alerts-unified-log.md)。
+3. 若要開啟 [建立規則] 畫面，按一下頁面頂端的 [+ 新增警示規則]。 如需設定警示選項的詳細資訊，請參閱 [Azure 中的記錄警示](../azure-monitor/platform/alerts-unified-log.md)。
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>尋找所有已完成但發生錯誤的工作
 除了失敗的警示，您還可以尋找 Runbook 作業發生非終止錯誤的時間。 在這些情況下，PowerShell 會產生錯誤串流，但非終止錯誤不會造成您的作業暫止或失敗。    

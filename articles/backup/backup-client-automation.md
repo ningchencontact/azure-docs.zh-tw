@@ -2,18 +2,18 @@
 title: 使用 PowerShell 將 Windows Server 備份至 Azure
 description: 了解如何使用 PowerShell 部署和管理 Azure 備份
 services: backup
-author: saurabhsensharma
+author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
-ms.author: saurse
-ms.openlocfilehash: 154d4fbb265a6abb57bc25b4e364983ffe7e399b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: pvrk
+ms.openlocfilehash: d430f6252157c5d34aa236ef88f8490b4ad6a184
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237752"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497939"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
 本文說明如何使用 PowerShell 在 Windows Server 或 Windows 用戶端上設定 Azure 備份，以及管理備份和復原。

@@ -1,6 +1,6 @@
 ---
-title: Azure 保留的 Windows 軟體成本 | Microsoft Docs
-description: 了解哪些 Windows 軟體計量不包含在 Azure 保留的 VM 執行個體成本中。
+title: Azure 的保留軟體成本 | Microsoft Docs
+description: 了解哪些軟體計量不包含在 Azure 保留的 VM 執行個體成本中。
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 63b1e850cbcea089a6a115f53ea1ef579a16886f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902650"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744975"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Windows 軟體的成本不包括在 Azure 保留的虛擬機器執行個體內
+# <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>軟體的成本不包括在 Azure 保留的虛擬機器執行個體內
 
-如果保留的虛擬機器執行個體上沒有 Azure Hybrid Use Benefit，則必須為下列區段所列的 Windows 軟體計量支付費用。
+如果保留的虛擬機器執行個體上沒有 Azure Hybrid Use Benefit，則必須為下列區段所列的軟體計量支付費用。
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows 軟體計量不包括在保留成本中
 
@@ -50,6 +50,22 @@ ms.locfileid: "54902650"
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Reservation-Windows Svr (256 核心) | B 系列以外皆適用 |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reservation-Windows Svr (96 核心) | B 系列以外皆適用 |
 
+## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>雲端服務軟體計量不包括在保留成本中
+
+| 計量識別碼 | 使用量檔案中的計量名稱 |
+| ------- | ------------------------|
+|ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|雲端服務 1 個 vCPU 授權|
+|e0434559-19ee-4132-9c46-05ad4044f3f7|雲端服務 2 個 vCPU 授權|
+|6ecc834e-39b3-48b3-8d10-cc5626bacb66|雲端服務 4 個 vCPU 授權|
+|13103090-ca72-4825-ab12-7f16c4931d95|雲端服務 8 個 vCPU 授權|
+|ecd2bb6e-45a5-49aa-a58b-3947ba21c364|雲端服務 16 個 vCPU 授權|
+|de2c7f1d-06dc-4b16-bc8b-c2ec5f4c8aee|雲端服務 20 個 vCPU 授權|
+|ca1af837-4b35-47f5-8d14-b1988149c4ca|雲端服務 32 個 vCPU 授權|
+|dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|雲端服務 64 個 vCPU 授權|
+|7a803026-244c-4659-834c-11e6b2d6b76f|雲端服務 80 個 vCPU 授權|
+
+## <a name="rates-for-azure-meters"></a>Azure 計量的費率
+
 您可以透過 Azure RateCard API 來取得這些計量中每一個的成本。 如需如何取得 Azure 計量表費率的資訊，請參閱[取得 Azure 訂用帳戶中所使用資源的價格和中繼資料資訊](https://msdn.microsoft.com/library/azure/mt219004)。
 
 ## <a name="next-steps"></a>後續步驟
@@ -65,6 +81,3 @@ ms.locfileid: "54902650"
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
-
-
-

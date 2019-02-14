@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
-ms.openlocfilehash: f970f535f83bc3b3c2a850ec126a7afff2af739f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6c6f2890cf9bd3c8cb412b3fa2f28d8ea3b6f72
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827579"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734312"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>使用影片索引器 API 自訂品牌模型
 
@@ -26,23 +26,23 @@ ms.locfileid: "54827579"
 
 ## <a name="create-a-brand"></a>建立品牌
 
-這會建立新的自訂品牌，並將其新增至指定之帳戶的自訂品牌模型。 
+這會建立新的自訂品牌，並將其新增至指定之帳戶的自訂品牌模型。
 
 ### <a name="request-url"></a>要求 URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [查看所需的參數，並使用影片索引器開發人員入口網站測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand)。
 
-### <a name="request-parameters"></a>要求參數 
+### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|yes|帳戶的全域唯一識別碼|
+|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -95,17 +95,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [查看所需的參數，並使用影片索引器開發人員入口網站測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?)。
 
 ### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|id|integer|是|品牌識別碼 (建立品牌時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|yes|帳戶的全域唯一識別碼|
+|id|integer|yes|品牌識別碼 (建立品牌時產生)|
+|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -117,24 +117,24 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="get-a-specific-brand"></a>取得特定品牌
 
-這可讓您使用品牌識別碼，在指定之帳戶的自訂品牌模型中搜尋品牌的詳細資料。 
+這可讓您使用品牌識別碼，在指定之帳戶的自訂品牌模型中搜尋品牌的詳細資料。
 
 ### <a name="request-url"></a>要求 URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [查看所需的參數，並使用影片索引器開發人員入口網站測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?)。
 
-### <a name="request-parameters"></a>要求參數 
+### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|id|integer|是|品牌識別碼 (建立品牌時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|yes|帳戶的全域唯一識別碼|
+|id|integer|yes|品牌識別碼 (建立品牌時產生)|
+|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -167,28 +167,28 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="update-a-specific-brand"></a>更新特定品牌
 
-這可讓您使用品牌識別碼，在指定之帳戶的自訂品牌模型中搜尋品牌的詳細資料。 
+這可讓您使用品牌識別碼，在指定之帳戶的自訂品牌模型中搜尋品牌的詳細資料。
 
 ### <a name="request-url"></a>要求 URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [查看所需的參數，並使用影片索引器開發人員入口網站測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?)。
 
 ### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|id|integer|是|品牌識別碼 (建立品牌時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|yes|帳戶的全域唯一識別碼|
+|id|integer|yes|品牌識別碼 (建立品牌時產生)|
+|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
-除了這些參數之外，您還必須提供要求主體 JSON 物件，此物件可依照下列範例的格式，提供您要更新之品牌的相關更新資訊。
+除了這些參數之外，您還必須提供要求本文 JSON 物件，此物件可依照下列範例的格式，提供您要更新之品牌的相關更新資訊。
 
 ```json
 {
@@ -237,16 +237,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [查看所需的參數，並使用影片索引器開發人員入口網站測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?)。
 
 ### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|yes|帳戶的全域唯一識別碼|
+|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -270,7 +270,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
         "description": "This is an example",
         "tags": ["Tag1", "Tag2"]
     },
-        {
+    {
         "ReferenceUrl": null,
         "id": 97975,
         "name": "Example2",
@@ -297,16 +297,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [查看所需的參數，並使用影片索引器開發人員入口網站測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands)。
 
 ### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|yes|帳戶的全域唯一識別碼|
+|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -330,20 +330,20 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 這會更新指定之帳戶中的品牌模型設定。 品牌模型設定表示是否已從 Bing 品牌資料庫中啟用偵測。 如果未啟用 Bing 品牌，影片索引器將只會從指定之帳戶的自訂品牌模型中偵測品牌。
 
-### <a name="request-url"></a>要求 URL： 
+### <a name="request-url"></a>要求 URL：
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
- 
+
 [查看所需的參數，並使用影片索引器開發人員入口網站測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?)。
 
-### <a name="request-parameters"></a>要求參數 
+### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|yes|帳戶的全域唯一識別碼|
+|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 

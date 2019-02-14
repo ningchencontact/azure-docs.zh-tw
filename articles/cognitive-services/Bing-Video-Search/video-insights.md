@@ -1,27 +1,25 @@
 ---
-title: 取得影片深入解析 - Bing 影片搜尋
+title: 使用 Bing 影片搜尋 API 來取得影片見解
 titlesuffix: Azure Cognitive Services
-description: 示範如何使用 Bing 影片搜尋 API 來取得更多視訊的相關資訊。
+description: 了解如何使用 Bing 影片搜尋 API，來取得影片的詳細資訊，例如相關的影片。
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9c36208a35d66fcd6df6ac2ccd4a28c55ed92937
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5abc5ee96c503bed9509e3d35b442ea5e0330ac7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170772"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568204"
 ---
 # <a name="get-insights-about-a-video"></a>取得影片深入解析
 
-每個影片皆包含一個影片識別碼，您可使用該識別碼來取得關於影片的更多資訊，例如相關影片。  
-  
-若要取得關於影片的深入解析，請在回應中擷取其 [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) 權杖。 
+Bing 影片搜尋 API 所傳回的每個影片皆包含一個影片識別碼，您可使用該識別碼來取得影片的詳細資訊，例如相關的影片。 若要取得關於影片的見解，請在 API 回應中擷取其 [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) 權杖。 
 
 ```json
     "value" : [
@@ -36,9 +34,9 @@ ms.locfileid: "55170772"
     ],
 ```
 
-接著，將下列 GET 要求傳送至「影片詳細資料」端點。 將 [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) 查詢參數設為 `videoId` 權杖。 若要指定您希望取得的深入解析，請設定 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 查詢參數。 若要取得所有深入解析，請將 `modules` 設為 All。 回應會包含您要求的所有深入解析 (若有)。
+之後，使用識別碼將 GET 要求傳送至「影片」詳細資料端點。 將 [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) 查詢參數設為 `videoId` 權杖。 若要指定您希望取得的深入解析，請設定 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 查詢參數。 若要取得所有深入解析，請將 `modules` 設為 All。 回應會包含您要求的所有見解 (若有)。
 
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -50,9 +48,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-related-videos-insights"></a>取得相關影片深入解析  
 
-若要取得與指定影片相關的影片，請將 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 查詢參數設為 RelatedVideos。
+若要取得與指定影片相關的影片，請將 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 查詢參數設為 `RelatedVideos`。
   
-```  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -61,10 +59,10 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
+
+此要求的回應會有最上層的 [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) 物件，而非 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) 物件。  
   
-以下為上述要求的回應。 最上層的物件是 [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) 物件，而非 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) 物件。  
-  
-```  
+```json
 {
     "_type" : "Api.VideoDetails.VideoDetails",
     "relatedVideos" : {
@@ -95,3 +93,9 @@ Host: api.cognitive.microsoft.com
     }
 }
 ```
+
+## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+> [搜尋趨勢影片](trending-videos.md)
+

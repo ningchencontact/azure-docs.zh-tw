@@ -11,33 +11,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6020aa0a770075526d8d07c94b847b5933a26c2a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 26e5b33504ff543e8442108e4368ce3b04f25df4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428106"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696742"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>使用 Azure PowerShell 建立自訂角色
 
 如果內建的角色無法滿足組織的特定需求，您可以建立自己的[自訂角色](built-in-roles.md)。 本文說明如何使用 Azure PowerShell 來建立和管理自訂角色。
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
 若要建立自訂角色，您需要：
 
 - 建立自訂角色的權限，例如[擁有者](built-in-roles.md#owner)或[使用者存取管理員](built-in-roles.md#user-access-administrator)
-- 已在本機安裝 [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
+- 已在本機安裝 [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-custom-roles"></a>列出自訂角色
 
-若要列出範圍中可供指派的角色，使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 命令。 下列範例會列出選取的訂用帳戶中可供指派的所有角色。
+若要列出範圍中可供指派的角色，使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 命令。 下列範例會列出選取的訂用帳戶中可供指派的所有角色。
 
 ```azurepowershell
-Get-AzureRmRoleDefinition | FT Name, IsCustom
+Get-AzRoleDefinition | FT Name, IsCustom
 ```
 
 ```Example
@@ -54,7 +56,7 @@ API Management Service Contributor                   False
 下列範例只會列出所選取訂用帳戶中可供指派的自訂角色。
 
 ```azurepowershell
-Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
 ```
 
 ```Example
@@ -67,20 +69,20 @@ Virtual Machine Operator     True
 
 ## <a name="create-a-custom-role"></a>建立自訂角色
 
-若要建立自訂角色，使用 [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) 命令。 建構角色有兩種方法：使用 `PSRoleDefinition` 物件或 JSON 範本。 
+若要建立自訂角色，使用 [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) 命令。 建構角色有兩種方法：使用 `PSRoleDefinition` 物件或 JSON 範本。 
 
 ### <a name="get-operations-for-a-resource-provider"></a>取得資源提供者的作業
 
 當您建立自訂角色時，務必知道所有可能來自資源提供者的作業。
-您可以檢視[資源提供者作業](resource-provider-operations.md)的清單，或者，可以使用 [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) 命令來取得此資訊。
+您可以檢視[資源提供者作業](resource-provider-operations.md)的清單，或者，可以使用 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 命令來取得此資訊。
 例如，如果您想要檢查虛擬機器的所有可用作業，請使用此命令：
 
 ```azurepowershell
-Get-AzureRMProviderOperation <operation> | FT OperationName, Operation, Description -AutoSize
+Get-AzProviderOperation <operation> | FT OperationName, Operation, Description -AutoSize
 ```
 
 ```Example
-PS C:\> Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation, Description -AutoSize
+PS C:\> Get-AzProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation, Description -AutoSize
 
 OperationName                                  Operation                                                      Description
 -------------                                  ---------                                                      -----------
@@ -98,7 +100,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 下列範例會從[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)內建角色開始，來建立稱為「虛擬機器操作員」(Virtual Machine Operator) 的自訂角色。 新角色會授與對 *Microsoft.Compute*、*Microsoft.Storage* 和 *Microsoft.Network* 資源提供者之所有讀取作業的存取權，以及授與對啟動、重新啟動和監視虛擬機器的存取權。 自訂角色可用於兩個訂用帳戶中。
 
 ```azurepowershell
-$role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
+$role = Get-AzRoleDefinition "Virtual Machine Contributor"
 $role.Id = $null
 $role.Name = "Virtual Machine Operator"
 $role.Description = "Can monitor and restart virtual machines."
@@ -115,7 +117,7 @@ $role.Actions.Add("Microsoft.Support/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/00000000-0000-0000-0000-000000000000")
 $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111")
-New-AzureRmRoleDefinition -Role $role
+New-AzRoleDefinition -Role $role
 ```
 
 下列範例示範建立「虛擬機器操作員」自訂角色的另一種方法。 它一開始會建立新的 `PSRoleDefinition` 物件。 動作作業會指定於 `perms` 變數中，並設定為 `Actions` 屬性。 從[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)內建角色讀取 `NotActions`，藉以設定 `NotActions` 屬性。 由於[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)沒有任何 `NotActions`，因此不需要這一行，但它會顯示如何從另一個角色擷取資訊。
@@ -130,10 +132,10 @@ $perms += 'Microsoft.Compute/virtualMachines/start/action','Microsoft.Compute/vi
 $perms += 'Microsoft.Authorization/*/read','Microsoft.Resources/subscriptions/resourceGroups/read'
 $perms += 'Microsoft.Insights/alertRules/*','Microsoft.Support/*'
 $role.Actions = $perms
-$role.NotActions = (Get-AzureRmRoleDefinition -Name 'Virtual Machine Contributor').NotActions
+$role.NotActions = (Get-AzRoleDefinition -Name 'Virtual Machine Contributor').NotActions
 $subs = '/subscriptions/00000000-0000-0000-0000-000000000000','/subscriptions/11111111-1111-1111-1111-111111111111'
 $role.AssignableScopes = $subs
-New-AzureRmRoleDefinition -Role $role
+New-AzRoleDefinition -Role $role
 ```
 
 ### <a name="create-a-custom-role-with-json-template"></a>使用 JSON 範本建立自訂角色
@@ -151,8 +153,7 @@ JSON 範本可作為自訂角色的來源定義。 下列範例會建立自訂�
     "Microsoft.Storage/*/read",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-  ],
+  "NotActions": [],
   "AssignableScopes": [
     "/subscriptions/00000000-0000-0000-0000-000000000000",
     "/subscriptions/11111111-1111-1111-1111-111111111111"
@@ -163,7 +164,7 @@ JSON 範本可作為自訂角色的來源定義。 下列範例會建立自訂�
 若要將角色新增至訂用帳戶，請執行下列 PowerShell 命令︰
 
 ```azurepowershell
-New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+New-AzRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
 ## <a name="update-a-custom-role"></a>更新自訂角色
@@ -172,20 +173,20 @@ New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 
 ### <a name="update-a-custom-role-with-the-psroledefinition-object"></a>使用 PSRoleDefinition 物件更新自訂角色
 
-若要修改自訂角色，首先使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 命令來擷取角色定義。 接著，對角色定義進行想要的變更。 最後，使用 [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) 命令來儲存已修改的角色定義。
+若要修改自訂角色，首先使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 命令來擷取角色定義。 接著，對角色定義進行想要的變更。 最後，使用 [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) 命令來儲存已修改的角色定義。
 
 下列範例會將 `Microsoft.Insights/diagnosticSettings/*` 作業加入到 *Virtual Machine Operator* 自訂角色。
 
 ```azurepowershell
-$role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+$role = Get-AzRoleDefinition "Virtual Machine Operator"
 $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
-Set-AzureRmRoleDefinition -Role $role
+Set-AzRoleDefinition -Role $role
 ```
 
 ```Example
-PS C:\> $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
 PS C:\> $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
-PS C:\> Set-AzureRmRoleDefinition -Role $role
+PS C:\> Set-AzRoleDefinition -Role $role
 
 Name             : Virtual Machine Operator
 Id               : 88888888-8888-8888-8888-888888888888
@@ -201,24 +202,24 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
 下列範例會將 Azure 訂用帳戶新增到 *Virtual Machine Operator* 自訂角色的可指派範圍。
 
 ```azurepowershell
-Get-AzureRmSubscription -SubscriptionName Production3
+Get-AzSubscription -SubscriptionName Production3
 
-$role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+$role = Get-AzRoleDefinition "Virtual Machine Operator"
 $role.AssignableScopes.Add("/subscriptions/22222222-2222-2222-2222-222222222222")
-Set-AzureRmRoleDefinition -Role $role
+Set-AzRoleDefinition -Role $role
 ```
 
 ```Example
-PS C:\> Get-AzureRmSubscription -SubscriptionName Production3
+PS C:\> Get-AzSubscription -SubscriptionName Production3
 
 Name     : Production3
 Id       : 22222222-2222-2222-2222-222222222222
 TenantId : 99999999-9999-9999-9999-999999999999
 State    : Enabled
 
-PS C:\> $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
 PS C:\> $role.AssignableScopes.Add("/subscriptions/22222222-2222-2222-2222-222222222222")
-PS C:\> Set-AzureRmRoleDefinition -Role $role
+PS C:\> Set-AzRoleDefinition -Role $role
 
 Name             : Virtual Machine Operator
 Id               : 88888888-8888-8888-8888-888888888888
@@ -234,7 +235,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
 
 ### <a name="update-a-custom-role-with-a-json-template"></a>使用 JSON 範本更新自訂角色
 
-您可以利用先前的 JSON 範本，輕鬆修改現有的自訂角色來新增或移除 Actions。 更新 JSON 範本，並新增網路的讀取動作，如下範例所示。 範本中所列的定義不會累積套用至現有的定義，這表示角色會完全依照您在範本中指定的樣子出現。 您也需要以角色的識別碼來更新 Id 欄位。 如果不確定此值，您可以使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) Cmdlet 來取得這項資訊。
+您可以利用先前的 JSON 範本，輕鬆修改現有的自訂角色來新增或移除 Actions。 更新 JSON 範本，並新增網路的讀取動作，如下範例所示。 範本中所列的定義不會累積套用至現有的定義，這表示角色會完全依照您在範本中指定的樣子出現。 您也需要以角色的識別碼來更新 Id 欄位。 如果不確定此值，您可以使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) Cmdlet 來取得這項資訊。
 
 ```json
 {
@@ -248,8 +249,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
     "Microsoft.Network/*/read",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-  ],
+  "NotActions": [],
   "AssignableScopes": [
     "/subscriptions/00000000-0000-0000-0000-000000000000",
     "/subscriptions/11111111-1111-1111-1111-111111111111"
@@ -260,22 +260,22 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
 若要更新現有的角色，請執行下列 PowerShell 命令︰
 
 ```azurepowershell
-Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+Set-AzRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
 ## <a name="delete-a-custom-role"></a>刪除自訂角色
 
-若要刪除自訂角色，使用 [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition) 命令。
+若要刪除自訂角色，使用 [Remove-AzRoleDefinition](/powershell/module/az.resources/remove-azroledefinition) 命令。
 
 下列範例會移除 *Virtual Machine Operator* 自訂角色
 
 ```azurepowershell
-Get-AzureRmRoleDefinition "Virtual Machine Operator"
-Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
+Get-AzRoleDefinition "Virtual Machine Operator"
+Get-AzRoleDefinition "Virtual Machine Operator" | Remove-AzRoleDefinition
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> Get-AzRoleDefinition "Virtual Machine Operator"
 
 Name             : Virtual Machine Operator
 Id               : 88888888-8888-8888-8888-888888888888
@@ -287,7 +287,7 @@ NotActions       : {}
 AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/11111111-1111-1111-1111-111111111111}
 
-PS C:\> Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
+PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | Remove-AzRoleDefinition
 
 Confirm
 Are you sure you want to remove role definition with name 'Virtual Machine Operator'.

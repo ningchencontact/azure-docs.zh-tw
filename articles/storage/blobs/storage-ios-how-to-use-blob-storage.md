@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244754"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811659"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何使用 iOS 的 Blob 儲存體
 
@@ -162,7 +162,7 @@ ms.locfileid: "55244754"
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>將 Blob 上傳至容器
-如 [Blob 服務概念](#blob-service-concepts) 一節中所述，Blob 儲存體提供三種不同類型的 Blob：區塊 Blob、附加 Blob 和分頁 Blob。 Azure 儲存體 iOS 程式庫支援三種類型的 Blob。 在大部分情況下，建議使用區塊 Blob 的類型。
+如「Blob 服務概念」一節中所述，Blob 儲存體提供三種不同類型的 Blob：區塊 Blob、附加 Blob 和分頁 Blob。 Azure 儲存體 iOS 程式庫支援三種類型的 Blob。 在大部分情況下，建議使用區塊 Blob 的類型。
 
 下列範例說明如何從 NSString 上傳區塊 Blob。 如果此容器中有相同名稱的 Blob 存在，此 Blob 的內容將會被覆寫。
 

@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 140391b02dab8ce6b47d5350d6d40a9673b29e11
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161761"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732578"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -120,7 +120,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 ### <a name="getting-started"></a>開始使用
 實作可以接受來自 Azure AD 的佈建要求的 SCIM 端點的最簡單的方式是建置和部署會將佈建的使用者輸出至以逗號分隔值 (CSV) 檔案的程式碼範例。
 
-**若要建立範例 SCIM 端點：**
+#### <a name="to-create-a-sample-scim-endpoint"></a>建立範例 SCIM 端點
 
 1. 請至 [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) 下載程式碼範例套件。
 2. 將套件解壓縮並將放在 Windows 電腦上的位置，例如 C:\AzureAD-BYOA-Provisioning-Samples\。
@@ -142,7 +142,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 8. 在 Windows 中，於 [Windows 設定] > [網路和網際網路設定] 底下，選取 [Windows 防火牆] > [進階設定]，然後建立允許對連接埠 9000 進行輸入存取的「輸入規則」。
 9. 如果 Windows 電腦位於路由器背後，必須將路由器設定為在公開到網際網路的連接埠 9000 和 Windows 電腦上的連接埠 9000 之間執行網路存取轉譯。 為了讓 Azure AD 能夠在雲端中存取這個端點，這是必要的組態。
 
-**若要在 Azure AD 中註冊範例 SCIM 端點：**
+#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>在 Azure AD 中註冊範例 SCIM 端點
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 2. 瀏覽至 [Azure Active Directory] > [企業應用程式]，然後選取 [新增應用程式] > [全部] > [不在資源庫內的應用程式]。

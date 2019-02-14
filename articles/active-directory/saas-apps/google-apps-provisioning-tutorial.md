@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 515b21c6854620a6bd1af53af8b1778d70613622
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1dd1cf143d66fec2ab8c12ee28a61bb3b8a83ade
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203941"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821817"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程：設定 G Suite 來自動佈建使用者
 
@@ -127,7 +127,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
     e. 對於您想要新增至 Google Apps 的任何其他網域，重複上述步驟。
      
      > [!WARNING]
-     > 如果您變更 G Suite 租用戶的主要網域，且已經搭配 Azure AD 設定單一登入，則必須重複執行[步驟 2：啟用單一登入](#step-two-enable-single-sign-on)下的步驟 #3。
+     > 如果您變更 G Suite 租用戶的主要網域，且已經搭配 Azure AD 設定單一登入，則必須重複執行步驟 2：啟用單一登入下的步驟 #3。
        
 1. 在 [Google Apps 管理主控台](https://admin.google.com/)中，選取 [管理角色]。
    

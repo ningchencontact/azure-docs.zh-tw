@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185965"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765668"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理程式收集記錄資料
 
-Azure Log Analytics (OMS) 代理程式先前稱為 Microsoft Monitoring Agent (MMA) 或 OMS Linux 代理程式，其開發目的，是為了要全方位管理內部部署機器、[System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) 所監視的電腦，和任何雲端中的虛擬機器。 Windows 和 Linux 代理程式可連結至 Log Analytics 工作區，從不同的來源以及監視解決方案中定義的任何特殊記錄或計量收集資料。 
+Azure Log Analytics 代理程式先前稱為 Microsoft Monitoring Agent (MMA) 或 OMS Linux 代理程式，其開發目的，是為了要全方位管理內部部署機器、[System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) 所監視的電腦，和任何雲端中的虛擬機器。 Windows 和 Linux 代理程式可連結至 Log Analytics 工作區，從不同的來源以及監視解決方案中定義的任何特殊記錄或計量收集資料。 
 
 本文將詳細說明代理程式的概觀、系統和網路需求以及不同的部署方法。   
 
@@ -41,7 +41,7 @@ Azure Log Analytics (OMS) 代理程式先前稱為 Microsoft Monitoring Agent (M
 ## <a name="supported-windows-operating-systems"></a>支援的 Windows 作業系統
 Windows 代理程式正式支援下列 Windows 作業系統版本：
 
-* Windows Server 2008 Service Pack 1 (SP1) 或更新版本
+* Windows Server 2008 R2 或更新版本
 * Windows 7 SP1 與更新版本
 
 ## <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
@@ -78,10 +78,10 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 |代理程式資源|連接埠 |方向 |略過 HTTPS 檢查|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |連接埠 443 |輸入和輸出|是 |  
-|*.oms.opinsights.azure.com |連接埠 443 |輸入和輸出|是 |  
-|*.blob.core.windows.net |連接埠 443 |輸入和輸出|是 |  
-|*.azure-automation.net |連接埠 443 |輸入和輸出|是 |  
+|*.ods.opinsights.azure.com |連接埠 443 |輸入和輸出|yes |  
+|*.oms.opinsights.azure.com |連接埠 443 |輸入和輸出|yes |  
+|*.blob.core.windows.net |連接埠 443 |輸入和輸出|yes |  
+|*.azure-automation.net |連接埠 443 |輸入和輸出|yes |  
 
 
 如果您打算使用 Azure 自動化混合式 Runbook 背景工作角色連線到自動化服務並向其註冊，以便在您的環境中使用 Runbook，它必須具有[設定適用於混合式 Runbook 背景工作角色的網路](../../automation/automation-hybrid-runbook-worker.md#network-planning)中所述的連接埠號碼和 URL 存取權。 

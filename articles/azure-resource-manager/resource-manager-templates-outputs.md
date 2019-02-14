@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9a46d813f2e50831240303ba47380da39e2cb6af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725802"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691026"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的 Outputs 區段
+
 在輸出區段中，您可以指定從部署傳回的值。 例如，您可以傳回 URI 以存取所部署的資源。
 
 ## <a name="define-and-use-output-values"></a>定義和使用輸出值
@@ -39,7 +40,7 @@ ms.locfileid: "53725802"
 部署之後，您就可以使用指令碼來擷取值。 對於 PowerShell，請使用：
 
 ```powershell
-(Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
 對於 Azure CLI，請使用：
@@ -77,10 +78,11 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
-| outputName |是 |輸出值的名稱。 必須是有效的 JavaScript 識別碼。 |
-| type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 |
-| value |是 |評估並傳回做為輸出值的範本語言運算式。 |
+| outputName |yes |輸出值的名稱。 必須是有效的 JavaScript 識別碼。 |
+| type |yes |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 |
+| value |yes |評估並傳回做為輸出值的範本語言運算式。 |
 
+如需如何新增註解的相關資訊，請參閱[範本中的註解](resource-group-authoring-templates.md#comments)。
 
 ## <a name="example-templates"></a>範本的範例
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.openlocfilehash: 624689fd6b9d8f364b0caf7e96b79b2773ce6171
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d9f2e26a2bc89329ca9038c666c0d960289e2670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538169"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485444"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>連接 Azure Kubernetes Service 與適用於 MySQL 的 Azure 資料庫
 
@@ -32,6 +32,14 @@ Azure Kubernetes Service (AKS) 提供的受控 Kubernetes 叢集可讓您用於 
 6. 移至 VM 的 [網路] 索引標籤。
 7. 確認 [加速網路] 是否為「啟用」。
 
+或者，透過 Azure CLI 使用下列兩個命令：
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+輸出將是 AKS 所建立的資源群組，其中包含網路介面。 請取得 "nodeResourceGroup" 名稱，並在下一個命令中加以使用。 **EnableAcceleratedNetworking** 將是 true 或 false：
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA)，可讓您直接從 Kubernetes 或 Cloud Foundry 佈建 Azure 服務。 它是 Azure 的一項 [Open Service Broker API](https://www.openservicebrokerapi.org/) 實作。

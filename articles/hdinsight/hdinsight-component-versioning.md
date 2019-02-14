@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 3a8b3a22eb4bdaed0142f8afc6f92128be32eca3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4b9c57785b9b3176def495af6bc5956d70fa5c35
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971115"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657904"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -76,9 +76,9 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 | HDInsight 版本 | HDP 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站上的可用性 | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 <br> (預覽) |HDP 3.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |是 |是 |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | | |是 |是 |
-| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2019 年 3 月 13 日 |2019 年 3 月 13 日 |是 |是 |
+| HDInsight 4.0 <br> (預覽) |HDP 3.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |yes |yes |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | | |yes |yes |
+| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2019 年 3 月 13 日 |2019 年 3 月 13 日 |yes |yes |
 
 *&ast;HDInsight 3.5 支援僅針對 Spark 叢集類型延伸*
 
@@ -92,14 +92,14 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 | HDInsight 版本 | HDP 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站上的可用性 | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 <br> (非 Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2017 年 9 月 5 日 |2018 年 6 月 28 日 |是 |否 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016 年 3 月 29 日 |2016 年 12 月 29 日 |2018 年 1 月 9 日 |是 |否 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2018 年 7 月 31 日 |是 |否 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2017 年 7 月 31 日 |是 |否 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 或 Windows Server 2012 R2 |2015 年 2 月 18 日 |2016 年 3 月 1 日 |2017 年 4 月 1 日 |是 |否 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014 年 6 月 24 日 |2015 年 5 月 18 日 |2016 年 6 月 30 日 |是 |否 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014 年 2 月 11 日 |2014 年 9 月 17 日 |2015 年 6 月 30 日 |是 |否 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013 年 10 月 28 日 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |是 |否 |
+| HDInsight 3.5 <br> (非 Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2017 年 9 月 5 日 |2018 年 6 月 28 日 |yes |否 |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016 年 3 月 29 日 |2016 年 12 月 29 日 |2018 年 1 月 9 日 |yes |否 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2018 年 7 月 31 日 |yes |否 |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2017 年 7 月 31 日 |yes |否 |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 或 Windows Server 2012 R2 |2015 年 2 月 18 日 |2016 年 3 月 1 日 |2017 年 4 月 1 日 |yes |否 |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014 年 6 月 24 日 |2015 年 5 月 18 日 |2016 年 6 月 30 日 |yes |否 |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014 年 2 月 11 日 |2014 年 9 月 17 日 |2015 年 6 月 30 日 |yes |否 |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013 年 10 月 28 日 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |yes |否 |
 | HDInsight 1.6 |HDP 1.1 | |2013 年 10 月 28 日 |2014 年 4 月 26 日 |2015 年 5 月 31 日 |否 |否 |
 
 > [!NOTE]  
@@ -228,16 +228,46 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
 * 所有支援的區域，巴西南部和日本西部除外︰
 
-  | 叢集類型 | Hadoop | hbase | 互動式查詢 | Storm | Spark  | ML Server |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
-  | 前端：建議的 VM 大小 |D3 v2、<br/> D4 v2、<br/> D12 v2 |D3 v2、<br/> D4 v2、<br/> D12 v2  | D13、<br/> D14 |A4 v2、<br/> A8 v2、<br/> A2m v2 |D12 v2、<br/> D13 v2、<br/> D14 v2 |D12 v2、<br/> D13 v2、<br/> D14 v2 |
-  | 背景工作：預設 VM 大小 |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
-  | 背景工作：建議的 VM 大小 |D3 v2、<br/> D4 v2、<br/> D12 v2 |D3 v2、<br/> D4 v2、<br/> D12 v2  | D13、<br/> D14 |D3 v2、<br/> D4 v2、<br/> D12 v2 |D4 v2、<br/> D12 v2、<br/> D13 v2、<br/> D14 v2 |D4 v2、<br/> D12 v2、<br/> D13 v2、<br/> D14 v2 |
-  | ZooKeeper：預設 VM 大小 | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
-  | ZooKeeper：建議的 VM 大小 | |A4 v2、<br/> A8 v2、<br/> A2m v2 | | A2 v2、<br/> A4 v2、<br/> A8 v2 | | |
-  | 邊緣：預設 VM 大小 | | | | | |D4 v2 |
-  | 邊緣：建議的 VM 大小 | | | | | |D4 v2、<br/> D12 v2、<br/> D13 v2、<br/> D14 v2 |
+<html><body><table width="100%">
+<tr align="left"><th>叢集類型</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>互動式查詢</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server&nbsp;</th><th>Kafka&nbsp;</th></tr>
+
+<tr><td>前端：預設 VM 大小</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="4" valign="top">前端：建議的 VM 大小</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td><td>A2M v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td><td>D3 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td><td>D4 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td><td>D12 v2</td></tr>
+
+<tr><td>背景工作：預設 VM 大小</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td><td>4 D12v2 (每個訊息代理程式有 2 個 S30 磁碟)</td></tr>
+
+<tr><td rowspan="8" valign="top">背景工作：建議的 VM 大小</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td><td>D13 v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td><td>DS12 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td><td>DS13 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td><td>E4 v3</td></tr>
+<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td><td>ES4 v3</td></tr>
+<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td><td>E8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td><td>ES8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td><td></td></tr>
+
+<tr><td>ZooKeeper：預設 VM 大小</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="3" valign="top">ZooKeeper：建議的 VM 大小</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td><td>A2M v2</td></tr>
+<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td><td>D3 v2</td></tr>
+<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td><td>E8 v3</td></tr>
+
+<tr align="left"><td>邊緣：預設 VM 大小</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+
+<tr><td rowspan="8" valign="top">邊緣：建議的 VM 大小</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td><td></td></tr>
+
+</table></body></html>
+
 * 僅限巴西南部和日本西部 (沒有 v2 大小)：
 
   | 叢集類型 | Hadoop | hbase | 互動式查詢 |Storm | Spark | ML 服務 |

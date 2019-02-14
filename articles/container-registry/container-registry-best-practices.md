@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857698"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810757"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry 的最佳做法
 
@@ -63,7 +63,7 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="manage-registry-size"></a>管理登錄大小
 
-每個[容器登錄 SKU][container-registry-skus] 的儲存體條件約束都要符合典型案例：「基本」可用於開始使用、「標準」可用於大部分的實際執行應用程式，而「進階」可進行大規模效能和[異地複寫][container-registry-geo-replication]。 在整個登錄生命週期，您應該定期刪除未使用的內容來管理其大小。
+每個[容器登錄 SKU][container-registry-skus] 的儲存體條件約束都要符合典型案例：**基本**可用於開始使用、**標準**可用於大部分的實際執行應用程式，而**進階**可進行大規模效能和[異地複寫][container-registry-geo-replication]。 在整個登錄生命週期，您應該定期刪除未使用的內容來管理其大小。
 
 使用 Azure CLI 命令 [az acr show-usage][az-acr-show-usage] 來顯示登錄的目前大小：
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 5c0fbf396faa0e07ecca4ae16c775a39404c6fc9
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 1bada751ffac45b36faad6e978567233901adc7d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376511"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700310"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure 媒體服務 v3 配額和限制
 
@@ -33,14 +33,14 @@ ms.locfileid: "49376511"
 | 每個媒體服務帳戶的工作 | 500,000 <sup>(2)</sup> (固定)|
 | 列出轉換|將回應分頁，每頁 1000 個轉換|
 | 列出作業|將回應分頁，每頁 500 個作業|
-| 每個媒體服務帳戶的 LiveEvents |5|
+| 每個媒體服務帳戶的即時事件 |5|
 | 單一訂用帳戶的媒體服務帳戶 | 25 (固定) |
-| 每個 LiveEvent 其處於執行中狀態的 LiveOutputs |3|
+| 每個 LiveEvent 的執行中狀態即時輸出 |3|
 | 儲存體帳戶 | 100<sup>(4)</sup> (固定) |
 | 每個媒體服務其處於執行中狀態的串流端點|2|
-| StreamingPolicies | 100 <sup>(3)</sup> |
+| 串流原則 | 100 <sup>(3)</sup> |
 | 每個媒體服務帳戶的轉換 | 100 (固定)|
-| 一次與資產相關聯的唯一 StreamingLocator | 100<sup>(5)</sup> (固定) |
+| 一次與資產相關聯的唯一串流定位器 | 100<sup>(5)</sup> (固定) |
 
 <sup>1</sup> 單一 blob 支援的大小上限目前在 Azure Blob 儲存體是最多 5 TB。 不過，其他的限制會以服務所使用的 VM 大小作為基礎套用在 Azure 媒體服務中。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 如果您的 4K 內容超過 260 GB 限制，請來函寄到 amshelp@microsoft.com，我們將針對您的情況，提供解決的方法。
 
@@ -48,11 +48,11 @@ ms.locfileid: "49376511"
 
 您的帳戶中任何超過 90 天的工作記錄，都會自動刪除，即使記錄總數低於配額上限亦然。 
 
-<sup>3</sup> 使用自訂的 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
+<sup>3</sup> 使用自訂的[串流原則](https://docs.microsoft.com/rest/api/media/streamingpolicies)時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 不建議您對每個串流定位器建立新的串流原則。
 
 <sup>4</sup> 儲存體帳戶必須來自相同的 Azure 訂用帳戶。
 
-<sup>5</sup> StreamingLocators 並非設計來管理每個使用者的存取控制。 若要給予個別使用者不同的存取權限，請使用數位版權管理 (DRM) 方案。
+<sup>5</sup> 串流定位器並非設計來管理每個使用者的存取控制。 若要給予個別使用者不同的存取權限，請使用數位版權管理 (DRM) 方案。
 
 ## <a name="support-ticket"></a>支援票證
 

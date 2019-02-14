@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268269"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507530"
 ---
 # <a name="use-firewall-rules"></a>使用防火牆規則
 
@@ -24,7 +24,7 @@ ms.locfileid: "53268269"
 
 ## <a name="when-to-use"></a>使用時機
 
-如果您想要設定「事件中樞」命名空間，讓它應該只接收來自某個指定範圍之 IP 位址的流量，而拒絕所有其他流量，則您可以利用「防火牆規則」讓「事件中樞」端點封鎖其他 IP 位址。例如，您可以使用「事件中樞」搭配 [Azure ExpressRoute][express-route] 來建立與您內部部署基礎結構的私人連線。
+如果想要設定「事件中樞」命名空間，讓其應該只接收來自某個指定 IP 位址範圍的流量，並拒絕所有其他流量，您可以利用「防火牆規則」封鎖來自其他其他 IP 位址的事件中樞端點。 例如，如果您搭配 [Azure Express Route][express-route] 使用事件中樞，您可以建立*防火牆規則*限制來自您內部部署基礎結構 IP 位址的流量。
 
 ## <a name="how-filter-rules-are-applied"></a>篩選器規則的套用方式
 
@@ -72,11 +72,11 @@ IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會�
 > 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"**。
 > 在建立「虛擬網路」或「防火牆」規則時，我們必須將 ***"defaultAction"***
 > 
-> 從
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```
-> 變更為
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

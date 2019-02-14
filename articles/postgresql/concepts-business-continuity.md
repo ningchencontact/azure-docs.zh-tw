@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559037"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698208"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>使用「適用於 PostgreSQL 的 Azure 資料庫」的商務持續性概觀
 
@@ -49,6 +49,6 @@ ms.locfileid: "53559037"
 > 只有使用異地備援備份儲存體來佈建伺服器時，才可進行異地還原。 如果您希望將現有伺服器從本機備援切換到異地備援備份，您必須先透過現有伺服器的 pg_dump 進行傾印後，再將其還原至已設定為異地備援備份的新建伺服器。
 
 ## <a name="next-steps"></a>後續步驟
-- 若要深入了解自動備份，請參閱[適用於 PostgreSQL 的 Azure 資料庫中的備份](concepts-backup.md)。 
-- 若要使用 Azure 入口網站還原至某個時間點，請參閱 [使用 Azure 入口網站將資料庫還原至時間點](howto-restore-server-portal.md)。
-- 若要使用 Azure CLI 還原至某個時間點，請參閱 [使用 CLI 將資料庫還原至時間點](howto-restore-server-cli.md)。
+- 深入了解[適用於 PostgreSQL 的 Azure 資料庫中的自動備份](concepts-backup.md)。 
+- 了解如何使用 [Azure 入口網站](howto-restore-server-portal.md)或 [Azure CLI](howto-restore-server-cli.md) 來進行還原。
+- 了解[適用於 PostgreSQL 的 Azure 資料庫中的讀取複本](concepts-read-replicas.md)。

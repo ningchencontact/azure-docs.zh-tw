@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 0113fc3112fa0fa911d6609684357d01cd9adf30
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015707"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498059"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+>
 > * [第 1 版](v1/data-factory-data-movement-security-considerations.md)
 > * [目前的版本](data-movement-security-considerations.md)
 
@@ -32,13 +33,19 @@ ms.locfileid: "54015707"
 
 Azure Data Factory 除了用於雲端資料存放區的連結服務認證 (會使用憑證加密) 之外，並不會儲存任何資料。 您可以使用 Data Factory 來建立資料導向工作流程，藉由使用其他區域或內部部署環境中的[計算服務](compute-linked-services.md)，協調[所支援資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)之間的資料移動和資料處理。 您也可以藉由使用 SDK 和 Azure 監視器來監視和管理工作流程。
 
-使用 Data Factory 進行的資料移動已通過下列各項規範的「認證」：
--   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
--   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+Data Factory 已通過下列各項規範的認證：
+| **[CSA STAR Certification](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
+| :----------------------------------------------------------- |
+| **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
+| **[ISO 22301:2012](https://www.microsoft.com/trustcenter/compliance/iso-22301)** |
+| **[ISO 27001:2013](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001)** |
+| **[ISO 27017:2015](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)** |
+| **[ISO 27018:2014](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)** |
+| **[ISO 9001:2015](https://www.microsoft.com/trustcenter/compliance/iso-9001)** |
+| **[SOC 1、2、3](https://www.microsoft.com/trustcenter/compliance/soc)** |
+| **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/default.aspx)。
+如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/default.aspx)。 如需所有 Azure 合規性供應項目的最新清單，請查看 - http://aka.ms/AzureCompliance。
 
 在本文中，我們會檢閱下列兩個資料移動案例中的安全性考量︰ 
 

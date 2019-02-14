@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597585"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513972"
 ---
 <a name="virtual-networking-limits-classic"></a>下列限制僅適用於透過每個訂用帳戶的傳統部署模型所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -48,6 +48,7 @@ ms.locfileid: "51597585"
 | 每一虛擬網路的 DNS 伺服器 |20 |
 | 每個虛擬網路的私人 IP 位址 |65536 |
 | 每個網路介面的私人 IP 位址 |256 |
+| 每個虛擬機器的私人 IP 位址 |256 |
 | 虛擬機器或角色執行個體之每個 NIC 的並行 TCP 或 UDP 流程 |500K |
 | 網路介面 (NIC) |65536 |
 | 網路安全性群組 (NSG) |5000 |
@@ -69,6 +70,7 @@ ms.locfileid: "51597585"
 | 公用 IP 位址 - 動態 |(基本) 1000 |連絡支援人員 |
 | 公用 IP 位址 - 靜態 |(基本) 200 |連絡支援人員 |
 | 公用 IP 位址 - 靜態 |(標準) 200 |連絡支援人員 |
+| 公用 IP 前置詞大小 (預覽) | /28 | /28 |
 
 #### <a name="load-balancer"></a>負載平衡器限制
 下列限制僅適用於透過每個訂用帳戶每一區域的 Azure Resource Manager 所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 99498646a65865add35ec4a86cb7a25b42dd5523
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162186"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692437"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>關於 Azure Active Directory B2C 自訂原則中的宣告解析程式
 
@@ -136,7 +136,7 @@ OIDC 或 OAuth2 要求中所包含的任何參數名稱均可對應至使用者�
 
 ### <a name="dynamic-ui-customization"></a>動態 UI 自訂
 
-Azue AD B2C 可讓您將查詢字串參數傳至 HTML 內容定義端點，以便您動態轉譯頁面內容。 例如，您可以根據從 Web 或行動裝置應用程式傳遞的自訂參數，變更 Azure AD B2C 註冊或登入頁面的背景影像。 如需詳細資訊，請參閱[使用 Azure Active Directory B2C 中的自訂原則動態設定 UI](active-directory-b2c-ui-customization-custom-dynamic.md)。 您也可以根據語言參數將 HTML 網頁當地語系化，也可以根據用戶端識別碼來變更內容。
+Azure AD B2C 可讓您將查詢字串參數傳至 HTML 內容定義端點，以便您動態轉譯頁面內容。 例如，您可以根據從 Web 或行動裝置應用程式傳遞的自訂參數，變更 Azure AD B2C 註冊或登入頁面的背景影像。 如需詳細資訊，請參閱[使用 Azure Active Directory B2C 中的自訂原則動態設定 UI](active-directory-b2c-ui-customization-custom-dynamic.md)。 您也可以根據語言參數將 HTML 網頁當地語系化，也可以根據用戶端識別碼來變更內容。
 
 下列範例會在查詢字串中傳入名為 **campaignId** (值為 `hawaii`) 的參數、**語言**代碼 `en-US`，和代表用戶端識別碼的 **app**：
 

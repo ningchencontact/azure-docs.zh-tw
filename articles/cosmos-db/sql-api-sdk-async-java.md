@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 1/15/2019
+ms.date: 2/4/2019
 ms.author: moderakh
-ms.openlocfilehash: 760a54a09dd612cef93de0de1e8ac2fd59b04b26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 31683159f96dd87fe4e7ceea050d5e1d213decba
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329373"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770345"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Async JAVA SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -32,24 +32,24 @@ ms.locfileid: "54329373"
 
 SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同步作業，並且支援 [Netty 程式庫](https://netty.io/)。 預先存在的 [SQL API Java SDK](sql-api-sdk-java.md) 不支援非同步作業。 
 
-<table>
-
-<tr><td>**SDK 下載**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
-
-<tr><td>**API 文件**</td><td>[Java API 參考文件](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable)</td></tr>
-
-<tr><td>**參與 SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
-
-<tr><td>**開始使用**</td><td>[開始使用 Async Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
-
-<tr><td>**程式碼範例**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
-
-<tr><td>**效能秘訣**</td><td>[GitHub 讀我檔案](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
-
-<tr><td>**最低支援執行階段**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+| **SDK 下載** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
+|**API 文件** |[Java API 參考文件](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable) | 
+|**參與 SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
+|**開始使用** | [開始使用 Async Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
+|**程式碼範例** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
+| **效能秘訣**| [GitHub 讀我檔案](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
+| **最低支援執行階段**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
+* 新增對 Direct 的支援。
+* 變更了順序很重要且會接受 java.util.Collection 的 API，以改為接受 java.util.List。
+  現在 ConnectionPolicy#getPreferredLocations()、JsonSerialization 和 PartitionKey(.) 都可接受 List。
+* 修正了文件查詢在閘道模式下的工作階段錯誤。
+* 升級了相依性 (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79), RxJava 1.3.8)。
 
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * 修正非常大量的查詢回應處理。
@@ -130,6 +130,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.4.0-beta-1](#2.4.0-beta-1) |2019 年 2 月 4日|--- |
 | [2.3.1](#2.3.1) |2019 年 1 月 15日|--- |
 | [2.3.0](#2.3.0) |2018 年 11 月 29 日|--- |
 | [2.2.2](#2.2.2) |2018 年 11 月 8 日|--- |

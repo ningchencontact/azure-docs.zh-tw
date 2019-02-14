@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437465"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695575"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>提高存取權以管理所有 Azure 訂用帳戶和管理群組
 
@@ -83,12 +83,14 @@ Azure AD 和 Azure 資源會獨立地受到保護。 也就是說，Azure AD 角
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ### <a name="list-role-assignment-at-the-root-scope-"></a>列出根目錄範圍 (/) 的角色指派
 
-若要列出某位使用者在根目錄範圍 (`/`) 的使用者存取系統管理員角色指派，請使用 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) 命令。
+若要列出某位使用者在根目錄範圍 (`/`) 的使用者存取系統管理員角色指派，請使用 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 命令。
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
   -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
@@ -111,10 +113,10 @@ CanDelegate        : False
 1. 以可移除所提高存取權的使用者身分登入。 此身分可以是用來提高存取權的相同使用者，或另一位在根目錄範圍具有所提高存取權的全域管理員。
 
 
-1. 請使用 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 命令來移除「使用者存取系統管理員」角色指派。
+1. 請使用 [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) 命令來移除「使用者存取系統管理員」角色指派。
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+    Remove-AzRoleAssignment -SignInName <username@example.com> `
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604094"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813886"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>設定 Postman 以進行媒體服務 REST API 呼叫
 
@@ -57,7 +57,7 @@ ms.locfileid: "53604094"
     > [!Note]
     > 使用您從前述的**存取媒體服務 API** 一節中取得的值來更新存取變數。
 
-7. 按兩下選取的檔案，並輸入您依照[存取 API](#access-the-media-services-api) 步驟所取得的值。
+7. 按兩下選取的檔案，並輸入您依照存取 API 步驟所取得的值。
 8. 關閉對話方塊。
 9. 從下拉式清單中選取 **Azure Media Service v3 Environment** 環境。
 

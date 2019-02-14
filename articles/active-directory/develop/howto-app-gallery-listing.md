@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 01/30/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f4caf0cde7225e2c93723f412c53259a5f5646a4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102029"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663276"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>作法：在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -45,7 +45,7 @@ ms.locfileid: "55102029"
 
 - 若為「密碼單一登入」，請確定您的應用程式支援表單驗證，讓密碼保存可以完成，以使單一登入能如預期般運作。
 
-- 若為「自動使用者佈建」要求，應用程式應列於資源庫中，其中已使用上述的任何一個同盟通訊協定啟用單一登入功能。 您可以在入口網站上一起要求「單一登入」與「使用者佈建」(若未列出的話)。
+- 若為「自動使用者佈建」要求，應用程式應列於資源庫中，並使用 SAML 2.0/WS-Fed 啟用單一登入功能。 您可以在入口網站上一起要求「單一登入」與「使用者佈建」(若未列出的話)。
 
 ## <a name="submit-the-request-in-the-portal"></a>在入口網站中提交要求
 

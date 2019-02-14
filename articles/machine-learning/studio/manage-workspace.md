@@ -1,7 +1,21 @@
 ---
-標題：管理 Machine Learning Studio 工作區 titleSuffix:Azure Machine Learning Studio description:管理 Azure Machine Learning 工作區的存取權，並部署和管理 ML API Web 服務: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2017/02/27
+title: 管理 Machine Learning Studio 工作區
+titleSuffix: Azure Machine Learning Studio
+description: 管理 Azure 機器學習工作區的存取權，並部署和管理 ML API Web 服務
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 02/27/2017
+ms.openlocfilehash: f1904552b6c43cadd611659ed544b9f4bafcb465
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487265"
 ---
 # <a name="manage-an-azure-machine-learning-studio-workspace"></a>管理 Azure Machine Learning Studio 工作區
 

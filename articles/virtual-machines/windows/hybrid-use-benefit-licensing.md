@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 757891a6968313c1a31ce67b399d6aa052abfa21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bd228a01cd3841772750882d13c33459385cc21
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999946"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817711"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Benefit
 對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit 部署具有 Windows OS 的新虛擬機器。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟，以及您如何更新現有的執行中 VM。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
@@ -40,7 +40,7 @@ ms.locfileid: "53999946"
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>使用適用於 Windows Server 的 Azure Hybrid Benefit 的方式
 有幾種方式可以搭配 Azure Hybrid Benefit 使用 Windows 虛擬機器：
 
-1. 您可以從 [Azure Marketplace 上所提供的其中一個 Windows Server 映像](# https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) \(英文\) 來部署 VM
+1. 您可以從 Azure Marketplace 上所提供的其中一個 Windows Server 映像部署 VM
 2. 您可以上傳自訂 VM，並使用 Resource Manager 範本或 Azure PowerShell 進行部署
 3. 您可以在使用 Azure Hybrid Benefit 執行或支付 Windows Server 的隨選成本之間，切換及轉換現有的 VM
 4. 您也可以在虛擬機器擴展集上套用適用於 Windows Server 的 Azure Hybrid Benefit

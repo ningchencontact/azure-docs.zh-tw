@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422723"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756813"
 ---
 # <a name="get-started-with-storage-explorer"></a>開始使用儲存體總管
 
@@ -86,10 +86,10 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
 
 * [連線至 Azure 訂用帳戶](#connect-to-an-azure-subscription)：管理屬於您的 Azure 訂用帳戶的儲存體資源。
 * [使用本機開發儲存體](#work-with-local-development-storage)：使用 Azure 儲存體模擬器管理本機儲存體。
-* [連接至外部儲存體](#attach-or-detach-an-external-storage-account)：使用儲存體帳戶的名稱、金鑰和端點，管理屬於另一個 Azure 訂用帳戶或在國家 Azure 雲端下的儲存體資源。
-* [使用 SAS 連結儲存體帳戶](#attach-storage-account-using-sas)：使用共用存取簽章 (SAS)，管理屬於另一個 Azure 訂用帳戶的儲存體資源。
-* [使用 SAS 連結服務](#attach-service-using-sas)：使用 SAS，管理屬於另一個 Azure 訂用帳戶的特定儲存體服務 (Blob 容器、佇列或資料表)。
-* [使用連接字串連線到 Azure Cosmos DB 帳戶](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string)：使用連接字串管理 Cosmos DB 帳戶。
+* [連結至外部儲存體](#attach-or-detach-an-external-storage-account)：使用儲存體帳戶的名稱、金鑰和端點，管理屬於另一個 Azure 訂用帳戶或在國家 Azure 雲端下的儲存體資源。
+* [使用 SAS 連結儲存體帳戶](#attach-a-storage-account-by-using-a-shared-access-signature-sas)：使用共用存取簽章 (SAS)，管理屬於另一個 Azure 訂用帳戶的儲存體資源。
+* [使用 SAS 連結服務](#attach-a-service-by-using-a-shared-access-signature-sas)：使用 SAS，管理屬於另一個 Azure 訂用帳戶的特定儲存體服務 (Blob 容器、佇列或資料表)。
+* [使用連接字串連線到 Azure Cosmos DB 帳戶](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string)：使用連接字串來管理 Cosmos DB 帳戶。
 
 ## <a name="connect-to-an-azure-subscription"></a>連線到 Azure 訂用帳戶
 
@@ -295,7 +295,7 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
 
     ![透過連接字串連線到 Azure Cosmos DB][21]
 
-2. 選擇 Azure Cosmos DB API，貼上您的 [連接字串]，然後按一下 [確定] 以連接 Azure Cosmos DB 帳戶。 如需擷取連接字串的資訊，請參閱[取得連接字串](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string)。
+2. 選擇 Azure Cosmos DB API，貼上您的 [連接字串]，然後按一下 [確定] 以連接 Azure Cosmos DB 帳戶。 如需擷取連接字串的資訊，請參閱[取得連接字串](https://docs.microsoft.com/azure/cosmos-db/manage-account)。
 
     ![connection-string][22]
 

@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure Active Directory B2C 中建立使用者流程 | Microsoft Docs
+title: 教學課程 - 建立使用者流程 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何使用 Azure 入口網站在 Azure Active Directory B2C 中建立應用程式的流程。
 services: active-directory-b2c
 author: davidmu1
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845586"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750285"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中建立使用者流程
 
@@ -39,29 +39,30 @@ ms.locfileid: "54845586"
 
 註冊和登入使用者流程會透過單一組態來處理註冊與登入體驗。 系統會視內容而定，將您應用程式的使用者引導到正確的路徑。
 
-1. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 
     ![切換至訂用帳戶目錄](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-3. 在左側功能表中，選取 [使用者流程]，然後選取 [新使用者流程]。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 在左側功能表中，選取 [使用者流程]，然後選取 [新使用者流程]。
 
     ![選取新的使用者流程](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. 在 [建議] 索引標籤上，選取 [註冊並登入]。
+5. 在 [建議] 索引標籤上，選取 [註冊並登入]。
 
     ![選取註冊和登入使用者流程](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. 輸入使用者流程的 [名稱]。 例如，*signupsignin1*。
-6. 針對 [識別提供者]，選取 [電子郵件註冊]。
+6. 輸入使用者流程的 [名稱]。 例如，*signupsignin1*。
+7. 針對 [識別提供者]，選取 [電子郵件註冊]。
 
     ![設定流程屬性](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. 針對 [使用者屬性與宣告]，選擇在註冊期間您要收集和從使用者傳送的宣告和屬性。 例如，選取 [顯示更多]，然後選取 [國家/地區]、[顯示名稱]，及 [郵遞區號]。 按一下 [確定]。
+8. 針對 [使用者屬性與宣告]，選擇在註冊期間您要收集和從使用者傳送的宣告和屬性。 例如，選取 [顯示更多]，然後選取 [國家/地區]、[顯示名稱]，及 [郵遞區號]。 按一下 [確定]。
 
     ![選取屬性和宣告](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. 按一下 [建立]  新增使用者流程。 名稱前面會自動加上前置詞 *B2C_1*。
+9. 按一下 [建立]  新增使用者流程。 名稱前面會自動加上前置詞 *B2C_1*。
 
 ### <a name="test-the-user-flow"></a>測試使用者流程
 
@@ -123,4 +124,4 @@ ms.locfileid: "54845586"
 > * 建立密碼重設使用者流程
 
 > [!div class="nextstepaction"]
-> [在 Azure Active Directory B2C 中自訂應用程式的使用者介面](tutorial-customize-ui.md)
+> [在 Azure Active Directory B2C 中將識別提供者新增至您的應用程式](tutorial-add-identity-providers.md)

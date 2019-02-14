@@ -15,12 +15,12 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d0a28dc1eee1536a0cabe454cd899d9111edff88
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d38fa458ae87ce29110b2423e832ff5c6262a01
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197733"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817575"
 ---
 # <a name="compare-remote-access-solutions"></a>比較遠端存取解決方案
 
@@ -33,21 +33,21 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 
 | 功能 | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| 憑證驗證 | 是 | 是 | - | - |
-| 選擇性地發佈瀏覽器應用程式 | 是 | 是 | 是 | 是 |
-| 預先驗證和單一登入 | 是 | 是 | 是 | 是 | 
-| 第 2 層/第 3 層防火牆 | 是 | 是 | - | - |
-| 轉接 Proxy 功能 | 是 | - | - | - |
-| VPN 功能 | 是 | 是 | - | - |
-| 豐富通訊協定支援 | - | 是 | 是，如果是透過 HTTP 執行 | 是，如果是透過 HTTP 或透過遠端桌面閘道執行 |
-| 作為 ADFS Proxy 伺服器 | - | 是 | 是 | - |
-| 應用程式存取的單一入口網站 | - | 是 | - | 是 |
-| 回應內文連結轉譯 | 是 | 是 | - | 是 | 
-| 使用標頭進行驗證 | - | 是 | - | 是，使用 PingAccess | 
-| 雲端級別安全性 | - | - | - | 是 | 
-| 條件式存取 | - | 是 | - | 是 |
-| 非軍事區域 (DMZ) 中沒有任何元件 | - | - | - | 是 |
-| 沒有輸入連線 | - | - | - | 是 |
+| 憑證驗證 | yes | yes | - | - |
+| 選擇性地發佈瀏覽器應用程式 | yes | 是 | 是 | yes |
+| 預先驗證和單一登入 | yes | 是 | 是 | yes | 
+| 第 2 層/第 3 層防火牆 | yes | yes | - | - |
+| 轉接 Proxy 功能 | yes | - | - | - |
+| VPN 功能 | yes | yes | - | - |
+| 豐富通訊協定支援 | - | yes | 是，如果是透過 HTTP 執行 | 是，如果是透過 HTTP 或透過遠端桌面閘道執行 |
+| 作為 ADFS Proxy 伺服器 | - | yes | yes | - |
+| 應用程式存取的單一入口網站 | - | yes | - | yes |
+| 回應內文連結轉譯 | yes | 是 | - | yes | 
+| 使用標頭進行驗證 | - | yes | - | 是，使用 PingAccess | 
+| 雲端級別安全性 | - | - | - | yes | 
+| 條件式存取 | - | yes | - | yes |
+| 非軍事區域 (DMZ) 中沒有任何元件 | - | - | - | yes |
+| 沒有輸入連線 | - | - | - | yes |
 
 大部分情節中，建議將 Azure AD 應用程式作為現代化解決方案。 Web 應用程式 Proxy 只建議用在需要 AD FS Proxy 伺服器的情節中，而且您無法使用 Azure Active Directory 中的自訂網域。 
 
@@ -56,7 +56,7 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 - 將 Azure AD 擴充至內部部署資源
    - 雲端級別安全性和保護
    - 可輕鬆地啟用諸如條件式存取和 Multi-Factor Authentication 等功能
-- 非軍事區域中沒有任何元件
+- 周邊網路中沒有任何元件
 - 沒有所需的輸入連線
 - 您的使用者可以使用其所有應用程式的單一存取面板，包括 O365、Azure AD 整合式 SaaS 應用程式，以及您的內部部署 Web 應用程式。 
 

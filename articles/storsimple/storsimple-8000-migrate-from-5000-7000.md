@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a638487fb0a622f899095989ca5341013299e181
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234403"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495848"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>將 StorSimple 5000-7000 系列的資料移轉到 8000 系列裝置
 
@@ -125,7 +125,7 @@ StorSimple 移轉工具是 UI 型工具，可讓您將 StorSimple 5000-7000 系�
 
     開啟資料夾中的工具設定檔 _StorSimple8000SeriesMigrationTool.exe.config_。 以下是檔案的程式碼片段。
     
-    ```
+    ```xml
         <add key="UserName" value="username@xyz.com" />
         <add key="SubscriptionName" value="YourSubscriptionName" />
         <add key="SubscriptionId" value="YourSubscriptionId" />

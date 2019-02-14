@@ -13,17 +13,17 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456029"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728992"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
-[Azure SQL Database 受控執行個體](sql-database-managed-instance.md)稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
+[受控執行個體稽核](sql-database-managed-instance.md)會追蹤資料庫事件並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
 
 - 協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 - 啟用及推動遵循法規標準，但不保證符合法規。 如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)。
@@ -38,7 +38,7 @@ ms.locfileid: "55456029"
    1. 巡覽至您要儲存稽核記錄的 Azure 儲存體。
 
       > [!IMPORTANT]
-      > 請在與受控執行個體伺服器相同的區域中使用儲存體帳戶，以避免跨區域讀取/寫入。
+      > 請在與受控執行個體相同的區域中使用儲存體帳戶，以避免跨區域讀取/寫入。
 
    1. 在儲存體帳戶中，移至 [概觀]，然後按一下 [Blob]。
 
@@ -154,15 +154,15 @@ ms.locfileid: "55456029"
 
 如需其他資訊：
 
-- [受控執行個體、Azure SQL DB 和 SQL Server 之間的稽核差異](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Azure SQL Database 中的單一資料庫、彈性集區和受控執行個體以及 SQL Server 中的資料庫兩者之間的稽核差異](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>設定將伺服器的稽核儲存至事件中樞或 Log Analytics
 
-您可以使用「Azure 監視器」將來自「受控執行個體」的稽核記錄傳送至「事件中樞」或 Log Analytics。 本節說明如何進行此設定：
+您可以使用 Azure 監視器將來自受控執行個體的稽核記錄傳送至事件中樞或 Log Analytics。 本節說明如何進行此設定：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至 [SQL 受管理的執行個體]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中瀏覽至受控執行個體。
 
 2. 按一下 [診斷設定]。
 
@@ -209,9 +209,6 @@ ms.locfileid: "55456029"
 
 - 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](sql-database-auditing.md)。
 
-  > [!IMPORTANT]
-  > 目前無法從 Azure 入口網站 ([稽核記錄] 窗格) 檢視「受控執行個體」的稽核記錄。
-
 ### <a name="consume-logs-stored-in-event-hub"></a>取用儲存在事件中樞中的記錄
 
 若要取用來自事件中樞的稽核記錄資料，您必須設定資料流取用事件並將其寫入至目標。 如需詳細資訊，請參閱＜Azure 事件中樞文件＞。
@@ -222,13 +219,13 @@ ms.locfileid: "55456029"
 
 Log Analytics 可讓您在所有工作負載和伺服器之間，使用整合式搜尋和自訂儀表板輕易地分析數百萬筆記錄，提供您即時的深入操作資訊。 如需 Log Analytics 搜尋語言和命令的其他實用資訊，請參閱 [Log Analytics 搜尋參考](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)。
 
-## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>受控執行個體、Azure SQL Database 和 SQL Server 之間的稽核差異
+## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的稽核差異
 
-SQL 稽核在受控執行個體、Azure SQL Database 和 SQL Server 內部部署之間的主要差異如下：
+Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的主要稽核差異在於：
 
-- 在受控執行個體中，SQL 稽核會在伺服器層級運作，並將 `.xel` 記錄檔存放在 Azure Blob 儲存體帳戶。
-- 在 Azure SQL Database 中，SQL 稽核則在資料庫層級運作。
-- 在 SQL Server 內部部署 / 虛擬機器中，SQL 稽核會在伺服器層級運作，但會將事件儲存在檔案系統/windows 事件記錄。
+- 在使用 Azure SQL Database 中的受控執行個體部署選項時，稽核作業會在伺服器層級運作，並且會將 `.xel` 記錄檔存放在 Azure Blob 儲存體帳戶上。
+- 在使用 Azure SQL Database 中的單一資料庫和彈性集區部署選項時，稽核作業則會在資料庫層級運作。
+- 在 SQL Server 內部部署 / 虛擬機器中，稽核會在伺服器層級運作，但會將事件儲存在檔案系統/windows 事件記錄。
 
 受控執行個體中的 XEvent 稽核支援 Azure Blob 儲存體目標。 **不支援**檔案與 windows 記錄。
 
@@ -236,7 +233,7 @@ SQL 稽核在受控執行個體、Azure SQL Database 和 SQL Server 內部部署
 
 - 已提供新的 `TO URL` 語法，可讓您指定放置 `.xel` 檔案的 Azure Blob 儲存體容器 URL。
 - 已提供新的 `TO EXTERNAL MONITOR` 語法，可讓您啟用「事件中樞」和 Log Analytics 目標。
-- `TO FILE` 語法**不受支援**，因為受控執行個體無法存取 Windows 檔案共用。
+- `TO FILE` 語法**不受支援**，因為 SQL Database 無法存取 Windows 檔案共用。
 - **不支援**關機選項。
 - **不支援**使用 0 的 `queue_delay`。
 

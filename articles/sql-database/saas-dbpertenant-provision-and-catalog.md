@@ -1,21 +1,23 @@
 ---
 title: 在使用 Azure SQL Database 在多租用戶應用程式中佈建新租用戶 | Microsoft Docs
 description: 了解如何在 Azure SQL Database 多租用戶 SaaS 應用程式中佈建新租用戶並將它們編入目錄中
-keywords: SQL Database Azure
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 7c526f65be5e4a3ea50de4603441e6184abf8edd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/24/2018
+ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643612"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565205"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>了解如何佈建新的租用戶並在目錄中註冊它們
 

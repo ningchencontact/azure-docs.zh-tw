@@ -1,8 +1,21 @@
 ---
-標題：詢問可回答的問題資料標題字尾：Azure Machine Learning Studio 說明：了解如何在「適用於初學者的資料科學」影片 3 中制訂明確的資料科學問題。 包含分類和迴歸問題的比較。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:01/03/2018
+title: 詢問可回答的問題資料
+titleSuffix: Azure Machine Learning Studio
+description: 了解如何在「適用於初學者的資料科學」影片 3 中制訂明確的資料科學問題。 包含分類和迴歸問題的比較。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/03/2018
+ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498143"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>詢問您可以使用資料回答的問題
 ## <a name="video-3-data-science-for-beginners-series"></a>影片 3：適用於初學者的資料科學系列

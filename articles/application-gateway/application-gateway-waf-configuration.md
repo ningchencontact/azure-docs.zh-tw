@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 11/6/2018
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353187"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492924"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 應用程式防火牆要求大小限制與排除清單
 
@@ -45,7 +45,7 @@ WAF 排除清單可讓您略過 WAF 評估的特定要求屬性。 常見範例�
    * XML
    * JSON
 
-您可以指定要精確比對要求標頭、本文、Cookie 或查詢字串屬性，或者也可以選擇指定部分相符即可。
+您可以指定要精確比對要求標頭、本文、Cookie 或查詢字串屬性。  或者，您也可以選擇指定部分相符即可。 排除規則只會用於標頭欄位，一律不會在其值上使用。 排除規則屬於全域範圍，可套用至所有頁面和所有規則。
 
 以下是支援的比對條件運算子：
 

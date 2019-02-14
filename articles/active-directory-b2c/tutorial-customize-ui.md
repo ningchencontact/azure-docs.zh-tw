@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure Active Directory B2C 中自訂應用程式的使用者介面 | Microsoft Docs
+title: 教學課程 - 自訂使用者介面體驗 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何使用 Azure 入口網站在 Azure Active Directory B2C 中自訂應用程式的使用者介面。
 services: B2C
 author: davidmu1
@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1c95772eeb6057b4ff7b12a79897fda73e1e017c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f3bc1789d0b521b0d91ca42ebe472fed0225d87b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156647"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752376"
 ---
-# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中自訂應用程式的使用者介面
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中自訂使用者介面體驗
 
 針對較常見的使用者體驗，例如註冊、登入和設定檔編輯等，您可以使用 Azure Active Directory (Azure AD) B2C 中的[使用者流程](active-directory-b2c-reference-policies.md)。 本教學課程中的資訊可協助您了解如何使用自己的 HTML 和 CSS 檔案，為這些體驗[自訂使用者介面 (UI)](customize-ui-overview.md)。
 
@@ -25,14 +25,14 @@ ms.locfileid: "55156647"
 
 > [!div class="checklist"]
 > * 建立 UI 自訂檔案
-> * 建立將使用這些檔案的註冊與登入使用者流程
+> * 更新使用者流程以使用檔案
 > * 測試自訂的 UI
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
-如果您尚未建立自己的 [Azure AD B2C 租用戶](tutorial-create-tenant.md)，請立即建立一個。 如果您已在先前的教學課程中建立租用戶，則可以使用現有的租用戶。
+[建立使用者流程](tutorial-create-user-flows.md)，讓使用者註冊並登入您的應用程式。
 
 ## <a name="create-customization-files"></a>建立自訂檔案
 
@@ -42,17 +42,15 @@ ms.locfileid: "55156647"
 
 雖然您可以用很多方式來儲存檔案，但在此教學課程中，您會將這些檔案儲存在 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)。
 
-1. 請確定您使用的目錄中有您的 Azure 訂用帳戶。 在上方功能表中選取 [目錄和訂用帳戶篩選]，然後選擇包含您訂用帳戶的目錄。 此目錄不同於包含您 Azure B2C 租用戶的目錄。
-
-    ![切換至訂用帳戶目錄](./media/tutorial-customize-ui/switch-directories.png)
-
-2. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [儲存體帳戶]。 
-3. 選取 [新增] 。
-4. 在 [資源群組] 下，選取 [新建]，然後輸入新資源群組的名稱並按一下 [確認]。
-5. 輸入儲存體帳戶的名稱。 您選擇的名稱在 Azure 中必須是唯一的、必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。
-6. 選取儲存體帳戶的位置，或接受預設位置。 
-7. 接受所有其他預設值，然後選取 [檢閱 + 建立]，並按一下 [建立]。
-8. 建立儲存體帳戶之後，請選取 [移至資源]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 請確定您使用的目錄中有您的 Azure 訂用帳戶。 在上方功能表中選取 [目錄和訂用帳戶篩選]，然後選擇包含您訂用帳戶的目錄。 此目錄不同於包含您 Azure B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [儲存體帳戶]。 
+4. 選取 [新增] 。
+5. 在 [資源群組] 下，選取 [新建]，然後輸入新資源群組的名稱並按一下 [確認]。
+6. 輸入儲存體帳戶的名稱。 您選擇的名稱在 Azure 中必須是唯一的、必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。
+7. 選取儲存體帳戶的位置，或接受預設位置。 
+8. 接受所有其他預設值，然後選取 [檢閱 + 建立]，並按一下 [建立]。
+9. 建立儲存體帳戶之後，請選取 [移至資源]。
 
 ### <a name="create-a-container"></a>建立容器
 
@@ -137,42 +135,17 @@ ms.locfileid: "55156647"
 4. 複製已上傳檔案的 URL，以便稍後在教學課程中使用。
 5. 對 style.css 檔案重複步驟 3 和 4。
 
-## <a name="create-a-sign-up-and-sign-in-user-flow"></a>建立註冊和登入使用者流程
+## <a name="update-the-user-flow"></a>更新使用者流程
 
-若要完成本教學課程中的步驟，您需要在 Azure AD B2C 中建立測試應用程式及註冊或登入使用者流程。 您可以將此教學課程中所述的原則套用到其他使用者體驗，例如設定檔編輯。
-
-### <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
-
-與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 下列步驟會建立應用程式，此應用程式會將傳回到 [https://jwt.ms](https://jwt.ms) 的授權權杖重新導向。
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 選取 [應用程式]，然後選取 [新增]。
-5. 輸入應用程式的名稱，例如 testapp1。
-6. 針對 [Web 應用程式 / Web API] ，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
-7. 按一下頁面底部的 [新增] 。
-
-### <a name="create-the-user-flow"></a>建立使用者流程
-
-若要測試您的自訂檔案，您可以建立內建的註冊或登入使用者流程，來使用您先前建立的應用程式。
-
-1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]，然後按一下 [新增使用者流程]。
-2. 在 [建議] 索引標籤上，按一下 [註冊並登入]。
-3. 輸入使用者流程的名稱。 例如：signup_signin。 建立使用者流程時，前置詞 B2C_1 會自動新增到名稱。
-4. 在 [識別提供者] 底下，選取 [電子郵件註冊]。
-5. 在 [使用者屬性和宣告] 底下，按一下 [顯示更多]。
-6. 在 [收集屬性] 欄中，選擇註冊期間要向客戶收集的屬性。 例如，設定 [國家/區域]、[顯示名稱] 和 [郵遞區號]。
-7. 在 [傳回宣告] 欄中，選擇成功註冊或登入後，您要在授權權杖中傳回給應用程式的宣告。 例如，選取 [顯示名稱]、[識別提供者]、[郵遞區號]、[使用者是新的] 和 [使用者的物件識別碼]。
-8. 按一下 [確定]。
-9. 按一下頁面底部的 [新增] 。
-10. 在 [自訂] 下方，選取 [頁面配置]。 選取 [統一註冊或登入頁面]，然後針對 [使用自訂頁面內容] 按一下 [是]。
-11. 在 [自訂頁面 URI] 中，輸入您先前記下的 custom-ui.html 檔案 URL。
-12. 按一下頁面頂端的 [儲存]。
+1. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+2. 選取 [使用者流程 (原則)]，然後選取 *B2C_1_signupsignin1* 使用者流程。
+3. 選取 [頁面配置]，然後針對 [統一註冊或登入頁面] 底下的 [使用自訂頁面內容] 按一下 [是]。
+4. 在 [自訂頁面 URI] 中，輸入您先前記下的 custom-ui.html 檔案 URI。
+5. 在頁面上方選取 [儲存]。
 
 ## <a name="test-the-user-flow"></a>測試使用者流程
 
-1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]，然後選取您所建立的使用者流程。 例如：B2C_1_signup_signin。
+1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]，然後選取 B2C_1_signupsignin1 使用者流程。
 2. 按一下頁面頂端的 [執行使用者流程]。
 3. 按一下 [執行使用者流程]  按鈕。
 
@@ -188,7 +161,7 @@ ms.locfileid: "55156647"
 
 > [!div class="checklist"]
 > * 建立 UI 自訂檔案
-> * 建立將使用這些檔案的註冊與登入使用者流程
+> * 更新使用者流程以使用檔案
 > * 測試自訂的 UI
 
 > [!div class="nextstepaction"]

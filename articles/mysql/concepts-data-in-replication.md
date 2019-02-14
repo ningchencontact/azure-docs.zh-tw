@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/31/2018
-ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: f91a6da9a305c6620e4e01ab7aa3c554374cb5d7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544221"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691517"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>將資料複寫至適用於 MySQL 的 Azure 資料庫
 
-資料帶入複寫可讓您將來自在內部部署執行的 MySQL 伺服器、虛擬機器中或由其他雲端提供者所代管的資料庫服務的資料，同步處理到適用於 MySQL 的 Azure 資料庫服務。 資料帶入複寫是建立在以二進位記錄 (binlog) 檔案位置為基礎的 MySQL 原生複寫之上。 若要深入了解 binlog 複寫，請參閱 [MySQL binlog 複寫概觀](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) \(英文\)。 
+資料輸入複寫可讓您將來自外部 MySQL 伺服器的資料，同步處理到適用於 MySQL 的 Azure 資料庫服務。 外部伺服器可以位於內部部署環境、虛擬機器中或其他雲端提供者所裝載的資料庫服務內。 資料帶入複寫是建立在以二進位記錄 (binlog) 檔案位置為基礎的 MySQL 原生複寫之上。 若要深入了解 binlog 複寫，請參閱 [MySQL binlog 複寫概觀](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) \(英文\)。 
 
 ## <a name="when-to-use-data-in-replication"></a>使用資料帶入複寫的時機
 考慮使用資料帶入複寫的主要案例包括：
@@ -26,7 +26,7 @@ ms.locfileid: "53544221"
 ## <a name="limitations-and-considerations"></a>限制與注意事項
 
 ### <a name="data-not-replicated"></a>不會複寫資料
-不會複寫主要伺服器上的 [mysql 系統資料庫](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) \(英文\)。 不會複寫主要伺服器上對於帳戶和權限的變更。 如果您在主要伺服器上建立帳戶且此帳戶需要存取複本伺服器，則需在複本伺服器端手動建立相同的帳戶。 若要了解系統資料庫中包含哪些資料表，請參閱 [MySQL 手冊](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) \(英文\)。
+不會複寫主要伺服器上的 [mysql 系統資料庫](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) \(英文\)。 不會複寫主要伺服器上對於帳戶和權限的變更。 如果您在主要伺服器上建立帳戶且此帳戶需要存取複本伺服器，請在複本伺服器端手動建立相同的帳戶。 若要了解系統資料庫中包含哪些資料表，請參閱 [MySQL 手冊](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) \(英文\)。
 
 ### <a name="requirements"></a>需求
 - 主要伺服器版本必須至少是 MySQL 5.6 版。 
@@ -36,8 +36,9 @@ ms.locfileid: "53544221"
 - 使用者必須有權設定二進位記錄，以及在主要伺服器上建立新的使用者。
 
 ### <a name="other"></a>其他
-- 資料輸入複寫只適用於一般用途和記憶體最佳化定價層
+- 資料輸入複寫只適用於一般用途和記憶體最佳化定價層。
 - 不支援全域交易識別碼 (GTID)。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解如何[設定資料帶入複寫](howto-data-in-replication.md)
+- 了解如何[在 Azure 中使用讀取複本進行複寫](concepts-read-replicas.md)

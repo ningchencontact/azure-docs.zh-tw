@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246529"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766090"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -153,6 +153,9 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 
 <!-- 3190553 - IS ASDK -->
 - 已修正產生指出某個「基礎結構角色執行個體」無法供使用或「縮放單位節點」已離線等雜訊警示的問題。
+
+<!-- 2724961 - IS ASDK -->
+- 已修正此問題：VM 概觀頁面無法正確顯示 VM 計量圖表。 
 
 ## <a name="changes"></a>變更
 
@@ -297,11 +300,6 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 
 <!-- 1662991 IS ASDK --> 
 - Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。  
-
-<!-- 2724961- IS ASDK --> 
-- 當您在訂用帳戶設定中註冊 **Microsoft.Insight** 資源提供者，並建立已啟用「客體 OS 診斷」功能的 Windows VM 時，VM 概觀頁面中的「CPU 百分比」圖表不會顯示計量資料。
-
-   若要尋找該 VM 的計量資料 (例如「CPU 百分比」圖表)，請移至 [計量] 視窗，然後顯示所有支援的 Windows VM 客體計量。
 
 <!-- 3507629 - IS, ASDK --> 
 - 受控磁碟會建立兩個新的[計算配額類型](azure-stack-quota-types.md#compute-quota-types)，以限制可以佈建的受控磁碟最大容量。 根據預設，會為每個受控磁碟配額類型配置 2048 GiB。 但是，您可能會遇到下列問題：

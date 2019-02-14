@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 12/21/2018
-ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c60ba4f4106ddd0c3fc643288894fb55d3d27f8c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240339"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816453"
 ---
 # <a name="asdk-release-notes"></a>ASDK 版本資訊 
  
@@ -60,7 +60,7 @@ ms.locfileid: "55240339"
 - 已修正使用 ADFS 時防止將 RBAC 原則套用至使用者群組的問題。
 
 <!--3463840 - IS, ASDK --> 
-- 已修正因無法從公用 VIP 網路存取檔案伺服器而導致基礎結構備份失敗的問題。 此修正會將基礎結構備份服務移回到公用基礎結構網路。 如果您已套用解決此問題的最新 [Azure Stack 1809 Hotfix](#azure-stack-hotfixes)，1811 更新將不會進行任何進一步的修改。 
+- 已修正因無法從公用 VIP 網路存取檔案伺服器而導致基礎結構備份失敗的問題。 此修正會將基礎結構備份服務移回到公用基礎結構網路。 如果您已套用解決此問題的最新 Azure Stack 1809 Hotfix，1811 更新將不會進行任何進一步的修改。 
 
 <!-- 2967387 – IS, ASDK --> 
 - 已修正此問題：您用來登入 Azure Stack 系統管理員或使用者入口網站的帳戶顯示為「無法辨識的使用者」。 當帳戶未指定「名字」或「姓氏」時，就會顯示此訊息。   

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352915"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511967"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常見問題集
 
@@ -34,7 +34,7 @@ Azure DNS 計費模型所根據的是 Azure DNS 中裝載的 DNS 區域數量。
 
 ### <a name="what-is-the-sla-for-azure-dns"></a>Azure DNS 有怎樣的 SLA？
 
-Azure 保證有效的 DNS 要求至少有 99.99% 的時間都至少會從一部 Azure DNS 名稱伺服器收到回應。
+Azure 保證有效的 DNS 要求 100% 的時間都至少會從一部 Azure DNS 名稱伺服器收到回應。
 
 如需詳細資訊，請參閱 [Azure DNS SLA 頁面](https://azure.microsoft.com/support/legal/sla/dns)。
 

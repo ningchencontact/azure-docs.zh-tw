@@ -10,20 +10,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184371"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812451"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>如何為不在資源庫內的應用程式設定密碼單一登入
 
-除了 Azure AD 應用程式庫中找到的選項，當您想要的應用程式未在此處列出時，您也可以選擇新增**不在資源庫內的應用程式**。 使用這項功能，您可以新增任何已存在於組織中的應用程式，或您可能從尚不屬於 [Azure AD 應用程式庫](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery)的供應商取得的任何第三方應用程式。
+除了 Azure AD 應用程式庫中找到的選項，當您想要的應用程式未在此處列出時，您也可以選擇新增**不在資源庫內的應用程式**。 使用這項功能，您可以新增任何已存在於組織中的應用程式，或您可能從尚不屬於 [Azure AD 應用程式庫](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)的供應商取得的任何第三方應用程式。
 
 當您新增不在資源庫內的應用程式之後，接著就可以在 [Azure 入口網站](https://portal.azure.com/)中選取企業應用程式的 [單一登入] 瀏覽項目，以設定此應用程式使用的單一登入方法。
 
-可供您使用的其中一個單一登入方法是[以密碼為基礎的單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work)選項。 透過**新增不在資源庫內的應用程式**經驗，您可以整合任何呈現 HTML 使用者名稱和密碼輸入欄位的應用程式 (即使它不在我們預先整合的應用程式集之內)。
+可供您使用的其中一個單一登入方法是[以密碼為基礎的單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)選項。 透過**新增不在資源庫內的應用程式**經驗，您可以整合任何呈現 HTML 使用者名稱和密碼輸入欄位的應用程式 (即使它不在我們預先整合的應用程式集之內)。
 
 運作方式是採用存取面板擴充中的頁面抓取技術，這可讓我們自動偵測使用者名稱和密碼輸入欄位，安全地儲存這些欄位供您的特定應用程式執行個體使用。 然後，當使用者在應用程式存取面板上瀏覽至該應用程式時，就安全地將使用者名稱和密碼重播給這些欄位。
 
@@ -43,11 +43,11 @@ ms.locfileid: "55184371"
 
 -   允許**商務群組的成員**使用[自助應用程式存取](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)功能，指定要指派給使用者的使用者名稱和密碼
 
--   允許**管理員**在[將使用者指派至應用程式](#_How_to_configure_1)時，使用更新憑證功能指定要指派給使用者的使用者名稱和密碼
+-   允許**管理員**在將使用者指派至應用程式時，使用更新憑證功能指定要指派給使用者的使用者名稱和密碼
 
 -   允許**管理員**在[將群組指派至應用程式](#assign-an-application-to-a-group-directly)時，使用更新憑證功能指定一群人使用的共用使用者名稱或密碼
 
-下一節說明如何針對您使用**新增不在資源庫內的應用程式**經驗所新增的任何應用程式，啟用[以密碼為基礎的單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work)。
+下一節說明如何針對您使用**新增不在資源庫內的應用程式**經驗所新增的任何應用程式，啟用[以密碼為基礎的單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
 ## <a name="overview-of-steps-required"></a>所需步驟的概觀
 
@@ -57,7 +57,7 @@ ms.locfileid: "55184371"
 
 -   [設定應用程式使用密碼單一登入](#configure-the-application-for-password-single-sign-on)
 
--   [將應用程式指派至使用者或群組](#assign-the-application-to-a-user-or-a-group)
+-   將應用程式指派至使用者或群組
 
     -   [將使用者直接指派至應用程式](#assign-a-user-to-an-application-directly)
 

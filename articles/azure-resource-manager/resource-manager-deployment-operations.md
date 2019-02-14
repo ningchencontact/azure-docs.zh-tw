@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8fee1e29ab3a267d77e4e43beb2c42587da5314d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103854"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770209"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>使用 Azure Resource Manager 來檢視部署作業
 
@@ -26,7 +26,10 @@ ms.locfileid: "54103854"
 
 您可以藉由查看稽核記錄檔或部署作業來疑難排解您的部署。 本文章示範這兩種方法。 如需解決特定部署錯誤的說明，請參閱 [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="portal"></a>入口網站
+
 若要查看部署作業，請使用下列步驟 ︰
 
 1. 針對部署所含的資源群組，請注意最後一個部署的狀態。 您可以選取此狀態，以取得更多詳細資料。
@@ -53,28 +56,28 @@ ms.locfileid: "54103854"
     ![查看事件](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## <a name="powershell"></a>PowerShell
-1. 若要取得部署的整體狀態，請使用 **Get-AzureRmResourceGroupDeployment** 命令。 
+1. 若要取得部署的整體狀態，請使用 **Get-AzResourceGroupDeployment** 命令。 
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
    或者，您也可以篩選結果，只找出失敗的部署。
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
 1. 若要取得相互關連識別碼，請使用：
 
   ```powershell
-  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. 每個部署都包括多個作業。 每個作業皆代表部署程序中的一個步驟。 若要探索部署有何問題，您通常需要查看有關部署作業的詳細資訊。 您可以利用 **Get-AzureRmResourceGroupDeploymentOperation**查看作業的狀態。
+1. 每個部署都包括多個作業。 每個作業皆代表部署程序中的一個步驟。 若要探索部署有何問題，您通常需要查看有關部署作業的詳細資訊。 您可以利用 **Get-AzResourceGroupDeploymentOperation** 查看作業的狀態。
 
   ```powershell 
-  Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
     以下列格式傳回多項作業︰
@@ -92,7 +95,7 @@ ms.locfileid: "54103854"
 1. 若要取得有關失敗作業的詳細資訊，請擷取具有 [失敗]  狀態的作業屬性。
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
     這會以下列格式傳回所有失敗的作業︰
@@ -115,7 +118,7 @@ ms.locfileid: "54103854"
 1. 若要取得特定失敗作業的狀態訊息，請使用下列命令︰
 
   ```powershell
-  ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
   ```
 
     它會傳回：
@@ -130,9 +133,9 @@ ms.locfileid: "54103854"
   您會使用下列 PowerShell 命令從記錄檔取得該資訊，並將它儲存在本機︰
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -157,7 +160,7 @@ ms.locfileid: "54103854"
 
 ## <a name="rest"></a>REST
 
-1. 利用 [取得範本部署的相關資訊](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) 作業，來取得部署相關資訊。
+1. 利用 [取得範本部署的相關資訊](https://docs.microsoft.com/rest/api/resources/deployments) 作業，來取得部署相關資訊。
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -180,7 +183,7 @@ ms.locfileid: "54103854"
   }
   ```
 
-2. 使用[列出所有範本部署作業](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) \(英文\) ，來取得部署的相關資訊。 
+2. 使用[列出所有範本部署作業](https://docs.microsoft.com/rest/api/resources/deployments) \(英文\) ，來取得部署的相關資訊。 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

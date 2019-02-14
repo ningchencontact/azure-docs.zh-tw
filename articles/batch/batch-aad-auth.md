@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477587"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812835"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch 服務解決方案
 
@@ -91,7 +91,7 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 
 若要使用整合式驗證進行驗證，您需要為應用程式授與權限，以連接到 Batch 服務 API。 此步驟可讓您的應用程式使用 Azure AD 來驗證與對 Batch 服務 API 的呼叫。
 
-一旦[註冊您的應用程式](#register-your-application-with-an-azure-ad-tenant)之後，請在 Azure 入口網站中遵循下列步驟，以授與它存取 Batch 服務的權限：
+一旦註冊您的應用程式之後，請在 Azure 入口網站中遵循下列步驟，以授與它存取 Batch 服務的權限：
 
 1. 在 Azure 入口網站的左側導覽窗格中，選擇 [所有服務]。 按一下 [應用程式註冊]。
 2. 在應用程式註冊清單中搜尋您應用程式的名稱︰

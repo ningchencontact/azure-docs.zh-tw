@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 903fd465ce2a88e94b821c9a1b4c6c531083180a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105831"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819054"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>如何設定進階 Azure Cache for Redis 的資料持續性
 Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集功能、持續性及虛擬網路支援等「進階」層功能。 本文說明如何在進階 Azure Cache for Redis 執行個體中設定持續性。
@@ -133,7 +133,7 @@ AOF 持續性將每筆寫入內容儲存至記錄，因此會對輸送量造成�
 * 如果已調整為較小的大小，而且較小的大小中沒有足夠的空間可保存來自最近備份的所有資料，將會在還原程序中收回金鑰，通常是使用 [allkeys-lru](https://redis.io/topics/lru-cache) 收回原則。
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>在建立快取之後，可以變更 RDB 備份頻率嗎？
-可以，您可以在 [Redis 資料持續性] 刀鋒視窗上變更 RDB 持續性的備份頻率。 如需相關指示，請參閱 [設定 Redis 永續性](#configure-redis-persistence)。
+可以，您可以在 [Redis 資料持續性] 刀鋒視窗上變更 RDB 持續性的備份頻率。 如需相關指示，請參閱「設定 Redis 永續性」。
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>為什麼我的 RDB 備份頻率是 60 分鐘，備份的間隔卻超過 60 分鐘？
 在前一個備份程序順利完成後，RDB 持續性備份頻率間隔才會開始計算。 如果備份頻率是 60 分鐘，而備份程序要 15 分鐘才能順利完成，則下一次備份要在先前的備份開始的 75 分鐘後才會開始。

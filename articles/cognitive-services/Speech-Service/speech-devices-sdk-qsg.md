@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85e250f3dee3dbfc9e09524d5f3977a143ee8bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a9a1446db66e528cfac98222d4bd258efc660c84
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213254"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750370"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>開始使用 Speech Devices SDK
 
@@ -46,12 +46,14 @@ ms.locfileid: "55213254"
     您可以[建立簡單 LUIS 模型](https://docs.microsoft.com/azure/cognitive-services/luis/)，或使用簡單 LUIS 模型 LUIS-example.json。 您可以從[語音裝置 SDK 下載網站](https://shares.datatransfer.microsoft.com/)取得範例 LUIS 模型。 若要將您模型的 JSON 檔案上傳到 [LUIS 入口網站](https://www.luis.ai/home)，請選取 [Import new app] \(匯入新應用程式\)，然後選取 JSON 檔案。
 
 ## <a name="set-up-the-development-kit"></a>設定開發套件
-
-1. 使用 Mini USB 纜線將開發套件連接到電腦或變壓器。 當套件連接之後，上方面板底下應該會亮起綠色電源指示燈。
-
-1. 使用第二條 Mini USB 纜線將開發套件連接到電腦。
+    
+1. 開發套件有兩個 micro USB 連接器。 左側的連接器用來對開發套件供電，在下圖中會以 Power 來醒目提示。 右邊的連接器則用來控制開發套件，在圖中會標示為 Debug。
 
     ![連接開發套件](media/speech-devices-sdk/qsg-1.png)
+       
+1. 使用 micro USB 纜線將電源連接埠連接至電腦或電源配接器，以對開發套件供電。 上方面板底下會亮起綠色電源指示燈。
+
+1. 為了控制開發套件，請使用第二條 micro USB 纜線將偵錯連接埠連接至電腦。 請務必使用高品質的纜線，以確保可靠的通訊。
 
 1. 將您的開發套件依圓形或線性設定調整方向。
 
@@ -75,6 +77,8 @@ ms.locfileid: "55213254"
 
     > [!NOTE]
     > 這些命令會使用 Android Debug Bridge `adb.exe`，它是 Android Studio 安裝的一部分。 此工具位於 C:\Users\[使用者名稱]\AppData\Local\Android\Sdk\platform-tools。 您可以將此目錄新增至您的路徑，以便更方便地叫用 `adb`。 否則，您必須在叫用 `adb` 的每個命令中指定 adb.exe 的完整安裝路徑。
+    >
+    > 如果您看到 `no devices/emulators found` 的錯誤，請確認您已接好 USB 纜線，且纜線是高品質的。 您可以使用 `adb devices` 來確認電腦是否可以與開發套件通訊，以便其可傳回裝置清單。
 
     > [!TIP]
     > 請將您電腦的麥克風和喇叭靜音，以確定您使用的是開發套件的麥克風。 如此一來，您就不會不小心讓來自電腦的音訊觸發該裝置。

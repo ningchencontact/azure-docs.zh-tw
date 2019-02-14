@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 01/30/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 4aa1b170b0c0c515faa67118772ad14d34c7276b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 508a20e826c2f7bf1260bde6858eb4472c16a5c0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278248"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496520"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理 NAT。 有些連線提供者會以受控服務來支援設定和管理路由。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵守以下所述的需求。 
@@ -41,6 +41,11 @@ Microsoft 對等路徑可讓您連接到不支援透過 Azure 公用對等路徑
 ![非對稱式路由與 ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>Azure 公用對等的 NAT 需求
+
+> [!NOTE]
+> 新的線路無法使用 Azure 公用對等互連。
+> 
+
 Azure 公用對等路徑可讓您連接到裝載於 Azure 中的所有服務的公用 IP 位址。 其中包括 [ExpessRoute 常見問題集](expressroute-faqs.md) 列出的服務，以及由 ISV 裝載於 Microsoft Azure 上的任何服務。 
 
 > [!IMPORTANT]

@@ -1,26 +1,21 @@
 ---
-title: Azure 建議程式效能建議 | Microsoft Docs
+title: 利用 Azure Advisor 改善 Azure 應用程式的效能 | Microsoft Docs
 description: 使用 Advisor 將 Azure 部署的效能最佳化。
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266740"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491574"
 ---
-# <a name="advisor-performance-recommendations"></a>建議程式效能建議
+# <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>利用 Azure Advisor 改善 Azure 應用程式的效能
 
 Advisor 效能建議有助於提升業務關鍵應用程式的速度和回應能力。 您可以在 Advisor 儀表板的 [效能] 索引標籤上，取得 Advisor 的效能建議。
 
@@ -49,7 +44,7 @@ Azure 建議程式整合了最佳作法建議，以供提升應用程式服務�
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>使用受控磁碟可避免磁碟 I/O 節流
 
-Advisor 會識別即將達到其延展性目標的儲存體帳戶所包含的虛擬機器。 在此狀況下，很可能會執行 I/O 節流。 Advisor 會建議這些虛擬機器使用受控磁碟，以避免效能降低。
+Advisor 會識別即將達到其延展性目標的儲存體帳戶所包含的虛擬機器。 這種情況讓這些 VM 很可能會執行 I/O 節流。 Advisor 會建議它們使用受控磁碟，以避免效能降低。
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>使用進階儲存體以改善虛擬機器磁碟的效能和可靠性
 
@@ -67,7 +62,7 @@ Advisor 會識別不含最新[資料表統計資料](https://docs.microsoft.com/
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>藉由相應增加將 SQL 資料倉儲資料表的快取使用率最佳化，以提升查詢效能
 
-Azure Advisor 會偵測您的 SQL 資料倉儲是否有快取使用百分比偏高、命中百分比偏低的情形。 這表示快取收回率偏高，而可能會影響到您 SQL 資料倉儲的效能。 Advisor 會建議您相應增加 SQL 資料倉儲，以確保能配置足夠的快取容量供工作負載使用。
+Azure Advisor 會偵測您的 SQL 資料倉儲是否有快取使用百分比偏高、命中百分比偏低的情形。 這種情況表示快取收回率偏高，而可能會影響到您 SQL 資料倉儲的效能。 Advisor 會建議您相應增加 SQL 資料倉儲，以確保能配置足夠的快取容量供工作負載使用。
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>將 SQL 資料倉儲資料表轉換為複寫資料表，以提升查詢效能
 
@@ -75,10 +70,10 @@ Advisor 會識別不是複寫資料表、但可因轉換而受益的資料表，
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>將儲存體帳戶移轉至 Azure Resource Manager 以取得所有最新的 Azure 功能
 
-將儲存體帳戶部署模型移轉到 Azure Resource Manager (ARM)，可使用範本部署、其他安全性選項，以及可升級至 GPv2 帳戶，以利用 Azure 儲存體的最新功能。 Advisor 會識別任何使用傳統部署模型的獨立儲存體帳戶，並建議移轉至 ARM 部署模型。
+將儲存體帳戶部署模型遷移到 Azure Resource Manager (Resource Manager)，可使用範本部署、其他安全性選項，以及可升級至 GPv2 帳戶，以利用 Azure 儲存體的最新功能。 Advisor 會識別任何使用傳統部署模型的獨立儲存體帳戶，並建議遷移到 Resource Manager 部署模型。
 
 > [!NOTE]
-> Azure 監視器中的傳統警示已宣布於 2019 年 6 月淘汰，建議您將傳統儲存體帳戶升級為 ARM，以在新平台上保留警示功能。 如需詳細資訊，請參閱[傳統警示洶汰](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)。
+> Azure 監視器中的傳統警示排定在 2019 年 6 月淘汰。 建議您將傳統儲存體帳戶升級為使用 Resource Manager，以在新平台上保留警示功能。 如需詳細資訊，請參閱[傳統警示洶汰](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)。
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>如何在建議程式中存取效能建議
 

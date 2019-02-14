@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: b2a262e6829aca75f03db41ff72ab0cc067c93be
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025788"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812781"
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -91,7 +91,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 
     您可以定義位址首碼為 0.0.0.0/0 的路由和虛擬設備的下一個躍點類型，讓設備檢查流量並判斷是否要轉送或捨棄流量。 如果您想要建立包含 0.0.0.0/0 位址首碼的使用者定義路由，請先了解 [0.0.0.0/0 位址首碼](#default-route)。
 
-- **虛擬網路閘道**：當您要將特定位址首碼指定的流量路由至虛擬網路閘道時指定。 虛擬網路閘道必須使用 **VPN** 類型建立。 您無法在使用者定義路由中指定建立為 **ExpressRoute** 類型的虛擬網路閘道，因為若使用 ExpressRoute，您必須使用適用於自訂路由的 [BGP](#border-gateway-protocol-routes)。 您可以將路由定義為將 0.0.0.0/0 位址首碼指定流量導向[路由式](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype)虛擬網路閘道。 在內部部署上，您可能有裝置可檢查流量並決定是否要轉送或捨棄流量。 如果您想要建立 0.0.0.0/0 位址首碼的使用者定義路由，請先了解 [0.0.0.0/0 位址首碼](#default-route)。 您不需要設定 0.0.0.0/0 位址首碼的使用者定義路由，如果您已[啟用 VPN 虛擬網路閘道的 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，則可以透過 BGP 公佈具有 0.0.0.0/0 首碼的路由。
+- **虛擬網路閘道**：當您要將特定位址首碼指定的流量路由至虛擬網路閘道時指定。 虛擬網路閘道必須使用 **VPN** 類型建立。 您無法在使用者定義路由中指定建立為 **ExpressRoute** 類型的虛擬網路閘道，因為若使用 ExpressRoute，您必須使用適用於自訂路由的 BGP。 您可以將路由定義為將 0.0.0.0/0 位址首碼指定流量導向[路由式](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype)虛擬網路閘道。 在內部部署上，您可能有裝置可檢查流量並決定是否要轉送或捨棄流量。 如果您想要建立 0.0.0.0/0 位址首碼的使用者定義路由，請先了解 [0.0.0.0/0 位址首碼](#default-route)。 您不需要設定 0.0.0.0/0 位址首碼的使用者定義路由，如果您已[啟用 VPN 虛擬網路閘道的 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，則可以透過 BGP 公佈具有 0.0.0.0/0 首碼的路由。
 - **無**：當您要捨棄位址首碼的流量，而不是將流量轉送至目的地時指定。 如果有功能尚未設定完畢，Azure 可能會針對某些選擇性系統路徑列出「無」。 例如，如果您看到**下一個躍點類型**為「虛擬網路閘道」或「虛擬設備」的**下一個躍點 IP 位址**列為「無」，這可能是因為裝置未執行或未完整設定。 Azure 會針對下一個躍點類型為**無**的保留位址首碼，建立系統[預設路由](#default)。
 - **虛擬網路**：當您想要覆寫虛擬網路中的預設路由時指定。 請參閱[路由範例](#routing-example)，以針對您想以**虛擬網路**躍點類型建立路由的原因取得範例。
 - **網際網路**：當您想要明確地將位址首碼指定的流量路由至網際網路時指定，或您想要 Azure 服務所用的流量 (具有公用 IP 位址) 保留在 Azure 骨幹網路中時指定。

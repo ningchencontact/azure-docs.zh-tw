@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167082"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814226"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 同步：設定 Office 365 資源的慣用資料位置
 本主題的目的在於逐步解說如何在 Azure Active Directory (Azure AD) Connect 同步處理中設定慣用資料位置的屬性。當某人在 Office 365 中使用多地理位置功能時，您可使用這個屬性來指定使用者 Office 365 資料的地理位置。 (「區域」與「地區」這兩個詞可交換使用。)
@@ -238,7 +238,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 ## <a name="step-8-verify-the-result"></a>步驟 8：確認結果
 現在該來確認組態，並且為您的使用者啟用它。
 
-1. 將地區新增至使用者的所選屬性。 [本表格](#enable-synchronization-of-preferreddatalocation)提供可用的地區清單。  
+1. 將地區新增至使用者的所選屬性。 本表格提供可用的地區清單。  
 ![已新增至使用者的 AD 屬性螢幕擷取畫面](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. 等待屬性與 Azure AD 同步。
 3. 使用 Exchange Online PowerShell，確認已正確設定信箱區域。  

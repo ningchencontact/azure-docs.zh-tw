@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022048"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814345"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 Web 資料表的資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,9 +73,9 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設定為：**Web** |是 |
-| Url |Web 來源的 URL |是 |
-| authenticationType |匿名。 |是 |
+| type |類型屬性必須設定為：**Web** |yes |
+| Url |Web 來源的 URL |yes |
+| authenticationType |匿名。 |yes |
 
 ### <a name="using-anonymous-authentication"></a>使用匿名驗證
 
@@ -101,9 +101,9 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type |資料集的類型。 必須設定為 **WebTable** |是 |
+| type |資料集的類型。 必須設定為 **WebTable** |yes |
 | path |包含資料表之資源的相對 URL。 |沒有。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
-| index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |是 |
+| index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |yes |
 
 **範例：**
 
@@ -236,7 +236,7 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 
 此管線包含複製活動，該活動已設定為使用輸入和輸出資料集並排定為每小時執行。 在管線 JSON 定義中，**source** 類型設為 **WebSource**，而 **sink** 類型設為 **BlobSink**。
 
-如需 WebSource 支援的屬性清單，請參閱 [WebSource 類別屬性](#copy-activity-type-properties) 。
+如需 WebSource 支援的屬性清單，請參閱「WebSource 類別屬性」。
 
 ```json
 {  

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653912"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814178"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>將 HDInsight 應用程式發佈到 Azure Marketplace
 您可以在以 Linux 為基礎的 HDInsight 叢集上安裝 Azure HDInsight 應用程式。 在此文章中，您會學習如何將 HDInsight 應用程式發佈到 Azure Marketplace。 如需發佈到 Azure Marketplace 的一般資訊，請參閱[將供應項目發佈到 Azure Marketplace](../marketplace/marketplace-publishers-guide.md)。
@@ -75,9 +75,9 @@ HDInsight 應用程式會使用「自備授權 (BYOL)」模型。 在 BYOL 案�
 * 如果您的指令碼在節點上啟動服務，服務會受到監視並設定為在節點重新開機時自動啟動。
 
 ## <a name="package-the-application"></a>封裝應用程式
-建立 .zip 檔案，其中包含安裝 HDInsight 應用程式所需的所有檔案。 使用 .zip 檔案來[發佈應用程式](#publish-application)。 .zip 檔案包含下列檔案：
+建立 .zip 檔案，其中包含安裝 HDInsight 應用程式所需的所有檔案。 使用 .zip 檔案來發佈應用程式。 .zip 檔案包含下列檔案：
 
-* [createUiDefinition.json](#define-application)
+* createUiDefinition.json
 * mainTemplate.json (如需範例，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。)
 * 所有必要的指令碼
 
@@ -94,7 +94,7 @@ HDInsight 應用程式會使用「自備授權 (BYOL)」模型。 在 BYOL 案�
 5. 選取 [定義一些拓撲以便開始使用] 。 方案範本是所有其拓撲的「父項」。 您可以在一個供應項目或解決方案範本中定義多個拓撲。 當供應項目推送到預備環境時，它的所有拓撲也會一起推入。 
 6. 輸入拓撲名稱，然後選取 [+]。
 7. 輸入新的版本，然後選取 [+]。
-8. 上傳您在[封裝應用程式](#package-application)時建立的 .zip 檔案。  
+8. 上傳您在封裝應用程式時建立的 .zip 檔案。  
 9. 選取 [要求認證]。 Microsoft 認證團隊會檢閱檔案並認證拓撲。
 
 ## <a name="next-steps"></a>後續步驟

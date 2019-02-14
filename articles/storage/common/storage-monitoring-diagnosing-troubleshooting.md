@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473998"
+ms.locfileid: "55490241"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -637,7 +637,7 @@ client.SetServiceProperties(sp);
 每當用戶端應用程式建立新的容器時，應該使用唯一的容器名稱 (如果經常出現「刪除」重新建立作業模式的話)。
 
 ### <a name="metrics-show-low-percent-success"></a>度量顯示低 PercentSuccess，或是分析記錄項目內含具有 ClientOtherErrors 交易狀態的作業項目
-**PercentSuccess** 度量會依據其 HTTP 狀態碼，擷取成功完成的作業百分比。 帶有 2XX 狀態碼的作業會記錄為成功，而帶有 3XX、4XX 與 5XX 範圍之狀態碼的作業將記錄為不成功，並會降低 **PercentSucess** 度量值。 在伺服器端的儲存體記錄檔中，這些作業會加上 **ClientOtherErrors**的交易狀態記錄下來。
+**PercentSuccess** 度量會依據其 HTTP 狀態碼，擷取成功完成的作業百分比。 帶有 2XX 狀態碼的作業會記錄為成功，而帶有 3XX、4XX 與 5XX 範圍之狀態碼的作業將記錄為不成功，並會降低 **PercentSuccess** 度量值。 在伺服器端的儲存體記錄檔中，這些作業會加上 **ClientOtherErrors**的交易狀態記錄下來。
 
 請務必注意，這些作業已經成功完成，因此不會影響到例如可用性的其他度量。 以下作業範例顯示作業已成功執行，但卻出現不成功的 HTTP 狀態碼：
 

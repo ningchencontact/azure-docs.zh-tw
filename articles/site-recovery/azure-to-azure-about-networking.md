@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992121"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693984"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
 
@@ -99,7 +99,8 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
    南韓南部 | 52.231.298.185 | 52.231.200.144
    法國中部 | 52.143.138.106 | 52.143.136.55
    法國南部 | 52.136.139.227 |52.136.136.62
-
+   澳大利亞中部| 20.36.34.70 | 20.36.46.142
+   澳大利亞中部 2| 20.36.69.62 | 20.36.74.130
 
 ## <a name="example-nsg-configuration"></a>範例 NSG 設定
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099895"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507809"
 ---
 # <a name="time-series-model"></a>時間序列模型
 
@@ -152,9 +152,11 @@ ms.locfileid: "55099895"
 
 執行個體就是時間序列本身。 在大部分情況下，它們是 *deviceId* 或 *assetId*，也就是資產在環境中的唯一識別碼。 執行個體有與其相關聯的描述性資訊，稱為執行個體屬性。 執行個體屬性至少會包含階層資訊。 它們也可以包含有用的描述性資料，像是製造商、操作員或上次維護日期。
 
-執行個體由 *timeSeriesId*、*typeId*、*hierarchyId* 和 *instanceFields* 定義。 每個執行個體只對應至一個「類型」和一或多個階層。 執行個體會從階層繼承所有屬性，且可以針對近一步的執行個體屬性定義，新增額外的 *instanceFields*。
+執行個體由 typeId、timeSeriesId、name、description、hierarchyIds 和 instanceFields 定義。 每個執行個體只對應至一個「類型」和一或多個階層。 執行個體會從階層繼承所有屬性，且可以針對近一步的執行個體屬性定義，新增額外的 *instanceFields*。
 
 *instanceFields* 是執行個體的屬性，以及定義執行個體的任何靜態資料。 它們定義階層或非階層的值，同時也支援建立索引以執行搜尋作業。
+
+name 屬性是選擇性的，而且區分大小寫。 如果不使用 name，則會預設為時間序列識別碼。 如果有提供 name，則時間序列識別碼仍然可在 Well (總管內圖表下方的方格) 中取得。 
 
 ## <a name="time-series-model-instance-json-example"></a>時間序列模型執行個體 JSON 範例
 
@@ -164,6 +166,7 @@ ms.locfileid: "55099895"
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

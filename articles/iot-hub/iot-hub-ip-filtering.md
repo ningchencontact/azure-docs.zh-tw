@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
-ms.openlocfilehash: 903f8284327d3d5b9ef386305a436ce44a8a11b2
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cd382c0daff79b487f4ecae01ad852f6e57f3a25
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378097"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734244"
 ---
 # <a name="use-ip-filters"></a>使用 IP 篩選器
 
@@ -42,7 +42,7 @@ IP 篩選器規則會套用在 IoT 中樞服務層級。 因此，IP 篩選器�
 
 當您新增 IP 篩選器規則時，系統會提示您輸入下列值︰
 
-* [IP 篩選器規則名稱] 必須是唯一、不區分大小寫的英數字元字串，最長可為 128 個字元。 所能接受的字元只有 ASCII 7 位元英數字元以及 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
+* [IP 篩選器規則名稱] 必須是唯一、不區分大小寫的英數字元字串，最長可為 128 個字元。 所能接受的字元只有 ASCII 7 位元英數字元以及 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
 
 * 選取 [拒絕] 或 [接受] 做為 IP 篩選器規則的 [動作]。
 
@@ -69,6 +69,84 @@ IP 篩選器規則會套用在 IoT 中樞服務層級。 因此，IP 篩選器�
 若要刪除 IP 篩選器規則，請選取方格中的一個或多個規則，然後按一下 [刪除]。
 
 ![刪除 IoT 中樞 IP 篩選器規則](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
+
+## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>使用 Azure CLI 擷取和更新 IP 篩選條件
+
+您可以透過 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) 擷取和更新 IoT 中樞的 IP 篩選條件。 
+
+若要擷取 IoT 中樞目前的 IP 篩選條件，請執行：
+
+```azurecli-interactive
+az resource show -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs
+```
+
+這會傳回 JSON 物件，其中您現有的 IP 篩選條件會列在 `properties.ipFilterRules` 機碼之下：
+
+```json
+{
+...
+    "properties": {
+        "ipFilterRules": [
+        {
+            "action": "Reject",
+            "filterName": "MaliciousIP",
+            "ipMask": "6.6.6.6/6"
+        },
+        {
+            "action": "Allow",
+            "filterName": "GoodIP",
+            "ipMask": "131.107.160.200"
+        },
+        ...
+        ],
+    },
+...
+}
+```
+
+若要為 IoT 中樞新增 IP 篩選條件，請執行：
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules "{\"action\":\"Reject\",\"filterName\":\"MaliciousIP\",\"ipMask\":\"6.6.6.6/6\"}"
+```
+
+若要移除 IoT 中樞中的現有 IP 篩選條件，請執行：
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules <ipFilterIndexToRemove>
+```
+
+請注意，`<ipFilterIndexToRemove>` 必須對應到 IoT 中樞的 `properties.ipFilterRules` 中的 IP 篩選條件排序方式。
+
+
+## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>使用 Azure PowerShell 擷取和更新 IP 篩選條件
+
+您可以透過 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.2.0) 擷取和設定 IoT 中樞的 IP 篩選條件。 
+
+```powershell
+# Get your IoT Hub resource using its name and its resource group name
+$iothubResource = Get-AzureRmResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+
+# Access existing IP filter rules
+$iothubResource.Properties.ipFilterRules |% { Write-host $_ }
+
+# Construct a new IP filter
+$filter = @{'filterName'='MaliciousIP'; 'action'='Reject'; 'ipMask'='6.6.6.6/6'}
+
+# Add your new IP filter rule
+$iothubResource.Properties.ipFilterRules += $filter
+
+# Remove an existing IP filter rule using its name, e.g., 'GoodIP'
+$iothubResource.Properties.ipFilterRules = @($iothubResource.Properties.ipFilterRules | Where 'filterName' -ne 'GoodIP')
+
+# Update your IoT Hub resource with your updated IP filters
+$iothubResource | Set-AzureRmResource -Force
+```
+
+## <a name="update-ip-filter-rules-using-rest"></a>使用 REST 更新 IP 篩選規則
+
+您也可以使用 Azure 資源提供者的 REST 端點，擷取和修改 IoT 中樞的 IP 篩選條件。 請參閱 [createorupdate 方法](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/createorupdate)中的 `properties.ipFilterRules`。
+
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 篩選器規則評估
 

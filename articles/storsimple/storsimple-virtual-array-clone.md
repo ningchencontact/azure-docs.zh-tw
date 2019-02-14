@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110106"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496784"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>從 StorSimple Virtual Array 的備份複製
 
@@ -42,7 +42,7 @@ ms.locfileid: "23110106"
    
    b.    在顯示的已篩選備份清單中，選取要複製的備份。
    
-   c.    按一下 [SERVICEPRINCIPAL] 。
+   c.    按一下 [確定]。
    
    ![複製備份](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. 在 [複製] 刀鋒視窗中，按一下 [目標設定]，然後執行下列動作︰
@@ -57,7 +57,7 @@ ms.locfileid: "23110106"
    
    e.    指派此共用的系統管理員。 複製完成後，您可以透過 [檔案總管] 修改共用內容。
    
-   f.    按一下 [SERVICEPRINCIPAL] 。
+   f.    按一下 [確定]。
    
    ![複製備份](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
@@ -82,7 +82,7 @@ ms.locfileid: "23110106"
    
    b.    在顯示的已篩選備份清單中，選取要複製的備份。
    
-   c.    按一下 [SERVICEPRINCIPAL] 。
+   c.    按一下 [確定]。
    
    ![複製備份](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. 在 [複製] 刀鋒視窗中，按一下 [目標磁碟區設定]，然後執行下列動作︰

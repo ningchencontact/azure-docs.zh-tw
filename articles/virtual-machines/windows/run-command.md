@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33f96c67e7179104d1895cf62f834d3b592bee04
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138220"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487620"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>使用執行命令在 Windows 虛擬機器中執行 PowerShell 指令碼
 
@@ -72,13 +72,13 @@ ms.locfileid: "50138220"
 
 ## <a name="powershell"></a>PowerShell
 
-下列是使用 [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) Cmdlet 在 Azure VM 上執行 PowerShell 指令碼的範例。
+下列是使用 [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) Cmdlet 在 Azure VM 中執行 PowerShell 指令碼的範例。 此 Cmdlet 預期 `ScriptPath` 變數中所參考的指令碼，會位於 Cmdlet 執行所在位置的本機環境。
 
 ```azurepowershell-interactive
 Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## <a name="limiting-access-to-run-command"></a>限制對於執行命令的存取
+## <a name="limiting-access-to-run-command"></a>限制於執行命令的存取
 
 列出執行命令，或顯示命令的詳細資料，都需要 `Microsoft.Compute/locations/runCommands/read` 權限，這是內建[讀者](../../role-based-access-control/built-in-roles.md#reader)角色或更高角色擁有的權限。
 

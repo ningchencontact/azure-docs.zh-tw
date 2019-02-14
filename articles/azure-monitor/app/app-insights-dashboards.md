@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: afbf2bc32aa737eb5f6dde41035b206d6e260252
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117072"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813752"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 入口網站中的導覽與儀表板
 [在您的專案上設定 Application Insights](../../azure-monitor/app/app-insights-overview.md) 之後，有關應用程式效能和使用情況的遙測資料會出現在 [Azure 入口網站](https://portal.azure.com)之專案的 Application Insights 資源中。
@@ -62,7 +62,7 @@ ms.locfileid: "54117072"
 * 超過 24 小時的時間範圍：(時間範圍)/60。
 
 ### <a name="pin-any-query-in-analytics"></a>在分析中釘選任何查詢
-您也可以[釘選分析](../../azure-monitor/log-query/get-started-portal.md)圖表到[共用](#share-dashboards-with-your-team)儀表板。 這可讓您新增任意查詢以及標準度量的圖表。 
+您也可以[釘選分析](../../azure-monitor/log-query/get-started-portal.md)圖表到共用儀表板。 這可讓您新增任意查詢以及標準度量的圖表。 
 
 系統會每小時自動重新計算結果。 按一下圖表上的 [重新整理] 圖示，即可立即重新計算。 (瀏覽器重新整理並不會重新計算)。
 

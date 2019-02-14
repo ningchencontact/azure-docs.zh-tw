@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aa272c126e06b758dc3903a8ec71b7043491057
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c29cf0604e651902474d85dbd6edd3208e6b5944
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017645"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811290"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>使用 Azure Data Factory 從 SFTP 伺服器移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ ms.locfileid: "54017645"
 資料處理站目前只支援將資料從 SFTP 伺服器移到其他資料存放區，而不支援將資料從其他資料存放區移到 SFTP 伺服器。 它支援內部部署和雲端 SFTP 伺服器。
 
 > [!NOTE]
-> 來源檔案成功複製至目的地後，「複製活動」不會將它刪除。 如果您需要在成功複製後刪除來源檔案，請建立自訂活動來刪除檔案，並在管道中使用該活動。 
+> 來源檔案成功複製至目的地後，「複製活動」不會將它刪除。 如果您需要在成功複製後刪除來源檔案，請建立自訂活動來刪除檔案，並在管道中使用該活動。
 
 ## <a name="supported-scenarios-and-authentication-types"></a>支援的案例和驗證類型
 您可以使用此 SFTP 連接器，從**雲端 SFTP 伺服器和內部部署 SFTP 伺服器**複製資料。 連線至 SFTP 伺服器時支援 **Basic** 和 **SshPublicKey** 驗證類型。
@@ -51,10 +51,10 @@ ms.locfileid: "54017645"
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- | --- |
-| type | 類型屬性必須設為 `Sftp`。 |是 |
-| host | SFTP 伺服器的名稱或 IP 位址。 |是 |
+| type | 類型屬性必須設為 `Sftp`。 |yes |
+| host | SFTP 伺服器的名稱或 IP 位址。 |yes |
 | 連接埠 |SFTP 伺服器所接聽的連接埠。 預設值為：21 |否 |
-| authenticationType |指定驗證類型。 允許的值：**Basic**、**SshPublicKey**。 <br><br> 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |是 |
+| authenticationType |指定驗證類型。 允許的值：**Basic**、**SshPublicKey**。 <br><br> 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |yes |
 | skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 沒有。 預設值：false |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 `skipHostKeyValidation` 設為 false，則為 [是]。  |
 | gatewayName |要連線至內部部署 SFTP 伺服器的資料管理閘道名稱。 | 如果從內部部署 SFTP 伺服器複製資料，則為 [是]。 |
@@ -66,8 +66,8 @@ ms.locfileid: "54017645"
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- | --- |
-| username | 可存取 SFTP 伺服器的使用者。 |是 |
-| password | 使用者 (使用者名稱) 的密碼。 | 是 |
+| username | 可存取 SFTP 伺服器的使用者。 |yes |
+| password | 使用者 (使用者名稱) 的密碼。 | yes |
 
 #### <a name="example-basic-authentication"></a>範例：基本驗證
 ```json
@@ -116,7 +116,7 @@ ms.locfileid: "54017645"
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- | --- |
-| username |可存取 SFTP 伺服器的使用者 |是 |
+| username |可存取 SFTP 伺服器的使用者 |yes |
 | privateKeyPath | 指定閘道可以存取之私密金鑰檔案的絕對路徑。 | 指定 `privateKeyPath` 或 `privateKeyContent`。 <br><br> 僅當從內部部署 SFTP 伺服器複製資料時才套用。 |
 | privateKeyContent | 私密金鑰內容的序列化字串。 複製精靈可以讀取私密金鑰檔案，並自動解壓縮私密金鑰內容。 如果您使用任何其他工具/SDK，請改為使用 privateKeyPath 屬性。 | 指定 `privateKeyPath` 或 `privateKeyContent`。 |
 | passPhrase | 如果金鑰檔案受到複雜密碼保護，請指定複雜密碼/密碼以將私密金鑰解密。 | 如果私密金鑰檔案受到複雜密碼保護，則為 [是]。 |
@@ -172,7 +172,7 @@ ms.locfileid: "54017645"
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| folderPath |資料夾的子路徑。 使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 |
+| folderPath |資料夾的子路徑。 使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 如需範例，請參閱「範例連結服務和資料集定義」。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |yes |
 | fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
 | fileFilter |指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<br/><br/>允許的值為︰`*` (多個字元) 和 `?` (單一字元)。<br/><br/>範例 1：`"fileFilter": "*.log"`<br/>範例 2：`"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter 適用於輸入 FileShare 資料集。 這個屬性不支援使用 HDFS。 |否 |
 | partitionedBy |partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。 例如，folderPath 可針對每小時的資料進行參數化。 |否 |
@@ -205,7 +205,7 @@ ms.locfileid: "54017645"
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },

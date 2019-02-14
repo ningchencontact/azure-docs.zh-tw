@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265204"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766007"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>整合多個 Azure 監視器 Application Insights 資源 
-本文說明如何集中一處查詢和檢視所有 Application Insights 應用程式記錄檔資料，即使它們位於不同的 Azure 訂用帳戶中，以取代淘汰的 Application Insights Connector。  
+本文說明如何集中一處查詢和檢視所有 Application Insights 應用程式記錄檔資料，即使它們位於不同的 Azure 訂用帳戶中，以取代淘汰的 Application Insights Connector。 您在單一查詢中可納入的資源 (Application Insights 資源) 數目上限為 100 個。  
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>查詢多個 Application Insights 資源的建議方法 
 在查詢中列出多個 Application Insights 資源可能很麻煩且難以維護。 相反地，您可以利用函數將查詢邏輯與應用程序範圍分開。  
@@ -51,7 +51,20 @@ app('Contoso-app5').requests
 >
 >在此範例中，parse 運算子是選擇性的，它會從 SourceApp 屬性中擷取應用程式名稱。 
 
-您現在可以在跨資源查詢中使用 applicationsScoping 函數。 函式別名會從所有定義的應用程式傳送要求的聯集。 接著，查詢會篩選失敗的要求，並依應用程式將趨勢視覺化。 ![跨查詢結果範例](media/unify-app-resource-data/app-insights-query-results.png)
+您現在可以在跨資源查詢中使用 applicationsScoping 函數：  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+函式別名會從所有定義的應用程式傳送要求的聯集。 接著，查詢會篩選失敗的要求，並依應用程式將趨勢視覺化。
+
+![跨查詢結果範例](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>跨 Application Insights 資源和工作區資料查詢 
 當您停止連接器並需要在 Application Insights 資料保留期 (90 天) 修剪的時間範圍內執行查詢時，您需要在工作區和 Application Insights 資源上執行[跨資源查詢](../../azure-monitor/log-query/cross-workspace-query.md)一段時間。 這是在您的應用程式資料按照上述新的 Application Insights 資料保留累積之前。 由於 Application Insights 與工作區中的結構描述不同，因此查詢會需要一些操作。 請參閱本節稍後反白顯示結構描述差異的表格。 

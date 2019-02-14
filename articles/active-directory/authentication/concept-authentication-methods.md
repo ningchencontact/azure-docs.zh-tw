@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7951044f850d93659ca458d3bcc46376e7e6b34a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2720d239c31a0cbfab215c7e297627c9f0d8c781
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077347"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510233"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
@@ -171,6 +171,8 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 視 CSV 檔案的大小而定，可能需要數分鐘的時間來處理。 按一下 [重新整理] 按鈕來取得目前的狀態。 如果檔案中有任何錯誤，您可以選擇下載 CSV 檔案，當中會列出需要您解決的任何錯誤。
 
 一旦已解決任何錯誤後，系統管理員可以接著按一下 [啟動] 來啟動每個金鑰，以便啟動權杖及輸入權杖上顯示的 OTP。
+
+使用者可設定最多 5 個 OATH 硬體權杖或驗證器應用程式 (例如 Microsoft Authenticator 應用程式) 的組合，以在任何時間點使用。
 
 ## <a name="mobile-phone"></a>行動電話
 

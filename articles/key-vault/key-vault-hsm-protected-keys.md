@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: a53e37cf2ac99dcd755f71e9a2a236f27832fbd7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079199"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693879"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰
 
@@ -260,6 +260,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
    ```
 
 此程式會在 %NFAST_KMDATA%\local\world 建立**安全世界**檔案，並對應到 C:\ProgramData\nCipher\Key Management Data\local 資料夾。 您可以使用不同的值進行仲裁，但是在我們的範例中，系統會提示您輸入三個空白的卡片和其個別的 pin。 然後，任兩張卡片可提供安全世界的完整存取權。 這些卡片將成為新安全世界的 **系統管理員卡組** 。
+
+> [!NOTE]
+> 如果您的 HSM 支援較新的 cypher 套件 DLf3072s256mRijndael，您可以使用 --cipher-suite=DLf3072s256mRijndael 取代 --cipher-suite=DLf1024s160mRijndael
 
 然後執行以下動作：
 

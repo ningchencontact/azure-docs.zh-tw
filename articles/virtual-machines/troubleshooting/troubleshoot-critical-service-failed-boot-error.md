@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: d8140966f3ba8674938a4e21b0990371390d3516
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070927"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813784"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>將 Azure VM 重新開機時，Windows 會在藍色畫面上顯示 "CRITICAL SERVICE FAILED"
 本文說明當您在 Microsoft Azure 中將 Windows 虛擬機器 (VM) 開機時可能發生的 "CRITICAL SERVICE FAILED" 錯誤。 文中會提供疑難排解步驟，以協助解決問題。 
 
 > [!NOTE] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用「資源管理員」部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用「資源管理員」部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
 ## <a name="symptom"></a>徵狀 
 
 Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.md)中的開機螢幕擷取畫面時，您會在藍色畫面中看到下列其中一項錯誤訊息：
 
-- 「您的電腦發生問題，並需要重新啟動。 您可以重新啟動。 如需此問題及可能修正的詳細資訊，請前往 http://windows.com/stopcode。 若您連絡支援人員，請向其提供此資訊: 停止代碼: CRITICAL SERVICE FAILED」 
-- 「您的電腦發生問題，並需要重新啟動。 我們只會收集一些錯誤資訊，然後會為您重新啟動。 若要深入了解，您可稍後線上搜尋此錯誤: CRITICAL_SERVICE_FAILED」
+- 「您的電腦發生問題，並需要重新啟動。 您可以重新啟動。 如需此問題及可能修正的詳細資訊，請前往 http://windows.com/stopcode。 如果您連絡支援人員，請提供此資訊：停止代碼：CRITICAL SERVICE FAILED" 
+- 「您的電腦發生問題，並需要重新啟動。 我們只會收集一些錯誤資訊，然後會為您重新啟動。 若要深入了解，您可稍後在線上搜尋此錯誤：CRITICAL_SERVICE_FAILED」
 
 ## <a name="cause"></a>原因
 
@@ -93,7 +93,7 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [將 OS 磁碟中斷連結，然後將 OS 磁碟重新連結至受影響的 VM](troubleshoot-recovery-disks-portal-windows.md)。 VM 會開機進入安全模式。 若錯誤持續發生，請前往[選用步驟](#optional-analysis-the-dump-logs-in-boot-debug-mode)。
+2. [將 OS 磁碟中斷連結，然後將 OS 磁碟重新連結至受影響的 VM](troubleshoot-recovery-disks-portal-windows.md)。 VM 會開機進入安全模式。 若錯誤持續發生，請前往選用步驟。
 3. 開啟 [執行] 方塊，並執行 [驗證器] 以啟動磁碟機驗證器管理工具。
 4. 選取 [自動選取未簽署的驅動程式]，然後按一下 [下一步]。
 5. 您會取得未簽署的驅動程式檔案清單。 記下檔案名稱。
@@ -138,7 +138,7 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
 9. [將 OS 磁碟中斷連結，然後將 OS 磁碟重新連結至受影響的 VM](troubleshoot-recovery-disks-portal-windows.md)。
 10. 將 VM 開機，以查看其是否顯示傾印分析。 尋找無法載入的檔案。 您需要以運作中 VM 的檔案取代此檔案。 
 
-    下列是傾印分析範例。 您可看到 **FAILURE** 位於 filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys" 上。
+    下列是傾印分析範例。 您可以在 filecrypt.sys 上看到**失敗**："FAILURE_BUCKET_ID:0x5A_c0000428_IMAGE_filecrypt.sys"。
 
     ```
     kd> !analyze -v 

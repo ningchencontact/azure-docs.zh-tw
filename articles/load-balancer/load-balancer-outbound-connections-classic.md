@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189994"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821502"
 ---
 # <a name="outbound-connections-classic"></a>輸出連線 (傳統)
 
@@ -39,9 +39,9 @@ Azure 提供三種不同的方法來達成輸出連線傳統部署。  並非所
 
 | 案例 | 方法 | IP 通訊協定 | 說明 | Web 背景工作角色 | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1.VM 具有執行個體層級的公用 IP 位址](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派了公用 IP 的虛擬機器。 執行個體有所有可用的暫時連接埠。 | 否 | 是 |
-| [2. 負載平衡的公用端點](#publiclbendpoint) | SNAT 與連接埠偽裝 (PAT)，連至公用端點 | TCP、UDP | Azure 會與多個私人端點共用公用 IP 位址的公用端點。 Azure 使用公用端點的暫時連接埠來進行 PAT。 | 是 | 是 |
-| [3.獨立 VM](#defaultsnat) | SNAT 與連接埠偽裝 (PAT) | TCP、UDP | Azure 會自動指定 SNAT 的公用 IP 位址，與整個部署共用此公用 IP 位址，並使用此公用端點 IP 位址的暫時連接埠來進行 PAT。 這是上述案例的後援案例。 如果您需要可見性和控制權，則不建議使用此方式。 | 是 | 是 |
+| [1.VM 具有執行個體層級的公用 IP 位址](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派了公用 IP 的虛擬機器。 執行個體有所有可用的暫時連接埠。 | 否 | yes |
+| [2. 負載平衡的公用端點](#publiclbendpoint) | SNAT 與連接埠偽裝 (PAT)，連至公用端點 | TCP、UDP | Azure 會與多個私人端點共用公用 IP 位址的公用端點。 Azure 使用公用端點的暫時連接埠來進行 PAT。 | yes | yes |
+| [3.獨立 VM](#defaultsnat) | SNAT 與連接埠偽裝 (PAT) | TCP、UDP | Azure 會自動指定 SNAT 的公用 IP 位址，與整個部署共用此公用 IP 位址，並使用此公用端點 IP 位址的暫時連接埠來進行 PAT。 這是上述案例的後援案例。 如果您需要可見性和控制權，則不建議使用此方式。 | yes | yes |
 
 這是 Azure 中 Resource Manager 部署可使用之輸出連線功能的子集。  
 
@@ -54,9 +54,9 @@ Azure 提供三種不同的方法來達成輸出連線傳統部署。  並非所
 
 [風險降低策略](#snatexhaust)也有相同的差異。
 
-用於傳統部署之 PAT 的[預先配置暫時連接埠](#ephemeralports)的演算法，與用於 Azure Resource Manager 資源部署的演算法相同。
+用於傳統部署之 PAT 的預先配置暫時連接埠的演算法，與用於 Azure Resource Manager 資源部署的演算法相同。
 
-### <a name="ilpip"></a>案例 1：VM 具有執行個體層級的公用 IP 位址
+### <a name="ilpip"></a>案例 1：具有執行個體層級公用 IP 位址的 VM
 
 在此案例中，VM 具有指派給它的執行個體層級公用 IP (ILPIP)。 就輸出連線而言，VM 是否有負載平衡的端點並不重要。 此案例的優先順序高於其他案例。 使用 ILPIP 時，VM 會針對所有輸出流程使用 ILPIP。  
 
@@ -74,13 +74,13 @@ Azure 提供三種不同的方法來達成輸出連線傳統部署。  並非所
 
 SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 它們是可能耗盡的有限資源。 請務必了解[取用](#pat)它們的方式。 若要了解如何針對此取用方式進行設計及視需要降低風險，請檢閱[管理 SNAT 耗盡](#snatexhaust)。
 
-當存在[多個負載平衡的公用端點](load-balancer-multivip.md)時，這些公用 IP 位址都是[輸出流程的候選項](#multivipsnat)，會隨機選取其中一個。  
+當存在[多個負載平衡的公用端點](load-balancer-multivip.md)時，這些公用 IP 位址都是輸出流程的候選項，會隨機選取其中一個。  
 
 ### <a name="defaultsnat"></a>案例 3：沒有相關聯的公用 IP 位址
 
 在此案例中，VM 或 Web 背景工作角色不屬於負載平衡的公用端點。  對 VM 來說，系統沒有指派任何 ILPIP 位址給它。 當 VM 建立輸出流程時，Azure 會將輸出流量的公用來源 IP 位址轉譯為私用來源 IP 位址。 此輸出流量所用的公用 IP 位址無法進行設定，而且不利於訂用帳戶的公用 IP 資源限制。  Azure 會自動配置此位址。
 
-Azure 會使用 SNAT 搭配位址偽裝 ([PAT](#pat)) 來執行此功能。 這個案例類似於[案例 2](#lb)，差別在於沒有所使用 IP 位址的控制權。 這是案例 1 和 2 不存在時的後援案例。 如果您想要能夠控制輸出位址，則不建議採用此案例。 如果輸出連線對您的應用程式很重要，您應該選擇其他案例。
+Azure 會使用 SNAT 搭配位址偽裝 ([PAT](#pat)) 來執行此功能。 這個案例類似於案例 2，差別在於沒有所使用 IP 位址的控制權。 這是案例 1 和 2 不存在時的後援案例。 如果您想要能夠控制輸出位址，則不建議採用此案例。 如果輸出連線對您的應用程式很重要，您應該選擇其他案例。
 
 SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。  共用公用 IP 位址之 VM 或 Web 背景工作角色的數目，會決定預先配置的臨時連接埠數目。   請務必了解[取用](#pat)它們的方式。 若要了解如何針對此取用方式進行設計及視需要降低風險，請檢閱[管理 SNAT 耗盡](#snatexhaust)。
 
@@ -104,7 +104,7 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 Azure 會使用演算法在使用連接埠偽裝 SNAT ([PAT](#pat)) 時，根據後端集區的大小決定可用的預先配置 SNAT 連接埠數目。 SNAT 連接埠是可供特定公用 IP 來源位址使用的暫時連接埠。
 
-部署執行個體時，Azure 會根據有多少個 VM 或 Web 背景工作角色執行個體共用指定的公用 IP 位址，預先配置 SNAT 連接埠。  建立輸出流程時，[PAT](#pat) 會動態取用 (最多可達預先配置的限制) 這些連接埠，並且在流程關閉或[閒置逾時](#ideltimeout)時釋出這些連接埠。
+部署執行個體時，Azure 會根據有多少個 VM 或 Web 背景工作角色執行個體共用指定的公用 IP 位址，預先配置 SNAT 連接埠。  建立輸出流程時，[PAT](#pat) 會動態取用 (最多可達預先配置的限制) 這些連接埠，並且在流程關閉或閒置逾時時釋出這些連接埠。
 
 下表說明各個後端集區大小層級的 SNAT 連接埠預先配置：
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728477"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488402"
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
 
@@ -109,7 +109,7 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 
 下表列出 STRIDE 威脅，並提供一些使用 Azure 功能的範例風險降低措施。 這些風險降低措施並非能在各個情況下運作。
 
-| Threat | 安全性屬性 | 潛在的 Azure 平台移轉 |
+| Threat | 安全性屬性 | 潛在的 Azure 平台風險降低 |
 | --- | --- | --- |
 | 詐騙 | 驗證 | 需要 HTTPS 連線。 |
 | 竄改 | 完整性 | 驗證 SSL 憑證。 |

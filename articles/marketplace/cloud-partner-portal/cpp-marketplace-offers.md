@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d6879c6b9be06af4bb289761cc8f26b7e56d18e
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355126"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658703"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure 與 AppSource Marketplace 供應項目
 
@@ -47,6 +47,7 @@ ms.locfileid: "54355126"
 | [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | 透過銷售、服務、專案服務及現場服務模組擴充此資源管理 (CRM) 系統的套件。  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | 擴充此企業資源規劃 (ERP) 服務的套件，ERP 可支援進階財務、營運、製造和供應鏈管理。 |
 | [IoT Edge 模組](./iot-edge-module/cpp-offer-process-parts.md) | Azure | 在 IoT Edge 裝置上執行且與 Docker 相容的容器。  其包含使用自訂程式碼、其他 Azure 服務和第 3 方服務組合的小型計算模組。 |
+| [Power BI 應用程式](./power-bi/cpp-power-bi-offer.md) | AppSource | 使用資料流程將報告和儀表板連線至常用資料儲存體中所含資料的套件。 |
 | [SaaS 應用程式](./saas-app/cpp-saas-offer.md) | Azure | 解決方案是由發行者管理的軟體即服務訂用帳戶，使用者會透過運用 Azure Active Directory 技術的自訂介面來登入此訂用帳戶。 |
 | [虛擬機器](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | 解決方案包含在部署至客戶訂用帳戶的單一虛擬機器內。  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |

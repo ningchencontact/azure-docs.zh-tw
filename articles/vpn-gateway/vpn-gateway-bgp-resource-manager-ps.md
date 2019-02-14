@@ -1,5 +1,5 @@
 ---
-title: '在 Azure VPN 閘道上設定 BGP：Resource Manager: PowerShell | Microsoft Docs'
+title: 在 Azure VPN 閘道上設定 BGP：Resource Manager：PowerShell | Microsoft Docs
 description: 本文將逐步引導您使用 Azure Resource Manager 和 PowerShell 來設定 BGP 與 Azure VPN 閘道。
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b48382c8f429576a3d15c624c9c9028cffec3872
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632580"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813019"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>如何使用 PowerShell 在 Azure VPN 閘道上設定 BGP
 本文將逐步引導您進行使用 Resource Manager 部署模型和 PowerShell 在跨單位網站間 (S2S) VPN 連線和 VNet 對 VNet 連線上啟用 BGP 的步驟。
@@ -35,7 +35,7 @@ BGP 是常用於網際網路的標準路由通訊協定，可交換兩個或多�
 本文將逐步引導您完成執行下列作業的步驟：
 
 * [第 1 部份 - 在 Azure VPN 閘道上啟用 BGP](#enablebgp)
-* [第 2 部份 – 建立與 BGP 的跨單位連線](#crossprembgp)
+* 第 2 部份 – 建立與 BGP 的跨單位連線
 * [第 3 部份 – 建立與 BGP 的 VNet 對 VNet 連線](#v2vbgp)
 
 指示的每個部分均構成基本建置組塊，可供在您的網路連線中啟用 BGP。 如果您完成上述三個部分，將建置如下圖所示的拓撲︰
@@ -174,7 +174,7 @@ $BGPPeerIP5 = "10.52.255.254"
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2.建立 Site5 的區域網路閘道
 
-如果尚未建立資源群組，請務必加以建立，才能建立區域網路閘道。 請注意，區域網路閘道的兩個額外參數︰Asn 與 BgpPeerAddress。
+如果尚未建立資源群組，請務必加以建立，才能建立區域網路閘道。 請注意區域網路閘道的兩個額外參數︰Asn 和 BgpPeerAddress。
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG5 -Location $Location5

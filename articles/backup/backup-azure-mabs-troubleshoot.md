@@ -2,18 +2,18 @@
 title: 針對 Azure 備份伺服器進行疑難排解
 description: 針對安裝、註冊「Azure 備份伺服器」以及備份和還原應用程式工作負載進行疑難排解。
 services: backup
-author: pvrk
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/24/2017
-ms.author: pullabhk
-ms.openlocfilehash: 657fa71a47f3a7899596e3be35482abb56c6f37c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: kasinh
+ms.openlocfilehash: 830bf8603a495d1f2708f73cf090695f1b7a7c48
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260511"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493927"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
 
@@ -47,7 +47,7 @@ ms.locfileid: "51260511"
 | 將代理程式推送至受保護的伺服器 | 代理程式作業因為 \<ServerName> 上的「DPM 代理程式協調員」服務發生通訊錯誤而失敗。 | **如果產品所示的建議動作沒有用，請執行下列步驟**： <ul><li> 如果您要連結來自不受信任網域的電腦，請依照[這些步驟](https://technet.microsoft.com/library/hh757801(v=sc.12).aspx)進行操作。 <br> (或) </li><li> 如果您要連結來自受信任網域的電腦，請使用[這個部落格](https://blogs.technet.microsoft.com/dpm/2012/02/06/data-protection-manager-agent-network-troubleshooting/)中概述的步驟來進行疑難排解。 <br>(或)</li><li> 嘗試停用防毒功能來作為疑難排解步驟。 如果這能解決問題，請修改[這篇文章](https://technet.microsoft.com/library/hh757911.aspx)中建議的防毒設定。</li></ul> |
 | 將代理程式推送至受保護的伺服器 | 為伺服器指定的認證無效。 | **如果產品所示的建議動作沒有用，請執行下列步驟**： <br> 如[這篇文章](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual)所指定，嘗試手動將保護代理程式安裝在生產伺服器上。|
 | Azure 備份代理程式無法連線到 Azure 備份服務 (ID：100050) | Azure 備份代理程式無法連線到 Azure 備份服務。 | **如果產品所示的建議動作沒有用，請執行下列步驟**： <br>1.從已提升權限的提示字元中執行下列命令︰**psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**。 這會開啟 Internet Explorer 視窗。 <br/> 2.移至 [工具] > [網際網路選項] > [連線] > [LAN 設定]。 <br/> 3.確認系統帳戶的 Proxy 設定。 設定 Proxy IP 和連接埠。 <br/> 4.關閉 Internet Explorer。|
-| Azure 備份代理程式安裝失敗 | Microsoft Azure 復原服務安裝失敗。 「Microsoft Azure 復原服務」安裝作業對系統所做的所有變更都已復原。 (ID：4024) | 手動安裝「Azure 代理程式」。
+| Azure 備份代理程式安裝失敗 | Microsoft Azure 復原服務安裝失敗。 「Microsoft Azure 復原服務」安裝作業對系統所做的所有變更都已復原。 (識別碼：4024) | 手動安裝「Azure 代理程式」。
 
 
 ## <a name="configuring-protection-group"></a>設定保護群組
@@ -56,7 +56,7 @@ ms.locfileid: "51260511"
 | 設定保護群組 | DPM 無法列舉受保護電腦 (受保護的電腦名稱) 上的應用程式元件。 | 在相關資料來源/元件層級的設定保護群組 UI 畫面上，選取 [重新整理]。 |
 | 設定保護群組 | 無法設定保護 | 如果受保護的伺服器是 SQL Server，請確認是否已將 sysadmin 角色權限提供給受保護電腦上的系統帳戶 (NTAuthority\System)，如[這篇文章](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx)所述。
 | 設定保護群組 | 此保護群組在儲存體集區中的可用空間不足。 | 新增至儲存體集區的磁碟[不應包含分割區](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx)。 刪除磁碟上的任何現有磁碟區。 然後將它們新增至儲存體集區。|
-| 原則變更 |無法修改備份原則。 錯誤：由於發生內部服務錯誤 [0x29834]，導致目前的作業失敗。 請在一段時間之後重試此作業。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |**原因：**<br/>在三種情況下會發生此錯誤：已啟用安全性設定時、嘗試將保留範圍縮減至低於先前指定的最小值時，以及使用不支援的版本時。 (不支援的版本係指低於「Microsoft Azure 備份伺服器」2.0.9052 版和「Azure 備份伺服器」更新 1 的版本)。 <br/>**建議的動作：**<br/> 若要繼續進行原則相關的更新，請將保留期設定成大於所指定的最短保留期。 (最短保留期就每日而言是 7 天、就每週而言是 4 週、就每月而言是 3 個月，或就每年而言則是 1 年)。 <br><br>(選擇性) 另一個慣用的方法是更新備份代理程式和「Azure 備份伺服器」，以利用所有安全性更新。 |
+| 原則變更 |無法修改備份原則。 Error:由於發生內部服務錯誤 [0x29834]，導致目前的操作失敗。 請在一段時間之後重試此作業。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |**原因：**<br/>在三種情況下會發生此錯誤：已啟用安全性設定時、嘗試將保留範圍縮減至低於先前指定的最小值時，以及使用不支援的版本時。 (不支援的版本係指低於「Microsoft Azure 備份伺服器」2.0.9052 版和「Azure 備份伺服器」更新 1 的版本)。 <br/>**建議的動作：**<br/> 若要繼續進行原則相關的更新，請將保留期設定成大於所指定的最短保留期。 (最短保留期就每日而言是 7 天、就每週而言是 4 週、就每月而言是 3 個月，或就每年而言則是 1 年)。 <br><br>(選擇性) 另一個慣用的方法是更新備份代理程式和「Azure 備份伺服器」，以利用所有安全性更新。 |
 
 ## <a name="backup"></a>Backup 
 | 作業 | 錯誤詳細資料 | 因應措施 |
@@ -83,4 +83,4 @@ ms.locfileid: "51260511"
 ## <a name="configure-email-notifications"></a>設定電子郵件通知
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| 使用 Office 365 帳戶來設定電子郵件通知 |錯誤 ID：2013| **原因：**<br> 嘗試使用 Office 365 帳戶 <br>**建議的動作：**<ol><li> 所要確保的第一件事就是在 Exchange 上已設定 DPM 伺服器的「允許接收連接器上的匿名轉送」。 如需有關如何進行這項設定的詳細資訊，請參閱 TechNet 上的[允許接收連接器上的匿名轉送](https://technet.microsoft.com/library/bb232021.aspx)。</li> <li> 如果您無法使用內部 SMTP 轉送，而需要使用 Office 365 伺服器來進行設定，您可以將 IIS 設定為轉送。 請將 DPM 伺服器設定為[使用 IIS 將 SMTP 轉送至 O365](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx)。<br><br> **重要：** 請務必使用 user@domain.com 格式，而「不是」 domain\user。<br><br><li>將 DPM 指向為使用本機伺服器名稱作為 SMTP 伺服器、連接埠 587。 然後將它指向應作為電子郵件來源的使用者電子郵件。<li> DPM SMTP 設定頁面上的使用者名稱和密碼應該用於 DPM 所在網域的網域帳戶。 </li><br> **注意**：變更 SMTP 伺服器位址時，請對新設定進行變更、關閉 [設定] 方塊，然後重新開啟它來確定它反映新的值。  只是變更和測試不一定會讓新設定生效，因此以這種方式測試是最佳做法。<br><br>在進行此程序的期間，您可以隨時關閉 DPM 主控台並編輯下列登錄機碼來清除這些設定W：**HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 刪除 SMTPPassword 和 SMTPUserName 機碼**。 您可以在再次啟動它時，將它們加回到 UI 中。
+| 使用 Office 365 帳戶來設定電子郵件通知 |錯誤識別碼：2013| **原因：**<br> 嘗試使用 Office 365 帳戶 <br>**建議的動作：**<ol><li> 所要確保的第一件事就是在 Exchange 上已設定 DPM 伺服器的「允許接收連接器上的匿名轉送」。 如需有關如何進行這項設定的詳細資訊，請參閱 TechNet 上的[允許接收連接器上的匿名轉送](https://technet.microsoft.com/library/bb232021.aspx)。</li> <li> 如果您無法使用內部 SMTP 轉送，而需要使用 Office 365 伺服器來進行設定，您可以將 IIS 設定為轉送。 請將 DPM 伺服器設定為[使用 IIS 將 SMTP 轉送至 O365](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx)。<br><br> **重要事項：** 請務必使用 user@domain.com 格式，而「不是」 domain\user。<br><br><li>將 DPM 指向為使用本機伺服器名稱作為 SMTP 伺服器、連接埠 587。 然後將它指向應作為電子郵件來源的使用者電子郵件。<li> DPM SMTP 設定頁面上的使用者名稱和密碼應該用於 DPM 所在網域的網域帳戶。 </li><br> **附註**：變更 SMTP 伺服器位址時，請對新設定進行變更、關閉 [設定] 方塊，然後重新開啟它來確定它反映新的值。  只是變更和測試不一定會讓新設定生效，因此以這種方式測試是最佳做法。<br><br>在此程序期間，您可藉由關閉 DPM 主控台並編輯下列登錄機碼，隨時清除這些設定︰**HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 刪除 SMTPPassword 和 SMTPUserName 金鑰**。 您可以在再次啟動它時，將它們加回到 UI 中。

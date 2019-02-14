@@ -9,17 +9,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103161"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563502"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>開始使用 Azure 串流分析來處理 IoT 裝置的資料
 在本教學課程中，您將學習如何建立串流處理邏輯，以從物聯網 (IoT) 裝置收集資料。 我們將使用真實世界的物聯網 (IoT) 使用案例以示範如何快速且經濟地建置您的解決方案。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)
 * 範例查詢和資料檔案可從 [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
@@ -103,7 +103,7 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
 如您所見，現在結果只包含 245 個資料列，以及平均溫度高於 100 的感應器名稱。 此查詢會依據 **dspl** 分組事件串流，dspl 是感應器名稱，而**輪轉視窗**為 30 秒。 暫時查詢必須指明我們要如何讓時間前進。 使用 **TIMESTAMP BY** 子句，我們已指定 **OUTPUTTIME** 資料行來將時間與所有暫時計算相關聯。 如需詳細資訊，請閱讀有關[時間管理](https://msdn.microsoft.com/library/azure/mt582045.aspx)和[時間範圍函式](https://msdn.microsoft.com/library/azure/dn835019.aspx)的 MSDN 文章。
 
 ### <a name="query-detect-absence-of-events"></a>查詢：偵測不存在的事件
-我們要如何撰寫查詢來尋找輸入不足事件？ 讓我們找出上次感應器在傳送資料後，但是接下來 5 秒鐘未傳送事件的情形。 查詢位於 AbsenseOfEvent.txt 檔案中。
+我們要如何撰寫查詢來尋找輸入不足事件？ 讓我們找出上次感應器在傳送資料後，但是接下來 5 秒鐘未傳送事件的情形。 查詢位於 AbsenceOfEvent.txt 檔案中。
 
 ![偵測不存在的事件](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

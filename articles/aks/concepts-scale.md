@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e460df8c4841a23c76ef8d7b254938ce46a2b45
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380495"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819105"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中調整應用程式的選項
 
@@ -23,7 +23,7 @@ ms.locfileid: "49380495"
 - [手動調整](#manually-scale-pods-or-nodes)
 - [水平 Pod 自動調整程式 (HPA)](#horizontal-pod-autoscaler)
 - [叢集自動調整程式](#cluster-autoscaler)
-- [將 AKS 與 Azure 容器執行個體 (ACI) 整合](#burst-to-azure-container-instance)
+- 將 AKS 與 Azure 容器執行個體 (ACI) 整合
 
 ## <a name="manually-scale-pods-or-nodes"></a>手動調整 Pod 或節點
 
@@ -65,7 +65,7 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 
 當叢集自動調整程式注意到因節點集區資源限制而無法排定 Pod 時，會增加節點集區內的節點數目，以提供額外的計算資源。 當這些額外的節點已成功部署且可供在節點集區內使用時，就會將 Pod 排程在節點上執行。
 
-如果您必須快速調整應用程式，某些 Pod 會維持在等候排程的狀態，直到由叢集自動調整程式部署的其他節點可以接受排程的 Pod 為止。 對於具有高載需求的應用程式，您可以[使用虛擬節點與 Azure 容器執行個體進行調整](#burst-to-azure-container-instance)。
+如果您必須快速調整應用程式，某些 Pod 會維持在等候排程的狀態，直到由叢集自動調整程式部署的其他節點可以接受排程的 Pod 為止。 對於具有高載需求的應用程式，您可以使用虛擬節點與 Azure 容器執行個體進行調整。
 
 ### <a name="scale-down-events"></a>相應減少事件
 

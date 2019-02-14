@@ -4,21 +4,19 @@ description: 使用宣告式 JSON 語法描述 Azure Resource Manager 範本的�
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc817302ab39d12ccd1d1a20d4dd72f94352c796
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722137"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695623"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的參數區段
 在範本的 parameters 區段中，您會指定可在部署資源時輸入的值。 提供針對特定環境 (例如開發、測試和生產環境) 量身訂做的參數值，可讓您自訂部署。 您不必在範本中提供參數，但若沒有參數，您的範本一律會部署具有相同名稱、位置和屬性的相同資源。
@@ -85,15 +83,15 @@ ms.locfileid: "53722137"
 
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
-| parameterName |是 |參數名稱。 必須是有效的 JavaScript 識別碼。 |
-| type |是 |參數值類型。 允許的類型和值為 **string**、**securestring**、**int**、**bool**、**object**、**secureObject**，以及 **array**。 |
+| parameterName |yes |參數名稱。 必須是有效的 JavaScript 識別碼。 |
+| type |yes |參數值類型。 允許的類型和值為 **string**、**securestring**、**int**、**bool**、**object**、**secureObject**，以及 **array**。 |
 | defaultValue |否 |如果未提供參數值，則會使用參數的預設值。 |
 | allowedValues |否 |參數的允許值陣列，確保提供正確的值。 |
 | minValue |否 |int 類型參數的最小值，含此值。 |
 | maxValue |否 |int 類型參數的最大值，含此值。 |
 | minLength |否 |字串、securestring 及陣列類型參數長度的最小值，含此值。 |
 | maxLength |否 |字串、securestring 及陣列類型參數長度的最大值，含此值。 |
-| 說明 |否 |透過入口網站向使用者顯示的參數說明。 |
+| 說明 |否 |透過入口網站向使用者顯示的參數說明。 如需詳細資訊，請參閱[範本中的註解](resource-group-authoring-templates.md#comments)。 |
 
 ## <a name="template-functions-with-parameters"></a>使用參數的範本函式
 

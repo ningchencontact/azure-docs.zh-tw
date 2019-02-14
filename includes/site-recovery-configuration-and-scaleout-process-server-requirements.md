@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: ade53ba29d165b3b33ef25dabda25c4e60022608
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4346b347994f49774584caf31a96ff2f81fdc0e1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133383"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701211"
 ---
 **組態/處理序伺服器需求**
 
@@ -36,13 +36,24 @@ IIS | - 沒有預先存在的預設網站 <br> - 沒有預先存在的網站/應
 | 
 **網路設定** | 
 IP 位址類型 | 靜態 
-網際網路存取 | 伺服器需要存取這些 URL (直接或透過 Proxy)： <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF 也需要存取下列 URL： <br> - https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 連接埠 | 443 (控制通道協調流程)<br>9443 (資料傳輸) 
 NIC 類型 | VMXNET3 (如果組態伺服器是 VMware 虛擬機器)
- | 
+ |
+**網際網路存取** (伺服器需要能夠以直接的方式或透過 Proxy 存取下列 URL)：|
+\*.backup.windowsazure.com | 用於所複寫資料的轉送和協調
+\*.store.core.windows.net | 用於所複寫資料的轉送和協調
+\*.blob.core.windows.net | 用於存取儲存體帳戶來儲存複寫的資料
+\*.hypervrecoverymanager.windowsazure.com | 用於複寫管理作業和協調
+https:\//management.azure.com | 用於複寫管理作業和協調 
+*.services.visualstudio.com | 用於遙測目的 (此為選擇性項目)
+time.nist.gov | 用於檢查系統時間與通用時間之間的時間同步處理。
+time.windows.com | 用於檢查系統時間與通用時間之間的時間同步處理。
+- https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com | OVF 設定需要存取這些 URL。 其可供 Azure Active Directory 用於管理存取控制和身分識別
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | 完成 MySQL 下載
+|
 **要安裝的軟體** | 
 VMware vSphere PowerCLI | 如果組態伺服器在 VMware 虛擬機器上執行，則應該安裝 [PowerCLI 6.0 版](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1)。
-MySQL | 應該安裝 MySQL。 您可以手動安裝，或者 Site Recovery 可以安裝。
+MySQL | 應該安裝 MySQL。 您可以手動安裝，或者 Site Recovery 可以安裝。 (如需詳細資訊，請參閱[進行設定](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings))
 
 **組態/處理序伺服器調整大小需求**
 

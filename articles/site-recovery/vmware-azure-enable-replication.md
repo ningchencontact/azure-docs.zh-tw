@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226328"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822777"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
@@ -43,7 +43,7 @@ ms.locfileid: "55226328"
 2. 在 [來源] 頁面 > [來源] 中，選取組態伺服器。
 3. 在 [機器類型] 中，選取 [虛擬機器] 或 [實體機器]。
 4. 在 [vCenter/vSphere Hypervisor] 中，選取管理 vSphere 主機的 vCenter 伺服器，或選取主機。 如果您是複寫實體機器，則這個設定不相關。
-5. 如果您尚未建立任何額外的處理序伺服器，則選取處理序伺服器，將是設定伺服器的名稱。 然後按一下 [確定]。
+5. 如果您尚未建立任何額外的處理序伺服器，則選取處理序伺服器，將是設定伺服器的名稱。 然後按一下 [確定] 。
 
     ![啟用複寫來源](./media/vmware-azure-enable-replication/enable-replication2.png)
 
@@ -56,14 +56,14 @@ ms.locfileid: "55226328"
     >   * 您可以選取進階或標準儲存體帳戶。 如果選取進階帳戶，您需要針對進行中的複寫記錄檔，額外指定一個標準儲存體帳戶。 帳戶必須位於與復原服務保存庫相同的區域中。
     >   * 如果您想使用不同的儲存體帳戶，您可以[建立一個](../storage/common/storage-create-storage-account.md)。 若要使用 Resource Manager 建立儲存體帳戶，請按一下 [新建]。 
 
-8. 選取 Azure VM 在容錯移轉後啟動時所要啟動的 Azure 網路和子網路。 此網路必須位於與復原服務保存庫相同的區域中。 選取 [立即設定選取的機器]，將網路設定套用至您選取要進行保護的所有機器。 選取 [稍後設定] 以選取每部機器的 Azure 網路。 如果您沒有網路，則必須[建立一個](#set-up-an-azure-network)。 若要使用 Resource Manager 建立網路，請按一下 [新建]。 選取子網路 (如果適用的話)，然後按一下 [確定]。
+8. 選取 Azure VM 在容錯移轉後啟動時所要啟動的 Azure 網路和子網路。 此網路必須位於與復原服務保存庫相同的區域中。 選取 [立即設定選取的機器]，將網路設定套用至您選取要進行保護的所有機器。 選取 [稍後設定] 以選取每部機器的 Azure 網路。 如果您沒有網路，則必須建立一個。 若要使用 Resource Manager 建立網路，請按一下 [新建]。 選取子網路 (如果適用的話)，然後按一下 [確定]。
 
     ![啟用複寫目標設定](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後按一下 [確定]。 如果您無法檢視/選取任何特定虛擬機器，請按一下[這裡](https://aka.ms/doc-plugin-VM-not-showing)以解決問題。
+9. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後按一下 [確定] 。 如果您無法檢視/選取任何特定虛擬機器，請按一下[這裡](https://aka.ms/doc-plugin-VM-not-showing)以解決問題。
 
     ![啟用複寫選取虛擬機器](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. 在 [屬性] > [設定屬性] 中，選取處理序伺服器要用來在電腦上自動安裝行動服務的帳戶。  
-11. 依預設會複寫所有磁碟。 若要將磁碟從複寫中排除，按一下 [所有磁碟]，然後清除任何您不想要複寫的磁碟。  然後按一下 [確定]。 您可以稍後再設定其他屬性。 [深入了解](vmware-azure-exclude-disk.md)排除磁碟。
+11. 依預設會複寫所有磁碟。 若要將磁碟從複寫中排除，按一下 [所有磁碟]，然後清除任何您不想要複寫的磁碟。  然後按一下 [確定] 。 您可以稍後再設定其他屬性。 [深入了解](vmware-azure-exclude-disk.md)排除磁碟。
 
     ![啟用複寫設定屬性](./media/vmware-azure-enable-replication/enable-replication6.png)
 

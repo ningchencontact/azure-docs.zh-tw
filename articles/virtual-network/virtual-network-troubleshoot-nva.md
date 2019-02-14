@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 0d5b345936f6c931f4210e6dc50f94544a52f571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678435"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700565"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的網路虛擬設備問題
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 61bc9da45ac420e5683be1ea3ad253eae9c0ba5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158936"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657734"
 ---
 # <a name="set-up-a-device-template"></a>設定裝置範本
 
@@ -39,6 +39,8 @@ ms.locfileid: "50158936"
 
 > [!NOTE]
 > 只有建置者和系統管理員可以建立、編輯和刪除裝置範本。 任何使用者都可以在 [Device Explorer] 頁面，透過現有裝置範本來建立裝置。
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="create-a-device-template"></a>建立裝置範本
 
@@ -84,7 +86,7 @@ ms.locfileid: "50158936"
 ### <a name="create-an-event-measurement"></a>建立事件量測
 若要新增事件量測值，請選取 [Edit Template] \(編輯範本\)，然後按一下 [+ New Measurement] \(+ 新增量測值\) 按鈕。 選取 [事件] 作為量測類型，然後在 [建立事件] 表單上輸入詳細資料。
 
-提供事件的 [顯示名稱]、[欄位名稱] 及 [嚴重性]。 可供選擇的嚴重性層級有三個 - [錯誤]、[警告] 及 [資訊]。  
+提供事件的 [顯示名稱]、[欄位名稱] 及 [嚴重性]。 您可以從三個可用的嚴重性層級選擇：[錯誤]、[警告] 和 [資訊]。  
 
 例如，您可以新增 [風扇馬達錯誤] 事件。
 
@@ -136,7 +138,7 @@ ms.locfileid: "50158936"
 
 - **已同步處理**：裝置已變更來反映設定值。
 
-- **擱置**：裝置目前正在變更為設定值。
+- **Pending**：裝置目前正在變更為設定值。
 
 - **錯誤**：裝置傳回錯誤。
 
@@ -236,7 +238,7 @@ ms.locfileid: "50158936"
 
 * **設定**：設定是您想要在裝置套用的設定，並且會希望裝置保存該設定，直到您變更該設定為止。 例如，您想要設定冰箱的溫度，並且希望即使冰箱重新啟動也保有該設定。 
 
-* **命令**：您會使用命令從 IoT Central 以遠端方式在裝置上立即執行命令。 如果裝置未連線，命令就會逾時並失敗。 例如，您想要重新啟動某個裝置。  
+* **命令**：您會使用命令從 IoT Central 自遠端在裝置上立即執行命令。 如果裝置未連線，命令就會逾時並失敗。 例如，您想要重新啟動某個裝置。  
 
 
 例如，您可以選取 [Editing Template] \(編輯範本\)，然後按一下 [+ 新增命令]，接著輸入新命令，來新增新的 **Echo** 命令：

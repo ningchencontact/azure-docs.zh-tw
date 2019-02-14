@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 805df837d5d33c5f21799e39145c62e71afdb4b5
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 8ae55028bbc44a9383be6723f9bc6d39787cca45
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231388"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767298"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 本文說明適用於 Azure 串流分析作業的不同輸出類型。 輸出可讓您存放並儲存串流分析作業的結果。 透過使用輸出資料，您可以對資料進行進一步的商務分析及資料倉儲處理。
@@ -91,7 +91,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 儲存體帳戶     | 您傳送輸出的儲存體帳戶名稱。               |
 | 儲存體帳戶金鑰 | 與儲存體帳戶相關聯的密碼金鑰。                              |
 | 儲存體容器   | 容器提供邏輯分組給儲存在 Microsoft Azure Blob 服務中的 blob。 當您將 blob 上傳至 Blob 服務時，您必須指定該 blob 的容器。 |
-| 路徑格式 | 選用。 用來在指定容器中寫入 Blob 的檔案路徑模式。 <br /><br /> 在路徑模式中，您也可以選擇使用日期時間變數的一或多個執行個體，來指定 blob 的寫入頻率： <br /> {date}、{time} <br /><br />如果您使用這個 [Azure 入口網站連結](https://portal.azure.com/?microsoft_azure_streamanalytics_bloboutputpathpartitioning=true&Microsoft_Azure_StreamAnalytics_bloboutputcontainerpartitioning=true)來存取自訂 Blob 分割預覽，便可以從您的事件資料指定一個自訂 {field} 名稱至分割區 Blob。 欄位名稱是英數字元，可以包含空格、連字號和底線。 自訂欄位的限制包含下列各項： <ul><li>不區分大小寫 (無法分辨資料行 "ID" 和資料行 "id")</li><li>不允許巢狀欄位 (改為在作業查詢中使用別名來「壓平」欄位)</li><li>運算式不能作為欄位名稱使用。</li></ul> <br /><br /> 預覽也允許在路徑中使用自訂日期/時間格式的指定名稱設定。 自訂日期和時間格式一次只能指定一項，兩側必須加上 {datetime:\<specifier>} 關鍵字。 允許輸入的 \<specifier> 為 yyyy、MM、M、dd、d、HH、H、mm、m、ss 或 s。 {datetime:\<specifier>} 關鍵字能在路徑中使用多次，以構成自訂日期/時間設定。 <br /><br />範例： <ul><li>範例 1：cluster1/logs/{date}/{time}</li><li>範例 2：cluster1/logs/{date}</li><li>範例 3 (預覽)：cluster1/{client_id}/{date}/{time}</li><li>範例 4 (預覽)：cluster1/{datetime:ss}/{myField}，其中查詢為：SELECT data.myField AS myField FROM Input;</li><li>範例 5 (預覽)：cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />所建立的資料夾結構時間戳記遵循 UTC 而非當地時間。<br /><br />檔案命名會遵循下列慣例： <br /><br />{路徑前置詞模式}/schemaHashcode_Guid_Number.extension<br /><br />範例輸出檔案︰<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> 如需此預覽的詳細資訊，請造訪 [Azure 串流分析 Blob 儲存體輸出的自訂日期時間路徑模式 (預覽)](stream-analytics-custom-path-patterns-blob-storage-output.md)。 |
+| 路徑格式 | 選用。 用來在指定容器中寫入 Blob 的檔案路徑模式。 <br /><br /> 在路徑模式中，您也可以選擇使用日期時間變數的一或多個執行個體，來指定 blob 的寫入頻率： <br /> {date}、{time} <br /><br />您可以使用自訂 Blob 資料分割，指定事件資料中的一個自訂 {field} 名稱來分割 Blob。 欄位名稱是英數字元，可以包含空格、連字號和底線。 自訂欄位的限制包含下列各項： <ul><li>不區分大小寫 (無法分辨資料行 "ID" 和資料行 "id")</li><li>不允許巢狀欄位 (改為在作業查詢中使用別名來「壓平」欄位)</li><li>運算式不能作為欄位名稱使用。</li></ul> <br /><br /> 這項功能允許在路徑中使用自訂日期/時間格式的指定名稱設定。 自訂日期和時間格式一次只能指定一項，兩側必須加上 {datetime:\<specifier>} 關鍵字。 允許輸入的 \<specifier> 為 yyyy、MM、M、dd、d、HH、H、mm、m、ss 或 s。 {datetime:\<specifier>} 關鍵字能在路徑中使用多次，以構成自訂日期/時間設定。 <br /><br />範例： <ul><li>範例 1：cluster1/logs/{date}/{time}</li><li>範例 2：cluster1/logs/{date}</li><li>範例 3：cluster1/{client_id}/{date}/{time}</li><li>範例 4：cluster1/{datetime:ss}/{myField}，其中查詢為：SELECT data.myField AS myField FROM Input;</li><li>範例 5：cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />所建立的資料夾結構時間戳記遵循 UTC 而非當地時間。<br /><br />檔案命名會遵循下列慣例： <br /><br />{路徑前置詞模式}/schemaHashcode_Guid_Number.extension<br /><br />範例輸出檔案︰<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> 如需有關這項功能的詳細資訊，請瀏覽 [Azure 串流分析自訂 Blob 輸出資料分割](stream-analytics-custom-path-patterns-blob-storage-output.md)。 |
 | 日期格式 | 選用。 如果前置詞路徑中使用日期權杖，您可以選取組織檔案要用的日期格式。 範例：YYYY/MM/DD |
 | 時間格式 | 選用。 如果前置詞路徑中使用時間權杖，請指定組織檔案要用的時間格式。 目前唯一支援的值為 HH。 |
 | 事件序列化格式 | 輸出資料的序列化格式。 支援 JSON、CSV 和 Avro。 |
@@ -173,7 +173,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 bigint | Int64
 nvarchar(max) | 字串
 Datetime | DateTime
-float | 兩倍
+float | Double
 記錄陣列 | 字串類型、常數值 "IRecord" 或 "IArray"
 
 ### <a name="schema-update"></a>更新結構描述
@@ -182,10 +182,10 @@ float | 兩倍
 應該避免 `SELECT *` 查詢，以防止跨越資料列的動態結構描述更新。 除了潛在的效能影響以外，也可能導致結果所花費的時間不定。 應選取必須顯示在 Power BI 儀表板上的確切欄位。 此外，資料值應該與所選的資料類型相符。
 
 
-先前/目前 | Int64 | 字串 | DateTime | 兩倍
+先前/目前 | Int64 | 字串 | DateTime | Double
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | 字串 | 字串 | 兩倍
-兩倍 | 兩倍 | 字串 | 字串 | 兩倍
+Int64 | Int64 | 字串 | 字串 | Double
+Double | Double | 字串 | 字串 | Double
 字串 | 字串 | 字串 | 字串 |  | 字串 |
 DateTime | 字串 | 字串 |  DateTime | 字串
 
@@ -298,15 +298,15 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Az
 
 | 輸出類型 | 支援分割 | 資料分割索引鍵  | 輸出寫入器數目 |
 | --- | --- | --- | --- |
-| Azure Data Lake Store | 是 | 在路徑前置詞模式中使用 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
-| 連接字串 | 是 | 以查詢中的 PARTITION BY 子句為依據 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 若要深入了解如何在將資料載入 Azure SQL Database 時達到更佳寫入輸送效能，請造訪 [Azure 串流分析輸出至 Azure SQL Database](stream-analytics-sql-output-perf.md)。 |
-| Azure Blob 儲存體 | 是 | 使用來自路徑模式中事件欄位的 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 在[預覽](https://aka.ms/ASApreview1)當中，可依照單一自訂事件屬性 {fieldname} 或 {datetime:\<specifier>} 分割 Blob 輸出。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
-| Azure 事件中樞 | 是 | 是 | 根據分割區對齊方式而有所不同。<br /> 當輸出事件中樞分割區索引鍵與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和輸出事件中樞分割區的數目相同。 每個寫入器都會使用事件中樞的 [EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)來將事件傳送至特定的分割區。 <br /> 當輸出事件中樞分割區索引鍵沒有與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和先前步驟中的分割區數目相同。 每個寫入器會使用 EventHubClient [SendBatchAsync 類別](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) \(英文\) 來將事件傳送至所有輸出分割區。 |
+| Azure Data Lake Store | yes | 在路徑前置詞模式中使用 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
+| 連接字串 | yes | 以查詢中的 PARTITION BY 子句為依據 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 若要深入了解如何在將資料載入 Azure SQL Database 時達到更佳寫入輸送效能，請造訪 [Azure 串流分析輸出至 Azure SQL Database](stream-analytics-sql-output-perf.md)。 |
+| Azure Blob 儲存體 | yes | 使用來自路徑模式中事件欄位的 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 您可依照單一自訂事件屬性 {fieldname} 或 {datetime:\<specifier>} 分割 Blob 輸出。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
+| Azure 事件中樞 | yes | yes | 根據分割區對齊方式而有所不同。<br /> 當輸出事件中樞分割區索引鍵與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和輸出事件中樞分割區的數目相同。 每個寫入器都會使用事件中樞的 [EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)來將事件傳送至特定的分割區。 <br /> 當輸出事件中樞分割區索引鍵沒有與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和先前步驟中的分割區數目相同。 每個寫入器會使用 EventHubClient [SendBatchAsync 類別](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) \(英文\) 來將事件傳送至所有輸出分割區。 |
 | Power BI | 否 | None | 不適用。 |
-| Azure 資料表儲存體 | 是 | 任何輸出資料行。  | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
-| Azure 服務匯流排主題 | 是 | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。| 與輸出主題中的分割區數目相同。  |
-| Azure 服務匯流排佇列 | 是 | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。| 與輸出佇列中的分割區數目相同。 |
-| Azure Cosmos DB | 是 | 在集合名稱模式中使用 {partition} 權杖。 {partition} 值是根據查詢中讀得 PARTITION BY 子句。 | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
+| Azure 資料表儲存體 | yes | 任何輸出資料行。  | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
+| Azure 服務匯流排主題 | yes | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。| 與輸出主題中的分割區數目相同。  |
+| Azure 服務匯流排佇列 | yes | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。| 與輸出佇列中的分割區數目相同。 |
+| Azure Cosmos DB | yes | 在集合名稱模式中使用 {partition} 權杖。 {partition} 值是根據查詢中讀得 PARTITION BY 子句。 | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | Azure Functions | 否 | None | 不適用。 |
 
 如果您的輸出配接器尚未分割，在某個輸入分割區中缺少資料的情況下，將會導致最多為延遲傳入時間長度的延遲。  在這種情況下，輸出會合併為單一寫入器，這可能會在您的管線中產生瓶頸。 若要深入了解延遲傳入原則，請造訪 [Azure 串流分析事件的順序考量](stream-analytics-out-of-order-and-late-events.md)。

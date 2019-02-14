@@ -1,25 +1,23 @@
 ---
-title: 在 Azure Active Directory 中檢視和指派系統管理員角色權限 | Microsoft Docs
+title: 檢視和指派系統管理員角色權限 - Azure Active Directory | Microsoft Docs
 description: 您現在可以查看和管理入口網站中的 Azure AD 系統管理員角色成員。 針對經常管理角色指派的人員。
 services: active-directory
-documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 267b9f7c6dcdc994345371a0884db3c1271f56bd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 296fd6edc7f8ca029ea78e86aa605166ba2f585d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198158"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511066"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中檢視和指派系統管理員角色
 

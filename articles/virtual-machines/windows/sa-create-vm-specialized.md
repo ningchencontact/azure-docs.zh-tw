@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: da1fa2b182888e623f8df734c9119e208433e2bd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 0de7979edd741a7e4a1dc3354a8dc895929a9532
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012704"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811676"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>從儲存體帳戶中的特製化 VHD 建立 VM
 
@@ -61,7 +61,7 @@ Install-Module AzureRM.Compute
 Get-AzureRmStorageAccount
 ```
 
-如果您想要使用現有的儲存體帳戶，請移至[上傳 VM 映像](#upload-the-vm-vhd-to-your-storage-account)一節。
+如果您想要使用現有的儲存體帳戶，請移至「上傳 VM 映像」一節。
 
 如果您需要建立儲存體帳戶，請依照下列步驟操作：
 
@@ -125,7 +125,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 ### <a name="deallocate-the-vm"></a>解除配置 VM
 解除配置 VM，這會釋出要複製的 VHD。 
 
-* **入口網站**︰ 按一下 [虛擬機器]  >  [myVM] > [停止]
+* **入口網站**：按一下 [虛擬機器] > [myVM] > [停止]
 * **Powershell**：使用 [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) 來停止 (解除配置) **myResourceGroup** 資源群組中名為 **myVM** 的 VM。
 
 ```powershell
@@ -139,7 +139,7 @@ Azure 入口網站中 VM 的 [狀態] 會從 [已停止] 變更為 [已停止 (�
 
 您可以使用 Azure 入口網站或 Azure PowerShell 來取得 URL：
 
-* **入口網站**︰按一下 **>**[所有服務] > [儲存體帳戶] > *儲存體帳戶* > [Blob]，而您的來源 VHD 檔可能在 **vhds** 容器中。 按一下容器的 [屬性]，複製標示為[URL] 的文字。 您會需要來源和目的地容器的 URL。 
+* **入口網站**：按一下 **>**[所有服務] > [儲存體帳戶] > *儲存體帳戶* > [Blob]，而您的來源 VHD 檔可能在 **vhds** 容器中。 按一下容器的 [屬性]，複製標示為[URL] 的文字。 您會需要來源和目的地容器的 URL。 
 * **Powershell**：使用 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) 來取得 **myResourceGroup** 資源群組中名為 **myVM** 之 VM 的資訊。 在結果中，查看 [儲存體設定檔] 區段的 [VHD URI]。 URI 的第一個部分是容器的 URL，最後一個部分是 VM 的作業系統 VHD 名稱。
 
 ```powershell
@@ -149,7 +149,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>取得儲存體存取金鑰
 找出來源和目的地儲存體帳戶的存取金鑰。 如需存取金鑰的詳細資訊，請參閱 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)。
 
-* **入口網站**︰按一下 [所有服務]  > [儲存體帳戶]  > [儲存體帳戶] > [存取金鑰]。 複製標示為 [金鑰1] 的金鑰。
+* **入口網站**：按一下 [所有服務]  > [儲存體帳戶]  > [儲存體帳戶] > [存取金鑰]。 複製標示為 [金鑰1] 的金鑰。
 * **Powershell**：使用 [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 來取得 **myResourceGroup** 資源群組中 **mystorageaccount** 儲存體帳戶的儲存體金鑰。 複製標示 [金鑰1] 的金鑰。
 
 ```powershell
@@ -284,7 +284,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
     $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
-選擇性︰如果您有資料磁碟需要附加至 VM，請使用資料 VHD 的 URL 和適當的邏輯單元編號 (Lun) 新增資料磁碟。
+選用：如果您有資料磁碟需要附加至 VM，請使用資料 VHD 的 URL 和適當的邏輯單元編號 (Lun) 新增資料磁碟。
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"

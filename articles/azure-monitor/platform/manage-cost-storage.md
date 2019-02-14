@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3372d399c339133fc0ee3dbfd031ec3c4c03cc3b
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901152"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821468"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>管理 Log Analytics 的使用量和成本
 
@@ -112,7 +112,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 3. 在 [定價層] 下方選取定價層，然後按一下 [選取]。  
     ![選取的定價方案](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-如果您想要將工作區移至目前的定價層，則需要[在 Azure 監視器中變更訂用帳戶的監視定價模型](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model)，這將變更該訂用帳戶中所有工作區的定價層。
+如果您想要將工作區移至目前的定價層，則需要[在 Azure 監視器中變更訂用帳戶的監視定價模型](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model)，這將變更該訂用帳戶中所有工作區的定價層。
 
 > [!NOTE]
 > 如果您的工作區連結到自動化帳戶，必須先刪除任何**自動化和控制**解決方案以及取消連結自動化帳戶，才可以選取 [獨立 (每 GB)] 定價層。 在 [工作區] 刀鋒視窗的 [一般] 之下，按一下 [解決方案] 以查看和刪除解決方案。 若要取消連結自動化帳戶，請按一下 [定價層] 刀鋒視窗上的自動化帳戶名稱。
@@ -128,7 +128,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 |收集停止的原因| 解決方法| 
 |-----------------------|---------|
 |已達舊版免費定價層的每日限制 |請等到隔天自動重新開始收集，或變更為付費定價層。|
-|已達您工作區的每日上限|等到自動重新開始收集或提高每日資料量限制，如[管理每日資料量上限](#manage-the-maximum-daily-volume)中所述。 每日上限重設時間會顯示於 [資料量管理] 頁面上。 |
+|已達您工作區的每日上限|等到自動重新開始收集或提高每日資料量限制，如「管理每日資料量上限」中所述。 每日上限重設時間會顯示於 [資料量管理] 頁面上。 |
 |Azure 訂用帳戶處於暫停狀態，原因如下：<br> 免費試用已結束<br> Azure Pass 已過期<br> 已達每月消費限制 (例如 MSDN 或 Visual Studio 訂閱)|轉換成付費訂閱<br> 移除限制，或等到限制重設|
 
 若要在資料收集停止時收到通知，請使用「建立每日資料上限」警示中所述的步驟，並使用「將動作新增至警示規則」中所述的步驟，來設定警示規則的電子郵件、Webhook 或 Runbook 動作。 
@@ -231,7 +231,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 
 | 高資料量的來源 | 如何縮減資料量 |
 | -------------------------- | ------------------------- |
-| 安全性事件            | 選取[一般或最小安全性事件](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> 變更安全性稽核原則為只收集所需事件。 特別檢閱下列原則是否需要收集事件： <br> - [a稽核篩選平台](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [稽核登錄](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [稽核檔案系統](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [稽核核心物件](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [稽核控制代碼操作](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 稽核抽取式存放裝置 |
+| 安全性事件            | 選取[一般或最小安全性事件](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> 變更安全性稽核原則為只收集所需事件。 特別檢閱下列原則是否需要收集事件： <br> - [a稽核篩選平台](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [稽核登錄](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [稽核檔案系統](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [稽核核心物件](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [稽核控制代碼操作](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 稽核抽取式存放裝置 |
 | 效能計數器       | 變更[效能計數器組態](data-sources-performance-counters.md)以： <br> - 減少收集頻率 <br> - 減少效能計數器的數目 |
 | 事件記錄檔                 | 變更[事件記錄組態](data-sources-windows-events.md)以： <br> - 減少所收集的事件記錄數目 <br> - 只收集必要的事件層級。 例如，不要收集「資訊」層級事件 |
 | syslog                     | 變更 [Syslog 組態](data-sources-syslog.md)以： <br> - 減少所收集的設施數目 <br> - 只收集必要的事件層級。 例如，不要收集「資訊」和「偵錯」層級事件 |

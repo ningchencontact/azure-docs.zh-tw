@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7d1a4e6b1093344d1217e8577a56f34cd3c1f52c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289455"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734329"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>使用 REST API 建立 Azure 復原服務保存庫
 
@@ -29,7 +29,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>建立要求
 
-若要建立 *PUT* 要求，`{subscription-id}` 是必要參數。 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)。 您需針對資源定義 `{resourceGroupName}` 和 `{vaultName}`，以及定義 `api-version` 參數。 本文使用 `api-version=2016-06-01`。
+若要建立 *PUT* 要求，`{subscription-id}` 是必要參數。 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 您需針對資源定義 `{resourceGroupName}` 和 `{vaultName}`，以及定義 `api-version` 參數。 本文使用 `api-version=2016-06-01`。
 
 以下是必要標頭：
 
@@ -44,7 +44,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 以下是用來建立要求本文的常用定義：
 
-|名稱  |必要  |類型  |說明  |
+|Name  |必要  |類型  |說明  |
 |---------|---------|---------|---------|
 |etag     |         |   字串      |  選擇性 eTag       |
 |location     |  true       |字串         |   資源位置      |
@@ -72,7 +72,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 建立或更新復原服務保存庫的作業會有兩個成功的回應：
 
-|名稱  |類型  |說明  |
+|Name  |類型  |說明  |
 |---------|---------|---------|
 |200 確定     |   [保存庫](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Created     | [保存庫](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   建立時間      |

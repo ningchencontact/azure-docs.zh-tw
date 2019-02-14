@@ -1,21 +1,18 @@
 ---
-ms.assetid: ''
 title: Azure Key Vault - 如何以 PowerShell 使用虛刪除
 description: 以 PowerShell 程式碼片段進行虛刪除的使用案例範例
-services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: 99f81e14ca631eccee154a5658bf717cbe07b3da
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: c979d6eccd5c185d89252302b40fdd674e3c5916
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364365"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657496"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何使用 Key Vault 虛刪除與 PowerShell
 
@@ -80,7 +77,7 @@ New-AzureRmKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Locatio
 Get-AzureRmKeyVault -VaultName "ContosoVault"
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>刪除虛刪除所保護的金鑰保存庫
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>刪除虛刪除所保護的金鑰保存庫
 
 用以刪除金鑰保存庫行為變更的命令，取決於是否啟用虛刪除。
 
@@ -97,7 +94,7 @@ Remove-AzureRmKeyVault -VaultName 'ContosoVault'
 
 - 已刪除的金鑰保存庫會從其資源群組中移除，並放置於與其建立所在位置相關聯的保留命名空間中。 
 - 已刪除的物件 (例如金鑰、祕密和憑證) 都無法存取，而且只要其包含金鑰保存庫處於已刪除狀態便無法存取。 
-- 系統會保留已刪除金鑰的 DNS 名稱，以免建立同名的金鑰保存庫。  
+- 系統會保留已刪除金鑰的 DNS 名稱，以免建立同名的金鑰保存庫。  
 
 您可以檢視與您的訂用帳戶建立關聯的已刪除狀態金鑰保存庫，請使用下列命令：
 
@@ -119,7 +116,7 @@ Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG
 
 復原金鑰保存庫後，則會使用使用金鑰保存庫的原始資源識別碼建立新的資源。 如果原始資源群組已遭移除，則必須會建立一個同名的資源群組，再嘗試復原。
 
-## <a name="key-vault-objects-and-soft-delete"></a>金鑰保存庫物件和虛刪除
+## <a name="deleting-and-purging-key-vault-objects"></a>刪除並清除金鑰保存庫物件
 
 下列命令會在名為 'ContosoVault' 的金鑰保存庫中，刪除已啟用虛刪除的 'ContosoFirstKey' 金鑰：
 
@@ -201,17 +198,22 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## <a name="purging-and-key-vaults"></a>清除金鑰保存庫
+## <a name="purging-a-soft-delete-protected-key-vault"></a>清除虛刪除所保護的金鑰保存庫
 
-### <a name="key-vault-objects"></a>金鑰保存庫物件
+> [!IMPORTANT]
+> 清除金鑰保存庫或其內含的物件之一，就會永久刪除它，這表示無法復原！
 
-清除金鑰、祕密或憑證，會導致永久刪除而且無法復原。 不過，包含已刪除之物件的金鑰保存庫會維持不變，金鑰保存庫中的所有其他物件也是。 
+清除函式用來永久刪除金鑰保存庫物件或整個金鑰保存庫，也就是先前虛刪除的項目。 如上一節所示範，儲存在已啟用虛刪除功能的金鑰保存庫中的物件可能經歷多個狀態：
 
-### <a name="key-vaults-as-containers"></a>金鑰保存庫作為容器
-清除金鑰保存庫後，它的整個內容 (包括金鑰、祕密和憑證) 都會永久刪除。 若要清除金鑰保存庫，請使用 `Remove-AzureRmKeyVault` 命令與 `-InRemovedState` 選項，並使用 `-Location location` 引數指定已刪除之金鑰保存庫的位置。 您可以使用命令 `Get-AzureRmKeyVault -InRemovedState` 找到已刪除之保存庫的位置。
+- **作用中**：刪除之前。
+- **虛刪除**：刪除之後，能夠列出並復原回到作用中狀態。
+- **永久刪除**：清除之後，無法復原。
 
->[!IMPORTANT]
->清除金鑰保存庫會永久刪除它，這表示它將無法復原！
+同樣的作法也適用於金鑰保存庫。 若要永久刪除虛刪除的金鑰保存庫及其內容，您必須清除金鑰保存庫本身。
+
+### <a name="purging-a-key-vault"></a>清除金鑰保存庫
+
+清除金鑰保存庫後，它的整個內容 (包括金鑰、祕密和憑證) 都會永久刪除。 若要清除虛刪除的金鑰保存庫，請使用 `Remove-AzureRmKeyVault` 命令搭配 `-InRemovedState` 選項，並使用 `-Location location` 引數指定已刪除金鑰保存庫的位置。 您可以使用命令 `Get-AzureRmKeyVault -InRemovedState` 找到已刪除之保存庫的位置。
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus

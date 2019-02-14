@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554532"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692705"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>使用適用於 MySQL 的 Azure 資料庫的商務持續性概觀
 
@@ -50,6 +50,6 @@ ms.locfileid: "53554532"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解自動備份，請參閱[適用於 MySQL 的 Azure 資料庫中的備份](concepts-backup.md)。
-- 若要使用 Azure 入口網站還原至某個時間點，請參閱 [使用 Azure 入口網站將資料庫還原至時間點](howto-restore-server-portal.md)。
-- 若要使用 Azure CLI 還原至某個時間點，請參閱 [使用 CLI 將資料庫還原至時間點](howto-restore-server-cli.md)。
+- 深入了解[適用於 MySQL 的 Azure 資料庫中的自動備份](concepts-backup.md)。
+- 了解如何使用 [Azure 入口網站](howto-restore-server-portal.md)或 [Azure CLI](howto-restore-server-cli.md) 來進行還原。
+- 了解[適用於 MySQL 的 Azure 資料庫中的讀取複本](concepts-read-replicas.md)。

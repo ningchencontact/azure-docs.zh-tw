@@ -4,17 +4,17 @@ description: 了解 IoT Edge 裝置及模組針對延長時間期間無網際網
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/20/2018
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4c4713bade487ba46f1abdc6d0a76db3e81e38b1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096939"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699341"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>了解 IoT Edge 裝置、模組及子裝置的延伸離線功能 (預覽)
 
@@ -25,7 +25,7 @@ Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，也可以讓非 
 
 ## <a name="how-it-works"></a>運作方式
 
-當 IoT Edge 裝置進入離線模式時，Edge 中樞便會擔任三個角色。 首先，它會儲存任何可能前往上游的訊息，並會持續儲存到裝置重新連線為止。 其次，它會代替 IoT 中樞驗證模組及子裝置，使其能繼續執行。 第三，它可在子裝置之間進行平常需要透過 IoT 中樞進行的通訊。 
+當 IoT Edge 裝置進入離線模式時，IoT Edge 中樞便會擔任三個角色。 首先，它會儲存任何可能前往上游的訊息，並會持續儲存到裝置重新連線為止。 其次，它會代替 IoT 中樞驗證模組及子裝置，使其能繼續執行。 第三，它可在子裝置之間進行平常需要透過 IoT 中樞進行的通訊。 
 
 下列範例示範 IoT Edge 案例於離線模式執行的方式：
 
@@ -39,7 +39,7 @@ Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，也可以讓非 
 
 3. **離線。**
 
-   從 IoT 中樞中斷連線時，IoT Edge 裝置、其部署的模組，以及任何子 IoT 裝置都能無限期的繼續執行。 模組及子裝置可在離線狀態時，透過向 Edge 中樞進行驗證來啟動或重新啟動。 至 IoT 中樞的遙測繫結上游會儲存在本機。 模組或子 IoT 裝置之間的通訊則會透過直接方法或訊息維持。 
+   從 IoT 中樞中斷連線時，IoT Edge 裝置、其部署的模組，以及任何子 IoT 裝置都能無限期的繼續執行。 模組及子裝置可在離線狀態時，透過向 IoT Edge 中樞進行驗證來啟動或重新啟動。 至 IoT 中樞的遙測繫結上游會儲存在本機。 模組或子 IoT 裝置之間的通訊則會透過直接方法或訊息維持。 
 
 4. **重新連線並與 IoT 中樞再次進行同步處理。**
 
@@ -55,7 +55,7 @@ Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，也可以讓非 
 
 IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理之後，於離線狀態下無限期運作。但是，儲存訊息則取決於存留時間 (TTL) 設定及可用於儲存訊息的磁碟空間。 
 
-## <a name="set-up-an-edge-device"></a>設定 Edge 裝置
+## <a name="set-up-an-iot-edge-device"></a>設定 IoT Edge 裝置
 
 針對要將其延伸離線功能延伸至子 IoT 裝置的 IoT Edge 裝置，您需要在 Azure 入口網站中宣告父子關聯。
 
@@ -71,7 +71,7 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
 
 若要改善穩定性，建議您指定您環境中使用的 DNS 伺服器位址。 例如，在 Linux 上，更新 **/etc/docker/daemon.json** (您可能需要建立檔案) 來包含：
 
-```
+```json
 {
     "dns": [“1.1.1.1”]
 }
@@ -82,13 +82,13 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
 
 ## <a name="optional-offline-settings"></a>選擇性離線設定
 
-若您預期裝置將在長時間內處於離線狀態，並且想要在這之後收集所有期間產生的訊息，請設定 Edge 中樞，使其能夠儲存所有訊息。 您有兩個變更選項，可讓 Edge 中樞儲存長期訊息。 首先請增加存留時間設定，然後為訊息儲存體新增額外的磁碟空間。 
+若您預期在裝置長時間離線的期間，收集其產生的所有訊息，請設定 IoT Edge 中樞，使其能夠儲存所有訊息。 您有兩個變更選項，可讓 IoT Edge 中樞儲存長期訊息。 首先，增加存留時間的設定。 然後，增加額外的磁碟空間來儲存訊息。 
 
 ### <a name="time-to-live"></a>存留時間
 
 存留時間設定是在過期前，訊息所能等待傳遞的時間長度。 預設為 7200 秒 (兩小時)。 
 
-此設定是 Edge 中樞的所需設定，會儲存在模組對應項中。 您可以在 Azure 入口網站的 [設定進階 Edge 執行階段設定] 區段內，或是直接於部署資訊清單中設定它。 
+此設定是 IoT Edge 中樞的所需設定，會儲存在模組對應項中。 您可以在 Azure 入口網站的 [設定進階 Edge 執行階段設定] 區段內，或是直接於部署資訊清單中設定它。 
 
 ```json
 "$edgeHub": {
@@ -104,16 +104,25 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
 
 ### <a name="additional-offline-storage"></a>其他離線儲存體
 
-根據預設，訊息會儲存在 Edge 中樞的容器檔案系統。 若該儲存體數量不足以應付您的離線需求，您可以在 IoT Edge 裝置上專用本機存放區。 您需要為 Edge 中樞建立環境變數，指向容器中的儲存體資料夾。 然後，使用建立選項，將該儲存體資料夾與主機電腦上的資料夾繫結。 
+根據預設，訊息會儲存在 IoT Edge 中樞的容器檔案系統。 若該儲存體數量不足以應付您的離線需求，您可以在 IoT Edge 裝置上專用本機存放區。 為 IoT Edge 中樞建立環境變數，指向容器中的儲存體資料夾。 然後，使用建立選項，將該儲存體資料夾與主機電腦上的資料夾繫結。 
 
-您可以在 Azure 入口網站內的 [設定進階 Edge 執行階段設定] 區段設定環境變數及建立 Edge 中樞模組的選項。 或者，您也可以在部署資訊清單中直接設定。 
+您可以在 Azure 入口網站內的 [設定進階 Edge 執行階段設定] 區段設定環境變數及建立 IoT Edge 中樞模組的選項。 或者，您也可以在部署資訊清單中直接設定。 
 
 ```json
 "edgeHub": {
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": {
+            "HostConfig": {
+                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
+                "PortBindings": {
+                    "8883/tcp": [{"HostPort":"8883"}],
+                    "443/tcp": [{"HostPort":"443"}],
+                    "5671/tcp": [{"HostPort":"5671"}]
+                }
+            }
+        }
     },
     "env": {
         "storageFolder": {
@@ -125,7 +134,11 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
 }
 ```
 
-使用您的主機和模組儲存體路徑取代 `<HostStoragePath>` 和 `<ModuleStoragePath>`；主機和模組儲存體路徑都必須是絕對路徑。  例如，`\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` 表示主機路徑 `/etc/iotedge/storage` 會對應到容器路徑 `/iotedge/storage/`。  您也可以從 [Docker 文件](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)中找到更多有關 createOptions 的詳細資料。
+使用您的主機和模組儲存體路徑取代 `<HostStoragePath>` 和 `<ModuleStoragePath>`；主機和模組儲存體路徑都必須是絕對路徑。 在建立選項中，將主機和模組儲存體路徑繫結在一起。 接著，建立指向模組儲存體路徑的環境變數。  
+
+例如，`"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` 表示您主機系統上的 **/etc/iotedge/storage** 目錄會對應至容器上的 **/iotedge/storage/** 目錄。 或是再以 Windows 系統舉一個例子，`"Binds":["C:\\temp:C:\\contemp]"` 表示您主機系統上的 **C:\\temp** 目錄會對應至容器上的 **C:\\contemp** 目錄。 
+
+您也可以從 [Docker 文件](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)中找到更多有關建立選項的詳細資料。
 
 ## <a name="next-steps"></a>後續步驟
 

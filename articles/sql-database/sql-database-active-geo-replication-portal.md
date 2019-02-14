@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/30/2019
+ms.openlocfilehash: 18e786ba45e476df2ab223a47f1b77ef6b778d7f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468898"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657768"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 入口網站中為 Azure SQL Database 設定主動式異地複寫，並起始容錯移轉
 
@@ -32,7 +32,7 @@ ms.locfileid: "55468898"
 * Azure SQL Database：您想要複寫到不同地理區域的主要資料庫。
 
 > [!Note]
-主動式異地複寫必須是在相同訂用帳戶內的資料庫之間進行。
+使用 Azure 入口網站時，您只能在與主要資料庫相同的訂用帳戶內建立次要資料庫。 如果次要資料庫必須在不同的訂用帳戶中，請使用 [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 或 [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)。
 
 ## <a name="add-a-secondary-database"></a>新增次要資料庫
 

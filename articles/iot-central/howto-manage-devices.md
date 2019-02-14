@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004878"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658109"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中管理裝置
 
@@ -23,6 +23,8 @@ ms.locfileid: "51004878"
 - 維護裝置的最新清查。
 - 透過變更儲存於裝置屬性中的值，將裝置中繼資料保持為最新的版本。
 - 透過從 [設定] 頁面更新特定裝置上的設定來控制裝置的行為。
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="view-your-devices"></a>檢視您的裝置
 
@@ -116,7 +118,7 @@ ms.locfileid: "51004878"
 
     [![匯出成功](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. 匯出的 CSV 檔案將會具有下列資料行資訊：**裝置識別碼、裝置名稱、裝置主要/次要金鑰，以及主要/次要憑證指紋**
+1. 匯出的 CSV 檔案將會擁有下列資料行資訊：**裝置識別碼、裝置名稱、裝置的主要/次要金鑰及主要/次要憑證指紋**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

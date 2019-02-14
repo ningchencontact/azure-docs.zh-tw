@@ -4,7 +4,7 @@ description: 了解如何使用應用程式健康狀態延伸模組，以監視�
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: rajraj
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,21 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 404d983474d6d8705838d288aaa280478043be11
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745544"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565967"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>搭配虛擬機器擴展集使用應用程式健康狀態延伸模組
 監視應用程式健康狀態是用於管理及升級部署的重要訊號。 Azure 虛擬機器擴展集支援包括[自動 OS 映像升級](virtual-machine-scale-sets-automatic-upgrade.md)的[輪流升級](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)，這些升級仰賴個別執行個體的健康狀態監視來升級您的部署。
 
 本文描述如何使用應用程式健康狀態延伸模組，以監視虛擬機器擴展集上所部署應用程式的健康狀態。
 
-## <a name="pre-requisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已熟悉以下各項：
 -   Azure 虛擬機器[延伸模組](../virtual-machines/extensions/overview.md)
 -   [修改](virtual-machine-scale-sets-upgrade-scale-set.md)虛擬機器擴展集
@@ -35,7 +35,7 @@ ms.locfileid: "53745544"
 ## <a name="when-to-use-the-application-health-extension"></a>使用應用程式健康狀態延伸模組的時機
 應用程式健康狀態延伸模組會部署在虛擬機器擴展集執行個體內部，並從擴展集執行個體內部報告 VM 健康狀態。 您可以將延伸模組設定為在應用程式端點上探查，並更新該執行個體上的應用程式狀態。 Azure 會檢查此執行個體狀態，以判斷執行個體是否適合進行升級作業。
 
-因為此延伸模組是從 VM 內報告健康狀態，所以在無法利用應用程式健康狀態探查 (其利用自訂的 Azure Load Balancer [探查](../load-balancer/load-balancer-custom-probe-overview.md)) 等外部探查的情況下，可以使用此延伸模組。
+因為此擴充功能是從 VM 內報告健康情況，所以在無法使用應用程式健康情況探查 (其利用自訂的 Azure Load Balancer [探查](../load-balancer/load-balancer-custom-probe-overview.md)) 等外部探查的情況下，可以使用此擴充功能。
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
@@ -83,7 +83,7 @@ ms.locfileid: "53745544"
 
 ### <a name="rest-api"></a>REST API
 
-下列範例會將應用程式健康狀態延伸模組 (名稱為 myHealthExtension) 新增至 extensionProfile (位於 Windows 型擴展集的擴展集模型中)。
+下列範例會將應用程式健康情況擴充功能 (名稱為 myHealthExtension) 新增至 extensionProfile (位於 Windows 型擴展集的擴展集模型中)。
 
 ```
 PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/myHealthExtension?api-version=2018-10-01`
@@ -109,9 +109,9 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-使用 [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) Cmdlet，可將應用程式健康狀態延伸模組新增至擴展集模型定義。
+使用 [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) Cmdlet，將應用程式健康情況擴充功能新增至擴展集模型定義。
 
-下列範例會將應用程式健康狀態延伸模組新增至 `extensionProfile` (位於 Windows 型擴展集的擴展集模型中)。
+下列範例會將應用程式健康情況擴充功能新增至 `extensionProfile` (位於 Windows 型擴展集的擴展集模型中)。 此範例使用新的 Az PowerShell 模組。
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -125,12 +125,12 @@ $extensionType = "ApplicationHealthWindows"
 $publisher = "Microsoft.ManagedServices"
 
 # Get the scale set object
-$vmScaleSet = Get-AzureRmVmss `
+$vmScaleSet = Get-AzVmss `
   -ResourceGroupName $vmScaleSetResourceGroup `
   -VMScaleSetName $vmScaleSetName
 
 # Add the Application Health extension to the scale set model
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmScaleSet `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
   -Name $extensionName `
   -Publisher $publisher `
   -Setting $publicConfig `
@@ -139,10 +139,12 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmScaleSet `
   -AutoUpgradeMinorVersion $True
 
 # Update the scale set
-Update-AzureRmVmss -ResourceGroupName $vmScaleSetResourceGroup `
+Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
 ```
+
+
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 使用 [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set)，可將應用程式健康狀態延伸模組新增至擴展集模型定義。

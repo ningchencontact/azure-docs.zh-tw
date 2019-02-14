@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247199"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656714"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>準備要在部署或輪替中使用的 Azure Stack PKI 憑證
+
 必須使用與 Azure Stack 憑證需求符合的屬性，來匯入和匯出[取自您所選 CA 的](azure-stack-get-pki-certs.md)憑證檔案。
 
-
 ## <a name="prepare-certificates-for-deployment"></a>準備憑證以進行部署
+
 使用下列步驟來準備及驗證 Azure Stack PKI 憑證，以用於部署新的 Azure Stack 環境，或輪替現有 Azure Stack 環境中的祕密： 
 
 ### <a name="import-the-certificate"></a>匯入憑證
@@ -83,7 +84,9 @@ ms.locfileid: "55247199"
     
     ![選項已選取的憑證匯出精靈](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. 選取 [密碼] 並提供憑證的密碼。 請記住這個密碼，因為它要作為部署參數使用。 選取 [下一步] 。
+1. 選取 [密碼] 並提供憑證的密碼。 建立符合下列密碼複雜性需求的密碼。 長度至少要有八個字元。 密碼包含至少下列其中三項：大寫字母、小寫字母、0 到 9 的數字、特殊字元，大寫和小寫字母以外的字母字元。 記下此密碼。 您會將其作為部署參數。
+
+1. 選取 [下一步] 。
 
 1. 選擇要匯出之 pfx 檔案的檔案名稱和位置。 選取 [下一步] 。
 

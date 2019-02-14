@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf9f914aeaee25cda8fd426454cb39a1afa0b4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260221"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488607"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解決資源配額的錯誤
 
 本文描述當部署資源時，可能會遇到的配額錯誤。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>徵狀
 
@@ -76,10 +78,10 @@ az vm list-usage --location "South Central US"
 
 ### <a name="powershell"></a>PowerShell
 
-針對 PowerShell，使用 **Get-AzureRmVMUsage** 命令以找出虛擬機器配額。
+針對 PowerShell，使用 **Get-AzVMUsage** 命令來找出虛擬機器配額。
 
 ```powershell
-Get-AzureRmVMUsage -Location "South Central US"
+Get-AzVMUsage -Location "South Central US"
 ```
 
 它會傳回：

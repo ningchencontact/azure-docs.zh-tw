@@ -1,7 +1,21 @@
 ---
-標題：建立情感分析模型 titleSuffix:Azure Machine Learning Studio description:如何在 Azure Machine Learning Studio 使用文字處理模組、N-Gram 或特徵雜湊服務來建立文字分析模型: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:03/14/2018
+title: 建立情感分析模型
+titleSuffix: Azure Machine Learning Studio
+description: 如何在 Azure Machine Learning Studio 使用文字前置處理、N-Gram 或特徵雜湊來建立文字分析模型
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/14/2018
+ms.openlocfilehash: 431aa2d379639b8daea2519ed643c9949102e117
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511355"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中建立情感分析模型
 

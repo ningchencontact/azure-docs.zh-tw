@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452443"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817320"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>針對 Azure 虛擬機器的遠端桌面連線進行疑難排解
 有各式各樣的原因可能導致 Windows 型 Azure 虛擬機器 (VM) 的遠端桌面通訊協定 (RDP) 連線失敗，讓您無法存取您的 VM。 問題可能與 VM 上的遠端桌面服務、網路連線或主機電腦上的遠端桌面用戶端有關。 本文將引導您完成一些可解決 RDP 連線問題的最常見方法。 
@@ -50,8 +50,8 @@ ms.locfileid: "47452443"
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>針對 RDP 問題進行疑難排解的方法
 您可以使用下列其中一種方法，針對使用 Resource Manager 部署模型建立的 VM 進行疑難排解：
 
-* [Azure 入口網站](#using-the-azure-portal) - 適用於您需要快速重設 RDP 組態或使用者認證，而且未安裝 Azure 工具時。
-* [Azure PowerShell](#using-azure-powershell) - 如果您已熟悉 PowerShell 提示字元，請使用 Azure PowerShell Cmdlet 快速重設 RDP 組態或使用者認證。
+* Azure 入口網站 - 適用於您需要快速重設 RDP 組態或使用者認證，而且未安裝 Azure 工具時。
+* Azure PowerShell - 如果您已熟悉 PowerShell 提示字元，請使用 Azure PowerShell Cmdlet 快速重設 RDP 組態或使用者認證。
 
 您也可以找到有關針對使用[傳統部署模型](#troubleshoot-vms-created-using-the-classic-deployment-model)建立的 VM 進行疑難排解的步驟。
 

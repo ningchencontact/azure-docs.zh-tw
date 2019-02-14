@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332637"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822250"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到內部部署 Oracle 或複製其中的資料
 
@@ -92,7 +92,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 3. 建立**資料集**，代表複製作業的輸入和輸出資料。 在前先前步驟的範例中，您會建立資料集，以指定您 Oracle 資料庫中包含輸入資料的資料表。 還會建立另一個資料集來指定 blob 容器和資料夾，該資料夾會保存從 Oracle 資料庫複製的資料。 針對 Oracle 專屬的資料集屬性，請參閱[資料集屬性](#dataset-properties)。
 4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在先前範例中，您使用 **OracleSource** 作為來源，以及使用 **BlobSink** 作為複製活動的接收端。 同樣地，如果您是從 Azure Blob 儲存體複製到 Oracle 資料庫，則在複製活動中使用 **BlobSource** 和 **OracleSink**。 如需 Oracle 資料庫專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)。 如需有關如何使用資料存放區作為來源或接收端的詳細資訊，請選取上一節中資料存放區的連結。
 
-使用精靈時，精靈會自動為您建立這些 Data Factory 實體的 JSON 定義：連結服務、資料集及管線。 使用工具或 API (.NET API 除外) 時，您需使用 JSON 格式來定義這些資料處理站實體。 如需相關範例，其中具有用來將資料複製到內部部署 Oracle 資料庫 (或從內部部署 Oracle 資料庫複製資料) 之 Data Factory 實體的 JSON 定義，請參閱 [JSON 範例](#json-examples-for-copying-data-to-and-from-oracle-database)。
+使用精靈時，精靈會自動為您建立這些 Data Factory 實體的 JSON 定義：連結服務、資料集及管線。 使用工具或 API (.NET API 除外) 時，您需使用 JSON 格式來定義這些資料處理站實體。 如需相關範例，其中具有用來將資料複製到內部部署 Oracle 資料庫 (或從內部部署 Oracle 資料庫複製資料) 之 Data Factory 實體的 JSON 定義，請參閱「JSON 範例」。
 
 下列各節提供 JSON 屬性的相關詳細資料，這些屬性用來定義 Data Factory 實體。
 
@@ -102,10 +102,10 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |**type** 屬性必須設為 **OnPremisesOracle**。 |是 |
+| type |**type** 屬性必須設為 **OnPremisesOracle**。 |yes |
 | driverType | 指定要用來從 Oracle 複製資料或將資料複製到 Oracle 資料庫的驅動程式。 允許的值為 **Microsoft** 和 **ODP** (預設值)。 如需驅動程式詳細資料，請參閱[支援的版本和安裝](#supported-versions-and-installation)。 | 否 |
-| connectionString | 針對 **connectionString** 屬性指定連線到 Oracle 資料庫執行個體所需的資訊。 | 是 |
-| gatewayName | 用來連線內部部署 Oracle 伺服器的閘道名稱。 |是 |
+| connectionString | 針對 **connectionString** 屬性指定連線到 Oracle 資料庫執行個體所需的資訊。 | yes |
+| gatewayName | 用來連線內部部署 Oracle 伺服器的閘道名稱。 |yes |
 
 **範例：使用 Microsoft 驅動程式**
 
@@ -601,7 +601,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 | BLOB |Byte[]<br/>(使用 Microsoft 驅動程式時，僅在 Oracle 10g 和更新版本上提供支援) |
 | CHAR |字串 |
 | CLOB |字串 |
-| 日期 |Datetime |
+| 日期 |DateTime |
 | FLOAT |Decimal，字串 (如果精確度 > 28) |
 | INTEGER |Decimal，字串 (如果精確度 > 28) |
 | 間隔年至月 |Int32 |
@@ -614,9 +614,9 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 | NVARCHAR2 |字串 |
 | RAW |Byte[] |
 | ROWID |字串 |
-| 時間戳記 |Datetime |
-| 本地時區的時間戳記 |Datetime |
-| 時區的時間戳記 |Datetime |
+| 時間戳記 |DateTime |
+| 本地時區的時間戳記 |DateTime |
+| 時區的時間戳記 |DateTime |
 | 不帶正負號的整數 |數字 |
 | VARCHAR2 |字串 |
 | XML |字串 |

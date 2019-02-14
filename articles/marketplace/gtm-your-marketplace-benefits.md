@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: bf73c3226af5b2480d52d5010058f24d912bdab5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355113"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747521"
 ---
 # <a name="your-marketplace-benefits"></a>您的市集優惠
 
@@ -61,7 +61,7 @@ Azure Marketplace 和 AppSource 中的新清單都有資格透過我們的 Micro
 若要存取這些權益，您將需要：
 
 1. 在 Azure Marketplace 或 AppSource 中發佈供應項目。
-2. 確保您已在供應項目的**連絡人資訊**部分中輸入行銷連絡人。 這應該是專用的行銷資源，而不是一個包羅萬象的別名。 (也就是避免使用 "support@"、"info@"、"marketing@" 等)
+2. 確保您已在供應項目的**連絡人資訊**部分中輸入行銷連絡人。 這應該是專用的行銷資源，而不是一個包羅萬象的別名。 (也就是避免使用 "support\@"、"info\@"、"marketing\@" 等)
 
 根據您的解決方案狀態，您將收到一封內含自助資源，或者邀請您與專門的業務開發經理進行諮詢的電子郵件。 您不需要採取任何動作即可啟始呼叫 — Marketplace 上架小組將根據您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)中提供的資訊與您連絡。
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 891ab7ce0218e3532b8e503bc9b06da04a13d2c4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d3d88c29025c1a7a40a6248d3be841a33d1b6761
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074542"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694358"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -85,7 +85,7 @@ ms.locfileid: "55074542"
 * [重設密碼 (由管理員)](#activity-type-reset-password-by-admin)：指出系統管理員從 Azure 入口網站代表使用者執行密碼重設。
 * [重設密碼 (自助式)](#activity-type-reset-password-self-service)：指出使用者已從 [Azure AD 密碼重設入口網站](https://passwordreset.microsoftonline.com)成功重設其密碼。
 * [自助式密碼重設流程活動進度](#activity-type-self-serve-password-reset-flow-activity-progress)：指出使用者在密碼重設過程中經過的每個特定步驟，例如，通過特定的密碼重設驗證關卡。
-* [解除鎖定使用者帳戶 (自助式)](#activity-type-unlock-user-account-self-service)：指出使用者已使用 Active Directory 的帳戶解除鎖定而不重設功能，成功解除鎖定其 Active Directory 帳戶，而沒有從 [Azure AD 密碼重設入口網站](https://passwordreset.microsoftonline.com)重設其密碼。
+* [解除鎖定使用者帳戶 (自助式)](#activity-type-unlock-a-user-account-self-service)：指出使用者已使用 Active Directory 的帳戶解除鎖定而不重設功能，成功解除鎖定其 Active Directory 帳戶，而沒有從 [Azure AD 密碼重設入口網站](https://passwordreset.microsoftonline.com)重設其密碼。
 * [使用者已註冊自助式密碼重設](#activity-type-user-registered-for-self-service-password-reset)：指出使用者已根據目前指定的租用戶密碼重設原則，註冊所有必要的資訊，以便能夠重設其密碼。
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>活動類型：封鎖自助式密碼重設
@@ -109,7 +109,7 @@ ms.locfileid: "55074542"
 * **活動狀態**：
   * _成功_：指出使用者已成功變更其密碼。
   * _失敗_：指出使用者變更其密碼失敗。 您可以選取該資料列，以查看 [活動狀態原因] 類別，深入了解失敗發生的原因。
-* **活動狀態失敗原因**： 
+* **活動狀態失敗原因**：
   * _FuzzyPolicyViolationInvalidPassword_：使用者選取的密碼自動被禁用，因為 Microsoft 的禁用密碼偵測功能發現此密碼太普通或太弱。
 
 ### <a name="activity-type-reset-password-by-admin"></a>活動類型：重設密碼 (由系統管理員)
@@ -133,7 +133,7 @@ ms.locfileid: "55074542"
 * **活動狀態**：
   * _成功_：指出使用者已成功重設其密碼。
   * _失敗_：指出使用者重設其密碼失敗。 您可以選取該資料列，以查看 [活動狀態原因] 類別，深入了解失敗發生的原因。
-* **活動狀態失敗原因**： 
+* **活動狀態失敗原因**：
   * _FuzzyPolicyViolationInvalidPassword_：系統管理員選取的密碼自動被禁用，因為 Microsoft 的禁用密碼偵測功能發現此密碼太普通或太弱。
 
 ### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>活動類型：自助式密碼重設流程活動進度
@@ -146,7 +146,7 @@ ms.locfileid: "55074542"
 * **活動狀態**：
   * _成功_：指出使用者已成功完成密碼重設流程的特定步驟。
   * _失敗_：指出密碼重設流程的特定步驟失敗。 您可以選取該資料列，以查看 [活動狀態原因] 類別，深入了解失敗發生的原因。
-* **活動狀態原因**： 請參閱下的表以取得[所有允許的重設活動狀態原因](#allowed-values-for-details-column)。
+* **活動狀態原因**： 請參閱下的表以取得[所有允許的重設活動狀態原因](#description-of-the-report-columns-in-the-azure-portal)。
 
 ### <a name="activity-type-unlock-a-user-account-self-service"></a>活動類型：解除鎖定使用者帳戶 (自助式)
 
@@ -168,10 +168,10 @@ ms.locfileid: "55074542"
 * **活動目標**：已註冊密碼重設的使用者。 使用者可以是一般使用者或系統管理員。
 * **允許的活動狀態**：
   * _成功_：指出使用者已根據目前的原則成功註冊密碼重設。 
-  * _失敗_：指出使用者註冊密碼重設失敗。 您可以選取該資料列，以查看 [活動狀態原因] 類別，深入了解失敗發生的原因。 
+  * _失敗_：指出使用者註冊密碼重設失敗。 您可以選取該資料列，以查看 [活動狀態原因] 類別，深入了解失敗發生的原因。
 
      >[!NOTE]
-     >失敗並不代表使用者無法重設自己的密碼。 這表示它們未完成註冊程序。 如果帳戶上有未驗證但正確的資料 (例如未驗證的電話號碼)，即使此電話號碼尚未驗證，仍然可用來重設密碼。 如需詳細資訊，請參閱[當使用者註冊時會發生什麼事？](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)。
+     >失敗並不代表使用者無法重設自己的密碼。 這表示它們未完成註冊程序。 如果帳戶上有未驗證但正確的資料 (例如未驗證的電話號碼)，即使此電話號碼尚未驗證，仍然可用來重設密碼。
      >
 
 ## <a name="next-steps"></a>後續步驟

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437484"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813104"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>了解更新管理中的 Linux 代理程式檢查結果
 
@@ -28,7 +28,7 @@ ms.locfileid: "54437484"
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
-若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度] 資料行底下的 [疑難排解] 連結，即可啟動 [對更新代理程式進行疑難排解] 頁面。 至於非 Azure 機器，此連結會連往這份文件。 若要對非 Azure 機器進行疑難排解，請參閱[離線指示](#offline)。
+若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度] 資料行底下的 [疑難排解] 連結，即可啟動 [對更新代理程式進行疑難排解] 頁面。 至於非 Azure 機器，此連結會連往這份文件。 若要對非 Azure 機器進行疑難排解，請參閱＜離線指示＞。
 
 ![VM 清單頁面](../media/update-agent-issues-linux/vm-list.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "54437484"
 
 ![疑難排解頁面](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-完成時，會在視窗中傳回結果。 [檢查區段](#pre-requisistes-checks)會提供有關每個檢查所尋找項目的資訊。
+完成時，會在視窗中傳回結果。 檢查區段會提供有關每個檢查所尋找項目的資訊。
 
 ![更新代理程式檢查頁面](../media/update-agent-issues-linux/update-agent-checks.png)
 

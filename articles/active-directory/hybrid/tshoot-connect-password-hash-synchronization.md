@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c87b6791ea2d90ed302d796f17727a0338104beb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5339b0c77a69a915e58118888f8b82d095a43e38
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174987"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817779"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步執行的密碼雜湊同步處理進行疑難排解
 本主題提供如何針對密碼雜湊同步處理問題進行疑難排解的步驟。 如果密碼未如預期般同步，可能會影響一部分使用者或所有使用者。
@@ -237,7 +237,7 @@ ms.locfileid: "55174987"
 
 5. 如果您沒有看到任何活動訊號，或任何其他操作都沒有作用，請執行[觸發所有密碼的完整同步](#trigger-a-full-sync-of-all-passwords)。 只執行一次指令碼。
 
-6. 請參閱[針對一個未同步密碼的物件進行疑難排解](#one-object-is-not-synchronizing-passwords)一節。
+6. 請參閱＜針對一個未同步密碼的物件進行疑難排解＞一節。
 
 ### <a name="connectivity-problems"></a>連線問題
 
@@ -303,7 +303,7 @@ ms.locfileid: "55174987"
 
     ![物件記錄詳細資料](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    如果物件記錄是空的，則表示 Azure AD Connect 無法從 Active Directory 讀取密碼雜湊。 請繼續進行[連線錯誤](#connectivity-errors)疑難排解。 如果您看到 [成功] 以外的任何其他值，請參考[密碼同步記錄](#password-sync-log)中的表格。
+    如果物件記錄是空的，則表示 Azure AD Connect 無法從 Active Directory 讀取密碼雜湊。 請繼續進行連線錯誤疑難排解。 如果您看到 [成功] 以外的任何其他值，請參考[密碼同步記錄](#password-sync-log)中的表格。
 
     h. 選取 [歷程] 索引標籤，並確認至少有一個同步規則的 [PasswordSync] 資料行是 **True**。 在預設組態中，同步規則的名稱是 **In from AD - User AccountEnabled**。  
 

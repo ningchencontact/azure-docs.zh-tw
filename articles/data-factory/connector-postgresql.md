@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/23/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: fc222d2524a709ee8b0f3fc8283d7ffb27575772
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1142400cee040f40f88bf1f7509fc5dcba3429c6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321971"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658533"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,8 +50,8 @@ ms.locfileid: "54321971"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**PostgreSql** | 是 |
-| connectionString | ODBC 連接字串，用於連線到適用於 PostgreSQL 的 Azure 資料庫。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| type | 類型屬性必須設定為：**PostgreSql** | yes |
+| connectionString | ODBC 連接字串，用於連線到適用於 PostgreSQL 的 Azure 資料庫。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 並從連接字串中提取 `password` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 一般的連接字串為 `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`。 您可以根據您的案例設定更多屬性：
@@ -72,6 +72,35 @@ ms.locfileid: "54321971"
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**範例：在 Azure Key Vault 中儲存密碼**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -116,7 +145,7 @@ ms.locfileid: "54321971"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**RelationalTable** | yes |
 | tableName | PostgreSQL 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -146,7 +175,7 @@ ms.locfileid: "54321971"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | yes |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"MySchema\".\"MyTable\""` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 > [!NOTE]
@@ -183,58 +212,6 @@ ms.locfileid: "54321971"
     }
 ]
 ```
-
-## <a name="data-type-mapping-for-postgresql"></a>PostgreSQL 的資料類型對應
-
-從 PostgreSQL 複製資料時，會使用下列從 PostgreSQL 資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收器。
-
-| PostgreSQL 資料類型 | PostgresSQL 別名 | Data Factory 過渡期資料類型 |
-|:--- |:--- |:--- |
-| `abstime` |&nbsp; |`String` |
-| `bigint` | `int8` | `Int64` |
-| `bigserial` | `serial8` | `Int64` |
-| `bit [1]` |&nbsp; | `Boolean` |
-| `bit [(n)], n>1` |&nbsp; | `Byte[]` |
-| `bit varying [(n)]` | `varbit` |`Byte[]` |
-| `boolean` | `bool` | `Boolean` |
-| `box` |&nbsp; | `String` |
-| `bytea` |&nbsp; | `Byte[], String` |
-| `character [(n)]` | `char [(n)]` | `String` |
-| `character varying [(n)]` | `varchar [(n)]` | `String` |
-| `cid` |&nbsp; | `Int32` |
-| `cidr` |&nbsp; | `String` |
-| `circle` |&nbsp; |` String` |
-| `date` |&nbsp; |`Datetime` |
-| `daterange` |&nbsp; |`String` |
-| `double precision` |`float8` |`Double` |
-| `inet` |&nbsp; |`String` |
-| `intarray` |&nbsp; |`String` |
-| `int4range` |&nbsp; |`String` |
-| `int8range` |&nbsp; |`String` |
-| `integer` | `int, int4` |`Int32` |
-| `interval [fields] [(p)]` | | `String` |
-| `json` |&nbsp; | `String` |
-| `jsonb` |&nbsp; | `Byte[]` |
-| `line` |&nbsp; | `Byte[], String` |
-| `lseg` |&nbsp; | `String` |
-| `macaddr` |&nbsp; | `String` |
-| `money` |&nbsp; | `String` |
-| `numeric [(p, s)]`|`decimal [(p, s)]` |`String` |
-| `numrange` |&nbsp; |`String` |
-| `oid` |&nbsp; |`Int32` |
-| `path` |&nbsp; |`String` |
-| `pg_lsn` |&nbsp; |`Int64` |
-| `point` |&nbsp; |`String` |
-| `polygon` |&nbsp; |`String` |
-| `real` |`float4` |`Single` |
-| `smallint` |`int2` |`Int16` |
-| `smallserial` |`serial2` |`Int16` |
-| `serial` |`serial4` |`Int32` |
-| `text` |&nbsp; |`String` |
-| `timewithtimezone` |&nbsp; |`String` |
-| `timewithouttimezone` |&nbsp; |`String` |
-| `timestampwithtimezone` |&nbsp; |`String` |
-| `xid` |&nbsp; |`Int32` |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

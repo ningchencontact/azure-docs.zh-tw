@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: cf8cef9c715d9bbe82a0bae5c59f329f350021f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 49277fc260743d0179c40374241edeece0a0e1e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538336"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814328"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>在適用於 PostgreSQL 的 Azure 資料庫中備份與還原
 
@@ -50,7 +50,7 @@ ms.locfileid: "53538336"
 預估的復原時間取決於數個因素，包括資料庫大小、交易記錄大小、網路頻寬，以及在相同區域中同時進行復原的資料庫總數。 復原時間通常不到 12 小時。
 
 > [!IMPORTANT]
-> 已刪除的伺服器**無法**還原。 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除，且無法復原。
+> 已刪除的伺服器**無法**還原。 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除，且無法復原。 若要在部署後避免伺服器資源遭到意外刪除或非預期的變更，系統管理員可以利用[管理鎖定](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources)。
 
 ### <a name="point-in-time-restore"></a>還原時間點
 

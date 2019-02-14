@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165640"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750319"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -99,7 +99,7 @@ Microsoft 建議採用下列根據 [NIST 指導方針](https://pages.nist.gov/80
 
 1. 封鎖[舊式驗證 (如果您使用 AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)。
 2. 將 [SharePoint Online 和 Exchange Online 設定為使用新式驗證](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)。
-3. 使用[條件式存取原則來封鎖舊式驗證](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)。
+3. 使用[條件式存取原則來封鎖舊式驗證](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)。
 
 ### <a name="block-invalid-authentication-entry-points"></a>封鎖無效的驗證進入點
 

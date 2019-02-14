@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbe6d04dfcf9174b15cde71f7becbb371eaee4b2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189454"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662460"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 資源適用受控識別的常見問題集與已知問題
 
@@ -154,8 +154,8 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>使用者指派的受控身分識別已知問題
 
-- 建立使用者指派的受控身分識別時，不支援在名稱中使用特殊字元 (例如底線)。
-- 使用者指派的身分識別名稱長度限制為 24 個字元。 如果名稱長度超過 24 個字元，將無法把識別指派給資源 (也就是虛擬機器)。
+- 使用者指派的身分識別名稱會限制最少 3 個字元，最多 128 個字元。 如果名稱長度超過 128 個字元，將無法把識別指派給資源 (也就是虛擬機器)。
+- 使用者指派的身分識別名稱可以包含下列字元：a-z、A-Z、-、\_、0-9。 建立使用者指派的受控識別時，不支援在名稱中使用此字元集以外的字元 (例如星號)。
 - 如果您使用受控識別虛擬機器擴充功能 (預計在 2019 年 1 月淘汰)，所支援的限制為 32 個使用者指派的受控識別。 若未使用受控識別虛擬機器擴充功能，則所支援的限制為 512 個。  
 - 將使用者指派的受控身分識別移至不同的資源群組會導致身分識別中斷。 如此一來，您將無法針對該身分識別要求權杖。 
 - 將訂用帳戶轉移至另一個目錄，將會中斷任何現有使用者指派的受控身分識別。 

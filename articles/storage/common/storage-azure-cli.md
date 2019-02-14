@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 707ee508b0615ab873b60b45eb1d9f0294313367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464563"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816844"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>使用 Azure CLI 搭配 Azure 儲存體
 
@@ -38,7 +38,7 @@ ms.locfileid: "55464563"
 依照[安裝 Azure CLI](/cli/azure/install-az-cli2) 中的指示下載並安裝 Azure CLI。
 
 > [!TIP]
-> 如果您有安裝問題，請參閱本文的[安裝疑難排解](/cli/azure/install-az-cli2#installation-troubleshooting)一節，以及 GitHub 上的[安裝疑難排解](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)指南。
+> 如果您有安裝問題，請參閱本文的[安裝疑難排解](/cli/azure/install-az-cli2)一節，以及 GitHub 上的[安裝疑難排解](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)指南。
 >
 
 ## <a name="working-with-the-cli"></a>使用 CLI
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>管理儲存體帳戶
 
 ### <a name="create-a-new-storage-account"></a>建立新的儲存體帳戶
-若要使用 Azure 儲存體，您需要儲存體帳戶。 設定電腦以[連接至您的訂用帳戶](#connect-to-your-azure-subscription)之後，您可以建立新的 Azure 儲存體帳戶。
+若要使用 Azure 儲存體，您需要儲存體帳戶。 設定電腦以連線至您的訂用帳戶之後，您可以建立新的 Azure 儲存體帳戶。
 
 ```azurecli
 az storage account create \
@@ -277,7 +277,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) 命令列出容器中的 blob。
+使用 [az storage blob list](/cli/azure/storage/blob) 命令列出容器中的 blob。
 
 ```azurecli
 az storage blob list \

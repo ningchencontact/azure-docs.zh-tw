@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 703b8a7a094d0ea6f5b5dedaf02a218b407269d3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094235"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813797"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -28,7 +28,7 @@ Azure Functions Core Tools 可讓您從命令提示字元或終端機，在本�
 
 Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的本機開發環境、[選擇的語言](supported-languages.md)，以及所需的支援層級：
 
-+ [版本 1.x](#v1)：支援版本 1.x 的執行階段。 這個版本的工具只有在 Windows 電腦上提供支援，並且從 [npm 套件](https://docs.npmjs.com/getting-started/what-is-npm)進行安裝。 使用此版本，您可以未正式支援的實驗性語言建立函式。 如需詳細資訊，請參閱 [Azure Functions 中支援的語言](supported-languages.md)。
++ 版本 1.x：支援版本 1.x 的執行階段。 這個版本的工具只有在 Windows 電腦上提供支援，並且從 [npm 套件](https://docs.npmjs.com/getting-started/what-is-npm)進行安裝。 使用此版本，您可以未正式支援的實驗性語言建立函式。 如需詳細資訊，請參閱 [Azure Functions 中支援的語言](supported-languages.md)。
 
 + [版本 2.x](#v2)：支援[版本 2.x 的執行階段](functions-versions.md)。 此版本支援 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 使用平台專屬的套件管理員或 npm 進行安裝。
 

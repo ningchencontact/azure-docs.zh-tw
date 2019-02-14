@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857902"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810077"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>使用序列主控台來存取 GRUB 與單一使用者模式
 GRUB 的全名是 GRand Unified Bootloader。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。
@@ -39,7 +39,7 @@ GRUB 的全名是 GRand Unified Bootloader。 從 GRUB，您可以修改開機�
 在序列主控台刀鋒視窗維持開啟的情況下將您的 VM 重新開機可以透過 SysRq `'b'` 命令來完成 (若 [SysRq](./serial-console-nmi-sysrq.md) 已啟用)，或透過按一下 [概觀] 刀鋒視窗中的 [重新啟動] 按鈕 (在瀏覽器索引標籤中開啟 VM，以在不關閉序列主控台刀鋒視窗的情況下重新開機) 來完成。 依照下面的發行版本特定指示來了解重新開機時，GRUB 會發生什麼情況。
 
 ## <a name="general-single-user-mode-access"></a>一般單一使用者模式存取
-在未設定含密碼驗證的情況下，可能需要手動存取單一使用者模式。 您將必須修改 GRUB 設定以手動進入單一使用者模式。 完成此動作之後，請參閱[使用單一使用者模式來重設或新增密碼](#-Use-Single-User-Mode-to-reset-or-add-a-password)以取得進一步的指示。
+在未設定含密碼驗證的情況下，可能需要手動存取單一使用者模式。 您將必須修改 GRUB 設定以手動進入單一使用者模式。 完成此動作之後，請參閱使用單一使用者模式來重設或新增密碼以取得進一步的指示。
 
 萬一 VM 無法開機，發行版本將常會自動讓您進入單一使用者模式或緊急模式。 不過，其他發行版本要求您進行額外的設定，才會自動讓您進入單一使用者模式或緊急模式 (例如設定 root 密碼)。
 
@@ -55,7 +55,7 @@ RHEL 會在無法正常開機時讓您進入單一使用者模式。 不過，�
 ### <a name="grub-access-in-rhel"></a>RHEL 中的 GRUB 存取
 RHEL 預設會啟用 GRUB。 若要進入 GRUB，請使用 `sudo reboot` 將您的 VM 重新開機並按任意鍵。 您將會看到 GRUB 畫面。
 
-> 注意：Red Hat 也提供開機到「救援模式」、「緊急模式」、「偵錯模式」以及重設 root 密碼的文件。 [按一下這裡以存取該文件](https://aka.ms/rhel7grubterminal)。
+> 注意：Red Hat 也提供開機到「救援模式」、「緊急模式」、「偵錯模式」以及重設根密碼的文件。 [按一下這裡以存取該文件](https://aka.ms/rhel7grubterminal)。
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>在 RHEL 中針對單一使用者模式設定 root 存取
 RHEL 中的單一使用者模式要求啟用 root 使用者 (預設為停用)。 如果您需要啟用單一使用者模式，請依下列指示進行操作：
@@ -89,7 +89,7 @@ RHEL 中的單一使用者模式要求啟用 root 使用者 (預設為停用)。
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>在 RHEL 中於未啟用 root 帳戶的情況下進入單一使用者模式
 若未依照上述步驟啟用 root 使用者，您仍然可以重設您的 root 密碼。 使用下列指示：
 
-> 注意：若您使用 SELinux，當您重設 root 密碼之前，請確定您已執行[這裡](https://aka.ms/rhel7grubterminal)的 Red Hat 文件中所述的額外步驟。
+> 注意：若您使用 SELinux，當您重設根密碼之前，請確定您已執行[這裡](https://aka.ms/rhel7grubterminal)的 Red Hat 文件中所述的額外步驟。
 
 1. 在重新啟動 VM 之後按 'Esc' 以進入 GRUB
 1. 在 GRUB 中，按 'e' 以編輯您要開機進入其中的特定 OS (通常是第一行)

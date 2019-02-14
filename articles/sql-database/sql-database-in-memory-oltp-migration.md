@@ -11,15 +11,16 @@ author: jodebrui
 ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: fbe05186b317d3c24dca55197c2989155b5543bd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228040"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565916"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用記憶體內部 OLTP 改善 SQL Database 中的應用程式效能
+
 在[進階和業務關鍵層](sql-database-service-tiers-vcore.md)資料庫中，[記憶體內部 OLTP](sql-database-in-memory.md) 可用來改善交易處理、資料擷取和暫時性資料案例的效能，而無須增加定價層。 
 
 > [!NOTE] 
@@ -28,7 +29,8 @@ ms.locfileid: "51228040"
 
 請依照下列步驟，在您現有的資料庫中採用 In-Memory OLTP。
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>步驟 1︰確定您使用進階和業務關鍵層資料庫
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>步驟 1：確定您使用進階和業務關鍵層資料庫
+
 只有進階和業務關鍵層資料庫支援記憶體內部 OLTP。 如果傳回的結果為 1 (不是 0)，則支援 In-Memory：
 
 ```
@@ -39,7 +41,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>步驟 2：識別要移轉至 In-Memory OLTP 的物件
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>步驟 2：識別要遷移到 In-Memory OLTP 的物件
 SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易效能分析概觀]  報告。 此報告會識別要移轉至 In-Memory OLTP 的候選資料表和預存程序。
 
 在 SSMS 中，若要產生報告︰
@@ -65,7 +67,7 @@ SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易�
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## <a name="step-4-migrate-tables"></a>步驟 4：移轉資料表
+## <a name="step-4-migrate-tables"></a>步驟 4：遷移資料表
 您必須建立並填入您想要測試之資料表的記憶體最佳化複本。 您可以使用下列其中一種方式加以建立：
 
 * SSMS 中好用的記憶體最佳化精靈。
@@ -105,7 +107,7 @@ INSERT INTO <new_memory_optimized_table>
 ```
 
 
-## <a name="step-5-optional-migrate-stored-procedures"></a>步驟 5 (選擇性)：移轉預存程序
+## <a name="step-5-optional-migrate-stored-procedures"></a>步驟 5 (選用)：遷移預存程序
 In-Memory 功能也可以修改預存程序，以改善效能。
 
 ### <a name="considerations-with-natively-compiled-stored-procedures"></a>原生編譯預存程序的考量

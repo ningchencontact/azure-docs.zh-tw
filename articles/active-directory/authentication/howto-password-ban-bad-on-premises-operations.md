@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 8d7002a014fc6cfab1888a6bc97c0f864de1d99d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a77a6dd8b408fd8151cb12b7d0269b8890ef929b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080866"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662409"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>預覽：Azure AD 密碼保護作業程序
 
@@ -33,7 +33,7 @@ ms.locfileid: "55080866"
 ## <a name="enable-password-protection"></a>啟用密碼保護
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 [Azure Active Directory]、[驗證方法] 和 [密碼保護 (預覽)]。
-1. 將 [啟用 Windows Server Active Directory 上的密碼保護] 設定為 [是]。
+1. 將 [啟用 Windows Server Active Directory 上的密碼保護] 設定為 [是]
 1. 如[部署指南](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)所述，建議您一開始就將 [模式] 設定為 [稽核]
    * 對功能感到滿意後，您可以將 [模式] 切換為 [已強制]
 1. 按一下 [儲存] 
@@ -63,47 +63,6 @@ ms.locfileid: "55080866"
 
 這項設定通常應保持為預設的啟用 (是) 狀態。 將此設定設為停用 (否)，會導致所有已部署的 Azure AD 密碼保護 DC 代理程式進入靜止模式，依現況接受其中的所有密碼，而在任何情況下，都不會執行任何驗證活動 (例如，甚至不會發出稽核事件)。
 
-## <a name="usage-reporting"></a>使用量回報
-
-`Get-AzureADPasswordProtectionSummaryReport` Cmdlet 可用來產生活動的摘要檢視。 此 Cmdlet 的範例輸出如下：
-
-```PowerShell
-Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
-DomainController                : bplrootdc2
-PasswordChangesValidated        : 6677
-PasswordSetsValidated           : 9
-PasswordChangesRejected         : 10868
-PasswordSetsRejected            : 34
-PasswordChangeAuditOnlyFailures : 213
-PasswordSetAuditOnlyFailures    : 3
-PasswordChangeErrors            : 0
-PasswordSetErrors               : 1
-```
-
-此 Cmdlet 的報告範圍可使用 –Forest、-Domain 或 –DomainController 參數其中之一來加以影響。 未指定參數意指 –Forest。
-
-> [!NOTE]
-> 此 Cmdlet 的運作方式是針對每個網域控制站開啟 PowerShell 工作階段。 每個網域控制站上都必須啟用 PowerShell 遠端供作階段支援，且用戶端必須要有足夠權限，才能成功。 如需 PowerShell 遠端工作階段需求的詳細資訊，請在 Powershell 視窗中，執行 'Get-help about_Remote_Troubleshooting'。
-
-> [!NOTE]
-> 從遠端查詢每個 DC 代理程式服務的系統管理事件記錄即可讓此 Cmdlet 運作。 如果事件記錄包含大量事件，此 Cmdlet 可能需要很長的時間才能完成。 此外，透過網路大量查詢大型資料集可能會影響網域控制站的效能。 因此，在生產環境中請小心使用這個 Cmdlet。
-
-## <a name="dc-agent-discovery"></a>DC 代理程式探索
-
-`Get-AzureADPasswordProtectionDCAgent` Cmdlet 可用來顯示與執行於網域或樹系中的各種 DC 代理程式有關的基本資訊。 您可以從執行中的 DC 代理程式服務所註冊的 serviceConnectionPoint 物件中擷取這項資訊。 此 Cmdlet 的範例輸出如下：
-
-```PowerShell
-Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
-
-每個 DC 代理程式服務大約每小時會更新一次各種屬性。 資料仍會受限於 Active Directory 複寫延遲。
-
-此 Cmdlet 的查詢範圍可使用 –Forest 或 –Domain 參數來變更。
-
 ## <a name="next-steps"></a>後續步驟
 
-[針對 Azure AD 密碼保護進行疑難排解和監視](howto-password-ban-bad-on-premises-troubleshoot.md)
+[Azure AD 密碼保護的監視功能](howto-password-ban-bad-on-premises-monitor.md)

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259933"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814277"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>適用於雲端解決方案提供者的 StorSimple 方案︰常見問題集
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>適用於雲端解決方案提供者的 StorSimple 方案：常見問題集
 
 
 ## <a name="overview"></a>概觀
@@ -31,7 +31,7 @@ ms.locfileid: "51259933"
 
  - [StorSimple 和雲端解決方案提供者方案 (CSP) 模型](#storsimple-and-csp-model)
  - [合作夥伴部署和管理虛擬陣列](#deploy-and-manage-storsimple-as-a-partner)
- - [支援 StorSimple for CSP 合作夥伴](#support-for-storsimple-partners)
+ - 支援 StorSimple for CSP 合作夥伴
 
 ## <a name="storsimple-and-csp-model"></a>StorSimple 和 CSP 模型
 
@@ -75,7 +75,7 @@ StorSimple 是依使用量計算的服務。 透過 CSP 途徑採購 StorSimple 
 是。 使用 StorSimple Virtual Array for CSP 時，合作夥伴存取 Azure 入口網站的最佳方式就是透過[合作夥伴中心](https://partnercenter.microsoft.com/)，他們可以在其中管理客戶和訂用帳戶。 若要管理 StorSimple 訂用帳戶，合作夥伴或客戶 (取決於授與的權限) 應該登入 Azure 入口網站。 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>Microsoft 有替 StorSimple for CSP 提供新的入口網站嗎？ 
-否。 您可以透過 Azure 入口網站，管理 CSP 中的 StorSimple Virtual Array。
+沒有。 您可以透過 Azure 入口網站，管理 CSP 中的 StorSimple Virtual Array。
 
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>我已經為客戶佈建獨立 StorSimple 訂用帳戶。 我必須使用 Azure 入口網站來管理我的裝置嗎？ 
 是。 

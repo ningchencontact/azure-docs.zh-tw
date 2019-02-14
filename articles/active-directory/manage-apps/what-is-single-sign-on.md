@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 9e06e53f83dd05d53b76a2a07e465133f052dba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157698"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664024"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 當使用者登入 Azure Active Directory (Azure AD) 中的應用程式時，單一登入 (SSO) 可增加安全性及便利性。 本文描述單一登入方法，並協助您在設定應用程式時，選擇最適當的 SSO 方法。
@@ -49,9 +49,7 @@ ms.locfileid: "55157698"
 | [標頭式](#header-based-sso) | 僅內部部署 | 當應用程式是使用標頭進行驗證時，請使用標頭式單一登入。 標頭式單一登入需要適用於 Azure AD 的 PingAccess。 應用程式 Proxy 會使用 Azure AD 來驗證使用者，然後透過連接器服務傳遞流量。  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect 和 OAuth
-您可以使用 OpenID Connect 和 OAuth 啟用單一登入體驗，可簡化將企業應用程式新增至 Azure AD 的程序。 應用程式系統管理員不需要設定單一登入。 但是，Azure AD 會在系統管理員[授與使用者同意](configure-user-consent.md)時，新增應用程式。 
-
-您可以輕鬆地採用 OpenID Connect 和 OAuth 的 [SDK](../develop/reference-v2-libraries.md)，而且您的應用程式已經可以使用 MS Graph。 
+在開發新的應用程式時，請使用 OpenID Connect 和 OAuth 等新式通訊協定，來為應用程式實現跨多個裝置平台的最佳單一登入體驗。 OAuth 可讓使用者或系統管理員對受保護的資源 (例如 [MS Graph](/graph/overview)) [授與同意](configure-user-consent.md)。 我們可讓您輕鬆地對應用程式採用 [SDK](../develop/reference-v2-libraries.md)，此外，應用程式將會準備好可以開始使用 [MS Graph](/graph/overview)。
 
 如需詳細資訊，請參閱
 

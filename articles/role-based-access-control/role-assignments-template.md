@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5e080614d4f0001a0bf1b44dd402f37db2463e03
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206615"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696892"
 ---
 # <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>使用 RBAC 和 Azure Resource Manager 範本來管理存取權
 
@@ -92,16 +92,18 @@ ms.locfileid: "39206615"
 
 ## <a name="deploy-template-using-azure-powershell"></a>使用 Azure PowerShell 來部署範本
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 若要使用 Azure PowerShell 來部署先前的範本，請按照下列步驟執行。
 
 1. 建立名為 rbac-rg.json 的新檔案並複製先前的範本。
 
 1. 登入 [Azure PowerShell](/powershell/azure/authenticate-azureps)。
 
-1. 取得使用者、群組或應用程式的唯一識別碼。 例如，您可以使用 [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) 命令來列出 Azure AD 使用者。
+1. 取得使用者、群組或應用程式的唯一識別碼。 例如，您可以使用 [Get-AzADUser](/powershell/module/az.resources/get-azaduser) 命令來列出 Azure AD 使用者。
 
     ```azurepowershell
-    Get-AzureRmADUser
+    Get-AzADUser
     ```
 
 1. 使用 GUID 工具來產生將用於角色指派的唯一識別碼。 此識別碼的格式：`11111111-1111-1111-1111-111111111111`
@@ -109,21 +111,21 @@ ms.locfileid: "39206615"
 1. 建立範例 Azure 資源群組。
 
     ```azurepowershell
-    New-AzureRmResourceGroup -Name ExampleGroup -Location "Central US"
+    New-AzResourceGroup -Name ExampleGroup -Location "Central US"
     ```
 
-1. 使用 [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) 命令來開始部署。
+1. 使用 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 命令來開始部署。
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     ```
 
     系統會要求您指定必要參數。 以下顯示輸出的範例。
 
     ```Output
-    PS /home/user> New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     
-    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+    cmdlet New-AzResourceGroupDeployment at command pipeline position 1
     Supply values for the following parameters:
     (Type !? for Help.)
     principalId: 22222222-2222-2222-2222-222222222222

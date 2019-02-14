@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 1f7a02f66a8d87f33d7bac9068628dbd29e5bd7c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3d6464f3e69868b4903d999e52a37b0520018c6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635690"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659451"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>概念性了解 IoT 產業中的 X.509 CA 憑證
 
@@ -108,7 +108,7 @@ X.509 CA 憑證驗證會透過使用憑證鏈結，來提供可應對前述挑�
 
 ![img-cert-mfr-chain](./media/cert-mfr-chain.png)
 
-現在是回顧 X.509 CA 方法價值的好時機。  Company-X 並未對每個 Smart-X-Widget 預先產生憑證，並將憑證交接給供應鏈，而是改為只交接來簽署 Factory-Y 一次。  雖然不必在整個裝置生命週期追蹤每個裝置，但 Company-X 可能無法透過供應鏈程序所自然浮現的群組 (例如，Technician-Z 在某年 7 月後所安裝的裝置) 來追蹤和管理裝置。
+現在是回顧 X.509 CA 方法價值的好時機。  Company-X 並未對每個 Smart-X-Widget 預先產生憑證，並將憑證交接給供應鏈，而只必須簽署 Factory-Y 一次。  雖然不必在整個裝置生命週期追蹤每個裝置，但 Company-X 現在可能透過供應鏈程序所自然浮現的群組 (例如，Technician-Z 在某年 7 月後所安裝的裝置) 來追蹤和管理裝置。
 
 最後同時也是最重要的一點是，CA 驗證方法會在裝置的製造供應鏈中注入嚴密的責任制度。 由於採用憑證鏈結程序，鏈結中每個成員的動作都會以密碼編譯方式記錄下來並可供驗證。
 

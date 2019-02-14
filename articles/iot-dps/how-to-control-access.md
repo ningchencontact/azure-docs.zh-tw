@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818505"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496954"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>控制 Azure IoT 中樞裝置佈建服務的存取權
 
@@ -34,7 +34,7 @@ ms.locfileid: "42818505"
 
 * **共用存取授權原則**。 共用存取原則可以授與上面所列[權限](#device-provisioning-service-permissions)的任意組合。 您可以在 [Azure 入口網站][lnk-management-portal]中定義原則，或使用 [裝置佈建服務 REST API][lnk-resource-provider-apis] 以程式設計方式定義原則。 新建立的佈建服務有下列預設原則︰
 
-* **provisioningserviceowner**︰具備所有權限的原則。
+* **provisioningserviceowner**：具備所有權限的原則。
 
 > [!NOTE]
 > 如需詳細資訊，請參閱[權限](#device-provisioning-service-permissions)。
@@ -86,7 +86,7 @@ SharedAccessSignature sr =
 
 下列 Node.js 程式碼片段顯示稱為 **generateSasToken** 的函式，它會從輸入 `resourceUri, signingKey, policyName, expiresInMins` 計算權杖。 下一節將詳細說明如何初始化不同權杖使用案例的不同輸入。
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -157,7 +157,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 ![在入口網站中建立裝置佈建服務執行個體的共用存取原則][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';

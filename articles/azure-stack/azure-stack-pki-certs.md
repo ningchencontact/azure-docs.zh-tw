@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244244"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660114"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 
@@ -49,7 +49,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 憑證 pfx 檔案的 [增強金鑰使用方法] 欄位中必須有 [伺服器驗證 (1.3.6.1.5.5.7.3.1)] 和 [用戶端驗證 (1.3.6.1.5.5.7.3.2)]。
 - 憑證的 [核發給：] 欄位不能與 [核發者：] 欄位相同。
 - 部署時，所有憑證 pfx 檔案的密碼都必須相同
-- 憑證 pfx 的密碼必須是複雜密碼。
+- 憑證 pfx 的密碼必須是複雜密碼。 建立符合下列密碼複雜性需求的密碼。 長度至少要有八個字元。 密碼包含至少下列其中三項：大寫字母、小寫字母、0 到 9 的數字、特殊字元，大寫和小寫字母以外的字母字元。 記下此密碼。 您會將其作為部署參數。
 - 確定主體名稱和主體別名延伸模組 (x509v3_config) 中的主體別名相符。 [主體別名] 欄位可讓您指定要透過單一 SSL 憑證保護的其他主機名稱 (網站、IP 位址、一般名稱)。
 
 > [!NOTE]  

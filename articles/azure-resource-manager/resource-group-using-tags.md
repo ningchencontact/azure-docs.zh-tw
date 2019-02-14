@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: aa3cd0305c1ac2db269dcc46243ec3da1232e6f6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079523"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734431"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用標記來組織 Azure 資源
 
@@ -29,9 +29,15 @@ ms.locfileid: "55079523"
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
+## <a name="policies"></a>原則
+
+您可以使用 [Azure 原則](../governance/policy/overview.md)來強制標記規則和慣例。 建立原則，就可以避免將資源部署到不符合貴組織預期標記的訂用帳戶。 您可以建立一個原則，以便在部署期間自動套用所需的標記，而不需手動套用標記或搜尋不符合規範的資源。 下列區段會顯示標籤的範例原則。
+
+[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
+
 ## <a name="powershell"></a>PowerShell
 
-本文的範例需要 Azure PowerShell 6.0 版或更新版本。 如果您的版本不是 6.0 版或更新版本，請[更新您的版本](/powershell/azure/install-az-ps)。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 若要查看*資源群組*的現有標籤，請使用：
 
@@ -273,5 +279,4 @@ Azure 入口網站和 PowerShell 在幕後都使用 [Resource Manager REST API](
 ## <a name="next-steps"></a>後續步驟
 
 * 並非所有資源類型都支援標記。 若要判斷您是否可以將標記套用至資源類型，請參閱 [Azure 資源的標記支援](tag-support.md)。
-* 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。 您所定義的原則可能需要所有資源都具有特定標籤的值。 如需詳細資訊，請參閱[何謂 Azure 原則？](../azure-policy/azure-policy-introduction.md)
 * 如需使用入口網站的簡介，請參閱[使用 Azure 入口網站來管理您的 Azure 資源](resource-group-portal.md)。  

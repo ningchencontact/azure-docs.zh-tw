@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075161"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768591"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure 事件中樞的功能與術語
 
@@ -169,7 +169,7 @@ ms.locfileid: "53075161"
 
 您可以連絡 Azure 支援中心，以 20 個為一組購買更多輸送量單位，最多 100 個輸送量單位。 超出該限制，您可以購買以 100 個輸送量為單位的區塊。
 
-建議您保持輸送量單位和資料分割之間的平衡，以達到最佳規模。 每個資料分割有一個輸送量單位的規模上限。 輸送量單位的數目應該要小於或等於事件中樞內的資料分割數目。
+建議您保持輸送量單位和資料分割之間的平衡，以達到最佳規模。 每個資料分割有一個輸送量單位的規模下限。 輸送量單位的數目應該要小於或等於事件中樞內的資料分割數目。
 
 如需詳細的事件中樞價格資訊，請參閱[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)。
 

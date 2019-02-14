@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 6cdfa7492a9916cc3e2300ad71e21acfb68e3d30
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352235"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822029"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以�
 
 ## <a name="create-a-cosmos-account"></a>建立 Cosmos 帳戶
 
-讓我們建立一個 Cosmos 帳戶。 如果您已經擁有想要使用的帳戶，就可以直接跳到[設定您的 Node.js 應用程式](#SetupNode)。 如果您是使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Node.js 應用程式](#SetupNode)。
+讓我們建立一個 Cosmos 帳戶。 如果您已經擁有想要使用的帳戶，就可以直接跳到設定您的 Node.js 應用程式。 如果您是使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到設定您的 Node.js 應用程式。
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 

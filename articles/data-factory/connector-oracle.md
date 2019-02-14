@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 64f348880bf8872c61a1d1c90930c25ce9551bbf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016902"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658024"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,8 +57,8 @@ ms.locfileid: "54016902"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為 **Oracle**。 | 是 |
-| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。<br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 是 |
+| type | type 屬性必須設定為 **Oracle**。 | yes |
+| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 <br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | yes |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!TIP]
@@ -126,6 +126,34 @@ ms.locfileid: "54016902"
 }
 ```
 
+**範例：在 Azure Key Vault 中儲存密碼**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 ## <a name="dataset-properties"></a>資料集屬性
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Oracle 資料集所支援的屬性清單。
@@ -134,8 +162,8 @@ ms.locfileid: "54016902"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的 type 屬性必須設定為 **OracleTable**。 | 是 |
-| tableName |Oracle 資料庫中連結服務所參照的資料表名稱。 | 是 |
+| type | 資料集的 type 屬性必須設定為 **OracleTable**。 | yes |
+| tableName |Oracle 資料庫中連結服務所參照的資料表名稱。 | yes |
 
 **範例：**
 
@@ -166,7 +194,7 @@ ms.locfileid: "54016902"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為 **OracleSource**。 | 是 |
+| type | 複製活動來源的 type 屬性必須設定為 **OracleSource**。 | yes |
 | oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 |
 
 如果您未指定 "oracleReaderQuery"，就會使用資料集的 "structure" 區段中定義的資料行，來建構要針對 Oracle 資料庫執行的查詢 (`select column1, column2 from mytable`)。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
@@ -209,7 +237,7 @@ ms.locfileid: "54016902"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收的 type 屬性必須設定為 **OracleSink**。 | 是 |
+| type | 複製活動接收的 type 屬性必須設定為 **OracleSink**。 | yes |
 | writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為整數 (資料列數目)。 |否 (預設值為 10000) |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/>允許的值為時間範圍。 範例是 00:30:00 (30 分鐘)。 | 否 |
 | preCopyScript | 指定一個供複製活動在每次執行時將資料寫入到 Oracle 前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |
@@ -255,7 +283,7 @@ ms.locfileid: "54016902"
 | BLOB |Byte[]<br/>(僅 Oracle 10g 及更高版本可支援) |
 | CHAR |字串 |
 | CLOB |字串 |
-| 日期 |Datetime |
+| 日期 |DateTime |
 | FLOAT |Decimal，字串 (如果精確度 > 28) |
 | INTEGER |Decimal，字串 (如果精確度 > 28) |
 | 長 |字串 |
@@ -266,7 +294,7 @@ ms.locfileid: "54016902"
 | NVARCHAR2 |字串 |
 | RAW |Byte[] |
 | ROWID |字串 |
-| 時間戳記 |Datetime |
+| 時間戳記 |DateTime |
 | 本地時區的時間戳記 |字串 |
 | 時區的時間戳記 |字串 |
 | 不帶正負號的整數 |數字 |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 6466dc1ec0dcaae6045fadfae7f3a552345be2e8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267280"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812033"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>部署 StorSimple Virtual Array - 透過 Azure 入口網站設定為 iSCSI 伺服器
 
@@ -44,7 +44,7 @@ ms.locfileid: "54267280"
 請使用下列逐步指示來安裝並設定您的 StorSimple Virtual Array：
 
 * [步驟 1：完成本機 Web UI 的安裝程序，並為裝置註冊](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* [步驟 2：完成必要的裝置安裝程序](#step-2-complete-the-required-device-setup)
+* 步驟 2：完成必要的裝置設定
 * [步驟 3：新增磁碟區](#step-3-add-a-volume)
 * [步驟 4：掛接、初始化及格式化磁碟區](#step-4-mount-initialize-and-format-a-volume)
 

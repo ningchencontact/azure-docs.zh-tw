@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103304"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814462"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>使用序列主控台來存取 GRUB 與單一使用者模式
 GRUB 是 GRand Unified Bootloader 的縮寫，這可能是您在啟動 VM 時首先會見到的項目。 由於它會在作業系統啟動之前顯示，因此無法透過 SSH 存取它。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。
@@ -44,7 +44,7 @@ GRUB 是 GRand Unified Bootloader 的縮寫，這可能是您在啟動 VM 時首
 ![Linux 序列主控台重新啟動](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>一般單一使用者模式存取
-在未設定含密碼驗證的情況下，可能需要手動存取單一使用者模式。 您將必須修改 GRUB 設定以手動進入單一使用者模式。 完成此動作之後，請參閱[使用單一使用者模式來重設或新增密碼](#-Use-Single-User-Mode-to-reset-or-add-a-password)以取得進一步的指示。
+在未設定含密碼驗證的情況下，可能需要手動存取單一使用者模式。 您將必須修改 GRUB 設定以手動進入單一使用者模式。 完成此動作之後，請參閱＜使用單一使用者模式來重設或新增密碼＞，以取得進一步的指示。
 
 萬一 VM 無法開機，發行版本將常會自動讓您進入單一使用者模式或緊急模式。 不過，其他發行版本要求您進行額外的設定，才會自動讓您進入單一使用者模式或緊急模式 (例如設定 root 密碼)。
 

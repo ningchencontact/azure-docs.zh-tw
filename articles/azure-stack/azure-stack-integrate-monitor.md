@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241639"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816081"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>整合外部監視解決方案與 Azure Stack
 
@@ -38,6 +38,9 @@ ms.locfileid: "55241639"
 下圖顯示整合 Azure Stack 整合系統、硬體生命週期主機、外部監視解決方案和外部票證/資料收集系統之間的流量。
 
 ![顯示 Azure Stack、監視以及票證解決方案之間流量的圖表。](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+
+> [!NOTE]
+> 系統不允許外部監視功能直接與實體伺服器和網路裝置進行整合，存取控制清單 (ACL) 會加以主動封鎖。 
 
 本文說明如何將 Azure Stack 與外部監視解決方案 (例如 System Center Operations Manager 和 Nagios) 整合。 也包含如何使用 PowerShell 或 REST API 呼叫，以程式設計方式處理警示的資訊。
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1b145b1162dcba5653c962f0af1969c1aa017f57
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054634"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819802"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -38,11 +38,12 @@ Resource Manager 範本可讓您輕鬆地在單一、協調的作業中為您的
 
 您可以在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)中找到 HDInsight 範本範例。 使用跨平台 [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) (具有 [Resource Manager 擴充功能](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)) 或文字編輯器，將範本儲存至您工作站上的檔案。 
 
-如需 Resource Manager 範本的詳細資訊，請參閱下列文章：
+如需 Resource Manager 範本的詳細資訊，請參閱下列文章和範例：
 
 * [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)
 * [使用 Azure Resource Manager 範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)
-* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) 範本參考
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) 範本參考
+* [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>產生範本
 
@@ -51,7 +52,6 @@ Resource Manager 可讓您使用不同工具，從您的訂用帳戶中現有的
 - Azure 入口網站：請參閱[從現有資源匯出 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-export-template.md)。
 - Azure PowerShell：請參閱[使用 PowerShell 來匯出 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-export-template-powershell.md)。
 - Azure 傳統 CLI：請參閱[使用 Azure 傳統 CLI 來匯出 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-export-template-cli.md)。
-
 
 ## <a name="deploy-using-the-portal"></a>使用入口網站進行部署
 

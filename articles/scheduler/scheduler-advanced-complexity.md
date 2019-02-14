@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712053"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701007"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>在 Azure 排程器中建置作業的進階排程和週期
 
@@ -24,7 +24,7 @@ ms.locfileid: "51712053"
 
 在 [Azure 排程器](../scheduler/scheduler-intro.md)作業內，排程為決定排程器服務何時及如何執行作業的核心。 您可以使用排程器，為作業設定多個單次和週期性排程。 單次排程只會在指定的時間執行一次，而且基本上是僅執行一次的週期性排程。 週期性排程會以指定的頻率來執行。 由於這種彈性，您可以將排程器用於各種商務案例，例如：
 
-* **定期清除資料**：建立每日作業，以刪除所有超過三個月的推文。
+* **定期清理資料**：建立每日作業，以刪除所有超過三個月的推文。
 
 * **封存資料**：建立每月作業，將發票歷程記錄推送到備份服務。
 
@@ -53,9 +53,9 @@ ms.locfileid: "51712053"
 
 若要使用 [Azure 排程器 REST API](/rest/api/scheduler) 建立基本排程，請遵循下列步驟：
 
-1. 使用[註冊操作 - Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register) 來向資源提供者註冊您的 Azure 訂用帳戶。 Azure 排程器服務的提供者名稱是 **Microsoft.Scheduler**。 
+1. 使用[註冊操作 - Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers) 來向資源提供者註冊您的 Azure 訂用帳戶。 Azure 排程器服務的提供者名稱是 **Microsoft.Scheduler**。 
 
-1. 在排程器 REST API 中，使用[適用於作業集合的建立或更新操作](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate)來建立作業集合。 
+1. 在排程器 REST API 中，使用[適用於作業集合的建立或更新操作](https://docs.microsoft.com/rest/api/scheduler/jobcollections)來建立作業集合。 
 
 1. 使用[適用於作業的建立或更新操作](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate)來建立作業。 
 

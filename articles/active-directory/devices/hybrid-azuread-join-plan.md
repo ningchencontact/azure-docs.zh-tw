@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 085f95e1df67a12afac5c327b4368efd275600b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100167"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746416"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>作法：規劃混合式 Azure Active Directory Join 實作
 
@@ -111,7 +111,7 @@ ms.locfileid: "55100167"
 
 混合式 Azure AD Join 程序可自動向 Azure AD 註冊已加入網域的內部部署裝置。 在有些情況下，您不想自動註冊所有裝置。 如果這適合您，請參閱[如何控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md)。
 
-如果您已加入網域的 Windows 10 裝置已向租用戶[註冊 Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices)，則您應考慮先移除該狀態再啟用混合式 Azure AD Join。 不支援裝置同時處於已啟用混合式 Azure AD Join 與已註冊 Azure AD 的雙重狀態。 自 Windows 10 1809 版起，我們已進行下列變更以避免這種雙重狀態： 
+如果您已加入網域的 Windows 10 裝置已向租用戶[註冊 Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices)，我們強烈建議您先移除該狀態，再啟用混合式 Azure AD Join。 自 Windows 10 1809 版起，我們已進行下列變更以避免這種雙重狀態： 
  - 在裝置加入混合式 Azure AD 之後，就會自動移除任何現有的 Azure AD 註冊狀態。 
  - 您可以加入下列登錄機碼，以防止已加入網域的裝置註冊 Azure AD - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
@@ -145,20 +145,20 @@ ms.locfileid: "55100167"
 - [設定適用於受控網域的混合式 Azure Active Directory Join](hybrid-azuread-join-managed-domains.md)
 
 
- 如果安裝必要的 Azure AD Connect 版本不適合您，請參閱[如何手動設定裝置註冊](../device-management-hybrid-azuread-joined-devices-setup.md)。 
+ 如果安裝必要的 Azure AD Connect 版本不適合您，請參閱[如何手動設定裝置註冊](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual)。 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>混合式 Azure AD Join 中的替代登入識別碼支援
+## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>混合式 Azure AD Join 中的內部部署 AD UPN 支援
 
-Windows 10 混合式 Azure AD Join 會根據替代登入識別碼的類型、[驗證方法](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)、網域類型和 Windows 10 版本，提供有限的[替代登入識別碼](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)支援。 您的環境中可以有兩種類型的替代登入識別碼：
+有時候，您的內部部署 AD UPN 可能與 Azure AD UPN 不同。 在此情況下，Windows 10 混合式 Azure AD Join 會根據[驗證方法](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)、網域類型和 Windows 10 版本，提供有限的內部部署 AD UPN 支援。 您的環境中可以有兩種類型的內部部署 AD UPN：
 
- - 可路由的替代登入識別碼：可路由的替代登入識別碼具有有效的已驗證網域，該網域已向網域註冊機構註冊。 例如，如果主要網域為 contoso.com，則 contoso.org 和 contoso.co.uk 是 Contoso 所擁有且[已在 Azure AD 中驗證](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)的有效網域
+ - 可路由的 UPN：可路由的 UPN 具有有效的已驗證網域，該網域已向網域註冊機構註冊。 例如，如果 Azure AD 中的主要網域為 contoso.com，則 contoso.org 在 Contoso 所擁有且[已在 Azure AD 中驗證](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)的內部部署 AD 中是主要網域
  
- - 無法路由的替代登入識別碼：無法路由的替代登入識別碼沒有已驗證的網域。 它僅適用於組織的私人網路內。 例如，如果主要網域為 contoso.com，則 contoso.local 不是網際網路中可驗證的網域，而是在 Contoso 的網路內使用。
+ - 不可路由的 UPN：不可路由的 UPN 沒有已驗證的網域。 它僅適用於組織的私人網路內。 例如，如果 Azure AD 中的主要網域為 contoso.com，則 contoso.local 是內部部署 AD 中的主要網域，但不是網際網路中可驗證的網域，而且只能在 Contoso 的網路內使用。
  
-下表提供有關於在 Windows 10 混合式 Azure AD Join 中支援這些替代登入識別碼的詳細資料
+下表提供有關在 Windows 10 混合式 Azure AD Join 中支援這些內部部署 AD UPN 的詳細資料
 
-|替代登入識別碼的類型|網域類型|Windows 10 版本|說明|
+|內部部署 AD UPN 的類型|網域類型|Windows 10 版本|說明|
 |-----|-----|-----|-----|
 |路由式|同盟 |自 1703 版起|正式推出|
 |路由式|受控|自 1709 版起|目前處於個人預覽狀態。 不支援 Azure AD SSPR |

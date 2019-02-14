@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3a4b62fb16745a3b226bda6c0574812278a34456
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430223"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494998"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中隔離叢集的最佳做法
 
@@ -43,6 +43,8 @@ Kubernetes 提供功能讓您以邏輯方式隔離相同叢集中的小組和工
 ![AKS 中 Kubernetes 叢集的邏輯隔離](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
 叢集邏輯分隔通常會較實體隔離的叢集提供更高的 Pod 密度。 叢集中閒置的多餘計算容量會比較少。 與 Kubernetes 叢集自動調整程式結合時，您可以相應增加或減少節點數目以符合需求。 這個自動調整的最佳做法可讓您僅執行所需的節點數目，從而將成本降到最低。
+
+多租用戶如有惡意的使用，AKS 或其他位置中的 Kubernetes 環境就並不完全安全。 將其他安全功能 (例如 *Pod 安全性原則*和更精細的角色型存取控制 (RBAC)) 用於節點，可以提高攻擊的難度。 不過，在執行惡意的多租用戶工作負載時若要保有真正的安全性，Hypervisor 才是您唯一可信賴的安全性層級。 Kubernetes 的安全性網域會成為整個叢集，而非個別節點。 對於這些類型的惡意多租用戶工作負載，您應使用實際隔離的叢集。
 
 ## <a name="physically-isolate-clusters"></a>實體隔離叢集
 

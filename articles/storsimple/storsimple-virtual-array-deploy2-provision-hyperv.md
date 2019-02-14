@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111076"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810536"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>部署 StorSimple Virtual Array：在 Hyper-V 中佈建
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -37,7 +37,7 @@ ms.locfileid: "23111076"
 在您開始前，請確定：
 
 * 您已完成 [準備入口網站以使用 StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)中的所有步驟。
-* 您已經從 Azure 入口網站下載適用於 Hyper-V 的虛擬陣列映像。 如需詳細資訊，請參閱[準備入口網站以使用 StorSimple Virtual Array 指南](storsimple-virtual-array-deploy1-portal-prep.md)的**步驟 3︰下載虛擬陣列映像**。
+* 您已經從 Azure 入口網站下載適用於 Hyper-V 的虛擬陣列映像。 如需詳細資訊，請參閱**步驟 3：下載虛擬陣列映像** (在[準備入口網站以使用 StorSimple Virtual Array 指南](storsimple-virtual-array-deploy1-portal-prep.md)中)。
 
   > [!IMPORTANT]
   > StorSimple Virtual Array 上執行的軟體只能搭配 Storsimple 裝置管理員服務來使用。
@@ -205,7 +205,7 @@ ms.locfileid: "23111076"
        >
        >
 
-如果裝置不符合最低設定需求，橫幅文字中會出現下列錯誤 (如下所示)。 請修改裝置設定，讓電腦有足夠的資源符合最低需求。 然後您就可以將裝置重新啟動，並連線到該裝置。 請參閱[步驟 1：確定主機系統符合最低的虛擬陣列需求](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements)中的最低設定需求。
+如果裝置不符合最低設定需求，橫幅文字中會出現下列錯誤 (如下所示)。 請修改裝置設定，讓電腦有足夠的資源符合最低需求。 然後您就可以將裝置重新啟動，並連線到該裝置。 請參閱以下步驟 1 中的最低設定需求：確定主機系統符合最低的虛擬陣列需求。
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 

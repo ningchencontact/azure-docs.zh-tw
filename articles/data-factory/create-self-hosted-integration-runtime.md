@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331804"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493580"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -141,6 +141,9 @@ ms.locfileid: "54331804"
 - 由於系統僅會使用主體別名 (SAN) 的最後一個項目，其他所有項目則會因目前的限制而遭到忽略，因此不建議使用 SAN 憑證。 舉例來說，若您具有 SAN 憑證，且其 SAN 為 **node1.domain.contoso.com** 和 **node2.domain.contoso.com**，則您僅可在 FQDN 為 **node2.domain.contoso.com** 的電腦上使用此憑證。
 - 此憑證支援 Windows Server 2012 R2 所支援的任何 SSL 憑證金鑰大小。
 - 不支援使用 CNG 金鑰的憑證。  
+
+> [!NOTE]
+> 此憑證用來加密自我裝載 IR 節點上的連接埠、可用於**節點對節點通訊** (適用於狀態同步處理)，以及從區域網路內**使用 PowerShell Cmdlet 進行連結服務認證設定**。 如果您的私人網路環境不安全，或者您也想要保護您私人網路內節點之間的通訊，我們建議使用此憑證。 不論是否設定此憑證，從自我裝載 IR 移到其他資料存放區的傳輸中資料移動一律會使用已加密的通道進行。 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>與多個資料處理站共用自我裝載整合執行階段
 

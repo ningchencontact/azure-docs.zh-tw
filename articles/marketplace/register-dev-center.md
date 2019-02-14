@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179832"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815229"
 ---
 # <a name="register-in-dev-center"></a>在開發人員中心註冊  
 為了協助確認您尚未登入個人瀏覽器帳戶，請開啟新的 Internet Explorer InPrivate 或 Chrome Incognito 瀏覽工作階段。  
@@ -78,7 +78,7 @@ ms.locfileid: "55179832"
     | 計費模式 | 後續步驟 |  
     |:--- |:--- |  
     | 免費 | 移至 Cloud Partner 入口網站。<ul> <li>若要在 Azure Marketplace 上發行，請瀏覽 Cloud Partner 入口網站頁面：[cloudpartner.azure.com](https://cloudpartner.azure.com)。</li> </ul> |  
-    | 商業 (transact) | 更新您的帳戶資訊。<ul> <li>如需有關新增帳戶資訊的詳細資訊，請瀏覽[如何新增銀行與稅務資訊](#how-to-add-bank-and-tax-information)一節。</li> </ul> |  
+    | 商業 (transact) | 更新您的帳戶資訊。<ul> <li>如需有關新增帳戶資訊的詳細資訊，請瀏覽[如何新增銀行與稅務資訊](#add-bank-information)一節。</li> </ul> |  
 
     *   例如，商業供應項目是使用每小時計費模型的虛擬機器供應項目。  
 
@@ -98,7 +98,7 @@ ms.locfileid: "55179832"
     
     按一下 [開始電子郵件] 按鈕。  
 1.  在登入頁面上，使用任何 Microsoft ID 來登入。 如果您沒有 Microsoft ID，請建立一個。  
-    *   如需有關如何建立 Microsoft ID 的詳細資訊，請瀏覽[建立 Microsoft ID 以管理 Azure Marketplace 帳戶的指導方針](#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account)一節。  
+    *   如需有關如何建立 Microsoft ID 的詳細資訊，請瀏覽建立 Microsoft ID 以管理 Azure Marketplace 帳戶的指導方針一節。  
 2.  填入問題的詳細資料。  
 3.  若要提交票證，請按一下 [提交] 按鈕。 
 
@@ -146,7 +146,7 @@ ms.locfileid: "55179832"
 > 以交易清單類型發佈的發行者：VM、Azure 應用程式：解決方案範本和受控應用程式。  
 
 *   **為何需要開發人員中心帳戶？**
-> 必須要有開發人員中心帳戶，Microsoft 才能代表發行者向客戶收取交易清單類型的費用。 開發人員中心帳戶註冊可讓 Microsoft 驗證公司的法律、稅務和銀行相關資訊。 若要深入了解，請按一下[這裡](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)。
+> 必須要有開發人員中心帳戶，Microsoft 才能代表發行者向客戶收取交易清單類型的費用。 開發人員中心帳戶註冊可讓 Microsoft 驗證公司的法律、稅務和銀行相關資訊。 若要深入了解，請按一下[這裡](https://docs.microsoft.com/azure/marketplace/become-publisher)。
 
 *   **如何開始進行開發人員中心註冊？**
 > 為防止重複註冊，請確認您的公司尚未註冊開發人員中心帳戶。 您必須使用要與開發人員帳戶相關聯的 Microsoft 帳戶進行登入。 如果您還沒有 Microsoft 帳戶，您可以在[這裡](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1)建立新帳戶。 (範例：contoso_marketplace@live.com) 若要登入並註冊，請移至 https://dev.windows.com/en-us/registration?accountProgram=Azure
@@ -184,7 +184,7 @@ ms.locfileid: "55179832"
 > 指派暫時的公司名稱、經由 [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) 連絡支援人員，並將您的企業註冊文件提供給他們。
 
 *   **如何新增稅務和付款資訊？**
-> 若未在開發人員中心帳戶中填寫稅務和銀行資訊，則無法發佈交易供應項目。  如需有關新增帳戶資訊的詳細資訊，請瀏覽[如何新增銀行與稅務資訊](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)。
+> 若未在開發人員中心帳戶中填寫稅務和銀行資訊，則無法發佈交易供應項目。  如需有關新增帳戶資訊的詳細資訊，請瀏覽[如何新增銀行與稅務資訊](https://docs.microsoft.com/azure/marketplace/register-dev-center)。
 
 *   **我是否可以變更開發人員中心 Microsoft 登入帳戶？**
 > 沒有。 開發人員中心建立後，就無法變更擁有者帳戶。 您必須以所需的 Microsoft 帳戶重新建立全新的開發人員中心帳戶。

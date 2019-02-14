@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8507d51f0d4d49d89fc24b38ed73df7488261daa
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969570"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745991"
 ---
 # <a name="assets"></a>Assets
 
@@ -27,25 +27,8 @@ ms.locfileid: "53969570"
 
 **封存**儲存層只建議用於經過編碼，且編碼作業輸出已放在輸出 Blob 容器的極大型來源檔案。 如果您要讓輸出容器中的 Blob 與資產建立關聯，並且用來串流或分析您的內容，則該 Blob 必須位在**經常性存取**或**非經常性存取**儲存層。
 
-## <a name="asset-definition"></a>資產定義
-
-下表顯示資產屬性並提供其定義。
-
-|Name|說明|
-|---|---|
-|id|資源的完整資源識別碼。|
-|name|資源名稱。|
-|properties.alternateId |資產的替代 ID。|
-|properties.assetId |資產識別碼。|
-|properties.container |資產 Blob 容器的名稱。|
-|properties.created |資產的建立日期。<br/> 日期時間一律是 UTC 格式。|
-|properties.description|資產描述。|
-|properties.lastModified |資產的上次修改日期。 <br/> 日期時間一律是 UTC 格式。|
-|properties.storageAccountName |儲存體帳戶的名稱。|
-|properties.storageEncryptionFormat |資產加密格式。 None 或 MediaStorageEncryption 其中一個。|
-|type|資源類型。|
-
-如需完整定義，請參閱[資產](https://docs.microsoft.com/rest/api/media/assets)。
+> [!NOTE]
+> 資產的日期時間類型屬性一律為 UTC 格式。
 
 ## <a name="upload-digital-files-into-assets"></a>將數位檔案上傳到資產
 
@@ -104,113 +87,7 @@ curl -X PUT \
 
 ## <a name="filtering-ordering-paging"></a>篩選、排序、分頁
 
-媒體服務支援下列資產的 OData 查詢選項： 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-運算子說明：
-
-* Eq = 等於
-* Ne = 不等於
-* Ge = 大於或等於
-* Le = 小於或等於
-* Gt = 大於
-* Lt = 小於
-
-### <a name="filteringordering"></a>篩選/排序
-
-下表顯示這些選項可如何套用至資產屬性： 
-
-|Name|Filter|順序|
-|---|---|---|
-|id|||
-|name|支援：Eq、 Gt、 Lt|支援：遞增和遞減|
-|properties.alternateId |支援：Eq||
-|properties.assetId |支援：Eq||
-|properties.container |||
-|properties.created|支援：Eq、 Gt、 Lt| 支援：遞增和遞減|
-|properties.description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|type|||
-
-下列 C# 範例會以建立日期篩選：
-
-```csharp
-var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```
-
-### <a name="pagination"></a>分頁
-
-在四個已啟用的分類排序中，每一個皆可支援分頁。 目前的頁面大小為 1000。
-
-> [!TIP]
-> 您應一律使用下一個連結來列舉集合，而不應依存於特定頁面大小。
-
-如果查詢回應包含許多項目，服務會傳回 "\@odata.nextLink" 屬性，以取得下一頁的結果。 這可用來逐頁查看整個結果集。 您無法設定頁面大小。 
-
-如果逐頁查看集合時，有資產建立或刪除，則所做的變更會反映在傳回的結果中 (如果這些變更屬於尚未下載的集合)。 
-
-#### <a name="c-example"></a>C# 範例
-
-下列 C# 範例會示範如何列舉帳戶中的所有資產。
-
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-#### <a name="rest-example"></a>REST 範例
-
-請參考下列使用 $skiptoken 的範例。 請務必將 amstestaccount 取代為您的帳戶名稱，並將 api-version 值設為最新版本。
-
-如果您要求的資產清單如下：
-
-```
-GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
-x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
-Content-Type: application/json; charset=utf-8
-```
-
-您將會收到如下所示的回應：
-
-```
-HTTP/1.1 200 OK
- 
-{
-"value":[
-{
-"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-},
-// lots more assets
-{
-"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-}
-],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
-}
-```
-
-然後您會藉由傳送 get 要求來要求下一個頁面：
-
-```
-https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
-```
-
-如需其他 REST 範例，請參閱[資產 - 清單](https://docs.microsoft.com/rest/api/media/assets/list)
+請參閱[媒體服務實體的篩選、排序、分頁](entities-overview.md)。
 
 ## <a name="storage-side-encryption"></a>儲存端加密
 
@@ -228,6 +105,6 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 ## <a name="next-steps"></a>後續步驟
 
-[串流處理檔案](stream-files-dotnet-quickstart.md)
-
-[媒體服務 v2 及 v3 之間的差異](migrate-from-v2-to-v3.md)
+* [串流處理檔案](stream-files-dotnet-quickstart.md)
+* [使用雲端 DVR](live-event-cloud-dvr.md)
+* [媒體服務 v2 及 v3 之間的差異](migrate-from-v2-to-v3.md)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091341"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562178"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure 事件中樞 - 異地災害復原 
 
@@ -102,12 +102,12 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 
 4. 同步處理實體可能需要一些時間，大約每分鐘 50-100 個實體。
 
-## <a name="availability-zones-preview"></a>可用性區域 (預覽)
+## <a name="availability-zones"></a>可用性區域 
 
-事件中樞標準 SKU 也支援[可用性區域](../availability-zones/az-overview.md)，在 Azure 區域內提供錯誤隔離位置。 
+事件中樞標準 SKU 支援[可用性區域](../availability-zones/az-overview.md)，在 Azure 區域內提供錯誤隔離位置。 
 
 > [!NOTE]
-> 只有在**美國中部**、**美國東部 2** 和**法國中部**區域才支援可用性區域預覽。
+> 「Azure 事件中樞標準」的「可用性區域」支援僅適用於有可用性區域存在的 [Azure 區域](../availability-zones/az-overview.md#regions-that-support-availability-zones)。
 
 使用 Azure 入口網站時，只能在新的命名空間上啟用可用性區域。 事件中樞不支援移轉現有的命名空間。 在命名空間上啟用區域備援之後，便無法停用。
 

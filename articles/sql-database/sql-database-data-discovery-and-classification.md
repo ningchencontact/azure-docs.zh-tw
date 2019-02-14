@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466587"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731847"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 的資料探索與分類
+# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database 的資料探索與分類
 
 資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
 對於最具敏感性的資料 (商業、財務、醫療保健與個人識別資料 (PII) 等) 進行探索與分類，在組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
@@ -28,7 +28,7 @@ ms.locfileid: "55466587"
 - 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
 - 控制對包含高度敏感性資料之資料庫的存取，並強化安全性。
 
-資料探索與分類是 [SQL 進階資料安全性](sql-advanced-threat-protection.md) (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 資料探索與分類可以透過中央 SQL ADS 入口網站存取及管理。
+資料探索與分類是[進階資料安全性](sql-database-advanced-data-security.md) (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 資料探索與分類可以透過中央 SQL ADS 入口網站存取及管理。
 
 > [!NOTE]
 > 這份文件只與 Azure SQL Database 相關。 若是 SQL Server (內部部署)，請參閱 [SQL 資料探索與分類](https://go.microsoft.com/fwlink/?linkid=866999)。
@@ -147,11 +147,11 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 ## <a id="subheading-5"></a>接續步驟
 
-- 深入了解 [SQL 進階資料安全性](sql-advanced-threat-protection.md)。
+- 深入了解[進階資料安全性](sql-database-advanced-data-security.md)。
 - 請考慮設定 [Azure SQL Database 稽核](sql-database-auditing.md)，以監視和稽核對已分類敏感性資料的存取。
 
 <!--Anchors-->
-[SQL Data Discovery & Classification overview]: #subheading-1
+[SQL data discovery & classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Automated/Programmatic classification]: #subheading-4

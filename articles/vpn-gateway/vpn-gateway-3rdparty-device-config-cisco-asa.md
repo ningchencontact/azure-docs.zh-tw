@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: 4a8db246f02d68a7924b9a09a1b2fc1f5bcf2edc
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467220"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817235"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>範例組態：Cisco ASA 裝置 (IKEv2/無 BGP)
 本文提供將 Cisco Adaptive Security Appliance (ASA) 裝置連線到 Azure VPN 閘道的範例設定。 此範例適用於執行 IKEv2 且不含邊界閘道協定 (BGP) 的 Cisco ASA 裝置。 
@@ -44,7 +44,7 @@ Azure VPN 閘道會使用標準的 IPsec/IKE 通訊協定組合來建立站對�
 > 您可以選擇性地針對特定連線指定密碼編譯演算法和金鑰長度的確切組合，如[關於密碼編譯需求](vpn-gateway-about-compliance-crypto.md)中所述。 如果您指定演算法和金鑰長度的確切組合，請確定您會在 VPN 裝置上使用對應的規格。
 
 ## <a name="single-vpn-tunnel"></a>單一 VPN 通道
-此設定是由 Azure VPN 閘道與您內部部署 VPN 裝置之間的單一 S2S VPN 通道所組成。 您可以選擇[透過 VPN 通道設定 BGP](#bgp)。
+此設定是由 Azure VPN 閘道與您內部部署 VPN 裝置之間的單一 S2S VPN 通道所組成。 您可以選擇透過 VPN 通道設定 BGP。
 
 ![單一 S2S VPN 通道](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
@@ -248,7 +248,7 @@ crypto ipsec ikev2 ipsec-proposal AES-256
  protocol esp integrity  sha-1
 exit
 !
-!     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
+!     > Set access list & traffic selectors, PFS, IPsec proposal, SA lifetime
 !       - This sample uses "Azure-<VNetName>-map" as the crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
 !         an existing crypto map assigned to your outside interface, you must use

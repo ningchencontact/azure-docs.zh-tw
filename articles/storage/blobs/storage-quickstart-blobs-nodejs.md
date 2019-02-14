@@ -1,23 +1,26 @@
 ---
-title: 如何使用 Node.js SDK v2 在 Azure 儲存體中建立 Blob
+title: 如何使用適用於 Node.js v2 的用戶端程式庫在 Azure 儲存體中建立 Blob
 description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Node.js v2 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: tamram
-ms.openlocfilehash: 420b48101671c06ee1d820cd183ea0e5c2788635
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410538"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750069"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>如何使用 Node.js SDK v2 上傳、下載及列出 Blob
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>如何使用適用於 Node.js v2 的用戶端程式庫上傳、下載及列出 Blob
 
-在本操作指南中，您會了解如何使用 Node.js 以透過 Azure Blob 儲存體上傳、下載及列出 Blob 和管理容器。
+在本操作指南中，您會了解如何使用適用於 Node.js v2 的用戶端程式庫，透過 Azure Blob 儲存體上傳、下載及列出 Blob。
+
+> [!TIP]
+> 適用於 Node.js 的最新 Azure 儲存體用戶端程式庫版本是 v10。 Microsoft 建議您盡可能使用最新版的用戶端程式庫。 若要開始使用 v10，請參閱[快速入門：使用適用於 JavaScript v10 的 Azure 儲存體用戶端程式庫 (預覽) 上傳、下載、列出及刪除 Blob](storage-quickstart-blobs-nodejs-v10.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -96,7 +99,7 @@ const storage = require('azure-storage');
 
 名為 .env 的檔案會載入目前的執行環境中
 - path 是必要項目，有此項目才能判斷要上傳至 Blob 儲存體之檔案的絕對檔案路徑
-- azure-storage 是 Node.js 的 [Azure 儲存體 SDK](https://docs.microsoft.com/javascript/api/azure-storage) 模組
+- azure-storage 是 Node.js 的 [Azure 儲存體用戶端程式庫](https://docs.microsoft.com/javascript/api/azure-storage) 模組
 
 接下來，blobService 變數會初始化為 Azure Blob 服務的新執行個體。
 
@@ -108,7 +111,7 @@ const blobService = storage.createBlobService();
 
 ### <a name="list-containers"></a>列出容器
 
-ListContainers 函式會呼叫 [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listcontainerssegmented)，以傳回群組中的容器集合。
+ListContainers 函式會呼叫 [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)，以傳回群組中的容器集合。
 
 ```javascript
 const listContainers = async () => {
@@ -128,7 +131,7 @@ const listContainers = async () => {
 
 ### <a name="create-a-container"></a>建立容器
 
-CreateContainer 函式會呼叫 [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) 並為 Blob 設定適當的存取層級。
+CreateContainer 函式會呼叫 [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 並為 Blob 設定適當的存取層級。
 
 ```javascript
 const createContainer = async (containerName) => {
@@ -144,13 +147,13 @@ const createContainer = async (containerName) => {
 };
 ```
 
-**createContainerIfNotExists** 的第二個參數 (options) 會接受 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) 的值。 publicAccessLevel 的 Blob 值會指定要公開的特定 Blob 資料。 此設定可和 container 存取層級相比較，後者可授與列出容器內容的能力。
+**createContainerIfNotExists** 的第二個參數 (options) 會接受 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 的值。 publicAccessLevel 的 Blob 值會指定要公開的特定 Blob 資料。 此設定可和 container 存取層級相比較，後者可授與列出容器內容的能力。
 
 使用 **createContainerIfNotExists** 可讓應用程式執行 createContainer 命令多次，而不會在容器早已存在時傳回錯誤。 在生產環境中，由於整個應用程式都使用相同的容器，因此您往往只會呼叫 **CreateIfNotExists** 一次。 在這些情況下，您可以透過入口網站或透過 Azure CLI 事先建立容器。
 
 ### <a name="upload-text"></a>上傳文字
 
-*uploadString* 函式會呼叫 [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) 以將任意字串寫入 (或覆寫) 至 blob 容器。
+*uploadString* 函式會呼叫 [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 以將任意字串寫入 (或覆寫) 至 blob 容器。
 
 ```javascript
 const uploadString = async (containerName, blobName, text) => {
@@ -184,7 +187,7 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-其他可供將內容上傳至 Blob 的方法包括使用[文字](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--)和[串流](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--)。 若要確認檔案有上傳至您的 Blob 儲存體，您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來檢視您帳戶中的資料。
+其他可供將內容上傳至 Blob 的方法包括使用[文字](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest-string--string--string---buffer--errororresult-blobresult--)和[串流](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--)。 若要確認檔案有上傳至您的 Blob 儲存體，您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來檢視您帳戶中的資料。
 
 ### <a name="list-the-blobs"></a>列出 blob
 
@@ -208,7 +211,7 @@ const listBlobs = async (containerName) => {
 
 ### <a name="download-a-blob"></a>下載 Blob
 
-downloadBlob 函式會使用 [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtotext) 將 Blob 的內容下載至指定的絕對檔案路徑。
+downloadBlob 函式會使用 [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 將 Blob 的內容下載至指定的絕對檔案路徑。
 
 ```javascript
 const downloadBlob = async (containerName, blobName) => {
@@ -224,7 +227,7 @@ const downloadBlob = async (containerName, blobName) => {
     });
 };
 ```
-這裡所示的實作會變更，而來源會將 blob 的內容當作字串傳回。 您也可以下載 blob 作為[資料流](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream)，而且直接下載至[本機檔案](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)。
+這裡所示的實作會變更，而來源會將 blob 的內容當作字串傳回。 您也可以下載 blob 作為[資料流](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)，而且直接下載至[本機檔案](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)。
 
 ### <a name="delete-a-blob"></a>刪除 Blob
 
@@ -358,4 +361,4 @@ console.log(`Container "${containerName}" is deleted`);
 本文會示範如何使用 Node.js 在本機磁碟和 Azure Blob 儲存體之間上傳檔案。 若要深入了解 Blob 儲存體的用法，請繼續閱讀 GitHub 存放庫。
 
 > [!div class="nextstepaction"]
-> [適用於 JavaScript 的 Azure 儲存體 SDK 存放庫](https://github.com/Azure/azure-storage-node)
+> [適用於瀏覽器的 Node.js 和 JavaScript 版 Microsoft Azure 儲存體 SDK](https://github.com/Azure/azure-storage-node)

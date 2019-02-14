@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402042"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567266"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -102,6 +102,10 @@ Azure 媒體服務的 SLA 涵蓋影片索引器，並可以在 [SLA](https://azu
 
 根據 [Azure 線上服務條款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) \(英文\) (OST)，您完全擁有自己的內容，且 Microsoft 僅會根據 OST 和 Microsoft 隱私權聲明存取您的內容，以及影片索引器從您內容中擷取的中繼資料和見解。
 
+### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>我在自己的影片索引子帳戶中建置的自訂模型是否可供其他帳戶使用？
+
+ 否，您在自己的帳戶中建立的自訂模型不可供任何其他帳戶使用。 影片索引子目前可讓您在自己的帳戶中建置自訂[品牌](customize-brands-model-overview.md)、[語言](customize-language-model-overview.md)和[人員](customize-person-model-overview.md)模型。 這些模型只能在您建立模型的帳戶中使用。
+  
 ### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>由影片索引器編製索引的內容是否保留在我要使用影片索引器的 Azure 區域內？
 
 是，內容和其見解都會保留在 Azure 區域內，除非您在 Azure 訂用帳戶中具有使用多個 Azure 區域的手動設定。 

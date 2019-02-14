@@ -1,25 +1,25 @@
 ---
-title: 將授權指派給 Azure Active Directory 中的群組 | Microsoft Docs
+title: 將授權指派給群組 - Azure Active Directory | Microsoft Docs
 description: 如何使用 Azure Active Directory 群組授權的方式將授權指派給使用者
 services: active-directory
 keywords: Azure AD 授權
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: sumitp
+ms.custom: it-pro
+ms.openlocfilehash: ea243fd0dea2fe0c6afe325be2756330af47dba9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155063"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510301"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>依據 Azure Active Directory 中的群組成員資格將授權指派給使用者
 

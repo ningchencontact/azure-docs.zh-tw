@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2018
+ms.date: 02/01/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: mmercuri
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 34731bb96a83a901b3fc1a59ce1846083d69bfd7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 48e7de2798d9c34942df281febcc1d4ec443010d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103378"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662222"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 訊息整合
 
@@ -116,6 +116,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 | requestId            | 用戶端提供的 GUID |
 | userChainIdentifier  | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，此位址是使用者的**鏈結**位址。 |
 | applicationName      | 應用程式的名稱 |
+| version              | 應用程式的版本。 如果您已啟用多個版本的應用程式，則此為必要項目。 否則，版本是選擇性項目。 如需有關應用程式版本的詳細資訊，請參閱 [Azure Blockchain Workbench 應用程式版本](version-app.md)。 |
 | workflowName         | 工作流程的名稱 |
 | parameters           | 可供建立合約的參數輸入 |
 | connectionId         | 區塊鏈連線的唯一識別碼 |
@@ -128,7 +129,8 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 { 
     "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211", 
     "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
-    "applicationName": "AssetTransfer", 
+    "applicationName": "AssetTransfer",
+    "version": "1.0",
     "workflowName": "AssetTransfer", 
     "parameters": [ 
         { 
@@ -218,6 +220,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 | requestId                | 用戶端提供的 GUID |
 | userChainIdentifier      | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，此位址是使用者的**鏈結**位址。 |
 | contractLedgerIdentifier | 總帳上合約的位址 |
+| version                  | 應用程式的版本。 如果您已啟用多個版本的應用程式，則此為必要項目。 否則，版本是選擇性項目。 如需有關應用程式版本的詳細資訊，請參閱 [Azure Blockchain Workbench 應用程式版本](version-app.md)。 |
 | workflowFunctionName     | 工作流程函式的名稱 |
 | parameters               | 可供建立合約的參數輸入 |
 | connectionId             | 區塊鏈連線的唯一識別碼 |
@@ -231,6 +234,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
     "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
     "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398",
     "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "version": "1.0",
     "workflowFunctionName": "modify",
     "parameters": [
         {

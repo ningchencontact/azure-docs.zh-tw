@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d150a91a00652d5af74253dfdf60eb728db97b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8be5e94886237129824204ea166a2663e2f3110e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192821"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814447"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>教學課程：Azure Active Directory 與 Zscaler Private Access (ZPA) 整合
 
@@ -95,7 +95,7 @@ Zscaler Private Access (ZPA) 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 Zscaler Private Access (ZPA) 測試使用者](#creating-a-zscaler-private-access-(zpa)-test-user)** - 使 Zscaler Private Access (ZPA) 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
+1. **建立 Zscaler Private Access (ZPA) 測試使用者** - 使 Zscaler Private Access (ZPA) 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
 1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 

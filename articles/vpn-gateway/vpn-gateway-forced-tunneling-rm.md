@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: 21004c29f1baf0346cd83d8483ff1862a98fc845
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160473"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506459"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型設定強制通道
 
@@ -53,15 +53,15 @@ Azure 中的強制通道處理會透過虛擬網路使用者定義的路由進�
 * 每個虛擬網路的子網路皆有內建的系統路由表。 系統路由表具有下列 3 個路由群組：
   
   * **本機 VNet 路由：** 直接連線到相同虛擬網路中的目的地 VM。
-  * **內部部署路由：** 連線到 Azure VPN 閘道。
-  * **預設路由：** 直接連線到網際網路。 系統將會捨棄尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
+  * **內部部署路由：** 連至 Azure VPN 閘道。
+  * **預設路由：** 直接連至網際網路。 系統將會捨棄尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
 * 此程序使用「使用者定義的路由 (UDR)」建立路由表以新增預設路由，然後將路由表關聯至您的 VNet 子網路，以啟用那些子網路上的強制通道處理。
 * 強制通道必須與具有路由型 VPN 閘道的 VNet 相關聯。 您需要在連接到虛擬網路的內部部署本機網站間設定「預設網站」。 此外，內部部署 VPN 裝置必須使用 0.0.0.0/0 設定為流量選取器。 
 * ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。 如需詳細資訊，請參閱 [ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)。
 
 ## <a name="configuration-overview"></a>組態概觀
 
-下列程序可協助您建立資源群組和 VNet。 然後您將建立 VPN 閘道，並設定強制通道。 在此程序中，'MultiTier-VNet' 虛擬網路具有三個子網路：「前端」、「中層」和「後端」，包含四個跨單位連線：DefaultSiteHQ 和三個「分支」。
+下列程序可協助您建立資源群組和 VNet。 然後您將建立 VPN 閘道，並設定強制通道。 在此程序中，虛擬網路 'MultiTier-VNet' 有三個子網路：'Frontend'、'Midtier' 和 'Backend'，具有四個跨單位連線：'DefaultSiteHQ' 和三個分支。
 
 程序步驟會將 'DefaultSiteHQ' 設定為強制通道處理的預設網站連線，並設定「中層」和「後端」子網路以使用強制通道處理。
 

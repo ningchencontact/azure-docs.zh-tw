@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7f5dfd9488e6017acfdf66cdb7d4cee3aedd1ab3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227772"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699919"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 到 V3 的移轉
 
@@ -109,12 +109,12 @@ Microsoft Translator V3 的定價方式與 V2 相同，即依字元計價，包�
 
 Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，無法搭配 Microsoft Translator Hub 使用。 Translator Hub 僅支援傳統統計機器翻譯。 類神經翻譯現在已可使用自訂翻譯工具進行自訂。 [深入了解如何自訂類神經機器翻譯](custom-translator/overview.md)
 
-使用 V3 文字 API 的類神經翻譯不支援使用標準類別 (SMT、語音、文字、generalnn)。
+使用 V3 文字 API 的類神經翻譯不支援使用標準類別 (SMT、語音、技術、generalnn)。
 
 | |端點|    GDPR 處理器合規性|  使用 Translator Hub| 使用自訂翻譯 (預覽)|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API 第 2 版| api.microsofttranslator.com|    否  |是    |否|
-|Translator Text API 第 3 版| api.cognitive.microsofttranslator.com|  是|    否| 是|
+|Translator Text API 第 2 版| api.microsofttranslator.com|    否  |yes    |否|
+|Translator Text API 第 3 版| api.cognitive.microsofttranslator.com|  yes|    否| yes|
 
 **Translator Text API 第 3 版**
 * 已正式推出且提供完整支援。

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388312"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490442"
 ---
 # <a name="configure-usage-settings-and-policies"></a>設定使用方式設定和原則
 本文說明如何將使用者新增至實驗室、讓他們向實驗室註冊、控制他們可以使用 VM 的時數等等。 
@@ -71,6 +71,9 @@ ms.locfileid: "54388312"
 5. 您可立即在工具列上看到時數：**每位使用者的配額：&lt;時數&gt;**。 
 
     ![每位使用者的配額](../media/how-to-configure-student-usage/quota-per-user.png)
+
+> [!IMPORTANT]
+> VM 的排程執行時間不會計入[分配給使用者的配額](how-to-create-schedules.md)中。 該配額用於學生在排程時間以外花費於 VM 上的時間。 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>上傳 CSV 檔案以新增使用者
 您也可以上傳具有使用者電子郵件地址的 CSV 檔案，藉此新增使用者。

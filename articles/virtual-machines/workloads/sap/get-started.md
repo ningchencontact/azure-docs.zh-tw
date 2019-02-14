@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0988a6367eb1a1bacaab61f8bc5924a2c9f0a58c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0b7515a5c22b98fb14499e07057ff52311fc6e67
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474712"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744811"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
@@ -35,6 +35,8 @@ Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯
 在 Azure 中裝載 SAP 工作負載案例也會讓不同的 SAP 元件與 SAP SaaS (或 PaaS) 供應項目需要身分識別整合和單一登入 (使用 Azure Active Directory)。 這類使用 Azure Active Directory (AAD) 和 SAP 實體之整合和單一登入案例的清單會在＜AAD SAP 身分識別整合及單一登入＞一節中說明並加以記載。
 
 ## <a name="latest-changes"></a>最新變更
+
+[使用 Azure 可用性區域的 SAP 工作負載設定](sap-ha-availability-zones.md)的版本
 
 [SAP 工作負載規劃和部署檢查清單](sap-deployment-checklist.md)的版本
 

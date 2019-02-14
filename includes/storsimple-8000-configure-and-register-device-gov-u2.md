@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166118"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736015"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
@@ -63,7 +63,7 @@ ms.locfileid: "50166118"
 11. 基於安全性理由，裝置系統管理員密碼會在第一個工作階段之後過期，您必須立即變更。 出現提示時，請提供裝置系統管理員密碼。 有效的裝置系統管理員密碼長度必須介於 8 到 15 個字元。 密碼必須包含下列其中三項：大寫、小寫、數字和特殊字元。
     
     <br/>![StorSimple 註冊裝置 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. 安裝精靈的最後一個步驟，是向 StorSimple 裝置管理員服務註冊您的裝置。 基於此因素，您需要在[步驟 2：取得服務註冊金鑰中取得的服務註冊金鑰](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key)。 提供註冊金鑰之後，您可能需要等待 2-3 分鐘，才能註冊裝置。
+12. 安裝精靈的最後一個步驟，是向 StorSimple 裝置管理員服務註冊您的裝置。 基於此因素，您需要使用所取得的服務註冊金鑰 (於[步驟 2：取得服務註冊金鑰](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key)。 提供註冊金鑰之後，您可能需要等待 2-3 分鐘，才能註冊裝置。
     
     > [!NOTE]
     > 您可以隨時按 Ctrl + C 來結束安裝精靈。 如果您輸入所有網路設定 (Data 0 的 IP 位址、子網路遮罩和閘道器)，則會保留您的項目。

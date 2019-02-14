@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25e47ecc9d9915ab618bc45f2e95f12bae68c7f0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332603"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811081"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory 中的資料集
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Data Factory 中的資料集會以 JSON 格式定義如下：
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
+        "external": "<boolean flag to indicate external data. only for input datasets>",
         "linkedServiceName": "<Name of the linked service that refers to a data store.>",
         "structure": [
             {
@@ -81,12 +81,12 @@ Data Factory 中的資料集會以 JSON 格式定義如下：
 
 | 屬性 | 說明 | 必要 | 預設值 |
 | --- | --- | --- | --- |
-| name |資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](data-factory-naming-rules.md) ，以了解命名規則。 |是 |NA |
-| type |資料集的類型。 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#Type)。 |是 |NA |
+| name |資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](data-factory-naming-rules.md) ，以了解命名規則。 |yes |NA |
+| type |資料集的類型。 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#Type)。 |yes |NA |
 | structure |資料集的結構描述。<br/><br/>如需詳細資料，請參閱[資料集結構](#Structure)。 |否 |NA |
-| typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azure SQL 資料表)。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#Type)。 |是 |NA |
+| typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azure SQL 資料表)。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#Type)。 |yes |NA |
 | external | 用來指定資料集是否由 Data Factory 管線明確產生的布林值旗標。 如果活動的輸入資料集不是由目前的管線所產生，請將此旗標設定為 true。 請針對管線中第一個活動的輸入資料集，將此旗標設定為 true。  |否 |false |
-| availability | 定義處理時段 (例如每小時或每天) 或用於產生資料集的切割模型。 活動執行取用和產生的每個資料單位稱為資料配量。 如果將輸出資料集的可用性設定為每天 (frequency - Day，interval - 1)，就會每天產生配量。 <br/><br/>如需詳細資料，請參閱[資料集可用性](#Availability)。 <br/><br/>如需有關資料集切割模型的詳細資料，請參閱[排程和執行](data-factory-scheduling-and-execution.md)一文。 |是 |NA |
+| availability | 定義處理時段 (例如每小時或每天) 或用於產生資料集的切割模型。 活動執行取用和產生的每個資料單位稱為資料配量。 如果將輸出資料集的可用性設定為每天 (frequency - Day，interval - 1)，就會每天產生配量。 <br/><br/>如需詳細資料，請參閱「資料集可用性」。 <br/><br/>如需有關資料集切割模型的詳細資料，請參閱[排程和執行](data-factory-scheduling-and-execution.md)一文。 |yes |NA |
 | 原則 |定義資料集配量必須符合的準則或條件。 <br/><br/>如需詳細資料，請參閱[資料集原則](#Policy)一節。 |否 |NA |
 
 ## <a name="dataset-example"></a>資料集範例
@@ -193,7 +193,7 @@ structure 中的每個資料行都包含下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| name |資料行的名稱。 |是 |
+| name |資料行的名稱。 |yes |
 | type |資料行的資料類型。  |否 |
 | culture |當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的 .NET 型文化特性。 預設值為 `en-us`。 |否 |
 | format |當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的格式字串。 |否 |
@@ -235,8 +235,8 @@ Data Factory 會在將資料從來源資料存放區移到接收資料存放區�
 
 | 屬性 | 說明 | 必要 | 預設值 |
 | --- | --- | --- | --- |
-| frequency |指定資料集配量生產的時間單位。<br/><br/><b>支援的頻率</b>：Minute、Hour、Day、Week、Month |是 |NA |
-| interval |指定頻率的倍數。<br/><br/>「頻率 x 間隔」會決定產生配量的頻率。 例如，如果您需要將資料集以每小時為單位來切割，請將 <b>frequency</b> 設定為 <b>Hour</b>，將 <b>interval</b> 設定為 <b>1</b>。<br/><br/>請注意，如果您將 **frequency** 指定為 **Minute**，則應該將 interval 設定為不小於 15。 |是 |NA |
+| frequency |指定資料集配量生產的時間單位。<br/><br/><b>支援的頻率</b>：Minute、Hour、Day、Week、Month |yes |NA |
+| interval |指定頻率的倍數。<br/><br/>「頻率 x 間隔」會決定產生配量的頻率。 例如，如果您需要將資料集以每小時為單位來切割，請將 <b>frequency</b> 設定為 <b>Hour</b>，將 <b>interval</b> 設定為 <b>1</b>。<br/><br/>請注意，如果您將 **frequency** 指定為 **Minute**，則應該將 interval 設定為不小於 15。 |yes |NA |
 | style |指定應該在間隔的開始還是結束時產生配量。<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>如果將 **frequency** 設定為 **Month**，並將 **style** 設定為 **EndOfInterval**，就會在當月的最後一天產生配量。 如果將 **style** 設定為 **StartOfInterval**，則會在當月的第一天產生配量。<br/><br/>如果將 **frequency** 設定為 **Day**，並將 **style** 設定為 **EndOfInterval**，就會在當天的最後一小時產生配量。<br/><br/>如果 **frequency** 設定為 **Hour**，並將 **style** 設定為 **EndOfInterval**，則會在該小時結束時產生配量。 例如，就下午 1 點 - 2 點期間的配量而言，會在下午 2 點產生配量。 |否 |EndOfInterval |
 | anchorDateTime |定義排程器用來計算資料集配量界限的時間絕對位置。 <br/><br/>請注意，如果此屬性有比所指定頻率更細微的日期部分，則系統會忽略那些更細微的部分。 例如，如果 **interval** 為 **hourly** (frequency: hour 且 interval:1)，而且 **anchorDateTime** 包含**分鐘和秒鐘**，則會忽略 **anchorDateTime** 的分鐘和秒鐘部分。 |否 |01/01/0001 |
 | Offset |所有資料集配量的開始和結束移位所依據的時間範圍。 <br/><br/>請注意，如果同時指定 **anchorDateTime** 和 **offset**，則結果會是合併的位移。 |否 |NA |

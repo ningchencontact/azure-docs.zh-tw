@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 23066339ffcb0b8b3c7885ad24c6c3d136629ab2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262024"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700002"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -227,7 +227,7 @@ Microsoft 帳戶是您使用 Microsoft 裝置和服務來執行幾乎所有作�
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>為何我從 PowerShell 佈建 VM 時遇到「找不到父資源」錯誤？
 當某資源為另一個資源的父資源時，父資源必須在建立子資源之前就存在。 如果父資源不存在，您會看到 **ParentResourceNotFound** 訊息。 如果您未在父資源上指定相依性，子資源可能會在父資源之前進行部署。
 
-VM 是資源群組中實驗室下的子資源。 當您使用 Resource Manager 範本透過 PowerShell 部署 VM 時，在 PowerShell 指令碼中提供的資源群組名稱應該是實驗室的資源群組名稱。 如需詳細資訊，請參閱[對常見的 Azure 部署錯誤進行疑難排解](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound)。
+VM 是資源群組中實驗室下的子資源。 當您使用 Resource Manager 範本透過 PowerShell 部署 VM 時，在 PowerShell 指令碼中提供的資源群組名稱應該是實驗室的資源群組名稱。 如需詳細資訊，請參閱[對常見的 Azure 部署錯誤進行疑難排解](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors)。
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>當 VM 部署失敗時，我可以在哪裡找到更多錯誤資訊？
 VM 部署錯誤會擷取至活動記錄中。 您可以在實驗室 VM 刀鋒視窗 (在您從 [我的虛擬機器] 清單中選取 VM 之後，該刀鋒視窗便會出現) 中資源功能表上的 [稽核記錄] 或 [虛擬機器診斷] 底下找到實驗室 VM 活動記錄。

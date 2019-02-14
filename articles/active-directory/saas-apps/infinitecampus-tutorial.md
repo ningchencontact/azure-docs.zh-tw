@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 694999048d2f1df92e6b8631953f124c4009d46c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151799"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>教學課程：Azure Active Directory 與 Infinite Campus 整合
 
@@ -111,7 +111,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](common/editconfigure.png)
 
-5. 如果您有**服務提供者中繼資料檔案** (跳至步驟 **11.c**)，請在 [基本 SAML 設定] 區段上執行下列步驟：
+4. 如果您有**服務提供者中繼資料檔案**，請在 [基本 SAML 設定] 區段上完成 4.a 到 4.d 的步驟，然後跳至步驟 11.c。 如果您沒有服務提供者中繼資料檔案，請跳至步驟 5。
 
     a. 按一下 [上傳中繼資料檔案]。
 
@@ -127,10 +127,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     d. 在 [登入 URL] 文字方塊中，使用下列模式來輸入 URL (網域會隨著主控模型而異)：`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    > [!NOTE]
-    > 您會在 [Infinite Campus SSO 服務提供者設定] 頁面上取得**服務提供者中繼資料檔案**，本教學課程稍後會予以說明。 如果您開始在 Infinite Campus 中使用新的 SAML 服務提供者組態，請跳至**步驟 11** 以完成匯出服務提供者中繼資料檔案。
-
-6. 如果您沒有**服務提供者中繼資料檔案**，請執行下列步驟 (請注意，網域會隨著裝載模型而有所不同)：
+5. 如果您沒有**服務提供者中繼資料檔案**，請執行下列步驟 (請注意，網域會隨著裝載模型而有所不同)：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 

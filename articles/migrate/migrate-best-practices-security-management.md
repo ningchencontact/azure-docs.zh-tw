@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827494"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700072"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>保護及管理已移轉到 Azure 之工作負載的最佳做法
 
@@ -400,8 +400,7 @@ Azure VM 會以分頁 Blob 的形式儲存在 Azure 儲存體中。
 - [了解如何](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots)建立 Blob 快照集。
 - 檢閱 Blob 儲存體備份的[範例案例](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) \(英文\)。
 - [閱讀](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)虛刪除的相關資訊。
-- [檢閱](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)如果 Azure 儲存體發生中斷怎麼辦？
-
+- [Azure 儲存體中的災害復原和強制容錯移轉 (預覽)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### <a name="third-party-backup"></a>協力廠商備份
 
@@ -517,7 +516,7 @@ Azure 儲存體會進行複寫以取得內建的復原性和高可用性。
 - [閱讀](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) \(英文\) 適用於災害復原的 Azure SQL 資料庫入門課程。
 - 取得主動式異地複寫和自動容錯移轉群組的[概觀](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)。
 - [了解](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery)針對災害復原進行設計。
-- 取得適用於容錯移轉群組的[最佳做法](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) \(英文\)。
+- 取得適用於容錯移轉群組的[最佳做法](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) \(英文\)。
 - 取得在異地還原或容錯移轉後確保安全性的[最佳做法](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config)。
 - [了解](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration)區域備援
 - [了解如何](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills)針對 SQL 資料庫執行災害復原演練。

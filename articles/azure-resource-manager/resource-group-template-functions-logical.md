@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164782"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745566"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的邏輯函式
 
@@ -31,21 +31,24 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 * [not](#not)
 * [or](#or)
 
-## <a name="and"></a>和
-`and(arg1, arg2)`
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-檢查兩個參數值是否為 true。
+## <a name="and"></a>和
+`and(arg1, arg2, ...)`
+
+檢查所有參數值是否為 true。
 
 ### <a name="parameters"></a>參數
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布林值 |要檢查是否為 true 的第一個值。 |
-| arg2 |是 |布林值 |要檢查是否為 true 的第二個值。 |
+| arg1 |yes |布林值 |要檢查是否為 ture 的第一個值。 |
+| arg2 |yes |布林值 |要檢查是否為 true 的第二個值。 |
+| 其他引數 |否 |布林值 |要檢查是否為 true 的其他引數。 |
 
 ### <a name="return-value"></a>傳回值
 
-如果兩個值都是 true，則傳回 **True**，否則會傳回 **False**。
+如果所有值都是 true，則傳回 **True**，否則會傳回 **False**。
 
 ### <a name="examples"></a>範例
 
@@ -75,7 +78,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -90,7 +93,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="bool"></a>布林
@@ -102,7 +105,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字串或整數 |要轉換為布林值的值。 |
+| arg1 |yes |字串或整數 |要轉換為布林值的值。 |
 
 ### <a name="return-value"></a>傳回值
 轉換值的布林值。
@@ -139,7 +142,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -155,7 +158,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
 ## <a name="if"></a>if
@@ -167,9 +170,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| condition |是 |布林值 |要檢查是否為 true 的值。 |
-| trueValue |是 | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
-| falseValue |是 | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
+| condition |yes |布林值 |要檢查是否為 ture 的值。 |
+| trueValue |yes | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
+| falseValue |yes | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -250,7 +253,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | yesOutput | 字串 | 是 |
 | noOutput | 字串 | no |
@@ -265,7 +268,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
 ```
 
 ## <a name="not"></a>否
@@ -277,7 +280,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布林值 |要轉換的值。 |
+| arg1 |yes |布林值 |要轉換的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -311,7 +314,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -326,7 +329,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)使用 **not** 搭配 [equals](resource-group-template-functions-comparison.md#equals)。
@@ -347,7 +350,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -360,24 +363,25 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
 ## <a name="or"></a>或
-`or(arg1, arg2)`
+`or(arg1, arg2, ...)`
 
-檢查任一個參數值是否為 true。
+檢查任何參數值是否為 true。
 
 ### <a name="parameters"></a>參數
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布林值 |要檢查是否為 true 的第一個值。 |
-| arg2 |是 |布林值 |要檢查是否為 true 的第二個值。 |
+| arg1 |yes |布林值 |要檢查是否為 ture 的第一個值。 |
+| arg2 |yes |布林值 |要檢查是否為 true 的第二個值。 |
+| 其他引數 |否 |布林值 |要檢查是否為 true 的其他引數。 |
 
 ### <a name="return-value"></a>傳回值
 
-如果任一值為 true，傳回 **True**，否則會傳回 **False**。
+如果任何值為 true，傳回 **True**，否則會傳回 **False**。
 
 ### <a name="examples"></a>範例
 
@@ -407,7 +411,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -422,7 +426,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="next-steps"></a>後續步驟

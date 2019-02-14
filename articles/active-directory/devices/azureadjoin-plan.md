@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bb8ab22db18bbe170a20d253e601eb78855aafa7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102731"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697610"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>作法：規劃 Azure AD 聯結實作
 
@@ -126,6 +126,8 @@ Azure AD Join：
 - 僅適用於 Windows 10 裝置。 
 
 - 不適用舊版的 Windows 或其他作業系統。 如果您有 Windows 7/8.1 裝置，您必須升級為 Windows 10，以部署 Azure AD Join。
+
+- 不支援 FIPS 模式中搭配 TPM 的裝置。
  
 **建議：** 一律使用最新的 Windows 10 版本，以享有更新的功能。
 
@@ -234,11 +236,11 @@ Azure AD Join：
  
 ||自助式設定|Windows Autopilot|大量註冊|
 |---|---|---|---|
-|需要使用者手動設定|是|是|否|
-|需要 IT 工作|否|yes|是|
+|需要使用者手動設定|yes|是|否|
+|需要 IT 工作|否|yes|yes|
 |適用的流程|OOBE 和設定|僅限 OOBE|僅限 OOBE|
 |主要使用者的本機管理員權限|是，依照預設|可設定|否|
-|需要裝置 OEM 支援|否|是|否|
+|需要裝置 OEM 支援|否|yes|否|
 |支援的版本|1511+|1709+|1703+|
  
 請檢閱上表，並檢閱下列有關於採用任一方法的考量，選擇您的一或多個部署方法：  

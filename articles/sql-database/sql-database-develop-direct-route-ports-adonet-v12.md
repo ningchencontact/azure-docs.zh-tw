@@ -11,15 +11,16 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260018"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560884"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 超過 1433 以外的連接埠
+
 本主題針對使用 ADO.NET 4.5 或更新版本的用戶端，說明 Azure SQL Database 的連接行為。 
 
 > [!IMPORTANT]
@@ -27,12 +28,15 @@ ms.locfileid: "51260018"
 >
 
 ## <a name="outside-vs-inside"></a>比較內部與外部
+
 對於連到 Azure SQL Database 的連線，必須先了解您的用戶端程式是在 Azure 雲端界限「外部」或「內部」執行。 這些小節將討論兩種常見案例。
 
 #### <a name="outside-client-runs-on-your-desktop-computer"></a>*外部：* 在桌上型電腦上執行的用戶端
+
 連接埠 1433 是裝載您的 SQL Database 用戶端應用程式的桌上型電腦上唯一必須開啟的連接埠。
 
 #### <a name="inside-client-runs-on-azure"></a>*內部：* 在 Azure 上執行的用戶端
+
 當您的用戶端是在 Azure 雲端界限內部執行時，它會使用我們可以稱為 *直接路由* 的路由與 SQL Database 伺服器互動。 建立連線之後，用戶端和資料庫之間的進一步互動未牽涉到 Azure SQL Database Gateway。
 
 順序如下：
@@ -76,6 +80,6 @@ ms.locfileid: "51260018"
 * [TDS 通訊協定版本清單](http://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database 開發概觀](sql-database-develop-overview.md)
 * [Azure SQL Database 防火牆](sql-database-firewall-configure.md)
-* [如何：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
+* [操作說明：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
 
 

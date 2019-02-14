@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903990"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657870"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的讀取複本
 
@@ -21,6 +21,8 @@ ms.locfileid: "54903990"
 讀取複本功能可讓您將資料從適用於 PostgreSQL 的 Azure 資料庫伺服器(主要) 複寫到相同 Azure 區域內最多五部的唯讀伺服器 (讀取複本)。 讀取複本會使用 PostgreSQL 引擎的原生複寫技術以非同步方式更新。
 
 複本將會成為新的伺服器，並能以類似於一般獨立適用於 PostgreSQL 的 Azure 資料庫伺服器的方式管理。 針對每個讀取複本，系統每月會針對在 vCore 中所佈建的計算量，以及在儲存體中所佈建的容量 (以 GB 為單位) 向您收費。
+
+瀏覽[操作說明頁面以了解如何建立及管理複本](howto-read-replicas-portal.md)。
 
 ## <a name="when-to-use-read-replicas"></a>何時應該使用讀取複本
 讀取複本功能的目的是為了協助改善需大量讀取之工作負載的效能及調整能力。 例如，讀取工作負載可與複本隔離，而寫入工作負載則可以被導向到主要伺服器。
@@ -56,7 +58,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 並在出現提示時輸入使用者帳戶的密碼。
 
 ## <a name="monitoring-replication"></a>監視複寫
-Azure 監視器中提供 [複本之間的最大延隔時間] 計量。 此計量僅適用於主要伺服器。 此計量會顯示主要伺服器和最大延隔複本之間的延隔時間。 
+Azure 監視器中提供 [複本之間的最大延隔時間] 計量。 此計量僅適用於主要伺服器。 此計量會顯示主要伺服器和最大延隔複本之間的延隔 (位元組)。 
 
 我們也在 Azure 監視器中提供 [複本延隔時間] 計量。 此計量僅適用於複本。 
 
@@ -101,7 +103,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 在您可以建立複本之前，必須將主要伺服器上的 **azure.replication_support** 設定為 [REPLICA]。 需要重新啟動伺服器，此參數的變更才會生效。 (此參數僅適用於「一般用途」和「記憶體最佳化」層級)。
 
 ### <a name="stopped-replicas"></a>已停止的複本
-當您選擇停止主要伺服器和複本之間的複寫時，複本將會重新啟動以套用這些變更。 在此之後，您將無法再次將它設定為複本伺服器。
+如果您選擇停止主要伺服器和複本之間的複寫時，複本將會重新啟動以套用這些變更。 然後，複本將成為讀寫伺服器。 在此之後，您將無法再次將它設定為複本伺服器。
 
 ### <a name="replicas-are-new-servers"></a>複本是新伺服器
 複本會被建立為新的適用於 PostgreSQL 的 Azure 資料庫伺服器。 現有的伺服器無法設定為複本。

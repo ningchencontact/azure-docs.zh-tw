@@ -4,17 +4,17 @@ description: Azure 原則評估和效果會決定合規性。 了解如何取得
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853624"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766401"
 ---
 # <a name="getting-compliance-data"></a>取得合規性資料
 
@@ -45,6 +45,8 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 - 資源會透過 Resource Manager、REST、Azure CLI 或 Azure PowerShell 部署到具有指派的範圍。 在此案例中，個別資源的效果事件 (附加、稽核、拒絕、部署) 和合規性狀態資訊，約 15 分鐘後會在入口網站和 SDK 中變成可用。 此事件不會導致對其他資源進行評估。
 
 - 標準合規性評估週期。 每 24 小時會自動對指派進行一次重新評估。 由許多資源組成的大型原則或方案可能需要一些時間，因此對於何時將完成評估週期，並沒有任何預先定義的預期。 完成之後，會在入口網站和 SDK 中提供更新的合規性結果。
+
+- [來賓組態](../concepts/guest-configuration.md)資源提供者會以受控資源的合規性詳細資料進行更新。
 
 - 隨選掃描
 
@@ -139,6 +141,26 @@ Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形�
 以滑鼠右鍵按一下您想要收集更多詳細資料的事件資料列，然後選取 [顯示活動記錄]。 活動記錄頁面隨即開啟，並會預先篩選至顯示指派和事件詳細資料的搜尋結果。 活動記錄檔提供有關這些事件的其他內容和資訊。
 
 ![原則合規性活動記錄](../media/getting-compliance-data/compliance-activitylog.png)
+
+### <a name="change-history-preview"></a>變更歷程記錄 (預覽)
+
+在**公開預覽版**中，會提供不符合規範的資源過去 14 天的變更歷程記錄。 變更歷程記錄會提供關於何時偵測到變更的詳細資料，以及每項變更的_視覺化差異_。 對不符合規範的資源新增、移除或更改「資源管理員」屬性時，就會觸發變更偵測。
+
+1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
+
+1. 在 [概觀] 或 [合規性] 頁面上，選取 [不符合規範] 的原則。
+
+1. 在 [原則合規性] 頁面的 [資源合規性] 索引標籤下方，選取 [不符合規範] 的資源。
+
+1. 選取 [資源合規性] 頁面上的 [變更歷程記錄 (預覽)] 索引標籤。 偵測到的變更清單 (如果有的話) 會隨即顯示。
+
+   ![原則變更歷程記錄 - 索引標籤](../media/getting-compliance-data/change-history-tab.png)
+
+1. 選取其中一個偵測到的變更。 不符合規範的資源會在 [變更歷程記錄] 頁面上顯示其_視覺化差異_。
+
+   ![原則變更歷程記錄 - 視覺化差異](../media/getting-compliance-data/change-history-visual-diff.png)
+
+_視覺化差異_有助於識別資源的變更。 偵測到的變更不一定與導致資源不符合所選原則的原因有關。
 
 ## <a name="command-line"></a>命令列
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: b5bd08219c6e48f07e93d7704216e813d75dcd72
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099912"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659502"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
@@ -32,9 +32,9 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 * [實況活動預覽 URL](#live-event-preview-url)
 * [實況輸出](#live-outputs)。
 
-## <a name="live-events"></a>即時事件
+## <a name="live-events"></a>即時活動
 
-[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)負責內嵌和處理即時視訊摘要。 當您建立「實況活動」時，系統會建立輸入端點，供您用來從遠端編碼器傳送即時訊號。 遠端即時編碼器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或是 [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (分散式 MP4) 通訊協定，傳送發佈摘要至該輸入端點。 針對 Smooth Streaming 內嵌通訊協定，支援的 URL 配置為 `http://` 或 `https://`。 針對 RTMP 內嵌通訊協定，支援的 URL 配置為 `rtmp://` 或 `rtmps://`。 
+[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)負責內嵌和處理即時視訊摘要。 當您建立「實況活動」時，系統會建立輸入端點，供您用來從遠端編碼器傳送即時訊號。 遠端即時編碼器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或是 [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (分散式 MP4) 通訊協定，傳送發佈摘要至該輸入端點。 針對 Smooth Streaming 內嵌通訊協定，支援的 URL 配置為 `http://` 或 `https://`。 RTMP 內嵌通訊協定支援的 URL 配置為 `rtmp://` 或 `rtmps://`。 
 
 ## <a name="live-event-types"></a>實況活動類型
 
@@ -42,9 +42,9 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 ### <a name="pass-through"></a>傳遞
 
-![傳遞](./media/live-streaming/pass-through.png)
+![即時通行](./media/live-streaming/pass-through.png)
 
-使用傳遞**實況活動**時，您會依賴內部部署即時編碼器來產生多重位元速率視訊資料流，然後將其當作發佈摘要傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會接著完成傳入的視訊資料流，而不會再進一步處理。 這類傳遞 LiveEvent 已最佳化，適用於長時間執行的實況活動，或全天候的線性即時串流。 建立這類型的「實況活動」時，請指定 [無] (LiveEventEncodingType.None)。
+使用傳遞**實況活動**時，您會依賴內部部署即時編碼器來產生多重位元速率視訊資料流，然後將其當作發佈摘要傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會接著完成傳入的視訊資料流，而不會再進一步處理。 這類即時通行 LiveEvent 最適合長時間執行的實況活動，或是 24x365 的線性即時串流。 建立這類型的「實況活動」時，請指定 [無] (LiveEventEncodingType.None)。
 
 您可以使用 H.264/AVC 或 H.265/HEVC 視訊轉碼器以及 AAC (AAC-LC、HE-AACv1 或 HE-AACv2) 音訊轉碼器，以高達 4K 的解析度和每秒 60 個畫面的畫面播放速率傳送發佈摘要。  如需更多詳細資料，請參閱[實況活動類型比較](live-event-types-comparison.md)一文。
 
@@ -68,7 +68,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 * 「實況活動」的串流通訊協定 (目前支援 RTMP 和 Smooth Streaming 通訊協定)。<br/>當「實況活動」或其相關「實況輸出」正在執行時，您無法變更通訊協定選項。 如果您需要不同的通訊協定，則應該為每個串流通訊協定建立個別的「實況活動」。  
 * 內嵌和預覽的 IP 限制。 您可以定義獲允許將視訊內嵌到這個「實況活動」的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 '10.0.0.1(255.255.252.0)')。<br/>如果未指定 IP 位址而且也未定義規則，則任何 IP 位址都不允許。 若要允許任何 IP 位址，請建立規則，並設定 0.0.0.0/0。<br/>IP 位址必須採用下列其中一個格式：具有 4 個數字、CIDR 位址範圍的 IpV4 位址。
-* 在建立事件時，您可以指定要自動加以啟動。 <br/>當自動啟動設為 true 時，即時事件將會在建立後隨即啟動。 這意謂著「實況活動」只要開始執行，就會立即開始計費。 您必須對「實況活動」資源明確呼叫「停止」，才能終止進一步計費。 或者，您可以在準備好開始進行串流處理時啟動事件。 
+* 在建立事件時，您可以指定要自動加以啟動。 <br/>當自動啟動設為 true 時，即時事件將會在建立後隨即啟動。 只要即時事件一執行，就會立即開始計費。 您必須對「實況活動」資源明確呼叫「停止」，才能終止進一步計費。 或者，您可以在準備好開始進行串流處理時啟動事件。 
 
     如需詳細資訊，請參閱[實況活動狀態和計費](live-event-states-billing.md)。
 

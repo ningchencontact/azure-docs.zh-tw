@@ -10,18 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336895"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753459"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的工作中樞
 
 [Durable Functions](durable-functions-overview.md) 中的「工作中樞」是協調流程所使用之 Azure 儲存體資源的邏輯容器。 協調器和活動函式必須屬於相同的工作中樞，才能彼此互動。
 
-每個函式應用程式都有各自的工作中樞。 如果多個函式應用程式共用儲存體帳戶，則儲存體帳戶會包含多個工作中心。 下圖說明每個函式應用程式在共用和專用儲存體帳戶中的一個工作中樞。
+如果多個函式應用程式共用儲存體帳戶，則每個函式應用程式「必須」設有個別的工作中樞名稱。 儲存體帳戶可以包含多個工作中樞。 下圖說明每個函式應用程式在共用和專用儲存體帳戶中的一個工作中樞。
 
 ![顯示共用和專用儲存體帳戶的圖表。](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "53336895"
 ```json
 {
   "durableTask": {
-    "HubName": "MyTaskHub"
+    "hubName": "MyTaskHub"
   }
 }
 ```
@@ -58,7 +58,7 @@ ms.locfileid: "53336895"
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "MyTaskHub"
+      "hubName": "MyTaskHub"
     }
   }
 }
@@ -71,7 +71,7 @@ ms.locfileid: "53336895"
 ```json
 {
   "durableTask": {
-    "HubName": "%MyTaskHub%"
+    "hubName": "%MyTaskHub%"
   }
 }
 ```
@@ -83,7 +83,7 @@ ms.locfileid: "53336895"
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "%MyTaskHub%"
+      "hubName": "%MyTaskHub%"
     }
   }
 }
@@ -134,7 +134,7 @@ public static async Task<HttpResponseMessage> Run(
 工作中樞名稱必須以字母開頭，且只包含字母和數字。 如果未指定，則預設名稱是 **DurableFunctionsHub**。
 
 > [!NOTE]
-> 當共用儲存體帳戶中有多個工作中樞時，可透過名稱來區分各個工作中樞。 如果您有多個函式應用程式共用了共用儲存體帳戶，您必須在 host.json 檔案中為每個工作中樞設定不同的名稱。
+> 當共用儲存體帳戶中有多個工作中樞時，可透過名稱來區分各個工作中樞。 如果您有多個函式應用程式共用了共用儲存體帳戶，您必須明確地在 host.json 檔案中為每個工作中樞設定不同的名稱。 否則，多個函式應用程式會因為訊息而彼此競爭，並可能因此導致未定義的行為。
 
 ## <a name="next-steps"></a>後續步驟
 

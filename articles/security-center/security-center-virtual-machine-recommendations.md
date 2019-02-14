@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 32ca3fc87c91deba26e63a5938536d488e7dc5a8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537642"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488731"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>了解 Azure 資訊安全中心資源建議
 
@@ -43,7 +43,7 @@ ms.locfileid: "53537642"
 | [未安裝弱點評估](security-center-vulnerability-assessment-recommendations.md) |建議在 VM 上安裝弱點評估解決方案。 |
 | [修復弱點](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |可讓您查看 VM 上安裝的弱點評估解決方案所偵測到的系統和應用程式弱點。 |
 
-### <a name="app-services"></a>應用程式服務
+### 應用程式服務 <a name="app-services"></a>
 | 建議 | 說明 |
 | --- | --- |
 | App Service 應只可經由 HTTPS 存取 | 建議您限制只能透過 HTTPS 存取 App Service。 |

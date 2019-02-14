@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: cdda4b0951edd0d1471113c48a4082dfa7407211
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719077"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729314"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -77,7 +77,7 @@ ms.locfileid: "53719077"
 
 - 使用持續傳遞 (預覽) 功能：您可以將您的應用程式原始程式碼儲存在 Azure DevOps Git 存放庫或 GitHub 存放庫中，以使用「Azure 持續傳遞」。 如需詳細資訊，請參閱[如何設定 Linux Web 應用程式的持續傳遞](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)。
 
-- 使用 [ZIP 部署 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)：若要使用此 API，請[透過 SSH 連線到您的 Web 應用程式](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection)，然後前往您要部署程式碼的資料夾。 執行下列程式碼：
+- 使用 [ZIP 部署 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)：若要使用此 API，請[透過 SSH 連線到您的 Web 應用程式](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support)，然後前往您要部署程式碼的資料夾。 執行下列程式碼：
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -132,7 +132,7 @@ var io = require('socket.io')(server,{
 
 **我可以攜帶自己的儲存體嗎？**
 
-我們目前不支援攜帶您自己的儲存體。
+是，[自備儲存體](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage)處於預覽狀態。
 
 **為什麼我無法從 SCM 網站瀏覽自訂容器的檔案系統或執行中處理序？**
 

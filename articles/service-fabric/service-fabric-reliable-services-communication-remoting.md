@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 4110b8f1b336a604c89180ac44ad470132765830
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620518"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820669"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>使用 Reliable Services 在 C# 中進行服務遠端處理
 
@@ -239,7 +239,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>使用遠端 V2(介面相容) 堆疊
 
- 遠端 V2 (介面相容，也稱為 V2_1) 堆疊具有 V2 遠端堆疊的所有功能。 它的介面堆疊與遠端 V1 堆疊相容，但是 V2 與 V1 不具回溯相容性。 若要從 V1 升級到 V2_1 而不會影響服務可用性，請遵循[從 V1 升級為 V2 (介面相容)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible) 一文中的步驟。
+ 遠端 V2 (介面相容，也稱為 V2_1) 堆疊具有 V2 遠端堆疊的所有功能。 它的介面堆疊與遠端 V1 堆疊相容，但是 V2 與 V1 不具回溯相容性。 若要從 V1 升級到 V2_1 而不會影響服務可用性，請遵循「從 V1 升級為 V2 (介面相容)」一文中的步驟。
 
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>透過組件屬性使用遠端 V2 (介面相容) 堆疊

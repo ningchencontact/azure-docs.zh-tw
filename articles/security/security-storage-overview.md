@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973123"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694263"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 儲存體安全性概觀
 
@@ -47,7 +47,7 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 
 ## <a name="delegated-access-to-storage-objects"></a>儲存體物件的委派存取權
 
-共用存取簽章可提供您儲存體帳戶中資源的委派存取。 SAS 意謂著您可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定期間內使用一組指定的權限進行存取。 您可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。 
+共用存取簽章可提供您儲存體帳戶中資源的委派存取。 SAS 意謂著您可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定期間內使用一組指定的權限進行存取。 您可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。
 
 SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用 SAS 存取儲存體資源，用戶端只需將 SAS 提供給適當的建構函式或方法即可。
 
@@ -73,7 +73,7 @@ SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進�
 
 對多組織來說，[待用資料加密](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) \(英文\) 是達到資料隱私權、合規性及資料主權的必要步驟。 有三個 Azure 功能可提供待用資料的加密：
 
-* [儲存體服務加密](../storage/common/storage-security-guide.md#encryption-at-rest)可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
+* [儲存體服務加密](../storage/common/storage-security-guide.md#encryption-at-rest)一律會啟用，並且在將儲存體服務資料寫入 Azure 儲存體時自動進行加密。
 * [用戶端加密](../storage/common/storage-security-guide.md#client-side-encryption)也提供待用加密的功能。
 * [Azure 磁碟加密](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines)允許您加密 IaaS 虛擬機器所使用的 OS 磁碟和資料磁碟。
 
@@ -114,9 +114,9 @@ Data Box Edge 與 Data Box Gateway 是連線資料轉送產品，等同於在您
 
 ## <a name="advanced-threat-protection"></a>進階威脅防護
 
-Azure 儲存體提供「進階威脅防護」來增加額外的安全智慧層級，用於偵測儲存體帳戶中異常且可能有害的存取意圖或攻擊。 進階威脅防護會監視 Azure 儲存體診斷記錄，找出對 Blob 儲存體發出的可疑讀取、寫入或刪除要求。 
+Azure 儲存體提供「進階威脅防護」來增加額外的安全智慧層級，用於偵測儲存體帳戶中異常且可能有害的存取意圖或攻擊。 進階威脅防護會監視 Azure 儲存體診斷記錄，找出對 Blob 儲存體發出的可疑讀取、寫入或刪除要求。
 
-您可以從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視進階威脅保護警示。 Azure 資訊安全中心會在偵測到任何可疑活動時提供相關的詳細資料，並提供調查和修復潛在威脅的建議動作。 
+您可以從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視進階威脅保護警示。 Azure 資訊安全中心會在偵測到任何可疑活動時提供相關的詳細資料，並提供調查和修復潛在威脅的建議動作。
 
 深入了解：
 

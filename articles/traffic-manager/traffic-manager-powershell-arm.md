@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055127"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816200"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理員
 
@@ -66,7 +66,7 @@ $profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 | MonitorPort |指定用來監視端點健康情況的 TCP 連接埠。 |
 | MonitorPath |指定用來探查端點健康情況之端點網域名稱的相對路徑。 |
 
-此 Cmdlet 會在 Azure 中建立 Azure 流量管理員設定檔，並將對應的設定檔物件傳回至 PowerShell。 此時，設定檔不含任何端點。 如需將端點新增至流量管理員設定檔的詳細資訊，請參閱[新增流量管理員端點](#adding-traffic-manager-endpoints)。
+此 Cmdlet 會在 Azure 中建立 Azure 流量管理員設定檔，並將對應的設定檔物件傳回至 PowerShell。 此時，設定檔不含任何端點。 如需將端點新增至流量管理員設定檔的詳細資訊，請參閱「新增流量管理員端點」。
 
 ## <a name="get-a-traffic-manager-profile"></a>取得流量管理員設定檔
 

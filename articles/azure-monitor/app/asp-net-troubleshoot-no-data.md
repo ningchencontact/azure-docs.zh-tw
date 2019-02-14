@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118757"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700905"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -185,6 +185,52 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>在 Azure 雲端服務中執行時發生的「找不到方法」例外狀況
 您是否已針對 .NET 4.6 組建？ Azure 雲端服務角色不自動支援 4.6。 [在每個角色上安裝 4.6](../../cloud-services/cloud-services-dotnet-install-dotnet.md) ，再執行您的 App。
+
+## <a name="troubleshooting-logs"></a>對記錄進行疑難排解
+
+請依照下列指示擷取架構的疑難排解記錄。
+
+### <a name="net-framework"></a>.Net Framework
+
+1. 從 NuGet 安裝 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 套件。 您安裝的版本必須符合目前安裝的 `Microsoft.ApplicationInsighs` 版本
+
+2. 修改您的 applicationinsights.config 檔案以包含下列內容：
+
+   ```xml
+   <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+        <Severity>Verbose</Severity>
+        <LogFileName>mylog.txt</LogFileName>
+        <LogFilePath>C:\\SDKLOGS</LogFilePath>
+      </Add>
+   </TelemetryModules>
+   ```
+   您的應用程式必須對設定的位置具有寫入權限
+ 
+ 3. 重新啟動程序，讓 SDK 取得這些新設定
+ 
+ 4. 完成作業後，請還原這些變更。
+  
+### <a name="net-core"></a>.Net Core
+
+1. 從 NuGet 安裝 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 套件。 您安裝的版本必須符合目前安裝的 `Microsoft.ApplicationInsighs` 版本
+
+2. 修改 `Startup.cs` 類別中的 `ConfigureServices` 方法：
+
+    ```csharp
+    services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
+    services.ConfigureTelemetryModule<FileDiagnosticsTelemetryModule>( (module, options) => {
+        module.LogFilePath = "C:\\SDKLOGS";
+        module.LogFileName = "mylog.txt";
+        module.Severity = "Verbose";
+    } );
+    ```
+   您的應用程式必須對設定的位置具有寫入權限
+ 
+ 3. 重新啟動程序，讓 SDK 取得這些新設定
+ 
+ 4. 完成作業後，請還原這些變更。
+  
 
 ## <a name="still-not-working"></a>仍然無法運作...
 * [Application Insights 論壇](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

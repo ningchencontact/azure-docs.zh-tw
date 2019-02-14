@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 10f8b6b2b1ab6249eff4776c8cba869d72f448c5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fcd1d8c4dd1f9684db85514a80fea7022f52b0fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851669"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817082"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
@@ -39,7 +39,7 @@ ms.locfileid: "54851669"
 
 ## <a name="create-a-peering"></a>建立對等互連
 
-建立對等互連之前，請先熟悉[需求和限制](#requirements-and-contstraints)與[必要的權限](#permissions)。
+建立對等互連之前，請先熟悉需求和限制與[必要的權限](#permissions)。
 
 1. 在 Azure 入口網站頂端的搜尋方塊中輸入「虛擬網路」。 當搜尋結果中出現**虛擬網路**時加以選取。 如果清單中出現 [虛擬網路 (傳統)] 選項，請勿選取此選項，因為您並無法從透過傳統部署模型所部署的虛擬網路建立對等互連。
 2. 在清單中選取您想要為其建立對等互連的虛擬網路。
@@ -70,12 +70,12 @@ ms.locfileid: "54851669"
 
 ### <a name="commands"></a>命令
 
-- **Azure CLI**：[az network vnet peering create](/cli/azure/network/vnet/peering#create)
+- **Azure CLI**：[az network vnet peering create](/cli/azure/network/vnet/peering)
 - **PowerShell**:[Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>檢視或變更對等互連設定
 
-變更對等互連之前，請先熟悉[需求和限制](#requirements-and-contstraints)與[必要的權限](#permissions)。
+變更對等互連之前，請先熟悉需求和限制與[必要的權限](#permissions)。
 
 1. 在入口網站頂端的搜尋方塊中輸入「虛擬網路」。 當搜尋結果中出現**虛擬網路**時加以選取。 如果清單中出現 [虛擬網路 (傳統)] 選項，請勿選取此選項，因為您並無法從透過傳統部署模型所部署的虛擬網路建立對等互連。
 2. 在清單中選取您想要為其變更對等互連設定的虛擬網路。
@@ -87,7 +87,7 @@ ms.locfileid: "54851669"
 
 **命令**
 
-- **Azure CLI**：[az network vnet peering list](/cli/azure/network/vnet/peering) 可列出虛擬網路的對等互連，[az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) 可顯示特定對等互連的設定，而 [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) 則可變更對等互連設定。
+- **Azure CLI**：[az network vnet peering list](/cli/azure/network/vnet/peering) 可列出虛擬網路的對等互連，[az network vnet peering show](/cli/azure/network/vnet/peering) 可顯示特定對等互連的設定，而 [az network vnet peering update](/cli/azure/network/vnet/peering) 則可變更對等互連設定。
 - **PowerShell**:[Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) 可擷取檢視對等互連設定，[Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) 則可變更設定。
 
 ## <a name="delete-a-peering"></a>刪除對等互連
@@ -96,7 +96,7 @@ ms.locfileid: "54851669"
 
 若您刪除對等互連，來自虛擬網路的流量將不會再流到對等互連的虛擬網路。 當透過 Resource Manager 所部署的虛擬網路建立了對等互連時，每個虛擬網路都會與其他虛擬網路對等互連。 從某個虛擬網路刪除對等互連時雖會停用虛擬網路之間的通訊功能，卻不會從其他虛擬網路刪除對等互連。 位於其他虛擬網路之對等互連的對等互連狀態為 [已中斷連線]。 在重新建立第一個虛擬網路中的對等互連，且兩個虛擬網路的對等互連狀態都變為 [已連線] 之前，您將無法重新建立對等互連。 
 
-如果您想要讓虛擬網路在某些時候進行通訊，卻又不想永遠啟用此通訊功能，您不必刪除對等互連，相反地，您可以將 [允許虛擬網路存取] 設定設為 [停用]。 若要了解如何操作，請閱讀本文[建立對等互連](#create-peering)一節的步驟 6。 您可能會發現停用和啟用網路存取比起先刪除再重新建立對等互連更為簡單。
+如果您想要讓虛擬網路在某些時候進行通訊，卻又不想永遠啟用此通訊功能，您不必刪除對等互連，相反地，您可以將 [允許虛擬網路存取] 設定設為 [停用]。 若要了解如何操作，請閱讀本文[建立對等互連](#create-a-peering)一節的步驟 6。 您可能會發現停用和啟用網路存取比起先刪除再重新建立對等互連更為簡單。
 
 1. 在入口網站頂端的搜尋方塊中輸入「虛擬網路」。 當搜尋結果中出現**虛擬網路**時加以選取。 如果清單中出現 [虛擬網路 (傳統)] 選項，請勿選取此選項，因為您並無法從透過傳統部署模型所部署的虛擬網路建立對等互連。
 2. 在清單中選取您想要為其刪除對等互連的虛擬網路。
@@ -113,10 +113,10 @@ ms.locfileid: "54851669"
 ## <a name="requirements-and-constraints"></a>需求和限制 
 
 - <a name="cross-region"></a>您可以將相同區域或不同區域中的虛擬網路對等互連。 讓不同區域中的虛擬網路進行對等互連，也稱為「全域對等互連」。 
-- 在建立全域對等互連時，對等互連的虛擬網路可以存在於任何的 Azure 公用雲端區域，但並非在 Azure 國家雲端。 您只能將國家雲端中相同區域內的虛擬網路對等互連。
+- 在建立全域對等互連時，對等互連的虛擬網路可以存在於任何 Azure 公用雲端區域或中國雲端區域中，但並非在 Government 雲端區域中。 您只能將 Azure Government 雲端區域中相同區域內的虛擬網路對等互連。
 - 一個虛擬網路中的資源無法與全域對等互連虛擬網路中的 Azure 內部負載平衡器的前端 IP 位址通訊。 負載平衡器和與其通訊的資源必須位於相同區域內的虛擬網路。 如果對等互連的虛擬網路位於相同區域，但任一虛擬網路中的資源可以和對等互連中任一虛擬網路內的 Azure 內部負載平衡器前端 IP 位址通訊。
 - 您無法在全域對等互連的虛擬網路中，使用遠端閘道或允許閘道傳輸。 若要使用遠端閘道或允許閘道傳輸，對等互連的虛擬網路必須位於相同區域中。
-- 虛擬網路可位於相同或不同的訂用帳戶。 當您將不同訂用帳戶中的虛擬網路對等互連時，這兩個訂用帳戶可以與相同或不同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以快速地[建立一個](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)。 入口網站中不提供跨虛擬網路 (來自與不同 Azure Active Directory 租用戶相關聯的訂用帳戶) 進行對等互連的支援。 您可以使用 CLI、PowerShell 或範本。
+- 虛擬網路可位於相同或不同的訂用帳戶。 當您將不同訂用帳戶中的虛擬網路對等互連時，這兩個訂用帳戶可以與相同或不同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以快速地[建立一個](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant)。 入口網站中不提供跨虛擬網路 (來自與不同 Azure Active Directory 租用戶相關聯的訂用帳戶) 進行對等互連的支援。 您可以使用 CLI、PowerShell 或範本。
 - 要建立對等互連的虛擬網路必須有非重疊的 IP 位址空間。
 - 一旦虛擬網路與另一個虛擬網路對等互連，您便無法在虛擬網路中新增或刪除位址範圍。 若要新增或移除位址範圍，請刪除對等互連，新增或移除位址範圍，然後重新建立對等互連。 若要在虛擬網路新增或移除位址範圍，請參閱[管理虛擬網路](manage-virtual-network.md)。
 - 您可以將透過 Resource Manager 所部署的兩個虛擬網路對等互連，或將透過 Resource Manager 所部署的虛擬網路與透過傳統部署模型所部署的虛擬網路對等互連。 您無法將兩個透過傳統部署模型所建立的虛擬網路對等互連。 如果您不熟悉 Azure 部署模型，請閱讀[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。 您可以使用 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)，將兩個透過傳統部署模型建立的虛擬網路加以連線。

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32cd3b9eb60a6d12c71be047740fa96ffdd56310
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094151"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731932"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何建立虛擬機器或 VHD 的映像
 
@@ -61,7 +61,7 @@ ms.locfileid: "49094151"
 ## <a name="step-2-create-vm-image"></a>步驟 2：建立 VM 映像
 使用 Azure CLI 將 VM 標記為一般化，並擷取映像。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myVnet* 和 *myVM*。
 
-1. 使用 [az vm deallocate](/cli/azure/vm#deallocate) 解除配置已取消佈建的 VM。 下列範例會解除配置名為 myResourceGroup 資源群組中名為 myVM 的 VM。
+1. 使用 [az vm deallocate](/cli/azure/vm) 解除配置已取消佈建的 VM。 下列範例會解除配置名為 myResourceGroup 資源群組中名為 myVM 的 VM。
    
     ```azurecli
     az vm deallocate \
@@ -69,7 +69,7 @@ ms.locfileid: "49094151"
       --name myVM
     ```
 
-2. 使用 [az vm generalize](/cli/azure/vm#generalize)，將 VM 標記為一般化。 下列範例會將名為 myResourceGroup 的資源群組中名為 myVM 的 VM 標記為一般化。
+2. 使用 [az vm generalize](/cli/azure/vm)，將 VM 標記為一般化。 下列範例會將名為 myResourceGroup 的資源群組中名為 myVM 的 VM 標記為一般化。
    
     ```azurecli
     az vm generalize \
@@ -91,7 +91,7 @@ ms.locfileid: "49094151"
    > 如果您想要將映像儲存於區域復原的儲存體中，則需要在支援[可用性區域](../../availability-zones/az-overview.md)且包含 `--zone-resilient true` 參數的區域中建立它。
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>步驟 3：從擷取的映像建立 VM
-使用您以 [az vm create](/cli/azure/vm#az_vm_create) 建立的映像來建立 VM。 下列範例會從名為 myImage 的映像建立名為 myVMDeployed 的 VM。
+使用您以 [az vm create](/cli/azure/vm) 建立的映像來建立 VM。 下列範例會從名為 myImage 的映像建立名為 myVMDeployed 的 VM。
 
 ```azurecli
 az vm create \

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 875240b779f05c1b13f71bf2133b9abfaa209239
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223352"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733462"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>取得認知服務語音裝置 SDK
 
@@ -46,7 +46,7 @@ Subject: You're invited to the Microsoft organization
 
 完成下列步驟後，即可使用您在註冊時提供的電子郵件地址加入 Azure AD。 此流程可供您存取語音裝置 SDK 的[下載網站](https://shares.datatransfer.microsoft.com/)。
 
-1. 在您收到的電子郵件訊息中，選取 [開始使用]。 如果您的組織已經是 Office 365 客戶，系統會提示您登入，而您可以跳到步驟 8。
+1. 在您收到的電子郵件訊息中，選取 [開始使用]。 如果您的組織已經是 Office 365 客戶，系統會提示您登入，而您可以跳到步驟 7。
 
 2. 在開啟的瀏覽器視窗中，選取 [下一步]。
 

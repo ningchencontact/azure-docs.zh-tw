@@ -1,24 +1,24 @@
 ---
-title: 在 Azure AD 中保護系統管理存取的最佳做法 | Microsoft Docs
+title: 安全系統管理存取的最佳做法 - Azure Active Directory | Microsoft Docs
 description: 請確定組織的系統管理存取和管理帳戶安全無虞。 適用於設定 Azure AD、Azure 和 Microsoft 線上服務的系統架構設計人員和 IT 專業人員。
 services: active-directory
 keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
-ms.date: 06/25/2018
+ms.date: 01/31/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.custom: it-pro
-ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ba7baf41a1753625ee3e97acde1d954e914545bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: martincoetzer; MarkMorow
+ms.openlocfilehash: 327ea929b5825abb448cb13b1bd0cbfa5681521c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190763"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512494"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 

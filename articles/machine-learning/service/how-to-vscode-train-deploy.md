@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 409d1bb30dc956bb19e9a37212d93990d1401e7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6d190e4c5d283b9f803cf7287445d7591b5465db
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240109"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753107"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>使用 Visual Studio Code 來訓練及部署機器學習模型
 
@@ -108,9 +108,9 @@ VS Code 擴充功能會在您的本機電腦上，自動為您的**本機** 和 
 
 #### <a name="the-conda-dependencies-file"></a>Conda 相依性檔案
 
-根據預設，會為您建立新的 Conda 環境，以及管理您的安裝相依性。 不過，您必須在 `aml_config/conda_dependencies.yml` 檔案中指定相依性。
+根據預設，會為您建立新的 Conda 環境，以及管理您的安裝相依性。 不過，您必須在 `aml_config/conda_dependencies.yml` 檔案中指定相依性和其版本。 
 
-這是來自預設 'aml_config/conda_dependencies.yml' 的程式碼片段。
+這是來自預設 'aml_config/conda_dependencies.yml' 的程式碼片段。 例如，您可以指定 'tensorflow=1.12.0'，如下所示。 如果您未指定相依性版本，則會使用最新版本。  
 您可以在組態檔中新增其他相依性。
 
 ```yaml
@@ -123,7 +123,7 @@ dependencies:
   # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
-- tensorflow
+- tensorflow=1.12.0
 
 - pip:
     # Required packages for Azure Machine Learning service execution, history, and data preparation.

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fae92f8e09cc2ad6b63cb15599e0b1ab72588ed8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464784"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728838"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2
 
@@ -40,7 +40,7 @@ Azure Data Lake Storage Gen2 對於絕大多數的 Azure HDInsight 叢集類型�
 
     ![顯示在 Azure 入口網站建立儲存體帳戶的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. 將受控識別指派給儲存體帳戶上的**儲存體 Blob 資料參與者 (預覽)** 角色。 請參閱[使用 RBAC 來管理 Azure Blob 和佇列資料的存取權限 (預覽)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
+1. 將受控識別指派給儲存體帳戶上的**儲存體 Blob 資料擁有者 (預覽)** 角色。 請參閱[使用 RBAC 來管理 Azure Blob 和佇列資料的存取權限 (預覽)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
 
     1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶。
     1. 選取儲存體帳戶，然後選取 [存取控制 (IAM)]，以顯示帳戶的存取控制設定。 選取 [角色指派] 索引標籤，以查看角色指派的清單。
@@ -48,9 +48,9 @@ Azure Data Lake Storage Gen2 對於絕大多數的 Azure HDInsight 叢集類型�
         ![顯示儲存體存取控制設定的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. 按一下 [新增角色指派] 按鈕新增角色。
-    1. 在 [新增角色指派] 視窗中，選取 [儲存體 Blob 資料參與者 (預覽)] 角色。 然後，選取包含受控識別和儲存體帳戶的訂用帳戶。 接著，搜尋並找出您先前建立的使用者指派受控識別。 最後，選取受控識別，此項目將會列在 [選取的成員] 下方。
+    1. 在 [新增角色指派] 視窗中，選取 [儲存體 Blob 資料擁有者 (預覽)] 角色。 然後，選取包含受控識別和儲存體帳戶的訂用帳戶。 接著，搜尋並找出您先前建立的使用者指派受控識別。 最後，選取受控識別，此項目將會列在 [選取的成員] 下方。
     
-        ![顯示如何指派 RBAC 角色的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
+        ![顯示如何指派 RBAC 角色的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
     1. 按一下 [檔案] 。 您選取的使用者指派身分識別此時會列在 [參與者] 角色下方。
 

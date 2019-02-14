@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cd99f8bce8eca622412b834b5a7b75fda3ceb1f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222910"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812050"
 ---
 # <a name="project-url-preview-v7-reference"></a>專案 URL 預覽 v7 參考
 
@@ -75,8 +75,8 @@ q - 識別欲預覽之 URL 的查詢
 
 |Name|值|類型|必要|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱[市場代碼](#market-codes)。<br /><br /> **注意：** URL 預覽 API 目前僅支援美國地理位置和英文。<br /><br />|字串|是|
-|<a name="query" />q|要預覽的 URL|字串|是|
+|<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱市場代碼。<br /><br /> **注意：** URL 預覽 API 目前僅支援美國地理位置和英文。<br /><br />|字串|yes|
+|<a name="query" />q|要預覽的 URL|字串|yes|
 |<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值為 JSON。 如需回應所含 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](http://json-ld.org/)。|字串|否|
 |<a name="safesearch"/>safeSearch|禁止非法成人內容或盜版內容，錯誤代碼為 400，並且不會傳回 *isFamilyFriendly* 旗標。 <p>對於合法的成人內容，會出現以下行為。 狀態碼傳回 200，而且 *isFamilyFriendly* 旗標設為 false。<ul><li>safeSearch=strict：不會傳回標題、描述、URL 以及映像。</li><li>safeSearch=moderate；取得標題、URL 以及描述，但不會有描述性的影像。</li><li>safeSearch=off；取得所有回應物件/元素 – 標題、URL、描述、影像。</li></ul> |字串|不需要。 </br> 預設值為 safeSearch=strict。|
 

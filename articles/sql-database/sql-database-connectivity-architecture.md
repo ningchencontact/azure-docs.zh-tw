@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469104"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809975"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -25,8 +25,7 @@ ms.locfileid: "55469104"
 
 > [!IMPORTANT]
 > **[即將推出的變更] 對於 Azure SQL 伺服器的服務端點連線，`Default` 連線行為會變更為 `Redirect`。**
->
-> 此變更對 2019 年 1 月 2 日當天及之前的所有區域都有效。
+> 建議客戶建立新的伺服器，並根據連線架構，將具有連線類型的現有伺服器明確地設定為 [重新導向] (建議使用) 或 [Proxy]。
 >
 > 為了避免現有環境中通過服務端點的連線因變更而中斷，我們會使用遙測進行下列作業：
 > - 對於在變更前偵測到透過服務端點存取的伺服器，會將連線類型切換成 `Proxy`。
@@ -38,7 +37,7 @@ ms.locfileid: "55469104"
 >
 > 如果無法建立連到 Azure SQL 伺服器的服務端點連線，且您懷疑受到此變更的影響，請確認連線類型是否已明確設為 `Redirect`。 如果發生這種狀況，請對該地區中所有屬於連接埠 11000-12000 其 Sql [服務標籤](../virtual-network/security-overview.md#service-tags)的 Azure IP 位址開啟 VM 防火牆規則與「網路安全性群組」(NSG)。 如果您不願如此做，請將伺服器明確地切換至 `Proxy`。
 > [!NOTE]
-> 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
+> 本主題適用於裝載單一資料庫、彈性集區和 SQL 資料倉儲資料庫的 Azure SQL 伺服器。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
 
 ## <a name="connectivity-architecture"></a>連線架構
 

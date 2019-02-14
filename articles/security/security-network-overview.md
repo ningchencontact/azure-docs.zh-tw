@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 66243574a259f15f58f3b215e716d24dc6fa6e6d
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065676"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746671"
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 
@@ -84,7 +84,7 @@ NSG 未提供應用程式層級檢查或已驗證的存取控制。
 
 深入了解：
 
-* [Azure 資訊安全中心 Just in Time](../security-center/security-center-just-in-time.md)
+* [Azure 資訊安全中心 Just in Time 存取](../security-center/security-center-just-in-time.md)
 
 #### <a name="service-endpoints"></a>服務端點
 

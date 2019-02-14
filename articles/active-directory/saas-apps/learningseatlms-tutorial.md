@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: b41f01254e081b6ac3a9b8265bd459cf00af1838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: edc3bedaa005bb52ddbf46d9f70ddc16bf8790e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197988"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>教學課程：Azure Active Directory 與 Learning Seat LMS 整合
 
@@ -89,7 +89,7 @@ Learning Seat LMS 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 Learning Seat LMS 測試使用者](#creating-a-learnconnect-test-user)** - 使 Learning Seat LMS 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **建立 Learning Seat LMS 測試使用者** - 使 Learning Seat LMS 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 

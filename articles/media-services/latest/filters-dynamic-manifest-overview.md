@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9c463740acf6ef464880a43e0e68de683b97f64f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912028"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813412"
 ---
 # <a name="filters-and-dynamic-manifests"></a>篩選器與動態資訊清單
 
@@ -34,13 +34,13 @@ ms.locfileid: "54912028"
 - 只傳遞用來播放內容的裝置所支援的指定轉譯和/或指定的語言資料軌 (轉譯篩選)。 
 - 調整簡報視窗 (DVR)，以在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
 
-本主題描述[概念](#concepts)並[顯示篩選器定義](#definitions)。 接著提供[常見案例](#common-scenarios)的相關詳細資料。 您可以在本文的結尾找到說明如何以程式設計方式建立篩選器的連結。  
+本主題描述[概念](#concepts)並顯示篩選器定義。 接著提供常見案例的相關詳細資料。 您可以在本文的結尾找到說明如何以程式設計方式建立篩選器的連結。  
 
 ## <a name="concepts"></a>概念
 
 ### <a name="dynamic-manifests"></a>動態資訊清單
 
-媒體服務根據預先定義的[篩選器](#filters)提供**動態資訊清單**。 定義篩選器之後，您的用戶端便可使用篩選器來串流處理視訊的特定轉譯或子剪輯。 用戶端會在資料流 URL 中指定篩選器。 篩選器可以套用至自適性串流通訊協定：Apple HTTP 即時串流 (HLS)、MPEG-DASH 和 Smooth Streaming。 
+媒體服務根據預先定義的篩選器提供**動態資訊清單**。 定義篩選器之後，您的用戶端便可使用篩選器來串流處理視訊的特定轉譯或子剪輯。 用戶端會在資料流 URL 中指定篩選器。 篩選器可以套用至自適性串流通訊協定：Apple HTTP 即時串流 (HLS)、MPEG-DASH 和 Smooth Streaming。 
 
 下表顯示包含篩選器之 URL 的一些範例：
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: anzaman
-ms.openlocfilehash: 7df709adbd8e45712c112b52fc76920f8b67fe91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 59a865cf6e822ecd1918d0c04b98f0edc0355223
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53282954"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815467"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>在影片索引器中自訂品牌模型
 
@@ -30,7 +30,7 @@ ms.locfileid: "53282954"
 
 根據知道如何從上下文釐清的進階機器學習演算法，談論建築方面的 windows (窗戶) 時，不會將 "Windows" 這個字偵測為品牌，這同樣適用於 Box、Apple、Fox 等等。 品牌偵測適用於所有我們支援的語言。 按一下這裡可取得[完整的 Microsoft Build 2017 Day 2 重點演說視訊和索引](http://www.videoindexer.ai/media/ed6ede78ad/)。
 
-若要產生您自己的品牌，請參閱[後續步驟](#next-stpes)。
+若要產生您自己的品牌，請參閱「後續步驟」。
 
 ## <a name="next-steps"></a>後續步驟
 

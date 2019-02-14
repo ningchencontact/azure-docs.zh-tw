@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 37150f67e29dae0357c978cfaea9abeebeef428c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902648"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691400"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>如何在 Azure 入口網站中建立及管理讀取複本
 
@@ -141,7 +141,7 @@ ms.locfileid: "54902648"
 
 ## <a name="monitor-a-replica"></a>監視複本
 ### <a name="max-lag-across-replicas"></a>複本之間的最大延隔時間
-**複本之間的最大延隔時間**計量會顯示主要伺服器和最大延隔複本之間的延隔時間。 
+[複本之間的最大延隔時間] 計量會顯示主要伺服器和最大延隔複本之間的延隔 (位元組)。 
 
 1.  在 Azure 入口網站中，選取適用於 PostgreSQL 的 Azure 資料庫的**主要**伺服器。
 

@@ -4,17 +4,17 @@ description: 了解藍圖所會歷經的生命週期以及各階段的詳細資�
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309801"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563706"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>了解 Azure 藍圖生命週期
 
@@ -33,8 +33,7 @@ ms.locfileid: "53309801"
 
 ## <a name="creating-and-editing-a-blueprint"></a>建立及編輯藍圖
 
-建立藍圖時，將成品新增至其中、儲存至管理群組，並提供唯一名稱與唯一版本。 藍圖現在處於**草稿**模式，尚無法指派。
-然而在**草稿**模式中，它可以繼續更新及變更。
+建立藍圖時，將成品新增至其中、儲存至管理群組或訂用帳戶，並提供唯一名稱與唯一版本。 藍圖現在處於**草稿**模式，尚無法指派。 然而在**草稿**模式中，它可以繼續更新及變更。
 
 處於**草稿**模式且未曾發佈的藍圖會在 [藍圖定義] 頁面上，顯示與**已發佈**藍圖不同的圖示。 **最新版本**也會針對這些未曾發佈的藍圖顯示為**草稿**。
 

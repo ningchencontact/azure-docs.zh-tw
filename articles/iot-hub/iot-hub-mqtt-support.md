@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 534d1785336c68a771722f0f464eae278551ffc0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913561"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660233"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -60,17 +60,17 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 * AMQP 在許多情況下會傳回錯誤，而 MQTT 會終止連線。 因此，可能需要稍微變更您的例外狀況處理邏輯。
 * MQTT 在接收[雲端到裝置訊息][lnk-messaging]時不支援「拒絕」作業。 如果您的後端應用程式需要接收來自裝置應用程式的回應，請考慮使用[直接方法][lnk-methods]。
 
-## <a name="using-the-mqtt-protocol-directly"></a>直接使用 MQTT 通訊協定
+## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>直接使用 MQTT 通訊協定 (作為裝置)
 
 如果裝置無法使用裝置 SDK，它仍可使用連接埠 8883 上的 MQTT 通訊協定連線到公用裝置端點。 在 **CONNECT** 封包中，裝置應使用下列值：
 
 * 在 [ClientId] 欄位中，使用 **deviceId**。
 
-* 在 [Username] 欄位中，使用 `{iothubhostname}/{device_id}/api-version=2018-06-30`，其中 `{iothubhostname}` 是 IoT 中樞的完整 CName。
+* 在 [Username] 欄位中，使用 `{iothubhostname}/{device_id}/?api-version=2018-06-30`，其中 `{iothubhostname}` 是 IoT 中樞的完整 CName。
 
     例如，如果您的 IoT 中樞名稱是 **contoso.azure-devices.net** ，而且如果您的裝置名稱是 **MyDevice01**，則完整的 [Username] 欄位應包含：
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
+    `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
 * 在 [Password] 欄位中，使用 SAS 權杖。 SAS 權杖的格式與 HTTPS 和 AMQP 通訊協定的格式相同：
 
@@ -108,6 +108,16 @@ Device Explorer：
 對於 MQTT 的連接和中斷連接封包，IoT 中樞會對 **作業監視** 通道發出事件。 此事件具有其他資訊，可協助您對連線問題進行疑難排解。
 
 裝置應用程式可以在 **CONNECT** 封包中指定 **Will** 訊息。 裝置應用程式應該使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作為 **Will** 主題名稱，以定義要當作遙測訊息轉送的 **Will** 訊息。 在此情況下，如果網路連線已關閉，但先前並未接收到來自裝置的 **DISCONNECT** 封包，則 IoT 中樞會將 **CONNECT** 封包中提供的 **Will** 訊息傳送到遙測通道。 遙測通道可以是預設的**事件**端點，或是 IoT 中樞路由所定義的自訂端點。 訊息具有 **iothub-MessageType** 屬性，且已為它指派 **Will** 值。
+
+## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>直接使用 MQTT 通訊協定 (作為模組)
+
+使用模組身分識別透過 MQTT 連線至 IoT 中樞的方式與裝置類似 (如[上述](#using-the-mqtt-protocol-directly-as-a-device))，但您需要使用下列命令：
+* 將用戶端識別碼設定為 `{device_id}/{module_id}`。
+* 如果以使用者名稱和密碼來進行驗證，請將使用者名稱設定為 `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30`，並使用與模組身分識別相關聯的 SAS 權杖來作為密碼。
+* 使用 `devices/{device_id}/modules/{module_id}/messages/events/` 作為用來發佈遙測的主題。
+* 使用 `devices/{device_id}/modules/{module_id}/messages/events/` 作為 WILL 主題。
+* GET 和 PATCH 這對主題在模組和裝置中都一樣。
+* 這對狀態主題在模組和裝置中都一樣。
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL 組態
 

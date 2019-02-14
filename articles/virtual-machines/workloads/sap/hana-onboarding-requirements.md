@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477842"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563825"
 ---
 # <a name="onboarding-requirements"></a>上線需求
 
@@ -33,7 +33,7 @@ ms.locfileid: "55477842"
 
 **網路連線**
 
-- 內部部署與 Azure 之間的 ExpressRoute：若要將您的內部部署資料中心連線到 Azure，請務必向您的 ISP 訂購一個至少 1 Gbps 的連線。 HANA 大型執行個體單位與 Azure 之間的連線也會使用 ExpressRoute 技術。 HANA 大型執行個體單位的價格中，包含了 HANA 大型執行個體單位與 Azure 之間的這個 ExpressRoute 連線。 因此，身為客戶的您不會遇到除了內部部署與 Azure 之間的 ExpressRoute 連結以外的額外成本。
+- 內部部署與 Azure 之間的 ExpressRoute：若要將您的內部部署資料中心連線到 Azure，請務必向您的 ISP 訂購一個至少 1 Gbps 的連線。 HANA 大型執行個體單位與 Azure 之間的連線也會使用 ExpressRoute 技術。 HANA 大型執行個體單位的價格中，包含了 HANA 大型執行個體單位與 Azure 之間的這個 ExpressRoute 連線，並包括此特定 ExpressRoute 路線的所有資料輸入和輸出費用。 因此，身為客戶的您不會遇到除了內部部署與 Azure 之間的 ExpressRoute 連結以外的額外成本。
 
 **作業系統**
 
@@ -50,7 +50,7 @@ ms.locfileid: "55477842"
 
 - 在 Azure 中部署於 VM 上的 Red Hat Subscription Manager。 Red Hat Subscription Manager 提供可讓 Red Hat 註冊 SAP HANA on Azure (大型執行個體) 並對其分別進行更新的功能。 (在 Azure 大型執行個體戳記上部署的租用戶內無法進行直接的網際網路存取)。
 - SAP 會要求您與 Linux 提供者之間有一份支援合約。 這項需求並不會因「HANA 大型執行個體」解決方案或您在 Azure 中執行 Linux 的事實而消除。 與使用一些 Linux Azure 資源庫映像時不同，服務費用*並未*包含在「HANA 大型執行個體」的解決方案內容中。 您必須負責達到 SAP 對 Linux 散發者之支援合約的相關需求。 
-   - 針對 SUSE Linux，請查閱 [SAP 附註 #1984787 - SUSE Linux Enterprise Server 12：安裝注意事項](https://launchpad.support.sap.com/#/notes/1984787)和 [SAP 附註 #1056161 - SAP 應用程式的 SUSE 優先支援](https://launchpad.support.sap.com/#/notes/1056161)中的支援合約需求。
+   - 針對 SUSE Linux，查詢 [SAP 附註 #1984787 - SUSE Linux Enterprise Server 12：安裝注意事項](https://launchpad.support.sap.com/#/notes/1984787)和 [SAP 附註 #1056161 - SAP 應用程式的 SUSE 優先支援](https://launchpad.support.sap.com/#/notes/1056161)。
    - 針對 Red Hat Linux，您必須擁有包含支援和服務 (HANA 大型執行個體的作業系統更新) 的正確訂用帳戶層級。 Red Hat 建議使用 SAP 解決方案適用的 Red Hat Enterprise Linux 訂用帳戶。 請參閱 https://access.redhat.com/solutions/3082481。 
 
 如需具有不同 Linux 版本之 SAP HANA 版本的支援矩陣，請參閱 [SAP 附註 #2235581](https://launchpad.support.sap.com/#/notes/2235581)。

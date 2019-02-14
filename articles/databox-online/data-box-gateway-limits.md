@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: acf455bff739666712917008dc8090c6a95c6dc4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388431"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815638"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure 資料箱閘道限制 (預覽)
 
@@ -26,7 +26,7 @@ ms.locfileid: "54388431"
 
 ## <a name="data-box-gateway-service-limits"></a>資料箱閘道服務限制
 
-- 在此版本中，服務僅適用於美國、歐洲和亞太地區的特定區域。 如需詳細資訊，請移至[區域可用性](#data-box-gateway-overview#region-availability)。 儲存體帳戶應在實際距離上盡可能接近裝置部署所在的區域 (可與服務地區不同)。
+- 在此版本中，服務僅適用於美國、歐洲和亞太地區的特定區域。 如需詳細資訊，請移至區域可用性。 儲存體帳戶應在實際距離上盡可能接近裝置部署所在的區域 (可與服務地區不同)。
 - 目前不支援將資料箱閘道資源移至不同的訂用帳戶或資源群組。 如需詳細資訊，請移至[將資源移至新的資源群組或訂用帳戶](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
 
 ## <a name="data-box-gateway-device-limits"></a>資料箱閘道裝置限制

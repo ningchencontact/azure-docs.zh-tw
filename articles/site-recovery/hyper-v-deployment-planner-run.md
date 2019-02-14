@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321172"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815062"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>針對 Hyper-V 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
 
 您可以在下列四種模式中執行 Site Recovery 部署規劃工具命令列工具 (ASRDeploymentPlanner.exe)： 
--   [取得虛擬機器 (VM) 清單](#get-vm-list-for-profiling-hyper-v-vms)
+-   取得虛擬機器 (VM) 清單
 -   [設定檔](#profile-hyper-v-vms)
--   [產生報告](#generate-report)
+-   產生報告
 -   [取得輸送量](#get-throughput)
 
 首先，執行此工具，從單一或多個 Hyper-V 主機取得 VM 清單。 然後在分析模式中執行此工具，以蒐集 VM 資料變換和 IOPS。 接著，執行此工具來產生報告，以找出網路頻寬和儲存體需求。
@@ -74,7 +74,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 此工具會順暢地處理叢集中節點之間的 VM 移轉，以及主機內的儲存體移轉。
 
 ### <a name="getting-the-vm-list-to-profile"></a>取得要分析的虛擬機器清單
-若要建立要分析的虛擬機器清單，請參閱 [GetVMList](#get-vm-list-for-profiling-hyper-v-vms) 作業。
+若要建立要分析的虛擬機器清單，請參閱 GetVMList 作業。
 
 取得要分析的 VM 清單之後，您可以在分析模式中執行此工具。 
 

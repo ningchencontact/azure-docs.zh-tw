@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745052"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820414"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 中執行 MapReduce 範例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -54,7 +54,7 @@ ms.locfileid: "53745052"
 ## <a name="hdinsight-sample-wordcount"></a>字數統計 - Java
 如果要提交 MapReduce 專案，您可以先建立 MapReduce 工作定義。 在工作定義中，您指定 MapReduce 程式 jar 檔案和該 jar 檔案的位置，這會是 **wasb:///example/jars/hadoop-mapreduce-examples.jar**、類別名稱和引數。  字數統計 MapReduce 程式會採用兩個引數：用來統計字數的原始程式檔與輸出的位置。
 
-原始程式碼可以在 [附錄 A](#apendix-a---the-word-count-MapReduce-program-in-java)中找到。
+在附錄 A 中找到可以原始程式碼。
 
 如需了解開發 Java MapReduce 程式的程序，請參閱[開發適用於 HDInsight 中 Apache Hadoop 的 Java MapReduce 程式](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -135,7 +135,7 @@ Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰�
 
 **提交 C# 串流字數統計工作**
 
-* 遵循[字數統計 - Java](#word-count-java) 中的程序，並使用下行內容取代作業定義：
+* 遵循「字數統計 - Java」中的程序，並使用下行內容取代作業定義：
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -157,7 +157,7 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 �
 
 **提交 Pi 估算器工作**
 
-* 遵循[字數統計 - Java](#word-count-java) 中的程序，並使用下行內容取代作業定義：
+* 遵循「字數統計 - Java」中的程序，並使用下行內容取代作業定義：
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -185,7 +185,7 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 �
 
 **提交工作**
 
-* 遵循[字數統計 - Java](#word-count-java) 中的程序，並使用下列工作定義：
+* 遵循「字數統計 - Java」中的程序，並使用下列工作定義：
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

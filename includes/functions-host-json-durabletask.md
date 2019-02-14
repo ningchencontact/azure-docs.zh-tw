@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 92eb13165326f44432f09322ea97f3cee5ccec2b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a3af711503445000d9613feb2eec7967442fe538
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251238"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736251"
 ---
 [Durable Functions](../articles/azure-functions/durable-functions-overview.md) 的組態設定。
 
@@ -43,7 +43,7 @@ ms.locfileid: "50251238"
 
 |屬性  |預設值 | 說明 |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|替代[工作中樞](../articles/azure-functions/durable-functions-task-hubs.md)名稱可用來將多個 Durable Functions 應用程式彼此隔離，即使它們使用相同的儲存體後端。|
+|HubName|DurableFunctionsHub|替代[工作中樞](../articles/azure-functions/durable-functions-task-hubs.md)名稱可用來彼此隔離多個 Durable Functions 應用程式，即使它們使用相同的儲存體後端。|
 |ControlQueueBatchSize|32|要從控制佇列中一次提取的訊息數。|
 |PartitionCount |4|控制佇列的資料分割計數。 必須是介於 1 到 16 之間的正整數。|
 |ControlQueueVisibilityTimeout |5 分鐘|已從控制佇列中清除之訊息的可見度逾時。|

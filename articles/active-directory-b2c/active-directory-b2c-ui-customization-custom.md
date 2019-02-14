@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188486"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818867"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面
 
@@ -86,7 +86,7 @@ ms.locfileid: "55188486"
 5. 按一下 **$root** 以開啟新的容器。
 6. 按一下 [上傳] 。
 7. 按一下 [選取檔案] 旁的資料夾圖示。
-8. 移至 **customize-ui.html**，這是您稍早在[頁面 UI 自訂](#the-page-ui-customization-feature)一節中建立的檔案。
+8. 移至 **customize-ui.html**，這是您稍早在「頁面 UI 自訂」一節中建立的檔案。
 9. 按一下 [上傳] 。
 10. 選取您上傳的 customize-ui.html blob。
 11. 在 **URL** 旁邊，按一下 [複製]。
@@ -175,7 +175,7 @@ Sample_templates/wingtip 資料夾包含下列 HTML 檔案：
 | unified.html | 使用此檔案作為統一註冊或登入頁面的範本。 |
 | *updateprofile.html* | 使用此檔案作為統一註冊或登入頁面的範本。 |
 
-在[修改註冊或登入自訂原則](#modify-your-sign-up-or-sign-in-custom-policy)區段中，設定 `api.idpselections` 的內容定義。 Azure AD B2C 身分識別體驗架構所能辨識的一組完整內容定義識別碼，而其說明位於下表中：
+在「修改註冊或登入自訂原則」一節中，您設定了 `api.idpselections` 的內容定義。 Azure AD B2C 身分識別體驗架構所能辨識的一組完整內容定義識別碼，而其說明位於下表中：
 
 | 內容定義識別碼 | 說明 | 
 |-----------------------|-------------|

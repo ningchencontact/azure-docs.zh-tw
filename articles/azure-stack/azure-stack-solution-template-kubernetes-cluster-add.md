@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7e293018f2dc248fae8de8bd9e82943606f4ead
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 707cd7e72245ce47289c0a744d7103c713acecb9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239497"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765478"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>將 Kubernetes 新增至 Azure Stack Marketplace
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 > [!note]  
-> Azure Stack 上的 Kubernetes 處於預覽狀態。
+> Azure Stack 上的 Kubernetes 處於預覽狀態。 預覽版目前不支援 Azure Stack 中斷連線的案例。
 
 您能以 Marketplace 項目的方式向使用者提供 Kubernetes。 接著您的使用者可以在單一協調作業中部署 Kubernetes。
 

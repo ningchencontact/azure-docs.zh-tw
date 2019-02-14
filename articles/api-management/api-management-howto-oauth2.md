@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967924"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746722"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶
 
@@ -51,9 +51,9 @@ ms.locfileid: "52967924"
 
     ![OAuth 2.0 新伺服器](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. 表單的下一個區段含有 [授權碼授與類型]、[授權端點 URL] 及 [授權要求方法] 等設定。
+4. 表單的下一個區段含有 [授權授與類型]、[授權端點 URL] 及 [授權要求方法] 等設定。
 
-    勾選需要的類型以指定 [Authorization code grant types]  。  。
+    勾選需要的類型以指定 [授權授與類型]。  。
 
     輸入 [Authorization endpoint URL] 。 對於 Azure Active Directory，此 URL 將與下列 URL 相似；其中， `<client_id>` 將取代為向 OAuth 2.0 伺服器識別應用程式的用戶端識別碼。
 
@@ -75,7 +75,7 @@ ms.locfileid: "52967924"
 
     ![OAuth 2.0 新伺服器](./media/api-management-howto-oauth2/oauth-04.png)
 
-    如果將 [授權碼授與類型] 設定為 [資源擁有者密碼]，您便需要使用 [資源擁有者密碼認證] 區段來指定認證，若不想這麼做，則可以將授與類型保持空白。
+    如果將 [授權授與類型] 設定為 [資源擁有者密碼]，您便需要使用 [資源擁有者密碼認證] 區段來指定認證，若不想這麼做，則可以將授與類型保持空白。
 
     完成表單後，按一下 [建立]  以儲存 API 管理 OAuth 2.0 授權伺服器組態。 儲存伺服器組態後，您便可以設定 API 以使用此組態，如下一個小節所述。
 

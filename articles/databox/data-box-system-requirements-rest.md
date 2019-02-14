@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c2cc0c0ffaae11bd7bf5113c942cdb98397201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550780"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752767"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure 資料箱 Blob 儲存體需求
 
@@ -30,7 +30,7 @@ ms.locfileid: "53550780"
 |    待用資料的服務加密                  |    256 位元 AES 加密                             |    256 位元 AES 加密 |
 |    儲存體帳戶類型                                 |    一般用途和 Azure Blob 儲存體帳戶    |    僅限一般用途 v1|
 |    Blob 名稱                                            |    1,024 個字元 (2,048 個位元組)                     |    880 個字元 (1,760 個位元組)|
-|    區塊 Blob 大小上限                              |    4.75 TB (100 MB X 50,000 個區塊)                   |    適用於 Azure 資料箱 1.7 版及更新版本的 4.75 TB (100 MB X 50,000 個區塊)。|
+|    區塊 Blob 大小上限                              |    4.75 TB (100 MB X 50,000 個區塊)                   |    適用於 Azure 資料箱 1.8 版和更新版本的 4.75 TB (100 MB X 50,000 個區塊)。|
 |    分頁 Blob 大小上限                               |    8 TB                                               |    1 TB                   |
 |    分頁 Blob 分頁大小                                  |    512 個位元組                                          |    4 KB                   |
 
@@ -38,8 +38,10 @@ ms.locfileid: "53550780"
 
 資料箱 Blob 儲存體支援下列版本的 Azure 儲存體服務 API：
 
-公開預覽版本 (Azure 資料箱 1.7 及更新版本)
+公開預覽版本 (Azure 資料箱 1.8 和更新版本)
 
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
@@ -60,11 +62,9 @@ ms.locfileid: "53550780"
 
 ## <a name="supported-azure-client-libraries"></a>支援的 Azure 用戶端程式庫
 
-針對資料箱 Blob 儲存體，有特定的用戶端程式庫以及特定的端點尾碼需求。
+針對資料箱 Blob 儲存體，有特定的用戶端程式庫以及特定的端點尾碼需求。 資料箱 Blob 端點與最新版的 Azure Blob 儲存體 REST API 並非完全相同，請參閱 [Azure 資料箱 1.8 和更新版本支援的版本](#supported-api-versions)。 對於儲存體用戶端程式庫，您需要知道與 REST API 相容的版本。
 
-針對 Azure 資料箱 1.7 版及更新版本，支援的資料箱 Blob 儲存體 REST API 版本為 2017-04-17、2016-05-31、2015-12-11、2015-07-08 及 2015-04-05。 資料箱 Blob 端點與最新版的 Azure Blob 儲存體 REST API 並非完全相同。 對於儲存體用戶端程式庫，您需要知道與 REST API 相容的版本。
-
-### <a name="azure-data-box-17-onwards"></a>Azure 資料箱 1.7 及更新版本
+### <a name="azure-data-box-18-onwards"></a>Azure 資料箱 1.8 和更新版本
 
 | 用戶端程式庫     |資料箱 Blob 儲存體支援的版本     | 連結   |     端點規格      |
 |--------------------|--------------------------------------------|--------|---------------------------------|

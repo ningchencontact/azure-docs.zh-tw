@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015826"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822420"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
 > [!NOTE]
@@ -172,7 +172,7 @@ ms.locfileid: "54015826"
       4. 在 [設定認證] 對話方塊中，指定驗證類型、使用者名稱和密碼，然後按一下 [確定]。 如果連線成功，加密的認證會儲存在 JSON 中，並關閉對話方塊。
       5. 請關閉啟動對話方塊的空白瀏覽器索引標籤 (如果未自動關閉)，然後返回具有 Azure 入口網站的索引標籤。
 
-         在閘道電腦上，這些認證會以 Data Factory 服務所擁有的憑證**加密** 。 如果您想要改用與「資料管理閘道」關聯的憑證，請參閱 [安全地設定認證](#set-credentials-and-security)。    
+         在閘道電腦上，這些認證會以 Data Factory 服務所擁有的憑證**加密** 。 如果您想要改用與「資料管理閘道」關聯的憑證，請參閱「安全地設定認證」。    
    3. 按一下命令列上的 [部署]  ，部署 SQL Server 連結服務。 您應該會在樹狀檢視中看到連結服務。
 
       ![樹狀檢視中的 SQL Server 連結服務](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    

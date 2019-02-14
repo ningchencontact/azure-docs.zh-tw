@@ -4,17 +4,17 @@ description: 說明「Azure 原則」如何使用資源原則定義，藉由描�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296651"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698278"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -46,7 +46,8 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -87,8 +88,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 在建立原則時，參數也是以相同的方式運作。 藉由在原則定義中納入參數，您便可以針對不同的案例使用不同的值，來重複使用該原則。
 
 > [!NOTE]
-> 您只能在一開始建立原則或計畫時，設定原則的參數定義或計畫定義。 之後便無法變更參數定義。
-> 這可避免原則或計畫的現有指派間接地變成無效。
+> 參數可能會加入至現有的和指派的定義。 新的參數必須包含 **defaultValue** 屬性。 這可避免原則或計畫的現有指派間接地變成無效。
 
 舉例來說，您可以定義一個原則來限制可部署資源的位置。
 當您建立原則時，會宣告下列參數：
@@ -101,7 +101,8 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```

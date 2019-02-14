@@ -9,102 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742740"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743475"
 ---
 # <a name="streaming-locators"></a>串流定位器
 
-您必須為您的用戶端提供可用來播放已編碼的視訊或音訊檔案的 URL，您必須建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)並建置串流 URL。 如需詳細資訊，請參閱[串流處理檔案](stream-files-dotnet-quickstart.md)。
+若要讓輸出資產中的影片可供用戶端播放，您必須建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)，然後建置串流 URL。 如需 .NET 範例，請參閱[取得串流定位器](stream-files-tutorial-with-api.md#get-a-streaming-locator)。
 
-## <a name="streaminglocator-definition"></a>StreamingLocator 定義
+建立 [串流定位器] 的程序稱為發佈。 根據預設，[串流定位器] 會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
 
-下表顯示 StreamingLocator 的屬性並提供其定義。
+建立**串流定位器**時，您必須指定[資產](https://docs.microsoft.com/rest/api/media/assets)名稱和[串流原則](https://docs.microsoft.com/rest/api/media/streamingpolicies)名稱。 您可以使用其中一個預先定義的串流原則，或建立自訂原則。 目前可用的預先定義原則如下：'Predefined_DownloadOnly'、'Predefined_ClearStreamingOnly'、'Predefined_DownloadAndClearStreaming'、'Predefined_ClearKey'、'Predefined_MultiDrmCencStreaming' 和 'Predefined_MultiDrmStreaming'。 使用自訂的串流原則時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的選項和通訊協定時，對串流定位器重新使用這些原則。 
 
-|Name|說明|
-|---|---|
-|id |資源的完整資源識別碼。|
-|name|資源名稱。|
-|properties.alternativeMediaId|此串流定位器的替代媒體識別碼。|
-|properties.assetName|資產名稱|
-|properties.contentKeys|此串流定位器所使用的 Contentkey。|
-|properties.created|串流定位器的建立時間。|
-|properties.defaultContentKeyPolicyName|此串流定位器所使用的預設 ContentKeyPolicy 名稱。|
-|properties.endTime|串流定位器的結束時間。|
-|properties.startTime|串流定位器的開始時間。|
-|properties.streamingLocatorId|串流定位器的 StreamingLocatorId。|
-|properties.streamingPolicyName |此串流定位器所使用的串流原則名稱。 請指定您所建立的串流原則名稱，或使用其中一個預先定義的串流原則。 可用的預先定義串流原則如下：'Predefined_DownloadOnly'、'Predefined_ClearStreamingOnly'、'Predefined_DownloadAndClearStreaming'、'Predefined_ClearKey'、'Predefined_MultiDrmCencStreaming' 和 'Predefined_MultiDrmStreaming'|
-|type|資源類型。|
+如果您要在串流上指定加密選項，請建立[內容金鑰原則](https://docs.microsoft.com/rest/api/media/contentkeypolicies)，該原則會設定如何透過媒體服務金鑰傳遞元件，將內容金鑰傳送給終端用戶端。 將您的串流定位器與**內容金鑰原則**和內容金鑰建立關聯。 您可以讓媒體服務自動產生金鑰。 下列 .NET 範例會示範如何在媒體服務 v3 中使用權杖限制來設定 AES 加密：[EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)。 **內容金鑰原則**是可更新的，您可能會在必須替換金鑰時，更新原則。 金鑰傳遞快取可能需要 15 分鐘的時間才能更新並挑選更新後的原則。 不建議您針對每個串流定位器建立新的內容金鑰原則。 您應嘗試在每次需要相同選項時，重複使用現有原則。
 
-如需完整定義，請參閱[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)。
+> [!IMPORTANT]
+> * 屬於日期時間類型的**串流定位器**屬性一律為 UTC 格式。
+> * 您應該為媒體服務帳戶設計一組受限的原則，並且在需要相同的選項時，對串流定位器重新使用這些原則。 
 
 ## <a name="filtering-ordering-paging"></a>篩選、排序、分頁
 
-媒體服務支援下列適用於串流定位器的 OData 查詢選項： 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-運算子說明：
-
-* Eq = 等於
-* Ne = 不等於
-* Ge = 大於或等於
-* Le = 小於或等於
-* Gt = 大於
-* Lt = 小於
-
-### <a name="filteringordering"></a>篩選/排序
-
-下表顯示這些選項可如何套用至 StreamingLocator 屬性： 
-
-|Name|Filter|順序|
-|---|---|---|
-|id |||
-|name|Eq、ne、ge、le、gt、lt|遞增和遞減|
-|properties.alternativeMediaId  |||
-|properties.assetName   |||
-|properties.contentKeys |||
-|properties.created |Eq、ne、ge、le、gt、lt|遞增和遞減|
-|properties.defaultContentKeyPolicyName |||
-|properties.endTime |Eq、ne、ge、le、gt、lt|遞增和遞減|
-|properties.startTime   |||
-|properties.streamingLocatorId  |||
-|properties.streamingPolicyName |||
-|type   |||
-
-### <a name="pagination"></a>分頁
-
-在四個已啟用的分類排序中，每一個皆可支援分頁。 目前的頁面大小為 10。
-
-> [!TIP]
-> 您應一律使用下一個連結來列舉集合，而不應依存於特定頁面大小。
-
-如果查詢回應包含許多項目，服務會傳回 "\@odata.nextLink" 屬性，以取得下一頁的結果。 這可用來逐頁查看整個結果集。 您無法設定頁面大小。 
-
-如果在逐頁查看集合時建立或刪除了 StreamingLocator，則所做的變更會反映在傳回的結果中 (如果這些變更屬於尚未下載的集合)。 
-
-下列 C# 範例說明如何列舉帳戶中的所有 StreamingLocator。
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-如需 REST 範例，請參閱[串流定位器 - 清單](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+請參閱[媒體服務實體的篩選、排序、分頁](entities-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-[串流處理檔案](stream-files-dotnet-quickstart.md)
+* [教學課程：使用 .NET 上傳、編碼和串流影片](stream-files-tutorial-with-api.md)
+* [使用 DRM 動態加密與授權傳遞服務](protect-with-drm.md)

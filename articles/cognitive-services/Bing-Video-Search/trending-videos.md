@@ -1,27 +1,31 @@
 ---
-title: 搜尋網路上的發燒影片 - Bing 影片搜尋
+title: 使用 Bing 影片搜尋 API 搜尋網路上的發燒影片
 titlesuffix: Azure Cognitive Services
-description: 說明如何使用 Bing 影片搜尋 API 來搜尋網路上的發燒影片。
+description: 了解如何使用 Bing 影片搜尋 API 來搜尋網路上的發燒影片。
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 71dd888199e9e630835c4916d35f6308431bab62
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55f29a31a9574c7c32e6708565e961950520593f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203550"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566063"
 ---
-# <a name="get-trending-videos"></a>取得發燒影片  
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>使用 Bing 影片搜尋 API 來取得發燒影片 
 
-若要取得今天的發燒影片，請傳送下列 GET 要求：  
+Bing 影片搜尋 API 可讓您跨網路尋找今天的發燒影片，也可根據不同類別來尋找。 
+
+## <a name="get-request"></a>GET 要求
+
+若要從 Bing 影片搜尋 API 取得今天的發燒影片，請傳送下列 GET 要求：  
   
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -30,6 +34,8 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```
+
+## <a name="market-support"></a>市場支援
 
 下列市場支援發燒影片。  
  
@@ -47,10 +53,11 @@ Host: api.cognitive.microsoft.com
 -   en-ZA (英文，南非)  
 -   zh-CN (中文，中國)
 
-  
-下列範例顯示包含發燒影片的回應。  
+## <a name="example-json-response"></a>範例 JSON 回應  
 
-```  
+下列範例會顯示包含發燒影片的 API 回應，並依類別和子類別來列出。 回應也會包含橫幅影片，也就是最熱門的發燒影片，並可來自一或多個類別。  
+
+```json
 {  
     "_type" : "TrendingVideos",  
     "bannerTiles" : [
@@ -112,8 +119,9 @@ Host: api.cognitive.microsoft.com
     ]  
 }  
   
-```  
-此回應包含依類別和子類別列出的影片清單。 例如，如果類別清單包含了 Music Videos 類別，而其中一個子類別是 Top，您可在您的使用者體驗中建立 Top Music Videos 類別。 您可接著使用 `thumbnailUrl`、`displayText` 和 `webSearchUrl` 欄位，在每個類別 (例如 Top Music Videos) 之下建立可點選的圖格。 當使用者按一下此圖格時，他們就會前往可播放影片的 Bing 影片瀏覽器。
+```
 
-回應也會包含橫幅影片，也就是最熱門的發燒影片。 橫幅影片可能來自一或多個類別。  
-  
+## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+[取得影片深入解析](video-insights.md)

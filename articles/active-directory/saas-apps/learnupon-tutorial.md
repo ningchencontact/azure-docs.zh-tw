@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: a548f11b1f423fb738108d9314f2fc887ef02c52
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66953eaa4c42b419a5146ccc396fddda15a31c35
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176840"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811353"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>教學課程：Azure Active Directory 與 LearnUpon 整合
 
@@ -208,7 +208,7 @@ LearnUpon 與 Azure AD 整合提供下列優點：
 
 本節的目標是要在 LearnUpon 中建立名為 Britta Simon 的使用者。 LearnUpon 支援預設啟用的 Just-In-Time 佈建。
 
-在這一節沒有您需要進行的動作項目。 嘗試存取 LearnUpon 時，如果使用者尚未存在，就會建立新使用者。 [設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)。
+在這一節沒有您需要進行的動作項目。 嘗試存取 LearnUpon 時，如果使用者尚未存在，就會建立新使用者。 設定 Azure AD 單一登入。
 
 >[!NOTE]
 >如果您需要手動建立使用者，您需要連絡 [LearnUpon 支援小組](https://www.learnupon.com/features/support/)。 

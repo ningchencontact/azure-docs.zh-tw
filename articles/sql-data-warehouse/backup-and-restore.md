@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462336"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747487"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的備份與還原
 了解「Azure SQL 資料倉儲」中備份與還原的運作方式。 使用資料倉儲快照集將您的資料倉儲還原或複製到主要區域中的先前還原點。 使用資料倉儲異地備援備份來還原至不同的地理區域。 
@@ -62,7 +62,7 @@ order by run_id desc
 > 如果您刪除邏輯 SQL Server 執行個體，所有屬於該執行個體的資料庫也會一併刪除，且無法復原。 您無法還原已刪除的伺服器。
 >
 
-## <a name="geo-backups"></a>異地備份
+## <a name="geo-backups-and-disaster-recovery"></a>異地備份和災害復原
 SQL 資料倉儲每天都會對[配對的資料中心](../best-practices-availability-paired-regions.md)執行一次異地備份。 異地還原的 RPO 為 24 小時。 您可以在任何 SQL 資料倉儲支援的區域中將異地備份還原到伺服器。 萬一您無法存取主要地區中的還原點，異地備份可以確保您能夠還原資料倉儲。
 
 預設會開啟異地備份。 如果您的資料倉儲是 Gen1，則可以視需要[選擇退出](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)。 您無法選擇退出 Gen2 的異地備份，因為資料保護是既定的保證。

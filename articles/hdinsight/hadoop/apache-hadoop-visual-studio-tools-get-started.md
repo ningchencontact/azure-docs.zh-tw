@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a23a2f536f765c62919960f3c582d04543b1f49a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629674"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820822"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Apache Hive 查詢
 
@@ -250,11 +250,11 @@ Data Lake Tools for Visual Studio 用來透過 [WebHCat](https://cwiki.apache.or
 ![Data Lake Visual Studio Tools 工作執行檢視視窗的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "工作執行檢視")
 
 ## <a name="run-hive-batch-jobs"></a>執行 Hive 批次作業
-針對 HDInsight 叢集測試 Hive 指令碼十分耗時 (但互動式查詢叢集例外)。 此程序可能需要數秒鐘或更多的時間。 Data Lake Tools for Visual Studio 可以在本機驗證 Hive 指令碼，而不需要連線到即時叢集。 如需執行互動式查詢的詳細資訊，請參閱[執行互動式 Hive 查詢](#run-interactive-hive-queries)。
+針對 HDInsight 叢集測試 Hive 指令碼十分耗時 (但互動式查詢叢集例外)。 此程序可能需要數秒鐘或更多的時間。 Data Lake Tools for Visual Studio 可以在本機驗證 Hive 指令碼，而不需要連線到即時叢集。 如需執行互動式查詢的詳細資訊，請參閱執行互動式 Hive 查詢。
 
 您可以使用 Data Lake Tools for Visual Studio 來查看 Hive 作業的內容，方法是收集和呈現特定 Hive 作業的 Yarn 記錄。
 
-若要深入了解如何執行 Hive 批次作業，請參閱[執行互動式 Hive 查詢](#run-interactive-hive-queries)。 該節中的資訊適用於長時間執行 Hive 批次作業。
+若要深入了解如何執行 Hive 批次作業，請參閱執行互動式 Hive 查詢。 該節中的資訊適用於長時間執行 Hive 批次作業。
 
 ## <a name="run-apache-pig-scripts"></a>執行 Apache Pig 指令碼
 您可以使用 Data Lake Tools for Visual Studio 來建立 Pig 指令碼並提交至 HDInsight 叢集。 首先，從範本建立 Pig 專案。 然後，將指令碼提交至 HDInsight 叢集。

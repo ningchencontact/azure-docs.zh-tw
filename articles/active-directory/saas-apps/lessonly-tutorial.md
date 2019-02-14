@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: c911a53f16e07b67a1ec22a9e0592df06c192325
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e5b23269c8c9d5aecd7ef8ba58100f17cc7973c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188179"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>教學課程：Azure Active Directory 與 Lessonly.com 整合
 
@@ -90,7 +90,7 @@ ms.locfileid: "55188179"
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 Lessonly.com 測試使用者](#creating-a-lessonly-test-user)** - 使 Lessonly.com 中 Britta Simon 的對應使用者連結到該使用者在 Azure AD 中的代表身分。
+1. **建立 Lessonly.com 測試使用者** - 使 Lessonly.com 中 Britta Simon 的對應使用者連結到該使用者在 Azure AD 中的代表身分。
 1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 

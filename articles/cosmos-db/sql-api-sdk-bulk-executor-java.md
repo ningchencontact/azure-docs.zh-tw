@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 956f2f723703e0263739ad57ebcb8215db634269
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 790aba3f523cadce97caa4c5c044276c349e6045
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040671"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769299"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java 大量執行程式程式庫：下載資訊
 
@@ -31,18 +31,12 @@ ms.locfileid: "54040671"
 > * [大量執行程式 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [大量執行程式 - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**說明**</td><td>大量執行程式程式庫可讓用戶端應用程式在 Azure Cosmos DB 帳戶中執行大量作業。 大量執行程式程式庫提供 BulkImport 和 BulkUpdate 命名空間。 BulkImport 模組能夠以最佳化方式大量內嵌文件，如此就能充分取用為集合佈建的輸送量。 BulkUpdate 模組能夠以修補程式的形式，大量更新 Azure Cosmos DB 容器中的現有資料。</td></tr>
-
-<tr><td>**SDK 下載**</td><td>[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)</td></tr>
-
-<tr><td>**GitHub 中的 BulkExecutor 程式庫**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)</td></tr>
-
-<tr><td>**API 文件**</td><td>[.Net API 參考文件](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)</td></tr>
-
-<tr><td>**開始使用**</td><td>[開始使用大量執行程式程式庫 Java SDK](bulk-executor-java.md)</td></tr>
-
-<tr><td>**最低支援執行階段**</td><td>[Java 開發套件 (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**說明**|大量執行程式程式庫可讓用戶端應用程式在 Azure Cosmos DB 帳戶中執行大量作業。 大量執行程式程式庫提供 BulkImport 和 BulkUpdate 命名空間。 BulkImport 模組能夠以最佳化方式大量內嵌文件，如此就能充分取用為集合佈建的輸送量。 BulkUpdate 模組能夠以修補程式的形式，大量更新 Azure Cosmos DB 容器中的現有資料。|
+|**SDK 下載**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
+|**GitHub 中的 BulkExecutor 程式庫**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
+| **API 文件**| [.Net API 參考文件](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+|**開始使用**|開始使用大量執行程式程式庫 Java SDK](bulk-executor-java.md)|
+|**最低支援執行階段**|[Java 開發套件 (JDK) 7+](https://aka.ms/azure-jdks)|
 

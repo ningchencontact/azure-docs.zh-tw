@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296370"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745430"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
@@ -39,11 +39,11 @@ ms.locfileid: "55296370"
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>建立 Avere vFXT for Azure
 
-若要在 Azure 入口網站中存取建立範本，請搜尋 Avere 並選取「Avere vFXT for Azure 部署」。 <!-- xxx update if that name changes xxx --> 
+若要在 Azure 入口網站中存取建立範本，請搜尋 Avere 並選取「Avere vFXT ARM 部署」。 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+![使用階層連結 [新增 > Marketplace > 全部內容] 瀏覽顯示的 Azure 入口網站的視窗。 在 [全部內容] 頁面上，[搜尋] 欄位有「avere」一詞，而且第二個結果「Avere vFXT ARM 部署」是以紅色外框顯示。](media/avere-vfxt-template-choose.png)
 
-按一下 [建立] 來開始。 
+閱讀「Avere vFXT ARM 部署」頁面上的詳細資料之後，按下 [建立] 開始。 
 
 ![使用部署範本的 Azure Marketplace 第一頁顯示畫面](media/avere-vfxt-deploy-first.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "55296370"
 
 * **訂用帳戶** - 選取 Avere vFXT 的訂用帳戶。 
 
-* **資源群組**- 選取 Avere vFXT 叢集的資源群組，或按一下 [新建] 並輸入新的資源群組名稱。 
+* **資源群組**- 選取 Avere vFXT 叢集的現有空資源群組，或按一下 [新建] 並輸入新的資源群組名稱。 
 
 * **位置** - 選取您叢集和資源的 Azure 位置。
 
@@ -123,9 +123,11 @@ ms.locfileid: "55296370"
 
 * **子網路** - 選擇現有虛擬網路中的子網路，或建立新的子網路。 
 
-* **使用 Blob 儲存體** - 選擇是否要建立新的 Azure Blob 容器，並將其設定為新 Avere vFXT 叢集的後端儲存體。 如果您選擇建立新的容器，您必須提供該容器的儲存體帳戶。 如果您選擇不建立新的 Blob 容器，則必須在建立叢集之後連結儲存體 (請參閱[設定儲存體](avere-vfxt-add-storage.md)來取得指示)。 如果您不想建立新的容器，請將此欄位設為 [false]。
+* **使用 Blob 儲存體** - 選擇 [是] 建立新的 Azure Blob 容器，並將其設定為新 Avere vFXT 叢集的後端儲存體。 此選項也會在叢集所在的同一個資源群組內，建立新的儲存體帳戶。 
 
-* **儲存體帳戶** - 如果建立新的 Azure Blob 容器，請輸入儲存體帳戶名稱。 儲存體帳戶必須是設有本地備援儲存體與經常性存取層的標準一般用途 V2 帳戶。 [設定儲存體](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer)一文中有更多關於儲存體帳戶需求的詳細資料。
+  如果您不想建立新的容器，請將此欄位設為 [false]。 在此情況下，建立叢集之後，您必須連接並設定儲存體。 參閱[設定儲存體](avere-vfxt-add-storage.md)的指示。 
+
+* **儲存體帳戶** - 如果是建立新的 Azure Blob 容器，請輸入新儲存體帳戶的名稱。 
 
 ## <a name="validation-and-purchase"></a>驗證及購買
 
@@ -161,7 +163,7 @@ Avere vFXT 範本在完成叢集的建立後，會輸出有關新叢集的一些
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>建立儲存體端點 (如果使用 Azure Blob)
 
-如果您使用 Azure Blob 儲存體作為後端資料儲存體，您應該在虛擬網路中建立儲存體服務端點。 此[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)會讓 Azure Blob 流量保留在本機，而不會透過網際網路進行路由傳送。
+如果您使用 Azure Blob 儲存體作為後端資料儲存體，您應該在虛擬網路中建立儲存體服務端點。 此[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)會讓 Azure Blob 流量保留在本機，而不會在虛擬網路外部進行路由傳送。
 
 1. 從入口網站中，按一下左側的 [虛擬網路]。
 1. 選取您控制器的 VNet。 

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462013"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728397"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -40,14 +40,14 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
 [虛擬網路規則](sql-database-vnet-service-endpoint-rule-overview.md)可讓 Azure SQL Database 只接受虛擬網路內所選子網路傳來的通訊。
 
 > [!NOTE]
-> 控制防火牆規則的存取「不」適用於 **Azure SQL Database 受控執行個體**。 如需所需網路組態的詳細資訊，請參閱[連線到受控執行個體](sql-database-managed-instance-connect-app.md)
+> 控制防火牆規則的存取「不」適用於**受控執行個體**。 如需所需網路組態的詳細資訊，請參閱[連線到受控執行個體](sql-database-managed-instance-connect-app.md)
 
 ## <a name="access-management"></a>存取管理
 
 > [!IMPORTANT]
 > 在 Azure 內管理資料庫和資料庫伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
 驗證是證明使用者宣告身分的程序。 Azure SQL Database 支援兩種驗證類型：
 
@@ -64,7 +64,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
     其他可用的 Azure AD 驗證選項為[適用於 SQL Server Management Studio 的 Active Directory 通用驗證](sql-database-ssms-mfa-authentication.md)連線，包括 [Multi-factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) 和[條件式存取](sql-database-conditional-access.md)。
 
 > [!IMPORTANT]
-> 在 Azure 內管理資料庫和伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。 控制防火牆規則的存取「不」適用於 **Azure SQL Database 受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
+> 在 Azure 內管理資料庫和伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。 控制防火牆規則的存取「不」適用於**受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
 
 授權是指在 Azure SQL Database 內指派給使用者的權限，並可決定允許使用者執行的動作。 將使用者帳戶新增至[資料庫角色](/sql/relational-databases/security/authentication-access/database-level-roles)可控制權限，以定義資料庫層級權限，或授與使用者某些[物件層級權限](/sql/relational-databases/security/permissions-database-engine)。 如需詳細資訊，請參閱[登入與使用者](sql-database-manage-logins.md)
 
@@ -88,9 +88,9 @@ SQL Database 可藉由提供稽核和威脅偵測功能來保護客戶資料。
 
 SQL Database 稽核會將資料庫事件記錄到客戶自有 Azure 儲存體帳戶中的稽核記錄，藉此追蹤資料庫活動並協助維護安全性標準的合規性。 稽核可讓使用者監視進行中的資料庫活動，以及分析和調查歷史活動，以找出潛在威脅或可疑的濫用和安全性違規。 如需詳細資訊，請參閱[開始使用 Azure Database 稽核](sql-database-auditing.md)。  
 
-### <a name="sql-threat-detection"></a>SQL 威脅偵測
+### <a name="threat-detection"></a>威脅偵測
 
-威脅偵測會分析稽核記錄中的異常行為，以及可能有害的資料庫存取或入侵嘗試，藉此加強稽核。 系統會針對可疑活動或異常存取模式 (例如 SQL 插入式攻擊、潛在資料滲透，以及暴力密碼破解攻擊) 建立警示。 從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視威脅偵測警示，其中會提供可疑活動的詳細資料，並提供進一步調查的建議以及減輕威脅的動作。 每部伺服器的威脅偵測費用為每個月 $15 元。 前 60 天不收取任何費用。 如需詳細資訊，請參閱 [開始使用 SQL Database 威脅偵測](sql-database-threat-detection.md)。
+威脅偵測會分析稽核記錄中的異常行為，以及可能有害的資料庫存取或入侵嘗試，藉此加強稽核。 系統會針對可疑活動或異常存取模式 (例如 SQL 插入式攻擊、潛在資料滲透，以及暴力密碼破解攻擊) 建立警示。 從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視威脅偵測警示，其中會提供可疑活動的詳細資料，並提供進一步調查的建議以及減輕威脅的動作。 每部伺服器的威脅偵測費用為每個月 $15 元。 前 60 天不收取任何費用。 如需詳細資訊，請參閱[開始使用 SQL Database 威脅偵測](sql-database-threat-detection.md)。
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -137,9 +137,9 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 ## <a name="security-management"></a>安全性管理
 
-### <a name="sql-vulnerability-assessment"></a>SQL 弱點評量
+### <a name="vulnerability-assessment"></a>弱點評估
 
-[SQL 弱點評量](sql-vulnerability-assessment.md)是容易設定的服務，可探索、追蹤及協助修復潛在的資料庫弱點，其目標在於主動改善整體資料庫安全性。 弱點評量 (VA) 是 SQL 進階資料安全性 (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 弱點評量可以透過中央 SQL ADS 入口網站存取及管理。
+[弱點評量](sql-vulnerability-assessment.md)是容易設定的服務，可探索、追蹤及協助修復潛在的資料庫弱點，其目標在於主動改善整體資料庫安全性。 弱點評量 (VA) 是進階資料安全性 (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 弱點評量可以透過中央 SQL ADS 入口網站存取及管理。
 
 ### <a name="data-discovery--classification"></a>資料探索與分類
 
@@ -149,7 +149,7 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 - 對包含高度敏感性資料的資料庫進行存取控制並強化安全性。
 - 協助符合資料隱私標準和法規合規性需求。
 
-如需詳細資訊，請參閱[開始使用 SQL DB 資料探索與分類](sql-database-data-discovery-and-classification.md)。
+如需詳細資訊，請參閱[開始使用資料探索與分類](sql-database-data-discovery-and-classification.md)。
 
 ### <a name="compliance"></a>法規遵循
 

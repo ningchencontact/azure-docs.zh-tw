@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343142"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811047"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -77,13 +77,13 @@ ms.locfileid: "39343142"
 
 將 MXChip IoT DevKit 連接到您的電腦後：
 
-1. 按一下 Visual Studio Code 中的 [工作] 下拉式功能表，然後選取 [執行組建工作...]Arduino 草稿碼會經過編譯並上傳至 DevKit。
+1. 按一下 Visual Studio Code 中的 [工作] 下拉式功能表，然後選取 [執行組建工作...]Arduino 草圖會經過編譯並上傳至 DevKit。
 
-2. 當草稿碼上傳成功後，「建立並上傳草稿碼：成功」訊息隨即顯示。
+2. 當草圖上傳成功後，「建立和上傳草圖：成功」訊息隨即顯示。
 
 ## <a name="monitor-devkit-state-in-browser"></a>在瀏覽器中監視 DevKit 狀態
 
-1. 在網頁瀏覽器中，開啟 `DevKitState\web\index.html` 檔案--該檔案建立於[您需要什麼](#whatyouneed)步驟期間。
+1. 在網頁瀏覽器中，開啟 `DevKitState\web\index.html` 檔案--該檔案建立於您需要什麼步驟期間。
 
 2. 以下網頁隨即出現：![指定函式應用程式名稱。](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 

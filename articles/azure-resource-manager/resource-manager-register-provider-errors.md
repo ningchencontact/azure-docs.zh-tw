@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184537"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497412"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解決資源提供者註冊的錯誤
 
 本文描述使用您先前未在訂用帳戶中使用的資源提供者時，可能會遇到的錯誤。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>徵狀
 
@@ -53,28 +55,28 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 ## <a name="solution-1---powershell"></a>解決方案 1：PowerShell
 
-針對 PowerShell，請使用 **Get-AzureRmResourceProvider** 來查看您的註冊狀態。
+針對 PowerShell，請使用 **Get-AzResourceProvider** 來查看您的註冊狀態。
 
 ```powershell
-Get-AzureRmResourceProvider -ListAvailable
+Get-AzResourceProvider -ListAvailable
 ```
 
-若要註冊提供者，請使用 **Register-AzureRmResourceProvider** ，並提供您想要註冊的資源提供者名稱。
+若要註冊提供者，請使用 **Register-AzResourceProvider** ，並提供您想要註冊的資源提供者名稱。
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 ```
 
 若要取得支援特定資源類型的位置，請使用︰
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 若要取得支援特定資源類型的 API 版本，請使用︰
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 ## <a name="solution-2---azure-cli"></a>解決方案 2：Azure CLI

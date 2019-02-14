@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817813"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566145"
 ---
 # <a name="registration-management"></a>註冊管理
 
@@ -33,7 +33,7 @@ ms.locfileid: "54817813"
 
 ### <a name="registrations"></a>註冊
 
-註冊會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。 PNS 控制代碼可能是 ChannelURI、裝置權杖或 GCM 註冊識別碼。標記是用來將通知路由至一組正確的裝置控制代碼。 如需詳細資訊，請參閱 [路由與標記運算式](notification-hubs-tags-segment-push-message.md)。 範本是用來實作每一註冊的轉換。 如需詳細資訊，請參閱 [範本](notification-hubs-templates-cross-platform-push-messages.md)。
+註冊會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。 PNS 控制代碼可能是 ChannelURI、裝置權杖或 FCM 註冊識別碼。標記是用來將通知路由至一組正確的裝置控制代碼。 如需詳細資訊，請參閱 [路由與標記運算式](notification-hubs-tags-segment-push-message.md)。 範本是用來實作每一註冊的轉換。 如需詳細資訊，請參閱 [範本](notification-hubs-templates-cross-platform-push-messages.md)。
 
 > [!NOTE]
 > Azure 通知中樞支援每註冊最多 60 個標籤。
@@ -295,8 +295,8 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
         case "apns":
             installation.Platform = NotificationPlatform.Apns;
             break;
-        case "gcm":
-            installation.Platform = NotificationPlatform.Gcm;
+        case "fcm":
+            installation.Platform = NotificationPlatform.Fcm;
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

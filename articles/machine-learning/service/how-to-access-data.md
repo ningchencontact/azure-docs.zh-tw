@@ -1,7 +1,7 @@
 ---
-title: 存取資料存放區中的資料以進行訓練
+title: 存取資料存放區/Blob 中的資料以進行訓練
 titleSuffix: Azure Machine Learning service
-description: 了解如何使用 Azure Machine Learning 服務，在訓練期間使用資料存放區來存取資料儲存體
+description: 了解如何使用 Azure Machine Learning 服務，在訓練期間使用資料存放區來存取 Blob 資料儲存體
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252110"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769890"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>在訓練期間從資料存放區存取資料
 使用資料存放區存取 Azure Machine Learning 工作流程中的資料並與其互動。
@@ -76,8 +76,8 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 
 您也可以取得工作區的所有資料存放區：
 ```Python
-datastores = ws.datastores()
-for name, ds in datastores.items(),
+datastores = ws.datastores
+for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 

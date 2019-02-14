@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dd94330835c52b27c61c484d44991152d092fbe7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632009"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811693"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站在 HDInsight 中管理以 Windows 為主的 Apache Hadoop 叢集
 
@@ -203,7 +203,7 @@ HDInsight 可以搭配很多 Apache Hadoop 元件使用。 如需已驗證和所
 如需定價資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。 若要從入口網站刪除叢集，請參閱 [刪除叢集](#delete-clusters)
 
 ## <a name="change-cluster-username"></a>變更叢集使用者名稱
-HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳戶是在建立程序期間所建立。 您也可以建立 RDP 使用者帳戶，以透過 RDP 來存取叢集。 請參閱 [啟用遠端桌面](#connect-to-hdinsight-clusters-by-using-rdp)。
+HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳戶是在建立程序期間所建立。 您也可以建立 RDP 使用者帳戶，以透過 RDP 來存取叢集。 請參閱「啟用遠端桌面」。
 
 **變更 HDInsight 叢集使用者名稱和密碼**
 

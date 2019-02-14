@@ -3,23 +3,24 @@ title: 將 Azure Key Vault 用於受控應用程式 | Microsoft Docs
 description: 說明在部署受控應用程式時如何使用 Azure Key Vault 中的存取祕密
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725007"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492669"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>在部署 Azure 受控應用程式時存取 Key Vault 秘密
 
-當您需要在部署期間，傳送安全值 (例如密碼) 做為參數時，您可以從 [Azure Key Vault](../key-vault/key-vault-whatis.md) 擷取值。 若要在部署受控應用程式時存取 Key Vault，您必須授與**設備資源提供者**服務主體的存取權。 本文說明如何設定與受控應用程式搭配使用的 Key Vault。
+當您需要在部署期間，傳送安全值 (例如密碼) 做為參數時，您可以從 [Azure Key Vault](../key-vault/key-vault-whatis.md) 擷取值。 若要在部署受控應用程式時存取 Key Vault，您必須授與**設備資源提供者**服務主體的存取權。 受控應用程式服務會使用這個身分識別來執行作業。 若要在部署期間成功地從 Key Vault 擷取值，服務主體必須要能夠存取 Key Vault。
+
+本文說明如何設定與受控應用程式搭配使用的 Key Vault。
 
 ## <a name="enable-template-deployment"></a>啟用範本部署
 

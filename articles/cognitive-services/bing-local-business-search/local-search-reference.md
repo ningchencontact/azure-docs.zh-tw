@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 22d83eb617c544a374f1f6b502803d4ead214492
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182229"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820737"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing 當地商家搜尋 API v7 參考
 
@@ -53,7 +53,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |頁首|說明|  
 |------------|-----------------|  
 |Accept|選擇性要求標頭。<br /><br /> 預設媒體類型為 application/json。 若要指定回應必須使用 [JSON-LD](http://json-ld.org/)，請將 Accept 標頭設定為 application/ld+json。|  
-|<a name="acceptlanguage" />Accept-Language|選擇性的要求標頭。<br /><br /> 要用於使用者介面字串語言的逗號分隔清單。 清單採用喜好設定的遞減順序。 如需詳細資訊 (包括預期的格式)，請參閱 [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)。<br /><br /> 此標頭和 [setLang](#setlang) 查詢參數彼此互斥 &mdash; 請勿同時指定。<br /><br /> 若您設定此標頭，則您也必須指定 [cc](#cc) 查詢參數。 若要決定要傳回結果的市場，Bing 會使用它從清單中找到的第一個支援的語言，然後將其與 `cc` 參數值結合。 如果清單中未包含支援的語言，Bing 會就近尋找支援要求的語言和市場，或將彙總或預設的市場用於結果。 若要判斷 Bing 所使用的市場，請參閱 BingAPIs-Market 標頭。<br /><br /> 只有在指定了多種語言時，才需要使用此標頭和 `cc` 查詢參數。 否則，請使用 [mkt](#mkt) 和 [setLang](#setlang) 查詢參數。<br /><br /> 使用者介面字串是在使用者介面中作為標籤的字串。 JSON 回應物件中有幾個使用者介面字串。 回應物件中 Bing.com 屬性的任何連結都會套用指定的語言。|  
+|<a name="acceptlanguage" />Accept-Language|選擇性的要求標頭。<br /><br /> 要用於使用者介面字串語言的逗號分隔清單。 清單採用喜好設定的遞減順序。 如需詳細資訊 (包括預期的格式)，請參閱 [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)。<br /><br /> 此標頭和 [setLang](#setlang) 查詢參數彼此互斥 &mdash; 請勿同時指定。<br /><br /> 若您設定此標頭，則您也必須指定 cc 查詢參數。 若要決定要傳回結果的市場，Bing 會使用它從清單中找到的第一個支援的語言，然後將其與 `cc` 參數值結合。 如果清單中未包含支援的語言，Bing 會就近尋找支援要求的語言和市場，或將彙總或預設的市場用於結果。 若要判斷 Bing 所使用的市場，請參閱 BingAPIs-Market 標頭。<br /><br /> 只有在指定了多種語言時，才需要使用此標頭和 `cc` 查詢參數。 否則，請使用 [mkt](#mkt) 和 [setLang](#setlang) 查詢參數。<br /><br /> 使用者介面字串是在使用者介面中作為標籤的字串。 JSON 回應物件中有幾個使用者介面字串。 回應物件中 Bing.com 屬性的任何連結都會套用指定的語言。|  
 |<a name="market" />BingAPIs-Market|回應標頭。<br /><br /> 要求所使用的市場。 格式為 \<languageCode\>-\<countryCode\>。 例如：en-US。|  
 |<a name="traceid" />BingAPIs-TraceId|回應標頭。<br /><br /> 包含要求詳細資料記錄項目的識別碼。 發生錯誤時，會擷取這個識別碼。 如果您無法判定並解決問題，請將此識別碼與其他資訊一併提供給支援小組。|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|必要的要求標頭。<br /><br /> 您在[認知服務](https://www.microsoft.com/cognitive-services/)中註冊此服務時收到的訂用帳戶金鑰。|  
@@ -75,7 +75,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |----------|-----------|----------|--------------|
 |<a name="count" />count|要傳回的結果數目，從 `offset` 參數指定的索引開始。|字串|否|   
 |<a name="localCategories" />localCategories|依商家類別定義搜尋的選項清單。  請參閱[當地商家類別搜尋](local-categories.md)|字串|否|  
-|<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱[市場代碼](#market-codes)。<br /><br /> **注意：** 當地商家搜尋 API 目前僅支援 en-us 市場和語言。<br /><br />|字串|是|
+|<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱市場代碼。<br /><br /> **注意：** 當地商家搜尋 API 目前僅支援 en-us 市場和語言。<br /><br />|字串|yes|
 |<a name="offset"/>offset|用於啟動 `count` 參數指定之結果的索引。|整數 |否|  
 |<a name="query" />q|使用者的搜尋字詞。|字串|否|  
 |<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值為 JSON。 如需回應所含 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />  如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](http://json-ld.org/)。|字串|否|  
@@ -154,8 +154,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |Name|值|類型|  
 |----------|-----------|----------|  
 |_type|類型提示，可能會設定為下列其中之一：<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>餐廳</ul><li>|字串|  
-|位址|實體所在位置的郵政地址。|[PostalAddress](#postaladdress)|  
-|entityPresentationInfo|有關實體的其他資訊，例如可用於判斷實體類型的提示。 例如，是餐廳還是旅館。 `entityScenario` 欄位設定為 ListItem。|[EntityPresentationInfo](#entitypresentationinfo)|  
+|位址|實體所在位置的郵政地址。|PostalAddress|  
+|entityPresentationInfo|有關實體的其他資訊，例如可用於判斷實體類型的提示。 例如，是餐廳還是旅館。 `entityScenario` 欄位設定為 ListItem。|EntityPresentationInfo|  
 |name|實體的名稱。|字串|  
 |telephone|實體的電話號碼。|字串|  
 |url|實體網站的 URL。<br /><br /> 使用此 URL 以及實體的名稱建立超連結，按一下該連結會將使用者帶到實體的網站。|字串|  

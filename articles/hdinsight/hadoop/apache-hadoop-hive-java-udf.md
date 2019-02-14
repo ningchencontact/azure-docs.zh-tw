@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435067"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814141"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>在 HDInsight 中搭配使用 Java UDF 和 Apache Hive
 
@@ -36,7 +36,7 @@ ms.locfileid: "53435067"
 * 文字編輯器或 Java IDE
 
     > [!IMPORTANT]
-    > 如果您是在 Windows 用戶端上建立 Python 檔案，就必須使用以 LF 做為行尾結束符號的編輯器。 如果您不確定編輯器是使用 LF 或 CRLF，請參閱[疑難排解](#troubleshooting)一節，以了解有關移除 CR 字元的步驟。
+    > 如果您是在 Windows 用戶端上建立 Python 檔案，就必須使用以 LF 做為行尾結束符號的編輯器。 如果您不確定編輯器是使用 LF 或 CRLF，請參閱疑難排解一節，以了解有關移除 CR 字元的步驟。
 
 ## <a name="create-an-example-java-udf"></a>建立範例 Java UDF 
 

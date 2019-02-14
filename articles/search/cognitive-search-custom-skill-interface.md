@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 01/29/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: deb72bcc41e20057b6e7b214c6a8c93655894a12
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: e4fe511228f6e80a17af8325ee74ae0927a760bd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628267"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754722"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>如何將自訂技能新增至認知搜尋管線
 
-Azure 搜尋服務中的[認知搜尋索引管線](cognitive-search-concept-intro.md)可從[預先定義的技能](cognitive-search-predefined-skills.md)以及自行建立並新增至管線的自訂技能來組合。 在本文中，了解如何建立自訂技能，公開介面以讓它包含在認知搜尋管線中。 
+Azure 搜尋服務中的[認知搜尋索引管線](cognitive-search-concept-intro.md)可從[預先定義的技能](cognitive-search-predefined-skills.md)以及自行建立並新增至管線的[自訂技能](cognitive-search-custom-skill-web-api.md)來組合。 在本文中，了解如何建立自訂技能，公開介面以讓它包含在認知搜尋管線中。 
 
 建置自訂技能可讓您插入內容獨有的轉換。 自訂技能會獨立執行，可套用在任何所需的擴充步驟。 例如，您可以定義欄位特定的自訂實體、建立自訂的分類模型以區分商務和財務合約和文件，或者新增語音辨識技能以深入觸及音訊檔案來了解相關內容。 如需逐步範例，請參閱[範例：建立自訂技能](cognitive-search-create-custom-skill-example.md)。
 
@@ -27,7 +27,14 @@ Azure 搜尋服務中的[認知搜尋索引管線](cognitive-search-concept-intr
 
 ## <a name="web-api-custom-skill-interface"></a>Web API 自訂技能介面
 
-自訂 WebAPI 技能端點必須在 5 分鐘的時段內傳回回應。 索引管線是同步的，且如果未在該時段內收到回應，則索引會產生逾時錯誤。
+如果您未在 30 秒內傳回回應，自訂 WebAPI 技能端點便會依預設而逾時。 索引管線是同步的，且如果未在該時段內收到回應，則索引會產生逾時錯誤。  您可藉由設定逾時參數，來設定最多 90 秒的逾時：
+
+```json
+        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "description": "This skill has a 90 second timeout",
+        "uri": "https://[your custom skill uri goes here]",
+        "timeout": "PT90S",
+```
 
 目前與自訂技能互動的唯一機制是透過 Web API 介面。 Web API 的需求必須符合本節所描述的需求。
 

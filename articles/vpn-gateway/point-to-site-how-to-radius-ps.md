@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: bd74aca180d291042e597ba6893009c38aa22555
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 01ce4bb7b48e2f1331ebb57dc503c79b31bcc8b0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200899"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700013"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 驗證設定 VNet 的點對站連線：PowerShell
 
@@ -148,7 +148,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
  
 * 可以依名稱或依 IP 位址指定 -RadiusServer。 如果您指定名稱且伺服器位於內部部署環境，則 VPN 閘道可能無法解析此名稱。 如果是這樣，最好是指定伺服器的 IP 位址。 
 * -RadiusSecret 應符合 RADIUS 伺服器的設定。
-* -VpnCientAddressPool 是連線 VPN 用戶端時從中接收 IP 位址的範圍。 使用不會重疊的私人 IP 位址範圍搭配您將從其連線的內部部署位置，或搭配您要連線至的 VNet。 確定您已設定夠大的位址集區。  
+* -VpnClientAddressPool 是連線 VPN 用戶端時從中接收 IP 位址的範圍。 使用不會重疊的私人 IP 位址範圍搭配您將從其連線的內部部署位置，或搭配您要連線至的 VNet。 確定您已設定夠大的位址集區。  
 
 1. 為 Radius 祕密建立安全字串。
 
@@ -243,4 +243,4 @@ VPN 用戶端組態可讓裝置透過 P2S 連線來連線至 VNet。 若要產�
 
 ## <a name="next-steps"></a>後續步驟
 
-一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。 若要了解網路與虛擬機器的詳細資訊，請參閱 [Azure 與 Linux VM 網路概觀](../virtual-machines/linux/azure-vm-network-overview.md)。
+一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/)。 若要了解網路與虛擬機器的詳細資訊，請參閱 [Azure 與 Linux VM 網路概觀](../virtual-machines/linux/azure-vm-network-overview.md)。

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ec34b9c5f78b4d0ea59382f616fab88e0e1dedc9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382911"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730929"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -29,7 +29,7 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事�
 
 和許多其他支援 Webhook 的服務一樣，「事件方格」也會先要求您證明具有 Webhook 端點的「擁有權」，然後才開始將事件傳遞給該端點。 此需求可避免惡意使用者利用事件癱瘓您的端點。 當您使用下列三種 Azure 服務的任一種時，Azure 基礎結構將會自動處理這項驗證：
 
-* Azure Logic Apps，使用[事件格線連接器](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)進行驗證
+* Azure Logic Apps，使用[事件格線連接器](https://docs.microsoft.com/connectors/azureeventgrid/)進行驗證
 * Azure 自動化，透過 [Webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md) 進行驗證
 * Azure Functions，使用[事件格線觸發程序](../azure-functions/functions-bindings-event-grid.md)進行驗證
 
@@ -50,7 +50,7 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事�
 * 此事件主體之結構描述與其他 Event Grid 事件相同。
 * 事件的 eventType 屬性是 `Microsoft.EventGrid.SubscriptionValidationEvent`。
 * 事件的資料屬性包含 `validationCode` 屬性，內含隨機產生的字串。 例如，"validationCode: acb13…"。
-* 如果您使用 2018-05-01-preview API 版本，事件資料也會包含具有 URL 的 `validationUrl` 屬性，以供手動驗證訂閱之用。
+* 事件資料也包含具有 URL 的 `validationUrl` 屬性，可供手動驗證訂用帳戶。
 * 此陣列只包含驗證事件。 在您回應驗證程式碼之後，其他事件會在不同的要求中傳送。
 * EventGrid DataPlane SDK 具有對應於訂閱驗證事件資料和訂閱驗證回應的類別。
 

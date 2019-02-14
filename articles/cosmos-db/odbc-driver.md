@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034467"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816623"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具搭配 ODBC 驅動程式連線到 Azure Cosmos DB
 
@@ -71,8 +71,8 @@ Azure Cosmos DB 是無結構描述的資料庫，可以快速開發應用程式�
     - **重試次數**：輸入初始要求因為服務速率限制而未完成時，重試作業的次數。
     - **結構描述檔案**：這裡您有許多選項。
         - 此項目預設為空白，此時驅動程式會掃描所有集合的第一個頁面資料，以判斷每個集合的結構描述。 這就是所謂的「集合對應」。 如果沒有定義結構描述檔案，驅動程式就必須掃描每一個驅動程式工作階段，而可能導致使用 DSN 的應用程式啟動時間過長。 建議您一律將結構描述檔案與 DSN 產生關連。
-        - 如果您已經有結構描述檔案 (可能是您使用 [結構描述編輯器](#schema-editor) 建立的)，您可以按一下 [瀏覽]並瀏覽至您的檔案，按一下 [儲存]，然後按一下 [確定]。
-        - 如果您想要建立新的結構描述，請按一下 [確定]，然後按一下主視窗中的 [結構描述編輯器]。 然後移至[結構描述編輯器](#schema-editor)資訊。 建立新的結構描述檔案之後，請記得返回 [進階選項] 視窗來納入新建立的結構描述檔案。
+        - 如果您已經有結構描述檔案 (可能是您使用 [結構描述編輯器] 建立的)，您可以按一下 [瀏覽] 並瀏覽至您的檔案，按一下 [儲存]，然後按一下 [確定]。
+        - 如果您想要建立新的結構描述，請按一下 [確定]，然後按一下主視窗中的 [結構描述編輯器]。 然後繼續處理 [結構描述編輯器] 資訊。 建立新的結構描述檔案之後，請記得返回 [進階選項] 視窗來納入新建立的結構描述檔案。
 
 1. 一旦您完成 [Azure Cosmos DB ODBC 驅動程式 DSN 設定] 視窗並關閉，新的使用者 DSN 會加入到 [使用者 DSN] 索引標籤。
 

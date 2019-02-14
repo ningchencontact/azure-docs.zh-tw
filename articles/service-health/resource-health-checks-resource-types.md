@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/15/2018
+ms.date: 01/29/2019
 ms.author: stbaron
-ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d88eb0ee5e8ec4c14efeb47a144ec7080ac6eee3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163033"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508788"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 資源健康狀態中的資源類型和健康情況檢查
 以下是依資源類型透過資源健康狀態執行之所有檢查的完整清單。
@@ -115,6 +115,11 @@ ms.locfileid: "53163033"
 |執行的檢查|
 |---|
 |<ul><li>可以在叢集上執行診斷作業嗎？</li></ul>|
+
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
+|執行的檢查|
+|---|
+|<ul><li>客戶是否遇到使用者產生的服務匯流排錯誤？</li><li>使用者是否遇到服務匯流排命名空間升級以致暫時性錯誤增加？</li></ul>|
 
 ## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
 |執行的檢查|

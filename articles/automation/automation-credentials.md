@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0454bc211d2ae8497babc808f9794fae4d22c47e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439182"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498160"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自動化中的認證資產
 
@@ -73,10 +73,9 @@ ms.locfileid: "54439182"
 
 ### <a name="to-create-a-new-credential-asset-with-the-azure-portal"></a>使用 Azure 入口網站建立新的認證資產
 
-1. 從您的自動化帳戶，按一下 [資產] 部分，以開啟 [資產] 刀鋒視窗。
-2. 按一下 [認證] 部分，以開啟 [認證] 刀鋒視窗。
-3. 在分頁的頂端按一下 [ **加入認證** ]。
-4. 完成表單，然後按一下 [ **建立** ] 以儲存新認證。
+1. 從您的自動化帳戶中，選取 [共用資源] 下的 [認證]。
+1. 按一下 [+ 新增認證]。
+1. 完成表單，然後按一下 [ **建立** ] 以儲存新認證。
 
 > [!NOTE]
 > 「Azure 自動化」中不支援使用多重要素驗證的使用者帳戶。

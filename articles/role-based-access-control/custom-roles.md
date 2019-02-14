@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412043"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697124"
 ---
 # <a name="custom-roles-in-azure"></a>Azure 中的自訂角色
 
@@ -32,36 +32,30 @@ ms.locfileid: "54412043"
 
 ```json
 {
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
+  "Name": "Virtual Machine Operator",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
   ],
-  "NotActions":  [
-
-                 ],
-  "DataActions":  [
-
-                  ],
-  "NotDataActions":  [
-
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
+    "/subscriptions/{subscriptionId3}"
+  ]
 }
 ```
 
@@ -73,12 +67,12 @@ ms.locfileid: "54412043"
 
 1. 判斷您所需的權限
 
-    在建立自訂角色時，您必須知道可用來定義權限的資源提供者作業。 若要檢視作業的清單，您可以使用 [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) 或 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) 命令。
+    在建立自訂角色時，您必須知道可用來定義權限的資源提供者作業。 若要檢視作業的清單，您可以使用 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 或 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) 命令。
     若要指定自訂角色的權限，您可以將作業增至[角色定義](role-definitions.md)的 `Actions` 或 `NotActions` 屬性。 如果您有資料作業，可以將它們新增至 `DataActions` 或 `NotDataActions` 屬性。
 
 2. 建立自訂角色
 
-    您可以使用 Azure PowerShell 或 Azure CLI 來建立自訂角色。 一般而言，您可以從使用現有的內建角色開始，然後針對您的需求進行修改。 接著，您可以使用 [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) 或 [az role definition create](/cli/azure/role/definition#az-role-definition-create) 命令來建立自訂角色。 若要建立自訂角色，您必須擁有所有 `AssignableScopes` 的 `Microsoft.Authorization/roleDefinitions/write` 權限，例如[擁有者](built-in-roles.md#owner)或[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。
+    您可以使用 Azure PowerShell 或 Azure CLI 來建立自訂角色。 一般而言，您可以從使用現有的內建角色開始，然後針對您的需求進行修改。 接著，您可以使用 [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) 或 [az role definition create](/cli/azure/role/definition#az-role-definition-create) 命令來建立自訂角色。 若要建立自訂角色，您必須擁有所有 `AssignableScopes` 的 `Microsoft.Authorization/roleDefinitions/write` 權限，例如[擁有者](built-in-roles.md#owner)或[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。
 
 3. 測試自訂角色
 
@@ -92,15 +86,15 @@ ms.locfileid: "54412043"
 
 | 屬性 | 必要 | 類型 | 說明 |
 | --- | --- | --- | --- |
-| `Name` | 是 | 字串 | 自訂角色的顯示名稱。 當角色定義是訂用帳戶層級資源時，角色定義可在多個共用相同 Azure AD 目錄的訂用帳戶中使用。 此顯示名稱在 Azure AD 目錄範圍中必須是唯一的。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 128。 |
-| `Id` | 是 | 字串 | 自訂角色的唯一識別碼。 針對 Azure PowerShell 和 Azure CLI，當您建立新角色時，會自動產生這個識別碼。 |
-| `IsCustom` | 是 | 字串 | 表示這是否為自訂角色。 若為自訂角色，請設定為 `true`。 |
-| `Description` | 是 | 字串 | 自訂角色的描述。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 1024。 |
-| `Actions` | 是 | String[] | 字串陣列，指定角色允許執行的管理作業。 如需詳細資訊，請參閱 [Actions](role-definitions.md#actions)。 |
+| `Name` | yes | 字串 | 自訂角色的顯示名稱。 當角色定義是訂用帳戶層級資源時，角色定義可在多個共用相同 Azure AD 目錄的訂用帳戶中使用。 此顯示名稱在 Azure AD 目錄範圍中必須是唯一的。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 128。 |
+| `Id` | yes | 字串 | 自訂角色的唯一識別碼。 針對 Azure PowerShell 和 Azure CLI，當您建立新角色時，會自動產生這個識別碼。 |
+| `IsCustom` | yes | 字串 | 表示這是否為自訂角色。 若為自訂角色，請設定為 `true`。 |
+| `Description` | yes | 字串 | 自訂角色的描述。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 1024。 |
+| `Actions` | yes | String[] | 字串陣列，指定角色允許執行的管理作業。 如需詳細資訊，請參閱 [Actions](role-definitions.md#actions)。 |
 | `NotActions` | 否 | String[] | 字串陣列，指定從所允許 `Actions` 中排除的管理作業。 如需詳細資訊，請參閱 [NotActions](role-definitions.md#notactions)。 |
 | `DataActions` | 否 | String[] | 字串陣列，指定角色允許對物件內資料執行的管理作業。 如需詳細資訊，請參閱 [DataActions (預覽)](role-definitions.md#dataactions-preview)。 |
 | `NotDataActions` | 否 | String[] | 字串陣列，指定從所允許 `DataActions` 中排除的資料作業。 如需詳細資訊，請參閱 [NotDataActions (預覽)](role-definitions.md#notdataactions-preview)。 |
-| `AssignableScopes` | 是 | String[] | 字串陣列，指定自訂角色可用於指派的範圍。 目前無法設定為根範圍 (`"/"`) 或管理群組範圍。 如需詳細資訊，請參閱 [AssignableScopes](role-definitions.md#assignablescopes) 和[使用 Azure 管理群組來組織資源](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)。 |
+| `AssignableScopes` | yes | String[] | 字串陣列，指定自訂角色可用於指派的範圍。 目前無法設定為根範圍 (`"/"`) 或管理群組範圍。 如需詳細資訊，請參閱 [AssignableScopes](role-definitions.md#assignablescopes) 和[使用 Azure 管理群組來組織資源](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)。 |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>誰可以建立、刪除、更新或檢視自訂角色
 

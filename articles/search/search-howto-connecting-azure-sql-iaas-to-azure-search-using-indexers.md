@@ -6,28 +6,32 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312016"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751373"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>在 Azure VM 上設定從 Azure 搜尋服務索引子到 SQL Server 的連線
 如[使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，Azure 搜尋服務支援針對 **Azure VM 上的 SQL Server** (或簡稱 **SQL Azure VM**) 建立索引子，但必須先處理幾個安全性相關的必要條件。 
 
-**任務持續時間：** 約 30 分鐘，假設您已經在 VM 上安裝憑證。
+從 Azure 搜尋服務到 VM 上 SQL Server 的連線是公用網際網路連線。 您通常對這些連線採取的所有安全性措施，在這裡也適用：
+
++ 向[憑證授權單位提供者](https://en.wikipedia.org/wiki/Certificate_authority#Providers)取得憑證，以取得 Azure VM 上 SQL Server 執行個體的完整網域名稱。
++ 在 VM 上安裝憑證，然後使用本文中的指示在 VM 上啟用並設定加密的連線。
 
 ## <a name="enable-encrypted-connections"></a>啟用加密的連線
 Azure 搜尋服務會針對透過公用網際網路連接的所有索引子要求加密的通道。 本節列出執行這項工作的步驟。
 
 1. 檢查憑證的屬性，以驗證主體名稱為 Azure VM 的完整網域名稱 (FQDN)。 您可以使用 CertUtils 之類的工具或憑證嵌入式管理單元來檢視屬性。 您可以在 [Azure 入口網站](https://portal.azure.com/)的 [公用 IP 位址/DNS 名稱標籤] 欄位中，從 VM 服務刀鋒視窗的 [程式集] 區段中取得 FQDN。
    
-   * 對於使用較新的 **Resource Manager** 範本建立的 VM，FQDN 的格式為 `<your-VM-name>.<region>.cloudapp.azure.com`。 
-   * 對於建立為**傳統** VM 的較舊 VM，FQDN 的格式為 `<your-cloud-service-name.cloudapp.net>`。 
+   * 對於使用較新的 **Resource Manager** 範本建立的 VM，FQDN 的格式為 `<your-VM-name>.<region>.cloudapp.azure.com`
+   * 對於建立為**傳統** VM 的較舊 VM，FQDN 的格式為 `<your-cloud-service-name.cloudapp.net>`。
+
 2. 使用登錄編輯器 (regedit) 設定 SQL Server 以使用憑證。 
    
     雖然通常會在這項工作中使用 SQL Server 組態管理員，但您在此案例中無法使用它。 它不會尋找匯入的憑證，因為在 Azure 上 VM 的 FQDN 不符合由 VM 所決定的 FQDN (它會將網域識別為本機電腦或其已加入的網路網域)。 當名稱不相符時，使用 regedit 來指定憑證。
@@ -38,9 +42,11 @@ Azure 搜尋服務會針對透過公用網際網路連接的所有索引子要�
    * 將**憑證**金鑰的值設定為您匯入 VM 的 SSL 憑證**指紋**。
      
      有數種方式可以取得指紋，有些方式較其他的更好。 如果您將它從 MMC 中的 **憑證** 嵌入式管理單元進行複製，您可能會挑選不可見的開頭字元 ( [如本支援文章中所述](https://support.microsoft.com/kb/2023869/))，如此當您嘗試連接時便會導致錯誤。 有數個因應措施可修正此問題。 最簡單的方法是按退格鍵，然後重新輸入指紋的第一個字元，在 regedit 中移除金鑰值欄位中的開頭字元。 或者，您可以使用不同的工具來複製指紋。
+
 3. 授與權限給服務帳戶。 
    
     務必要將 SSL 憑證私密金鑰的適當權限授與 SQL Server 服務帳戶。 如果您忽略此步驟，SQL Server 將會無法啟動。 針對這項工作，您可以使用**憑證**嵌入式管理單元或 **CertUtils**。
+    
 4. 重新啟動 SQL Server 服務。
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>在 VM 中設定 SQL Server 連線

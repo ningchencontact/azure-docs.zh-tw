@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6cd926536242563d3114a30adce1568a1f7424e0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f67633ec62b28f54a97cccd0f27b43bdb626ee58
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171791"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822760"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登入 Microsoft 應用程式的問題
 
@@ -34,11 +34,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 -   對於 Microsoft 或第三方免費發佈給任何人使用的應用程式，也可透過**系統管理員同意**將存取權授與使用者。 這表示系統管理員已決定組織中的每個人都能使用該應用程式，因此系統管理員使用全域管理員帳戶身分登入應用程式，並將存取權授與組織中的每個人。
 
-若要為您的問題疑難排解，請先從[一般應用程式存取問題考量事項](#general-problem-areas-with-application-access-to-consider)開始，然後參閱[逐步解說：Microsoft 應用程式存取疑難排解步驟](#walkthrough-steps-to-troubleshoot-microsoft-application-access)以了解詳細資料。
+若要為您的問題進行疑難排解，請先從[一般應用程式存取問題考量事項](#general-problem-areas-with-application-access-to-consider)開始，然後參閱逐步解說：Microsoft 應用程式存取的疑難排解步驟，以了解詳細資料。
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>一般應用程式存取問題考量事項
 
-以下為一般問題清單，如果您知道從何處開始疑難排解，您可以從這個清單向下切入，但建議您參閱以下的逐步解說以快速進行：[逐步解說︰Microsoft 應用程式存取疑難排解步驟](#walkthrough-steps-to-troubleshoot-microsoft-application-access)。
+以下為一般問題清單，如果您知道從何處開始疑難排解，您可以從這個清單向下切入，但建議您參閱以下的逐步解說以快速進行：逐步解說：Microsoft 應用程式存取的疑難排解步驟。
 
 -   [使用者帳戶的問題](#problems-with-the-users-account)
 
@@ -180,7 +180,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 -   [讓使用者重設其 Azure Active Directory 密碼](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [讓使用者重設或變更其 Active Directory 內部部署密碼](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [讓使用者重設或變更其 Active Directory 內部部署密碼](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>檢查使用者的多重要素驗證狀態
 

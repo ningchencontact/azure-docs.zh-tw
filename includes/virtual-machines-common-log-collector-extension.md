@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 52e1a7bf3e8f8770e4ba4f931c4d7427a7362f2f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227128"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736123"
 ---
 要診斷 Microsoft Azure 雲端服務的問題，必須在問題發生時收集服務在虛擬機器上的記錄檔。 您可以視需要使用 AzureLogCollector 延伸模組，從一或多個雲端服務虛擬機器 (從 Web 角色和背景工作角色) 執行一次性的記錄收集作業，並將收集到的檔案傳輸到 Azure 儲存體帳戶，完全不必遠端登入任何虛擬機器。
 
@@ -174,11 +174,11 @@ param (
 )
 ```
 
-* **ServiceName**：您的雲端服務名稱。
+* **ServiceName**：雲端服務名稱。
 * **Roles**：一份角色清單，例如 “WebRole1” 或 ”WorkerRole1”。
 * **Instances**：一份以逗號分隔的角色執行個體名稱 -- 所有角色執行個體皆使用萬用字元字串 ("*")。
 * **Slot**：位置名稱。 「生產」或「預備」。
-* **Mode**：收集模式。 「完整」或「GA」。
+* **模式**：收集模式。 「完整」或「GA」。
 * **StorageAccountName**：用來儲存收集之資料的 Azure 儲存體帳戶名稱。
 * **StorageAccountKey**：Azure 儲存體帳戶金鑰的名稱。
 * **AdditionalDataLocationList**：下列結構的清單：
@@ -256,9 +256,9 @@ param (
 )
 ```
 
-* **ServiceName**：您的雲端服務名稱。
-* **VMName**：虛擬機器的名稱。
-* **Mode**：收集模式。 「完整」或「GA」。
+* **ServiceName**：雲端服務名稱。
+* **VMName**：VM 的名稱。
+* **模式**：收集模式。 「完整」或「GA」。
 * **StorageAccountName**：用來儲存收集之資料的 Azure 儲存體帳戶名稱。
 * **StorageAccountKey**：Azure 儲存體帳戶金鑰的名稱。
 * **AdditionalDataLocationList**：下列結構的清單：
@@ -374,7 +374,7 @@ else
 }
 
 #
-#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if needed.
 #
 $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
 $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
@@ -449,7 +449,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424637"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821859"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>診斷虛擬機器網路流量篩選問題
 
@@ -181,7 +181,7 @@ az vm show \
 
 當 Azure 處理輸入流量時，會先處理與子網路關聯 NSG 中的規則 (如果有相關聯的 NSG 的話)，然後再處理與網路介面相關聯 NSG 中的規則。 如果有某個 NSG 同時關聯至網路介面和子網路，就必須同時在那兩個 NSG 中開啟該連接埠來使流量能抵達 VM。 為了簡化管理和通訊問題，我們建議您將 NSG 關聯至子網路，而不是個別的網路介面。 如果子網路內的 VM 需要不同的安全性規則，您可以使網路介面成為應用程式安全性群組 (ASG) 的成員，並將 ASG 指定為安全性規則的來源和目的地。 深入了解[應用程式安全性群組](security-overview.md#application-security-groups)。
 
-如果仍有通訊問題，請參閱[考量](#considerations)和[其他診斷](#additional-dignosis)。
+如果仍有通訊問題，請參閱[考量](#considerations)和其他診斷。
 
 ## <a name="considerations"></a>考量
 
