@@ -4,7 +4,7 @@ description: 本文件會介紹 Azure 資訊安全中心與 Windows Defender 進
 services: security-center
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.service: security-center
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: b73bf3e542801e58fbda6232eb063305785ce643
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 09e8ee05017c47c5b01bc529135004eff19b846f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536265"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118457"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender 進階威脅防護與 Azure 資訊安全中心
 

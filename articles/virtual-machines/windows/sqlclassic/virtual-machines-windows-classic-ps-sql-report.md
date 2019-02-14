@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233077"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820108"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 本主題說明並逐步引導您在 Azure 虛擬機器中，部署並設定 SQL Server Reporting Services 原生模式報表伺服器。 本文件的步驟採用一連串手動步驟的組合建立虛擬機器，並使用 Windows PowerShell 指令碼設定 VM 上的 Reporting Services。 組態指令碼包含針對 HTTP 或 HTTPS 開啟防火牆連接埠。
 
@@ -62,8 +62,8 @@ ms.locfileid: "51233077"
 6. 在 [虛擬機器組態]  頁面中，編輯下列欄位：
    
    * 如果有多個 [版本發行日期] ，請選取最新版本。
-   * [虛擬機器名稱]：下一個組態頁面中也使用此機器名稱，作為預設的雲端服務 DNS 名稱。 DNS 名稱在 Azure 服務中必須是獨一無二的。 請考慮以能夠描述 VM 用途的電腦名稱命名 VM。 例如 ssrsnativecloud。
-   * [層]：標準
+   * **虛擬機器名稱**：下一個組態頁面中也使用此機器名稱，作為預設的雲端服務 DNS 名稱。 DNS 名稱在 Azure 服務中必須是獨一無二的。 請考慮以能夠描述 VM 用途的電腦名稱命名 VM。 例如 ssrsnativecloud。
+   * **層次**：標準
    *  是建議 SQL Server 工作負載採用的 VM 大小。 若 VM 只作為報表伺服器使用，那麼除非報表伺服器需處理大量的工作負載，否則 A2 的 VM 大小就已經足夠。 如需 VM 的價格資訊，請參閱 [虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)。
    * [新的使用者名稱]：系統會使用您提供的名稱建立 VM 上的系統管理員。
    * [新增密碼] 並**確認**。 此密碼將用於新的系統管理員帳戶，因此建議您使用強式密碼。
@@ -71,14 +71,14 @@ ms.locfileid: "51233077"
 7. 在下一個頁面中，編輯下列欄位：
    
    * [雲端服務]：選取 [建立新的雲端服務]。
-   * [雲端服務 DNS 名稱]：這是與 VM 相關聯的雲端服務的公用 DNS 名稱。 預設名稱就是您為 VM 名稱鍵入的名稱。 如果您在本主題的後續步驟中建立信任的 SSL 憑證，系統會將 DNS 名稱作為該憑證的 [核發給]值。
-   * [區域/同質群組/虛擬網路]：選擇最靠近您使用者的區域。
-   * [儲存體帳戶]：使用自動產生的儲存體帳戶。
-   * [可用性設定組]：無。
+   * **雲端服務 DNS 名稱**：這是與 VM 相關聯的雲端服務的公用 DNS 名稱。 預設名稱就是您為 VM 名稱鍵入的名稱。 如果您在本主題的後續步驟中建立信任的 SSL 憑證，系統會將 DNS 名稱作為該憑證的 [核發給]值。
+   * **區域/同質群組/虛擬網路**：選擇最接近使用者的區域。
+   * **儲存體帳戶**：使用自動產生的儲存體帳戶。
+   * **可用性設定組**：無。
    * [端點]：保留 [遠端桌面] 和 [PowerShell] 端點，然後根據您的環境新增 HTTP 或 HTTPS 端點。
      
-     * [HTTP]：預設的公用和私人連接埠都是 **80**。 請注意，如果您使用的私人連接埠不是 80，請修改 http 指令碼中的 **$HTTPport = 80** 。
-     * [HTTPS]：預設的公用和私人連接埠都是 **443**。 安全性最佳作法就是變更私用連接埠，並將防火牆和報表伺服器設為使用私用連接埠。 如需有關端點的詳細資訊，請參閱 [如何設定與虛擬機器的通訊](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 請注意，如果您使用的連接埠不是 443，請變更 HTTPS 指令碼中的 **$HTTPsport = 443** 參數。
+     * **HTTP**：預設的公用和私人連接埠都是 **80**。 請注意，如果您使用的私人連接埠不是 80，請修改 http 指令碼中的 **$HTTPport = 80** 。
+     * **HTTPS**：預設的公用和私人連接埠都是 **443**。 安全性最佳作法就是變更私用連接埠，並將防火牆和報表伺服器設為使用私用連接埠。 如需有關端點的詳細資訊，請參閱 [如何設定與虛擬機器的通訊](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 請注意，如果您使用的連接埠不是 443，請變更 HTTPS 指令碼中的 **$HTTPsport = 443** 參數。
    * 按 [下一步]。 ![下一步](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. 在精靈的最後一頁，保持選取預設值 [安裝 VM 代理程式]  。 本主題的步驟不會使用 VM 代理程式，但若您打算保留此 VM，VM 代理程式和延伸模組可讓您增強 CM。  如需有關 VM 代理程式的詳細資訊，請參閱 [VM 代理程式和延伸模組 – 第 1 部分](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)。 其中一個已安裝並執行的預設延伸模組是「BGINFO」延伸模組，它會在 VM 桌面上顯示系統資訊，例如內部 IP 和可用磁碟空間。
 9. 按一下 [完成]。 ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -120,12 +120,12 @@ ms.locfileid: "51233077"
    
    1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。 根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
       
-       ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) 請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。 
+       ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。 
       
        例如，下圖的 VM 名稱是 **ssrsnativecloud**，而使用者名稱是 **testuser**。
       
        ![登入包括 VM 名稱](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. 執行 mmc.exe。 如需詳細資訊，請參閱 [做法：使用 MMC 嵌入式管理單元檢視憑證](https://msdn.microsoft.com/library/ms788967.aspx)。
+   2. 執行 mmc.exe。 如需詳細資訊，請參閱[操作說明：使用 MMC 嵌入式管理單元檢視憑證](https://msdn.microsoft.com/library/ms788967.aspx)。
    3. 在主控台應用程式的 [檔案] 功能表中，新增 [憑證] 嵌入式管理單元，在系統提示時選取 [電腦帳戶]，然後按 [下一步]。
    4. 選取要管理的 [本機電腦]，然後按一下 [完成]。
    5. 按一下 [確認]，展開 [憑證 - 個人] 節點，然後按一下 [憑證]。 憑證是以 VM 的 DNS 名稱來命名，並以**cloudapp.net** 結尾。 以滑鼠右鍵按一下憑證名稱，並按一下 [複製]。
@@ -156,7 +156,7 @@ ms.locfileid: "51233077"
 
 1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。 根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
    
-    ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) 請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。 
+    ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。 
    
     例如，下圖的 VM 名稱是 **ssrsnativecloud**，而使用者名稱是 **testuser**。
    
@@ -283,14 +283,14 @@ ms.locfileid: "51233077"
 6. 已針對 Reporting Services 設定指令碼。 如果您要執行 Reporting Services 的指令碼，請在 Get-WmiObject 陳述式上，將命名空間的路徑版本部分修改為 "v11"。
 7. 執行指令碼。
 
-**驗證**：若要確認報表伺服器基本功能正常運作，請參閱本主題後半部的 [驗證組態](#verify-the-configuration) 一節。
+**驗證**：若要確認報表伺服器基本功能正常運作，請參閱本主題後半部的[驗證組態](#verify-the-configuration)一節。
 
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>使用指令碼設定報表伺服器和 HTTPS
 若要使用 Windows PowerShell 設定報表伺服器，請完成下列步驟。 設定包括 HTTP 而非 HTTPS。
 
 1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。 根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
    
-    ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) 請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。 
+    ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。 
    
     例如，下圖的 VM 名稱是 **ssrsnativecloud**，而使用者名稱是 **testuser**。
    
@@ -483,7 +483,7 @@ ms.locfileid: "51233077"
 9. 已針對 Reporting Services 設定指令碼。 如果您要執行 Reporting Services 的指令碼，請在 Get-WmiObject 陳述式上，將命名空間的路徑版本部分修改為 "v11"。
 10. 執行指令碼。
 
-**驗證**：若要確認報表伺服器基本功能正常運作，請參閱本主題後半部的 [驗證組態](#verify-the-connection) 一節。 若要確認憑證繫結，請以系統管理權限開啟命令提示字元，然後執行下列命令：
+**驗證**：若要確認報表伺服器基本功能正常運作，請參閱本主題後半部的「驗證組態」一節。 若要確認憑證繫結，請以系統管理權限開啟命令提示字元，然後執行下列命令：
 
     netsh http show sslcert
 
@@ -574,7 +574,7 @@ ms.locfileid: "51233077"
 下表摘要列出一些選項，可將現有報表從內部部署電腦發佈至 Microsoft Azure 虛擬機器上託管的報表伺服器：
 
 * **RS.exe 指令碼**：使用 RS.exe 指令碼，將報告項目從現有報告伺服器複製到 Microsoft Azure 虛擬機器。 如需詳細資訊，請參閱 [在報告伺服器之間移轉內容的範例 Reporting Services rs.exe 指令碼](https://msdn.microsoft.com/library/dn531017.aspx)的「原生模式到原生模式 – Microsoft Azure 虛擬機器」一節。
-* **報告產生器**：虛擬機器包含 Click Once 版本的 Microsoft SQL Server 報告產生器。 若要在虛擬機器上首次啟動報表產生器：
+* **報表產生器**：虛擬機器包含 Click Once 版本的 Microsoft SQL Server 報表產生器。 若要在虛擬機器上首次啟動報表產生器：
   
   1. 以管理權限啟動瀏覽器。
   2. 瀏覽至虛擬機器上的報表管理員，然後按一下功能區中的 [報表產生器] 。
@@ -589,7 +589,7 @@ ms.locfileid: "51233077"
   * [SQL Server Data Tools and SQL Server Business Intelligence (SSDT-BI)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
 * **SQL Server Data Tools：遠端**：在本機電腦上，以 SQL Server Data Tools 建立含有 Reporting Services 報告的 Reporting Services 專案。 設定專案以連接至 Web 服務 URL。
   
-    ![SSRS 專案的 SSDT 專案屬性](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
+    ![SSRS 專案的 ssdt 專案屬性](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
 * **使用指令碼**：使用指令碼複製報告伺服器內容。 如需詳細資訊，請參閱 [在報告伺服器之間移轉內容的 Reporting Services rs.exe 指令碼範例](https://msdn.microsoft.com/library/dn531017.aspx)。
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>在不使用 VM 時將成本降至最低

@@ -4,19 +4,19 @@ titleSuffix: Text Analytics -  Azure Cognitive Services
 description: 本逐步解說教學課程的內容包含如何下載、安裝及執行適用於文字分析的容器。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 07fbf51f584d691b08d94f68fefa8c3f9348227f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294823"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977095"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安裝並執行文字分析容器
 
@@ -77,19 +77,19 @@ ms.locfileid: "55294823"
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>關鍵片語擷取容器的 docker pull
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
 ### <a name="docker-pull-for-the-language-detection-container"></a>語言偵測容器的 docker pull
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
 ### <a name="docker-pull-for-the-sentiment-container"></a>情感容器的 docker pull
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
@@ -156,18 +156,7 @@ ApiKey={BILLING_KEY}
 
 文字分析容器會使用您 Azure 帳戶上的_文字分析_資源傳送計費資訊至 Azure。 
 
-認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料傳送至 Microsoft。 
-
-`docker run` 命令會使用下列引數進行計費：
-
-| 選項 | 說明 |
-|--------|-------------|
-| `ApiKey` | 用來追蹤帳單資訊之_文字分析_資源的 API 金鑰。 |
-| `Billing` | 用來追蹤帳單資訊之_文字分析_資源的端點。|
-| `Eula` | 表示您已接受容器的授權。<br/>此選項的值必須設定為 `accept`。 |
-
-> [!IMPORTANT]
-> 這三個選項都必須指定為有效的值，否則將無法啟動容器。
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 如需這些選項的詳細資訊，請參閱[設定容器](../text-analytics-resource-container-config.md)。
 

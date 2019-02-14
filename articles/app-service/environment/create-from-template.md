@@ -1,6 +1,6 @@
 ---
 title: 使用 Resource Manager 範本來建立 App Service 環境 - Azure
-description: 說明如何使用 Resource Manager 範本建立外部或 ILB Azure App Service 環境
+description: 說明如何使用 Resource Manager 範本建立外部或 ILB Azure App Service Environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,17 +14,20 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277466"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109889"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本立 ASE
 
 ## <a name="overview"></a>概觀
-Azure App Service 環境 (ASE) 可以使用網際網路可存取端點，或是 Azure 虛擬網路 (VNet) 中內部位址上的端點來建立。 使用內部端點建立時，該端點是由稱為內部負載平衡器 (ILB) 的 Azure 元件提供。 使用內部 IP 位址的 ASE 稱為 ILB ASE。 具有公用端點的 ASE 稱為外部 ASE。 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Azure App Service Environment (ASE) 可以使用網際網路可存取端點，或是 Azure 虛擬網路 (VNet) 中內部位址上的端點來建立。 使用內部端點建立時，該端點是由稱為內部負載平衡器 (ILB) 的 Azure 元件提供。 使用內部 IP 位址的 ASE 稱為 ILB ASE。 具有公用端點的 ASE 稱為外部 ASE。 
 
 ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。 本文逐步解說使用 Resource Manager 範本建立外部 ASE 或 ILB ASE 所需的步驟和語法。 若要了解如何在 Azure 入口網站中建立 ASE，請參閱 [建立外部 ASE][MakeExternalASE] 或 [建立 ILB ASE][MakeILBASE] 。
 
@@ -60,7 +63,7 @@ ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 建立 ASE 約需一小時。 然後在入口網站中，ASE 會顯示在觸發部署之訂用帳戶的 ASE 清單中。
@@ -146,7 +149,7 @@ azuredeploy.parameters.json 檔案中有以下參數︰
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 每個 ASE 前端套用變更大約需要 40 分鐘。 例如，有一個預設大小的 ASE 使用兩個前端，則範本將需要大約一小時 20 分鐘的時間才能完成。 執行範本時，無法調整 ASE。  
@@ -160,7 +163,7 @@ App Service 環境有兩個版本：ASEv1 和 ASEv2。 前述資訊架構在 ASE
 
 在 ASEv1 中，要手動管理所有資源， 包括前端、背景工作角色和用於 IP 型 SSL 的 IP 位址。 首先，您必須將想要在其中裝載的背景工作角色集區相應放大，才能相應放大 App Service 方案。
 
-ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，您需要支付每個配置的 vCPU。 包括用於前端或未裝載任何工作負載之背景工作角色的 vCPU。 在 ASEv1 中，ASE 的預設最大調整大小總計是 55 個主機， 包括背景工作角色與前端。 ASEv1 的其中一個優點，是可以部署在傳統虛擬網路和 Resource Manager虛擬網路中。 若要深入了解 ASEv1，請參閱 [App Service 環境 v1 簡介][ASEv1Intro]。
+ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，您需要支付每個配置的 vCPU。 包括用於前端或未裝載任何工作負載之背景工作角色的 vCPU。 在 ASEv1 中，ASE 的預設最大調整大小總計是 55 個主機， 包括背景工作角色與前端。 ASEv1 的其中一個優點，是可以部署在傳統虛擬網路和 Resource Manager虛擬網路中。 若要深入了解 ASEv1，請參閱 [App Service Environment v1 簡介][ASEv1Intro]。
 
 若要使用 Resource Manager 範本建立 ASEv1，請參閱[使用 Resource Manager 範本建立 ILB ASE v1][ILBASEv1Template]。
 

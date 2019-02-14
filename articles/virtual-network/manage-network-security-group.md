@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7505715641462f4a07d999ea419632bd91e925fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438910"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822437"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>建立、變更或刪除網路安全性群組
 
@@ -66,7 +66,7 @@ ms.locfileid: "54438910"
 2. 選取清單中您想要檢視其詳細資料的網路安全性群組。 在 [設定] 底下，您可以檢視網路安全性群組所關聯的 [輸入安全性規則] 和 [輸出安全性規則]、[網路介面] 和 [子網路]。 您也可以啟用或停用 [診斷記錄]，以及檢視 [有效的安全性規則]。 若要深入了解，請參閱[診斷記錄](virtual-network-nsg-manage-log.md)和[檢視有效的安全性規則](diagnose-network-traffic-filter-problem.md)。
 3. 若要深入了解列出的一般 Azure 設定，請參閱下列文章：
     *   [活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)
-    *   [存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [存取控制 (IAM)](../role-based-access-control/overview.md)
     *   [標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [自動化指令碼](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -92,7 +92,7 @@ ms.locfileid: "54438910"
 
 ### <a name="delete-a-network-security-group"></a>刪除網路安全性群組
 
-如果網路安全性群組與任何子網路或網路介面關聯，便無法刪除它。 請先將網路安全性群組與所有子網路和網路介面[中斷關聯](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)，再嘗試刪除它。
+如果網路安全性群組與任何子網路或網路介面關聯，便無法刪除它。 請先將網路安全性群組與所有子網路和網路介面中斷關聯，再嘗試刪除它。
 
 1. 在入口網站頂端的搜尋方塊中，輸入「網路安全性群組」。 當**網路安全性群組**出現在搜尋結果中時，請選取它。
 2. 從清單中選取您想要刪除的網路安全性群組。

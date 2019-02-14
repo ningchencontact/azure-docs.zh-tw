@@ -3,8 +3,8 @@ title: 存取 Teams 中的 Azure AD App Proxy 應用程式 | Microsoft Docs
 description: 使用 Azure AD Application Proxy 透過 Microsoft Teams 存取內部部署應用程式。
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3f515861b7b54651665c378305070b4a8261ca70
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 660d05146e82ab85136cac715b56cb1ee89b002f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163019"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210946"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>透過 Microsoft Teams 存取內部部署應用程式
 

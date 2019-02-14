@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194282"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193759"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 健康狀態監視簡介
 Azure Service Fabric 導入了健康狀態模型，提供豐富、彈性且可延伸的健康狀態評估與報告。 此模型允許幾乎即時地監視叢集狀態以及其中所執行的服務。 您可以輕鬆地取得健康狀態資訊，並在潛在問題引起連鎖反應和造成大規模中斷之前，予以更正。 在一般模型中，服務會根據其本機檢視傳送報告，且該資訊會進行彙總以提供整體叢集層級檢視。
 
 Service Fabric 元件會使用此健康狀態模型來報告其目前狀態。 您可以使用相同機制來報告應用程式的健康狀態。 只要投入時間規劃高品質的健康狀態報告來擷取您的自訂條件，就能更輕鬆地偵測並修正執行中應用程式的問題。
-
-下列 Microsoft Virtual Academy 影片也會說明 Service Fabric 健康情況模型及其使用方式︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > 我們會啟動健康狀態子系統來滿足受監視升級的需求。 Service Fabric 提供受監視應用程式和叢集升級，可以確保完整的可用性、永不停機，且幾乎或完全不需要使用者介入。 為了達成這些目的，升級會依照已設定的升級原則來檢查健康情況。 只有在健康情況達到所需的臨界值時，才可繼續進行升級。 否則，升級會自動回復或暫停，讓系統管理員有機會來修正問題。 若要深入了解應用程式升級，請參閱 [這篇文章](service-fabric-application-upgrade.md)。

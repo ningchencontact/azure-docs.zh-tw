@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fee172eccd79fd28e281b2beece9702630ac39b5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661508"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001182"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
-了解您的網頁或應用程式的效能和使用量。 如果將 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 新增至頁面指令碼，您會取得頁面載入的時間和 AJAX 呼叫、計數和瀏覽器例外狀況與 AJAX 失敗的詳細資料，以及使用者和工作階段計數。 這些項目可以依據頁面、用戶端作業系統和瀏覽器版本、地區位置和其他維度分割。 您可以對失敗計數或緩慢頁面載入設定警示。 而在 JavaScript 程式碼中插入追蹤呼叫，即可追蹤網頁應用程式的各種功能使用方式。
+了解您的網頁或應用程式的效能和使用量。 如果將 [Application Insights](app-insights-overview.md) 新增至頁面指令碼，您會取得頁面載入的時間和 AJAX 呼叫、計數和瀏覽器例外狀況與 AJAX 失敗的詳細資料，以及使用者和工作階段計數。 這些項目可以依據頁面、用戶端作業系統和瀏覽器版本、地區位置和其他維度分割。 您可以對失敗計數或緩慢頁面載入設定警示。 而在 JavaScript 程式碼中插入追蹤呼叫，即可追蹤網頁應用程式的各種功能使用方式。
 
-Application Insights 可以使用於任何網頁 - 您剛剛新增 JavaScript 的簡短片段。 如果您的 Web 服務是 [Java](java-get-started.md) 或 [ASP.NET](../../azure-monitor/app/asp-net.md)，您可以整合來自您的伺服器和用戶端的遙測。
+Application Insights 可以使用於任何網頁 - 您剛剛新增 JavaScript 的簡短片段。 如果您的 Web 服務是 [Java](java-get-started.md) 或 [ASP.NET](asp-net.md)，您可以整合來自您的伺服器和用戶端的遙測。
 
-![在 portal.azure.com 中，開啟您的應用程式資源，然後按一下 [瀏覽器]](./media/javascript/03.png)
+![在 portal.azure.com 中，開啟您的應用程式資源，然後按一下 [瀏覽器]](media/javascript/03.png)
 
 您需要 [Microsoft Azure](https://azure.com)訂用帳戶。 如果您的小組擁有組織訂用帳戶，請洽詢擁有者將您的 Microsoft 帳戶新增至其中。
 
@@ -38,13 +38,13 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 如果您已經設定好應用程式伺服器端的監視，您已經擁有資源：
 
-![選擇 [瀏覽]、[開發人員服務]、[Application Insights]。](./media/javascript/01-find.png)
+![選擇 [瀏覽]、[開發人員服務]、[Application Insights]。](media/javascript/01-find.png)
 
 如果您沒有資源，請建立資源：
 
-![選擇 [新增]、[開發人員服務]、[Application Insights]。](./media/javascript/01-create.png)
+![選擇 [新增]、[開發人員服務]、[Application Insights]。](media/javascript/01-create.png)
 
-*已經有問題了嗎？* [建立資源的詳細資訊](../../azure-monitor/app/create-new-resource.md )訂用帳戶。
+*已經有問題了嗎？* [建立資源的詳細資訊](create-new-resource.md )訂用帳戶。
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>將 SDK 指令碼加入至您的應用程式或網頁
 
@@ -70,7 +70,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 在您想要追蹤的每一頁的 `</head>` 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。 例如︰
 
 * 在 ASP.NET MVC 專案中，可放在 `View\Shared\_Layout.cshtml`
-* 在 SharePoint 網站中，在控制台中開啟 [站台設定/主要頁面](../../azure-monitor/app/sharepoint.md)。
+* 在 SharePoint 網站中，在控制台中開啟 [站台設定/主要頁面](sharepoint.md)。
 
 指令碼包含檢測金鑰，會將資料導向您的 Application Insights 資源。 
 
@@ -118,9 +118,9 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ![在 portal.azure.com 中，開啟您的應用程式資源然後按一下 [設定]、[瀏覽器]。](./media/javascript/03.png)
 
-仍沒有資料？ 按一下頁面頂端的 [重新整理]。 仍然沒有嗎？ 請參閱 [疑難排解](../../azure-monitor/app/troubleshoot-faq.md)。
+仍沒有資料？ 按一下頁面頂端的 [重新整理]。 仍然沒有嗎？ 請參閱 [疑難排解](troubleshoot-faq.md)。
 
-[瀏覽器] 刀鋒視窗是[計量瀏覽器刀鋒視窗](../../azure-monitor/app/metrics-explorer.md)，具有預設篩選器與圖表選項。 如果您想要的話，可以編輯時間範圍、篩選器和圖表設定，並將結果儲存為我的最愛。 按一下 [還原預設值]  以返回原始刀鋒視窗設定。
+[瀏覽器] 刀鋒視窗是[計量瀏覽器刀鋒視窗](metrics-explorer.md)，具有預設篩選器與圖表選項。 如果您想要的話，可以編輯時間範圍、篩選器和圖表設定，並將結果儲存為我的最愛。 按一下 [還原預設值]  以返回原始刀鋒視窗設定。
 
 ## <a name="page-load-performance"></a>頁面載入效能
 最上層是頁面載入時間的分段圖表。 圖表高度總計表示從您的應用程式載入頁面並且在您的使用者瀏覽器中顯示頁面的平均時間。 時間是從瀏覽器傳送初始 HTTP 要求開始測量，直到已經處理所有同步載入事件，包括版面配置和執行中指令碼。 不包含例如從 AJAX 呼叫載入 Web 組件的非同步工作。
@@ -178,7 +178,6 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ![](./media/javascript/37.png)
 
-
 按一下 `...` 以取得 Ajax 呼叫的完整遙測。
 
 ### <a name="no-ajax-calls-reported"></a>未報告任何 Ajax 呼叫？
@@ -202,7 +201,7 @@ Ajax 呼叫包含從您的網頁指令碼所做的任何 HTTP/HTTPS 呼叫。 �
 選取任一事件以查看詳細資料。 在詳細資料頁面中，按一下 "..." 來查看更多詳細資料。
 
 > [!NOTE]
-> 如果您使用[搜尋](../../azure-monitor/app/diagnostic-search.md)，請注意，您必須比對完整字詞："Abou" 和 "bout" 與 "About" 不相符。
+> 如果您使用[搜尋](diagnostic-search.md)，請注意，您必須比對完整字詞："Abou" 和 "bout" 與 "About" 不相符。
 > 
 > 
 
@@ -227,8 +226,8 @@ Ajax 呼叫包含從您的網頁指令碼所做的任何 HTTP/HTTPS 呼叫。 �
 ## <a name="usage-tracking"></a>使用情況追蹤
 想要了解使用者如何使用您的應用程式嗎？
 
-* [了解使用者行為分析工具](../../azure-monitor/app/usage-overview.md)
-* [深入了解自訂事件和計量 API](../../azure-monitor/app/api-custom-events-metrics.md)。
+* [了解使用者行為分析工具](usage-overview.md)
+* [深入了解自訂事件和計量 API](api-custom-events-metrics.md)。
 
 ## <a name="video"></a> 影片
 
@@ -238,7 +237,7 @@ Ajax 呼叫包含從您的網頁指令碼所做的任何 HTTP/HTTPS 呼叫。 �
 
 
 ## <a name="next"></a> 後續步驟
-* [追蹤流量](../../azure-monitor/app/usage-overview.md)
-* [自訂事件和計量](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Build-measure-learn](../../azure-monitor/app/usage-overview.md)
+* [追蹤流量](usage-overview.md)
+* [自訂事件和計量](api-custom-events-metrics.md)
+* [Build-measure-learn](usage-overview.md)
 

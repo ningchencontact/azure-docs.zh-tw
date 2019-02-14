@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 描述如何使用自訂的建議設定自訂自動建議
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 2724f0562c9fe4887b1728127b12df5390993076
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bbad72b41a177bdbafd6cf98bfd2025190d98b16
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157347"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237632"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>設定您的自訂自動建議體驗
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 88cb9f18002f15ea926fe5ded3a5ac9af7a99cbe
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 80bf9247bbb07fa61b7153e321b1991b82a9d616
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716150"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246764"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -28,4 +28,4 @@ Microsoft 認知服務[語音 SDK](~/articles/cognitive-services/speech-service/
 請參閱使用語音 SDK 的意圖辨識案例所適用的下列程式碼片段。 請將範例中的值取代為您自己的 LUIS 訂用帳戶金鑰 (端點金鑰)、[訂用帳戶的區域](~/articles/cognitive-services/speech-service/regions.md#intent-recognition)和意圖模型的 **AppId**。
 
 > [!NOTE]
-> 相較於語音 SDK 所支援的其他服務，意圖辨識需要特定的訂用帳戶金鑰 (LUIS 端點金鑰)。 如需意圖辨識技術的相關資訊，請參閱 [LUIS 網站](https://www.luis.ai)。 如需如何取得**端點金鑰**的相關資訊，請參閱[建立 LUIS 端點金鑰](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key)。
+> 相較於語音 SDK 所支援的其他服務，意圖辨識需要特定的訂用帳戶金鑰 (LUIS 端點金鑰)。 如需意圖辨識技術的相關資訊，請參閱 [LUIS 網站](https://www.luis.ai)。 如需如何取得**端點金鑰**的相關資訊，請參閱[建立 LUIS 端點金鑰](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription)。

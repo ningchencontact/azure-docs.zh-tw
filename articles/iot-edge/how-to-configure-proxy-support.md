@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: ad9ecd9c5b50657caba7522fe500a748a10cd02d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 58a51fd90eb0b89048eca7c95272523ffd10c24a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634298"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982313"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊
 
@@ -79,7 +79,7 @@ Install-SecurityDaemon -Manual -ContainerOs Windows -InvokeWebRequestParameters 
 
 IoT Edge 精靈的設定方式與 Docker 精靈類似。 IoT Edge 傳送至 IoT 中樞的所有要求皆是使用 HTTPS。 請根據您的作業系統，使用下列相對應的步驟來針對服務設定環境變數。 
 
-#### <a name="linux"></a>Linux
+#### <a name="linux"></a> Linux
 
 在終端機中開啟編輯器以設定 IoT 精靈。 
 
@@ -89,7 +89,7 @@ sudo systemctl edit iotedge
 
 輸入下列文字，並將 **\<proxy URL>** 取代為您 Proxy 伺服器的位址和連接埠。 然後儲存並結束。 
 
-```text
+```ini
 [Service]
 Environment="https_proxy=<proxy URL>"
 ```

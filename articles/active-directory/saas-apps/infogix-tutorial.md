@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e9b805786346abd6dfe830c9ce6ae4cc341c9e7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1346ce0526a6b45b6bca0f15c2b5e71afc4ae381
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194265"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>教學課程：Azure Active Directory 與 Infogix Data3Sixty Govern 整合
 
@@ -145,7 +146,7 @@ Infogix Data3Sixty Govern 與 Azure AD 整合提供下列優點：
 
     d. 讓 [命名空間] 保持空白。
     
-    e. 按一下 [確定]。
+    e. 按一下 [確定] 。
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (原始)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -191,7 +192,7 @@ Infogix Data3Sixty Govern 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立]。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-an-infogix-data3sixty-govern-test-user"></a>建立 Infogix Data3Sixty Govern 測試使用者
 

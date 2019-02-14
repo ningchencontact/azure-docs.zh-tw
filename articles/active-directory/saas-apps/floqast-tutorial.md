@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: f46714d2d4860abd1857e6ae16f98848678336aa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ed3d8e687e6364941ac8cc3fb2f08796a6b566d0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184764"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>教學課程：Azure Active Directory 與 FloQast 整合
 
@@ -140,7 +141,7 @@ FloQast 與 Azure AD 整合提供下列優點：
 
     d. 讓 [命名空間] 保持空白。
     
-    e. 按一下 [確定]。
+    e. 按一下 [確定] 。
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存到電腦上，並執行下列步驟：
 
@@ -191,7 +192,7 @@ FloQast 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立]。
+    d. 按一下頁面底部的 [新增] 。
  
 ### <a name="create-a-floqast-test-user"></a>建立 FloQast 測試使用者
 

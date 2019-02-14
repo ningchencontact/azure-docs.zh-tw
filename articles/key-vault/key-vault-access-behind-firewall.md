@@ -4,7 +4,7 @@ description: 了解如何從防火牆後面的應用程式存取 Azure 金鑰保
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: cd5ecf60c76ec3db0bc0d867a8a807016eeea863
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 36b431d07ad517d495316963fd6710dafab6c297
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073719"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108631"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>在防火牆後存取 Azure 金鑰保存庫
 
@@ -36,7 +36,7 @@ ms.locfileid: "54073719"
 
 三項功能 (驗證、管理和資料平面存取) 的所有金鑰保存庫流量都會透過 HTTPS︰連接埠 443 傳送。 不過，偶爾會有 CRL 的 HTTP (連接埠 80) 流量。 支援 OCSP 的用戶端不應該觸達 CRL，但可能偶爾會觸達 [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)。  
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 金鑰保存庫用戶端應用程式必須存取 Azure Active Directory 端點以便驗證。 使用的端點取決於 Azure AD 租用戶組態、主體類型 (使用者主體或服務主體) 和帳戶類型 (例如 Microsoft 帳戶，或是公司帳戶或學校帳戶)。  
 

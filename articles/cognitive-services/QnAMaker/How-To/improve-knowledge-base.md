@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463730"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755759"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>使用主動學習來改善知識庫
 
@@ -58,7 +58,7 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 依預設會關閉主動式學習。 加以開啟可查看建議的問題。 
 
-1. 若要開啟主動式學習，請在 QnA Maker 入口網站中，移至位於右上角的**服務設定**。  
+1. 若要開啟主動式學習，請在 QnA Maker 入口網站中，按一下您的 [名稱]，然後移至右上角的 [服務設定][](https://www.qnamaker.ai/UserSettings)。  
 
     ![在 [服務設定] 頁面上，將主動式學習切換為開啟](../media/improve-knowledge-base/Endpoint-Keys.png)
 

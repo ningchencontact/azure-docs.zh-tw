@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8d99a52b500377e02af339588fe7155e26cf588c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548590"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233382"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions 的持續部署
 Azure Functions 可讓您使用 App Service 持續整合來輕鬆部署您的函數應用程式。 Functions 可與 BitBucket、Dropbox、GitHub 和 Azure DevOps 整合。 這可讓使用這其中一項整合式服務進行函數程式碼更新的工作流程觸發以 Azure 為目的地的部署。 如果您不熟悉 Azure Functions，請從 [Azure Functions 概觀](functions-overview.md)來開始。
@@ -29,7 +29,7 @@ Azure Functions 可讓您使用 App Service 持續整合來輕鬆部署您的函
 * [Git 本機存放庫](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
 設定部署時，是依每一函數應用程式進行設定。 當持續部署啟用後，在入口網站中對函式程式碼的存取權會設定為「唯讀」 。
 

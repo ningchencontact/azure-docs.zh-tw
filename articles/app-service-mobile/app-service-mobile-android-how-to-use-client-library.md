@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 803c9af7b6c40f7deee2b81fb7ff0ae82ef6778a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158157"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965149"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
 
@@ -55,7 +55,7 @@ Android 版 Azure Mobile Apps SDK 支援 API 層級 19 至 24 (KitKat 至 Nougat
 
 1. 將此程式碼新增至 *buildscript* 標籤內的*專案*層級 **build.gradle** 檔案：
 
-    ```text
+    ```gradle
     buildscript {
         repositories {
             jcenter()
@@ -65,7 +65,7 @@ Android 版 Azure Mobile Apps SDK 支援 API 層級 19 至 24 (KitKat 至 Nougat
 
 2. 將此程式碼新增至 *dependencies* 標籤內的*模組應用程式*層級 **build.gradle** 檔案：
 
-    ```text
+    ```gradle
     compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
@@ -496,7 +496,7 @@ List<ToDoItem> results = mToDoTable
 
 在上述程式碼中，「listitem」  屬性會指定清單中個別資料列的配置識別碼。 此程式碼會指定核取方塊及其相關文字，並對清單中的每個項目具現化一次。 此配置不會顯示 **id** 欄位，而更複雜的配置將會指定顯示畫面中的其他欄位。 此程式碼位於 **row_list_to_do.xml** 檔案中。
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -520,7 +520,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 覆寫配接器的 **getView** 方法。 例如︰
 
-```
+```java
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -959,7 +959,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 將 **redirectUriScheme** 新增至應用程式的 `build.gradle` 檔案︰
 
-```text
+```gradle
 android {
     buildTypes {
         release {
@@ -976,7 +976,7 @@ android {
 
 最後，將 `com.android.support:customtabs:23.0.1` 新增至 `build.gradle` 檔案中的相依性清單︰
 
-```text
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.3'
@@ -1076,7 +1076,7 @@ MobileServiceUser user = mClient
 1. 依照[如何設定 App Service 來進行 Active Directory 登入][22]教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。
 2. 安裝 ADAL，方法是修改您的 build.gradle 檔案以納入下列定義：
 
-    ```
+    ```gradle
     repositories {
         mavenCentral()
         flatDir {

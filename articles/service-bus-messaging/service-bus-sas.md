@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846331"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895851"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共用存取簽章的服務匯流排存取控制
 
@@ -96,7 +96,7 @@ SAS 權杖適用於所有以 `signature-string` 中所使用的 `<resourceURI>` 
 
 建議您定期重新產生用於 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 物件的金鑰。 由於有主要和次要金鑰槽存在，因此您可以逐步輪替金鑰。 如果您的應用程式通常會使用主要金鑰，您可以將主要金鑰複製到次要金鑰槽中，然後再重新產生主要金鑰。 接著，新的主要金鑰值將可設定到可繼續使用次要槽中的舊有主要金鑰進行存取的用戶端應用程式中。 所有的用戶端皆更新後，您即可重新產生次要金鑰，而最終淘汰掉舊的主要金鑰。
 
-如果您確知或懷疑金鑰受到危害而必須撤銷金鑰，您可以重新產生 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 的 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 和 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)，並取代成新的金鑰。 此程序會讓所有以舊金鑰簽章的權杖失效。
+如果您確知或懷疑金鑰受到危害而必須撤銷金鑰，您可以重新產生 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 的 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 和 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)，並取代成新的金鑰。 此程序會讓所有以舊金鑰簽章的權杖失效。
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>服務匯流排的共用存取簽章驗證
 

@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 6f2d869f345aeb8f50d42de6b1533b849ffb2182
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a73fbfe96382437c3cf605a5b042e7ddccaad92d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197563"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217916"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>教學課程：Azure Active Directory 與 SignalFx 整合
 
@@ -140,7 +141,7 @@ SignalFx 與 Azure AD 的整合可提供下列優點：
 
     d. 讓 [命名空間] 保持空白。
     
-    e. 按一下 [確定]。
+    e. 按一下 [確定] 。
  
 1. 在 [SAML 簽署憑證] 區段上，執行下列步驟： 
 
@@ -214,7 +215,7 @@ SignalFx 與 Azure AD 的整合可提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下 [建立]。
+    d. 按一下頁面底部的 [新增] 。
   
 ### <a name="create-a-signalfx-test-user"></a>建立 SignalFx 測試使用者
 

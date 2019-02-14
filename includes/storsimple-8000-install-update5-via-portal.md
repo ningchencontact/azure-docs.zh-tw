@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d3a810523807a46ca3f410c7cb5e11884f2b06b7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 68c04ef893e5e0826f03bffa93fb7c79b4959fdc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165579"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888589"
 ---
-<!--author=alkohli last changed: 08/04/17-->
-
 #### <a name="to-install-an-update-from-the-azure-portal"></a>從 Azure 入口網站安裝更新
 
 1. 在 [StorSimple 服務] 頁面上，選取您的裝置。

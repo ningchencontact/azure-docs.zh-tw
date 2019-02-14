@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1076ddfb840ba845718c5ca0deea8c5788e7d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096699"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100324"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>將機器上架交由 Azure Automation State Configuration 管理
 
@@ -24,7 +24,8 @@ ms.locfileid: "55096699"
 
 Azure Automation State Configuration 可以用來管理各種不同的機器：
 
-- Azure 虛擬機器 (部署在傳統和 Azure Resource Manager 部署模型)
+- Azure 虛擬機器
+- Azure 虛擬機器 (傳統)
 - Amazon Web Services (AWS) EC2 執行個體
 - 位於內部部署或 Azure/AWS 以外之雲端中的實體/虛擬 Windows 電腦
 - 位於內部部署、Azure 或 Azure 以外之雲端中的實體/虛擬 Linux 機器
@@ -35,6 +36,31 @@ Azure Automation State Configuration 可以用來管理各種不同的機器：
 > 如果安裝的虛擬機器 DSC 擴充功能大於 2.70，則使用 State Configuration 管理 Azure VM 是免費隨附的。 如需詳細資料，請參閱[**自動化定價分頁**](https://azure.microsoft.com/pricing/details/automation/)。
 
 下列各節概述如何將每個類型的機器上架到 Azure Automation State Configuration。
+
+## <a name="azure-virtual-machines"></a>Azure 虛擬機器
+
+Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 資源管理員範本或 PowerShell，輕鬆上架 Azure 虛擬機器以進行組態管理。 在幕後並且不需要系統管理員遠端連至 VM 的情況下，Azure VM Desired State Configuration 擴充功能會向 Azure Automation State Configuration 註冊 VM。
+因為 Azure VM 預期狀態設定延伸模組是以非同步方式執行，以下的[**疑難排解 Azure 虛擬機器上架**](#troubleshooting-azure-virtual-machine-onboarding)一節會提供追蹤其進度或疑難排解的步驟。
+
+### <a name="azure-portal"></a>Azure 入口網站
+
+在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要佈建虛擬機器的「Azure 自動化」帳戶。 在 State Configuration 頁面和 [節點] 索引標籤上，按一下 [+ 新增]。
+
+選取要上架的 Azure 虛擬機器。
+
+如果電腦沒有 PowerShell 預期安裝的狀態延伸模組，並且電源狀態為執行中，請按一下 [連接]。
+
+在 [註冊]下，輸入您的使用情況所需的 [PowerShell DSC 本機 Configuration Manager 值](/powershell/dsc/metaconfig4)，並選擇性地輸入要指派給 VM 的節點組態。
+
+![上架](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+
+### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
+
+您可以透過 Azure Resource Manager 範本部署 Azure 虛擬機器和上架到 Azure Automation State Configuration。 如需將現有的 VM 上架到 Azure Automation State Configuration 的範例範本，請參閱 [透過 DSC 擴充功能和 Azure Automation DSC 設定 VM](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/)。 若要尋找註冊金鑰和註冊 URL 作為此範本中的輸入，請參閱以下的[**安全註冊**](#secure-registration)一節會提供追蹤其進度或疑難排解的步驟。
+
+### <a name="powershell"></a>PowerShell
+
+您可以透過 PowerShell 使用 [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) Cmdlet 在 Azure 入口網站中佈建虛擬機器。
 
 ## <a name="azure-virtual-machines-classic"></a>Azure 虛擬機器 (傳統)
 
@@ -116,31 +142,6 @@ $VM | Update-AzureVM
 
 > [!NOTE]
 > Azure Automation State Configuration 名稱在入口網站會區分大小寫。 如果大小寫不相符，則該節點不會在 [節點] 索引標籤下顯示。
-
-## <a name="azure-virtual-machines"></a>Azure 虛擬機器
-
-Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 資源管理員範本或 PowerShell，輕鬆上架 Azure 虛擬機器以進行組態管理。 在幕後並且不需要系統管理員遠端連至 VM 的情況下，Azure VM Desired State Configuration 擴充功能會向 Azure Automation State Configuration 註冊 VM。
-因為 Azure VM 預期狀態設定延伸模組是以非同步方式執行，以下的[**疑難排解 Azure 虛擬機器上架**](#troubleshooting-azure-virtual-machine-onboarding)一節會提供追蹤其進度或疑難排解的步驟。
-
-### <a name="azure-portal"></a>Azure 入口網站
-
-在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要佈建虛擬機器的「Azure 自動化」帳戶。 在 State Configuration 頁面和 [節點] 索引標籤上，按一下 [+ 新增]。
-
-選取要上架的 Azure 虛擬機器。
-
-如果電腦沒有 PowerShell 預期安裝的狀態延伸模組，並且電源狀態為執行中，請按一下 [連接]。
-
-在 [註冊]下，輸入您的使用情況所需的 [PowerShell DSC 本機 Configuration Manager 值](/powershell/dsc/metaconfig4)，並選擇性地輸入要指派給 VM 的節點組態。
-
-![上架](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
-
-### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
-
-您可以透過 Azure Resource Manager 範本部署 Azure 虛擬機器和上架到 Azure Automation State Configuration。 如需將現有的 VM 上架到 Azure Automation State Configuration 的範例範本，請參閱 [透過 DSC 擴充功能和 Azure Automation DSC 設定 VM](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/)。 若要尋找註冊金鑰和註冊 URL 作為此範本中的輸入，請參閱以下的[**安全註冊**](#secure-registration)一節會提供追蹤其進度或疑難排解的步驟。
-
-### <a name="powershell"></a>PowerShell
-
-您可以透過 PowerShell 使用 [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) Cmdlet 在 Azure 入口網站中佈建虛擬機器。
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Amazon Web Services (AWS) 虛擬機器
 

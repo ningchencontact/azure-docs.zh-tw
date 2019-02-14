@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: afc3b0022056d529c69eeaabd229b809623e66ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478581"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563978"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集
 
@@ -80,7 +80,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 
 ### <a name="which-client-platforms-do-you-support"></a>支援哪些用戶端平台？
 
-推播通知支援 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)、[Android](notification-hubs-android-push-notification-google-gcm-get-started.md)[Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)[Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)[Kindle](notification-hubs-kindle-amazon-adm-push-notification.md)[Android China (由百度開發)](notification-hubs-baidu-china-android-notifications-get-started.md)、Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)和 [Android](xamarin-notification-hubs-push-notifications-android-gcm.md))、[Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md)和 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)。 如需詳細資訊，請移至[通知中樞入門教學課程]頁面。
+推播通知支援 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)、[Android](notification-hubs-android-push-notification-google-fcm-get-started.md)[Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)[Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)、[Kindle](notification-hubs-kindle-amazon-adm-push-notification.md)、[Android China (由百度開發)](notification-hubs-baidu-china-android-notifications-get-started.md)、Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)和 Android)、[Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) 和 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)。 如需詳細資訊，請移至[通知中樞入門教學課程]頁面。
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>你們是否支援簡訊、電子郵件、或 Web 通知？
 
@@ -144,7 +144,7 @@ PNS 不保證任何傳送通知的 SLA。 不過，大部分的推播通知皆�
 
 #### <a name="geo-distribution"></a>地理分散
 
-在推播通知案例中，地理分散不一定是關鍵。 傳送推播通知至裝置的不同 PNS (例如 APNS 或 GCM) 並非平均分散。
+在推播通知案例中，地理分散不一定是關鍵。 傳送推播通知至裝置的不同 PNS (例如 APNS 或 FCM) 並非平均分散。
 
 如果您有一個在全球使用的應用程式，您可以透過在世界上不同的 Azure 區域中使用通知中樞，以在不同命名空間中建立中樞。
 
@@ -194,7 +194,7 @@ Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-sh
 
 ### <a name="is-there-audit-log-capability"></a>是否有稽核記錄功能？
 
-所有通知中樞管理作業移至作業記錄，其公開於 [Azure 入口網站]中。
+是。 所有「通知中樞」管理作業都會更新在 [Azure 入口網站]中公開的「Azure 活動記錄」。 「Azure 活動記錄」可讓您深入了解在您訂用帳戶中資源上執行的作業。 藉由使用「活動記錄」，您可以判斷出為訂用帳戶中資源進行的任何寫入作業 (PUT、POST、DELETE) 的內容、對象及時間。 您也可以了解作業的狀態和其他相關屬性。 不過， 「活動記錄」不包含讀取 (GET) 作業。
 
 ## <a name="monitoring-and-troubleshooting"></a>監視與疑難排解
 
@@ -207,7 +207,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 您可透過 Azure 通知中樞，在 [Azure 入口網站]中檢視遙測資料。 您可以在[通知中樞計量]頁面上取得計量的詳細資料。
 
 > [!NOTE]
-> 成功通知就是表示推播通知已傳送到外部 PNS (例如 Apple 的 APNS 或 Google 的 GCM)。 PNS 負責將通知傳送至目標裝置。 PNS 通常不會向第三方公開計量。  
+> 成功通知就是表示推播通知已傳送到外部 PNS (例如 Apple 的 APNS 或 Google 的 FCM)。 PNS 負責將通知傳送至目標裝置。 PNS 通常不會向第三方公開計量。  
 
 我們還提供以程式設計方式匯出遙測資料的功能 (在標準層中)。 如需詳細資訊，請參閱[通知中樞計量範例]。
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: e44308f38a138c0e186e41fc8310f8b480cd4e09
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aba7d2ff73fc1fdca6f57742582b38662177012d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783427"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995113"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>使用 Azure 媒體內容仲裁來偵測潛在的成人和猥褻內容
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>使用 Azure 媒體內容仲裁來偵測潛在的成人和猥褻內容 
 
 ## <a name="overview"></a>概觀
 **Azure 媒體內容仲裁**媒體處理器 (MP) 可讓您針對影片使用機器輔助仲裁。 例如，您可能會想要偵測影片中潛在的成人和猥褻內容，並由您的人力仲裁小組檢閱這些被標記的內容。
@@ -31,7 +31,7 @@ ms.locfileid: "33783427"
 本文提供有關 **Azure 媒體內容仲裁**的詳細資料，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它。
 
 ## <a name="content-moderator-input-files"></a>內容仲裁輸入檔案
-影片檔案。 目前支援下列格式：MP4、MOV 及 WMV。
+影片檔案。 目前支援下列格式：MP4、MOV 與 WMV。
 
 ## <a name="content-moderator-output-files"></a>內容仲裁輸出檔案
 JSON 格式的仲裁輸出包含自動偵測的擷取畫面和主要畫面格。 系統會傳回包含是否有潛在成人或猥褻內容之信賴分數的主要畫面格。 它們也會包含一個布林值旗標，指示是否建議檢閱。 系統會依據成人和猥褻分數的內部閾值，指派值給檢閱建議旗標。

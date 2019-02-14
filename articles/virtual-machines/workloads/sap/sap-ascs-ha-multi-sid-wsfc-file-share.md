@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189628"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745013"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -196,10 +196,10 @@ ms.locfileid: "43189628"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用的 SAP ASCS/SCS 執行個體多重 SID 高可用性
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
-Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 這項功能已存在 Azure 外部負載平衡器。
+您可以使用 [Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 
 
 如果您有 SAP 部署，可以使用內部負載平衡器，建立 SAP Central Services (ASCS/SCS) 執行個體的 Windows 叢集組態。
 
@@ -213,8 +213,10 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 >
 >一個 WSFC 叢集中 SAP ASCS/SCS 執行個體數目上限等於每個 Azure 內部負載平衡器的私人前端 IP 數目上限。
 >
+> 本文件所介紹的組態尚不支援用於 [Azure 可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> 
 
-如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」一節。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」。 也請考慮使用 [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 而非 Azure 負載平衡器的基本 SKU。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -401,38 +403,38 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 _**圖 6：** 啟動 [新增檔案共用] 精靈_
 
 <br>
-![圖 7：「選取 SMB 共用 - 快速」][sap-ha-guide-figure-8018]
+![圖 7︰「選取 SMB 共用 - 快速」][sap-ha-guide-figure-8018]
 
 _**圖 7：** 選取 [SMB 共用 - 快速]_
 
 <br>
-![圖 8：選取 [sapglobalhost2] 並在 Volume2 上指定路徑][sap-ha-guide-figure-8019]
+![圖 8︰選取 [sapglobalhost2] 並在 Volume2 上指定路徑][sap-ha-guide-figure-8019]
 
-_**圖 8：** 選取 [sapglobalhost2] 並在 Volume2 上指定路徑_
-
-<br>
-![圖 9：將檔案共用名稱設定為 [sapmnt]][sap-ha-guide-figure-8020]
-
-_**圖 9：** 將檔案共用名稱設定為「sapmnt」_
+_**圖 8︰** 選取 [sapglobalhost2] 並在 Volume2 上指定路徑_
 
 <br>
-![圖 10：停用所有設定][sap-ha-guide-figure-8021]
+![圖 9︰將檔案共用名稱設定為 [sapmnt]][sap-ha-guide-figure-8020]
 
-_**圖 10：** 停用所有設定_
+_**圖 9︰** 將檔案共用名稱設定為 [sapmnt]_
+
+<br>
+![圖 10︰停用所有設定][sap-ha-guide-figure-8021]
+
+_**圖 10︰** 停用所有設定_
 
 <br>
 請針對下列項目將 [ 完全控制] 權限指派給檔案和 sapmnt 共用：
 * **SAP_\<SID>_GlobalAdmin** 網域使用者群組
 * ASCS/SCS 叢集節點 **ascs-1$** 和 **ascs-2$** 的電腦物件
 
-![圖 11：將完全控制權限指派給使用者群組和電腦帳戶][sap-ha-guide-figure-8022]
+![圖 11︰將完全控制權限指派給使用者群組和電腦帳戶][sap-ha-guide-figure-8022]
 
-_**圖 11：** 將「完全控制」指派給使用者群組和電腦帳戶_
+_**圖 11︰** 將「完全控制」指派給使用者群組和電腦帳戶_
 
 <br>
-![圖 12：選取 [建立]][sap-ha-guide-figure-8023]
+![圖 12︰選取 [建立]][sap-ha-guide-figure-8023]
 
-_**圖 12：** 選取 [建立]_
+_**圖 12︰** 選取 [建立]_
 
 <br>
 ![圖 13：已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt][sap-ha-guide-figure-8024]

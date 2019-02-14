@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 277667bb3b4e39acbb935285e984660a3b44993d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a66584aa1cd3f335111774ef1df37cddc630f69d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047951"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233365"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中報表儲存
 
@@ -47,9 +47,10 @@ ms.locfileid: "43047951"
 
 例如，在 JavaScript 中：
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -75,6 +76,7 @@ ms.locfileid: "43047951"
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 現在會在編輯模式中，將報表內嵌於應用程式中。
@@ -83,7 +85,7 @@ ms.locfileid: "43047951"
 
 在編輯模式中使用正確的權杖和權限內嵌報表之後，即可從 [檔案] 功能表或從 JavaScript 儲存報表：
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
 
@@ -93,7 +95,7 @@ ms.locfileid: "43047951"
 
 ## <a name="save-as"></a>另存新檔
 
-```
+```javascript
 // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -110,9 +112,9 @@ ms.locfileid: "43047951"
 
 然後，您必須在另存新檔之後載入新的報告。 載入新報表類似於內嵌任何報表。
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -124,6 +126,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="see-also"></a>另請參閱

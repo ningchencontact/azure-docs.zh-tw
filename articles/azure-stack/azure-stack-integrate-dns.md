@@ -6,17 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 13525fffb7e6720fe81759876ffd0fe71559279c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252302"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182845"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 資料中心整合 - DNS
 若要能夠存取 Azure Stack 端點 (**portal**、**adminportal**、**management**、**adminmanagement** 等)，您必須整合 Azure Stack DNS 服務與裝載您想要在 Azure Stack 中使用之 DNS 區域的 DNS 伺服器。
@@ -114,9 +114,9 @@ Azure Stack DNS 伺服器的 FQDN 具有下列格式：
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-在所有 Azure Stack 部署結束時，名為 `AzureStackStampDeploymentInfo.json` 的檔案中也會建立此資訊。 此檔案位於部署虛擬機器的 `C:\CloudDeployment\logs` 資料夾中。 如果您不確定用於 Azure Stack 部署的值是哪些值，便可以從該處取得那些值。
+在所有 Azure Stack 部署結束時，名為 `AzureStackStampInformation.json` 的檔案中也會建立此資訊。 此檔案位於部署虛擬機器的 `C:\CloudDeployment\logs` 資料夾中。 如果您不確定用於 Azure Stack 部署的值是哪些值，便可以從該處取得那些值。
 
-如果部署虛擬機器已不再可供使用或無法存取，則您可以連線到具特殊權限的端點並執行 `Get-AzureStackInfo` PowerShell Cmdlet 來取得那些值。 如需詳細資訊，請參閱 [具特殊權限的端點](azure-stack-privileged-endpoint.md)。
+如果部署虛擬機器已不再可供使用或無法存取，則您可以連線到具特殊權限的端點並執行 `Get-AzureStackStampInformation` PowerShell Cmdlet 來取得那些值。 如需詳細資訊，請參閱 [具特殊權限的端點](azure-stack-privileged-endpoint.md)。
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>設定轉送到 Azure Stack 的條件性轉送
 

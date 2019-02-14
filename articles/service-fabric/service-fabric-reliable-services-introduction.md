@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 37f956606075cb21075d6f50bb53e04075936997
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: bc4e4c9137003dad9cfd96772b7ebe231cd6eace
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999028"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171718"
 ---
 # <a name="reliable-services-overview"></a>Reliable Services 概觀
 Azure Service Fabric 可簡化撰寫和管理無狀態與具狀態的 Reliable Services。 本主題涵蓋︰
@@ -45,12 +45,6 @@ Reliable Service 提供您簡易、功能強大、最高階的程式設計模型
 * 類似您所習慣使用之程式設計模型的簡單模型，以便執行您自己的程式碼。 您的程式碼會具有定義完善的切入點和容易管理的生命週期。
 * 隨插即用的通訊模型。 使用您選擇的傳輸方式，例如 HTTP 搭配 [Web API](service-fabric-reliable-services-communication-webapi.md)、WebSockets、自訂 TCP 通訊協定等。 Reliable Services 提供一些很棒的現成選項供您使用，或者您可以提供您自己的選項。
 * 對於具狀態服務，Reliable Services 程式設計模型可讓您使用[可靠的集合](service-fabric-reliable-services-reliable-collections.md)，直接在服務內以一致且可靠地方式儲存狀態。 可靠的集合是一組簡單的高可用性和可靠的集合類別，用過 C# 集合的任何人都會很熟悉。 傳統上，服務需要外部系統來進行可靠狀態管理。 有了可靠的集合，您可以將狀態儲存在您的計算旁邊，並且具有您預期高度可用的外部存放區會具備的相同高可用性和可靠性。 此模型也可以改善延遲，因為計算及其運作所需的狀態都在一起。
-
-觀看此 Microsoft Virtual Academy 影片以取得 Reliable Services 概觀︰<center>
-<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
-<img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
-</a>
-</center>
 
 ## <a name="what-makes-reliable-services-different"></a>Reliable Services 有什麼不同之處？
 Service Fabric 中的可靠的服務與您之前撰寫的服務不同。 Service Fabric 提供可靠性、可用性、一致性和延展性。

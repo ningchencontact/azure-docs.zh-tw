@@ -1,6 +1,6 @@
 ---
-title: 在 Log Analytics 中從 CollectD 收集資料 | Microsoft Docs
-description: CollectD 是開放原始碼 Linux 精靈，可定期收集來自應用程式的資料和系統等級資訊。  本文提供如何在 Log Analytics 中從 CollectD 收集資料的相關資訊。
+title: 在 Azure 監視器中從 CollectD 收集資料 | Microsoft Docs
+description: CollectD 是開放原始碼 Linux 精靈，可定期收集來自應用程式的資料和系統等級資訊。  本文提供如何在 Azure 監視器中從 CollectD 收集資料的相關資訊。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 3ccb307eb028170f2dc65fd7cf90edf3115ae9a7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102681"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999312"
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>在 Log Analytics 中，從 Linux 代理程式上的 CollectD 收集資料
-[CollectD](https://collectd.org/) 是開放原始碼 Linux 精靈，可定期收集來自應用程式的效能計量和系統等級資訊。 範例應用程式包括 Java 虛擬機器 (JVM)、MySQL 伺服器和 Nginx。 本文提供如何在 Log Analytics 中從 CollectD 收集效能資料的相關資訊。
+# <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>在 Azure 監視器中，從 Linux 代理程式上的 CollectD 收集資料
+[CollectD](https://collectd.org/) 是開放原始碼 Linux 精靈，可定期收集來自應用程式的效能計量和系統等級資訊。 範例應用程式包括 Java 虛擬機器 (JVM)、MySQL 伺服器和 Nginx。 本文提供如何在 Azure 監視器中從 CollectD 收集效能資料的相關資訊。
 
 您可以在[外掛程式表](https://collectd.org/wiki/index.php/Table_of_Plugins)中找到可用之外掛程式的完整清單。
 
@@ -57,7 +57,7 @@ CollectD 設定使用預設的 `write_http` 外掛程式，可將效能計量資
 > [!NOTE]
 > 如有需要，您可以將此連接埠設定為自行定義的連接埠。
 
-Log Analytics Linux 代理程式也會在連接埠 26000 接聽 CollectD 計量，然後將它們轉換成 Log Analytics 結構描述計量。 以下是 Log Analytics Linux 代理程式組態 `collectd.conf`。
+Log Analytics Linux 代理程式也會在連接埠 26000 接聽 CollectD 計量，然後將它們轉換成 Azure 監視器結構描述計量。 以下是 Log Analytics Linux 代理程式組態 `collectd.conf`。
 
     <source>
       type http
@@ -71,12 +71,12 @@ Log Analytics Linux 代理程式也會在連接埠 26000 接聽 CollectD 計量�
 
 
 ## <a name="versions-supported"></a>支援的版本
-- Log Analytics 目前支援 CollectD 4.8 版和更新版本。
+- Azure 監視器目前支援 CollectD 4.8 版和更新版本。
 - 需要有 Log Analytics Linux 代理程式 v1.1.0-217 或以上才能收集 CollectD 計量。
 
 
 ## <a name="configuration"></a>組態
-以下是在 Log Analytics 中設定收集 CollectD 資料的基本步驟。
+以下是在 Azure 監視器中設定收集 CollectD 資料的基本步驟。
 
 1. 使用 write_http 外掛程式，設定 CollectD 將資料傳送至 Log Analytics Linux 代理程式。  
 2. 設定 Log Analytics Linux 代理程式在適當的連接埠上接聽 CollectD 資料。
@@ -107,10 +107,10 @@ Log Analytics Linux 代理程式也會在連接埠 26000 接聽 CollectD 計量�
 
     sudo service collectd restart  sudo /opt/microsoft/omsagent/bin/service_control restart
 
-## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>CollectD 計量至 Log Analytics 的結構描述轉換
+## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>CollectD 計量至 Azure 監視器的結構描述轉換
 在 Log Analytics Linux 代理程式已收集的基礎結構計量和 CollectD 所收集的新計量之間，為了維持一種熟悉的模型，我們使用下列結構描述對應：
 
-| CollectD 計量欄位 | Log Analytics 欄位 |
+| CollectD 計量欄位 | [Azure 監視器] 欄位 |
 |:--|:--|
 | host | 電腦 |
 | plugin | None |
@@ -122,5 +122,5 @@ Log Analytics Linux 代理程式也會在連接埠 26000 接聽 CollectD 計量�
 | values[] | CounterValue |
 
 ## <a name="next-steps"></a>後續步驟
-* 了解[記錄查詢](../../log-analytics/log-analytics-queries.md)，以分析從資料來源和解決方案收集到的資料。 
-* 使用 [自訂欄位](../../log-analytics/log-analytics-custom-fields.md) ，以將來自 syslog 記錄的資料剖析至個別欄位。
+* 了解[記錄查詢](../log-query/log-query-overview.md)，以分析從資料來源和解決方案收集到的資料。 
+* 使用 [自訂欄位](custom-fields.md) ，以將來自 syslog 記錄的資料剖析至個別欄位。
