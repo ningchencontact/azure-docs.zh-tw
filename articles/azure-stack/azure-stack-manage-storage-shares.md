@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819513"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960559"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的儲存體容量 
 
@@ -91,7 +91,7 @@ VM 磁碟包含作業系統磁碟，並由租用戶新增至容器。 VM 也可�
 1. 登入[管理入口網站](https://adminportal.local.azurestack.external)。
 2. 選取 [所有服務]  >  [儲存體] 以開啟檔案共用清單，您可以在其中檢視使用量資訊。 
 
-  ![範例：儲存體檔案共用](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![範例：儲存體檔案共用](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - [總計] 是共用上可用的空間總計 (以位元組為單位)。 此空間用於儲存體服務所維護的資料和中繼資料。
   - [已使用] 是存放租用戶資料和相關中繼資料的檔案所使用的資料數量 (以位元組為單位)。

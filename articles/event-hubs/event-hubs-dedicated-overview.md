@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402331"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237122"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>事件中樞專用的概觀
 
@@ -33,12 +33,12 @@ ms.locfileid: "54402331"
 | 輸入事件 | 按百萬個事件付費 | 已包括 |
 | 輸送量單位 (每秒 1 MB 輸入，每秒 2 MB 輸出) | 按小時付費 | 已包括 |
 | 訊息大小 | 1 MB | 1 MB |
-| 發行者原則 | 是 | 是 |   
+| 發行者原則 | yes | yes |   
 | 用戶群組 | 20 | 20 |
-| 訊息重播 | 是 | 是 |
+| 訊息重播 | yes | yes |
 | 最大輸送量單位 | 20 (可通融至 100)   | 1 容量單位 (CU) ≈ 50 |
 | 代理連線 | 包含 1,000 個 | 包含 10 萬個 |
-| 其他代理連線 | 是 | 是 |
+| 其他代理連線 | yes | yes |
 | 訊息保留期 | 含 1 天 | 最多含 7 天 |
 | 擷取 | 按小時付費 | 已包括 |
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將了解如何搭配使用 Python 和翻譯工具文字 REST API 尋找指定文字的替代翻譯和使用範例。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 4ca07416c615984b4eb6c7799ff17d9fbe43fa3b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a97b958e241b216440a470e5eca86ebdf02adbe2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691465"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857306"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>快速入門：使用 Python 在雙語字典中查詢單字
 

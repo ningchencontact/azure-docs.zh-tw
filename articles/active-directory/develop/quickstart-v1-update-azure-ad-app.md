@@ -16,12 +16,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819088"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191720"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中更新應用程式
 
@@ -144,7 +145,7 @@ ms.locfileid: "55819088"
 
 如前文所述，除了在自己的應用程式上公開/存取 API，您也可以註冊用戶端應用程式以存取 Microsoft 資源所公開的 API。 Microsoft Graph API (在入口網站的資源/API 清單中稱為「Microsoft Graph」) 適用於所有已向 Azure AD 註冊的應用程式。 如果您在包含已註冊 Office 365 訂用帳戶之帳戶的租用戶中註冊用戶端應用程式，您也可以存取各種 Office 365 資源所公開的範圍。
 
-如需 Microsoft Graph API 所公開之範圍的完整討論，請參閱 [Microsoft Graph 權限參考](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference)一文。
+如需 Microsoft Graph API 所公開之範圍的完整討論，請參閱 [Microsoft Graph 權限參考](https://docs.microsoft.com/graph/permissions-reference)一文。
 
 > [!NOTE]
 > 由於目前的限制，如果原生用戶端應用程式使用「存取組織的目錄」權限，它們只能呼叫 Azure AD 圖形 API。 這項限制不適用於 web 應用程式。

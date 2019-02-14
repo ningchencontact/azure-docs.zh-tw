@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: QnA Maker 知識庫測試，對於用以改善傳回回應正確度的互動流程而言，是相當重要的部分。 您可以透過增強的交談介面測試知識庫，也能以之進行編輯。
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: dceeb17d8d56de37bc21790283ab73478b6d3076
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218592"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861229"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>在 QnA Maker 中以互動方式測試您的知識庫
 

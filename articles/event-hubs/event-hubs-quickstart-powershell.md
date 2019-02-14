@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 786d6fe04ced719217f57a2d603dff810b7a4c20
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f16dde524e20863f5fe20d98f5c62f18e835f8c5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430750"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234114"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立事件中樞
 
@@ -26,6 +26,8 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 ## <a name="prerequisites"></a>必要條件
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 若要完成本教學課程，請確定您具有下列項目︰
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶][]。
@@ -34,7 +36,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您在本機使用 PowerShell，您必須執行最新版的 PowerShell，才能完成本快速入門。 如果您需要安裝或升級，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0)。
+如果您在本機使用 PowerShell，您必須執行最新版的 PowerShell，才能完成本快速入門。 如果您需要安裝或升級，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -43,7 +45,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 下列範例會在美國東部區域中建立一個資源群組。 以您要使用的資源群組名稱取代 `myResourceGroup`：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
+New-AzResourceGroup –Name myResourceGroup –Location eastus
 ```
 
 ## <a name="create-an-event-hubs-namespace"></a>建立事件中樞命名空間
@@ -51,7 +53,7 @@ New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 建立您的資源群組之後，在該資源群組內建立事件中樞命名空間。 事件中樞命名空間提供唯一的完整網域名稱，您可以在其中建立事件中樞。 以命名空間的唯一名稱取代 `namespace_name`：
 
 ```azurepowershell-interactive
-New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
+New-AzEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
 ```
 
 ## <a name="create-an-event-hub"></a>建立事件中樞
@@ -60,7 +62,7 @@ New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName n
 `MessageRetentionInDays` 的允許期限為 1 到 7 天。
 
 ```azurepowershell-interactive
-New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
+New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```
 
 恭喜！ 您已使用 Azure PowerShell 建立事件中樞命名空間和該命名空間內的事件中樞。 
@@ -73,8 +75,8 @@ New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_
 - **從事件中樞接收事件**：[.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 [建立免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
-[New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
+[Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-az-ps
+[New-AzResourceGroup]: https://docs.microsoft.com/powershell/module/az.resources/new-Azresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png

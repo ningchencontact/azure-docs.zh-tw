@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 開始使用專案答案搜尋的 Python 範例。
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 8d0ddf1d532c77f23a930c46bb261e03bc5822e7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2eaf07e041998efade1091861144a2dc4d78c56d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218287"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860298"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>快速入門：使用 Python 進行專案答案搜尋
 
@@ -30,7 +30,7 @@ ms.locfileid: "55218287"
 ## <a name="code-scenario"></a>程式碼案例 
 
 下列程式碼會建立 URL 預覽。
-實際進行步驟如下：
+其實作的步驟如下：
 1. 宣告變數以依主機及路徑指定端點。
 2. 指定要預覽的查詢 URL，並新增查詢參數。  
 3. 設定查詢參數。

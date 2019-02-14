@@ -3,8 +3,8 @@ title: 如何移除使用者的應用程式存取 | Microsoft Docs
 description: 了解如何移除使用者的應用程式存取
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
-ms.author: barbkess
-ms.openlocfilehash: 00f0df4612fe523b8b585bc2c9458386422256e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d7f3619e345666256a63181eb978506914d55d1e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180495"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196530"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>如何移除使用者的應用程式存取
 

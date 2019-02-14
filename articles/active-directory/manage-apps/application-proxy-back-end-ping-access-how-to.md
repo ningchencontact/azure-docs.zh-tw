@@ -3,8 +3,8 @@ title: 如何設定應用程式 Proxy 應用程式以使用 PingAccess | Microso
 description: 了解如何使用 PingAccess 以利用標頭形式驗證，將應用程式 Proxy 的優點延伸到應用程式
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 5c042a6573d854bcdcd97c28231db0c1afbd2d8b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7a80d2fbf42cad333ba8779973be3a9710210646
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189386"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198264"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>如何設定應用程式 Proxy 應用程式以使用 PingAccess
 

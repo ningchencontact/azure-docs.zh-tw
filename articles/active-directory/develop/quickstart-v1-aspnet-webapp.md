@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816266"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185311"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -229,7 +230,7 @@ ms.locfileid: "55816266"
 如果您想要讓應用程式只接受特定 Azure AD 執行個體的成員帳戶進行登入 (包括該執行個體的*來賓帳戶*)，請遵循下列步驟：
 
 1. 將 *web.config* 中的 `Tenant` 參數從 `Common` 取代為組織的租用戶名稱，例如 *contoso.onmicrosoft.com*。
-1. 將您 [*OWIN 啟動類別*](#configure-the-authentication-pipeline) 中的 `ValidateIssuer` 引數變更為 `true`。
+1. 將您 [*OWIN 啟動類別*](#step-4-configure-the-authentication-pipeline) 中的 `ValidateIssuer` 引數變更為 `true`。
 
 若要只允許一系列特定組織的成員使用者登入，請遵循下列步驟：
 

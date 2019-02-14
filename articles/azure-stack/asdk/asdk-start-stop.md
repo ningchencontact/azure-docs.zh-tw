@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: e0b830a8c785ecab7e8f0e90cf9b9a702cbf25db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0073427028d20ab969b8d0135b1c831d7fdf8c73
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250672"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191959"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>啟動及停止 Azure Stack 開發套件 (ASDK)
 不建議直接重新啟動 ASDK 主機電腦。 而是應該遵循本文中的程序，適當地關閉然後重新啟動 ASDK 服務。 

@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: e600d9eb0cd100b1c2ab24b2545320a3e4cf1b39
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8303781e38ab2cb5284731f6ab038f038212810d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461027"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199539"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>教學課程：Azure Active Directory 與 Apptio 整合
 
 在本教學課程中，您將了解如何整合 Apptio 與 Azure Active Directory (Azure AD)。
-將 Apptio 與 Azure AD 整合可提供下列優點：
+整合 Apptio 與 Azure AD 時，您可享有下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Apptio 的人員。
 * 您可以讓使用者使用其 Azure AD 帳戶自動登入 Apptio (單一登入)。
@@ -35,7 +36,7 @@ ms.locfileid: "55461027"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Apptio 的整合，您需要下列項目：
+若要進行 Azure AD 與 Apptio 的整合設定，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Apptio 單一登入的訂用帳戶
@@ -73,7 +74,7 @@ ms.locfileid: "55461027"
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Apptio 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Apptio 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Apptio 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Apptio 設定及測試 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Apptio 單一登入](#configure-apptio-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -102,7 +103,7 @@ ms.locfileid: "55461027"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Apptio 網域及 URL 的單一登入資訊](common/idp-identifier.png)
+    ![Apptio 網域和 URL 的單一登入資訊](common/idp-identifier.png)
 
     在 [識別碼] 文字方塊中，輸入值：`urn:federation:apptio`
 
@@ -216,7 +217,7 @@ ms.locfileid: "55461027"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Apptio] 圖格時，應該會自動登入您已設定 SSO 的 Apptio。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Apptio] 圖格時，應該會自動登入您已設定 SSO 的 Apptio。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

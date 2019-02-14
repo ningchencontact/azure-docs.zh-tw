@@ -3,8 +3,8 @@ title: 如何將使用者指派至應用程式 | Microsoft Docs
 description: 了解如何將使用者指派至租用戶中的應用程式
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: fd677a34caa5a1871808b31477e91746ec9fdccb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: be36bfeb0991dc4a4b7fce723cadb6b508c0d6a3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170397"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198716"
 ---
 # <a name="how-to-assign-users-to-applications"></a>將使用者指派至應用程式
 

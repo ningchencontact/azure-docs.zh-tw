@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
-ms.openlocfilehash: da0627b51b52c1ab5c83d518edcfda2ff98dff5d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1505afdf34ddc4b534f345041285bb0d5824a285
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151294"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>教學課程：Azure Active Directory 與 Autotask Endpoint Backup 整合
 
 在本教學課程中，您會了解如何整合 Autotask Endpoint Backup 與 Azure Active Directory (Azure AD)。
-將 Autotask Endpoint Backup 與 Azure AD 整合可提供下列優點：
+將 Autotask Endpoint Backup 與 Azure AD 整合提供以下優點：
 
 * 您可以在 Azure AD 中控制可存取 Autotask Endpoint Backup 的人員。
 * 您可以讓使用者使用其 Azure AD 帳戶自動登入 Autotask Endpoint Backup (單一登入)。
@@ -66,14 +67,14 @@ ms.locfileid: "55151294"
 
 4. 在搜尋方塊中，輸入 **Autotask Endpoint Backup**，從結果面板中選取 [Autotask Endpoint Backup]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 Autotask Endpoint Backup](common/search-new-app.png)
+     ![結果清單中的 [Autotask Endpoint Backup]](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Autotask Endpoint Backup 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Autotask Endpoint Backup 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Autotask Endpoint Backup 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要搭配 Autotask Endpoint Backup 設定和測試 Azure AD 單一登入，您需要完成下列基本工作：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Autotask Endpoint Backup 單一登入](#configure-autotask-endpoint-backup-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -102,7 +103,7 @@ ms.locfileid: "55151294"
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![Autotask Endpoint Backup 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![[Autotask Endpoint Backup 網域及 URL] 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
 
@@ -164,7 +165,7 @@ ms.locfileid: "55151294"
 
 2. 在應用程式清單中，選取 [Autotask Endpoint Backup]。
 
-    ![應用程式清單中的 Autotask Endpoint Backup 連結](common/all-applications.png)
+    ![應用程式清單中的 [Autotask Endpoint Backup] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -188,7 +189,7 @@ ms.locfileid: "55151294"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Autotask Endpoint Backup] 圖格時，應該會自動登入您已設定 SSO 的 Autotask Endpoint Backup。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 [Autotask Endpoint Backup] 圖格時，應該會自動登入您已設定 SSO 的 Autotask Endpoint Backup。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

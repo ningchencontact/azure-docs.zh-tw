@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: caa877a265fb8665e062cc0069247bca0994c4bf
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7a83a56a63fbd8a74e6a7e6d6f5158e3b5a8c2a4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857092"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232724"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中內嵌報表
 
@@ -42,13 +42,13 @@ ms.locfileid: "54857092"
 
 **NuGet 套件安裝**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Api
 ```
 
 **C# 程式碼**
 
-```
+```csharp
 using Microsoft.PowerBI.Api.V1;
 using Microsoft.Rest;
 
@@ -63,7 +63,7 @@ var reports = (IList<Report>)client.Reports.GetReports(workspaceCollectionName, 
 
 ### <a name="calling-the-rest-api-directly"></a>直接呼叫 REST API
 
-```
+```csharp
 System.Net.WebRequest request = System.Net.WebRequest.Create("https://api.powerbi.com/v1.0/collections/{collectionName}/workspaces/{workspaceId}/Reports") as System.Net.HttpWebRequest;
 
 request.Method = "GET";
@@ -90,13 +90,13 @@ Power BI 工作區集合會使用內嵌權杖，其為 HMAC 簽署的 JSON Web �
 
 **NuGet 套件安裝**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **C# 程式碼**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername, roles and scopes are optional.
@@ -118,16 +118,17 @@ var token = embedToken.Generate("{access key}");
 
 **NuGet 套件安裝**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **JavaScript 程式碼**
 
-```
+```html
 <script src="/scripts/powerbi.js"></script>
 <div id="reportContainer"></div>
 
+<script>
 var embedConfiguration = {
     type: 'report',
     accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
@@ -137,6 +138,7 @@ var embedConfiguration = {
 
 var $reportContainer = $('#reportContainer');
 var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
+</script>
 ```
 
 ### <a name="set-the-size-of-embedded-elements"></a>設定內嵌元素大小

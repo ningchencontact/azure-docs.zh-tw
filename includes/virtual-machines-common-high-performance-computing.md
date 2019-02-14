@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a1a6b31c1500c51dbbc32683d9e0e911b60dcae4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440451"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246759"
 ---
 組織有大規模的運算需求。 這些 Big Compute 工作負載包括工程設計和分析、財務風險計算、影像轉譯、複雜模型、Monte Carlo 模擬等等。 
 
@@ -25,12 +25,12 @@ ms.locfileid: "54440451"
     * 在 Azure 虛擬機器或[虛擬機器擴展集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)中設定自己的叢集環境。 
     * 原形移轉內部部署叢集，或在 Azure 中部署新的叢集以取得額外容量。 
     * 使用 Azure Resource Manager 範本來部署前置[工作負載管理員](#workload-managers)基礎結構和[應用程式](#hpc-applications)。 
-    * 選擇 [HPC 和 GPU VM 大小](#hpc-and-gpu-sizes)，包括 MPI 或 GPU 工作負載的特製化硬體和網路連線。 
+    * 選擇 [HPC 和 GPU VM 大小](#hpc-and-gpu-vm-sizes)，包括 MPI 或 GPU 工作負載的特製化硬體和網路連線。 
     * 為 I/O 密集的工作負載新增[高效能儲存體](#hpc-storage)。
 * **混合式方案**
     * 擴充內部部署解決方案，以便將尖峰 (「激增」) 工作負載卸載至 Azure 基礎結構
-    * 使用隨選雲端運算搭配現有的[工作負載管理員](#workload-manager)。
-    * 利用 MPI 或 GPU 工作負載的 [HPC 和 GPU VM 大小](#hpc-and-gpu-sizes)。
+    * 使用隨選雲端運算搭配現有的[工作負載管理員](#workload-managers)。
+    * 利用 MPI 或 GPU 工作負載的 [HPC 和 GPU VM 大小](#hpc-and-gpu-vm-sizes)。
 * **Big Compute 解決方案即服務**
     * 使用 [Azure CycleCloud](#azure-cyclecloud)、[Azure Batch](#azure-batch) 和相關 [Azure 服務](#related-azure-services)來開發自訂 Big Compute 解決方案和工作流程。
     * 執行來自 [Altair](http://www.altair.com/)、[Rescale](https://www.rescale.com/azure/) 和[Cycle Computing](https://cyclecomputing.com/) (現在[與 Microsoft 聯手](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)) 等廠商之已啟用 Azure 的工程和模擬解決方案。

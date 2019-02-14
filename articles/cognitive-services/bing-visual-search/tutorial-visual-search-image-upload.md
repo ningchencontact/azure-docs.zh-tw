@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 分析將影像上傳到 Bing 的程序以取得深入見解，然後剖析並顯示回應。
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 7b461a46fdda9da3a1033122e4e576e92eff4de6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 919690dcef69bd6c142a692e992bfff45b995605
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195642"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858565"
 ---
 # <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>教學課程：將影像上傳至 Bing 圖像式搜尋 API
 

@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 7a716df2445ed652313e0853ac3378409951b597
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c96d78bf797365ef1336211753d9fffcaa227781
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476537"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>教學課程：Azure Active Directory 與 Amplitude 整合
 
 在本教學課程中，您將了解如何整合 Amplitude 與 Azure Active Directory (Azure AD)。
-將 Amplitude 與 Azure AD 整合可提供下列優點：
+將 Amplitude 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Amplitude 的人員。
 * 您可以讓使用者使用其 Azure AD 帳戶自動登入 Amplitude (單一登入)。
@@ -35,7 +36,7 @@ ms.locfileid: "55476537"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Amplitude 的整合，您需要下列項目：
+若要設定 Azure AD 與 Amplitude 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Amplitude 單一登入的訂用帳戶
@@ -216,7 +217,7 @@ ms.locfileid: "55476537"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Amplitude] 圖格時，應該會自動登入您已設定 SSO 的 Amplitude。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 [Amplitude] 圖格時，應該會自動登入您已設定 SSO 的 Amplitude。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

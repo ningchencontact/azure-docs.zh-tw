@@ -1,25 +1,18 @@
 ---
 title: 使用 OpsGenie 設定 Azure 服務健康情況警示 | Microsoft Docs
 description: 取得關於 OpsGenie 執行個體服務健康情況事件的個人化通知。
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-ms.assetid: ''
-ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: stephbaron
+ms.author: stbaron
 ms.topic: article
+ms.service: service-health
+ms.workload: Supportability
 ms.date: 11/14/2017
-ms.author: shtabriz
-ms.openlocfilehash: e406c80e408ddcf4d1d53f4e49925bded43b650f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579476"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858819"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>使用 OpsGenie 設定服務健康情況警示
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: LUIS 包含一組預先建置的意圖，可用來快速新增常見的交談式使用者情節。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: abdbd0672fbb29f3936e4bda6f71e41c0f287329
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8e11b6d5a9c9df10e789c8e0be3a90d94ecf3d23
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221211"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874390"
 ---
 # <a name="add-prebuilt-intents-for-common-intents"></a>新增常見意圖的預先建置意圖 
 

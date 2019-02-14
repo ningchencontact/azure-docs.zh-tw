@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 自動建議 API。
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: fc0590b61c5e6b42a3f3f805021abfa4553bd289
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 331b7f3cffa07003908cd339adf9dbea2a4593e0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184405"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878209"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-c"></a>以 C# 撰寫的 Bing 自動建議 API 的快速入門
 

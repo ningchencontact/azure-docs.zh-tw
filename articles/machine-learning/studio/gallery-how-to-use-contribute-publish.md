@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: b5a460f3449785721ac360ba398bc47d1945b954
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 48bb9b24901cd07891f3d52bcd916f95bc2801f4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497686"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244213"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>共用及探索 Azure AI 資源庫中的資源
 
-**[Azure AI 資源庫](http://gallery.cortanaintelligence.com)** 是一個由社群驅動的網站，可用於探索及共用透過 Azure AI 建置的解決方案。
+**[Azure AI 資源庫](http://gallery.azure.ai)** 是一個由社群驅動的網站，可用於探索及共用透過 Azure AI 建置的解決方案。
 資源庫具有各種資源，可供您開發自己的分析解決方案。
 
 ## <a name="what-can-i-find-in-the-gallery"></a>我可以在資源庫中找到什麼？

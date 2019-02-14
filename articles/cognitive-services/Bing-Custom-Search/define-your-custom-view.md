@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 描述如何建立網站和垂直搜尋服務
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 58830e3391cb6f794cfd8911e97b0c6dbb3cd2c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193636"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234810"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>設定 Bing 自訂搜尋體驗
 
