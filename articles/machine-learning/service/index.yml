@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c337f147eaebc376c7953e7f585b5b9f6a10f94
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f4b66f79e415be8f9598a0e6f5c875d8a2597514
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471679"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300018"
 documentType: LandingData
 title: Azure Machine Learning 服務文件
 metadata:
@@ -22,12 +22,17 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning 服務提供雲端架構的環境，可用於開發、定型、測試、部署、管理及追蹤機器學習服務模型。 此服務完全支援開放原始碼技術，例如 Scikit-learn、Tensorflow、Pytorch 或任何其他以 Python 為基礎的架構。 了解如何利用快速入門和教學課程，將這項服務使用於您的機器學習工作流程。
+  description: Azure Machine Learning 服務提供雲端式環境，可快速用於建置、定型及部署您的機器學習服務模型。 使用自動化機器學習，更快地找出演算法與超參數。 透過自動調整運算與機器學習的Azure DevOps 提升產能及降低成本。 使用開放原始碼架構 (例如 PyTorch、TensorFlow 及 scikit-learn) 及服務 SDK，從 Python 環境存取全部的功能。 了解如何使用我們的快速入門和教學課程。
 sections:
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: <a href="quickstart-get-started">在 Azure 入口網站</a>或<a href="quickstart-create-workspace-with-python">在 Python 中</a>建立服務工作區和資源。
+    text: 若要使用這項服務，您需要工作區和相關聯的資源。  開始使用：
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="quickstart-get-started">使用 Azure 入口網站快速入門</a>取得工作區，並執行實驗，而不需要安裝任何項目。
+    - html: <a href="quickstart-create-workspace-with-python">使用 Python 快速入門</a>安裝主要 SDK、建立工作區並在本機 Notebook 伺服器中執行實驗。
 - title: 逐步教學課程
   items:
   - type: paragraph
@@ -35,7 +40,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">訓練</a>及<a href="tutorial-deploy-models-with-aml">部署</a>影像分類模型 (<b>此系列共有二個部分</b>)。<br>&nbsp;
+    - html: <a href="tutorial-train-models-with-aml">訓練</a>及<a href="tutorial-deploy-models-with-aml">部署</a>影像分類模型 (<b>此系列共有二個部分</b>)。
     - html: <a href="tutorial-data-prep">準備資料</a>，並<a href="tutorial-auto-train-models">使用自動化的機器學習</a>來定型和調整迴歸模型 (<b>此系列共有二個部分</b>)。
 - title: 範例
   items:
