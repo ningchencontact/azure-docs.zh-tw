@@ -59,11 +59,11 @@ Avere vFXT 快取解決方案的建置可處理數百、數千或成千上萬個
 
 ### <a name="how-much-data-can-an-avere-vfxt-environment-store"></a>Avere vFXT 環境可以儲存多少資料？
 
-Avere vFXT 是快取。 它不會特別儲存資料。 而是結合使用 RAM 與 SSD 來儲存快取的資料。 資料會永久儲存在後端儲存體系統 (例如，NetApp NAS 系統或 Blob 容器)。 Avere vFXT 系統並沒有背後所儲存資料量的相關資訊。 Avere vFXT 只會快取用戶端所要求資料的子集。  
+Avere vFXT 算是一種快取， 因此不會特別儲存資料。 而是結合使用 RAM 與 SSD 來儲存快取的資料。 資料會永久儲存在後端儲存體系統 (例如，NetApp NAS 系統或 Blob 容器)。 Avere vFXT 系統並沒有背後所儲存資料量的相關資訊。 Avere vFXT 只會快取用戶端所要求資料的子集。  
 
 ### <a name="what-regions-are-supported"></a>支援哪些區域？
 
-自 2018 年 11 月 1 日起，除了主權區域 (中國、德國) 地區和政府區域，所有區域都支援 Avere vFXT for Azure。 請確定您所要使用區域可支援數量龐大的計算核心，以及建立 Avere vFXT 叢集所需的 VM 執行個體。
+自 2018 年 11 月 1 日起，除了主權區域 (中國、德國) 地區和政府區域，所有區域都支援 Avere vFXT for Azure。 請確定您所要使用的區域可支援數量龐大的計算核心，以及建立 Avere vFXT 叢集所需的 VM 執行個體。
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>如何取得 Avere vFXT 的相關協助？
 
@@ -71,7 +71,7 @@ Avere vFXT 是快取。 它不會特別儲存資料。 而是結合使用 RAM �
 
 ### <a name="is-avere-vfxt-highly-available"></a>Avere vFXT 可用性高嗎？
 
-是，Avere vFXT 可執行為專屬 HA 解決方案。
+高，Avere vFXT 可當作專屬 HA 解決方案來執行。
 
 ### <a name="does-avere-vfxt-for-azure-also-support-other-cloud-services"></a>Avere vFXT for Azure 是否也支援其他雲端服務？
 
@@ -116,7 +116,7 @@ Avere vFXT 不支援部署虛擬機器擴展集。 數個內建的可用性支�
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-in-containers"></a>可以在容器中執行 Avere vFXT 叢集嗎？
 
-否，必須將 Avere vFXT 部署為獨立的應用程式。
+不可以，Avere vFXT 必須部署為獨立的應用程式。
 
 ### <a name="do-the-avere-vfxt-vms-count-against-my-compute-quota"></a>Avere vFXT VM 計數會佔用我的計算配額嗎？
 
@@ -179,7 +179,7 @@ Avere vFXT for Azure 目前不支援本機 SSD。 用於 Avere vFXT 的磁碟必
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>可以在 InfiniBand 上執行 Avere vFXT 嗎？
 
-否，Avere vFXT 只能使用乙太網路/IP。
+不可以，Avere vFXT 只能使用乙太網路/IP。
 
 ### <a name="how-do-i-access-my-on-premises-nas-environment-from-avere-vfxt"></a>如何從 Avere vFXT 存取我的內部部署 NAS 環境？
 
@@ -196,7 +196,7 @@ Avere vFXT 環境類似任何其他的 Azure VM，它需要透過網路閘道或
 
 ### <a name="can-i-run-avere-vfxt-with-public-ip-addresses"></a>可以使用公用 IP 位址執行 Avere vFXT 嗎？
 
-否，Avere vFXT 是為了在透過最佳做法保護安全的網路環境中運作。  
+不可以，用來運作 Avere vFXT 的網路環境應該要透過最佳做法加以保護。  
 
 ## <a name="technical-back-end-storage-core-filers"></a>技術：後端儲存體 (核心檔案管理工具)
 
