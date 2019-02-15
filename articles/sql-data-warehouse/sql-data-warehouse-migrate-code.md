@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: f36ee3ce6a8d678cdd846474576fc049df0b4f88
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472298"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815756"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>將您的 SQL 程式碼移轉至 SQL 資料倉儲
 本文說明將您的程式碼從另一個資料庫移轉到 SQL 資料倉儲時，可能需要進行的程式碼變更。 某些 SQL 資料倉儲功能設計為以分散式方式運作，可以大幅改善效能。 不過，為了維持效能和延展性，某些功能也無法使用。
@@ -32,7 +32,7 @@ ms.locfileid: "55472298"
 * output 子句
 * 內嵌使用者定義函數
 * 多重陳述式函式
-* [通用資料表運算式](#Common-table-expressions)
+* 通用資料表運算式
 * [遞迴通用資料表運算式 (CTE)](#Recursive-common-table-expressions-(CTE)
 * CLR 函式和程序
 * $partition 函式
