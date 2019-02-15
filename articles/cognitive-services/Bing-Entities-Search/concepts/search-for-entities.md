@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 使用 Bing 實體搜尋 API，可透過搜尋查詢擷取和搜尋實體和地點。
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: b1d46d125d390f8612c5708e1964e0626acde343
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e78cc86a91e229b5d4d4aead5709da2f694ecac1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757888"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895358"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>使用 Bing 實體 API 搜尋實體
 
@@ -174,7 +174,7 @@ API 回應包含 [SearchResponse](https://docs.microsoft.com/rest/api/cognitives
 
 ## <a name="find-places"></a>尋找地點
 
-`places` 欄位是包含 [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) 物件清單的 [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) 物件 (如需詳細資訊，請參閱 [實體類型][](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) 欄位)。 清單包含一或多個符合要求的本地實體。
+`places` 欄位是包含 [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) 物件清單的 [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) 物件 (如需詳細資訊，請參閱 [實體類型](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) 欄位)。 清單包含一或多個符合要求的本地實體。
 
 地點包含餐廳、旅館或本地商家。 [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) 欄位包含識別本地實體類型的提示。 清單包含地點、本地商家、餐廳等提示清單。 陣列中的每個後續提示都會縮小實體的類型。 如需可能類型的清單，請參閱 [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) (實體類型)
 

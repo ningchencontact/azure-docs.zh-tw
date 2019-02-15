@@ -8,17 +8,12 @@ items:
     href: what-is-ml-studio.md
   - name: 比較 ML 產品
     href: ../service/overview-more-machine-learning.md
-  - name: 常見問題集
-    displayName: FAQ
-    href: faq.md
   expanded: true
-- name: 快速入門
+- name: 教學課程
   items:
   - name: 建立您的第一個實驗
     displayName: quickstart
     href: create-experiment.md
-- name: 教學課程
-  items:
   - name: 建立預測解決方案
     items:
     - name: 1 - 建立實驗
@@ -199,9 +194,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: 自訂神經網路 (Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: 982f2794d22f830c967607108b31fbfe0d0de359
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c9bbcd35f74e113c33ef0a8b449d806734501324
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238431"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266862"

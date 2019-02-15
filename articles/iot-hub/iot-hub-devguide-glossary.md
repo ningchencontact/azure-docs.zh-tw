@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320079"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817372"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
 本文會列出 IoT 中樞文章中使用的一些常見術語。
@@ -82,7 +82,7 @@ Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許�
 您可以在 IoT 中樞上建立自訂[端點](iot-hub-devguide-endpoints.md)，以傳遞由[路由規則](#routing-rules)分派的訊息。 自訂端點會直接連線到事件中樞、服務匯流排佇列或服務匯流排主題。
 
 ## <a name="custom-gateway"></a>自訂閘道
-閘道可讓無法直接連接到 [IoT 中樞](#iot-hub)的裝置能夠連線。 您可以使用 [Azure IoT Edge](#azure-iot-edge) 來建立自訂閘道，以實作自訂邏輯從而處理 Edge 上的訊息、自訂通訊協定轉換和其他處理。
+閘道可讓無法直接連接到 [IoT 中樞](#iot-hub)的裝置能夠連線。 您可以使用 Azure IoT Edge 來建立自訂閘道，以實作自訂邏輯從而處理 Edge 上的訊息、自訂通訊協定轉換和其他處理。
 
 ## <a name="data-point-message"></a>資料點訊息
 資料點訊息是[裝置到雲端](#device-to-cloud)的訊息，內含風速或溫度等[遙測](#telemetry)資料。
@@ -224,7 +224,7 @@ IoT 中樞的[作業監視](iot-hub-operations-monitoring.md)可讓您即時監�
 您必須在 IoT 中樞設定[路由規則](iot-hub-devguide-messages-read-custom.md)，以將裝置到雲端訊息路由傳送到[內建端點](#built-in-endpoints)或[自訂端點](#custom-endpoints)，以由您的解決方案後端處理。
 
 ## <a name="sasl-plain"></a>SASL PLAIN
-SASL PLAIN 是 [AMQP](#advanced-message-queue-protocol) 通訊協定用來傳輸安全性權杖的通訊協定。
+SASL PLAIN 是 AMQP 通訊協定用來傳輸安全性權杖的通訊協定。
 
 ## <a name="service-rest-api"></a>服務 REST API
 您可以從解決方案後端使用[服務 REST API](https://docs.microsoft.com/rest/api/iothub/service) 來管理您的裝置。 該 API 可讓您擷取及更新[裝置對應項](#device-twin)屬性、叫用[直接方法](#direct-method)，以及排程[作業](#job)。 您通常應該使用如 IoT 中樞教學課程中所示的其中一個較高層級的[服務 SDK](#azure-iot-service-sdks)。
@@ -251,7 +251,7 @@ Azure 訂用帳戶是發生帳單的地方。 您建立的每個 Azure 資源，
 在[裝置對應項](iot-hub-devguide-device-twins.md)的內容中，標籤是解決方案後端以 JSON 文件形式儲存和擷取的裝置中繼資料。 裝置上的應用程式看不到標籤。
 
 ## <a name="telemetry"></a>遙測
-裝置可收集遙測資料 (例如風速或溫度)，並使用[資料點訊息](#data-point-messages)將遙測傳送到 IoT 中樞。
+裝置可收集遙測資料 (例如風速或溫度)，並使用資料點訊息將遙測傳送到 IoT 中樞。
 
 ## <a name="token-service"></a>權杖服務
 您可以使用權杖服務來實作裝置的驗證機制。 建立具備 **DeviceConnect** 權限的 IoT 中樞[共用存取原則](#shared-access-policy)，以建立「裝置範圍」權杖。 這些權杖可讓裝置連接到 IoT 中樞。 裝置可使用自訂驗證機制來向權杖服務進行驗證。 如果裝置驗證成功，則權杖服務會發出 SAS 權杖以供裝置用來存取您的 IoT 中樞。

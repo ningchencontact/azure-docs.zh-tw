@@ -143,8 +143,6 @@ items:
         href: service-bus-auto-forwarding.md
       - name: 交易處理
         href: service-bus-transactions.md
-      - name: 配對的命名空間實作
-        href: service-bus-paired-namespaces.md
     - name: 端對端追蹤和診斷
       href: service-bus-end-to-end-tracing.md
     - name: 建置多層式服務匯流排應用程式
@@ -230,9 +228,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azureservicebus
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: d1caf87168de73bcf91f23fccd1a81f374c63e51
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 00411282f2d455ded92f3a093b9c0a6d14e6076c
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295129"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301429"

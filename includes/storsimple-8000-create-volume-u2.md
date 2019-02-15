@@ -1,5 +1,16 @@
-<!--author=alkohli last changed: 07/19/2017-->
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888809"
+---
 #### <a name="to-create-a-volume"></a>建立磁碟區
 1. 從 [裝置] 刀鋒視窗的表格式裝置清單中，選取您的裝置。 按一下 [+ 新增磁碟區]。
 
@@ -36,7 +47,7 @@
 
     9. 按一下頁面底部的 [新增] 。 使用指定的設定來建立磁碟區。
 
-        ![Click Create](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+        ![按一下 [建立專案]。](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
         > [!NOTE]
         > 請注意，您在此建立的磁碟區未受保護。 您必須建立備份原則並使此磁碟區與之關聯以採取排定的備份。 
