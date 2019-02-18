@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f4b66f79e415be8f9598a0e6f5c875d8a2597514
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 46457711c1611e614f89a813b1856687beb27ac7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300018"
+ms.locfileid: "56311427"
 documentType: LandingData
 title: Azure Machine Learning 服務文件
 metadata:
@@ -17,26 +17,26 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 1/30/2019
+  ms.date: 2/15/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning 服務提供雲端式環境，可快速用於建置、定型及部署您的機器學習服務模型。 使用自動化機器學習，更快地找出演算法與超參數。 透過自動調整運算與機器學習的Azure DevOps 提升產能及降低成本。 使用開放原始碼架構 (例如 PyTorch、TensorFlow 及 scikit-learn) 及服務 SDK，從 Python 環境存取全部的功能。 了解如何使用我們的快速入門和教學課程。
+  description: Azure Machine Learning 服務提供雲端式環境，可快速準備資料、定型及部署機器學習服務模型。 使用自動化機器學習，更快地找出演算法與超參數。 透過自動調整運算與管線提升產能及降低成本。 使用開放原始碼 Python 架構 (例如 PyTorch、TensorFlow 及 scikit-learn) 及服務 SDK，存取全部功能。 開始使用快速入門和教學課程。
 sections:
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: 若要使用這項服務，您需要工作區和相關聯的資源。  開始使用：
+    text: 若要使用這項服務，您需要工作區和相關聯的資源。  透過以下項目開始使用：
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-get-started">使用 Azure 入口網站快速入門</a>取得工作區，並執行實驗，而不需要安裝任何項目。
-    - html: <a href="quickstart-create-workspace-with-python">使用 Python 快速入門</a>安裝主要 SDK、建立工作區並在本機 Notebook 伺服器中執行實驗。
+    - html: <a href="quickstart-get-started">Azure 入口網站快速入門</a>：取得工作區並執行實驗，而不需要安裝任何項目。
+    - html: <a href="quickstart-create-workspace-with-python">Python 快速入門</a>：裝主要 SDK、建立工作區並在本機 Notebook 伺服器中建立。
 - title: 逐步教學課程
   items:
   - type: paragraph
-    text: 了解如何準備資料、設定各項實驗，並讓您的機器學習模型能夠運作：
+    text: 了解如何準備資料、設定各項實驗，並讓您的機器學習模型定型並能夠運作：
   - type: list
     style: unordered
     items:

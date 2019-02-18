@@ -99,20 +99,13 @@ items:
   - name: 維護和更新
     href: maintenance-and-updates.md
   - name: 磁碟儲存體
-    href: about-disks-and-vhds.md
     items:
-    - name: 受控磁碟
+    - name: 受控磁碟簡介
       href: managed-disks-overview.md
-    - name: 進階 SSD
-      href: premium-storage.md
-    - name: 標準 SSD
-      href: disks-standard-ssd.md
-    - name: Ultra SSD
-      href: disks-ultra-ssd.md
-    - name: 進階儲存體效能
+    - name: 選取適用於 IaaS VM 的磁碟類型
+      href: disks-types.md
+    - name: 為高效能而設計
       href: premium-storage-performance.md
-    - name: 標準儲存體
-      href: standard-storage.md
     - name: 磁碟適用的延展性目標
       href: disk-scalability-targets.md
     - name: 磁碟備份和災害復原
@@ -426,6 +419,8 @@ items:
         href: add-disk.md
       - name: Azure 入口網站
         href: attach-disk-portal.md
+    - name: 基準測試磁碟
+      href: disks-benchmarks.md
     - name: 中斷連結磁碟
       href: detach-disk.md
     - name: 調整磁碟大小
@@ -450,7 +445,7 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: 使用寫入加速器
       href: how-to-enable-write-accelerator.md
-    - name: 啟用 Ultra SSD
+    - name: 啟用 Ultra 磁碟
       href: disks-enable-ultra-ssd.md
     - name: 效能最佳化
       href: optimization.md
@@ -562,9 +557,9 @@ items:
     href: faq.md
 - name: 疑難排解
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 5a154ba0022a73b8acf9ded071ccfb13e62b7509
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3c7ef0b41167e396828063950a63574ad5b3a7c9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299133"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330795"
