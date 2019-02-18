@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 799f47b291b3943dcb4d6b31bc8df732c28990cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: a9e5be3c1dcbf4461bd00b2b1ce530aa16e441ef
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816589"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962123"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控執行個體資源限制概觀
 
@@ -34,7 +34,7 @@ ms.locfileid: "55816589"
 
 Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Gen5) 上。 世代硬體有不同的特性，如下表所述：
 
-|   | **第 4 代** | **第 5 代** |
+|   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | 硬體 | Intel E5 2673 v3 (Haswell) 2.4-GHz 處理器，附加 SSD 虛擬核心 = 1 PP (實體核心) | Intel E5 2673 v4 (Broadwell) 2.3-GHz 處理器，快速 NVMe SSD，虛擬核心 = 1 LP (超執行緒) |
 | 計算 | 8 個、16 個、24 個虛擬核心 | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 |

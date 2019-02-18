@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741108"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977808"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>對 API 節流錯誤進行疑難排解 
 
@@ -79,8 +79,8 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API 呼叫率和節流處理錯誤分析器
 「計算」資源提供者的 API 有一個可用的預覽版疑難排解功能。 這些 PowerShell Cmdlet 提供與每一作業每一時間間隔之 API 要求率及每一作業群組 (原則) 之節流處理違規相關的統計資料：
--   [Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
--   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+-   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
 
 API 呼叫統計資料可提供訂用帳戶用戶端行為的絕佳深入解析，讓您能夠輕鬆識別出造成節流的呼叫模式。
 
@@ -89,7 +89,7 @@ API 呼叫統計資料可提供訂用帳戶用戶端行為的絕佳深入解析�
 PowerShell Cmdlet 目前使用 REST 服務 API，這是用戶端可直接輕鬆呼叫的 API (但尚未正式支援)。 若要查看 HTTP 要求格式，請執行 Cmdlet 搭配 -Debug 參數，或使用 Fiddler 在其執行時進行窺探。
 
 
-## <a name="best-practices"></a>最佳做法 
+## <a name="best-practices"></a>最佳作法 
 
 - 請勿無條件和/或立即地重試 Azure 服務 API 錯誤。 在發生不可重試的錯誤時讓用戶端程式碼進入快速重試迴圈，是經常發生的狀況。 重試最終會耗盡目標作業的群組允許的呼叫限制次數，而對訂用帳戶的其他用戶端造成影響。 
 - 在大量 API 自動化的案例中，請在目標作業群組的可用呼叫計數低於某個低閾值時考慮實作主動用戶端自我節流。 
