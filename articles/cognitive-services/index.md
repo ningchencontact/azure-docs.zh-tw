@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 10/23/2018
+ms.date: 02/15/2019
 ms.topic: hub-page
-ms.openlocfilehash: ceb5bb59f65e0f01d04d1aa9726b2494384b4a67
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 12957121d386afdc911bb0be954c0066d580e83e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998925"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338031"
 ---
 <h1>Azure 認知服務文件</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。</p>
@@ -133,7 +133,7 @@ ms.locfileid: "55998925"
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">使用 C#</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">使用 Java</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">使用 Node.js</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze">使用 Python</a></p>
+                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk#analyze-an-image">使用 Python</a></p>
                     </div>
                 </div>
             </div>
@@ -301,7 +301,6 @@ ms.locfileid: "55998925"
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>自訂視覺服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">臉部 API</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">影片索引子</a></p>
-                        <p><a href="/azure/cognitive-services/emotion/home"><span>表情 API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
                     </div>
                 </div>
             </div>
