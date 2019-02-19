@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/11/2018
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ebb1a3fba95ed5794b3737d75c4ec182163a32fb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978497"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984421"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>教學課程：使用 Azure 資訊安全中心來監視 Windows 虛擬機器
 
@@ -107,7 +107,7 @@ Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資
 
 除了資源組態建議外，資訊安全中心也會提供威脅偵測警示。 安全性警示功能會彙總從每個 VM、Azure 網路記錄和連線合作夥伴解決方案所收集到的資料，以偵測不利於 Azure 資源的安全性威脅。 若要深入了解資訊安全中心的威脅偵測功能，請參閱 [Azure 資訊安全中心的偵測功能](../../security-center/security-center-detection-capabilities.md)。
 
-若要使用安全性警示功能，須將資訊安全中心的定價層從「免費」提升為「標準」。 當您改用這個較高的定價層時，會有 60 天的**免費試用**。 
+若要使用安全性警示功能，須將資訊安全中心的定價層從「免費」提升為「標準」。 當您改用這個較高的定價層時，會有**免費試用**。 
 
 若要變更定價層：  
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將了解如何使用 Java 和翻譯工具文字 API 來判斷句子長度。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 26c1d8c703f8bb03d06e742d52d639cf3dd24634
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e15934fb849e38d69772117a7578289a5843801a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208392"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963466"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>快速入門：搭配使用翻譯工具文字 API 與 Java 來判斷句子長度
 
@@ -171,6 +171,12 @@ public static void main(String[] args) {
 
 ```console
 gradle build
+```
+
+當建置完成時，執行：
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>範例回應

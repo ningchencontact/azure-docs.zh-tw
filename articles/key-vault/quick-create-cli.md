@@ -3,7 +3,7 @@ title: Azure 快速入門 - 使用 Azure CLI 從 Key Vault 設定及擷取祕密
 description: 說明如何使用 Azure CLI 從 Azure Key Vault 設定及擷取祕密的快速入門
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/08/2019
 ms.author: barclayn
-ms.openlocfilehash: a78cc79031a8dc9b0c98beddf759fbc8674c6dd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8065f670da6614db8c3524fd351a31ad095f8257
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168255"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113034"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>快速入門：使用 Azure CLI 從 Azure Key Vault 設定及擷取祕密
 
@@ -67,12 +67,12 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 
 ## <a name="add-a-secret-to-key-vault"></a>將祕密新增至 Key Vault
 
-若要將祕密新增至保存庫，您只需要採取一些額外步驟。 應用程式可以使用此密碼。 此密碼稱為 **ExamplePassword** 並在其中儲存 **Pa$$w0rd** 值。
+若要將祕密新增至保存庫，您只需要採取一些額外步驟。 應用程式可以使用此密碼。 此密碼會稱為 **ExamplePassword**，且其中會儲存 **hVFkk965BuUv** 值。
 
-輸入下列命令，以在 Key Vault 中建立稱為 **ExamplePassword** 並將儲存 **Pa$$w0rd** 值的祕密：
+輸入下列命令，以在 Key Vault 中建立稱為 **ExamplePassword** 並將儲存 **hVFkk965BuUv** 值的祕密：
 
 ```azurecli
-az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
 透過使用其 URI，您現在可以參照您新增至 Azure Key Vault 的密碼。 使用 **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** 來取得最新版本。 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84ca8aff053fdcd7e085392ecf28ca687803a8f9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 108fd47eea88e4fe0bd8e3eb22cb03e1a092a29e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230211"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999142"
 ---
-# <a name="set-up-your-media-services-development-environment"></a>設定媒體服務開發環境
+# <a name="set-up-your-media-services-development-environment"></a>設定媒體服務開發環境  
 
 下列步驟說明使用 Azure 媒體服務進行開發時所需的必要條件。
 
@@ -44,7 +44,7 @@ ms.locfileid: "50230211"
 
 ## <a name="next-steps"></a>後續步驟
 
-在 **Azure 程式碼範例**資源庫中找到多個程式碼範例：[Azure 媒體服務程式碼範例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。
+在 **Azure 程式碼範例**資源庫中尋找多個程式碼範例：[Azure 媒體服務程式碼範例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

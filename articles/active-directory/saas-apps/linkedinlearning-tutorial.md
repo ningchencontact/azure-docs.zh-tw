@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 LinkedIn Learning 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
 ms.service: Azure-Active-Directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: be5dd0a0fd1eb45c505a2f0ddf1489d21bfd38e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9328564b082ba3eb0cff94652271fcd64cf2630c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821173"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>教學課程：Azure Active Directory 與 LinkedIn Learning 整合
 
@@ -118,11 +119,11 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 您將會使用實際的識別碼和回覆 URL 來更新這些值，稍後會在教學課程的**設定 LinkedIn Learning 單一登入**一節中加以說明。
 
-5. LinkedIn Learning 應用程式需要特定格式的 SAML 判斷提示，要求您將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示上述的範例。 [唯一的使用者識別碼] 的預設值是 **user.userprincipalname**，但是 LinkedIn Learning 預期這是與使用者電子郵件地址對應的值。 對此您可以使用清單中的 **user.mail** 屬性，或者根據組織組態使用適當的屬性值。 
+5. LinkedIn Learning 應用程式需要特定格式的 SAML 判斷提示，要求您將自訂屬性對應新增到您的 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 LinkedIn Learning 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯] 圖示以編輯屬性對應，並變更屬性對應。
 
     ![映像](common/edit-attribute.png)
 
-6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+6. 除了以上屬性外，LinkedIn Learning 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
     
     | Name | 來源屬性 |
     | ---------------| --------------- |
@@ -133,9 +134,9 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
     a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
 
-    ![映像](./media/linkedinlearning-tutorial/tutorial_usermail.png)
+    ![映像](common/new-save-attribute.png)
 
-    ![映像](./media/linkedinlearning-tutorial/tutorial_usermailedit.png)
+    ![映像](common/new-attribute-details.png)
 
     b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
 

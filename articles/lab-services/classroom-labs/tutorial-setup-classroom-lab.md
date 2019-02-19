@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095748"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998513"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -28,7 +28,7 @@ ms.locfileid: "55095748"
 
 > [!div class="checklist"]
 > * 建立教室實驗室
-> * 設定教室實驗室
+> * 將使用者新增至實驗室
 > * 將註冊連結傳送給學生
 
 ## <a name="prerequisites"></a>必要條件
@@ -43,13 +43,12 @@ ms.locfileid: "55095748"
 2. 選取 [登入]，然後輸入您的認證。 Azure 實驗室服務支援組織帳戶和 Microsoft 帳戶。 
 3. 在 [新增實驗室] 視窗中，執行下列動作： 
     1. 指定實驗室的**名稱**。 
-    2. 指定實驗室中允許的**使用者數目**上限。 
+    2. 指定實驗室中的**虛擬機器數目**上限。 建立實驗室之後或在現有的實驗室中，您可以增加或減少 VM 數目。 如需詳細資訊，請參閱[更新實驗室中的 VM 數目](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)。
     6. 選取 [ **儲存**]。
 
         ![建立教室實驗室](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. 在 [選取虛擬機器規格] 頁面上，執行下列步驟：
     1. 選取在實驗室中建立的虛擬機器 (VM) [大小]。 
-    2. 選取您要在其中建立 VM 的 [區域]。 
     3. 選取要用來在實驗室中建立 VM 的 [VM 映像]。 
     4. 選取 [下一步] 。
 
@@ -69,17 +68,15 @@ ms.locfileid: "55095748"
 7. 範本的設定完成後，您會看到下列頁面： 
 
     ![在範本頁面完成後加以設定](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. 以下是本教學課程中的選擇性步驟： 
+8. 在 [設定範本] 頁面上，執行下列步驟：這些都是本教學課程的**選擇性**步驟。
     1. 選取 [啟動] 以啟動範本 VM。
     2. 選取 [連線] 以連線至範本 VM。 
     3. 在您的範本 VM 上安裝並設定軟體。 
     4. **停止** VM。  
     5. 輸入範本的 [描述]
-
-        ![接著在 [設定範本] 頁面中](../media/tutorial-setup-classroom-lab/configure-template-next.png)
 9. 選取 [範本] 頁面上的 [下一步]。 
 10. 在 [發佈範本] 頁面上，執行下列動作。 
-    1. 若要立即發佈範本，請選取 [我了解我無法在發佈之後修改範本。*此程序只能執行一次，最多可能需要一個小時]* 核取方塊，然後選取 [發佈]。  
+    1. 若要立即發佈範本，請選取 [發佈]。  
 
         > [!WARNING]
         > 在您發佈時，即無法取消發佈。 
@@ -103,7 +100,9 @@ ms.locfileid: "55095748"
 
 1. 選取左側功能表上的 [使用者]。 預設會啟用 [限制存取] 選項。 當此設定為開啟時，即使使用者有註冊連結，除非使用者位於使用者清單中，否則也無法向實驗室註冊。 只有清單中的使用者可以使用您傳送的註冊連結，向實驗室註冊。 在此程序中，您會在清單中新增使用者。 或者，您可以關閉 [限制存取]，讓使用者能向實驗室註冊 (只要他們有註冊連結)。 
 2. 選取工具列上的 [新增使用者]。 
-3. 在 [新增使用者] 頁面上的不同行或以分號隔開的單一行中，輸入使用者的電子郵件地址。 
+
+    ![新增使用者按鈕](../media/how-to-configure-student-usage/add-users-button.png)
+1. 在 [新增使用者] 頁面上的不同行或以分號隔開的單一行中，輸入使用者的電子郵件地址。 
 
     ![新增使用者電子郵件地址](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. 選取 [ **儲存**]。 您會在清單中看到使用者的電子郵件地址及其狀態 (是否已註冊)。 

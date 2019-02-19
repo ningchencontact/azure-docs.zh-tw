@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 72acc4fe0febaa09d6deb82043795b6003af683f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 28710ebfaef4c82212e0208c36f50a96f0dda083
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706768"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892043"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>教學課程：使用 Azure Lab Services 設定實驗室帳戶
 在 Azure Lab Services 中，實驗室帳戶會作為中心帳戶，用來管理組織的實驗室。 在您的實驗室帳戶中，您可以為他人授與建立實驗室的權限，以及設定對實驗室帳戶下的所有實驗室皆適用的原則。 在本教學課程中，請了解如何以實驗室管理員的身分建立實驗室帳戶。 
@@ -37,11 +37,13 @@ ms.locfileid: "51706768"
 下列步驟將說明如何透過 Azure 入口網站使用 Azure 實驗室服務，來建立實驗室。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側主功能表中，選取 [建立資源]。
-3. 在 Azure Marketplace 中搜尋 [Lab Services] \(實驗室服務\)，然後選取下拉式清單中的 [Lab Services] \(實驗室服務\)。 
-4. 在篩選的服務清單中，選取 [Lab Services (Preview)] \(實驗室服務 (預覽)\)。 
-1. 在 [建立實驗室帳戶] 視窗中，選取 [建立]。
-2. 在 [實驗室帳戶] 視窗中，執行下列動作： 
+2. 選取左側功能表上的 [所有服務]。 選取 **DEVOPS** 區段中的 [實驗室帳戶]。 如果您選取 [實驗室帳戶] 旁邊的星號 (`*`)，它會新增到左功能表上的 [我的最愛] 區段。 從下一次開始，您可選取 [我的最愛] 下方的 [實驗室帳戶]。
+
+    ![[所有服務] -> [實驗室帳戶]](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. 在 [實驗室帳戶] 頁面上，選取工具列上的 [新增]。 
+
+    ![在 [實驗室帳戶] 頁面上選取 [新增]](../media/tutorial-setup-lab-account/add-lab-account-button.png)
+4. 在 [實驗室帳戶] 頁面上，執行下列動作： 
     1. 針對 [實驗室帳戶名稱] 輸入名稱。 
     2. 選取您要在其中建立實驗室帳戶的 **Azure 訂用帳戶**。
     3. 針對 [資源群組]，選取 [新建]，並為資源群組輸入名稱。
@@ -49,9 +51,11 @@ ms.locfileid: "51706768"
     5. 選取 [建立] 。 
 
         ![[建立實驗室帳戶] 視窗](../media/tutorial-setup-lab-account/lab-account-settings.png)
-5. 如果您沒有看到實驗室帳戶的頁面，請選取 [通知] 按鈕，然後按一下通知中的 [移至資源] 按鈕。 
+5. 選取工具列上的**鈴鐺圖示** (**通知**)，確認部署成功，然後選取 [移至資源]。 
 
-    ![[建立實驗室帳戶] 視窗](../media/tutorial-setup-lab-account/notification-go-to-resource.png)    
+    或者，選取 [實驗室帳戶] 頁面上的 [重新整理]，然後選取您所建立的實驗室帳戶。 
+
+    ![[建立實驗室帳戶] 視窗](../media/tutorial-setup-lab-account/go-to-lab-account.png)    
 6. 您會看到下列 [實驗室帳戶] 頁面：
 
     ![[實驗室帳戶] 頁面](../media/tutorial-setup-lab-account/lab-account-page.png)
@@ -61,14 +65,14 @@ ms.locfileid: "51706768"
 
 若要提供授課者為其班級建立實驗室的權限，請將他們新增至 [實驗室建立者] 角色：
 
-1. 在 [實驗室帳戶] 頁面上，選取 [存取控制] \(IAM\)，然後按一下工具列上的 [+新增]。 
+1. 在 [實驗室帳戶] 頁面上，選取 [存取控制] \(IAM\)，然後按一下工具列上的 [+新增角色指派]。 
 
-    ![[實驗室帳戶] 頁面](../media/tutorial-setup-lab-account/access-control.png)
-2. 在 [新增權限] 頁面上，針對 [角色] 選取 [實驗室建立者]，選取您要新增到實驗室建立者角色的使用者，然後選取 [儲存]。 
+    ![[存取控制] -> [新增角色指派] 按鈕](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
+1. 在 [新增角色指派] 頁面上，針對 [角色] 選取 [實驗室建立者]，選取您要新增到實驗室建立者角色的使用者，然後選取 [儲存]。 
 
-    ![將使用者新增至實驗室建立者角色](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+    ![新增實驗室建立者](../media/tutorial-setup-lab-account/add-lab-creator.png)
 
-## <a name="specify-marketplace-images-available-to-lab-owners"></a>指定適用於實驗室擁有者的 Marketplace 映像
+## <a name="specify-marketplace-images-available-to-lab-creators"></a>指定實驗室建立者可用的 Marketplace 映像
 身為實驗室帳戶擁有者的您，可以指定實驗室建立者可用來在實驗室帳戶中建立實驗室的 Marketplace 映像。 
 
 1. 選取左側功能表上的 [Marketplace 映像]。 根據預設，您會看到映像 (包括已啟用和停用) 的完整清單。 您可以從頂端的下拉式清單中選取 [僅限已啟用]/[僅限已停用] 選項來篩選清單，而僅檢視已啟用/已停用的映像。 

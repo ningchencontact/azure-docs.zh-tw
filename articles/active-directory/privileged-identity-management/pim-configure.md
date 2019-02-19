@@ -13,12 +13,13 @@ ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5f1e5838fcf6eeac3b58fb0eef8fe08eb9202d4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 022fd8e1ab8445954b205f471cd1aa4d18e11545
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167133"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178153"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
@@ -60,11 +61,13 @@ PIM 基本上可協助您管理您所關切資源的五個 W (何人、何事、
 | 作用中 | 類型 | 不要求使用者執行任何動作即可使用角色的角色指派。 指派為有效的使用者具有指派給角色的權限。 |
 | 啟用 |  | 此程序會執行一或多個動作，讓使用者使用有資格使用的角色。 動作可能包含執行多重要素驗證 (MFA) 檢查、提供業務理由，或是向指定的核准者要求核准。 |
 | 已指派 | State | 具有作用中角色指派的使用者。 |
-| 已啟用 | State | 具有合格角色指派、已執行動作來啟用角色，且目前為作用中的使用者。 |
+| 已啟用 | State | 具有合格角色指派、已執行動作來啟用角色，且目前為作用中的使用者。  啟動後，使用者便可在必須加以重新啟動之前，先為預先設定的期限使用該角色。 |
 | 永久合格 | Duration | 使用者一律有資格啟用角色的角色指派。 |
 | 永久有效 | Duration | 使用者一律可以使用角色而不需執行任何動作的角色指派。 |
 | 合格過期 | Duration | 使用者有資格在指定的開始和結束日期內啟用角色的角色指派。 |
 | 有效過期 | Duration | 使用者可以在指定的開始和結束日期內使用角色而不需執行任何動作的角色指派。 |
+| just-in-time (JIT) 存取 |  | 一種模型，使用者會在其中獲得臨時權限以執行特殊權限的工作，這可防止惡意或未經授權的使用者在權限過期後取得存取權。 只有當使用者需要時才會獲得存取權。 |
+| 最低權限存取的原則 |  | 建議的安全性做法，每位使用者只會獲得所需的最低權限，以便完成他們獲得授權而可執行的工作。 這種做法只需要最少量的全域管理員，並會改為針對特定案例使用特定的管理員角色。 |
 
 ## <a name="what-does-pim-look-like"></a>PIM 的外觀
 
@@ -104,6 +107,6 @@ PIM 支援下列案例：
 
 ## <a name="next-steps"></a>後續步驟
 
-- [開始使用 PIM](pim-getting-started.md)
 - [使用 PIM 的授權需求](subscription-requirements.md)
 - [在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [部署 PIM](pim-deployment-plan.md)

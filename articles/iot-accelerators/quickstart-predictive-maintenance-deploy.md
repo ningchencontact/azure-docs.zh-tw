@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fdb481961680d5f84170a25c7a76bffa8423e0cc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604332"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097162"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>快速入門：嘗試以雲端式解決方案對我的連線裝置執行預測性維護分析
 
@@ -42,7 +42,7 @@ Fabrikam 的飛機引擎由各種感應器進行檢測，而這些感應器會�
 
 選取您要用來部署解決方案加速器的 [訂用帳戶] 和 [區域]。 一般而言，您會選擇與您最接近的區域。 在本快速入門中，我們會使用 **Visual Studio Enterprise** 和**美國東部**。 您必須是訂用帳戶中的[全域管理員或使用者](iot-accelerators-permissions.md)。
 
-按一下 [建立解決方案] 來開始部署。 此程序至少需要執行五分鐘：
+按一下 [建立] 來開始部署。 此程序至少需要執行五分鐘：
 
 ![預測性維護解決方案詳細資料](./media/quickstart-predictive-maintenance-deploy/createform.png)
 
@@ -50,9 +50,13 @@ Fabrikam 的飛機引擎由各種感應器進行檢測，而這些感應器會�
 
 當您完成部署至 Azure 訂用帳戶時，會看到解決方案圖格上的綠色核取記號和 [就緒]。 您現在可以登入預測性維護解決方案加速器儀表板。
 
-在 [已佈建的解決方案] 頁面上，按一下新的預測性維護解決方案加速器。 您可以在顯示的面板中檢視解決方案加速器的相關資訊。 選擇 [解決方案儀表板] 以檢視預測性維護解決方案加速器：
+在 [已佈建的解決方案] 頁面上，按一下新的預測性維護解決方案加速器。
 
-![解決方案面板](./media/quickstart-predictive-maintenance-deploy/solutionpanel.png)
+![解決方案面板](./media/quickstart-predictive-maintenance-deploy/solution.png)
+
+ 您可以在顯示的頁面中檢視解決方案加速器的相關資訊。 選擇 [移至解決方案加速器] 以檢視預測性維護解決方案加速器：
+
+![解決方案面板](./media/quickstart-predictive-maintenance-deploy/solutionpaneldetails.png)
 
 按一下 [接受] 以接受使用權限要求，瀏覽器中隨即會顯示預測性維護解決方案儀表板：
 

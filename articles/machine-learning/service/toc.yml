@@ -59,7 +59,11 @@ items:
 - name: 使用說明指南
   items:
   - name: 管理工作區
-    href: how-to-manage-workspace.md
+    items:
+    - name: 使用工作區入口網站
+      href: how-to-manage-workspace.md
+    - name: 使用 Resource Manager 範本
+      href: how-to-create-workspace-template.md
   - name: 設定開發環境 
     items:
     - name: 設定開發環境
@@ -119,8 +123,6 @@ items:
       href: how-to-deploy-fpga-web-service.md
     - name: 疑難排解
       href: how-to-troubleshoot-deployment.md
-    - name: 使用 SSL 保護 Web 服務
-      href: how-to-secure-web-service.md
   - name: 取用 Web 服務
     items:
     - name: 即時取用
@@ -136,25 +138,27 @@ items:
       href: how-to-enable-data-collection.md
     - name: 使用 Application Insights 進行監視
       href: how-to-enable-app-insights.md
+  - name: 安全性
+    items:
+    - name: 使用虛擬網路
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: 使用 SSL 保護 Web 服務
+      href: how-to-secure-web-service.md
   - name: 建立您的第一個管線
     href: how-to-create-your-first-pipeline.md
+  - name: 啟用記錄
+    displayName: logging
+    href: how-to-enable-logging.md
   - name: 管理資源配額
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: 使用虛擬網路進行保護
-    displayName: vnet
-    href: how-to-enable-virtual-network.md
   - name: 使用 Machine Learning CLI
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: 匯出及刪除資料
     displayName: gdpr
     href: how-to-export-delete-data.md
-  - name: 使用 Resource Manager 範本
-    href: how-to-create-workspace-template.md
-  - name: 啟用記錄
-    displayName: logging
-    href: how-to-enable-logging.md
 - name: 參考
   items:
   - name: 機器學習 SDK
@@ -166,8 +170,6 @@ items:
   - name: 監視 SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Resource Manager 範本
-    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: 資源
   items:
   - name: Azure 藍圖
@@ -183,9 +185,9 @@ items:
     href: support-for-aml-services.md
   - name: 比較 ML 產品
     href: overview-more-machine-learning.md
-ms.openlocfilehash: eb803b44bbe72b80f4414a4de66bce519591dea7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 041a4b0f3ebecdaedb041ceb25f426a6e1825292
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268816"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338088"

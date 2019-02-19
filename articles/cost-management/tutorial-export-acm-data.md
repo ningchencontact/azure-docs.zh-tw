@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766399"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100681"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立和管理匯出的資料
 
@@ -71,7 +71,7 @@ ms.locfileid: "55766399"
 
 **每日匯出當月成本**– 初始匯出會立即執行。 後續匯出會在隔天與初始匯出相同的時間執行。 系統會從先前的每日匯出彙總最新資料。
 
-**過去七天的每週成本** – 初始匯出會立即執行。 後續匯出會在與初始匯出相同的時間和星期幾執行。 成本屬於過去七天。
+**過去 7 天費用的每週匯出** – 初始匯出會立即執行。 後續匯出會在與初始匯出相同的時間和星期幾執行。 成本屬於過去七天。
 
 **自訂** – 可讓您使用當週和當月選項來排程每週和每月匯出。 *初始匯出會立即執行。*
 

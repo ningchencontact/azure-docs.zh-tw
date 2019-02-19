@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602642"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098880"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>快速入門：嘗試以雲端式解決方案管理我的工業用 IoT 裝置
 
@@ -42,7 +42,7 @@ ms.locfileid: "53602642"
 
 選取您要用來部署解決方案加速器的 [訂用帳戶] 和 [區域]。 一般而言，您會選擇與您最接近的區域。 在本快速入門中，我們會使用 **Visual Studio Enterprise** 和**美國東部**。 您必須是訂用帳戶中的[全域管理員或使用者](iot-accelerators-permissions.md)。
 
-按一下 [建立解決方案] 來開始部署。 此程序至少需要執行五分鐘：
+按一下 [建立] 以開始部署。 此程序至少需要執行五分鐘：
 
 ![連線工廠解決方案的詳細資料](./media/quickstart-connected-factory-deploy/createform.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "53602642"
 
 ![選擇新的解決方案](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-您可以在出現的面板中檢視有關連線工廠解決方案加速器的資訊。 選擇 [解決方案儀表板] 以檢視連線工廠解決方案加速器：
+您可以在出現的頁面中檢視有關連線工廠解決方案加速器的資訊。 選擇 [移至解決方案加速器] 以檢視連線工廠解決方案加速器：
 
 ![解決方案面板](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 

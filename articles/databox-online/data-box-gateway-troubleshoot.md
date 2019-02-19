@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b542ca2876149b9a60e5c5b9e3fa17284477864f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d94e2db66c8c5dac2b4d8551ae34a07cd68fd635
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241595"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106964"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>針對 Azure 資料箱閘道問題進行疑難排解 
 
@@ -103,6 +103,7 @@ ms.locfileid: "50241595"
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    無法將資料上傳到帳戶，因為帳戶或共用已停用。                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    無法連線到容器，因為帳戶權限錯誤或過期。 檢查您的存取權。                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    無法新增資料，因為容器已滿。 根據類型，檢查 Azure 規格中支援的容器大小。 例如，Azure 檔案服務僅支援 5 TB 的最大檔案大小。                                     |
+    |    2997            |    ERROR_ITEM_CANCELED                                     |    發生意外錯誤。 這是暫時性錯誤，會自行解決。                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    發生意外錯誤。 此錯誤可能會自行解決，但若持續超過 24 小時，請連絡 Microsoft 支援服務。                                                                                                     |
     |    16000           |    RefreshException                                        |    無法關閉此檔案。                                                                                                                                                                                                        |
     |    16001           |    RefreshAlreadyExistsException                           |    無法關閉此檔案，因為它已經存在於本機系統上。                                                                                                                                                         |

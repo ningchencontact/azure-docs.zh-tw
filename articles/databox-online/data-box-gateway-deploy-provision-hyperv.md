@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 3187c516ef22a97d2af89e08d5b99ad7a00d875d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: cf47919ead890f0ad0e89646dde26276ebfb1127
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166452"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109736"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>教學課程：在 Hyper-V 中佈建 Azure 資料箱閘道 (預覽)
 
@@ -66,7 +66,7 @@ ms.locfileid: "49166452"
 
 開始之前：
 
-- 檢閱部署資料箱閘道的網路需求，並且根據每個需求設定資料中心網路。 如需詳細資訊，請參閱[資料箱閘道網路需求](data-box-gateway-system-requirements.md#networking-requirements)。
+- 檢閱部署資料箱閘道的網路需求，並且根據每個需求設定資料中心網路。 如需詳細資訊，請參閱[資料箱閘道網路需求](data-box-gateway-system-requirements.md#networking-port-requirements)。
 - 確定網際網路頻寬至少有 20 Mbps，以便讓裝置能夠發揮最大功能。
 
 

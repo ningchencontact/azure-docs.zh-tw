@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249875"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108750"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>教學課程：使用 Azure 資料箱閘道傳輸資料 (預覽)
 
@@ -121,13 +121,13 @@ ms.locfileid: "51249875"
 
 2. 安裝 NFS 用戶端之後，使用下列命令來掛接您在資料箱閘道裝置上建立的 NFS 共用：
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     設定掛接之前，請確定已建立本機電腦上要作為掛接點的目錄，且請勿包含任何檔案或子資料夾。
 
     下列範例示範如何透過 NFS 連線到閘道裝置上的共用。 虛擬裝置 IP 為 `10.10.10.60`，共用 `mylinuxshare2` 會掛接在 ubuntuVM 上，掛接點為 `/home/databoxubuntuhost/gateway`。
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
 > 下列需要注意的事項適用於預覽版本︰

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169309"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175722"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -78,7 +78,7 @@ ms.locfileid: "55169309"
 ## <a name="requirements-and-constraints"></a>需求和限制
 
 為虛擬網路建立全域的對等互連時，會受到下列限制：
-- 虛擬網路可以存在於任何的 Azure 公用雲端區域，但並非在 Azure 國家雲端。
+- 虛擬網路可以存在於任何 Azure 公用雲端區域和 Azure 中國雲端區域中，但不可存在於 Azure Government 雲端中。
 - 一個虛擬網路中的資源無法與全域對等互連虛擬網路中的 Azure 內部負載平衡器的前端 IP 位址通訊。 負載平衡器和與其通訊的資源必須位於相同的區域中。
 - 您無法使用遠端閘道，也無法允許閘道傳輸。 若要使用遠端閘道或允許閘道傳輸，對等互連的虛擬網路必須位於相同區域中。
 

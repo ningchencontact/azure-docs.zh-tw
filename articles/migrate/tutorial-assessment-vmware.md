@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730759"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235830"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -30,7 +30,7 @@ ms.locfileid: "55730759"
 
 ## <a name="prerequisites"></a>必要條件
 
-- **VMware**：您計劃移轉的虛擬機器必須透過執行版本 5.5、6.0 或 6.5 的 vCenter Server 來管理。 此外，您還需要一部執行 5.5 版或更新版本的 ESXi 主機來部署收集器 VM。
+- **VMware**：您計劃要移轉的虛擬機器必須由執行 5.5、6.0、6.5 或 6.7 版的 vCenter Server 來管理。 此外，您還需要一部執行 5.5 版或更新版本的 ESXi 主機來部署收集器 VM。
 - **vCenter Server 帳戶**：您需要一個唯讀帳戶來存取 vCenter Server。 Azure Migrate 會使用此帳戶來探索內部部署 VM。
 - **權限**：在 vCenter Server 上，您需要權限，方可藉由匯入 .OVA 格式的檔案來建立 VM。
 
@@ -182,7 +182,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
     - 選取您打算作為遷移目的地的 Azure 雲端 (Azure Global 或 Azure Government)。
     - 接受授權條款，並閱讀第三方資訊。
     - 收集器會確認 VM 是否能夠存取網際網路。
-    - 如果 VM 能夠透過 Proxy 存取網際網路，請按一下 [Proxy 設定]，然後指定 Proxy 位址和接聽連接埠。 如果 Proxy 需要驗證，請指定認證。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites)網際網路連線需求和收集器存取的 [URL 清單](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls)。
+    - 如果 VM 能夠透過 Proxy 存取網際網路，請按一下 [Proxy 設定]，然後指定 Proxy 位址和接聽連接埠。 如果 Proxy 需要驗證，請指定認證。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites)網際網路連線需求和收集器存取的 [URL 清單](https://docs.microsoft.com/azure/migrate/concepts-collector)。
 
       > [!NOTE]
       > 必須在表單 http://ProxyIPAddress 或 http://ProxyFQDN 中輸入 Proxy 位址。 僅支援 HTTP Proxy。 如果您有攔截 Proxy，且您未匯入 Proxy 憑證，則初始的網際網路連線可能會失敗；請[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector)如何藉由將 Proxy 憑證匯入作為收集器 VM 上的信任憑證，以解決此問題。

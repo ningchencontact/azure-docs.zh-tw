@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 入口網站中建立 Batch 帳戶 | Microsoft Docs
+title: 在 Azure 入口網站中建立帳戶 - Azure Batch | Microsoft Docs
 description: 了解如何在 Azure 入口網站中建立 Azure Batch 帳戶，以在雲端中執行大規模的平行工作負載
 services: batch
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/18/2018
+ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89e41dc8e27cf39d9d0e6168dc7352267c321623
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460517"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193912"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 入口網站建立 Batch 帳戶
 
@@ -44,7 +44,7 @@ ms.locfileid: "55460517"
 
     a. **帳戶名稱**：您選擇的名稱在建立帳戶的 Azure 區域內必須是唯一的 (請參閱下面的「位置」)。 帳戶名稱只能包含小寫字元或數字，且長度必須為 3-24 個字元。
 
-    b. **訂用帳戶**：要在其中建立 Batch 帳戶的訂用帳戶。 如果您只有一個訂用帳戶，則預設會選取此項目。
+    b. 訂用帳戶：要在其中建立 Batch 帳戶的訂用帳戶。 如果您只有一個訂用帳戶，則預設會選取此項目。
 
     c. **資源群組**：為新的 Batch 帳戶選取一個現有的資源群組，或視需要建立一個新的資源群組。
 
@@ -58,9 +58,8 @@ ms.locfileid: "55460517"
 
 1. 選取 [建立] 以建立帳戶。
 
-
-
 ## <a name="view-batch-account-properties"></a>檢視 Batch 帳戶屬性
+
 一旦建立帳戶後，選取帳戶以存取其設定和屬性。 您可以使用左側功能表來存取所有的帳戶設定和屬性。
 
 ![Azure 入口網站中的 Batch 帳戶頁面][account_blade]
@@ -75,12 +74,12 @@ ms.locfileid: "55460517"
 
 * 若要檢視套用至 Batch 帳戶的資源配額，請選取 [配額]。 如需詳細資訊，請參閱 [Batch 服務配額和限制](batch-quota-limit.md)。
 
-
 ## <a name="additional-configuration-for-user-subscription-mode"></a>使用者訂用帳戶模式的其他組態
 
 如果您選擇在使用者訂用帳戶模式中建立 Batch 帳戶，請在建立帳戶之前執行下列其他的步驟。
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>允許 Azure Batch 存取訂用帳戶 (一次性作業)
+
 當您在使用者訂用帳戶模式中建立第一個 Batch 帳戶時，您必須向 Batch 註冊訂用帳戶。 (如果您先前已做過，請跳至下一節。)
 
 1. 登入 [Azure 入口網站][azure_portal]。
@@ -98,13 +97,14 @@ ms.locfileid: "55460517"
 1. 在 [新增角色指派] 頁面中，選取 [參與者] 角色，並搜尋 Batch API。 搜尋這些字串，直到您找到 API 為止：
     1. **MicrosoftAzureBatch**。
     1. **Microsoft Azure Batch**。 較新的 Azure AD 租用戶可以使用這個名稱。
-    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** 是 Batch API 的識別碼。 
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** 是 Batch API 的識別碼。
 
 1. 一旦您找到 Batch API 之後，請選取它，然後選取 [儲存]。
 
     ![新增 Batch 權限][add_permission]
 
 ### <a name="create-a-key-vault"></a>建立金鑰保存庫
+
 在使用者訂用帳戶模式中，需要與要建立之 Batch 帳戶屬於相同資源群組的 Azure Key Vault。 請確定資源群組位於 Batch 為[可用](https://azure.microsoft.com/regions/services/)且您訂用帳戶支援的區域中。
 
 1. 在 [Azure 入口網站][azure_portal]中，選取 [新增] > [安全性] > [Key Vault]。
@@ -113,7 +113,18 @@ ms.locfileid: "55460517"
 
 在使用者訂用帳戶模式中建立 Batch 帳戶時，請使用金鑰保存庫的資源群組、指定 [使用者訂用帳戶] 作為集區配置模式，並選取金鑰保存庫。
 
+### <a name="configure-subscription-quotas"></a>設定訂用帳戶配額
+
+根據預設，使用者訂用帳戶的 Batch 帳戶不會設定核心配額。 核心配額必須手動設定，因為一般的 Batch 核心配額不適用於使用者訂用帳戶模式中的帳戶。
+
+1. 在 [Azure 入口網站][azure_portal]中選取您使用者訂用帳戶模式中的 Batch 帳戶，以顯示其設定和屬性。
+
+1. 從左側功能表中選取 [配額]，以檢視和設定與您的 Batch 帳戶相關聯的核心配額。
+
+如需關於使用者訂用帳戶模式核心配額的詳細資訊，請參閱 [Batch 服務配額和限制](batch-quota-limit.md)。
+
 ## <a name="other-batch-account-management-options"></a>其他 Batch 帳戶管理選項
+
 除了使用 Azure 入口網站以外，您也可以使用下列工具來建立及管理 Batch 帳戶︰
 
 * [Batch PowerShell Cmdlet](batch-powershell-cmdlets-get-started.md)
@@ -121,6 +132,7 @@ ms.locfileid: "55460517"
 * [Batch Management .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>後續步驟
+
 * 若要深入了解 Batch 服務概念和功能，請參閱 [Batch 功能概觀](batch-api-basics.md) 。 本文討論主要 Batch 資源 (例如集區、計算節點、作業和工作)，並提供能夠進行大規模計算工作負載的服務功能概觀。
 * 了解使用 [Batch .NET 用戶端程式庫](quick-run-dotnet.md)或 [Python](quick-run-python.md) 開發啟用 Batch 之應用程式的基本概念。 這些快速入門會介紹使用 Batch 服務在多個計算節點上執行工作負載的範例應用程式，並說明如何使用 Azure 儲存體進行工作負載檔案的預備和擷取。
 
@@ -136,4 +148,3 @@ ms.locfileid: "55460517"
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
 [register_provider]: ./media/batch-account-create-portal/register_provider.png
-

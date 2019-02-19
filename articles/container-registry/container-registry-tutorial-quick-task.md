@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754368"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860468"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>教學課程：使用 Azure Container Registry 工作在雲端中建置和部署容器映像
 
@@ -21,7 +21,7 @@ ms.locfileid: "53754368"
 
 「內部迴圈」開發週期是在認可至原始檔控制之前撰寫程式碼、建置和測試應用程式的反覆程序。 快速工作可將您的內部迴圈延伸至雲端，讓您能夠進行建置成功驗證，並將成功建置的映像自動推送至容器登錄。 您的映像依原生狀態會建置在雲端中接近您的登錄之處，因此有助於快速部署。
 
-您的所有 Dockerfile 專業知識都可直接轉移至 ACR 工作。 您不需要變更 Dockerfile，而是需要變更您所執行的命令，即可使用 ACR 工作在雲端中進行建置。
+您的所有 Dockerfile 專業知識都可直接轉移至 ACR 工作。 您不需要變更 Dockerfile，而是需要變更您所執行的命令，即可使用 ACR 工作在雲端中進行建置。 
 
 本教學課程是一個系列的第一部分：
 
@@ -30,7 +30,7 @@ ms.locfileid: "53754368"
 > * 在 Azure 中建置容器映像
 > * 將容器部署至 Azure 容器執行個體
 
-在後續的教學課程中，您將了解如何將 ACR 工作工作用於程式碼認可和基礎映像更新的自動化容器映像建置。
+在後續的教學課程中，您將了解如何將 ACR 工作工作用於程式碼認可和基礎映像更新的自動化容器映像建置。 ACR 工作也可以執行[多步驟的工作](container-registry-tasks-multi-step.md) (目前處於預覽狀態)，使用 YAML 檔案來定義相關步驟，以建置、推送並選擇性地測試多個容器。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

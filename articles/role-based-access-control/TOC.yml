@@ -1,5 +1,5 @@
 items:
-- name: 角色型存取控制文件
+- name: RBAC for Azure 資源文件
   href: index.yml
 - name: 概觀
   items:
@@ -9,7 +9,7 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: 快速入門
   items:
-  - name: 檢視使用者角色
+  - name: 檢視使用者存取權
     href: check-access.md
 - name: 教學課程
   items:
@@ -29,7 +29,7 @@ items:
     href: role-definitions.md
   - name: 了解拒絕指派
     href: deny-assignments.md
-  - name: RBAC 的 Privileged Identity Management (PIM)
+  - name: 適用於 Azure 資源的 PIM
     href: pim-azure-resource.md
   - name: Azure 管理的條件式存取
     href: conditional-access-azure-management.md
@@ -96,9 +96,9 @@ items:
   items:
   - name: 透過 Microsoft Learn 增進您的技巧
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 46ff0e024e2c7dc466120054b4a8e69fa47c14cd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099202"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408760"

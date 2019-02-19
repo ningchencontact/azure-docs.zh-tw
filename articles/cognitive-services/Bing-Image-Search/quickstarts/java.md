@@ -5,32 +5,29 @@ description: 使用此快速入門以運用 Java 來傳送影像搜尋要求給�
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 13edea67a93ecf2d2b53dcc04a2c1d49b864952e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e00179f0fe3bf079cde672c9c8e3579f8c957b7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203278"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238295"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>快速入門：使用 Bing 影像搜尋 REST API 和 Java 來搜尋影像
 
-使用本快速入門來進行您對「Bing 影像搜尋 API」的第一次呼叫，並接收 JSON 回應。 這個簡單的 Java 應用程式會將搜尋查詢傳送給 API，並顯示原始結果。
+使用本快速入門，開始將搜尋要求傳送至 Bing 影像搜尋 API。 這個 Java 應用程式會將搜尋查詢傳送至 API，並顯示結果中第一個影像的 URL。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
-
-[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) 上有此範例的原始程式碼，其中還有其他錯誤處理和註釋。
+此範例的原始程式碼可從 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) 取得，其中含有其他錯誤處理和註釋。
 
 ## <a name="prerequisites"></a>必要條件
-* 在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
-* [Java 開發套件 (JDK) 7 或 8](https://aka.ms/azure-jdks)
+* [Java 開發套件 (JDK)](https://aka.ms/azure-jdks)
 
 * [Gson 程式庫](https://github.com/google/gson)
 
@@ -62,7 +59,7 @@ ms.locfileid: "55203278"
 
 ## <a name="construct-the-search-request-and-query"></a>建構搜尋要求和查詢
 
-1. 使用上一個步驟中的變數來製作適用於 API 要求的搜尋 URL 格式。 請注意，您的搜尋字詞必須先進行 URL 編碼，才能附加至要求。
+1. 使用上一個步驟中的變數來製作適用於 API 要求的搜尋 URL 格式。 搜尋字詞必須先進行 URL 編碼，再附加至要求。
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)
@@ -108,7 +105,7 @@ ms.locfileid: "55203278"
     String resultURL = first_result.get("thumbnailUrl").getAsString();
     ```
 
-## <a name="json-response"></a>JSON 回應
+## <a name="example-json-response"></a>範例 JSON 回應
 
 來自「Bing 影像搜尋 API」的回應會以 JSON 形式傳回。 本範例回應已截斷而只顯示單一結果。
 
@@ -152,7 +149,7 @@ ms.locfileid: "55203278"
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -164,7 +161,8 @@ ms.locfileid: "55203278"
 ## <a name="see-also"></a>另請參閱
 
 * [什麼是 Bing 影像搜尋？](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [試用線上互動式示範](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [試用線上互動式示範](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* Bing 搜尋 API 的[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。 
 * [取得免費認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure 認知服務文件](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing 影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

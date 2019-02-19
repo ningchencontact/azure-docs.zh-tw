@@ -4,7 +4,7 @@ description: 本快速入門說明如何在 Windows 電腦上佈建 Microsoft Mo
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/2/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022995"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115852"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入門：將 Windows 電腦上架到 Azure 資訊安全中心
 將 Azure 訂用帳戶上架之後，您可以透過佈建 Microsoft Monitoring Agent，為在 Azure 外 (例如，內部部署或其他雲端服務) 執行的資源啟用資訊安全中心。
@@ -30,7 +30,7 @@ ms.locfileid: "44022995"
 ## <a name="prerequisites"></a>必要條件
 若要開始使用資訊安全中心，您必須有 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
-確認您是使用資訊安全中心的標準定價層之後，再開始按照本快速入門操作。 如需升級指示，請參閱[將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)。 您可以在前 60 天免費試用資訊安全中心標準的定價層。
+確認您是使用資訊安全中心的標準定價層之後，再開始按照本快速入門操作。 如需升級指示，請參閱[將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)。 您可以免費試用資訊安全中心的標準層。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 ## <a name="add-new-windows-computer"></a>新增 Windows 電腦
 
@@ -75,7 +75,7 @@ ms.locfileid: "44022995"
 
 完成時，[Microsoft 監視代理程式] 會出現在 [控制台] 中。 您可以在該處檢閱您的設定，並確認代理程式已連線。
 
-如需安裝及設定代理程式的詳細資訊，請參閱[連線到 Windows 電腦](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard)。
+如需安裝及設定代理程式的詳細資訊，請參閱[連線到 Windows 電腦](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)。
 
 您現在可於同一處監視您的 Azure VM 和非 Azure 電腦。 在 [計算] 下，您可以檢視所有 VM 和電腦的概觀及建議。 每一欄表示一組建議。 色彩代表 VM 或電腦目前對於該建議的安全性狀態。 資訊安全中心也會在安全性警示中顯示針對這些電腦所偵測到的任何項目。
 

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: a70e83737c6b56aee3279375ec653f12810b13b4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 3940c2f239a4354cfb44a499f7375f4ba34f8aa8
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749809"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892022"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>開始使用 Azure SQL Database 受控執行個體
 
@@ -27,7 +27,7 @@ ms.locfileid: "55749809"
 
 下列快速入門可讓您快速建立受控執行個體、為用戶端應用程式設定虛擬機器或點對站 VPN 連線，以及使用 `.bak` 檔案將資料庫還原至新的受控執行個體：
 
-- [使用 Azure 入口網站建立受控執行個體](sql-database-managed-instance-get-started.md)。 在 Azure 入口網站中，您可以設定必要參數 (使用者名稱/密碼、核心數目、儲存體上限)，並在無需了解網路詳細資料和基礎結構需求的前提下自動建立 Azure 網路環境。 您只需確保自己具有允許建立受控執行個體的[訂用帳戶類型](sql-database-managed-instance-resource-limits.md#supported-subscription-types)。 如果您擁有自己想要使用的網路，或是想要自訂網路，請參閱如何針對受控執行個體[設定網路環境](#configure-network-environment)。
+- [使用 Azure 入口網站建立受控執行個體](sql-database-managed-instance-get-started.md)。 在 Azure 入口網站中，您可以設定必要參數 (使用者名稱/密碼、核心數目、儲存體上限)，並在無需了解網路詳細資料和基礎結構需求的前提下自動建立 Azure 網路環境。 您只需確保自己具有允許建立受控執行個體的[訂用帳戶類型](sql-database-managed-instance-resource-limits.md#supported-subscription-types)。 如果您擁有自己想要使用的網路，或是想要自訂網路，請參閱如何針對受控執行個體設定網路環境。
 - 受控執行個體會建立在沒有公用端點的自有 VNet 中。 針對用戶端應用程式的存取，您可以在相同 VNet (不同子網路) 中建立 VM，或使用以下其中一個快速入門來建立用戶端電腦到 VNet 的點對站 VPN 連線。
   - [在受控執行個體 VNet 中建立 Azure 虛擬機器](sql-database-managed-instance-configure-vm.md)來進行用戶端應用程式連線，包括 SQL Server Management Studio。
   - 從具有 SQL Server Management Studio 和其他用戶端連線應用程式的用戶端電腦中，[對您的受控執行個體設定點對站 VPN 連線](sql-database-managed-instance-configure-p2s.md)。 這是其他兩個可連線到您受控執行個體和其 VNet 的選項。
@@ -44,7 +44,7 @@ ms.locfileid: "55749809"
 
 這些快速入門可讓您快速地對受控執行個體建立、設定及還原資料庫備份。 在某些情況下，您必須對受控執行個體和必要網路環境的部署進行自訂或自動化。 這些案例將於下方詳述。
 
-## <a name="customizing-network-environment"></a>自訂網路環境
+## <a name="customize-network-environment"></a>自訂網路環境
 
 雖然 VNet/子網路可以在使用 Azure 入口網站建立執行個體時自動設定，但您可以在開始建立受控執行個體之前建立 VNet/子網路，以設定 VNet 和子網路的參數。 建立並設定網路環境最簡單的方式，便是使用 [Azure 資源部署](sql-database-managed-instance-create-vnet-subnet.md)範本來建立和設定受控執行個體的網路和子網路。 您只需要按下 Azure Resource Manager 部署按鈕，並將參數填入表單中。 
 

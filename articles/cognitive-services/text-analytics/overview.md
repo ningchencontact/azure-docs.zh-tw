@@ -3,25 +3,25 @@ title: 什麼是文字分析？
 titleSuffix: Azure Cognitive Services
 description: Azure 認知服務中的「文字分析」包含情感分析、關鍵片語擷取、語言偵測和實體連結。
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 73505064bf5cde4e97cd210698e21883cc9f5e38
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227874"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242919"
 ---
 # <a name="what-is-text-analytics"></a>什麼是文字分析？
 
 文字分析 API 是一種雲端式服務，可針對原始的文字提供進階的自然語言處理，同時包含四種主要功能：情感分析、關鍵片語擷取、語言偵測和實體連結。
 
-此 API 由 [Microsoft 認知服務](https://docs.microsoft.com/azure/cognitive-services/)中的資源提供技術支援，是雲端中的機器學習和 AI 演算法所組成的集合，隨時可供您在開發專案中取用。
+此 API 屬於 [Azure 認知服務](https://docs.microsoft.com/azure/cognitive-services/)的一部分，由雲端中的機器學習和 AI 演算法的集合所組成，可供您的開發專案使用。
 
 ## <a name="capabilities-in-text-analytics"></a>文字分析中的功能
 

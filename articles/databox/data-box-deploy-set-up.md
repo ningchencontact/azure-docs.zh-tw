@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902154"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982398"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教學課程：連接 Azure 資料箱的纜線並且連線
 
@@ -40,7 +40,7 @@ ms.locfileid: "54902154"
     - 連線至高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結，但是複製速度會受到影響。 
 6. 您必須能夠進入放置資料箱所在的平坦表面。 如果您想要將裝置放在標準機架上，您的資料中心機架中需要有 7U 插槽。 您可以將裝置平放或垂直放置在機架中。
 7. 您已購買下列纜線，以將您的資料箱連線至主機電腦。
-    - 兩條 10 GbE SFP+ Twinax 銅纜線 (與 DATA 1、DATA 2 網路介面搭配使用)。 資料箱具有採用 PCI Express 3.0 網路介面的 Mellanox ConnectX®-3 Pro EN 雙連接埠 10GBASE-T 配接器，所以與這個介面相容的纜線應該有作用。 例如，CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 纜線已用於內部測試。
+    - 一或多條 10 GbE SFP+ Twinax 銅線或 SFP+ 光纖纜線 (搭配 DATA 1、DATA 2 網路介面使用)。 資料箱具有採用 PCI Express 3.0 網路介面的 Mellanox ConnectX®-3 Pro EN 雙連接埠 10GBASE-T 配接器，所以與這個介面相容的纜線應該有作用。 例如，CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 纜線已用於內部測試。
     - 一條 RJ-45 CAT 6 網路線 (與 MGMT 網路介面搭配使用)
     - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
 
@@ -57,7 +57,7 @@ ms.locfileid: "54902154"
     1. 將電源線連接到標示的電源輸入位置。 電源線的另一端應連接到配電裝置。
     2. 使用 RJ-45 CAT 6 纜線連接一端的 MGMT 連接埠，以及另一端的膝上型電腦。            
     3. 使用 RJ-45 CAT 6A 纜線連接到一端的 DATA 3 連接埠。 如果您透過 RJ-45 CAT 6A 纜線連線，DATA 3 將會設定為 10 GbE，如果透過 RJ-45 CAT 6 纜線連線，則會設定為 1 GbE。
-    4. 使用 10 GbE SFP + Twinax 銅纜線，分別連接 DATA 1 和 DATA 2 連接埠。 
+    4. 根據您為了轉送資料而想要連接的網路介面，使用最多兩個 10 GbE SFP + Twinax 銅線或 SFP + 光纖纜線分別連接 DATA 1 和 DATA 2 連接埠。 
     5. 資料連接埠纜線的另一端會透過 10 GbE 交換器連接到主機電腦。
 
 4. 在裝置的前端操作面板上找出電源按鈕。 開啟裝置。

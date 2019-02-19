@@ -3,8 +3,8 @@ title: Azure 資訊安全中心教學課程 - 回應安全性事件 | Microsoft 
 description: Azure 資訊安全中心教學課程 - 回應安全性事件
 services: security-center
 documentationcenter: na
-author: terrylan
-manager: mbaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: yurid
-ms.openlocfilehash: a69ecc4bdff8e65c3529afab0c11afccfdd894c7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774041"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108818"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>教學課程：回應安全性事件
 資訊安全中心會使用進階的分析和威脅情報，持續分析混合式雲端工作負載，提醒您發生惡意活動。 此外，您可以將警示從其他的安全性產品和服務整合到資訊安全中心，並以您自己的指標或情報來源作為基礎建立自訂警示。 一旦有警示產生，您便需要迅速採取行動來進行調查並加以修復。 在本教學課程中，您將了解如何：
@@ -32,8 +32,8 @@ ms.locfileid: "32774041"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="prerequisites"></a>先決條件
-若要逐步執行本教學課程中涵蓋的功能，您必須是在資訊安全中心的標準定價層。 前 60 天可以免費試用資訊安全中心標準定價層。 [將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)快速入門會為您逐步解說如何升級至「標準」定價層。
+## <a name="prerequisites"></a>必要條件
+若要逐步執行本教學課程中涵蓋的功能，您必須是在資訊安全中心的標準定價層。 您可以免費試用資訊安全中心標準層。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。 [將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)快速入門會為您逐步解說如何升級至「標準」定價層。
 
 ## <a name="triage-security-alerts"></a>將安全性警示分級
 資訊安全中心可讓您統一檢視所有安全性警示。 安全性警示會依嚴重性來設定順位，並視情況將相關警示合併到一個安全性事件。 在為警示和事件分級時，您應該：

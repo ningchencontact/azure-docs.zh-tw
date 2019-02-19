@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b31d22990b79cb37ea5b3b89c699b9511f8d87cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453888"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>教學課程：Azure Active Directory 與 Expensify 整合
 
@@ -104,9 +105,12 @@ ms.locfileid: "55453888"
 
     ![Expensify 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://www.expensify.com/authentication/saml/login`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL：`https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`https://www.expensify.com`
+
+    > [!NOTE]
+    > [登入 URL] 的值不是真正的值。 使用實際的登入 URL 來更新此值。 請連絡 [Expensify 用戶端支援小組](mailto:help@expensify.com)以取得此值。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -125,18 +129,18 @@ ms.locfileid: "55453888"
 ### <a name="configure-expensify-single-sign-on"></a>設定 Expensify 單一登入
 
 若要在 Expensify 中啟用 SSO，您必須先在應用程式中啟用 [網域控制]。 您可以透過[這裡](https://help.expensify.com/domain-control)所列的步驟，在應用程式中啟用 [網域控制]。 如需其他支援，請與 [Expensify 用戶端支援小組](mailto:help@expensify.com)合作。 一旦啟用了 [網域控制]，請遵循下列步驟：
-   
+
 ![設定單一登入](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
+
 1. 登入 Expensify 應用程式。
-    
+
 2. 在左側面板中，按一下 [Settings] \(設定\)，然後瀏覽至 [SAML]。
-    
+
 3. 將 [SAML Login] \(SAML 登入\) 選項切換成 [Enabled] \(已啟用\)。
-    
+
 4. 從記事本中的 Azure AD 開啟下載的同盟中繼資料，複製其內容並貼到 [識別提供者中繼資料] 文字方塊中。
 
-### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
+### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
@@ -191,7 +195,7 @@ ms.locfileid: "55453888"
 
 在本節中，您會在 Expensify 中建立名為 Britta Simon 的使用者。 請與 [Expensify 用戶端支援小組](mailto:help@expensify.com)合作，在 Expensify 平台中新增使用者。
 
-### <a name="test-single-sign-on"></a>測試單一登入 
+### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -204,4 +208,3 @@ ms.locfileid: "55453888"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

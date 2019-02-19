@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 01/24/2019
-ms.openlocfilehash: c8b97ed5a1e1131e073783300a233ef72ef34110
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 57de2d9c63a4185997ac86056b9e3189ad66e478
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818646"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893124"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -153,7 +153,7 @@ ms.locfileid: "55818646"
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    ```
 
-6. 在此程式碼區塊中，將此程式碼區塊中的 `application-id`、`authentication-id` 和 `tenant-id` 預留位置值，取代為您在執行[備妥儲存體帳戶組態](#config)中的步驟時所收集的值。 使用您的儲存體帳戶名稱取代 `storage-account-name` 預留位置值。
+6. 在此程式碼區塊中，將此程式碼區塊中的 `application-id`、`authentication-id` 和 `tenant-id` 預留位置值，取代為您在執行「備妥儲存體帳戶組態」中的步驟時所收集的值。 使用您的儲存體帳戶名稱取代 `storage-account-name` 預留位置值。
 
 7. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 

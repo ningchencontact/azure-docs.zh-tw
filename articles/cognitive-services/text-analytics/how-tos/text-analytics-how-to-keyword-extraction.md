@@ -1,22 +1,22 @@
 ---
-title: 如何在文字分析 REST API 中進行關鍵片語擷取 (Azure 上的 Microsoft 認知服務) | Microsoft Docs
-description: 本逐步解說教學課程將示範如何使用 Azure 上 Microsoft 認知服務中的文字分析 REST API 來擷取關鍵片語。
+title: 使用文字分析 REST API 進行關鍵片語擷取 | Microsoft Docs
+description: 如何使用 Azure 認知服務中的文字分析 REST API 來擷取關鍵片語。
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216739"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245604"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>範例：如何在文字分析中擷取關鍵片語
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>範例：如何使用文字分析來擷取關鍵片語
 
 [關鍵片語擷取 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) \(英文\) 會評估非結構化的文字，並針對每份 JSON 文件，傳回關鍵片語的清單。 
 
@@ -29,13 +29,13 @@ ms.locfileid: "55216739"
 
 ## <a name="preparation"></a>準備工作
 
-關鍵片語擷取在處理較大區塊文字上的表現最好。 這與情感分析相反，後者較適合用來處理較小區塊的文字。 若要從這兩個作業中取得最佳結果，請考慮據以重建輸入。
+關鍵片語擷取在處理較大量文字時的效果最佳。 這與情感分析相反，後者較適合用來處理較少量的文字。 若要從這兩個作業中取得最佳結果，請考慮據以重建輸入。
 
 您必須具有此格式的 JSON 文件：識別碼、文字、語言
 
 文件大小必須少於 5,000 個字元，而且您最多可以針對每個集合擁有 1,000 個項目 (識別碼)。 集合會在要求主體中提交。 下列範例是您可能會針對關鍵片語擷取所提交內容的說明。
 
-```
+```json
     {
         "documents": [
             {
@@ -94,9 +94,9 @@ ms.locfileid: "55216739"
 
 輸出會立即傳回。 您可以將結果串流處理到可接受 JSON 的應用程式，或將輸出儲存到本機系統上的檔案，然後將它匯入能讓您排序、搜尋和操作資料的應用程式。
 
-下面會顯示關鍵片語擷取輸出的範例：
+以下顯示關鍵片語擷取的輸出範例：
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

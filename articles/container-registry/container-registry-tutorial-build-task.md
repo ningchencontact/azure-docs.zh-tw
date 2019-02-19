@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dd99a6b49894b3489d1cc01f1fcbc56d29247b41
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756354"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868560"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>教學課程：於認可原始程式碼時在雲端自動執行容器映像建置
 
@@ -51,6 +51,8 @@ ACR 工作目前支援下列觸發程序：
 
 * 認可至 Git 存放庫
 * 基底映像更新
+
+在本教學課程中，您的 ACR 工作會建置並推送在 Dockerfile 中指定的單一容器映像。 ACR 工作也可以執行[多步驟的工作](container-registry-tasks-multi-step.md) (目前處於預覽狀態)，使用 YAML 檔案來定義相關步驟，以建置、推送並選擇性地測試多個容器。
 
 ## <a name="create-a-build-task"></a>建立建置工作
 
@@ -99,7 +101,7 @@ az acr task create \
 > [!IMPORTANT]
 > 如果您先前已在預覽期間使用 `az acr build-task` 命令建立工作，則必須使用 [az acr task][az-acr-task] 命令重新建立這些工作。
 
-此工作會指定只要有程式碼認可至 `--context` 所指定之存放庫中的「主要」分支，ACR 工作即會從該分支中的程式碼建置容器映像。 系統會使用 `--file` 所指定、位於存放庫根目錄中的 Dockerfile。 `--image` 引數會針對映像標記的版本部分指定 `{{.Run.ID}}` 的參數化值，以確保建置的映像會與特定的組建相互關聯，並加上唯一標記。
+此工作會指定只要有程式碼認可至 `--context` 所指定之存放庫中的「主要」分支，ACR 工作即會從該分支中的程式碼建置容器映像。 系統會使用 `--file` 所指定、位於存放庫根目錄中的 Dockerfile 來建置映像。 `--image` 引數會針對映像標記的版本部分指定 `{{.Run.ID}}` 的參數化值，以確保建置的映像會與特定的組建相互關聯，並加上唯一標記。
 
 成功執行的 [az acr task create][az-acr-task-create] 命令會產生如下的輸出：
 

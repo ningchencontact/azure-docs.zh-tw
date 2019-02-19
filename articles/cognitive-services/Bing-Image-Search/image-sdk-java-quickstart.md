@@ -4,19 +4,19 @@ description: Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同�
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7603895d623bba9d5023379643b5ea9752344a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195579"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238125"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing 影像搜尋 SDK 來搜尋影像
 
@@ -43,9 +43,9 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>建立並初始化應用程式
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-1. 在您慣用的 IDE 或編輯器中建立新的 Java 專案，並將下列匯入加入至您的類別實作：
+1. 在您慣用的 IDE 或編輯器中建立新的 Java 專案，並將下列匯入新增至您的類別實作：
 
     ```java
     import com.microsoft.azure.cognitiveservices.search.imagesearch.BingImageSearchAPI;
@@ -63,9 +63,10 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-bing-image-search-api"></a>將搜尋要求傳送到 Bing 影像搜尋 API
+## <a name="send-a-search-request-to-the-api"></a>將搜尋要求傳送至 API
 
 1. 使用 `bingImages().search()`，傳送包含搜尋查詢的 HTTP 要求。 將回應儲存為 `ImagesModel`。
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)

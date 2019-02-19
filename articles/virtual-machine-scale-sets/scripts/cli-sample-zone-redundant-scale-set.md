@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b009e7501609ec3650bf15f2ab5051dbec0ada76
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 903a4d1a9864a9ab19df7c453adc002a8bd0f576
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659366"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983180"
 ---
-# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 建立區域備援虛擬機器擴展集
+# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>使用 Azure CLI 建立區域備援虛擬機器擴展集
 此指令碼會建立能在多個可用性區域執行 Ubuntu 的虛擬機器擴展集。 執行指令碼之後，您可以透過 RDP 存取虛擬機器。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

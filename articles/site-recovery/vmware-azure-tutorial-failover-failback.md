@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 783f8006ba19622761beef0ff931bcbb80edde46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822471"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115890"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>將複寫的 VMware VM 和實體伺服器容錯移轉及容錯回復至 Azure
 
@@ -98,7 +98,7 @@ ms.locfileid: "55822471"
 > [!IMPORTANT]
 > 如果您的內部部署環境與 Azure 之間使用 VPN 連線，您必須將 Azure VM 設定為處理序伺服器，以進行重新保護和容錯回復。 若要在 Azure 中設定處理序伺服器，請依照[本文](vmware-azure-set-up-process-server-azure.md)中的指示操作。
 
-如需重新保護和容錯回復的必要條件詳細資訊，請參閱此 [區段] ](vmware-azure-reprotect.md##before-you-begin)。 
+如需重新保護和容錯回復的必要條件詳細資訊，請參閱此[區段](vmware-azure-reprotect.md##before-you-begin)。 
 
 ### <a name="configure-the-master-target-server"></a>設定主要目標伺服器
 

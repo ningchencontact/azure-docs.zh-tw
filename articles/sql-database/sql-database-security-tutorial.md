@@ -1,6 +1,6 @@
 ---
-title: 保護 Azure SQL Database 中的獨立或集區資料庫 | Microsoft Docs
-description: 了解用來對 Azure SQL Database 中的獨立或集區資料庫進行保護的技術和功能。
+title: 保護 Azure SQL Database 中的單一或集區資料庫 | Microsoft Docs
+description: 了解用來對 Azure SQL Database 中的單一或集區資料庫進行保護的技術和功能。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752512"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004573"
 ---
-# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>教學課程：保護獨立或集區資料庫
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>教學課程：保護單一或集區資料庫
 
-Azure SQL Database 可讓您以下列方式保護獨立或集區資料庫中的資料：
+Azure SQL Database 可讓您以下列方式保護單一或集區資料庫中的資料：
 
 - 使用防火牆規則限制存取
 - 使用需要身分識別的驗證機制

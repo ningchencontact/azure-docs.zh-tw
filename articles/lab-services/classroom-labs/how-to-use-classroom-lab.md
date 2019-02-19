@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 8ea1afbfb90a55ec1c34f5c59cf38ea5417118ff
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390903"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965013"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>如何存取 Azure 實驗室服務中的教室實驗室
 本文將說明如何存取教室實驗室、連線到實驗室中的 VM，以及停止 VM。 
@@ -44,10 +44,8 @@ ms.locfileid: "54390903"
 
 ## <a name="connect-to-the-virtual-machine-in-a-classroom-lab"></a>連線到教室實驗室中的虛擬機器
 
-1. 如果 VM 尚未啟動，請選取 [啟動]。
+1. 如果 VM 尚未啟動，請選取圖格上的 [啟動] 加以啟動。 
 2. 在您要存取的實驗室虛擬機器圖格上，選取 [連線]。 
-
-    ![檢視所有連結](../media/how-to-use-classroom-lab/connect-button.png)
 3. 將 RDP 檔案 (適用於 Windows VM) 儲存至硬碟並加以開啟。 
 4. 使用授課者/教師提供給您的**使用者名稱**和**密碼**來登入機器。 
 

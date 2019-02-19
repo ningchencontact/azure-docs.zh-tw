@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 026540290710d039dbc06c394ab538ebe2d7c12f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: aa6f18d4f667862687083c5db3679ce9d8e188cd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344664"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56212956"
 ---
 回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 將 _&lt;deploymentLocalGitUrl-from-create-step>_ 取代為您從[建立 Web 應用程式](#create-a-web-app)儲存之 Git 遠端的 URL。
 
@@ -21,7 +21,7 @@ ms.locfileid: "53344664"
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-推送到 Azure 遠端，使用下列命令來部署您的應用程式。 當 Git 認證管理員提示輸入認證時，請務必輸入您在[設定部署使用者](#configure-a-deployment-user)中建立的認證，而不是您用來登入 Azure 入口網站的認證。
+推送到 Azure 遠端，使用下列命令來部署您的應用程式。 當 Git 認證管理員提示輸入認證時，請務必輸入您在 [設定部署使用者] 中建立的認證，而不是您用來登入 Azure 入口網站的認證。
 
 ```bash
 git push azure master

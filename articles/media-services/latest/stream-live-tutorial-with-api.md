@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170516"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894168"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>教學課程：透過媒體服務 v3 使用 .NET 進行即時串流
 
@@ -86,8 +86,8 @@ ms.locfileid: "55170516"
 您在建立即時事件時也可以進行下列指定：
 
 * 媒體服務位置 
-* 即時事件的串流通訊協定 (目前支援 RTMP 和 Smooth Streaming 通訊協定)。<br/>當即時事件或其相關聯的即時輸出正在執行時，您無法變更通訊協定選項。 如果您需要不同的通訊協定，則應該為每個串流通訊協定建立個別的即時事件。  
-* 內嵌和預覽的 IP 限制。 您可以定義允許將視訊內嵌到這個即時事件的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 '10.0.0.1(255.255.252.0)')。<br/>如果未指定 IP 位址而且也未定義規則，則任何 IP 位址都不允許。 若要允許任何 IP 位址，請建立規則，並設定 0.0.0.0/0。<br/>IP 位址必須採用下列其中一個格式：具有 4 個數字、CIDR 位址範圍的 IpV4 位址。
+* 即時事件的串流通訊協定 (目前支援 RTMP 和 Smooth Streaming 通訊協定)。<br/>當「實況活動」或其相關「實況輸出」正在執行時，您無法變更通訊協定選項。 如果您需要不同的通訊協定，則應該為每個串流通訊協定建立個別的「實況活動」。  
+* 內嵌和預覽的 IP 限制。 您可以定義獲允許將視訊內嵌到這個「實況活動」的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 '10.0.0.1(255.255.252.0)')。<br/>如果未指定 IP 位址而且也未定義規則，則任何 IP 位址都不允許。 若要允許任何 IP 位址，請建立規則，並設定 0.0.0.0/0。<br/>IP 位址必須採用下列其中一個格式：具有 4 個數字、CIDR 位址範圍的 IpV4 位址。
 * 在建立事件時，您可以指定要自動加以啟動。 <br/>當自動啟動設為 true 時，即時事件將會在建立後隨即啟動。 這表示，在即時事件開始執行後就會馬上開始計費。 您必須在即時事件資源上明確呼叫「停止」，才能中止進一步計費。 如需詳細資訊，請參閱[即時事件狀態和計費](live-event-states-billing.md)。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
@@ -166,7 +166,7 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ## <a name="watch-the-event"></a>監看事件
 
-若要監看事件，請複製您根據[建立串流定位器](#create-a-streaminglocator)中所述來執行程式碼時取得的串流 URL，並使用您所選擇的播放器。 您可以使用 http://ampdemo.azureedge.net 上的 [Azure 媒體播放器](http://amp.azure.net/libs/amp/latest/docs/index.html)來測試您的資料流。 
+若要監看事件，請複製您根據「建立串流定位器」中所述來執行程式碼時取得的串流 URL，並使用您所選擇的播放器。 您可以使用 http://ampdemo.azureedge.net 上的 [Azure 媒體播放器](http://amp.azure.net/libs/amp/latest/docs/index.html)來測試您的資料流。 
 
 即時事件會在停止時將事件自動轉換為點播內容。 只要您未刪除資產，即使在停止並刪除事件之後，使用者還是可以視需求將封存的內容串流為視訊。 如果事件使用資產，則無法刪除資產；必須先刪除事件。 
 

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8585023b01de55acb6c1b43b45e27af914a0a96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884413"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976941"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像
 
-自訂映像類似 Marketplace 映像，但您要自行建立它們。 自訂映像可用於啟動程序設定，例如，預先載入應用程式、應用程式設定和其他 OS 設定。 在本教學課程中，您將建立自己的 Azure 虛擬機器自訂映像。 您會了解如何：
+自訂映像類似 Marketplace 映像，但您要自行建立它們。 您可使用自訂映像來啟動部署，並確保多個 VM 之間的一致性。 在本教學課程中，您將使用 PowerShell 建立自己的 Azure 虛擬機器自訂映像。 您會了解如何：
 
 > [!div class="checklist"]
 > * 執行 sysprep 及一般化 VM
@@ -40,13 +40,15 @@ ms.locfileid: "54884413"
 
 若要完成本教學課程中的範例，您目前必須具有虛擬機器。 如有需要，這個[指令碼範例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可以為您建立一部虛擬機器。 逐步完成教學課程之後，請視需要取代資源群組和 VM 名稱。
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>啟動 Azure Cloud Shell
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 AzureRM 模組版本 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
+Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
+
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 ## <a name="prepare-vm"></a>準備 VM
 
-若要建立虛擬機器的映像，您需要藉由一般化 VM、解除配置，然後在 Azure 中將來源 VM 標示為一般化，來準備 VM。
+若要建立虛擬機器的映像，您需要將來源 VM 一般化、解除配置，然後使用 Azure 將來源 VM 標示為一般化，藉此準備來源 VM。
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>使用 Sysprep 將 Windows VM 一般化
 
@@ -54,7 +56,7 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 
 
 1. 連接至虛擬機器。
-2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 %windir%\system32\sysprep 目錄，然後執行 sysprep.exe。
+2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 *%windir%\system32\sysprep* 目錄，然後執行 `sysprep.exe`。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
 4. 在 [關機選項] 中選取 [關機]，然後按一下 [確定]。
 5. Sysprep 完成時，會關閉虛擬機器。 **不要重新啟動 VM**。
@@ -63,51 +65,62 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 
 若要建立映像，必須將 VM 解除配置並在 Azure 中標示為一般化。
 
-使用 [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) 將 VM 解除配置。
+使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) 將 VM 解除配置。
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
+Stop-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Force
 ```
 
-使用 [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm)將虛擬機器的狀態設定為 `-Generalized`。 
+使用 [Set-AzVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvm) 將虛擬機器的狀態設定為 `-Generalized`。 
    
 ```azurepowershell-interactive
-Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
+Set-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Generalized
 ```
 
 
 ## <a name="create-the-image"></a>建立映像
 
-現在您可以使用 [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) 和 [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage)建立 VM 的映象。 下列範例會從名為 myVM 的 VM 建立名為 myImage 的映像。
+現在您可以使用 [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) 和 [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage) 建立 VM 的映象。 下列範例會從名為 myVM 的 VM 建立名為 myImage 的映像。
 
 取得虛擬機器。 
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+$vm = Get-AzVM `
+   -Name myVM `
+   -ResourceGroupName myResourceGroup
 ```
 
 建立映像組態。
 
 ```azurepowershell-interactive
-$image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
+$image = New-AzImageConfig `
+   -Location EastUS `
+   -SourceVirtualMachineId $vm.ID 
 ```
 
 建立映像。
 
 ```azurepowershell-interactive
-New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
+New-AzImage `
+   -Image $image `
+   -ImageName myImage `
+   -ResourceGroupName myResourceGroup
 ``` 
 
  
 ## <a name="create-vms-from-the-image"></a>從映像建立 VM
 
-現在您已有映像，您可以從映像建立一個或多個新的 VM。 從自訂映像建立 VM 類似於使用 Marketplace 映像建立 VM。 使用 Marketplace 映像時，您必須提供關於映像、映像提供者、供應項目、SKU 和版本的資訊。 使用針對 [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) Cmdlet 簡化的參數集時，只要自訂映像位在同一個資源群組，您就只需要提供自訂映像的名稱。 
+現在您已有映像，您可以從映像建立一個或多個新的 VM。 從自訂映像建立 VM 類似於使用 Marketplace 映像建立 VM。 使用 Marketplace 映像時，您必須提供關於映像、映像提供者、供應項目、SKU 和版本的資訊。 使用針對 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) Cmdlet 簡化的參數集時，只要自訂映像位在同一個資源群組，您就只需要提供自訂映像的名稱。 
 
-該範例會根據 *myResourceGroup* 中的 *myImage* 建立名為 *myVMfromImage* 的 VM。
+該範例會根據 *myResourceGroup* 中的 *myImage* 映像建立名為 *myVMfromImage* 的 VM。
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
     -ImageName "myImage" `
@@ -126,14 +139,14 @@ New-AzureRmVm `
 依名稱列出所有映像。
 
 ```azurepowershell-interactive
-$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
 删除映像。 此範例會刪除 myResourceGroup 中名為 myImage 的映像。
 
 ```azurepowershell-interactive
-Remove-AzureRmImage `
+Remove-AzImage `
     -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```

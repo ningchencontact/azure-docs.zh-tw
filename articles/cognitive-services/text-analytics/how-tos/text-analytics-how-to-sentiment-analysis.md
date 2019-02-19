@@ -1,22 +1,22 @@
 ---
-title: 如何在文字分析 REST API 中進行情感分析 (Azure 上的 Microsoft 認知服務) | Microsoft Docs
-description: 本逐步解說教學課程將示範如何使用 Azure 上 Microsoft 認知服務中的文字分析 REST API 來偵測情感。
+title: 使用 Azure 認知服務中的文字分析進行情感分析 | Microsoft Docs
+description: 了解如何使用文字分析 REST API 偵測情感。
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212489"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242120"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>範例：如何在文字分析中偵測情感
+# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>範例：如何使用文字分析來偵測情感
 
 [情感分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) \(英文\) 會評估文字輸入，並傳回每份文件的情感分數，範圍從 0 (負面) 到 1 (正面)。
 

@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: ace02a0cb93cf3e56e4b895524b9e2d35440aecb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ca0e2c0ce12edba504745e2783844db5109ee01a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812976"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237700"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>教學課程：Azure Active Directory 與 Zoom 整合
 
@@ -124,6 +125,10 @@ Zoom 與 Azure AD 整合提供下列優點：
     | 姓氏  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
     | 電話號碼  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
     | department  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
+    | 角色 |    user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+
+    > [!NOTE]
+    > 請按一下[這裡](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)，以了解如何在 Azure AD 中設定角色
 
     a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
 
@@ -141,11 +146,14 @@ Zoom 與 Azure AD 整合提供下列優點：
 
     f. 按一下 [檔案] 。
 
-4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+    > [!NOTE]
+    > Zoom 可能需要 SAML 承載中的群組宣告，因此如果您建立了任何群組，請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc/en-us)並提供群組資訊，讓他們也能在那一端設定此群組資訊。 您也必須將物件識別碼提供給 [Zoom 客戶支援小組](https://support.zoom.us/hc/en-us)，讓他們可在那一端設定。 請依照[文件](https://support.zoom.us/hc/en-us/articles/115005887566)指示取得物件識別碼。
+
+7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-6. 在 [設定 Zoom] 區段上，依據您的需求複製適當的 URL。
+8. 在 [設定 Zoom] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -160,29 +168,29 @@ Zoom 與 Azure AD 整合提供下列優點：
 1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Zoom 公司網站。
 
 2. 按一下 [單一登入]  索引標籤。
-   
-    ![[單一登入] 索引標籤](./media/zoom-tutorial/IC784700.png "單一登入")
+
+    ![[單一登入] 索引標籤](./media/zoom-tutorial/ic784700.png "單一登入")
 
 3. 按一下 [安全性控制] 索引標籤，然後移至 [單一登入] 設定。
 
 4. 在 [單一登入] 區段中，執行下列步驟：
-   
-    ![[單一登入] 區段](./media/zoom-tutorial/IC784701.png "單一登入")
-   
+
+    ![[單一登入] 區段](./media/zoom-tutorial/ic784701.png "單一登入")
+
     a. 在 [登入頁面 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
-   
+
     b. 在 [登出頁面 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登出 URL** 值。
-     
+
     c. 在記事本中開啟您的 base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [識別提供者憑證]  文字方塊中。
 
     d. 在 [簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 **Azure AD 識別碼**值。 
 
     e. 按一下 [檔案] 。
 
-    > [!NOTE] 
+    > [!NOTE]
     > 如需詳細資訊，請瀏覽 Zoom 文件[https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
 
-### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
+### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
@@ -240,17 +248,17 @@ Zoom 與 Azure AD 整合提供下列優點：
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>若要佈建使用者帳戶，請執行下列步驟：
 
 1. 以系統管理員身分登入您的 **Zoom** 公司網站。
- 
+
 2. 按一下 [帳戶管理] 索引標籤，再按一下 [使用者管理]。
 
 3. 在 [使用者管理] 區段中按一下 [新增使用者] 。
-   
-    ![使用者管理](./media/zoom-tutorial/IC784703.png "使用者管理")
+
+    ![使用者管理](./media/zoom-tutorial/ic784703.png "使用者管理")
 
 4. 在 [新增使用者]  頁面上，執行下列步驟：
-   
-    ![新增使用者](./media/zoom-tutorial/IC784704.png "新增使用者")
-   
+
+    ![新增使用者](./media/zoom-tutorial/ic784704.png "新增使用者")
+
     a. 選取 [基本] 做為 [使用者類型]。
 
     b. 在 [電子郵件]  文字方塊中，輸入您要佈建之有效 Azure AD 帳戶的電子郵件地址。
@@ -260,7 +268,7 @@ Zoom 與 Azure AD 整合提供下列優點：
 > [!NOTE]
 > 您可以使用任何其他的 Zoom 使用者帳戶建立工具，或 Zoom 提供的 API，以佈建 Azure Active Directory 使用者帳戶。
 
-### <a name="test-single-sign-on"></a>測試單一登入 
+### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -273,4 +281,3 @@ Zoom 與 Azure AD 整合提供下列優點：
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

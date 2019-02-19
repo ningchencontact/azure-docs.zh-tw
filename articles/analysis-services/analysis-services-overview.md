@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/08/2019
+ms.date: 02/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189474"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243849"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -140,19 +140,21 @@ DirectQuery 模式* 會利用後端關聯式資料庫來提供儲存和查詢執
 
 \* 功能是否可用取決於服務層。
 
-## <a name="supported-datasources"></a>支援的資料來源
+## <a name="supported-data-sources"></a>支援的資料來源
 
 Azure Analysis Services 中的表格式模型可支援各種資料來源，從簡單的文字檔案到 Azure Data Lake Store 中的巨量資料都行。 若要深入了解，請參閱 [Azure Analysis Services 中所支援的資料來源](analysis-services-datasource.md)。
 
 ## <a name="your-data-is-secure"></a>您的資料很安全
 
-Azure Analysis Services 可為敏感性資料提供多種層級的安全性。 在伺服器層級：防火牆、Azure 驗證、伺服器系統管理員角色和伺服器端加密。 而在資料模型層級，使用者角色、資料列層級和物件層級的安全性可確保您的資料安全無虞，只有應該看到資料的使用者能看到資料。
+Azure Analysis Services 可為敏感性資料提供多種層級的安全性。 Analysis Services 是一項 Azure 服務，可在 Azure 平台中自動啟用**基本**層級的分散式阻斷服務 (DDoS) 攻擊防護。 若要深入了解，請參閱 [Azure DDoS 保護標準概觀](../virtual-network/ddos-protection-overview.md)。 
+
+在伺服器層級，Analysis Services 提供防火牆、Azure 驗證、伺服器系統管理員角色和伺服器端加密。 在資料模型層級，使用者角色、資料列層級和物件層級的安全性可確保您的資料安全無虞，只有應該看到資料的使用者能看到資料。
 
 ### <a name="firewall"></a>防火牆
 
-Azure Analysis Services 防火牆會封鎖規則中所指定 IP 位址以外的所有用戶端連線。 設定指定依個別用戶端 IP 或依範圍允許之 IP 位址的規則。 也可以允許或封鎖 Power BI (服務) 連線。 在入口網站中或藉由使用 PowerShell 來設定防火牆與規則。 若要深入了解，請參閱[設定伺服器防火牆](analysis-services-qs-firewall.md)。
+Azure Analysis Services 防火牆會封鎖規則中所指定 IP 位址以外的所有用戶端連線。 依預設不會為新的伺服器啟用防火牆保護。 建議您在伺服器建立後應立即啟用防火牆保護，並且在伺服器佈建指令碼或入口網站中設定規則。 設定指定依個別用戶端 IP 或依範圍允許之 IP 位址的規則。 也可以允許或封鎖 Power BI (服務) 連線。 在入口網站中或藉由使用 PowerShell 來設定防火牆與規則。 若要深入了解，請參閱[設定伺服器防火牆](analysis-services-qs-firewall.md)。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
 使用者驗證是由 [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) 負責處理的。 使用者在登入時會使用具有資料庫角色型存取權的組織帳戶身分識別。 使用者身分識別必須是伺服器所在訂用帳戶的預設 Azure Active Directory 成員。 若要深入了解，請參閱[驗證和使用者權限](analysis-services-manage-users.md)。
 

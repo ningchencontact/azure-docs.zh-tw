@@ -16,28 +16,31 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20bf851cc9b2965a355286699e1ef255887d7650
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 22de937c33edc7c8ec6944acf657937a1ce604f7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697083"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981889"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 建立完整的虛擬機器擴展集
-此指令碼會建立執行 Windows Server 2016 的虛擬機器擴展集。 此時會設定和建立個別資源，而不是使用 [New-AzureRmVmss 中提供於此處的內建資源建立選項](powershell-sample-create-simple-scale-set.md)。 執行指令碼之後，您可以透過 RDP 存取 VM 執行個體。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+此指令碼會建立執行 Windows Server 2016 的虛擬機器擴展集。 此時會設定和建立個別資源，而不是使用 [New-AzVmss 中提供於此處的內建資源建立選項](powershell-sample-create-simple-scale-set.md)。 執行指令碼之後，您可以透過 RDP 存取 VM 執行個體。
+
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="sample-script"></a>範例指令碼
+
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/complete-scale-set/complete-scale-set.ps1 "Create a complete virtual machine scale set")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 執行下列命令來移除資源群組、擴展集和所有相關資源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroupName
+Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
@@ -45,24 +48,24 @@ Remove-AzureRmResourceGroup -Name $resourceGroupName
 
 | 命令 | 注意 |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | 建立子網路組態。 此組態可使用於虛擬網路建立程序。 |
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | 建立虛擬網路。 |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | 建立公用 IP 位址。 |
-| [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig) | 建立負載平衡器的前端 IP 組態。 |
-| [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig) | 建立負載平衡器的後端位址集區設定。 |
-| [New-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerinboundnatruleconfig) | 建立負載平衡器的輸入 NAT 規則組態。 |
-| [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) | 建立負載平衡器。 |
-| [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig) | 建立負載平衡器的探查組態。 |
-| [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerruleconfig) | 建立負載平衡器的規則組態。 |
-| [Set-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Set-AzureRmLoadBalancer) | 使用提供的資訊更新負載平衡器。 |
-| [New-AzureRmVmssIpConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssIpConfig) | 建立擴展集 VM 執行個體的 IP 組態。 VM 執行個體會連線至負載平衡器後端集區、NAT 集區和虛擬網路子網路。 |
-| [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig) | 建立擴展集組態。 此組態會包含多項資訊，例如要建立的 VM 執行個體數目、VM SKU (大小)，以及升級原則模式等。 此組態可藉由其他 Cmdlet 來新增，並在擴展集建立期間使用。 |
-| [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | 定義要用於 VM 執行個體的映像，並將其新增至擴展集組態。 |
-| [Set-AzureRmVmssOsProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | 定義系統管理使用者名稱和密碼認證，以及 VM 的命名前置詞。 請將這些值新增至擴展集組態。 |
-| [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/AzureRM.Compute/Add-AzureRmVmssNetworkInterfaceConfiguration) | 根據 IP 組態，將虛擬網路介面新增至 VM 執行個體。 請將這些值新增至擴展集組態。 |
-| [New-AzureRmVmss](/powershell/module/AzureRM.Compute/New-AzureRmVmss) | 根據擴展集組態中提供的資訊來建立擴展集。 |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 移除資源群組及其內含的所有資源。 |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 建立子網路組態。 此組態可使用於虛擬網路建立程序。 |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 建立虛擬網路。 |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 建立公用 IP 位址。 |
+| [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) | 建立負載平衡器的前端 IP 組態。 |
+| [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) | 建立負載平衡器的後端位址集區設定。 |
+| [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) | 建立負載平衡器的輸入 NAT 規則組態。 |
+| [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) | 建立負載平衡器。 |
+| [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) | 建立負載平衡器的探查組態。 |
+| [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) | 建立負載平衡器的規則組態。 |
+| [Set-AzLoadBalancer](/powershell/module/az.Network/Set-azLoadBalancer) | 使用提供的資訊更新負載平衡器。 |
+| [New-AzVmssIpConfig](/powershell/module/az.Compute/New-azVmssIpConfig) | 建立擴展集 VM 執行個體的 IP 組態。 VM 執行個體會連線至負載平衡器後端集區、NAT 集區和虛擬網路子網路。 |
+| [New-AzVmssConfig](/powershell/module/az.Compute/New-azVmssConfig) | 建立擴展集組態。 此組態會包含多項資訊，例如要建立的 VM 執行個體數目、VM SKU (大小)，以及升級原則模式等。 此組態可藉由其他 Cmdlet 來新增，並在擴展集建立期間使用。 |
+| [Set-AzVmssStorageProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | 定義要用於 VM 執行個體的映像，並將其新增至擴展集組態。 |
+| [Set-AzVmssOsProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | 定義系統管理使用者名稱和密碼認證，以及 VM 的命名前置詞。 請將這些值新增至擴展集組態。 |
+| [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.Compute/Add-azVmssNetworkInterfaceConfiguration) | 根據 IP 組態，將虛擬網路介面新增至 VM 執行個體。 請將這些值新增至擴展集組態。 |
+| [New-AzVmss](/powershell/module/az.Compute/New-azVmss) | 根據擴展集組態中提供的資訊來建立擴展集。 |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 移除資源群組及其內含的所有資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 如需有關 Azure PowerShell 模組的詳細資訊，請參閱 [Azure PowerShell 文件](/powershell/azure/overview)。

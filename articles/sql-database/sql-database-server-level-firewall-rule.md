@@ -1,6 +1,6 @@
 ---
 title: 建立伺服器層級防火牆規則 - Azure SQL Database| Microsoft Docs
-description: 為單一或集區資料庫建立 SQL Database 伺服器層級防火牆規則
+description: 為單一和集區資料庫建立 SQL Database 伺服器層級防火牆規則
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,17 +11,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2374707d3fdf4d389a7c96c18767d3c52a9efb2f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/11/2019
+ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757182"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108954"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-in-azure-sql-database-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure SQL Database 中建立伺服器層級防火牆規則
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站為單一和集區資料庫建立伺服器層級防火牆規則
 
-本快速入門將逐步說明如何使用 Azure 入口網站在 Azure SQL Database 中建立伺服器層級防火牆規則，以便您可以從內部部署資源對其進行連線。
+本快速入門會逐步解說如何使用 Azure 入口網站，在 Azure SQL Database 中為單一和集區資料庫建立[伺服器層級防火牆規則](sql-database-firewall-configure.md)，以便您能連線至資料庫伺服器、單一資料庫和彈性集區及其資料庫。 需要有防火牆規則，才能從其他 Azure 資源和從內部部署資源進行連線。
 
 ## <a name="prerequisites"></a>必要條件
 

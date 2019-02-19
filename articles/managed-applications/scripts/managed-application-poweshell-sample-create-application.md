@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2429d561beffed5bc171b9dbc2c2c9c88eba3313
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 03b453e441b92d21f29e7e1f401bebae0b8589da
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23637038"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105853"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>使用 PowerShell 為服務類別目錄部署受控應用程式
 
@@ -28,6 +28,8 @@ ms.locfileid: "23637038"
 
 ## <a name="sample-script"></a>範例指令碼
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/managed-applications/create-application/create-application.ps1 "Create application")]
 
 
@@ -37,7 +39,7 @@ ms.locfileid: "23637038"
 
 | 命令 | 注意 |
 |---|---|
-| [New-AzureRmManagedApplication](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermmanagedapplication) | 建立受控應用程式。 提供範本的定義識別碼和參數。 |
+| [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | 建立受控應用程式。 提供範本的定義識別碼和參數。 |
 
 
 ## <a name="next-steps"></a>後續步驟

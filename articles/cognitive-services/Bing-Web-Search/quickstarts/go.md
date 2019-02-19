@@ -4,26 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: 使用此快速入門以運用 Go 來傳送要求給「Bing Web 搜尋 REST API」，並接收 JSON 回應
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 11f15d37830bb177031ff90d93ea1053b66013ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3c64841656f81f2f78c02c54f08ca24cccd78586
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203217"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186857"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>快速入門：使用 Bing Web 搜尋 REST API 和 Go 來搜尋 Web
 
-本快速入門可讓您在 10 分鐘內完成第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
+使用本快速入門進行對 Bing Web 搜尋 API 第一次的呼叫，並接收 JSON 回應。 這個 Go 應用程式會將搜尋要求傳送給 API，並顯示回應。 雖然此應用程式是以 Go 撰寫的，但 API 是一種與大多數的程式設計語言都相容的 RESTful Web 服務。
 
 另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
@@ -34,6 +32,8 @@ ms.locfileid: "55203217"
 * 訂用帳戶金鑰
 
 本快速入門只需要**核心**程式庫，沒有外部相依性。  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="create-a-project-and-import-core-libraries"></a>建立專案並匯入核心程式庫
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將了解如何搭配使用 Java 和翻譯工具文字 REST API 將文字字串從英文翻譯成義大利文和德文。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: a757b766537cc4f1105d77478f4a1d7543c27e40
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2e7535476965258d02f3cd3db0126a0e8a486ab
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227908"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963619"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>快速入門：搭配使用翻譯工具文字 API 與 Java 來翻譯字串
 
@@ -170,6 +170,12 @@ public static void main(String[] args) {
 
 ```console
 gradle build
+```
+
+當建置完成時，執行：
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>範例回應

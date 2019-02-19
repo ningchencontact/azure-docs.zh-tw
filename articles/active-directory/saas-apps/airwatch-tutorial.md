@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 AirWatch 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
 ms.service: Azure-Active-Directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 366ffa560cb16f6445eca93e79068fba6cc31e6d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7d91f395f2fd7e65f66f1a885dbd09e725029858
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813112"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>教學課程：Azure Active Directory 與 AirWatch 整合
 
@@ -78,8 +79,8 @@ AirWatch 與 Azure AD 整合提供下列優點：
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 AirWatch 單一登入](#configure-airwatch-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 AirWatch 測試使用者](#create-airwatch-test-user)** - 使 AirWatch 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+4. **[建立 AirWatch 測試使用者](#create-airwatch-test-user)** - 使 AirWatch 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -111,11 +112,40 @@ AirWatch 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這不是真正的值。 使用實際的「登入 URL」來更新此值。 請連絡 [AirWatch 用戶端支援小組](https://www.air-watch.com/company/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+5. AirWatch 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+
+    ![映像](common/edit-attribute.png)
+
+6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+
+    | Name |  來源屬性|
+    |---------------|----------------|
+    | UID | user.userprincipalname |
+    | | |
+
+    a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
+
+    ![映像](common/new-save-attribute.png)
+
+    ![映像](common/new-attribute-details.png)
+
+    b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
+
+    c. 讓 [命名空間] 保持空白。
+
+    d. 選取 [來源] 作為 [屬性]。
+
+    e. 在 [來源屬性] 清單中，輸入該資料列所顯示的屬性值。
+
+    f. 按一下 [確定]。
+
+    g. 按一下 [檔案] 。
+
+7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 AirWatch] 區段上，依據您的需求複製適當的 URL。
+8. 在 [設定 AirWatch] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 

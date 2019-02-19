@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/07/2018
+ms.date: 02/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: b739db654a182433bbe1f47528d1ab99f1b10c08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: e0f6e3068a26eef3b6cca79cffbb98614eb44a34
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242156"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100154"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的身分識別架構
-在您選擇要搭配 Azure Stack 使用的身分識別提供者之前，請先了解 Azure Active Directory (Azure AD) 與 Active Directory Federation Services (AD FS) 之間選項的重要差異。 
+
+在您選擇要搭配 Azure Stack 使用的身分識別提供者時，請了解 Azure Active Directory (Azure AD) 與 Active Directory Federation Services (AD FS) 之間選項的重要差異。
 
 ## <a name="capabilities-and-limitations"></a>功能和限制 
 您選擇的身分識別提供者可能會限制您的選項，包括支援多租用戶。 
@@ -33,16 +34,16 @@ ms.locfileid: "55242156"
 
 |功能或案例        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|已連線至網際網路     |是       |選用|
-|支援多租用戶     |是       |否      |
-|Marketplace 中的供應項目 |是       |是。 要求使用[離線 Marketplace 摘要整合](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)工具。|
-|支援 Active Directory 驗證程式庫 (ADAL) |是 |是|
-|支援 Azure CLI、Visual Studio 和 PowerShell 等工具  |是 |是|
-|透過 Azure 入口網站建立服務主體     |是 |否|
-|建立包含憑證的服務主體      |是 |是|
-|建立包含祕密 (金鑰) 的服務主體    |是 |否|
-|應用程式可以使用 Graph 服務           |是 |否|
-|應用程式可以使用身分識別提供者進行登入 |是 |是。 要求應用程式與內部部署 AD FS 執行個體同盟。 |
+|已連線至網際網路     |yes       |選用|
+|支援多租用戶     |yes       |否      |
+|Marketplace 中的供應項目 |yes       |是。 要求使用[離線 Marketplace 摘要整合](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)工具。|
+|支援 Active Directory 驗證程式庫 (ADAL) |yes |yes|
+|支援 Azure CLI、Visual Studio 和 PowerShell 等工具  |yes |yes|
+|透過 Azure 入口網站建立服務主體     |yes |否|
+|建立包含憑證的服務主體      |yes |yes|
+|建立包含祕密 (金鑰) 的服務主體    |yes |否|
+|應用程式可以使用 Graph 服務           |yes |否|
+|應用程式可以使用身分識別提供者進行登入 |yes |是。 要求應用程式與內部部署 AD FS 執行個體同盟。 |
 
 ## <a name="topologies"></a>拓撲
 下列各節討論您可使用的各種身分識別拓撲。

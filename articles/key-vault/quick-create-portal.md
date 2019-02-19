@@ -3,7 +3,7 @@ title: Azure 快速入門 - 使用 Azure 入口網站從 Key Vault 設定及擷�
 description: 說明如何使用 Azure 入口網站從 Azure Key Vault 設定及擷取祕密的快速入門
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078383"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117097"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站從 Azure Key Vault 設定及擷取祕密
 
@@ -58,14 +58,14 @@ Azure Key Vault 是一項雲端服務，可為祕密提供安全的存放區。 
 
 ## <a name="add-a-secret-to-key-vault"></a>將祕密新增至 Key Vault
 
-若要將祕密新增至保存庫，您只需要採取一些額外步驟。 在此情況下，我們會新增應用程式可以使用的密碼。 此密碼稱為 **ExamplePassword**，我們會在其中儲存 **Pa$$w0rd** 值。
+若要將祕密新增至保存庫，您只需要採取一些額外步驟。 在此情況下，我們會新增應用程式可以使用的密碼。 此密碼稱為 **ExamplePassword**，且我們會在其中儲存 **hVFkk965BuUv** 值。
 
 1. 在 [金鑰保存庫屬性] 頁面中，選取 [祕密]。
 2. 按一下 [產生/匯入]。
 3. 在 [建立祕密] 畫面上選擇下列值：
     - **上傳選項**：手動。
     - **名稱**：ExamplePassword。
-    - **值**：Pa$$w0rd。
+    - **值**：hVFkk965BuUv
     - 將其他的值保留預設值。 按一下頁面底部的 [新增] 。
 
 一旦收到已成功建立祕密的訊息，即可按一下清單上的祕密。 您可以接著看見某些屬性。 如果您按一下目前的版本，您可以看到您在上一個步驟中指定的值。

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: ba37be1f0d7224b7e607955ab350e756b6fec350
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ad6884067a756412efe27ce275387ff5ceb1b298
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697546"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105666"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>教學課程：使用 RBAC 與 Azure PowerShell 為群組授與存取權
 
@@ -124,7 +124,7 @@ ms.locfileid: "55697546"
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. 使用 [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) 命令取得訂用帳戶的識別碼。
+1. 使用 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) 命令取得訂用帳戶的識別碼。
 
     ```azurepowershell
     Get-AzSubscription

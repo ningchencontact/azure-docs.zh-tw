@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a8134e2350b650f7dfe0b3a1d58d107e42493223
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766498"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895053"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
 
@@ -67,7 +67,7 @@ ms.locfileid: "55766498"
 
 在 Azure Stack 中，有一個很簡單的方式可以執行此作業：
 
-1. 瀏覽至儲存體帳戶清單。 如需詳細資訊，請參閱本文中的[尋找儲存體帳戶](#find)。
+1. 瀏覽至儲存體帳戶清單。 如需詳細資訊，請參閱本文中的「尋找儲存體帳戶」。
 2. 在清單中找出該特定帳戶。 您可能需要篩選。
 3. 請檢查帳戶的 [狀態]。 它應該指出 [已刪除]。
 4. 選取可開啟 [帳戶詳細資料] 窗格的帳戶。
@@ -113,7 +113,7 @@ ms.locfileid: "55766498"
 您可以使用入口網站或 PowerShell 來回收容量。
 
 **使用入口網站回收容量：**
-1. 瀏覽至 [儲存體帳戶] 窗格。 請參閱[尋找儲存體帳戶](#find)。
+1. 瀏覽至 [儲存體帳戶] 窗格。 請參閱「尋找儲存體帳戶」。
 2. 選取窗格頂端的 [回收空間]。
 3. 讀取訊息，然後選取 [確定]。
 

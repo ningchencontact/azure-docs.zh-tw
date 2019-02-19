@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 30c13b511fdc4c348cb7356ccc2fb64c40239fc4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811565"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>教學課程：Azure Active Directory 與 Blackboard Learn 整合
 
@@ -211,7 +212,7 @@ ms.locfileid: "54811565"
 
 ### <a name="create-blackboard-learn-test-user"></a>建立 Blackboard Learn 測試使用者
 
-在本節中，您會在 Blackboard Learn 中建立名為 Britta Simon 的使用者。 Blackboard Learn 應用程式支援即時使用者佈建。 請確定您已依照**[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** 一節所述的方式設定宣告
+在本節中，您會在 Blackboard Learn 中建立名為 Britta Simon 的使用者。 Blackboard Learn 應用程式支援即時使用者佈建。 請確定您已依照**設定 Azure AD 單一登入**一節所述的方式設定宣告
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

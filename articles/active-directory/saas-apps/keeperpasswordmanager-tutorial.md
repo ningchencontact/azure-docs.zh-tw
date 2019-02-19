@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 70dfc03c37b2e7a93218ff7e710dbd22f622d418
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4e55a50a1a4ae1db995a6054cf9dc13382236b8e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813299"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>教學課程：Azure Active Directory 與 Keeper Password Manager & Digital Vault 整合
 
@@ -78,7 +79,7 @@ Keeper Password Manager & Digital Vault 與 Azure AD 整合提供下列優點：
 若要設定及測試對 Keeper Password Manager & Digital Vault 的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[設定 Keeper Password Manager & Digital Vault 單一登入](#configure-keeper-password-manager-&-digital-vault-single-sign-on)** - 在應用程式端設定單一登入設定。
+2. **設定 Keeper Password Manager & Digital Vault 單一登入** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Keeper Password Manager & Digital Vault 測試使用者](#create-keeper-password-manager--digital-vault-test-user)** - 使 Keeper Password Manager & Digital Vault 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。

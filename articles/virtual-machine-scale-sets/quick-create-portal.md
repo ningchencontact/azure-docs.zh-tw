@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 7644940418b7322e5ec4b02b793219b44ae3aa97
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ed17d7cd887df6d8bd749ba4426d1a791b58d457
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885144"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171225"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>快速入門：在 Azure 入口網站建立虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU、記憶體需求或網路流量等資源使用量進行自動調整。 其後，Azure 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 在此快速入門中，您會在 Azure 入口網站中建立虛擬機器擴展集。
@@ -46,11 +46,12 @@ ms.locfileid: "54885144"
     - **密碼**長度必須至少有 12 個字元，且符合下列四個複雜性需求的其中三項：1 個小寫字元、1 個大寫字元、1 個數字和 1 個特殊字元。 如需詳細資訊，請參閱[使用者名稱和密碼需求](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)。
     - 如果您選取 Linux OS 磁碟映像，可以改為選擇 [SSH 公開金鑰]。 在此只需提供您的公開金鑰，例如 *~/.ssh/id_rsa.pub*。 您可以從入口網站使用 Azure Cloud Shell [建立及使用 SSH 金鑰](../virtual-machines/linux/mac-create-ssh-keys.md)。
 
-7. 輸入**公用 IP 位址名稱**，例如 *myPublicIP*。
-8. 輸入唯一的**網域名稱標籤**，例如 *myuniquedns*。 此 DNS 標籤會成為擴展集前方負載平衡器 FQDN 的基底。
-9. 若要確認擴展集選項，請選取 [建立]。
+    ![在 Azure 入口網站中建立虛擬機器擴展集的基本詳細資料](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+1. 在 [選擇負載平衡選項] 下方選取負載平衡選項 (例如，*負載平衡器*)。 輸入負載平衡選項的其餘詳細資料。 例如，對於「負載平衡器」，您必須輸入 [公用 IP 位址名稱] 和 [網域名稱標籤]。
+1. 在 [設定虛擬網路] 底下輸入虛擬網路詳細資料。 例如，您可以建立新的虛擬網路 (myVirtualNetwork) 以及新的子網路 (default)。
+1. 若要確認擴展集選項，請選取 [建立]。
+    ![在 Azure 入口網站中建立虛擬機器擴展集的網路詳細資料](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
 
-    ![在 Azure 入口網站建立虛擬機器擴展集](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>連線到擴展集中的 VM

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732442"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884455"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶
 
@@ -93,7 +93,7 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 6. 選擇您要在其中建立儲存體帳戶的訂用帳戶。
 7. 選取 [下一步: 進階] > 
 8. 保留 [安全性] 和 [虛擬網路] 欄位的預設值。
-9. 在 [Data Lake Storage Gen2 (預覽版)] 區段中，將 [階層式命名空間] 設定為 [啟用]。
+9. 在 [Data Lake Storage Gen2] 區段中，將 [階層式命名空間] 設定為 [啟用]。
 10. 按一下 [檢閱及建立] 建立儲存體帳戶。
 
     ![顯示在 Azure 入口網站建立儲存體帳戶的螢幕擷取畫面](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)

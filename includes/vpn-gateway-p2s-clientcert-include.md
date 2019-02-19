@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7ae3886db6391836cd8d281e44c95c5253cc8dd5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323691"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985388"
 ---
 每個使用點對站連線來連線至 VNet 的用戶端電腦都必須安裝用戶端憑證。 您會從根憑證產生用戶端憑證，並將其安裝在每部用戶端電腦上。 如果您沒有安裝有效的用戶端憑證，用戶端嘗試連線至 VNet 時所進行的驗證將會失敗。
 
@@ -31,4 +31,8 @@ ms.locfileid: "53323691"
   * [MakeCert 指示](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md)：如果您無法存取 Windows 10 電腦來產生憑證，則可以使用 MakeCert。 雖然 MakeCert 已被取代，但您仍可用它來產生憑證。 您可以將產生的憑證安裝在任何支援的 P2S 用戶端。
   * [Linux 指示](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
-  當您從自我簽署根憑證產生用戶端憑證時，此憑證會自動安裝在您用來產生它的電腦上。 如果您想要在另一部用戶端電腦上安裝用戶端憑證，請將其匯出為 .pfx 檔案 (包含整個憑證鏈結)。 這麼做將會建立一個 .pfx 檔案，其中包含用戶端進行驗證所需的根憑證資訊。 如需匯出憑證的步驟，請參閱[使用 PowerShell 來產生並匯出點對站的憑證](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)。
+  當您從自我簽署根憑證產生用戶端憑證時，此憑證會自動安裝在您用來產生它的電腦上。 如果您想要在另一部用戶端電腦上安裝用戶端憑證，請將其匯出為 .pfx 檔案 (包含整個憑證鏈結)。 這麼做將會建立一個 .pfx 檔案，其中包含用戶端進行驗證所需的根憑證資訊。 
+
+**匯出憑證**
+
+如需匯出憑證的步驟，請參閱[使用 PowerShell 來產生並匯出點對站的憑證](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)。

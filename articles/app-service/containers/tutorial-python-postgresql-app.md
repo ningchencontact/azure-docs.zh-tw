@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 161778c921026547c532b05474a60dd0d3e9fa7a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975384"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237795"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>在 Azure App Service 中建置 Python 和 PostgreSQL 應用程式
 
@@ -33,6 +33,9 @@ ms.locfileid: "53975384"
 > * 將應用程式部署至 Azure
 > * 檢視診斷記錄
 > * 在 Azure 入口網站中管理應用程式
+
+> [!NOTE]
+> 在建立適用於 PostgreSQL 的 Azure 資料庫之前，請先查看[這裡](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores)以確認可在您的區域中產生的計算。
 
 您可以在 macOS 上依照本文中的步驟進行。 Linux 和 Windows 指示在大部分情況下都相同，本教學課程對差異不加詳述。
 

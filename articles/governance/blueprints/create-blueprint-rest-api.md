@@ -4,17 +4,17 @@ description: Azure 藍圖可用來建立、定義和部署成品。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566943"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989961"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>使用 REST API 定義和指派 Azure 藍圖
 
@@ -329,6 +329,12 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 使用 REST API 發佈藍圖後，即可將藍圖指派給訂用帳戶。 將您建立的藍圖指派給管理群組階層下的其中一個訂用帳戶。 如果將藍圖儲存到某訂用帳戶，則只能將其指派給該訂用帳戶。 **要求本文**指定要指派的藍圖，提供名稱和位置給藍圖定義中的任何資源群組，以及提供在藍圖中定義且用於一或多個連接成品的所有參數。
 
+在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
+
+- `{tenantId}` - 以您的租用戶識別碼取代
+- `{YourMG}` - 取代為您的管理群組識別碼
+- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
+
 1. 在目標訂用帳戶上提供 Azure 藍圖服務主題**擁有者**角色。 AppId 是靜態的 (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)，但服務主體識別碼則依租用戶而各為不同。 使用下列 REST API 可要求租用戶的詳細資料。 它使用具有不同授權的 [Azure Active Directory 圖形 API](../../active-directory/develop/active-directory-graph-api.md)。
 
    - REST API URI
@@ -387,6 +393,25 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
          "location": "westus"
      }
      ```
+
+   - 使用者指派的受控識別
+
+     藍圖指派也可以使用[指派使用者的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)。 在此情況下，要求主體部份的**識別**會變更，如下所示。  分別以您的資源群組名稱取代 `{yourRG}`，並以使用者指派的受控識別名稱取代 `{userIdentity}`。
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     **使用者指派的受控識別**可位於使用者指派藍圖具有權限的任何訂用帳戶和資源群組中。
+
+     > [!IMPORTANT]
+     > 藍圖不會管理使用者指派的受控識別。 使用者需負責指派足夠的角色和權限，否則藍圖指派將會失敗。
 
 ## <a name="unassign-a-blueprint"></a>取消指派藍圖
 

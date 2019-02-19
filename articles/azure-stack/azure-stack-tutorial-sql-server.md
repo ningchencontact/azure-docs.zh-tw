@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aba9014e74b8ba0cd1b528cf570d3651950c6d5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240806"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207053"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>教學課程：將 SQL 資料庫提供給您的 Azure Stack 使用者
 
@@ -35,7 +35,7 @@ ms.locfileid: "55240806"
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>部署 SQL Server 資源提供者
 
-部署程序於[在 Azure Stack 上使用 SQL 資料庫](azure-stack-sql-resource-provider-deploy.md)文章中詳細說明，而且由下列主要步驟組成：
+部署程序詳細說明於[在 Azure Stack 上使用 SQL 資料庫](azure-stack-sql-resource-provider-deploy.md)文章中，其中包含下列主要步驟：
 
 1. [部署 SQL 資源提供者](azure-stack-sql-resource-provider-deploy.md)。
 2. [驗證部署](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal)。

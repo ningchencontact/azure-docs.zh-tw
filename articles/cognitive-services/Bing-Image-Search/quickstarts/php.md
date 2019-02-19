@@ -5,19 +5,19 @@ description: 使用此快速入門以運用 PHP 來傳送影像搜尋要求給�
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7015d22222113c1b38c9fd43f218f243d9be7bbd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cca6fba401d8673cf97897c24a9d6de2329f19a4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181532"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232484"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>快速入門：使用 Bing 影像搜尋 REST API 和 PHP 來搜尋影像
 
@@ -49,7 +49,7 @@ ms.locfileid: "55181532"
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>建構及執行 HTTP 要求
+## <a name="construct-and-perform-an-http-request"></a>建構及執行 HTTP 要求
 
 1. 使用上一個步驟中的變數來準備對「影像搜尋 API」的 HTTP 要求。
 
@@ -59,7 +59,7 @@ ms.locfileid: "55181532"
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. 執行 Web 要求並取得 JSON 回應。
+2. 傳送 Web 要求並取得 JSON 回應。
 
     ```php
     $context = stream_context_create($options);
@@ -81,7 +81,7 @@ ms.locfileid: "55181532"
         return array($headers, $result);
     ```
 
-## <a name="sample-json-response"></a>範例 JSON 回應
+## <a name="example-json-response"></a>範例 JSON 回應
 
 來自「Bing 影像搜尋 API」的回應會以 JSON 形式傳回。 本範例回應已截斷而只顯示單一結果。
 
@@ -125,7 +125,7 @@ ms.locfileid: "55181532"
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -137,7 +137,8 @@ ms.locfileid: "55181532"
 ## <a name="see-also"></a>另請參閱
 
 * [什麼是 Bing 影像搜尋？](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [試用線上互動式示範](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [試用線上互動式示範](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* Bing 搜尋 API 的[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。 
 * [取得免費認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure 認知服務文件](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing 影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

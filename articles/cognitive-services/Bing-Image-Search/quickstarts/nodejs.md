@@ -5,27 +5,25 @@ description: 使用此快速入門以運用 JavaScript 來傳送影像搜尋要�
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 31a0d092340ed161b8d8c7e7e23740c1fbf9318b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e7ff8fc10e8f714acac2dd77f8d8628f3a3ebf9e
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155267"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238181"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>快速入門：使用 Bing 影像搜尋 REST API 和 Node.js 來搜尋影像
 
-使用本快速入門來進行您對「Bing 影像搜尋 API」的第一次呼叫，並接收 JSON 回應。 這個簡單的 JavaScript 應用程式會將搜尋查詢傳送給 API，並顯示原始結果。
+使用本快速入門，開始將搜尋要求傳送至 Bing 影像搜尋 API。 這個 JavaScript 應用程式會將搜尋查詢傳送至 API，並顯示結果中第一個影像的 URL。 雖然此應用程式是以 JavaScript 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-雖然此應用程式是以 JavaScript 撰寫並在 Node.js 中執行的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
-
-[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) 上有此範例的原始程式碼，其中還有其他錯誤處理和註釋。
+此範例的原始程式碼可從 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) 取得，其中含有其他錯誤處理和註釋。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -55,7 +53,7 @@ ms.locfileid: "55155267"
 
 ## <a name="construct-the-search-request-and-query"></a>建構搜尋要求和查詢。
 
-1. 使用上一個步驟中的變數來製作適用於 API 要求的搜尋 URL 格式。 請注意，您的搜尋字詞必須先進行 URL 編碼，才能傳送給 API。
+1. 使用上一個步驟中的變數來製作適用於 API 要求的搜尋 URL 格式。 您的搜尋字詞必須先進行 URL 編碼，再傳送至 API。
 
     ```javascript
     let request_params = {
@@ -76,7 +74,7 @@ ms.locfileid: "55155267"
 
 ## <a name="handle-and-parse-the-response"></a>處理及剖析回應
 
-1. 定義一個名為 `response_handler` 的函式，此函式會接受 HTTP 呼叫 `response` 作為參數。 在此函式內，執行下列步驟：
+1. 定義一個名為 `response_handler` 的函式，此函式會接受 HTTP 呼叫 `response` 作為參數。 在此函式內執行下列步驟：
 
     1. 定義一個變數來包含 JSON 回應本文。  
         ```javascript
@@ -92,7 +90,7 @@ ms.locfileid: "55155267"
         });
         ```
 
-    3. 當發出 **end** 旗標信號時，即可處理 JSON，並可列印影像的 URL，以及所傳回影像的總數。
+    3. 如果顯示了 **end** 旗標，請取得 JSON 回應中的第一個結果。 列印第一個影像的 URL，以及傳回的影像總數。
 
         ```javascript
         response.on('end', function () {
@@ -103,7 +101,7 @@ ms.locfileid: "55155267"
          });
         ```
 
-## <a name="json-response"></a>JSON 回應
+## <a name="example-json-response"></a>範例 JSON 回應
 
 來自「Bing 影像搜尋 API」的回應會以 JSON 形式傳回。 本範例回應已截斷而只顯示單一結果。
 
@@ -147,19 +145,20 @@ ms.locfileid: "55155267"
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 影像搜尋單頁應用程式教學課程](../tutorial-bing-image-search-single-page-app.md) (英文)
+> [建立單頁應用程式](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>另請參閱
 
 * [什麼是 Bing 影像搜尋？](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [試用線上互動式示範](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [試用線上互動式示範](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* Bing 搜尋 API 的[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。 
 * [取得免費認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure 認知服務文件](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing 影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

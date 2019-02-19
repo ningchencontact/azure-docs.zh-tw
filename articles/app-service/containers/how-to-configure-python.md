@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 416566ac52e8df6324cbf6146919df160deb0f98
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6965379aadefd110ce6e46e105bbde10626b63c1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220989"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892162"
 ---
 # <a name="configure-your-python-app-for-azure-app-service"></a>設定適用於 Azure App Service 的 Python 應用程式
 本文說明 [Azure App Service](app-service-linux-intro.md) 會如何執行 Python 應用程式，以及要如何在需要時自訂 App Service 的行為。 您必須使用所有必要的 [pip](https://pypi.org/project/pip/) 模組來部署 Python 應用程式。 在您部署 [Git 存放庫](../deploy-local-git.md)或 [Zip 套件](../deploy-zip.md) (在開啟建置程序的情況下) 時，App Service 部署引擎 (Kudu) 會自動啟動虛擬環境，並為您執行 `pip install -r requirements.txt`。
@@ -82,7 +82,7 @@ az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-如果您想要更加具體地控制啟動命令，請使用[自訂啟動命令](#custom-startup-command)，並將 `<module>` 替換為包含 wsgi.py 的模組名稱。
+如果您想要更加具體地控制啟動命令，請使用自訂啟動命令，並將 `<module>` 替換為包含 wsgi.py 的模組名稱。
 
 ### <a name="flask-app"></a>Flask 應用程式
 
@@ -95,7 +95,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-如果主要的應用程式模組放在不同檔案內，請為該應用程式物件使用不同的名稱，如果您想要對 Gunicorn 提供額外的引數，則請使用[自訂啟動命令](#custom-startup-command)。
+如果主要的應用程式模組放在不同檔案內，請為該應用程式物件使用不同的名稱，如果您想要對 Gunicorn 提供額外的引數，則請使用自訂啟動命令。
 
 ### <a name="default-behavior"></a>預設行為
 
@@ -160,7 +160,7 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 - 重新啟動 App Service，等候 15 到 20 秒，然後再檢查一次應用程式。
 - 請確定您使用的是適用於 Linux 的 App Service，而不是以 Windows 為基礎的執行個體。 從 Azure CLI 執行 `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind` 命令，並替換對應的 `<resource_group_name>` 和 `<app_service_name>`。 輸出應該會是 `app,linux`；若非如此，請重新建立 App Service 並選擇 Linux。
 - 使用 SSH 或 Kudu 主控台直接連線到 App Service，並確認檔案有在 site/wwwroot 底下。 如果檔案不存在，請檢閱部署程序，並重新部署應用程式。
-- 如果檔案存在，App Service 卻無法識別特定的啟動檔案。 請檢查應用程式的結構是否符合 App Service 對 [Django](#django-app) 或 [Flask](#flask-app) 的預期，或者，您也可以使用[自訂啟動命令](#custom-startup-command)。
+- 如果檔案存在，App Service 卻無法識別特定的啟動檔案。 請檢查應用程式的結構是否符合 App Service 對 [Django](#django-app) 或 [Flask](#flask-app) 的預期，或者，您也可以使用自訂啟動命令。
 - **您在瀏覽器中看到「服務無法使用」訊息。** 瀏覽器在等候 App Service 的回應時逾時，這表示 App Service 已啟動 Gunicorn 伺服器，但用來指定應用程式程式碼的引數不正確。
 - 重新整理瀏覽器，如果您使用 App Service 方案中的最低定價層，更應該如此。 舉例來說，如果您使用免費層，應用程式可能需要更久的時間才能啟動，在您重新整理瀏覽器後，應用程式便會有回應。
 - 請檢查應用程式的結構是否符合 App Service 對 [Django](#django-app) 或 [Flask](#flask-app) 的預期，或者，您也可以使用[自訂啟動命令](#customize-startup-command)。

@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 55c1aa4a478031ebc49ec5ab7ea5744d9d980470
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3356d7425e692f248a3850e8bef7b80d4daba276
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825750"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179938"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>教學課程：Azure Active Directory 與 Atlassian Cloud 整合
 
@@ -39,6 +40,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Atlassian Cloud 單一登入的訂用帳戶
+* 若要針對 Atlassian Cloud 產品啟用安全性聲明標記語言 (SAML) 單一登入，您必須設定 Atlassian Access。 深入了解 [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager) \(英文\)。
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -124,29 +126,15 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 上述登入 URL 值並非真正的值。 使用實際的登入 URL 來更新此值。 請連絡 [Atlassian Cloud 用戶端支援小組](https://support.atlassian.com/)以取得此值。
 
-6. 您的 Atlassian Cloud 應用程式會預期要有特定格式的 SAML 判斷提示，這需要您將自訂屬性對應新增到您的「SAML 權杖屬性」設定。
-
-    [使用者識別碼] 值預設會與 user.userprincipalname 對應。 請將此值變更為與 user.mail 對應。 您也可以根據組織的設定，選擇任何其他適當的值，但在大多數情況下，電子郵件應該能夠運作。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+6. 您的 Atlassian Cloud 應用程式會預期要有特定格式的 SAML 判斷提示，這需要您將自訂屬性對應新增到您的「SAML 權杖屬性」設定。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 Atlassian Cloud 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯] 圖示以編輯屬性對應，並變更屬性對應。
 
     ![映像](common/edit-attribute.png)
 
-7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟：
-
-    a. 按一下 [編輯] 圖示以開啟 [管理使用者宣告] 對話方塊。
-
-    ![映像](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
-
-    ![映像](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
-
-    b. 從 [來源屬性] 清單中，選取 [user.mail]。
-
-    c. 按一下 [檔案] 。
-
-8. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-9. 在 [安裝 Atlassian Cloud] 區段上，依據您的需求複製適當的 URL。
+8. 在 [安裝 Atlassian Cloud] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 

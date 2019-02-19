@@ -1,22 +1,22 @@
 ---
-title: 如何在文字分析 REST API 中進行語言偵測 (Azure 上的 Microsoft 認知服務) | Microsoft Docs
-description: 本逐步解說教學課程將示範如何使用 Azure 上 Microsoft 認知服務中的文字分析 REST API 來偵測語言。
+title: 使用文字分析 REST API 來偵測語言 | Microsoft Docs
+description: 如何使用 Azure 認知服務中的文字分析 REST API 來偵測語言。
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: e613652511a18f2234c82cce47f0beeb2d3bbdd6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 549ef0d073a740edf700c54d02a0d9ef247db0b7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211945"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245082"
 ---
-# <a name="example-how-to-detect-language-in-text-analytics"></a>範例：如何在文字分析中偵測語言
+# <a name="example-how-to-detect-language-with-text-analytics"></a>範例：如何使用文字分析來偵測語言
 
 [語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 會針對每份文件評估文字輸入，並傳回語言識別項，其中含有指出分析強度的分數。 文字分析最多可辨識 120 種語言。
 

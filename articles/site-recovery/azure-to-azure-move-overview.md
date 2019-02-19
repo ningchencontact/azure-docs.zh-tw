@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5d844692b6199d93fa835da1021c9753311e17de
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824512"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112541"
 ---
 # <a name="move-azure-vms-to-another-region"></a>將 Azure VM 移動到另一個區域
 
@@ -33,7 +33,7 @@ Azure 隨著客戶群的增長而持續擴充，且將新增新區域的支援�
 客戶移動 VM 的可能原因如下：
 
 - 如果您已在某個區域中部署，但其後 Azure 新增了新區域的支援，且該區域較接近您應用程式或服務的使用者，此時您就會想要將 **VM 依原狀移至新區域**，以降低延遲。 如果您想要合併訂用帳戶，或是有控管/組織規則要求您移動 VM，也可以採用相同的方法。 
-- 如果您的 VM 部署為單一執行個體 VM，或部署為可用性設定組的一部分，而您想要提高可用性 SLA，您可以**將 VM 移至可用性設定組**。 
+- 如果您的 VM 部署為單一執行個體 VM，或部署為可用性設定組的一部分，而您想要提高可用性 SLA，您可以**將 VM 移至可用性區域**。 
 
 ## <a name="how-to-move-azure-vms"></a>如何移動 Azure VM
 要移動 VM 必須執行下列步驟：
@@ -97,7 +97,7 @@ Azure 隨著客戶群的增長而持續擴充，且將新增新區域的支援�
 
 2. **每層中的 VM 部署在可用性設定組間** - 選擇使用 Azure Site Recovery 為 VM 啟用複寫時，您可以選擇設定為將可用性設定組中的 VM 放在個別的可用性區域中。 完成移動作業後，可用性 SLA 將達到 99.9 %。
 
-      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## <a name="next-steps"></a>後續步驟

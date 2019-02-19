@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bdc3b88109a8d8c46f0a6a09297b0ca197165
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ab9439cbf46fd77a24aa07cab1884e4e50720e43
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478878"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203755"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>教學課程：Azure Active Directory 與 Euromonitor Passport 整合
 
@@ -66,7 +67,7 @@ ms.locfileid: "55478878"
 
 4. 在搜尋方塊中，輸入 **Euromonitor Passport**，從結果面板中選取 [Euromonitor Passport]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 Euromonitor Passport](common/search-new-app.png)
+    ![結果清單中的 Euromonitor Passport](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -104,17 +105,17 @@ ms.locfileid: "55478878"
 
     ![Euromonitor Passport 網域及 URL 單一登入資訊](common/preintegrated.png)
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
+5. 如果您想要以 **SP** 起始模式設定應用程式，您必須向 [Euromonitor Passport 支援小組](mailto:passport.support@euromonitor.com)索取登入 URL。 取得 Euromonitor Passport 支援小組所提供的登入 URL 後，請按一下 [設定其他 URL]，然後執行下列步驟：
 
     ![Euromonitor Passport 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 文字方塊中，輸入 URL：`https://portal.euromonitor.com`
+    將 Euromonitor Passport 支援小組提供的 [登入 URL] 值貼到 [登入 URL] 文字方塊中。
 
 6. Euromonitor Passport 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
     ![映像](./media/euromonitor-passport-tutorial/attribute1.png)
 
-7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
+7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
     | Name | 來源屬性|
     | ---------------| --------- |
@@ -209,7 +210,7 @@ ms.locfileid: "55478878"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Euromonitor Passport] 圖格時，應該會自動登入您已設定 SSO 的 Euromonitor Passport。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 [Euromonitor Passport] 圖格時，應該會自動登入您已設定 SSO 的 Euromonitor Passport。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

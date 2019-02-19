@@ -7,16 +7,18 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/24/2018
 ms.author: victorh
-ms.openlocfilehash: 872227e0521bd54e6bf7fdbe3626dfca34170863
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 73b8dfd741543560cd6ebf26178618a70bdae5f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257720"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992767"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Azure DNS 私人區域
 
 本教學課程將逐步引導您使用 Azure PowerShell 來建立第一個私人 DNS 區域和第一筆記錄。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
@@ -46,25 +48,25 @@ These instructions assume you have already installed and signed in to Azure Powe
 首先，請建立包含 DNS 區域的資源群組： 
 
 ```azurepowershell
-New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
+New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
 ## <a name="create-a-dns-private-zone"></a>建立 DNS 私人區域
 
-使用 `New-AzureRmDnsZone` Cmdlet 搭配值為 "Private" 的 ZoneType 參數來建立 DNS 區域。 下列範例會在 **MyAzureResourceGroup** 資源群組中建立 **contoso.local** DNS 區域，並使 **MyAzureVnet** 虛擬網路能夠使用此 DNS 區域。
+使用 `New-AzDnsZone` Cmdlet 搭配值為 "Private" 的 ZoneType 參數來建立 DNS 區域。 下列範例會在 **MyAzureResourceGroup** 資源群組中建立 **contoso.local** DNS 區域，並使 **MyAzureVnet** 虛擬網路能夠使用此 DNS 區域。
 
 如果省略 **ZoneType** 參數，則會將區域建立為公用區域，因此，這就是建立私人區域的必要參數。 
 
 ```azurepowershell
-$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
-$vnet = New-AzureRmVirtualNetwork `
+$backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName MyAzureResourceGroup `
   -Location eastus `
   -Name myAzureVNet `
   -AddressPrefix 10.2.0.0/16 `
   -Subnet $backendSubnet
 
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
+New-AzDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
    -ZoneType Private `
    -RegistrationVirtualNetworkId @($vnet.Id)
 ```
@@ -76,16 +78,16 @@ New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
 
 ### <a name="list-dns-private-zones"></a>列出 DNS 私人區域
 
-您可以從 `Get-AzureRmDnsZone` 中省略區域名稱，以列舉資源群組中的所有區域： 此作業會傳回一系列的區域物件。
+您可以從 `Get-AzDnsZone` 中省略區域名稱，以列舉資源群組中的所有區域： 此作業會傳回一系列的區域物件。
 
 ```azurepowershell
-Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
+Get-AzDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
 
-您可以從 `Get-AzureRmDnsZone` 中省略區域名稱和資源群組名稱，以列舉 Azure 訂用帳戶中的所有區域。
+您可以從 `Get-AzDnsZone` 中省略區域名稱和資源群組名稱，以列舉 Azure 訂用帳戶中的所有區域。
 
 ```azurepowershell
-Get-AzureRmDnsZone
+Get-AzDnsZone
 ```
 
 ## <a name="create-the-test-virtual-machines"></a>建立測試虛擬機器
@@ -93,7 +95,7 @@ Get-AzureRmDnsZone
 現在，請建立兩部虛擬機器，讓您可以測試私人 DNS 區域：
 
 ```azurepowershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myAzureResourceGroup" `
     -Name "myVM01" `
     -Location "East US" `
@@ -102,7 +104,7 @@ New-AzureRmVm `
     -addressprefix 10.2.0.0/24 `
     -OpenPorts 3389
 
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myAzureResourceGroup" `
     -Name "myVM02" `
     -Location "East US" `
@@ -116,12 +118,12 @@ New-AzureRmVm `
 
 ## <a name="create-an-additional-dns-record"></a>建立其他的 DNS 記錄
 
-您可以使用 `New-AzureRmDnsRecordSet` Cmdlet 來建立記錄集。 下列範例會在資源群組 **MyAzureResourceGroup** 中的 DNS 區域 **contoso.local** 中，建立具有相對名稱 **db** 的記錄。 記錄集的完整名稱是 **db.contoso.local**。 記錄類型為 "A"，IP 位址是 "10.2.0.4"，TTL 為 3600 秒。
+您可以使用 `New-AzDnsRecordSet` Cmdlet 來建立記錄集。 下列範例會在資源群組 **MyAzureResourceGroup** 中的 DNS 區域 **contoso.local** 中，建立具有相對名稱 **db** 的記錄。 記錄集的完整名稱是 **db.contoso.local**。 記錄類型為 "A"，IP 位址是 "10.2.0.4"，TTL 為 3600 秒。
 
 ```azurepowershell
-New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
+New-AzDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
    -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
-   -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
+   -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
 
 ### <a name="view-dns-records"></a>檢視 DNS 記錄
@@ -129,7 +131,7 @@ New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
 若要列出區域中的 DNS 記錄，請執行︰
 
 ```azurepowershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
+Get-AzDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
 ```
 請記住，您不會看到針對兩部測試虛擬機器自動建立的 A 記錄。
 
@@ -198,7 +200,7 @@ Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResour
 當不再需要時，請刪除 **MyAzureResourceGroup** 資源群組，來刪除本教學課程中建立的資源。
 
 ```azurepowershell
-Remove-AzureRMResourceGroup -Name MyAzureResourceGroup
+Remove-AzResourceGroup -Name MyAzureResourceGroup
 ```
 
 ## <a name="next-steps"></a>後續步驟

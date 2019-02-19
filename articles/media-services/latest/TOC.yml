@@ -15,12 +15,15 @@ items:
 - name: 教學課程
   items:
   - name: 遠端檔案編碼和串流影片 - REST
+    displayName: encoding, job, transform
     href: stream-files-tutorial-with-rest.md
   - name: 已上傳檔案編碼和串流影片 - REST
+    displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
   - name: 即時串流 - .NET
     href: stream-live-tutorial-with-api.md
   - name: 分析影片 - .NET
+    displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
   expanded: true
 - name: 範例
@@ -31,32 +34,54 @@ items:
     href: cli-samples.md
 - name: 概念
   items:
-  - name: 擷取
+  - name: 雲端上傳和儲存體
+    href: storage-account-concept.md
     items:
     - name: Assets
       href: assets-concept.md
   - name: 編碼
-    href: encoding-concept.md
     items:
+    - name: 概觀
+      displayName: Presets
+      href: encoding-concept.md
     - name: 轉換與工作
       href: transforms-jobs-concept.md
     - name: 媒體編碼器標準格式
       href: media-encoder-standard-formats.md
     - name: Autogen 彈性位元速率階梯
       href: autogen-bitrate-ladder.md
-  - name: 分析
-    href: analyzing-video-audio-files-concept.md
+  - name: 媒體分析
     items:
+    - name: 概觀
+      displayName: Presets
+      href: analyzing-video-audio-files-concept.md
     - name: 轉換與工作
       href: transforms-jobs-concept.md
-  - name: Stream
+  - name: 封裝、傳遞、保護
     items:
+    - name: 封裝
+      items:
+      - name: 動態封裝
+        href: dynamic-packaging-overview.md
+      - name: 篩選器
+        href: filters-concept.md
+      - name: 動態資訊清單
+        href: filters-dynamic-manifest-overview.md
+    - name: 內容保護
+      href: content-protection-overview.md
+      items:
+      - name: 多 DRM 系統與存取控制
+        href: design-multi-drm-system-with-access-control.md
     - name: 串流端點
+      displayName: Origins
       href: streaming-endpoint-concept.md
     - name: 串流定位器
+      displayName: URLs
       href: streaming-locators-concept.md
     - name: 串流原則
       href: streaming-policy-concept.md
+    - name: 內容金鑰原則
+      href: content-key-policy-concept.md
   - name: 即時串流
     href: live-streaming-overview.md
     items:
@@ -72,36 +97,19 @@ items:
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
-  - name: 傳遞
-    items:
-    - name: 篩選器與動態資訊清單
-      href: filters-dynamic-manifest-overview.md
   - name: 監視
     items:
-    - name: Event Grid
+    - name: 具有事件方格的事件
       href: reacting-to-media-services-events.md
-  - name: Protect
-    href: content-protection-overview.md
+  - name: 播放程式用戶端
     items:
-    - name: 內容金鑰原則
-      href: content-key-policy-concept.md
-    - name: 串流原則
-      href: streaming-policy-concept.md
-    - name: 串流定位器
-      href: streaming-locators-concept.md
-    - name: 多 DRM 系統與存取控制
-      href: design-multi-drm-system-with-access-control.md
-  - name: 播放
-    href: use-azure-media-player.md
-  - name: 帳戶
+    - name: Azure 媒體播放器
+      href: use-azure-media-player.md
+  - name: 媒體服務實體
     items:
-    - name: 配額和限制
-      href: limits-quotas-constraints.md
-    - name: 儲存體帳戶
-      href: storage-account-concept.md
-  - name: 篩選、排序、頁面實體
-    href: entities-overview.md
-  - name: 從 v2 遷移至 v3
+    - name: 排序、篩選、實體分頁
+      href: entities-overview.md
+  - name: 將移轉指引從 v2 變更為 v3
     href: migrate-from-v2-to-v3.md
 - name: 使用說明指南
   items:
@@ -113,19 +121,34 @@ items:
       href: access-api-cli-how-to.md
     - name: 調整媒體保留單元 - CLI
       href: media-reserved-units-cli-how-to.md
-  - name: 設定 Postman
-    href: media-rest-apis-with-postman.md
+    - name: 開始開發
+      href: developers-guide.md
+    - name: 設定 Postman
+      href: media-rest-apis-with-postman.md
   - name: 上傳內容
     items:
-    - name: 從 HTTP(s) - .NET
+    - name: 從 HTTPS - .NET
+      displayName: upload
       href: job-input-from-http-how-to.md
     - name: 從本機檔案 - .NET
+      displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: 從本機檔案 - REST
+      displayName: upload
       href: upload-files-rest-how-to.md
   - name: 編碼內容
     items:
-    - name: 自訂轉換預設 - .NET
+    - name: HTTPS 即作業輸入 - .NET
+      displayName: encode, encoding
+      href: job-input-from-http-how-to.md
+    - name: 本機檔案即作業輸入 - .NET
+      displayName: encode, encoding
+      href: job-input-from-local-file-how-to.md
+    - name: 本機檔案即作業輸入 - REST
+      displayName: encode
+      href: upload-files-rest-how-to.md
+    - name: 使用自訂轉換 - .NET
+      displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
   - name: 使用事件方格
     items:
@@ -215,13 +238,15 @@ items:
     href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: 版本資訊
     href: release-notes.md
+  - name: 配額和限制
+    href: limits-quotas-constraints.md
   - name: 常見問題集
     href: frequently-asked-questions.md
   - name: Azure 雲端和區域
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0ca98ea27a77418ee5a111a67bd013ab6ad40e55
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 05b20d905a5848cfcfd0f9c6d20e4addb5c776fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330013"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340428"

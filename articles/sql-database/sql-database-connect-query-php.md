@@ -10,13 +10,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/28/2018
-ms.openlocfilehash: b3fe6e0249143b27cb763401a8d328922ed1fe99
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/12/2019
+ms.openlocfilehash: af2e711cef6e97935c2e4dc90557ef4f127d1caa
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173916"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237429"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>快速入門：使用 PHP 查詢 Azure SQL 資料庫
 
@@ -26,19 +26,39 @@ ms.locfileid: "55173916"
 
 若要完成此範例，請確定您具有下列必要條件：
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Azure SQL Database。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
+
+  || 單一資料庫 | 受控執行個體 |
+  |:--- |:--- |:---|
+  | 建立| [入口網站](sql-database-single-database-get-started.md) | [入口網站](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | 設定 | [伺服器層級 IP 防火牆規則](sql-database-server-level-firewall-rule.md)| [VM 的連線能力](sql-database-managed-instance-configure-vm.md)|
+  |||[現場的連線能力](sql-database-managed-instance-configure-p2s.md)
+  |載入資料|每個快速入門載入的 Adventure Works|[還原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||從 [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 中的 [BACPAC](sql-database-import.md) 檔案還原或匯入 Adventure Works|
+  |||
+
+  > [!IMPORTANT]
+  > 本文中已撰寫的指令碼會使用 Adventure Works 資料庫。 對於受控執行個體，您必須將 Adventure Works 資料庫匯入執行個體資料庫中，或將本文中的指令碼修改為使用 Wide World Importers 資料庫。
 
 - 針對您的作業系統安裝的 PHP 相關軟體：
 
-    - **MacOS**：安裝 PHP、ODBC 驅動程式，然後安裝 PHP Driver for SQL Server。 請參閱[步驟 1、2 和 3](/sql/connect/php/installation-tutorial-linux-mac)。
+  - **MacOS**：安裝 PHP、ODBC 驅動程式，然後安裝 PHP Driver for SQL Server。 請參閱[步驟 1、2 和 3](/sql/connect/php/installation-tutorial-linux-mac)。
 
-    - **Linux**：安裝 PHP、ODBC 驅動程式，然後安裝 PHP Driver for SQL Server。 請參閱[步驟 1、2 和 3](/sql/connect/php/installation-tutorial-linux-mac)。
+  - **Linux**：安裝 PHP、ODBC 驅動程式，然後安裝 PHP Driver for SQL Server。 請參閱[步驟 1、2 和 3](/sql/connect/php/installation-tutorial-linux-mac)。
 
-    - **Windows**：安裝 PHP for IIS Express 和 Chocolatey，然後安裝 ODBC 驅動程式和 SQLCMD。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/)。
+  - **Windows**：安裝 PHP for IIS Express 和 Chocolatey，然後安裝 ODBC 驅動程式和 SQLCMD。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/)。
 
-## <a name="get-database-connection"></a>取得資料庫連線
+## <a name="get-sql-server-connection-information"></a>取得 SQL Server 連線資訊
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+取得連線到 Azure SQL Database 所需的連線資訊。 在後續程序中，您將需要完整的伺服器名稱或主機名稱、資料庫名稱和登入資訊。
+
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
+
+2. 瀏覽至 [SQL 資料庫] 或 [SQL 受控執行個體] 頁面。
+
+3. 在 [概觀] 頁面上，針對單一資料庫檢閱 [伺服器名稱] 旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機] 旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製] 圖示。
 
 ## <a name="add-code-to-query-database"></a>新增程式碼以查詢資料庫
 

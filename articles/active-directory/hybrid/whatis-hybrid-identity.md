@@ -12,12 +12,13 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc18353ff89f8613847c977066e51620fb3e834f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494659"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190461"
 ---
 # <a name="what-is-hybrid-identity"></a>什麼是混合式身分識別？ 
 
@@ -42,14 +43,14 @@ Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能�
 |我需要：|PHS 和 SSO<sup>1</sup>| PTA 和 SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |自動將我的內部部署 Active Directory 中建立的新使用者、連絡人及群組帳戶同步至雲端。|![建議](./media/whatis-hybrid-identity/ic195031.png)| ![建議](./media/whatis-hybrid-identity/ic195031.png) |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
-|設定 Office 365 混合式案例的租用戶|![建議](./media/whatis-hybrid-identity/ic195031.png)| ![建議](./media/whatis-hybrid-identity/ic195031.png) |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
-|讓我的使用者可以使用其內部部署密碼登入及存取雲端服務|![建議](./media/whatis-hybrid-identity/ic195031.png)| ![建議](./media/whatis-hybrid-identity/ic195031.png) |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
-|使用公司認證實作單一登入|![建議](./media/whatis-hybrid-identity/ic195031.png)| ![建議](./media/whatis-hybrid-identity/ic195031.png) |![建議](./media/whatis-hybrid-identity/ic195031.png)|  
-|確定雲端中未儲存任何密碼雜湊| |![建議](./media/whatis-hybrid-identity/ic195031.png)|![建議](./media/whatis-hybrid-identity/ic195031.png)| 
-|啟用雲端多重要素驗證解決方案| |![建議](./media/whatis-hybrid-identity/ic195031.png)|![建議](./media/whatis-hybrid-identity/ic195031.png)| 
-|啟用內部部署 Multi-Factor Authentication 解決方案| | |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
-|對使用者支援智慧卡驗證<sup>4</sup>| | |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
-|在 Office 入口網站中和 Windows 10 桌面上顯示密碼到期通知| | |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
+|設定適用於 Office 365 混合式案例的租用戶。|![建議](./media/whatis-hybrid-identity/ic195031.png)| ![建議](./media/whatis-hybrid-identity/ic195031.png) |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
+|讓我的使用者可以使用其內部部署密碼登入及存取雲端服務。|![建議](./media/whatis-hybrid-identity/ic195031.png)| ![建議](./media/whatis-hybrid-identity/ic195031.png) |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
+|使用公司認證實作單一登入。|![建議](./media/whatis-hybrid-identity/ic195031.png)| ![建議](./media/whatis-hybrid-identity/ic195031.png) |![建議](./media/whatis-hybrid-identity/ic195031.png)|  
+|確定雲端中未儲存任何密碼雜湊。| |![建議](./media/whatis-hybrid-identity/ic195031.png)|![建議](./media/whatis-hybrid-identity/ic195031.png)| 
+|啟用雲端多重要素驗證解決方案。| |![建議](./media/whatis-hybrid-identity/ic195031.png)|![建議](./media/whatis-hybrid-identity/ic195031.png)| 
+|啟用內部部署多重要素驗證解決方案。| | |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
+|對使用者支援智慧卡驗證。<sup>4</sup>| | |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
+|在 Office 入口網站中和 Windows 10 桌面上顯示密碼到期通知。| | |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> 單一登入的密碼雜湊同步處理。 
 > 

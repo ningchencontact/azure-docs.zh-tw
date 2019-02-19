@@ -4,30 +4,27 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您可以使用翻譯工具文字 API，取得翻譯、直譯及查閱字典時所支援的語言清單。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 937fd58b28a3e64f7f4f9fc4bf52e8280af81136
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88347076888b68459747757d655759d3f83d19a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226964"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964554"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>快速入門：搭配使用翻譯工具文字 API 與 Java 來取得支援的語言清單
 
 在本快速入門中，您可以使用翻譯工具文字 API，取得翻譯、直譯及查閱字典時所支援的語言清單。
 
-本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和翻譯工具文字資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
-
 ## <a name="prerequisites"></a>必要條件
 
 * [JDK 7 或更新版本](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)
-* 翻譯工具文字的 Azure 訂用帳戶金鑰
 
 ## <a name="initialize-a-project-with-gradle"></a>使用 Gradle 將專案初始化
 
@@ -50,7 +47,7 @@ gradle init --type basic
 
 找出 `build.gradle.kts`，並使用您慣用的 IDE 或文字編輯器加以開啟。 然後，在此組建組態中複製下列內容：
 
-```
+```java
 plugins {
     java
     application
@@ -104,7 +101,6 @@ public class GetLanguages {
 將以下幾行新增至 `GetLanguages` 類別：
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
 
@@ -117,14 +113,13 @@ String url = "https://api.cognitive.microsofttranslator.com/languages?api-versio
 OkHttpClient client = new OkHttpClient();
 ```
 
-接下來，我們將建置 GET 要求。
+接下來，我們將建置 `GET` 要求。
 
 ```java
 // This function performs a GET request.
 public String Get() throws IOException {
     Request request = new Request.Builder()
             .url(url).get()
-            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
@@ -167,6 +162,12 @@ public static void main(String[] args) {
 
 ```console
 gradle build
+```
+
+當建置完成時，執行：
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>範例回應

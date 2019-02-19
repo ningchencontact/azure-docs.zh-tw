@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 您可以使用本指南來建立語音轉換文字的主控台應用程式 (其會使用適用於 Python 的語音 SDK)。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
 services: cognitive-services
 author: chlandsi
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2a0ef42a2904b661b0076c9e84700ce61e3a7248
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 43ae1339b2b6880656c68957a3d4ed2d2f13b559
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746795"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859535"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>快速入門：使用適用於 Python 的語音 SDK 來辨識語音
 
@@ -94,7 +94,7 @@ python quickstart.py
 1. 將 [Python 程式碼](#sample-code)複製並貼上到新建立的檔案中，然後儲存它。
 1. 插入您的語音服務訂用帳戶資訊。
 1. 如果已經選取，Python 解譯器會顯示在視窗底部狀態列的左側。
-   否則，會顯示可用 Python 解譯器的清單。 開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Python: Select Interpreter**。 選擇適當的解譯器。
+   否則，會顯示可用 Python 解譯器的清單。 開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Python:選取解譯器**。 選擇適當的解譯器。
 1. 您可以從 Visual Studio Code 內安裝語音 SDK Python 套件。 如果您選取的 Python 解譯器尚未安裝該套件，請予以安裝。
    若要安裝語音 SDK 套件，請開啟終端機。 再次開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Terminal:Create New Integrated Terminal** 來開啟終端機。
    在開啟的終端機中，輸入命令 `python -m pip install azure-cognitiveservices-speech` 或系統所適用的命令。

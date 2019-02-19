@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 70229a0b211acd08d285ad7a943f39285fad8012
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f6713326045ebd84f1cd484803fbc725ad798d7b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810417"
+ms.locfileid: "55882262"
 ---
 # <a name="move-azure-vms-to-another-region"></a>將 Azure VM 移動到另一個區域
 
@@ -31,7 +31,7 @@ ms.locfileid: "55810417"
 > * [捨棄來源區域中的資源](#discard-the-resource-in-the-source-region) 
 
 > [!IMPORTANT]
-> 本文件會引導您在區域之間按現狀移動 Azure VM，如果您的需求是要將可用性設定組中的 VM 移到不同區域中固定區域的 VM，藉此改善可用性，請參閱此處的教學課程。
+> 本文件會引導您在區域之間按現狀移動 Azure VM；如果您的需求是要將可用性設定組中的 VM 移到不同區域中固定區域的 VM，藉此改善可用性，請參閱[此處](move-azure-VMs-AVset-Azone.md)的教學課程。
 
 ## <a name="verify-prerequisites"></a>驗證必要條件
 
@@ -50,7 +50,7 @@ ms.locfileid: "55810417"
 
 ## <a name="prepare-the-source-vms"></a>準備來源 VM
 
-1. 檢查您要移動的 Azure VM 上具有所有最新根憑證。 如果沒有最新的根憑證，則由於安全性條件限制而無法啟用將資料複製到目標區域。
+1. 檢查您要移動的 Azure VM 上具有所有最新的根憑證。 如果沒有最新的根憑證，則會因為安全性條件約束而無法啟用將資料複製到目標區域的功能。
 
     - 若為 Windows VM，請安裝所有最新的 Windows 更新，讓所有的受信任根憑證都在機器上。 在中斷連線的環境中，請遵循您組織的標準 Windows Update 和憑證更新程序。
     - 若為 Linux VM，請遵循 Linux 散發者提供的指引，以取得最新的受信任根憑證及 VM 的憑證撤銷清單。
@@ -62,9 +62,9 @@ ms.locfileid: "55810417"
 
 1. 確認您的 Azure 訂用帳戶允許您在用於災害復原的目標區域中建立 VM。 請連絡支援人員啟用所需的配額。
 
-2. 確定您的訂用帳戶具有足夠的資源，可支援大小與來源 VM 相符的 VM。 如果您使用 Site Recovery 將資料複製到目標，則會為目標 VM 挑選相同的大小或最接近的大小。
+2. 確定您的訂用帳戶具有足夠的資源，可支援大小與來源 VM 相符的 VM。 如果您使用 Site Recovery 將資料複製到目標，它將會為目標 VM 挑選相同的大小或最接近的大小。
 
-3. 務必為來源網路面配置中識別的每個元件，建立目標資源。 務必確保在完全移轉至目標區域後，您的 VM 具備您在來源中擁有的所有功能和特性。
+3. 務必為來源網路面配置中識別的每個元件建立目標資源。 務必確保在完全移轉至目標區域後，您的 VM 具備您在來源中擁有的所有功能和特性。
 
     > [!NOTE]
     > 當您啟用來源 VM 的複寫，Azure Site Recovery 會自動探索和建立虛擬網路，您也可以在啟用複寫的使用者流程中，預先建立網路並指派給 VM。 但是對於任何其他資源，如下所述，您必須在目標區域中手動加以建立。
@@ -73,33 +73,33 @@ ms.locfileid: "55810417"
 
     - [網路安全性群組](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [負載平衡器](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [公用 IP ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [公用 IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
-    如需其他網路元件，請參閱網路[文件](https://docs.microsoft.com/azure/#pivot=products&panel=network)。 
+    如需其他網路元件的資訊，請參閱網路[文件](https://docs.microsoft.com/azure/#pivot=products&panel=network)。 
 
 4. 如果您想要測試組態，請先在目標區域中手動[建立非生產網路](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)，再執行對目標區域的最終完全移轉。 這對生產環境的干擾最少，建議使用此方法。
     
 ## <a name="copy-data-to-the-target-region"></a>將資料複製到目標區域
-下列步驟將引導您如何使用 Azure Site Recovery 將資料複製到目標區域。
+下列步驟將說明如何使用 Azure Site Recovery 將資料複製到目標區域。
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>在來源區域以外的任何區域中建立保存庫。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]。
 2. 按一下 [建立資源] > [管理工具] > [備份和 Site Recovery]。
-3. 在 [名稱] 中，指定易記名稱 [ContosoVMVault]。 如果您有多個訂用帳戶， 請選取適當的訂用帳戶。
+3. 在 [名稱] 中，指定易記名稱 [ContosoVMVault]。 如果您有多個 訂用帳戶，請選取適當的訂用帳戶。
 4. 建立資源群組 **ContosoRG**。
 5. 指定 Azure 區域。 若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。
 6. 在復原服務保存庫中，按一下 [概觀] > [ConsotoVMVault] > [+複寫]。
 7. 在 [來源] 中，選取 [Azure]。
 8. 在 [來源位置] 中，選取 VM 目前執行所在的來源 Azure 區域。
-9. 選取 Resource Manager 部署模型。 然後選取 [來源訂用帳戶] 和 [來源資源群組]。
+9. 選取 Resource Manager 部署模型。 然後，選取 [來源訂用帳戶] 和 [來源資源群組]。
 10. 按一下 [確定]  來儲存設定。
 
-### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>啟用 Azure VM 的複寫並開始複製資料。
+### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>為 Azure VM 啟用複寫，並開始複製資料。
 
 Site Recovery 會擷取與訂用帳戶和資源群組建立關聯的 VM 清單。
 
-1. 在接下來的步驟中： 選取您要移動的 VM。 然後按一下 [確定] 。
+1. 在下一個步驟中： 選取您要移動的 VM。 然後按一下 [確定] 。
 3. 在 [設定] 中，按一下 [災害復原]。
 4. 在 [設定災害復原] >  [目標區域] 中，選取您要複寫至的目標區域。
 5. 在本教學課程中，接受其他預設設定。
@@ -112,7 +112,7 @@ Site Recovery 會擷取與訂用帳戶和資源群組建立關聯的 VM 清單�
 ## <a name="test-the-configuration"></a>測試組態
 
 
-1. 瀏覽至保存庫，在 [設定] > [複寫的項目] 中，按一下您預計移至目標區域的虛擬機器，然後按一下 [+ 測試容錯移轉] 圖示。
+1. 瀏覽至保存庫，在 [設定] > [複寫的項目] 中按一下您要移至目標區域的虛擬機器，然後按一下 [+測試容錯移轉] 圖示。
 2. 在 [測試容錯移轉] 中，選取要用於容錯移轉的復原點：
 
    - **最近處理**：將 VM 容錯移轉到 Site Recovery 服務所處理的最新復原點。 隨即顯示時間戳記。 使用此選項時，無須花費時間處理資料，因此它會提供低 RTO (復原時間目標)。
@@ -126,26 +126,26 @@ Site Recovery 會擷取與訂用帳戶和資源群組建立關聯的 VM 清單�
 
 4. 若要開始測試移動，請按一下 [確定]。 若要追蹤進度，請按一下 VM 開啟其內容。 或者，您也可以按一下保存庫名稱中的 [測試容錯移轉] 作業 > [設定] > [作業] > [Site Recovery 作業]。
 5. 容錯移轉完成之後，複本 Azure VM 會出現在 Azure 入口網站> [虛擬機器] 中。 請確定 VM 正在執行中、大小適中，並已連線到適當的網路。
-6. 如果您想要刪除測試移動過程中建立的 VM，請按一下複寫的項目上的 [清除測試容錯移轉]。 在 [記事] 中，記錄並儲存與測試相關聯的任何觀察。
+6. 如果您想要刪除測試移動過程中建立的 VM，請在複寫的項目上按一下 [清除測試容錯移轉]。 在 [記事] 中，記錄並儲存與測試相關聯的任何觀察。
 
-## <a name="perform-the-move-to-the-target-region-and-confirm"></a>執行移至目標區域並且確認。
+## <a name="perform-the-move-to-the-target-region-and-confirm"></a>執行移至目標區域的作業，並加以確認。
 
-1.  瀏覽至保存庫，在 [設定] > [複寫的項目] 中，按一下虛擬機器，然後按一下 [容錯移轉]。
+1.  瀏覽至保存庫，在 [設定] > [複寫的項目] 中按一下虛擬機器，然後按一下 [容錯移轉]。
 2. 在 [容錯移轉] 中，選取 [最新]。 
 3. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 嘗試先關閉來源 VM，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。 
-4. 作業完成後，檢查目標 Azure 區域中出現的 VM 是否如預期。
-5. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [認可]。 這會完成移至目標區域的程序。 等到認可作業完成。
+4. 作業完成後，請確認 VM 如預期出現在目標 Azure 區域中。
+5. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [認可]。 如此，移至目標區域的程序即告完成。 等待認可作業完成。
 
 ## <a name="discard-the-resource-in-the-source-region"></a>捨棄來源區域中的資源 
 
-1. 瀏覽到 VM。  按一下 [停用複寫]。  這會停止複製 VM 資料的程序。  
+1. 瀏覽至 VM。  按一下 [停用複寫]。  這會停止複製 VM 資料的程序。  
 
 > [!IMPORTANT]
 > 務必執行此步驟，以避免產生 ASR 複寫費用。
 
 如果您不打算重複使用任何來源資源，請繼續進行下一組步驟。
 
-1. 繼續刪除您在[準備來源 VM](#prepare-the-source-vms) 的步驟 4 中所列出來源區域中的所有相關網路資源 
+1. 繼續刪除您在[準備來源 VM](#prepare-the-source-vms) 的步驟 4 中列出的來源區域中包含的所有相關網路資源 
 2. 刪除來源區域中對應的儲存體帳戶。
 
 

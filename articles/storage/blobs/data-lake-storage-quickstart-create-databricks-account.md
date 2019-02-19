@@ -8,16 +8,16 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0ec682ea852f3c6da6248f3c16b539725ca18c0f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694162"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895800"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>快速入門：使用 Azure Databricks 分析 Azure Data Lake Storage Gen2 中的資料
 
-本快速入門說明如何使用 Azure Databricks 執行 Apache Spark 作業，以對已啟用 Azure Data Lake Storage Gen2 預覽版的儲存體帳戶所儲存的資料執行分析。
+本快速入門說明如何使用 Azure Databricks 執行 Apache Spark 作業，以對已啟用 Azure Data Lake Storage Gen2 的儲存體帳戶所儲存的資料執行分析。
 
 在 Spark 作業中，您將分析電台頻道訂用帳戶資料，以根據人口統計資料深入了解免費/付費的使用情形。
 

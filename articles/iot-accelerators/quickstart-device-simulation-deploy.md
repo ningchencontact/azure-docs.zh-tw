@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/28/2018
 ms.author: troyhop
-ms.openlocfilehash: 12f993f606fc1ef44280142d5acfa2687cd4e043
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 84b232b175d45a12bb6e0f8b462849282144c19b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601588"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097571"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>快速入門：在 Azure 中部署和執行 IoT 裝置模擬
 
@@ -44,7 +44,7 @@ ms.locfileid: "53601588"
 
 核取方塊來部署 IoT 中樞，以與裝置模擬解決方案搭配使用。 稍後您可以隨時變更模擬所使用的 IoT 中樞。
 
-按一下 [建立解決方案]  以開始佈建解決方案。 此程序至少需要執行五分鐘：
+按一下 [建立] 以開始佈建解決方案。 此程序至少需要執行五分鐘：
 
 ![裝置模擬解決方案詳細資料](./media/quickstart-device-simulation-deploy/createform.png)
 
