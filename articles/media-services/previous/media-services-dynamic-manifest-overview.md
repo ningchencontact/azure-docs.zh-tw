@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/25/2018
+ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312964"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000002"
 ---
 # <a name="filters-and-dynamic-manifests"></a>篩選器與動態資訊清單
 
@@ -78,7 +78,7 @@ ms.locfileid: "52312964"
 * 裝置特定：只傳遞用來播放內容的裝置所支援的指定轉譯和/或指定的語言資料軌 (轉譯篩選)。 
 * 縮小資訊清單以顯示即時事件的子剪輯 (「子剪輯篩選」)。
 * 修剪視訊開頭 (「修剪視訊」)。
-* 調整簡報視窗 (DVR)，以便在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
+* 調整簡報視窗 (DVR)，以在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
 
 為達到這種彈性，媒體服務會根據預先定義的 **篩選器** 提供 [動態資訊清單](media-services-dynamic-manifest-overview.md#filters)。  一旦您定義了篩選器，您的用戶端便會使用篩選器來串流視訊的特定轉譯或子剪輯。 用戶端會在資料流 URL 中指定篩選器。 篩選器可以套用到下列 [動態封裝](media-services-dynamic-packaging-overview.md)支援的自適性串流通訊協定：HLS、MPEG-DASH 和 Smooth Streaming。 例如︰
 
@@ -120,7 +120,7 @@ ms.locfileid: "52312964"
 
 ![轉譯篩選範例][renditions2]
 
-下列範例使用編碼器將夾層資產編碼成七個 ISO MP4 視訊轉譯 (從 180p 到 1080p)。 編碼的資產可以動態地封裝至下列任何一個資料流通訊協定：HLS、Smooth 和 MPEG DASH。  圖表頂端顯示不含篩選器的資產其 HLS 資訊清單 (包含全部七個轉譯)。  左下角顯示名為 "ott" 的篩選器已套用到 HLS 資訊清單。 "ott" 篩選器指定要移除所有不到 1Mbps 的位元速率，因此將最差的兩個品質等級從回應中去除。 右下角顯示名為 "mobile" 的篩選器已套用到 HLS 資訊清單中。 "mobile" 篩選器指定要移除的解析度大於 720p 的轉譯，因此去除兩個 1080p 的轉譯。
+下列範例使用編碼器將夾層資產編碼成七個 ISO MP4 視訊轉譯 (從 180p 到 1080p)。 編碼資產可以動態地封裝至下列任何一個資料流通訊協定：HLS、Smooth 和 MPEG DASH。  圖表頂端顯示不含篩選器的資產其 HLS 資訊清單 (包含全部七個轉譯)。  左下角顯示名為 "ott" 的篩選器已套用到 HLS 資訊清單。 "ott" 篩選器指定要移除所有不到 1Mbps 的位元速率，因此將最差的兩個品質等級從回應中去除。 右下角顯示名為 "mobile" 的篩選器已套用到 HLS 資訊清單中。 "mobile" 篩選器指定要移除的解析度大於 720p 的轉譯，因此去除兩個 1080p 的轉譯。
 
 ![轉譯篩選][renditions1]
 
@@ -172,7 +172,7 @@ ms.locfileid: "52312964"
 
 下列案例示範您可能會想結合篩選條件的理由：
 
-1. 您要篩選例如 Android 或 iPAD 等行動裝置的視訊品質 (以限制視訊品質)。 若要移除不必要的品質，您可以建立適用於裝置設定檔的全域篩選。 如此文章章稍早所述，全域篩選可以用於相同媒體服務帳戶下所有的資產，而不需進一步的關聯。 
+1. 您要篩選例如 Android 或 iPAD 等行動裝置的視訊品質 (以限制視訊品質)。 若要移除不必要的品質，您可以建立適用於裝置設定檔的全域篩選。 如本文章稍早所述，全域篩選可以用於相同媒體服務帳戶下所有的資產，而不需進一步的關聯。 
 2. 您也想要修剪資產的開始和結束時間。 若要達到此目的，您可建立本機篩選條件，並設定開始/結束時間。 
 3. 您必須結合這兩個篩選 (若不組合，您便需要將品質篩選加入修剪篩選，這會讓篩選更難以使用)。
 

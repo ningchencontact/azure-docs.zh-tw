@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885791"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001956"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>取用來自 Azure 的監視資料
 
 我們正在利用 Azure 監視器管線，將橫跨整個 Azure 平台的所有監視資料集中在單一位置，但我們也承認該管線目前尚未提供所有監視資料。 在本文中，我們將摘要說明您可以從 Azure 服務以程式設計方式存取監視資料的各種方式。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="options-for-data-consumption"></a>資料取用的選項
 
@@ -40,7 +42,7 @@ ms.locfileid: "54885791"
 | Azure 監視器計量警示 | 通知 | [請參閱此處的清單](metrics-supported.md) | <ul><li>**Webhook：**[Azure 計量警示](alerts-webhooks.md)</li></ul> |
 | Azure 監視器活動記錄警示 | 通知 | 所有 Azure 服務 | <ul><li>**Webhook：** Azure 活動記錄警示</li></ul> |
 | 自動調整規模通知 | 通知 | [請參閱此處的清單](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook：**[自動調整通知 Webhook 承載結構描述](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| 記錄搜尋查詢警示 | 通知 | Log Analytics | <ul><li>**Webhook：**[記錄警示規則的 Webhook 動作](alerts-log-webhook.md)</li></ul> |
+| 記錄搜尋查詢警示 | 通知 | Azure 監視器記錄 | <ul><li>**Webhook：**[記錄警示規則的 Webhook 動作](alerts-log-webhook.md)</li></ul> |
 | Application Insights 計量警示 | 通知 | Application Insights | <ul><li>**Webhook：**[Application Insights 警示](../../azure-monitor/app/alerts.md)</li></ul> |
 | Application Insights Web 測試 | 通知 | Application Insights | <ul><li>**Webhook：**[Application Insights 警示](../../azure-monitor/app/alerts.md)</li></ul> |
 

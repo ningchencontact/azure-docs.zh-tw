@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883767"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002094"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
 
@@ -83,7 +83,7 @@ ms.locfileid: "54883767"
 
 在您定義一組篩選之後，您可以將查詢釘選到 Azure 儀表板，以始終留意特定事件。
 
-若要取得更強大的功能，您可以按一下 [記錄] 圖示，以顯示 [Log Analytics 活動記錄分析解決方案](../../azure-monitor/platform/collect-activity-logs.md)中的「活動記錄」資料。 [活動記錄] 刀鋒視窗提供記錄的基本篩選/瀏覽體驗，而 Log Analytics 則可讓您以更強大的方式對資料進行樞紐分析、查詢和視覺化。
+若要取得更強大的功能，您可以按一下 [記錄] 圖示，以顯示[收集和分析 Log Analytics 解決方案](../../azure-monitor/platform/collect-activity-logs.md)中的「活動記錄」資料。 [活動記錄] 刀鋒視窗提供記錄的基本篩選/瀏覽體驗，而 Azure 監視器記錄功能則可讓您以更強大的方式對資料進行樞紐分析、查詢和視覺化。
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>使用記錄設定檔匯出活動記錄
 **記錄檔設定檔** 控制活動記錄檔的匯出方式。 使用記錄檔設定檔，您可以設定︰
@@ -142,11 +142,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | 屬性 | 必要 | 說明 |
 | --- | --- | --- |
-| Name |是 |記錄檔設定檔的名稱。 |
+| Name |yes |記錄檔設定檔的名稱。 |
 | StorageAccountId |否 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
 | serviceBusRuleId |否 |服務匯流排規則識別碼，您想要在其中建立事件中樞的服務匯流排命名空間。 將會是此格式的字串︰`{service bus resource ID}/authorizationrules/{key name}`。 |
-| 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
-| RetentionInDays |是 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
+| 位置 |yes |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
+| RetentionInDays |yes |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
 | 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 #### <a name="remove-a-log-profile"></a>移除記錄檔設定檔

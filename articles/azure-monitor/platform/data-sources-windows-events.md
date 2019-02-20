@@ -1,6 +1,6 @@
 ---
-title: 收集與分析 Log Analytics 中的 Windows 事件記錄 | Microsoft Docs
-description: 說明如何設定 Log Analytics 要以何種方式收集 Windows 事件記錄及其建立的詳細記錄。
+title: 收集與分析 Azure 監視器中的 Windows 事件記錄檔 | Microsoft Docs
+description: 說明如何透過 Azure 監視器設定收集 Windows 事件記錄檔，以及它們建立記錄的詳細資料。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: a60c5c41c3f7f0c26788aa9f986af076d9e82c2f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102596"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001114"
 ---
-# <a name="windows-event-log-data-sources-in-log-analytics"></a>Log Analytics 中的 Windows 事件記錄檔資料來源
+# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure 監視器中的 Windows 事件記錄檔資料來源
 Windows 事件記錄檔是使用 Windows 代理程式收集資料的常見[資料來源](agent-data-sources.md)之一，因為許多應用程式會寫入 Windows 事件記錄檔。  除了指定您要監視之應用程式所建立的任何自訂記錄檔之外，您也可以透過標準記錄檔 (例如系統和應用程式) 來收集事件。
 
 ![Windows 事件](media/data-sources-windows-events/overview.png)     
@@ -28,17 +28,17 @@ Windows 事件記錄檔是使用 Windows 代理程式收集資料的常見[資�
 ## <a name="configuring-windows-event-logs"></a>設定 Windows 事件記錄檔
 從 [[進階設定] 中的 [資料] 功能表](agent-data-sources.md#configuring-data-sources)來設定 Windows 事件記錄檔。
 
-Log Analytics 只會從設定中指定的 Windows 事件記錄檔收集事件。  您可以輸入記錄檔的名稱，然後按一下 **+**，來新增事件記錄檔。  針對每個記錄檔，僅會收集包含所選嚴重性的事件。  請檢查您想要收集之特定記錄檔的嚴重性。  您無法提供任何其他準則來篩選事件。
+Azure 監視器只會從設定中指定的 Windows 事件記錄檔收集事件。  您可以輸入記錄檔的名稱，然後按一下 **+**，來新增事件記錄檔。  針對每個記錄檔，僅會收集包含所選嚴重性的事件。  請檢查您想要收集之特定記錄檔的嚴重性。  您無法提供任何其他準則來篩選事件。
 
-輸入事件記錄檔的名稱時，Log Analytics 提供常見的事件記錄檔名稱的建議。 如果您想要新增的記錄檔未出現在清單中，您仍然可以透過輸入記錄檔的完整名稱來新增它。 您可以使用事件檢視器來尋找記錄檔的完整名稱。 在事件檢視器中，開啟記錄檔的 [內容] 頁面，並從 [完整名稱] 欄位複製字串。
+輸入事件記錄檔的名稱時，Azure 監視器提供常見的事件記錄檔名稱的建議。 如果您想要新增的記錄檔未出現在清單中，您仍然可以透過輸入記錄檔的完整名稱來新增它。 您可以使用事件檢視器來尋找記錄檔的完整名稱。 在事件檢視器中，開啟記錄檔的 [內容] 頁面，並從 [完整名稱] 欄位複製字串。
 
 ![設定 Windows 事件](media/data-sources-windows-events/configure.png)
 
 ## <a name="data-collection"></a>資料收集
-在建立事件時，Log Analytics 會從受監視的事件記錄檔收集符合所選嚴重性的每個事件。  代理程式會在它收集的每個事件記錄檔中記錄它的位置。  如果代理程式離線一段時間，便會從上次停止的地方收集事件，即使這些事件是在代理程式離線時所建立亦同。  如果事件記錄檔是在代理程式離線時使用未收集且已遭覆寫的事件進行包裝，可能就無法收集這些事件。
+在建立事件時，Azure 監視器會從受監視的事件記錄檔收集符合所選嚴重性的每個事件。  代理程式會在它收集的每個事件記錄檔中記錄它的位置。  如果代理程式離線一段時間，便會從上次停止的地方收集事件，即使這些事件是在代理程式離線時所建立亦同。  如果事件記錄檔是在代理程式離線時使用未收集且已遭覆寫的事件進行包裝，可能就無法收集這些事件。
 
 >[!NOTE]
->Log Analytics 不會收集 SQL Server 從 *MSSQLSERVER* 來源用含有關鍵字 -  *Classic* 或 *Audit Success* 的事件 ID 18453 以及用關鍵字 *0xa0000000000000* 所建立的稽核事件。
+>Azure 監視器不會收集 SQL Server 從 *MSSQLSERVER* 來源用含有關鍵字 - *Classic* 或 *Audit Success* 的事件 ID 18453 以及用關鍵字 *0xa0000000000000* 所建立的稽核事件。
 >
 
 ## <a name="windows-event-records-properties"></a>Windows 事件記錄屬性
@@ -74,5 +74,5 @@ Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 
 ## <a name="next-steps"></a>後續步驟
 * 設定 Log Analytics 以收集其他 [資料來源](agent-data-sources.md) 進行分析。
-* 了解[記錄查詢](../../log-analytics/log-analytics-queries.md)，以分析從資料來源和解決方案收集到的資料。  
+* 了解[記錄查詢](../log-query/log-query-overview.md)，以分析從資料來源和解決方案收集到的資料。  
 * 設定從您的 Windows 代理程式進行 [效能計數器收集](data-sources-performance-counters.md) 。

@@ -11,12 +11,12 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.openlocfilehash: e296606d219623c29bedca4fb0906a955a394b30
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ee35c7ae1b75c6fb4d656927d7e6e4384cd76836
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013412"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003936"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory 的角色和權限
 
@@ -78,7 +78,7 @@ Azure Repos 和 GitHub 上的權限與 Data Factory 權限無關。 因此，具
   此案例需要指派兩個角色。
 
   1. 指派資料處理站層級的內建**參與者**角色。
-  2. 建立具有 *Microsoft.Resources/deployments/** 權限的自訂角色。 在資源群組層級對使用者指派這個自訂角色。
+  2. 建立具有 **Microsoft.Resources/deployments/** 權限的自訂角色。 在資源群組層級對使用者指派這個自訂角色。
 
 - 讓使用者從 PowerShell 或 SDK 更新資料處理站，而不是在 Azure 入口網站中進行。
 

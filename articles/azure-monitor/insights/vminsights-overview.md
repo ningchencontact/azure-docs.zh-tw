@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856364"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004990"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>什麼是適用於 VM 的 Azure 監視器 (預覽)？
 
@@ -41,7 +41,7 @@ ms.locfileid: "54856364"
 >[!NOTE]
 >目前，僅針對 Azure 虛擬機器和虛擬機器擴展集提供健康情況功能。 效能與對應功能可支援您的環境或其他雲端提供者中裝載的 Azure VM 和虛擬機器。
 
-與 Log Analytics 整合，可提供強大的彙總與篩選，而且它可以隨著時間執行趨勢分析。 單獨使用 Azure 監視器、服務對應或 Log Analytics，無法達到這類全面性工作負載監視。  
+與 Azure 監視器記錄整合，可提供強大的彙總與篩選，而且它可以隨著時間執行趨勢分析。 單獨使用 Azure 監視器或服務對應，無法達到這類全面性工作負載監視。  
 
 您可以直接從虛擬機器的單一 VM 中檢視此資料，或者可以使用 Azure 監視器來提供 VM 的彙總檢視。 此檢視會以每個功能的檢視方塊為依據：
 

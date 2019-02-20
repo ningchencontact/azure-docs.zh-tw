@@ -9,16 +9,29 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.custom: seodec2018
-ms.openlocfilehash: 9b682b9cd17c174363dcd04707a11075e30cc8e1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214822"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005041"
 ---
-# <a name="query-types-and-composition-in-azure-search"></a>Azure 搜尋服務中的查詢類型和組合
+# <a name="how-to-compose-a-query-in-azure-search"></a>如何在 Azure 搜尋服務中撰寫查詢
 
-在 Azure 搜尋服務中，查詢是往返作業的完整規格。 參數會提供比對準則 (用於尋找索引中文件)、引擎的執行指示和用於形成回應的指示詞。 更精確地說，您可以指定哪些欄位在搜尋範圍內、搜尋方式、要傳回哪些欄位，以及是否要排序或篩選等等。 未指定時，將會以全文檢索搜尋作業的形式對所有可搜尋的欄位執行查詢，並以任意順序傳回未計分的結果集。
+在 Azure 搜尋服務中，查詢是往返作業的完整規格。 要求中的參數會提供比對準則 (用於尋找索引中文件)、引擎的執行指示和用於形成回應的指示詞。 
+
+查詢要求是豐富的建構，可以指定哪些欄位在搜尋範圍內、搜尋方式、要傳回哪些欄位，以及是否要排序或篩選等等。 未指定時，將會以全文檢索搜尋作業的形式對所有可搜尋的欄位執行查詢，並以任意順序傳回未計分的結果集。
+
+### <a name="apis-and-tools-for-testing"></a>測試用的 API 和工具
+
+下表列出使用 API 和工具來提交查詢的方法。
+
+| 方法 | 說明 |
+|-------------|-------------|
+| [搜尋總管 (入口網站)](search-explorer.md) | 提供搜尋列以及選取索引和 API 版本的選項。 結果會以 JSON 文件的形式傳回。 <br/>[深入了解。](search-get-started-portal.md#query-index) | 
+| [Postman 或其他 HTTP 測試工具](search-fiddler.md) | 說明如何設定將查詢傳送至 Azure 搜尋服務的 HTTP 要求標頭和本文。  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | 可用來查詢 Azure 搜尋服務索引的用戶端。  <br/>[深入了解。](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [搜尋文件 (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 索引的 GET 或 POST 方法，使用查詢參數作為額外輸入。  |
 
 ## <a name="a-first-look-at-query-requests"></a>初窺查詢要求
 
@@ -52,7 +65,7 @@ ms.locfileid: "54214822"
 
 您可以將這個查詢字串貼到總管中的搜尋列：`search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-### <a name="how-query-operations-are-enabled-by-the-index"></a>索引如何啟用查詢作業
+## <a name="how-query-operations-are-enabled-by-the-index"></a>索引如何啟用查詢作業
 
 Azure 搜尋服務緊密結合了索引設計和查詢設計。 事先要知道的重要事實是，「索引結構描述」與每個欄位上的屬性會決定您可以建置的查詢類型。 
 
@@ -148,17 +161,6 @@ Azure 搜尋服務可讓您輕鬆地對搜尋結果分頁。 透過使用 **`top
 
 ### <a name="hit-highlighting"></a>搜尋結果醒目提示
 在 Azure 搜尋服務中，只要使用 **`highlight`**、**`highlightPreTag`** 和 **`highlightPostTag`** 參數就可強調提示搜尋結果中符合搜尋查詢的確切部分。 您可以指定哪些可搜尋欄位應該強調其相符的文字，以及指定要在 Azure 搜尋服務傳回的相符文字開頭和結尾附加的確切字串標記。
-
-## <a name="apis-and-tools-for-testing"></a>測試用的 API 和工具
-
-下表列出使用 API 和工具來提交查詢的方法。
-
-| 方法 | 說明 |
-|-------------|-------------|
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | 可用來查詢 Azure 搜尋服務索引的用戶端。  <br/>[深入了解。](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [搜尋文件 (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 索引的 GET 或 POST 方法，使用查詢參數作為額外輸入。  |
-| [Fiddler、Postman 或其他 HTTP 測試工具](search-fiddler.md) | 說明如何設定將查詢傳送至 Azure 搜尋服務的要求標頭和本文。  |
-| [Azure 入口網站中的搜尋總管](search-explorer.md) | 提供搜尋列以及選取索引和 API 版本的選項。 結果會以 JSON 文件的形式傳回。 <br/>[深入了解。](search-get-started-portal.md#query-index) | 
 
 ## <a name="see-also"></a>另請參閱
 

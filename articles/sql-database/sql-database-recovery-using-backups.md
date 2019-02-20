@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 8d2cac7635b9d97561b3cebf517c95855407cbe3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 27a8e160fc33729c5b5266dffeb346f0296276fd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462778"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005279"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL Database
 
@@ -71,7 +71,7 @@ ms.locfileid: "55462778"
 
 ## <a name="point-in-time-restore"></a>還原時間點
 
-您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases)，將獨立、集區或執行個體資料庫還原到先前的時間點，以作為相同伺服器上的新資料庫。 資料庫可以還原至任何服務層或計算大小。 請確定在您要還原資料庫的目標伺服器上具有足夠的資源。 完成之後，還原的資料庫會是一般、完全可供存取的線上資料庫。 還原的資料庫會根據其服務層和計算大小依一般費率計費。 在完成資料庫還原之前，不會產生任何費用。
+您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases)，將單一資料庫、集區資料庫或執行個體資料庫還原到先前的時間點，以作為相同伺服器上的新資料庫。 資料庫可以還原至任何服務層或計算大小。 請確定在您要還原資料庫的目標伺服器上具有足夠的資源。 完成之後，還原的資料庫會是一般、完全可供存取的線上資料庫。 還原的資料庫會根據其服務層和計算大小依一般費率計費。 在完成資料庫還原之前，不會產生任何費用。
 
 基於復原目的，您通常會將資料庫還原到較早的時間點。 當您執行此動作時，可以將還原的資料庫視為原始資料庫的替代品，或用它來從原始資料庫擷取資料並將其更新。
 
@@ -83,7 +83,7 @@ ms.locfileid: "55462778"
 
   如果您打算從還原的資料庫擷取資料，以便從使用者或應用程式錯誤中復原，您就必須撰寫並執行所需的資料復原指令碼，以從還原的資料庫中擷取資料到原始資料庫。 雖然還原作業可能要花很長的時間才能完成，但還原中的資料庫在整個還原過程中都會顯示在資料庫清單上。 如果您在還原期間刪除該資料庫，系統便會取消還原作業，而且不會針對未完成還原的資料庫向您收費。
 
-若要使用 Azure 入口網站來將獨立、集區或執行個體資料庫復原至某個時間點，請開啟資料庫頁面，然後按一下工具列上的 [還原]。
+若要使用 Azure 入口網站來將單一、集區或執行個體資料庫復原至某個時間點，請開啟資料庫頁面，然後按一下工具列上的 [還原]。
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -139,7 +139,7 @@ ms.locfileid: "55462778"
 
 ### <a name="powershell"></a>PowerShell
 
-- 若要還原獨立或集區資料庫，請參閱 [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) \(英文\)
+- 若要還原單一或集區資料庫，請參閱 [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) \(英文\)
 
   | Cmdlet | 說明 |
   | --- | --- |
@@ -155,7 +155,7 @@ ms.locfileid: "55462778"
 
 ### <a name="rest-api"></a>REST API
 
-使用 REST API 來還原獨立或集區資料庫：
+使用 REST API 來還原單一或集區資料庫：
 
 | API | 說明 |
 | --- | --- |
@@ -164,7 +164,7 @@ ms.locfileid: "55462778"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要使用 Azure CLI 來還原獨立或集區資料庫，請參閱 [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore) \(英文\)。
+若要使用 Azure CLI 來還原單一或集區資料庫，請參閱 [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore) \(英文\)。
 
 ## <a name="summary"></a>總結
 

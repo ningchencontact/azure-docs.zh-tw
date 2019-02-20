@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 查詢中的聯結 | Microsoft Docs
-description: 此文章包括在 Log Analytics 查詢語言中使用聯結的課程。
+title: Azure 監視器記錄查詢中的聯結 | Microsoft Docs
+description: 此文章包括在 Azure 監視器查詢語言中使用聯結的課程。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c1f578c11fff963ee4bec47bd3737cd224b14720
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884507"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004630"
 ---
-# <a name="joins-in-log-analytics-queries"></a>Log Analytics 查詢中的聯結
+# <a name="joins-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的聯結
 
 > [!NOTE]
-> 您應該先完成[開始使用 Analytics 入口網站](get-started-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此課程。
+> 您應該先完成[開始使用 Azure 監視器記錄分析](get-started-portal.md)與 [Azure 監視器記錄查詢](get-started-queries.md)，再完成此課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -105,7 +105,7 @@ SecurityEvent
 
 
 ## <a name="next-steps"></a>後續步驟
-請參閱其他課程以了解如何使用 Log Analytics 查詢語言：
+如需了解使用 Azure 監視器記錄查詢，請參閱其他課程：
 
 - [字串作業](string-operations.md)
 - [彙總函式](aggregations.md)

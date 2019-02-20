@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d1a7ae1e66caaaf17e3c4a38b09eaa2d900604b3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685713"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004480"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -26,7 +26,7 @@ ms.locfileid: "51685713"
 
 ## <a name="general-ams-faqs"></a>一般 AMS 常見問題集
 
-問：如何串流至 Apple iOS 裝置
+問：如何串流至 Apple iOS 裝置？
 
 答：將 "(format=m3u8-aapl)" 路徑新增至 URL 的 "/Manifest" 部分，來告訴串流原始伺服器傳回 HLS 內容以供在 Apple iOS 原生裝置上取用 (如需詳細資料，請參閱[提供內容](media-services-deliver-content-overview.md))。
 
@@ -50,7 +50,7 @@ ms.locfileid: "51685713"
 
 答：如果您只想要儲存 JPEG 或 PNG 影像，請儲存至 Azure Blob 儲存體。 除非您想維持影像與視訊或音訊資產之間的關聯，否則將影像保存在媒體服務帳戶中，實際上一點用處也沒有。 或者，當您需要在視訊編碼器中將影像作為重疊時才有必要。媒體編碼器標準支援在視訊上層重疊影像，因此會將 JPEG 和 PNG 列為支援的輸入格式。 如需詳細資訊，請參閱 [建立重疊](media-services-advanced-encoding-with-mes.md#overlay)。
 
-問：我如何將資產從一個媒體服務帳戶複製到另一個帳戶。
+問：我如何將資產從一個媒體服務帳戶複製到另一個帳戶？
 
 答：若要使用 .NET 將資產從某個媒體服務帳戶複製到另一個帳戶，請使用 [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/) (Azure 媒體服務 .NET SDK 擴充功能) 儲存機制中可用的 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 擴充功能方法。 如需詳細資訊，請參閱 [這個](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) 論壇執行緒。
 
@@ -64,7 +64,7 @@ ms.locfileid: "51685713"
 
 問：如何在編碼過程中旋轉影片？
 
-答：[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) 支援 90/180/270 度的旋轉角度。 預設行為是「自動」，此時它會嘗試偵測內送之 MP4/MOV 檔案的旋轉中繼資料並加以補償。 包括以下 **Sources** 元素至[這裡](media-services-mes-presets-overview.md)所定義的其中一個 json 預設項目：
+答：[媒體編碼器標準](media-services-dotnet-encode-with-media-encoder-standard.md)支援 90/180/270 度的旋轉角度。 預設行為是「自動」，此時它會嘗試偵測內送之 MP4/MOV 檔案的旋轉中繼資料並加以補償。 包括以下 **Sources** 元素至[這裡](media-services-mes-presets-overview.md)所定義的其中一個 json 預設項目：
 
     "Version": 1.0,
     "Sources": [

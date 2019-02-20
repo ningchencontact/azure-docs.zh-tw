@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786047"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002076"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>適用於 Android 的離線 Widevine 串流
+# <a name="offline-widevine-streaming-for-android"></a>適用於 Android 的離線 Widevine 串流  
 
 除了保護線上串流的內容之外，媒體內容訂用帳戶與租賃服務能提供可在未連線到網際網路時使用的可下載內容。 在和網路中斷連線的飛行途中，您可能需要先將內容下載至手機或平板電腦，以在飛航模式中播放。 您可能會想要下載內容的其他案例如下：
 
@@ -45,7 +45,7 @@ ms.locfileid: "33786047"
 
 - 熟悉由使用 Widevine DRM 來保護線上內容所導入的概念。 下列文件或範例會詳細說明這一點：
     - [使用 Azure 媒體服務傳遞 DRM 授權或 AES 金鑰](media-services-deliver-keys-and-licenses.md)
-    - [具有多重 DRM 及存取控制的 CENC：Azure 與 Azure 媒體服務的參考設計和實作](media-services-cenc-with-multidrm-access-control.md)
+    - [具有多重 DRM 及存取控制的 CENC：Azure 和 Azure 媒體服務的參考設計與實作](media-services-cenc-with-multidrm-access-control.md)
     - [搭配 .NET 使用 PlayReady 和/或 Widevine 動態一般加密](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-drm/) \(英文\)
     - [搭配 .NET 使用 Azure 媒體服務來傳遞 PlayReady 和/或 Widevine 授權](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/) \(英文\)
 - 熟悉適用於 Android 的 Google ExoPlayer SDK，這是能夠支援離線 Widevine DRM 播放的開放原始碼視訊播放程式 SDK。 
@@ -123,7 +123,7 @@ ExoPlayer 2.6 版及更新版本包括許多支援離線 Widevine DRM 播放的�
 
 對於較舊的 Android 裝置，您必須針對下列 **policy_overrides** 屬性 (定義於 [Widevine 授權範本](media-services-widevine-license-template-overview.md)) 設定值：**rental_duration_seconds**、**playback_duration_seconds** 及 **license_duration_seconds**。 或者，您可以將它們設定為零，表示無限長/無限制的持續時間。  
 
-請務必設定這些值，以避免發生整數溢位錯誤。 如需此問題的詳細說明，請參閱https://github.com/google/ExoPlayer/issues/3150和https://github.com/google/ExoPlayer/issues/3112。 <br/>如果您未明確設定這些值，系統將會為 **PlaybackDurationRemaining** 與 **LicenseDurationRemaining** 指定非常大的值 (例如 9223372036854775807，其為 64 位元整數的最大正值 )。 這會導致 Widevine 授權呈現過期，因此不會進行解密。 
+請務必設定這些值，以避免發生整數溢位錯誤。 如需此問題的詳細說明，請參閱 https://github.com/google/ExoPlayer/issues/3150 和 https://github.com/google/ExoPlayer/issues/3112。 <br/>如果您未明確設定這些值，系統將會為 **PlaybackDurationRemaining** 與 **LicenseDurationRemaining** 指定非常大的值 (例如 9223372036854775807，其為 64 位元整數的最大正值 )。 這會導致 Widevine 授權呈現過期，因此不會進行解密。 
 
 Android 5.0 Lollipop 或更新版本不會發生此問題，因為 Android 5.0 是第一個完全支援 ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) 與 64 位元平台的 Android 版本，而 Android 4.4 KitKat 和其他舊版 Android 則原本設計為支援 ARMv7 與 32 位元平台。
 
@@ -134,7 +134,7 @@ Android 5.0 Lollipop 或更新版本不會發生此問題，因為 Android 5.0 �
 - [適用於 Google ExoPlayer 程式庫的 Xamarin 繫結程式庫](https://github.com/martijn00/ExoPlayerXamarin) \(英文\)
 - [適用於 ExoPlayer NuGet 的 Xamarin 繫結](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/) \(英文\)
 
-此外，請參閱下列討論：[Xamarin 繫結](https://github.com/martijn00/ExoPlayerXamarin/pull/57) \(英文\)。 
+另請參閱下列討論：[Xamarin 繫結](https://github.com/martijn00/ExoPlayerXamarin/pull/57)。 
 
 ## <a name="chrome-player-apps-for-android"></a>適用於 Android 的 Chrome 播放應用程式
 
@@ -149,7 +149,7 @@ Android 5.0 Lollipop 或更新版本不會發生此問題，因為 Android 5.0 �
 
 上述的開放原始碼 PWA 應用程式是以 Node.js 撰寫。 如果您想在 Ubuntu 伺服器上裝載自己的版本，請留意下列會阻礙播放的常見問題：
 
-1. CORS 問題： 範例應用程式中的範例視訊是裝載於 https://storage.googleapis.com/biograf-video-files/videos/。 Google 已為所有裝載於 Google Cloud Storage 貯體中的測試範例設定 CORS。 它們也會搭配 CORS 標頭提供，明確指定出 CORS 項目https://biograf-155113.appspot.com (Google 用來裝載其範例的網域)，防止由其他網站存取。 如果您試圖存取，將會看到下列 HTTP 錯誤：無法載入 https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 要求的資源上沒有 'Access-Control-Allow-Origin' 標頭。 因此不允許存取來源 'https://13.85.80.81:8080'。 如果不透明回應適合您的需求，請將要求的模式設定為 'no-cors' 以在停用 CORS 之下擷取資源。
+1. CORS 問題：範例應用程式中的範例視訊是裝載於 https://storage.googleapis.com/biograf-video-files/videos/。 Google 已為所有裝載於 Google Cloud Storage 貯體中的測試範例設定 CORS。 它們也會搭配 CORS 標頭提供，明確指定出 CORS 項目 https://biograf-155113.appspot.com (Google 用來裝載其範例的網域)，防止由其他網站存取。 如果您試圖存取，將會看到下列 HTTP 錯誤：無法載入 https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 要求的資源上沒有 'Access-Control-Allow-Origin' 標頭。 因此不允許存取來源 'https://13.85.80.81:8080'。 如果不透明回應適合您的需求，請將要求的模式設定為 'no-cors' 以在停用 CORS 之下擷取資源。
 2. 憑證問題：從 Chrome v 58 開始，針對 Widevine 的 EME 將要求使用 HTTPS。 因此，您必須搭配 X509 憑證透過 HTTPS 裝載範例應用程式。 由於下列需求使得一般測試憑證沒有作用：您必須先取得符合以下最低需求的憑證：
     - Chrome 和 Firefox 都需要憑證中存在 SAN (主體別名) 設定
     - 憑證必須要有信任的 CA，自我簽署的開發憑證將不會有作用

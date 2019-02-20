@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 查詢中的實用運算子 | Microsoft Docs
-description: 在 Log Analytics 查詢中用於不同案例的常見函式。
+title: Azure 監視器記錄查詢中的有用運算子 | Microsoft Docs
+description: 在 Azure 監視器記錄查詢中用於不同案例的常見函式。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 060b1e469a31c335f062ccd332157d13e64f9318
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183977"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000143"
 ---
-# <a name="useful-operators-in-log-analytics-queries"></a>Log Analytics 查詢中的實用運算子
+# <a name="useful-operators-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的有用運算子
 
-下表提供在 Log Analytics 查詢中用於不同案例的一些常見函式。
+下表提供在 Azure 監視器記錄查詢中用於不同案例的一些常見函式。
 
 ## <a name="useful-operators"></a>實用運算子
 
@@ -46,4 +46,4 @@ ms.locfileid: "53183977"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 進行[在 Log Analytics 中撰寫查詢](get-started-queries.md)課程。
+- 進行[在 Azure 監視器中撰寫記錄查詢](get-started-queries.md)課程。

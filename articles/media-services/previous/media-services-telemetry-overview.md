@@ -4,7 +4,7 @@ description: 本文提供 Azure 媒體服務遙測的概觀。
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 97df0876afd8b7258f985ab375b14f4aabde6e22
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48b88aed833b0cd15f47195c67be80fe75fe153f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786137"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005177"
 ---
-# <a name="azure-media-services-telemetry"></a>Azure 媒體服務遙測
+# <a name="azure-media-services-telemetry"></a>Azure 媒體服務遙測  
 
 Azure 媒體服務 (AMS) 可讓您存取其服務的遙測/計量資料。 目前的 AMS 版本可讓您收集直播**頻道**、**串流端點**和即時**封存**實體的遙測資料。 
 
@@ -85,9 +85,9 @@ ServiceID|{服務識別碼}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 
 有三種類型的實體特定遙測資料項目，分別以下列頻率推送︰
 
-- 串流端點：每 30 秒
-- 直播頻道︰每分鐘
-- 即時封存︰每分鐘
+- 串流端點：每隔 30 秒
+- 直播頻道：每分鐘
+- 即時封存：每分鐘
 
 **串流端點**
 

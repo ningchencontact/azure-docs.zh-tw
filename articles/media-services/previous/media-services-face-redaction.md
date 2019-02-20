@@ -4,23 +4,23 @@ description: 本主題示範如何使用 Azure 媒體分析修訂臉部。
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 910cc246aa19e19b109fc660682c6b2dc239cbb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "33784447"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004888"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒體分析修訂臉部
+# <a name="redact-faces-with-azure-media-analytics-legacy"></a>使用 Azure 媒體分析修訂臉部 (舊版)
 ## <a name="overview"></a>概觀
 **Azure 媒體修訂器** 是 [Azure 媒體分析](media-services-analytics-overview.md) 媒體處理器 (MP)，可在雲端提供可調整的臉部修訂。 臉部修訂可讓您修改視訊，以模糊所選人物的臉部。 在公共安全和新聞媒體案例中，您可能會想要使用臉部修訂服務。 若要手動修訂包含多個臉部的幾分鐘影片，可能要花上數小時的時間，若使用此服務，則只需要幾個簡單的步驟就能完成臉部修訂程序。 如需詳細資訊，請參閱[此](https://azure.microsoft.com/blog/azure-media-redactor/)部落格。
 
@@ -135,7 +135,7 @@ Example foo_IDList.txt
 
 ## <a name="blur-types"></a>模糊類型
 
-在 [結合] 或 [修訂] 模式中，您可以透過 JSON 輸入設定從 5 種不同的模糊模式中進行選擇：[低]、[中]、[高]、[方塊] 和 [黑色]。 預設會使用 [中]。
+在 [結合] 或 [修訂] 模式中，您可以透過 JSON 輸入設定從 5 種不同的模糊模式中進行選擇：[低]、[中]、[高]、[Box] 和 [黑色]。 預設會使用 [中]。
 
 您可以在下面找到模糊類型的範例。
 

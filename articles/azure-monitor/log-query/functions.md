@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 函式 | Microsoft Docs
-description: 本文說明如何在 Log Analytics 中使用函式從另一個查詢呼叫查詢。
+title: Azure 監視器記錄查詢中的函式 | Microsoft Docs
+description: 本文說明如何在 Azure 監視器中使用函式從另一個記錄查詢呼叫查詢。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 8f2855ed56d298ec4c6abee02dd59ce9471f0d2e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884483"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005092"
 ---
-# <a name="using-functions-in-azure-monitor-log-analytics"></a>在 Azure 監視器 Log Analytics 中使用函式
+# <a name="using-functions-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中使用函式
 
 > [!NOTE]
 > 您應該先完成[開始使用 Analytics 入口網站](get-started-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此課程。
@@ -28,11 +28,11 @@ ms.locfileid: "52884483"
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 
-若要使用 Log Analytics 查詢搭配另一個查詢，您可以將它儲存為函式。 這可讓您將複雜的查詢分成多個組件予以簡化，並可讓您重複使用具有多個查詢的通用程式碼。
+若要將記錄查詢搭配使用另一個查詢，您可以將它儲存為函式。 這可讓您將複雜的查詢分成多個組件予以簡化，並可讓您重複使用具有多個查詢的通用程式碼。
 
 ## <a name="create-a-function"></a>建立函式
 
-按一下 [儲存]，然後提供下表中的資訊，以在 Azure 入口網站中建立函式。
+按一下 [儲存]，然後提供下表中的資訊，以在 Azure 入口網站中建立記錄分析中的函式。
 
 | 設定 | 說明 |
 |:---|:---|
@@ -42,10 +42,10 @@ ms.locfileid: "52884483"
 | 類別       | 在 [查詢總管] 用來組織已儲存查詢與函式的類別。 |
 
 > [!NOTE]
-> Log Analytics 中的函式不能包含另一個函式。
+> Azure 監視器中的函式不能包含另一個函式。
 
 > [!NOTE]
-> 您可以在 Log Analytics 查詢中儲存函式，但目前不適用於 Application Insights 查詢。
+> 您可以在 Azure 監視器記錄查詢中儲存函式，但目前不適用於 Application Insights 查詢。
 
 
 
@@ -69,7 +69,7 @@ security_updates_last_day | where Title contains "SQL"
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱其他課程以了解如何使用 Log Analytics 查詢語言：
+如需了解撰寫 Azure 監視器記錄查詢，請參閱其他課程：
 
 - [字串作業](string-operations.md)
 - [日期和時間作業](datetime-operations.md)

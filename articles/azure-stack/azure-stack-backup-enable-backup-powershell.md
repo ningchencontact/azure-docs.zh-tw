@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 08/16/2018
-ms.openlocfilehash: 10d7303c4323305e177cf006b9a259a817dc695e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 280a811e943c2e81a96875e3c8ba8efdb86fbf2a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247471"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004820"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 啟用 Azure Stack 備份
 
@@ -29,8 +29,10 @@ ms.locfileid: "55247471"
 使用 Windows PowerShell 啟用基礎結構備份服務，以定期備份：
  - 內部識別服務和根憑證
  - 使用者計劃、供應項目、訂用帳戶
- - Keyvault 祕密
+ - 計算、儲存體和網路的使用者配額
+ - 使用者金鑰保存庫密碼
  - 使用者 RBAC 角色和原則
+ - 使用者儲存體帳戶
 
 您可以存取 PowerShell Cmdlet 來啟用備份、開始備份，並透過作業員管理端點取得備份資訊。
 
@@ -49,30 +51,42 @@ ms.locfileid: "55247471"
 | $sharepath      | 輸入**備份儲存位置**的路徑。 針對裝載在不同裝置的檔案共用路徑，您必須使用通用命名慣例 (UNC) 字串。 UNC 字串會指定資源的位置，例如共用的檔案或裝置。 若要確保備份資料的可用性，裝置應該位於不同的位置。 |
 | $frequencyInHours | 頻率 (小時) 可決定建立備份的頻率。 預設值為 12。 排程器所支援的最大值為 12，最小值為 4。|
 | $retentionPeriodInDays | 保留期間 (天) 可決定在外部位置保留多少天的備份。 預設值為 7。 排程器所支援的最大值為 14，最小值為 2。 備份如果比保留期間舊，系統就會自動從外部位置刪除該備份。|
+| $encryptioncertpath | 加密憑證路徑中會指定 .CER 檔案的檔案路徑，其中包含用於資料加密的公開金鑰。 |
 |     |     |
 
-   ```powershell
+```powershell
     # Example username:
     $username = "domain\backupadmin"
+ 
     # Example share path:
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-   
-    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
-    
-    # The encryption key is generated using the New-AzsEncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
-    # Make sure to store your encryption key in a secure location after it is generated.
-    $Encryptionkey = New-AzsEncryptionKeyBase64
-    $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
-    Set-AzsBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
-   ```
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+
+    # Create a self-signed certificate using New-SelfSignedCertificate, export the public key portion and save it locally.
+
+    $cert = New-SelfSignedCertificate `
+        -DnsName "www.contoso.com" `
+        -CertStoreLocation "cert:\LocalMachine\My" 
+
+    New-Item -Path "C:\" -Name "Certs" -ItemType "Directory" 
+
+    #make sure to export the PFX format of the certificate with the public and private keys and then delete the certifcate from the local certificate store of the machine where you created the certificate
+    
+    Export-Certificate `
+        -Cert $cert `
+        -FilePath c:\certs\AzSIBCCert.cer 
+
+    # Set the backup settings with the name, password, share, and CER certificate file.
+    Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
+```
    
 ##  <a name="confirm-backup-settings"></a>確認備份設定
 
 在相同的 PowerShell 工作階段中，執行下列命令：
 
    ```powershell
-    Get-AzsBackupLocation | Select-Object -Property Path, UserName
+    Get-AzsBackupConfiguration | Select-Object -Property Path, UserName
    ```
 
 結果應該會類似以下範例輸出：
@@ -90,8 +104,9 @@ ms.locfileid: "55247471"
     $frequencyInHours = 10
     $retentionPeriodInDays = 5
 
-    Set-AzsBackupShare -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
-    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
+    Set-AzsBackupConfiguration -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
+
+    Get-AzsBackupConfiguration | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
    ```
 
 結果應該會類似以下範例輸出：
@@ -104,7 +119,15 @@ ms.locfileid: "55247471"
     BackupRetentionPeriodInDays : 5
    ```
 
+###<a name="azure-stack-powershell"></a>Azure Stack PowerShell 
+用於設定基礎結構備份的 PowerShell Cmdlet 是 Set-AzsBackupConfiguration。 在舊版中，此 Cmdlet 是 Set-AzsBackupShare。 此 Cmdlet 需要提供憑證。 如果基礎結構備份使用加密金鑰進行設定，則您無法更新加密金鑰或檢視屬性。 您必須使用 1.6 版的 Admin PowerShell。 
+
+如果更新到 1901 之前已設定基礎結構備份，您可以使用 1.6 版的 Admin PowerShell 來設定和檢視加密金鑰。 1.6 版不允許您從加密金鑰更新憑證檔案。
+如需更多安裝正確版本模組的相關資訊，請參閱[安裝 Azure Stack PowerShell](azure-stack-powershell-install.md)。 
+
+
 ## <a name="next-steps"></a>後續步驟
 
- - 若要了解如何執行備份，請參閱[備份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )。  
- - 若要了解如何確認您的備份已執行，請參閱[在系統管理入口網站中確認已完成的備份](azure-stack-backup-back-up-azure-stack.md )。
+若要了解如何執行備份，請參閱[備份 Azure Stack](azure-stack-backup-back-up-azure-stack.md)
+
+若要了解如何確認您的備份已執行，請參閱[在系統管理入口網站中確認已完成的備份](azure-stack-backup-back-up-azure-stack.md)

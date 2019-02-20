@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 查詢中的彙總| Microsoft Docs
-description: 說明 Log Analytics 查詢中提供實用方式來分析資料的彙總函式。
+title: Azure 監視器記錄查詢中的彙總 | Microsoft Docs
+description: 說明 Azure 監視器記錄查詢中提供實用方式來分析資料的彙總函式。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185744"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000842"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Log Analytics 查詢中的彙總
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的彙總
 
 > [!NOTE]
 > 您應該先完成[開始使用 Analytics 入口網站](get-started-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-此文章說明 Log Analytics 查詢中提供實用方式來分析資料的彙總函式。 這些函式都可搭配 `summarize` 運算子使用，以產生具有輸入表格之彙總結果的表格。
+本文說明 Azure 監視器記錄查詢中提供實用方式來分析資料的彙總函式。 這些函式都可搭配 `summarize` 運算子使用，以產生具有輸入表格之彙總結果的表格。
 
 ## <a name="counts"></a>計數
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-請參閱其他課程以了解如何使用 Log Analytics 查詢語言：
+如需了解如何搭配 Azure 監視器記錄資料使用[資料總管查詢語言](/azure/kusto/query/)，請參閱其他課程：
 
 - [字串作業](string-operations.md)
 - [日期和時間作業](datetime-operations.md)

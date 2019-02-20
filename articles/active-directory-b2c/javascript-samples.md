@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d664c33c4535d25ec93fd1f36c990f2764a4e071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729263"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000808"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>適用於 Azure Active Directory B2C 中的 JavaScript 範例
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-您可以將自己的 JavaScript 用戶端程式碼新增到您的 Azure Active Directory (Azure AD) B2C 應用程式。 本文說明如何變更[自訂原則](active-directory-b2c-overview-custom.md)以啟用指令碼執行。
+您可以將自己的 JavaScript 用戶端程式碼新增到您的 Azure Active Directory (Azure AD) B2C 應用程式。 本文說明如何變更[使用者流程](user-flow-javascript-overview.md)或[自訂原則](active-directory-b2c-overview-custom.md)，以啟用指令碼執行。
 
 ## <a name="prerequisites"></a>必要條件
 
-選取適用於您應用程式之使用者介面元素的[頁面合約](page-contract.md)。 如果您想要使用 JavaScript，您必須針對您自訂原則中的所有內容定義，定義頁面合約版本。
+選取適用於您應用程式之使用者介面元素的[頁面合約](page-contract.md)。 如果您想要使用 JavaScript，您必須針對使用者流程或自訂原則中的所有內容定義，定義頁面合約版本。
 
 ## <a name="add-the-scriptexecution-element"></a>新增 ScriptExecution 元素
 

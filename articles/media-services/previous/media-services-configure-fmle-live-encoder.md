@@ -4,7 +4,7 @@ description: 本主題示範如何設定 Flash Media Live Encoder (FMLE) 編碼�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665880"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003732"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>使用 FMLE 編碼器來傳送單一位元速率的即時串流
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>使用 FMLE 編碼器來傳送單一位元速率的即時串流 (舊版)
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -33,7 +33,7 @@ ms.locfileid: "43665880"
 
 本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果您是用 Mac 或 Linux，請使用 Azure 入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
-本教學課程說明如何使用 AAC。 不過，依預設 FMLE 不支援 AAC。 您必須購買 AAC 編碼的外掛程式，例如從 MainConcept 購買 [AAC 外掛程式](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+本教學課程說明如何使用 AAC。 不過，依預設 FMLE 不支援 AAC。 您必須購買 AAC 編碼的外掛程式，例如從 MainConcept 購買：[AAC 外掛程式](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>必要條件
 * [建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)
@@ -86,7 +86,7 @@ ms.locfileid: "43665880"
 
 * 轉碼器：AAC (LC)
 * 位元速率：192 kbps
-* 取樣速率：44.1 kHz
+* 採樣速率：44.1 kHz
 
 ### <a name="configuration-steps"></a>組態步驟
 1. 瀏覽至所使用之機器上 Flash Media Live Encoder (FMLE) 的介面。
@@ -102,16 +102,16 @@ ms.locfileid: "43665880"
      當使用交錯式來源時，請勾選 [非交錯] 選項
 2. 選取 [格式] 旁邊的扳手圖示，這些額外的設定應該是：
 
-   * 設定檔：主要
-   * 層級：4.0
+   * 設定檔：主要區段
+   * 等級：4.0
    * 主要畫面格頻率：2 秒
 
      ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
 3. 設定下列重要的音訊設定：
 
    * 格式：AAC
-   * 取樣速率：44100 Hz
-   * 位元速率：192 kbps
+   * 採樣速率：44100 Hz
+   * 位元速率：192 Kbps
 
      ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 4. 取得頻道的輸入 URL，以將其指派給 FMLE 的 **RTMP 端點**。

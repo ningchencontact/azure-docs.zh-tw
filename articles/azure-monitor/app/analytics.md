@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/08/2018
+ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120881"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004514"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights 中的分析
-Analytics 是 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 強大的搜尋和查詢工具。 Analytics 是 web 工具，不需要設定。 如果已經為您的其中一個應用程式設定 Application Insights，則您可以從應用程式的[概觀刀鋒視窗](../../azure-monitor/app/app-insights-dashboards.md)開啟 Analytics 來分析應用程式的資料。
+Analytics 是 [Application Insights](app-insights-overview.md) 強大的搜尋和查詢工具。 Analytics 是 web 工具，不需要設定。
+如果已經為您的其中一個應用程式設定 Application Insights，則您可以從應用程式的[概觀刀鋒視窗](app-insights-dashboards.md)開啟 Analytics 來分析應用程式的資料。
 
 ![開啟 portal.azure.com，開啟您的 Application Insights 資源，然後按一下 [分析]。](./media/analytics/001.png)
 
@@ -28,6 +29,12 @@ Analytics 是 [Application Insights](../../azure-monitor/app/app-insights-overvi
 <br>
 <br>
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+## <a name="relation-to-azure-monitor-logs"></a>Azure 監視器記錄的關聯
+Application Insights 分析是根據 [Azure 資料總管](/azure/data-explorer)，例如 Azure 監視器記錄，也使用[資料總管查詢語言](/azure/kusto/query)。 儘管其資料儲存在單獨的分割區中，它使用與 Azure 監視器記錄相同的[記錄分析入口網站](../log-query/get-started-portal.md)。
+
+您無法從 Application Insights 分析直接存取 Log Analytics 工作區中的資料，也無法直接從 Log Analytics 中存取應用程式資料。 若要同時查詢這兩組資料，請撰寫 [記錄分析中的查詢](../log-query/log-query-overview.md)，並使用 [ 運算式](../log-query/app-expression.md)，以存取應用程式資料。
+
 
 ## <a name="query-data-in-analytics"></a>在 Analytics 中查詢資料
 查詢通常以資料表名稱開頭，後面接著一連串以 `|` 隔開的「運算子」。

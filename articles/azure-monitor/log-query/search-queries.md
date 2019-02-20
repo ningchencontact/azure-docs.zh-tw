@@ -1,6 +1,6 @@
 ---
-title: Log Analytics 中的搜尋查詢 | Microsoft Docs
-description: 本文提供教學課程來說明如何在 Log Analytics 中開始撰寫搜尋查詢。
+title: Azure 監視器記錄中的搜尋查詢 | Microsoft Docs
+description: 本文提供教學課程來說明如何在 Azure 監視器記錄查詢中開始使用搜尋。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 1f3131585a8f6581690eda777b8ffc96768b3cc6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cda66b91a0e829ec3bc84a82c190b9d856827ad3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884477"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004446"
 ---
-# <a name="search-queries-in-log-analytics"></a>Log Analytics 中的搜尋查詢
+# <a name="search-queries-in-azure-monitor-logs"></a>Azure 監視器記錄中的搜尋查詢
 
 > [!NOTE]
-> 請先完成[在 Log Analytics 中開始使用查詢](get-started-queries.md)再完成本課程。
+> 請先完成[開始使用 Azure 監視器記錄查詢](get-started-queries.md)，再完成此課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Azure Log Analytics 查詢可以透過資料表名稱或 search 命令來開始。 本教學課程涵蓋以搜尋為基礎的查詢。 每種方法各有其優點。
+Azure 監視器記錄查詢可以透過資料表名稱或 search 命令來開始。 本教學課程涵蓋以搜尋為基礎的查詢。 每種方法各有其優點。
 
 以資料表為基礎的查詢一開始會界定查詢範圍，因此，通常會比搜尋查詢更有效率。 搜尋查詢的結構較為鬆散，因此更適合用於搜尋資料行或資料表中的特定值。 **search** 可以掃描指定資料表或所有資料表中的所有資料行，查看其中是否有指定值。 所要處理的資料量可能會很大，因此這些查詢可能需要較長的時間才能完成，而且可能會傳回非常大型的結果集。
 
@@ -144,4 +144,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱關於 [Log Analytics 查詢語言網站](https://aka.ms/LogAnalyticsLanguage)的進階教學課程。
+- 請參閱關於 [資料總管查詢語言網站](/azure/kusto/query/)的進階教學課程。

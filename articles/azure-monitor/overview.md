@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098025"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001954"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -28,6 +28,7 @@ Azure 監視器可藉由提供全方位的解決方案，以便收集、分析�
 ## <a name="overview"></a>概觀
 下圖提供 Azure 監視器的高階檢視。 圖表的中間是計量和記錄的資料存放區，而這兩者是 Azure 監視器所用資料的兩個基本類型。 左邊的[監視資料來源](platform/data-sources.md)會填入這些[資料存放區](platform/data-collection.md)。 右邊是 Azure 監視器對此收集資料執行的不同功能，例如分析、警示及串流處理至外部系統。
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Azure 監視器概觀](media/overview/overview.png)
 
@@ -39,7 +40,7 @@ Azure 監視器所收集的所有資料均符合下列兩個基本類型之一�
 
 ![度量](media/overview/metrics.png)
 
-Azure 監視器所收集的記錄資料會儲存在 Log Analytics 中，其中包含的[豐富查詢語言](log-query/log-query-overview.md)可快速擷取、彙總及分析所收集的資料。  您可以在 Azure 入口網站中使用 [Log Analytics 頁面](log-query/portals.md)來建立和測試查詢，然後使用這些工具直接分析資料，或儲存查詢以便搭配[視覺效果](visualizations.md)或[警示規則](platform/alerts-overview.md)使用。
+可以使用[查詢](log-query/log-query-overview.md)分析 Azure 監視器收集的記錄資料，以快速擷取、彙總和分析收集的資料。  您可以在 Azure 入口網站中使用 [Log Analytics](log-query/portals.md)來建立和測試查詢，然後使用這些工具直接分析資料，或儲存查詢以便搭配[視覺效果](visualizations.md)或[警示規則](platform/alerts-overview.md)使用。
 
 Azure 監視器使用的[資料總管查詢語言](/azure/kusto/query/)版本，適合用於簡單的記錄查詢，但也包含進階的功能，例如彙總、聯結和智慧分析。 您可以使用[多個課程](log-query/get-started-queries.md)，快速了解查詢語言。  我們會為已經熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的使用者提供特別指引。
 
@@ -54,7 +55,7 @@ Azure 監視器可以從各種來源收集資料。 您可以考慮為各層中�
 - **Azure 訂用帳戶監視資料**：有關 Azure 訂用帳戶作業和管理的資料，以及有關 Azure 本身健康情況和作業的資料。 
 - **Azure 租用戶監視資料**：租用戶層級 Azure 服務的作業相關資料，例如 Azure Active Directory。
 
-當您建立 Azure 訂用帳戶並開始新增資源 (例如虛擬機器和 Web 應用程式) 時，Azure 監視器就會開始收集資料。  [活動記錄](platform/activity-logs-overview.md)會記錄資源的建立或修改時間。 [計量](../monitoring-and-diagnostics/monitoring-overview-metrics.md)會告訴您如何執行資源以及它所取用的資源。 
+當您建立 Azure 訂用帳戶並開始新增資源 (例如虛擬機器和 Web 應用程式) 時，Azure 監視器就會開始收集資料。  [活動記錄](platform/activity-logs-overview.md)會記錄資源的建立或修改時間。 [計量](platform/data-collection.md)會告訴您如何執行資源以及它所取用的資源。 
 
 [啟用診斷](platform/diagnostic-logs-overview.md)並[新增代理程式](platform/agent-windows.md)來計算資源，以將您所收集的資料擴展至實際資源運作。 這會收集資源內部作業的遙測資料，並可讓您設定不同的[資料來源](platform/agent-data-sources.md)，以從 Windows 和 Linux 客體作業系統收集記錄和計量。 
 

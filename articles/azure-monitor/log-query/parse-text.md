@@ -1,6 +1,6 @@
 ---
-title: 剖析 Azure Log Analytics 中的文字資料 | Microsoft Docs
-description: 說明在擷取資料時，以及在查詢中取出資料時，剖析 Log Analytics 記錄中資料的不同選項，並比較各個選項的相對優點。
+title: 剖析 Azure 監視器記錄中的文字資料 | Microsoft Docs
+description: 說明在擷取資料時，以及在查詢中取出資料時，剖析 Azure 監視器記錄中記錄資料的不同選項，並比較各個選項的相對優點。
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214125"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002180"
 ---
-# <a name="parse-text-data-in-log-analytics"></a>剖析 Log Analytics 中的文字資料
-Log Analytics 所收集的部分資料將在單一屬性中包含多個資訊片段。 將此資料剖析成多個屬性可讓您更輕鬆地在查詢中使用。 常見的範例為[自訂記錄檔](../../log-analytics/log-analytics-data-sources-custom-logs.md)，可將具有多個值的整個記錄檔項目收集成單一屬性。 您可以針對不同的值建立不同的屬性，以便在每個屬性中搜尋並彙總。
+# <a name="parse-text-data-in-azure-monitor-logs"></a>剖析 Azure 監視器記錄中的文字資料
+Azure 監視器所收集的部分記錄資料將在單一屬性中包含多個資訊片段。 將此資料剖析成多個屬性可讓您更輕鬆地在查詢中使用。 常見的範例為[自訂記錄檔](../../log-analytics/log-analytics-data-sources-custom-logs.md)，可將具有多個值的整個記錄檔項目收集成單一屬性。 您可以針對不同的值建立不同的屬性，以便在每個屬性中搜尋並彙總。
 
-本文說明在擷取資料時，以及在查詢中取出資料時，剖析 Log Analytics 記錄中資料的不同選項，並比較各個選項的相對優點。
+本文說明在擷取資料時，以及在查詢中取出資料時，剖析 Azure 監視器中記錄資料的不同選項，並比較各個選項的相對優點。
 
 
 ## <a name="parsing-methods"></a>剖析方法
@@ -60,7 +60,7 @@ Log Analytics 所收集的部分資料將在單一屬性中包含多個資訊片
 - 針對非常大型的記錄集 (數百萬筆記錄) 執行複雜的邏輯時，可能會造成額外負荷。
 
 ## <a name="parse-data-as-its-collected"></a>剖析所收集的資料
-如需剖析所收集資料的詳細資訊，請參閱[在 Log Analytics 中建立自訂欄位](../../log-analytics/log-analytics-custom-fields.md)。 這會在可供查詢使用的資料表中建立自訂屬性，就像其他任何屬性一樣。
+如需剖析所收集資料的詳細資訊，請參閱[在 Azure 監視器中建立自訂欄位](../platform/custom-fields.md)。 這會在可供查詢使用的資料表中建立自訂屬性，就像其他任何屬性一樣。
 
 ## <a name="parse-data-in-query-using-patterns"></a>使用模式剖析查詢中的資料
 當您想要剖析的資料可以透過記錄之間重複的模式識別時，您可以在[資料總管查詢語言](/azure/kusto/query/)中使用不同的運算子，將特定資料片段擷取到一或多個新的屬性。
@@ -106,7 +106,7 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-若要大規模啟用有效率的剖析功能，Log Analytics 會使用 re2 版的規則運算式，這類似部分其他規則運算式版本，但不完全相同。 如需詳細資訊，請參閱 [re2 運算式語法](https://aka.ms/kql_re2syntax)。
+若要大規模啟用有效率的剖析功能，Azure 監視器會使用 re2 版的規則運算式，這類似部分其他規則運算式版本，但不完全相同。 如需詳細資訊，請參閱 [re2 運算式語法](https://aka.ms/kql_re2syntax)。
 
 
 ## <a name="parse-delimited-data-in-a-query"></a>在查詢中剖析分隔的資料

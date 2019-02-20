@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: cd129ea68315223516ac1cd3e7577b5ee4bf92e5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386439"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005109"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>使用 Azure Log Analytics 監視 HDInsight 叢集
 
@@ -46,9 +46,19 @@ ms.locfileid: "53386439"
 
 在本節中，您會設定現有 HDInsight Hadoop 叢集，以使用 Azure Log Analytics 工作區來監視作業、偵錯記錄等等。
 
-1. 在 Azure 入口網站中，開啟 HDInsight 叢集。
-2. 在左窗格中，選取 [監視]。
-3. 在右窗格中選取 [啟用]，選取現有的 Log Analytics 工作區，然後選取 [儲存]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+
+2. 從左側功能表中選取 [所有服務]。
+
+3. 在 [分析] 底下，選取 [HDInsight 叢集]。
+
+4. 在左邊的 [監視]下方，選取 [Operations Management Suite]。
+
+5. 從主要檢視中的 [OMS 監視] 下方，選取 [啟用]。
+
+6. 從 [選取工作區] 下拉式清單中，選取現有的 Log Analytics 工作區。
+
+7. 選取 [ **儲存**]。
 
     ![針對 HDInsight 叢集啟用監視](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "針對 HDInsight 叢集啟用監視")
 
@@ -91,7 +101,7 @@ HDInsight 提供叢集特定的管理解決方案，您可以為 Azure Log Analy
 * HDInsight Spark 監視
 * HDInsight Storm 監視
 
-如需安裝管理解決方案的指示，請參閱[在 Azure 中的管理解決方案](../azure-monitor/insights/solutions.md#install-a-management-solution)。 若要進行實驗，請安裝 HDInsight Hadoop 監視解決方案。 完成後，您會看到 **HDInsightHadoop** 圖格列示於 [摘要] 下方。 選取 **HDInsightHadoop** 圖格。 HDInsightHadoop 解決方案顯示如下：
+如需安裝管理解決方案的指示，請參閱[在 Azure 中的管理解決方案](../azure-monitor/insights/solutions.md#install-a-monitoring-solution)。 若要進行實驗，請安裝 HDInsight Hadoop 監視解決方案。 完成後，您會看到 **HDInsightHadoop** 圖格列示於 [摘要] 下方。 選取 **HDInsightHadoop** 圖格。 HDInsightHadoop 解決方案顯示如下：
 
 ![HDInsight 監視解決方案檢視](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: efc5fb022d117caeaec9da014252b501f2d06769
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6fc568546721511f6289600148919d28773058f4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449995"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002271"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>監視 Azure 監視器所收集的資料
 [Azure 監視器](../overview.md)是一項服務，可協助您監視應用程式及其所依賴的資源。 此功能的核心是儲存來自受監視資源的遙測和其他資料。 本文提供如何透過 Azure 監視器來儲存和使用此資料的完整說明。
@@ -81,7 +81,7 @@ Azure 中計量的特定屬性包括下列項目：
 ### <a name="sources-of-metric-data"></a>計量資料的來源
 Azure 監視器所收集的計量有三個基本來源。 這些計量全都適用於計量存放區，不論其來源為何，都可在該存放區中一起進行評估。
 
-**平台計量**是由 Azure 資源所建立，讓您能夠掌握其健康情況和效能。 每個類型的資源都會建立[一組不同的計量](../../azure-monitor/platform/metrics-supported.md)，而不需進行任何必要的設定。
+**平台計量**是由 Azure 資源所建立，讓您能夠掌握其健康情況和效能。 每個類型的資源都會建立[一組不同的計量](metrics-supported.md)，而不需進行任何必要的設定。 
 
 **應用程式計量**是由 Application Insights 為您受監視的應用程式所建立，可協助您偵測效能問題，以及追蹤應用程式的使用趨勢。 這包括像是「伺服器回應時間」和「瀏覽器例外狀況」之類的值。
 
@@ -96,32 +96,39 @@ Azure 監視器所收集的計量有三個基本來源。 這些計量全都適�
 ### <a name="what-can-you-do-with-metrics"></a>度量能讓您做什麼？
 您可以使用計量來執行的工作包括下列各項：
 
-- 使用[計量瀏覽器](../../azure-monitor/platform/metrics-charts.md)來分析收集到的計量，並將它們繪製於圖表上。 追蹤資源 (例如 VM、網站或邏輯應用程式) 的效能，只要將該圖表釘選到 [Azure 儀表板](../../azure-portal/azure-portal-dashboards.md)即可。
+- 使用[計量分析](metrics-charts.md)來分析收集到的計量，並將它們繪製於圖表上。 追蹤資源 (例如 VM、網站或邏輯應用程式) 的效能，只要將該圖表釘選到 [Azure 儀表板](../../azure-portal/azure-portal-dashboards.md)即可。
 - 設定[計量警示規則](alerts-metric.md)，在計量超出閾值時，傳送通知或採取[自動化動作](action-groups.md)。
-- 使用[自動調整規模](../../azure-monitor/platform/autoscale-overview.md)，根據超出閾值的計量來增加或減少資源。
-- 將計量路由傳送到 Log Analytics 來分析計量資料與記錄資料，並儲存計量值超過 93 天。
-- 將計量串流處理到[事件中樞](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)，以將它們路由傳送到 [Azure 串流分析](../../stream-analytics/stream-analytics-introduction.md)或外部系統。
+- 使用[自動調整規模](autoscale-overview.md)，根據超出閾值的計量來增加或減少資源。
+- 將計量路由傳送到記錄，來分析計量資料與記錄資料，並儲存計量值超過 93 天。 
+- 將計量串流處理到[事件中樞](stream-monitoring-data-event-hubs.md)，以將它們路由傳送到 [Azure 串流分析](../../stream-analytics/stream-analytics-introduction.md)或外部系統。
 - [封存](../../azure-monitor/learn/tutorial-archive-data.md)資源的效能或健全狀況歷程記錄，以用於相容性、稽核或離線報告。
-- 使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) 或 [REST API](../../azure-monitor/platform/rest-api-walkthrough.md)，從命令列或自訂應用程式中存取計量值。
+- 使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) 或 [REST API](rest-api-walkthrough.md)，從命令列或自訂應用程式中存取計量值。
+
+
 
 ### <a name="viewing-metrics"></a>檢視計量
 Azure 監視器中的計量儲存在針對快速擷取最佳化的時間序列資料庫中，且會儲存 93 天的計量值。 將計量複製到記錄檔，以進行長期分析並取得趨勢。
 
-您可以透過上述各種方法來使用計量資料。 使用[計量瀏覽器](../../azure-monitor/platform/metrics-charts.md)，直接分析計量存放區中的資料，並隨著時間繪製多個計量值的圖表。 您可以互動方式檢視圖表，或將其釘選到儀表板，利用其他視覺效果進行檢視。 您也可以使用 [Azure 監視 REST API](../../azure-monitor/platform/rest-api-walkthrough.md) 來擷取計量。
+您可以透過上述各種方法來使用計量資料。 使用[計量分析](metrics-charts.md)，直接分析計量存放區中的資料，並隨著時間繪製多個計量值的圖表。 您可以互動方式檢視圖表，或將其釘選到儀表板，利用其他視覺效果進行檢視。 您也可以使用 [Azure 監視 REST API](rest-api-walkthrough.md) 來擷取計量。
 
-![計量瀏覽器](media/data-collection/metrics-explorer.png)
+![計量分析](media/data-collection/metrics-explorer.png)
 
 ## <a name="logs"></a>記錄檔
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 記錄包含不同類型的資料，而資料會針對每個類型組織成不同的屬性集。 記錄可以包含數值 (例如計量)，但通常會包含具有詳細說明的文字資料。 其在結構方面進一步與計量不同，而且通常不會定期收集。
 
 常見的記錄項目類型是偶爾會收集的事件。 事件是由應用程式或服務所建立，而且通常包含足夠的資訊來自行提供完整的內容。 例如，事件可以表示已建立或修改特定資源、為了回應增加的流量而啟動新主機，或在應用程式中偵測到錯誤。
 
 記錄特別適合用於結合來自各種來源的資料，以進行複雜分析及隨著時間變化的趨勢分析。 資料的格式可能有所不同，應用程式可以使用其所需的結構建立自訂記錄。 計量甚至可在記錄中進行複寫，將它們與其他監視資料結合，以進行趨勢和其他資料分析。
 
+
+
 ### <a name="sources-of-log-data"></a>記錄資料的來源
 Azure 監視器可以在 Azure 中及內部部署資源的各種來源收集資料。 記錄檔資料來源包含下列各項：
 
-- 來自 Azure 資源的[活動記錄](collect-activity-logs.md) (包括其設定和健康情況的相關資訊) 與[診斷記錄](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) (可深入解析它們的作業)。
+- 來自 Azure 資源的[活動記錄](collect-activity-logs.md) (包括其設定和健康情況的相關資訊) 與[診斷記錄](diagnostic-logs-stream-log-store.md) (可深入解析它們的作業)。
 - [Windows](agent-windows.md) 和 [Linux](../learn/quick-collect-linux-computer.md) 虛擬機器上的代理程式會根據您設定的[資料來源](data-sources.md)，將遙測從客體作業系統和應用程式傳送到 Azure 監視器。
 - [Application Insights](https://docs.microsoft.com/azure/application-insights/) 所收集的應用程式資料。
 - 可從[監視解決方案](../insights/solutions.md)或功能 (例如，容器深入解析、VM Insights 或資源群組深入解析) 來深入解析特定應用程式或服務的資料。
@@ -159,12 +166,12 @@ Azure 監視器中的所有記錄資料，都是使用以[資料總管查詢語�
 ### <a name="logs-to-metrics"></a>計量至記錄
 如上所述，計量比記錄更有回應，因此您能以較低成本建立延遲較低的警示。 有大量的數值資料會儲存為記錄，這些資料可能適合當作計量，但在 Azure 監視器不是儲存為計量。 常見範例是從代理程式和管理解決方案收集的效能資料。 您可將其中一些值複製到計量中，以便用於警示以及透過計量瀏覽器進行分析。
 
-這項功能的說明位於[為 Azure 監視器中的記錄建立計量警示](../../azure-monitor/platform/alerts-metric-logs.md)。 值的支援清單位於[支援 Azure 監視器的計量](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)。
+這項功能的說明位於[為 Azure 監視器中的記錄建立計量警示](alerts-metric-logs.md)。 值的支援清單位於[支援 Azure 監視器的計量](metrics-supported.md#microsoftoperationalinsightsworkspaces)。
 
 ## <a name="stream-data-to-external-systems"></a>將資料串流處理到外部系統
 除了使用 Azure 中的工具來分析監視資料，您可能也有將監視資料轉送到外部工具的需求，例如安全性資訊和事件管理 (SIEM) 產品。 此轉送通常是透過 [Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs/)，直接從受監視的資源來完成。
 
-您可以在[將 Azure 監視資料串流至事件中樞以供外部工具取用](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)取得各種監視資料的指引。
+您可以在[將 Azure 監視資料串流至事件中樞以供外部工具取用](stream-monitoring-data-event-hubs.md)取得各種監視資料的指引。
 
 ## <a name="next-steps"></a>後續步驟
 
