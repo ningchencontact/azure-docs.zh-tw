@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/16/2018
-ms.openlocfilehash: 7d409db839f94e27ac036550c22302188f37cc90
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 2/7/2019
+ms.openlocfilehash: 28e99f64fdee414549c55f9666bfd53f07fb3efb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545861"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892689"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-azure-portal"></a>使用 Azure 入口網站重新啟動「適用於 PostgreSQL 的 Azure 資料庫」伺服器
 本主題說明如何重新啟動適用於 PostgreSQL 的 Azure 資料庫伺服器。 您可能會為了進行維護而需要重新啟動伺服器，進而在伺服器執行作業時導致短暫中斷。

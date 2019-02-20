@@ -15,12 +15,12 @@ ms.date: 11/16/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: be537d9598eeda902254e56a9202415f4f498d93
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bee143f7e814884eda3c5dc9017895a8431e76aa
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245128"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890547"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>將 Linux 映像新增到 Azure Stack
 
@@ -38,7 +38,7 @@ ms.locfileid: "55245128"
 
 請盡可能下載透過市集管理提供並專為 Azure Stack 準備及測試的映像。 
  
-需要 Azure Linux 代理程式 (通常稱為 `WALinuxAgent` 或 `walinuxagent`)，而且並非所有代理程式版本都適用於 Azure Stack。 如果您建立自己的映像，則應該使用 2.2.18 版或更新版本。 請注意，Azure Stack 目前不支援 [cloud-init](https://cloud-init.io/)。
+需要 Azure Linux 代理程式 (通常稱為 `WALinuxAgent` 或 `walinuxagent`)，而且並非所有代理程式版本都適用於 Azure Stack。 如果您建立自己的映像，則應該使用 2.2.20 版或更新版本。 請注意，Azure Stack 目前不支援 [cloud-init](https://cloud-init.io/)。
 
 您可以使用下列指示來準備自己的 Linux 映像：
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 958c53108c024cb349922a1bd10b2cdc2dba41a3
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 90a94612248dead5b57ebff67562dda083d8669f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247277"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996129"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>在 Azure 入口網站中使用媒體編碼器標準為資產編碼
 
@@ -28,7 +28,7 @@ ms.locfileid: "50247277"
 > 
 > 
 
-使用 Azure 媒體服務時，其中一個最常見案例是提供自適性串流給您的用戶端。 媒體服務支援下列自適性串流技術：Apple HTTP Live Streaming (HLS)、Microsoft Smooth Streaming 和 Dynamic Adaptive Streaming over HTTP (DASH，也稱為 MPEG-DASH)。 若要針對自適性串流準備您的視訊，請先將來源視訊編碼為多位元速率檔案。 您可以使用 Azure 媒體編碼器標準來編碼視訊。  
+使用 Azure 媒體服務時，其中一個最常見案例是提供自適性串流給您的用戶端。 媒體服務支援下列自適性串流技術：Apple HTTP 即時串流 (HLS)、Microsoft Smooth Streaming 和 Dynamic Adaptive Streaming over HTTP (DASH，也稱為 MPEG-DASH)。 若要針對自適性串流準備您的視訊，請先將來源視訊編碼為多位元速率檔案。 您可以使用 Azure 媒體編碼器標準來編碼視訊。  
 
 媒體服務為您提供動態封裝。 透過動態封裝，您可以利用 HLS、Smooth Streaming 和 MPEG-DASH 傳遞多位元速率 MP4，而不必以這些串流格式重新封裝。 當您使用動態封裝時，您可以儲存及播放單一儲存格式的檔案。 媒體服務會根據用戶單的要求建置及傳遞適當的回應。
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 426c090a79931f252a5daeacbdd83d0238ecf672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455094"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868104"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整彈性集區
 
@@ -27,8 +27,8 @@ ms.locfileid: "55455094"
 
 - 可以將儲存體佈建到大小上限：
 
-  - 針對標準儲存體，以 10-GB 為增量單位增加或減少大小
-  - 針對進階儲存體，以 250-GB 為增量單位增加或減少大小
+  - 針對標準或一般用途服務層中的儲存體，增加或減少大小 (以 10 GB 為增量單位)
+  - 針對進階或商務關鍵性服務層中的儲存體，增加或減少大小 (以 250 GB 為增量單位)
 - 增加或減少其大小上限，即可佈建彈性集區的儲存體。
 - 彈性集區儲存體的價格為儲存體數量乘以服務層的儲存體單價。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
 

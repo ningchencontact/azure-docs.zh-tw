@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 如果您想要轉譯儲存體 (例如 Azure Blob) 中數量龐大的音訊，則適用批次轉譯。 透過使用該專屬 REST API，您可以使用共用存取簽章 (SAS) URI 來指向音訊檔案，並以非同步方式接收轉譯。
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228656"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867115"
 ---
 # <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
 
@@ -49,7 +49,7 @@ Batch 轉譯 API 支援下列格式：
 > [!NOTE]
 > Batch 轉換 API 需要 S0 金鑰 (付費層)。 它無法搭配免費 (f0) 金鑰使用。
 
-針對立體聲音訊資料流，Batch 轉譯 API 會在轉譯期間分離左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 下列 JSON 範例顯示聲道的輸出，包括設定不雅內容過濾和標點符號模型的屬性。
+針對立體聲音訊資料流，Batch 轉譯 API 會在轉譯期間分離左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 下列 JSON 顯示範例要求，包括設定不雅內容過濾、標點符號模型和字組等級時間戳記的屬性
 
 ```json
 {
@@ -60,7 +60,8 @@ Batch 轉譯 API 支援下列格式：
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ REST 要求的查詢字串中可能包括這些參數。
 您可以在 [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI) \(英文\) 找到這篇文章中的範例。
 
 > [!NOTE]
-> 音訊轉譯通常需要和音訊檔案相同的時間長度，再加上額外的二至三分鐘。
+> 我們不提供批次音訊轉譯的時間 SLA。 不過一般來說，轉譯作業進行時 (在執行中狀態)，處理速度會比即時快。
 
 ## <a name="next-steps"></a>後續步驟
 

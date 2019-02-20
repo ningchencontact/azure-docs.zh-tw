@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50c0c781e7e1c95896a22f0cd71ed20bbad4c2b3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164879"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889578"
 ---
-<!--author=alkohli last changed: 01/20/2017-->
-
 #### <a name="to-create-a-manual-backup"></a>建立手動備份
 
 1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從表格式的裝置清單中，選取您的裝置。 移至 [設定] > [管理] > [備份原則]。
@@ -23,7 +21,7 @@ ms.locfileid: "50164879"
 
 3. 在 [立即備份] 刀鋒視窗中，執行下列步驟︰
 
-    1. 從下拉式清單中選擇適當的**快照集類型**︰**本機**快照集或**雲端**快照集。 選取本機快照集可快速備份或還原，選取雲端快照集則可進行資料復原。
+    1. 從下拉式清單中選擇適用的**快照集類型**：**本機**快照或**雲端**快照。 選取本機快照集可快速備份或還原，選取雲端快照集則可進行資料復原。
 
         ![建立手動備份](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 

@@ -1,11 +1,11 @@
 ---
 title: 透過 Azure 入口網站管理串流端點 | Microsoft Docs
-description: 此主題說明如何透過 Azure 入口網站管理串流端點。
+description: 本主題說明如何透過 Azure 入口網站管理串流端點。
 services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: bb1aca25-d23a-4520-8c45-44ef3ecd5371
 ms.service: media-services
@@ -13,18 +13,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: a023cb2ea1cf74c8029cc207c9b899631facb929
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 0f2e4ee393c07e6b15f128ed60922b8a280cabb5
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018259"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984659"
 ---
-# <a name="manage-streaming-endpoints-with-the-azure-portal"></a>透過 Azure 入口網站管理串流端點
+# <a name="manage-streaming-endpoints-with-the-azure-portal-legacy"></a>透過 Azure 入口網站管理串流端點 (舊版)
 
-此文章說明如何使用 Azure 入口網站來管理串流端點。 
+本文說明如何使用 Azure 入口網站來管理串流端點。 
 
 >[!NOTE]
 >請務必檢閱[概觀](media-services-streaming-endpoints-overview.md)一文。 

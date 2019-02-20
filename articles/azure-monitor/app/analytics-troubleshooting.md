@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189927"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960678"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>疑難排解 Application Insights 中的分析
 有關於 [Application Insights 分析](analytics.md)的問題嗎？ 從這裡開始。 「分析」是強大的 Azure Application Insights 搜尋工具。
@@ -34,9 +34,9 @@ ms.locfileid: "54189927"
 ## <a name="e-a"></a> 「未預期的錯誤」
 ![[未預期的錯誤] 畫面](media/analytics-troubleshooting/010.png)
 
-在入口網站執行階段期間發生的內部錯誤 � 未處理的例外狀況。
+在入口網站執行階段期間發生的內部錯誤 – 未處理的例外狀況。
 
-* 清除瀏覽器的快取。 
+* 清除瀏覽器的快取。
 
 ## <a name="e-b"></a>403 ... 請嘗試重新載入
 ![403 ... 請嘗試重新載入](media/analytics-troubleshooting/020.png)

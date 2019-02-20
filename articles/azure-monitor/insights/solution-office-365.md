@@ -1,6 +1,6 @@
 ---
 title: Azure 中的 Office 365 管理解決方案 | Microsoft Docs
-description: 本文提供在 Azure 中設定和使用 Office 365 解決方案的相關詳細資料。  它包含在 Log Analytics 中所建立之 Office 365 記錄的詳細描述。
+description: 本文提供在 Azure 中設定和使用 Office 365 解決方案的相關詳細資料。  它包含在 Azure 監視器中所建立之 Office 365 記錄的詳細描述。
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216607"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999295"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
 ![Office 365 標誌](media/solution-office-365/icon.png)
 
-Office 365 管理解決方案可讓您監視 Log Analytics 中的 Office 365 環境。
+Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 環境。
 
 - 監視 Office 365 帳戶上的使用者活動，以分析使用模式並識別行為趨勢。 例如，您可以擷取特定使用方式情節，例如在貴組織外部共用的檔案或最熱門的 SharePoint 網站。
 - 監視系統管理員活動以追蹤設定變更或高權限作業。
 - 偵測並調查的不必要的使用者行為，並可以針對貴組織的需求進行自訂。
 - 示範稽核與合規性。 例如，您可以監視機密檔案的檔案存取作業，以協助進行稽核與合規性流程。
-- 針對組織的 Office 365 活動資料使用[記錄搜尋](../log-query/log-query-overview.md)，執行作業疑難排解。
+- 針對組織的 Office 365 活動資料使用[記錄查詢](../log-query/log-query-overview.md)，執行作業疑難排解。
 
 ## <a name="prerequisites"></a>必要條件
 安裝和設定此解決方案之前必須先具備下列項目。
@@ -43,7 +43,7 @@ Office 365 管理解決方案可讓您監視 Log Analytics 中的 Office 365 環
 此解決方案不會在[已連線的管理群組](../platform/om-agents.md)中安裝任何管理組件。
   
 ## <a name="install-and-configure"></a>安裝及設定
-一開始先新增 [Office 365 解決方案到您的訂用帳戶](solutions.md#install-a-management-solution)。 新增之後，您必須執行本節中的設定步驟，讓解決方案存取您的 Office 365 訂用帳戶。
+一開始先新增 [Office 365 解決方案到您的訂用帳戶](solutions.md#install-a-monitoring-solution)。 新增之後，您必須執行本節中的設定步驟，讓解決方案存取您的 Office 365 訂用帳戶。
 
 ### <a name="required-information"></a>必要資訊
 開始此程序前，請先收集下列資訊。
@@ -375,7 +375,7 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>解除安裝
-您可以使用[移除管理解決方案](solutions.md#remove-a-management-solution)中的程序移除 Office 365 管理解決方案。 但這不會停止從 Office 365 收集資料到 Log Analytics。 請遵循底下程序，從 Office 365 取消訂閱並停止收集資料。
+您可以使用[移除管理解決方案](solutions.md#remove-a-monitoring-solution)中的程序移除 Office 365 管理解決方案。 但這不會停止從 Office 365 收集資料到 Azure 監視器。 請遵循底下程序，從 Office 365 取消訂閱並停止收集資料。
 
 1. 將下列指令碼儲存為 office365_unsubscribe.ps1。
 
@@ -479,9 +479,12 @@ At line:12 char:18
 Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/agent-data-sources.md)擷取資料。  它會直接從 Office 365 擷取資料。
 
 ### <a name="collection-frequency"></a>收集頻率
-一開始收集資料可能會需要幾個小時。 一旦開始收集資料，每次建立一筆記錄時，Office 365 都會將 [Webhook 通知](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) \(英文\) 連同詳細資料傳送至 Log Analytics。 收到此記錄的幾分鐘內，即可將其用於 Log Analytics。
+一開始收集資料可能會需要幾個小時。 一旦開始收集資料，每次建立一筆記錄時，Office 365 都會將 [Webhook 通知](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) \(英文\) 連同詳細資料傳送至 Azure 監視器。 收到此記錄的幾分鐘內，即可將其用於 Azure 監視器。
 
 ## <a name="using-the-solution"></a>使用解決方案
+
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 當您將 Office 365 解決方案新增至 Log Analytics 工作區時，[Office 365] 圖格會新增至儀表板。 此圖格會顯示計數並以圖形表示環境中的電腦數目及其更新合規性。<br><br>
 ![Office 365 摘要圖格](media/solution-office-365/tile.png)  
 
@@ -501,9 +504,9 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 
-## <a name="log-analytics-records"></a>Log Analytics 記錄
+## <a name="azure-monitor-log-records"></a>Azure 監視器記錄
 
-由 Office 365 解決方案在 Log Analytics 工作區中建立的所有記錄，都具有 **OfficeActivity** 的「類型」。  **OfficeWorkload** 屬性可決定該記錄所指的 Office 365 服務：Exchange、AzureActiveDirectory、SharePoint 或 OneDrive。  **RecordType** 屬性指定作業的類型。  每種作業類型會有不同的屬性，如下表所示。
+由 Office 365 解決方案在 Azure 監視器工作區中建立的所有記錄，都具有 **OfficeActivity** 的「類型」。  **OfficeWorkload** 屬性可決定該記錄所指的 Office 365 服務：Exchange、AzureActiveDirectory、SharePoint 或 OneDrive。  **RecordType** 屬性指定作業的類型。  每種作業類型會有不同的屬性，如下表所示。
 
 ### <a name="common-properties"></a>通用屬性
 以下是所有 Office 365 記錄通用的屬性。
@@ -708,6 +711,6 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics](../log-query/log-query-overview.md) 中的記錄搜尋，檢視詳細的更新資料。
+* 使用 [Azure 監視器中的記錄查詢](../log-query/log-query-overview.md)來檢視詳細的更新資料。
 * [建立自己的儀表板](../learn/tutorial-logs-dashboards.md)來顯示您最愛的 Office 365 搜尋查詢。
 * [建立警示](../platform/alerts-overview.md)來讓系統主動通知您重要的 Office 365 活動。  

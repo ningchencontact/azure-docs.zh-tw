@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec80be0ece3596eab418ac39507954142944e34a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260482"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978863"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Apache Giraph
 
@@ -46,17 +46,12 @@ ms.locfileid: "54260482"
 
     ![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "使用指令碼動作以自訂叢集")
 
-    <table border='1'>
-        <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>Name</td>
-            <td>指定指令碼動作的名稱。 例如，<b>安裝 Giraph</b>。</td></tr>
-        <tr><td>指令碼 URI</td>
-            <td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，<i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-        <tr><td>節點類型</td>
-            <td>指定執行自訂指令碼的節點。 您可以選擇 [所有節點]<b></b>、[僅限前端節點]<b></b> 或 [僅限背景工作節點]<b></b>。
-        <tr><td>參數</td>
-            <td>如果指令碼要求，請指定參數。 要安裝 Giraph 的指令碼不需要任何參數，因此可以讓此處空白。</td></tr>
-    </table>
+    |屬性|值|  
+    |---|---|  
+    |Name|指定指令碼動作的名稱。 例如，**安裝 Giraph**|
+    |指令碼 URI|指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，*https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |節點類型|指定執行自訂指令碼的節點。 您可以選擇 [所有節點]、[僅限前端節點] 或 [僅限背景工作節點]。
+    |參數|如果指令碼要求，請指定參數。 要安裝 Giraph 的指令碼不需要任何參數，因此可以讓此處空白。|  
 
     您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。 加入指令碼之後，請按一下核取記號以開始建立叢集。
 
@@ -78,6 +73,7 @@ ms.locfileid: "54260482"
     如果使用值 (或權數) 當做物件之間的距離繪製出來，上述資料可能如下圖所示：
 
     ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+
 2. 執行 SimpleShortestPathsComputation 範例。 使用 tiny_graph.txt 檔案做為輸入，即可使用下列 Azure PowerShell Cmdlet 來執行此範例。
 
     > [!IMPORTANT]  

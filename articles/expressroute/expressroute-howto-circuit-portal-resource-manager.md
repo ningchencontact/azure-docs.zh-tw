@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091522"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894712"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ ms.locfileid: "53091522"
   ![設定 SKU 層和資料計量](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   *  決定要啟用 ExpressRoute 標準或 ExpressRoute 進階附加元件。 您可以指定 [標準] 來取得標準 SKU，或指定 [進階] 來取得進階附加元件。
-  *  決定計費類型。 您可以指定 [計量付費] 以採用計量付費數據傳輸方案，選取 [無限制] 以採用無限制的資料方案。 請注意，您可以將計費類型從 [計量付費] 變更為 [無限制]，但無法從 [無限制] 變更為 [計量付費]。
+  *  決定計費類型。 您可以指定 [計量付費] 以採用計量付費數據傳輸方案，選取 [無限制] 以採用無限制的資料方案。 請注意，您可以將計費類型從 [計量付費] 變更為 [無限制]。
+    > [!IMPORTANT] 您無法從 [無限制] 類型變更為 [計量付費]。
   * [對等位置] 是您與 Microsoft 對等互連的實體位置。
 
     > [!IMPORTANT]
@@ -117,10 +118,11 @@ ms.locfileid: "53091522"
 您可以執行下列工作，而無須中途停機：
 
 * 啟用或停用 ExpressRoute 線路的 ExpressRoute 進階附加元件。
-* 只要連接埠有可用的容量，即增加 ExpressRoute 線路的頻寬。 不支援將線路的頻寬降級。 
-* 將計量方案從 [已計量資料] 變更為 [無限制資料]。 不支援將計量方案從 [無限制資料] 變更為 [已計量資料]。
+* 只要連接埠有可用的容量，即增加 ExpressRoute 線路的頻寬。
+  > [!IMPORTANT] 不支援將線路的頻寬降級。 
+* 將計量方案從 [已計量資料] 變更為 [無限制資料]。
+  > [!IMPORTANT] 不支援將計量方案從 [無限制資料] 變更為 [已計量資料]。
 * 您可以啟用和停用 [允許傳統作業] 。
-
 > [!IMPORTANT]
 > 如果現有的連接埠上沒有足夠的容量，您可能必須重新建立 ExpressRoute 線路。 如果該位置已無額外的容量，您無法升級線路。
 >

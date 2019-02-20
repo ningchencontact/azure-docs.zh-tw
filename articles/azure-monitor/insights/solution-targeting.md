@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中設定管理解決方案目標 | Microsoft Docs
-description: 設定管理解決方案目標，可讓您將管理解決方案限制為一組特定的代理程式。  本文說明如何建立範圍設定，並將它套用至解決方案。
+title: Azure 監視器中的目標監視解決方案 | Microsoft Docs
+description: 設定監視解決方案目標，可讓您將監視解決方案限制為一組特定的代理程式。  本文說明如何建立範圍設定，並將它套用至解決方案。
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192748"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989180"
 ---
-# <a name="targeting-management-solutions-in-azure-preview"></a>在 Azure 中設定管理解決方案目標 (預覽)
-當您將管理解決方案新增至訂用帳戶時，預設會將該解決方案自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。  您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。  本文說明如何使用**設定解決方案目標**，此功能可讓您將範圍套用至解決方案。
+# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Azure 監視器中的目標監視解決方案 (預覽版)
+當您將監視解決方案新增至訂用帳戶時，預設會將該解決方案自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。  您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。  本文說明如何使用**設定解決方案目標**，此功能可讓您將範圍套用至解決方案。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="how-to-target-a-solution"></a>如何為解決方案設定目標
 為解決方案設定目標有三個步驟，如下列各節中所述。 
 
 
 ### <a name="1-create-a-computer-group"></a>1.建立電腦群組
-您可以透過在 Log Analytics 中建立[電腦群組](../../azure-monitor/platform/computer-groups.md)，來指定您想要包含在範圍內的電腦。  電腦群組可以是根據記錄搜尋，或者從其他來源匯入 (例如 Active Directory 或 WSUS 群組)。 [如同下面所述](#solutions-and-agents-that-cant-be-targeted)，只有直接連線至 Log Analytics 的電腦才會包含在範圍內。
+您可以透過在 Azure 監視器中建立[電腦群組](../platform/computer-groups.md)，來指定您想要包含在範圍內的電腦。  電腦群組可以是根據記錄查詢，或者從其他來源匯入 (例如 Active Directory 或 WSUS 群組)。 [如同下面所述](#solutions-and-agents-that-cant-be-targeted)，只有直接連線至 Azure 監視器的電腦才會包含在範圍內。
 
 一旦您在工作區中建立電腦群組，便可將它包含在可套用至一或多個解決方案的範圍設定中。
  
@@ -38,7 +40,7 @@ ms.locfileid: "53192748"
  
  使用下列程序建立範圍設定。  
 
- 1. 在 Azure 入口網站中，瀏覽至 [Log Analytics] 並選取您的工作區。
+ 1. 在 Azure 入口網站中，瀏覽至 [Log Analytics 工作區] 並選取您的工作區。
  2. 在工作區內容中的 [工作區資料來源] 底下，選取 [範圍設定]。
  3. 按一下 [新增] 以建立新的範圍設定。
  4. 輸入範圍設定的 [名稱]。
@@ -52,7 +54,7 @@ ms.locfileid: "53192748"
 
 使用下列程序套用範圍設定。  
 
- 1. 在 Azure 入口網站中，瀏覽至 [Log Analytics] 並選取您的工作區。
+ 1. 在 Azure 入口網站中，瀏覽至 [Log Analytics 工作區] 並選取您的工作區。
  2. 在工作區內容中，選取 [解決方案]。
  3. 按一下您想要設定範圍的解決方案。
  4. 在解決方案內容中的 [工作區資料來源] 底下，選取 [設定解決方案目標]。  如果該選項無法使用，便代表[此解決方案無法設定目標](#solutions-and-agents-that-cant-be-targeted)。
@@ -65,7 +67,7 @@ ms.locfileid: "53192748"
 
 - 「設定解決方案目標」僅適用於會部署至代理程式的解決方案。
 - 「設定解決方案目標」僅適用於 Microsoft 提供的解決方案。  不適用於[由您或合作夥伴所建立的](solutions-creating.md)解決方案。
-- 您只能篩選掉直接連線至 Log Analytics 的代理程式。  解決方案會自動部署到屬於已連線 Operations Manager 管理群組之一部分的所有代理程式，不論它們是否包含在範圍設定內。
+- 您只能篩選掉直接連線至 Azure 監視器的代理程式。  解決方案會自動部署到屬於已連線 Operations Manager 管理群組之一部分的所有代理程式，不論它們是否包含在範圍設定內。
 
 ### <a name="exceptions"></a>例外狀況
 「設定解決方案目標」無法搭配下列解決方案使用，即使它們符合上述準則。
@@ -73,5 +75,5 @@ ms.locfileid: "53192748"
 - 代理程式健康狀態評估
 
 ## <a name="next-steps"></a>後續步驟
-- 在[將 Azure Log Analytics 管理解決方案新增至您的工作區](solutions.md)中深入了解管理解決方案，包含可在您的環境中安裝的可用解決方案。
-- 在 [Log Analytics 記錄檔搜尋中的電腦群組](../../azure-monitor/platform/computer-groups.md)中深入了解建立電腦群組。
+- 在[ Azure 監視器中的管理解決方案](solutions.md)中，深入了解監視解決方案，包含可在您的環境中安裝的可用解決方案。
+- 在 [Log Analytics 記錄檔搜尋中的電腦群組](../platform/computer-groups.md)中，深入了解如何建立電腦群組。

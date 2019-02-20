@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241147"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993872"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基礎結構備份服務的最佳做法
 
@@ -43,9 +43,18 @@ ms.locfileid: "55241147"
 
 ### <a name="encryption"></a>加密
 
+#### <a name="version-1901-and-newer"></a>1901 版和更新版本
+
+加密憑證用於將匯出到外部儲存位置的備份資料加密。 由於憑證僅用來傳輸金鑰，因此憑證可以是自我簽署的憑證。 如需如何建立憑證的詳細資訊，請參閱 New-SelfSignedCertificate。  
+金鑰必須儲存在安全的位置 (例如，全域 Azure Key Vault 憑證中)。 會使用 CER 格式的憑證來加密資料。 在 Azure Stack 的雲端復原部署期間必須使用 PFX 格式解密備份資料。
+
+![在安全的位置儲存憑證。](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>1811 和較舊版本
+
 加密金鑰用於將匯出到外部儲存位置的備份資料加密。 金鑰會在[使用 PowerShell 為 Azure Stack 啟用備份](azure-stack-backup-enable-backup-powershell.md)的過程中產生。
 
-金鑰必須儲存在安全的位置 (例如，公用 Azure Key Vault 祕密中)。 在重新部署 Azure Stack 期間，必須使用此金鑰。 
+金鑰必須儲存在安全的位置 (例如，全域 Azure Key Vault 祕密中)。 在重新部署 Azure Stack 期間，必須使用此金鑰。 
 
 ![請將金鑰儲存在安全的位置。](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -95,6 +104,6 @@ MASBackup 資料夾是 Azure Stack 儲存其備份資料的地方。 請勿使�
 
 ## <a name="next-steps"></a>後續步驟
 
-請檢閱[基礎結構備份服務](azure-stack-backup-reference.md)的參考資料。
+請檢閱[基礎結構備份服務](azure-stack-backup-reference.md)的參考資料
 
-啟用[基礎結構備份服務](azure-stack-backup-enable-backup-console.md)。
+啟用[基礎結構備份服務](azure-stack-backup-enable-backup-console.md)

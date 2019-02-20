@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d82e0aa1f803001cf3bab5ec133a59f1fe19e4aa
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546856"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981412"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的計劃性維護通知
+
 
 為了提升虛擬機器 (VM) 之主機基礎結構的可靠性、效能和安全性，Azure 會定期執行更新。 更新可能包括修補裝載環境，或將硬體升級與解除委任。 大多數更新不會影響所裝載的 VM。 不過，在下列情況下，更新則會影響 VM：
 
@@ -38,10 +39,8 @@ ms.locfileid: "53546856"
 
 之所以要有兩個時段，目的是要讓您在知道 Azure 何時會自動啟動維護的同時，有足夠的時間啟動維護並重新啟動 VM。
 
-
 您可以使用 Azure 入口網站、PowerShell、REST API 和 Azure CLI 來查詢虛擬機器擴展集 VM 的維護時段，並啟動自助維護。
 
-  
 ## <a name="should-you-start-maintenance-during-the-self-service-window"></a>您是否應該在自助期間開始維護？  
 
 下列指導方針可協助您決定是否要在您選擇的時間啟動維護。
@@ -89,7 +88,7 @@ ms.locfileid: "53546856"
 
 | 值 | 說明 |
 |-------|-------------|
-| 是 | 虛擬機器擴展集中至少有一個 VM 處於自助服務時段內。 您可以在此自助服務期間隨時開始維護。 | 
+| yes | 虛擬機器擴展集中至少有一個 VM 處於自助服務時段內。 您可以在此自助服務期間隨時開始維護。 | 
 | 否 | 受影響之虛擬機器擴展集中沒有任何 VM 處於自助服務時段內。 | 
 | - | 您的虛擬機器擴展集不在這一波計劃性維護中。| 
 
@@ -118,12 +117,12 @@ Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組�
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>使用 PowerShell 來檢查維護狀態
 
-您可以使用 Azure Powershell 來查看虛擬機器擴展集中的 VM 已排定在何時進行維護。 藉由使用 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) Cmdlet，只要使用 `-InstanceView` 參數，即可取得計劃性維護資訊。
+您可以使用 Azure Powershell 來查看虛擬機器擴展集中的 VM 已排定在何時進行維護。 藉由使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) Cmdlet，只要使用 `-InstanceView` 參數，即可取得計劃性維護資訊。
  
 只有在已計劃進行維護的情況下，才會傳回維護資訊。 如果未排定任何會影響 VM 執行個體的維護，此 Cmdlet 就不會傳回任何維護資訊。 
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 以下是 **MaintenanceRedeployStatus** 下傳回的屬性： 
@@ -140,10 +139,10 @@ Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId i
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>使用 PowerShell 在 VM 執行個體上啟動維護
 
-如果將 **IsCustomerInitiatedMaintenanceAllowed** 設定為 **true**，便可在虛擬機器上啟動維護。 請使用 [Set-AzureRmVmss](/powershell/module/azurerm.compute/set-azurermvmss) Cmdlet 搭配 `-PerformMaintenance` 參數。
+如果將 **IsCustomerInitiatedMaintenanceAllowed** 設定為 **true**，便可在虛擬機器上啟動維護。 請使用 [Set-AzVmss](/powershell/module/az.compute/set-azvmss) Cmdlet 搭配 `-PerformMaintenance` 參數。
 
 ```powershell
-Set-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>使用 CLI 來檢查維護狀態

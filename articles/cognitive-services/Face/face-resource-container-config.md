@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: 適用於容器的組態設定。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 218343db4d8ac7e35f58951ee177f5c288aed3d9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a70c200f0260d87d35eae8728ed1f908e7061f32
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476412"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979100"
 ---
 # <a name="configure-face-docker-containers"></a>設定臉部 Docker 容器
 
@@ -45,7 +45,7 @@ ms.locfileid: "55476412"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-`Billing` 設定會指定 Azure 上用來計量容器帳單資訊的_臉部_資源端點 URI。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上_臉部_資源的有效端點 URI。
+`Billing` 設定會指定 Azure 上用來計量容器帳單資訊的_臉部_資源端點 URI。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上_臉部_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
@@ -53,7 +53,7 @@ ms.locfileid: "55476412"
 
 |必要| Name | 資料類型 | 說明 |
 |--|------|-----------|-------------|
-|是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|yes| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -112,7 +112,7 @@ ms.locfileid: "55476412"
 
 ### <a name="basic-example"></a>基本範例 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
@@ -122,7 +122,7 @@ ms.locfileid: "55476412"
 
 ### <a name="logging-example-with-command-line-arguments"></a>使用命令列引數的記錄範例
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
@@ -131,7 +131,7 @@ ms.locfileid: "55476412"
 
 ### <a name="logging-example-with-environment-variable"></a>使用環境變數的記錄範例
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \

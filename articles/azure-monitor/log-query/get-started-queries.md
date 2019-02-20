@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Log Analytics 中開始使用查詢 | Microsoft Docs
-description: 本文提供教學課程來說明如何在 Log Analytics 中開始撰寫查詢。
+title: 開始使用 Azure 監視器中的記錄查詢 | Microsoft Docs
+description: 本文提供教學課程來說明如何在 Azure 監視器中開始撰寫記錄查詢。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884532"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994871"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>在 Log Analytics 中開始使用查詢
+# <a name="get-started-with-azure-monitor-log-queries"></a>開始使用 Azure 監視器記錄查詢
 
 
 > [!NOTE]
-> 請先完成[開始使用 Analytics 入口網站](get-started-portal.md)再完成本教學課程。
+> 請先完成[開始使用 Azure 監視器記錄分析](get-started-portal.md)，再完成本教學課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-在本教學課程中，您會了解如何撰寫 Azure Log Analytics 查詢。 它會告訴您如何：
+在本教學課程中，您會了解如何撰寫 Azure LMonitor 記錄查詢。 它會告訴您如何：
 
 - 了解查詢的結構
 - 排序查詢結果
@@ -43,10 +43,10 @@ ms.locfileid: "52884532"
 查詢可以透過資料表名稱或 *search* 命令來開始。 請從資料表名稱開始，原因是它會定義清楚的查詢範圍，並改善查詢效能和結果的相關性。
 
 > [!NOTE]
-> Azure Log Analytics 查詢語言有區分大小寫。 語言關鍵字通常會以小寫來撰寫。 當查詢中使用到資料表或資料行的名稱時，請務必使用正確的大小寫，如結構描述窗格所示。
+> Azure 監視器所使用的資料總管查詢語言會區分大小寫。 語言關鍵字通常會以小寫來撰寫。 當查詢中使用到資料表或資料行的名稱時，請務必使用正確的大小寫，如結構描述窗格所示。
 
 ### <a name="table-based-queries"></a>以資料表為基礎的查詢
-Azure Log Analytics 會將資料組織到資料表中，每個資料表都包含多個資料行。 所有資料表和資料行都會顯示在 Analytics 入口網站中的 [結構描述] 窗格。 請找出您感興趣的資料表，然後看看其中的資料：
+Azure 監視器會將記錄資料組織到資料表中，每個資料表都包含多個資料行。 所有資料表和資料行都會顯示在 Analytics 入口網站中 Log Analytics 中的 [結構描述] 窗格。 請找出您感興趣的資料表，然後看看其中的資料：
 
 ```Kusto
 SecurityEvent
@@ -164,7 +164,7 @@ SecurityEvent
 
 上述範例會產生以下輸出：
 
-![Log Analytics 專案結果](media/get-started-queries/project.png)
+![查詢專案結果](media/get-started-queries/project.png)
 
 您也可以使用 **project** 將資料行重新命名並定義新的資料行。 下列範例會使用 project 來執行下列作業：
 
@@ -236,7 +236,7 @@ Perf
 
 若要讓輸出更加清楚，您可以選取將它顯示為時間圖表，以顯示一段時間內的可用記憶體：
 
-![一段時間內的 Log Analytics 記憶體](media/get-started-queries/chart.png)
+![經過一段時間的查詢記憶體](media/get-started-queries/chart.png)
 
 
 

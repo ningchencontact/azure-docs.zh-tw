@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/06/2019
 ms.author: juliako
-ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153958"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878352"
 ---
 # <a name="live-event-types-comparison"></a>實況活動類型比較
 
@@ -30,13 +30,13 @@ ms.locfileid: "55153958"
 
 | 功能 | 傳遞實況活動 | 標準實況活動 |
 | --- | --- | --- |
-| 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |是 |
+| 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |yes |
 | 發佈摘要的影片最大解析度 |4K (4096x2160，每秒 60 格畫面) |1080p (1920x1088，每秒 30 格畫面)|
 | 發佈摘要中層級數的建議上限|最多 12 個|一個音訊|
 | 輸出中的層級數上限| 與輸入相同|最多 7 個|
 | 發佈摘要的彙總頻寬上限|60 Mbps|N/A|
 | 發佈中單一層級的最大位元速率 |20 Mbps|20 Mbps|
-| 支援多種語言音訊播放軌|是|否|
+| 支援多種語言音訊播放軌|yes|否|
 | 支援的輸入視訊轉碼器 |H.264/AVC 和 H.265/HEVC|H.264/AVC|
 | 支援的輸出視訊轉碼器|與輸入相同|H.264/AVC|
 | 支援的視訊位元深度、輸入及輸出|最多 10 位元，包括 HDR 10/HLG|8 位元|
@@ -45,14 +45,14 @@ ms.locfileid: "55153958"
 | 輸出影片的影片解析度上限|與輸入相同|720p (每秒 30 格畫面)|
 | 輸入通訊協定|RTMP，分散式 MP4 (Smooth Streaming)|RTMP，分散式 MP4 (Smooth Streaming)|
 | 價格|請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) 並按一下 [即時影片] 索引標籤|請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) 並按一下 [即時影片] 索引標籤|
-| 最長執行時間|24x365 即時線性|全天候|
-| 能夠透過內嵌的 CEA 608/708 字幕資料傳遞|是|是|
+| 最長執行時間| 24 小時 x 365 天，即時線性 | 多達 24 小時|
+| 能夠透過內嵌的 CEA 608/708 字幕資料傳遞|yes|yes|
 | 插入靜態圖像支援|否|否|
 | 支援透過 API 發出廣告訊號| 否|否|
-| 支援透過 SCTE-35 頻內訊息發出廣告訊號|是|是|
-| 在比重摘要內能從短暫延遲中復原的能力|是|否 (在超過 6 秒沒有任何輸入資料之後，「實況活動」便會開始顯示靜態圖像)|
-| 支援未統一輸入的 GOP|是|否 – 輸入必須有固定的 GOP 持續期間|
-| 支援變動畫面播放速率輸入|是|否 – 輸入必須為固定畫面播放速率。 輕微的差異可以接受，例如：處於高速動態場景的情況。 但是發佈摘要無法降低畫面播放速率 (例如，每秒 15 格畫面)。|
+| 支援透過 SCTE-35 頻內訊息發出廣告訊號|yes|yes|
+| 在比重摘要內能從短暫延遲中復原的能力|yes|否 (在超過 6 秒沒有任何輸入資料之後，「實況活動」便會開始顯示靜態圖像)|
+| 支援未統一輸入的 GOP|yes|否 – 輸入必須有固定的 GOP 持續期間|
+| 支援變動畫面播放速率輸入|yes|否 – 輸入必須為固定畫面播放速率。 輕微的差異可以接受，例如：處於高速動態場景的情況。 但是發佈摘要無法降低畫面播放速率 (例如，每秒 15 格畫面)。|
 | 在遺失輸入摘要時自動關閉實況活動|否|經過 12 個小時，如果沒有 LiveOutput 仍在執行|
 
 ## <a name="next-steps"></a>後續步驟

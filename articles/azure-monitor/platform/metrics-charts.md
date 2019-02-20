@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827443"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991322"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure 監視器計量瀏覽器
 
-Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，它可讓您繪製圖表、以視覺方式串連趨勢，以及調查計量值中的突增值與突降值。 計量瀏覽器是調查由 Azure 裝載或由 Azure 監視服務監視之應用程式與基礎結構中各種效能與可用性問題的起點。
+Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，可用來繪製圖表、以視覺方式串連趨勢，以及調查計量值中的突增值與突降值。 計量瀏覽器是調查由 Azure 裝載或由 Azure 監視服務監視之應用程式與基礎結構中各種效能與可用性問題的起點。
 
 ## <a name="metrics-in-azure"></a>Azure 中的計量
 
-Microsoft Azure 中的計量是隨時間收集並儲存的一系列度量與計數值。 計量包括標準 (或稱為「平台」) 計量與自訂計量。 標準計量是由 Azure 平台本身提供給您使用。 標準計量反映您 Azure 資源的健康情況與使用情形統計資料。 而自訂計量則是由您的應用程式使用[適用於自訂事件的 Application Insights API ](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) 傳送給 Azure。 自訂計量是隨著其他應用程式特定計量儲存在 Application Insights 資源中。
+[Azure 監視器](data-collection.md#metrics)中的計量是隨時間收集並儲存的一系列度量與計數值。 計量包括標準 (或稱為「平台」) 計量與自訂計量。 標準計量是由 Azure 平台本身提供給您使用。 標準計量反映您 Azure 資源的健康情況與使用情形統計資料。 而自訂計量則是由您的應用程式使用[適用於自訂事件的 Application Insights API ](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) 傳送給 Azure。 自訂計量是隨著其他應用程式特定計量儲存在 Application Insights 資源中。
 
 ## <a name="create-a-new-chart"></a>建立新的頻道
 

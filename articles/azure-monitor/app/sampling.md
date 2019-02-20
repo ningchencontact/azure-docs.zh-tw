@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8e9cb570f69eb29887f4f904ba7b2b35548f3771
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117447"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965353"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -195,6 +195,63 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 針對取樣百分比，選擇接近 100/N 的百分比，其中 N 是整數。  目前取樣並不支援其他值。
 
 如果您也在伺服器啟用固定比例取樣，用戶端和伺服器就會同步，讓您可以在 [搜尋] 中的相關頁面檢視與要求之間瀏覽。
+
+## <a name="aspnet-core-sampling"></a>ASP.NET Core 取樣
+
+所有的 ASP.NET Core 應用程式預設會啟用調適型取樣。 您可以停用或自訂取樣行為。
+
+### <a name="turning-off-adaptive-sampling"></a>關閉調適性取樣
+
+我們在方法 ```ConfigureServices``` 中使用 ```ApplicationInsightsServiceOptions``` 加入 Application Insights 服務，可以停用預設的取樣功能：
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+上述程式碼將會停用取樣功能。 請遵循下列步驟使用更多自訂選項新增取樣。
+
+### <a name="configure-sampling-settings"></a>進行取樣設定
+
+如下所示，使用 ```TelemetryProcessorChainBuilder``` 的擴充方法自訂取樣行為。
+
+> [!IMPORTANT]
+> 如果您使用此方法來設定取樣，請務必對於 AddApplicationInsightsTelemetry() 使用 use aiOptions.EnableAdaptiveSampling = false; 設定。
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**如果使用上述方法來設定取樣，請務必對於 AddApplicationInsightsTelemetry() 使用 ```aiOptions.EnableAdaptiveSampling = false;``` 設定。**
+
+如果沒有這麼做，TelemetryProcessor 鏈結會有多個取樣處理器而導致非預期的結果。
 
 ## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>適用於 ASP.NET 和 Java 網站的固定速率取樣
 固定取樣率會減少從您的 Web 伺服器及網頁瀏覽器所傳送的流量。 但它會依照您設定的速率來降低遙測，這與調適性取樣不同。 它也會同步處理用戶端及伺服器取樣，讓相關項目能夠保留；舉例來說，當您在 [搜尋] 中查看頁面檢視時，可以尋找其相關要求。

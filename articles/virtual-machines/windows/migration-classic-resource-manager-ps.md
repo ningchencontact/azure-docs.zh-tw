@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: e1144611c68e8a3c450f8017388cfa84629f9921
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5e905168ab2c2f10bcfadfc605fdcaa800e70332
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256488"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982002"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 將 IaaS 資源從傳統移轉至 Azure Resource Manager
 以下步驟說明如何使用 Azure PowerShell 命令，將基礎結構即服務 (IaaS) 資源從傳統部署模型移轉至 Azure Resource Manager 部署模型。
@@ -36,7 +36,9 @@ ms.locfileid: "51256488"
 
 ![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-plan-for-migration"></a>步驟 1︰為移轉做規劃
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+## <a name="step-1-plan-for-migration"></a>步驟 1：為移轉做規劃
 以下是您評估將 IaaS 資源從傳統移轉至 Resource Manager 時，我們所建議的一些最佳做法：
 
 * 將 [支援及不支援的功能和組態](migration-classic-resource-manager-overview.md)看一遍。 如果您的虛擬機器使用不支援的組態或功能，建議您等到宣布支援該組態/功能之後，再進行移轉。 或者，移除該功能或移出該組態以利移轉進行 (如果這麼做符合您的需求)。
@@ -48,7 +50,7 @@ ms.locfileid: "51256488"
 >如果 ExpressRoute 閘道連線至另一個訂用帳戶中的 ExpressRoute 線路，則無法自動移轉。 在這種情況下，請移除 ExpressRoute 閘道，移轉虛擬網路，然後重新建立閘道。 如需相關步驟和詳細資訊，請參閱[將 ExpressRoute 線路和相關聯的虛擬網路從傳統部署模型移轉至 Resource Manager 部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>步驟 2：安裝最新版的 Azure PowerShell
-Azure PowerShell 的主要安裝選項有兩個：[PowerShell 資源庫](https://www.powershellgallery.com/profiles/azure-sdk/)或 [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps)。 WebPI 接收每月更新。 PowerShell 資源庫則是持續接收更新。 本文是以 Azure PowerShell 2.1.0 為基礎。
+共有兩個安裝 Azure PowerShell 的主要選項：[PowerShell 資源庫](https://www.powershellgallery.com/profiles/azure-sdk/)或 [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps)。 WebPI 接收每月更新。 PowerShell 資源庫則是持續接收更新。 本文是以 Azure PowerShell 2.1.0 為基礎。
 
 如需安裝指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
@@ -63,42 +65,42 @@ Azure PowerShell 的主要安裝選項有兩個：[PowerShell 資源庫](https:/
 
 如果您無法新增共同管理員，請連絡服務管理員或訂用帳戶的共同管理員，以將您新增為共同管理員。   
 
-## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>步驟 4︰設定您的訂用帳戶並註冊以進行移轉
+## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>步驟 4：設定您的訂用帳戶並註冊以進行移轉
 首先，開啟 PowerShell 提示字元。 針對移轉，您必須為傳統和 Resource Manager 模型設定您的環境。
 
 登入您的 Resource Manager 模型帳戶。
 
 ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
 ```
 
 請使用下列命令來取得可用的訂用帳戶：
 
 ```powershell
-    Get-AzureRMSubscription | Sort Name | Select Name
+    Get-AzSubscription | Sort Name | Select Name
 ```
 
 設定目前工作階段的 Azure 訂用帳戶。 這個範例會將預設訂用帳戶名稱設定為 [我的 Azure 訂用帳戶]。 將範例訂用帳戶名稱取代為您自己的名稱。
 
 ```powershell
-    Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
+    Select-AzSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 > [!NOTE]
 > 註冊是一次性步驟，但您必須在嘗試移轉之前完成。 如果不註冊，您會看到下列錯誤訊息：
 >
-> *不正確的要求︰訂用帳戶未針對移轉進行註冊。*
+> *BadRequest :訂用帳戶未登錄要進行移轉。*
 
 請使用下列命令向移轉資源提供者註冊：
 
 ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+    Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
 請等候 5 分鐘讓註冊完成。 您可以使用下列命令來檢查核准狀態：
 
 ```powershell
-    Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
 請先確定 RegistrationState 是 `Registered` ，再繼續進行。
@@ -123,16 +125,16 @@ Azure PowerShell 的主要安裝選項有兩個：[PowerShell 資源庫](https:/
 
 <br>
 
-## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步驟 5︰確定您目前的部署或 VNET 的 Azure 區域中有足夠的 Azure Resource Manager 虛擬機器 vCPU
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步驟 5：確定您目前的部署或 VNET 的 Azure 區域中有足夠的 Azure Resource Manager 虛擬機器 vCPU
 您可以使用下列 PowerShell 命令來檢查您目前在 Azure Resource Manager 中擁有的 vCPU 數目。 若要深入了解 vCPU 配額，請參閱[限制和 Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)。
 
 此範例會檢查**美國西部**區域的可用性。 將範例區域名稱取代為您自己的名稱。
 
 ```powershell
-Get-AzureRmVMUsage -Location "West US"
+Get-AzVMUsage -Location "West US"
 ```
 
-## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>步驟 6︰執行命令來移轉 IaaS 資源
+## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>步驟 6：執行命令來移轉 IaaS 資源
 * [移轉雲端服務中的 VM (不在虛擬網路中)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
 * [移轉虛擬網路中的 VM](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
 * [移轉儲存體帳戶](#step-62-migrate-a-storage-account)

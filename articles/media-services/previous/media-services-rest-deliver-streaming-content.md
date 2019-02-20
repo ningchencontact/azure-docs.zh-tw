@@ -2,7 +2,7 @@
 title: 使用 REST 發佈 Azure 媒體服務內容
 description: 了解如何建立定位器，用來建置串流 URL。 程式碼使用 REST API。
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 8385dedd494c0cef968cb869ded3e92ce213da5e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 185e047bb1877d5ee4660653c0e7b6b32f273a0c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785857"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991594"
 ---
-# <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 發佈 Azure 媒體服務內容
+# <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 發佈 Azure 媒體服務內容 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
@@ -140,20 +140,20 @@ ms.locfileid: "33785857"
 ### <a name="build-streaming-urls"></a>建置串流 URL
 建立定位器之後，使用傳回的 **Path** 值建置 Smooth、HLS 和 MPEG DASH URL。 
 
-Smooth Streaming： **Path** + 資訊清單檔案名稱 + "/manifest"
+Smooth Streaming：**Path** + 資訊清單檔案名稱 + "/manifest"
 
 例如：
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
 
-HLS： **Path** + 資訊清單檔案名稱 + "/manifest(format=m3u8-aapl)"
+HLS：**Path** + 資訊清單檔案名稱 + "/manifest(format=m3u8-aapl)"
 
 例如：
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 
-DASH： **Path** + 資訊清單檔案名稱 + "/manifest(format=mpd-time-csf)"
+DASH：**Path** + 資訊清單檔案名稱 + "/manifest(format=mpd-time-csf)"
 
 例如：
 
@@ -163,7 +163,7 @@ DASH： **Path** + 資訊清單檔案名稱 + "/manifest(format=mpd-time-csf)"
 ### <a name="build-progressive-download-urls"></a>建置漸進式下載 URL
 建立定位器之後，使用傳回的 **Path** 值建置漸進式下載 URL。   
 
-URL： **Path** + 資產檔案 MP4 名稱
+URL：**Path** + 資產檔案 MP4 名稱
 
 例如：
 

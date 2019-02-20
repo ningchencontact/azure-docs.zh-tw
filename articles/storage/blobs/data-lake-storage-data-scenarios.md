@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.openlocfilehash: dfc47c40ce82eb8e9d414cb49c22bee033d000a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1c50a6e14955b2c31222ff1317aa99ad28866ec8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239023"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864727"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 處理巨量資料需求
 
@@ -82,6 +82,8 @@ ms.locfileid: "55239023"
 一旦 Data Lake Storage Gen2 中的資料可以使用，您就可以使用支援的巨量資料應用程式來針對這些資料執行分析。 目前，您可以使用 Azure HDInsight 和 Azure Databricks 分析來針對儲存在 Data Lake Storage Gen2 中的資料執行資料分析工作。
 
 ![分析 Data Lake Storage Gen2 中的資料](./media/data-lake-storage-data-scenarios/analyze-data.png "分析 Data Lake Storage Gen2 中的資料")
+
+如需範例，請參閱[搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)。
 
 
 ## <a name="download-data-from-data-lake-storage-gen2"></a>從 Data Lake Storage Gen2 下載資料

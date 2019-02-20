@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: da3c90579dafebf1b5b362c7129e681663a0a7ab
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301572"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891873"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>在 Azure App Service 中進階使用驗證和授權
 
@@ -174,7 +174,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 從用戶端程式碼 (例如行動應用程式或瀏覽器內的 JavaScript) 將 HTTP `GET` 要求傳送至 `/.auth/me`。 傳回的 JSON 具有提供者專屬權杖。
 
 > [!NOTE]
-> 存取權杖是用於存取提供者資源，因此僅在您使用用戶端密碼設定您的提供者時，這些權杖才會出現。 若要了解如何取得重新整理權杖，請參閱[重新整理存取權杖](#refresh-access-tokens)。
+> 存取權杖是用於存取提供者資源，因此僅在您使用用戶端密碼設定您的提供者時，這些權杖才會出現。 若要了解如何取得重新整理權杖，請參閱「重新整理存取權杖」。
 
 ## <a name="refresh-identity-provider-tokens"></a>重新整理識別提供者權杖
 

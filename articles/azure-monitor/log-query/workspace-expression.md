@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 查詢中的 workspace() 運算式 | Microsoft Docs
-description: 在 Log Analytics 查詢中，workspace 運算式用來從相同資源群組、另一個資源群組或另一個訂用帳戶中的特地工作區擷取資料。
+title: Azure 監視器記錄查詢中的 workspace() 運算式 |Microsoft Docs
+description: 在 Azure 監視器記錄查詢中，workspace 運算式用來從相同資源群組、另一個資源群組或另一個訂用帳戶中的特地工作區擷取資料。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 24a737a728b0a249fda76cbff481bea284ac24aa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182939"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992973"
 ---
-# <a name="workspace-expression-in-log-analytics-query"></a>Log Analytics 查詢中的 workspace() 運算式
+# <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure 監視器記錄查詢中的 workspace() 運算式
 
-在 Log Analytics 查詢中，`workspace` 運算式用來從相同資源群組、另一個資源群組或另一個訂用帳戶中的特地工作區擷取資料。 這適用於在 Application Insights 查詢中包含記錄資料，以及在記錄查詢中跨多個工作區查詢資料。
+在 Azure 監視器查詢中，`workspace` 運算式用來從相同資源群組、另一個資源群組或另一個訂用帳戶中的特地工作區擷取資料。 這適用於在 Application Insights 查詢中包含記錄資料，以及在記錄查詢中跨多個工作區查詢資料。
 
 
 ## <a name="syntax"></a>語法
@@ -71,5 +71,6 @@ union
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱[應用程式運算式](workspace-expression.md)來參考 Application Insights 應用程式。
-- 了解 [Log Analytics 資料](../../azure-monitor/log-query/log-query-overview.md)的儲存方式。
+- 請參閱[應用程式運算式](app-expression.md)來參考 Application Insights 應用程式。
+- 了解 [Azure 監視器資料](log-query-overview.md)的儲存方式。
+- 存取[資料總管查詢語言](/azure/kusto/query/)的完整文件。

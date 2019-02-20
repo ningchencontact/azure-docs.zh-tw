@@ -1,6 +1,6 @@
 ---
-title: 從 Azure Log Analytics 查詢建立圖表 | Microsoft Docs
-description: 說明 Azure Log Analytics 中能以不同方式顯示您資料的不同視覺效果。
+title: 從 Azure 監視器記錄查詢建立圖表 | Microsoft Docs
+description: 說明 Azure 監視器中能以不同方式顯示您記錄資料的不同視覺效果。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 049e50f5800194c4126003f7e5ff7ae60b3de768
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186220"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992974"
 ---
-# <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>從 Log Analytics 查詢建立圖表
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>從 Azure 監視器記錄查詢建立圖表
 
 > [!NOTE]
-> 您應該先完成[Log Analytics 查詢中的進階彙總](advanced-aggregations.md)，再完成此課程。
+> 您應該先完成 [Azure 監視器記錄查詢中的進階彙總](advanced-aggregations.md)，再完成此課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-此文章說明 Azure Log Analytics 中能以不同方式顯示您資料的不同視覺效果。
+本文說明 Azure 監視器中能以不同方式顯示您記錄資料的不同視覺效果。
 
 ## <a name="charting-the-results"></a>製作結果圖表
 從檢閱過去一小時內每個作業系統類型中有多少部電腦開始：
@@ -93,7 +93,7 @@ SecurityEvent
 ![橫條圖 AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>後續步驟
-請參閱其他課程以了解如何使用 Log Analytics 查詢語言：
+如需了解如何搭配 Azure 監視器記錄資料使用[資料總管查詢語言](/azure/kusto/query/)，請參閱其他課程：
 
 - [字串作業](string-operations.md)
 - [日期和時間作業](datetime-operations.md)

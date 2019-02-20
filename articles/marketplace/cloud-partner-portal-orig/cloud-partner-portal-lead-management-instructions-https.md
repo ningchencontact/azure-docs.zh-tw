@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0d14b2eeb90bd360b71b315d7b4f4459f17f5672
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073755"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964248"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>使用 HTTPS 端點設定潛在客戶管理
 
@@ -65,7 +65,7 @@ ms.locfileid: "54073755"
 
     ![選取潛在客戶](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Flow 會顯示一個表單來提供潛在客戶資訊。 您可以選擇新增動態內容來對應輸入要求中的項目。 下列螢幕擷取畫面顯示 **LeadTitle** 作為範例。
+4. Flow 會顯示一個表單來提供潛在客戶資訊。 您可以選擇新增動態內容來對應輸入要求中的項目。 下列螢幕擷取畫面顯示 **OfferTitle** 作為範例。
 
     ![新增動態內容](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 

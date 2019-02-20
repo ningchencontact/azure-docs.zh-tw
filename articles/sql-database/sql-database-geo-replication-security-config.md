@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1430bc4a9de863c25e40a2655f0a1cd7a75ae0f7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561380"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858275"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>建立和管理 Azure SQL Database 安全性以供異地還原或容錯移轉使用
 
@@ -32,6 +32,9 @@ ms.locfileid: "55561380"
 ## <a name="how-to-configure-logins-and-users"></a>如何設定登入和使用者
 
 如果您使用登入和使用者 (而非自主使用者)，您必須採取額外步驟以確保主要資料庫中有相同的登入。 下列各節概述涉及的步驟和其他考量。
+
+  >[!NOTE]
+  > 也可以使用 Azure Active Directory (AAD) 登入來管理您的資料庫。 如需詳細資訊，請參閱 [Azure SQL 登入與使用者](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)。
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>設定次要或復原資料庫的使用者存取
 

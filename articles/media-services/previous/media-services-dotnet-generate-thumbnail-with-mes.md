@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249290"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995130"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何搭配 .NET 使用 Media Encoder Standard 產生縮圖
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何搭配 .NET 使用 Media Encoder Standard 產生縮圖 
 
 您可以使用媒體編碼器標準，以 [JPEG](https://en.wikipedia.org/wiki/JPEG)、[PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 或 [BMP](https://en.wikipedia.org/wiki/BMP_file_format) 影像檔案格式，從您的輸入視訊中產生一或多個縮圖。 您可以送出只產生影像的工作，或是結合縮圖產生與編碼。 本文章提供幾個對於這類情況的範例 XML 和 JSON 縮圖預設。 在文章的結尾有[範例程式碼](#code_sample)，示範如何使用 Media Services .NET SDK，以完成編碼工作。
 
@@ -551,14 +551,14 @@ namespace EncodeAndGenerateThumbnails
 * 為 Start/Step/Range 使用明確的時間戳記會假設輸入來源至少為 1 分鐘的長度。
 * 具有 Start、Step 和 Range 字串屬性的 Jpg/Png/BmpImage 項目 - 這些可以解譯為：
   
-  * 畫面格數目 (如果是非負整數)，例如 "Start": "120"、
-  * 相對於持續時間 (如果以 % 尾碼表示)，例如 "Start": "15%"，或
-  * 時間戳記 (如果以 HH:MM:SS... format。 例如 "Start" : "00:01:00"
+  * 畫面格數目 (如果是非負整數)，例如 "Start":"120"，
+  * 相對於持續時間 (如果以 % 尾碼表示)，例如 "Start":"15%"，或
+  * 時間戳記 (如果以 HH:MM:SS... format。 例如 "Start" :"00:01:00"
     
     您可以隨意混合使用標記法。
     
     此外， Start 也支援特殊的巨集 (即 {Best})，它會嘗試判斷第一個「 有趣 」的內容畫面。附註：(Start 設為 {Best} 時，會忽略 Step 與 Range)
-  * 預設值：Start:{Best}
+  * 預設：Start:{Best}
 * 必須明確地提供每個影像格式的輸出格式：Jpg/Png/BmpFormat。 顯示時，MES 會比對 JpgVideo 與 JpgFormat，依此類推。 OutputFormat 引進了新的影像轉碼器特定巨集 (即 {Index})，必須針對影像輸出格式提供一次 (只需一次)。
 
 ## <a name="next-steps"></a>後續步驟

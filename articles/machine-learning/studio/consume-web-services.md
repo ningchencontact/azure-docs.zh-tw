@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464376"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998073"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>如何使用 Azure Machine Learning Studio Web 服務
 
@@ -70,7 +70,7 @@ Azure Machine Learning 有兩種類型的服務：
 ## <a id="connect"></a>連線到機器學習 Web 服務
 您可以使用任何支援 HTTP 要求和回應的程式設計語言，連線到機器學習 Web 服務。 您可以從機器學習 Web 服務說明頁面檢視 C#、Python 和 R 的範例。
 
-**機器學習服務 API 說明**當您部署 Web 服務時，會建立機器學習服務 API 說明。 請參閱 [Azure 機器學習逐步解說 - 部署 Web 服務](walkthrough-5-publish-web-service.md)。
+**機器學習服務 API 說明**當您部署 Web 服務時，會建立機器學習服務 API 說明。 請參閱[教學課程 3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)。
 機器學習服務 API 說明包含有關預測 Web 服務的詳細資訊。
 
 1. 按一下您所使用的 Web 服務。

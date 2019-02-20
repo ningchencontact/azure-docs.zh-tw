@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 中的 DNS 分析解決方案 | Microsoft Docs
-description: 在 Log Analytics 中設定並使用 DNS 分析解決方案，以收集關於 DNS 基礎結構在安全性、效能及作業方面的深入解析。
+title: Azure 監視器中的 DNS 分析解決方案 | Microsoft Docs
+description: 在 Azure 監視器中設定並使用 DNS 分析解決方案，以收集關於 DNS 基礎結構在安全性、效能及作業方面的深入解析。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 21b44b1c739818206fdba9d10250a2976f1d90db
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746858"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992716"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
 ![DNS 分析符號](./media/dns-analytics/dns-analytics-symbol.png)
 
-本文描述如何在 Log Analytics 中設定並使用 Azure DNS 分析解決方案，以收集關於 Azure DNS 基礎結構在安全性、效能及作業方面的深入解析。
+本文描述如何在 Azure 監視器中設定並使用 Azure DNS 分析解決方案，以收集關於 Azure DNS 基礎結構在安全性、效能及作業方面的深入解析。
 
 DNS 分析可協助您︰
 
@@ -42,21 +42,21 @@ DNS 分析可協助您︰
 
 | **連線的來源** | **支援** | **說明** |
 | --- | --- | --- |
-| [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | yes | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
-| [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 此解決方案不會收集來自直接 Linux 代理程式的 DNS 資訊。 |
-| [System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md) | yes | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics 工作區。 |
-| [Azure 儲存體帳戶](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 否 | 此解決方案沒有使用 Azure 儲存體。 |
+| [Windows 代理程式](../platform/agent-windows.md) | yes | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
+| [Linux 代理程式](../learn/quick-collect-linux-computer.md) | 否 | 此解決方案不會收集來自直接 Linux 代理程式的 DNS 資訊。 |
+| [System Center Operations Manager 管理群組](../platform/om-agents.md) | yes | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Azure 監視器。 資料會從管理群組轉送至 Log Analytics 工作區。 |
+| [Azure 儲存體帳戶](../platform/collect-azure-metrics-logs.md) | 否 | 此解決方案沒有使用 Azure 儲存體。 |
 
 ### <a name="data-collection-details"></a>資料收集詳細資料
 
-此解決方案會從已安裝 Log Analytics 代理程式的 DNS 伺服器收集 DNS 清查和 DNS 事件相關資料。 這項資料會再上傳至 Log Analytics，並顯示在解決方案儀表板中。 清查相關資料 (例如 DNS 伺服器數目、區域和資源記錄) 的收集方式是執行 DNS PowerShell Cmdlet。 此資料每兩天會更新一次。 事件相關資料是以接近即時的方式，從 Windows Server 2012 R2 增強的 DNS 記錄與診斷功能所提供的[分析和稽核記錄](https://technet.microsoft.com/library/dn800669.aspx#enhanc)進行收集。
+此解決方案會從已安裝 Log Analytics 代理程式的 DNS 伺服器收集 DNS 清查和 DNS 事件相關資料。 這項資料會再上傳至 Azure 監視器，並顯示在解決方案儀表板中。 清查相關資料 (例如 DNS 伺服器數目、區域和資源記錄) 的收集方式是執行 DNS PowerShell Cmdlet。 此資料每兩天會更新一次。 事件相關資料是以接近即時的方式，從 Windows Server 2012 R2 增強的 DNS 記錄與診斷功能所提供的[分析和稽核記錄](https://technet.microsoft.com/library/dn800669.aspx#enhanc)進行收集。
 
 ## <a name="configuration"></a>組態
 
 請使用下列資訊來設定此解決方案：
 
-- 在每部要監視的 DNS 伺服器上，都必須安裝 [Windows](../../azure-monitor/platform/agent-windows.md) 或 [Operations Manager](../../azure-monitor/platform/om-agents.md) 代理程式。
-- 您可以從[Microsoft Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace) 將 DNS 分析解決方案新增至 Log Analytics 工作區。 您也可以使用[從方案庫新增 Log Analytics 解決方案](../../azure-monitor/insights/solutions.md)中所述的程序。
+- 在每部要監視的 DNS 伺服器上，都必須安裝 [Windows](../platform/agent-windows.md) 或 [Operations Manager](../platform/om-agents.md) 代理程式。
+- 您可以從[Microsoft Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace) 將 DNS 分析解決方案新增至 Log Analytics 工作區。 您也可以使用[從方案庫新增 Azure 監視器解決方案](solutions.md)中所述的程序。
 
 不需要進一步設定，此解決方案就會開始收集資料。 不過，您可以使用下列組態來自訂資料收集。
 
@@ -64,7 +64,7 @@ DNS 分析可協助您︰
 
 在解決方案儀表板中，按一下 [組態] 以開啟 [DNS 分析組態] 頁面。 您可以進行兩種類型的組態變更︰
 
-- **列入允許清單的網域名稱**。 該解決方案不會處理所有查閱查詢。 它會維護一份網域名稱尾碼的允許清單。 若查閱查詢解析為符合此允許清單中之網域名稱尾碼的網域名稱，此解決方案就不會處理它們。 不處理列入允許清單的網域名稱，有助於最佳化傳送至 Log Analytics 的資料。 預設允許清單包含熱門的公用網域名稱，例如 www.google.com 和 www.facebook.com。 您可以捲動來檢視完整的預設清單。
+- **列入允許清單的網域名稱**。 該解決方案不會處理所有查閱查詢。 它會維護一份網域名稱尾碼的允許清單。 若查閱查詢解析為符合此允許清單中之網域名稱尾碼的網域名稱，此解決方案就不會處理它們。 不處理列入允許清單的網域名稱，有助於最佳化傳送至 Azure 監視器的資料。 預設允許清單包含熱門的公用網域名稱，例如 www.google.com 和 www.facebook.com。 您可以捲動來檢視完整的預設清單。
 
  您可以修改清單，將您想要檢視查閱深入解析的任何網域名稱尾碼加以新增。 您也可以將您不想要檢視查閱深入解析的任何網域名稱尾碼加以移除。
 
@@ -83,13 +83,14 @@ DNS 分析可協助您︰
 - Microsoft DNS 資料收集器智慧套件 (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS 分析組態 (Microsoft.IntelligencePack.Dns.Configuration)
 
-如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
+如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../platform/om-agents.md)。
 
 ## <a name="use-the-dns-analytics-solution"></a>使用 DNS 分析解決方案
 
-本節說明所有儀表板函式及其使用方式。
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-將此解決方案加入您的工作區之後，Azure 入口網站內 [Log Analytics 概觀] 頁面會提供 DNS 基礎結構快速摘要的**檢視解決方案**連結。 它包含收集資料所在的 DNS 伺服器之數目。 它也包含用戶端在過去 24 小時內所提出的解決惡意網域之要求數目。 當您按一下圖格時，方案儀表板隨即開啟。
+
+DNS 圖格包含收集到的資料所在的 DNS 伺服器之數目。 它也包含用戶端在過去 24 小時內所提出的解決惡意網域之要求數目。 當您按一下圖格時，方案儀表板隨即開啟。
 
 ![DNS 分析圖格](./media/dns-analytics/dns-tile.png)
 
@@ -188,4 +189,4 @@ DNS 分析可協助您︰
 
 ## <a name="next-steps"></a>後續步驟
 
-[搜尋記錄](../../azure-monitor/log-query/log-query-overview.md)以檢視詳細的 DNS 記錄。
+[查詢記錄](../log-query/log-query-overview.md)以檢視詳細的 DNS 記錄。

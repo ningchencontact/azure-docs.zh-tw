@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 52e115aa7f54eccc2be4e500c544aa38ca3bc32d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631271"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975779"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>將認證傳遞至 Azure DSCExtension 處理常式
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 本文涵蓋適用於 Azure 的期望狀態設定 (DSC) 擴充功能。 如需 DSC 擴充處理常式的概觀，請參閱 [Azure 期望狀態設定擴充功能處理常式簡介](dsc-overview.md)。
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="pass-in-credentials"></a>傳入認證
 
@@ -65,7 +65,7 @@ configuration Main
 
 若要將此指令碼發佈至 Azure Blob 儲存體︰
 
-`Publish-AzureRmVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
+`Publish-AzVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
 若要設定 Azure DSC 擴充功能，並提供認證︰
 
@@ -73,16 +73,16 @@ configuration Main
 $configurationName = 'Main'
 $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = 'user_configuration.ps1.zip'
-$vm = Get-AzureRmVM -Name 'example-1'
+$vm = Get-AzVM -Name 'example-1'
 
-$vm = Set-AzureRmVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
+$vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
 
-$vm | Update-AzureRmVM
+$vm | Update-AzVM
 ```
 
 ## <a name="how-a-credential-is-secured"></a>如何保護認證
 
-執行此程式碼會提示您輸入認證。 提供認證之後，它會暫時儲存在記憶體中。 使用 **Set-AzureRmVMDscExtension** Cmdlet 發佈認證時，認證會透過 HTTPS 傳輸至 VM。 在 VM 中，Azure 會使用本機 VM 憑證儲存在磁碟上加密的認證。 認證會在記憶體中短暫地解密後再重新加密，以便傳遞給 DSC。
+執行此程式碼會提示您輸入認證。 提供認證之後，它會暫時儲存在記憶體中。 使用 **Set-AzVMDscExtension** Cmdlet 發佈認證時，認證會透過 HTTPS 傳輸至 VM。 在 VM 中，Azure 會使用本機 VM 憑證儲存在磁碟上加密的認證。 認證會在記憶體中短暫地解密後再重新加密，以便傳遞給 DSC。
 
 此流程與[使用不含延伸模組處理常式的安全組態](/powershell/dsc/securemof)不同。 Azure 環境提供一個透過憑證以安全傳輸組態資料的方式。 使用 DSC 擴充處理常式時，您不需要在 **ConfigurationData** 中提供 **$CertificatePath** 或 **$CertificateID**/ **$Thumbprint** 項目。
 

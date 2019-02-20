@@ -5,15 +5,15 @@ services: batch
 author: davefellows
 manager: jeconnoc
 ms.author: lahugh
-ms.date: 08/13/2018
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b8813466b9c0f74a608c0150c037dfec3db08dbc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543490"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893811"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 轉譯的參考架構
 
@@ -27,9 +27,9 @@ ms.locfileid: "53543490"
 
 * **網路** - 內部部署：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
 
-* **儲存體** - 輸入和輸出檔案：使用 Azure VM 的 NFS 或 CFS，可透過 Azure 檔案同步或 RSync 來與內部部署儲存體同步處理。
+* **儲存體** - 輸入和輸出檔案：使用 Azure VM 的 NFS 或 CFS，可透過 Azure 檔案同步或 RSync 來與內部部署儲存體同步處理。 或者：用 Avere vFXT 從使用 NFS 的內部部署 NAS 裝置輸入或輸出檔案。
 
-  ![雲端高載 - 混合使用 NFS 或 CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![雲端高載 - 混合使用 NFS 或 CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>混合使用 Blobfuse
 
@@ -51,9 +51,9 @@ ms.locfileid: "53543490"
 
 * **網路** - 內部部署：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
 
-* **儲存體** - 跨單位：Avere vFXT。 選擇性地透過 Azure 資料箱將內部部署檔案封存至 Blob 儲存體。
+* **儲存體** - 跨單位：Avere vFXT。 選擇性地透過 Azure 資料箱將內部部署檔案封存至 Blob 儲存體，或內部部署 Avere FXT for NAS 加速。
 
-  ![雲端高載 - 混合式計算和儲存體](./media/batch-rendering-architectures/hybrid-compute-storage.png)
+  ![雲端高載 - 混合式計算和儲存體](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>後續步驟

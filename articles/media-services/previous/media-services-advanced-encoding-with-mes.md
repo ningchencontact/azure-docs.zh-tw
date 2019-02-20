@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250762"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998700"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>自訂 MES 預設值來執行進階編碼 
 
@@ -238,14 +238,14 @@ ms.locfileid: "50250762"
 * 為 Start/Step/Range 使用明確的時間戳記會假設輸入來源至少為 1 分鐘的長度。
 * 具有 Start、Step 和 Range 字串屬性的 Jpg/Png/BmpImage 項目 - 這些可以解譯為：
 
-  * 畫面格數目 (如果是非負整數)，例如 "Start": "120"、
-  * 相對於持續時間 (如果以 % 尾碼表示)，例如 "Start": "15%"，或
+  * 畫面格數目 (如果是非負整數)，例如 "Start":"120"，
+  * 相對於持續時間 (如果以 % 尾碼表示)，例如 "Start":"15%"，或
   * 時間戳記 (如果以 HH:MM:SS... 格式表示)，例如 "Start" : "00:01:00"
 
     您可以隨意混合使用標記法。
 
     此外， Start 也支援特殊的巨集 (即 {Best})，它會嘗試判斷第一個「 有趣 」的內容畫面。附註：(Start 設為 {Best} 時，會忽略 Step 與 Range)
-  * 預設值：Start:{Best}
+  * 預設：Start:{Best}
 * 必須明確地提供每個影像格式的輸出格式：Jpg/Png/BmpFormat。 顯示時，MES 會比對 JpgVideo 與 JpgFormat，依此類推。 OutputFormat 引進了新的影像轉碼器特定巨集 (即 {Index})，必須針對影像輸出格式提供一次 (只需一次)。
 
 ## <a id="trim_video"></a>修剪視訊 (裁剪)
@@ -752,7 +752,7 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。 目前支援�
 
 
 ## <a id="audio_only"></a>純音訊預設值
-本節示範兩個純音訊的 MES 預設值︰AAC 音訊和 AAC 好品質音訊。
+本節示範兩個純音訊的 MES 預設值：AAC 音訊與 AAC 好品質音訊。
 
 ### <a name="aac-audio"></a>AAC 音訊
     {

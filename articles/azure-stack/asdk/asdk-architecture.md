@@ -12,24 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2cee4d75a111f56012782228d8070bb728720aca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9157acc7517aea56f087a3dbff0fe7114f8b4c87
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238327"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958800"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack 開發套件架構
-Azure Stack 開發套件 (ASDK) 是 Azure Stack 的單一節點部署。 所有元件都安裝在於單一主機電腦上執行的虛擬機器中。 
+Azure Stack 開發套件 (ASDK) 是在單一主機電腦上所執行 Azure Stack 的單一節點部署。 Edge 路由元件會安裝在主機電腦上，為 Azure Stack 提供 NAT 和 VPN 功能。 Azure Stack 基礎結構角色會在實體主機電腦的 HYPER-V 層中執行。
 
-## <a name="logical-architecture-diagram"></a>邏輯架構圖
-下圖說明 ASDK 及其元件的邏輯架構。
-
-![ASDK 架構](media/asdk-architecture/image1.png)
 
 ## <a name="virtual-machine-roles"></a>虛擬機器角色
 ASDK 會使用開發套件主機電腦上所裝載的下列 VM 來提供服務：
@@ -38,7 +34,6 @@ ASDK 會使用開發套件主機電腦上所裝載的下列 VM 來提供服務�
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack 儲存體服務。|
 | **AzS-ADFS01** | Active Directory 同盟服務 (AD FS)。  |
-| **AzS-BGPNAT01** | 邊緣路由器，並提供適用於 Azure Stack 的 NAT 和 VPN 功能。 |
 | **AzS-CA01** | 適用於 Azure Stack 角色服務的憑證授權單位服務。|
 | **AzS-DC01** | 適用於 Microsoft Azure Stack 的 Active Directory、DNS 及 DHCP 服務。|
 | **AzS-ERCS01** | 緊急修復主控台 VM。 |

@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Log Analytics 查詢中處理日期時間值 | Microsoft Docs
-description: 說明如何在 Log Analytics 查詢中處理日期和時間資料。
+title: 在 Azure 監視器記錄查詢中處理日期時間值 | Microsoft Docs
+description: 說明如何在 Azure 監視器記錄查詢中處理日期和時間資料。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 15767107a5c535cfda98da2a5177e15ca221f35d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214689"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999244"
 ---
-# <a name="working-with-date-time-values-in-log-analytics-queries"></a>在 Log Analytics 查詢中處理日期時間值
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中處理日期時間值
 
 > [!NOTE]
 > 您應該先完成[開始使用 Analytics 入口網站](get-started-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-此文章說明如何在 Log Analytics 查詢中處理日期和時間資料。
+本文說明如何在 Azure 監視器記錄查詢中處理日期和時間資料。
 
 
 ## <a name="date-time-basics"></a>日期時間基礎
-Log Analytics 查詢語言有兩個與日期和時間關聯的主要資料類型：「日期時間」與「時間範圍」。 所有日期都以國際標準時間 (UTC) 表示。 雖然我們支援多種日期時間格式，但建議使用 ISO8601 格式。 
+資料總管查詢語言有兩個與日期和時間關聯的主要資料類型：「日期時間」與「時間範圍」。 所有日期都以國際標準時間 (UTC) 表示。 雖然我們支援多種日期時間格式，但建議使用 ISO8601 格式。 
 
 時間範圍是以十進位數加上時間單位來表示：
 
@@ -161,7 +161,7 @@ Event
 | 取得與值相對的日期  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>後續步驟
-請參閱其他課程以了解如何使用 Log Analytics 查詢語言：
+如需了解如何搭配 Azure 監視器記錄資料使用[資料總管查詢語言](/azure/kusto/query/)，請參閱其他課程：
 
 - [字串作業](string-operations.md)
 - [彙總函式](aggregations.md)

@@ -1,6 +1,6 @@
 ---
-title: 從 SQL 到 Azure Log Analytics 查詢語言速查表 | Microsoft Docs
-description: 在 Log Analytics 查詢中用於不同案例的常見函式。
+title: 從 SQL 到 Azure 監視器記錄查詢功能提要 | Microsoft Docs
+description: 幫助使用者熟悉 Azure 監視器中撰寫記錄檔查詢的 SQL。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 35438644842d5280bd789efa135805ba9943cb8b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183042"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993654"
 ---
-# <a name="sql-to-log-analytics-query-language-cheat-sheet"></a>從 SQL 到 Log Analytics 查詢語言速查表 
+# <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>從 SQL 到 Azure 監視器記錄查詢功能提要 
 
-下表可協助熟悉 SQL 的使用者了解 Log Analytics 查詢語言。 看看用於解決常見案例的 T-SQL 命令以及使用 Log Analytics 的對等項目。
+下表有助於熟悉 SQL 的使用者了解資料總管查詢語言，以在 Azure 監視器中撰寫記錄查詢。 看看用於解決常見案例的 T-SQL 命令以及 Azure 監視器記錄查詢中的對等項目。
 
-## <a name="sql-to-log-analytics"></a>SQL 至 Log Analytics
+## <a name="sql-to-azure-monitor"></a>從 SQL 到 Azure 監視器
 
-說明                             |SQL 查詢                                                                                          |Azure Log Analytics 查詢
+說明                             |SQL 查詢                                                                                          |Azure 監視器記錄查詢
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 從資料表選取所有資料            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 從資料表選取特定資料行    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -50,4 +50,4 @@ Join                                    |`SELECT * FROM dependencies JOIN except
 
 ## <a name="next-steps"></a>後續步驟
 
-- 進行[在 Log Analytics 中撰寫查詢](get-started-queries.md)課程。
+- 進行[在 Azure 監視器中撰寫記錄查詢](get-started-queries.md)課程。

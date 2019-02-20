@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 容器執行階段環境可使用 `docker run` 命令引數來設定。 LUIS 有數個必要的設定，和一些選擇性的設定。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294718"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983257"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>設定 Language Understanding 的 Docker 容器 
 
@@ -30,14 +30,14 @@ ms.locfileid: "55294718"
 
 |必要|設定|目的|
 |--|--|--|
-|是|[ApiKey](#apikey-setting)|用來追蹤帳單資訊。|
+|yes|[ApiKey](#apikey-setting)|用來追蹤帳單資訊。|
 |否|[ApplicationInsights](#applicationinsights-setting)|可讓您將 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 遙測支援新增至容器。|
-|是|[計費](#billing-setting)|指定 Azure 上服務資源的端點 URI。|
-|是|[Eula](#eula-setting)| 表示您已接受容器的授權。|
+|yes|[計費](#billing-setting)|指定 Azure 上服務資源的端點 URI。|
+|yes|[Eula](#eula-setting)| 表示您已接受容器的授權。|
 |否|[Fluentd](#fluentd-settings)|將記錄 (和選擇性的計量資料) 寫入至 Fluentd 伺服器。|
 |否|[HTTP Proxy](#http-proxy-credentials-settings)|設定 HTTP Proxy 以進行輸出要求。|
 |否|[記錄](#logging-settings)|提供適用於容器的 ASP.NET Core 記錄支援。 |
-|是|[裝載](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
+|yes|[裝載](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
 
 > [!IMPORTANT]
 > 系統會同時使用 [`ApiKey`](#apikey-setting)、[`Billing`](#billing-setting) 及 [`Eula`](#eula-setting) 設定，因此您必須同時為這三個設定提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](luis-container-howto.md#billing)。
@@ -59,7 +59,7 @@ ms.locfileid: "55294718"
 
 ## <a name="billing-setting"></a>帳單支援
 
-`Billing` 設定會指定 Azure 上用來計量容器帳單資訊的 _Language Understanding_ 資源的端點 URI。 您必須為此組態設定指定值，且該值必須是 Azure 上的 _Language Understanding_ 資源所適用的有效端點 URI。
+`Billing` 設定會指定 Azure 上用來計量容器帳單資訊的 _Language Understanding_ 資源的端點 URI。 您必須為此組態設定指定值，且該值必須是 Azure 上的 _Language Understanding_ 資源所適用的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
@@ -68,7 +68,7 @@ ms.locfileid: "55294718"
 
 |必要| Name | 資料類型 | 說明 |
 |--|------|-----------|-------------|
-|是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|yes| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -100,7 +100,7 @@ LUIS 容器不會使用輸入或輸出裝載來儲存訓練或服務資料。
 
 |必要| Name | 資料類型 | 說明 |
 |-------|------|-----------|-------------|
-|是| `Input` | 字串 | 輸入裝載的目標。 預設值為 `/input`。 這是 LUIS 套件檔案的位置。 <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
+|yes| `Input` | 字串 | 輸入裝載的目標。 預設值為 `/input`。 這是 LUIS 套件檔案的位置。 <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
 |否| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 其中包括 LUIS 查詢記錄和容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="hierarchical-settings"></a>階層式設定

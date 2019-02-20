@@ -11,20 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: e2159e7cc59830c3d0d10f1c5b9697ab5b45b666
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/06/2019
+ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824848"
+ms.locfileid: "55875598"
 ---
 # <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Azure SQL Database (預覽) 中的機器學習服務 (搭配 R)
 
 機器學習服務是 Azure SQL Database 的功能，用來執行資料庫內 R 指令碼。 此功能包含高效能預測性分析和機器學習服務的 Microsoft R 套件。 透過預存程序、包含 R 陳述式的 T-SQL 指令碼或包含 T-SQL 的 R 程式碼，關聯式資料可在 R 指令碼中使用。
 
-> [!NOTE]
-> Azure SQL Database 中的機器學習服務 (搭配 R) 目前是公開預覽版。 請至下方[註冊預覽版](#signup)。
+> [!IMPORTANT]
+> Azure SQL Database 中的機器學習服務 (搭配 R) 目前對於在**一般用途**和**商務關鍵**服務層中使用虛擬核心購買模型的單一資料庫和彈性集區提供公開預覽。 在此初始公開預覽版中，**超大規模**服務層和**受控執行個體**部署選項皆不受支援。 目前，R 是唯一支援的語言。 目前不支援 Python。 
+>
+> 預覽目前適用於以下區域：西歐、北歐、美國西部 2、美國東部、美國中南部、美國中北部、加拿大中部、東南亞、印度南部及澳大利亞東南部。 
+>
+> 請至下方[註冊預覽版](#signup)。
 
 ## <a name="what-you-can-do-with-r"></a>R 的用途
 
@@ -55,10 +59,6 @@ ms.locfileid: "55824848"
 2. 請經由 [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) 將電子郵件傳送至 Microsoft，以註冊公開預覽版。 依預設不會在 SQL Database 中啟用公開預覽版的機器學習服務 (搭配 R)。
 
 當您在計畫中註冊後，Microsoft 即會將您加入公開預覽版，並為您現有或新的資料庫啟用 R。
-
-SQL Database 中的機器學習服務 (搭配 R) 目前僅適用於獨立和彈性集區部署選項的**一般用途**和**商務關鍵**服務層中以虛擬核心為基礎的購買模型。 在此初始公開預覽版中，**超大規模**服務層和**受控執行個體**部署選項皆不受支援。
-
-目前，R 是唯一支援的語言。 目前不支援 Python。 預覽初始適用於以下區域：西歐、北歐、美國西部 2、美國東部、美國中南部、美國中北部、加拿大中部、東南亞、印度南部及澳大利亞東南部。 日後會新增更多區域。
 
 在公開預覽期間，請勿將搭配 R 的機器學習服務用於生產工作負載。
 

@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 3888242f0379cc97bbe511e49a31a0f7eb8c5372
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164785"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889172"
 ---
-<!--author=SharS last changed: 1/14/2016 -->
-
 > [!NOTE]
 > 變更 StorSimple Adapter for SharePoint 的 RBS 組態時，您必須利用屬於 Domain Admins 群組的使用者帳戶登入。 此外，您必須從瀏覽器 (在和管理中心相同的主機上執行) 存取組態頁面。
 > 
@@ -115,7 +113,7 @@ ms.locfileid: "50164785"
    > [!WARNING]
    > 如果您尚未啟用 RBS，我們不建議您將內容資料庫移至 StorSimple 裝置。 這是未經過測試的設定。
    
-9. 移至下一個步驟： [設定記憶體回收](#configure-garbage-collection)。
+9. 前往下一個步驟：[設定記憶體回收](#configure-garbage-collection)。
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx

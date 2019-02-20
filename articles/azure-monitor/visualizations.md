@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264405"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990167"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>將來自 Azure 監視器的資料視覺化
 本文會概要介紹用以將儲存在 Azure 監視器中的記錄和計量資料視覺化的可用方法。
 
 圖表影像等視覺效果可協助分析監視資料，以深入鑽研問題，並找出其中的模式。 根據您所使用的工具，還可以選擇是否要與組織內外的其他使用者共用視覺效果。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="azure-dashboards"></a>Azure 儀表板
 [Azure 儀表板](../azure-portal/azure-portal-dashboards.md)是 Azure 的主要儀表板設計技術。 儀表板特別適合用來提供 Azure 基礎結構和服務的單一管理平台，以利使用者迅速找出重要問題所在。
@@ -30,9 +32,9 @@ ms.locfileid: "54264405"
 ![儀表板](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>優點
-- 深入整合至 Azure。 可將各種視覺效果釘選到多個 Azure 頁面的儀表板，包括計量分析、記錄分析和 Application Insights。
+- 深入整合至 Azure。 可將各種視覺效果釘選到多個 Azure 頁面的儀表板，包括計量瀏覽器、Log Analytics 和 Application Insights。
 - 支援計量和記錄。
-- 可結合來自多個來源的資料，包括來自[計量瀏覽器](../azure-monitor/platform/metrics-charts.md)、[Log Analytics 查詢](../azure-monitor/log-query/log-query-overview.md)以及 Application Insights 中[對應](../azure-monitor/app/app-map.md)和可用性的輸出結果。
+- 可結合來自多個來源的資料，包括來自[計量瀏覽器](platform/metrics-charts.md)、[記錄查詢](log-query/log-query-overview.md)以及 Application Insights 中[對應](app/app-map.md)和[可用性]()的輸出結果。
 - 個人或共用儀表板的選項。 與 Azure [角色型驗證 (RBAC)](../role-based-access-control/overview.md) 整合。
 - 自動重新整理。 計量的重新整理端看時間範圍而定，最少五分鐘。 記錄每一分鐘就會重新整理一次。
 - 使用時間戳記和自訂參數以參數化計量儀表板。
@@ -49,14 +51,14 @@ ms.locfileid: "54264405"
 - 內容相關的向下鑽研受限。
 
 ## <a name="azure-monitor-views"></a>Azure 監視器檢視
-[Azure 監視器中的檢視](../log-analytics/log-analytics-view-designer.md)可讓您使用記錄資料建立自訂視覺效果。 [監視解決方案](insights/solutions.md)會使用這些視覺效果呈現收集到的資料。
+[Azure 監視器中的檢視](platform/view-designer.md)可讓您使用記錄資料建立自訂視覺效果。 [監視解決方案](insights/solutions.md)會使用這些視覺效果呈現收集到的資料。
 
 ![檢視](media/visualizations/view.png)
 
 ### <a name="advantages"></a>優點
 - 豐富的記錄資料視覺效果。
 - 可匯出和匯入檢視，以將之傳送給其他資源群組和訂用帳戶。
-- 可使用工作區和監視解決方案，整合至 Log Analytic 管理模型。
+- 可使用工作區和監視解決方案，整合至 Azure 監視器管理模型。
 - 提供自訂參數的[篩選條件](platform/view-designer-filters.md)。
 - 互動式，可支援多層級的向下鑽研能力 (可從一個檢視鑽研至另一個檢視)
 
@@ -71,7 +73,7 @@ ms.locfileid: "54264405"
 
 
 ## <a name="application-insights-workbooks"></a>Application Insights 活頁簿
-[活頁簿](../azure-monitor/app/usage-workbooks.md)是互動式的文件，可以提供對團隊內部的資料、調查和共同作業的深入解析。 顯見活頁簿實用性的具體範例，在於疑難排解指南和事件事後分析。
+[活頁簿](../application-insights/app-insights-usage-workbooks.md)是互動式的文件，可以提供對團隊內部的資料、調查和共同作業的深入解析。 顯見活頁簿實用性的具體範例，在於疑難排解指南和事件事後分析。
 
 ![活頁簿](media/visualizations/workbook.png)
 
@@ -89,7 +91,7 @@ ms.locfileid: "54264405"
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) 特別適合用來建立以業務為核心的儀表板和報告，對於長期 KPI 趨勢的分析報告也相當合用。 您可以將[記錄查詢的結果匯入](../log-analytics/log-analytics-powerbi.md) Power BI 資料集，以便運用其功能，例如，可合併不同來源的資料，以及共用網路和行動裝置上的資料。
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) 特別適合用來建立以業務為核心的儀表板和報告，對於長期 KPI 趨勢的分析報告也相當合用。 您可以將[記錄查詢的結果匯入](platform/powerbi.md) Power BI 資料集，以便運用其功能，例如，可合併不同來源的資料，以及共用網路和行動裝置上的資料。
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -109,7 +111,7 @@ ms.locfileid: "54264405"
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) 在操作儀表板中，是表現相當出色的開放平台。 特別適用於偵測、隔離、分級事件。 您可以將 [Grafana Azure 監視器資料來源外掛程式](../azure-monitor/platform/grafana-plugin.md)新增至您的 Azure 訂用帳戶，以使其可視覺化 Azure 計量資料。
+[Grafana](https://grafana.com/) 在操作儀表板中，是表現相當出色的開放平台。 特別適用於偵測、隔離、分級事件。 您可以將 [Grafana Azure 監視器資料來源外掛程式](platform/grafana-plugin.md)新增至您的 Azure 訂用帳戶，以使其可視覺化 Azure 計量資料。
 
 ![Grafana](media/visualizations/grafana.png)
 
@@ -140,7 +142,6 @@ ms.locfileid: "54264405"
 - 了解 [ Azure 監視器收集的資料](platform/data-collection.md)。
 - 了解 [Azure 儀表板](../azure-portal/azure-portal-dashboards.md)。
 - 了解 [Azure 監視器中的檢視](platform/view-designer.md)。
-- 了解 [Application Insights 中的活頁簿](../azure-monitor/app/usage-workbooks.md)。
-- 了解[將記錄資料匯入 Power BI](../azure-monitor/platform/powerbi.md)。
-- 了解 [Grafana Azure 監視器資料來源外掛程式](../azure-monitor/platform/grafana-plugin.md)。
-
+- 了解 [Application Insights 中的活頁簿](app/usage-workbooks.md)。
+- 了解[將記錄資料匯入 Power BI](platform/powerbi.md)。
+- 了解 [Grafana Azure 監視器資料來源外掛程式](platform/grafana-plugin.md)。

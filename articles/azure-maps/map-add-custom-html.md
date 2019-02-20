@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231729"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993737"
 ---
 # <a name="add-html-markers-to-the-map"></a>在地圖中新增 HTML 標記
 
@@ -68,20 +68,11 @@ HTML 標記的好處之一是您可以使用 CSS 來實現許多完美的自訂�
 
 ## <a name="add-mouse-events-to-html-markers"></a>在 HTML 標記中新增滑鼠事件
 
-這些範例會說明如何藉由在標記的 HTML 內容中新增標準 JavaScript 事件，而在 HTML 標記中新增滑鼠事件。 
-
-如果標記的 `htmlContent` 是 DOM 元素 (div, img...)，您可以直接在其中新增事件。 
+這些範例會示範如何將滑鼠和拖曳事件新增至 HTML 標記。
 
 <br/>
 
 <iframe height='500' scrolling='no' title='在 HTML 標記中新增滑鼠事件' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆 <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>在 HTML 標記中新增滑鼠事件</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
-</iframe>
-
-如果 `htmlContent` 是字串 (也就是 類似預設值)，您可以建立 DOM 元素並於其中新增 innerHTML 字串，然後新增 DOM 元素 htmlContent。 如果 `htmlContent` 是樣板化字串，您必須先尋找/取代字串中的 `{text}` 和 `{color}` 值。
-
-<br/>
-
-<iframe height='500' scrolling='no' title='在預設的 HTML 標記中新增滑鼠事件' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆 <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>在預設的 HTML 標記中新增滑鼠事件</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
 ## <a name="next-steps"></a>後續步驟

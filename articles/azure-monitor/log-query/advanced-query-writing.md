@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 中的進階查詢 | Microsoft Docs
-description: 本文提供教學課程來說明如何使用 Analytics 入口網站在 Log Analytics 中撰寫查詢。
+title: Azure 監視器中的進階查詢 | Microsoft Docs
+description: 本文提供教學課程來說明如何使用 Analytics 入口網站在 Azure 監視器中撰寫查詢。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191541"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993209"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>在 Log Analytics 中撰寫進階查詢
+# <a name="writing-advanced-queries-in-azure-monitor"></a>在 Azure 監視器中撰寫進階查詢
 
 > [!NOTE]
-> 您應該先完成[開始使用 Analytics 入口網站](get-started-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此課程。
+> 您應該先完成[開始使用 Azure 監視器記錄分析](get-started-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱其他課程以了解如何使用 Log Analytics 查詢語言：
+如需了解如何搭配 Azure 監視器記錄資料使用[資料總管查詢語言](/azure/kusto/query/)，請參閱其他課程：
 
 - [字串作業](string-operations.md)
 - [日期和時間作業](datetime-operations.md)

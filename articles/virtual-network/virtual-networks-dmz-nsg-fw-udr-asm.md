@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448461"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965251"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>範例 3 – 建置 DMZ 以透過防火牆、UDR 和 NSG 保護網路
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -109,35 +109,46 @@ VNETLocal 一律是該特定網路之 VNet 的定義位址前置詞 (也就是�
 針對此範例，會使用下列命令來建置路由表、新增使用者定義的路由，然後將路由表繫結至子網路 (注意：底下以貨幣符號開頭的項目 (例如 $BESubnet) 皆為來自本文＜參考＞一節之指令碼的使用者定義變數)：
 
 1. 首先必須建立基礎路由表。 此程式碼片段顯示如何建立 Backend 子網路的路由表。 指令碼中也會針對 Frontend 子網路建立對應的路由表。
-   
-     New-AzureRouteTable -Name $BERouteTableName `
-   
-         -Location $DeploymentLocation `
-         -Label "Route table for $BESubnet subnet"
+
+   ```powershell
+   New-AzureRouteTable -Name $BERouteTableName `
+       -Location $DeploymentLocation `
+       -Label "Route table for $BESubnet subnet"
+   ```
+
 2. 一旦建立路由表，就可以新增特定的使用者定義路由。 在此程式碼片段中，會透過虛擬應用裝置路由傳送所有流量 (0.0.0.0/0) (指令碼稍早建立虛擬應用裝置時，是使用變數 $VMIP[0] 來傳入指派的 IP 位址)。 指令碼也會在 Frontend 路由表中建立對應的規則。
-   
-     Get-AzureRouteTable $BERouteTableName | `
-   
-         Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-         -NextHopType VirtualAppliance `
-         -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 3. 上述路由項目會覆寫預設的 "0.0.0.0/0" 路由，但預設的 10.0.0.0/16 規則仍會存在，以允許 VNet 內的流量直接路由傳送到目的地，而非傳送到網路虛擬應用裝置。 若要修正此行為，您必須新增下列規則。
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 4. 此時要做一項選擇。 在上述兩個路由中，所有流量都會路由傳送至防火牆進行評估，甚至單一子網路內的流量也是如此。 這可能是您想要的結果，但若要允許子網路內的流量直接在本機路由傳送，而不要防火牆介入，則可以新增第三個特定規則。 此路由會指出，目的地為本機子網路的位址可以直接路由傳送至該處 (NextHopType = VNETLocal)。
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
-            -NextHopType VNETLocal
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+           -NextHopType VNETLocal
+   ```
+
 5. 最後，在建立好路由表並填入使用者定義的路由後，路由表必須立即繫結至子網路。 在此指令碼中，Frontend 路由表也會繫結到 Frontend 子網路。 以下是 Backend 子網路的繫結指令碼。
-   
-     Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-   
-        -SubnetName $BESubnet `
-        -RouteTableName $BERouteTableName
+
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+       -SubnetName $BESubnet `
+       -RouteTableName $BERouteTableName
+   ```
 
 ## <a name="ip-forwarding"></a>IP 轉送
 UDR 隨附 IP 轉送功能。 這是虛擬應用裝置的一項設定，以允許它接收不是要特別傳送到應用裝置的流量，再將流量轉送到其最終目的地。
@@ -152,10 +163,11 @@ UDR 隨附 IP 轉送功能。 這是虛擬應用裝置的一項設定，以允�
 設定 IP 轉送是單一命令，可在建立 VM 時執行。 在此範例的流程中，這個程式碼片段靠近指令碼結尾處，與 UDR 命令放在一起：
 
 1. 呼叫代表您的虛擬應用裝置的 VM 執行個體 (在此案例中是防火牆)，並啟用 IP 轉送 (注意：以貨幣符號開頭的紅色項目 (例如 $VMName[0]) 皆為來自本文＜參考＞一節之指令碼的使用者定義變數。 以方括弧括住的零 ([0]) 代表 VM 陣列中的第一個 VM，為了讓範例指令碼無須修改即可運作，第一個 VM (VM 0) 必須是防火牆)：
-   
-     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-   
+
+    ```powershell
+    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
         Set-AzureIPForwarding -Enable
+    ```
 
 ## <a name="network-security-groups-nsg"></a>網路安全性群組 (NSG)
 此範例會建置 NSG 群組，然後在其中載入單一規則。 此群組接著只會繫結到 Frontend 和 Backend 子網路 (不會繫結到 SecNet)。 指令碼會以宣告方式建置下列規則：
@@ -166,22 +178,26 @@ UDR 隨附 IP 轉送功能。 這是虛擬應用裝置的一項設定，以允�
 
 此範例的網路安全性群組有一個有趣的地方，那就是它只有一個規則 (如下所示)，此規則是為了要拒絕由網際網路流往整個虛擬網路 (會包含安全性子網路) 的流量。 
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
-        from the Internet" `
-        -Type Inbound -Priority 100 -Action Deny `
-        -SourceAddressPrefix INTERNET -SourcePortRange '*' `
-        -DestinationAddressPrefix VIRTUAL_NETWORK `
-        -DestinationPortRange '*' `
-        -Protocol *
+```powershell
+Get-AzureNetworkSecurityGroup -Name $NSGName | `
+    Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
+    from the Internet" `
+    -Type Inbound -Priority 100 -Action Deny `
+    -SourceAddressPrefix INTERNET -SourcePortRange '*' `
+    -DestinationAddressPrefix VIRTUAL_NETWORK `
+    -DestinationPortRange '*' `
+    -Protocol *
+```
 
 不過，由於 NSG 只會繫結至 Frontend 和 Backend 子網路，因此不會對流往安全性子網路的輸入流量處理此規則。 如此一來，即使 NSG 規則指出因為 NSG 永遠不會繫結到安全性子網路，所以沒有由網際網路流往 VNet 上任何位址的流量，流量還是會流向安全性子網路。
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $FESubnet -VirtualNetworkName $VNetName
+```powershell
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $FESubnet -VirtualNetworkName $VNetName
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $BESubnet -VirtualNetworkName $VNetName
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $BESubnet -VirtualNetworkName $VNetName
+```
 
 ## <a name="firewall-rules"></a>防火牆規則
 防火牆上必須建立轉送規則。 因為防火牆會封鎖或轉送所有輸入、輸出和內部 VNet 流量，所以需要許多防火牆規則。 此外，所有輸入流量都會抵達安全性服務的公用 IP 位址 (在不同連接埠上)，並由防火牆進行處理。 最佳作法是先繪製邏輯流量圖，再設定子網路和防火牆規則，以避免事後還要修改。 下圖是此範例中的防火牆規則的邏輯視圖：
@@ -233,9 +249,11 @@ UDR 隨附 IP 轉送功能。 這是虛擬應用裝置的一項設定，以允�
 
 在建立 VM 或後續建置時皆可開放端點，其方式在範例指令碼和下面這個程式碼片段中都有說明 (注意：以貨幣符號開頭的項目 (例如 $VMName[$i]) 皆為來自本文＜參考＞一節之指令碼的使用者定義變數。 以方括弧括住的 “$i” ([$i]) 代表 VM 陣列中特定 VM 的陣列號碼)：
 
-    Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
-        -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
-        Update-AzureVM
+```powershell
+Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
+    -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
+    Update-AzureVM
+```
 
 雖然因為使用變數的關係所以此處未清楚顯示，但實際上 **只** 會開啟安全性雲端服務上的端點。 這是為了確保能由防火牆處理 (路由傳送、進行 NAT 處理、捨棄) 所有輸入流量。
 
@@ -389,7 +407,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 
 ## <a name="traffic-scenarios"></a>流量案例
 > [!IMPORTANT]
-> 重點是要記得 **所有** 流量都會通過防火牆傳來。 遠端桌面到 IIS01 伺服器也是如此，即使是在 FrontEnd 雲端服務和 FrontEnd 子網路上，若要存取此伺服器，我們仍需要透過 RDP 連接到連接埠 8014 上的防火牆，然後允許防火牆在內部將 RDP 要求路由至 IIS01 RDP 連接埠。 由於沒有直接通往 IIS01 的 RDP 路徑 (就入口網站上所見)，Azure 入口網站的 [連線] 按鈕將不會有作用。 這表示來自網際網路的所有連線都會流往安全性服務和連接埠，例如 secscv001.cloudapp.net:xxxx。
+> 重點是要記得**所有**流量都會通過防火牆傳來。 遠端桌面到 IIS01 伺服器也是如此，即使是在 FrontEnd 雲端服務和 FrontEnd 子網路上，若要存取此伺服器，我們仍需要透過 RDP 連接到連接埠 8014 上的防火牆，然後允許防火牆在內部將 RDP 要求路由至 IIS01 RDP 連接埠。 由於沒有直接通往 IIS01 的 RDP 路徑 (就入口網站上所見)，Azure 入口網站的 [連線] 按鈕將不會有作用。 這表示來自網際網路的所有連線都會流往安全性服務和連接埠，例如 secscv001.cloudapp.net:xxxx。
 > 
 > 
 
@@ -592,6 +610,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 > 
 > 
 
+```powershell
     <# 
      .SYNOPSIS
       Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
@@ -604,7 +623,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
        - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
        - One server on the FrontEnd Subnet
        - Three Servers on the BackEnd Subnet
-       - IP Forwading from the FireWall out to the internet
+       - IP Forwarding from the FireWall out to the internet
        - User Defined Routing FrontEnd and BackEnd Subnets to the NVA
 
       Before running script, ensure the network configuration file is created in
@@ -702,7 +721,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.4"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - The First Application Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -711,7 +730,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - The Second Application Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -730,7 +749,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User Defined Variables or   #
     # Configuration past this point #
     # ----------------------------- #
 
@@ -741,7 +760,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 
       # Create Storage Account
         If (Test-AzureName -Storage -Name $StorageAccountName) { 
-            Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
+            Write-Host "Fatal Error: This storage account name is already in use, please pick a different name." -ForegroundColor Red
             Return}
         Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
@@ -872,7 +891,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
             |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $FEPrefix `
             -NextHopType VNETLocal
 
-      # Assoicate the Route Tables with the Subnets
+      # Associate the Route Tables with the Subnets
         Write-Host "Binding Route Tables to the Subnets" -ForegroundColor Cyan 
         Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
             -SubnetName $BESubnet `
@@ -920,11 +939,12 @@ Barracuda 網站可以找到這些規則的詳細資訊。
       Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
       Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
       Write-Host
-
+```
 
 #### <a name="network-config-file"></a>網路組態檔
 以更新的位置儲存此 xml 檔案，並將此檔案的連結加入到上述指令碼中的 $NetworkConfigFile 變數。
 
+```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
@@ -957,6 +977,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
         </VirtualNetworkSites>
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
+```
 
 #### <a name="sample-application-scripts"></a>範例應用程式指令碼
 如果您希望為此範例和其他 DMZ 範例安裝範例應用程式，下列連結中有提供一個：[範例應用程式指令碼][SampleApp]

@@ -4,7 +4,7 @@ description: 此規格說明以分散 MP4 為基礎的即時串流內嵌通訊�
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228873"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984829"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure 媒體服務的分散 MP4 即時內嵌規格
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Azure 媒體服務的分散 MP4 即時內嵌規格 (舊版)
+
 此規格說明以分散 MP4 為基礎的即時串流內嵌通訊協定和格式 (適用於 Azure 媒體服務)。 媒體服務提供即時串流服務，讓客戶可使用 Azure 做為雲端平台來串流即時事件和廣播即時內容。 本文件也討論建置高度備援且強固之即時內嵌機制的最佳做法。
 
 ## <a name="1-conformance-notation"></a>1.一致性標記法

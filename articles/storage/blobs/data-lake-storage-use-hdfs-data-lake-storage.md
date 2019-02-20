@@ -1,6 +1,6 @@
 ---
-title: 使用 HDFS CLI 搭配 Azure Data Lake Storage Gen2 預覽
-description: 適用於 Data Lake Storage Gen2 預覽的 HDFS CLI 簡介
+title: 使用 HDFS CLI 搭配 Azure Data Lake Storage Gen2
+description: 適用於 Data Lake Storage Gen2 的 HDFS CLI 簡介
 services: storage
 author: artemuwka
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 2691346433b3cc29b22446152ea797cefb02a380
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 649fe5ebadf69a90b4794fcaf4519ea5bcc0c4a2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241265"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874172"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>使用 HDFS CLI 搭配 Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 預覽可讓您管理及存取資料，就如同使用 [Hadoop 分散式檔案系統 (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一樣。 無論您是有附加的 HDInsight 叢集，或是執行使用 Azure Databricks 來針對儲存於 Azure 儲存體帳戶中的資料執行分析的 Apache Spark 作業，都可以使用命令列介面 (CLI) 來擷取和操作已載入的資料。
+Azure Data Lake Storage Gen2 可讓您管理及存取資料，就如同使用 [Hadoop 分散式檔案系統 (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一樣。 無論您是有附加的 HDInsight 叢集，或是執行使用 Azure Databricks 來針對儲存於 Azure 儲存體帳戶中的資料執行分析的 Apache Spark 作業，都可以使用命令列介面 (CLI) 來擷取和操作已載入的資料。
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDFS CLI 搭配 HDInsight
 

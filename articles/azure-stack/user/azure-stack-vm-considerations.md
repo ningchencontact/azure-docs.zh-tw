@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112e9aa023fb29bd960b61139861db4007c61b4d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245952"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962242"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack 中使用虛擬機器的考量
 
@@ -41,8 +41,9 @@ Azure Stack 虛擬機器提供隨選、可調整的計算資源。 部署虛擬�
 | 虛擬機器磁碟效能 | 取決於磁碟類型和大小。 | 取決於磁碟所連結 VM 的 VM 大小，請參閱 [Azure Stack 中支援的虛擬機器大小](azure-stack-vm-sizes.md)一文。
 | API 版本 | Azure 一律會有所有虛擬機器功能的最新 API 版本。 | Azure Stack 支援特定的 Azure 服務及這些服務的特定 API 版本。 若要檢視支援的 API 版本清單，請參考此文章的 [API 版本](#api-versions)一節。 |
 | Azure 執行個體中繼資料服務 | Azure 執行個體中繼資料服務提供執行可用於管理和設定虛擬機器之虛擬機器執行個體的相關資訊。  | Azure Stack 不支援執行個體中繼資料服務。 |
-|虛擬機器可用性設定組|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域<br>受控磁碟支援|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域 (最多 20 個)<br>無受控磁碟支援|
-|虛擬機器擴展集|支援自動調整|不支援自動調整。<br>使用入口網站、Resource Manager 範本或 PowerShell 將更多執行個體新增到擴展集。
+| 虛擬機器可用性設定組|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域 (最多 20 個)|
+| 虛擬機器擴展集|支援自動調整|不支援自動調整。<br>使用入口網站、Resource Manager 範本或 PowerShell 將更多執行個體新增到擴展集。 |
+| 虛擬機器診斷 | Linux VM 診斷 | Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。
 
 ## <a name="virtual-machine-sizes"></a>虛擬機器大小
 
@@ -71,7 +72,7 @@ Azure Stack 與 Azure 之間的虛擬機器大小及其關聯資源數量是一�
 
 ## <a name="virtual-machine-extensions"></a>虛擬機器擴充功能
 
- Azure Stack 包含一小組擴充功能。 您可以透過 Marketplace 摘要整合取得更新和額外的擴充功能。
+Azure Stack 包含一小組擴充功能。 您可以透過 Marketplace 摘要整合取得更新和額外的擴充功能。
 
 使用下列 PowerShell 指令碼，來取得您 Azure Stack 環境中所提供虛擬機器擴充功能的清單：
 
@@ -82,6 +83,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+如果在 VM 部署上佈建延伸模組所花費的時間太長，請讓佈建逾時，而不要嘗試停止程序來將 VM 解除配置或刪除。
 
 ## <a name="api-versions"></a>API 版本
 

@@ -1,25 +1,18 @@
 ---
 title: Azure 資源健康狀態常見問題集 | Microsoft Docs
 description: Azure 資源健康狀態的概觀
-services: Resource health
-documentationcenter: dev-center-name
 author: stephbaron
-manager: ''
-editor: ''
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
-ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Supportability
-ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: 821495ceb052184f3216c8ed696b39db33db00ac
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.topic: conceptual
+ms.service: service-health
+ms.date: 01/29/2019
+ms.workload: Supportability
+ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977197"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884531"
 ---
 # <a name="azure-resource-health-faq"></a>Azure 資源健康狀態常見問題集
 了解 Azure 資源健康狀態相關常見問題的答案。
@@ -38,7 +31,7 @@ ms.locfileid: "51977197"
 
 ## <a name="what-does-each-of-the-health-status-mean"></a>每個健全狀態所代表的意義為何？
 有三個不同的健全狀態︰
-- 可用︰Azure 平台沒有任何可能會影響此資源的已知問題
+- 可用：Azure 平台沒有任何可能會影響此資源的已知問題
 - 無法使用︰資源健康狀態偵測到會影響資源的問題
 - 未知︰資源健康狀態無法判斷資源的健康情況，因為它已停止接收相關的資訊。 
 
@@ -93,7 +86,7 @@ ms.locfileid: "51977197"
 否，健康情況資訊適用於可透過資源健康狀態提供的所有資源類型。 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>我們是否需要為我的組織啟用資源健康狀態？
-否。  不需進行任何安裝，即可在 Azure 入口網站內存取 Azure 資源健康狀態。
+沒有。  不需進行任何安裝，即可在 Azure 入口網站內存取 Azure 資源健康狀態。
 
 ## <a name="is-resource-health-available-free-of-charge"></a>是否可免費使用資源健康狀態？
 是。  Azure 資源健康狀態是免費的。

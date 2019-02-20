@@ -13,14 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901185"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980103"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
+
+> [!IMPORTANT]
+> 此處關於使用 Resource Manager 範本建立警示的詳細資料已過期，因為 [Log Analytics 警示已擴充至 Azure 監視器](../platform/alerts-extend.md)。 如需使用 Resource Manager 範本建立記錄警示的詳細資訊，請參閱[使用 Azure 資源範本管理記錄警示](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template)。
 
 > [!NOTE]
 > 這是建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。
@@ -122,9 +125,9 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 已啟用       | 是 | 指定在建立警示時是否要加以啟用。 |
-| interval      | 是 | 查詢的執行頻率，以分鐘為單位。 |
-| queryTimeSpan | 是 | 評估結果的時間長度，以分鐘為單位。 |
+| 已啟用       | yes | 指定在建立警示時是否要加以啟用。 |
+| interval      | yes | 查詢的執行頻率，以分鐘為單位。 |
+| queryTimeSpan | yes | 評估結果的時間長度，以分鐘為單位。 |
 
 排程資源應該相依於儲存的搜尋，如此就會在排程之前建立該資源。
 
@@ -180,10 +183,10 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 類型 | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
-| Name | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
+| 類型 | yes | 動作的類型。  這是適用於警示動作的**警示**。 |
+| Name | yes | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
 | 說明 | 否 | 警示的選擇性描述。 |
-| 嚴重性 | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
+| 嚴重性 | yes | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>閾值
@@ -191,8 +194,8 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | 是 | 要比較結果的值。 |
+| 運算子 | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| 值 | yes | 要比較結果的值。 |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。 加入此區段以供計量計量警示使用。
@@ -202,9 +205,9 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| TriggerCondition | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
-| 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | 是 | 必須符合準則以觸發警示的次數。 |
+| TriggerCondition | yes | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
+| 運算子 | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| 值 | yes | 必須符合準則以觸發警示的次數。 |
 
 
 #### <a name="throttling"></a>節流
@@ -221,7 +224,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| AzNsNotification | 是 | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
+| AzNsNotification | yes | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
 | CustomEmailSubject | 否 | 電子郵件的自訂主旨列，該電子郵件會傳送到相關聯動作群組中指定的所有地址。 |
 | CustomWebhookPayload | 否 | 針對相關動作群組中定義的所有 Webhook 端點，要傳送到端點的自訂酬載。 格式取決於 Webhook 所預期的內容，而且必須是已序列化的有效 JSON。 |
 
@@ -237,8 +240,8 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 收件者 | 是 | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| 主體 | 是 | 郵件的主旨列。 |
+| 收件者 | yes | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| 主體 | yes | 郵件的主旨列。 |
 | 附件 | 否 | 目前不支援附件。 如果包含此元素，就應該是 **None**。 |
 
 ##### <a name="remediation"></a>補救
@@ -246,8 +249,8 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| RunbookName | 是 | 要啟動的 Runbook 名稱。 |
-| WebhookUri | 是 | Runbook 的 Webhook 的 Uri。 |
+| RunbookName | yes | 要啟動的 Runbook 名稱。 |
+| WebhookUri | yes | Runbook 的 Webhook 的 Uri。 |
 | Expiry | 否 | 補救到期的日期和時間。 |
 
 ##### <a name="webhook-actions"></a>Webhook 動作
@@ -276,9 +279,9 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| type | 是 | 動作的類型。 這適用於 Webhook 動作的 **Webhook**。 |
-| name | 是 | 動作的顯示名稱。 這不會顯示在主控台中。 |
-| webhookUri | 是 | Webhook 的 Uri。 |
+| type | yes | 動作的類型。 這適用於 Webhook 動作的 **Webhook**。 |
+| name | yes | 動作的顯示名稱。 這不會顯示在主控台中。 |
+| webhookUri | yes | Webhook 的 Uri。 |
 | customPayload | 否 | 要傳送至 webhook 的自訂內容。 格式取決於 Webhook 需要的內容。 |
 
 ## <a name="sample"></a>範例

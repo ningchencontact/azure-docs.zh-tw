@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c02d3483a98c358e53964d3932944b5d2dad9c53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ed4b581cb962c7db706a71ab995963a3c445af55
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240268"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998141"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 隨選媒體編碼器的概觀和比較
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>Azure 隨選媒體編碼器的概觀和比較 (舊版)
+
 ## <a name="encoding-overview"></a>編碼概觀
 Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Log Analytics 跨資源搜尋 | Microsoft Docs
+title: 使用 Azure 監視器跨資源查詢 | Microsoft Docs
 description: 本文說明如何針對來自訂用帳戶中多個工作區和 App Insights 應用程式的資源執行查詢。
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 42191b21faec7bb1929a12e6bc1a724d269acb1d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298869"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998927"
 ---
-# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>在 Log Analytics 中執行跨資源記錄搜尋  
+# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>在 Azure 監視器中執行跨資源記錄查詢  
 
-先前使用 Azure Log Analytics 時，您只能分析來自目前工作區內的資料，這項限制讓您無法跨訂用帳戶中定義的多個工作區執行查詢。  此外，您只能搜尋在 Application Insights 中或從 Visual Studio 直接使用 Application Insights 從 Web 應用程式收集的遙測項目。  如此一來，也難以將作業和應用程式資料一起以原生方式分析。   
+先前使用 Azure 監視器時，您只能分析來自目前工作區內的資料，這項限制讓您無法跨訂用帳戶中定義的多個工作區執行查詢。  此外，您只能搜尋在 Application Insights 中或從 Visual Studio 直接使用 Application Insights 從 Web 應用程式收集的遙測項目。  如此一來，也難以將作業和應用程式資料一起以原生方式分析。   
 
-現在您不僅可以跨多個 Log Analytics 工作區查詢，也可以查詢來自相同資源群組、另一個資源群組或其他訂用帳戶中特定 Application Insights 應用程式中的資料。 這讓您對資料能有全系統的檢視。  您只能在 [Log Analytics](portals.md#log-analytics-page) 中執行這些類型的查詢。 單一查詢中可納入的資源 (Log Analytics 工作區和 Application Insights 應用程式) 數目上限為 100 個。 
+現在您不僅可以跨多個 Log Analytics 工作區查詢，也可以查詢來自相同資源群組、另一個資源群組或其他訂用帳戶中特定 Application Insights 應用程式中的資料。 這讓您對資料能有全系統的檢視。  您只能在 [Log Analytics](portals.md) 中執行這些類型的查詢。 單一查詢中可納入的資源 (Log Analytics 工作區和 Application Insights 應用程式) 數目上限為 100 個。 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>跨 Log Analytics 工作區和從 Application Insights 查詢
 若要在查詢中參考另一個工作區，請使用 [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) 識別項，而若要查詢來自 Application Insights 的應用程式，請使用 [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) 識別項。  
@@ -101,9 +101,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>使用多個資源的跨資源查詢
-使用跨資源查詢將資料從多個 Log Analytics 和 Application Insights 資源相互關聯時，查詢可能會變得複雜且難以維護。 您應該利用 [Log Analytics 中的函式](../../azure-monitor/log-query/functions.md)將查詢邏輯與查詢資源的範圍分開，如此可簡化查詢結構。 下列範例示範如何監視多個 Application Insights 資源，並將失敗的要求計數依應用程式名稱視覺化。 
+使用跨資源查詢將資料從多個 Log Analytics 工作區和 Application Insights 資源相互關聯時，查詢可能會變得複雜且難以維護。 您應該利用 [Azure 監視器記錄查詢中的函式](functions.md)，將查詢邏輯與查詢資源的範圍分開，如此可簡化查詢結構。 下列範例示範如何監視多個 Application Insights 資源，並將失敗的要求計數依應用程式名稱視覺化。 
 
-建立參考 Application Insights 資源範圍的查詢，如下所示。 `withsource= SourceApp` 命令會新增一個資料行，此資料行可指定傳送記錄的應用程式名稱。 [將查詢儲存為函式](../../azure-monitor/log-query/functions.md#create-a-function)，且別名為 _applicationsScoping_。
+建立參考 Application Insights 資源範圍的查詢，如下所示。 `withsource= SourceApp` 命令會新增一個資料行，此資料行可指定傳送記錄的應用程式名稱。 [將查詢儲存為函式](functions.md#create-a-function)，且別名為 _applicationsScoping_。
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -131,4 +131,5 @@ applicationsScoping
 
 ## <a name="next-steps"></a>後續步驟
 
-若要檢視 Log Analytics 中提供的所有查詢語法選項，請檢閱 [Log Analytics 記錄搜尋參考資料](https://docs.microsoft.com/azure/log-analytics/query-language/kusto)。    
+- 檢閱[分析 Azure 監視器中的記錄資料](log-query-overview.md)，了解記錄查詢的簡短概觀，以及建置 Azure 監視器記錄資料結構的方式。
+- 檢閱 [Azure 監視器記錄查詢](query-language.md)，以檢視所有 Azure 監視器記錄查詢的資源。

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814532"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981922"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>使用 Azure 快速入門範本在 SQL Server VM 上建立 WSFC 和接聽程式，並設定 Always On 可用性群組的 ILB
 本文說明如何使用 Azure 快速入門範本，以半自動化的方式為 Azure 中的 SQL Server 虛擬機器部署 Always On 可用性群組設定。 此程序中會使用兩個 Azure 快速入門範本。 
@@ -153,8 +153,8 @@ Always On 可用性群組 (AG) 接聽程式需要內部 Azure 負載平衡器 (I
 
 ```PowerShell
 # Remove the AG listener
-# example: Remove-AzureRmResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
-Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
+# example: Remove-AzResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
+Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
 ```
  
 ## <a name="common-errors"></a>常見錯誤
@@ -166,7 +166,7 @@ Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGrou
 ### <a name="connection-only-works-from-primary-replica"></a>只能從主要複本進行連線
 之所以出現此行為，可能是因為失敗的 **101-sql-vm-aglistener-setup** 範本部署導致 ILB 設定處於不一致的狀態。 請確認後端集區有列出可用性設定組，且健康情況探查和負載平衡都有其規則。 若遺漏了任何項目，表示 ILB 設定處於不一致的狀態。 
 
-若要消除此行為，請使用 [PowerShell](#remove-availability-group-listener) 移除接聽程式、透過 Azure 入口網站刪除內部負載平衡器，然後重新執行[步驟 3](#step-3---manually-create-the-internal-load-balanced-ilb)。 
+若要消除此行為，請使用 [PowerShell](#remove-availability-group-listener) 移除接聽程式、透過 Azure 入口網站刪除內部負載平衡器，然後重新執行步驟 3。 
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest - 只能更新 SQL 虛擬機器清單
 在部署 **101-sql-vm-aglistener-setup** 範本時，如果已透過 SQL Server Management Studio (SSMS) 刪除接聽程式，但並未將其從 SQL VM 資源提供者刪除，就可能發生此錯誤。 透過 SSMS 刪除接聽程式後，並不會從 SQL VM 資源提供者中移除接聽程式的中繼資料；您必須使用 [PowerShell](#remove-availability-group-listener) 從資源提供者中刪除接聽程式。 

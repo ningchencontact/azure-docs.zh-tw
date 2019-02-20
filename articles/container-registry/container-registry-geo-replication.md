@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a83cf6b37a28ec38165778faa7a9ecc266cce7bd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768204"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858251"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器登錄中的異地複寫
 
@@ -26,18 +26,22 @@ ms.locfileid: "33768204"
 * 沒有其他輸出費用，因為映像是取自容器主機的相同區域中的本機、複寫的登錄
 * 跨多個區域單一管理登錄
 
+> [!NOTE]
+> 如果您需要維護多個 Azure容器映像中的容器映像複本，Azure Container Registry 也支援[映像匯入](container-registry-import-images.md)。 例如，在 DevOps 工作流程中，您可以從開發登錄將映像匯入到生產環境登錄，完全不需要使用 Docker 命令。
+>
+
 ## <a name="example-use-case"></a>使用案例範例
-Contoso 會執行位在美國、加拿大和歐洲的公開金鑰存在網站。 為了在這些市場中提供本機和網路關閉內容，Contoso 在美國西部、美國東部、加拿大中央和西歐執行 [Azure Container Service](/azure/container-service/kubernetes/)(ACS) Kubernetes 叢集。 網站應用程式 (部署為 Docker 映像) 會在所有區域利用相同的程式碼和映像。 從資料庫 (基本在每個區域中佈建) 擷取該區域的本機內容。 每個區域部署都會有其資源的唯一設定，例如本機資料庫。
+Contoso 會執行位在美國、加拿大和歐洲的公開金鑰存在網站。 為了在這些市場中提供本機和網路關閉內容，Contoso 在美國西部、美國東部、加拿大中央和西歐執行 [Azure Kubernetes Service](/azure/aks/) (AKS) 叢集。 網站應用程式 (部署為 Docker 映像) 會在所有區域利用相同的程式碼和映像。 從資料庫 (基本在每個區域中佈建) 擷取該區域的本機內容。 每個區域部署都會有其資源的唯一設定，例如本機資料庫。
 
 開發小組位於 Seattle WA，利用美國西部的資料中心。
 
 ![推入至多個登錄](media/container-registry-geo-replication/before-geo-replicate.png)<br />*推入至多個登錄*
 
-在使用異地複寫功能前，Contoso 在美國西部具有美國型登錄，在西歐有其他登錄。 若要提供這些不同的區域，開發小組必須將映像發送至兩個不同的登錄。
+在使用異地複寫功能前，Contoso 在美國西部具有美國型登錄，在西歐有其他登錄。 為了服務這些不同區域，開發小組將映像發送至兩個不同的登錄。
 
 ```bash
-docker push contoso.azurecr.io/pubic/products/web:1.2
-docker push contosowesteu.azurecr.io/pubic/products/web:1.2
+docker push contoso.azurecr.io/public/products/web:1.2
+docker push contosowesteu.azurecr.io/public/products/web:1.2
 ```
 ![從多個登錄提取](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*從多個登錄提取*
 

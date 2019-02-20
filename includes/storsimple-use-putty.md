@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50a5c8d515e27db7c2c65b484cdecad8ff00baf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164758"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888658"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-connect-through-the-serial-console"></a>透過序列主控台連接
 1. 將序列纜線連接到裝置 (直接連接或透過 USB 序列介面卡)。
 2. 開啟 [控制台]，然後開啟 [裝置管理員]。
@@ -23,11 +21,11 @@ ms.locfileid: "50164758"
 5. 在右窗格中，將 [連線類型] 變更為 [序列]。
 6. 在右窗格中，輸入適當的 COM 連接埠。 確定已將序列設定參數設定為如下的內容：
    
-   * 速度：115200
+   * 速度：115,200
    * 資料位元：8
    * 停止位元：1
-   * 同位檢查：無
-   * 流量控制：無
+   * 同位檢查：None
+   * 流量控制：None
      
      下圖顯示這些設定。
      

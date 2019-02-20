@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3ac07b06e1cf7b5b24956c10e202f9baeab60b2b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249911"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992241"
 ---
-# <a name="content-protection-overview"></a>內容保護概觀
+# <a name="content-protection-overview"></a>內容保護概觀 
+
  您可以使用 Azure 媒體服務來保護媒體從離開電腦到進行儲存、處理和傳遞時的安全。 使用媒體服務，您就能傳遞利用進階加密標準 (AES-128) 或下列三個主要數位版權管理 (DRM) 系統中任一個所動態加密的即時與隨選內容：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。 
 
 下圖說明媒體服務內容保護工作流程： 
@@ -35,7 +36,7 @@ ms.locfileid: "50249911"
 
 - AES：MPEG DASH、 Smooth Streaming 和 HLS
 - PlayReady：MPEG DASH、 Smooth Streaming 和 HLS
-- Widevine：MPEG DASH
+- Widevine：MPEG-DASH
 - FairPlay：HLS
 
 若要加密資產，您需要建立加密內容金鑰與您資產的關聯，同時也要設定金鑰的授權原則。 內容金鑰可由您指定或由媒體服務自動產生。
@@ -80,9 +81,9 @@ Playready 和 Widevine 會利用一般加密 (AES CTR 模式)。 FairPlay 會利
 * 如果只有一個加密套用到資產，則無須在 URL 中指定加密類型。
 * 加密類型不區分大小寫。
 * 可以指定下列加密類型︰
-  * **cenc**︰適用於 PlayReady 或 Widevine (一般加密)
+  * **cenc**：適用於 PlayReady 或 Widevine (一般加密)
   * **cbcs-aapl**：適用於 FairPlay (AES CBC 加密)
-  * **cbc**：適用於 AES 信封加密
+  * **cbc**：AES 信封加密
 
 ## <a name="next-steps"></a>後續步驟
 下列文章描述可協助您開始使用內容保護的後續步驟：

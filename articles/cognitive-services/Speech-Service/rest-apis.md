@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 了解如何使用語音轉換文字和文字轉換語音的 REST API。 在本文中，您會了解到授權選項、查詢選項，以及如何建構要求與接收回應。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ce33f20d44ac284655569ff66825533650b9d9c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247437"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998926"
 ---
 # <a name="speech-service-rest-apis"></a>語音服務 REST API
 
@@ -27,14 +27,14 @@ ms.locfileid: "55247437"
 * 語音轉文字 REST API 只會傳回最終結果， 不提供部分的結果。
 * 文字轉語音 REST API 需要授權標頭。 這表示需要完成權杖交換，才能存取服務。 如需詳細資訊，請參閱[驗證](#authentication)。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 每個語音轉文字或文字轉語音的 REST API 要求都需要授權標頭。 下表會列出各項服務支援的標頭：
 
 | 支援的授權標頭 | 語音轉文字 | 文字轉換語音 |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | 是 | 否 |
-| 授權：Bearer | 是 | 是 |
+| Ocp-Apim-Subscription-Key | yes | 否 |
+| 授權：Bearer | yes | yes |
 
 當使用 `Ocp-Apim-Subscription-Key` 標頭，只需要提供您的訂用帳戶金鑰。 例如︰
 
@@ -66,7 +66,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-回應的本文包含採用 JAVA Web 權杖 (JWT) 格式的存取權杖。
+回應的本文包含採用 JSON Web 權杖 (JWT) 格式的存取權杖。
 
 #### <a name="powershell-sample"></a>PowerShell 範例
 

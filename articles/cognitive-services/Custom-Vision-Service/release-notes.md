@@ -3,21 +3,23 @@ title: 版本資訊 - 自訂視覺服務
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: bba65a495963142e8b3201a026dc13a8cfff8e70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b712f47fe9272e0ae6ccb9ab9847462729434698
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207355"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894406"
 ---
 # <a name="custom-vision-service-release-notes"></a>自訂視覺服務版本資訊
 
+## <a name="january-22-2019"></a>2019 年 1 月 22 日
+- 對於新 Azure 區域新增的支援：美國西部 2、美國東部、美國東部 2、西歐、北歐、東南亞、澳洲東部、印度中部、英國南部、日本東部和美國中北部。 對於美國中南部繼續提供支援。 
 
 ## <a name="december-12-2018"></a>2018 年 12 月 12 日
 - 支援匯出物件偵測模型 (導入了物件偵測 Compact 網域)。

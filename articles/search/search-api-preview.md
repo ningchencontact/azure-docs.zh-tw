@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e496e4e2e7e2f66033d090a0534911bff4c53baa
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 524c1a6d083db02349c7dae9a0131228613dc170
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310218"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997605"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure 搜尋服務 REST api-version 2017-11-11-Preview
 本文描述 Azure 搜尋服務 REST API 的 `api-version=2017-11-11-Preview` 版本，並提供下列尚未提供的實驗性功能。

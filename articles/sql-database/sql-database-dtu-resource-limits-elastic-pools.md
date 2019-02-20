@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6c4cd4e698630c06ab8e7ba144791800f091abfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 7ce752fcee99b3f85099d83ab11451c427dea91e
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458936"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964010"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的彈性集區資源限制 
 
@@ -28,7 +28,7 @@ ms.locfileid: "55458936"
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>彈性集區：儲存體大小和計算大小
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>彈性集區：儲存體大小與計算大小
 
 針對 SQL Database 彈性集區，下表顯示每個服務層與計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，來設定服務層、計算大小與儲存體數量。
 
@@ -126,12 +126,11 @@ ms.locfileid: "55458936"
 | 每個資料庫的儲存體上限 |使用者所設定集區資料庫的資料庫大小上限。 不過，集區化的資料庫會共用配置的集區儲存體。 即使將「每個資料庫」的儲存體上限總計設定為大於「集區空間」的可用儲存體總計，但所有資料庫實際使用的總空間將不得超過可用的集區限制。 資料庫大小上限是指資料檔案的大小上限，並不包含記錄檔所使用的空間。 |
 |||
  
-
-
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱 [SQL Database 常見問題集](sql-database-faq.md)以取得常見問題的解答。
-- 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
+- 如需單一資料庫的 vCore 資源限制，請參閱[使用以 vCore 為基礎之購買模型的單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+- 如需單一資料庫的 DTU 資源限制，請參閱[使用以 DTU 為基礎之購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
+- 如需適用於彈性集區的虛擬核心資源限制，請參閱[使用以虛擬核心為基礎之購買模型的彈性集區資源限制](sql-database-vcore-resource-limits-elastic-pools.md)
+- 如需受控執行個體的資源限制，請參閱[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
-- 如需 DTU 與 eDTU 的相關資訊，請參閱 [DTU 與 eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)。
-- 如需 tempdb 大小限制的相關資訊，請參閱 https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database。
+- 如需資料庫伺服器資源限制的相關資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)，以了解伺服器和訂用帳戶層級的限制。

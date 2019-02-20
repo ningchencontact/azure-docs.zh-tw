@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 預覽版階層式命名空間
-description: 說明 Azure Data Lake Storage Gen2 預覽版階層式命名空間的概念
+title: Azure Data Lake Storage Gen2 階層式命名空間
+description: 說明 Azure Data Lake Storage Gen2 階層式命名空間的概念
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 967e24ae6e004fe6ce2b1c0aa6c039f46be2598c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b423d40884dd9132312e79ba0cbff00b8771b207
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244499"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877026"
 ---
-# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 預覽版階層式命名空間
+# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 階層式命名空間
 
-若要允許 Azure Data Lake Storage Gen2 預覽版以物件儲存體的規模和價格提供檔案系統效能，其關鍵機制在於新增**階層式命名空間**。 這會收集帳戶中的物件/檔案集合，並整理成階層式目錄和巢狀子目錄，此方式與整理電腦上的檔案系統方式相同。 啟用階層命名空間後，儲存體帳戶便能提供物件儲存體的延展性和成本效益，並具有分析引擎及架構所熟悉的檔案系統語意。
+若要允許 Azure Data Lake Storage Gen2 以物件儲存體的規模和價格提供檔案系統效能，其關鍵機制在於新增**階層式命名空間**。 這會收集帳戶中的物件/檔案集合，並整理成階層式目錄和巢狀子目錄，此方式與整理電腦上的檔案系統方式相同。 啟用階層命名空間後，儲存體帳戶便能提供物件儲存體的延展性和成本效益，並具有分析引擎及架構所熟悉的檔案系統語意。
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>階層式命名空間的優勢
 
@@ -39,8 +39,7 @@ ms.locfileid: "55244499"
 
 ## <a name="when-to-disable-the-hierarchical-namespace"></a>階層式命名空間停用時機
 
-某些物件儲存工作負載可能無法因啟用階層式命名空間而受益。 這些工作負載範例包括備份、影像儲存及其他應用程式，其中物件組織與物件本身會分開儲存 (*例如*在單獨的資料庫中)。
-
+某些物件儲存工作負載可能無法因啟用階層式命名空間而受益。 範例包括備份、影像儲存及其他應用程式，其中物件組織與物件本身會分開儲存 (例如在單獨的資料庫中)。
 
 ## <a name="next-steps"></a>後續步驟
 

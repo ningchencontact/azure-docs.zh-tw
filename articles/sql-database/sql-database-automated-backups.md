@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477806"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997114"
 ---
 # <a name="automated-backups"></a>自動備份
 
@@ -63,7 +63,7 @@ SQL Database 會自動建立保留 7 到 35 天的資料庫備份，並使用 Az
 
 #### <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
-如果您使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，則預設備份保留期間是 7 天 (適用於獨立、集區和執行個體資料庫)。 針對所有 Azure SQL 資料庫 (獨立、集區和執行個體資料庫)，您可以[將備份保留期間變更為最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
+如果您是使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，預設的備份保留期限是 7 天 (適用於單一、集區和執行個體資料庫)。 針對所有 Azure SQL 資料庫 (單一、集區和執行個體資料庫)，您可以[將備份保留期限變更為最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
 
 > [!WARNING]
 > 如果您降低目前的保留期間，就無法再使用比新保留期間還要舊的所有現有備份。 如果您延長目前的保留期間，則 SQL Database 將保留現有備份，直到達到較長的保留期間為止。
@@ -80,7 +80,7 @@ PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../stora
 
 ### <a name="backups-for-long-term-retention"></a>長期保留的備份
 
-獨立和集區資料庫提供選項讓您在 Azure Blob 儲存體中設定完整備份的長期保留 (LTR)，最長可達 10 年。 如果啟用 LTR 原則，則會將每週完整備份自動複製到不同的 RA-GRS 儲存體容器。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 儲存體耗用量取決於選取的備份頻率和保留期間。 您可以使用 [LTR 定價計算機](https://azure.microsoft.com/pricing/calculator/?service=sql-database)來估算 LTR 儲存體的成本。
+單一和集區資料庫提供選項讓您在 Azure Blob 儲存體中設定完整備份的長期保留 (LTR)，最長可達 10 年。 如果啟用 LTR 原則，則會將每週完整備份自動複製到不同的 RA-GRS 儲存體容器。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 儲存體耗用量取決於選取的備份頻率和保留期間。 您可以使用 [LTR 定價計算機](https://azure.microsoft.com/pricing/calculator/?service=sql-database)來估算 LTR 儲存體的成本。
 
 與 PITR 類似，LTR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)保護。
 

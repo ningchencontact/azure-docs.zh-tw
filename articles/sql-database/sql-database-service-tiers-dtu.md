@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 服務層 - DTU | Microsoft Docs
-description: 了解單一和集區資料庫的服務層以提供計算大小和儲存體大小。
+title: Azure SQL Database 服務層 - 以 DTU 為基礎的購買模式 | Microsoft Docs
+description: 對於提供計算大小和儲存體大小的單一和集區資料庫，了解以 DTU 為基礎的購買模式的服務層。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,22 +11,22 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6319deb36088317cb289134b7068720e97cb10b7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507649"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993593"
 ---
-# <a name="dtu-based-service-tiers"></a>以 DTU 為基礎的服務層
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
 
-以 DTU 為基礎的服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 所有服務層皆可彈性變更計算大小而不需停機。 單一資料庫和彈性集區會根據服務層和計算大小，以每小時為單位來計費。
+以 DTU 為基礎的購買模式的服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 以 DTU 為基礎的購買模式的所有服務層皆可彈性變更計算大小而不需停機。 單一資料庫和彈性集區會根據服務層和計算大小，以每小時為單位來計費。
 
 > [!IMPORTANT]
-> SQL Database 受控執行個體 (目前為公開預覽版) 不支援以 DTU 為基礎的購買模型。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
+> SQL Database 受控執行個體不支援以 DTU 為基礎的購買模式。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
 > [!NOTE]
-> 如需以虛擬核心為基礎之服務層的相關資訊，請參閱[以虛擬核心為基礎的服務層](sql-database-service-tiers-vcore.md)。 如需如何區分以 DTU 為基礎及以虛擬核心為基礎之服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-service-tiers.md)。
+> 如需以虛擬核心為基礎之服務層的相關資訊，請參閱[以虛擬核心為基礎的服務層](sql-database-service-tiers-vcore.md)。 如需如何區分以 DTU 為基礎及以虛擬核心為基礎之服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-purchase-models.md)。
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>比較以 DTU 為基礎的服務層
 
@@ -34,8 +34,8 @@ ms.locfileid: "55507649"
 
 ||基本|標準|進階|
 | :-- | --: |--:| --:| --:|
-|目標工作負載|開發與生產|開發與生產|開發與生產||
-|執行時間 SLA|99.99%|99.99%|99.99%|預覽時，N/A|
+|目標工作負載|開發與生產|開發與生產|開發與生產|
+|執行時間 SLA|99.99%|99.99%|99.99%|
 |備份保留期|7 天|35 天|35 天|
 |CPU|低|低、中、高|中、高|
 |IO 輸送量 (大約) |每一 DTU 2.5 IOPS| 每一 DTU 2.5 IOPS | 每一 DTU 48 IOPS|
@@ -49,12 +49,12 @@ ms.locfileid: "55507649"
 
 ## <a name="single-database-dtu-and-storage-limits"></a>單一資料庫 DTU 和儲存空間限制
 
-單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers.md#dtu-based-purchasing-model)。
+單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-purchase-models.md#dtu-based-purchasing-model)。
 
 ||基本|標準|進階|
 | :-- | --: | --: | --: | --: |
 | 儲存體大小上限 | 2 GB | 1 TB | 4 TB  |
-| DTU 上限 | 5 | 3000 | 4000 | |
+| DTU 上限 | 5 | 3000 | 4000 | 
 ||||||
 
 > [!IMPORTANT]
@@ -88,7 +88,7 @@ ms.locfileid: "55507649"
 
 ### <a name="benchmark-summary"></a>基準測試摘要
 
-ASDB 可測量基本資料庫作業混合的效能，這些作業最常發生在線上交易處理 (OLTP) 工作負載中。 雖然基準測試在設計時考量到雲端運算，但是資料庫結構描述、資料母體和交易的設計都廣泛代表 OLTP 工作負載中最常使用的基本元素。
+基準測試可測量基本資料庫作業混合的效能，這些作業最常發生在線上交易處理 (OLTP) 工作負載中。 雖然基準測試在設計時考量到雲端運算，但是資料庫結構描述、資料母體和交易的設計都廣泛代表 OLTP 工作負載中最常使用的基本元素。
 
 ### <a name="schema"></a>結構描述
 

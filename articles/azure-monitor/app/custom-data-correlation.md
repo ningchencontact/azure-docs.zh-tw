@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103106"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994811"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>使自訂資料來源與 Application Insights 資料相互關聯
 
@@ -28,19 +28,19 @@ Application Insights 會收集數個不同的資料類型：例外狀況、追�
 
 - 資料擴充或查閱資料表：例如，在伺服器名稱中增添伺服器擁有者，以及能在其中找到該伺服器名稱的實驗室位置 
 - 與非 Application Insights 資料來源相互關聯：例如，讓網路商店上的購買資料與您的購買履約服務相互關聯，以判斷寄送時間的預估準確度 
-- 完全自訂的資料：我們有許多客戶喜愛 Log Analytics 資料平台 (用來支援 Application Insights) 的查詢語言和效能，而且想要使用它來查詢與 Application Insights 完全不相關的資料。 例如，追蹤屬於智慧型家電安裝的太陽能面板效能，如[此處]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/)所述。
+- 完全自訂的資料：我們有許多客戶喜愛 Azure 監視器記錄平台 (用來支援 Application Insights) 的查詢語言和效能，而且想要使用它來查詢與 Application Insights 完全不相關的資料。 例如，追蹤屬於智慧型家電安裝的太陽能面板效能，如[此處]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/)所述。
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>如何使自訂資料與 Application Insights 資料相互關聯 
 
-由於 Application Insights 受到功能強大的 Log Analytics 資料平台所支援，因此我們能夠使用 Log Analytics 的完整功能來內嵌資料。 然後，我們會使用 “join” 運算子撰寫查詢，此運算子會使此自訂資料與 Log Analytics 中的可用資料相互關聯。 
+由於 Application Insights 受到功能強大的 Azure 監視器記錄平台所支援，因此我們能夠使用 Azure 監視器的完整功能來內嵌資料。 然後，我們會使用 “join” 運算子撰寫查詢，此運算子會使此自訂資料與 Azure 監視器記錄中的可用資料相互關聯。 
 
 ## <a name="ingesting-data"></a>內嵌資料
 
-在本節中，我們將檢閱如何將您的資料放入 Log Analytics。
+在本節中，我們將檢閱如何將您的資料放入 Azure 監視器記錄。
 
-請一一遵循[這些指示]( https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)及「建立工作區」步驟，以佈建新的 Log Analytics 工作區 (如果您沒有的話)。
+請一一遵循[這些指示](../learn/quick-collect-azurevm.md)及「建立工作區」步驟，以佈建新的 Log Analytics 工作區 (如果您沒有的話)。
 
-開始將資料傳送至 Log Analytics。 有幾種選項可用：
+若要開始將記錄資料傳送至 Azure 監視器。 有幾種選項可用：
 
 - 若要使用同步機制，您可以直接呼叫[資料收集器 API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)，或使用我們的邏輯應用程式連接器 – 只要尋找 [Azure Log Analytics]，然後選擇 [傳送資料] 選項即可：
 
@@ -50,9 +50,9 @@ Application Insights 會收集數個不同的資料類型：例外狀況、追�
 
 ## <a name="correlating-data"></a>使資料相互關聯
 
-Application Insights 會以 Log Analytics 資料平台作為基礎。 因此我們可以使用[跨資源聯結](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)，讓內嵌至 Log Analytics 的所有資料與 Application Insights 資料相互關聯。
+Application Insights 會以 Azure 監視器記錄平台作為基礎。 因此我們可以使用[跨資源聯結](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)，讓內嵌至 Azure 監視器的所有資料與 Application Insights 資料相互關聯。
 
-例如，我們可以將實驗室詳細目錄和位置內嵌至名為 “LabLocations_CL” 的資料表 (位於名為 “myLA” 的 Log Analytics 工作區中)。 如果我們接著要檢閱在 Application Insights 應用程式 "myAI" 中追蹤的要求，並使處理要求的機器名稱與先前所述自訂資料表中儲存的這些機器位置相互關聯，我們可以從Application Insights 或 Log Analytics 環境中執行下列查詢：
+例如，我們可以將實驗室詳細目錄和位置內嵌至名為 “LabLocations_CL” 的資料表 (位於名為 “myLA” 的 Log Analytics 工作區中)。 如果我們接著要檢閱在 Application Insights 應用程式 "myAI" 中追蹤的要求，並使處理要求的機器名稱與先前所述自訂資料表中儲存的這些機器位置相互關聯，我們可以從Application Insights 或 Azure 監視器環境中執行下列查詢：
 
 ```
 app('myAI').requests

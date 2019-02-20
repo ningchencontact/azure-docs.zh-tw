@@ -1,5 +1,5 @@
 ---
-title: 使用 Microsoft Flow 自動化 Azure Log Analytics 流程
+title: 使用 Microsoft Flow 自動化 Azure 監視器記錄流程
 description: 了解如何利用 Azure Log Analytics Connector，使用 Microsoft Flow 來快速自動化可重複的程序。
 services: log-analytics
 documentationcenter: ''
@@ -11,19 +11,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 441064d6cbb5b3b2fae77caef3125c8db3467553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187444"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993770"
 ---
-# <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動化 Log Analytics 程序
-[Microsoft Flow](https://ms.flow.microsoft.com) 可讓您使用數百個動作建立各種不同服務的自動化工作流程。 從一個動作的輸出可用來作為另一個動作的輸入，讓您建立不同服務之間的整合。  適用於 Microsoft Flow 的 Azure Log Analytics 連接器可讓您建立工作流程，包含 Log Analytics 記錄搜尋所擷取的資料。
+# <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>使用 Microsoft Flow 的連接器自動化 Azure 監視器記錄流程
+[Microsoft Flow](https://ms.flow.microsoft.com) 可讓您使用數百個動作建立各種不同服務的自動化工作流程。 從一個動作的輸出可用來作為另一個動作的輸入，讓您建立不同服務之間的整合。  適用於 Microsoft Flow 的 Azure Log Analytics 連接器可讓您建立工作流程，包含 Azure 監視器中的 Log Analytics 工作區之中的記錄搜尋所擷取的資料。
 
-例如，您可以使用 Microsoft Flow，從 Office 365 在電子郵件通知中使用 Log Analytics 資料、在 Azure DevOps 中建立 Bug 或張貼 Slack 訊息。  您可以使用簡易排程或從連接的服務中的某個動作觸發工作流程，例如收到郵件或推文時。  
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-這篇文章中的教學課程會示範如何建立流程，自動透過電子郵件傳送 Log Analytics 記錄搜尋結果，這只是如何在 Microsoft Flow 中使用 Log Analytics 的一個範例。 
+例如，您可以使用 Microsoft Flow，從 Office 365 在電子郵件通知中使用 Azure 監視器記錄資料、在 Azure DevOps 中建立 Bug 或張貼 Slack 訊息。  您可以使用簡易排程或從連接的服務中的某個動作觸發工作流程，例如收到郵件或推文時。  
+
+這篇文章中的教學課程會示範如何建立流程，自動透過電子郵件傳送 Azure 監視器記錄查詢結果，這只是如何在 Microsoft Flow 中使用 Log Analytics 連接器的一個範例。 
 
 
 ## <a name="step-1-create-a-flow"></a>步驟 1：建立流程
@@ -45,7 +47,7 @@ ms.locfileid: "53187444"
 ## <a name="step-4-configure-the-log-analytics-action"></a>步驟 4：設定 Log Analytics 動作
 
 1. 指定工作區的詳細資料，包括訂用帳戶識別碼、資源群組和工作區名稱。
-2. 在 [查詢] 視窗新增下列 Log Analytics 查詢。  這只是範例查詢，您可以使用任何其他可傳回資料的查詢取代。
+2. 在 [查詢] 視窗新增下列記錄查詢。  這只是範例查詢，您可以使用任何其他可傳回資料的查詢取代。
 ```
     Event
     | where EventLevelName == "Error" 
@@ -77,7 +79,7 @@ ms.locfileid: "53187444"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 [Log Analytics 中的記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)。
+- 深入了解 [Azure 監視器中的記錄查詢](../log-query/log-query-overview.md)。
 - 深入了解 [Microsoft Flow](https://ms.flow.microsoft.com)。
 
 

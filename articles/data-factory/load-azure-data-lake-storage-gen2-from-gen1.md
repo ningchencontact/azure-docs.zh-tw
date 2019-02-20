@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2 (預覽)
-description: 使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2 (預覽)
+title: 使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2
+description: 使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: da42e0bf86aca571fb26367f18bbf07f90f5531b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679353"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884608"
 ---
-# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2 (預覽)
+# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2
 
-Azure Data Lake Storage Gen2 預覽版是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)。 此功能可讓您使用檔案系統和物件儲存範例連接您的資料。
+Azure Data Lake Storage Gen2 是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)。 此功能可讓您使用檔案系統和物件儲存範例連接您的資料。
 
 如果您目前使用 Azure Data Lake Storage Gen1，您可以藉由使用 Azure Data Factory 將資料從 Data Lake Storage Gen1 複製到 Gen2 來評估 Gen2 的新功能。
 
@@ -92,7 +92,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
     ![指定輸出資料夾](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-7. 在 [目的地資料存放區] 頁面中，按一下 [+ 建立新連線]，然後選取 [Azure Data Lake Storage Gen2 (預覽)]，並選取 [繼續]：
+7. 在 [目的地資料存放區] 頁面中，按一下 [+ 建立新連線]，然後選取 [Azure Data Lake Storage Gen2]，並選取 [繼續]：
 
     ![目的地資料存放區頁面](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 

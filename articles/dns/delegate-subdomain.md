@@ -5,24 +5,27 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/22/2019
+ms.date: 2/7/2019
 ms.author: victorh
-ms.openlocfilehash: 87a80703c473245660a850645ca3fef21bbd80f6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452712"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895475"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>委派 Azure DNS 子網域
 
 您可以使用 Azure 入口網站委派 DNS 子網域。 例如，如果您擁有 contoso.com 網域，可以委派名為 *engineering*的子網域至可與 contoso.com 區域分開管理的其他個別區域。
 
+您也可以依喜好使用 [Azure PowerShell](delegate-subdomain-ps.md) 委派子網域。
+
 ## <a name="prerequisites"></a>必要條件
 
 若要委派 Azure DNS 子網域，必須先將您的公用網域委派給 Azure DNS。 如需如何設定名稱伺服器以便進行委派的指示，請參閱[將網域委派給 Azure DNS](./dns-delegate-domain-azure-dns.md)。 一旦將您的網域委派給您的 Azure DNS 區域之後，就能夠委派子網域。
 
-本文範例使用 contoso.com 網域。 使用這些程序時，應將網域取代為您自己的網域。
+> [!NOTE]
+> 本文章會使用 Contoso.com 作為範例。 用您自己的網域名稱來取代 contoso.com。
 
 ## <a name="create-a-zone-for-your-subdomain"></a>建立子網域的區域
 
@@ -38,10 +41,13 @@ ms.locfileid: "54452712"
 
 ## <a name="note-the-name-servers"></a>記下名稱伺服器
 
-接下來請複製您子網域的四個名稱伺服器。
+然後，記下 engineering 子區域的四個名稱伺服器。
 
-1. 在 **engineering** 區域窗格中，記下區域的四個名稱伺服器。 您稍後將會用到這些名稱伺服器。
-2. 建立 **A** 記錄以供測試使用。 例如，建立一個 **www** A 記錄，並將它的 IP 位址設為 **10.10.10.10**。
+在 **engineering** 區域窗格中，記下區域的四個名稱伺服器。 您稍後將會用到這些名稱伺服器。
+
+## <a name="create-a-test-record"></a>建立測試記錄
+
+建立 **A** 記錄以供測試使用。 例如，建立一個 **www** A 記錄，並將它的 IP 位址設為 **10.10.10.10**。
 
 ## <a name="create-an-ns-record"></a>建立 NS 記錄
 
@@ -59,10 +65,8 @@ ms.locfileid: "54452712"
 使用 nslookup 測試委派。
 
 1. 開啟 PowerShell 視窗。
-2. 在命令提示字元中，輸入 `nslookup www.engineering.<your domain name>.`
+2. 在命令提示字元中，輸入 `nslookup www.engineering.contoso.com.`
 3. 您應該會收到顯示位址 **10.10.10.10** 的非授權回答。
-
-
 
 ## <a name="next-steps"></a>後續步驟
 

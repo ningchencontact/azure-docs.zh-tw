@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/04/2018
+ms.date: 02/08/2019
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: f6d4fcf5e6ec8029bb0e7c303849fdceef5bace7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1672eb2ef0db36c9b30ca444fa4224eb1afbe828
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012083"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998479"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 即時編碼器來傳送單一位元速率即時串流
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 即時編碼器來傳送單一位元速率即時串流  
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
@@ -67,22 +67,22 @@ ms.locfileid: "51012083"
 音訊：
 -   轉碼器：AAC (LC)
 -   位元速率：192 kbps
--   取樣速率：44.1 kHz
+-   採樣速率：44.1 kHz
 
 ## <a name="configuration-steps"></a>組態步驟
 1.  登入 Haivision KB 使用者介面。
 2.  按一下通道控制中心中的**功能表按鈕**，然後選取 [Add Channel] \(新增通道\)  
-    ![螢幕擷取畫面 2017-08-14 at 9.15.09 AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
+    ![螢幕擷取畫面 2017-08-14，時間：9.15.09 AM](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  在 [名稱] 欄位中輸入**通道名稱**，然後按一下 [下一步]。  
-    ![螢幕擷取畫面 2017-08-14 at 9.19.07 AM.png](./media/media-services-configure-kb-live-encoder/step3.png)
+    ![螢幕擷取畫面 2017-08-14，時間：9.19.07 AM](./media/media-services-configure-kb-live-encoder/step3.png)
 4.  從 [輸入來源] 下拉式清單選取 [Channel Input Source] \(通道輸入來源\)。
-    ![螢幕擷取畫面 2017-08-14 at 9.20.44 AM.png](./media/media-services-configure-kb-live-encoder/step4.png)
+    ![螢幕擷取畫面 2017-08-14，時間：9.20.44 AM](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  從 [Encoder Template] \(編碼器範本\) 下拉式清單選擇 [H264-720-AAC-192]，然後按一下下一步。
-    ![螢幕擷取畫面 2017-08-14 at 9.23.15 AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
+    ![螢幕擷取畫面 2017-08-14，時間：9.23.15 AM](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  從 [Select New Output] \(選取新輸出\) 下拉式清單選擇 [RTMP]，然後按一下 [下一步]。  
-    ![螢幕擷取畫面 2017-08-14 at 9.27.51 AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
+    ![螢幕擷取畫面 2017-08-14，時間：9.27.51 AM](./media/media-services-configure-kb-live-encoder/step6.png)
 7.  從 [Channel Output] \(通道輸出\) 視窗，填入 Azure 串流資料。 從 [伺服器] 區域中的初始通道設定貼上 **RTMP** 連結。 在 [Output Name] \(輸出名稱\) 區域中，輸入通道名稱。 在 [Stream Name Template] \(串流名稱範本\) 區域中，使用範本 RTMPStreamName_%video_bitrate% 來為串流命名。
-    ![螢幕擷取畫面 2017-08-14 at 9.33.17 AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
+    ![螢幕擷取畫面 2017-08-14，時間：9.33.17 AM](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  按一下 [下一步]，然後按一下 [完成]。
 9.  按一下 [Play Button] \(播放按鈕\) 以啟動編碼器通道。  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)

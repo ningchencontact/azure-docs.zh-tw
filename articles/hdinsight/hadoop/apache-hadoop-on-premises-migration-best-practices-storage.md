@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 3e1d5ed05b7acc8f7e0fcc772a4124984c6cba45
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911739"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884523"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉至 Azure HDInsight - 儲存體最佳做法
 
@@ -50,7 +50,7 @@ Azure 儲存體提供 [Blob 物件的虛刪除功能](../../storage/blobs/storag
 您可以建立 [Blob 快照集](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)。 快照集是在某個點時間建立的唯讀 Blob 版本，可作為備份 Blob 的途徑。 一旦建立快照集後，即可加以讀取、複製或刪除，但不能修改。
 
 > [!Note]
-> 舊版的內部部署 Hadoop 散發套件若沒有 "wasbs" 憑證，就必須將該憑證匯入至 Java 信任存放區。
+> 舊版的 Hadoop 散發套件若沒有 "wasbs" 憑證，就必須將該憑證匯入至 Java 信任存放區。
 
 下列方法可用來將憑證匯入至 Java 信任存放區：
 

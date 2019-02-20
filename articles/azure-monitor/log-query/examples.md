@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器的 Log Analytics 查詢範例 | Microsoft Docs
-description: Log Analytics 中的查詢範例使用的是 Kusto 語言。
+title: Azure 監視器的 Azure 監視器記錄查詢範例 | Microsoft Docs
+description: 在使用資料總管查詢語言的 Azure 監視器中進行的記錄查詢範例。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885045"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993192"
 ---
-# <a name="log-analytics-query-examples"></a>Log Analytics 查詢範例
-本文包含多個[查詢](../../azure-monitor/log-query/log-query-overview.md)使用 [Kusto 語言](https://docs.microsoft.com/azure/kusto/query/)從 Log Analytics 擷取不同資料類型的範例。 您可以透過方法來合併和分析資料，以使用這些範例識別用於您的要求的不同策略。  
+# <a name="azure-monitor-log-query-examples"></a>Azure 監視器記錄查詢範例
+本文包含多個[查詢](log-query-overview.md)使用[資料總管查詢語言](https://docs.microsoft.com/azure/kusto/query/)從 Azure 監視器擷取不同記錄資料類型的範例。 您可以透過方法來合併和分析資料，以使用這些範例識別用於您的要求的不同策略。  
 
-請參閱 [Kusto 語言參考](https://docs.microsoft.com/azure/kusto/query/)了解在這些範例中使用不同關鍵字的詳細資料。 如果您不熟悉 Log Analytics，請逐步查看[建立查詢的課程](get-started-queries.md)。
+請參閱 [Kusto 語言參考](https://docs.microsoft.com/azure/kusto/query/)了解在這些範例中使用不同關鍵字的詳細資料。 如果您不熟悉 Azure 監視器，請逐步查看[建立查詢的課程](get-started-queries.md)。
 
 ## <a name="events"></a>活動
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>搜尋說明為「密碼編譯」的應用程式層級事件
-
 此範例會搜尋 **Events** 資料表，找出 **EventLog** 是 _Application_ 且 **RenderedDescription** 包含 _cryptographic_ 的記錄。 包含過去 24 小時的記錄。
 
 ```Kusto
@@ -250,7 +249,6 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>計算與權限相關的安全性事件數目
-
 此範例會顯示 **securityEvent** 記錄的數目，其中 **Activity** 資料行包含完整詞彙 _Permissions_。 查詢適用於過去 30 分鐘內建立的記錄。
 
 ```Kusto
@@ -442,4 +440,4 @@ Update
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱 [Kusto 語言參考](/azure/kusto/query)了解語言詳細資訊。
-- 進行[在 Log Analytics 中撰寫查詢課程](get-started-queries.md)。
+- 進行[在 Azure 監視器中撰寫記錄查詢](get-started-queries.md)課程。

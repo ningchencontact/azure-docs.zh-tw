@@ -1,22 +1,61 @@
 ---
 title: 針對使用 Azure Site Recovery 從 VMware VM 和實體伺服器至 Azure 的災害復原複寫問題進行疑難排解 | Microsoft Docs
 description: 本文針對使用 Azure Site Recovery 將 VMware VM 和實體伺服器復原至 Azure 之災害復原期間發生的常見複寫問題，提供疑難排解資訊。
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/18/2019
-ms.author: ramamill
-ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/7/2019
+ms.author: mayg
+ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411470"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964768"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>針對 VMware VM 和實體伺服器的複寫問題進行疑難排解
 
 使用 Azure Site Recovery 來保護您的 VMware 虛擬機器或實體伺服器時，您可能會看到特定的錯誤訊息。 本文說明使用 [Site Recovery](site-recovery-overview.md) 將內部部署 VMware VM 和實體伺服器複寫至 Azure 時，可能會遇到的一些常見問題。
+
+## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>監視處理序伺服器健康情況以避免複寫問題
+
+建議您在入口網站上監視處理序伺服器 (PS) 健康情況，以確保您相關聯來源機器的複寫正在進行。 在保存庫中，移至 [管理 > Site Recovery 基礎結構 > 組態伺服器]。 在 [組態伺服器] 刀鋒視窗中，按一下 [相關聯伺服器] 底下的 [處理序伺服器]。 [處理序伺服器] 刀鋒視窗隨即開啟，具有其健康情況統計資料。 您可以追蹤 CPU 使用率、記憶體使用量、複寫所需 PS 服務的狀態、憑證到期日和可用空間。 所有統計資料的狀態應該是綠色。 
+
+**建議您的記憶體和 CPU 使用量低於 70%，可用空間高於 25%**。 可用空間是指處理序伺服器中的快取磁碟空間，用來在來源機器的複寫資料上傳至 Azure 之前進行儲存。 如果它降低為低於 20%，則會針對所有相關聯來源機器的複寫進行節流。 請遵循[容量指引](./site-recovery-plan-capacity-vmware.md#capacity-considerations)以了解複寫來源機器的必要組態。
+
+請確定下列服務正在 PS 機器上執行。 啟動或重新啟動任何未執行的服務。
+
+**內建處理序伺服器**
+
+* cxprocessserver
+* InMage PushInstall
+* 記錄上傳服務 (LogUpload)
+* InMage Scout 應用程式服務
+* Microsoft Azure 復原服務代理程式 (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+* World Wide Web Publishing 服務 (W3SVC)
+* MySQL
+* Microsoft Azure Site Recovery 服務 (dra)
+
+**相應放大處理序伺服器**
+
+* cxprocessserver
+* InMage PushInstall
+* 記錄上傳服務 (LogUpload)
+* InMage Scout 應用程式服務
+* Microsoft Azure 復原服務代理程式 (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+
+**Azure 中容錯回復的處理序伺服器**
+
+* cxprocessserver
+* InMage PushInstall
+* 記錄上傳服務 (LogUpload)
+
+確定所有服務的 StartType 已設定為 [自動] 或 [自動 (延遲啟動)]。 Microsoft Azure 復原服務代理程式 (obengine) 服務的 StartType 不需要如上述設定。
 
 ## <a name="initial-replication-issues"></a>初始複寫問題
 
@@ -26,7 +65,7 @@ ms.locfileid: "54411470"
 
 下列清單顯示您可以檢查來源機器的方式：
 
-*  在來源伺服器上的命令列中，執行下列命令以使用 Telnet 透過 HTTPS 連接埠 (預設 HTTPS 連接埠為 9443) 來偵測處理伺服器。 此命令會檢查是否有網路連線問題，以及是否有會封鎖防火牆連接埠的問題。
+*  在來源伺服器上的命令列中，執行下列命令以使用 Telnet 透過 HTTPS 連接埠來偵測處理伺服器。 HTTPS 連接埠 9443 是處理序伺服器用來傳送和接收複寫流量的預設連接埠。 您可以在註冊時修改此連接埠。 下列命令會檢查是否有網路連線問題，以及是否有會封鎖防火牆連接埠的問題。
 
 
    `telnet <process server IP address> <port>`
@@ -35,13 +74,42 @@ ms.locfileid: "54411470"
    > [!NOTE]
    > 使用 Telnet 來測試連線能力。 請勿使用 `ping`。 如果未安裝 Telnet，請完成[安裝 Telnet 用戶端](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) \(英文\) 中所列的步驟。
 
+   如果 telnet 可以成功連線到 PS 連接埠，就會出現空白畫面。
+
    如果您無法連線至處理伺服器，請在處理伺服器上允許連入連接埠 9443。 例如，如果您的網路有周邊網路或遮蔽式子網路，您可能需要在處理伺服器上允許連入連接埠 9443。 接著，檢查是否仍然發生問題。
 
-*  檢查 **InMage Scout VX Agent – Sentinel/OutpostStart** 服務的狀態。 如果該服務未執行，請啟動該服務，然後檢查是否仍然發生問題。   
+*  如果 telnet 成功但是來源機器報告無法與 PS 連線，請在來源機器上開啟網頁瀏覽器並且檢查是否可連線至位址 https://<PS_IP>:<PS_Data_Port>/。
+
+    連線到這個位址時預期有 HTTPS 憑證錯誤。 忽略憑證錯誤並且繼續，最後應該會出現「400 – 不正確的要求」，這表示伺服器無法為瀏覽器的要求提供服務，而且與伺服器的標準 HTTPS 連線運作正常良好。
+
+    如果不成功，則瀏覽器上的錯誤訊息詳細資料會提供指引。 舉例來說，如果 Proxy 驗證不正確，Proxy 伺服器會在錯誤訊息中傳回「407 – 需要 Proxy 驗證」與必要的動作。 
+
+*  請檢查來源 VM 上的下列記錄是否有與網路上傳失敗相關的錯誤：
+
+       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 ### <a name="check-the-process-server"></a>檢查處理伺服器
 
 下列清單顯示您可以檢查處理伺服器的方式：
+
+> [!NOTE]
+> 處理序伺服器必須具有靜態 IPv4 位址，且不應該設定 NAT IP。
+
+* **檢查來源機器與處理序伺服器之間的連線**
+1. 如果您可以從來源機器進行 telnet，但是無法從來源連線到 PS，請藉由在來源 VM 上執行 cxpsclient 工具，檢查來源 VM 與 cxprocessserver 的端對端連線：
+
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+
+    檢查 PS 上下列目錄中產生的記錄，以取得對應錯誤的詳細資料：
+
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+2. 如果 PS 沒有活動訊號，請檢查 PS 上的下列記錄：
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 *  **檢查處理伺服器是否主動將資料推送至 Azure**。
 

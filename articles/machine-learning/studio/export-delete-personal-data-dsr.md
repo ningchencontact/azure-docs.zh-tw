@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: d2276eb11ce904b485440a6ce91981846a980dbc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462183"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994941"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>從 Azure Machine Learning Studio 匯出和刪除產品內的使用者資料
 
@@ -53,7 +53,7 @@ Machine Learning Studio 中有三種帳戶。 您擁有的帳戶種類可決定�
     - 您可以透過 UI、REST API 或 PowerShell 套件匯出個人和客戶資料。
     - 您可以在 Azure 入口網站中刪除您的資料。
 
-## <a name="delete-workspace-data-in-studio"></a>在 Studio 中刪除工作區資料 
+## <a name="delete"></a>在 Studio 中刪除工作區資料 
 
 ### <a name="delete-individual-assets"></a>刪除個別資產
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 (預覽) 中
-description: 使用 Azure Data Factory 將資料複製到 Azure Data Lake Storage Gen2 (預覽) 中
+title: 使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 中
+description: 使用 Azure Data Factory 將資料複製到 Azure Data Lake Storage Gen2
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6b03e08200c4d20a64fad329abda71c5c7edab26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680849"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876074"
 ---
-# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 (預覽) 中
+# <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 中
 
-Azure Data Lake Storage Gen2 預覽版是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)。 此功能可讓您使用檔案系統和物件儲存範例連接您的資料。
+Azure Data Lake Storage Gen2 是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)。 此功能可讓您使用檔案系統和物件儲存範例連接您的資料。
 
 Azure Data Factory 是完全受控的雲端式資料整合服務。 您可以使用此服務，在建置分析解決方案時，於 Lake 中置入來自豐富的內部部署集合和雲端式資料存放區的資料，並節省時間。 如需受支援連接器的詳細清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)資料表。
 
@@ -92,7 +92,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
     ![指定輸出資料夾](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
-7. 在 [目的地資料存放區] 頁面中，按一下 [+ 建立新連線]，然後選取 [Azure Data Lake Storage Gen2 (預覽)]，並選取 [繼續]：
+7. 在 [目的地資料存放區] 頁面中，按一下 [+ 建立新連線]，然後選取 [Azure Data Lake Storage Gen2]，並選取 [繼續]：
 
     ![目的地資料存放區頁面](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 

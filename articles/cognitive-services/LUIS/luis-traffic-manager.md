@@ -3,20 +3,20 @@ title: 增加端點配額
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491717"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997901"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理員管理幾個金鑰之間的端點配額
 Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。 
@@ -362,6 +362,9 @@ LUIS 端點成功的回應為：
 ## <a name="use-the-traffic-manager-parent-profile"></a>使用流量管理員父系設定檔
 若要管理端點之間的流量，您必須插入對流量管理員 DNS 的呼叫以尋找 LUIS 端點。 這個呼叫是針對每個 LUIS 端點要求所發出，而且必須模擬 LUIS 用戶端應用程式的使用者地理位置。 在您的 LUIS 用戶端應用程式與向 LUIS 取得端點預測的要求之間新增 DNS 回應碼。 
 
+## <a name="resolving-a-degraded-state"></a>解決降級狀態
+
+啟用流量管理員的[診斷記錄](../../traffic-manager/traffic-manager-diagnostic-logs.md)以查看端點狀態降級的原因。
 
 ## <a name="clean-up"></a>清除
 移除這兩個 LUIS 端點金鑰、這三個流量管理員設定檔，以及包含這五個資源的資源群組。 這些工作是從 Azure 入口網站進行。 您要從資源清單刪除五個資源。 然後刪除資源群組。 

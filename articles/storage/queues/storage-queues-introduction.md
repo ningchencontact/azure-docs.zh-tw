@@ -1,22 +1,21 @@
 ---
-title: Azure 佇列儲存體簡介 | Microsoft Docs
-description: Azure 佇列儲存體簡介
+title: Azure 佇列簡介 | Microsoft Docs
+description: Azure 佇列簡介
 services: storage
 author: tamram
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/06/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: b173934db17b8c3ac5a48e599b75478fb214c240
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ae0d3993df54e1c9e5a9bf93619e8f9faa8a917
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458392"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873592"
 ---
-# <a name="introduction-to-queues"></a>佇列簡介
+# <a name="what-are-azure-queues"></a>什麼是 Azure 佇列？
 
 Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。
 

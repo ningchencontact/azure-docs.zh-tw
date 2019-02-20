@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 查詢中的 app() 運算式 | Microsoft Docs
-description: 在 Log Analytics 查詢中，app 運算式可用來從相同資源群組、其他資源群組或其他訂用帳戶中的特定 Application Insights 應用程式擷取資料。
+title: Azure 監視器記錄查詢中的 app() 運算式 |Microsoft Docs
+description: 在 Azure監視器記錄查詢中，app 運算式可用來從相同資源群組、其他資源群組或其他訂用帳戶中的特定 Application Insights 應用程式擷取資料。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104655"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998530"
 ---
-# <a name="app-expression-in-log-analytics-query"></a>Log Analytics 查詢中的 app() 運算式
+# <a name="app-expression-in-azure-monitor-query"></a>Azure 監視器查詢中的 app() 運算式
 
-在 Log Analytics 查詢中，`app` 運算式可用來從相同資源群組、其他資源群組或其他訂用帳戶中的特定 Application Insights 應用程式擷取資料。 這適用於在 Log Analytics 查詢中包含應用程式資料，以及在 Application Insights 查詢中跨多個應用程式查詢資料。
+在 Azure監視器記錄查詢中，`app` 運算式可用來從相同資源群組、其他資源群組或其他訂用帳戶中的特定 Application Insights 應用程式擷取資料。 這適用於在 Azure 監視器記錄查詢中包含應用程式資料，以及在 Application Insights 查詢中跨多個應用程式查詢資料。
 
 
 
@@ -78,5 +78,6 @@ union
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱 [workspace 運算式](workspace-expression.md)以參考 Log Analytics 工作區。
-- 了解 [Log Analytics 資料](../../azure-monitor/log-query/log-query-overview.md)的儲存方式。
+- 請參閱 [workspace 運算式](workspace-expression.md)，以參考 Log Analytics 工作區。
+- 了解 [Azure 監視器資料](../../azure-monitor/log-query/log-query-overview.md)的儲存方式。
+- 存取[資料總管查詢語言](/azure/kusto/query/)的完整文件。

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0265de5b224e62d188fe6e3b9322d5c2e3f77fa1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302116"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883129"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure 資料箱閘道預覽版本資訊
 
@@ -52,9 +52,8 @@ ms.locfileid: "55302116"
 | **7.** |重新整理 | 權限和存取控制清單 (ACL) 不會保留在重新整理作業中。  | |
 | **8.** |複製 | 資料複製失敗，錯誤如下：無法完成要求的作業，因為檔案系統有限制。  |與檔案相關聯的替代資料流 (ADS) 超過 128 KB (ReFS 的最大限制) 時，就會發生此錯誤。  |
 | **9.** |符號連結 |不支援符號連結。  |目錄的符號連結導致目錄永遠不會標示為離線。 因此，您可能不會在目錄上看到灰色叉叉，此圖示表示目錄已離線，而且所有相關聯的內容皆已完整上傳至 Azure。 |
-| **10.** |線上說明 |Azure 入口網站中的說明連結不會連結至文件。|說明連結將會在公開上市版本中運作。 |
-
-
+| **10.** |共用 |將有分頁 Blob 的現有容器重新整理到區塊 Blob 共用 (或反向) 會導致檔案修改的上傳失敗。  |您遵循這些步驟時，會看見此行為： <li> 在裝置上建立區塊 Blob 共用。 </li><li> 將共用與現存具有分頁 Blob 的雲端容器相關聯。</li><li>重新整理該共用。 </li><li>修改部分重新整理的檔案，這些檔案已經在雲端儲存為分頁 Blob。</li> 發現上傳失敗。 |
+| **11.** |線上說明 |Azure 入口網站中的說明連結不會連結至文件。|說明連結將會在公開上市版本中運作。 |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6f67ad04fed2018ba71dd39ed03c24e6aebecf90
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746774"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984727"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用指令碼動作自訂 Windows 型 HDInsight 叢集
 **指令碼動作** 可用來叫用 [自訂指令碼](hdinsight-hadoop-script-actions.md) 。
@@ -62,17 +62,12 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
     ![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "使用指令碼動作以自訂叢集")
 
-    <table border='1'>
-        <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>Name</td>
-            <td>指定指令碼動作的名稱。</td></tr>
-        <tr><td>指令碼 URI</td>
-            <td>對自訂叢集所叫用的指令碼指定 URI。 s</td></tr>
-        <tr><td>Head/Worker</td>
-            <td>指定執行自訂指令碼的節點 (**Head** 或 **Worker**)。</b>
-        <tr><td>參數</td>
-            <td>如果指令碼要求，請指定參數。</td></tr>
-    </table>
+      |屬性|值|  
+      |---|---|
+      |Name|指定指令碼動作的名稱。|
+      |指令碼 URI|對自訂叢集所叫用的指令碼指定 URI。|
+      |Head/Worker|指定執行自訂指令碼的節點 (**Head** 或 **Worker**)。|
+      |參數|如果指令碼要求，請指定參數。|
 
     請按 ENTER 加入一個以上的指令碼動作，以在叢集上安裝多個元件。
 3. 按一下 [ **選取** ] 以儲存指令碼動作組態，並繼續建立叢集。
@@ -80,7 +75,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 ## <a name="call-scripts-using-azure-powershell"></a>使用 Azure PowerShell 呼叫指令碼
 接下來的這個 PowerShell 指令碼示範如何在以 Windows 為基礎的 HDInsight 叢集上安裝 Spark。  
 
-    ```powershell
+```powershell  
     # Provide values for these variables
     $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
@@ -159,7 +154,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-    ```
+```
 
 若要安裝其他軟體，您必須取代指令碼中的指令碼檔案：
 
@@ -172,12 +167,14 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 1. 在 Visual Studio 建立 C# 主控台應用程式。
 2. 從 NuGet Package Manager Console 執行下列命令：
-    ```powershell
+
+    ```powershell  
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
     ```
-3. 在 Program.cs 檔案中使用下列 using 陳述式：
+
+1. 在 Program.cs 檔案中使用下列 using 陳述式：
 
     ```csharp
         using System;

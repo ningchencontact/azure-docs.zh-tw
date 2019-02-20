@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435969"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245723"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>針對組態伺服器問題進行疑難排解
 
@@ -60,7 +60,7 @@ ms.locfileid: "54435969"
 
 ## <a name="vcenter-discovery-failures"></a>vCenter 探索失敗
 
-若要解決 vCenter 探索失敗，請確保該 vCenter 伺服器已加入至 byPass 清單的 Proxy 設定。若要執行這項活動，
+若要解決 vCenter 探索失敗，請將 vCenter 伺服器新增至 byPass 清單 Proxy 設定。 
 
 - 請從[此處](https://aka.ms/PsExec)下載 PsExec 工具，以存取系統使用者內容。
 - 藉由執行下列命令列   psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"，在系統使用者內容中開啟 Internet Explorer
@@ -80,6 +80,11 @@ ms.locfileid: "54435969"
 
 無法建立驗證 Site Recovery 所需的憑證。 請先確定您是以本機系統管理員身分執行安裝程式，再重新執行安裝程式。
 
+## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>無法啟用從 Server Standard 評估版到 Server Standard 的 Windows 授權
+
+1. 透過 OVF 的組態伺服器部署過程中，會使用評估授權，其有效期為 180 天。 您必須在此授權過期前啟用此授權。 否則，這會導致組態伺服器頻繁關機，因而阻礙複寫活動。
+2. 如果您無法啟用 Windows 的授權，請連絡 [Windows 支援小組](https://aka.ms/Windows_Support)來解決此問題。
+
 ## <a name="register-source-machine-with-configuration-server"></a>向設定伺服器註冊來源電腦
 
 ### <a name="if-the-source-machine-runs-windows"></a>如果來源電腦執行 Windows
@@ -89,7 +94,7 @@ ms.locfileid: "54435969"
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
-  ```
+```
 
 設定 | 詳細資料
 --- | ---
@@ -112,3 +117,140 @@ ms.locfileid: "54435969"
 -i | 必要參數。 指定設定伺服器的 IP 位址。 請使用任何有效的 IP 位址。
 -P |  必要。 儲存複雜密碼之檔案的完整檔案路徑。 請使用任何有效的資料夾。
 
+## <a name="unable-to-configure-the-configuration-server"></a>無法設定組態伺服器
+
+如果您在虛擬機器上安裝組態伺服器以外的應用程式，您可能無法設定主要目標。 
+
+組態伺服器必須是單一用途伺服器，不支援使用它作為共用伺服器。 
+
+如需詳細資訊，請參閱[部署組態伺服器](vmware-azure-deploy-configuration-server.md#faq)中的設定常見問題集。 
+
+## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>從組態伺服器資料庫中移除受保護項目的過時項目 
+
+若要移除組態伺服器上過時的受保護機器，使用下列步驟。 
+ 
+1. 若要判斷過時項目的來源機器和 IP 位址： 
+
+    1. 在系統管理員模式中開啟 MYSQL 命令列。 
+    2. 執行下列命令。 
+   
+        ```
+        mysql> use svsdb1;
+        mysql> select id as hostid, name, ipaddress, ostype as operatingsystem, from_unixtime(lasthostupdatetime) as heartbeat from hosts where name!='InMageProfiler'\G;
+        ```
+
+        這會傳回已註冊的機器清單，以及其 IP 位址和上次活動訊號。 尋找具有過時複寫配對的主機。
+
+2. 開啟提升權限的命令提示字元並瀏覽至 C:\ProgramData\ASR\home\svsystems\bin。 
+4. 若要從組態伺服器中移除已註冊的主機詳細資料和過時的項目資訊，請使用過時項目的來源電腦和 IP 位址，執行下列命令。 
+   
+    `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
+ 
+    如果您有 IP 位址為 10.0.0.4 的來源伺服器項目 "OnPrem-VM01"，則改用下列命令。
+ 
+    `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
+ 
+5. 在來源電腦上重新啟動下列服務，以向組態伺服器重新註冊。 
+ 
+    - InMage Scout 應用程式服務
+    - InMage Scout VX Agent - Sentinel/Outpost
+
+## <a name="upgrade-fails-when-the-services-fail-to-stop"></a>當服務無法停止時升級失敗
+
+當特定服務未停止時，組態伺服器升級失敗。 
+
+若要找出問題，請瀏覽至組態伺服器上的 C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile。 如果您發現下列錯誤，請依照下列步驟來解決問題： 
+
+    2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+    2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+    2018-06-28 14:28:12.944   Stopping svagents service.
+    2018-06-28 14:31:32.949   Unable to stop svagents service.
+    2018-06-28 14:31:32.949   Stopping svagents service.
+    2018-06-28 14:34:52.960   Unable to stop svagents service.
+    2018-06-28 14:34:52.960   Stopping svagents service.
+    2018-06-28 14:38:12.971   Unable to stop svagents service.
+    2018-06-28 14:38:12.971   Rolling back the install changes.
+    2018-06-28 14:38:12.971   Upgrade has failed.
+
+若要解決此問題：
+
+手動停止下列服務：
+
+- cxprocessserver
+- InMage Scout VX Agent – Sentinel/Outpost、 
+- Microsoft Azure 復原服務代理程式、 
+- Microsoft Azure Site Recovery 服務、 
+- tmansvc
+  
+若要更新組態伺服器，請再次執行[整合安裝](service-updates-how-to.md#links-to-currently-supported-update-rollups)。
+
+## <a name="azure-active-directory-application-creation-failure"></a>Azure Active Directory 應用程式建立失敗
+
+您在 Azure Active Directory (AAD) 中使用[開放虛擬化應用程式 (OVA)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
+) 範本建立應用程式的權限不足。
+
+若要解決此問題，請登入 Azure 入口網站並執行下列其中一項：
+
+- 在 AAD 中要求應用程式開發人員角色。 如需應用程式開發人員角色的詳細資訊，請參閱 [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
+- 在 AAD 中確認 [使用者可以建立應用程式] 旗標設為 true。 如需詳細資訊，請參閱[操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+
+## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>處理序伺服器/主要目標無法與組態伺服器通訊 
+
+處理序伺服器 (PS) 和主要目標 (MT) 模組無法與組態伺服器 (CS) 通訊，而且其狀態會顯示為未連線到 Azure 入口網站。
+
+這通常是由於連接埠 443 發生錯誤。 使用下列步驟來解除封鎖連接埠，並重新啟用與 CS 的通訊。
+
+**確認 MARS 代理程式正由主要目標代理程式叫用**
+
+若要確認主要目標代理程式可以針對組態伺服器 IP 建立 TCP 工作階段，請在主要目標代理程式記錄中尋找類似以下的追蹤：
+
+TCP <Replace IP with CS IP here>:52739 <Replace IP with CS IP here>:443 SYN_SENT 
+
+TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // 以這裡的 CS IP 取代 IP
+
+如果您在 MT 代理程式記錄中找到類似以下的追蹤，則 MT 代理程式會在連接埠 443 上回報錯誤：
+
+    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+ 
+當其他應用程式也使用連接埠 443 時，或因為防火牆設定封鎖連接埠，有可能遇到此錯誤。
+
+若要解決此問題：
+
+- 確認連接埠 443 未遭到防火牆封鎖。
+- 如果連接埠因為另一個使用該連接埠的應用程式而無法連線，請停止並解除安裝應用程式。
+  - 如果停止應用程式並不可行，請設定全新的 CS。
+- 重新啟動組態伺服器。
+- 重新啟動 IIS 服務。
+
+### <a name="configuration-server-is-not-connected-due-to-incorrect-uuid-entries"></a>組態伺服器因為 UUID 項目不正確而未連線
+
+當資料庫中有多個組態伺服器 (CS) 執行個體 UUID 項目時，可能會發生此錯誤。 當您複製組態伺服器 VM 時，通常會發生此問題。
+
+若要解決此問題：
+
+1. 從 vCenter 中移除過時/舊版 CS VM。 如需詳細資訊，請參閱[移除伺服器並停用保護](site-recovery-manage-registration-and-protection.md)。
+2. 登入組態伺服器 VM 並連線到 MySQL svsdb1 資料庫。 
+3. 執行以下查詢：
+
+    > [!IMPORTANT]
+    >
+    > 確認您正在輸入所複製組態伺服器的 UUID 詳細資料，或不再用來保護虛擬機器的組態伺服器的過時項目。 輸入不正確的 UUID 會導致遺失所有現有受保護項目的資訊。
+   
+    ```
+        MySQL> use svsdb1;
+        MySQL> delete from infrastructurevms where infrastructurevmid='<Stale CS VM UUID>';
+        MySQL> commit; 
+    ```
+4. 重新整理入口網站頁面。
+
+## <a name="an-infinite-sign-in-loop-occurs-when-entering-your-credentials"></a>輸入認證時會發生無限登入迴圈
+
+在組態伺服器 OVF 上輸入正確的使用者名稱和密碼之後，Azure 登入會繼續提示輸入正確的認證。
+
+系統時間不正確時會發生此問題。
+
+若要解決此問題：
+
+在電腦上設定正確時間，然後重試登入。 
+ 

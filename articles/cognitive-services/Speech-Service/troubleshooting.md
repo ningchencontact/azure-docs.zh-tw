@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 本文提供的資訊可協助您解決在使用語音服務 SDK 時可能會遇到的問題。
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217147"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859312"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>針對語音服務 SDK 進行疑難排解
 
@@ -67,6 +67,8 @@ ms.locfileid: "55217147"
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
+如果您已輸入有效的訂用帳戶金鑰，命令會傳回授權權杖，否則會傳回錯誤。
+
 ### <a name="validate-an-authorization-token"></a>驗證授權權杖
 
 如果您是使用授權權杖進行驗證，請執行下列其中一項命令，驗證授權權杖是否仍然有效。 權杖的有效時間為 10 分鐘。
@@ -101,6 +103,8 @@ ms.locfileid: "55217147"
     ```
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
+
+如果您已輸入有效的授權權杖，命令會傳回音訊檔案的轉譯，否則會傳回錯誤。
 
 ---
 

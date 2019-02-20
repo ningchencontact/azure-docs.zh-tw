@@ -12,47 +12,47 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 115be0ad1b7dec44f036f6d50c2ac30ceba37ba7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 17774ea74c2462cb5b8a9dfe638b3dec02499d81
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457083"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999159"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
 ## <a name="configuration-problems"></a>組態問題
 *我在設定下列項目時有問題：*
 
-* [.NET 應用程式](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
-* [監視已在執行的應用程式](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)
+* [.NET 應用程式](asp-net-troubleshoot-no-data.md)
+* [監視已在執行的應用程式](monitor-performance-live-website-now.md#troubleshoot)
 * [Azure 診斷](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Java Web 應用程式](../../azure-monitor/app/java-troubleshoot.md)
+* [Java Web 應用程式](java-troubleshoot.md)
 
 我的伺服器沒有傳回資料
 
-* [設定防火牆例外狀況](../../azure-monitor/app/ip-addresses.md)
-* [設定 ASP.NET 伺服器](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [設定 Java 伺服器](../../azure-monitor/app/java-agent.md)
+* [設定防火牆例外狀況](ip-addresses.md)
+* [設定 ASP.NET 伺服器](monitor-performance-live-website-now.md)
+* [設定 Java 伺服器](java-agent.md)
 
 ## <a name="can-i-use-application-insights-with-"></a>我是否可以搭配 ... 來使用 Application Insights 嗎？
 
-* [IIS 伺服器 (內部部署或 VM 中) 上的 Web 應用程式](../../azure-monitor/app/asp-net.md)
-* [Java Web 應用程式](../../azure-monitor/app/java-get-started.md)
-* [Node.js 應用程式](../../azure-monitor/app/nodejs.md)
-* [Azure 上的 Web 應用程式](../../azure-monitor/app/azure-web-apps.md)
-* [Azure 上的雲端服務](../../azure-monitor/app/cloudservices.md)
-* [在 Docker 中執行的應用程式伺服器](../../azure-monitor/app/docker.md)
-* [單一頁面 Web 應用程式](../../azure-monitor/app/javascript.md)
+* [IIS 伺服器 (內部部署或 VM 中) 上的 Web 應用程式](asp-net.md)
+* [Java Web 應用程式](java-get-started.md)
+* [Node.js 應用程式](nodejs.md)
+* [Azure 上的 Web 應用程式](azure-web-apps.md)
+* [Azure 上的雲端服務](cloudservices.md)
+* [在 Docker 中執行的應用程式伺服器](docker.md)
+* [單一頁面 Web 應用程式](javascript.md)
 * [SharePoint](sharepoint.md)
-* [Windows 傳統型應用程式](../../azure-monitor/app/windows-desktop.md)
-* [其他平台](../../azure-monitor/app/platforms.md)
+* [Windows 傳統型應用程式](windows-desktop.md)
+* [其他平台](platforms.md)
 
 ## <a name="is-it-free"></a>它是免費的嗎？
 
 是，可作為實驗用途。 在基本定價方案中，您的應用程式每個月可以免費傳送一定額度的資料。 免費額度足夠因應開發用途和為少量使用者發佈應用程式。 您可以設定上限以防止處理超過指定的資料量。
 
-較大量的遙測資料是以 Gb 計費。 我們提供一些有關如何[限制費用](../../azure-monitor/app/pricing.md)的秘訣。
+較大量的遙測資料是以 Gb 計費。 我們提供一些有關如何[限制費用](pricing.md)的秘訣。
 
 「企業」方案會針對每個 Web 伺服器節點傳送遙測資料的每一天計費。 如果您想要大規模使用「連續匯出」，便適用此方案。
 
@@ -86,7 +86,7 @@ ms.locfileid: "55457083"
 * (僅限新專案 - 如果您[將 Application Insights 新增至現有的專案][start]，則必須手動執行。)將程式碼片段插入至用戶端和伺服器程式碼中，以使用 Application Insights 資源識別碼將這些片段初始化。 例如，在 MVC 應用程式中，程式碼會插入至主版頁面 Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>如何從舊版 SDK 升級？
-請參閱您的應用程式類型所適用之 SDK 的[版本資訊](../../azure-monitor/app/release-notes.md)。
+請參閱您的應用程式類型所適用之 SDK 的[版本資訊](release-notes.md)。
 
 ## <a name="update"></a>如何變更我的專案將資料傳送到哪一個 Azure 資源？
 在 [方案總管] 中，以滑鼠右鍵按一下 `ApplicationInsights.config`，然後選擇 [更新 Application Insights]。 您可以將資料傳送至 Azure 中的現有資源或新資源。 更新精靈會變更 ApplicationInsights.config 中的檢測金鑰，這決定伺服器 SDK 將您的資料送往何處。 除非您取消選取 [全部更新]，否則也會變更金鑰出現在您網頁中的位置。
@@ -95,33 +95,33 @@ ms.locfileid: "55457083"
 
 一個傳統型應用程式，您可以在 IIS Web 伺服器中使用它，以協助您在 Web 應用程式中設定 Application Insights。 它不會收集遙測資料：當您沒有在設定應用程式時，可以將它停止。 
 
-[深入了解](../../azure-monitor/app/monitor-performance-live-website-now.md#questions)。
+[深入了解](monitor-performance-live-website-now.md#questions)。
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Application Insights 會收集什麼遙測資料？
 
 從伺服器 Web 應用程式：
 
 * HTTP 要求
-* [相依項目](../../azure-monitor/app/asp-net-dependencies.md)。 對下列各項的呼叫：SQL Database、對外部服務的 HTTP 呼叫、Azure Cosmos DB、資料表、Blob 儲存體及佇列。 
-* [例外狀況](../../azure-monitor/app/asp-net-exceptions.md)和堆疊追蹤。
-* [效能計數器](../../azure-monitor/app/performance-counters.md) - 如果您使用[狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md)、[Azure 監視](../../azure-monitor/app/azure-web-apps.md)或 [Application Insights collectd 寫入器](../../azure-monitor/app/java-collectd.md)。
-* 您以程式碼撰寫的[自訂事件和計量](../../azure-monitor/app/api-custom-events-metrics.md)。
-* [追蹤記錄檔](../../azure-monitor/app/asp-net-trace-logs.md) - 如果您設定適當的收集器。
+* [相依項目](asp-net-dependencies.md)。 對下列各項的呼叫：SQL Database、對外部服務的 HTTP 呼叫、Azure Cosmos DB、資料表、Blob 儲存體及佇列。 
+* [例外狀況](asp-net-exceptions.md)和堆疊追蹤。
+* [效能計數器](performance-counters.md) - 如果您使用[狀態監視器](monitor-performance-live-website-now.md)、[Azure 監視](azure-web-apps.md)或 [Application Insights collectd 寫入器](java-collectd.md)。
+* 您以程式碼撰寫的[自訂事件和計量](api-custom-events-metrics.md)。
+* [追蹤記錄檔](asp-net-trace-logs.md) - 如果您設定適當的收集器。
 
-從[用戶端網頁](../../azure-monitor/app/javascript.md)：
+從[用戶端網頁](javascript.md)：
 
 * [頁面檢視計數](usage-overview.md)
-* [AJAX 呼叫](../../azure-monitor/app/asp-net-dependencies.md) - 從執行中指令碼發出的要求。
+* [AJAX 呼叫](asp-net-dependencies.md) - 從執行中指令碼發出的要求。
 * 頁面檢視載入資料
 * 使用者和工作階段計數
-* [已驗證的使用者識別碼](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)
+* [已驗證的使用者識別碼](api-custom-events-metrics.md#authenticated-users)
 
 從其他來源 (如果您設定它們的話)：
 
-* [Azure 診斷](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [匯入到分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
-* [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
-* [Logstash](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Azure 診斷](../platform/diagnostics-extension-to-application-insights.md)
+* [匯入到分析](../platform/data-collector-api.md)
+* [Log Analytics](../platform/data-collector-api.md)
+* [Logstash](../platform/data-collector-api.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>我是否可以篩選掉或修改某些遙測？
 
@@ -130,7 +130,7 @@ ms.locfileid: "55457083"
 * 「遙測處理器」以在從您的應用程式傳送選取的遙測項目之前，先篩選它們的屬性或為它們新增屬性。
 * 「初始設定式」以為所有遙測項目新增屬性。
 
-深入了解 [ASP.NET](../../azure-monitor/app/api-filtering-sampling.md) 或 [Java](../../azure-monitor/app/java-filter-telemetry.md)。
+深入了解 [ASP.NET](api-filtering-sampling.md) 或 [Java](java-filter-telemetry.md)。
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>如何計算城市、國家/地區及其他地理位置的資料？
 
@@ -141,7 +141,7 @@ ms.locfileid: "55457083"
 
 您可以設定 `ClientIpHeaderTelemetryInitializer` 以從不同的標頭取得 IP 位址。 例如，在某些系統中，Proxy、負載平衡器或 CDN 會將它移至 `X-Originating-IP`。 [深入了解](https://apmtips.com/blog/2016/07/05/client-ip-address/)。
 
-您可以[使用 Power BI](../../azure-monitor/app/export-power-bi.md ) 在地圖上顯示您的要求遙測資料。
+您可以[使用 Power BI](export-power-bi.md ) 在地圖上顯示您的要求遙測資料。
 
 
 ## <a name="data"></a>資料會保留在入口網站多久？ 是否安全？
@@ -149,7 +149,7 @@ ms.locfileid: "55457083"
 
 ## <a name="could-personal-data-be-sent-in-the-telemetry"></a>可以在遙測中傳送個人資料嗎？
 
-如果您的程式碼會傳送這類資料，就有可能。 如果堆疊追蹤中的變數包含個人資料，也可能發生這種情況。 您的開發小組應該進行風險評估，以確保正確處理個人資料。 [深入了解資料保留和隱私權](../../azure-monitor/app/data-retention-privacy.md)。
+如果您的程式碼會傳送這類資料，就有可能。 如果堆疊追蹤中的變數包含個人資料，也可能發生這種情況。 您的開發小組應該進行風險評估，以確保正確處理個人資料。 [深入了解資料保留和隱私權](data-retention-privacy.md)。
 
 在查閱地理位置屬性之後，用戶端 Web 位址的**所有**八位元資料一律會設定為 0。
 
@@ -173,35 +173,35 @@ ms.locfileid: "55457083"
 對於單一商務系統中的所有元件或角色，請使用單一資源。 對於開發、測試和發行版本以及獨立的應用程式，則請使用不同的資源。
 
 * [請參閱這裡的討論](separate-resources.md)
-* [範例 - 具有背景工作角色和 Web 角色的雲端服務](../../azure-monitor/app/cloudservices.md)
+* [範例 - 具有背景工作角色和 Web 角色的雲端服務](cloudservices.md)
 
 ## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>我如何動態變更檢測金鑰？
 
 * [這裡的討論](separate-resources.md)
-* [範例 - 具有背景工作角色和 Web 角色的雲端服務](../../azure-monitor/app/cloudservices.md)
+* [範例 - 具有背景工作角色和 Web 角色的雲端服務](cloudservices.md)
 
 ## <a name="what-are-the-user-and-session-counts"></a>什麼是使用者和和工作階段計數？
 
 * JavaScript SDK 會在 Web 用戶端上設定使用者 Cookie 來識別傳回使用者，以及設定一個工作階段 Cookie 來將活動分組。
 * 如果沒有任何用戶端指令碼，則您可以[在伺服器設定 Cookie](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)。
 * 如果有一個真實的使用者以不同的瀏覽器使用您的站台，或是使用 InPrivate/Incognito 瀏覽，或透過不同的電腦，則系統會將其計算多次。
-* 若要跨電腦和瀏覽器識別登入的使用者，請新增對 [setAuthenticatedUserContext()](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) 的呼叫。
+* 若要跨電腦和瀏覽器識別登入的使用者，請新增對 [setAuthenticatedUserContext()](api-custom-events-metrics.md#authenticated-users) 的呼叫。
 
 ## <a name="q17"></a> 我是否已啟用 Application Insights 中的所有項目？
 | 您應該會看到 | 如何取得 | 取得原因 |
 | --- | --- | --- |
-| 可用性圖表 |[Web 測試](../../azure-monitor/app/monitor-web-app-availability.md) |知道您的 Web 應用程式已啟動 |
-| 伺服器應用程式效能：回應時間... |[將 Application Insights 新增至您的專案](../../azure-monitor/app/asp-net.md)或[在伺服器上安裝 AI 狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md) (或撰寫您自己的程式碼來[追蹤相依性](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |偵測效能問題 |
-| 相依性遙測 |[在伺服器上安裝 AI 狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md) |診斷資料庫或其他外部元件的問題 |
-| 取得例外狀況的堆疊追蹤 |[在程式碼中插入 TrackException 呼叫](../../azure-monitor/app/asp-net-exceptions.md) (但部分會自動報告) |偵測並診斷例外狀況 |
-| 搜尋記錄追蹤 |[新增記錄配接器](../../azure-monitor/app/asp-net-trace-logs.md) |診斷例外狀況、效能問題 |
-| 用戶端使用基本概念：頁面檢視、工作階段... |[網頁中的 JavaScript 初始設定式](../../azure-monitor/app/javascript.md) |流量分析 |
-| 用戶端自訂度量 |[追蹤網頁中的呼叫](../../azure-monitor/app/api-custom-events-metrics.md) |增強使用者經驗 |
-| 伺服器自訂度量 |[追蹤伺服器中的呼叫](../../azure-monitor/app/api-custom-events-metrics.md) |商業智慧 |
+| 可用性圖表 |[Web 測試](monitor-web-app-availability.md) |知道您的 Web 應用程式已啟動 |
+| 伺服器應用程式效能：回應時間... |[將 Application Insights 新增至您的專案](asp-net.md)或[在伺服器上安裝 AI 狀態監視器](monitor-performance-live-website-now.md) (或撰寫您自己的程式碼來[追蹤相依性](api-custom-events-metrics.md#trackdependency)) |偵測效能問題 |
+| 相依性遙測 |[在伺服器上安裝 AI 狀態監視器](monitor-performance-live-website-now.md) |診斷資料庫或其他外部元件的問題 |
+| 取得例外狀況的堆疊追蹤 |[在程式碼中插入 TrackException 呼叫](asp-net-exceptions.md) (但部分會自動報告) |偵測並診斷例外狀況 |
+| 搜尋記錄追蹤 |[新增記錄配接器](asp-net-trace-logs.md) |診斷例外狀況、效能問題 |
+| 用戶端使用基本概念：頁面檢視、工作階段... |[網頁中的 JavaScript 初始設定式](javascript.md) |流量分析 |
+| 用戶端自訂度量 |[追蹤網頁中的呼叫](api-custom-events-metrics.md) |增強使用者經驗 |
+| 伺服器自訂度量 |[追蹤伺服器中的呼叫](api-custom-events-metrics.md) |商業智慧 |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>為什麼 [搜尋] 和 [計量] 圖表中的計數不相等？
 
-[取樣](../../azure-monitor/app/sampling.md)會減少從您應用程式實際傳送到入口網站的遙測項目 (要求、自訂事件等等) 數目。 在「搜尋」中，您會看到實際收到的項目數目。 在顯示事件計數的計量圖表中，您會看到發生的原始事件數目。 
+[取樣](sampling.md)會減少從您應用程式實際傳送到入口網站的遙測項目 (要求、自訂事件等等) 數目。 在「搜尋」中，您會看到實際收到的項目數目。 在顯示事件計數的計量圖表中，您會看到發生的原始事件數目。 
 
 每個傳輸的項目都帶有一個 `itemCount` 屬性，此屬性會顯示該項目代表的原始事件數目。 若要觀察取樣的運作情況，您可以在 [分析] 中執行下列查詢：
 
@@ -214,7 +214,7 @@ ms.locfileid: "55457083"
 
 ### <a name="configuring-application-insights"></a>設定 Application Insights
 
-您可以[撰寫 PowerShell 指令碼](../../azure-monitor/app/powershell.md)以使用「Azure 資源監視器」來：
+您可以[撰寫 PowerShell 指令碼](powershell.md)以使用「Azure 資源監視器」來：
 
 * 建立和更新 Application Insights 資源。
 * 設定定價方案。
@@ -226,7 +226,7 @@ ms.locfileid: "55457083"
 
 ### <a name="querying-the-telemetry"></a>查詢遙測
 
-請使用 [REST API](https://dev.applicationinsights.io/) 來執行[分析](../../azure-monitor/app/analytics.md)查詢。
+請使用 [REST API](https://dev.applicationinsights.io/) 來執行[分析](analytics.md)查詢。
 
 ## <a name="how-can-i-set-an-alert-on-an-event"></a>我要如何在事件上設定警示？
 
@@ -241,17 +241,17 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>我是否可以將遙測資料傳送給 Application Insights 入口網站？
 
-建議您使用我們的 SDK 和使用 [SDK API](../../azure-monitor/app/api-custom-events-metrics.md)。 SDK 有適用於各種[平台](../../azure-monitor/app/platforms.md)的各種變體。 這些 SDK 可處理緩衝、壓縮、節流、重試等。 不過，[擷取結構描述](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema)和[端點通訊協定](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md)是公用的。
+建議您使用我們的 SDK 和使用 [SDK API](api-custom-events-metrics.md)。 SDK 有適用於各種[平台](platforms.md)的各種變體。 這些 SDK 可處理緩衝、壓縮、節流、重試等。 不過，[擷取結構描述](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema)和[端點通訊協定](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md)是公用的。
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>我是否可以監視內部網路 Web 伺服器？
 
 是，但您必須藉由防火牆例外或 Proxy 重新導向允許流量進入至我們的服務。
-- QuickPulse `rt.services.visualstudio.com:443` 
+- QuickPulse `https://rt.services.visualstudio.com:443` 
 - ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
 - TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
 
-請在[這裡](../../azure-monitor/app/ip-addresses.md)檢閱我們的服務和 IP 位址清單。
+請在[這裡](../../azure-monitor/app/ip-addresses.md)檢閱我們的服務和 IP 位址完整清單。
 
 ### <a name="firewall-exception"></a>防火牆例外
 
@@ -293,9 +293,9 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>我是否可以在內部網路伺服器上執行可用性 Web 測試？
 
-我們的 [Web 測試](../../azure-monitor/app/monitor-web-app-availability.md)是在分散於全球各地的網路節點上執行。 有兩個解決方案：
+我們的 [Web 測試](monitor-web-app-availability.md)是在分散於全球各地的網路節點上執行。 有兩個解決方案：
 
-* 防火牆門 - 允許從[這個又長又可變更的 Web 測試代理程式清單](../../azure-monitor/app/ip-addresses.md)傳送要求給您的伺服器。
+* 防火牆門 - 允許從[這個又長又可變更的 Web 測試代理程式清單](ip-addresses.md)傳送要求給您的伺服器。
 * 撰寫您自己的程式碼，以從內部網路內傳送定期要求給您的伺服器。 您可以針對這個目的執行 Visual Studio Web 測試。 測試者可以使用 TrackAvailability() API 將結果傳送給 Application Insights。
 
 ## <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>收集遙測資料需要花費多少時間？
@@ -307,7 +307,7 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 
 <!--Link references-->
 
-[data]: ../../azure-monitor/app/data-retention-privacy.md
-[platforms]: ../../azure-monitor/app/platforms.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[data]: data-retention-privacy.md
+[platforms]: platforms.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

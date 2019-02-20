@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452814"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994008"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure 監視器持續監視
 
@@ -64,7 +64,7 @@ Azure 上的一般應用程式包含多個資源，例如 VM 和應用程式服�
 
 - 使用 [Azure 管線](/azure/devops/pipelines)來實作持續部署，並根據您的 CI/CD 測試，自動化從程式碼認可到生產環境的整個程序。
 - 使用[品質閘門](/azure/devops/pipelines/release/approvals/gates)將監視整合到部署前或部署後。 這可確保您在應用程式從開發階段移至生產環境時符合主要的健康情況/效能計量 (KPI)，並且基礎結構環境或規模中的任何差異都不會對您的 KPI 造成負面影響。
-- 在不同的部署環境 (如 Dev、Test，Canary 和 Prod) 之間[維護個別的監視執行個體](../azure-monitor/app/separate-resources.md)。這可確保收集的資料與相關聯的應用程式和基礎結構相關。 如果需要跨環境將資料相互關聯，可以[在計量瀏覽器中使用多資源圖表](../azure-monitor/platform/metrics-charts.md)，或[在 Log Analytics 中建立跨資源查詢](log-query/cross-workspace-query.md)。
+- 在不同的部署環境 (如 Dev、Test，Canary 和 Prod) 之間[維護個別的監視執行個體](../azure-monitor/app/separate-resources.md)。這可確保收集的資料與相關聯的應用程式和基礎結構相關。 如果需要跨環境將資料相互關聯，可以[在計量瀏覽器中使用多資源圖表](../azure-monitor/platform/metrics-charts.md)，或[在 Azure 監視器中建立跨資源查詢](log-query/cross-workspace-query.md)。
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>使用動作建立可採取動作的警示

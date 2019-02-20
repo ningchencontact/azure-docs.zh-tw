@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e56169d74d1669c3bb7adda06590145d2ca31b72
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695367"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893335"
 ---
 # <a name="saas-sell-through-azure---apis"></a>透過 Azure API 銷售 SaaS 
 
@@ -68,7 +68,7 @@ Azure 不會對 SaaS 服務向終端使用者顯示的驗證施加任何限制�
     -   **登入 URL**：針對 Web 應用程式/API 應用程式，請提供應用程式的基底 URL。 例如，**http://localhost:31544** 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 接著，使用者會使用此 URL 來登入 Web 用戶端應用程式。
     -   **重新導向 URI**：針對原生應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 **http://MyFirstAADApp**。
 
-        ![SaaS AD 應用程式註冊](./media/saas-offer-app-registration-2.png)如需 Web 應用程式或原生應用程式的特定範例，請參閱 [Azure AD 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started) [開始使用] 一節中提供的快速入門引導設定。
+        ![SaaS AD 應用程式註冊](./media/saas-offer-app-registration-2.png)如需 Web 應用程式或原生應用程式的特定範例，請參閱 [Azure AD 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) [開始使用] 一節中提供的快速入門引導設定。
 
 5.  完成後，按一下 [建立]。 Azure AD 會將唯一的應用程式識別碼指派給您的應用程式，然後系統會帶您\'進入應用程式\'的主要註冊頁面。 根據您的應用程式是 Web 還是原生應用程式，系統會提供您不同選項以供您在應用程式中新增其他功能。
 
@@ -148,7 +148,9 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 ### <a name="resolve-subscription"></a>解析訂用帳戶
 
-解析端點上的 POST 動作可讓使用者解析持續性資源識別碼的權杖。
+解析端點上的 POST 動作可讓使用者解析持續性資源識別碼的 Marketplace 權杖。  資源識別碼是 SAAS 訂用帳戶的唯一識別碼。 
+
+使用者重新導向至 ISV 的網站時，URL 會包含查詢參數中的權杖。 ISV 必須使用此權杖，並提出要求，以解決此問題。 回應包含唯一的 SAAS 訂用帳戶識別碼、名稱、供應項目識別碼和資源方案。 此權杖僅在一小時內有效。
 
 *要求*
 

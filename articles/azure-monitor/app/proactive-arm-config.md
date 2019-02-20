@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881591"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962225"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則
 
@@ -31,6 +31,7 @@ ms.locfileid: "54881591"
 - 是否啟用規則 (預設值是 **true**)。
 - 是否應在找到偵測時，將電子郵件傳送給訂用帳戶擁有者、參與者和讀者 (預設值是 **true**)。
 - 應該在找到偵測時收到通知的任何其他電子郵件收件者。
+- * 對於標示為_預覽_的智慧偵測規則，無法使用電子郵件設定。
 
 為了允許透過 Azure Resource Manager 設定規則設定，智慧偵測規則設定現在可作為 Application Insights 資源 (名為 **ProactiveDetectionConfigs**) 中的內部資源。
 為獲得最大彈性，您可以使用唯一的通知設定來設定每個智慧偵測規則。
