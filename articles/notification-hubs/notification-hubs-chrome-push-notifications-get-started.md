@@ -49,7 +49,7 @@ ms.locfileid: "54447032"
 
     ![建立專案按鈕](media/notification-hubs-chrome-get-started/create-project-button.png)
 3. 提供適當的 [專案名稱]，然後按一下 [建立] 按鈕。
-4. 選取工具列上的 [通知] 圖示 (鈴鐺)，然後選取 [建立專案] 訊息。
+4. 選取工具列上的 [通知] 圖示\(鈴鐺)，然後選取 [建立專案] 訊息。
 
     ![專案建立通知](media/notification-hubs-chrome-get-started/project-creation-notification.png)
 5. 在 [專案] 頁面上，記下您建立之專案的 [專案編號]。 您會以專案編號作為 Chrome 應用程式中的 [GCM 寄件者識別碼] ，向 GCM 註冊。

@@ -81,7 +81,7 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
     在選取服務層、DTU 或 vCore 數目和儲存體數量之後，按一下 [套用]。
 
-7. 為空白資料庫輸入 [定序] (在此教學課程中使用預設值)。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations)。
+7. 為空白資料庫輸入 [定序]\(在此教學課程中使用預設值)。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations)。
 
 8. 您現在已完成 **SQL Database** 表單，請按一下 [建立] 來佈建單一資料庫。 這個步驟可能需要幾分鐘的時間。
 
