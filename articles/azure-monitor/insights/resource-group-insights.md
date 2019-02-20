@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587301"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997017"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>使用 Azure 監視器監視資源群組 (預覽)
 
@@ -93,9 +93,9 @@ ms.locfileid: "53587301"
 
 ![編輯方塊螢幕擷取畫面](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-這會顯示驅動表格視覺化的基礎 Log Analytics 查詢。
+這會顯示驅動表格視覺化的基礎記錄查詢。
 
- ![記錄分析查詢視窗的螢幕擷取畫面](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![記錄查詢視窗的螢幕擷取畫面](./media/resource-group-insights/0010-failure-edit-query.png)
 
 您可以直接修改查詢。 或者，您可以使用它做為參考，並在設定您自己的參數化活頁簿時借用它做為參考。
 

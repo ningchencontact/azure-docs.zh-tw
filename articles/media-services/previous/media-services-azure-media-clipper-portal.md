@@ -6,17 +6,18 @@ keywords: clip;subclip;encoding;media;剪輯;子剪輯;編碼;媒體
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 510176331a1b79a1069b42afabb63b6b326951cc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782787"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992306"
 ---
-# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>在入口網站使用 Azure Media Clipper 建立剪輯
+# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>在入口網站使用 Azure Media Clipper 建立剪輯  
+
 您可以在入口網站使用 Azure Media Clipper，從媒體服務帳戶中的資產建立剪輯。 若要開始，請在入口網站中瀏覽至您的媒體服務帳戶。 接下來，選取 [子剪輯] 索引標籤。
 
 在 [子剪輯] 索引標籤上，您可以開始撰寫剪輯。 Clipper 會在入口網站中載入單一位元速率 mp4、多位元速率 mp4，以及使用有效串流定位器發佈的即時封存。 不會載入未發佈的資產。
@@ -35,7 +36,7 @@ Clipper 目前為公開預覽狀態。 若要在 Azure 入口網站中存取 Cli
 
 若要建立動態資訊清單篩選，請瀏覽至 [資產] 索引標籤，然後選取所需的資產。 選取上方功能表中的 [子短片] 按鈕。 從 [進階設定] 功能表中，選取 [動態資訊清單篩選] 作為剪輯模式。 您接著可以遵循相同程序來產生已轉譯的剪輯以建立篩選。 篩選只能從單一資產中產生。
 
-下圖顯示 Azure 入口網站中處於動態資訊清單篩選模式的 Clipper：![Azure 入口網站中處於動態資訊清單篩選模式的 Azure Media Clipper](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
+下圖說明 Azure 入口網站中處於動態資訊清單篩選模式的 Clipper：![Azure 入口網站中處於動態資訊清單篩選模式的 Azure Media Clipper](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## <a name="submitting-clipping-jobs"></a>提交剪輯作業
 當您完成撰寫剪輯時，選取提交作業按鈕以起始對應的剪輯作業或動態資訊清單呼叫。

@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Log Analytics 查詢中處理字串 | Microsoft Docs
-description: 本文提供教學課程來說明如何使用 Analytics 入口網站在 Log Analytics 中撰寫查詢。
+title: 在 Azure 監視器記錄查詢中使用字串 |Microsoft Docs
+description: 說明如何編輯、比較、搜尋字串，以及如何在 Azure Monitor 記錄查詢中字串上執行各種其他作業。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 729d98dda1ae0a1410a15ee1e40c670ca211d864
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186237"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995402"
 ---
-# <a name="working-with-strings-in-log-analytics-queries"></a>在 Log Analytics 查詢中處理字串
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中使用字串
 
 
 > [!NOTE]
-> 您應該先完成[開始使用 Analytics 入口網站](get-started-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此教學課程。
+> 您應該先完成[開始使用 Azure 監視器記錄分析](get-started-portal.md)與[開始使用 Azure 監視器記錄查詢](get-started-queries.md)，再完成此教學課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-此文章說明如何編輯、比較、搜尋字串，以及如何在字串上執行各種其他作業。 
+此文章說明如何編輯、比較、搜尋字串，以及如何在字串上執行各種其他作業。
 
 字串中的每個字元都有索引編號 (根據其位置)。 第一個字元位於索引 0、第二個字元是 1，依此類推。 不同的字串函式都會使用索引編號，如以下各節所示。 在下列範例中，許多範例都使用 **print** 命令來示範字串，而未使用特定資料來源。
 
@@ -51,37 +51,37 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
  運算子       |說明                         |區分大小寫|範例 (結果為 `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |Equals                              |是           |`"aBc" == "aBc"`
-`!=`           |Not Equals                          |是           |`"abc" != "ABC"`
+`==`           |Equals                              |yes           |`"aBc" == "aBc"`
+`!=`           |Not Equals                          |yes           |`"abc" != "ABC"`
 `=~`           |Equals                              |否            |`"abc" =~ "ABC"`
 `!~`           |不等於                          |否            |`"aBc" !~ "xyz"`
 `has`          |右側是左側中的完整詞彙 |否|`"North America" has "america"`
 `!has`         |右側不是左側中的完整詞彙       |否            |`"North America" !has "amer"` 
-`has_cs`       |右側是左側中的完整詞彙 |是|`"North America" has_cs "America"`
-`!has_cs`      |右側不是左側中的完整詞彙       |是            |`"North America" !has_cs "amer"` 
+`has_cs`       |右側是左側中的完整詞彙 |yes|`"North America" has_cs "America"`
+`!has_cs`      |右側不是左側中的完整詞彙       |yes            |`"North America" !has_cs "amer"` 
 `hasprefix`    |右側是左側中的詞彙前置詞         |否            |`"North America" hasprefix "ame"`
 `!hasprefix`   |右側不是左側中的詞彙前置詞     |否            |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |右側是左側中的詞彙前置詞         |是            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |右側不是左側中的詞彙前置詞     |是            |`"North America" !hasprefix_cs "CA"` 
+`hasprefix_cs`    |右側是左側中的詞彙前置詞         |yes            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |右側不是左側中的詞彙前置詞     |yes            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |右側是左側中的詞彙後置詞         |否            |`"North America" hassuffix "ica"`
 `!hassuffix`   |右側不是左側中的詞彙後置詞     |否            |`"North America" !hassuffix "americ"
-`hassuffix_cs`    |右側是左側中的詞彙後置詞         |是            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |右側不是左側中的詞彙後置詞     |是            |`"North America" !hassuffix_cs "icA"
+`hassuffix_cs`    |右側是左側中的詞彙後置詞         |yes            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |右側不是左側中的詞彙後置詞     |yes            |`"North America" !hassuffix_cs "icA"
 `contains`     |右側是左側的子項目  |否            |`"FabriKam" contains "BRik"`
 `!contains`    |u.4hk4右側未出現在左側中           |否            |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |右側是左側的子項目  |是           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |u.4hk4右側未出現在左側中           |是           |`"Fabrikam" !contains_cs "Kam"`
+`contains_cs`   |右側是左側的子項目  |yes           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |u.4hk4右側未出現在左側中           |yes           |`"Fabrikam" !contains_cs "Kam"`
 `startswith`   |右側是左側的初始項目|否            |`"Fabrikam" startswith "fab"`
 `!startswith`  |右側不是左側的初始項目|否        |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |右側是左側的初始項目|是            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |右側不是左側的初始項目|是        |`"Fabrikam" !startswith_cs "fab"`
+`startswith_cs`   |右側是左側的初始項目|yes            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |右側不是左側的初始項目|yes        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |右側是左側的結尾項目|否             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |右側不是左側的結尾項目|否         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |右側是左側的結尾項目|是             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |右側不是左側的結尾項目|是         |`"Fabrikam" !endswith "brik"`
-`matches regex`|左側包含右側的相符項        |是           |`"Fabrikam" matches regex "b.*k"`
-`in`           |等於其中一個元素       |是           |`"abc" in ("123", "345", "abc")`
-`!in`          |不等於任何元素   |是           |`"bca" !in ("123", "345", "abc")`
+`endswith_cs`     |右側是左側的結尾項目|yes             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |右側不是左側的結尾項目|yes         |`"Fabrikam" !endswith "brik"`
+`matches regex`|左側包含右側的相符項        |yes           |`"Fabrikam" matches regex "b.*k"`
+`in`           |等於其中一個元素       |yes           |`"abc" in ("123", "345", "abc")`
+`!in`          |不等於任何元素   |yes           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof

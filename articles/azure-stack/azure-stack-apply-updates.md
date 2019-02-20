@@ -11,22 +11,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
-ms.reviewer: wfayed
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.reviewer: justini
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729927"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099287"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中套用更新
 
 *適用範圍：Azure Stack 整合式系統*
 
-您可以使用系統管理員入口網站中的 [更新] 圖格來為 Azure Stack 套用 Microsoft 或 OEM 更新套件。 您必須下載更新套件、將套件檔案匯入至 Azure Stack，然後安裝該更新套件。
+您可以使用系統管理員入口網站中的 [更新] 圖格來為 Azure Stack 套用 Microsoft 或 OEM 更新套件。
+
+如果您使用的是整合系統版本 1807 或更早的版本，您必須下載更新套件、將套件檔案匯入至 Azure Stack，然後安裝該更新套件。 如需指示，請參閱[透過下載套件更新 Azure Stack](#update-azure-stack-by-downloading-the-package)
+
+這些升級指示適用於 Azure Stack 整合系統。 如果您使用的是 Azure Stack 開發系統，則必須下載最新版本的安裝套件。 如需指示，請參閱[安裝 Azure Stack 開發套件](.\asdk\asdk-install.md)
+
+## <a name="update-azure-stack"></a>更新 Azure Stack
+
+### <a name="select-and-apply-an-update-package"></a>選取並套用更新套件
+
+1. 開啟系統管理入口網站。
+
+2. 選取 [儀表板]。 選取 [更新] 圖格。
+
+    ![Azure Stack 有可用的更新](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+
+3. 記下 Azure Stack 的目前版本。 您可以更新至下一個完整的版本。 例如，如果您執行 Azure Stack 1811，則下一個發行版本是 1901。
+
+    ![Azure Stack 更新套用](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+
+4. 在 [更新] 清單中選取下一個可用的版本。 如果要檢閱版本變更，可以選取版本資訊欄中的 [檢視] 以開啟版本的版本資訊主題。
+
+5. 選取 [立即更新]。 將會開始更新。
+
+### <a name="review-update-history"></a>檢閱更新歷程記錄
+
+1. 開啟系統管理入口網站。
+
+2. 選取 [儀表板]。 選取 [更新] 圖格。
+
+3. 選取 [更新歷程記錄]。
+
+![Azure Stack 更新歷程記錄](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+
+## <a name="update-azure-stack-by-downloading-the-package"></a>透過下載套件來更新 Azure Stack
+
+如果您使用的是整合系統版本 1807 或更早的版本，您必須下載更新套件、將套件檔案匯入至 Azure Stack，然後安裝該更新套件。
 
 ## <a name="download-the-update-package"></a>下載更新套件
 

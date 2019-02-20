@@ -3,7 +3,7 @@ title: 在 Azure Active Directory 中新增 Azure Stack 租用戶帳戶 | Micros
 description: 在部署 Microsoft Azure Stack 開發套件之後，您將需要建立至少一個租用戶使用者帳戶，以便可以瀏覽租用戶入口網站。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: patricka
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-ms.author: jeffgilb
+ms.date: 02/12/2019
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: c0f457955bd8df7fe07e2a96469fde0a751417bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240314"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163218"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中新增 Azure Stack 租用戶帳戶
 
@@ -56,14 +56,12 @@ ms.locfileid: "55240314"
 7. 以新的帳戶登入 Microsoft Azure 入口網站。 在系統提示時變更密碼。
 8. 以新的帳戶登入 `https://portal.local.azurestack.external`，查看租用戶入口網站。
 
-## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>使用 PowerShell 建立 Azure Stack 租用戶帳戶
+## <a name="create-an-azure-stack-user-account-using-powershell"></a>使用 PowerShell 建立 Azure Stack 使用者帳戶
 
 如果您沒有 Azure 訂用帳戶，就無法使用 Azure 入口網站來新增租用戶使用者帳戶。 在此情況下，您可以改為使用適用於 Windows PowerShell 的 Azure Active Directory 模組。
 
 > [!NOTE]
 > 如果您使用 Microsoft 帳戶 (Live ID) 來部署 Azure Stack 開發套件，就無法使用 AAD PowerShell 來建立租用戶帳戶。 
-> 
-> 
 
 1. 安裝[適用於 IT 專業人員的 Microsoft Online Services 登入小幫手 RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950)。
 2. 安裝[適用於 Windows PowerShell (64 位元版本) 的 Azure Active Directory 模組](https://go.microsoft.com/fwlink/p/?linkid=236297) \(英文\)，並將它開啟。
@@ -85,3 +83,6 @@ ms.locfileid: "55240314"
 1. 以新的帳戶登入 Microsoft Azure。 在系統提示時變更密碼。
 2. 以新的帳戶登入 `https://portal.local.azurestack.external`，查看租用戶入口網站。
 
+## <a name="next-steps"></a>後續步驟
+
+[在 AD FS 中新增 Azure Stack 使用者](azure-stack-add-users-adfs.md)

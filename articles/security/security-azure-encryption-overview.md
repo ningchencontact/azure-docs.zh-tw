@@ -4,7 +4,7 @@ description: 了解 Azure 中的各種加密選項
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 00c8b30b5351b7a6e4388b186fab70e3a3357ef4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366302"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114649"
 ---
 # <a name="azure-encryption-overview"></a>Azure 加密概觀
 
@@ -180,7 +180,7 @@ Azure 提供許多機制，可在將資料從一個位置移至另一個位置�
 
 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI，來設定虛擬網路的站對站 VPN 連線。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 [在 Azure 入口網站中建立站對站連線](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

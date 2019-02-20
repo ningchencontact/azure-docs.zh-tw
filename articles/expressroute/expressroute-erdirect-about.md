@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: mialdrid
+ms.date: 02/11/2019
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0415c329364f8df312667e725f3c5376ea13a6f4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098093"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100732"
 ---
 # <a name="about-expressroute-direct-preview"></a>關於 ExpressRoute Direct (預覽)
 
@@ -58,7 +58,7 @@ Microsoft Azure ExpressRoute 可讓您透過連線提供者所提供的私人連
 
 ## <a name="circuit-skus"></a>線路 SKU
 
-ExpressRoute Direct 支援將大量資料擷取至 Azure 儲存體與其他巨量資料服務的案例。 ExpressRoute Direct 的 ExpressRoute 線路現在也支援 **40 Gbps** 與 **100 Gbps** 的線路 SKU。
+ExpressRoute Direct 支援將大量資料擷取至 Azure 儲存體與其他巨量資料服務的案例。 ExpressRoute Direct 的 ExpressRoute 線路現在也支援 **40 Gbps** 與 **100 Gbps** 的線路 SKU。 實體連接埠配對只有 **100 Gbps**，而且可擁有多個頻寬為 5 Gbps、10 Gbps、40 Gbps、100 Gbps 而最多至 200 Gbps 的多個虛擬線路的任意組合。 
 
 ## <a name="vlan-tagging"></a>VLAN 標記
 

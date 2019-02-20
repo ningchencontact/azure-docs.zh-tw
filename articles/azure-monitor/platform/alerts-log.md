@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cb4b063d17555084f4065d7d7df931b96b95d9a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751475"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990440"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure 監視器來建立、檢視及管理記錄警示
 
@@ -45,7 +45,7 @@ ms.locfileid: "55751475"
 
     ![建立規則](media/alerts-log/AlertsPreviewAdd.png)
 
-1. 使用 [選取資源] 連結並透過選取資源來指定目標，即可定義警示條件。 選擇 [訂閱]、[資源類型] 和 [資源] (必選)，即可進行篩選。
+1. 使用 [選取資源] 連結並透過選取資源來指定目標，即可定義警示條件。 選擇 [訂閱]、[資源類型] 和 [資源\] \(必選)，即可進行篩選。
 
     >[!NOTE]
 
@@ -106,8 +106,7 @@ ms.locfileid: "55751475"
 
     在幾分鐘之內，警示會開始作用，且先前所述觸發。
 
-使用者也可以在 [Azure 入口網站中的 Logs Analytics 頁面](../../azure-monitor/log-query/portals.md#log-analytics-page
-)完成其分析查詢，然後透過 [+ 新增警示規則] 按鈕推送它以建立警示，接著再依照上述教學課程中從步驟 6 開始的指示進行操作。
+使用者可以也可以在 [Logs Analytics](../log-query/portals.md) 中完成其分析查詢，然後再透過 [設定警示] 按鈕推送它以建立警示，接著按照上述教學中從步驟 6 開始的指示進行操作。
 
  ![Log Analytics - 設定警示](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -317,12 +316,12 @@ ms.locfileid: "55751475"
 > 管理 Log Analytics 的記錄警示時，也可以使用舊版 [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) 及舊版 [Log Analytics 儲存的搜尋和警示](../../azure-monitor/insights/solutions-resources-searches-alerts.md)範本來管理。 如需有關預設使用這裡詳述之新 ScheduledQueryRules API 的詳細資訊，請參閱[切換至 Log Analytics 警示的新 API](alerts-log-api-switch.md)。
 
 
-記錄警示目前沒有專用 PowerShell 或 CLI 命令；但如以下所述，針對稍早於[資源範本一節](#azure-resource-template-for-application-insights)中所示的範例「資源範本」(sampleScheduledQueryRule.json)，可透過 Azure Resource Manager PowerShell Cmdlet 使用記錄警示：
+記錄警示目前沒有專用的 PowerShell 或 CLI 命令；但如以下所述，針對稍早於＜資源範本＞一節中所示的範例「資源範本」(sampleScheduledQueryRule.json)，可透過 Azure Resource Manager PowerShell Cmdlet 使用記錄警示：
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
-以下說明透過 Azure CLI 中的 Azure Resource Manager 命令使用上述[資源範本一節](#azure-resource-template-for-application-insights)中資源範本範例 (sampleScheduledQueryRule.json) 的方式：
+以下針對稍早於＜資源範本＞一節中所示的範例「資源範本」(sampleScheduledQueryRule.json)，說明透過 Azure CLI 中 Azure Resource Manager 命令的使用方式：
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

@@ -4,7 +4,7 @@ description: 本文提供 Azure SQL Database 如何保護 Azure 中客戶資料�
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: cce1ff1102c42bd1627caeba7b2c86432b228607
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170849"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103943"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database 安全性功能    
 Azure SQL Database 在 Azure 中提供關聯式資料庫服務。 為了保護客戶資料，並提供強大的安全性功能，以滿足提供客戶對於關聯式資料庫服務的期待，SQL Database 有一套自己的安全性功能。 這些功能都是根據從 Azure 繼承的控制項為基礎而建置。

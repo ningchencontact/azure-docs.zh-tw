@@ -4,7 +4,7 @@ description: 本文提供 Azure 生產網路的一般描述。
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 710792c890c3e48fc54507f93eeaee529ca839f8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114023"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116927"
 ---
 # <a name="the-azure-production-network"></a>Azure 生產網路
 Azure 生產網路的使用者同時包括存取自有 Azure 應用程式的外部客戶，以及管理生產網路的內部 Azure 支援人員。 本文會討論用於建立 Azure 生產網路連線的安全性存取方法和保護機制。
@@ -54,12 +54,12 @@ Azure 會在各種層級實作強固的軟體安全性和防火牆功能，以�
 ### <a name="azure-security-features"></a>Azure 安全性功能
 Azure 會在生產網路內實作以主機為基礎的軟體防火牆。 核心 Azure 環境內有數個核心安全性和防火牆功能。 這些安全性功能反映出 Azure 環境中的深度防禦策略。 Azure 中的客戶資料會受到下列防火牆保護：
 
-**Hypervisor 防火牆 (封包篩選器)**：此防火牆會在 Hypervisor 中實作，並由網狀架構控制器 (FC) 代理程式設定。 此防火牆會保護在 VM 內執行的租用戶，以防止未經授權的存取。 根據預設，系統在 VM 建立時會封鎖所有流量，然後 FC 代理程式會在篩選器中新增規則及例外狀況，以允許經過授權的流量。
+**Hypervisor 防火牆 (封包篩選)**：此防火牆會在 Hypervisor 中實作，並由網狀架構控制器 (FC) 代理程式設定。 此防火牆會保護在 VM 內執行的租用戶，以防止未經授權的存取。 根據預設，系統在 VM 建立時會封鎖所有流量，然後 FC 代理程式會在篩選器中新增規則及例外狀況，以允許經過授權的流量。
 
 系統在此會設定兩種類型的規則：
 
-- **機器設定或基礎結構規則**：根據預設，會封鎖所有通訊。 有存在例外狀況，可允許 VM 傳送和接收動態主機設定通訊協定 (DHCP) 通訊及 DNS 資訊，並將傳送至「公用」網際網路的流量輸出到 FC 叢集內的其他 VM 和 OS 啟用伺服器。 由於 VM 的連出目的地允許清單不包含 Azure 路由器子網路和其他 Microsoft 屬性，因此這些規則會作為其防禦層。
-- **角色設定檔規則**：這會根據租用戶的服務模型定義輸入 ACL。 例如，如果租用戶在特定 VM 的連接埠 80 上有 Web 前端，則系統會對所有 IP 位址開放連接埠 80。 如果 VM 有執行中的背景工作角色，則系統只會對相同租用戶內的 VM 開放該背景工作角色。
+- **機器組態或基礎結構規則**：根據預設，會封鎖所有通訊。 有存在例外狀況，可允許 VM 傳送和接收動態主機設定通訊協定 (DHCP) 通訊及 DNS 資訊，並將傳送至「公用」網際網路的流量輸出到 FC 叢集內的其他 VM 和 OS 啟用伺服器。 由於 VM 的連出目的地允許清單不包含 Azure 路由器子網路和其他 Microsoft 屬性，因此這些規則會作為其防禦層。
+- **角色組態檔規則**：根據租用戶的服務模型定義輸入 ACL。 例如，如果租用戶在特定 VM 的連接埠 80 上有 Web 前端，則系統會對所有 IP 位址開放連接埠 80。 如果 VM 有執行中的背景工作角色，則系統只會對相同租用戶內的 VM 開放該背景工作角色。
 
 **原生主機防火牆**：Azure 服務網狀架構和 Azure 儲存體會在沒有 Hypervisor 的原生 OS 上執行，因此系統會使用上述兩組規則來設定 Windows 防火牆。
 
@@ -80,9 +80,9 @@ Azure 會在生產網路內實作以主機為基礎的軟體防火牆。 核心 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Microsoft 為保護 Azure 基礎結構執行了哪些動作，請參閱：
 
-- [Azure 設施、廠房以及實體安全性](azure-physical-security.md)
+- [Azure 設備、廠房以及實體安全性](azure-physical-security.md)
 - [Azure 基礎結構可用性](azure-infrastructure-availability.md)
-- [Azure 資訊系統元件與界限](azure-infrastructure-components.md)
+- [Azure 資訊系統元件和界限](azure-infrastructure-components.md)
 - [Azure 網路架構](azure-infrastructure-network.md)
 - [Azure SQL Database 安全性功能](azure-infrastructure-sql.md)
 - [Azure 生產環境運作與管理](azure-infrastructure-operations.md)

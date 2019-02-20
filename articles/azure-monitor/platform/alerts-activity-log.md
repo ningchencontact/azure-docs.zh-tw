@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816572"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234232"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure 監視器中建立、檢視及管理活動記錄警示  
 
@@ -203,20 +203,28 @@ ms.locfileid: "55816572"
 [Azure 監視器 - 活動記錄警示 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) 是 REST API，並且可與 Azure Resource Manager REST API 完全相容。 因此它可以透過 Powershell 和 Azure CLI 搭配資源管理員 Cmdlet 來使用。
 
 ## <a name="powershell"></a>PowerShell
-以下說明如何透過 Azure Resource Manager PowerShell Cmdlet 使用前述「資源範本」一節中的範例資源範本 (sampleActivityLogAlert.json)：
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
-```
-其中，sampleActivityLogAlert.parameters.json 具有提供給警示規則建立所需參數的值。
+
+活動記錄警示有專用的 PowerShell Cmdlet 可供使用：
+
+- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert)：可建立新的或更新現有的活動記錄警示規則資源
+- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert)：可擷取一或多個活動記錄警示規則資源
+- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert)：可透過使用者確認來刪除活動記錄警示規則資源
+- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert)：可啟用現有的活動記錄警示規則資源
+- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert)：可停用現有的活動記錄警示規則資源
 
 ## <a name="cli"></a>CLI
-以下說明如何透過 Azure CLI 中的 Azure Resource Manager 命令使用前述「資源範本」一節中的範例資源範本 (sampleActivityLogAlert.json)：
 
-```azurecli
-az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
-```
-*sampleActivityLogAlert.parameters.json* 檔案具有提供給警示規則建立所需參數的值。
+[az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) 集合底下的專用 Azure CLI 命令可用來管理活動記錄警示規則。
 
+若要建立新的活動記錄警示，請依照下列順序使用：
+
+1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create)：建立新的活動記錄警示規則資源
+1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope)：為所建立的活動記錄警示規則新增範圍
+1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group)：將動作群組新增至活動記錄警示規則
+
+若要擷取一個活動記錄警示規則資源，可以使用 Azure CLI 命令 [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+)。 如果要檢視某個資源群組中的所有活動記錄警示規則資源，請使用 [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)。
+Azure CLI 命令 [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) 則可用來移除活動記錄警示規則資源。
 
 ## <a name="next-steps"></a>後續步驟
 

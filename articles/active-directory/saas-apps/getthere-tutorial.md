@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: bcefa3966a6c854f02ce7b3a75306b3d1c888ecd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b132da4a763490fa6c7a73c80f8e2e3a11b42e9b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432269"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>教學課程：Azure Active Directory 與 GetThere 整合
 
@@ -191,13 +192,13 @@ GetThere 與 Azure AD 整合提供下列優點：
     b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 依序選取 [屬性] 和 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
  
 ### <a name="create-a-getthere-test-user"></a>建立 GetThere 測試使用者
 
-在本節中，您要在 GetThere 中建立名為 Britta Simon 的使用者。 請與 [GetThere 客戶支援小組](mailto:dataintegration@sabre.com)合作，在 GetThere 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 GetThere 中建立名為 Britta Simon 的使用者。 請連絡  [GetThere 用戶端支援小組](mailto:dataintegration@sabre.com)，在 GetThere 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -228,7 +229,7 @@ GetThere 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [GetThere] 圖格時，應該會自動登入您的 GetThere 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

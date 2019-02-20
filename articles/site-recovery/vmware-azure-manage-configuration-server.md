@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: db5482fe17b9181097e13d446937bc489c3db8fe
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462822"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109158"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>管理 VMware VM 災害復原的設定伺服器
 
@@ -161,6 +161,63 @@ ms.locfileid: "54462822"
 
 7. 按一下 [完成] 以關閉安裝程式。
 8. 若要升級其餘 Site Recovery 元件，請參閱我們的[升級指引](https://aka.ms/asr_vmware_upgrades)。
+
+## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>您可以從命令列升級組態伺服器/處理序伺服器
+
+執行安裝檔案，如下所示：
+
+  ```
+  UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+  ```
+
+### <a name="sample-usage"></a>範例用法
+  ```
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
+  cd C:\Temp\Extracted
+  UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
+  ```
+
+
+### <a name="parameters"></a>參數
+
+|參數名稱| 類型 | 說明| 值|
+|-|-|-|-|
+| /ServerMode|必要|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
+|/InstallLocation|必要|安裝元件的資料夾| 電腦上的任何資料夾|
+|/MySQLCredsFilePath|必要|儲存 MySQL 伺服器認證的檔案路徑|此檔案應該具備如下所指定的格式|
+|/VaultCredsFilePath|必要|保存庫認證檔的路徑|有效的檔案路徑|
+|/EnvType|必要|您想要保護的環境類型 |VMware<br>NonVMware|
+|/PSIP|必要|要用於複寫資料傳輸的 NIC IP 位址| 任何有效的 IP 位址|
+|/CSIP|必要|接聽組態伺服器的 NIC IP 位址| 任何有效的 IP 位址|
+|/PassphraseFilePath|必要|複雜密碼檔案的位置完整路徑|有效的檔案路徑|
+|/BypassProxy|選用|指定組態伺服器不使用 Proxy 連接至 Azure|若要這樣做，請從 Venu 取得此值|
+|/ProxySettingsFilePath|選用|Proxy 設定 (預設的 Proxy 需要驗證或自訂的 Proxy)|此檔案應該具備如下所指定的格式|
+|DataTransferSecurePort|選用|要用於複寫資料的 PSIP 上的連接埠號碼| 有效的連接埠號碼 (預設值是 9433)|
+|/SkipSpaceCheck|選用|略過快取磁碟的空間檢查| |
+|/AcceptThirdpartyEULA|必要|旗標表示接受協力廠商使用者授權合約| |
+|/ShowThirdpartyEULA|選用|顯示協力廠商使用者授權合約。 如果提供作為輸入，則會忽略所有其他參數| |
+
+
+
+### <a name="create-file-input-for-mysqlcredsfilepath"></a>建立 MYSQLCredsFilePath 的檔案輸入
+
+MySQLCredsFilePath 參數使用檔案作為輸入。 使用下列格式建立檔案，並將它以輸入 MySQLCredsFilePath 參數傳遞。
+```ini
+[MySQLCredentials]
+MySQLRootPassword = "Password>"
+MySQLUserPassword = "Password"
+```
+### <a name="create-file-input-for-proxysettingsfilepath"></a>建立 ProxySettingsFilePath 的檔案輸入
+ProxySettingsFilePath 參數使用檔案做為輸入。 使用下列格式建立檔案，並將它以輸入 ProxySettingsFilePath 參數傳遞。
+
+```ini
+[ProxySettings]
+ProxyAuthentication = "Yes/No"
+Proxy IP = "IP Address"
+ProxyPort = "Port"
+ProxyUserName="UserName"
+ProxyPassword="Password"
+```
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>將設定伺服器刪除或取消註冊
 

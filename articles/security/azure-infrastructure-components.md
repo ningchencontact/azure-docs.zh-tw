@@ -4,7 +4,7 @@ description: 本文提供 Microsoft Azure 架構和管理的一般描述。
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186471"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118134"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Azure 資訊系統元件與界限
 本文提供 Azure 架構和管理的一般描述。 Azure 系統環境是由下列網路所組成：
@@ -54,9 +54,9 @@ FC 會針對啟動程序的設定程序，準備這期間的 Azure 硬體和網�
 
 網狀架構管理的作業系統映像有三種類型：
 
-- 主機 – 在主機 VM 上執行的自訂作業系統。
+- 主機：在主機 VM 上執行的自訂作業系統。
 - 原生：在租用戶上執行的原生作業系統 (例如 Azure 儲存體)。 此作業系統沒有任何 Hypervisor。
-- 客體︰在客體 VM 上執行的客體作業系統。
+- 來賓：在客體 VM 上執行的客體作業系統。
 
 主機和原生 FC 管理作業系統的設計訴求是在雲端使用而且不可公開存取。
 

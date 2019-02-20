@@ -15,17 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4fb31721da679b21fa311340269cf07f93cd903
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817320"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981259"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>針對 Azure 虛擬機器的遠端桌面連線進行疑難排解
 有各式各樣的原因可能導致 Windows 型 Azure 虛擬機器 (VM) 的遠端桌面通訊協定 (RDP) 連線失敗，讓您無法存取您的 VM。 問題可能與 VM 上的遠端桌面服務、網路連線或主機電腦上的遠端桌面用戶端有關。 本文將引導您完成一些可解決 RDP 連線問題的最常見方法。 
 
 如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 <a id="quickfixrdp"></a>
 
@@ -107,7 +109,7 @@ ms.locfileid: "55817320"
 下列範例使用 `myResourceGroup``myVM` 和 `myVMAccessExtension` 等變數。 以您自己的值取代這些變數名稱和位置。
 
 > [!NOTE]
-> 您可使用 [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell Cmdlet 重設使用者認證和 RDP 組態。 在下列範例中，`myVMAccessExtension` 是您指定為程序一部分的名稱。 如果您先前使用了 VMAccessAgent，則可以使用 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` 來檢查 VM 的屬性，以取得現有擴充功能的名稱。 請查看輸出的 'Extensions' 區段底下來檢視名稱。
+> 您可以使用 [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) \(英文\) PowerShell Cmdlet 來重設使用者認證和 RDP 設定。 在下列範例中，`myVMAccessExtension` 是您指定為程序一部分的名稱。 如果您先前使用了 VMAccessAgent，則可以使用 `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` 來檢查 VM 的屬性，以取得現有擴充功能的名稱。 請查看輸出的 'Extensions' 區段底下來檢視名稱。
 
 在每個疑難排解步驟完成之後，請再次嘗試連接到 VM。 如果仍然無法連線，請嘗試下一個步驟。
 
@@ -116,7 +118,7 @@ ms.locfileid: "55817320"
     下列範例會在位於 `WestUS` 且名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM 上重設 RDP 連線：
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
     ```
 2. **確認網路安全性群組規則**。 此疑難排解步驟可確認您有可允許 RDP 流量的網路安全性群組規則。 RDP 的預設連接埠是 TCP 連接埠 3389。 當您建立您的 VM 時，可能不會自動建立可允許 RDP 流量的規則。
@@ -124,7 +126,7 @@ ms.locfileid: "55817320"
     首先，將網路安全性群組的所有組態資料指派給 `$rules` 變數。 下列範例會在名為 `myResourceGroup` 的資源群組中取得名為 `myNetworkSecurityGroup` 的網路安全性群組相關資訊：
    
     ```powershell
-    $rules = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
+    $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
         -Name "myNetworkSecurityGroup"
     ```
    
@@ -164,7 +166,7 @@ ms.locfileid: "55817320"
     現在，更新 VM 上的認證。 下列範例會在位於 `WestUS` 且名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM 上更新認證：
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location WestUS -Name "myVMAccessExtension" `
         -UserName $cred.GetNetworkCredential().Username `
         -Password $cred.GetNetworkCredential().Password
@@ -174,14 +176,14 @@ ms.locfileid: "55817320"
     下列範例會重新啟動名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM：
    
     ```powershell
-    Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+    Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **重新部署您的 VM**。 此疑難排解步驟可將您的 VM 重新部署至 Azure 內的另一部主機，以更正任何基礎平台或網路問題。
    
     下列範例會重新部署位於 `WestUS` 且名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM：
    
     ```powershell
-    Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+    Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
 6. **確認路由**。 使用網路監看員的[下一個躍點](../../network-watcher/network-watcher-check-next-hop-portal.md)功能，確認路由不會防止流量從虛擬機器往返路由傳送。 您也可以檢閱有效路由，以查看網路介面的所有有效路由。 如需詳細資訊，請參閱[使用有效路由來針對 VM 流量流程進行疑難排解](../../virtual-network/diagnose-network-routing-problem.md)。

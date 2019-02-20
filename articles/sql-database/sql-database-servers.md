@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: db82c109e6ae807addafd4d188a24609c4066cd9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756643"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100665"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL Database 伺服器及其管理方式
 
 ## <a name="what-is-an-azure-sql-database-server"></a>什麼是 Azure SQL Database 伺服器
 
-SQL Database 伺服器是一種邏輯建構，可作為多個獨立或[集區](sql-database-elastic-pool.md)資料庫、[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)，以及[容錯移轉群組](sql-database-auto-failover-group.md)的中央管理點。SQL Database 伺服器可以位於與其資源群組不同的區域中。 SQL Database 伺服器必須先存在，才能建立 Azure SQL Database。 由 SQL Database 伺服器管理的所有資料庫都是在與 SQL Database 伺服器相同的區域內建立。
+SQL Database 伺服器是一種邏輯建構，可作為多個單一或[集區](sql-database-elastic-pool.md)資料庫、[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)，以及[容錯移轉群組](sql-database-auto-failover-group.md)的中央管理點。SQL Database 伺服器可以位於與其資源群組不同的區域中。 SQL Database 伺服器必須先存在，才能建立 Azure SQL Database。 由 SQL Database 伺服器管理的所有資料庫都是在與 SQL Database 伺服器相同的區域內建立。
 
 SQL Database 伺服器與您可能已熟悉運用在內部部署環境中的 SQL Server 執行個體不同。 具體來說，SQL Database 服務對於管理這些資料庫的 SQL Database 伺服器相關之資料庫位置不提供任何保證，且不公開任何執行個體層級存取權或功能。 相較之下，受控執行個體中的執行個體資料庫全部為共置 - 與您在內部部署環境中熟悉的 SQL Server 方式相同。
 
@@ -189,5 +189,5 @@ SQL Database 伺服器：
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解如何將 SQL Server 資料庫移轉至 Azure，請參閱[移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
+- 若要深入了解如何將 SQL Server 資料庫移轉至 Azure，請參閱[移轉至 Azure SQL Database](sql-database-single-database-migrate.md)。
 - 如需支援功能的相關資訊，請參閱「[功能](sql-database-features.md)」。

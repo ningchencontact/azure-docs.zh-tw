@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.openlocfilehash: 28c945223d225d7e91df1041bcbe02ee87b93c6a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 75940f9c3c8022c5445eb998b133a156dacde9b5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475052"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106863"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>透過 Azure Cosmos DB 進行全域資料散發 - 概觀
 
@@ -22,6 +22,8 @@ Azure Cosmos DB 是一個全域散發的資料庫服務，旨在提供低延遲�
 您可以將資料庫設定為全域散發，並且在任何可用的 Azure 區域中使用。 若要降低延遲，請將資料放置於更接近使用者的所在位置。 選擇所需的區域，取決於您應用程式能夠觸達的全域範圍以及使用者所在的位置。 Azure Cosmos 會以透明方式將您帳戶內的資料複寫到所有與您的帳戶相關聯的區域。 它會提供全域散發的 Azure Cosmos 資料庫和容器的單一系統映像，使您的應用程式可以在本機讀取和寫入。 
 
 透過 Azure Cosmos DB，您可以隨時新增或移除任何與您帳戶相關聯的區域。 您不需暫停或重新部署應用程式，就能新增或移除區域。 由於服務所提供的多路連接功能，讓它始終都能持續保持高度可用狀態。
+
+![高可用性的部署拓撲](./media/distribute-data-globally/deployment-topology.png)
 
 ## <a name="key-benefits-of-global-distribution"></a>全域散發的主要優點
 
@@ -50,6 +52,7 @@ Azure Cosmos DB 是一個全域散發的資料庫服務，旨在提供低延遲�
 從下列文章中深入了解全域散發：
 
 * [全域散發 - 運作原理](global-dist-under-the-hood.md)
+* [如何在應用程式中設定多重主機](how-to-multi-master.md)
 * [設定多路連接的用戶端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [從您的 Azure Cosmos 帳戶新增或移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [建立 SQL API 帳戶的自訂衝突解決原則](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

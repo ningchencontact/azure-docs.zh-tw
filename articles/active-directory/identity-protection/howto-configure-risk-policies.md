@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: f9ffbebee06ab7b9e010c7e6c84fee533611fb38
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567650"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197533"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>作法：在 Azure Active Directory Identity Protection (已重新整理) 中設定風險原則
 
@@ -81,7 +82,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 如果您想要要求有風險的登入進行 MFA，您應該：
 
-1. 為受影響的使用者啟用 [Multi-Factor Authentication 註冊原則](#multi-factor-authentication-registration-policy)。
+1. 為受影響的使用者啟用多重要素驗證註冊原則。
 
 2. 要求受影響的使用者登入沒有危險的工作階段以執行 MFA 註冊。
 

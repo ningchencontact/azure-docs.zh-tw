@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 503e52266c1c6be71e60a751c40ef0a54f0d9b12
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181889"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112491"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>針對受控網域的無效網路設定進行移難排解
 本文將協助您針對導致下列警示訊息的網路相關設定錯誤進行疑難排解：
@@ -36,7 +36,7 @@ Azure AD Domain Services 網路錯誤最常見的原因是 NSG 設定無效。 �
 2. 從表格中，選擇與已啟用您受控網域的子網路關聯的 NSG。
 3. 在左窗格的 [設定] 下，按一下 [輸入安全性規則]
 4. 檢閱備妥的規則，並識別哪些規則會封鎖存取[這些連接埠](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
-5. 對 NSG 進行以下編輯以確保合規性：刪除規則、新增規則，或建立全新的 NSG。 [新增規則](#add-a-rule-to-a-network-security-group-using-the-azure-portal)或[建立全新符合規範的 NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) 的步驟如下
+5. 對 NSG 進行以下編輯以確保合規性：刪除規則、新增規則，或建立全新的 NSG。 [新增規則](#add-a-rule-to-a-network-security-group-using-the-azure-portal)或建立全新符合規範的 NSG 的步驟如下
 
 ## <a name="sample-nsg"></a>NSG 範例
 下表描述的 NSG 範例，能讓受控網域保持安全，同時允許 Microsoft 監視、管理及更新資訊。

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 3e3d31f146fb49fdab8d955754572e4ea74dd3f6
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198383"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100256"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>適用於 Linux 的 NVIDIA GPU 驅動程式擴充功能
 
@@ -85,7 +85,7 @@ ms.locfileid: "54198383"
 | Name | 說明 | 預設值 | 有效值 | 資料類型 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 即使驅動程式安裝不需要，也會更新核心 | false | true、false | 布林值 |
-| driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 工具組版本。 系統會自動安裝所選 CUDA 的最新驅動程式。 | 最新 | GRID："410.71"、"390.75"、"390.57"、"390.42"<br> CUDA："10.0.130"、"9.2.88"、"9.1.85" | 字串 |
+| driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 工具組版本。 系統會自動安裝所選 CUDA 的最新驅動程式。 | 最新 | GRID："410.92"、"410.71"、"390.75"、"390.57"、"390.42"<br> CUDA："10.0.130"、"9.2.88"、"9.1.85" | 字串 |
 | installCUDA | 安裝 CUDA 工具組。 只與 NC/ND 系列 VM 相關。 | true | true、false | 布林值 |
 
 
@@ -123,7 +123,7 @@ ms.locfileid: "54198383"
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -159,7 +159,7 @@ az vm extension set `
 使用 Azure PowerShell 和 Azure CLI，就可以從 Azure 入口網站擷取有關擴充功能部署狀態的資料。 若要查看指定 VM 的擴充功能部署狀態，請執行下列命令。
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

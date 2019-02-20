@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c223b55e8854c9d304354d917e07f4dd7720e72c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507803"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958485"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database 進階 RS 服務層 (預覽狀態) 進入淘汰階段 - 移轉選項
 
@@ -70,10 +70,10 @@ ms.locfileid: "55507803"
 
 |**如果您目前使用的是…**|**移轉至可相比的以虛擬核心為基礎…**|**移轉至可相比的以 DTU 為基礎…**|
 |---|---|---|
-|進階 RS 1|(預覽) 超大規模 1 虛擬核心 (第 4 代) 或業務關鍵 1 虛擬核心 (第 4 代)|進階 1|
-|進階 RS 2|(預覽) 超大規模 2 虛擬核心 (第 4 代) 或業務關鍵 2 虛擬核心 (第 4 代)|進階 2|
-|進階 RS 4|(預覽) 超大規模 4 虛擬核心 (第 4 代) 或業務關鍵 4 虛擬核心 (第 4 代)|進階 4
-|進階 RS 6|(預覽) 超大規模 6 虛擬核心 (第 4 代) 或業務關鍵 6 虛擬核心 (第 4 代)|進階 6|
+|進階 RS 1|(預覽) 超大規模 1 虛擬核心 (第 4 代) 或商務關鍵性 1 虛擬核心 (第 4 代)|進階 1|
+|進階 RS 2|(預覽) 超大規模 2 虛擬核心 (第 4 代) 或商務關鍵性 2 虛擬核心 (第 4 代)|進階 2|
+|進階 RS 4|(預覽) 超大規模 4 虛擬核心 (第 4 代) 或商務關鍵性 4 虛擬核心 (第 4 代)|進階 4
+|進階 RS 6|(預覽) 超大規模 6 虛擬核心 (第 4 代) 或商務關鍵性 6 虛擬核心 (第 4 代)|進階 6|
 
 |**如果您目前使用的是…**|**移轉至可相比的以虛擬核心為基礎…**|**移轉至可相比的以 DTU 為基礎…**|
 |---|---|---|

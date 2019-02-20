@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Bonusly 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 Bonusly 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 將使用者帳戶自動佈建及取消佈建至 Bonusly。
 services: active-directory
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 5a28e1249ab8b1d1e3db3433fcce27dcbcc35176
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 74c14de0d09006aefb342590f613edb129ab5016
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992188"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173703"
 ---
-# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>教學課程︰設定 Bonusly 來自動佈建使用者
+# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>教學課程：設定 Bonusly 來自動佈建使用者
 
 本教學課程旨在示範將 Azure AD 設定為可對 Bonusly 自動佈建及取消佈建使用者和/或群組時，Bonusly 與 Azure Active Directory (Azure AD) 中須執行的步驟。
 
 > [!NOTE]
-> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../active-directory-saas-app-provisioning.md)。
+> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -137,7 +138,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![Bonusly 佈建](./media/bonusly-provisioning-tutorial/UserAttributeMapping.png)
 
-13. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../active-directory-saas-scoping-filters.md)中提供的下列指示。
+13. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
 
 14. 若要啟用 Bonusly 的 Azure AD 佈建服務，在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]。
 
@@ -154,7 +155,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，當中會描述 Bonusly 上的 Azure AD 佈建服務所執行之所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -164,7 +165,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="next-steps"></a>後續步驟
 
-* [瞭解如何針對佈建活動檢閱記錄和取得報告](../active-directory-saas-provisioning-reporting.md)
+* [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/bonusly-provisioning-tutorial/tutorial_general_01.png

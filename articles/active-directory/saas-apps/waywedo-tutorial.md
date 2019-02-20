@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: bc415ec7c577e221a1ab5af585dff5b4fc9ab7dc
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5dc6d8e2cf7ac4786f30484325406a1fe696dff3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259492"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>教學課程：Azure Active Directory 與 Way We Do 整合
 
@@ -198,7 +199,7 @@ Way We Do 與 Azure AD 整合提供下列優點：
 本節目標是在 Way We Do 中建立名為 Britta Simon 的使用者。 Way We Do 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Way We Do 時，如果使用者還不存在，就會建立新使用者。
 
 > [!Note]
-> 如果您需要手動建立使用者，請連絡 [Way We Do 用戶端支援小組](mailto:support@waywedo.com)。
+> 如果您需要手動建立使用者，請連絡  [Way We Do 用戶端支援小組](mailto:support@waywedo.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -235,7 +236,7 @@ Way We Do 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Way We Do] 磚時，應該會自動登入您的 Way We Do 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

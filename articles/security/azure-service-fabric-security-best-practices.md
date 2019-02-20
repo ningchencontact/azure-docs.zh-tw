@@ -4,7 +4,7 @@ description: 本文提供一組 Azure Service Fabric 安全性的最佳做法。
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391234"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114700"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 安全性最佳做法
 在 Azure 上部署應用程式很快速、輕鬆且符合成本效益。 將您的雲端應用程式部署至生產環境之前，請檢閱重要和建議最佳做法，以在應用程式中實作安全叢集。
@@ -173,7 +173,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的�
 
     部署時，必須啟用 Key Vault。 接著，計算資源提供者可以從保存庫中取得憑證，並加以安裝在 VM 執行個體上。
 
-若要深入了解如何設定 Key Vault 的相關資訊，請參閱[開始使用 Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)。
+若要深入了解如何設定金鑰保存庫，請參閱[什麼是 Azure Key Vault？](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)。
 
 ## <a name="assign-users-to-roles"></a>將使用者指派給角色
 建立應用程式來代表您的叢集之後，請將使用者指派給 Service Fabric 所支援的角色︰唯讀和系統管理員。您可以使用 Azure 入口網站來指派這些角色。

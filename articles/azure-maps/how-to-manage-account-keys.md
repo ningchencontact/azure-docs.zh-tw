@@ -1,6 +1,6 @@
 ---
-title: 管理 Azure 地圖服務帳戶和金鑰 | Microsoft Docs
-description: 您可以使用 Azure 入口網站來管理 Azure 地圖服務帳戶以及管理存取金鑰。
+title: 管理 Azure 地圖服務帳戶 | Microsoft Docs
+description: 您可以使用 Azure 入口網站來管理 Azure 地圖服務帳戶。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/12/2018
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 81746279e935f9fa5b6ef00bc8d31e75f4d3bd20
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 488167b4893c314af99b354a2422204ebbf34c5e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103039"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113681"
 ---
-# <a name="manage-your-azure-maps-account-and-keys"></a>管理 Azure 地圖服務帳戶和金鑰
+# <a name="manage-your-azure-maps-account"></a>管理 Azure 地圖服務帳戶
 
-您可以透過 Azure 入口網站管理 Azure 地圖服務帳戶和金鑰。 在取得帳戶和金鑰後，您即可在網站或行動裝置應用程式中實作 API。
+您可以透過 Azure 入口網站管理 Azure 地圖服務帳戶。 在取得帳戶後，您即可在網站或行動裝置應用程式中實作 API。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -32,16 +32,6 @@ ms.locfileid: "54103039"
 4. 輸入新帳戶的資訊。
 
 ![在入口網站中輸入帳戶資訊](./media/how-to-manage-account-keys/new-account-portal.png)
-
-## <a name="manage-keys-on-the-account-page"></a>在帳戶頁面上管理金鑰
-
-建立帳戶後，您會獲得兩個隨機產生的金鑰。 若要擷取地圖資料或建立新的 JavaScript 地圖執行個體，請使用這兩個金鑰對 Azure 地圖服務 API 進行驗證。
-
-您可以在 Azure 入口網站中找到金鑰。 瀏覽至您的帳戶。 然後，從功能表中選取 [金鑰]。
-
-![在入口網站中管理帳戶金鑰](./media/how-to-manage-account-keys/account-keys-portal.png)
-
-在此頁面中，您可以複製金鑰或產生新的金鑰。
 
 ## <a name="delete-an-account"></a>刪除帳戶
 

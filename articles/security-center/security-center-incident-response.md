@@ -4,7 +4,7 @@ description: 本文件說明如何使用 Azure 資訊安全中心執行事件回
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 684098dd2780e827ccc74b7fbbb16a2be75fa3e1
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619872"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114292"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>使用 Azure 資訊安全中心進行事件回應
 許多組織都了解如何只在遭受攻擊之後回應安全性事件。 為了降低成本和損害，一定要在攻擊發生前備妥事件回應計劃。 您可以在不同階段的事件回應使用 Azure 資訊安全中心。
@@ -84,7 +84,7 @@ Judy 登入了 Azure 入口網站，並在資訊安全中心主控台進行工�
    > 基於此案例的目的，Judy 即將對 [惡意 SQL 活動] 警示執行評估，如上圖所示。
    >
    >
-2. 按一下 [惡意 SQL 活動] 警示並在 [惡意 SQL 活動] 刀鋒視窗中檢閱受攻擊的資源︰![事件詳細資料](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. 按一下 [惡意 SQL 活動] 警示，並在 [惡意 SQL 活動] 刀鋒視窗中檢閱受攻擊的資源︰![事件詳細資料](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     在此刀鋒視窗中，Judy 可以做一些筆記：受攻擊資源的相關資訊、此攻擊的發生次數，以及其偵測時間。
 3. 按一下 [受到攻擊的資源]  以取得有關此攻擊的詳細資訊。

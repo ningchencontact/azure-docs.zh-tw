@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766007"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237666"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>整合多個 Azure 監視器 Application Insights 資源 
 本文說明如何集中一處查詢和檢視所有 Application Insights 應用程式記錄檔資料，即使它們位於不同的 Azure 訂用帳戶中，以取代淘汰的 Application Insights Connector。 您在單一查詢中可納入的資源 (Application Insights 資源) 數目上限為 100 個。  
@@ -32,7 +32,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-使用 union 運算子搭配應用程式清單建立函數，然後使用別名 *applicationsScoping* 將查詢儲存為函數。  
+使用聯集運算子搭配應用程式清單來建立函式，然後使用 *applicationsScoping* 別名將查詢在您的工作區中儲存成函式。  
 
 ```
 union withsource=SourceApp 
@@ -45,7 +45,7 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->您可以隨時透過瀏覽至 [記錄] 入口網站中的 [查詢總管] 並編輯該函數或使用 `SavedSearch` PowerShell Cmdlet 來修改列出的應用程式。 `withsource= SourceApp` 命令在結果中新增一個資料行，可指定傳送記錄的應用程式。 
+>您可以隨時修改所列出的應用程式，方法是在入口網站中瀏覽至您工作區中的 [查詢總管] 並選取函式來進行編輯後再儲存，或是使用 `SavedSearch` PowerShell Cmdlet。 `withsource= SourceApp` 命令在結果中新增一個資料行，可指定傳送記錄的應用程式。 
 >
 >該查詢使用 Application Insights 資料結構，雖然查詢是在工作區中執行的，因為 applicationsScoping 函數會傳回 Application Insights 資料結構。 
 >

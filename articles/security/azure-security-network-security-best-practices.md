@@ -1,10 +1,10 @@
 ---
-title: Azure 網路安全性最佳做法 |Microsoft Docs
-description: 此文章提供使用內建 Azure 功能的一些網路安全性最佳做法。
+title: Azure 網路安全性最佳作法 |Microsoft Docs
+description: 本文提供使用內建 Azure 功能的一些網路安全性最佳作法。
 services: security
 documentationcenter: na
 author: TomShinder
-manager: mbaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: TomSh
-ms.openlocfilehash: d89972ff0f7e3035fa20f8d9ee2863b68fa52e9f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 86246d3d580737837ec07ccdc89ed82914cde209
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124060"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118406"
 ---
-# <a name="azure-network-security-best-practices"></a>Azure 網路安全性最佳做法
+# <a name="azure-network-security-best-practices"></a>Azure 網路安全性最佳作法
 您可以透過將 [Azure 虛擬機器 (VM)](https://azure.microsoft.com/services/virtual-machines/) 和設備置於 [Azure 虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)上，來將它們連線到其他網路裝置。 也就是說，您可以將虛擬網路介面卡連線到虛擬網路，讓有網路功能的裝置之間可進行 TCP/IP 型通訊。 連線到 Azure 虛擬網路的虛擬機器能夠連線到在相同虛擬網路、其他虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
 
-此文章將討論一系列的 Azure 網路安全性最佳做法。 這些最佳做法衍生自我們的 Azure 網路經驗和客戶的經驗。
+本文將討論一系列的 Azure 網路安全性最佳做法。 這些最佳作法衍生自我們的 Azure 網路經驗和客戶的經驗。
 
-針對每個最佳做法，此文章說明：
+針對每個最佳做法，本文說明：
 
-* 最佳做法是什麼
-* 您為何想要啟用該最佳做法
-* 如果無法啟用最佳做法，結果可能為何
-* 最佳做法的可能替代方案
-* 如何學習啟用最佳做法
+* 最佳作法是什麼
+* 您為何想要啟用該最佳作法
+* 如果無法啟用最佳作法，結果可能為何
+* 最佳作法的可能替代方案
+* 如何學習啟用最佳作法
 
-這篇「Azure 網路安全性最佳做法」是以共識意見以及 Azure 平台功能和特性集 (因為在撰寫此文章時已存在) 為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
+這篇「Azure 網路安全性最佳作法」是以共識意見以及 Azure 平台功能和特性集 (因為在撰寫本文時已存在) 為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
 
 下列各節描述網路安全性的最佳做法。
 
@@ -109,7 +109,7 @@ Azure 網路安全性設備可提供比網路層級控制更佳的安全性。 �
 ## <a name="optimize-uptime-and-performance"></a>將執行時間和效能最佳化
 如果服務已關閉，便無法存取資訊。 如果因為效能不佳而使資料無法使用，您可以將該資料視為無法存取。 從安全性觀點來看，您需要盡可能地確保您的服務有最佳的執行時間和效能。
 
-增強可用性和效能之常見且有效的方法是負載平衡。 負載平衡是將網路流量分散於服務中各伺服器的方法。 例如，如果您的服務中有前端 Web 伺服器，您可以使用負載平衡將流量分散於多部前端 Web 伺服器。
+增強可用性和效能之常見且有效的方法是負載平衡。 負載平衡是將網路流量分散於服務中各伺服器的方法。 比方說，如果您的服務中有前端 Web 伺服器，您可以使用負載平衡將流量分散於多部前端 Web 伺服器。
 
 此流量分散會提高可用性，因為如果其中一部 Web 伺服器無法使用，負載平衡器將會停止將流量傳送到該伺服器，並將流量重新導向至仍在運作的伺服器。 負載平衡也有助於效能，因為服務要求的處理器、網路和記憶體額外負荷會分散於所有負載平衡的伺服器。
 
@@ -155,7 +155,7 @@ Azure 網路安全性設備可提供比網路層級控制更佳的安全性。 �
 點對站 VPN 比直接 RDP 或 SSH 連線更安全，因為使用者必須先經過兩次驗證，才會連線到 VM。 首先，使用者必須經過驗證 (並獲得授權) 以建立點對站 VPN 連線。 然後，使用者必須經過驗證 (並獲得授權) 以建立 RDP 或 SSH 工作階段。
 
 **案例**：讓您內部部署網路上的使用者可以連線到您 Azure 虛擬網路上的 VM。   
-**選項**：[站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 透過網際網路將整個網路連線到另一個網路。 您可以使用站對站 VPN 將內部部署網路連線到 Azure 虛擬網路。 您內部部署網路上的使用者是透過站對站 VPN 連線，使用 RDP 或 SSH 通訊協定來連線。 您不需要允許透過網際網路的直接 RDP 或 SSH 存取。
+**選項**：[站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 透過網際網路將整個網路連接到另一個網路。 您可以使用站對站 VPN 將內部部署網路連線到 Azure 虛擬網路。 您內部部署網路上的使用者是透過站對站 VPN 連線，使用 RDP 或 SSH 通訊協定來連線。 您不需要允許透過網際網路的直接 RDP 或 SSH 存取。
 
 **案例**：使用專用的 WAN 連結來提供類似站對站 VPN 的功能。   
 **選項**：使用 [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)。 它提供類似站對站 VPN 的功能。 主要差別在於：
@@ -178,4 +178,4 @@ Azure 網路安全性設備可提供比網路層級控制更佳的安全性。 �
 若要深入了解服務端點，以及在哪些區域有哪些 Azure 服務的服務端點可取得，請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)。
 
 ## <a name="next-step"></a>後續步驟
-請參閱 [Azure 安全性最佳做法與模式](security-best-practices-and-patterns.md)，以獲得您在使用 Azure 來設計、部署和管理雲端解決方案時，可以使用的安全性最佳做法。
+如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](security-best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。

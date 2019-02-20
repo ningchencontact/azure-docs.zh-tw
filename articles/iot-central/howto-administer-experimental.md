@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ebca3060e902c0a45619c2bd64240537cd95308d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b43e496323da75dfc63f889283257fac41f48abf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811846"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117726"
 ---
 # <a name="administer-your-iot-central-application"></a>管理您的 IoT Central 應用程式
 
@@ -141,15 +141,15 @@ ms.locfileid: "55811846"
 
 ## <a name="export-data"></a>匯出資料
 
-您可以啟用 [連續資料匯出]，將計量、裝置和裝置範本資料匯出至 Azure Blob 儲存體帳戶。 深入了解[如何匯出資料](#howto-export-data)。
+您可以啟用 [連續資料匯出]，將計量、裝置和裝置範本資料匯出至 Azure Blob 儲存體帳戶。 深入了解如何[匯出您的資料](#export-data)。
 
 ## <a name="manage-device-connection"></a>管理裝置連線
 
-使用此處的金鑰和憑證，在應用程式中大規模連線裝置。 深入了解[連線裝置](#concepts-connectivity)。
+使用此處的金鑰和憑證，在應用程式中大規模連線裝置。 深入了解[連線裝置](/azure/iot-central/concepts-connectivity-experimental?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)。
 
 ## <a name="use-access-tokens"></a>使用存取權杖
 
-產生存取權杖，在開發人員工具中使用它們。 目前沒有一個屬於 IoT Central Explorer 的開發人員工具可用來監視屬性和設定中的裝置訊息和變更。 深入了解 [IoT Central Explorer](#howto-use-iotc-explorer)。 
+產生存取權杖，在開發人員工具中使用它們。 目前沒有一個屬於 IoT Central Explorer 的開發人員工具可用來監視屬性和設定中的裝置訊息和變更。 深入了解 IoT Central Explorer。 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>使用 Azure SDK 進行控制平面作業
 

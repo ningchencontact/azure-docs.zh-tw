@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754297"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892756"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>在 Linux VM 中新增磁碟
 本文說明如何將持續性磁碟連結到您的 VM，以便您保留資料 - 即使您的 VM 會由於維護或調整大小而重新佈建。
@@ -73,10 +73,10 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-在這裡，sdc 是我們想要的磁碟。 使用 `parted` 分割磁碟，如果磁碟大小為 2 TiB 或更大，您就必須使用 GPT 資料分割，如果它小於 2TiB，您則可以使用 MBR 或 GPT 資料分割。 將它設為磁碟分割 1 上的主要磁碟，並接受其他預設值。 下列範例會在 /dev/sdc 上啟動 `parted` 程序：
+在這裡，sdc 是我們想要的磁碟。 使用 `parted` 分割磁碟，如果磁碟大小為 2 TiB 或更大，您就必須使用 GPT 資料分割，如果它小於 2TiB，您則可以使用 MBR 或 GPT 資料分割。 如果您使用 MBR 磁碟分割，可以使用 `fdisk`。 將它設為磁碟分割 1 上的主要磁碟，並接受其他預設值。 下列範例會在 /dev/sdc 上啟動 `fdisk` 程序：
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 使用 `n` 命令來新增新的磁碟分割。 在此範例中，我們也會針對主要磁碟分割選擇 `p`，並接受其餘的預設值。 輸出將類似下列範例：

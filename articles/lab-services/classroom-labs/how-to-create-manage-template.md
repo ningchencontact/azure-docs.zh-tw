@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b287a67c470cc1697065838e52916c285a2233a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815239"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960185"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>在 Azure 實驗室服務中建立和管理教室範本
 實驗室中的範本是所有使用者的虛擬機器據以建立的基底虛擬機器映像。 設定範本虛擬機器以便能確實設定您要提供給實驗室使用者的虛擬機器。 您可以提供要給實驗室使用者查看的範本名稱與描述。 然後，發佈範本以便讓範本 VM 的執行個體可供實驗室使用者使用。 當您發佈範本時，Azure 實驗室服務會使用範本在實驗室中建立 VM。 在此程序中建立的 VM 數目與實驗室中允許的使用者數量上限相同 (此上限可在實驗室的使用原則中設定)。 所有虛擬機器都有與範本相同的設定。
@@ -103,7 +103,12 @@ ms.locfileid: "55815239"
 1. 檢閱警告，然後選取 [啟動]。 
 
     ![啟動範本 - 警告](../media/how-to-create-manage-template/start-template-warning.png)
+2. 您會在 [範本] 區段中的實驗室圖格上看到狀態。
+
+    ![啟動範本 - 狀態](../media/how-to-create-manage-template/template-start-status.png)
 1. 啟動之後，若要連線到 VM，請選取 [連線]，然後依照指示執行。 
+
+    ![連線至或停止範本 VM](../media/how-to-create-manage-template/connect-stop-vm.png)
 1. 安裝學生使用實驗室所需的任何軟體 (例如，Visual Studio、Azure 儲存體總管等)。 
 2. 中斷範本 VM 的連線 (關閉您的遠端桌面工作階段)。 
 3. 選取 [停止] 以**停止** VM 範本。 

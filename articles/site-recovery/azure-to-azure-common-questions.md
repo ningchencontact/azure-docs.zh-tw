@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770481"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860402"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>常見問題：Azure 對 Azure 複寫
 
@@ -33,6 +33,10 @@ ms.locfileid: "55770481"
 
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 是如何定價的？
 請檢閱[Azure Site Recovery 定價](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/)詳細資料。
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery 的免費層如何運作？
+每個受 Azure Site Recovery 保護的執行個體，在受保護的前 31 天皆為免費。 自第 32 天起，就會依上述費率，針對為該執行個體提供的保護進行收費。
+###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在這前 31 天，我是否須負擔任何其他 Azure 費用？
+是，即使受保護的執行個體前 31 天的 Azure Site Recovery 免費，您仍有可能需要負擔 Azure 儲存體、儲存體交易與資料傳輸的費用。 復原的虛擬機器也可能會產生 Azure 計算費用。 在[這裡](https://azure.microsoft.com/pricing/details/site-recovery)取得有關定價的完整詳細資料
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>在 Azure VM 上設定 Site Recovery 的最佳做法有哪些？
 1. [了解 Azure 至 Azure 架構](azure-to-azure-architecture.md)
@@ -70,6 +74,10 @@ ms.locfileid: "55770481"
 
 否，Site Recovery 不需要網際網路連線能力。 但它確實需要能夠存取 Site Recovery URL 和 IP 範圍，如[這篇文章](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)所述。
 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>是否可以複寫有個別層之個別資源群組的應用程式？ 
+是，您可以複寫應用程式，並保持災害復原設定也在個別資源群組。
+例如，如果您的應用程式的每層應用程式、DB 和 Web 都在個別資源群組中，則您需要按[複寫精靈](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication)三次來保護所有層。 ASR 將會在三個不同的資源群組中複寫這三個層。
+
 ## <a name="replication-policy"></a>複寫原則
 
 ### <a name="what-is-a-replication-policy"></a>什麼是複寫原則？
@@ -89,9 +97,12 @@ ms.locfileid: "55770481"
 Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>什麼是應用程式一致復原點？ 
-應用程式一致復原點是從應用程式一致快照集建立的。 應用程式一致快照集所擷取的資料與當機時保持一致快照集相同，但多了記憶體內的所有資料，以及所有進行中的交易。 
+應用程式一致復原點是從應用程式一致快照集建立的。 應用程式一致快照集所擷取的資料與當機時保持一致復原點相同，但多了記憶體內的所有資料，以及所有進行中的交易。 
 
 由於有這些額外的內容，因此應用程式一致快照集包含最多內容，且需要最長的執行時間。 建議您針對資料庫作業系統和 SQL Server 之類的應用程式，使用應用程式一致復原點。
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>應用程式一致復原點對應用程式效能有何影響？
+請考慮到應用程式一致復原點為了靜止應用程式，它會擷取記憶體中和處理序中架構所需的所有資料。 如果工作負載已經非常忙碌，若非常頻繁地這麼做，可能會有效能影響。 針對應用程式一致復原點，對於非資料庫工作負載通常建議不要使用低頻率，甚至對於資料庫工作負載 1 小時就足夠了。 
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>應用程式一致復原點產生的最小頻率為何？
 Site Recovery 可以建立應用程式一致復原點的最小頻率為 1 小時。

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a5a4205c97e4db25d5d0a92472610364d912b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767447"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963432"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>存在 Azure 媒體服務 v3 的雲端和區域
 
@@ -40,7 +40,7 @@ Azure 媒體服務 v3 可透過 Azure Resource Manager 資訊清單在全域 Azu
 * [Azure 地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="region-code-name"></a>區域碼名稱 
+### <a name="region-code-name"></a>區域碼名稱 
 
 如果需要提供**位置**參數，則需要提供區域代碼名稱作為**位置**值。 若要取得您帳戶所在且應該路由傳送呼叫之區域的代碼名稱，您可以在 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 中執行下面這一行
 
@@ -62,6 +62,42 @@ az account list-locations
       "subscriptionId": null
     }
 ```
+
+## <a name="endpoints"></a>端點  
+
+從不同國家/地區的 Azure 雲端連線到媒體服務帳戶時，下列端點非常重要。
+
+### <a name="global-azure"></a>全域 Azure
+
+|端點 ||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| 權杖對象 | `https://management.core.windows.net/` |
+
+### <a name="azure-government"></a>Azure Government
+
+|端點||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| 權杖對象 | `https://management.core.usgovcloudapi.net/` |
+
+### <a name="azure-germany"></a>Azure Germany
+
+| 端點 ||
+| --- | --- |  
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| 權杖對象 | `https://management.core.cloudapi.de/`|
+
+### <a name="azure-china-21vianet"></a>Azure China 21Vianet
+
+|端點||
+| --- | --- | 
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| 權杖對象 |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>後續步驟
 

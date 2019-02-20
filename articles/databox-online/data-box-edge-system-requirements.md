@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 60c4b22fb34a66a0ff68db26030be0e0ea3c0066
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470234"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113765"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Azure Data Box Edge 系統需求 (預覽)
 
@@ -47,13 +47,15 @@ Data Box Edge 的系統需求包括：
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="port-configuration-for-data-box-edge"></a>Data Box Edge 的連接埠設定
+## <a name="networking-port-requirements"></a>網路連接埠需求
+
+### <a name="port-requirements-for-data-box-edge"></a>Data Box Edge 的連接埠需求
 
 下表列出必須在您的防火牆中開啟的連接埠，以允許 SMB、雲端或管理流量。 在這個資料表中，in 或 inbound 指的是輸入用戶端要求存取裝置的方向。 *Out* 或 *outbound* 指的是 Data Box Edge 裝置在外部傳送資料到部署以外的方向 (例如，輸出到網際網路)。
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-## <a name="port-configuration-for-iot-edge"></a>IoT Edge 的連接埠設定
+### <a name="port-requirements-for-iot-edge"></a>IoT Edge 的連接埠需求
 
 Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定，進行從內部部署 Edge 裝置到 Azure 雲端的輸出通訊。 只有針對 Azure IoT 中樞需要將訊息向下推送到 Azure IoT Edge 裝置的特定案例，才需要輸入通訊。
 
@@ -61,8 +63,8 @@ Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定，進行從內部部�
 
 | 連接埠號碼 | 內或外 | 連接埠範圍 | 必要 | 指引 |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| 外       | WAN        | 是      | IoT Edge 的預設通訊協定。 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或者 AMQP 是所需的通訊協定，則必須是開啟狀態。 <br>IoT Edge 不支援適用於 AMQP 的 5672。 <br>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。 |
-| TCP 443 (HTTPS)| 外       | WAN        | 是      | 開啟來佈建 IoT Edge 的輸出。 假設您具有透明的閘道，其中具有可能會傳送方法要求的分葉裝置。 在此情況下，無須對外部網路開啟連接埠 443，即可連線至 IoT 中樞，或透過 Azure IoT Edge 提供 IoT 中樞服務。 因此，可將傳入規則限制為只開啟來自內部網路的輸入。 |
+| TCP 5671 (AMQP)| 外       | WAN        | yes      | IoT Edge 的預設通訊協定。 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或者 AMQP 是所需的通訊協定，則必須是開啟狀態。 <br>IoT Edge 不支援適用於 AMQP 的 5672。 <br>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。 |
+| TCP 443 (HTTPS)| 外       | WAN        | yes      | 開啟來佈建 IoT Edge 的輸出。 假設您具有透明的閘道，其中具有可能會傳送方法要求的分葉裝置。 在此情況下，無須對外部網路開啟連接埠 443，即可連線至 IoT 中樞，或透過 Azure IoT Edge 提供 IoT 中樞服務。 因此，可將傳入規則限制為只開啟來自內部網路的輸入。 |
 | TCP 5671 (AMQP) | 在        |            | 否       | 應該封鎖輸入連線。|
 | TCP 443 (HTTPS) | 在        |            | 在某些情況下，請參閱註解 | 輸入連線應該只會針對特定案例加以開啟。 如果無法設定非 HTTP 通訊協定 (例如 AMQP、MQTT)，則可使用連接埠 443，透過 WebSocket 來傳送訊息。 |
 
@@ -80,18 +82,7 @@ Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定，進行從內部部�
 
 ### <a name="url-patterns-for-gateway-feature"></a>閘道功能的 URL 模式
 
-|    URL 模式                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    元件或功能                                                                           |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure Data Box Edge 服務<br>Azure 服務匯流排<br>驗證服務                           |
-|    http://\*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                                |    裝置啟用                                                                                    |
-|    http://crl.microsoft.com/pki/\*<br>http://www.microsoft.com/pki/\*                                                                                                                                                                                                                                                                                                                                                                                                  |    憑證撤銷                                                                               |
-|    https://\*.core.windows.net/\*<br>https://\*.data.microsoft.com<br>http://\*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                            |    Azure 儲存體帳戶和監視                                                                |
-|    http://windowsupdate.microsoft.com<br>http://\*.windowsupdate.microsoft.com<br>https://\*.windowsupdate.microsoft.com<br>http://\*.update.microsoft.com<br>https://\*.update.microsoft.com<br>http://\*.windowsupdate.com<br>http://download.microsoft.com<br>http://\*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://\*.ws.microsoft.com<br>https://\*.ws.microsoft.com<br>http://\*.mp.microsoft.com |    Microsoft Update 伺服器                                                                             |
-|    http://\*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                                          |    Akamai CDN                                                                                           |
-|    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    支援封裝                                                                                      |
-|    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Windows 中的遙測服務，請參閱客戶經驗和診斷遙測的更新      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ### <a name="url-patterns-for-compute-feature"></a>計算功能的 URL 模式
 
@@ -107,4 +98,4 @@ Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定，進行從內部部�
 
 ## <a name="next-step"></a>後續步驟
 
-* [部署 Azure Data Box Edge](data-box-Edge-deploy-prep.md)
+- [部署 Azure Data Box Edge](data-box-Edge-deploy-prep.md)

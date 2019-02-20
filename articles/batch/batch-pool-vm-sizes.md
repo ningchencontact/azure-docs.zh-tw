@@ -12,24 +12,24 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191712"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185982"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>為 Azure Batch 集區中的運算節點選擇 VM 大小
 
-當您為 Azure Batch 集區選取節點大小時，可以從 Azure 中幾乎所有可用的 VM 大小進行選擇。 針對不同的工作負載，Azure 提供許多適用於 Linux 和 Windows VM 的大小。 
+當您為 Azure Batch 集區選取節點大小時，可以從 Azure 中幾乎所有可用的 VM 大小進行選擇。 針對不同的工作負載，Azure 提供許多適用於 Linux 和 Windows VM 的大小。
 
 選擇 VM 大小時有幾個例外狀況和限制：
+
 * Batch 中不支援某些 VM 系列或 VM 大小。 
 * 有些 VM 大小會有限制，而且必須特別啟用後才能配置。
-
 
 ## <a name="supported-vm-families-and-sizes"></a>支援的 VM 系列和大小
 
@@ -42,16 +42,16 @@ ms.locfileid: "54191712"
 | 基本 A 系列 | Basic_A0 (A0) |
 | A 系列 | Standard_A0 |
 | B 系列 | 全部 |
-| DC 系列 | 全部 | 
+| DC 系列 | 全部 |
 | 最高等級的記憶體最佳化 | 全部 |
-| Hb 系列 <sup>1</sup> | 全部 | 
+| Hb 系列 <sup>1</sup> | 全部 |
 | Hc 系列 <sup>1</sup> | 全部 |
 | Lsv2 系列 | 全部 |
 | NDv2 系列 <sup>1</sup> | 全部 |
-| NVv2 系列 <sup>1</sup> | 全部 |
+| NVv2 系列 | 全部 |
 | SAP HANA | 全部 |
 
-<sup>1</sup> 目前未受支援，但未來會支援。
+<sup>1</sup> 批次帳戶可以在使用者訂用帳戶模式下使用；使用者訂用帳戶模式批次帳戶需要設定核心配額。 如需更多資訊，請參閱[使用者訂用帳戶模式的組態](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)。
 
 只有低優先順序節點才支援下列 VM 大小：
 
@@ -74,6 +74,7 @@ ms.locfileid: "54191712"
 ## <a name="restricted-vm-families"></a>受限制的 VM 系列
 
 下列 VM 系列可在 Batch 集區中配置，但您必須要求特定的配額增加 (請參閱[本文](batch-quota-limit.md#increase-a-quota))：
+
 * NCv2 系列
 * NCv3 系列
 * ND 系列
@@ -82,7 +83,7 @@ ms.locfileid: "54191712"
 
 ## <a name="size-considerations"></a>大小考量
 
-* **應用程式需求** - 請考量將於節點上執行之應用程式的特性和需求。 應用程式是否為多執行緒以及需要使用多少記憶體之類的層面，有助於決定最適合且具成本效益的節點大小。 針對多重執行個體的 [MPI 工作負載](batch-mpi.md)或 CUDA 應用程式，請考慮分別使用特殊 [HPC](../virtual-machines/linux/sizes-hpc.md) 或[已啟用 GPU](../virtual-machines/linux/sizes-gpu.md) 的 VM 大小。 (請參閱[在 Batch 集區中使用具備 RDMA 功能或已啟用 GPU 功能的執行個體](batch-pool-compute-intensive-sizes.md)。) 
+* **應用程式需求** - 請考量將於節點上執行之應用程式的特性和需求。 應用程式是否為多執行緒以及需要使用多少記憶體之類的層面，有助於決定最適合且具成本效益的節點大小。 針對多重執行個體的 [MPI 工作負載](batch-mpi.md)或 CUDA 應用程式，請考慮分別使用特殊 [HPC](../virtual-machines/linux/sizes-hpc.md) 或[已啟用 GPU](../virtual-machines/linux/sizes-gpu.md) 的 VM 大小。 (請參閱[在 Batch 集區中使用具備 RDMA 功能或已啟用 GPU 功能的執行個體](batch-pool-compute-intensive-sizes.md)。)
 
 * **每個節點的工作** - 在選取節點大小時，通常會假設每次在節點上執行一項工作。 不過，在作業執行期間有多項工作 (因而有多個應用程式執行個體) 在計算節點上[以平行方式執行](batch-parallel-node-tasks.md)，也可能有好處。 在此情況下，通常會選擇多核心節點大小，以因應增加的平行工作執行需求。
 
@@ -97,6 +98,4 @@ ms.locfileid: "54191712"
 ## <a name="next-steps"></a>後續步驟
 
 * 如需 Batch 的深入概觀，請參閱[使用 Batch 開發大規模的平行計算解決方案](batch-api-basics.md)。
-* 如需使用計算密集型 VM 大小的相關資訊，請參閱[在 Batch 集區中使用具備 RDMA 功能或已啟用 GPU 功能的執行個體](batch-pool-compute-intensive-sizes.md)。 
-
-
+* 如需使用計算密集型 VM 大小的相關資訊，請參閱[在 Batch 集區中使用具備 RDMA 功能或已啟用 GPU 功能的執行個體](batch-pool-compute-intensive-sizes.md)。

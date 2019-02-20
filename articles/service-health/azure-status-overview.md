@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/16/2018
+ms.date: 02/11/2019
 ms.author: stbaron
-ms.openlocfilehash: 7121087d9d9699a73b88e07599f70e0c7c40c1eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6054b33e4068d36c5bfbb80120086a92a03525c8
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308275"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097503"
 ---
 # <a name="azure-status"></a>Azure 狀態
-[Azure 狀態](https://azure.microsoft.com/status/)提供您 Azure 服務健康情況的全域檢視。 您可以使用 Azure 狀態取得服務可用性的最新資訊。 每個人都可存取 Azure 狀態，而且可以檢視回報其服務健康情況的所有服務。 
+[Azure 狀態](https://azure.microsoft.com/status/)提供您 Azure 服務健康情況和區域的全域檢視。 您可以使用 Azure 狀態取得服務可用性的最新資訊。 每個人都可以使用 Azure 狀態來查看回報服務健康情況的所有服務，以及具有廣泛影響的事件。 但是，如果您目前是 Azure 使用者，強力推薦您使用 [Azure 服務健康狀態](https://aka.ms/azureservicehealth)中的個人化體驗。 Azure 服務健康狀態包含了所有的中斷情況、近期計劃性維護活動和服務建議。
 
 ![Azure 狀態頁面](./media/azure-status-overview/azure-status.PNG)
 

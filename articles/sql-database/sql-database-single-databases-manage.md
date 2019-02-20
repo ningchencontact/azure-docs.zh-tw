@@ -3,7 +3,7 @@ title: 建立及管理 Azure SQL Database 伺服器和單一資料庫 | Microsof
 description: 了解如何建立及管理 SQL Database 伺服器和單一資料庫。
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7d1f11abbe88bff5a7e16984aacd4953ad4f9e12
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: 0a43414ef446beb3f5d6c8e357390363a95ac31c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751186"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099338"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL Database 中建立及管理 SQL Database 伺服器和單一資料庫
 
@@ -57,7 +57,7 @@ ms.locfileid: "55751186"
 
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell：管理 SQL Database 伺服器和單一資料庫
 
-若要使用 Azure PowerShell 建立及管理 Azure SQL Database 伺服器、獨立和集區資料庫以及 SQL Database 伺服器防火牆，請使用下列 PowerShell Cmdlet。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
+若要使用 Azure PowerShell 建立及管理 Azure SQL Database 伺服器、單一和集區資料庫以及 SQL Database 伺服器防火牆，請使用下列 PowerShell Cmdlet。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
 > [!TIP]
 > 如需 PowerShell 範例指令碼，請參閱[使用 PowerShell 建立 Azure SQL 單一資料庫並設定 SQL Database 伺服器防火牆規則](scripts/sql-database-create-and-configure-database-powershell.md)和[使用 PowerShell 監視和調整 SQL 單一資料庫](scripts/sql-database-monitor-and-scale-database-powershell.md)。
@@ -160,5 +160,5 @@ ms.locfileid: "55751186"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解如何將 SQL Server 資料庫移轉至 Azure，請參閱[移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
+- 若要深入了解如何將 SQL Server 資料庫移轉至 Azure，請參閱[移轉至 Azure SQL Database](sql-database-single-database-migrate.md)。
 - 如需支援功能的相關資訊，請參閱「[功能](sql-database-features.md)」。

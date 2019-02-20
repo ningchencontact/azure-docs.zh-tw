@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f08f4cc74c37ccbbcab071b82f67f912e9fd9fd1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b87fa166f82e4302b5430064d41c293731c60470
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065319"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107696"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>管理 Azure 地圖服務帳戶的定價層
 
@@ -34,7 +34,7 @@ ms.locfileid: "54065319"
 ![變更定價層](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 
 > [!NOTE]
-> 如果您升級或降級 Azure 地圖服務帳戶的定價層，並不需要產生新的訂用帳戶金鑰。
+> 如果您升級或降級 Azure 地圖服務帳戶的定價層，並不需要產生新的訂用帳戶金鑰或用戶端識別碼 (適用於 Azure AD 驗證)。
 
 ## <a name="next-steps"></a>後續步驟
 

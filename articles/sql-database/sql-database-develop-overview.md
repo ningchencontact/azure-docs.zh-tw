@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: d9de6100e3bb7c3cc71a7a251d790df4907be5f2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820346"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964792"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 應用程式開發概觀
 
 本文將逐步解說開發人員在撰寫程式碼以連接到 Azure SQL Database 時應注意的基本考量事項。 本文適用於 Azure SQL Database (單一資料庫、彈性集區、受控執行個體) 的所有部署模型。
 
 > [!TIP]
-> 若您需要設定 Azure SQL Database，請查看快速入門指南，了解[單一資料庫](sql-database-single-database-quickstart-guide.md)和[受控執行個體](sql-database-managed-instance-quickstart-guide.md)。
+> 若您需要設定 Azure SQL Database，請查看快速入門指南，以了解[單一資料庫](sql-database-single-database-quickstart-guide.md)和[受控執行個體](sql-database-managed-instance-quickstart-guide.md)。
 >
 
 ## <a name="language-and-platform"></a>語言和平台
@@ -49,14 +49,16 @@ Azure SQL Database 的存取受到登入及防火牆的保護。 Azure SQL Datab
 
 ## <a name="resiliency"></a>災害復原
 
-Azure SQL Database 為雲端服務，因此基礎結構或雲端實體之間的通訊可能會發生暫時性錯誤。
-雖然 Azure SQL Database 會從可轉移的基礎結構失敗中復原，但這些失敗可能會影響您的連線。 當連接到 SQL Database 發生暫時性錯誤時，您的程式碼應該[重試呼叫](sql-database-connectivity-issues.md)。 我們建議重試邏輯使用輪詢邏輯，因此它不會同時重試多個用戶端而讓 SQL Database 超過負荷。 重試邏輯取決於 [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)。
+Azure SQL Database 為雲端服務，因此基礎結構或雲端實體之間的通訊可能會發生暫時性錯誤。 雖然 Azure SQL Database 會從可轉移的基礎結構失敗中復原，但這些失敗可能會影響您的連線。 當連接到 SQL Database 發生暫時性錯誤時，您的程式碼應該[重試呼叫](sql-database-connectivity-issues.md)。 我們建議重試邏輯使用輪詢邏輯，因此它不會同時重試多個用戶端而讓 SQL Database 超過負荷。 重試邏輯取決於 [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)。
+
+如需如何為 Azure SQL 資料庫上的計劃性維護事件進行準備的詳細資訊，請參閱[規劃 Azure SQL Database 的 Azure 維護事件](sql-database-planned-maintenance.md)。
 
 ## <a name="network-considerations"></a>網路考量事項
 
 - 在託管您的用戶端程式的電腦上，請確定防火牆允許連接埠 1433 上的傳出 TCP 通訊。  詳細資訊：[如何設定 Azure SQL Database 防火牆](sql-database-configure-firewall-settings.md)。
 - 如果您的用戶端程式是在 Azure 虛擬機器 (VM) 上執行，而用戶端程式會連線至 SQL Database，您就必須開啟該 VM 上特定的連接埠範圍。 詳細資訊：[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 - 與 Azure SQL Database 的用戶端連線有時會略過 proxy 並直接與資料庫互動。 1433 以外的連接埠變得重要。 如需詳細資訊，請參閱 [Azure SQL Database 連線架構](sql-database-connectivity-architecture.md)和[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)一節。
+- 若要了解受控執行個體的網路設定，請參閱[受控執行個體的網路設定](sql-database-howto-managed-instance.md#network-configuration)。
 
 ## <a name="next-steps"></a>後續步驟
 

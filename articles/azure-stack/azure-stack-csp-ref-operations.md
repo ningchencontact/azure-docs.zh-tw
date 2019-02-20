@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 5ae8297f8e189fbe9374cec826bf5e566e5403da
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241935"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002037"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>管理 Azure Stack 中的租用戶註冊
 
@@ -60,7 +60,7 @@ ms.locfileid: "55241935"
 
 ### <a name="powershell"></a>PowerShell
 
-使用 New-AzureRmResource Cmdlet 來更新註冊資源。 以下是如何新增租用戶的範例：
+使用 New-AzureRmResource Cmdlet 來新增租用戶。 [連線到 Azure Stack](/azure-stack-powershell-configure-admin.md)，然後從提升權限的提示字元中使用下列 Cmdlet：
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -91,7 +91,7 @@ ms.locfileid: "55241935"
 
 ### <a name="powershell"></a>PowerShell
 
-使用 Get-AzureRmResource Cmdlet 來列出所有已註冊的租用戶。 使用初始註冊所用的帳戶來登入 Azure (`Add-AzureRmAccount`)。 以下是如何新增租用戶的範例：
+使用 Get-AzureRmResource Cmdlet 來列出所有已註冊的租用戶。 [連線到 Azure Stack](/azure-stack-powershell-configure-admin.md)，然後從提升權限的提示字元中使用下列 Cmdlet：
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -99,7 +99,7 @@ ms.locfileid: "55241935"
 
 ### <a name="api-call"></a>API 呼叫
 
-您可以使用 GET 作業取得所有租用戶對應的清單
+您可以使用 GET 作業取得所有租用戶對應的清單。
 
 **作業**：GET  
 **RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
@@ -111,15 +111,15 @@ api-version=2017-06-01 HTTP/1.1`
 ```JSON  
 {
     "value": [{
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}",
             "name": " cspSubscriptionId 1",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId1" }
         },
         {
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}",
             "name": " cspSubscriptionId2 ",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId2" }
         }
     ],
@@ -141,6 +141,8 @@ api-version=2017-06-01 HTTP/1.1`
 | customerSubscriptionId     | 客戶的訂用帳戶識別碼。  |
 
 ### <a name="powershell"></a>PowerShell
+
+使用 Remove-AzureRmResource Cmdlet 來移除租用戶。 [連線到 Azure Stack](/azure-stack-powershell-configure-admin.md)，然後從提升權限的提示字元中使用下列 Cmdlet：
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

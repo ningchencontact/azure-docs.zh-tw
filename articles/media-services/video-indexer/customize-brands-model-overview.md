@@ -7,20 +7,20 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 59a865cf6e822ecd1918d0c04b98f0edc0355223
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815467"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237360"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>在影片索引器中自訂品牌模型
 
 影片索引器支援在視訊和音訊內容的編製索引及重新編製索引期間，從語音和視覺文字偵測品牌。 品牌偵測功能可識別 Bing 的品牌資料庫建議所提及的產品、服務以及公司。 例如，如果在視訊或音訊內容中提及 Microsoft，或者視訊或音訊內容出現在視訊的視覺文字中，影片索引器會將其偵測為內容中的品牌。 您可以使用上下文來區分品牌和其他詞彙。
 
-品牌偵測可用於各種商務案例，例如內容封存和探索、內容相關的廣告、社交媒體分析、零售競爭分析等等。 影片索引器的品牌偵測可讓您使用 Bing 的品牌資料庫以及自訂項目，針對每個影片索引器帳戶建置自訂品牌模型，藉此為語音和視覺化文字中提及的品牌編製索引。 自訂品牌模型功能可讓您選取影片索引器是否要從 Bing 品牌資料庫偵測品牌、從偵測到的品牌排除特定品牌 (基本上就是建立品牌的封鎖清單)，以及包含應該是模型的一部分但可能不在 Bing 品牌資料庫的品牌 (基本上就是建立品牌的允許清單)。
+品牌偵測可用於各種商務案例，例如內容封存和探索、內容相關的廣告、社交媒體分析、零售競爭分析等等。 影片索引器的品牌偵測可讓您使用 Bing 的品牌資料庫以及自訂項目，針對每個影片索引器帳戶建置自訂品牌模型，藉此為語音和視覺化文字中提及的品牌編製索引。 自訂品牌模型功能可讓您選取影片索引器是否要從 Bing 品牌資料庫偵測品牌、從偵測到的品牌排除特定品牌 (基本上就是建立品牌的封鎖清單)，以及包含應該是模型的一部分但可能不在 Bing 品牌資料庫的品牌 (基本上就是建立品牌的允許清單)。 您建立的自訂品牌模型僅適用於您的模型建立所在的帳戶。
 
 ## <a name="out-of-the-box-detection-example"></a>現成的偵測範例
 

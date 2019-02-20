@@ -1,6 +1,6 @@
 ---
-title: 使用開放原始碼工具將 Azure 網路監看員 NSG 流量記錄視覺化 | Microsoft Docs
-description: 此頁面說明如何使用開放原始碼工具將 NSG 流量記錄視覺化。
+title: 使用網路監看員和彈性堆疊來管理和分析網路安全性群組流量記錄 | Microsoft Docs
+description: 使用網路監看員和彈性堆疊在 Azure 中管理和分析網路安全性群組流量記錄。
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822903"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098998"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>使用開放原始碼工具將 Azure 網路監看員 NSG 流量記錄視覺化
 

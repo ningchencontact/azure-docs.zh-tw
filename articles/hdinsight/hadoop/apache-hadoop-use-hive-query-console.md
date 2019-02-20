@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e638bd348b7a5272dd8bfbe25aa841f38a51b9a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e568a8b7cfb21483f447b8244056de292e21093f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409695"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169396"
 ---
 # <a name="run-apache-hive-queries-using-the-query-console"></a>使用查詢主控台執行 Apache Hive 查詢
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -78,12 +78,9 @@ ms.locfileid: "53409695"
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
-* [搭配 HDInsight 上的 Apache Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
-如果您搭配使用 Tez 和 Hive，請參閱下列文件所提供的偵錯資訊：
-
-* [在以 Windows 為基礎的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
-* [在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)
+如果您搭配使用 Tez 和 Hive，請參閱下列文件所提供的偵錯資訊：[在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)。
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

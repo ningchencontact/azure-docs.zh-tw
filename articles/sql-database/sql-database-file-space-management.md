@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 檔案空間管理 | Microsoft Docs
-description: 此頁面說明如何使用 Azure SQL Database 管理檔案空間，以及提供如何判斷您是否需要壓縮資料庫和如何執行資料庫壓縮作業的程式碼範例。
+title: Azure SQL Database 單一/共用資料庫檔案空間管理 |Microsoft Docs
+description: 此頁面描述如何管理 Azure SQL Database 中的單一和集區資料庫的檔案空間，並提供如何判斷您是否需要壓縮單一或集區資料庫，以及如何執行資料庫壓縮作業的程式碼範例。
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,20 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468626"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110144"
 ---
-# <a name="manage-file-space-in-azure-sql-database"></a>以 Azure SQL Database 管理檔案空間
-本文說明 Azure SQL Database 中不同類型的儲存空間，以及需要明確管理為資料庫與彈性集區配置的檔案空間時所能採取的步驟。
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>在 Azure SQL Database 中管理單一和集區資料庫的檔案空間
+
+本文描述 Azure SQL Database 中適用於單一和集區資料庫的不同類型儲存空間，以及需要明確管理為資料庫與彈性集區配置的檔案空間時所能採取的步驟。
+
+> [!NOTE]
+> 本文不適用於 Azure SQL Database 中的受控執行個體部署選項。
 
 ## <a name="overview"></a>概觀
 
-在 Azure SQL Database 的某些工作負載模式中，資料庫的基礎資料檔案配置可能會逐漸大於已使用資料頁數。 當使用的空間增加，隨後卻將資料刪除時，就會發生這種狀況。 原因是因為在資料刪除後，並不會自動回收已配置的檔案空間。
+使用單一和集區資料庫 Azure SQL Database 時，某些工作負載模式的資料庫基礎資料檔案的配置可能會大於已使用資料頁數。 當使用的空間增加，隨後卻將資料刪除時，就會發生這種狀況。 原因是因為在資料刪除後，並不會自動回收已配置的檔案空間。
 
 在下列情況中，可能需要監視檔案空間使用量和壓縮資料檔案：
 
@@ -33,17 +37,20 @@ ms.locfileid: "55468626"
 - 允許將單一資料庫或彈性集區變更為大小上限較低的不同服務層級或效能層級。
 
 ### <a name="monitoring-file-space-usage"></a>監視檔案空間使用量
+
 在 Azure 入口網站和下列 API 中顯示的大部分儲存體空間計量只會測量已使用資料頁面的大小：
+
 - Azure Resource Manager 型計量 API 包括 PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL：[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 不過，下列 API 也會測量配置給資料庫和彈性集區的空間大小：
+
 - T-SQL：[sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL：[sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>壓縮資料檔案
 
-由於可能會對資料庫效能造成影響，因此 SQL DB 服務不會自動壓縮資料檔案，以回收未使用的配置空間。  不過，客戶可以依照[回收未使用的配置空間](#reclaim-unused-allocated-space)中說明的步驟，在其選擇的時間自行壓縮資料檔案。 
+由於可能會對資料庫效能造成影響，因此 SQL Database 服務不會自動壓縮資料檔案，以回收未使用的配置空間。  不過，客戶可以依照[回收未使用的配置空間](#reclaim-unused-allocated-space)中描述的步驟，在其選擇的時間自行壓縮資料檔案。
 
 > [!NOTE]
 > 不同於資料檔案，SQL Database 服務會自動壓縮記錄檔，因為該作業並不會影響資料庫效能。 
@@ -62,13 +69,14 @@ ms.locfileid: "55468626"
 
 下圖說明資料庫的不同儲存體空間類型之間的關聯性。
 
-![儲存體空間類型和關聯性](./media/sql-database-file-space-management/storage-types.png) 
+![儲存體空間類型和關聯性](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-database-for-storage-space-information"></a>查詢資料庫，以取得儲存體空間資訊
+## <a name="query-a-single-database-for-storage-space-information"></a>查詢資料庫來取得儲存體空間資訊
 
-下列查詢可用來判斷資料庫的儲存體空間數量。  
+下列查詢可用來判斷單一資料庫的儲存體空間數量。  
 
 ### <a name="database-data-space-used"></a>使用的資料庫資料空間
+
 修改下列查詢，以傳回資料庫已使用的資料空間量。  查詢結果以 MB 為單位。
 
 ```sql
@@ -81,6 +89,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>配置的資料庫資料空間與已配置但未使用的空間
+
 使用下列查詢，以傳回已配置的資料庫資料空間量與已配置但未使用的空間量。  查詢結果以 MB 為單位。
 
 ```sql
@@ -94,6 +103,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>資料庫資料大小上限
+
 修改下列查詢，以傳回資料庫資料大小上限。  查詢結果以位元組為單位。
 
 ```sql
@@ -137,7 +147,7 @@ ORDER BY end_time DESC
 
 以查詢判斷為集區中的每個資料庫配置的空間所產生的結果，可在加總後用來判斷為彈性集區配置的總空間。 配置的彈性集區空間不應超過彈性集區大小上限。  
 
-PowerShell 指令碼需要 SQL Server PowerShell 模組 – 請參閱[下載 PowerShell 模組](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017)以便安裝。
+PowerShell 指令碼需要 SQL Server PowerShell 模組 – 請參閱[下載 PowerShell 模組](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module)以便安裝。
 
 ```powershell
 # Resource group name
@@ -218,7 +228,7 @@ DBCC SHRINKDATABASE (N'db1')
 
 ### <a name="auto-shrink"></a>自動壓縮
 
-或者，可以啟用資料庫自動壓縮。  自動壓縮會減少檔案管理的複雜度，且相較於 SHRINKDATABASE 或 SHRINKFILE 對於資料庫效能的影響較低。  自動壓縮對於管理包含許多資料庫的彈性集區可能特別有用。  不過，相較於 SHRINKDATABASE 和 SHRINKFILE，自動壓縮在回收檔案空間方面較沒有效率。
+或者，可以啟用資料庫自動壓縮。  自動壓縮會減少檔案管理複雜度，且比起 `SHRINKDATABASE` 或 `SHRINKFILE` 較不影響資料庫效能。  自動壓縮對於管理包含許多資料庫的彈性集區可能特別有用。  不過，自動壓縮比起 `SHRINKDATABASE` 和 `SHRINKFILE` 在回收檔案空間上可能較沒效率。
 若要啟用自動壓縮，請修改下列命令中的資料庫名稱。
 
 

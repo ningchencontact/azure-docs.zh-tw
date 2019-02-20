@@ -4,21 +4,21 @@ titleSuffix: Azure Cognitive Services
 description: 本升級指南會說明 Bing 影像搜尋 API 第 5 版和第 7 版之間的變更。 本指南可協助您識別出應用程式有哪些部分需要更新以使用第 7 版。
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 7F78B91F-F13B-40A4-B8A7-770FDB793F0F
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: ec870ee8b40e732bf12c90689fb7ca79a7ff516c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b3675821cd5565df409fac209b6763845460df1c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55204179"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163371"
 ---
-# <a name="bing-image-search-api-upgrade-guide"></a>Bing 影像搜尋 API 升級指南
+# <a name="bing-image-search-api-v7-upgrade-guide"></a>Bing 影像搜尋 API v7 升級指南
 
 本升級指南會識別 Bing 影像搜尋 API 第 5 版和第 7 版之間的變更。 本指南可協助您識別出應用程式有哪些部分需要更新以使用第 7 版。
 

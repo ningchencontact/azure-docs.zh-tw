@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 和 SQL 資料倉儲適用的虛擬網路服務端點和規則 | Microsoft Docs
+title: Azure SQL 中適用於單一和集區資料庫之 VNet 端點和規則 | Microsoft Docs
 description: 將子網路標示為虛擬網路服務端點。 然後將端點標示為虛擬網路規則，以列在 Azure SQL Database 的 ACL 中。 您的 SQL Database 將會接受來自子網路上所有虛擬機器和其他節點的通訊。
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453922"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118372"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>對資料庫伺服器使用虛擬網路服務端點和規則
 
-「虛擬網路規則」是一項防火牆功能，可控制 Azure [SQL Database](sql-database-technical-overview.md) 或 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)伺服器是否接受虛擬網路中的特定子網路所傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓 Azure SQL Database 和 SQL 資料倉儲安全地接受通訊的最佳選項。
+*虛擬網路規則* 是一種防火牆安全功能，可控制 Azure [SQL Database](sql-database-technical-overview.md) 中單一資料庫和彈性集區或是 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)資料庫的資料庫伺服器，是否要接受來自虛擬網路中特定子網路傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓 Azure SQL Database 和 SQL 資料倉儲安全地接受通訊的最佳選項。
 
 > [!IMPORTANT]
-> 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 本文「不」適用於 **Azure SQL Database 受控執行個體**。
+> 本文適用於 Azure SQL Server，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 本文*不*適用 Azure SQL Database 中的**受控執行個體**部署，因為它沒有相關聯的服務端點。
 
 若要建立虛擬網路規則，必須先有[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]規則可供參考。
 

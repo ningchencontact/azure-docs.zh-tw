@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ecfcfd5026f310a617f81af42483c29d89385288
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700718"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991356"
 ---
 # <a name="understand-role-definitions"></a>了解角色定義
 
@@ -147,7 +147,7 @@ Alice 的[擁有者](built-in-roles.md#owner)角色和 Bob 的[儲存體 Blob �
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-由於 Alice 在訂用帳戶範圍上有萬用字元 (`*`) 動作，她的權限可向下繼承，因此她可執行所有管理動作。 不過，Alice 無法執行資料作業。 例如，根據預設，Alice 無法讀取容器內的 Blob，但她可以讀取、寫入和刪除容器。
+由於 Alice 在訂用帳戶範圍上有萬用字元 (`*`) 動作，她的權限可向下繼承，因此她可執行所有管理動作。 Alice 可以讀取、寫入和刪除容器。 不過，Alice 無法在未採取額外步驟的情況下執行資料作業。 例如，根據預設，Alice 無法讀取容器內的 Blob。 若要讀取 Blob，Alice 必須擷取儲存體存取金鑰，並使用它們來存取 Blob。
 
 Bob 的權限僅限於[儲存體 Blob 資料參與者 (預覽)](built-in-roles.md#storage-blob-data-contributor-preview) 角色中指定的 `Actions` 和 `DataActions`。 以此角色為基礎，Bob 可以執行管理和資料作業。 例如，Bob 可以讀取、寫入和刪除指定儲存體帳戶中的容器，而且他也可以讀取、寫入和刪除 Blob。
 

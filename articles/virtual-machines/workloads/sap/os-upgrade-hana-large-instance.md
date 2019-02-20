@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114587"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100749"
 ---
 # <a name="operating-system-upgrade"></a>作業系統升級
 本文件會詳述 Hana 大型執行個體作業系統升級的詳細資訊。
@@ -30,6 +30,15 @@ ms.locfileid: "37114587"
 佈建 HLI 單元時，Microsoft 作業小組即會安裝作業系統。 隨時間過去，會需要維護 HLI 單元上的作業系統 (例如：修補、調整、升級等)。
 
 在您進行作業系統的重大變更之前 (例如，將 SP1 升級為 SP2)，請務必建立請求諮詢用的支援票證，藉以連絡 Microsoft 作業小組。
+
+請在您的票證上註明：
+
+* 您的 HLI 訂用帳戶識別碼。
+* 您的伺服器名稱。
+* 您打算套用的修補等級。
+* 您打算進行變更的日期。 
+
+建議您在合適的升級日期之前，開啟此票證至少一周，因為作業小組會檢查您的伺服器刀鋒視窗上是否需要進行韌體升級。
 
 
 如需具有不同 Linux 版本之 SAP HANA 版本的支援矩陣，請參閱 [SAP 附註 #2235581](https://launchpad.support.sap.com/#/notes/2235581)。

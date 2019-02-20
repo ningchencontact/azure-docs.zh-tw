@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468864"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116839"
 ---
 # <a name="choose-the-right-consistency-level"></a>選擇正確的一致性層級 
 
@@ -33,6 +33,8 @@ ms.locfileid: "55468864"
 - 如果您需要的一致性保證不如工作階段一致性所提供的嚴格，建議您使用一致前置詞一致性層級。
 
 - 如果您需要最高可用性與最低延遲，則使用最終一致性層級。
+
+- 如果您需要更高的資料持續性，但不想犧牲效能，您可以在應用程式層建立自訂的一致性層級。 如需詳細資訊，請參閱[如何在應用程式中實作自訂同步處理](how-to-custom-synchronization.md)。
 
 ## <a name="cassandra-mongodb-and-gremlin-api"></a>Cassandra、MongoDB 及 Gremlin API
 

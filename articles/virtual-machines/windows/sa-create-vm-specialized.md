@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0de7979edd741a7e4a1dc3354a8dc895929a9532
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6a54dc6a1068a9f7908760fb70fea45ef34f5b60
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811676"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981429"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>從儲存體帳戶中的特製化 VHD 建立 VM
 
@@ -31,13 +31,7 @@ ms.locfileid: "55811676"
 * [上傳 VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [複製現有 Azure VM 的 VHD？](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
-## <a name="before-you-begin"></a>開始之前
-如果您使用 PowerShell，請確定您擁有最新版的 AzureRM.Compute PowerShell 模組。 執行下列命令來安裝它。
-
-```powershell
-Install-Module AzureRM.Compute 
-```
-如需詳細資訊，請參閱 [Azure PowerShell 版本控制](/powershell/azure/overview)。
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>選項 1：上傳特製化 VHD
@@ -58,7 +52,7 @@ Install-Module AzureRM.Compute
 若要顯示可用的儲存體帳戶，請輸入︰
 
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 如果您想要使用現有的儲存體帳戶，請移至「上傳 VM 映像」一節。
@@ -68,29 +62,29 @@ Get-AzureRmStorageAccount
 1. 您需要在當中建立儲存體帳戶的資源群組名稱。 若要找出您訂用帳戶中的所有資源群組，請輸入︰
    
     ```powershell
-    Get-AzureRmResourceGroup
+    Get-AzResourceGroup
     ```
 
     若要在**美國中部**區域建立名為 **myResourceGroup** 的資源群組，請輸入︰
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. 使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) Cmdlet，在此資源群組中建立名為 **mystorageaccount**的儲存體帳戶：
+2. 使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) \(英文\) Cmdlet，在此資源群組中建立名為 **mystorageaccount** 的儲存體帳戶：
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>將 VHD 上傳至儲存體帳戶
-使用 [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) Cmdlet，將映像上傳到儲存體帳戶中的容器。 這個範例會將檔案 **myVHD.vhd** 從 `"C:\Users\Public\Documents\Virtual hard disks\"` 上傳至 **myResourceGroup** 資源群組中名為 **mystorageaccount** 的儲存體帳戶。 檔案會放入名為 **mycontainer** 的容器，新的檔案名稱會是 **myUploadedVHD.vhd**。
+使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) \(英文\) Cmdlet，將映像上傳到儲存體帳戶中的容器。 這個範例會將檔案 **myVHD.vhd** 從 `"C:\Users\Public\Documents\Virtual hard disks\"` 上傳至 **myResourceGroup** 資源群組中名為 **mystorageaccount** 的儲存體帳戶。 檔案會放入名為 **mycontainer** 的容器，新的檔案名稱會是 **myUploadedVHD.vhd**。
 
 ```powershell
 $rgName = "myResourceGroup"
 $urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -119,17 +113,17 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 ### <a name="before-you-begin"></a>開始之前
 請確定您︰
 
-* 已取得**來源和目的地儲存體帳戶**的相關資訊。 針對來源 VM，您需要有儲存體帳戶和容器名稱。 容器名稱通常會是 **vhd**。 您也需要有一個目的地儲存體帳戶。 如果您還沒有，可以使用入口網站 ([所有服務] > [儲存體帳戶] > [新增])，或使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) Cmdlet 建立一個。 
+* 已取得**來源和目的地儲存體帳戶**的相關資訊。 針對來源 VM，您需要有儲存體帳戶和容器名稱。 容器名稱通常會是 **vhd**。 您也需要有一個目的地儲存體帳戶。 如果您還沒有，可以使用入口網站 ([所有服務] > [儲存體帳戶] > [新增])，或使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) \(英文\) Cmdlet 來建立一個。 
 * 已下載並安裝 [AzCopy 工具](../../storage/common/storage-use-azcopy.md)。 
 
 ### <a name="deallocate-the-vm"></a>解除配置 VM
 解除配置 VM，這會釋出要複製的 VHD。 
 
 * **入口網站**：按一下 [虛擬機器] > [myVM] > [停止]
-* **Powershell**：使用 [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) 來停止 (解除配置) **myResourceGroup** 資源群組中名為 **myVM** 的 VM。
+* **Powershell**：使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) \(英文\) 來停止 (解除配置) **myResourceGroup** 資源群組中名為 **myVM** 的 VM。
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 Azure 入口網站中 VM 的 [狀態] 會從 [已停止] 變更為 [已停止 (已解除配置)]。
@@ -140,20 +134,20 @@ Azure 入口網站中 VM 的 [狀態] 會從 [已停止] 變更為 [已停止 (�
 您可以使用 Azure 入口網站或 Azure PowerShell 來取得 URL：
 
 * **入口網站**：按一下 **>**[所有服務] > [儲存體帳戶] > *儲存體帳戶* > [Blob]，而您的來源 VHD 檔可能在 **vhds** 容器中。 按一下容器的 [屬性]，複製標示為[URL] 的文字。 您會需要來源和目的地容器的 URL。 
-* **Powershell**：使用 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) 來取得 **myResourceGroup** 資源群組中名為 **myVM** 之 VM 的資訊。 在結果中，查看 [儲存體設定檔] 區段的 [VHD URI]。 URI 的第一個部分是容器的 URL，最後一個部分是 VM 的作業系統 VHD 名稱。
+* **Powershell**：使用 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) \(英文\) 來取得 **myResourceGroup** 資源群組中名為 **myVM** 的 VM 資訊。 在結果中，查看 [儲存體設定檔] 區段的 [VHD URI]。 URI 的第一個部分是容器的 URL，最後一個部分是 VM 的作業系統 VHD 名稱。
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>取得儲存體存取金鑰
 找出來源和目的地儲存體帳戶的存取金鑰。 如需存取金鑰的詳細資訊，請參閱 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)。
 
 * **入口網站**：按一下 [所有服務]  > [儲存體帳戶]  > [儲存體帳戶] > [存取金鑰]。 複製標示為 [金鑰1] 的金鑰。
-* **Powershell**：使用 [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 來取得 **myResourceGroup** 資源群組中 **mystorageaccount** 儲存體帳戶的儲存體金鑰。 複製標示 [金鑰1] 的金鑰。
+* **Powershell**：使用 [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) \(英文\) 來取得 **myResourceGroup** 資源群組中 **mystorageaccount** 儲存體帳戶的儲存體金鑰。 複製標示 [金鑰1] 的金鑰。
 
 ```powershell
-Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
+Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
 ```
 
 ### <a name="copy-the-vhd"></a>複製 VHD
@@ -208,14 +202,14 @@ Elapsed time:            00.00:13:07
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubNet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
 2. 建立 vNet。 此範例會將虛擬網路名稱設定為 **myVnetName**、位置設定為 **美國西部**，及虛擬網路的位址首碼設定為 **10.0.0.0/16**。 
    
     ```powershell
     $location = "West US"
     $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+    $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>建立網路安全性群組和 RDP 規則
@@ -226,11 +220,11 @@ Elapsed time:            00.00:13:07
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
     
 ```
@@ -244,14 +238,14 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
    
     ```powershell
     $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+    $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
 2. 建立 NIC。 在此範例中，NIC 名稱會設定為 **myNicName**。 這個步驟也會讓稍早建立的網路安全性群組與此 NIC 相關聯。
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName `
     -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
     ```
 
@@ -260,13 +254,13 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 此範例將 VM 名稱設定為 "myVM"，將 VM 大小設定為 "Standard_A2"。
 ```powershell
 $vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
 ### <a name="add-the-nic"></a>新增 NIC
     
 ```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
     
@@ -281,14 +275,14 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
     
     ```powershell
     $osDiskName = $vmName + "osDisk"
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
+    $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
 選用：如果您有資料磁碟需要附加至 VM，請使用資料 VHD 的 URL 和適當的邏輯單元編號 (Lun) 新增資料磁碟。
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
+$vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
 使用儲存體帳戶時，資料和作業系統磁碟的 URL 近似於︰`https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`。 您可以藉由下列方法在入口網站上找到它：瀏覽至目標儲存體容器，按一下複製的作業系統或資料 VHD，然後複製 URL 的內容。
@@ -300,7 +294,7 @@ $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lu
 
 ```powershell
 #Create the new VM
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
 如果此命令成功，您會看到如下的輸出︰
@@ -316,7 +310,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 從 [Azure 入口網站](https://portal.azure.com)的 [所有服務] > [虛擬機器] 下，或是使用下列 PowerShell 命令，應可看到新建立的 VM：
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $rgName
+$vmList = Get-AzVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 

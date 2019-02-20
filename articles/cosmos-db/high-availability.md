@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471312"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109753"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB 的高可用性
 
@@ -58,11 +58,25 @@ Azure Cosmos DB 會以透明方式，在與 Cosmos 帳戶相關聯的所有 Azur
 
 ## <a name="building-highly-available-applications"></a>高度可用的應用程式
 
-- 若要確保寫入和讀取高可用性，請將 Cosmos 帳戶設定為跨越至少兩個具有多重寫入區域的區域。 此組態將提供 SLA 所支援之讀取和寫入的可用性、最低延遲及延展性。 若要深入了解，請參閱如何[使用多重寫入區域設定您的 Cosmos 帳戶](tutorial-global-distribution-sql-api.md)。
+- 若要確保寫入和讀取高可用性，請將 Cosmos 帳戶設定為跨越至少兩個具有多重寫入區域的區域。 此組態將提供 SLA 所支援之讀取和寫入的可用性、最低延遲及延展性。 若要深入了解，請參閱如何[使用多重寫入區域設定您的 Cosmos 帳戶](tutorial-global-distribution-sql-api.md)。 若要在您的應用程式中設定多重主機，請參閱[如何設定多重主機](how-to-multi-master.md)。
 
 - 針對使用單一寫入區域設定的多重區域 Cosmos 帳戶，[使用 Azure CLI 或 Azure 入口網站來啟用自動容錯移轉](how-to-manage-database-account.md#automatic-failover)。 啟用自動容錯移轉之後，只要發生區域性災難，Cosmos DB 就會自動容錯移轉您的帳戶。  
 
 - 即使您的 Cosmos 帳戶具有高可用性，您的應用程式也可能無法正確設計以維持高可用性。 若要測試應用程式的端對端高可用性，請定期叫用[手動容錯移轉 (使用 Azure CLI 或 Azure 入口網站)](how-to-manage-database-account.md#manual-failover)，作為應用程式測試或災害復原 (DR) 演練的一部分。
+
+
+當您開發商務持續性計劃時，您必須了解應用程式在干擾性事件之後完全復原所需的最大可接受時間。 完全復原應用程式所需的時間，也稱為復原時間目標 (RTO)。 您也必須了解在干擾性事件之後復原時，應用程式可忍受遺失的最近資料更新最大期間。 您可能經得起遺失的更新時間週期，也稱為復原點目標 (RPO)。
+
+下表顯示最常見案例的 RPO 和 RTO。
+
+|區域數目 |組態 |一致性層級|RPO |RTO |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < 240 分鐘 | < 1 週 |
+|>1     | 單一主機複寫 | 工作階段、開頭一致、最終 | < 15 分鐘 | < 15 分鐘 |
+|>1     | 單一主機複寫 | 限定過期 | K & T | < 15 分鐘 |
+|>1     | 多重主機複寫 | 工作階段、開頭一致、最終 | < 15 分鐘 | 0 |
+|>1     | 多重主機複寫 | 限定過期 | K & T | 0 |
+|>1     | * | 強式 | 0 | < 15 分鐘 |
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -72,3 +86,4 @@ Azure Cosmos DB 會以透明方式，在與 Cosmos 帳戶相關聯的所有 Azur
 * [全域調整佈建的輸送量](scaling-throughput.md)
 * [全域散發 - 運作原理](global-dist-under-the-hood.md)
 * [Azure Cosmos DB 中的一致性層級](consistency-levels.md)
+* [如何在應用程式中設定多重主機](how-to-multi-master.md)

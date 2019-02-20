@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c81701dff8d7eebf08aa6b16c61e6915a905c729
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 767e64d4d53702ede7b55edc747366ab3d32ae4d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172709"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996094"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>關於 Azure Active Directory B2C 中的使用者介面自訂
 
@@ -24,17 +24,19 @@ ms.locfileid: "55172709"
 根據您在這些體驗方面的需求，您可以透過不同的方式自訂應用程式的 UI。 例如︰
 
 - 如果您要使用[使用者流程](active-directory-b2c-reference-policies.md)來提供應用程式中的註冊或登入、密碼重設或設定檔編輯的體驗，您可以使用 [Azure 入口網站來自訂 UI](tutorial-customize-ui.md)。
+- 如果您使用的是 v2 使用者流程，則可以使用[頁面配置範本](#page-layout-templates)變更使用者流程頁面的外觀，而不需要進一步的自訂。 例如，您可以將「海藍」或「岩灰」佈景主題套用至使用者流程中的所有頁面。
 - 如果您只要提供登入、及其伴隨的密碼重設頁面和驗證電子郵件方面的體驗，您可以使用在 [Azure AD 登入頁面](../active-directory/fundamentals/customize-branding.md)中使用的相同自訂步驟。
 - 如果客戶嘗試在登入前編輯其設定檔，他們將會重新導向至您使用在自訂 Azure AD 登入頁面時所使用的相同步驟自訂的頁面。
 - 如果您要使用[自訂原則](active-directory-b2c-overview-custom.md)來提供應用程式中的註冊或登入、密碼重設或設定檔編輯的體驗，您可以使用[原則檔案來自訂 UI](active-directory-b2c-ui-customization-custom.md)。
 - 如果您需要根據客戶的決策提供動態內容，您可以根據在查詢字串中傳送的參數使用[可變更頁面內容的自訂原則](active-directory-b2c-ui-customization-custom-dynamic.md)。 例如，Azure AD B2C 註冊或登入頁面的背景影像可根據您從 Web 或行動裝置應用程式傳遞的參數而變更。
+- 您可以在 Azure AD B2C [使用者流程](user-flow-javascript-overview.md)或[自訂原則](page-contract.md)中啟用 JavaScript 用戶端程式碼。
 
 Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原始資源共用 (CORS)](https://www.w3.org/TR/cors/) 的新式方法。 在執行階段中，會從您在使用者流程中指定的 URL 載入內容。 您可以對不同的頁面指定不同的 URL。 從您的 URL 載入的內容後，該內容就會與從 Azure AD B2C 插入的 HTML 片段合併，然後向客戶顯示。
 
-在開始之前，請先檢閱下列指引：
+當使用您自己的 HTML 和 CSS 檔案自訂 UI 時，請在開始之前檢閱下列指導方針：
 
 - Azure AD B2C 會將 HTML 內容合併到您的頁面中。 請勿複製及嘗試變更 Azure AD B2C 所提供的預設內容。 最好是從頭建置您的 HTML 內容，將預設範本當作參考即可。
-- 基於安全考量，目前不允許您在內容中加入 JavaScript。
+- JavaScript 現在可以包含在您的自訂內容中。
 - 支援的瀏覽器版本包括︰ 
     - Internet Explorer 11、10 和 Microsoft Edge
     - 對 Internet Explorer 9 和 8 僅提供有限支援
@@ -42,9 +44,23 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原
     - Mozilla Firefox 38.0 和更新版本
 - 確定您的 HTML 中未包含表單標記，因為這會干擾從 Azure AD B2C 插入的 HTML 所產生的 POST 作業。
 
+## <a name="page-layout-templates"></a>頁面配置範本
+
+針對 v2 使用者流程，您可以選擇預先設計的範本，，可讓您的預設頁面外觀更好，並為您的自訂提供良好的基礎。
+
+在左側功能表的 [自訂] 下方，選取 [頁面配置]。 然後選取 [範本 (預覽)]。
+
+![選擇頁面配置範本](media/customize-ui-overview/template.png)
+
+從清單中選取範本。 例如，**海藍**範本將下列配置套用至您的使用者流程頁面：
+
+![海藍範本](media/customize-ui-overview/ocean-blue.png)
+
+選擇範本時，選取的配置將套用到使用者流程中的所有頁面，並且每一頁的 URI 會顯示在 [自訂頁面 URI] 欄位中。
+
 ## <a name="where-do-i-store-ui-content"></a>UI 內容應儲存於何處？
 
-您可以將 UI 內容裝載於任何地方，例如 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)、Web 伺服器、CDN、AWS S3 或檔案共用系統。 重點是內容應裝載在已啟用 CORS 的公用 HTTPS 端點上。 在您的內容中指定 URL 時，必須使用絕對 URL。
+當使用您自己的 HTML 和 CSS 檔案自訂 UI 時，您可以將 UI 內容裝載於任何地方，例如 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)、Web 伺服器、CDN、AWS S3 或檔案共用系統。 重點是內容應裝載在已啟用 CORS 的公用 HTTPS 端點上。 在您的內容中指定 URL 時，必須使用絕對 URL。
 
 ## <a name="how-do-i-get-started"></a>如何開始使用？
 

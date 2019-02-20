@@ -1,6 +1,6 @@
 ---
 title: 透過 Azure SQL Database 進行異動複寫 | Microsoft Docs
-description: 了解如何將 SQL Server 異動複寫搭配 Azure SQL Database 中的獨立、集區和執行個體資料庫使用。
+description: 了解如何將 SQL Server 異動複寫搭配 Azure SQL Database 中的單一、集區和執行個體資料庫使用。
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,15 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/08/2019
+ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814107"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993804"
 ---
-# <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>搭配 Azure SQL Database 中獨立、集區和執行個體資料庫使用的異動複寫
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>搭配 Azure SQL Database 中單一、集區和執行個體資料庫使用的異動複寫
 
 異動複寫是 Azure SQL Database 和 SQL Server 的功能，可讓您將 Azure SQL Database 或 SQL Server 中資料表的資料複寫到遠端資料庫上的資料表。 此功能可讓您同步處理不同資料庫中的多個資料表。
 
@@ -37,22 +37,21 @@ ms.locfileid: "55814107"
 
 ![使用 SQL Database 的複寫](media/replication-to-sql-database/replication-to-sql-database.png)
 
-
 **發行者**是執行個體或伺服器，它會藉由將更新傳送到散發者，來發行在某些資料表 (文章) 上的變更。 下列 SQL Server 版本支援從內部部署 SQL Server 發佈至任何 Azure SQL Database：
 
-   - SQL Server 2019 (預覽)
-   - SQL Server 2016 至 SQL 2017
-   - SQL Server 2014 SP1 CU3 或更新版本 (12.00.4427)
-   - SQL Server 2014 RTM CU10 (12.00.2556)
-   - SQL Server 2012 SP3 或更新版本 (11.0.6020)
-   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-   - 針對其他不支援發行到 Azure 中物件的 SQL Server 版本，可以利用[重新發行](https://docs.microsoft.com/sql/relational-databases/replication/republish-data)資料方法將資料移動到版本較新的 SQL Server。 
+- SQL Server 2019 (預覽)
+- SQL Server 2016 至 SQL 2017
+- SQL Server 2014 SP1 CU3 或更新版本 (12.00.4427)
+- SQL Server 2014 RTM CU10 (12.00.2556)
+- SQL Server 2012 SP3 或更新版本 (11.0.6020)
+- SQL Server 2012 SP2 CU8 (11.0.5634.0)
+- 針對其他不支援發行到 Azure 中物件的 SQL Server 版本，可以利用[重新發行](https://docs.microsoft.com/sql/relational-databases/replication/republish-data)資料方法將資料移動到版本較新的 SQL Server。 
 
 **散發者**是執行個體過伺服器，它會從發行者收集文章中的變更，然後將變更散發到訂閱者。 散發者可以是 Azure SQL Database 受控執行個體或 SQL 伺服器 (只要是任何與發行者相同的版本或更新版本都可以)。 
 
-**訂閱者**是執行個體或伺服器，它會接收所收到的發行者所做的變更。 訂閱者可以是 Azure SQL Database 或 SQL Server 資料庫中的獨立、集區和執行個體資料庫。 獨立或集區資料庫上的訂閱者必須設定成發送訂閱者。 
+**訂閱者**是執行個體或伺服器，它會接收所收到的發行者所做的變更。 訂閱者可以是 Azure SQL Database 或 SQL Server 資料庫中的單一、集區和執行個體資料庫。 單一或集區資料庫上的訂閱者必須設定為發送訂閱者。 
 
-| 角色 | 獨立和集區資料庫 | 執行個體資料庫 |
+| 角色 | 單一和集區資料庫 | 執行個體資料庫 |
 | :----| :------------- | :--------------- |
 | **發行者** | 否 | yes | 
 | **散發者** | 否 | yes|
@@ -63,7 +62,7 @@ ms.locfileid: "55814107"
 [複寫有不同類型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017)：
 
 
-| 複寫 | 獨立和集區資料庫 | 執行個體資料庫|
+| 複寫 | 單一和集區資料庫 | 執行個體資料庫|
 | :----| :------------- | :--------------- |
 | [**交易式**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 是 (僅作為訂閱者) | yes | 
 | [**快照集**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 是 (僅作為訂閱者) | yes|
@@ -107,11 +106,11 @@ ms.locfileid: "55814107"
 - 這兩個受控執行個體位於相同的位置。
 - 裝載發行和散發者資料庫的執行個體無法[使用自動容錯移轉群組進行異地複寫](sql-database-auto-failover-group.md)。
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-standalone-pooled-and-instance-database"></a>內部部署的發行者和散發者，及獨立、集區和執行個體資料庫上的訂閱者 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>內部部署的發行者和散發者，以及單一、集區和執行個體資料庫上的訂閱者 
 
 ![Azure SQL DB 作為訂閱者](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-在此設定中，Azure SQL Database (獨立、集區和執行個體資料庫) 是訂閱者。 此設定支援從內部部署移轉至 Azure。 如果訂閱者是在獨立或集區資料庫上，則它必須處於發送模式。  
+在此設定中，Azure SQL Database (單一、集區和執行個體資料庫) 是訂閱者。 此設定支援從內部部署移轉至 Azure。 如果訂閱者位於單一或集區資料庫上，則它必須處於發送模式。  
 
 ## <a name="next-steps"></a>後續步驟
 

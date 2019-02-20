@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7c35961894cbc8fb33f15b36910021f8ad38fac8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dd4622e0359476f47a0ac939d59a2571e34a0a46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976387"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112694"
 ---
 # <a name="read-nsg-flow-logs"></a>讀取 NSG 流量記錄
 
@@ -185,6 +185,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 
 ## <a name="next-steps"></a>後續步驟
 
-請造訪[使用開放原始碼工具將 Azure 網路監看員 NSG 流量記錄視覺化](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)，以深入了解檢視 NSG 流量記錄的其他方式。
+造訪[使用彈性堆疊](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)、[使用 Grafana](network-watcher-nsg-grafana.md)，以及[使用 Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)，以深入了解檢視 NSG 流量記錄的方式。 在下方可找到開放原始碼的 Azure Function 方法，能夠直接使用 Blob 並發送給各種記錄分析取用者：[Azure 網路監看員 NSG 流量記錄連接器](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)。
 
 若要深入了解儲存體 Blob，請造訪：[Azure Functions Blob 儲存體繫結](../azure-functions/functions-bindings-storage-blob.md)

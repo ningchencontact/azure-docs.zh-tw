@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: d55cebf380c4ca5183e8ff15fd193e254b66c30b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246580"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182012"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 整合式系統連線模型
-如果您對 Azure Stack 整合式系統有興趣，您將需要了解[數個資料中心整合考量](azure-stack-datacenter-integration.md)，如此 Azure Stack 部署才能判斷如何將系統融入您的資料中心。 此外，您必須確切地決定如何將 Azure Stack 整合到您的混合式雲端環境中。 本文提供這些主要決策 (包括 Azure 連線、身分識別儲存和計費模型決策) 的概觀。
+如果您對購買 Azure Stack 整合式系統有興趣，您將需要了解[數個資料中心整合考量](azure-stack-datacenter-integration.md)，如此 Azure Stack 部署才能判斷如何將系統融入您的資料中心。 此外，您必須決定如何將 Azure Stack 整合到您的混合式雲端環境中。 本文提供這些主要決策 (包括 Azure 連線、身分識別儲存和計費模型決策) 的概觀。
 
 如果您決定購買整合系統，原始設備製造商 (OEM) 硬體廠商可引導您更深入完成大部分規劃程序。 它們也會執行實際部署。
 

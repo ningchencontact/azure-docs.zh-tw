@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766401"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114105"
 ---
 # <a name="getting-compliance-data"></a>取得合規性資料
 
@@ -428,11 +428,11 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-如果您有一個 [Log Analytics](../../../log-analytics/log-analytics-overview.md) 工作區，其中 `AzureActivity` 解決方案已繫結至您的訂用帳戶，則您也可以使用簡單的 Azure 資料總管查詢和 `AzureActivity` 資料表，以檢視來自評估週期的不符合規範結果。 有了 Log Analytics 中的詳細資訊，您便可以設定警示來監看不符合規範的情況。
+如果您有一個 [Log Analytics 工作區](../../../log-analytics/log-analytics-overview.md)，其中 `AzureActivity` 解決方案已繫結至您的訂用帳戶，則您也可以使用簡單的「Azure 資料總管」查詢和 `AzureActivity` 資料表，以檢視來自評估週期的不符合規範結果。 有了「Azure 監視器」記錄中的詳細資料，您便可以設定警示來監看不符合規範的情況。
 
-![使用 Log Analytics 的原則合規性](../media/getting-compliance-data/compliance-loganalytics.png)
+![使用 Azure 監視器記錄的原則合規性](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 翻譯工具文字 API V2.0 參考文件。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8d57723f6e51fb392e4fdbfb2b2a445d48635e3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463220"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861709"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -327,7 +327,7 @@ binary
 |text|(空白)   |必要。 字串，包含要針對 wave 串流說出之指定語言的一或多個句子。 要說出的文字大小不得超過 2000 個字元。|query|字串|
 |語言|(空白)   |必要。 字串，代表支援用來說出文字的語言代碼。 程式碼必須存在於從 `GetLanguagesForSpeak` 方法所傳回的程式碼清單。|query|字串|
 |format|(空白)|選用。 字串，指定 Content-Type 識別碼。 目前可以使用 `audio/wav` 和 `audio/mp3`。 預設值為 `audio/wav`。|query|字串|
-|options|(空白)    |<ul><li>選用。 字串，指定合成語音的內容：<li>`MaxQuality` 和 `MinSize` 可用來指定音訊訊號品質。 使用 `MaxQuality`，您可以取得最高品質的語音，而使用 `MinSize`，您可以取得最小大小的語音。 預設為 `MinSize`。</li><li>`female` 和 `male` 可用來指定語音的所需性別。 預設值為 `female`。 使用分隔號 `|` to include multiple options. For example  `MaxQuality|Male`。</li></li></ul> |query|字串|
+|options|(空白)    |<ul><li>選用。 字串，指定合成語音的內容：<li>`MaxQuality` 和 `MinSize` 可用來指定音訊訊號品質。 使用 `MaxQuality`，您可以取得最高品質的語音，而使用 `MinSize`，您可以取得最小大小的語音。 預設為 `MinSize`。</li><li>`female` 和 `male` 可用來指定語音的所需性別。 預設值為 `female`。 使用分隔線 `|` 包含多個選項。 例如：`MaxQuality|Male`。</li></li></ul> |query|字串|
 |Authorization|(空白)|若未指定 `appid` 欄位或 `Ocp-Apim-Subscription-Key` 標頭，則為必要項目。 授權權杖：`"Bearer" + " " + "access_token"`。|頁首|字串|
 |Ocp-Apim-Subscription-Key|(空白)  |若未指定 `appid` 欄位或 `Authorization` 標頭，則為必要項目。|頁首|字串|
 

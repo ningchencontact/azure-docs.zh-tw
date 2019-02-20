@@ -2,21 +2,22 @@
 title: 單一登入應用程式 - Azure Active Directory | Microsoft Docs
 description: 了解在 Azure Active Directory (Azure AD) 中設定應用程式時，如何選擇單一登入方法。 使用單一登入使用者就不需要記住每個應用程式的密碼，且可以簡化帳戶管理。
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664024"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163065"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 當使用者登入 Azure Active Directory (Azure AD) 中的應用程式時，單一登入 (SSO) 可增加安全性及便利性。 本文描述單一登入方法，並協助您在設定應用程式時，選擇最適當的 SSO 方法。
@@ -27,7 +28,7 @@ ms.locfileid: "55664024"
 
 ## <a name="choosing-a-single-sign-on-method"></a>選擇單一登入方法
 
-有幾種方式可以為應用程式設定單一登入。 請根據已為應用程式設定的驗證方式，選擇單一登入方法。 
+有幾種方式可以為應用程式設定單一登入。 選擇單一登入方法會取決於為應用程式設定的驗證方式。 
 
 - 雲端應用程式可以使用OpenID Connect、OAuth、SAML、密碼式、已連結或已停用方法進行單一登入。 
 - 內部部署應用程式可以使用密碼式、整合式 Windows 驗證、標頭式、已連結或已停用方法進行單一登入。 當應用程式已設定應用程式 Proxy 時，內部部署選擇就可運作。
@@ -58,7 +59,7 @@ ms.locfileid: "55664024"
 - [Azure Active Directory 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)。
 
 ## <a name="saml-sso"></a>SAML SSO
-使用 **SAML 單一登入**，Azure AD 會使用使用者的 Azure AD 帳戶向應用程式驗證。 Azure AD 與應用程式透過連線通訊協定，進行登入資訊通訊。 使用 SAML 式單一登入，您可以根據您在 SAML 宣告中定義的規則，將使用者對應至特定的應用程式角色
+使用 **SAML 單一登入**，Azure AD 會使用使用者的 Azure AD 帳戶向應用程式驗證。 Azure AD 與應用程式透過連線通訊協定，進行登入資訊通訊。 使用 SAML 單一登入時，您可以根據您在 SAML 宣告中定義的規則，將使用者對應至特定的應用程式角色。
 
 如果應用程式支援，請選擇 SAML 型單一登入。
 
@@ -85,7 +86,7 @@ ms.locfileid: "55664024"
 有 HTML 型登入頁面的雲端應用程式支援密碼式單一登入。 使用者可以使用下列任何瀏覽器：
 
 - Windows 7 上的 Internet Explorer 11 或更新版本
-- Windows 10 Anniversary Edition 或更新版本上的 Microsoft Edge 
+- Windows 10 Anniversary Edition 或更新版本上的 Microsoft Edge
 - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上的 Chrome
 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上的 Firefox 26.0 或更新版本
 

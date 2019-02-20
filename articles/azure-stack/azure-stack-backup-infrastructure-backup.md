@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251294"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097380"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基礎結構備份服務進行 Azure Stack 的備份和資料復原
 
@@ -52,12 +52,16 @@ ms.locfileid: "55251294"
   您需要可從 Azure Stack 存取的檔案共用 (其中可包含七個備份)。 每個備份是大約 10 GB。 您的共用應該能夠儲存 140 GB 的備份。 如需選取 Azure Stack 基礎結構備份服務的儲存位置的詳細資訊，請參閱[備份控制器的需求](azure-stack-backup-reference.md#backup-controller-requirements)。
 - **認證**  
   您會需要網域使用者帳戶和認證 (例如，您可以使用 Azure Stack 管理員認證)。
-- **加密金鑰**  
-  備份檔案會使用此金鑰來加密。 請務必將此金鑰儲存在安全的位置。 您第一次設定此金鑰後或在未來更換金鑰時，都無法再從這個介面檢視此金鑰。 如需產生預先共用的詳細指示，請遵照[使用 PowerShell 來啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-powershell.md)中的指令碼。
+- **加密憑證**  
+  使用憑證中的公開金鑰加密備份檔案。 請務必將此憑證儲存在安全的位置。 
+
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[從系統管理入口網站啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-console.md)。
-- 了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-powershell.md)。
-- 了解如何[備份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )。
-- 了解如何[從重大資料遺失的情況下復原](azure-stack-backup-recover-data.md)。
+了解如何[從系統管理入口網站啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-console.md)。
+
+了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-powershell.md)。
+
+了解如何[備份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )。
+
+了解如何[從重大資料遺失的情況下復原](azure-stack-backup-recover-data.md)。

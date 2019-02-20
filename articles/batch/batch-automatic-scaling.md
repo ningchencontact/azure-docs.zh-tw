@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729997"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869087"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>建立自動調整公式來調整 Batch 集區中的計算節點
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> 當您建立已啟用自動調整的集區時，請勿在對 **CreatePool** 的呼叫上指定 _targetDedicatedComputeNodes_ 參數或 _targetLowPriorityComputeNodes_ 參數。 請改為在集區上指定 **AutoScaleEnabled** 和 **AutoScaleFormula** 屬性。 這些屬性的值會判斷每個節點類型的目標數目。 此外，若要對已啟用自動調整的集區手動調整大小 (例如使用 [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync])，請先在集區**停用**自動調整，然後調整其大小。
+> 當您建立已啟用自動調整的集區時，請勿在對 **CreatePool** 的呼叫上指定 _targetDedicatedNodes_ 參數或 _targetLowPriorityNodes_ 參數。 請改為在集區上指定 **AutoScaleEnabled** 和 **AutoScaleFormula** 屬性。 這些屬性的值會判斷每個節點類型的目標數目。 此外，若要對已啟用自動調整的集區手動調整大小 (例如使用 [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync])，請先在集區**停用**自動調整，然後調整其大小。
 >
 >
 
@@ -412,7 +412,7 @@ await pool.CommitAsync();
   * 如果您省略自動調整公式或評估間隔，則 Batch 服務會繼續使用該設定目前的值。
 
 > [!NOTE]
-> 如果當您在 .NET 中建立集區時，指定 **CreatePool** 方法之 *targetDedicatedComputeNodes* 或 *targetLowPriorityComputeNodes* 參數的值，或在其他語言中指定相當的參數，則在評估自動調整公式時會略過這些值。
+> 如果當您在 .NET 中建立集區時，指定 **CreatePool** 方法之 *targetDedicatedNodes* 或 *targetLowPriorityNodes* 參數的值，或在其他語言中指定相當的參數，則在評估自動調整公式時會略過這些值。
 >
 >
 

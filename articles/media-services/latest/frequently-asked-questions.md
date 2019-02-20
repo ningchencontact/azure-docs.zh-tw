@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756575"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875486"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure 媒體服務 v3 常見問題集
 
@@ -36,17 +36,7 @@ ms.locfileid: "55756575"
 
 ### <a name="how-does-pagination-work"></a>分頁的運作方式為何？
 
-媒體服務可對支援 OData 的資源支援 $top，但傳遞至 $top 的值必須小於 1000 (例如，分頁的頁面大小)。
-
-這可讓您取得使用 $top 的小型項目範例 (例如，100 個最新項目)，或使用分頁功能逐頁查看所有項目。 
-
-媒體服務不支援以使用者指定的頁面大小逐頁查看資料。
-
-如需詳細資訊，請參閱[篩選、排序、分頁](entities-overview.md)。
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>如何擷取媒體服務 v3 中的實體？
-
-v3 是以統一 API 表面為基礎的，會公開建置於 **Azure Resource Manager** 上的管理和操作功能。 根據 **Azure Resource Manager**，資源名稱永遠是唯一的。 因此，您可以對資源使用任何唯一識別碼字串 (例如，GUID)。
+使用分頁時，您應一律使用下一頁連結來列舉集合，而不應依存於特定頁面大小。 如需詳細資訊和範例，請參閱[篩選、排序、分頁](entities-overview.md)。
 
 ## <a name="live-streaming"></a>即時串流 
 

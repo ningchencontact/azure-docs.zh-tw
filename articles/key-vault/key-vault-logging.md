@@ -4,7 +4,7 @@ description: 使用本教學課程來協助您開始使用 Azure 金鑰保存庫
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 7229cedf2ad5e211847054b53c34e54f633f57e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 95c7e5b58bcd79cbe4893561ec8f2a0ed1f9bf77
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434762"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110229"
 ---
 # <a name="azure-key-vault-logging"></a>Azure 金鑰保存庫記錄
 
 大部分地區均提供 Azure 金鑰保存庫。 如需詳細資訊，請參閱 [金鑰保存庫價格頁面](https://azure.microsoft.com/pricing/details/key-vault/)。
 
 ## <a name="introduction"></a>簡介
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 在建立一或多個金鑰保存庫之後，您可能會想要監視金鑰保存庫的存取方式、時間和存取者。 想要做到這點，您可以啟用金鑰保存庫記錄，以在您提供的 Azure 儲存體帳戶中儲存這方面的資訊。 系統會自動為您指定的儲存體帳戶建立新的容器，其名稱為 **insights-logs-auditevent** ，而您也可以使用同一個儲存體帳戶來收集多個金鑰保存庫的記錄。
 
@@ -36,7 +38,7 @@ ms.locfileid: "54434762"
 請使用本教學課程來協助您開始使用 Azure 金鑰保存庫記錄、建立儲存體帳戶、啟用記錄，以及解譯所收集到的記錄資訊。  
 
 > [!NOTE]
-> 本教學課程不會指示如何建立金鑰保存庫、金鑰或密碼。 如需這方面的資訊，請參閱 [開始使用 Azure 金鑰保存庫](key-vault-get-started.md)。 或者，如需跨平台命令列介面的指示，請參閱 [這個對等的教學課程](key-vault-manage-with-cli2.md)。
+> 本教學課程不會指示如何建立金鑰保存庫、金鑰或密碼。 如需此資訊，請參閱[什麼是 Azure Key Vault？](key-vault-overview.md)。 或者，如需跨平台命令列介面的指示，請參閱 [這個對等的教學課程](key-vault-manage-with-cli2.md)。
 >
 > 本文提供適用於更新診斷記錄的 Azure PowerShell 指示。 不過，在 Azure 入口網站中使用「Azure 監視器」，於 [診斷記錄] 區段中也可以啟用相同的功能。 
 >
@@ -49,7 +51,7 @@ ms.locfileid: "54434762"
 若要完成本教學課程，您必須具備下列項目：
 
 * 所使用的現有金鑰保存庫。  
-* Azure PowerShell ( **至少必須是 1.0.1 版**)。 若要安裝 Azure PowerShell，並將它與 Azure 訂用帳戶建立關聯，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 如果您已安裝 Azure PowerShell 但不知道版本，請在 Azure PowerShell 主控台中輸入 `(Get-Module azure -ListAvailable).Version`。  
+* Azure PowerShell，**最低版本為 1.0.0**。 若要安裝 Azure PowerShell，並將它與 Azure 訂用帳戶建立關聯，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 如果您已安裝 Azure PowerShell 但不知道版本，請在 Azure PowerShell 主控台中輸入 `$PSVersionTable.PSVersion`。  
 * 足夠的 Azure 儲存體以儲存金鑰保存庫記錄。
 
 ## <a id="connect"></a>連線到您的訂用帳戶
@@ -57,7 +59,7 @@ ms.locfileid: "54434762"
 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶：  
 
 ```PowerShell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。 Azure PowerShell 會取得與此帳戶相關聯的所有訂用帳戶，並依預設使用第一個訂用帳戶。
@@ -65,13 +67,13 @@ Connect-AzureRmAccount
 如果您有多個訂用帳戶，您可能必須指定用來建立 Azure 金鑰保存庫的那一個特定訂用帳戶。 輸入下列命令以查看您帳戶的訂用帳戶：
 
 ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
 ```
 
 然後，輸入下列命令以指定與所要記錄之金鑰保存庫相關聯的訂用帳戶：
 
 ```PowerShell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -85,10 +87,10 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 
 雖然您可以使用現有儲存體帳戶來儲存記錄，但我們將建立新的儲存體帳戶來專用儲存金鑰保存庫記錄。 為了方便起見，在稍後遇到必須指定此帳戶時，我們會將詳細資料儲存到名為 **sa**的變數中。
 
-為了進一步簡化管理，我們也會使用包含我們的金鑰保存庫的同一個資源群組。 在 [開始使用教學課程](key-vault-get-started.md)中，此資源群組的名稱是 **ContosoResourceGroup** ，並且我們會繼續使用「東亞」位置。 請視情況將這些值替換成您自己的值：
+為了進一步簡化管理，我們也會使用包含我們的金鑰保存庫的同一個資源群組。 在 [開始使用教學課程](key-vault-overview.md)中，此資源群組的名稱是 **ContosoResourceGroup** ，並且我們會繼續使用「東亞」位置。 請視情況將這些值替換成您自己的值：
 
 ```PowerShell
- $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
+ $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
 > [!NOTE]
@@ -101,15 +103,15 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 在開始使用教學課程中，金鑰保存庫名稱是 **ContosoKeyVault**，因此我們會繼續使用該名稱，並將詳細資料儲存到名為 **kv** 的變數中：
 
 ```PowerShell
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
 ## <a id="enable"></a>啟用記錄
 
-為了啟用金鑰保存庫記錄，我們將使用 Set-AzureRmDiagnosticSetting Cmdlet，並搭配針對新儲存體帳戶和金鑰保存庫所建立的變數。 我們也會將 **-Enabled** 旗標設定為 **$true**，並將類別設定為 AuditEvent (Key Vault 記錄唯一適用的類別)：
+為了啟用金鑰保存庫記錄，我們將使用 Set-AzDiagnosticSetting Cmdlet，並搭配針對新儲存體帳戶和金鑰保存庫所建立的變數。 我們也會將 **-Enabled** 旗標設定為 **$true**，並將類別設定為 AuditEvent (Key Vault 記錄唯一適用的類別)：
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 輸出將看起來如下：
@@ -129,7 +131,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 您也可以選擇性地設定記錄檔的保留原則，以便自動刪除較舊的記錄檔。 例如，使用 **-RetentionEnabled** 旗標將保留原則設為 **$true** 並將 **-RetentionInDays** 參數設為 **90**，以便自動刪除超過 90 天的舊記錄檔。
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
 所記錄的內容：
@@ -152,7 +154,7 @@ $container = 'insights-logs-auditevent'
 若要列出此容器中的所有 blob，請輸入：
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 輸出類似如下範例：
@@ -183,13 +185,13 @@ New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Forc
 然後取得所有 blob 的清單：  
 
 ```PowerShell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-透過 'Get-AzureStorageBlobContent' 以管道傳送這份清單，將 blob 下載到目的地資料夾：
+透過 'Get-AzStorageBlobContent' 以管道傳送這份清單，將 Blob 下載到目的地資料夾：
 
 ```PowerShell
-$blobs | Get-AzureStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
+$blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
 在執行第二個命令時，blob 名稱中的 **/** 分隔符號會在目的地資料夾下建立完整資料夾結構，而此結構將會用來下載 blob 並儲存為檔案。
@@ -199,32 +201,32 @@ $blobs | Get-AzureStorageBlobContent -Destination C:\Users\username\ContosoKeyVa
 * 如果您有多個金鑰保存庫，並且只想下載其中的 CONTOSOKEYVAULT3 金鑰保存庫的記錄：
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 ```
 
 * 如果您有多個資源群組，並且只想下載其中某個資源群組的記錄，請使用 `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`：
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 ```
 
 * 如果您想下載 2016 年 1 月份當月的所有記錄，請使用 `-Blob '*/year=2016/m=01/*'`：
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 ```
 
-您現在已做好準備，可以開始查看記錄中有何內容。 但在開始之前，您可能還需要了解 Get-AzureRmDiagnosticSetting 的兩個參數：
+您現在已做好準備，可以開始查看記錄中有何內容。 但在開始之前，您可能還需要了解 Get-AzDiagnosticSetting 的兩個參數：
 
-* 若要查詢金鑰保存庫資源的診斷設定狀態：`Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
-* 若要停用金鑰保存庫資源記錄： `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+* 若要查詢金鑰保存庫資源的診斷設定狀態：`Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
+* 若要停用金鑰保存庫資源記錄： `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
 ## <a id="interpret"></a>解譯金鑰保存庫記錄
 
 各個 blob 皆會儲存為文字，並格式化為 JSON blob。 執行中
 
 ```PowerShell
-Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
+Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 
 會傳回類似以下所示的記錄項目：
@@ -280,7 +282,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 | operationName | REST API 命令 |
 | --- | --- |
-| 驗證 |透過 Azure Active Directory 端點 |
+| Authentication |透過 Azure Active Directory 端點 |
 | VaultGet |[取得金鑰保存庫的相關資訊](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | VaultPut |[建立或更新金鑰保存庫](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | VaultDelete |[刪除金鑰保存庫](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
@@ -314,10 +316,10 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 ## <a id="next"></a>接續步驟
 
-如需在 Web 應用程式中使用 Azure 金鑰保存庫的教學課程，請參閱 [從 Web 應用程式使用 Azure 金鑰保存庫](key-vault-use-from-web-application.md)。
+如需在 .NET Web 應用程式中使用 Azure Key Vault 的教學課程，請參閱[從 Web 應用程式使用 Azure Key Vault](tutorial-net-create-vault-azure-web-app.md)。
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-如需 Azure 金鑰保存庫的 Azure PowerShell 1.0 Cmdlet 清單，請參閱 [Azure 金鑰保存庫 Cmdlet](/powershell/module/azurerm.keyvault/#key_vault)。
+如需 Azure 金鑰保存庫的 Azure PowerShell 1.0 Cmdlet 清單，請參閱 [Azure 金鑰保存庫 Cmdlet](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)。
 
 如需有關 Azure 金鑰保存庫的金鑰輪替和記錄檔稽核的教學課程，請參閱 [如何使用端對端金鑰輪替和稽核設定金鑰保存庫](key-vault-key-rotation-log-monitoring.md)。

@@ -7,24 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806992"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001958"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性層級與 Azure Cosmos DB API
 
-這五個由 Azure Cosmos DB 所提供的一致性模型都會受到 Azure Cosmos DB SQL API 原生支援。 當您使用 Azure Cosmos DB 時，SQL API 是預設值。 
+Azure Cosmos DB 所提供的五個一致性模型都受到 SQL API 原生支援。 當您使用 Azure Cosmos DB 時，SQL API 是預設值。 
 
-Azure Cosmos DB 也會針對熱門資料庫來為與網路通訊協定相容的 API 提供原生支援。 這些資料庫包括 MongoDB、Apache Cassandra、Gremlin 和 Azure 資料表儲存體。 這些資料庫不提供精確定義的一致性模型，也不提供對於一致性層級的 SLA 支援保證。 它們通常只提供由 Azure Cosmos DB 所提供的五個一致性模型子集。 對於 SQL API、Gremlin API 及資料表 API，會使用設定於 Azure Cosmos DB 帳戶上的預設一致性層級。 
+Azure Cosmos DB 也會針對熱門資料庫來為與網路通訊協定相容的 API 提供原生支援。 這些資料庫包括 MongoDB、Apache Cassandra、Gremlin 和 Azure 資料表儲存體。 這些資料庫不提供精確定義的一致性模型，也不提供對於一致性層級的 SLA 支援保證。 它們通常只提供由 Azure Cosmos DB 所提供的五個一致性模型子集。 針對 SQL API、Gremlin API 及資料表 API，會使用 Azure Cosmos 帳戶上設定的預設一致性層級。 
 
-下列各節顯示 OSS 用戶端驅動程式針對 Apache Cassandra 4.x 和 MongoDB 3.4 所要求之資料一致性間的對應。 這份文件也會顯示 Apache Cassandra 與 MongoDB 的對應 Azure Cosmos DB 一致性層級。
+下列各節顯示 Apache Cassandra 和 MongoDB 之 OSS 用戶端驅動程式所要求的資料一致性與 Azure Cosmos DB 中相對應一致性層級之間的對應。
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 與 Azure Cosmos DB 一致性層級之間的對應
 
-下表顯示 Apache Cassandra 與 Azure Cosmos DB 中一致性層級之間的一致性對應。 針對每個 Cassandra 讀取和寫入的一致性層級，對應的 Cosmos DB 一致性層級可提供更強，也就是更嚴格的保證。
+下表說明使用者針對 Cassandra API 與對等的 Cosmos DB 原生一致性層級對應，可使用的各種一致性組合。 Apache Cassandra 寫入和讀取模式的所有組合都受到 Cosmos DB 原生支援。 在每個 Apache Cassandra 寫入和讀取一致性模型組合中，Cosmos DB 都會提供與 Apache Cassandra 相等或更高的一致性保證。 此外，Cosmos DB 也會提供比 Apache Cassandra 更高的持久性保證，即使是在最弱的寫入模式下也一樣。
 
 下表顯示 Azure Cosmos DB 和 Cassandra 之間的**寫入一致性對應**：
 

@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816351"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117268"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
 
@@ -38,11 +38,11 @@ Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VI
 |端點 (VIP)|DNS 主機 A 記錄|通訊協定|連接埠|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|入口網站 (系統管理員)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|入口網站 (系統管理員)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure Resource Manager (系統管理員)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
-|入口網站 (使用者)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (使用者)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Azure Resource Manager (系統管理員)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|入口網站 (使用者)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (使用者)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |圖形|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |憑證撤銷清單|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 和 UDP|53|
@@ -66,7 +66,7 @@ Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VI
 Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上行連結至傳統 Proxy 伺服器的部署中，您必須允許下列連接埠和 URL 才能進行連出通訊：
 
 > [!Note]  
-> Azure Stack 不支援使用 Express Route 連線到下表中列出的 Azure 服務。
+> Azure Stack 不支援使用 ExpressRoute 來觸達下表中列出的 Azure 服務。
 
 |目的|目的地 URL|通訊協定|連接埠|來源網路|
 |---------|---------|---------|---------|---------|
@@ -75,11 +75,10 @@ Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上�
 |修補程式和更新|https://&#42;.azureedge.net|HTTPS|443|公用 VIP - /27|
 |註冊|https://management.azure.com|HTTPS|443|公用 VIP - /27|
 |使用量|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|公用 VIP - /27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公用 VIP - /27<br>公用基礎結構網路|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公用 VIP - /27<br>公用基礎結構網路|
 |NTP|(可供部署的 NTP 伺服器 IP)|UDP|123|公用 VIP - /27|
 |DNS|(可供部署的 DNS 伺服器 IP)|TCP<br>UDP|53|公用 VIP - /27|
 |CRL|(您的憑證上 CRL 發佈點之下的 URL)|HTTP|80|公用 VIP - /27|
-|基礎結構備份|(外部目標檔案伺服器的 IP 或 FQDN)|SMB|445|公用基礎結構網路|
 |LDAP|針對 Graph 整合提供的 Active Directory 樹系|TCP<br>UDP|389|公用 VIP - /27|
 |LDAP SSL|針對 Graph 整合提供的 Active Directory 樹系|TCP|636|公用 VIP - /27|
 |LDAP GC|針對 Graph 整合提供的 Active Directory 樹系|TCP|3268|公用 VIP - /27|
@@ -89,9 +88,6 @@ Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上�
 
 > [!Note]  
 > 輸出 URL 會使用 Azure 流量管理員進行負載平衡，以根據地理位置提供可能的最佳連線能力。 利用負載平衡的 URL，Microsoft 可以更新和變更後端端點，但不會影響客戶。 Microsoft 不會共用已負載平衡 URL 的 IP 位址清單。 您應該使用可支援依照 URL (而非依照 IP) 篩選的裝置。
-
-> [!Note]  
-> 在 1809 中，基礎結構備份服務會從公用 VIP 網路與外部檔案伺服器通訊。 在 1809 之前，服務會透過公用基礎結構網路進行通訊。 如果您的環境不允許從公用 VIP 網路存取基礎結構資源，請套用 Azure Stack 的最新 [1809 Hotfix](azure-stack-update-1809.md#post-update-steps)。 此 Hotfix 會將基礎結構備份服務重新移回公用基礎結構網路。 在 1811 中，如果您套用了 1809 Hotfix，就會在公用基礎結構網路上保留基礎結構備份服務。 若未套用此 Hotfix，則會在更新時將此服務移回公用基礎結構網路。
 
 ## <a name="next-steps"></a>後續步驟
 

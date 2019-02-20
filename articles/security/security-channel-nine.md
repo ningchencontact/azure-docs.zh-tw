@@ -4,7 +4,7 @@ description: 本文提供 Channel 9 上策劃的 Azure 安全性簡報清單。 
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: b6e4539be76449093de0587e43b0e97243602967
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 148b26cc694abaa09bf5016f3c2f2fe3a1c12a70
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540130"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109804"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Channel 9 上的 Azure 安全性影片
 [Channel 9](https://channel9.msdn.com/) 是讓產品幕後功臣露面，並讓他們與客戶保持聯繫的社群。
@@ -40,7 +40,7 @@ ms.locfileid: "25540130"
 
 有了 Azure 資訊安全中心，您便可集中檢閱所有 Azure 資源的安全性狀態。 只需看一眼，便可確認安全性控制項是否已就緒且正確地設定。 Scott 會與 Sarah Fender 討論，而 Sarah Fender 會進行所有解釋！
 
-[即時示範︰保護、偵測和回應威脅](https://channel9.msdn.com/events/Virtual-Security-Summit/Virtual-Security-Summit-2016/Live-Demo-Protecting-against-Detecting-and-Responding-to-Threats)
+[即時示範：保護、偵測和回應威脅](https://channel9.msdn.com/events/Virtual-Security-Summit/Virtual-Security-Summit-2016/Live-Demo-Protecting-against-Detecting-and-Responding-to-Threats)
 
 加入本課程，以查看 Microsoft 安全性平台如何運作。 Julia White 的 General Manager for Cloud & Enterprise 將示範 Windows 10、Azure 和 Office 365 的安全性功能，以協助您保護組織的安全。
 

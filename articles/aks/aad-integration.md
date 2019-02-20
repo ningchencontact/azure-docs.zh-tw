@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081240"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099253"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
 本文說明如何部署 AKS 和 Azure AD 的先決條件，然後說明如何部署已啟用 Azure AD 的叢集，以及在 AKS 叢集中建立簡單的 RBAC 角色。
 
-以下是適用的限制：
+套用下列限制：
 
 - 只有建立啟用 RBAC 功能的新叢集時，才能啟用 Azure AD。 您無法在現有的 AKS 叢集上啟用 Azure AD。
 - 不支援 Azure AD 中的來賓使用者 (例如，如果您從不同的目錄使用同盟登入)。
@@ -220,7 +220,9 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 
 完成後，就會快取驗證權杖。 當權杖已過期或重新建立 Kubernetes 組態檔時，系統才會重新提示您登入。
 
-如果成功登入後看到授權錯誤訊息，請檢查您在 Azure AD 中登入的使用者身分不是「來賓」(如果您使用來自其他目錄中的同盟登入，則通常會出現這種情況)。
+如果成功登入後看到授權錯誤訊息，請檢查：
+1. 您在 Azure AD 執行個體中登入的使用者身分是否並非「來賓」(如果您使用來自其他目錄中的同盟登入，則通常會出現這種情況)。
+2. 使用者不是 200 個以上的群組成員。
 
 ```console
 error: You must be logged in to the server (Unauthorized)

@@ -8,22 +8,24 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486295"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003307"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
 本文章說明何謂警示、其優點，以及如何開始使用它們。  
 
 
+
+
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示是什麼？
 當您的監視資料中發現重要條件時，警示會主動通知您。 它們可讓您在系統使用者注意到問題之前，找出並解決問題。 
 
-本文討論 Azure 監視器中統一的警示體驗，此體驗現在包含 Log Analytics 和 Application Insights。 [先前的警示體驗](alerts-classic.overview.md)和警示類型稱為**傳統警示**。 您可以透過按一下警示頁面上方的 [檢視傳統警ˋ] 來檢視此舊版體驗和舊版警示類型。 
+本文討論「Azure 監視器」中統一的警示體驗，此體驗現在包含 Log Analytics 和 Application Insights 所管理的警示。 [先前的警示體驗](alerts-classic.overview.md)和警示類型稱為**傳統警示**。 您可以透過按一下警示頁面上方的 [檢視傳統警ˋ] 來檢視此舊版體驗和舊版警示類型。 
 
 ## <a name="overview"></a>概觀
 

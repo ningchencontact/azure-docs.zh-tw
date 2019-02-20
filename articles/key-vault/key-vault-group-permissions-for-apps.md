@@ -4,7 +4,7 @@ description: 了解如何對許多應用程式授與金鑰保存庫的存取權�
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: cd680f24eafe61bc73fa6eb91df4b4dfa5f5399b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 187d455003cf8b1c9402e24755c5f15b703cd9ad
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073419"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114394"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>對數個應用程式授與金鑰保存庫的存取權
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 存取控制原則可用來對數個應用程式授與金鑰保存庫的存取權。 存取控制原則最多可支援 1024 個應用程式，並已設定如下：
 
@@ -28,12 +30,16 @@ ms.locfileid: "54073419"
 2. 在安全性群組中新增應用程式所有的相關聯服務主體。
 3. 對安全性群組授與金鑰保存庫的存取權。
 
-必要條件如下︰
-* [安裝 Azure Active Directory V2 PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD)。
-* [安裝 Azure PowerShell](/powershell/azure/overview)。
-* 若要執行下列命令，您需要在 Azure Active Directory 租用戶中建立/編輯群組的權限。 如果您沒有權限，則可能需要連絡 Azure Active Directory 系統管理員。 如需 Key Vault 存取原則權限的詳細資訊，請參閱[關於 Azure Key Vault 金鑰、祕密和憑證](about-keys-secrets-and-certificates.md)。
+## <a name="prerequisites"></a>必要條件
 
-現在在 PowerShell 中執行下列命令：
+以下是必要條件：
+* [安裝 Azure PowerShell](/powershell/azure/overview)。
+* [安裝 Azure Active Directory V2 PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD)。
+* 在 Azure Active Directory 租用戶建立／編輯群組的權限。 如果您沒有權限，則可能需要連絡 Azure Active Directory 系統管理員。 如需 Key Vault 存取原則權限的詳細資訊，請參閱[關於 Azure Key Vault 金鑰、祕密和憑證](about-keys-secrets-and-certificates.md)。
+
+## <a name="granting-key-vault-access-to-applications"></a>授與應用程式的金鑰保存庫存取權
+
+在 PowerShell 中執行下列命令：
 
 ```powershell
 # Connect to Azure AD 
@@ -49,7 +55,7 @@ Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId
 # You can add several members to this group, in this fashion. 
  
 # Set the Key Vault ACLs 
-Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
+Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
 -PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
 –PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
 –PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `

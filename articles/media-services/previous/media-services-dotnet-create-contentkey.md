@@ -4,7 +4,7 @@ description: 了解如何建立提供資產安全存取的內容金鑰。
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 53df4c4cef19f6eef99aa15bb265317aa0cd1d58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: af8c2b547e1ce1b15410ee20eb59934559ac41ac
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782737"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992155"
 ---
-# <a name="create-contentkeys-with-net"></a>使用 .NET 建立 ContentKeys
+# <a name="create-contentkeys-with-net-legacy"></a>使用 .NET (舊版) 建立 ContentKeys
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -30,7 +30,7 @@ ms.locfileid: "33782737"
 
 媒體服務可讓您建立資產及傳遞已加密的資產。 **ContentKey** 提供**資產**的安全存取。 
 
-當您建立新的資產時 (例如，[將檔案上傳](media-services-dotnet-upload-files.md)之前)，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
+當您建立新的資產 (例如，[上傳檔案](media-services-dotnet-upload-files.md)之前) 時，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
 
 當您將資產傳遞至您的用戶端時，您可以使用下列兩個加密的其中一個[設定動態加密的資產](media-services-dotnet-configure-asset-delivery-policy.md)：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
 

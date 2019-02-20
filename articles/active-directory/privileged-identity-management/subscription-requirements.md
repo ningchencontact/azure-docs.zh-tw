@@ -16,12 +16,13 @@ ms.subservice: pim
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ad64fba0288aa5663e008484d6f0d2cbdff0bca6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f7b7aa010b3001045566bc55fb440a2171145881
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187278"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177242"
 ---
 # <a name="license-requirements-to-use-pim"></a>使用 PIM 的授權需求
 
@@ -33,6 +34,7 @@ ms.locfileid: "55187278"
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
+- Microsoft 365 M5
 
 如需詳細資訊，請參閱[什麼是 Azure Active Directory？](../fundamentals/active-directory-whatis.md)。
 
@@ -63,5 +65,6 @@ ms.locfileid: "55187278"
 
 ## <a name="next-steps"></a>後續步驟
 
+- [部署 PIM](pim-deployment-plan.md)
 - [開始使用 PIM](pim-getting-started.md)
 - [您無法在 PIM 中管理的角色](pim-roles.md)

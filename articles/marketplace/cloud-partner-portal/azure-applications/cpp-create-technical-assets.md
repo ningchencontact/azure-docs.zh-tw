@@ -14,18 +14,23 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6050ad98c87dbe38516a6ee3c4862495ad868031
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 78aa65614920d093b6ba0b8fa43614fd7f3c5176
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414348"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100426"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>準備 Azure 應用程式技術資產
 
 本文會介紹可用來準備 Azure 應用程式供應項目技術資產的資源。
 
 ## <a name="before-you-begin"></a>開始之前
+
+請觀看下列影片[建置 Azure Marketplace 的解決方案範本和受控應用程式](https://channel9.msdn.com/Events/Build/2018/BRK3603)，其會概述如何撰寫 Azure Resource Manager 範本以定義 Azure 應用程式解決方案，以及之後如何將應用程式供應項目發佈至 Azure Marketplace。
+
+>[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
+
 
 請參閱以下 Azure 應用程式文件，其中提供快速入門、教學課程和範例。
 

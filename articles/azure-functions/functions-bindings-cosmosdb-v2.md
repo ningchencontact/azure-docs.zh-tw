@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4536048db4abc25decf1dbf02c75833c570e41af
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818119"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118202"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結
 
@@ -992,7 +992,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 本章節包含下列範例，藉由從各種來源中指定識別碼值，讀取單一文件：
 
-* [佇列觸發程序，從 JSON 中查閱識別碼](#queue-trigger-look-up-id-from-string-javascript)
+* [佇列觸發程序，從 JSON 中查閱識別碼](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP 觸發程序，從查詢字串中查閱識別碼](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP 觸發程序，從路由資料中查閱識別碼](#http-trigger-look-up-id-from-route-data-javascript)
 * [佇列觸發程序，使用 SqlQuery 取得多個文件](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1200,7 +1200,7 @@ module.exports = function (context, req, toDoItem) {
 
 本章節包含下列範例，藉由從各種來源中指定識別碼值，讀取單一文件：
 
-* [佇列觸發程序，從 JSON 中查閱識別碼](#queue-trigger-look-up-id-from-string-python)
+* [佇列觸發程序，從 JSON 中查閱識別碼](#queue-trigger-look-up-id-from-json-python)
 * [HTTP 觸發程序，從查詢字串中查閱識別碼](#http-trigger-look-up-id-from-query-string-python)
 * [HTTP 觸發程序，從路由資料中查閱識別碼](#http-trigger-look-up-id-from-route-data-python)
 * [佇列觸發程序，使用 SqlQuery 取得多個文件](#queue-trigger-get-multiple-docs-using-sqlquery-python)
@@ -2288,7 +2288,7 @@ public String cosmosDbQueryById(
     }
 ```
 
-如需完整範例，請參閱[輸出 - C# 範例](#output---c-example)。
+如需完整範例，請參閱＜輸出 - C# 範例＞。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 

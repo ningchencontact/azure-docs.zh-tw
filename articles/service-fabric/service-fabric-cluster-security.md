@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240591"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109312"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 叢集安全性案例
 Azure Service Fabric 叢集是您擁有的資源。 保護叢集是您的責任，從而協助避免未經授權的使用者與它們連線。 在叢集上執行生產工作負載時，安全的叢集尤其重要。 雖然可以建立不安全的叢集，但如果叢集向公用網際網路公開管理端點，匿名使用者就可以連線叢集。 不支援將不安全的叢集用作生產工作負載。 
@@ -85,7 +85,7 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 當您建立叢集時，請設定系統管理員和使用者用戶端角色。 為每種角色類型提供個別的身分識別 (例如，使用憑證或 Azure AD)，從而 指派角色。 如需有關預設存取控制設定及如何變更預設設定的詳細資訊，請參閱[適用於 Service Fabric 用戶端的角色型存取控制](service-fabric-cluster-security-roles.md)。
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 憑證和 Service Fabric
-X509 數位憑證通常用來驗證用戶端與伺服器。 它們也用來加密及數位簽署訊息。 Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的安全性功能。 如需關於 X.509 數位憑證的詳細資訊，請參閱[使用憑證](https://msdn.microsoft.com/library/ms731899.aspx)。 您可以使用 [Key Vault](../key-vault/key-vault-get-started.md) 來管理 Azure 中 Service Fabric 叢集的憑證。
+X509 數位憑證通常用來驗證用戶端與伺服器。 它們也用來加密及數位簽署訊息。 Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的安全性功能。 如需關於 X.509 數位憑證的詳細資訊，請參閱[使用憑證](https://msdn.microsoft.com/library/ms731899.aspx)。 您可以使用 [Key Vault](../key-vault/key-vault-overview.md) 來管理 Azure 中 Service Fabric 叢集的憑證。
 
 一些需要考量的重要事項︰
 

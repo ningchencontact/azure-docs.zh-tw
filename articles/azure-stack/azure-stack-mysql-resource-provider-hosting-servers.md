@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 3a80e3a95252b60dd39ad4ce20878922aeee5730
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246877"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165020"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>為 SMySQL 資源提供者新增主控伺服器
 
-您可以使用 [Azure Stack](azure-stack-poc.md) 內 VM 上的 MySQL 執行個體，或 Azure Stack 環境外 VM 上的執行個體，只要 MySQL 資源提供者能夠連線到該執行個體均可。
+您可以使用 [Azure Stack](azure-stack-poc.md) 內 VM 上的 MySQL 主控伺服器執行個體，或 Azure Stack 環境外 VM 上的執行個體，只要 MySQL 資源提供者能夠連線到該執行個體均可。
 
 > [!NOTE]
-> MySQL 資料庫應建立在 MySQL 資源提供者伺服器上。 MySQL 資源提供者應建立在預設提供者訂用帳戶中，而 MySQL 主控伺服器則應建立在可計費的使用者訂用帳戶中。 資源提供者伺服器不應該用來裝載使用者資料庫。
+> MySQL 資源提供者應建立在預設提供者訂用帳戶中，而 MySQL 主控伺服器則應建立在可計費的使用者訂用帳戶中。 資源提供者伺服器不應該用來裝載使用者資料庫。
 
 MySQL 5.6、5.7 和 8.0 版可用於您的主控伺服器。 MySQL RP 不支援 caching_sha2_password 驗證；將下一個版本中加入。 MySQL 8.0 伺服器必須設定為使用 mysql_native_password。 也支援 MariaDB。
 

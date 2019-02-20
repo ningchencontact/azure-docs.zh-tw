@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488538"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997000"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中解譯模型結果
 本主題說明如何視覺化和解譯 Azure Machine Learning Studio 中的預測結果。 在您訓練好模型並完成其預測 (「模型評分」) 之後，您必須了解和解譯預測結果。
@@ -74,7 +74,7 @@ Azure Machine Learning 有不同的模組可以處理各種類型的分類，但
 
 **Web 服務發佈**
 
-了解預測結果並且完全評判之後，可以將實驗發佈為 Web 服務，以便您在各種應用程式中進行部署及呼叫，以取得任何新的鳶尾花的類別預測。 若要了解如何將訓練實驗變更為評分實驗並且發佈為 Web 服務，請參閱[發佈 Azure Machine Learning Web 服務](walkthrough-5-publish-web-service.md)。 此程序可提供給您如圖 3 所示的評分實驗。
+了解預測結果並且完全評判之後，可以將實驗發佈為 Web 服務，以便您在各種應用程式中進行部署及呼叫，以取得任何新的鳶尾花的類別預測。 若要了解如何將訓練實驗變更為評分實驗並且發佈為 Web 服務，請參閱[教學課程 3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)。 此程序可提供給您如圖 3 所示的評分實驗。
 
 ![評分實驗的螢幕擷取畫面](./media/interpret-model-results/3.png)
 
