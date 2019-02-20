@@ -3,8 +3,8 @@ title: 關於 Azure Active Directory 自動對 SaaS 應用程式佈建使用者�
 description: 了解如何檢查使用者帳戶自動佈建作業的狀態，以及如何針對個別使用者的佈建進行疑難排解。
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,15 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203907"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206985"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>教學課程：關於使用者帳戶自動佈建的報告
 
@@ -58,13 +59,13 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
 
 佈建摘要報告顯示在給定應用程式的 [佈建] 索引標籤上。 它位於 [設定] 底下的 [同步處理詳細資料] 區段中，並會提供下列資訊：
 
-* 已同步處理且目前正在來源系統與目標系統之間的佈建範圍內的使用者和群組總數
+* 已同步處理且目前正在來源系統與目標系統之間的佈建範圍內的使用者和群組總數。
 
 * 上次執行同步處理的時間。 完成[首次同步處理](user-provisioning.md#what-happens-during-provisioning)之後，系統通常每隔 20 到 40 分鐘就會進行一次同步處理。
 
-* 是否已完成[首次同步處理](user-provisioning.md#what-happens-during-provisioning)
+* 是否已完成[初始同步處理](user-provisioning.md#what-happens-during-provisioning)。
 
-* 佈建程序是否已進入隔離狀態，以及造成隔離狀態的原因為何 (例如，由於系統管理認證無效而未能與目標系統通訊)
+* 佈建程序是否已進入隔離狀態，以及造成隔離狀態的原因為何 (例如，因管理員認證無效而無法與目標系統進行通訊)。
 
 系統管理員首先應該看的就是佈建摘要報告，以便了解佈建作業的作業健康情況。
 
@@ -79,7 +80,7 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
 
 * **匯出事件** - Azure AD 佈建服務每次在目標系統中寫入使用者帳戶或群組物件時，就會記錄下「匯出」事件。 這些事件會記錄下 Azure AD 佈建服務在事件發生當下所寫入的所有使用者屬性與屬性值。 如果在目標系統中寫入使用者帳戶或群組物件時發生錯誤，則會在此顯示出來。
 
-* **處理序委付事件** - 當佈建服務在嘗試進行作業時遇到失敗，系統就會發生處理序委付事件，並開始在輪詢間隔時間重試此作業。 每當服務淘汰佈建作業時，就會記錄下「委付」事件。
+* **處理序委付事件** - 當佈建服務在嘗試進行作業時遇到失敗，系統就會發生處理序委付事件，並開始在輪詢間隔時間重試此作業。 每次重試佈建作業時，都會記錄「委付」事件。
 
 在查看個別使用者的佈建事件時，其事件的發生順序通常如下︰
 
@@ -102,7 +103,7 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
 
 2. 在 [類別] 功能表上選取 [帳戶佈建]。
 
-3. 在 [日期範圍] 功能表上選取您要搜尋的日期範圍。
+3. 在 [日期範圍] 功能表中，選取您想要搜尋的日期範圍。
 
 4. 在 [搜尋] 列上輸入您要搜尋之使用者的使用者識別碼。 識別碼值的格式應該符合您選取來作為屬性對應設定中主要比對識別碼的任何項目 (例如 userPrincipalName 或員工識別碼)。 所需的識別碼值會顯示在 [目標] 資料行上。
 

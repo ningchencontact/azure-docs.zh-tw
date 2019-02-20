@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564131"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994861"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虛擬機器備份
 
@@ -142,7 +142,7 @@ ms.locfileid: "55564131"
 
 在儲存體中保留復原點需要付出相關的成本。 不過，保留復原點的好處是以後可以在需要時還原虛擬機器。 如需復原點保留成本的相關資訊，請參閱[價格詳細資料](https://azure.microsoft.com/pricing/details/backup/)。 如果您選擇刪除所有復原點，則無法還原虛擬機器。
 
-每當您停止備份並保留資料時，復原點會依據保留原則到期，但 Azure Backup 一律會保留最後一個復原點，直到您明確地刪除備份資料為止。 同樣地，如果您刪除資料來源，但未執行停止備份，新的備份會開始失敗，而舊的復原點會依據保留原則到期，但一律會保留最後一個復原點，直到您執行停止備份並刪除資料為止。
+復原點會永遠保存，直到以保留原則重新保護「備份項目」或透過刪除資料來停止保護為止。 如果是重新保護，則要建立關聯的新原則將決定「復原點」的保留期。 同樣地，如果您刪除資料來源，但未執行停止備份，新的備份會開始失敗，而舊的復原點會依據保留原則到期，但一律會保留最後一個復原點，直到您執行停止備份並刪除資料為止。
 
 若要停止保護虛擬機器：
 

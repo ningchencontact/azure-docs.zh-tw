@@ -14,23 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
 ms.author: mfussell
-ms.openlocfilehash: c0a9b24704a91d6a6893937b4ee03765fb05f092
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a84d8fead42f8314decc144f01d8de1dac30bbdf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199471"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric 應用程式案例
 Azure Service Fabric 提供可靠且彈性的平台，可讓您撰寫及執行許多類型的商務應用程式和服務。 這些應用程式和微服務可以是無狀態或具狀態，而且它們會跨虛擬機器進行資源平衡，以達到最佳效率。 Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的資料分析、記憶體中計算、平行交易和事件處理。 您可以輕鬆地根據變更的資源需求上下調整 (其實是收發) 您的應用程式。
 
 Azure 中的 Service Fabric 平台適用於下列類別的應用程式：
 
-* **高可用性的服務**：Service Fabric 服務藉由建立多個次要服務複本，提供快速的容錯移轉。 如果節點、處理序或個別服務因為硬體或其他故障而停機，其中一個次要複本會升級為主要複本，以便將服務損失降到最低。
-* **可調整的服務**：可以分割個別服務，以便在叢集中相應放大。 此外，可以建立並立即移除個別服務。 服務可以快速且輕鬆地由數個節點上的少數執行個體，向外延展成許多節點上的數千個執行個體，然後再次相應縮小，視資源需求而定。 您可以使用 Service Fabric 來建置這些服務，以及管理其完整的生命週期。
-* **非靜態資料的運算**：Service Fabric 可讓您建置資料、輸入/輸出，以及計算密集且具狀態的應用程式。 Service Fabric 允許在應用程式中的處理 (運算) 和資料共置。 一般而言，當應用程式需要存取資料時，會發生與外部資料快取或儲存體層有關的網路延遲。 使用具狀態的 Service Fabric 服務可以消除這種延遲，讓更多高效能的讀取和寫入發揮功效。 例如，假設您的應用程式為客戶執行近乎即時的選項建議 (來回時間低於 100 毫秒)。 相較於必須從遠端儲存體擷取必要資料的標準實作模型，選項建議運算與資料和規則共置的 Service Fabric 服務，其延遲和效能特性會提供使用者回應靈敏的經驗。  
-* **工作階段架構的互動式應用程式**：如果您的應用程式 (例如線上遊戲或立即訊息) 需要低度延遲讀取和寫入，Service Fabric 就很有用。 Service Fabric 可讓您建置這些具狀態的互動式應用程式，而不像無狀態 app 需建立不同的存放區或快取。 (這會增加延遲且可能造成一致性問題)。
-* **資料分析和工作流程**：Service Fabric 的快速讀取和寫入可以成為必須可靠處理事件或資料流的應用程式的依靠。 Service Fabric 也可讓應用程式描述處理管線，其中的結果必須能夠可靠地傳遞到下一個處理階段而不會遺失。 這其中包括交易和財務系統，其中的資料一致性和計算保證是不可或缺。
-* **資料收集、處理和 IoT**：因為 Service Fabric 透過其具狀態服務可以處理較大規模且較低延遲，所以非常適合用於數百萬個裝置上的資料處理 (這些裝置的資料和計算位於相同位置)。
+* **高可用性服務**：Service Fabric 服務藉由建立多個次要服務複本來提供快速容錯移轉。 如果節點、處理序或個別服務因為硬體或其他故障而停機，其中一個次要複本會升級為主要複本，以便將服務損失降到最低。
+* **可調整的服務**：可以分割個別服務，以便在叢集中擴充狀態。 此外，可以建立並立即移除個別服務。 服務可以快速且輕鬆地由數個節點上的少數執行個體，向外延展成許多節點上的數千個執行個體，然後再次相應縮小，視資源需求而定。 您可以使用 Service Fabric 來建置這些服務，以及管理其完整的生命週期。
+* **非靜態資料的計算**：Service Fabric 可讓您建置資料、輸入/輸出，以及計算密集型且具狀態的應用程式。 Service Fabric 允許在應用程式中的處理 (運算) 和資料共置。 一般而言，當應用程式需要存取資料時，會發生與外部資料快取或儲存體層有關的網路延遲。 使用具狀態的 Service Fabric 服務可以消除這種延遲，讓更多高效能的讀取和寫入發揮功效。 例如，假設您的應用程式為客戶執行近乎即時的選項建議 (來回時間低於 100 毫秒)。 相較於必須從遠端儲存體擷取必要資料的標準實作模型，選項建議運算與資料和規則共置的 Service Fabric 服務，其延遲和效能特性會提供使用者回應靈敏的經驗。  
+* **工作階段架構的互動式應用程式**：如果您的應用程式 (例如線上遊戲或立即訊息) 需要低度延遲的讀取和寫入，Service Fabric 就很實用。 Service Fabric 可讓您建置這些具狀態的互動式應用程式，而不像無狀態 app 需建立不同的存放區或快取。 (這會增加延遲且可能造成一致性問題)。
+* **資料分析和工作流程**：Service Fabric 的快速讀取和寫入讓應用程式必須可靠地處理事件或資料流。 Service Fabric 也可讓應用程式描述處理管線，其中的結果必須能夠可靠地傳遞到下一個處理階段而不會遺失。 這其中包括交易和財務系統，其中的資料一致性和計算保證是不可或缺。
+* **資料收集、處理和 IoT**：因為 Service Fabric 會透過其具狀態的服務來處理較大規模且具有較低延遲，所以非常適合用於在數百萬個裝置上進行資料處理 (這些裝置的資料和計算會位於相同位置)。
 我們已有數名客戶使用 Service Fabric 建置 IoT 系統，包括 [BMW](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/24/service-fabric-customer-profile-bmw-technology-corporation/)、[Schneider Electric](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/05/service-fabric-customer-profile-schneider-electric/)、[Mesh Systems](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/20/service-fabric-customer-profile-mesh-systems/)。
 
 ## <a name="application-design-case-studies"></a>應用程式設計個案研究
@@ -52,8 +53,6 @@ Azure 中的 Service Fabric 平台適用於下列類別的應用程式：
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟
 
-* 聆聽[客戶案例研究](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
-)
 * 閱讀[客戶案例研究](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/)
 * 深入了解[模式和案例](service-fabric-patterns-and-scenarios.md)
 

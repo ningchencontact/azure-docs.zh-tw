@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3fd91ef17415e2c6ebb735fdedb098f8aa319d8c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246478"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207410"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>從重大資料遺失的情況下復原
 
 *適用於：Azure Stack 整合式系統。*
 
-Azure Stack 會在您的資料中心內執行 Azure 服務。 Azure Stack 執行所在的環境，可以小到像是單一機架上所安裝的四個節點。 反之，Azure 則會在超過 40 個區域的多個資料中心內執行，每個區域內還有多個地區。 使用者資源可能會跨越多部伺服器、機架、資料中心和區域。 若使用 Azure Stack，您目前只能選擇將整個雲端部署到單一機架上。 這會讓您的雲端曝露在資料中心發生重大事件，或因為重大產品錯誤而失敗的風險下。 發生災害事件時，Azure Stack 執行個體將會離線。 所有資料都可能無法復原。
+Azure Stack 會在您的資料中心執行 Azure 服務，而且可以在如安裝於單一機架上的四個節點一樣小的環境中執行。 反之，Azure 則會在超過 40 個區域的多個資料中心內執行，每個區域內還有多個地區。 使用者資源可能會跨越多部伺服器、機架、資料中心和區域。 若使用 Azure Stack，您目前只能選擇將整個雲端部署到單一機架上。 這會讓您的雲端曝露在資料中心發生重大事件，或因為重大產品錯誤而失敗的風險下。 發生災害事件時，Azure Stack 執行個體將會離線。 所有資料都可能無法復原。
 
 視資料遺失的根本原因而定，您可能會需要修復單一基礎結構服務，或還原整個 Azure Stack 執行個體。 您甚至可能需要在相同的位置或不同的位置，還原到不同的硬體上。
 

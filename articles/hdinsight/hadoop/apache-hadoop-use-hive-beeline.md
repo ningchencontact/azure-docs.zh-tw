@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1c4637bf3b71ade6cceb4427180edf8bc408670
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408097"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201715"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
 
@@ -25,6 +25,7 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 
 * __從對前端節點或邊緣節點的 SSH 連線使用 Beeline__：`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
 * __在透過 Azure 虛擬網路連線到 HDInsight 的用戶端上使用 Beeline__：`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __在透過 Azure 虛擬網路連線到 HDInsight 企業安全性套件 (ESP) 叢集的用戶端上使用 Beeline__：`-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
 * __在透過公用網際網路連線到 HDInsight 的用戶端上使用 Beeline__：`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -35,8 +36,10 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 > 將 `clustername` 替換為 HDInsight 叢集的名稱。
 >
 > 透過虛擬網路連線到叢集時，請以叢集前端節點的完整網域名稱取代 `<headnode-FQDN>`。
+>
+> 連線至「企業安全性套件」(ESP) 叢集時，請以叢集所加入的 Azure Active Directory (AAD) 名稱取代 `<AAD-Domain>`。 以網域上具備叢集存取權限的帳戶名稱取代 `<username>`。
 
-## <a id="prereq"></a>必要條件
+## <a id="prereq"></a>先決條件
 
 * HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Hadoop。
 
@@ -67,6 +70,12 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
+    * 連線至已加入 Azure Active Directory (AAD) 的「企業安全性套件」(ESP) 叢集時，您必須一併指定網域名稱 `<AAD-Domain>`，以及具備叢集存取權限的網域使用者帳戶名稱 `<username>`：
+        
+        ```bash
+        kinit <username>
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
 2. Beeline 命令以 `!` 字元開頭，例如 `!help` 顯示說明。 不過，一些命令可以省略 `!`。 例如，`help` 也能運作。
@@ -269,12 +278,9 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 如需您可以使用 HDInsight 上的 Hadoop 之其他方式的詳細資訊，請參閱下列文件：
 
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
-* [搭配 HDInsight 上的 Apache Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
-如果您搭配使用 Tez 和 Hive，請參閱下列文件：
-
-* [在以 Windows 為基礎的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
-* [在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)
+如果您搭配使用 Tez 和 Hive，請參閱下列文件：[在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)。
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

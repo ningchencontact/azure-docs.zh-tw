@@ -16,16 +16,17 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e950450a1ebe710a56ccfa0e8abefc7104602ec5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081954"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206169"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>快速入門：針對 Azure Active Directory 條件式存取偵測到工作階段風險時封鎖存取  
 
-為了讓您的環境受到保護，建議您封鎖可疑使用者進行登入活動。 [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md)會分析每一次登入，並且計算非由使用者帳戶合法擁有者嘗試執行登入的可能性。 可能性 (低、中、高) 是以稱為[登入風險等級](conditions.md#sign-in-risk)的計算值形式表示。 藉由設定登入風險條件，您可以設定條件式存取原則來回應特定的登入風險等級。 
+為了維護您環境的安全，您可以封鎖可疑使用者，不讓他們登入。 [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md)會分析每一次登入，並且計算非由使用者帳戶合法擁有者嘗試執行登入的可能性。 可能性 (低、中、高) 是以稱為[登入風險等級](conditions.md#sign-in-risk)的計算值形式表示。 藉由設定登入風險條件，您可以設定條件式存取原則來回應特定的登入風險等級。 
 
 本快速入門示範如何設定[條件式存取原則](../active-directory-conditional-access-azure-portal.md)，該原則會在偵測到已設定的登入風險等級時封鎖登入。 
 
@@ -36,7 +37,7 @@ ms.locfileid: "55081954"
 
 
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 若要完成本教學課程中的案例，您需要：
 

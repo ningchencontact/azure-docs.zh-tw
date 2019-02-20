@@ -3,8 +3,8 @@ title: 在 Azure Active Directory 中撰寫屬性對應的運算式 | Microsoft 
 description: 了解在 Azure Active Directory 中自動化佈建 SaaS 應用程式物件的期間，如何使用運算式對應將屬性值轉換成可接受的格式。
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 7b69929b210f0f30db28b18073893505d2977051
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 83a0685f75111a5552645d487589734846b05968
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179033"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164629"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -34,10 +35,10 @@ ms.locfileid: "55179033"
   1. 屬性，必須以方括弧括住。 例如：[attributeName]
   2. 字串常數，必須以雙引號括住。 例如︰"United States"
   3. 其他函式。 例如︰FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如︰"Company name:\"Contoso\""
+* 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如︰"Company name:\\"Contoso\\""
 
 ## <a name="list-of-functions"></a>函式的清單
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Append
@@ -49,7 +50,7 @@ ms.locfileid: "55179033"
 
 | Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |字串 |通常為 source 物件的屬性名稱 |
+| **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
 | **suffix** |必要 |字串 |您想要附加至 source 值結尾的字串。 |
 
 - - -
@@ -72,7 +73,7 @@ ms.locfileid: "55179033"
 
 **說明：**<br> Join() 類似 Append()，不過前者可以將多個 **source** 字串值合併成單一字串，且每個值會以 **separator** 字串分隔。
 
-如果其中一個 source 值是多重值屬性，則該屬性中的每個值會結合在一起，並以分隔符號值分隔。
+如果其中一個 source 值是多重值屬性，則該屬性中的每個值會聯結在一起，並以分隔符號值分隔。
 
 **參數：**<br> 
 
@@ -105,7 +106,7 @@ ms.locfileid: "55179033"
 
 | Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |字串 | 通常為名字或姓氏屬性 |
+| **source** |必要 |字串 | 通常是名字或姓氏屬性。 |
 
 - - -
 ### <a name="not"></a>否
@@ -167,7 +168,7 @@ ms.locfileid: "55179033"
 
 | Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |至少需要 2 個，沒有上限 |字串 | 要評估的唯一值產生規則清單 |
+| **uniqueValueRule1  … uniqueValueRuleN** |至少需要 2 個，沒有上限 |字串 | 要評估的唯一值產生規則清單。 |
 
 
 - - -
@@ -183,6 +184,19 @@ ms.locfileid: "55179033"
 | **[appRoleAssignments]** |必要 |字串 |**[appRoleAssignments]** 物件。 |
 
 - - -
+### <a name="split"></a>Split
+**函式：**<br> Split(source, delimiter)
+
+**說明：**<br> 使用指定的分隔符號字元將字串分割成多重值陣列。
+
+**參數：**<br> 
+
+| Name | 必要 / 重複 | 型別 | 注意 |
+| --- | --- | --- | --- |
+| **source** |必要 |字串 |要更新的 **source** 值。 |
+| **delimiter** |必要 |字串 |指定將用來分割字串的字元 (範例：",") |
+
+- - -
 ### <a name="stripspaces"></a>StripSpaces
 **函式：**<br> StripSpaces(source)
 
@@ -192,7 +206,7 @@ ms.locfileid: "55179033"
 
 | Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |字串 |**source** 值。 |
+| **source** |必要 |字串 |要更新的 **source** 值。 |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -204,7 +218,7 @@ ms.locfileid: "55179033"
 
 | Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |字串 |**Source** 值。 |
+| **source** |必要 |字串 |要更新的 **source** 值。 |
 | **defaultValue** |選用 |字串 |當 source 不符合任何 key 時要使用的預設值。 可以是空字串 ("")。 |
 | **key** |必要 |字串 |要與 **source** 值比較的 **key**。 |
 | **value** |必要 |字串 |符合 key 的 **source** 的取代值。 |
@@ -232,7 +246,7 @@ ms.locfileid: "55179033"
 
 | Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **source** |必要 |字串 |通常為 source 物件的屬性名稱 |
+| **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
 | **culture** |選用 |字串 |根據 RFC 4646，文化特性 (Culture) 名稱的格式為 *languagecode2-country/regioncode2*，其中 *languagecode2* 是兩個字母的語言代碼，而 *country/regioncode2* 則是兩個字母的子文化特性代碼。 範例包括 ja-JP 代表日文 (日本)，en-US 代表英文 (美國)。 如果沒有兩個字母的語言代碼可供使用，則會使用衍生自 ISO 639-2 的三個字母代碼。|
 
 ## <a name="examples"></a>範例
@@ -282,8 +296,18 @@ NormalizeDiacritics([givenName])
 * **輸入** (givenName)："Zoë"
 * **輸出**："Zoe"
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>以特定格式將日期輸出為字串
+### <a name="split-a-string-into-a-multi-valued-array"></a>將字串分割成多重值陣列
+您必須採用以逗號分隔的字串清單，然後將其分割成可插入到多重值屬性 (例如 Salesforce 的 PermissionSets 屬性) 的陣列。 在此範例中，已在 Azure AD 的 extensionAttribute5 中填入權限集合清單。
 
+**運算式：** <br>
+Split([extensionAttribute5], ",")
+
+**範例輸入/輸出：** <br>
+
+* **輸入** (extensionAttribute5)："PermissionSetOne, PermisionSetTwo"
+* **輸出**：["PermissionSetOne", "PermissionSetTwo"]
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>以特定格式將日期輸出為字串
 您想要以特定格式傳送日期到 SaaS 應用程式。 <br>
 例如，您要格式化 ServiceNow 的日期。
 
@@ -302,7 +326,6 @@ NormalizeDiacritics([givenName])
 如果狀態碼不符合任何預先定義的選項，則使用 "Australia/Sydney" 的預設值。
 
 **運算式：** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **範例輸入/輸出：**
@@ -310,8 +333,19 @@ NormalizeDiacritics([givenName])
 * **輸入** (state)："QLD"
 * **輸出**："Australia/Brisbane"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>將產生的 userPrincipalName (UPN) 值轉換成小寫
+### <a name="replace-characters-using-a-regular-expression"></a>使用規則運算式來取代字元
+您需要尋找符合規則運算式的字元，然後將它們移除。
 
+**運算式：** <br>
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**範例輸入/輸出：**
+
+* **輸入** (mailNickname: "john_doe72"
+* **輸出**："72"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>將產生的 userPrincipalName (UPN) 值轉換成小寫
 在以下範例中，會將 PreferredFirstName 與 PreferredLastName 來源欄位串連來產生 UPN 值，然後 ToLower 函式會對產生的字串進行操作以將所有字元轉換成小寫。 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -323,7 +357,6 @@ NormalizeDiacritics([givenName])
 * **輸出**："john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>產生 userPrincipalName (UPN) 屬性的唯一值
-
 根據使用者的名字、中間名和姓氏，您必須先產生 UPN 屬性的值並檢查其在目標 AD 目錄中的唯一性，再將此值指派給 UPN 屬性。
 
 **運算式：** <br>
@@ -349,4 +382,3 @@ NormalizeDiacritics([givenName])
 * [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](use-scim-to-provision-users-and-groups.md)
 * [帳戶佈建通知](user-provisioning.md)
 * [如何整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
-

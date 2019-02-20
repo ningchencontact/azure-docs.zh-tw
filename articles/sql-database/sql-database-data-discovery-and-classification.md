@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731847"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892876"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database 的資料探索與分類
 
@@ -132,7 +132,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 您可以使用 T-SQL 新增/移除資料行分類，以及擷取整個資料庫的所有分類。
 
 > [!NOTE]
-> 使用 T-SQL 管理標籤時，系統不會驗證新增到資料行的標籤是否存在於組織資訊保護原則 (顯示於入口網站建議中的那組標籤)。 因此，這項驗證需由您執行。
+> 使用 T-SQL 管理標籤時，系統不會驗證新增到資料行的標籤是否存在於組織資訊保護原則 (顯示於入口網站建議中的那組標籤)。 因此，此驗證需由您執行。
 
 - 新增/更新一或多個資料行的分類：[新增敏感度分類](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - 移除一或多個資料行的分類：[卸除敏感度分類](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
@@ -143,7 +143,8 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - [建立或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 建立或更新指定資料行的敏感度標籤
 - [刪除](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 刪除指定資料行的敏感度標籤
 - [取得](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 取得指定資料行的敏感度標籤
-- [依資料庫列出](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - 取得指定資料庫的敏感度標籤
+- [依資料庫列出目前的標籤](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) \(英文\) - 取得指定資料庫目前的敏感度標籤
+- [依資料庫列出建議的標籤](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) \(英文\) - 取得指定資料庫目前的敏感度標籤
 
 ## <a id="subheading-5"></a>接續步驟
 

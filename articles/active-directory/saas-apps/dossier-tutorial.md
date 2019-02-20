@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 932a832d4717a788f2d9adfd98ce1ba0c4ca07a1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dd69616fa544c1d13e14eb8eebb92adb6350d9e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507509"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>教學課程：Azure Active Directory 與 Dossier 整合
 
@@ -33,7 +34,7 @@ Dossier 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Dossier 整合，您需要下列項目：
 
@@ -176,7 +177,7 @@ Dossier 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-a-dossier-test-user"></a>建立 Dossier 測試使用者
 
-在本節中，您要在 Dossier 中建立名為 Britta Simon 的使用者。 請與 [Dossier 支援小組](mailto:support@intellimedia.ca)合作，在 Dossier 平台中加入使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Dossier 中建立名為 Britta Simon 的使用者。 請與 [Dossier 支援小組](mailto:support@intellimedia.ca)合作，在 Dossier 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

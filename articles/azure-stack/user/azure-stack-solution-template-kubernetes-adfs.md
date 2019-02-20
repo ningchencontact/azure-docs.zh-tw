@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: df84562c3ff95ac6fef65ea7c9911d5e12e558ef
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: c2ef0d34897171e04d0982405909183634ebb696
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744958"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115397"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>使用 Active Directory 同盟服務將 Kubernetes 部署至 Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "55744958"
 
 您可以遵循本文中的步驟部署及設定 Kubernetes 的資源。 當 Active Directory 同盟服務 (AD FS) 是您的身分識別管理服務時，請使用下列步驟。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 若要開始使用，請確定您具有適當權限，並且已備妥 Azure Stack。
 
@@ -43,13 +43,19 @@ ms.locfileid: "55744958"
 
     叢集無法部署至 Azure Stack 的**系統管理員**訂用帳戶。 您必須使用「**使用者**」訂用帳戶。 
 
-1. 如果您的市集中沒有 Kubernetes 叢集，請連絡您的 Azure Stack 系統管理員。
+1. 在 Azure Stack 訂用帳戶中，您將需要 Key Vault 服務。
+
+1. 在您的市集中，您將需要 Kubernetes 叢集。 
+
+如果您遺漏了 Key Vault 服務和 Kubernetes 叢集市集項目，請連絡您的 Azure Stack 管理員。
 
 ## <a name="create-a-service-principal"></a>建立服務主體
 
 使用 AD FS 作為您的身分識別解決方案時，需要與您的 Azure Stack 系統管理員一起設定服務主體。 服務主體可讓您的應用程式存取 Azure Stack 資源。
 
-1. Azure Stack 系統管理員為您提供憑證和服務主體的資訊。 這項資訊應如下所示：
+1. Azure Stack 系統管理員為您提供憑證和服務主體的資訊。
+
+    - 服務主體資訊應該看起來如下：
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -60,22 +66,24 @@ ms.locfileid: "55744958"
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. 將您的新服務主體指派為訂用帳戶的參與者角色。 如需指示，請參閱[指派角色](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal)。
+    - 您的憑證將是副檔名為 `.pfx` 的檔案。 您將在金鑰保存庫中儲存憑證以作為祕密。
 
-3. 建立金鑰保存庫以儲存憑證進行部署。
+2. 將您的新服務主體指派為訂用帳戶的參與者角色。 如需指示，請參閱[指派角色](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals)。
 
-    - 您需要下列幾項資訊：
+3. 建立金鑰保存庫以儲存憑證進行部署。 使用下列 PowerShell 指令碼，而不是入口網站。
+
+    - 您需要下列幾個資訊
 
         | 值 | 說明 |
         | ---   | ---         |
         | Azure Resource Manager 端點 | Microsoft Azure Resource Manager 是可讓系統管理員進行部署、管理及監視 Azure 資源的管理架構。 Azure Resource Manager 能夠以群組方式處理這些工作，而非個別單獨作業的方式。<br>Azure Stack 開發套件 (ASDK) 中的端點為：`https://management.local.azurestack.external/`<br>整合系統中的端點為：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | 您的訂用帳戶識別碼 | [訂用帳戶識別碼](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions)是您存取 Azure Stack 中供應項目的方式。 |
-        | 您的使用者名稱 | 您的使用者名稱。 |
+        | 您的使用者名稱 | 只使用您的使用者名稱，而不是網域名稱和使用者名稱，例如 `username`，而不是 `azurestack\username`。 |
         | 資源群組名稱  | 新資源群組的名稱，或選取現有的資源群組。 資源名稱必須是小寫的英數字元。 |
         | KeyVault 名稱 | 保存庫名稱。<br> Regex 模式：`^[a-zA-Z0-9-]{3,24}$` |
         | 資源群組位置 | 資源群組的位置。 這是您選擇用來安裝 Azure Stack 的區域。 |
 
-    - 使用已提升權限的提示字元開啟 PowerShell。 執行下列程式碼，並將參數更新為您的值：
+    - 使用提升權限的提示字元來開啟 PowerShell，並[連線至 Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs)。 執行下列程式碼，並將參數更新為您的值：
 
     ```PowerShell  
         $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -103,20 +111,20 @@ ms.locfileid: "55744958"
         Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
     ```
 
-4. 上傳憑證至金鑰保存庫。
+4. 將憑證上傳至金鑰保存庫。
 
-    - 您需要下列幾項資訊：
+    - 您需要下列幾個資訊：
 
         | 值 | 說明 |
         | ---   | ---         |
         | 憑證路徑 | 憑證的 FQDN 或檔案路徑。 |
         | 憑證密碼 | 憑證密碼。 |
-        | 祕密名稱 | 在上一個步驟中產生的秘密。 |
-        | KeyVault 名稱 | 在上一個步驟中建立的金鑰保存庫的名稱。 |
+        | 祕密名稱 | 用來參考儲存於保存庫之憑證的祕密名稱。 |
+        | 金鑰保存庫名稱 | 在上一個步驟中建立的金鑰保存庫名稱。 |
         | Azure Resource Manager 端點 | Azure Stack 開發套件 (ASDK) 中的端點為：`https://management.local.azurestack.external/`<br>整合系統中的端點為：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | 您的訂用帳戶識別碼 | [訂用帳戶識別碼](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions)是您存取 Azure Stack 中供應項目的方式。 |
 
-    - 使用已提升權限的提示字元開啟 PowerShell。 執行下列程式碼，並將參數更新為您的值：
+    - 使用提升權限的提示字元來開啟 PowerShell，並[連線至 Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs)。 執行下列程式碼，並將參數更新為您的值：
 
     ```PowerShell  
         
@@ -124,7 +132,7 @@ ms.locfileid: "55744958"
     $tempPFXFilePath = "<certificate path>"
     $password = "<certificate password>"
     $keyVaultSecretName = "<secret name>"
-    $keyVaultName = "<keyvault name>"
+    $keyVaultName = "<key vault name>"
     $armEndpoint="<Azure Resource Manager Endpoint>"
     $subscriptionId="<Your Subscription ID>"
     # Login Azure Stack Environment
@@ -194,17 +202,17 @@ ms.locfileid: "55744958"
 
 1. 輸入**服務主體 ClientId**。Kubernetes Azure 雲端提供者會使用此識別碼。 當 Azure Stack 系統管理員建立服務主體時，用戶端識別碼已識別為應用程式識別碼。
 
-1. 輸入**金鑰保存庫資源群組**。 
+1. 輸入 **Key Vault 資源群組**，以獲取包含您憑證的金鑰保存庫。
 
-1. 輸入**金鑰保存庫名稱**。
+1. 輸入 **Key Vault 名稱**，此為包含您的憑證以作為祕密的金鑰保存庫名稱。 
 
-1. 輸入**金鑰保存庫密碼**。
+1. 輸入**金鑰保存庫密碼**。 祕密名稱會參考您的憑證。
 
 1. 輸入 **Kubernetes Azure 雲端提供者版本**。 這是 Kubernetes Azure 提供者的版本。 Azure Stack 會為每個 Azure Stack 版本發行一個自訂 Kubernetes 組建。
 
-### <a name="3-summary"></a>3.總結
+### <a name="3-summary"></a>3.摘要
 
-1. 選取總結。 刀鋒視窗會顯示您 Kubernetes 叢集組態設定的驗證訊息。
+1. 選取摘要。 刀鋒視窗會顯示您 Kubernetes 叢集組態設定的驗證訊息。
 
     ![部署解決方案範本](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 

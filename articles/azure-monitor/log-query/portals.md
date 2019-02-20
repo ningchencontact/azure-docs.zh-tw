@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Log Analytics 中檢視及分析資料 | Microsoft Docs
-description: 本文會說明可以在 Azure Log Analytics 中用來建立和編輯記錄搜尋的入口網站。
+title: 在 Azure 監視器中檢視及分析記錄資料 | Microsoft Docs
+description: 本文描述如何使用 Azure 入口網站中的 Log Analytics，來在 Azure 監視器中建立及編輯記錄查詢。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,22 +10,19 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 12/22/2018
 ms.author: bwren
-ms.openlocfilehash: 9a5472a6dfc944eb793e863704897c92b1a7572e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6e84344e1c0229d15891bd15a512880da6e20cfe
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183347"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110756"
 ---
-# <a name="viewing-and-analyzing-data-in-log-analytics"></a>在 Log Analytics 中檢視及分析資料
-Azure 入口網站中有兩個選項可用來分析儲存在 Log Analytics 中的資料，以及用來建立可執行隨選分析的查詢。 您使用這些入口網站建立的查詢可用於其他功能，例如警示與儀表板。
+# <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>在 Azure 監視器中檢視及分析記錄資料
+Log Analytics 是使用記錄資料及在 Azure 監視器中建立查詢的主要體驗。 從 [Azure 監視器] 功能表中的 [記錄] 開啟 Log Analytics。 您可以在[開始使用 Azure 入口網站中的 Log Analytics](get-started-portal.md) 中，取得此入口網站的資訊和檢查其功能。
 
-## <a name="log-analytics-page"></a>Log Analytics 頁面
-從 Log Analytics 功能表中的 [記錄] 開啟 Log Analytics 頁面。 這是使用記錄檔資料集建立查詢的新體驗。 您可以在[開始使用 Azure 入口網站中的 Log Analytics 頁面](../../azure-monitor/log-query/get-started-portal.md)
-
-Log Analytics 頁面針對[記錄搜尋 (傳統)](#log-search-classic) 體驗提供了下列改進。
+Log Analytics 提供下列功能來使用記錄查詢。
 
 * 多索引標籤 – 建立不同的索引標籤以使用多個查詢。
 * 豐富的視覺效果 – 各種圖表選項。
@@ -38,14 +35,14 @@ Log Analytics 頁面針對[記錄搜尋 (傳統)](#log-search-classic) 體驗提
 * 資料行選取 – 將查詢結果中的資料行排序及分組。
 
 > [!NOTE]
-> Log Analytics 頁面具有與「進階分析」入口網站相同的功能，「進階分析」入口網站是 Azure 入口網站外部的工具。 「進階分析」入口網站仍可供使用，但 Azure 入口網站中有關該入口網站的連結與其他資源將會被這個新頁面取代。
+> Log Analytics 具有與「進階分析」入口網站相同的功能，「進階分析」入口網站是 Azure 入口網站外部的工具。 「進階分析」入口網站仍可供使用，但 Azure 入口網站中有關該入口網站的連結與其他資源將會被這個新頁面取代。
 
-![進階 Analytics 入口網站](media/portals/advanced-analytics-portal.png)
+![Log Analytics](media/portals/log-analytics.png)
 
 ### <a name="resource-logs"></a>資源記錄
-新的 Log Analytics 體驗整合了多種 Azure 資源，例如虛擬機器。 這表示您可以直接透過資源的監視功能表開啟 Log Analytics 頁面，而不需要切換至 Azure 監視器或 Log Analytics 並失去資源內容。 **記錄**尚未對所有的 Azure 資源啟用，但會逐漸開始出現在不同資源類型的入口網站功能表中。
+Log Analytics 整合各種 Azure 資源，如虛擬機器。 這表示您可以直接透過資源的監視功能表開啟 Log Analytics，而不需要切換至 Azure 監視器並失去資源內容。 **記錄**尚未對所有的 Azure 資源啟用，但會逐漸開始出現在不同資源類型的入口網站功能表中。
 
-當從特定資源開啟 Log Analytics 時，其範圍就會自動限定於該資源的記錄。   如果您想要撰寫包含其他記錄的查詢，則需要從 Log Analytics 或 Azure 監視器的功能表中加以開啟。
+當從特定資源開啟 Log Analytics 時，其範圍就會自動限定於該資源的記錄。   如果您想要撰寫包含其他記錄的查詢，則需要從 Azure 監視器的功能表中加以開啟。
 
 下列選項尚無法透過 Log Analytics 的 [資源] 檢視來使用：
 
@@ -56,7 +53,7 @@ Log Analytics 頁面針對[記錄搜尋 (傳統)](#log-search-classic) 體驗提
 
 
 ### <a name="firewall-requirements"></a>防火牆需求
-您的瀏覽器需要存取下列位址，才能存取 Log Analytics 頁面與「進階分析」入口網站。  如果您的瀏覽器要透過防火牆存取 Azure 入口網站，則必須啟用這些位址的存取。
+您的瀏覽器需要存取下列位址，才能存取 Log Analytics。  如果您的瀏覽器要透過防火牆存取 Azure 入口網站，則必須啟用這些位址的存取。
 
 | Uri | IP | 連接埠 |
 |:---|:---|:---|
@@ -66,15 +63,15 @@ Log Analytics 頁面針對[記錄搜尋 (傳統)](#log-search-classic) 體驗提
 
 
 ## <a name="log-search-classic"></a>記錄搜尋 (傳統)
-從 Log Analytics 功能表的 [記錄 (傳統)] 或從 Azure 監視器功能表中的 [Log Analytics] 開啟記錄搜尋頁面。 這是用來處理 Log Analytics 查詢的傳統頁面，缺少 [Log Analytics 頁面](#log-analytics-page)上如前所述的其他功能。
+記錄搜尋是 Azure 入口網站中查詢及分析 Azure 監視器中記錄資料的舊版體驗。 它很快就會被淘汰，但目前仍然可取得。 從 [Log Analytics] 功能表中的 [記錄 (傳統)] 開啟 [記錄搜尋]。
 
 
 
-![[記錄搜尋] 頁面](media/portals/log-search-portal.png)
+![記錄搜尋](media/portals/log-search-portal.png)
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- 逐步執行[使用記錄搜尋的教學課程](../../azure-monitor/learn/tutorial-viewdata.md)以了解如何使用查詢語言來建立查詢
-- 逐步執行[使用進階分析入口網站的課程](../../azure-monitor/log-query/get-started-portal.md)，它提供與 Log Analytics 頁面相同的體驗。
+- 進行[使用 Log Analytics 教學課程](../../azure-monitor/log-query/get-started-portal.md)。
+- 進行使用[記錄搜尋教學課程](../../azure-monitor/learn/tutorial-viewdata.md)。
 

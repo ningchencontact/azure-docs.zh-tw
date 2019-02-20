@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063228"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234674"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>在 Azure 地圖服務中選擇正確的定價層
 
@@ -30,19 +30,22 @@ S0 和 S1 定價層會處理不同的資料輸送量。 選擇 Azure 地圖服�
 | 功能                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Search                                  |        ✓           |     ✓    |
+| 批次地理編碼 (預覽)              |                   |     ✓    |
+| 透過搜尋繪製多邊形          |                   |     ✓    |
 | 路由                                 |        ✓           |     ✓    |
+| 路線範圍                    |                   |     ✓    |
+| 批次路線規劃 (預覽)                |                   |     ✓    |
+| 矩陣路線規劃 (預覽)               |                   |     ✓    |
 | 轉譯                                  |        ✓           |     ✓    |
+| 意象加上混合意象    |            |     ✓    |
 | 交通流量                                 |        ✓           |     ✓    |
 | 時區                              |        ✓           |     ✓    |
-| * 影像加上混合影像 (預覽)  |        ✓           |     ✓    |
-| * 路線範圍 (預覽)                  |        ✓           |     ✓    |
-| * IP 2 位置 (預覽)                |        ✓           |     ✓    |
-| * 透過搜尋取得的多邊形 (預覽)         |        ✓           |     ✓    |
-| * 批次地理編碼 (預覽)              |        ✓           |     ✓    |
-| * 批次路線規劃 (預覽)                |        ✓           |     ✓    |
-| * 矩陣路由 (預覽)               |        ✓           |     ✓    |
+| 地理位置 (預覽)                |        ✓           |     ✓    |
+| 資料 (預覽)               |                   |     ✓    |
+| 空間 (預覽)               |                   |     ✓    |
+| 地理柵欄 (預覽)               |                   |     ✓    |
 
-\* 2019 年 2 月 4 日之後，將無法再從 S0 定價層存取這些功能。
+
 
 以下這些資料點也值得考量：
 * 您的企業是哪一種？

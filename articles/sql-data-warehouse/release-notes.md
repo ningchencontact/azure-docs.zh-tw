@@ -2,28 +2,27 @@
 title: Azure SQL 資料倉儲版本資訊 | Microsoft Docs
 description: Azure SQL 資料倉儲的版本資訊。
 services: sql-data-warehouse
-author: twounder
-manager: craigg
+author: mlee3gsd
+ms.author: anumjs
+ms.reviewer: jrasnick
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/11/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 7a131429d8f70255e47efaac0c4b5fa99a6df7d6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/09/2019
+ms.openlocfilehash: 2ac60287c9d92ab6230e1dd6777504036e54492d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460806"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244669"
 ---
-# <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL 資料倉儲版本資訊
+# <a name="azure-sql-data-warehouse-release-notes-and-documentation-updates"></a>Azure SQL 資料倉儲版本資訊與文件更新
 
 Azure SQL 資料倉儲 (SQL DW) 是雲端式企業資料倉儲，利用大量平行處理 (MPP) 以快速地在數以 PB 計的資料中執行複雜的查詢。 使用 SQL 資料倉儲作為巨量資料解決方案的重要元件。 使用簡單的 PolyBase T-SQL 查詢將巨量資料匯入 SQL 資料倉儲，然後使用 MPP 功能來執行高效能分析。 整合及分析時，資料倉儲將會變成您的企業可以信賴的真正單一版本。
 
 按一下下列連結，深入了解您可在最新版 Azure SQL 資料倉儲中取得的新功能和改進功能。 您應可在識別的維護排程期間收到這些服務更新。
 
-- [SQL DW 10.0.10106.0 版](./release-notes-10-0-10106-0.md)
+- [SQL 資料倉儲版本 10.0.10106.0 (一月)](./release-notes-10-0-10106-0.md)
 - [2018 年 12 月](./release-notes-december-2018.md)
 - [2018 年 10 月](./release-notes-october-2018.md)
 - [2018 年 9 月](./release-notes-september-2018.md)

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658381"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979644"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
@@ -36,7 +36,7 @@ ms.locfileid: "55658381"
 >
 > 「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶僅支援 Azure Resource Manager 模型，因此本方案未提供非 Azure Resource Manager 服務。 執行「啟動/停止」解決方案時，您可能會收到錯誤，因為它具有可管理傳統資源的 Cmdlet。 若要深入了解 CSP，請參閱 [CSP 訂用帳戶中可用的服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)。 如果您使用 CSP 訂用帳戶，應該在部署之後，將 [**External_EnableClassicVMs**](#variables) 變數修改為 **False**。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此解決方案的 Runbook 會使用 [Azure 執行身分帳戶](automation-create-runas-account.md)。 執行身分帳戶是慣用的驗證方法，因為它使用憑證驗證，而不是會過期或經常變更的密碼。
 
@@ -209,7 +209,7 @@ ms.locfileid: "55658381"
 |External_AutoStop_TimeAggregationOperator | 會套用至選取的視窗大小以評估條件的時間彙總運算子。 可接受的值為 **Average**、**Minimum**、**Maximum**、**Total** 和 **Last**。|
 |External_AutoStop_TimeWindow | Azure 分析選取之計量以觸發警示的視窗大小。 此參數接受時間範圍格式的輸入。 可能的值為 5 分鐘到 6 小時。|
 |External_EnableClassicVMs| 指定傳統虛擬機器是否為解決方案設定的目標。 預設值為 true。 對於 CSP 訂用帳戶，應該設為 False。|
-|External_ExcludeVMNames | 輸入要排除的虛擬機器名稱，請使用不含空格的逗號來分隔名稱。|
+|External_ExcludeVMNames | 輸入要排除的虛擬機器名稱，請使用不含空格的逗號來分隔名稱。 此上限為 140 個 VM。 如果您新增的 VM 超過 140 個，則可能會不小心啟動或關閉要排除的 VM|
 |External_Start_ResourceGroupNames | 使用逗號分隔值指定一或多個作為啟動動作目標的資源群組。|
 |External_Stop_ResourceGroupNames | 使用逗號分隔值指定一或多個作為停止動作目標的資源群組。|
 |Internal_AutomationAccountName | 指定自動化帳戶的名稱。|
@@ -333,7 +333,7 @@ ms.locfileid: "55658381"
 
 ### <a name="exclude-a-vm"></a>排除 VM
 
-若要從解決方案中排除 VM，您也可以將它新增至 **External_ExcludeVMNames** 變數。 此變數是以逗號分隔的清單，其中包含要從啟動/停止解決方案中排除的特定 VM。
+若要從解決方案中排除 VM，您也可以將它新增至 **External_ExcludeVMNames** 變數。 此變數是以逗號分隔的清單，其中包含要從啟動/停止解決方案中排除的特定 VM。 此清單的上限為 140 個 VM。 如果您新增至此逗號分隔清單中的 VM 超過 140 個，則可能會不小心將設定為要排除的 VM 啟動或停止。
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>修改啟動和關機排程
 

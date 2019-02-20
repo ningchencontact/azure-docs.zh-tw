@@ -1,6 +1,6 @@
 ---
-title: 將 Excel 連接到 SQL Database | Microsoft Docs
-description: 了解如何將 Microsoft Excel 連接到雲端的 Azure SQL Database。 將資料匯入 Excel 中進行報告和資料探索。
+title: 將 Excel 連線至 Azure SQL Database 中的單一資料庫 | Microsoft Docs
+description: 了解如何將 Microsoft Excel 連線至 Azure SQL Database 中的單一資料庫。 將資料匯入 Excel 中進行報告和資料探索。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,21 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 552293b402c697073587e887522d2daa3e33cdb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754574"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237005"
 ---
-# <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>將 Excel 連接到 Azure SQL Database 並建立報告
+# <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>將 Excel 連線至 Azure SQL Database 中的單一資料庫和建立報表
 
-將 Excel 連接到雲端的 SQL Database，以及匯入資料並根據資料庫中的值來建立資料表和圖表。 在本教學課程中，您將設定 Excel 與資料庫資料表之間的連接、儲存可存放 Excel 資料和連接資訊的檔案，然後根據資料庫值建立樞紐分析圖。
+將 Excel 連線至 Azure SQL Database 中的單一資料庫並匯入資料，以及根據資料庫中的值來建立資料表和圖表。 在本教學課程中，您將設定 Excel 與資料庫資料表之間的連接、儲存可存放 Excel 資料和連接資訊的檔案，然後根據資料庫值建立樞紐分析圖。
 
-開始之前，Azure 中需要有 SQL Database。 如果您沒有，請參閱 [建立您的第一個 SQL Database](sql-database-single-database-get-started.md) 以取得包含範例資料的資料庫，並執行幾分鐘的時間。 在本文中，您會將該文章中的範例資料匯入 Excel 中，但是您可以依照類似的步驟並使用您自己的資料來執行。
+開始之前，您需要具有單一資料庫。 如果您沒有，請參閱[建立單一資料庫](sql-database-single-database-get-started.md)和[建立伺服器層級 IP 防火牆](sql-database-server-level-firewall-rule.md)，讓含有範例資料的資料庫上線，並執行數分鐘的時間。
+
+在本文中，您會將該文章中的範例資料匯入 Excel 中，但是您可以依照類似的步驟並使用您自己的資料來執行。
 
 您也會需要 Excel。 本文使用 [Microsoft Excel 2016](https://products.office.com/)。
 

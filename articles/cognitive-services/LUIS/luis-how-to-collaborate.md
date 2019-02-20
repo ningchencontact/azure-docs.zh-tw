@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: 應用程式擁有者可以將共同作業者新增至應用程式。 這些共同作業者可以修改模型、訓練及發佈應用程式。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: bf714e5bd47e244a410d1062488af623253bbee6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217776"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167557"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>如何管理建立者及共同作業者 
 
@@ -44,14 +44,13 @@ LUIS 目前並不支援擁有權的轉讓，但您可以匯出應用程式，而
 
 ## <a name="azure-active-directory-resources"></a>Azure Active Directory 資源
 
-如果您在組織中使用 Azure Active Directory (Azure AD)，當使用者想要使用 LUIS 時，LUIS 需要權限來存取使用者的相關資訊。 LUIS 需要的資源非常少。 
+如果您在組織中使用 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD)，Language Understanding (LUIS) 需要具備使用者在想要使用 LUIS 時所存取資訊的權限。 LUIS 需要的資源非常少。 
 
 當您嘗試使用具有管理員同意或不需要管理員同意的帳戶註冊時，您會看到詳細的描述，例如系統管理員同意：
 
-* 允許您使用貴組織帳戶來登入應用程式，並且讓應用程式讀取您的設定檔。 它也允許應用程式讀取基本公司資訊。
-* 允許應用程式查看並更新您的資料，即使您目前並未使用該應用程式。
+* 允許您使用貴組織帳戶來登入應用程式，並且讓應用程式讀取您的設定檔。 它也允許應用程式讀取基本公司資訊。 這讓 LUIS 有權讀取基本設定檔資料，例如使用者識別碼、電子郵件、名稱。
+* 允許應用程式查看並更新您的資料，即使您目前並未使用該應用程式。 需要有此權限，才能重新整理使用者的存取權杖。
 
-第一個權限讓 LUIS 有權讀取基本設定檔資料，例如使用者識別碼、電子郵件、名稱。 需要第二個權限，才能重新整理使用者的存取權杖。
 
 ## <a name="azure-active-directory-tenant-user"></a>Azure Active Directory 租用戶使用者
 
@@ -59,11 +58,8 @@ LUIS 使用標準 Azure Active Directory (Azure AD) 同意流程。
 
 租用戶系統管理員應該與需要被授權允許在 Azure AD 中使用 LUIS 的使用者直接合作。 
 
-首先，使用者登入 LUIS，然後看到一個需要系統管理員核准的快顯對話方塊。 使用者會先連絡租用戶系統管理員，然後才能繼續後面的步驟。 
-
-第二，租用戶系統管理員登入 LUIS，然後看到一個同意流程快顯對話方塊。 系統管理員必須在這個對話方塊中授與權限給使用者。 當系統管理員接受權限後，使用者便能繼續使用 LUIS。
-
-如果租用戶系統管理員將不會登入 LUIS，系統管理員可以存取 LUIS 的[同意](https://account.activedirectory.windowsazure.com/r#/applications)。 
+* 首先，使用者登入 LUIS，然後看到一個需要系統管理員核准的快顯對話方塊。 使用者會先連絡租用戶系統管理員，然後才能繼續後面的步驟。 
+* 第二，租用戶系統管理員登入 LUIS，然後看到一個同意流程快顯對話方塊。 系統管理員必須在這個對話方塊中授與權限給使用者。 當系統管理員接受權限後，使用者便能繼續使用 LUIS。 如果租用戶管理員將不會登入 LUIS，該管理員就可以存取 LUIS 的[同意](https://account.activedirectory.windowsazure.com/r#/applications) (如下列螢幕擷取畫面所示)。 請注意，會將此清單篩選出包含 `LUIS` 名稱的項目。
 
 ![依應用程式網站分類的 Azure Active Directory 權限](./media/luis-how-to-collaborate/tenant-permissions.png)
 

@@ -1,25 +1,25 @@
 ---
 title: 如何調整 Azure Redis 快取的規模 | Microsoft Docs
 description: 了解如何調整「Azure Redis 快取」執行個體的規模
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: wesmc
-ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105197"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235567"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>如何調整 Azure Redis 快取的規模
 「Azure Redis 快取」具有各種不同的快取供應項目，可讓您彈性選擇快取大小和功能。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何使用 Azure 入口網站和 Azure PowerShell 與 Azure CLI 之類的工具來調整快取。
@@ -69,9 +69,12 @@ ms.locfileid: "54105197"
 * [使用 MAML 進行調整](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>使用 PowerShell 進行調整
-當修改的屬性為 `Size`、`Sku` 或 `ShardCount` 時，您可以使用 PowerShell 以 [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) Cmdlet 調整您的「Azure Redis 快取」執行個體規模。 下列範例示範如何將名為 `myCache` 的快取調整為 2.5 GB 快取。 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+當修改的屬性為 `Size`、`Sku` 或 `ShardCount` 時，您可以使用 PowerShell 以 [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache)Cmdlet 調整您的「Azure Redis 快取」執行個體規模。 下列範例示範如何將名為 `myCache` 的快取調整為 2.5 GB 快取。 
+
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 如需有關如何使用 PowerShell 來調整規模的詳細資訊，請參閱[使用 Powershell 來調整 Azure Redis 快取的規模](cache-howto-manage-redis-cache-powershell.md#scale)。
 

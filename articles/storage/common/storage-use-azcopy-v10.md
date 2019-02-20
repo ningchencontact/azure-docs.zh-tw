@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: a4e115194d7e903edae4b4713c4f65eef9895cbf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9009e898b00212dba4dec9bf38af2bfa057b8ea
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467113"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244601"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>使用 AzCopy v10 (預覽) 傳輸資料
 
@@ -54,8 +54,11 @@ AzCopy v10 不需要安裝。 請開啟慣用的命令列應用程式，並瀏�
 ## <a name="authentication-options"></a>驗證選項
 
 AzCopy v10 可讓您在向 Azure 儲存體進行驗證時使用下列選項：
-- **Azure Active Directory [在 Blob 和 ADLS Gen2 上受支援]**。 使用 Azure Active Directory 透過 ```.\azcopy login``` 來登入。  使用者應該[獲派「儲存體 Blob 資料參與者」角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)，才能使用 Azure Active Directory 驗證寫入至 Blob 儲存體。
-- **SAS 權杖 [在 Blob 和檔案服務上受支援]**。 將 SAS 權杖附加至命令列上的 Blob 路徑中來加以使用。 您可以使用 Azure 入口網站、[儲存體總管](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或您選擇的其他工具來產生 SAS 權杖。 如需詳細資訊，請參閱[範例](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
+- **[Blob 和 ADLS Gen2 服務支援的] Azure Active Directory**。 使用 Azure Active Directory 透過 ```.\azcopy login``` 來登入。  使用者應該[獲派「儲存體 Blob 資料參與者」角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)，才能使用 Azure Active Directory 驗證寫入至 Blob 儲存體。
+- **[Blob 和檔案服務支援的] SAS 權杖**。 將 SAS 權杖附加至命令列上的 Blob 路徑中來加以使用。 您可以使用 Azure 入口網站、[儲存體總管](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或您選擇的其他工具來產生 SAS 權杖。 如需詳細資訊，請參閱[範例](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
+
+> [!IMPORTANT]
+> 提交支援要求給 Microsoft 支援服務 (或針對涉及任何協力廠商的問題進行疑難排解) 時，請共用您正嘗試執行之命令的編校版本，以確保不會意外與任何人共用 SAS。 您可以在記錄檔開頭找到編校的版本。 如需詳細資訊，請檢閱本文稍後的＜疑難排解＞一節。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -206,11 +209,33 @@ set AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 # For MacOS
 export AZCOPY_CONCURRENCY_VALUE=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
 ```
 
 ## <a name="troubleshooting"></a>疑難排解
 
-AzCopy v10 會為所有作業建立記錄檔和方案檔。 您可以使用記錄來調查任何可能的問題並進行疑難排解。 記錄會包含失敗狀態 (UPLOADFAILED、COPYFAILED 和 DOWNLOADFAILED)、完整路徑和失敗原因。 作業記錄和方案檔位於 %USERPROFILE\\.azcopy 資料夾。
+AzCopy v10 會為所有作業建立記錄檔和方案檔。 您可以使用記錄來調查任何可能的問題並進行疑難排解。 記錄會包含失敗狀態 (UPLOADFAILED、COPYFAILED 和 DOWNLOADFAILED)、完整路徑和失敗原因。 作業記錄和方案檔位於 Windows 上的 %USERPROFILE\\.azcopy 資料夾中，或在 Mac 和 Linux 上的 $HOME\\.azcopy 資料夾中。
+
+> [!IMPORTANT]
+> 提交支援要求給 Microsoft 支援服務 (或針對涉及任何協力廠商的問題進行疑難排解) 時，請共用您正嘗試執行之命令的編校版本，以確保不會意外與任何人共用 SAS。 您可以在記錄檔開頭找到編校的版本。
+
+### <a name="change-the-location-of-the-log-files"></a>變更記錄檔的位置
+
+您可以視需要變更記錄檔的位置，或避免填滿 OS 磁碟。
+
+```cmd
+# For Windows:
+set AZCOPY_LOG_LOCATION=<value>
+# For Linux:
+export AZCOPY_LOG_LOCATION=<value>
+# For MacOS
+export AZCOPY_LOG_LOCATION=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
+```
 
 ### <a name="review-the-logs-for-errors"></a>檢閱記錄以了解錯誤
 

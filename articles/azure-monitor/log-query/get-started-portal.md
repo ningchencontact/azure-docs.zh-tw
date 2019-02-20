@@ -1,30 +1,25 @@
 ---
-title: 在 Azure 入口網站中開始使用 Log Analytics | Microsoft Docs
-description: 本文提供教學課程來說明如何在 Analytics 入口網站中使用 Log Analytics 撰寫查詢。
+title: 開始使用 Azure 監視器記錄分析 | Microsoft Docs
+description: 本文提供教學課程來說明如何在 Azure 入口網站中使用 Log Analytics 來撰寫查詢。
 services: log-analytics
-documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000039"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242102"
 ---
-# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>在 Azure 入口網站中開始使用 Log Analytics
+# <a name="get-started-with-azure-monitor-log-analytics"></a>開始使用 Azure 監視器記錄分析
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-在本教學課程中，您會了解如何在 Azure 入口網站中使用 Log Analytics 頁面 (目前為預覽功能) 來撰寫 Log Analytics 查詢。 它會告訴您如何：
+在本教學課程中，您會了解如何在 Azure 入口網站中使用「Azure 監視器」記錄分析來撰寫「Azure 監視器」記錄查詢。 它會告訴您如何：
 
 - 撰寫簡單的查詢
 - 了解資料的結構描述
@@ -35,8 +30,8 @@ ms.locfileid: "53000039"
 - 匯出及共用查詢
 
 
-## <a name="meet-the-log-analytics-page"></a>認識 Log Analytics 頁面 
-Log Analytics 頁面是一種 Web 工具，可用來撰寫及執行 Azure Log Analytics 查詢。 在 Log Analytics 功能表中選取 [記錄 (預覽)] 來加以開啟。 它會從新的空白查詢來開始。
+## <a name="meet-log-analytics"></a>認識記錄分析
+記錄分析是一個 Web 工具，可用來撰寫和執行「Azure 監視器」記錄查詢。 從「Azure 監視器」功能表中選取 [記錄]，即可開啟它。 它會從新的空白查詢來開始。
 
 ![首頁](media/get-started-portal/homepage.png)
 
@@ -83,7 +78,7 @@ search in (Event) "error"
 Event
 ```
 
-Log Analytics 頁面會自動根據下列條件來限制結果的範圍：
+記錄分析會自動根據下列條件來限制結果的範圍：
 
 - 時間範圍：根據預設，系統會將查詢限制在過去 24 小時。
 - 結果數：結果數上限為 10,000 筆記錄。
@@ -121,7 +116,7 @@ Log Analytics 頁面會自動根據下列條件來限制結果的範圍：
 
 
 ## <a name="select-a-time-range"></a>選取時間範圍
-根據預設，Log Analytics 頁面會套用「過去 24 小時」的時間範圍。 若要使用不同範圍，請透過時間選擇器來選取另一個值，然後按一下 [執行]。 除了預設值外，您也可以使用 [自訂時間範圍] 選項，來選取查詢的絕對範圍。
+根據預設，記錄分析會套用「過去 24 小時」的時間範圍。 若要使用不同範圍，請透過時間選擇器來選取另一個值，然後按一下 [執行]。 除了預設值外，您也可以使用 [自訂時間範圍] 選項，來選取查詢的絕對範圍。
 
 ![時間選擇器](media/get-started-portal/time-picker.png)
 
@@ -175,7 +170,7 @@ Event
 
 ![儲存函式](media/get-started-portal/save-function.png)
 
-Log Analytics 查詢一律會儲存至選取的工作區中，並與該工作區的其他使用者共用。
+記錄分析查詢一律會儲存至選取的工作區，並與該工作區的其他使用者共用。
 
 ## <a name="load-queries"></a>載入查詢
 [查詢總管] 圖示位於右上方區域中。 這會依類別來列出所有已儲存的查詢。 它也可讓您將特定查詢標示為我的最愛，以供日後快速找到。 對已儲存的查詢按兩下，即可將它新增至目前的視窗。
@@ -183,12 +178,12 @@ Log Analytics 查詢一律會儲存至選取的工作區中，並與該工作區
 ![查詢總管](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>以連結形式匯出及共用
-Log Analytics 頁面支援數種匯出方法：
+記錄分析支援數種匯出方法：
 
 - Excel：將結果儲存為 CSV 檔案。
-- Power BI：將結果匯出至 Power BI。 如需詳細資訊，請參閱[將 Azure Log Analytics 資料匯入至 Power BI](../../azure-monitor/platform/powerbi.md)。
+- Power BI：將結果匯出至 Power BI。 如需詳細資料，請參閱[將 Azure 監視器記錄資料匯入至 Power BI](../../azure-monitor/platform/powerbi.md)。
 - 共用連結：查詢本身可以透過連結形式來共用，可存取相同工作區的其他使用者便可傳送並執行該連結。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解如何[撰寫 Log Analytics 查詢](get-started-queries.md)。
+- 深入了解如何[撰寫 Azure 監視器記錄查詢](get-started-queries.md)。

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37549cc76e1490b0758de8e296523b0e70c98dbf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823994"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>教學課程：Azure Active Directory 與 Leapsome 整合
 
@@ -33,7 +34,7 @@ ms.locfileid: "51823994"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Leapsome 整合，您需要下列項目：
 
@@ -218,7 +219,7 @@ ms.locfileid: "51823994"
  
 ### <a name="create-a-leapsome-test-user"></a>建立 Leapsome 測試使用者
 
-在本節中，您要在 Leapsome 中建立名為 Britta Simon 的使用者。 與 [Leapsome 用戶端支援小組](mailto:support@leapsome.com) 合作，新增需要在 Leapsome 平台中設定為允許清單的使用者或網域。 如果是由小組新增網域，使用者將會自動佈建到 Leapsome 平台中。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 Leapsome 中建立名為 Britta Simon 的使用者。 請與 [Leapsome 用戶端支援小組](mailto:support@leapsome.com) 合作，在 Leapsome 平台中新增需要列入白名單的使用者或網域。 如果是由小組新增網域，使用者將會自動佈建到 Leapsome 平台中。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

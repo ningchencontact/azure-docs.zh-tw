@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7b5dc6d892741f63596589a48ad5d45891b14c21
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d7801b5ea73cf94439ae2974f91d2032f9bf8a3b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040400"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>教學課程：Azure Active Directory 與 Nimblex 整合
 
@@ -33,7 +34,7 @@ Nimblex 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Nimblex 整合，您需要下列項目：
 
@@ -148,7 +149,7 @@ Nimblex 與 Azure AD 整合提供下列優點：
 
     a. 在 [描述] 文字方塊中，鍵入您的執行個體名稱。
 
-    b. 在 [記事本] 中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [憑證] 方塊中。
+    b. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [Certificate] \(憑證\) 方塊中。
 
     c. 在 [識別提供者 SSO目標 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 **SAML 單一登入服務 URL** 值。
 
@@ -191,7 +192,7 @@ Nimblex 與 Azure AD 整合提供下列優點：
 本節的目標是要在 Nimblex 中建立名為 Britta Simon 的使用者。 Nimblex 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Nimblex 時，如果使用者還不存在，就會建立新使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Nimblex 用戶端支援小組](mailto:support@ebms.com.au)。
+>如果您需要手動建立使用者，請連絡 [Nimblex 用戶端支援小組](mailto:support@ebms.com.au)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -228,7 +229,7 @@ Nimblex 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Nimblex] 磚時，應該會自動登入 Nimblex 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

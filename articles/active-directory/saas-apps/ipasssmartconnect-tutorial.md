@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: ecfdd3fae1d394e3b57fcd325f44cad0d1a98534
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 91a68a208496904fcc8bfe13a227c61bf313214f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444889"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>教學課程：Azure Active Directory 與 iPass SmartConnect 整合
 
@@ -33,7 +34,7 @@ ms.locfileid: "39444889"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 iPass SmartConnect 整合，您需要下列項目：
 
@@ -184,7 +185,7 @@ ms.locfileid: "39444889"
 
 ### <a name="create-an-ipass-smartconnect-test-user"></a>建立 iPass SmartConnect 測試使用者
 
-在本節中，您會在 iPass SmartConnect 中建立名為 Britta Simon 的使用者。 請與 [iPass SmartConnect 支援小組](mailto:help@ipass.com)合作，以新增需要在 iPass SmartConnect 平台中列入白名單的使用者或網域。 如果是由小組新增網域，將會自動將使用者佈建到 iPass SmartConnect 平台。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 iPass SmartConnect 中建立名為 Britta Simon 的使用者。 請與 [iPass SmartConnect 支援小組](mailto:help@ipass.com)合作，在 iPass SmartConnect 平台中新增需要列入白名單的使用者或網域。 如果是由小組新增網域，將會自動將使用者佈建到 iPass SmartConnect 平台。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

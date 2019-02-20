@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756524"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981446"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型
 
@@ -47,6 +47,11 @@ Azure Machine Learning 服務在不同計算目標上提供不同的支援。 �
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**所有計算目標皆可用於多個定型作業**。 例如，將遠端 VM 連結至您的工作區之後，您可以將它重複用於多個作業。
+
+> [!NOTE]
+> 您可以將 Azure Machine Learning Compute 建立成持續性資源，也可以在要求回合時才以動態方式建立。 回合型建立會在定型回合完成後移除計算目標，因此您無法重複使用以此方式建立的計算目標。
+
 ## <a name="whats-a-run-configuration"></a>什麼是回合組態？
 
 定型時，通常在本機電腦上啟動，然後在不同的計算目標上執行該定型指令碼。 使用 Azure Machine Learning 服務時，您無須變更指令碼，即可在各種計算目標上執行指令碼。 
@@ -65,7 +70,7 @@ Azure Machine Learning 服務在不同計算目標上提供不同的支援。 �
 
 您只需要使用 [CondaDependency 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py)，指定每個封裝相依性，然後 Conda 會在您工作區的 **aml_config** 目錄中，建立名為 **conda_dependencies.yml** 的檔案，其中包含封裝相依性的清單，並在您提交定型實驗時，設定 Python 環境。 
 
-視所需相依性的大小而定，新環境的初始設定可能需要幾分鐘來完成。 只要封裝清單保持不變，設定時間只會發生一次。
+視所需相依性的大小而定，新環境的初始設定可能會需要數分鐘的時間。 只要套件清單保持不變，設定時間就只會發生一次。
   
 下列程式碼顯示需要 scikit-learn 之系統管理環境的範例：
     
@@ -73,7 +78,7 @@ Azure Machine Learning 服務在不同計算目標上提供不同的支援。 �
 
 #### <a name="user-managed-environment"></a>使用者管理的環境
 
-對於使用者管理的環境，您負責設定環境，並在計算目標上安裝定型指令碼所需的每個封裝。 如果已設定定型環境 (例如在本機電腦上)，您可以藉由將 `user_managed_dependencies` 設為 True，以跳過設定步驟。 Conda 不會檢查您的環境，或為您安裝任何項目。
+針對使用者管理的環境，您需負責設定環境，並在計算目標上安裝定型指令碼所需的每個套件。 如果已經設定好定型環境 (例如在本機電腦上)，您便可以將 `user_managed_dependencies` 設定為 True 來略過設定步驟。 Conda 不會檢查您的環境，或為您安裝任何項目。
 
 下列程式碼顯示為使用者管理的環境設定定型回合的範例：
 
@@ -151,7 +156,7 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 
 Azure Machine Learning 也支援提供您自己的計算資源，並將其附加到您的工作區。 其中一種資源類型是任意遠端 VM，只要可以從 Azure Machine Learning 服務存取即可。 此資源可以是 Azure VM，也可以是在您組織或內部部署的遠端伺服器。 具體來說，只要有 IP 位址和認證 (使用者名稱和密碼或 SSH 金鑰)，即可對於遠端執行使用任何可存取的 VM。
 
-您可以使用系統建立的 Conda 環境、現有的 Python 環境或 Docker 容器。 若要在 Docker 容器上執行，您必須在虛擬機器上執行的 Docker 引擎。 您想要比本機電腦的更有彈性、以雲端為基礎的開發/測試環境時，這項功能特別有用。
+您可以使用系統建立的 Conda 環境、現有的 Python 環境或 Docker 容器。 若要在 Docker 容器上執行，您必須在虛擬機器上執行的 Docker 引擎。 您想要比本機電腦的更有彈性、以雲端為基礎的開發/測試環境時，此功能特別有用。
 
 使用 Azure 資料科學虛擬機器 (DSVM) 作為對於此案例選擇的 Azure 虛擬機器。 此虛擬機器是 Azure 中預先設定的資料科學和 AI 開發環境。 VM 會針對整個生命週期的機器學習開發，提供精心選擇的工具和架構。 如需有關如何使用 DSVM 搭配 Azure Machine Learning 的詳細資訊，請參閱[設定開發環境](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm)。
 
@@ -242,7 +247,7 @@ Azure HDInsight 是巨量資料分析的常用平台。 此平台會提供 Apach
 
 * [檢視連結至工作區的計算目標](#portal-view)
 * 在工作區中[建立計算目標](#portal-create)
-* [重複使用現有的計算目標](#portal-reuse)
+* [連結已在工作區外建立的計算目標](#portal-reuse)
 
 建立目標並連結至工作區之後，您會搭配 `ComputeTarget` 物件，將目標用於回合組態中： 
 
@@ -293,9 +298,11 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 
 
-### <a id="portal-reuse"></a>重複使用現有的計算目標
+### <a id="portal-reuse"></a>連結計算目標
 
-依照稍早所述的步驟來檢視計算目標的清單。 接著，使用下列步驟重複使用計算目標： 
+若要使用在 Azure Machine Learning 服務外建立的計算目標，您必須連結它們。 連結計算目標可讓您的工作區使用它們。
+
+依照稍早所述的步驟來檢視計算目標的清單。 然後使用下列步驟來連結計算目標： 
 
 1. 選取加號 (+) 以新增計算目標。 
 1. 輸入計算目標的名稱。 

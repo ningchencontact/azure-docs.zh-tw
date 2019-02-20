@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810281"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108767"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -28,7 +28,7 @@ ms.locfileid: "55810281"
 移動資源只會將它移動到新的資源群組。 移動作業無法變更資源的位置。 新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
 
 > [!NOTE]
-> 本文說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您實際想要變更 Azure 帳戶供應項目 (例如從免費升級為預付型方案)，則必須轉換您的訂用帳戶。
+> 本文說明如何在現有的 Azure 訂用帳戶之間移動資源。 如果您實際上是想要升級 Azure 訂用帳戶 (例如從免費切換成預付型方案)，則必須轉換您的訂用帳戶。
 > * 若要將免費試用升級，請參閱[將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付](..//billing/billing-upgrade-azure-subscription.md)。
 > * 若要變更預付型方案帳戶，請參閱[將您的 Azure 預付型方案訂閱變更為其他供應項目](../billing/billing-how-to-switch-azure-offer.md)。
 > * 如果您無法轉換訂用帳戶，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
@@ -102,7 +102,7 @@ ms.locfileid: "55810281"
 * 入口網站儀表板
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 可以移動基本 SKU 公用 IP。 不能移動標準 SKU 公用 IP。
-* 復原服務保存庫 - 註冊[個人預覽版](#recovery-services-limitations)。
+* 復原服務保存庫 - 註冊[預覽版](#recovery-services-limitations)。
 * Azure Cache for Redis - 如果 Azure Cache for Redis 執行個體已設定虛擬網路，該執行個體便無法移至不同的訂用帳戶。 請參閱[虛擬網路限制](#virtual-networks-limitations)。
 * 排程器
 * 搜尋 - 您無法在一個作業中移動不同區域中的數個搜尋資源， 而是要在不同作業中移動它們。
@@ -306,11 +306,11 @@ ms.locfileid: "55810281"
   }
   ```
 
-這項作業可能需要幾分鐘的時間執行。
+此作業可能需要幾分鐘的時間執行。
 
 ### <a name="recovery-services-limitations"></a>復原服務限制
 
- 若要移動復原服務保存庫，您必須註冊個人預覽版。 若要試用，請來信至 AskAzureBackupTeam@microsoft.com。
+ 若要移動「復原服務」保存庫，您必須註冊[有限公開預覽版](../backup/backup-azure-move-recovery-services-vault.md)。
 
 目前每個區域一次可移動一個復原服務保存庫。 您無法移動負責備份 IaaS 虛擬機器中的 Azure 檔案服務、Azure 檔案同步或 SQL 的保存庫。
 
@@ -403,7 +403,7 @@ ms.locfileid: "55810281"
 
 ## <a name="validate-move"></a>驗證移動
 
-[驗證移動作業](/rest/api/resources/resources/validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用這項作業來判斷移動是否會成功。 若要執行這項作業，您需要：
+[驗證移動作業](/rest/api/resources/resources/validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用此作業來判斷移動是否會成功。 若要執行此作業，您需要：
 
 * 來源資源群組的名稱
 * 目標資源群組的資源識別碼

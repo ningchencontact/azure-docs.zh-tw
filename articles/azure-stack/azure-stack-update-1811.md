@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766090"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099134"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -50,7 +50,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 - **1809**：[KB 4481548 – Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**：沒有目前的 Hotfix 可供使用。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!IMPORTANT]
 > 在安裝 1811 更新的期間，您必須確保所有系統管理員入口網站執行個體都已關閉。 使用者入口網站可以保持開啟，但系統管理員入口網站必須關閉。
@@ -119,6 +119,18 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 
 - 此版本為 Azure Stack 操作員導入了警示**修復**動作。 1811 中的一些警示在警示中有提供 [修復] 按鈕，可供您選取來解決問題。 如需詳細資訊，請參閱[在 Azure Stack 中監視健康情況和警示](azure-stack-monitor-health.md)。
 
+- 更新 Azure Stack 中的更新體驗。 更新增強功能包括： 
+    - 從更新記錄中分割更新的索引標籤，以便對進行中和已完成的更新進行更好的追蹤。
+    - [essentials] 區段中已增強的狀態視覺效果，其中含有適用於目前和 OEM 版本的新圖示和版面配置，以及上次更新日期。
+    - 版本資訊資料行的 [檢視] 連結讓使用者能夠直接存取該更新特定的文件，而不是一般更新頁面。
+    - [更新記錄] 索引標籤，可用來判斷每個更新的執行次數，以及增強的篩選功能。  
+    - 已連線的 Azure Stack 縮放單位仍然將在其變成可用時，自動收到**有可用的更新**。
+    - 未連線的 Azure Stack 縮放單位可以像以前一樣匯入更新。 
+    - 從入口網站下載 JSON 記錄的程序中沒有任何變更。 Azure Stack 操作員將會看到表示進度的展開步驟。
+
+    如需詳細資訊，請參閱[在 Azure Stack 中套用更新](azure-stack-apply-updates.md)。
+
+
 ## <a name="fixed-issues"></a>已修正的問題
 
 <!-- TBD - IS ASDK --> 
@@ -162,7 +174,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 - 1811 中已導入新的方式來檢視及編輯方案中的配額。 如需詳細資訊，請參閱[檢視現有的配額](azure-stack-quota-types.md#view-an-existing-quota)。
 
 <!-- 3083238 IS -->
-- 此更新中的安全性增強功能導致目錄服務角色的備份大小增加。 如需已更新的外部儲存體位置大小調整指引，請參閱[基礎結構備份文件](azure-stack-backup-reference.md#storage-location-sizing)。 這項變更導致需要更多時間才能完成備份，因為資料傳輸大小變大。 這項變更會影響整合式系統。 
+- 此更新中的安全性增強功能導致目錄服務角色的備份大小增加。 如需已更新的外部儲存體位置大小調整指引，請參閱[基礎結構備份文件](azure-stack-backup-reference.md#storage-location-sizing)。 此變更導致需要更多時間才能完成備份，因為資料傳輸大小變大。 此變更會影響整合式系統。 
 
 - 現有用來擷取 BitLocker 修復金鑰的 PEP Cmdlet 在 1811 中已從 Get-AzsCsvsRecoveryKeys 重新命名為 Get-AzsRecoveryKeys。 如需有關擷取 BitLocker 修復金鑰的詳細資訊，請參閱[有關如何擷取金鑰的指示](azure-stack-security-bitlocker.md)。
 

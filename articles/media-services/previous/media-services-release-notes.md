@@ -11,22 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 81139734d0eb7d15e78c465c06fc429de48480c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631663"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182981"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
+
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
 
 > [!NOTE]
-> 我們想要收到客戶的意見，以針對影響到您的問題進行修正。 若要回報問題或提問，請在 [Azure 媒體服務 MSDN 論壇]中提交貼文。
-> 
-> 
+> 媒體服務 v2 不會再新增任何新的特性或功能。 
+
+我們想要收到客戶的意見，以針對影響到您的問題進行修正。 若要回報問題或提問，請在 [Azure 媒體服務 MSDN 論壇]中提交貼文。 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>目前的已知問題
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
@@ -69,7 +70,7 @@ Apple HLS (iOS 11 +) 的 CMAF 和 'cbcs' 加密支援和支援 CMAF 的 MPEG-DAS
 
 ## <a name="october-2017-release"></a>2017 年 10 月版本
 > [!IMPORTANT] 
-> 媒體服務正逐漸停止對 Azure 存取控制服務驗證金鑰的支援。 自 2018 年 6 月 22 日起，您將無法再使用存取控制服務金鑰，透過程式碼對媒體服務後端進行驗證。 您必須依據[以Azure AD 為基礎的驗證](media-services-use-aad-auth-to-access-ams-api.md)更新您的程式碼，以使用 Azure Active Directory (Azure AD)。 請留意 Azure 入口網站中有關於這項變更的警告。
+> 媒體服務正逐漸停止對 Azure 存取控制服務驗證金鑰的支援。 自 2018 年 6 月 22 日起，您將無法再使用存取控制服務金鑰，透過程式碼對媒體服務後端進行驗證。 您必須依據[以Azure AD 為基礎的驗證](media-services-use-aad-auth-to-access-ams-api.md)更新您的程式碼，以使用 Azure Active Directory (Azure AD)。 請留意 Azure 入口網站中有關於此變更的警告。
 
 ### <a name="updates-for-october-2017"></a>2017 年 10 月的更新
 #### <a name="sdks"></a>SDK
@@ -90,7 +91,7 @@ Apple HLS (iOS 11 +) 的 CMAF 和 'cbcs' 加密支援和支援 CMAF 的 MPEG-DAS
     * 改善標準編碼器中使用的 H.264 解碼器，清除特定罕見構件。 
 
 #### <a name="media-analytics"></a>媒體分析
-Azure Media Redactor 正式運作：此媒體處理器會透過將所選個人的臉部模糊化來執行匿名，相當適合公共安全及新聞媒體案例用途。 
+Azure Media Redactor 公開推出：此媒體處理器會透過將所選個人的臉部模糊化來執行匿名，相當適合公共安全及新聞媒體案例用途。 
 
 如需此新處理器的概觀，請參閱[此部落格文章](https://azure.microsoft.com/blog/azure-media-redactor/)。 如需文件和設定的相關資訊，請參閱[使用 Azure 媒體分析修訂臉部](media-services-face-redaction.md)。
 
@@ -117,7 +118,7 @@ Azure Media Redactor 正式運作：此媒體處理器會透過將所選個人�
 
 在媒體服務中，「串流端點」代表可以直接將內容傳遞給用戶端播放程式應用程式或內容傳遞網路 (CDN) 以進一步散發的串流服務。 媒體服務也提供順暢的 Azure 內容傳遞網路整合。 來自 StreamingEndpoint 服務的輸出資料流可以是即時資料流、隨選視訊，也可以是媒體服務帳戶中漸進式的資產下載。 每個媒體服務帳戶皆包含一個預設的串流端點。 您可以在帳戶下建立額外的串流端點。 
 
-版本有 1.0 和 2.0 兩種版本。 從 2017 年 1 月 10 日開始，所有新建立的媒體服務帳戶都會包含 2.0 版預設串流端點。 您新增至此帳戶的額外串流端點也會是 2.0 版。 這項變更不會影響現有的帳戶。 現有的串流端點為 1.0 版，但可以升級至 2.0 版。 這項變更連帶產生了行為、帳單和功能上的變更。 如需詳細資訊，請參閱[串流端點概觀](media-services-streaming-endpoints-overview.md)。
+版本有 1.0 和 2.0 兩種版本。 從 2017 年 1 月 10 日開始，所有新建立的媒體服務帳戶都會包含 2.0 版預設串流端點。 您新增至此帳戶的額外串流端點也會是 2.0 版。 此變更不會影響現有的帳戶。 現有的串流端點為 1.0 版，但可以升級至 2.0 版。 此變更連帶產生了行為、帳單和功能上的變更。 如需詳細資訊，請參閱[串流端點概觀](media-services-streaming-endpoints-overview.md)。
 
 從 2.15 版開始，媒體服務在串流端點實體中新增了下列屬性：
 
@@ -216,7 +217,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 * 您現在可以使用媒體編碼器標準，進行字幕裁剪和即時封存擷取。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)。
 * 進行了下列篩選更新： 
   
-  * 您現在可以搭配使用 Apple HLS 格式與僅限音訊的篩選條件。 您可以利用這項更新，在 URL 中指定 (audio-only=false) 以移除僅限音訊的曲目。
+  * 您現在可以搭配使用 Apple HLS 格式與僅限音訊的篩選條件。 您可以利用此更新，在 URL 中指定 (audio-only=false) 以移除僅限音訊的曲目。
   * 現在，當您為資產定義篩選條件時，您可以在單一 URL 中結合多個 (最多三個) 篩選條件。
     
     如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)。
@@ -229,7 +230,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 * Azure 媒體播放器已更新而具有多重音訊串流支援。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)。
 
 ## <a id="july_changes_15"></a>2015 年 7 月版本
-* 宣布「媒體編碼器標準」正式運作。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
+* 宣布「媒體編碼器標準」公開推出。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
   
     媒體編碼器標準使用[本節](https://go.microsoft.com/fwlink/?LinkId=618336)說明的預設值。 當您使用 4k 編碼的預設時，請取得進階保留單元類型。 如需詳細資訊，請參閱[調整編碼](media-services-scale-media-processing-overview.md)。
 * 直播即時字幕用於媒體服務和媒體播放器。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)。
@@ -542,7 +543,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 * 定位器
   
     * 定位器現在必須使用 CreateLocator 方法來建立。 定位器必須使用 LocatorType.SAS 或 LocatorType.OnDemandOrigin 列舉值作為您要建立之特定定位器類型的引數。
-    * 定位器已新增新的屬性，以便取得您的內容可使用的 URI。 定位器的這項重新設計旨在為日後的第三方擴充能力提供更大的彈性，以及提高媒體用戶端應用程式的易用性。
+    * 定位器已新增新的屬性，以便取得您的內容可使用的 URI。 定位器的此重新設計旨在為日後的第三方擴充能力提供更大的彈性，以及提高媒體用戶端應用程式的易用性。
 * 非同步方法支援
   
     * 所有方法皆已新增非同步支援。

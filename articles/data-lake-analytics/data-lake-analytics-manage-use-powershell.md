@@ -9,26 +9,28 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
-ms.openlocfilehash: 5bd8763234aa02d68b6e86b7259fcf10b4ef4ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684269"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233577"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 本文說明如何使用 Azure PowerShell 來管理 Azure Data Lake Analytics 帳戶、資料來源、使用者和作業。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要搭配使用 PowerShell 與 Data Lake Analytics，請收集下列幾項資訊： 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **訂用帳戶識別碼**：Data Lake Analytics 帳戶所在 Azure 訂用帳戶的識別碼。
-* **資源群組**：包含您 Data Lake Analytics 帳戶的 Azure 資源群組名稱。
-* **Data Lake Analytics 帳戶名稱**：Data Lake Analytics 帳戶的名稱。
-* **預設 Data Lake Store 帳戶名稱**：每個 Data Lake Analytics 帳戶都有一個預設的 Data Lake Store 帳戶。
+若要搭配使用 PowerShell 與 Data Lake Analytics，請收集下列幾個資訊： 
+
+* **訂用帳戶識別碼**：您 Data Lake Analytics 帳戶所屬 Azure 訂用帳戶的識別碼。
+* **資源群組**：您 Data Lake Analytics 帳戶所屬 Azure 資源群組的名稱。
+* **Data Lake Analytics 帳戶名稱**：您 Data Lake Analytics 帳戶的名稱。
+* **預設 Data Lake Store 帳戶名稱**：每個 Data Lake Analytics 帳戶都有預設的 Data Lake Store 帳戶。
 * **位置**：您 Data Lake Analytics 帳戶的位置，例如「美國東部 2」或其他支援的位置。
 
 本教學課程中的 PowerShell 程式碼片段會使用這些變數來儲存此資訊
@@ -49,22 +51,22 @@ $location = "<Location>"
 
 ```powershell
 # Using subscription id
-Connect-AzureRmAccount -SubscriptionId $subId
+Connect-AzAccount -SubscriptionId $subId
 
 # Using subscription name
-Connect-AzureRmAccount -SubscriptionName $subname 
+Connect-AzAccount -SubscriptionName $subname 
 ```
 
 ## <a name="saving-authentication-context"></a>儲存驗證內容
 
-`Connect-AzureRmAccount` Cmdlet 一律會提示輸入認證。 您可以使用下列 Cmdlet 來避免出現提示：
+`Connect-AzAccount` Cmdlet 一律會提示輸入認證。 您可以使用下列 Cmdlet 來避免出現提示：
 
 ```powershell
 # Save login session information
-Save-AzureRmProfile -Path D:\profile.json  
+Save-AzAccounts -Path D:\profile.json  
 
 # Load login session information
-Select-AzureRmProfile -Path D:\profile.json 
+Select-AzAccounts -Path D:\profile.json 
 ```
 
 ### <a name="log-in-using-a-service-principal-identity-spi"></a>使用服務主體身分識別 (SPI) 來登入
@@ -76,7 +78,7 @@ $spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 $spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 
 $pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
-Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
+Login-AzAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
 ```
 
 ## <a name="manage-accounts"></a>管理帳戶
@@ -301,7 +303,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 
 ## <a name="analyzing-job-history"></a>分析作業記錄
 
-使用 Azure PowerShell 來分析已在 Data Lake 分析中執行之作業的記錄，是一項強大的技術。 您可以使用這項技術來深入了解使用情形和成本。 若要深入了解，請參閱[作業記錄分析存放庫範例](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
+使用 Azure PowerShell 來分析已在 Data Lake 分析中執行之作業的記錄，是一個強大的技術。 您可以使用此技術來深入了解使用情形和成本。 若要深入了解，請參閱[作業記錄分析存放庫範例](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="list-job-pipelines-and-recurrences"></a>列出作業管線和週期
 
@@ -336,7 +338,7 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 `New-AdlAnalyticsComputePolicy` Cmdlet 會為 Data Lake Analytics 帳戶建立新的計算原則。 這個範例會將指定使用者的可用 AU 上限設定為 50，將最低作業優先權設為 250。
 
 ```powershell
-$userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
+$userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
@@ -481,10 +483,10 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 
 ## <a name="working-with-azure"></a>使用 Azure
 
-### <a name="get-details-of-azurerm-errors"></a>取得 AzureRm 錯誤詳細資料
+### <a name="get-error-details"></a>取得錯誤詳細資料
 
 ```powershell
-Resolve-AzureRmError -Last
+Resolve-AzError -Last
 ```
 
 ### <a name="verify-if-you-are-running-as-an-administrator-on-your-windows-machine"></a>確認您在 Windows 機器上是否以系統管理員的身分執行
@@ -505,7 +507,7 @@ function Test-Administrator
 ```powershell
 function Get-TenantIdFromSubscriptionName( [string] $subname )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
+    $sub = (Get-AzSubscription -SubscriptionName $subname)
     $sub.TenantId
 }
 
@@ -517,7 +519,7 @@ Get-TenantIdFromSubscriptionName "ADLTrainingMS"
 ```powershell
 function Get-TenantIdFromSubscriptionId( [string] $subid )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
+    $sub = (Get-AzSubscription -SubscriptionId $subid)
     $sub.TenantId
 }
 
@@ -541,7 +543,7 @@ Get-TenantIdFromDomain $domain
 ### <a name="list-all-your-subscriptions-and-tenant-ids"></a>列出您的所有訂用帳戶和租用戶識別碼
 
 ```powershell
-$subs = Get-AzureRmSubscription
+$subs = Get-AzSubscription
 foreach ($sub in $subs)
 {
     Write-Host $sub.Name "("  $sub.Id ")"
@@ -551,7 +553,7 @@ foreach ($sub in $subs)
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>使用範本建立 Data Lake Analytics 帳戶
 
-您也可以使用下列範例來使用 Azure 資源群組範本：[使用範本建立 Data Lake Analytics 帳戶](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
+您也可以運用下列範例來使用「Azure 資源群組」範本：[使用範本來建立 Data Lake Analytics 帳戶](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template) \(英文\)
 
 ## <a name="next-steps"></a>後續步驟
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)

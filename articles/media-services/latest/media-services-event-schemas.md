@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/24/2018
+ms.date: 02/11/2019
 ms.author: juliako
-ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789224"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243980"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure 媒體服務事件的 Azure 事件格線結構描述
 
@@ -24,15 +24,13 @@ ms.locfileid: "53789224"
 
 如需範例指令碼和教學課程的清單，請參閱[媒體服務事件來源](../../event-grid/event-sources.md#azure-subscriptions)。
 
-## <a name="available-event-types"></a>可用的事件類型
-
-### <a name="job-related-event-types"></a>作業相關的事件類型
+## <a name="job-related-event-types"></a>作業相關的事件類型
 
 媒體服務會發出如下所述的 [作業] 相關事件類型。 **作業**相關事件有兩種類別：「監視工作狀態變更」和「監視作業輸出的狀態變更」。 
 
 您可以訂閱 JobStateChange 事件來註冊所有事件。 或者，您可以只訂閱特定事件 (例如，JobErrored、JobFinished 和 JobCanceled 等最終狀態)。 
 
-#### <a name="monitoring-job-state-changes"></a>監視工作狀態變更
+### <a name="monitoring-job-state-changes"></a>監視作業狀態變更
 
 | 事件類型 | 說明 |
 | ---------- | ----------- |
@@ -44,7 +42,9 @@ ms.locfileid: "53789224"
 | Microsoft.Media.JobCanceled| 取得當作業轉換成已取消狀態時的事件。 這是包含作業輸出的最終狀態。|
 | Microsoft.Media.JobErrored| 取得當作業轉換成錯誤狀態時的事件。 這是包含作業輸出的最終狀態。|
 
-#### <a name="monitoring-job-output-state-changes"></a>監視作業輸出狀態變更
+以下為[結構描述範例](#event-schema-examples)。
+
+### <a name="monitoring-job-output-state-changes"></a>監視作業輸出狀態變更
 
 | 事件類型 | 說明 |
 | ---------- | ----------- |
@@ -56,11 +56,13 @@ ms.locfileid: "53789224"
 | Microsoft.Media.JobOutputCanceled| 取得當作業輸出轉換成已取消態時的事件。|
 | Microsoft.Media.JobOutputErrored| 取得當作業輸出轉換成錯誤狀態時的事件。|
 
-### <a name="live-event-types"></a>即時事件類型
+以下為[結構描述範例](#event-schema-examples)。
+
+## <a name="live-event-types"></a>即時事件類型
 
 媒體服務也會發出如下所述的 [即時] 事件類型。 **即時**事件有兩種類別：資料流層級事件和資料軌層級事件。 
 
-#### <a name="stream-level-events"></a>串流層級事件
+### <a name="stream-level-events"></a>串流層級事件
 
 資料流層級事件會以每個資料流或連線為基礎來引發。 每個事件都有 `StreamId` 參數可識別連線或資料流。 每個資料流或連線都有一或多個不同類型的資料軌。 例如，來自編碼器的一個連線可能會有一個音訊資料軌和四個視訊資料軌。 資料流事件類型有：
 
@@ -70,7 +72,9 @@ ms.locfileid: "53789224"
 | Microsoft.Media.LiveEventEncoderConnected | 編碼器對即時事件建立連線。 |
 | Microsoft.Media.LiveEventEncoderDisconnected | 編碼器中斷連線。 |
 
-#### <a name="track-level-events"></a>追蹤層級事件
+以下為[結構描述範例](#event-schema-examples)。
+
+### <a name="track-level-events"></a>追蹤層級事件
 
 資料軌層級事件會以每個資料軌為基礎來引發。資料軌事件類型有：
 
@@ -83,7 +87,9 @@ ms.locfileid: "53789224"
 | Microsoft.Media.LiveEventIngestHeartbeat | 當即時事件執行時，會針對每個資料軌每 20 秒發佈一次。 提供內嵌健康情況摘要。 |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 媒體伺服器偵測到內送的資料軌發生中斷。 |
 
-## <a name="event-schemas-and-properties"></a>事件結構描述和屬性
+以下為[結構描述範例](#event-schema-examples)。
+
+## <a name="event-schema-examples"></a>事件結構描述範例
 
 ### <a name="jobstatechange"></a>JobStateChange
 

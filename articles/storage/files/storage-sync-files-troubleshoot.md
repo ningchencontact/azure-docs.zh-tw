@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752087"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194228"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -145,7 +145,7 @@ Set-AzureRmStorageSyncServerEndpoint `
 
 伺服器端點未記錄同步活動的可能原因如下：
 
-- 伺服器有作用中的 VSS 同步工作階段 (SnapshotSync)。 一個伺服器端點有作用中的 VSS 同步工作階段時，相同磁碟區上的其他伺服器端點在 VSS 同步工作階段完成之前，將無法啟動開始同步工作階段。
+- 已安裝代理程式版本 4.3.0.0 或較舊版本，且伺服器具有作用中的 VSS 同步工作階段 (SnapshotSync)。 一個伺服器端點有作用中的 VSS 同步工作階段時，相同磁碟區上的其他伺服器端點在 VSS 同步工作階段完成之前，將無法啟動開始同步工作階段。 若要解決此問題，請安裝代理程式版本 5.0.2.0 或更新版本，以便在 VSS 同步工作階段作用中時，支援在磁碟區上同步處理多個伺服器端點。
 
     若要查看伺服器上目前的同步活動，請參閱[如何監視目前同步工作階段的進度？](#how-do-i-monitor-the-progress-of-a-current-sync-session)。
 
@@ -250,7 +250,7 @@ PerItemErrorCount: 1006.
 | 0x7b | 123 | ERROR_INVALID_NAME | 檔案或目錄名稱無效。 | 請重新命名有問題的檔案或目錄。 如需詳細資訊，請參閱[處理不支援的字元](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)。 |
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | 檔案或目錄名稱無效。 | 請重新命名有問題的檔案或目錄。 如需詳細資訊，請參閱[處理不支援的字元](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)。 |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | 檔案正在使用中，無法同步。 檔案不再處於使用中狀態時即會同步。 | 不需要任何動作。 Azure 檔案同步每天會在伺服器上建立一個暫時的 VSS 快照集，用以同步具有開啟控制代碼的檔案。 |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | 檔案已變更，但同步尚未偵測到變更。偵測到這項變更之後，即會恢復同步作業。 | 不需要任何動作。 |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | 檔案已變更，但同步尚未偵測到變更。偵測到此變更之後，即會恢復同步作業。 | 不需要任何動作。 |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | 無法同步檔案，因為已達 Azure 檔案共用限制。 | 若要解決此問題，請參閱疑難排解指南中的[您已達到 Azure 檔案共用儲存體限制](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810)一節。 |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | 如果由不支援的解決方案 (例如 NTFS EFS) 加密檔案，或檔案具有刪除擱置狀態，則會發生此錯誤。 | 如果由不支援的解決方案加密檔案，請解密檔案，並使用支援的加密解決方案。 如需支援解決方案的清單，請參閱計劃指南中的[加密解決方案](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions)一節。 如果檔案處於刪除擱置狀態，則會在關閉所有開啟檔案控制代碼後，刪除該檔案。 |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | 檔案正在使用中，無法同步。 檔案不再處於使用中狀態時即會同步。 | 不需要任何動作。 |
@@ -409,7 +409,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
 | **需要補救** | yes |
 
-因為儲存體帳戶有防火牆，或因為儲存體帳戶屬於虛擬網路，而無法存取 Azure 檔案共用時，就會發生此錯誤。 Azure 檔案同步尚不支援這項功能。 若要進行疑難排解：
+因為儲存體帳戶有防火牆，或因為儲存體帳戶屬於虛擬網路，而無法存取 Azure 檔案共用時，就會發生此錯誤。 Azure 檔案同步尚不支援此功能。 若要進行疑難排解：
 
 1. [確認儲存體帳戶確實存在。](#troubleshoot-storage-account)
 2. [檢查並確定儲存體帳戶未包含任何網路規則。](#troubleshoot-network-rules)
@@ -538,7 +538,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **需要補救** | yes |
 
-如果有許多個別檔案同步錯誤，同步工作階段就可能開始失敗。 若要進行此狀況的疑難排解，請參閱[個別檔案/目錄同步錯誤的疑難排解]()。
+如果有許多個別檔案同步錯誤，同步工作階段就可能開始失敗。 <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > Azure 檔案同步每天會在伺服器上建立一個暫時的 VSS 快照集，用以同步具有開啟控制代碼的檔案。
@@ -709,7 +709,7 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 1. 按一下位於目錄左側的 [概觀]，以返回主要儲存體帳戶頁面。
 2. 選取 [檔案]，以檢視檔案共用清單。
-3. 確認雲端端點所參考的檔案共用出現在檔案共用清單中 (您應已先前的步驟 1 中記下這項資料)。
+3. 確認雲端端點所參考的檔案共用出現在檔案共用清單中 (您應已先前的步驟 1 中記下此資料)。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell

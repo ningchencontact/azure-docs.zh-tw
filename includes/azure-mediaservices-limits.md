@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279501"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56212973"
 ---
 >[!NOTE]
 >如果是不固定的資源，您可以建立支援票證，要求增加配額。 **請勿**為了嘗試取得更高的限制而建立其他 Azure 媒體服務。
@@ -27,7 +27,7 @@ ms.locfileid: "52279501"
 | 每個 AMS 帳戶的即時通道  |5|
 | 每個通道中已停止狀態的程式  |50|
 | 每個通道中執行中的程式  |3|
-| 每個 AMS 帳戶執行中的串流端點|2|
+| 每個媒體服務帳戶的串流端點 (已停止或執行中)|2|
 | 每個串流端點的資料流單位  |10 |
 | 儲存體帳戶 | 1,000<sup>(5)</sup> (固定) |
 | 原則 | 1,000,000<sup>(6)</sup> |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812290"
+ms.locfileid: "55870957"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用「讓我保持登入 (KMSI)」
 
@@ -27,7 +27,7 @@ ms.locfileid: "55812290"
 
 ![啟用讓我保持登入](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 已設定為允許本機帳戶註冊和登入的 Azure AD B2C 租用戶。 如果您還沒有租用戶，可以使用以下文件中的步驟來建立一個：[教學課程：建立 Azure Active Directory B2C 租用戶](tutorial-create-tenant.md)。
 
@@ -154,7 +154,7 @@ ms.locfileid: "55812290"
 
     **SessionExpiryInSeconds** 的值代表 SSO 工作階段的到期時間。 這會由 Azure AD B2C 在內部使用，以檢查 KMSI 的工作階段是否已過期。 **KeepAliveInDays** 值會決定 Web 瀏覽器中 SSO cookie 的「到期時間」/「最大存留期」值。 不同於 **SessionExpiryInSeconds**，**KeepAliveInDays** 會用來防止在瀏覽器關閉時清除 cookie。 使用者只能在 SSO 工作階段的 cookie 存在時 (這會由 **KeepAliveInDays** 控制)，以及尚未過期時 (這會由 **SessionExpiryInSeconds** 控制)，才能進行無訊息登入。 
     
-    如果使用者未在註冊和登入頁面上啟用**讓我保持登入**，則工作階段會在超過 **SessionExpiryInSeconds** 指定的時間之後過期，或在關閉瀏覽器之後過期。 如果使用者啟用**讓我保持登入**，**KeepAliveInDays** 的值會覆寫 **SessionExpiryInSeconds** 的值，並指定工作階段到期時間。 即使使用者關閉瀏覽器，然後再將其重新開啟，但只要仍在 **KeepAliveInDays** 的時間內，他們還是可以自動登入。 我們建議您將 **SessionExpiryInSeconds** 的值設為短時間 (1200 秒)，而 **KeepAliveInDays** 可以設為相對的長時間 (7 天)，如下列範例所示：
+    如果使用者未在註冊和登入頁面上啟用**讓我保持登入**，則工作階段會在超過 **SessionExpiryInSeconds** 指定的時間之後過期，或在關閉瀏覽器之後過期。 如果使用者啟用**讓我保持登入**，**KeepAliveInDays** 的值會覆寫 **SessionExpiryInSeconds** 的值，並指定工作階段到期時間。 即使使用者關閉瀏覽器後再將其重新開啟，只要是在 **KeepAliveInDays** 的時間內，他們還是可以自動登入。 我們建議您將 **SessionExpiryInSeconds** 的值設為短時間 (1200 秒)，而 **KeepAliveInDays** 可以設為相對的長時間 (7 天)，如下列範例所示：
 
     ```XML
     <RelyingParty>

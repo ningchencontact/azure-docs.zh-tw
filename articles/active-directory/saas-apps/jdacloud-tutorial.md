@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 371ff15121e3da0bec5be6159fea9c6764b0aeda
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f2dfaf281130115ff04ff84b413e224f54cfcf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703291"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>教學課程：Azure Active Directory 與 JDA Cloud 整合
 
@@ -33,7 +34,7 @@ JDA Cloud 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 JDA Cloud 整合，您需要下列項目：
 
@@ -109,7 +110,7 @@ JDA Cloud 與 Azure AD 整合提供下列優點：
 
     ![JDA Cloud 網域和 URL 單一登入資訊](./media/jdacloud-tutorial/tutorial_jdacloud_url1.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<SUBDOMAIN>.jdadelivers.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.jdadelivers.com`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<SUBDOMAIN>.jdadelivers.com/sp/ACS.saml2`
 
@@ -170,7 +171,7 @@ JDA Cloud 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-a-jda-cloud-test-user"></a>建立 JDA Cloud 測試使用者
 
-在本節中，您要在 JDA Cloud 中建立名為 Britta Simon 的使用者。 請與 [JDA Cloud 支援小組](https://support.jda.com/)合作，以在 JDA Cloud 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 JDA Cloud 中建立名為 Britta Simon 的使用者。 請與 [JDA Cloud 支援小組](https://support.jda.com/)合作，在 JDA Cloud 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -207,7 +208,7 @@ JDA Cloud 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [JDA Cloud] 圖格時，應該會自動登入您的 JDA Cloud 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

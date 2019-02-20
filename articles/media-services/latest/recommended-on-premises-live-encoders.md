@@ -1,5 +1,5 @@
 ---
-title: 深入了解 Azure 媒體服務所建議的即時串流處理內部部署編碼器 |Microsoft Docs
+title: 媒體服務建議的即時串流編碼器 -  Azure | Microsoft Docs
 description: 深入了解 Azure 媒體服務所建議的即時串流處理內部部署編碼器
 services: media-services
 keywords: encoding;encoders;media;編碼;編碼器;媒體
@@ -9,18 +9,18 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c3e42ba9fe84ded8c60fc71f19de785945852116
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a165fac2de89d5510b21b9185d4bc61e730b09ff
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656663"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960117"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建議使用即時串流編碼器
 
-在媒體服務中，[即時事件](https://docs.microsoft.com/rest/api/media/liveevents) (通道) 代表處理即時串流內容的管線。 即時事件會以兩種方式之一收到即時輸入資料流：
+在 Azure 媒體服務中，[即時事件](https://docs.microsoft.com/rest/api/media/liveevents) (通道) 代表處理即時串流內容的管線。 即時事件會以兩種方式之一收到即時輸入資料流。
 
-* 內部部署即時編碼器會將多位元速率 RTMP 或 Smooth Streaming (分散式 MP4) 串流傳送到未啟用執行媒體服務即時編碼的即時事件。 內嵌的資料流會通過即時事件，而不需任何進一步處理。 此方法稱為 **傳遞**。 即時編碼器可傳送單一位元速率資料流至傳遞通道，但不建議使用此設定，因為它不允序針對用戶端使用彈性位元速率串流。
+* 內部部署即時編碼器會將多位元速率 RTMP 或 Smooth Streaming (分散式 MP4) 串流傳送到未啟用執行媒體服務即時編碼的即時事件。 內嵌的資料流會通過即時事件，而不需任何進一步處理。 此方法稱為 **傳遞**。 即時編碼器可以將單一位元速率資料流傳送到傳遞通道。 我們不建議此設定，因為它不允許自適性串流至用戶端。
 
   > [!NOTE]
   > 使用傳遞方法是進行即時串流的最經濟實惠方式。
@@ -67,24 +67,24 @@ ms.locfileid: "55656663"
 
 ### <a name="playback-requirements"></a>播放需求
 
-音訊和視訊資料流必須都存在才能播放內容。 不支援僅播放視訊資料流。
+若要播放內容，音訊和視訊資料流必須都存在。 不支援僅播放視訊資料流。
 
 ### <a name="configuration-tips"></a>設定提示
 
 - 請盡可能使用實體的有線網際網路連線。
-- 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
+- 當您判斷頻寬需求時，請將串流位元速率加倍。 雖然並非必要，但這個簡單的規則有助於減輕網路阻塞的影響。
 - 使用軟體型編碼器時，請關閉任何不必要的程式。
-- 編碼器開始推送之後，請勿變更其設定。 這樣對事件有負面影響，且可能造成事件不穩定。 
-- 請確保您有充足的時間來設定事件。 針對大型事件，建議您在一小時之前開始設定事件。
+- 在開始推送後變更編碼器設定會對事件產生負面影響。 組態變更可能會導致事件變得不穩定。 
+- 請確保您有充足的時間來設定事件。 針對大型事件，我們建議您在一小時之前開始設定事件。
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>如何成為內部部署編碼器合作夥伴
+## <a name="becoming-an-on-premises-encoder-partner"></a>成為內部部署編碼器合作夥伴
 
-身為 Azure 媒體服務內部部署編碼器合作夥伴，媒體服務將會向企業客戶建議您的編碼器，以協助推廣您的產品。 若要成為內部部署編碼器合作夥伴，您必須向媒體服務驗證您內部部署編碼器的相容性。 若要這樣做，請完成下列驗證：
+身為 Azure 媒體服務內部部署編碼器合作夥伴，媒體服務將會向企業客戶建議您的編碼器，以協助推廣您的產品。 若要成為內部部署編碼器合作夥伴，您必須向媒體服務驗證您內部部署編碼器的相容性。 若要這樣做，請完成下列驗證。
 
 ### <a name="pass-through-live-event-verification"></a>傳遞即時事件驗證
 
 1. 在您的媒體服務帳戶中，確認**串流端點**正在執行。 
-2. 建立並啟動**傳遞**即時事件。 <br/> 如需詳細資訊，請參閱[即時事件狀態和計費](live-event-states-billing.md)。
+2. 建立並啟動**傳遞**即時事件。 <br/> 如需詳細資訊，請參閱[實況活動狀態和計費](live-event-states-billing.md)。
 3. 取得內嵌 URL 並設定您的內部部署編碼器使用該 URL，以將多位元速率即時資料流傳送到媒體服務。
 4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
 5. 建立新的 [資產] 物件。
@@ -95,15 +95,15 @@ ms.locfileid: "55656663"
 10. 結合步驟 8 的 URL 和步驟 9 的主機名稱，即可取得完整的 URL。
 11. 將您的即時編碼器執行約 10 分鐘的時間。
 12. 停止即時事件。 
-13. 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在即時工作階段期間透過預覽 URL 觀看和驗證)。
+13. 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式觀看已封存的資產)，以確保所有品質層級的播放沒有可見問題。 或者，在即時工作階段期間透過預覽 URL 觀看和驗證。
 14. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本。
 15. 於建立每個範例之後，重設即時事件狀態。
-16. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號/字幕/不同的編碼速度) 重複步驟 5 到步驟 15。
+16. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號、字幕，或不同的編碼速度) 重複步驟 5 到步驟 15。
 
 ### <a name="live-encoding-live-event-verification"></a>即時編碼即時事件驗證
 
 1. 在您的媒體服務帳戶中，確認**串流端點**正在執行。 
-2. 建立並啟動**即時編碼**即時事件。 <br/> 如需詳細資訊，請參閱[即時事件狀態和計費](live-event-states-billing.md)。
+2. 建立並啟動**即時編碼**即時事件。 <br/> 如需詳細資訊，請參閱[實況活動狀態和計費](live-event-states-billing.md)。
 3. 取得內嵌 URL 並設定您的編碼器將單一位元速率即時資料流推送到媒體服務。
 4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
 5. 建立新的 [資產] 物件。
@@ -114,14 +114,14 @@ ms.locfileid: "55656663"
 10. 結合步驟 8 的 URL 和步驟 9 的主機名稱，即可取得完整的 URL。
 11. 將您的即時編碼器執行約 10 分鐘的時間。
 12. 停止即時事件。
-13. 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在即時工作階段期間透過預覽 URL 觀看和驗證)。
+13. 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式觀看已封存的資產)，以確保所有品質層級的播放沒有可見問題。 或者，在即時工作階段期間透過預覽 URL 觀看和驗證。
 14. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本。
 15. 於建立每個範例之後，重設即時事件狀態。
-16. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號/字幕/不同的編碼速度) 重複步驟 5 到步驟 15。
+16. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號、字幕，或不同的編碼速度) 重複步驟 5 到步驟 15。
 
 ### <a name="longevity-verification"></a>使用壽命驗證
 
-除了步驟 11 外，其他步驟與[傳遞即時事件驗證](#pass-through-live-event-verification)中的相同。 <br/>讓您的即時編碼器執行一週或更久，而不是 10 分鐘。 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式不時觀看即時串流 (或已封存的資產)，以確保播放沒有可見問題。
+除了步驟 11 外，遵循與[傳遞即時事件驗證](#pass-through-live-event-verification)中相同的其他步驟。 <br/>讓您的即時編碼器執行一週或更久，而不是 10 分鐘。 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式不時觀看即時串流 (或已封存的資產)，以確保播放沒有可見問題。
 
 ### <a name="email-your-recorded-settings"></a>用電子郵件傳送記錄的設定
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995660"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56246751"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>物聯網 (IoT) 安全性架構
 
@@ -98,7 +98,7 @@ Microsoft 產品在採用威脅模型方面的經驗悠久，並已公開發表�
 
 區域是從廣度方面來區隔方案；每個區域通常會有它自己的資料以及驗證和授權需求。 區域也可以用來隔離損毀，並限制低度信任區域對較高信任區域的影響。
 
-每個區域都由信任邊界來區隔，下圖中其以紅色虛線標示。 它代表從某個來源到另一個來源之間的資料/資訊轉換。 在這項轉換期間，資料/資訊可能會受限於 STRIDE 的影響，亦即詐騙 (Spoofing)、竄改 (Tampering)、否認性 (Repudiation)、資訊洩漏 (Information Disclosure)、拒絕服務 (Denial of Service) 與權限提高 (Elevation of Privileg)。
+每個區域都由信任邊界來區隔，下圖中其以紅色虛線標示。 它代表從某個來源到另一個來源之間的資料/資訊轉換。 在此轉換期間，資料/資訊可能會受限於 STRIDE 的影響，亦即詐騙 (Spoofing)、竄改 (Tampering)、否認性 (Repudiation)、資訊洩漏 (Information Disclosure)、拒絕服務 (Denial of Service) 與權限提高 (Elevation of Privileg)。
 
 ![IoT 安全性區域](media/iot-security-architecture/iot-security-architecture-fig1.png) 
 
@@ -225,7 +225,7 @@ Microsoft 是使用先前概述的架構來為 Azure IoT 進行威脅模型化�
 | **元件** | **威脅** | **緩和** | **風險** | **實作** |
 | --- | --- | --- | --- | --- |
 | 裝置 IoT 中樞 |TID |使用 (D)TLS (PSK/RSA) 以加密流量 |竊聽或干擾裝置與閘道器之間的通訊 |通訊協定層級的安全性。 使用自訂通訊協定時，您需要了解如何對其進行保護。 在大部分情況下，通訊主要是發生在裝置到 IoT 中樞這一段位置 (由裝置起始連線)。 |
-| 裝置裝置 |TID |使用 (D)TLS (PSK/RSA) 以加密流量。 |讀取裝置間傳輸中的資料。 竄改資料。 多載具有新連線的裝置 |通訊協定層級的安全性 (MQTT/AMQP/HTTP/CoAP)。 使用自訂通訊協定時，您需要了解如何對其進行保護。 DoS 威脅的安全防護功能是透過雲端閘道器或現場閘道器，將裝置設為對等，使其僅可以網路用戶端形式運作。 在閘道器代理對等之後，對等作業可能會導致對等之間直接連線。 |
+| 裝置到裝置 |TID |使用 (D)TLS (PSK/RSA) 以加密流量。 |讀取裝置間傳輸中的資料。 竄改資料。 多載具有新連線的裝置 |通訊協定層級的安全性 (MQTT/AMQP/HTTP/CoAP)。 使用自訂通訊協定時，您需要了解如何對其進行保護。 DoS 威脅的安全防護功能是透過雲端閘道器或現場閘道器，將裝置設為對等，使其僅可以網路用戶端形式運作。 在閘道器代理對等之後，對等作業可能會導致對等之間直接連線。 |
 | 外部實體裝置 |TID |外部實體與裝置的強式配對 |竊聽裝置的連線。 干擾裝置的通訊 |使用 NFC/Bluetooth LE 安全地配對外部實體與裝置。 控制裝置 (實體) 的操作面板 |
 | 現場閘道雲端閘道 |TID |使用 TLS (PSK/RSA) 以加密流量。 |竊聽或干擾裝置與閘道器之間的通訊 |通訊協定層級的安全性 (MQTT/AMQP/HTTP/CoAP)。 使用自訂通訊協定時，您需要了解如何對其進行保護。 |
 | 裝置雲端閘道 |TID |使用 TLS (PSK/RSA) 以加密流量。 |竊聽或干擾裝置與閘道器之間的通訊 |通訊協定層級的安全性 (MQTT/AMQP/HTTP/CoAP)。 使用自訂通訊協定時，您需要了解如何對其進行保護。 |

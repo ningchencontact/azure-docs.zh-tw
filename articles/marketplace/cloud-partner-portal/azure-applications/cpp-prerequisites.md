@@ -14,16 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1fe847bd0cdceec7eccab8218ccf787d8f4366ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195500"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097785"
 ---
 # <a name="azure-application-prerequisites"></a>Azure 應用程式先決條件
 
-本文說明在 Azure Marketplace 上發佈受控應用程式供應項目的先決條件。
+本文說明在 Azure Marketplace 上發佈受控應用程式供應項目的先決條件。  如果您尚未這樣做，請觀看下列影片：[為 Azure Marketplace 建置解決方案範本和受控應用程式](https://channel9.msdn.com/Events/Build/2018/BRK3603) \(英文\)。
+
 
 ## <a name="technical-requirements"></a>技術需求
 
@@ -36,6 +37,7 @@ ms.locfileid: "53195500"
   * [GitHub：Azure Resource Manager 快速入門範本](https://github.com/azure/azure-quickstart-templates)。 此報告包含由社群所提供所有目前可用的 Azure Resource Manager 範本。 在 https://azure.microsoft.com/en-us/documentation/templates/ 中維護了可搜尋的範本索引。
 * 建立 UI 定義<br>
 如需詳細資訊，請參閱[為您的受控應用程式建立 Azure 入口網站使用者介面](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)。 本文介紹 createUiDefinition.json 檔案的核心概念。 Azure 入口網站會使用這個檔案，產生用來建立受控應用程式的使用者介面。
+
 
 ## <a name="business-requirements"></a>商業需求
 
@@ -52,20 +54,23 @@ ms.locfileid: "53195500"
 * 您必須負責為您的軟體和任何第三方廠商相依性進行授權。
 * 為了使您的供應項目可列於 Microsoft Azure Marketplace 和 Microsoft Azure 入口網站中，您提供的內容必須符合標準。
 * 您必須同意 Microsoft Azure Marketplace 參與原則和發行者合約中的條款。
-* 您必須遵守 Microsoft Azure 網站使用條款、Microsoft 隱私權聲明以及 Microsoft Azure 認證方案合約。
+* 您必須遵守 Microsoft Azure 網站使用規定、Microsoft 隱私權聲明，以及 Microsoft Azure 認證方案合約。
+
 
 ## <a name="publishing-requirements"></a>發佈需求
 
-若要發佈新的 Azure 應用程式供應項目，您必須符合下列必要條件：
+若要發佈新的 Azure 應用程式供應項目，您必須符合下列先決條件：
 
 * 備妥中繼資料以供使用。 下列清單 (不完整) 會顯示此中繼資料的範例：
   * 標題
   * 描述 (HTML 格式)
-  * 標誌影像 (以 PNG 格式) 及這些固定的影像大小：40 x 40 像素、90 x 90 像素、115 x 115 像素和 255 x 115 像素。
-* 使用條款及隱私權原則
+  * 標誌影像 (PNG 格式) 及這些固定的影像大小：40 x 40 像素、90 x 90 像素、115 x 115 像素和 255 x 115 像素。
+* 「使用規定」及「隱私權原則」
 * 文件
 * 支援連絡人
 
+
 ## <a name="next-steps"></a>後續步驟
 
-[建立 Azure 應用程式供應項目](./cpp-create-offer.md) 
+一旦符合所有需求之後，就能開始[建立 Azure 應用程式供應項目](./cpp-create-offer.md)。 
+ 

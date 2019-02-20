@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 取得以 Node.js REST 為基礎的資訊和程式碼範例，以協助您快速開始在 Azure 上使用 Microsoft 認知服務中的 Microsoft 翻譯文字 API。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ba4af5d3b6612614dee54db7fdb1287ff7136321
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496222"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245757"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>如何使用搭配 Node.js 的 QnA Maker REST API 
 <a name="HOLTop"></a>
@@ -35,12 +35,12 @@ ms.locfileid: "55496222"
 - [刪除知識庫。](#Delete)
 - [取得目前的端點金鑰。](#GetKeys)
 - [重新產生目前的端點金鑰。](#PutKeys)
-- [取得目前的文字變異形式集合。](#GetAlterations)
-- [取代目前的文字變異形式集合。](#PutAlterations)
+- [取得目前不區分大小寫的文字變異形式集合。](#GetAlterations)
+- [取代目前不區分大小寫的文字變異形式集合。](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您將需要 [Node.js 6](https://nodejs.org/en/download/) 才能執行此程式碼。
 

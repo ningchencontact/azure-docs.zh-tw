@@ -11,18 +11,40 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: cea5f2a3eaa7bddb523d95936fbe0a50e0fd16ed
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4e7cc1340a85e1d00c2f64abeb35a99052184c52
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564335"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100171"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
 本文章會說明 Azure Machine Learning 服務的版本。  如需每個 SDK 的完整說明，請瀏覽參考文件以瞭解：
 + Azure Machine Learning 的 [**主要 SDK for Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-11"></a>2019-02-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1015"></a>適用於 Python 的 Azure Machine Learning SDK v1.0.15
+
++ **新功能**
+  + 「Azure Machine Learning 管線」已新增 AzureBatchStep ([Notebook](https://aka.ms/pl-azbatch))、HyperDriveStep ([Notebook](https://aka.ms/pl-hyperdrive)) 及時間型排程功能 ([Notebook](https://aka.ms/pl-schedule))。
+  +  DataTranferStep 已更新成可與 Azure SQL Server 和「適用於 PostgreSQL 的 Azure 資料庫」([otebook](https://aka.ms/pl-data-trans)) 搭配運作。
+
++ **變更**
+  + 即將淘汰 `PublishedPipeline.get_published_pipeline` 而改用 `PublishedPipeline.get`。
+  + 即將淘汰 `Schedule.get_schedule` 而改用 `Schedule.get`。
+
+### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning 資料準備 SDK v1.0.12
+
++ **新功能**
+  + 「資料準備」現在支援使用「資料存放區」從 Azure SQL Database 讀取資料。
+ 
++ **變更**
+  + 大幅改善大型資料上某些作業的記憶體效能。
+  + `read_pandas_dataframe()` 現在會要求必須指定 `temp_folder`。
+  + `ColumnProfile` 上的 `name` 屬性即將淘汰，請改用 `column_name`。
 
 ## <a name="2019-01-28"></a>2019-01-28
 
@@ -95,9 +117,9 @@ ms.locfileid: "55564335"
 + **更新**
   * 使用者入門教學課程、案例研究和操作指南的[範例 Notebook](https://aka.ms/aml-data-prep-notebooks)。
 
-## <a name="2018-12-04-general-availability"></a>2018-12-04：正式運作
+## <a name="2018-12-04-general-availability"></a>2018-12-04：公開推出
 
-Azure Machine Learning 服務現已正式運作。
+Azure Machine Learning 服務現已公開推出。
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
 在此版本中，我們透過 [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute) 來宣布新的受控計算體驗。 這個計算目標會取代適用於 Azure Machine Learning 的 Azure Batch AI 計算。 

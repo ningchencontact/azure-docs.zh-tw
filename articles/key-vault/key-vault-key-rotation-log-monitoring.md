@@ -4,7 +4,7 @@ description: 使用此操作說明可協助您使用金鑰輪替和監視金鑰�
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077703"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106115"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用金鑰輪替和稽核設定 Azure Key Vault
 
 ## <a name="introduction"></a>簡介
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 當您具有金鑰保存庫之後，即可開始用它來儲存金鑰和秘密。 應用程式不再需要保存您的金鑰或秘密，而是可視需要從保存庫要求取得。 這可讓您更新金鑰和密碼，而不會影響應用程式的行為，讓您有各種可能方式來管理金鑰和密碼。
 
@@ -36,7 +38,7 @@ ms.locfileid: "54077703"
 - 文中示範如何監視金鑰保存庫稽核記錄，並在有非預期的要求提出時引發警示。
 
 > [!NOTE]
-> 本教學課程並不打算詳細說明金鑰保存庫的初始設定。 如需這方面的資訊，請參閱 [開始使用 Azure 金鑰保存庫](key-vault-get-started.md)。 如需跨平台命令列介面的指示，請參閱[使用 CLI 管理金鑰保存庫](key-vault-manage-with-cli2.md)。
+> 本教學課程並不打算詳細說明金鑰保存庫的初始設定。 如需此資訊，請參閱[什麼是 Azure Key Vault？](key-vault-overview.md)。 如需跨平台命令列介面的指示，請參閱[使用 CLI 管理金鑰保存庫](key-vault-manage-with-cli2.md)。
 >
 >
 
@@ -45,7 +47,7 @@ ms.locfileid: "54077703"
 若要讓應用程式能夠從金鑰保存庫擷取密碼，您必須先建立此密碼，並上傳至保存庫。 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶，即可完成此作業：
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。 PowerShell 會取得與此帳戶相關聯的所有訂用帳戶。 PowerShell 使用預設第一個訂用帳戶。
@@ -53,19 +55,19 @@ Connect-AzureRmAccount
 如果您有多個訂用帳戶，您可能必須指定用來建立金鑰保存庫的那一個訂用帳戶。 輸入下列命令以查看您帳戶的訂用帳戶：
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 若要指定與所要記錄之金鑰保存庫相關聯的訂用帳戶，請輸入：
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscriptionID>
+Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
 因為本文會示範如何將儲存體帳戶金鑰儲存為密碼，所以您必須取得該儲存體帳戶金鑰。
 
 ```powershell
-Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
+Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
 在擷取密碼之後，在此案例中就是儲存體帳戶金鑰，您必須將其轉換為安全字串，然後使用該值在金鑰保存庫中建立密碼。
@@ -73,13 +75,13 @@ Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <stora
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
-Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
+Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
 接下來，取得您建立之密碼的 URI。 在稍後的步驟中，當您呼叫金鑰保存庫以擷取密碼時將會用到。 執行下列 PowerShell 命令，並記下 ID 值，也就是密碼的 URI：
 
 ```powershell
-Get-AzureKeyVaultSecret –VaultName <vaultName>
+Get-AzKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>設定範例應用程式
@@ -110,7 +112,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 在建立任何從應用程式到金鑰保存庫的呼叫之前，您必須讓金鑰保存庫知道應用程式及其權限。 下列命令會從您的 Azure Active Directory 應用程式取得保存庫名稱和應用程式識別碼，並為應用程式授與對您金鑰保存庫的 **Get** 存取權。
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
 此時，您已準備好開始建置應用程式呼叫。 在應用程式中，您必須先安裝所需的 NuGet 套件，以便與 Azure 金鑰保存庫和 Azure Active Directory 互動。 從 Visual Studio Package Manager Console 輸入下列命令。 在本文撰寫的當下，Azure Active Directory 套件的最新版本是 3.10.305231913，因此請確認最新版本並據以更新。
@@ -188,7 +190,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 擷取 Azure 自動化連線的應用程式識別碼之後，您必須讓金鑰保存庫知道，此應用程式有權更新保存庫中的密碼。 這可以使用下列 PowerShell 命令來完成：
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
 接下來，選取 Azure 自動化執行個體底下的 [Runbook] 資源，然後選取 [新增 Runbook]。 選取 [快速建立] 。 為 Runbook 命名，然後選取 [PowerShell] 做為 Runbook 類型。 您可選擇新增說明。 最後，按一下 [建立]。
@@ -205,7 +207,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -230,12 +232,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 在編輯器窗格中，選擇 [測試窗格] 來測試指令碼。 一旦指令碼在執行時不會發生錯誤，您可以選取 [發佈] 選項，然後回到 Runbook 的組態窗格套用 Runbook 的排程。
@@ -246,9 +248,9 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 首先，您必須在金鑰保存庫上啟用記錄功能。 這可以透過下列 PowerShell 命令來完成 (在 [key-vault-logging](key-vault-logging.md) 可以看到完整的詳細資料)：
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
-$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 啟用此功能後，就會開始將稽核記錄檔收集到指定的儲存體帳戶。 這些記錄檔包含有關金鑰保存庫存取方式、時間和存取者的事件。
@@ -269,7 +271,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 
 若要建立 Azure 函式，請選擇 [建立資源]，在市集中搜尋 [函式應用程式]，然後按一下 [建立]。 在建立期間，您可以使用現有的主控方案，或建立新的方案。 您也可以選擇動態主控。 如需函式主控選項的詳細資訊，請參閱[如何調整 Azure Functions](../azure-functions/functions-scale.md)。
 
-建立 Azure 函式後，請瀏覽到該函式並選擇計時器函式和 C\#。 然後按一下 [建立此函式]**。
+建立 Azure 函式後，請瀏覽到該函式並選擇計時器函式和 C\#。 然後按一下 [建立此函式]****。
 
 ![Azure Functions 啟動刀鋒視窗](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 

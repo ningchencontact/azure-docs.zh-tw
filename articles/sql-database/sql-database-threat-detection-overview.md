@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729501"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001880"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 威脅偵測
 
@@ -77,7 +77,7 @@ Azure SQL Database 的威脅偵測會偵測意圖存取或探索資料庫，而�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[獨立和集區資料庫中的威脅偵測](sql-database-threat-detection.md)。
+- 深入了解[單一和集區資料庫中的威脅偵測](sql-database-threat-detection.md)。
 - 深入了解[受控執行個體中的威脅偵測](sql-database-managed-instance-threat-detection.md)。
 - 深入了解[進階資料安全性](sql-database-advanced-data-security.md)。
 - 深入了解 [Azure SQL Database 稽核](sql-database-auditing.md)

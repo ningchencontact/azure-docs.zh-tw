@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 03e15532d04a4c62796aad884c5e344688814672
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633958"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209229"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
@@ -39,10 +39,10 @@ HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 
 
 | **使用此方法**，如果您想要... | ...**互動式**查詢 | ...**批次** 處理 | ...搭配此 **叢集作業系統** | ...從此 **用戶端作業系統** |
 |:--- |:---:|:---:|:--- |:--- |
-| [適用於 Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux、Unix、Mac OS X 或 Windows |
+| [適用於 Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ | Linux | Linux、Unix、Mac OS X 或 Windows |
 | [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux 或 Windows* | Windows |
-| [Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |任何 (以瀏覽器為基礎) |
-| [Beeline 用戶端](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux、Unix、Mac OS X 或 Windows |
+| [Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ | Linux |任何 (以瀏覽器為基礎) |
+| [Beeline 用戶端](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ | Linux |Linux、Unix、Mac OS X 或 Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux 或 Windows* |Linux、Unix、Mac OS X 或 Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 或 Windows* | Windows |
 
@@ -80,14 +80,14 @@ Hive 也支援自訂複雜或不規則結構化資料的 **序列化/反序列�
 
 * __內部__：資料會儲存在 Hive 資料倉儲中。 資料倉儲位於叢集之預設儲存體上的 `/hive/warehouse/`。
 
-    符合下列其中一項條件時，請使用內部資料表：
+    符合下列其中一個條件時，請使用內部資料表：
 
     * 資料是暫存的。
     * 您想要 Hive 管理資料表和資料的生命週期。
 
 * __外部__：資料會儲存在資料倉儲之外。 資料可以儲存在叢集可存取的任何儲存體上。
 
-    符合下列其中一項條件時，請使用外部資料表：
+    符合下列其中一個條件時，請使用外部資料表：
 
     * 資料也使用於 Hive 之外。 例如，資料檔案由其他程序所更新 (不會鎖定檔案)。
     * 即使在刪除資料表後，資料都必須保留在基礎位置。
@@ -204,11 +204,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 [Tez 上的 Apache Hive 設計文件](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)包含實作選擇和調整設定的詳細資料。
 
-為了使用 Tez 來協助偵錯作業，HDInsight 提供下列 Web UI，讓您檢視 Tez 作業的詳細資料：
-
-* [在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)
-
-* [在以 Windows 為基礎的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
+為了協助對使用 Tez 來執行的作業進行偵錯，HDInsight 提供下列 Web UI，可讓您檢視 Tez 作業的詳細資料：[在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)。
 
 ### <a name="low-latency-analytical-processing-llap"></a>低延遲分析處理 (LLAP)
 

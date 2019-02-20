@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 509c9cbe3a4c2f930c9fdfda186d78118dbe4b80
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745584"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237836"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
@@ -46,8 +46,8 @@ ms.locfileid: "55745584"
 | parameters |否 |執行部署以自訂資源部署時所提供的值。 |
 | variables |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
 | functions |否 |範本中可用的使用者定義函式。 |
-| resources |yes |在資源群組中部署或更新的資源類型。 |
-| outputs |否 |部署後傳回的值。 |
+| resources |yes |在資源群組或訂用帳戶中部署或更新的資源類型。 |
+| 輸出 |否 |部署後傳回的值。 |
 
 每個元素都有可以設定的屬性。 下列範例顯示範本的完整語法：
 
@@ -217,7 +217,7 @@ ms.locfileid: "55745584"
 在定義使用者函式時，有一些限制：
 
 * 此函式無法存取變數。
-* 此函式無法存取範本參數。 也就是，會將[參數函式](resource-group-template-functions-deployment.md#parameters)限制為函式參數。
+* 此函式只能使用函式中定義的參數。 當您在使用者定義的函式內使用 [parameters 函式](resource-group-template-functions-deployment.md#parameters)時，將僅限使用該函式的參數。
 * 此函式無法呼叫其他的使用者定義函式。
 * 此函式不能使用[參考函式](resource-group-template-functions-resource.md#reference)。
 * 函式的參數不能有預設值。
@@ -298,9 +298,23 @@ ms.locfileid: "55745584"
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本的 Outputs 區段](resource-manager-templates-outputs.md)。
 
-## <a name="comments"></a>註解
+<a id="comments" />
 
-有幾個選項可將註解新增至您的範本。
+## <a name="comments-and-metadata"></a>註解與中繼資料
+
+有幾個選項可將註解與中繼資料新增到您的範本中。
+
+幾乎在範本的任何位置都可以新增 `metadata` 物件。 Resource Manager 會略過該物件，但您的 JSON 編輯器可能會警告您該屬性無效。 在物件中，定義您需要的屬性。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 對於**參數**，新增 `description` 屬性的 `metadata` 物件。
 
@@ -342,18 +356,6 @@ ms.locfileid: "55745584"
     "properties": {}
   }
 ]
-```
-
-幾乎在範本的任何位置都可以新增 `metadata` 物件。 Resource Manager 會略過該物件，但您的 JSON 編輯器可能會警告您該屬性無效。 在物件中，定義您需要的屬性。
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 對於**輸出**，將中繼資料物件新增至輸出值。

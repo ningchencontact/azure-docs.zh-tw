@@ -4,7 +4,7 @@ description: 了解用來保護 PaaS Web 與行動應用程式的 Azure 儲存�
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451862"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108920"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>使用 Azure 儲存體保護 PaaS Web 與行動應用程式的最佳做法
 在此文章中，我們將討論用來保護平台即服務 (PaaS) Web 與行動應用程式的 Azure 儲存體安全性最佳做法。 這些最佳做法衍生自我們的 Azure 經驗和客戶 (例如您自己) 的經驗。
 
 Azure 可讓您透過無法在內部部署中輕易實現的方式來部署和使用儲存體。 利用 Azure 儲存體，您不必大費周章就可以實現高水準的延展性和可用性。 Azure 儲存體不僅能作為 Windows 和 Linux Azure 虛擬機器的基礎，還可以支援大型的分散式應用程式。
 
-Azure 儲存體提供以下四個服務：Blob 儲存體、表格儲存體、佇列儲存體和檔案儲存體。 若要深入了解，請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。
+Azure 儲存體提供下列四項服務：Blob 儲存體、資料表儲存體、佇列儲存體及檔案儲存體。 若要深入了解，請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。
 
 [Azure 儲存體安全性指南](../storage/common/storage-security-guide.md)是可讓您獲得 Azure 儲存體和安全性詳細資訊的絕佳來源。 這篇最佳做法文章會概括說明該安全性指南中提供的一些概念和安全性指南的連結，以及其他可供獲得詳細資訊的來源。
 
-此文章會說明下列最佳做法：
+本文會說明下列最佳做法：
 
 - 共用存取簽章 (SAS)
 - 角色型存取控制 (RBAC)
@@ -79,7 +79,7 @@ SAS 可讓您以您想要的方式來共用內容，而不必交出儲存體帳�
 
 ## <a name="next-steps"></a>後續步驟
 
-此文章介紹用來保護 PaaS Web 與行動應用程式的一組 Azure 儲存體安全性最佳做法。 若要深入了解如何保護您的 PaaS 部署，請參閱︰
+本文介紹用來保護 PaaS Web 與行動應用程式的一組 Azure 儲存體安全性最佳做法。 若要深入了解如何保護您的 PaaS 部署，請參閱︰
 
 - [保護 PaaS 部署](security-paas-deployments.md)
 - [使用 Azure App Service 來保護 PaaS Web 與行動應用程式](security-paas-applications-using-app-services.md)

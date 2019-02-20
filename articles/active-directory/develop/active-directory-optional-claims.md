@@ -16,12 +16,13 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077231"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185446"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>作法：為 Azure AD 應用程式提供選擇性宣告 (公開預覽)
 
@@ -31,7 +32,7 @@ ms.locfileid: "55077231"
 - 新增和存取應用程式的自訂宣告。 
 
 > [!NOTE]
-> 這項功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 在公開預覽版期間，所有 Azure AD 訂用帳戶中都有提供此功能。 不過，當此功能變成正式運作版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。
+> 此功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 在公開預覽版期間，所有 Azure AD 訂用帳戶中都有提供此功能。 不過，當此功能變成公開推出版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。
 
 如需標準宣告的清單及其在權杖中的使用方式，請參閱 [Azure AD 所簽發權杖的基本概念](v1-id-and-access-tokens.md)。 
 
@@ -45,7 +46,7 @@ ms.locfileid: "55077231"
 | Azure AD 帳戶          | 支援                          | 支援注意事項 |
 
 > [!IMPORTANT]
-> 同時支援個人帳戶和 Azure AD (透過[應用程式註冊入口網站](https://apps.dev.microsoft.com)註冊) 的應用程式無法使用選擇性宣告。 不過，使用 v2.0 端點只註冊 Azure AD 的應用程式，可在資訊清單中取得所要求的選擇性宣告。 您可以在 Azure 入口網站中，使用現有**應用程式註冊**體驗中的應用程式資訊清單編輯器編輯您的選擇性宣告。 不過，這項功能尚無法在新的**應用程式註冊 (預覽)** 體驗中使用應用程式資訊清單編輯器。
+> 同時支援個人帳戶和 Azure AD (透過[應用程式註冊入口網站](https://apps.dev.microsoft.com)註冊) 的應用程式無法使用選擇性宣告。 不過，使用 v2.0 端點只註冊 Azure AD 的應用程式，可在資訊清單中取得所要求的選擇性宣告。 您可以在 Azure 入口網站中，使用現有**應用程式註冊**體驗中的應用程式資訊清單編輯器編輯您的選擇性宣告。 不過，此功能尚無法在新的**應用程式註冊 (預覽)** 體驗中使用應用程式資訊清單編輯器。
 
 ## <a name="standard-optional-claims-set"></a>標準選擇性宣告集
 
@@ -76,7 +77,7 @@ ms.locfileid: "55077231"
 | `ztdid`                    | 全自動部署識別碼 | JWT | | 裝置身分識別，用於 [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 |`email`                     | 此使用者可定址的電子郵件 (如果使用者有的話)。  | JWT、SAML | | 如果使用者是租用戶中的來賓，則預設會包含此值。  若為受管理的使用者 (在租用戶中)，則必須透過此選擇性宣告，或使用 OpenID 範圍 (僅限 v2.0) 要求此值。  若為受管理的使用者，電子郵件地址必須設定於 [Office 管理入口網站](https://portal.office.com/adminportal/home#/users)。|  
 | `acct`             | 租用戶中的使用者帳戶狀態。 | JWT、SAML | | 如果使用者是租用戶的成員，則值為 `0`。 如果是來賓使用者，則值為 `1`。 |
-| `upn`                      | UserPrincipalName 宣告。 | JWT、SAML  |           | 雖然會自動包含此宣告，但在來賓使用者案例中，您可以將它指定為選擇性宣告來附加額外屬性，以修改其行為。 <br> 額外屬性： <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | UserPrincipalName 宣告。 | JWT、SAML  |           | 雖然會自動包含此宣告，但在來賓使用者案例中，您可以將它指定為選擇性宣告來附加額外屬性，以修改其行為。  |
 
 ### <a name="v20-optional-claims"></a>V2.0 選擇性宣告
 
@@ -85,30 +86,28 @@ ms.locfileid: "55077231"
 **表 3：僅適用於 V2.0 的選擇性宣告**
 
 | JWT 宣告     | Name                            | 說明                                | 注意 |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 位址                      | 用戶端的登入來源 IP 位址。   |       |
 | `onprem_sid`  | 內部部署安全性識別碼 |                                             |       |
 | `pwd_exp`     | 密碼到期時間        | 密碼到時的日期時間。 |       |
-| `pwd_url`     | 變更密碼 URL             | 使用者可以瀏覽來變更其密碼的 URL。   |       |
-| `in_corp`     | 公司網路內部        | 指出用戶端是否是從公司網路登入的。 如果不是，就不會包含此宣告。   |       |
-| `nickname`    | 暱稱                        | 使用者的額外名稱 (有別於名字或姓氏)。 |       |                                                                                                                |       |
+| `pwd_url`     | 變更密碼 URL             | 使用者可以瀏覽來變更其密碼的 URL。   |   |
+| `in_corp`     | 公司網路內部        | 指出用戶端是否是從公司網路登入的。 如果不是，就不會包含此宣告。   |  根據 MFA 中的[可信任 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) 設定。    |
+| `nickname`    | 暱稱                        | 使用者的額外名稱 (有別於名字或姓氏)。 | 
 | `family_name` | 姓氏                       | 提供使用者的姓氏 (如 Azure AD 使用者物件中所定義)。 <br>"family_name":"Miller" |       |
 | `given_name`  | 名字                      | 提供使用者的名字 (如 Azure AD 使用者物件上所設定)。<br>"given_name"："Frank"                   |       |
+| `upn`       | 使用者主體名稱 | 可與 username_hint 參數搭配使用的使用者識別碼。  不是使用者的持久識別碼，且不應該用於金鑰資料。 | 如需了解宣告的設定，請參閱下方的[額外屬性](#additional-properties-of-optional-claims)。 |
 
 ### <a name="additional-properties-of-optional-claims"></a>選擇性宣告的額外屬性
 
 有些選擇性宣告可經由設定來變更傳回宣告的方式。 這些額外的屬性大多數用來協助移轉對資料有不同要求的內部部署應用程式 (例如 `include_externally_authenticated_upn_without_hash` 可協助無法處理 UPN 中井號 (`#`) 的用戶端)
 
-**表 4：用來設定標準選擇性宣告的值**
+**表 4：用來設定選擇性宣告的值**
 
-| 屬性名稱                                     | 額外屬性名稱                                                                                                             | 說明 |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  可用於 SAML 和 JWT 回應。        |
-| | `include_externally_authenticated_upn`              | 包含儲存在資源租用戶中的來賓 UPN。 例如， `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | 同上，除了將井號 (`#`) 取代成底線 (`_`) 之外，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |             
-
-> [!Note]
->如果指定 UPN 選擇性宣告但未指定額外屬性，將不會變更任何行為 – 為了在權杖中看到簽發新屬性，必須至少新增其中一個額外屬性。 
+| 屬性名稱  | 額外屬性名稱 | 說明 |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | 可同時用於 SAML 和 JWT 回應，以及用於 v1.0 和 v2.0 權杖。 |
+|                | `include_externally_authenticated_upn`  | 包含儲存在資源租用戶中的來賓 UPN。 例如 `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | 同上，只是將井號 (`#`) 取代成底線 (`_`)，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>額外屬性範例
 
@@ -151,12 +150,12 @@ ms.locfileid: "55077231"
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }

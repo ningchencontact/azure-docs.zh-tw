@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563332"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961256"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>使用適用於 VM 的 Azure 監視器 (預覽) 來了解 Azure 虛擬機器的健康情況
 Azure 包含多個服務，它們可在監視空間中分別執行特定的角色或工作，但無法用來為裝載於 Azure 虛擬機器的作業系統提供深入的健康情況檢視方塊。  雖然您可以使用 Log Analytics 或 Azure 監視器來監視不同的情況，但它們並不是設計來呈現核心元件的健康情況或虛擬機器的整體健康情況或為其設定模型。  透過適用於 VM 的 Azure 監視器健康情況功能，它會利用一個模型主動監視 Windows 或 Linux 客體 OS 的可用性和效能，該模型代表重要元件及其關聯性、指定如何測量那些元件健康情況的準則，並在偵測到狀況不良的情況時向您發出警示。  
@@ -44,7 +44,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 >
 >使用適用於 VM 的 Azure 監視器的健康情況功能，目前未提供任何功能的迴歸。
 
->由於這項變更，服務和健康情況記錄會短暫中斷。 健康情況診斷中的兩種體驗會受到影響 - 將會重設狀態變更記錄，而且在 [健康情況診斷] 頁面的 [狀態變更] 資料行中，將無法查看健全準則的先前狀態變更。 如果您對任何關鍵任務虛擬機器的歷史資料感興趣，那麼您可以擷取健全準則資料和對應狀態變更的螢幕擷取畫面以供參考。 
+>由於此變更的緣故，影響了 [健康情況診斷] 中的兩種體驗 - 狀態變更歷程記錄將會重設，而在 [健康情況診斷] 頁面的 [狀態變更] 資料行中，將無法檢閱健全準則的先前狀態變更。 如果您對任何關鍵任務虛擬機器的歷史資料感興趣，那麼您可以擷取健全準則資料和對應狀態變更的螢幕擷取畫面以供參考。 
 
 ## <a name="monitoring-configuration-details"></a>監視設定詳細資料
 本節將概述定義來監視 Azure Windows 和 Linux 虛擬機器的預設健康情況準則。 所有健康情況準則均預先設定為在符合狀況不良的條件時發出警示。 
@@ -106,7 +106,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 
 ![所選取 Azure 虛擬機器之適用於 VM 的 Azure 監視器健康情況概觀](./media/vminsights-health/vminsights-directvm-health.png)
 
-在 [健康情況] 索引標籤的 [客體 VM 健康情況] 區段下方，有個表格會顯示您虛擬機器目前的健康狀態，以及由狀況不良元件所引發的 VM 健康情況警示總數。 請參閱[警示](#alerting-and-alert-management)一節以取得有關警示體驗的詳細資訊。  
+在 [健康情況] 索引標籤的 [客體 VM 健康情況] 區段下方，有個表格會顯示您虛擬機器目前的健康狀態，以及由狀況不良元件所引發的 VM 健康情況警示總數。 如需有關警示體驗的更多詳細資料，請參閱＜警示＞一節。  
 
 為 VM 定義的健全狀態如下表所述： 
 

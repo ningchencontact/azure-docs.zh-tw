@@ -1,6 +1,6 @@
 ---
-title: Log Analytics HTTP 資料收集器 API | Microsoft Docs
-description: 您可以使用 Log Analytics HTTP 資料收集器 API，將 POST JSON 資料從任何可呼叫 REST API 的用戶端新增至 Log Analytics 存放庫。 本文說明如何使用此 API，並提供如何使用不同的程式設計語言來發佈資料的範例。
+title: Azure 監視器 HTTP 資料收集器 API | Microsoft Docs
+description: 您可以使用 Azure 監視器 HTTP 資料收集器 API，將 POST JSON 資料從任何可呼叫 REST API 的用戶端新增至 Log Analytics 工作區。 本文說明如何使用此 API，並提供如何使用不同的程式設計語言來發佈資料的範例。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,25 +11,27 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2bf55129465a607fdc3bce3bd1735642c64e428
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211095"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237921"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)
-本文示範如何使用「HTTP 資料收集器 API」將資料從 REST API 用戶端傳送給 Log Analytics。  它說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Log Analytics 授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
+# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將記錄資料傳送給 Azure 監視器 (公開預覽)
+本文示範如何使用 HTTP 資料收集器 API 將記錄資料從 REST API 用戶端傳送給 Azure 監視器。  內容說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Azure 監視器授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> Log Analytics HTTP 資料收集器 API 為公開預覽狀態。
+> Azure 監視器 HTTP 資料收集器 API 為公開預覽狀態。
 
 ## <a name="concepts"></a>概念
-您可以使用「HTTP 資料收集器 API」將資料從任何可以呼叫 REST API 的用戶端傳送給 Log Analytics。  這可能是「Azure 自動化」中從 Azure 或另一個雲端收集管理資料的 Runbook ，也可能是一個使用 Log Analytics 來合併和分析資料的替代管理系統。
+您可以在 Azure 監視器中使用 HTTP 資料收集器 API，將記錄資料從任何可呼叫 REST API 的用戶端傳送至 Log Analytics 工作區。  這可能是「Azure 自動化」中從 Azure 或另一個雲端收集管理資料的 Runbook ，也可能是一個使用 Azure 監視器來合併和分析記錄資料的替代管理系統。
 
-Log Analytics 儲存機制中的所有資料都會以具有特定記錄類型的記錄形式儲存。  您需把要傳送給「HTTP 資料收集器 API」的資料格式化成多個採用 JSON 格式的記錄。  當您提交資料時，系統會在儲存機制中針對要求承載中的每個記錄建立個別的記錄。
+Log Analytics 工作區中的所有資料都會以具有特定記錄類型的記錄形式儲存。  您需把要傳送給「HTTP 資料收集器 API」的資料格式化成多個採用 JSON 格式的記錄。  當您提交資料時，系統會在儲存機制中針對要求承載中的每個記錄建立個別的記錄。
 
 
 ![HTTP 資料收集器概觀](media/data-collector-api/overview.png)
@@ -62,7 +64,7 @@ Log Analytics 儲存機制中的所有資料都會以具有特定記錄類型的
 | time-generated-field |資料中包含資料項目時間戳記的欄位名稱。 如果您指定欄位，則其內容會用於 **TimeGenerated**。 如果未指定此欄位，則 **TimeGenerated** 的預設值是所擷取訊息的時間。 訊息欄位的內容應遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
 
 ## <a name="authorization"></a>Authorization
-任何對於 Log Analytics HTTP 資料收集器 API 的要求都必須包含授權標頭。 若要驗證要求，您必須使用提出要求之工作區的主要或次要金鑰來簽署要求。 然後，將該簽章當作要求的一部分傳遞。   
+任何對於 Azure 監視器 HTTP 資料收集器 API 的要求都必須包含授權標頭。 若要驗證要求，您必須使用提出要求之工作區的主要或次要金鑰來簽署要求。 然後，將該簽章當作要求的一部分傳遞。   
 
 授權標頭的格式如下︰
 
@@ -130,11 +132,11 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
 ## <a name="record-type-and-properties"></a>記錄類型和屬性
-當您透過 Log Analytics HTTP 資料收集器 API 提交資料時，您可以定義自訂記錄類型。 您目前無法將資料寫入至其他資料類型和解決方案所建立的現有記錄類型。 Log Analytics 會讀取內送資料，然後建立符合所輸入值資料類型的屬性。
+當您透過 Azure 監視器 HTTP 資料收集器 API 提交資料時，您可以定義自訂記錄類型。 您目前無法將資料寫入至其他資料類型和解決方案所建立的現有記錄類型。 Azure 監視器會讀取內送資料，然後建立符合所輸入值資料類型的屬性。
 
-對於 Log Analytics API 的每個要求必須包含具有記錄類型名稱的 **Log-Type** 標頭。 後置詞 **_CL** 會自動附加至您輸入的名稱，以便以自訂記錄檔形式與其他記錄檔類型區別。 例如，如果您輸入名稱 **MyNewRecordType**，則 Log Analytics 會建立一筆類型為 **MyNewRecordType_CL** 的記錄。 這有助於確保使用者建立的類型名稱與目前或未來 Microsoft 解決方案隨附的類型名稱之間沒有衝突。
+對於資料收集器 API 的每個要求都必須包含具有記錄類型名稱的 **Log-Type** 標頭。 後置詞 **_CL** 會自動附加至您輸入的名稱，以便以自訂記錄檔形式與其他記錄檔類型區別。 例如，如果您輸入名稱 **MyNewRecordType**，則 Azure 監視器會建立一筆類型為 **MyNewRecordType_CL** 的記錄。 這有助於確保使用者建立的類型名稱與目前或未來 Microsoft 解決方案隨附的類型名稱之間沒有衝突。
 
-為了識別屬性的資料類型，Log Analytics 會對屬性名稱新增後置詞。 如果屬性包含 null 值，此屬性則不會包含於該記錄。 下表列出屬性資料類型和對應的後置詞︰
+為了識別屬性的資料類型，Azure 監視器會對屬性名稱新增後置詞。 如果屬性包含 null 值，此屬性則不會包含於該記錄。 下表列出屬性資料類型和對應的後置詞︰
 
 | 屬性資料類型 | 尾碼 |
 |:--- |:--- |
@@ -144,10 +146,10 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 | Date/time |_t |
 | GUID |_g |
 
-Log Analytics 用於每個屬性的資料類型取決於新記錄的記錄類型是否已經存在。
+Azure 監視器用於每個屬性的資料類型取決於新記錄的記錄類型是否已經存在。
 
-* 如果記錄類型不存在，則 Log Analytics 會建立一個新記錄類型。 Log Analytics 會使用 JSON 類型推斷來判斷新記錄的各屬性資料類型。
-* 如果記錄類型不存在，Log Analytics 會嘗試根據現有的屬性建立新記錄。 如果新記錄中屬性的資料類型不相符且無法轉換為現有類型，或者如果此記錄包含不存在的屬性，則 Log Analytics 會建立具有相關後置詞的新屬性。
+* 如果記錄類型不存在，Azure 監視器會使用 JSON 類型推斷來判斷新記錄的各屬性資料類型，以建立新的記錄。
+* 如果記錄類型已存在，Azure 監視器會嘗試根據現有屬性建立新記錄。 如果新記錄中屬性的資料類型不相符且無法轉換為現有類型，或者如果此記錄包含不存在的屬性，則 Azure 監視器會建立具有相關後置詞的新屬性。
 
 例如，此提交項目會建立具有三個屬性 (**number_d**、**boolean_b** 和 **string_s**) 的記錄︰
 
@@ -157,20 +159,22 @@ Log Analytics 用於每個屬性的資料類型取決於新記錄的記錄類型
 
 ![範例記錄 2](media/data-collector-api/record-02.png)
 
-但是，如果您再進行下一次提交，則 Log Analytics 會建立新的屬性 **boolean_d** 和 **string_d**。 無法轉換這些值︰
+但是，如果您再進行下一次提交，則 Azure 監視器會建立新的屬性 **boolean_d** 和 **string_d**。 無法轉換這些值︰
 
 ![範例記錄 3](media/data-collector-api/record-03.png)
 
-如果您再提交以下項目，則在記錄類型建立前，Log Analytics 會建立具有 **number_s**、**boolean_s** 和 **string_s** 三個屬性的記錄。 在此項目中，每個初始值都格式化為字串︰
+如果您再提交以下項目，則在記錄類型建立前，Azure 監視器會建立具有 **number_s**、**boolean_s** 和 **string_s** 三個屬性的記錄。 在此項目中，每個初始值都格式化為字串︰
 
 ![範例記錄 4](media/data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>資料限制
-在張貼至 Log Analytics 資料收集 API 的資料上有一些限制。
+在張貼至 Azure 監視器資料收集 API 的資料上有一些限制。
 
-* 可張貼至 Log Analytics 資料收集 API 的每個張貼項目大小上限為 30 MB。 這是單一張貼項目的大小限制。 如果資料是來自超出 30 MB 的單一張貼項目，您應該將資料分割成較小區塊，然後同時傳送它們。
+* 可張貼至 Azure 監視器資料收集器 API 的每個張貼項目大小上限為 30 MB。 這是單一張貼項目的大小限制。 如果資料是來自超出 30 MB 的單一張貼項目，您應該將資料分割成較小區塊，然後同時傳送它們。
 * 欄位值的大小上限為 32 KB。 如果欄位值大於 32 KB，資料將會被截斷。
 * 指定類型欄位的建議數目上限為 50。 對於使用性和搜尋體驗觀點而言，這是一個實際的限制。  
+* Log Analytics 工作區中的資料表僅支援最多 500 個資料行 (在本文中稱為欄位)。 
+* 資料行名稱的字元數目上限為 500。
 
 ## <a name="return-codes"></a>傳回碼
 HTTP 狀態碼 200 表示已經接受要求且正在處理。 這表示作業已順利完成。
@@ -196,15 +200,10 @@ HTTP 狀態碼 200 表示已經接受要求且正在處理。 這表示作業已
 | 503 |服務無法使用 |ServiceUnavailable |服務目前無法用來接收要求。 請重試您的要求。 |
 
 ## <a name="query-data"></a>查詢資料
-若要查詢 Log Analytics HTTP 資料收集器 API 所提交的資料，請搜尋 **Type** 等於您所指定之 **LogType** 值且附加 **_CL** 的記錄。 例如，如果您使用 **MyCustomLog**，則會傳回 **Type=MyCustomLog_CL** 的所有記錄。
-
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](../../azure-monitor/log-query/log-query-overview.md)，則以上查詢會變更如下。
-
-> `MyCustomLog_CL`
+若要查詢 Azure 監視器 HTTP 資料收集器 API 所提交的資料，請搜尋 **Type** 等於您所指定之 **LogType** 值且附加 **_CL** 的記錄。 例如，如果您使用 **MyCustomLog**，則會傳回 `MyCustomLog_CL` 的所有記錄。
 
 ## <a name="sample-requests"></a>範例要求
-在後續各節中，您會找到如何使用不同的程式設計語言，將資料提交至 Log Analytics HTTP 資料收集器 API 的範例。
+在後續各節中，您會找到如何使用不同的程式設計語言，將資料提交至 Azure 監視器 HTTP 資料收集器 API 的範例。
 
 在每個範例中，執行下列步驟來設定授權標頭的變數︰
 
@@ -226,7 +225,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -321,10 +320,10 @@ namespace OIAPIExample
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        // LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Azure Monitor
         static string LogName = "DemoExample";
 
-        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
@@ -468,6 +467,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 使用[記錄搜尋 API](../../azure-monitor/log-query/log-query-overview.md) 從 Log Analytics 儲存機制擷取資料。
+- 使用[記錄搜尋 API](../log-query/log-query-overview.md) 從 Log Analytics 工作區擷取資料。
 
-- 深入了解如何透過 Logic Apps 工作流程，[使用資料收集器 API 建立通往 Log Analytics 的資料管線](../../azure-monitor/platform/create-pipeline-datacollector-api.md)。
+- 深入了解如何透過 Logic Apps 工作流程，[使用資料收集器 API 建立通往 Azure 監視器的資料管線](create-pipeline-datacollector-api.md)。

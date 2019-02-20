@@ -4,24 +4,24 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 32d09722e8c396a64451018ac92fbc7bc072f461
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133005"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55904979"
 ---
 ## <a name="create-client"></a>建立用戶端連接
 建立 `WindowsAzure.MobileServiceClient` 物件來建立用戶端連接。  以您行動應用程式的 URL 取代 `appUrl` 。
 
-```
+```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ## <a name="table-reference"></a>使用資料表
 若要存取或更新資料，請建立後端資料表的參考。 以您的資料表名稱取代 `tableName`
 
-```
+```javascript
 var table = client.getTable(tableName);
 ```
 
@@ -35,11 +35,11 @@ var table = client.getTable(tableName);
 * [修改資料](#modifying)
 * [刪除資料](#deleting)
 
-### <a name="querying"></a>操作說明 ：查詢資料表參考
+### <a name="querying"></a>操作說明：查詢資料表參考
 取得資料表參考之後，您可以使用它來查詢伺服器上的資料。  您可以使用「類似 LINQ」的語言來撰寫查詢。
 若要從資料表傳回所有資料，使用下列程式碼：
 
-```
+```javascript
 /**
  * Process the results that are received by a call to table.read()
  *
@@ -72,7 +72,7 @@ table
 #### <a name="table-filter"></a>篩選伺服器的資料
 您可以在資料表參考上使用 `where` 子句：
 
-```
+```javascript
 table
     .where({ userId: user.userId, complete: false })
     .read()
@@ -81,7 +81,7 @@ table
 
 您也可以使用函式來篩選物件。  在此案例中， `this` 變數會指派給目前篩選的物件。  以下程式碼在功能上等同於先前的範例：
 
-```
+```javascript
 function filterByUserId(currentUserId) {
     return this.userId === currentUserId && this.complete === false;
 }
@@ -95,7 +95,7 @@ table
 #### <a name="table-paging"></a>逐頁查看資料
 利用 `take()` 和 `skip()` 方法。  例如，如果您想要將資料表分割成 100 列的記錄：
 
-```
+```javascript
 var totalCount = 0, pages = 0;
 
 // Step 1 - get the total number of records
@@ -123,7 +123,7 @@ function loadPage(pageNum) {
 #### <a name="sorting-data"></a>操作說明：傳回已排序的資料
 使用 `.orderBy()` 或 `.orderByDescending()` 查詢方法︰
 
-```
+```javascript
 table
     .orderBy('name')
     .read()
@@ -148,7 +148,7 @@ table
     }, failure);
 ```
 
-在成功插入時，插入的項目及同步處理作業所需的其他欄位會一起傳回。  以這項資訊更新您自己的快取，後續更新時才會正確。
+在成功插入時，插入的項目及同步處理作業所需的其他欄位會一起傳回。  以此資訊更新您自己的快取，後續更新時才會正確。
 
 Azure Mobile Apps Node.js Server SDK 支援的動態結構描述適用於開發用途。  動態結構描述可讓您在插入或更新作業中指定資料行，以將資料行新增至資料表。  在將應用程式移至生產環境之前，我們建議您關閉動態結構描述。
 
@@ -171,7 +171,7 @@ table
 ### <a name="deleting"></a>操作說明：刪除資料
 若要刪除記錄時，請呼叫 `.del()` 方法。  將識別碼傳入物件參考中：
 
-```
+```javascript
 table
     .del({ id: '7163bc7a-70b2-4dde-98e9-8818969611bd' })
     .done(function () {

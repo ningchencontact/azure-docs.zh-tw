@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: abdc50d6d3d27ab7611994089345a997afc72cae
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082590"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106456"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>在 Azure流量管理員中啟用診斷記錄
 
@@ -26,29 +26,31 @@ Azure 流量管理員診斷記錄可提供流量管理員設定檔資源行為�
 
 ## <a name="enable-diagnostic-logging"></a>啟用診斷記錄
 
-您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從電腦執行 PowerShell，便需要 *AzureRM* PowerShell 模組 6.13.1 版或更新的版本。 您可以執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，也需要執行 `Login-AzureRmAccount` 來登入 Azure。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您從電腦執行 PowerShell，就需要 Azure PowerShell 模組 1.0.0 或更新版本。 您可以執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，也需要執行 `Login-AzAccount` 來登入 Azure。
 
 1. **擷取流量管理員設定檔：**
 
-    若要啟用診斷記錄，您需要流量管理員設定檔的識別碼。 使用 [Get-AzureRmNetworkSecurityGroup](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile) 擷取您想要啟用診斷記錄的流量管理員設定檔。 輸出會包含流量管理員設定檔的識別碼資訊。
+    若要啟用診斷記錄，您需要流量管理員設定檔的識別碼。 使用 [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)，來擷取您想要啟用診斷記錄的流量管理員設定檔。 輸出會包含流量管理員設定檔的識別碼資訊。
 
     ```azurepowershell-interactive
-    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
 2. **啟用流量管理員設定檔的診斷記錄：**
 
-    運用 [Set-azurermdiagnosticsetting](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest) 使用在上一個步驟中取得的識別碼，啟用流量管理員設定檔的診斷記錄。 以下命令會將流量管理員設定檔的詳細資訊記錄檔儲存至指定的 Azure 儲存體帳戶。 
+    運用 [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest) \(英文\)，使用在上一個步驟中取得的識別碼，來啟用流量管理員設定檔的診斷記錄。 以下命令會將流量管理員設定檔的詳細資訊記錄檔儲存至指定的 Azure 儲存體帳戶。 
 
       ```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **確認診斷設定**：
 
-      使用 [Get-azurermdiagnosticsetting](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest) 確認流量管理員設定檔的診斷設定。 以下命令會顯示記錄的資源類別。
+      使用 [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest) \(英文\)，來確認流量管理員設定檔的診斷設定。 以下命令會顯示記錄的資源類別。
 
      ```azurepowershell-interactive
-     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
       請確定與流量管理員設定檔資源關聯的所有記錄類別都顯示為已啟用。 也請您確認儲存體帳戶已正確設定。
 

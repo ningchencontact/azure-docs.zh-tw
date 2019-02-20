@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: a7a7c8a6f16183d677aeb09ca62ac601cbd01289
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2366bd5543a7c3ee4a45eff74f71232a9c60989f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694035"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098524"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -60,7 +60,7 @@ ms.locfileid: "55694035"
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>是否可以修改 MC_* 資源群組中 AKS 資源的標記和其他屬性？
 
-修改和刪除 MC_* 資源群組中資源的 Azure 所建立標記和其他屬性可能會導致非預期的結果，例如調整和升級錯誤。 系統支援建立和修改其他自訂標記，例如，以便指派業務單位或成本中心。 在 AKS 叢集中修改 MC_* 下的資源會中斷 SLO。
+修改和刪除 MC_* 資源群組中資源的 Azure 所建立標記和其他屬性可能會導致非預期的結果，例如調整和升級錯誤。 系統支援建立和修改其他自訂標記，例如，以便指派業務單位或成本中心。 修改 AKS 叢集中 *MC_** 底下的資源會破壞服務等級目標 (SLO)。 如需詳細資訊，請參閱 [AKS 是否提供服務等級協定？](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>AKS 支援哪些 Kubernetes 許可控制器？ 是否可以新增或移除許可控制器？
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732306"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234743"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -59,7 +59,7 @@ POA 是一種 Azure Service Fabric 應用程式，可在 Service Fabric 叢集�
 > [!NOTE]
 > 修補程式協調流程應用程式是使用 Service Fabric 的修復管理器系統服務，將節點停用或啟用以及執行健康情況檢查。 修補程式協調流程應用程式所建立的修復工作會追蹤每個節點的 Windows Update 進度。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>啟用修復管理器服務 (如果尚未執行中)
 
@@ -133,9 +133,9 @@ POA 是一種 Azure Service Fabric 應用程式，可在 Service Fabric 叢集�
 
 3. 以這些變更更新您的叢集資訊清單，使用更新後的叢集資訊清單[建立新叢集](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升級叢集設定](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server)。 叢集開始以更新的資訊清單執行後，您現在可以在 Service Fabric Explorer 的系統服務區段下，看到修復管理器系統服務 (亦稱為 `fabric:/System/RepairManagerService`) 在叢集中執行。
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>停用所有節點上的自動 Windows Update
+### <a name="configure-windows-updates-for-all-nodes"></a>針對所有節點設定 Windows 更新
 
-自動 Windows Update 可能會導致可用性遺失，因為在相同時間重新啟動多個叢集節點。 依預設，修補程式協調流程應用程式會在每個叢集節點上嘗試將自動 Windows Update 停用。 不過，如果設定是由系統管理員或群組原則所管理，建議將 Windows Update 原則明確地設定為「下載前先通知」。
+Windows 自動更新可能導致可用性遺失，因為可以在同一個時間重新啟動多個叢集節點。 依預設，修補程式協調流程應用程式會在每個叢集節點上嘗試將自動 Windows Update 停用。 不過，如果設定會由系統管理員或群組原則所管理，則建議將 Windows Update 原則明確地設定為「下載前先通知」。
 
 ## <a name="download-the-app-package"></a>下載安裝套件
 
@@ -165,7 +165,7 @@ Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA.sfpkg
 
 ## <a name="deploy-the-app"></a>部署應用程式
 
-1. 完成準備叢集的所有必要條件步驟。
+1. 完成準備叢集的所有先決條件步驟。
 2. 部署修補程式協調流程應用程式，和任何其他 Service Fabric 應用程式一樣。 您可以使用 PowerShell 部署此應用程式。 請遵循[使用 PowerShell 部署與移除應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)中的步驟。
 3. 若要在部署時設定應用程式，可將 `ApplicationParameter` 傳遞給 `New-ServiceFabricApplication` Cmdlet。 為了您的方便，我們提供了 Deploy.ps1 指令碼以及我們的應用程式。 若要使用指令碼：
 

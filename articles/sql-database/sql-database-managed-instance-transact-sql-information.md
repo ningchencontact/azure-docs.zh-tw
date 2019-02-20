@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 59599686b2a9ccee7250e33f0786d4c7af816983
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734601"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894304"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體與 SQL Server 的 T-SQL 差異
 
@@ -27,7 +27,7 @@ ms.locfileid: "55734601"
 
 由於仍有一些語法和行為上的差異，因此本文將摘要說明這些差異。 <a name="Differences"></a>
 - [可用性](#availability)上的差異包括 [Always-On](#always-on-availability) 和[備份](#backup)，
-- [安全性](#security)上的差異包括[稽核](#auditing)、[憑證](#certificates)、[認證](#credentials)、[密碼編譯提供者](#cryptographic-providers)、[登入 / 使用者](#logins--users)、[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)，
+- [安全性](#security)上的差異包括[稽核](#auditing)、[憑證](#certificates)、[認證](#credential)、[密碼編譯提供者](#cryptographic-providers)、[登入 / 使用者](#logins--users)、[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)，
 - [設定](#configuration)上的差異包括[緩衝集區延伸](#buffer-pool-extension)、[定序](#collation)、[相容性層級](#compatibility-levels)、[資料庫鏡像](#database-mirroring)、[資料庫選項](#database-options)、[SQL Server Agent](#sql-server-agent)、[資料表選項](#tables)，
 - [功能](#functionalities)包括 [/OPENROWSET](#bulk-insert--openrowset)、[CLR](#clr)、[DBCC](#dbcc)、[分散式交易](#distributed-transactions)、[擴充事件](#extended-events)、[外部程式庫](#external-libraries)、[Filestream 和 Filetable](#filestream-and-filetable)、[全文檢索語意搜尋](#full-text-semantic-search)、[連結伺服器](#linked-servers)、[Polybase](#polybase)、[複寫](#replication)、[RESTORE](#restore-statement)、[Service Broker](#service-broker)、[預存程序、函式和觸發程序](#stored-procedures-functions-triggers)，
 - [在受控執行個體中會有不同行為的功能](#Changes)
@@ -74,7 +74,7 @@ ms.locfileid: "55734601"
 
 Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的主要稽核差異在於：
 
-- 在使用 Azure SQL Database 中的受控執行個體部署選項時，稽核作業會在伺服器層級運作，並且會將 `.xel` 記錄檔存放在 Azure Blob 儲存體帳戶上。
+- 使用 Azure SQL Database 中的受控執行個體部署選項，稽核作業會在伺服器層級運作，並將 `.xel` 記錄檔儲存於 Azure Blob 儲存體。
 - 在使用 Azure SQL Database 中的單一資料庫和彈性集區部署選項時，稽核作業則會在資料庫層級運作。
 - 在 SQL Server 內部部署 / 虛擬機器中，稽核會在伺服器層級運作，但會將事件儲存在檔案系統/windows 事件記錄。
   
@@ -170,7 +170,7 @@ WITH PRIVATE KEY (<private_key_options>)
 - 「一般用途」服務層中不支援記憶體內部物件。  
 - 限制每個執行個體 280 個檔案，也就是每個資料庫最多 280 個檔案。 資料和記錄檔都會計入此限制。  
 - 資料庫不能包含具有 Filestream 資料的檔案群組。  如果 .bak 包含 `FILESTREAM` 資料，還原將會失敗。  
-- 每個檔案都位於 Azure 進階儲存體中。 每個檔案的 IO 和輸送量取決於每個個別檔案的大小，如同用於 Azure 進階儲存體磁碟的方式。 請參閱 [Azure 進階磁碟效能](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- 每個檔案都位於 Azure Blob 儲存體中。 每個檔案的 IO 和輸送量均取決於每個個別檔案的大小。  
 
 #### <a name="create-database-statement"></a>CREATE DATABASE 陳述式
 
@@ -278,7 +278,7 @@ WITH PRIVATE KEY (<private_key_options>)
 受控執行個體無法存取檔案共用及 Windows 資料夾，因此必須從 Azure Blob 儲存體匯入這些檔案：
 
 - 從 Azure Blob 儲存體匯入檔案時，`BULK INSERT` 命令中需要 `DATASOURCE`。 請參閱[大量插入](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql)。
-- 當您從 Azure Blob 儲存體讀取檔案的內容時，`OPENROWSET` 函式需要 `DATASOURCE`。 請參閱 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)。
+- 當您從 Azure Blob 儲存體讀取檔案的內容時，`OPENROWSET` 函數需要 `DATASOURCE`。 請參閱 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)。
 
 ### <a name="clr"></a>CLR
 
@@ -305,7 +305,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 不支援 XEvent 的某些 Windows 特定目標：
 
-- 不支援 `etw_classic_sync target`。 將 `.xel` 檔案儲存在 Azure Blob 儲存體中。 請參閱 [etw_classic_sync 目標](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target)。
+- 不支援 `etw_classic_sync target`。 將 `.xel` 檔案儲存在 Azure Blob 儲存體中。 請參閱 [etw_classic_sync 目標](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target)。
 - 不支援 `event_file target`。 將 `.xel` 檔案儲存在 Azure Blob 儲存體中。 請參閱 [event_file 目標](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target)。
 
 ### <a name="external-libraries"></a>外部程式庫
@@ -388,7 +388,7 @@ WITH PRIVATE KEY (<private_key_options>)
 - 如果 .bak 包含 `FILESTREAM` 資料，還原將會失敗。
 - 若備份中包含的資料庫具有作用中的記憶體內部物件，則目前無法還原該備份。  
 - 若備份中包含的資料庫在某時間點上有記憶體內部物件，則目前無法還原該備份。
-- 若備份中包含的資料庫處於唯讀模式中，則目前無法還原該備份。 這項限制很快將會移除。
+- 若備份中包含的資料庫處於唯讀模式中，則目前無法還原該備份。 此限制很快將會移除。
 
 如需有關 Restore 陳述式的資訊，請參閱 [陳述式](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。
 
@@ -396,7 +396,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 不支援跨執行個體的 Service Broker：
 
-- `sys.routes`必要條件：從 sys.routes 選取位址。 每個路由上的位址必須是 LOCAL。 請參閱 [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql)。
+- `sys.routes`先決條件：從 sys.routes 選取位址。 每個路由上的位址必須是 LOCAL。 請參閱 [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql)。
 - `CREATE ROUTE` - 您只能使用 `LOCAL` 的 `ADDRESS` 來執行 `CREATE ROUTE`。 請參閱 [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql)。
 - `ALTER ROUTE` - 您只能使用 `LOCAL` 的 `ADDRESS` 來執行 `ALTER ROUTE`。 請參閱 [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql)。  
 
@@ -433,7 +433,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="tempdb-size"></a>TEMPDB 大小
 
-`tempdb` 分割成 12 檔案，每個檔案最大為 14 GB。 無法變更每個檔案大小的上限，而且無法將新檔案新增至 `tempdb`。 這項限制很快將會移除。 如果某些查詢需要 168 GB 以上的 `tempdb`，則可能會傳回錯誤。
+`tempdb` 分割成 12 檔案，每個檔案最大為 14 GB。 無法變更每個檔案大小的上限，而且無法將新檔案新增至 `tempdb`。 此限制很快將會移除。 如果某些查詢需要 168 GB 以上的 `tempdb`，則可能會傳回錯誤。
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>小型資料庫檔案造成儲存空間超出限制
 

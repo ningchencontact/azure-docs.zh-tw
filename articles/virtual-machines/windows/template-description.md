@@ -15,18 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e32e2833edc7027a984bb27b34608e4b1b898113
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767069"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113238"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 範本中的虛擬機器
 
 本文描述套用至虛擬機器的 Azure Resource Manager 範本的各個部分。 本文不會說明建立虛擬機器的完整範本；您需要儲存體帳戶、網路介面、公用 IP 位址與虛擬網路的資源定義。 如需有關如何將這些資源一起定義的詳細資訊，請參閱 [Resource Manager 範本逐步解說](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
 
 有許多[組件庫中的範本](https://azure.microsoft.com/documentation/templates/?term=VM)包含 VM 資源。 此處並未說明可以包含在範本中的所有項目。
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 此範例顯示用來建立指定數目之 VM 範本的一般資源區段︰
 
@@ -163,8 +165,9 @@ ms.locfileid: "55767069"
 使用這些機會來取得最新的 API 版本︰
 
 - REST API - [列出所有資源提供者](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
+- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
 - Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
+
 
 ## <a name="parameters-and-variables"></a>參數和變數
 
@@ -273,7 +276,7 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 },
 ```
 
-若要設定這個屬性，網路介面必須存在。 因此，您需要相依性。 您在另一個資源 (父系) 內定義一項資源 (子系) 時，也需要設定相依性。 例如，診斷設定和自訂指令碼延伸模組都定義為虛擬機器的子資源。 在虛擬機器存在之後，它們才能建立。 因此，這兩個資源都會標示為相依於虛擬機器。
+若要設定這個屬性，網路介面必須存在。 因此，您需要相依性。 您在另一個資源 (父系) 內定義一個資源 (子系) 時，也需要設定相依性。 例如，診斷設定和自訂指令碼延伸模組都定義為虛擬機器的子資源。 在虛擬機器存在之後，它們才能建立。 因此，這兩個資源都會標示為相依於虛擬機器。
 
 ## <a name="profiles"></a>設定檔
 
@@ -442,7 +445,7 @@ Start.ps1 指令碼可以完成許多組態工作。 例如，範例中新增至
 
 ![取得擴充功能狀態](./media/template-description/virtual-machines-show-extensions.png)
 
-您也可以使用 **Get-AzureRmVMExtension** PowerShell 命令、**vm extension get** Azure CLI 命令或 **Get extension information** REST API 取得延伸模組資訊。
+您也可以使用 **Get-AzVMExtension** PowerShell 命令、**vm extension get** Azure CLI 命令或**取得延伸模組資訊** REST API，來取得延伸模組資訊。
 
 ## <a name="deployments"></a>部署
 

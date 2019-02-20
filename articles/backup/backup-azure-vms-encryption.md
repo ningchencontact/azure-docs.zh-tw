@@ -8,15 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: geetha
-ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 004d35290d7bfa365d2e1d0ea605c14b03ffb4a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809992"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114751"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 備份來備份及還原加密的虛擬機器
-本文討論使用 Azure 備份來備份和還原虛擬機器 (VM) 的步驟。 它也提供有關支援的案例、必要條件的詳細資料，以及的錯誤案例的疑難排解步驟。
+本文討論使用 Azure 備份來備份和還原虛擬機器 (VM) 的步驟。 它也提供有關支援的案例、先決條件的詳細資料，以及的錯誤案例的疑難排解步驟。
 
 ## <a name="supported-scenarios"></a>支援的案例
 
@@ -31,7 +31,7 @@ ms.locfileid: "55809992"
    > Azure 備份支援使用獨立金鑰加密的 VM。 目前不支援任何屬於用來加密 VM 之憑證的金鑰。
    >   
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * VM 是使用 [Azure 磁碟加密](../security/azure-security-disk-encryption.md)來加密。
 
 * 已建立復原服務保存庫，並且藉由遵循[準備環境以便備份](backup-azure-arm-vms-prepare.md)中的步驟來設定儲存體複寫。
@@ -138,6 +138,6 @@ ms.locfileid: "55809992"
 | 作業 | 錯誤詳細資料 | 解決方案 |
 | --- | --- | --- |
 |Backup  | 錯誤碼：UserErrorKeyVaultPermissionsNotConfigured<br><br>錯誤訊息：Azure 備份服務沒有足夠的 Key Vault權限可備份加密的虛擬機器。 | 備份應該依照[上一節中的步驟](#provide-permissions-to-azure-backup)來提供這些權限。 或者，您可以遵循[使用 PowerShell 備份和還原虛擬機器](backup-azure-vms-automation.md#enable-protection)文章＜啟用保護＞一節中的 PowerShell 步驟。 |  
-| Restore | 您無法還原這部已加密的 VM，因為與此 VM 相關聯的金鑰保存庫不存在。 |利用[開始使用 Azure Key Vault](../key-vault/key-vault-get-started.md)，建立金鑰保存庫。 請參閱[使用 Azure 備份來還原金鑰保存庫金鑰和密碼](backup-azure-restore-key-secret.md)，來還原金鑰和密碼 (如果不存在)。 |
+| Restore | 您無法還原這部已加密的 VM，因為與此 VM 相關聯的金鑰保存庫不存在。 |依照[什麼是 Azure Key Vault？](../key-vault/key-vault-overview.md)中的指示來建立金鑰保存庫。 請參閱[使用 Azure 備份來還原金鑰保存庫金鑰和密碼](backup-azure-restore-key-secret.md)，來還原金鑰和密碼 (如果不存在)。 |
 | Restore | 錯誤碼：UserErrorKeyVaultKeyDoesNotExist<br><br> 錯誤訊息：您無法還原這部已加密的 VM，因為與此 VM 相關聯的金鑰不存在。 |請參閱[使用 Azure 備份來還原金鑰保存庫金鑰和密碼](backup-azure-restore-key-secret.md)，來還原金鑰和密碼 (如果不存在)。 |
 | Restore | 錯誤碼：ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>錯誤訊息：備份服務無權存取您訂用帳戶中的資源。 |如先前所述，請先遵循[選擇 VM 還原組態](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)之「還原備份的磁碟」一節中的步驟來還原磁碟。 之後，使用 PowerShell 來[從還原的磁碟建立 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。 |

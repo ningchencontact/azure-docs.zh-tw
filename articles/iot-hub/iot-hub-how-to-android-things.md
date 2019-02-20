@@ -7,20 +7,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 1/30/2019
 ms.author: yizhon
-ms.openlocfilehash: b213642b093c3b5f79e5993af91ae51517f09c70
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0bfba7f923ca394aa29dd907db1b8b1284a605d8
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747890"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981667"
 ---
-# <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>使用 Azure IoT SDK 開發行動裝置
-[Azure IoT 中樞 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)為各種常用平台提供第一層支援，包括 Windows、Linux、OSX、MBED 和行動裝置平台 (例如 Android 和 iOS)。  我們的承諾是在 IoT 部署中提供更優質的選擇和彈性，Java SDK 也提供 [Android Things](https://developer.android.com/things/) 平台。  開發人員可以利用 Android Things 作業系統在裝置端的優點，同時使用 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)作為訊息集中中樞，將同時連線的裝置擴充至數百萬個。 
+# <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>使用 Azure IoT SDK 針對 Android Things 平台進行開發
+[Azure IoT 中樞 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 為 Windows、Linux、OSX、MBED 等常用平台及行動裝置平台 (例如 Android 和 iOS) 提供第一層支援。  我們的承諾是在 IoT 部署中提供更優質的選擇和彈性，Java SDK 也提供 [Android Things](https://developer.android.com/things/) 平台。  開發人員可以利用 Android Things 作業系統在裝置端的優點，同時使用 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)作為訊息集中中樞，將同時連線的裝置擴充至數百萬個。 
 
 本教學課程說明使用 Azure IoT Java SDK 在 Android Things 上建置裝置端應用程式的步驟。
 
-## <a name="prerequisites"></a>必要條件
-* 支援 Android Things 的硬體，且可執行 Android Things OS。  您可以遵循 [Android Things](https://developer.android.com/things/get-started/kits#flash-at) 文件刷新 Android Things 的方式。  請確定您的 Android Things 裝置已連線到網際網路與必要的週邊設備 (例如已連接鍵盤、顯示器和滑鼠)。  本教學課程使用 Raspberry Pi 3。
+## <a name="prerequisites"></a>先決條件
+* 支援 Android Things 的硬體，且可執行 Android Things OS。  您可以依循 [Android Things 文件](https://developer.android.com/things/get-started/kits#flash-at)，以了解如何刷新 Android Things OS。  請確定您的 Android Things 裝置已連接必要週邊設備 (例如鍵盤、顯示器和滑鼠) 並已連線到網際網路。  本教學課程使用 Raspberry Pi 3。
 * 最新版的 [Android Studio](https://developer.android.com/studio/)
 * 最新版的 [Git](https://git-scm.com/)
 
@@ -69,12 +69,13 @@ ms.locfileid: "55747890"
     ```
 4.  在 Android Studio 中，開啟 Android 專案 (位於 "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample")。
 5.  開啟 gradle.properties 檔案，並使用您先前記下的裝置連接字串取代 "Device_connection_string"。
+    ![存放庫主要分支的螢幕擷取畫面](./media/how-to-android-things/connection-string.png)
 6.  按一下 [執行 - 偵錯]，並選取您的裝置，以將此程式碼部署至您的 Android Things 裝置。
 7.  當應用程式成功啟動之後，您可以看見應用程式在您的 Android Things 裝置上執行。  此範例應用程式會傳送隨機產生的溫度讀數。
 
 ## <a name="read-the-telemetry-from-your-hub"></a>從您的中樞讀取遙測
 
-您在 XCode 模擬器上執行的範例應用程式會顯示裝置所傳送訊息的相關資料。 您也可以透過 IoT 中樞檢視所收到的資料。 IoT 中樞 CLI 擴充功能可以連線到 IoT 中樞上的服務端**事件**端點。 擴充功能會接收模擬裝置所傳送的「裝置到雲端」訊息。 IoT 中樞後端應用程式通常在雲端中執行，以接收和處理「裝置到雲端」訊息。
+您可以透過 IoT 中樞檢視所收到的資料。 IoT 中樞 CLI 擴充功能可以連線到 IoT 中樞上的服務端**事件**端點。 擴充功能會接收模擬裝置所傳送的「裝置到雲端」訊息。 IoT 中樞後端應用程式通常在雲端中執行，以接收和處理「裝置到雲端」訊息。
 
 在 Azure Cloud Shell 中執行下列命令，以您的 IoT 中樞名稱取代 `YourIoTHubName`：
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 取得以 C# REST 為基礎的資訊和程式碼範例，以協助您快速開始在 Azure 上使用 Microsoft 認知服務中的 Microsoft 翻譯文字 API。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 34290704bf5220302a0ce73aa59c1a3b212f2723
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c7f0afb2776f11ac9406fced1209dfedd769a96f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217657"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245587"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>如何使用搭配 C# 的 QnA Maker REST API 
 <a name="HOLTop"></a>
@@ -35,12 +35,12 @@ ms.locfileid: "55217657"
 - [刪除知識庫。](#Delete)
 - [取得目前的端點金鑰。](#GetKeys)
 - [重新產生目前的端點金鑰。](#PutKeys)
-- [取得目前的文字變異形式集合。](#GetAlterations)
-- [取代目前的文字變異形式集合。](#PutAlterations)
+- [取得目前不區分大小寫的文字變異形式集合。](#GetAlterations)
+- [取代目前不區分大小寫的文字變異形式集合。](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 

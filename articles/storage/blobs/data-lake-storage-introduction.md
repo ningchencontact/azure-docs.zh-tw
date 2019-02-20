@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 018171d4b2253c2cf7942f9f10424a9c695438b9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 713905ac0c6dcd53f468fe7e9af7c565ee38ac66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809431"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106523"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 簡介
 
@@ -27,7 +27,7 @@ Data Lake Storage Gen2 的基礎部分是新增至 Blob 儲存體的[階層命�
 
 以往雲端式分析必須在效能、管理及安全性方面妥協。 Data Lake Storage Gen2 透過下列方式解決這些方面的問題：
 
--   **效能**經過最佳化，因為您不需要複製或轉換資料作為分析的必要條件。 階層命名空間大幅提高目錄管理作業的效能，從而提高整體作業效能。
+-   **效能**經過最佳化，因為您不需要複製或轉換資料作為分析的先決條件。 階層命名空間大幅提高目錄管理作業的效能，從而提高整體作業效能。
 
 -   **管理**更容易，因為您可以透過目錄和子目錄整理和操作檔案。
 
@@ -55,7 +55,7 @@ Data Lake Storage Gen2 的基礎部分是新增至 Blob 儲存體的[階層命�
 
 此外，例如[階層式命名空間](data-lake-storage-namespace.md)等功能可大幅提升許多分析作業的整體效能。 效能提升即表示處理數量相同的資料時，所需的計算能力較少，因此可降低端對端分析工作的擁有權總成本 (TCO)。
 
-### <a name="one-service-multiple-concepts"></a>一項服務，多個概念
+### <a name="one-service-multiple-concepts"></a>一個服務，多個概念
 
 Data Lake Storage Gen2 是巨量資料分析的額外功能，建置在 Azure Blob 儲存體的基礎之上。 雖然利用現有的 Blobs 平台元件來建立及操作 Data Lake 進行分析有許多優點，但是它會導致用許多概念描述相同、共用的事項。
 
@@ -76,10 +76,10 @@ Data Lake Storage Gen2 是巨量資料分析的額外功能，建置在 Azure Bl
 | 平台 |  支援的版本 | 相關資訊 |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 2.7+ | [Apache Hadoop 版本封存](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop 版本封存](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x 版本資訊](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2+ | [Databricks Runtime 版本](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 2.6+ | [Hortonworks 文件](https://docs.hortonworks.com/) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime 版本](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [設定雲端資料存取](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) \(英文\) |
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -87,5 +87,4 @@ Data Lake Storage Gen2 是巨量資料分析的額外功能，建置在 Azure Bl
 
 -   [階層式命名空間](data-lake-storage-namespace.md)
 -   [建立儲存體帳戶](data-lake-storage-quickstart-create-account.md)
--   [建立搭配 Data Lake Storage Gen2 的 HDInsight 叢集](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 -   [在 Azure Databricks 中使用 Data Lake Storage Gen2 帳戶](data-lake-storage-quickstart-create-databricks-account.md)

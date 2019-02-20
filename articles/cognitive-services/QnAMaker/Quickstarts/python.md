@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 取得 Python 資訊和程式碼範例，以協助您在 Azure 上快速開始使用 Microsoft 認知服務中的 Microsoft Translator Text API。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ca0d8bcbf2d4b050560d1575ef690205eacca830
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222162"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244635"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>如何使用搭配 Python 的 QnA Maker REST API
 <a name="HOLTop"></a>
@@ -35,12 +35,12 @@ ms.locfileid: "55222162"
 - [刪除知識庫。](#Delete)
 - [取得目前的端點金鑰。](#GetKeys)
 - [重新產生目前的端點金鑰。](#PutKeys)
-- [取得目前的文字變異形式集合。](#GetAlterations)
-- [取代目前的文字變異形式集合。](#PutAlterations)
+- [取得目前不區分大小寫的文字變異形式集合。](#GetAlterations)
+- [取代目前不區分大小寫的文字變異形式集合。](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您將需要有 [Python 3.x](https://www.python.org/downloads/)，才能執行此程式碼。
 

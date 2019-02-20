@@ -15,15 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 738bdd303d6e8e41df179021ebca521100ace325
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4875464d7e7a7f49c1532871a69f4d2224b271a6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828072"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108240"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>將 Windows VM 上的虛擬磁碟加密
 如需強化虛擬機器 (VM) 安全性與法規遵循，可以將 Azure 中的虛擬磁碟加密。 磁碟會使用 Azure Key Vault 中受保護的密碼編譯金鑰進行加密。 您可控制這些密碼編譯金鑰，並可稽核其使用情況。 本文說明如何使用 Azure PowerShell 將 Windows VM 上的虛擬磁碟加密。 您也可以[使用 Azure CLI 將 Linux VM 加密](../linux/encrypt-disks.md)。
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="overview-of-disk-encryption"></a>磁碟加密概觀
 Windows VM 上的虛擬磁碟在待用時是使用 BitLocker 進行加密。 將 Azure 中的虛擬磁碟加密完全免費。 密碼編譯金鑰會使用軟體保護功能儲存在 Azure Key Vault 中，或者您可以在 FIPS 140-2 第 2 級標準認證的硬體安全性模組 (HSM) 中匯入或產生金鑰。 密碼編譯金鑰會用來加密及解密連結到 VM 的虛擬磁碟。 您可保有這些密碼編譯金鑰的控制權，並可稽核其使用情況。 
@@ -63,21 +65,21 @@ Windows VM 上的虛擬磁碟在待用時是使用 BitLocker 進行加密。 將
 
 建立 Azure 金鑰保存庫的第一個步驟是儲存您的密碼編譯金鑰。 Azure Key Vault 可儲存讓您安全地在應用程式和服務中實作的金鑰、祕密或密碼。 針對虛擬磁碟加密，您將需要建立 Key Vault 來儲存用來將虛擬磁碟加密或解密的密碼編譯金鑰。 
 
-請使用 [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) 來啟用您 Azure 訂用帳戶內的 Azure Key Vault 提供者，然後使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 來建立資源群組。 下列範例會在 *East US* 位置建立名為 *myResourceGroup* 的資源群組：
+請使用 [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider) \(英文\) 來啟用您 Azure 訂用帳戶內的 Azure Key Vault 提供者，然後使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) \(英文\) 來建立資源群組。 下列範例會在 *East US* 位置建立名為 *myResourceGroup* 的資源群組：
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $location = "East US"
 
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"
-New-AzureRmResourceGroup -Location $location -Name $rgName
+Register-AzResourceProvider -ProviderNamespace "Microsoft.KeyVault"
+New-AzResourceGroup -Location $location -Name $rgName
 ```
 
-持有密碼編譯金鑰和相關聯計算資源 (例如儲存體和 VM) 的 Azure Key Vault 本身，必須都位於相同的區域中。 請使用 [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) 來建立 Azure Key Vault，然後啟用 Key Vault 以搭配磁碟加密使用。 針對 *keyVaultName* 指定一個唯一的 Key Vault 名稱，如下所示︰
+持有密碼編譯金鑰和相關聯計算資源 (例如儲存體和 VM) 的 Azure Key Vault 本身，必須都位於相同的區域中。 請使用 [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) \(英文\) 來建立 Azure Key Vault，然後啟用 Key Vault 以搭配磁碟加密使用。 針對 *keyVaultName* 指定一個唯一的 Key Vault 名稱，如下所示︰
 
 ```azurepowershell-interactive
 $keyVaultName = "myKeyVault$(Get-Random)"
-New-AzureRmKeyVault -Location $location `
+New-AzKeyVault -Location $location `
     -ResourceGroupName $rgName `
     -VaultName $keyVaultName `
     -EnabledForDiskEncryption
@@ -85,7 +87,7 @@ New-AzureRmKeyVault -Location $location `
 
 您可以使用軟體或硬體安全性模型 (HSM) 保護功能來儲存密碼編譯金鑰。  標準的 Key Vault 只會儲存軟體保護的金鑰。 使用 HSM 需要額外付費的進階 Key Vault。 若要建立進階 Key Vault，請在上一個步驟中新增 *-Sku "Premium"* 參數。 下列範例會使用軟體保護的金鑰，因為我們建立了標準金鑰保存庫。 
 
-在兩種保護模型中，Azure 平台都必須獲得存取權，才能在 VM 開機時要求密碼編譯金鑰來將虛擬磁碟解密。 請使用 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) 在您的 Key Vault 中建立密碼編譯金鑰。 下列範例會建立一個名為 *myKey* 的金鑰：
+在兩種保護模型中，Azure 平台都必須獲得存取權，才能在 VM 開機時要求密碼編譯金鑰來將虛擬磁碟解密。 請使用 [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) 在您的 Key Vault 中建立密碼編譯金鑰。 下列範例會建立一個名為 *myKey* 的金鑰：
 
 ```azurepowershell-interactive
 Add-AzureKeyVaultKey -VaultName $keyVaultName `
@@ -94,12 +96,12 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
 ```
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
-為了測試加密程序，讓我們使用 [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) 建立一個 VM。 下列範例會使用 *Windows Server 2016 Datacenter* 映像來建立一個名為 *myVM* 的 VM。 出現提供認證的提示時，請輸入要用於 VM 的使用者名稱和密碼：
+為了測試加密程序，讓我們使用 [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) \(英文\) 建立一個 VM。 下列範例會使用 *Windows Server 2016 Datacenter* 映像來建立一個名為 *myVM* 的 VM。 出現提供認證的提示時，請輸入要用於 VM 的使用者名稱和密碼：
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -Location $location `
@@ -112,15 +114,15 @@ New-AzureRmVm `
 
 
 ## <a name="encrypt-a-virtual-machine"></a>將虛擬機器加密
-使用 Azure Key Vault 以 [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) 將您的 VM 加密。 下列範例會擷取所有金鑰資訊，然後加密名為 *myVM* 的 VM：
+使用 Azure Key Vault 金鑰，利用 [Set-AzVMDiskEncryptionExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiskencryptionextension) \(英文\) 來將您的 VM 加密。 下列範例會擷取所有金鑰資訊，然後加密名為 *myVM* 的 VM：
 
 ```azurepowershell-interactive
-$keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
+$keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
 $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
+Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -VMName "myVM" `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
     -DiskEncryptionKeyVaultId $keyVaultResourceId `
@@ -128,10 +130,10 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -KeyEncryptionKeyVaultId $keyVaultResourceId
 ```
 
-接受提示以繼續進行 VM 加密。 VM 會在此程序中重新啟動。 加密程序完成且 VM 重新啟動之後，請使用 [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) 來檢閱加密狀態：
+接受提示以繼續進行 VM 加密。 VM 會在此程序中重新啟動。 當加密程序完成且已重新啟動 VM 之後，使用 [Get-AzVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiskencryptionstatus) \(英文\) 來檢閱加密狀態：
 
 ```azurepowershell-interactive
-Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
+Get-AzVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
 ```
 
 輸出類似於下列範例：

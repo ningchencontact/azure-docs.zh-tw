@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: f4ae164a9862a32b45fd5bd0ae7bc09a1180c344
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 373bcecfb1780aa567b1250e53096b9eed0d0f21
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733479"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858734"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "55733479"
 
 若要在您的 Windows 開發機器上建置並執行 [Azure Service Fabric 應用程式][1]，請安裝 Service Fabric 執行階段、SDK 和工具。 您也必須[執行 SDK 中包含的 Windows PowerShell 指令碼](#enable-powershell-script-execution)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 ### <a name="supported-operating-system-versions"></a>支援的作業系統版本
 下列為支援開發的作業系統版本：
 
@@ -74,7 +74,7 @@ Service Fabric 工具屬於 Visual Studio 2017 中的 Azure 開發工作負載�
 * Service Fabric Tools for Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 包含 Service Fabric Tools for Visual Studio 2.4.11024.1 
 
-如需支援版本的清單，請參閱[Service Fabric 支援](service-fabric-support.md)
+如需支援版本的清單，請參閱[Service Fabric 版本](service-fabric-versions.md)
 
 > [!NOTE]
 > 單一機器叢集 (OneBox) 並不支援進行應用程式或叢集升級；如果您需要執行叢集升級，或是在執行應用程式升級時遇到任何問題，請刪除 OneBox 叢集並重新建立它。 

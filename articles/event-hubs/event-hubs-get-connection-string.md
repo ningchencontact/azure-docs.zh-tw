@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535263"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238142"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>取得事件中樞連接字串
 
@@ -51,13 +51,16 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 ![事件中樞取得連接字串](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>使用 Azure PowerShell 取得連接字串
-您可以使用 Get-AzureRmEventHubNamespaceKey 來取得特定原則/規則名稱的連接字串，如下所示：
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+您可以使用 Get-AzEventHubNamespaceKey 來取得特定原則/規則名稱的連接字串，如下所示：
 
 ```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
-如需更多詳細資料，請參閱[Azure 事件中樞 PowerShell 模組](https://docs.microsoft.com/powershell/module/azurerm.eventhub/get-azurermeventhubkey) \(英文\)。
+如需更多詳細資料，請參閱[Azure 事件中樞 PowerShell 模組](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) \(英文\)。
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>使用 Azure CLI 取得連接字串
 您可以使用下列命令來取得命名空間的連接字串：

@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476031"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234181"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 
@@ -131,6 +131,16 @@ ms.locfileid: "54476031"
 | [Resource Manager 範本：建立 Blob 儲存體和訂用帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | 部署 Azure Blob 儲存體帳戶及訂閱該儲存體帳戶的事件。 它會將事件傳送到 WebHook。 |
 | [概觀：回應 Blob 儲存體事件](../storage/blobs/storage-blob-event-overview.md) | 整合 Blob 儲存體與事件方格的概觀。 |
 | [事件結構描述](event-schema-blob-storage.md) | 顯示 Blob 儲存體事件中的欄位。 |
+
+## <a name="maps"></a>地圖
+訂閱「Azure 地圖服務」事件以回應地理柵欄事件。 例如，應用程式可以在每次裝置進入或離開地理柵欄時傳遞電子郵件通知。
+
+|標題  |說明  |
+|---------|---------|
+| [使用事件方格來回應 Azure 地圖服務事件](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 整合「Azure 地圖服務」與「事件方格」的概觀。 |
+| [教學課程：設定地理柵欄](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 本教學課程會逐步引導您完成使用「Azure 地圖服務」來設定地理柵欄的基本步驟。 您會使用「Azure 事件方格」來串流處理地理柵欄結果，並根據地理柵欄結果設定通知。 |
+| [事件結構描述](event-schema-azure-maps.md) | 顯示「Azure 地圖服務」中的欄位。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a5346b98de48b1a2f8928c3c2bf30730588e9c1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 655ac490e528680f779eeca54899a022ddf3b89a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145830"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189545"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>教學課程：Azure Active Directory 與 Nuclino 整合
 
@@ -33,7 +34,7 @@ Nuclino 與 Azure AD 的整合可提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Nuclino 的整合，您需要下列項目：
 
@@ -109,7 +110,7 @@ Nuclino 與 Azure AD 的整合可提供下列優點：
 
     ![Nuclino 網域和 URL 單一登入資訊](./media/nuclino-tutorial/tutorial_nuclino_url1.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
 
@@ -229,7 +230,7 @@ Nuclino 與 Azure AD 的整合可提供下列優點：
 本節的目標是要在 Nuclino 中建立名為 Britta Simon 的使用者。 Nuclino 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Nuclino 期間會建立新的使用者 (如果尚不存在)。
 
 > [!Note]
-> 如果您需要手動建立使用者，請連絡 [Nuclino 支援小組](mailto:contact@nuclino.com)。
+> 如果您需要手動建立使用者，請連絡 [Nuclino 用戶端支援小組](mailto:contact@nuclino.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -266,7 +267,7 @@ Nuclino 與 Azure AD 的整合可提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Nuclino] 圖格時，您應該會自動登入 Nuclino 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

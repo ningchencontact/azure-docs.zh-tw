@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 20c0acebde232bd50e6e5befed0facc96ee11b4d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040944"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>教學課程：Azure Active Directory 與 Screencast-O-Matic 整合
 
@@ -33,7 +34,7 @@ Screencast-O-Matic 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定與 Screencast-O-Matic 的 Azure AD 整合，您需要下列項目：
 
@@ -181,7 +182,7 @@ Screencast-O-Matic 與 Azure AD 整合提供下列優點：
 本節目標是在 Screencast-O-Matic 中建立名為 Britta Simon 的使用者。 Screencast-O-Matic 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 當您嘗試存取 Screencast-O-Matic 時，如果 Screencast-O-Matic 還沒有使用者，它將會建立新的使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Screencast-O-Matic 用戶端支援小組](mailto:support@screencast-o-matic.com)。
+>如果您需要手動建立使用者，請連絡 [Screencast-O-Matic 用戶端支援小組](mailto:support@screencast-o-matic.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -218,7 +219,7 @@ Screencast-O-Matic 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Screencast-O-Matic] 圖格時，應該會自動登入您的 Screencast-O-Matic 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

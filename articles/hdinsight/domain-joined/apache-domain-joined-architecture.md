@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: acae8076350c26e7a7157fd2063f64220b167771
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5c5615dcfc9d43016bdf995a22ae29a5c5dd2c6f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486056"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185378"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -28,18 +28,19 @@ HDInsight 中的虛擬機器 (VM) 會加入您提供的網域。 因此，經過
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>整合 HDInsight 與 Active Directory
 
-開放原始碼 Apache Hadoop 須依賴 Kerberos 來提供驗證和安全性。 因此，有企業安全性套件 (ESP) 的 HDInsight 叢集節點都會加入由 Azure AD DS 管理的網域。 針對叢集上的 Hadoop 元件，會設定 Kerberos 安全性。 
+開放原始碼 Apache Hadoop 依賴 Kerberos 通訊協定來提供驗證和安全性。 因此，有企業安全性套件 (ESP) 的 HDInsight 叢集節點都會加入由 Azure AD DS 管理的網域。 針對叢集上的 Hadoop 元件，會設定 Kerberos 安全性。 
 
 系統會自動建立下列事項：
-- 每個 Hadoop 元件的服務主體 
-- 已加入網域的每部電腦的電腦主體
-- 每個叢集的組織單位 (OU)，用以儲存這些服務和電腦原則 
+
+- 每個 Hadoop 元件的服務主體
+- 已加入網域之每部機器的機器主體
+- 每個叢集的「組織單位」(OU)，用以儲存這些服務和機器原則
 
 總括而言，您必須設定一個具備下列條件的環境：
 
 - Active Directory 網域 (由 Azure AD DS 管理)。
 - 在 Azure AD DS 中啟用安全 LDAP (LDAPS)。
-- Azure AD DS 虛擬網路和 HDInsight 虛擬網路兩者之間有適當的網路連線能力 (如果您選擇將兩者的虛擬網路分開)。 HDInsight 虛擬網路內的 VM 應可透過虛擬網路對等互連來看到 Azure AD DS。 如果 HDInsight 和 Azure AD DS 部署在相同的虛擬網路中，則會自動提供連線，而不需要進一步的動作。
+- Azure AD DS 虛擬網路和 HDInsight 虛擬網路兩者之間有適當的網路連線能力 (如果您選擇將兩者的虛擬網路分開)。 HDInsight 虛擬網路內的 VM 應可透過虛擬網路對等互連來看到 Azure AD DS。 如果 HDInsight 和 Azure AD DS 部署在相同的虛擬網路中，則會自動提供連線，而無須採取進一步的動作。
 
 ## <a name="set-up-different-domain-controllers"></a>設定不同的網域控制站
 HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集使用 Kerberos 通訊。 但您仍然可以使用其他複雜的 Active Directory 設定，只要這類設定能夠讓 Azure AD DS 進行 HDInsight 存取即可。
@@ -47,7 +48,7 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
 [Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md) 提供與 Windows Server Active Directory 完全相容的受控網域。 Microsoft 會負責管理、修補及監視高可用性 (HA) 設定中的網域。 您可以放心地部署叢集，不必擔心網域控制站的維護問題。 
 
-使用者、群組和密碼都會從 Azure Active Directory (Azure AD) 中同步。 從您的 Azure AD 執行個體單向同步到 Azure AD DS 可讓使用者利用相同的公司認證登入叢集。 
+使用者、群組和密碼都會從 Azure AD 同步。 從您的 Azure AD 執行個體單向同步到 Azure AD DS 可讓使用者利用相同的公司認證登入叢集。 
 
 如需詳細資訊，請參閱[使用 Azure AD DS 設定有 ESP 的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
 
@@ -57,38 +58,38 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 
 因為 Kerberos 依賴密碼雜湊，您必須[對 Azure AD DS 啟用密碼雜湊同步](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)。 
 
-如果您使用同盟搭配 Active Directory 同盟服務 (ADFS)，則必須啟用密碼雜湊同步 (建議的設定，請參閱[這裡](https://youtu.be/qQruArbu2Ew))，這也有助於在 ADFS 基礎結構失敗時災害復原和認證外洩保護。 如需詳細資訊，請參閱[透過 Azure AD Connect 同步啟用密碼雜湊同步](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。 
+如果您使用與「Active Directory 同盟服務」(AD FS) 的同盟，就必須啟用密碼雜湊同步。(如需建議的設定，請參閱[這段影片](https://youtu.be/qQruArbu2Ew))。密碼雜湊同步可在您的 AD FS 基礎結構發生失敗時協助進行災害復原，還可協助提供認證外洩防護。 如需詳細資訊，請參閱[透過 Azure AD Connect 同步啟用密碼雜湊同步](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。 
 
-對於有 ESP 的 HDInsight 叢集，不支援單獨使用內部部署 Active Directory 或 IaaS VM 上的 Active Directory，必須同時使用 Azure AD 和 Azure AD DS 的設定。
+針對具有 ESP 的 HDInsight 叢集，不支援單獨使用內部部署 Active Directory 或 IaaS VM 上的 Active Directory 而不搭配使用 Azure AD 和 Azure AD DS 的設定。
 
-如果正在使用同盟且密碼雜湊已正確同步，但您卻收到驗證失敗，請檢查 Powershell 服務主體雲端密碼驗證是否已啟用，若未啟用，您必須為 AAD 租用戶設定[主領域探索 (HRD) 原則](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)。 若要檢查並設定 HRD 原則：
+如果目前使用同盟且密碼雜湊已正確同步，但您卻收到驗證失敗，請檢查是否已為 PowerShell 服務主體啟用雲端密碼驗證。 如果未啟用，您就必須為 Azure AD 租用戶設定[主領域探索 (HRD) 原則](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)。 檢查並設定 HRD 原則：
 
- 1. 安裝 Azure AD PowerShell 模組
-
- ```
-  Install-Module AzureAD
- ```
-
- 2. 使用全域管理員 (租用戶系統管理員) 認證的 ```Connect-AzureAD```
-
- 3. 檢查是否已建立 “Microsoft Azure Powershell” 服務主體
+ 1. 安裝 Azure AD PowerShell 模組。
 
  ```
-  $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+    Install-Module AzureAD
  ```
 
- 4. 如果不存在 (亦即，如果 ($powershellSPN -eq $null))，則建立服務主體
+ 2. 使用全域管理員 (租用戶系統管理員) 認證來輸入 `Connect-AzureAD`。
+
+ 3. 檢查是否已經建立 Microsoft Azure Powershell 服務主體。
 
  ```
-  $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+    $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
  ```
 
- 5. 建立原則並將其附加至此服務主體： 
+ 4. 如果不存在 (亦即，如果 `($powershellSPN -eq $null)`)，則建立服務主體。
 
  ```
- $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+ ```
 
- Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+ 5. 建立原則並將其附加至此服務主體。
+
+ ```
+    $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+    Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
  ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 707cd7e72245ce47289c0a744d7103c713acecb9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765478"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997078"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>將 Kubernetes 新增至 Azure Stack Marketplace
 
@@ -65,15 +65,15 @@ ms.locfileid: "55765478"
 
 如果您要為您的身分識別管理服務使用 Active Directory 同盟服務 (AD FS)，您必須為部署 Kubernetes 叢集的使用者建立服務主體。
 
-1. 建立並匯出憑證，以用來建立服務主體。 下列程式碼片段顯示如何建立自動簽署憑證。 
+1. 建立並匯出用來建立服務主體的自我簽署憑證。 
 
-    - 您需要下列幾項資訊：
+    - 您需要下列幾個資訊：
 
        | 值 | 說明 |
        | ---   | ---         |
-       | 密碼 | 憑證密碼。 |
-       | 本機憑證路徑 | 憑證的路徑和檔案名稱。 例如：`path\certfilename.pfx` |
-       | 憑證名稱 | 憑證的名稱。 |
+       | 密碼 | 輸入憑證的新密碼。 |
+       | 本機憑證路徑 | 輸入憑證的路徑和檔案名稱。 例如：`c:\certfilename.pfx` |
+       | 憑證名稱 | 輸入憑證的名稱。 |
        | 憑證存放區位置 |  例如， `Cert:\LocalMachine\My` |
 
     - 使用已提升權限的提示字元開啟 PowerShell。 執行下列程式碼，並將參數更新為您的值：
@@ -82,8 +82,7 @@ ms.locfileid: "55765478"
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
-        $certificateName = "<certificate name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certificateName = "CN=<certificate name>"
         $certStoreLocation="<certificate store location>"
         
         $params = @{
@@ -105,24 +104,33 @@ ms.locfileid: "55765478"
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. 使用憑證來建立服務主體。
+2.  記下您 PowerShell 工作階段中所顯示的新憑證識別碼 `1C2ED76081405F14747DC3B5F76BB1D83227D824`。 此識別碼將會在建立服務主體時使用。
 
-    - 您需要下列幾項資訊：
+    ```PowerShell  
+    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
+    ```
+
+3. 使用憑證來建立服務主體。
+
+    - 您需要下列幾個資訊：
 
        | 值 | 說明                     |
        | ---   | ---                             |
        | ERCS IP | 在 ASDK 中，特殊權限的端點通常為 `AzS-ERCS01`。 |
-       | 應用程式名稱 | 應用程式服務原則的簡單名稱。 |
-       | 憑證存放區位置 | 電腦上您儲存憑證的路徑。 例如：`Cert:\LocalMachine\My\<someuid>` |
+       | 應用程式名稱 | 輸入應用程式服務主體的簡單名稱。 |
+       | 憑證存放區位置 | 電腦上您儲存憑證的路徑。 這會透過儲存位置及第一個步驟中所產生的憑證識別碼來表示。 例如：`Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
-    - 使用已提升權限的提示字元開啟 PowerShell。 執行下列程式碼，並將參數更新為您的值：
+       出現提示時，使用下列認證來連線至權限端點。 
+        - 使用者名稱：指定 CloudAdmin 帳戶，格式為 <Azure Stack domain>\cloudadmin (如果是 ASDK，使用者名稱為 azurestack\cloudadmin)。
+        - 密碼：輸入與 AzureStackAdmin 網域系統管理員帳戶安裝期間所提供的相同密碼。
+
+    - 執行下列程式碼，並將參數更新為您的值：
 
         ```PowerShell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
-        $certStoreLocation="<certificate store location>"
+        $certStoreLocation="<certificate location>"
         
         # Get certificate information
         $cert = Get-Item $certStoreLocation
@@ -189,7 +197,7 @@ ms.locfileid: "55765478"
 
 1. 選取 [+ 從 Azure 加入]。
 
-1. 輸入 `UbuntuServer` 。
+1. 輸入 `Ubuntu Server` 。
 
 1. 選取伺服器的最新版本。 檢查完整版本，並確定您已有最新的版本：
     - **發行者**：Canonical

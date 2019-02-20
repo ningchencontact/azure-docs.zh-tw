@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721558"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108733"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
@@ -43,7 +43,7 @@ ms.locfileid: "53721558"
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>如何使用 PowerShell 自動化 App Service Web 應用程式？
 
-您可以使用 PowerShell Cmdlet 來管理和維護 App Service Web 應用程式。 在我們的部落格文章[使用 PowerShell 自動化在 Azure App Service 中裝載的 Web 應用程式](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)中，我們說明如何使用以 Azure Resource Manager 為基礎的 PowerShell Cmdlet 來自動化一般工作。 部落格文章也有各種 Web 應用程式管理工作的範例程式碼。 如需所有 App Service Web 應用程式 Cmdlet 的說明和語法，請參閱 [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0)。
+您可以使用 PowerShell Cmdlet 來管理和維護 App Service Web 應用程式。 在我們的部落格文章[使用 PowerShell 自動化在 Azure App Service 中裝載的 Web 應用程式](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)中，我們說明如何使用以 Azure Resource Manager 為基礎的 PowerShell Cmdlet 來自動化一般工作。 部落格文章也有各種 Web 應用程式管理工作的範例程式碼。 如需所有 App Service Web 應用程式 Cmdlet 的描述和語法，請參閱 [Az.Websites](/powershell/module/az.websites)。
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>如何檢視我的 Web 應用程式事件記錄？
 
@@ -111,7 +111,7 @@ ms.locfileid: "53721558"
 8. 如果設定不是 [開啟]，請選取 [開啟]。
 9. 選取 [執行]。
 10. 選取 **Web.config**。
-11. 在 system.webServer 中，新增這項設定 (擷取特定 URL)：
+11. 在 system.webServer 中，新增此設定 (擷取特定 URL)：
 
     ```
     <system.webServer>
@@ -128,7 +128,7 @@ ms.locfileid: "53721558"
     </add> </traceFailedRequests>
     </tracing>
     ```
-12. 若要針對效能緩慢問題進行疑難排解，新增這項設定 (如果擷取要求花費超過 30 秒)：
+12. 若要針對效能緩慢問題進行疑難排解，新增此設定 (如果擷取要求花費超過 30 秒)：
     ```
     <system.webServer>
     <tracing> <traceFailedRequests>

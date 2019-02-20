@@ -6,23 +6,29 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 01/18/2019
-ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/07/2019
+ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411742"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895681"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
-安裝行動服務是啟用複寫期間的關鍵步驟。 此步驟的成功與否僅取決於是否符合必要條件，以及使用支援的設定。 您在行動服務安裝期間最常面臨的失敗是因為以下原因：
+安裝行動服務是啟用複寫期間的關鍵步驟。 此步驟的成功與否僅取決於是否符合先決條件，以及使用支援的設定。 您在行動服務安裝期間最常面臨的失敗是因為以下原因：
 
-* 認證/權限錯誤
-* 登入失敗
-* 連線錯誤
-* 不支援的作業系統
-* VSS 安裝失敗
+* [認證/權限錯誤](#credentials-check-errorid-95107--95108)
+* [登入失敗](#login-failures-errorid-95519-95520-95521-95522)
+* [連線錯誤](#connectivity-failure-errorid-95117--97118)
+* [檔案及印表機共用錯誤](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [WMI 失敗](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [不支援的作業系統](#unsupported-operating-systems)
+* [不支援的開機設定](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
+* [VSS 安裝失敗](#vss-installation-failures)
+* [裝置名稱位於 GRUB 設定而非裝置 UUID](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [LVM 磁碟區](#lvm-support-from-920-version)
+* [重新啟動警告](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 當您啟用複寫時，Azure Site Recovery 會嘗試推送您虛擬機器上的安裝行動服務代理程式。 在這個過程中，組態伺服器會嘗試與虛擬機器連線，並複製代理程式。 若要啟用成功的安裝，請遵循下面所列的逐步疑難排解指引。
 
@@ -56,12 +62,14 @@ ms.locfileid: "54411742"
 
 如果您想要修改所選使用者帳戶的認證，請遵循[此處](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)所提供的指示。
 
-## <a name="login-failure-errorid-95519"></a>登入失敗 (錯誤識別碼：95519)
+## <a name="login-failures-errorid-95519-95520-95521-95522"></a>登入失敗 (錯誤識別碼：95519、95520、95521、95522)
+
+### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>使用者帳戶的認證已被停用 (錯誤識別碼：95519)
 
 啟用複寫期間選擇的使用者帳戶已經停用。 若要啟用使用者帳戶，請參閱[這篇文章](https://aka.ms/enable_login_user)，或使用實際的使用者名稱取代 *username* 以執行以下命令。
 `net user 'username' /active:yes`
 
-## <a name="login-failure-errorid-95520"></a>登入失敗 (錯誤識別碼：95520)
+### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>認證因多次嘗試登入失敗而被鎖定 (錯誤識別碼：95520)
 
 多次重試存取機器失敗將會導致使用者帳戶遭到鎖定。 失敗原因可能是：
 
@@ -70,11 +78,11 @@ ms.locfileid: "54411742"
 
 因此，請依照[此處](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)提供的指示修改選擇的認證，然後在一段時間之後重試作業。
 
-## <a name="login-failure-errorid-95521"></a>登入失敗 (錯誤識別碼：95521)
+### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>來源電腦上的登入伺服器無法使用 (錯誤識別碼：95521)
 
 當來源機器上無法使用登入伺服器時，就會發生此錯誤。 無法使用登入伺服器會導致登入要求失敗，因此無法安裝行動代理程式。 若要成功登入，請確定來源機器上可以使用登入伺服器並啟動登入服務。 如需詳細指示，請按一下[此處](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available)。
 
-## <a name="login-failure-errorid-95522"></a>登入失敗 (錯誤識別碼：95522)
+### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>登入服務未在來源電腦上執行 (錯誤識別碼：95522)
 
 來源機器上的登入服務未執行，導致登入要求失敗。 因此，無法安裝行動代理程式。 若要解決此問題，請確定來源機器上的登入服務在執行中，才能成功登入。 若要啟動登入服務，請從命令提示字元執行命令 "net start Logon"，或從工作管理員啟動 "NetLogon" 服務。
 
@@ -138,15 +146,17 @@ ms.locfileid: "54411742"
 失敗的另一個最常見原因可能是由於不支援的作業系統。 請確定您在可成功安裝行動服務的受支援作業系統/核心版本上。 請避免使用私人的修補程式。
 若要檢視 Azure Site Recovery 所支援的作業系統和核心版本的清單，請參閱我們的[支援矩陣文件](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
-## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>開機與系統磁碟分割/磁碟區不是同一個磁碟 (錯誤識別碼：95309)
+## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>不支援的開機磁碟設定 (錯誤識別碼：95309、95310、95311)
+
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>開機與系統磁碟分割/磁碟區不是同一個磁碟 (錯誤識別碼：95309)
 
 9.20 之前的版本不支援開機和系統磁碟分割/磁碟區位於不同磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
 
-## <a name="boot-disk-not-found-errorid-95310"></a>找不到開機磁碟 (ErrorID：95310)
+### <a name="the-boot-disk-is-not-available-errorid-95310"></a>開機磁碟無法使用 (錯誤識別碼：95310)
 
 無法保護不含開機磁碟的虛擬機器。 這是為了確保在容錯移轉作業期間順利復原虛擬機器。 缺少開機磁碟會導致無法在容錯移轉之後啟動機器。 確定虛擬機器包含開機磁碟，然後重試此作業。 另請注意，不支援同部電腦上有多個開機磁碟。
 
-## <a name="multiple-boot-disks-found-errorid-95311"></a>找到多個開機磁碟 (ErrorID：95311)
+### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>來源電腦上存在多個開機磁碟 (錯誤識別碼：95311)
 
 具有多個開機磁碟的虛擬機器不是[支援的組態](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)。
 
@@ -154,9 +164,45 @@ ms.locfileid: "54411742"
 
 9.20 之前的版本不支援開機磁碟分割或磁碟區位於多個磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
 
-## <a name="grub-uuid-failure-errorid-95320"></a>GRUB UUID 失敗 (錯誤識別碼：95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>啟用保護失敗，因為裝置名稱是在 GRUB 設定中提及，而非 UUID (錯誤識別碼：95320)
 
-如果來源機器的 GRUB 使用裝置名稱而非 UUID，則行動代理程式安裝將會失敗。 請連絡系統管理員以變更 GRUB 檔案。
+**可能的原因：** </br>
+GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") 可能包含 **root** 和 **resume** 參數的值作為實際裝置名稱，而不是 UUID。 Site Recovery 會強制執行 UUID 方法，因為裝置名稱可能會經由 VM 重新開機而變更，而且 VM 可能不會提出容錯移轉時的相同名稱而造成問題。 例如︰ </br>
+
+
+- 下面這一行來自 GRUB 檔案 **/boot/grub2/grub.cfg**。 <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- 下面這一行來自 GRUB 檔案 **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+請觀察上述的粗體字串，其中 GRUB (而非 UUID) 具有 "root" 和 "resume" 參數的實際裝置名稱。
+ 
+**修正方式：**<br>
+裝置名稱應該取代為對應的 UUID。<br>
+
+
+1. 執行命令 "blkid <device name>" 來尋找裝置的 UUID。 例如︰<br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. 現在請以如 "root=UUID=<UUID>" 的格式，以裝置名稱的 UUID 取代裝置名稱。 例如，如果我們在 "/boot/grub2/grub.cfg"、"/boot/grub2/grub.cfg" 或 "/etc/default/grub" 等檔案中，將裝置名稱取代為適用於 root 和 resume 參數的 UUID (如上所述)，則檔案中的行將會如下所示： <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+3. 重新啟動保護
+
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>安裝行動服務已完成但有重新啟動警告 (錯誤識別碼：95265 與 95266)
+
+Site Recovery 行動服務具有許多元件，其中一個名叫篩選器驅動程式。 篩選器驅動程式只會在系統重新啟動時被載入系統記憶體。 這代表對篩選器驅動程式的修正只能在新篩選器驅動程式載入時生效，而那只會在系統重新啟動時發生。
+
+**請注意**，這只是警告，現有的複寫將繼續運作，即使在新代理程式更新之後也一樣。 您可以選擇在想要取得新篩選器驅動程式的優點時再重新啟動，但就算您不重新啟動，舊的篩選器驅動程式仍會繼續運作。 因此，在更新且不重新啟動的情況下，除了篩選器驅動程式之外，**行動服務中其他增強功能和修正的優點都會生效**。 因此，雖然在每次升級後皆重新啟動是建議的做法，但並非必要。 如需重新啟動之必要時機的相關資訊，請參閱[這裡](https://aka.ms/v2a_asr_reboot)。
+
+> [!TIP]
+>如需在維護時間範圍期間對升級進行排程的最佳做法，請參閱[這裡](https://aka.ms/v2a_asr_upgrade_practice)。
 
 ## <a name="lvm-support-from-920-version"></a>從 9.20 版開始支援 LVM
 

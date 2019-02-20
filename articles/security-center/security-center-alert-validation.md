@@ -4,7 +4,7 @@ description: 本文件可協助您在 Azure 資訊安全中心驗證安全性警
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2c0bb2a68eaaa8183463efbdc2848567ab67d1b9
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 009f5fe7243b8ce597c2be9f9c6874cdb56d103c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619739"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108540"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Azure 資訊安全中心的警示驗證
 這份文件可協助您了解如何驗證您的系統是否已針對 Azure 資訊安全中心警示正確設定。
@@ -32,7 +32,7 @@ ms.locfileid: "52619739"
 
 1. 將可執行檔 (例如 calc.exe) 複製到電腦的桌面，或方便您使用的其他目錄。
 2. 將這個檔案重新命名為 **ASC_AlertTest_662jfi039N.exe**。
-3. 開啟命令提示字元並使用引數 (只是假的引數名稱) 執行此檔案，例如：ASC_AlertTest_662jfi039N.exe -foo
+3. 開啟命令提示字元並使用引數 (只是假的引數名稱) 執行此檔案，例如：*ASC_AlertTest_662jfi039N.exe -foo*
 4. 等待 5 到 10 分鐘，然後開啟安全性中心警示。 您應可找到如下所示的警示：
 
     ![警示驗證](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
@@ -43,7 +43,7 @@ ms.locfileid: "52619739"
 
 
 > [!NOTE]
-> 觀看 [Azure 資訊安全中心的警示驗證](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center)影片，以查看這項功能的示範。
+> 觀看 [Azure 資訊安全中心的警示驗證](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center)影片，以查看此功能的示範。
 
 ## <a name="see-also"></a>另請參閱
 本文介紹警示驗證程序。 現在，您已熟悉此驗證，請嘗試下列文章︰

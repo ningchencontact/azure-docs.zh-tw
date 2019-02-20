@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817617"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242799"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -34,6 +34,10 @@ ms.locfileid: "54817617"
 
 如需詳細資訊，請參閱[從媒體服務 v2 移至 v3 的移轉指導](migrate-from-v2-to-v3.md#known-issues)。
 
+## <a name="february-2019"></a>2019 年 2 月
+
+Azure 的國家/地區雲端中現已支援媒體服務 v3。 尚未在所有雲端中提供所有功能。 如需詳細資訊，請參閱[存在 Azure 媒體服務 v3 的雲端和區域](azure-clouds-regions.md)。
+
 ## <a name="january-2019"></a>2019 年 1 月
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>媒體編碼器標準與 MPI 檔案 
@@ -46,7 +50,7 @@ ms.locfileid: "54817617"
 
 來自 V3 API GA 版本的更新包括：
        
-* **PresentationTimeRange** 屬性不再是 **AssetFilters** 和 **AccountFilters** 的「必要」項目。 
+* **PresentationTimeRange** 屬性不再是**資產篩選**和**帳戶篩選**的「必要」項目。 
 * **Jobs** 和 **Transforms** 的 $Top 和 $skip 查詢選項已移除，並新增了 $orderby。 在加入新的排序功能時，我們發現以前 $top 和 $skip 選項 (即使並未實作) 會意外公開。
 * 已重新啟用列舉擴充性。 此功能已在 SDK 的預覽版本中啟用，但在 GA 版本中意外停用。
 * 兩個預先定義的串流原則已重新命名。 **SecureStreaming** 現在重新命名為 **MultiDrmCencStreaming**。 **SecureStreamingWithFairPlay** 現在重新命名為 **Predefined_MultiDrmStreaming**。
@@ -67,7 +71,7 @@ CLI 2.0 模組現已適用於 [Azure 媒體服務 v3 GA](https://docs.microsoft.
 - [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 可讓您管理媒體保留單元
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 可讓您管理媒體保留單位。 如需詳細資訊，請參閱[調整媒體保留單位](media-reserved-units-cli-how-to.md)。
 
 ### <a name="new-features-and-breaking-changes"></a>新功能和重大變更
 
@@ -179,11 +183,11 @@ Azure CLI 2.0 模組即將推出，內含所有功能的操作 (包括即時、�
 以下是 .Net SDK 現有的功能︰
 
 * **轉換**和**工作**，可編碼或分析媒體內容。 如需範例，請參閱[串流處理檔案](stream-files-tutorial-with-api.md)和[分析](analyze-videos-tutorial-with-api.md)。
-* **StreamingLocators**，用於將內容發佈及串流處理到使用者裝置
-* **StreamingPolicies** 和 **ContentKeyPolicies**，當傳遞內容時，可設定金鑰傳遞和內容保護 (DRM)。
-* **LiveEvents** 和 **LiveOutputs**，可設定內嵌和封存即時串流內容。
+* **串流定位器**，用於將內容發佈及串流處理到終端使用者裝置
+* **串流原則**和**內容金鑰原則**，可在傳遞內容時設定金鑰傳遞和內容保護 (DRM)。
+* **即時事件**和**即時輸出**，可設定內嵌和封存即時串流內容。
 * **資產**，可在 Azure 儲存體中儲存及發佈媒體內容。 
-* **StreamingEndpoint**，可設定和擴展動態封裝、 加密和串流處理實況和點播媒體內容。
+* **串流端點**，可設定和擴展動態封裝、加密和串流處理即時與點播媒體內容。
 
 ### <a name="known-issues"></a>已知問題
 

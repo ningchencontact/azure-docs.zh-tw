@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: c20f455a0a325dadd3eeeb77dea7026de4834c56
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4522914f249413300ffa5bb1545d840711777bff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757301"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235904"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>將 Web API 應用程式新增至您的 Azure Active Directory B2C 租用戶
 
@@ -38,20 +38,20 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 1. 選取 [應用程式]，然後選取 [webapi1]。
 2. 選取 [發佈的範圍]。
-3. 針對 [範圍]，輸入 `Hello.Read`，以及輸入 `Read access to hello` 作為描述。
-4. 針對 [範圍]，輸入 `Hello.Write`，以及輸入 `Write access to hello` 作為描述。
+3. 針對 [範圍]，輸入 `Read`，以及輸入 `Read access to the application` 作為描述。
+4. 針對 [範圍]，輸入 `Write`，以及輸入 `Write access to the application` 作為描述。
 5. 按一下 [檔案] 。
 
 發佈的範圍可以用來為用戶端應用程式授與對 Web API 的權限。
 
 ## <a name="grant-permissions"></a>授與權限
 
-若要從應用程式呼叫受保護的 Web API，您必須為應用程式授與對 API 的權限。 在必要的教學課程中，您已在 Azure AD B2C 中建立名為 *webapp1* 的 Web 應用程式。 您可使用此應用程式來呼叫 Web API。
+若要從應用程式呼叫受保護的 Web API，您必須為應用程式授與對 API 的權限。 例如，在[教學課程：在 Azure Active Directory B2C 中註冊應用程式](tutorial-register-applications.md)中，會在 Azure AD B2C 中建立名為 *webapp1* 的 Web 應用程式。 您可以使用此應用程式來呼叫 Web API。
 
 1. 選取 [應用程式]，然後選取您的 Web 應用程式。
 2. 選取 [API 存取]，然後選取 [新增]。
 3. 在 [選取 API] 下拉式清單中，選取 [webapi1]。
-4. 在 [選取範圍] 下拉式清單中，選取您先前定義的 **Hello.Read** 和 **Hello.Write** 範圍。
+4. 在 [選取範圍] 下拉式清單中，選取您先前定義的 [讀取] 和 [寫入] 範圍。
 5. 按一下 [確定]。
 
 您的應用程式會進行註冊，以呼叫受保護的 Web API。 使用者會透過 Azure AD B2C 進行驗證以使用應用程式。 該應用程式會從 Azure AD B2C 取得授權授與，以存取受保護的 Web API。

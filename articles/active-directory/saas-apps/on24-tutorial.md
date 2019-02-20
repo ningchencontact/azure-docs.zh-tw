@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 ON24 虛擬環境 SAML 連線的整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 與 ON24 Virtual Environment SAML Connection 整合 | Microsoft Docs
 description: 了解如何在 Azure Active Directory 及 ON24 虛擬環境 SAML 連線間設定單一登入。
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 1ec18f0013a7fa640395a8b8bedd9df8b0924c3a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0827895d58b0b7633ee4543495014c62b5394312
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070943"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209484"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>教學課程：Azure Active Directory 與 ON24 虛擬環境 SAML 連線的整合
+# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>教學課程：Azure Active Directory 與 ON24 Virtual Environment SAML Connection 整合
 
 在本教學課程中，您會了解如何將 ON24 虛擬環境 SAML 連線與 Azure Active Directory (Azure AD) 整合。
 
@@ -33,7 +34,7 @@ ms.locfileid: "49070943"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 ON24 虛擬環境 SAML 連線的整合，您需要下列項目：
 
@@ -99,7 +100,7 @@ ms.locfileid: "49070943"
 
     ![映像](./media/on24-tutorial/B1_B2_Select_SSO.png)
 
-2. 按一下畫面頂端的 [變更單一登入模式] 以選取 [SAML] 模式。
+2. 按一下畫面頂端的 [變更單一登入模式]，選取 [SAML] 模式。
 
       ![映像](./media/on24-tutorial/b1_b2_saml_ssso.png)
 
@@ -107,7 +108,7 @@ ms.locfileid: "49070943"
 
     ![映像](./media/on24-tutorial/b1_b2_saml_sso.png)
 
-4. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 設定] 對話方塊。
+4. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
 
     ![映像](./media/on24-tutorial/b1-domains_and_urlsedit.png)
 
@@ -157,7 +158,7 @@ ms.locfileid: "49070943"
 
     c. 按一下 [設定額外的 URL]。 
 
-    d. 在 [回覆狀態] 文字方塊中，鍵入 URL：`https://vshow.on24.com/vshow/ms_azure_saml_test?r=<ID>`
+    d. 在 [轉送狀態] 文字方塊中，鍵入 URL：`https://vshow.on24.com/vshow/ms_azure_saml_test?r=<ID>`
 
     e. 若您想要在 [SP] 起始模式中設定應用程式，請在 [登入 URL] 文字方塊中，鍵入 URL：`https://vshow.on24.com/vshow/<INSTANCENAME>`
 
@@ -175,7 +176,7 @@ ms.locfileid: "49070943"
 
     ![映像](./media/on24-tutorial/d_users_and_groups.png)
 
-2. 選取畫面頂端的 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]。
 
     ![映像](./media/on24-tutorial/d_adduser.png)
 
@@ -185,22 +186,22 @@ ms.locfileid: "49070943"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，鍵入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 依序選取 [屬性]、[顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
  
 ### <a name="create-an-on24-virtual-environment-saml-connection-test-user"></a>建立 ON24 虛擬環境 SAML 連線測試使用者
 
-在本節中，您會在 ON24 虛擬環境 SAML 連線中建立名為 Britta Simon 的使用者。 連絡 [ON24 虛擬環境 SAML 連線支援小組](https://www.on24.com/about-us/support/)，以在 ON24 虛擬環境 SAML 連線平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 ON24 虛擬環境 SAML 連線中建立名為 Britta Simon 的使用者。 請與 [ON24 Virtual Environment SAML Connection 支援小組](https://www.on24.com/about-us/support/)合作，在 ON24 Virtual Environment SAML Connection 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 ON24 虛擬環境 SAML 連線的存取權授與 Britta Simon，讓其可使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
     ![映像](./media/on24-tutorial/d_all_applications.png)
 
@@ -225,7 +226,7 @@ ms.locfileid: "49070943"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [ON24 虛擬環境 SAML 連線] 磚時，應該會自動登入您的 ON24 虛擬環境 SAML 連線應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

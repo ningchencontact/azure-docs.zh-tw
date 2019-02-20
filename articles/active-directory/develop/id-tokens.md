@@ -16,24 +16,25 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092731"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234419"
 ---
 # <a name="id-tokens"></a>ID 權杖
 
-`id_tokens` 會在 [OpenID Connect](v1-protocols-openid-connect-code.md) 流程中傳送至用戶端應用程式。 這些權杖可以一併傳送或代替存取權杖，並由用戶端用來驗證使用者。 
+`id_tokens` 會在 [OpenID Connect](v1-protocols-openid-connect-code.md) 流程中傳送至用戶端應用程式。 這些權杖可以一併傳送或代替存取權杖，並由用戶端用來驗證使用者。
 
 ## <a name="using-the-idtoken"></a>使用 id_token
 
-識別碼權杖應該用來驗證使用者是否為其聲稱的人，以及取得其相關的額外有用資訊 - 不得用於代替[存取權杖](access-tokens.md)授權。 它提供的宣告可用於您應用程式內部的 UX、設定資料庫的金鑰，以及提供用戶端應用程式的存取權。 
+識別碼權杖應該用來驗證使用者是否為其聲稱的人，以及取得其相關的額外有用資訊 - 不得用於代替[存取權杖](access-tokens.md)授權。 它提供的宣告可用於您應用程式內部的 UX、設定資料庫的金鑰，以及提供用戶端應用程式的存取權。
 
 ## <a name="claims-in-an-idtoken"></a>id_token 中的宣告
 
-Microsoft 身分識別的 `id_tokens` 為 [JWT](https://tools.ietf.org/html/rfc7519)，這表示它們是由標頭、承載和簽章所組成。 您可以使用標頭和承載來驗證權杖的真確性，而承載包含您的用戶端所要求的使用者相關資訊。 除了特別註明，否則此處所列的所有宣告都會出現在 v1.0 和 v2.0 權杖中。
+Microsoft 身分識別的 `id_tokens` 為 [JWT](https://tools.ietf.org/html/rfc7519)，這表示它們是由標頭、承載和簽章所組成。 您可以使用標頭和簽章來驗證權杖的真確性，而承載則包含您用戶端所要求使用者的相關資訊。 除了特別註明，否則此處所列的所有宣告都會出現在 v1.0 和 v2.0 權杖中。
 
 ### <a name="v10"></a>v1.0
 

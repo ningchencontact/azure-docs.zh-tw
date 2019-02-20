@@ -4,7 +4,7 @@ description: 了解使用可靠的集合的最佳做法。
 services: service-fabric
 documentationcenter: .net
 author: tylermsft
-manager: timlt
+manager: jeanpaul.connock
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
 ms.service: Service-Fabric
@@ -12,46 +12,46 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/19/2017
+ms.date: 02/12/2019
 ms.author: twhitney
-ms.openlocfilehash: 86e1370bb5241dbe14b34cebe2f2ee6d71a0a323
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193530"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114819"
 ---
 # <a name="working-with-reliable-collections"></a>使用可靠的集合
-Service Fabric 透過可靠的集合向 .NET 開發人員提供具狀態的程式設計模型。 具體來說，Service Fabric 提供了可靠的字典和可靠的佇列類別。 當您使用這些類別時，您的狀態是分割的 (延展性)、複寫的 (可用性)，且在分割區內交易 (ACID 語意)。 讓我們看看可靠字典物件的一般用法，並看看它究竟做些什麼。
+Service Fabric 透過可靠的集合向 .NET 開發人員提供具狀態的程式設計模型。 具體來說，Service Fabric 提供了可靠的字典和可靠的佇列類別。 當您使用這些類別時，您的狀態是分割的 (延展性)、複寫的 (可用性)，且在分割區內交易 (ACID 語意)。 讓我們看看可靠字典物件的一般用法，並查看它究竟做了些什麼。
 
 ```csharp
-
-///retry:
-
-try {
+try
+{
    // Create a new Transaction object for this partition
-   using (ITransaction tx = base.StateManager.CreateTransaction()) {
+   using (ITransaction tx = base.StateManager.CreateTransaction())
+   {
       // AddAsync takes key's write lock; if >4 secs, TimeoutException
       // Key & value put in temp dictionary (read your own writes),
-      // serialized, redo/undo record is logged & sent to
-      // secondary replicas
+      // serialized, redo/undo record is logged & sent to secondary replicas
       await m_dic.AddAsync(tx, key, value, cancellationToken);
 
       // CommitAsync sends Commit record to log & secondary replicas
       // After quorum responds, all locks released
       await tx.CommitAsync();
    }
-   // If CommitAsync not called, Dispose sends Abort
+   // If CommitAsync isn't called, Dispose sends Abort
    // record to log & all locks released
 }
-catch (TimeoutException) {
-   await Task.Delay(100, cancellationToken); goto retry;
+catch (TimeoutException)
+{
+   // choose how to handle the situation where you couldn't get a lock on the file because it was 
+   // already in use. You might delay and retry the operation
 }
 ```
 
-可靠的字典物件上的所有作業 (除了無法復原的 ClearAsync)，都需要一個 ITransaction 物件。 這個物件和您在單一分割區內對任何可靠的字典和/或可靠的佇列物件嘗試進行的任何及所有變更具有關聯性。 您是透過呼叫分割區的 StateManager 的 CreateTransaction 方法，取得 ITransaction 物件。
+可靠字典物件上的所有作業 (除了無法復原的 ClearAsync) 都需要一個 ITransaction 物件。 這個物件和您在單一分割區內對任何可靠的字典和/或可靠的佇列物件嘗試進行的任何及所有變更具有關聯性。 您是透過呼叫分割區的 StateManager 的 CreateTransaction 方法，取得 ITransaction 物件。
 
-在上面的程式碼中，ITransaction 物件會傳遞至可靠的字典的 AddAsync 方法。 就內部而言，接受索引鍵的字典方法會採用與索引鍵相關聯的讀取器/寫入器鎖定。 如果此方法修改索引鍵的值，這個方法就會在索引鍵上使用寫入鎖定；如果方法只讀取索引鍵的值，就會在索引鍵上使用讀取鎖定。 因為 AddAsync 會將索引鍵值修改成新的傳入值，所以使用索引鍵的寫入鎖定。 所以，如果有 2 (或多個) 執行緒嘗試在同一時間加入相同的索引鍵值，一個執行緒就會取得寫入鎖定，而另一個執行緒就會封鎖。 方法預設最多封鎖 4 秒以取得鎖定，4 秒後方法就會擲回 TimeoutException。 如果喜歡的話，方法多載的存在可讓您傳遞明確的逾時值。
+在上面的程式碼中，ITransaction 物件會傳遞至可靠的字典的 AddAsync 方法。 就內部而言，接受索引鍵的字典方法會採用與該索引鍵相關聯的讀取器/寫入器鎖定。 如果此方法修改索引鍵的值，這個方法就會在索引鍵上使用寫入鎖定；如果方法只讀取索引鍵的值，就會在索引鍵上使用讀取鎖定。 因為 AddAsync 會將索引鍵值修改成新的傳入值，所以使用索引鍵的寫入鎖定。 因此，如果有 2 個 (或多個) 執行緒同時嘗試新增具相同索引鍵的值，則其中一個執行緒將會取得寫入鎖定，而另一個執行緒將會封鎖。 方法預設最多封鎖 4 秒以取得鎖定，4 秒後方法就會擲回 TimeoutException。 如果喜歡的話，方法多載的存在可讓您傳遞明確的逾時值。
 
 通常，您撰寫程式碼回應 TimeoutException 的方式是攔截它，然後重試整個作業 (如上面的程式碼所示)。 在我的簡單程式碼中，只呼叫 Task.Delay 每次傳遞 100 毫秒。 但在實際狀況裡，最好還是改用某種指數型的撤退延遲。
 
@@ -65,7 +65,8 @@ catch (TimeoutException) {
 現在您已了解可靠的集合在內部的運作方式，讓我們看看其中一些常見的誤用。 參閱下列程式碼：
 
 ```csharp
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // AddAsync serializes the name/user, logs the bytes,
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
@@ -84,8 +85,8 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    user.LastLogin = DateTime.UtcNow;  // Do this BEFORE calling AddAsync
    await m_dic.AddAsync(tx, name, user);
    await tx.CommitAsync();
@@ -95,14 +96,14 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 這是另一個常見的錯誤︰
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // Use the user’s name to look up their data
-   ConditionalValue<User> user =
-      await m_dic.TryGetValueAsync(tx, name);
+   ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
-   if (user.HasValue) {
+   if (user.HasValue)
+   {
       // The line below updates the property’s value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
@@ -113,19 +114,19 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
 同樣地，使用一般的 .NET 字典時，上面的程式碼以常見的模式正常運作：開發人員使用索引鍵查詢值。 如果值存在，開發人員就變更屬性的值。 不過，使用可靠的集合，這段程式碼會出現前面討論過的同樣問題：**物件一旦給了可靠的集合，就「無法」修改。**
 
-在可靠的集合中更新值的正確方式，是取得現有值的參考，並考慮這個參考所參考的物件為不可變。 接著，建立新的物件，這是原始物件的完全相同複本。 現在，您可以修改這個新物件的狀態，將新物件寫入集合，讓它序列化為位元組陣列，附加至本機檔案並傳送到複本。 認可變更之後，記憶體中的物件、本機檔案及所有複本都會有完全一致的狀態。 大功告成！
+在可靠的集合中更新值的正確方式，是取得現有值的參考，並考慮這個參考所參考的物件為不可變。 接著，建立新的物件，此物件是與原始物件完全相同的複本。 現在，您可以修改這個新物件的狀態，將新物件寫入集合，讓它序列化為位元組陣列，附加至本機檔案並傳送到複本。 認可變更之後，記憶體中的物件、本機檔案及所有複本都會有完全一致的狀態。 大功告成！
 
 下列程式碼會示範在可靠的集合中更新值的正確方式︰
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // Use the user’s name to look up their data
-   ConditionalValue<User> currentUser =
-      await m_dic.TryGetValueAsync(tx, name);
+   ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
-   if (currentUser.HasValue) {
+   if (currentUser.HasValue)
+   {
       // Create new user object with the same state as the current user object.
       // NOTE: This must be a deep copy; not a shallow copy. Specifically, only
       // immutable state can be shared by currentUser & updatedUser object graphs.
@@ -136,31 +137,32 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
       // Update the key’s value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
-
       await tx.CommitAsync();
    }
 }
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>定義不可變的資料類型，以防止程式設計人員犯錯。
-理想情況下，我們希望編譯器能在您不小心產生改變物件狀態的程式碼，而這個物件又不該改變時報告錯誤。 但是 C# 編譯器做不到這一點。 所以，為避免潛在的程式設計人員錯誤，我們強烈建議您將可靠集合所使用的類型定義為不可變的類型。 具體來說，這表示您要堅持核心值類型 (例如數字 [Int32、UInt64 等等]、DateTime、Guid、TimeSpan 等等)。 當然，您也可以使用字串。 最好是避免集合屬性，因為將其序列化和還原序列化經常會降低效能。 不過，如果您想要使用集合屬性，強烈建議您使用 .NET 的不可變集合程式庫 ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))。 您可以從 http://nuget.org 下載這個程式庫。另外，也建議您盡可能密封類別，並將欄位變成唯讀。
+在理想情況下，我們希望編譯器能夠在您不小心產生了會變更您認為是不可變之物件狀態的程式碼時報告錯誤。 但是 C# 編譯器做不到這一點。 所以，為避免潛在的程式設計人員錯誤，我們強烈建議您將可靠集合所使用的類型定義為不可變的類型。 具體來說，這表示您要堅持核心值類型 (例如數字 [Int32、UInt64 等等]、DateTime、Guid、TimeSpan 等等)。 您也可以使用 String。 最好避免使用集合屬性，因為將其序列化和還原序列化經常會降低效能。 不過，如果您想要使用集合屬性，強烈建議您使用 .NET 的不可變集合程式庫 ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))。 您可以從 http://nuget.org 下載這個程式庫。另外，也建議您盡可能密封類別，並將欄位變成唯讀。
 
 以下的 UserInfo 類型會示範如何利用上述建議定義不可變的類型。
 
 ```csharp
-
 [DataContract]
 // If you don’t seal, you must ensure that any derived classes are also immutable
-public sealed class UserInfo {
+public sealed class UserInfo
+{
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
 
-   public UserInfo(String email, IEnumerable<ItemId> itemsBidding = null) {
+   public UserInfo(String email, IEnumerable<ItemId> itemsBidding = null) 
+   {
       Email = email;
       ItemsBidding = (itemsBidding == null) ? NoBids : itemsBidding.ToImmutableList();
    }
 
    [OnDeserialized]
-   private void OnDeserialized(StreamingContext context) {
+   private void OnDeserialized(StreamingContext context)
+   {
       // Convert the deserialized collection to an immutable collection
       ItemsBidding = ItemsBidding.ToImmutableList();
    }
@@ -175,7 +177,8 @@ public sealed class UserInfo {
 
    // Since each UserInfo object is immutable, we add a new ItemId to the ItemsBidding
    // collection by creating a new immutable UserInfo object with the added ItemId.
-   public UserInfo AddItemBidding(ItemId itemId) {
+   public UserInfo AddItemBidding(ItemId itemId)
+   {
       return new UserInfo(Email, ((ImmutableList<ItemId>)ItemsBidding).Add(itemId));
    }
 }
@@ -184,13 +187,13 @@ public sealed class UserInfo {
 ItemId 類型也是不可變的類型，如下所示︰
 
 ```csharp
-
 [DataContract]
-public struct ItemId {
-
+public struct ItemId
+{
    [DataMember] public readonly String Seller;
    [DataMember] public readonly String ItemName;
-   public ItemId(String seller, String itemName) {
+   public ItemId(String seller, String itemName)
+   {
       Seller = seller;
       ItemName = itemName;
    }
@@ -198,22 +201,22 @@ public struct ItemId {
 ```
 
 ## <a name="schema-versioning-upgrades"></a>結構描述版本控制 (升級)
-就內部而言，可靠的集合會使用 .NET 的 DataContractSerializer 序列化物件。 序列化的物件會保存在主要複本的本機磁碟中，並傳送至次要複本。 隨著您的服務日趨成熟，您可能會想要變更服務需要的資料種類 (結構描述)。 您必須十二萬分地謹慎對待資料的版本控制方法。 首先也是最重要的，您必須永遠有能力還原序列化舊的資料。 具體來說，這表示您的還原序列化程式碼必須具有無限回溯相容性：服務程式碼的版本 333 必須能夠操作 5 年前放在可靠的集合中，第 1 版的服務程式碼資料。
+就內部而言，可靠的集合會使用 .NET 的 DataContractSerializer 序列化物件。 序列化的物件會保存在主要複本的本機磁碟中，並傳送至次要複本。 隨著您的服務日趨成熟，您可能會想要變更服務需要的資料種類 (結構描述)。 請謹慎處理資料的版本設定。 首先也是最重要的，您必須永遠有能力還原序列化舊的資料。 具體來說，這表示您的還原序列化程式碼必須具有無限回溯相容性：服務程式碼的版本 333 必須能夠操作 5 年前放在可靠的集合中，第 1 版的服務程式碼資料。
 
-而且，服務程式碼一次只能升級一個網域。 所以，在升級期間，您會同時執行兩個不同版本的服務程式碼。 您必須避免新版本的服務程式碼使用新的結構描述，因為舊版的服務程式碼可能無法處理新的結構描述。 您應該盡可能將每個版本的服務都設計成向前相容 1 個版本。 具體來說，這表示 V1 的服務程式碼只要能夠略過它不會明確處理的任何結構描述元素即可。 不過，它必須能夠儲存它不明確了解的任何資料，在更新字典索引鍵或值時只需將它寫回即可。
+而且，服務程式碼一次只能升級一個網域。 所以，在升級期間，您會同時執行兩個不同版本的服務程式碼。 您必須避免新版本的服務程式碼使用新的結構描述，因為舊版的服務程式碼可能無法處理新的結構描述。 您應該盡可能將服務的每個版本都設計為正向相容一個版本。 具體來說，這表示服務程式碼的 V1 應該能夠略過它未明確處理的任何結構描述元素。 不過，它必須能夠儲存所有它未明確了解的資料，並且在更新字典索引鍵或值時將它寫回。
 
 > [!WARNING]
 > 雖然您可以修改索引鍵的結構描述，但您必須確保索引鍵雜湊程式碼和 equals 演算法是穩定的。 如果您變更這些演算法其中一個的運作方式，您就再也無法在可靠的字典內查詢索引鍵。
 >
 >
 
-或者，您也可以執行通稱為 2 階段升級的功能。 使用 2 階段升級，服務可從 V1 升級成 V2：V2 包含知道如何處理新結構描述變更的程式碼，但這段程式碼不會執行。 當 V2 程式碼讀取 V1 資料時，它會在其上操作並寫入 V1 資料。 然後，在跨所有升級網域的升級都完成之後，您就可以通知執行中的 V2 執行個體，升級已完成。 (通知方式之一是推出組態升級，這就是 2 階段升級)。現在，V2 執行個體可以讀取 V1 資料，將它轉換成 V2 資料、操作它，然後寫出為 V2 資料。 當其他執行個體讀取 V2 資料時，不需要轉換它，只要操作並寫出 V2 資料即可。
+或者，您也可以執行通稱為兩階段升級的功能。 使用兩階段升級，即可將服務從 V1 升級至 V2：V2 包含知道如何處理新結構描述變更的程式碼，但這段程式碼不會執行。 當 V2 程式碼讀取 V1 資料時，它會在其上操作並寫入 V1 資料。 然後，在跨所有升級網域的升級都完成之後，您就可以通知執行中的 V2 執行個體，升級已完成。 (對此發出訊號的方式之一是推出設定升級，這就是使其成為兩階段升級的原因)。現在，V2 執行個體可以讀取 V1 資料，將它轉換成 V2 資料、操作它，然後寫出為 V2 資料。 當其他執行個體讀取 V2 資料時，不需要轉換它，只要操作並寫出 V2 資料即可。
 
 ## <a name="next-steps"></a>後續步驟
-若要了解建立向前相容的資料合約，請參閱 [向前相容資料合約](https://msdn.microsoft.com/library/ms731083.aspx)。
+若要了解如何建立正向相容的資料合約，請參閱[正向相容的資料合約](https://msdn.microsoft.com/library/ms731083.aspx) \(機器翻譯\)。
 
-若要了解版本控制資料合約的最佳做法，請參閱 [資料合約版本控制](https://msdn.microsoft.com/library/ms731138.aspx)。
+若要了解資料合約版本設定的最佳做法，請參閱[資料合約版本設定](https://msdn.microsoft.com/library/ms731138.aspx) \(機器翻譯\)。
 
-若要了解如何實作版本容錯的資料合約，請參閱 [版本相容序列化回呼](https://msdn.microsoft.com/library/ms733734.aspx)。
+若要了解如何實作版本容錯的資料合約，請參閱[版本容錯序列化回呼](https://msdn.microsoft.com/library/ms733734.aspx) \(機器翻譯\)。
 
-若要了解如何提供可跨多個版本相互操作的資料結構，請參閱 [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)。
+若要了解如何提供可跨多個版本相互操作的資料結構，請參閱 [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx) \(機器翻譯\)。

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492873"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989418"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>從 Excel 取用 Azure Machine Learning Studio Web 服務
 
@@ -26,7 +26,7 @@ ms.locfileid: "55492873"
 
 
 ## <a name="steps"></a>步驟
-發佈 Web 服務。 [此頁面](walkthrough-5-publish-web-service.md) 說明如何進行。 目前，只針對具有單一輸出 (也就是單一計分標籤) 的要求/回應服務，才支援 Excel 活頁簿功能。 
+發佈 Web 服務。 [教學課程 3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)將說明如何執行此動作。 目前，只針對具有單一輸出 (也就是單一計分標籤) 的要求/回應服務，才支援 Excel 活頁簿功能。 
 
 有了 Web 服務之後，請按一下 Studio 左側的 [Web 服務]  區段，然後選取要從 Excel 使用的 Web 服務。
 

@@ -11,25 +11,25 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 240715fe6d3e8344c15cddf80a23829ec84e81a2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511984"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992121"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>V 核心服務層、Azure Hybrid Benefit 及移轉
 
 虛擬核心形式的採購模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 它也可讓您選擇硬體世代：
 
-- Gen 4 - 最多 24 個以 Intel E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 PP (實體核心)，每一核心 7 GB，連結的 SSD
-- Gen 5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，每一核心 5.1 GB，快速 eNVM SSD
+- Gen4 - 最多 24 個以 Intel E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 PP (實體核心)，每一核心 7 GB，連結的 SSD
+- Gen5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，每一核心 5.1 GB，快速 eNVM SSD
 
-V 核心模型還可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 來節省成本。
+在 Gen4 硬體中，每個虛擬核心的記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。
 
 > [!NOTE]
-> 如需 DTU 形式的服務層相關資訊，請參閱 [DTU 形式的服務層](sql-database-service-tiers-dtu.md)。 如需如何區分 DTU 形式服務層及 V 核心形式服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-service-tiers.md)。
+> 如需 DTU 形式的服務層相關資訊，請參閱 [DTU 形式的服務層](sql-database-service-tiers-dtu.md)。 如需如何區分 DTU 形式服務層及 V 核心形式服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-purchase-models.md)。
 
 ## <a name="service-tier-characteristics"></a>服務層的特性
 
@@ -58,8 +58,6 @@ V 核心模型還可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](
 
 > [!IMPORTANT]
 > 如果您需要的計算容量少於一個虛擬核心，請使用以 DTU 為基礎的購買模型。
-
-請參閱 [SQL Database 常見問題集](sql-database-faq.md)以取得常見問題的解答。
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 

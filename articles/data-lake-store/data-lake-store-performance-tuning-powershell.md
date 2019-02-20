@@ -1,6 +1,6 @@
 ---
-title: 使用 PowerShell 和 Data Lake Store 進行效能微調之方針 | Microsoft Docs
-description: 如何在使用 Azure PowerShell 搭配 Data Lake Store 時改善效能的秘訣
+title: 使用 PowerShell 搭配 Azure Data Lake Storage Gen1 的效能微調指導方針 | Microsoft Docs
+description: 如何在使用 Azure PowerShell 搭配 Azure Data Lake Storage Gen1 時改善效能的祕訣
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 7b19972ed4a75ac899a4b78b28ab36ba305a5a64
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198645"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235597"
 ---
-# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>使用 PowerShell 和 Azure Data Lake Store 進行效能微調之方針
+# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>使用 PowerShell 搭配 Azure Data Lake Storage Gen1 的效能微調指導方針
 
-本文列出可以微調的屬性，以在使用 PowerShell 搭配 Data Lake Store 運作時獲得最佳效能︰
+本文列出可以微調的屬性，以在使用 PowerShell 搭配 Azure Data Lake Storage Gen1 時獲得最佳效能：
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="performance-related-properties"></a>效能相關的屬性
 
@@ -31,15 +33,15 @@ ms.locfileid: "34198645"
 
 **範例**
 
-此命令會使用每個檔案 20 個執行緒和 100 個並行檔案，將檔案從 Azure Data Lake Store 下載至使用者的本機磁碟機。
+此命令會使用每個檔案 20 個執行緒和 100 個並行檔案，將檔案從 Data Lake Storage Gen1 下載至使用者的本機磁碟。
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## <a name="how-do-i-determine-the-value-for-these-properties"></a>如何判斷這些屬性的值？
 
 您的下一個問題可能是如何判斷要提供給效能相關屬性的值。 以下是一些您可以使用的指引。
 
-* **步驟 1︰決定總執行緒計數** - 您應該從計算要使用的總執行緒計數著手。 一般來說，您應該針對每個實體核心使用六個執行緒。
+* **步驟 1：決定執行緒總數** - 您應該從計算要使用的執行緒總數著手。 一般來說，您應該針對每個實體核心使用六個執行緒。
 
         Total thread count = total physical cores * 6
 
@@ -50,7 +52,7 @@ ms.locfileid: "34198645"
         Total thread count = 16 cores * 6 = 96 threads
 
 
-* **步驟 2︰計算 PerFileThreadCount** - 我們會根據檔案的大小計算 PerFileThreadCount。 對於小於 2.5 GB 的檔案，不需要變更此參數，因為預設值為 10 就已足夠。 對於大於 2.5 GB 的檔案，您應該使用 10 個執行緒作為第一個 2.5 GB 的基底，並且為每增加額外 256-MB 的檔案大小新增 1 個執行緒。 如果您要複製包含各種檔案大小的資料夾，請考慮將其分組為相似的檔案大小。 檔案大小不相近可能會導致非最佳的效能。 如果不可能分組為相似的檔案大小，您應該根據最大檔案大小設定 PerFileThreadCount。
+* **步驟 2：計算 PerFileThreadCount** - 我們會根據檔案的大小計算 PerFileThreadCount。 對於小於 2.5 GB 的檔案，不需要變更此參數，因為預設值為 10 就已足夠。 對於大於 2.5 GB 的檔案，您應該使用 10 個執行緒作為第一個 2.5 GB 的基底，並且為每增加額外 256-MB 的檔案大小新增 1 個執行緒。 如果您要複製包含各種檔案大小的資料夾，請考慮將其分組為相似的檔案大小。 檔案大小不相近可能會導致非最佳的效能。 如果不可能分組為相似的檔案大小，您應該根據最大檔案大小設定 PerFileThreadCount。
 
         PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
 
@@ -60,7 +62,7 @@ ms.locfileid: "34198645"
 
         PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads
 
-* **步驟 3︰計算 ConcurrentFilecount** - 使用總執行緒計數和 PerFileThreadCount 來計算以下列等式作為基礎的 ConcurrentFileCount：
+* **步驟 3：計算 ConcurrentFilecount** - 根據下列等式，使用執行緒總數和 PerFileThreadCount 來計算 ConcurrentFileCount：
 
         Total thread count = PerFileThreadCount * ConcurrentFileCount
 
@@ -84,17 +86,17 @@ ms.locfileid: "34198645"
 
 ### <a name="limitation"></a>限制
 
-* **檔案數目小於 ConcurrentFileCount**︰如果您要上傳的檔案數目小於您計算的 **ConcurrentFileCount**，則應該減少 **ConcurrentFileCount** 使其等於檔案數目。 您可以使用任何剩餘的執行緒來增加 **PerFileThreadCount**。
+* **檔案數目少於 ConcurrentFileCount**：如果您要上傳的檔案數目小於您計算的 **ConcurrentFileCount**，則應該將 **ConcurrentFileCount** 減少至等於檔案數目。 您可以使用任何剩餘的執行緒來增加 **PerFileThreadCount**。
 
-* **執行緒太多**︰如果您增加太多執行緒計數，但未增加您的叢集大小，您會有效能降低的風險。 在 CPU 上進行環境切換時，可能會有爭用問題。
+* **執行緒太多**：如果您將執行緒計數增加太多，但未增加叢集大小，就會有效能降低的風險。 在 CPU 上進行環境切換時，可能會有爭用問題。
 
-* **並行處理量不足**︰如果並行處理量不足，您的叢集可能太小。 您可以增加叢集中的節點數目，以提供更多的並行處理量。
+* **並行處理量不足**：如果並行處理量不足，則表示您的叢集可能太小。 您可以增加叢集中的節點數目，以提供更多的並行處理量。
 
-* **節流錯誤**︰如果並行處理量太高，您可能會看到節流錯誤。 如果您看到節流錯誤，則應該減少並行處理量或與我們連絡。
+* **節流錯誤**：如果並行處理量太高，您可能會看到節流錯誤。 如果您看到節流錯誤，則應該減少並行處理量或與我們連絡。
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Azure Data Lake Store 處理巨量資料需求](data-lake-store-data-scenarios.md) 
-* [保護 Data Lake Store 中的資料](data-lake-store-secure-data.md)
-* [搭配 Data Lake Store 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [使用 Azure Data Lake Storage Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
+* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 

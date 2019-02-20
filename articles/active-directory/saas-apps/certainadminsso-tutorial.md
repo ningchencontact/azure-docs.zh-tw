@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 40bdba8e7ce699f0fd6ca589c753f51b550fae05
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7d85e8dbac47bd41c759e9c225df5544c659cc05
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439448"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>教學課程：Azure Active Directory 與 Certain Admin SSO 整合
 
@@ -33,7 +34,7 @@ ms.locfileid: "39439448"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Certain Admin SSO 整合，您需要下列項目：
 
@@ -162,7 +163,7 @@ ms.locfileid: "39439448"
  
 ### <a name="create-a-certain-admin-sso-test-user"></a>建立 Certain Admin SSO 測試使用者
 
-在本節中，您會在 Certain Admin SSO 中建立名為 Britta Simon 的使用者。 請與 [Certain Admin SSO 支援小組](mailto:integrations@certain.com)合作，在 Certain Admin SSO 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Certain Admin SSO 中建立名為 Britta Simon 的使用者。 請與 [Certain Admin SSO 支援小組](mailto:integrations@certain.com)合作，在 Certain Admin SSO 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -199,7 +200,7 @@ ms.locfileid: "39439448"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Certain Admin SSO] 圖格時，應該會自動登入您的 Certain Admin SSO 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

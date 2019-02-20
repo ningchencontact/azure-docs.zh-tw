@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885842"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001955"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -40,7 +40,9 @@ ms.locfileid: "54885842"
 
 * 將診斷記錄檔儲存到[**儲存體帳戶**](../../azure-monitor/platform/archive-diagnostic-logs.md)以利稽核或手動檢查。 您可以使用**資源診斷設定**指定保留時間 (以天為單位)。
 * [將診斷記錄檔串流至**事件中樞**](diagnostic-logs-stream-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
-* 使用 [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md) 進行分析，其中資料會立即寫入 Log Analytics，不需要先將資料寫入儲存體。  
+* 使用 [Azure 監視器](../../azure-monitor/platform/collect-azure-metrics-logs.md)來分析它們，其中資料會立即寫入至「Azure 監視器」，而無須先將資料寫入至儲存體。  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 您可以使用並非發出記錄的同一個訂用帳戶中的儲存體帳戶或事件中樞命名空間。 進行此設定的使用者必須具有這兩個訂用帳戶的適當 RBAC 存取權。
 
@@ -56,7 +58,7 @@ ms.locfileid: "54885842"
 
 資源診斷記錄是使用資源診斷設定進行設定的。 租用戶診斷記錄是使用租用戶診斷設定進行設定的。 服務的**診斷設定**會控制：
 
-* 診斷記錄和計量傳送至何處 (儲存體帳戶、事件中樞和/或 Log Analytics)。
+* 診斷記錄和計量的傳送位置 (儲存體帳戶、事件中樞和/或 Azure 監視器)。
 * 傳送何種記錄類別，以及是否也會傳送計量資料。
 * 每個記錄類別應該在儲存體帳戶中保留多久
     - 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
@@ -221,7 +223,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 您可能必須按一下 [所有服務] 才能找到 [監視器] 區段。
 
-您可以在此檢視和篩選所有支援診斷設定的資源，以查看它們是否已啟用診斷。 您也可以向下切入，以查看資源上是否設定了多項設定，並確認資料將流向哪個儲存體帳戶、事件中樞命名空間及/或 Log Analytics 工作區。
+您可以在此檢視和篩選所有支援診斷設定的資源，以查看它們是否已啟用診斷。 您也可以向下切入，以查看資源上是否設定了多個設定，並確認資料將流向哪個儲存體帳戶、事件中樞命名空間及/或 Log Analytics 工作區。
 
 ![入口網站中的診斷記錄結果](./media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 
@@ -235,5 +237,4 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 * [將資源診斷記錄串流至**事件中樞**](diagnostic-logs-stream-event-hubs.md)
 * [使用 Azure 監視器 REST API 變更資源診斷設定](https://docs.microsoft.com/rest/api/monitor/)
-* [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [使用 Azure 監視器分析來自 Azure 儲存體的記錄](collect-azure-metrics-logs.md)

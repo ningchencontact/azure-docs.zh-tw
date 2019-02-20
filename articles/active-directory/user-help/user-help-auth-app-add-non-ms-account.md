@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: afcac73af84010f37eccd018f39852712e495b84
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 714a78c436b7071717e2df12c2a65999920f8c63
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55771936"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192127"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>新增您的非 Microsoft 帳戶
 將非 Microsoft 帳戶 (例如 Google、Facebook 或 GitHub 的帳戶) 新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。 Microsoft Authenticator 應用程式適用於任何使用雙因素驗證的應用程式，以及任何支援限時單次密碼 (TOTP) 標準的帳戶。
@@ -55,7 +56,7 @@ ms.locfileid: "55771936"
 4. 使用裝置相機掃描電腦上的 [設定 Authenticator] 頁面中顯示的 QR 代碼。
 
     >[!Note]
-    >如果相機無法正常運作，您可以[手動輸入 QR 代碼和 URL](#add-an-account-to-the-app-manually)。
+    >如果相機無法正常運作，您可以手動輸入 QR 代碼和 URL。
 
 5. 在您的裝置上檢閱 Microsoft Authenticator 應用程式的 [帳戶] 頁面，以確定您的帳戶資訊正確無誤，並且有相關聯的六位數驗證碼。
 
@@ -94,7 +95,7 @@ ms.locfileid: "55771936"
 3. 使用裝置相機掃描電腦上的 [雙因素驗證] 頁面中顯示的 QR 代碼。
 
     >[!Note]
-    >如果相機無法正常運作，您可以[手動輸入 QR 代碼和 URL](#add-an-account-to-the-app-manually)。
+    >如果相機無法正常運作，您可以手動輸入 QR 代碼和 URL。
 
 4. 在您的裝置上檢閱 Microsoft Authenticator 應用程式的 [帳戶] 頁面，以確定您的帳戶資訊正確無誤，並且有相關聯的六位數驗證碼。
 
@@ -122,7 +123,7 @@ ms.locfileid: "55771936"
 
 1. 在電腦的 [雙因素驗證] 頁面上，選取 [使用應用程式進行設定]。
 
-2. 儲存您的復原碼以便在失去存取權時恢復您的帳戶，然後按 [下一步]。 
+2. 儲存您的復原碼以便在失去存取權時恢復您的帳戶，然後按一下 [下一步]。 
 
     您可以將復原碼下載到您的裝置、列印實體複本，或將其複製到密碼管理員工具中，以儲存復原碼。
 
@@ -165,7 +166,7 @@ ms.locfileid: "55771936"
 6. 使用裝置相機掃描電腦的 [選擇接收代碼的方式] 頁面中顯示的 QR 代碼。
 
     >[!Note]
-    >如果相機無法正常運作，您可以[手動輸入 QR 代碼和 URL](#add-an-account-to-the-app-manually)。
+    >如果相機無法正常運作，您可以手動輸入 QR 代碼和 URL。
 
 5. 在您的裝置上檢閱 Microsoft Authenticator 應用程式的 [帳戶] 頁面，以確定您的帳戶資訊正確無誤，並且有相關聯的六位數驗證碼。
 

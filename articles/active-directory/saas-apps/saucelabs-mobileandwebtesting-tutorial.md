@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 Sauce Labs - 行動和 Web 測試整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 與 Sauce Labs - Mobile and Web Testing 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Sauce Labs - 行動和 Web 測試之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 55d84256f408e80600308ede22dbaa903b070d90
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266734"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207002"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>教學課程：Azure Active Directory 與 Sauce Labs - 行動和 Web 測試整合
+# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>教學課程：Azure Active Directory 與 Sauce Labs - Mobile and Web Testing 整合
 
 在本教學課程中，您將了解如何將 Sauce Labs - 行動和 Web 測試與 Azure Active Directory (Azure AD) 整合。
 
@@ -33,7 +34,7 @@ ms.locfileid: "39266734"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Sauce Labs - 行動和 Web 測試整合，您需要下列項目：
 
@@ -175,7 +176,7 @@ ms.locfileid: "39266734"
 
 本節目標是在 Sauce Labs - 行動和 Web 測試中建立名為 Britta Simon 的使用者。 Sauce Labs - 行動和 Web 測試支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 當您嘗試存取 Sauce Labs - 行動和 Web 測試時，如果 Sauce Labs - 行動和 Web 測試還沒有使用者，就會建立新的使用者。
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Sauce Labs - 行動和 Web 測試支援小組](mailto:support@saucelabs.com)。
+>如果您需要手動建立使用者，請連絡  [Sauce Labs - Mobile and Web Testing 支援小組](mailto:support@saucelabs.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -212,7 +213,7 @@ ms.locfileid: "39266734"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下存取面板中的 [Sauce Labs - 行動和 Web 測試] 圖格時，應該會自動登入您的 Sauce Labs - 行動和 Web 測試應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 2e986e26f22e41e1cbf7b8d1c1af694522a01d06
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821570"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169967"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -253,11 +253,11 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 >
 > 如果您未使用網路安全性群組或使用者定義的路由來控制流量，可以忽略這個章節。
 
-如果您是使用網路安全性群組或使用者定義的路由，必須允許來自 Azure 健康情況和管理服務的流量觸達 HDInsight。 您也必須允許子網路內 VM 之間的流量。 您可以使用下列步驟來尋找必須允許的 IP 位址：
+如果您使用網路安全性群組，就必須允許來自 Azure 健康狀態和管理服務的流量透過連接埠 443 到達 HDInsight 叢集。 您也必須允許子網路內 VM 之間的流量。 您可以使用下列步驟來尋找必須允許的 IP 位址：
 
 1. 您必須一律允許來自下列 IP 位址的流量：
 
-    | IP 位址 | 允許的連接埠 | 方向 |
+    | 來源 IP 位址 | 目的地連接埠 | 方向 |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | 輸入 |
     | 23.99.5.239 | 443 | 輸入 |
@@ -269,7 +269,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
     > [!IMPORTANT]  
     > 如果未列出您使用的 Azure 區域，就只能使用步驟 1 中的四個 IP 位址。
 
-    | 國家 (地區) | 區域 | 允許的 IP 位址 | 允許的連接埠 | 方向 |
+    | 國家 (地區) | 區域 | 允許的來源 IP 位址 | 允許的目的地連接埠 | 方向 |
     | ---- | ---- | ---- | ---- | ----- |
     | 亞洲 | 東亞 | 23.102.235.122</br>52.175.38.134 | 443 | 輸入 |
     | &nbsp; | 東南亞 | 13.76.245.160</br>13.76.136.249 | 443 | 輸入 |
@@ -306,15 +306,13 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 如需詳細資訊，請參閱[控制網路流量](#networktraffic)一節。
 
+針對連出 NSG 規則，請允許來自 VNET 內部「任何」來源的流量到達上述位址 (作為「目的地 IP 位址」)。
+
+如果您使用使用者定義的 (UDR)，應該指定路由並允許來自 VNET 的連出流量到上述 IP，並將下一個躍點設定為 [網際網路]。
+    
 ## <a id="hdinsight-ports"></a> 所需連接埠
 
-如果您打算使用**防火牆**來保護虛擬網路及透過特定連接埠存取叢集，您應該在您案例所需的連接埠上允許流量。 根據預設，您不需要將下列連接埠列入白名單：
-
-* 53
-* 443
-* 1433
-* 11000-11999
-* 14000-14999
+如果您打算使用**防火牆**並從從外部透過特定連接埠存取叢集，則可能需要在您案例所需的連接埠上允許流量。 根據預設，只要允許上一節中所述的 Azure 管理流量透過連接埠 443 到達叢集，就不需要設定任何特殊的連接埠白名單。
 
 如需特定服務的連接埠清單，請參閱 [HDInsight 上 Apache Hadoop 服務所使用的連接埠](hdinsight-hadoop-port-settings-for-services.md)文件。
 
@@ -322,7 +320,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 ## <a id="hdinsight-nsg"></a>範例：網路安全性群組與 HDInsight
 
-本節中的範例會示範如何建立網路安全性群組規則，以允許 HDInsight 與 Azure 管理服務進行通訊。 使用範例之前，請調整 IP 位址以符合您要使用之 Azure 區域的 IP 位址。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
+本節中的範例會示範如何建立網路安全性群組規則，以允許 HDInsight 與 Azure 管理服務進行通訊。 使用範例之前，請調整 IP 位址以符合您要使用之 Azure 區域的 IP 位址。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到此資訊。
 
 ### <a name="azure-resource-management-template"></a>Azure 資源管理範本
 
@@ -331,14 +329,14 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 * [部署安全的 Azure 虛擬網路和 HDInsight Hadoop 叢集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]  
-> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
+> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到此資訊。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 使用下列 PowerShell 指令碼建立限制輸入流量的虛擬網路，並允許來自北歐區域之 IP 位址的流量。
 
 > [!IMPORTANT]  
-> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
+> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到此資訊。
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
@@ -459,7 +457,7 @@ $vnet | Set-AzureRmVirtualNetwork
 2. 使用下列將規則新增至新的網路安全性群組，這些規則允許從 Azure HDInsight 健康狀態和管理服務透過連接埠 443 的輸入通訊。 將 **RESOURCEGROUPNAME** 取代為包含 Azure 虛擬網路的資源群組名稱。
 
     > [!IMPORTANT]  
-    > 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
+    > 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到此資訊。
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -608,7 +606,7 @@ $vnet | Set-AzureRmVirtualNetwork
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. 使用下列文字作為自訂 DNS 伺服器上 `/etc/bind/named.config.local` 檔案的內容。 在這兩個虛擬網路的自訂 DNS 伺服器上進行這項變更。
+2. 使用下列文字作為自訂 DNS 伺服器上 `/etc/bind/named.config.local` 檔案的內容。 在這兩個虛擬網路的自訂 DNS 伺服器上進行此變更。
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver

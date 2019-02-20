@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: e4b217ada2aae159680b113b6ddcb41c9d121f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753056"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894695"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database 和 SQL 資料倉儲 IP 防火牆規則
 
@@ -92,7 +92,7 @@ Microsoft 建議在可行時使用資料庫層級 IP 防火牆規則增強安全
 > [!TIP]
 > 您可以使用 [SQL Database 稽核](sql-database-auditing.md)來稽核伺服器等級和資料庫等級防火牆的變更。
 
-## <a name="manage-ip-firewall-rules-using-the-azure-portal"></a>使用 Azure 入口網站管理 IP 防火牆規則
+## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>使用 Azure 入口網站管理伺服器層級 IP 防火牆規則
 
 若要在 Azure 入口網站中設定伺服器層級 IP 防火牆規則，您可以前往 Azure SQL Database 的 [概觀] 頁面，或是 SQL Database 伺服器的 [概觀] 頁面。
 
@@ -196,7 +196,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [刪除防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |伺服器 |移除伺服器層級 IP 防火牆規則 |
 | [取得防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | 伺服器 | 取得伺服器層級 IP 防火牆規則 |
 
-## <a name="server-level-ip-firewall-rule-versus-a-database-level-ip-firewall-rule"></a>伺服器層級 IP 防火牆規則與資料庫層級 IP 防火牆規則
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>伺服器層級與資料庫層級 IP 防火牆規則
 
 問： 某個資料庫的使用者是否應該完全與另一個資料庫隔離？
 如果是，請使用資料庫層級 IP 防火牆規則授與存取權。 這可避免使用伺服器層級 IP 防火牆規則，該規則允許透過防火牆存取所有資料庫，這樣會使得您的防禦程度降低。

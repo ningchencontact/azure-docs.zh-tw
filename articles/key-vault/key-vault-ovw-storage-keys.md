@@ -7,14 +7,14 @@ services: key-vault
 ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
-manager: mbaldwin
+manager: barbkess
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814838"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118049"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 受控儲存體帳戶 - CLI
 
@@ -35,7 +35,7 @@ ms.locfileid: "55814838"
 > - Azure 政府雲端中的 Azure AD 租用戶會使用應用程式識別碼 `7e7c393b-45d0-48b1-a35e-2905ddf8183c`。
 > - Azure 公用雲端中的 Azure AD 租用戶和所有其他用戶端都會使用應用程式識別碼 `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`。
 
-<a name="prerequisites"></a>必要條件
+<a name="prerequisites"></a>先決條件
 --------------
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 安裝 Azure CLI   
 2. [建立儲存體帳戶](https://azure.microsoft.com/services/storage/)
@@ -44,6 +44,12 @@ ms.locfileid: "55814838"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>如何使用 Key Vault 管理儲存體帳戶金鑰的逐步指示
 --------------------------------------------------------------------------------
+在概念上，遵循的步驟清單是
+- 我們先取得 (現有的) 儲存體帳戶
+- 我們再擷取 (現有的) 金鑰保存庫
+- 然後，我們將 KeyVault 管理的儲存體帳戶新增到保存庫，將 Key1 設定為作用中金鑰，且重新產生週期為 180 天
+- 最後，我們使用 Key1 為指定的儲存體帳戶設定儲存體內容
+
 在下面的指示中，我們會將 Key Vault 指派為服務，以便擁有儲存體帳戶的操作員權限
 
 > [!NOTE]
@@ -56,13 +62,13 @@ ms.locfileid: "55814838"
     ```
     從以上命令的結果複製識別碼欄位
     
-2. 藉由執行下列命令來取得 Azure Key Vault 服務主體的物件識別碼
+2. 藉由執行以下命令來取得 Azure Key Vault 服務主體的物件識別碼
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    此命令成功完成時在結果中找到物件識別碼
+    此命令成功完成時，在結果中找到物件識別碼：
     ```console
         {
             ...
@@ -71,7 +77,7 @@ ms.locfileid: "55814838"
         }
     ```
     
-3. 將儲存體金鑰操作員角色指派給 Azure Key Vault 身分識別
+3. 將儲存體金鑰操作員角色指派給 Azure Key Vault 身分識別。
 
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
@@ -85,9 +91,41 @@ ms.locfileid: "55814838"
     ```
     如果使用者未建立儲存體帳戶且沒有儲存體帳戶的權限，下列步驟會為您的帳戶設定權限，確保您可以管理 Key Vault 中的所有儲存體權限。
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>如何使用 Key Vault 來建立及產生 SAS 權杖的逐步指示
+--------------------------------------------------------------------------------
+您也可以要求 Key Vault 產生 SAS (共用存取簽章) 權杖。 共用存取簽章可提供您儲存體帳戶中資源的委派存取。 透過 SAS，您可以對用戶端授與儲存體帳戶中資源的存取權，而不必共用帳戶金鑰。 這是在您應用程式中使用共用存取簽章的重點 - SAS 是共用儲存體資源的安全方式，而不會危害您的帳戶金鑰。
+
+當您完成上面所列的步驟之後，可以執行下列命令，以要求 Key Vault 為您產生 SAS 權杖。 
+
+會在以下步驟中完成的事項清單為
+- 在您保存庫 '<VaultName>' 中由 KeyVault 管理的儲存體帳戶 '<YourStorageAccountName>' 上，設定名為 '<YourSASDefinitionName>' 的帳戶 SAS 定義。 
+- 透過 Https 並使用指定的開始和結束日期，為資源型「服務」、「容器」和「物件」，建立服務 Blob、檔案、資料表和佇列的帳戶 SAS 權杖
+- 使用如上面所建立 SAS 權杖的範本 URI，在保存庫中設定 KeyVault 管理的儲存體 SAS 定義，其 SAS 類型為 'account' 且有效期為 N 天
+- 從與 SAS 定義相對應的 KeyVault 祕密擷取實際的存取權杖
+
+1. 我們將在此步驟中建立 SAS 定義。 建立 SAS 定義之後，您可以要求 Key Vault 為您產生更多 SAS 權杖。 此作業需要 storage/setsas 權限。
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+您可以在[這裡](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)查看上述作業的更多說明
+
+當此作業執行成功時，您應該會看到如下的輸出。 複製它
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. 在此步驟中，我們將使用上面產生的輸出 ($sasToken) 來建立 SAS 定義。 如需詳細文件，請參閱[這裡](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > 在使用者沒有儲存體帳戶權限的情況下，我們會先取得使用者的物件識別碼
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ ms.locfileid: "55814838"
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>如何使用 SAS 權杖存取您的儲存體帳戶
+## <a name="fetch-sas-tokens-in-code"></a>在程式碼中擷取 SAS 權杖
 
 在這一節中，我們將討論如何藉由從 Key Vault 擷取 [SAS 權杖](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)，在您的儲存體帳戶上執行作業
 
-在下一節中，我們會示範如何擷取 Key Vault 中儲存的儲存體帳戶金鑰，並使用該金鑰來建立儲存體帳戶的 SAS (共用存取簽章) 定義。
+在以下小節中，我們會示範當上述 SAS 權杖建立之後，如何擷取 SAS 權杖。
 
 > [!NOTE] 
   如[基本概念](key-vault-whatis.md#basic-concepts)所述，向 Key Vault 驗證的方法有 3 種：
@@ -132,19 +170,9 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
+### <a name="relevant-azure-cli-commands"></a>相關的 Azure CLI 命令
 
-### <a name="relavant-azure-cli-cmdlets"></a>相關的 Azure CLI Cmdlet
-[Azure CLI 儲存體 Cmdlet](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
-
-### <a name="relevant-powershell-cmdlets"></a>相關的 Powershell Cmdlet
-
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+[Azure CLI 儲存體命令](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ## <a name="see-also"></a>另請參閱
 

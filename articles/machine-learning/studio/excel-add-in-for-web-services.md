@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486889"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997061"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>適用於 Azure Machine Learning Studio Web 服務的 Excel 增益集
 Excel 可以讓您直接輕鬆呼叫 Web 服務，而不需要撰寫任何程式碼。
@@ -24,8 +24,8 @@ Excel 可以讓您直接輕鬆呼叫 Web 服務，而不需要撰寫任何程式
 
 1. 開啟 [範例 Excel 檔案](https://aka.ms/amlexcel-sample-2)，其中包含 Excel 增益集和鐵達尼號乘客的相關資料。 
  
-> [!NOTE]
-> 您會看到和檔案相關聯的 Web 服務清單，以及在底部的 [Auto-predict] \(自動預測\) 核取方塊。 如果您啟用自動預測，每當輸入變更時，您**所有**服務的預測都會更新。 如果取消選取，您將需要按一下 [Predict All] \(全部預測\) 來重新整理。 若要啟用服務層級的自動預測，請移至步驟 6。
+    > [!NOTE]
+    > 您會看到和檔案相關聯的 Web 服務清單，以及在底部的 [Auto-predict] \(自動預測\) 核取方塊。 如果您啟用自動預測，每當輸入變更時，您**所有**服務的預測都會更新。 如果取消選取，您將需要按一下 [Predict All] \(全部預測\) 來重新整理。 若要啟用服務層級的自動預測，請移至步驟 6。
 
 2. 按一下 Web 服務加以選擇，在此範例中為「鐵達尼號存活者預測工具 (Excel 增益集範例) [分數]」。
    
@@ -37,7 +37,7 @@ Excel 可以讓您直接輕鬆呼叫 Web 服務，而不需要撰寫任何程式
    
     ![預測區段][02]
 
-部署 Web 服務或使用現有的 Web 服務。 如需部署 Web 服務的詳細資訊，請參閱[逐步解說步驟 5：部署 Azure Machine Learning Web 服務](walkthrough-5-publish-web-service.md)。
+部署 Web 服務或使用現有的 Web 服務。 如需部署 Web 服務的詳細資訊，請參閱[教學課程 3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)。
 
 取得 Web 服務的 API 金鑰。 執行此動作的位置，取決於您發佈的是傳統 Machine Learning Web 服務或新的 Machine Learning Web 服務。
 
@@ -65,7 +65,7 @@ Excel 可以讓您直接輕鬆呼叫 Web 服務，而不需要撰寫任何程式
 
 ## <a name="steps-to-add-a-new-web-service"></a>新增 Web 服務的步驟
 
-1. 部署 Web 服務或使用現有的 Web 服務。 如需部署 Web 服務的詳細資訊，請參閱[逐步解說步驟 5：部署 Azure Machine Learning Web 服務](walkthrough-5-publish-web-service.md)。
+1. 部署 Web 服務或使用現有的 Web 服務。 如需部署 Web 服務的詳細資訊，請參閱[教學課程 3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)。
 2. 按一下 [取用] 。
 3. 尋找 [基本使用資訊]  區段。 複製並儲存 [主要金鑰] 和 [要求-回應] URL。
 4. 在 Excel 中，前往 [Web 服務] 區段 (如果您是在 [預測] 區段中，請按一下向後鍵以前往 Web 服務的清單)。

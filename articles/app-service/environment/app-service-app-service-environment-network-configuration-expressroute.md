@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 23faf3b88584f8031b4a2fdbc6d94ac2ae861431
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104449"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113374"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>搭配 Azure ExpressRoute 之 PowerApps 的 App Service 環境網路設定詳細資料
 
@@ -59,9 +59,9 @@ ms.locfileid: "54104449"
 
 * 必須允許透過連入網路存取「App Service 環境」的必要連接埠。 如需詳細資料，請參閱[如何控制 App Service 環境的連入流量][requiredports]。
 
-為了符合 DNS 需求，請務必為虛擬網路設定及維護有效的 DNS 基礎結構。 如果 DNS 設定在建立「App Service 環境」後已變更，開發人員可以強制「App Service 環境」套用新的 DNS 設定。 您可以在 [Azure 入口網站][NewPortal]中，使用「App Service 環境」管理底下的 [重新啟動] 圖示來觸發輪流的環境重新啟動。 此重新啟動會讓環境套用新的 DNS 設定。
+為了符合 DNS 需求，請務必為虛擬網路設定及維護有效的 DNS 基礎結構。 如果 DNS 設定在建立「App Service 環境」後已變更，開發人員可以強制「App Service 環境」套用新的 DNS 設定。 您可以在 [Azure 入口網站][NewPortal]中，使用「App Service 環境」管理底下的 [重新啟動] 圖示，來觸發輪流的環境重新啟動。 此重新啟動會讓環境套用新的 DNS 設定。
 
-為了符合連入網路存取需求，請在「App Service 環境」環境子網路上設定[網路安全性群組 (NSG)][NetworkSecurityGroups]。 NSG 可允許必要的存取權以[控制 App Service 環境的連入流量][requiredports]。
+為了符合連入網路存取需求，請在「App Service 環境」子網路上設定[網路安全性群組 (NSG)][NetworkSecurityGroups]。 NSG 可允許必要的存取權以[控制 App Service 環境的連入流量][requiredports]。
 
 ## <a name="outbound-network-connectivity"></a>連出網路連線
 
@@ -87,13 +87,13 @@ ms.locfileid: "54104449"
 
 如需有關使用者定義路由的背景資訊，請參閱[虛擬網路流量路由][UDROverview]。  
 
-若要了解如何建立及設定使用者定義路由，請參閱[使用 PowerShell 以路由表路由傳送網路流量][UDRHowTo]。
+若要了解如何建立及設定使用者定義的路由，請參閱[使用 PowerShell 以路由表路由傳送網路流量][UDRHowTo]。
 
 ## <a name="udr-configuration"></a>UDR 設定
 
 本節示範「App Service 環境」的範例 UDR 設定。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * 從 [Azure 下載頁面][AzureDownloads]安裝 Azure PowerShell。 選擇日期為 2015 年 6 月或之後的下載項目。 在 [命令列工具] > [Windows PowerShell] 底下，選取 [安裝] 以安裝最新的 PowerShell Cmdlet。
 
@@ -151,13 +151,20 @@ ms.locfileid: "54104449"
 若要開始使用「適用於 PowerApps 的 App Service 環境」，請參閱 [App Service 環境簡介][IntroToAppServiceEnvironment]。
 
 <!-- LINKS -->
-[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
-[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
-[requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md [NewPortal]:  https://portal.azure.com
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/ 
+[requiredports]: app-service-app-service-environment-control-inbound-traffic.md 
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
+[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/ 
+<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
+
+[UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell 
+[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md 
+[AzureDownloads]: https://azure.microsoft.com/downloads/ 
+[DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653 
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
+[IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md 
+[NewPortal]:  https://portal.azure.com 
 
 
 <!-- IMAGES -->

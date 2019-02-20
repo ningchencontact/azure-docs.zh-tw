@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e11ac55afe41231fcbc3aabb3ef54b46108eb49c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515313"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185837"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>使用 PowerShell 進行 Service Fabric 應用程式升級
 > [!div class="op_single_selector"]
@@ -34,9 +34,7 @@ ms.locfileid: "51515313"
 
 可以使用受控或原生 API、PowerShell、Azure CLI、Java 或 REST，執行監視應用程式升級。 如需有關使用 Visual Studio 來執行升級的說明，請參閱 [使用 Visual Studio 升級您的應用程式](service-fabric-application-upgrade-tutorial.md)。
 
-透過 Service Fabric 監視輪流升級，應用程式系統管理員即可設定 Service Fabric 用來判斷應用程式健康狀態良好的健康狀態評估原則。 此外，系統管理員也可設定當健康狀態評估失敗時採取的動作 (例如，進行自動回復)。本節會逐步解說使用 PowerShell 對其中一個 SDK 範例進行受監視的升級。 下列 Microsoft Virtual Academy 影片也會逐步引導您完成應用程式升級︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
-<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
+透過 Service Fabric 監視輪流升級，應用程式系統管理員即可設定 Service Fabric 用來判斷應用程式健康狀態良好的健康狀態評估原則。 此外，系統管理員也可設定當健康狀態評估失敗時採取的動作 (例如，進行自動回復)。本節會逐步解說使用 PowerShell 對其中一個 SDK 範例進行受監視的升級。 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>步驟 1：建置和部署視覺物件範例
 在應用程式專案 **VisualObjectsApplication** 上按一下滑鼠右鍵，然後選取 [發佈] 命令來建置和發佈應用程式。  如需詳細資訊，請參閱 [Service Fabric 應用程式升級教學課程](service-fabric-application-upgrade-tutorial.md)。  或者，您可以使用 PowerShell 來部署您的應用程式。
@@ -53,7 +51,7 @@ ms.locfileid: "51515313"
 ## <a name="step-2-update-the-visual-objects-sample"></a>步驟 2：更新視覺物件範例
 您可能會注意到在步驟 1 中已部署的版本，視覺物件不會旋轉。 讓我們將這個應用程式升級到其中的視覺物件也會旋轉的版本。
 
-選取 VisualObjects 解決方案內的 VisualObjects.ActorService 專案，然後開啟 StatefulVisualObjectActor.cs 檔案。 在該檔案內，瀏覽至 `MoveObject` 方法，然後將 `this.State.Move()` 標記為註解，然後將 `this.State.Move(true)` 取消註解。 這項變更會在服務升級後旋轉物件。
+選取 VisualObjects 解決方案內的 VisualObjects.ActorService 專案，然後開啟 StatefulVisualObjectActor.cs 檔案。 在該檔案內，瀏覽至 `MoveObject` 方法，然後將 `this.State.Move()` 標記為註解，然後將 `this.State.Move(true)` 取消註解。 此變更會在服務升級後旋轉物件。
 
 我們也需要更新 *VisualObjects.ActorService* 專案的 **ServiceManifest.xml**檔案 (在 [PackageRoot] 底下)。 請將 *ServiceManifest.xml* 檔案中的 *CodePackage* 和服務版本及對應的行更新成 2.0。
 您可以在對解決方案按一下滑鼠右鍵之後，使用 Visual Studio [編輯資訊清單檔案]  選項來進行資訊清單檔案變更。
@@ -76,7 +74,7 @@ ms.locfileid: "51515313"
 
 現在只選取 [ActorService] 專案，然後以滑鼠右鍵按一下並選取 Visual Studio 中的 [組建] 選項建置專案。 如果您選取 [全部重建]，因為程式碼已變更，所以您要更新所有專案的版本。 接下來，在 [VisualObjectsApplication] 上按一下滑鼠右鍵，選取 [Service Fabric] 功能表，然後選擇 [封裝]，來封裝已更新的應用程式。 這個動作會建立可部署的應用程式封裝。  更新的應用程式已準備好進行部署。
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>步驟 3：決定健康狀態原則並升級參數
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>步驟 3：決定健康情況原則並升級參數
 請您熟悉[應用程式升級參數](service-fabric-application-upgrade-parameters.md)和[升級程序](service-fabric-application-upgrade.md)，以了解套用的各種升級參數、逾時和健康狀態準則。 對於此逐步解說，服務健康狀態評估準則會設定為預設值 (和建議值)，這表示升級之後，所有服務和執行個體應該是「健康狀態良好」  。  
 
 但是，讓我們將 *HealthCheckStableDuration* 增加為 180 秒 (如此一來，在升級繼續至下一個更新網域之前，至少有 120 秒的時間服務是健康狀態良好的)。  同時也要將 *UpgradeDomainTimeout* 設為 1200 秒，將 *UpgradeTimeout* 設為 3000 秒。

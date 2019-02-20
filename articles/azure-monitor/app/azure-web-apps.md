@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4ec6e1288b34f04350a88697ca13ed044922ee50
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565950"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002223"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 在 [Azure 入口網站](https://portal.azure.com)中，您可以為 [Azure App Service](../../app-service/overview.md) 中的 Web 應用程式、行動後端和 API 應用程式設定應用程式效能監視。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會檢測您的應用程式，將其活動的相關遙測傳送給 Application Insights 服務，以在其中儲存和分析遙測。 該處的度量圖表和搜尋工具可用於協助診斷問題、改善效能，以及評估使用方式。
@@ -29,7 +29,7 @@ ms.locfileid: "55565950"
 * **建置階段** - 您可以在開發應用程式中安裝封裝。 此選項比較靈活。 除了相同的標準封裝以外，您可以撰寫程式碼以自訂遙測，或傳送自己的遙測。 您可以根據您的應用程式網域，記錄特定活動或記錄事件。 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>使用 Application Insights 執行時間檢測
-如果您已經在 Azure 中執行應用程式服務，您便已經得到一些監視︰要求率和錯誤率。 新增 Application Insights 可得到更多監視，例如回應時間、監視相依性呼叫、智慧偵測，以及強大的 Log Analytics 查詢語言。 
+如果您已經在 Azure 中執行應用程式服務，您便已經得到一些監視︰要求率和錯誤率。 請新增 Application Insights 來獲得更多監視，例如回應時間、監視對相依性的呼叫、智慧偵測，以及功能強大的「資料總管」查詢語言。 
 
 1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]。
 

@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 5ae69d365a183f7d2a219d853241e73c1e27212b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144815"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244924"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>使用憑證保護 B2B 訊息
 
@@ -30,6 +30,8 @@ ms.locfileid: "42144815"
 * [公開憑證](https://en.wikipedia.org/wiki/Public_key_certificate)，您必須從公用網路的[憑證授權單位 (CA)](https://en.wikipedia.org/wiki/Certificate_authority) 購買這些憑證，但不需要任何金鑰。 
 
 * 私用憑證或[自我簽署憑證](https://en.wikipedia.org/wiki/Self-signed_certificate)，這些憑證由您自行建立並核發，但也需要私密金鑰。 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upload-a-public-certificate"></a>上傳公開憑證
 
@@ -67,11 +69,11 @@ ms.locfileid: "42144815"
 > [!NOTE]
 > 對於私人憑證，務必要新增對應的公開憑證，讓其出現在 [AS2 合約](logic-apps-enterprise-integration-as2.md)的**傳送和接收**設定以用於簽署和加密訊息。
 
-1. [將私密金鑰新增至 Key Vault](../key-vault/key-vault-get-started.md#add) 並提供 [金鑰名稱]。
+1. [將私密金鑰新增至 Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) 並提供 [金鑰名稱]。
    
-2. 授權 Azure Logic Apps 以便對 Azure Key Vault 執行作業。 若要對 Logic Apps 服務主體授與存取權，請使用 PowerShell 命令 [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy)，例如：
+2. 授權 Azure Logic Apps 以便對 Azure Key Vault 執行作業。 若要對 Logic Apps 服務主體授與存取權，請使用 [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) PowerShell 命令，例如：
 
-   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
 3. 登入 [Azure 入口網站](https://portal.azure.com)。 在主要 Azure 功能表上，選取 [所有資源]。 在 [搜尋] 方塊中，輸入您的整合帳戶名稱，然後選取您要的整合帳戶。

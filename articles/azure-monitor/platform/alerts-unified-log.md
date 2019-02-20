@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745702"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106395"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure 監視器中的記錄警示
-此文章提供記錄警示的詳細資料，記錄警示是 [Azure 警示](../../azure-monitor/platform/alerts-overview.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
+此文章提供記錄警示的詳細資料，記錄警示是 [Azure 警示](../platform/alerts-overview.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
 
-記錄警示包含針對 [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events) 所建立的記錄搜尋規則。 若要深入了解其使用方式，請參閱[在 Azure 中建立記錄警示](../../azure-monitor/platform/alerts-log.md)
+記錄警示包含針對 [Azure 監視器](../learn/tutorial-viewdata.md)或 [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events) 所建立的記錄查詢規則。 若要深入了解其使用方式，請參閱[在 Azure 中建立記錄警示](../platform/alerts-log.md)
 
 > [!NOTE]
-> [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 中常用的記錄資料現在也會提供在 Azure 監視器的計量平台上。 如需詳細資料檢視，請參閱[記錄的計量警示](../../azure-monitor/platform/alerts-metric-logs.md)
+> [Azure 監視器](../learn/tutorial-viewdata.md)中常用的記錄資料現在也會在 Azure 監視器的計量平台上提供。 如需詳細資料檢視，請參閱[記錄的計量警示](../platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>記錄搜尋警示規則 - 定義和類型
@@ -41,7 +41,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 
 - **閾值**。  系統會評估記錄搜尋的結果，以判斷是否應該建立警示。  不同類型的記錄搜尋警示規則會有不同的閾值。
 
-不論是 [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 還是 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events) 的記錄搜尋規則都可以屬於兩個類型。 下列各節會詳細說明這兩個類型。
+不論是 [Azure 監視器](../learn/tutorial-viewdata.md)還是 [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events) 的記錄查詢規則都可以屬於兩個類型。 下列各節會詳細說明這兩個類型。
 
 - **[結果數目](#number-of-results-alert-rules)**。 當記錄搜尋所傳回的數目記錄超過指定數目時，系統會建立單一警示。
 - **[計量測量](#metric-measurement-alert-rules)**。  針對記錄搜尋結果中的每個物件，若其值超過指定的閾值，系統就會為其建立警示。
@@ -99,14 +99,28 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 - **查詢：** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **時間週期：** 30 分鐘<br>
 - **警示頻率：** 5 分鐘<br>
-- **彙總值：** 大於 90<br>
+- **警示邏輯 - 條件和閾值：** 大於 90<br>
+- **群組欄位 (開啟彙總)：** 電腦
 - **觸發警示的依據：** 違規數總計大於 2<br>
 
-查詢會以 5 分鐘為間隔為每部電腦建立平均值。  此查詢會每隔 5 分鐘針對在先前 30 分鐘內所收集的資料來執行。  三部電腦的資料範例如下所示。
+查詢會以 5 分鐘為間隔為每部電腦建立平均值。  此查詢會每隔 5 分鐘針對在先前 30 分鐘內所收集的資料來執行。 由於所選的「群組欄位 (開啟彙總)」是單欄式的「電腦」，AggregatedValue 會分割為「電腦」的各種值，而每部電腦的平均處理器使用率是以 5 分鐘的時間間隔判斷。  3 部電腦 (假設) 的範例查詢結果會如下所示。
+
+
+|TimeGenerated [UTC] |電腦  |AggregatedValue  |
+|---------|---------|---------|
+|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+如果會繪製查詢結果，則會顯示如下。
 
 ![查詢結果範例](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-在此範例中，系統會為 srv02 和 srv03 建立個別警示，因為它們在時間週期內違反 90% 閾值三次。  如果**警示觸發依據︰** 變更為**連續**，則系統只會為 srv03 建立警示，因為它違反了 3 個連續取樣的閾值。
+在此範例中，我們看到 3 部電腦每一部的 5 分鐘間隔，平均處理器使用率是以 5 分鐘來計算。 srv01 只有在 1:25 間隔違反 90 閾值一次。 相較之下，srv02 在 1:10、1:15 和 1:25 間隔超過 90 閾值；而 srv03 在 1:10、1:15、1:20 和 1:30 超過 90 閾值。 由於警示設定為違規超過兩次才觸發，我們看到 srv02 和 srv03 符合準則。 因此系統會為 srv02 和 srv03 建立個別警示，因為它們在多個時間間隔內違反 90% 閾值 2 次。如果「觸發警示依據：」參數改為設定 [連續違規] 選項，則「只有」srv03 會觸發警示，因為它在 1:10 到 1:20 的時間間隔連續違反閾值 3 次。 而 srv02 則「不會」觸發，因為它在 1:10 到 1:15 連續違反閾值 2 次。
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>記錄搜尋警示規則 - 引發與狀態
 
@@ -114,11 +128,11 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 
 現在假設我們有一個名為 *Contoso-Log-Alert* 的記錄警示規則，根據的是[結果數目類型記錄警示提供的範例](#example-of-number-of-records-type-log-alert)中的組態。 
 - 下午 1:05，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果產生 0 個記錄；低於閾值，因此不引發警示。 
-- 下午 1:10 的下一個反覆項目，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果提供了 5 個記錄；超過閾值並在觸發相關聯的[動作群組](../../azure-monitor/platform/action-groups.md)之後不久引發警示。 
-- 下午 1:15，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果提供了 2 個記錄；超過閾值並在觸發相關聯的[動作群組](../../azure-monitor/platform/action-groups.md)之後不久引發警示。
+- 下午 1:10 的下一個反覆項目，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果提供了 5 個記錄；超過閾值並在觸發相關聯的[動作群組](../platform/action-groups.md)之後不久引發警示。 
+- 下午 1:15，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果提供了 2 個記錄；超過閾值並在觸發相關聯的[動作群組](../platform/action-groups.md)之後不久引發警示。
 - 現在，下午 1:20 的下一個反覆項目，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果再次提供 0 個記錄；低於閾值，因此不引發警示。
 
-但在上述所列的情況中，下午 1:15 - Azure 警示無法判斷下午 1:10 發現的基本問題是否仍存在，以及是否有完全新的失敗；因為使用者提供的查詢可能會算在較早的記錄中 - 這是 Azure 警示可以確定的。 因此，為了謹慎起見，當 Contoso-Log-Alert 在下午 1:15 執行時，已設定的[動作群組](../../azure-monitor/platform/action-groups.md)會再次引發。 現在，下午 1:20 沒有看到任何記錄 - Azure 警示無法確定記錄的原因是否已經解決；因此，Contoso-Log-Alert 不會在 Azure 儀表板中和/或已發出表示解決警示的通知中變更為已解決。
+但在上述所列的情況中，下午 1:15 - Azure 警示無法判斷下午 1:10 發現的基本問題是否仍存在，以及是否有完全新的失敗；因為使用者提供的查詢可能會算在較早的記錄中 - 這是 Azure 警示可以確定的。 因此，為了謹慎起見，當 Contoso-Log-Alert 在下午 1:15 執行時，已設定的[動作群組](../platform/action-groups.md)會再次引發。 現在，下午 1:20 沒有看到任何記錄 - Azure 警示無法確定記錄的原因是否已經解決；因此，Contoso-Log-Alert 不會在 Azure 儀表板中和/或已發出表示解決警示的通知中變更為已解決。
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>記錄警示的價格和計費
@@ -133,9 +147,8 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
     > 如果有無效字元 (例如 `<, >, %, &, \, ?, /`) 存在，在帳單中將會以 `_` 取代它們。 若要使用[舊版 Log Analytics API](api-alerts.md) 來刪除為警示規則計費建立的 scheduleQueryRules 資源，使用者必須使用[舊版 Log Analytics API](api-alerts.md)來刪除原始排程和警示動作
 
 ## <a name="next-steps"></a>後續步驟
-* 了解[在 Azure 警示中的記錄警示中建立](../../azure-monitor/platform/alerts-log.md)。
+* 了解[在 Azure 警示中的記錄警示中建立](../platform/alerts-log.md)。
 * 了解 [Azure 中記錄警示中的 Webhook](alerts-log-webhook.md)。
-* 了解 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)。
-* 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)。
-* 深入了解 [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)。    
-
+* 了解 [Azure 警示](../platform/alerts-overview.md)。
+* 深入了解 [Application Insights](../app/analytics.md)。
+* 深入了解 [Azure 監視器記錄查詢](../log-query/log-query-overview.md)。    

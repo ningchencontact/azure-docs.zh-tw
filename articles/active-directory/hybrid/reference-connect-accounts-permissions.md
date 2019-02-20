@@ -16,12 +16,13 @@ ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: abfdf75c6460efe50dcc9959ffb297f77a72f8c4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7401a77e79ec42930c411856defd48a0ba3c3bf7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813206"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170235"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶和權限
 
@@ -67,7 +68,7 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 如果您是從 DirSync 升級，可透過 AD DS 企業系統管理員認證來重設 DirSync 所使用帳戶的密碼。 您也需要 Azure AD 全域管理員認證。
 
 ### <a name="azure-ad-global-admin-credentials"></a>Azure AD 全域管理員認證
-這些認證只能在安裝期間使用，安裝完成後則無法使用。 其會用來建立 Azure AD 連接器帳戶，以用於將變更同步處理至 Azure AD。 帳戶也會在 Azure AD 中啟用同步處理做為一項功能。
+這些認證只能在安裝期間使用，安裝完成後則無法使用。 其會用來建立 Azure AD 連接器帳戶，以用於將變更同步處理至 Azure AD。 帳戶也會在 Azure AD 中啟用同步處理做為一個功能。
 
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>AD DS 連接器帳戶針對快速設定所需的權限
 AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立的，而且在由快速設定建立時，會具有下列權限：
@@ -89,7 +90,7 @@ AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立�
 
 | 精靈頁面 | 收集的認證 | 所需的權限 | 用於 |
 | --- | --- | --- | --- |
-| N/A |執行安裝精靈的使用者 |本機伺服器的系統管理員 |<li>建立 ADSync 服務帳戶，以用來執行同步處理服務。 |
+| N/A |執行安裝精靈的使用者 |本機伺服器的系統管理員 |<li>建立用來執行同步處理服務的 ADSync 服務帳戶。 |
 | 連接至 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 Azure AD 連接器帳戶。</li> |
 | 連線到 AD DS |內部部署 Active Directory 認證 |Active Directory 中 Enterprise Admins (EA) 群組成員 |<li>在 Active Directory 中建立 AD DS 連接器帳戶並對其授與權限。 這個建立的帳戶是在同步處理期間用來讀取和寫入目錄資訊。</li> |
 
@@ -126,7 +127,7 @@ AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立�
 
 它也必須獲得必要的權限。 安裝精靈不會驗證權限，在同步處理期間只會發現問題。
 
-您需要的權限取決於您啟用的選用功能。 如果您有多個網域，則必須對樹系中的所有網域授與權限。 如果您未啟用任何一項功能，預設的 **網域使用者** 權限就已足夠。
+您需要的權限取決於您啟用的選用功能。 如果您有多個網域，則必須對樹系中的所有網域授與權限。 如果您未啟用任何一個功能，預設的 **網域使用者** 權限就已足夠。
 
 | 功能 | 權限 |
 | --- | --- |
@@ -200,7 +201,7 @@ AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立�
 
 VSA 適用於同步處理引擎和 SQL 位於相同伺服器的情況。 如果您使用遠端 SQL，我們會建議您改用群組受控服務帳戶。
 
-這項功能需要 Windows Server 2008 R2 或更新版本。 如果您在 Windows Server 2008 上安裝 Azure AD Connect，則安裝會改回使用[使用者帳戶](#user-account)。
+此功能需要 Windows Server 2008 R2 或更新版本。 如果您在 Windows Server 2008 上安裝 Azure AD Connect，則安裝會改回使用[使用者帳戶](#user-account)。
 
 #### <a name="group-managed-service-account"></a>群組受控服務帳戶
 如果您使用遠端 SQL Server，我們建議使用**群組受控服務帳戶**。 如需如何讓 Active Directory 準備好使用群組受控服務帳戶的詳細資訊，請參閱[群組受控服務帳戶概觀](https://technet.microsoft.com/library/hh831782.aspx)。
@@ -209,7 +210,7 @@ VSA 適用於同步處理引擎和 SQL 位於相同伺服器的情況。 如果�
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
 系統也支援使用[獨立受控服務帳戶](https://technet.microsoft.com/library/dd548356.aspx)。 不過，這些帳戶只能在本機電腦上使用，所以對預設虛擬服務帳戶使用這些帳戶並沒有任何好處。
 
-這項功能需要 Windows Server 2012 或更新版本。 如果您需要使用較舊的作業系統並使用遠端 SQL，則您必須使用[使用者帳戶](#user-account)。
+此功能需要 Windows Server 2012 或更新版本。 如果您需要使用較舊的作業系統並使用遠端 SQL，則您必須使用[使用者帳戶](#user-account)。
 
 #### <a name="user-account"></a>使用者帳戶
 安裝精靈會建立本機服務帳戶 (除非您在自訂設定指定要使用的帳戶)。 此帳戶的前面會加上 **AAD_** 並用做實際同步處理服務的執行身分。 如果您在網域控制站上安裝 Azure AD Connect，則在網域中建立帳戶。 如果有下列情況，**AAD_** 服務帳戶必須位於網域中：

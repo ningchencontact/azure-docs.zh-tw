@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 283f8c935556006a21812578d0638b72adb6eed0
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906314"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175314"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>教學課程：Azure Active Directory 與 SecureW2 JoinNow Connector 整合
 
@@ -107,9 +108,9 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
 
     ![SecureW2 JoinNow Connector 網域及 URL 單一登入資訊](./media/securejoinnow-tutorial/tutorial_securejoinnow_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<organization-identifier>-auth.securew2.com/auth/saml`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<organization-identifier>-auth.securew2.com/auth/saml`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [SecureW2 JoinNow Connector 客戶支援小組](mailto:support@securew2.com)以取得這些值。 
@@ -158,7 +159,7 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-securew2-joinnow-connector-test-user"></a>建立 SecureW2 JoinNow Connector 測試使用者
 
-在本節中，您要在 SecureW2 JoinNow Connector 中建立名為 Britta Simon 的使用者。 請與 [SecureW2 JoinNow Connector 用戶端支援小組](mailto:support@securew2.com)合作，在 SecureW2 JoinNow Connector 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 SecureW2 JoinNow Connector 中建立名為 Britta Simon 的使用者。 請與 [SecureW2 JoinNow Connector 用戶端支援小組](mailto:support@securew2.com)合作，在 SecureW2 JoinNow Connector 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

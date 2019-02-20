@@ -3,9 +3,8 @@ title: 在 Azure Active Directory 中使用 SCIM 自動佈建應用程式 | Micr
 description: Azure Active Directory 會利用 SCIM 通訊協定規格中定義的介面，自動佈建使用者和群組到 Web 服務前端的任何應用程式或身分識別存放區
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 946a70a1b3fe2ddcaf8ec58b9ebc297f1d8894fd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732578"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178850"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -34,13 +34,13 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 ![][0]
 *圖 1：透過 Web 服務從 Azure Active Directory 佈建到身分識別存放區*
 
-這項功能可用來與 Azure AD 中的「自備應用程式」功能搭配使用。 這項功能可為 SCIM Web 服務前方的應用程式啟用單一登入和自動使用者佈建。
+此功能可用來與 Azure AD 中的「自備應用程式」功能搭配使用。 此功能可為 SCIM Web 服務前方的應用程式啟用單一登入和自動使用者佈建。
 
 在 Azure Active Directory 中使用 SCIM 有兩個使用案例：
 
-* **將使用者與群組佈建至支援 SCIM 的應用程式** - 應用程式若支援 SCIM 2.0，而且使用 OAuth 持有人權杖進行驗證，將可直接與 Azure AD 搭配運作，不需其他設定。
+* **將使用者與群組佈建至支援 SCIM 的應用程式** - 應用程式若支援 SCIM 2.0，而且使用 OAuth 持有人權杖進行驗證，則無需設定即可與 Azure AD 搭配運作。
   
-* **為支援其他 API 型佈建的應用程式建置您自己的佈建解決方案** - 對於非 SCIM 應用程式，您可以建立能夠在 Azure AD SCIM 端點與應用程式為使用者佈建支援的任何 API 之間進行轉譯的 SCIM 端點。 為了協助您開發 SCIM 端點，通用語言基礎結構 (CLI) 程式庫中的程式碼範例可向您說明如何提供 SCIM 端點及轉譯 SCIM 訊息。  
+* **為支援其他 API 型佈建的應用程式建置您自己的佈建解決方案** - 對於非 SCIM 應用程式，您可以建立能夠在 Azure AD SCIM 端點與應用程式為使用者佈建支援的任何 API 之間進行轉譯的 SCIM 端點。 為了協助您開發 SCIM 端點，有「通用語言基礎結構」(CLI) 程式庫及程式碼範例，示範如何提供 SCIM 端點和轉譯 SCIM 訊息。  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>將使用者與群組佈建至支援 SCIM 的應用程式
 Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) Web 服務、並接受以 OAuth 持有人權杖進行驗證的應用程式。 在 SCIM 2.0 規格中，應用程式必須符合下列需求：
@@ -74,7 +74,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
    *圖 3：在 Azure 入口網站中設定佈建*
     
 6. 在 [租用戶 URL] 欄位中，輸入應用程式 SCIM 端點的 URL。 範例： https://api.contoso.com/scim/v2/
-7. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖] 欄位。 如果此欄位保留空白，則 Azure AD 會在每個要求包含從 Azure AD 簽發的 OAuth 持有人權杖。 使用 Azure AD 作為識別提供者的應用程式，可以驗證此 Azure AD 簽發的權杖。
+7. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖] 欄位。 如果將此欄位保留空白，則 Azure AD 會在每個要求包含從 Azure AD 簽發的 OAuth 持有人權杖。 應用程式若使用 Azure AD 作為識別提供者，便可以驗證此 Azure AD 簽發的權杖。
 8. 按一下 [測試連線] 按鈕，讓 Azure Active Directory 嘗試連線到 SCIM 端點。 如果嘗試失敗，則會顯示錯誤資訊。  
 
     >[!NOTE]
@@ -86,7 +86,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
     >[!NOTE]
     >您可以選擇性地藉由停用「群組」對應以停用同步處理群組物件。 
 
-11. 在 [設定] 底下的 [範圍] 欄位定義哪些使用者或群組會進行同步處理。 選取 [僅同步處理指派的使用者和群組]\(建議選項) 只會同步處理 [使用者和群組] 索引標籤中指派的使用者和群組。
+11. 在 [設定] 底下，[範圍] 欄位會定義要同步的使用者和群組。 選取 [僅同步處理指派的使用者和群組]\(建議選項) 只會同步處理 [使用者和群組] 索引標籤中指派的使用者和群組。
 12. 一旦您的設定完成，請將 [佈建狀態] 變更為 [開啟]。
 13. 按一下 [儲存] 以啟動 Azure AD 佈建服務。 
 14. 如果僅同步處理指派的使用者和群組 (建議選項)，請務必選取 [使用者和群組] 索引標籤，並且指派您想要同步處理的使用者和/或群組。
@@ -153,7 +153,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
    ![][2]
    *圖 4：在 Azure 入口網站中設定佈建*
     
-6. 在 [租用戶 URL] 欄位中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。 此項目就像是 http://testmachine.contoso.com:9000 或 http://<ip-address>:9000/，其中 <ip-address> 是網際網路公開 IP 位址。  
+6. 在 [租用戶 URL] 欄位中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。 此項目就像是 http://testmachine.contoso.com:9000 或 http://\<ip-address>:9000/，其中 \<ip-address> 是網際網路公開 IP 位址。  
 7. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖] 欄位。 如果此欄位保留空白，則 Azure AD 將在每個要求包含從 Azure AD 簽發的 OAuth 持有人權杖。 使用 Azure AD 作為識別提供者的應用程式，可以驗證此 Azure AD 簽發的權杖。
 8. 按一下 [測試連線] 按鈕，讓 Azure Active Directory 嘗試連線到 SCIM 端點。 如果嘗試失敗，則會顯示錯誤資訊。  
 
@@ -252,7 +252,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
     }
     }
 
-這項服務必須具有 HTTP 位址，而其伺服器驗證憑證的根憑證授權單位是下列其中一個名稱： 
+此服務必須具有 HTTP 位址，而其伺服器驗證憑證的根憑證授權單位是下列其中一個名稱： 
 
 * CNNIC
 * Comodo

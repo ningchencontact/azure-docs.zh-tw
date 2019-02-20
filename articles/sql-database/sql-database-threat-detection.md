@@ -11,17 +11,17 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 64302a04050196b4299be45d910f7136f3ecaaa6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 4e853b9edbd000d8b61b5e05f3ae65c07258d73f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734261"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002151"
 ---
-# <a name="azure-sql-database-threat-detection-for-standalone-or-pooled-databases"></a>適用於獨立或集區資料庫的 Azure SQL Database 威脅偵測
+# <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>適用於單一或集區資料庫的 Azure SQL Database 威脅偵測
 
-適用於獨立和集區資料庫的[威脅偵測](sql-database-threat-detection-overview.md)會偵測意圖存取或惡意探索資料庫，並可能會造成損害的異常活動。 威脅偵測可識別**潛在 SQL 插入式攻擊**、**來自不尋常位置或資料中心的存取**、**來自不熟悉主體或疑似有害應用程式的存取**及**暴力 SQL 認證** - 請參閱[威脅偵測警示](sql-database-threat-detection-overview.md#threat-detection-alerts)以取得更多詳細資料。
+適用於單一和集區資料庫的[威脅偵測](sql-database-threat-detection-overview.md)會偵測意圖存取或惡意探索資料庫，並可能造成損害的異常活動。 威脅偵測可識別**潛在 SQL 插入式攻擊**、**來自不尋常位置或資料中心的存取**、**來自不熟悉主體或疑似有害應用程式的存取**及**暴力 SQL 認證** - 請參閱[威脅偵測警示](sql-database-threat-detection-overview.md#threat-detection-alerts)以取得更多詳細資料。
 
 您可以透過[電子郵件通知](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event)或 [Azure 入口網站](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)接收偵測到威脅的通知
 
@@ -49,4 +49,4 @@ ms.locfileid: "55734261"
 - 深入了解[進階資料安全性](sql-database-advanced-data-security.md)。
 - 深入了解[稽核](sql-database-auditing.md)
 - 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- 如需有關價格的詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)  
+- 如需有關定價的詳細資訊，請參閱 [SQL Database 定價頁面](https://azure.microsoft.com/pricing/details/sql-database/)  

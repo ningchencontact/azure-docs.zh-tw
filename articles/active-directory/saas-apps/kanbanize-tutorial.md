@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 746eaadcdb9a588087367c4c70237922cf0f14bf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057830"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>教學課程：Azure Active Directory 與 Kanbanize 整合
 
@@ -33,7 +34,7 @@ Kanbanize 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Kanbanize 整合，您需要下列項目：
 
@@ -107,9 +108,9 @@ Kanbanize 與 Azure AD 整合提供下列優點：
 
     ![Kanbanize 網域和 URL 單一登入資訊](./media/kanbanize-tutorial/tutorial_kanbanize_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.kanbanize.com/`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.kanbanize.com/`
 
-    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.kanbanize.com/saml/acs`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.kanbanize.com/saml/acs`
 
     c. 按一下 [顯示進階 URL 設定]。
 
@@ -168,7 +169,7 @@ Kanbanize 與 Azure AD 整合提供下列優點：
     > [!Note]
     > 您可以從 Azure 入口網站的 [使用者屬性] 區段中，結合命名空間與個別屬性的名稱值來取得這些值。
 
-    g. 在「記事本」中開啟從 Azure 入口網站下載的 Base 64 編碼憑證，複製其內容 (不含開始和結束標記)，然後貼到 [Idp X.509 憑證] 方塊中。
+    g. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容 (不含開始和結束標記)，然後貼到 ****[Idp X.509 Certificate] \(Idp X.509 憑證\) 方塊中。
 
     h. 勾選 [使用 SSO 和 Kanbanize 啟用登入]。
     
@@ -211,7 +212,7 @@ Kanbanize 與 Azure AD 整合提供下列優點：
 本節目標是在 Kanbanize 中建立名為 Britta Simon 的使用者。 Kanbanize 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Kanbanize 時若尚無使用者，則會建立新使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Kanbanize 用戶端支援小組](mailto:support@ms.kanbanize.com)。
+>如果您需要手動建立使用者，請連絡 [Kanbanize 用戶端支援小組](mailto:support@ms.kanbanize.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -248,7 +249,7 @@ Kanbanize 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Kanbanize] 圖格時，應該會自動登入您的 Kanbanize 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

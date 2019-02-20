@@ -1,26 +1,18 @@
 ---
-title: 跨單位連線的規劃和設計：Azure VPN 閘道| Microsoft Docs
+title: 跨單位連線的規劃與設計：Azure VPN 閘道 | Microsoft Docs
 description: 深入了解跨單位、混合式和 VNet 對 VNet 連線的 VPN 閘道規劃與設計
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 07/27/2017
-ms.author: cherylmc
-ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yushwang
+ms.openlocfilehash: 7802061ba09a30ca34ed3804ace846118c5edb9b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125476"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235355"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>規劃與設計 VPN 閘道
 
@@ -30,7 +22,7 @@ ms.locfileid: "23125476"
 
 ### <a name="compare"></a>跨單位連線選項
 
-如果您想要將內部部署站台安全地連接到虛擬網路，可以使用下列三種不同方法：站對站、點對站及 ExpressRoute。 比較可使用的不同跨單位連線。 您選擇的選項可能取決於各種不同的考量，例如：
+如果您想要將內部部署網站安全地連線到虛擬網路，可以使用下列三種不同方式來執行此動作：站對站、點對站及 ExpressRoute。 比較可使用的不同跨單位連線。 您選擇的選項可能取決於各種不同的考量，例如：
 
 * 您的方案需要哪種輸送量?
 * 您想讓通訊透過經由安全 VPN 的公用網際網路或透過私人連線?

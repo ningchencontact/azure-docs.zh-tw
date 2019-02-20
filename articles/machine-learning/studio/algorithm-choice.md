@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244465"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244788"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>如何選擇 Azure Machine Learning Studio 的演算法
 
@@ -41,12 +41,10 @@ ms.locfileid: "55244465"
 有時候則不完全適用。 這些建議通常是來自經驗法則，因此不必擔心是否準確。
 我和一些資料科學家討論過，他們都認為唯有全部試用一次，才能找出最佳的演算法。
 
-以下是 [Azure AI 資源庫](http://gallery.cortanaintelligence.com/) \(英文\) 中的實驗範例，該實驗會對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92) \(英文\)。
+以下是 [Azure AI 資源庫](http://gallery.azure.ai/) \(英文\) 中的實驗範例，該實驗會對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92) \(英文\)。
 
 > [!TIP]
-> 若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](studio-overview-diagram.md)。
-> 
-> 
+> 若要下載淺顯易懂的機器學習服務基本概念資訊圖概觀，以了解用來回答機器學習服務常見問題的常用演算法，請參閱[機器學習基本概念和演算法範例](basics-infographic-with-algorithm-examples.md)。
 
 ## <a name="flavors-of-machine-learning"></a>機器學習的類型
 
@@ -74,7 +72,7 @@ ms.locfileid: "55244465"
 ### <a name="accuracy"></a>精確度
 
 您不一定常常需要取得最準確的答案。
-視您的用途而定，有時候近似值便已足夠。 如果是這樣，您就能採用近似法，並大幅縮短處理時間。 近似法的另一項優點是，它們會自然傾向於避免 [過度學習](https://youtu.be/DQWI1kvmwRg)。
+視您的用途而定，有時候近似值便已足夠。 如果是這樣，您就能採用近似法，並大幅縮短處理時間。 近似法的另一個優點是，它們會自然傾向於避免 [過度學習](https://youtu.be/DQWI1kvmwRg)。
 
 ### <a name="training-time"></a>定型時間
 
@@ -165,9 +163,9 @@ ms.locfileid: "55244465"
 
 雖然名稱中的「迴歸」讓人感到有點奇怪，但羅吉斯迴歸對[雙類別](https://msdn.microsoft.com/library/azure/dn905994.aspx)和[多類別](https://msdn.microsoft.com/library/azure/dn905853.aspx)分類而言，其實是很強大的工具。 它既快速又簡單。 它事實上會使用 'S' 形的曲線而不是一條直線，這使它在性質上很適合將資料分組。 羅吉斯迴歸提供線性類別界限，因此使用它時，請確定線性近似值是您能接受的結果。
 
-![羅吉斯迴歸與只有一項特徵的雙類別資料][4]
+![羅吉斯迴歸與只有一個特徵的雙類別資料][4]
 
-***羅吉斯迴歸與只有一項特徵的雙類別資料*** *- 類別界限的點就是羅吉斯曲線接近這兩個類別的地方*
+***羅吉斯迴歸與只有一個特徵的雙類別資料*** *- 類別界限的點就是羅吉斯曲線接近這兩個類別的地方*
 
 ### <a name="trees-forests-and-jungles"></a>樹、樹系和叢林
 
@@ -242,13 +240,11 @@ VW 背離這裡的歸納，因為它可以學習分類和迴歸問題，甚至�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需描述演算法並提供範例的可下載資訊圖，請參閱[可下載的資訊圖：機器學習基本概念和演算法範例](basics-infographic-with-algorithm-examples.md)。
+* 若要下載淺顯易懂的機器學習服務基本概念資訊圖概觀，以了解用來回答機器學習服務常見問題的常用演算法，請參閱[機器學習基本概念和演算法範例](basics-infographic-with-algorithm-examples.md)。
 
 * 如需 Machine Learning Studio 中依類別排序的所有可用機器學習演算法清單，請參閱＜Machine Learning Studio 演算法和模組說明＞中的[起始模型](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model)。
 
 * 如需 Machine Learning Studio 中按字母順序排列的完整演算法和模組清單，請參閱＜Machine Learning Studio 演算法和模組說明＞中的 [Machine Learning Studio 模組的 A-Z 清單](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list)。
-
-* 若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](studio-overview-diagram.md)。
 
 <!-- Media -->
 

@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5a0d02768b0fbd23e33d13c5e5c3fe84a41cdc52
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467453"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243649"
 ---
 # <a name="monitor-azure-file-sync"></a>監視 Azure 檔案同步
 
@@ -29,7 +29,7 @@ ms.locfileid: "55467453"
 
 ### <a name="storage-sync-service"></a>儲存體同步服務
 
-若要檢視已註冊的伺服器和伺服器端點健康情況，請在 Azure 入口網站中移至儲存體同步服務。 已註冊的伺服器健康情況可在 [已註冊的伺服器] 刀鋒視窗中檢視。 伺服器端點健康情況可在 [同步群組] 刀鋒視窗中檢視。
+若要檢視已註冊的伺服器健康情況、伺服器端點健康情況和計量，請在 Azure 入口網站中移至儲存體同步服務。 已註冊的伺服器健康情況可在 [已註冊的伺服器] 刀鋒視窗中檢視。 伺服器端點健康情況可在 [同步群組] 刀鋒視窗中檢視。
 
 已註冊的伺服器健康情況
 - 如果已註冊的伺服器處於「線上」狀態，表示伺服器正順利地與服務進行通訊。
@@ -38,6 +38,23 @@ ms.locfileid: "55467453"
 伺服器端點健康情況
 - 入口網站中的伺服器端點健康情況，取決於伺服器上的遙測事件記錄 (識別碼 9102 和 9302) 中所記錄的同步事件。 如果同步工作階段因暫時性錯誤 (例如，已取消的錯誤) 而失敗，只要目前的同步工作階段有所進展，入口網站中的同步仍可能會顯示為狀況良好 (事件識別碼 9302 可用來判斷是否正在套用檔案)。 如需詳細資訊，請參閱下列文件：[同步健康情況](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [同步進度](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)。
 - 如果入口網站因同步沒有進展而顯示同步錯誤，請查看[疑難排解文件](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors)以取得指引。
+
+度量
+- 您可以在儲存體同步服務入口網站中檢視下列計量：
+
+  | 度量名稱 | 說明 | 入口網站刀鋒視窗 | 
+  |-|-|-|
+  | 同步的位元組 | 傳輸的資料大小 (上傳和下載) | 同步群組、伺服器端點 |
+  | 雲端階層處理重新叫用 | 重新叫用的資料大小 | 已註冊的伺服器 |
+  | 檔案無法同步 | 無法同步的檔案計數 | 伺服器端點 |
+  | 同步的檔案 | 傳輸的檔案計數 (上傳和下載) | 同步群組、伺服器端點 |
+  | 伺服器線上狀態 | 從伺服器接收到的活動訊號計數 | 已註冊的伺服器 |
+
+- 若要深入了解，請參閱 [Azure 監視器](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor)一節。 
+
+  > [!Note]  
+  > 儲存體同步服務入口網站中的圖表時間範圍為 24 小時。 若要檢視不同的時間範圍或維度，請使用 Azure 監視器。
+
 
 ### <a name="azure-monitor"></a>Azure 監視器
 
@@ -52,8 +69,8 @@ ms.locfileid: "55467453"
 | 同步的位元組 | 傳輸的資料大小 (上傳和下載)。<br><br>單位：位元組<br>彙總類型：總和<br>適用維度：伺服器端點名稱、同步方向、同步群組名稱 |
 | 雲端階層處理重新叫用 | 重新叫用的資料大小。<br><br>單位：位元組<br>彙總類型：總和<br>適用的維度：伺服器名稱 |
 | 檔案無法同步 | 無法同步的檔案計數。<br><br>單位：Count<br>彙總類型：總和<br>適用維度：伺服器端點名稱、同步方向、同步群組名稱 |
-| 同步的檔案 | 上傳和下載的檔案計數。<br><br>單位：Count<br>彙總類型：總和<br>適用維度：伺服器端點名稱、同步方向、同步群組名稱 |
-| 伺服器活動訊號 | 從伺服器接收到的活動訊號計數。<br><br>單位：Count<br>彙總類型：最大值<br>適用的維度：伺服器名稱 |
+| 同步的檔案 | 傳輸的檔案計數 (上傳和下載)。<br><br>單位：Count<br>彙總類型：總和<br>適用維度：伺服器端點名稱、同步方向、同步群組名稱 |
+| 伺服器線上狀態 | 從伺服器接收到的活動訊號計數。<br><br>單位：Count<br>彙總類型：最大值<br>適用的維度：伺服器名稱 |
 | 同步工作階段結果 | 同步工作階段結果 (1=成功的同步工作階段；0=失敗的同步工作階段)<br><br>單位：Count<br>彙總類型：最大值<br>適用維度：伺服器端點名稱、同步方向、同步群組名稱 |
 
 ## <a name="windows-server"></a>Windows Server

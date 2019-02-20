@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e642cba3354f4f8589e44d975c0cecf5692c5b5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 02df0a5d13aeb90049383f61d743e8a11e93fc79
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432434"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>教學課程：Azure Active Directory 與 Gra-Pe 整合
 
@@ -33,7 +34,7 @@ Gra-Pe 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Gra-Pe 整合，您需要下列項目：
 
@@ -156,7 +157,7 @@ Gra-Pe 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-gra-pe-test-user"></a>建立 Gra-Pe 測試使用者
 
-在本節中，您要在 Gra-Pe 中建立名為 Britta Simon 的使用者。 請與 [Gra-Pe 支援小組](https://www.toppantravel.com/inquiry/) 合作，在 Gra-Pe 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Gra-Pe 中建立名為 Britta Simon 的使用者。 請與 [Gra-Pe 支援小組](https://www.toppantravel.com/inquiry/)合作，在 Gra-Pe 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -187,7 +188,7 @@ Gra-Pe 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Gra-Pe] 圖格時，應該會自動登入您的 Gra-Pe 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

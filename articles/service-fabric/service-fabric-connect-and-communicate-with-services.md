@@ -14,21 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 2b6fd2373a9cd0b376a6c8729d5952c5fc48ddf8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f11d680330a43dd49b3c36c864f50b9dc869d172
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205581"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211847"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>連接至 Service Fabric 中的服務並與其進行通訊
 在 Service Fabric 中，服務會在 Service Fabric 叢集中的某處執行，通常是分散到多個 VM。 它可以由服務擁有者或是 Service Fabric 自動從某個位置移到其他位置。 服務無法以靜態方式繫結至特定電腦或位址。
 
 Service Fabric 應用程式通常是由許多不同的服務組成，每一個服務用來執行特定的工作。 這些服務可能會彼此進行通訊以形成完整的函式，例如轉譯 Web 應用程式的不同部分。 有些用戶端應用程式會連接到服務並與其通訊。 本文件討論如何設定您在 Service Fabric 中的服務之間的通訊。
-
-這段 Microsoft Virtual Academy 影片也會討論服務通訊︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
-<img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
 
 ## <a name="bring-your-own-protocol"></a>引進您自己的通訊協定
 Service Fabric 可以幫助管理您的服務的生命週期，但是它不會決定您的服務要執行的動作。 這包含通訊： 當您的服務是由 Service Fabric 開啟時，就是您的服務設定連入要求端點的機會，使用您想要的任何通訊協定或通訊堆疊。 您的服務會接聽一般 **IP:port** 位址，使用任何定址配置，例如 URI。 多個服務執行個體或複本可能共用主機處理序，在此情況下，它們必須使用不同的連接埠，或使用連接埠共用機制，如 Windows 的 http.sys 核心驅動程式。 在任一情況下，主機處理序中的每個服務執行個體或複本必須可以唯一定址。
@@ -46,9 +42,9 @@ Service Fabric 提供稱為「命名服務」的探索和解析服務。 「命�
 
 解析和連接到服務牽涉到在迴圈中執行的下列步驟︰
 
-* **解析**︰取得端點，該端點是由服務從「命名服務」所發佈。
-* **連接**︰透過在該端點上所使用的任何通訊協定連接至服務。
-* **重試**︰連接嘗試可能會因為各種原因而失敗，例如，如果服務自從上次端點位址解析之後已經移動。 在此情況下，則必須重試先前的解析和連接步驟，且此循環會重複執行直到連接成功為止。
+* **解析**：取得服務已從命名服務中發佈的端點。
+* **連線**：透過服務在該端點上所使用的任何通訊協定來連線至該服務。
+* **重試**：連線嘗試可能會因為各種原因而失敗，例如，如果服務自從上次解析端點位址之後已經移動。 在此情況下，則必須重試先前的解析和連接步驟，且此循環會重複執行直到連接成功為止。
 
 ## <a name="connecting-to-other-services"></a>連接到其他服務
 叢集內彼此連接的服務通常可以直接存取其他服務的端點，因為叢集中的節點位於相同的本機網路上。 為了能夠更輕鬆在服務之間連接，Service Fabric 提供使用「命名服務」的額外服務。 DNS 服務和反向 proxy 服務。
@@ -82,31 +78,26 @@ Azure 中的 Service Fabric 叢集位於 Azure 負載平衡器後方。 到叢�
 
 1. 寫入在連接埠 80 上接聽的服務。 在服務的 ServiceManifest.xml 中設定連接埠 80，並且在服務中開啟接聽程式，例如自我裝載的 Web 伺服器。
 
-    ```xml
-    <Resources>
-        <Endpoints>
-            <Endpoint Name="WebEndpoint" Protocol="http" Port="80" />
-        </Endpoints>
-    </Resources>
+    ```xml    <Resources> <Endpoints> <Endpoint Name="WebEndpoint" Protocol="http" Port="80" /> </Endpoints> </Resources>
     ```
     ```csharp
-        class HttpCommunicationListener : ICommunicationListener
+        class HttpCommunicationListener : ICommunicationListener
         {
             ...
 
             public Task<string> OpenAsync(CancellationToken cancellationToken)
             {
-                EndpointResourceDescription endpoint =
+                EndpointResourceDescription endpoint =
                     serviceContext.CodePackageActivationContext.GetEndpoint("WebEndpoint");
 
-                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
+                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
 
-                this.httpListener = new HttpListener();
+                this.httpListener = new HttpListener();
                 this.httpListener.Prefixes.Add(uriPrefix);
                 this.httpListener.Start();
 
-                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-                return Task.FromResult(publishUri);
+                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+                return Task.FromResult(publishUri);
             }
 
             ...
@@ -118,7 +109,7 @@ Azure 中的 Service Fabric 叢集位於 Azure 負載平衡器後方。 到叢�
 
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
-                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
 
             ...
@@ -172,12 +163,12 @@ Azure 中的 Service Fabric 叢集位於 Azure 負載平衡器後方。 到叢�
 
 請務必記住，Azure Load Balancer 和探查只知道「節點」，不知道在節點上執行的「服務」。 Azure 負載平衡器一律會將流量傳送到回應探查的節點，因此必須小心以確保可以在能夠回應探查的節點上使用服務。
 
-## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services：內建的通訊 API 選項
+## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services：內建通訊 API 選項
 Reliable Services 架構隨附數個預先建置的通訊選項。 最適合您選項的決定取決於如何選擇程式設計模型、通訊架構以及用來撰寫您服務的程式語言。
 
-* **沒有特定通訊協定**：如果您沒有特定的通訊架構選擇，但您想要快速啟動並執行，則適合您的理想選項為[遠端服務](service-fabric-reliable-services-communication-remoting.md)，允許 Reliable Services 和 Reliable Actors 的強型別遠端程序呼叫。 若要開始使用服務通訊，這是最簡單且快速的方式。 遠端服務會處理服務位址、連接、重試和錯誤處理的解析。 這同時適用 C# 和 Java 應用程式。
-* **HTTP**︰對於無從驗證語言的通訊，HTTP 提供業界標準的選擇，具有工具與許多不同語言的 HTTP 伺服器，都受到 Service Fabric 的支援。 服務可以使用任何可用的 HTTP 堆疊，包括 C# 應用程式適用的 [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md)。 以 C# 撰寫的用戶端可以利用 `ICommunicationClient` 和 `ServicePartitionClient` 類別，而使用 Java 的用戶端則可以利用 `CommunicationClient` 和 `FabricServicePartitionClient` 進行[服務解析、HTTP 連線和重試迴圈](service-fabric-reliable-services-communication.md)。
-* **WCF**：若您有現有的程式碼且使用 WCF 作為通訊架構，則您可以針對伺服器端使用 `WcfCommunicationListener` 類別，並針對用戶端使用 `WcfCommunicationClient` 和 `ServicePartitionClient` 類別。 不過，這只適用以 Windows 為基礎的叢集上的 C# 應用程式。 如需詳細資訊，請參閱本文中 [通訊堆疊的 WCF 式實作](service-fabric-reliable-services-communication-wcf.md)。
+* **沒有特定的通訊協定：** 如果您沒有特定的通訊架構選擇，但想要快速啟動並執行某個項目，則適合您的理想選項為[服務遠端](service-fabric-reliable-services-communication-remoting.md)，此選項允許針對 Reliable Services 和 Reliable Actors 進行強型別遠端程序呼叫。 若要開始使用服務通訊，這是最簡單且快速的方式。 遠端服務會處理服務位址、連接、重試和錯誤處理的解析。 這同時適用 C# 和 Java 應用程式。
+* **HTTP**：對於無從驗證語言的通訊，HTTP 透過可在許多不同語言中使用的工具和 HTTP 伺服器來提供業界標準的選擇，這些工具和 HTTP 伺服器全都受到 Service Fabric 支援。 服務可以使用任何可用的 HTTP 堆疊，包括 C# 應用程式適用的 [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md)。 以 C# 撰寫的用戶端可以利用 `ICommunicationClient` 和 `ServicePartitionClient` 類別，而使用 Java 的用戶端則可以利用 `CommunicationClient` 和 `FabricServicePartitionClient` 進行[服務解析、HTTP 連線和重試迴圈](service-fabric-reliable-services-communication.md)。
+* **WCF**：若您現有的程式碼會使用 WCF 作為通訊架構，則您可以針對伺服器端使用 `WcfCommunicationListener`，並針對用戶端使用 `WcfCommunicationClient` 和 `ServicePartitionClient` 類別。 不過，這只適用以 Windows 為基礎的叢集上的 C# 應用程式。 如需詳細資訊，請參閱本文中 [通訊堆疊的 WCF 式實作](service-fabric-reliable-services-communication-wcf.md)。
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>使用自訂通訊協定以及其他通訊架構
 服務可以使用任何通訊協定或架構進行通訊，無論是透過 TCP 通訊端的自訂二進位通訊協定，或透過 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)或 [Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/)的串流事件。 Service Fabric 提供通訊 API，您可以將通訊堆疊插入其中，同時讓您免於探索和連接的所有工作。 如需詳細資訊，請參閱本文中 [Reliable Service 通訊模型](service-fabric-reliable-services-communication.md) 。

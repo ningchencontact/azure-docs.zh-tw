@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: d86004680bf13c9716b4ff4e7a41af73ea186f27
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 377da86003543fb53240de4d5fc672f71e1ed5f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047183"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202395"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>教學課程：Azure Active Directory 與 Imagineer WebVision 整合
 
@@ -33,7 +34,7 @@ ms.locfileid: "39047183"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Imagineer WebVision 整合，您需要下列項目：
 
@@ -158,7 +159,7 @@ ms.locfileid: "39047183"
  
 ### <a name="create-an-imagineer-webvision-test-user"></a>建立 Imagineer WebVision 測試使用者
 
-在本節中，您要在 Imagineer WebVision 中建立名為 Britta Simon 的使用者。 請與 [Imagineer WebVision 支援小組](mailto:support@itgny.com) 合作，以便在 Imagineer WebVision 平台中加入使用者。 您必須先建立和啟動使用者，然後才能使用單一登入
+在本節中，您要在 Imagineer WebVision 中建立名為 Britta Simon 的使用者。 請與 [Imagineer WebVision 支援小組](mailto:support@itgny.com)合作，在 Imagineer WebVision 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -195,7 +196,7 @@ ms.locfileid: "39047183"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在 [存取面板] 中按一下 [Imagineer WebVision] 磚時，應該會自動登入您的 Imagineer WebVision 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

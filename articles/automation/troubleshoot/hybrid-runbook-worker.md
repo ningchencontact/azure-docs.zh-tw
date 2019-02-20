@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434453"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234536"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>混合式 Runbook 背景工作的疑難排解
 
@@ -46,13 +46,13 @@ Runbook 在嘗試執行三次後會馬上暫止。 在某些情況下，Runbook 
 
 * Runbook 無法使用本機資源驗證
 
-* 設定用於執行混合式 Runbook 背景工作角色功能的電腦滿足最低硬體需求。
+* 設定用於執行混合式 Runbook 背景工作角色功能的電腦不符合最低硬體需求。
 
 #### <a name="resolution"></a>解決方案
 
 確認電腦可透過連接埠 443 輸出存取 *.azure-automation.net。
 
-執行混合式 Runbook 背景工作角色的電腦應滿足最低硬體需求，您才能設定它來裝載這項功能。 Runbook 及其所使用的背景處理序可能會使系統過度使用，而導致 Runbook 作業延遲或逾時。
+執行混合式 Runbook 背景工作角色的電腦應滿足最低硬體需求，您才能設定它來裝載此功能。 Runbook 及其所使用的背景處理序可能會使系統過度使用，而導致 Runbook 作業延遲或逾時。
 
 確認執行混合式 Runbook 背景工作角色功能的電腦滿足最低硬體需求。 如果滿足最低硬體需求，請監視 CPU 和記憶體使用率，判斷混合式 Runbook 背景工作角色處理序之效能和 Windows 之間是否有任何相互關聯。 如果有記憶體或 CPU 壓力，這可能表示需要升級資源。 您也可以選擇其他可支援最低需求，也能在工作負載需求指出需要增加資源時擴充的計算資源。
 
@@ -81,14 +81,23 @@ At line:3 char:1
 
 如果您的混合式 Runbook 背景工作角色是 Azure VM，您可以改用 [Azure 資源的受控識別](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)。 此案例可讓您使用 Azure VM 的受控識別來向 Azure 資源進行驗證，而非使用執行身分帳戶，藉此簡化驗證。 當混合式 Runbook 背景工作角色是內部部署電腦時，您必須在電腦上安裝執行身分帳戶憑證。 若要了解如何安裝憑證，請參閱執行 [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) Runbook 的步驟。
 
-## <a name="linux"></a>Linux
+## <a name="linux"></a> Linux
 
 Linux 混合式 Runbook 背景工作角色仰賴適用於 Linux 的 OMS 代理程式來與自動化帳戶通訊，以便註冊背景工作角色、接收 Runbook 作業和報告狀態。 如果註冊背景工作角色失敗，請參考以下一些可能的錯誤原因：
 
 ### <a name="oms-agent-not-running"></a>案例：適用於 Linux 的 OMS 代理程式未執行
 
+#### <a name="issue"></a>問題
 
-如果適用於 Linux 的 OMS 代理程式未執行，就會讓 Linux 混合式 Runbook 背景工作角色無法與 Azure 自動化進行通訊。 輸入下列命令，確認代理程式正在執行：`ps -ef | grep python`。 您所看到的輸出應該會類似下列具有 **nxautomation** 使用者帳戶的 Python 處理序。 如果未啟用更新管理或 Azure 自動化解決方案，下列處理序都不會執行。
+適用於 Linux 的 OMS 代理程式未執行
+
+#### <a name="cause"></a>原因
+
+如果適用於 Linux 的 OMS 代理程式未執行，就會讓 Linux 混合式 Runbook 背景工作角色無法與 Azure 自動化進行通訊。 代理程式無法執行的原因有很多種。
+
+#### <a name="resolution"></a>解決方案
+
+ 輸入下列命令，確認代理程式正在執行：`ps -ef | grep python`。 您所看到的輸出應該會類似下列具有 **nxautomation** 使用者帳戶的 Python 處理序。 如果未啟用更新管理或 Azure 自動化解決方案，下列處理序都不會執行。
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -178,6 +187,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>案例：您無法新增混合式 Runbook 背景工作角色
+
+#### <a name="issue"></a>問題
+
+您在嘗試使用 `Add-HybridRunbookWorker` Cmdlet 來新增「混合式 Runbook 背景工作角色」時收到下列訊息。
+
+```
+Machine is already registered to a different account
+```
+
+#### <a name="cause"></a>原因
+
+這可能是因為機器已經向不同的「自動化帳戶」註冊，或是您在將「混合式 Runbook 背景工作角色」從機器中移除之後，嘗試重新新增此背景工作角色。
+
+#### <a name="resolution"></a>解決方案
+
+若要解決此問題，請移除下列登錄機碼，然後重新嘗試 `Add-HybridRunbookWorker` Cmdlet：
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>後續步驟
 

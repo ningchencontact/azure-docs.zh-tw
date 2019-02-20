@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 9689854d9a28debbfbcf908391806fffac6a2006
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450164"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005510"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
-Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計量可能是平台計量、[自訂計量](../../azure-monitor/platform/metrics-custom-overview.md)、[來自 Log Analytics 轉換為計量的常用記錄](../../azure-monitor/platform/alerts-metric-logs.md)、Application Insights 標準計量。 計量警示會定期評估，檢查一或多個計量時間序列上的條件是否為真，並在評估符合時通知您。 計量警示具狀態，也就是說只會在狀態變更時傳送通知。
+Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計量可能是平台計量、[自訂計量](../../azure-monitor/platform/metrics-custom-overview.md)、[來自 Azure 監視器並轉換為計量的常用記錄](../../azure-monitor/platform/alerts-metric-logs.md)、Application Insights 標準計量。 計量警示會定期評估，檢查一或多個計量時間序列上的條件是否為真，並在評估符合時通知您。 計量警示具狀態，也就是說只會在狀態變更時傳送通知。
 
 ## <a name="how-do-metric-alerts-work"></a>計量警示的運作方式為何？
 
@@ -125,7 +125,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 ### <a name="monitoring-multiple-resources-using-metric-alerts"></a>使用計量警示監視多個資源
 
-如您在上一節所見，能以單一計量警示規則監視每個個別的維度組合 (也就是 計量時間序列)。 不過，以前仍限制一次只能對一個資源執行。 Azure 監視器也支援以單一計量警示規則監視多個資源。 這項功能目前為預覽版，僅在虛擬機器上支援使用。 此外，單一計量警示也可以監視一個 Azure 區域中的資源。
+如您在上一節所見，能以單一計量警示規則監視每個個別的維度組合 (也就是 計量時間序列)。 不過，以前仍限制一次只能對一個資源執行。 Azure 監視器也支援以單一計量警示規則監視多個資源。 此功能目前為預覽版，僅在虛擬機器上支援使用。 此外，單一計量警示也可以監視一個 Azure 區域中的資源。
 
 您可以透過下列三種方式之一，指定單一計量警示所監視的範圍：
 
@@ -147,34 +147,34 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 |傳統計量警示支援的資源類型 | 受計量警示支援 |
 |-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | 是 |
-| Microsoft.Batch/batchAccounts| 是|
-|Microsoft.Cache/redis| 是
+| Microsoft.ApiManagement/service | yes |
+| Microsoft.Batch/batchAccounts| yes|
+|Microsoft.Cache/redis| yes
 |Microsoft.ClassicCompute/virtualMachines | 否 |
 |Microsoft.ClassicCompute/domainNames/slots/roles | 否|
 |Microsoft.CognitiveServices/accounts | 否 |
-|Microsoft.Compute/virtualMachines | 是|
-|Microsoft.Compute/virtualMachineScaleSets| 是|
+|Microsoft.Compute/virtualMachines | yes|
+|Microsoft.Compute/virtualMachineScaleSets| yes|
 |Microsoft.ClassicStorage/storageAccounts| 否 |
-|Microsoft.DataFactory/datafactories | 是|
-|Microsoft.DBforMySQL/servers| 是|
-|Microsoft.DBforPostgreSQL/servers| 是|
+|Microsoft.DataFactory/datafactories | yes|
+|Microsoft.DBforMySQL/servers| yes|
+|Microsoft.DBforPostgreSQL/servers| yes|
 |Microsoft.Devices/IotHubs | 否|
 |Microsoft.DocumentDB/databaseAccounts| 否|
-|Microsoft.EventHub/namespaces | 是|
-|Microsoft.Logic/workflows | 是|
-|Microsoft.Network/loadBalancers |是|
-|Microsoft.Network/publicIPAddresses| 是|
-|Microsoft.Network/applicationGateways| 是|
-|Microsoft.Network/expressRouteCircuits| 是|
-|Microsoft.Network/trafficManagerProfiles | 是|
+|Microsoft.EventHub/namespaces | yes|
+|Microsoft.Logic/workflows | yes|
+|Microsoft.Network/loadBalancers |yes|
+|Microsoft.Network/publicIPAddresses| yes|
+|Microsoft.Network/applicationGateways| yes|
+|Microsoft.Network/expressRouteCircuits| yes|
+|Microsoft.Network/trafficManagerProfiles | yes|
 |Microsoft.Search/searchServices | 否|
 |Microsoft.ServiceBus/namespaces| 否|
-|Microsoft.Storage/storageAccounts | 是|
-|Microsoft.StreamAnalytics/streamingjobs| 是|
-|Microsoft.TimeSeriesInsights/environments | 是|
-|Microsoft. Web/serverfarms | 是 |
-|Microsoft. Web/sites (不包括函式) | 是|
+|Microsoft.Storage/storageAccounts | yes|
+|Microsoft.StreamAnalytics/streamingjobs| yes|
+|Microsoft.TimeSeriesInsights/environments | yes|
+|Microsoft. Web/serverfarms | yes |
+|Microsoft. Web/sites (不包括函式) | yes|
 |Microsoft. Web/hostingEnvironments/multiRolePools | 否|
 |Microsoft. Web/hostingEnvironments/workerPools| 否
 |Microsoft.SQL/Servers | 否|

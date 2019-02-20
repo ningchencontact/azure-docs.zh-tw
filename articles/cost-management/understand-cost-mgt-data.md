@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/06/2019
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0531c106228190fdc40f494e8eee70ec550f6404
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820246"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981752"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
@@ -27,23 +27,23 @@ ms.locfileid: "55820246"
 
 | 類別  | **供應項目名稱** | **供應項目號碼** |
 | --- | --- | --- |
+| **Azure Germany** | [Azure 德國預付型方案](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
+| **Azure Government** | Azure Government Enterprise | MS-AZR-USGOV-0017P |
+| **Enterprise 合約 (EA)** | Enterprise 開發/測試 | MS-AZR-0148P |
 | **Enterprise 合約 (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
-| **Enterprise 合約 (EA)**| Enterprise 開發/測試 | MS-AZR-0148P |
 | **Microsoft Developer Network (MSDN)** | [MSDN 平台](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
+| **隨用隨付** | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
+| **隨用隨付** | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
+| **隨用隨付** | [Microsoft 合作夥伴網路](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
+| **隨用隨付** | [免費試用版](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
+| **隨用隨付** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
+| **隨用隨付** | [Azure 學生版](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
+| **隨用隨付** | Azure Pass | MS-AZR-0120P、MS-AZR-0122P - MS-AZR-0125P、MS-AZR-0128P - MS-AZR-0130P |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p/) | MS-AZR-0029P |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) | MS-AZR-0059P |
 | **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) | MS-AZR-0060P |
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise：BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P |
-| **直接/預付型方案** | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
-| **直接/預付型方案** | Microsoft Azure 內部使用 | MS-AZR-0015P |
-| **直接/預付型方案** | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
-| **直接/預付型方案** | [Microsoft 合作夥伴網路](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **直接/預付型方案** | [Microsoft Azure 贊助](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
-| **直接/預付型方案** | [免費試用版](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
-| **直接/預付型方案** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
-| **直接/預付型方案** | [Azure 學生版](https://azure.microsoft.com/en-us/offers/ms-azr-0170p/) | MS-AZR-0170P |
-| **直接/預付型方案** | Azure Pass | MS-AZR-0120P、MS-AZR-0122P - MS-AZR-0125P、MS-AZR-0128P - MS-AZR-0130P |
 
 下表顯示不支援的供應項目。
 
@@ -52,7 +52,8 @@ ms.locfileid: "55820246"
 | **雲端解決方案提供者 (CSP)** | Microsoft Azure | MS-AZR-0145P |
 | **雲端解決方案提供者 (CSP)** | Azure Government CSP | MS-AZR-USGOV-0145P |
 | **雲端解決方案提供者 (CSP)** | CSP 中適用於 Microsoft Cloud Germany 的 Azure Germany | MS-AZR-DE-0145P |
-| **直接/預付型方案** | Azure 學生入門版 | MS-AZR-0144P |
+| **隨用隨付** | Azure 學生入門版 | MS-AZR-0144P |
+| **隨用隨付** | [Microsoft Azure 贊助](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **支援方案** | 標準支援 | MS-AZR-0041P |
 | **支援方案** | 專業指導支援 | MS-AZR-0042P |
 | **支援方案** | 開發人員支援 | MS-AZR-0043P |
@@ -68,17 +69,6 @@ ms.locfileid: "55820246"
 ## <a name="costs-included-in-cost-management"></a>包含在成本管理中的成本
 
 下表顯示「成本管理」中包含或未包含的資料。
-
-**帳戶類型**
-
-| **包含** | **未包含** |
-| --- | --- |
-| Enterprise 合約 (EA) | 雲端解決方案提供者 (CSP) - 如需詳細資訊，請參閱[合作夥伴中心概觀](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview)。 |
-| 預付型方案 (PAYG) |   |
-| 開發/測試 |   |
-| 免費、試用和贊助 |   |
-| 合作夥伴網路 |   |
-| Azure in Open | &nbsp;  |
 
 **成本和使用量資料**
 

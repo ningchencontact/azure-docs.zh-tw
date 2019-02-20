@@ -4,17 +4,17 @@ description: 說明「Azure 原則」如何使用資源原則定義，藉由描�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698278"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237412"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -90,8 +90,20 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 > [!NOTE]
 > 參數可能會加入至現有的和指派的定義。 新的參數必須包含 **defaultValue** 屬性。 這可避免原則或計畫的現有指派間接地變成無效。
 
-舉例來說，您可以定義一個原則來限制可部署資源的位置。
-當您建立原則時，會宣告下列參數：
+### <a name="parameter-properties"></a>參數屬性
+
+參數有下列在原則定義中使用的屬性：
+
+- **名稱**：參數的名稱。 由原則規則中的 `parameters` 部署函式使用。 如需詳細資訊，請參閱[使用參數值](#using-a-parameter-value)。
+- `type`：判斷參數是**字串**或**陣列**。
+- `metadata`：定義主要由 Azure 入口網站使用的子屬性，以顯示使用者易讀的資訊：
+  - `description`：參數用途的說明。 能用來提供可接受值的範例。
+  - `displayName`：參數在入口網站中顯示的易記名稱。
+  - `strongType`：(選擇性) 透過入口網站指派原則定義時會使用。 提供內容感知清單。 如需詳細資訊，請參閱 [strongType](#strongtype)。
+- `defaultValue`：(選擇性) 如果沒有提供值，就在指派中設定參數的值。 更新已指派的現有原則定義時需要。
+- `allowedValues`：(選擇性) 提供參數在指派期間所接受之值的清單。
+
+舉例來說，您可以定義一個原則定義來限制可部署資源的位置。 該原則定義的參數可為 **allowedLocations**。 原則定義的每個指派都會使用此參數來限制接受的值。 透過入口網站完成指派時，**strongType** 提供增強的體驗：
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-參數的類型可以是字串或陣列。 中繼資料屬性會用於 Azure 入口網站之類的工具，可顯示使用者易懂的資訊。
-
-在中繼資料屬性內，您可以使用 **strongType** 在 Azure 入口網站內提供可複選的選項清單。 **strongType** 所允許的值目前包括：
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>使用參數值
 
 在原則規則中，您可以使用下列 `parameters` 部署值函式語法來參考參數︰
 
@@ -126,6 +134,19 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+此範例參考[參數屬性](#parameter-properties)中示範的 **allowedLocations** 參數。
+
+### <a name="strongtype"></a>strongType
+
+在 `metadata` 屬性內，您可以使用 **strongType** 在 Azure 入口網站內提供可複選的選項清單。 **strongType** 所允許的值目前包括：
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>定義位置
 
@@ -187,7 +208,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ### <a name="conditions"></a>條件
 
-條件會評估某個**欄位**是否符合特定準則。 支援的條件如下︰
+條件會評估 **field** 或 **value** 存取子是否符合特定條件。 支援的條件如下︰
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -231,7 +252,53 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
   - 此括號語法支援包含句號的標籤名稱。
   - 其中 **\<tagName\>** 是要接受條件驗證的標籤名稱。
   - 範例：`tags[Acct.CostCenter]`，其中 **Acct.CostCenter** 是標籤的名稱。
+
 - 屬性別名 - 如需清單，請參閱[別名](#aliases)。
+
+### <a name="value"></a>值
+
+條件也可以使用 **value** 形成。 **value** 會檢查 [parameters](#parameters)、[支援的範本函式](#policy-functions)或常值的條件。
+**value** 已和任何支援的 [condition](#conditions) 配對。
+
+#### <a name="value-examples"></a>Value 範例
+
+此原則規則範例使用 **value** 來將 `resourceGroup()` 函式和傳回的 **name** 屬性與 `*netrg` 的 **like** 條件比較。 規則會拒絕名稱結尾是 `*netrg` 的任何資源群組中，任何不屬於 `Microsoft.Network/*` **type** 的任何資源。
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+此原則規則範例使用 **value** 來檢查多個巢狀函式的結果是否 **equals** `true`。 規則會拒絕沒有至少三個標籤的任何資源。
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>效果
 
@@ -274,12 +341,15 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ### <a name="policy-functions"></a>原則函式
 
-有數個 [Resource Manager 範本函式](../../../azure-resource-manager/resource-group-template-functions.md) 可供在原則規則內使用。 目前支援的函式如下︰
+除了下列部署和資源函式，所有的 [Resource Manager 範本函式](../../../azure-resource-manager/resource-group-template-functions.md)都可在原則規則中使用：
 
-- [參數](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [訂用帳戶](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- list*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 此外，`field` 函式可用於原則規則。 `field` 主要是與 **AuditIfNotExists** 和 **DeployIfNotExists** 搭配使用，以參考所評估資源上的欄位。 如需此用法的範例，請參閱 [DeployIfNotExists 範例](effects.md#deployifnotexists-example)。
 

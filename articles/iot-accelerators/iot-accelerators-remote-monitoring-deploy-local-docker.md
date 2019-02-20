@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 208526b745a117c9ee14bab21f8a5ce05accd1fe
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382232"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997178"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>本機部署遠端監視解決方案加速器 - Docker
 
@@ -23,7 +23,7 @@ ms.locfileid: "54382232"
 
 如果您想要在本機電腦上執行 IDE 中的遠端監視解決方案加速器，請參閱[本機部署遠端監視解決方案加速器 - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要部署遠端監視解決方案加速器所使用的 Azure 服務，您需要一個有效的 Azure 訂用帳戶。
 
@@ -54,6 +54,8 @@ set PCS
 此命令會顯示 **start.cmd** 指令碼設定的所有環境變數。
 
 請確定 Docker 正在本機電腦上執行。
+> [!NOTE]
+> Docker 如果是在 Windows 上執行，必須執行 [Linux 容器](https://docs.docker.com/docker-for-windows/)。
 
 在本機 Docker 容器中執行的微服務必須能夠存取 Azure 雲端服務。 您可以使用下列命令來測試您 Docker 環境的網際網路連線，該命令會從容器內來 Ping 網際網路位址：
 
@@ -66,6 +68,9 @@ docker run --rm -ti library/alpine ping google.com
 ```cmd/sh
 docker-compose up
 ```
+
+> [!NOTE] 
+> 請務必先與 Docker [共用本機磁碟機](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115)，然後才執行 `docker-compose up`。
 
 您第一次執行此命令時，Docker 會下載 Docker 中樞的微服務映像，以在本機建置容器。 在後續執行時，Docker 則會立即執行容器。
 

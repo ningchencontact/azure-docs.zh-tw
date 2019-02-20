@@ -4,7 +4,7 @@ description: 本文提供 Azure Service Fabric 安全性概觀。
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 629b6fba9ced5fa2ccf22f473fe25c87d1cc4818
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436805"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116215"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 安全性概觀
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 可解決開發與管理雲端應用程式時遭遇的挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，全心實作可調整、可信賴的關鍵性高需求工作負載。
@@ -48,7 +48,7 @@ Service Fabric 會使用您建立叢集時指定的 X.509 伺服器憑證。 若
 Service Fabric 針對連線至 Service Fabric 叢集的用戶端，可支援兩種存取控制類型：
 
 -   **系統管理員**：可完整存取管理功能，包括讀取/寫入功能。
--   **使用者**：僅具有管理功能的讀取存取權 (例如查詢功能)，以及解析應用程式和服務的能力。
+-   **使用者**：僅具有存取管理功能 (例如查詢功能) 的讀取權限，以及解析應用程式和服務的能力。
 
 使用存取控制，叢集系統管理員可以限制特定類型叢集作業的存取權。 這可讓叢集更安全。
 
@@ -87,7 +87,7 @@ Service Fabric 叢集提供其管理功能的數個進入點，包括 Web 架構
 
 2.  **事件彙總**：產生的事件必須經過收集與彙總後，才能夠顯示。 我們通常建議使用 [Azure 診斷](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (類似代理程式型記錄收集) 或 [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (同處理序記錄收集)。
 
-3.  **分析**︰事件必須經過視覺化並可藉由某種格式來存取，才能進行分析及顯示。 有數個平台可用於監視和診斷資料的分析和視覺效果。 我們建議使用 [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) 和 [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights)，因為它們能夠與 Service Fabric 妥善整合。
+3.  **分析**：事件必須經過視覺化並可藉由某種格式來存取，才能進行分析及顯示。 有數個平台可用於監視和診斷資料的分析和視覺效果。 我們建議使用 [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) 和 [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights)，因為它們能夠與 Service Fabric 妥善整合。
 
 您也可以使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)，監視構成 Service Fabric 叢集的許多 Azure 資源。
 

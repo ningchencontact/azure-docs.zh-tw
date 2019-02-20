@@ -1,24 +1,24 @@
 ---
 title: 使用 Key Vault 來儲存及存取 Azure Cosmos DB 金鑰
-description: 使用 Azure Key Vault 來儲存及存取 Azure Cosmos DB 連接字串、金鑰和 URI。
-author: rafats
+description: 使用 Azure Key Vault 來儲存及存取 Azure Cosmos DB 連接字串、金鑰和端點。
+author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: rafats
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 36b0a2f18cf2917251a87405456980811af1bc3d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463305"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242187"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>使用 Azure Key Vault 保護 Azure Cosmos 金鑰 
 
-對應用程式使用 Azure Cosmos DB 時，您可以使用應用程式設定檔內的端點 URI 和金鑰，來存取資料庫、集合和文件。  不過，直接將金鑰和 URL 放在應用程式的程式碼中並不安全，原因是所有使用者都能取得純文字格式的這些資料。 您會希望確定 URI 和金鑰都可供取得，但必須透過安全的機制來進行。 對此，Azure Key Vault 可協助您安全地儲存和管理應用程式祕密。
+將 Azure Cosmos DB 用於應用程式時，您可以使用應用程式設定檔內的端點和金鑰，來存取資料庫、集合和文件。  不過，直接將金鑰和 URL 放在應用程式的程式碼中並不安全，原因是所有使用者都能取得純文字格式的這些資料。 您會想要確定端點和金鑰可供取得，但必須是透過安全的機制。 對此，Azure Key Vault 可協助您安全地儲存和管理應用程式祕密。
 
 若要在 Key Vault 儲存和讀取 Azure Cosmos DB 存取金鑰，必須執行下列步驟：
 

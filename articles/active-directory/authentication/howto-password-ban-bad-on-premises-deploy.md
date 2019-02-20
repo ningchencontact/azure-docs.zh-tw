@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 824bedf782d6d227f2fa3adcf52492bb5a3eb478
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696858"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204367"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>預覽：部署 Azure AD 密碼保護
 
@@ -169,7 +170,7 @@ Azure AD 密碼保護有兩個可從 [Microsoft 下載中心](https://www.micros
       只有當目前登入的使用者也是根網域的 Active Directory 網域系統管理員時，上述範例才能運作。 如果不是這種情況，您可以透過 -ForestCredential 參數提供替代網域認證。
 
    > [!NOTE]
-   > 如果您的環境中安裝了多個 Proxy 伺服器，哪一個 Proxy 伺服器用於註冊樹系無關緊要。
+   > 如果您的環境中安裝了多個 Proxy 伺服器，則使用哪一個 Proxy 伺服器來註冊樹系並無關緊要。
 
    > [!TIP]
    > 第一次為指定的 Azure 租用戶執行此 Cmdlet 時，在 Cmdlet 執行完成之前，可能會有相當長的延遲 (很多秒)。 除非系統回報失敗，否則不應該將此延遲視為警示。

@@ -4,7 +4,7 @@ description: 本文提供 Azure 資料庫安全性功能概觀。
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584769"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116315"
 ---
 # <a name="azure-database-security-overview"></a>Azure 資料庫安全性概觀
 
@@ -110,12 +110,12 @@ Always Encrypted 可將擁有資料 (且可加以檢視) 的人員與管理資�
 
 Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的電腦存取 SQL 資料庫，請務必確認您的用戶端電腦防火牆允許 TCP 連接埠 1433 上的連出 TCP 通訊。 如果其他應用程式不需要連入連線，請在 TCP 通訊埠 1433 上封鎖它們。
 
-#### <a name="authentication"></a>驗證
+#### <a name="authentication"></a>Authentication
 
 「驗證」是指連線到資料庫時如何證明身分識別。 SQL Database 支援兩種驗證類型：
 
--   **SQL Server 驗證**：建立名為 SQL Database 訂閱者帳戶的邏輯 SQL 執行個體時，會建立單一登入帳戶。 此帳戶會使用 [SQL Server 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (使用者名稱和密碼) 來連線。 此帳戶是邏輯伺服器執行個體和附加至該執行個體之所有使用者資料庫的系統管理員。 無法限制訂閱者帳戶的權限。 只有其中一個帳戶可以存在。
--   **Azure Active Directory 驗證**：[Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)是使用 Azure AD 中的身分識別連線到 Azure SQL Database 和 Azure SQL 資料倉儲的機制。 您可以使用它來集中管理資料庫使用者的身分識別。
+-   **SQL Server 驗證**：建立名為 SQL Database 訂戶帳戶的邏輯 SQL 執行個體時，會建立單一登入帳戶。 此帳戶會使用 [SQL Server 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (使用者名稱和密碼) 來連線。 此帳戶是邏輯伺服器執行個體和附加至該執行個體之所有使用者資料庫的系統管理員。 無法限制訂閱者帳戶的權限。 只有其中一個帳戶可以存在。
+-   **Azure Active Directory 驗證**：[Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)是使用 Azure AD 中的身分識別來連線到 Azure SQL Database 和 Azure SQL 資料倉儲的機制。 您可以使用它來集中管理資料庫使用者的身分識別。
 
 ![使用 SQL Database 的 Azure AD 驗證](./media/azure-databse-security-overview/azure-database-fig2.png)
 
@@ -176,8 +176,8 @@ SQL Database 稽核會追蹤資料庫事件，並將它們寫入至您 Azure 儲
 
 稽核方法有兩種：
 
--   **Blob 稽核**：記錄會寫入至 Azure Blob 儲存體。 這是較新的稽核方法。 此方法可提供更高效能、支援細微度更高的物件層級稽核，且更符合成本效益。
--   **資料表稽核**：記錄會寫入至 Azure 資料表儲存體。
+-   **Blob 稽核**：記錄會寫入 Azure Blob 儲存體。 這是較新的稽核方法。 此方法可提供更高效能、支援細微度更高的物件層級稽核，且更符合成本效益。
+-   **資料表稽核**：記錄會寫入至 Azure Blob 儲存體。
 
 ### <a name="threat-detection"></a>威脅偵測
 

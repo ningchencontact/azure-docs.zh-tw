@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567266"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002352"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -66,7 +66,7 @@ Video Indexer 可以對媒體檔案執行的一些作業包括：
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>影片索引器從媒體擷取見解需要多長的時間？
 
-使用影片索引器 API 和影片索引器 Web 型介面，編製視訊或音訊檔案索引所需的時間量會取決於多個參數，例如檔案的長度與品質、在檔案中找到的見解數目、可用的[保留單元](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview)數目，以及是否已啟用[串流端點](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview)。 針對大部分的內容類型，假設已啟用 10 個 S3 類型的保留單元，我們預估編製索引的時間會是音訊或視訊檔案持續時間的 1/3 到 ½ (例如，10 分鐘的來源視訊會花費 3 分 30 秒到 5 分鐘的時間)。 不過，建議您以自己的內容執行幾個測試檔案，並採用平均值來進一步了解。
+使用影片索引器 API 和影片索引器 Web 型介面，編製視訊或音訊檔案索引所需的時間量會取決於多個參數，例如檔案的長度與品質、在檔案中找到的見解數目、可用的[保留單元](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview)數目，以及是否已啟用[串流端點](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview)。 我們建議您以自己的內容來執行數個測試檔案，並採用平均值以進一步了解。
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>是否可以建立自訂工作流程以將影片索引器的程序自動化？
 

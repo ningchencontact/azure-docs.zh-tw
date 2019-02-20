@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Log Analytics 最佳化 Active Directory 環境 | Microsoft Docs
+title: 使用 Azure 監視器最佳化 Active Directory 環境 | Microsoft Docs
 description: 您可以使用 Active Directory 健康情況檢查方案定期評估環境的風險和健全狀況。
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193003"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999023"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 Active Directory 健康情況檢查方案來最佳化 Active Directory 環境
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>在 Azure 監視器中使用 Active Directory 健康情況檢查解決方案來最佳化 Active Directory 環境
 
 ![AD 健康情況檢查標誌](./media/ad-assessment/ad-assessment-symbol.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 您可以使用 Active Directory 健康情況檢查方案定期評估伺服器環境的風險和健全狀況。 本文協助您安裝和使用此解決方案，讓您可以針對潛在問題採取修正動作。
 
@@ -38,24 +40,24 @@ ms.locfileid: "53193003"
 
 ![AD 健康情況檢查儀表板的影像](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Active Directory 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4.5.2 或以上的支援版本。  MMA 代理程式會由 System Center 2016 - Operations Manager 和 Operations Manager 2012 R2 及 Log Analytics 服務使用。
+* Active Directory 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4.5.2 或以上的支援版本。  System Center 2016 - Operations Manager 和 Operations Manager 2012 R2，以及 Azure 監視器都使用 MMA 代理程式。
 * 方案支援執行 Windows Server 2008 和 2008 R2、Windows Server 2012 和 2012 R2 及 Windows Server 2016 的網域控制站。
 * Log Analytics 工作區，可以從 Azure 入口網站中的 Azure 市集將 Active Directory 健康情況檢查方案新增至此。  不需要進一步的組態。
 
   > [!NOTE]
-  > 您加入方案之後，AdvisorAssessment.exe 檔案會以代理程式加入伺服器中。 組態資料會先讀取後再傳送至雲端中的 Log Analytics 服務，以便進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。
+  > 您加入方案之後，AdvisorAssessment.exe 檔案會以代理程式加入伺服器中。 系統會讀取設定資料，然後傳送到在雲端的 Azure 監視器以進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。
   >
   >
 
-若要對您的網域控制站執行健康情況檢查，以讓網域成員受到評估，則這些控制站需要代理程式，並且須連線到 Log Analytics，您可以使用下列其中一個支援方法來達成要求：
+若要對您的網域控制站執行健康情況檢查，以讓網域成員受到評估，則這些控制站需要代理程式，並且須連線到 Azure 監視器，您可以使用下列其中一個支援方法來達成要求：
 
 1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視網域控制站，則安裝 [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md)。
-2. 如果控制站受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Log Analytics 服務整合，則該網域控制站可以是具有 Log Analytics 的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
+2. 如果控制站受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Azure 監視器服務整合，則該網域控制站可以是具有 Azure 監視器的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
 3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics)下的步驟，來新增網域控制站以收集資料。  
 
-網域控制站上的代理程式會向 Operations Manager 管理群組報告、收集資料、轉送至其指派的管理伺服器，然後直接從管理伺服器傳送至 Log Analytics 服務。  資料並不會寫入 Operations Manager 資料庫。  
+網域控制站上的代理程式會向 Operations Manager 管理群組報告、收集資料、轉送至其指派的管理伺服器，然後直接從管理伺服器傳送至 Azure 監視器服務。  資料並不會寫入 Operations Manager 資料庫。  
 
 ## <a name="active-directory-health-check-data-collection-details"></a>Active Directory 健康情況檢查資料收集詳細資訊
 
@@ -73,7 +75,7 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 - 檔案複寫服務 (NTFRS) API
 - 自訂 C# 程式碼
 
-資料會收集到網域控制站，並每隔七天轉送給 Log Analytics。  
+資料會收集到網域控制站，並每隔七天轉送給 Azure 監視器。  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>了解建議的排列方式
 智慧套件會為每項建議指派加權值，該值能顯現建議的相對重要性。 只會顯示最重要的 10 個建議。
@@ -104,33 +106,36 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 ## <a name="use-health-check-focus-area-recommendations"></a>使用健康情況檢查焦點區域建議
 安裝之後，您可以在 Azure 入口網站中的方案頁面上，使用健康情況檢查圖格來檢視建議摘要。
 
-檢視基礎結構的總結法務遵循評估結果，然後再深入鑽研建議事項。
+檢視基礎結構的摘要法務遵循評估結果，然後再深入鑽研建議事項。
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>檢視的焦點區域的建議並採取更正措施
-3. 按一下 Azure 入口網站中您 Log Analytics 工作區的 [概觀] 圖格。
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 4. 在 [概觀] 頁面上，按一下 [Active Directory 健康情況檢查] 圖格。
 5. 在 [健康情況檢查] 頁面中檢閱任一焦點區域分葉中的摘要資訊，然後按一下焦點區域以檢視建議。
 6. 在任一焦點區域頁面中，您可以檢視針對環境且按照優先順序排列的建議。 按一下 [受影響的物件]  下方的建議，可檢視建議提出原因的詳細資料。<br><br> ![健康情況檢查建議的影像](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 7. 您可以採取 [建議動作] 中所建議的更正動作。 當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。 更正後的項目將以**通過的物件**呈現。
 
 ## <a name="ignore-recommendations"></a>忽略建議
-如果您有想要忽略的建議，則可以建立 Log Analytics 將用來防止建議出現在您評估結果的文字檔。
+如果您有想要忽略的建議，則可以建立 Azure 監視器將用來防止建議出現在您評估結果的文字檔。
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>識別您將忽略的建議
-1. 在 Azure 入口網站中的 Log Analytics 工作區頁面上，針對您選取的工作區，按一下 [記錄搜尋] 圖格。
-2. 使用下列查詢來列出您環境中電腦的失敗建議。
+[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
-    以下是顯示記錄檔搜尋查詢的螢幕擷取畫面︰<br><br> ![失敗的建議](./media/ad-assessment/ad-failed-recommendations.png)
+使用下列查詢來列出您環境中電腦的失敗建議。
 
-3. 選擇您想要忽略的建議。 您將使用下一個程序中的 RecommendationId 值。
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
+
+以下是顯示記錄查詢的螢幕擷取畫面：<br><br> ![失敗的建議](media/ad-assessment/ad-failed-recommendations.png)
+
+選擇您想要忽略的建議。 您將使用下一個程序中的 RecommendationId 值。
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>建立及使用 IgnoreRecommendations.txt 文字檔案
 1. 建立名為 IgnoreRecommendations.txt 的檔案。
-2. 在個別行上貼上或輸入您想要 Log Analytics 忽略之每個建議的各個 RecommendationId，然後儲存並關閉檔案。
-3. 將檔案放在您想要 Log Analytics 忽略建議之每一部電腦的下列資料夾中。
+2. 在個別行上貼上或輸入您想要 Azure 監視器忽略之每個建議的各個 RecommendationId，然後儲存並關閉檔案。
+3. 將檔案放在您想要 Azure 監視器忽略建議之每一部電腦的下列資料夾中。
    * 在具有 Microsoft Monitoring Agent 的電腦 (直接連線或透過 Operations Manager 連線) 上 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
    * 在 Operations Manager 2012 R2 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * 在 Operations Manager 2016 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
@@ -138,7 +143,7 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 ### <a name="to-verify-that-recommendations-are-ignored"></a>驗證已忽略建議
 在執行下一個排定的健康情況檢查之後 (依預設是每隔 7 天)，指定的建議會標示為 [已略過]，且不會出現在儀表板中。
 
-1. 您可以使用下列記錄搜尋查詢列出所有已忽略的建議。
+1. 您可以使用下列記錄查詢列出所有已忽略的建議。
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
@@ -177,11 +182,11 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 
 *為什麼只顯示前 10 項建議？*
 
-* 與其提供鉅細靡遺的工作清單，我們建議您先著重於解決優先建議事項。 解決後，智慧套件將會提供其他建議。 如果您想要查看詳細清單，可以使用記錄檔搜尋來檢視所有建議。
+* 與其提供鉅細靡遺的工作清單，我們建議您先著重於解決優先建議事項。 解決後，智慧套件將會提供其他建議。 如果您想要查看詳細清單，可以使用記錄查詢來檢視所有建議。
 
 *是否有忽略建議的方法？*
 
 * 是，請參閱上面的 [忽略建議](#ignore-recommendations) 一節。
 
 ## <a name="next-steps"></a>後續步驟
-* 使用[ Log Analytics 中的記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)，可讓您了解如何分析詳細的 AD 健康情況檢查資料和建議。
+* 使用 [Azure 監視器記錄查詢](../log-query/log-query-overview.md)，來了解如何分析詳細 AD 健康情況檢查資料和建議。

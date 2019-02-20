@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: dc393b8701bd72ea7f9de543de33116ea3cb5653
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f61520994bdeeab75b6d26731dee9af15b4ccda6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48872113"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-joinme"></a>教學課程：Azure Active Directory 與 join.me 整合
 
@@ -33,7 +34,7 @@ join.me 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 join.me 整合，您需要下列項目：
 
@@ -107,7 +108,7 @@ join.me 與 Azure AD 整合提供下列優點：
 
     ![映像](./media/joinme-tutorial/b1_b2_saml_sso.png)
 
-4. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕，開啟 [基本 SAML 設定] 對話方塊。
+4. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
 
     ![映像](./media/joinme-tutorial/b1-domains_and_urlsedit.png)
 
@@ -125,36 +126,36 @@ join.me 與 Azure AD 整合提供下列優點：
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者]，然後選取 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
     ![映像](./media/joinme-tutorial/d_users_and_groups.png)
 
-2. 在畫面上方選取 [新的使用者]。
+2. 在畫面頂端選取 [新增使用者]。
 
     ![映像](./media/joinme-tutorial/d_adduser.png)
 
-3. 在 [使用者屬性面板] 中，執行下列步驟。
+3. 在 [使用者] 屬性中，執行下列步驟。
 
     ![映像](./media/joinme-tutorial/d_userproperties.png)
 
-    a. 在 [名稱] 欄位中輸入**BrittaSimon**。
+    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱]  欄位中輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [屬性面板]，勾選 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中的值。
+    c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
   
 ### <a name="create-a-joinme-test-user"></a>建立 join.me 測試使用者
 
-在本節中，您要在 join.me 中建立名為 Britta Simon 的使用者。 請配合 [ 支援小組](https://help.join.me/s/?language)，在 join.me 平台中加入使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 join.me 中建立名為 Britta Simon 的使用者。 請與 [join.me 支援小組](https://help.join.me/s/?language)合作，在 join.me 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您向 Britta Simon 授予 join.me 的存取權限，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
     ![映像](./media/joinme-tutorial/d_all_applications.png)
 
@@ -179,7 +180,7 @@ join.me 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 在「存取面板」中按一下 [join.me] 圖格時，應該會自動登入您的 join.me 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

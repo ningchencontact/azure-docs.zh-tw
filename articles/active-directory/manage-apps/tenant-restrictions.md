@@ -3,9 +3,8 @@ title: 透過限制租用戶管理對雲端應用程式的存取 | Microsoft Doc
 description: 如何使用「租用戶限制」以根據使用者的 Azure AD 租用戶來管理可存取應用程式的使用者。
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: yossib
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: richagi
-ms.openlocfilehash: d6030c2bf169d74959279b9c05298db90138a94f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f2dc03b329ce8a4b42f44b958aee96654dafb098
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163087"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197737"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租用戶限制來管理對 SaaS 雲端應用程式的存取
 
 注重安全性的大型組織想要移到 Office 365 之類的雲端服務，但需要確知其使用者只能存取獲得核准的資源。 傳統上，當公司想要管理存取時，會限制網域名稱或 IP 位址。 在 SaaS 應用程式裝載於公用雲端而在共用網域名稱 (例如 outlook.office.com 和 login.microsoftonline.com) 上執行的環境中，這個方法行不通。 封鎖這些位址會讓使用者無法存取整個網路上的 Outlook，而不僅是限制他們只能存取已核准的身分識別和資源。
 
-Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「租用戶限制」的功能。 「租用戶限制」可讓組織根據應用程式用於單一登入的 Azure AD 租用戶來控制對 SaaS 雲端應用程式的存取。 例如，您可能想要允許使用者存取您組織的 Office 365 應用程式，但又防止他們存取其他組織的這些相同應用程式執行個體。  
+Azure Active Directory 對此挑戰所提出的解決方案是一個稱為「租用戶限制」的功能。 「租用戶限制」可讓組織根據應用程式用於單一登入的 Azure AD 租用戶來控制對 SaaS 雲端應用程式的存取。 例如，您可能想要允許使用者存取您組織的 Office 365 應用程式，但又防止他們存取其他組織的這些相同應用程式執行個體。  
 
 「租用戶限制」可讓組織指定允許其使用者存取的租用戶清單。 Azure AD 接著便可只授與對這些已允許之租用戶的存取權。
 
@@ -44,7 +44,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 4. **新式驗證** – 雲端服務必須使用新式驗證，才能使用「租用戶限制」並封鎖對所有非允許之租用戶的存取。 必須將 Office 365 雲端服務設定為預設使用新式驗證通訊協定。 如需有關 Office 365 對新式驗證之支援的最新資訊，請參閱[更新的 Office 365 新式驗證 (英文)](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)。
 
-下圖說明概略的流量流程。 只有傳送到 Azure AD 的流量才需要進行 SSL 檢查，傳送到 Office 365 雲端服務的流量則不需要。 這項區別很重要，因為傳送到 Azure AD 以進行驗證的流量通常比傳送到 SaaS 應用程式 (例如 Exchange Online 和 SharePoint Online) 的流量少很多。
+下圖說明概略的流量流程。 只有傳送到 Azure AD 的流量才需要進行 SSL 檢查，傳送到 Office 365 雲端服務的流量則不需要。 此區別很重要，因為傳送到 Azure AD 以進行驗證的流量通常比傳送到 SaaS 應用程式 (例如 Exchange Online 和 SharePoint Online) 的流量少很多。
 
 ![租用戶限制流量流程 - 圖表](./media/tenant-restrictions/traffic-flow.png)
 
@@ -60,7 +60,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 以下是透過 Proxy 基礎結構啟用「租用戶限制」的必要組態。 本指導方針是通用的，因此如需了解特定的實作步驟，您應該參考您 Proxy 廠商的文件。
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 - Proxy 必須要能夠執行 SSL 攔截、HTTP 標頭插入，以及使用 FQDN/URL 來篩選目的地。 
 
@@ -89,7 +89,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 ### <a name="end-user-experience"></a>使用者體驗
 
-範例使用者位於 Contoso 網路上，但正在嘗試存取 Fabrikam 的共用 SaaS 應用程式執行個體 (例如 Outlook Online)。 如果 Fabricam 不是 Contoso 執行個體所允許的租用戶，使用者就會看到以下頁面：
+範例使用者位於 Contoso 網路上，但正在嘗試存取 Fabrikam 的共用 SaaS 應用程式執行個體 (例如 Outlook Online)。 如果 Fabrikam 不是 Contoso 執行個體所允許的租用戶，使用者就會看到以下頁面：
 
 ![針對非允許之租用戶中使用者的拒絕存取頁面](./media/tenant-restrictions/end-user-denied.png)
 

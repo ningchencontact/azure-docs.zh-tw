@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 09bb74ead0ff52cc7a70170357ddc54a91bf00d9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239402"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116094"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
 ## <a name="introduction"></a>簡介
@@ -25,7 +25,7 @@ ms.locfileid: "55239402"
 
 如需 Azure 儲存體用戶端加密的概觀資訊，請參閱 [Microsoft Azure 儲存體用戶端加密和 Azure 金鑰保存庫](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您必須具備下列項目：
 
 * Azure 儲存體帳戶
@@ -43,7 +43,7 @@ ms.locfileid: "55239402"
 4. 然後，將加密的資料上傳至 Azure 儲存體服務。
 
 ## <a name="set-up-your-azure-key-vault"></a>設定 Azure 金鑰保存庫
-若要繼續進行本教學課程，您必須執行以下在教學課程[開始使用 Azure 金鑰保存庫](../../key-vault/key-vault-get-started.md)中所述的步驟：
+若要繼續進行本教學課程，您必須執行以下在教學課程[什麼是 Azure Key Vault？](../../key-vault/key-vault-overview.md)中所概述的步驟：
 
 * 建立金鑰保存庫。
 * 新增金鑰或密碼至金鑰保存庫。

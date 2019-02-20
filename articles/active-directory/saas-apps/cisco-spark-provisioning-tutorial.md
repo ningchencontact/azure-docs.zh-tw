@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰設定 Cisco Spark 來搭配 Azure Active Directory 進行自動使用者佈建 | Microsoft Docs
+title: 教學課程：設定 Cisco Spark 來搭配 Azure Active Directory 進行自動使用者佈建 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 將使用者帳戶自動佈建及取消佈建至 Cisco Spark。
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: aafbde6907e59be3b0ff1d5807ffe4a7d2fffaa4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346095"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211201"
 ---
-# <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>教學課程︰設定 Cisco Spark 來自動佈建使用者
+# <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>教學課程：設定 Cisco Spark 來自動佈建使用者
 
 
 本教學課程旨在示範設定 Azure AD 以將使用者自動佈建及取消佈建至 Cisco Spark 時，在 Cisco Spark 與 Azure Active Directory (Azure AD) 中要執行的步驟。
@@ -30,9 +31,9 @@ ms.locfileid: "44346095"
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-本教學課程中概述的案例假設您已經具有下列必要條件：
+此教學課程中概述的案例假設您已經具有下列先決條件：
 
 *   Azure AD 租用戶
 *   Cisco Spark 租用戶

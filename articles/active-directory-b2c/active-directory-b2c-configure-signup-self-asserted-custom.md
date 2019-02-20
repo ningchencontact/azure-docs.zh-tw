@@ -1,38 +1,40 @@
 ---
-title: 修改自訂原則中的註冊並設定自我判斷提示提供者 | Microsoft Docs
-description: 逐步解說如何在註冊中新增宣告並設定使用者輸入
+title: 使用自訂原則新增宣告並自訂使用者輸入 - Azure Active Directory B2C | Microsoft Docs
+description: 了解如何自訂使用者輸入並向 Azure Active Directory B2C 中的註冊或登錄旅程中新增宣告。
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2017
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2989af12407bdddf6e55e8967a0a574fff690208
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e48ce4adc64f434b80210ff8aa36a983ba88c26
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179203"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894911"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C：修改註冊以新增宣告並設定使用者輸入。
+#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來新增宣告並自訂使用者輸入
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-在本文中，您會在您的註冊使用者旅程中新增使用者所提供的輸入 (宣告)。  您會將輸入設定為下拉式清單，並定義它是否為必要項目。
+在本文中，您會在您的 Azure Active Directory (Azure AD) B2C 註冊使用者旅程圖中新增使用者所提供的輸入 (宣告)。  您會將輸入設定為下拉式清單，並定義它是否為必要項目。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。  測試註冊/登入使用者旅程以註冊新的本機帳戶，再繼續進行。
+完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。 測試註冊或登入使用者旅程圖以註冊新的本機帳戶，再繼續進行。
+
+## <a name="add-claims"></a>新增宣告
+
+使用註冊或登入使用者旅程圖即可收集使用者的初始資料。 其他宣告則可在稍後透過使用設定檔編輯使用者旅程圖來收集。 每當 Azure AD B2C 以互動方式直接從使用者收集資訊時，身分識別體驗架構會使用其 selfasserted 提供者。
 
 
-透過註冊/登入就能從使用者收集初始資料。  其他宣告則可在稍後透過設定檔編輯使用者旅程來收集。 每當 Azure AD B2C 以互動方式直接從使用者收集資訊時，身分識別體驗架構會使用其 `selfasserted provider`。 只要使用此提供者就適用下列步驟。
+### <a name="define-the-claim"></a>定義宣告
 
-
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>定義宣告、其顯示名稱和使用者輸入類型
-讓我們要求使用者輸入他們的所在城市。  在 TrustFrameworkBase 原則檔的 `<ClaimsSchema>` 元素中新增下列元素：
+讓我們要求使用者輸入他們的所在城市。 在 TrustFrameworkBase 原則檔的 **ClaimsSchema** 元素中新增下列元素：
 
 ```xml
 <ClaimType Id="city">
@@ -42,14 +44,15 @@ ms.locfileid: "55179203"
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-您也可以在這裡進行其他選擇以自訂宣告。  如需完整的結構描述，請參閱**身分識別體驗架構技術參考指南**。  本指南很快就會發佈到參考區段中。
 
-* `<DisplayName>` 是一個字串，會定義使用者端的「標籤」
+下列元素用來定義宣告：
 
-* `<UserHelpText>` 可協助使用者了解所需項目
+- **DisplayName** - 一個字串，會定義使用者端的「標籤」。
+- **UserHelpText** - 可協助使用者了解所需項目。
+- **UserInputType** - 可以是文字方塊、無線電選擇，下拉列表或多選。
 
-* `<UserInputType>` 有下面四個特別點出的選項︰
-    * `TextBox`
+#### <a name="textbox"></a>TextBox
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -59,7 +62,8 @@ ms.locfileid: "55179203"
 </ClaimType>
 ```
 
-    * `RadioSingleSelectduration` - 強制讓您只能選取單一項目。
+#### <a name="radiosingleselect"></a>RadioSingleSelect
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -73,10 +77,9 @@ ms.locfileid: "55179203"
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect` - 只允許選取有效值。
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 ![下拉式清單選項的螢幕擷取畫面](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -91,11 +94,9 @@ ms.locfileid: "55179203"
 </ClaimType>
 ```
 
-
-* `CheckboxMultiSelect` 允許選取一個或多個值。
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 ![多重選取選項的螢幕擷取畫面](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -110,142 +111,169 @@ ms.locfileid: "55179203"
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>將宣告新增至在使用者旅程的註冊/登入
+### <a name="add-the-claim-to-the-user-journey"></a>在使用者旅程圖中新增宣告
 
-1. 以 `<OutputClaim ClaimTypeReferenceId="city"/>` 的形式將宣告新增至 TechnicalProfile `LocalAccountSignUpWithLogonEmail` (可在 TrustFrameworkBase 原則檔中找到)。  請注意，此 TechnicalProfile 使用 SelfAssertedAttributeProvider。
+1. 以 `<OutputClaim ClaimTypeReferenceId="city"/>` 的形式將宣告新增至 `LocalAccountSignUpWithLogonEmail` 技術設定檔 (可在 TrustFrameworkBase 原則檔中找到)。 此技術設定檔使用 SelfAssertedAttributeProvider。
 
-  ```xml
-  <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-    <DisplayName>Email signup</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-      <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-      <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-      <Item Key="language.button_continue">Create</Item>
-    </Metadata>
-    <CryptographicKeys>
-      <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
-    </CryptographicKeys>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" />
-    </InputClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-      <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
-      <OutputClaim ClaimTypeReferenceId="givenName" />
-      <OutputClaim ClaimTypeReferenceId="surName" />
-      <OutputClaim ClaimTypeReferenceId="city"/>
-    </OutputClaims>
-    <ValidationTechnicalProfiles>
-      <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-    </ValidationTechnicalProfiles>
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-2. 以 `<PersistedClaim ClaimTypeReferenceId="city" />` 的形式將宣告新增至 AAD-UserWriteUsingLogonEmail，以在收集使用者的宣告後將宣告寫入到 AAD 目錄。 如果您不想在目錄中保留宣告以供日後使用，則可略過此步驟。
-
-  ```xml
-  <!-- Technical profiles for local accounts -->
-  <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-    <Metadata>
-      <Item Key="Operation">Write</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
-    </InputClaims>
-    <PersistedClaims>
-      <!-- Required claims -->
-      <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
-      <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
-      <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-      <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
-      <!-- Optional claims. -->
-      <PersistedClaim ClaimTypeReferenceId="givenName" />
-      <PersistedClaim ClaimTypeReferenceId="surname" />
-      <PersistedClaim ClaimTypeReferenceId="city" />
-    </PersistedClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-3. 以 `<OutputClaim ClaimTypeReferenceId="city" />` 的形式將宣告新增至 TechnicalProfile，以在使用者登入時從目錄中讀取此宣告
-
-  ```xml
-  <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
-    <Metadata>
-      <Item Key="Operation">Read</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
-    </InputClaims>
-    <OutputClaims>
-      <!-- Required claims -->
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <!-- Optional claims -->
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="displayName" />
-      <OutputClaim ClaimTypeReferenceId="otherMails" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-  </TechnicalProfile>
-  ```
-
-4. 將 `<OutputClaim ClaimTypeReferenceId="city" />` 新增至 RP 原則檔案 SignUporSignIn.xml，讓系統在使用者旅程成功後將這個宣告傳送至權杖中的應用程式。
-
-  ```xml
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
+    ```xml
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+      <DisplayName>Email signup</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+        <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
+        <Item Key="language.button_continue">Create</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
+      </CryptographicKeys>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" />
+      </InputClaims>
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+        <OutputClaim ClaimTypeReferenceId="newUser" />
+        <!-- Optional claims, to be collected from the user -->
         <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="surName" />
+        <OutputClaim ClaimTypeReferenceId="city"/>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
+        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+      </ValidationTechnicalProfiles>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+2. 以 `<PersistedClaim ClaimTypeReferenceId="city" />` 的形式將宣告新增至 AAD-UserWriteUsingLogonEmail 技術設定檔，以在收集使用者的宣告後將宣告寫入到 AAD 目錄。 如果您不想在目錄中保留宣告以供日後使用，則可略過此步驟。
+
+    ```xml
+    <!-- Technical profiles for local accounts -->
+    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+      <Metadata>
+        <Item Key="Operation">Write</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
+      </InputClaims>
+      <PersistedClaims>
+        <!-- Required claims -->
+        <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
+        <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
+        <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
+        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
+        <!-- Optional claims. -->
+        <PersistedClaim ClaimTypeReferenceId="givenName" />
+        <PersistedClaim ClaimTypeReferenceId="surname" />
+        <PersistedClaim ClaimTypeReferenceId="city" />
+      </PersistedClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+3. 以 `<OutputClaim ClaimTypeReferenceId="city" />` 的形式將宣告新增至技術設定檔，以在使用者登入時從目錄中讀取此宣告。
+
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+        <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Required claims -->
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
-  </RelyingParty>
-  ```
+    ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>使用 [立即執行] 測試自訂原則
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+    </TechnicalProfile>
+    ```
+   
+4. 將 `<OutputClaim ClaimTypeReferenceId="city" />` 宣告新增至 SignUporSignIn.xml 檔案，讓系統在使用者旅程圖成功後將這個宣告傳送至權杖中的應用程式。
 
-1. 開啟 [Azure AD B2C] 刀鋒視窗，然後巡覽至 [識別體驗架構] > [自訂原則]。
-2. 選取您上傳的自訂原則，按一下 [立即執行] 按鈕。
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="identityProvider" />
+          <OutputClaim ClaimTypeReferenceId="city" />
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+## <a name="test-the-custom-policy"></a>測試自訂原則
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶篩選]，然後選擇包含您 Azure AD 租用戶的目錄，以確定您使用的是包含 Azure AD 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [應用程式註冊]。
+4. 選取 [識別體驗架構 (預覽)]。
+5. 選取 [上傳自訂原則]，然後上傳您所變更的兩個原則檔案。
+2. 選取您上傳的註冊或登入原則，按一下 [立即執行] 按鈕。
 3. 您應該可以使用電子郵件地址註冊。
 
-測試模式中的註冊畫面看起來應該像這樣：
+註冊畫面看起來應該像這樣：
 
 ![修改過的註冊選項螢幕擷取畫面](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  傳回到應用程式的權杖現在會包含 `city` 宣告，如下所示
+傳送回您的應用程式的權杖包含 `city` 宣告。
+
 ```json
 {
   "exp": 1493596822,
@@ -266,19 +294,16 @@ ms.locfileid: "55179203"
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>選用：移除註冊旅程中的電子郵件驗證
+## <a name="optional-remove-email-verification"></a>選用：移除電子郵件驗證
 
-若要略過電子郵件驗證，原則的作者可以選擇移除 `PartnerClaimType="Verified.Email"`。 除非您移除 “Required” = true，否則電子郵件地址雖為必要項目，但不會進行驗證。  請仔細想清楚此選項是否適用於您的使用案例！
+若要略過電子郵件驗證，您可以選擇移除 `PartnerClaimType="Verified.Email"`。 在此情況下，除非您移除 “Required” = true，否則電子郵件地址雖為必要項目，但不會進行驗證。  請仔細想清楚此選項是否適用於您的使用案例。
 
-入門套件中 TrustFrameworkBase 原則檔案的 `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` 預設會啟用驗證的電子郵件︰
+TrustFrameworkBase 原則檔案的 `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` 預設會啟用驗證的電子郵件︰
+
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您的政策支援社交帳戶，請藉由變更下列技術設定檔，將新的宣告新增至社交帳戶登入的的流程。 社交帳戶登入會使用這些宣告來收集並寫入使用者的資料。
-
-1. 找出技術設定檔 **SelfAsserted-Social** 並新增輸出宣告。 **OutputClaims** 中宣告的順序會控制 Azure AD B2C 在螢幕上呈現宣告的順序。 例如： `<OutputClaim ClaimTypeReferenceId="city" />`。
-2. 找出技術設定檔 **AAD-UserWriteUsingAlternativeSecurityId** 並新增保存宣告。 例如： `<PersistedClaim ClaimTypeReferenceId="city" />`。
-3. 找出技術設定檔 **AAD-UserReadUsingAlternativeSecurityId** 並新增輸出宣告。 例如： `<OutputClaim ClaimTypeReferenceId="city" />`。
+了解如何[在自訂設定檔編輯原則中使用自訂屬性](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)。

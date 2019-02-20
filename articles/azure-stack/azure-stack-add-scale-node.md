@@ -12,23 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247641"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172394"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>在 Azure Stack 中新增更多縮放單位節點
 
-Azure Stack 操作員可藉由新增更多實體電腦，以增加現有縮放單位的整體容量。 實體電腦也稱為縮放單位節點。 您所新增的每個縮放單位節點在 CPU 類型、記憶體、磁碟編號和大小等方面，都必須與縮放單位中既有的節點同類。
-
-> [!NOTE]  
-您必須執行 Azure Stack 1807 或更新版本，才能新增更多縮放單位節點。
+Azure Stack 操作員可藉由新增更多實體電腦，以增加現有縮放單位的整體容量。 實體電腦也稱為縮放單位節點。 您所新增的每個新縮放單位節點在 CPU 類型、記憶體，以及磁碟編號和大小等方面，都必須與縮放單位中既有的節點同類。
 
 若要新增縮放單位節點，您必須使用 Azure Stack，並執行您的硬體設備製造商 (OEM) 所提供的工具。 OEM 工具會在硬體生命週期主機 (HLH) 上執行，以確定新的實體電腦符合現有節點的韌體層級。
 

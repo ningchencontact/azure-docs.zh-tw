@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 31e6fa596bb053ee8cd19f641349f02ee169b6eb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6b168efc2314e21f381d55f6ac79cda8b426e66d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472332"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110297"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>衝突類型和解決原則
 
@@ -20,7 +20,7 @@ ms.locfileid: "55472332"
 
 對於已設定多個寫入區域的 Azure Cosmos DB 帳戶，當寫入器同時更新多個區域中的相同項目時，就可能發生更新衝突。 更新衝突分為下列三個類別：
 
-* **插入衝突**：當應用程式從兩個或多個區域，同時插入唯一索引相同的兩個或多個項目時，可能發生此衝突。 例如，這項衝突可能會發生於 ID 屬性。 所有的寫入在其各自的當地區域最初可能都會成功。 但根據您所選擇的衝突解決原則，最後只會認可一個具有原始識別碼的項目。
+* **插入衝突**：當應用程式從兩個或多個區域，同時插入唯一索引相同的兩個或多個項目時，可能發生此衝突。 例如，此衝突可能會發生於 ID 屬性。 所有的寫入在其各自的當地區域最初可能都會成功。 但根據您所選擇的衝突解決原則，最後只會認可一個具有原始識別碼的項目。
 
 * **取代衝突**：當應用程式從兩個或多個區域同時更新單一項目時，可能發生這類衝突。
 
@@ -50,6 +50,7 @@ Azure Cosmos DB 提供彈性的原則導向機制來解決更新衝突。 您可
 
 了解如何設定衝突解決原則。 請參閱下列文章：
 
+* [如何在應用程式中設定多重主機](how-to-multi-master.md)
 * [使用 LWW 衝突解決原則](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [使用自訂衝突解決原則](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [使用衝突摘要](how-to-manage-conflicts.md#read-from-conflict-feed)

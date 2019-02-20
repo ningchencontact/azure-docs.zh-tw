@@ -4,7 +4,7 @@ description: 了解雲端式計算服務，其中包含各式各樣的計算執�
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405968"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111283"
 ---
 # <a name="azure-network-security"></a>Azure 網路安全性
 
@@ -88,11 +88,11 @@ Azure 虛擬網路就像您在內部部署環境中搭配自己的虛擬化平�
 
 您可以將 VNet 互相連線，讓連線至任一 VNet 的資源能夠跨越 VNet 彼此通訊。 您可以使用下列一個或兩個選項將 VNet 彼此連線：
 
-- **對等互連︰** 讓連線至相同 Azure 位置內不同 Azure VNet 的資源彼此通訊。 如果資源已連線到相同的 VNet，則跨越 VNet 的頻寬和延遲就一樣。 若要深入了解對等互連，請參閱[虛擬網路對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)。
+- **對等互連：** 讓連線至相同 Azure 位置內不同 Azure VNet 的資源能夠彼此通訊。 如果資源已連線到相同的 VNet，則跨越 VNet 的頻寬和延遲就一樣。 若要深入了解對等互連，請參閱[虛擬網路對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)。
 
  ![對等互連](media/azure-network-security/azure-network-security-fig-3.png)
 
-- **VNet 對 VNet 連線︰** 讓連線至相同或不同 Azure 位置內不同 Azure VNet 的資源彼此通訊。 不同於對等互連，VNet 之間的頻寬有限，因為流量必須通過 Azure VPN 閘道。
+- **VNet 對 VNet 連線**：讓連線至相同或不同 Azure 位置內不同 Azure VNet 的資源能夠彼此通訊。 不同於對等互連，VNet 之間的頻寬有限，因為流量必須通過 Azure VPN 閘道。
 
 ![VNet 對 VNet 連線](media/azure-network-security/azure-network-security-fig-4.png)
 
@@ -151,9 +151,9 @@ Azure 會針對連線至 VNet 的 VM 和[雲端服務](https://azure.microsoft.c
 
 您可以將 VNet 互相連線，讓連線至任一 VNet 的資源能夠跨越 VNet 彼此通訊。 您可以使用下列一個或兩個選項將 VNet 彼此連線：
 
-- **對等互連︰** 讓連線至相同 Azure 位置內不同 Azure VNet 的資源彼此通訊。 如果資源已連線到相同的 VNet，則跨越 VNet 的頻寬和延遲就一樣。若要深入了解對等互連，請閱讀[虛擬網路對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)。
+- **對等互連：** 讓連線至相同 Azure 位置內不同 Azure VNet 的資源能夠彼此通訊。 如果資源已連線到相同的 VNet，則跨越 VNet 的頻寬和延遲就一樣。若要深入了解對等互連，請閱讀[虛擬網路對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)。
 
-- **VNet 對 VNet 連線︰** 讓連線至相同或不同 Azure 位置內不同 Azure VNet 的資源彼此通訊。 不同於對等互連，VNet 之間的頻寬有限，因為流量必須通過 Azure VPN 閘道。 若要深入了解如何透過 VNet 對 VNet 連線來連線 VNet。 若要深入了解，請參閱[設定 VNet 對 VNet 連線](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- **VNet 對 VNet 連線**：讓連線至相同或不同 Azure 位置內不同 Azure VNet 的資源能夠彼此通訊。 不同於對等互連，VNet 之間的頻寬有限，因為流量必須通過 Azure VPN 閘道。 若要深入了解如何透過 VNet 對 VNet 連線來連線 VNet。 若要深入了解，請參閱[設定 VNet 對 VNet 連線](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 **內部部署連線能力**
 
@@ -161,9 +161,9 @@ VNet 可以透過您的網路與 Azure 之間的私人網路連線，或透過�
 
 您可以使用下列選項的任意組合，將內部部署網路連線至 VNet︰
 
-- **點對站虛擬私人網路 (VPN)：** 建立於一部連線到您網路的電腦與 VNet 之間。 如果您剛開始使用 Azure，此連線類型就很適合您，也適用於開發人員，因為它幾乎不需要變更您現有的網路。 連線會使用 SSTP 通訊協定，透過網際網路提供電腦與 VNet 之間的加密通訊。 點對站 VPN 的延遲無法預期，因為流量會周遊網際網路。
+- **點對站虛擬私人網路 (VPN)：** 建立於連線至您網路的單一電腦與 VNet 之間。 如果您剛開始使用 Azure，此連線類型就很適合您，也適用於開發人員，因為它幾乎不需要變更您現有的網路。 連線會使用 SSTP 通訊協定，透過網際網路提供電腦與 VNet 之間的加密通訊。 點對站 VPN 的延遲無法預期，因為流量會周遊網際網路。
 
-- **站對站 VPN：** 建立於 VPN 裝置與 Azure VPN 閘道之間。 此連線類型可讓您授權的任何內部部署資源存取 VNet。 此連線是 IPsec/IKE VPN，可透過網際網路提供內部部署裝置與 Azure VPN 閘道之間的加密通訊。 站對站連線的延遲無法預期，因為流量會周遊網際網路。
+- **站對站 VPN：** 建立於您的 VPN 裝置與 Azure VPN 閘道之間。 此連線類型可讓您授權的任何內部部署資源存取 VNet。 此連線是 IPsec/IKE VPN，可透過網際網路提供內部部署裝置與 Azure VPN 閘道之間的加密通訊。 站對站連線的延遲無法預期，因為流量會周遊網際網路。
 
 - **Azure ExpressRoute：** 透過 ExpressRoute 合作夥伴，建立於您的網路與 Azure 之間。 此連線是私人連線。 流量不會周遊網際網路。 ExpressRoute 連線的延遲無法預期，因為流量不會周遊網際網路。 若要深入了解所有先前的連線選項，請閱讀[連線拓撲圖](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -173,7 +173,7 @@ VNet 可以透過您的網路與 Azure 之間的私人網路連線，或透過�
 
 您可以使用下列一個或兩個選項，篩選子網路之間的網路流量︰
 
-- **網路安全性群組 (NSG)：** 每個 NSG 可以包含多個輸入和輸出安全性規則，讓您依照來源和目的地 IP 位址、連接埠和通訊協定篩選流量。 您可以將 NSG 套用至 VM 中的每個 NIC。 您也可以將 NSG 套用至 NIC 或其他 Azure 資源所連線的子網路。 若要深入了解 NSG，請閱讀[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
+- **網路安全性群組 (NSG)：** 每個 NSG 均可包含多個輸入和輸出安全性規則，讓您能夠依照來源和目的地 IP 位址、連接埠及通訊協定來篩選流量。 您可以將 NSG 套用至 VM 中的每個 NIC。 您也可以將 NSG 套用至 NIC 或其他 Azure 資源所連線的子網路。 若要深入了解 NSG，請閱讀[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 
 - **虛擬網路設備：** 虛擬網路設備是執行軟體的 VM，該軟體可執行網路功能 (例如防火牆)。 請檢視 Azure Marketplace 中可用的 NVA 清單。 此外，也可取得提供 WAN 最佳化和其他網路流量功能的 NVA。 NVA 通常使用於使用者定義或 BGP 路由。 您也可以使用 NVA 來篩選 VNet 之間的流量。
 
@@ -183,11 +183,11 @@ VNet 可以透過您的網路與 Azure 之間的私人網路連線，或透過�
 
 根據預設，Azure 會建立路由表，讓連線至任何 VNet 中任何子網路的資源彼此通訊。 您可以實作下列一個或兩個選項，覆寫 Azure 所建立的預設路由︰
 
-- **使用者定義的路由︰** 您可以建立自訂路由表，其中的路由可控制每個子網路的流量會路由傳送至的位置。 若要深入了解使用者定義的路由，請閱讀[使用者定義的路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)。
+- **使用者定義的路由：** 您可以建立自訂路由表，其中的路由可控制每個子網路的流量會路由傳送至的位置。 若要深入了解使用者定義的路由，請閱讀[使用者定義的路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)。
 
-- **BGP 路由︰** 如果您使用 Azure VPN 閘道或 ExpressRoute 連線將 VNet 連線至內部部署網路，則可將 BGP 路由傳播至 VNet。
+- **BGP 路由：** 如果您使用 Azure VPN 閘道或 ExpressRoute 連線將 VNet 連線至內部部署網路，則可將 BGP 路由傳播至 VNet。
 
-### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>混合式網際網路連線：連線到內部部署網路
+### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>混合式網際網路連線：連線至內部部署網路
 您可以使用下列選項的任意組合，將內部部署網路連線至 VNet︰
 
 -   網際網路連線
@@ -276,13 +276,13 @@ NSG 使用 5 個 Tuple 來評估流量 (且使用於您為 NSG 設定的規則)�
 
 -   [來源和目的地連接埠](https://technet.microsoft.com/library/dd197515)
 
--   通訊協定：[傳輸控制通訊協定 (TCP)](https://technet.microsoft.com/library/cc940037.aspx) 或[使用者資料包通訊協定 (UDP)](https://technet.microsoft.com/library/cc940034.aspx)
+-   通訊協定：[傳輸控制通訊協定 (TCP)](https://technet.microsoft.com/library/cc940037.aspx) \(英文\) 或[使用者資料包通訊協定 (UDP)](https://technet.microsoft.com/library/cc940034.aspx) \(英文\)
 
 這表示您可以控制單一 VM 與一組 VM、單一 VM 與另一個單一 VM，或整個子網路之間的存取。 同樣地，請記住，這是簡單的具狀態封包篩選，而不是完整的封包檢查。 網路安全性群組中沒有通訊協定驗證或網路層級 IDS 或 IPS 功能。
 
 NSG 隨附一些您應該注意的內建規則。 它們是：
 
--   **允許特定虛擬網路內的所有流量：** 相同 Azure 虛擬網路上的所有 VM 可以彼此通訊。
+-   **允許特定虛擬網路內的所有流量：** 相同 Azure 虛擬網路上的所有 VM 均可彼此通訊。
 
 -   **允許 Azure 負載平衡輸入：** 此規則允許從 Azure 負載平衡器的任何來源位址到任何目的地位址的流量。
 
@@ -320,11 +320,11 @@ Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行�
 
 -   每個虛擬網路的子網路皆有內建的系統路由表。 系統路由表具有下列 3 個路由群組：
 
- -  **本機 VNet 路由：** 直接連接到相同虛擬網路中的目的地 VM
+ -  **本機 VNet 路由：** 直接連線至相同虛擬網路中的目的地 VM
 
- - **內部部署路由：** 連接到 Azure VPN 閘道
+ - **內部部署路由：** 連線至 Azure VPN 閘道
 
- -  **預設路由：** 直接連接到網際網路。 系統將會卸除尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
+ -  **預設路由：** 直接連至網際網路。 系統將會捨棄尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
 
 -   隨著使用者定義路由的發行，您可以建立路由表以新增預設路由，然後建立路由表與 VNet 子網路的關聯，以便啟用這些子網路上的強制通道。
 
@@ -332,7 +332,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行�
 
 -   強制通道必須與具有動態路由 VPN 閘道 (非靜態閘道) 的 VNet 相關聯。
 
-- ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。
+- ExpressRoute 強制通道不會透過此機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。
 
 > [!Note]
 > 如需詳細資訊，請參閱 [ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)。
@@ -456,7 +456,7 @@ Azure 流量管理員可讓您控制流量分散到應用程式端點的方式�
 
 ### <a name="azure-network-validation"></a>Azure 網路驗證
 
-Azure 網路驗證以確定正在運作的 Azure 網路，因為它已設定且可在完成驗證是使用服務和功能可用來監視網路。 利用 Azure 網路監看員，您可以存取多項記錄和診斷功能，進而深入了解您的網路效能與健康情況。 這些功能可透過入口網站、Power Shell、CLI、Rest API 和 SDK 存取。
+Azure 網路驗證以確定正在運作的 Azure 網路，因為它已設定且可在完成驗證是使用服務和功能可用來監視網路。 利用 Azure 網路監看員，您可以存取多個記錄和診斷功能，進而深入了解您的網路效能與健康情況。 這些功能可透過入口網站、Power Shell、CLI、Rest API 和 SDK 存取。
 
 Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。 Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 方案，以及對網路安全性威脅型態的深層認知。
 
@@ -511,11 +511,11 @@ Azure 提供許多工具來監視、預防、偵測及回應網路安全性事�
 
 ### <a name="network-watcher"></a>網路監看員
 
-[網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) - 網路監看員的功能隨附了案例式監視。 這項服務包括封包擷取、下一個躍點、IP 流量驗證、安全性群組檢視、NSG 流量記錄。 案例層級監視可提供端對端的網路資源檢視，而非個別的網路資源監視。
+[網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) - 網路監看員的功能隨附了案例式監視。 此服務包括封包擷取、下一個躍點、IP 流量驗證、安全性群組檢視、NSG 流量記錄。 案例層級監視可提供端對端的網路資源檢視，而非個別的網路資源監視。
 
  ![網路監看員](./media/azure-network-security/azure-network-security-fig-15.png)
 
-網路監看員是一項區域性服務，可讓您監視與診斷位於和進出 Azure 的網路案例層級條件。 網路監看員提供的網路診斷和視覺效果工具，可幫助您了解、診斷及洞悉您在 Azure 中的網路。
+網路監看員是一個區域性服務，可讓您監視與診斷位於和進出 Azure 的網路案例層級條件。 網路監看員提供的網路診斷和視覺效果工具，可幫助您了解、診斷及洞悉您在 Azure 中的網路。
 
 網路監看員目前具有下列功能︰
 
@@ -533,13 +533,13 @@ Azure 提供許多工具來監視、預防、偵測及回應網路安全性事�
 
 網路監看員[變數封包擷取](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)可讓您建立封包擷取工作階段來追蹤虛擬機器的流入和流出流量。 封包擷取有助於被動和主動地診斷網路異常。 其他用途包括收集網路統計資料、取得有關網路入侵的資訊，以及偵錯用戶端與伺服器間的通訊等等。
 
-封包擷取是透過網路監看員從遠端啟動的虛擬機器擴充功能。 這項功能可以減輕在所需虛擬機器上手動執行封包擷取的工作負擔，進而省下寶貴的時間。 可以透過入口網站、PowerShell、CLI 或 REST API 觸發封包擷取。 觸發封包擷取方式的其中一個範例是使用虛擬機器警示。
+封包擷取是透過網路監看員從遠端啟動的虛擬機器擴充功能。 此功能可以減輕在所需虛擬機器上手動執行封包擷取的工作負擔，進而省下寶貴的時間。 可以透過入口網站、PowerShell、CLI 或 REST API 觸發封包擷取。 觸發封包擷取方式的其中一個範例是使用虛擬機器警示。
 
 #### <a name="ip-flow-verify"></a>IP 流量驗證
 
-[IP 流量驗證](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview)會根據 5 個 tuple 資訊檢查進出虛擬機器的封包是受到允許或拒絕。 這些資訊包括方向、通訊協定、本機 IP、遠端 IP、本機連接埠和遠端連接埠。 如果封包遭到安全性群組拒絕，則會傳回拒絕封包之規則的名稱。 雖然任何來源或目的地 IP 均可供選擇，但這項功能可協助系統管理員快速診斷網際網路和內部部署環境的往來連線問題。
+[IP 流量驗證](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview)會根據 5 個 tuple 資訊檢查進出虛擬機器的封包是受到允許或拒絕。 這些資訊包括方向、通訊協定、本機 IP、遠端 IP、本機連接埠和遠端連接埠。 如果封包遭到安全性群組拒絕，則會傳回拒絕封包之規則的名稱。 雖然任何來源或目的地 IP 均可供選擇，但此功能可協助系統管理員快速診斷網際網路和內部部署環境的往來連線問題。
 
-IP 流量驗證是以虛擬機器的網路介面作為目標。 接著會根據所設的設定，驗證該網路介面往來的流量。 這項功能可用於確認網路安全性群組中的規則是否會封鎖虛擬機器的輸入或輸出流量。
+IP 流量驗證是以虛擬機器的網路介面作為目標。 接著會根據所設的設定，驗證該網路介面往來的流量。 此功能可用於確認網路安全性群組中的規則是否會封鎖虛擬機器的輸入或輸出流量。
 
 #### <a name="next-hop"></a>下一個躍點
 
@@ -555,7 +555,7 @@ IP 流量驗證是以虛擬機器的網路介面作為目標。 接著會根據�
 
  網路安全性群組的流量記錄可讓您擷取群組中的安全性規則所允許或拒絕之流量的相關記錄。 流程是由 5個 Tuple 資訊定義的，這些資訊分別是來源 IP、目的地 IP、來源連接埠、目的地連接埠和通訊協定。
 
-[網路安全性群組流程記錄](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)是網路監看員的一項功能，可讓您檢視透過網路安全性群組輸入和輸出 IP 流量的相關資訊。
+[網路安全性群組流程記錄](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)是網路監看員的一個功能，可讓您檢視透過網路安全性群組輸入和輸出 IP 流量的相關資訊。
 
 #### <a name="virtual-network-gateway-and-connection-troubleshooting"></a>虛擬網路閘道和連線疑難排解
 
@@ -605,7 +605,7 @@ IP 流量驗證是以虛擬機器的網路介面作為目標。 接著會根據�
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 是 Azure 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 是 Azure 中的一個服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。
 
 Log Analytics 提供下列解決方案來監視您的網路︰
 
@@ -645,7 +645,7 @@ Log Analytics 提供下列解決方案來監視您的網路︰
 
 [網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)支援下列記錄︰
 
-- **NetworkSecurityGroupEvent：** 包含要將 NSG 規則套用到以 MAC 位址為基礎的 VM 和執行個體角色的項目。 每隔 60 秒會收集一次這些規則的狀態。
+- **NetworkSecurityGroupEvent：** 包含 NSG 規則會套用到以 MAC 位址為基礎的 VM 和執行個體角色的項目。 每隔 60 秒會收集一次這些規則的狀態。
 
 - **NetworkSecurityGroupRuleCounter：** 包含套用每個 NSG 規則以拒絕或允許流量之次數的項目。
 
@@ -656,7 +656,7 @@ Log Analytics 提供下列解決方案來監視您的網路︰
 
 -   [驅動雲端中斷的網路創新功能](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 
--   [SONiC：Microsoft Global Cloud 支援的網路切換軟體](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
+-   [SONiC：Microsoft Global Cloud 支援的網路切換軟體](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/) \(英文\)
 
 -   [Microsoft 建置其快速且可靠全域網路的方式](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 

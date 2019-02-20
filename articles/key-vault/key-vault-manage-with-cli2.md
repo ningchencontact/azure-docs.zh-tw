@@ -4,7 +4,7 @@ description: 使用此文章運用 Azure CLI 將 Key Vault 中的常見工作自
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822488"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115618"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 來管理 Key Vault 
 
@@ -43,7 +43,7 @@ ms.locfileid: "55822488"
 如需 Azure Key Vault 的概觀，請參閱[什麼是 Azure Key Vault？](key-vault-whatis.md)
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用本文中的 Azure CLI 命名，您必須具有下列項目：
 
@@ -145,18 +145,18 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
-如果您在 .pem 檔案中有現有的金鑰，您可以將它上傳至 Azure Key Vault。 您可以選擇使用軟體或 HSM 保護金鑰。 使用下列步驟從 .pem 檔案匯入金鑰，並使用軟體保護它：
+如果您在 .pem 檔案中有現有的金鑰，您可以將它上傳至 Azure Key Vault。 您可以選擇使用軟體或 HSM 保護金鑰。 此範例會從 .pem 檔案匯入金鑰，並使用軟體及使用密碼 "hVFkk965BuUv" 來保護它：
 
 ```azurecli
-az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
 您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰 (藉由使用其 URI)。 使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 一律可取得最新版本。 使用 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] 可取得此特定版本。 例如：**https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**。 
 
-將名為 SQLPassword 且其 Azure Key Vault 的值為 Pa$$w0rd 的密碼新增至保存庫。 
+將祕密 (一個名為 SQLPassword 且其 Azure Key Vault 的值為 "hVFkk965BuUv" 的密碼) 新增至保存庫。 
 
 ```azurecli
-az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
 使用此密碼的 URI 參考此密碼。 使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 一律可取得目前的版本，而使用 https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] 可取得特定版本。 例如：**https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**。
@@ -164,7 +164,7 @@ az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --val
 使用 .pem 或 .pfx 將憑證匯入至保存庫。
 
 ```azurecli
-az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "hVFkk965BuUv"
 ```
 
 讓我們檢視您所建立的金鑰、祕密或憑證：
@@ -203,7 +203,7 @@ az keyvault certificate list --vault-name "ContosoKeyVault"
 若要在 Azure Active Directory 中註冊應用程式：
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 

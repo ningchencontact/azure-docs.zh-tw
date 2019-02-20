@@ -15,17 +15,20 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: d21d588660b67da024491151fe4f4376cebba46f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729860"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001165"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure App Service 中使用 WebJob 執行背景工作
 
 ## <a name="overview"></a>概觀
-WebJobs 是一項 [Azure App Service](https://docs.microsoft.com/azure/app-service/) 功能，可讓您在與 Web 應用程式、API 應用程式或行動應用程式相同的內容中執行程式或指令碼。 使用 WebJob 不會產生額外的費用。
+WebJobs 是一個 [Azure App Service](https://docs.microsoft.com/azure/app-service/) 功能，可讓您在與 Web 應用程式、API 應用程式或行動應用程式相同的內容中執行程式或指令碼。 使用 WebJob 不會產生額外的費用。
+
+> [!IMPORTANT]
+> Linux 上的 App Service 尚不支援 WebJob。
 
 本文說明如何使用 [Azure 入口網站](https://portal.azure.com)來部署 WebJob，以便上傳可執行檔或指令碼。 如需如何使用 Visual Studio 開發和部署 WebJobs 的詳細資訊，請參閱[使用 Visual Studio 部署 WebJobs](webjobs-dotnet-deploy-vs.md)。
 
@@ -45,7 +48,7 @@ Azure Functions 提供另一種方式來執行程式和指令碼。 如需 WebJo
 | 支援遠端偵錯。 | 不支援遠端偵錯。|
 
 > [!NOTE]
-> Web 應用程式會在 20 分鐘沒有活動之後逾時。 只有對實際 Web 應用程式所提出的要求會重設計時器。 在 Azure 入口網站中檢視應用程式的組態，或者對進階工具網站 (https://<app_name>.scm.azurewebsites.net) 提出要求，並不會重設計時器。 如果您的應用程式執行連續或已排程的 WebJob，請啟用 [永遠開啟]，確保 Webjob 會可靠地執行。 這項功能僅適用於基本、標準和進階[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+> Web 應用程式會在 20 分鐘沒有活動之後逾時。 只有對實際 Web 應用程式所提出的要求會重設計時器。 在 Azure 入口網站中檢視應用程式的組態，或者對進階工具網站 (https://<app_name>.scm.azurewebsites.net) 提出要求，並不會重設計時器。 如果您的應用程式執行連續或已排程的 WebJob，請啟用 [永遠開啟]，確保 Webjob 會可靠地執行。 此功能僅適用於基本、標準和進階[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 ## <a name="acceptablefiles"></a>指令碼或程式支援的檔案類型
 

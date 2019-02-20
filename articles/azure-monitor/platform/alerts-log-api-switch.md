@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e4e935a9c78950517623acdf8196d51793fff18a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 879a91d7007057e577631e157dae71f1566acab6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462455"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118219"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>切換記錄警示的 API 喜好設定
 
@@ -26,10 +26,11 @@ ms.locfileid: "55462455"
 
 ## <a name="benefits-of-switching-to-new-azure-api"></a>切換至新 Azure API 的好處
 
-使用 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來建立和管理警示有幾項[舊版 Log Analytics 警示 API](api-alerts.md) 無法提供的好處；以下列出部分最主要的優點：
+使用 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來建立和管理警示有幾個[舊版 Log Analytics 警示 API](api-alerts.md) 無法提供的好處；以下列出部分最主要的優點：
 
 - 能夠在警示規則中[跨工作區進行記錄搜尋](../log-query/cross-workspace-query.md)，並且可延伸到外部資源，例如 Log Analytics 工作區甚或 Application Insights 應用程式
 - 使用多個欄位在查詢中進行分組時，使用者可利用 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來指定要在 Azure 入口網站中彙總哪些欄位
+- 記錄警示若是使用 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來建立的，可定義的期間最長為 48 小時，且擷取資料的期間比以前長
 - 在同一作業中將警示規則建立為單一資源，而不需要像[舊版 Log Analytics 警示 API](api-alerts.md) 一樣建立三個層級的資源
 - 在 Azure 中各種以查詢為基礎的記錄警示全都使用同一個程式設計介面 - 新的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 可用來管理 Log Analytics 和 Application Insights 的規則
 - 所有新的記錄警示功能和未來的開發都將只能透過新的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來使用和進行
@@ -57,6 +58,13 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 }
 ```
 
+存取此 API 時，也可以從 PowerShell 命令列使用 [ARMClient](https://github.com/projectkudu/ARMClient) (一個可簡化 Azure Resource Manager API 叫用流程的開放原始碼命令列工具) 來存取。 如下所示，在範例 PUT 呼叫中，是使用 ARMclient 工具來切換與特定 Log Analytics 工作區相關聯的所有警示規則。
+
+```PowerShell
+$switchJSON = {'scheduledQueryRulesEnabled': 'true'}
+armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
+```
+
 如果 Log Analytics 工作區中的所有警示規則成功切換為使用新的 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)，系統將提供下列回應。
 
 ```json
@@ -70,6 +78,12 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 
 ```
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+```
+
+若要使用 PowerShell 命令列以 [ARMClient](https://github.com/projectkudu/ARMClient) 工具執行上述程式碼，請參閱下方範例。
+
+```PowerShell
+armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
 如果指定的 Log Analytics 工作區已切換為僅使用 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)，回應 JSON 將如下所示。

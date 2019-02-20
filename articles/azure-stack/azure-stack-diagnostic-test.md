@@ -10,22 +10,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 82a691c0e0b6280a168605d56ee628d81f10823f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eca66bc2e737b0f9a9954cad21a446e82d753f84
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245645"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203806"
 ---
 # <a name="validate-azure-stack-system-state"></a>驗證 Azure Stack 系統狀態
 
-*適用範圍：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用範圍：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-Azure Stack 操作員能夠依需求了解系統的健康情況和狀態非常重要。 Azure Stack 驗證工具 (**Test-AzureStack**) 是一個 PowerShell Cmdlet，可讓您在系統上執行一系列的測試來找出故障 (如果有的話)。 當您連絡 Microsoft 客戶服務支援 (CSS) 解決問題時，通常會要求您透過[特殊權限端點 (PEP)](azure-stack-privileged-endpoint.md) 來執行此工具。 利用現有的全系統健康情況和狀態資訊，CSS 可以收集和分析詳細的記錄，專注於錯誤發生的區域，並與您一起解決問題。
+身為 Azure Stack 操作員，能夠依需求判斷系統的健康情況和狀態非常重要。 Azure Stack 驗證工具 (**Test-AzureStack**) 是一個 PowerShell Cmdlet，可讓您在系統上執行一系列的測試來找出故障 (如果有的話)。 當您連絡 Microsoft 客戶服務支援 (CSS) 解決問題時，通常會要求您透過[特殊權限端點 (PEP)](azure-stack-privileged-endpoint.md) 來執行此工具。 利用現有的全系統健康情況和狀態資訊，CSS 可以收集和分析詳細的記錄，專注於錯誤發生的區域，並與您一起解決問題。
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>執行驗證工具並存取結果
 
@@ -93,7 +93,6 @@ Azure Stack 操作員能夠依需求了解系統的健康情況和狀態非常�
 
 除了上述基礎結構測試之外，您還可以執行雲端案例測試，以檢查基礎結構元件之間的功能。 由於這些測試涉及資源部署，所以需要雲端系統管理員認證才能執行這些測試。 
     > [!NOTE]
-    >
     > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
 下列雲端案例都經過驗證工具測試：
@@ -148,7 +147,7 @@ Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName Pri
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" 
 ```
 
-如果您希望僅執行雲端案例而不執行其餘測試，則可以使用 **Include** 參數來執行這項操作： 
+如果您希望僅執行雲端案例而不執行其餘測試，則可以使用 **Include** 參數來執行此操作： 
 
 ```powershell
 Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 

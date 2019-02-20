@@ -14,12 +14,13 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: 708ec047a1c9883e34f2e255cd7a0f1237ded2bf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096869"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238057"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>作法：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
 
@@ -136,7 +137,7 @@ ms.locfileid: "55096869"
 
    ![檢視應用程式註冊](./media/howto-create-service-principal-portal/view-app-registrations.png)
 
-如果應用程式註冊設定為 [否]，只有[全域系統管理員](../users-groups-roles/directory-assign-admin-roles.md)才能註冊應用程式。 如果您的帳戶指派給「使用者」角色，但應用程式註冊設定僅限於系統管理員使用者，請洽詢系統管理員將您指派為全域系統管理員角色，或讓使用者可以註冊應用程式。
+如果應用程式註冊設定設為 [否]，則只有具備系統管理員角色的使用者才能註冊這些類型的應用程式。 若要了解 Azure AD 中可用的系統管理員角色及賦予每個角色的特定權限，請參閱[可用的角色](../users-groups-roles/directory-assign-admin-roles.md#available-roles)和[角色權限](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)。 如果您的帳戶已指派給「使用者」角色，但應用程式註冊設定僅限於系統管理員使用者，請洽詢系統管理員將您指派給其中一個可建立和管理所有應用程式註冊層面的系統管理員角色，或是讓使用者能夠註冊應用程式。
 
 ### <a name="check-azure-subscription-permissions"></a>檢查 Azure 訂用帳戶權限
 

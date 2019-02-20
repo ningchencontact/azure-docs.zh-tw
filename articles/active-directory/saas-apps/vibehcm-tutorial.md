@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 395f99c986e0a51e8dd2c440d258724e862f275c
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 79787045f0379e6b672350206740297000f298c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020608"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185565"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>教學課程：Azure Active Directory 與 Vibe HCM 整合
 
@@ -41,15 +42,15 @@ ms.locfileid: "48020608"
 - 已啟用 Vibe HCM 單一登入的訂用帳戶
 
 > [!NOTE]
-> 若要測試此教學課程中的步驟，我們不建議使用生產環境。
+> 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
-若要測試此教學課程中的步驟，您應該依照這些建議執行：
+若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在此教學課程中，您會在測試環境中測試 Azure AD 單一登入。 此教學課程中說明的案例由二個主要的基本工作組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Vibe HCM
 2. 設定並測試 Azure AD 單一登入
@@ -111,7 +112,7 @@ ms.locfileid: "48020608"
 
     ![Vibe HCM 網域及 URL 單一登入資訊](./media/vibehcm-tutorial/tutorial_vibehcm_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式來 URL：`https://<companyName>.vibehcm.com/portal.jsp`
+    在 [登入 URL] 文字方塊中，以下列模式輸入 URL：`https://<companyName>.vibehcm.com/portal.jsp`
      
     > [!NOTE] 
     > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Vibe HCM 支援小組](mailto:support@vibehcm.com)以取得此值。
@@ -128,7 +129,7 @@ ms.locfileid: "48020608"
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
    ![建立 Azure AD 測試使用者][100]
 
@@ -160,7 +161,7 @@ ms.locfileid: "48020608"
  
 ### <a name="create-a-vibe-hcm-test-user"></a>建立 Vibe HCM 測試使用者
 
-在此節中，您會在 Vibe HCM 中建立名為 Britta Simon 的使用者。 請與 [Vibe HCM 支援小組](mailto:support@vibehcm.com) 合作，在 Vibe HCM 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在此節中，您會在 Vibe HCM 中建立名為 Britta Simon 的使用者。 請與 [Vibe HCM 支援小組](mailto:support@vibehcm.com)合作，在 Vibe HCM 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -194,10 +195,10 @@ ms.locfileid: "48020608"
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Vibe HCM] 圖格時，應該會自動登入您的 Vibe HCM 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

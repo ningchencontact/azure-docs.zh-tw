@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Log Analytics 和 OMS 入口網站中管理工作區 | Microsoft Docs
-description: 您可以在 Azure Log Analytics 和 OMS 入口網站中使用有關使用者、帳戶、工作區及 Azure 帳戶的各種系統管理工作來管理工作區。
+title: 在 Azure 監視器中管理 Log Analytics 工作區 | Microsoft Docs
+description: 您可以在「Azure 監視器」中使用有關使用者、帳戶、工作區及 Azure 帳戶的各種系統管理工作來管理 Log Analytics 工作區。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656748"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005364"
 ---
-# <a name="manage-workspaces"></a>管理工作區
-
-若要管理對 Log Analytics 的存取，請執行與工作區相關的各種系統管理工作。 本文提供管理工作區的建議和程序。 工作區本質上是一個容器，包含帳戶資訊和帳戶的簡單組態資訊。 您或組織的其他成員可能會使用多個工作區來管理從所有或部分 IT 基礎結構收集而來的不同資料。
+# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>在 Azure 監視器中管理 Log Analytics 工作區
+「Azure 監視器」會將記錄資料儲存在 Log Analytics 工作區中，這基本上是一個包含資料和設定資訊的容器。 若要管理對記錄資料的存取，您需執行與工作區相關的各種系統管理工作。 您或組織的其他成員可能會使用多個工作區來管理從所有或部分 IT 基礎結構收集而來的不同資料。
 
 若要建立工作區，您需要︰
 
@@ -32,11 +31,11 @@ ms.locfileid: "55656748"
 4. 選擇地理位置。
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>判斷您需要的工作區數目
-工作區是一種 Azure 資源，也是 Azure 入口網站中收集、彙總、分析及呈現資料的容器。
+Log Analytics 工作區是一個 Azure 資源，也是「Azure 監視器」中收集、彙總、分析及呈現資料的容器。
 
-每個 Azure 訂用帳戶可以有多個工作區，而且您可以存取多個工作區，並且能夠輕鬆地在其間查詢。 本節描述何時有利於建立多個工作區。
+每個 Azure 訂用帳戶可以有多個工作區，而且您可以存取多個工作區，並且能夠輕鬆地查詢所有這些工作區。 本節描述何時有利於建立多個工作區。
 
-現今的工作區可提供︰
+Log Analytics 工作區提供：
 
 * 資料儲存體的地理位置
 * 用來定義不同使用者存取權的資料隔離
@@ -44,7 +43,7 @@ ms.locfileid: "55656748"
 
 從耗用量的觀點來看，建議您建立愈少工作區愈好。 這可讓管理和查詢體驗變得更容易且快速。 但是，根據上述特性，您在下列情況下可能想要建立多個工作區︰
 
-* 您是一家全球性公司，基於資料主權或合規性理由，您需要將資料儲存在特定區域。
+* 您是一家全球性公司，基於資料主權或合規性理由，您需要將記錄資料儲存在特定區域。
 * 您使用 Azure，想要將工作區和它所管理的 Azure 資源放在相同區域中，以避免輸出資料傳輸費用。
 * 您想要在每個部門或事業群本身的 Azure 訂用帳戶中分別建立其工作區，以根據不同部門或事業群的使用量來配置費用。
 * 您是受控服務提供者，需要將您管理的每個客戶的 Log Analytics 資料和其他客戶的資料保持隔離。
@@ -55,16 +54,14 @@ ms.locfileid: "55656748"
 如果您使用 System Center Operations Manager，每個 Operations Manager 管理群組只能連接一個工作區。 您可以將 Microsoft Monitoring Agent 安裝在 Operations Manager 所管理的電腦上，由代理程式向 Operations Manager 和不同的 Log Analytics 工作區回報。
 
 ## <a name="workspace-information"></a>工作區資訊
+雖然您會透過 Azure 入口網站中的 [Azure 監視器] 功能表分析 Log Analytics 工作區中的資料，但是會透過 [Log Analytics 工作區] 功能表建立和管理工作區。
+ 
 
-您可以在 Azure 入口網站中檢視工作區的相關詳細資料。 
-
-1. 如果您尚未登入 [Azure 入口網站](https://portal.azure.com)，請先登入。
-
-2. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。  
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics 工作區]。  
 
     ![Azure 入口網站](media/manage-access/azure-portal-01.png)  
 
-3. 在 [Log Analytics 訂用帳戶] 窗格上選取工作區。
+3. 從清單中選取您的工作區。
 
 4. [工作區] 頁面會顯示關於如何開始使用的詳細資料、組態和其他資訊的連結。  
 
@@ -84,10 +81,10 @@ ms.locfileid: "55656748"
 | 在 Azure 入口網站中建立工作區                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>使用 Azure 權限管理對 Log Analytics 的存取
+### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>使用 Azure 權限來管理對 Log Analytics 工作區的存取
 若要使用 Azure 權限授與 Log Analytics 工作區的存取權，請遵循[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../../role-based-access-control/role-assignments-portal.md)中的步驟。
 
-Azure 有兩個適用於 Log Analytics 的內建使用者角色：
+Azure 有兩個內建的 Log Analytics 工作區角色：
 - Log Analytics 讀者
 - Log Analytics 參與者
 
@@ -149,5 +146,4 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 ## <a name="next-steps"></a>後續步驟
 * 請參閱 [Log Analytics 代理程式概觀](../../azure-monitor/platform/log-analytics-agent.md)，從您資料中心或其他雲端環境中的電腦收集資料。
 * 請參閱[收集關於 Azure 虛擬機器的資料](../../azure-monitor/learn/quick-collect-azurevm.md)，以進行從 Azure VM 收集資料的設定。  
-* [從方案庫新增 Log Analytics 方案](../../azure-monitor/insights/solutions.md)，以新增功能和收集資料。
 

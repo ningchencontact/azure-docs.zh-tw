@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490442"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964809"
 ---
 # <a name="configure-usage-settings-and-policies"></a>設定使用方式設定和原則
 本文說明如何將使用者新增至實驗室、讓他們向實驗室註冊、控制他們可以使用 VM 的時數等等。 
@@ -29,7 +29,9 @@ ms.locfileid: "55490442"
 
 1. 選取左側功能表上的 [使用者]。
 2. 選取工具列上的 [新增使用者]。 
-3. 在 [新增使用者] 頁面上的不同行或以分號隔開的單一行中，輸入使用者的電子郵件地址。 
+
+    ![[新增使用者] 按鈕](../media/how-to-configure-student-usage/add-users-button.png)
+1. 在 [新增使用者] 頁面上的不同行或以分號隔開的單一行中，輸入使用者的電子郵件地址。 
 
     ![新增使用者電子郵件地址](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. 選取 [ **儲存**]。 您會在清單中看到使用者的電子郵件地址及其狀態 (是否已註冊)。 
@@ -64,11 +66,14 @@ ms.locfileid: "55490442"
 
 1. 選取左側功能表上的 [使用者]。
 2. 選取工具列上的 [每位使用者的配額: 無限制]。 
-3. 在 [每位使用者的配額] 頁面上，選取 [限制使用者可以使用 VM 的時數]。 
-4. 針對 [您想要給予每位使用者多少小時]，輸入時數，然後選取 [儲存]。 
+3. 在 [每位使用者的配額] 頁面上，選取下列其中一個選項︰ 
+    1. **無**。 使用者只有在排定的時間或當實驗室擁有者為其開啟虛擬機器時，才能使用其虛擬機器。
+    2. **無限制 (預設)**。 使用者可以不受任何時間限制來使用其虛擬機器。
+    3. **指定每位使用者的時數**。 使用者除了排定的時間之外，還可以在設定的時數 (於下方指定) 內使用其虛擬機器。 如果選取此選項，請在文字方塊中輸入**時數**。 
 
-    ![每位使用者的時數](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. 您可立即在工具列上看到時數：**每位使用者的配額：&lt;時數&gt;**。 
+        ![每位使用者的時數](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. 選取 [ **儲存**]。 
+5. 您會立即在工具列上看到變更的值：**每位使用者的配額：&lt;時數&gt;**。 
 
     ![每位使用者的配額](../media/how-to-configure-student-usage/quota-per-user.png)
 
@@ -78,8 +83,19 @@ ms.locfileid: "55490442"
 ### <a name="add-users-by-uploading-a-csv-file"></a>上傳 CSV 檔案以新增使用者
 您也可以上傳具有使用者電子郵件地址的 CSV 檔案，藉此新增使用者。
 
-1. 在工具列上選取 [上傳 CSV]。
-2. 選取具有使用者電子郵件地址的 CSV 檔案。 當您使用 Excel 開啟該檔案時，所有電子郵件地址應在一個資料行中。 
+1. 建立將使用者的電子郵件地址都放在一個資料行中的 CSV 檔案。
+
+    ![每位使用者的配額](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. 在實驗室的 [使用者] 頁面上，選取工具列上的 [上傳 CSV]。
+
+    ![[上傳 CSV] 按鈕](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. 選取具有使用者電子郵件地址的 CSV 檔案。 當您在選取 CSV 檔案之後選取 [開啟] 時，會看到以下的 [新增使用者] 視窗。 電子郵件地址清單中會填入來自 CSV 檔案的電子郵件地址。 
+
+    ![[新增使用者] 視窗中填入來自 CSV 檔案的電子郵件地址](../media/how-to-configure-student-usage/add-users-window.png)
+4. 在 [新增使用者] 視窗中選取 [儲存]。 
+5. 確認您在使用者清單中看到使用者。 
+
+    ![已新增的使用者清單](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## <a name="manage-user-vms"></a>管理使用者 VM
 一旦學生使用您提供的連結向 Azure Lab Services 註冊，您就會在 [虛擬機器] 索引標籤上看見已指派給學生的 VM。 

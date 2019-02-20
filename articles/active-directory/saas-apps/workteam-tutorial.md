@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d6ca6395e4f5e1aca361c56e21afc4e6bd1fc0c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132425"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>教學課程：Azure Active Directory 與 Workteam 整合
 
@@ -33,7 +34,7 @@ Workteam 與 Azure AD 的整合可提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Workteam 的整合，您需要下列項目：
 
@@ -145,7 +146,7 @@ Workteam 與 Azure AD 的整合可提供下列優點：
 
     c. 在 [SAML 實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼]值。
 
-    d. 在 [記事本] 中開啟從 Azure 入口網站下載的 **Base-64 編碼憑證**，複製其內容，然後貼到 [SAML 簽署憑證 (Base64)] 方塊中。
+    d. 在「記事本」中開啟從 Azure 入口網站下載的 **Base-64 編碼憑證**，複製其內容，然後貼到 [SAML Signing Certificate (Base64)] \(SAML 簽署憑證 (Base64)\) 方塊中。
 
     e. 按一下 [確定]。
 
@@ -238,7 +239,7 @@ Workteam 與 Azure AD 的整合可提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Workteam] 圖格時，您應該會自動登入 Workteam 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

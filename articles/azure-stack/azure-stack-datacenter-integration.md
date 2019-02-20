@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251872"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207529"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合式系統的一般資料中心整合考量
-如果您對 Azure Stack 整合式系統有興趣，您應瞭解一些有關部署的重大規劃考量，及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  
+如果您對 Azure Stack 整合式系統有興趣，您應瞭解有關部署的重大規劃考量，以及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  
 
 > [!NOTE]
 > 您只能向經過授權的硬體廠商購買 Azure Stack 多節點系統。 
@@ -53,8 +53,6 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 ### <a name="choose-identity-provider"></a>選擇識別提供者
 您必須考量要使用於 Azure Stack 部署 (可能是 Azure AD 或 AD FS) 的識別提供者。 重新部署不含完整系統的部署之後，您無法切換識別提供者。 如果您不擁有該 Azure AD 帳戶，且使用雲端服務提供者提供的帳戶，又如果您決定切換提供者並使用不同的 Azure AD 帳戶，此時需要連絡解決方案提供者以重新部署解決方案，而您需要自行負擔相關費用。
-
-
 
 您的識別提供者選項與租用戶虛擬機器、識別系統、其使用的帳戶、它們是否能加入 Active Directory 網域等等無關。這是分開的。
 
@@ -110,9 +108,9 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 
 ## <a name="time-synchronization"></a>時間同步處理
-您必須選擇用來同步處理 Azure Stack 的特定時間伺服器。  時間符號化對於 Azure Stack 及其基礎結構角色而言很重要，因為它用於產生 Kerberos 票證，而這些票證用於內部服務的彼此驗證。
+您必須選擇用來同步處理 Azure Stack 的特定時間伺服器。  時間同步處理對於 Azure Stack 及其基礎結構角色而言很重要，因為它用於產生 Kerberos 票證，而這些票證用於內部服務的彼此驗證。
 
-您必須指定時間同步處理伺服器的 IP，雖然基礎結構中的大部分元件都可以解析 URL，但有些元件只支援 IP 位址。 如果您使用已中斷連線的部署選項，您必須指定您公司網路上的時間伺服器，且確定您可從 Azure Stack 中的基礎結構網路觸達該伺服器。
+您必須指定時間同步處理伺服器的 IP，雖然基礎結構中的大部分元件都可以解析 URL，但有些元件只支援 IP 位址。 如果您使用已中斷連線的部署選項，就必須指定您公司網路上的時間伺服器，以確定可從 Azure Stack 中的基礎結構網路觸達該伺服器。
 
 ## <a name="connect-azure-stack-to-azure"></a>將 Azure Stack 連線至 Azure
 

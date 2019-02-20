@@ -17,12 +17,13 @@ ms.workload: identity
 ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078095"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166024"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的位置條件？ 
 
@@ -34,9 +35,9 @@ ms.locfileid: "55078095"
 
 Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置、應用程式和服務。 使用位置條件，您可以根據使用者的網路位置來控制雲端應用程式的存取。 位置條件的常見使用案例如下：
 
-- 使用者在公司網路以外存取服務時需要多重要素驗證  
+- 針對從公司網路外存取服務的使用者要求使用多重要素驗證。
 
-- 封鎖從特定國家或地區存取服務之使用者的存取權。 
+- 封鎖從特定國家或地區存取服務之使用者的存取權。
 
 位置是網路位置的標籤，代表具名位置或多重要素驗證信任的 IP。
 
@@ -64,7 +65,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 - **國家/地區** - 此選項可讓您選取一或多個國家或地區，以定義具名位置。 
 
-- **包括未知區域** - 部分 IP 位址未對應至特定國家/地區。 此選項可讓您選擇這些 IP 位址是否應包含在具名位置中。 當使用具名位置的原則應套用到未知位置時，可以核取它們。
+- **包括未知區域** - 部分 IP 位址未對應至特定國家/地區。 此選項可讓您選擇這些 IP 位址是否應包含在具名位置中。 當使用具名位置的原則應套用到未知位置時，請使用此設定。
 
 您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 您可以設定：
 
@@ -77,7 +78,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 ## <a name="trusted-ips"></a>信任的 IP
 
-您也可以在[多重要素驗證服務設定](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)中設定代表您組織的近端內部網路的 IP 位址範圍。 這項功能可讓您設定最多 50 個 IP 位址範圍。 IP 位址範圍是 CIDR 格式。 如需詳細資訊，請參閱[信任的 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)。  
+您也可以在[多重要素驗證服務設定](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)中設定代表您組織的近端內部網路的 IP 位址範圍。 此功能可讓您設定最多 50 個 IP 位址範圍。 IP 位址範圍是 CIDR 格式。 如需詳細資訊，請參閱[信任的 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)。  
 
 如果您已設定信任的 IP，在位置條件的位置清單中，它們會顯示為 **MFA 信任的 IP**。   
 
@@ -87,7 +88,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 核取此選項之後，**MFA 信任的 IP** (包含具名位置) 將套用到選取此選項的任何原則。
 
-對於工作階段存留期長的行動和桌面應用程式，會定期重新評估條件式存取。 預設值是一小時一次。 當內部公司網路宣告只有在初始驗證發出時，Azure AD 可能沒有信任的 IP 範圍清單。 在此情況下，較難判斷使用者是否仍在公司網路上：
+對於工作階段存留期長的行動和桌面應用程式，會定期重新評估條件式存取。 預設值是一小時一次。 當只有在初始驗證才會發出位於公司網路內宣告時，Azure AD 可能不會有可信任 IP 範圍清單。 在此情況下，較難判斷使用者是否仍在公司網路上：
 
 1. 檢查使用者的 IP 位址是否在其中一個信任的 IP 範圍內。
 
@@ -109,7 +110,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 ### <a name="any-location"></a>任何位置
 
-根據預設，選取 [任何位置] 會將原則套用到所有 IP 位址，而這意味著網際網路上的所有位址。 這項設定不限於您已設為具名位置的 IP 位址。 當您選取 [任何位置] 時，您仍然可以從原則中排除特定位置。 例如，您可以將原則套用到受信任位置以外的所有位置，以將範圍設為公司網路以外的所有位置。
+根據預設，選取 [任何位置] 會將原則套用到所有 IP 位址，而這意味著網際網路上的所有位址。 此設定不限於您已設為具名位置的 IP 位址。 當您選取 [任何位置] 時，您仍然可以從原則中排除特定位置。 例如，您可以將原則套用到受信任位置以外的所有位置，以將範圍設為公司網路以外的所有位置。
 
 ### <a name="all-trusted-locations"></a>所有信任的位置
 
@@ -150,7 +151,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 ### <a name="cloud-proxies-and-vpns"></a>雲端 Proxy 和 VPN 
 
-當您使用雲端託管 Proxy 或 VPN 解決方案時，Azure AD 在評估原則時使用的 IP 位址為 Proxy 的 IP 位址。 不會使用包含使用者公用 IP 位址的 X-Forwarded-For (XFF) 標頭，因為沒有來自受信任來源的驗證，故會呈現偽造 IP 位址的方法。 
+當您使用雲端託管 Proxy 或 VPN 解決方案時，Azure AD 在評估原則時使用的 IP 位址為 Proxy 的 IP 位址。 不會使用包含使用者公用 IP 位址的 X-Forwarded-For (XFF) 標頭，因為無法驗證它來自受信任的來源，故會提供偽造 IP 位址的方法。 
 
 當雲端 Proxy 已就緒時，就能使用用來要求已加入網域之裝置的原則或來自 AD FS 的內部公司網路宣告。
 

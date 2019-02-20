@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a39ab2eb6d08f478ed68aed2bc753e5225185fe3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243176"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175382"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>適用於 Azure Stack 整合式系統的 Azure 連線部署規劃決策
-在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-connection-models.md)之後，即可接著完成您的 Azure Stack 部署決策。
+在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-connection-models.md)之後，即可完成您的 Azure Stack 部署決策。
 
 部署已連線到 Azure 的 Azure Stack，表示您可使用 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 進行身分識別儲存。 您也可以選擇任一種計費模型：使用時付費或以容量為基礎。 已連線的部署是預設選項，因為可讓客戶充分發揮 Azure Stack 的價值，特別適用於牽涉 Azure 與 Azure Stack 的混合式雲端案例。 
 

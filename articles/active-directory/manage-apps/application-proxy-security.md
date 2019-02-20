@@ -3,8 +3,8 @@ title: Azure AD 應用程式 Proxy 的安全性考量 | Microsoft Docs
 description: 涵蓋使用 Azure AD 應用程式 Proxy 的安全性考量
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813818"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207223"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 遠端存取應用程式的安全性考量
 
@@ -40,7 +41,7 @@ Azure AD 應用程式 Proxy 提供下列安全性優點︰
 
 Azure AD 應用程式 Proxy 依賴 Azure AD Security Token Service (STS) 來進行所有驗證。  預先驗證 (就其本質) 會封鎖大量匿名攻擊，因為只有已驗證的身分識別可以存取後端應用程式。
 
-如果您選擇 Passthrough 作為預先驗證方法，就無法獲得這項優點。 
+如果您選擇 Passthrough 作為預先驗證方法，就無法獲得此優點。 
 
 ### <a name="conditional-access"></a>條件式存取
 
@@ -147,7 +148,7 @@ Azure AD 應用程式 Proxy 是由兩個部分組成︰
 
 2. 通過所有檢查後，Azure AD STS 會針對應用程式發出已簽署權杖，並將使用者重新導向回到應用程式 Proxy 服務。
 
-3. 應用程式 Proxy 會驗證權杖已發給正確的應用程式。 它也會執行其他檢查，例如確保權杖是由 Azure AD 所簽署，且仍在有效期限內。
+3. 「應用程式 Proxy」會確認權杖已簽發給正確的應用程式。 它也會執行其他檢查，例如確保權杖是由 Azure AD 所簽署，且仍在有效期限內。
 
 4. 應用程式 Proxy 會設定加密的驗證 cookie，以表示已發生應用程式驗證。 此 cookie 包含根據 Azure AD 的權杖和其他資料之到期時間戳記，例如以驗證為基礎的使用者名稱。 會使用僅應用程式 Proxy 服務所知的私密金鑰來加密此 cookie。
 

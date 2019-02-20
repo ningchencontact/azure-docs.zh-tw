@@ -17,12 +17,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e763c1512e52111e1294c5cad8b4bea46ff0406
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d94e64af362ef9698350b8231718cc841731f7e5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100612"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162827"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory 2.0 和 OpenID Connect 通訊協定
 
@@ -121,7 +122,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | login_hint |選用 |如果您事先知道使用者名稱，便可使用此參數為使用者預先填入登入頁面的使用者名稱和電子郵件地址欄位。 通常應用程式會在重新驗證期間，在已經使用 `preferred_username` 宣告從稍早的登入中擷取使用者名稱之後，使用此參數。 |
 | domain_hint |選用 |此值可以是 `consumers` 或 `organizations`。 如果包含此參數，就會略過使用者在 v2.0 登入頁面上經歷的以電子郵件為基礎的探索程序，提供稍微更流暢的使用者體驗。 通常應用程式會在重新驗證期間，藉由從識別碼權杖中擷取 `tid` 宣告，來使用此參數。 如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad` (Microsoft 帳戶取用者租用戶)，請使用 `domain_hint=consumers`。 否則，使用 `domain_hint=organizations`。 |
 
-此時，系統會要求使用者輸入其認證並完成驗證。 v2.0 端點會確認使用者已經同意 `scope` 查詢參數所指出的權限。 如果使用者尚未同意這些權限中的任何一項，v2.0 端點就會提示使用者同意必要的權限。 您可以深入了解[權限、同意及多租用戶應用程式](v2-permissions-and-consent.md)。
+此時，系統會要求使用者輸入其認證並完成驗證。 v2.0 端點會確認使用者已經同意 `scope` 查詢參數所指出的權限。 如果使用者尚未同意這些權限中的任何一個，v2.0 端點就會提示使用者同意必要的權限。 您可以深入了解[權限、同意及多租用戶應用程式](v2-permissions-and-consent.md)。
 
 在使用者驗證並同意之後，v2.0 端點會使用 `response_mode` 參數中指定的方法，將回應傳回至位於指示之重新導向 URI 的應用程式。
 
@@ -186,7 +187,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 * 確保使用者擁有正確的授權/權限
 * 確保驗證具有特定強度，例如多重要素驗證。
 
-一旦驗證完畢 id_token，即可利用使用者開始工作階段，並使用 id_token 中的宣告來取得應用程式中的使用者相關資訊。 這項資訊可以用於顯示、記錄、個人化等等。
+一旦驗證完畢 id_token，即可利用使用者開始工作階段，並使用 id_token 中的宣告來取得應用程式中的使用者相關資訊。 此資訊可以用於顯示、記錄、個人化等等。
 
 ## <a name="send-a-sign-out-request"></a>傳送登出要求
 
@@ -228,14 +229,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 &response_mode=form_post                              // 'form_post' or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
 offline_access%20                                         
-https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app
 ```
 
 > [!TIP]
 > 請按一下以下連結來執行此要求。 登入之後，您的瀏覽器將會重新導向至 https://localhost/myapp/，且網址列中會有識別碼權杖和代碼。 請注意，此要求會使用 `response_mode=fragment` (僅限用於示範)。 建議您使用 `response_mode=form_post`。
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器 Log Analytics 記錄中的標準屬性 | Microsoft Docs
-description: 說明 Azure 監視器 Log Analytics 中的多種資料類型通用的屬性。
+title: Azure 監視器記錄中的標準屬性 | Microsoft Docs
+description: 說明「Azure 監視器」記錄中多種資料類型通用的屬性。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381958"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997034"
 ---
-# <a name="standard-properties-in-log-analytics-records"></a>Log Analytics 記錄中的標準屬性
-[Log Analytics](../log-query/log-query-overview.md) 中的資料會儲存為一組記錄，每筆記錄分別屬於具有一組唯一屬性的特定資料類型。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。
+# <a name="standard-properties-in-azure-monitor-log-records"></a>Azure 監視器記錄中的標準屬性
+「Azure 監視器」中的記錄資料會[儲存為一組記錄](../log-query/log-query-overview.md)，每個記錄分別屬於具有一組唯一屬性的特定資料類型。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。
 
 其中有部分屬性尚在實作程序中，因此您可能會在某些資料類型中看到這些屬性，但在其他類型中卻沒看到。
 
@@ -151,6 +151,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 [Log Analytics 資料的儲存方式](../log-query/log-query-overview.md)。
-- 參與[在 Log Analytics 中撰寫查詢](../../azure-monitor/log-query/get-started-queries.md)的課程。
-- 參與[聯結 Log Analytics 查詢中的資料表](../../azure-monitor/log-query/joins.md)的課程。
+- 深入了解 [Azure 監視器記錄資料的儲存方式](../log-query/log-query-overview.md)。
+- 參與[撰寫記錄查詢](../../azure-monitor/log-query/get-started-queries.md)的課程。
+- 參與[在記錄查詢中聯結資料表](../../azure-monitor/log-query/joins.md)的課程。

@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 11/27/2018
+ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a1200494eac2d60083a6608d1af91379d8298070
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: b8aba410cd447f14fcce89fee93c5f6a253a34ce
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201494"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101817"
 ---
 ## <a name="supported-distributions-and-drivers"></a>支援的散發套件和驅動程式
 
@@ -34,7 +34,7 @@ Microsoft 會針對用來作為虛擬工作站的 NV 和 NVv2 系列虛擬機器
 
 | 配送映像 | 驅動程式 |
 | --- | -- |
-| Ubuntu 16.04 LTS、18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3、7.4、7.5、7.6<br/><br/>CentOS 型 7.3、7.4、7.5、7.6 | NVIDIA GRID 7，驅動程式分支 R410|
+| Ubuntu 16.04 LTS、18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3、7.4、7.5、7.6<br/><br/>CentOS 型 7.3、7.4、7.5、7.6 | NVIDIA GRID 7.1，驅動程式分支 R410|
 
 > [!WARNING] 
 > 在 Red Hat 產品上安裝第三方軟體可能會影響 Red Hat 支援條款。 請參閱 [Red Hat 知識庫文件 (英文)](https://access.redhat.com/articles/1067)。

@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 02/07/2019
 ms.author: celested
-ms.reviewer: hirsin, jesakowi, justhu
+ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 94a8cb5f0764ac1ed7330fb75131d3084d804f1e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091918"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204404"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點中的權限和同意
 
@@ -52,19 +53,19 @@ Microsoft 身分識別平台會實作 [OAuth 2.0](active-directory-v2-protocols.
 
 藉由定義這些類型的權限，資源可以更精細地掌控其資料及 API 功能的公開方式。 第三方應用程式可向使用者和系統管理員要求這些權限，且必須在他們核准要求後，應用程式才可存取資料或代表使用者執行動作。 透過將資源的功能切割成較小的權限集，便可將協力廠商應用程式建置成只要求它們執行其功能所需的特定權限。 使用者和系統管理員可確切知道應用程式可存取哪些資料，因而能夠更確信應用程式的行為不具惡意企圖。 開發人員應一律遵守最低權限的概念，而僅就其應用程式運作所需的程度要求權限。
 
-在 OAuth 中，這些類型的權限也稱為「範圍」。 一般也常直接稱之為「權限」。 權限在 Microsoft 身分識別平台中會以字串值表示。 繼續討論 Microsoft Graph 範例，每個權限的字串值如下：
+在 OAuth 2.0 中，這些類型的權限也稱為「範圍」。 一般也常直接稱之為「權限」。 權限在 Microsoft 身分識別平台中會以字串值表示。 繼續討論 Microsoft Graph 範例，每個權限的字串值如下：
 
 * 使用 `Calendars.Read` 來讀取使用者的行事曆
 * 使用 `Calendars.ReadWrite` 來寫入使用者的行事曆
 * 使用 `Mail.Send` 來以使用者身分傳送郵件
 
-應用程式最常用來要求這些權限的方式，是在對 v2.0 授權端點的要求中指定範圍。 不過，較高的特定權限只能透過系統管理員的同意而授與，且通常會使用[系統管理員同意端點](v2-permissions-and-consent.md#admin-restricted-scopes)來要求/授與。 繼續閱讀以深入了解。
+應用程式最常用來要求這些權限的方式，是在對 v2.0 授權端點的要求中指定範圍。 不過，較高的特定權限只能透過系統管理員的同意而授與，且通常會使用[系統管理員同意端點](v2-permissions-and-consent.md#admin-restricted-permissions)來要求/授與。 繼續閱讀以深入了解。
 
 ## <a name="permission-types"></a>權限類型
 
 Microsoft 身分識別平台支援兩種類型的權限：**委派權限**和**應用程式權限**。
 
-* **委派權限**供已有登入使用者的應用程式使用。 針對這些應用程式，使用者或系統管理員要同意應用程式所要求的權限，然後對應用程式委派權限，讓其在呼叫目標資源時以登入使用者的身分行事。 有些委派權限可由非系統管理使用者同意，但有些較高的特定權限則需要[系統管理員的同意](v2-permissions-and-consent.md#admin-restricted-scopes)。 若要了解哪些系統管理員角色可同意委派權限，請參閱 [Azure AD 中的系統管理員角色權限](../users-groups-roles/directory-assign-admin-roles.md)。
+* **委派權限**供已有登入使用者的應用程式使用。 針對這些應用程式，使用者或系統管理員要同意應用程式所要求的權限，然後對應用程式委派權限，讓其在呼叫目標資源時以登入使用者的身分行事。 有些委派權限可由非系統管理使用者同意，但有些較高的特定權限則需要[系統管理員的同意](v2-permissions-and-consent.md#admin-restricted-permissions)。 若要了解哪些系統管理員角色可同意委派權限，請參閱 [Azure AD 中的系統管理員角色權限](../users-groups-roles/directory-assign-admin-roles.md)。
 
 * **應用程式權限**供沒有登入使用者的應用程式在執行時使用；例如，當作背景服務或精靈來執行的應用程式。  應用程式權限只能[由系統管理員同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)。
 
@@ -77,7 +78,7 @@ _有效權限_ 是應用程式向目標資源提出要求時所將具備的權�
 
 ## <a name="openid-connect-scopes"></a>OpenId Connect 範圍
 
-v2.0 的 OpenID Connect 實作有一些定義妥善但不會套用至特定資源的範圍：`openid`、`email`、`profile` 和 `offline_access`。
+v2.0 的 OpenID Connect 實作有一些定義妥善但不會套用至特定資源的範圍：`openid`、`email`、`profile` 和 `offline_access`。 不支援 `address` 和 `phone` OpenID Connect 範圍。
 
 ### <a name="openid"></a>openid
 
@@ -93,9 +94,9 @@ v2.0 的 OpenID Connect 實作有一些定義妥善但不會套用至特定資�
 
 ### <a name="offlineaccess"></a>offline_access
 
-[`offline_access` 範圍](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)可延長您應用程式代表使用者存取資源的時間。 在工作帳戶同意畫面上，此範圍會顯示為「隨時存取您的資料」權限。 在個人 Microsoft 帳戶同意頁面上，它會顯示為「隨時存取您的資訊」權限。 當使用者核准 `offline_access` 範圍時，您的應用程式將可從 v2.0 權杖端點收到重新整理權杖。 重新整理權杖是長期權杖。 您的應用程式可以在舊存取權杖到期時取得新的存取權杖。
+[`offline_access` 範圍](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)可延長您應用程式代表使用者存取資源的時間。 在同意頁面上，此範圍會顯示為「維持存取您可存取的資料」權限。 當使用者核准 `offline_access` 範圍時，您的應用程式將可從 v2.0 權杖端點收到重新整理權杖。 重新整理權杖是長期權杖。 您的應用程式可以在舊存取權杖到期時取得新的存取權杖。
 
-如果您的應用程式未要求 `offline_access` 範圍，則不會收到重新整理權杖。 這意謂著當您在 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md)中兌換授權碼時，您只會從 `/token` 端點收到存取權杖。 存取權杖的有效期短。 存取權杖的有效期通常在一小時內。 屆時，您的應用程式將必須把使用者重新導向回 `/authorize` 端點，以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者可能需要重新輸入其認證或重新同意權限。
+如果您的應用程式並未明確地要求 `offline_access` 範圍，則不會收到重新整理權杖。 這意謂著當您在 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md)中兌換授權碼時，您只會從 `/token` 端點收到存取權杖。 存取權杖的有效期短。 存取權杖的有效期通常在一小時內。 屆時，您的應用程式將必須把使用者重新導向回 `/authorize` 端點，以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者可能需要重新輸入其認證或重新同意權限。  請注意，雖然伺服器會自動要求 `offline_access` 範圍，但您的用戶端仍必須要求它，以便接收重新整理權杖。 
 
 如需有關如何取得及使用重新整理權杖的詳細資訊，請參閱 [v2.0 通訊協定參考](active-directory-v2-protocols.md)。
 
@@ -118,6 +119,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 `scope` 參數是應用程式所要求的委派權限清單 (以空格分隔)。 藉由將權限值附加至資源的識別碼 (應用程式識別碼 URI)，即可指出每個權限。 在要求範例中，應用程式需要權限來讀取使用者的行事曆，以及以使用者身分傳送郵件。
 
 在使用者輸入其認證之後，v2.0 端點會檢查是否有相符的 「使用者同意」記錄。 如果使用者過去未曾對所要求的任何權限表示同意，且系統管理員也未代表整個組織同意這些權限，v2.0 端點就會要求使用者授與所要求的權限。
+
+> [!NOTE]
+> 此時，`offline_access` (「維持存取您可存取的資料」) 和 `user.read` (「將您登入並讀取您的設定檔」) 權限會自動包含在應用程式的初始同意中。  通常需要這些權限，才能獲得適當的應用程式功能 - `offline_access` 可供應用程式存取重新整理權杖 (對原生和 Web 應用程式都很重要)，而 `user.read` 可供存取 `sub` 宣告，讓用戶端或應用程式能正確地隨著時間識別使用者及存取基本使用者資訊。  
 
 ![工作帳戶同意](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -164,7 +168,7 @@ Microsoft 生態系統中的某些高特權權限可以設定為「受系統管�
 2. 找出 [Microsoft Graph 權限] 區段，然後新增您應用程式所需的權限。
 3. [儲存] 應用程式註冊。
 
-### <a name="recommended-sign-the-user-in-to-your-app"></a>建議使用：將使用者登入您的應用程式
+### <a name="recommended-sign-the-user-into-your-app"></a>建議使用：將使用者登入您的應用程式
 
 通常，當您建置使用系統管理員同意端點的應用程式時，應用程式會需要一個可供系統管理員核准應用程式權限的頁面或檢視。 此頁面可以是應用程式註冊流程的一部分、應用程式設定的一部分，或是專用的「連接」流程。 在許多情況下，應用程式只在使用者利用工作或學校 Microsoft 帳戶登入之後顯示此「連接」檢視是很合理的。
 
@@ -193,8 +197,8 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | 參數 | 條件 | 說明 |
 | --- | --- | --- |
-| `tenant` | 必要 | 您想要要求權限的目錄租用戶。 可以提供 GUID 或易記的名稱格式，或是一般會參考使用 "common" (如範例所示)。 |
-| `client_id` | 必要 | [應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)指派給您應用程式的「應用程式識別碼」。 |
+| `tenant` | 必要 | 您想要要求權限的目錄租用戶。 可以提供 GUID 或易記的名稱格式，或是一般會參考使用 `common` (如範例所示)。 |
+| `client_id` | 必要 | 應用程式 (用戶端) 識別碼，[應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)或[新的應用程式註冊 (預覽) 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)已指派給您的應用程式。 |
 | `redirect_uri` | 必要 |您想要傳送回應以供應用程式處理的重新導向 URI。 它必須與您在應用程式註冊入口網站中註冊的其中一個重新導向 URI 完全相符。 |
 | `state` | 建議 | 同樣會隨權杖回應傳回之要求中所包含的值。 它可以是您想要的任何內容的字串。 請在驗證要求出現之前，先使用此狀態在應用程式中將使用者狀態的相關資訊 (例如他們之前所在的網頁或檢視) 編碼。 |
 
@@ -212,7 +216,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | --- | --- | --- |
 | `tenant` | 將應用程式所要求的權限授與應用程式的目錄租用戶 (採用 GUID 格式)。 |
 | `state` | 一個包含在要求中而將一併在權杖回應中傳回的值。 它可以是您想要的任何內容的字串。 此狀態用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
-| `admin_consent` | 將設定為 **true**。 |
+| `admin_consent` | 將設定為 `True`。 |
 
 #### <a name="error-response"></a>錯誤回應
 
@@ -224,8 +228,8 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | 參數 | 說明 |
 | --- | --- | --- |
-| `error` |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
-| `error_description` |可協助開發人員識別錯誤根本原因的特定錯誤訊息。 |
+| `error` | 用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
+| `error_description` | 可協助開發人員識別錯誤根本原因的特定錯誤訊息。 |
 
 從系統管理員同意端點收到成功回應之後，您的應用程式便已取得它所要求的權限。 接著，您可以針對您想要的資源要求權杖。
 
@@ -252,6 +256,52 @@ Content-Type: application/json
 
 如需有關 OAuth 2.0 通訊協定及如何取得存取權杖的詳細資訊，請參閱 [v2.0 端點通訊協定參考](active-directory-v2-protocols.md)。
 
-## <a name="troubleshooting"></a>疑難排解
+## <a name="the-default-scope"></a>/.default 範圍
+
+您可以使用 `/.default` 範圍，協助將您的應用程式從 v1.0 端點遷移至 v2.0 端點。 這是每個應用程式的內建範圍，其參考在應用程式註冊時設定的靜態權限清單。 `scope` 值為 `https://graph.microsoft.com/.default` 在功能上與 v1.0 端點 `resource=https://graph.microsoft.com` 相同 - 也就是說，它會對應用程式已在 Azure 入口網站中註冊的 Microsoft Graph 範圍要求權杖。
+
+/.Default 範圍可使用於任何 OAuth 2.0 流程，但是在 [代理者流程](v2-oauth2-on-behalf-of-flow.md) 和[用戶端認證流程](v2-oauth2-client-creds-grant-flow.md)中特別需要。  
+
+> [!NOTE]
+> 用戶端無法在單一要求中結合靜態 (`/.default`) 和動態同意。 因此，`scope=https://graph.microsoft.com/.default+mail.read` 會因為範圍類型的組合而導致錯誤。
+
+### <a name="default-and-consent"></a>/.default 與同意
+
+`/.default` 範圍也會對 `prompt=consent` 觸發 v1.0 端點行為。 不論資源為何，它都會要求同意應用程式註冊的所有權限。 如果納入要求的一部分，則 `/.default` 範圍會傳回一個權杖，其中包含特別要求資源的範圍。
+
+### <a name="default-when-the-user-has-already-given-consent"></a>使用者已經同意時的 /.default
+
+因為`/.default` 在功能上等同於以 `resource` 為中心的 v1.0 端點行為，所以也會提供 v1.0 端點的同意行為。 也就是說，如果使用者尚未在用戶端與資源之間授與任何權限，`/.default` 只會觸發同意提示。 如果存在這類同意，則會傳回權杖，其中包含該資源的使用者授與的所有範圍。 不過，如果尚未授與權限，或已提供 `prompt=consent` 參數，則會對用戶端應用程式註冊的所有範圍顯示同意提示。 
+
+#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>範例 1：使用者 (或租用戶管理員) 已授與權限
+
+使用者 (或租用戶管理員) 已對用戶端授與 Microsoft Graph 權限 `mail.read` 和 `user.read`。 如果用戶端對 `scope=https://graph.microsoft.com/.default` 提出要求，則不論向 Microsoft Graph 註冊權限的用戶端應用程式的內容為何，都不會顯示同意提示。 系統會傳回一個權杖，其中包含 `mail.read` 和 `user.read` 範圍。
+
+#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>範例 2：使用者尚未在用戶端與資源之間授與權限
+
+用戶端與 Microsoft Graph 之間不存在使用者同意。 用戶端已註冊 `user.read` 和 `contacts.read` 權限，以及 Azure Key Vault 範圍 `https://vault.azure.net/user_impersonation`。 當用戶端向 `scope=https://graph.microsoft.com/.default` 要求權杖時，使用者會看見 `user.read`、`contacts.read` 和 Key Vault `user_impersonation` 範圍的同意畫面。 傳回的權杖只包含 `user.read` 和 `contacts.read` 範圍。
+
+#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>範例 3：使用者已同意，但用戶端要求額外的範圍
+
+使用者已經對用戶端同意 `mail.read`。 用戶端已在其註冊中註冊 `contacts.read` 範圍。 當用戶端使用 `scope=https://graph.microsoft.com/.default` 提出權杖要求，並透過 `prompt=consent` 要求同意時，使用者只會對應用程式註冊的所有權限看到同意畫面。 `contacts.read` 將會呈現在同意畫面中，但 `mail.read` 不會。 傳回的權杖會適用於 Microsoft Graph，而且包含 `mail.read` 和 `contacts.read`。
+
+### <a name="using-the-default-scope-with-the-client"></a>使用 /.default 範圍搭配用戶端
+
+當用戶端要求自己的 `/.default` 範圍時，`/.default` 範圍有特殊案例存在。 下列範例示範此案例。
+
+```
+// Line breaks are for legibility only.
+
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+response_type=token            //code or a hybrid flow is also possible here
+&client_id=9ada6f8a-6d83-41bc-b169-a306c21527a5
+&scope=9ada6f8a-6d83-41bc-b169-a306c21527a5/.default
+&redirect_uri=https%3A%2F%2Flocalhost
+&state=1234
+```
+
+這會對所有已註冊的權限產生同意畫面 (根據上述的同意和 `/.default` 描述，如果適用的話)，然後傳回 id_token，而不是存取權杖。  從 ADAL 轉向 MSAL 的某些舊版用戶端存在這種行為，但不得由以 v2.0 端點為目標的新用戶端使用。  
+
+## <a name="troubleshooting-permissions-and-consent"></a>針對權限和同意進行疑難排解
 
 如果您或應用程式的使用者在同意程序中發現非預期的錯誤，請參閱本文以取得疑難排解步驟：[對應用程式執行同意時出現非預期的錯誤](../manage-apps/application-sign-in-unexpected-user-consent-error.md)。

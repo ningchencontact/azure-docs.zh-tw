@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 深入了解 Bing Web 搜尋 API 所使用的回答類型和回應。
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f76c9bfa5dc6a3542ace7025e0889ee64cd2e783
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188621"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232887"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web 搜尋 API 回應結構和回應類型  
 
@@ -42,7 +42,7 @@ ms.locfileid: "55188621"
 
 ## <a name="webpages-answer"></a>網頁回答
 
-[網頁](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) (英文) 回答包含網頁 (Bing Web 搜尋判斷與查詢有關) 的連結清單。 清單中每個[網頁](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) (英文) 都包含頁面的名稱、URL、顯示 URL、內容的簡短描述以及 Bing 找到內容時的日期。
+[網頁](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) (英文) 回答包含網頁 (Bing Web 搜尋判斷與查詢有關) 的連結清單。 清單中的每個[網頁](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) \(英文\) 都將包含：頁面的名稱、URL、顯示 URL、內容的簡短描述，以及 Bing 找到內容的日期。
 
 ```json
 {
@@ -91,7 +91,7 @@ The following shows an example of how you might display the webpage in a search 
 }, ...
 ```
 
-根據使用者的裝置而定，您通常會顯示縮圖子集，以及可讓使用者檢視其餘影像的選項。
+根據使用者的裝置而定，您通常會顯示縮圖子集，以及可讓使用者[逐頁檢視](paging-webpages.md)其餘影像的選項。
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -314,7 +314,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 |符號|說明|
 |------------|-----------------|
-|Sqrt|平方根|
+|排序|平方根|
 |Sin[x]、Cos[x]、Tan[x]<br />Csc[x]、Sec[x]、Cot[x]|三角函數 (以弧度為單位的引數)|
 |ArcSin[x]、ArcCos[x]、ArcTan[x]<br />ArcCsc[x]、ArcSec[x]、ArcCot[x]|反三角函數 (以弧度為單位的給定結果)|
 |Exp[x]、E^x|指數函式|
@@ -428,6 +428,48 @@ Query: What time is it in the U.S.
     }]
 }, ...
 ```
+
+以下顯示 Bing 如何使用拼字建議。
+
+![Bing 拼字建議範例](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## <a name="response-headers"></a>回應標頭
+
+來自 Bing Web 搜尋 API 的回應可能包含下列標頭：
+
+|||
+|-|-|
+|`X-MSEdge-ClientID`|Bing 已指派給使用者的唯一識別碼|
+|`BingAPIs-Market`|用來履行要求的市場|
+|`BingAPIs-TraceId`|此要求 (適用於支援) 的 Bing API 伺服器上的記錄項目|
+
+保存用戶端識別碼，並將它與後續要求一起傳回尤其重要。 當您這麼做時，搜尋會在排名搜尋結果中使用過去的內容，也會提供一致的使用者體驗。
+
+不過，當您從 JavaScript 呼叫 Bing Web 搜尋 API 時，您的瀏覽器內建安全性功能 (CORS) 可能會讓您無法存取這些標頭的值。
+
+若要取得標頭的存取權，您可以透過 CORS Proxy 提出 Bing Web 搜尋 API 要求。 來自這類 Proxy 的回應包含 `Access-Control-Expose-Headers` 標頭，可將回應標頭列入白名單並提供給 JavaScript 使用。
+
+您可以輕鬆地安裝 CORS Proxy，讓我們的[教學課程應用程式](tutorial-bing-web-search-single-page-app.md)存取選擇性用戶端標頭。 首先，請[安裝 Node.js](https://nodejs.org/en/download/) (如果尚未安裝)。 在命令提示字元中，輸入下列命令。
+
+    npm install -g cors-proxy-server
+
+接下來，將 HTML 檔案中的 Bing Web 搜尋 API 端點變更為：
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+
+最後，使用下列命令啟動 CORS Proxy：
+
+    cors-proxy-server
+
+當您使用教學課程應用程式時，請保持開啟命令視窗；關閉視窗會停止 Proxy。 在可展開的 [HTTP 標頭] 區段搜尋結果下，您現在可以看到 `X-MSEdge-ClientID` 標頭 (及其他標頭)，並確認每個要求的此標頭都相同。
+
+## <a name="response-headers-in-production"></a>生產環境中的回應標頭
+
+前一個解答中描述的 CORS Proxy 方法也適用於開發、測試和學習。
+
+在生產環境中，您應該在與使用 Bing Web 搜尋 API 的網頁相同的網域上，裝載伺服器端指令碼。 此指令碼應該在收到來自網頁 JavaScript 的要求時進行 API 呼叫，並將所有的結果 (包括標頭) 傳回給用戶端。 因為這兩個資源 (頁面和指令碼) 會共用來源，所以不會使用 CORS，且特殊標頭可供網頁上的 JavaScript 存取。
+
+這個方法也會保護您的 API 金鑰，以免對大眾公開，因為只有伺服器端指令碼需要它。 此指令碼可以使用其他方法來確定要求已獲得授權。
 
 以下顯示 Bing 如何使用拼字建議。
 

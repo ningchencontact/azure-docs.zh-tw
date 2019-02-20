@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: eca1379c4f721a0201b01f149b581859c49c6540
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402314"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234368"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 可程式性指南
 
-U-SQL 是為巨量資料類型的工作負載所設計的查詢語言。 U-SQL 的其中一項獨特功能是，可將類 SQL 的宣告式語言與 C# 所提供的擴充性和可程式性結合在一起。 在本指南中，我們將著重於介紹由 C# 所實現的 U-SQL 語言之擴充性和可程式性。
+U-SQL 是為巨量資料類型的工作負載所設計的查詢語言。 U-SQL 的其中一個獨特功能是，可將類 SQL 的宣告式語言與 C# 所提供的擴充性和可程式性結合在一起。 在本指南中，我們將著重於介紹由 C# 所實現的 U-SQL 語言之擴充性和可程式性。
 
 ## <a name="requirements"></a>需求
 
@@ -299,7 +299,7 @@ U-SQL C# 可程式性物件可以透過程式碼後置全域變數，更加複�
 
 為了達成此目標，我們必須確定工作階段識別碼，以及最後發生之工作階段間的延遲時間。
 
-我們必須找到上一次登入，然後對所有將為相同應用程式產生的工作階段指派此登入。 第一項挑戰是 U-SQL 基底指令碼無法讓我們使用 LAG 函數，對所有已經過計算的資料行套用計算。 第二項挑戰在於，我們必須讓相同時間週期內的所有工作階段保持在特定工作階段。
+我們必須找到上一次登入，然後對所有將為相同應用程式產生的工作階段指派此登入。 第一個挑戰是 U-SQL 基底指令碼無法讓我們使用 LAG 函數，對所有已經過計算的資料行套用計算。 第二項挑戰在於，我們必須讓相同時間週期內的所有工作階段保持在特定工作階段。
 
 為了解決這個問題，我們將在程式碼後置區段內使用全域變數：`static public string globalSession;`。
 
@@ -946,7 +946,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1：要累積的第一個參數
-* T2：要累積的第一個參數
+* T2：要累積的第二個參數
 * TResult：傳回終止的類型
 
 例如︰

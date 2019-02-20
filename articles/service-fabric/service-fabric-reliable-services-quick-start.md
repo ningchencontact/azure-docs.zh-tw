@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 6977fa0a62767cebbd1000335c6c3a33a5991c2c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eb0fd7e4feb28d60173b638a15dbce598f78e6bf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208160"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182947"
 ---
 # <a name="get-started-with-reliable-services"></a>開始使用 Reliable Service
 > [!div class="op_single_selector"]
@@ -28,9 +28,7 @@ ms.locfileid: "34208160"
 > 
 > 
 
-Azure Service Fabric 應用程式包含一個或多個執行您的程式碼的服務。 本指南說明如何透過 [Reliable Services](service-fabric-reliable-services-introduction.md)同時建立無狀態與具狀態的 Service Fabric 應用程式。  此 Microsoft Virtual Academy 影片也示範如何建立無狀態的 Reliable Service：<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Azure Service Fabric 應用程式包含一個或多個執行您的程式碼的服務。 本指南說明如何透過 [Reliable Services](service-fabric-reliable-services-introduction.md)同時建立無狀態與具狀態的 Service Fabric 應用程式。  
 
 ## <a name="basic-concepts"></a>基本概念
 若要開始使用 Reliable Services，您只需要了解幾個基本概念：
@@ -170,7 +168,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()` 在具狀態和無狀態服務中的運作方式類似。 只不過在具狀態服務中，平台會代替您執行額外的工作，然後才執行 `RunAsync()`。 這項工作包含確保可靠狀態管理員和可靠的集合可以使用。
+`RunAsync()` 在具狀態和無狀態服務中的運作方式類似。 只不過在具狀態服務中，平台會代替您執行額外的工作，然後才執行 `RunAsync()`。 此工作包含確保可靠狀態管理員和可靠的集合可以使用。
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>可靠的集合與可靠狀態管理員
 ```csharp
@@ -186,7 +184,7 @@ var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<str
   
    很重要的一點是，您不要改變那些物件的本機執行個體而不在交易中的可靠集合上執行更新作業。 這是因為不會自動複寫對本機物件執行個體所做的變更。 您必須將物件重新插入到字典中，或在字典上使用其中一個更新  方法。
 
-可靠狀態管理員會為您管理可靠的集合。 在您的服務中隨時隨地，您只需要以名稱向可靠狀態管理員要求可靠的集合。 可靠狀態管理員會確保您取回參考。 不建議您將可靠集合執行個體的參考儲存在類別成員變數或屬性中。 請特別小心以確保在服務生命週期中隨時將參考設定為執行個體。 可靠狀態管理員會為您處理這項工作，並且針對重複造訪最佳化。
+可靠狀態管理員會為您管理可靠的集合。 在您的服務中隨時隨地，您只需要以名稱向可靠狀態管理員要求可靠的集合。 可靠狀態管理員會確保您取回參考。 不建議您將可靠集合執行個體的參考儲存在類別成員變數或屬性中。 請特別小心以確保在服務生命週期中隨時將參考設定為執行個體。 可靠狀態管理員會為您處理此工作，並且針對重複造訪最佳化。
 
 ### <a name="transactional-and-asynchronous-operations"></a>交易式和非同步作業
 ```csharp
@@ -219,7 +217,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 ## <a name="next-steps"></a>後續步驟
 [在 Visual Studio 中偵錯 Service Fabric 應用程式](service-fabric-debugging-your-application.md)
 
-[開始使用：Service Fabric Web API 服務與 OWIN 自我裝載 | Microsoft Azure](service-fabric-reliable-services-communication-webapi.md)
+[開始使用：Service Fabric Web API 服務與 OWIN 自我裝載](service-fabric-reliable-services-communication-webapi.md)
 
 [深入了解可靠的集合](service-fabric-reliable-services-reliable-collections.md)
 

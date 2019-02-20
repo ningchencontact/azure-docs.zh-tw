@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f90af5b57fcb9ed7f02bba0a184dacb17570136b
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1709abdf1d5e90cb253e67b29c0e48f6aa29a712
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311768"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>教學課程：Azure Active Directory 與 Shuccho Navi 整合
 
@@ -33,7 +34,7 @@ Shuccho Navi 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定與 Shuccho Navi 的 Azure AD 整合，您需要下列項目：
 
@@ -99,15 +100,15 @@ Shuccho Navi 與 Azure AD 整合提供下列優點：
 
     ![映像](./media/shucchonavi-tutorial/b1_b2_select_sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊上，按一下 [SAML] 模式的 [選取] 以啟用單一登入。
+2. 在 [選取單一登入方法] 對話方塊上，按一下 [SAML] 模式的 [選取]，啟用單一登入。
 
     ![映像](./media/shucchonavi-tutorial/b1_b2_saml_sso.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
 
     ![映像](./media/shucchonavi-tutorial/b1-domains_and_urlsedit.png)
 
-4. 在 [基本 SAML 設定] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://naviauth.nta.co.jp/saml/login?ENTP_CD=<Your company code>`
 
@@ -116,7 +117,7 @@ Shuccho Navi 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Shuccho Navi 支援小組](mailto:sys_ntabtm@nta.co.jp)以取得此值。
  
-5. 在 [使用 SAML 設定單一登入] 頁面上的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載**同盟中繼資料 XML** 並將其儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入] 頁面上的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載**同盟中繼資料 XML** 並將其儲存在電腦上。
 
     ![映像](./media/shucchonavi-tutorial/tutorial_shucchonavi_certificate.png) 
 
@@ -126,11 +127,11 @@ Shuccho Navi 與 Azure AD 整合提供下列優點：
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者]，然後選取 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
     ![映像](./media/shucchonavi-tutorial/d_users_and_groups.png)
 
-2. 選取畫面頂端的 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]。
 
     ![映像](./media/shucchonavi-tutorial/d_adduser.png)
 
@@ -140,22 +141,22 @@ Shuccho Navi 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，鍵入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 依序選取 [屬性]、[顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
  
 ### <a name="create-a-shuccho-navi-test-user"></a>建立 Shuccho Navi 測試使用者
 
-在本節中，您要在 Shuccho Navi 中建立名為 Britta Simon 的使用者。 請與 [Shuccho Navi 支援小組](mailto:sys_ntabtm@nta.co.jp)合作，以在 Shuccho Navi 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Shuccho Navi 中建立名為 Britta Simon 的使用者。 請與 [Shuccho Navi 支援小組](mailto:sys_ntabtm@nta.co.jp)合作，在 Shuccho Navi 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Shuccho Navi 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
     ![映像](./media/shucchonavi-tutorial/d_all_applications.png)
 
@@ -180,7 +181,7 @@ Shuccho Navi 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Shuccho Navi] 圖格時，應該會自動登入您的 Shuccho Navi 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

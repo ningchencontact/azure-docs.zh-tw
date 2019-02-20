@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 使用下列最佳做法可改善您的知識庫，並為您的應用程式/聊天機器人使用者提供更好的結果。
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4adadf4951ffbb31a354284340a3716b194d864d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219272"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245536"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的最佳做法
 [知識庫開發生命週期](../Concepts/development-lifecycle-knowledge-base.md)可引導您了解如何從頭到尾管理知識庫。 使用下列最佳做法可改善您的知識庫，並為您的應用程式/聊天機器人使用者提供更好的結果。
@@ -74,7 +74,7 @@ QnA Maker 服務會持續改進從內容中擷取 QnA 的演算法，並擴充�
 [中繼資料](../How-To/edit-knowledge-base.md)可增加根中繼資料標記縮小使用者查詢結果範圍的能力。 即使查詢相同，知識庫解答也可能根據中繼資料標記而不同。 例如，如果餐廳分店的地點不同 (亦即，中繼資料為「地點：西雅圖」和「地點：雷德蒙」的不同)，「停車場在哪裡」就可能有不同的回答。
 
 ### <a name="use-synonyms"></a>使用同義字
-同義字在英文中可獲得某種程度的支援，使用[文字變異形式](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd)可為關鍵字新增採用不同格式的同義字。 同義字應新增於 QnA Maker 服務層級上，而由服務中所有的知識庫所共用。
+儘管同義字在英文中可獲得某種程度的支援，但請使用不區分大小寫的[文字變異形式](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) \(英文\)，來為關鍵字新增採用不同格式的同義字。 同義字應新增於 QnA Maker 服務層級上，而由服務中所有的知識庫所共用。
 
 |原始字組|同義字|
 |--|--|

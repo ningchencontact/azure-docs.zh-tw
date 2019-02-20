@@ -3,19 +3,19 @@ title: 呼叫文字分析 API
 titlesuffix: Azure Cognitive Services
 description: 了解如何呼叫文字分析 REST API。
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 579040c3a1466d431a9ae2105edbf02fa41570b6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211581"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244023"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何呼叫文字分析 REST API
 
@@ -28,11 +28,9 @@ ms.locfileid: "55211581"
 > [!Tip]
 > 若要進行單次呼叫以了解 API 的運作方式，您可以從內建的 **API 測試主控台** (可於任何 [API 文件頁面](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) \(英文\) 取得) 傳送 POST 要求。 不需任何設定，而唯一的需求便是將存取金鑰和 JSON 文件貼至要求內。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-您必須有具備**文字分析 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 
-
-您必須具有在您註冊認知服務時系統為您產生的[端點和存取金鑰](text-analytics-how-to-access-key.md)。 
+您必須具有含文字分析 API 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)，以及在您註冊認知服務時所產生的[端點和存取金鑰](text-analytics-how-to-access-key.md)。 
 
 <a name="json-schema"></a>
 

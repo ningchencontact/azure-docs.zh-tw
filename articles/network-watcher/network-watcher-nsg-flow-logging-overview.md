@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332297"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097643"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>網路安全性群組流量記錄簡介
 
-網路安全性群組 (NSG) 流量記錄是網路監看員的一項功能，可讓您檢視透過 NSG 輸入和輸出 IP 流量的相關資訊。 流量記錄是以 JSON 格式撰寫，會顯示每一規則的輸出和輸入流量、套用流量的網路介面 (NIC)、關於流量的 5 個 Tuple 資訊 (來源/目的地 IP、來源/目的地連接埠和通訊協定)、流量受到允許或拒絕，以及第 2 版中的輸送量資訊 (位元組和封包)。
+網路安全性群組 (NSG) 流量記錄是網路監看員的一個功能，可讓您檢視透過 NSG 輸入和輸出 IP 流量的相關資訊。 流量記錄是以 JSON 格式撰寫，會顯示每一規則的輸出和輸入流量、套用流量的網路介面 (NIC)、關於流量的 5 個 Tuple 資訊 (來源/目的地 IP、來源/目的地連接埠和通訊協定)、流量受到允許或拒絕，以及第 2 版中的輸送量資訊 (位元組和封包)。
 
 
 ![流量記錄概觀](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
@@ -287,5 +287,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解如何啟用流量記錄，請參閱[啟用 NSG 流量記錄](network-watcher-nsg-flow-logging-portal.md)。
+- 若要了解如何讀取流量記錄，請參閱[讀取 NSG 流量記錄](network-watcher-read-nsg-flow-logs.md)。
 - 若要深入了解 NSG 記錄，請參閱[網路安全性群組 (NSG) 的記錄檔分析](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 - 若要判斷是否允許或拒絕流量進出 VM，請參閱[診斷 VM 網路流量篩選問題](diagnose-vm-network-traffic-filtering-problem.md)

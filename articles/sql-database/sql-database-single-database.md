@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: a2500988b174e49870f4da7087b3fa4c81f3c77a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754977"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099321"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>什麼是 Azure SQL Database 中的單一資料庫
 
-單一資料庫部署選項會使用其本身的資源集在 Azure SQL Database 中建立獨立資料庫，並透過 SQL Database 伺服器進行管理。 使用單一資料庫時，每個資料庫會彼此隔離並且可攜，且各自在[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)內有其本身的服務層和保證的計算大小。
+單一資料庫部署選項會使用其本身的資源集在 Azure SQL Database 中建立資料庫，並透過 SQL Database 伺服器進行管理。 使用單一資料庫時，每個資料庫會彼此隔離並且可攜，且各自在[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)內有其本身的服務層和保證的計算大小。
 
 > [!IMPORTANT]
 > 單一資料庫是 Azure SQL Database 的三個部署選項之一。 另外兩個選項是[彈性集區](sql-database-elastic-pool.md)和[受控執行個體](sql-database-managed-instance.md)。
@@ -58,5 +58,5 @@ SQL Database 提供了多種[內建安全性與合規性](sql-database-security-
 ## <a name="next-steps"></a>後續步驟
 
 - 若要快速地開始使用單一資料庫，請從[單一資料庫快速入門 guide.md](sql-database-single-database-quickstart-guide.md) 著手。
-- 若要深入了解如何將 SQL Server 資料庫移轉至 Azure，請參閱[移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
+- 若要深入了解如何將 SQL Server 資料庫移轉至 Azure，請參閱[移轉至 Azure SQL Database](sql-database-single-database-migrate.md)。
 - 如需支援功能的相關資訊，請參閱「[功能](sql-database-features.md)」。

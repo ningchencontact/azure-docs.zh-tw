@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 60bed4786b61bc96b918511b63ae89daa1cba1c4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409049"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217423"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>利用遠端桌面搭配使用 Apache Hive 與 HDInsight 上的 Apache Hadoop
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "53409049"
 >
 > 針對 HDInsight 3.4 或更新版本，請參閱[使用 Apache Hive 搭配 HDInsight 和 Beeline](apache-hadoop-use-hive-beeline.md)，以了解如何從命令列直接在叢集上執行 Hive 查詢。
 
-## <a id="prereq"></a>必要條件
+## <a id="prereq"></a>先決條件
 若要完成本文中的步驟，您需要下列項目：
 
 * Windows 型 HDInsight (HDInsight 上的 Hadoop) 叢集
@@ -103,10 +103,7 @@ ms.locfileid: "53409049"
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
 * [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
-如果您搭配使用 Tez 和 Hive，請參閱下列文件所提供的偵錯資訊：
-
-* [在以 Windows 為基礎的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
-* [在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)
+如果您搭配使用 Tez 和 Hive，請參閱下列文件所提供的偵錯資訊：[在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)。
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

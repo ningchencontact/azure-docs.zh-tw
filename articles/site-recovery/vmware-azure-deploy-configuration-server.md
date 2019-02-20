@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 1d5c2dccabbc2acdddec6176d9b52681d4a18e68
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744087"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235881"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -26,7 +26,7 @@ ms.locfileid: "55744087"
 
 設定伺服器必須搭配特定的最基本硬體和大小需求來設定為高可用性 VMware VM。 為了能夠便利且輕鬆地進行部署，Site Recovery 提供一個可下載的 OVA (開放式虛擬化應用程式) 範本，以設定能符合下列所有規定需求的設定伺服器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 下表彙總了設定伺服器的最基本硬體需求。
 
@@ -113,7 +113,7 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
     |是否可以下載並手動安裝 MySQL？     |  是。 請下載 MySQL 並將它放在資料夾 **C:\Temp\ASRSetup** 資料夾中，然後手動安裝。 現在，當您接受條款 > 按一下 [下載並安裝] 時，入口網站會顯示「已經安裝」。 您可以繼續進行下一個步驟。       |
     |是否可以避免線上下載 MySQL？     |   是。 請將您的 MySQL 安裝程式應用程式放在 **C:\Temp\ASRSetup** 資料夾中。 接受條款 > 按一下 [下載並安裝]，入口網站將會使用您新增的安裝程式並安裝應用程式。 您可以繼續進行安裝後的下一個步驟。    |
     |我想要透過 Azure Site Recovery 下載並安裝 MySQL     |  接受授權合約，然後按一下 [下載並安裝]。 接著，您可以繼續進行安裝後的下一個步驟。       |
-4. 在 [驗證設備設定] 中，必要條件會在您繼續之前進行驗證。
+4. 在 [驗證設備設定] 中，先決條件會在您繼續之前進行驗證。
 5. 在 [設定 vCenter 伺服器/vSphere ESXi 伺服器] 中，輸入 vCenter 伺服器或 vSphere 主機 (您要複寫的 VM 位於其上) 的 FQDN 或 IP 位址。 輸入伺服器所接聽的連接埠。 輸入要用於保存庫中 VMware 伺服器的易記名稱。
 6. 輸入供設定伺服器用來連線至 VMware 伺服器的認證。 Site Recovery 會使用這些認證來自動探索可用於複寫的 VMware VM。 選取 [新增]，然後選取 [繼續]。 在這裡輸入的認證會儲存在本機。
 7. 在 [設定虛擬機器認證] 中，輸入虛擬機器的使用者名稱和密碼，以在複寫期間自動安裝「行動服務」。 針對 **Windows** 電腦，此帳戶必須具備您要複寫之電腦的本機系統管理員權限。 針對 **Linux**，請提供根帳戶的詳細資料。
@@ -130,38 +130,42 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
 
 ## <a name="faq"></a>常見問題集
 
-1. 是否可以將已安裝組態伺服器的 VM 用於不同用途？
+1. 透過 OVF 部署之設定伺服器上提供的授權有效期間多長？ 如果我未重新啟用授權，會發生什麼事？
 
-    **否**，建議您使用 VM 作為設定伺服器的唯一用途。 請務必遵循[必要條件](#prerequisites)所述的所有規格，以便有效管理災害復原。
-2. 是否可以將已在設定伺服器中註冊的保存庫與新建立的保存庫交換？
+    OVA 範本隨附的授權是有效期為 180 天的評估授權。 您必須在到期之前啟用授權。 否則，這會導致設定伺服器頻繁關機，因而阻礙複寫活動。
+
+2. 是否可以將已安裝組態伺服器的 VM 用於不同用途？
+
+    **否**，建議您使用 VM 作為設定伺服器的唯一用途。 請務必遵循[先決條件](#prerequisites)所述的所有規格，以便有效管理災害復原。
+3. 是否可以將已在設定伺服器中註冊的保存庫與新建立的保存庫交換？
 
     **否**，在保存庫向設定伺服器註冊之後，即無法變更。
-3. 是否可以使用同一部設定伺服器來保護實體和虛擬機器？
+4. 是否可以使用同一部設定伺服器來保護實體和虛擬機器？
 
     **是**，可以使用同一部組態伺服器來複寫實體和虛擬機器。 不過，實體機器只能容錯回復到 VMware VM。
-4. 組態伺服器的用途為何而其使用位置為何？
+5. 組態伺服器的用途為何而其使用位置為何？
 
     請參考 [VMware 到 Azure 複寫架構](vmware-azure-architecture.md)，以深入了解組態伺服器及其功能。
-5. 哪裡可以找到最新版的設定伺服器？
+6. 哪裡可以找到最新版的設定伺服器？
 
     如需透過入口網站升級組態伺服器的步驟，請參閱[升級組態伺服器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 如需如何升級所有 Site Recovery 元件的詳細指示，請參閱[此處](https://aka.ms/asr_how_to_upgrade)。
-6. 哪裡可以下載設定伺服器的複雜密碼？
+7. 哪裡可以下載設定伺服器的複雜密碼？
 
     請參閱[本文](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)以下載複雜密碼。
-7. 我可以變更複雜密碼嗎？
+8. 我可以變更複雜密碼嗎？
 
     **否**，**強烈建議您不要變更設定伺服器的複雜密碼**。 變更複雜密碼會破壞受保護機器的複寫，並導致危急的健全狀態。
-8. 哪裡可以下載保存庫註冊金鑰？
+9. 哪裡可以下載保存庫註冊金鑰？
 
     在 [復原服務保存庫] 的 [管理] > [Site Recovery Infrastructure] \(Site Recovery 基礎結構\) > [設定伺服器] 中。 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
-9. 是否可以複製現有的設定伺服器並將它用於複寫協調流程？
+10. 是否可以複製現有的設定伺服器並將它用於複寫協調流程？
 
     **否**，不支援使用複製的設定伺服器元件。
 
-10. 我可以變更設定伺服器的 IP 嗎？
+11. 我可以變更設定伺服器的 IP 嗎？
 
     **否**，強烈建議不要變更設定伺服器的 IP 位址。 請確定指派到設定伺服器的所有 IP 都是靜態 IP 而不是 DHCP IP。
-11. 我可以在 Azure 上設定設定伺服器嗎？
+12. 我可以在 Azure 上設定設定伺服器嗎？
 
     建議在內部部署環境中使用 v-Center 直接設定設定伺服器，並將資料傳輸的延遲降至最低。 您可以對設定伺服器建立排程的備份，以實現[容錯回復目的](vmware-azure-manage-configuration-server.md#failback-requirements)。
 

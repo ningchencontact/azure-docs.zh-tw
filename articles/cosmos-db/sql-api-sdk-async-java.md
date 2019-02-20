@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/4/2019
+ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 31683159f96dd87fe4e7ceea050d5e1d213decba
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770345"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979168"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Async JAVA SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -43,6 +43,12 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 | **最低支援執行階段**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+* 直接模式公開推出 (GA)。
+* 新增對 QueryMetrics 的支援。
+* 變更了順序很重要且會接受 java.util.Collection 的 API，以改為接受 java.util.List。
+  現在 ConnectionPolicy#getPreferredLocations()、JsonSerialization 和 PartitionKey(.) 都可接受 List。
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
 * 新增對 Direct 的支援。
@@ -130,6 +136,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |2019 年 2 月 8日|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |2019 年 2 月 4日|--- |
 | [2.3.1](#2.3.1) |2019 年 1 月 15日|--- |
 | [2.3.0](#2.3.0) |2018 年 11 月 29 日|--- |

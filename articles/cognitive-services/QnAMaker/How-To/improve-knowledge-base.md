@@ -3,19 +3,19 @@ title: 改善知識庫 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
-manager: cgronlun
+manager: nitinme
 displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6feb521aa47ca813b3067451c8c77111deb60e73
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755759"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874000"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>使用主動學習來改善知識庫
 
@@ -42,7 +42,7 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 ## <a name="upgrade-version-to-use-active-learning"></a>升級版本以使用主動式學習
 
-執行階段 4.4.0 版和更新版本可支援主動式學習。 如果您的知識庫是在舊版中建立的，請[升級執行階段](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates)以使用這項功能。 
+執行階段 4.4.0 版和更新版本可支援主動式學習。 如果您的知識庫是在舊版中建立的，請[升級執行階段](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates)以使用此功能。 
 
 ## <a name="best-practices"></a>最佳作法
 
@@ -56,7 +56,7 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 ## <a name="turn-on-active-learning"></a>開啟主動式學習
 
-依預設會關閉主動式學習。 加以開啟可查看建議的問題。 
+依預設會關閉主動式學習。 開啟它以查看建議的問題。 
 
 1. 若要開啟主動式學習，請在 QnA Maker 入口網站中，按一下您的 [名稱]，然後移至右上角的 [服務設定][](https://www.qnamaker.ai/UserSettings)。  
 

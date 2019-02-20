@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Tableau Online 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：設定 Tableau Online 來搭配 Azure Active Directory 進行自動使用者佈建 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 Tableau Online。
 services: active-directory
 documentationcenter: ''
@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: bbee7f0e6022e2945563c102a851819734d52e77
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40107018"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194864"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>教學課程︰設定 Tableau Online 來自動佈建使用者
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>教學課程：設定 Tableau Online 來自動佈建使用者
 
 本教學課程旨在示範將 Azure AD 設定為可對 Tableau Online 自動佈建及取消佈建使用者和/或群組時，應在 Tableau Online 與 Azure Active Directory (Azure AD) 中執行的步驟。
 
 > [!NOTE]
-> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../active-directory-saas-app-provisioning.md)。
+> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -115,9 +116,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 6. 登入 Tableau Online 的系統管理帳戶之後，即可從系統管理頁面的 URL 中擷取 [網域] 和 [內容 URL] 的值。
 
-    *   Tableau Online 帳戶的**網域**可以從 URL 的此部分複製：![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+    *   Tableau Online 帳戶的**網域**可以從 URL 的這個部分複製：![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
 
-    *   Tableau Online 帳戶的**內容 URL**可從此區段複製，這是在帳戶設定期間所定義的值。 在此範例中，此值為 "contoso"：![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+    *   Tableau Online 帳戶的**內容 URL**可從此區段複製，這是在帳戶設定期間所定義的值。 在此範例中，值是 "contoso"：![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
         > 您的**網域**可能會與此處顯示的不一樣。 
@@ -149,7 +150,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-15. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../active-directory-saas-scoping-filters.md)中提供的下列指示。
+15. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
 
 16. 若要啟用 Tableau Online 的 Azure AD 佈建服務，在 [設定]區段中，將 [佈建狀態] 變更為 [開啟]。
 
@@ -165,7 +166,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告；當中會描述 Tableau Online 上 Azure AD 佈建服務所執行的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -175,7 +176,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="next-steps"></a>後續步驟
 
-* [瞭解如何針對佈建活動檢閱記錄和取得報告](../active-directory-saas-provisioning-reporting.md)
+* [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

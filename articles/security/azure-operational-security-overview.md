@@ -4,7 +4,7 @@ description: 本文提供 Azure 作業安全性概觀。
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 478228ccb12fbfe3ca527bf4d16af05735b7ba92
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238534"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116468"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 
@@ -141,11 +141,11 @@ Azure 診斷會啟用為部署的應用程式收集診斷資料的功能。 您�
 
 - [拓撲](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview)：提供資源群組中網路資源之間各種互相連線和關聯的檢視。
 - [變數封包擷取](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)：擷取進出虛擬機器的封包資料。 進階篩選選項和微調控制項 (例如能夠設定時間和大小限制) 可讓您靈活擷取資料。 封包資料可以 .cap 格式儲存在 Blob 存放區或本機磁碟上。
-- [IP 流量驗證](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview)：根據流量資訊的 5-Tuple 封包參數 (目的地 IP、來源 IP、目的地連接埠、來源連接埠和通訊協定) 檢查允許或拒絕封包。 如果安全性群組拒絕了封包，則會傳回拒絕封包的規則和群組。
+- [IP 流量驗證](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview)：根據流量資訊的 5-Tuple 封包參數 (目的地 IP、來源 IP、目的地連接埠、來源連接埠和通訊協定) 檢查是否要允許或拒絕封包。 如果安全性群組拒絕了封包，則會傳回拒絕封包的規則和群組。
 - [下一個躍點](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview)：決定在 Azure 網路網狀架構中路由傳送封包的下一個躍點，讓您可以診斷任何設定錯誤的使用者定義路由。
-- [安全性群組檢視](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview)：取得要在 VM 上套用的有效和已套用安全性規則。
+- [安全性群組檢視](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview)：取得套用至 VM 的有效和已套用安全性規則。
 - [網路安全性群組的 NSG 流量記錄](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)：可讓您擷取群組中安全性規則所允許或拒絕流量的相關記錄。 流量是由 5-Tuple 資訊所定義的：來源 IP、目的地 IP、來源連接埠、目的地連接埠和通訊協定。
-- [虛擬網路閘道和連線疑難排解](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)：提供針對虛擬網路閘道和連線進行疑難排解的功能。
+- [虛擬網路閘道和連線疑難排解](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)：可提供針對虛擬網路閘道和連線進行疑難排解的能力。
 - [網路訂用帳戶限制](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)：可讓您根據限制檢視網路資源使用狀況。
 - [診斷記錄](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)：提供單一窗格以啟用或停用資源群組中網路資源的診斷記錄。
 
@@ -172,7 +172,7 @@ Azure 診斷會啟用為部署的應用程式收集診斷資料的功能。 您�
 
 DevOps 可讓小組以更快速且成本較低的方式提供更安全、更高品質的解決方案。 使用軟體與服務時，客戶預期能獲得動態且可靠的經驗。 小組必須快速地逐一查看軟體更新，並衡量更新的影響。 他們必須使用新的開發反覆項目迅速回應，以解決問題或提供更多價值。  
 
-諸如 Microsoft Azure 的雲端平台已移除傳統的瓶頸，並協助基礎結構獲得更高價值。 在每一項業務中，都是以軟體支配作為業務成果的主要區分及要素。 沒有任何組織、開發人員或 IT 工作者可以或應該避免 DevOps 行動。
+諸如 Microsoft Azure 的雲端平台已移除傳統的瓶頸，並協助基礎結構獲得更高價值。 在每一個業務中，都是以軟體支配作為業務成果的主要區分及要素。 沒有任何組織、開發人員或 IT 工作者可以或應該避免 DevOps 行動。
 
 成熟的 DevOps 從業人員會採用下列幾種做法。 這些做法[需要人員](https://www.visualstudio.com/learn/what-is-devops-culture/)以業務情節作為基礎來制定策略。 工具可協助將各種作法自動化。
 

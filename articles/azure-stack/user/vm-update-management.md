@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 69a0bde58a365ff124bc41b6039c606cb38f71fe
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768540"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168132"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack VM 更新與管理
 您可以使用下列 Azure 自動化解決方案功能來管理使用 Azure Stack 部署的 Windows 和 Linux VM：
@@ -35,8 +35,8 @@ ms.locfileid: "55768540"
 > [!IMPORTANT]
 > 這些解決方案和用來管理 Azure VM 的解決方案相同。 Azure 和 Azure Stack VM 均是以相同方式管理，使用的使用者介面和工具也相同。 搭配 Azure Stack 使用更新管理、變更追蹤及清查解決方案時，Azure Stack VM 的定價也和 Azure VM 相同。
 
-## <a name="prerequisites"></a>必要條件
-使用這些功能來更新和管理 Azure Stack VM 之前，必須符合幾個必要條件， 也包括在 Azure 入口網站以及 Azure Stack 系統管理入口網站必須採取的步驟。
+## <a name="prerequisites"></a>先決條件
+使用這些功能來更新和管理 Azure Stack VM 之前，必須符合幾個先決條件， 也包括在 Azure 入口網站以及 Azure Stack 系統管理入口網站必須採取的步驟。
 
 ### <a name="in-the-azure-portal"></a>在 Azure 入口網站
 若要針對 Azure Stack VM 使用清查、變更追蹤及更新管理等 Azure 自動化功能，必須先在 Azure 中啟用這些解決方案。
@@ -100,4 +100,4 @@ Azure Stack VM 現在已和 Azure VM 一同納入排程的更新部署中。
 如果您有大量的 Azure Stack VM，可以使用[這個 Azure Resource Manager 範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win)，更輕鬆地在 VM 上部署解決方案。 此範本會將 Microsoft Monitoring Agent 擴充功能部署到現有的 Azure Stack VM，並將擴充功能新增至現有的 Azure LogAnalytics 工作區。
  
 ## <a name="next-steps"></a>後續步驟
-[將 SQL Server 效能最佳化](azure-stack-sql-server-vm-considerations.md)
+[將 SQL Server VM 效能最佳化](azure-stack-sql-server-vm-considerations.md)

@@ -12,26 +12,27 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241662"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209739"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>操作說明：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>作法：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
 > [!NOTE]
-> 這項功能會取代目前透過入口網站提供的[宣告自訂](active-directory-saml-claims-customization.md)。 在同一應用程式中，如果自訂宣告的方法不止本文詳述的 Graph/PowerShell 方法，還包括入口網站，則對應用程式發出的權杖將會忽略入口網站中的設定。 透過本文詳述的方法所進行的設定將不會反映在入口網站中。
+> 此功能會取代目前透過入口網站提供的[宣告自訂](active-directory-saml-claims-customization.md)。 在同一應用程式中，如果自訂宣告的方法不止本文詳述的 Graph/PowerShell 方法，還包括入口網站，則對應用程式發出的權杖將會忽略入口網站中的設定。 透過本文詳述的方法所進行的設定將不會反映在入口網站中。
 
-租用戶系統管理員會使用這項功能，以針對其租用戶的特定應用程式自訂權杖中所發出的宣告。 您可以使用宣告對應原則來進行下列作業：
+租用戶系統管理員會使用此功能，以針對其租用戶的特定應用程式自訂權杖中所發出的宣告。 您可以使用宣告對應原則來進行下列作業：
 
 - 選取要在權杖中包含哪些宣告。
 - 建立尚未存在的宣告類型。
 - 選擇或變更特定宣告中所發出的資料來源。
 
 > [!NOTE]
-> 這項功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 公用預覽版期間功能可用於任何 Azure Active Directory (Azure AD) 訂用帳戶。 不過，當此功能變成正式運作版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。 此功能支援為 WS-Fed、SAML、OAuth 及 OpenID Connect 通訊協定設定宣告對應原則。
+> 此功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 公用預覽版期間功能可用於任何 Azure Active Directory (Azure AD) 訂用帳戶。 不過，當此功能變成公開推出版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。 此功能支援為 WS-Fed、SAML、OAuth 及 OpenID Connect 通訊協定設定宣告對應原則。
 
 ## <a name="claims-mapping-policy-type"></a>宣告對應原則類型
 
@@ -333,7 +334,7 @@ ms.locfileid: "50241662"
 
 - 此元素必須符合 **ClaimsTransformation** 屬性 (會定義如何產生此宣告的資料) 中轉換項目的識別碼元素。
 
-**宣告類型：** **JwtClaimType** 和 **SamlClaimType** 元素會定義此宣告結構描述項目是參考哪個宣告。
+**宣告類型：****JwtClaimType** 和 **SamlClaimType** 元素會定義此宣告結構描述項目是參考哪個宣告。
 
 - JwtClaimType 必須包含要在 JWT 中發出的宣告名稱。
 - SamlClaimType 必須包含要在 SAML 權杖中發出的宣告 URI。
@@ -349,7 +350,7 @@ ms.locfileid: "50241662"
 
 **摘要：** 使用此屬性可對來源資料套用常見的轉換，以便為宣告結構描述中指定的宣告產生輸出資料。
 
-**識別碼：** 使用識別碼元素可在 TransformationID 宣告結構描述項目中參考此轉換項目。 對於這項原則內的每個轉換項目，此值都必須是唯一的。
+**識別碼：** 使用識別碼元素可在 TransformationID 宣告結構描述項目中參考此轉換項目。 對於此原則內的每個轉換項目，此值都必須是唯一的。
 
 **TransformationMethod：** TransformationMethod 元素可識別該執行哪個作業才能為宣告產生資料。
 
@@ -428,7 +429,7 @@ ms.locfileid: "50241662"
 
 在 Azure AD 中，當您可以為特定的服務主體自訂權杖中所發出的宣告時，許多案例便可能實現。 在本節中，我們將逐步解說一些常見案例，以協助您掌握如何使用宣告對應原則類型。
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 在下列範例中，您會為服務主體建立、更新、連結和刪除原則。 如果您是 Azure AD 的新手，建議您[先了解如何取得 Azure AD 租用戶](quickstart-create-new-tenant.md)，然後再參考範例繼續操作。
 

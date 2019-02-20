@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器中的管理解決方案 | Microsoft Docs
-description: Azure 監視器中的管理解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。  本文提供有關安裝及使用管理解決方案的資訊。
+title: Azure 監視器中的監視解決方案 | Microsoft Docs
+description: Azure 監視器中的監視解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。  本文提供有關安裝及使用監視解決方案的資訊。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,27 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 8a6a679aaf43e4a92eb380368f3d68704853d3a3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ff7d886d3f219d007f159167cacfed1b8ee13863
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816810"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001012"
 ---
-# <a name="management-solutions-in-azure-monitor"></a>Azure 監視器中的管理解決方案
-管理解決方案會運用 Azure 中的服務，提供特定應用程式或服務的額外作業見解。 本文提供 Azure 中管理解決方案的簡短概觀，以及使用和安裝它們的詳細資料。
+# <a name="monitoring-solutions-in-azure-monitor"></a>Azure 監視器中的監視解決方案
+監視解決方案會運用 Azure 中的服務，提供特定應用程式或服務的額外作業見解。 本文提供 Azure 中監視解決方案的簡短概觀，以及使用和安裝它們的詳細資料。
 
-管理解決方案通常會收集記錄資料，並提供查詢和檢視來分析所收集的資料。 它們也會運用 Azure 自動化等其他服務，執行應用程式或服務相關的動作。
+> [!NOTE]
+> 監視解決方案先前稱為管理解決方案。
 
-您可以針對您使用的任何應用程式和服務，將管理解決方案新增至 Azure 監視器。 這些管理解決方案通常免費提供，但是會收集可能造成使用費用的資料。 除了 [Microsoft 所提供的解決方案](solutions-creating.md)，合作夥伴和客戶可以建立要用於其自己的環境中或可透過社群供您客戶使用的管理解決方案。
+監視解決方案通常會收集記錄資料，並提供查詢和檢視來分析所收集的資料。 它們也會運用 Azure 自動化等其他服務，執行應用程式或服務相關的動作。
 
-## <a name="use-management-solutions"></a>使用管理解決方案
-開啟 Log Analytics 工作區的 [概觀] 頁面，會針對工作區中安裝的每個解決方案顯示一個圖格。 
+您可以針對您使用的任何應用程式和服務，將監視解決方案新增至 Azure 監視器。 這些管理解決方案通常免費提供，但是會收集可能造成使用費用的資料。 除了 [Microsoft 所提供的解決方案](solutions-creating.md)，合作夥伴和客戶可以建立要用於其自己的環境中或可透過社群供您客戶使用的管理解決方案。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="use-monitoring-solutions"></a>使用監視解決方案
+在 Azure 監視器中開啟 [概觀] 頁面，以顯示工作區中每個已安裝解決方案的圖格。 
 
 1. 登入 Azure 管理入口網站。
 1. 開啟 [所有服務] 並找出**監視器**。
@@ -38,14 +43,14 @@ ms.locfileid: "55816810"
 
 ![概觀](media/solutions/overview.png)
 
-管理解決方案可以包含多種的 Azure 資源，而您可以檢視解決方案隨附的任何資源，就像任何其他資源一樣。 例如，解決方案中包含的任何記錄查詢都會列在[查詢總管](../log-query/get-started-portal.md#load-queries)中的 [解決方案查詢] 下方。您可以在使用 Log Analytics 執行臨機操作分析時使用那些查詢。
+監視解決方案可以包含多種的 Azure 資源，而您可以檢視解決方案隨附的任何資源，就像任何其他資源一樣。 例如，解決方案中包含的任何記錄查詢都會列在 [查詢總管](../log-query/get-started-portal.md#load-queries) 中的 [解決方案查詢] 下方。您在使用[記錄查詢](../log-query/log-query-overview.md) 執行臨機操作分析時，使用那些查詢。
 
-## <a name="list-installed-management-solutions"></a>列出已安裝的管理解決方案 
-使用下列程序，列出您的訂用帳戶中已安裝的管理解決方案。
+## <a name="list-installed-monitoring-solutions"></a>列出已安裝的監視解決方案 
+使用下列程序，列出您的訂用帳戶中已安裝的監視解決方案。
 
 1. 登入 Azure 管理入口網站。
 1. 開啟 [所有服務] 並找出**解決方案**。
-4. 隨即列出您所有工作區中安裝的解決方案。 解決方案的名稱後面接著其安裝所在的 Log Analytics 工作區名稱。
+4. 隨即列出您所有工作區中安裝的解決方案。 解決方案的名稱後面接著其安裝所在的工作區名稱。
 1. 使用畫面頂端的下拉式方塊，依據訂用帳戶或資源群組進行篩選。
 
 
@@ -57,12 +62,12 @@ ms.locfileid: "55816810"
 
 
 
-## <a name="install-a-management-solution"></a>安裝管理解決方案
+## <a name="install-a-monitoring-solution"></a>安裝監視解決方案
 您可以從 [Azure Marketplace](https://azuremarketplace.microsoft.com) 取得來自 Microsoft 和夥伴的管理解決方案。 您可以使用下列程序來搜尋可用的解決方案並安裝它們。 當您安裝解決方案時，您必須選取將在其中安裝解決方案且將收集其資料的 [Log Analytics 工作區](../platform/manage-access.md)。
 
 1. 從[訂用帳戶的解決方案清單](#list-installed-management-solutions)，按一下 [新增]。 
 1. 在 [管理解決方案] 的右邊，按一下 [更多資訊]。 
-1. 找出您想要的管理解決方案，然後完整閱讀它的說明。
+1. 找出您想要的監視解決方案，然後完整閱讀它的描述。
 1. 按一下 [建立] 以啟動安裝程序。
 1. 當安裝程序開始時，系統會提示您提供因每個解決方案而異的必要組態。
 
@@ -81,7 +86,7 @@ ms.locfileid: "55816810"
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 工作區和自動化帳戶
-所有管理解決方案都需要有 [Log Analytics 工作區](../platform/manage-access.md)，才能儲存解決方案所收集的資料以及裝載其記錄搜尋和檢視。 有些解決方案也需要有 [OMS 工作區](../../automation/automation-security-overview.md#automation-account-overview)來容納 Runbook 和相關資源。 工作區和帳戶必須符合下列需求。
+所有監視解決方案都需要有 [Log Analytics 工作區](../platform/manage-access.md)，才能儲存解決方案所收集的資料以及裝載其記錄搜尋和檢視。 有些解決方案也需要有 [OMS 工作區](../../automation/automation-security-overview.md#automation-account-overview)來容納 Runbook 和相關資源。 工作區和帳戶必須符合下列需求。
 
 * 每次安裝解決方案時，只能使用一個 Log Analytics 工作區和一個自動化帳戶。 您可以將解決方案個別安裝於多個工作區中。
 * 如果解決方案需要自動化帳戶，則 Log Analytics 工作區和自動化帳戶必須彼此連結。 Log Analytics 工作區只能連結到一個自動化帳戶，而自動化帳戶只能連結到一個 Log Analytics 工作區。
@@ -100,13 +105,11 @@ ms.locfileid: "55816810"
 1. 捲動到功能表的 [相關資源] 區段。
 1. 如果已啟用 [工作區] 設定，則會將此帳戶連結到 Log Analytics 工作區。 您可以按一下 [工作區] 來檢視工作區的詳細資料。
 
-## <a name="remove-a-management-solution"></a>移除管理解決方案
-若要移除已安裝的解決方案，請在已安裝的解決方案清單中找到該方案。 按一下解決方案名稱，以開啟其摘要頁面，然後按一下 [刪除]。
-
-
+## <a name="remove-a-monitoring-solution"></a>移除監視解決方案
+若要移除已安裝的解決方案，請在[已安裝的解決方案清單](#list-installed-monitoring-solutions)中找到它。 按一下解決方案名稱，以開啟其摘要頁面，然後按一下 [刪除]。
 
 
 ## <a name="next-steps"></a>後續步驟
-* 取得 [Microsoft 所提供的管理解決方案清單](solutions-inventory.md)。
-* 了解如何[建立查詢](../../azure-monitor/log-query/log-query-overview.md)，以分析管理解決方案所收集的資料。
+* 取得[來自 Microsoft 的監視解決方案清單](solutions-inventory.md)。
+* 了解如何[建立查詢](../log-query/log-query-overview.md)，以分析監視解決方案所收集的資料。
 

@@ -12,14 +12,16 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 5e9d2746c223c679d30c31b3bd6f1e5cbfafbe1d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4d5c7f8a91bb63cdd80a6f70603e34f8130b92ef
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498092"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106676"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>開發針對雲端一致性的 Azure Resource Manager 範本
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 Azure 的主要優點在於一致性。 對某個位置的開發投資可重複用在另一個位置。 範本讓您的部署一致且可跨環境重複，包括全球 Azure、Azure 主權雲端和 Azure Stack。 但若要跨雲端重複使用範本，您需要考慮雲端特定的相依性，如本指南所述。
 
@@ -61,14 +63,14 @@ Azure Resource Manager 功能一律先引入全球 Azure。 您可以使用下�
 
 1. 一旦您有存放庫的本機複製品，請使用 PowerShell 連線至目的地的 Azure Resource Manager。
 
-1. 匯入 psm1 模組並執行 Test-AzTemplateFunctions Cmdlet：
+1. 匯入 psm1 模組並執行 Test-AzureRmureRmTemplateFunctions Cmdlet：
 
   ```powershell
   # Import the module
   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzTemplateFunctions cmdlet
-  Test-AzTemplateFunctions -path <path to local clone>
+  # Execute the Test-AzureRmTemplateFunctions cmdlet
+  Test-AzureRmTemplateFunctions -path <path to local clone>
   ```
 
 指令碼會部署多個最小化範本，每一個都只包含唯一的範本函式。 指令碼輸出會報告受支援但無法使用的範本函式。
@@ -106,7 +108,7 @@ Azure Resource Manager 在執行階段評估主要範本，然後擷取並評估
 
 ### <a name="make-linked-templates-accessible-across-clouds"></a>讓連結的範本能跨雲端存取
 
-考慮在哪裡以及如何儲存您使用的所有範本。 Azure Resource Manager 會在執行階段擷取任何連結的範本，因此需要直接存取連結的範本。 常見做法是使用 GitHub 儲存巢狀範本。 GitHub 存放庫可以包含透過 URL 公開存取的檔案。 雖然這項技術在公用雲端和主權雲端運作良好，但 Azure Stack 環境可能位於公司網路或中斷連線的遠端位置，沒有任何連外的網際網路存取。 在這些情況下，Azure Resource Manager 會無法擷取巢狀範本。 
+考慮在哪裡以及如何儲存您使用的所有範本。 Azure Resource Manager 會在執行階段擷取任何連結的範本，因此需要直接存取連結的範本。 常見做法是使用 GitHub 儲存巢狀範本。 GitHub 存放庫可以包含透過 URL 公開存取的檔案。 雖然此技術在公用雲端和主權雲端運作良好，但 Azure Stack 環境可能位於公司網路或中斷連線的遠端位置，沒有任何連外的網際網路存取。 在這些情況下，Azure Resource Manager 會無法擷取巢狀範本。 
 
 跨雲端部署的較佳做法是將您的連結範本儲存在可供目標雲端存取的位置。 理想的情況是，所有部署成品都是在持續整合/持續開發 (CI/CD) 管線中維護，並由此部署。 或者，您可以將巢狀範本儲存在 Blob 儲存體容器中，Azure Resource Manager 從容器擷取範本。 
 
@@ -195,7 +197,7 @@ Resource Manager 會在執行階段擷取巢狀範本。 在 VM 延伸模組，�
 }
 ```
 
-若要建構成品的絕對 URI，慣用方法是使用 uri 範本函式，而不是 concat 範本函式。 透過以 uri 範本函式取代 VM 延伸模組的指令碼硬式編碼連結，範本中的這項功能是針對雲端一致性所設定。
+若要建構成品的絕對 URI，慣用方法是使用 uri 範本函式，而不是 concat 範本函式。 透過以 uri 範本函式取代 VM 延伸模組的指令碼硬式編碼連結，範本中的此功能是針對雲端一致性所設定。
 
 ```json
 "properties": {
@@ -211,7 +213,7 @@ Resource Manager 會在執行階段擷取巢狀範本。 在 VM 延伸模組，�
 }
 ```
 
-使用此方法，包括設定指令碼在內的所有部署成品，都會和範本本身儲存在同一位置。 您只需要為 _artifactsLocation 參數指定不同的基底 URL，即可變更所有連結的位置。
+使用此方法，包括設定指令碼在內的所有部署成品，都會和範本本身儲存在同一位置。 若要變更所有連結的位置，您只需為 _artifactsLocation 參數_指定不同的基底 URL 即可。
 
 ## <a name="factor-in-differing-regional-capabilities"></a>區別區域功能的因素
 
@@ -232,7 +234,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 您也可以使用下列 PowerShell Cmdlet，查看可用的資源提供者：
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 ### <a name="verify-the-version-of-all-resource-types"></a>驗證所有資源類型的版本
@@ -250,7 +252,7 @@ az provider list --query "[].{namespace:namespace, resourceType:resourceType[]}"
 您也可以使用下列 PowerShell Cmdlet：
 
 ```azurepowershell-interactive
-Get-AzResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
+Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
 ```
 
 ### <a name="refer-to-resource-locations-with-a-parameter"></a>參考具有參數的資源位置
@@ -493,10 +495,10 @@ Azure 提供豐富的 VM 映像選項。 這些映像是由 Microsoft 和合作�
 az vm image list -all
 ```
 
-您可以使用 Azure PowerShell Cmdlet [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) 來擷取相同的清單，並使用 `-Location` 參數來指定您想要的位置。 例如︰
+您可以使用 Azure PowerShell Cmdlet [Get-azurermvmimagepublisher](/powershell/module/az.compute/get-azvmimagepublisher) 擷取相同的清單，並使用 `-Location` 參數指定您想要的位置。 例如︰
 
 ```azurepowershell-interactive
-Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzureRMVMImage
+Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
 ```
 
 此命令需要幾分鐘才會傳回全球 Azure 雲端之西歐區域的所有可用映像。
@@ -529,7 +531,7 @@ az vm list-sizes --location "West Europe"
 如果是 Azure PowerShell，請使用：
 
 ```azurepowershell-interactive
-Get-AzVMSize -Location "West Europe"
+Get-AzureRmVMSize -Location "West Europe"
 ```
 
 如需可用服務的完整清單，請參閱[不同區域的產品](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable)。
@@ -580,7 +582,7 @@ Get-AzVMSize -Location "West Europe"
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>請確認 Azure Stack 中可以使用 VM 延伸模組
 
-雲端一致性的另一項考量，是使用[虛擬機器延伸模組](../virtual-machines/windows/extensions-features.md)在 VM 內設定資源。 不是所有的 VM 延伸模組都可供 Azure Stack 使用。 範本可以指定 VM 延伸模組專用的資源，在範本內建立相依性和條件。
+雲端一致性的另一個考量，是使用[虛擬機器延伸模組](../virtual-machines/windows/extensions-features.md)在 VM 內設定資源。 不是所有的 VM 延伸模組都可供 Azure Stack 使用。 範本可以指定 VM 延伸模組專用的資源，在範本內建立相依性和條件。
 
 例如，如果您想要設定執行 Microsoft SQL Server 的 VM，則 VM 延伸模組可以將 SQL Server 設定為範本部署的一部分。 請考慮，如果部署範本包含的應用程式伺服器，也設定在執行 SQL Server 的 VM 上建立資料庫，會發生什麼情況。 除了也為應用程式伺服器使用 VM 延伸模組之外，您可以在成功傳回的 SQL Server VM 延伸模組資源上設定應用程式伺服器的相依性。 這個方法可確保已設定執行 SQL Server 的 VM 時，並能在應用程式伺服器接獲指示建立資料庫時供其使用。
 
@@ -596,10 +598,10 @@ Get-AzVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-您也可以執行 Azure PowerShell [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Cmdlet，並使用 `-Location` 來指定虛擬機器映像的位置。 例如︰
+您也可以執行 Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Cmdlet，使用 `-Location` 指定虛擬機器映像的位置。 例如︰
 
 ```azurepowershell-interactive
-Get-AzVmImagePublisher -Location myLocation | Get-AzVMExtensionImageType | Get-AzVMExtensionImage | Select Type, Version
+Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
 ```
 
 #### <a name="ensure-that-versions-are-available"></a>確保有可用的版本
@@ -617,16 +619,16 @@ Get-AzVmImagePublisher -Location myLocation | Get-AzVMExtensionImageType | Get-A
 
 VM 延伸模組資源的 API 版本必須存在於您打算使用範本鎖定目標的所有位置。 位置相依性的運作方式類似之前在＜驗證所有資源類型的版本＞一節中討論的資源提供者 API 版本可用性。
 
-若要擷取 VM 延伸模組資源的可用 API 版本清單，請使用 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) Cmdlet 搭配 **Microsoft.Compute** 資源提供者，如下所示：
+若要擷取 VM 延伸模組資源的可用 API 版本清單，請使用 [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) Cmdlet 和 **Microsoft.Compute** 資源提供者，如下所示：
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
+Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
 ```
 
 您也可以使用虛擬機器擴展集中的 VM 延伸模組。 適用於相同的位置條件。 若要針對雲端一致性開發您的範本，請確定您計劃部署的所有位置都提供 API 版本。 若要擷取擴展集之 VM 延伸模組資源的 API 版本，請使用與前文相同的 Cmdlet，但如下指定虛擬機器擴展集資源類型：
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
+Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
 每個特定的延伸模組也已建立版本。 本版顯示在 VM 延伸模組的 `typeHandlerVersion` 屬性中。 請確定您範本之 VM 延伸模組 `typeHandlerVersion` 項目中指定的版本，可在您計劃部署範本的位置中使用。 例如，下列程式碼指定 1.7 版：
@@ -647,13 +649,13 @@ Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -E
         ...   
 ```
 
-若要擷取特定 VM 延伸模組的可用版本清單，請使用 [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) Cmdlet。 下列範例會從 **myLocation** 擷取 PowerShell DSC (預期狀態設定) VM 延伸模組的可用版本：
+若要擷取特定 VM 延伸模組的可用版本清單，請使用 [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) Cmdlet。 下列範例會從 **myLocation** 擷取 PowerShell DSC (預期狀態設定) VM 延伸模組的可用版本：
 
 ```azurepowershell-interactive
-Get-AzVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
+Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-若要取得發行者清單，請使用 [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) 命令。 若要要求類型，請使用 [Get-AzVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) 命令。
+若要取得可用發行者清單，請使用 [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) 命令。 若要要求類型，請使用 [Get-AzureRmVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) 命令。
 
 ## <a name="tips-for-testing-and-automation"></a>測試和自動化祕訣
 

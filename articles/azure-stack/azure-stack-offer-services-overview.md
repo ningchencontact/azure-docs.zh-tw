@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 20cddc74dd05e982cbd332a65f9a477559caece7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4deb72eae7dffac6eabb34b18a9e879ac1fd8113
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244091"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179955"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure Stack 中的服務供應項目概觀
 
@@ -42,7 +42,7 @@ ms.locfileid: "55244091"
 
 您甚至可以結合服務，針對不同的使用者整合和建置複雜的解決方案。
 
-若要將這些服務提供給您的使用者，您必須建立[計劃、供應項目和配額](azure-stack-plan-offer-quota-overview.md)。 您的使用者接著會訂閱您的供應項目來使用服務。
+若要將這些服務提供給您的使用者，您必須先建立[方案、供應項目和配額](azure-stack-plan-offer-quota-overview.md)。 您的使用者接著會訂閱您的供應項目來使用服務。
 
 ## <a name="plan-your-service-offers"></a>規劃服務供應項目
 

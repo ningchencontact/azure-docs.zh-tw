@@ -3,9 +3,8 @@ title: 自訂 Azure AD 屬性對應 | Microsoft Docs
 description: 了解 Azure Active Directory 中 SaaS 應用程式有哪些屬性對應，以及如何修改屬性對應來應付業務需求。
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaf6890223526b213ac4ec1180288b95fe6eaa29
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c1926849c8ec63b4240d951e46b1341f31f7c5bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149857"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170341"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
 Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等等的協力廠商 SaaS 應用程式。 如果您啟用了第三方 SaaS 應用程式的使用者佈建，Azure 入口網站會以「屬性對應」的形式控制其屬性值。
@@ -30,7 +30,7 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
  
 ## <a name="editing-user-attribute-mappings"></a>編輯使用者屬性對應
 
-在 Azure AD 入口網站中，您可以存取這項功能，方法是在 [企業應用程式] 的 [管理] 區段中，按一下 [佈建] 底下的 [對應] 設定。
+在 Azure AD 入口網站中，您可以存取此功能，方法是在 [企業應用程式] 的 [管理] 區段中，按一下 [佈建] 底下的 [對應] 設定。
 
 
 ![Salesforce](./media/customize-application-attributes/21.png) 
@@ -102,14 +102,14 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 * 支援 [SCIM 2.0](https://tools.ietf.org/html/rfc7643) 的應用程式，定義於[核心結構描述](https://tools.ietf.org/html/rfc7643)中的屬性必須新增至此處
 
 >[!NOTE]
->我們建議，只有已自訂應用程式和系統的結構描述，並確知其自訂屬性如何定義的系統管理員，才可編輯支援的屬性清單。 為此，有時候必須要熟悉應用程式或系統所提供的 API 和開發人員工具。 
+>我們建議，只有已自訂應用程式和系統的結構描述，並確知其自訂屬性如何定義的系統管理員，才可編輯支援的屬性清單。 有時，這會需要熟悉應用程式或系統所提供的 API 和開發人員工具。 
 
 ![編輯器](./media/customize-application-attributes/25.png) 
 
 編輯支援的屬性清單時，必須提供下列屬性：
 
 * **名稱** - 屬性的系統名稱，如目標物件的結構描述所定義。 
-* **類型** - 屬性儲存的資料類型，如目標物件的結構描述所定義。 這可以是下列其中一項：
+* **類型** - 屬性儲存的資料類型，如目標物件的結構描述所定義。 這可以是下列其中一個：
    * *二進位* - 屬性包含二進位資料。
    * *布林值* - 屬性包含 True 或 False 值。
    * *日期時間* - 屬性包含日期字串。

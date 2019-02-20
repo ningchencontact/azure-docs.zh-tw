@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239463"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210521"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>為 SQL 資源提供者新增主控伺服器
 
-您可以使用 [Azure Stack](azure-stack-poc.md) 內 VM 上的 SQL 執行個體，或 Azure Stack 環境外的執行個體，只要資源提供者能夠連線到該執行個體均可。
+您可以在 [Azure Stack](azure-stack-poc.md) 中的虛擬機器 (VM) 上，或在 Azure Stack 環境外部的 VM上建立裝載資料庫的 SQL Server 資料庫，只要 SQL 資源提供者能夠連線到該執行個體即可。
 
 > [!NOTE]
-> SQL 資料庫應建立在 SQL 資源提供者伺服器上。 SQL 資源提供者應建立在預設提供者訂用帳戶中，而 SQL 主控伺服器則應建立在可計費的使用者訂用帳戶中。 資源提供者伺服器不應該用來裝載使用者資料庫。
+> SQL 資源提供者應建立在預設提供者訂用帳戶中，而 SQL 主控伺服器則應建立在可計費的使用者訂用帳戶中。 資源提供者伺服器不應該用來裝載使用者資料庫。
 
 ## <a name="overview"></a>概觀
 
@@ -40,7 +40,7 @@ ms.locfileid: "55239463"
 
 ### <a name="general-requirements"></a>一般需求
 
-* 資源提供者和使用者工作負載專用的 SQL 執行個體。 您無法使用任何其他取用者正在使用的 SQL 執行個體。 這項限制也適用於 App Service。
+* 資源提供者和使用者工作負載專用的 SQL 執行個體。 您無法使用任何其他取用者正在使用的 SQL 執行個體。 此限制也適用於 App Service。
 * 設定具有適當權限層級的帳戶以供資源提供者使用 (如下所述)。
 * 您負責管理 SQL 執行個體及其主機。  例如，資源提供者不會套用更新、處理備份，或處理認證輪換。
 

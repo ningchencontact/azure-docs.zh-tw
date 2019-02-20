@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Log Analytics 資料收集器 API 建立資料管線 | Microsoft Docs
-description: 您可以使用 Log Analytics HTTP 資料收集器 API，將 POST JSON 資料從任何可呼叫 REST API 的用戶端新增至 Log Analytics 存放庫。 本文將說明如何以自動化方式上傳儲存在檔案中的資料。
+title: 使用 Azure 監視器資料收集器 API 建立資料管線 | Microsoft Docs
+description: 您可以使用 Azure 監視器 HTTP 資料收集器 API，將 POST JSON 資料從任何可呼叫 REST API 的用戶端新增至 Log Analytics 工作區。 本文將說明如何以自動化方式上傳儲存在檔案中的資料。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 94d026ce1d055d18a615919df6ed5021b15bf108
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186067"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003851"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>使用資料收集器 API 建立資料管線
 
-[Log Analytics 資料收集器 API](../../azure-monitor/platform/data-collector-api.md) 可讓您將任何自訂資料匯入到 Log Analytics 中。 唯一要求是資料必須可格式化為 JSON，並且可分割成小於 30 MB (含) 的區段。 此完全彈性化的機制可透過多種方式來插入，包括：直接從您的應用程式傳送資料到完成一次性的臨機操作上傳。 本文將以常見案例：需要定期自動上傳儲存在檔案中的資料，來概述一些入門作法。 然而，在此呈現的管線並不是效能最好或已最佳化的，應將其視為建置您生產管線的起點。
+[Azure 監視器資料收集器 API](data-collector-api.md) 可讓您將任何自訂記錄檔資料匯入到 Azure 監視器中的 Log Analytics 工作區。 唯一要求是資料必須可格式化為 JSON，並且可分割成小於 30 MB (含) 的區段。 此完全彈性化的機制可透過多種方式來插入，包括：直接從您的應用程式傳送資料到完成一次性的臨機操作上傳。 本文將以常見案例：需要定期自動上傳儲存在檔案中的資料，來概述一些入門作法。 然而，在此呈現的管線並不是效能最好或已最佳化的，應將其視為建置您生產管線的起點。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>問題範例
 在本文的其餘部分中，我們將透過 Application Insights 檢查頁面檢視資料。 在我們的虛構案例中，我們要將預設由 Application Insights SDK 收集的地理資訊，聯結至包含世界中各個國家/地區人口的自訂資料，以識別應該在何處投入最多行銷預算。 
@@ -42,13 +44,13 @@ ms.locfileid: "53186067"
 
 1. 處理程序會偵測是否已上傳新資料。  我們的範例會使用 [Azure 邏輯應用程式](../../logic-apps/logic-apps-overview.md)，其中的觸發程序可偵測到正在上傳至 Blob 的新資料。
 
-2. 處理器會讀取這項新資料，並將資料轉換為 JSON (Log Analytics 所需的格式)。  在此範例中，我們會使用 [Azure Function](../../azure-functions/functions-overview.md)，以輕便且符合成本效益的方式來執行處理程式碼。 函式會透過用來偵測新資料的相同邏輯應用程式來啟動。
+2. 處理器會讀取這個新的資料，並將它轉換成 JSON，即 Azure 監視器所需的格式。在此範例中，我們會使用 [Azure Function](../../azure-functions/functions-overview.md) 作為執行處理程式碼的輕量、符合成本效益的方式。 函式會透過用來偵測新資料的相同邏輯應用程式來啟動。
 
-3. 最後，當 JSON 物件可用之後，此物件會傳送至 Log Analytics。 同一個邏輯應用程式會使用內建的 Log Analytics 資料收集器活動，將資料傳送至 Log Analytics。
+3. 最後，當 JSON 物件可用之後，此物件會傳送至 Azure 監視器。 同一個邏輯應用程式會使用內建的 Log Analytics 資料收集器活動，將資料傳送至 Azure 監視器。
 
 雖然本文未敘述 Blob 儲存體、邏輯應用程式或 Azure Function 的詳細安裝方式，但您可以在特定產品的網頁上找到詳細指示。
 
-為了監視此管線，我們使用 Application Insights 來監視 Azure Function，[詳細資訊請參閱這裡](../../azure-functions/functions-monitoring.md)，並使用 Log Analytics 來監視邏輯應用程式，[詳細資訊請參閱這裡](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)。 
+為了監視此管線，我們使用 Application Insights 來監視 Azure Function，[詳細資訊請參閱這裡](../../azure-functions/functions-monitoring.md)，並使用 Azure 監視器來監視邏輯應用程式，[詳細資訊請參閱這裡](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)。 
 
 ## <a name="setting-up-the-pipeline"></a>設定管線
 若要設定管線，請先確定您已建立並設定 Blob 容器。 同樣地，請確定您已建立要將資料傳送到其中的 Log Analytics 工作區。
@@ -61,7 +63,7 @@ ms.locfileid: "53186067"
 儲存邏輯應用程式，並繼續進行測試。
 
 ## <a name="ingesting-xml-csv-or-other-formats-of-data"></a>內嵌 XML、CSV 或其他格式的資料
-Logic Apps 目前並沒有可輕鬆地將 XML、CSV 或其他類型轉換成 JSON 格式的內建功能。 因此，我們需要使用另一個方法來完成這項轉換。 在本文章中，我們使用 Azure Functions 的無伺服器計算功能來完成此作業，此方式非常輕便且符合成本效益。 
+Logic Apps 目前並沒有可輕鬆地將 XML、CSV 或其他類型轉換成 JSON 格式的內建功能。 因此，我們需要使用另一個方法來完成此轉換。 在本文章中，我們使用 Azure Functions 的無伺服器計算功能來完成此作業，此方式非常輕便且符合成本效益。 
 
 在此範例中，我們會剖析 CSV 檔案，但您可以使用類似的方式處理任何其他檔案類型。 只需修改 Azure Function 的還原序列化部分，即可反映特定資料類型的正確邏輯。
 
@@ -136,10 +138,10 @@ Logic Apps 目前並沒有可輕鬆地將 XML、CSV 或其他類型轉換成 JSO
 ![邏輯應用程式的工作流程完成範例](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
 ## <a name="testing-the-pipeline"></a>測試管線
-現在您可以將新檔案上傳至稍早設定的 Blob，並讓您的邏輯應用程式監視此 Blob。 不久之後，您應該會看到邏輯應用程式的新執行個體開始執行，並且會呼叫您的 Azure Function，然後成功地將資料傳送至 Log Analytics。 
+現在您可以將新檔案上傳至稍早設定的 Blob，並讓您的邏輯應用程式監視此 Blob。 不久之後，您應該會看到邏輯應用程式的新執行個體開始執行，並且會呼叫您的 Azure Function，然後成功地將資料傳送至 Azure 監視器。 
 
 >[!NOTE]
->初次傳送新資料類型時，資料可能會在 30 分鐘後才出現在 Log Analytics 中。
+>初次傳送新資料類型時，資料可能會在 30 分鐘後才出現在 Azure 監視器中。
 
 
 ## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>與 Log Analytics 和 Application Insights 中的其他資料相互關聯
@@ -163,7 +165,7 @@ app("fabrikamprod").pageViews
 
 * 在您的邏輯應用程式和函式中新增錯誤處理和重試邏輯。
 * 新增邏輯以確保未超過 30MB/單一 Log Analytics 擷取 API 的呼叫限制。 如有需要，請將資料分割成較小的區段。
-* 在您的 Blob 儲存體上設定清除原則。 將資料成功傳送至 Log Analytics 後，除非您想要保留未經處理的資料以用於封存，否則無須繼續儲存這些資料。 
+* 在您的 Blob 儲存體上設定清除原則。 將資料成功傳送至 Log Analytics 工作區後，除非您想要保留未經處理的資料以用於封存，否則無須繼續儲存這些資料。 
 * 確認已針對整個管線啟用監視，並適當地新增追蹤點與警示。
 * 利用原始程式碼控制來管理函式和邏輯應用程式的程式碼。
 * 請確定已遵循適當的變更管理原則，例如，當結構描述變更時，函式和 Logic Apps 會隨之修改。
@@ -171,4 +173,4 @@ app("fabrikamprod").pageViews
 
 
 ## <a name="next-steps"></a>後續步驟
-深入了解[資料收集器 API](../../azure-monitor/platform/data-collector-api.md)，以將資料從任何 REST API 用戶端寫入 Log Analytics。
+深入了解[資料收集器 API](data-collector-api.md)，以將資料從任何 REST API 用戶端寫入 Log Analytics 工作區。

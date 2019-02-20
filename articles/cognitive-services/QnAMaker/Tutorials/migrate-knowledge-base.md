@@ -4,25 +4,25 @@ titleSuffix: Azure Cognitive Services
 description: 將使用 QnA Maker 所建立的知識庫移至新的知識庫。
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 73f355a6e8c9373a5c31dd7cfebd4455aa324302
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809737"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245910"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>使用匯出-匯入移轉知識庫
 
 遷移知識庫必須先從某個知識庫匯出，再匯入至另一個知識庫。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 開始之前，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * 設定新的 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)
@@ -56,7 +56,7 @@ ms.locfileid: "55809737"
     此時，所有知識庫內容 (問題、解答和中繼資料，以及來源檔案名稱和 URL) 都會匯入新的知識庫。 
 
 ## <a name="chat-logs-and-alterations"></a>聊天記錄和變動
-不會自動匯入變動 (同義字)。 使用 [V2 API](https://aka.ms/qnamaker-v2-apis) 從舊的知識匯出變動，然後使用 [V4 API](https://aka.ms/qnamaker-v4-apis) 將變動移至新的知識庫。
+不會自動匯入不區分大小寫的變異形式 (同義字)。 使用 [V2 API](https://aka.ms/qnamaker-v2-apis) 從舊的知識匯出變動，然後使用 [V4 API](https://aka.ms/qnamaker-v4-apis) 將變動移至新的知識庫。
 
 沒有任何方法可移轉聊天記錄，因為新的知識庫會使用 Application Insights 來儲存聊天記錄。 
 

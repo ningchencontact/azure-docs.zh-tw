@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428234"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236000"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>管理前置和後置指令碼 (預覽)
 
@@ -26,7 +26,7 @@ ms.locfileid: "54428234"
 
 ## <a name="using-a-prepost-script"></a>使用前置/後置指令碼
 
-若要在更新部署中使用前置和或後置指令碼，可藉由直接建立更新部署來開始。 選取 [前置指令碼 + 後置指令碼 (預覽)]。 這會開啟 [選取前置指令碼 + 後置指令碼] 頁面。  
+若要在「更新部署」中使用更新前和或更新後指令碼，請從建立「更新部署」開始著手。 選取 [前置指令碼 + 後置指令碼 (預覽)]。 此動作會開啟 [選取更新前 + 更新後指令碼] 頁面。  
 
 ![選取指令碼](./media/pre-post-scripts/select-scripts.png)
 
@@ -42,17 +42,19 @@ ms.locfileid: "54428234"
 
 完成更新部署的設定。
 
-更新部署完成後，您可以移至 [更新部署] 來檢視結果。 您可以看到前置指令碼和後置指令碼的狀態都已提供。
+更新部署完成後，您可以移至 [更新部署] 來檢視結果。 您可以看到系統已提供更新前指令碼和更新後指令碼的狀態。
 
 ![更新結果](./media/pre-post-scripts/update-results.png)
 
-按一下並進入更新部署執行，您會看到前置和後置指令碼的其他詳細資料。 其中會顯示該執行進行時的指令碼來源連結。
+藉由按一下來進入更新部署執行，您就會看到更新前和更新後指令碼的額外詳細資料。 其中會顯示該執行進行時的指令碼來源連結。
 
 ![部署執行的結果](./media/pre-post-scripts/deployment-run.png)
 
 ## <a name="passing-parameters"></a>傳遞參數
 
-當您設定了前置和後置指令碼後，您可以傳遞參數，就如同排程 Runbook 一樣。 參數會在建立更新部署時定義。 除了標準的 Runbook 參數外，還會有一個額外的參數。 這個參數是 **SoftwareUpdateConfigurationRunContext**。 此參數是 JSON 字串，如果您在前置或後置指令碼中定義該參數，更新部署就會自動傳遞該參數。 該參數包含更新部署的相關資訊，也就是 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) 傳回的資訊子集 下表顯示在變數中提供的屬性：
+當您設定更新前和更新後指令碼時，可以像排定 Runbook 時一樣傳入參數。 參數會在建立更新部署時定義。 更新前和更新後指令碼會要求參數必須是 `String` 類型。 如果您需要另一種物件類型，您可以使用 `[System.Convert]` 將其轉換成另一種類型，或使用您自己的邏輯來處理它。
+
+除了標準的 Runbook 參數外，系統還會提供一個額外的參數。 這個參數是 **SoftwareUpdateConfigurationRunContext**。 此參數是 JSON 字串，如果您在前置或後置指令碼中定義此參數，更新部署就會自動傳遞此參數。 此參數包含更新部署的相關資訊，也就是 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) 傳回的一部分資訊。下表顯示變數中所提供的屬性：
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 屬性
 
@@ -70,7 +72,7 @@ ms.locfileid: "54428234"
 |azureVirtualMachines     | 更新部署中 Azure VM 的資源識別碼清單        |
 |nonAzureComputerNames|更新部署中的非 Azure 電腦 FQDN 清單|
 
-以下是傳遞至 **SoftwareUpdateConfigurationRunContext** 參數的 JSON 字串範例：
+以下範例是一個傳遞給 **SoftwareUpdateConfigurationRunContext** 參數的 JSON 字串：
 
 ```json
 "SoftwareUpdateConfigurationRunContext":{
@@ -174,14 +176,14 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-non-azure-machines"></a>與非 Azure 機器互動
 
-前置和後置工作會在 Azure 環境中執行，而且沒有非 Azure 機器的存取權。 若要與非 Azure 機器互動，您必須具備下列項目：
+更新前和更新後工作會在 Azure 環境中執行，且無法存取非 Azure 機器。 若要與非 Azure 機器互動，您必須具備下列項目：
 
 * 執行身分帳戶
 * 已安裝在機器上的混合式 Runbook 背景工作角色
 * 您想要在本機上執行的 Runbook
 * 父代 Runbook
 
-若要與非 Azure 機器互動，父代 Runbook 應在 Azure 環境中執行。 此 Runbook 會使用 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) Cmdlet 來呼叫子 Runbook。 您必須指定 `-RunOn` 參數，並提供混合式 Runbook 背景工作角色的名稱，好讓指令碼在其中執行。
+若要與非 Azure 機器互動，父代 Runbook 需在 Azure 環境中執行。 此 Runbook 會使用 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) Cmdlet 來呼叫子 Runbook。 您必須指定 `-RunOn` 參數，並提供混合式 Runbook 背景工作角色的名稱，好讓指令碼在其中執行。
 
 ```powershell
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
@@ -216,7 +218,7 @@ if ($summary.Type -eq "Error")
 
 ## <a name="known-issues"></a>已知問題
 
-* 使用前置和後置指令碼時，您無法將物件或陣列傳遞給參數。 Runbook 將會失敗。
+* 使用更新前和更新後指令碼時，您無法將物件或陣列傳遞給參數。 Runbook 將會失敗。
 
 ## <a name="next-steps"></a>後續步驟
 

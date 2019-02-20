@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efaa9101fbe46e0db2f582fe5a208dd8b16f095f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816200"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003579"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理員
 
@@ -32,6 +32,8 @@ Azure 流量管理員使用名為「流量管理員設定檔」的設定集合�
 
 ## <a name="setting-up-azure-powershell"></a>設定 Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 這些指示使用 Microsoft Azure PowerShell。 下列文章說明如何安裝和設定 Azure PowerShell。
 
 * [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)
@@ -39,7 +41,7 @@ Azure 流量管理員使用名為「流量管理員設定檔」的設定集合�
 這篇文章中的範例假設您有現有的資源群組。 您可以使用下列命令建立資源群組：
 
 ```powershell
-New-AzureRmResourceGroup -Name MyRG -Location "West US"
+New-AzResourceGroup -Name MyRG -Location "West US"
 ```
 
 > [!NOTE]
@@ -47,10 +49,10 @@ New-AzureRmResourceGroup -Name MyRG -Location "West US"
 
 ## <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 
-若要建立流量管理員設定檔，請使用 `New-AzureRmTrafficManagerProfile`Cmdlet：
+若要建立流量管理員設定檔，請使用 `New-AzTrafficManagerProfile`Cmdlet：
 
 ```powershell
-$profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$profile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 ```
 
 下表描述參數：
@@ -70,10 +72,10 @@ $profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 
 ## <a name="get-a-traffic-manager-profile"></a>取得流量管理員設定檔
 
-若要擷取現有的流量管理員設定檔物件，請使用 `Get-AzureRmTrafficManagerProfle` Cmdlet：
+若要擷取現有的流量管理員設定檔物件，請使用 `Get-AzTrafficManagerProfle` Cmdlet：
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 ```
 
 此 Cmdlet 會傳回流量管理員設定檔物件。
@@ -82,18 +84,18 @@ $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 
 修改流量管理員設定檔需要 3 個步驟︰
 
-1. 使用 `Get-AzureRmTrafficManagerProfile` 擷取設定檔，或使用 `New-AzureRmTrafficManagerProfile` 所傳回的設定檔。
+1. 使用 `Get-AzTrafficManagerProfile` 擷取設定檔，或使用 `New-AzTrafficManagerProfile` 所傳回的設定檔。
 2. 修改設定檔。 您可以新增和移除端點，也可以變更端點或設定檔參數。 這些變更是離線作業。 您只是變更記憶體中代表設定檔的本機物件。
-3. 使用 `Set-AzureRmTrafficManagerProfile` Cmdlet 來認可您所做的變更。
+3. 使用 `Set-AzTrafficManagerProfile` Cmdlet 來認可您所做的變更。
 
 設定檔的 RelativeDnsName 除外，其他所有設定檔屬性都可變更。 若要變更 RelativeDnsName，您必須刪除設定檔，再以新名稱建立新的設定檔。
 
 下列範例示範如何變更設定檔的 TTL：
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 $profile.Ttl = 300
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
 流量管理員端點有三種類型：
@@ -104,8 +106,8 @@ Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 
 不論是這三種端點中的哪一種，您都可以透過兩種方式來新增端點：
 
-1. 使用先前所述的 3 步驟程序。 這個方法的優點是更新一次就可以完成多項端點變更。
-2. 使用 New-AzureRmTrafficManagerEndpoint Cmdlet。 此 Cmdlet 會在單一作業中將端點新增至現有的流量管理員設定檔。
+1. 使用先前所述的 3 步驟程序。 這個方法的優點是更新一次就可以完成多個端點變更。
+2. 使用 New-AzTrafficManagerEndpoint Cmdlet。 此 Cmdlet 會在單一作業中將端點新增至現有的流量管理員設定檔。
 
 ## <a name="adding-azure-endpoints"></a>新增 Azure 端點
 
@@ -116,35 +118,35 @@ Azure 端點會參考 Azure 中託管的服務。 支援兩種 Azure 端點：
 
 不論是上述哪一種，都必須注意以下事項：
 
-* 使用 `Add-AzureRmTrafficManagerEndpointConfig` 或 `New-AzureRmTrafficManagerEndpoint` 的 'targetResourceId' 參數指定服務。
+* 使用 `Add-AzTrafficManagerEndpointConfig` 或 `New-AzTrafficManagerEndpoint` 的 'targetResourceId' 參數指定服務。
 * TargetResourceId 隱含 'Target' 和 'EndpointLocation'。
 * 您可以選擇是否指定 'Weight'。 只有在設定檔已設定為使用「加權」流量路由方法時，才會使用加權， 否則會予以忽略。 如果指定，則值必須是 1 到 1000 之間的數字。 預設值為 '1'。
 * 您可以選擇是否指定 'Priority'。 只有在設定檔已設定為使用「優先順序」流量路由方法時，才會使用優先順序， 否則會予以忽略。 有效值從 1 到 1000，值越小代表優先順序越高。 如果對某個端點指定值，則所有端點也都必須進行指定。 如果省略，則會依端點列出順序，從 '1' 開始套用預設值。
 
-### <a name="example-1-adding-app-service-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>範例 1：使用 `Add-AzureRmTrafficManagerEndpointConfig` 新增 App Service 端點
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>範例 1：使用 `Add-AzTrafficManagerEndpointConfig` 新增 App Service 端點
 
-在此範例中，我們使用 `Add-AzureRmTrafficManagerEndpointConfig` Cmdlet 建立流量管理員設定檔，並新增兩個 App Service 端點。
+在此範例中，我們使用 `Add-AzTrafficManagerEndpointConfig` Cmdlet 建立流量管理員設定檔，並新增兩個 App Service 端點。
 
 ```powershell
-$profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-$webapp1 = Get-AzureRMWebApp -Name webapp1
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
-$webapp2 = Get-AzureRMWebApp -Name webapp2
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+$profile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$webapp1 = Get-AzWebApp -Name webapp1
+Add-AzTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
+$webapp2 = Get-AzWebApp -Name webapp2
+Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>範例 2：使用 `New-AzureRmTrafficManagerEndpoint` 新增 publicIpAddress 端點
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>範例 2：使用 `New-AzTrafficManagerEndpoint` 新增 publicIpAddress 端點
 
 此範例會在流量管理員設定檔中新增公用 IP 位址資源。 公用 IP 位址必須設定 DNS 名稱，而且可以繫結至 VM 的 NIC 或繫結至負載平衡器。
 
 ```powershell
-$ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
-New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
+$ip = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
+New-AzTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="adding-external-endpoints"></a>新增外部端點
 
-流量管理員使用外部端點將流量導向至在 Azure 之外所託管的服務。 如同 Azure 端點一樣，使用 `Add-AzureRmTrafficManagerEndpointConfig` 再接著使用 `Set-AzureRmTrafficManagerProfile`，或使用 `New-AzureRMTrafficManagerEndpoint`，都可以新增外部端點。
+流量管理員使用外部端點將流量導向至在 Azure 之外所託管的服務。 如同 Azure 端點一樣，使用 `Add-AzTrafficManagerEndpointConfig` 再接著使用 `Set-AzTrafficManagerProfile`，或使用 `New-AzTrafficManagerEndpoint`，都可以新增外部端點。
 
 指定外部端點時：
 
@@ -152,23 +154,23 @@ New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -Res
 * 如果使用「效能」流量路由方法，則需要 'EndpointLocation'， 否則為選擇性。 值必須是[有效的 Azure 區域名稱](https://azure.microsoft.com/regions/)。
 * 'Weight' 和 'Priority' 是選擇性。
 
-### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>範例 1：使用 `Add-AzureRmTrafficManagerEndpointConfig` 和 `Set-AzureRmTrafficManagerProfile` 新增外部端點
+### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>範例 1：使用 `Add-AzTrafficManagerEndpointConfig` 和 `Set-AzTrafficManagerProfile` 新增外部端點
 
 在此範例中，我們會建立流量管理員設定檔、新增兩個外部端點，並認可變更。
 
 ```powershell
-$profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointLocation "North Europe" -EndpointStatus Enabled
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointLocation "Central US" -EndpointStatus Enabled
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+$profile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+Add-AzTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointLocation "North Europe" -EndpointStatus Enabled
+Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointLocation "Central US" -EndpointStatus Enabled
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>範例 2：使用 `New-AzureRmTrafficManagerEndpoint` 新增外部端點
+### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>範例 2：使用 `New-AzTrafficManagerEndpoint` 新增外部端點
 
 在此範例中，我們將外部端點新增至現有的設定檔。 使用設定檔和資源群組名稱來指定設定檔。
 
 ```powershell
-New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
+New-AzTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
 ```
 
 ## <a name="adding-nested-endpoints"></a>新增「巢狀」端點
@@ -182,26 +184,26 @@ New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -Reso
 * 如同 Azure 端點一樣，'Weight' 和 'Priority' 是選擇性。
 * 'MinChildEndpoints' 參數是選擇性。 預設值為 '1'。 如果可用的端點數目低於此臨界值，父設定檔會將子設定檔視為「已降級」，並將流量導向父設定檔中的其他端點。
 
-### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>範例 1：使用 `Add-AzureRmTrafficManagerEndpointConfig` 和 `Set-AzureRmTrafficManagerProfile` 新增巢狀端點
+### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>範例 1：使用 `Add-AzTrafficManagerEndpointConfig` 和 `Set-AzTrafficManagerProfile` 新增巢狀端點
 
 在此範例中，我們會建立新的流量管理員子設定檔和父設定檔、將子設定檔新增至父設定檔中做為巢狀端點，並認可變更。
 
 ```powershell
-$child = New-AzureRmTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-$parent = New-AzureRmTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+$child = New-AzTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$parent = New-AzTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
 為了簡潔起見，在此範例中，我們並未將任何其他端點新增至子設定檔或父設定檔。
 
-### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>範例 2：使用 `New-AzureRmTrafficManagerEndpoint` 新增巢狀端點
+### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>範例 2：使用 `New-AzTrafficManagerEndpoint` 新增巢狀端點
 
 在此範例中，我們將現有的子設定檔新增至現有的父設定檔中做為巢狀端點。 使用設定檔和資源群組名稱來指定設定檔。
 
 ```powershell
-$child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
-New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+$child = Get-AzTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
+New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
 ```
 
 ## <a name="adding-endpoints-from-another-subscription"></a>從另一個訂用帳戶新增端點
@@ -209,39 +211,39 @@ New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -Reso
 流量管理員可以處理不同訂用帳戶的端點。 利用您想要新增的端點來切換至訂用帳戶，以擷取流量管理員所需的輸入。 然後，您需要透過流量管理員 設定檔切換至訂用帳戶，接下來將端點新增至這個帳戶。 下列範例會示範如何透過一個公用 IP 位址來完成此操作。
 
 ```powershell
-Set-AzureRmContext -SubscriptionId $EndpointSubscription
-$ip = Get-AzureRmPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
+Set-AzContext -SubscriptionId $EndpointSubscription
+$ip = Get-AzPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
 
-Set-AzureRmContext -SubscriptionId $trafficmanagerSubscription
-New-AzureRmTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
+Set-AzContext -SubscriptionId $trafficmanagerSubscription
+New-AzTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="update-a-traffic-manager-endpoint"></a>更新流量管理員端點
 
 有兩種方式可以更新現有流量管理員端點：
 
-1. 使用 `Get-AzureRmTrafficManagerProfile` 取得流量管理員設定檔、更新設定檔內的端點屬性，並使用 `Set-AzureRmTrafficManagerProfile` 認可變更。 這個方法的優點是能夠在單一作業中更新多個端點。
-2. 使用 `Get-AzureRmTrafficManagerEndpoint` 取得流量管理員端點、更新端點屬性，並使用 `Set-AzureRmTrafficManagerEndpoint` 認可變更。 由於不需要在設定檔中編製索引為端點陣列，這個方法會比較簡單。
+1. 使用 `Get-AzTrafficManagerProfile` 取得流量管理員設定檔、更新設定檔內的端點屬性，並使用 `Set-AzTrafficManagerProfile` 認可變更。 這個方法的優點是能夠在單一作業中更新多個端點。
+2. 使用 `Get-AzTrafficManagerEndpoint` 取得流量管理員端點、更新端點屬性，並使用 `Set-AzTrafficManagerEndpoint` 認可變更。 由於不需要在設定檔中編製索引為端點陣列，這個方法會比較簡單。
 
-### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>範例 1：使用 `Get-AzureRmTrafficManagerProfile` 和 `Set-AzureRmTrafficManagerProfile` 更新端點
+### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>範例 1：使用 `Get-AzTrafficManagerProfile` 和 `Set-AzTrafficManagerProfile` 更新端點
 
 在此範例中，我們會修改現有設定檔中兩個端點的優先順序。
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
+$profile = Get-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
 $profile.Endpoints[0].Priority = 2
 $profile.Endpoints[1].Priority = 1
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>範例 2：使用 `Get-AzureRmTrafficManagerEndpoint` 和 `Set-AzureRmTrafficManagerEndpoint` 更新端點
+### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>範例 2：使用 `Get-AzTrafficManagerEndpoint` 和 `Set-AzTrafficManagerEndpoint` 更新端點
 
 在此範例中，我們會修改現有設定檔中單一端點的加權。
 
 ```powershell
-$endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
+$endpoint = Get-AzTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
 $endpoint.Weight = 20
-Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
+Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 ```
 
 ## <a name="enabling-and-disabling-endpoints-and-profiles"></a>啟用和停用端點和設定檔
@@ -260,10 +262,10 @@ Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourc
 若要停用流量管理員設定檔：
 
 ```powershell
-Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Disable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
-Disable-AzureRmTrafficManagerProfile Cmdlet 會提示您確認。 使用 '-Force' 參數可以抑制此提示。
+Disable-AzTrafficManagerProfile Cmdlet 會提示您確認。 使用 '-Force' 參數可以抑制此提示。
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>範例 2：啟用和停用流量管理員端點
 
@@ -279,27 +281,27 @@ Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -Prof
 同樣地，若要停用流量管理員端點：
 
 ```powershell
-Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
+Disable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
 ```
 
-如同 `Disable-AzureRmTrafficManagerProfile`，`Disable-AzureRmTrafficManagerEndpoint` Cmdlet 會提示您確認。 使用 '-Force' 參數可以抑制此提示。
+如同 `Disable-AzTrafficManagerProfile`，`Disable-AzTrafficManagerEndpoint` Cmdlet 會提示您確認。 使用 '-Force' 參數可以抑制此提示。
 
 ## <a name="delete-a-traffic-manager-endpoint"></a>停用流量管理員端點
 
-若要移除個別的端點，請使用 `Remove-AzureRmTrafficManagerEndpoint` Cmdlet︰
+若要移除個別的端點，請使用 `Remove-AzTrafficManagerEndpoint` Cmdlet︰
 
 ```powershell
-Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+Remove-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
 這個 Cmdlet 會提示您確認。 使用 '-Force' 參數可以抑制此提示。
 
 ## <a name="delete-a-traffic-manager-profile"></a>刪除流量管理員設定檔
 
-若要刪除流量管理員設定檔，請使用 `Remove-AzureRmTrafficManagerProfile` Cmdlet，並指定設定檔和資源群組名稱：
+若要刪除流量管理員設定檔，請使用 `Remove-AzTrafficManagerProfile` Cmdlet，並指定設定檔和資源群組名稱：
 
 ```powershell
-Remove-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
+Remove-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
 ```
 
 這個 Cmdlet 會提示您確認。 使用 '-Force' 參數可以抑制此提示。
@@ -307,14 +309,14 @@ Remove-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Fo
 要刪除的設定檔也可以使用設定檔物件來指定：
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
-Remove-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
+$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+Remove-AzTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
 ```
 
 也可輸送以下順序：
 
 ```powershell
-Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
+Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzTrafficManagerProfile [-Force]
 ```
 
 ## <a name="next-steps"></a>後續步驟

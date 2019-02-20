@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140395"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098301"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>連線的處理站解決方案加速器的逐步解說
 
@@ -28,7 +28,7 @@ ms.locfileid: "50140395"
 
 您可以將此解決方案做為自己實作的起點，並加以[自訂][lnk-customize]以符合自己特有的商務需求。
 
-本文將逐步說明連線的處理站解決方案的一些重要元素，讓您了解其運作方式。 本文也描述資料如何流經此解決方案。 這項知識能協助您︰
+本文將逐步說明連線的處理站解決方案的一些重要元素，讓您了解其運作方式。 本文也描述資料如何流經此解決方案。 此知識能協助您︰
 
 * 在解決方案中進行疑難排解。
 * 規劃如何自訂解決方案以滿足您的特定需求。
@@ -46,7 +46,7 @@ ms.locfileid: "50140395"
 
 此解決方案會使用 [OPC UA Pub/Sub 規格](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/)，以 JSON 格式將 OPC UA 遙測資料傳送到 IoT 中樞。 此解決方案會就此目的使用 [OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge 模組。
 
-此解決方案也有整合至 Web 應用程式的 OPC UA 用戶端，該應用程式可以建立與內部部署 OPC UA 伺服器的連線。 用戶端會使用 [reverse-proxy](https://wikipedia.org/wiki/Reverse_proxy) 並接受 IoT 中樞的協助進行連線，而不需要內部部署防火牆中的開啟連接埠。 此通訊模式稱為[服務輔助通訊](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)。 此解決方案會就此目的使用 [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge 模組。
+此解決方案也有整合至 Web 應用程式的 OPC UA 用戶端，該應用程式可以建立與內部部署 OPC UA 伺服器的連線。 用戶端會使用 [reverse-proxy](https://wikipedia.org/wiki/Reverse_proxy) 並接受 IoT 中樞的協助進行連線，而不需要內部部署防火牆中的開啟連接埠。 此通訊模式稱為服務輔助通訊。 此解決方案會就此目的使用 [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge 模組。
 
 
 ## <a name="simulation"></a>模擬
@@ -89,7 +89,7 @@ OPC 發行者模組只需要輸出的 https 連接埠 (443)，並且可以使用
 
 閘道 OPC 發行者模組會訂閱 OPC UA 伺服器節點，以偵測資料值中的變更。 如果在其中一個節點中偵測到資料變更，此模組就會將訊息傳送至 Azure IoT 中樞。
 
-IoT 中樞會向 Azure TSI 提供事件來源。 根據附加至訊息的時間戳記，TSI 會將資料儲存 30 天。 這項資料包括︰
+IoT 中樞會向 Azure TSI 提供事件來源。 根據附加至訊息的時間戳記，TSI 會將資料儲存 30 天。 此資料包括︰
 
 * OPC UA ApplicationUri
 * OPC UA NodeId
@@ -147,7 +147,7 @@ TSI 會使用時間型 **SearchSpan** 針對節點資料進行查詢，並依 **
 5. 如果受監視的 OPC 節點值變更，OPC UA 伺服器會將更新傳送給 OPC 發行者。
 
 6. OPC 發行者會轉碼新值。
-    - 如果已啟用批次處理，則會批次處理多項變更。
+    - 如果已啟用批次處理，則會批次處理多個變更。
     - 建立 IoT 中樞訊息。
 
 7. OPC 發行者會將訊息傳送到 IoT 中樞。
@@ -213,7 +213,7 @@ TSI 會使用時間型 **SearchSpan** 針對節點資料進行查詢，並依 **
 
 10. OPC Proxy (伺服器元件) 的通訊端會收到回應。
     - OPC Proxy 會以裝置方法的傳回值將資料傳送到 IoT 中樞與 OPC Proxy (用戶端元件)。
-    - 這項資料會傳遞到連線的處理站應用程式中的 OPC UA 堆疊。
+    - 此資料會傳遞到連線的處理站應用程式中的 OPC UA 堆疊。
 
 11. 連線的處理站 WebApp 會將接收自 OPC UA 伺服器、以 OPC UA 特定資訊增補的 OPC 瀏覽器 UX 傳回至網頁瀏覽器，加以轉譯。
     - 當使用者瀏覽 OPC 位址空間以及將函式套用至 OPC 位址空間中的節點時，OPC 瀏覽器 UX 用戶端會透過以防偽權杖保護的 HTTPS 使用 AJAX 呼叫，從連線的處理站 WebApp 取得資料。

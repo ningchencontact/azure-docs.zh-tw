@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 Workspot Control 的整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 與 Workspot Control 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Workspot Control 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311769"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211150"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>教學課程：Azure Active Directory 與 Workspot Control 的整合
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>教學課程：Azure Active Directory 與 Workspot Control 整合
 
 在本教學課程中，您將了解如何整合 Workspot Control 與 Azure Active Directory (Azure AD)。
 
@@ -33,7 +34,7 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Workspot Control 的整合，您需要下列項目：
 
@@ -142,7 +143,7 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
 7. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 Workspot Control。
 
-8. 在頁面頂端的工具列上按一下 [設定]，然後按一下 [SAML]。
+8. 在頁面頂端的工具列中按一下 [Setup] \(設定\) ****，然後瀏覽至 [SAML] ****。
 
     ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
  
     ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. 在 [實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼] 值。   
+    a. 在 [實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼] 值。   
 
     b. 在 [登入服務 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。
 
@@ -181,7 +182,7 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
     b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 依序選取 [屬性]、[顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
  
@@ -193,7 +194,7 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
 1. 以安全性系統管理員身分登入 Workspot Control。
 
-2. 在頁面頂端的工具列中，按一下 [使用者]，然後瀏覽至 [新增使用者]。
+2. 在頁面頂端的工具列中按一下 [Users] \(使用者\) ****，然後瀏覽至 [Add User] \(新增使用者\) ****。
 
     ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
@@ -242,7 +243,7 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Workspot Control] 圖格時，應該會自動登入您的 Workspot Control 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

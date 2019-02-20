@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 查詢中的進階彙總| Microsoft Docs
-description: 說明 Log Analytics 查詢中可使用的一些更進階的彙總選項。
+title: Azure 監視器記錄查詢中的進階彙總 | Microsoft Docs
+description: 說明可供「Azure 監視器」記錄查詢使用的一些更進階彙總選項。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 1116d03fc9c2328365b0bde29cf9ea900e58b7ed
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186356"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005415"
 ---
-# <a name="advanced-aggregations-in-log-analytics-queries"></a>Log Analytics 查詢中的進階彙總
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的進階彙總
 
 > [!NOTE]
-> 您應該先完成[Log Analytics 查詢中的彙總](./aggregations.md)，再完成此課程。
+> 您應該先完成 [Azure 監視器查詢中的彙總](./aggregations.md)，再完成此課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-此文章說明 Log Analytics 查詢中可使用的一些更進階的彙總選項。
+本文說明可供「Azure 監視器」查詢使用的一些更進階的彙總選項。
 
 ## <a name="generating-lists-and-sets"></a>產生清單與集合
 您可以使用 `makelist` 依特定欄中的值順序瀏覽樞紐資料。 例如，您可能想要探索您的機器上發生的最長見訂購事件。 基本上，您能依每部機器上的事件識別碼順序來瀏覽樞紐資料。 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱其他課程以了解如何使用 Log Analytics 查詢語言：
+如需了解如何搭配「Azure 監視器」記錄資料使用[資料總管查詢語言](/azure/kusto/query/)，請參閱其他課程：
 
 - [字串作業](string-operations.md)
 - [日期和時間作業](datetime-operations.md)

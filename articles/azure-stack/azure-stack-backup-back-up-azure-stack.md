@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250039"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210294"
 ---
 # <a name="back-up-azure-stack"></a>備份 Azure Stack
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-在 Azure Stack 上以就地備份來執行隨選備份。 如需設定 PowerShell 環境的指示，請參閱[安裝 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登入 Azure Stack，請參閱[使用 Azure Stack 中的系統管理員入口網站](azure-stack-manage-portals.md)。
+在 Azure Stack 上執行隨選備份。 如需設定 PowerShell 環境的指示，請參閱[安裝 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登入 Azure Stack，請參閱[使用 Azure Stack 中的系統管理員入口網站](azure-stack-manage-portals.md)。
 
 ## <a name="start-azure-stack-backup"></a>啟動 Azure Stack 備份
 
@@ -121,4 +121,4 @@ ms.locfileid: "55250039"
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解從資料遺失事件從復原的工作流程。 請參閱[從重大資料遺失的情況下復原](azure-stack-backup-recover-data.md)。
+深入了解[從資料遺失事件中復原](azure-stack-backup-recover-data.md)的工作流程。

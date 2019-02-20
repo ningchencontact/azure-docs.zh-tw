@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 44f12c72716e98e2f28796359467685e0af579dd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 42b67ae9b715670f1a0c6e0fed004487a52817d3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238241"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206459"
 ---
 # <a name="connect-to-the-asdk"></a>連線到 ASDK
 
 若要管理資源，您必須先連線到「Azure Stack 開發套件」(ASDK)。 在本文中，我們將說明使用下列連線選項連線至 ASDK 所需採取的步驟：
 
 * [遠端桌面連線 (RDP)](#connect-with-rdp)。 當您使用「遠端桌面連線」進行連線時，單一使用者可以快速連線至開發套件。
-* [虛擬私人網路 (VPN)](#connect-with-vpn)。 當您使用 VPN 進行連線時，多名使用者可以同時從 Azure Stack 基礎結構外部的用戶端進行連線。 VPN 連線需要進行某些設定。
+* [虛擬私人網路 (VPN)](#connect-with-vpn)。 當您使用 VPN 進行連線時，多名使用者可以同時從 Azure Stack 基礎結構外部的用戶端連線至 Azure Stack 入口網站。 VPN 連線需要進行某些設定。
 
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>使用 RDP 連線至 Azure Stack
@@ -59,7 +59,7 @@ Azure AD 和「Active Directory 同盟服務」(AD FS) 部署都支援 VPN 連�
 > [!NOTE]
 > VPN 連線*無法*讓您連線至 Azure Stack VM。 透過 VPN 連線時，您無法使用 RDP 連線至 Azure Stack VM。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 在設定與 ASDK 的 VPN 連線之前，請確定您符合下列先決條件。
 
 - 在您的本機電腦上安裝 [Azure Stack 相容的 Azure PowerShell](asdk-post-deploy.md#install-azure-stack-powershell)。  

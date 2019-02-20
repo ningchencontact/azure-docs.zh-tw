@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239667"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164017"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
-若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本指南提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們快速上手。
+若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本文提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們能夠快速上手。
 
 ## <a name="understand-the-builds"></a>了解組建
 
 ### <a name="integrated-systems"></a>整合系統
 
-如果您使用 Azure Stack 整合系統，將會透過更新套件散發 Azure Stack 更新版本給您。 您可以使用系統管理員入口網站中的 [更新 ] 圖格來匯入及套用這些套件。
+如果您使用 Azure Stack 整合系統，將會透過更新套件散發 Azure Stack 更新版本給您。 您可以使用系統管理員入口網站中的 [更新 ] 圖格來匯入及套用這些套件。 不支援更新 ASDK 安裝。 
  
 ### <a name="development-kit"></a>開發套件
 

@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: ed6c21762fed331e2f11378ec9b6d91cba9bec11
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250737"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244874"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>相應增加 Azure DevTest Labs 基礎結構
 在企業級規模實作 DevTest Labs 之前，有數個重要決策點。 了解這些高層的決策點可協助組織未來設計決策。 不過，這些決策點應該不會妨礙組織開始概念證明。 初始相應增加計劃的前三個領域如下：
@@ -66,4 +67,4 @@ DevTest Labs 概念證明有三個主要角色及已定義的職責，分別是�
 - **DevTest Labs 使用者** – DevTest Labs 使用者可以建立和使用實驗室中的虛擬機器。 這些人員對於所建立的 VM 有一些基本的系統管理功能 (啟動/停止/刪除/設定其 VM)。 這些使用者無法管理其他使用者的 VM。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱本系列中的下一篇文章：[協調 Azure DevTest Labs 的實作](devtest-lab-guidance-orchestrate-implementation.md)
+請參閱本系列的下一篇文章：[協調 Azure DevTest Labs 的實作](devtest-lab-guidance-orchestrate-implementation.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439097"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243598"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 輸出規則
 
@@ -34,7 +34,7 @@ ms.locfileid: "54439097"
 - 哪些虛擬機器應該轉譯成哪些公用 IP 位址。 
 - 應該如何配置[輸出 SNAT 連接埠](load-balancer-outbound-connections.md#snat)。
 - 要提供其輸出轉譯的通訊協定。
-- 要用於輸出連線閒置逾時的持續時間。
+- 要用於輸出連線閒置逾時的持續時間 (4-120 分鐘)。
 - 是否傳送閒置逾時時的 TCP 重設 (在公開預覽中)。 
 
 輸出規則會擴充[輸出連線](load-balancer-outbound-connections.md)一文中所述的[情節 2](load-balancer-outbound-connections.md#lb)，而且情節優先順序會保持現狀。
@@ -90,7 +90,7 @@ API 版本 "2018-07-01" 允許輸出規則定義建構如下：
 
 ### <a name="idletimeout"></a> 控制輸出流程閒置逾時
 
-輸出規則提供設定參數來控制輸出流程閒置逾時，並使其符合您應用程式的需求。  輸出閒置逾時預設為 4 分鐘。  此參數接受從 4 到 66 到特定分鐘數的值，作為符合此特定規則之流程的閒置逾時。
+輸出規則提供設定參數來控制輸出流程閒置逾時，並使其符合您應用程式的需求。  輸出閒置逾時預設為 4 分鐘。  此參數可接受使用 4 到 120 的值來指定分鐘數，作為符合此特定規則之流程的閒置逾時。
 
 使用下列參數，將輸出閒置逾時設定為 1 小時：
 
@@ -124,7 +124,7 @@ Load Balancer 的預設行為，是在達到輸出閒置逾時的當時以無訊
 - 調整同時用於輸入和輸出的 IP 位址輸出 NAT 參數。  必須停用自動輸出 NAT 程式設計，以允許輸出規則取得控制。  例如，若要變更位址的 SNAT 連接埠配置也用於輸入，此參數必須設定為 true。  如果您嘗試使用輸出規則來重新定義也用於輸入的 IP 位址參數，但尚未發行負載平衡規則的輸出 NAT 程式設計，則設定輸出規則的作業會失敗。
 
 >[!IMPORTANT]
-> 如果您將此參數設定為 true，但沒有輸出規則 (或[執行個體層級公用 IP 情節](load-balancer-outbound-connections.md#ilpip)) 定義輸出連線，則您的虛擬機器不會有輸出連線。  您 VM 或應用程式的某些作業可能取決於可用輸出連線。 請確定您了解情節的相依性，並考慮這項變更的影響。
+> 如果您將此參數設定為 true，但沒有輸出規則 (或[執行個體層級公用 IP 情節](load-balancer-outbound-connections.md#ilpip)) 定義輸出連線，則您的虛擬機器不會有輸出連線。  您 VM 或應用程式的某些作業可能取決於可用輸出連線。 請確定您了解情節的相依性，並考慮此變更的影響。
 
 您可以使用此設定參數，在負載平衡規則上停用輸出 SNAT：
 
@@ -205,7 +205,7 @@ disableOutboundSNAT 參數預設為 false，這表示負載平衡規則**確實*
 ## <a name="limitations"></a>限制
 
 - 每個前端 IP 位址的可用暫時連接埠數目上限為 51,200。
-- 可設定輸出閒置逾時的範圍為 4 到 66 分鐘 (240 到 4000 秒)。
+- 可設定輸出閒置逾時的範圍為 4 到 120 分鐘 (240 到 7200 秒)。
 - Load Balancer 不支援輸出 NAT 的 ICMP。
 - 入口網站無法用來設定或檢視輸出規則。  請改為使用範本、REST API、Az CLI 2.0 或 PowerShell。
 - 輸出規則只能套用至主要 NIC 和主要 IP 組態。

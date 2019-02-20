@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 02/07/2018
 ms.author: normesta
-ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731541"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895528"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -23,7 +23,7 @@ ms.locfileid: "55731541"
 
 Blob 儲存體 API 和 Azure Data Lake Gen2 API 無法彼此互通。
 
-如果您具有使用 Blob API 的自訂工具、應用程式或指令碼，而想要使用它們來處理上傳至帳戶的所有內容，則在 Blob API 與 Azure Data Lake Gen2 API 已可交互作用之前，請勿在 Blob 儲存體帳戶上啟用階層命名空間。 使用不具有階層命名空間的儲存體帳戶，表示您無法存取 Data Lake Storage Gen2 的特定功能，例如目錄和檔案系統存取控制清單。
+如果您具有使用 Blob API 的工具、應用程式、服務或指令碼，而想要使用它們來處理上傳至帳戶的所有內容，則在 Blob API 與 Azure Data Lake Gen2 API 已可交互作用之前，請勿在 Blob 儲存體帳戶上啟用階層命名空間。 使用不具有階層命名空間的儲存體帳戶，表示您無法存取 Data Lake Storage Gen2 的特定功能，例如目錄和檔案系統存取控制清單。
 
 ## <a name="blob-storage-apis"></a>Blob 儲存體 API
 
@@ -41,15 +41,15 @@ Blob 儲存體 API 尚未提供給 Azure Data Lake Storage Gen2 帳戶使用。
 
 * 即使您不會在生產環境中受到影響，也請告訴我們是否基於某些原因而需要這些資料複製到另一個儲存體帳戶，如果是，為什麼？
 
-在這些情況下，我們可以在一段有限的時間內還原 Blob API 的存取，以便您可以將這些資料複製到未啟用階層命名空間的儲存體帳戶。
+在這些情況下，我們可以在一段有限的時間內還原 Blob API 的存取，以便您可以將這些資料複製到未啟用階層命名空間功能的儲存體帳戶。
 
-非受控虛擬機器 (VM) 磁碟仰賴停用的 Blob 儲存體 API，因此如果您要在儲存體帳戶上啟用階層命名空間，請考慮將非受控 VM 磁碟放入沒有啟用階層命名空間的儲存體帳戶。
+非受控虛擬機器 (VM) 磁碟仰賴停用的 Blob 儲存體 API，因此如果您要在儲存體帳戶上啟用階層命名空間，請考慮將非受控 VM 磁碟放入沒有啟用階層命名空間功能的儲存體帳戶。
 
 ## <a name="azure-storage-explorer"></a>Azure 儲存體總管
 
 若要檢視或使用 Azure 儲存體總管來管理 Data Lake Storage Gen2 帳戶，您至少必須有版本 `1.6.0` 的工具，這個版本可供[免費下載](https://azure.microsoft.com/features/storage-explorer/)。
 
-請注意，內嵌至 Azure 入口網站的儲存體總管版本目前不支援檢視或管理已啟用階層命名空間的 Data Lake Storage Gen2 帳戶。
+請注意，內嵌至 Azure 入口網站的儲存體總管版本目前不支援檢視或管理已啟用階層命名空間功能的 Data Lake Storage Gen2 帳戶。
 
 ## <a name="blob-viewing-tool"></a>Blob 檢視工具
 
@@ -75,17 +75,17 @@ AzCopy 第 8 版不支援 Azure Data Lake Storage Gen2。
 
 虛刪除和快照集不適用於Azure Data Lake Storage Gen2 帳戶。
 
-所有的版本控制功能 (包括[快照集](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)和[虛刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)) 都還無法提供給啟用階層命名空間的儲存體帳戶使用。
+所有的版本控制功能 (包括[快照集](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)和[虛刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)) 都還無法提供給啟用階層命名空間功能的儲存體帳戶使用。
 
 ## <a name="object-level-storage-tiers"></a>物件層級儲存層
 
-物件層級儲存層 (經常性、非經常性和封存) 都還無法提供給 Azure Data Lake Storage Gen 2 帳戶使用，但它們可提供給未啟用階層命名空間的儲存體帳戶使用。
+物件層級儲存層 (經常性、非經常性和封存) 都還無法提供給 Azure Data Lake Storage Gen 2 帳戶使用，但它們可提供給未啟用階層命名空間功能的儲存體帳戶使用。
 
-## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Azure Blob 儲存體生命週期管理 (預覽) 原則
+## <a name="azure-blob-storage-lifecycle-management-policies"></a>Azure Blob 儲存體生命週期管理原則
 
-Azure Blob 儲存體生命週期管理 (預覽) 原則還無法提供給 Azure Data Lake Storage Gen2 帳戶使用。
+Azure Blob 儲存體生命週期管理原則還無法提供給 Azure Data Lake Storage Gen2 帳戶使用。
 
-這些原則可提供給未啟用階層命名空間的儲存體帳戶使用。
+這些原則可提供給未啟用階層命名空間功能的儲存體帳戶使用。
 
 ## <a name="diagnostic-logs"></a>診斷記錄檔
 

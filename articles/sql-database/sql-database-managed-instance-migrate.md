@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: ce7892401b2b04565a00c33c5301b9c0cd05d5f5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/11/2019
+ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732748"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098352"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 
-在此文章中，您將了解用來將 SQL Server 2005 或更新版本執行個體移轉到 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)的方法。
+在此文章中，您將了解用來將 SQL Server 2005 或更新版本執行個體移轉到 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)的方法。 如需移轉至單一資料庫或彈性集區的相關資訊，請參閱[移轉至單一或集區資料庫](sql-database-cloud-migrate.md)。 如需從其他平台移轉的移轉資訊，請參閱 [Azure 資料庫移轉指南](https://datamigration.microsoft.com/) \(英文\)。
 
 概括而言，資料庫移轉程序看起來像這樣：
 
@@ -34,7 +34,7 @@ ms.locfileid: "55732748"
 - [監視應用程式](#monitor-applications)
 
 > [!NOTE]
-> 若要將個別資料庫遷移至單一資料庫或彈性集區，請參閱[將 SQL Server 資料庫遷移至 Azure SQL Database](sql-database-cloud-migrate.md)。
+> 若要將個別資料庫遷移至單一資料庫或彈性集區，請參閱[將 SQL Server 資料庫遷移至 Azure SQL Database](sql-database-single-database-migrate.md)。
 
 ## <a name="assess-managed-instance-compatibility"></a>評估受控執行個體的相容性
 
@@ -47,7 +47,7 @@ ms.locfileid: "55732748"
 - 如果您需要直接存取作業系統或檔案系統，例如在具有 SQL Server 的相同虛擬機器上安裝第三方或自訂代理程式。
 - 如果您的執行個體與尚不支援的功能有緊密相依性，例如 FileStream / FileTable、PolyBase 及跨執行個體交易等功能。
 - 如果您極必須維持在特定版本的 SQL Server (例如 2012 版)。
-- 如果您的計算需求遠低於受控執行個體在公開預覽中提供的功能 (例如，只需要一個虛擬核心)，而且資料庫彙總不是可接受的選項。
+- 如果您的計算需求遠低於受控執行個體提供的功能 (例如，只需要一個虛擬核心)，而且資料庫彙總不是可接受的選項。
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>部署到最佳大小的受控執行個體
 

@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: e2ec1b7ad6d1489836937d30b89d0f0f681a9bfa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819581"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193385"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 角色和權限
 
 Azure Container Registry 服務可支援一組 Azure 角色，對於 Azure Container Registry 提供不同程度的權限。 Azure[角色型存取控制](../role-based-access-control/index.yml) (RBAC) 可用來將特定權限指派給必須與登錄互動的使用者或服務主體。
 
-| 角色/權限       | 存取 Resource Manager| 建立/刪除登錄 | [推送映像](#push-image) | [提取映像](#pull-image) | 變更原則 |   [簽署映像](#sign-images)  |
+| 角色/權限       | [存取 Resource Manager](#access-resource-manager)| [建立/刪除登錄](#create-and-delete-registry) | [推送映像](#push-image) | [提取映像](#pull-image) | [變更原則](#change-policies) |   [簽署映像](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- |
 | 擁有者 | X | X | X | X | X |  |  
 | 參與者 | X | X | X | X | X |  |  
@@ -45,19 +45,19 @@ Azure Container Registry 服務可支援一組 Azure 角色，對於 Azure Conta
 
 ## <a name="access-resource-manager"></a>存取 Resource Manager
 
-對於 Azure 入口網站和 [Azure CLI](/cli/azure/) 需要 Azure Resource Manager 存取權。 例如，若要使用 `az acr list` 命令取得登錄的清單，您需要此權限集合。 
+必須具備 Azure Resource Manager 存取權，才能使用 [Azure CLI](/cli/azure/) 來進行 Azure 入口網站和登錄管理。 例如，若要使用 `az acr list` 命令取得登錄的清單，您需要此權限集合。 
 
-## <a name="createdelete-registry"></a>建立/刪除登錄
+## <a name="create-and-delete-registry"></a>建立和刪除登錄
 
 建立和刪除 Azure 容器登錄的能力。
 
 ## <a name="push-image"></a>推送映像
 
-`docker push` 映像或將另一個受支援成品推送到登錄的能力。 需要使用授權的身分識別對於登錄進行[驗證](container-registry-authentication.md)。 
+透過 `docker push` 推送映像或將另一個[支援的成品](container-registry-image-formats.md) (例如 Helm 圖表) 推送到登錄的能力。 需要使用授權的身分識別對於登錄進行[驗證](container-registry-authentication.md)。 
 
 ## <a name="pull-image"></a>提取映像
 
-`docker pull`非隔離映像或從登錄庫提取另一個受支援成品的能力。 需要使用授權的身分識別對於登錄進行[驗證](container-registry-authentication.md)。
+透過 `docker pull` 提取非隔離映像或從登錄提取另一個[支援的成品](container-registry-image-formats.md) (例如 Helm 圖表) 的能力。 需要使用授權的身分識別對於登錄進行[驗證](container-registry-authentication.md)。
 
 ## <a name="change-policies"></a>變更原則
 

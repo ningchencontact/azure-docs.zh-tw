@@ -4,7 +4,7 @@ description: 本文提供使用內建 Azure 功能的一些身分識別管理和
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 64d940552f2790c08e8087f279990d0a6c595bac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245714"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112093"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
 
@@ -75,7 +75,7 @@ ms.locfileid: "51245714"
 
 ## <a name="enable-single-sign-on"></a>啟用單一登入
 
-在行動第一、雲端第一的世界中，您想要能夠從任何地方單一登入 (SSO) 至裝置、應用程式和服務，讓使用者能夠隨時隨地具有生產力。 當您有多個身分識別解決方案要管理時，這不只會成為 IT 的系統管理問題，對於必須記住多組密碼的使用者而言也是個問題。
+在行動第一、雲端第一的世界中，無論是從什麼地方，都要讓使用者能單一登入 (SSO) 至裝置、應用程式和服務，他們才能隨時隨地保有生產力。 當您有多個身分識別解決方案要管理時，這不只會成為 IT 的系統管理問題，對於必須記住多組密碼的使用者而言也是個問題。
 
 將相同的身分識別解決方案使用於您所有的應用程式和資源，即可達成 SSO。 而不論資源位於內部部署或雲端，使用者都可以使用同一組認證來登入及存取他們所需的資源。
 
@@ -90,17 +90,17 @@ ms.locfileid: "51245714"
 
 使用者可以使用各種裝置和應用程式，從任何位置存取您組織的資源。 身為 IT 管理員，您會想要確保這些裝置符合您的安全性與合規性標準。 只將焦點放在誰可以存取資源，已不再足夠。
 
-為了平衡安全性與生產力，您必須先考量資源的存取方式，才能進行存取控制決策。 有了 Azure AD 條件式存取，您就能夠因應這項需求。 使用條件式存取，您可以做出自動化存取控制決策，以便根據條件存取雲端應用程式。
+為了平衡安全性與生產力，您必須先考量資源的存取方式，才能進行存取控制決策。 有了 Azure AD 條件式存取，您就能夠因應此需求。 使用條件式存取，您可以做出自動化存取控制決策，以便根據條件存取雲端應用程式。
 
 **最佳做法**：管理和控制公司資源的存取權。  
-**詳細資料**：針對 SaaS 應用程式和 Azure AD 連線應用程式，設定以群組、位置和應用程式敏感性為基礎的[條件式存取](../active-directory/active-directory-conditional-access-azure-portal.md)。
+**詳細資料**：針對 SaaS 應用程式和連線到 Azure AD 的應用程式，設定以群組、位置和應用程式敏感性為基礎的 Azure AD [條件式存取](../active-directory/active-directory-conditional-access-azure-portal.md)。
 
 ## <a name="enable-password-management"></a>啟用密碼管理
 
 如果您有多個租用戶或想要讓使用者[重設其密碼](../active-directory/active-directory-passwords-update-your-own-password.md)，請務必使用適當的安全性原則來防止不當使用。
 
-**最佳做法**：為客戶設定自助式密碼重設 (SSPR)。  
-**詳細資料**：使用 Azure AD 的[自助式密碼重設](../active-directory-b2c/active-directory-b2c-reference-sspr.md)功能。
+**最佳做法**：為使用者設定自助式密碼重設 (SSPR)。  
+**詳細資料**：使用 Azure AD [自助式密碼重設](../active-directory-b2c/active-directory-b2c-reference-sspr.md)功能。
 
 **最佳做法**：監視 SSPR 的使用方式或是否真的正在使用它。  
 **詳細資料**：使用 Azure AD [密碼重設註冊活動報告](../active-directory/active-directory-passwords-get-insights.md)，監視正在註冊的使用者。 Azure AD 提供的報告功能可協助您使用預先建立的報告來回答問題。 如果您已適當地取得授權，則也可以建立自訂查詢。
@@ -151,10 +151,10 @@ ms.locfileid: "51245714"
 
 以下摘要說明[在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取](../active-directory/users-groups-roles/directory-admin-roles-secure.md)中找到的最佳做法：
 
-**最佳做法**： 管理、控制及監視特殊權限帳戶的存取權。   
+**最佳做法**：管理、控制及監視特殊權限帳戶的存取權。   
 **詳細資料**：開啟 [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md)。 開啟 Privileged Identity Management 之後，您會收到有關於特殊權限存取角色有所變更的通知電子郵件訊息。 您目錄中的高特殊權限角色新增了其他使用者時，這些通知將會提供早期警告。
 
-**最佳做法**：識別及分類高特殊權限角色中的帳戶。   
+**最佳做法**：識別及分類具備高特殊權限角色的帳戶。   
 **詳細資料**：在開啟 Azure AD Privileged Identity Management 之後，檢視具備全域管理員、特殊權限角色管理員和其他較高特殊權限角色的使用者。 請移除這些角色中不再需要的任何帳戶，並將指派給管理員角色的其餘帳戶分類：
 
 - 個別指派給系統管理使用者，並且可用於非系統管理用途 (例如個人電子郵件)
@@ -164,7 +164,7 @@ ms.locfileid: "51245714"
 - 用於自動化指令碼
 - 用於外部使用者
 
-**最佳做法**：實作 Just-In-Time (JIT) 存取，可進一步降低權限的暴露時間，並提升使用特殊權限帳戶的能見度。   
+**最佳做法**：實作 Just-In-Time (JIT) 存取，以進一步降低權限的暴露時間，並提升使用特殊權限帳戶對您的能見度。   
 **詳細資料**：Azure AD Privileged Identity Management 可讓您：
 
 - 限制使用者只能 JIT 取用其權限。
@@ -175,11 +175,11 @@ ms.locfileid: "51245714"
 
 請評估已指派或適用於全域管理員角色的帳戶。 如果使用 `*.onmicrosoft.com` 網域 (供緊急存取使用)，並未看到任何僅限雲端的帳戶，請加以建立。 如需詳細資訊，請參閱「在 Azure AD 中管理緊急存取系統管理帳戶」。
 
-**最佳做法**：開啟多重要素驗證，並註冊所有其他高特殊權限的單一使用者非同盟管理員帳戶。  
-**詳細資料**：所有永久指派給一或多個 Azure AD 管理員角色的個別使用者在進行登入時，都必須進行 Azure Multi-Factor Authentication：全域系統管理員、特殊權限角色系統管理員、Exchange Online 系統管理員和 SharePoint Online 系統管理員。 請使用本指南來啟用[管理員帳戶的 Multi-factor Authentication](../active-directory/authentication/howto-mfa-userstates.md)，並確定這些使用者都[已註冊](https://aka.ms/mfasetup)。
+**最佳做法**：開啟 Multi-Factor Authentication，並註冊所有其他高特殊權限的單一使用者非同盟管理員帳戶。  
+**詳細資料**：所有永久指派給一或多個 Azure AD 管理員角色 (全域系統管理員、特殊權限角色系統管理員、Exchange Online 系統管理員和 SharePoint Online 系統管理員) 的個別使用者在進行登入時，都必須進行 Azure Multi-Factor Authentication。 請使用本指南來啟用[管理員帳戶的 Multi-factor Authentication](../active-directory/authentication/howto-mfa-userstates.md)，並確定這些使用者都[已註冊](https://aka.ms/mfasetup)。
 
-**最佳做法**：採取行動來減輕最常用的攻擊技巧。  
-**詳細資料**：[識別系統管理角色中需要切換至工作或學校帳戶的 Microsoft 帳戶](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+**最佳做法**：採取步驟來減輕由最常被使用的攻擊技巧所造成的損害。  
+**詳細資料**：[識別系統管理角色中需要切換至公司或學校帳戶的 Microsoft 帳戶](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
 [確認全域系統管理員帳戶的個別使用者帳戶和郵件轉寄](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
 

@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: 了解從 LUIS 應用程式的模型獲得最佳結果的 LUIS 最佳做法。
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/13/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6f9c559ce6fe66d4fe3df9382bc931f4a55e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209361"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243411"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>使用認知服務建置語言理解應用程式的最佳做法
 使用應用程式撰寫程序來建置您的 LUIS 應用程式。 
@@ -59,6 +59,12 @@ ms.locfileid: "55209361"
 
 "Book a flight" 和 "Book a hotel" 使用相同的 "book a "詞彙。 此格式相同，因此它應該是相同意圖，但是以班機和飯店這兩個不同的字組作為擷取的實體。 
 
+其他資訊：
+* 概念：[在您 LUIS 應用程式中關於意圖的概念](luis-concept-intent.md)
+* 教學課程：[建置 LUIS 應用程式來判斷使用者的用意](luis-quickstart-intents-only.md)
+* 作法：[新增意圖以判斷語句的使用者用意](luis-how-to-add-intents.md)
+
+
 ## <a name="do-find-sweet-spot-for-intents"></a>請務必找出意圖的最佳點
 請使用來自 LUIS 的預測資料來判斷您的意圖是否重疊。 重疊的意圖會混淆 LUIS。 結果會造成最高分的意圖太接近另一個意圖。 由於 LUIS 不會每次都使用完全相同的資料路徑來進行定型，因此重疊的意圖有可能在定型中成為第一或第二。 您會希望每個意圖的語句分數都儘量拉開，以便避免發生這類不確定情況。 良好的意圖區別應該每次都產生預期的最高分意圖。 
  
@@ -67,6 +73,9 @@ ms.locfileid: "55209361"
 
 開發人員應該有三組資料。 第一組是用來建置模型的範例語句。 第二組用來在端點測試模型。 第三組是在[批次測試](luis-how-to-batch-test.md)中使用的盲性測試資料。 這最後一組既不用來進行應用程式定型，也不會在端點上傳送。  
 
+其他資訊：
+* 概念：[撰寫 LUIS 應用程式的循環](luis-concept-app-iteration.md)
+
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>請務必在稍後的反覆項目中新增片語清單和模式
 [片語清單](luis-concept-feature.md)可讓您定義與應用程式定義域相關的單字字典。 請在您的片語清單中植入一些單字，然後使用建議功能，讓 LUIS 知道您專屬詞彙中的更多單字。 請勿將每個單字都新增到詞彙中，因為片語清單並非完全相符項目。 
 
@@ -74,11 +83,22 @@ ms.locfileid: "55209361"
 
 請針對標點符號使用模式的[選擇性語法](luis-concept-patterns.md)，以便忽略標點符號。 請使用[明確清單](luis-concept-patterns.md#explicit-lists)來彌補 pattern.any 的語法問題。 
 
-在您的應用程式收到端點要求之前，請勿套用這些做法，因為那樣會扭曲信賴度。  
+在您的應用程式收到端點要求之前，請勿套用這些做法。 您應該先了解應用程式的運作方式，然後再新增片語清單和模式。 一旦您了解應用程式缺乏上述功能時的運作方式之後，新增每個適用於您應用程式的功能。 
+
+在您的模型設計一開始新增它們並無任何壞處，但是，如果您在將該應用程式與真實流量搭配使用之後新增，則可更輕鬆地查看每個功能變更結果的方式。 
+
+您不需要在每次反覆運算時新增這些功能，也不需要為每個版本變更功能。 
+
+其他資訊：
+* 概念：[撰寫 LUIS 應用程式的循環](luis-concept-app-iteration.md)
+* 概念：[LUIS 應用程式中的片語清單功能](luis-concept-feature.md)
+* 概念：[模式可改善預測精確度](luis-concept-patterns.md)
+* 操作說明：[使用片語清單來提升字組清單訊號](luis-how-to-add-features.md)
+* 操作說明：[如何新增模式以改善預測準確度](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>讓您的語句在所有意圖之間達到平衡
 
-為了讓 LUIS 的預測能正確，每個意圖中的範例語句數量必須相對相等 (None 意圖除外)。 
+為了讓 LUIS 預測能正確，每個意圖的範例語句數量必須相對相等 (None 意圖除外)。 
 
 如果您有一個包含 100 個範例語句的意圖和一個包含 20 個範例語句的意圖，100 個語句的意圖會有較高的預測評等。  
 
@@ -86,9 +106,17 @@ ms.locfileid: "55209361"
 
 此意圖是後援意圖，應用程式外的所有項目都以此表示。 請在您 LUIS 應用程式的其餘部分，每 10 個範例語句中，便將一個範例語句新增至 None 意圖。
 
+其他資訊：
+* 概念：[了解適合您 LUIS 應用程式的語句](luis-concept-utterance.md)
+
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>請務必利用主動式學習的建議功能
 
 請定期使用[主動式學習](luis-how-to-review-endoint-utt.md)的**檢閱端點語句**，而不要將更多範例語句新增至意圖。 由於應用程式會不斷接收端點語句，因此這份清單會不斷成長並變更。
+
+其他資訊：
+* 概念：[檢閱端點語句以啟用主動式學習的概念](luis-concept-review-endpoint-utterances.md)
+* 教學課程：[教學課程：檢閱端點語句以修正不確定的預測](luis-tutorial-review-endpoint-utterances.md)
+* 操作說明：[如何在 LUIS 入口網站中檢閱端點語句](luis-how-to-review-endoint-utt.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>請務必監視您應用程式的效能
 
@@ -133,6 +161,11 @@ LUIS 會預期意圖的語句中有所變化。 語句可以在改變的同時�
 ## <a name="do-use-versions-for-each-app-iteration"></a>針對每個應用程式反覆項目使用版本
 
 每個撰寫循環都應該在新[版本](luis-concept-version.md) (從現有版本複製) 之內。 LUIS 沒有版本限制。 版本名稱會用來作為 API 路由的一部份，因此請務必挑選可在 URL 中使用的字元，以及每個版本的名稱需保持在 10 個字元數以內。 開發版本名稱策略可讓您規劃版本編排。 
+
+其他資訊：
+* 概念：[了解如何及何時使用 LUIS 版本](luis-concept-version.md)
+* 操作說明：[使用版本進行編輯和測試而不影響預備或生產應用程式](luis-how-to-manage-versions.md)
+
 
 ## <a name="next-steps"></a>後續步驟
 
