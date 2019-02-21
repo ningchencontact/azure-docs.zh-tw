@@ -99,7 +99,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 > 請確定您已安裝 Azure CLI 2.0.57 版或更新版本。 您可以在 [此處](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)下載最新版本。
 > 
 
-## <a name="whitelist-device-streaming-endpoints"></a>將裝置串流端點列入白名單
+## <a name="whitelist-device-streaming-endpoints"></a>將裝置串流端點列入允許清單
 
 如[稍早之前](#Overview)所述，您的裝置會在裝置串流初始化程序期間，建立針對 IoT 中樞串流端點的傳出連線。 您裝置或其網路上的防火牆必須允許透過連接埠 443 對串流閘道進行傳出連線 (請注意，通訊會透過以 TLS 加密的 WebSocket 連線進行)。
 

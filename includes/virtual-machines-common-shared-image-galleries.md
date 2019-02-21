@@ -53,7 +53,7 @@ ms.locfileid: "55985385"
 
 
 
-&#42; 若要複寫至澳大利亞中部和澳大利亞中部 2，您需要將您的訂用帳戶列入白名單。 若欲要求加入白名單，請移至： https://www.microsoft.com/en-au/central-regions-eligibility/
+&#42; 若要複寫至澳大利亞中部和澳大利亞中部 2，您需要將您的訂用帳戶列入允許清單。 若欲要求加入允許清單，請移至： https://www.microsoft.com/en-au/central-regions-eligibility/
 
 ## <a name="scaling"></a>調整大小
 共用映像庫可讓您指定要讓 Azure 保留的映像複本數目。 這對於有多個 VM 的部署案例很有幫助，因為 VM 部署可以分散到不同複本，減少執行個體建立程序由於單一複本多載而遭到節流的機會。

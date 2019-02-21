@@ -47,7 +47,7 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 | 使用標頭進行驗證 | - | yes | - | 是，使用 PingAccess | 
 | 雲端級別安全性 | - | - | - | yes | 
 | 條件式存取 | - | yes | - | yes |
-| 非軍事區域 (DMZ) 中沒有任何元件 | - | - | - | yes |
+| 周邊網路 (DMZ) 中沒有任何元件 | - | - | - | yes |
 | 沒有輸入連線 | - | - | - | yes |
 
 大部分情節中，建議將 Azure AD 應用程式作為現代化解決方案。 Web 應用程式 Proxy 只建議用在需要 AD FS Proxy 伺服器的情節中，而且您無法使用 Azure Active Directory 中的自訂網域。 

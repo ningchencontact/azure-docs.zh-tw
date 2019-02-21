@@ -5,13 +5,7 @@ title: Microsoft Azure 文件
 description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。
 ms.topic: hub-page
 featureFlags:
-- clicktale
-ms.openlocfilehash: 4ae03eedb96ecd1b460b06df3a80a7349c04e099
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330710"
+  - clicktale
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -195,6 +189,7 @@ Go</a>
                                                 <h4>關聯式資料庫</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL 資料庫即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">在 Azure VM 上的 SQL Server</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL 資料倉儲即服務</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL 資料庫即服務</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL 資料庫即服務</a></li>
