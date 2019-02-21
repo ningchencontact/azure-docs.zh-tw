@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 953615a9c6b716db1db0c7bfb993f3d47aefd7a9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d84fe768170cffd433b18a1a3dacb1a9c2be7e9f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507768"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329979"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -169,7 +169,7 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
 * [適用於 .NET 的儲存體資料移動 用戶端程式庫](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>工具和公用程式
-* [儲存體的 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azure.storage)
+* [儲存體的 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.storage)
 * [儲存體的 Azure CLI Cmdlet](https://docs.microsoft.com/cli/azure/storage)
 * [AzCopy 命令列公用程式](https://aka.ms/downloadazcopy)
 * [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/) 是一個免費的獨立應用程式，可讓您在 Windows、MacOS 和 Linux 上以視覺化方式處理 Azure 儲存體資料。

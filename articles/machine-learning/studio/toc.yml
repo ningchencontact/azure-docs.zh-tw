@@ -64,7 +64,7 @@ items:
     - name: 從內部部署 SQL 使用資料
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
-  - name: 建立模型並加以定型
+  - name: 將模型定型
     items:
     - name: 實驗生命週期管理
       href: version-control.md
@@ -87,6 +87,12 @@ items:
         href: interpret-model-results.md
       - name: 偵錯
         href: debug-models.md
+    - name: 重新定型模型
+      items:
+      - name: 「新型」Web 服務
+        href: retrain-machine-learning-model.md
+      - name: 傳統 Web 服務
+        href: retrain-classic-web-service.md
     - name: 使用 R 和 Python
       items:
       - name: 透過 R 開始使用
@@ -132,12 +138,6 @@ items:
     - name: 建立端點
       displayName: scale, scaling
       href: create-endpoint.md
-  - name: 重新定型模型
-    items:
-    - name: 重新定型並部署新的 Web 服務
-      href: retrain-machine-learning-model.md
-    - name: 重新定型並部署傳統的 Web 服務
-      href: retrain-classic-web-service.md
   - name: 使用模型
     items:
     - name: 概觀
@@ -146,11 +146,9 @@ items:
       href: consuming-from-excel.md
     - name: 使用 Excel 增益集
       href: excel-add-in-for-web-services.md
-    - name: 使用 Web 應用程式範本
-      href: consume-web-service-with-web-app-template.md
     - name: 使用 Batch 集區
       href: dedicated-capacity-for-bes-jobs.md
-  - name: 範例
+  - name: 使用案例
     items:
     - name: 客戶流失
       href: azure-ml-customer-churn-scenario.md
@@ -158,12 +156,14 @@ items:
       href: text-analytics-module-tutorial.md
     - name: 將分析從 Excel 遷移至 Studio
       href: linear-regression-in-azure.md
-  - name: 檢視和刪除 Studio 資料
-    displayName: export
-    href: export-delete-personal-data-dsr.md
-  - name: 檢視和刪除資源庫資料
-    displayName: export
-    href: ai-gallery-control-personal-data-dsr.md
+  - name: 刪除和匯出客戶資料
+    items:
+    - name: Studio 資料
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+    - name: 資源庫資料
+      displayName: export
+      href: ai-gallery-control-personal-data-dsr.md
 - name: 參考
   items:
   - name: 演算法和模組參考
@@ -188,9 +188,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: 自訂神經網路 (Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: c6d072a6e032fb4059b422d0778eb78b01d3706e
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6649d1c39bdb0a66018feff73f9e9d2b39064155
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327675"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430228"

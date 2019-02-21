@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c917e37d48f2b26d9a1e4d13b76dde5539ce94ea
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1a7a0604117dde55300a779bb1b7167c8da4e056
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116572"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266759"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>教學課程：對 Resource Manager 範本的部署進行疑難排解
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 了解對 Resource Manager 範本部署錯誤進行疑難排解。 在本教學課程中，您將在範本中設定兩個錯誤，並了解如何使用活動記錄和部署歷程記錄來解決問題。
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: ff3063193fa2a8f71f441aa64c8835fd7528ff4e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6a60afc45894518f92115976876ddd50efa1e410
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882619"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310180"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>教學課程：建立 WPF 應用程式來顯示影像中的臉部資料
 
@@ -49,7 +49,7 @@ GitHub 上的[認知臉部 CSharp 範例](https://github.com/Azure-Samples/Cogni
 1. 在 Visual Studio 中，開啟 [新增專案] 對話方塊。 依序展開 [已安裝] 和 [Visual C#]，然後選取 [WPF 應用程式 (.NET Framework)]。
 1. 將應用程式命名為 **FaceTutorial**，然後按一下 [確定]。
 1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]，然後尋找並安裝下列套件：
-    - Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="add-the-initial-code"></a>新增初始程式碼
 

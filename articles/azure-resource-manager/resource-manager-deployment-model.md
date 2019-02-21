@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e7d271ce37209a49e1c75d6114ed07b11558df44
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c8aafa2dc2798aee5576dab4781b42d4aa67ddd9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104987"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269258"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 與傳統部署：了解資源的部署模型和狀態
 
@@ -48,8 +48,6 @@ Azure 原本指提供傳統部署模型。 在此模型中，每個資源會獨�
 加入資源管理員時，所有資源會追溯地加入至預設資源群組。 如果您現在透過傳統部署建立資源，資源會自動在該服務的預設資源群組內建立，即使您在部署時未指定該資源群組。 不過，只是存在於資源群組內並不表示該資源已轉換成資源管理員模型。
 
 ## <a name="understand-support-for-the-models"></a>了解模型支援
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 以下是三個要注意的情況：
 

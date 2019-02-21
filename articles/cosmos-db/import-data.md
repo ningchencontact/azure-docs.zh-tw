@@ -4,14 +4,14 @@ description: 了解如何使用開放原始碼 Azure Cosmos DB 資料移轉工�
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 02/19/2019
 ms.author: dech
-ms.openlocfilehash: 82c34f3dcc606ccf7103b557518cd7a54a153183
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 972602bb6c5fc80433c2479516f8d0a5d885e4dd
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034115"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446931"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用資料移轉工具將您的資料移轉至 Azure Cosmos DB
 
@@ -58,7 +58,7 @@ ms.locfileid: "54034115"
 
 ## <a id="Install"></a>安裝
 
-移轉工具的原始程式碼可在 GitHub 上的[這個存放庫](https://github.com/azure/azure-documentdb-datamigrationtool)中取得。 您可以在本機下載並編譯解決方案，或下載[預先編譯的二進位檔](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip)，然後執行：
+移轉工具的原始程式碼可在 GitHub 上的[這個存放庫](https://github.com/azure/azure-documentdb-datamigrationtool)中取得。 您可以在本機下載並編譯解決方案，或下載[預先編譯的二進位檔](https://cosmosdbtools.blob.core.windows.net/datamigrationtool/2019.02.19-1.8.2/dt-1.8.2.zip)，然後執行：
 
 * **Dtui.exe**：此工具的圖形化介面版本
 * **Dt.exe**：此工具的命令列版本

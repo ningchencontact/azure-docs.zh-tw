@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: a15d37615ec6052ab63457a7814f70433be68c87
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d7397546d4dc576a8488f605e20a0bfe15a01d7c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509553"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311166"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程：使用 Azure Machine Learning 服務將映像分類模型定型
 
@@ -280,7 +280,7 @@ parser.add_argument('--data-folder', type=str, dest='data_folder', help='data fo
 parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
 args = parser.parse_args()
 
-data_folder = os.path.join(args.data_folder, 'mnist')
+data_folder = args.data_folder
 print('Data folder:', data_folder)
 
 # load train and test set into numpy arrays
@@ -340,13 +340,13 @@ shutil.copy('utils.py', script_folder)
 * 來自定型指令碼的必要參數。 
 * 定型所需的 Python 套件。
 
-在本教學課程中，這個目標會是 AmlCompute。 指令碼資料夾中的所有檔案都會上傳到叢集節點以便執行。 **data_folder** 會設定為使用資料存放區 `ds.as_mount()`：
+在本教學課程中，這個目標會是 AmlCompute。 指令碼資料夾中的所有檔案都會上傳到叢集節點以便執行。 **data_folder** 會設定為使用資料存放區 `ds.path('mnist').as_mount()`：
 
 ```python
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-folder': ds.as_mount(),
+    '--data-folder': ds.path('mnist').as_mount(),
     '--regularization': 0.8
 }
 

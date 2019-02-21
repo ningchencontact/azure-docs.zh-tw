@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 37bb0dcc2b9848d3fd3d49c78b52adbcd2dcc046
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f4c9e256c3b3f2f5df8ef49f26c927250f376421
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106389"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327046"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
@@ -74,7 +74,7 @@ Azure 可依據 VM 的大小和作業系統，以[每小時](https://azure.micro
 您的訂用帳戶都有預設[配額限制](../../azure-subscription-service-limits.md)，而此限制會在您要部署多個 VM 以供專案使用時造成影響。 每一訂用帳戶目前的限制是每一區域 20 個 VM。 只要[提出支援票證來要求增加](../../azure-supportability/resource-manager-core-quotas-request.md)，即可提高配額限制
 
 ### <a name="operating-system-disks-and-images"></a>作業系統磁碟和映像
-虛擬機器是使用[虛擬硬碟 (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 來儲存其作業系統 (OS) 和資料。 VHD 也能夠使用於您可以選擇用來安裝 OS 的映像。 
+虛擬機器是使用[虛擬硬碟 (VHD)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 來儲存其作業系統 (OS) 和資料。 VHD 也能夠使用於您可以選擇用來安裝 OS 的映像。 
 
 Azure 提供許多 [Marketplace 映像](https://azure.microsoft.com/marketplace/virtual-machines/)來與不同版本和類型的 Windows Server 作業系統搭配使用。 Marketplace 映像是依映像發行者、供應項目、SKU 和版本 (版本通常會指定為最新版本) 來識別。 僅支援 64 位元作業系統。 如需所支援客體作業系統、角色和功能的詳細資訊，請參閱 [Microsoft Azure 虛擬機器的 Microsoft 伺服器軟體支援](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。
 

@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107815"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267695"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>教學課程：將 Azure 資源移到另一個資源群組或訂用帳戶
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 了解如何將 Azure 資源從某個資源群組移到另一個資源群組。 您也可以將 Azure 資源從某個 Azure 訂用帳戶移到另一個 Azure 訂用帳戶。 在本教學課程中，您可使用 Resource Manager 範本來部署兩個資源群組和一個儲存體帳戶。 然後在資源群組間移動儲存體帳戶。
 
@@ -37,8 +35,6 @@ ms.locfileid: "56107815"
 > * 清除資源。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>準備資源
 
@@ -98,6 +94,8 @@ New-AzDeployment `
 ## <a name="move-the-resource"></a>移動資源
 
 儲存體帳戶位於來源資源群組 (rg1) 內，執行下列 PowerShell 指令碼，將資源移到目的地資源群組 (rg2)。 請務必使用與您部署資源時使用的相同專案名稱。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"
