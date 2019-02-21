@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e1eced2d00737a950ed441bd83614d9d6d0b9230
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731269"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267745"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>快速入門：使用 SignalR 服務建立聊天室
 
@@ -79,7 +79,7 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
 
 1. 透過執行下列命令，將參考新增至 `Microsoft.Azure.SignalR` NuGet 套件：
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
+        dotnet add package Microsoft.Azure.SignalR
 
 2. 執行下列命令以還原您專案的套件。
 
@@ -92,7 +92,7 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
     此命令必須在和 *.csproj* 檔案相同的目錄中執行。
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
     祕密管理員將只會被用來測試於本機裝載的 Web 應用程式。 在稍後的教學課程中，您會將聊天 Web 應用程式部署至 Azure。 在 Web 應用程式部署至 Azure 之後，您將會使用應用程式設定，而非搭配祕密管理員儲存連接字串。

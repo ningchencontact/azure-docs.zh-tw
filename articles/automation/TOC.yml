@@ -81,28 +81,49 @@ items:
     - name: 管理角色型存取控制
       displayName: RBAC
       href: automation-role-based-access-control.md
-  - name: 建立 Runbook
+  - name: Runbook
     items:
+    - name: 管理 Runbook
+      href: manage-runbooks.md
     - name: Runbook 類型
       displayName: graphical, python, powershell, powershell workflow
       href: automation-runbook-types.md
-    - name: 建立和匯入 Runbook
-      href: automation-creating-importing-runbook.md
-    - name: 建立圖形化 Runbook
-      href: automation-first-runbook-graphical.md
-    - name: 建立 PowerShell Runbook
-      href: automation-first-runbook-textual-powershell.md
-    - name: 建立 PowerShell 工作流程 Runbook
-      href: automation-first-runbook-textual.md
-    - name: 建立 Python Runbook
-      href: automation-first-runbook-textual-python2.md
-    - name: 編輯文字 Runbook
-      displayName: powershell
-      href: automation-edit-textual-runbook.md
-    - name: 編輯圖形 Runbook
-      href: automation-graphical-authoring-intro.md
-    - name: 測試 Runbook
-      href: automation-testing-runbook.md
+    - name: 建立 Runbook
+      items:
+      - name: 圖形 Runbook
+        href: automation-first-runbook-graphical.md
+      - name: PowerShell Runbook
+        href: automation-first-runbook-textual-powershell.md
+      - name: PowerShell 工作流程 Runbook
+        href: automation-first-runbook-textual.md
+      - name: Python Runbook
+        href: automation-first-runbook-textual-python2.md
+      - name: 使用圖形化 Runbook SDK 建立 Runbook
+        href: graphical-runbook-sdk.md
+    - name: 編輯 Runbook
+      items:
+      - name: 編輯文字 Runbook
+        displayName: powershell
+        href: automation-edit-textual-runbook.md
+      - name: 編輯圖形 Runbook
+        href: automation-graphical-authoring-intro.md
+    - name: 啟動 Runbook
+      href: start-runbooks.md
+    - name: 從 Webhook 啟動 Runbook
+      href: automation-webhooks.md
+    - name: Runbook 輸入參數
+      displayName: input,json
+      href: runbook-input-parameters.md
+    - name: 處理圖形化 Runbook 時發生錯誤
+      href: automation-runbook-graphical-error-handling.md
+    - name: 追蹤 Runbook 工作
+      displayName: fair share, activity log
+      href: automation-runbook-execution.md
+    - name: 管理 Azure 自動化資料
+      displayName: backup
+      href: automation-managing-data.md
+    - name: 管理 Python 2 套件
+      href: python-packages.md
     - name: 了解 PowerShell 工作流程
       href: automation-powershell-workflow.md
     - name: 子 Runbook
@@ -116,28 +137,6 @@ items:
     - name: 原始檔控制整合 - 舊版
       href: automation-source-control-integration-legacy.md
       displayname: github
-    - name: 使用圖形化 Runbook SDK 建立 Runbook
-      href: graphical-runbook-sdk.md
-  - name: 自動化
-    items:
-    - name: 啟動 Runbook
-      href: automation-starting-a-runbook.md
-    - name: 從 Webhook 啟動 Runbook
-      href: automation-webhooks.md
-    - name: 設定 Runbook 輸入參數
-      href: automation-runbook-input-parameters.md
-    - name: 處理圖形化 Runbook 時發生錯誤
-      href: automation-runbook-graphical-error-handling.md
-    - name: 追蹤 Runbook 工作
-      displayName: fair share, activity log
-      href: automation-runbook-execution.md
-    - name: 管理 Azure 自動化資料
-      displayName: backup
-      href: automation-managing-data.md
-    - name: 將 JSON 物件傳送至 Azure 自動化 Runbook
-      href: automation-pass-json-string.md
-    - name: 管理 Python 2 套件
-      href: python-packages.md
   - name: Hybrid Runbook Worker
     items:
     - name: 混合式 Runbook 背景工作概觀
@@ -205,12 +204,6 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: 建立 Amazon Web Service VM
       href: automation-scenario-aws-deployment.md
-    - name: 搭配 GitHub Enterprise 的原始檔控制整合
-      displayName: CI, runbooks
-      href: automation-scenario-source-control-integration-with-github-ent.md
-    - name: 搭配 Azure DevOps 的原始檔控制整合
-      displayName: VSTS, CI, runbooks
-      href: automation-scenario-source-control-integration-with-VSTS.md
     - name: 在 Azure 自動化 PowerShell Runbook 中部署 Azure Resource Manager 範本
       href: automation-deploy-template-runbook.md
     - name: 將 Azure 自動化與事件格線和 Microsoft Teams 整合
@@ -292,9 +285,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: a5886c5af9db6945fe33efd8198b5527f580d297
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e35c51bb1d82f2c5eda708ab8bce71c2bf5b69b7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004566"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417018"

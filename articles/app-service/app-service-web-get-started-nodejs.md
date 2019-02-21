@@ -3,7 +3,7 @@ title: 建立 Node.js Web 應用程式 - Azure App Service | Microsoft Docs
 description: 短短幾分鐘內在 Azure App Service Web Apps 中部署第一個 Node.js Hello World。
 services: app-service\web
 documentationcenter: ''
-author: msangapu
+author: cephalin
 manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2018
-ms.author: cephalin;msangapu
+ms.date: 02/15/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5223a60663e05747b58aa04e7a102f1d350badd4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 8d7bd808540ac697bde073201e88f49ace8b527a
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632292"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308667"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 
@@ -182,12 +182,6 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ![Azure 入口網站中的 App Service 頁面](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 左側功能表提供不同的頁面來設定您的應用程式。 
-
-## <a name="video"></a>影片
-
-觀賞影片可觀看本快速入門的動態版，然後自行遵循相關步驟，在 Azure 上發佈您的第一個 Node.js 應用程式。
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

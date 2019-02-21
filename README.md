@@ -1,5 +1,7 @@
 # <a name="microsoft-azure-documentation"></a>Microsoft Azure 文件
 
+> 在 2019 年 3 月 5 日到 3 月 9 日之間， MicrosoftDocs/azure-docs 存放庫會進行一項移轉，從目前的 Markdown 引擎遷移到 [Markdig](https://github.com/lunet-io/markdig) Markdown 引擎。 在此期間，我們會關閉暫止合併公用提取要求的功能，以完成移轉。
+
 歡迎使用 [Microsoft Azure](https://azure.microsoft.com) 的開放原始碼[文件](https://docs.microsoft.com/azure)。 請檢閱這份讀我檔案，以了解您可以如何為 Microsoft Azure 文件增色。
 
 ## <a name="getting-started"></a>開始使用

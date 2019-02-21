@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 88538aa9528059458f6e73485f4839693caa943b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 179bb4586ce7d6b306decfcf4d312d541dc9232e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054482"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330472"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本在 Azure Databricks 上執行 Spark 作業
 
@@ -51,7 +51,7 @@ ms.locfileid: "54054482"
 
 4. 工作區建立需要幾分鐘的時間。 建立工作區期間，入口網站右側會顯示 [提交 Azure Databricks 部署] 圖格。 您可能需要在儀表板上向右捲動以查看此圖格。 另外在畫面頂端附近還會顯示一個進度列。 您可以查看任何進度區域。
 
-   ![Databricks 部署圖格](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks 部署圖格")
+   ![Databricks 部署圖格](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Databricks 部署圖格")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>在 Databricks 中建立 Spark 叢集
 
@@ -59,11 +59,11 @@ ms.locfileid: "54054482"
 
 2. 系統會將您重新導向至 Azure Databricks 入口網站。 在入口網站中按一下 [叢集]。
 
-   ![Azure 上的 Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Azure 上的 Databricks")
+   ![Azure 上的 Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-on-azure.png "Azure 上的 Databricks")
 
 3. 在 [新增叢集] 頁面上，提供值以建立叢集。
 
-   ![在 Azure 上建立 Databricks Spark 叢集](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "在 Azure 上建立 Databricks Spark 叢集")
+   ![在 Azure 上建立 Databricks Spark 叢集](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "在 Azure 上建立 Databricks Spark 叢集")
 
    接受下列值以外的所有其他預設值：
 
@@ -87,11 +87,11 @@ ms.locfileid: "54054482"
 
 1. 在左窗格中，按一下 [工作區]。 從 [工作區] 下拉式清單按一下 [建立]，然後按一下 [Notebook]。
 
-   ![在 Databricks 中建立 Notebook](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+   ![在 Databricks 中建立 Notebook](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
 
 2. 在 [建立 Notebook] 對話方塊中輸入名稱，選取 [Scala] 做為語言，然後選取您先前建立的 Spark 叢集。
 
-   ![在 Databricks 中建立 Notebook](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
+   ![在 Databricks 中建立 Notebook](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
 
    按一下頁面底部的 [新增] 。
 
@@ -145,17 +145,17 @@ ms.locfileid: "54054482"
 
 6. 您會看到如下列螢幕擷取畫面所示的表格式輸出 (僅顯示某些資料行)：
 
-   ![JSON 資料範例](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "JSON 資料範例")
+   ![JSON 資料範例](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "JSON 資料範例")
 
    至於其他細節，資料範例會擷取電台頻道的聽眾性別 (資料行名稱為**性別**)，以及其擁有的是免費或付費訂閱 (資料行名稱為**層級**)。
 
 7. 您現在可以建立這項資料的視覺呈現，以顯示每種性別、多少使用者擁有免費帳戶，以及多少使用者是付費訂閱者。 從表格式輸出底部，按一下 [長條圖] 圖示，然後再按一下 [繪圖選項]。
 
-   ![建立長條圖](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "建立長條圖")
+   ![建立長條圖](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "建立長條圖")
 
 8. 在 [自訂繪圖] 中，如螢幕擷取畫面所示的方式拖放值。
 
-   ![自訂長條圖](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "自訂長條圖")
+   ![自訂長條圖](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "自訂長條圖")
 
    * 將 [索引鍵] 設定為 [性別]。
    * 將 [數列群組] 設定為 [層級]。
@@ -166,13 +166,13 @@ ms.locfileid: "54054482"
 
 9. 輸出會顯示這些值的視覺呈現，如下列螢幕擷取畫面所示：
 
-   ![自訂長條圖](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "自訂長條圖")
+   ![自訂長條圖](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "自訂長條圖")
 
 ## <a name="clean-up-resources"></a>清除資源
 
 在完成本文後，您可以終止叢集。 若要這樣做，請從 Azure Databricks 工作區的左窗格中選取 [叢集]。 對於您想要終止的叢集，將游標移到 [動作] 資料行底下的省略符號上，然後選取 [終止] 圖示。
 
-![停止 Databricks 叢集](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "停止 Databricks 叢集")
+![停止 Databricks 叢集](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "停止 Databricks 叢集")
 
 如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 \_\_ 分鐘後終止] 核取方塊。 在這種情況下，叢集將會在停止運作達指定時間後自動停止。
 

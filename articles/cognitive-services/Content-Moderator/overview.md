@@ -3,19 +3,19 @@ title: 什麼是 Azure Content Moderator？
 titlesuffix: Azure Cognitive Services
 description: 了解如何使用 Content Moderator 對使用者產生的內容追蹤、標幟、評估及篩選其中的不當內容。
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 6fe69cc56ec874b73083aefab9df8994942368c6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 7a6424921b869428d1dbeffadd68e173a32d8821
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872165"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455241"
 ---
 # <a name="what-is-azure-content-moderator"></a>什麼是 Azure Content Moderator？
 
