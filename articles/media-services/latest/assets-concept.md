@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745991"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447305"
 ---
 # <a name="assets"></a>Assets
 
@@ -48,8 +48,7 @@ ms.locfileid: "55745991"
 4. 使用媒體服務 v3 API 建立可處理「輸入」資產的轉換和作業。 如需詳細資訊，請參閱[轉換和作業](transform-concept.md)。
 5. 串流來自「輸出」資產的內容。
 
-> [!TIP]
-> 如需完整的 .NET 範例 (其中會示範如何建立資產、取得儲存體中資產容器的可寫入 SAS URL、使用 SAS URL 將檔案上傳到儲存體的容器)，請參閱[從本機檔案建立作業輸入](job-input-from-local-file-how-to.md)。
+如需完整的 .NET 範例 (其中會示範如何建立資產、取得儲存體中資產容器的可寫入 SAS URL、使用 SAS URL 將檔案上傳到儲存體的容器)，請參閱[從本機檔案建立作業輸入](job-input-from-local-file-how-to.md)。
 
 ### <a name="create-a-new-asset"></a>建立新的資產
 

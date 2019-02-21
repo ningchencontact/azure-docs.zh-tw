@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813155"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312849"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>建立服務主體以將應用程式存取權提供給 Azure Stack 資源
 
@@ -50,7 +50,7 @@ ms.locfileid: "55813155"
 * 為 [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) 建立服務主體。
 * 為 [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) 建立服務主體。
 
-在 Azure AD 與 AD FS 中，將服務主體指派給角色的步驟相同。 建立服務主體之後，您可藉由將服務主體指派給角色來[委派權限](azure-stack-create-service-principals.md#assign-role-to-service-principal)。
+在 Azure AD 與 AD FS 中，將服務主體指派給角色的步驟相同。 建立服務主體之後，您可藉由將服務主體指派給角色來[委派權限](azure-stack-create-service-principals.md)。
 
 ## <a name="create-service-principal-for-azure-ad"></a>為 Azure AD 建立服務主體
 
@@ -85,7 +85,7 @@ ms.locfileid: "55813155"
 
 ![已儲存金鑰的金鑰值警告。](./media/azure-stack-create-service-principal/image15.png)
 
-最後一個步驟是[將您的應用程式指派給角色](azure-stack-create-service-principals.md#assign-role-to-service-principal)。
+最後一個步驟是[將您的應用程式指派給角色](azure-stack-create-service-principals.md)。
 
 ## <a name="create-service-principal-for-ad-fs"></a>為 AD FS 建立服務主體
 

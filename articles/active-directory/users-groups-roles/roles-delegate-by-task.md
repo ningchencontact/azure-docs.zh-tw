@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fdede1308ac2c4c036d835a7be28b0e5ee180d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207070"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268425"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -202,8 +202,8 @@ Task | 最低特殊權限角色 | 其他角色
 停用 MFA | 全域管理員 | 
 啟用 MFA | 全域管理員 | 
 管理 MFA 服務設定 | 全域管理員 | 
-要求選定使用者再次提供連絡方法 | 全域管理員 | 
-在所有記住的裝置上還原多重要素驗證  | 全域管理員 | 
+要求選定使用者再次提供連絡方法 | 驗證系統管理員 | 
+在所有記住的裝置上還原多重要素驗證  | 驗證系統管理員 | 
 
 ## <a name="mfa-server"></a>MFA Server
 

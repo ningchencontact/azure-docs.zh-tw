@@ -5,20 +5,15 @@ description: 學習如何了解 Azure 計費方式、如何管理和監視使用
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: ''
+ms.assetid: null
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 05/24/2018
-ms.author: cwatson
-ms.openlocfilehash: ed792b03a79d2dcbb77142a51ae2641c8d0bd3ad
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583318"
+ms.date: 02/19/2019
+ms.author: banders
 ---
+
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 計費與成本管理文件
 
 學習如何了解 Azure 計費方式、如何監視使用量和成本，以及管理帳戶和訂用帳戶。
@@ -50,9 +45,9 @@ ms.locfileid: "53583318"
                         <p>
                         <a href="/azure/billing/billing-getting-started">避免非預期的成本</a><br/>
                         <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">使用資源標籤</a><br/>
-                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">開始分析成本 - 僅限 EA</a><br/>
-                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">建立及管理預算 - 僅限 EA</a><br/>
-                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">最佳化建議 - 僅限 EA</a>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">開始分析成本</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">建立及管理預算</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">最佳化建議</a>
                         </p>
                     </div>
                 </div>
@@ -184,5 +179,5 @@ ms.locfileid: "53583318"
             </div>
         </div>
     </li>
-    
+
 </ul>

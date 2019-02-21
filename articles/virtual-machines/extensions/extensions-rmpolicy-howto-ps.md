@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dc68127f2d19426c372be027634bb2563dbfa6c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980868"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341652"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure 原則來限制 Windows VM 上的延伸模組安裝
 
@@ -30,7 +30,7 @@ ms.locfileid: "55980868"
 
 ## <a name="create-a-rules-file"></a>建立規則檔
 
-為了限制可安裝的延伸模組，您必須要有一個[規則](/azure/azure-policy/policy-definition#policy-rule)來提供識別延伸模組的邏輯。
+為了限制可安裝的延伸模組，您必須要有一個[規則](../../governance/policy/concepts/definition-structure.md#policy-rule)來提供識別延伸模組的邏輯。
 
 以下範例說明如何在 Azure Cloud Shell 中建立規則檔來拒絕安裝 'Microsoft.Compute' 所發佈的延伸模組，但如果您是在本機 PowerShell 中運作，則也可以建立本機檔案，然後將路徑 ($home/clouddrive) 取代成您電腦上該本機檔案的路徑。
 
@@ -70,7 +70,7 @@ nano $home/clouddrive/rules.json
 
 ## <a name="create-a-parameters-file"></a>建立參數檔案
 
-您也需要一個[參數](/azure/azure-policy/policy-definition#parameters)檔，以建立供您用於傳遞要封鎖之延伸模組清單的結構。 
+您也需要一個[參數](../../governance/policy/concepts/definition-structure.md#parameters)檔，以建立供您用於傳遞要封鎖之延伸模組清單的結構。 
 
 以下範例說明如何在 Cloud Shell 中為 VM 建立參數檔，但如果您是在本機 PowerShell 中運作，則也可以建立本機檔案，然後將路徑 ($home/clouddrive) 取代成您電腦上該本機檔案的路徑。
 
@@ -166,4 +166,4 @@ Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱 [Azure 原則](../../azure-policy/azure-policy-introduction.md)。
+如需詳細資訊，請參閱 [Azure 原則](../../governance/policy/overview.md)。

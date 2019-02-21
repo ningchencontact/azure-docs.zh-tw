@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 58ee4b7d615c70845e1239d4ee98b086b2124c77
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f3ec10a970406cbb1bb6a1a52ffa8508e37fc516
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874173"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414162"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure App Service 應用程式
 
@@ -25,8 +25,8 @@ Profiler 目前適用於在 Azure App Service 上執行的 ASP.NET 和 ASP.NET C
 
 ## <a id="installation"></a> 為應用程式啟用 Profiler
 若要為應用程式啟用 Profiler，請依照下列指示進行操作。 如果您正在執行不同類型的 Azure 服務，以下是在其他支援的平台上啟用 Profiler 的指示：
-* [雲端服務](../../azure-monitor/app/profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric 應用程式](../../azure-monitor/app/profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
+* [雲端服務](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric 應用程式](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [虛擬機器](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler 會隨著 App Service 執行階段一起預先安裝，但您必須開啟它，才能取得 App Service 應用程式的設定檔。 部署應用程式之後，即使您已在原始程式碼中包含 App Insights SDK，仍請依照下列步驟來啟用 Profiler。

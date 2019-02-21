@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 022017015808d72f661f6764e8fa10fdc49e9f61
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 29b7893bbe813ece7cece9d1591dd574158f4482
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843158"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409676"
 ---
 ## <a name="set-up-your-project"></a>設定專案
 
-您會在此節中建立新的專案來示範如何整合 Windows Desktop .NET 應用程式 (XAML) 與使用 Microsoft 登入，以便應用程式可以查詢需要權杖的 Web API。
+您會在本節中建立新的專案來示範如何整合 Windows Desktop .NET 應用程式 (XAML) 與使用 Microsoft 登入，以便應用程式可以查詢需要權杖的 Web API。
 
 您使用本指南所建立的應用程式會顯示用來呼叫圖表的按鈕、在畫面上顯示結果的區域，以及登出按鈕。
 
@@ -43,7 +43,7 @@ ms.locfileid: "48843158"
 2. 在 [套件管理器主控台] 視窗中，貼上下列 Azure PowerShell 命令：
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client
     ```
 
     > [!NOTE] 
@@ -77,7 +77,7 @@ ms.locfileid: "48843158"
 
 ## <a name="create-the-application-ui"></a>建立應用程式 UI
 
-此節會說明應用程式如何查詢受保護的後端伺服器 (例如 Microsoft Graph)。 
+本節會說明應用程式如何查詢受保護的後端伺服器 (例如 Microsoft Graph)。 
 
 系統應會自動建立 MainWindow.xaml 檔案，作為專案範本的一部分。 開啟此檔案，然後將應用程式的 \<Grid> 節點取代為下列程式碼：
 

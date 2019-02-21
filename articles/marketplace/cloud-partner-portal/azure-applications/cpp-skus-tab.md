@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890887"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342536"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 應用程式 SKU 索引標籤
 
@@ -139,7 +139,7 @@ ms.locfileid: "55890887"
 
 #### <a name="policy-settings"></a>原則設定
 
-新增受控應用程式符合的原則。 如需深入了解 Azure 資源原則，請參閱[什麼是 Azure 原則？](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) 
+新增受控應用程式符合的原則。 如需深入了解 Azure 資源原則，請參閱[什麼是 Azure 原則？](../../../governance/policy/overview.md)
 
 
    ![受控應用程式的授權和原則設定](./media/azureapp-sku-details-managedapp-auth-policy.png)

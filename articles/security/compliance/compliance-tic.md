@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751917"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341706"
 ---
 # <a name="trusted-internet-connections-guidance"></a>受信任網際網路連線指導方針
 
@@ -198,7 +198,7 @@ Azure 提供多種雲端原生工具，以協助確保您具備了解網路流�
 
 ### <a name="azure-policy"></a>Azure 原則
 
-[Azure 原則](https://azure.microsoft.com/services/azure-policy/) 是一個 Azure 服務，可為您的組織提供更好的稽核和實施合規性方案的能力。 Azure 原則目前在商業版本 Azure 服務中的公開預覽本中提供。 Azure 原則尚未在 Azure Government 中提供。 客戶現在可以規劃及測試其 Azure 原則規則，以確保未來的 TIC 合規性。 
+[Azure 原則](../../governance/policy/overview.md) 是一個 Azure 服務，可為您的組織提供更好的稽核和實施合規性方案的能力。 客戶現在可以規劃及測試其 Azure 原則規則，以確保未來的 TIC 合規性。
 
 Azure 原則以訂用帳戶層級為目標。 服務提供集中式介面，您可以在其中執行合規性工作，包括：
 - 管理方案
@@ -213,13 +213,13 @@ Azure 原則以訂用帳戶層級為目標。 服務提供集中式介面，您�
 
 |原則  |範例情節  |範本  |
 |---------|---------|---------|
-|強制執行使用者定義的路由表。 | 確保所有虛擬網路上的預設路由指向已核准的虛擬網路閘道，以便路由傳送到內部部署。    | 使用此[範本](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table)來開始。 |
-|稽核是否未針對區域啟用網路監看員。  | 請確定已經針對所有使用區域啟用網路監看員。  | 使用此[範本](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled)來開始。 |
-|每個子網路上的 NSG x。  | 確保具有已封鎖之網際網路流量的 NSG (或已核准 NSG 的集合) 會套用至每個虛擬網路中的所有子網路。 | 使用此[範本](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet)來開始。 |
-|每個 NIC 上的 NSG x。 | 確保具有已封鎖之網際網路流量的 NSG 會套用至所有虛擬機器上的所有 NIC。 | 使用此[範本](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic)來開始。 |
-|為虛擬機器網路介面使用已核准的虛擬網路。  | 確保所有 NIC 都在已核准的虛擬網路上。 | 使用此[範本](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics)來開始。 |
-|允許的位置。 | 確保將所有資源部署到具有符合規範之虛擬網路和網路監看員設定的區域。  | 使用此[範本](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs)來開始。 |
-|不允許的資源類型，例如 **PublicIPs**。 | 禁止部署沒有合規性計畫的資源類型。 使用此原則來禁止部署公用 IP 位址資源。 雖然 NSG 規則可用於有效封鎖連入網際網路流量，但避免使用公用 IP 可進一步減少受攻擊面。   | 使用此[範本](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type)來開始。  |
+|強制執行使用者定義的路由表。 | 確保所有虛擬網路上的預設路由指向已核准的虛擬網路閘道，以便路由傳送到內部部署。    | 使用此[範本](../../governance/policy/samples/no-user-defined-route-table.md)來開始。 |
+|稽核是否未針對區域啟用網路監看員。  | 請確定已經針對所有使用區域啟用網路監看員。  | 使用此[範本](../../governance/policy/samples/network-watcher-not-enabled.md)來開始。 |
+|每個子網路上的 NSG x。  | 確保具有已封鎖之網際網路流量的 NSG (或已核准 NSG 的集合) 會套用至每個虛擬網路中的所有子網路。 | 使用此[範本](../../governance/policy/samples/nsg-on-subnet.md)來開始。 |
+|每個 NIC 上的 NSG x。 | 確保具有已封鎖之網際網路流量的 NSG 會套用至所有虛擬機器上的所有 NIC。 | 使用此[範本](../../governance/policy/samples/nsg-on-nic.md)來開始。 |
+|為虛擬機器網路介面使用已核准的虛擬網路。  | 確保所有 NIC 都在已核准的虛擬網路上。 | 使用此[範本](../../governance/policy/samples/use-approved-vnet-vm-nics.md)來開始。 |
+|允許的位置。 | 確保將所有資源部署到具有符合規範之虛擬網路和網路監看員設定的區域。  | 使用此[範本](../../governance/policy/samples/allowed-locations.md)來開始。 |
+|不允許的資源類型，例如 **PublicIPs**。 | 禁止部署沒有合規性計畫的資源類型。 使用此原則來禁止部署公用 IP 位址資源。 雖然 NSG 規則可用於有效封鎖連入網際網路流量，但避免使用公用 IP 可進一步減少受攻擊面。   | 使用此[範本](../../governance/policy/samples/not-allowed-resource-types.md)來開始。  |
 
 ### <a name="network-watcher-traffic-analytics"></a>網路監看員流量分析
 

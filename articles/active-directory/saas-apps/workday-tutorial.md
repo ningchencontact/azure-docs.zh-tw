@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e3f60c3b0578647e68109a21ba7d57b083bea11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184528"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301633"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>教學課程：Azure Active Directory 與 Workday 整合
 
@@ -113,7 +113,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     ![Workday 網域及 URL 單一登入資訊](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. 在 [識別碼] 文字方塊中，輸入 URL：`https://www.workday.com`
 
@@ -166,7 +166,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     >[!NOTE]
     > [環境] 屬性的值會繫結至租用戶 URL 的值：  
-    >-如果 Workday 租用戶 URL 的網域名稱開頭為 impl (例如：*https://impl.workday.com/\<tenant\>/login-saml2.htmld*)，則 **Environment** 屬性必須設為 Implementation。  
+    >-如果 Workday 租用戶 URL 的網域名稱開頭為 impl (例如：*https://impl.workday.com/\<tenant\>/login-saml2.flex*)，則 **Environment** 屬性必須設為 Implementation。  
     >-如果網域名稱的開頭是其他字元，您需要連絡 [Workday 客戶支援小組](https://www.workday.com/en-us/partners-services/services/support.html)以取得相符的 [環境] 值。
 
 12. 在 [SAML 設定]  區段中，執行下列步驟：

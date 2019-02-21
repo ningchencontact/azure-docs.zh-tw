@@ -1,7 +1,7 @@
 ---
 title: 對語音 SDK 進行疑難排解 - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 本文提供的資訊可協助您解決在使用語音服務 SDK 時可能會遇到的問題。
+description: 本文提供的資訊可協助您解決在使用語音 SDK 時可能會遇到的問題。
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859312"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446523"
 ---
-# <a name="troubleshoot-the-speech-service-sdk"></a>針對語音服務 SDK 進行疑難排解
+# <a name="troubleshoot-the-speech-sdk"></a>針對語音 SDK 進行疑難排解
 
-本文提供的資訊可協助您解決在使用語音服務 SDK 時可能會遇到的問題。
+本文提供的資訊可協助您解決在使用語音 SDK 時可能會遇到的問題。
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Error:WebSocket 升級失敗，發生驗證錯誤 (403)
 

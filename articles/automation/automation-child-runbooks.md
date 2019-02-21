@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422963"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417426"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自動化中的子 Runbook
 
@@ -28,7 +28,7 @@ Azure 自動化中的建議作法是撰寫可重複使用、模組化的 Runbook
 
 發佈 Runbook 時，其呼叫的所有子 Runbook 都必須是已發佈的。 這是因為在編譯 Runbook 時，Azure 自動化會建置與任何子 Runbook 的關聯。 如果沒有，父 Runbook 會顯示正常發佈，但在啟動時會產生例外狀況。 如果發生這種情況，您可以重新發佈父 Runbook 以正確參照子 Runbook。 因為已經建立關聯，所以如果任何子 Runbook 有變更，您都不需要重新發佈父 Runbook。
 
-以內嵌方式呼叫的子 Runbook 之參數可以是任何資料類型 (包括複雜物件)。 沒有您使用 Azure 入口網站或使用 Start-AzureRmAutomationRunbook Cmdlet 啟動 Runbook 時的 [JSON 序列化](automation-starting-a-runbook.md#runbook-parameters)。
+以內嵌方式呼叫的子 Runbook 之參數可以是任何資料類型 (包括複雜物件)。 沒有您使用 Azure 入口網站或使用 Start-AzureRmAutomationRunbook Cmdlet 啟動 Runbook 時的 [JSON 序列化](start-runbooks.md#runbook-parameters)。
 
 ### <a name="runbook-types"></a>Runbook 類型
 
@@ -65,7 +65,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > 如果您要使用 `Start-AzureRmAutomationRunbook` Cmdlet 與 `-Wait` 參數來叫用子 Runbook，而且子 Runbook 的結果是物件，則可能會遇到錯誤。 若要解決這個錯誤，請參閱[子 Runbook 與物件輸出](troubleshoot/runbooks.md#child-runbook-object)，以了解如何實作邏輯來輪詢結果，並使用 [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-您可以依照[使用 Windows PowerShell 啟動 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell) 中的說明，使用 [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) Cmdlet 啟動 Runbook。 使用這個 Cmdlet 的模式有兩種。  在第一個模式中，Cmdlet 會在子 Runbook 的子作業建立時傳回作業識別碼。  在第二個模式 (藉由指定 **-wait** 參數啟用) 中，Cmdlet 會等候子作業完成，並且會傳回子 Runbook 的輸出。
+您可以依照[使用 Windows PowerShell 啟動 Runbook](start-runbooks.md#start-a-runbook-with-powershell) 中的說明，使用 [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) Cmdlet 啟動 Runbook。 使用這個 Cmdlet 的模式有兩種。  在第一個模式中，Cmdlet 會在子 Runbook 的子作業建立時傳回作業識別碼。  在第二個模式 (藉由指定 **-wait** 參數啟用) 中，Cmdlet 會等候子作業完成，並且會傳回子 Runbook 的輸出。
 
 使用 Cmdlet 啟動之子 Runbook 的工作，會與父 Runbook 的工作分開執行。 這個行為會讓產生的作業比啟動內嵌 Runbook 更多，並使它們更難以追蹤。父 Runbook 可以利用非同步方式啟動多個子 Runbook，不需要等候每個子 Runbook 完成。 對於呼叫子 Runbook 內嵌的同類型平行執行作業，父 Runbook 將需要使用 [平行關鍵字](automation-powershell-workflow.md#parallel-processing)。
 
@@ -73,7 +73,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 如果您不希望父 Runbook 在等待時遭到封鎖，您可以使用 `Start-AzureRmAutomationRunbook` Cmdlet (沒有 `-Wait` 參數) 啟動子 Runbook。 然後您必須使用 `Get-AzureRmAutomationJob` 等候工作完成，以及使用 `Get-AzureRmAutomationJobOutput` 和 `Get-AzureRmAutomationJobOutputRecord` 來擷取結果。
 
-使用 Cmdlet 啟動之子 Runbook 的參數是以雜湊表方式提供，如 [Runbook 參數](automation-starting-a-runbook.md#runbook-parameters)中所述。 只能使用簡單資料類型。 若 Runbook 有複雜資料類型的參數，必須以內嵌方式呼叫。
+使用 Cmdlet 啟動之子 Runbook 的參數是以雜湊表方式提供，如 [Runbook 參數](start-runbooks.md#runbook-parameters)中所述。 只能使用簡單資料類型。 若 Runbook 有複雜資料類型的參數，必須以內嵌方式呼叫。
 
 以個別作業的形式啟動子 Runbook 時，可能會遺失訂用帳戶內容。 若要讓讓子 Runbook 對特定的 Azure 訂用帳戶執行 Azure RM Cmdlet，子 Runbook 必須在父 Runbook 以外單獨對此訂用帳戶進行驗證。
 
@@ -120,6 +120,6 @@ Start-AzureRmAutomationRunbook `
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
+* [在 Azure 自動化中啟動 Runbook](start-runbooks.md)
 * [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 

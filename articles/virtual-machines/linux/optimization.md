@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: e983ae549664abf46de256e987e09191a2a44c0f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728515"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327360"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上最佳化 Linux VM
 您可以從命令列或入口網站，輕鬆建立 Linux 虛擬機器 (VM)。 本教學課程示範如何在 Microsoft Azure 平台上設定，以確保將其效能最佳化。 本主題會使用 Ubuntu Server VM，但您也可以使用 [自己的映像做為範本](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)來建立 Linux 虛擬機器。  
@@ -34,7 +34,7 @@ ms.locfileid: "55728515"
 在 Azure 中建立 Linux VM 後，它有兩個相關聯的磁碟。 **/dev/sda** 是作業系統磁碟，**/dev/sdb** 是暫存磁碟。  請勿將主要作業系統磁碟 (**/dev/sda**) 用於作業系統以外的用途，因為它已針對快速開啟 VM 進行最佳化，無法為工作負載提供良好的效能。 您會想要將一或多個磁碟連接至 VM，以取得具永續性且經過最佳化的資料儲存空間。 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>加入磁碟以達成大小和效能目標
-根據 VM 大小，您可以在 A 系列機器上連接最多 16 個額外的磁碟、在 D 系列上連接 32 個、在 G 系列上連接 64 個，且每個磁碟的大小高達 1 TB。 您可以根據空間和 IOps 需求加入額外的磁碟。 標準儲存體每個磁碟的效能目標為 500 IOps，而進階儲存體每個磁碟的效能目標最高為 5000 IOps。  如需進階儲存體磁碟的詳細資訊，請參閱[進階儲存體：Azure VM 的高效能儲存體](../windows/premium-storage.md)
+根據 VM 大小，您可以在 A 系列機器上連接最多 16 個額外的磁碟、在 D 系列上連接 32 個、在 G 系列上連接 64 個，且每個磁碟的大小高達 1 TB。 您可以根據空間和 IOps 需求加入額外的磁碟。 標準儲存體每個磁碟的效能目標為 500 IOps，而進階儲存體每個磁碟的效能目標最高為 5000 IOps。
 
 對於快取設定為 **ReadOnly** 或 **None** 的進階儲存體磁碟，若要達到最高 IOps，您必須在 Linux 中掛接檔案系統時停用 **barrier** (阻礙)。 您不需要阻礙，因為這些快取設定的進階儲存體磁碟寫入都是持久的。
 
@@ -131,9 +131,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ## <a name="next-steps"></a>後續步驟
 請記住，如同所有最佳化討論內容所述，您需要在變更前後執行測試，以測量變更所造成的影響。  最佳化是需要逐步進行的程序，這些程序會對環境中不同的機器產生不同的結果。  對某項組態有用的做法不見得適用於其他組態。
 
-以下是一些連往其他資源的實用連結： 
+以下是一些連往其他資源的實用連結：
 
-* [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](premium-storage.md)
 * [Azure Linux 代理程式使用者指南](../extensions/agent-linux.md)
 * [在 Azure Linux VM 上最佳化 MySQL 效能](classic/optimize-mysql.md)
 * [在 Linux 上設定軟體 RAID](configure-raid.md)

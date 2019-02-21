@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 45fb1cbf57f54f040f9dfbc522c22a2e0884d6db
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116491"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341211"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
@@ -39,7 +39,7 @@ ms.locfileid: "56116491"
 保護 VM 的第一個步驟是確保只有已獲授權的使用者能設定新的 VM 和存取 VM。
 
 **最佳做法**：控制 VM 存取。   
-**詳細資料**：使用 [Azure 原則](../azure-policy/azure-policy-introduction.md)為組織資源制定慣例及建立自訂原則。 將這些原則套用到資源，例如[資源群組](../azure-resource-manager/resource-group-overview.md)。 屬於某資源群組的 VM 會繼承其原則。
+**詳細資料**：使用 [Azure 原則](../governance/policy/overview.md)為組織資源制定慣例及建立自訂原則。 將這些原則套用到資源，例如[資源群組](../azure-resource-manager/resource-group-overview.md)。 屬於某資源群組的 VM 會繼承其原則。
 
 如果貴組織有多個訂用帳戶，您可能需要一個方法來有效率地管理這些訂用帳戶的存取、原則和相容性。 [Azure 管理群組](../azure-resource-manager/management-groups-overview.md)可以提供訂用帳戶之上的範圍層級。 您可將訂用帳戶整理到管理群組 (容器) 中，並將治理條件套用至這些群組。 管理群組內的所有訂用帳戶都會自動繼承套用到該群組的條件。 無論具有何種類型的訂用帳戶，管理群組都可為您提供企業級的大規模管理功能。
 

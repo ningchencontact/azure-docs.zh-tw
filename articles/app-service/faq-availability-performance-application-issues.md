@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2bb6237e53f945b645f1ee757a53ef67270e2416
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108733"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268374"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
@@ -111,9 +111,9 @@ ms.locfileid: "56108733"
 8. 如果設定不是 [開啟]，請選取 [開啟]。
 9. 選取 [執行]。
 10. 選取 **Web.config**。
-11. 在 system.webServer 中，新增此設定 (擷取特定 URL)：
+11. 在 system.webServer 中，新增這項設定 (擷取特定 URL)：
 
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*api*" />
@@ -128,8 +128,8 @@ ms.locfileid: "56108733"
     </add> </traceFailedRequests>
     </tracing>
     ```
-12. 若要針對效能緩慢問題進行疑難排解，新增此設定 (如果擷取要求花費超過 30 秒)：
-    ```
+12. 若要針對效能緩慢問題進行疑難排解，新增這項設定 (如果擷取要求花費超過 30 秒)：
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*" />

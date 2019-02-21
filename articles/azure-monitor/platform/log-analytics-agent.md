@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 0140cb4fd1721e1d13840fe27db223c0ebec7d8a
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765668"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301888"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理程式收集記錄資料
 
@@ -78,10 +78,10 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 |代理程式資源|連接埠 |方向 |略過 HTTPS 檢查|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |連接埠 443 |輸入和輸出|yes |  
-|*.oms.opinsights.azure.com |連接埠 443 |輸入和輸出|yes |  
-|*.blob.core.windows.net |連接埠 443 |輸入和輸出|yes |  
-|*.azure-automation.net |連接埠 443 |輸入和輸出|yes |  
+|*.ods.opinsights.azure.com |連接埠 443 |輸出|yes |  
+|*.oms.opinsights.azure.com |連接埠 443 |輸出|yes |  
+|*.blob.core.windows.net |連接埠 443 |輸出|yes |  
+|*.azure-automation.net |連接埠 443 |輸出|yes |  
 
 
 如果您打算使用 Azure 自動化混合式 Runbook 背景工作角色連線到自動化服務並向其註冊，以便在您的環境中使用 Runbook，它必須具有[設定適用於混合式 Runbook 背景工作角色的網路](../../automation/automation-hybrid-runbook-worker.md#network-planning)中所述的連接埠號碼和 URL 存取權。 

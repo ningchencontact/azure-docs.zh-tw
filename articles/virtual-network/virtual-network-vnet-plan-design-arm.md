@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820788"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339511"
 ---
 # <a name="plan-virtual-networks"></a>規劃虛擬網路
 
@@ -113,7 +113,7 @@ Azure 會針對資源使用[角色型存取控制](../role-based-access-control/
 
 Azure 原則可讓您建立、指派和管理原則定義。 原則定義會對您的資源強制執行不同的規則，讓資源能持續符合組織標準和服務等級協定的規範。 Azure 原則會針對資源執行評估，掃描出不符合您所擁有原則定義規範的資源。 例如，您可以定義並套用一個原則，以允許只在特定資源群組或區域中建立虛擬網路。 另一個原則可能會要求每個子網路都要有相關聯的網路安全性群組。 接著，在建立和更新資源時，系統就會評估這些原則。
 
-這些原則會套用到下列階層：訂用帳戶、管理群組和資源群組。 深入了解 [Azure 原則](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，或是部署某些虛擬網路[原則範本](policy-samples.md)範例。
+這些原則會套用到下列階層：訂用帳戶、管理群組和資源群組。 深入了解 [Azure 原則](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，或是部署某些虛擬網路[原則範本](policy-samples.md)範例。
 
 ## <a name="next-steps"></a>後續步驟
 

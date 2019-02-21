@@ -23,26 +23,6 @@ items:
     href: active-directory-passwords-reset-register.md
   - name: 重設密碼
     href: user-help-reset-password.md
-- name: 安全性資訊 (預覽) 說明
-  items:
-  - name: 概觀
-    href: user-help-security-info-overview.md
-  - name: 設定驗證器應用程式
-    href: security-info-setup-auth-app.md
-  - name: 安裝文字傳訊
-    href: security-info-setup-text-msg.md
-  - name: 設定撥打電話
-    href: security-info-setup-phone-number.md
-  - name: 設定電子郵件
-    href: security-info-setup-email.md
-  - name: 設定安全性問題
-    href: security-info-setup-questions.md
-  - name: 管理應用程式密碼
-    href: security-info-app-passwords.md
-  - name: 管理安全性資訊
-    href: security-info-manage-settings.md
-  - name: 登入方式
-    href: user-help-sign-in.md?toc=./toc.json
 - name: Microsoft Authenticator 應用程式說明
   items:
   - name: 概觀
@@ -60,21 +40,49 @@ items:
       href: user-help-auth-app-add-non-ms-account.md
     - name: 手動新增帳戶
       href: user-help-auth-app-add-account-manual.md
-    expanded: true
   - name: 使用 Microsoft Authenticator 應用程式登入
     href: user-help-auth-app-sign-in.md
   - name: 備份和復原您的帳戶
     href: user-help-auth-app-backup-recovery.md
   - name: 常見問題集
     href: user-help-auth-app-faq.md
-- name: 「我的應用程式」入口網站說明
+- name: 我的設定檔 (預覽) 入口網站說明
   items:
   - name: 概觀
-    href: user-help-my-apps-overview.md
-  - name: 什麼是「我的應用程式」入口網站？
-    href: active-directory-saas-access-panel-introduction.md
-  - name: 針對問題進行疑難排解
-    href: active-directory-saas-access-panel-user-help.md
+    href: myprofile-portal-overview.md
+  - name: 管理安全性資訊
+    href: user-help-security-info-overview.md
+  - name: 檢視登入活動
+    href: myprofile-portal-recent-activity-page.md
+  - name: 管理您的組織
+    href: myprofile-portal-organizations-page.md
+  - name: 管理您的已連線裝置
+    href: myprofile-portal-devices-page.md
+  - name: 檢視您的隱私權相關資訊
+    href: myprofile-portal-privacy-page.md
+- name: 安全性資訊 (預覽) 說明
+  items:
+  - name: 概觀
+    href: user-help-security-info-overview.md
+  - name: 在登入期間新增安全性資訊
+    href: security-info-setup-signin.md
+  - name: 新增或更新安全性資訊的方法概觀
+    href: security-info-add-update-methods-overview.md
+    items:
+    - name: 設定驗證器應用程式
+      href: security-info-setup-auth-app.md
+    - name: 安裝文字傳訊
+      href: security-info-setup-text-msg.md
+    - name: 設定撥打電話
+      href: security-info-setup-phone-number.md
+    - name: 設定電子郵件
+      href: security-info-setup-email.md
+    - name: 設定安全性問題
+      href: security-info-setup-questions.md
+  - name: 管理應用程式密碼
+    href: security-info-app-passwords.md
+  - name: 登入方式
+    href: user-help-sign-in.md?toc=./toc.json
 - name: 管理裝置說明
   items:
   - name: 概觀
@@ -85,9 +93,17 @@ items:
     href: user-help-register-device-on-network.md
   - name: 針對「無法執行」訊息進行疑難排解
     href: user-help-device-remediation.md
-ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+- name: 「我的應用程式」入口網站說明
+  items:
+  - name: 概觀
+    href: user-help-my-apps-overview.md
+  - name: 什麼是「我的應用程式」入口網站？
+    href: active-directory-saas-access-panel-introduction.md
+  - name: 針對問題進行疑難排解
+    href: active-directory-saas-access-panel-user-help.md
+ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816045"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452569"

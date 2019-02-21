@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810232"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310286"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>在適用於 PostgreSQL 的 Azure 資料庫伺服器上最佳化大量插入及使用暫時性資料 
 本文說明如何在適用於 PostgreSQL 的 Azure 資料庫伺服器上最佳化大量插入作業及使用暫時性資料。
@@ -25,9 +25,9 @@ ms.locfileid: "55810232"
 
 使用下列選項來建立未記錄的資料表：
 - 使用 `CREATE UNLOGGED TABLE <tableName>` 語法建立新的未記錄資料表。
-- 使用 `ALTER <tableName> SET UNLOGGED` 語法將現有的已記錄資料表轉換為未記錄資料表。  
+- 使用 `ALTER TABLE <tableName> SET UNLOGGED` 語法將現有的已記錄資料表轉換為未記錄資料表。  
 
-若要反轉程序，請使用 `ALTER <tableName> SET LOGGED` 語法。
+若要反轉程序，請使用 `ALTER TABLE <tableName> SET LOGGED` 語法。
 
 ## <a name="unlogged-table-tradeoff"></a>未記錄資料表的缺點
 未記錄的資料表可能因當機而缺損。 在經歷當機或未正常關機後，未記錄的資料表將會自動截斷。 未記錄資料表的內容也不會複寫到待命伺服器。 在未記錄的資料表上建立的任何索引也會自動成為未記錄的格式。 插入作業完成後，可以將資料表轉換為已記錄格式，以保有插入的持久性。

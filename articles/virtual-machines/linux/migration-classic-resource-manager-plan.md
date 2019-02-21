@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 40e0c8c91c44e67c2c409d2efb1e917fdbe0bf33
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ff3fdec2f427e095c748e4a47079d783fa83802d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562091"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341329"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。 
@@ -196,7 +196,7 @@ ms.locfileid: "55562091"
 - [Azure Resource Manager 範本使得部署更容易且更受控制](../../azure-resource-manager/resource-group-overview.md#template-deployment)。
 - [標籤](../../azure-resource-manager/resource-group-using-tags.md)。
 - [活動控制](../../azure-resource-manager/resource-group-audit.md)
-- [Azure 原則](../../azure-policy/azure-policy-introduction.md)
+- [Azure 原則](../../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>要避免的陷阱
 

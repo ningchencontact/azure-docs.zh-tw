@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d9d87e0e6427c0a0d4b16947fd0427e1c79d8f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097643"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341040"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>網路安全性群組流量記錄簡介
 
-網路安全性群組 (NSG) 流量記錄是網路監看員的一個功能，可讓您檢視透過 NSG 輸入和輸出 IP 流量的相關資訊。 流量記錄是以 JSON 格式撰寫，會顯示每一規則的輸出和輸入流量、套用流量的網路介面 (NIC)、關於流量的 5 個 Tuple 資訊 (來源/目的地 IP、來源/目的地連接埠和通訊協定)、流量受到允許或拒絕，以及第 2 版中的輸送量資訊 (位元組和封包)。
+網路安全性群組 (NSG) 流量記錄是網路監看員的一項功能，可讓您檢視透過 NSG 輸入和輸出 IP 流量的相關資訊。 流量記錄是以 JSON 格式撰寫，會顯示每一規則的輸出和輸入流量、套用流量的網路介面 (NIC)、關於流量的 5 個 Tuple 資訊 (來源/目的地 IP、來源/目的地連接埠和通訊協定)、流量受到允許或拒絕，以及第 2 版中的輸送量資訊 (位元組和封包)。
 
 
 ![流量記錄概觀](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
@@ -72,8 +72,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
                     * **傳送的位元組 - 目的地到來源 - 僅限第 2 版** 上次更新之後從目的地傳送到來源的 TCP 與 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。
 
 ## <a name="nsg-flow-logs-version-2"></a>NSG 流量記錄第 2 版
-> [!NOTE] 
-> 美國中西部區域現已提供流程記錄第 2 版。 在不支援的區域中啟用第 2 版記錄會導致第 1 版記錄輸出到您的儲存體帳戶。
 
 第 2 版的記錄引進流量狀態。 您可以設定您所收到的流量記錄版本。 若要了解如何啟用流量記錄，請參閱[啟用 NSG 流量記錄](network-watcher-nsg-flow-logging-portal.md)。
 

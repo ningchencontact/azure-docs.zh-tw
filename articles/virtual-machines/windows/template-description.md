@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113238"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327760"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 範本中的虛擬機器
 
@@ -276,7 +276,7 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 },
 ```
 
-若要設定這個屬性，網路介面必須存在。 因此，您需要相依性。 您在另一個資源 (父系) 內定義一個資源 (子系) 時，也需要設定相依性。 例如，診斷設定和自訂指令碼延伸模組都定義為虛擬機器的子資源。 在虛擬機器存在之後，它們才能建立。 因此，這兩個資源都會標示為相依於虛擬機器。
+若要設定這個屬性，網路介面必須存在。 因此，您需要相依性。 您在另一個資源 (父系) 內定義一項資源 (子系) 時，也需要設定相依性。 例如，診斷設定和自訂指令碼延伸模組都定義為虛擬機器的子資源。 在虛擬機器存在之後，它們才能建立。 因此，這兩個資源都會標示為相依於虛擬機器。
 
 ## <a name="profiles"></a>設定檔
 
@@ -290,7 +290,7 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 
 ## <a name="disks-and-images"></a>磁碟和映像
    
-在 Azure 中，VHD 檔案可以代表[磁碟或映像](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 當 VHD 檔案中的作業系統特製化為特定 VM 時，它就是磁碟。 當 VHD 檔案中的作業系統一般化為用來建立許多 VM 時，它就是映像。   
+在 Azure 中，VHD 檔案可以代表[磁碟或映像](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 當 VHD 檔案中的作業系統特製化為特定 VM 時，它就是磁碟。 當 VHD 檔案中的作業系統一般化為用來建立許多 VM 時，它就是映像。   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>從平台映像建立新的虛擬機器和新的磁碟
 

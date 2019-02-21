@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: a28e3fb18f2c0b65557034e388d08918c622b8f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255859"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268718"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>在 Resource Manager 部署中備份 Windows 系統狀態
 本文說明如何將 Windows Server 的系統狀態備份至 Azure。 本文中的教學課程是要讓您逐步了解基本概念。
 
-如果您想要深入了解 Azure 備份，請閱讀此 [概觀](backup-introduction-to-azure-backup.md)。
+如果您想要深入了解 Azure 備份，請閱讀此 [概觀](backup-overview.md)。
 
 如果您沒有 Azure 訂用帳戶，請建立 [免費帳戶](https://azure.microsoft.com/free/) ，以便存取任何 Azure 服務。
 
@@ -131,7 +131,7 @@ ms.locfileid: "51255859"
 
     ![保存庫認證下載完成](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
-> 保存庫認證只能儲存至您要使用代理程式的 Windows Server 的本機位置。 
+> 保存庫認證只能儲存至您要使用代理程式的 Windows Server 的本機位置。
 >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -163,7 +163,7 @@ ms.locfileid: "51255859"
 
 現已安裝代理程式，且已向保存庫註冊您的電腦。 您已準備好可以設定及排程備份。
 
-## <a name="back-up-windows-server-system-state"></a>備份 Windows Server 系統狀態 
+## <a name="back-up-windows-server-system-state"></a>備份 Windows Server 系統狀態
 初始備份包括兩項工作：
 
 * 排程備份
@@ -194,7 +194,7 @@ ms.locfileid: "51255859"
 
 6. 按 [下一步] 。
 
-7. 在後續頁面中針對系統狀態備份選取所需的備份頻率和保留原則。 
+7. 在後續頁面中針對系統狀態備份選取所需的備份頻率和保留原則。
 
 8. 在 [確認] 頁面上檢閱資訊，然後按一下 [完成] 。
 

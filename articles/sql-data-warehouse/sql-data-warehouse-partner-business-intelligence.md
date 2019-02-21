@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 17a55e84dcbec00eced290ec76c3201784075201
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a45ed3ad5360f613a4949799c60ec09f4a30afb9
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462574"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427763"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL 資料倉儲商業智慧合作夥伴
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。  本文將重點放在具有可支援「Azure SQL 資料倉儲」之商業智慧 (BI) 解決方案的 Microsoft 合作夥伴公司。
@@ -64,7 +64,7 @@ ms.locfileid: "55462574"
 <!--Website links -->
 [birst_website]:https://www.birst.com/
 [clearstory_website]:http://www.clearstorydata.com/
-[dell_statistica_website]:http://software.dell.com/MSFT_Stat_ref/
+[dell_statistica_website]:http://www.statsoft.com/Products/STATISTICA-Features
 [dundas_bi_website]:http://www.dundas.com/dundas-bi
 [jinfonet_website]:http://www.jinfonet.com/product/jreport-designer
 [logianalytics_website]:http://www.logianalytics.com/
@@ -105,18 +105,14 @@ ms.locfileid: "55462574"
 
 <!--[clearstory_marketplace]:-->
 
-[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner
-
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 
 <!--[jinfonet_marketplace]:-->
 
-[logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/
 [looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
 
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
 
-[sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 
 [yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
@@ -149,7 +145,6 @@ ms.locfileid: "55462574"
 [birst_youtube]:https://www.youtube.com/user/BirstBI
 
 [clearstory_youtube]:https://www.youtube.com/user/ClearStoryData
-[dell_statistica_youtube]:https://www.youtube.com/user/DellSoftwareVideo
 [dundas_bi_youtube]:https://www.youtube.com/user/dundasdv
 [jinfonet_youtube]:https://www.youtube.com/user/JinfonetSoftware
 [logianalytics_youtube]:https://www.youtube.com/user/LogiXMLblog

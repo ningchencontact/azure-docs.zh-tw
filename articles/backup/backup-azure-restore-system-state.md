@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 0b880d77004013d3b3eb1999b7e9344577b9fb4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266479"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310246"
 ---
 # <a name="restore-system-state-to-windows-server"></a>將系統狀態還原到 Windows Server
 
@@ -65,7 +65,7 @@ ms.locfileid: "54266479"
 
 9. 將復原目的地中的 WindowsImageBackup 目錄複製到伺服器的非重要磁碟區。 Windows 作業系統磁碟區通常是重要磁碟區。
 
-10. 復原成功之後，請遵循[將還原的系統狀態檔案套用到 Windows Server](backup-azure-restore-system-state.md#apply-restored-system-state-files-to-the-windows-server) 一節中的步驟，以完成系統狀態復原程序。
+10. 復原成功之後，請遵循[將還原的系統狀態檔案套用到 Windows Server](backup-azure-restore-system-state.md) 一節中的步驟，以完成系統狀態復原程序。
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>將系統狀態檔案復原到替代伺服器
 

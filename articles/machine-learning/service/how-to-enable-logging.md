@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/11/2019
-ms.openlocfilehash: bff0feab7ce062c9e2515fa038d249838a809591
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/20/2019
+ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101302"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447526"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>在 Azure Machine Learning 服務中啟用記錄
 
@@ -112,7 +112,7 @@ logs = service.get_logs()
 您也可以啟用 Application Insights 來針對 Web 服務記錄自訂堆疊追蹤，這可讓您監視要求/回應次數、失敗率和例外狀況。 在現有 Web 服務上呼叫 `update()` 函式以啟用 Application Insights。
 
 ```python
-service..update(enable_app_insights=True)
+service.update(enable_app_insights=True)
 ```
 
 如需如何在 Azure 入口網站中使用 Application Insights 的詳細資訊，請參閱[作法](how-to-enable-app-insights.md#enable-and-disable-in-the-portal)。

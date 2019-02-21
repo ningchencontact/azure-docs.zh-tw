@@ -2,25 +2,17 @@
 title: 建立和安裝 VPN 用戶端組態檔以便進行 P2S RADIUS 連線：PowerShell：Azure | Microsoft Docs
 description: 為使用 RADIUS 驗證的連線建立 Windows、Mac OS X 和 Linux VPN 用戶端組態檔。
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/07/2018
+ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8fc2c487a374a34cd9a7642a45fd59c04061b398
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 8881582eac47e31b20e9eb96effea254b821ba34
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817813"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417290"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>建立和安裝 VPN 用戶端組態檔以便進行 P2S RADIUS 驗證
 
@@ -46,6 +38,8 @@ P2S RADIUS 驗證的設定工作流程如下所示：
 
 若要使用本文中的小節，請先決定要使用哪一種驗證類型：使用者名稱/密碼、憑證，或其他驗證類型。 每一節都會提供 Windows、Mac OS X 和 Linux 適用的步驟 (此時可用的步驟有限)。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="adeap"></a>使用者名稱/密碼驗證
 
 您可以設定使用者名稱/密碼驗證，以使用 Active Directory 或者不使用 Active Directory。 無論是哪一種情況，都請您確定所有連線使用者都具有可透過 RADIUS 驗證的使用者名稱/密碼認證。
@@ -57,7 +51,7 @@ P2S RADIUS 驗證的設定工作流程如下所示：
 產生 VPN 用戶端設定檔以與使用者名稱/密碼驗證搭配使用。 您可以使用下列命令來產生 VPN 用戶端組態檔：
 
 ```powershell 
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 執行會傳回連結的命令。 將該連結複製並貼到網頁瀏覽器，以下載 **VpnClientConfiguration.zip**。 將該檔案解壓縮以檢視下列資料夾： 
@@ -66,12 +60,12 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 * **Generic**：這個資料夾包含您用來建立自有 VPN 用戶端組態的一般資訊。 使用者名稱/密碼驗證設定不需要此資料夾。
 * **Mac**：如果您在建立虛擬網路閘道時設定 IKEv2，您會看到名為 **Mac** 的資料夾，其中包含 **mobileconfig** 檔案。 您要使用這個檔案來設定 Mac 用戶端。
 
-如果您已經產生用戶端組態檔，您可以使用 `Get-AzureRmVpnClientConfiguration` Cmdlet 來擷取它們。 但是如果您對 P2S VPN 組態進行任何變更 (例如，VPN 通訊協定類型或驗證類型)，該組態不會自動更新。 您必須執行 `New-AzureRmVpnClientConfiguration` Cmdlet 來建立新的設定下載。
+如果您已經產生用戶端組態檔，您可以使用 `Get-AzVpnClientConfiguration` Cmdlet 來擷取它們。 但是如果您對 P2S VPN 組態進行任何變更 (例如，VPN 通訊協定類型或驗證類型)，該組態不會自動更新。 您必須執行 `New-AzVpnClientConfiguration` Cmdlet 來建立新的設定下載。
 
 若要擷取先前產生的用戶端組態檔，請使用下列命令：
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
 ### <a name="setupusername"></a> 2.設定 VPN 用戶端
@@ -101,7 +95,8 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
    ![mobileconfig 檔案的位置](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. 選擇性步驟 - 如果您想要指定自訂的 DNS，請將下列行新增到 **mobileconfig** 檔案：
-```xml
+
+  ```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -113,7 +108,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
             <string>TestDomain.com</string>
         </array>
     </dict> 
-```
+  ```
 4. 按兩下設定檔加以安裝，然後選取 [繼續]。 設定檔名稱與您的虛擬網路名稱相同。
 
    ![安裝訊息](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
@@ -137,7 +132,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
    ![VPN 連線的詳細資料](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. 選取 [驗證設定]。 在清單中選擇 [使用者名稱]，然後輸入您的認證。 如果您先前已輸入認證，則會自動在清單中選擇 [使用者名稱] 並預先填入使用者名稱和密碼。 選取 [確定] 來儲存設定。
 
-    ![驗證設定](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+   ![驗證設定](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. 回到 [網路] 對話方塊，選取 [套用] 以儲存變更。 若要起始連線，請選取 [連線]。
 
 #### <a name="adlinuxcli"></a>透過 strongSwan 進行 Linux VPN 用戶端設定
@@ -188,7 +183,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 產生 VPN 用戶端設定檔以與憑證驗證搭配使用。 您可以使用下列命令來產生 VPN 用戶端組態檔：
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
+New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 執行會傳回連結的命令。 將該連結複製並貼到網頁瀏覽器，以下載 VpnClientConfiguration.zip。 將該檔案解壓縮以檢視下列資料夾：
@@ -196,12 +191,12 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 * **WindowsAmd64** 和 **WindowsX86**：這兩個資料夾分別包含 Windows 64 位元和 32 位元的安裝程式套件。 
 * **GenericDevice**：這個資料夾包含用來建立自有 VPN 用戶端組態的一般資訊。
 
-如果您已經產生用戶端組態檔，您可以使用 `Get-AzureRmVpnClientConfiguration` Cmdlet 來擷取它們。 但是如果您對 P2S VPN 組態進行任何變更 (例如，VPN 通訊協定類型或驗證類型)，該組態不會自動更新。 您必須執行 `New-AzureRmVpnClientConfiguration` Cmdlet 來建立新的設定下載。
+如果您已經產生用戶端組態檔，您可以使用 `Get-AzVpnClientConfiguration` Cmdlet 來擷取它們。 但是如果您對 P2S VPN 組態進行任何變更 (例如，VPN 通訊協定類型或驗證類型)，該組態不會自動更新。 您必須執行 `New-AzVpnClientConfiguration` Cmdlet 來建立新的設定下載。
 
 若要擷取先前產生的用戶端組態檔，請使用下列命令：
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
+Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ### <a name="setupusername"></a> 2.設定 VPN 用戶端
@@ -260,7 +255,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | 
 
 若要使用不同的驗證類型 (例如 OTP)，或使用不同的驗證通訊協定 (例如 PEAP-MSCHAPv2，而不是 EAP-MSCHAPv2)，您必須建立自己的 VPN 用戶端組態設定檔。 若要建立設定檔，您需要虛擬網路閘道 IP 位址、通道類型以及分割通道路由等資訊。 您可以使用下列步驟來取得此資訊：
 
-1. 使用 `Get-AzureRmVpnClientConfiguration` Cmdlet 來產生 EapMSChapv2 的 VPN 用戶端組態。 如需相關指示，請參閱本文的這一節。
+1. 使用 `Get-AzVpnClientConfiguration` Cmdlet 來產生 EapMSChapv2 的 VPN 用戶端組態。
 
 2. 解壓縮 VpnClientConfiguration.zip 檔案，並找出 **GenericDevice** 資料夾。 忽略包含 64 位元和 32 位元架構之 Windows 安裝程式的資料夾。
  

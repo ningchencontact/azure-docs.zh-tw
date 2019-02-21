@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e19f9acef256cdd0c690195bd56f971e3ec88c01
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7a3a603b6b1b76f61536adee5d33663bd7af9813
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494726"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342061"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理資源
 
@@ -76,7 +76,7 @@ New-AzRoleAssignment -ObjectId $adgroup.ObjectId `
 
 ## <a name="azure-policy"></a>Azure 原則
 
-[Azure 原則](../azure-policy/azure-policy-introduction.md)可協助您確認訂用帳戶中的所有資源均符合公司標準。 您的訂用帳戶已經有數個原則定義。 若要查看可使用的原則定義，請使用：
+[Azure 原則](../governance/policy/overview.md)可協助您確認訂用帳戶中的所有資源均符合公司標準。 您的訂用帳戶已經有數個原則定義。 若要查看可使用的原則定義，請使用：
 
 ```azurepowershell-interactive
 (Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType

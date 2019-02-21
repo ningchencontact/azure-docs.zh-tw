@@ -3,8 +3,8 @@ title: 更新 Azure App Service on Azure Stack | Microsoft Docs
 description: 適用於更新 Azure App Service on Azure Stack 的詳細指導方針
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: app-service
@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2019
-ms.author: anwestg
+ms.author: jeffgilb
+ms.reviewer: anwestg
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a784fd1b4b03fa2f6574926481351046a65d7611
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a017e1c70658953e1c08cd92a7e1e5184fee0bb5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769268"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447390"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>更新 Azure App Service on Azure Stack
 

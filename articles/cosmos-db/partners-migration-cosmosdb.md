@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 25d2b9fac65525c56912e5daa7e5bcb4aa2cd5f4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 255182fe5e6c5576077dc97831628e4a13dfc026
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035996"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453513"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 移轉和應用程式開發合作夥伴
 
@@ -38,7 +38,7 @@ ms.locfileid: "54035996"
 |![Coeo][7]     |   應用程式創新 (現有的應用程式)、 <br/> 新的應用程式開發 |    英國     |  [網站](http://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL 移轉 |美國、加拿大、英國、丹麥、荷蘭、瑞士、澳洲、日本 | [網站](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL 移轉       |    全域     |  [網站](http://www.infosys.com/)       |
-| ![Lagash][16] | NoSQL 移轉、 <br/> 新的應用程式開發 | 阿根廷、智利、哥倫比亞、墨西哥| [網站](https://lagash.com/)|
+| ![Lagash][16] | NoSQL 移轉、 <br/> 新的應用程式開發 | 阿根廷、智利、哥倫比亞、墨西哥| [網站](https://www.lagash.com/)|
 | ![Lambda3 Informatics][17] | NoSQL 移轉、 <br/> 新的應用程式開發 | 巴西| [網站](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     新增發展 (新的應用程式)    |    USA     |  [網站](http://www.nealanalytics.com/)       |
 |![Pragmatic Works Software Inc][10]    |   NoSQL 移轉      |   USA      |  [網站](http://www.pragmaticworks.com/)       |

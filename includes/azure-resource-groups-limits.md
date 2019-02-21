@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 5c2c7b621512be7b81d14b99069d52f4f3aa3f33
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: cdebdf7258e99457191754cd73513fdb3744f8e9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279485"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56323352"
 ---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -37,4 +37,4 @@ ms.locfileid: "52279485"
 
 使用巢狀範本，即可超出一些範本限制。 如需詳細資訊，請參閱[在部署 Azure 資源時使用連結的範本](../articles/azure-resource-manager/resource-group-linked-templates.md)。 若要減少參數、變數或輸出數目，您可以將數個值合併成一個物件。 如需詳細資訊，請參閱[物件作為參數](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md)。
 
-如果每個資源群組的部署達到 800 個數量限制，請從歷程記錄中刪除不再需要的部署。 您可以使用 [az group deployment delete](/cli/azure/group/deployment#az_group_deployment_delete) (Azure CLI) 或 [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) (PowerShell) 以從歷程記錄中刪除項目。 從部署歷程記錄中刪除項目時，並不會影響部署資源。 
+如果每個資源群組的部署達到 800 個數量限制，請從歷程記錄中刪除不再需要的部署。 您可以使用 [az group deployment delete](/cli/azure/group/deployment) (Azure CLI) 或 [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) (PowerShell) 以從歷程記錄中刪除項目。 從部署歷程記錄中刪除項目時，並不會影響部署資源。 

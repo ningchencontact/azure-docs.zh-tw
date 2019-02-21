@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: 55fbc997f6aaf4cf99bfb8492a2e4ac608c72af8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494896"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310269"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>常見問題集 - Azure 備份
 
@@ -81,7 +81,7 @@ Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁�
   * 新增備份時不存在的組態設定
   * 控制所建立資源的命名慣例。
   * 將 VM 新增至可用性設定組。
-  * 新增任何其他必須使用 PowerShell 或範本設定的設定。  w
+  * 新增任何其他必須使用 PowerShell 或範本設定的設定。
 
 ### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>升級至受控磁碟之後，可以還原非受控 VM 磁碟的備份嗎？
 是，您可以使用在將磁碟從非受控磁碟遷移至受控磁碟之前所擷取的備份。

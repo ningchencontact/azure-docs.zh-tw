@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0073427028d20ab969b8d0135b1c831d7fdf8c73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b821c5cfa0dd9ea605d0d0a73e0b98a64a7502b7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191959"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268646"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>啟動及停止 Azure Stack 開發套件 (ASDK)
 不建議直接重新啟動 ASDK 主機電腦。 而是應該遵循本文中的程序，適當地關閉然後重新啟動 ASDK 服務。 
@@ -29,7 +29,7 @@ ms.locfileid: "56191959"
 ## <a name="stop-azure-stack"></a>停止 Azure Stack 
 若要正常關閉 Azure Stack 服務和 ASDK 主機電腦，請使用下列 PowerShell 命令：
 
-1. 以 AzureStack\CloudAdmin 身分登入 ASDK 主機電腦。
+1. 以 AzureStack\AzureStackAdmin 身分登入 ASDK 主機電腦。
 2. 以系統管理員身分開啟 PowerShell (非 PowerShell ISE)。
 3. 執行下列命令來建立特殊權限的端點 (PEP) 工作階段： 
 
@@ -49,7 +49,7 @@ ASDK 服務應該會在主機電腦啟動時自動啟動。 不過，ASDK 基礎
 不論 ASDK 的關機方式是什麼，您都應該使用下列步驟來確認在主機電腦電源開啟之後，所有 Azure Stack 服務已啟動且完全正常運作： 
 
 1. 開啟 ASDK 主機電腦電源。 
-2. 以 AzureStack\CloudAdmin 身分登入 ASDK 主機電腦。
+2. 以 AzureStack\AzureStackAdmin 身分登入 ASDK 主機電腦。
 3. 以系統管理員身分開啟 PowerShell (非 PowerShell ISE)。
 4. 執行下列命令來建立特殊權限的端點 (PEP) 工作階段：
 
@@ -68,7 +68,7 @@ ASDK 服務應該會在主機電腦啟動時自動啟動。 不過，ASDK 基礎
 ## <a name="troubleshoot-startup-and-shutdown"></a>針對啟動及關機進行疑難排解 
 如果 Azure Stack 服務在您開啟 ASDK 主機電腦電源的兩個小時內未成功啟動，請執行下列步驟：
 
-1. 以 AzureStack\CloudAdmin 身分登入 ASDK 主機電腦。
+1. 以 AzureStack\AzureStackAdmin 身分登入 ASDK 主機電腦。
 2. 以系統管理員身分開啟 PowerShell (非 PowerShell ISE)。
 3. 執行下列命令來建立特殊權限的端點 (PEP) 工作階段：
 

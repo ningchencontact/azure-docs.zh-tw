@@ -3,20 +3,21 @@ title: 在 Azure AD 中管理緊急存取帳戶 | Microsoft Docs
 description: 本文說明如何使用緊急存取帳戶，幫助防止不慎鎖定 Azure Active Directory (Azure AD) 租用戶。
 services: active-directory
 author: markwahl-msft
-ms.author: billmath
+ms.author: curtand
 ms.date: 12/21/2018
 ms.topic: article-type-from-white-list
 ms.service: active-directory
+ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d2a47360808c7c1c36d5e82b98582d9f6144fa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 974e00ce877dcf3b15dc7ce6d73f7d1331e20bb5
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176946"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429115"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>在 Azure AD 中管理緊急存取帳戶
 

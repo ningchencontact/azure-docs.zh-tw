@@ -3,8 +3,8 @@ title: 在應用程式服務中相應放大背景工作角色 - Azure Stack | Mi
 description: 調整 Azure Stack 應用程式服務的詳細指導方針
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: anwestg
-ms.reviewer: sethm
+ms.author: jeffgilb
+ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 26981d50239ddd7da79919291f2accd8b8ed4fc0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241929"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445878"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack 上的 App Service：新增更多基礎結構或背景工作角色
 

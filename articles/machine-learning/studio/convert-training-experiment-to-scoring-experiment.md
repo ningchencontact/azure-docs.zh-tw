@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001692"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455104"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>如何準備您的模型以在 Azure Machine Learning Studio 中部署
 
@@ -50,15 +50,15 @@ Azure Machine Learning Studio 提供所需的工具，以讓您開發預測分�
 
 例如，以下實驗會使用範例人口普查資料，訓練二元推進式決策樹模型：
 
-![訓練實驗][figure1]
+![訓練實驗](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
-此實驗中的模組基本上執行是四個不同的功能：
+這項實驗中的模組基本上執行是四個不同的功能：
 
-![模組功能][figure2]
+![模組功能](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 當您將這個訓練實驗轉換為預測實驗時，就不再需要其中一些模組，或它們現在有不同的用途：
 
-* **資料** - 在評分期間，不會使用此範例資料集中的資料，因為 Web 服務的使用者會提供要評分的資料。 不過，定型模型會使用此資料集中的中繼資料，例如，資料類型。 因此，您必須將資料集保留在預測實驗中，讓它能夠提供此中繼資料。
+* **資料** - 在評分期間，不會使用此範例資料集中的資料，因為 Web 服務的使用者會提供要評分的資料。 不過，定型模型會使用此資料集中的中繼資料，例如，資料類型。 因此，您必須將資料集保留在預測實驗中，讓它能夠提供這項中繼資料。
 
 * **準備** - 根據要提交用於評分的使用者資料而定，這些模組不一定需要處理傳入的資料。 [設定 Web 服務] 按鈕並未接觸這些項目，您需要決定要如何處理它們。
   
@@ -70,16 +70,16 @@ Azure Machine Learning Studio 提供所需的工具，以讓您開發預測分�
 
 以下是按一下 [設定 Web 服務] 之後，我們的範例外觀：
 
-![已轉換的預測實驗][figure3]
+![已轉換的預測實驗](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 [設定 Web 服務] 所完成的工作可能足以準備您的實驗，以當做 Web 服務部署。 不過，您可能會想要執行一些您的實驗專屬的額外工作。
 
 ### <a name="adjust-input-and-output-modules"></a>調整輸入和輸出模組
-在訓練實驗中，您使用一組訓練資料進行一些處理，以取得 Machine Learning 演算法所需格式的資料。 如果您預期透過 Web 服務收到的資料不需要此處理，則可以略過它︰將 **Web 服務輸入模組**的輸出連線至實驗中的不同模組。 使用者的資料現在會送到模型的這個位置。
+在訓練實驗中，您使用一組訓練資料進行一些處理，以取得 Machine Learning 演算法所需格式的資料。 如果您預期透過 Web 服務收到的資料不需要這項處理，則可以略過它︰將 **Web 服務輸入模組**的輸出連線至實驗中的不同模組。 使用者的資料現在會送到模型的這個位置。
 
 例如，[設定 Web 服務] 預設會將 [Web 服務輸入] 模組放在資料流程的頂端，如上圖所示。 但我們可以手動將 **Web 服務輸入**放在資料處理模組之後：
 
-![移動 Web 服務輸入][figure4]
+![移動 Web 服務輸入](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 透過 Web 服務提供的輸入資料現在會直接傳入 [評分模型] 模組，而不需要任何前置處理。
 
@@ -88,18 +88,18 @@ Azure Machine Learning Studio 提供所需的工具，以讓您開發預測分�
 
 例如，若只要傳回評分結果，而不傳回整個輸入資料向量，請新增[選取資料集中的資料行][select-columns]模組，以排除評分結果以外的所有資料行。 接著，將 **Web 服務輸出**模組移到[選取資料集中的資料行][select-columns]模組的輸出。 實驗看起來如下：
 
-![移動 Web 服務輸出][figure5]
+![移動 Web 服務輸出](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>新增或移除其他資料處理模組
 如果在您的實驗中還有您知道在評分期間不需要的模組，則可以移除這些模組。 例如，由於我們已經將 **Web 服務輸入**模組移到資料處理模組之後的某個點，因此我們可以從預測實驗中移除[清除遺漏的資料][clean-missing-data]模組。
 
 我們的預測實驗現在看起來像這樣：
 
-![移除額外的模組][figure6]
+![移除額外的模組](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### <a name="add-optional-web-service-parameters"></a>新增選用的 Web 服務參數
-在某些情況下，您可能需要讓 Web 服務的使用者變更存取服務時的模組行為。 *Web 服務參數* 可讓您執行此操作。
+在某些情況下，您可能需要讓 Web 服務的使用者變更存取服務時的模組行為。 *Web 服務參數* 可讓您執行這項操作。
 
 常見的範例是設定[匯入資料][import-data]模組，讓已部署之 Web 服務的使用者可以在存取 Web 服務時，指定不同的資料來源。 或者，設定[匯出資料][export-data]模組，以便能夠指定不同的目的地。
 
@@ -116,16 +116,6 @@ Azure Machine Learning Studio 提供所需的工具，以讓您開發預測分�
 如需完整部署流程的詳細資訊，請參閱[部署 Azure Machine Learning Web 服務][deploy]
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

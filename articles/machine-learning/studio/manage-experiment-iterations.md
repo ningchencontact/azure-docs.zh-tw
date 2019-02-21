@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e41a669e3dcd14952077cbd21e7387184546de80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488422"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454275"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中管理實驗逐一查看
 開發預測分析模型是一種逐一查看過程 - 您修改實驗的各種函數及參數，結果會不斷收斂，直到您對已訓練的有效模型感到滿意為止。 此程序的關鍵是追蹤實驗參數和組態的各種逐一查看。
@@ -48,7 +48,7 @@ ms.locfileid: "55488422"
 
 如果您按一下 [ **檢視執行歷程記錄**]，您會看見所有執行的清單：
 
-![範例執行歷程記錄][runhistory]
+![範例執行歷程記錄](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
 按一下任何執行以檢視您執行該實驗之時間的實驗快照。 保留組態、參數值、註解及結果，給予您該實驗執行的完整記錄。
 
@@ -73,10 +73,6 @@ Machine Learning Studio 中 [實驗] 索引標籤的實驗清單一律會顯示�
 5. 按一下 [ **執行**]。
 
 您現在可以繼續修改及執行此實驗版本，建立新的執行歷程記錄以記錄您的工作。
-
-<!-- Images -->
-[runhistory]:./media/manage-experiment-iterations/viewrunhistory.jpg
-
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/

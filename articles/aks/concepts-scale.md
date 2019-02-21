@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7cd6af1dc6b947abd91c9d25a4b102e52da9d24d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819105"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456719"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中調整應用程式的選項
 
@@ -23,7 +23,7 @@ ms.locfileid: "55819105"
 - [手動調整](#manually-scale-pods-or-nodes)
 - [水平 Pod 自動調整程式 (HPA)](#horizontal-pod-autoscaler)
 - [叢集自動調整程式](#cluster-autoscaler)
-- 將 AKS 與 Azure 容器執行個體 (ACI) 整合
+- [將 AKS 與 Azure 容器執行個體 (ACI) 整合](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>手動調整 Pod 或節點
 

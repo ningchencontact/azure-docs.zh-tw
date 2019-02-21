@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808191"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447322"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>什麼是 Azure 搜尋服務的「認知搜尋」？
 
@@ -32,7 +32,7 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 在資料擷取階段中會套用自然語言和影像處理，且其結果會在 Azure 搜尋服務的可搜尋索引中成為文件撰寫的一部分。 資料會作為 Azure 資料集的來源，然後使用您所需的[內建技能](cognitive-search-predefined-skills.md)透過索引管線推送出去。 其架構是可延伸的，因此如果內建技能不敷使用，您可以建立及附加[自訂技能](cognitive-search-create-custom-skill-example.md)，以整合自訂處理。 其範例包括以特定領域為目標 (例如金融、科學出版品或醫藥) 的自訂實體模組或文件分類器。
 
 > [!NOTE]
-> 從 2018 年 12 月 21 日開始，您可以[連結認知服務資源](cognitive-search-attach-cognitive-services.md)與 Azure 搜尋服務技術集。 這可讓我們開始收取執行技術集的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
+> 從 2018 年 12 月 21 日開始，您可以[連結認知服務資源](cognitive-search-attach-cognitive-services.md)與 Azure 搜尋服務技術集。 據此，我們將開始收取執行技術集的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
 >
 > 內建技術的執行包含在認知服務費用中，並會依現行的[預付型方案](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價包含在 Azure 搜尋服務費用中，目前會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)上所述。
 
@@ -96,18 +96,24 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 
 + 美國中西部
 + 美國中南部
++ 美國中北部
 + 美國東部
 + 美國東部 2
 + 美國西部
 + 美國西部 2
++ 美國中部
 + 加拿大中部
 + 西歐
-+ 英國南部
 + 北歐
++ 英國南部
++ 法國中部
 + 巴西南部
 + 東亞
 + 東南亞
 + 印度中部
++ 日本西部
++ 日本東部
++ 南韓中部
 + 澳洲東部
 
 **步驟 2：實際操作工作流程加以熟悉**

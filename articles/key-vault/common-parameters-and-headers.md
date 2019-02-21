@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 3fb11ad74e3d1628cbf3f00e2aae648be3eea437
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1ac0f54aa4dfdc9db4724629c4dbfe7a4982838f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107679"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301225"
 ---
 # <a name="common-parameters-and-headers"></a>通用參數和標頭
 
@@ -34,12 +34,14 @@ ms.locfileid: "56107679"
 ## <a name="common-error-response"></a>通用錯誤回應
 服務將使用 HTTP 狀態碼指出成功或失敗。 此外，失敗包含下列格式的回應：
 
+```
    {  
      "error": {  
-     "code":"BadRequest",  
-     "message":"The key vault sku is invalid."  
+     "code": "BadRequest",  
+     "message": "The key vault sku is invalid."  
      }  
    }  
+```
 
 |元素名稱 | 類型 | 說明 |
 |---|---|---|

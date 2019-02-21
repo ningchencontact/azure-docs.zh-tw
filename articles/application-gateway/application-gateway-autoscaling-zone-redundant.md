@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743645"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446506"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>自動調整規模和區域備援應用程式閘道 (公開預覽)
 
@@ -45,7 +45,7 @@ ms.locfileid: "55743645"
 |問題|詳細資料|
 |--|--|
 |驗證憑證|不支援。<br>如需詳細資訊，請參閱[應用程式閘道端對端 SSL 的概觀](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)。|
-|在相同子網路上混合使用 Standard_v2 和標準應用程式閘道|不支援。<br>此外，如果已啟用自動調整，一個子網路只可以有一個應用程式閘道。|
+|在相同子網路上混合使用 Standard_v2 和標準應用程式閘道|不支援|
 |應用程式閘道子網路上的使用者定義路由 (UDR)|不支援|
 |輸入連接埠範圍的 NSG| - Standard_v2 SKU 適用 65200 至 65535<br>- 標準 SKU 適用 65503 至 65534<br>如需詳細資訊，請參閱[常見問題集](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)。|
 |Azure 診斷中的效能記錄|不支援。<br>應該使用 Azure 計量。|

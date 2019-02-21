@@ -8,18 +8,18 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176198"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311897"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
 > [!NOTE]
-> 此功能目前處於「個人預覽版」階段。 若要加入私人預覽，[請在這裡建立您的要求](https://aka.ms/iseprivatepreview)。
+> 這項功能目前處於「個人預覽版」階段。 若要加入私人預覽，[請在這裡建立您的要求](https://aka.ms/iseprivatepreview)。
 
 針對您邏輯應用程式與整合帳戶需存取 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)的案例，建立[整合服務的環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 ISE 是一種隔離的私人環境，它會使用與公用或「全域」Logic Apps 服務分開的專用儲存體和其他資源。 這種區隔也可減少任何其他 Azure 租用戶可能對您應用程式效能造成的影響。 您的 ISE 會「插入」Azure 虛擬網路，然後將 Logic Apps 服務部署到您的虛擬網路。 當您建立邏輯應用程式或整合帳戶時，請選取此 ISE 作為其位置。 然後，您的邏輯應用程式或整合帳戶就可以直接存取虛擬網路中的資源，例如：虛擬機器 (VM)、伺服器、系統及服務。
 
@@ -39,7 +39,7 @@ ms.locfileid: "56176198"
 
 如需整合服務環境的詳細資訊，請參閱[從 Azure Logic Apps 存取 Azure 虛擬網路資源](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
@@ -67,9 +67,10 @@ ms.locfileid: "56176198"
 | 對 Azure Logic Apps 的通訊 <br>來自 Azure Logic Apps 的通訊 | 輸入 <br>輸出 | * <br>80 和 443 | 網際網路 <br>VIRTUAL_NETWORK |
 | Azure Active Directory | 輸出 | * <br>80 和 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Azure 儲存體相依性 | 輸出 | * <br>80 和 443 | VIRTUAL_NETWORK <br>儲存體 |
+| 邏輯應用程式的執行歷程記錄 | 輸入 | * <br>443 | 網際網路 <br>VIRTUAL_NETWORK |
 | 連線管理 | 輸出 | * <br>443 | VIRTUAL_NETWORK <br>網際網路 |
 | 發佈診斷記錄和計量 | 輸出 | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Logic Apps 設計工具 - 動態屬性 <br>邏輯應用程式的執行歷程記錄 <br>連接器部署 <br>要求觸發程序端點 | 輸入 | * <br>454 | 網際網路 <br>VIRTUAL_NETWORK |
+| Logic Apps 設計工具 - 動態屬性 <br>連接器部署 <br>要求觸發程序端點 | 輸入 | * <br>454 | 網際網路 <br>VIRTUAL_NETWORK |
 | App Service 管理相依性 | 輸入 | * <br>454 和 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | API 管理 - 管理端點 | 輸入 | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | 「記錄到事件中樞」原則和監視代理程式的相依性 | 輸出 | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |
@@ -155,7 +156,7 @@ ms.locfileid: "56176198"
 
       ![新增子網路](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
 
-   1. 在 [新增子網路] 窗格中，提供此資訊。
+   1. 在 [新增子網路] 窗格中，提供這項資訊。
 
       * **名稱**：您的子網路名稱
       * **位址範圍 (CIDR 區塊)**：在您虛擬網路中且使用 CIDR 格式的子網路範圍

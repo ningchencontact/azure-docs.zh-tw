@@ -2,19 +2,16 @@
 author: cynthn
 ms.author: cynthn
 manager: jeconnoc
-ms.date: 02/04/2018
+ms.date: 02/15/2018
 ms.topic: include
-ms.openlocfilehash: 052bd610fd061504b8a4695fbb26df7ca062fbe8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 731cb69bd719800fcf9bd0e611d538d602f48fc2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984948"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333863"
 ---
 > [!NOTE]
 >
-> 本文已更新為使用新的 [Azure PowerShell Az 模組](/powershell/azure/new-azureps-module-az)。 AzureRM 仍會持續取得重大 Bugfix 更新，但只有 Az 模組才會提供新功能。
-> * Az 模組已提供於 Cloud Shell 中，並啟用與 AzureRM 的相容性。
-> * 若要在本機安裝 Az 模組，請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。
-> * 若是在本機安裝 Az 模組，可以執行 `Enable-AzureRmAlias` 啟用 AzureRM 相容性。
+> 本文已更新為使用新的 Azure PowerShell Az 模組。 若要深入了解新的 Az 模組和 AzureRM 的相容性，請參閱[新的 Azure PowerShell Az 模組簡介](/powershell/azure/new-azureps-module-az)。 如需安裝指示，請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。
 

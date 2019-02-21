@@ -8,12 +8,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228775"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342723"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>針對將解決方案上線時的錯誤進行疑難排解
 
@@ -73,7 +73,7 @@ The solution cannot be enabled due to missing permissions for the virtual machin
   * 將原則的目標重新設定為特定資源 (例如設定為特定的自動化帳戶)。
   * 對於原則已設定為拒絕的資源集合進行修改。
 
-檢查 Azure 入口網站右上角的通知，或瀏覽至包含您自動化帳戶的資源群組，然後選取 [設定] 下方的 [部署] 來檢視失敗的部署。 若要深入了解 Azure 原則，請造訪：[Azure 原則的概觀](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)。
+檢查 Azure 入口網站右上角的通知，或瀏覽至包含您自動化帳戶的資源群組，然後選取 [設定] 下方的 [部署] 來檢視失敗的部署。 若要深入了解 Azure 原則，請造訪：[Azure 原則的概觀](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)。
 
 ## <a name="mma-extension-failures"></a>MMA 延伸模組失敗
 

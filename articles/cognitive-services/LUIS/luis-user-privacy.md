@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 62d6dce4ccb5d4badbcf9b02cbbcda576ee63212
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: add526d8c09d2aa557ddd645e9016cb9c3b225a3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869240"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328192"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>在認知服務的 Language Understanding (LUIS) 中匯出和刪除客戶資料
 
@@ -30,7 +30,7 @@ Language Understanding Intelligent Service (LUIS) 可保存客戶內容以執行
 - 註冊時收集的使用者帳戶內容
 - 建置模型所需的訓練資料 (也就是目的和實體)
 - 在執行階段記錄以利改善使用者模型的使用者查詢
-  - 使用者可藉由將 `&log=false`附加至要求以關閉查詢記錄，詳情請見[這裡](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)
+  - 使用者可藉由將 `&log=false`附加至要求以關閉查詢記錄，詳情請見[這裡](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>刪除客戶資料
 LUIS 使用者有完整的控制權可刪除任何使用者內容 (透過 LUIS Web 入口網站或 LUIS 程式設計 API)。 下表顯示這兩者的輔助連結：

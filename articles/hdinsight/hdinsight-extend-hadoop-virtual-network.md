@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169967"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447409"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -221,8 +221,6 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 HDInsight 為受控服務，需要不受限制地存取 HDInsight 健康情況與管理服務，以了解 VNET 的傳入和傳出流量。 使用 NSG 和 UDR 時，您必須確定這些服務仍然可以與 HDInsight 叢集進行通訊。
 
-HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時，您必須允許用於這些服務之連接埠的流量。 如需詳細資訊，請參閱[必要連接埠]一節。
-
 ### <a id="hdinsight-ip"></a> 具有網路安全性群組和使用者定義路由的 HDInsight
 
 如果您規劃使用**網路安全性群組**或**使用者定義路由**來控制網路流量，請先執行下列動作，再安裝 HDInsight：
@@ -306,8 +304,6 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 如需詳細資訊，請參閱[控制網路流量](#networktraffic)一節。
 
-針對連出 NSG 規則，請允許來自 VNET 內部「任何」來源的流量到達上述位址 (作為「目的地 IP 位址」)。
-
 如果您使用使用者定義的 (UDR)，應該指定路由並允許來自 VNET 的連出流量到上述 IP，並將下一個躍點設定為 [網際網路]。
     
 ## <a id="hdinsight-ports"></a> 所需連接埠
@@ -320,7 +316,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 ## <a id="hdinsight-nsg"></a>範例：網路安全性群組與 HDInsight
 
-本節中的範例會示範如何建立網路安全性群組規則，以允許 HDInsight 與 Azure 管理服務進行通訊。 使用範例之前，請調整 IP 位址以符合您要使用之 Azure 區域的 IP 位址。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到此資訊。
+本節中的範例會示範如何建立網路安全性群組規則，以允許 HDInsight 與 Azure 管理服務進行通訊。 使用範例之前，請調整 IP 位址以符合您要使用之 Azure 區域的 IP 位址。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
 ### <a name="azure-resource-management-template"></a>Azure 資源管理範本
 
@@ -329,14 +325,14 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 * [部署安全的 Azure 虛擬網路和 HDInsight Hadoop 叢集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]  
-> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到此資訊。
+> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 使用下列 PowerShell 指令碼建立限制輸入流量的虛擬網路，並允許來自北歐區域之 IP 位址的流量。
 
 > [!IMPORTANT]  
-> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到此資訊。
+> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
@@ -457,7 +453,7 @@ $vnet | Set-AzureRmVirtualNetwork
 2. 使用下列將規則新增至新的網路安全性群組，這些規則允許從 Azure HDInsight 健康狀態和管理服務透過連接埠 443 的輸入通訊。 將 **RESOURCEGROUPNAME** 取代為包含 Azure 虛擬網路的資源群組名稱。
 
     > [!IMPORTANT]  
-    > 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到此資訊。
+    > 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -606,7 +602,7 @@ $vnet | Set-AzureRmVirtualNetwork
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. 使用下列文字作為自訂 DNS 伺服器上 `/etc/bind/named.config.local` 檔案的內容。 在這兩個虛擬網路的自訂 DNS 伺服器上進行此變更。
+2. 使用下列文字作為自訂 DNS 伺服器上 `/etc/bind/named.config.local` 檔案的內容。 在這兩個虛擬網路的自訂 DNS 伺服器上進行這項變更。
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver

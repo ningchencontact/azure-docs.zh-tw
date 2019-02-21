@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1f71276c25e3ec1e5791d9b35f89aa95190c6afd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770579"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341942"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>使用 Azure 原則來限制 Linux VM 上的延伸模組安裝
 
@@ -28,7 +28,7 @@ ms.locfileid: "55770579"
 
 ## <a name="create-a-rules-file"></a>建立規則檔
 
-為了限制可安裝的延伸模組，您必須要有一個[規則](/azure/azure-policy/policy-definition#policy-rule)來提供識別延伸模組的邏輯。
+為了限制可安裝的延伸模組，您必須要有一個[規則](../../governance/policy/concepts/definition-structure.md#policy-rule)來提供識別延伸模組的邏輯。
 
 以下範例說明如何在 Azure Cloud Shell 中建立規則檔來拒絕安裝 'Microsoft.OSTCExtensions' 所發佈的延伸模組，但如果您是在本機 CLI 中運作，則也可以建立本機檔案，然後將路徑 (~/clouddrive) 取代成您電腦上該本機檔案的路徑。
 
@@ -69,7 +69,7 @@ vim ~/clouddrive/azurepolicy.rules.json
 
 ## <a name="create-a-parameters-file"></a>建立參數檔案
 
-您也需要一個[參數](/azure/azure-policy/policy-definition#parameters)檔，以建立供您用於傳遞要封鎖之延伸模組清單的結構。 
+您也需要一個[參數](../../governance/policy/concepts/definition-structure.md#parameters)檔，以建立供您用於傳遞要封鎖之延伸模組清單的結構。 
 
 以下範例說明如何在 Cloud Shell 中為 Linux VM 建立參數檔，但如果您是在本機 CLI 中運作，則也可以建立本機檔案，然後將路徑 (~/clouddrive) 取代成您電腦上該本機檔案的路徑。
 
@@ -171,6 +171,6 @@ az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-gr
 az policy definition delete --name 'not-allowed-vmextension-linux'
 ```
 
-
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱 [Azure 原則](../../azure-policy/azure-policy-introduction.md)。
+
+如需詳細資訊，請參閱 [Azure 原則](../../governance/policy/overview.md)。
