@@ -23,6 +23,6 @@ ms.locfileid: "39162323"
 
 當您準備好開始下一個教學課程時，便可重新啟動模擬裝置。
 
-如果您不再需要解決方案加速器，則請從 [已佈建的解決方案][](https://www.azureiotsolutions.com/Accelerators#dashboard) 頁面中刪除：
+如果您不再需要解決方案加速器，則請從 [已佈建的解決方案](https://www.azureiotsolutions.com/Accelerators#dashboard) 頁面中刪除：
 
 ![刪除解決方案](media/iot-accelerators-tutorial-cleanup/deletesolution.png)
