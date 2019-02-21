@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b569a021dab5e6008dc61af3af8168585c5edc1b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509316"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416236"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 從不同的部署模型連接虛擬網路
 
@@ -165,6 +165,8 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 
 ## <a name="creatermgw"></a>第 2 節 - 設定 RM VNet 閘道
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 先決條件會假設您已經建立 RM VNet。 在此步驟中，您會為 RM VNet 建立 VPN 閘道。 請在您已擷取傳統 VNet 閘道的公用 IP 位址之後，才開始下列步驟。 
 
 1. 在 PowerShell 主控台中登入您的 Azure 帳戶。 下列 Cmdlet 會提示您輸入 Azure 帳戶的登入認證。 登入之後，就會下載您的帳戶設定，以供 Azure PowerShell 使用。 您可以視需要使用 [試用] 功能，以在瀏覽器中啟動 Azure Cloud Shell。
@@ -172,18 +174,18 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   如果您使用 Azure Cloud Shell，請略過下列 Cmdlet：
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ``` 
   若要確認您是否使用正確的訂用帳戶，請執行下列 Cmdlet：  
 
   ```azurepowershell-interactive
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
    
   如果您有多個訂用帳戶，請指定您要使用的訂用帳戶。
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+  Select-AzSubscription -SubscriptionName "Name of subscription"
   ```
 2. 建立區域網路閘道。 在虛擬網路中，區域網路閘道通常是指您的內部部署位置。 在此例中，區域網路閘道會參考您的傳統 VNet。 賦予它一個可供 Azure 參考的名稱，並且指定位址空間前置詞。 Azure 會使用您指定的 IP 位址前置詞來識別要傳送至內部部署位置的流量。 如果您稍後需要先在此調整資訊，再建立您的閘道，您可以修改下列值並再次執行範例。
    
@@ -192,7 +194,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
    **-GatewayIpAddress** 是傳統 VNet 閘道的公用 IP 位址。 請務必變更下列範例文字 "n.n.n.n"，以反映正確的 IP 位址。<br>
 
   ```azurepowershell-interactive
-  New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
+  New-AzLocalNetworkGateway -Name ClassicVNetLocal `
   -Location "West US" -AddressPrefix "10.0.0.0/24" `
   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
   ```
@@ -201,7 +203,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   在此步驟中，我們也會設定用於後續步驟中的變數。
 
   ```azurepowershell-interactive
-  $ipaddress = New-AzureRmPublicIpAddress -Name gwpip `
+  $ipaddress = New-AzPublicIpAddress -Name gwpip `
   -ResourceGroupName RG1 -Location 'EastUS' `
   -AllocationMethod Dynamic
   ```
@@ -213,8 +215,8 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
    **-ResourceGroupName** 是與 VNet 相關聯的資源群組。 此閘道子網路必須已為此 VNet 存在且命名為 GatewaySubnet  ，才能正常運作。<br>
 
   ```azurepowershell-interactive
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
-  -VirtualNetwork (Get-AzureRmVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
+  $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
+  -VirtualNetwork (Get-AzVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
   ``` 
 
 6. 建立閘道器 IP 位址組態。 閘道器組態定義要使用的子網路和公用 IP 位址。 使用下列範例來建立閘道組態。
@@ -222,14 +224,14 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   在本步驟中，**-SubnetId** 和 **-PublicIpAddressId** 參數必須各自從子網路和 IP 位址物件傳遞識別碼屬性。 您無法使用簡單的字串。 這些變數設定於要求公用 IP 的步驟以及擷取子網路的步驟中。
 
   ```azurepowershell-interactive
-  $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
+  $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
   -Name gwipconfig -SubnetId $subnet.id `
   -PublicIpAddressId $ipaddress.id
   ```
 7. 透過執行下列命令建立 Resource Manager 虛擬網路閘道。 `-VpnType` 必須為 *RouteBased*。 閘道建立作業可能需要花費 45 分鐘以上的時間。
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
+  New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
   -Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
   -IpConfigurations $gwipconfig `
   -EnableBgp $false -VpnType RouteBased
@@ -237,7 +239,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 8. 一旦 VPN 閘道建立好後，複製公用 IP 位址 。 您會在進行傳統 VNet 的區域網路設定時用到它。 您可以使用下列 Cmdlet 來擷取公用 IP 位址。 公用 IP 位址會在傳回資料中列為 IpAddress 。
 
   ```azurepowershell-interactive
-  Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
+  Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
 ## <a name="localsite"></a>第 3 節 - 修改傳統 VNet 本機站台設定
@@ -274,14 +276,14 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   設定變數。
 
   ```azurepowershell-interactive
-  $vnet01gateway = Get-AzureRmLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
-  $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
+  $vnet01gateway = Get-AzLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
+  $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
   ```
    
   建立連線。 請注意，**-ConnectionType** 是 IPsec，而不是 Vnet2Vnet。
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
+  New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
   -Location "East US" -VirtualNetworkGateway1 `
   $vnet02gateway -LocalNetworkGateway2 `
   $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'

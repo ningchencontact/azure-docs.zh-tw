@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038005"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326920"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 系列：混合式雲端存放解決方案
 ## <a name="overview"></a>概觀
@@ -29,7 +29,7 @@ StorSimple 使用 [儲存體分層](#automatic-storage-tiering) 管理各種儲�
 
 除了儲存體管理外，StorSimple 資料保護功能可讓您建立依需求和排程的備份，然後將其儲存在本機或雲端中。 備份採用累加快照的形式，這表示建立及還原備份更快速。 雲端快照在災害復原案例中至關重要，因為這些快照會取代次要儲存體系統 (例如磁帶備份)，並讓您將資料還原到資料中心或在必要時還原至其他網站。
 
-![影片圖示](./media/storsimple-overview/video_icon.png) 觀賞 Microsoft Azure StorSimple 的快速簡介影片。
+![影片圖示](./media/storsimple-overview/video_icon.png)  觀賞 Microsoft Azure StorSimple 的快速簡介影片。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
@@ -92,7 +92,7 @@ StorSimple 裝置包括 SSD 和硬碟 HDD，並支援叢集和自動容錯移轉
 * 您可以在雲端中建立無限量的雲端設備，視需要將其開啟和關閉。
 * 可協助您模擬災害復原、開發和測試案例中的內部部署環境，並可協助從備份進行項目層級的擷取。
 
-StorSimple 雲端設備可在兩種機型中使用：8010 裝置 (先前稱為 1100 機型) 和 8020 裝置。 8010 裝置的最大容量為 30 TB。 利用 Azure 進階儲存體帳戶的 8020 裝置的最大容量為 64 TB。 (在本機層中，Azure 進階儲存體會將資料儲存在 SSD 上，而標準儲存體會將資料儲存在 HDD 上。)請注意，您必須具有 Azure 進階儲存體帳戶才能使用進階儲存體。 如需進階儲存體的詳細資訊，請移至 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../virtual-machines/windows/premium-storage.md)。
+StorSimple 雲端設備可在兩種機型中使用：8010 裝置 (先前稱為 1100 機型) 和 8020 裝置。 8010 裝置的最大容量為 30 TB。 利用 Azure 進階儲存體帳戶的 8020 裝置的最大容量為 64 TB。 (在本機層中，Azure 進階儲存體會將資料儲存在 SSD 上，而標準儲存體會將資料儲存在 HDD 上。)請注意，您必須具有 Azure 進階儲存體帳戶才能使用進階儲存體。
 
 如需 StorSimple 雲端設備的詳細資訊，請移至[部署和管理 Azure 中的 StorSimple 雲端設備](storsimple-8000-cloud-appliance-u2.md)。
 
@@ -207,10 +207,10 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 
 | 案例 | 工作負載 | 支援 | 限制 | 版本 |
 | --- | --- | --- | --- | --- |
-| 共同作業 |檔案共用 |是 | |所有版本 |
-| 共同作業 |分散式檔案共用 |是 | |所有版本 |
+| 共同作業 |檔案共用 |yes | |所有版本 |
+| 共同作業 |分散式檔案共用 |yes | |所有版本 |
 | 共同作業 |SharePoint |是* |只有使用固定在本機的磁碟區時才支援 |Update 2 和更新版本 |
-| 封存 |簡易檔案封存 |是 | |所有版本 |
+| 封存 |簡易檔案封存 |yes | |所有版本 |
 | 虛擬化 |虛擬機器 |是* |只有使用固定在本機的磁碟區時才支援 |Update 2 和更新版本 |
 | 資料庫 |SQL |是* |只有使用固定在本機的磁碟區時才支援 |Update 2 和更新版本 |
 | 視訊監視 |視訊監視 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 2 和更新版本 |
@@ -234,7 +234,7 @@ StorSimple 8000 系列裝置不支援下列工作負載。 如果部署於 StorS
 
 | 案例 | 工作負載 | 支援 | 限制 | 版本 |
 | --- | --- | --- | --- | --- |
-| 一般 |ExpressRoute |是 | |所有版本 |
+| 一般 |ExpressRoute |yes | |所有版本 |
 | 一般 |DataCore FC |是* |使用 DataCore SANsymphony 時支援 |所有版本 |
 | 一般 |DFSR |是* |只有使用固定在本機的磁碟區時才支援 |所有版本 |
 | 一般 |編製索引 |是* |階層式磁碟區，僅支援中繼資料索引 (無資料)。<br>針對固定在本機的磁碟區，支援完整索引。 |所有版本 |
