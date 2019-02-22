@@ -53,6 +53,7 @@ items:
       - name: Xamarin
         href: mobile-apps-with-xamarin.md
   - name: 2 - 遷移資料
+    displayName: import
     href: import-data.md
   - name: 3 - 查詢資料
     href: tutorial-query-sql-api.md
@@ -76,15 +77,16 @@ items:
     href: cli-samples.md
 - name: 概念
   items:
-  - name: 模型文件資料
-    href: modeling-data.md
   - name: 全球發佈
     items:
     - name: 概觀
+      displayName: replication, replicate, geo distribution
       href: distribute-data-globally.md
     - name: 一致性層級
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: consistency-levels.md
     - name: 選擇正確的一致性層級
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: consistency-levels-choosing.md
     - name: 一致性層級與 Azure Cosmos DB API
       href: consistency-levels-across-apis.md
@@ -93,8 +95,10 @@ items:
     - name: 高可用性
       href: high-availability.md
     - name: 全域調整佈建的輸送量
+      displayName: request units, RUs, RU
       href: scaling-throughput.md
     - name: 衝突類型和解決原則
+      displayName: last write wins, custom
       href: conflict-resolution-policies.md
     - name: 全域散發 - 運作原理
       href: global-dist-under-the-hood.md
@@ -111,26 +115,36 @@ items:
   - name: 佈建的輸送量
     items:
     - name: 要求單位
+      displayName: RUs, RU
       href: request-units.md
     - name: 在容器和資料庫中佈建輸送量
+      displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
       href: set-throughput.md
   - name: 使用 Azure Cosmos 帳戶
     href: account-overview.md
   - name: 容器和項目
     items:
     - name: 使用資料庫、容器和項目
+      displayName: collection, document
       href: databases-containers-items.md
     - name: SQL 語言參考
+      displayName: collection, document
       href: sql-api-query-reference.md
     - name: SQL 查詢範例
+      displayName: collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains
       href: how-to-sql-query.md
+    - name: 模型文件資料
+      displayName: document
+      href: modeling-data.md
     - name: 編製索引
       items:
       - name: 概觀
         href: index-overview.md
       - name: 索引原則
+        displayName: consistent, none
         href: index-policy.md
       - name: 索引類型
+        displayName: hash, range, spatial
         href: index-types.md
       - name: 索引路徑
         href: index-paths.md
@@ -143,8 +157,10 @@ items:
       - name: 變更摘要處理器
         href: change-feed-processor.md
       - name: 觸發 Azure Functions
+        displayName: change feed
         href: change-feed-functions.md
     - name: 存留時間
+      displayName: delete, delete data, ttl
       href: time-to-live.md
     - name: 唯一金鑰條件約束
       href: unique-keys.md
@@ -165,6 +181,7 @@ items:
     - name: 了解您的帳單
       href: understand-your-bill.md
     - name: 最佳化已佈建的輸送量成本
+      displayName: request units, RUs, RU
       href: optimize-cost-throughput.md
     - name: 最佳化查詢成本
       href: optimize-cost-queries.md
@@ -185,6 +202,7 @@ items:
     - name: 資料加密
       href: database-encryption-at-rest.md
     - name: 安全存取資料
+      displayName: master key, resource token, users, roles
       href: secure-access-to-data.md
     - name: IP 防火牆
       href: firewall-support.md
@@ -241,6 +259,7 @@ items:
         - name: Node.js 和 React 應用程式
           href: tutorial-develop-mongodb-react.md
       - name: 2 - 遷移資料
+        displayName: import
         href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - 查詢資料
         href: tutorial-query-mongodb.md
@@ -257,6 +276,7 @@ items:
       - name: 使用 Mongoose 連線
         href: mongodb-mongoose.md
       - name: 全域散發讀取
+        displayName: read preference
         href: mongodb-readpreference.md
       - name: 存留時間 - MongoDB
         href: mongodb-time-to-live.md
@@ -266,6 +286,7 @@ items:
         href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
         maintainContext: true
   - name: Gremlin API
+    displayName: graph, graph database
     items:
     - name: 簡介
       href: graph-introduction.md
@@ -323,6 +344,7 @@ items:
       - name: 3 - 查詢資料
         href: cassandra-api-query-data.md
       - name: 4 - 遷移資料
+        displayName: import
         href: cassandra-import-data.md
     - name: 使用說明指南
       items:
@@ -370,6 +392,7 @@ items:
       - name: 1 - 建立帳戶
         href: tutorial-develop-table-dotnet.md
       - name: 2 - 遷移資料
+        displayName: import
         href: table-import.md
       - name: 3 - 查詢資料
         href: tutorial-query-table.md
@@ -423,6 +446,7 @@ items:
     - name: 設定多重主機
       href: how-to-multi-master.md
     - name: 管理一致性層級
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: how-to-manage-consistency.md
     - name: 實作自訂同步處理
       href: how-to-custom-synchronization.md
@@ -431,8 +455,10 @@ items:
   - name: 佈建的輸送量
     items:
     - name: 佈建容器的輸送量
+      displayName: request units, RUs, RU, collection level
       href: how-to-provision-container-throughput.md
     - name: 佈建資料庫的輸送量
+      displayName: request units, RUs, RU, shared throughput, database level
       href: how-to-provision-database-throughput.md
   - name: 與容器和項目搭配運作
     items:
@@ -441,6 +467,7 @@ items:
     - name: 查詢容器
       href: how-to-query-container.md
     - name: 設定存留時間
+      displayName: delete, delete data, ttl
       href: how-to-time-to-live.md
     - name: 使用 Azure 儲存體總管處理資料
       href: storage-explorer.md
@@ -627,9 +654,9 @@ items:
       href: use-cases.md
     - name: 社交媒體應用程式
       href: social-media-apps.md
-ms.openlocfilehash: f2f061aebd996f62f793ba515f574c8a3748b87f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: f1f36d86466f93c0acac30364ba648391fb03095
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429106"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652513"

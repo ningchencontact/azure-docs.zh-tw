@@ -11,12 +11,6 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: fa2cce2314b3df0d9d32d9d8d6ede5a70520a7d4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647235"
 ---
 <div class="content">
    <h1>Azure 上的 Docker</h1>   
@@ -28,7 +22,7 @@ Docker 是常用的容器管理和映像處理平台，能讓您在 Linux 和 Wi
     </div>
 <h2>5 分鐘快速入門</h2>
 <p>了解如何部署 Azure 上的 Docker：</p>
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">在 Ubuntu 快速入門範本上部署 Docker</a><br/>
+<a href="https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/">在 Ubuntu 快速入門範本上部署 Docker</a><br/>
 <h2>逐步教學課程</h2>
 <p>了解如何在您的應用程式中使用 Docker，以及如何將 Docker 用於您 CI/CD 管線的一部分：</p>
 <ol>
