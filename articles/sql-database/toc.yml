@@ -467,7 +467,7 @@ items:
       href: sql-database-export.md
     - name: 資料同步
       items:
-      - name: 資料同步代理程式
+      - name: Data Sync Agent
         href: sql-database-data-sync-agent.md
       - name: 複寫結構描述變更
         href: sql-database-update-sync-schema.md

@@ -1,22 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 439ac4e49941e425601124f2209eb67faa74cd43
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f43db52a3fcfef17b56d5053b56e315e81fda27e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687159"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732580"
 documentType: LandingData
 title: 串流分析文件
 metadata:
   title: Azure 串流分析文件 - 教學課程和 API 參考
   meta.description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
   services: stream-analytics
-  author: jasonwhowell
+  author: mamccrea
   ms.author: mamccrea
-  manager: kfile
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 04/25/2018
+  ms.date: 12/06/2018
+  ms.custom: seodec18
 abstract:
   description: 了解如何利用串流分析 (完全受控的事件處理引擎)，在雲端執行物聯網 (IoT) 分析。 教學課程和其他文件會示範如何即時分析來自應用程式、感應器、裝置、社交媒體等的資料。
   aside:
@@ -25,7 +25,7 @@ abstract:
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: 透過 Azure 串流分析，在雲端和 IoT Edge 上啟用即時分析和 ML 模型。 (1:15:05)
+    title: 使用 Azure 串流分析進行即時分析和機器學習。 (1:15:05)
     href: https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor
     width: 250
 sections:
@@ -69,7 +69,7 @@ sections:
     - title: 預覽
       html: <p><a href="stream-analytics-previews#public-previews">公開預覽版</a></p><p><a href="stream-analytics-previews#private-previews">個人預覽版</a></p>
     - title: 命令列
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/?view=azurermps-6.8.1#stream_analytics">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.streamanalytics/#stream_analytics">Azure PowerShell</a></p>
     - title: 語言
       html: <p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p><p><a href="https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference">Stream Analytics 查詢語言</a></p>
     - title: REST

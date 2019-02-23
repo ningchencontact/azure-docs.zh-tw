@@ -1,6 +1,6 @@
 ---
-title: 適用於 Azure SQL 資料同步的資料同步代理程式 | Microsoft Docs
-description: 了解如何安裝及執行「適用於 Azure SQL 資料同步的資料同步代理程式」，以與內部部署 SQL Server 資料庫同步資料
+title: 適用於 Azure SQL Data Sync Agent 的 Data Sync Agent | Microsoft Docs
+description: 了解如何安裝及執行「適用於 Azure SQL Data Sync 的 Data Sync Agent」，以與內部部署 SQL Server 資料庫同步資料
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -19,20 +19,20 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2019
 ms.locfileid: "55567905"
 ---
-# <a name="data-sync-agent-for-azure-sql-data-sync"></a>適用於 Azure SQL 資料同步的資料同步代理程式
+# <a name="data-sync-agent-for-azure-sql-data-sync"></a>適用於 Azure SQL Data Sync 的 Data Sync Agent
 
-藉由安裝並設定「適用於 Azure SQL 資料同步的資料同步代理程式」，與內部部署 SQL Server 資料庫同步資料。如需有關「SQL 資料同步」的詳細資訊，請參閱[使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)。
+藉由安裝並設定「適用於 Azure SQL Data Sync 的 Data Sync Agent」，與內部部署 SQL Server 資料庫同步資料。如需有關「SQL 資料同步」的詳細資訊，請參閱[使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)。
 
 > [!IMPORTANT]
 > 「Azure SQL 資料同步」目前**不**支援「Azure SQL Database 受控執行個體」。
 
 ## <a name="download-and-install"></a>下載並安裝
 
-若要下載「資料同步代理程式」，請前往 [SQL Azure 資料同步代理程式](https://www.microsoft.com/download/details.aspx?id=27693)。
+若要下載 Data Sync Agent，請前往 [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693)。
 
 ### <a name="install-silently"></a>無訊息安裝
 
-若要從命令提示字元以無訊息方式安裝「資料同步代理程式」，請輸入類似以下範例的命令。 請檢查所下載 .msi 檔案的檔案名稱，然後提供您自己的 **TARGETDIR** 和 **SERVICEACCOUNT** 引數值。
+若要從命令提示字元以無訊息方式安裝 Data Sync Agent，請輸入類似以下範例的命令。 請檢查所下載 .msi 檔案的檔案名稱，然後提供您自己的 **TARGETDIR** 和 **SERVICEACCOUNT** 引數值。
 
 - 如果您未提供 **TARGETDIR** 的值，預設值將是 `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`。
 
@@ -46,7 +46,7 @@ msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\
 
 ## <a name="sync-data-with-sql-server-on-premises"></a>與內部部署 SQL Server 同步資料
 
-若要設定「資料同步代理程式」以便與一或多個內部部署 SQL Server 資料庫同步資料，請參閱[新增內部部署 SQL Server 資料庫](sql-database-get-started-sql-data-sync.md#add-on-prem)。
+若要設定 Data Sync Agent 以便與一或多個內部部署 SQL Server 資料庫同步資料，請參閱[新增內部部署 SQL Server 資料庫](sql-database-get-started-sql-data-sync.md#add-on-prem)。
 
 ## <a name="agent-faq"></a> 資料同步代理程式常見問題集
 
@@ -151,14 +151,14 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
     a. 選取 [開始]。  
     b. 在搜尋方塊中輸入 **services.msc**。  
     c. 在搜尋結果中，選取 [服務]。  
-    d. 在 [服務] 視窗中，捲動至 [SQL 資料同步代理程式] 的項目。  
-  1. 在 [SQL 資料同步代理程式] 上按一下滑鼠右鍵，然後選取 [停止]。
-  1. 在 [SQL 資料同步代理程式] 上按一下滑鼠右鍵，然後選取 [屬性]。
-  1. 在 [SQL 資料同步代理程式屬性] 上，選取 [登入] 索引標籤。
+    d. 在 [服務] 視窗中，捲動至 [SQL Data Sync Agent] 的項目。  
+  1. 在 [SQL Data Sync Agent] 上按一下滑鼠右鍵，然後選取 [停止]。
+  1. 在 [SQL Data Sync Agent] 上按一下滑鼠右鍵，然後選取 [屬性]。
+  1. 在 [SQL Data Sync Agent 屬性] 上，選取 [登入] 索引標籤。
   1. 在 [密碼] 方塊中，輸入您的密碼。
   1. 在 [確認密碼] 方塊中，重新輸入密碼。
   1. 選取 [套用]，然後選取 [確定]。
-  1. 在 [服務] 視窗中，以滑鼠右鍵按一下 [SQL 資料同步代理程式] 服務，然後按一下 [啟動]。
+  1. 在 [服務] 視窗中，以滑鼠右鍵按一下 [SQL Data Sync Agent] 服務，然後按一下 [啟動]。
   1. 關閉 [服務] 視窗。
 
 ### <a name="agent-key"></a> 我無法提交代理程式金鑰
@@ -220,9 +220,9 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
   1. 重新啟動 **SQL 資料同步**服務。  
   1. 重新開啟應用程式。
 
-## <a name="run-the-data-sync-agent-from-the-command-prompt"></a>從命令提示字元執行資料同步代理程式
+## <a name="run-the-data-sync-agent-from-the-command-prompt"></a>從命令提示字元執行 Data Sync Agent
 
-您可以從命令提示字元執行下列「資料同步代理程式」命令：
+您可以從命令提示字元執行下列 Data Sync Agent 命令：
 
 ### <a name="ping-the-service"></a>偵測服務
 

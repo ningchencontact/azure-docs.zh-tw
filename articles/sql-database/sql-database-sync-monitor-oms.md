@@ -205,7 +205,7 @@ ms.locfileid: "55561411"
     - 透過 PowerShell
         -  [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
--   資料同步代理程式 - [適用於 Azure SQL 資料同步的資料同步代理程式](sql-database-data-sync-agent.md)
+-   Data Sync Agent - [適用於 Azure SQL Data Sync Agent 的 Data Sync Agent](sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
 -   疑難排解 - [為 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 -   更新同步結構描述

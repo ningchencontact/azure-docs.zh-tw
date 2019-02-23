@@ -103,7 +103,7 @@ ms.locfileid: "55567922"
 
   如果您選擇 [建立新的代理程式]，請執行下列步驟：
 
-    1. 從提供的連結下載資料同步代理程式，並安裝在 SQL Server 所在的電腦上。 您也可以直接從 [SQL Azure 資料同步代理程式](https://www.microsoft.com/download/details.aspx?id=27693)下載代理程式。
+    1. 從提供的連結下載資料同步代理程式，並安裝在 SQL Server 所在的電腦上。 您也可以直接從 [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693) 下載代理程式。
 
       > [!IMPORTANT]
       > 您必須在防火牆開啟輸出 TCP 連接埠 1433，以讓用戶端代理程式和伺服器通訊。

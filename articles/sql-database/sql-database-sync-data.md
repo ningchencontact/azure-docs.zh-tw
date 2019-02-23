@@ -87,7 +87,7 @@ ms.locfileid: "55465311"
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>在 Azure 入口網站中設定資料同步
 
 - [設定 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
-- 資料同步代理程式 - [適用於 Azure SQL 資料同步的資料同步代理程式](sql-database-data-sync-agent.md)
+- Data Sync Agent - [適用於 Azure SQL Data Sync Agent 的 Data Sync Agent](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>使用 PowerShell 設定資料同步
 
