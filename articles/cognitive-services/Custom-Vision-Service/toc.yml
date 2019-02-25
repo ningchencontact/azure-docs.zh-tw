@@ -25,6 +25,12 @@ items:
       href: java-tutorial.md
     - name: 物件偵測
       href: java-tutorial-od.md
+  - name: 使用 Node.js SDK
+    items:
+    - name: 影像分類
+      href: node-tutorial.md
+    - name: 物件偵測
+      href: node-tutorial-object-detection.md
 - name: 教學課程
   items:
   - name: 適用於行動裝置的標誌偵測器
@@ -87,9 +93,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: 版本資訊
     href: release-notes.md
-ms.openlocfilehash: 963500c7df4cd3de39f23ce9e620893089050125
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 1a98bec35cf86f1d1edef33781cb053a8843b5c9
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652190"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749863"
