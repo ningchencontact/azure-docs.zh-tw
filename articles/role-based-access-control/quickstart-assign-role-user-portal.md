@@ -1,6 +1,6 @@
 ---
-title: 快速入門 - 使用 RBAC 與 Azure 入口網站為使用者授與存取權 | Microsoft Docs
-description: 使用角色型存取控制 (RBAC)，就由在 Azure 入口網站中指派角色來授與權限。
+title: 教學課程 - 使用 RBAC 與 Azure 入口網站為使用者授與 Azure 資源的存取權 | Microsoft Docs
+description: 了解如何在 Azure 入口網站中使用角色型存取控制 (RBAC) 為使用者授與 Azure 資源的存取權。
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -8,21 +8,27 @@ manager: mtillman
 editor: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: quickstart
+ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 11/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 74ecca671409b6e163bc0db29d66167d240b645c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092517"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341295"
 ---
-# <a name="quickstart-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>快速入門：使用 RBAC 與 Azure 入口網站為使用者授與存取權
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>教學課程：使用 RBAC 與 Azure 入口網站為使用者授與 Azure 資源的存取權
 
-角色型存取控制 (RBAC) 是您對 Azure 中的資源存取進行管理的機制。 在本快速入門中，您可以對使用者授與存取權，讓其在資源群組中建立和管理虛擬機器。
+[角色型存取控制 (RBAC)](overview.md) 是您對 Azure 資源存取進行管理的機制。 在本教學課程中，您可以對使用者授與存取權，讓其在資源群組中建立和管理虛擬機器。
+
+在本教學課程中，您了解如何：
+
+> [!div class="checklist"]
+> * 對使用者授與資源群組範圍的存取權
+> * 移除存取
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -38,7 +44,7 @@ ms.locfileid: "47092517"
 
    ![新增資源群組](./media/quickstart-assign-role-user-portal/resource-group.png)
 
-1. 在 [資源群組名稱] 中，輸入 **rbac-quickstart-resource-group**。
+1. 在 [資源群組名稱] 中，輸入 **rbac-resource-group**。
 
 1. 選取訂用帳戶和位置。
 
@@ -54,17 +60,19 @@ ms.locfileid: "47092517"
 
 在 RBAC 中，若要授與存取權，您可以建立角色指派。
 
-1. 在 [資源群組] 清單中，選擇新的 **rbac-quickstart-resource-group** 資源群組。
+1. 在 [資源群組] 清單中，選擇新的 **rbac-resource-group** 資源群組。
 
-1. 選擇 [存取控制 (IAM)]，以查看目前的角色指派清單。
+1. 選擇 [存取控制 (IAM)]。
+
+1. 選擇 [角色指派] 索引標籤，以查看目前的角色指派清單。
 
    ![資源群組的存取控制 (IAM) 刀鋒視窗](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. 選擇 [新增] 以開啟 [新增權限] 窗格。
+1. 選擇 [新增角色指派] 以開啟 [新增角色指派] 窗格。
 
-   如果您沒有指派角色的權限，就不會看到 [新增] 選項。
+   若您沒有指派角色的權限，[新增角色指派] 選項將會被停用。
 
-   ![新增權限窗格](./media/quickstart-assign-role-user-portal/add-permissions.png)
+   ![[新增角色指派] 窗格](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
 1. 在 [角色] 下拉式清單中選取 [虛擬機器參與者]。
 
@@ -72,7 +80,7 @@ ms.locfileid: "47092517"
 
 1. 選擇 [儲存] 以建立角色指派。
 
-   一會兒之後，使用者就會在 rbac-quickstart-resource-group 資源群組範圍內獲派「虛擬機器參與者」角色。
+   一會兒之後，使用者就會在 rbac-resource-group 資源群組範圍內獲派「虛擬機器參與者」角色。
 
    ![虛擬機器參與者角色指派](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
 
@@ -80,7 +88,7 @@ ms.locfileid: "47092517"
 
 在 RBAC 中，若要移除存取權，您可以移除角色指派。
 
-1. 在 [角色指派] 清單中，於具有「虛擬機器參與者」角色的使用者旁邊新增核取記號。
+1. 在 [角色指派] 清單中，在具有「虛擬機器參與者」角色的使用者旁邊新增核取記號。
 
 1. 選擇 [移除]。
 
@@ -92,18 +100,18 @@ ms.locfileid: "47092517"
 
 1. 在導覽清單中，選擇 [資源群組]。
 
-1. 選擇 **rbac-quickstart-resource-group** 以開啟資源群組。
+1. 選擇 **rbac-resource-group** 以開啟資源群組。
 
 1. 選擇 [刪除資源群組] 以刪除資源群組。
 
    ![刪除資源群組](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
-1. 在 [是否確定刪除] 刀鋒視窗中，輸入資源群組名稱：**rbac-quickstart-resource-group**。
+1. 在 [是否確定刪除] 刀鋒視窗中，輸入資源群組名稱：**rbac-resource-group**。
 
 1. 選擇 [刪除] 以刪除資源群組。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [教學課程 - 使用 RBAC 與 PowerShell 為使用者授與存取權](tutorial-role-assignments-user-powershell.md)
+> [教學課程：使用 RBAC 與 Azure PowerShell 為使用者授與 Azure 資源的存取權](tutorial-role-assignments-user-powershell.md)
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800939"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341944"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 受控應用程式概觀
 
@@ -73,7 +73,7 @@ Azure 受控應用程式可讓您提供雲端解決方案，讓取用者方便�
 
 ## <a name="azure-policy"></a>Azure 原則
 
-您可以將 [Azure 原則](../azure-policy/azure-policy-introduction.md)套用至您的受控應用程式。 您要套用原則，以確保受控應用程式的已部署執行個體符合資料和安全性需求。 如果您的應用程式與敏感性資料互動，請確定您已評估其保護方式。 例如，如果您的應用程式是與 Office 365 中的資料互動，則套用原則以確定資料加密已啟用。
+您可以將 [Azure 原則](../governance/policy/overview.md)套用至您的受控應用程式。 您要套用原則，以確保受控應用程式的已部署執行個體符合資料和安全性需求。 如果您的應用程式與敏感性資料互動，請確定您已評估其保護方式。 例如，如果您的應用程式是與 Office 365 中的資料互動，則套用原則以確定資料加密已啟用。
 
 ## <a name="next-steps"></a>後續步驟
 

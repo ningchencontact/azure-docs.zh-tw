@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure 入口網站編製索引和進行查詢的快速入門教學課程 - Azure 搜尋服務
-description: 在本快速入門教學課程中，會使用 Azure 入口網站和內建的範例資料在 Azure 搜尋服務中產生索引。 探索全文檢索搜尋、篩選器、面向、模糊搜尋、地理搜尋功能等等。
+description: 了解如何使用內建的資料範例以及在 Azure 入口網站中使用匯入資料精靈，以在 Azure 搜尋服務中建立及查詢您的第一個索引。
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991305"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270329"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>快速入門：使用內建入口網站工具進行 Azure 搜尋服務的匯入、編製索引和查詢
 
@@ -94,15 +94,17 @@ ms.locfileid: "55991305"
 
 儲存體需求不會因您的選擇而改變。 例如，如果您對多個欄位設定 [可擷取] 屬性，儲存體需求也不會因此而增加。
 
-根據預設，精靈會掃描資料來源中的唯一識別碼做為索引鍵欄位的基礎。 字串具有可擷取和可搜尋的特性。 整數具有可擷取、可篩選、可排序和可 Fact 處理的特性。
+根據預設，精靈會掃描資料來源中的唯一識別碼做為索引鍵欄位的基礎。 「字串」具有**可擷取**和**可搜尋**的特性。 「整數」具有**可擷取**、**可篩選**、**可排序**和**可 Fact 處理**的特性。
 
-1. 接受所有預設值。
+1. 接受預設值。 
 
-  ![產生的 realestate 索引](media/search-get-started-portal/realestateindex2.png)
+   如果您使用現有的 realestate 資料來源重新執行精靈第二次，系統將不會使用預設屬性來設定索引。 您必須以手動方式對未來的匯入選取屬性。
+
+   ![產生的 realestate 索引](media/search-get-started-portal/realestateindex2.png)
 
 2. 繼續進行下一頁。
 
-  ![下一頁：建立索引子](media/search-get-started-portal/next-button-create-indexer.png)
+   ![下一頁：建立索引子](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>步驟 4 - 設定索引子
 

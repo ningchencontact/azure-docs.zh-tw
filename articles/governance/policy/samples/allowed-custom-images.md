@@ -1,6 +1,6 @@
 ---
 title: 範例 - 已核准的 VM 映像
-description: 此範例原則會要求只能在環境中部署已核准的自訂映像。
+description: 此原則定義範例會要求只能在環境中部署已核准的自訂映像。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: e5b6b3e34f3c85d7fdc90f4f54acbbfac0d75061
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8134ca98fe190a161d940387926e6b3dfea2989c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243904"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337963"
 ---
-# <a name="approved-vm-images"></a>已核准的 VM 映像
+# <a name="sample---approved-vm-images"></a>範例 - 已核准的 VM 映像
 
 此原則會要求只能在環境中部署已核准的自訂映像。 您需指定已核准的映像識別碼陣列。
 

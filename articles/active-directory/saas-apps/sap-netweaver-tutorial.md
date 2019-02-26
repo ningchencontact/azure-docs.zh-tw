@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ad6ea26535190d2fc5798e1223c2196d3d5a5d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1fde586563c142690078a693970a9a24bd5cacb4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211133"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>教學課程：Azure Active Directory 與 SAP NetWeaver 整合
 
@@ -175,7 +175,14 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
     ![SAP NetWeaver 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<your company instance of SAP NetWeaver>`
+    d. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<your company instance of SAP NetWeaver>`
+
+    > [!NOTE]
+    > 我們注意到有少數客戶回報錯誤，指出我們為其執行個體設定的回覆 URL 不正確。 如果您收到任何這類錯誤，則可以使用下列 PowerShell 指令碼來加以解決，以便為您的執行個體設定正確的回覆 URL：
+    ```
+    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+    ``` 
+    > ServicePrincipal 物件識別碼可由您先自行設定，也可以先在此跳過。
 
 12. SAP NetWeaver 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
@@ -374,4 +381,3 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

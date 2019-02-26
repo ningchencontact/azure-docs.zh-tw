@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1724454ff67f6cfe3646b59e8302a3dd099081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217440"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301174"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>什麼是 Microsoft Authenticator 應用程式？
 當您使用雙因素驗證時，Microsoft Authenticator 應用程式可協助您登入帳戶。 雙因素驗證有助於您以更安全的方式存取帳戶，尤其是在檢視機密資訊時。 您有可能忘記密碼，或密碼有可能遭竊或遭到破解，而雙因素驗證可作為額外的安全性步驟，協助您保護帳戶而使他人難以入侵。
@@ -59,11 +59,11 @@ ms.locfileid: "56217440"
 ## <a name="who-decides-if-you-use-this-feature"></a>由誰決定是否使用這項功能？
 視帳戶類型之不同，您的組織可能會決定您必須使用雙因素驗證，或是您可以自行決定。
 
-- **公司或學校帳戶。** 如果您使用公司或學校帳戶 (例如 alain@contoso.com)，則會由您的組織決定您是否必須使用雙因素驗證，以及特定的驗證方法。 如需如何將公司或學校帳戶新增至 Microsoft Authenticator 應用程式的詳細資訊，請參閱[新增公司或學校帳戶](microsoft-authenticator-app-add-work-account.md)。
+- **公司或學校帳戶。** 如果您使用公司或學校帳戶 (例如 alain@contoso.com)，則會由您的組織決定您是否必須使用雙因素驗證，以及特定的驗證方法。 如需如何將公司或學校帳戶新增至 Microsoft Authenticator 應用程式的詳細資訊，請參閱[新增公司或學校帳戶](user-help-auth-app-add-work-school-account.md)。
 
-- **個人 Microsoft 帳戶。** 您可以選擇為個人 Microsoft 帳戶 (例如 alain@outlook.com) 設定雙因素驗證。 如需如何新增個人 Microsoft 帳戶的詳細資訊，請參閱 
+- **個人 Microsoft 帳戶。** 您可以選擇為個人 Microsoft 帳戶 (例如 alain@outlook.com) 設定雙因素驗證。 如需如何新增個人 Microsoft 帳戶的詳細資訊，請參閱[新增個人帳戶](user-help-auth-app-add-personal-ms-account.md)。
 
-- **非 Microsoft 帳戶。** 您可以選擇為非 Microsoft 帳戶 (例如 alain@gmail.com) 設定雙因素驗證。 您的非 Microsoft 帳戶可能並非使用雙因素驗證一詞，但您應可在 [安全性] 或 [登入] 設定中找到這項功能。 Microsoft Authenticator 應用程式適用於任何支援 TOTP 標準的帳戶。
+- **非 Microsoft 帳戶。** 您可以選擇為非 Microsoft 帳戶 (例如 alain@gmail.com) 設定雙因素驗證。 您的非 Microsoft 帳戶可能並非使用雙因素驗證一詞，但您應可在 [安全性] 或 [登入] 設定中找到這項功能。 Microsoft Authenticator 應用程式適用於任何支援 TOTP 標準的帳戶。 如需如何新增非 Microsoft 帳戶的詳細資訊，請參閱[新增非 Microsoft 帳戶](user-help-auth-app-add-non-ms-account.md)。
 
 ## <a name="in-this-section"></a>本節內容
 
@@ -71,7 +71,8 @@ ms.locfileid: "56217440"
 |------|------------|
 |[下載並安裝應用程式](user-help-auth-app-download-install.md)|說明應在何處及如何取得執行 Android 和 iOS 的裝置所適用的 Microsoft Authenticator 應用程式，並加以安裝。|
 |[新增公司或學校帳戶](user-help-auth-app-add-work-school-account.md)|說明如何將不同的公司或學校帳戶和個人帳戶新增至 Microsoft Authenticator 應用程式。|
-|[新增個人帳戶](user-help-auth-app-add-personal-ms-account.md)|說明如何將個人 Microsoft 和非 Microsoft 帳戶新增至 Microsoft Authenticator 應用程式。|
+|[新增個人帳戶](user-help-auth-app-add-personal-ms-account.md)|說明如何將個人 Microsoft 帳戶新增至 Microsoft Authenticator 應用程式。|
+|[新增非 Microsoft 帳戶](user-help-auth-app-add-non-ms-account.md)|說明如何將非 Microsoft 帳戶新增至 Microsoft Authenticator 應用程式。|
 |[手動新增帳戶](user-help-auth-app-add-account-manual.md)|說明您在無法掃描隨附的 QR 代碼時，如何以手動方式將帳戶新增至 Microsoft Authenticator 應用程式。|
 |[使用應用程式登入](user-help-auth-app-sign-in.md)|說明如何使用 Microsoft Authenticator 應用程式登入您不同的帳戶。|
 |[備份及復原帳戶認證](user-help-auth-app-backup-recovery.md)| 說明如何使用 Microsoft Authenticator 應用程式來備份和復原您的帳戶認證。|

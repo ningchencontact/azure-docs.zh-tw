@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 5e32968ae83ef826fbc8e81f1b04eca687642343
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 00b96b5bfa88a6c1c31d3415027ce1d4eda11e6b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637663"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339085"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色
 
@@ -73,17 +73,17 @@ Azure RBAC 是建置於 [Azure Resource Manager](../azure-resource-manager/resou
 | [讀取者](built-in-roles.md#reader) | <ul><li>檢視 Azure 資源</li></ul> | 適用於所有資源類型。 |
 | [使用者存取系統管理員](built-in-roles.md#user-access-administrator) | <ul><li>管理 Azure 資源的使用者存取</li></ul> |  |
 
-其餘的 RBAC 角色可以管理特定 Azure 資源。 例如，[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)角色可讓使用者建立和管理虛擬機器。 如需內建角色清單，請參閱[內建角色](built-in-roles.md)。
+其餘的 RBAC 角色可以管理特定 Azure 資源。 例如，[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)角色可讓使用者建立和管理虛擬機器。 如需內建角色清單，請參閱 [Azure 資源的內建角色](built-in-roles.md)。
 
 只有 Azure 入口網站和 Azure Resource Manager API 支援 RBAC。 獲派 RBAC 角色的使用者、群組和應用程式無法使用 [Azure 傳統部署模型 API](../azure-resource-manager/resource-manager-deployment-model.md)。
 
-在 Azure 入口網站中，使用 RBAC 的角色指派會出現在 [存取控制 (IAM)] 刀鋒視窗上。 在整個入口網站中都可以找到此刀鋒視窗，例如訂用帳戶、資源群組及各種資源。
+在 Azure 入口網站中，使用 RBAC 的角色指派會出現在 [存取控制 (IAM)] 刀鋒視窗上。 在整個入口網站中都可以找到此刀鋒視窗，例如管理群組、訂用帳戶、資源群組及各種資源。
 
-![Azure 入口網站中的存取控制 (IAM) 刀鋒視窗](./media/rbac-and-directory-admin-roles/access-control.png)
+![Azure 入口網站中的存取控制 (IAM) 刀鋒視窗](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
 當您按一下 [角色] 選項時，您會看到內建和自訂角色的清單。
 
-![Azure 入口網站中的內建角色](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Azure 入口網站中的內建角色](./media/rbac-and-directory-admin-roles/roles-list.png)
 
 ## <a name="azure-ad-administrator-roles"></a>Azure AD 管理員角色
 
@@ -95,7 +95,7 @@ Azure AD 管理員用來管理目錄中的 Azure AD 資源，例如建立或編�
 | [使用者管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>建立及管理使用者與群組的所有層面</li><li>管理支援票證</li><li>監視服務健康情況</li><li>變更使用者、技術支援中心管理員及其他使用者管理員的密碼</li></ul> |  |
 | [計費管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>進行購買</li><li>管理訂用帳戶</li><li>管理支援票證</li><li>監視服務健康狀態</li></ul> |  |
 
-如需所有 Azure AD 管理員角色的清單，請參閱[在 Azure Active Directory 中指派管理員角色](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)。
+如需所有 Azure AD 管理員角色的清單，請參閱 [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
 
 在 Azure 入口網站中，您可以在 [角色和管理員] 刀鋒視窗上看到 Azure AD 管理員角色清單。
 
@@ -122,6 +122,6 @@ Azure AD 管理員用來管理目錄中的 Azure AD 資源，例如建立或編�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [什麼是角色型存取控制 (RBAC)？](overview.md)
-- [在 Azure Active Directory 中指派系統管理員角色](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [新增或變更 Azure 訂用帳戶管理員](/azure/billing/billing-add-change-azure-subscription-administrator)
+- [什麼是 Azure 資源的角色型存取控制 (RBAC)？](overview.md)
+- [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [新增或變更 Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)

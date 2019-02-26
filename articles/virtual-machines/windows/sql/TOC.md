@@ -35,13 +35,16 @@
 ## 設定高可用性
 ### [使用 Azure 儲存體進行備份與還原](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### Always On 可用性群組
-#### [使用 Azure 入口網站範本](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [使用快速入門範本](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### [手動 - 必要條件](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [手動 - 教學課程](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [負載平衡器 - Azure 入口網站](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [負載平衡器 - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Azure 入口網站範本](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Azure 快速入門範本](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [多個區域嗎](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### 手動設定    
+##### [先決條件](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [教學課程](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [負載平衡器 - Azure 入口網站](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [負載平衡器 - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### 容錯移轉叢集執行個體
 #### [設定](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 

@@ -1,6 +1,6 @@
 ---
 title: 範例 - 稽核擴充功能是否不存在
-description: 此範例原則會稽核是否未搭配虛擬機器部署擴充功能。
+description: 此原則定義範例會稽核是否未搭配虛擬機器部署擴充功能。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7e5f396bb4acfdef0d49d38019b6c4d19661d9ae
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0c0f41c01d33add81508d828259ddcdd48d0cbc8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244176"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340870"
 ---
-# <a name="audit-if-extension-does-not-exist"></a>稽核擴充功能是否不存在
+# <a name="sample---audit-if-extension-does-not-exist"></a>範例 - 稽核擴充功能是否不存在
 
 此原則會稽核是否未搭配虛擬機器部署擴充功能。 您需指定擴充功能發行者和類型，以檢查是否已部署該擴充功能。
 

@@ -8,40 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: b7dbbc328f61b47cb89af2974ad3c428d868d465
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857119"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312390"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>快速入門：使用 REST API 和 Ruby 偵測影像中的人臉
 
-在本快速入門中，您會使用臉部 API 來偵測影像中的人臉。
+在本快速入門中，您將使用 Azure Face REST API 搭配 Ruby 來偵測影像中的人臉。
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要有訂用帳戶金鑰才能執行範例。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。
+- 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
+- 程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/download)。
 
-## <a name="face---detect-request"></a>Face - Detect 要求
+## <a name="write-the-script"></a>撰寫指令碼
 
-使用 [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 方法，偵測影像中的人臉並傳回臉部屬性，包括：
-
-* 臉部識別碼：數個臉部 API 案例中使用的唯一識別碼。
-* 臉部矩形：左側、頂端、寬度和高度，表示影像中臉部的位置。
-* 特徵點：27 點臉部特徵點陣列，指向臉部元件的重要位置。
-* 臉部屬性，包括年齡、性別、笑容程度、頭部姿勢以及臉部毛髮。
-
-若要執行範例，請執行下列步驟：
-
-1. 請將下列程式碼複製到編輯器中。
-1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
-1. 必要時，請將 `uri` 值變更為您取得訂用帳戶金鑰的位置。
-1. (選擇性) 將 `imageUri` 設為您想要分析的影像。
-1. 以 `.rb` 副檔名儲存檔案。
-1. 開啟 Ruby 命令提示字元並執行檔案，例如：`ruby myfile.rb`。
+建立新檔案 (faceDetection.rb)，並新增下列程式碼。 這會呼叫指定影像 URL 的人臉識別 API。
 
 ```ruby
 require 'net/http'
@@ -75,9 +62,19 @@ end
 puts response.body
 ```
 
-## <a name="face---detect-response"></a>Face - Detect 回應
+您將需要以訂用帳戶金鑰更新 `request['Ocp-Apim-Subscription-Key']` 值，而且可能需要變更 `uri` 字串，使其包含正確的區域識別碼 (請參閱[人臉識別 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 
 
-成功的回應會以 JSON 格式傳回，例如：
+您也可以變更 `imageUri` 欄位以指向您自己的輸入影像。 您也可以變更 `returnFaceAttributes` 欄位，以指定所要擷取的臉部屬性。
+
+## <a name="run-the-script"></a>執行指令碼
+
+使用下列命令來執行 Ruby 指令碼：
+
+```shell
+ruby faceDetection.rb
+```
+
+您應該會看到所偵測到臉部資料的 JSON 字串列印至主控台。 以下是成功 JSON 回應的範例。
 
 ```json
 [
@@ -260,7 +257,7 @@ puts response.body
 
 ## <a name="next-steps"></a>後續步驟
 
-探索臉部 API，此 API 可用來偵測影像中的人臉、使用矩形標定臉部，以及傳回例如年齡和性別等屬性。
+在本快速入門中，您已撰寫 Ruby 指令碼來呼叫 Azure 臉部 API，進而偵測影像中的臉部並傳回其屬性。 接下來，請瀏覽臉部 API 參考文件，以取得更多資訊。
 
 > [!div class="nextstepaction"]
-> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (英文)
+> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

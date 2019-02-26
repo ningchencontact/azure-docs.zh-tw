@@ -1,6 +1,6 @@
 ---
 title: 範例 - 允許的位置
-description: 此範例原則會要求將所有資源部署到已核准的位置。
+description: 此原則定義範例會要求將所有資源部署到已核准的位置。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a13f181e90f0435f23e22a7c4db42976bd0afb44
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 70e1b2b20c4846626121dec190dff220a154b81b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243541"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341346"
 ---
-# <a name="allowed-locations"></a>允許的位置
+# <a name="sample---allowed-region-locations"></a>範例 - 允許的區域位置
 
 此原則可讓您限制您的組織在部署資源時可指定的位置。 它可用來強制執行地理合規性需求。 排除資源群組、Microsoft.AzureActiveDirectory/b2cDirectories，以及使用「全球」區域的資源。 您需指定允許的位置陣列。
 

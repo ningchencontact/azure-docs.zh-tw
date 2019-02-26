@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41771db4ff674b2f0df941286358d3154034ea1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e6f1174351f0907ce2bef21324c7ba81c81498b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194354"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266708"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的條件式存取？
 
@@ -109,11 +109,7 @@ ms.locfileid: "56194354"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要深入了解：
-    - 條件，請參閱 [Azure Active Directory 條件式存取中的條件](conditions.md)。
+若要了解如何在環境中實作條件式存取，請參閱[在 Azure Active Directory 中規劃條件式存取部署](plan-conditional-access.md)。
 
-    - 存取控制，請參閱 [Azure Active Directory 條件式存取中的存取控制](controls.md)。
 
-- 如果您想要取得設定條件式存取原則的某些經驗，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)。
 
-- 如果您想要具有建議原則的逐步部署計劃，請參閱[條件式存取部署計劃](https://aka.ms/conditionalaccessdeploymentplan)

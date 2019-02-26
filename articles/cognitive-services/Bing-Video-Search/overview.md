@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: a7fbd9eb70c50f3bbd154726bdaa807c2bc41818
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863953"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267167"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>什麼是 Bing 影片搜尋 API？
 
@@ -29,7 +29,7 @@ Bing 影片搜尋 API 可讓您輕鬆地將影片搜尋功能新增至服務和�
 | [篩選及限制影片結果](concepts/get-videos.md#filtering-videos)                      | 藉由編輯查詢參數來篩選傳回的影片。                                                                                                       |
 | [裁剪縮圖及調整其大小，並加以顯示](resize-and-crop-thumbnails.md)                                                | 為 Bing 影片搜尋 API 所傳回的影片編輯及顯示縮圖預覽。                                                                                      |
 | [取得發燒影片](trending-videos.md) | 搜尋來自全球的發燒影片。                                                                                                          |
-| [取得影片深入解析](video-insights.md) | 自訂搜尋以尋找全球的趨勢影像。                                                                                                          |
+| [取得影片深入解析](video-insights.md) | 自訂搜尋以尋找全球的發燒影片。                                                                                                          |
 
 ## <a name="workflow"></a>工作流程
 

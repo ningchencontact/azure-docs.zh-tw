@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dc9d72afd14547a091acf64cea2c8f0bad75914
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234402"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267524"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本中使用的 Cloud Shell 部署方法
 
@@ -34,8 +34,6 @@ ms.locfileid: "56234402"
 > * 部署範本
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -156,6 +154,9 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
+    > [!NOTE]
+    > 在 Cloud shell 中使用 Azure PowerShell 時發生檔案 IO 問題。  錯誤訊息是「無法擷取此 Cmdlet 的動態參數。找不到路徑 'Azure:/azuredeploy.json'，因為該路徑不存在。  暫時的解決方法是不要在 `New-AzResourceGroupDeploy` 命令中包含 **-TemplateFile** 參數。 此命令會提示您輸入檔案名稱。
 
 8. 執行下列 PowerShell 命令，以列出新建立的虛擬機器：
 

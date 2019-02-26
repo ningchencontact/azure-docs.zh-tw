@@ -1,6 +1,6 @@
 ---
 title: 範例 - 稽核伺服器層級威脅偵測設定
-description: 此範例原則會稽核 SQL 資料庫安全性警示原則是否未設定成指定的狀態。
+description: 此原則定義範例會稽核 SQL 伺服器安全性警示原則是否未設定成指定的狀態。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,16 +8,16 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9e0ea3b65a4c442358c357e9603d607d8464c21b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ba694618bf86ef8e97241c955a40790960be2f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242170"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341363"
 ---
-# <a name="audit-server-level-threat-detection-setting"></a>稽核伺服器層級威脅偵測設定
+# <a name="sample---audit-server-level-threat-detection-setting"></a>範例 - 稽核伺服器層級威脅偵測設定
 
-此原則會稽核 SQL 資料庫安全性警示原則是否未設定成指定的狀態。 您需指定一個指出已啟用或停用威脅偵測的值。
+此原則會稽核 SQL 伺服器安全性警示原則是否未設定成指定的狀態。 您需指定一個指出已啟用或停用威脅偵測的值。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: 範例 - 套用標籤及其預設值
-description: 此範例原則會附加指定的標籤名稱與值 (如果未提供該標籤)。
+description: 此原則定義範例會附加指定的標籤名稱與值 (如果未提供該標籤)。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: ef044d5ccba706ebc0c7102414cb1e2b42b537cb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 989d09b3e4b576fa21156ec71485c54422c643b7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242153"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338219"
 ---
-# <a name="apply-tag-and-its-default-value"></a>套用標籤及其預設值
+# <a name="sample---apply-tag-and-its-default-value"></a>範例 - 套用標籤及其預設值
 
 此原則會附加指定的標籤名稱和值 (如果未提供該標籤)。 您需指定要套用的標籤名稱和值。
 

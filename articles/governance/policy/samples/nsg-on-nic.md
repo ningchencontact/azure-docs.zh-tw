@@ -1,6 +1,6 @@
 ---
 title: 範例 - 每個 NIC 上的 NSG x
-description: 此原則範例會要求搭配每個虛擬網路介面使用特定的網路安全性群組。
+description: 此原則定義範例會要求搭配每個虛擬網路介面使用特定的網路安全性群組。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 37701a2240f5b017efdbd051972952c9f0449d69
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: d297d296f8b33122ce2b8079c5ee6c79705bcc55
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245961"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342553"
 ---
-# <a name="nsg-x-on-every-nic"></a>對每個 NIC 使用 NSG X
+# <a name="sample---network-security-group-x-on-every-nic"></a>範例 - 每一個 NIC 上的網路安全性群組 X
 
 此原則會要求搭配每個虛擬網路介面使用特定的網路安全性群組。 您需指定要使用之網路安全性群組的識別碼。
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cdc7ef8ee991719153f6daed01fbb76f945a7a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e233de6f0909477e5033d2a0104f9165e86a9077
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194932"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 與 Workplace by Facebook 整合
 
@@ -143,31 +143,38 @@ ms.locfileid: "56194932"
 
 1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Workplace by Facebook 公司網站。
   
-   > [!NOTE]
-   > 為將參數傳遞給 Azure AD，Workplace 可利用大小最多 2.5 KB 的查詢字串，作為 SAML 驗證流程的一部分。
+    > [!NOTE]
+    > 為將參數傳遞給 Azure AD，Workplace 可利用大小最多 2.5 KB 的查詢字串，作為 SAML 驗證流程的一部分。
 
-2. 在 [Admin Panel] \(系統管理面板\) 中，依序移至 [Security] \(安全性\) 索引標籤和 [Authentication] \(驗證\)。
+2. 在 [管理面板] 中，移至 [安全性] 索引標籤。
 
-3. 在 [SAML 驗證] 下，從下拉式清單中選取 [僅限 SSO]。
+    ![管理面板](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-4. 將您從 Azure 入口網站的 [Workplace by Facebook 設定] 區段中複製的值輸入對應的欄位中：
+3. 在 [驗證] 索引標籤底下，選取 [單一登入 (SSO)]，然後執行下列步驟：
 
-    * 在 [SAML URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
-    * 在 [SAML 簽發者 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 **Azure AD 識別碼**值。
-    * 在 [SAML 登出重新導向] \(選擇性\) 中，貼上您從 Azure 入口網站複製的**登出 URL** 值。
-    * 在從 Azure 入口網站下載的記事本檔案中開啟您的 **base-64 編碼憑證**，將憑證的內容複製到剪貼簿，再貼到 [SAML 憑證] 文字方塊。
+    ![[驗證] 索引標籤](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-5. 您可能需要輸入 [基本 SAML 設定] 區段下所列的對象 URL、收件者 URL 和 ACS (判斷提示取用者服務) URL。
+    a. 在 [SAML URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
 
-6. 捲動到區段的底部，然後按一下 [測試 SSO] 按鈕。 快顯視窗中的這個結果隨即顯示，並會出現 Azure AD 登入頁面。 如往常輸入您的認證以進行驗證。
+    b. 在 [SAML 簽發者 URI] 文字方塊中，貼上您從 Azure 入口網站複製的 **Azure AD 識別碼**值。
+
+    c. 在 [SAML 登出重新導向] \(選擇性\) 中，貼上您從 Azure 入口網站複製的**登出 URL** 值。
+
+    d. 在從 Azure 入口網站下載的記事本檔案中開啟您的 **base-64 編碼憑證**，將憑證的內容複製到剪貼簿，再貼到 [SAML 憑證] 文字方塊。
+
+    e. 複製執行個體的 [對象 URL]，並將其貼入 Azure 入口網站上 [基本 SAML 設定] ****  區段中的 [識別碼 (實體識別碼)] **** 文字方塊內。
+
+    f. 複製執行個體的 [收件者 URL]，並將其貼入 Azure 入口網站上 [基本 SAML 設定] ****  區段中的 [登入 URL] **** 文字方塊內。
+
+    g. 捲動到區段的底部，然後按一下 [測試 SSO] 按鈕。 快顯視窗中的這個結果隨即顯示，並會出現 Azure AD 登入頁面。 如往常輸入您的認證以進行驗證。
 
     **疑難排解：** 確保從 Azure AD 傳回的電子郵件地址與您用來登入的 Workplace 帳戶相同。
 
-7. 一旦測試已順利完成後，捲動到頁面底部，然後按一下 [儲存] 按鈕。
+    h. 一旦測試已順利完成後，捲動到頁面底部，然後按一下 [儲存] 按鈕。
 
-8. 現在，使用 Workplace 的所有使用者都將會看到進行驗證的 Azure AD 登入頁面。
+    i. 現在，使用 Workplace 的所有使用者都將會看到進行驗證的 Azure AD 登入頁面。
 
-9. **SAML 登出重新導向 (選擇性)** -
+4. **SAML 登出重新導向 (選擇性)** -
 
     您可以選擇性地選擇設定 SAML 登出 URL，可用來指向 Azure AD 的登出頁面。 當啟用並設定此設定時，就不會再將使用者導向至 Workplace 登出頁面。 相反地，系統會將使用者重新導向至 [SAML 登出重新導向] 設定中所新增的 URL。
 

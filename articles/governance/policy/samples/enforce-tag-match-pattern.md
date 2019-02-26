@@ -1,6 +1,6 @@
 ---
 title: 範例 - 強制執行標記相符模式
-description: 此範例原則要求資源符合標記值的相符模式。
+description: 此原則定義範例要求資源必須符合標記值的相符模式。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f3e4246141a9d9de1a7d6451422e1e55a4c3545f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9510bb147a8eb9687e074191e8fcc404c847dc0a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244414"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342655"
 ---
-# <a name="enforce-tag-match-pattern-for-tag-values"></a>對標籤值強制執行 tag match 模式
+# <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>範例 - 對標記值強制執行標記相符模式
 
 要求標記值符合 match 模式。 在原則規則中指定允許的模式。
 

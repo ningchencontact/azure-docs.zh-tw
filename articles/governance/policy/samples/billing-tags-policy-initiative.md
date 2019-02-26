@@ -1,6 +1,6 @@
 ---
 title: 範例 - 計費標籤原則計畫
-description: 此範例原則集會要求針對成本中心和產品名稱使用指定的標籤值。
+description: 此原則定義集範例會要求針對成本中心和產品名稱使用指定的標籤值。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4592ac63561a59bfc0e4351cc5ad83f138955370
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b659d6f681b980b956992f0d488995fd1a55de93
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242850"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337590"
 ---
-# <a name="billing-tags-policy-initiative"></a>計費標籤原則計畫
+# <a name="sample---billing-tags-policy-initiative"></a>範例 - 計費標籤原則計畫
 
 此原則集會要求針對成本中心和產品名稱使用指定的標籤值。 使用內建的原則來套用及強制執行必要的標籤。 您需為標籤指定必要的值。
 

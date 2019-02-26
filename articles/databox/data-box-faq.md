@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077449"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268391"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -70,7 +70,7 @@ A.  若要取得 Azure 資料箱，請登入 Azure 入口網站並建立資料�
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>問： 我無法在 Azure 入口網站中建立資料箱訂單。 為什麼會這樣？
 A. 如果您無法建立資料箱訂單，問題可能與您的訂用帳戶類型或存取權限有關。 
 
-請檢查您的訂用帳戶。 資料箱僅適用於 Enterprise 合約 (EA)、雲端解決方案提供者 (CSP)，或隨用隨付訂用帳戶供應項目。 如果您的訂用帳戶不屬於上述任何一種類型，請連絡 Microsoft 支援服務以升級您的訂用帳戶。
+請檢查您的訂用帳戶。 資料箱僅適用於 Enterprise 合約 (EA) 和雲端解決方案提供者 (CSP) 訂用帳戶供應項目。 如果您的訂用帳戶不屬於上述任何一種類型，請連絡 Microsoft 支援服務以升級您的訂用帳戶。
 
 如果您的訂用帳戶有支援的供應項目類型，請檢查您的訂用帳戶存取層級。 您必須是訂用帳戶中的參與者或擁有者，才能建立訂單。
 

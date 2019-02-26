@@ -14,16 +14,14 @@ ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 979867e7630c21b0bd724967dbc79c5f8155ca5e
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7371808db8d40948f501b051692172fd6a84e2ac
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237173"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270210"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 了解如何從 Azure Key Vault 擷取祕密，並且在 Resource Manager 部署期間傳遞祕密作為參數。 您只參考其金鑰保存庫識別碼，因此該值絕不會公開。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](./resource-manager-keyvault-parameter.md)。
 
@@ -192,6 +190,9 @@ New-AzResourceGroupDeployment `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
+
+> [!NOTE]
+> 在 Cloud shell 中使用 Azure PowerShell 時發生檔案 IO 問題。  錯誤訊息是「無法擷取此 Cmdlet 的動態參數。找不到路徑 'Azure:/azuredeploy.json'，因為該路徑不存在。  暫時的解決方法是不要在 `New-AzResourceGroupDeploy` 命令中包含 **-TemplateFile** 和 **TemplateParameterFile** 參數。 此命令會提示您輸入檔案名稱。
 
 當您部署範本時，請使用相同的資源群組作為金鑰保存庫。 這可讓您更為輕鬆地清除資源。 您只需要刪除一個資源群組，而非兩個資源群組。
 

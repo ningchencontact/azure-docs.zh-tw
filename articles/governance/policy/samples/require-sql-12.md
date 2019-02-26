@@ -1,6 +1,6 @@
 ---
 title: 範例 - 需要 SQL Server 12.0 版
-description: 此範例原則會要求 SQL Server 使用 12.0 版。
+description: 此原則定義範例會要求 SQL Server 執行 12.0 版。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d00ff3554666ddbe6915882baa423da319b9f54a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 33fb78ed99bff0ccf035f68cfc2d23552a822df7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244202"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340615"
 ---
-# <a name="require-sql-server-version-120"></a>需要 SQL Server 12.0 版
+# <a name="sample---require-sql-server-version-120"></a>範例 - 需要 SQL Server 12.0 版
 
 此原則會要求 SQL Server 使用 12.0 版。
 

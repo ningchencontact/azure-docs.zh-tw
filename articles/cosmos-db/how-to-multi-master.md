@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: effe6fa942ce0cabace08e72dba90baf8646680e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118800"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312135"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中對應用程式設定多重主機
+# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>如何在使用 Azure Cosmos DB 的應用程式中設定多重主機
 
-若要在應用程式中使用多重主機功能，您必須在應用程式中啟用多區域寫入，並藉由設定應用程式目前部署所在的區域，來設定多路連接功能。
+若要在應用程式中使用多重主機功能，您必須啟用多區域寫入，並設定多路連接功能。 多路連接可藉由設定應用程式目前部署所在的區域來加以設定。
 
 ## <a id="netv2"></a>.NET SDK v2
 
-若要在應用程式中啟用多重主機，請將 `UseMultipleWriteLocations` 設定為 true，並將 `SetCurrentLocation` 設定為要在其中部署應用程式和複寫 Cosmos DB 的區域。
+若要在應用程式中啟用多重主機，請將 `UseMultipleWriteLocations` 設定為 true，並將 `SetCurrentLocation` 設定為要在其中部署應用程式和複寫 Azure Cosmos DB 的區域。
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy

@@ -1,6 +1,6 @@
 ---
 title: 範例 - 允許的虛擬網路閘道 SKU
-description: 此範例原則會要求虛擬網路閘道使用已核准的 SKU 和閘道類型。
+description: 此原則定義範例會要求虛擬網路閘道使用已核准的 SKU 和閘道類型。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 1a9f536f57db0de205a4782c21af2ec4892bbceb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b8df07d2ebb58cbdd290452a3a1297f49da95f1c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241932"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342638"
 ---
-# <a name="allowed-virtual-network-gateway-skus"></a>允許的虛擬網路閘道 SKU
+# <a name="sample---allowed-virtual-network-gateway-skus"></a>範例 - 允許的虛擬網路閘道 SKU
 
 此原則會要求虛擬網路閘道使用已核准的 SKU 和閘道類型。 您需指定已核准的 SKU 陣列和已核准的閘道類型陣列。
 

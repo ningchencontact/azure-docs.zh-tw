@@ -74,9 +74,9 @@ items:
       href: howto-configure-prerequisites-for-reporting-api.md
   - name: 監視
     items:
-    - name: 整合活動記錄與 Log Analytics
+    - name: 將活動記錄與 Azure 監視器記錄整合
       href: howto-integrate-activity-logs-with-log-analytics.md
-    - name: 分析活動記錄與 Log Analytics
+    - name: 分析 Azure 監視器記錄中的活動記錄
       href: howto-analyze-activity-logs-log-analytics.md
     - name: 安裝與使用適用於 Azure AD 的 Log Analytics 檢視
       href: howto-install-use-log-analytics-views.md
@@ -120,9 +120,9 @@ items:
     - name: 登入記錄的結構描述
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 9f5447c644d49c3c1919bb933762392b987b45f6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e14fac6ff115951ca46995d7973e919e6a774b8c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870129"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819372"

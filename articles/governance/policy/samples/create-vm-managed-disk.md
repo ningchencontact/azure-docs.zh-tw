@@ -1,6 +1,6 @@
 ---
 title: 範例 - 使用受控磁碟來稽核 VM
-description: 此 JSON 範例會稽核所建立的虛擬機器是否未使用受控磁碟。
+description: 此 JSON 定義範例會稽核所建立的虛擬機器是否未使用受控磁碟。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 30f143fa4ad8bd7e90cfafca8ea6eb276e70e28c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c2bdfb5bc855467be61065e93a932838b5782bee
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243428"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337096"
 ---
-# <a name="audit-when-vm-does-not-use-managed-disk"></a>在 VM 不使用受控磁碟時稽核
+# <a name="sample---audit-when-vm-does-not-use-managed-disk"></a>範例 - 在 VM 不使用受控磁碟時稽核
 
 稽核所建立的虛擬機器是否未使用受控磁碟。
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894168"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338592"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>教學課程：透過媒體服務 v3 使用 .NET 進行即時串流
 
@@ -126,7 +126,7 @@ ms.locfileid: "55894168"
 #### <a name="create-a-streaming-locator"></a>建立串流定位器
 
 > [!NOTE]
-> 建立媒體服務帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
+> 建立媒體服務帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用[動態封裝](dynamic-packaging-overview.md)和動態加密功能，您想要串流內容的串流端點必須處於**執行中**狀態。 
 
 當您已使用串流定位器發行即時輸出資產時，即時事件 (最長為 DVR 時段長度) 將繼續可檢視，直到串流定位器到期或遭到刪除，視孰者為早。
 

@@ -10,54 +10,38 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 09/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: b5959e014b7e531b8f52fcbe6f6492576eedd61a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c7ac631ded5d781b2d2949d65f6197e194521055
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875666"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268918"
 ---
 # <a name="what-is-bing-autosuggest"></a>什麼是 Bing 自動建議？
 
-如果您將查詢傳送給任何 Bing 搜尋 API，您可以使用 Bing 自動建議 API 來改善搜尋方塊體驗。 Bing 自動建議 API 會根據使用者在搜尋方塊中輸入的部分字串，傳回建議的查詢清單。 在搜尋方塊的下拉式清單中顯示建議。 建議字詞的根據是，其他使用者所搜尋過的建議查詢以及使用者意圖。
+如果應用程式將查詢傳送給任何 Bing 搜尋 API，您就可以使用 Bing 自動建議 API 來改善使用者的搜尋體驗。 Bing 自動建議 API 會根據搜尋方塊中的部分查詢字串，傳回建議的查詢清單。 隨著您在搜尋方塊中輸入字元，下拉式清單中便會顯示建議。
 
-一般來說，您會在每次使用者在搜尋方塊中鍵入新字元時，呼叫此 API。 查詢字串的完整性會影響 API 傳回之建議查詢字詞的相關性。 查詢字串越完整，建議之查詢字詞的相關性就越大。 例如，API 為 *s* 可能傳回的建議也許比查詢為 *sailing dinghies* 傳回的建議相關性較小。
+## <a name="bing-autosuggest-api-features"></a>Bing 自動建議 API 功能
 
-## <a name="getting-suggested-search-terms"></a>取得建議的搜尋字詞
+| 功能                                                                                                                                                                                 | 說明                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [即時建議搜尋字詞](concepts/get-suggestions.md) | 使用自動建議 API 隨著使用者的輸入顯示建議的搜尋字詞，以改善您的應用程式體驗。 |
 
-下列範例顯示針對 *sail* 傳回建議查詢字串的要求。 請記得在設定 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query) 查詢參數時，對使用者的部分查詢字詞進行 URL 編碼。 例如，如果使用者輸入「sailing les」，請將 `q` 設定為 `sailing+les` 或 `sailing%20les`。
+## <a name="workflow"></a>工作流程
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+Bing 自動建議 API 是一種 RESTful Web 服務，可輕易地從任何可發出 HTTP 要求及剖析 JSON 的程式設計語言呼叫。 
 
-下列回應會包含一份 [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) 物件清單，其中包含建議的查詢字詞。
+1. 建立具備 Bing 搜尋 API 存取權的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果您沒有 Azure 訂用帳戶，可以[建立免費帳戶](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)。
+2. 在每次使用者於應用程式的搜尋方塊中鍵入新字元時，傳送要求給這個 API。
+3. 剖析傳回的 JSON 訊息以處理 API 回應。
 
-```json
-{
-    "url" : "https:\/\/www.bing.com\/search?q=sailing+lessons+seattle&FORM=USBAPI",
-    "displayText" : "sailing lessons seattle",
-    "query" : "sailing lessons seattle",
-    "searchKind" : "WebSearch"
-}, ...
-```
+一般來說，您會在每次使用者於應用程式的搜尋方塊中鍵入新字元時，呼叫這個 API。 隨著更多字元的輸入，這個 API 會傳回更相關的建議搜尋查詢。 例如，比起 `sail`，API 為單一 `s` 傳回的建議可能會有較低的相關性。
 
-每個建議都包含 `displayText`、`query` 及 `url` 欄位。 `displayText` 欄位包含建議的查詢，您可以用來填入搜尋方塊的下拉式清單。 您必須依提供的順序顯示回應包含的所有建議。
-
-以下舉例說明下拉式搜尋方塊與建議的查詢字詞。
+下列範例顯示下拉式搜尋方塊與來自 Bing 自動建議 API 的建議查詢字詞。
 
 ![自動建議下拉式搜尋方塊清單](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-如果使用者從下拉式清單選取建議的查詢，您可以使用 `query` 欄位中的查詢字詞呼叫 [Bing Web 搜尋 API](../bing-web-search/search-the-web.md)，並自行顯示結果。 或者，您也可以改為使用 `url` 欄位中的 URL，將使用者傳送至 Bing 搜尋結果頁面。
-
-## <a name="throttling-requests"></a>節流要求
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+當使用者從下拉式清單中選取建議時，您可以使用其中一個 Bing 搜尋 API 以該建議開始進行搜尋，或直接移至 [Bing 搜尋結果] 頁面。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0236947e578d12ff24e5993d253ec5597c53272a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2a9c0cf36459a2d23b8af8f69937ab9ded7f9c04
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819819"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301497"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 和工具的概觀
 
@@ -69,7 +69,8 @@ ms.locfileid: "55819819"
 
 * [Azure 入口網站][portal]：您可以在 Azure 入口網站建立、監視和刪除 Batch 集區、作業和工作。 您可以在執行作業時檢視上述和其他資源的狀態資訊，甚至從您集區中的計算節點下載檔案。 例如，您可以在進行疑難排解時下載失敗的工作 `stderr.txt`。 您也可以下載可用來登入計算節點的遠端桌面 (RDP) 檔案。
 * [Azure Batch Explorer][batch_labs]：Batch Explorer (先前稱為 BatchLabs) 是一個免費且功能豐富的獨立用戶端工具，可協助您建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchExplorer/)。
-* [Microsoft Azure 儲存體總管][storage_explorer]：嚴格來說，雖然儲存體總管不算是 Azure Batch 工具，但卻是您開發和偵錯 Batch 解決方案時另一個很實用的工具。
+* [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard)：Batch Shipyard 這項工具可協助您在 Azure Batch 上佈建、執行和監視以容器為基礎的批次處理與 HPC 工作負載。
+* [Azure 儲存體總管][storage_explorer]：嚴格來說，雖然儲存體總管不算是 Azure Batch 工具，但卻是您開發和偵錯 Batch 解決方案時另一個很實用的工具。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -81,7 +82,6 @@ ms.locfileid: "55819819"
 * 請參閱 [適用於開發人員的 Batch 功能概觀](batch-api-basics.md)，這是任何準備使用 Batch 的人員不可或缺的資訊。 本文包含 Batch 服務資源 (例如集區、節點、作業和工作) 的詳細資訊，以及在建置 Batch 應用程式時可使用的許多 API 功能。
 * [開始使用適用於 .NET 的 Azure Batch 程式庫](tutorial-parallel-dotnet.md) ，了解如何使用 C# 和 Batch .NET 程式庫，透過一般的批次工作流程來執行簡單的工作負載。 也會提供 [Python 版本](tutorial-parallel-python.md)和 [Node.js 教學課程](batch-nodejs-get-started.md)。
 * 下載 [GitHub 上的程式碼範例][github_samples]，看看 C# 和 Python 如何與 Batch 相互作用，以排程和處理範例工作負載。
-
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch

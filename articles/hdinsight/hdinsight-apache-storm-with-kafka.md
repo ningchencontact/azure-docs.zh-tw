@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 44ad80732d1e874ccec4ecc376b9ce9b513a3aa9
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 341278237bc18bfbb8f4bb1e5d600e2cab894926
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652365"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343352"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
@@ -373,7 +373,7 @@ streams:
 | `kafka.broker.hosts` | Kafka 代理程式主機 (背景工作節點)。 |
 | `kafka.topic` | 拓撲所使用的 Kafka 主題。 |
 | `hdfs.write.dir` | Kafka 讀取器拓撲寫入的目標目錄。 |
-| `hdfs.url` | Storm 叢集所使用的檔案系統。 對於 Azure 儲存體帳戶，請使用 `wasb:///` 值。 對於 Azure Data Lake Storage，請使用 `adl:///` 值。 |
+| `hdfs.url` | Storm 叢集所使用的檔案系統。 對於 Azure 儲存體帳戶，請使用 `wasb:///` 值。 對於 Azure Data Lake Storage Gen2，請使用 `abfs:///` 值。 對於 Azure Data Lake Storage Gen1，請使用 `adl:///` 值。 |
 
 ## <a name="create-the-clusters"></a>建立叢集
 

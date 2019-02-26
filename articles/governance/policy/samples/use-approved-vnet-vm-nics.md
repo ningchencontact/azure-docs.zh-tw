@@ -1,6 +1,6 @@
 ---
 title: 範例 - 針對 VM 網路介面使用已核准的 vNet
-description: 此範例原則會要求網路介面使用已核准的虛擬網路。
+description: 此原則定義範例會要求網路介面使用已核准的虛擬網路。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 812ba3e5b8be19230f0a51820b28b279ede4a064
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 107074f6c173b33ce485aaaecf61ec50fb0d428b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243156"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341126"
 ---
-# <a name="use-approved-vnet-for-vm-network-interfaces"></a>針對 VM 網路介面使用已核准的 vNet
+# <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>範例 - 針對 VM 網路介面使用已核准的 vNet
 
 此原則會要求網路介面使用已核准的虛擬網路。 您需指定已核准之虛擬網路的識別碼。
 

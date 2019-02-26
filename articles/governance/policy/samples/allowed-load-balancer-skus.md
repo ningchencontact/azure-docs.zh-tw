@@ -1,6 +1,6 @@
 ---
 title: 範例 - 允許的負載平衡器 SKU
-description: 此範例原則會要求負載平衡器使用已核准的 SKU。
+description: 此原則定義範例會要求負載平衡器使用已核准的 SKU。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 6adebea6a6cce1844e413e460a06fd1a7eeb3a2a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b65761d0c325f46a54fc64d39c20f9d1e10ec412
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241949"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341874"
 ---
-# <a name="allowed-load-balancer-skus"></a>允許的負載平衡器 SKU
+# <a name="sample---allowed-load-balancer-skus"></a>範例 - 允許的負載平衡器 SKU
 
 此原則會要求負載平衡器使用已核准的 SKU。 您需指定允許的 SKU 陣列。
 

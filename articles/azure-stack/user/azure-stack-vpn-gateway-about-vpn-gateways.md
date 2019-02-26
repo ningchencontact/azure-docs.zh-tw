@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 62a0e763913ea1ca27edf88d7560c9400043bf27
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7bf7034d30a8aac187fb2eeae6569f2f495e4439
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251362"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327236"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>關於 Azure Stack 的 VPN 閘道
 
@@ -74,7 +74,7 @@ VPN 閘道連線有不同的組態可用。 決定哪個組態最符合您的需
 
 ### <a name="site-to-site"></a>網站間
 
-「網站間 (S2S)」 VPN 閘道連線是透過 IPsec/IKE (IKEv1 或 IKEv2) VPN 通道建立的連線。 此類型的連線需要位於內部部署的 VPN 裝置，而且具有指派的公用 IP 位址。 此裝置不能位於 NAT 後方。 S2S 連線可以用於跨單位與混合式組態。
+「網站間 (S2S)」 VPN 閘道連線是透過 IPsec/IKE (IKEv2) VPN 通道建立的連線。 此類型的連線需要位於內部部署的 VPN 裝置，而且具有指派的公用 IP 位址。 此裝置不能位於 NAT 後方。 S2S 連線可以用於跨單位與混合式組態。
 
 ![站對站 VPN 連線組態範例](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 

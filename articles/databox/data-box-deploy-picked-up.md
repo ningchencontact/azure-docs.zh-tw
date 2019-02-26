@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 02/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 5a72bfccd69a51aa6bafb34bb768b48640e554af
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 254ebb9e23a80f71d2c46e6666362d764ff03141
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243003"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341584"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>教學課程：送回 Azure 資料箱，並確認資料上傳至 Azure
 
@@ -42,9 +42,7 @@ ms.locfileid: "56243003"
 ## <a name="ship-data-box-back"></a>寄回資料箱
 
 1. 請確認裝置的電源已關閉，然後移除纜線。 纏繞裝置隨附的電源線，並將其安全地放在裝置背後。
-2. 如果裝置是在美國運送，請確定出貨標籤已顯示在電子墨水顯示器上，並安排貨運業者取貨。 如果標籤損毀、遺失或未顯示在電子筆墨顯示器上，請與 Microsoft 支援服務連絡。 若支援人員提出建議，則移至 Azure 入口網站中的 [概觀] > [下載出貨標籤]。 下載出貨標籤並貼在裝置上。
-
-    如果裝置是在歐洲運送，電子墨水顯示器不會顯示出貨標籤。 相反地，回寄出貨標籤會在正面出貨標籤底下的透明袋中。 移除舊的出貨標籤，並確定出貨標籤清楚可見。
+2. 請確定出貨標籤已顯示在電子筆墨顯示器上，並安排貨運業者取貨。 如果標籤損毀、遺失或未顯示在電子筆墨顯示器上，請與 Microsoft 支援服務連絡。 若支援人員提出建議，則移至 Azure 入口網站中的 [概觀] > [下載出貨標籤]。 下載出貨標籤並貼在裝置上。
     
 3. 如果要送回裝置，請安排由 UPS 取貨。 若要安排取貨，請電洽當地的 UPS (國家/地區特定的免付費電話號碼)，或將資料箱送至離您最近的集貨處。
 

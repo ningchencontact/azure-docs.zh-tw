@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435390"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308749"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 如果您使用 Azure Container Registry (ACR) 作為您的容器映像存放區，則必須對 AKS 叢集授與可讀取和提取映像的權限。 AKS 叢集的服務主體必須獲派登錄上的「讀者」角色。 如需詳細步驟，請參閱[對 AKS 授與 ACR 的存取權][aks-to-acr]。
 
-### <a name="networking"></a>網路
+### <a name="networking"></a>網路功能
 
 您可以使用進階網路功能，其中虛擬網路和子網路或公用 IP 位址都在另一個資源群組中。 指派下列一組角色權限：
 
@@ -128,11 +128,10 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 - 在 Kubernetes 叢集中的主要和節點 VM 上，服務主體認證會儲存在 `/etc/kubernetes/azure.json` 檔案中。
 - 當您使用 [az aks create][az-aks-create] 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/aksServicePrincipal.json` 檔案。
 - 當您刪除使用 [az aks create][az-aks-create] 建立的叢集時，不會刪除自動建立的服務主體。
-    - 若要刪除服務主體，請先使用 [az ad app list][az-ad-app-list] 取得服務主體的識別碼。 下列範例會查詢名為 myAKSCluster 的叢集，然後使用 [az ad app delete][az-ad-app-delete] 來刪除應用程式識別碼。 請以您自己的值取代這些名稱：
+    - 若要刪除服務主體，請查詢您的叢集 servicePrincipalProfile.clientId，然後使用 [az ad app delete][az-ad-app-delete] 來刪除。 請將下列資源群組和叢集名稱更換為您自己的值：
 
         ```azurecli
-        az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-        az ad app delete --id <appId>
+        az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
 ## <a name="next-steps"></a>後續步驟

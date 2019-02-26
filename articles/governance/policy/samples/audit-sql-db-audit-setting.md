@@ -1,6 +1,6 @@
 ---
 title: 範例 - 稽核 SQL DB 層級稽核設定
-description: 此範例原則會稽核 SQL 資料庫稽核設定是否與指定的設定不符。
+description: 此原則定義範例會稽核 SQL 資料庫稽核設定是否與指定的設定不符。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e9eae6d2b9768436eb838945af32df63be160bb8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e319886333a0270bc9535607a40d73944d1e78f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242697"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338184"
 ---
-# <a name="audit-sql-db-level-audit-setting"></a>稽核 SQL DB 層級稽核設定
+# <a name="sample---audit-sql-db-level-audit-setting"></a>範例 - 稽核 SQL DB 層級稽核設定
 
 此原則會稽核 SQL 資料庫稽核設定是否與指定的設定不符。 您需指定一個指出應啟用或停用稽核設定的值。
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0bd602ff6c6d42730439dac2b898899b07dcb2cc
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756864"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301446"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>教學課程：使用 Event Grid 自動調整已上傳映像的大小
 
@@ -27,7 +27,19 @@ ms.locfileid: "55756864"
 
 您可以使用 Azure CLI 與 Azure 入口網站，將調整大小功能加入現有的映像上傳應用程式。
 
-![Microsoft Edge 瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
+![瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+
+![瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+![瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 在本教學課程中，您了解如何：
 
@@ -46,10 +58,6 @@ ms.locfileid: "55756864"
 
 如果您先前未在訂用帳戶中註冊事件方格資源提供者，請務必註冊。
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
-```
-
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
 ```
@@ -62,33 +70,30 @@ az provider register --namespace Microsoft.EventGrid
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
-Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account create](/cli/azure/storage/account#az-storage-account-create) 命令，在資源群組中建立單獨的一般儲存體帳戶。
-
-儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 
-
-在下列命令中，使用您自己的一般儲存體帳戶全域唯一名稱來替代您看見 `<general_storage_account>` 預留位置的地方。 
+Azure Functions 需要一般的儲存體帳戶。 除了您在上一個教學課程所建立的 Blob 儲存體帳戶外，請再使用 [az storage account create](/cli/azure/storage/account) 命令，於資源群組中另外建立一般的儲存體帳戶。 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 
 
 1. 設定一個變數，用以保存您在上一個教學課程中建立的資源群組名稱。 
 
     ```azurecli-interactive
-    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    resourceGroupName=myResourceGroup
     ```
-2. 設定 Azure 函式所需的儲存體帳戶名稱的變數。 
+2. 針對 Azure Functions 所需新儲存體帳戶的名稱來設定變數。 
 
     ```azurecli-interactive
-    functionstorage=<name of the storage account to be used by function>
+    functionstorage=<name of the storage account to be used by the function>
     ```
-3. 建立 Azure 函式的儲存體帳戶。 此帳戶與包含映像的儲存體不同。 
+3. 建立 Azure 函式的儲存體帳戶。 
 
     ```azurecli-interactive
-    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    az storage account create --name $functionstorage --location southeastasia \
+    --resource-group $resourceGroupName --sku Standard_LRS --kind storage
     ```
 
 ## <a name="create-a-function-app"></a>建立函數應用程式  
 
-您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 使用 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 命令來建立函式應用程式。 
+您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 使用 [az functionapp create](/cli/azure/functionapp) 命令來建立函式應用程式。 
 
-在下列命令中，使用您自己唯一的函式應用程式名稱來替代您看見 `<function_app>` 預留位置的地方。 函式應用程式會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 以您所建立之一般儲存體帳戶的名稱替代 `<general_storage_account>`。
+在下列命令中，請提供您自己的唯一函式應用程式名稱。 函式應用程式會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 
 
 1. 指定要建立的函式應用程式名稱。 
 
@@ -98,29 +103,62 @@ Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account cre
 2. 建立 Azure 函式。 
 
     ```azurecli-interactive
-    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    az functionapp create --name $functionapp --storage-account $functionstorage \
+    --resource-group $resourceGroupName --consumption-plan-location southeastasia
     ```
 
 現在，您必須設定函式應用程式，才能連線到您在[上一個教學課程][previous-tutorial]中建立的 Blob 儲存體帳戶。
 
 ## <a name="configure-the-function-app"></a>設定函式應用程式
 
-此函式需要連接字串以連接到 Blob 儲存體帳戶。 您在下一個步驟中部署至 Azure 的函式程式碼會在應用程式設定 myblobstorage_STORAGE 中尋找連接字串，以及在應用程式設定 myContainerName 中尋找縮圖影像容器名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 命令設定應用程式設定。
+此函式需要 Blob 儲存體帳戶的認證，認證會使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 命令來新增至函式應用程式的應用程式設定。
 
-在下列 CLI 命令中，`<blob_storage_account>` 是您在上一個教學課程中建立之 Blob 儲存體帳戶的名稱。
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-1. 取得映像所屬儲存體帳戶的連接字串。 
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
 
-    ```azurecli-interactive
-    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
-    ```
-2. 設定函式應用程式。 
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails \
+THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
 
-    ```azurecli-interactive
-    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
-    ```
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
 
-    `FUNCTIONS_EXTENSION_VERSION=~2` 設定會讓函式應用程式在 2.x 版的 Azure Functions 執行階段上執行。
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString \
+THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+-n $blobStorageAccount --query [0].value --output tsv)
+
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails \
+AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey \
+AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+```
+
+---
+
+`FUNCTIONS_EXTENSION_VERSION=~2` 設定會讓函式應用程式在 2.x 版的 Azure Functions 執行階段上執行。
 
 您現在可以將函式程式碼專案部署到此函式應用程式。
 
@@ -128,23 +166,30 @@ Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account cre
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-範例 C# 指令碼 (.csx) 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/function-image-upload-resize) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 命令，將此函式程式碼專案部署至函式應用程式。 
-
-在下列命令中，`<function_app>` 是您先前建立的函式應用程式名稱。
+範例 C# 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/function-image-upload-resize) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 命令，將此程式碼專案部署至函式應用程式。 
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+
 範例 Node.js 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 命令，將此函式程式碼專案部署至函式應用程式。
 
-在下列命令中，`<function_app>` 是您先前建立的函式應用程式名稱。
+```azurecli-interactive
+az functionapp deployment source config --name $functionapp \
+--resource-group $resourceGroupName --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+```
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+範例 Node.js 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 命令，將此函式程式碼專案部署至函式應用程式。
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+az functionapp deployment source config --name $functionapp \
+--resource-group $resourceGroupName --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
 ---
 
@@ -152,10 +197,22 @@ az functionapp deployment source config --name <function_app> \
 
 從 Event Grid 通知傳遞給函式的資料包括 Blob 的 URL。 該 URL 接著會傳遞至輸入繫結，以從 Blob 儲存體獲取上傳的映像。 此函式會產生縮圖映像，並將產生的串流寫入 Blob 儲存體中的個別容器。 
 
-此專案使用 `EventGridTrigger` 作為觸發程序類型。 建議透過一般 HTTP 觸發程序使用 Event Grid 觸發程序。 Event Grid 會自動驗證 Event Grid 函式的觸發程序。 若要使用 HTTP 觸發程序，您必須實作[驗證回應](security-authentication.md#webhook-event-delivery)。
+此專案使用 `EventGridTrigger` 作為觸發程序類型。 建議透過一般 HTTP 觸發程序使用 Event Grid 觸發程序。 Event Grid 會自動驗證 Event Grid 函式的觸發程序。 若要使用 HTTP 觸發程序，您必須實作[驗證回應](security-authentication.md)。
 
-若要深入了解此函式，請參閱 [function.json 和 run.csx 檔案](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/imageresizerfunc)。
- 
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
+若要深入了解此函式，請參閱 [function.json 和 run.csx 檔案](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/ImageFunctions)。
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+
+若要深入了解此函式，請參閱 [function.json 和 index.js 檔案](https://github.com/Azure-Samples/storage-blob-resize-function-node/tree/master/Thumbnail)。
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+若要深入了解此函式，請參閱 [function.json 和 index.js 檔案](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail)。
+
+---
+
 函式專案程式碼會直接從公用範例存放庫部署。 若要深入了解 Azure Functions 的部署選項，請參閱[Azure Functions 的持續部署](../azure-functions/functions-continuous-deployment.md)。
 
 ## <a name="create-an-event-subscription"></a>建立事件訂閱
@@ -197,11 +254,25 @@ az functionapp deployment source config --name <function_app> \
 
 若要在 Web 應用程式中測試映像調整大小，請瀏覽至已發佈應用程式的 URL。 Web 應用程式的預設 URL 是 `https://<web_app>.azurewebsites.net`。
 
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
 按一下 [上傳相片] 區域，以選取並上傳檔案。 您也可以將相片拖曳到此區域。 
 
 請注意，上傳的映像消失之後，上傳映像的複本會顯示在 [產生縮圖] 浮動切換中。 此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
 
-![Microsoft Edge 瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+
+按一下 [選擇檔案] 來選取檔案，然後按一下 [上傳映像]。 上傳成功時，瀏覽器會瀏覽至成功頁面。 按一下連結以返回首頁。 所上傳映像的複本會顯示在 [產生縮圖] 區域中。 (如果映像一開始並未出現，請嘗試重新載入頁面)。此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
+
+![瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+按一下 [選擇檔案] 來選取檔案，然後按一下 [上傳映像]。 上傳成功時，瀏覽器會瀏覽至成功頁面。 按一下連結以返回首頁。 所上傳映像的複本會顯示在 [產生縮圖] 區域中。 (如果映像一開始並未出現，請嘗試重新載入頁面)。此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
+
+![瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b30e9da523e564f531ec8e9cebe5b16653e579f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858870"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312764"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>快速入門：使用 Face REST API 和 Node.js 偵測影像中的臉部
 
@@ -26,12 +26,21 @@ ms.locfileid: "55858870"
 ## <a name="prerequisites"></a>必要條件
 
 - 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
+- 程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="create-the-nodejs-script"></a>建立 Node.js 指令碼
+## <a name="set-up-the-node-environment"></a>設定 Node 環境
 
-下列程式碼會呼叫臉部 API，並從影像中取得臉部屬性資料。 首先，將程式碼複製到文字編輯器 &mdash; 您將需要進行一些變更，才能執行該程式碼。
+移至您想要建立專案的資料夾，並建立新的檔案 (facedetection.js)。 然後將 `requests` 模組安裝至這個專案。 這可讓您的指令碼發出 HTTP 要求。
 
-```nodejs
+```shell
+npm install request --save
+```
+
+## <a name="write-the-nodejs-script"></a>撰寫 Node.js 指令碼
+
+將下列程式碼貼入 facedetection.js。 這些欄位會指定連線到 Face 服務的方式，以及接收輸入資料的位置。 您將需要以訂用帳戶金鑰更新 `subscriptionKey` 欄位的值，而且可能需要變更 `uriBase` 字串，使其包含正確的區域識別碼 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 您可以變更 `imageUrl` 欄位以指向您自己的輸入影像。
+
+```javascript
 'use strict';
 
 const request = require('request');
@@ -46,7 +55,12 @@ const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/det
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+```
 
+然後，新增下列程式碼以呼叫人臉識別 API，並從輸入影像中取得臉部屬性資料。 `returnFaceAttributes` 欄位會指定要擷取的臉部屬性。 您可以根據您的用途來變更此字串。
+
+
+```javascript
 // Request parameters.
 const params = {
     'returnFaceId': 'true',
@@ -76,26 +90,12 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-### <a name="subscription-key"></a>訂用帳戶金鑰
-將 `<Subscription Key>` 換成您的有效 Face 訂用帳戶金鑰。
-
-### <a name="face-endpoint-url"></a>Face 端點 URL
-
-URL：`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` 會指出要查詢的 Azure Face 端點。 您可能需要變更此 URL 的第一個部分，以符合與您訂用帳戶金鑰對應的區域 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。
-
-### <a name="url-query-string"></a>URL 查詢字串
-
-`returnFaceAttributes` 欄位會指定要擷取的臉部屬性。 您可以根據您的用途來變更此字串。
-
-### <a name="image-source-url"></a>影像來源 URL
-`imageUrl` 欄位會指出要作為輸入使用的影像。 您可以將此欄位變更為指向任何您想要分析的影像。
-
 ## <a name="save-and-run-the-script"></a>儲存並執行指令碼
 
-進行變更之後，請將檔案儲存為 JavaScript (.js) 指令碼。 然後，開啟命令提示字元，並執行 `node` 命令。
+在進行變更後，請開啟命令提示字元並使用 `node` 命令執行檔案。
 
 ```
-node myfile.js
+node facedetection.js
 ```
 
 您應該會在主控台視窗中看到顯示為 JSON 資料的臉部資訊。 例如︰
@@ -281,7 +281,7 @@ node myfile.js
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已撰寫 cURL 命令來呼叫 Azure 臉部 API，進而偵測影像中的臉部並傳回其屬性。 接下來，請瀏覽臉部 API 參考文件，以取得更多資訊。
+在本快速入門中，您已撰寫 Node.js 指令碼來呼叫 Azure 臉部 API，進而偵測影像中的臉部並傳回其屬性。 接下來，請瀏覽臉部 API 參考文件，以取得更多資訊。
 
 > [!div class="nextstepaction"]
 > [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

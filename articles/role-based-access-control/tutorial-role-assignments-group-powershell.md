@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 使用 RBAC 與 Azure PowerShell 為群組授與存取權 | Microsoft Docs
-description: 透過 Azure PowerShell 使用角色型存取控制 (RBAC) 為群組授與在訂用帳戶中檢視任何項目以及管理資源群組中所有項目的存取權。
+title: 教學課程 - 使用 RBAC 與 Azure PowerShell 為群組授與 Azure 資源的存取權 |Microsoft Docs
+description: 了解如何使用角色型存取控制 (RBAC) 和 Azure PowerShell 為群組授與 Azure 資源的存取權。
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: ad6884067a756412efe27ce275387ff5ceb1b298
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7f080682baf42c5852e167a20bfbad7f00fe8bd3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105666"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343684"
 ---
-# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>教學課程：使用 RBAC 與 Azure PowerShell 為群組授與存取權
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>教學課程：使用 RBAC 與 Azure PowerShell 為群組授與 Azure 資源的存取權
 
-[角色型存取控制 (RBAC)](overview.md) 是您對 Azure 中的資源存取進行管理的機制。 在本教學課程中，您會使用 Azure PowerShell 為群組授與在訂用帳戶中檢視任何項目以及管理資源群組中所有項目的存取權。
+[角色型存取控制 (RBAC)](overview.md) 是您對 Azure 資源存取進行管理的機制。 在本教學課程中，您會使用 Azure PowerShell 為群組授與在訂用帳戶中檢視任何項目以及管理資源群組中所有項目的存取權。
 
 在本教學課程中，您了解如何：
 
@@ -70,7 +70,7 @@ ms.locfileid: "56105666"
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-如果您沒有建立群組的權限，您可以嘗試改用[教學課程：使用 RBAC 與 Azure PowerShell 為使用者授與存取權](tutorial-role-assignments-user-powershell.md)。
+如果您沒有建立群組的權限，您可以嘗試改用[教學課程：使用 RBAC 與 Azure PowerShell 為使用者授與 Azure 資源的存取權](tutorial-role-assignments-user-powershell.md)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -294,4 +294,4 @@ ms.locfileid: "56105666"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用 RBAC 和 PowerShell 來管理存取權](role-assignments-powershell.md)
+> [使用 RBAC 與 Azure PowerShell 管理 Azure 資源的存取權](role-assignments-powershell.md)

@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: c9c336b9aed06095849f33060ff6969e8b7bfcaf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881701"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309636"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>開始使用知識探索服務
 
@@ -228,7 +228,7 @@ ms.locfileid: "55881701"
 
 若要允許 `kes.exe` 存取 Azure 帳戶，請從 Azure 入口網站[下載 Azure 發行設定檔案](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade)。 如果出現提示，請登入所需的 Azure 帳戶。 將檔案儲存為 `kes.exe` 執行所在工作目錄中的 *AzurePublishSettings.xml*。
 
-建置並裝載大型索引有兩種方法。 第一種方法是在 Azure 中的 Windows VM 中準備結構描述和資料檔案。 接著，執行 [`kes.exe build_index`](#building-index) 以便在 VM 本機建置索引，沒有任何大小限制。 所產生的索引可以在 VM 本機使用 [`kes.exe host_service`](#hosting-service) 裝載以便快速進行原型設計，而且也沒有任何限制。 如需詳細步驟，請參閱 [Azure VM 教學課程](../../../articles/virtual-machines/windows/quick-create-portal.md)。
+建置並裝載大型索引有兩種方法。 第一種方法是在 Azure 中的 Windows VM 中準備結構描述和資料檔案。 接著，執行 `kes.exe build_index` 以便在 VM 本機建置索引，沒有任何大小限制。 所產生的索引可以在 VM 本機使用 `kes.exe host_service` 裝載以便快速進行原型設計，而且也沒有任何限制。 如需詳細步驟，請參閱 [Azure VM 教學課程](../../../articles/virtual-machines/windows/quick-create-portal.md)。
 
 第二種方法是使用 [`kes.exe build_index`](CommandLine.md#build_index-command) 搭配 `--remote` 參數，執行遠端 Azure 建置。 這樣會指定 Azure VM 大小。 指定 `--remote` 參數時，此命令會建立該大小的臨時 Azure VM。 接著，它會在該 VM 上建置索引、將索引上傳至目標 Blob 儲存體，然後在完成時刪除該 VM。 建置索引時，系統會向您的 Azure 訂用帳戶收取 VM 成本的費用。
 

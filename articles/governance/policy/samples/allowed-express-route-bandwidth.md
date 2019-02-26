@@ -1,6 +1,6 @@
 ---
 title: 範例 - 允許的 ExpressRoute 頻寬
-description: 此範例原則會要求 ExpressRoute 使用一組指定的頻寬。
+description: 此原則定義範例會要求 ExpressRoute 使用一組指定的頻寬。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fc98e9085844749153ee6f45466cc367eef2ffff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: eacd2dd7ddecba47d00ea09cb45f99e991bfd2dc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244738"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341601"
 ---
-# <a name="allowed-expressroute-bandwidth"></a>允許的 ExpressRoute 頻寬
+# <a name="sample---allowed-expressroute-bandwidth"></a>範例 - 允許的 ExpressRoute 頻寬
 
 此原則會要求 ExpressRoute 使用一組指定的頻寬。 您需指定可為 ExpressRoute 指定的 SKU 陣列。
 

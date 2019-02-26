@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 1911b851e4e219ec4c6d2d4872b75e9c18706feb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893318"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337556"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什麼是 Azure 媒體服務 v3？
 
@@ -62,7 +62,7 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 
 如需有關 Azure Resource Manager 命名的詳細資訊，請參閱：[命名需求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。
 
-## <a name="media-services-v3-api-design-principles"></a>媒體服務 v3 API 設計原則
+## <a name="v3-api-design-principles"></a>v3 API 設計原則
 
 v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 API 不會從**取得**或**列出**作業傳回秘密或認證。 回應中的金鑰一律為 Null、空白或處理過的。 您必須呼叫個別的動作方法，以取得秘密或認證。 在有些 API 會擷取/顯示秘密，而有些 API 不會的情況下，個別的動作可讓您設定不同的 RBAC 安全性權限。 如需如何使用 RBAC 管理存取權的相關資訊，請參閱[使用 RBAC 管理存取權](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)。
 
@@ -76,25 +76,20 @@ v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 API 不會從
 
 ## <a name="how-can-i-get-started-with-v3"></a>如何開始使用 v3？
 
-身為開發人員，您可以使用媒體服務 [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030)，或是可讓您與 REST API 互動的用戶端程式庫，輕鬆建立、管理及維護自訂媒體工作流程。 媒體服務 v3 API 是以 [OpenAPI 規格](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) 為基礎 (先前稱為 Swagger)。
+如需如何使用各種工具和 SDK，利用媒體服務 v3 API 開始進行開發的相關資訊，請參閱[開始開發](developers-guide.md)。
 
-[Azure 媒體服務總管](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) 是想要了解媒體服務的 Windows 客戶可用的工具。 AMSE 是 Winforms/C# 應用程式，可利用媒體服務上傳、下載、編碼、串流 VOD 和即時內容。 AMSE 工具適用於想要測試媒體服務，而不要撰寫任何程式碼的用戶端。 AMSE 程式碼會當作資源提供給想要使用媒體服務開發的客戶。
+## <a name="v3-content-map"></a>v3 內容對應
 
-AMSE 是一個開放原始碼專案，由社群提供支援 (可將問題回報給 https://github.com/Azure/Azure-Media-Services-Explorer/issues)。 此專案採用 [Microsoft 開放原始碼管理辦法](https://opensource.microsoft.com/codeofconduct/)。 如需詳細資訊，請參閱[管理辦法常見問題集](https://opensource.microsoft.com/codeofconduct/faq/)，如有任何其他問題或意見請連絡 opencode@microsoft.com。
- 
-Azure 媒體服務支援下列用戶端程式庫： 
+媒體服務 v3 內容會根據下列結構 (也會反映在目錄中) 來組織：
 
-|API 參考|SDK/工具|範例|
-|---|---|---|---|
-|[REST 參考](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[REST Postman 範例](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[以 Azure Resource Manager 為基礎的 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Azure CLI 參考](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI 範例](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
-|[.NET 參考](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
-||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (選擇 [.NET CLI] 索引標籤)|[.NET Core 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
-|[Java 參考](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
-|[Node.js 參考](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js 範例](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
-|[Python 參考](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
-|[Go 參考](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
-|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+|章節| 說明|
+|---|---|
+| 概觀 | 說明媒體服務的功能以及您可以使用該服務進行哪些工作。|
+| 快速入門 | 顯示第 1 天的基本指示，讓新客戶快速試用媒體服務。|
+| 教學課程 | 顯示某些常用媒體服務工作的案例式程序。|
+| 範例 | 程式碼範例的連結。 |
+| 概念 | 包含媒體服務 v3 功能和圖表的深入說明。 請先檢閱這些主題所述的基本概念再開始進行開發。<br/><br/>* 雲端上傳和儲存體<br/>* 編碼<br/>* 媒體分析<br/>* 封裝、傳遞、保護<br/>* 即時資料流<br/>* 連續監視<br/>* 播放機用戶端<br/><br/>不勝枚舉。 |
+| 使用說明指南 | 示範如何完成工作。|
 
 ## <a name="next-steps"></a>後續步驟
 

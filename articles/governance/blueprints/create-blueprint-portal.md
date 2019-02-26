@@ -1,6 +1,6 @@
 ---
 title: 在入口網站中建立藍圖
-description: Azure 藍圖可用來建立、定義和部署成品。
+description: 使用 Azure 藍圖可透過 Azure 入口網站建立、定義和部署成品。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0a41f038595524a9ffaa5134ca2fe53fc0ae83af
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566307"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338371"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>在入口網站中定義和指派 Azure 藍圖
 

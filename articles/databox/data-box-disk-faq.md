@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 68bc3302874849a69249a50dcecd46024ad939ef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 007c63c163b6e972bd59189569c92c99d2718cbe
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448324"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301480"
 ---
 # <a name="what-is-azure-data-box-disk"></a>什麼是 Azure 資料箱磁碟？
 
@@ -131,6 +131,9 @@ A. 資料箱磁碟隨附的工具組包含三項工具：
 工具組則同時適用於 Windows 和 Linux。 您可以從下列位置下載工具組：
  - [下載適用於 Windows 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolswin) 
  - [下載適用於 Linux 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolslinux)
+ 
+ ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>問： 是否可以使用資料箱磁碟將資料傳輸至 Azure 檔案儲存體，然後再搭配 Azure 檔案同步來使用資料？ 
+ A. 資料箱磁碟不支援 Azure 檔案儲存體。 如果檔案資料稍後會搭配 Azure 檔案同步來使用，則中繼資料也不會保留下來。
 
 
 ## <a name="verify-and-upload"></a>確認和上傳

@@ -10,25 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 02/14/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c2684c7373d9ee4536b248650c7012c261166b81
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 37d84206246e60ed16244d6172a5e22ca18524c9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235388"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270244"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>快速入門：使用 Visual Studio Code 建立 Azure Resource Manager 範本
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 了解如何使用 Visual Studio Code 和 Azure Resource Manager Tools 擴充功能來建立及編輯 Azure Resource Manager 範本。 不需使用擴充功能，即可在 Visual Studio Code 中建立 Resource Manager 範本，但擴充功能會提供可簡化範本開發的自動完成選項。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -54,6 +50,7 @@ ms.locfileid: "56235388"
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. 選取 [開啟] 以開啟檔案。
 4. 選取 [檔案]>[另存新檔]，在您的本機電腦上將檔案另存為 **azuredeploy.json**。
 
@@ -94,6 +91,9 @@ ms.locfileid: "56235388"
 ## <a name="deploy-the-template"></a>部署範本
 
 有許多方法可用來部署範本。  在本快速入門中，您會使用 Azure Cloud Shell。 Cloud Shell 是 Web 應用程式，無需任何設定。 其支援 Azure CLI 和 Azure PowerShell。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 1. 登入 [Azure Cloud Shell](https://shell.azure.com)
 
@@ -148,7 +148,10 @@ ms.locfileid: "56235388"
     
     ---
 
-    如果您將檔案儲存為 **azuredeploy.json** 以外的名稱，請更新範本檔名。
+    > [!NOTE]
+    > 在 Cloud shell 中使用 Azure PowerShell 時發生檔案 IO 問題。  錯誤訊息是「無法擷取此 Cmdlet 的動態參數。找不到路徑 'Azure:/azuredeploy.json'，因為該路徑不存在。  暫時的解決方法是不要在 `New-AzResourceGroupDeploy` 命令中包含 **-TemplateFile** 參數。 此命令會提示您輸入檔案名稱。
+
+    如果您將檔案儲存為 **azuredeploy.json** 以外的名稱，請更新範本檔名。 
 
     下列螢幕擷取畫面顯示範例部署：
 

@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691552"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268120"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 
 Azure Resource Manager 是 Azure 的部署和管理服務。 其提供一致的管理層，可讓您建立、更新和刪除您 Azure 訂用帳戶中的資源。 您可以使用其存取控制、稽核和標記功能，在部署後保護及組織您的資源。
 
-當您透過入口網站、PowerShell、Azure CLI、REST API 或用戶端 SDK 採取動作時，Azure Resource Manager API 會處理您的要求。 因為所有要求都是透過相同的 API 來處理，所以您會在所有不同工具中看到一致的結果和功能。
+當您透過入口網站、PowerShell、Azure CLI、REST API 或用戶端 SDK 採取動作時，Azure Resource Manager API 會處理您的要求。 因為所有要求都是透過相同的 API 來處理，所以您會在所有不同工具中看到一致的結果和功能。 透過 PowerShell、Azure CLI、REST API 和用戶端 SDK 也可以使用入口網站中的所有可用功能。 一開始透過 API 發行的功能將會在初次發行的 180 天內呈現在入口網站中。
 
 下圖顯示這些工具如何與 Azure Resource Manager API 互動。 API 將要求傳遞給 Resource Manager 服務，由其驗證和授權要求。 然後，Resource Manager 將要求路由傳送到適當的服務。
 

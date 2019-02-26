@@ -1,5 +1,5 @@
 ---
-title: 建立原則，以便使用 Azure CLI 識別不相容資源
+title: 使用 Azure CLI 為不相容的資源建立原則
 description: 使用 Azure CLI 建立 Azure 原則指派，以識別不相容資源。
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3b4f71e420c0d80594193f27739fd120881247d4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1f80171e8987f92688d564713e29fbfe2e103335
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856225"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342179"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>建立原則指派，以便使用 Azure CLI 識別不相容資源
 
@@ -73,7 +73,7 @@ $policyAssignment.PolicyAssignmentId
 
 接下來，執行下列命令，以取得不合規資源的資源識別碼，而這些識別碼會輸出到 JSON 檔案中：
 
-```
+```console
 armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 

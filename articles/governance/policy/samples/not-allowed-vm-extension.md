@@ -1,6 +1,6 @@
 ---
 title: 範例 - 不允許的 VM 延伸模組
-description: 此範例原則會禁止使用指定的擴充功能。
+description: 此原則定義範例會禁止在虛擬機器上使用指定的擴充功能。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3c92acb72603812797b77a378cdd747147b942eb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c600b6d91260b892f9d2c09a21b14fe1b3f38886
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245332"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341433"
 ---
-# <a name="not-allowed-vm-extensions"></a>不允許的 VM 擴充功能
+# <a name="sample---not-allowed-vm-extensions"></a>範例 - 不允許的 VM 延伸模組
 
 禁止使用指定的擴充功能。 您需指定一個包含所禁止擴充功能類型的陣列。
 

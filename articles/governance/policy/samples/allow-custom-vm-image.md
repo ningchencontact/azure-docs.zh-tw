@@ -1,6 +1,6 @@
 ---
 title: 範例 - 允許來自某個資源群組的自訂 VM 映像
-description: 此範例原則會要求自訂映像必須來自某個已核准的資源群組。
+description: 此原則定義範例會要求自訂映像必須來自某個已核准的資源群組。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: c1afedf9d3c3ebb68d4c5344cd8795851e2bd10a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 2fe72b6f13c1bda6978a541d3665a8389ee6fa59
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242051"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340904"
 ---
-# <a name="allow-custom-vm-image-from-a-resource-group"></a>允許來自某個資源群組的自訂 VM 映像
+# <a name="sample---allow-custom-vm-image-from-a-resource-group"></a>範例 - 允許來自某個資源群組的自訂 VM 映像
 
 此範例原則會要求自訂映像必須來自某個已核准的資源群組。 您需指定已核准之資源群組的名稱。
 

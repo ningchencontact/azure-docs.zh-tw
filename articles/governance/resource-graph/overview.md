@@ -8,12 +8,12 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 6b3bad4e4619f8909f5c6d71111b4fad9ddb3098
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 31b9405b7d4141890d786ab3d1cb70d11ef0c1b3
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813274"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267949"
 ---
 # <a name="what-is-azure-resource-graph"></a>何謂 Azure Resource Graph
 
@@ -38,7 +38,7 @@ Azure Resource Manager 目前會將資料傳送到啟用數個資源欄位 (即�
 
 現在您已更加了解 Azure Resource Graph，讓我們繼續深入了解如何建構查詢。
 
-了解 Azure Resource Graph 的查詢語言是以 [Azure 資料總管查詢語言](../../data-explorer/data-explorer-overview.md)為基礎非常重要。
+請務必了解，Azure Resource Graph 的查詢語言是以 Azure 資料總管所使用的 [Kusto 查詢語言](../../data-explorer/data-explorer-overview.md)為基礎的。
 
 首先，如需可搭配 Azure Resource Graph 使用的作業及函式詳細資料，請參閱 [Resource Graph 查詢語言](./concepts/query-language.md)。 若要瀏覽資源，請參閱[探索資源](./concepts/explore-resources.md)。
 

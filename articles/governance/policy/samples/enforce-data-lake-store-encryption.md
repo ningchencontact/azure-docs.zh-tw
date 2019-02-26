@@ -1,6 +1,6 @@
 ---
 title: 範例 - 要求 Data Lake Store 加密
-description: 此範例原則會要求 Data Lake Store 加密。
+description: 此原則定義範例需要啟用 Data Lake Store 加密。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 557198fcdc2c191986cedf4b384e0bf117dfa86d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e4de4c78bec9f4ffa6c4e2711a2d4260279ca559
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241677"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340598"
 ---
-# <a name="require-data-lake-store-encryption"></a>要求 Data Lake Store 加密
+# <a name="sample---require-data-lake-store-encryption"></a>範例 - 需要 Data Lake Store 加密
 
 此內建原則會拒絕任何未啟用加密的 Data Lake Store 帳戶。
 

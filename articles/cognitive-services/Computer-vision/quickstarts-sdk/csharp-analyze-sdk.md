@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3b6bb2ae0bcae869436eb54376b9792d8d4ccb0e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4af3e175c334c082e4520343d6c8ad3a62db431d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878267"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308990"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>快速入門：使用電腦視覺 SDK 和 C# 來分析影像
 
-在本快速入門中，您使用電腦視覺 Windows 用戶端程式庫，來分析要擷取視覺功能的本機與遠端影像。
+在本快速入門中，您會使用 C# 電腦視覺用戶端程式庫，來分析要擷取視覺功能的本機與遠端影像。 如果您想要的話，也可以從 GitHub 上的 [Cognitive Services Csharp Vision](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 存放庫下載本指南中的程式碼，來作為完整應用程式範例。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -28,20 +28,7 @@ ms.locfileid: "55878267"
 * 任何 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 版本。
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) (英文) 用戶端程式庫 NuGet 套件。 您不必下載此套件。 下面會提供安裝指示。
 
-## <a name="analyzeimageasync-method"></a>AnalyzeImageAsync 方法
-
-> [!TIP]
-> 從 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 取得最新程式碼作為 Visual Studio 解決方案。
-
-`AnalyzeImageAsync` 和 `AnalyzeImageInStreamAsync` 方法可分別針對遠端和本機影像包裝[分析影像 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (英文)。 您可以使用這些方法，根據影像內容來擷取視覺功能，並且選擇要傳回哪些功能，包括：
-
-* 與影像內容相關的標記詳細清單。
-* 對影像內容的完整句子描述。
-* 影像中所包含任何臉部的座標、性別和年齡。
-* ImageType (美工圖案或線條繪圖)。
-* 主要色彩、輔色，或影像是否為黑白。
-* 在此[分類法](../Category-Taxonomy.md)中定義的分類。
-* 影像是否包含成人或性暗示內容？
+## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 
 若要執行範例，請執行下列步驟：
 
@@ -50,118 +37,119 @@ ms.locfileid: "55878267"
     1. 在功能表中，按一下 [工具]，選取 [NuGet 套件管理員]，然後選取 [管理解決方案的 NuGet 套件]。
     1. 按一下 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中，鍵入 "Microsoft.Azure.CognitiveServices.Vision.ComputerVision"。
     1. 顯示時選取 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision]，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
-1. 使用以下程式碼來取代 `Program.cs`。
+1. 以下列程式碼取代 *Program.cs* 的內容。 `AnalyzeImageAsync` 和 `AnalyzeImageInStreamAsync` 方法可分別針對遠端和本機影像包裝[分析影像 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (英文)。 
+
+    ```csharp
+    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading.Tasks;
+
+    namespace ImageAnalyze
+    {
+        class Program
+        {
+            // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+            private const string subscriptionKey = "<SubscriptionKey>";
+
+            // localImagePath = @"C:\Documents\LocalImage.jpg"
+            private const string localImagePath = @"<LocalImage>";
+
+            private const string remoteImageUrl =
+                "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
+
+            // Specify the features to return
+            private static readonly List<VisualFeatureTypes> features =
+                new List<VisualFeatureTypes>()
+            {
+                VisualFeatureTypes.Categories, VisualFeatureTypes.Description,
+                VisualFeatureTypes.Faces, VisualFeatureTypes.ImageType,
+                VisualFeatureTypes.Tags
+            };
+
+            static void Main(string[] args)
+            {
+                ComputerVisionClient computerVision = new ComputerVisionClient(
+                    new ApiKeyServiceClientCredentials(subscriptionKey),
+                    new System.Net.Http.DelegatingHandler[] { });
+
+                // You must use the same region as you used to get your subscription
+                // keys. For example, if you got your subscription keys from westus,
+                // replace "westcentralus" with "westus".
+                //
+                // Free trial subscription keys are generated in the "westus"
+                // region. If you use a free trial subscription key, you shouldn't
+                // need to change the region.
+
+                // Specify the Azure region
+                computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
+
+                Console.WriteLine("Images being analyzed ...");
+                var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
+                var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
+
+                Task.WhenAll(t1, t2).Wait(5000);
+                Console.WriteLine("Press ENTER to exit");
+                Console.ReadLine();
+            }
+
+            // Analyze a remote image
+            private static async Task AnalyzeRemoteAsync(
+                ComputerVisionClient computerVision, string imageUrl)
+            {
+                if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+                {
+                    Console.WriteLine(
+                        "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
+                    return;
+                }
+
+                ImageAnalysis analysis =
+                    await computerVision.AnalyzeImageAsync(imageUrl, features);
+                DisplayResults(analysis, imageUrl);
+            }
+
+            // Analyze a local image
+            private static async Task AnalyzeLocalAsync(
+                ComputerVisionClient computerVision, string imagePath)
+            {
+                if (!File.Exists(imagePath))
+                {
+                    Console.WriteLine(
+                        "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
+                    return;
+                }
+
+                using (Stream imageStream = File.OpenRead(imagePath))
+                {
+                    ImageAnalysis analysis = await computerVision.AnalyzeImageInStreamAsync(
+                        imageStream, features);
+                    DisplayResults(analysis, imagePath);
+                }
+            }
+
+            // Display the most relevant caption for the image
+            private static void DisplayResults(ImageAnalysis analysis, string imageUri)
+            {
+                Console.WriteLine(imageUri);
+                Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+            }
+        }
+    }
+    ```
+
 1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
 1. 必要時，請將 `computerVision.Endpoint` 變更為與您的訂用帳戶金鑰相關聯的 Azure 區域。
 1. 使用本機影像的路徑和檔案名稱來取代 `<LocalImage>`。
-1. (選擇性) 將 `remoteImageUrl` 設為不同的影像。
+1. (選擇性) 將 `remoteImageUrl` 設為不同的影像 URL。
 1. 執行程式。
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+## <a name="examine-the-response"></a>檢查回應
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-
-namespace ImageAnalyze
-{
-    class Program
-    {
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "<SubscriptionKey>";
-
-        // localImagePath = @"C:\Documents\LocalImage.jpg"
-        private const string localImagePath = @"<LocalImage>";
-
-        private const string remoteImageUrl =
-            "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
-
-        // Specify the features to return
-        private static readonly List<VisualFeatureTypes> features =
-            new List<VisualFeatureTypes>()
-        {
-            VisualFeatureTypes.Categories, VisualFeatureTypes.Description,
-            VisualFeatureTypes.Faces, VisualFeatureTypes.ImageType,
-            VisualFeatureTypes.Tags
-        };
-
-        static void Main(string[] args)
-        {
-            ComputerVisionClient computerVision = new ComputerVisionClient(
-                new ApiKeyServiceClientCredentials(subscriptionKey),
-                new System.Net.Http.DelegatingHandler[] { });
-
-            // You must use the same region as you used to get your subscription
-            // keys. For example, if you got your subscription keys from westus,
-            // replace "westcentralus" with "westus".
-            //
-            // Free trial subscription keys are generated in the "westus"
-            // region. If you use a free trial subscription key, you shouldn't
-            // need to change the region.
-
-            // Specify the Azure region
-            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
-
-            Console.WriteLine("Images being analyzed ...");
-            var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
-            var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
-
-            Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press ENTER to exit");
-            Console.ReadLine();
-        }
-
-        // Analyze a remote image
-        private static async Task AnalyzeRemoteAsync(
-            ComputerVisionClient computerVision, string imageUrl)
-        {
-            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
-            {
-                Console.WriteLine(
-                    "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
-                return;
-            }
-
-            ImageAnalysis analysis =
-                await computerVision.AnalyzeImageAsync(imageUrl, features);
-            DisplayResults(analysis, imageUrl);
-        }
-
-        // Analyze a local image
-        private static async Task AnalyzeLocalAsync(
-            ComputerVisionClient computerVision, string imagePath)
-        {
-            if (!File.Exists(imagePath))
-            {
-                Console.WriteLine(
-                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
-                return;
-            }
-
-            using (Stream imageStream = File.OpenRead(imagePath))
-            {
-                ImageAnalysis analysis = await computerVision.AnalyzeImageInStreamAsync(
-                    imageStream, features);
-                DisplayResults(analysis, imagePath);
-            }
-        }
-
-        // Display the most relevant caption for the image
-        private static void DisplayResults(ImageAnalysis analysis, string imageUri)
-        {
-            Console.WriteLine(imageUri);
-            Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
-        }
-    }
-}
-```
-
-## <a name="analyzeimageasync-response"></a>AnalyzeImageAsync 回應
-
-成功的回應會顯示每個影像的最相關標題。
+成功的回應會顯示每個影像的最相關標題。 您可以變更 `DisplayResults` 方法來輸出不同的影像資料。 若要深入了解，請參閱 [AnalyzeLocalAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions.analyzeimageinstreamasync?view=azure-dotnet) 方法。
 
 請參閱 [API 快速入門：使用 C# 來分析本機影像](../QuickStarts/CSharp-analyze.md#examine-the-response)，以取得原始 JSON 輸出範例。
 

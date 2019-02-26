@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 使用 Azure PowerShell 建立自訂角色 | Microsoft Docs
-description: 開始使用 Azure PowerShell 建立自訂角色。
+title: 教學課程 - 使用 Azure PowerShell 建立適用於 Azure 資源的自訂角色 | Microsoft Docs
+description: 使用 Azure PowerShell 開始為 Azure 資源建立自訂角色。
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 9dddef43e1ac5f3bcedcc08b313eea300436ea61
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 23ee8aef4ab9b7ea54dae0587e2caaafbf08e5b2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106422"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339153"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立自訂角色
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 為 Azure 資源建立自訂角色
 
-如果[內建角色](built-in-roles.md)不符合組織的特定需求，您可以建立自己的自訂角色。 在此教學課程中，您會使用 Azure PowerShell 建立名為讀者支援票證的自訂角色。 自訂角色可讓使用者檢視訂用帳戶中的一切，也可開啟支援票證。
+如果[適用於 Azure 資源的內建角色](built-in-roles.md)無法滿足您組織的特定需求，您可以建立自己的自訂角色。 在此教學課程中，您會使用 Azure PowerShell 建立名為讀者支援票證的自訂角色。 自訂角色可讓使用者檢視訂用帳戶中的一切，也可開啟支援票證。
 
 在本教學課程中，您了解如何：
 
@@ -277,4 +277,4 @@ ms.locfileid: "56106422"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用 PowerShell 建立自訂角色](custom-roles-powershell.md)
+> [使用 Azure PowerShell 建立適用於 Azure 資源的自訂角色](custom-roles-powershell.md)

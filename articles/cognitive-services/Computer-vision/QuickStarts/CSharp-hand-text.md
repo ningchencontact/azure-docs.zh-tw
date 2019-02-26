@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 160d42725abdb91af4f83696c2bceae38bbab67d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd9429ade750810138335c522d68df5cd595f320
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869325"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310978"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 C&#35; 擷取手寫文字
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 C# 擷取手寫文字
 
-在此快速入門中，您將使用電腦視覺 API 的 REST API 來擷取影像中的手寫文字。 您可以使用[辨識文字](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)與[取得辨識文字作業結果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)方法來偵測影像中的手寫文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
+在此快速入門中，您將使用電腦視覺 API 的 REST API 來擷取影像中的手寫文字。 您可以使用 [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (英文) 和 [Get Recognize Text Operation Result 方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (英文)，偵測影像中的手寫文字，然後將辨識出的字元擷取到電腦可讀取的字元資料流中。
 
 > [!IMPORTANT]
 > 不同於 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，[辨識文字](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)方法會以非同步方式執行。 這個方法不會在成功回應的主體中傳回任何資訊。 「辨識文字」方法會改為在 `Operation-Content` 回應標頭欄位的值中傳回 URI。 您接著可以呼叫這個 URI (它代表[取得辨識文字作業結果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)方法) 來檢查狀態，並傳回「辨識文字」方法呼叫的結果。
@@ -425,7 +425,7 @@ namespace CSHttpClientSample
 
 ## <a name="next-steps"></a>後續步驟
 
-探索使用「電腦視覺」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的基本 Windows 應用程式。 若要快速地試驗「電腦視覺 API」，請嘗試 [Open API 測試主控台](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) (英文)。
+探索使用電腦視覺來執行光學字元辨識 (OCR) 的基本 Windows 應用程式。 建立智慧型裁剪縮圖；以及偵測、分類、標記和描述影像中的視覺特徵 (包括臉部)。
 
 > [!div class="nextstepaction"]
-> [電腦視覺 API C&#35; 教學課程](../Tutorials/CSharpTutorial.md)
+> [電腦視覺 API C# 教學課程](../Tutorials/CSharpTutorial.md)

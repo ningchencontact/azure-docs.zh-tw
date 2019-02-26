@@ -11,17 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: b3ad10c62d393e2508d3ea04f0e49d3ffbf184cd
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d1c7340038731ebde10a7ffcb0ef2adcde18e901
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886355"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267490"
 ---
 # <a name="what-is-application-insights"></a>什麼是 Application Insights？
-Application Insights 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署、混合式或任何公用雲端的 .NET、Node.js 和 J2EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過與 Visual Studio App Center 整合，還可以從行動應用程式監視並分析遙測資料。
+Application Insights 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署、混合式或任何公用雲端的 .NET、Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過與 Visual Studio App Center 整合，還可以從行動應用程式監視並分析遙測資料。
 
 [看一下簡介動畫](https://www.youtube.com/watch?v=fX2NtGrh-Y0)。
 
@@ -46,7 +46,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 
 * **要求率、回應時間和失敗率** - 找出哪些頁面在每天哪些時段最受歡迎，以及使用者位於何處。 查看哪些頁面的表現最好。 如果您的回應時間和失敗率隨著要求增加而提高，您或許有資源配置問題。 
 * **相依比率、回應時間和失敗率** - 找出外部服務是否會使您降低效能。
-* **例外狀況** - 分析彙總統計資料，或挑選特定執行個體並深入了解堆疊追蹤和相關要求。 伺服器和瀏覽器例外狀況都會報告。
+* **例外狀況**：分析彙總的統計資料，或挑選特定執行個體並深入了解堆疊追蹤和相關要求。 伺服器和瀏覽器例外狀況都會報告。
 * **頁面檢視和載入效能** - 由使用者的瀏覽器報告。
 * 來自網頁的 **AJAX 呼叫** - 比率、回應時間和失敗率。
 * **使用者和工作階段計數**。
@@ -107,7 +107,7 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 * **在執行階段：檢測伺服器上的 Web 應用程式。** 避免對程式碼進行任何更新。 您需要您的伺服器的系統管理員存取權。
   * [**內部部署或 VM 上的 IIS**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure Web 應用程式或 VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**J2EE**](../../azure-monitor/app/java-live.md)
+  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **在開發階段：將 Application Insights 加入至您的程式碼。** 可讓您撰寫自訂遙測及檢測後端和桌面應用程式。
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 Update 2 或更新版本。
   * [Java](../../azure-monitor/app/java-get-started.md)
@@ -122,7 +122,7 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 在執行階段開始使用︰
 
 * [IIS 伺服器](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [J2EE 伺服器](../../azure-monitor/app/java-live.md)
+* [Java EE 伺服器](../../azure-monitor/app/java-live.md)
 
 在開發階段開始使用︰
 

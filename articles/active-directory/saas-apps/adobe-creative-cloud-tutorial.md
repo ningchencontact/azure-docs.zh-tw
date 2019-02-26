@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccb593e198e4dff8f30bddfe26071523ea7a893d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a160c604050f567f3fc0f77ca20a22349f07fd9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179224"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>教學課程：Azure Active Directory 與 Adobe Creative Cloud 整合
 
@@ -45,7 +45,7 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Adobe Creative Cloud 支援由 **SP 和 IDP** 初始化的 SSO
+* Adobe Creative Cloud 支援由 **SP** 初始化的 SSO
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>從資源庫新增 Adobe Creative Cloud
 
@@ -67,7 +67,7 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
 4. 在搜尋方塊中，輸入 **Adobe Creative Cloud**，從結果面板選取 [Adobe Creative Cloud]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 Adobe Creative Cloud](common/search-new-app.png)
+    ![結果清單中的 Adobe Creative Cloud](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -101,29 +101,23 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式進行設定，請執行下列步驟：
+4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Adobe Creative Cloud 網域和 URL 單一登入資訊](common/idp-intiated.png)
+    ![Adobe Creative Cloud 網域和 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.okta.com/saml2/service-provider/<token>`
+    a. 在 [登入 URL] 文字方塊中，將值輸入為：`https://adobe.com`。
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.okta.com/saml2/service-provider/<token>`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼、回覆 URL 更新這些值。 請連絡 [Adobe Creative Cloud 用戶端支援小組](https://www.adobe.com/au/creativecloud/business/teams/plans.html)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [Adobe Creative Cloud 用戶端支援小組](https://www.adobe.com/au/creativecloud/business/teams/plans.html)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
-
-    在 [登入 URL] 文字方塊中，將 URL 輸入為：`https://adobe.com`。
-
-    ![Adobe Creative Cloud 網域和 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
-
-6. Adobe Creative Cloud 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+5. Adobe Creative Cloud 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
     ![映像](common/edit-attribute.png)
 
-7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
- 
+6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+
     | 名稱 | 來源屬性|
     |----- | --------- |
     | 名字 | user.givenname |
@@ -151,11 +145,11 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 使用者需要具備有效的 Office 365 ExO 授權，電子郵件宣告值才會填入 SAML 回應中。
 
-8. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-9. 在 [安裝 Adobe Creative Cloud] 區段上，依據您的需求複製適當的 URL。
+8. 在 [安裝 Adobe Creative Cloud] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
