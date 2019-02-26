@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332467"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428966"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
@@ -37,13 +37,10 @@ ms.locfileid: "54332467"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-> [!NOTE] 
-> 美國中西部區域現已提供流程記錄第 2 版。 在不支援的區域中啟用第 2 版記錄會導致第 1 版記錄輸出到您的儲存體帳戶。
-
 ## <a name="create-a-vm"></a>建立 VM
 
 1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
-2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter] 或 [Ubuntu Server 17.10 VM]。
+2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter] 或某個版本的 [Ubuntu Server]。
 3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [確定]：
 
     |設定|值|

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891652"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452592"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure DataBricks 存取 Data Lake Storage Gen2 資料
 
@@ -38,6 +38,17 @@ ms.locfileid: "55891652"
 
 * 安裝 AzCopy v10。 請參閱[使用 AzCopy v10 轉送資料](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
+*  建立服務主體。 請參閱[如何：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+
+   在執行該文章中的步驟時，您必須執行幾個特定動作。
+
+   :heavy_check_mark:在執行該文章的[將應用程式指派給角色](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role)一節中的步驟時，請確實將 [儲存體 Blob 資料參與者] 角色指派給服務主體。
+
+   > [!IMPORTANT]
+   > 請務必在 Data Lake Storage Gen2 儲存體帳戶的範圍中指派該角色。 您可以將角色指派給父資源群組或訂用帳戶，但在這些角色指派傳播至儲存體帳戶之前，您將會收到與權限有關的錯誤。
+
+   :heavy_check_mark:在執行該文章的[取得值以便登入](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)一節中的步驟時，請將租用戶識別碼、應用程式識別碼和驗證金鑰值貼到文字檔中。 您很快就會用到這些資料。
+
 ### <a name="download-the-flight-data"></a>下載航班資料
 
 本教學課程將使用來自運輸統計處的航班資料示範如何執行 ETL 作業。 您必須下載這項資料，才能完成本教學課程。
@@ -49,24 +60,6 @@ ms.locfileid: "55891652"
 3. 選取 [下載] 按鈕，然後將結果儲存到您的電腦。 
 
 4. 將 ZIP 檔案的內容解壓縮，並記下檔案名稱和檔案路徑。 稍後的步驟將會需要這項資訊。
-
-## <a name="get-your-storage-account-name"></a>取得您的儲存體帳戶名稱
-
-您將需要儲存體帳戶的名稱。 若要取得該名稱，請登入 [Azure 入口網站](https://portal.azure.com/)，選擇 [所有服務]，然後以「儲存體」一詞篩選。 然後，選取 [儲存體帳戶]，並找出您的儲存體帳戶。
-
-請將名稱貼到文字檔。 您很快就會用到此名稱。
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>建立服務主體
-
-依照下列主題中的指引建立服務主體：[操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
-
-在執行該文章中的步驟時，您必須完成幾件事。
-
-:heavy_check_mark:在執行該文章的[將應用程式指派給角色](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role)一節中的步驟時，請確實將您的應用程式指派給 [Blob 儲存體參與者角色]。
-
-:heavy_check_mark:在執行該文章的[取得值以便登入](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)一節中的步驟時，請將租用戶識別碼、應用程式識別碼和驗證金鑰值貼到文字檔中。 您很快就會用到這些資料。
 
 ## <a name="create-an-azure-databricks-service"></a>建立 Azure Databricks 服務
 
@@ -145,9 +138,16 @@ ms.locfileid: "55891652"
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. 在此程式碼區塊中，將此程式碼區塊中的 `storage-account-name`、`application-id`、`authentication-id` 和 `tenant-id` 預留位置值取代為您在執行「備妥儲存體帳戶組態」和[建立服務主體](#service-principal)章節中的步驟時所收集到的值。 請將 `file-system-name` 預留位置取代為您要為檔案系統指定的任何名稱。
 
-19. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。 
+18. 在此程式碼區塊中，請將此程式碼區塊中的 `application-id`、`authentication-id`、`tenant-id` 和 `storage-account-name` 預留位置值取代為您在執行本教學課程的必要條件時所收集到的值。 請將 `file-system-name` 預留位置值取代為您要為檔案系統指定的任何名稱。
+
+   * `application-id` 和 `authentication-id` 來自於您在建立服務主體時向 Active Directory 註冊的應用程式。
+
+   * `tenant-id` 來自於您的訂用帳戶。
+
+   * `storage-account-name` 是您 Azure Data Lake Storage Gen2 儲存體帳戶的名稱。
+
+19. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 
     讓此筆記本保持開啟，以便稍後在其中新增命令。
 

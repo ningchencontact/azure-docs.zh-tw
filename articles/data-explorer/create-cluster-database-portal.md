@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214812"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408828"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>快速入門：建立 Azure 資料總管叢集與資料庫
 
@@ -77,8 +77,8 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     **設定** | **建議的值** | **欄位描述**
     |---|---|---|
     | 資料庫名稱 | *TestDatabase* | 資料庫名稱在叢集內必須是唯一而不重複。
-    | 保留期限 | *3650* | 保證資料持續可供查詢的時間範圍。 系統會從內嵌資料的時間開始測量時間範圍。
-    | 快取期 | *31* | 在 SSD 儲存裝置 或 RAM 中 (而非長期儲存裝置)，讓受到頻繁查詢的資料維持可用狀態的時間範圍。
+    | 保留期限 | *3650* | 保證資料持續可供查詢的時間範圍 (天)。 系統會從內嵌資料的時間開始測量時間範圍。
+    | 快取期 | *31* | 在 SSD 儲存裝置或 RAM 中 (而非長期儲存裝置)，讓受到頻繁查詢的資料維持可用狀態的時間範圍 (天)。
     | | | |
 
 1. 選取 [儲存] 以建立資料庫。 建立時間通常不到一分鐘。 程序完成時，您會返回叢集 [概觀] 索引標籤。

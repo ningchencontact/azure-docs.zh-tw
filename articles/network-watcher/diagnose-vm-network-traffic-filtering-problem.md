@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 1802df4e6cbe77b4bc7ee2ee49f24d8dc51de015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180516"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429225"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站診斷虛擬機器網路流量篩選問題
 
@@ -37,7 +37,7 @@ ms.locfileid: "32180516"
 ## <a name="create-a-vm"></a>建立 VM
 
 1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
-2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter] 或 [Ubuntu Server 17.10 VM]。
+2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter] 或某個版本的 [Ubuntu Server]。
 3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [確定]：
 
     |設定|值|

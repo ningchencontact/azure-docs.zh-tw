@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 65780252fe19ff1af3c37d25c7a65c2071961fb9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 455b0bb0cb6c53200edb7a0f3540006408329321
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994852"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453220"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux 裝置
 
 Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本快速入門中，了解如何使用雲端介面將預先建置的程式碼從遠端部署到 IoT Edge 裝置。
 
@@ -29,7 +29,7 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 
 ![圖表 - 裝置和雲端的快速入門架構](./media/quickstart-linux/install-edge-full.png)
 
-本快速入門會讓 Linux 電腦或虛擬機器變成 IoT Edge 裝置。 接著，您可以從 Azure 入口網站將模組部署至裝置。 您在本快速入門中部署的模組是一個模擬感應器，會產生溫度、溼度和壓力資料。 其他 Azure IoT Edge 教學課程會以您在此所做的工作為基礎，部署模組來分析模擬資料以產生商業見解。
+本快速入門將引導您建立設定為 IoT Edge 裝置的 Azure 虛擬機器。 接著，您可以從 Azure 入口網站將模組部署至裝置。 您在本快速入門中部署的模組是一個模擬感應器，會產生溫度、溼度和壓力資料。 其他 Azure IoT Edge 教學課程會以您在此所做的工作為基礎，部署模組來分析模擬資料以產生商業見解。
 
 如果您沒有使用中的 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
@@ -62,12 +62,12 @@ IoT Edge 裝置：
    ```
 
    建立和啟動新的虛擬機器可能需要幾分鐘的時間。 
+   
+   此時您可能會收到 `MarketplacePurchaseEligibilityFailed` 錯誤。 如果發生這種情況，您必須移至 [Ubuntu 上的 Azure IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 並按一下 `Get It Now` 以接受條款。 請先登入並接受其中的條款，再重試該命令。
 
    當您建立新的虛擬機器時，請記住在建立命令輸出中提供的 **publicIpAddress**。 您稍後將在本快速入門中使用此公用 IP 位址來連線到虛擬機器。
 
-* 如果您想要在本機系統上執行 Azure IoT Edge 執行階段，請依照[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)的指示操作。
-
-* 如果您想要使用 ARM32 型裝置 (例如 Raspberry Pi)，請依照[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)的指示操作。
+* 如果您想要在自己的裝置上執行 Azure IoT Edge 執行階段，請依照[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)或[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)的指示操作。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 

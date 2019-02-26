@@ -7,13 +7,13 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/24/2019
-ms.openlocfilehash: 0ec682ea852f3c6da6248f3c16b539725ca18c0f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/15/2019
+ms.openlocfilehash: 9d00819143d9a8fc38bfc09844d55f088e732b46
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895800"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453021"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>快速入門：使用 Azure Databricks 分析 Azure Data Lake Storage Gen2 中的資料
 
@@ -25,27 +25,20 @@ ms.locfileid: "55895800"
 
 ## <a name="prerequisites"></a>必要條件
 
-- [建立啟用 Data Lake Storage Gen2 的儲存體帳戶](data-lake-storage-quickstart-create-account.md)
+* 建立 Data Lake Gen2 儲存體帳戶。 請參閱[快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶](data-lake-storage-quickstart-create-account.md)
 
-<a id="config"/>
+  將儲存體帳戶的名稱貼到文字檔中。 您很快就會用到此名稱。
 
-## <a name="get-the-name-of-your-storage-account"></a>取得儲存體帳戶的名稱
+*  建立服務主體。 請參閱[如何：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
 
-若要在 Azure 入口網站中取得您的儲存體帳戶名稱，請選擇 [所有服務]，並以*儲存體*一詞篩選。 然後，選取 [儲存體帳戶]，並找出您的儲存體帳戶。
+   在執行該文章中的步驟時，您必須執行幾個特定動作。
 
-將該名稱貼到文字檔中。 您很快就會用到此名稱。
+   :heavy_check_mark:在執行該文章的[將應用程式指派給角色](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role)一節中的步驟時，請確實將 [儲存體 Blob 資料參與者] 角色指派給服務主體。
 
-<a id="service-principal"/>
+   > [!IMPORTANT]
+   > 請務必在 Data Lake Storage Gen2 儲存體帳戶的範圍中指派該角色。 您可以將角色指派給父資源群組或訂用帳戶，但在這些角色指派傳播至儲存體帳戶之前，您將會收到與權限有關的錯誤。
 
-## <a name="create-a-service-principal"></a>建立服務主體
-
-依照下列主題中的指引建立服務主體：[操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
-
-在執行該文章中的步驟時，您必須執行幾個特定動作。
-
-:heavy_check_mark:在執行該文章的[將應用程式指派給角色](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role)一節中的步驟時，請確實將您的應用程式指派給 [Blob 儲存體參與者角色]。
-
-:heavy_check_mark:在執行該文章的[取得值以便登入](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)一節中的步驟時，請將租用戶識別碼、應用程式識別碼和驗證金鑰值貼到文字檔中。 您很快就會用到這些資料。
+   :heavy_check_mark:在執行該文章的[取得值以便登入](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)一節中的步驟時，請將租用戶識別碼、應用程式識別碼和驗證金鑰值貼到文字檔中。 您很快就會用到這些資料。
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
@@ -126,11 +119,11 @@ ms.locfileid: "55895800"
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
- 
+
     > [!NOTE]
     > 此程式碼區塊會使用 OAuth 直接存取 Data Lake Gen2 端點，但也有其他方法可將 Databricks 工作區連線至您的 Data Lake Storage Gen2 帳戶。 例如，您可以使用 OAuth 來掛接檔案系統，或透過共用金鑰使用直接存取。 <br>若要查看這些方法的範例，請參閱 Azure Databricks 網站上的 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 一文。
 
-5. 在此程式碼區塊中，將此程式碼區塊中的 `storage-account-name`、`application-id`、`authentication-id` 和 `tenant-id` 預留位置值，更換為您在完成本文中[取得儲存體帳戶的名稱](#config)和[建立服務主體](#service-principal)小節的步驟時所收集到的值。  將 `file-system-name` 預留位置值設為您要為檔案系統指定的任何名稱。
+5. 在此程式碼區塊中，請將此程式碼區塊中的 `storage-account-name`、`application-id`、`authentication-id` 和 `tenant-id` 預留位置值取代為您在建立服務主體時所收集到的值。 將 `file-system-name` 預留位置值設為您要為檔案系統指定的任何名稱。
 
 6. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443112"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454799"
 ---
 # <a name="monitor-published-apis"></a>監視發佈的 API
 
@@ -40,8 +40,8 @@ ms.locfileid: "52443112"
 ## <a name="prerequisites"></a>必要條件
 
 + 了解 [Azure API 管理術語](api-management-terminology.md)。
-+ 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
-+ 同時也請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
++ 完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
++ 此外，請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -124,7 +124,7 @@ API 管理會每分鐘發出計量，讓您近乎即時地了解 API 的狀態�
 
     ![診斷記錄](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. 按一下 [開啟診斷]。 您可以將診斷記錄連同計量封存至儲存體帳戶，將它們串流處理至事件中樞，或將它們傳送至 Log Analytics。 
+3. 按一下 [開啟診斷]。 您可以將診斷記錄連同計量封存至儲存體帳戶、將其串流至事件中樞，或將其傳送至 Azure 監視器記錄。 
 
 API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一批)，且每個要求項目都有下列結構描述︰
 
@@ -183,7 +183,7 @@ API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一
 | callerIpAddress | 字串 | 立即閘道呼叫端的 IP 位址 (可以是中繼項目) |
 | correlationId | 字串 | API 管理所指派的唯一 http 要求識別碼 |
 | location | 字串 | 處理要求的閘道所在的 Azure 區域名稱 |
-| httpStatusCodeCategory | 字串 | http 回應狀態碼的類別：成功 (301 或更小或 304 或 307)、未經授權 (401、403、429)、錯誤 (400，介於 500 與 600 之間)、其他 |
+| httpStatusCodeCategory | 字串 | HTTP 回應狀態碼的類別：成功 (301 或更小或 304 或 307)、未經授權 (401、403、429)、錯誤 (400，介於 500 與 600 之間)、其他 |
 | ResourceId | 字串 | "API 管理資源的識別碼 /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | properties | 物件 | 目前要求的屬性 |
 | method | 字串 | 連入要求的 HTTP 方法 |

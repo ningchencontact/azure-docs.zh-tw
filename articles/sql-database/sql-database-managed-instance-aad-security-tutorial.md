@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure AD 登入的 Azure SQL Database 受控執行個體安全性 | Microsoft Docs
-description: 了解用來保護 Azure SQL Database 中的受控執行個體和用來使用 Azure AD 登入的技術和功能
+title: 使用 Azure AD 伺服器主體 (登入) 的 Azure SQL Database 受控執行個體安全性 | Microsoft Docs
+description: 了解可對 Azure SQL Database 中的受控執行個體提供保護的技術和功能，以及如何使用 Azure AD 伺服器主體 (登入)
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,15 +9,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 402e10d9b99dbf0eeba8aac27071e4d78fdf0f01
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/20/2019
+ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984506"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456923"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>教學課程：使用 Azure AD 登入的 Azure SQL Database 中受控執行個體的安全性
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>教學課程：Azure SQL Database 中使用 Azure AD 伺服器主體 (登入) 的受控執行個體安全性
 
 受控執行個體幾乎提供了最新的內部部署 SQL Server (Enterprise Edition) 資料庫引擎所具有的所有安全性功能：
 
@@ -29,16 +29,16 @@ ms.locfileid: "55984506"
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> - 為受控執行個體建立 Azure Active Directory (AD) 登入
-> - 授與權限給受控執行個體中的 Azure AD 登入
-> - 從 Azure AD 登入來建立 Azure AD 使用者
+> - 為受控執行個體建立 Azure Active Directory (AD) 伺服器主體 (登入)
+> - 將權限授與受控執行個體中的 Azure AD 伺服器主體 (登入)
+> - 從 Azure AD 伺服器主體 (登入) 建立 Azure AD 使用者
 > - 指派權限給 Azure AD 使用者和受控資料庫安全性
 > - 對 Azure AD 使用者使用模擬功能
 > - 對 Azure AD 使用者使用跨資料庫查詢
 > - 了解安全性功能，例如威脅防護、稽核、資料遮罩和加密
 
 > [!NOTE]
-> 受控執行個體的 Azure AD 登入處於**公開預覽**狀態。
+> 受控執行個體的 Azure AD 伺服器主體 (登入) 處於**公開預覽**狀態。
 
 若要深入了解，請參閱 [Azure SQL Database 受控執行個體概觀](sql-database-managed-instance-index.yml)和[功能](sql-database-managed-instance.md)文章。
 
@@ -61,15 +61,15 @@ ms.locfileid: "55984506"
 > [!NOTE] 
 > 由於您只能從受控執行個體的 VNET 內部存取受控執行個體，因此 [SQL Database 防火牆規則](sql-database-firewall-configure.md)不適用。 受控執行個體有其自己的[內建防火牆](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)。
 
-## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>使用 SSMS 為受控執行個體建立 Azure AD 登入
+## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>使用 SSMS 為受控執行個體建立 Azure AD 伺服器主體 (登入)
 
-第一個 Azure AD 登入必須由屬於 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 來建立。 請參閱下列文章來取得連線到受控執行個體的範例：
+第一個 Azure AD 伺服器主體 (登入) 必須由屬於 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 建立。 請參閱下列文章來取得連線到受控執行個體的範例：
 
 - [快速入門：設定 Azure VM 以連線到受控執行個體](sql-database-managed-instance-configure-vm.md)
 - [快速入門：設定從內部部署連線至受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> 用來設定受控執行個體的 Azure AD 系統管理員不能用來在受控執行個體內建立 Azure AD 登入。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 登入。 此一限制是暫時性的，在 Azure AD 登入正式運作後便會移除。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> 用來設定受控執行個體的 Azure AD 系統管理員不可用來在受控執行個體內建立 Azure AD 伺服器主體 (登入)。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 伺服器主體 (登入)。 此一限制是暫時性的，在 Azure AD 伺服器主體 (登入) 正式運作後便會消除。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. 使用 [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance)，透過屬於 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 來登入受控執行個體。
 
@@ -109,7 +109,7 @@ ms.locfileid: "55984506"
 
 ## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>授與權限以允許建立受控執行個體的登入
 
-若要建立其他 Azure AD 登入，必須將 SQL Server 角色或權限授與給主體 (SQL 或 Azure AD)。
+若要建立其他 Azure AD 伺服器主體 (登入)，必須將 SQL Server 角色或權限授與主體 (SQL 或 Azure AD)。
 
 ### <a name="sql-authentication"></a>SQL 驗證
 
@@ -117,10 +117,10 @@ ms.locfileid: "55984506"
 
 ### <a name="azure-ad-authentication"></a>Azure AD 驗證
 
-- 若要讓新建立的 Azure AD 登入有能力為其他 Azure AD 使用者、群組或應用程式建立其他登入，請對登入授與 `sysadmin` 或 `securityadmin` 伺服器角色。 
-- 最少必須將 **ALTER ANY LOGIN** 權限授與給 Azure AD 登入，其才能建立其他 Azure AD 登入。 
-- 根據預設，會授與給主要伺服器中新建 Azure AD 登入的標準權限是：**CONNECT SQL** 和 **VIEW ANY DATABASE**。
-- `sysadmin` 伺服器角色可以授與給受控執行個體中的許多 Azure AD 登入。
+- 若要讓新建立的 Azure AD 伺服器主體 (登入) 有能力為其他 Azure AD 使用者、群組或應用程式建立其他登入，請為登入授與 `sysadmin` 或 `securityadmin` 伺服器角色。 
+- 最少必須將 **ALTER ANY LOGIN** 權限授與 Azure AD 伺服器主體 (登入)，其才能建立其他 Azure AD 伺服器主體 (登入)。 
+- 根據預設，會為主要伺服器中新建的 Azure AD 伺服器主體 (登入) 授與的標準權限是：**CONNECT SQL** 和 **VIEW ANY DATABASE**。
+- `sysadmin` 伺服器角色可以授與給受控執行個體中的多個 Azure AD 伺服器主體 (登入)。
 
 若要將登入新增至 `sysadmin` 伺服器角色：
 
@@ -128,7 +128,7 @@ ms.locfileid: "55984506"
 
 1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
 
-1. 使用下列 T-SQL 語法，對 Azure AD 登入授與 `sysadmin` 伺服器角色：
+1. 使用下列 T-SQL 語法，為 Azure AD 伺服器主體 (登入) 授與 `sysadmin` 伺服器角色：
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER login_name
@@ -142,11 +142,11 @@ ms.locfileid: "55984506"
     GO
     ```
 
-## <a name="create-additional-azure-ad-logins-using-ssms"></a>使用 SSMS 建立其他 Azure AD 登入
+## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>使用 SSMS 建立其他 Azure AD 伺服器主體 (登入)
 
-建立了 Azure AD 登入並為其提供 `sysadmin` 權限之後，該登入就可以使用 **FROM EXTERNAL PROVIDER** 子句與 **CREATE LOGIN** 來建立其他登入。
+建立 Azure AD 伺服器主體 (登入) 並為其提供 `sysadmin` 權限之後，該登入就可以使用 **FROM EXTERNAL PROVIDER** 子句與 **CREATE LOGIN** 來建立其他登入。
 
-1. 使用 SQL Server Management Studio 來以 Azure AD 登入連線至受控執行個體。 輸入受控執行個體的主機名稱。 若要在 SSMS 中驗證，使用 Azure AD 帳戶登入時會有三個選項可供選擇：
+1. 使用 SQL Server Management Studio，以 Azure AD 伺服器主體 (登入) 連線至受控執行個體。 輸入受控執行個體的主機名稱。 若要在 SSMS 中驗證，使用 Azure AD 帳戶登入時會有三個選項可供選擇：
 
     - Active Directory - 通用，具 MFA 支援
     - Active Directory - 密碼
@@ -205,7 +205,7 @@ ms.locfileid: "55984506"
 
 1. 作為測試，請使用新建立的登入或群組來登入受控執行個體。 開啟連往受控執行個體的新連線，並在驗證時使用新的登入。
 1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後針對新連線選擇 [新增查詢]。
-1. 藉由執行下列命令，檢查新建立 Azure AD 登入的伺服器權限：
+1. 執行下列命令，檢查新建立的 Azure AD 伺服器主體 (登入) 的伺服器權限：
 
     ```sql
     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
@@ -215,7 +215,7 @@ ms.locfileid: "55984506"
 > [!NOTE]
 > 只有在新增為 Azure AD 群組的一部分時，才支援在受控執行個體登入中使用 Azure AD 來賓使用者。 Azure AD 來賓使用者是受邀從另一個 Azure AD 加入受控執行個體所屬 Azure AD 的帳戶。 例如，joe@contoso.com (Azure AD 帳戶) 或 steve@outlook.com (MSA 帳戶) 可以新增至 Azure AD aadsqlmi 中的群組。 在將使用者新增至群組後，便能使用 **CREATE LOGIN** 語法在受控執行個體的**主要**資料庫中，為該群組建立登入。 屬於此群組成員的來賓使用者可以使用其目前的登入 (例如 joe@contoso.com 或 steve@outlook.com) 連線至受控執行個體。
 
-## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>從 Azure AD 登入建立 Azure AD 使用者並授與權限
+## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login-and-give-permissions"></a>從 Azure AD 伺服器主體 (登入) 建立 Azure AD 使用者並授與權限
 
 對個別資料庫授權的方式，與受控執行個體在內部部署 SQL Server 中所進行的方式極為類似。 您可以從資料庫中的現有登入建立使用者，並對其提供該資料庫的權限或將其新增至資料庫角色。
 
@@ -229,7 +229,7 @@ ms.locfileid: "55984506"
 
 1. 使用 SQL Server Management Studio，以 `sysadmin` 帳戶登入您的受控執行個體。
 1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
-1. 在查詢視窗中，使用下列語法以從 Azure AD 登入建立 Azure AD 使用者：
+1. 在查詢視窗中，使用下列語法從 Azure AD 伺服器主體 (登入) 建立 Azure AD 使用者：
 
     ```sql
     USE <Database Name> -- provide your database name
@@ -247,7 +247,7 @@ ms.locfileid: "55984506"
     GO
     ```
 
-1. 系統也支援從群組型是的 Azure AD 登入建立 Azure AD 使用者。
+1. 此外也支援從群組形式的 Azure AD 伺服器主體 (登入) 建立 Azure AD 使用者。
 
     下列範例會為存在於 Azure AD 的 Azure AD 群組 mygroup 建立登入。
 
@@ -261,7 +261,7 @@ ms.locfileid: "55984506"
     所有屬於 **mygroup** 的使用者都可以存取 **MyMITestDB** 資料庫。
 
     > [!IMPORTANT]
-    > 在從 Azure AD 登入建立 **USER** 時，請指定與來自 **LOGIN** 的 login_name 相同的 user_name。
+    > 從 Azure AD 伺服器主體 (登入) 建立 **USER** 時，請指定與 **LOGIN** 中的 login_name 相同的 user_name。
 
     如需詳細資訊，請參閱 [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current)。
 
@@ -383,7 +383,7 @@ ms.locfileid: "55984506"
 
 ## <a name="using-cross-database-queries-in-managed-instances"></a>在受控執行個體中使用跨資料庫查詢
 
-系統支援讓具有 Azure AD 登入的 Azure AD 帳戶使用跨資料庫查詢。 若要使用 Azure AD 群組來測試跨資料庫查詢，我們需要建立另一個資料庫和資料表。 如果已有既存的資料庫和資料表，則可以略過建立步驟。
+系統支援讓具有 Azure AD 伺服器主體 (登入) 的 Azure AD 帳戶進行跨資料庫查詢。 若要使用 Azure AD 群組來測試跨資料庫查詢，我們需要建立另一個資料庫和資料表。 如果已有既存的資料庫和資料表，則可以略過建立步驟。
 
 1. 使用 SQL Server Management Studio，以 `sysadmin` 帳戶登入您的受控執行個體。
 1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
@@ -424,15 +424,15 @@ ms.locfileid: "55984506"
 
     您應該會看到來自 **TestTable2** 的資料表結果。
 
-## <a name="additional-scenarios-supported-for-azure-ad-logins-public-preview"></a>Azure AD 登入 (公開預覽) 的其他支援案例 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Azure AD 伺服器主體 (登入) (公開預覽) 的其他支援案例 
 
-- Azure AD 登入支援 SQL 代理程式管理和作業執行功能。
-- Azure AD 登入可以執行資料庫備份和還原作業。
-- [稽核](sql-database-managed-instance-auditing.md)與 Azure AD 登入和驗證事件相關的所有陳述式。
-- 屬於 `sysadmin` 伺服器角色成員的 Azure AD 登入有專用管理員連接。
-- 使用 [sqlcmd 公用程式](/sql/tools/sqlcmd-utility)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 工具時可支援 Azure AD 登入。
-- 來自 Azure AD 登入的登入事件支援登入觸發程序。
-- Service Broker 和 DB 電子郵件可使用 Azure AD 登入來設定。
+- Azure AD 伺服器主體 (登入) 支援 SQL 代理程式管理和作業執行功能。
+- Azure AD 伺服器主體 (登入) 可以執行資料庫備份和還原作業。
+- [稽核](sql-database-managed-instance-auditing.md)與 Azure AD 伺服器主體 (登入) 和驗證事件相關的所有陳述式。
+- 屬於 `sysadmin` 伺服器角色成員的 Azure AD 伺服器主體 (登入) 有專用管理員連線。
+- 使用 [sqlcmd 公用程式](/sql/tools/sqlcmd-utility)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 工具時可支援 Azure AD 伺服器主體 (登入)。
+- 來自 Azure AD 伺服器主體 (登入) 的登入事件支援登入觸發程序。
+- Service Broker 和 DB 電子郵件可使用 Azure AD 伺服器主體 (登入) 來設定。
 
 
 ## <a name="next-steps"></a>後續步驟

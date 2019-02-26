@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994043"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429412"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>教學課程：了解如何呼叫認知搜尋 API (預覽)
 
@@ -403,9 +403,7 @@ Content-Type: application/json
 
 同時也請注意組態參數中的 ```"dataToExtract":"contentAndMetadata"``` 陳述式。 此陳述式會指示索引子自動擷取不同檔案格式的內容，以及每個檔案的相關中繼資料。 
 
-在擷取內容時，您可以設定 ```ImageAction```，以從在資料來源中找到的影像擷取文字。 ```"ImageAction":"generateNormalizedImages"``` 會指示索引子從影像中擷取文字 (例如，從「停」交通號誌中擷取「停」這個字)，並將其內嵌為內容欄位的一部分。 此行為適用於內嵌在文件中的影像 (例如 PDF 內的影像)，以及在資料來源中找到的影像 (例如 JPG 檔案)。
-
-在此預覽中，```"ImageAction"``` 唯一的有效值為 ```"generateNormalizedImages"```。
+在擷取內容時，您可以設定 ```imageAction```，以從在資料來源中找到的影像擷取文字。 ```"imageAction":"generateNormalizedImages"``` 組態可與 OCR 技術和文字合併技術結合，指示索引子從影像中擷取文字 (例如，從「停」交通號誌中擷取「停」這個字)，並將其內嵌為內容欄位的一部分。 此行為適用於內嵌在文件中的影像 (例如 PDF 內的影像)，以及在資料來源中找到的影像 (例如 JPG 檔案)。
 
 ## <a name="check-indexer-status"></a>檢查索引子狀態
 

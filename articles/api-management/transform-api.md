@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413667"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417325"
 ---
 # <a name="transform-and-protect-your-api"></a>轉換及保護您的 API 
 
@@ -41,8 +41,8 @@ ms.locfileid: "50413667"
 
 + 了解 [Azure API 管理術語](api-management-terminology.md)。
 + 了解 [Azure API 管理的原則概念](api-management-howto-policies.md)。
-+ 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
-+ 同時也請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
++ 完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
++ 此外，請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -58,9 +58,9 @@ ms.locfileid: "50413667"
 查看原始回應：
 
 1. 在 APIM 服務執行個體中，選取 [API] (位於 [API 管理] 下方)。
-2. 按一下 API 清單中的 [Demo Conference API]。
+2. 按一下 API 清單中的 [示範會議 API]。
 3. 按一下畫面頂端的 [測試] 索引標籤。
-4. 選取 [GetSpeakers] 作業。
+4. 選取 **GetSpeakers** 作業。
 5. 按畫面底部的 [傳送] 按鈕。
 
 原始回應應如下所示：
@@ -98,7 +98,7 @@ ms.locfileid: "50413667"
 
 1. 選取 [Demo Conference API]。
 2. 按一下畫面頂端的 [測試] 索引標籤。
-3. 選取 [GetSpeakers] 作業。
+3. 選取 **GetSpeakers** 作業。
 4. 按畫面底部的 [傳送] 按鈕。 
 
     此時，您會看見如下的原始回應：
@@ -126,9 +126,10 @@ ms.locfileid: "50413667"
 1. 選取 [Demo Conference API]。
 2. 選取 [所有作業]。
 3. 選取畫面頂端的 [設計] 索引標籤。
-4. 在 [輸入處理] 區段中，按一下 **</>** 圖示。5. 將游標放在 **&lt;inbound&gt;** 元素內部。
-5. 在右側視窗的 [存取限制原則] 下方，按一下 [+ 限制每個金鑰的呼叫速率]。
-6. 將您的 **rate-limit-by-key** 程式碼 (位於 **\<inbound\>** 元素中) 修改為下列程式碼：
+4. 在 [輸入處理] 區段中，按一下 **</>** 圖示。
+5. 將游標放在 **&lt;inbound&gt;** 元素內部。
+6. 在右側視窗的 [存取限制原則] 下方，按一下 [+ 限制每個金鑰的呼叫速率]。
+7. 將您的 **rate-limit-by-key** 程式碼 (位於 **\<inbound\>** 元素中) 修改為下列程式碼：
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

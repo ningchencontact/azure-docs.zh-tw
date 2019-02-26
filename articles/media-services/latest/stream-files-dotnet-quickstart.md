@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d50bb6ca67d7d09525013b65d0635e8e16b4cb4e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162713"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417273"
 ---
 # <a name="quickstart-stream-video-files---net"></a>快速入門：串流視訊檔案 - .NET
 
@@ -81,6 +81,8 @@ ms.locfileid: "55162713"
 
 1. 開啟瀏覽器並巡覽至 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)。
 2. 在 [URL:] 方塊中，貼上您在執行應用程式時取得的其中一個串流 URL 值。 
+ 
+     您可以貼上 HLS、Dash 或 Smooth 格式的 URL，Azure 媒體播放器將會切換至適當的串流通訊協定，以便在您的裝置上自動播放。
 3. 按一下 [更新播放程式]。
 
 Azure 媒體播放器可以用於測試，但不應用於生產環境。 
@@ -100,6 +102,10 @@ az group delete --name amsResourceGroup
 如需範例中的每個函式作用的相關說明，請檢查程式碼並查看[這個原始程式檔](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) \(英文\) 中的註解。
 
 [上傳、編碼和串流檔案](stream-files-tutorial-with-api.md)教學課程提供更進階的串流範例與詳細說明。 
+
+### <a name="job-error-codes"></a>作業錯誤碼
+
+請參閱[錯誤碼](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)。
 
 ## <a name="multithreading"></a>多執行緒
 

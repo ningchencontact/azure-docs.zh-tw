@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: c3671df61eea5c826227706106cbb48dc70ad55f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 82d8a8085ca285c95a550678cdc534e586a4faa7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157750"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415959"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>教學課程：使用 .NET 上傳、編碼和串流影片
 
@@ -126,6 +126,10 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
+### <a name="job-error-codes"></a>作業錯誤碼
+
+請參閱[錯誤碼](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)。
+
 ### <a name="get-a-streaming-locator"></a>取得串流定位器
 
 編碼完成後，下一個步驟是要讓用戶端可播放輸出資產中的視訊。 您可以透過兩個步驟來執行此動作：第一步，建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)，第二步，建置用戶端可以使用的串流 URL。 
@@ -160,7 +164,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 ## <a name="run-the-sample-app"></a>執行範例應用程式
 
-1. 按下 Ctrl+F5 來執行 *EncodeAndStreamFiles* 應用程式。
+1. 按下 Ctrl+F5 來執行 EncodeAndStreamFiles 應用程式。
 2. 從主控台中複製其中一個串流 URL。
 
 此範例顯示可以使用其他不同通訊協定來播放影片的 URL：

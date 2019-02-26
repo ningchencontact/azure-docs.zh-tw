@@ -1,28 +1,28 @@
 ---
 title: 快速入門：辨識語音，JavaScript (瀏覽器) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用語音服務 SDK 在瀏覽器中以 JavaScript 辨識語音
+description: 了解如何使用語音 SDK 在瀏覽器中以 JavaScript 辨識語音
 services: cognitive-services
 author: fmegen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: d51624e5ae4d0e1052b562cd9142238828614597
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8e1f880c57b0db0a2f68fbe26e99679769fdee6c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872170"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448036"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在瀏覽器中以 JavaScript 辨識語音
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在瀏覽器中以 JavaScript 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在此文章中，您將了解如何使用認知服務語音 SDK 的 JavaScript 繫結，將語音謄寫為文字以建立網站。
-該應用程式是以 Microsoft 認知服務語音 SDK 為基礎 ([下載 1.2.0 版](https://aka.ms/csspeech/jsbrowserpackage))。
+該應用程式以 Microsoft 認知服務語音 SDK 為基礎 ([下載 1.3.0 版](https://aka.ms/csspeech/jsbrowserpackage))。
 
 ## <a name="prerequisites"></a>必要條件
 

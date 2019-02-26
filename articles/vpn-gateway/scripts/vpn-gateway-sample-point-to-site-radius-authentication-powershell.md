@@ -9,17 +9,18 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 05/30/2018
 ms.author: alzam
-ms.openlocfilehash: b6dcad7f9cc73f05c677465e253c2cec42ebb530
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 5437eed8aae01542dee63f8f951a49ff60f17e67
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511712"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417409"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>使用 PowerShell 建立 VPN 閘道並新增點對站設定
 
 此指令碼會建立路由式 VPN 閘道，並新增使用 RADIUS 使用者名稱/密碼驗證的點對站設定
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables
@@ -38,52 +39,52 @@ ms.locfileid: "55511712"
   $GWIPName = "VNet1GWIP"
   $GWIPconfName = "gwipconf"
 # Create a resource group
-New-AzureRmResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name TestRG1 -Location EastUS
 # Create a virtual network
-$virtualNetwork = New-AzureRmVirtualNetwork `
+$virtualNetwork = New-AzVirtualNetwork `
   -ResourceGroupName TestRG1 `
   -Location EastUS `
   -Name VNet1 `
   -AddressPrefix 10.1.0.0/16
 # Create a subnet configuration
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name Frontend `
   -AddressPrefix 10.1.0.0/24 `
   -VirtualNetwork $virtualNetwork
 # Set the subnet configuration for the virtual network
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 # Add a gateway subnet
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
-$vnet | Set-AzureRmVirtualNetwork
+$vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' `
+$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' `
  -AllocationMethod Dynamic
 # Create the gateway IP address configuration
-$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
+$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+$gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
-New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
  -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 # Create a secure string for the RADIUS secret
 $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
 
 # Add the VPN client address pool and the RADIUS server information
-$Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
-Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+$Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
  -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
  -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當您不再需要所建立的資源時，請使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令來刪除資源群組。 這會刪除資源群組及其包含的所有資源。
+當您不再需要先前建立的資源時，請使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 命令刪除資源群組。 這會刪除資源群組及其包含的所有資源。
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name TestRG1
+Remove-AzResourceGroup -Name TestRG1
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
@@ -92,19 +93,19 @@ Remove-AzureRmResourceGroup -Name TestRG1
 
 | 命令 | 注意 |
 |---|---|
-| [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) | 新增子網路設定。 此組態可使用於虛擬網路建立程序。 |
-| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork) | 取得虛擬網路詳細資料。 |
-| [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway) | 取得虛擬網路閘道詳細資料。 |
-| [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig) | 取得虛擬網路的子網路設定詳細資料。 |
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | 建立子網路組態。 此組態可使用於虛擬網路建立程序。 |
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | 建立虛擬網路。 |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | 建立公用 IP 位址。 |
-| [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | 建立新的閘道 IP 設定。 |
-| [New-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway?view=azurermps-6.8.1) | 建立 VPN 閘道。 |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 移除資源群組及其內含的所有資源。 |
-| [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | 設定虛擬網路的子網路設定。 |
-| [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) | 設定 VPN 閘道的設定。 |
+| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 新增子網路設定。 此組態可使用於虛擬網路建立程序。 |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 取得虛擬網路詳細資料。 |
+| [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | 取得虛擬網路閘道詳細資料。 |
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 取得虛擬網路的子網路設定詳細資料。 |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 建立子網路組態。 此組態可使用於虛擬網路建立程序。 |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 建立虛擬網路。 |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 建立公用 IP 位址。 |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | 建立新的閘道 IP 設定。 |
+| [New-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgateway?view=azurermps-6.8.1) | 建立 VPN 閘道。 |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 移除資源群組及其內含的所有資源。 |
+| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 設定虛擬網路的子網路設定。 |
+| [Set-AzVirtualNetworkGateway](/powershell/module/az.network/set-azvirtualnetworkgateway) | 設定 VPN 閘道的設定。 |
 
 ## <a name="next-steps"></a>後續步驟
 

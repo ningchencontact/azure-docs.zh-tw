@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: dbae234739cd58278b1dc56c956a5fb058394681
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 003bd5ccae2b22dc411259226d84b11444694651
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913405"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417900"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure HDInsight 中開始使用 Apache Hadoop 和 Apache Hive
 
@@ -63,7 +63,7 @@ HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction
     |屬性  |說明  |
     |---------|---------|
     |**叢集類型**     | 選取 [Hadoop] |
-    |**作業系統**     |  選取 Azure 訂用帳戶。 |
+    |**作業系統**     | 選取 [Linux] |
     |**版本**     | 選取 [Hadoop 2.7.3 (HDI 3.6)]。|
 
     按一下 [選取]，然後按一下 [下一步]。

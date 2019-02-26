@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8ffcfc86823d46e65e116eed86ef35fcba2a99bf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006402"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453473"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>教學課程 2：訓練信用風險模型 - Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ ms.locfileid: "56006402"
 
 假設您必須根據某個人在信用申請書上提供的資訊預測其信用風險。  
 
-信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為一個範例，以說明如何使用 Microsoft Azure Machine Learning 建立預測性分析解決方案。 針對此解決方案，您將使用 Azure Machine Learning Studio 和 Machine Learning Web 服務。  
+信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為範例，以說明如何使用 Microsoft Azure Machine Learning Studio 建立預測性分析解決方案。 針對此解決方案，您將使用 Azure Machine Learning Studio 和 Machine Learning Web 服務。  
 
 在此三部分的教學課程中，您將從可公開取得的信用風險資料開始著手。  接著，您將開發並訓練預測模型。  最後，您會將模型部署為 Web 服務。
 
@@ -191,9 +191,9 @@ ms.locfileid: "56006402"
 您可以檢查這些值，以判斷哪個模型最可能提供您想要的結果。 您可以返回並變更不同模型中的參數值，以反覆執行實驗。 
 
 解讀這些結果和微調模型效能的藝術與科學超出本教學課程的範圍。 如需更多說明，請參閱下列文章：
-- [如何在 Azure Machine Learning 中評估模型效能](evaluate-model-performance.md)
-- [選擇參數來最佳化 Azure Machine Learning 中的演算法](algorithm-parameters-optimize.md)
-- [在 Azure Machine Learning 中解讀模型結果](interpret-model-results.md)
+- [如何在 Azure Machine Learning Studio 中評估模型效能](evaluate-model-performance.md)
+- [選擇參數來最佳化 Azure Machine Learning Studio 中的演算法](algorithm-parameters-optimize.md)
+- [在 Azure Machine Learning Studio 中解譯模型結果](interpret-model-results.md)
 
 > [!TIP]
 > 每次執行實驗，[執行歷程記錄] 中就會保留該筆逐一查看的記錄。 您可以檢視這些反覆運算，按一下畫布下方的 [檢視執行歷程記錄]  即可回到其中任何一個。 您也可以按一下 [屬性] 窗格中的 [先前執行]，回到您目前開啟的反覆運算之前的那一個反覆運算。

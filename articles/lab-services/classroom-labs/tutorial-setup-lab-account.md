@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 28710ebfaef4c82212e0208c36f50a96f0dda083
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 764b5ebb73340d377250d39e20b17ed0daf18bbe
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892043"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447679"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>教學課程：使用 Azure Lab Services 設定實驗室帳戶
 在 Azure Lab Services 中，實驗室帳戶會作為中心帳戶，用來管理組織的實驗室。 在您的實驗室帳戶中，您可以為他人授與建立實驗室的權限，以及設定對實驗室帳戶下的所有實驗室皆適用的原則。 在本教學課程中，請了解如何以實驗室管理員的身分建立實驗室帳戶。 
@@ -48,7 +48,8 @@ ms.locfileid: "55892043"
     2. 選取您要在其中建立實驗室帳戶的 **Azure 訂用帳戶**。
     3. 針對 [資源群組]，選取 [新建]，並為資源群組輸入名稱。
     4. 針對 [位置]，選取您要在其中建立實驗室帳戶的位置/區域。 
-    5. 選取 [建立] 。 
+    5. 在 [允許實驗室建立者挑選實驗室位置] 欄位中，指定您是否要讓實驗室建立者選取實驗室的位置。 此選項預設為停用。 加以停用時，實驗室建立者將無法為其建立的實驗室指定位置。 實驗室會在最接近實驗室帳戶的地理位置建立。 加以啟用時，實驗室建立者將可在建立實驗室時選取位置。 
+    6. 選取 [建立] 。 
 
         ![[建立實驗室帳戶] 視窗](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. 選取工具列上的**鈴鐺圖示** (**通知**)，確認部署成功，然後選取 [移至資源]。 

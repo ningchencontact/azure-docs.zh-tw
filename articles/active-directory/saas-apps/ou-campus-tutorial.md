@@ -1,12 +1,12 @@
 ---
-title: 教學課程：Azure Active Directory 與 Form.com 整合 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 與 Form.com 之間的單一登入。
+title: 教學課程：Azure Active Directory 與 OU Campus 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 OU Campus 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
+ms.assetid: 09315212-3731-4ae1-bcc2-b8b5f2ac6087
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 9cd15222ee7c86a6cfbe519a730d3724ca1ec0f6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 51ce72e16aff23341bca9b593e5551d6ad5c8544
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455631"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344228"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>教學課程：Azure Active Directory 與 Form.com 整合
+# <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>教學課程：Azure Active Directory 與 OU Campus 整合
 
-在本教學課程中，您會了解如何整合 Form.com 與 Azure Active Directory (Azure AD)。
-Form.com 與 Azure AD 整合提供下列優點：
+在本教學課程中，您將了解如何整合 OU Campus 與 Azure Active Directory (Azure AD)。
+OU Campus 與 Azure AD 整合可提供下列優點：
 
-* 您可以在 Azure AD 中控制可存取 Form.com 的人員。
-* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Form.com (單一登入)。
+* 您可以在 Azure AD 中控制可存取 OU Campus 的人員。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 OU Campus (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -35,22 +35,22 @@ Form.com 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Form.com 整合，您需要下列項目：
+若要設定 Azure AD 與 OU Campus 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Form.com 單一登入的訂用帳戶
+* 已啟用 OU Campus 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Form.com 支援由 **SP** 起始的 SSO
+* OU Campus 支援由 **SP** 起始的 SSO
 
-## <a name="adding-formcom-from-the-gallery"></a>從資源庫新增 Form.com
+## <a name="adding-ou-campus-from-the-gallery"></a>從資源庫新增 OU Campus
 
-若要設定將 Form.com 整合到 Azure AD 中，您需要從資源庫將 Form.com 新增到受控 SaaS 應用程式清單。
+若要進行將 OU Campus 整合至 Azure AD 的設定，您必須從資源庫將 OU Campus 新增至受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 Form.com，請執行下列步驟：**
+**若要從資源庫新增 OU Campus，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -64,31 +64,31 @@ Form.com 與 Azure AD 整合提供下列優點：
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Form.com**，從結果面板中選取 [Form.com]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中輸入 **OU Campus**，並從結果面板中選取 [OU Campus]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 Form.com](common/search-new-app.png)
+     ![結果清單中的 OU Campus](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Form.com 搭配運作的 Azure AD 單一登入。
-若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Form.com 中相關使用者之間的連結關聯性。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 OU Campus 搭配運作的 Azure AD 單一登入。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 OU Campus 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Form.com 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 OU Campus 搭配運作的 Azure AD 單一登入，您必須完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[設定 Form.com 單一登入](#configure-formcom-single-sign-on)** - 在應用程式端設定單一登入設定。
+2. **[設定 OU Campus 單一登入](#configure-ou-campus-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Form.com 測試使用者](#create-formcom-test-user)** - 使 Form.com 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+5. **[建立 OU Campus 測試使用者](#create-ou-campus-test-user)** - 使 OU Campus 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Form.com 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要設定與 OU Campus 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Form.com] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [OU Campus] 應用程式整合頁面上，選取 [單一登入]。
 
     ![設定單一登入連結](common/select-sso.png)
 
@@ -102,26 +102,18 @@ Form.com 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Form.com 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![OU Campus 網域和 URL 單一登入資訊](common/sp-intiated.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<subdomain>.wa-form.com`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://a.cms.omniupdate.com/<Instance Name>`
 
-    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`https://<subdomain>.form.com`
+    > [!Note]
+    > 這不是真正的值。 使用實際的登入 URL 來更新此值。 請連絡 [OU Campus 用戶端支援小組](mailto:support@omniupdate.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
-    | |
-    |--|
-    | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
-    | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
+5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
-    > [!NOTE]
-    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [ 用戶端支援小組](https://form.com/about/company/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    ![憑證下載連結](common/metadataxml.png)
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載 [憑證 (Base64)]，並按一下 [複製] 圖示以依據您的需求從指定選項複製 [應用程式同盟中繼資料 URL]，並儲存在您的電腦上。
-
-    ![憑證下載連結](./media/formcom-tutorial/certificatebase64-url.png)
-
-6. 在 [設定 Form.com] 區段上，依據您的需求複製適當的 URL。
+6. 在 [設定 OU Campus] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -131,9 +123,9 @@ Form.com 與 Azure AD 整合提供下列優點：
 
     c. 登出 URL
 
-### <a name="configure-formcom-single-sign-on"></a>設定 Form.com 單一登入
+### <a name="configure-ou-campus-single-sign-on"></a>設定 OU Campus 單一登入
 
-若要在 **Form.com** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)]、[應用程式同盟中繼資料 URL] 和複製的適當 URL 傳送給[Form.com 支援小組](https://form.com/about/company/contact-us/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **OU Campus** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 [OU Campus 支援小組](mailto:support@omniupdate.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -162,15 +154,15 @@ Form.com 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Form.com 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 OU Campus 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Form.com]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [OU Campus]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Form.com]。
+2. 在應用程式清單中，選取 [OU Campus]。
 
-    ![應用程式清單中的 Form.com 連結](common/all-applications.png)
+    ![應用程式清單中的 OU Campus 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -186,15 +178,15 @@ Form.com 與 Azure AD 整合提供下列優點：
 
 7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
 
-### <a name="create-formcom-test-user"></a>建立 Form.com 測試使用者
+### <a name="create-ou-campus-test-user"></a>建立 OU Campus 測試使用者
 
-在本節中，您會在 Form.com 中建立名為 Britta Simon 的使用者。 請與  [Form.com 支援小組](https://form.com/about/company/contact-us/)合作，在 Form.com 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 OU Campus 中建立名為 Britta Simon 的使用者。 請與  [OU Campus 支援小組](mailto:support@omniupdate.com)合作，在 OU Campus 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Form.com] 圖格時，應該會自動登入您已設定 SSO 的 Form.com。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [OU Campus] 圖格時，應該會自動登入您已設定 SSO 的 OU Campus。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

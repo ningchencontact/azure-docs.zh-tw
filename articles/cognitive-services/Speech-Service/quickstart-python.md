@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 43ae1339b2b6880656c68957a3d4ed2d2f13b559
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859535"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447102"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>快速入門：使用適用於 Python 的語音 SDK 來辨識語音
 
@@ -26,16 +26,16 @@ ms.locfileid: "55859535"
 ## <a name="prerequisites"></a>必要條件
 
 * 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
-* [Python 3.5 或更新版本](https://www.python.org/downloads/)，64 位元。
+* [Python 3.5 或更新版本](https://www.python.org/downloads/)。
 * Python 語音 SDK 套件適用於下列作業系統： 
-    * Windows：x64。
+    * Windows：x64 和 x86。
     * Mac：macOS X 10.12 版或更新版本。
     * Linux：x64 上的 Ubuntu 16.04 或 18.04。
 * 在 Ubuntu 上，執行下列命令以安裝必要的套件：
 
   ```sh
   sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
   ```
 
 * 在 Windows 上，您也會需要適用於您平台的[適用於 Visual Studio 2017 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6789e1d6e514ce107ab96fddbaa582ccbe922bbb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243717"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453608"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>教學課程 1：預測信用風險 - Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ ms.locfileid: "56243717"
 
 假設您必須根據某個人在信用申請書上提供的資訊預測其信用風險。  
 
-信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為一個範例，以說明如何使用 Microsoft Azure Machine Learning 建立預測性分析解決方案。 針對此解決方案，您將使用 Azure Machine Learning Studio 和 Machine Learning Web 服務。  
+信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為範例，以說明如何使用 Microsoft Azure Machine Learning Studio 建立預測性分析解決方案。 針對此解決方案，您將使用 Azure Machine Learning Studio 和 Machine Learning Web 服務。  
 
 在此三部分的教學課程中，您將從可公開取得的信用風險資料開始著手。  接著，您將開發並訓練預測模型。  最後，您會將模型部署為 Web 服務。
 
@@ -55,7 +55,7 @@ ms.locfileid: "56243717"
 
 若要使用 Machine Learning Studio，您必須要有 Microsoft Azure Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。  
 
-若要建立工作區，請參閱[建立 Azure Machine Learning 工作區](create-workspace.md)。
+若要建立工作區，請參閱[建立和共用 Azure Machine Learning Studio 工作區](create-workspace.md)。
 
 建立工作區後，開啟 Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home))。 如果您具有多個工作區，您可以在視窗右上角的工具列中選取工作區。
 

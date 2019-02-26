@@ -3,40 +3,40 @@ title: 什麼是 Azure 自訂視覺服務？
 titlesuffix: Azure Cognitive Services
 description: 了解如何使用自訂視覺服務在 Azure 雲端中建置自訂影像分類器。
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 01/10/2019
-ms.author: anroth
-ms.openlocfilehash: cc60166b4105cf38d3c1f73bdb558af7a9a7c831
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 6cbc6e351147ed5b4c31463b5cf319417f34da34
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857476"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456770"
 ---
 # <a name="what-is-azure-custom-vision"></a>什麼是 Azure 自訂視覺服務？
 
-Azure 自訂視覺服務 API 是一項認知服務，可讓您建置、部署和改善自訂影像分類器。 影像分類器是一項 AI 服務，可根據特定的特性將影像按類別 (標記) 排序。 不同於[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)服務，自訂視覺服務可讓您建立自己的分類。
+Azure 自訂視覺是一項認知服務，可讓您建置、部署和改善自己的影像分類器。 影像分類器是一項 AI 服務，可根據影像的視覺特性對影像套用標籤 (代表_類別_)。 不同於[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)服務，自訂視覺可讓您決定所要套用的標籤。
 
 ## <a name="what-it-does"></a>作用
 
-自訂視覺服務會使用機器學習演算法來分類影像。 身為開發人員的您必須提交具備和缺少相關分類的影像群組。 您必須在提交時指定正確的影像標記。 然後，演算法會針對這項資料進行訓練，並藉由對該項資料進行自我測試，計算其本身的精確度。 模型經過訓練後，您可以測試、重新訓練，最終根據您的應用程式需求用它來分類新的影像。 您也可以匯出模型本身以供離線使用。
+自訂視覺服務會使用機器學習演算法對影像套用標籤。 身為開發人員的您必須提交具備和缺少相關特性的影像群組。 您必須在提交時自行為影像加上標籤。 然後，演算法會針對這項資料進行訓練，並藉由對這些相同的影像進行自我測試，計算其本身的精確度。 演算法經過訓練後，您可以測試、重新訓練，最終根據您的應用程式需求用它來分類新的影像。 您也可以匯出模型本身以供離線使用。
 
-### <a name="classification-and-object-detection"></a>分類和物件偵測
+## <a name="classification-and-object-detection"></a>分類和物件偵測
 
-自訂視覺功能可以細分成兩項功能。 **影像分類**會將分類的分布情形指派給每個影像。 同時支援多類別 (一個影像一個標記) 和多標籤 (一個影像任意數目的標記) 分類模型。 **物件偵測**與多標籤分類類似，但也會傳回影像中已套用的標籤所在位置的座標。
+自訂視覺功能可以細分成兩項功能。 **影像分類**會對影像套用一或多個標籤。 **物件偵測**也相類似，但它還會傳回影像中已套用的標籤所在位置的座標。
 
-### <a name="optimization"></a>最佳化
+## <a name="optimization"></a>最佳化
 
-一般而言，自訂視覺服務所使用的方法不容易受到差異的影響，所以只要少量資料就可以開始建立原型。 一般而言，每個標記 50 個影像是不錯的起點。 但這表示服務並未具備偵測影像中些微差異的最佳效能 (例如，在品保案例中偵測出微小的裂縫或凹痕)。
+自訂視覺服務經過最佳化，可快速辨識影像之間的主要差異。 如此，您只需要少量資料即可開始建立模型的原型。 一般而言，每個標籤 50 個影像是不錯的起點。 但這表示服務並未具備偵測影像中些微差異的最佳效能 (例如，在品保案例中偵測出微小的裂縫或凹痕)。
 
-此外，您可以從數種不同針對特定題材內容進行最佳化的自訂視覺演算法中擇一使用&mdash;例如，地標或零售項目。 如需其詳細資訊，請參閱[建置分類器](getting-started-build-a-classifier.md)指南。
+此外，您可以從數種不同針對特定題材內容的影像進行最佳化的自訂視覺演算法中擇一使用&mdash;例如，地標或零售項目。 如需其詳細資訊，請參閱[建置分類器](getting-started-build-a-classifier.md)指南。
 
 ## <a name="what-it-includes"></a>包含內容
-自訂視覺服務可作為一組的原生 SDK，也可透過[自訂視覺服務首頁](https://customvision.ai/)上的 Web 介面來使用。 您可以透過上述一或兩種介面來建立、測試和訓練模型。
+自訂視覺服務可作為一組的原生 SDK，也可透過[自訂視覺服務首頁](https://customvision.ai/)上的 Web 介面來使用。 您可以使用上述一或兩種介面來建立、測試和訓練模型。
 
 ![Chrome 瀏覽器視窗中的自訂視覺服務首頁](media/browser-home.png)
 
@@ -46,4 +46,4 @@ Azure 自訂視覺服務 API 是一項認知服務，可讓您建置、部署和
 
 ## <a name="next-steps"></a>後續步驟
 
-請依照[建置分類器](getting-started-build-a-classifier.md)指南在 Web 上開始使用自訂視覺服務，或完成[影像分類教學課程](csharp-tutorial.md)以使用程式碼實作案例。
+請依照[建置分類器](getting-started-build-a-classifier.md)指南在 Web 上開始使用自訂視覺，或完成[影像分類教學課程](csharp-tutorial.md)以使用程式碼實作基本案例。

@@ -11,7 +11,7 @@
 ### [使用 Azure DNS 和流量管理員進行災害復原](disaster-recovery-dns-traffic-manager.md)
 ## 規劃和設計
 ### [虛擬網路](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [跨單位連線 - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [跨單位連線 - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [跨單位連線 - 專用私人](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### 後端連線能力互通性
 #### [引用和測試設定](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: 0bd882ffd5048d0b33afc9ecf00c0ed6356b6e98
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: a33001216fb805b700d077aa8c9d42fae9bd6bae
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883512"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416797"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>教學課程：編碼以 URL 為基礎的遠端檔案及串流處理影片 - REST
 
@@ -41,10 +41,6 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>必要條件
-
-- 在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
-
-    目前，並非所有[媒體服務 v3 CLI](https://aka.ms/ams-v3-cli-ref) 命令都可在 Azure Cloud Shell 中運作。 建議在本機使用 CLI。
 
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。
 
@@ -229,6 +225,10 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 此作業需要一些時間來完成，而您可以選擇在完成時收到通知。 若要查看作業的進度，建議您使用事件方格。 事件方格是為高可用性、一致效能及動態調整而設計的。 透過事件方格，您的應用程式幾乎可以從所有 Azure 服務和自訂來源接聽及回應事件。 以 HTTP 為基礎的簡單回應式事件處理，可協助您透過智慧型事件篩選和路由來建置有效率的解決方案。  請參閱[將事件路由至自訂 Web 端點](job-state-events-cli-how-to.md)。
 
 **作業**通常會經歷下列狀態：**已排程**、**已排入佇列**、**正在處理**、**已完成** (最後一個狀態)。 如果作業發生錯誤，您會收到**錯誤**狀態。 如果正在取消作業，您會收到**正在取消**的狀態，以及完成時的**已取消**狀態。
+
+#### <a name="job-error-codes"></a>作業錯誤碼
+
+請參閱[錯誤碼](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)。
 
 ### <a name="create-a-streaming-locator"></a>建立串流定位器
 

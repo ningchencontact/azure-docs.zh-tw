@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ad344d3169643128a4860c9b0856f845d9656cd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3cbfb29542f2c71f4308b63319e77b37093529d4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021351"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445895"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 複製到 Azure SQL Database
 在本教學課程中，您會建立 Data Factory 管道，將資料從 Azure Blob 儲存體複製到 Azure SQL Database。 本教學課程中的設定模式從以檔案為基礎的資料存放區複製到關聯式資料存放區。 如需支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -95,11 +95,11 @@ ms.locfileid: "54021351"
 ## <a name="install-nuget-packages"></a>安裝 NuGet 套件
 
 1. 按一下 [工具] -> [NuGet 套件管理員] -> [套件管理員主控台]。
-2. 在 **Package Manager Console** 中，執行下列命令以安裝封裝：
+2. 在 [套件管理員主控台] 中執行下列命令，以安裝套件。 請參閱 [Microsoft.Azure.Management.DataFactory nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)中的詳細資料。
 
     ```
-    Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
-    Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
+    Install-Package Microsoft.Azure.Management.DataFactory
+    Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 

@@ -1,21 +1,21 @@
 ---
 title: 快速入門：辨識語音，C++ (Linux) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用語音服務 SDK 在 Linux 上以 C++ 辨識語音
+description: 了解如何使用語音 SDK 在 Linux 上以 C++ 辨識語音
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: fbd962d7a19969c88f539b0e21848fb01c6e88e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9e1844320786fe8a2a856b06b3a8093ca49568eb
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874748"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446353"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Linux 上以 C++ 辨識語音
 
@@ -31,7 +31,7 @@ ms.locfileid: "55874748"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.2.0`。
+認知服務語音 SDK 目前的版本為 `1.3.0`。
 
 適用於 Linux 的語音 SDK 可用來建置 64 位元和 32 位元應用程式。 您可從 https://aka.ms/csspeech/linuxbinary 以 tar 檔案格式下載必要的程式庫和標頭檔。
 
@@ -41,7 +41,7 @@ ms.locfileid: "55874748"
 
    ```sh
    sudo apt-get update
-   sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+   sudo apt-get install build-essential libssl1.0.0 libasound2 wget
    ```
 
 1. 選擇語音 SDK 檔案應解壓縮至的目錄，並將 `SPEECHSDK_ROOT` 環境變數設定為指向該目錄。 此變數方便在未來命令中參考此目錄。 例如，如果您想要在主目錄中使用目錄 `speechsdk`，請使用類似下列的命令：
@@ -91,13 +91,13 @@ ms.locfileid: "55874748"
 * 在 **x64** (64 位元) 系統上，執行下列命令以建置應用程式。
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libasound.so.2
   ```
 
 * 在 **x86** (32 位元) 系統上，執行下列命令以建置應用程式。
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libasound.so.2
   ```
 
 ## <a name="run-the-app"></a>執行應用程式

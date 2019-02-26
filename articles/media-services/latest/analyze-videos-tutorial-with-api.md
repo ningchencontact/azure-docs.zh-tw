@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9dbe641c5e22129f7db3d3f3b886fea4501300b0
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150388"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416134"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>教學課程：透過媒體服務 v3 使用 .NET 分析影片
 
@@ -126,6 +126,11 @@ ms.locfileid: "55150388"
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 
+
+### <a name="job-error-codes"></a>作業錯誤碼
+
+請參閱[錯誤碼](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)。
+
 ### <a name="download-the-result-of-the-job"></a>下載作業結果
 
 下列函式會將結果從輸出[資產](https://docs.microsoft.com/rest/api/media/assets)下載至「輸出」資料夾，因此您可以檢查作業的結果。 
@@ -140,7 +145,7 @@ ms.locfileid: "55150388"
 
 ## <a name="run-the-sample-app"></a>執行範例應用程式
 
-按下 Ctrl+F5 來執行 *AnalyzeVideos* 應用程式。
+按 Ctrl+F5 執行 *AnalyzeVideos* 應用程式。
 
 當我們執行程式時，此作業會為影片中找到的每個臉部製作縮圖。 並且也會產生 insights.json 檔案。
 

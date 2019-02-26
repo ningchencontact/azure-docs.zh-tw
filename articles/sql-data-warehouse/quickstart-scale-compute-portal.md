@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: 31ec1537a0075f486130a3bcf1017d35b47e499d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.reviewer: jrasnick
+ms.openlocfilehash: 2e3bb00cee679671ed382ee46690fc4dff8bddfb
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463645"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453880"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中調整 Azure SQL 資料倉儲中的計算
 
@@ -29,11 +29,14 @@ ms.locfileid: "55463645"
 
 ## <a name="before-you-begin"></a>開始之前
 
-您可以調整您已擁有的資料倉儲，也可以使用[快速入門：建立與連線 - 入口網站](create-data-warehouse-portal.md)來建立稱為 **mySampleDataWarehouse** 的資料倉儲。  本快速入門會調整 **mySampleDataWarehouse**。
+您可以調整您已擁有的資料倉儲，也可以使用[快速入門：建立與連線 - 入口網站](create-data-warehouse-portal.md)來建立名為 **mySampleDataWarehouse** 的資料倉儲。  本快速入門會調整 **mySampleDataWarehouse**。
+
+>[!Note]
+>您的資料倉儲必須連線才能調整規模。 
 
 ## <a name="scale-compute"></a>調整計算
 
-在 SQL 資料倉儲中，您可以藉由調整資料倉儲單位來增加或減少計算資源。 [建立與連線 - 入口網站](create-data-warehouse-portal.md)已建立 **mySampleDataWarehouse**，並以 400 DWU 加以初始化。 下列步驟會調整 **mySampleDataWarehouse** 的 DWU。
+您可以藉由增加或減少資料倉儲單位來調整 SQL 資料倉儲計算資源。 [建立與連線 - 入口網站] 快速入門 (create-data-warehouse-portal.md) 已建立 **mySampleDataWarehouse**，並使用 400 DWU 加以初始化。 下列步驟會調整 **mySampleDataWarehouse** 的 DWU。
 
 若要變更資料倉儲單位：
 

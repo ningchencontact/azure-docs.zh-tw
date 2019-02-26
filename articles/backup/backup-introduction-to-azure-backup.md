@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487875"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447356"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。
@@ -33,7 +33,7 @@ Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料�
 
 * 本地備援儲存體 (LRS) 會將資料複寫至資料中心的儲存體縮放單位三次 (建立三個資料複本)。 此資料的所有複本都存在於相同的區域內。 LRS 是保護資料免於本機硬體失敗的低成本選項。
 
-* 異地備援儲存體 (GRS) 是預設且建議的複寫選項。 GRS 會將資料複寫到次要地區 (與來源資料主要位置距離數百英哩)。 GRS 的價格高於 LRS，但它為您的資料提供更高層級的持久性，即使遭受區域性停電也不影響。
+* 異地備援儲存體 (GRS) 是預設且建議的複寫選項。 GRS 會將您的資料複寫到屬於 [Azure 配對區域](../best-practices-availability-paired-regions.md)的次要區域 (與來源資料主要位置距離數百英哩)。 GRS 的價格高於 LRS，但它為您的資料提供更高層級的持久性，即使遭受區域性停電也不影響。
 
 **無限制的資料傳輸** -Azure 備份不會限制輸入或輸出資料的傳輸。 Azure 備份也不會對傳輸資料收取費用。 不過，如果您使用 Azure 匯入/匯出服務匯入大量的資料，會有與輸入資料關聯的費用。 如需這項成本的詳細資訊，請參閱 [Azure Backup 中的離線備份工作流程](backup-azure-backup-import-export.md)。 輸出資料是指還原作業期間傳輸自復原服務保存庫的資料。
 
@@ -44,7 +44,7 @@ Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料�
 **長期保留** - 您可以使用復原服務保存庫進行短期和長期資料保留。 Azure 不會限制您可在復原服務保存庫中保留資料的時間長度。 只要您喜歡，就可以將資料保留在保存庫中。 Azure 備份的每個受保護執行個體上限為 9999 個復原點。 請參閱本文的[備份和保留](backup-introduction-to-azure-backup.md#backup-and-retention)一節，以了解這項限制對您的備份需求有何影響。
 
 ## <a name="which-azure-backup-components-should-i-use"></a>我該使用哪一個 Azure 備份元件？
-請使用下表，了解每個 Azure 備份元件的防護相關資訊。 
+請使用下表，了解每個 Azure 備份元件的防護相關資訊。
 
 | 元件 | 優點 | 限制 | 什麼會受到保護？ | 備份會儲存在哪裡？ |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料�
 | Azure IaaS VM 備份 |<p>**是**</p><p>Azure 網狀架構的一部分</p><p>適用於[備份 Azure 基礎結構即服務 (IaaS) 虛擬機器](backup-azure-vms-introduction.md)。</p> |<p>**否**</p> <p>請使用 System Center DPM 備份資料中心內的虛擬機器。</p> |<p>復原服務保存庫</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>可以備份哪些應用程式和工作負載？
-下表所提供的矩陣，顯示使用 Azure 備份可保護的資料和工作負載。 Azure 備份方案的資料行已連結至該方案的部署文件。 
+下表所提供的矩陣，顯示使用 Azure 備份可保護的資料和工作負載。 Azure 備份方案的資料行已連結至該方案的部署文件。
 
 | 資料或工作負載 | 來源環境 | Azure 備份方案 |
 | --- | --- | --- |
@@ -81,17 +81,17 @@ Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料�
 下表顯示支援 Linux 的 Azure 備份元件。  
 
 **元件** | **Linux (Azure 背書)**
---- | --- 
-Azure 備份 (MARS) 代理程式 | 否 (僅限 Windows 代理程式) 
+--- | ---
+Azure 備份 (MARS) 代理程式 | 否 (僅限 Windows 代理程式)
 System Center DPM | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原</br></br> 不適用於 Azure VM 的檔案一致性備份
-Azure 備份伺服器 | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原</br></br> 不適用於 Azure VM 的檔案一致性備份 
+Azure 備份伺服器 | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原</br></br> 不適用於 Azure VM 的檔案一致性備份
 Azure IaaS VM 備份 | 使用[前置指令碼和後置指令碼架構](backup-azure-linux-app-consistent.md)的應用程式一致備份<br/><br/> [檔案層級復原](backup-azure-restore-files-from-vm.md)<br/><br/> [從還原的磁碟建立 VM](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [從復原點還原檔案](backup-azure-arm-restore-vms.md#create-new-create-a-vm)。
 
-## <a name="using-premium-storage-vms-with-azure-backup"></a>使用進階儲存體 VM 與 Azure 備份
-Azure 備份可保護進階儲存體 VM。 Azure 進階儲存體是一個以固態硬碟 (SSD) 為基礎的儲存體產品，專門設計用來支援需大量 I/O 的工作負載。 進階儲存體非常適合用於虛擬機器 (VM) 工作負載。 如需進階儲存體的詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../virtual-machines/windows/premium-storage.md)一文。
+## <a name="using-premium-storage-vms-with-azure-backup"></a>搭配使用進階儲存體 VM 與 Azure 備份
+Azure 備份可保護進階儲存體 VM。 Azure 進階儲存體是一個以固態硬碟 (SSD) 為基礎的儲存體產品，可支援需要大量 I/O 的工作負載。 進階儲存體非常適合用於虛擬機器 (VM) 工作負載。 如需關於進階儲存體和其他磁碟類型的詳細資訊，請參閱[選取磁碟類型](../virtual-machines/windows/disks-types.md)一文。
 
 ### <a name="back-up-premium-storage-vms"></a>備份進階儲存體 VM
-在備份進階儲存體 VM 時，備份服務會在進階儲存體帳戶中建立臨時預備位置，名為 "AzureBackup-"。 預備位置的大小等於復原點快照集的大小。 請確定進階儲存體帳戶有適當的可用空間可容納暫存的預備位置。 如需詳細資訊，請參閱[進階儲存體限制](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)一文。 備份作業完成後，就會刪除預備位置。 用於預備位置之儲存體的價格在所有 [進階儲存體價格](../virtual-machines/windows/premium-storage.md#pricing-and-billing)中皆一致。
+在備份進階儲存體 VM 時，備份服務會在進階儲存體帳戶中建立臨時預備位置，名為 "AzureBackup-"。 預備位置的大小等於復原點快照集的大小。 請確定進階儲存體帳戶有適當的可用空間可容納臨時預備位置。 如需詳細資訊，請參閱 [Azure 儲存體延展性和目標](../storage/common/storage-scalability-targets.md)的相關文章。 備份作業完成後，就會刪除預備位置。 用於預備位置之儲存體的價格在所有 [進階儲存體價格](../virtual-machines/windows/disks-types.md)中皆一致。
 
 > [!NOTE]
 > 請勿修改或編輯預備位置。
