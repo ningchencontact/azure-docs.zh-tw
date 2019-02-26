@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093035"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429242"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站監視兩部虛擬機器之間的網路通訊
 
@@ -51,7 +51,7 @@ ms.locfileid: "50093035"
 
     |設定|值|
     |---|---|
-    |名稱|myVm1|
+    |Name|myVm1|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |訂用帳戶| 選取您的訂用帳戶。|
@@ -73,11 +73,11 @@ ms.locfileid: "50093035"
 
 |步驟|設定|值|
 |---|---|---|
-| 1 | 選取 [Ubuntu Server 17.10 VM] |                                                                         |
-| 3 | 名稱                              | myVm2                                                                   |
-| 3 | 驗證類型               | 貼上您的 SSH 公開金鑰，或選取 [密碼]，然後輸入密碼。 |
-| 3 | 資源群組                    | 選取 [使用現有項目]，然後選取 [myResourceGroup]。                 |
-| 6 | 擴充功能                        | **適用於 Linux 的網路代理程式**                                             |
+| 1 | 選取某個版本的 **Ubuntu Server** |                                                                         |
+| 3 | Name                                  | myVm2                                                                   |
+| 3 | 驗證類型                   | 貼上您的 SSH 公開金鑰，或選取 [密碼]，然後輸入密碼。 |
+| 3 | 資源群組                        | 選取 [使用現有項目]，然後選取 [myResourceGroup]。                 |
+| 6 | 擴充功能                            | **適用於 Linux 的網路代理程式**                                             |
 
 部署 VM 需要幾分鐘的時間。 等候虛擬機器完成部署，再繼續進行其餘步驟。
 
@@ -93,7 +93,7 @@ ms.locfileid: "50093035"
 
     | 設定                  | 值               |
     | ---------                | ---------           |
-    | 名稱                     | myVm1-myVm2(22)     |
+    | Name                     | myVm1-myVm2(22)     |
     | 來源                   |                     |
     | 虛擬機器          | myVm1               |
     | 目的地              |                     |
@@ -150,9 +150,9 @@ ms.locfileid: "50093035"
     | 設定                 | 值          |
     | ---                     | ---            |
     | 目的地連接埠範圍 | 22             |
-    | 動作                  | 拒絕           |
+    |  動作                  | 拒絕           |
     | 優先順序                | 100            |
-    | 名稱                    | DenySshInbound |
+    | Name                    | DenySshInbound |
 
 5. 因為連線監視會每隔 60 秒進行探查，所以請稍候幾分鐘，然後在入口網站左側，依序選取 [網路監看員]、[連線監視]，然後再次選取 [myVm1-myVm2(22)] 監視。 現在結果會不同，如下圖所示：
 
@@ -160,7 +160,7 @@ ms.locfileid: "50093035"
 
     您可以在 **myvm2529** 網路介面的狀態資料行中看到紅色驚嘆號圖示。
 
-6. 若要深入了解狀態為何會變更，請在上圖中選取 10.0.0.5。 連線監視會通知您通訊失敗的原因是：流量遭到封鎖，原因是下列網路安全性群組規則：UserRule_DenySshInbound。
+6. 若要深入了解狀態為何會變更，請在上圖中選取 10.0.0.5。 連線監視會通知您通訊失敗的原因是：*下列網路安全性群組規則致使流量遭到封鎖：UserRule_DenySshInbound*。
 
     如果您不知道誰實作了您在步驟 4 中建立的安全性規則，您可以從連線監視知道是該規則造成通訊問題。 然後，您可以變更、覆寫或移除規則，以還原虛擬機器之間的通訊。
 

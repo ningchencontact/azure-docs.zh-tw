@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872638"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453047"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
-Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理影像及傳回資訊。 若要分析影像，您可以上傳影像或指定影像 URL。 影像處理演算法可根據您感興趣的視覺化功能，以不同的方式分析內容。 例如，電腦視覺可判斷影像中是否包含成人或猥褻內容，也可以尋找影像中的所有人臉。
+Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理影像並傳回資訊。 若要分析影像，您可以上傳影像或指定影像 URL。 影像處理演算法可根據您感興趣的視覺化功能，以不同的方式分析內容。 例如，電腦視覺可判斷影像中是否包含成人或猥褻內容，也可以尋找影像中的所有人臉。
 
 您可以藉由使用原生 SDK 或直接叫用 REST API，在應用程式中使用電腦視覺。 本頁會廣泛說明電腦視覺的功用。
 
@@ -45,13 +45,13 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理�
 
 ## <a name="extract-text-from-images"></a>擷取影像中的文字
 
-您可以使用電腦視覺功能，將影像中的[文字擷取 (使用 OCR)](concept-extracting-text-ocr.md) 為機器可讀取的字元資料流。 如有需要，OCR 會沿著水平影像軸以度為單位校正已辨識文字的旋轉角度，並提供每個字的框架座標。 OCR 支援 25 種語言，且會根據擷取的文字自動偵測其語言。
+您可以使用電腦視覺功能，將影像中的[文字擷取 (使用光學字元辨識 (OCR))](concept-extracting-text-ocr.md) 為機器可讀取的字元資料流。 如有需要，OCR 會校正已辨識文字的旋轉角度，並提供每個字的框架座標。 OCR 支援 25 種語言，且會根據辨識的文字自動偵測其語言。
 
-您也可以從影像中[辨識印刷和手寫文字](concept-recognizing-text.md)。 電腦視覺可從表層和背景不同的各種物件影像中偵測並擷取出印刷和手寫的文字，例如收據、海報、名片、信件和白板等。 目前，辨識印刷和手寫文字的功能處於預覽階段，英文是唯一支援的語言。  
+您也可以在影像中[辨識印刷和手寫文字](concept-recognizing-text.md)。 電腦視覺可從表層和背景不同的各種物件影像中偵測並擷取出印刷和手寫的文字，例如收據、海報、名片、信件和白板等。 目前，印刷和手寫文字的辨識功能處於預覽階段，英文是唯一支援的語言。 
 
 ## <a name="moderate-content-in-images"></a>調節影像中的內容
 
-您可以使用電腦視覺在影像中[偵測成人和猥褻內容](concept-detecting-adult-content.md)、評估影像中包含成人或猥褻內容的可能性，及產生兩者的信賴分數。 成人和猥褻內容偵測的篩選條件可用滑動標尺來設定，以配合您的喜好設定。
+您可以使用電腦視覺在影像中[偵測成人和猥褻內容](concept-detecting-adult-content.md)，並傳回兩者的信賴分數。 成人和猥褻內容偵測的篩選條件可用滑動標尺來設定，以配合您的喜好設定。
 
 ## <a name="use-containers"></a>使用容器
 
