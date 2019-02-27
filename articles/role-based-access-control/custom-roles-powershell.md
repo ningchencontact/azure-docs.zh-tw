@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure PowerShell 建立自訂角色 | Microsoft Docs
-description: 了解如何使用 Azure PowerShell 來建立適用於角色型存取控制 (RBAC) 的自訂角色。 這包括如何列出、建立、更新及刪除自訂角色。
+title: 使用 Azure PowerShell 建立適用於 Azure 資源的自訂角色 | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 來為 Azure 資源建立包含角色型存取控制 (RBAC) 之自訂角色。 這包括如何列出、建立、更新及刪除自訂角色。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 26e5b33504ff543e8442108e4368ce3b04f25df4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92c061a7f854b46ab5aee07aa5e648ace8f9ae52
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696742"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343837"
 ---
-# <a name="create-custom-roles-using-azure-powershell"></a>使用 Azure PowerShell 建立自訂角色
+# <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>使用 Azure PowerShell 建立適用於 Azure 資源的自訂角色
 
-如果內建的角色無法滿足組織的特定需求，您可以建立自己的[自訂角色](built-in-roles.md)。 本文說明如何使用 Azure PowerShell 來建立和管理自訂角色。
+如果[適用於 Azure 資源的內建角色](built-in-roles.md)無法滿足您組織的特定需求，您可以建立自己的自訂角色。 本文說明如何使用 Azure PowerShell 來建立和管理自訂角色。
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -296,6 +296,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>後續步驟
 
-- [教學課程：使用 Azure PowerShell 建立自訂角色](tutorial-custom-role-powershell.md)
-- [Azure 中的自訂角色](custom-roles.md)
+- [教學課程：使用 Azure PowerShell 為 Azure 資源建立自訂角色](tutorial-custom-role-powershell.md)
+- [適用於 Azure 資源的自訂角色](custom-roles.md)
 - [Azure Resource Manager 資源提供者作業](resource-provider-operations.md)

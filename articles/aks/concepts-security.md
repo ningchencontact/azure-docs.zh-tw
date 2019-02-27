@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818986"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456498"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式和叢集的安全性概念
 
@@ -24,7 +24,7 @@ ms.locfileid: "55818986"
 - [節點安全性](#node-security)
 - [叢集升級](#cluster-upgrades)
 - [網路安全性](#network-security)
-- Kubernetes 秘密
+- [Kubernetes 秘密](#kubernetes-secrets)
 
 ## <a name="master-security"></a>主要元件安全性
 
@@ -36,9 +36,9 @@ ms.locfileid: "55818986"
 
 AKS 節點是您所管理和維護的 Azure 虛擬機器。 這些節點會透過 Docker 容器執行階段執行最佳化 Ubuntu Linux 發行版本。 當 AKS 叢集建立或相應增加時，節點將會自動以最新的 OS 安全性更新和設定進行部署。
 
-Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如果 OS 安全性更新需要重新啟動主機，此重新啟動作業並不會自動執行。 您可以手動重新啟動節點，或者，常見的方法是使用 [Kured][kured]，此為 Kubernetes 的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet][aks-daemonset] 執行，並監視每個節點，查看是否有檔案指出需重新啟動。 系統會使用相同的 [cordon 和 drain 程序](#cordon-and-drain)作為叢集升級，跨叢集管理作業系統重新啟動。
+Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如果 OS 安全性更新需要重新啟動主機，此重新啟動作業並不會自動執行。 您可以手動重新啟動節點，或者，常見的方法是使用 [Kured][kured]，此為 Kubernetes 的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet][aks-daemonsets] 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 系統會使用相同的 [cordon 和 drain 程序](#cordon-and-drain)作為叢集升級，跨叢集管理作業系統重新啟動。
 
-節點會部署至私人虛擬網路子網路中，且不會指派公用 IP 位址。 基於疑難排解和管理用途，依預設會啟用 SSH。 此 SSH 存取僅供內部 IP 位址使用。 Azure 網路安全性群組規則可用來進一步限制可存取 AKS 節點的 IP 範圍。 在節點上刪除預設網路安全性群組 SSH 規則並停用 SSH 服務，可防止 Azure 平台執行維護工作。
+節點會部署至私人虛擬網路子網路中，且不會指派公用 IP 位址。 基於疑難排解和管理用途，依預設會啟用 SSH。 此 SSH 存取僅供內部 IP 位址使用。
 
 若要防止儲存，節點應使用 Azure 受控磁碟。 就大部分的 VM 節點大小而言，這是指採用高效能 SSD 的進階磁碟。 儲存於受控磁碟上的資料會自動加密，並在 Azure 平台內待用。 若要提高備援性，這些磁碟也會安全地複寫於 Azure 資料中心內。
 
@@ -46,7 +46,7 @@ Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如
 
 ## <a name="cluster-upgrades"></a>叢集升級
 
-若要達到安全性與合規性，或是要使用最新功能，可以利用 Azure 提供用來協調 AKS 叢集和元件升級的工具。 此升級協調流程包含 Kubernetes 主要元件和代理程式元件。 您可以檢視 AKS 叢集的可用 Kubernetes 版本清單。 若要開始執行升級程序，您必須指定其中一個可用版本。 然後，Azure 會安全地隔離和清空每個 AKS 節點，並執行升級。
+若要達到安全性與合規性，或是要使用最新功能，可以利用 Azure 提供用來協調 AKS 叢集和元件升級的工具。 此升級協調流程包含 Kubernetes 主要元件和代理程式元件。 您可以檢視 AKS 叢集的[可用 Kubernetes 版本清單](supported-kubernetes-versions.md)。 若要開始執行升級程序，您必須指定其中一個可用版本。 然後，Azure 會安全地隔離和清空每個 AKS 節點，並執行升級。
 
 ### <a name="cordon-and-drain"></a>隔離和清空
 

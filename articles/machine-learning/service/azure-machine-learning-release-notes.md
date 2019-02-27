@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e7cc1340a85e1d00c2f64abeb35a99052184c52
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100171"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446761"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -117,9 +117,9 @@ ms.locfileid: "56100171"
 + **更新**
   * 使用者入門教學課程、案例研究和操作指南的[範例 Notebook](https://aka.ms/aml-data-prep-notebooks)。
 
-## <a name="2018-12-04-general-availability"></a>2018-12-04：公開推出
+## <a name="2018-12-04-general-availability"></a>2018-12-04：正式運作
 
-Azure Machine Learning 服務現已公開推出。
+Azure Machine Learning 服務現已正式運作。
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
 在此版本中，我們透過 [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute) 來宣布新的受控計算體驗。 這個計算目標會取代適用於 Azure Machine Learning 的 Azure Batch AI 計算。 

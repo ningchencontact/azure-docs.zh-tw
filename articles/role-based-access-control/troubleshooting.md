@@ -1,6 +1,6 @@
 ---
-title: Azure 的 RBAC 疑難排解 | Microsoft Docs
-description: 針對 Azure 角色型存取控制 (RBAC) 的各種問題進行疑難排解。
+title: 針對適用於 Azure 資源的 RBAC 進行疑難排解 | Microsoft Docs
+description: 針對適用於 Azure 資源的角色型存取控制 (RBAC) 問題進行疑難排解。
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411232"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342468"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>針對 Azure 的各種 RBAC 問題進行疑難排解
+# <a name="troubleshoot-rbac-for-azure-resources"></a>針對適用於 Azure 資源的 RBAC 進行疑難排解
 
-本文將回答常見的角色型存取控制 (RBAC) 問題，讓您知道在 Azure 入口網站中使用角色時會有什麼樣的結果，以及如何解決存取權相關問題。
+此文章將回答適用於 Azure 資源之角色型存取控制 (RBAC) 的常見問題，讓您知道在 Azure 入口網站中使用角色時會有什麼樣的結果，以及如何解決存取權相關問題。
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 角色指派的問題
 
@@ -119,6 +119,6 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 讀者可以按一下 [平台功能] 索引標籤，然後按一下 [所有設定] 以檢視與函數應用程式相關的一些設定 (類似於 Web 應用程式)，但他們不能修改這些設定。
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 RBAC 和 Azure 入口網站來管理存取權](role-assignments-portal.md)
-* [檢視活動記錄檔中的各種 RBAC 變更](change-history-report.md)
+* [使用 RBAC 和 Azure 入口網站管理 Azure 資源的存取權](role-assignments-portal.md)
+* [檢視活動記錄檔中 Azure 資源的各種 RBAC 變更](change-history-report.md)
 

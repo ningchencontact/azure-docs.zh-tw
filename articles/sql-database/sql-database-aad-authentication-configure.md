@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 87c3633bb3ed3537d1e258b9d8d50fd6d6356d81
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 02/20/2019
+ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960018"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454832"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 設定及管理 Azure Active Directory 驗證
 
@@ -143,7 +143,7 @@ ms.locfileid: "52960018"
 
     變更系統管理員的程序可能需要幾分鐘的時間。 接著，新的系統管理員就會出現在 [Active Directory 系統管理員] 方塊中。
 
-為您的受控執行個體佈建好 Azure AD 系統管理員後，您就可以開始使用 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> 語法來建立 Azure AD 登入 (**公開預覽版**)。 如需詳細資訊，請參閱[受控執行個體概觀](sql-database-managed-instance.md#azure-active-directory-integration)。
+為您的受控執行個體佈建好 Azure AD 系統管理員後，您就可以開始使用 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> 語法來建立 Azure AD 伺服器主體 (登入) (**公開預覽**)。 如需詳細資訊，請參閱[受控執行個體概觀](sql-database-managed-instance.md#azure-active-directory-integration)。
 
 > [!TIP]
 > 若稍後要移除系統管理員，請在 [Active Directory 系統管理員] 頁面頂端，選取 [移除系統管理員]，然後選取 [儲存]。
@@ -264,7 +264,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>在對應至 Azure AD 身分識別的資料庫中建立自主資料庫使用者
 
 >[!IMPORTANT]
->受控執行個體現在支援 Azure AD 登入 (**公開預覽**)，可讓您從 Azure AD 使用者、群組或應用程式中建立登入。 Azure AD 登入可讓您對受控執行個體進行驗證，而不需要將資料庫使用者建立為自主資料庫使用者。 如需詳細資訊，請參閱[受控執行個體概觀](sql-database-managed-instance.md#azure-active-directory-integration)。 如需建立 Azure AD 登入的語法，請參閱 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>。
+>受控執行個體現在支援 Azure AD 伺服器主體 (登入) (**公開預覽**)，可讓您從 Azure AD 使用者、群組或應用程式中建立登入。 Azure AD 伺服器主體 (登入) 可讓您對受控執行個體進行驗證，而不需要將資料庫使用者建立為自主資料庫使用者。 如需詳細資訊，請參閱[受控執行個體概觀](sql-database-managed-instance.md#azure-active-directory-integration)。 如需建立 Azure AD 伺服器主體 (登入) 的語法，請參閱 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>。
 
 Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫使用者。 以 Azure AD 身分識別為基礎的自主資料庫使用者係指在 master 資料庫中沒有登入身分的資料庫使用者，並且此使用者會對應至 Azure AD 目錄中與資料庫關聯的身分識別。 Azure AD 身分識別可以是個別的使用者帳戶或群組。 如需有關自主資料庫使用者的詳細資訊，請參閱 [自主資料庫使用者 - 使資料庫可攜](https://msdn.microsoft.com/library/ff929188.aspx)。
 
@@ -323,14 +323,11 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 若要佈建以 Azure AD 為基礎的自主資料庫使用者 (而非擁有資料庫的伺服器系統管理員)，請利用有權存取資料庫的 Azure AD 身分識別連線到資料庫。
 
 > [!IMPORTANT]
-> Visual Studio 2015 中的 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 和 [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) 提供 Azure Active Directory 驗證支援。 SSMS 的 2016 年 8 月版本也支援 Active Directory 通用驗證，讓系統管理員能夠使用電話、簡訊、含有 PIN 的智慧卡或行動應用程式通知來要求 Multi-Factor Authentication。 目前不支援使用 Azure AD 登入和使用者 (**公開預覽**) 搭配 SSDT。
+> Visual Studio 2015 中的 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 和 [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) 提供 Azure Active Directory 驗證支援。 SSMS 的 2016 年 8 月版本也支援 Active Directory 通用驗證，讓系統管理員能夠使用電話、簡訊、含有 PIN 的智慧卡或行動應用程式通知來要求 Multi-Factor Authentication。
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>使用 Azure AD 身分識別以使用 SSMS 或 SSDT 進行連線
 
 下列程序會示範如何使用 SQL Server Management Studio 或 SQL Server 資料庫工具的 Azure AD 身分連接到 SQL 資料庫。
-
->[!IMPORTANT]
->目前不支援使用 Azure AD 登入和使用者 (**公開預覽**) 搭配 SSDT。
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory 整合驗證
 

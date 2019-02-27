@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176338"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445996"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack 儲存體容量規劃
 下列各節提供 Azure Stack 儲存體容量的規劃資訊，協助規劃解決方案的儲存體需求。
@@ -38,7 +38,9 @@ Azure Stack 的超融合式組態可共用實體的儲存體裝置。 可用儲�
 
 ![Azure 儲存體容量規劃](media/azure-stack-capacity-planning/storage.png)
 
-在全快閃組態中，快取是 NVMe，容量方面可選擇 SATA SSD 或 NVMe。 在混合式組態中，快取可選擇 NVMe 或 SATA SSD，容量上則是選用 HDD。
+在全快閃設定中，設定可以是雙層式或單層式設定。  如果設定是單層式，所有容量裝置都會是相同的類型 (例如 NVMe 或 SATA SSD 或 SAS SSD)，且不會使用快取裝置。 在雙層式的全快閃設定中，通常會使用 NVMe 作為快取裝置，並使用 SATA 或 SAS SSD 作為容量裝置。
+
+在混合式的雙層式設定中，快取裝置可以是 NVMe、SATA 或 SAS SSD，而容量裝置則會是 HDD。 
 
 儲存空間直接存取和 Azure Stack 儲存體設定的簡短摘要如下：
 - 每個縮放單位一個儲存空間集區 (所有儲存體裝置都在單一集區中設定)

@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: f57f6bf93fce2526bdc478558551616ba1fa3c4c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4f474fd6ac2fa6a4f44aacf0eacb85a92fdf1de9
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496018"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456464"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>已備妥資料來進行資料科學嗎？
 ## <a name="video-2-data-science-for-beginners-series"></a>影片 2：適用於初學者的資料科學系列
@@ -100,7 +100,7 @@ ms.locfileid: "55496018"
 
 利用相關、連結、精確與足夠的資料，您擁有需要的所有要素，來進行一些高品質資料科學。
 
-請務必查看 Microsoft Azure Machine Learning 中「適用於初學者的資料科學」的其他 4 部影片。
+請務必查看 Microsoft Azure Machine Learning Studio 中《適用於初學者的資料科學》的其他四個影片。
 
 ## <a name="next-steps"></a>後續步驟
 * [嘗試使用 Machine Learning Studio 進行您的第一個資料科學實驗](create-experiment.md)

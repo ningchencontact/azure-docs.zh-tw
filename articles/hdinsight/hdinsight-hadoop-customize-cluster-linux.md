@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662902"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313274"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>使用指令碼動作來自訂 Linux 型 HDInsight 叢集
 
@@ -55,7 +55,7 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 
     * HDInsight 叢集可存取的 Azure Data Lake Storage 帳戶。 如需搭配 HDInsight 使用 Azure Data Lake Storage 的相關資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
-        Data Lake Storage 中所儲存指令碼的 URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
+        Data Lake Storage Gen1 中所儲存指令碼的 URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
 
         > [!NOTE]  
         > HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。

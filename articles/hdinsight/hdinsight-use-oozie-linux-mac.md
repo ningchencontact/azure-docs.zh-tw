@@ -8,13 +8,13 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: 11c5d44d44bf66bc7f50dac13c1c7cf0ae7acfff
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 02/15/2019
+ms.openlocfilehash: b77f87ef922d2f759fd8d72505effa3d8e96c403
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994380"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339424"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Apache Hadoop 使用 Apache Oozie 來定義並執行工作流程
 
@@ -301,7 +301,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
     ```
 
     > [!NOTE]  
-    > 若 HDInsight 叢集使用 Azure 儲存體做為預設儲存體，`<value>` 元素內容的開頭將會是 `wasb://`。 若改為使用 Azure Data Lake Storage，則其開頭將會是 `adl://`。
+    > 若 HDInsight 叢集使用 Azure 儲存體做為預設儲存體，`<value>` 元素內容的開頭將會是 `wasb://`。 若改為使用 Azure Data Lake Storage Gen1，則其開頭將會是 `adl://`。 若使用 Azure Data Lake Storage Gen2，則其開頭將會是 `abfs://`。
 
     儲存 `<value>` 元素的內容，因為在後續步驟將會用到它。
 
@@ -685,7 +685,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 **原因**：**job.xml** 檔案中使用的 Azure Blob 儲存體位址未包含儲存體容器或儲存體帳戶名稱。 Blob 儲存體位址的格式必須是 `wasb://containername@storageaccountname.blob.core.windows.net`。
 
-**解決方案**：變更作業所使用的 Blob 儲存體位址。
+**解決方式**：變更作業所使用的 Blob 儲存體位址。
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002：不允許 Oozie 模擬 &lt;USER>
 
@@ -695,7 +695,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 **原因**：目前的權限設定不允許 Oozie 模擬指定的使用者帳戶。
 
-**解決方案**：Oozie 可以模擬 **users** 群組中的使用者。 使用 `groups USERNAME` 查看使用者帳戶所屬的群組。 如果使用者不是 **users** 群組的成員，請使用以下命令將使用者新增至群組：
+**解決方式**：Oozie 可以模擬 **users** 群組中的使用者。 使用 `groups USERNAME` 查看使用者帳戶所屬的群組。 如果使用者不是 **users** 群組的成員，請使用以下命令將使用者新增至群組：
 
     sudo adduser USERNAME users
 
@@ -710,7 +710,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 **原因**：Sqoop 無法載入存取資料庫時所需的資料庫驅動程式。
 
-**解決方案**：當您從 Oozie 作業使用 Sqoop 時，您必須將資料庫驅動程式與作業所使用的其他資源 (例如 workflow.xml) 包含在一起。 此外，請從 workflow.xml 的 `<sqoop>...</sqoop>` 區段，參考含有資料庫驅動程式的封存。
+**解決方式**：當您從 Oozie 作業使用 Sqoop 時，您必須將資料庫驅動程式與作業所使用的其他資源 (例如 workflow.xml) 包含在一起。 此外，請從 workflow.xml 的 `<sqoop>...</sqoop>` 區段，參考含有資料庫驅動程式的封存。
 
 例如，您可以針對本文件中的工作使用下列步驟：
 

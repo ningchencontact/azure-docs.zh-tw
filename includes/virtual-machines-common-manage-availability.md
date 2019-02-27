@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084050"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333761"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重新開機 - 維護與停機時間
 有三種情況可能會導致 Azure 中的虛擬機器受到影響：未規劃的硬體維護、未預期的停機時間以及規劃的維護。
@@ -41,7 +41,7 @@ ms.locfileid: "54084050"
 若要為應用程式提供備援，建議您在可用性設定組中，將兩部以上的虛擬機器組成群組。 資料中心內的這項組態可以確保在規劃或未規劃的維護事件發生期間，至少有一部虛擬機器可以使用，且符合 99.95% 的 Azure SLA。 如需相關資訊，請參閱 [虛擬機器的 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。
 
 > [!IMPORTANT]
-> 避免一個可用性設定組中只有一部執行個體虛擬機器。 此組態中的 VM 不符合 SLA 的保證，而且會在 Azure 規劃的維護事件期間發生停機狀況，除非單一 VM 是使用 [Azure 進階儲存體](../articles/virtual-machines/windows/premium-storage.md)。 使用進階儲存體的單一 VM 適用 Azure SLA。
+> 避免一個可用性設定組中只有一部執行個體虛擬機器。 此組態中的 VM 不符合 SLA 的保證，而且會在 Azure 規劃的維護事件期間發生停機狀況，除非單一 VM 是使用 [Azure 進階 SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd)。 使用進階 SSD 的單一 VM 適用 Azure SLA。
 
 基礎 Azure 平台會為可用性集合中的每部虛擬機器指派一個**更新網域**和一個**容錯網域**。 在指定的可用性設定組中，預設指派五個非使用者可設定的更新網域 (接著可以增加 Resource Manager 部署，以提供最多 20 個更新網域)，表示虛擬機器群組和可同時重新啟動的基礎實體硬體。 當一個可用性設定組中設定了超過五部虛擬機器，會將第六部虛擬機器放入與第一部虛擬機器相同的更新網域中，而第七部則會放入與第二部相同的更新網域中，以此類推。 重新啟動的更新網域順序可能不會在規劃的維護事件期間循序進行，而只會一次重新啟動一個更新網域。 在不同的更新網域上起始維護之前，重新啟動的更新網域有 30 分鐘的復原時間。
 
@@ -60,7 +60,7 @@ ms.locfileid: "54084050"
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-如果您打算使用 VM 搭配[非受控磁碟](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks)，請針對 VM 的虛擬硬碟 (VHD) 在其中儲存為[分頁 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) 的儲存體帳戶，遵循以下的最佳做法。
+如果您打算使用 VM 搭配非受控磁碟，請針對 VM 的虛擬硬碟 (VHD) 在其中儲存為[分頁 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) 的儲存體帳戶，遵循以下的最佳做法。
 
 1. **將與 VM 相關聯的所有磁碟 (OS 和資料) 保留於相同的儲存體帳戶中**
 2. 將更多VHD 新增至儲存體帳戶之前，**請檢閱儲存體帳戶中非受控磁碟數目的[限制](../articles/storage/common/storage-scalability-targets.md)**

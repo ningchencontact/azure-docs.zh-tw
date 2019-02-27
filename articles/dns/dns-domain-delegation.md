@@ -4,14 +4,14 @@ description: 了解如何變更網域委派及使用 Azure DNS 名稱伺服器�
 services: dns
 author: vhorne
 ms.service: dns
-ms.date: 1/22/2019
+ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 85f7318ac584e324f58d2ad470dc896e79e416d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461020"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417883"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>使用 Azure DNS 的 DNS 區域委派
 
@@ -27,7 +27,7 @@ Azure DNS 可讓您裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記�
 
 **網域註冊機構** - 網域註冊機構是指可以提供網際網路網域名稱的公司。 他們會驗證您想要使用的網際網路網域是否可用，並允許您購買。 一旦註冊網域名稱，您就成為該網域名稱的合法擁有者。 如果您已經有網際網路網域，您將使用目前的網域註冊機構委派給 Azure DNS。
 
-若要了解誰擁有指定的網域名稱，或如需有關如何購買網域的詳細資訊，請參閱 [Azure AD 中的網際網路網域管理](https://msdn.microsoft.com/library/azure/hh969248.aspx)。
+如需合格網域註冊機構的詳細資訊，請參閱 [ICANN 合格註冊機構](https://www.icann.org/registrar-reports/accredited-list.html) \(英文\)。
 
 ### <a name="resolution-and-delegation"></a>解析和委派
 

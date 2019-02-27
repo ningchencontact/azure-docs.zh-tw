@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 5daf60669d6e647fc1060bb5ac172b777c9559c5
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 23adf2903a50727d920e4a20b8a325313fa39e2a
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512290"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428002"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 註冊
 您可以向 Azure 註冊 Azure Stack 開發套件 (ASDK) 安裝，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 必須註冊才能支援完整的 Azure Stack 功能，包括 Marketplace 摘要整合。 需要註冊才能讓您測試重要的 Azure Stack 功能，例如市集摘要整合和使用方式報告。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。 然而，ASDK 使用者將不需針對回報的任何使用方式支付費用。
@@ -48,7 +48,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 1. 以系統管理員身分開啟 PowerShell 主控台。  
 
-2. 執行下列 PowerShell 命令，以向 Azure 註冊 ASDK 安裝。 您必須登入 Azure 訂用帳戶和本機 ASDK 安裝。 如果您還沒有 Azure 訂用帳戶，您可以[在此建立免費的 Azure 帳戶](https://azure.microsoft.com/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。<br><br>執行 **Set-AzsRegistration** Cmdlet 時，請設定註冊的唯一名稱。 **RegistrationName** 參數的預設值是 **AzureStackRegistration**。 不過，如果您在多個 Azure Stack 執行個體上使用相同的名稱，指令碼將會失敗。
+2. 執行下列 PowerShell 命令，以向 Azure 註冊 ASDK 安裝。 您必須登入 Azure 計費訂用帳戶識別碼和本機 ASDK 安裝。 如果您還沒有 Azure 計費訂用帳戶識別碼，您可以[在此建立免費的 Azure 帳戶](https://azure.microsoft.com/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。<br><br>執行 **Set-AzsRegistration** Cmdlet 時，請設定註冊的唯一名稱。 **RegistrationName** 參數的預設值是 **AzureStackRegistration**。 不過，如果您在多個 Azure Stack 執行個體上使用相同的名稱，指令碼將會失敗。
 
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 
@@ -214,7 +214,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 2. 從儀表板中，選取 [Region management] \(區域管理\)。
 
-    [ ![[Region management] \(區域管理\) 圖格](media/asdk-register/admin1sm.png "[Region management] \(區域管理\) 圖格") ](media/asdk-register/admin1.png#lightbox)
+    [ ![[\Region management] \(區域管理\) 圖格](media/asdk-register/admin1sm.png "[\Region management] \(區域管理\) 圖格") ](media/asdk-register/admin1.png#lightbox)
 
 3. 選取 [屬性] 。 此刀鋒視窗會顯示您環境的狀態和詳細資料。 狀態可以是 [已註冊] 或 [未註冊]。 如果是已註冊，則會一併顯示您用來註冊 Azure Stack 的 Azure 訂用帳戶 ID，以及註冊資源群組和名稱。
 

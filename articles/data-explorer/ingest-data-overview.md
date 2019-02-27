@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
-ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 2/18/2019
+ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354615"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340173"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 資料總管資料擷取
 
@@ -39,15 +39,21 @@ Azure 資料總管資料管理服務負責資料擷取，並提供下列功能�
 
 Azure 資料總管支援數種擷取方法，每種方法都有自己的目標案例、優點和缺點。 Azure 資料總管會針對常用的服務，使用 SDK 的程式設計擷取，以及用於探索之引擎的直接存取，提供管線和連接器。
 
-### <a name="ingestion-using-pipelines"></a>使用管線的擷取
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>使用管線、連接器和外掛程式的擷取
 
-Azure 資料總管目前支援事件中樞管線，可以使用 Azure 入口網站中的管理精靈來管理。 如需詳細資訊，請參閱[快速入門：將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)。
+Azure 資料總管目前支援：
 
-### <a name="ingestion-using-connectors-and-plugins"></a>使用連接器和外掛程式的擷取
+* 事件格線管線，可以使用 Azure 入口網站中的管理精靈來管理。 如需詳細資訊，請參閱[將 Azure Blob 擷取至 Azure 資料總管](ingest-data-event-grid.md)。
 
-* Azure 資料總管支援 Logstash 外掛程式。 如需詳細資訊，請參閱 [Azure 資料總管的 Logstash 輸出外掛程式](https://github.com/Azure/logstash-output-kusto/blob/master/README.md)。
+* 事件中樞管線，可以使用 Azure 入口網站中的管理精靈來管理。 如需詳細資訊，請參閱[將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)。
 
-* Azure 資料總管支援 Kafka 連接器。 如需詳細資訊，請參閱[快速入門：將資料從 Kafka 內嵌至 Azure 資料總管](ingest-data-kafka.md)
+* Logstash 外掛程式，請參閱[將資料從 Logstash 擷取至 Azure 資料總管](ingest-data-logstash.md)。
+
+* Kafka 連接器，請參閱[將資料從 Kafka 內嵌至 Azure 資料總管](ingest-data-kafka.md)。
+
+### <a name="ingestion-using-integration-services"></a>使用整合服務進行擷取
+
+* Azure Data Factory (ADF) 是 Azure 中分析工作負載的完全受控資料整合服務，用於將資料複製到 Azure 資料總管或從 Azure 資料總管複製資料。 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料複製到 Azure 資料總管或從該處複製資料](/azure/data-factory/connector-azure-data-explorer)。
 
 ### <a name="programmatic-ingestion"></a>程式設計擷取
 
@@ -131,21 +137,27 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目內嵌及查詢資料：
 結構描述對應可協助將來源資料欄位繫結至目的地資料表資料行。
 
 * [CSV 對應](/azure/kusto/management/mappings?branch=master#csv-mapping) (選擇性) 適用於所有序數型格式。 可以使用內嵌命令參數來執行，或是[在資料表上預先建立](/azure/kusto/management/tables?branch=master#create-ingestion-mapping)，並從擷取命令參數參考。
-* [JSON 對應](/azure/kusto/management/mappings?branch=master#json-mapping) (強制性) 和 [Avro 對應](/azure/kusto/management/mappings?branch=master#avro-mapping) (強制性) 可以使用內嵌命令參數來執行，或[在資料表上預先建立](/azure/kusto/management/tables#create-ingestion-mapping)，並從內嵌命令參數參考。
+* 可以使用內嵌命令參數執行 [JSON 對應](/azure/kusto/management/mappings?branch=master#json-mapping) (必要) 和 [Avro 對應](/azure/kusto/management/mappings?branch=master#avro-mapping) (必要)。 它們也可以[在資料表上預先建立](/azure/kusto/management/tables#create-ingestion-mapping)並從內嵌命令參數參考。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [快速入門：將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)
+> [將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [快速入門：將資料從 Kafka 內嵌至 Azure 資料總管](ingest-data-kafka.md)
+> [使用事件格線訂用帳戶將資料內嵌至 Azure 資料總管](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)
+> [將資料從 Kafka 內嵌至 Azure 資料總管](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [快速入門：使用 Azure 資料總管 Node 程式庫內嵌資料](node-ingest-data.md)
+> [使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [快速入門：使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)](net-standard-ingest-data.md)
+> [使用 Azure 資料總管 Node 程式庫內嵌資料](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [將資料從 Logstash 擷取至 Azure 資料總管](ingest-data-logstash.md)

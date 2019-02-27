@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 754f2845911307cdd698bff4aa3e891f5c1bcdbd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/18/2019
+ms.openlocfilehash: c5f90776cb0e8617f0e524bd6b1701f4bf20d0a1
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234776"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415695"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>快速入門：在 Azure SQL Database 中將 BACPAC 檔案匯入資料庫
 
-您可以使用 [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 檔案將 SQL Server 資料庫匯入 Azure SQL Database 中的資料庫。 您可以從儲存在 Azure Blob 儲存體 (僅標準儲存體) 中，或內部部署中的本機儲存體中的 `BACPAC` 檔案匯入資料。 若要藉由提供更多且更快速的資源來最大化匯入速度，請在匯入程序期間，將您的資料庫調整為較高的服務層與計算大小。 然後，您可以在匯入成功後相應減少。 
+您可以使用 [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 檔案將 SQL Server 資料庫匯入 Azure SQL Database 中的資料庫。 您可以從儲存在 Azure Blob 儲存體 (僅標準儲存體) 中，或內部部署中的本機儲存體中的 `BACPAC` 檔案匯入資料。 若要藉由提供更多且更快速的資源來最大化匯入速度，請在匯入程序期間，將您的資料庫調整為較高的服務層與計算大小。 然後，您可以在匯入成功後相應減少。
 
 > [!NOTE]
 > 資料庫匯入後的相容性層級會以來源資料庫的相容性層級為基礎。
@@ -30,22 +30,27 @@ ms.locfileid: "56234776"
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>在 Azure 入口網站中從 BACPAC 檔案匯入
 
-本節說明如何使用 [Azure 入口網站](https://portal.azure.com)從儲存於 Azure Blob 儲存體中的 `BACPAC` 檔案建立 Azure SQL 資料庫。 此入口網站「僅」支援從 Azure Blob 儲存體匯入 BACPAC 檔案。
+[Azure 入口網站](https://portal.azure.com)「僅」支援在 Azure SQL Database 中建立單一資料庫，且「僅能」從儲存在 Azure Blob 儲存體中的 BACPAC 檔案建立。
 
 > [!NOTE]
-> [受管理的執行個體](sql-database-managed-instance.md)目前不支援使用 Azure 入口網站，從 `BACPAC` 檔案將資料庫移轉到執行個體資料庫中。
+> [受控執行個體](sql-database-managed-instance.md)目前不支援使用 Azure 入口網站從 BACPAC 檔案將資料庫移轉到執行個體資料庫中。 若要匯入至受控執行個體，請使用 SQL Server Management Studio 或 SQLPackage。
 
-若要使用 Azure 入口網站匯入至單一資料庫，請開啟單一資料庫的資料庫伺服器頁面，然後在工具列上，選取 [匯入資料庫]。  
+1. 若要使用 Azure 入口網站從 BACPAC 檔案匯入至單一資料庫，請開啟適當的資料庫伺服器頁面，然後在工具列上選取 [匯入資料庫]。  
 
-   ![資料庫匯入](./media/sql-database-import/import.png)
+   ![資料庫匯入1](./media/sql-database-import/import1.png)
 
-選取儲存體帳戶、容器，和您要匯入的 `BACPAC` 檔案。 指定新資料庫的大小 (通常與原始資料庫相同)，並提供目的地 SQL Server 認證。 如需新 Azure SQL 資料庫可能之值的清單，請參閱[建立資料庫](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)。
+2. 選取 BACPAC 檔案的儲存體帳戶及容器，然後選取要匯入的 BACPAC 檔案。
+3. 指定新資料庫的大小 (通常與原始資料庫相同)，並提供目的地 SQL Server 認證。 如需新 Azure SQL 資料庫可能之值的清單，請參閱[建立資料庫](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)。
 
-### <a name="monitor-imports-progress"></a>監視匯入進度
+   ![資料庫匯入2](./media/sql-database-import/import2.png)
 
-若要監視匯入進度，請開啟資料庫的伺服器頁面，然後在 [設定] 下選取 [匯入/匯出記錄]。 匯入成功時，會處於 [已完成] 狀態。
+4. 按一下 [確定]。
 
-若要確認資料庫伺服器上的資料庫為線上狀態，請選取 [SQL 資料庫]，並確認新的資料庫為 [線上] 狀態。
+5. 若要監視匯入進度，請開啟資料庫的伺服器頁面，然後在 [設定] 下選取 [匯入/匯出記錄]。 匯入成功時，會處於 [已完成] 狀態。
+
+   ![資料庫匯入狀態](./media/sql-database-import/import-status.png)
+
+6. 若要確認資料庫伺服器上的資料庫為線上狀態，請選取 [SQL 資料庫]，並確認新的資料庫為 [線上] 狀態。
 
 ## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>使用 SqlPackage 從 BACPAC 檔案匯入
 
@@ -60,7 +65,7 @@ SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.
 ```
 
 > [!IMPORTANT]
-> 若要連線到從公司防火牆後方管理單一資料庫的 SQL Database 伺服器，該防火牆必須開啟連接埠 1433。 若要連線到受控執行個體，您必須有[點對站連線](/sql-database-managed-instance-configure-p2s.md)或快速路由連線。
+> 若要連線到從公司防火牆後方管理單一資料庫的 SQL Database 伺服器，該防火牆必須開啟連接埠 1433。 若要連線到受控執行個體，您必須有[點對站連線](sql-database-managed-instance-configure-p2s.md)或快速路由連線。
 >
 
 此範例說明如何使用 SqlPackage 與 Active Directory 通用驗證來匯入資料庫。
@@ -69,12 +74,16 @@ SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.
 SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="import-from-a-bacpac-file-using-powershell"></a>使用 PowerShell 從 BACPAC 檔案匯入
+## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>使用 PowerShell 從 BACPAC 檔案匯入至單一資料庫
+
+> [!NOTE]
+> [受控執行個體](sql-database-managed-instance.md)目前不支援使用 Azure PowerShell 從 BACPAC 檔案將資料庫移轉到執行個體資料庫中。 若要匯入至受控執行個體，請使用 SQL Server Management Studio 或 SQLPackage。
+
 
 使用 [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) Cmdlet 來提交匯入資料庫要求至 Azure SQL Database 服務。 匯入可能需要一些時間才能完成，視資料庫大小而定。
 
  ```powershell
- $importRequest = New-AzureRmSqlDatabaseImport 
+ $importRequest = New-AzureRmSqlDatabaseImport
     -ResourceGroupName "<your_resource_group>" `
     -ServerName "<your_server>" `
     -DatabaseName "<your_database>" `
@@ -121,6 +130,6 @@ $importStatus
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解如何連線及查詢已匯入的 SQL Database，請參閱[快速入門：Azure SQL Database：使用 SQL Server Management Studio 連線及查詢資料](sql-database-connect-query-ssms.md)。
-- 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)。
+- 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407)。
 - 如需有關整個 SQL Server 資料庫移轉程序的討論，包括效能建議，請參閱[將 SQL Server 資料庫移轉至 Azure SQL Database](sql-database-single-database-migrate.md)。
 - 若要了解如何管理和共用儲存體金鑰，以及安全地共用存取簽章，請參閱 [Azure 儲存體安全性指南](https://docs.microsoft.com/azure/storage/common/storage-security-guide)。

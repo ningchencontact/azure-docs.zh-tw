@@ -1,7 +1,7 @@
 ---
 title: 免費試用語音服務
 titleSuffix: Azure Cognitive Services
-description: 開始使用語音服務相當簡單且價格合理。 30 天免費試用版可讓您探索服務可以執行哪些作業，以及判斷它是否符合您的應用程式需求。
+description: 開始使用語音服務相當簡單，且價格合理。 30 天免費試用版可讓您探索服務可以執行哪些作業，以及判斷它是否符合您的應用程式需求。
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 203cb07c9450a590b45caa66092fe0199d985058
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978148"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342672"
 ---
-# <a name="try-the-speech-service-for-free"></a>免費試用語音服務
+# <a name="try-speech-services-for-free"></a>免費試用語音服務
 
-開始使用語音服務相當簡單且價格合理。 30 天免費試用版可讓您探索服務可以執行哪些作業，以及判斷它是否符合您的應用程式需求。
+開始使用語音服務相當簡單，且價格合理。 30 天免費試用版可讓您探索服務可以執行哪些作業，以及判斷它是否符合您的應用程式需求。
 
-如果您需要更多時間，請登入 Microsoft Azure 帳戶，其隨附 $200 美元的服務額度，您可以將此額度應用於長達 30 天的付費語音服務訂用帳戶。
+如果您需要更多時間，請註冊 Microsoft Azure 帳戶，其隨附 $200 美元的服務額度，您可以將此額度應用於長達 30 天的付費語音服務訂用帳戶。
 
 最後，語音服務會提供適用於開發應用程式的免費少量定價層。 即使在服務額度到期後，您仍可保留此免費訂用帳戶。
 
@@ -63,7 +63,7 @@ ms.locfileid: "55978148"
 
 您可以在 [Microsoft 帳戶入口網站](https://account.microsoft.com/account)註冊免費的 Microsoft 帳戶。 若要開始使用，請按一下 [使用 Microsoft 登入]，然後在系統要求您登入時，按一下 [建立帳戶]。 依照步驟來建立及驗證新的 Microsoft 帳戶。
 
-建立 Azure 帳戶後，請遵循下一節中的步驟，以開始訂閱語音服務。
+建立 Azure 帳戶後，請遵循下一節中的步驟，以啟用語音服務的訂用帳戶。
 
 ## <a name="create-a-speech-resource-in-azure"></a>在 Azure 中建立語音資源
 
@@ -114,7 +114,7 @@ ms.locfileid: "55978148"
 > 免費試用版金鑰會建立在美國西部 (`westus`) 區域。 透過 Azure 儀表板建立的訂用帳戶可能會位在其他某些區域中 (如果您選擇的話)。
 
 * 如果您的應用程式使用[語音 SDK](speech-sdk.md)，您會在建立語音設定時提供區域程式碼，例如 `westus`。
-* 如果您的應用程式使用其中一個語音服務 [REST API](rest-apis.md)，則區域會是您提出要求時所用端點 URI 的一部份。
+* 如果您的應用程式使用其中一個語音服務 [REST API](rest-apis.md)，則該區域會是您提出要求時所用之端點 URI 的一部分。
 
 為某區域建立的金鑰，就只能在該區域中使用。 若嘗試在其他區域使用，將會導致驗證錯誤。
 

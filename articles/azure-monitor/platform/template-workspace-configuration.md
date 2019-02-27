@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 46be596cbd2641b9ecd3206f44a6e7de7beed255
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235490"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417496"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Log Analytics
 您可以使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)來建立和設定 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
@@ -56,7 +56,7 @@ ms.locfileid: "56235490"
 
 > [!NOTE]
 >如果在已選擇加入 2018 年 4 月全新定價模型的訂用帳戶中建立或設定 Log Analytics 工作區，則唯一有效的 Log Analytics 定價層是 **PerGB2018**。  
->如果您可能有一些採用 (2018 年 4 月前定價模型)[https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model] 的訂用帳戶，您可以指定 **Standalone** 定價層，這對於採用 2018 年 4 月前定價模型的訂用帳戶和採用新定價的訂用帳戶都適用。 針對已採用新定價模型之訂用帳戶中的工作區，定價層將會設定為 **PerGB2018**。 
+>如果您可能有一些採用 [2018 年 4 月前定價模型](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model)的訂用帳戶，您可以指定 **Standalone** 定價層，這對於採用 2018 年 4 月前定價模型的訂用帳戶和採用新定價的訂用帳戶都適用。 針對已採用新定價模型之訂用帳戶中的工作區，定價層將會設定為 **PerGB2018**。 
 
 ### <a name="create-and-deploy-template"></a>建立和部署範本
 

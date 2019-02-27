@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: a040991ca4b3a08dec90f4fc6944b006ebea2135
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5f132dce2a0a868de8607581935325d48e1520a1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487841"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456753"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中執行 Python 機器學習服務指令碼
 
-本主題說明 Azure Machine Learning 中對於 Python 指令碼目前支援基礎之下的設計原則。 也說明了所提供的主要功能，包括：
+此主題說明 Azure Machine Learning Studio 中對於 Python 指令碼目前支援基礎之下的設計原則。 也說明了所提供的主要功能，包括：
 
 - 執行基本的使用方式案例
 - 為 Web 服務中的實驗評分
@@ -61,11 +61,11 @@ Azure Machine Learning Studio 支援將 Python 指令碼內嵌至機器學習實
 Azure ML Studio 中的[執行 Python 指令碼][execute-python-script]模組最多接受三個輸入，而且最多產生兩個輸出 (於下一節中討論)，就像其同類的 R 一樣：[執行 R 指令碼][execute-r-script]模組。 要執行的 Python 程式碼會輸入至稱為 `azureml_main` 之特殊命名進入點函式的參數方塊。 以下是用來實作此模組的關鍵設計原則：
 
 1. *必須是 Python 使用者慣用的。* 大多數 Python 使用者將其程式碼視為模組中的函式。 因此，將大量的可執行陳述式放在最上層的模組相當罕見。 因此，指令碼方塊也會採用特殊命名的 Python 函數，而不是採用一系列的陳述式。 在函式中公開的物件是標準 Python 程式庫類型 (例如 [Pandas](http://pandas.pydata.org/)資料框架和 [NumPy](http://www.numpy.org/) 陣列)。
-2. *必須在本機和雲端執行之間具有高畫質。* 用來執行 Python 程式碼的後端是以 [Anaconda](https://store.continuum.io/cshop/anaconda/) (廣為使用的跨平台科學 Python 發行版本) 為基礎。 它隨附將近 200 個最常見的 Python 套件。 因此，資料科學家可在其本機 Azure Machine Learning 相容的 Anaconda 環境中，對程式碼進行偵錯與限定。 然後使用現有的開發環境 (例如 [IPython](http://ipython.org/) 筆記本或[適用於 Visual Studio 的 Python 工具](https://aka.ms/ptvs)) 來執行它，以作為 Azure ML 實驗的一部分執行。 此外，`azureml_main` 進入點是原始 Python 函式，因此****不需要 Azure ML 特定程式碼或安裝 SDK 即可編寫。
-3. *必須可以順暢地與其他 Azure Machine Learning 模組組合。* [執行 Python 指令碼][execute-python-script]模組接受標準 Azure Machine Learning 資料集作為輸入和輸出。 底層架構明確而有效率地橋接了 Azure ML 和 Python 執行階段。 因此，Python 可以用於與現有 Azure ML 工作流程接合，包括呼叫 R 和 SQLite 的那些工作流程。 因此，資料科學家可以撰寫執行下列工作的工作流程：
+2. *必須在本機和雲端執行之間具有高畫質。* 用來執行 Python 程式碼的後端是以 [Anaconda](https://store.continuum.io/cshop/anaconda/) (廣為使用的跨平台科學 Python 發行版本) 為基礎。 它隨附將近 200 個最常見的 Python 套件。 因此，資料科學家可在其本機 Azure Machine Learning Studio 相容的 Anaconda 環境中，對程式碼進行偵錯與限定。 然後使用現有的開發環境 (例如 [IPython](http://ipython.org/) 筆記本或[適用於 Visual Studio 的 Python 工具](https://aka.ms/ptvs)) 來執行它，以作為 Azure ML 實驗的一部分執行。 此外，`azureml_main` 進入點是原始 Python 函式，因此****不需要 Azure ML 特定程式碼或安裝 SDK 即可編寫。
+3. *必須可以順暢地與其他 Azure Machine Learning Studio 模組組合。* [執行 Python 指令碼][execute-python-script]模組接受標準 Azure Machine Learning Studio 資料集作為輸入和輸出。 底層架構明確而有效率地橋接了 Azure ML 和 Python 執行階段。 因此，Python 可以用於與現有 Azure ML 工作流程接合，包括呼叫 R 和 SQLite 的那些工作流程。 因此，資料科學家可以撰寫執行下列工作的工作流程：
    * 使用 Python 和 Pandas 進行資料前處理和清除
    * 將資料饋送至 SQL 轉換、聯結多個資料集以形成功能
-   * 使用 Azure Machine Learning 中的演算法來訓練模型 
+   * 使用 Azure Machine Learning Studio 中的演算法來訓練模型 
    * 使用 R 評估和後處理結果。
 
 
@@ -149,7 +149,7 @@ Azure ML 中的輸入資料集會轉換為 Pandas 中的資料框架。 輸出�
 
 ## <a name="working-with-visualizations"></a>使用視覺效果
 
-[執行 Python 指令碼][execute-python-script]可以傳回以 MatplotLib 建立而可呈現在瀏覽器的繪圖。 但是繪圖不會在使用 R 時自動重新導向至映像。因此使用者必須明確地將任何繪圖儲存為 PNG 檔案，才能傳回至 Azure Machine Learning。 
+[執行 Python 指令碼][execute-python-script]可以傳回以 MatplotLib 建立而可呈現在瀏覽器的繪圖。 但是繪圖不會在使用 R 時自動重新導向至映像。因此使用者必須明確地將任何繪圖儲存為 PNG 檔案，才能傳回至 Azure Machine Learning Studio。 
 
 若要從 MatplotLib 產生影像，您必須完成下列程序：
 
@@ -172,12 +172,12 @@ Azure ML 中的輸入資料集會轉換為 Pandas 中的資料框架。 輸出�
 
 圖 9. 視覺化從 Python 程式碼產生的繪圖。
 
-可藉由將多個圖表儲存為不同的影像以傳回它們，Azure Machine Learning 執行階段會挑選所有影像並加以串連，以產生視覺效果。
+可藉由將多個圖表儲存為不同的影像以傳回它們，Azure Machine Learning Studio 執行階段會挑選所有影像並加以串連，以產生視覺效果。
 
 
 ## <a name="advanced-examples"></a>進階範例
 
-安裝在 Azure Machine Learning 中的 Anaconda 環境包含常見的套件，例如 NumPy、SciPy 和 Scikits-learn。 這些套件可以有效地用於機器學習管線中的各種資料處理工作。 作為範例，下列實驗和指令碼說明在 Scikits-Learn 中使用集成學習器以計算資料集的功能重要性分數。 然後，可以使用該分數先執行受監督的功能選取，再饋送至其他 ML 模型。
+安裝在 Azure Machine Learning Studio 中的 Anaconda 環境包含常見的套件，例如 NumPy、SciPy 和 Scikits-learn。 這些套件可以有效地用於機器學習管線中的各種資料處理工作。 作為範例，下列實驗和指令碼說明在 Scikits-Learn 中使用集成學習器以計算資料集的功能重要性分數。 然後，可以使用該分數先執行受監督的功能選取，再饋送至其他 ML 模型。
 
 以下 Python 函式是用於根據分數計算重要性分數及將功能排序：
 
@@ -185,7 +185,7 @@ Azure ML 中的輸入資料集會轉換為 Pandas 中的資料框架。 輸出�
 
 圖 10. 用於依分數將功能排名的函式。
  
-然後下列實驗會在 Azure Machine Learning 中的 “Pima Indian Diabetes” 資料集計算及傳回功能的重要性分數：
+然後下列實驗會在 Azure Machine Learning Studio 中的 “Pima Indian Diabetes” 資料集計算及傳回功能的重要性分數：
 
 ![image12](./media/execute-python-scripts/figure9a.png)
 ![image13](./media/execute-python-scripts/figure9b.png)    
@@ -197,11 +197,11 @@ Azure ML 中的輸入資料集會轉換為 Pandas 中的資料框架。 輸出�
 
 1. *沙箱化執行。* Python 執行階段目前已沙箱化，因此，不允許以永續方式存取網路或本機檔案系統。 所有本機儲存的文件都會被隔離，並且在模組結束時加以刪除。 Python 程式碼無法在其執行的機器上存取大部分的目錄，但目前的目錄及其子目錄例外。
 2. *缺少精細的開發和偵錯支援。* Python 模組目前不支援 IDE 功能，例如 intellisense 和偵錯。 此外，如果模組在執行階段失敗，則會提供完整的 Python 堆疊追蹤。 但是，它必須在模組的輸出記錄檔中檢視。 我們目前建議您在如 IPython 的環境中開發 Python 指令碼及進行偵錯，然後將程式碼匯入到模組。
-3. *單一資料框架輸出。* Python 進入點是唯一獲得允許的位置，可以將單一資料框架傳回為輸出。 目前無法直接將任意 Python 物件 (例如訓練模型) 傳回 Azure Machine Learning 執行階段。 如同[執行 R 指令碼][execute-r-script] (具有相同的限制)，在許多情況下可以將物件存放至位元組陣列，然後在資料框架內傳回。
+3. *單一資料框架輸出。* Python 進入點是唯一獲得允許的位置，可以將單一資料框架傳回為輸出。 目前無法直接將任意 Python 物件 (例如訓練模型) 傳回 Azure Machine Learning Studio 執行階段。 如同[執行 R 指令碼][execute-r-script] (具有相同的限制)，在許多情況下可以將物件存放至位元組陣列，然後在資料框架內傳回。
 4. *無法自訂 Python 安裝*。 目前，新增自訂 Python 模組的唯一方法是透過稍早所述的 zip 檔案機制。 對於小模組可行，但是對於大模組 (特別是具有原生 DLL 的模組) 和大量模組而言則顯得繁瑣。 
 
 ## <a name="conclusions"></a>結論
-[執行 Python 指令碼][execute-python-script]模組可讓資料科學家將現有 Python 程式碼併入 Azure Machine Learning 中雲端託管的機器學習服務工作流程，並當作 Web 服務的一部分來順暢運作。 Python 指令碼模組可與 Azure Machine Learning 中的其他模組自然互通。 模組可以用於許多工作，從資料探索到預先處理和功能擷取，然後到結果評估與後續處理。 用於執行的後端執行階段是以 Anaconda 為根據，這是一個經過良好測試及廣泛使用的 Python 散佈。 此後端可讓您方便將現有程式碼資產加入雲端。
+[執行 Python 指令碼][execute-python-script]模組可讓資料科學家將現有 Python 程式碼併入 Azure Machine Learning Studio 中雲端託管的機器學習服務工作流程，並當作 Web 服務的一部分來順暢運作。 Python 指令碼模組可與 Azure Machine Learning Studio 中的其他模組自然互通。 模組可以用於許多工作，從資料探索到預先處理和功能擷取，然後到結果評估與後續處理。 用於執行的後端執行階段是以 Anaconda 為根據，這是一個經過良好測試及廣泛使用的 Python 散佈。 此後端可讓您方便將現有程式碼資產加入雲端。
 
 我們預期在[執行 Python 指令碼][execute-python-script]模組中提供其他功能，例如能夠在 Python 中訓練和運作模型，以及新增更好的支援在 Azure Machine Learning Studio 中開發和偵錯程式碼。
 

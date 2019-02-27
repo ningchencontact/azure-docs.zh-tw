@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e55058d6b1f76b4afcb847b946df85d5ab69971b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 972a538fab8a2aa84f6a12df48422abb40baac82
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985382"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443429"
 ---
-# <a name="enabling-azure-ultra-ssds"></a>啟用 Azure Ultra SSD
+# <a name="enabling-azure-ultra-ssd"></a>啟用 Azure Ultra SSD
 
-Azure Ultra SSD 可為 Azure IaaS VM 提供高輸送量、高 IOPS 以及一致的低延遲磁碟儲存體。 這個新的供應項目可提供絕佳的效能，同時保有我們現有磁碟供應項目的相同可用性層級。 Ultra SSD 的其他優點包括能夠以動態方式變更磁碟的效能和您的工作負載，而不需要重新啟動虛擬機器。 Ultra SSD 適用於資料密集的工作負載 (例如 SAP HANA)、最上層資料庫，以及高交易量的工作負載。
+Azure Ultra SSD 可為 Azure IaaS VM 提供高輸送量、高 IOPS 以及一致的低延遲磁碟儲存體。 這個新的供應項目可提供絕佳的效能，同時保有我們現有磁碟供應項目的相同可用性層級。 Ultra SSD 的其他優點包括能夠以動態方式變更磁碟的效能和您的工作負載，而不需要重新啟動虛擬機器。 Ultra SSD 適用於資料密集的工作負載 (例如 SAP Hana)、最上層資料庫，以及高交易量的工作負載。
 
 目前，Ultra SSD 處於預覽狀態，您必須[註冊](https://aka.ms/UltraSSDPreviewSignUp)預覽版才能存取它們。
 
-一旦經過核准之後，請執行下列其中一個命令，以判斷要在美國東部 2 的哪一個區域中部署您的 Ultra SSD：
+一旦經過核准之後，請執行下列其中一個命令，以判斷要在美國東部 2 的哪一個區域中部署您的 Ultra 磁碟：
 
 PowerShell：`Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
@@ -35,16 +35,16 @@ CLI：`az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 
 如果命令沒有回應，表示仍在等待您註冊此功能，或註冊尚未核准。
 
-既然您已經知道要部署至哪一個區域，請依照此文章中的部署步驟，使用 Ultra SSD 磁碟部署您的第一部 VM。
+既然您已經知道要部署至哪一個區域，請依照此文章中的部署步驟，使用 Ultra SSD 部署您的第一部 VM。
 
 ## <a name="deploying-an-ultra-ssd"></a>部署 Ultra SSD
 
 首先，判斷要部署的 VM 大小。 在此預覽版本中，只支援 DsV3 與 EsV3 VM 系列。 如需有關這些 VM 大小的其他詳細資訊，請參閱此[部落格](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) \(英文\) 的第二個表格。
-另請參閱[使用多個 Ultra SSD 磁碟建立 VM](https://aka.ms/UltraSSDTemplate)，其中示範如何使用多個 Ultra SSD 磁碟建立 VM。
+另請參閱[使用多個 Ultra SSD 建立 VM](https://aka.ms/UltraSSDTemplate) 範例，其中示範如何使用多個 Ultra SSD 建立 VM。
 
 以下說明新的/修改過的 Resource Manager 範本變更：`Microsoft.Compute/virtualMachines` 與 `Microsoft.Compute/Disks` 的 **apiVersion** 必須設定為 `2018-06-01` (或更新版本)。
 
-指定磁碟 SKU UltraSSD_LRS、磁碟容量、IOPS 與輸送量 (以每秒 MB 數為單位)，來建立 Ultra SSD 磁碟。 下列範例會建立一個磁碟，其具有 1,024 GiB (GiB = 2^30 個位元組)、80,000 IOPS 與 1,200 MBps (每秒 MB 數 = 每秒 10^6 個位元組)：
+指定磁碟 SKU UltraSSD_LRS、磁碟容量、IOPS 與輸送量 (以每秒 MB 數為單位)，來建立 Ultra 磁碟。 下列範例會建立一個磁碟，其具有 1,024 GiB (GiB = 2^30 個位元組)、80,000 IOPS 與 1,200 MBps (每秒 MB 數 = 每秒 10^6 個位元組)：
 
 ```json
 "properties": {  
@@ -57,7 +57,7 @@ CLI：`az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 }
 ```
 
-在 VM 屬性上新增額外容量，以指出它的 Ultra SSD 已啟用 (如需完整的 Resource Manager 範本，請參閱[範例](https://aka.ms/UltraSSDTemplate))：
+在 VM 屬性上新增額外容量，以指出它的 Ultra 已啟用 (如需完整的 Resource Manager 範本，請參閱[範例](https://aka.ms/UltraSSDTemplate))：
 
 ```json
 {
@@ -80,7 +80,7 @@ CLI：`az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 ## <a name="additional-ultra-ssd-scenarios"></a>其他 Ultra SSD 案例
 
 - 在 VM 建立期間，也能夠以隱含方式建立 Ultra SSD。 不過，這些磁碟的 IOPS 和輸送量將會收到預設值 (前者為 500，後者為每秒 8 MiB)。
-- 額外的 Ultra SSD 可以連接到與 Ultra SSD 相容的 VM。
+- 額外的 Ultra SSD 可以連結到相容的 VM。
 - Ultra SSD 支援在工作階段調整磁碟效能屬性 (IOPS 與輸送量)，而不必將磁碟從虛擬機器中斷連結。 向磁碟發出磁碟效能調整作業後，最多可能需要一個小時，變更才會實際生效。
 - 若要增加磁碟容量，必須解除配置虛擬機器。
 

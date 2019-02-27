@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: d6065420b9081333fc257501ace868f64220ca63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dafafa8ff5d721034b3b10bdeb1a2fc09cd32835
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005245"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267575"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>從 Splunk 到 Azure 監視器記錄查詢
 
-本文將協助熟悉 Splunk 的使用者了解資料總管查詢語言，以在 Azure 監視器中撰寫記錄查詢。 我們會直接比較這兩者的各項內容，以了解主要差異及相似之處，以便您運用現有的知識。
+此文章將協助熟悉 Splunk 的使用者了解 Kusto 查詢語言，以在 Azure 監視器中寫入記錄查詢。 我們會直接比較這兩者的各項內容，以了解主要差異及相似之處，以便您運用現有的知識。
 
 ## <a name="structure-and-concepts"></a>結構和概念
 

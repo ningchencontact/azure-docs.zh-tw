@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435305"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342918"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Apache Hadoop 上的 MapReduce 串流使用 C#
 
@@ -175,7 +175,13 @@ namespace reducer
 
 2. 使用下列其中一個命令來啟動 MapReduce 作業：
 
-    * 如果使用 __Data Lake Storage__ 作為預設儲存體：
+    * 如果使用 __Data Lake Storage Gen2__ 作為預設儲存體：
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * 如果使用 __Data Lake Storage Gen1__ 作為預設儲存體：
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,7 +196,7 @@ namespace reducer
     下列清單描述每個參數的用途︰
 
     * `hadoop-streaming.jar`：包含串流處理 MapReduce 功能的 jar 檔案。
-    * `-files`：將 `mapper.exe` 和 `reducer.exe` 檔案加入至此作業。 每個檔案前面的 `adl:///` 或 `wasb:///` 是叢集的預設儲存體根目錄路徑。
+    * `-files`：將 `mapper.exe` 和 `reducer.exe` 檔案加入至此作業。 每個檔案前面的 `abfs:///`、`adl:///` 或 `wasb:///` 都是叢集預設儲存體的根目錄路徑。
     * `-mapper`：指定哪個檔案實作對應工具。
     * `-reducer`：指定哪個檔案實作歸納器。
     * `-input`：輸入資料。

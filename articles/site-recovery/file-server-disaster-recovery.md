@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 64008a91033b1fdd9cb318e76db2b1958f2337e9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508363"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309314"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護檔案伺服器 
 
@@ -58,7 +58,7 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 |---------|---------|---------|
 |有或沒有 DFSR 的檔案伺服器環境|   [使用 Site Recovery 進行複寫](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery 不支援共用磁碟叢集或網路連接儲存裝置 (NAS)。 如果您的環境使用這些組態，請在適當時使用任何其他方法。 <br> Site Recovery 不支援 SMB 3.0。 只有在對檔案所做的變更已在檔案的原始位置中更新時，複寫的 VM 才會納入變更。
 |有 DFSR 的檔案伺服器環境     |  [將 DFSR 延伸到 Azure IaaS 虛擬機器](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR 適用於頻寬極端變換的環境。 要使用此方法，Azure VM 必須隨時處於啟動並執行中的狀態。 您必須在規劃時計算 VM 的成本。         |
-|Azure IaaS VM     |     [檔案同步](#use-azure-file-sync-service-to-replicate-your-files)   |     如果您在災害復原案例中使用檔案同步，在容錯移轉期間，您必須手動執行動作，以確保用戶端機器可以透明的方式存取檔案共用。 要使用「檔案同步」，必須從用戶端機器開啟連接埠 445。     |
+|Azure IaaS VM     |     檔案同步    |     如果您在災害復原案例中使用檔案同步，在容錯移轉期間，您必須手動執行動作，以確保用戶端機器可以透明的方式存取檔案共用。 要使用「檔案同步」，必須從用戶端機器開啟連接埠 445。     |
 
 
 ### <a name="site-recovery-support"></a>Site Recovery 支援

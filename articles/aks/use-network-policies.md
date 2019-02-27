@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ade5a39273aa807f6c69f76342a0f715c7a96309
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232169"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447169"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用網路原則來保護 Pod 之間的流量
 
@@ -27,21 +27,7 @@ ms.locfileid: "56232169"
 
 您必須安裝並設定 Azure CLI 版本 2.0.56 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
-## <a name="overview-of-network-policy"></a>網路原則概觀
-
-根據預設，AKS 叢集中的所有 Pod 都可以無限制地傳送及接收流量。 為了提升安全性，您可以定義可控制流量流程的規則。 例如，後端應用程式通常只會對必要的前端服務公開，或是資料庫元件僅供與其連線的應用程式層存取。
-
-網路原則是一種 Kubernetes 資源，可讓您控制 Pod 之間的流量流程。 您可以根據指派的標籤、命名空間或流量連接埠等設定，選擇允許或拒絕流量。 網路原則會定義為 YAML 資訊清單，而且可納入更廣泛的資訊清單中，而該清單也會建立部署或服務。
-
-若要查看運作中的網路原則，讓我們建立而後展開可定義流量流程的原則，如下所示：
-
-* 拒絕流向 Pod 的所有流量。
-* 允許以 Pod 標籤為基礎的流量。
-* 允許以命名空間為基礎的流量。
-
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>建立 AKS 叢集並啟用網路原則
-
-只有在建立叢集時，才可以啟用網路原則。 您無法在現有的 AKS 叢集上啟用網路原則。 若要使用網路原則建立 AKS，請先對您的訂用帳戶啟用功能旗標。 若要註冊 EnableNetworkPolicy 功能旗標，請使用 [az feature register][az-feature-register] 命令，如下列範例所示：
+若要使用網路原則建立 AKS，請先對您的訂用帳戶啟用功能旗標。 若要註冊 EnableNetworkPolicy 功能旗標，請使用 [az feature register][az-feature-register] 命令，如下列範例所示：
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -59,7 +45,25 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/E
 az provider register --namespace Microsoft.ContainerService
 ```
 
-若要使用網路原則搭配 AKS 叢集，您必須使用 [Azure CNI 外掛程式][azure-cni]並定義自己的虛擬網路和子網路。 如需有關如何規劃出必要子網路範圍的詳細資訊，請參閱[設定進階網路][use-advanced-networking]。 下列範例指令碼：
+## <a name="overview-of-network-policy"></a>網路原則概觀
+
+根據預設，AKS 叢集中的所有 Pod 都可以無限制地傳送及接收流量。 為了提升安全性，您可以定義可控制流量流程的規則。 例如，後端應用程式通常只會對必要的前端服務公開，或是資料庫元件僅供與其連線的應用程式層存取。
+
+網路原則是一種 Kubernetes 資源，可讓您控制 Pod 之間的流量流程。 您可以根據指派的標籤、命名空間或流量連接埠等設定，選擇允許或拒絕流量。 網路原則會定義為 YAML 資訊清單，而且可納入更廣泛的資訊清單中，而該清單也會建立部署或服務。
+
+若要查看運作中的網路原則，讓我們建立而後展開可定義流量流程的原則，如下所示：
+
+* 拒絕流向 Pod 的所有流量。
+* 允許以 Pod 標籤為基礎的流量。
+* 允許以命名空間為基礎的流量。
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>建立 AKS 叢集並啟用網路原則
+
+只有在建立叢集時，才可以啟用網路原則。 您無法在現有的 AKS 叢集上啟用網路原則。 
+
+若要使用網路原則搭配 AKS 叢集，您必須使用 [Azure CNI 外掛程式][azure-cni]並定義自己的虛擬網路和子網路。 如需有關如何規劃出必要子網路範圍的詳細資訊，請參閱[設定進階網路][use-advanced-networking]。
+
+下列範例指令碼：
 
 * 建立虛擬網路和子網路。
 * 建立 Azure Active Directory (AD) 服務主體，以便搭配 AKS 叢集使用。
@@ -86,7 +90,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID <<< $(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."
@@ -241,6 +245,9 @@ spec:
           app: webapp
           role: frontend
 ```
+
+> [!NOTE]
+> 此網路原則針對輸入規則使用 *namespaceSelector* 和 *podSelector* 元素。 YAML 語法對於能否附加輸入規則非常重要。 在此範例中，兩個元素都必須與要套用的輸入規則相符。 在 Kubernetes *1.12* 之前的版本，可能無法如您所預期般正確地轉譯這些元素並限制網路流量。 如需詳細資訊，請參閱[選取器的來回行為][policy-rules]。
 
 使用 [kubectl apply][kubectl-apply] 命令來套用已更新的網路原則，並指定 YAML 資訊清單的名稱：
 
@@ -442,6 +449,7 @@ kubectl delete namespace development
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

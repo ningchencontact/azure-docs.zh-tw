@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中檢視活動記錄是否有 RBAC 變更 | Microsoft Docs
-description: 檢視活動記錄在過去 90 天是否有角色型存取控制 (RBAC) 的變更。
+title: 在 Azure 資源中檢視活動記錄是否有 RBAC 變更 | Microsoft Docs
+description: 檢視活動記錄在過去 90 天是否有 Azure 資源之角色型存取控制 (RBAC) 的變更。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117643"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338800"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>檢視活動記錄檔中的各種 RBAC 變更
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>檢視活動記錄檔中 Azure 資源的各種 RBAC 變更
 
-有時，您會需要角色型存取控制 (RBAC) 變更的相關資訊，例如用來進行稽核或疑難排解。 每當有人對您訂用帳戶內的角色指派或角色定義進行變更時，這些變更都會記錄在 [Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中。 您可以檢視活動記錄來查看過去 90 天的所有 RBAC 變更。
+有時，您會需要 Azure 資源之角色型存取控制 (RBAC) 變更的相關資訊，例如用來進行稽核或疑難排解。 每當有人對您訂用帳戶內的角色指派或角色定義進行變更時，這些變更都會記錄在 [Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中。 您可以檢視活動記錄來查看過去 90 天的所有 RBAC 變更。
 
 ## <a name="operations-that-are-logged"></a>記錄的作業
 

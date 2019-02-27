@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f1cb99799e3aa5c0b37643112f8644d1aabfd666
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/15/2019
+ms.openlocfilehash: f2c7fde7b4834457f84ecaa3ce0fdd5f65dd03b5
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108087"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430313"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 CLI：從 Azure Key Vault 使用客戶管理的金鑰啟用透明資料加密
 
@@ -205,55 +205,59 @@ ms.locfileid: "56108087"
    - 未停用
    - 能夠執行*取得*、*包裝金鑰*、*解除包裝金鑰*作業
    
-## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>步驟 1. 建立伺服器，並將 Azure AD 身分識別指派給您的伺服器
+## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>步驟 1. 使用 Azure AD 身分識別建立伺服器
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
-      az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
-      
-
+      az sql server create --name <servername> --resource-group <rgname>  --location <location> --admin-user <user> --admin-password <password> --assign-identity
+      az sql db create --name <dbname> --server <servername> --resource-group <rgname>  
  
-## <a name="step-2-grant-key-vault-permissions-to-your-server"></a>步驟 2. 為您的伺服器授與 Key Vault 權限
+ 
+>[!Tip]
+>防止"principalID" 建立伺服器，它是用於在下一步中指派金鑰保存庫使用權限的物件識別碼
+>
+ 
+## <a name="step-2-grant-key-vault-permissions-to-the-logical-sql-server"></a>步驟 2. 為邏輯 SQL 伺服器授與 Key Vault 權限
       cli
       # create key vault, key and grant permission
-      az keyvault create -n "VaultName" -g "ResourceGroupName" 
-      az keyvault key create -n myKey -p software --vault-name "VaultName" 
-      az keyvault set-policy -n "VaultName" --object-id "ServerIdentityObjectId" -g "ResourceGroupName" --key-permissions wrapKey unwrapKey get list 
-      
+       az keyvault create --name <kvname> --resource-group <rgname> --location <location> --enable-soft-delete true
+       az keyvault key create --name <keyname> --vault-name <kvname> --protection software
+       az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group <rgname> --key-permissions wrapKey unwrapKey get 
 
+
+>[!Tip]
+>請保留新金鑰的金鑰 URI 或 keyID 以在下一個步驟中使用，例如： https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>
  
+       
 ## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>步驟 3. 將 Key Vault 金鑰新增至伺服器，並設定 TDE 保護裝置
   
      cli
      # add server key and update encryption protector
-      az sql server key create -g "ResourceGroupName" -s "ServerName" -t "AzureKeyVault" -u "FullVersionedKeyUri 
-      az sql server tde-key update -g "ResourceGroupName" -s "ServerName" -t AzureKeyVault -u "FullVersionedKeyUri" 
-      
-  
+     az sql server key create --server <servername> --resource-group <rgname> --kid <keyID>
+     az sql server tde-key set --server <servername> --server-key-type AzureKeyVault  --resource-group <rgname> --kid <keyID>
+
+        
   > [!Note]
 > 金鑰保存庫名稱和金鑰名稱的合併長度不可超過 94 個字元。
 > 
 
->[!Tip]
->Key Vault 中的範例 KeyId： https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
->
   
 ## <a name="step-4-turn-on-tde"></a>步驟 4. 開啟 TDE 
       cli
       # enable encryption
-      az sql db tde create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" --status Enabled 
+      az sql db tde set --database <dbname> --server <servername> --resource-group <rgname> --status Enabled 
       
 
-現在，資料庫或資料倉儲已使用 Key Vault 中的加密金鑰啟用 TDE。
+現在，資料庫或資料倉儲已使用 Azure Key Vault 中客戶管理的加密金鑰啟用 TDE。
 
 ## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>步驟 5。 檢查加密狀態和加密活動
 
      cli
       # get encryption scan progress
-      az sql db tde show-activity -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
+      az sql db tde list-activity --database <dbname> --server <servername> --resource-group <rgname>  
 
       # get whether encryption is on or off
-      az sql db tde show-configuration -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
+      az sql db tde show --database <dbname> --server <servername> --resource-group <rgname> 
 
 ## <a name="sql-cli-references"></a>SQL CLI 參考
 

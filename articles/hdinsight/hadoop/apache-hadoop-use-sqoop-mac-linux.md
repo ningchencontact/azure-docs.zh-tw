@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.date: 02/15/2019
+ms.openlocfilehash: 2f16ba3fde73705d431ba97d65059b178020bb62
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635692"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340292"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Apache Hadoop on HDInsight 與 SQL Database 之間匯入及匯出資料
 
@@ -105,7 +105,7 @@ GO
     資料中的欄位是以定位字元分隔，行是以換行字元終止。
 
     > [!IMPORTANT]  
-    > `wasb:///` 路徑會與叢集搭配運作，而叢集會使用 Azure 儲存體作為預設叢集存放區。 如果是使用 Azure Data Lake Storage 的叢集，請改為使用 `adl:///`。
+    > `wasb:///` 路徑會與叢集搭配運作，而叢集會使用 Azure 儲存體作為預設叢集存放區。 如果是使用 Azure Data Lake Storage Gen2 的叢集，請改為使用 `abfs:///`。 如果是使用 Azure Data Lake Storage Gen1 的叢集，請改為使用 `adl:///`。
 
 2. 匯入完成後，使用下列命令來列出新目錄中的資料：
 
@@ -161,7 +161,7 @@ GO
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：
 
 * [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie.md)：在 Oozie 工作流程中使用 Sqoop 動作。
-* [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data.md)：使用 Apache Hive 分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL 資料庫。
+* [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data.md)：使用 Apache Hive 來分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL 資料庫。
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)：尋找其他方法將資料上傳至 HDInsight/Azure Blob 儲存體。
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md

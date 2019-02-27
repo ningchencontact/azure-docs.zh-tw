@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: c682bca1f3d4f0e2659ed107a2b15e4e4e28b0d9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492482"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453863"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>使用 Azure Machine Learning Studio Web 服務入口網站管理 Web 服務
 您可以使用 Microsoft Azure Machine Learning Web 服務入口網站，管理 Machine Learning 新式和傳統 Web 服務。 因為傳統 Web 服務和新式 Web 服務是根據不同的基礎技術，所以各有稍微不同的管理功能。
@@ -28,7 +28,8 @@ ms.locfileid: "55492482"
 * 建立、刪除或更新計費方案 (僅限新式)。
 * 新增和刪除端點 (僅限傳統)
 
-
+>[!NOTE]
+>您也可以在 [Web 服務] 索引標籤上的 [[Machine Learning Studio](http://studio.azureml.net)] 中管理傳統 Web 服務。
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>管理以資源管理員為基礎的新 Web 服務的權限
 
@@ -38,7 +39,7 @@ ms.locfileid: "55492482"
 
 *Web 服務部署工作失敗。此帳戶沒有足夠權限來存取包含該工作區的 Azure 訂用帳戶。若要將 Web 服務部署到 Azure，必須邀請同一個帳戶到該工作區，並為該帳戶授予包含該工作區之 Azure 訂用帳戶的存取權。*
 
-如需建立工作區的詳細資訊，請參閱[建立和共用 Azure Machine Learning 工作區](create-workspace.md)。
+如需建立工作區的詳細資訊，請參閱[建立和共用 Azure Machine Learning Studio 工作區](create-workspace.md)。
 
 如需如何設定存取權限的詳細資訊，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../../role-based-access-control/role-assignments-portal.md)。
 
@@ -107,7 +108,7 @@ ms.locfileid: "55492482"
 
 ## <a name="manage-classic-web-services"></a>管理傳統 Web 服務
 > [!NOTE]
-> 本節的程序是關於透過 Azure Machine Learning Web 服務入口網站來管理傳統 Web 服務。 如需透過 Machine Learning Studio 和 Azure 入口網站管理傳統 Web 服務的相關資訊，請參閱[管理 Azure Machine Learning 工作區](manage-workspace.md)。
+> 本節的程序是關於透過 Azure Machine Learning Web 服務入口網站來管理傳統 Web 服務。 如需透過 Machine Learning Studio 和 Azure 入口網站管理傳統 Web 服務的相關資訊，請參閱[管理 Azure Machine Learning Studio 工作區](manage-workspace.md)。
 > 
 > 
 

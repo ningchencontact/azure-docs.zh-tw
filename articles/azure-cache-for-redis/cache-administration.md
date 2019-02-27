@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: b75a2faa2030fc343cbabb17eb37b63c9ea34f70
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232376"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313206"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>如何管理 Azure Cache for Redis
 本主題說明如何執行管理工作，例如為 Azure Cache for Redis 執行個體進行[重新啟動](#reboot)和[排程更新](#schedule-updates)。
@@ -94,7 +94,7 @@ ms.locfileid: "56232376"
 
 若要指定維護期間，請檢查所需的天數，並指定每一天的維護期間開始小時，然後按一下 [確定] 。 請注意，維護期間時間是 UTC。 
 
-更新的預設、最短維護期間是 5 小時。 這個值不可以從 Azure 入口網站設定，但您可以在 PowerShell 中使用 [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) Cmdlet 的 `MaintenanceWindow` 參數來設定。 如需詳細資訊，請參閱[我可以使用 PowerShell、CLI 或其他管理工具管理排程更新嗎？](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+更新的預設、最短維護期間是 5 小時。 這個值不可以從 Azure 入口網站設定，但您可以在 PowerShell 中使用 [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) Cmdlet 的 `MaintenanceWindow` 參數來設定。 如需詳細資訊，請參閱我可以使用 PowerShell、CLI 或其他管理工具管理排程更新嗎？
 
 
 ## <a name="schedule-updates-faq"></a>排程更新常見問題集

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456216"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342299"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的稽核
 
@@ -74,10 +74,13 @@ SQL 資料倉儲資料庫稽核可讓您：
     ![瀏覽窗格][8]
 
     > [!IMPORTANT]
-    > 系統會將伺服器層級的稽核記錄寫入 Azure 訂用帳戶中 Azure Blob 儲存體的**附加 Blob**。
+    > 系統會將稽核記錄寫入至 Azure 訂用帳戶上 Azure Blob 儲存體中的**附加 Blob**。
     >
-    > * 附加 Blob 目前**不支援** **進階儲存體**。
-    > * 目前**不支援** **VNet 中的儲存體**。
+    > - 支援所有的儲存體類型 (v1、v2、Blob)。
+    > - 支援所有儲存體複寫設定。
+    > - **不支援****進階儲存體**。
+    > - 目前**不支援** **VNet 中的儲存體**。
+    > - 目前**不支援****在防火牆後面的儲存體**
 
 8. 按一下 [檔案] 。
 

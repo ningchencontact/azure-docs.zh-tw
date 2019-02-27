@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 01f72b8d41c1a973c7d187f519a43ce62929a23e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359352"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270261"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -43,7 +43,11 @@ The components for the 'Update Management' solution have been enabled, and now t
 #### <a name="resolution"></a>解決方案
 
 1. 請瀏覽[網路規劃](../automation-hybrid-runbook-worker.md#network-planning)，了解必須允許哪些位址和連接埠，才能進行更新管理。
-2. 如果使用複製的映像，請先對映像執行 sysprep，然後再安裝 MMA 代理程式。
+2. 若使用複製的映像：
+   1. 在您的 Log Analytics 工作區中，從 `MicrosoftDefaultScopeConfig-Updates` 「範圍設定」的已儲存搜尋中移除 VM。 您可以在工作區中的 [一般] 底下找到儲存的搜尋。
+   2. 執行 `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   3. 執行 `Restart-Service HealthService` 以重新啟動 `HealthService`。 這將會重建金鑰並產生新的 UUID。
+   4. 如果這樣沒有用，請先對映像執行 sysprep，然後再安裝 MMA 代理程式。
 
 ### <a name="multi-tenant"></a>案例：您在另一個 Azure 租用戶中建立機器的更新部署時，發生連結訂用帳戶錯誤。
 
@@ -183,7 +187,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 > [!NOTE]
 > [Windows Update 疑難排解員](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)指出其適用標的為 Windows 用戶端，但實際上也可在 Windows Server 上運作。
 
-## <a name="linux"></a>Linux
+## <a name="linux"></a> Linux
 
 ### <a name="scenario-update-run-fails-to-start"></a>案例：更新執行無法開始
 

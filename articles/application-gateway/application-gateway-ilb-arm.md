@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: b9bdc3f4a0f7eb20b1c0cbc33fb257577da08c26
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92d0e079f9fafbb6c000c6b1746f37a16add4cf7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598482"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417342"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>利用內部負載平衡器 (ILB) 建立應用程式閘道
 
@@ -35,9 +35,9 @@ ms.locfileid: "34598482"
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>建立應用程式閘道需要什麼？
 
-* **後端伺服器集區：** 後端伺服器的 IP 位址清單。 列出的 IP 位址應屬於虛擬網路，但在應用程式閘道的不同子網路中，或應該是公用 IP/VIP。
-* **後端伺服器集區設定：** 每個集區都包括一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。 這些設定會繫結至集區，並套用至集區內所有伺服器。
-* **前端連接埠：** 此連接埠是在應用程式閘道上開啟的公用連接埠。 流量會到達此連接埠，然後重新導向至其中一個後端伺服器。
+* **後端伺服器集區：** 後端伺服器集區的伺服器 IP 位址清單。 列出的 IP 位址應屬於虛擬網路，但在應用程式閘道的不同子網路中，或應該是公用 IP/VIP。
+* **後端伺服器集區設定：** 每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質。 這些設定會繫結至集區，並套用至集區內所有伺服器。
+* **前端連接埠：** 此連接埠是在應用程式閘道上開啟的公用連接埠。 流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
 * **接聽程式：** 接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。
 * **規則：** 規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。 目前只支援 *基本* 規則。 *基本* 規則是循環配置資源的負載分配。
 
@@ -188,7 +188,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 這個步驟會設定應用程式閘道的執行個體大小。
 
 > [!NOTE]
-> *InstanceCount* 的預設值是 2，且最大值是 10。 GatewaySize  的預設值是 Medium。 您可以在 Standard_Small、Standard_Medium 和 Standard_Large 之間選擇。
+> Capacity 的預設值是 2。 針對 Sku 名稱，您可以選擇 Standard_Small、Standard_Medium 或 Standard_Large。
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>使用 New-AzureApplicationGateway 建立應用程式閘道
 

@@ -16,21 +16,17 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 4aefc8c033383125a803eb0c8a38e2f3de119540
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e9c3e10f9b48bfe2efa5396c9e64d3d87be3d826
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467905"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330642"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>將 Azure VM 移轉至 Azure 中的受控磁碟
 
 Azure 受控磁碟可免除個別管理儲存體帳戶的需求，進而簡化儲存體管理。  您也可以將現有的 Azure VM 移轉至受控磁碟，以便受惠於可用性設定組中更佳的 VM 可靠性。 它可確保可用性設定組中不同 VM 的磁碟完全彼此隔離，以避免單一失敗點。 它會自動以不同的儲存體縮放單位 (戳記) 將不同 VM 的磁碟放在一個可用性設定組中，以限制硬體和軟體失敗所引起之單一儲存體縮放單位失敗的影響。
-根據您的需求，您可選擇兩種類型的儲存體選項︰
-
-- [進階受控磁碟](premium-storage.md)是固態硬碟 (SSD) 式儲存媒體，可針對執行大量 I/O 工作負載的虛擬機器，提供高效能、低延遲的磁碟支援。 您可以將這類磁碟移轉至進階受控磁碟，以利用這類磁碟的速度和效能。
-
-- [標準受控磁碟](standard-storage.md)使用固態硬碟 (SSD) 式儲存媒體，最適合用於開發/測試及其他較不容易受效能變異影響的不常用工作負載。
+根據您的需求，您可從四種類型的儲存體選項中選擇。 若要了解可用的磁碟類型，請參閱[選取磁碟類型](disks-types.md)一文
 
 您可以在下列案例中移轉到受控磁碟︰
 

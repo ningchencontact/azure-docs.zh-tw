@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816181"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326818"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>針對儲存體資源刪除錯誤進行疑難排解
 
@@ -28,7 +28,7 @@ ms.locfileid: "55816181"
 
 >**無法刪除 #/# 個 Blob：<br>BlobName.vhd:目前 Blob 上沒有租用，且要求中沒有指定任何租用識別碼。**
 
-Azure VM 中使用的 VHD 是以分頁 Blob 形式儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。 如需有關 Azure 磁碟的詳細資訊，請參閱[關於 Microsoft Azure Linux VM 的未受控與受控磁碟儲存體](../linux/about-disks-and-vhds.md)。 
+Azure VM 中使用的 VHD 是以分頁 Blob 形式儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。 如需 Azure 磁碟的詳細資訊，請參閱我們的[受控磁碟簡介](../linux/managed-disks-overview.md)。
 
 Azure 能預防刪除已連接 VM 的磁碟，以避免損毀。 它也能預防刪除分頁 Blob 已連結 VM 的容器和儲存體帳戶。 
 

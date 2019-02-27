@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 776057a177904d086974258b5221ab474f4b1bcb
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030221"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417001"
 ---
 # <a name="operations-model-and-responsibilities"></a>作業模型和職責
 
@@ -58,15 +58,15 @@ SAP HANA on Azure (大型執行個體) 提供的服務可與 Azure IaaS 服務�
 
 **中介軟體**：主要是「SAP HANA 執行個體」。 管理、操作及監視是您的職責。 您可以利用隨附的功能，使用儲存體快照來進行備份和還原以及災害復原。 這些功能是由基礎結構所提供的。 您的職責還包括使用這些功能來設計高可用性或災害復原、利用它們，以及監視並判斷儲存體快照集是否已順利執行。
 
-**資料**：您受 SAP HANA 管理的資料，以及其他位於磁碟區或檔案共用上的資料 (例如備份檔案)。 您的職責包括監視磁碟可用空間和管理磁碟區上的內容。 您也必須負責監視磁碟區和儲存體快照的備份是否已順利執行。 將資料順利複寫到災害復原網站則是 Microsoft 的職責。
+**Data**：您受 SAP HANA 管理的資料，以及其他位於磁碟區或檔案共用上的資料 (例如備份檔案)。 您的職責包括監視磁碟可用空間和管理磁碟區上的內容。 您也必須負責監視磁碟區和儲存體快照的備份是否已順利執行。 將資料順利複寫到災害復原網站則是 Microsoft 的職責。
 
-**應用程式**：SAP 應用程式執行個體，或就非 SAP 應用程式而言，則是這些應用程式的應用程式層。 您的責任包括部署、管理、操作及監視這些應用程式。 您必須負責對 CPU 資源耗用量、記憶體耗用量、Azure 儲存體耗用量和虛擬網路內的網路頻寬耗用量進行容量規劃。 您也須負責對資源耗用量進行容量規劃，舉凡虛擬網路到 SAP HANA on Azure (大型執行個體)，皆包含在內。
+**應用程式︰** SAP 應用程式執行個體，或就非 SAP 應用程式而言，則是這些應用程式的應用程式層。 您的責任包括部署、管理、操作及監視這些應用程式。 您必須負責對 CPU 資源耗用量、記憶體耗用量、Azure 儲存體耗用量和虛擬網路內的網路頻寬耗用量進行容量規劃。 您也須負責對資源耗用量進行容量規劃，舉凡虛擬網路到 SAP HANA on Azure (大型執行個體)，皆包含在內。
 
-**WAN**：您為工作負載建立的從內部部署到 Azure 部署的連線。 所有具有 HANA 大型執行個體的客戶都會使用 Azure ExpressRoute 連線。 此連線不是 SAP HANA on Azure (大型執行個體) 解決方案的一部分。 您必須負責此連線的設定。
+**WAN**：您為工作負載所建立，從內部部署到 Azure 部署的連線。 所有具有 HANA 大型執行個體的客戶都會使用 Azure ExpressRoute 連線。 此連線不是 SAP HANA on Azure (大型執行個體) 解決方案的一部分。 您必須負責此連線的設定。
 
 **封存**：您可能會偏好使用自己的方法在儲存體帳戶中封存資料複本。 封存需要管理、合規性、成本及操作。 您須負責在 Azure 上產生封存複本和備份，並以符合規範的方式加以儲存。
 
-請參閱 [SAP HANA on Azure (大型執行個體) SLA](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/)。
+請參閱 [SAP HANA on Azure (大型執行個體) SLA](https://azure.microsoft.com/support/legal/sla/sap-hana-large/)。
 
 **後續步驟**
 - 請參閱 [SAP HANA on Azure (大型執行個體) 架構](hana-architecture.md)

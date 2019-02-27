@@ -1,20 +1,18 @@
 ---
 title: Azure 診斷擴充功能的概觀
 description: 使用 Azure 診斷來在雲端服務、虛擬機器及 Service Fabric 中進行偵錯、測量效能、監視、流量分析等。
-services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470506"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310452"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什麼是 Azure 診斷延伸模組
 Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程式收集診斷資料。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](../../azure-monitor/overview.md)。
@@ -27,28 +25,29 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 
 | 資料來源 | 說明 |
 | --- | --- |
-| 效能計數器 |作業系統和自訂效能計數器 |
+| 效能計數器計量 |作業系統和自訂效能計數器 |
 | 應用程式記錄檔 |追蹤您應用程式寫入的訊息 |
 | Windows 事件記錄檔 |傳送至 Windows 事件記錄系統的資訊 |
-| .NET 事件來源 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 類別的程式碼編寫事件 |
+| .NET EventSource 記錄 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 類別的程式碼編寫事件 |
 | IIS 記錄檔 |IIS 網站的相關資訊 |
-| 以資訊清單為基礎的 ETW |針對任何程序所產生之 Windows 事件所進行的事件追蹤。(1) |
-| 損毀傾印 |應用程式損毀時之程序狀態的相關資訊 |
+| [以資訊清單為基礎的 ETW 記錄](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) \(英文\) |針對任何程序所產生之 Windows 事件所進行的事件追蹤。(1) |
+| 損毀傾印 (記錄) |應用程式損毀時之程序狀態的相關資訊 |
 | 自訂錯誤記錄檔 |您的應用程式或服務所建立的記錄檔 |
-| Azure 診斷基礎結構記錄檔 |診斷本身的相關資訊 |
+| Azure 診斷基礎結構記錄檔 |Azure 診斷本身的相關資訊 |
 
 (1) 若要取得 ETW 提供者的清單，請在您要從中收集資訊的電腦上，在主控台視窗中執行 `c:\Windows\System32\logman.exe query providers`。
 
 ## <a name="data-storage"></a>資料儲存體
 延伸模組會將其資料儲存在您指定的 [Azure 儲存體帳戶](diagnostics-extension-to-storage.md)中。
 
-您也可以將它傳送到 [Application Insights](../../azure-monitor/app/cloudservices.md)。 另一個選項是將資料串流到[事件中樞](../../event-hubs/event-hubs-about.md)，以便讓您將資料傳送到非 Azure 監視的服務。
+您也可以將它傳送到 [Application Insights](../../azure-monitor/app/cloudservices.md)。 
 
-### <a name="azure-monitor"></a>Azure 監視器
-您也可以選擇將資料傳送至 Azure 監視器。 此時，這個接收只適用於效能計數器。 它可讓您將在 VM、VMSS 或雲端服務上收集的效能計數器，傳送到 Azure 監視器作為自訂計量。 Azure 監視器接收支援：
+另一個選項是將資料串流到[事件中樞](../../event-hubs/event-hubs-about.md)，以便將資料傳送到非 Azure 監視的服務。
+
+您也可以選擇將資料傳送至 Azure 監視器計量時間序列資料庫。 此時，這個接收只適用於效能計數器。 它可讓您以自訂計量的形式傳送效能計數器。 這項功能處於預覽狀態。 Azure 監視器接收支援：
 * 擷取透過 [Azure 監視器計量 API](https://docs.microsoft.com/rest/api/monitor/) 傳送到 Azure 監視器的所有效能計數器。
-* 透過 Azure 監視器中新的[統一的警示體驗](../../azure-monitor/platform/alerts-overview.md)，對傳送到 Azure 監視器的所有效能計數器設定警示
-* 將效能計數器中的萬用字元運算子視為計量上的「執行個體」維度。  例如，如果您收集了 "LogicalDisk(\*)/DiskWrites/sec" 計數器，就能夠為 VM 上每個邏輯磁碟 (C:、D: 等等)，針對 Disk Writes/sec 在「執行個體」維度上進行繪製或建立警示。
+* 透過 Azure 監視器中的[計量警示](../../azure-monitor/platform/alerts-overview.md)，對傳送到 Azure 監視器的所有效能計數器設定警示
+* 將效能計數器中的萬用字元運算子視為計量上的「執行個體」維度。  例如，如果您收集 "LogicalDisk(\*)/DiskWrites/sec" 計數器，就能夠對「執行個體」維度進行篩選和分割，來針對 VM 上每個邏輯磁碟 (例如 C:) 的 Disk Writes/sec 進行繪製或警示
 
 若要深入了解如何設定此接收，請參閱 [Azure 診斷結構描述文件](diagnostics-extension-schema-1dot3.md)。
 
@@ -57,7 +56,7 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 
 
 ## <a name="next-steps"></a>後續步驟
-請選擇您嘗試要在哪個服務上收集診斷資料，並使用下列文件來開始。 如需特定工作的參考，請使用一般的 Azure 診斷連結。
+選擇您想要在哪個服務上收集診斷資料，並使用下列文章來開始。 如需特定工作的參考，請使用一般的 Azure 診斷連結。
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>使用 Azure 診斷的雲端服務
 * 如果您使用 Visual Studio，請參閱[使用 Visual Studio 來追蹤雲端服務應用程式](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)來開始。 否則，請參閱

@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237666"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429511"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>整合多個 Azure 監視器 Application Insights 資源 
 本文說明如何集中一處查詢和檢視所有 Application Insights 應用程式記錄檔資料，即使它們位於不同的 Azure 訂用帳戶中，以取代淘汰的 Application Insights Connector。 您在單一查詢中可納入的資源 (Application Insights 資源) 數目上限為 100 個。  
@@ -68,6 +68,9 @@ applicationsScoping
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>跨 Application Insights 資源和工作區資料查詢 
 當您停止連接器並需要在 Application Insights 資料保留期 (90 天) 修剪的時間範圍內執行查詢時，您需要在工作區和 Application Insights 資源上執行[跨資源查詢](../../azure-monitor/log-query/cross-workspace-query.md)一段時間。 這是在您的應用程式資料按照上述新的 Application Insights 資料保留累積之前。 由於 Application Insights 與工作區中的結構描述不同，因此查詢會需要一些操作。 請參閱本節稍後反白顯示結構描述差異的表格。 
+
+>[!NOTE]
+>新的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 支援記錄警示中的[跨資源查詢](../log-query/cross-workspace-query.md)。 根據預設，Azure 監視器會使用[舊版 Log Analytics 警示 API](../platform/api-alerts.md) 從 Azure 入口網站建立新的記錄警示規則，除非您從[舊版記錄警示 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 切換。 切換之後，新的 API 將成為 Azure 入口網站中新警示規則的預設值，並允許您建立跨資源查詢記錄警示規則。 您可以使用[適用於 scheduledQueryRules API 的 ARM 範本](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)建立[跨資源查詢](../log-query/cross-workspace-query.md)記錄警示規則而無需進行切換 – 但此警示規則可透過 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 進行管理，而不是 Azure 入口網站。
 
 例如，如果連接器在 2018-11-01 停止工作，則當您在工作區中跨 Application Insights 資源及應用程式資料查詢記錄時，您的查詢會如下列範例所示建構：
 

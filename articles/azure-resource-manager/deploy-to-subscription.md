@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744393"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343029"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在訂用帳戶層級建立資源群組和資源
 
 您通常會將 Azure 資源部署到 Azure 訂用帳戶中的資源群組。 不過，您也可以建立 Azure 資源群組，並在訂用帳戶層級建立 Azure 資源。 若要在訂用帳戶層級部署範本，您可以使用 Azure CLI 和 Azure PowerShell。 Azure 入口網站不支援在訂用帳戶層級進行部署。
 
-若要在 Azure Resource Manager 範本中建立資源群組，請搭配資源群組的名稱和位置定義 [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) 資源。 您可以建立資源群組，並將資源部署至相同範本中的該資源群組。 您可以在訂用帳戶層級部署的資源包括：[原則](../azure-policy/azure-policy-introduction.md)和[角色型存取控制](../role-based-access-control/overview.md)。
+若要在 Azure Resource Manager 範本中建立資源群組，請搭配資源群組的名稱和位置定義 [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) 資源。 您可以建立資源群組，並將資源部署至相同範本中的該資源群組。 您可以在訂用帳戶層級部署的資源包括：[原則](../governance/policy/overview.md)和[角色型存取控制](../role-based-access-control/overview.md)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -307,7 +307,7 @@ New-AzDeployment `
 
 ### <a name="define-and-assign-policy"></a>定義及指派原則
 
-您可以在相同的範本[定義](../azure-policy/policy-definition.md)和指派原則。
+您可以在相同的範本[定義](../governance/policy/concepts/definition-structure.md)和指派原則。
 
 ```json
 {

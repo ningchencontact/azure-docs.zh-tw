@@ -1,5 +1,5 @@
 ---
-title: 使用 REST API 實作適用於 Azure 串流分析的 CI/CD
+title: 使用 REST API 為 Azure IoT Edge 串流分析實作 CI/CD
 description: 了解如何使用 REST API 實作適用於 Azure 串流分析的持續整合和部署管線。
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: f22a4c4d0159efa2ac42d15ff6afdadc2d6755d0
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 40beb620e037061b189762a51e3c29d0fd251b27
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215043"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268494"
 ---
-# <a name="implement-cicd-for-stream-analytics-using-apis"></a>使用 API 實作適用於串流分析的 CI/CD
+# <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>為 IoT Edge 串流分析實作 CI/CD
 
 您可以使用 REST API 啟用適用於 Azure 串流分析作業的持續整合和部署。 本文提供關於應使用哪些 API 及其使用方式的範例。 Azure Cloud Shell 不支援 REST API。
 
@@ -23,7 +23,7 @@ ms.locfileid: "54215043"
 
 REST API 可從 Linux 和 Windows 呼叫。 下列命令示範呼叫 API 的正確語法。 本文的後續幾節將概述特定 API 的使用方式。
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 
 針對 Linux，您可以使用 `Curl` 或 `Wget` 命令：
 

@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 254d1faf0d846cc6a0e165b68db11ac0314eab33
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747487"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430568"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的備份與還原
-了解「Azure SQL 資料倉儲」中備份與還原的運作方式。 使用資料倉儲快照集將您的資料倉儲還原或複製到主要區域中的先前還原點。 使用資料倉儲異地備援備份來還原至不同的地理區域。 
+了解「Azure SQL 資料倉儲」中備份與還原的運作方式。 使用資料倉儲還原點將您的資料倉儲還原或複製到主要區域中的先前狀態。 使用資料倉儲異地備援備份來還原至不同的地理區域。 
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>什麼是資料倉儲快照集？
 「資料倉儲快照集」會建立還原點，您可以利用此還原點將資料倉儲還原或複製到先前的狀態。  由於 SQL 資料倉儲是一個分散式系統，所以一個資料倉儲快照集會由位於 Azure 儲存體中的許多檔案組成。 快照集會從資料倉儲中儲存的資料內擷取增量變更。

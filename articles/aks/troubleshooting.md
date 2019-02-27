@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468830"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327550"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -34,7 +34,11 @@ ms.locfileid: "55468830"
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>當我使用進階網路設定部署 AKS 叢集時，收到 insufficientSubnetSize 錯誤。 我該怎麼辦？
 
-在 AKS 建立期間網路功能的自訂 Azure 虛擬網路選項中，Azure 容器網路介面 (CNI) 用於 IP 位址管理 (IPAM)。 AKS 叢集中的節點數可以是介於 1 到 100 之間的任何數字。 根據前一節，子網路大小應大於節點數與每個節點最大 Pod 數的乘積。 關聯性的表達方式如下：子網路大小 > 叢集中的節點數 * 每個節點的最大 Pod。
+如果使用 Azure CNI (進階網路)，AKS 會根據每個節點上設定的「最大 Pod 數」預先配置 IP 位址。 AKS 叢集中的節點數目可以是介於 1 到 110 之間的任何數字。 根據每個節點所設定的最大 Pod 數，子網路大小應大於「節點數與每個節點最大 Pod 數的乘積」。 下列基本方程式概述此設計：
+
+子網路大小 > 叢集中的節點數 (將未來的調整需求納入考量) * 每個節點最大 Pod 數。
+
+如需詳細資訊，請參閱[為你的叢集規劃 IP 位址](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)。
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>我的 Pod 會在 CrashLoopBackOff 模式中停滯。 我該怎麼辦？
 

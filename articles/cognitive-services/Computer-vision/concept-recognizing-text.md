@@ -11,18 +11,21 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7908c29f3a48821588ea93ebe33ffb6b8de77520
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 48ce15a11c3e3282535420f3e1bb1915276d70f5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881170"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313172"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>辨識印刷和手寫的文字
 
 電腦視覺可從表層和背景不同的各種物件影像中偵測並擷取出印刷或手寫的文字，例如收據、海報、名片、信件和白板等。
 
-文字辨識可節省時間和心力。 您可以採用文字的影像而非謄寫，來提高生產力。 文字辨識讓記事得以數位化。 此一數位化可讓您實作快速且輕鬆的搜尋。 同時也可減少紙張用量。
+文字辨識功能與[光學字元辨識 (OCR)](concept-extracting-text-ocr.md) 非常類似，但與 OCR 不同，它以非同步方式執行並使用更新的辨識模型。
+
+> [!NOTE]
+> 這項技術目前為預覽狀態，且只適用於英文文字。
 
 ## <a name="text-recognition-requirements"></a>文字辨識需求
 
@@ -32,9 +35,6 @@ ms.locfileid: "55881170"
 - 影像的檔案大小必須小於 4 MB
 - 影像的大小必須介於 50 x 50 與 4200 x 4200 像素之間
 
-> [!NOTE]
-> 這項技術目前為預覽狀態，且只適用於英文文字。
-
 ## <a name="next-steps"></a>後續步驟
 
-了解關於[使用 OCR 擷取文字](concept-extracting-text-ocr.md)的概念。
+請參閱[辨識文字參考文件](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)，以取得更多資訊。

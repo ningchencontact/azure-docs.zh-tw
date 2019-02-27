@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fd0f8241c07f603089b896dcfc9ece29f1e33d1c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882211"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428199"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>透過使用者流程將存取權杖傳遞到 Azure Active Directory B2C 中的應用程式
 
@@ -24,12 +24,12 @@ ms.locfileid: "55882211"
 
 Azure Active Directory (Azure AD) B2C 中的[使用者流程](active-directory-b2c-reference-policies.md)為您的應用程式使用者提供了註冊或使用身分識別提供者登入的機會。 當發生這種情況時，Azure AD B2C 會從身分識別提供者處收到[存取權杖](active-directory-b2c-reference-tokens.md)。 Azure AD B2C 會使用該權杖來擷取使用者的相關資訊。 您在使用者流程中啟用宣告，以將權杖傳遞至您在 Azure AD B2C 中註冊的應用程式。
 
-Azure AD B2C 目前僅支援傳遞 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 身分識別提供者的存取權杖，其中包括 [Facebook](active-directory-b2c-setup-fb-app.md) 和 [Google](active-directory-b2c-setup-goog-app.md)。 對於所有其他識別提供者，宣告會傳回空白。
+Azure AD B2C 支援傳遞 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 的存取金鑰和 [OpenID Connect](active-directory-b2c-reference-oidc.md) 識別提供者。 對於所有其他識別提供者，宣告會傳回空白。
 
 ## <a name="prerequisites"></a>必要條件
 
 - 您的應用程式必須使用 [v2 使用者流程](user-flow-versions.md)。
-- 您的自訂原則是使用 OAuth 2.0 識別提供者設定。
+- 您的使用者流程是使用 OAuth 2.0 或 OpenID Connect 識別提供者設定。
 
 ## <a name="enable-the-claim"></a>啟用宣告
 

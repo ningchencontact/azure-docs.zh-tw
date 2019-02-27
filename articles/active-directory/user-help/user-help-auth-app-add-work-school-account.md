@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775e6968282c94abec64fb410f2cc720ba0913e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168428"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453540"
 ---
 # <a name="add-your-work-or-school-account"></a>新增公司或學校帳戶
 如果您的組織使用雙因素驗證，您可以設定公司或學校帳戶，使其使用 Microsoft Authenticator 應用程式作為其中一種驗證方法。

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857935"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445112"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -47,19 +47,19 @@ ms.locfileid: "55857935"
 
 ## <a name="linux"></a> Linux
 
+語音 SDK 目前支援 Ubuntu 16.04 和 18.04 發行版。
 對於原生應用程式，您需要提供語音 SDK 程式庫 `libMicrosoft.CognitiveServices.Speech.core.so`。
 確定您選取與您的應用程式相符的版本 (x86、x64)。 視 Linux 版本而定，您可能也需要包含下列相依性：
 
 * GNU C 程式庫的共用程式庫 (包括 POSIX 執行緒程式設計程式庫 `libpthreads`)
 * OpenSSL 程式庫 (`libssl.so.1.0.0`)
-* cURL 程式庫 (`libcurl.so.4`)
 * ALSA 應用程式的共用程式庫 (`libasound.so.2`)
 
-例如在 Ubuntu 16.04 或 18.04 上，預設應該已安裝 GNU C 程式庫。 使用下列命令可以安裝最後三項：
+在 Ubuntu 上，預設應該已安裝 GNU C 程式庫。 使用下列命令可以安裝最後三項：
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## <a name="next-steps"></a>後續步驟

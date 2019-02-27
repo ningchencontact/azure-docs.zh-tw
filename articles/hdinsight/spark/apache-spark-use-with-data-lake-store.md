@@ -1,6 +1,6 @@
 ---
-title: 使用 Apache Spark 分析 Azure Data Lake Storage 中的資料
-description: 執行 Spark 作業來分析 Azure Data Lake Storage 中儲存的資料
+title: 使用 Apache Spark 分析 Azure Data Lake Storage Gen1 中的資料
+description: 執行 Spark 作業來分析 Azure Data Lake Storage Gen1 中儲存的資料
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d4228091c52e65da70d91fffd8af2f2472fa8f43
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821352"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430551"
 ---
-# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>使用 HDInsight Spark 叢集分析 Data Lake Storage 中的資料
+# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>使用 HDInsight Spark 叢集分析 Data Lake Storage Gen1 中的資料
 
 在本教學課程中，您可以使用 HDInsight Spark 叢集提供的 [Jupyter Notebook](https://jupyter.org/) \(英文\)，來執行可從 Data Lake Storage 帳戶讀取資料的作業。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure Data Lake Storage 帳戶。 遵循[使用 Azure 入口網站開始使用 Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md) 中的指示。
+* Azure Data Lake Storage Gen1 帳戶。 請遵循[透過 Azure 入口網站開始使用 Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-get-started-portal.md) 的指示。
 
-* 以 Data Lake Storage 作為儲存體的 Azure HDInsight Spark 叢集。 請依照[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+* 以 Data Lake Storage Gen1 作為儲存體的 Azure HDInsight Spark 叢集。 請依照[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
     
 ## <a name="prepare-the-data"></a>準備資料
@@ -45,7 +45,7 @@ ms.locfileid: "55821352"
         AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
    > [!WARNING]  
-   > 確定檔案和路徑名稱的大小寫正確。
+   > 確定檔案與路徑名稱使用適當的大小寫。
 
 3. 系統會提示您輸入 Data Lake Storage 帳戶所在之 Azure 訂用帳戶的認證。 您會看到如下列程式碼片段的輸出：
 
@@ -56,7 +56,7 @@ ms.locfileid: "55821352"
 
     資料檔 (**HVAC.csv**) 將會複製到 Data Lake Storage 帳戶中的 **/hvac** 資料夾底下。
 
-## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage"></a>使用具有 Data Lake Storage 的 HDInsight Spark 叢集
+## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>搭配 Data Lake Storage Gen1 使用 HDInsight Spark 叢集
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Apache Spark 叢集格圖格 (如果您已將它釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。
 
@@ -79,9 +79,9 @@ ms.locfileid: "55821352"
 
      ![Jupyter Notebook 作業的狀態](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Jupyter Notebook 作業的狀態")
 
-5. 使用您複製到 Data Lake Storage 帳戶的 **HVAC.csv** 檔案，將範例資料載入到暫存資料表中。 您可以使用下列 URL 模式來存取 Data Lake Storage 帳戶中的資料。
+5. 使用您複製到 Data Lake Storage Gen1 帳戶的 **HVAC.csv** 檔案，將範例資料載入到暫存資料表中。 您可以使用下列 URL 模式來存取 Data Lake Storage 帳戶中的資料。
 
-    * 如果您以 Data Lake Storage 作為預設儲存體，HVAC.csv 將位於類似下列 URL 的路徑：
+    * 如果您以 Data Lake Storage Gen1 作為預設儲存體，HVAC.csv 將位於類似下列 URL 的路徑：
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 

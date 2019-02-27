@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991322"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310928"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure 監視器計量瀏覽器
 
@@ -100,20 +100,6 @@ Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，
    > [!NOTE]
    > 在相同維度上同時使用篩選與分割，以隱藏與您的案例不相關的區段，讓圖表更容易閱讀。
 
-### <a name="new-alert-rule"></a>新增警示規則
-
-您也可以使用已設定的準則來將計量視覺化，以作為計量型警示規則之基礎邏輯的基礎。 
-
-如果您按一下 [新增警示規則]
-
-![以紅色強調顯示的[新增警示規則] 按鈕](./media/metrics-charts/015.png)
-
-您將會進入警示規則建立窗格，其中已預先填入來自圖表的基礎計量維度，讓您能夠更輕鬆地產生自訂警示規則。
-
-![建立警示規則](./media/metrics-charts/016.png)
-
-若要深入了解如何設定計量警示，請查看這篇[文章](alerts-metric.md)。
-
 ## <a name="lock-boundaries-of-chart-y-axis"></a>鎖定圖表 y 軸的界限
 
 圖表顯示的較大值的小波動時，鎖定 y 軸的範圍相當重要。 
@@ -138,6 +124,20 @@ Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，
 設定您的圖表之後，按一下圖表右上角的 [圖表動作] 功能表，然後按一下 [釘選到儀表板]。
 
 ![計量影像](./media/metrics-charts/00013.png)
+
+## <a name="create-alert-rules"></a>建立警示規則
+
+您可以使用已設定的準則來將計量視覺化，以作為計量型警示規則的基礎。 新的警示規則將包含來自您圖表的目標資源、計量、分割及篩選維度。 您稍後將能在警示規則建立窗格上修改這些設定。
+
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>若要建立新的警示規則，請按一下 [新增警示規則]
+
+![以紅色強調顯示的[新增警示規則] 按鈕](./media/metrics-charts/015.png)
+
+您將會進入警示規則建立窗格，其中已預先填入來自圖表的基礎計量維度，讓您能夠更輕鬆地產生自訂警示規則。
+
+![建立警示規則](./media/metrics-charts/016.png)
+
+若要深入了解如何設定計量警示，請查看這篇[文章](alerts-metric.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54829924"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328022"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric 聯盟網路
 
@@ -100,7 +100,7 @@ ms.locfileid: "54829924"
 **網路組態**|您可以選擇建立新的，或加入現有的網路。 如果選擇*加入現有*，您需要提供其他的值。 |新增網路 <br/> 加入現有的 |
 **HLF CA 密碼**|用於部署時建立的憑證授權單位所產生憑證的密碼。 密碼必須包含下列字元類別的其中三種：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。<br /><br />所有虛擬機器一開始都有相同的密碼，但您可以在佈建之後變更密碼。|1 - 25 個字元 |
 **組織設定** |您可以自訂組織的名稱和憑證，或使用預設值。|預設值 <br/> 進階 |
-**VPN 網路設定**| 佈建 VPN 通道閘道以存取 VM | 是 <br/> 否 |
+**VPN 網路設定**| 佈建 VPN 通道閘道以存取 VM | yes <br/> 否 |
 
 選取 [確定] 。
 
@@ -113,7 +113,7 @@ ms.locfileid: "54829924"
 | 參數名稱 | 說明 | 允許的值 |
 |---|---|---|
 **調整類型**|部署類型可以是單一虛擬機器具備多個容器，或在相應放大模型中具備多個虛擬機器。|單一 VM 或多個 VM |
-**VM 磁碟類型**|支援每個所部署節點的儲存體類型。 <br/> 若要深入了解儲存體，請瀏覽 [Microsoft Azure 儲存體簡介](https://docs.microsoft.com/azure/storage/common/storage-introduction)和[進階儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)。|標準 SSD <br/> 進階 SSD |
+**VM 磁碟類型**|支援每個所部署節點的儲存體類型。 <br/> 若要深入了解可用的磁碟類型，請參閱[選取磁碟類型](../../virtual-machines/windows/disks-types.md)。|標準 SSD <br/> 進階 SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>多個 VM 部署 (額外設定)
 

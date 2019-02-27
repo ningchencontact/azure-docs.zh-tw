@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: b8d13377b2fb1545ecf88645a5e19bf5eab24c74
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6b14f5e8967567030ce854d05c53a8d26027e9a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238130"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428834"
 ---
 # <a name="start-and-stop-azure-stack"></a>啟動及停止 Azure Stack
 您應該遵循本文中的程序，適當地關閉然後重新啟動 Azure Stack 服務。 關機將實際關閉整個 Azure Stack 環境的電源。 啟動會開啟所有基礎結構角色的電源，並在關機之前讓租用戶資源回復為電源狀態。

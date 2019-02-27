@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 80d84fcede0d293b083ea75f24e9b0bd3125b265
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959662"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344024"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -69,7 +69,7 @@ Azure 整合執行階段提供原生計算，能夠以安全、可靠且高效�
 自我裝載 IR 能夠：
 
 - 在雲端資料存放區和私人網路中的資料存放區之間執行複製活動。
-- 在內部部署或 Azure 虛擬網路中，針對計算資源分派下列轉換活動：HDInsight Hive 活動 (BYOC)、HDInsight Pig 活動 (BYOC)、HDInsight MapReduce 活動 (BYOC)、HDInsight Spark 活動 (BYOC)、HDInsight 串流活動 (BYOC)、Machine Learning 批次執行活動、Machine Learning 更新資源活動、預存程序活動、Data Lake Analytics U-SQL 活動、.Net 自訂活動、查閱活動，以及取得中繼資料活動。
+- 在內部部署或 Azure 虛擬網路中，針對計算資源分派下列轉換活動：HDInsight Hive 活動 (BYOC-攜帶您自己的叢集)、HDInsight Pig 活動 (BYOC)、HDInsight MapReduce 活動 (BYOC)、HDInsight Spark 活動 (BYOC)、HDInsight 串流活動 (BYOC)、Machine Learning 批次執行活動、Machine Learning 更新資源活動、預存程序活動、Data Lake Analytics U-SQL 活動、.Net 自訂活動、查閱活動，以及取得中繼資料活動。
 
 > [!NOTE] 
 > 使用自我裝載整合執行階段來支援需要自備驅動程式 (例如 SAP Hana、MySQL 等) 的資料存放區。如需詳細資訊，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

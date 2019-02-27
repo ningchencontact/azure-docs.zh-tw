@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2017
-ms.openlocfilehash: a6708a1c414277cd4ee9b90851e19a94ea86c55b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2810a059bebc3fa89aef8f75b27250328d81e678
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491666"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455274"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中為模型偵錯
 
@@ -33,7 +33,7 @@ ms.locfileid: "55491666"
 
 [定型模型][train-model]模組預期 2 個輸入：
 
-1. 來自 Azure Machine Learning 所提供的模型集合的機器學習服務模型類型。
+1. 來自 Azure Machine Learning Studio 所提供的模型集合的機器學習服務模型類型。
 2. 含有指定 [標籤] 資料行的定型資料，可指定要預測的變數值 (假設另一個資料行為 [功能])。
 
 此模組會在下列情況中產生錯誤：

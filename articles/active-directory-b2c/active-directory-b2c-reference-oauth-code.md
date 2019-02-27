@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C 中的授權碼流程 | Microsoft Docs
+title: 授權碼流程 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何使用 Azure AD B2C 和 OpenID Connect 的驗證通訊協定來建置 web 應用程式。
 services: active-directory-b2c
 author: davidmu1
@@ -7,17 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f1f372cd8fc5ea1e64fbe195fd15790cd0535347
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ee67f07965036a71151d7b6a5092b9a76d94999
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164022"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428681"
 ---
-# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C：OAuth 2.0 授權碼流程
+# <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 OAuth 2.0 授權碼流程
+
 在安裝於裝置上的應用程式中，您可以使用 OAuth 2.0 授權碼授與來存取受保護的資源，例如 Web API。 您可以使用 Azure Active Directory B2C (Azure AD B2C) 的 OAuth 2.0 實作，將註冊、登入及其他身分識別管理工作新增至行動及桌面應用程式。 這篇文章是與語言無關。 在本文中，我們將說明如何傳送及接收 HTTP 訊息，但不使用任何開放原始碼程式庫。
 
 如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](https://tools.ietf.org/html/rfc6749)。 在大多數[應用程式類型](active-directory-b2c-apps.md) (包括 Web 應用程式和原生安裝的應用程式) 中，您都能利用它來執行驗證及授權作業。 您可以使用 OAuth 2.0 授權碼流程，安全地為您的應用程式取得存取權杖和重新整理權杖，而這些存取權杖可用來存取[授權伺服器](active-directory-b2c-reference-protocols.md)所保護的資源。  一旦存取權杖到期 (通常在一小時後)，重新整理權杖即可讓用戶端取得新的存取 (和重新整理) 權杖。
@@ -27,7 +28,7 @@ ms.locfileid: "55164022"
 > [!NOTE]
 > 若要使用 Azure AD B2C 將身分識別管理新增至 Web 應用程式，請使用 [OpenID Connect](active-directory-b2c-reference-oidc.md)，而不是 OAuth 2.0。
 
-Azure AD B2C 擴充標準的 OAuth 2.0 流程，功能更強大，而不僅止於簡單的驗證和授權。 它引進[使用者流程參數](active-directory-b2c-reference-policies.md)。 透過使用者流程，您可以利用 OAuth 2.0 來將使用者體驗新增至應用程式，例如註冊、登入和設定檔管理。 在本文中，我們將示範如何利用 OAuth 2.0 和使用者流程，在您的原生應用程式中實作上述每一種體驗。 我們也會示範如何取得用來存取 Web API 的存取權杖。
+Azure AD B2C 擴充標準的 OAuth 2.0 流程，功能更強大，而不僅止於簡單的驗證和授權。 它引進[使用者流程參數](active-directory-b2c-reference-policies.md)。 透過使用者流程，您可以利用 OAuth 2.0 來將使用者體驗新增至應用程式，例如註冊、登入和設定檔管理。 使用 OAuth 2.0 通訊協定的身分識別提供者包括[Amazon](active-directory-b2c-setup-amzn-app.md)、[Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md)、[Facebook](active-directory-b2c-setup-fb-app.md)、[GitHub](active-directory-b2c-setup-github-app.md)、[Google](active-directory-b2c-setup-goog-app.md) 和 [LinkedIn](active-directory-b2c-setup-li-app.md)。
 
 在本文的範例 HTTP 要求中，我們會使用範例 Azure AD B2C 目錄 **fabrikamb2c.onmicrosoft.com**。 此外，也會使用我們的範例應用程式和使用者流程。 您可以使用這些值來自行試驗要求，也可以將它們換成您自己的值。
 了解如何[取得您自己的 Azure AD B2C 目錄、應用程式和使用者流程](#use-your-own-azure-ad-b2c-directory)。

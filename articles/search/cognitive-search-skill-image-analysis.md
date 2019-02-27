@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f658f6bb9e66eda13dbf4213e37dcd96b17f76e7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c70c3cc1818e85c03c78524d1e8571af6d686218
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411012"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429055"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>映像分析認知技能
 
 **映像分析**技能可根據映像內容擷取一組豐富的視覺功能。 例如，您可以從映像產生標題、產生標記，或識別名人和地標。 這項技能會使用認知服務中[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)所提供的機器學習模型。 
 
 > [!NOTE]
-> 從 2018 年 12 月 21 日開始，您可以[連結認知服務資源](cognitive-search-attach-cognitive-services.md)與 Azure 搜尋服務技能集。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
+> 從 2018 年 12 月 21 日開始，您可以[連結認知服務資源](cognitive-search-attach-cognitive-services.md)與 Azure 搜尋服務技能集。 據此，我們將開始收取執行技術集的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
 >
 > [內建認知技能](cognitive-search-predefined-skills.md)執行會以[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services)收費，費率與直接執行工作時一樣。 影像擷取是 Azure 搜尋服務費用，目前是以預覽版定價提供。 如需詳細資訊，請參閱 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)或[計費方式](search-sku-tier.md#how-billing-works)。
 
@@ -45,7 +45,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 | 輸入名稱      | 說明                                          |
 |---------------|------------------------------------------------------|
-| 映像         | 複雜類型。 目前僅適用於當 ```imageAction``` 設為 ```generateNormalizedImages``` 時，由 Azure Blob 索引子產生的「/document/normalized_images」欄位。 如需詳細資訊，請參閱[範例](#sample-output)。|
+| 映像         | 複雜類型。 目前僅可搭配 "/document/normalized_images" 欄位使用，該欄位是由 Azure Blob 索引子在 ```imageAction``` 被設定為 ```none``` 以外的其他值時產生。 如需詳細資訊，請參閱[範例](#sample-output)。|
 
 
 

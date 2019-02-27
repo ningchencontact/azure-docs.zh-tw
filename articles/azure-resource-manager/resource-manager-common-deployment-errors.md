@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/16/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 600b79ec0b34d6b79b1b56719dd800bbe8ec803a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487144"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339255"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -36,7 +36,7 @@ ms.locfileid: "55487144"
 | AccountPropertyCannotBeSet | 檢查可用儲存體帳戶屬性。 | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | 叢集或區域沒有可用的資源或無法支援所要求的 VM 大小。 稍後重試要求，或要求不同的 VM 大小。 | [Linux 的佈建和配置問題](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)、[Windows 的佈建和配置問題](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)以及[配置失敗疑難排解](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 等候並行作業完成。 | |
-| AuthorizationFailed | 您的帳戶或服務主體沒有完成部署的足夠存取權。 請檢查您的帳戶所屬的角色以及它針對部署範圍的存取權。 | [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md) |
+| AuthorizationFailed | 您的帳戶或服務主體沒有完成部署的足夠存取權。 請檢查您的帳戶所屬的角色以及它針對部署範圍的存取權。<br><br>當所需的資源提供者未註冊時，您可能會收到此錯誤。 | [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)<br><br>[解析註冊](resource-manager-register-provider-errors.md) |
 | BadRequest | 您傳送的部署值不符合資源管理員的預期。 請查看內部狀態訊息，以取得疑難排解的說明。 | [範本參考](/azure/templates/)和[支援位置](resource-manager-templates-resources.md#location) |
 | 衝突 | 您要求的作業在資源的目前狀態下不允許。 例如，只有在建立 VM 時或解除配置 VM 之後，才可調整磁碟大小。 | |
 | DeploymentActive | 等候此資源群組的並行部署完成。 | |

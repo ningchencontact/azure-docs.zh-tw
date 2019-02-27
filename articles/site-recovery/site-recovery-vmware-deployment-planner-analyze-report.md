@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7b308f3298af436b6537234cff571759551a2d4e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7504d23cbaf8a497e6ea86b5a383413474c0d034
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221589"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329962"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告
 
@@ -177,7 +177,7 @@ ms.locfileid: "55221589"
 
 **VM 名稱**：產生報告時，使用於 VMListFile 的 VM 名稱或 IP 位址。 此資料行也會列出連結至 VM 的磁碟 (VMDK)。 為了區分具有重複名稱或 IP 位址的 vCenter VM，名稱中包含 ESXi 主機名稱。 所列的 ESXi 主機是此工具在分析期間探索到 VM 時其所在位置的主機。
 
-**VM 相容性**：值為 **[是]** 和 **[是]**\*。 **[是**]\* 適用於 VM 適合於 [Azure 進階儲存體](https://aka.ms/premium-storage-workload)的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如︰
+**VM 相容性**：值為 **[是]** 和 **[是]**\*。 [是]\* 表示 VM 適用於[進階 SSD](../virtual-machines/windows/disks-types.md) 的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如︰
 * <128 GB 為 P10。
 * 128 GB 至 256 GB 為 P15。
 * 256 GB 至 512 GB 為 P20。

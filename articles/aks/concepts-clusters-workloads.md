@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998083"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456515"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -52,7 +52,7 @@ Kubernetes 叢集分成兩個元件：
 
 AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢集主機。您可以定義節點的數目和大小，而 Azure 平台會設定叢集主機與節點之間的安全通訊。 與叢集主機之間的互動可透過 Kubernetes API 進行，例如 `kubectl` 或 Kubernetes 儀表板。
 
-此叢集主機受到管理，這表示您不需要設定高可用性 *etcd* 存放區這類的元件，但也意味著您無法直接存取叢集主機。 Kubernetes 的升級可透過 Azure CLI 或 Azure 入口網站來協調，其程序會先升級叢集主機，再升級節點。 若要對可能的問題進行疑難排解，您可以透過 Azure Log Analytics 檢閱叢集主機記錄。
+此叢集主機受到管理，這表示您不需要設定高可用性 *etcd* 存放區這類的元件，但也意味著您無法直接存取叢集主機。 Kubernetes 的升級可透過 Azure CLI 或 Azure 入口網站來協調，其程序會先升級叢集主機，再升級節點。 若要對可能的問題進行疑難排解，您可以透過 Azure 監視器記錄檔檢閱叢集主機記錄。
 
 如果您需要以特定方式設定叢集主機，或需要直接加以存取，您可以使用 [aks-engine][aks-engine] 自行部署 Kubernetes 叢集。
 

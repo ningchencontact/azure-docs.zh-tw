@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359930"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328547"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -180,7 +180,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
    | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。  
 
-1. 將儲存體新增至虛擬機器中。 如需詳細資訊，請參閱[新增儲存區](../premium-storage.md)。
+1. 將儲存體新增至虛擬機器中。 如需詳細資訊，請參閱[新增儲存區](../disks-types.md)。
 
    每部虛擬機器需要至少兩個資料磁碟。
 
@@ -188,7 +188,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
       >[!NOTE]
       >若您連接 NTFS 格式的磁碟，您只能啟用 S2D 而無法進行磁碟適用性檢查。  
 
-   每部 VM 至少可連接兩個進階儲存體 (SSD 磁碟)。 建議使用 P30 (1 TB) 或以上的磁碟。
+   每部 VM 至少可連接兩個進階 SSD。 建議使用 P30 (1 TB) 或以上的磁碟。
 
    將主機快取設為**唯讀**。
 

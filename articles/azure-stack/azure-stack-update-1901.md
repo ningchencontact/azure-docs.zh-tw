@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115703"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416508"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -199,7 +199,9 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
            "autoUpgradeMinorVersion": "true"
    ```
 
-- 準確規劃 Azure Stack 容量方面有新的考量。 我們已在可於 Azure Stack 內部署的 VM 總數上設定限制，以確保我們的所有內部服務能夠滿足客戶執行的規模。 限制為每部主機 60 部 VM，整個戳記最多 700 部 (如果已達到每部主機 60 部的限制)。 如需詳細資訊，請參閱[新版本的容量規劃工具](http://aka.ms/azstackcapacityplanner)。
+- 準確規劃 Azure Stack 容量方面有新的考量。 使用 1901 更新時，現在可建立的虛擬機器總數有限制。  此限制為暫時，以避免影響解決方案不穩定的情況。 我們已解決大量 VM 的穩定性問題來源，但尚未決定補救措施的特定時間表。 使用 1901 更新時，現在每部伺服器有 60 個 VM 的限制，且總解決方案限制為 700 個。  例如，8 伺服器 Azure Stack VM 的限制會是 480 (8 * 60)。  針對 12 到 16 伺服器 Azure Stack 解決方案，限制將會是 700。 決定此限制時已考慮所有計算容量，例如營運商想要維持的備援能力保留與 CPU 虛擬對實體比率。 如需詳細資訊，請參閱新版本的容量規劃工具。  
+萬一達到 VM 規模調整限制，將會傳回下列錯誤碼做為結果：VMsPerScaleUnitLimitExceeded，VMsPerScaleUnitNodeLimitExceeded。 
+ 
 
 - 計算 API 版本已增加到 2017-12-01。
 
@@ -290,7 +292,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
    - 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
       1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 選取 [資源提供者]，然後選取 [Microsoft.Compute]，接著按一下 [重新註冊]。
-      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
+      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [AzureStack-DiskRP-Client] 已列出。
    - 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照[這篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟重新設定您的每個來賓目錄。
 
 - 所建立的 Ubuntu 18.04 VM 如果已啟用 SSH 授權，將不會允許您使用 SSH 金鑰來登入。 因應措施是，在佈建後使用「適用於 Linux 的 VM 存取」延伸模組來實作 SSH 金鑰，或使用密碼型驗證。

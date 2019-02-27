@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243980"
+ms.locfileid: "56268782"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure 媒體服務事件的 Azure 事件格線結構描述
 
@@ -42,7 +42,7 @@ ms.locfileid: "56243980"
 | Microsoft.Media.JobCanceled| 取得當作業轉換成已取消狀態時的事件。 這是包含作業輸出的最終狀態。|
 | Microsoft.Media.JobErrored| 取得當作業轉換成錯誤狀態時的事件。 這是包含作業輸出的最終狀態。|
 
-以下為[結構描述範例](#event-schema-examples)。
+請參閱接下來將說明的[結構描述範例](#event-schema-examples)。
 
 ### <a name="monitoring-job-output-state-changes"></a>監視作業輸出狀態變更
 
@@ -56,7 +56,15 @@ ms.locfileid: "56243980"
 | Microsoft.Media.JobOutputCanceled| 取得當作業輸出轉換成已取消態時的事件。|
 | Microsoft.Media.JobOutputErrored| 取得當作業輸出轉換成錯誤狀態時的事件。|
 
-以下為[結構描述範例](#event-schema-examples)。
+請參閱接下來將說明的[結構描述範例](#event-schema-examples)。
+
+### <a name="monitoring-job-output-progress"></a>監視作業輸出進度
+
+| 事件類型 | 說明 |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputProgress| 此事件反映作業處理進度 (從 0% 到 100%)。 若進度值增加超過 5%，或自上一個事件起已超過 30 秒 (活動訊號)，則服務會嘗試傳送事件。 進度值不一定會從 0% 開始、不一定會達到 100%，也不會隨著時間的經過而以固定速率增加。 您不應該使用此事件來判斷處理是否已完成，您應該改為使用狀態變更事件。|
+
+請參閱接下來將說明的[結構描述範例](#event-schema-examples)。
 
 ## <a name="live-event-types"></a>即時事件類型
 
@@ -72,7 +80,7 @@ ms.locfileid: "56243980"
 | Microsoft.Media.LiveEventEncoderConnected | 編碼器對即時事件建立連線。 |
 | Microsoft.Media.LiveEventEncoderDisconnected | 編碼器中斷連線。 |
 
-以下為[結構描述範例](#event-schema-examples)。
+請參閱接下來將說明的[結構描述範例](#event-schema-examples)。
 
 ### <a name="track-level-events"></a>追蹤層級事件
 
@@ -87,7 +95,7 @@ ms.locfileid: "56243980"
 | Microsoft.Media.LiveEventIngestHeartbeat | 當即時事件執行時，會針對每個資料軌每 20 秒發佈一次。 提供內嵌健康情況摘要。 |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 媒體伺服器偵測到內送的資料軌發生中斷。 |
 
-以下為[結構描述範例](#event-schema-examples)。
+請參閱接下來將說明的[結構描述範例](#event-schema-examples)。
 
 ## <a name="event-schema-examples"></a>事件結構描述範例
 
@@ -245,6 +253,29 @@ ms.locfileid: "56243980"
       "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+### <a name="joboutputprogress"></a>JobOutputProgress
+
+範例結構描述看起來像下面這樣：
+
+ ```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "eventType": "Microsoft.Media.JobOutputProgress",
+  "eventTime": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
   },
   "dataVersion": "1.0",
   "metadataVersion": "1"

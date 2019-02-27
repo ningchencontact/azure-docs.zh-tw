@@ -1,7 +1,7 @@
 ---
 title: 定義自訂 R 模組
 titleSuffix: Azure Machine Learning Studio
-description: 本主題描述如何在 Azure Machine Learning 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組；
+description: 本主題描述如何在 Azure Machine Learning Studio 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組；
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0da5456845b940ef88ac40ffed1f53e84fe54080
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488300"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457025"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>定義自訂 R 模組以用於 Azure Machine Learning Studio
 
@@ -24,9 +24,9 @@ ms.locfileid: "55488300"
 
 
 ## <a name="what-is-a-custom-r-module"></a>什麼是自訂 R 模組？
-**自訂模組** 是一種使用者定義的模組，可上傳至您的工作區，並在 Azure Machine Learning 實驗時執行。 **自訂 R 模組** 是執行使用者定義之 R 函數的自訂模組。 **R** 是一種適用於統計運算和圖形的程式設計語言，由實作演算法的統計學家和資料科學家廣泛使用。 目前，R 是自訂模組中唯一支援的語言，但未來版本將新增更多語言的支援。
+**自訂模組**是一種使用者定義的模組，可上傳至您的工作區，並在 Azure Machine Learning Studio 實驗時執行。 **自訂 R 模組** 是執行使用者定義之 R 函數的自訂模組。 **R** 是一種適用於統計運算和圖形的程式設計語言，由實作演算法的統計學家和資料科學家廣泛使用。 目前，R 是自訂模組中唯一支援的語言，但未來版本將新增更多語言的支援。
 
-自訂模組在 Azure Machine Learning 中為 **第一等狀態** ，也就是說，它們的用法就像其他任何模組一樣。 它們可以與已發行實驗或視覺效果中包含的其他模組一起執行。 您可以控制模組實作的演算法、要使用的輸入與輸出連接埠、模型參數，以及其他多種執行階段行為。 包含自訂模組的實驗也可以發佈至 Azure AI 資源庫以輕鬆共用。
+自訂模組在 Azure Machine Learning Studio 中具有**第一等狀態**，也就是說，它們的用法就像其他任何模組一樣。 它們可以與已發行實驗或視覺效果中包含的其他模組一起執行。 您可以控制模組實作的演算法、要使用的輸入與輸出連接埠、模型參數，以及其他多種執行階段行為。 包含自訂模組的實驗也可以發佈至 Azure AI 資源庫以輕鬆共用。
 
 ## <a name="files-in-a-custom-r-module"></a>自訂 R 模組中的檔案
 自訂 R 模組是由至少包含兩個檔案的 .zip 檔案所定義：
@@ -55,7 +55,7 @@ ms.locfileid: "55488300"
     } 
 
 ### <a name="the-xml-definition-file"></a>XML 定義檔
-若要公開這個 `CustomAddRows` 函數做為 Azure Machine Learning 模組，必須建立 XML 定義檔以指定 **自訂 [加入資料列]** 模組的外觀及運作方式。 
+若要公開這個 `CustomAddRows` 函式作為 Azure Machine Learning Studio 模組，必須建立 XML 定義檔以指定 [自訂新增資料列] 模組的外觀及運作方式。 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -105,7 +105,7 @@ ms.locfileid: "55488300"
 
 ## <a name="elements-in-the-xml-definition-file"></a>引數
 ### <a name="module-elements"></a>Module 元素
-**Module** 元素可用來定義 XML 檔案中的自訂模組。 您可以在一個 XML 檔案中，使用多個 **Module** 元素來定義多個模組。 工作區中的每個模組都必須有唯一的名稱。 使用與現有自訂模組相同的名稱來註冊自訂模組，會以這個新模組取代現有的模組。 不過，您可以使用與現有 Azure Machine Learning 模組相同的名稱來註冊自訂模組。 如果您這麼做，它們會出現在模組選擇區的 [自訂]  類別中。
+**Module** 元素可用來定義 XML 檔案中的自訂模組。 您可以在一個 XML 檔案中，使用多個 **Module** 元素來定義多個模組。 工作區中的每個模組都必須有唯一的名稱。 使用與現有自訂模組相同的名稱來註冊自訂模組，會以這個新模組取代現有的模組。 不過，您可以使用與現有 Azure Machine Learning Studio 模組相同的名稱來註冊自訂模組。 如果您這麼做，它們會出現在模組選擇區的 [自訂]  類別中。
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -330,7 +330,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
   * **default** - 預設屬性的值必須對應至其中一個 **Item** 元素的 id 值。
 
 ### <a name="auxiliary-files"></a>輔助檔案
-放在自訂模組 ZIP 檔案中的所有檔案在執行期間都可供使用。 所有存在的目錄結構皆會保留。 也就是說，檔案的獲得在本機和在 Azure Machine Learning 執行中的運作相同。 
+放在自訂模組 ZIP 檔案中的所有檔案在執行期間都可供使用。 所有存在的目錄結構皆會保留。 也就是說，檔案的取得在本機和 Azure Machine Learning Studio 執行中，都是以相同的方式運作。 
 
 > [!NOTE]
 > 請注意，所有檔案都會解壓縮到 ‘src’ 目錄中，因此所有路徑應該都有 ‘src/’ 前置詞。

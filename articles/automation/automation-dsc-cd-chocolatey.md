@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 53ecff7df849d19ff7fe1d4c1c8dbd472326b06e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3eb68c4394afeb4719d92fb56d3ae9028d8566c9
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424450"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456107"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>使用範例：使用自動化狀態設定和 Chocolatey 持續部署至虛擬機器
 
@@ -58,7 +58,7 @@ Chocolatey 可以處理各種類型的安裝封裝，例如 MSI、MSU、ZIP 等�
 
 您應已完成其中的初階工作或大部分的工作。 建立 nuspec、編譯和儲存在 NuGet 伺服器中很簡單。 您已開始管理 VM。 持續部署的下一步需要設定提取伺服器 (一次)、向它註冊節點 (一次)，然後建立組態並儲存到那裡 (初步)。 接著，當封裝升級並部署至儲存機制時，請重新整理提取伺服器中的 [組態] 和 [節點組態] \(視需要重複)。
 
-如果您不是從 Resource Manager 範本開始，也沒關係。 有一些 PowerShell Cmdlet 可協助您向提取伺服器註冊 VM，以及完成其餘所有工作。 如需詳細資訊，請參閱下列文章：[將機器上架交由 Azure 自動化狀態設定管理](automation-dsc-onboarding.md)。
+如果您不是從 Resource Manager 範本開始，也沒關係。 有一些 PowerShell Cmdlet 可協助您向提取伺服器註冊 VM，以及完成其餘所有工作。 如需詳細資料，請參閱這篇文章：[將機器上架交由 Azure 自動化 State Configuration 管理](automation-dsc-onboarding.md)。
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>步驟 1：設定提取伺服器和自動化帳戶
 
@@ -136,9 +136,8 @@ Configuration ISVBoxConfig
             Name         = 'Web-Server-TCP-In'
             DisplayName  = 'Web Server (TCP-In)'
             Description  = 'IIS allow incoming web site traffic.'
-            DisplayGroup = 'IIS Incoming Traffic'
-            State        = 'Enabled'
-            Access       = 'Allow'
+            Enabled       = 'True'
+            Action       = 'Allow'
             Protocol     = 'TCP'
             LocalPort    = '80'
             Ensure       = 'Present'

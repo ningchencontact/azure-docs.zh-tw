@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1967ba60088cae2b946cfcfe1467c2de5aebccdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879946"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308854"
 ---
-# <a name="image-categorization-with-computer-vision"></a>使用電腦視覺的影像分類
+# <a name="categorize-images"></a>將影像分類
 
-除了標記和描述以外，電腦視覺也會傳回舊版本中定義的分類型類別。 這些類別會以父/子承襲階層組織為分類。 所有類別皆採用英文。 類別可單獨使用，或與我們新的標記模型搭配使用。
+除了標記和描述以外，電腦視覺也會傳回在影像中偵測到的分類型類別。 與標記不同，類別會在父/子階層結構中組織，並且更少 (86 個，而不是數以千計的標記)。 所有類別名稱皆採用英文。 類別可以單獨完成，也可以與較新的標記模型一起完成。
 
 ## <a name="the-86-category-concept"></a>86 類別概念
 
-根據下圖中列出的 86 種概念，將影像進行明確或特定範圍的分類。 如需文字格式的完整分類，請參閱[類別分類](category-taxonomy.md)。
+電腦視覺可以使用下圖中的 86 個類別清單，來廣泛或明確地對影像進行分類。 如需文字格式的完整分類，請參閱[類別分類](category-taxonomy.md)。
 
 ![類別分類法中所有類別的分組清單](./Images/analyze_categories-v2.png)
 

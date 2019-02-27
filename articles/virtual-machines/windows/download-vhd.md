@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: f62c1b815180e39468a39b8bc2a220a6bfb9ea5a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3d44a4a723c39bf9780475a2ac3088da94285f6e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726290"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329365"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>從 Azure 下載 Windows VHD
 
-本文說明如何使用 Azure 入口網站，從 Azure 下載 [Windows 虛擬硬碟 (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 檔案。 
+本文說明如何使用 Azure 入口網站，從 Azure 下載 Windows 虛擬硬碟 (VHD) 檔案。
 
 ## <a name="stop-the-vm"></a>停止 VM
 

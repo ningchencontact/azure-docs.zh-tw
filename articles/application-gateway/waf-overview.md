@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425151"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454254"
 ---
 # <a name="web-application-firewall-waf"></a>Web 應用程式防火牆 (WAF)
 
@@ -133,7 +133,7 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 
 ### <a name="application-gateway-waf-reports"></a>WAF 監視
 
-監視您應用程式閘道的健康狀態非常重要。 透過記錄並與 Azure 監視器、Azure 資訊安全中心和 Log Analytics 整合，以監視 Web 應用程式防火牆及其保護之應用程式的健康狀態。
+監視您應用程式閘道的健康狀態非常重要。 透過記錄並與 Azure 監視器、Azure 資訊安全中心和 Azure 監視器記錄整合，以監視 Web 應用程式防火牆及其保護之應用程式的健康狀態。
 
 ![診斷](./media/waf-overview/diagnostics.png)
 
@@ -149,7 +149,7 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 
 #### <a name="logging"></a>記錄
 
-應用程式閘道 WAF 提供其偵測到之每個威脅的詳細報告。 記錄會與 Azure 診斷記錄整合，而且警示會以 JSON 格式來記錄。 這些記錄可以與 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) 整合。
+應用程式閘道 WAF 提供其偵測到之每個威脅的詳細報告。 記錄會與 Azure 診斷記錄整合，而且警示會以 JSON 格式來記錄。 這些記錄可以與 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)整合。
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 

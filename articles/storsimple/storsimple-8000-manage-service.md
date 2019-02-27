@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701915"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310052"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>為 StorSimple 8000 系列裝置部署 StorSimple 裝置管理員服務
 
@@ -32,7 +32,7 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 > [!NOTE]
 > -  Azure 入口網站支援執行 Update 5.0 或更新版本的裝置。 如果您的裝置不是最新的，請立即安裝 Update 5。 如需詳細資訊，請移至[安裝 Update 5](storsimple-8000-install-update-5.md)。 
 > - 如果您使用 StorSimple 雲端設備 (8010/8020)，則無法更新雲端設備。 使用最新版的軟體搭配 Update 5.0，建立新的雲端設備，然後容錯移轉至所建立的新雲端設備。 
-> - 執行 Update 4.0 或更舊版本的所有裝置將會遇到[縮減的管理功能](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0)。 
+> - 執行 Update 4.0 或更舊版本的所有裝置將會遇到縮減的管理功能。 
 
 ## <a name="create-a-service"></a>建立服務
 若要建立 StorSimple 裝置管理員服務，必須擁有：
@@ -93,7 +93,7 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 
 將服務註冊金鑰保存在安全的位置。 您需要這個金鑰，以及服務資料加密金鑰，才能對額外裝置註冊此服務。 取得服務註冊金鑰之後，您必須透過適用於 StorSimple 的 Windows PowerShell 介面設定裝置。
 
-如需如何使用此註冊金鑰的詳細資訊，請參閱[步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)。
+如需有關如何使用此登錄機碼的詳細資訊，請參閱[步驟 3：透過適用於 StorSimple 的 Windows PowerShell 設定和註冊裝置](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)。
 
 ## <a name="regenerate-the-service-registration-key"></a>重新產生服務註冊金鑰
 如果您必須執行金鑰替換或服務管理員的清單已變更，您必須重新產生服務註冊金鑰。 當您重新產生金鑰時，新的金鑰僅用於註冊後續裝置。 已註冊的裝置不會受到此程序影響。
@@ -124,7 +124,7 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 變更服務資料加密金鑰分成 3 個步驟：
 
 1. 使用 Azure Resource Manager 的 Windows PowerShell 指令碼，授權裝置以變更服務資料加密金鑰。
-2. 使用 Windows PowerShell for StorSimple，起始服務資料加密金鑰變更。
+2. 使用適用於 StorSimple 的 Windows PowerShell，起始服務資料加密金鑰變更。
 3. 如果您有一個以上的 StorSimple 裝置，請在其他裝置上更新服務資料加密金鑰。
 
 ### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>步驟 1：使用 Windows PowerShell 指令碼，授權裝置以變更服務資料加密金鑰
@@ -143,8 +143,8 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 * 正在變換服務資料加密金鑰時，無法授權裝置。
 * 如果有些已向服務註冊的裝置已變換加密，而某些裝置還沒有，則您可以授權裝置。 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>步驟 2：使用 Windows PowerShell for StorSimple 起始服務資料加密金鑰變更
-這個步驟是在 Windows PowerShell for StorSimple 介面中，對已獲授權的 StorSimple 裝置執行。
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>步驟 2：使用適用於 StorSimple 的 Windows PowerShell 起始服務資料加密金鑰變更
+這個步驟是在適用於 StorSimple 的 Windows PowerShell 介面中，對已獲授權的 StorSimple 裝置執行。
 
 > [!NOTE]
 > 除非金鑰變換完成，否則無法在 Azure 入口網站對 StorSimple Manager 服務執行任何作業。
@@ -174,9 +174,9 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 請執行下列步驟，在您的裝置上更新服務資料加密。
 
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>若要在實體裝置上更新服務資料加密金鑰
-1. 使用 Windows PowerShell for StorSimple 連線到主控台。 選取選項 1 以使用完整存取權登入。
+1. 使用適用於 StorSimple 的 Windows PowerShell 連線到主控台。 選取選項 1 以使用完整存取權登入。
 2. 在命令提示字元中，輸入：`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. 提供您在 [步驟 2：使用 Windows PowerShell for StorSimple 起始服務資料加密金鑰變更](#to-initiate-the-service-data-encryption-key-change)中取得的服務資料加密金鑰。
+3. 提供您在[步驟 2：使用適用於 StorSimple 的 Windows PowerShell 起始服務資料加密金鑰變更](#to-initiate-the-service-data-encryption-key-change)中取得的服務資料加密金鑰。
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>若要更新所有 8010/8020 雲端設備上的服務資料加密金鑰
 1. 下載並安裝 [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell 指令碼。 
@@ -189,24 +189,24 @@ Azure 入口網站僅支援執行 Update 5.0 和更新版本的 StorSimple 裝�
 
 | 作業                                                                                                                       | 支援      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| 註冊裝置                                                                                                               | yes            |
-| 設定裝置設定，例如一般設定、網路設定和安全性設定                                                                | yes            |
-| 掃描、下載，及安裝更新                                                                                             | yes            |
-| 停用裝置                                                                                                               | yes            |
-| 刪除裝置                                                                                                                   | yes            |
+| 註冊裝置                                                                                                               | 是            |
+| 設定裝置設定，例如一般設定、網路設定和安全性設定                                                                | 是            |
+| 掃描、下載，及安裝更新                                                                                             | 是            |
+| 停用裝置                                                                                                               | 是            |
+| 刪除裝置                                                                                                                   | 是            |
 | 建立、修改及刪除磁碟區容器                                                                                   | 否             |
 | 建立、修改及刪除磁碟區                                                                                             | 否             |
 | 建立、修改及刪除備份原則                                                                                      | 否             |
 | 進行手動備份                                                                                                            | 否             |
 | 進行排程備份                                                                                                         | 不適用 |
 | 從備份組還原                                                                                                        | 否             |
-| 複製至執行 Update 3.0 和更新版本的裝置 <br> 來源裝置執行的是 Update 3.0 之前的版本。                                | yes            |
+| 複製至執行 Update 3.0 和更新版本的裝置 <br> 來源裝置執行的是 Update 3.0 之前的版本。                                | 是            |
 | 複製到執行 Update 3.0 之前版本的裝置                                                                          | 否             |
-| 作為容錯移轉的來源裝置 <br> (從執行 Update 3.0 之前版本的裝置到執行 Update 3.0 和更新版本的裝置)                                                               | yes            |
+| 作為容錯移轉的來源裝置 <br> (從執行 Update 3.0 之前版本的裝置到執行 Update 3.0 和更新版本的裝置)                                                               | 是            |
 | 作為容錯移轉的目標裝置 <br> (到執行 Update 3.0 之前軟體版本的裝置)                                                                                   | 否             |
-| 清除警示                                                                                                                  | yes            |
-| 檢視備份原則、備份類別目錄、磁碟區、磁碟區容器、監視圖表、作業，以及傳統入口網站中建立的警示 | yes            |
-| 開啟和關閉裝置控制器                                                                                              | yes            |
+| 清除警示                                                                                                                  | 是            |
+| 檢視備份原則、備份類別目錄、磁碟區、磁碟區容器、監視圖表、作業，以及傳統入口網站中建立的警示 | 是            |
+| 開啟和關閉裝置控制器                                                                                              | 是            |
 
 
 ## <a name="next-steps"></a>後續步驟

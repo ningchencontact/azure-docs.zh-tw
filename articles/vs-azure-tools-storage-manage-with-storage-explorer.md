@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756813"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311200"
 ---
 # <a name="get-started-with-storage-explorer"></a>開始使用儲存體總管
 
@@ -221,7 +221,7 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
 
 3. UserB 可透過儲存體總管，使用所提供的 SAS 來連結至屬於 UserA 的帳戶。
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>針對您要共用的帳戶產生 SAS 連接字串
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>針對您要共用的帳戶產生 SAS 查詢字串
 
 1. 在儲存體總管中，以滑鼠右鍵按一下您要共用的儲存體帳戶，然後選取 [取得共用存取簽章]。
 
@@ -231,7 +231,7 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
 
     ![取得 SAS 對話方塊][15]
 
-3. 選取 [連接字串] 文字方塊旁的 [複製]，將它複製到剪貼簿，然後按一下 [關閉]。
+3. 選取 [查詢字串] 文字方塊旁的 [複製]，將它複製到剪貼簿，然後按一下 [關閉]。
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>使用 SAS 連接字串連結儲存體帳戶
 

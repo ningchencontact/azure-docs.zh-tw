@@ -3,15 +3,15 @@ title: 適用於 Azure Cosmos DB 的 SQL 查詢
 description: 了解 Azure Cosmos DB 的 SQL 語法、資料庫概念及 SQL 查詢。 SQL 可作為 Azure Cosmos DB 中的 JSON 查詢語言。
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822403"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455954"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查詢範例
 
@@ -1369,13 +1369,13 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 | CEILING (num_expr) | 傳回大於或等於指定之數值運算式的最小整數值。 |
 | FLOOR (num_expr) | 傳回小於或等於指定之數值運算式的最大整數。 |
 | EXP (num_expr) | 傳回指定之數值運算式的指數。 |
-| [LOG (num_expr [,base])](#bk_log) | 傳回指定之數值運算式的自然對數，或使用指定之基底的對數 |
+| LOG (num_expr ,base) | 傳回指定之數值運算式的自然對數，或使用指定之基底的對數 |
 | LOG10 (num_expr) | 傳回指定之數值運算式的以 10 為基底的對數值。 |
 | ROUND (num_expr) | 傳回數值，四捨五入到最接近的整數值。 |
 | TRUNC (num_expr) | 傳回數值，截斷至最接近的整數值。 |
 | SQRT (num_expr) | 傳回指定之數值運算式的平方根。 |
 | SQUARE (num_expr) | 傳回指定之數值運算式的平方。 |
-| [POWER (num_expr, num_expr)](#bk_power) | 將指定數值運算式的乘冪傳回給指定的值。 |
+| POWER (num_expr, num_expr) | 將指定數值運算式的乘冪傳回給指定的值。 |
 | SIGN (num_expr) | 傳回指定之數值運算式的正負號值 (-1、0、1)。 |
 | ACOS (num_expr) | 傳回角度，以弧度為單位，它的餘弦是指定的數值運算式；也稱為反餘弦值。 |
 | ASIN (num_expr) | 傳回角度，以弧度為單位，其正弦函數是指定的數值運算式。 此函數也稱為反正弦值。 |

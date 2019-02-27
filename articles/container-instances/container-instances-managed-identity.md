@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657020"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311558"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>如何搭配 Azure 容器執行個體使用受控識別
 
@@ -27,6 +27,9 @@ ms.locfileid: "55657020"
 > * 使用受控識別從執行中的容器存取 Key Vault
 
 請改寫範例，以啟用及使用「Azure 容器執行個體」中的身分識別來存取其他 Azure 服務。 這些範例為互動式範例。 不過，實際上您的容器映像會執行程式碼來存取 Azure 服務。
+
+> [!NOTE]
+> 目前您無法在已部署至虛擬網路的容器群組中使用受控識別。
 
 ## <a name="why-use-a-managed-identity"></a>為什麼要使用受控識別？
 

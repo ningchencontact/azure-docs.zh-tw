@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ee08f5e15180a618d1a9c48b7d59b9e1f8bc90ae
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983257"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329110"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>設定 Language Understanding 的 Docker 容器 
 
@@ -193,5 +193,5 @@ ApiKey={APPLICATION_ID} \
 ## <a name="next-steps"></a>後續步驟
 
 * 檢閱[如何安裝及執行容器](luis-container-howto.md)
-* 參閱[常見問題集 (FAQ)](luis-resources-faq.md) 來解決與 LUIS 功能相關的問題。
+* 請參閱[疑難排解](troubleshooting.md)來解決與 LUIS 功能相關的問題。
 * 使用更多[認知服務容器](../cognitive-services-container-support.md)

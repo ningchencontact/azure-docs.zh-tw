@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245747"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456702"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的模組，並對其進行偵錯
 
@@ -262,6 +262,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - 將下列一行程式碼新增至您要進行偵錯的回呼：
 
       ```python
@@ -350,6 +351,12 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 
 > [!NOTE]
 > 上述範例說明如何針對容器上的 IoT Edge 模組進行偵錯。 它會將公開連接埠新增至您模組的容器 `createOptions` 設定。 完成模組偵錯之後，建議您針對已準備好投入生產環境的 IoT Edge 模組，移除這些公開連接埠。
+
+## <a name="build-and-debug-a-module-remotely"></a>從遠端對模組進行建置及偵錯
+
+由於 Docker 和 Moby 引擎於近日皆已導入支援 SSH 連線的變更，且 Azure IoT 工具中也有新的設定，可供將環境設定插入 Visual Studio Code 命令選擇區及 Azure IoT Edge 終端機中，因此您現已可以在遠端裝置上對模組進行建置及偵錯。
+
+請參閱此 [IoT 開發人員部落格文章](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) \(英文\) 以取得詳細資訊及逐步指示。
 
 ## <a name="next-steps"></a>後續步驟
 

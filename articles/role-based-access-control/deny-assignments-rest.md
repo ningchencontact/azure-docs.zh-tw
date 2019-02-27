@@ -1,6 +1,6 @@
 ---
-title: 使用 RBAC 和 REST API 列出拒絕指派 - Azure | Microsoft Docs
-description: 了解如何使用角色型存取控制 (RBAC) 和 REST API，來列出使用者、群組和應用程式的拒絕指派。
+title: 使用 REST API 列出 Azure 資源的拒絕指派 - Azure | Microsoft Docs
+description: 了解如何使用適用於 Azure 資源的角色型存取控制 (RBAC) 和 REST API，來列出使用者、群組和應用程式的拒絕指派。
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975577"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341618"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 列出拒絕指派
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>使用 REST API 列出 Azure 資源的拒絕指派
 
 目前，拒絕指派是**唯讀的**，而且只能由 Azure 設定。 即使您無法建立自己的拒絕指派，還是可以列出拒絕指派，因為它們可能會影響您的有效權限。 本文說明如何使用 RBAC 和 REST API 來列出拒絕指派。
 
@@ -95,6 +95,6 @@ ms.locfileid: "46975577"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [了解拒絕指派](deny-assignments.md)
+- [了解 Azure 資源的拒絕指派](deny-assignments.md)
 - [提高 Azure Active Directory 中全域管理員的存取權](elevate-access-global-admin.md)
 - [Azure REST API 參考](/rest/api/azure/)

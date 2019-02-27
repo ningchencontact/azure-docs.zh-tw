@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e8e50aa49595addeab3369f74b618c31b7cf1625
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242663"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454373"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中建立情感分析模型
 
-您可以使用 Azure Machine Learning 來建置和實行文字分析模型。 這些模型可協助您解決問題，例如，文件分類或情緒分析問題。
+您可以使用 Azure Machine Learning Studio 來建置和實行文字分析模型。 這些模型可協助您解決問題，例如，文件分類或情緒分析問題。
 
 在文字分析實驗中，您通常需要︰
 
@@ -66,7 +66,7 @@ ms.locfileid: "56242663"
 ## <a name="step-3-train-classification-or-regression-model"></a>步驟 3：定型分類或迴歸模型
 現在文字已轉換為數值特徵資料行。 資料集仍包含上一階段中的字串資料行，因此我們使用「選取資料集中的資料行」來排除它們。
 
-接著使用 [二元羅吉斯迴歸](https://msdn.microsoft.com/library/azure/dn905994.aspx) 預測我們的目標︰高或低的評論分數。 此時，文字分析問題已轉換成一般分類問題。 您可以使用 Azure Machine Learning 中可用的工具來改善模型。 例如，您可以試驗不同的分類器以了解它們所提供結果的精確度，或使用超參數調整改善精確度。
+接著使用 [二元羅吉斯迴歸](https://msdn.microsoft.com/library/azure/dn905994.aspx) 預測我們的目標︰高或低的評論分數。 此時，文字分析問題已轉換成一般分類問題。 您可以使用 Azure Machine Learning Studio 中可用的工具來改善模型。 例如，您可以試驗不同的分類器以了解它們所提供結果的精確度，或使用超參數調整改善精確度。
 
 ![定型和評分](./media/text-analytics-module-tutorial/scoring-text.png)
 

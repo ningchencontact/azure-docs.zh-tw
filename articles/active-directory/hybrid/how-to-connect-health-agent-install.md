@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 565e33748d3a39c61c75313188980c51d5bea5b9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a52b78b62395f571e448a73b8c34847ef16b2613
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203891"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429531"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health 代理程式安裝
 本文件會逐步引導您安裝和設定 Azure AD Connect Health 代理程式。 您可以從 [這裡](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent)下載代理程式。
@@ -36,13 +36,13 @@ ms.locfileid: "56203891"
 | Azure 服務端點的輸出連線 | 在安裝期間和執行階段，代理程式需要連線至 Azure AD Connect Health 服務端點。 如果使用防火牆封鎖輸出連線，請確定已將下列端點新增至允許清單。 請參閱[輸出連線端點](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |以 IP 位址為基礎的輸出連線 | 如需防火牆上以 IP 位址為基礎的篩選，請參閱 [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。|
 | 已篩選或停用輸出流量的 SSL 檢查 | 如果網路層的輸出流量有 SSL 檢查或終止，代理程式註冊步驟或資料上傳作業可能會失敗。 深入了解[如何設定 SSL 檢查](https://technet.microsoft.com/library/ee796230.aspx) |
-| 防火牆連接埠 (位於執行代理程式的伺服器上) |為了讓代理程式能與 Azure AD Health 服務端點進行通訊，代理程式要求開啟下列防火牆連接埠。<br /><br /><li>TCP 通訊埠 443</li><li>TCP 通訊埠 5671</li> <br />深入了解[啟用防火牆連接埠](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| 防火牆連接埠 (位於執行代理程式的伺服器上) |為了讓代理程式能與 Azure AD Health 服務端點進行通訊，代理程式要求開啟下列防火牆連接埠。<br /><br /><li>TCP 通訊埠 443</li><li>TCP 通訊埠 5671</li> <br />請注意，最新版的代理程式不再需要連接埠 5671。 升級到最新版本，因此只需要連接埠 443。 深入了解[啟用防火牆連接埠](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | 如果啟用 IE 增強式安全性，則允許下列網站 |如果啟用 IE 增強式安全性，則在即將安裝代理程式的伺服器上必須允許下列網站。<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Azure Active Directory 所信任適用於您組織的同盟伺服器。 例如：https:\//sts.contoso.com</li> 深入了解[如何設定 IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
 | 確定已安裝 PowerShell 4.0 版或更新版本 | <li>Windows Server 2008 R2 隨附了 PowerShell 2.0 版，它對代理程式來說並不足夠。 如以下的 [Windows Server 2008 R2 伺服器上的代理程式安裝](#agent-installation-on-windows-server-2008-r2-servers)中所述，更新 PowerShell。</li><li>Windows Server 2012 隨附了 PowerShell 3.0 版，它對代理程式來說並不足夠。  [更新](https://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework。</li><li>Windows Server 2012 R2 和更新版本隨附了足夠的 PowerShell 最新版本。</li>|
 |停用 FIPS|Azure AD Connect Health 代理程式不支援 FIPS。|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 服務端點的輸出連線
- 在安裝期間和執行階段，代理程式需要連線至 Azure AD Connect Health 服務端點。 如果使用防火牆封鎖輸出連線，請確定已將下列端點新增至允許清單。 深入了解[檢查輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ 在安裝期間和執行階段，代理程式需要連線至 Azure AD Connect Health 服務端點。 如果使用防火牆封鎖輸出連線，請確定依預設不會封鎖下列 URL。 請勿停用安全性監視或檢查這些 URL，但允許它們，如同其他網際網路流量。 它們允許與 Azure AD Connect Health 服務端點進行通訊。 深入了解[檢查輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | 網域環境 | 必要 Azure 服務端點 |
 | --- | --- |
@@ -119,7 +119,7 @@ ms.locfileid: "56203891"
 1. 按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [本機安全性原則]。
 2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
 3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 2.0 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
-4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：<code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable</code>
 5. 關閉 [本機安全性原則]。
 <br />   -- **只有主要 AD FS 伺服器才需要執行下列步驟。** -- <br />
 6. 開啟 [AD FS 管理] 嵌入式管理單元。 若要開啟 [AD FS 管理] 嵌入式管理單元，按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [AD FS 2.0 管理]。
@@ -132,7 +132,7 @@ ms.locfileid: "56203891"
 1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
 2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
 3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
-4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```。
+4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：```auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable```。
 5. 關閉 [本機安全性原則]。
 <br />   -- **只有主要 AD FS 伺服器才需要執行下列步驟。** -- <br />
 6. 開啟 [AD FS 管理] 嵌入式管理單元 (在 [伺服器管理員] 中按一下 [工具]，然後選取 [AD FS 管理])。
@@ -144,7 +144,7 @@ ms.locfileid: "56203891"
 1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
 2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
 3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將 AD FS 服務帳戶新增至清單，然後按一下 [確定]。
-4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：<code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable.</code>
 5. 關閉 [本機安全性原則]。
 <br />   -- **只有主要 AD FS 伺服器才需要執行下列步驟。** -- <br />
 6. 開啟 [AD FS 管理] 嵌入式管理單元 (在 [伺服器管理員] 中按一下 [工具]，然後選取 [AD FS 管理])。

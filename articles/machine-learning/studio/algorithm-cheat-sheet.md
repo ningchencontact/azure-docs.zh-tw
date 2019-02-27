@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883996"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453931"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的機器學習演算法小祕技
 
-**Azure Machine Learning 演算法小祕技**可協助您針對預測性分析模型選擇正確的演算法。
+**Azure Machine Learning Studio 演算法小祕技**可協助您針對預測性分析模型選擇正確的演算法。
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) 有來自***迴歸***、***分類***、***叢集***和***異常偵測***系列的大型演算法程式庫。 每項的設計均是用來處理不同類型的機器學習服務問題。
 
@@ -27,14 +27,12 @@ ms.locfileid: "55883996"
 
 **從這裡下載速查表：[機器學習演算法速查表 (11x17 英吋)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)** \(英文\)
 
-![機器學習演算法速查表：了解如何選擇機器學習演算法。][cheat-sheet]
-
-[cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+![機器學習演算法速查表：了解如何選擇機器學習演算法。](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
 下載並列印 Tabloid 大小的「Machine Learning Studio 演算法小祕技」，以隨時瀏覽並獲得選擇演算法的協助。
 
 > [!NOTE]
-> 如需如何使用這個小祕技選擇正確的演算法、進一步探討不同類型的機器學習演算法，以及它們的使用方式，請參閱 [如何選擇 Microsoft Azure Machine Learning 的演算法](algorithm-choice.md)。
+> 如需如何使用這個小祕技選擇正確的演算法、進一步探討不同類型的機器學習演算法，以及它們的使用方式，請參閱 [如何選擇 Microsoft Azure Machine Learning Studio 的演算法](algorithm-choice.md)。
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Machine Learning Studio 演算法小祕技的注意事項與詞彙定義
 
@@ -44,7 +42,7 @@ ms.locfileid: "55883996"
 
 * 機器學習有三個主要類別：**經過指導的學習**、**未經指導的學習**和**增強式學習**。
 
-  * 在**經過指導的學習**中，每個資料點都會加上標籤或與感興趣的類別或值產生關聯。  分類標籤的範例就是將影像指派為「貓」或「狗」。  值標籤的範例則是與中古汽車相關聯的銷售價格。 監督式學習的目標是研究許多像是這些已加上標籤的範例，然後能夠做出有關未來資料點的預測。 例如，識別包含正確動物的新相片，或者針對其他中古汽車指派精確的銷售價格。 這是常見且實用的機器學習服務類型。 除了 [K-Means 叢集][k-means-clustering]以外，Azure Machine Learning 中的所有模組都是經過指導的學習演算法。
+  * 在**經過指導的學習**中，每個資料點都會加上標籤或與感興趣的類別或值產生關聯。  分類標籤的範例就是將影像指派為「貓」或「狗」。  值標籤的範例則是與中古汽車相關聯的銷售價格。 監督式學習的目標是研究許多像是這些已加上標籤的範例，然後能夠做出有關未來資料點的預測。 例如，識別包含正確動物的新相片，或者針對其他中古汽車指派精確的銷售價格。 這是常見且實用的機器學習服務類型。 除了 [K-Means 叢集][k-means-clustering]以外，Azure Machine Learning Studio 中的所有模組都是經過指導的學習演算法。
 
   * 在**未監督的學習**中，資料點沒有與其相關聯的標籤。 然而，未經指導的學習演算法的目標在於以某種方式組織資料或描述其結構。 這可能表示將資料劃分為叢集 (如 K-Means 所為)，或尋找各種查看複雜資料的方式，使其變得更簡單。
 

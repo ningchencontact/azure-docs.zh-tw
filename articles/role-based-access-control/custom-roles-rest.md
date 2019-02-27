@@ -1,6 +1,6 @@
 ---
-title: 使用 REST API 來建立自訂角色 - Azure | Microsoft Docs
-description: 了解如何使用 REST API 來建立適用於角色型存取控制 (RBAC) 的自訂角色。 這包括如何列出、建立、更新及刪除自訂角色。
+title: 使用 REST API 建立 Azure 資源的自訂角色 - Azure | Microsoft Docs
+description: 了解如何使用 REST API 來為 Azure 資源建立包含角色型存取控制 (RBAC) 之自訂角色。 這包括如何列出、建立、更新及刪除自訂角色。
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: cfcb7ef2a4fc02932f9d03c277b105c4b1e0ff3a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436057"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338762"
 ---
-# <a name="create-custom-roles-using-the-rest-api"></a>使用 REST API 來建立自訂角色
+# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>使用 REST API 建立 Azure 資源的自訂角色
 
-如果[內建角色](built-in-roles.md)不符合組織的特定需求，您可以建立自己的自訂角色。 本文說明如何使用 REST API 來建立和管理自訂角色。
+如果[適用於 Azure 資源的內建角色](built-in-roles.md)無法滿足您組織的特定需求，您可以建立自己的自訂角色。 本文說明如何使用 REST API 來建立和管理自訂角色。
 
 ## <a name="list-roles"></a>列出角色
 
@@ -272,6 +272,6 @@ ms.locfileid: "37436057"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure 中的自訂角色](custom-roles.md)
-- [使用 RBAC 和 REST API 來管理存取權](role-assignments-rest.md)
+- [適用於 Azure 資源的自訂角色](custom-roles.md)
+- [使用 RBAC 和 REST API 管理對 Azure 資源的存取](role-assignments-rest.md)
 - [Azure REST API 參考](/rest/api/azure/)

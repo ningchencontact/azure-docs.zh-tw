@@ -1,7 +1,7 @@
 ---
 title: 新增自訂分析器 - Azure 搜尋服務
 description: 在 Azure 搜尋服務的全文檢索搜尋查詢中，修改所用的文字 Token 化工具和字元篩選器。
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,22 +19,24 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 150510ec09744b1350a93bde4e2a4dcb141867c0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007536"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302075"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>將自訂分析器新增至 Azure 搜尋服務索引
 
-「自訂分析器」是使用者專屬的 Token 化工具和選用篩選器組合，用於處理自訂搜尋引擎中的文字。 例如，您可以使用「字元篩選器 (char filter)」 建立自訂分析器，讓文字輸入在變成語彙基元 (token) 之前能移除 HTML 標記。
+「自訂分析器」是特定類型的[文字分析器](search-analyzers.md)，其包含使用者定義的現有權杖化工具和選擇性篩選組合。 透過以新方式結合權杖化工具和篩選，您便可以自訂搜尋引擎中的文字處理來達成特定結果。 例如，您可以使用「字元篩選器 (char filter)」 建立自訂分析器，讓文字輸入在變成語彙基元 (token) 之前能移除 HTML 標記。
+
+ 您可以定義多個自訂分析器來變更篩選器的組合，但是每個欄位只能針對索引分析使用一個分析器、針對搜尋分析使用一個分析器。 如需自訂分析器的相關說明，請參閱[自訂分析器範例](search-analyzers.md#Example1)。
 
 ## <a name="overview"></a>概觀
 
- 簡單地說，[全文檢索搜尋引擎](search-lucene-query-architecture.md)是處理和儲存文件的角色，而目的是要達到有效率的查詢和擷取。 概括而言，這一切包括從文件中擷取重要的字組、將其放在索引中，然後使用索引來尋找符合指定查詢中字組的文件。 從文件和搜尋查詢中擷取字組的程序稱為「語彙分析」。 執行語彙分析的元件稱為分析器。
+ 簡單地說，[全文檢索搜尋引擎](search-lucene-query-architecture.md)是處理和儲存文件的角色，而目的是要達到有效率的查詢和擷取。 概括而言，這一切包括從文件中擷取重要的字組、將其放在索引中，然後使用索引來尋找符合指定查詢中字組的文件。 從文件和搜尋查詢中擷取文字的程序稱為「語彙分析」。 執行語彙分析的元件稱為「分析器」。
 
- 在 Azure 搜尋服務中，您可以選擇[分析器](#AnalyzerTable)表格中預先定義的不限語言分析器，也可選擇[語言分析器 &#40;Azure搜尋服務 REST API&#41;](index-add-language-analyzers.md) 中所列的語言限定分析器。 您也可以定義自己的自訂分析器。  
+ 在 Azure 搜尋服務中，您可以在[分析器](#AnalyzerTable)表格中選取預先定義的不限語言分析器，或是選擇列於[語言分析器 &#40;Azure搜尋服務 REST API&#41;](index-add-language-analyzers.md)中的特定語言分析器。 您也可以定義自己的自訂分析器。  
 
  自訂分析器可讓您充分控制將文字轉換成可檢索和可搜尋語彙基元的程序。 這是使用者定義的組態，其中包含預先定義的單一 Token 化工具、一個或多個語彙基元篩選器及一個或多個字元篩選器。 Token 化工具負責將文字分解成語彙基元，而語彙基元篩選器會修改 Token 化工具所發出的語彙基元。 字元篩選器會將輸入文字準備好，然後再交由 Token 化工具處理。 例如，字元篩選器可能會取代特定字元或符號。
 
@@ -50,22 +52,13 @@ ms.locfileid: "56007536"
 
 -   ASCII 摺疊。 新增標準 ASCII 折疊篩選器，將搜尋字詞中的 ö 或 ê 等變音符號標準化。  
 
- 您可以定義多個自訂分析器來變更篩選器的組合，但是每個欄位只能針對索引分析使用一個分析器、針對搜尋分析使用一個分析器。  
-
- 此頁面提供支援的分析器、Token 化工具、語彙基元篩選器和字元篩選器清單。 您也可以找到索引定義的變更描述和相關使用範例。 如需基礎技術運用在 Azure 搜尋服務實作的詳細背景，請參閱 [分析封裝摘要 (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)。 如需分析器設定的範例，請參閱 [Azure 搜尋服務中的分析器 > 範例](https://docs.microsoft.com/azure/search/search-analyzers#examples)。
-
-
-## <a name="default-analyzer"></a>預設分析器  
-
-根據預設，Azure 搜尋服務中可搜尋的欄位是使用 [Apache Lucene 標準分析器 (標準 Lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 進行分析，並依照[「Unicode 文字分割」](https://unicode.org/reports/tr29/)規則來將文字分隔為元素。 此外，標準分析器會將所有字元轉換為它們的小寫形式。 已編製索引的文件和搜尋字詞在編製索引和查詢處理期間都會執行分析。  
-
- 此分析器會自動用在每個可搜尋的欄位上，除非您明確地在欄位定義內以另一個分析器將其複寫。 替代的分析器可以是自訂分析器，或是下方[分析器](#AnalyzerTable)清單中其他預先定義的可用分析器。
+ 此頁面提供支援的分析器、Token 化工具、語彙基元篩選器和字元篩選器清單。 您也可以找到索引定義的變更描述和相關使用範例。 如需基礎技術運用在 Azure 搜尋服務實作的詳細背景，請參閱 [分析封裝摘要 (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)。 如需分析器設定的範例，請參閱[在 Azure 搜尋服務中新增分析器](search-analyzers.md#examples)。
 
 ## <a name="validation-rules"></a>驗證規則  
  分析器、Token 化工具、語彙基元篩選器和字元篩選器的名稱必須是唯一的，而且不能與任何預先定義的分析器、Token 化工具、語彙基元篩選器或字元篩選器相同。 請參閱使用中名稱的[屬性參考](#PropertyReference)。
 
-## <a name="create-a-custom-analyzer"></a>建立自訂分析器
- 您可以在建立索引時定義自訂分析器。 本節會說明用來指定自訂分析器的語法。 您也可以自行在 [Azure 搜尋服務中的分析器](https://docs.microsoft.com/azure/search/search-analyzers#examples)中檢閱範例定義，藉此來熟悉語法。  
+## <a name="create-custom-analyzers"></a>建立自訂分析器
+ 您可以在建立索引時定義自訂分析器。 本節會說明用來指定自訂分析器的語法。 您也可以檢閱[在 Azure 搜尋服務中新增分析器](search-analyzers.md#examples)中的範例定義來熟悉語法。  
 
  分析器定義包括名稱、類型、一個或多個字元篩選器、最多一個 Token 化工具，以及一個或多個用於 Token 化後置作業的語彙基元篩選器。 字元篩選器會在 Token 化之前套用。 語彙基元篩選器和字元篩選器會以由左到右的順序套用。
 
@@ -148,12 +141,13 @@ ms.locfileid: "56007536"
 只有在您設定自訂選項時，才需要將字元篩選器、Token 化工具和語彙基元篩選器的定義新增至索引中。 若要使用現有的篩選器或 Token 化工具 (不做任何變更)，則以分析器定義中的名稱來加以指定。
 
 <a name="Testing custom analyzers"></a>
-## <a name="test-a-custom-analyzer"></a>測試自訂分析器
+
+## <a name="test-custom-analyzers"></a>測試自訂分析器
 
 您可以使用 [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) 中的**測試分析器作業**，查看分析器如何將指定文字分解成語彙基元。
 
 **要求**
-~~~~
+```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
     api-key: [admin key]
@@ -162,9 +156,9 @@ ms.locfileid: "56007536"
      "analyzer":"my_analyzer",
      "text": "Vis-à-vis means Opposite"
   }
-~~~~
+```
 **回應**
-~~~~
+```
   {
     "tokens": [
       {
@@ -193,21 +187,21 @@ ms.locfileid: "56007536"
       }
     ]
   }
- ~~~~
+```
 
- ## <a name="update-a-custom-analyzer"></a>更新自訂分析器
+ ## <a name="update-custom-analyzers"></a>上傳自訂分析器
 
 定義分析器、Token 化工具、語彙基元篩選或字元篩選之後，即無法進行修改。 只有當索引更新要求中的 `allowIndexDowntime` 旗標設定為 true 時，才能將新分析器新增到現有的索引中：
 
-~~~~
+```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
-~~~~
+```
 
 這項作業至少會讓您的索引離線幾秒鐘，而會導致您的索引編製和查詢要求失敗。 在索引更新後，索引的效能和寫入可用性可能會降低數分鐘，如果是非常大的索引，則可能持續更久，但這些影響是暫時的，而且最終會自行解決。
 
  <a name="ReferenceIndexAttributes"></a>
 
-## <a name="index-attribute-reference"></a>索引屬性参考
+## <a name="analyzer-reference"></a>分析器參考
 
 下表會針對索引定義的分析器、Token 化工具、語彙基元篩選器和字元篩選器區段，列出組態屬性。 您索引中的分析器、Token 化工具或篩選器結構會由這些屬性組成。 如需有關指派值的資訊，請參閱[屬性參考](#PropertyReference)。
 
@@ -289,7 +283,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |[stop](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|在非字母的位置上分割文字，套用 lowercase 和 stopword 語彙基元篩選器。<br /><br /> **選項**<br /><br /> stopwords (類型：字串陣列) - 停用字詞清單。 預設值為英文的預先定義清單。 |  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html)|(有選項時才需套用類型) |使用 whitespace Token 化工具的分析器。 分割長度超過 255 個字元的語彙基元。|  
 
- <sup>1</sup> 分析器類型在程式碼中一律會以 "#Microsoft.Azure.Search" 作為前置詞，因此 "PatternAnalyzer" 實際上會指定為 "#Microsoft.Azure.Search.PatternAnalyzer"。 為求簡潔，我們已移除前置詞，但您的程式碼中必須要有前置詞。 
+ <sup>1</sup> 分析器類型在程式碼中一律會以 "#Microsoft.Azure.Search" 作為前置詞，因此 "PatternAnalyzer" 實際上會指定為 "#Microsoft.Azure.Search.PatternAnalyzer"。 為求簡潔，我們已移除前置詞，但您的程式碼中仍須要有前置詞。 
  
 analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選項 (如同 keyword 分析器)，則也不會有相關聯的 #Microsoft.Azure.Search 類型。
 
@@ -390,5 +384,5 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 
 ## <a name="see-also"></a>另請參閱  
  [Azure 搜尋服務 REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Azure 搜尋服務中的分析器 > 範例](https://docs.microsoft.com/azure/search/search-analyzers#examples)    
+ [Azure 搜尋服務中的分析器 > 範例](search-analyzers.md#examples)    
  [建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)  

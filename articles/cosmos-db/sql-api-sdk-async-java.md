@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979168"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416270"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Async JAVA SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 ## <a name="release-notes"></a>版本資訊
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* 直接模式公開推出 (GA)。
+* 直接模式連線能力現已正式推出 (GA)。 如需使用直接模式連線能力的範例，請參閱 [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 存放庫。
 * 新增對 QueryMetrics 的支援。
-* 變更了順序很重要且會接受 java.util.Collection 的 API，以改為接受 java.util.List。
-  現在 ConnectionPolicy#getPreferredLocations()、JsonSerialization 和 PartitionKey(.) 都可接受 List。
+* 變更了順序很重要且會接受 java.util.Collection 的 API，以改為接受 java.util.List。 現在 ConnectionPolicy#getPreferredLocations()、JsonSerialization 和 PartitionKey(.) 都可接受 List。
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
-* 新增對 Direct 的支援。
+* 新增對直接模式連線能力的支援。
 * 變更了順序很重要且會接受 java.util.Collection 的 API，以改為接受 java.util.List。
   現在 ConnectionPolicy#getPreferredLocations()、JsonSerialization 和 PartitionKey(.) 都可接受 List。
 * 修正了文件查詢在閘道模式下的工作階段錯誤。

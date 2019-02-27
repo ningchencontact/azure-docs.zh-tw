@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244293"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455053"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>使用 PowerShell 從一個實驗建立 Studio 模型和 Web 服務端點
 
@@ -25,9 +25,9 @@ ms.locfileid: "56244293"
 
 您可以使用所有地點的所有資料集合併版本，將模型訓練一次。 但是，您的每個地點都有其獨特的環境。 較好的作法是使用每個地點的資料集，個別地訓練您的迴歸模型。 這樣一來，每個訓練的模型就會將店面大小、數量、地理位置、人口、自行車友善交通環境等因素納入考量。
 
-這可能是最好的方法，但您不想在 Azure Machine Learning 中建立 1,000 個訓練實驗，各代表唯一的地點。 除了工作繁重，看起來也很沒效率，因為除了訓練資料集外，每個實驗的元件都完全相同。
+這可能是最好的方法，但您並不會想在 Azure Machine Learning Studio 中建立 1,000 個訓練實驗來個別代表其中一個唯一地點。 除了工作繁重，看起來也很沒效率，因為除了訓練資料集外，每個實驗的元件都完全相同。
 
-所幸，您可以使用 [Azure Machine Learning 重新訓練 API](retrain-models-programmatically.md)，並利用 [Azure Machine Learning PowerShell](powershell-module.md) 將工作自動化，來達到此目的。
+幸運的是，您可以使用 [Azure Machine Learning Studio 重新訓練 API](retrain-models-programmatically.md)，利用 [Azure Machine Learning Studio PowerShell](powershell-module.md) 將工作自動化來達到此目的。
 
 > [!NOTE]
 > 為了加速執行範例，請將地點從 1,000 個減到 10 個。 但使用與 1,000 個地點相同的原理和程序。 不過，如果您想要從 1,000 個資料集來訓練，建議您以平行方式執行下列 PowerShell 指令碼。 相關做法已超出本文的範圍，但您可以在網際網路上找到 PowerShell 多執行緒的範例。  

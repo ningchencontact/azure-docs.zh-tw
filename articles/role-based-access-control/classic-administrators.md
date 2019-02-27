@@ -11,26 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5049a5a829ce8e94b62409c9d3b1439e8431fb1
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101294"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447509"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 傳統訂用帳戶管理員
 
-Microsoft 建議您使用角色型存取控制 (RBAC) 管理資源存取權。 如果您仍在使用傳統部署模型，則必須使用傳統訂用帳戶系統管理員角色：服務管理員及共同管理員。 如需詳細資訊，請參閱 [Azure Resource Manager 與傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。
+Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取權。 如果您仍在使用傳統部署模型，則必須使用傳統訂用帳戶系統管理員角色：服務管理員及共同管理員。 如需詳細資訊，請參閱 [Azure Resource Manager 與傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。
 
 本文說明如何新增或變更共同管理員與服務管理員，以及如何檢視帳戶管理員。
 
 ## <a name="add-a-co-administrator"></a>新增共同管理員
 
 > [!TIP]
-> 如果使用者需要管理 Azure 傳統部署，請新增共同管理員即可。 建議您所有其他用途都使用 RBAC。
+> 如果使用者需要管理 Azure 傳統部署，請透過使用 [Azure 服務管理 PowerShell 模組](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure)新增共同管理員即可。 如果使用者僅使用 Azure 入口網站來管理傳統資源，則不需要針對使用者新增傳統系統管理員。
 
 1. 以服務管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -155,4 +155,4 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理資源存取權。 �
 ## <a name="next-steps"></a>後續步驟
 
 * [了解 Azure 中的不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)
+* [使用 RBAC 和 Azure 入口網站管理 Azure 資源的存取權](../role-based-access-control/role-assignments-portal.md)

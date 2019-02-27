@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d6f2ca53829642009adbc50061966c5a7e924f7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240398"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446812"
 ---
 # <a name="capacity-planning-and-scaling"></a>容量規劃和調整
 
@@ -33,7 +33,7 @@ ms.locfileid: "55240398"
 * 您每次只需要以水平方式調整 1 個虛擬機器擴展集節點。
   * 若要同時相應放大 3 個或更多節點，您應[透過新增虛擬機器擴展集將 Service Fabric 叢集相應放大](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)，但最安全的方式是逐一以水平方式相應縮小和放大虛擬機器擴展集的 1 個節點。
 * 您的 Service Fabric 叢集具有銀級或更高的可靠性，而您設定了自動調整規則的任何擴展集，則具有銀級或更高的持久性。
-  * 自動調整規則的 capacity[minimum] 必須大於或等於 5 個虛擬機器執行個體，且必須大於或等於主要節點類型的最低可靠性層級。
+  * 自動調整規則的 capacity [minimum] 必須大於或等於 5 個虛擬機器執行個體，且必須大於或等於主要節點類型的最低可靠性層級。
 
 > [!NOTE]
 > Azure Service Fabric 具狀態 service fabric:/System/InfastructureService/<NODE_TYPE_NAME> 會在每個具有銀級或更高持久性的節點類型上執行，這是唯一可在 Azure 中執行於您任何叢集節點類型上的系統服務。 

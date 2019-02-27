@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 入口網站檢視拒絕指派 | Microsoft Docs
-description: 了解如何使用 Azure 入口網站檢視遭拒絕存取特定範圍內特定動作的使用者、群組、服務主體以及受控身分識別。
+title: 使用 Azure 入口網站檢視 Azure 資源的拒絕指派 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站檢視遭拒絕存取特定範圍內特定 Azure 資源動作的使用者、群組、服務主體以及受控身分識別。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637723"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343233"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>使用 Azure 入口網站檢視拒絕指派
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>使用 Azure 入口網站檢視 Azure 資源的拒絕指派
 
-[拒絕指派](deny-assignments.md)會封鎖使用者執行指定的動作，即使角色指派授予他們存取權也一樣。 即使您無法建立自己的拒絕指派，還是需要能夠檢視拒絕指派，因為它們可能會影響您的整體權限。 若要取得拒絕指派的相關資訊，您必須擁有 `Microsoft.Authorization/denyAssignments/read` 權限，此權限包含於大部分的[內建角色](built-in-roles.md)中。
+[拒絕指派](deny-assignments.md)會封鎖使用者執行特定的 Azure 資源動作，即使角色指派授予他們存取權也一樣。 即使您無法建立自己的拒絕指派，還是需要能夠檢視拒絕指派，因為它們可能會影響您的整體權限。 若要取得拒絕指派的相關資訊，您必須擁有 `Microsoft.Authorization/denyAssignments/read` 權限，此權限包含於大部分的 [Azure 資源內建角色](built-in-roles.md)中。
 
 本文說明如何使用 Azure 入口網站檢視拒絕指派。
 
@@ -105,5 +105,5 @@ ms.locfileid: "52637723"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [了解拒絕指派](deny-assignments.md)
-* [使用 RBAC 與 REST API 列出拒絕指派](deny-assignments-rest.md)
+* [了解 Azure 資源的拒絕指派](deny-assignments.md)
+* [使用 REST API 列出 Azure 資源的拒絕指派](deny-assignments-rest.md)

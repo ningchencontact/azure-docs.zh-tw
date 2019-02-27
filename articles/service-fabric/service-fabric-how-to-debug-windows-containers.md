@@ -11,16 +11,16 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 02/14/2019
 ms.author: twhitney, mikhegn
-ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300059"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311217"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>如何：使用 Visual Studio 2017 對 Azure Service Fabric 中的 Windows 容器進行偵錯
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>作法：使用 Visual Studio 2017 對 Azure Service Fabric 中的 Windows 容器進行偵錯
 
 使用 Visual Studio 2017 Update 7 (15.7) 時，您可以在作為 Service Fabric 服務的容器中，對 .NET 應用程式進行偵錯。 本文說明如何設定環境，然後在執行於本機 Service Fabric 叢集的容器中，對 .NET 應用程式進行偵錯。
 
@@ -37,10 +37,10 @@ ms.locfileid: "51300059"
 1. 為了在容器之間支援 DNS 解析，您必須使用機器名稱來設定本機開發叢集。 如果您想要透過反向 Proxy 處理服務，則也需要執行這些步驟。
     1. 以系統管理員身分開啟 PowerShell
     2. 瀏覽至 SDK 叢集的安裝程式資料夾，通常是 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`。
-    3. 使用 `-UseMachineName` 參數執行 `DevClusterSetup.ps1` 指令碼
+    3. 執行指令碼`DevClusterSetup.ps1`
 
        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
        ```
 
     > [!NOTE]
@@ -63,7 +63,7 @@ ms.locfileid: "51300059"
     * 解決方式：使用 servicename.applicationname 來解析服務端點
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * 如果對 ClusterFQDNorIP 使用 IP-address，則在主機上變更主要 IP 會破壞 DNS 功能。
-    * 解決方式：使用主機上的新主要 IP 或使用機器名稱，來重新建立叢集。 原先的設計就是如此。
+    * 解決方式：使用主機上的新主要 IP 或使用機器名稱來重新建立叢集。 原先的設計就是如此。
 * 如果無法在網路上解析用來建立叢集的 FQDN，則 DNS 會失敗。
     * 解決方式：使用主機的主要 IP 來重新建立本機叢集。 原先的設計就是如此。
 * 在對容器進行偵錯時，Docker 記錄只能透過 Visual Studio 輸出視窗取得，而無法透過 Service Fabric API (包括 Service Fabric Explorer) 取得
@@ -81,4 +81,4 @@ ms.locfileid: "51300059"
     Visual Studio 支援適用於 .NET 和 .NET Core 的主控台與 ASP.NET 專案類型。
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解 Service Fabric 和容器的功能，請跟隨此連結：[Service Fabric 容器概觀](service-fabric-containers-overview.md)。
+若要深入了解 Service Fabric 和容器的功能，請瀏覽此連結：[Service Fabric 容器概觀](service-fabric-containers-overview.md)。

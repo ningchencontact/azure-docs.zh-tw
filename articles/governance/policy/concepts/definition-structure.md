@@ -4,17 +4,17 @@ description: 說明「Azure 原則」如何使用資源原則定義，藉由描�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237412"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447781"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -80,7 +80,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 我們建議您在大部分的情況下都將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您是使用 PowerShell 或 Azure CLI，則可手動指定 **mode** 參數。 如果原則定義未包含 **mode** 值，則在 Azure PowerShell 中會預設為 `all`，而在 Azure CLI 中會預設為 `null`。 `null` 模式與使用 `indexed` 來支援回溯相容性相同。
 
-建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroup` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。
+建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroups` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。
 
 ## <a name="parameters"></a>參數
 
@@ -215,7 +215,9 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 使用 **like** 和 **notLike** 條件時，您可以在值中提供 `*` 萬用字元。
 值不應包含多個 `*` 萬用字元。
 
-使用 **match** 和 **notMatch** 條件時，請提供 `#` 來比對數字、`?` 來比對字母、`.` 來比對所有字元，以及任何其他字元來比對該實際字元。 如需範例，請參閱[允許數個名稱模式](../samples/allow-multiple-name-patterns.md)。
+使用 **match** 和 **notMatch** 條件時，請提供 `#` 來比對數字、`?` 來比對字母、`.` 來比對所有字元，以及任何其他字元來比對該實際字元。
+**match** 和 **notMatch** 都會區分大小寫。 不會區分大小寫的替代項目，可在 **matchInsensitively** 和 **notMatchInsensitively** 中取得。 如需範例，請參閱[允許數個名稱模式](../samples/allow-multiple-name-patterns.md)。
 
 ### <a name="fields"></a>欄位
 
@@ -245,15 +248,41 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - `identity.type`
   - 傳回資源上所啟用[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)的類型。
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - 此括號語法支援具有連字號、句號或空格等標點符號的標籤名稱。
   - 其中 **\<tagName\>** 是要接受條件驗證的標籤名稱。
-  - 範例：`tags.CostCenter`，其中 **CostCenter** 是標籤的名稱。
-- `tags[<tagName>]`
-  - 此括號語法支援包含句號的標籤名稱。
-  - 其中 **\<tagName\>** 是要接受條件驗證的標籤名稱。
-  - 範例：`tags[Acct.CostCenter]`，其中 **Acct.CostCenter** 是標籤的名稱。
-
+  - 範例：`tags['Acct.CostCenter']`，其中 **Acct.CostCenter** 是標籤的名稱。
+- `tags['''<tagName>''']`
+  - 此括號語法能透過以雙引號進行逸出，來支援具有單引號的標籤名稱。
+  - 其中 **'\<tagName\>'** 是要接受條件驗證的標籤名稱。
+  - 範例：`tags['''My.Apostrophe.Tag''']`，其中 **'\<tagName\>'** 是標籤的名稱。
 - 屬性別名 - 如需清單，請參閱[別名](#aliases)。
+
+> [!NOTE]
+> `tags.<tagName>`、`tags[tagName]` 和 `tags[tag.with.dots]` 都仍是可接受的宣告標籤欄位方式。
+> 不過，建議的運算式為上面所列的運算式。
+
+#### <a name="use-tags-with-parameters"></a>搭配參數使用標籤
+
+可以將參數值傳遞到標籤欄位。 將參數傳遞到標籤欄位能在原則指派期間提升原則定義的彈性。
+
+在下列範例中，`concat` 被用來建立針對名稱為 **tagName** 參數值之標籤的標籤欄位查閱。 如果該標籤不存在，系統會使用**附加**效果，透過 `resourcegroup()` 查閱函式使用在已稽核的資源父資源群組上具有相同名稱之標籤的值來新增該標籤。
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>值
 
@@ -341,7 +370,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ### <a name="policy-functions"></a>原則函式
 
-除了下列部署和資源函式，所有的 [Resource Manager 範本函式](../../../azure-resource-manager/resource-group-template-functions.md)都可在原則規則中使用：
+除了下列函式，所有的 [Resource Manager 範本函式](../../../azure-resource-manager/resource-group-template-functions.md)都可供在原則規則內使用：
 
 - copyIndex()
 - deployment()
@@ -353,7 +382,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 此外，`field` 函式可用於原則規則。 `field` 主要是與 **AuditIfNotExists** 和 **DeployIfNotExists** 搭配使用，以參考所評估資源上的欄位。 如需此用法的範例，請參閱 [DeployIfNotExists 範例](effects.md#deployifnotexists-example)。
 
-#### <a name="policy-function-examples"></a>原則函式範例
+#### <a name="policy-function-example"></a>原則函式範例
 
 此原則規則範例會使用 `resourceGroup` 資源函式來取得**名稱**屬性，並與 `concat` 陣列和物件函式結合來建置 `like` 條件，以強制資源名稱的開頭使用資源群組名稱。
 
@@ -367,24 +396,6 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-此原則規則範例會使用 `resourceGroup` 資源函式來取得資源群組上 **CostCenter** 標記的**標記**屬性陣列值，並將此值附加至新資源上的 **CostCenter** 標記。
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

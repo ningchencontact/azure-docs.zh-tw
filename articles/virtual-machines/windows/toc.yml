@@ -94,6 +94,8 @@ items:
       href: acu.md
     - name: 基準測試分數
       href: compute-benchmark-scores.md
+    - name: vCPU 配額
+      href: quotas.md
   - name: 維護和更新
     href: maintenance-and-updates.md
   - name: 磁碟儲存體
@@ -124,12 +126,8 @@ items:
     href: backup-recovery.md
   - name: 高效能運算
     href: high-performance-computing.md
-  - name: 部署考量
-    items:
-    - name: 基礎結構方針
-      href: infrastructure-example.md
-    - name: vCPU 配額
-      href: quotas.md
+  - name: 基礎結構範例
+    href: infrastructure-example.md
 - name: 使用說明指南
   items:
   - name: 建立 VM
@@ -461,9 +459,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: 常見問題集
     href: faq.md
-ms.openlocfilehash: 1b6d748758ba201391c80f8bded8215ae4161fbc
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 909c367475f5c41f03f7a30bb68bfc365dde581b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430364"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889729"

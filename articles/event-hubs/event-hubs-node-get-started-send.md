@@ -2,20 +2,20 @@
 title: 使用 Node.js 來傳送事件 - Azure 事件中樞 | Microsoft Docs
 description: 本文將逐步解說如何建立一個會從「Azure 事件中樞」傳送事件的 Node.js 應用程式。
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 7281e6bb2dda5dc3fddb5f39bf271293ebb88a73
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: ec3182d11f1b2ffa31acd05fa1f2db695f3f2cf7
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732006"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447713"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>使用 Node.js 將事件傳送到 Azure 事件中樞
 
@@ -34,7 +34,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 - Visual Studio Code (建議採用) 或任何其他的 IDE
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
-第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和「事件中樞」，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行本教學課程中的下列步驟。
+第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和「事件中樞」，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行此教學課程中的下列步驟。
 
 遵循以下文章中的指示，取得事件中樞命名空間的連接字串：[取得連接字串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 您會在本教學課程中稍後用到此連接字串。
 
@@ -56,7 +56,7 @@ npm install @azure/event-hubs
 
 1. 在 Visual Studio Code 上開啟專案。 
 2. 在 [用戶端] 資料夾下方建立名為 **.env** 的檔案。 從根資料夾的 **sample.env**，複製並貼上範例環境變數。
-3. 設定您的事件中樞連接字串、事件中樞名稱和儲存體端點。 您可以在 Azure 入口網站的 [事件中樞] 頁面上，從 **RootManageSharedAccessKey** 下方的 **Connection string-primary** 索引鍵中，複製事件中樞的連接字串。 如需詳細步驟，請參閱[取得連接字串](event-hubs-create.md#create-an-event-hubs-namespace)。
+3. 設定您的事件中樞連接字串、事件中樞名稱和儲存體端點。 如需有關取得事件中樞之連接字串的指示，請參閱[取得連接字串](event-hubs-create.md#create-an-event-hubs-namespace)。
 4. 在 Azure CLI 上，瀏覽至 [用戶端] 資料夾路徑。 執行下列命令來安裝節點套件並建置專案：
 
     ```shell
@@ -71,29 +71,39 @@ npm install @azure/event-hubs
 
 
 ## <a name="review-the-sample-code"></a>檢閱範例程式碼 
-以下是使用 Node.js 將事件傳送到事件中樞的範例程式碼。 您可以手動建立 sampleSender.js 檔案，並執行它以將事件傳送到事件中樞。 
-
+檢閱 simpleSender.js 檔案中的範例程式碼，以傳送事件到事件中樞。
 
 ```javascript
-const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
-const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const lib_1 = require("../lib");
+const dotenv = require("dotenv");
+dotenv.config();
+const connectionString = "EVENTHUB_CONNECTION_STRING";
+const entityPath = "EVENTHUB_NAME";
+const str = process.env[connectionString] || "";
+const path = process.env[entityPath] || "";
 
 async function main() {
-    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object/array.
-    // const eventData = { body: { "message": "Hello World" } };
-    const data = { body: "Hello World 1" };
+    const client = lib_1.EventHubClient.createFromConnectionString(str, path);
+    const data = {
+        body: "Hello World!!"
+    };
     const delivery = await client.send(data);
-    console.log("message sent successfully.");
+    console.log(">>> Sent the message successfully: ", delivery.tag.toString());
+    console.log(delivery);
+    console.log("Calling rhea-promise sender close directly. This should result in sender getting reconnected.");
+    await Object.values(client._context.senders)[0]._sender.close();
+    // await client.close();
 }
 
 main().catch((err) => {
-    console.log(err);
+    console.log("error: ", err);
 });
 
 ```
 
-請記得先設定您的環境變數，然後再執行指令碼。 您可以在命令列中設定此項 (如下列範例所示)，或使用 [dotenv 套件](https://www.npmjs.com/package/dotenv#dotenv) \(英文\)。 
+請記得先設定您的環境變數，然後再執行指令碼。 您可以在命令列中設定它們 (如下列範例所示)，或使用 [dotenv 套件](https://www.npmjs.com/package/dotenv#dotenv) \(英文\)。 
 
 ```shell
 // For windows

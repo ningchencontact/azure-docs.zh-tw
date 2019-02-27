@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173937"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454645"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>手動新增帳戶至應用程式
 如果您的相機無法擷取 QR 代碼，您可以將您的帳戶資訊手動新增至 Microsoft Authenticator 應用程式，以進行雙因素驗證。 此適用於公司或學校帳戶和非 Microsoft 帳戶。
@@ -47,7 +47,7 @@ ms.locfileid: "56173937"
 
 ## <a name="add-your-google-account"></a>新增您的 Google 帳戶
 
-1. 在您的電腦上，從 [設定 Authenticator] 頁面中選取 [無法掃描] 和 QR 代碼。
+1. 在您的電腦上，從 [設定 Authenticator] 頁面選取 [無法掃描] 和 QR 代碼。
 
     [無法掃描條碼] 頁面隨即顯示，並包含密碼。 讓此頁面保持開啟狀態，以便查看密碼。
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0abe2c869a05d359f692db105eb647f9e6a69df8
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998530"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266419"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure 監視器查詢中的 app() 運算式
 
@@ -80,4 +80,4 @@ union
 
 - 請參閱 [workspace 運算式](workspace-expression.md)，以參考 Log Analytics 工作區。
 - 了解 [Azure 監視器資料](../../azure-monitor/log-query/log-query-overview.md)的儲存方式。
-- 存取[資料總管查詢語言](/azure/kusto/query/)的完整文件。
+- 存取 [Kusto 查詢語言](/azure/kusto/query/)的完整文件。

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 87d15f7b351f2b8b6a8c010651d82faa66b28918
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: f8b0955afa1705dd8e3c01a943cc5e5d885f9c71
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276460"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456957"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 自訂指令碼擴充功能第 2 版會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用於部署後設定、軟體安裝或其他任何設定/管理工作。 您可以從 Azure 儲存體或其他可存取的網際網路位置下載指令碼，或是將指令碼提供給擴充功能執行階段。 
 
-自訂指令碼功能可以與 Azure Resource Manager 範本整合。 您也可以使用 Azure CLI、PowerShell、Azure 入口網站或 Azure 虛擬機器 REST API 來執行它。
+自訂指令碼功能可以與 Azure Resource Manager 範本整合。 您也可以使用 Azure CLI、PowerShell 或 Azure 虛擬機器 REST API 來執行它。
 
 本文將詳細說明如何從 Azure CLI 使用自訂指令碼擴充功能，以及如何使用 Azure Resource Manager 範本來執行擴充功能。 本文也提供適用於 Linux 系統的疑難排解步驟。
 
@@ -107,7 +107,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 | 資料類型 | 
+| Name | 值 / 範例 | 資料類型 | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | publisher | Microsoft.Compute.Extensions | 字串 |

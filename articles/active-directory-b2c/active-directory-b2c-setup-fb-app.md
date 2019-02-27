@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Active Directory B2C 設定註冊，並以 Facebook 帳戶登入 | Microsoft Docs
+title: 設定搭配 Facebook 帳戶進行註冊與登入 - Azure Active Directory B2C | Microsoft Docs
 description: 使用 Azure Active Directory B2C，讓具有 Facebook 帳戶的客戶得以註冊和登入您的應用程式。
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1afb83c3e381c33b1c29c224d1ce0cc1d3d080
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 56534589c89fefb38f206f1c57da7996ae43e81d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163036"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428494"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Facebook 帳戶登入
 
 ## <a name="create-a-facebook-application"></a>建立 Facebook 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 Facebook 帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 Facebook 帳戶，可以至 [https://www.facebook.com/](https://www.facebook.com/) 取得。
+若要在 Azure Active Directory (Azure AD) B2C 中使用 Facebook 帳戶作為[識別提供者](active-directory-b2c-reference-oauth-code.md)，您需要在租用戶中建立應用程式來代表它。 如果您還沒有 Facebook 帳戶，可以至 [https://www.facebook.com/](https://www.facebook.com/) 取得。
 
 1. 請以您的 Facebook 帳戶認證登入 [Facebook for developers (開發人員專用的 Facebook)](https://developers.facebook.com/)。
 2. 如果您尚未這麼做，您需要註冊為 Facebook 開發人員。 若要這樣做，請選取頁面右上角的 [註冊]，接受 Facebook 的原則，然後完成註冊步驟。

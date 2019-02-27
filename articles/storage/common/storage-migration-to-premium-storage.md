@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 36889fc6cb8dbec77136dc8cea08416e51837243
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564828"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330574"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>移轉至 Azure 進階儲存體 (非受控磁碟)
 
@@ -32,7 +32,7 @@ ms.locfileid: "55564828"
 您可以將 VM 從其他平台移轉到 Azure 進階儲存體，或將現有的 Azure VM 從標準儲存體移轉到進階儲存體。 本指南涵蓋這兩種案例的步驟。 請根據您的案例，依照相關小節中所指定的步驟操作。
 
 > [!NOTE]
-> 您可以在進階儲存體：[Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md)中找到「進階儲存體」的功能概觀和定價。 建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到「Azure 進階儲存體」，以發揮應用程式最佳效能。 如果您的磁碟不需要高 IOPS，您可以在「標準儲存體」中維護它來限制成本，這會將虛擬機器磁碟資料儲存在「硬碟機 (HDD)」上而非 SSD 上。
+> 您可以在下列位置找到進階 SSD 的功能概觀和價格：[選取適用於 IaaS VM 的磁碟類型](../../virtual-machines/windows/disks-types.md#premium-ssd)。 建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到「Azure 進階儲存體」，以發揮應用程式最佳效能。 如果您的磁碟不需要高 IOPS，您可以在「標準儲存體」中維護它來限制成本，這會將虛擬機器磁碟資料儲存在「硬碟機 (HDD)」上而非 SSD 上。
 >
 
 要完整地完成移轉程序，可能需要在本指南中提供的步驟之前和之後執行其他動作。 例如，設定虛擬網路或端點，或是在應用程式本身中進行程式碼變更，應用程式可能都需要一些停機時間。 這些動作會隨著每個應用程式而不同，您應完成這些動作以及本指南中所提供的步驟，才能盡可能順暢地完整轉換至進階儲存體。
@@ -69,7 +69,7 @@ Azure VM 大小的規格已列在 [虛擬機器的大小](../../virtual-machines
 |:--- |:--- |
 | 磁碟容量：35TB<br />快照容量：10 TB |每秒最多 50 Gbps (輸入 + 輸出) |
 
-如需有關「進階儲存體」規格的詳細資訊，請查看[使用進階儲存體時的延展性和效能目標](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)。
+如需有關進階儲存體規格的詳細資訊，請查看 [Azure 儲存體的擴充和效能目標](storage-scalability-targets.md#premium-storage-account-scale-limits)。
 
 #### <a name="disk-caching-policy"></a>磁碟快取原則
 根據預設，所有 Premium 資料磁碟的磁碟快取原則都是*唯讀*，而連接至 VM 的 Premium 作業系統磁碟的磁碟快取原則則是*讀寫*。 為使應用程式的 IO 達到最佳效能，建議使用此組態設定。 對於頻繁寫入或唯寫的資料磁碟 (例如 SQL Server 記錄檔)，停用磁碟快取可獲得更佳的應用程式效能。 而您可以使用 [Azure 入口網站](https://portal.azure.com)或 *Set-AzureDataDisk* Cmdlet 的 *-HostCaching* 參數來更新現有資料磁碟的快取設定。
@@ -748,7 +748,7 @@ Update-AzureVM  -VM $vm
 2. 登入 VM，並將資料從目前的磁碟區複製到對應至該磁碟區的新磁碟。 請為所有需要對應至新磁碟的目前磁碟區執行這項操作。
 3. 接下來，請變更應用程式設定以切換至新的磁碟，並卸離舊磁碟區。
 
-如需調整應用程式以獲得更好的磁碟效能，請參閱[最佳化應用程式效能](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance)。
+如需調整應用程式以獲得更好的磁碟效能，請參閱[為高效能而設計](../../virtual-machines/windows/premium-storage-performance.md)一文中的＜最佳化應用程式效能＞小節。
 
 ### <a name="application-migrations"></a>應用程式移轉
 資料庫和其他複雜的應用程式在移轉時，可能需要應用程式提供者所定義的特殊步驟。 請參閱個別的應用程式文件。 例如 資料庫通常可透過備份和還原來移轉。
@@ -765,7 +765,7 @@ Update-AzureVM  -VM $vm
 
 * [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure 虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md)
+* [選取適用於 IaaS VM 的磁碟類型](../../virtual-machines/windows/disks-types.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

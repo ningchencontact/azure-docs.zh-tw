@@ -1,6 +1,6 @@
 ---
-title: 使用 RBAC 和 Azure 入口網站來管理存取權 | Microsoft Docs
-description: 了解如何使用角色型存取控制 (RBAC) 與 Azure 入口網站來管理使用者、群組、服務主體與受控識別的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
+title: 使用 RBAC 和 Azure 入口網站管理對 Azure 資源的存取 | Microsoft Docs
+description: 了解如何使用角色型存取控制 (RBAC) 與 Azure 入口網站來管理使用者、群組、服務主體與受控識別針對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412303"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342332"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 入口網站來管理存取權
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 入口網站管理對 Azure 資源的存取
 
-[角色型存取控制 (RBAC)](overview.md) 是您對 Azure 中的資源存取進行管理的機制。 此文章說明如何使用 RBAC 與 Azure 入口網站來管理使用者、群組、服務主體與受控識別的存取權。
+[角色型存取控制 (RBAC)](overview.md) 是您管理對 Azure 資源存取的機制。 此文章說明如何使用 RBAC 與 Azure 入口網站來管理使用者、群組、服務主體與受控識別的存取權。
 
 ## <a name="open-access-control-iam"></a>開啟存取控制 (IAM)
 
@@ -41,7 +41,7 @@ ms.locfileid: "54412303"
 
 ## <a name="view-roles-and-permissions"></a>檢視角色與權限
 
-角色定義是您用於角色指派的權限集合。 Azure 有超過 70 個[內建角色](built-in-roles.md)。 依照這些步驟檢視可在管理與資料面板上執行的角色與權限。
+角色定義是您用於角色指派的權限集合。 Azure 具有超過 70 個[適用於 Azure 資源的內建角色](built-in-roles.md)。 依照這些步驟檢視可在管理與資料面板上執行的角色與權限。
 
 1. 針對您要檢視角色與權限的範圍 (例如管理群組、訂用帳戶、資源群組或資源) 開啟 [存取控制 (IAM)]。
 
@@ -165,7 +165,7 @@ ms.locfileid: "54412303"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [教學課程：使用 RBAC 與 Azure 入口網站為使用者授與存取權](quickstart-assign-role-user-portal.md)
-* [教學課程：使用 RBAC 與 Azure PowerShell 為使用者授與存取權](tutorial-role-assignments-user-powershell.md)
-* [針對 Azure 的各種 RBAC 問題進行疑難排解](troubleshooting.md)
-* [使用 Azure 管理群組來組織資源](../azure-resource-manager/management-groups-overview.md)
+* [教學課程：使用 RBAC 與 Azure 入口網站為使用者授與 Azure 資源的存取權](quickstart-assign-role-user-portal.md)
+* [教學課程：使用 RBAC 與 Azure PowerShell 為使用者授與 Azure 資源的存取權](tutorial-role-assignments-user-powershell.md)
+* [針對適用於 Azure 資源的 RBAC 進行疑難排解](troubleshooting.md)
+* [使用 Azure 管理群組來組織資源](../governance/management-groups/index.md)
