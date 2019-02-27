@@ -214,7 +214,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 2. 從儀表板中，選取 [Region management] \(區域管理\)。
 
-    [ ![[\Region management] \(區域管理\) 圖格](media/asdk-register/admin1sm.png "[\Region management] \(區域管理\) 圖格") ](media/asdk-register/admin1.png#lightbox)
+    [ ![Region management 圖格](media/asdk-register/admin1sm.png "Region management 區域管理 圖格") ](media/asdk-register/admin1.png#lightbox)
 
 3. 選取 [屬性] 。 此刀鋒視窗會顯示您環境的狀態和詳細資料。 狀態可以是 [已註冊] 或 [未註冊]。 如果是已註冊，則會一併顯示您用來註冊 Azure Stack 的 Azure 訂用帳戶 ID，以及註冊資源群組和名稱。
 
