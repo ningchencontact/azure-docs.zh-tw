@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d992d13a67c7b01f82b615e7131a20b84dec9e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851007"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456226"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>將已啟用 Azure 磁碟加密 (ADE) 的虛擬機器複寫到另一個 Azure 區域
 
@@ -24,6 +24,7 @@ ms.locfileid: "52851007"
 >
 
 ## <a name="required-user-permissions"></a>必要的使用者權限
+Azure Site Recovery 要求使用者有權限在目標區域建立金鑰保存庫，並將金鑰複製到區域。
 
 若要從入口網站啟用 ADE VM 的複寫，使用者應該要具有下列權限。
 - 金鑰保存庫權限
@@ -43,12 +44,22 @@ ms.locfileid: "52851007"
     - 加密
     - 解密
 
-您可以透過在入口網站中瀏覽至金鑰保存庫資源，並為使用者新增必要權限來管理權限。
+您可以透過在入口網站中瀏覽至金鑰保存庫資源，並為使用者新增必要權限來管理權限。 例如：下方的逐步指南說明如何啟用在來源區域中的金鑰保存庫「ContosoWeb2Keyvault」。
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+
+-  瀏覽至「[首頁] > [金鑰保存庫] > ContosoWeb2KeyVault> [存取原則]」
+
+![金鑰保存庫權限](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
+
+
+
+- 您可以看到沒有使用者權限，因此依序按一下 [新增] 及 [使用者] 和 [權限] 來增加上述的權限
+
+![金鑰保存庫權限](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 如果啟用災害復原 (DR) 的使用者沒有複製金鑰的必要權限，則可以將下方的指令碼給予具有適當權限的安全性系統管理員，以將加密祕密和金鑰複製到目標區域。
 
+請參閱[此文章](#trusted-root-certificates-error-code-151066)為權限問題疑難排解。
 >[!NOTE]
 >若要從入口網站啟用 ADE VM 的複寫，您針對金鑰保存庫、祕密及金鑰必須至少具有 "List" 權限
 >
@@ -130,6 +141,20 @@ ms.locfileid: "52851007"
 您可以使用[指令碼](#copy-ade-keys-to-dr-region-using-powershell-script)來將加密金鑰複製到目標區域，然後在 [復原服務保存庫] -> [已複寫的項目] -> [屬性] -> [計算與網路] 中更新目標加密設定。
 
 ![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="trusted-root-certificates-error-code-151066"></a>Azure 對 Azure VM 複寫期間的金鑰保存庫權限問題疑難排解
+
+**原因 1：** 您可能是從不具有必要權限的目標區域中，選取了已建立的金鑰保存庫。
+如果您要在目標區域中選取已建立的金鑰保存庫，而非讓 Azure Site Recovery 建立。 請確保金鑰保存庫具備先前所述的權限。</br>
+*例如*：使用者嘗試複寫的 VM 在來源區域上的金鑰保存庫顯示「ContososourceKeyvault」。
+使用者在來源區域上具備所有權限，但他在保護期間選取已建立的金鑰保存庫「ContosotargetKeyvault」，因此不具備權限，而保護則會擲回錯誤。</br>
+**修正方式：** 前往「[首頁] > [金鑰保存庫] > [ContososourceKeyvault] > [存取原則]」，並新增權限，如上所示。 
+
+**原因 2：** 您可能是從沒有解密加密權限的目標區域中，選取了已建立的金鑰保存庫。
+如果您要在目標區域中選取已建立的金鑰保存庫，而非讓 Azure Site Recovery 建立。 如果您也要在來源區域上為金鑰加密，請確保使用者具有解密加密權限。</br>
+*例如*：使用者嘗試複寫的 VM 在來源區域上的金鑰保存庫顯示「ContososourceKeyvault」。
+使用者在來源區域上具備所有權限，但他在保護期間選取已建立的金鑰保存庫「ContosotargetKeyvault」，因此不具備解密和加密權限。</br>
+**修正方式：** 前往「[首頁] > [金鑰保存庫] > [ContososourceKeyvault] > [存取原則]」，並在 [金鑰權限] 底下 > [密碼編譯作業] 新增權限。
 
 ## <a name="next-steps"></a>後續步驟
 

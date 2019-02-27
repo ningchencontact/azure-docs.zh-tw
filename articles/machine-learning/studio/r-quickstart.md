@@ -10,21 +10,21 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
-ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d4e267915338e8043138be0ca1a4922ac84d8eab
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822369"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456260"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio 適用之 R 程式設計語言的快速入門教學課程
 
 <!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>簡介
-本快速入門教學課程將協助您使用 R 程式設計語言來快速開始擴充 Azure Machine Learning。 請跟著 R 程式設計教學課程來於 Azure Machine Learning 中建立、測試及執行 R 程式碼。 在您隨著此教學課程進行的過程中，您將在 Azure Machine Learning 中使用 R 語言來建立一個完整的預測解決方案。  
+本快速入門教學課程將協助您使用 R 程式設計語言來快速開始擴充 Azure Machine Learning Studio。 請跟著 R 程式設計教學課程來於 Studio 中建立、測試及執行 R 程式碼。 在您隨著此教學課程進行的過程中，您將在 Studio 中使用 R 語言來建立一個完整的預測解決方案。  
 
-Microsoft Azure Machine Learning 包含許多功能強大的機器學習和資料操作模組。 功能強大的 R 語言被描述為分析通用語言。 好消息是，在 Azure Machine Learning 中，分析和資料操作皆可藉由使用 R 來加以擴充。這個組合利用 R 的彈性和深入分析，讓 Azure Machine Learning 更具延展性且更易於部署。
+Microsoft Azure Machine Learning Studio 包含許多功能強大的機器學習和資料操作模組。 功能強大的 R 語言被描述為分析通用語言。 好消息是，在 Studio 中，分析和資料操作皆可藉由使用 R 來加以擴充。這個組合利用 R 的彈性和深入分析，讓 Studio 更具延展性且更易於部署。
 
 
 
@@ -38,23 +38,23 @@ Microsoft Azure Machine Learning 包含許多功能強大的機器學習和資�
 本文中使用的資料以及 R 指令碼可[在此下載](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv)。 此資料原先是綜合自可從威斯康辛大學取得的資訊，網址為 https://dairymarkets.com。
 
 ### <a name="organization"></a>組織
-我們將循序進行數個步驟，讓您了解如何在 Azure Machine Learning 環境中建立、測試及執行分析和資料操作 R 程式碼。  
+我們將循序進行數個步驟，讓您了解如何在 Azure Machine Learning Studio 環境中建立、測試及執行分析和資料操作 R 程式碼。  
 
 * 首先，我們將探討在 Azure Machine Learning Studio 環境中使用 R 語言的基本概念。
-* 然後，我們將接著討論 Azure Machine Learning 環境中資料 I/O、R 程式碼及圖形的各個方面。
+* 然後，我們將接著討論 Azure Machine Learning Studio 環境中資料 I/O、R 程式碼及圖形的各個方面。
 * 再接著，我們會藉由建立可清理和轉換資料的程式碼，建構預測解決方案的第一個部分。
 * 在備妥資料後，我們將執行資料集內數個變數之間的相互關聯分析。
 * 最後，我們將針對牛奶產量建立季節性的時間序列預測模型。
 
 ## <a id="mlstudio"></a>與 Machine Learning Studio 中的 R 語言互動
-本節將帶領您了解在 Machine Learning Studio 環境中與 R 程式設計語言互動的一些基本概念。 R 語言提供一個功能強大的工具，可在 Azure Machine Learning 環境內建立自訂的分析和資料操作模組。
+本節將帶領您了解在 Machine Learning Studio 環境中與 R 程式設計語言互動的一些基本概念。 R 語言提供一個功能強大的工具，可在 Azure Machine Learning Studio 環境內建立自訂的分析和資料操作模組。
 
 我將使用 RStudio 來進行小規模的 R 程式碼開發、測試及偵錯。 然後，將此程式碼剪下並貼到 Machine Learning Studio 中已準備好要執行的[執行 R 指令碼][execute-r-script]模組中。  
 
 ### <a name="the-execute-r-script-module"></a>執行 R 指令碼模組
 在 Machine Learning Studio 中，R 指令碼是在[執行 R 指令碼][execute-r-script]模組內執行。 圖 1 顯示 Machine Learning Studio 中[執行 R 指令碼][execute-r-script]模組的範例。
 
- ![R 程式設計語言：在 Machine Learning Studio 中選取的執行 R 指令碼模組][1]
+ ![R 程式設計語言：在 Machine Learning Studio 中選取的執行 R 指令碼模組](./media/r-quickstart/fig1.png)
 
 *圖 1.顯示已選取 [執行 R 指令碼] 模組的 Machine Learning Studio 環境。*
 
@@ -66,20 +66,20 @@ Microsoft Azure Machine Learning 包含許多功能強大的機器學習和資�
 
 當然，我們將會在這份文件的其餘部分更詳細地討論[執行 R 指令碼][execute-r-script]。
 
-使用複雜的 R 函式時，建議您在 RStudio 中進行編輯、測試及偵錯。 與進行任何軟體開發相同，請以累加方式擴充您的程式碼，並在小型的簡單測試案例上進行測試。 然後，將您的函式剪下並貼到[執行 R 指令碼][execute-r-script]模組的 [R 指令碼] 視窗中。 這個方法既可讓您控制 RStudio 整合式開發環境 (IDE)，也可讓您控制 Azure Machine Learning 的強大功能。  
+使用複雜的 R 函式時，建議您在 RStudio 中進行編輯、測試及偵錯。 與進行任何軟體開發相同，請以累加方式擴充您的程式碼，並在小型的簡單測試案例上進行測試。 然後，將您的函式剪下並貼到[執行 R 指令碼][execute-r-script]模組的 [R 指令碼] 視窗中。 這個方法既可讓您控制 RStudio 整合式開發環境 (IDE)，也可讓您控制 Azure Machine Learning Studio 的強大功能。  
 
 #### <a name="execute-r-code"></a>執行 R 程式碼
 當您按一下 [執行] 按鈕來執行實驗時，將會執行[執行 R 指令碼][execute-r-script]模組中的所有 R 程式碼。 當執行完成時，[執行 R 指令碼][execute-r-script]圖示上將會出現打勾記號。
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Azure Machine Learning 的防禦型 R 編碼
-如果您正在使用 Azure Machine Learning 為 Web 服務開發 R 程式碼，您應該明確地規劃程式碼將如何處理非預期的資料輸入和例外狀況。 為了清楚起見，在所示範的大多數程式碼中，並未包含太多有關檢查或例外狀況處理的部分。 不過，隨著我們繼續進行，我將會提供您幾個使用 R 例外狀況處理功能的函式範例。  
+如果您正在使用 Azure Machine Learning Studio 為 Web 服務開發 R 程式碼，您應該明確地規劃程式碼將如何處理非預期的資料輸入和例外狀況。 為了清楚起見，在所示範的大多數程式碼中，並未包含太多有關檢查或例外狀況處理的部分。 不過，隨著我們繼續進行，我將會提供您幾個使用 R 例外狀況處理功能的函式範例。  
 
 如果您需要更完整的 R 例外狀況處理方式，建議您閱讀 [附錄 B - 進階閱讀](#appendixb)列出之 Wickham 所著書籍中適用的小節。
 
 #### <a name="debug-and-test-r-in-machine-learning-studio"></a>在 Machine Learning Studio 中進行 R 程式碼偵錯和測試
 再次提醒您，建議您在 RStudio 中進行小規模的 R 程式碼測試和偵錯。 不過，會有一些您將必須探究[執行 R 指令碼][execute-r-script]本身 R 程式碼問題的情況。 此外，在 Machine Learning Studio 中檢查結果也是相當好的做法。
 
-R 程式碼的執行及在 Azure Machine Learning 平台上的執行所產生的輸出主要都在 output.log 中。 有些其他資訊會顯示在 error.log 中。  
+R 程式碼的執行及在 Azure Machine Learning Studio 平台上的執行所產生的輸出主要都在 output.log 中。 有些其他資訊會顯示在 error.log 中。  
 
 如果在執行 R 程式碼時，Machine Learning Studio 中發生錯誤，您的第一個行動方針應該是查看 error.log。 此檔案可能包含可協助您了解並更正錯誤的實用錯誤訊息。 若要檢視 error.log，請針對包含錯誤的[執行 R 指令碼][execute-r-script]，按一下 [屬性] 窗格上的 [檢視錯誤記錄檔]。
 
@@ -90,7 +90,7 @@ R 程式碼的執行及在 Azure Machine Learning 平台上的執行所產生的
 
 此程式碼無法執行，導致發生錯誤狀況。 按一下 [屬性] 窗格上的 [檢視錯誤記錄檔]，便會產生如圖 2 所示的內容：
 
-  ![錯誤訊息快顯][2]
+  ![錯誤訊息快顯](./media/r-quickstart/fig2.png)
 
 *圖 2.錯誤訊息快顯。*
 
@@ -109,12 +109,12 @@ R 程式碼的執行及在 Azure Machine Learning 平台上的執行所產生的
 若要檢查 R 中任何物件的值，您可以將這些值列印至 output.log 檔案中。 檢查物件值的規則基本上與在互動式 R 工作階段中相同。 例如，如果您在一行輸入變數名稱，物件的值就會列印至 output.log 檔案中。  
 
 #### <a name="packages-in-machine-learning-studio"></a>Machine Learning Studio 中的封裝
-Azure Machine Learning 附有超過 350 個預先安裝的 R 語言封裝。 您可以使用[執行 R 指令碼][execute-r-script]模組中的下列程式碼，來擷取預先安裝的封裝清單。
+Studio 附有超過 350 個預先安裝的 R 語言封裝。 您可以使用[執行 R 指令碼][execute-r-script]模組中的下列程式碼，來擷取預先安裝的封裝清單。
 
     data.set <- data.frame(installed.packages())
     maml.mapOutputPort("data.set")
 
-如果您目前對此程式碼的最後一行還不了解，請往下閱讀。 在本文件的其餘部分，我們將大量討論如何在 Azure Machine Learning 環境中使用 R。
+如果您目前對此程式碼的最後一行還不了解，請往下閱讀。 在本文件的其餘部分，我們將大量討論如何在 Studio 環境中使用 R。
 
 ### <a name="introduction-to-rstudio"></a>RStudio 簡介
 RStudio 是一個廣泛使用、適用於 R 的 IDE。我將使用 RStudio 對本快速入門指南中所用的 R 程式碼進行編輯、測試及偵錯。 測試並備妥 R 程式碼之後，您只要從 RStudio 編輯器剪下並貼到 Machine Learning Studio 的[執行 R 指令碼][execute-r-script]模組中即可。  
@@ -157,14 +157,14 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 此時，您的實驗應該會看起來像圖 3。
 
-![含有資料集和 [執行 R 指令碼] 模組的「加州乳製品分析實驗」][3]
+![含有資料集和 [執行 R 指令碼] 模組的「加州乳製品分析實驗」](./media/r-quickstart/fig3.png)
 
 *圖 3.含有資料集和 [執行 R 指令碼] 模組的「加州乳製品分析實驗」。*
 
 #### <a name="check-on-the-data"></a>檢查資料
 讓我們看看已載入到實驗中的資料。 在此實驗中，按一下 [cadairydata.csv 資料集] 的輸出，然後選取 [視覺化]。 您應該會看到類似圖 4 的內容。  
 
-![cadairydata.csv 資料集的摘要][4]
+![cadairydata.csv 資料集的摘要](./media/r-quickstart/fig4.png)
 
 *圖 4：cadairydata.csv 資料集的摘要。*
 
@@ -200,7 +200,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
     load("src/yourData.rdata") # Reads a zipped R data file
 
 > [!NOTE]
-> Azure Machine Learning 會將 Zip 中的檔案視為在 src/ 目錄中，因此您必須在您的檔案名稱前面加上此目錄名稱。 例如，如果 Zip 在其根目錄中包含檔案 `yourfile.R` 和 `yourData.rdata`，使用 `source` 和 `load` 時，您會將這些處理為 `src/yourfile.R` 和 `src/yourData.rdata`。
+> Azure Machine Learning Studio 會將 Zip 中的檔案視為在 src/ 目錄中，因此您必須在您的檔案名稱前面加上此目錄名稱。 例如，如果 Zip 在其根目錄中包含檔案 `yourfile.R` 和 `yourData.rdata`，使用 `source` 和 `load` 時，您會將這些處理為 `src/yourfile.R` 和 `src/yourData.rdata`。
 > 
 > 
 
@@ -227,7 +227,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 完成這些步驟之後，[執行 R 指令碼][execute-r-script]模組就會在實驗執行時，執行 Zip 檔案中的 R 指令碼。 此時，您的實驗應該會看起來像圖 5。
 
-![使用已壓縮之 R 指令碼的實驗][6]
+![使用已壓縮之 R 指令碼的實驗](./media/r-quickstart/fig6.png)
 
 *圖 5.使用已壓縮之 R 指令碼的實驗。*
 
@@ -289,7 +289,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 執行實驗之後，請按一下 [結果資料集1] 輸出連接埠，然後按一下 [ **視覺化**]。 您應該會看到類似圖 6 的內容。
 
-![加州乳製品資料的輸出視覺化][7]
+![加州乳製品資料的輸出視覺化](./media/r-quickstart/fig7.png)
 
 *圖 6.加州乳製品資料的輸出視覺化。*
 
@@ -300,13 +300,13 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 若要檢視 [R 裝置] 輸出，請按一下該連接埠，然後按一下 [ **視覺化**]。 我們會看到如圖 7 中來自 R 指令碼的標準輸出和標準錯誤。
 
-![來自 [R 裝置] 連接埠的標準輸出和標準誤差][8]
+![來自 [R 裝置] 連接埠的標準輸出和標準誤差](./media/r-quickstart/fig8.png)
 
 *圖 7.來自 [R 裝置] 連接埠的標準輸出和標準錯誤。*
 
 向下捲動之後，我們會看到如圖 8 中來自 R 指令碼的圖形輸出。  
 
-![來自 [R 裝置] 連接埠的圖形輸出][9]
+![來自 [R 裝置] 連接埠的圖形輸出](./media/r-quickstart/fig9.png)
 
 *圖 8.來自 [R 裝置] 連接埠的圖形輸出。*  
 
@@ -689,7 +689,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 
 請執行此程式碼，然後看看結果如何。 在 [R 裝置] 連接埠產生的圖應該看起來像圖 16。
 
-![所選變數的散佈圖矩陣][17]
+![所選變數的散佈圖矩陣](./media/r-quickstart/fig17.png)
 
 *圖 16.所選變數的散佈圖矩陣。*
 
@@ -753,7 +753,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 
 最後一行程式碼會建立成對的散佈圖。 執行 R 程式碼之後，散佈圖的結果會如圖 17 所示。
 
-![已去除趨勢並已標準化之時間序列的成對散佈圖][18]
+![已去除趨勢並已標準化之時間序列的成對散佈圖](./media/r-quickstart/fig18.png)
 
 *圖 17.已去除趨勢並已標準化之時間序列的成對散佈圖。*
 
@@ -856,7 +856,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 
 
     ## WARNING!
-    ## The following line works only in Azure Machine Learning
+    ## The following line works only in Azure Machine Learning Studio
     ## When running in RStudio, this code will result in an error
     #maml.mapOutputPort('outframe')
 
@@ -870,7 +870,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 
 執行此程式碼時，會在我將 [結果資料集] 連接埠的輸出 [ **視覺化** ] 時，產生如圖 19 所示的輸出。 資料列名稱如預期般在第一個資料行中。
 
-![來自相互關聯分析的結果輸出][20]
+![來自相互關聯分析的結果輸出](./media/r-quickstart/fig20.png)
 
 *圖 19.來自相互關聯分析的結果輸出。*
 
@@ -884,7 +884,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 ### <a name="creating-the-dataframe-for-analysis"></a>建立用於分析的資料框架
 首先，請將**新的**[執行 R 指令碼][execute-r-script]模組新增到您的實驗中。 將現有[執行 R 指令碼][execute-r-script]模組的 [結果資料集] 輸出連接到新模組的 [資料集1] 輸入。 結果應該會看起來像圖 20。
 
-![新增了 [執行 R 指令碼] 模組的實驗][21]
+![新增了 [執行 R 指令碼] 模組的實驗](./media/r-quickstart/fig21.png)
 
 *圖 20.新增了 [執行 R 指令碼] 模組的實驗。*
 
@@ -954,7 +954,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 ### <a name="a-trend-model"></a>趨勢模型
 建立時間序列物件並查看過資料之後，讓我們開始建構加州牛奶產量資料的趨勢模型。 我們可以使用時間序列迴歸來進行這項操作。 不過，從圖中可以清楚看出，若要精確地為在訓練資料中所觀察到的趨勢建立模型，我們所需要的將不只是一個斜率和截距。
 
-在資料規模較小的情況下，我會在 RStudio 中為趨勢建置模型，再將產生的模型剪下並貼到 Azure Machine Learning 中。 RStudio 針對這種互動式分析提供了互動式環境。
+在資料規模較小的情況下，我會在 RStudio 中為趨勢建置模型，再將產生的模型剪下並貼到 Azure Machine Learning Studio 中。 RStudio 針對這種互動式分析提供了互動式環境。
 
 在第一個嘗試中，我會試試最多 3 次方的多項式迴歸。 這些種類的模型實際蘊藏過度配適的危險。 因此，最好避免高階項。 `I()` 函式禁止解譯內容 (會「依照原狀」解譯內容 )，並且允許您在迴歸方程式中撰寫逐字解譯的函式。
 
@@ -1014,7 +1014,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 
 這樣看起來較好。 所有的項都變得有意義。 不過，2e-16 值是預設值，因此不應該太認真看待。  
 
-讓我們繪製顯示趨勢曲線的加州乳製品產量資料時間序列圖，來做為例行性測試。 我已經在 Azure Machine Learning [執行 R 指令碼][execute-r-script]模型 (非 RStudio) 中新增下列程式碼，以建立模型並繪圖。 結果顯示在「圖 23」中。
+讓我們繪製顯示趨勢曲線的加州乳製品產量資料時間序列圖，來做為例行性測試。 我已經在 Azure Machine Learning Studio [執行 R 指令碼][execute-r-script]模型 (非 RStudio) 中新增下列程式碼，以建立模型並繪圖。 結果顯示在「圖 23」中。
 
     milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
@@ -1071,14 +1071,14 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 
 我們會看到模型不再具有截距項，並且擁有 12 個重要的月份因素。 這就是我們想要看到的。
 
-讓我們繪製另一張加州乳製品產量資料的時間序列圖，看看季節性模型運作得如何。 我已經在 Azure Machine Learning [執行 R 指令碼][execute-r-script]中新增下列程式碼，以建立模型並繪圖。
+讓我們繪製另一張加州乳製品產量資料的時間序列圖，看看季節性模型運作得如何。 我已經在 Azure Machine Learning Studio [執行 R 指令碼][execute-r-script]中新增下列程式碼，以建立模型並繪圖。
 
     milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
     plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
     lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
-在 Azure Machine Learning 中執行此程式碼會產生如圖 24 所示的圖。
+在 Azure Machine Learning Studio 中執行此程式碼會產生如圖 24 所示的圖。
 
 ![模型包含季節性效果的加州牛奶產量](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1198,7 +1198,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 
 執行此程式碼會在 [結果資料集] 輸出連接埠產生如圖 27 所示的輸出。
 
-![模型的 RMS 誤差比較][26]
+![模型的 RMS 誤差比較](./media/r-quickstart/fig26.png)
 
 *圖 27.模型的 RMS 誤差比較。*
 
@@ -1246,31 +1246,6 @@ Paul Cowpertwait 與 Andrew Metcalfe 所著的 《Introductory Time Series with 
 * Clarkson 大學 Kelly Black 提供的快速 R 教學課程： http://www.cyclismo.org/tutorial/R/
 * http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html 列出了 60 種以上的 R 資源
 
-<!--Image references-->
-[1]: ./media/r-quickstart/fig1.png
-[2]: ./media/r-quickstart/fig2.png
-[3]: ./media/r-quickstart/fig3.png
-[4]: ./media/r-quickstart/fig4.png
-[5]: ./media/r-quickstart/fig5.png
-[6]: ./media/r-quickstart/fig6.png
-[7]: ./media/r-quickstart/fig7.png
-[8]: ./media/r-quickstart/fig8.png
-[9]: ./media/r-quickstart/fig9.png
-[10]: ./media/r-quickstart/fig10.png
-[11]: ./media/r-quickstart/fig11.png
-[12]: ./media/r-quickstart/fig12.png
-[13]: ./media/r-quickstart/fig13.png
-[14]: ./media/r-quickstart/fig14.png
-[15]: ./media/r-quickstart/fig15.png
-[16]: ./media/r-quickstart/fig16.png
-[17]: ./media/r-quickstart/fig17.png
-[18]: ./media/r-quickstart/fig18.png
-[19]: ./media/r-quickstart/fig19.png
-[20]: ./media/r-quickstart/fig20.png
-[21]: ./media/r-quickstart/fig21.png
-[22]: ./media/r-quickstart/fig22.png
-
-[26]: ./media/r-quickstart/fig26.png
 
 <!--links-->
 [appendixa]: #appendixa

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ac52e3b824efdbd5277982a7f1939e8aa0deeeb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201783"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416712"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基礎結構備份服務的參考
 
@@ -108,6 +108,23 @@ Azure Stack 是由許多服務所組成，包含入口網站、Azure Resource Ma
 > [!Note]  
 > 不需要開啟任何輸入連接埠。
 
+### <a name="encryption-requirements"></a>加密需求
+
+自 1901 版起，基礎結構備份服務在雲端復原時，會使用具有公開金鑰 (.CER) 的憑證來加密備份資料，使用具有私密金鑰 (.PFX) 的憑證以解密備份資料。   
+ - 憑證用於傳輸金鑰，不會用來建立經驗證的安全通訊。 有基於此，憑證會是自我簽署的憑證。 Azure Stack 不需要驗證此憑證的根或信任，因此不需要外部的網際網路存取權。
+ 
+自我簽署的憑證有兩個部分，一個是具有公開公鑰，另一個是具有私密金鑰：
+ - 加密備份資料：具有公開金鑰 (匯出至 .CER 檔案) 的憑證用於加密備份資料
+ - 解密備份資料：具有私密金鑰 (匯出至 .PFX 檔案) 的憑證用於解密備份資料
+
+內部密碼輪替不會管理具有公開金鑰 (.CER) 的憑證。 若要輪替憑證，您必須建立新的自我簽署憑證，並使用新的檔案 (.CER) 更新備份設定。  
+ - 所有現存的備份將使用過去的公開金鑰保持加密狀態。 新的備份將會使用新的公開金鑰。 
+ 
+基於安全理由，Azure Stack 不會保留雲端復原期間所使用具有私密金鑰 (.PFX) 的憑證。 這個檔案在雲端復原期間必須明確提供。  
+
+**回溯相容性模式**自 1901 版起，加密金鑰支援已被取代，將在未來的版本中移除。 如果您是從 1811 版更新的，而且是透過已使用加密金鑰啟用的備份更新，則 Azure Stack 將會繼續使用該加密金鑰。 將會支援至少 3 個版本的回溯相容性模式。 這此之後，將會需要憑證。 
+ * 從加密金鑰更新到憑證是單向作業。  
+ * 所有現有的備份將使用加密金鑰維持加密狀態。 新的備份將會使用新的憑證。 
 
 ## <a name="infrastructure-backup-limits"></a>基礎結構備份限制
 

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 714a78c436b7071717e2df12c2a65999920f8c63
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192127"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453642"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>新增您的非 Microsoft 帳戶
 將非 Microsoft 帳戶 (例如 Google、Facebook 或 GitHub 的帳戶) 新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。 Microsoft Authenticator 應用程式適用於任何使用雙因素驗證的應用程式，以及任何支援限時單次密碼 (TOTP) 標準的帳戶。
@@ -123,7 +123,7 @@ ms.locfileid: "56192127"
 
 1. 在電腦的 [雙因素驗證] 頁面上，選取 [使用應用程式進行設定]。
 
-2. 儲存您的復原碼以便在失去存取權時恢復您的帳戶，然後按一下 [下一步]。 
+2. 儲存您的復原碼以便在失去存取權時恢復您的帳戶，然後按 [下一步]。 
 
     您可以將復原碼下載到您的裝置、列印實體複本，或將其複製到密碼管理員工具中，以儲存復原碼。
 
@@ -178,7 +178,7 @@ ms.locfileid: "56192127"
 
 8. 在您電腦的 [新增備份驗證方法] 頁面上，為您的 Amazon 帳戶輸入備份驗證方法所提供的六位數驗證碼，然後選取 [驗證代碼並繼續]。
 
-9. 在 [快要完成了] 頁面上，決定是否要讓您的電腦成為信任的裝置，然後選取 [我知道了。開啟雙步驟驗證]。
+9. 在 快要完成了 頁面上，決定是否要讓您的電腦成為信任的裝置，然後選取 我知道了。
 
     [進階安全性設定] 頁面隨即出現，顯示更新的雙因素驗證詳細資料。
 

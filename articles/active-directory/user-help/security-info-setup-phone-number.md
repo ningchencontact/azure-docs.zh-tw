@@ -1,6 +1,6 @@
 ---
-title: 將安全性資訊設定為使用電話 - Azure Active Directory | Microsoft Docs
-description: 設定您的安全性資訊，以使用行動裝置或公司電話號碼來驗證您的身分識別。
+title: 將安全性資訊 (預覽) 設定為使用電話 - Azure Active Directory | Microsoft Docs
+description: 如何將安全性資訊設定為使用電話來驗證您的身分識別。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,50 +9,90 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c8daa50886c583f26a2d931854d7132eb2ece4b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf07541c23ba2295a367ac8ba6a514b7dee6ee9a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177201"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453829"
 ---
-# <a name="set-up-security-info-to-use-phone-calls-preview"></a>將安全性資訊設定為使用電話 (預覽)
+# <a name="set-up-security-info-preview-to-use-phone-calls"></a>將安全性資訊 (預覽) 設定為使用電話
+您可以遵循下列步驟來新增雙因素驗證和密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
+
+如果系統提示您要在登入公司或學校帳戶之後立即設定此資訊，請參閱[從登入頁面的提示字元中設定安全性資訊](security-info-setup-signin.md)一文中的詳細步驟。
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-要設定安全性資訊，您必須登入公司或學校帳戶，然後完成註冊程序。 如果您從未設定安全性資訊，系統將要求您立即進行設定。
+>[!Note]
+>安全性資訊不支援使用電話分機。 即使您新增適當格式 +1 4255551234X12345，在撥號之前仍會移除該分機號碼。
 
-## <a name="set-up-phone-calls"></a>設定撥打電話
+>如果您未看到電話選項，很可能您的組織不允許您使用電話號碼進行驗證。 在這種情況下，您將必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
 
-根據您的組織設定，系統可能會在您登入時提示您將電話號碼新增至安全性資訊。 否則，若要開始在安全性資訊中設定電話，請遵循[管理安全性資訊](security-info-manage-settings.md)中的步驟。
+## <a name="set-up-phone-calls-from-the-security-info-page"></a>從安全性資訊頁面設定電話
+根據您組織的設定，您可能可以使用電話作為其中一個安全性資訊方法。
 
 >[!Note]
->安全性資訊不支援使用電話分機。 即使您新增適當格式 +1 4255551234X12345，在撥號之前仍會移除該分機號碼。<br>如果您未看到電話選項，可能是因為您的組織不允許您使用電話進行驗證。 如果發生這種情況，您將必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
+>如果您想要接收簡訊而非電話，請遵循[將安全性資訊設定為使用簡訊](security-info-setup-text-msg.md)一文中的步驟。
 
-### <a name="to-use-your-phone-number"></a>使用您的電話號碼
+### <a name="to-set-up-phone-calls"></a>設定電話
 
-1. 選取 [電話] 選項。
+1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
 
-    [設定您的電話] 精靈隨即出現。
+    ![我的設定檔頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile.png)
 
-    ![設定您的國家或地區碼和電話號碼](media/security-info/security-info-keep-secure-setup-phone.png)
+2. 從左側瀏覽窗格或 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後從 [安全性資訊] 頁面選取 [新增方法]。
 
-2. 從下拉式清單方塊中挑選您的 [國家或地區]、在 [電話號碼] 方塊中輸入您的電話號碼 (包括適用的區碼)、選取 [打電話給我] 選項，然後選取 [下一步]。
+    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    您會收到電話以確認您輸入的電話號碼正確無誤。 屆時，系統會要求您按井字 (#) 鍵以確認並完成設定。
+3. 在 [新增方法] 頁面上，從下拉式清單中選取 [電話]，然後選取 [新增]。
 
-    ![確認您的手機螢幕顯示已成功接聽來電](media/security-info/security-info-keep-secure-verify-phone-call.png)
+    ![已選取 [電話] 的 [新增方法] 方塊](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-    您的安全性資訊會更新成使用電話號碼，在使用雙步驟驗證或自助式密碼重設時驗證您的身分識別。
+4. 在 [電話] 頁面上，輸入行動裝置的電話號碼，選擇 [打電話給我]，然後選取 [下一步]。
 
-    >[!Note]
-    >如果您想要接收傳至行動裝置的簡訊，而非來電，請遵循[將安全性資訊設定為使用簡訊 (SMS)](security-info-setup-text-msg.md) 一文中的步驟。
+    ![新增電話號碼，然後選擇電話](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
-## <a name="additional-security-info-options"></a>其他安全性資訊選項
+5. 接聽驗證電話 (傳送至您所輸入的電話號碼)，並遵循指示來進行。
 
+    該頁面會變更以顯示您已成功。
+
+    ![成功通知、接通電話號碼、接收電話的選項，以及您的帳戶](media/security-info/securityinfo-myprofile-phonetext-success.png)
+
+    您的安全性資訊會更新，而且可以在使用雙步驟驗證或密碼重設時，透過電話驗證您的身分識別。 如果您想要讓電話變成預設方法，請參閱本文的[變更預設的安全性資訊方法](#change-your-default-security-info-method)一節。
+
+## <a name="delete-phone-calls-from-your-security-info-methods"></a>從安全性資訊方法中刪除電話
+如果您不想再使用電話作為安全性資訊方法，您可以從 [安全性資訊] 頁面中予以刪除。
+
+>[!Important]
+>若不小心刪除電話，就無法再復原。 您必須依照本文中[設定電話](#set-up-phone-calls-from-the-security-info-page)一節的步驟，再次新增該方法。
+
+### <a name="to-delete-phone-calls"></a>刪除電話
+
+1. 在 [安全性資訊] 頁面上，選取 [電話] 選項旁的 [刪除] 連結。
+
+    ![從安全性資訊刪除電話方法的連結](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+
+2. 從確認方塊中選取 [是]，以刪除 [電話] 號碼。 刪除電話號碼之後，該號碼就會從您的安全性資訊中移除，並且從 [安全性資訊] 頁面上消失。 如果 [電話] 是預設方法，則預設值將會變更為另一個可用方法。
+    
+## <a name="change-your-default-security-info-method"></a>變更預設的安全性資訊方法
+如果您想要在使用雙因素驗證登入公司或學校帳戶時，或提出密碼重設要求時，使用電話作為預設方法，您可以從 [安全性資訊] 頁面進行設定。
+
+### <a name="to-change-your-default-security-info-method"></a>變更預設的安全性資訊方法
+
+1. 在 [安全性資訊] 頁面上，選取 [預設登入方法] 資訊旁的 [變更] 連結。
+
+    ![變更預設登入方法的連結](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+
+2. 從可用方法的下拉式清單中選取 [電話 - 撥打 (your_phone_number)]，然後選取 [確認]。
+
+    ![選擇預設登入方法](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
+
+    用於登入的預設方法會變更為 [電話 - 撥打 (your_phone_number)]。
+
+## <a name="additional-security-info-methods"></a>其他安全性資訊方法
 根據您要嘗試執行的動作，您會有組織如何連絡您來驗證您身分識別的其他選項。 選項包括：
 
 - **驗證器應用程式。** 下載並使用驗證器應用程式，以取得核准通知或隨機產生的核准代碼來進行雙步驟驗證或密碼重設。 如需如何設定和使用 Microsoft Authenticator 應用程式的逐步指示，請參閱[將安全性資訊設定為使用驗證器應用程式](security-info-setup-auth-app.md)。
@@ -67,8 +107,6 @@ ms.locfileid: "56177201"
     >如果這其中一些選項遺失，很可能是因為您的組織不允許那些方法。 如果發生這種情況，您將必須選擇可用的方法，或連絡您的系統管理員以取得更多協助。
 
 ## <a name="next-steps"></a>後續步驟
-
-- 如果您需要更新安全性資訊，請遵循[管理安全性資訊](security-info-manage-settings.md)一文中的指示。
 
 - 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](user-help-reset-password.md)一文中的步驟來重設密碼。
 

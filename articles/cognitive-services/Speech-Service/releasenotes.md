@@ -8,17 +8,70 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: a5b8cd7da465bc2dc58c2b89852903669c18bf4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871790"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446829"
 ---
 # <a name="release-notes"></a>版本資訊
+
+## <a name="speech-sdk-130-2019-february-release"></a>語音 SDK 1.3.0：2019 年 2 月版本
+
+**新功能**
+
+* 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓音訊資料從非預設麥克風串流到語音服務。 如需詳細資訊，請參閱說明[音訊輸入裝置選取](how-to-select-audio-input-devices.md)的文件。 此功能還無法在 JavaScript 中使用。
+* 語音 SDK 現在支援搶鮮版 (Beta) Unity。 請透過 [GitHub 範例存放庫](https://aka.ms/csspeech/samples)中的問題一節提供意見反應。 此版本可在 Windows x86 和 x64 (桌面或通用 Windows 平台應用程式) 以及 Android (ARM32/64、x86) 上支援 Unity。 詳情請參閱 [Unity 快速入門](quickstart-csharp-unity.md)。
+
+**範例**
+
+[範例存放庫](https://aka.ms/csspeech/samples)有提供下列新內容：
+
+* 額外的 AudioConfig.FromMicrophoneInput 範例。
+* 額外的 Python 範例，適用於意圖辨識和翻譯。
+* 在 iOS 中使用連線物件的額外範例。
+* 額外的 Java 範例，適用於以音訊輸出進行翻譯。
+* [批次轉譯 REST API](batch-transcription.md) 的新使用範例。
+
+**/變更**
+
+* Python
+  * 改善了 SpeechConfig 中的參數驗證及錯誤訊息。
+  * 新增連線物件支援。
+  * 支援在 Windows 上使用 32 位元的 Python (x86)。
+  * 適用於 Python 的語音 SDK 已不再是搶鮮版 (Beta)。
+* iOS
+  * SDK 現在是根據 iOS SDK 12.1 版來建置。
+  * SDK 現在支援 iOS 9.2 版和更新版本。
+  * 改善參考文件，並修正數個屬性名稱。
+* JavaScript
+  * 新增連線物件支援。
+  * 為配套的 JavaScript 新增了類型定義檔
+  * 初次支援和實作片語提示。
+  * 傳回含有服務 JSON 的屬性集合以供辨識
+* Windows DLL 現在會包含版本資源。
+
+**錯誤修正**
+
+* 空的 Proxy 使用者名稱和 Proxy 密碼之前不會正確處理。 在此版本中，如果您將 Proxy 使用者名稱和 Proxy 密碼設定為空字串，系統將不會在連線到 Proxy 時提交出去。
+* 在某些語言&nbsp;/環境中，SDK 所建立的工作階段識別碼並不一定會真正隨機。 已新增亂數產生器初始化來修正此問題。
+* 改善授權權杖的處理方式。 如果您想要使用授權權杖，請在 SpeechConfig 中指定，並讓訂用帳戶金鑰保持空白。 然後如往常般建立辨識器。
+* 在某些情況下，連線物件未正確釋放。 已修正此問題。
+* JavaScript 範例已修正，現在也能夠在 Safari 上支援以音訊輸出合成翻譯。
+
+## <a name="speech-sdk-121"></a>語音 SDK 1.2.1
+
+這是僅限 JavaScript 的版本。 未新增任何功能。 已進行下列修正：
+
+* 會在 turn.end 而非 speech.end 引發資料流的結束。
+* 修正音訊幫浦中的 BUG，此 BUG 會導致系統未在目前的傳送失敗時排程下一次傳送。
+* 修正使用驗證權杖來進行的連續辨識。
+* 修正不同辨識器/端點的 BUG。
+* 文件改進。
 
 ## <a name="speech-sdk-120-2018-december-release"></a>語音 SDK 1.2.0：2018 年 12 月版本
 

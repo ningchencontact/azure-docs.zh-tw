@@ -2,18 +2,17 @@
 title: 使用 VNet 對 VNet 連線將 Azure 虛擬網路連線至另一個 VNet︰PowerShell | Microsoft Docs
 description: 使用 VNet 對 VNet 連線和 PowerShell，將虛擬網路連在一起。
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/14/2018
+ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6da0511456f413924eee9d4cf622f50125b15833
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695499"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416559"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -28,8 +27,6 @@ ms.locfileid: "55695499"
 > * [Azure 入口網站 (傳統)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [連線不同的部署模型 - Azure 入口網站](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [連線不同的部署模型 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
->
->
 
 ## <a name="about"></a>關於連線 VNet
 
@@ -80,7 +77,11 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 ### <a name="before-you-begin"></a>開始之前
 
-開始之前，您必須安裝最新版的 Azure Resource Manager PowerShell Cmdlet (至少 4.0 或更新版本)。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* 由於建立閘道需要 45 分鐘的時間，因此 Azure Cloud Shell 在本練習期間會定期逾時。 您可以按一下終端機的左上角，重新啟動 Cloud Shell。 當您重新啟動終端機時，務必重新宣告所有的變數。
+
+* 如果您偏好在本機安裝最新版的 Azure PowerShell 模組，請參閱[如何安裝與設定 Azure PowerShell](/powershell/azure/overview)。
 
 ### <a name="Step1"></a>步驟 1 - 規劃 IP 位址範圍
 
@@ -122,10 +123,28 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 ### <a name="Step2"></a>步驟 2 - 建立及設定 TestVNet1
 
-1. 宣告變數。 下列範例會使用此練習中的值來宣告變數。 在大部分的情況下，您應將值取代為您自己的值。 不過，若您執行這些步驟是為了熟悉此類型的設定，則可以使用這些變數。 視需要修改變數，然後將其複製並貼到您的 PowerShell 主控台中。
+1. 指定您的訂用帳戶設定。
 
-  ```powershell
-  $Sub1 = "Replace_With_Your_Subscription_Name"
+  如果您正在您的電腦本機執行 PowerShell，請連線至您的帳戶。 如果您是使用 Azure Cloud Shell，系統會自動將您連線。
+
+  ```azurepowershell-interactive
+  Connect-AzAccount
+  ```
+
+  檢查帳戶的訂用帳戶。
+
+  ```azurepowershell-interactive
+  Get-AzSubscription
+  ```
+
+  如果您有多個訂用帳戶，請指定您要使用的訂用帳戶。
+
+  ```azurepowershell-interactive
+  Select-AzSubscription -SubscriptionName nameofsubscription
+  ```
+2. 宣告變數。 下列範例會使用此練習中的值來宣告變數。 在大部分的情況下，您應將值取代為您自己的值。 不過，若您執行這些步驟是為了熟悉此類型的設定，則可以使用這些變數。 視需要修改變數，然後將其複製並貼到您的 PowerShell 主控台中。
+
+  ```azurepowershell-interactive
   $RG1 = "TestRG1"
   $Location1 = "East US"
   $VNetName1 = "TestVNet1"
@@ -143,73 +162,57 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
   $Connection14 = "VNet1toVNet4"
   $Connection15 = "VNet1toVNet5"
   ```
+3. 建立資源群組。
 
-2. 連線至您的帳戶。 使用下列範例來協助您連接：
-
-  ```powershell
-  Connect-AzureRmAccount
-  ```
-
-  檢查帳戶的訂用帳戶。
-
-  ```powershell
-  Get-AzureRmSubscription
-  ```
-
-  指定您要使用的訂用帳戶。
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName $Sub1
-  ```
-3. 建立新的資源群組。
-
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG1 -Location $Location1
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG1 -Location $Location1
   ```
 4. 建立 TestVNet1 的子網路設定。 此範例會建立一個名為 TestVNet1 的虛擬網路和三個子網路：一個名為 GatewaySubnet、一個名為 FrontEnd，另一個名為 Backend。 替代值時，務必一律將您的閘道子網路特定命名為 GatewaySubnet。 如果您將其命名為其他名稱，閘道建立會失敗。
 
   下列範例會使用您先前設定的變數。 在此範例中，閘道子網路使用 /27。 雖然您可以建立小至 /29 的閘道子網路，我們建議您選取至少 /28 或 /27，建立包含更多位址的較大子網路。 這將允許足夠的位址，以容納您未來可能需要的其他組態。
 
-  ```powershell
-  $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
-  $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-  $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+  ```azurepowershell-interactive
+  $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+  $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+  $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
   ```
 5. 建立 TestVNet1。
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
 6. 要求一個公用 IP 位址，以配置給您將建立給 VNet 使用的閘道。 請注意，AllocationMethod 是動態的。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的閘道。 
 
-  ```powershell
-  $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  $gwpip1 = New-AzPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
 7. 建立閘道組態。 閘道器組態定義要使用的子網路和公用 IP 位址。 使用下列範例來建立閘道組態。
 
-  ```powershell
-  $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-  $subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-  $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
+  ```azurepowershell-interactive
+  $vnet1 = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+  $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+  $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 8. 建立 TestVNet1 的閘道。 在此步驟中，您會建立 TestVNet1 的虛擬網路閘道。 VNet 對 VNet 組態需要 RouteBased VpnType。 建立閘道通常可能需要 45 分鐘或更久，視選取的閘道 SKU 而定。
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
+在您完成命令之後，將需要 45 分鐘的時間來建立此閘道。 如果您使用的是 Azure Cloud Shell，您可以重新啟動 CloudShell 工作階段，做法是按一下 Cloud Shell 終端機的左上角，然後設定 TestVNet4。 您不需要一直等到 TestVNet1 閘道完成。
+
 ### <a name="step-3---create-and-configure-testvnet4"></a>步驟 3 - 建立及設定 TestVNet4
 
-設定 TestVNet1 後，請建立 TestVNet4。 遵循下方步驟，視需要替換成您自己的值。 此步驟可以在相同的 PowerShell 工作階段中完成，因為其位於相同的訂用帳戶中。
+設定 TestVNet1 後，請建立 TestVNet4。 遵循下方步驟，視需要替換成您自己的值。
 
-1. 宣告變數。 請務必使用您想用於設定的值來取代該值。
+1. 連線與宣告變數。 請務必使用您想用於設定的值來取代該值。
 
-  ```powershell
+  ```azurepowershell-interactive
   $RG4 = "TestRG4"
   $Location4 = "West US"
   $VnetName4 = "TestVNet4"
@@ -226,64 +229,66 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
   $GWIPconfName4 = "gwipconf4"
   $Connection41 = "VNet4toVNet1"
   ```
-2. 建立新的資源群組。
+2. 建立資源群組。
 
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG4 -Location $Location4
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG4 -Location $Location4
   ```
 3. 建立 TestVNet4 的子網路設定。
 
-  ```powershell
-  $fesub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
-  $besub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-  $gwsub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+  ```azurepowershell-interactive
+  $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
+  $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
+  $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
   ```
 4. 建立 TestVNet4。
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AddressPrefix $VnetPrefix41,$VnetPrefix42 -Subnet $fesub4,$besub4,$gwsub4
   ```
 5. 要求公用 IP 位址。
 
-  ```powershell
-  $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  $gwpip4 = New-AzPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
 6. 建立閘道組態。
 
-  ```powershell
-  $vnet4 = Get-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
-  $subnet4 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
-  $gwipconf4 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
+  ```azurepowershell-interactive
+  $vnet4 = Get-AzVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
+  $subnet4 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
+  $gwipconf4 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
   ```
 7. 建立 TestVNet4 閘道。 建立閘道通常可能需要 45 分鐘或更久，視選取的閘道 SKU 而定。
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
   -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-4---create-the-connections"></a>步驟 4 - 建立連線
 
-1. 取得這兩個虛擬網路閘道。 如果這兩個閘道皆位於相同的訂用帳戶中 (如同其在此範例中)，您可以在相同的 PowerShell 工作階段中完成此步驟。
+請等候直到這兩個閘道完成。 重新啟動您的 Azure Cloud Shell 工作階段，然後複製步驟 2 與步驟 3 開頭的變數，並貼至主控台，以重新宣告值。
 
-  ```powershell
-  $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-  $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
+1. 取得這兩個虛擬網路閘道。
+
+  ```azurepowershell-interactive
+  $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+  $vnet4gw = Get-AzVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
 2. 建立 TestVNet1 至 TestVNet4 的連線。 在此步驟中，您會從 TestVNet1 建立連線至 TestVNet4。 您會看到範例使用共用金鑰。 您可以使用自己的值，作為共用金鑰。 但請務必確認該共用金鑰必須適用於這兩個連線。 建立連線可能需要一段時間才能完成。
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 3. 建立 TestVNet4 至 TestVNet1 的連線。 此步驟類似上面的步驟，只不過您是建立 TestVNet4 至 TestVNet1 的連線。 請確認共用的金鑰相符。 稍候幾分鐘就會建立連線。
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
   -VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
@@ -291,11 +296,15 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 ## <a name="difsub"></a>如何連接不同訂用帳戶中的 VNet
 
-在此案例中，您會連接 TestVNet1 和 TestVNet5。 TestVNet1 和 TestVNet5 位於不同的訂用帳戶中。 訂用帳戶不需與相同的 Active Directory 租用戶相關聯。 這些步驟與前一組步驟的差別在於，第二個訂用帳戶的內容中有些設定步驟需在不同的 PowerShell 工作階段中執行。 尤其是當兩個訂用帳戶分屬不同的組織時。
+在此案例中，您會連接 TestVNet1 和 TestVNet5。 TestVNet1 和 TestVNet5 位於不同的訂用帳戶中。 訂用帳戶不需與相同的 Active Directory 租用戶相關聯。
+
+這些步驟與前一組步驟的差別在於，第二個訂用帳戶的內容中有些設定步驟需在不同的 PowerShell 工作階段中執行。 尤其是當兩個訂用帳戶分屬不同的組織時。
+
+由於在這個練習中會變更訂用帳戶內容，因此當您進入步驟 8 時，您可能會發現在您的電腦本機使用 PowerShell，會比使用 Azure Cloud Shell 更加容易。
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>步驟 5 - 建立及設定 TestVNet1
 
-您必須完成前一節的[步驟 1](#Step1) 和[步驟 2](#Step2)，以建立並設定 TestVNet1 和 TestVNet1 的 VPN 閘道。 在此設定中，您不需要建立前一節的 TestVNet4 ，雖然您若建立它，它就不與這些步驟發生衝突。 完成步驟 1 和步驟 2 後，繼續進行步驟 6 以建立 TestVNet5。 
+您必須完成前一節的[步驟 1](#Step1) 和[步驟 2](#Step2)，以建立並設定 TestVNet1 和 TestVNet1 的 VPN 閘道。 在此設定中，您不需要建立前一節的 TestVNet4 ，雖然您若建立它，它就不與這些步驟發生衝突。 完成步驟 1 和步驟 2 後，繼續進行步驟 6 以建立 TestVNet5。
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a>步驟 6 - 驗證 IP 位址範圍
 
@@ -322,7 +331,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 1. 宣告變數。 請務必使用您想用於設定的值來取代該值。
 
-  ```powershell
+  ```azurepowershell-interactive
   $Sub5 = "Replace_With_the_New_Subscription_Name"
   $RG5 = "TestRG5"
   $Location5 = "Japan East"
@@ -342,56 +351,56 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
   ```
 2. 連線到訂用帳戶 5。 開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
 
-  ```powershell
-  Connect-AzureRmAccount
+  ```azurepowershell-interactive
+  Connect-AzAccount
   ```
 
   檢查帳戶的訂用帳戶。
 
-  ```powershell
-  Get-AzureRmSubscription
+  ```azurepowershell-interactive
+  Get-AzSubscription
   ```
 
   指定您要使用的訂用帳戶。
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName $Sub5
+  ```azurepowershell-interactive
+  Select-AzSubscription -SubscriptionName $Sub5
   ```
 3. 建立新的資源群組。
 
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG5 -Location $Location5
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG5 -Location $Location5
   ```
 4. 建立 TestVNet5 的子網路設定。
 
-  ```powershell
-  $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
-  $besub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
-  $gwsub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
+  ```azurepowershell-interactive
+  $fesub5 = New-AzVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
+  $besub5 = New-AzVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
+  $gwsub5 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
   ```
 5. 建立 TestVNet5。
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
   -AddressPrefix $VnetPrefix51,$VnetPrefix52 -Subnet $fesub5,$besub5,$gwsub5
   ```
 6. 要求公用 IP 位址。
 
-  ```powershell
-  $gwpip5 = New-AzureRmPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
+  ```azurepowershell-interactive
+  $gwpip5 = New-AzPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
   -Location $Location5 -AllocationMethod Dynamic
   ```
 7. 建立閘道組態。
 
-  ```powershell
-  $vnet5 = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
-  $subnet5  = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
-  $gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
+  ```azurepowershell-interactive
+  $vnet5 = Get-AzVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
+  $subnet5  = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
+  $gwipconf5 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
   ```
 8. 建立 TestVNet5 閘道。
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
@@ -401,13 +410,13 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 1. **[訂用帳戶 1]** 取得訂用帳戶 1 的虛擬網路閘道。 先登入並連線至訂用帳戶 1，再執行下列範例︰
 
-  ```powershell
-  $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+  ```azurepowershell-interactive
+  $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   ```
 
   複製下列項目的輸出，並透過電子郵件或其他方法將其傳送到訂用帳戶 5 的系統管理員。
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet1gw.Name
   $vnet1gw.Id
   ```
@@ -422,13 +431,13 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
   ```
 2. **[訂用帳戶 5]** 取得訂用帳戶 5 的虛擬網路閘道。 先登入並連線至訂用帳戶 5，再執行下列範例︰
 
-  ```powershell
-  $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
+  ```azurepowershell-interactive
+  $vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
   ```
 
   複製下列項目的輸出，並透過電子郵件或其他方法將其傳送到訂用帳戶 1 的系統管理員。
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet5gw.Name
   $vnet5gw.Id
   ```
@@ -445,23 +454,23 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
   先連線至訂用帳戶 1，再執行下列範例︰
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet5gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet5gw.Name = "VNet5GW"
   $vnet5gw.Id   = "/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
   $Connection15 = "VNet1toVNet5"
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+  New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 4. **[訂用帳戶 5]** 建立 TestVNet5 至 TestVNet1 的連線。 此步驟類似上面的步驟，只不過您是建立 TestVNet5 至 TestVNet1 的連線。 針對基於從訂用帳戶 1 所取得的值來建立 PowerShell 物件，該程序也適用於此處。 在此步驟中，請確認共用金鑰相符。
 
   先連線至訂用帳戶 5，再執行下列範例︰
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet1gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet1gw.Name = "VNet1GW"
   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
   $Connection51 = "VNet5toVNet1"
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+  New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 
 ## <a name="verify"></a>驗證連線

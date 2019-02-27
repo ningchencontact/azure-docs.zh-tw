@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 77f4b597ad4b87db7e720dd57191c6b192a4c93b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: addc1a0d7356cf1ba536c7ab47e376a48621e2d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000944"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342485"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜尋服務中建立基本索引
 
@@ -23,6 +23,32 @@ ms.locfileid: "56000944"
 當您新增或上傳索引時，Azure 搜尋服務會根據您提供的結構描述建立實體結構。 例如，如果您索引中的某個欄位被標記為可搜尋，系統便會針對該欄位建立反向的索引。 當您稍後新增或上傳文件，或提交搜尋查詢到 Azure 搜尋服務時，您是將要求傳送到搜尋服務中的特定索引。 載入具有文件值的欄位，被稱為「編製索引」或資料擷取。
 
 您可以在入口網站、[REST API](search-create-index-rest-api.md) 或 [.NET SDK](search-create-index-dotnet.md)中建立索引。
+
+## <a name="recommended-workflow"></a>建議的工作流程
+
+若要達到正確的索引設計，通常可透過多次反覆運算達成。 搭配使用各項工具和 API，可協助您快速完成設計。
+
+1. 判斷您是否可以使用[索引子](search-indexer-overview.md#supported-data-sources)。 如果您的外部資料是其中一個支援的資料來源，您可以使用[**匯入資料**](search-import-data-portal.md)精靈來建立原型並載入索引。
+
+2. 如果您無法使用 [匯入資料]，仍然可以[在入口網站中建立初始索引](search-create-index-portal.md)，以及使用 [新增索引] 頁面上的控制項來新增欄位、資料類型和指派屬性。 入口網站會顯示不同的資料類型適用哪些屬性。 如果您還不熟悉索引設計，這很有幫助。
+
+   ![依資料類型顯示屬性的新增索引頁面](media/search-create-index-portal/field-attributes.png "依資料類型顯示屬性的新增索引頁面")
+  
+   當您按一下 [建立] 時，所有支援您索引的實體結構都會建立於您的搜尋服務中。
+
+3. 使用[取得索引 REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) 和 [Postman](search-fiddler.md) 之類的 Web 測試工具，下載索引結構描述。 對於您在入口網站中建立的索引，您現在有其 JSON 表示法。 
+
+   您會在此時切換到程式碼式方法。 入口網站不太適合用於反覆運算，因為您無法編輯已經建立的索引。 但您可以使用 Postman 和 REST 進行剩餘的工作。
+
+4. [隨著資料載入您的索引](search-what-is-data-import.md)。 Azure 搜尋服務可接受 JSON 文件。 若要以程式設計方式載入資料，您可以使用 Postman 搭配要求承載中的 JSON 文件。 如果您的資料不會輕易地表示為 JSON，此步驟將最耗費人力。
+
+5. 在您開始查看您所預期的結果之前，查詢索引、檢查結果，以及進一步逐一查看索引結構描述。 您可以使用[**搜尋總管**](search-explorer.md)或 Postman 來查詢索引。
+
+6. 繼續使用程式碼來逐一查看您的設計。  
+
+因為服務中會建立實體結構，所以每當您對現有欄位定義進行實質變更時，就需要[卸除並重建索引](search-howto-reindex.md)。 這表示在開發期間，您應該規劃經常重建。 您可以考慮處理部份的資料，讓重建更快速。 
+
+建議將程式碼 (而非入口網站方法) 用於反覆式設計。 如果您依賴入口網站進行索引定義，則必須在每次重建時填妥索引定義。 另外，當開發專案仍在早期階段時，[Postman 和 REST API](search-fiddler.md) 之類的工具對於概念證明測試很有幫助。 您可以對要求主體中的索引定義進行累加變更，然後將要求傳送至您的服務，以使用更新後的結構描述來重建索引。
 
 ## <a name="components-of-an-index"></a>索引的元件
 
@@ -104,7 +130,10 @@ ms.locfileid: "56000944"
 }
 ```
 
-## <a name="fields-collection-and-attribution"></a>欄位集合與屬性
+<a name="fields-collection"></a>
+
+## <a name="fields-collection-and-field-attributes"></a>欄位集合和欄位屬性
+
 您在定義結構描述時必須指定索引中每個欄位的名稱、類型和屬性。 欄位類型可分類該欄位中儲存的資料。 個別欄位上設定的屬性可指定使用欄位的方式。 下列幾個資料表列舉您可以指定的類型和屬性。
 
 ### <a name="data-types"></a>資料類型
@@ -116,7 +145,7 @@ ms.locfileid: "56000944"
 | *Edm.Int32* |32 位元整數值。 |
 | *Edm.Int64* |64 位元整數值。 |
 | *Edm.Double* |雙精度數值資料。 |
-| *Edm.DateTimeOffset* |以 OData V4 格式 (例如 `yyyy-MM-ddTHH:mm:ss.fffZ` 或 `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`) 表示的日期時間值。 |
+| *Edm.DateTimeOffset* |以 OData V4 格式表示的日期時間值 (例如 `yyyy-MM-ddTHH:mm:ss.fffZ` 或 `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`)。 |
 | *Edm.GeographyPoint* |代表地球上地理位置的一點。 |
 
 您可以在這裡找到有關 Azure 搜尋服務 [支援的資料類型](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)的詳細資訊。
@@ -124,7 +153,7 @@ ms.locfileid: "56000944"
 ### <a name="index-attributes"></a>索引屬性
 | 屬性 | 說明 |
 | --- | --- |
-| *Key* |字串，提供每一份文件的唯一識別碼，用於查閱文件。 每個索引必須有一個索引鍵。 只有一個欄位可以做為索引鍵，而且其類型必須設定為 Edm.String。 |
+| *金鑰* |字串，提供每一份文件的唯一識別碼，用於查閱文件。 每個索引必須有一個索引鍵。 只有一個欄位可以做為索引鍵，而且其類型必須設定為 Edm.String。 |
 | *Retrievable* |指定搜尋結果中是否可傳回某欄位。 |
 | *Filterable* |允許欄位用於篩選查詢。 |
 | *Sortable* |允許查詢使用此欄位排序搜尋結果。 |
@@ -133,20 +162,35 @@ ms.locfileid: "56000944"
 
 您可以在這裡找到有關 Azure 搜尋服務 [索引屬性](https://docs.microsoft.com/rest/api/searchservice/Create-Index)的詳細資訊。
 
+## <a name="storage-implications"></a>儲存體影響
+
+您選取的屬性會影響儲存體。 下列螢幕擷取畫面說明各種屬性組合所產生的索引儲存模式。
+
+索引是以[內建的 realestate 範例](search-get-started-portal.md)資料來源為基礎，您可以在入口網站中編製索引和查詢。 雖然未顯示索引結構描述，但您可以根據索引名稱推斷屬性。 例如，*realestate 可搜尋*索引僅只選取 **searchable** 屬性，*realestate 可擷取*索引僅只選取 **retrievable** 屬性。
+
+![以屬性選取項目為基礎的索引大小](./media/search-what-is-an-index/realestate-index-size.png "以屬性選取項目為基礎的索引大小")
+
+雖然這些是人工的索引變體，但我們可以參考這些變體，以便廣泛比較屬性如何影響儲存體。 設定 **retrievable** 是否會增加索引大小？ 沒有。 將欄位新增至**建議工具**是否會增加索引大小？ 是。
+
+支援篩選和排序的索引會按比例大於只支援全文檢索搜尋的索引。 原因在於篩選和排序會查詢完全相符項目，所以儲存的文件保持不變。 相較之下，支援全文檢索和模糊搜尋的可搜尋欄位會使用倒置索引，其中會填入比完整文件取用較少空間的權杖化字詞。
+
+> [!Note]
+> 儲存體架構可視為 Azure 搜尋服務的實作詳細資料，如有變更，恕不另行通知。 不保證未來會保存目前的行為。
+
 ## <a name="suggesters"></a>建議工具
-建議工具是結構描述的區段，其定義索引中有哪些欄位會被用來支援搜尋中的自動完成或預先輸入查詢。 系統通常會在使用者輸入搜尋查詢期間，將部分搜尋字串傳送到「建議」(Azure 搜尋服務 REST API)，而該 API 會傳回一組建議的片語。 您在索引中定義的建議工具會判斷要使用哪個欄位來建立自動完成的搜尋詞彙。 如需詳細資訊，請參閱[新增建議工具](index-add-suggesters.md)以取得設定詳細資料。
+建議工具是結構描述的區段，其定義索引中有哪些欄位會被用來支援搜尋中的自動完成或預先輸入查詢。 通常會在使用者輸入搜尋查詢期間將部分搜尋字串傳送到[建議 (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions)，而此 API 會傳回一組建議的片語。 
+
+新增至建議工具的欄位用來建置自動完成搜尋字詞。 所有的搜尋字詞都建立於編製索引期間，且分開儲存。 如需有關建立建議工具結構的詳細資訊，請參閱[新增建議工具](index-add-suggesters.md)。
 
 ## <a name="scoring-profiles"></a>評分設定檔
 
-評分設定檔是結構描述的區段，能定義自訂評分行為，讓您能夠影響搜尋結果中哪些項目的出現機率會比較高。 評分設定檔是由欄位權數和函式所組成。 若要使用它們，您可以在查詢字串上以名稱指定設定檔。
+[評分設定檔](index-add-scoring-profiles.md)是結構描述的區段，能定義自訂評分行為，讓您能夠影響搜尋結果中哪些項目的出現機率會比較高。 評分設定檔是由欄位權數和函式所組成。 若要使用它們，您可以在查詢字串上以名稱指定設定檔。
 
-預設的評分設定檔會在背景運行，以針對結果集中的每個項目計算搜尋分數。 您可以使用內部未命名的評分設定檔。 或者，設定 defaultScoringProfile 以使用自訂設定檔做為預設值，以在查詢字串中沒有指定自訂設定檔時叫用。
-
-如需詳細資訊，請參閱[新增評分設定檔](index-add-scoring-profiles.md)。
+預設的評分設定檔會在背景運行，以針對結果集中的每個項目計算搜尋分數。 您可以使用內部未命名的評分設定檔。 或者，設定 **defaultScoringProfile** 以使用自訂設定檔做為預設值，以在查詢字串中沒有指定自訂設定檔時叫用。
 
 ## <a name="analyzers"></a>分析器
 
-分析器元素會設定要用於欄位之語言分析器的名稱。 如需允許的值組，請參閱 [Azure 搜尋服務中的語言分析器](index-add-language-analyzers.md)。 此選項只可以搭配可搜尋的欄位使用，而無法與 **searchAnalyzer** 或 **indexAnalyzer** 一起設定。 選擇分析器之後，就無法針對此欄位進行變更。
+分析器元素會設定要用於欄位之語言分析器的名稱。 如需您可用的分析器範圍詳細資訊，請參閱[將分析器新增至 Azure 搜尋服務索引](search-analyzers.md)。 分析器只能搭配可搜尋的欄位使用。 將分析器指派給欄位後，除非重建索引，否則無法變更。
 
 ## <a name="cors"></a>CORS
 

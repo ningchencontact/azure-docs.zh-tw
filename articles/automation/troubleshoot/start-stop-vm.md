@@ -6,17 +6,66 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef2a782a19dd319de346f14d6189759d0a26686c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665769"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269992"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>疑難排解停機期間啟動/停止 VM 解決方案
+
+## <a name="deployment-failure"></a>案例：啟動/停止 VM 解決方案無法正確部署
+
+### <a name="issue"></a>問題
+
+您部署[停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md)時，會收到下列錯誤的其中一個：
+
+```
+Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
+```
+
+```
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.OperationsManagement'.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.Insights'.
+```
+
+```
+The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
+```
+
+### <a name="cause"></a>原因
+
+部署可能會因為下列其中一個原因而失敗：
+
+1. 在選取區域中已經有自動化帳戶使用相同的名稱。
+2. 有不允許部署啟動/停止 VM 解決方案的原則。
+3. 未註冊 `Microsoft.OperationsManagement`、`Microsoft.Insights` 或 `Microsoft.Automation` 資源類型。
+4. 您的 Log Analytics 工作區已鎖定。
+
+### <a name="resolution"></a>解決方案
+
+請檢閱下列清單，以取得您的問題或搜尋的地方的潛在解決方案：
+
+1. 自動化帳戶在 Azure 區域中必須是唯一的，即使位於不同的資源群組。 檢查目標區域中現有的自動化帳戶。
+2. 現有的原則會防止部署啟動/停止 VM 解決方案所需的資源。 請移至您在 Azure 入口網站中的原則指派，並檢查您是否有不允許這項資源部署的原則指派。 若要深入了解，請參閱 [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)。
+3. 若要部署啟動/停止 VM 解決方案，您的訂用帳戶必須註冊下列 Azure 資源命名空間：
+    * `Microsoft.OperationsManagement`
+    * `Microsoft.Insights`
+    * `Microsoft.Automation`
+
+   請參閱[解決資源提供者註冊的錯誤](../../azure-resource-manager/resource-manager-register-provider-errors.md)，深入了解註冊提供者時的錯誤。
+4. 如果您有 Log Analytics 工作區的鎖定，請移至您在 Azure 入口網站中的工作區，並移除資源的任何鎖定。
 
 ## <a name="all-vms-fail-to-startstop"></a>案例：所有 VM 無法啟動/停止
 

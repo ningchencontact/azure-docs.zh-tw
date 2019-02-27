@@ -9,29 +9,29 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 2/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 005854a51916d36bbad56f1296f17fa687020359
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 58dd96b079dda50faa17a52782a79db83a0141bd
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251396"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330064"
 ---
-# <a name="train-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 將模型定型
+# <a name="train-models-with-azure-machine-learning-using-estimator"></a>藉由估算器使用 Azure Machine Learning 將模型定型
 
-將機器學習模型 (特別是深度類神經網路) 定型通常是必須耗費大量時間與計算資源的工作。 一旦完成您的定型指令碼撰寫並在您本機電腦的小型資料子集上執行，您可能會想要相應增加您的工作負載。
+使用 Azure Machine Learning，您可以輕鬆地將您的定型指令碼提交到[各種計算目標](how-to-set-up-training-targets.md#compute-targets-for-training)，並使用[RunConfiguration 物件](how-to-set-up-training-targets.md#whats-a-run-configuration)和 [ScriptRunConfig 物件](how-to-set-up-training-targets.md#submit)。 這種模式可提升彈性並達到最大的控制度。
 
-為協助您進行定型，Azure Machine Learning Python SDK 提供高層級抽象 (亦即預估器類別)，可讓您輕鬆地在 Azure 生態環境終將其模型定型。 您可以建立及使用 [`Estimator` 物件](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交任何您要在遠端計算上執行的定型程式碼，不論它是單一節點執行或跨 GPU 叢集的分散式定型。 針對 PyTorch 和 TensorFlow 作業，Azure Machine Learning 也會提供各自的自訂 `PyTorch` 與 `TensorFlow` 估算器來簡化這些架構的使用。
+為協助進行深入的學習模式定型，Azure Machine Learning Python SDK 提供更高層級抽象 (亦即預估器類別)，可供使用者輕鬆地建構回合組態。 您可以建立和使用泛型[估算器](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)，使用您選擇對於任何計算目標 (無論是您的本機電腦、Azure 中的單一 VM 或 Azure 中的 GPU 叢集) 想要執行的任何學習架構 (例如 scikit-learn) 提交定型指令碼。 針對 PyTorch、TensorFlow 和 Chainer作業，Azure Machine Learning 也會提供個別的 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、[TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 和 [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 估算器來簡化這些架構的使用。
 
 ## <a name="train-with-an-estimator"></a>使用預估器來定型
 
 建立您的[工作區](concept-azure-machine-learning-architecture.md#workspace)並設定您的[開發環境](how-to-configure-environment.md)後，請將 Azure Machine Learning 中的模型定型牽涉到下列步驟：  
-1. 建立[遠端計算目標](how-to-set-up-training-targets.md)
-2. 上傳您的[定型資料](how-to-access-data.md) (選擇性)
+1. 建立[遠端計算目標](how-to-set-up-training-targets.md) (請注意，您也可以使用本機電腦作為計算目標)
+2. 將您的[定型資料](how-to-access-data.md)上傳到資料存放區 (選擇性)
 3. 建立您的[定型指令碼](tutorial-train-models-with-aml.md#create-a-training-script)
 4. 建立 `Estimator` 物件
-5. 提交您的定型作業
+5. 將估計器提交到工作區下的實驗物件
 
 此文章的重點在於步驟 4-5。 針對步驟 1-3，請參閱[模型定型教學課程](tutorial-train-models-with-aml.md)以取得範例。
 
@@ -60,7 +60,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 --|--
 `source_directory`| 包含定型作業所需之所有程式碼的本機目錄。 此資料夾是從您的本機電腦複製到遠端計算 
 `script_params`| 用於指定您的定型指令碼 `entry_script` 命令列引數的字典，格式為 <命令列引數, 值> 組
-`compute_target`| 您的定型指令碼執行所在的遠端計算目標，在此案例中為 Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 叢集
+`compute_target`| 您的定型指令碼執行所在的遠端計算目標，在此案例中為 Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 叢集。 (請注意，即使 AmlCompute 叢集是常用的目標，您也可選擇其他計算目標類型，例如 Azure VM 或甚至本機電腦。)
 `entry_script`| 要在遠端計算上執行之定型指令碼的檔案路徑 (相對於 `source_directory`)。 此檔案 (以及此檔案所相依的其他任何檔案) 都應位於此資料夾
 `conda_packages`| 要透過 Conda 安裝的 Python 套件清單 (其中包含您的定型指令碼所需的套件)。  
 建構函式有另一個名為 `pip_packages` 的參數，您可視需要將此參數用於任何 pip 套件
@@ -69,7 +69,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 ```Python
 run = experiment.submit(sk_est)
-print(run.get_details().status)
+print(run.get_portal_url())
 ```
 
 > [!IMPORTANT]
@@ -87,42 +87,46 @@ print(run.get_details().status)
 * 使用自訂 Docker 映像
 * 多節點叢集上的分散式定型
 
-下列程式碼顯示如何執行 CNTK 模型的分散式定型。 此外，它會假設您是使用自己的自訂 Docker 映像進行定型，而不是使用預設的 Azure Machine Learning 映像。
+下列程式碼顯示如何執行 Keras 模型的分散式定型。 此外，這會指定來自 Docker Hub `continuumio/miniconda` 的自訂 Docker 映像進行定型，而不是使用預設的 Azure Machine Learning 映像。
 
 您應該已建立了自己的[計算目標](how-to-set-up-training-targets.md#amlcompute)物件`compute_target`。 您會依照下列方式建立估算器：
 
 ```Python
 from azureml.train.estimator import Estimator
 
-estimator = Estimator(source_directory='./my-cntk-proj',
+estimator = Estimator(source_directory='./my-keras-proj',
                       compute_target=compute_target,
                       entry_script='train.py',
                       node_count=2,
                       process_count_per_node=1,
                       distributed_backend='mpi',     
-                      pip_packages=['cntk==2.5.1'],
-                      custom_docker_base_image='microsoft/mmlspark:0.12')
+                      conda_packages=['tensorflow', 'keras'],
+                      custom_docker_base_image='continuumio/miniconda')
 ```
 
 上面的程式碼公開下列新參數給 `Estimator` 建構函式：
 
 參數 | 說明 | 預設值
 --|--|--
-`custom_docker_base_image`| 您要使用的映像名稱。 只提供公用 Docker 存放庫 (在此案例中是 Docker Hub) 中可用的映像。 若要使用來自私人 Docker 存放庫的映像，請改為使用建構函式的 `environment_definition` 參數 | `None`
+`custom_docker_base_image`| 您要使用的映像名稱。 只提供公用 Docker 存放庫 (在此案例中是 Docker Hub) 中可用的映像。 若要使用來自私人 Docker 存放庫的映像，請改為使用建構函式的 `environment_definition` 參數。 [請參閱範例](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)。 | `None`
 `node_count`| 用於定型作業的節點數目。 | `1`
 `process_count_per_node`| 要在每個節點上執行的處理序 (或「背景工作角色」) 數目。 在此案例中，您會使用每個節點上可用的 `2` 個 GPU。| `1`
 `distributed_backend`| 用於啟動分散式定型的後端，由估算器透過 MPI 提供。  若要執行平行或分散式定型 (例如 `node_count`>1 或 `process_count_per_node`>1 或兩者)，請設定 `distributed_backend='mpi'`。 AML 所使用的 MPI 實作是[Open MPI](https://www.open-mpi.org/)。| `None`
 
 最後，提交定型作業：
 ```Python
-run = experiment.submit(cntk_est)
+run = experiment.submit(estimator)
+print(run.get_portal_url())
 ```
 
 ## <a name="examples"></a>範例
-如需將 sklearn 模型定型的 Notebook，請參閱：
+關於顯示估計工具模式基本概念的筆記本，請參閱：
+* [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
+
+關於使用估算器定型 scikit-learn 模型的筆記本，請參閱：
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-如需有關分散式深入學習的 Notebook，請參閱：
+關於使用深度學習架構特定估算器定型模型的筆記本，請參閱：
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

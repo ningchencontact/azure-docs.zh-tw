@@ -1,5 +1,5 @@
 ---
-title: 識別案例和規劃分析程序 - Team Data Science Process
+title: 識別案例和規劃分析程序 - Team Data Science Process | Azure 機器學習
 description: 藉由考量一系列關鍵問題來識別案例和規劃進階分析資料處理。
 services: machine-learning
 author: marktab
@@ -11,95 +11,156 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8af2398246fac4c8cb1d097e22147bbf695e43a6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a8ca08d93992a6e1bfe8ae24b83354503154ef31
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728925"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416151"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>如何識別案例和規劃進階分析資料處理
-在設定環境以對資料集執行進階分析處理時，您應該規劃包含哪些資源？ 本文提出一系列問題，有助於識別您的案例相關的工作和資源。 [何謂 Team Data Science Process (TDSP)？](overview.md)中概述預測性分析的高階步驟順序。 針對您的案例相關的工作，每個步驟會需要特定的資源。 用以識別案例的主要問題是關於資料邏輯、特性、資料集的品質，以及您想要進行分析的工具和語言。
+
+您需要哪些資料才能建立一個可對資料集執行進階分析處理的環境？ 本文提出一系列問題，可幫助識別您的案例相關的工作和資源。
+
+若要瞭解預測性分析的高階步驟順序，請參閱[何謂 Team Data Science Process (TDSP)](overview.md)。 針對您案例的相關工作，每個步驟都會需要特定的資源。
+
+請回答下列範圍的重要問題來識別您的案例：
+
+* 資料邏輯
+* 資料特性
+* 資料集品質
+* 慣用的工具和語言
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>邏輯問題：資料位置和移動
-邏輯問題是關於**資料來源**的位置、Azure 中的**目標目的地**，以及移動資料的需求，包括排程、數量和涉及的資源。 在分析程序期間，資料可能需要移動數次。 常見的案例是將本機資料移到 Azure 上的某種儲存體，再移至 Machine Learning Studio。
 
-1. **資料來源是什麼？** 在本機還是在雲端？ 例如︰
-   
-   * 資料可在 HTTP 位址上公開使用。
-   * 資料位於本機或網路檔案位置中。
-   * 資料是在 SQL Server 資料庫中。
-   * 資料儲存於 Azure 儲存體容器中
-2. **Azure 目的地是什麼？** 需要在哪裡處理或建立模型？ 例如︰
-   
-   * Azure Blob 儲存體
-   * SQL Azure 資料庫
-   * 在 Azure VM 上的 SQL Server
-   * HDInsight (Azure 上的 Hadoop) 或 Hive 資料表
-   * Azure Machine Learning
-   * 可裝載的 Azure 虛擬硬碟。
-3. **您要如何移動資料？** 下列文章概述可用來將資料內嵌或載入至各種不同儲存體和處理環境的程序和資源：
-   
-   * [將資料載入至儲存體環境以便進行分析](ingest-data.md)
-   * [從各種資料來源將定型資料匯入 Azure Machine Learning Studio](../studio/import-data.md)。
-4. **資料是否需要定期移動或在移轉期間修改？** 當資料需要持續移轉時，特別是在涉及同時存取內部部署和雲端資源的混合式案例中，或當資料為交易式或在移轉過程中需要修改或新增商務邏輯時，請考慮使用 Azure Data Factory (ADF)。 如需進一步資訊，請參閱[使用 Azure Data Factory 從內部部署 SQL Server 移動資料至 SQL Azure](move-sql-azure-adf.md)
-5. **有多少資料要移至 Azure？** 極大型的資料集可能會超過某些環境的儲存體容量。 如需相關範例，請參閱下一節關於 Machine Learning studio 大小限制的討論。 在這種情況下，分析期間可能使用資料樣本。 如需如何在各種 Azure 環境中縮減取樣資料集的詳細資訊，請參閱 [在 Team Data Science Process 中進行資料取樣](sample-data.md)。
+邏輯問題涵蓋下列項目：
+
+* 資料來源位置
+* Azure 中的目標目的地
+* 移動資料的需求，包括排程、數量和涉及的資源
+
+在分析程序期間，您可能需要移動資料數次。 常見的案例是將本機資料移到 Azure 上的某種儲存體，再移至 Machine Learning Studio。
+
+### <a name="what-is-your-data-source"></a>資料來源是什麼？
+
+您的資料是在本機或在雲端中？ 可能的位置包括：
+
+* 可公開使用的 HTTP 位址
+* 本機或網路檔案位置
+* SQL Server 資料庫
+* Azure 儲存體容器
+
+### <a name="what-is-the-azure-destination"></a>Azure 目的地是什麼？
+
+資料必須在何處進行處理或建模？ 
+
+* Azure Blob 儲存體
+* SQL Azure 資料庫
+* 在 Azure VM 上的 SQL Server
+* HDInsight (Azure 上的 Hadoop) 或 Hive 資料表
+* Azure Machine Learning
+* 可裝載的 Azure 虛擬硬碟
+
+### <a name="how-are-you-going-to-move-the-data"></a>您要如何移動資料？
+
+如需用來將資料內嵌或載入至各種不同儲存體和處理環境的程序和資源，請參閱：
+
+* [將資料載入至儲存體環境以便進行分析](ingest-data.md)
+* [從各種資料來源將定型資料匯入 Azure Machine Learning Studio](../studio/import-data.md)
+
+### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>資料是否需要定期移動或在移轉期間修改？
+
+需要持續移轉資料時，請考慮使用 Azure Data Factory (ADF)。 ADF 可在以下案例中提供協助：
+
+* 同時涉及內部部署和雲端資源的混合式案例
+* 在移轉的過程中由商務邏輯交易、修改或變更資料的案例
+
+如需進一步資訊，請參閱[使用 Azure Data Factory 從內部部署 SQL Server 移動資料至 SQL Azure](move-sql-azure-adf.md)。
+
+### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>有多少資料要移至 Azure？
+
+極大型的資料集可能會超過某些環境的儲存體容量。 如需相關範例，請參閱下一節關於 Machine Learning studio 大小限制的討論。 在這種情況下，您在分析期間可以使用資料樣本。 如需如何在各種 Azure 環境中縮減取樣資料集的詳細資訊，請參閱 [在 Team Data Science Process 中進行資料取樣](sample-data.md)。
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>資料特性問題：類型、格式和大小
-這些問題是規劃儲存體和處理環境的關鍵，各適用於不同類型的資料，也各有其特定的限制。
 
-1. **資料類型是什麼？** 例如：
-   
-   * 數值
-   * 類別
-   * 字串
-   * Binary
-2. **如何將資料格式化？** 例如：
-   
-   * 逗號分隔 (CSV) 或定位鍵分隔 (TSV) 一般檔案
-   * 已壓縮或未壓縮
-   * Azure Blob
-   * Hadoop Hive 資料表
-   * SQL Server 資料表
-3. **您的資料大小為何？**
-   
-   * 小型：少於 2 GB
-   * 中型：大於 2 GB 且少於 10 GB
-   * 大型：大於 10 GB
+這些問題對於規劃儲存體與處理環境很重要， 能協助您針對您的資料類型選擇適當的案例，並了解任何限制。
+
+### <a name="what-are-the-data-types"></a>資料類型是什麼？
+
+* 數值
+* 類別
+* 字串
+* Binary
+
+### <a name="how-is-your-data-formatted"></a>如何將資料格式化？
+
+* 逗號分隔 (CSV) 或定位鍵分隔 (TSV) 一般檔案
+* 已壓縮或未壓縮
+* Azure Blob
+* Hadoop Hive 資料表
+* SQL Server 資料表
+
+### <a name="how-large-is-your-data"></a>您的資料大小為何？
+
+* 小型：少於 2 GB
+* 中型：大於 2 GB 且少於 10 GB
+* 大型：大於 10 GB
 
 以 Azure Machine Learning Studio 環境為例子：
 
 * 如需 Azure Machine Learning Studio 支援的資料格式和 類型的清單，請參閱 [支援的資料格式和資料類型](../studio/import-data.md#supported-data-formats-and-data-types) 一節。
-
-
-如需分析程序中使用的其他 Azure 服務限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)。
+* 如需分析程序中使用的其他 Azure 服務限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)。
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>資料品質問題：探索和前置處理
-1. **您對資料的熟悉程度為何？** 請探索資料，以了解資料的基本特性。 資料呈現什麼模式或趨勢、有什麼極端值或遺漏多少值。 這個步驟很重要，將會決定所需的前置處理程度、形成假設來建議最適合的功能分析類型，以及擬定計劃來收集其他資料。 計算描述性統計資料和繪製視覺效果是很有用的資料檢查技術。 如需如何在各種 Azure 環境中探索資料集的詳細資訊，請參閱 [在 Team Data Science Process 中探索資料](explore-data.md)。
-2. **資料是否需要前置處理或清除？**
-   前置處理和清除資料是很重要的工作，必須先執行這些工作，才能有效地將資料集用於機器學習服務。 未經處理的資料通常會有雜訊且不可靠，還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 如需說明，請參閱 [準備增強機器學習服務的資料的工作](prepare-data.md)。
+
+### <a name="what-do-you-know-about-your-data"></a>您對資料的熟悉程度為何？
+
+了解有關您資料的基本特性：
+
+* 展現出什麼模式或趨勢
+* 有何極端值
+* 有多少個值遺漏
+
+此步驟很重要，可幫助您：
+
+* 判斷需要多少前置處理
+* 制定假設以建議最適合的功能或分析類型
+* 制定計劃收集其他資料
+
+實用的資料檢查技術，包括描述性統計算與視覺效果繪製。 如需如何在各種 Azure 環境中探索資料集的詳細資訊，請參閱 [在 Team Data Science Process 中探索資料](explore-data.md)。
+
+### <a name="does-the-data-require-preprocessing-or-cleaning"></a>資料是否需要前置處理或清除？
+
+您可能需要前置處理與清除您的資料，才能有效率地將資料用於機器學習。 未經處理的資料通常會有雜訊且不可靠， 還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 如需說明，請參閱 [準備增強機器學習服務的資料的工作](prepare-data.md)。
 
 ## <a name="tools-and-languages-questions"></a>工具和語言的問題
-根據您需要或最喜歡使用的語言和開發環境或工具而定，這裡有許多選項可選擇。
 
-1. **您想要使用哪些語言進行分析？**  
-   
-   * R
-   * Python
-   * SQL
-2. **您應該使用哪些工具進行資料分析？**
-   
-   * [Microsoft Azure Powershell](/powershell/azure/overview) - 在指令碼語言中用來管理 Azure 資源的指令碼語言。
-   * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
-   * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
-   * [RStudio](http://www.rstudio.com)
-   * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
-   * [Anaconda](https://www.continuum.io/why-anaconda)
-   * [Jupyter 筆記本](http://jupyter.org/)
-   * [Microsoft Power BI](https://powerbi.microsoft.com)
+有許多語言、開發環境和工具選項。 請了解您的需求和喜好設定。
+
+### <a name="what-languages-do-you-prefer-to-use-for-analysis"></a>您想要使用哪些語言進行分析？
+
+* R
+* Python
+* SQL
+
+### <a name="what-tools-should-you-use-for-data-analysis"></a>您應該使用哪些工具進行資料分析？
+
+* [Microsoft Azure Powershell](/powershell/azure/overview) - 在指令碼語言中用來管理 Azure 資源的指令碼語言
+* [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
+* [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
+* [RStudio](http://www.rstudio.com)
+* [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
+* [Anaconda](https://www.continuum.io/why-anaconda)
+* [Jupyter 筆記本](http://jupyter.org/)
+* [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>識別您的進階分析案例
-一旦回答上一區段中的問題之後，您便已準備好決定哪個案例最符合您的情況。 [Azure 機器學習服務中的進階分析案例](plan-sample-scenarios.md)中概述範例案例。
 
+回答上一區段中的問題之後，您便已準備好決定哪個案例最符合您的情況。 [Azure 機器學習服務中的進階分析案例](plan-sample-scenarios.md)中概述範例案例。
+
+## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+> [何謂 Team Data Science Process (TDSP)？](overview.md)

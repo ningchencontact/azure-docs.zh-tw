@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 6b39d01266cdde0316d1a660429d5ccab546dac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873626"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445452"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>如何使用自訂視覺建置分類器
 
@@ -23,26 +23,28 @@ ms.locfileid: "55873626"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 有效的 [Microsoft 帳戶](https://account.microsoft.com/account)或 Azure Active Directory (AAD) 帳戶 (公司或學校帳戶)。
-
-    > [!IMPORTANT] 
-    > 目前不支援 [Microsoft 國家雲端](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud)的 AAD 使用者登入。
+- 有效的 Azure 訂用帳戶。 免費[建立帳戶](https://azure.microsoft.com/free/)。
 - 一組用來定型分類的影像。 如需選擇影像的秘訣，請參閱下文。
-- 選用：與您的 Microsoft 帳戶或 AAD 帳戶相關聯的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，可在開始之前建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 如果沒有 Azure 訂用帳戶，您將只能建立兩個__有限的試用__專案。
+
+
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>在 Azure 入口網站中建立自訂視覺資源
+若要使用自訂視覺服務，您必須在 [Azure 入口網站](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) 中建立自訂視覺定型和預測資源。 這會建立定型和預測資源。 
 
 ## <a name="create-a-new-project"></a>建立新專案
 
-在網頁瀏覽器中，瀏覽到 [自訂視覺網頁](https://customvision.ai)，並選取 [登入]。
+在網頁瀏覽器中，瀏覽到 [自訂視覺網頁](https://customvision.ai)，並選取 [登入]。 請使用您用來登入 Azure 入口網站的相同帳戶進行登入。
 
 ![[登入] 頁面的影像](./media/browser-home.png)
 
-如果您有 Azure 帳戶，系統將在專案建立期間提示您於 [Azure 入口網站](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)建立自訂視覺服務定型和預測資源。
 
 1. 若要建立第一個專案，請選取 [新增專案]。 [建立新專案] 對話方塊隨即出現。
 
     ![[新增專案] 對話方塊提供名稱、描述和領域的欄位。](./media/getting-started-build-a-classifier/new-project.png)
 
-1. 輸入專案的名稱和描述。 然後選取一個 [資源群組]。 如果您登入的帳戶與 Azure 帳戶相關聯，[資源群組] 下拉式清單會顯示所有的 Azure 資源群組，包括自訂視覺服務資源。 在任一情況下，您也都可以從這個下拉式清單中選取 [有限的試用版]。
+1. 輸入專案的名稱和描述。 然後選取一個 [資源群組]。 如果您登入的帳戶與 Azure 帳戶相關聯，[資源群組] 下拉式清單會顯示所有的 Azure 資源群組，包括自訂視覺服務資源。 
+
+> [!NOTE]
+> 如果沒有資源群組可用，請確認您已使用您用來登入 [Azure 入口網站](https://portal.azure.com/)的相同帳戶來登入 [customvision.ai](https://customvision.ai)。 此外，請確認您所選取的自訂視覺入口網站「目錄」，與 Azure 入口網站中的目錄相同，也就是您自訂視覺資源的位置。 在這兩個網站中，您可以從畫面右上角的下拉式帳戶功能表中選取您的目錄。 
 
 1. 選取 [專案類型] 下的 [分類]。 然後，在 [分類類型] 下，端視您的使用案例而定，選擇 [多標籤] 或 [多類別]。 多標籤分類會將任意數目的標記套用至影像 (零或多個)，而多類別分類會將影像排序成單一類別 (您提交的每個影像將排序到最可能的標記)。 如果您想要，可以稍後變更分類類型。
 
@@ -95,6 +97,11 @@ ms.locfileid: "55873626"
     ![進度列會顯示所有工作都已完成。](./media/getting-started-build-a-classifier/add-images04.png)
 
 若要上傳另一組影像，請返回本小節的最上端並重複進行步驟。 在專案中的某個時間點，您可能需要新增_負向範例_，協助分類器更精確。 負向範例是不符合其他任何標記的範例。 您上傳這些影像時，將特別的 [負向] 標籤套用於影像。
+
+> [!NOTE]
+> 自訂視覺服務支援某些自動處理負片的功能。 例如，如果您正在建置葡萄與香蕉的分類器，並送出了一隻鞋子的影像進行預測，則分類器應該會針對葡萄與香蕉，將該影像評分為接近 0%。
+
+> 反過來說，如果負類影像只是用來定型之影像的變化，由於相似度極高，模型很可能會將負類影像分類為標記的類別。 例如，如果有一個柳橙與葡萄柚分類器，但您饋送小柑橘的影像，它可能會將小柑橘評分為柳橙，因為小柑橘有許多和柳橙類似的特徵。 如果是這類負類影像，建議您另外建立一或多個額外標記 (例如「其他」)，並在定型期間以此標記來標示負類影像，使模型能更適當區分這些類別。
 
 ## <a name="train-the-classifier"></a>為分類器定型
 

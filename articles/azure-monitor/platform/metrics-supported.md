@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473821"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408862"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 Azure 監視器提供數種與計量進行互動的方式，包括在入口網站中製作計量圖表、透過 REST API 存取計量，或使用 PowerShell 或 CLI 查詢計量。 以下是目前可供 Azure 監視器計量管線使用的所有計量完整清單。 其他計量可在入口網站中或使用舊版 API 提供。 下列清單只包含使用彙總 Azure 監視器計量管線時可供使用的計量。 若要查詢及存取這些計量，請使用 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -652,14 +652,52 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|計量|計量顯示名稱|單位|彙總類型|說明|維度|
-|---|---|---|---|---|---|
-|MetadataRequests|中繼資料要求|Count|Count|中繼資料要求計數。 Cosmos DB 會維護每個帳戶的系統中繼資料集合，可讓您免費列舉集合、資料庫等及其設定。|DatabaseName、CollectionName、Region、StatusCode|
-|MongoRequestCharge|Mongo 要求收費|Count|總計|已使用的 Mongo 要求單位|DatabaseName、CollectionName、Region、CommandName、ErrorCode|
-|MongoRequests|Mongo 要求|Count|Count|已提出的 Mongo 要求數目|DatabaseName、CollectionName、Region、CommandName、ErrorCode|
-|TotalRequestUnits|要求單位總計|Count|總計|已使用的要求單位|DatabaseName、CollectionName、Region、StatusCode|
-|TotalRequests|要求總數|Count|Count|進行的要求數目|DatabaseName、CollectionName、Region、StatusCode|
+### <a name="request-metrics"></a>要求計量
 
+|計量|計量顯示名稱|單位|彙總類型|說明|維度| 時間資料粒度| 舊版計量對應 | 使用量 |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |   要求總數| Count   | Count | 進行的要求數目|  DatabaseName、CollectionName、Region、StatusCode|   全部 |   TotalRequests、Http 2xx、Http 3xx、Http 400、Http 401、內部伺服器錯誤、可用的服務、已節流的要求、平均每秒鐘要求數 |    用於監視各狀態碼的要求數、分鐘資料粒度的集合。 若要取得平均每秒要求數，請使用每分鐘 Count 彙總並除以 60。 |
+| MetadataRequests |    中繼資料要求   |Count| Count   | 中繼資料要求計數。 Azure Cosmos DB 會維護每個帳戶的系統中繼資料集合，可讓您免費列舉集合、資料庫等及其設定。    | DatabaseName、CollectionName、Region、StatusCode| 全部|  |用來依中繼資料要求而監視節流。|
+| MongoRequests |   Mongo 要求| Count | Count|  已提出的 Mongo 要求數目   | DatabaseName、CollectionName、Region、CommandName、ErrorCode| 全部 |Mongo 查詢要求率、Mongo 更新要求率、Mongo 刪除要求率、Mongo 插入要求率，Mongo 計數要求速率|   用於監視 Mongo 要求錯誤、各命令類型的使用量。 |
+
+
+### <a name="request-unit-metrics"></a>要求單位計量
+
+|計量|計量顯示名稱|單位|彙總類型|說明|維度| 時間資料粒度| 舊版計量對應 | 使用量 |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|   Mongo 要求收費 |  Count   |總計  |已使用的 Mongo 要求單位|  DatabaseName、CollectionName、Region、CommandName、ErrorCode|   全部 |Mongo 查詢要求費用、Mongo 更新要求費用、Mongo 刪除要求費用、Mongo 插入要求費用，Mongo 計數要求費用| 用來監視在一分鐘內的 Mongo 資源 RU。|
+| TotalRequestUnits |要求單位總計|   Count|  總計|  已使用的要求單位| DatabaseName、CollectionName、Region、StatusCode    |全部|   TotalRequestUnits|  用來監視每分鐘資料粒度的總 RU 使用量。 若要取得平均每秒耗用的 RU，請使用每分鐘 Total 彙總並除以 60。|
+| ProvisionedThroughput |佈建的輸送量|    Count|  最大值 |於集合資料粒度所佈建的輸送量|  DatabaseName、CollectionName|   5M| |   用於監視各集合所佈建的輸送量。|
+
+### <a name="storage-metrics"></a>儲存體度量
+
+|計量|計量顯示名稱|單位|彙總類型|說明|維度| 時間資料粒度| 舊版計量對應 | 使用量 |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage| 可用的儲存體   |位元組| 總計|  各區域每 5 分鐘資料粒度報告的總可用儲存體|   DatabaseName、CollectionName、Region|   5M| 可用的儲存體|   用於監視可用的儲存體容量 (僅適用於固定的儲存體集合) 最小資料粒度應為 5 分鐘。| 
+| DataUsage |資料使用量 |位元組| 總計   |各區域每 5 分鐘資料粒度報告的總資料使用量|    DatabaseName、CollectionName、Region|   5M  |資料大小  | 用來監視在集合和區域的總資料使用方式，最小資料粒度應為 5 分鐘。|
+| IndexUsage|   索引使用量|    位元組|  總計   |各區域每 5 分鐘資料粒度報告的總索引使用量|    DatabaseName、CollectionName、Region|   5M| 索引大小| 用來監視在集合和區域的總資料使用方式，最小資料粒度應為 5 分鐘。 |
+| DocumentQuota|    文件配額| 位元組|  總計|  各區域每 5 分鐘資料粒度報告的總儲存體配額。 適用於 f| DatabaseName、CollectionName、Region|   5M  |儲存體容量|  用來監視在集合和區域的總配額，最小資料粒度應為 5 分鐘。|
+| DocumentCount|    文件計數| Count   |總計  |各區域每 5 分鐘資料粒度報告的總文件計數|  DatabaseName、CollectionName、Region|   5M  |文件計數|用來監視在集合和區域的文件計數，最小資料粒度應為 5 分鐘。|
+
+### <a name="latency-metrics"></a>延遲計量
+
+|計量|計量顯示名稱|單位|彙總類型|說明|維度| 時間資料粒度| 使用量 |
+|---|---|---|---|---|---| ---| ---| ---|
+| ReplicationLatency    | 複寫延遲|  毫秒|   Minimum、Maximum、Average | 異地複寫啟用的帳戶其跨來源和目標區域的 P99 複寫延遲| SourceRegion、TargetRegion| 全部 | 用來監視異地複寫的帳戶其任兩個區域之間的 P99 複寫延遲。 |
+
+### <a name="availability-metrics"></a>可用性度量
+
+|計量|計量顯示名稱|單位|彙總類型|說明|維度| 時間資料粒度| 舊版計量對應 | 使用量 |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability   | 服務可用性| 百分比 |Minimum、Maximum|   一小時資料粒度的帳戶要求可用性|  |   1H  | 服務可用性  | 這是總傳入要求的百分比。 如果狀態碼為 410、500 或 503，則要求會因為系統錯誤而視為失敗。用於以小時資料粒度監視帳戶的可用性。 |
+
+### <a name="cassandra-api-metrics"></a>Cassandra API 計量
+
+|計量|計量顯示名稱|單位|彙總類型|說明|維度| 時間資料粒度| 使用量 |
+|---|---|---|---|---|---| ---| ---| ---|
+| CassandraRequests | Cassandra 要求 |  Count|  Count|  已提出的 Cassandra API 要求數目|  DatabaseName、CollectionName、ErrorCode、Region、OperationType、ResourceType|   全部| 用於監視每分鐘資料粒度的 Cassandra 要求數。 若要取得平均每秒要求數，請使用每分鐘 Count 彙總並除以 60。|
+| CassandraRequestCharges|  Cassandra 要求費用| Count|   Sum、Min、Max、Avg| Cassandra API 要求所耗用的要求單位|   DatabaseName、CollectionName、Region、OperationType、ResourceType|  全部| 用來監視 Cassandra API 帳戶每分鐘所使用的 RU 數。|
+| CassandraConnectionClosures   | Cassandra 連線終止 |Count| Count   |已終止的 Cassandra 連線數目|    ClosureReason、Region|  全部 | 用於監視用戶端與 Azure Cosmos DB Cassandra API 之間的連線。|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
