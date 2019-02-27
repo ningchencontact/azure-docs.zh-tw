@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077466"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313478"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -35,6 +35,7 @@ ms.locfileid: "54077466"
 
 * 若要將容器群組部署至子網路，該子網路不能包含任何其他資源類型。 在將容器群組部署至子網路之前，請先將所有現有資源從現有的子網路移除，或是建立新的子網路。
 * 部署至虛擬網路的容器群組目前不支援公用 IP 位址或 DNS 名稱標籤。
+* 您無法在已部署至虛擬網路的容器群組中使用[受控識別](container-instances-managed-identity.md)。
 * 由於涉及其他網路資源，將容器群組部署至虛擬網路的速度通常會比部署標準容器執行個體要慢一些。
 
 ## <a name="preview-limitations"></a>預覽限制
@@ -45,9 +46,9 @@ ms.locfileid: "54077466"
 
 | 位置 | 作業系統 | CPU | 記憶體 (GB) |
 | -------- | :---: | :---: | :-----------: |
-| 西歐 | Linux | 4 | 14 |
-| 美國東部、美國西部 | Linux | 2 | 3.5 |
-| 澳大利亞東部、北歐 | Linux | 1 | 1.5 |
+| 西歐 |  Linux | 4 | 14 |
+| 美國東部、美國西部 |  Linux | 2 | 3.5 |
+| 澳大利亞東部、北歐 |  Linux | 1 | 1.5 |
 
 容器資源限制會隨著這些區域中非網路的容器執行個體其限制不同而異。 目前僅支援 Linux 容器的這項功能。 已計劃支援 Windows。
 

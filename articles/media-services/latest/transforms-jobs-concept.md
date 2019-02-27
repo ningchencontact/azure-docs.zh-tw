@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: e84f74fe4678a65a33c9cc728f290e7c905b2261
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d621afd682e6040179777f4cd6d991ff31acb5a3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743730"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445486"
 ---
 # <a name="transforms-and-jobs"></a>轉換與工作
  
@@ -27,6 +27,10 @@ ms.locfileid: "55743730"
 [作業](https://docs.microsoft.com/rest/api/media/jobs)是要媒體服務將已建立的**轉換**套用至指定輸入視訊或音訊內容的實際要求。 一旦建立轉換，您就可以使用媒體服務 API 或使用任何已發佈的 SDK 提交作業。 **作業**會指定輸入影片的位置、輸出的位置等資訊。 您可以使用下列項目指定輸入影片的位置：HTTPS URL、SAS URL 或[資產](https://docs.microsoft.com/rest/api/media/assets)。 您可以透過事件格線的監視事件取得作業的進度和狀態。 如需詳細資料，請參閱[使用事件格線監視事件](job-state-events-cli-how-to.md)。
 
 [作業](https://docs.microsoft.com/rest/api/media/jobs)實體上的更新作業可用於修改「描述」，以及修改作業提交後的「優先順序」屬性。 只有在作業仍處於排入佇列的狀態時，才能有效變更「優先順序」屬性。 如果作業已開始處理，或已經處理完成，則變更優先順序不會有任何作用。
+
+下列圖表顯示轉換/作業工作流程。
+
+![轉換](./media/encoding/transforms-jobs.png)
 
 > [!NOTE]
 > 屬於日期時間類型的**轉換**和**作業**屬性一律為 UTC 格式。
@@ -49,10 +53,21 @@ ms.locfileid: "55743730"
 
 **轉換**可協助您建立一次配方 (步驟 1)，並使用該配方提交作業 (步驟 2)。
 
+## <a name="job-error-codes"></a>作業錯誤碼
+
+請參閱[錯誤碼](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode) \(英文\)。
+
 ## <a name="paging"></a>分頁
 
 請參閱[媒體服務實體的篩選、排序、分頁](entities-overview.md)。
 
+## <a name="configure-media-reserved-units"></a>設定媒體保留單位
+
+針對由媒體服務 v3 或影片索引子觸發的音訊分析和影片分析作業，強烈建議您使用 10 個 S3 媒體保留單位 (MRU) 佈建帳戶。 如果您需要 10 個以上的 S3 MRU，請使用 [Azure 入口網站](https://portal.azure.com/)開立支援票證。
+
+如需詳細資訊，請參閱[使用 CLI 調整媒體處理的規模](media-reserved-units-cli-how-to.md)。
+
 ## <a name="next-steps"></a>後續步驟
 
-[上傳、編碼和串流影片檔案](stream-files-tutorial-with-api.md)
+- [教學課程：使用 .NET 上傳、編碼和串流影片](stream-files-tutorial-with-api.md)
+- [教學課程：透過媒體服務 v3 使用 .NET 分析影片](analyze-videos-tutorial-with-api.md)

@@ -7,34 +7,34 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230589"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455988"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中啟用並檢閱 Kubernetes 主要節點記錄
 
-使用 Azure Kubernetes Service (AKS) 時，*kube-apiserver* 和 *kube-controller-manager* 等主要元件是以受控服務的形式提供。 您會建立並管理執行 *kubelet* 和容器執行階段的節點，並透過受控 Kubernetes API 伺服器部署應用程式。 為了協助對應用程式和服務進行疑難排解，您可能需要檢視由這些主要元件所產生的記錄。 本文會示範如何使用 Azure Log Analytics 來啟用和查詢來自 Kubernetes 主要元件的記錄。
+使用 Azure Kubernetes Service (AKS) 時，*kube-apiserver* 和 *kube-controller-manager* 等主要元件是以受控服務的形式提供。 您會建立並管理執行 *kubelet* 和容器執行階段的節點，並透過受控 Kubernetes API 伺服器部署應用程式。 為了協助對應用程式和服務進行疑難排解，您可能需要檢視由這些主要元件所產生的記錄。 本文會示範如何使用 Azure 監視器記錄來啟用和查詢來自 Kubernetes 主要元件的記錄。
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文需要您的 Azure 帳戶中有正在執行的現有 AKS 叢集。 若您沒有 AKS 叢集，請使用 [Azure CLI][cli-quickstart] 或 [Azure 入口網站][portal-quickstart]建立一個。 Log Analytics 可同時搭配已啟用 RBAC 和未啟用 RBAC 的 AKS 叢集運作。
+本文需要您的 Azure 帳戶中有正在執行的現有 AKS 叢集。 若您沒有 AKS 叢集，請使用 [Azure CLI][cli-quickstart] 或 [Azure 入口網站][portal-quickstart]建立一個。 Azure 監視器記錄可同時搭配已啟用 RBAC 和未啟用 RBAC 的 AKS 叢集運作。
 
 ## <a name="enable-diagnostics-logs"></a>啟用診斷記錄
 
-為了協助從多個來源收集並檢閱資料，Log Analytics 提供能針對您的環境提供見解的查詢語言和分析引擎。 工作區可用來收集並分析資料，並可與其他 Azure 服務 (例如 Application Insights 和資訊安全中心) 整合。 若要使用不同的平台來分析記錄，您可以選擇將診斷記錄傳送至 Azure 儲存體帳戶或事件中樞。 如需詳細資訊，請參閱[什麼是 Azure Log Analytics？][log-analytics-overview]。
+為了協助從多個來源收集並檢閱資料，Azure 監視器記錄提供能針對您的環境提供見解的查詢語言和分析引擎。 工作區可用來收集並分析資料，並可與其他 Azure 服務 (例如 Application Insights 和資訊安全中心) 整合。 若要使用不同的平台來分析記錄，您可以選擇將診斷記錄傳送至 Azure 儲存體帳戶或事件中樞。 如需詳細資訊，請參閱[何謂 Azure 監視器記錄][log-analytics-overview]。
 
-Log Analytics 的啟用和管理是在 Azure 入口網站中進行。 若要在 AKS 叢集中啟用 Kubernetes 主要元件的記錄收集，請在網頁瀏覽器中開啟 Azure 入口網站並完成下列步驟：
+Azure 監視器記錄的啟用和管理是在 Azure 入口網站中進行。 若要在 AKS 叢集中啟用 Kubernetes 主要元件的記錄收集，請在網頁瀏覽器中開啟 Azure 入口網站並完成下列步驟：
 
 1. 選取適用於您 AKS 叢集的資源群組，例如 *myResourceGroup*。 請勿選取包含個別 AKS 叢集資源的資源群組，例如 *MC_myResourceGroup_myAKSCluster_eastus*。
 1. 選擇左邊的 [診斷設定]。
 1. 選取您的 AKS 叢集 (例如 *myAKSCluster*)，然後選擇 [開啟診斷]。
-1. 輸入名稱 (例如 myAKSClusterLogs)，然後選取 [傳送至 Log Analytics] 選項。
-    * 選擇要 [設定] Log Analytics，然後選取現有工作區或 [建立新工作區]。
+1. 輸入名稱 (例如 *myAKSClusterLogs*)，然後選取 [傳送至 Log Analytics 工作區] 選項。
+    * 選擇要 [設定] Log Analytics 工作區，然後選取現有工作區或 [建立新工作區]。
     * 若您需要建立工作區，請提供名稱、資源群組和位置。
-1. 在可用的記錄清單中，選取想要啟用的記錄。 預設會啟用 kube-apiserver、kube-controller-manager 和 kube-scheduler 記錄。 您可以啟用其他記錄，例如 kube-audit 和 cluster-autoscaler。 您可以在啟用 Log Analytics 之後返回這裡並變更收集的記錄。
+1. 在可用的記錄清單中，選取想要啟用的記錄。 預設會啟用 kube-apiserver、kube-controller-manager 和 kube-scheduler 記錄。 您可以啟用其他記錄，例如 kube-audit 和 cluster-autoscaler。 您可以在啟用 Log Analytics 工作區之後返回這裡並變更收集的記錄。
 1. 準備好後，請選取 [儲存] 以啟用所選取記錄的收集。
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Log Analytics 的啟用和管理是在 Azure 入口網站中進行。 若要在 
 
 下列範例入口網站螢幕擷取畫面顯示 [診斷設定] 視窗，以及建立 Log Analytics 工作區的選項：
 
-![針對 AKS 叢集的 Log Analytics 啟用 Log Analytics 工作區](media/view-master-logs/enable-oms-log-analytics.png)
+![針對 AKS 叢集的 Azure 監視器記錄啟用 Log Analytics 工作區](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>在 AKS 叢集上對測試 Pod 進行排程
 

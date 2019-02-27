@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109312"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428632"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 叢集安全性案例
 Azure Service Fabric 叢集是您擁有的資源。 保護叢集是您的責任，從而協助避免未經授權的使用者與它們連線。 在叢集上執行生產工作負載時，安全的叢集尤其重要。 雖然可以建立不安全的叢集，但如果叢集向公用網際網路公開管理端點，匿名使用者就可以連線叢集。 不支援將不安全的叢集用作生產工作負載。 
@@ -73,7 +73,12 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 針對在 Azure 上執行的叢集，您也可以使用 Azure Active Directory (Azure AD) 來保護對管理端點的存取。 若要了解如何建立所需的 Azure AD 構件，以及如何在建立叢集時填入這些購件，請參閱[設定 Azure AD 來驗證用戶端](service-fabric-cluster-creation-setup-aad.md)。
 
 ## <a name="security-recommendations"></a>安全性建議
-對於 Azure 叢集，建議您針對節點對節點安全性使用 Azure AD 安全性來驗證用戶端和憑證。
+對於部署在裝載於 Azure 上之公用網路中的 Service Fabric 叢集，我們建議從用戶端到節點的相互驗證應採用：
+*   使用 Azure Active Directory 進行用戶端識別
+*   以憑證進行伺服器識別，並且對 HTTP 通訊使用 SSL 加密
+
+對於部署在裝載於 Azure 上之公用網路中的 Service Fabric 叢集，我們建議節點對節點安全性應使用叢集憑證來驗證節點。 
+
 
 對於獨立 Windows Server 叢集，如果您有 Windows Server 2012 R2 和 Windows Active Directory，建議您使用 Windows 安全性與群組受控服務帳戶。 否則，使用 Windows 安全性與 Windows 帳戶。
 

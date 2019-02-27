@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bb3c2a9cfc1bccf4656be83c6babbe9c7ec139fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745345"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329843"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SAP Business One
 本文提供在 Azure 虛擬機器上部署 SAP Business One 的指引。 本文無法取代 SAP Business One 的安裝文件。 本文應涵蓋在 Azure 基礎結構上執行 Business One 應用程式的基本規劃與部署指引。
@@ -119,7 +119,7 @@ SQL Server 與 SAP HANA 均為可用的資料庫類型。 雖與 DBMS 無關，�
 
 基本上，您應該：
 
-- 使用 [Azure 進階儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)，而不是 [Azure 標準儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
+- 優先使用進階 SSD 來取代標準 HDD。 若要深入了解可用的磁碟類型，請參閱[選取磁碟類型](../../windows/disks-types.md)一文
 - 使用 Azure 受控磁碟，而不是非受控磁碟
 - 確定磁碟設定中設定了充足的 IOPS 與 I/O 輸送量
 - 合併 /hana/data 與 /hana/log 磁碟區，以便有高成本效益的儲存體設定
@@ -138,7 +138,6 @@ SQL Server 的 DBMS 端粗略估算如下：
 | 最多 150 人 | 32 | 128 GB | D32s_v3、E32s_v3 |
 
 由以上所列的大小，應可大致了解要從哪裡開始著手。 不論您需要較少或較多的資源，都可在 Azure 上輕鬆進行調整。 只要重新啟動 VM，即可在 VM 類型之間進行變更。
-
 
 #### <a name="sap-hana-as-dbms"></a>SAP HANA 作為 DBMS
 使用 SAP HANA 作為 DBMS 時，您應在下列各節遵循 [Azure 上的 SAP Hana 作業指南](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)一文中的考量。

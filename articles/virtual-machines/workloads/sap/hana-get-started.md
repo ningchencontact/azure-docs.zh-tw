@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976897"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328706"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>快速入門：在 Azure VM 上手動安裝單一執行個體 SAP HANA
 ## <a name="introduction"></a>簡介
@@ -195,7 +195,7 @@ Azure 上 Linux VM 中的根目錄檔案系統有大小限制。 因此，必須
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-在建議的磁碟組態中，HANA 資料磁碟區和記錄磁碟區會放在相同的 Azure 進階儲存體磁碟中，而此種磁碟會與 LVM 或 MDADM 等量。 不需要定義任何 RAID 備援層級，因為 Azure 進階儲存體基於備援會保留磁碟的三個映像。 若要確定您設定足夠的儲存體，請參閱 [SAP HANA TDI 儲存體需求](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)和 [SAP HANA Server 安裝與更新指南](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm)。 也請考慮不同的 Azure 進階儲存體磁碟的不同虛擬硬碟 (VHD) 輸送量，如 [VM 高效能進階儲存體與受控磁碟](https://docs.microsoft.com/azure/storage/storage-premium-storage)中所述。 
+在建議的磁碟組態中，HANA 資料磁碟區和記錄磁碟區會放在相同的 Azure 進階儲存體磁碟中，而此種磁碟會與 LVM 或 MDADM 等量。 不需要定義任何 RAID 備援層級，因為 Azure 進階儲存體基於備援會保留磁碟的三個映像。 若要確定您設定足夠的儲存體，請參閱 [SAP HANA TDI 儲存體需求](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)和 [SAP HANA Server 安裝與更新指南](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm)。 也請考慮不同的 Azure 進階儲存體磁碟的不同虛擬硬碟 (VHD) 輸送量，如 [VM 高效能進階儲存體與受控磁碟](../../windows/disks-types.md)中所述。 
 
 您可以將額外的進階儲存體磁碟新增至 HANA DBMS VM，用於儲存資料庫或交易記錄備份。
 
@@ -206,9 +206,7 @@ Azure 上 Linux VM 中的根目錄檔案系統有大小限制。 因此，必須
 
 針對將磁碟連結至執行 Linux 客體 OS 的 Azure VM，如需詳細資訊請參閱[將磁碟新增至 Linux VM](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-Azure 進階儲存體可讓您定義磁碟快取模式。 針對存放 /hana/data 和 /hana/log 的等量集，應停用磁碟快取。 針對其他磁碟區 (磁碟)，快取模式應設為**唯讀**。
-
-如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../windows/premium-storage.md)。
+Azure 進階 SSD 可讓您定義磁碟快取模式。 針對存放 /hana/data 和 /hana/log 的等量集，應停用磁碟快取。 針對其他磁碟區 (磁碟)，快取模式應設為**唯讀**。
 
 若要尋找用於建立 VM 的範例 JSON 範本，請移至 [Azure 快速入門範本 (英文)](https://github.com/Azure/azure-quickstart-templates)。
 vm-simple-sles 範本是基本的範本。 它包含儲存體區段與其他 100 GB 的資料磁碟。 此範本可用來當做基底。 您可以針對特定的組態採用範本。

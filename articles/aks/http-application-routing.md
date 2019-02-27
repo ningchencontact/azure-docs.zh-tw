@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742383"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312272"
 ---
 # <a name="http-application-routing"></a>HTTP 應用程式路由
 
@@ -38,6 +38,9 @@ HTTP 應用程式路由解決方案可讓您輕鬆存取已部署至 Azure Kuber
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
+
+> [!TIP]
+> 如果您想要啟用多個附加元件，請以逗號分隔的清單來提供它們。 例如，若要啟用 HTTP 應用程式路由和監視，請使用格式 `--enable-addons http_application_routing,monitoring`。
 
 您也可以使用 [az aks enable-addons][az-aks-enable-addons] 命令，在現有 AKS 叢集上啟用 HTTP 路由。 若要在現有叢集上啟用 HTTP 路由，請新增 `--addons` 參數並指定 *http_application_routing*，如下列範例所示：
 

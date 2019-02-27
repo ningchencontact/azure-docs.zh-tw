@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217160"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453132"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用適用於 SQL 驗證的 Azure Active Directory Authentication
 
@@ -101,16 +101,16 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 ### <a name="manage-instances"></a>管理執行個體
 
-- 支援 Azure AD 登入和使用者作為[受控執行個體](sql-database-managed-instance.md)的預覽功能。
-- 設定對應至 Azure AD 群組的 Azure AD 登入，因為[受控執行個體](sql-database-managed-instance.md)不支援資料庫擁有者。
+- Azure AD 伺服器主體 (登入) 和使用者都以[受控執行個體](sql-database-managed-instance.md)預覽功能的形式受到支援。
+- 設定對應至 Azure AD 群組的 Azure AD 伺服器主體 (登入)，因為[受控執行個體](sql-database-managed-instance.md)不支援資料庫擁有者。
     - 其擴充功能是當群組新增為 `dbcreator` 伺服器角色的一部分時，此群組中的使用者可以連線到受控執行個體並建立新的資料庫，但將無法存取資料庫。 這是因為新的資料庫擁有者是 SA，而不是 Azure AD 使用者。 如果將個別使用者新增至 `dbcreator` 伺服器角色，則不會顯示這個問題。
-- Azure AD 登入支援 SQL 代理程式管理和作業執行功能。
-- Azure AD 登入可以執行資料庫備份和還原作業。
-- 支援稽核與 Azure AD 登入和驗證事件相關的所有陳述式。
-- 屬於 sysadmin 伺服器角色成員的 Azure AD 登入支援專用管理員連線。
+- Azure AD 伺服器主體 (登入) 支援 SQL 代理程式管理和作業執行功能。
+- Azure AD 伺服器主體 (登入) 可以執行資料庫備份和還原作業。
+- 支援稽核與 Azure AD 伺服器主體 (登入) 和驗證事件相關的所有陳述式。
+- 屬於 sysadmin 伺服器角色成員的 Azure AD 伺服器主體 (登入) 支援專用管理員連線。
     - 透過 SQLCMD 公用程式和 SQL Server Management Studio 支援。
-- 來自 Azure AD 登入的登入事件支援登入觸發程序。
-- Service Broker 和 DB 電子郵件可使用 Azure AD 登入來設定。
+- 來自 Azure AD 伺服器主體 (登入) 的登入事件支援登入觸發程序。
+- Service Broker 和 DB 電子郵件可使用 Azure AD 伺服器主體 (登入) 來設定。
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>使用 Azure AD 身分識別連接
@@ -121,7 +121,7 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 - 使用 Azure AD 主體名稱和密碼
 - 使用應用程式權杖驗證
 
-Azure AD 登入 (**公開預覽**) 支援下列驗證方法：
+Azure AD 伺服器主體 (登入) (**公開預覽**) 支援下列驗證方法：
 
 - Azure Active Directory 密碼
 - Azure Active Directory 整合式
@@ -133,7 +133,7 @@ Azure AD 登入 (**公開預覽**) 支援下列驗證方法：
 
 - 若要增強管理性，建議您以系統管理員身分佈建專用的 Azure AD 群組。   
 - 一個 Azure SQL Database 伺服器或 Azure SQL 資料倉儲一律只能設定一個 Azure AD 系統管理員 (使用者或群組)。
-  - 新增受控執行個體的 Azure AD 登入 (**公開預覽**) 可能會建立可新增至 `sysadmin` 角色的多個 Azure AD 登入。
+  - Azure AD 伺服器主體 (登入) 新增到受控執行個體 (**公開預覽**) 之後，就能建立可以加入 `sysadmin` 角色的多個 Azure AD 伺服器主體 (登入)。
 - 只有 SQL Server 的 Azure AD 系統管理員可以一開始就使用 Azure Active Directory 帳戶來連線到 Azure SQL Database 伺服器、「受控執行個體」或「Azure SQL 資料倉儲」。 Active Directory 系統管理員可以設定後續的 Azure AD 資料庫使用者。   
 - 建議將連接逾時設定為 30 秒。   
 - SQL Server 2016 Management Studio 和 SQL Server Data Tools for Visual Studio 2015 (版本 14.0.60311.1 (2016 年 4 月) 或更新版本) 支援 Azure Active Directory 驗證。 (**.NET Framework Data Provider for SqlServer** 支援 Azure AD 驗證，最低版本 .NET Framework 4.6)。 因此，這些工具和資料層應用程式 (DAC 和 .BACPAC) 的最新版本可以使用 Azure AD 驗證。   
@@ -147,12 +147,12 @@ Azure AD 登入 (**公開預覽**) 支援下列驗證方法：
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解如何建立和填入 Azure AD，然後搭配 Azure SQL Database 或「Azure SQL 資料倉儲」來設定 Azure AD，請參閱[搭配 SQL Database、受控執行個體或 SQL 資料倉儲來設定及管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)。
-- 如需使用 Azure AD 登入搭配受控執行個體的教學課程，請參閱[使用 Azure AD 登入搭配受控執行個體](sql-database-managed-instance-aad-security-tutorial.md)
+- 如需搭配使用 Azure AD 伺服器主體 (登入) 與受控執行個體的教學課程，請參閱 [Azure AD 伺服器主體 (登入) 與受控執行個體](sql-database-managed-instance-aad-security-tutorial.md)
 - 如需 SQL Database 中存取權和控制權的概觀，請參閱 [SQL Database 的存取權和控制權](sql-database-control-access.md)。
 - 如需 SQL Database 中登入、使用者和資料庫角色的概觀，請參閱[登入、使用者和資料庫角色](sql-database-manage-logins.md)。
 - 如需資料庫主體的詳細資訊，請參閱[主體](https://msdn.microsoft.com/library/ms181127.aspx)。
 - 如需資料庫角色的詳細資訊，請參閱[資料庫角色](https://msdn.microsoft.com/library/ms189121.aspx)。
-- 如需針對受控執行個體建立 Azure AD 登入的語法，請參閱 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)。
+- 如需建立適用於受控執行個體之 Azure AD 伺服器主體 (登入) 的語法，請參閱 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)。
 - 如需 SQL Database 中防火牆規則的詳細資訊，請參閱 [SQL Database 防火牆規則](sql-database-firewall-configure.md)。
 
 <!--Image references-->

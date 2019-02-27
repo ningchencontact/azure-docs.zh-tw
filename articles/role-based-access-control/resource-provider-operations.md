@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 71ede3d6eb35935e3fec32e8fd4bb71d6c698486
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5b9c0a71c8b01810474e4936fdd4a0852baf0ed7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697036"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343148"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -5689,5 +5689,5 @@ ms.locfileid: "55697036"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [自訂角色](custom-roles.md)
-- [內建角色](built-in-roles.md)
+- [適用於 Azure 資源的自訂角色](custom-roles.md)
+- [適用於 Azure 資源的內建角色](built-in-roles.md)

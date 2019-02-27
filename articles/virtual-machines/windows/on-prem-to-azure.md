@@ -3,8 +3,8 @@ title: 從 AWS 和其他平台移轉至 Azure 中的受控磁碟 | Microsoft Doc
 description: 在 Azure 中使用從其他雲端 (如 AWS) 或其他虛擬化平台上傳的 VHD 建立 VM，並充分利用 Azure 受控磁碟。
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2017
-ms.author: cynthn
+ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83e69cd488ab7e8b69895a25716350c8025c6c48
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 05e687ab31b6c19193076033e1350952549d26e0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074898"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330744"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>從 Amazon Web Services (AWS) 和其他平台移轉至 Azure 中的受控磁碟
 
@@ -46,11 +46,8 @@ ms.locfileid: "54074898"
 
 ## <a name="overview-of-managed-disks"></a>受控磁碟概觀
 
-Azure 受控磁碟可免除管理儲存體帳戶的需求，進而簡化 VM 管理。 受控磁碟也受惠於可用性設定組中更佳的 VM 可靠性。 它可確保可用性設定組中不同 VM 的磁碟會確實地和彼此隔離，以避免發生單一失敗點。 它會自動以不同的儲存體縮放單位 (戳記) 將不同 VM 的磁碟放在一個可用性設定組中，以限制硬體和軟體失敗所引起之單一儲存體縮放單位失敗的影響。 根據您的需求，您可選擇兩種類型的儲存體選項︰ 
- 
-- [進階受控磁碟](premium-storage.md)是固態硬碟 (SSD) 式儲存媒體，可針對執行大量 I/O 工作負載的虛擬機器，提供高效能、低延遲的磁碟支援。 您可以將這類磁碟移轉至進階受控磁碟，以利用這類磁碟的速度和效能。  
-
-- [標準受控磁碟](standard-storage.md)使用固態硬碟 (SSD) 式儲存媒體，最適合用於開發/測試及其他較不容易受效能變異影響的不常用工作負載。  
+Azure 受控磁碟可免除管理儲存體帳戶的需求，進而簡化 VM 管理。 受控磁碟也受惠於可用性設定組中更佳的 VM 可靠性。 它可確保可用性設定組中不同 VM 的磁碟會確實地和彼此隔離，以避免發生單一失敗點。 它會自動以不同的儲存體縮放單位 (戳記) 將不同 VM 的磁碟放在一個可用性設定組中，以限制硬體和軟體失敗所引起之單一儲存體縮放單位失敗的影響。
+根據您的需求，您可從四種類型的儲存體選項中選擇︰ 若要了解可用的磁碟類型，請參閱[選取磁碟類型](disks-types.md)一文。
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>規劃移轉至受控磁碟
 

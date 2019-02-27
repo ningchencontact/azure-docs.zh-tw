@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e56cc5a893c5a88a5b64466d6feceb20ccd8cdc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167842"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445537"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>教學課程：設定 Zendesk 來自動佈建使用者
 
@@ -118,7 +118,8 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
     *   在 [網域] 欄位中，填入您的 Zendesk 租用戶子網域。
     範例：針對租用戶 URL 為 https://my-tenant.zendesk.com 的帳戶，您的子網域會是 **my-tenant**。
 
-6. 您的 Zendesk 帳戶的 [秘密權杖] 位於 [網域 > API > 設定]。 
+6. 您的 Zendesk 帳戶的 [秘密權杖] 位於 [網域 > API > 設定]。
+   請確定 [權杖存取] 設為 [已啟用]。
 
     ![Zendesk 佈建](./media/zendesk-provisioning-tutorial/ZenDesk4.png) ![Zendesk 佈建](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
 

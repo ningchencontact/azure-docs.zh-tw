@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300726"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446659"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -26,12 +26,11 @@ ms.locfileid: "55300726"
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>針對每個保存庫註冊的伺服器/電腦具有數目限制嗎？
 每個保存庫可以註冊最多 1000 個 Azure 虛擬機器。 如果您使用的是 Microsoft Azure 備份代理程式，則每個保存庫最多可以註冊 50 個 MAB 代理程式。 而且您可以將 50 部 MAB 伺服器/DPM 伺服器註冊至保存庫。
 
-
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>如果我的組織有一個保存庫，如何在還原資料時，將來自不同伺服器的資料隔離？
 當您設定備份時，要一起復原的伺服器資料應該使用相同的複雜密碼。 如果您只想要復原特定的伺服器，請使用該伺服器專用的複雜密碼。 例如，人力資源伺服器可能使用一組加密複雜密碼，而會計伺服器使用另一組，並且儲存體伺服器使用第三組。
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>我是否可以在訂用帳戶之間移動保存庫？
-沒有。 保存庫是於訂用帳戶層級上建立，且無法重新指派至其他訂用帳戶。
+是。 若要移動復原服務保存庫，請參閱此[文章](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>我是否可以將備份資料移至另一個保存庫？
 沒有。 儲存在保存庫中的備份資料無法移至不同的保存庫。
@@ -40,7 +39,8 @@ ms.locfileid: "55300726"
 沒有。 復原服務保存庫只能在儲存任何備份之前，變更儲存體選項。
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>我是否可以針對備份到「復原服務保存庫」的 VM 執行「項目層級還原」(ILR)？
-否，不支援 ILR。
+- 由 Azure VM 備份所備份的 Azure VM 支援 Azure VM。 如需詳細資訊，請參閱[文章](backup-azure-restore-files-from-vm.md)
+- 由 Azure 備份伺服器或 System Center DPM 所備份的內部部署 VM 線上復原點不支援 ILR。
 
 
 ## <a name="azure-backup-agent"></a>Azure 備份代理程式
@@ -76,10 +76,8 @@ ms.locfileid: "55300726"
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>可以使用 Azure 備份伺服器來為實體伺服器建立裸機復原 (BMR) 備份嗎？ <br/>
 是。
 
-
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>可以使用 DPM 備份 Azure Stack 中的應用程式嗎？
 沒有。 雖然您可以使用 Azure 備份來保護 Azure Stack，但 Azure 備份不支援使用 DPM 來備份 Azure Stack 中的應用程式。
-
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>如果我已安裝「Azure 備份」代理程式來保護檔案和資料夾，是否可以安裝 System Center DPM 將內部部署工作負載備份至 Azure？
 是。 但您應該先安裝 DPM，然後再安裝「Azure 備份」代理程式。  依此順序安裝元件可確保「Azure 備份」代理程式能與 DPM 搭配運作。 不建議或不支援在安裝 DPM 之前先安裝代理程式。
@@ -93,7 +91,6 @@ ms.locfileid: "55300726"
 - 您一天可以備份 Azure VM 一次。
 
 ### <a name="what-operating-systems-are-supported-for-backup"></a>支援使用哪些作業系統來進行備份？
-
 「Azure 備份」支援使用下列作業系統來備份檔案和資料夾，以及受「Azure 備份伺服器」和 DPM 保護的應用程式。
 
 **作業系統**| **SKU** |**詳細資料**
@@ -138,29 +135,23 @@ SharePoint | 所要備份之 SharePoint 伺服陣列中內容和設定資料庫�
 Exchange |所要備份之 Exchange Server 中所有 Exchange 資料庫的總和。
 BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複本。
 
-
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>使用「復原服務保存庫」來備份的資料量是否有限制？
 您可使用「復原服務保存庫」來備份的資料量並無任何限制。
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>如果我在備份作業開始後予以取消，是否會刪除已傳輸的備份資料？
-沒有。 在備份作業取消之前﹐傳輸到保存庫的所有資料均保留於保存庫中。 Azure 備份會使用檢查點機制，在備份期間偶爾將檢查點加入至備份資料。 因為備份資料中有檢查點，所以下一個備份程序才可驗證檔案的完整性。 下一個備份工作將會增量到先前備份的資料。 增量備份只會傳輸新資料或變更的資料，相當於具有較佳的頻寬使用率。
-
-如果您取消 Azure VM 的備份工作，則會忽略任何傳輸的資料。 下一個備份工作會傳輸自最後一個成功備份工作之後的增量資料。
-
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>為何傳輸到「復原服務保存庫」的資料大小會小於所選取要備份的資料？
-
- 從「Azure 備份代理程式」、DPM 或「Azure 備份伺服器」備份的資料會先經過壓縮和加密，再進行傳輸。 在套用壓縮和加密之後，保存庫中的資料會縮小 30-40%。
+從「Azure 備份代理程式」、DPM 或「Azure 備份伺服器」備份的資料會先經過壓縮和加密，再進行傳輸。 在套用壓縮和加密之後，保存庫中的資料會縮小 30-40%。
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>可以從保存庫中的復原點刪除個別的檔案嗎？
 否，Azure 備份不支援從儲存的備份中刪除或清除個別項目。
 
-
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>如果我在備份作業開始後取消作業，是否會刪除已傳輸的備份資料？
-
 沒有。 所有在備份作業取消前傳輸到保存庫的資料都會保留在保存庫中。
+
 - Azure 備份會使用檢查點機制，在備份期間偶爾將檢查點加入至備份資料。
 - 因為備份資料中有檢查點，所以下一個備份程序才可驗證檔案的完整性。
 - 下一個備份工作將會增量到先前備份的資料。 增量備份只會傳輸新資料或變更的資料，相當於具有較佳的頻寬使用率。
+
+如果您取消 Azure VM 的備份工作，則會忽略任何傳輸的資料。 下一個備份工作會傳輸自最後一個成功備份工作之後的增量資料。
 
 ## <a name="retention-and-recovery"></a>保留和復原
 
@@ -177,7 +168,7 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>如果備份保留了很長一段時間，是否需要較多時間才能復原較舊的資料點？ <br/>
-否，復原最舊或最新時間點所需的時間都相同。 每個復原點的功能就像一個完整的復原點。
+否。 復原最舊或最新時間點所需的時間都相同。 每個復原點的功能就像一個完整的復原點。
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>若每個復原點就像一個完整的復原點，則其是否會影響可計費的備份儲存體總數？
 典型的長期保留復原點產品會將備份資料儲存為完整的復原點。
@@ -203,7 +194,7 @@ Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原�
 套用新原則後，就會遵循新原則的排程和保留期。
 
 - 如果延長保留期，會標示現有的復原點，以依據新的原則加以保留。
-- - 如果縮短保留期，則會標示現有的復原點，以便在下次清除作業中剪除然後刪除。
+- 如果縮短保留期，則會標示現有的復原點，以便在下次清除作業中剪除然後刪除。
 
 ## <a name="encryption"></a>加密
 

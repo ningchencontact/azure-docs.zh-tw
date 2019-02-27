@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243411"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428902"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>使用認知服務建置語言理解應用程式的最佳做法
 使用應用程式撰寫程序來建置您的 LUIS 應用程式。 
@@ -77,23 +77,32 @@ ms.locfileid: "56243411"
 * 概念：[撰寫 LUIS 應用程式的循環](luis-concept-app-iteration.md)
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>請務必在稍後的反覆項目中新增片語清單和模式
-[片語清單](luis-concept-feature.md)可讓您定義與應用程式定義域相關的單字字典。 請在您的片語清單中植入一些單字，然後使用建議功能，讓 LUIS 知道您專屬詞彙中的更多單字。 請勿將每個單字都新增到詞彙中，因為片語清單並非完全相符項目。 
+
+最佳做法是在您的應用程式進行測試之前，請勿套用這些做法。 您應該先了解應用程式的運作方式，然後再新增片語清單和模式。 一旦您了解應用程式缺乏上述功能時的運作方式之後，新增每個適用於您應用程式的功能。 您不需要在每次[反覆運算](luis-concept-app-iteration.md)時新增這些功能，也不需要為每個版本變更功能。 
+
+在您的模型設計一開始新增它們並無任何壞處，但是，透過表達測試模型之後，則可更輕鬆地查看每個功能變更結果的方式。 
+
+最佳做法是透過[端點](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)進行測試，以便取得[主動式學習](luis-concept-review-endpoint-utterances.md)的額外好處。 [互動式測試窗格](luis-interactive-test.md)也是一種有效的測試方法。 
+ 
+
+### <a name="phrase-lists"></a>片語清單
+
+[片語清單](luis-concept-feature.md)可讓您定義與應用程式定義域相關的單字字典。 請在您的片語清單中植入一些單字，然後使用建議功能，讓 LUIS 知道您專屬詞彙中的更多單字。 片語清單可透過提升與應用程式重要的單字或片語相關聯的訊號，來改善意圖偵測及實體分類。 
+
+請勿將每個單字都新增到詞彙中，因為片語清單並非完全相符項目。 
+
+其他資訊：
+* 概念：[LUIS 應用程式中的片語清單功能](luis-concept-feature.md)
+* 操作說明：[使用片語清單來提升字組清單訊號](luis-how-to-add-features.md)
+
+### <a name="patterns"></a>模式
 
 來自端點的真實使用者語句彼此非常相似，可能顯露單字選擇和位置的模式。 [模式](luis-concept-patterns.md)功能會搭配規則運算式採用此單字選擇和位置，以改善預測準確性。 模式中的規則運算式可考量您打算忽略的單字和標點符號，同時仍可比對模式。 
 
 請針對標點符號使用模式的[選擇性語法](luis-concept-patterns.md)，以便忽略標點符號。 請使用[明確清單](luis-concept-patterns.md#explicit-lists)來彌補 pattern.any 的語法問題。 
 
-在您的應用程式收到端點要求之前，請勿套用這些做法。 您應該先了解應用程式的運作方式，然後再新增片語清單和模式。 一旦您了解應用程式缺乏上述功能時的運作方式之後，新增每個適用於您應用程式的功能。 
-
-在您的模型設計一開始新增它們並無任何壞處，但是，如果您在將該應用程式與真實流量搭配使用之後新增，則可更輕鬆地查看每個功能變更結果的方式。 
-
-您不需要在每次反覆運算時新增這些功能，也不需要為每個版本變更功能。 
-
 其他資訊：
-* 概念：[撰寫 LUIS 應用程式的循環](luis-concept-app-iteration.md)
-* 概念：[LUIS 應用程式中的片語清單功能](luis-concept-feature.md)
 * 概念：[模式可改善預測精確度](luis-concept-patterns.md)
-* 操作說明：[使用片語清單來提升字組清單訊號](luis-how-to-add-features.md)
 * 操作說明：[如何新增模式以改善預測準確度](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>讓您的語句在所有意圖之間達到平衡

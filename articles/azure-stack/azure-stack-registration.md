@@ -16,16 +16,16 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 36699acab7a10a11ae60c62bab8e5130362ddfc7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 62fde78cce05e62489931868da3d21c8b2e16928
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817252"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430330"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
-向 Azure 註冊 Azure Stack 可讓您從 Azure 下載市集項目，並設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務報告，您可以在註冊所用的訂用帳戶中查看報告。
+向 Azure 註冊 Azure Stack 可讓您從 Azure 下載市集項目，並設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務報告，您可以在註冊所用的 Azure 計費訂用帳戶識別碼下查看報告。
 
 本文中的資訊說明如何向 Azure 註冊 Azure Stack 整合系統。 如需向 Azure 註冊 ASDK 的相關資訊，請參閱 ASDK 文件中的 [Azure Stack 註冊](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register)。
 

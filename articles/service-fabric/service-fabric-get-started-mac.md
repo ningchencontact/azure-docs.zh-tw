@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 6bcf096bd51990cf280784deceac19eea05d32b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dac40e9fad8361c0e6c8a8758028743f2506f56
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977114"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428086"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -53,14 +53,14 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    您可以直接在 Docker 安裝路徑的 daemon.json 檔案中更新這些設定。
+    您可以直接在 Docker 安裝路徑的 daemon.json 檔案中更新這些設定。 您可以直接修改 Docker 中的精靈組態設定。 選取 [Docker 圖示]，然後選取 [喜好設定] > [精靈] > [進階]。
     
     >[!NOTE]
     >
-    >每一台機器上的 daemon.json 檔案位置會各不相同。 例如，~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json。
+    >建議您直接在 Docker 中修改精靈，因為每一台電腦上的 daemon.json 檔案位置會各不相同。 例如，~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json。
     >
-    >建議的方法是直接修改 Docker 中的精靈組態設定。 選取 [Docker 圖示]，然後選取 [喜好設定] > [精靈] > [進階]。
-    >
+
+    >[!TIP]
     >測試大型應用程式時，建議提高配置給 Docker 的資源。 選取 [Docker 圖示]，然後選取 [進階] 來調整核心數目和記憶體，即可完成此作業。
 
 2. 在新目錄中建立一個名為 `Dockerfile` 的檔案，以建置 Service Fabric 映像：
@@ -110,7 +110,7 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. 叢集會在短時間內啟動，您可以使用下列命令來檢視記錄，或跳到儀表板檢視叢集健康情況 [http://localhost:19080](http://localhost:19080)：
+5. 叢集需要一些時間來啟動。 當叢集在執行時，您可以使用下列命令來檢視記錄，或跳到儀表板檢視叢集健康情況 [http://localhost:19080](http://localhost:19080)：
 
     ```bash 
     docker logs sftestcluster
@@ -118,7 +118,7 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
 
 
 
-6. 當您完成時，請使用此命令來停止和清除容器：
+6. 若要停止和清除容器，請使用下列命令。 不過，我們將在下一個步驟使用此容器。
 
     ```bash 
     docker rm -f sftestcluster
@@ -173,6 +173,9 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
     brew cask install java
     brew install gradle
     ```
+
+    >[!TIP]
+    > 請務必確認您已安裝正確的 JDK 版本。 
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>在 Mac 上從終端機部署應用程式
 

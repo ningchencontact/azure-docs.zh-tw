@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd9e9d64849c90d23146b814d2d48a8400d069f0
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863562"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447951"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>從 Bing 語音移轉至語音服務
 
@@ -65,7 +65,7 @@ WebSocket 通訊協定 | :heavy_check_mark: | :heavy_check_mark: | 語音服務 
 
 語音服務 [REST API](rest-apis.md) 可與 Bing 語音 API 相容。 如果您目前使用 Bing 語音 REST API，您只需變更 REST 端點並切換至語音服務訂用帳戶金鑰。
 
-語音服務 WebSocket 通訊協定也與 Bing 語音所使用的通訊協定相容。 我們建議針對新開發使用語音服務 SDK，而非 WebSocket。 將現有程式碼移轉至該 SDK 也是很好的作法。 不過和 REST API 相同，透過 WebSocket 使用 Bing 語音的現有程式碼只需要變更端點並更新金鑰。
+語音服務 WebSocket 通訊協定也與 Bing 語音所使用的通訊協定相容。 我們建議針對新開發使用語音 SDK，而非 WebSocket。 將現有程式碼移轉至該 SDK 也是很好的作法。 不過和 REST API 相同，透過 WebSocket 使用 Bing 語音的現有程式碼只需要變更端點並更新金鑰。
 
 如果您是針對特定程式設計語言使用 Bing 語音用戶端程式庫，基於 API 不同的原因，移轉至[語音 SDK](speech-sdk.md) 會需要對您的應用程式做出變更。 語音 SDK 能簡化您的程式碼，同時讓您存取新的功能。
 

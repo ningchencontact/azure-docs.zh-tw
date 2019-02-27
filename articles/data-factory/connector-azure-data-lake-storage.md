@@ -1,6 +1,6 @@
 ---
-title: 使用 Data Factory (預覽版) 將資料複製到 Azure Data Lake Storage Gen2 預覽版或從該處複製資料 | Microsoft Docs
-description: 了解如何使用 Azure Data Factory 將資料複製到 Azure Data Lake Storage Gen2 預覽版或從該處複製資料。
+title: 使用 Data Factory 從 Azure Data Lake Storage Gen2 來回複製資料 | Microsoft Docs
+description: 了解如何使用 Azure Data Factory 將資料複製到 Azure Data Lake Storage Gen2 或從該處複製資料。
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -8,18 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e8bc85a309a8c6755f1efae1ca702720cf01477
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7a01b4baa9dafba4f0193c7a73dc1ae44214f501
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662293"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311575"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽版) 將資料複製到 Azure Data Lake Storage Gen2 預覽版或從該處複製資料
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen2 來回複製資料
 
-Azure Data Lake Storage Gen2 預覽版是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)。 此功能可讓您使用檔案系統和物件儲存範例連接您的資料。
+Azure Data Lake Storage Gen2 是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)。 此功能可讓您使用檔案系統和物件儲存範例連接您的資料。
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，將資料複製到 Data Lake Storage Gen2 或從該處複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 

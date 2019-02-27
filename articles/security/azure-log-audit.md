@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 51376661530d5de67e0efeacbcfd0d3a56078511
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 492beba1040cef3d5a910cc9db3fe16b41c33cd6
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117947"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301582"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 
@@ -246,7 +246,7 @@ Azure 中的網路記錄和監視功能相當完善，主要涵蓋分類有二�
 
 Application Insights 設計用來協助您持續改善效能和可用性。
 
-它適用於各種不同平台上的應用程式，包括裝載在內部部署或雲端中的 .NET、Node.js 和 J2EE。 它可與您的 DevOps 程序整合，並具有與各種開發工具的連接點。
+它適用於各種不同平台上的應用程式，包括裝載在內部部署或雲端中的 .NET、Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並具有與各種開發工具的連接點。
 
 ![Application Insights 圖表](./media/azure-log-audit/azure-log-audit-fig6.png)
 

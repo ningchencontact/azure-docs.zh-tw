@@ -4,14 +4,14 @@ description: 解說 Azure Migrate 的相關常見問題
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746307"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416185"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -117,6 +117,10 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 收集器設備收集的資料會儲存在您建立移轉專案時所指定的 Azure 位置。 資料會安全地儲存在 Microsoft 訂用帳戶中，而使用者刪除 Azure Migrate 專案後，資料即會一併刪除。
 
 針對相依性視覺化，如果您在 VM 上安裝代理程式，則相依性代理程式所收集的資料會儲存在於美國之使用者訂用帳戶中建立的 Log Analytics 工作區內。 刪除訂用帳戶中的 Log Analytics 工作區時，會刪除此資料。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)。
+
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>在連續分析的情況下，上傳到 Azure Migrate 的資料量為何？
+
+傳送到 Azure Migrate 的資料量會根據數個參數而不同。 如需代表性的數值，有十部機器 (每部有一個磁碟和一個 NIC) 的專案每天傳送約 50 MB。 這是近似值，且會隨 NIC 和磁碟的資料端點數目而變更 (如果機器、NIC 或磁碟的數目增加，傳送的資料會是非線性的)。 
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>待用資料和傳輸中的資料是否會加密？
 

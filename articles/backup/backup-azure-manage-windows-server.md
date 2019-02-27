@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261497"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268867"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 
@@ -40,7 +40,7 @@ ms.locfileid: "54261497"
 
     ![建立復原服務保存庫的步驟 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. 從保存庫清單中，按一下保存庫以開啟其 [概觀] 儀表板。 
+4. 從保存庫清單中，按一下保存庫以開啟其 [概觀] 儀表板。
 
     ![復原服務保存庫儀表板](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -75,7 +75,7 @@ ms.locfileid: "54261497"
 
 ![備份警示](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-[備份警示] 報告會列出保存庫的警示。 
+[備份警示] 報告會列出保存庫的警示。
 
 ![備份警示](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -124,7 +124,7 @@ ms.locfileid: "54261497"
 
 ### <a name="change-the-filter-in-alerts-report"></a>變更警示報告中的篩選條件
 
-使用 [篩選] 功能表，變更警示的 [嚴重性]、[狀態]、[開始時間] 和 [結束時間]。 
+使用 [篩選] 功能表，變更警示的 [嚴重性]、[狀態]、[開始時間] 和 [結束時間]。
 
 > [!NOTE]
 > 編輯 [備份警示] 篩選條件，並不會變更保存庫 [概觀] 儀表板中的 [重大] 或 [警告] 警示。
@@ -184,7 +184,7 @@ ms.locfileid: "54261497"
 
 [備份作業] 功能表會顯示有關 [項目類型]、[作業]、[狀態]、[開始時間] 及 [持續時間] 的資訊。  
 
-若要開啟 [備份作業] 功能表，請在保存庫的主功能表中，按一下 [備份作業]。 
+若要開啟 [備份作業] 功能表，請在保存庫的主功能表中，按一下 [備份作業]。
 
 ![從設定備份項目](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -263,17 +263,14 @@ ms.locfileid: "54261497"
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
-**Q1.Azure 備份代理程式作業狀態需要多久時間才會反映在入口網站中？**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Azure 備份代理程式作業狀態需要多久時間才會反映在入口網站中？
+Azure 入口網站最多可能需要 15 分鐘，才會反映 Azure 備份代理程式作業狀態。
 
-A1. Azure 入口網站最多可能需要 15 分鐘，才會反映 Azure 備份代理程式作業狀態。
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>當備份作業失敗時，需要多久的時間才會引發警示？
+在 Azure 備份失敗的 20 分鐘內就會引發警示。
 
-**Q2.當備份作業失敗時，需要多久的時間才會引發警示？**
-
-A2. 在 Azure 備份失敗的 20 分鐘內就會引發警示。
-
-**Q3.是否會有已設定通知但不會傳送電子郵件的情況？**
-
-A3. 是。 在下列情況下，不會傳送通知。
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>是否會有已設定通知但不會傳送電子郵件的情況？
+是。 在下列情況下，不會傳送通知。
 
 * 如果通知設為每小時，而且在一小時內引發警示並加以解決
 * 作業遭到取消時

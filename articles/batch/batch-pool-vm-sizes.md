@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185982"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417137"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>為 Azure Batch 集區中的運算節點選擇 VM 大小
 
@@ -44,14 +44,16 @@ ms.locfileid: "56185982"
 | B 系列 | 全部 |
 | DC 系列 | 全部 |
 | 最高等級的記憶體最佳化 | 全部 |
-| Hb 系列 <sup>1</sup> | 全部 |
-| Hc 系列 <sup>1</sup> | 全部 |
+| Hb 系列<sup>1、2</sup> | 全部 |
+| Hc 系列<sup>1、2</sup> | 全部 |
 | Lsv2 系列 | 全部 |
-| NDv2 系列 <sup>1</sup> | 全部 |
-| NVv2 系列 | 全部 |
+| NDv2 系列<sup>1、2</sup> | 全部 |
+| NVv2 系列<sup>1</sup> | 全部 |
 | SAP HANA | 全部 |
 
-<sup>1</sup> 批次帳戶可以在使用者訂用帳戶模式下使用；使用者訂用帳戶模式批次帳戶需要設定核心配額。 如需更多資訊，請參閱[使用者訂用帳戶模式的組態](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)。
+
+<sup>1</sup> 已針對支援進行規劃。  
+<sup>2</sup> 可由處於使用者訂用帳戶模式的 Batch 帳戶使用；使用者訂用帳戶模式 Batch 帳戶需要設定核心配額。 如需更多資訊，請參閱[使用者訂用帳戶模式的組態](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)。
 
 只有低優先順序節點才支援下列 VM 大小：
 

@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686257"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308718"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>處理 Azure Logic Apps 中的錯誤和例外狀況
 
@@ -31,10 +31,10 @@ ms.locfileid: "51686257"
 
 | 類型 | 說明 | 
 |------|-------------| 
-| [**預設值**](#default-retry) | 此原則會以[*指數漸增*](#exponential-retry)間隔 (依 7.5 秒調整，但限制在 5 到 45 秒之間) 傳送最多 4 次重試。 | 
-| [**指數間隔**](#exponential-retry)  | 此原則會先等待選自指數成長範圍內的隨機間隔時間，再傳送下一個要求。 | 
-| [**固定間隔**](#fixed-retry)  | 此原則會先等待指定的間隔時間，再傳送下一個要求。 | 
-| [**無**](#no-retry)  | 不重新傳送要求。 | 
+| **預設值** | 此原則會以*指數漸增*的間隔 (依 7.5 秒調整，但限制在 5 到 45 秒之間) 傳送最多 4 次重試。 | 
+| **指數間隔**  | 此原則會先等待選自指數成長範圍內的隨機間隔時間，再傳送下一個要求。 | 
+| **固定間隔**  | 此原則會先等待指定的間隔時間，再傳送下一個要求。 | 
+| **None**  | 不重新傳送要求。 | 
 ||| 
 
 如需有關重試原則限制的資訊，請參閱 [Logic Apps 限制和設定](../logic-apps/logic-apps-limits-and-config.md#request-limits)。 

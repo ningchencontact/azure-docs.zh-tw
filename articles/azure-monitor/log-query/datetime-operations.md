@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8350524e51d8ced45586d085fe1b49274aa6db9d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999244"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269972"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中處理日期時間值
 
@@ -31,7 +31,7 @@ ms.locfileid: "55999244"
 
 
 ## <a name="date-time-basics"></a>日期時間基礎
-資料總管查詢語言有兩個與日期和時間關聯的主要資料類型：「日期時間」與「時間範圍」。 所有日期都以國際標準時間 (UTC) 表示。 雖然我們支援多種日期時間格式，但建議使用 ISO8601 格式。 
+Kusto 查詢語言有兩個與日期和時間關聯的主要資料類型：「日期時間」與「時間範圍」。 所有日期都以國際標準時間 (UTC) 表示。 雖然我們支援多種日期時間格式，但建議使用 ISO8601 格式。 
 
 時間範圍是以十進位數加上時間單位來表示：
 
@@ -45,7 +45,7 @@ ms.locfileid: "55999244"
 |microsecond | 微秒  |
 |tick        | 奈秒   |
 
-您可以透過使用 `todatetime` 運算子轉換字串來建立。 例如，若要檢閱在特定時間範圍內傳送的 VM 活動訊號，您可以使用 [between 運算子](/azure/kusto/query/betweenoperator)以方便地指定時間範圍。
+您可以透過使用 `todatetime` 運算子轉換字串來建立。 例如，若要檢閱在特定時間範圍內傳送的 VM 活動訊號，請使用 `between` 運算子來指定時間範圍。
 
 ```Kusto
 Heartbeat
@@ -82,7 +82,7 @@ Heartbeat
 ```
 
 ## <a name="converting-time-units"></a>轉換時間單位
-使用預設時間單位以外的時間單位來表示日期時間或時間範圍非常實用。 例如，假設您正在檢閱過去 30 分鐘內的錯誤事件，而且需要顯示事件在多久之前發生的計算結果欄：
+您也可以使用預設時間單位以外的時間單位來表示日期時間或時間範圍。 例如，如果您正在檢閱過去 30 分鐘內的錯誤事件，而且需要顯示事件在多久之前發生的計算結果欄：
 
 ```Kusto
 Event
@@ -91,7 +91,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-您可以看見_timeAgo_ 資料行存留如下所示的值："00:09:31.5118992"，表示格式為 hh:mm:ss.fffffff。 若您不想要將這些值的格式設定為從開始時間算起的分鐘數 _numver_，只要將該值除以「1 分鐘」即可：
+`timeAgo` 資料行保存的值如下："00:09:31.5118992"，表示格式為 hh:mm:ss.fffffff。 若您想要將這些值的格式設定為從開始時間算起的分鐘數 `numver`，將該值除以「1 分鐘」即可：
 
 ```Kusto
 Event
@@ -103,7 +103,7 @@ Event
 
 
 ## <a name="aggregations-and-bucketing-by-time-intervals"></a>依時間間隔的彙總與貯體處理
-另一個非常常見的案例是以特定時間粒紋取得一段特定間期間統計資料的需求。 針對這個目的，可以使用 `bin` 運算子做為摘要子句的一部分。
+另一個常見的案例是以特定時間粒紋取得一段特定間期間統計資料的需求。 針對此案例，可以使用 `bin` 運算子做為摘要子句的一部分。
 
 使用下列查詢來取得過去半小時內每 5 分鐘發生的事件數目：
 
@@ -113,7 +113,7 @@ Event
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
 ```
 
-這會產生下列表格：  
+此查詢會產生下列表格：  
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
@@ -131,7 +131,7 @@ Event
 | summarize events_count=count() by startofday(TimeGenerated) 
 ```
 
-這會產生下列結果：
+此查詢會產生下列結果：
 
 |timestamp|count_|
 |--|--|
@@ -139,11 +139,11 @@ Event
 |2018-07-29T00:00:00.000|12,315|
 |2018-07-30T00:00:00.000|16,847|
 |2018-07-31T00:00:00.000|12,616|
-|2018-08-01T00:00:00.000|5,416  |
+|2018-08-01T00:00:00.000|5,416|
 
 
 ## <a name="time-zones"></a>時區
-因為所有日期時間值都是國際標準時間 (UTC) 表示，將這些時間轉換為當地時區時非常實用。 例如，使用此計算將國際標準時間 (UTC) 轉換為太平洋標準時間 (PST) 時間：
+因為所有日期時間值都是國際標準時間 (UTC) 表示，將這些值轉換為當地時區時非常實用。 例如，使用此計算將國際標準時間 (UTC) 轉換為太平洋標準時間 (PST) 時間：
 
 ```Kusto
 Event
@@ -158,10 +158,10 @@ Event
 | 將值四捨五入為間隔大小 | [bin](/azure/kusto/query/binfunction) |
 | 取得特定日期或時間 | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
 | 取得值的某部分 | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| 取得與值相對的日期  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| 取得相對日期值  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>後續步驟
-如需了解如何搭配 Azure 監視器記錄資料使用[資料總管查詢語言](/azure/kusto/query/)，請參閱其他課程：
+若要了解如何搭配 Azure 監視器記錄資料使用 [Kusto 查詢語言](/azure/kusto/query/)，請參閱其他課程：
 
 - [字串作業](string-operations.md)
 - [彙總函式](aggregations.md)

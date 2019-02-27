@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 72493c6bba556314c3652be5251463d1d1e005bd
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383741"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330608"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>針對傳統儲存體資源刪除錯誤進行疑難排解
 本文章提供疑難排解指引，協助您排解在嘗試刪除 Azure 傳統儲存體帳戶、容器或 *.vhd 分頁 Blob 檔案時發生的以下任一錯誤。 
@@ -21,10 +21,10 @@ ms.locfileid: "54383741"
 
 本文僅涵蓋傳統儲存體資源的問題。 如果使用者使用 Azure 入口網站、PowerShell 或 CLI 刪除傳統虛擬機器，則磁碟不會自動刪除。 使用者可以選取刪除「磁碟」資源。 如果未選取該選項，「磁碟」資源會防止存儲體帳戶、容器和實際 *.vhd 分頁 Blob 檔案遭到刪除。
 
-如需 Azure 磁碟的詳細資訊，[請參閱](../../virtual-machines/windows/about-disks-and-vhds.md)。 Azure 能預防刪除已連接 VM 的磁碟，以避免損毀。 它也能預防刪除分頁 Blob 已連接 VM 的容器和儲存體帳戶。 
+如需 Azure 磁碟的詳細資訊，[請參閱](../../virtual-machines/windows/managed-disks-overview.md)。 Azure 能預防刪除已連接 VM 的磁碟，以避免損毀。 它也能預防刪除分頁 Blob 已連接 VM 的容器和儲存體帳戶。 
 
 ## <a name="what-is-a-disk"></a>什麼是「磁碟」？
-「磁碟」資源是用來將 *.vhd 分頁 Blob 檔案裝載到虛擬機器，作為作業系統磁碟或資料磁碟。 在刪除之前，作業系統磁碟或資料磁碟資源將繼續租用 *.vhd 檔案。 如果「磁碟」資源指向上圖所示路徑中的任何儲存體資源，則該儲存體資源無法刪除。
+「磁碟」資源是用來將 *.vhd 分頁 Blob 檔案裝載到虛擬機器，作為作業系統磁碟或資料磁碟。 在刪除之前，作業系統磁碟或資料磁碟資源將繼續租用 *.vhd 檔案。 如果「磁碟」資源指向下圖所示路徑中的任何儲存體資源，則該儲存體資源無法刪除。
 
 ![開啟磁碟 (傳統)「屬性」窗格的入口網站螢幕擷取畫面](./media/storage-classic-cannot-delete-storage-account-container-vhd/Disk_Lease_Illustration.jpg) 
 

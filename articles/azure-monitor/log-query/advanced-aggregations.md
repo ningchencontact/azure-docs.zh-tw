@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 37eb8ca3c25268dd7923087439a8fbf0fd1f168b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005415"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269904"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的進階彙總
 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>後續步驟
 
-如需了解如何搭配「Azure 監視器」記錄資料使用[資料總管查詢語言](/azure/kusto/query/)，請參閱其他課程：
+若要了解如何搭配 Azure 監視器記錄資料使用 [Kusto 查詢語言](/azure/kusto/query/)，請參閱其他課程：
 
 - [字串作業](string-operations.md)
 - [日期和時間作業](datetime-operations.md)

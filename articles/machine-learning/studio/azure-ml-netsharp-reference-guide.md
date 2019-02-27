@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: be6c04fe31aaa8d4b9081942b054575ff548cf5a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 2051a14532f00f24be0c8cb0ca03a7b2b4078a45
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300365"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457008"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 Net# 類神經規格語言指南
 
@@ -56,7 +56,7 @@ Net# 支援多種不同的連線套組，可讓您自訂輸入對應至隱藏層
 
 ## <a name="supported-customizations"></a>支援的自訂
 
-您在 Azure Machine Learning 中建立的類神經網路模型架構，可以使用 Net# 廣泛地進行自訂。 您可以：
+您在 Azure Machine Learning Studio 中建立的類神經網路模型架構，可以使用 Net# 廣泛地進行自訂。 您可以：
 
 + 建立隱藏層及控制每一層中的節點數目。
 + 指定各層彼此連接的方式。

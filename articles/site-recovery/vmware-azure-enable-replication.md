@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822777"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329942"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
@@ -88,7 +88,7 @@ ms.locfileid: "55822777"
 2. 在 [屬性] 中，您可以檢視 VM 的複寫和容錯移轉資訊。
 3. 在 [計算和網路] > [計算屬性] 中，您可以變更多個 VM 屬性：
 * Azure VM 名稱 - 視需要修改名稱以符合 Azure 需求
-* 目標 VM 大小或類型 - 預設 VM 大小是根據來源 VM 大小來選擇。 您可以在容錯移轉之前，隨時根據需求選取不同的 VM 大小。 請注意，VM 磁碟大小也是以來源磁碟大小為基礎，而且只能在容錯移轉後變更。 深入了解[標準](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets)和[進階](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)磁碟大小和 IOPS。
+* 目標 VM 大小或類型 - 預設 VM 大小是根據來源 VM 大小來選擇。 您可以在容錯移轉之前，隨時根據需求選取不同的 VM 大小。 請注意，VM 磁碟大小也是以來源磁碟大小為基礎，而且只能在容錯移轉後變更。 我們的[磁碟適用的延展性目標](../virtual-machines/windows/disk-scalability-targets.md)文章中深入了解磁碟大小與 IOPS。
 
     ![計算和網路屬性](./media/vmware-azure-enable-replication/vmproperties.png)
 

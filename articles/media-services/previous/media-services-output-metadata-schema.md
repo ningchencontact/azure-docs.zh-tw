@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ec4b03629b56c09973c1ecc5c55930c33c24990b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997570"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312577"
 ---
 # <a name="output-metadata"></a>輸出中繼資料
 ## <a name="overview"></a>概觀
@@ -29,7 +29,7 @@ ms.locfileid: "55997570"
 
 如果您想要檢查中繼資料檔案，可以建立 **SAS** 定位器並將檔案下載到您的本機電腦。  
 
-本文討論輸出中繼資料 (&lt;來源檔案名稱&gt;_manifest.xml) 所根據之 XML 結構描述的元素和類型。 如需包含輸入資產相關中繼資料的檔案相關資訊，請參閱[輸入中繼資料](media-services-input-metadata-schema.md)。  
+本文討論輸出中繼資料 (&lt;來源檔案名稱&gt;_manifest.xml) 所根據之 XML 結構描述的元素和類型。 如需包含輸入資產相關中繼資料的檔案相關資訊，請參閱輸入中繼資料。  
 
 您可以在本文結尾找到完整的結構描述程式碼和 XML 範例。  
 
@@ -39,10 +39,10 @@ ms.locfileid: "55997570"
 ### <a name="child-elements"></a>子元素
 | Name | 說明 |
 | --- | --- |
-| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |屬於 AssetFiles 集合的 [AssetFile 元素](media-services-output-metadata-schema.md)。 |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |屬於 AssetFiles 集合的 AssetFile 元素。 |
 
 ## <a name="AssetFile "></a> AssetFile 元素
-您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="attributes"></a>屬性
 | Name | 類型 | 說明 |
@@ -54,24 +54,24 @@ ms.locfileid: "55997570"
 ### <a name="child-elements"></a>子元素
 | Name | 說明 |
 | --- | --- |
-| **來源** |為了產生此 AssetFile 所處理之輸入/來源媒體檔案的集合。 如需詳細資訊，請參閱[來源元素](media-services-output-metadata-schema.md)。 |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體 AssetFile 都可以內含零或多個交錯形成適當容器格式的視訊播放軌。 如需詳細資訊，請參閱 [VideoTracks 元素](media-services-output-metadata-schema.md)。 |
-| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體資產檔案可以內含零個或多個交錯形成適當容器格式的音訊播放軌。 這是所有音訊播放軌的集合。 如需詳細資訊，請參閱 [AudioTracks 元素](media-services-output-metadata-schema.md)。 |
+| **來源** |為了產生此 AssetFile 所處理之輸入/來源媒體檔案的集合。 如需詳細資訊，請參閱來源元素。 |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體 AssetFile 都可以內含零或多個交錯形成適當容器格式的視訊播放軌。 如需詳細資訊，請參閱 VideoTracks 元素。 |
+| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體資產檔案可以內含零個或多個交錯形成適當容器格式的音訊播放軌。 這是所有音訊播放軌的集合。 如需詳細資訊，請參閱 AudioTracks 元素。 |
 
 ## <a name="Sources "></a> 來源元素
 為了產生此 AssetFile 所處理之輸入/來源媒體檔案的集合。  
 
-您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="child-elements"></a>子元素
 | Name | 說明 |
 | --- | --- |
-| **來源**<br/><br/> minOccurs="1" maxOccurs="unbounded" |產生此資產時所使用的輸入/來源檔案。 如需詳細資訊，請參閱[來源元素](media-services-output-metadata-schema.md)。 |
+| **來源**<br/><br/> minOccurs="1" maxOccurs="unbounded" |產生此資產時所使用的輸入/來源檔案。 如需詳細資訊，請參閱來源元素。 |
 
 ## <a name="Source "></a> 來源元素
 產生此資產時所使用的輸入/來源檔案。  
 
-您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="attributes"></a>屬性
 | Name | 類型 | 說明 |
@@ -81,17 +81,17 @@ ms.locfileid: "55997570"
 ## <a name="VideoTracks "></a> VideoTracks 元素
 每個實體 AssetFile 都可以內含零或多個交錯形成適當容器格式的視訊播放軌。 **VideoTracks** 元素代表所有視訊播放軌集合。  
 
-您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="child-elements"></a>子元素
 | Name | 說明 |
 | --- | --- |
-| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定視訊播放軌。 如需詳細資訊，請參閱 [VideoTrack 元素](media-services-output-metadata-schema.md#VideoTrack)。 |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定視訊播放軌。 如需詳細資訊，請參閱 VideoTrack 元素。 |
 
 ## <a name="VideoTrack"></a> VideoTrack 元素
 父系 AssetFile 中的特定視訊播放軌。  
 
-您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="attributes"></a>屬性
 | Name | 類型 | 說明 |
@@ -113,17 +113,17 @@ ms.locfileid: "55997570"
 ## <a name="AudioTracks "></a> AudioTracks 元素
 每個實體資產檔案可以內含零個或多個交錯形成適當容器格式的音訊播放軌。 **AudioTracks** 元素代表所有這些音訊播放軌集合。  
 
-您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="child-elements"></a>子元素
 | Name | 說明 |
 | --- | --- |
-| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定音訊播放軌。 如需詳細資訊，請參閱 [AudioTrack 元素](media-services-output-metadata-schema.md)。 |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定音訊播放軌。 如需詳細資訊，請參閱 AudioTrack 元素。 |
 
 ## <a name="AudioTrack "></a> AudioTrack 元素
 父系 AssetFile 中的特定音訊播放軌。  
 
-您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="attributes"></a>屬性
 | Name | 類型 | 說明 |
@@ -139,12 +139,12 @@ ms.locfileid: "55997570"
 ### <a name="child-elements"></a>子元素
 | Name | 說明 |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |音量計量結果參數。 如需詳細資訊，請參閱 [LoudnessMeteringResultParameters 元素](media-services-output-metadata-schema.md)。 |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |音量計量結果參數。 如需詳細資訊，請參閱 LoudnessMeteringResultParameters 元素。 |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters 元素
 音量計量結果參數。  
 
-您可以找到 XML 範例 [XML 範例](media-services-output-metadata-schema.md#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="attributes"></a>屬性
 | Name | 類型 | 說明 |

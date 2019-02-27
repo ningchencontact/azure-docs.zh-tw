@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638818"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443443"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 磁碟的備份和災害復原
 
 本文說明如何在 Azure 中規劃 IaaS 虛擬機器 (VM) 和磁碟的備份和災害復原 (DR)。 本文件涵蓋受控磁碟和非受控磁碟。
 
-首先，我們會討論 Azure 平台中內建的容錯功能，該功能有助於防範本機失敗。 接著會討論內建功能未能完全涵蓋的災害案例。 我們也會示範幾個工作負載案例範例，其中可能會有不同的備份和 DR 考量。 接著檢閱 IaaS 磁碟的可能 DR 解決方案。 
+首先，我們會討論 Azure 平台中內建的容錯功能，該功能有助於防範本機失敗。 接著會討論內建功能未能完全涵蓋的災害案例。 我們也會示範幾個工作負載案例範例，其中可能會有不同的備份和 DR 考量。 接著檢閱 IaaS 磁碟的可能 DR 解決方案。
 
 ## <a name="introduction"></a>簡介
 
-Azure 平台使用各種備援和容錯方法，協助保護客戶防範當地語系化硬體失敗。 本機失敗可能是指儲存部分虛擬磁碟資料的 Azure 儲存體伺服器電腦發生問題，或是該伺服器上的 SSD 或 HDD 失敗。 這類個別硬體元件失敗可能發生在正常作業期間。 
+Azure 平台使用各種備援和容錯方法，協助保護客戶防範當地語系化硬體失敗。 本機失敗可能是指儲存部分虛擬磁碟資料的 Azure 儲存體伺服器電腦發生問題，或是該伺服器上的 SSD 或 HDD 失敗。 這類個別硬體元件失敗可能發生在正常作業期間。
 
 Azure 平台的設計可從這些失敗中復原。 重大災害可能會導致許多儲存體伺服器或甚至整個資料中心失敗或無法存取。 雖然您的 VM 和磁碟通常可防範當地語系化失敗，但若要保護工作負載防範可能影響 VM 和磁碟的區域全面重大失敗 (例如重大災害)，則需要採取額外步驟。
 
 除了可能發生平台失敗之外，也可能發生客戶應用程式或資料問題。 例如，您的新版應用程式可能會不小心變更資料以致發生中斷。 在此情況下，您可能想要將應用程式和資料還原為含有已知良好狀態的舊版。 這需要維護定期備份。
 
-針對區域性災害復原，您必須將 IaaS VM 磁碟備份至不同區域。 
+針對區域性災害復原，您必須將 IaaS VM 磁碟備份至不同區域。
 
 讓我們先回顧可用來處理當地語系化失敗的一些方法，再檢視備份和 DR 選項。
 
@@ -47,9 +47,9 @@ Azure 平台的設計可從這些失敗中復原。 重大災害可能會導致�
 
 由於此結構，Azure 為 IaaS 磁碟一致地提供企業級持久性，其[年度失敗率](https://en.wikipedia.org/wiki/Annualized_failure_rate)為零，領先業界。
 
-計算主機或儲存體平台的當地語系化硬體故障有時會導致 VM 暫時無法使用，如 VM 可用性的 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 中所述。 Azure 也提供領先業界的 SLA，適用於使用 Azure 進階 SSD 磁碟的單一 VM 執行個體。
+計算主機或儲存體平台的當地語系化硬體故障有時會導致 VM 暫時無法使用，如 VM 可用性的 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 中所述。 Azure 也提供領先業界的 SLA，適用於使用 Azure 進階 SSD 的單一 VM 執行個體。
 
-若要防止應用程式工作負載由於磁碟或 VM 暫時無法使用而停機，客戶可以使用[可用性設定組](../articles/virtual-machines/windows/manage-availability.md)。 可用性設定組中的兩個或多個虛擬機器提供應用程式的備援。 Azure 會接著在具有不同電源、網路和伺服器元件的個別容錯網域中，建立這些 VM 和磁碟。 
+若要防止應用程式工作負載由於磁碟或 VM 暫時無法使用而停機，客戶可以使用[可用性設定組](../articles/virtual-machines/windows/manage-availability.md)。 可用性設定組中的兩個或多個虛擬機器提供應用程式的備援。 Azure 會接著在具有不同電源、網路和伺服器元件的個別容錯網域中，建立這些 VM 和磁碟。
 
 因為有個別的容錯網域，當地語系化的硬體失敗通常不會同時影響組合中的多個 VM。 擁有個別的容錯網域可提高應用程式的可用性。 使用可用性設定組是在需要高可用性時的最佳做法。 下一節說明災害復原方面。
 
@@ -98,11 +98,11 @@ IaaS 應用程式資料問題是另一種可能性。 請考慮一個可計算�
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>災害復原解決方案：Azure 備份 
 
-[Azure 備份](https://azure.microsoft.com/services/backup/)可用來進行備份和 DR，並適用於[受控磁碟](../articles/virtual-machines/windows/managed-disks-overview.md)和[非受控磁碟](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks)。 您可以建立具有以時間為基礎的備份、簡易 VM 還原，以及備份保留原則的備份工作。 
+[Azure 備份](https://azure.microsoft.com/services/backup/)可用來進行備份和 DR，並適用於[受控磁碟](../articles/virtual-machines/windows/managed-disks-overview.md)和非受控磁碟。 您可以建立具有以時間為基礎的備份、簡易 VM 還原，以及備份保留原則的備份工作。
 
-如果您使用[進階 SSD 磁碟](../articles/virtual-machines/windows/premium-storage.md)、[受控磁碟](../articles/virtual-machines/windows/managed-disks-overview.md)或啟用[本地備援儲存體](../articles/storage/common/storage-redundancy-lrs.md)選項的其他磁碟類型，定期 DR 備份尤其重要。 Azure 備份會將資料儲存在復原服務保存庫中，以長期保留。 針對備份復原服務保存庫，選擇[異地備援儲存體](../articles/storage/common/storage-redundancy-grs.md)選項。 該選項可確保備份會複寫至不同的 Azure 區域，以防範區域性災害。
+如果您使用[進階 SSD](../articles/virtual-machines/windows/disks-types.md)、[受控磁碟](../articles/virtual-machines/windows/managed-disks-overview.md)或啟用[本地備援儲存體](../articles/storage/common/storage-redundancy-lrs.md)選項的其他磁碟類型，定期 DR 備份尤其重要。 Azure 備份會將資料儲存在復原服務保存庫中，以長期保留。 針對備份復原服務保存庫，選擇[異地備援儲存體](../articles/storage/common/storage-redundancy-grs.md)選項。 該選項可確保備份會複寫至不同的 Azure 區域，以防範區域性災害。
 
-若是[非受控磁碟](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks)，您可以針對 IaaS 磁碟使用本地備援儲存體類型，但請確定 Azure 備份已啟用復原服務保存庫的異地備援儲存體選項。
+針對非受控磁碟，您可以針對 IaaS 磁碟使用本地備援儲存體類型，但請確定 Azure 備份已啟用復原服務保存庫的異地備援儲存體選項。
 
 > [!NOTE]
 > 如果您針對非受控磁碟使用[異地備援儲存體](../articles/storage/common/storage-redundancy-grs.md)或[具有讀取權限的異地備援儲存體](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)選項，您仍然需要一致性快照集才能進行備份和 DR。 請使用 [Azure 備份](https://azure.microsoft.com/services/backup/)或[一致性快照集](#alternative-solution-consistent-snapshots)。
@@ -136,7 +136,7 @@ IaaS 應用程式資料問題是另一種可能性。 請考慮一個可計算�
 
 Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝的備份延伸模組擷取時間點快照集。 快照集是與磁碟區陰影服務搭配擷取的，可在不需將虛擬機器中磁碟關閉的狀況下，取得所有磁碟一致的快照集。 VM 中的備份延伸模組會排清所有寫入，再擷取所有磁碟的一致性快照集。 擷取快照集之後，Azure 備份會將資料傳輸至備份保存庫。 為了讓備份程序更有效率，服務會識別上次備份之後變更的資料區塊，並只傳輸這些區塊。
 
-若要還原，您可以透過 Azure 備份檢視可用的備份，再起始還原。 您可以透過 [Azure 入口網站](https://portal.azure.com/)、[使用 PowerShell](../articles/backup/backup-azure-vms-automation.md) 或使用 [Azure CLI](/cli/azure/)，建立並還原 Azure 備份。 
+若要還原，您可以透過 Azure 備份檢視可用的備份，再起始還原。 您可以透過 [Azure 入口網站](https://portal.azure.com/)、[使用 PowerShell](../articles/backup/backup-azure-vms-automation.md) 或使用 [Azure CLI](/cli/azure/)，建立並還原 Azure 備份。
 
 ### <a name="steps-to-enable-a-backup"></a>啟用備份的步驟
 
@@ -166,15 +166,15 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 -   您可以建立新的 VM 作為已備份 VM 的時間點表示。
 
--   您可以還原磁碟，然後使用 VM 的範本來自訂及重建還原的 VM。 
+-   您可以還原磁碟，然後使用 VM 的範本來自訂及重建還原的 VM。
 
 如需詳細資訊，請參閱指示以[使用 Azure 入口網站來還原虛擬機器](../articles/backup/backup-azure-arm-restore-vms.md)。 本文件也說明在主要資料中心發生災害時，使用異地備援備份保存庫將備份的 VM 還原至成對資料中心的特定步驟。 在此情況下，Azure 備份會使用次要區域的計算服務來建立還原的虛擬機器。
 
-您也可以使用 PowerShell 來[還原 VM](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster)，或[從還原的磁碟建立新的 VM](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。
+您也可以使用 PowerShell 來[從還原的磁碟建立新的 VM](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。
 
 ## <a name="alternative-solution-consistent-snapshots"></a>替代解決方案：一致性快照集
 
-如果您無法使用 Azure 備份，您可以使用快照集實作自己的備份機制。 為 VM 使用的所有磁碟建立一致性快照集，然後將這些快照集複寫至另一個區域很複雜。 因此，Azure 認為利用備份服務，會是比建置自訂解決方案更好的選擇。 
+如果您無法使用 Azure 備份，您可以使用快照集實作自己的備份機制。 為 VM 使用的所有磁碟建立一致性快照集，然後將這些快照集複寫至另一個區域很複雜。 因此，Azure 認為利用備份服務，會是比建置自訂解決方案更好的選擇。
 
 如果針對磁碟使用具有讀取權限的異地備援儲存體/異地備援儲存體，則會自動將快照集複寫至次要資料中心。 如果針對磁碟使用本地備援儲存體，則必須自行複寫資料。 如需詳細資訊，請參閱[以增量快照備份 Azure 非受控 VM 磁碟](../articles/virtual-machines/windows/incremental-snapshots.md)。
 
@@ -216,7 +216,7 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 如果針對磁碟使用異地備援儲存體或具有讀取權限的異地備援儲存體，則會自動將快照集複寫至次要地區。 複寫前可能有幾分鐘的延遲。 如果主要資料中心在快照集完成複寫前關閉，您就無法從次要資料中心存取快照集。 這個可能性很小。
 
-> [!NOTE] 
+> [!NOTE]
 > 只在異地備援儲存體或具有讀取權限的異地備援儲存體帳戶中保留磁碟，並無法保護 VM 防範災害。 您還必須建立一致性快照或使用 Azure 備份。 若要將 VM 復原至一致的狀態，則需要這樣做。
 
 如果您使用本地備援儲存體，則必須在建立快照集之後，立即將快照集複製到不同的儲存體帳戶。 複製目標可能是不同區域中的本地備援儲存體帳戶，而導致複本位於遠端區域。 您也可以將快照集複製到相同區域中具有讀取權限的異地備援儲存體帳戶。 在此情況下，快照集會延遲複寫至遠端次要區域。 複製和複寫完成後，您的備份就可在主要網站發生災害時受到保護。
@@ -260,12 +260,10 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 如果結果是嚴重的中斷，Azure 團隊可能會觸發異地容錯移轉，然後變更主要 DNS 項目以指向次要儲存體。 此時，如果您啟用異地備援儲存體或具有讀取權限的異地備援儲存體，您可以存取之前為次要區域中的資料。 換句話說，如果您的儲存體帳戶是具有讀取權限的異地備援儲存體並發生問題，只有在具異地容錯移轉時才能存取次要儲存體。
 
-如需詳細資訊，請參閱[如果 Azure 儲存體發生中斷怎麼辦](../articles/storage/common/storage-disaster-recovery-guidance.md)。 
+如需詳細資訊，請參閱[如果 Azure 儲存體發生中斷怎麼辦](../articles/storage/common/storage-disaster-recovery-guidance.md)。
 
 >[!NOTE] 
 >Microsoft 會控制是否發生容錯移轉。 容錯移轉不是針對每個儲存體帳戶所控制，所以不會由個別客戶來決定。 若要實作特定儲存體帳戶或虛擬機器磁碟的災害復原，您必須使用本文稍早所述的技術。
-
-
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

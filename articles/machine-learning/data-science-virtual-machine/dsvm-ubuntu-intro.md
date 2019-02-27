@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f0c9c06e953df16199acda5f821fdac35b86f07f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477551"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268850"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -31,7 +31,7 @@ ms.locfileid: "55477551"
   * [Caffe2](https://github.com/caffe2/caffe2):Caffe 的跨平台版本
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK)：來自 Microsoft Research 的深度學習軟體工具組
   * [H2O](https://www.h2o.ai/)：開放原始碼巨量資料平台和圖形化使用者介面
-  * [Keras](https://keras.io/)：以 Python 撰寫且適用於 Theano 和 TensorFlow 的高層級類神經網路 API
+  * [Keras](https://keras.io/)：以 Python 撰寫、適用於 TensorFlow、Microsoft Cognitive Toolkit 及 Theano 的高層級神經網路 API
   * [MXNet](http://mxnet.io/)：彈性、有效率的深入學習程式庫，包含許多語言繫結
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits)：一種圖形化系統，可簡化常見的深入學習工作
   * [PyTorch](http://pytorch.org/)：高層級的 Python 程式庫，支援動態網路
@@ -177,7 +177,7 @@ Caffe2 是來自 Facebook (以 Caffe 為基礎而建置) 的深入學習架構�
 H2O 是快速、記憶體內的分散式機器學習和預測性分析平台。 Python 封裝同時安裝於根環境和 py35 Anaconda 環境中。 同時也會安裝 R 封裝。 若要從命令列啟動 H2O，請執行 `java -jar /dsvm/tools/h2o/current/h2o.jar`；有各種您可能會想要設定的[命令列選項](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) \(英文\)。 可以瀏覽至 http://localhost:54321 存取 Flow Web UI 以開始使用。 您也可以在 JupyterHub 找到範例筆記本。
 
 #### <a name="keras"></a>Keras
-Keras 是以 Python 撰寫的高層級類神經網路 API，可在 TensorFlow 或 Theano 上執行。 它位於根環境和 py35 Python 環境中。 
+Keras 是以 Python 撰寫的高層級神經網路 API，可在 TensorFlow、Microsoft Cognitive Toolkit 或 Theano 上執行。 它位於根環境和 py35 Python 環境中。 
 
 #### <a name="mxnet"></a>MXNet
 MXNet 是兼具效率和彈性的深入學習架構。 它在 DSVM 中包含了 R 和 Python 繫結。 範例筆記本內含在 JupyterHub 中，而範例程式碼則位於 /dsvm/samples/mxnet。

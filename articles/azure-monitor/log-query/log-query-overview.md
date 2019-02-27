@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002263"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269955"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>在 Azure 監視器中分析記錄資料
 
-Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區中，此作業取決於 [Azure 資料總管](/azure/data-explorer)。 它會從各種來源收集遙測，並使用[資料總管中的查詢語言](/azure/kusto/query)來擷取和分析資料。
+Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區中，此作業取決於 [Azure 資料總管](/azure/data-explorer)。 它會從各種來源收集遙測，並使用資料總管使用的 [Kusto 查詢語言](/azure/kusto/query)來擷取和分析資料。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -47,7 +47,7 @@ Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區�
 ![記錄檔搜尋](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>撰寫查詢
-Azure 監視器使用[資料總管查詢語言的版本](get-started-queries.md)，可讓您以各種方式擷取和分析記錄資料。  您通常會從基本查詢開始，然後在您的需求變得更複雜時，使用更進階的函式。
+Azure 監視器使用 [Kusto 查詢語言的版本](get-started-queries.md)，可讓您以各種方式擷取和分析記錄資料。  您通常會從基本查詢開始，然後在您的需求變得更複雜時，使用更進階的函式。
 
 查詢的基本結構是一個來源資料表，後面接著一系列由管道字元 `|` 隔開的運算子。  您可以將多個運算子鏈結在一起，以調整資料及執行進階函式。
 
@@ -93,7 +93,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-azure-monitor-log-data-is-organized"></a>Azure 監視器記錄資料的組織方式
 當您建置查詢時，從判斷哪些資料表具有您要尋找的資料開始。 不同類型的資料會分別存放到各個 [Log Analytics 工作區](../learn/quick-create-workspace.md)的專用資料表中。  不同資料來源的文件包含它所建立之資料類型的名稱，及其每個屬性的描述。  許多查詢只需要單一資料表的資料，但是其他查詢可能會使用各種不同的選項以包含來自多個資料表的資料。
 
-雖然 [Application Insights](../app/app-insights-overview.md) 會將要求、例外狀況、追蹤和使用情形等應用程式資料存放在 Azure 監視器中，但此資料會儲存與其他記錄資料不同的分割區中。 您可以使用相同的查詢語言來存取此資料，但必須使用 [Application Insights 主控台](../app/analytics.md)或 [Application Insights REST API](https://dev.applicationinsights.io/) 來存取此資料。 您可以使用[跨資源查詢](../log-query/cross-workspace-query.md)，將 Application Insights 資料與其他記錄資料結合到 Azure 監視器中。
+雖然 [Application Insights](../app/app-insights-overview.md) 會將要求、例外狀況、追蹤和使用情形等應用程式資料存放在 Azure 監視器中，但此資料會儲存與其他記錄資料不同的分割區中。 您可以使用相同的查詢語言來存取這項資料，但必須使用 [Application Insights 主控台](../app/analytics.md)或 [Application Insights REST API](https://dev.applicationinsights.io/) 來存取此資料。 您可以使用[跨資源查詢](../log-query/cross-workspace-query.md)，將 Application Insights 資料與其他記錄資料結合到 Azure 監視器中。
 
 
 ![資料表](media/log-query-overview/queries-tables.png)

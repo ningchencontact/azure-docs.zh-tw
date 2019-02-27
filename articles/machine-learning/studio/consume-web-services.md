@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a05b99cf0e40e63c01aee27bd745dd165dc23b8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998073"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452690"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>如何使用 Azure Machine Learning Studio Web 服務
 
-將 Azure Machine Learning 預測模型部署為 Web 服務後，就可以使用 REST API 傳送資料並取得預測。 您可以即時或以批次模式傳送資料。
+將 Azure Machine Learning Studio 預測模型部署為 Web 服務後，就可以使用 REST API 傳送資料並取得預測。 您可以即時或以批次模式傳送資料。
 
 有關如何使用 Machine Learning Studio 建立和部署 Machine Learning Web 服務的詳細資訊，請參閱此處：
 
@@ -32,14 +32,14 @@ ms.locfileid: "55998073"
 ## <a name="overview"></a>概觀
 使用 Azure Machine Learning Web 服務，外部應用程式會即時與機器學習服務工作流程計分模型通訊。 機器學習 Web 服務呼叫會將預測結果傳回外部應用程式。 若要進行機器學習 Web 服務呼叫，您可以傳遞部署預測時所建立的 API 金鑰。 機器學習服務 Web 服務以 REST 為基礎，這是一種常見的 Web 程式設計專案架構。
 
-Azure Machine Learning 有兩種類型的服務：
+Azure Machine Learning Studio 有兩種類型的服務：
 
 * 要求-回應服務 (RRS) – 這是一種低延遲、調整性高的服務，針對從 Machine Learning Studio 建立和部署的無狀態模型提供介面。
 * 批次執行服務 (BES) – 這是一種非同步的服務，為一批資料記錄進行計分。
 
 如需 Machine Learning Web 服務的詳細資訊，請參閱[部署 Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
 
-## <a name="get-an-azure-machine-learning-authorization-key"></a>取得 Azure Machine Learning 授權金鑰
+## <a name="get-an-azure-machine-learning-studio-authorization-key"></a>取得 Azure Machine Learning Studio 授權金鑰
 當您部署實驗時，會為 Web 服務產生 API 金鑰。 您可以從數個位置擷取金鑰。
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>透過 Microsoft Azure Machine Learning Web 服務入口網站
@@ -103,7 +103,7 @@ Azure Machine Learning 有兩種類型的服務：
 **執行程式碼範例**
 
 1. 發佈「範例 1：從 UCI：Adult 2 類別資料集下載資料集」實驗，此為 Machine Learning 範例集合中的一部分。
-2. 使用來自 Web 服務的金鑰指派 apiKey。 請參閱前述的 **取得 Azure Machine Learning 授權金鑰** 。
+2. 使用來自 Web 服務的金鑰指派 apiKey。 請參閱前述的**取得 Azure Machine Learning Studio 授權金鑰**。
 3. 使用要求 URI 指派 serviceUri。
 
 **以下是完整的要求內容。**
@@ -199,7 +199,7 @@ namespace CallRequestResponseService
 **執行程式碼範例**
 
 1. 部署「範例 1：從 UCI：Adult 2 類別資料集下載資料集」實驗，此為 Machine Learning 範例集合中的一部分。
-2. 使用來自 Web 服務的金鑰指派 apiKey。 請參閱本文章接近開始處的**取得 Azure Machine Learning 授權金鑰**。
+2. 使用來自 Web 服務的金鑰指派 apiKey。 請參閱本文接近開始處的＜取得 Azure Machine Learning Studio 授權金鑰＞小節。
 3. 使用要求 URI 指派 serviceUri。
 
 **以下是完整的要求內容。**

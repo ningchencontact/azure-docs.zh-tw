@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234657"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339782"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -43,8 +43,11 @@ ms.locfileid: "56234657"
 > [!IMPORTANT]
 > 系統會將稽核記錄寫入至 Azure 訂用帳戶上 Azure Blob 儲存體中的**附加 Blob**。
 >
-> - 附加 Blob 目前**不支援****進階儲存體**。
+> - 支援所有的儲存體類型 (v1、v2、Blob)。
+> - 支援所有儲存體複寫設定。
+> - **不支援****進階儲存體**。
 > - 目前**不支援** **VNet 中的儲存體**。
+> - 目前**不支援****在防火牆後面的儲存體**
 
 ## <a id="subheading-8"></a>定義伺服器層級與資料庫層級的稽核原則
 
@@ -158,7 +161,7 @@ ms.locfileid: "56234657"
 - 使用 Power BI。 您可以在 Power BI 中檢視和分析稽核記錄資料。 如需詳細資訊，以及若要存取可下載的範本，請參閱 [Analyzie audit log data in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/) (在 Power BI 中分析稽核記錄資料)。
 - 透過入口網站或使用工具 (例如 [Azure 儲存體總管](http://storageexplorer.com/)) 從 Azure 儲存體 Blob 容器下載記錄檔。
   - 在您將記錄檔下載到本機之後，按兩下檔案，以在 SSMS 中開啟、檢視及分析記錄。
-  - 您也可以透過 Azure 儲存體總管同時下載多個檔案。 若要執行此作業，請以滑鼠右鍵按一下特定子資料夾，然後選取 [另存新檔] 儲存在本機資料夾。
+  - 您也可以透過 Azure 儲存體總管同時下載多個檔案。 若要執行這項作業，請以滑鼠右鍵按一下特定子資料夾，然後選取 [另存新檔] 儲存在本機資料夾。
 
 - 其他方法：
 

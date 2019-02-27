@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 31e02cd931b3c9ab2cc55a540841969488c0c5f7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 132909931291daf3aefddd5e1a44273050d98e06
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997510"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326165"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>將驗證新增至 Xamarin.iOS 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "52997510"
 
 安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
 
-1. 在 [Azure 入口網站] 中，選取您的 App Service。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 App Service。
 
 2. 按一下 [驗證/授權] 功能表選項。
 
@@ -48,9 +48,9 @@ ms.locfileid: "52997510"
 ## <a name="restrict-permissions-to-authenticated-users"></a>限制只有通過驗證的使用者具有權限
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. 在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。 確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 失敗都會記錄到偵錯工具主控台。 因此在 Visual Studio 中，您應該會在 [輸出] 視窗中看到失敗。
+* 在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。 確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 失敗都會記錄到偵錯工具主控台。 因此在 Visual Studio 中，您應該會在 [輸出] 視窗中看到失敗。
 
-&nbsp;&nbsp;應用程式嘗試以未經驗證的使用者身分存取您的行動應用程式後端，因此發生此未經授權的失敗。 *TodoItem* 資料表現在需要驗證。
+    應用程式嘗試以未經驗證的使用者身分存取您的行動應用程式後端，因此發生此未經授權的失敗。 *TodoItem* 資料表現在需要驗證。
 
 接下來，您將會更新用戶端應用程式，利用已驗證的使用者身分來要求行動應用程式後端的資源。
 
@@ -58,67 +58,82 @@ ms.locfileid: "52997510"
 在本節中您將修改應用程式，以先顯示登入畫面再顯示資料。 應用程式在啟動時將不會連線到您的 App Service，且不會顯示任何資料。 在使用者第一次執行重新整理動作後，登入畫面將會出現；在成功登入後，將會顯示 todo 項目清單。
 
 1. 在用戶端專案中開啟檔案 **QSTodoService.cs**，將下列 using 陳述式和具有存取子的 `MobileServiceUser`新增至 QSTodoService 類別：
- 
-        using UIKit;
-       
-        // Logged in user
-        private MobileServiceUser user;
-        public MobileServiceUser User { get { return user; } }
+
+    ```csharp
+    using UIKit;
+
+    // Logged in user
+    private MobileServiceUser user;
+    public MobileServiceUser User { get { return user; } }
+    ```
+
 2. 使用下列定義，將名為 **Authenticate** 的新方法新增至 **QSTodoService**：
 
-        public async Task Authenticate(UIViewController view)
+    ```csharp
+    public async Task Authenticate(UIViewController view)
+    {
+        try
         {
-            try
-            {
-                AppDelegate.ResumeWithURL = url => url.Scheme == "zumoe2etestapp" && client.ResumeWithURL(url);
-                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-            }
+            AppDelegate.ResumeWithURL = url => url.Scheme == "{url_scheme_of_your_app}" && client.ResumeWithURL(url);
+            user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
         }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+        }
+    }
+    ```
 
-    >[AZURE.NOTE] 如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：MicrosoftAccount、Twitter、Google 或 WindowsAzureActiveDirectory。
+    > [!NOTE]
+    > 如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：MicrosoftAccount、Twitter、Google 或 WindowsAzureActiveDirectory。
 
 3. 開啟 **QSTodoListViewController.cs**。 修改 **ViewDidLoad** 的方法定義，移除結尾附近的 **RefreshAsync()** 呼叫：
-   
-        public override async void ViewDidLoad ()
-        {
-            base.ViewDidLoad ();
-   
-            todoService = QSTodoService.DefaultService;
-            await todoService.InitializeStoreAsync();
-   
-            RefreshControl.ValueChanged += async (sender, e) => {
-                await RefreshAsync();
-            }
-   
-            // Comment out the call to RefreshAsync
-            // await RefreshAsync();
+
+    ```csharp
+    public override async void ViewDidLoad ()
+    {
+        base.ViewDidLoad ();
+
+        todoService = QSTodoService.DefaultService;
+        await todoService.InitializeStoreAsync();
+
+        RefreshControl.ValueChanged += async (sender, e) => {
+            await RefreshAsync();
         }
+
+        // Comment out the call to RefreshAsync
+        // await RefreshAsync();
+    }
+    ```
+
 4. 修改方法 **RefreshAsync**，以驗證 **User** 屬性是否為 null。 在方法定義最上方新增下列程式碼：
-   
-        // start of RefreshAsync method
+
+    ```csharp
+    // start of RefreshAsync method
+    if (todoService.User == null) {
+        await QSTodoService.DefaultService.Authenticate(this);
         if (todoService.User == null) {
-            await QSTodoService.DefaultService.Authenticate(this);
-            if (todoService.User == null) {
-                Console.WriteLine("couldn't login!!");
-                return;
-            }
+            Console.WriteLine("couldn't login!!");
+            return;
         }
-        // rest of RefreshAsync method
+    }
+    // rest of RefreshAsync method
+    ```
+
 5. 開啟 **AppDelegate.cs**，新增下列方法：
 
-        public static Func<NSUrl, bool> ResumeWithURL;
+    ```csharp
+    public static Func<NSUrl, bool> ResumeWithURL;
 
-        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
-        {
-            return ResumeWithURL != null && ResumeWithURL(url);
-        }
+    public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+    {
+        return ResumeWithURL != null && ResumeWithURL(url);
+    }
+    ```
+
 6. 開啟 **Info.plist** 檔案，瀏覽至 [進階] 區段中的 [URL 類型]。 立即設定 URL 類型的 [識別碼] 和 [URL 配置]，然後按一下 [新增 URL 類型]。 [URL 配置] 應該與您的 {url_scheme_of_your_app} 相同。
 7. 在 Visual Studio 中，連接到 Mac 主機或 Visual Studio for Mac，執行以裝置或模擬器為目標的用戶端專案。 確認應用程式未顯示資料。
-   
+
     將項目清單往下拉以執行重新整理動作，這會使登入畫面出現。 在您成功輸入有效認證後，應用程式將會顯示 todo 項目清單，且您可以對資料進行更新。
 
 <!-- URLs. -->

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002180"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268187"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>剖析 Azure 監視器記錄中的文字資料
 Azure 監視器所收集的部分記錄資料將在單一屬性中包含多個資訊片段。 將此資料剖析成多個屬性可讓您更輕鬆地在查詢中使用。 常見的範例為[自訂記錄檔](../../log-analytics/log-analytics-data-sources-custom-logs.md)，可將具有多個值的整個記錄檔項目收集成單一屬性。 您可以針對不同的值建立不同的屬性，以便在每個屬性中搜尋並彙總。
@@ -63,7 +63,7 @@ Azure 監視器所收集的部分記錄資料將在單一屬性中包含多個�
 如需剖析所收集資料的詳細資訊，請參閱[在 Azure 監視器中建立自訂欄位](../platform/custom-fields.md)。 這會在可供查詢使用的資料表中建立自訂屬性，就像其他任何屬性一樣。
 
 ## <a name="parse-data-in-query-using-patterns"></a>使用模式剖析查詢中的資料
-當您想要剖析的資料可以透過記錄之間重複的模式識別時，您可以在[資料總管查詢語言](/azure/kusto/query/)中使用不同的運算子，將特定資料片段擷取到一或多個新的屬性。
+當您想要剖析的資料可以透過記錄之間重複的模式識別時，您可以在 [Kusto 查詢語言](/azure/kusto/query/)中使用不同的運算子，將特定資料片段擷取到一或多個新的屬性。
 
 ### <a name="simple-text-patterns"></a>簡易文字模式
 
@@ -139,7 +139,7 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>剖析查詢中預先定義的結構
-如果您的資料採用已知的結構設定格式，您可以使用[資料總管查詢語言](/azure/kusto/query/)中的其中一種函式，剖析預先定義的結構：
+如果您的資料採用已知的結構設定格式，您可以使用 [Kusto 查詢語言](/azure/kusto/query/)中的其中一種函式，剖析預先定義的結構：
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

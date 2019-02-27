@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83ee548befdc7ef0a4e7ed2d4b4e61b42a217f12
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247063"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267134"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>針對 Azure Machine Learning 服務 AKS 和 ACI 部署進行疑難排解
 
@@ -196,12 +196,15 @@ $ docker run -p 8000:5001 <image_id>
 通常，在評分指令碼的 `init()` 函式中，呼叫 `Model.get_model_path()` 函式是為了找出容器中的模型檔案或模型檔案資料夾。 如果找不到模型檔案或資料夾，這通常是來源錯誤。 若要對此錯誤進行偵錯，最簡單方式是在容器殼層中執行下列 Python 程式碼：
 
 ```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
 這會列印出容器中的本機路徑 (相對於 `/var/azureml-app`)，而您的評分指令碼預期會在其中找到模型檔案或資料夾。 然後您可以確認該檔案或資料夾是否確實是您需要的。
 
+將記錄層級設定為 [偵錯] 可記錄額外資訊，這在要找出失敗原因時可能很實用。
 
 ## <a name="function-fails-runinputdata"></a>函式失敗：run(input_data)
 如果已成功部署服務，但此服務在您發佈資料到評分端點時發生損毀，您可以在 `run(input_data)` 函式中新增錯誤攔截陳述式，以傳回詳細的錯誤訊息。 例如︰

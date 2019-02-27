@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3daa1c7b3594de227c43d7e722ee9c6cae0902f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301606"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301021"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在執行階段使用 Application Insights 狀態監視器檢測 Web 應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "55301606"
 
 - 如果您的應用程式已部署到 Azure 應用程式服務中，請遵循[這些指示](azure-web-apps.md)。
 - 如果您的應用程式部署在 Azure VM 中，您可以從 Azure 控制台切換為 Application Insights 監視。
-- (我們還提供有關檢測[即時 J2EE Web 應用程式](java-live.md)和 [Azure 雲端服務](../../azure-monitor/app/cloudservices.md)的個別文章)。
+- (我們還提供有關檢測[即時 Java EE Web 應用程式](java-live.md)和 [Azure 雲端服務](../../azure-monitor/app/cloudservices.md)的個別文章)。
 
 
 ![App Insights 概觀圖表的螢幕擷取畫面，包含失敗的要求、伺服器回應時間和伺服器要求的相關資訊](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -44,14 +44,14 @@ ms.locfileid: "55301606"
 
 |  | 建置階段 | 執行階段 |
 | --- | --- | --- |
-| 要求和例外狀況 |是 |是 |
-| [更詳細的例外狀況](../../azure-monitor/app/asp-net-exceptions.md) | |是 |
+| 要求和例外狀況 |yes |yes |
+| [更詳細的例外狀況](../../azure-monitor/app/asp-net-exceptions.md) | |yes |
 | [相依性診斷](../../azure-monitor/app/asp-net-dependencies.md) |在 .Net 4.6 + 上，但較少細節 |是，完整詳細資料︰結果碼、SQL 命令文字、HTTP 指令動詞|
-| [系統效能計數器](../../azure-monitor/app/performance-counters.md) |是 |是 |
-| [自訂遙測的 API][api] |是 |否 |
-| [追蹤記錄檔整合](../../azure-monitor/app/asp-net-trace-logs.md) |是 |否 |
-| [頁面檢視和使用者資料](../../azure-monitor/app/javascript.md) |是 |否 |
-| 需要重新建置程式碼 |是 | 否 |
+| [系統效能計數器](../../azure-monitor/app/performance-counters.md) |yes |yes |
+| [自訂遙測的 API][api] |yes |否 |
+| [追蹤記錄檔整合](../../azure-monitor/app/asp-net-trace-logs.md) |yes |否 |
+| [頁面檢視和使用者資料](../../azure-monitor/app/javascript.md) |yes |否 |
+| 需要重新建置程式碼 |yes | 否 |
 
 
 

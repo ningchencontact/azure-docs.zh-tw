@@ -12,12 +12,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 4/16/2018
 ms.author: victorh
-ms.openlocfilehash: 15a86410e8ca853c2ca2431cb9a62de628972703
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320096"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302025"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>提供的 web 應用程式防火牆 CRS 規則群組與規則的清單
 
@@ -27,6 +27,11 @@ ms.locfileid: "49320096"
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">一般</p>
+
+|RuleId|說明|
+|---|---|
+|200004|可能的多組件不相符的界限。|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -239,6 +244,8 @@ ms.locfileid: "49320096"
 |941290|IE XSS 篩選器 - 偵測到攻擊。|
 |941300|IE XSS 篩選器 - 偵測到攻擊。|
 |941310|US-ASCII 格式不正確編碼 XSS 篩選器 - 偵測到攻擊。|
+|941330|IE XSS 篩選器 - 偵測到攻擊。|
+|941340|IE XSS 篩選器 - 偵測到攻擊。|
 |941350|UTF-7 編碼 IE XSS - 偵測到攻擊。|
 |941013|規則 941013|
 |941014|規則 941014|
@@ -255,18 +262,29 @@ ms.locfileid: "49320096"
 |942011|規則 942011|
 |942012|規則 942012|
 |942100|透過 libinjection 偵測到的 SQL 插入式攻擊|
+|942110|SQL 插入式攻擊：已偵測到一般插入測試|
+|942130|SQL 插入式攻擊：檢測到 SQL 恆真式。|
 |942140|SQL 插入式攻擊 = 偵測到常用的 DB 名稱|
 |942160|偵測到使用 sleep() 或 benchmark() 的盲人 sqli 測試。|
 |942170|偵測到 SQL 基準測試與睡眠插入式嘗試包括條件式查詢|
+|942190|偵測到 MSSQL 程式碼執行和資訊收集嘗試次數|
+|942200|偵測到 MySQL 註解/空間模糊化的插入和反引號終止|
 |942230|偵測到條件式 SQL 插入嘗試|
+|942260|偵測到基本 SQL 驗證略過嘗試 2/3|
 |942270|尋找基本的 SQL 插入。 MySQL Oracle 和其他的常見攻擊字串。|
 |942290|尋找基本 MongoDB SQL 插入嘗試|
+|942300|偵測到 MySQL 註解、條件和 ch(a)r 插入|
 |942320|偵測到 MySQL 與 PostgreSQL 預存程序/函式插入|
+|942330|偵測到傳統 SQL 插入探測 1/2|
+|942340|偵測到基本 SQL 驗證略過嘗試 3/3|
 |942350|偵測到 MySQL UDF 插入和其他資料/結構操作嘗試|
+|942360|偵測到連續的基本 SQL 插入和 SQLLFI 嘗試次數|
+|942370|偵測到傳統 SQL 插入探測 2/2|
 |942013|規則 942013|
 |942014|規則 942014|
 |942150|SQL 插入式攻擊|
 |942410|SQL 插入式攻擊|
+|942430|受限制的 SQL 字元異常偵測 (args)：超出的特殊字元數目 (12)|
 |942440|偵測到 SQL 註解順序。|
 |942450|識別到 SQL 十六進位編碼|
 |942015|規則 942015|

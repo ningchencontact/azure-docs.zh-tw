@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 649fe5ebadf69a90b4794fcaf4519ea5bcc0c4a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874172"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269735"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>使用 HDFS CLI 搭配 Data Lake Storage Gen2
 
@@ -26,17 +26,37 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 您
 >[!IMPORTANT]
 >HDInsight 叢集的計費，是從建立叢集之後開始算起，並於叢集被刪除時停止計算。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。 若要了解如何刪除叢集，請參閱我們[針對該主題的文章](../../hdinsight/hdinsight-delete-cluster.md)。 不過，儲存在已啟用 Data Lake Storage Gen2 之儲存體帳戶中的資料，即使在 HDInsight 叢集被刪除後仍會存在。
 
+### <a name="create-a-file-system"></a>建立檔案系統
+
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+
+* 請將 `<file-system-name>` 預留位置取代為您要為檔案系統指定的名稱。
+
+* 使用您的儲存體帳戶名稱取代 `<storage-account-name>` 預留位置。
+
 ### <a name="get-a-list-of-files-or-directories"></a>取得檔案清單或目錄
 
-    hdfs dfs -ls <args>
+    hdfs dfs -ls <path>
+
+將 `<path>` 預留位置取代為檔案系統或檔案系統資料夾的 URI。
+
+例如：`hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ### <a name="create-a-directory"></a>建立目錄
 
-    hdfs dfs -mkdir [-p] <paths>
+    hdfs dfs -mkdir [-p] <path>
 
-### <a name="delete-a-file-or-a-directory"></a>刪除檔案或目錄
+將 `<path>` 預留位置取代為根檔案系統名稱或您檔案系統內的資料夾。
 
-    hdfs dfs -rm [-skipTrash] URI [URI ...]
+例如：`hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+### <a name="delete-a-file-or-directory"></a>刪除檔案或目錄
+
+    hdfs dfs -rm <path>
+
+將 `<path>` 預留位置取代為您想要刪除之檔案或資料夾的 URI。
+
+例如：`hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ### <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>在 Linux 上搭配使用 HDFS CLI 和 HDInsight Hadoop 叢集
 
@@ -52,11 +72,15 @@ hdfs dfs -mkdir /samplefolder
 ```
 您可以在 Azure 入口網站中 HDInsight 叢集刀鋒視窗的「SSH + 叢集登入」區段找到連接字串。 在叢集建立時，就已指定 SSH 認證。
 
-如需有關 HDFS CLI 的詳細資訊，請參閱[官方文件](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html)和 [HDFS 使用權限指南](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)。 若要深入了解 Databricks 中的 ACL，請參閱[祕密 CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli)。 
+如需有關 HDFS CLI 的詳細資訊，請參閱[官方文件](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html)和 [HDFS 使用權限指南](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)。 若要深入了解 Databricks 中的 ACL，請參閱[祕密 CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli)。
 
 ## <a name="hdfs-cli-with-azure-databricks"></a>HDFS CLI 搭配 Azure Databricks
 
 Databricks 提供以 Databricks REST API 為基礎所建置的 CLI，讓您能輕鬆使用。 開放原始碼專案裝載於 [GitHub](https://github.com/databricks/databricks-cli)。 以下是常用的命令。
+
+### <a name="create-a-file-system"></a>建立檔案系統
+
+在此放置指引。
 
 ### <a name="get-a-list-of-files-or-directories"></a>取得檔案清單或目錄
 

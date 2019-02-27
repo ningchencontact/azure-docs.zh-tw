@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 703f27dab6ca6252647ecb37d17d0f4faf045097
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234536"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268681"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>混合式 Runbook 背景工作的疑難排解
 
@@ -52,7 +52,7 @@ Runbook 在嘗試執行三次後會馬上暫止。 在某些情況下，Runbook 
 
 確認電腦可透過連接埠 443 輸出存取 *.azure-automation.net。
 
-執行混合式 Runbook 背景工作角色的電腦應滿足最低硬體需求，您才能設定它來裝載此功能。 Runbook 及其所使用的背景處理序可能會使系統過度使用，而導致 Runbook 作業延遲或逾時。
+執行混合式 Runbook 背景工作角色的電腦應滿足最低硬體需求，您才能設定它來裝載這項功能。 Runbook 及其所使用的背景處理序可能會使系統過度使用，而導致 Runbook 作業延遲或逾時。
 
 確認執行混合式 Runbook 背景工作角色功能的電腦滿足最低硬體需求。 如果滿足最低硬體需求，請監視 CPU 和記憶體使用率，判斷混合式 Runbook 背景工作角色處理序之效能和 Windows 之間是否有任何相互關聯。 如果有記憶體或 CPU 壓力，這可能表示需要升級資源。 您也可以選擇其他可支援最低需求，也能在工作負載需求指出需要增加資源時擴充的計算資源。
 
@@ -204,7 +204,7 @@ Machine is already registered to a different account
 
 #### <a name="resolution"></a>解決方案
 
-若要解決此問題，請移除下列登錄機碼，然後重新嘗試 `Add-HybridRunbookWorker` Cmdlet：
+若要解決此問題，請移除下列登錄機碼，然後重新啟動 `HealthService` 並重新嘗試 `Add-HybridRunbookWorker` Cmdlet：
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 

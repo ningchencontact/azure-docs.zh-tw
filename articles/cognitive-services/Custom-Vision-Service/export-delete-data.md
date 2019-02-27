@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: pafarley
-ms.openlocfilehash: 7f27170a5e97d7860bcb059f16273b38757de747
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 01273ca241769c5e3bb7b7222355d32b29fd51b9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867030"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308497"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>匯出或刪除自訂視覺中的使用者資料
 
-Content Moderator 會收集使用者資料來操作本服務，但是客戶可以完整控制資料的檢視、匯出和刪除，並使用自訂視覺服務[訓練 API](https://go.microsoft.com/fwlink/?linkid=865446)。
+自訂視覺會收集使用者資料來操作本服務，但是客戶可以完整控制資料的檢視、匯出和刪除，並使用自訂視覺服務[訓練 API](https://go.microsoft.com/fwlink/?linkid=865446)。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

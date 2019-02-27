@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236000"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416780"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>管理前置和後置指令碼 (預覽)
 
@@ -22,7 +22,7 @@ ms.locfileid: "56236000"
 
 ## <a name="runbook-requirements"></a>Runbook 需求
 
-針對要作為前置或後置指令碼使用的 Runbook，此 Runbook 必須匯入到您的自動化帳戶中並發佈。 若要深入了解此程序，請參閱[發佈 Runbook](automation-creating-importing-runbook.md#publishing-a-runbook)。
+針對要作為前置或後置指令碼使用的 Runbook，此 Runbook 必須匯入到您的自動化帳戶中並發佈。 若要深入了解此程序，請參閱[發佈 Runbook](manage-runbooks.md#publish-a-runbook)。
 
 ## <a name="using-a-prepost-script"></a>使用前置/後置指令碼
 
@@ -52,9 +52,21 @@ ms.locfileid: "56236000"
 
 ## <a name="passing-parameters"></a>傳遞參數
 
-當您設定更新前和更新後指令碼時，可以像排定 Runbook 時一樣傳入參數。 參數會在建立更新部署時定義。 更新前和更新後指令碼會要求參數必須是 `String` 類型。 如果您需要另一種物件類型，您可以使用 `[System.Convert]` 將其轉換成另一種類型，或使用您自己的邏輯來處理它。
+當您設定更新前和更新後指令碼時，可以像排定 Runbook 時一樣傳入參數。 參數會在建立更新部署時定義。 前置和後置指令碼支援下列類型：
 
-除了標準的 Runbook 參數外，系統還會提供一個額外的參數。 這個參數是 **SoftwareUpdateConfigurationRunContext**。 此參數是 JSON 字串，如果您在前置或後置指令碼中定義此參數，更新部署就會自動傳遞此參數。 此參數包含更新部署的相關資訊，也就是 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) 傳回的一部分資訊。下表顯示變數中所提供的屬性：
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [single]
+* [double]
+* [DateTime]
+* [string]
+
+如果您需要另一種物件類型，您可以在 Runbook 中使用您自己的邏輯將其轉換成另一種類型。
+
+除了標準的 Runbook 參數外，系統還會提供一個額外的參數。 這個參數是 **SoftwareUpdateConfigurationRunContext**。 此參數是 JSON 字串，如果您在前置或後置指令碼中定義該參數，更新部署就會自動傳遞該參數。 此參數包含更新部署的相關資訊，也就是 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) 傳回的一部分資訊。下表顯示變數中所提供的屬性：
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 屬性
 

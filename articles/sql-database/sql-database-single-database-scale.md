@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961341"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454016"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整單一資料庫資源
 
@@ -42,7 +42,7 @@ ms.locfileid: "55961341"
 
 變更資料庫的服務層和/或運算大小會以新的運算大小建立原始資料庫的複本，然後將連線切換到複本。 此程序期間不會遺失任何資料，但在我們切換到複本的短暫期間，資料庫的連接會停用，因此執行中的某些交易可能會回復。 切換的時間長度會有所不同，但通常 99% 的時間會小於 30 秒。 如果在連線停用時正在執行大型交易，則切換的時間長度可能會更長。
 
-整個向上調整程序的期間取決於資料庫變更前後的大小和服務層。 例如，在一般用途服務層內進行變更的 250 GB 資料庫應在六小時內完成。 對於業務關鍵服務層內變更計算大小的相同大小資料庫，應該在三小時內完成相應增加。
+整個向上調整程序的期間通常取決於資料庫變更前後的大小和服務層。 例如，在一般用途服務層中變更計算大小之任何大小的資料庫應在幾分鐘內完成。另一方面，在業務關鍵層中變更計算大小的延遲通常為每 100 GB 90 分鐘或更少。
 
 > [!TIP]
 > 若要監視進行中的作業，請參閱：[使用 SQL REST API 管理作業](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理作業](/cli/azure/sql/db/op)、[使用 T-SQL 監視作業](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)，以及下列兩個 PowerShell 命令：[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 和 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4698268d8e7798d0664d9eb6c33862d9641ff9fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: f5d453fbacb44105c491c9e69085a219099943fa
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895579"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326903"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -339,7 +339,7 @@ pipeline_run1.wait_for_completion()
 
 所有已發佈的管線都有 REST 端點。 此端點可從外部系統 (例如非 Python 用戶端) 叫用管線執行。 此端點可在批次評分和重新訓練案例中，提供「受控的可重複性」。
 
-若要叫用先前的管線執行，您需要一個 Azure Active Directory 驗證標頭權杖，如 [AzureCliAuthentication 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)中所說明。
+若要叫用先前管線的執行，您需要 Azure Active Directory 驗證標頭權杖，如 [AzureCliAuthentication 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) \(英文\) 中所說明，或是於 [Azure Machine Learning 中的驗證](https://aka.ms/pl-restep-auth) \(英文\) 筆記本中取得詳細資料。
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bd6531bc950e006f15924bb9a0d6428f9e69d544
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460721"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330829"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 9 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 9 月導入的新功能和變更。
@@ -24,6 +24,9 @@ Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 9 月導入的新
 2018 年 4 月，[Microsoft 發表了](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL 資料倉儲 Gen2，其可提供 5 倍的效能、5 倍的計算規模、4 倍的並行存取和無限制的儲存體。 如 Gigaom 在[雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)中所述，SQL 資料倉儲 Gen2 **的效能比 Amazon Redshift 高 42%**。
 
 現在，較低進入點的 DWU500c 已正式推出 Gen2，讓您可以執行規模較小的資料倉儲或開發/測試環境，卻擁有所有最新的服務改進。 新的進入點保留了 Gen2 的所有功能，包括[調適性快取](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/)、[超快速資料輪換](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/)以及支援[即時資料倉儲](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/)。
+
+## <a name="sql-vulnerability-assessment"></a>SQL 弱點評量
+[SQL 弱點評定 (VA)](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/25/sql-vulnerability-assessment-now-supports-azure-sql-data-warehouse-and-azure-sql-database-managed-instance/) \(英文\) 是容易使用的服務，它會持續不斷地監控您的資料倉儲。 它可協助您隨時確保高層級的安全性且符合您組織的原則。 它會針對每個找到的問題，提供完整的安全性報告和可採取動作的補救步驟。 即使您不是安全性專家，此報告也可以讓您輕鬆地主動管理您的資料庫安全性等級，並將注意力放在影響最大的動作。 對於變更頻繁而難以追蹤的動態環境，VA 最適合用來偵測使您資料倉儲易受到攻擊的設定。
 
 ## <a name="improved-availability-with-query-restartability"></a>藉由能夠重新啟動查詢來改善可用性
 執行查詢期間可能會發生任何數量的問題，而造成查詢失敗。 網路中斷、硬體失敗或其他中斷連線情形都可能導致作業中斷。 SQL 資料倉儲現在支援查詢重新啟動能力，可供步驟或陳述式層級的 SELECT 查詢使用。 

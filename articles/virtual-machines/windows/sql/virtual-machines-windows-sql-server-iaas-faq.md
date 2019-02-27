@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767332"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456651"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -87,6 +87,9 @@ ms.locfileid: "55767332"
 1. **如果是從其中一個隨收隨付資源庫映像建立，可以將 VM 變更為使用自己的 SQL Server 授權嗎？**
 
    是。 如果您最初開始使用預付型方案資源庫映像，則可輕鬆地在兩個授權模型中切換。 不過，如果您最初開始使用 BYOL 映像，則無法將您的授權切換為 PAYG。 如需詳細資訊，請參閱[如何變更 SQL Server VM 的授權模式](virtual-machines-windows-sql-ahb.md)。
+
+   > [!Note]
+   > 目前，此功能僅提供給公用雲端客戶。
 
 1. **我應該使用 BYOL 映像或 SQL VM RP 來建立新 SQL VM？**
 

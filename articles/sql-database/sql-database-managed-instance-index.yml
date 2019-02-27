@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c9d8b875d7e5a831af52eae8abc642632cb5f635
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238380"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454682"
 documentType: LandingData
 title: Azure SQL Database 受控執行個體
 metadata:
@@ -75,7 +75,7 @@ sections:
     style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">業務關鍵服務層</a> 現在位於<a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">一般可用性 (GA)</a>中。
-    - html: (預覽) 使用 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 建立<a href="https://aka.ms/managed-instance-aadlogins">執行個體層級 Azure AD 登入</a>。
+    - html: (預覽) 使用 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 建立<a href="https://aka.ms/managed-instance-aadlogins">執行個體層級 Azure AD 伺服器主體 (登入)</a>。
     - html: (預覽) 使用<a href="https://aka.ms/managed-instance-collation">您選擇的執行個體定序</a>建立執行個體。
     - html: 為還原時間點<a href="https://aka.ms/managed-instance-configurable-backup-retention">設定最多 35 天的備份保留期限</a>。 請注意，長期備份保留期間 (最多 10 年) 仍未啟用，因此您可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">只複製備份</a>作為替代方案。
     - html: (預覽) 使用<a href="https://aka.ms/managed-instance-failover-groups">異地分散的容錯移轉群組</a>將執行個體保留在另一個區域中，確保即使在區域性災害案例中，您的資料仍可供使用。

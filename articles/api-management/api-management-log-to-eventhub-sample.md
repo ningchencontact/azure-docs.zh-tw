@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure API 管理、事件中樞和 Runscope 監視 API | Microsoft Docs
-description: 藉由連接「Azure API 管理」、「Azure 事件中樞」和 Runscope 來進行 HTTP 記錄和監視，示範 log-to-eventhub 原則的範例應用程式
+title: 使用 Azure API 管理、事件中樞和 Moesif 監視 API | Microsoft Docs
+description: 藉由連接「Azure API 管理」、「Azure 事件中樞」和 Moesif 來進行 HTTP 記錄和監視，示範 log-to-eventhub 原則的範例應用程式
 services: api-management
 documentationcenter: ''
 author: darrelmiller
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 3a868eb98121ff2e2a30657e301afba7b8618361
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728465"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447736"
 ---
-# <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>利用 Azure API 管理、事件中樞及 Runscope 監視您的 API
-[API 管理服務](api-management-key-concepts.md) 提供許多功能，以增強傳送至 HTTP API 之 HTTP 要求的處理。 不過，要求和回應的存在都是暫時的。 提出要求並透過 API 管理服務送到您的後端 API。 您的 API 會處理此要求，而回應會傳回給 API 取用者。 API 管理服務會保留一些有關 API 的重要統計資料，以顯示在 Azure 入口網站儀表板上，但除此之外，詳細資料會消失。
+# <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>利用 Azure API 管理、事件中樞與 Moesif 監視您的 API
+[API 管理服務](api-management-key-concepts.md)提供許多功能，可增強傳送至 HTTP API 之 HTTP 要求的處理。 不過，要求和回應的存在都是暫時的。 提出要求並透過 API 管理服務送到您的後端 API。 您的 API 會處理此要求，而回應會傳回給 API 取用者。 API 管理服務會保留一些有關 API 的重要統計資料，以顯示在 Azure 入口網站儀表板上，但除此之外，詳細資料會消失。
 
 藉由在「API 管理」服務中使用 log-to-eventhub 原則，您便可以將任何來自要求和回應的詳細資料傳送到 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)。 您想要從傳送到您的 API 的 HTTP 訊息產生事件的原因包羅萬象。 範例包括更新稽核線索、使用量分析、例外狀況警示和第三方整合。
 
@@ -213,66 +213,99 @@ public class HttpMessage
 `HttpMessage` 執行個體會接著轉送到 `IHttpMessageProcessor` 的實作，這是我所建立的介面，用於分離事件的接收及解譯與 Azure 事件中樞及其實際處理。
 
 ## <a name="forwarding-the-http-message"></a>轉送 HTTP 訊息
-在此範例中，我認為將 HTTP 要求推送至 [Runscope](https://www.runscope.com)很有趣。 Runscope 是專門從事 HTTP 偵錯、記錄和監視的雲端架構服務。 該服務有免費層，因此可輕易試用，它可讓我們即時看到流經 API 管理服務的 HTTP 要求。
+在此範例中，我認為將 HTTP 要求推送至 [Moesif API Analytics](https://www.moesif.com) 很有趣。 Moesif 是專門從事 HTTP 分析與偵錯的雲端服務。 該服務有免費層，因此可輕易試用，它可讓我們即時看到流經 API 管理服務的 HTTP 要求。
 
 `IHttpMessageProcessor` 實作如下所示：
 
 ```csharp
-public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
+public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 {
-    private HttpClient _HttpClient;
+    private readonly string RequestTimeName = "MoRequestTime";
+    private MoesifApiClient _MoesifClient;
     private ILogger _Logger;
-    private string _BucketKey;
-    public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
+    private string _SessionTokenKey;
+    private string _ApiVersion;
+    public MoesifHttpMessageProcessor(ILogger logger)
     {
-        _HttpClient = httpClient;
-        var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
-        _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
-        _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
-        _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
+        var appId = Environment.GetEnvironmentVariable("APIMEVENTS-MOESIF-APP-ID", EnvironmentVariableTarget.Process);
+        _MoesifClient = new MoesifApiClient(appId);
+        _SessionTokenKey = Environment.GetEnvironmentVariable("APIMEVENTS-MOESIF-SESSION-TOKEN", EnvironmentVariableTarget.Process);
+        _ApiVersion = Environment.GetEnvironmentVariable("APIMEVENTS-MOESIF-API-VERSION", EnvironmentVariableTarget.Process);
         _Logger = logger;
     }
 
     public async Task ProcessHttpMessage(HttpMessage message)
     {
-        var runscopeMessage = new RunscopeMessage()
-        {
-            UniqueIdentifier = message.MessageId
-        };
-
         if (message.IsRequest)
         {
-            _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
-            runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
-        }
-        else
-        {
-            _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
-            runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
+            message.HttpRequestMessage.Properties.Add(RequestTimeName, DateTime.UtcNow);
+            return;
         }
 
-        var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
-        messagesLink.BucketKey = _BucketKey;
-        messagesLink.RunscopeMessage = runscopeMessage;
-        var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-        _Logger.LogDebug("Request sent to Runscope");
+        EventRequestModel moesifRequest = new EventRequestModel()
+        {
+            Time = (DateTime) message.HttpRequestMessage.Properties[RequestTimeName],
+            Uri = message.HttpRequestMessage.RequestUri.OriginalString,
+            Verb = message.HttpRequestMessage.Method.ToString(),
+            Headers = ToHeaders(message.HttpRequestMessage.Headers),
+            ApiVersion = _ApiVersion,
+            IpAddress = null,
+            Body = message.HttpRequestMessage.Content != null ? System.Convert.ToBase64String(await message.HttpRequestMessage.Content.ReadAsByteArrayAsync()) : null,
+            TransferEncoding = "base64"
+        };
+
+        EventResponseModel moesifResponse = new EventResponseModel()
+        {
+            Time = DateTime.UtcNow,
+            Status = (int) message.HttpResponseMessage.StatusCode,
+            IpAddress = Environment.MachineName,
+            Headers = ToHeaders(message.HttpResponseMessage.Headers),
+            Body = message.HttpResponseMessage.Content != null ? System.Convert.ToBase64String(await message.HttpResponseMessage.Content.ReadAsByteArrayAsync()) : null,
+            TransferEncoding = "base64"
+        };
+
+        Dictionary<string, string> metadata = new Dictionary<string, string>();
+        metadata.Add("ApimMessageId", message.MessageId.ToString());
+
+        EventModel moesifEvent = new EventModel()
+        {
+            Request = moesifRequest,
+            Response = moesifResponse,
+            SessionToken = _SessionTokenKey != null ? message.HttpRequestMessage.Headers.GetValues(_SessionTokenKey).FirstOrDefault() : null,
+            Tags = null,
+            UserId = null,
+            Metadata = metadata
+        };
+
+        Dictionary<string, string> response = await _MoesifClient.Api.CreateEventAsync(moesifEvent);
+
+        _Logger.LogDebug("Message forwarded to Moesif");
+    }
+
+    private static Dictionary<string, string> ToHeaders(HttpHeaders headers)
+    {
+        IEnumerable<KeyValuePair<string, IEnumerable<string>>> enumerable = headers.GetEnumerator().ToEnumerable();
+        return enumerable.ToDictionary(p => p.Key, p => p.Value.GetEnumerator()
+                                                         .ToEnumerable()
+                                                         .ToList()
+                                                         .Aggregate((i, j) => i + ", " + j));
     }
 }
 ```
 
-我能夠利用 [Runscope 的現有用戶端程式庫](https://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha)，所以可輕鬆地將 `HttpRequestMessage` 和 `HttpResponseMessage` 執行個體推送到它們的服務中。 若要存取 Runscope API，您需有一個帳戶和 API 金鑰。 在 [建立應用程式來存取 Runscope API](https://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) 螢幕錄製影片中可找到取得 API 金鑰的指示。
+`MoesifHttpMessageProcessor` 利用[適用於 Moesif 的 C# API 程式庫](https://www.moesif.com/docs/api?csharp#events)，此程式庫可讓您輕鬆將 HTTP 事件資料推送到其服務。 為了將 HTTP 資料傳送到 Moesif Collector API，您需要帳戶與應用程式識別碼。您可以透過在 [Moesif 的網站](https://www.moesif.com)上建立帳戶來取得 Moesif 應用程式識別碼，並移至_右上角功能表_ -> _[應用程式設定]_。
 
 ## <a name="complete-sample"></a>完整範例
-範例的[原始程式碼](https://github.com/darrelmiller/ApimEventProcessor)和測試位於 GitHub 上。 您需要 [API 管理服務](get-started-create-service-instance.md)、[已連線的事件中樞](api-management-howto-log-event-hubs.md)及[儲存體帳戶](../storage/common/storage-create-storage-account.md)，才能自行執行此範例。   
+範例的[原始程式碼](https://github.com/dgilling/ApimEventProcessor)和測試位於 GitHub 上。 您需要 [API 管理服務](get-started-create-service-instance.md)、[已連線的事件中樞](api-management-howto-log-event-hubs.md)及[儲存體帳戶](../storage/common/storage-create-storage-account.md)，才能自行執行此範例。   
 
-此範例只是簡單的主控台應用程式，可接聽來自事件中樞的事件，將它們轉換為 `HttpRequestMessage` 和 `HttpResponseMessage` 物件，然後再轉送到 Runscope API。
+此範例只是簡單的主控台應用程式，可接聽來自事件中樞的事件，將它們轉換為 Moesif `EventRequestModel` 和 `EventResponseModel` 物件，然後再轉送到 Moesif Collector API。
 
-在下列動畫影像中，您可以看見正在開發人員入口網站中對 API 提出的要求、顯示正在接收、處理和轉送訊息的主控台應用程式，然後是顯示在 Runscope 流量偵測器中的要求和回應。
+在下列動畫影像中，您可以看見正在開發人員入口網站中對 API 提出的要求、顯示正在接收、處理和轉送訊息的主控台應用程式，然後是顯示在 Event Stream 中的要求和回應。
 
 ![示範將要求轉送到 Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
 ## <a name="summary"></a>總結
-Azure API 管理服務提供了一個理想位置，可供擷取您的 API 的雙向 HTTP 流量。 Azure 事件中樞是一個可高度擴充、低成本的解決方案，用來擷取該流量並將它饋送到次要處理系統中，以便進行記錄、監視和其他複雜的分析。 連線到第三方監視系統 (像是 Runscope) 就像數十行程式碼一樣簡單。
+Azure API 管理服務提供了一個理想位置，可供擷取您的 API 的雙向 HTTP 流量。 Azure 事件中樞是一個可高度擴充、低成本的解決方案，用來擷取該流量並將它饋送到次要處理系統中，以便進行記錄、監視和其他複雜的分析。 連線到第三方監視系統 (像是 Moesif) 就像數十行程式碼一樣簡單。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 Azure 事件中樞

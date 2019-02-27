@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4195016bb029d2cf8f5042a853fa591609bd486e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447202"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428528"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
 Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。
@@ -53,7 +53,7 @@ Cloud Shell 由 Microsoft 管理，因此隨附受歡迎的命令列工具和語
 檢視[安裝在 Cloud Shell 中的完整工具清單](features.md#tools)
 
 ### <a name="integrated-cloud-shell-editor"></a>整合式 Cloud Shell 編輯器
-Cloud Shell 提供一種以開放原始碼 Monaco Editor 為基礎的整合式圖形化文字編輯器。 只需執行 `code .` 來透過 Azure CLI 2.0 或 Azure PowerShell 順暢地部署，即可建立和編輯設定。
+Cloud Shell 提供一種以開放原始碼 Monaco Editor 為基礎的整合式圖形化文字編輯器。 只需執行 `code .` 來透過 Azure CLI 或 Azure PowerShell 順暢地部署，即可建立和編輯設定。
 
 [深入了解 Cloud Shell 編輯器](using-cloud-shell-editor.md)。
 
@@ -68,7 +68,7 @@ Cloud Shell 提供一種以開放原始碼 Monaco Editor 為基礎的整合式�
 * [Azure CLI 文件](https://docs.microsoft.com/cli/azure)
 * [Azure PowerShell 文件](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure 行動裝置應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [VS Code Azure 帳戶擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Visual Studio Code Azure 帳戶延伸模組](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>連線 Microsoft Azure 檔案儲存體
 Cloud Shell 機器是暫存的，因此需要將新的或現有的 Azure 檔案共用掛接為 `clouddrive`，才能保存您的檔案。

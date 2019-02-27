@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: f05935f73f385b076741d2e856af8316a74e9d2f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 67bdabe24e789dc4d1f2020a7a7853eafaa607c3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042490"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429361"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 1. **連線原則︰使用直接連接模式**
 
-    用戶端連線到 Azure Cosmos DB 的方式，對於效能有重大影響 (尤其對觀察到的用戶端延遲而言)。 有兩個重要組態設定可用來設定用戶端連接原則 - 連接模式和連接[*通訊協定*](#connection-protocol)。  兩個可用的模式︰
+    用戶端連線到 Azure Cosmos DB 的方式，對於效能有重大影響 (尤其對觀察到的用戶端延遲而言)。 有兩個重要組態設定可用來設定用戶端連接原則 - 連接*模式*和連接*通訊協定*。  兩個可用的模式︰
 
    * 閘道模式 (預設值)
       
@@ -48,7 +48,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     |連線模式  |支援的通訊協定  |支援的 SDK  |API/服務連接埠  |
     |---------|---------|---------|---------|
     |閘道器  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)、Table(443)、Cassandra(443)、Graph(443)    |
-    |直接    |    HTTPS     |  .Net 和 Java SDK    |    SQL(443)   |
+    |直接    |    HTTPS     |  .Net 和 Java SDK    |   10,000-20,000 範圍內的連接埠    |
     |直接    |     TCP    |  .Net SDK    | 10,000-20,000 範圍內的連接埠 |
 
     Azure Cosmos DB 提供透過 HTTPS 的簡單且開放 RESTful 程式設計模型。 此外，它可提供有效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 .NET 用戶端 SDK 取得。 直接 TCP 和 HTTPS 皆使用 SSL 來進行初始驗證和加密流量。 為了達到最佳效能，儘可能使用 TCP 通訊協定。

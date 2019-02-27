@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819156"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428789"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>從 HDInsight 上的 Apache Storm 寫入 Apache Hadoop HDFS
 
@@ -50,15 +50,18 @@ ms.locfileid: "55819156"
 HdfsBolt 會使用您提供的檔案配置來了解如何寫入 HDFS。 利用 HDInsight 時，請使用下列其中一項配置：
 
 * `wasb://`：搭配使用 Azure 儲存體帳戶。
-* `adl://`：搭配使用 Azure Data Lake Storage。
+* `abfs://`：搭配 Azure Data Lake Storage Gen2 使用。
+* `adl://`：搭配 Azure Data Lake Storage Gen1 使用。
 
 下表提供針對不同案例使用檔案配置的範例：
 
 | 配置 | 注意 |
 | ----- | ----- |
 | `wasb:///` | 預設儲存體帳戶是 Azure 儲存體帳戶中的 Blob 容器 |
-| `adl:///` | 預設儲存體帳戶是 Azure Data Lake Storage 中的目錄。 叢集建立期間，您可以指定 Data Lake Storage 中其為叢集 HDFS 根目錄的目錄。 例如，`/clusters/myclustername/` 目錄。 |
+| `abfs:///` | 預設儲存體帳戶是 Azure Data Lake Storage Gen2 帳戶中的目錄 |
+| `adl:///` | 預設儲存體帳戶是 Azure Data Lake Storage Gen1 中的目錄。 叢集建立期間，您可以指定 Data Lake Storage 中其為叢集 HDFS 根目錄的目錄。 例如，`/clusters/myclustername/` 目錄。 |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | 與叢集建立關聯的非預設 (其他) Azure 儲存體帳戶。 |
+| `abfs://CONTAINER@ACCOUNT.dfs.core.windows.net/` | 與叢集建立關聯的非預設 (其他) Azure 儲存體帳戶。 |
 | `adl://STORENAME/` | 叢集所使用的 Data Lake Storage 根目錄。 此配置可讓您存取位於叢集檔案系統所在目錄外部的資料。 |
 
 如需詳細資訊，請參閱 Apache.org 上的 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 參考。
@@ -180,7 +183,7 @@ bolts:
         hdfs.url: wasb:///
 
     > [!IMPORTANT]  
-    > 這個範例假設您的叢集使用 Azure 儲存體帳戶作為預設儲存體。 如果叢集使用 Azure Data Lake Storage，請改為使用 `hdfs.url: adl:///`。
+    > 這個範例假設您的叢集使用 Azure 儲存體帳戶作為預設儲存體。 如果叢集使用 Azure Data Lake Storage Gen2，請改為使用 `hdfs.url: abfs:///`。 如果叢集使用 Azure Data Lake Storage Gen1，請改為使用 `hdfs.url: adl:///`。
     
     若要儲存檔案，使用 __Ctrl + X__，然後是 __Y__，最後按 __Enter__。 此檔案中的值會設定 Data Lake Storage URL，以及要寫入資料的目錄名稱。
 

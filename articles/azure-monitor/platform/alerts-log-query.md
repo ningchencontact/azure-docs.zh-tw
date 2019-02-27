@@ -5,15 +5,15 @@ author: yossi-y
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 36be305e60806ba2cdea260fc46bc329c43284cb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429781"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447209"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure 監視器中的記錄警示查詢
 [以 Azure 監視器記錄為基礎的警示規則](alerts-unified-log.md)會定期執行，因此您應該確定已撰寫規則將額外負荷和延遲降至最低。 這篇文章對於撰寫記錄警示的有效查詢以及轉換現有查詢的程序提供建議。 
@@ -31,16 +31,11 @@ SecurityEvent | where EventID == 4624
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 雖然在資料探索期間可使用 `search` 和 `union` 搜尋詞彙的整個資料模型，但是效果不如使用資料表，因為這些必須掃描多個資料表。 由於警示規則的查詢會定期執行，因此可能會導致過多的額外負荷，而導致警示出現延遲。 由於這個額外負荷，對於 Azure 中的記錄警示規則進行的查詢開頭一律是資料表，這會定義明確的範圍，藉以改善查詢效能和結果相關性。
 
@@ -55,7 +50,9 @@ app('Contoso-app1').requests,
 app('Contoso-app2').requests, 
 workspace('Contoso-workspace1').Perf 
 ```
- 
+
+>[!NOTE]
+>記錄警示中的[跨資源查詢](../log-query/cross-workspace-query.md)已受到新的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) \(英文\) 所支援。 根據預設，Azure 監視器會使用[舊版 Log Analytics 警示 API](api-alerts.md) 來從 Azure 入口網站建立新的記錄警示規則，除非您從[舊版記錄警示 API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 進行切換。 在切換之後，新的 API 將會成為 Azure 入口網站中新警示規則的預設值，並會讓您建立跨資源查詢記錄警示規則。 您可以在不進行切換的情況下建立[跨資源查詢](../log-query/cross-workspace-query.md)記錄警示規則，方法是使用[適用於 scheduledQueryRules API 的 ARM 範本](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)，但此警示規則只能透過 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) \(英文\) 管理，而無法從 Azure 入口網站中管理。
 
 ## <a name="examples"></a>範例
 下列範例包含使用 `search` 和 `union` 的記錄檔查詢，並提供您可用來修改這些查詢以便搭配警示規則使用的步驟。

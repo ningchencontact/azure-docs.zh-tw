@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981752"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447458"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
@@ -61,6 +61,8 @@ ms.locfileid: "55981752"
 | **支援方案** | Azure Government 標準支援 | MS-AZR-USGOV-0041P |
 | **支援方案** | Azure Government 專業指導支援 | MS-AZR-USGOV-0042P |
 | **支援方案** | Azure Government 開發人員支援 | MS-AZR-USGOV-0043P |
+
+使用預付型方案、MSDN 和 Visual Studio 供應項目類別的客戶，自 2018/10/02 起可在「成本管理」中取得資料。
 
 如果您未看到訂用帳戶的資料，而您想要確認訂用帳戶是否屬於支援的供應項目，您可以驗證您的訂用帳戶是否受支援。 若要驗證 Azure 訂用帳戶是否受支援，請登入 [Azure 入口網站](https://portal.azure.com)。 然後，在左側功能表窗格中選取 [所有服務]。 在服務清單中，選取 [訂用帳戶]。 在訂用帳戶清單功能表中，按一下您要確認的的訂用帳戶。 您的訂用帳戶會顯示在 [概觀] 索引標籤上，您會看到 [供應項目] 和 [供應項目識別碼]。 下圖說明一個範例。
 

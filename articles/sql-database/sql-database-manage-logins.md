@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164612"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301752"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制及授與 SQL Database 和 SQL 資料倉儲的資料庫存取權
 
@@ -84,9 +84,9 @@ ms.locfileid: "56164612"
 
 ### <a name="database-creators"></a>資料庫建立者
 
-其中一個系統管理角色是 **dbmanager** 角色。 此角色的成員可以建立新的資料庫。 若要使用此角色，您可在 `master` 資料庫中建立使用者，然後將該使用者新增至 **dbmanager** 資料庫角色。 若要建立資料庫，使用者必須是主要資料庫中以 SQL Server 登入為基礎的使用者，或是以 Azure Active Directory 使用者為基礎的容器資料庫使用者。
+其中一個系統管理角色是 **dbmanager** 角色。 此角色的成員可以建立新的資料庫。 若要使用此角色，您可在 `master` 資料庫中建立使用者，然後將該使用者新增至 **dbmanager** 資料庫角色。 若要建立資料庫，使用者必須是 `master` 資料庫中以 SQL Server 登入為基礎的使用者，或是以 Azure Active Directory 使用者為基礎的容器資料庫使用者。
 
-1. 使用系統管理員帳戶，連接至 master 資料庫。
+1. 使用系統管理員帳戶連線到 `master` 資料庫。
 2. 使用 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 陳述式來建立 SQL Server 驗證登入。 範例陳述式︰
 
    ```sql
@@ -98,7 +98,7 @@ ms.locfileid: "56164612"
 
    為了改進效能，系統會暫時在資料庫層級快取登入 (伺服器層級主體)。 若要重新整理驗證快取，請參閱 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)。
 
-3. 在 master 資料庫中，藉由使用 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 陳述式來建立使用者。 使用者可以是 Azure Active Directory 驗證自主資料庫使用者 (如果您已針對 Azure AD 驗證設定您的環境)，或 SQL Server 驗證自主資料庫使用者，或根據 SQL Server 驗證登入 (在上一個步驟中建立) 的 SQL Server 驗證使用者。範例陳述式︰
+3. 在 `master` 資料庫中，使用 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 陳述式來建立使用者。 使用者可以是 Azure Active Directory 驗證自主資料庫使用者 (如果您已針對 Azure AD 驗證設定您的環境)，或 SQL Server 驗證自主資料庫使用者，或根據 SQL Server 驗證登入 (在上一個步驟中建立) 的 SQL Server 驗證使用者。範例陳述式︰
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -106,7 +106,7 @@ ms.locfileid: "56164612"
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. 藉由使用 **ALTER ROLE** 陳述式，將新的使用者新增至 [dbmanager](https://msdn.microsoft.com/library/ms189775.aspx) 資料庫角色。 範例陳述式︰
+4. 使用 [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 陳述式，將新的使用者新增至 `master` 中的 **dbmanager** 資料庫角色。 範例陳述式︰
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -118,7 +118,7 @@ ms.locfileid: "56164612"
 
 5. 必要時，設定防火牆規則以允許新使用者連接。 (現有的防火牆規則可能會涵蓋新使用者。)
 
-現在使用者可以連接至 master 資料庫，而且可以建立新的資料庫。 建立資料庫的帳戶會成為資料庫的擁有者。
+現在使用者可以連線至 `master` 資料庫，而且可以建立新的資料庫。 建立資料庫的帳戶會成為資料庫的擁有者。
 
 ### <a name="login-managers"></a>登入管理員
 
@@ -141,11 +141,19 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 GRANT ALTER ANY USER TO Mary;
 ```
 
-若要將資料庫的完整控制權提供給其他使用者，請使用 `ALTER ROLE` 陳述式，讓他們成為 **db_owner** 固定資料庫角色的成員。
+若要將資料庫的完整控制授與其他使用者，請讓他們成為 **db_owner** 固定資料庫角色的成員。
+
+在 Azure SQL Database 中，請使用 `ALTER ROLE` 陳述式。
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+在 Azure SQL 資料倉儲中，請使用 [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)。
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > 需根據 SQL Database 伺服器登入來建立資料庫使用者的其中一個常見原因是，使用者需要存取多個資料庫。 由於自主資料庫使用者是個別的實體，所以每個資料庫都會維護它自己的使用者和密碼。 如果使用者之後必須記住每個資料庫的每組密碼，如此會造成額外負擔，而且在必須變更多個資料庫的多組密碼時這會變得不可行。 不過，使用 SQL Server 登入和高可用性 (作用中的地理複寫和容錯移轉群組) 時，必須手動設定每個伺服器的 SQL Server 登入。 否則，發生容錯移轉之後，資料庫使用者將無法再對應到伺服器登入，而且在容錯移轉後將無法存取資料庫。 如需有關設定用於異地複寫的登入詳細資訊，請參閱[設定和管理異地還原或容錯移轉的 Azure SQL Database 安全性](sql-database-geo-replication-security-config.md)。

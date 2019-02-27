@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器的 Azure 監視器記錄查詢範例 | Microsoft Docs
-description: 在使用資料總管查詢語言的 Azure 監視器中進行的記錄查詢範例。
+title: Azure 監視器記錄查詢範例 | Microsoft Docs
+description: Azure 監視器中使用 Kusto 查詢語言進行的記錄查詢範例。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993192"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416644"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure 監視器記錄查詢範例
-本文包含多個[查詢](log-query-overview.md)使用[資料總管查詢語言](https://docs.microsoft.com/azure/kusto/query/)從 Azure 監視器擷取不同記錄資料類型的範例。 您可以透過方法來合併和分析資料，以使用這些範例識別用於您的要求的不同策略。  
+本文包含多個使用 [Kusto 查詢語言](/azure/kusto/query/)的[查詢](log-query-overview.md)範例，以從 Azure 監視器擷取不同的記錄資料類型。 您可以透過方法來合併和分析資料，以使用這些範例識別用於您的要求的不同策略。  
 
 請參閱 [Kusto 語言參考](https://docs.microsoft.com/azure/kusto/query/)了解在這些範例中使用不同關鍵字的詳細資料。 如果您不熟悉 Azure 監視器，請逐步查看[建立查詢的課程](get-started-queries.md)。
 

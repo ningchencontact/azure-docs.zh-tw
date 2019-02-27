@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3f7579324e1218cc2e2c3594889db776da6e529
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 57cc585d621c71872a4b7658c74f581c8998b245
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56119032"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341074"
 ---
 # <a name="how-to-use-azure-maps-android-sdk"></a>如何使用 Azure 地圖服務 Android SDK
 
@@ -55,7 +55,7 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助�
 
 在開始建置應用程式之前，請先遵循下列步驟來安裝 Azure 地圖服務 Android SDK。 
 
-1. 將下列內容新增至 **allprojects** (**build.gradle** 檔案中的存放庫區塊)。
+1. 將下列內容新增至 [所有專案] (**build.gradle** 檔案中的存放庫區塊)。
 
     ```
     maven {
@@ -79,7 +79,7 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助�
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. 將下列內容新增至 'AndroidManifest.xml' 來設定權限
+3. 將下列內容新增至 **AndroidManifest.xml** 來設定權限
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -128,7 +128,7 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助�
 
     public class MainActivity extends AppCompatActivity {
         
-        static{
+        static {
             AzureMaps.setSubscriptionKey("{subscription-key}");
         }
 
@@ -187,7 +187,7 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助�
 
 ## <a name="import-classes"></a>匯入類別
 
-完成上述步驟之後，您非常有可能會從 Android Studio 收到警告，內容是關於程式碼中的一些文字。 若要處理此警告，您必須匯入一些會在 `MainActivity.java` 中參考的類別。
+完成上述步驟之後，您非常有可能會從 Android Studio 收到警告，內容是關於程式碼中的一些文字。 若要解決這些警告，請匯入 `MainActivity.java` 中所參考的類別。
 
 您可以藉由按下 `Alt`+`Enter` (Mac 上則為 `Option`+`Return`) 來自動匯入這些類別。 
 

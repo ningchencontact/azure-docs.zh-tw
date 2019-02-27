@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 4f025680c1c637f8b8475be2d5784d08e9e2343b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962004"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328668"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>使用以 vCore 為基礎的購買模型的彈性集區資源限制
 
@@ -59,11 +59,11 @@ ms.locfileid: "55962004"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-\*關於任何個別資料庫的最大目前背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+\* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>一般目的服務層：第 4 代計算平台 (第 2 部分)
 
-|計算大小|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|計算大小|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W 產生|4|4|4|4|4|4|
 |虛擬核心|7|8|9|10|16|24|
@@ -85,7 +85,7 @@ ms.locfileid: "55962004"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-\*關於任何個別資料庫的最大目前背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+\* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>一般目的服務層：第 5 代計算平台 (第 1 部分)
 
@@ -111,7 +111,7 @@ ms.locfileid: "55962004"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-\*關於任何個別資料庫的最大目前背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+\* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>一般目的服務層：第 5 代計算平台 (第 2 部分)
 
@@ -136,7 +136,7 @@ ms.locfileid: "55962004"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-\*關於任何個別資料庫的最大目前背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+\* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層：儲存體大小和計算大小
 
@@ -164,7 +164,7 @@ ms.locfileid: "55962004"
 |讀取向外延展|yes|是|是|是|是|yes|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-\*關於任何個別資料庫的最大目前背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+\* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>業務關鍵服務層：第 4 代計算平台 (第 2 部分)
 
@@ -190,7 +190,7 @@ ms.locfileid: "55962004"
 |讀取向外延展|yes|是|是|是|是|yes|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-\*關於任何個別資料庫的最大目前背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+\* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>業務關鍵服務層：第 5 代計算平台 (第 1 部分)
 
@@ -216,7 +216,7 @@ ms.locfileid: "55962004"
 |讀取向外延展|yes|是|是|是|是|是|yes|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-\*關於任何個別資料庫的最大目前背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+\* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>業務關鍵服務層：第 5 代計算平台 (第 2 部分)
 
@@ -242,7 +242,7 @@ ms.locfileid: "55962004"
 |讀取向外延展|yes|是|是|是|是|是|yes|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-\*關於任何個別資料庫的最大目前背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+\* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 如果彈性集區的所有虛擬核心都是忙碌中，則集區中的每個資料庫會收到等量的計算資源以處理查詢。 SQL Database 服務藉由確保運算時間的均等配量，提供資料庫之間的資源共用公平性。 彈性集區資源共用公平性不包括任何資源數量，否則當每個資料庫的最小虛擬核心數設為非零的值時，便會對每個資料庫保證資源數量。
 

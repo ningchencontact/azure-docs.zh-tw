@@ -8,23 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 81e846c6ffc0361b7154c962dbc047b9e5ae55e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1056b8be113d56342aea8f83d5325737f7ecb93b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872980"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308446"
 ---
 # <a name="face-detection-with-computer-vision"></a>使用電腦視覺的物件偵測
 
-電腦視覺會偵測圖片中的人臉，並針對偵測到的臉部產生年齡、性別和矩形。 電腦視覺提供位於[臉部](/azure/cognitive-services/face/)的功能子集，且您可以使用「臉部」服務執行更詳細的分析，例如臉部識別和姿勢偵測。  
+電腦視覺會偵測影像中的人臉，並針對偵測到的臉部產生年齡、性別和矩形。 
+
+> [!NOTE]
+> Azure [臉部](/azure/cognitive-services/face/)服務也提供此功能。 如需更詳細的臉部分析，請參閱此替代方案，包括臉部辨識和姿勢偵測。 
 
 ## <a name="face-detection-examples"></a>臉部偵測範例
 
-第一個範例使用包含單一人臉的影像，示範電腦視覺傳回的 JSON 回應。
+下列範例使用包含單一人臉的影像，示範電腦視覺傳回的 JSON 回應。
 
 ![視覺分析屋頂女人的臉部](./Images/woman_roof_face.png)
 
@@ -51,7 +54,7 @@ ms.locfileid: "55872980"
 }
 ```
 
-第二個範例使用包含多張人臉的影像來示範傳回的 JSON 回應。
+接下來的範例使用包含多張人臉的影像來示範傳回的 JSON 回應。
 
 ![視覺分析家人合照的臉部](./Images/family_photo_face.png)
 
@@ -110,4 +113,4 @@ ms.locfileid: "55872980"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解有關[偵測特定網域內容](concept-detecting-domain-content.md)的概念。
+如需使用臉部偵測功能之方式的詳細資訊，請參閱[分析影像](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)參考文件。

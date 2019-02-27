@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edd011509c9129e95bcf7ea49f5a84e17fffd176
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694579"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310545"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>針對 Azure 儲存體帳戶設定自訂網域名稱
 
@@ -56,7 +56,7 @@ ms.locfileid: "55694579"
 
 將自訂網域對應至 Blob 端點時，會在您於 [Azure 入口網站](https://portal.azure.com)中註冊網域的期間，造成短暫停機。 如果網域目前所支援之應用程式的服務等級協定 (SLA) 要求不得發生停機狀況，請使用 Azure *asverify* 子網域作為中繼註冊步驟。 此步驟可確保讓使用者能夠在 DNS 對應進行時存取您的網域。
 
-[使用 *asverify* 子網域來註冊自訂網域](#register-a-custom-domain-using-the-asverify-subdomain)涵蓋此中繼方法。
+使用 *asverify* 子網域來註冊自訂網域涵蓋此中繼方法。
 
 ## <a name="register-a-custom-domain"></a>註冊自訂網域
 如果下列陳述與您的情況相符，請使用本節中的程序來註冊網域：
@@ -65,7 +65,7 @@ ms.locfileid: "55694579"
 
 您可以使用 Azure DNS 來設定 Azure Blob 存放區的自訂 DNS 名稱。 如需詳細資訊，請參閱[使用 Azure DNS 為 Azure 服務提供自訂網域設定](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage)。
 
-如果您自訂網域目前支援的應用程式不允許發生任何停機狀況，請依照[使用 *asverify* 子網域來註冊自訂網域](#register-a-custom-domain-using-the-asverify-subdomain)中所述的程序進行操作。
+如果您自訂網域目前支援的應用程式不允許發生任何停機狀況，請依照使用 *asverify* 子網域來註冊自訂網域中所述的程序進行操作。
 
 若要設定自訂網域名稱，請在 DNS 中建立一個新的 CNAME 記錄。 CNAME 記錄會指定網域名稱的別名。 在我們的範例中，它會將自訂網域的位址對應至儲存體帳戶的 Blob 儲存體端點。
 

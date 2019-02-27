@@ -7,16 +7,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: danlep
-ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 42790905509e2ea8bbba87587ed01b1929221db5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857749"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329314"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure Container Registry Webhook 參考
 
-當某些動作對產生事件的容器登錄執行時，您可以針對產生事件的容器登錄[設定 Webhook](container-registry-webhook.md)。 例如，您可以啟用容器映像 `push` 和 `delete` 作業上觸發的 Webhook。 當 Webhook 觸發時，Azure Container Registry 就會發出 HTTP 或 HTTPS 要求，當中包含對您所指定端點之事件的相關資訊。 然後，您的端點就可以據此處理 webhook 並採取行動。
+當某些動作對產生事件的容器登錄執行時，您可以針對產生事件的容器登錄[設定 Webhook](container-registry-webhook.md)。 例如，啟用在容器映像 `push` 和 `delete` 作業上觸發的 Webhook。 當 Webhook 觸發時，Azure Container Registry 就會發出 HTTP 或 HTTPS 要求，當中包含對您所指定端點之事件的相關資訊。 然後，您的端點就可以據此處理 webhook 並採取行動。
 
 下列各節詳細說明受支援事件所產生的 webhook 要求之結構描述。 事件區段包含事件類型的承載結構描述、範例要求承載，以及一或多個會觸發 webhook 的範例命令。
 
@@ -43,7 +43,7 @@ ms.locfileid: "48857749"
 |元素|類型|說明|
 |-------------|----------|-----------|
 |`id`|字串|Webhook 事件的識別碼。|
-|`timestamp`|Datetime|Webhook 事件觸發的時間。|
+|`timestamp`|DateTime|Webhook 事件觸發的時間。|
 |`action`|字串|觸發 webhook 事件的動作。|
 |[目標](#target)|複雜類型|觸發 webhook 事件的事件目標。|
 |[要求](#request)|複雜類型|產生 webhook 事件的要求。|
@@ -107,7 +107,7 @@ docker push myregistry.azurecr.io/hello-world:v1
 |元素|類型|說明|
 |-------------|----------|-----------|
 |`id`|字串|Webhook 事件的識別碼。|
-|`timestamp`|Datetime|Webhook 事件觸發的時間。|
+|`timestamp`|DateTime|Webhook 事件觸發的時間。|
 |`action`|字串|觸發 webhook 事件的動作。|
 |[目標](#delete_target)|複雜類型|觸發 webhook 事件的事件目標。|
 |[要求](#delete_request)|複雜類型|產生 webhook 事件的要求。|
@@ -154,10 +154,10 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>後續步驟

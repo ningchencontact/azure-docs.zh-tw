@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90c508fb5ad3caf961747f2ac10bae42dd1f4c35
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114955"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343505"
 ---
 # <a name="working-with-security-policies"></a>使用安全性原則
 
-這篇文章說明如何設定安全性原則，以及如何在資訊安全中心中檢視它們。 Azure 資訊安全中心會自動為每個上架的訂用帳戶指派[內建的安全性原則](security-center-policy-definitions.md)。 您可以在 [Azure 原則](../azure-policy/azure-policy-introduction.md)中設定它們，這也使您可以跨管理群組和多個訂用帳戶設定原則。
+這篇文章說明如何設定安全性原則，以及如何在資訊安全中心中檢視它們。 Azure 資訊安全中心會自動為每個上架的訂用帳戶指派[內建的安全性原則](security-center-policy-definitions.md)。 您可以在 [Azure 原則](../governance/policy/overview.md)中設定它們，這也使您可以跨管理群組和多個訂用帳戶設定原則。
 
-如需有關如何使用 PowerShell 設定原則的指示，請參閱[快速入門：使用 Azure RM PowerShell 模組建立原則指派，以識別不符合規範的資源](../azure-policy/assign-policy-definition-ps.md)。
+如需有關如何使用 PowerShell 設定原則的指示，請參閱[快速入門：使用 Azure PowerShell 模組建立原則指派，以識別不符合規範的資源](../governance/policy/assign-policy-powershell.md)。
 
 >[!NOTE]
 > 資訊安全中心已開始進行其與 Azure 原則的整合。 現有客戶會自動遷移至 Azure 原則中新的內建方案，而不是資訊安全中心先前的安全性原則。 除了 Azure 原則中新方案的目前狀態以外，這項變更不會影響您的資源或環境。
 
 ## <a name="what-are-security-policies"></a>什麼是安全性原則？
-安全性原則會定義工作負載的所需設定，並且協助確保符合公司或法規安全性需求。 在 Azure 原則中，您可以為 Azure 訂用帳戶定義原則，並按照工作負載的類型或資料的機密性訂定這些原則。 例如，對於使用個人識別資訊等規範資料的應用程式，其需要的安全性層級可能比工作負載還高。 若要跨訂用帳戶或針對管理群組設定原則，請在 [Azure 原則](../azure-policy/azure-policy-introduction.md)中設定。
+安全性原則會定義工作負載的所需設定，並且協助確保符合公司或法規安全性需求。 在 Azure 原則中，您可以為 Azure 訂用帳戶定義原則，並按照工作負載的類型或資料的機密性訂定這些原則。 例如，對於使用個人識別資訊等規範資料的應用程式，其需要的安全性層級可能比工作負載還高。 若要跨訂用帳戶或針對管理群組設定原則，請在 [Azure 原則](../governance/policy/overview.md)中設定。
 
 您的安全性原則會推動您在 Azure 資訊安全中心中取得的安全性建議。 您可以監視它們的合規性，以幫助您識別潛在的弱點並減輕威脅。 如需如何決定哪個選項適合您的詳細資訊，請參閱[內建安全性原則](security-center-policy-definitions.md)的清單。
 
@@ -52,7 +52,7 @@ ms.locfileid: "56114955"
 - 將原則指派給代表整個組織或組織內業務單位的各個管理群組和訂用帳戶。
 - 監視原則相容性。
 
-如需 Azure 原則的詳細資訊，請參閱[建立和管理原則來強制執行合規性](../azure-policy/create-manage-policy.md)。
+如需 Azure 原則的詳細資訊，請參閱[建立和管理原則來強制執行合規性](../governance/policy/tutorials/create-and-manage.md)。
 
 Azure 原則由下列元件組成：
 
@@ -236,4 +236,4 @@ Azure 原則中的重要概念：
 * [Azure 資訊安全中心常見問題](security-center-faq.md)：取得有關使用服務常見問題的答案。
 * [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/)：尋找有關 Azure 安全性與相容性的部落格文章。
 
-若要深入了解 Azure 原則，請參閱[什麼是 Azure 原則？](../azure-policy/azure-policy-introduction.md)
+若要深入了解 Azure 原則，請參閱[什麼是 Azure 原則？](../governance/policy/overview.md)

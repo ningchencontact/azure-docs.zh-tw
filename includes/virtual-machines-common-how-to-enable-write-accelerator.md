@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 6/8/2018
+ms.date: 02/20/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98231ab55ce66f06d591dc9c933e4790460625c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985387"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56458442"
 ---
 # <a name="enable-write-accelerator"></a>啟用寫入加速器
 
@@ -42,17 +42,17 @@ ms.locfileid: "55985387"
 
 - 必須將進階磁碟快取設定為「無」或「唯讀」。 不支援所有其他的快取模式。
 - 已啟用寫入加速器的磁碟目前不支援快照集。 在備份期間，Azure 備份服務會自動排除連接至 VM 之已啟用寫入加速器的磁碟。
-- 只有較小的 I/O 大小 (<=32 KiB) 會採用加速路徑。 在大量載入資料或在不同 DBMS 的交易記錄緩衝區保存到儲存體之前就達到較大填滿程度的工作負載情況下，寫入磁碟的 I/O 可能不會採用加速路徑。
+- 只有較小的 I/O 大小 (<=512 KiB) 會採用加速路徑。 在大量載入資料或在不同 DBMS 的交易記錄緩衝區保存到儲存體之前就達到較大填滿程度的工作負載情況下，寫入磁碟的 I/O 可能不會採用加速路徑。
 
 寫入加速器可以支援之每個 VM 的 Azure 進階儲存體 VHD 有其上限。 目前的上限是：
 
 | VM SKU | 寫入加速器磁碟的數目 | 每個 VM 的寫入加速器磁碟 IOPS |
 | --- | --- | --- |
-| M128ms，128s | 16 | 8000 |
-| M64ms，M64ls，M64s | 8 | 4000 |
-| M32ms，M32ls，M32ts，M32s | 4 | 2000 |
-| M16ms，M16s | 2 | 1000 |
-| M8ms，M8s | 1 | 500 |
+| M128ms，128s | 16 | 20000 |
+| M64ms，M64ls，M64s | 8 | 10000 |
+| M32ms，M32ls，M32ts，M32s | 4 | 5000 |
+| M16ms，M16s | 2 | 2500 |
+| M8ms，M8s | 1 | 1250 |
 
 IOPS 限制是針對每部虛擬機器而「不是」每個磁碟。 所有寫入加速器磁碟都會共用相同的每部虛擬機器 IOPS 限制。
 

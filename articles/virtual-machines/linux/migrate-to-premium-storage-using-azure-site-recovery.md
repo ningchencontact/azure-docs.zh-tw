@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 6b5605a8e3a80d597a4a4a78d015fa556c282357
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3a4304301b99369426aa985508d6cabd26ba2c9f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465719"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326954"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉到進階儲存體
 
-針對執行時需要大量 I/O 之工作負載的虛擬機器 (VM)，[Azure 進階儲存體](premium-storage.md)可提供高效能、低延遲的磁碟支援。 本指南會協助您使用 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 將 VM 磁碟從標準儲存體帳戶移轉到進階儲存體帳戶。
+針對執行時需要大量 I/O 之工作負載的虛擬機器 (VM)，[Azure 進階 SSD](disks-types.md) 可提供高效能、低延遲的磁碟支援。 本指南會協助您使用 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 將 VM 磁碟從標準儲存體帳戶移轉到進階儲存體帳戶。
 
 Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器和 VM 的複寫協調至雲端 (Azure) 或次要資料中心，協助您建立商務持續性和災害復原的策略。 當您的主要位置發生故障時，您容錯移轉至次要位置，讓應用程式和工作負載保持可用。 當它恢復正常作業時，容錯回復至您的主要位置。 
 
@@ -83,7 +83,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 ### <a name="step-2-choose-your-protection-goals"></a>步驟 2：選擇您的保護目標 
 
 1. 在您要安裝組態伺服器的 VM 上，開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 移至 [復原服務保存庫] > [設定] > [Site Recovery] > [步驟 1：準備基礎結構] > [保護目標]。
+2. 移至 [復原服務保存庫] > [設定] > [Site Recovery] > [步驟 1：準備基礎結構]**[保護目標] > **。
 
    ![瀏覽至 [保護目標] 窗格][2]
 
@@ -220,7 +220,7 @@ Site Recovery 會建立類型與可支援進階儲存體之 VM 相同或類似�
 
 * [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure 虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](premium-storage.md)
+* [選取適用於 IaaS VM 的磁碟類型](disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

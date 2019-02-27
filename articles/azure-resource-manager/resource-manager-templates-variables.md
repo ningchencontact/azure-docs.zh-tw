@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 50feca90d375d6afd3b04afe019ad9f9025f19dc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712741"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308565"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本的 Variables 區段
 在 variables 區段中，您會建構可用於整個範本中的值。 您不需要定義變數，但它們通常會經由減少複雜運算式來簡化您的範本。
@@ -58,9 +58,7 @@ ms.locfileid: "53712741"
             {
                 "name": "<name-of-array-property>",
                 "count": <number-of-iterations>,
-                "input": {
-                    <properties-to-repeat>
-                }
+                "input": <object-or-value-to-repeat>
             }
         ]
     },
@@ -68,9 +66,7 @@ ms.locfileid: "53712741"
         {
             "name": "<variable-array-name>",
             "count": <number-of-iterations>,
-            "input": {
-                <properties-to-repeat>
-            }
+            "input": <object-or-value-to-repeat>
         }
     ]
 }
@@ -117,38 +113,45 @@ ms.locfileid: "53712741"
 
 ## <a name="use-copy-element-in-variable-definition"></a>在變數定義中使用 copy 元素
 
-您可以使用 **copy** 語法來建立具有數個元素之陣列的變數。 您提供項目數目的計數。 每個項目在 **input** 物件內包含屬性。 您可以在變數內使用 copy，或使用 copy 建立變數。 當您定義變數並在該變數內使用 **copy** 時，您會建立具有 array 屬性的物件。 當您在最頂層使用 **copy** 並在其中定義一個或多個變數時，您會建立一或多個陣列。 下列範例中會展示這兩種方法：
+若要建立變數的多個執行個體，請在變數區段中使用 `copy` 屬性。 您可以建立一個由 `input` 屬性中的值建構的元素陣列。 您可以在變數中使用 `copy` 屬性，也可以在變數部分的最上層使用。 在變數反覆項目內使用 `copyIndex` 時，您必須提供反覆項目的名稱。
+
+下列範例示範如何使用複製︰
 
 ```json
 "variables": {
-    "disk-array-on-object": {
-        "copy": [
-            {
-                "name": "disks",
-                "count": 3,
-                "input": {
-                    "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-                    "diskSizeGB": "1",
-                    "diskIndex": "[copyIndex('disks')]"
-                }
-            }
-        ]
-    },
+  "disk-array-on-object": {
     "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
+      {
+        "name": "disks",
+        "count": 3,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks')]"
         }
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "disks-top-level-array",
+      "count": 3,
+      "input": {
+        "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+        "diskSizeGB": "1",
+        "diskIndex": "[copyIndex('disks-top-level-array')]"
+      }
+    },
+    {
+      "name": "top-level-string-array",
+      "count": 5,
+      "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+    }
+  ]
 },
 ```
 
-**disk-array-on-object** 變數包含下列物件，其具有名為 **disks** 的陣列：
+在評估複製運算式之後，**disk-array-on-object** 變數包含下列物件，其具有名為 **disks** 的陣列：
 
 ```json
 {
@@ -194,34 +197,19 @@ ms.locfileid: "53712741"
 ]
 ```
 
-您也可以使用複製建立變數，以指定多個物件。 下列範例將以變數的形式定義兩個陣列。 其中一個名為 **disks-top-level-array**，具有五個元素。 另一個名為 **a-different-array**，具有三個元素。
+**top-level-string-array** 變數包含下列陣列：
 
 ```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
-},
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
-當您需要取得參數值並確定這些值為正確的範本值格式時，很適合使用此方法。 下列範例會將參數值格式化，以便用於定義安全性規則：
+當您需要採用參數值並將它們對應至資源值時，使用複製很有效。 下列範例會將參數值格式化，以便用於定義安全性規則：
 
 ```json
 {

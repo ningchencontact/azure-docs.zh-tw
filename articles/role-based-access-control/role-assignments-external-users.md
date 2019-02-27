@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中使用 RBAC 管理外部使用者的存取權 | Microsoft Docs
-description: 了解如何在 Azure 中使用角色型存取控制 (RBAC) 來管理組織外部使用者的存取權。
+title: 使用 RBAC 來管理外部使用者的 Azure 資源存取權 | Microsoft Docs
+description: 了解如何使用角色型存取控制 (RBAC) 來管理組織外部使用者的 Azure 資源存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284518"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343855"
 ---
-# <a name="manage-access-for-external-users-using-rbac"></a>使用 RBAC 管理外部使用者的存取權
+# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>使用 RBAC 來管理外部使用者的 Azure 資源存取權
 
 不論是大型組織，還是與需要存取您環境中特定資源，但不一定需要存取整個基礎結構或任何計費相關範圍的外部共同作業者、廠商或自由工作者合作的 SMB，角色型存取控制 (RBAC) 都可為其提供更好的安全性管理。 RBAC 能提供彈性，可擁有一個系統管理員帳戶 (訂用帳戶等級中的服務系統管理員角色) 所管理的 Azure 訂用帳戶，並邀請多個使用者在相同的訂用帳戶下運作，而無需任何系統管理權限。
 
 > [!NOTE]
-> 從「Office 365 系統管理中心」佈建的 Office 365 訂用帳戶或 Azure Active Directory 授權 (例如︰存取 Azure Active Directory) 沒有資格使用 RBAC。
+> Office 365 訂用帳戶或 Azure Active Directory 授權 (例如：存取 Azure Active Directory) 如果是從 Office 365 系統管理中心佈建的，就沒有使用 RBAC 的資格。
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>指派訂用帳戶範圍內的 RBAC 角色
 
@@ -55,7 +55,7 @@ ms.locfileid: "52284518"
 
 ![在 Azure 入口網站的存取控制 IAM 功能中新增使用者](./media/role-assignments-external-users/2.png)
 
-下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色] 下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱[內建角色](built-in-roles.md)。
+下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色] 下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱 [Azure 資源的內建角色](built-in-roles.md)。
 
 然後，管理使用者必須新增外部使用者的電子郵件地址。 預期的行為是要使外部使用者不顯示在現有的租用戶中。 外部使用者受邀請之後，將會與目前在「訂用帳戶」範圍獲指派 RBAC 角色的所有目前使用者一起顯示在 [訂用帳戶] > [存取控制 (IAM)] 下。
 

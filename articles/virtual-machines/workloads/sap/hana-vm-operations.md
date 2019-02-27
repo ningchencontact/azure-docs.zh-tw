@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c85d405502890253bcdb80c652ed53f58546de9c
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747045"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328838"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>SAP HANA 在 Azure 上的基礎結構設定和作業
 此文件提供設定 Azure 基礎結構和已部署在 Azure 原生虛擬機器 (VM) 上之 SAP Hana 系統的作業指導方針。 此文件也包含 M128s VM SKU 的 SAP HANA 相應放大設定資訊。 這份文件並非用以取代標準 SAP 文件，包含下列內容：
@@ -68,10 +68,10 @@ ms.locfileid: "55747045"
 您也可以透過 [SAP Cloud Platform](https://cal.sap.com/)，將完整安裝的 SAP Hana 平台部署到 Azure VM 服務上。 [在 Azure 上部署 SAP S/4HANA 或 BW/4HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) 中會敘述安裝程序，或者使用[這裡](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)發行的自動化安裝。
 
 ### <a name="choose-azure-storage-type"></a>選擇 Azure 儲存體類型
-Azure 針對執行 SAP Hana 的 Azure VM，提供兩種儲存體類型：
+Azure 針對執行 SAP Hana 的 Azure VM，提供兩種儲存體類型：標準硬碟 (HDD) 和進階固態硬碟 (SSD)。 若要了解這些磁碟類型，請參閱[選取磁碟類型](../../windows/disks-types.md)一文
 
-- [Azure 標準儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure 進階儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- 標準硬碟 (HDD)
+- 進階固態硬碟 (SSD)
 
 Azure 針對 Azure 標準儲存體和 Azure 進階儲存體上的 VHD，提供兩種部署方法。 在整體情況允許的情況下，請利用 [Azure 受控磁碟](https://azure.microsoft.com/services/managed-disks/)部署。
 
@@ -408,7 +408,7 @@ SAP HANA 認證 M 系列 VM 與所支援 DT 2.0 VM (M64-32ms 和 E32sv3) 的所�
 
 必須將多個 Azure 磁碟連結至 DT 2.0 VM，並在 OS 層級建立軟體 raid (等量分割)，以達到每個 VM 的磁碟輸送量最大限制。 單一 Azure 磁碟無法提供可達到這方面最大 VM 限制的輸送量。 需有 Azure 進階儲存體才能執行 DT 2.0。 
 
-- 如需 Azure 磁碟類型的詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- 如需 Azure 磁碟類型的詳細資訊，請參閱[這裡](../../windows/disks-types.md)
 - 有關透過 mdadm 建立軟體 raid 的詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 - 有關設定 LVM 來建立等量磁碟區以達到最大輸送量的詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
 

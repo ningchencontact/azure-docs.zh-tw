@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 5d8c9ae52152df6a0e016c12234afe4ae780b251
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115431"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326751"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 儲存體安全性概觀
 
@@ -79,7 +79,7 @@ SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進�
 
 深入了解儲存體服務加密：
 
-* [Azure 儲存體服務加密](https://azure.microsoft.com/services/storage/)適用於 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)。 如需其他 Azure 儲存體類型的詳細資訊，請參閱 [Azure 檔案](https://azure.microsoft.com/services/storage/files/)、[磁碟 (進階儲存體)](https://azure.microsoft.com/services/storage/premium-storage/)、[資料表儲存體](https://azure.microsoft.com/services/storage/tables/)和[佇列儲存體](https://azure.microsoft.com/services/storage/queues/)。
+* [Azure 儲存體服務加密](https://azure.microsoft.com/services/storage/)適用於 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)。 如需其他 Azure 儲存體類型的詳細資訊，請參閱 [Azure 檔案](https://azure.microsoft.com/services/storage/files/)、[資料表儲存體](https://azure.microsoft.com/services/storage/tables/)和[佇列儲存體](https://azure.microsoft.com/services/storage/queues/)。
 * [待用資料的 Azure 儲存體服務加密](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure 磁碟加密

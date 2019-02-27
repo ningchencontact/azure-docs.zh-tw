@@ -1,6 +1,6 @@
 ---
-title: 使用 Log Analytics 分析 Azure Active Directory 活動記錄 (預覽) | Microsoft Docs
-description: 了解如何使用 Log Analytics 來分析 Azure Active Directory 活動記錄 (預覽)
+title: 使用 Azure 監視器記錄分析 Azure Active Directory 活動記錄 (預覽) | Microsoft Docs
+description: 了解如何使用 Azure 監視器記錄來分析 Azure Active Directory 活動記錄 (預覽)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ea13d08af924427b9e7dc5def72c19d560525b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188251"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454753"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>使用 Log Analytics 來分析 Azure AD 活動記錄 (預覽)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>使用 Azure 監視器記錄來分析 Azure AD 活動記錄 (預覽)
 
-在您[整合 Azure AD 活動記錄與 Log Analytics](howto-integrate-activity-logs-with-log-analytics.md) 之後，可以使用 Log Analytics 的強大功能來深入了解環境。 您也可以安裝[適用於 Azure AD 活動記錄的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)，以存取您環境中稽核和登入事件的預建報表。
+在您[整合 Azure AD 活動記錄與 Azure 監視器記錄](howto-integrate-activity-logs-with-log-analytics.md)之後，可以使用 Azure 監視器記錄的強大功能來深入了解環境。 您也可以安裝[適用於 Azure AD 活動記錄的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)，以存取您環境中稽核和登入事件的預建報表。
 
 在本文中，您將了解如何分析 Log Analytics 工作區中的 Azure AD 活動記錄。 
 
@@ -78,10 +78,12 @@ AuditLogs
 
 您也可以在您的查詢上設定警示。 例如，若要在上週使用超過 10 個應用程式時設定警示：
 
-1. 從工作區中，選取 [設定警示] 來開啟 [建立規則] 頁面。 
+1. 從工作區中，選取 [設定警示] 來開啟 [建立規則] 頁面。
+
     ![設定警示](./media/howto-analyze-activity-logs-log-analytics/setalert.png)
 
-2. 選取警示中建立的預設**警示準則**，並將預設計量中的**閾值**更新為 10。 
+2. 選取警示中建立的預設**警示準則**，並將預設計量中的**閾值**更新為 10。
+
     ![警示準則](./media/howto-analyze-activity-logs-log-analytics/alertcriteria.png)
 
 3. 輸入警示的名稱和描述，並選擇嚴重性層級。 在我們的範例中，我們可以將它設定為**資訊**。
@@ -103,6 +105,6 @@ AuditLogs
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 Log Analytics 中開始使用查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
+* [開始使用 Azure 監視器記錄中的查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [在 Azure 入口網站中建立和管理警示群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
 * [安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)

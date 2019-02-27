@@ -4,15 +4,15 @@ description: 這篇文章說明 Azure Cosmos DB 如何提供高可用性
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b5e99b421e66f087a1793f5301736e192ef75c08
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109753"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311234"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB 的高可用性
 
@@ -64,19 +64,7 @@ Azure Cosmos DB 會以透明方式，在與 Cosmos 帳戶相關聯的所有 Azur
 
 - 即使您的 Cosmos 帳戶具有高可用性，您的應用程式也可能無法正確設計以維持高可用性。 若要測試應用程式的端對端高可用性，請定期叫用[手動容錯移轉 (使用 Azure CLI 或 Azure 入口網站)](how-to-manage-database-account.md#manual-failover)，作為應用程式測試或災害復原 (DR) 演練的一部分。
 
-
-當您開發商務持續性計劃時，您必須了解應用程式在干擾性事件之後完全復原所需的最大可接受時間。 完全復原應用程式所需的時間，也稱為復原時間目標 (RTO)。 您也必須了解在干擾性事件之後復原時，應用程式可忍受遺失的最近資料更新最大期間。 您可能經得起遺失的更新時間週期，也稱為復原點目標 (RPO)。
-
-下表顯示最常見案例的 RPO 和 RTO。
-
-|區域數目 |組態 |一致性層級|RPO |RTO |
-|---------|---------|---------|-------|-------|
-|1    | *    |*   | < 240 分鐘 | < 1 週 |
-|>1     | 單一主機複寫 | 工作階段、開頭一致、最終 | < 15 分鐘 | < 15 分鐘 |
-|>1     | 單一主機複寫 | 限定過期 | K & T | < 15 分鐘 |
-|>1     | 多重主機複寫 | 工作階段、開頭一致、最終 | < 15 分鐘 | 0 |
-|>1     | 多重主機複寫 | 限定過期 | K & T | 0 |
-|>1     | * | 強式 | 0 | < 15 分鐘 |
+- 在全域分散式資料庫環境內，當發生全區域中斷情況時，一致性層級與資料持久性之間具有直接關聯性。 當您開發商務持續性計劃時，您必須了解應用程式在干擾性事件之後完全復原所需的最大可接受時間。 完全復原應用程式所需的時間，也稱為復原時間目標 (RTO)。 您也必須了解在干擾性事件之後復原時，應用程式可忍受遺失的最近資料更新最大期間。 您可能經得起遺失的更新時間週期，也稱為復原點目標 (RPO)。 若要查看 Azure Cosmos DB 的 RPO 與 RTO請參閱[一致性層級與資料持久性](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094524"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300256"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -41,7 +41,7 @@ Application Insights 服務會儲存並分析遙測。 若要查看分析或搜�
 
 您可以從 Application Insights 服務匯出資料，例如，匯出至資料庫或外部工具。 您必須為每項工具提供您從服務取得的特殊金鑰。 如有必要，可以撤銷此金鑰。 
 
-Application Insights SDK 可用於多種應用程式類型：裝載於您自己的 J2EE 或 ASP.NET 伺服器或是 Azure 中的 Web 服務；Web 用戶端 - 也就是在網頁上執行的程式碼；桌面應用程式和服務；裝置應用程式，例如 Windows Phone、iOS 和 Android。 它們都會將遙測傳送至相同的服務。
+Application Insights SDK 可用於多種應用程式類型：裝載於您自己的 Java EE 或 ASP.NET 伺服器或是 Azure 中的 Web 服務；Web 用戶端 - 也就是在網頁上執行的程式碼；桌面應用程式和服務；裝置應用程式，例如 Windows Phone、iOS 和 Android。 它們都會將遙測傳送至相同的服務。
 
 ## <a name="what-data-does-it-collect"></a>它會收集哪些資料？
 ### <a name="how-is-the-data-is-collected"></a>收集的資料的方式為何？
@@ -51,7 +51,7 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
   
   * 每個 SDK 各有多種 [模組](../../azure-monitor/app/configuration-with-applicationinsights-config.md)，可使用不同的技術來收集不同類型的遙測。
   * 如果您在開發環境中安裝 SDK，則您可以使用其 API，在標準模組以外傳送您自己的遙測。 此自訂遙測可包含您想要傳送的任何資料。
-* 在某些網頁伺服器中，也有與應用程式一起執行，並傳送關於 CPU、記憶體和網路佔用量之遙測的代理程式。 例如，Azure VM、Docker 主機和 [J2EE 伺服器](../../azure-monitor/app/java-agent.md) 都可能有這類代理程式。
+* 在某些網頁伺服器中，也有與應用程式一起執行，並傳送關於 CPU、記憶體和網路佔用量之遙測的代理程式。 例如，Azure VM、Docker 主機和 [Java EE 伺服器](../../azure-monitor/app/java-agent.md) 都可能有這類代理程式。
 * [可用性測試](../../azure-monitor/app/monitor-web-app-availability.md) 是 Microsoft 所執行程序，會定期將要求傳送至您的 Web 應用程式。 結果會傳送至 Application Insights 服務。
 
 ### <a name="what-kinds-of-data-are-collected"></a>會收集哪些類型的資料？

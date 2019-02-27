@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2019
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92e5dd5190a76bd09e33ea4c40a5b5cc2d66bc7b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691026"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301123"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的 Outputs 區段
 
-在輸出區段中，您可以指定從部署傳回的值。 例如，您可以傳回 URI 以存取所部署的資源。
+在輸出區段中，您可以指定從部署傳回的值。 例如，您可以傳回 URI 以存取所部署的資源。 使用選擇性 `condition` 屬性來指定是否要傳回輸出值。
 
 ## <a name="define-and-use-output-values"></a>定義和使用輸出值
 
@@ -31,6 +31,18 @@ ms.locfileid: "55691026"
 ```json
 "outputs": {
   "resourceID": {
+    "type": "string",
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+  }
+}
+```
+
+下一個範例示範如何根據是否部署了新的 IP 位址，來有條件地傳回公用 IP 位址的資源識別碼：
+
+```json
+"outputs": {
+  "resourceID": {
+    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
     "type": "string",
     "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
   }
@@ -70,6 +82,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 ```json
 "outputs": {
     "<outputName>" : {
+        "condition": "<boolean-value-whether-to-output-value>",
         "type" : "<type-of-output-value>",
         "value": "<output-value-expression>"
     }
@@ -79,6 +92,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
 | outputName |yes |輸出值的名稱。 必須是有效的 JavaScript 識別碼。 |
+| condition |否 | 布林值，指出是否傳回此輸出值。 當為 `true` 時，該值會包含在部署的輸出中。 若為 `false`，則會略過此部署的輸出值。 未指定時，預設值為 `true`。 |
 | type |yes |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 |
 | value |yes |評估並傳回做為輸出值的範本語言運算式。 |
 

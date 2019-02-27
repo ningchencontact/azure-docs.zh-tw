@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262571"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312986"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>從 Application Insights 提供 Power BI
 [Power BI](https://www.powerbi.com/) 是一套商務工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的「分析」查詢。
@@ -26,7 +26,7 @@ ms.locfileid: "54262571"
 
 * [**匯出 Analytics 查詢**](#export-analytics-queries)。 這是慣用的方法。 撰寫任何您想要的查詢，並將它匯出至 Power BI。 您可以將此查詢和任何其他資料一起放在儀表板上。
 * [**連續匯出和 Azure 串流分析**](../../azure-monitor/app/export-stream-analytics.md)。 如果您想要長期儲存資料，此方法很有用。 如果您沒有延長資料保留期的需求，請使用匯出分析查詢方法。 連續匯出和串流分析牽涉到更多要設定的工作及其他儲存體額外負荷。
-* [**Power BI 配接器**](#power-pi-adapter)。 儀表板中已預先定義一組圖表，但您可以從任何其他來源新增您自己的查詢。
+* **Power BI 配接器**。 儀表板中已預先定義一組圖表，但您可以從任何其他來源新增您自己的查詢。
 
 > [!NOTE]
 > Power BI 配接器現在**已被取代**。 針對此解決方案預先定義的圖表已透過無法編輯的靜態查詢加以填入。 您無法編輯這些查詢，而且根據您資料的某些屬性而定，連線到 Power BI 可能會成功，但不會填入任何資料。 這是因為硬式編碼查詢內所設定的排除準則。 雖然這個解決方案仍然可能適用於某些客戶，但由於缺乏配接器的彈性，因此，建議的解決方案是使用[**匯出 Analytics 查詢**](#export-analytics-queries)功能。

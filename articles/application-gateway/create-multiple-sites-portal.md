@@ -1,25 +1,22 @@
 ---
-title: 建立裝載多個網站的應用程式閘道 - Azure 入口網站 | Microsoft Docs
+title: 建立裝載多個網站的應用程式閘道 - Azure 入口網站
 description: 了解如何使用 Azure 入口網站建立裝載多個網站的應用程式閘道。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993320"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454283"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>使用 Azure 入口網站建立和設定應用程式閘道以裝載多個網站
 
-您可以使用 Azure 入口網站，在建立[應用程式閘道](overview.md)時[設定裝載多個站台](multiple-site-overview.md)。 在本教學課程中，您可以使用虛擬機器定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
+您可以使用 Azure 入口網站，在建立[應用程式閘道](overview.md)時[設定裝載多個站台](multiple-site-overview.md)。 在本文中，您可以使用虛擬機器定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本文假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
 
 在本文中，您將了解：
 
@@ -35,9 +32,9 @@ ms.locfileid: "52993320"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
@@ -141,6 +138,8 @@ ms.locfileid: "52993320"
 3. 按一下 [確定]。
 4. 使用 fabrikamListener 的名稱建立第二個接聽程式，然後使用您的第二個網域名稱。 此範例中使用 www.fabrikam.com。
 
+![多站台接聽程式](media/create-multiple-sites-portal/be-listeners.png)
+
 ## <a name="create-routing-rules"></a>建立路由規則
 
 會以規則列出的順序進行處理，而且不論精確性為何，都會使用相符的第一個規則將流量進行導向。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。 
@@ -180,12 +179,4 @@ ms.locfileid: "52993320"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何：
-
-> [!div class="checklist"]
-> * 建立應用程式閘道
-> * 建立後端伺服器的虛擬機器
-> * 建立包含後端伺服器的後端集區
-> * 建立後端接聽程式
-> * 建立路由規則
-> * 在網域中建立 CNAME 記錄
+[透過應用程式閘道設定 App Service](create-web-app.md)

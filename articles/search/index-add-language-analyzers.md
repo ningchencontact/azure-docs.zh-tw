@@ -1,7 +1,7 @@
 ---
 title: 新增語言分析器 - Azure 搜尋服務
 description: Azure 搜尋服務中適用於非英文查詢和索引的多語言語彙文字分析。
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,20 +19,20 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b5c562994c169a8c5d51ee31a9606c5c40162603
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007606"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328283"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>將語言分析器新增至 Azure 搜尋服務索引
 
-「語言分析器」是[全文檢索搜尋](https://docs.microsoft.com/azure/search/search-lucene-query-architecture)的特定元件，能使用目標語言的語言規則來執行語彙分析。 每個可搜尋的欄位都會有 `analyzer` 屬性。 如果您的索引包含已翻譯的字串 (例如適用於英文和中文文字的個別欄位)，您可以在每個欄位上指定語言分析器，以存取由那些分析器所提供的豐富語言功能。  
+「語言分析器」是特定類型的[文字分析器](search-analyzers.md)，能使用目標語言的語言規則來執行語彙分析。 每個可搜尋的欄位都會有 **analyzer** 屬性。 如果您的索引包含已翻譯的字串 (例如適用於英文和中文文字的個別欄位)，您可以在每個欄位上指定語言分析器，以存取由那些分析器所提供的豐富語言功能。  
 
 Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專屬的 Microsoft 自然語言處理技術所支援的 50 種分析器 (此技術同樣用於 Office 和 Bing 中)。
 
-## <a name="compare-language-analyzer-types"></a>比較語言分析器類型 
+## <a name="comparing-analyzers"></a>比較分析器
 
 一些開發人員可能偏好使用更熟悉、簡單且開放原始碼的 Lucene 解決方案。 Lucene 語言分析器速度較快，但 Microsoft 分析器具備進階功能，例如詞形歸併還原、複合字詞拆分 (適用於德文、丹麥文、荷蘭文、瑞典文、挪威文、愛沙尼亞文、芬蘭文、匈牙利文、斯洛伐克文等語言) 和實體辨識 (URL、電子郵件、日期、數字)。 如果可以，您應該進行 Microsoft 和 Lucene 分析器的比較，以決定哪一個比較適合。 
 
@@ -49,15 +49,17 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
  > [!Tip]
  > [搜尋分析器示範](https://alice.unearth.ai/) \(英文\) 會顯示由標準 Lucene 分析器、Lucene 的英文語言分析器，以及 Microsoft 的英文版自然語言處理器所產生之結果的並排比較。 針對您所提供的每個搜尋輸入，每個分析器的結果都會顯示在相鄰的窗格中。
 
-## <a name="analyzer-configuration"></a>分析器設定
+## <a name="configuring-analyzers"></a>設定分析器
 
-針對索引定義中的每一個欄位，您可以將 `analyzer` 屬性設為分析器名稱，以指定語言和廠商。 搜尋與編制該欄位索引時會套用相同的分析器。 例如，您可以有個別適用於英文、法文及西班牙文旅館說明的欄位，這些欄位會在相同的索引中並列存在。  
+語言分析器是以現況使用。 針對索引定義中的每一個欄位，您可以將 **analyzer** 屬性設為能指定語言和語言堆疊 (Microsoft 或 Lucene) 的分析器名稱。 搜尋與編製該欄位索引時會套用相同的分析器。 例如，您可以有個別適用於英文、法文及西班牙文旅館說明的欄位，這些欄位會在相同的索引中並列存在。 或者，與其使用 **analyzer**，您可以使用 **indexAnalyzer** 和 **searchAnalyzer** 來在編製索引和查詢時間時使用不同的分析規則。 
 
-使用 **searchFields** 查詢參數來指定針對查詢所要搜尋的語言特定欄位。 您可以在搜尋文件中檢閱包含分析器屬性的查詢範例。 
+使用 **searchFields** 查詢參數來指定針對查詢所要搜尋的語言特定欄位。 您可以在[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents) \(英文\) 中檢閱包含分析器屬性的查詢範例。 
 
 如需索引屬性的詳細資訊，請參閱[建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)。 如需 Azure 搜尋服務中分析的詳細資訊，請參閱 [Azure 搜尋服務中的分析器](https://docs.microsoft.com/azure/search/search-analyzers)。
 
-## <a name="analyzer-list"></a>分析器清單  
+<a name="language-analyzer-list"></a>
+
+## <a name="language-analyzer-list"></a>語言分析器清單 
  以下是支援的語言清單與 Lucene 和 Microsoft 的分析器名稱。  
 
 |語言|Microsoft 分析器名稱|Lucene 分析器名稱|  

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 02/20/2019
 ms.author: terrylan
-ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112208"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455751"
 ---
 # <a name="azure-network-architecture"></a>Azure 網路架構
 Azure 網路架構會遵循改良版業界標準核心/散發/存取模型 (具有不同的硬體層級)。 這些層級包括：
@@ -28,7 +28,7 @@ Azure 網路架構會遵循改良版業界標準核心/散發/存取模型 (具�
 - 散發 (存取路由器和 L2 彙總)。 分散層區隔 L3 路由 L2 切換。
 - 存取 (L2 主機交換器)
 
-網路架構有兩個層級的第 2 層交換器。 彙總其他層流量。 第二層迴圈合併冗餘。 這可提供更有彈性的 VLAN 使用量，以及改善連接埠調整。 此架構讓 L2 與 L3 有所區別，允許在網路的各個不同層中使用硬體，以及將一層中的錯誤降至最低，以免影響其他層。 使用主幹容許進行資源共用，例如 L3 基礎結構的連線。
+網路架構有兩個層級的第 2 層交換器。 彙總其他層流量。 第二層迴圈合併冗餘。 此架構可提供更有彈性的 VLAN 使用量，以及改善連接埠調整。 此架構讓 L2 與 L3 有所區別，允許在網路的各個不同層中使用硬體，以及將一層中的錯誤降至最低，以免影響其他層。 使用主幹容許進行資源共用，例如 L3 基礎結構的連線。
 
 ## <a name="network-configuration"></a>網路組態
 資料中心內 Azure 叢集的網路架構包含下列裝置：
@@ -72,23 +72,15 @@ Quantum 10 設計會進行遍佈於 Clos/網格設計中多個裝置的第 3 層
 ### <a name="edge-architecture"></a>邊緣架構
 Azure 資料中心是以高度備援且妥善佈建的網路基礎結構為基礎。 Microsoft 會在 Azure 資料中心內實作「需求加一」(N+1) 備援性架構或更佳的架構。 資料中心之內和之間的完整容錯移轉功能，有助於確保網路和服務可用性。 在外部，會提供專用、高頻寬的網路線路供資料中心使用。 這些備援的線路，將資產與全球的多個對等互連點，超過 1200 個網際網路服務提供者串連起來。 這在網路上提供超過 2,000 Gbps 的潛在邊緣容量。
 
-在 Azure 網路的邊緣和存取層篩選路由器，可在封包層級提供完善的安全性。 這有助於防止有人未經授權便想連線到 Azure。 這些路由器有助於確保封包的實際內容包含預期格式的資料，而且符合預期的用戶端/伺服器通訊配置。 Azure 會實作由下列網路隔離和存取控制元件所組成的階層式架構：
+在 Azure 網路的邊緣和存取層篩選路由器，可在封包層級提供完善的安全性，且有助於防止未經授權嘗試連線到 Azure。 這些路由器有助於確保封包的實際內容包含預期格式的資料，而且符合預期的用戶端/伺服器通訊配置。 Azure 會實作由下列網路隔離和存取控制元件所組成的階層式架構：
 
 - **邊緣路由器** 這些會區隔應用程式環境與網際網路。 邊緣路由器的設計訴求是提供反詐騙保護，並使用存取控制清單 (ACL) 來限制存取權。
 - **發佈 (存取) 的路由器。** 這些只允許 Microsoft 核准的 IP 位址，以提供防詐騙功能，以及使用 ACL 來建立連線。
 
-### <a name="a10-ddos-mitigation-architecture"></a>A10 DDOS 風險降低架構
-阻斷服務攻擊會繼續對線上服務的可靠性帶來實質威脅。 隨著攻擊變得更具針對性、更複雜，以及 Microsoft 提供的服務遍及各地時，首要之務就是識別及降低這些攻擊的影響。 下列詳細資料從網路架構的觀點說明如何實作 A10 DDOS 風險降低系統。
+### <a name="ddos-mitigation"></a>DDOS 風險降低
+分散式阻斷服務 (DDoS) 攻擊會持續對線上服務的可靠性帶來實質威脅。 隨著攻擊變得更具針對性、更複雜，以及 Microsoft 提供的服務遍及各地時，首要之務就是識別及降低這些攻擊的影響。
 
-Azure 會在資料中心路由器 (DCR) 使用 A10 網路裝置，以提供自動化偵測和風險降低。 A10 解決方案會利用 Azure 網路監視，進行流動封包取樣以及判斷是否有任何攻擊。 一旦偵測到攻擊，A10 裝置就會介入來降低攻擊的風險。 然後只允許乾淨的流量直接從 DCR 進入 Azure 資料中心。 Microsoft 使用 A10 解決方案來保護 Azure 網路基礎結構。
-
-A10 解決方案中的 DDoS 保護包括：
-
-- UDP IPv4 和 IPv6 洪水保護
-- ICMP IPv4 和 IPv6 洪水保護
-- TCP IPv4 和 IPv6 洪水保護
-- IPv4 和 IPv6 的 TCP SYN 攻擊保護
-- 片段攻擊
+[Azure DDoS 保護標準](../virtual-network/ddos-protection-overview.md)提供針對 DDoS 攻擊的防禦。 請參閱 [Azure DDoS 保護：最佳做法與參考架構](azure-ddos-best-practices.md)以深入了解。
 
 > [!NOTE]
 > 依預設，Microsoft 會為所有的 Azure 客戶提供 DDoS 保護。

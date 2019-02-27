@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9a07a829aac9659ac7ab8d04b64a1ea1a9a2de78
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248158"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428052"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 管理基本概念 
 若您還不熟悉 Azure Stack 開發套件(ASDK) 管理，有幾件事需要知道。 本指南提供您在評估環境中擔任 Azure Stack 操作員之角色的概觀，以及如何確定測試使用者可以快速上手。

@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: cf20c7dbfbf7cd3f09579b03b835148c1c295137
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600624"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301134"
 ---
 # <a name="consumption-model"></a>耗用模型
 
 連線路由會提供一組參數，以詳細說明載具特定的耗用模型。
-視 **vehicleEngineType** 的值而定，支援兩種主要的耗用模型：_Combustion_ 和 _Electric_。 在同一要求中指定屬於不同模型的參數，會發生錯誤。
+視 **vehicleEngineType** 的值而定，系統支援兩種主要的耗用模型：_Combustion_ 和 _Electric_。 在同一要求中指定屬於不同模型的參數，會發生錯誤。
 耗用模型不能搭配 **travelMode** 值 _bicycle_ 和 _pedestrian_。
 
 ## <a name="parameter-constraints-for-consumption-model"></a>耗用模型的參數限制式
 
 在這兩個耗用模型中，要明確指定一些參數必須同時指定其他參數。 這些相依性如下：
 
-* 所有參數都需要由使用者指定 **constantSpeedConsumption**。 如果未指定 **constantSpeedConsumption**\*，指定任何其他耗用模型參數會發生錯誤，除了 **vehicleWeight**。
+* 所有參數都需要由使用者指定 **constantSpeedConsumption**。 如果未指定 **constantSpeedConsumption**，指定任何其他耗用模型參數會發生錯誤，除了 **vehicleWeight**。
 * **accelerationEfficiency** 和 **decelerationEfficiency** 一律必須指定為一對 (也就是兩個並存或無)。
 * 如果指定 **accelerationEfficiency** 和 **decelerationEfficiency**，其值的產品必不能大於 1 (以防永恆運動)。
 * **uphillEfficiency** 和 **downhillEfficiency** 一律必須指定為一對 (也就是兩個並存或無)。
 * 如果指定 **uphillEfficiency** 和 **downhillEfficiency**，其值的產品必不能大於 1 (以防永恆運動)。
-* 如果使用者指定 \***Efficiency** 參數，則也必須指定 **vehicleWeight**。 若 **vehicleEngineType** 為 _combustion_，也必須指定 **fuelEnergyDensityInMJoulesPerLiter**。
+* 如果使用者指定 \*__Efficiency__ 參數，則也必須指定 **vehicleWeight**。 若 **vehicleEngineType** 為 _combustion_，也必須指定 **fuelEnergyDensityInMJoulesPerLiter**。
 * **maxChargeInkWh** 和 **currentChargeInkWh** 一律必須指定為一對 (也就是兩個並存或無)。
 
 > [!NOTE]
@@ -38,7 +38,7 @@ ms.locfileid: "34600624"
 
 ## <a name="combustion-consumption-model"></a>燃燒耗用模型
 
-**vehicleEngineType** 設為 _combustion_ 時，會使用燃燒耗用模型。
+**vehicleEngineType** 設為_燃燒_時，會使用燃燒耗用模型。
 屬於此模型的參數清單如下。 請參閱 [參數] 區段，取得詳細說明。
 
 * constantSpeedConsumptionInLitersPerHundredkm
@@ -53,7 +53,7 @@ ms.locfileid: "34600624"
 
 ## <a name="electric-consumption-model"></a>電子耗用模型
 
-**vehicleEngineType** 設為 _electric_ 時，會使用電子耗用模型。
+**vehicleEngineType** 設為_電子_時，會使用電子耗用模型。
 屬於此模型的參數清單如下。 請參閱 [參數] 區段，取得詳細說明。
 
 * constantSpeedConsumptionInkWhPerHundredkm

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 73f8b1323f6cd22ef215fba4ec45714f099032f6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508669"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415828"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>設定 Azure VPN 閘道的 OpenVPN 用戶端 (預覽)
 
@@ -24,12 +24,14 @@ ms.locfileid: "55508669"
 
 ## <a name="before-you-begin"></a>開始之前
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 請確認您已完成為 VPN 閘道設定 OpenVPN 的步驟。 如需詳細資訊，請參閱[設定 Azure VPN 閘道的 OpenVPN 用戶端](vpn-gateway-howto-openvpn.md)。
 
 ## <a name="windows"></a>Windows 用戶端
 
 1. 從官方 [OpenVPN 網站](https://openvpn.net/index.php/open-source/downloads.html)下載並安裝 OpenVPN 用戶端。
-2. 下載閘道的 VPN 設定檔。 這可從 Azure 入口網站中的 [點對站設定] 索引標籤，或是 PowerShell 中的 'New-AzureRmVpnClientConfiguration' 來完成。
+2. 下載閘道的 VPN 設定檔。 這可從 Azure 入口網站中的 [點對站設定] 索引標籤，或是 PowerShell 中的 'New-AzVpnClientConfiguration' 來完成。
 3. 將設定檔解壓縮。 接下來，使用記事本開啟 OpenVPN 資料夾中的 vpnconfig.ovpn 設定檔。
 4. [匯出](vpn-gateway-certificates-point-to-site.md#clientexport)您所建立並上傳至閘道上 P2S 組態的 P2S 用戶端憑證。
 5. 從 .pfx 擷取私密金鑰和 base64 指紋。 做法有好幾種。 其中一種方式是在電腦上使用 OpenSSL。 profileinfo.txt 檔案包含 CA 和用戶端憑證的私密金鑰和指紋。 請務必使用用戶端憑證的指紋。
@@ -64,7 +66,7 @@ ms.locfileid: "55508669"
 ## <a name="mac"></a>Mac 用戶端
 
 1. 下載並安裝 OpenVPN 用戶端，例如 [TunnelBlik](https://tunnelblick.net/downloads.html) \(英文\)。 
-2. 下載閘道的 VPN 設定檔。 這可從 Azure 入口網站中的 [點對站設定] 索引標籤，或使用 PowerShell 中的 'New-AzureRmVpnClientConfiguration' 來完成。
+2. 下載閘道的 VPN 設定檔。 這可從 Azure 入口網站中的 [點對站設定] 索引標籤，或是使用 PowerShell 中的 'New-AzVpnClientConfiguration' 來完成。
 3. 將設定檔解壓縮。 在記事本中開啟 OpenVPN 資料夾中的 vpnconfig.ovpn 設定檔。
 4. 以 Base64 的 P2S 用戶端憑證公開金鑰填入 P2S 用戶端憑證區段。 在 PEM 格式的憑證中，您只需開啟 .cer 檔案並在憑證標題之間複製 Base64 金鑰。 如需如何匯出憑證以取得編碼的公開金鑰的詳細資訊，請參閱[匯出公開金鑰](vpn-gateway-certificates-point-to-site.md#cer)。
 5. 以 Base64 的 P2S 用戶端憑證私密金鑰填入私密金鑰區段。 如需如何擷取私用金鑰的資訊，請參閱[匯出私密金鑰](https://openvpn.net/community-resources/how-to/#pki)。

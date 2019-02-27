@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/03/2018
-ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7134a22532622d7de25a23897f83dc453d8a4344
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498143"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454050"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>詢問您可以使用資料回答的問題
 ## <a name="video-3-data-science-for-beginners-series"></a>影片 3：適用於初學者的資料科學系列
@@ -89,7 +89,7 @@ ms.locfileid: "55498143"
 
 我們談論了一些基本原則，讓您在詢問可使用資料回答的問題時使用。
 
-請務必查看 Microsoft Azure Machine Learning 中「適用於初學者的資料科學」的其他影片。
+請務必查看 Microsoft Azure Machine Learning Studio 中「適用於初學者的資料科學」的其他影片。
 
 ## <a name="next-steps"></a>後續步驟
 * [嘗試使用 Machine Learning Studio 進行您的第一個資料科學實驗](create-experiment.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235567"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313427"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>如何調整 Azure Redis 快取的規模
 「Azure Redis 快取」具有各種不同的快取供應項目，可讓您彈性選擇快取大小和功能。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何使用 Azure 入口網站和 Azure PowerShell 與 Azure CLI 之類的工具來調整快取。
@@ -115,7 +115,7 @@ ms.locfileid: "56235567"
 * [我是否會在調整期間遺失快取中的資料？](#will-i-lose-data-from-my-cache-during-scaling)
 * [我的自訂資料庫設定在調整期間會受到影響嗎？](#is-my-custom-databases-setting-affected-during-scaling)
 * [是否可以在調整期間使用我的快取？](#will-my-cache-be-available-during-scaling)
-* [設定異地複寫後，為什麼我不能調整快取大小或變更叢集中的分區？](#scaling-limitations-with-geo-relication)
+* 設定異地複寫後，為什麼我不能調整快取大小或變更叢集中的分區？
 * [不支援的作業](#operations-that-are-not-supported)
 * [調整需要多長的時間？](#how-long-does-scaling-take)
 * [如何分辨調整何時完成？](#how-can-i-tell-when-scaling-is-complete)

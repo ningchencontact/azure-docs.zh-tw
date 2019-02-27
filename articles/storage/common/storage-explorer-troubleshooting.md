@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469493"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415505"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -28,7 +28,7 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 1. 應用程式是透過「透明 proxy」連線，這表示伺服器 (例如您公司的伺服器) 是使用自我簽署憑證攔截 HTTPS 流量、解密再加密。
 2. 您正在執行的應用程式，會將自我簽署的 SSL 憑證插入您收到的 HTTPS 訊息中。 會插入憑證的應用程式例子包括防毒軟體和網路流量檢查軟體。
 
-當儲存體總管看見自我簽署或不受信任的憑證，就無法再得知收到的 HTTPS 訊息是否已更改。 如果您有一份自我簽署憑證，便可以執行下列步驟，指示儲存體總管信任該憑證：
+當儲存體總管看見自我簽署或不受信任的憑證，就無法再得知收到的 HTTPS 訊息是否已被更改。 如果您有一份自我簽署憑證，便可以執行下列步驟，指示儲存體總管信任該憑證：
 
 1. 取得憑證的 Base-64 編碼 X.509 (.cer) 複本
 2. 按一下 [編輯] > [SSL 憑證] > [匯入憑證]，然後使用檔案選擇器來尋找、選取及開啟 .cer 檔案
@@ -53,6 +53,20 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 如果使用上述步驟找不到任何自我簽署的憑證，請透過意見反應工具與我們連絡，以取得更多協助。 或者，您可以選擇從命令列使用 `--ignore-certificate-errors` 旗標來啟動儲存體總管。 使用這個旗標啟動時，儲存體總管會忽略憑證錯誤。
 
 ## <a name="sign-in-issues"></a>登入問題
+
+### <a name="blank-sign-in-dialog"></a>空白登入對話方塊
+造成空白對話方塊的原因通常是 ADFS 要求儲存體總管執行 Electron 不支援的重新導向。 若要解決此問題，您可以嘗試使用裝置程式碼流程來登入。 若要進行，請執行下列步驟：
+1. [移至實驗性] -> [使用裝置程式碼登入]。
+2. 開啟 [連線] 對話方塊 (透過左側垂直列上的插頭圖示，或透過在 [帳戶] 面板上的 [新增帳戶])。
+3. 選擇您想要登入的環境。
+4. 按一下 [登入] 按鈕。
+5. 遵循下一個面板上的指示。
+
+注意：此功能目前只能在 1.7.0 預覽版中取得。
+
+如果您因為在預設瀏覽器中已登入其他帳戶，而在登入想使用的帳戶時遇到問題，您可以執行下列任一項：
+1. 手動將連結和程式碼複製到您瀏覽器的隱私工作階段。
+2. 手動將連結和程式碼複製到其他瀏覽器。
 
 ### <a name="reauthentication-loop-or-upn-change"></a>重新驗證迴圈或 UPN 變更
 如果您處於重新驗證的迴圈中，或已變更其中一個帳戶的 UPN，請嘗試下列方法：
@@ -90,7 +104,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 如果成功登入後無法擷取您的訂用帳戶，請嘗試下列疑難排解方法：
 
 * 確認您的帳戶可存取預期的訂用帳戶。 您可以登入想要使用的 Azure 環境入口網站，以確認存取。
-* 確定已使用正確的 Azure 環境 (Azure、Azure 中國、Azure 德國、Azure 美國政府或自訂環境) 來登入。
+* 確定已使用正確的 Azure 環境 (Azure、Azure 中國 21Vianet、Azure 德國、Azure 美國政府或自訂環境) 來登入。
 * 如果您是在 proxy 背景，請確定已正確設定儲存體總管的 proxy。
 * 嘗試移除再重新新增帳戶。
 * 如果有 [詳細資訊] 連結，請查看針對失敗租用戶回報的錯誤訊息內容。 如果您不確定該如何處理看到的錯誤訊息，歡迎您在 [GitHub 上提出問題](https://github.com/Microsoft/AzureStorageExplorer/issues)。
@@ -116,7 +130,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 * Proxy URL 和連接埠號碼
 * 使用者名稱和密碼 (如果 proxy 要求)
 
-請注意，儲存體總管不支援 .pac 檔來設定 Proxy 設定。
+請注意，儲存體總管不支援使用 Proxy 自動設定檔案來設定 Proxy 設定。
 
 ### <a name="common-solutions"></a>常見的解決方案
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700973"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301786"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -29,10 +29,10 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 此較購使用[平台即服務](https://azure.microsoft.com/overview/what-is-paas/)元件來提供一個環境，讓客戶無須購買軟體授權、管理基礎應用程式基礎結構，以及中介軟體或開發工具及其他資源，避免其所帶來的花費及複雜性。 客戶會管理他們所開發的應用程式和服務，並將焦點放在實現商業價值，而 Microsoft Azure 會管理其他 Azure 資源 (例如虛擬機器、儲存體和網路功能)，並將更多的基礎結構管理[責任分工](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility)加諸於 Azure 平台。 [Azure App Service](https://azure.microsoft.com/services/app-service/) 會提供自動調整、高度可用性，支援 Windows 和 Linux，並可從 GitHub、Azure DevOps 或任何 Git 存放庫作為預設服務來啟用自動化部署。 開發人員可以透過 App Service，專注於實現商業價值，而沒有管理基礎結構的額外負荷。 他們可以建置全新的 Java、PHP、Node.js、Python、HTML 或 C# Web 應用程式，或將現有的雲端或內部部署 Web 應用程式遷移至 Azure App Service (雖然需要徹底的實質審查和測試來確認效能)。
 
-此藍圖著重於為公用以及後台系統使用者佈建安全的基礎[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) Web 架構介面。 此藍圖設計案例會考慮使用 Azure 裝載 Web 架構服務，以便公開使用者安全地提交、檢視及管理敏感性資料；而且後台系統或政府操作員也可以安全地處理公用使用者所提交的敏感性資料。 此案例的使用案例包括：
+此藍圖著重於為公用以及後台系統使用者佈建安全的基礎[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) Web 式介面。 此藍圖設計案例會考慮使用 Azure 裝載 Web 架構服務，以便公開使用者安全地提交、檢視及管理敏感性資料；而且後台系統或政府操作員也可以安全地處理公用使用者所提交的敏感性資料。 此案例的使用案例包括：
 
 - 提交退稅的使用者，以及處理提交的政府操作者；
-- 透過 Web 架構應用程式要求服務的使用者，以及驗證和提供服務的後台系統使用者；或
+- 透過 Web 式應用程式要求服務的使用者，以及驗證和提供服務的後台系統使用者；或
 - 搜尋和檢視政府服務相關公開網域說明資訊的使用者。
 
 使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 範本和 Azure 命令列介面指令碼，此藍圖所部署的環境將符合英國國家網路安全中心 (NCSC) 的 14 個[雲端安全性準則](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) \(英文\)，以及網際網路安全中心 (CIS) 的 [重大安全性控制措施](https://www.cisecurity.org/critical-controls.cfm) \(英文\)。 NCSC 建議客戶使用他們的雲端安全性準則來評估服務的安全性屬性，並協助了解客戶與供應商之間的責任分工。 Microsoft 已針對每個準則提供相關資訊，以協助您更了解責任的劃分方式。 Microsoft 技術白皮書[使用 Microsoft Azure 對於英國雲端的 14 個安全性控制措施](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) \(英文\) 支援此架構和對應的 Azure Resource Manager 範本。 此架構已經由 NCSC 審閱，並符合 UK NCSC 的 14 個雲端安全性準則，藉以讓公共部門組織能夠快速地符合在 Microsoft Azure 雲端上於全球及英國使用雲端式服務所衍生的合規性義務。 此範本會針對工作負載部署基礎結構。 客戶必須安裝和設定應用程式程式碼及支援的商務層和資料層軟體。 詳細的部署指示可於[這裡](https://aka.ms/ukofficial-paaswa-repo/) \(英文\) 取得。
@@ -43,7 +43,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 ## <a name="architecture-and-components"></a>架構與元件
 
-此藍圖能在支援 UK OFFICIAL 工作負載的 Azure 雲端環境中，提供 Web 應用程式裝載解決方案。 此架構提供可利用 Azure 平台即服務功能的安全環境。 在此環境中，已部署兩個 App Service Web 應用程式 (一個用於公用使用者，一個用於後台系統使用者)，其具有 API 應用程式層可為 Web 前端提供商務服務。 Azure SQL Database 已部署為應用程式的受控關聯式資料存放區。 從外部平台連線這些元件的能力以及這些元件之間的連線能力都會透過 TLS 1.2 加密，以確保資料傳輸中隱私權，且具有經由 Azure Active Directory 驗證的存取權。
+此藍圖能在支援 UK OFFICIAL 工作負載的 Azure 雲端環境中，提供 Web 應用程式裝載解決方案。 此架構提供可利用 Azure 平台即服務功能的安全環境。 在此環境中，已部署兩個 App Service Web 應用程式 (一個用於公用使用者，一個用於後台系統使用者)，且有 API 應用程式層可為 Web 前端提供商務服務。 Azure SQL Database 已部署為應用程式的受控關聯式資料存放區。 從外部平台連線這些元件的能力以及這些元件之間的連線能力都會透過 TLS 1.2 加密，以確保資料傳輸中隱私權，且具有經由 Azure Active Directory 驗證的存取權。
 
 ![適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載參考架構圖表](images/ukofficial-paaswa-architecture.png?raw=true "適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載參考架構圖表")
 
@@ -182,7 +182,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) 是多個平台上的 Web 開發人員所適用的可延伸應用程式效能管理 (APM) 服務。 用來監視即時 Web 應用程式，它會自動偵測效能異常、 析效能、診斷問題，以及了解使用者與應用程式的互動方式。 Application Insights 可以部署在各種平台上，包括裝載在內部部署環境或雲端的 Node.js 和 J2EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) 是多個平台上的 Web 開發人員所適用的可延伸應用程式效能管理 (APM) 服務。 用來監視即時 Web 應用程式，它會自動偵測效能異常、 析效能、診斷問題，以及了解使用者與應用程式的互動方式。 Application Insights 可以部署在各種平台上，包括裝載在內部部署環境或雲端的 Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。
 
 #### <a name="application-insights-in-this-blueprint"></a>此藍圖中的 Application Insights
 
@@ -242,7 +242,7 @@ Crown Commercial Service (一所致力於改善政府相關商業和採購活動
 
 ### <a name="azure-b2c"></a>Azure B2C
 
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 可當作控制項實作，以允許使用者註冊、建立身分識別，以及啟用公用 Web 應用程式的授權和存取控制項。
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 可當作控制項實作，以允許使用者註冊、建立身分識別，以及啟用公用 Web 應用程式的授權和存取控制。
 
 ## <a name="disclaimer"></a>免責聲明
 

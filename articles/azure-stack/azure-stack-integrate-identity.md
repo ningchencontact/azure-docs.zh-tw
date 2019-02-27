@@ -10,12 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765785"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456991"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -73,7 +73,7 @@ Graph 僅支援單一 Active Directory 樹系的整合。 如果存在多個樹�
 
 如果 Active Directory 部署有多個站台，請設定最接近 Azure Stack 部署的 Active Directory 站台。 進行此設定後，Azure Stack Graph 服務就不需要使用通用類別目錄伺服器從遠端站台解析查詢。
 
-將 Azure Stack [公用 VIP 網路](azure-stack-network.md#public-vip-network)的子網路新增至最接近 Azure Stack 的 Azure AD 站台。 例如，如果您的 Active Directory 有西雅圖和雷德蒙兩個站台，且 Azure stack 部署在西雅圖站台，您就應將 Azure Stack 公用 VIP 網路的子網路新增至西雅圖的 Azure AD 站台。
+將 Azure Stack [公用 VIP 網路](azure-stack-network.md#public-vip-network)的子網路新增至最接近 Azure Stack 的 Active Directory 站台。 例如，如果您的 Active Directory 有西雅圖和雷德蒙兩個站台，且 Azure Stack 部署在西雅圖站台，您就應將 Azure Stack 公用 VIP 網路的子網路新增至西雅圖的 Active Directory 站台。
 
 如需 Active Directory 站台的詳細資訊，請參閱[設計站台拓撲](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)。
 

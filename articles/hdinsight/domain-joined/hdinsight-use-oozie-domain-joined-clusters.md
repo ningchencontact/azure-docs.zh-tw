@@ -8,13 +8,13 @@ ms.author: omidm
 ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 02/15/2019
+ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436274"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343284"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie
 
@@ -217,11 +217,12 @@ nano workflow.xml
        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
-  
-   a. 將 `domainuser` 取代為您網域的使用者名稱。  
-   b. 將 `ClusterShortName` 取代為叢集的簡短名稱。 例如，如果叢集名稱為 https:// *[範例連結]* sechadoopcontoso.azurehdisnight.net，則 `clustershortname` 為叢集的前六個字元：**sechad**。  
-   c. 將 `jdbcurlvalue` 取代為 Hive 組態中的 JDBC URL。 範例為 jdbc:hive2://headnodehost:10001/;transportMode=http。      
-   d. 若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。
+
+   * 若您使用 Azure Data Lake Storage Gen1 做為您的主要叢集儲存體，請為 `nameNode` 屬性使用 `adl://home` URI。 若您使用 Azure Blob 儲存體，請將它變更為 `wasb://home`。 若您使用 Azure Data Lake Storage Gen2，請將它變更為 `abfs://home`。
+   * 將 `domainuser` 取代為您網域的使用者名稱。  
+   * 將 `ClusterShortName` 取代為叢集的簡短名稱。 例如，如果叢集名稱為 https:// *[範例連結]* sechadoopcontoso.azurehdisnight.net，則 `clustershortname` 為叢集的前六個字元：**sechad**。  
+   * 將 `jdbcurlvalue` 取代為 Hive 組態中的 JDBC URL。 範例為 jdbc:hive2://headnodehost:10001/;transportMode=http。      
+   * 若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。
 
    執行 Oozie 作業時，此內容檔案必須存在於本機。
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007726"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456685"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 購買模型
 
@@ -50,9 +50,11 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 ## <a name="storage-costs"></a>儲存成本
 
-不同類型的儲存體會以不同方式計費。 對於資料儲存體，您必須根據您所選取的資料庫或集區大小上限，為佈建的儲存體支付費用。 除非您減少或增加此最大值，否則成本不會變更。 備份儲存體與您執行個體的自動備份相關聯，而且是動態配置的。 增加您的備份保留期限，即會增加執行個體所取用的備份儲存體。 備份儲存體在未達已佈建的伺服器儲存體總計的 100% 之前，無須額外付費。 備份儲存體的額外使用量，會按月以 GB 為單位收費。 例如，若您的資料庫儲存體大小為 100 GB，則在 100 GB 的備份範圍內，無需額外的費用。 但若備份達到 110 GB，則需支付額外 10 GB 的費用。
+不同類型的儲存體會以不同方式計費。 對於資料儲存體，您必須根據您所選取的資料庫或集區大小上限，為佈建的儲存體支付費用。 除非您減少或增加此最大值，否則成本不會變更。 備份儲存體與您執行個體的自動備份相關聯，而且是動態配置的。 增加您的備份保留期限，即會增加執行個體所取用的備份儲存體。 
 
-對於單一資料庫的備份儲存體，您必須根據配置給資料庫備份的儲存體減去資料庫大小所得出的差額，按比例支付其費用。 對於彈性集區的備份儲存體，您必須根據為集區中所有資料庫的資料庫備份配置的儲存體減去彈性集區的資料大小上限所得出的差額，按比例支付其費用。 只要增加資料庫大小或彈性集區，或是增加交易速率，就需要更多儲存體，而使您的備份儲存體費用連帶提高。  當您提高資料大小上限時，這個新數量將會從計費的備份儲存體大小中扣除。
+根據預設，系統會將您資料庫的 7 天自動備份複製到 RA-GRS 標準 Blob 儲存體。 每週完整備份、每日差異備份以及每 5 分鐘複製一次的交易記錄備份都使用此儲存體。 交易記錄檔的大小取決於資料庫的變動率。 會提供等於資料庫大小 100% 的最低儲存空間，且無額外費用。 備份儲存體的額外使用量會按每月每 GB 來收費。
+
+如需儲存體價格的詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/sql-database/single/)頁面。 
 
 ## <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
@@ -112,7 +114,7 @@ DTU 最適合用於了解處於不同計算大小與服務層之各 Azure SQL Da
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>是否需要先讓應用程式離線，才能從以 DTU 為基礎的資料庫轉換為以 vCore 為基礎的服務層
 
-新的服務層提供簡單的線上轉換方法，類似現在將資料庫從標準版升級為進階版服務層的程序，反之亦然。 此轉換可使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API 來起始。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
+新的服務層提供簡單的線上轉換方法，類似現在將資料庫從標準版升級為進階版服務層的程序，反之亦然。 這項轉換可使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API 來起始。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-using-the-vcore-based-purchase-to-a-service-tier-using-the-dtu-based-purchasing-model"></a>是否可以將使用 V 核心形式的購買之服務層的資料庫，轉換成使用 DTU 形式的購買之服務層的資料庫
 

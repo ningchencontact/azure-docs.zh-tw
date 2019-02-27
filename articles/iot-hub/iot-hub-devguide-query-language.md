@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: 65de1279c47f5992dd82e9f4634b3de52925769c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0cb3bc63f9c3d63c68edba0b4162970e18fca76d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568374"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312696"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -361,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**attribute_name** 指的是 FROM 集合中 JSON 文件的任何屬性。 您可以在[開始使用裝置對應項查詢](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries)一節中找到一些 SELECT 子句範例。
+**attribute_name** 指的是 FROM 集合中 JSON 文件的任何屬性。 您可以在開始使用裝置對應項查詢一節中找到一些 SELECT 子句範例。
 
 目前，只有在裝置對應項的彙總查詢中，才支援與 **SELECT*** 不同的選取範圍子句。
 

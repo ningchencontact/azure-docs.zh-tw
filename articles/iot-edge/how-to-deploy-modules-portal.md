@@ -4,18 +4,18 @@ description: 使用 Azure 入口網站將模組部署到 IoT Edge 裝置
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8b7327796cf29c8c234c0a750c90e0689f508f7e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969398"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430109"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>從 Azure 入口網站部署 Azure IoT Edge 模組
 
@@ -51,6 +51,7 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 
    * **IoT Edge 模組** - 預設選項。
    * **Azure 串流分析模組** - 從 Azure 串流分析工作負載產生的唯一模組。
+   * **Azure Machine Learning 模組** - 從 Azure Machine Learning 工作區產生的唯一模組影像。
 
 1. 選取 [IoT Edge 模組]。
 
@@ -82,6 +83,29 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 ## <a name="view-modules-on-your-device"></a>在裝置上檢視模組
 
 一旦您將模組部署到您的裝置，就可以在入口網站的 [裝置詳細資料] 頁面中檢視所有項目。 此頁面會顯示每個已部署模組的名稱，以及像是部署狀態和結束代碼的實用資訊。
+
+## <a name="deploy-modules-from-azure-marketplace"></a>從 Azure Marketplace 部署模組
+
+Azure Marketplace 是集合了應用程式和服務的線上市集，您可以在其中瀏覽各式各樣的企業應用程式和解決方案，這些項目皆已通過認證而可在 Azure 上執行並獲得最佳效能，包括 [IoT Edge 模組](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)。 您也可以透過 Azure 入口網站，在 [建立資源] 底下存取 Azure Marketplace。
+
+您可以從 Azure Marketplace 或 Azure 入口網站安裝 IoT Edge 模組：
+
+1. 尋找模組並開始部署程序。
+
+   * Azure 入口網站：尋找模組並選取 [建立]。
+
+   * Azure Marketplace：
+
+     1. 尋找模組並選取 [立即取得]。
+     1. 選取 [繼續] 來確認提供者的使用規定和隱私權原則。
+
+1. 選擇要作為目標裝置連結對象的訂用帳戶和 IoT 中樞。
+
+1. 選擇 [部署至裝置]。
+
+1. 輸入裝置名稱或選取 [尋找裝置] 以瀏覽已向中樞註冊的裝置。
+
+1. 選取 [建立] 以繼續執行設定部署資訊清單的標準程序，包括視需要新增其他資訊清單。 會預先定義新模組的詳細資料 (例如影像 URI、建立選項與必要屬性)，而且您可以視需要編輯它們。
 
 ## <a name="next-steps"></a>後續步驟
 

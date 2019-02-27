@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204367"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417191"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>預覽：部署 Azure AD 密碼保護
 
@@ -53,15 +53,18 @@ Microsoft 建議進行任何部署時，都以稽核模式開始。 稽核模式
     |`https://login.microsoftonline.com`|驗證要求|
     |`https://enterpriseregistration.windows.net`|Azure AD 密碼保護功能|
 
+* 裝載 Azure AD 密碼保護 Proxy 服務的所有電腦都必須設定為允許輸出 TLS 1.2 HTTP 流量。
 * 一個全域系統管理員帳戶，用以向 Azure AD 註冊 Azure AD 密碼保護 Proxy 服務與樹系。
 * 具樹系根網域中 Active Directory 網域系統管理員權限的帳戶，向 Azure AD 註冊 Windows Server Active Directory 樹系。
 * 執行 DC 代理程式服務軟體的任何 Active Directory 網域，都必須使用 DFSR 進行 sysvol 複寫。
 
 ## <a name="single-forest-deployment"></a>單一樹系部署
 
-下圖顯示 Azure AD 密碼保護的基本元件在內部部署 Active Directory 環境中如何一起運作。  
+下圖顯示 Azure AD 密碼保護的基本元件在內部部署 Active Directory 環境中如何一起運作。
 
 ![Azure AD 密碼保護元件如何一起運作](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+在部署之前，建議您先檢閱軟體的運作方式；請參閱[Azure AD 密碼保護的概念性概觀](concept-password-ban-bad-on-premises.md)。
 
 ### <a name="download-the-software"></a>下載軟體
 

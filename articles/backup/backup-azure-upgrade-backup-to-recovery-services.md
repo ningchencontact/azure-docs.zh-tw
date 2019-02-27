@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 41a826304af338814666e80dfaf584021809dbb0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880041"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313355"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>將備份保存庫升級至復原服務保存庫
 
@@ -98,13 +98,13 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 ![[快速入門] 刀鋒視窗中的說明連結](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## <a name="post-upgrade-steps"></a>升級後步驟
-復原服務保存庫支援在備份原則中指定時區資訊。 在保存庫順利升級後，請從 [保存庫設定] 功能表移至 [備份] 原則，並更新保存庫中所設定之各個原則的時區資訊。 此畫面會顯示您在建立原則時使用每個當地時區所指定的備份排程時間。 
+復原服務保存庫支援在備份原則中指定時區資訊。 在保存庫順利升級後，請從 [保存庫設定] 功能表移至 [備份] 原則，並更新保存庫中所設定之各個原則的時區資訊。 此畫面會顯示您在建立原則時使用每個當地時區所指定的備份排程時間。
 
 ## <a name="enhanced-security"></a>強化的安全性
 
-當備份保存庫升級為復原服務保存庫時，系統會自動開啟該保存庫的安全性設定。 當安全性設定開啟時，某些作業 (例如刪除備份或變更複雜密碼) 會需要 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN 碼。 如需強化的安全性的詳細資訊，請參閱[用來保護混合式備份的安全性功能](backup-azure-security-feature.md)一文。 
+當備份保存庫升級為復原服務保存庫時，系統會自動開啟該保存庫的安全性設定。 當安全性設定開啟時，某些作業 (例如刪除備份或變更複雜密碼) 會需要 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN 碼。 如需強化的安全性的詳細資訊，請參閱[用來保護混合式備份的安全性功能](backup-azure-security-feature.md)一文。
 
-開啟強化的安全性時，在您從保存庫中刪除復原點資訊後，資料最多保留 14 天的時間。 客戶需支付此安全性資料的儲存體費用。 安全性資料保留原則適用於 Azure 備份代理程式、Azure 備份伺服器和 System Center Data Protection Manager 所備份的復原點。 
+開啟強化的安全性時，在您從保存庫中刪除復原點資訊後，資料最多保留 14 天的時間。 客戶需支付此安全性資料的儲存體費用。 安全性資料保留原則適用於 Azure 備份代理程式、Azure 備份伺服器和 System Center Data Protection Manager 所備份的復原點。
 
 ## <a name="gather-data-on-your-vault"></a>在保存庫上收集資料
 
@@ -112,38 +112,38 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
-**升級計畫是否會影響我進行中的備份？**</br>
-否。 在升級期間和升級之後，進行中的備份持續不受干擾。
+### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>升級計畫是否會影響我進行中的備份？
+沒有。 在升級期間和升級之後，進行中的備份持續不受干擾。
 
-**如果我不打算立即升級，那麼我的保存庫會怎麼樣？**</br>
+### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>如果我不打算立即升級，那麼我的保存庫會怎麼樣？
 所有新功能只適用於復原服務保存庫，因此您最好將保存庫升級。 2017 年 9 月 1 日起，Microsoft 會開始將備份保存庫自動升級為復原服務保存庫。 2017 年 11 月 30 日之後，您就無法再使用 PowerShell 建立備份保存庫。 您的保存庫會其間的任何時間自動升級。 Microsoft 建議您盡快升級您的保存庫。
 
-**對於我現有的工具來說，此升級有何意義？**</br>
-將您的工具升級至 Resource Manager 部署模型。 復原服務保存庫是打造來用於 Resource Manager 部署模型的。 因此，請務必要規劃 Resource Manager 部署模型，並考量保存庫的相異之處。 
+### <a name="what-does-this-upgrade-mean-for-my-existing-tooling"></a>對於我現有的工具來說，此升級有何意義？
+將您的工具升級至 Resource Manager 部署模型。 復原服務保存庫是打造來用於 Resource Manager 部署模型的。 因此，請務必要規劃 Resource Manager 部署模型，並考量保存庫的相異之處。
 
-**升級期間是否會頻繁停機？**</br>
+### <a name="during-the-upgrade-is-there-much-downtime"></a>升級期間是否會停機很久？
 依您所升級的資源數目而定。 對於較小型的部署 (數十個受保護的執行個體)，整個升級應該花費不到 20 分鐘的時間。 對於較大型的部署，應該花費最多一小時的時間。
 
-**升級之後可以復原嗎？**</br>
-否。 將資源成功升級之後，即不支援復原。
+### <a name="can-i-roll-back-after-upgrading"></a>升級之後可以復原嗎？
+沒有。 將資源成功升級之後，即不支援復原。
 
-**我是否可以驗證訂用帳戶或資源，以查看是否能夠將它們升級？**</br>
+### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>我是否可以驗證訂用帳戶或資源，以查看是否能夠將它們升級？
 是。 升級的第一個步驟是驗證這些資源是否能夠升級。 如果必要條件驗證失敗，您將會收到無法完成升級的所有原因相關訊息。
 
-**可以升級以 CSP 為基礎的備份保存庫嗎？**</br>
-否。 您目前無法升級以 CSP 為基礎的備份保存庫。 我們會在後續版本中新增以 CSP 為基礎之備份保存庫的升級支援。
+### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>是否可以升級 CSP 型備份保存庫？
+沒有。 您目前無法升級以 CSP 為基礎的備份保存庫。 我們會在後續版本中新增以 CSP 為基礎之備份保存庫的升級支援。
 
-**在升級後可以檢視我的傳統保存庫嗎？**</br>
-否。 您在升級後無法檢視或管理您的傳統保存庫。 您只能將新的 Azure 入口網站用於保存庫的所有管理動作。
+### <a name="can-i-view-my-classic-vault-post-upgrade"></a>在升級後是否可以檢視我的傳統保存庫？
+沒有。 您在升級後無法檢視或管理您的傳統保存庫。 您只能將新的 Azure 入口網站用於保存庫的所有管理動作。
 
-**我升級失敗，但要求進行更新之代理程式所在的電腦已不存在。這種情況下我該怎麼做？**</br>
+### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>我的升級失敗，但要求進行更新之代理程式所在的電腦已不存在。 這種情況下我該怎麼做？
 如果您需要使用存放區作為這台電腦長期保存的備份，就無法升級保存庫。 在日後的版本中，我們會新增這類保存庫的升級支援。
 如果您不需要再儲存此電腦的備份，請從保存庫取消登錄此電腦，然後再次嘗試升級。
 
-**為什麼我在升級之後看不到資源的作業資訊？**</br>
+### <a name="why-cant-i-see-the-jobs-information-for-my-resources-after-upgrade"></a>為什麼我在升級之後看不到資源的作業資訊？
 當您將備份保存庫升級至復原服務保存庫時，會取得監視備份 (MARS 代理程式和 IaaS) 的新功能。 監視資訊最多需花費 12 小時才能與服務進行同步處理。
 
-**如何回報問題？**</br>
+### <a name="how-do-i-report-an-issue"></a>如何回報問題？
 如果保存庫升級過程中發生任何失敗，請記下錯誤所列出的 OperationId。 Microsoft 支援服務會積極解決問題。 您可以尋求協助，或將包含訂用帳戶識別碼、保存庫名稱和 OperationId 的電子郵件傳送至 rsvaultupgrade@service.microsoft.com。 我們會試著盡快解決問題。 除非 Microsoft 明確指示，否則請勿重試作業。
 
 

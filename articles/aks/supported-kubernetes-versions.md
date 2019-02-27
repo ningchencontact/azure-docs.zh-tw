@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 02/15/2018
 ms.author: saudas
-ms.openlocfilehash: 3e8342a719bf9ae7174195f88b97972d7f13193c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 37a9712749a1575f81086d28ad461a665bef36d9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465780"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313444"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中支援的 Kubernetes 版本
 
@@ -27,11 +27,11 @@ AKS 支援 Kubernetes 的四個次要版本：
 - 已發行上游 (n) 的目前次要版本
 - 三個先前的次要版本。 每個支援的次要版本也支援兩個穩定的修補程式。
 
-例如，如果 AKS 今天引入 *1.11.x*，也會針對 *1.10.a* + *1.10.b*、*1.9.c*  + *1.9 d*、*1.8.e* + *1.8f* (含有字母的修補程式版本是兩個最新穩定版的組建) 提供支援。
+例如，如果 AKS 今天引入 *1.12.x*，也會針對 *1.11.a* + *1.11.b*、*1.10.c* + *1.10d*、*1.9.e* + *1.9f* (含有字母的修補程式版本是兩個最新穩定版的組建) 提供支援。
 
-引入新的次要版本時，即會淘汰最舊的次要版本和所支援的修補程式版本。 在發行新的次要版本和即將淘汰版本的 15 天之前，會透過 [Azure 更新頻道][azure-update-channel]宣告。 在上述發行 *1.11.x* 的範例中，已淘汰的版本為 *1.7.g* + *1.7.h*。
+引入新的次要版本時，即會淘汰最舊的次要版本和所支援的修補程式版本。 在發行新的次要版本和即將淘汰版本的 15 天之前，會透過 [Azure 更新頻道][azure-update-channel]宣告。 在上述發行 *1.12.x* 的範例中，已淘汰的版本為 *1.8.g* + *1.8.h*。
 
-當您在入口網站中或使用 Azure CLI 部署 AKS 叢集時，一律會將叢集設定為 n-1 次要版本和最新修補程式。 例如，如果 AKS 支援 *1.11.x*、*1.10.a* + *1.10.b*、*1.9.c* + *1.9 d*、*1.8.e* + *1.8f*，新叢集的預設版本為 *1.10.b*。
+當您在入口網站中或使用 Azure CLI 部署 AKS 叢集時，一律會將叢集設定為 n-1 次要版本和最新修補程式。 例如，如果 AKS 支援 *1.12.x*、*1.11.a* + *1.11.b*、*1.10.c* + *1.10d*、*1.9.e* + *1.9f*，新叢集的預設版本為 *1.10.b*。
 
 ## <a name="list-currently-supported-versions"></a>列出目前支援的版本
 
@@ -41,20 +41,19 @@ AKS 支援 Kubernetes 的四個次要版本：
 az aks get-versions --location eastus --output table
 ```
 
-輸出類似下列範例，其中顯示 Kubernetes 版本 *1.12.4* 是可用的最新版本：
+輸出類似下列範例，其中顯示 Kubernetes 版本 *1.12.5* 是可用的最新版本：
 
 ```
 KubernetesVersion    Upgrades
 -------------------  -----------------------
-1.12.4               None available
-1.11.6               1.12.4
-1.11.5               1.11.6, 1.12.4
-1.10.12              1.11.5, 1.11.6
-1.10.9               1.10.12, 1.11.5, 1.11.6
+1.12.5               None available
+1.12.4               1.12.5
+1.11.7               1.12.4, 1.12.5
+1.11.6               1.11.7, 1.12.4, 1.12.5
+1.10.12              1.11.6, 1.11.7
+1.10.9               1.10.12, 1.11.6, 1.11.7
 1.9.11               1.10.9, 1.10.12
 1.9.10               1.9.11, 1.10.9, 1.10.12
-1.8.15               1.9.10, 1.9.11
-1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
 
 ## <a name="faq"></a>常見問題集
@@ -63,8 +62,8 @@ KubernetesVersion    Upgrades
 
 如果您是在 *n-4* 版本中，您就不會在 SLO 中。 如果從版本 n-4 成功升級到 n-3，則您會回到 SLO。 例如︰
 
-- 如果支援的 AKS 版本為 *1.10.a* + *1.10.b*、*1.9.c* + *1.9 d*、*1.8.e* + *1.8f*，而且您在 *1.7.g* 或 *1.7.h* 中，您就不會在 SLO 中。
-- 如果從 *1.7.g* 或 *1.7.h* 成功升級到 *1.8.e* 或 *1.8.f*，則您會回到 SLO。
+- 如果支援的 AKS 版本為 *1.12.x*、*1.11.a* + *1.11.b*、*1.10.c* + *1.10d* 與 *1.9.e* + *1.9f*，而且您使用 *1.8.g* 或 *1.8.h*，您就不會在 SLO 中。
+- 如果從 *1.8.g* 或 *1.8.h* 成功升級到 *1.9.e* 或 *1.9.f*，則您會回到 SLO。
 
 不支援升級到早於 *n-4* 的版本。 在這類情況下，我們建議客戶建立新的 AKS 叢集，並重新部署其工作負載。
 

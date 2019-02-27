@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001954"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270363"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -42,7 +42,7 @@ Azure 監視器所收集的所有資料均符合下列兩個基本類型之一�
 
 可以使用[查詢](log-query/log-query-overview.md)分析 Azure 監視器收集的記錄資料，以快速擷取、彙總和分析收集的資料。  您可以在 Azure 入口網站中使用 [Log Analytics](log-query/portals.md)來建立和測試查詢，然後使用這些工具直接分析資料，或儲存查詢以便搭配[視覺效果](visualizations.md)或[警示規則](platform/alerts-overview.md)使用。
 
-Azure 監視器使用的[資料總管查詢語言](/azure/kusto/query/)版本，適合用於簡單的記錄查詢，但也包含進階的功能，例如彙總、聯結和智慧分析。 您可以使用[多個課程](log-query/get-started-queries.md)，快速了解查詢語言。  我們會為已經熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的使用者提供特別指引。
+Azure 監視器使用 Azure 資料總管使用的 [Kusto 查詢語言](/azure/kusto/query/)版本，適合用於簡單的記錄查詢，但也包含進階的功能，例如彙總、聯結和智慧分析。 您可以使用[多個課程](log-query/get-started-queries.md)，快速了解查詢語言。  我們會為已經熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的使用者提供特別指引。
 
 ![記錄檔](media/overview/logs.png)
 

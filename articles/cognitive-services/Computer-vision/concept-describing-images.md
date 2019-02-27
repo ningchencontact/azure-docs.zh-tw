@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7919a84ffe948c9b6a8f68fc1372f1976c09bc79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864276"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312186"
 ---
 # <a name="describe-images-with-human-readable-language"></a>描述映包含人類可讀語言的影像
 
-電腦視覺的演算法會分析影像中的內容。 此分析會形成「描述」的基礎，讓此描述顯示為完整句子中可供閱讀的語言。 描述會概略說明影像中的項目。 電腦視覺的演算法會根據在影像中識別出來的視覺功能產生各種描述。 每個描述都會受到評估，並產生信賴分數。 接著會傳回一份清單，並依照信賴分數由高至低排序。
+電腦視覺可以分析影像，並產生人類看得懂的句子來描述其內容。 該演算法實際上根據不同的視覺功能傳回多個描述，且每個描述都給予信賴分數。 最後的輸出是從最高到最低信賴分數排序的描述清單。
 
 ## <a name="image-description-example"></a>影像描述範例
 

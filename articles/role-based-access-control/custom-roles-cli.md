@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 建立自訂角色 | Microsoft Docs
-description: 了解如何使用 Azure CLI 來建立適用於角色型存取控制 (RBAC) 的自訂角色。 這包括如何列出、建立、更新及刪除自訂角色。
+title: 使用 Azure CLI 建立適用於 Azure 資源的自訂角色 | Microsoft Docs
+description: 了解如何使用 Azure CLI 來為 Azure 資源建立包含角色型存取控制 (RBAC) 之自訂角色。 這包括如何列出、建立、更新及刪除自訂角色。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3b5d18a3e0bf846137dfdf68b8e5dd9e2db58792
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437251"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338133"
 ---
-# <a name="create-custom-roles-using-azure-cli"></a>使用 Azure CLI 建立自訂角色
+# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>使用 Azure CLI 建立適用於 Azure 資源的自訂角色
 
-如果內建的角色無法滿足組織的特定需求，您可以建立自己的[自訂角色](built-in-roles.md)。 本文說明如何使用 Azure CLI 來建立和管理自訂角色。
+如果[適用於 Azure 資源的內建角色](built-in-roles.md)無法滿足您組織的特定需求，您可以建立自己的自訂角色。 本文說明如何使用 Azure CLI 來建立和管理自訂角色。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要建立自訂角色，您需要：
 
@@ -162,6 +162,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [教學課程：使用 Azure CLI 建立自訂角色](tutorial-custom-role-cli.md)
-- [Azure 中的自訂角色](custom-roles.md)
+- [教學課程：使用 Azure CLI 為 Azure 資源建立自訂角色](tutorial-custom-role-cli.md)
+- [適用於 Azure 資源的自訂角色](custom-roles.md)
 - [Azure Resource Manager 資源提供者作業](resource-provider-operations.md)

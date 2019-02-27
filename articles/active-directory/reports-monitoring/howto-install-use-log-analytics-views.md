@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de2aa262dff54f2b8e535aa646e9a8cac7719567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7220fc6b239d20e9f1fc81e7d18b4d7ca6f0ded5
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165258"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453625"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視
 
@@ -41,13 +41,13 @@ Azure Active Directory 的 Log Analytics 檢視可協助您分析和搜尋 Azure
 
 ## <a name="install-the-log-analytics-views"></a>安裝 Log Analytics 檢視
 
-1. 瀏覽至您的 Log Analytics 工作區。 若要這麼做，請先瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後選取 [所有服務]。 在文字方塊中輸入 **Log Analytics**，然後選取 [Log Analytics]。 請選取您的活動記錄路由到的工作區，作為必要條件的一部分。
+1. 瀏覽至您的 Log Analytics 工作區。 若要這麼做，請先瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後選取 [所有服務]。 在文字方塊中輸入 **Log Analytics**，然後選取 [Log Analytics 工作區]。 請選取您的活動記錄路由到的工作區，作為必要條件的一部分。
 2. 依序選取 [檢視設計工具]、[匯入] 和 [選擇檔案]，以從本機電腦匯入檢視。
 3. 選取您根據必要條件下載的檢視，然後選取 [儲存] 以儲存匯入。 請為 [Azure AD 帳戶佈建事件] 檢視和 [登入事件] 檢視執行此動作。
 
 ## <a name="use-the-views"></a>使用檢視
 
-1. 瀏覽至您的 Log Analytics 工作區。 若要這麼做，請先瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後選取 [所有服務]。 在文字方塊中輸入 **Log Analytics**，然後選取 [Log Analytics]。 請選取您的活動記錄路由到的工作區，作為必要條件的一部分。
+1. 瀏覽至您的 Log Analytics 工作區。 若要這麼做，請先瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後選取 [所有服務]。 在文字方塊中輸入 **Log Analytics**，然後選取 [Log Analytics 工作區]。 請選取您的活動記錄路由到的工作區，作為必要條件的一部分。
 
 2. 在進入工作區後，選取 [工作區摘要]。 您應該會看到下列三個檢視：
 
@@ -73,5 +73,5 @@ Azure Active Directory 的 Log Analytics 檢視可協助您分析和搜尋 Azure
 
 ## <a name="next-steps"></a>後續步驟
 
-* [如何在 Log Analytics 中分析活動記錄](howto-analyze-activity-logs-log-analytics.md)
-* [在 Azure 入口網站中開始使用 Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [如何使用 Azure 監視器記錄分析活動記錄](howto-analyze-activity-logs-log-analytics.md)
+* [開始在 Azure 入口網站中使用 Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

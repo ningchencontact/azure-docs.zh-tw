@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993413"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270142"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure 監視器活頁簿建立互動式報表
 
@@ -77,7 +77,7 @@ ms.locfileid: "55993413"
 
 * 在與拒絕使用方式相同的時間週期期間，您的網站擲回多少例外狀況？
 * 檢視某些分頁之使用者的分頁載入時間散發是多久？
-* 有多少使用者檢視您的網站上的某些分頁集合，但是未檢視其他分頁集合？ 如果您有叢集使用者使用網站功能的不同子集 (使用 `join` 運算子搭配資料總管查詢語言的 `kind=leftanti` 修飾詞)，這項功能相當有用。
+* 有多少使用者檢視您的網站上的某些分頁集合，但是未檢視其他分頁集合？ 如果您有叢集使用者使用網站功能的不同子集 (使用 `join` 運算子搭配 [Kusto 查詢語言](/azure/kusto/query/)的 `kind=leftanti` 修飾詞)，這項功能相當有用。
 
 您也不只能查詢與您開啟活頁簿之應用程式有關的問題。 只要您擁有資源的存取權，您即可跨越多個 Application Insights 監視之應用程式及 Log Analytics 工作區進行查詢。
 

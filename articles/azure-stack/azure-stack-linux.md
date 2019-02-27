@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: bee143f7e814884eda3c5dc9017895a8431e76aa
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8e30edcc7a600088693de57264665f5ffff3842a
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890547"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300726"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>將 Linux 映像新增到 Azure Stack
 
@@ -36,8 +36,8 @@ ms.locfileid: "55890547"
 
 ## <a name="prepare-your-own-image"></a>準備您自己的映像
 
-請盡可能下載透過市集管理提供並專為 Azure Stack 準備及測試的映像。 
- 
+請盡可能下載透過市集管理提供並專為 Azure Stack 準備及測試的映像。
+
 需要 Azure Linux 代理程式 (通常稱為 `WALinuxAgent` 或 `walinuxagent`)，而且並非所有代理程式版本都適用於 Azure Stack。 如果您建立自己的映像，則應該使用 2.2.20 版或更新版本。 請注意，Azure Stack 目前不支援 [cloud-init](https://cloud-init.io/)。
 
 您可以使用下列指示來準備自己的 Linux 映像：
@@ -48,9 +48,8 @@ ms.locfileid: "55890547"
 * [SLES 和 openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-    
 ## <a name="add-your-image-to-the-marketplace"></a>將您的映像新增至 Marketplace
- 
+
 遵循[將映像新增至 Marketplace](azure-stack-add-vm-image.md)。 請確定已將 `OSType` 參數設定為 `Linux`。
 
 將映像新增到「市集」之後，便會建立「市集」項目，使用者就可以部署 Linux 虛擬機器。

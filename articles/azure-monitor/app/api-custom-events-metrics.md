@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1383c59ca88400868f83d30d04d9b0e5f5401282
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895987"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268952"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
 在您的應用程式中插入幾行程式碼，以了解使用者對它進行的動作或協助診斷問題。 您可以從裝置和桌面應用程式、Web 用戶端以及 Web 伺服器傳送遙測。 使用 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 核心遙測 API 來傳送自訂的事件和度量，以及您自己的標準遙測版本。 這個 API 與標準 Application Insights 資料收集器所使用的 API 相同。
 
 > [!NOTE]
-> `TrackMetric()` 不再是針對 .NET 型應用程式傳送自訂計量的慣用方法。 [2.60-beta 3 版](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3)的 Application Insights .NET SDK 中引進了新方法 [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)。 從 Application Insights .NET SDK [2.72 版](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)起，此功能現在屬於穩定的版本。
+> `TrackMetric()` 不再是針對 .NET 型應用程式傳送自訂計量的慣用方法。 [2.60-beta 3 版](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3)的 Application Insights .NET SDK 中引進了新方法 [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)。 從 Application Insights .NET SDK [2.72 版](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)起，這項功能現在屬於穩定的版本。
 
 ## <a name="api-summary"></a>API summary
 
@@ -93,7 +93,7 @@ var telemetry = applicationInsights.defaultClient;
 
 TelemetryClient 具備執行緒安全。
 
-針對 ASP.NET 和 Java 專案，系統會自動擷取傳入 HTTP 要求。 您可以為應用程式的其他模組建立額外的 TelemetryClient 執行個體。 比方說，您可以在中介軟體類別中配置一個 TelemetryClient 執行個體，用來報告商業邏輯事件。 您可以設定 UserId 和 DeviceId 等屬性，藉此辨識機器。 此資訊會附加至執行個體所傳送的所有事件。 
+針對 ASP.NET 和 Java 專案，系統會自動擷取傳入 HTTP 要求。 您可以為應用程式的其他模組建立額外的 TelemetryClient 執行個體。 比方說，您可以在中介軟體類別中配置一個 TelemetryClient 執行個體，用來報告商業邏輯事件。 您可以設定 UserId 和 DeviceId 等屬性，藉此辨識機器。 這項資訊會附加至執行個體所傳送的所有事件。 
 
 *C#*
 
@@ -508,7 +508,7 @@ catch (ex)
 SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 TrackException。
 
 * ASP.NET：[撰寫程式碼以攔截例外狀況](../../azure-monitor/app/asp-net-exceptions.md)。
-* J2EE：[自動攔截例外狀況](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures)。
+* Java EE：[自動攔截例外狀況](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures)。
 * JavaScript：自動攔截例外狀況。 如果您想要停用自動收集，請在您插入網頁的程式碼片段中加入一行：
 
 ```javascript
@@ -732,7 +732,7 @@ Thread.sleep(5000);
 telemetry.flush();
 ```
 
-請注意，此函式對[伺服器遙測通道](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/)而言是非同步的。
+此函式對[伺服器遙測通道](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/)而言是非同步的。
 
 在理想情況下，flush() 方法應該用於應用程式的關閉活動。
 
@@ -1144,7 +1144,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 * **InstrumentationKey**：Azure 中遙測顯示之位置的 Application Insights 資源。 通常會揀選自 ApplicationInsights.config。
 * **位置**：裝置的地理位置。
 * **作業**：在 Web 應用程式中，目前的 HTTP 要求。 在其他應用程式類型中，您可以設定以將事件群組在一起。
-  * **識別碼**：產生的值，與不同事件相互關聯，如此當您在診斷搜尋中檢查任何事件時，您可以發現相關項目。
+  * **ID**：產生的值，與不同事件相互關聯，如此當您在診斷搜尋中檢查任何事件時，您可以發現相關項目。
   * **名稱**：識別碼，通常是 HTTP 要求的 URL。
   * **SyntheticSource**：如果不為 null 或空白，這個字串表示要求的來源已被識別為傀儡程式或 Web 測試。 根據預設，會從計量瀏覽器的計算中排除。
 * **屬性**：與所有遙測資料一起傳送的屬性。 可以在個別 Track* 呼叫中覆寫。

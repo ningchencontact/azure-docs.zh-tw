@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 4885be7547d404505b50c563036f260166cbc2cc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6b980ae7539642e67609be802b2e31b287d09f72
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833817"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415258"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>網路安全性群組搭配 Azure Site Recovery
 
@@ -45,7 +45,7 @@ ms.locfileid: "52833817"
 
 Azure Site Recovery 能夠針對內部部署的 [Hyper-V 虛擬機器](hyper-v-azure-architecture.md)、[VMware 虛擬機器](vmware-azure-architecture.md)和[實體伺服器](physical-azure-architecture.md)進行災害復原並移轉到 Azure。 針對所有內部部署到 Azure 的案例，會將複寫資料傳送到並儲存於 Azure 儲存體帳戶。 在複寫期間，您不需支付任何虛擬機器費用。 當您容錯移轉到 Azure 時，Site Recovery 會自動建立 Azure IaaS 虛擬機器。
 
-若已在容錯移轉至 Azure 後建立 VM，則可使用 NSG 來限制虛擬網路和 VM 的網路流量。 Site Recovery 不會在容錯移轉作業進行期間建立 NSG。 建議您在起始容錯移轉之前先建立必要的 Azure NSG。 之後，您可以搭配使用自動化指令碼與 Site Recovery 強大的[復原計劃](site-recovery-create-recovery-plans.md)，在容錯移轉期間自動將 NSG 關聯至已容錯移轉的 VM。
+若已在容錯移轉至 Azure 後建立 VM，則可使用 NSG 來限制虛擬網路和 VM 的網路流量。 Site Recovery 不會在容錯移轉作業進行期間建立 NSG。 建議您在起始容錯移轉之前先建立所需的 Azure NSG。 之後，您可以搭配使用自動化指令碼與 Site Recovery 強大的[復原計劃](site-recovery-create-recovery-plans.md)，在容錯移轉期間自動將 NSG 關聯至已容錯移轉的 VM。
 
 例如，如果容錯移轉後的 VM 組態類似於上面詳述的[案例範例](concepts-network-security-group-with-site-recovery.md#using-network-security-groups)：
 -   您可以在目標 Azure 區域上，建立 **Contoso VNet** 和 **Contoso 子網路**作為 DR 計劃的一部分。
@@ -61,7 +61,7 @@ Azure Site Recovery 會啟用 [Azure 虛擬機器](azure-to-azure-architecture.m
 
 對於 Azure VM 複寫，請確定來源 Azure 區域上的 NSG 規則允許使用[輸出連線能力](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)來產生複寫流量。 您也可以透過此 [NSG 組態範例](azure-to-azure-about-networking.md#example-nsg-configuration)來測試並驗證這些必要規則。
 
-Site Recovery 不會在容錯移轉作業進行期間建立或複寫 NSG。 建議您在起始容錯移轉之前先在目標 Azure 區域上建立必要的 NSG。 之後，您可以搭配使用自動化指令碼與 Site Recovery 強大的[復原計劃](site-recovery-create-recovery-plans.md)，在容錯移轉期間自動將 NSG 關聯至已容錯移轉的 VM。
+Site Recovery 不會在容錯移轉作業進行期間建立或複寫 NSG。 建議您在起始容錯移轉之前先在目標 Azure 區域上建立所需的 NSG。 之後，您可以搭配使用自動化指令碼與 Site Recovery 強大的[復原計劃](site-recovery-create-recovery-plans.md)，在容錯移轉期間自動將 NSG 關聯至已容錯移轉的 VM。
 
 請設想稍早所述的[案例範例](concepts-network-security-group-with-site-recovery.md#using-network-security-groups)：
 -   若已為 VM 啟用複寫，Site Recovery 就可以在目標 Azure 區域上建立 **Contoso VNet** 和 **Contoso 子網路**的複本。

@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 480d453cc906fa1b1d93e00bd4a6d2b080768a47
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105827"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428987"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
-在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 您可以透過 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄檔案串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄檔案匯出至 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) (這是 [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) 的服務)。 
+在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 透過 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)，您可以監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄檔案串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄檔案匯出至 [Azure 監視器記錄](../azure-monitor/azure-monitor-log-hub.md)。
 
-![儲存體、事件中樞或 Log Analytics 的診斷記錄](./media/analysis-services-logging/aas-logging-overview.png)
+![針對儲存體、事件中樞或 Azure 監視器記錄的診斷記錄](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>記錄的內容？
@@ -82,7 +82,7 @@ ms.locfileid: "54105827"
 
     * **封存至儲存體帳戶**。 若要使用此選項，您需要可以連接的現有儲存體帳戶。 請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)。 請依照指示建立資源管理員、一般用途的帳戶，然後在返回入口網站上的此頁面時，選取您的儲存體帳戶。 新建立的儲存體帳戶可能在數分鐘後才會出現在下拉式功能表中。
     * **串流處理至事件中樞**。 若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若想深入了解，請參閱[使用 Azure 入口網站來建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後返回入口網站的此頁面選取事件中樞命名空間和原則名稱。
-    * **傳送至 Log Analytics**。 若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需有關如何檢視 Log Analytics 記錄的詳細資訊，請參閱本文中的[檢視 Log Analytics 中的記錄](#view-logs-in-log-analytics)。
+    * **傳送至 Azure 監視器 (Log Analytics 工作區)**。 若要使用此選項，請使用現有的工作區，或是在入口網站中[建立新的工作區](../azure-monitor/learn/quick-create-workspace.md)資源。 如需有關如何檢視記錄的詳細資訊，請參閱本文中的[檢視 Log Analytics 工作區中的記錄](#view-logs-in-log-analytics)。
 
     * **引擎**。 選取此選項可記錄 xEvents。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **服務**。 選取此選項可記錄服務層級事件。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
@@ -150,47 +150,43 @@ ms.locfileid: "54105827"
 * 刪除不想繼續保留在儲存體帳戶中的記錄。
 * 請務必設定保留期限，以便從儲存體帳戶刪除舊的記錄。
 
-## <a name="view-logs-in-log-analytics"></a>檢視 Log Analytics 中的記錄
+## <a name="view-logs-in-log-analytics-workspace"></a>檢視 Log Analytics 工作區中的記錄
 
-計量和伺服器事件會與 Log Analytics 中的 xEvents 整合以進行並存分析。 也可以將 Log Analytics 設定為接收來自其他 Azure 服務的事件，以提供整體檢視，了解整個架構的診斷記錄資料。
+計量和伺服器事件會與您 Log Analytics 工作區中的 xEvents 整合，以進行並列分析。 您也可以將 Log Analytics 工作區設定為接收來自其他 Azure 服務的事件，以提供整個架構之診斷記錄資料的整體檢視。
 
-若要在 Log Analytics 檢視診斷資料，請從左側功能表或 [管理] 區域開啟 [記錄搜尋] 頁面，如下所示。
+若要檢視診斷資料，請開啟 Log Analytics 工作區左側功能表中的 [記錄]。
 
 ![Azure 入口網站中的記錄搜尋選項](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-現在您已啟用資料收集，請在 [記錄搜尋] 中，按一下 [所有收集的資料]。
+在查詢產生器中，展開 [LogManagement] > [AzureDiagnostics]。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass\_s] 或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
 
-在 [類型] 中，按一下 [AzureDiagnostics]，然後按一下 [套用]。 AzureDiagnostics 包括「引擎」和「服務」事件。 請注意，Log Analytics 查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。
+### <a name="example-query"></a>範例查詢
+此範例會計算並傳回模型資料庫和伺服器之每個查詢結束/重新整理結束活動的 CPU：
 
-按一下 **EventClass\_s** 或其中一個事件名稱，Log Analytics 將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+window
+| where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
+| where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
+| extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
+| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
+| join kind=leftouter (
+window
+    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
+    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
+    ) on RootActivityId_g
+| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
 
-請務必查看 Log Analytics，在其所提供的一個網站中，增強了對收集資料的查詢、儀表板管理，以及警示功能。
-
-### <a name="queries"></a>查詢
-
-有數百個查詢可供使用。 以下事項可快速協助您準備入門。
-若要深入了解有關使用新的記錄搜尋語言，請參閱[了解 Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-search-new.md)。 
-
-* 查詢提交到 Azure Analysis Services 的回傳查詢，且作業時間超過五分鐘以上 (300,000 毫秒)。
-
-    ```
-    search * | where ( Type == "AzureDiagnostics" ) | where ( EventClass_s == "QUERY_END" ) | where toint(Duration_s) > 300000
-    ```
-
-* 識別相應放大複本。
-
-    ```
-    search * | summarize count() by ServerName_s
-    ```
-    使用相應放大時，您可以識別唯讀複本，因為 ServerName\_s 欄位值具有附加至名稱的複本執行個體號碼。 資源欄位包含 Azure 資源名稱，且該名稱符合使用者看到的伺服器名稱。 IsQueryScaleoutReadonlyInstance_s 欄位等於複本。
+```
 
 
-
-> [!TIP]
-> 您想共用很棒的 Log Analytics 查詢嗎？ 如果您有 GitHub 帳戶，您就可以將它新增至此文章。 只要按一下頁面右上側的 [編輯] 即可。
+有數百個查詢可供使用。 若要深入了解查詢，請參閱[開始使用 Azure 監視器記錄查詢](../azure-monitor/log-query/get-started-queries.md)。
 
 
-## <a name="tutorial---turn-on-logging-by-using-powershell"></a>教學課程 - 使用 PowerShell 開啟記錄
+## <a name="turn-on-logging-by-using-powershell"></a>使用 PowerShell 開啟記錄
+
 在本快速教學課程中，您可以在與 Analysis Service 伺服器相同的訂用帳戶和資源群組中，建立儲存體帳戶。 接著使用 Set-AzureRmDiagnosticSetting 開啟診斷記錄，將輸出傳送至新的儲存體帳戶。
 
 ### <a name="prerequisites"></a>必要條件
@@ -227,7 +223,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 
 ### <a name="create-a-new-storage-account-for-your-logs"></a>為您的記錄建立新的儲存體帳戶
 
-您可以針對您的記錄使用現有的儲存體帳戶，前提是該帳戶與您的伺服器位於相同的訂用帳戶中。 此教學課程中，您會建立專門用於 Analysis Services 記錄的新儲存體帳戶。 為了方便起見，您可將儲存體帳戶詳細資訊儲存到名為 **sa** 的變數。
+您可以針對您的記錄使用現有的儲存體帳戶，前提是該帳戶與您的伺服器位於相同的訂用帳戶中。 針對此教學課程，您會建立專門用於 Analysis Services 記錄的新儲存體帳戶。 為了方便起見，您可將儲存體帳戶詳細資訊儲存到名為 **sa** 的變數。
 
 您也可以使用與包含 Analysis Services 伺服器資源群組相同的資源群組。 請將 `awsales_resgroup`、`awsaleslogs` 和 `West Central US` 的值替代成您自己的值：
 
@@ -253,7 +249,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
-輸出應該會看起來像這樣：
+輸出應會如下列範例所示：
 
 ```powershell
 StorageAccountId            : 
@@ -292,7 +288,7 @@ Location                    :
 Tags                        :
 ```
 
-這個結果可確認伺服器記錄現已啟用，系統會將資訊儲存到儲存體帳戶中。
+這個輸出結果可確認伺服器記錄現已啟用，系統會將資訊儲存到儲存體帳戶中。
 
 您也可以設定記錄的保留原則，以便自動刪除較舊的記錄。 例如，使用 **-RetentionEnabled** 旗標將保留原則設為 **$true** 並將 **-RetentionInDays** 參數設為 **90**。 系統將自動刪除超過 90 天的舊記錄。
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Active Directory B2C 透過 OpenID Connect 設定註冊和登入 | Microsoft Docs
+title: 使用 OpenID Connect 設定註冊並登入 - Azure Active Directory B2C | Microsoft Docs
 description: 使用 Azure Active Directory B2C 透過 OpenID Connect 設定註冊和登入。
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c609ac5ebb6c0516472f00a5625a26459f49d131
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: de0c866889f15f096bea26915f58cd4e268dfed3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171689"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428750"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 透過 OpenID Connect 設定註冊和登入
 
@@ -23,8 +23,7 @@ ms.locfileid: "55171689"
 > 這項功能處於公開預覽狀態。 請勿在生產環境中使用這項功能。
 
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 是以 OAuth 2.0 為基礎的驗證通訊協定，可用於讓使用者安全地登入。 Azure AD B2C 支援使用此通訊協定的大部分識別提供者，例如[Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md) 本文說明如何將自訂 OpenID Connect 識別提供者新增至使用者流程中。
-
+[OpenID Connect](active-directory-b2c-reference-oidc.md) 是以 OAuth 2.0 為基礎的驗證通訊協定，可用於讓使用者安全地登入。 Azure AD B2C 中支援使用此通訊協定的大部分識別提供者。 本文說明如何將自訂 OpenID Connect 識別提供者新增至使用者流程中。
 
 ## <a name="add-the-identity-provider"></a>新增識別提供者
 

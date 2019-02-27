@@ -1,6 +1,6 @@
 ---
 title: Azure 監視器記錄查詢語言差異 | Microsoft Docs
-description: Azure 監視器所使用的資料總管查詢語言參考資訊。 包含 Azure 監視器專用的其他元素和 Azure 監視器記錄查詢中不支援的元素。
+description: Azure 監視器所使用的 Kusto 查詢語言參考資訊。 包含 Azure 監視器專用的其他元素和 Azure 監視器記錄查詢中不支援的元素。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.openlocfilehash: 9c58796fa19ffb6d38582c809f7bb6ca948bd92c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003616"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266725"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure 監視器記錄查詢語言差異
 
-雖然 [Azure 監視器中的記錄](log-query-overview.md)建置於 [Azure 資料總管](/azure/data-explorer)上，並使用[相同的查詢語言](/azure/kusto/query)，但該語言的版本確實存在一些差異。 這篇文章會識別用於資料總管的語言版本，與用於 Azure 監視器記錄查詢的版本之間不同的元素。
+雖然 [Azure 監視器中的記錄](log-query-overview.md)建置於 [Azure 資料總管](/azure/data-explorer)上，並使用相同的 [Kusto 查詢語言](/azure/kusto/query)，但該語言的版本確實存在一些差異。 這篇文章會識別用於資料總管的語言版本，與用於 Azure 監視器記錄查詢的版本之間不同的元素。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="data-explorer-elements-not-supported-in-azure-monitor"></a>Azure 監視器中不支援的資料檔案總管元素
-下列各節描述 Azure 監視器不支援的 Data Explorer 查詢語言的元素。
+## <a name="kql-elements-not-supported-in-azure-monitor"></a>Azure 監視器中不支援的 KQL 元素
+下列各節描述 Azure 監視器不支援的 Kusto 查詢語言的元素。
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Azure 監視器中不支援的陳述式
 
@@ -64,4 +64,4 @@ ms.locfileid: "56003616"
 ## <a name="next-steps"></a>後續步驟
 
 - 取得[撰寫 Azure 監視器記錄查詢的不同資源](query-language.md)參考。
-- 存取完整的[資料總管查詢語言的參考文件](/azure/kusto/query/)。
+- 存取完整的 [Kusto 查詢語言的參考文件](/azure/kusto/query/)。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 880b4e4ce09fec3caf70586c2cfb54236d13b668
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996299"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267712"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>設定 Application Insights：相依性追蹤
 「相依性」  是由應用程式呼叫的外部元件。 這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 會測量您應用程式等待相依性所花費的時間，以及相依性呼叫失敗的頻率。 您可以調查特定的呼叫，然後將它們與要求和例外狀況建立關聯。
@@ -133,7 +133,7 @@ ms.locfileid: "55996299"
 ![按一下要求類型，按一下執行個體以取得同一個執行個體的不同檢視，按一下執行個體以取得例外狀況的詳細資料。](./media/asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>分析
-您可以在[資料總管查詢語言](https://aka.ms/LogAnalyticsLanguage)中追蹤相依性。 以下是一些範例。
+您可以在 [Kusto 查詢語言](/azure/kusto/query/)中追蹤相依性。 以下是一些範例。
 
 * 尋找任何失敗的相依性呼叫：
 

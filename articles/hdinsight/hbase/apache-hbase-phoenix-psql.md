@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5faea45a55d69cece56137d70862d80dfe335971
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652756"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342451"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>使用 psql 將資料大量載入至 Apache Phoenix
 
@@ -115,7 +115,7 @@ ms.locfileid: "53652756"
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /inputFolderBulkLoad/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure
     ```
 
-8. 若要使用 MapReduce 搭配 ADLS，請找出 ADLS 根目錄，也就是 `hbase-site.xml` 中的 `hbase.rootdir` 值。 在以下命令中，ADLS 根目錄是 `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`。 在此命令中，指定 ADLS 輸入和輸出資料夾作為參數：
+8. 若要搭配使用 MapReduce 與 Azure Data Lake Storage，請找出 Azure Data Lake Storage 根目錄，即 `hbase-site.xml` 中的 `hbase.rootdir` 值。 在下列命令中，Data Lake Storage 根目錄是 `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`。 在此命令中，指定 Data Lake Storage 輸入和輸出資料夾作為參數：
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -127,7 +127,7 @@ ms.locfileid: "53652756"
 
 ## <a name="recommendations"></a>建議
 
-* 針對輸入和輸出資料夾都使用相同的儲存媒體 (WASB 或 ADLS)。 若要將資料從 WASB 傳輸至 ADLS，您可以使用 `distcp` 命令：
+* 對輸入和輸出資料夾使用相同的儲存媒體 (Azure 儲存體 (WASB) 或 Azure Data Lake Storage (ADL))。 若要從 Azure 儲存體傳輸資料至 Data Lake Storage，您可以使用 `distcp` 命令：
 
     ```bash
     hadoop distcp wasb://@.blob.core.windows.net/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder

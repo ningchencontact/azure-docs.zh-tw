@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005510"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342978"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
-Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計量可能是平台計量、[自訂計量](../../azure-monitor/platform/metrics-custom-overview.md)、[來自 Azure 監視器並轉換為計量的常用記錄](../../azure-monitor/platform/alerts-metric-logs.md)、Application Insights 標準計量。 計量警示會定期評估，檢查一或多個計量時間序列上的條件是否為真，並在評估符合時通知您。 計量警示具狀態，也就是說只會在狀態變更時傳送通知。
+Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計量可能是[平台計量](alerts-metric-near-real-time.md#metrics-and-dimensions-supported)、[自訂計量](../../azure-monitor/platform/metrics-custom-overview.md)、[來自 Azure 監視器並轉換為計量的常用記錄](../../azure-monitor/platform/alerts-metric-logs.md)，以及 Application Insights 計量。 計量警示會定期評估，檢查一或多個計量時間序列上的條件是否為真，並在評估符合時通知您。 計量警示具狀態，也就是說只會在狀態變更時傳送通知。
 
 ## <a name="how-do-metric-alerts-work"></a>計量警示的運作方式為何？
 
@@ -65,8 +65,6 @@ Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計�
 經過一段時間後，如果 "myVM" 上的使用量下降恢復至正常，也就是低於閾值。 警示規則會再監視該條件兩次，以傳送解決通知。 當連續三個期間的警示條件都不符合時，警示規則會傳送已解決/停用訊息，以減少不穩定情況下的雜訊。
 
 透過 Webhook 或電子郵件傳送已解決通知時，Azure 入口網站中警示執行個體的狀態 (稱為監視器狀態)，也會設定為已解決。
-
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>在 Azure 監視器中使用計量警示大規模進行監視
 
 ### <a name="using-dimensions"></a>使用維度
 
@@ -123,9 +121,9 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 增加回溯查看期間和違規次數，也可以讓篩選警示僅對您的重大偏差定義發出警示。 [深入了解動態閾值進階選項](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean)。
 
-### <a name="monitoring-multiple-resources-using-metric-alerts"></a>使用計量警示監視多個資源
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>在 Azure 監視器中使用計量警示大規模進行監視
 
-如您在上一節所見，能以單一計量警示規則監視每個個別的維度組合 (也就是 計量時間序列)。 不過，以前仍限制一次只能對一個資源執行。 Azure 監視器也支援以單一計量警示規則監視多個資源。 此功能目前為預覽版，僅在虛擬機器上支援使用。 此外，單一計量警示也可以監視一個 Azure 區域中的資源。
+到目前為止，您已經了解如何使用單一計量警示來監視與單一 Azure 資源相關的一或多個計量時間序列。 很多時候，您可能想將相同的警示規則套用至許多資源。 Azure 監視器也支援以單一計量警示規則監視多個資源。 這項功能目前僅在虛擬機器上支援使用。 此外，單一計量警示也可以監視一個 Azure 區域中的資源。
 
 您可以透過下列三種方式之一，指定單一計量警示所監視的範圍：
 
@@ -133,7 +131,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 - 作為訂用帳戶中一或多個資源群組的所有虛擬機器 (位於一個 Azure 區域)
 - 作為訂用帳戶中的所有虛擬機器 (位於一個 Azure 區域)
 
-目前不支援透過 Azure 入口網站來建立監視多個資源的計量警示規則。 您可以透過 [Azure Resource Manager 範本](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources)建立這些規則。 您會收到每個虛擬機器的個別通知。
+建立監視多個資源的計量警示規則，類似於[建立監視單一資源的任何其他計量警示](alerts-metric.md)。 唯一的區別是您會選取要監視的所有資源。 您也可以透過 [Azure Resource Manager 範本](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources)建立這些規則。 您會收到每個虛擬機器的個別通知。
 
 ## <a name="typical-latency"></a>一般延遲
 
@@ -149,7 +147,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | yes |
 | Microsoft.Batch/batchAccounts| yes|
-|Microsoft.Cache/redis| yes
+|Microsoft.Cache/redis| yes |
 |Microsoft.ClassicCompute/virtualMachines | 否 |
 |Microsoft.ClassicCompute/domainNames/slots/roles | 否|
 |Microsoft.CognitiveServices/accounts | 否 |
@@ -160,7 +158,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 |Microsoft.DBforMySQL/servers| yes|
 |Microsoft.DBforPostgreSQL/servers| yes|
 |Microsoft.Devices/IotHubs | 否|
-|Microsoft.DocumentDB/databaseAccounts| 否|
+|Microsoft.DocumentDB/databaseAccounts| yes|
 |Microsoft.EventHub/namespaces | yes|
 |Microsoft.Logic/workflows | yes|
 |Microsoft.Network/loadBalancers |yes|
@@ -168,16 +166,16 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 |Microsoft.Network/applicationGateways| yes|
 |Microsoft.Network/expressRouteCircuits| yes|
 |Microsoft.Network/trafficManagerProfiles | yes|
-|Microsoft.Search/searchServices | 否|
-|Microsoft.ServiceBus/namespaces| 否|
+|Microsoft.Search/searchServices | yes|
+|Microsoft.ServiceBus/namespaces| yes |
 |Microsoft.Storage/storageAccounts | yes|
 |Microsoft.StreamAnalytics/streamingjobs| yes|
 |Microsoft.TimeSeriesInsights/environments | yes|
 |Microsoft. Web/serverfarms | yes |
 |Microsoft. Web/sites (不包括函式) | yes|
 |Microsoft. Web/hostingEnvironments/multiRolePools | 否|
-|Microsoft. Web/hostingEnvironments/workerPools| 否
-|Microsoft.SQL/Servers | 否|
+|Microsoft. Web/hostingEnvironments/workerPools| 否 |
+|Microsoft.SQL/Servers | 否 |
 
 ## <a name="next-steps"></a>後續步驟
 

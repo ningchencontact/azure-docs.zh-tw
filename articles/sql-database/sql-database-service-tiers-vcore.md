@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a9a38d30ec2a8e9139470531960d47fef1025269
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992121"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328617"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>V 核心服務層、Azure Hybrid Benefit 及移轉
 
@@ -42,7 +42,7 @@ ms.locfileid: "55992121"
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|具有可高度擴充的儲存體和讀取規模需求的多數商務工作負載|
 |計算|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|
 |記憶體|第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB | 第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB |第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB|
-|儲存體|使用[進階遠端儲存體](../virtual-machines/windows/premium-storage.md)：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |使用本機 SSD 儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
+|儲存體|使用遠端儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |使用本機 SSD 儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
 |IO 輸送量 (大約)|單一資料庫：每個虛擬核心 500 IOPS，且 IOPS 上限為 7000</br>受控執行個體：視[檔案大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)而定|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|TBD|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域備援 HA|?|
 |備份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|Azure 遠端儲存體中有以快照集為基礎的備份，還原時可使用這些快照集進行快速復原。 備份可迅速完成，且不會影響計算的 IO 效能。 還原速度非常快，而且不是資料作業的大小 (以分鐘而非小時或天來計算)。|

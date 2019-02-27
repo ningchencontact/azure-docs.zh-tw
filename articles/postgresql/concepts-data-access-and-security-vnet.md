@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 2f26c4ae352ea5385886abcaecba5f50d30c530a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537217"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417477"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>針對適用於 PostgreSQL 的 Azure 資料庫使用虛擬網路服務端點和規則
 
@@ -23,6 +23,7 @@ ms.locfileid: "53537217"
 
 > [!NOTE]
 > 如果適用於 PostgreSQL 的 Azure 資料庫是針對「一般用途」和「記憶體最佳化」伺服器來部署的，則此功能可在所有 Azure 公用雲端區域中使用。
+> 在 VNet 對等互連的案例中，如果流量流經含有服務端點的通用 VNet 閘道，且應流往同儕節點，請建立 ACL/VNet 規則以允許閘道 VNet 中的 Azure 虛擬機器存取適用於 PostgreSQL 的 Azure 資料庫伺服器。
 
 <a name="anch-terminology-and-description-82f" />
 

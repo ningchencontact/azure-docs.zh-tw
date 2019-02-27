@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10c8c0043d04d99ad10e475f903979edb0ddcb70
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc63eb792e58d960ae67138b5e58e6b705945030
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266887"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446387"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)
 
@@ -70,7 +70,7 @@ HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需�
 
 從 SLES12 SP1 和 RHEL 7.2 開始，必須在 /etc/sysctl.d 目錄的組態檔中設定這些參數。 例如，必須建立名為 91-NetApp-HANA.conf 的組態檔。 如果是舊版 SLES 和 RHEL，則必須 /etc/sysctl.conf 中設定這些參數。
 
-針對所有 SLES12 開始的 RHEL 版次，請記住下列事項： 
+針對所有 RHEL 6.3 開始的 RHEL 版本，請記住下列事項： 
 - sunrpc.tcp_slot_table_entries = 128 參數必須在 /etc/modprobe.d/sunrpc-local.conf 中設定。 如果該檔案不存在，則必須先透過新增下列項目來建立它： 
     - options sunrpc tcp_max_slot_table_entries=128
 

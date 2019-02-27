@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859739"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429463"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>驗證 Azure 認知服務要求
 
@@ -58,7 +58,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-以下影片將示範如何使用認知服務金鑰。 
+以下影片將示範如何使用認知服務金鑰。
 
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>使用多服務訂用帳戶金鑰進行驗證
 
@@ -127,16 +127,15 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ### <a name="sample-requests"></a>範例要求
 
-使用此 URL 來交換驗證權杖的單一服務訂用帳戶金鑰：`https://api.cognitive.microsoft.com/sts/v1.0/issueToken`。
+使用此 URL 來交換驗證權杖的訂用帳戶金鑰：`https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`。
 
 ```cURL
 curl -v -X POST \
-"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
+-H "Content-length: 0" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
-
-使用多服務訂用帳戶金鑰時，您必須使用區域特定端點來進行權杖交換。 使用此 URL 來交換驗證權杖的多服務訂用帳戶金鑰：`https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`。
 
 以下多服務區域支援權杖交換：
 
@@ -147,13 +146,6 @@ curl -v -X POST \
 | `japaneast` | `northeurope` | `southcentralus` |
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
-
-```cURL
-curl -v -X POST \
-"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
--H "Content-type: application/x-www-form-urlencoded" \
--H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
 
 取得驗證權杖之後，您必須在每個要求中加以傳遞作為 `Authorization` 標頭。 這是翻譯工具文字 API 的範例呼叫：
 

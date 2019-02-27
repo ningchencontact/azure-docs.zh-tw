@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509128"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327005"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
 Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存和存取資料。 本文涵蓋 Azure 檔案服務、Azure Blob 和 Azure 磁碟，並設計來協助您從這些功能中選擇想要的功能。
@@ -56,7 +56,7 @@ Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Az
 |影響範圍|單一虛擬機器專用|跨多部虛擬機器的共用存取|  
 |快照與複製|yes|yes|  
 |組態|在啟動虛擬機器時連線|在虛擬機器啟動之後連線|  
-|驗證|內建|使用 net use 設定|  
+|Authentication|內建|使用 net use 設定|  
 |使用 REST 存取|無法存取 VHD 內的檔案|可以存取儲存在共用中的檔案|  
 |大小上限|4 TiB 的磁碟|5 TiB 的檔案共用和 1 TiB 的共用內檔案|  
 |最大 IOps|500 IOps|1000 IOps|  
@@ -67,4 +67,4 @@ Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Az
   
 某些 SMB 功能並不適用於雲端。 如需詳細資訊，請參閱 [Azure 檔案服務不支援的功能](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)。
   
-如需有關磁碟的詳細資訊，請參閱[管理磁碟及映像](../../virtual-machines/windows/about-disks-and-vhds.md)和[如何將資料磁碟連結到 Windows 虛擬機器](../../virtual-machines/windows/attach-managed-disk-portal.md)。
+如需有關磁碟的詳細資訊，請參閱我們的[受控磁碟簡介](../../virtual-machines/windows/managed-disks-overview.md)，以及[如何將資料磁碟連結到 Windows 虛擬機器](../../virtual-machines/windows/attach-managed-disk-portal.md)。

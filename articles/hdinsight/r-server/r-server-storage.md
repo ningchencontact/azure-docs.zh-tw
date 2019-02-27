@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7b937158be39f9a1f7f9374611a150fd11837f02
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910261"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309112"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>適用於 Azure HDInsight 上 ML 服務的 Azure 儲存體解決方案
 
@@ -119,9 +119,9 @@ HDInsight 上的 ML 服務可以使用數種儲存體解決方案，來保存資
 
 建立叢集之後，您也可以新增叢集存取權到一或多個 Data Lake Storage 帳戶。 為 Data Lake Storage 開啟 Azure 入口網站入口，並移至 [資料總管] > [存取] > [新增]。 
 
-### <a name="how-to-access-data-lake-storage-from-ml-services-on-hdinsight"></a>如何從 HDInsight 上的 ML 服務存取 Data Lake Storage
+### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>如何從 HDInsight 上的 ML 服務存取 Data Lake Storage Gen1
 
-一旦您獲得 Data Lake Storage 的存取權後，就可以在 HDInsight 上的 ML 服務叢集中使用該存放區，其方式就和使用次要 Azure 儲存體帳戶一樣。 唯一的差別在於前置詞 **wasb://** 會變更為 **adl://**，如下所示：
+一旦您獲得 Data Lake Storage Gen1 的存取權後，就可以在 HDInsight 上的 ML 服務叢集中使用該存放區，其方式就和使用次要 Azure 儲存體帳戶一樣。 唯一的差別在於前置詞 **wasb://** 會變更為 **adl://**，如下所示：
 
 
     # Point to the ADL Storage (e.g. ADLtest)
@@ -143,7 +143,7 @@ HDInsight 上的 ML 服務可以使用數種儲存體解決方案，來保存資
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-下列命令是用來搭配 RevoShare 目錄設定 Data Lake Storage 帳戶，並新增來自先前範例的範例 .csv 檔案：
+下列命令是用來搭配 RevoShare 目錄設定 Data Lake Storage Gen1 帳戶，並新增來自先前範例的範例 .csv 檔案：
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

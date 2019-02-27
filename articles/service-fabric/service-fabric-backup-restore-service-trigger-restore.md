@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 1482497f3767e7533d1d56e6eb63e55cdb5c9ebb
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 66df926eaaf771fdde4d2eb59772b9d38a87edf0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104638"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313223"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>在 Azure Service Fabric 中還原備份
 
@@ -156,7 +156,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/1
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-您可以透過 [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress) 追蹤還原的進度。
+您可以透過 TrackRestoreProgress 追蹤還原的進度。
 
 ### <a name="data-restore-for-data-corruptiondata-loss"></a>針對「資料損毀/資料遺失」進行的資料還原
 
@@ -196,7 +196,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-您可以使用 [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress) 追蹤還原進度。
+您可以使用 TrackRestoreProgress 追蹤還原進度。
 
 ## <a name="track-restore-progress"></a>追蹤還原進度
 

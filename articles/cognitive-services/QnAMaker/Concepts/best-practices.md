@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245536"
+ms.locfileid: "56270176"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的最佳做法
 [知識庫開發生命週期](../Concepts/development-lifecycle-knowledge-base.md)可引導您了解如何從頭到尾管理知識庫。 使用下列最佳做法可改善您的知識庫，並為您的應用程式/聊天機器人使用者提供更好的結果。
@@ -25,6 +25,18 @@ ms.locfileid: "56245536"
 QnA Maker 服務會持續改進從內容中擷取 QnA 的演算法，並擴充支援的檔案和 HTML 格式清單。 請遵循[指導方針](../Concepts/data-sources-supported.md)，以根據您的文件類型擷取資料。 
 
 一般情況下，常見問題集頁面應獨立存在，而不會與其他資訊結合。 產品手冊應有清楚的標題，且最好有索引頁面。 
+
+## <a name="creating-good-questions-and-answers"></a>建立良好的問題與解答
+
+### <a name="good-questions"></a>良好的問題
+
+最好的問題非常簡單。 考慮每個問題的關鍵字或片語，然後建立針對該關鍵字或片語的簡單問題。 
+
+您可視需要新增多個替代問題，但要讓替代問題維持一樣的簡單性。 新增更多的單字或片語並非問題的主要目的，也無助於 QnA Maker 尋找答案。 
+
+### <a name="good-answers"></a>良好的解答
+
+最佳解答是簡單的解答，但不會太過簡單 (例如是和否)。 如果您的解答應該連結到其他資源，或提供含有媒體與連結的豐富體驗，請使用[標記](../how-to/metadata-generateanswer-usage.md)來區分您預期的解答類型，然後將該標記與查詢一起提交，以取得正確的解答版本。
 
 ## <a name="chit-chat"></a>閒聊
 將閒聊新增至您的 Bot，輕而易舉地讓 Bot 變得更健談且吸引人。 您可以在建立知識庫時，針對 3 個預先定義的特質輕鬆地新增閒聊，並隨時加以變更。 了解如何[將閒聊新增至您的 KB](../How-To/chit-chat-knowledge-base.md)。 
@@ -58,7 +70,6 @@ QnA Maker 服務會持續改進從內容中擷取 QnA 的演算法，並擴充�
 ### <a name="choosing-a-threshold"></a>選擇閾值
 預設信賴分數的閾值為 50，不過您可以根據需求為您的知識庫變更該閾值。 每個知識庫各有不同，因此您應該測試並選擇最適合您知識庫的閾值。 深入了解[信賴分數](../Concepts/confidence-score.md)。 
 
-
 ### <a name="add-alternate-questions"></a>新增替代問題
 [替代問題](../How-To/edit-knowledge-base.md)可提高使用者查詢產生相符項目的可能性。 在同樣的問題可用多種方式提問時，替代問題就有其效用。 這可以包括文句結構和字組樣式的變更。
 
@@ -81,17 +92,16 @@ QnA Maker 服務會持續改進從內容中擷取 QnA 的演算法，並擴充�
 |buy|purchase<br>netbanking<br>net banking|
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>使用相異字詞區隔問題
-會比對使用者查詢與知識庫中所含問題的 QnA Maker 比對和排名演算法，在以每個問題分別處理不同的需求時，可獲得最佳效果。 若在不同問題間有相同的字組重複出現，就比較難以用這些字組為指定的使用者查詢選擇正確的解答。 
+QnA Maker 排名演算法會比對使用者查詢與知識庫中的所含問題，在每個問題分別處理不同的需求時，可獲得最佳效果。 若在不同問題間有相同的字組重複出現，就比較難以用這些字組為指定的使用者查詢選擇正確的解答。 
 
 例如，您對於下列問題可能會有兩個不同的 QnA：
 
 |QnA|
 |--|
 |where is the parking *location*|
-|where is the atm *location*|
+|where is the ATM *location*|
 
-因為這兩個 QnA 是以非常類似的字組表達，此相似性可能會對以 *"where is the `<x>` location"* 這類方式表達的許多使用者查詢，造成非常類似的分數。 相反地，試著避免使用在知識庫中出現於許多問題的字組 (像是 "location")，以 *"where is the parking lot"* 和 *"where is the atm"* 之類的查詢來清楚區分。 
-
+因為這兩個 QnA 是以非常類似的字組表達，此相似性可能會對以 *"where is the `<x>` location"* 這類方式表達的許多使用者查詢，造成非常類似的分數。 相反地，試著避免使用在知識庫中出現於許多問題的字組 (像是 "location")，以 *"where is the parking lot"* 和 *"where is the ATM"* 之類的查詢來清楚區分。 
 
 ## <a name="collaborate"></a>共同作業
 QnA Maker 可讓使用者對知識庫進行[共同作業](../How-to/collaborate-knowledge-base.md)。 使用者需要有 Azure QnA Maker 資源群組的存取權，才能存取知識庫。 有些組織可能想要將知識庫的編輯和維護委外處理，但同時仍能夠保護其 Azure 資源的存取權。 若要完成此「編輯者-核准者」模型，可以在不同的訂用帳戶中設定兩個相同的 [QnA Maker 服務](../How-to/set-up-qnamaker-service-azure.md)，並選取其中一個用於編輯測試週期。 測試完成之後，就會使用[匯入-匯出](../Tutorials/migrate-knowledge-base.md)程序將知識庫內容轉移至核准者的 QnA Maker 服務，由他來執行最終的知識庫發佈和端點更新。

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: aschhab
-ms.openlocfilehash: f0c3aac95b1d19dc3f217cc146532254d8740ca0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 23a0c731eea22a772d7423bc3047af1183d55b7f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853284"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312884"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
 進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。
@@ -44,7 +44,8 @@ ms.locfileid: "54853284"
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[版本].jar
 
-> ![注意] JMS JAR 名稱和版本可能已經變更。 如需詳細資料，請參閱 [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10) \(英文\)。
+> [!NOTE]
+> JMS JAR 名稱和版本可能已經變更。 如需詳細資料，請參閱 [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10) \(英文\)。
 
 ## <a name="coding-java-applications"></a>編寫 Java 應用程式
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java 命名及目錄介面 (JNDI)

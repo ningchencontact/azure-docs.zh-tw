@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure NetApp Files 管理快照集 | Microsoft Docs
-description: 說明如何使用 Azure NetApp Files 建立磁碟區的隨選快照集，或從快照集還原至新的磁碟區。
+description: 說明如何使用 Azure NetApp Files 建立磁碟區的快照集，或從快照集還原至新的磁碟區。
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,28 +12,39 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 3c69cb076b3b23cd5149e05f1b6ee9ae1ba170a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412925"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430194"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>使用 Azure NetApp Files 管理快照集
+
 您可以使用 Azure NetApp Files 建立磁碟區的隨選快照集，或從快照集還原至新的磁碟區。
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>建立磁碟區的隨選快照集
-您只能以隨選的方式建立快照集。  目前不支援快照集原則。  
-1.  在 [管理磁碟區] 刀鋒視窗中按一下 [快照集]，然後按一下 [+ 新增快照集] 以建立磁碟區的隨選快照集。
 
-2.  在 [新增快照集] 視窗中，為您要建立的新快照集提供名稱。   
+您只能以隨選的方式建立快照集。 目前不支援快照集原則。
 
-3. 按一下 [確定]。 
+1.  從 [磁碟區] 刀鋒視窗，按一下 [快照集]。
 
+    ![瀏覽快照集](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+
+2.  按一下 [+ 新增快照集] 以為磁碟區建立隨選快照集。
+
+    ![新增快照集](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+
+3.  在 [新增快照集] 視窗中，為您要建立的新快照集提供名稱。   
+
+    ![新增快照集](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+
+4. 按一下 [確定]。 
 
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>將快照集還原至新磁碟區
+
 目前，您只能將快照集還原至新的磁碟區。 
 1. 從 [磁碟區] 刀鋒視窗移至 [管理快照集] 刀鋒視窗，以顯示快照集清單。 
 2. 選取要還原的快照集。  
@@ -61,7 +72,7 @@ ms.locfileid: "53412925"
 
     *   **虛擬網路**  
         指定您要從中存取磁碟區的 Azure 虛擬網路 (Vnet)。  
-        您指定的 Vnet 必須有委派給 Azure NetApp Files 的子網路。 Azure NetApp Files 服務只能從相同的 Vnet 存取，或透過 Vnet 對等互連與磁碟區位於相同區域的 Vnet 存取。 您也可以透過 Express Route 從內部部署網路存取磁碟區。 
+        您指定的 Vnet 必須有委派給 Azure NetApp Files 的子網路。 Azure NetApp Files 服務只能從相同的 Vnet 存取，或透過 Vnet 對等互連從與磁碟區位於相同區域的 Vnet 存取。 您可以透過 Express Route 從內部部署網路存取磁碟區。 
 
     * **子網路**  
         指定要用於磁碟區的子網路。  
@@ -73,3 +84,6 @@ ms.locfileid: "53412925"
 5. 按一下 [確定]。   
     快照集還原到的新磁碟區會出現在 [磁碟區] 刀鋒視窗中。
 
+## <a name="next-steps"></a>後續步驟
+
+[了解 Azure NetApp Files 的儲存體階層](azure-netapp-files-understand-storage-hierarchy.md)

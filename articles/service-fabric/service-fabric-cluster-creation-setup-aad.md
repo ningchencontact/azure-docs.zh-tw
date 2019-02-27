@@ -12,44 +12,52 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/15/2018
+ms.date: 02/15/2019
 ms.author: aljo
-ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 15561969e27512c4882eccc10f75aa932bcf23df
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903497"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338983"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>設定用戶端驗用的 Azure Active Directory
 
-針對在 Azure 上執行的叢集，建議您使用 Azure Active Directory (Azure AD) 來保護對管理端點的存取。  本文說明如何設定 Azure AD 來驗證 Service Fabric 叢集的用戶端，完成之後才能[建立叢集](service-fabric-cluster-creation-via-arm.md)。  Azure AD 可讓組織 (稱為租用戶) 管理使用者對應用程式的存取。 應用程式分成具有 Web 型登入 UI 的應用程式，以及具有原生用戶端體驗的應用程式。 在本文中，我們假設您已經建立租用戶。 如果您尚未建立租用戶，請從閱讀[如何取得 Azure Active Directory 租用戶][active-directory-howto-tenant]開始進行。
+針對在 Azure 上執行的叢集，建議您使用 Azure Active Directory (Azure AD) 來保護對管理端點的存取。  本文說明如何設定 Azure AD 來驗證 Service Fabric 叢集的用戶端，完成之後才能[建立叢集](service-fabric-cluster-creation-via-arm.md)。  Azure AD 可讓組織 (稱為租用戶) 管理使用者對應用程式的存取。 應用程式分成具有 Web 型登入 UI 的應用程式，以及具有原生用戶端體驗的應用程式。 
 
-## <a name="create-azure-ad-applications"></a>建立 Azure AD 應用程式
 Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 和 [Visual Studio][service-fabric-manage-application-in-visual-studio])。 因此，您將建立兩個 Azure AD 應用程式來控制對叢集的存取：一個 Web 應用程式和一個原生應用程式。  建立應用程式之後，您可以將使用者指派給唯讀和系統管理員角色。
-
-為了簡化與設定 Azure AD 搭配 Service Fabric 叢集相關的一些步驟，我們建立了一組 Windows PowerShell 指令碼。
 
 > [!NOTE]
 > 建立叢集之前，您必須先完成下列步驟。 由於指令碼會預期叢集名稱和端點，因此這些值應該是計劃的值，而不是您已經建立的值。
 
+## <a name="prerequisites"></a>必要條件
+在本文中，我們假設您已經建立租用戶。 如果您尚未建立租用戶，請從閱讀[如何取得 Azure Active Directory 租用戶][active-directory-howto-tenant]開始進行。
+
+為了簡化與設定 Azure AD 搭配 Service Fabric 叢集相關的一些步驟，我們建立了一組 Windows PowerShell 指令碼。
+
 1. [將指令碼下載](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool)到您的電腦。
 2. 在 zip 檔案上按一下滑鼠右鍵，選取 [屬性]、選取 [解除封鎖] 核取方塊，然後按一下 [套用]。
 3. 解壓縮 zip 檔案。
-4. 執行 `SetupApplications.ps1`，並且提供 TenantId、ClusterName 和 WebApplicationReplyUrl 作為參數。 例如︰
+
+## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>建立 Azure AD 應用程式，並為使用者指派角色
+建立兩個 Azure AD 應用程式來控制對叢集的存取：一個 Web 應用程式和一個原生應用程式。 建立應用程式來代表您的叢集之後，請將使用者指派給 [Service Fabric 所支援的角色](service-fabric-cluster-security-roles.md)︰唯讀和系統管理員。
+
+執行 `SetupApplications.ps1`，並提供租用戶識別碼、叢集名稱和 Web 應用程式回覆 URL 作為參數。  同時也應指定使用者的使用者名稱和密碼。  例如︰
 
 ```PowerShell
-.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+$Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
 
 > [!NOTE]
-> 對於國家雲 (Azure Government、Azure 中國、Azure 德國)，您也應指定 `-Location` 參數。
+> 對於國家雲 (例如 Azure Government、Azure 中國、Azure 德國)，您也應指定 `-Location` 參數。
 
-您可以執行 PowerShell 命令 `Get-AzureSubscription` 來找出您的 TenantId。 執行此命令會顯示每個訂用帳戶的 TenantId。
+您可以執行 PowerShell 命令 `Get-AzureSubscription` 來找出您的 *TenantId*。 執行此命令會顯示每個訂用帳戶的 TenantId。
 
-ClusterName 是用來加在指令碼所建立 Azure AD 應用程式的前面。 它不需要與實際叢集名稱完全相符。 其用意只是要讓您更容易將 Azure AD 構件對應到與之搭配使用的 Service Fabric 叢集。
+*ClusterName* 會用來為指令碼所建立的 Azure AD 應用程式加上前置詞。 它不需要與實際叢集名稱完全相符。 其用意只是要讓您更容易將 Azure AD 構件對應到與之搭配使用的 Service Fabric 叢集。
 
-WebApplicationReplyUrl 是在您的使用者完成登入之後，Azure AD 傳回給他們的預設端點。 請將此端點設定為您叢集的 Service Fabric Explorer 端點，預設為︰
+*WebApplicationReplyUrl* 是在您的使用者完成登入之後，Azure AD 傳回給他們的預設端點。 請將此端點設定為您叢集的 Service Fabric Explorer 端點，預設為︰
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
@@ -58,7 +66,7 @@ https://&lt;cluster_domain&gt;:19080/Explorer
    * *ClusterName*\_叢集
    * *ClusterName*\_用戶端
 
-此指令碼會列印您在下一節建立叢集時 Azure Resource Manager 範本所需的 JSON，因此建議讓 PowerShell 視窗保持開啟。
+此指令碼會列印您[建立叢集](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access)時 Azure Resource Manager 範本所需的 JSON，因此建議讓 PowerShell 視窗保持開啟。
 
 ```json
 "azureActiveDirectory": {
@@ -67,31 +75,6 @@ https://&lt;cluster_domain&gt;:19080/Explorer
   "clientApplication":"<guid>"
 },
 ```
-
-<a name="assign-roles"></a>
-
-## <a name="assign-users-to-roles"></a>將使用者指派給角色
-建立應用程式來代表您的叢集之後，請將使用者指派給 Service Fabric 所支援的角色︰唯讀和系統管理員。您可以使用 [Azure 入口網站][azure-portal]來指派角色。
-
-1. 在 Azure 入口網站右上角，選取您的租用戶。
-
-    ![選取 [租用戶] 按鈕][select-tenant-button]
-2. 在左側索引標籤上選取 [Azure Active Directory]，然後選取 [企業應用程式]。
-3. 選取 [所有應用程式]，然後尋找並選取 Web 應用程式，其名稱類似 `myTestCluster_Cluster`。
-4. 按一下 [使用者和群組] 索引標籤。
-
-    ![使用者和群組索引標籤][users-and-groups-tab]
-5. 在新頁面上按一下 [新增使用者] 按鈕，選取使用者和要指派的角色，然後按一下頁面底部的 [選取] 按鈕。
-
-    ![將使用者指派給角色頁面][assign-users-to-roles-page]
-6. 按一下頁面底部的 [指派] 按鈕。
-
-    ![新增指派確認][assign-users-to-roles-confirm]
-
-> [!NOTE]
-> 如需 Service Fabric 中角色的詳細資訊，請參閱 [角色型存取控制 (適用於 Service Fabric 用戶端)](service-fabric-cluster-security-roles.md)。
->
->
 
 ## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>設定 Azure Active Directory 的疑難排解說明
 設定 Azure AD 並加以使用並不容易，因此以下提供一些指標，供您對問題進行偵錯。
@@ -159,10 +142,6 @@ FabricClient 和 FabricGateway 會執行相互驗證。 在 Azure AD 驗證期�
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->
-[select-tenant-button]: ./media/service-fabric-cluster-creation-setup-aad/select-tenant-button.png
-[users-and-groups-tab]: ./media/service-fabric-cluster-creation-setup-aad/users-and-groups-tab.png
-[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-page.png
-[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-setup-aad/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-setup-aad/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-setup-aad/web-application-reply-url.png

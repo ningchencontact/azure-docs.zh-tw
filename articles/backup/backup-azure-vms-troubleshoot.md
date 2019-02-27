@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: srinathv
-ms.openlocfilehash: 3b2c86783e20b76ccf27c30cee1eb2fa9aac676f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 19a0a899d552e1ea7b0dcb98e61edd3fa459af56
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811184"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430165"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 您可以利用下表列出的資訊，針對使用 Azure 備份時所發生的錯誤進行疑難排解：
@@ -25,12 +25,12 @@ ms.locfileid: "55811184"
 | VM 處於失敗的佈建狀態： <br>請將 VM 重新啟動，並確定 VM 正在執行或已關機。 | 此錯誤會在因其中一個延伸模組發生失敗，而使 VM 處於失敗的佈建狀態時發生。 請移至延伸模組清單，查看是否有失敗的延伸模組並將它移除，然後嘗試重新啟動虛擬機器。 如果所有延伸模組都是處於執行中的狀態，請檢查 VM 代理程式服務是否正在執行。 若否，請重新啟動 VM 代理程式服務。 |
 | 備份無法複製虛擬機器的快照集，因為儲存體帳戶中的可用空間不足： <br>請確定儲存體帳戶具有與附加至虛擬機器之進階儲存體磁碟上的資料相等的可用空間。 | 針對 VM 備份堆疊 V1 上的進階 VM，我們會將快照集複製到儲存體帳戶。 此步驟是為了確定快照集上運作的備份管理流量不會限制可供使用進階磁碟的應用程式使用的 IOPS 數目。 <br><br>我們建議您僅配置 50% (17.5 TB) 的總儲存體帳戶空間。 然後 Azure 備份服務便可以將快照集複製到儲存體帳戶，並從儲存體帳戶中的這個複製位置將資料傳送到到保存庫。 |
 | 備份無法執行操作，因為 VM 代理程式沒有回應。 |此錯誤會在 VM 代理程式發生問題，或對 Azure 基礎結構的網路存取被某種方式封鎖時發生。 針對 Windows VM，請檢查服務中的 VM 代理程式服務狀態，以及代理程式是否出現在 [控制台] 的 [程式集] 中。 <br><br>請嘗試從 [控制台] 中刪除該程式，然後以 [VM 代理程式](#vm-agent)中所述的方式重新安裝代理程式。 重新安裝代理程式之後，請觸發臨機操作備份以確認它。 |
-| 復原服務延伸模組作業失敗： <br>請確定虛擬機器上有最新的 VM 代理程式，且 VM 代理程式服務正在執行中。 請重試備份作業。 如果備份作業失敗，請連絡 Microsoft 支援服務。 |此錯誤會在 VM 代理程式過期時發生。 請參閱「對 Azure 虛擬機器備份進行疑難排解」以更新 VM 代理程式。 |
+| 復原服務延伸模組作業失敗： <br>請確定虛擬機器上有最新的 VM 代理程式，且 VM 代理程式服務正在執行中。 請重試備份作業。 如果備份作業失敗，請連絡 Microsoft 支援服務。 |此錯誤會在 VM 代理程式過期時發生。 請參閱[對 Azure 虛擬機器備份進行疑難排解](#updating-the-VM-agent)以更新 VM 代理程式。 |
 | 虛擬機器不存在： <br>請確定該虛擬機器存在，或選取不同的虛擬機器。 |此錯誤會在已刪除主要 VM，但備份原則仍然在尋找 VM 來備份時發生。 若要修正此錯誤，請遵循下列步驟： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 (**雲端服務名稱**) 的虛擬機器，<br>**or**<br></li><li>停止保護虛擬機器，但不刪除備份資料。 如需詳細資訊，請參閱[停止保護虛擬機器](https://go.microsoft.com/fwlink/?LinkId=808124)。</li></ol> |
 | 命令執行已失敗： <br>另一個作業目前正在此項目上進行。 請等候前一個作業完成。 然後再重試作業。 |現有的備份作業正在執行，必須等到目前的作業完成，才會啟動新作業。 |
 | 從復原服務保存庫複製 VHD 已逾時： <br>請稍候幾分鐘，然後重試一次此作業。 如果問題持續發生，請連絡 Microsoft 支援服務。 | 此錯誤會在儲存體端有暫時性錯誤，或備份服務未在逾時期限內收到足夠的儲存體帳戶 IOPS 以便將資料傳輸到保存庫時發生。 請務必遵循[設定 VM 時的最佳做法](backup-azure-vms-introduction.md#best-practices)。 請嘗試將 VM 移至其他尚未載入的儲存體帳戶，然後重試備份作業。|
 | 備份失敗，發生內部錯誤： <br>請稍候幾分鐘，然後重試一次此作業。 如果問題持續發生，請連絡 Microsoft 支援服務。 |有兩個原因會使您收到此錯誤︰ <ul><li> 存取 VM 儲存體時發生暫時性問題。 請檢查 [Azure 狀態網站](https://azure.microsoft.com/status/)，以查看該區域中是否有計算、儲存體或網路問題。 問題解決後，請重試備份作業。 <li> 原始 VM 已被刪除，無法取得復原點。 若要保留已刪除 VM 的備份資料，但移除備份錯誤，請取消保護 VM 並選擇保留資料的選項。 這個動作會停止排定的備份作業和週期性錯誤訊息。 |
-| 備份無法在選取項目上安裝 Azure 復原服務延伸模組： <br>VM 代理程式是 Azure 復原服務延伸模組的必要條件。 請安裝 Azure 虛擬機器代理程式並重新啟動註冊作業。 |<ol> <li>檢查是否已正確安裝 VM 代理程式。 <li>確定已正確設定 VM 設定上的旗標。</ol> 深入了解如何安裝 VM 代理程式，以及如何驗證 VM 代理程式安裝。 |
+| 備份無法在選取項目上安裝 Azure 復原服務延伸模組： <br>VM 代理程式是 Azure 復原服務延伸模組的必要條件。 請安裝 Azure 虛擬機器代理程式並重新啟動註冊作業。 |<ol> <li>檢查是否已正確安裝 VM 代理程式。 <li>確定已正確設定 VM 設定上的旗標。</ol> 深入了解[安裝 VM 代理程式](#validating-vm-agent-installation)，以及如何驗證 VM 代理程式安裝。 |
 | 延伸模組安裝失敗，發生錯誤「COM+ 無法與 Microsoft Distributed Transaction Coordinator 通話」。 |此錯誤通常表示 COM+ 服務未執行。 請連絡 Microsoft 支援服務來協助解決此問題。 |
 | 快照集作業失敗且發生磁碟區陰影複製服務 (VSS) 作業錯誤：**這個磁碟機已由 BitLocker 磁碟機加密鎖定。您必須至 [控制台] 解除鎖定這個磁碟機。** |對 VM 上的所有磁碟機關閉 BitLocker，並檢查是否已解決 VSS 問題。 |
 | VM 目前的狀態不允許備份。 |<ul><li>如果 VM 處於 [正在執行] 和 [關機] 之間的暫時性狀態，請等候狀態變更。 然後再觸發備份作業。 <li> 如果 VM 是 Linux VM 並使用安全性強化的 Linux 核心模組，請從安全性原則中排除 Azure Linux 代理程式路徑 **/var/lib/waagent**，並確定已安裝備份延伸模組。  |
@@ -71,9 +71,7 @@ ms.locfileid: "55811184"
 | 備份服務無權存取您訂用帳戶中的資源。 |若要解決此錯誤，請先使用[還原備份的磁碟](backup-azure-arm-restore-vms.md#create-new-restore-disks)中的步驟來還原磁碟。 然後使用[從還原的磁碟建立 VM](backup-azure-vms-automation.md#restore-an-azure-vm) 中的 PowerShell 步驟。 |
 
 ## <a name="backup-or-restore-takes-time"></a>備份或還原需花費很長的時間
-如果您的備份花費超過 12 小時，或是還原花費超過 6 小時：
-* 了解[增加備份時間的因素](backup-azure-vms-introduction.md#time-considerations)和[增加還原時間的因素](backup-azure-vms-introduction.md#restore-considerations)。
-* 請務必遵循[備份最佳做法](backup-azure-vms-introduction.md#best-practices)。
+如果您的備份時間超過 12 小時，或者還原時間超過 6 小時，請檢閱[最佳做法](backup-azure-vms-introduction.md#best-practices)和[效能考量](backup-azure-vms-introduction.md#backup-performance)
 
 ## <a name="vm-agent"></a>VM 代理程式
 ### <a name="set-up-the-vm-agent"></a>設定 VM 代理程式

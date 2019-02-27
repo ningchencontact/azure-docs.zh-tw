@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016489"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268071"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 | runtimeVersion      | 所要使用之 U-SQL 引擎的執行階段版本。 | 否       |
 | compilationMode     | <p>U-SQL 的編譯模式。 必須是下列其中一個值：**Semantic：** 僅執行語意檢查和必要的例行性檢查，**Full：** 執行完整編譯，包括語法檢查、最佳化、程式碼產生等，**SingleBox：** 在將 TargetType 設定為 SingleBox 的情況下，執行完整編譯。 如果您沒有為此屬性指定值，伺服器將會判斷最佳的編譯模式。 | 否 |
 
-Data Factory 針對指令碼定義提交「請參閱 [SearchLogProcessing.txt 指令碼定義](#sample-u-sql-script)」。 
+請參閱 [SearchLogProcessing.txt](#sample-u-sql-script) 以了解指令碼定義。 
 
 ## <a name="sample-u-sql-script"></a>範例 U-SQL 指令碼
 

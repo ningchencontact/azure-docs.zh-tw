@@ -1,5 +1,5 @@
 ---
-title: 建立工作區
+title: 建立 Machine Learning Studio 工作區
 titleSuffix: Azure Machine Learning Studio
 description: 若要使用 Azure Machine Learning Studio，您必須具有 Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。
 services: machine-learning
@@ -10,24 +10,23 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 16c67c217c8ef33a360fd479a45317d6c42af494
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bcd5b377f00ad43ff727c581471aad3ac651bdbb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486312"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270085"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>建立和共用 Azure Machine Learning Studio 工作區
 
 若要使用 Azure Machine Learning Studio，您必須具有 Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。
 
+## <a name="create-a-studio-workspace"></a>建立 Studio 工作區
 
-
-### <a name="to-create-a-workspace"></a>建立工作區
 1. 登入 [Azure 入口網站](https://portal.azure.com/)
 
     > [!NOTE]
-    > 若要登入並建立工作區，您必須是 Azure 訂用帳戶管理員。 
+    > 若要登入並建立 Studio 工作區，您必須是 Azure 訂用帳戶管理員。 
     >
     > 
 
@@ -40,9 +39,13 @@ ms.locfileid: "55486312"
     - 工作區名稱可能最多 260 個字元，結尾不可為空格。 名稱不能包含下列字元︰`< > * % & : \ ? + /`
     - 會使用您選擇 (或建立) 的 Web 服務方案，以及您選取的相關聯定價層，如果您從此工作區中部署 web 服務。
 
-    ![建立新的工作區](./media/create-workspace/create-new-workspace.png)
+    ![建立新的 Studio 工作區](./media/create-workspace/create-new-workspace.png)
 
 5. 按一下頁面底部的 [新增] 。
+
+> [!NOTE]
+> Machine Learning Studio 依賴您提供的 Azure 儲存體帳戶，才能在執行工作流程時儲存中繼資料。 建立工作區之後，如果儲存體帳戶遭到刪除，或存取金鑰變更，工作區會停止運作，並且該工作區中的所有實驗將會失敗。
+如果您不小心刪除儲存體帳戶，請使用與所刪除儲存體帳戶相同的區域中的相同名稱來重新建立儲存體帳戶並重新同步存取金鑰。 如果您變更了儲存體帳戶存取金鑰，請使用 Azure 入口網站在工作區中重新同步處理存取金鑰。
 
 一旦部署工作區之後，您可以在 Machine Learning Studio 中開啟它。
 
@@ -56,12 +59,12 @@ ms.locfileid: "55486312"
 
     ![開啟實驗](./media/create-workspace/my-experiments.png)
 
-如需管理您的工作區的詳細資訊，請參閱 [管理 Azure Machine Learning 工作區](manage-workspace.md)。
-如果您在建立工作區時遇到問題，請參閱[疑難排解指南：建立及連線至 Machine Learning 工作區](troubleshooting-creating-ml-workspace.md)。
+如需管理 Studio 工作區的詳細資訊，請參閱[管理 Azure Machine Learning Studio 工作區](manage-workspace.md)。
+如果您在建立工作區時遇到問題，請參閱[疑難排解指南：建立及連線至 Machine Learning Studio 工作區](troubleshooting-creating-ml-workspace.md)。
 
 
-## <a name="sharing-an-azure-machine-learning-workspace"></a>共用 Azure 機器學習服務工作區
-建立 Machine Learning 工作區 之後，您就可以邀請使用者加入您的工作區，並與您的工作區和其所有實驗、資料集、筆記型電腦等共用存取權。您可以將使用者新增至兩個角色之一︰
+## <a name="share-an-azure-machine-learning-studio-workspace"></a>共用 Azure Machine Learning Studio 工作區
+建立 Machine Learning Studio 工作區 之後，您就可以邀請使用者加入您的工作區，並共用您的工作區和其所有實驗、資料集、筆記型電腦等存取權。您可以將使用者新增至兩個角色之一︰
 
 * **使用者** - 工作區使用者可以在工作區中建立、開啟、修改和刪除實驗、資料集等。
 * **擁有者** - 除了使用者可以執行的動作以外，擁有者可以邀請和移除工作區中的使用者。
@@ -71,7 +74,7 @@ ms.locfileid: "55486312"
 > 
 > 
 
-### <a name="to-share-a-workspace"></a>共用工作區
+### <a name="to-share-a-studio-workspace"></a>共用 Studio 工作區
 
 1. 登入 [https://studio.azureml.net/Home](https://studio.azureml.net/Home) 的 Machine Learning Studio
 

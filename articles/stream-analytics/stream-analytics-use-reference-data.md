@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f065a7c428f191e37449145e946b26c3133ede05
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699986"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329808"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用參考資料在串流分析中進行查閱
 參考資料 (也稱為查詢資料表) 基本上是靜態或不常變更的有限資料集，可用來執行查閱或與資料流相互關聯。 比方說，在 IoT 案例中，您可以在參考資料中儲存有關感應器 (不常變更) 的中繼資料，並將其與即時 IoT 資料流聯結。 Azure 串流分析會將參考資料載入記憶體，以達到低延遲的串流處理。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 
@@ -74,7 +74,7 @@ Azure 串流分析會每隔一分鐘自動掃描已重新整理的參考資料 b
 
 ## <a name="azure-sql-database-preview"></a>Azure SQL Database (預覽)
 
-您的串流分析作業將擷取 Azure SQL Database 參考資料，並將其作為快照集儲存在記憶體中以進行處理。 參考資料的快照集也會儲存在組態設定中所指定的儲存體帳戶的容器中。 作業開始時會自動建立容器，並在作業停止時自動刪除容器。
+您的串流分析作業將擷取 Azure SQL Database 參考資料，並將其作為快照集儲存在記憶體中以進行處理。 參考資料的快照集也會儲存在組態設定中所指定的儲存體帳戶的容器中。 作業開始時自動建立容器。 如果作業已停止或進入失敗狀態，則在重新啟動作業時將刪除自動建立的容器。  
 
 如果參考資料是緩慢變更的資料集，則需要定期重新整理作業中使用的快照集。 串流分析允許您在設定 Azure SQL Database 輸入連線時設定重新整理的頻率。 串流分析執行階段將依重新整理頻率所指定的間隔查詢 Azure SQL Database。 支援的最快重新整理頻率是每分鐘一次。 針對每次重新整理，串流分析都會在提供的儲存體帳戶中儲存新的快照集。
 

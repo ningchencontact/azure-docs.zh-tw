@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175399"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340105"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程：設定 Workday 來自動佈建使用者
 
@@ -83,7 +83,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 ## <a name="planning-your-deployment"></a>規劃您的部署
 
-開始進行 Workday 整合之前，請檢查下列先決條件，並閱讀下列有關如何讓目前的 Active Directory 結構和使用者佈建需求與 Azure Active Directory 提供解決方案相符的指導。 此外，也有提供一個含規劃工作表的全方位[部署方案](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans)，可協助您與 Workday 整合合作夥伴和 HR 專案關係人共同作業。
+開始進行 Workday 整合之前，請檢查下列必要條件，並閱讀下列有關如何讓目前的 Active Directory 結構和使用者佈建需求與 Azure Active Directory 提供解決方案相符的指導。 此外，也有提供一個含規劃工作表的全方位[部署方案](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans)，可協助您與 Workday 整合合作夥伴和 HR 專案關係人共同作業。
 
 本節涵蓋下列規劃層面：
 
@@ -93,7 +93,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 * [與多個 Active Directory 網域整合](#integrating-with-multiple-active-directory-domains)
 * [規劃 Workday 至 Active Directory 的使用者屬性對應和轉換](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -111,7 +111,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 * **Workday 至 Active Directory 使用者佈建** - 此應用程式可協助將使用者帳戶從 Workday 佈建至單一 Active Directory 網域。 如果您擁有多個網域，則可以針對要進行佈建的每個 Active Directory 網域，從 Azure AD 應用程式庫新增此應用程式的執行個體。
 
-* **Workday 至 Azure AD 使用者佈建** -雖然將 Active Directory 使用者同步至 Azure Active Directory 時，應該使用 AAD Connect 此工具，但此應用程式可用來協助將僅限雲端的使用者從 Workday 佈建至單一 Azure Active Directory 租用戶。
+* **Workday 至 Azure AD 使用者佈建** -雖然將 Active Directory 使用者同步至 Azure Active Directory 時，應該使用 AAD Connect 這項工具，但此應用程式可用來協助將僅限雲端的使用者從 Workday 佈建至單一 Azure Active Directory 租用戶。
 
 * **Workday 回寫** - 此應用程式可協助將使用者的電子郵件地址從 Azure Active Directory 回寫至 Workday。
 
@@ -1390,7 +1390,7 @@ Azure AD 佈建服務會歸類到 GDPR 分類的**資料處理器**類別。 作
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
-在資料保留方面，Azure AD 佈建服務不會針對超過 30 天的資料產生報告、執行分析或提供見解。 因此，Azure AD 佈建服務不會儲存、處理或保留任何資料達 30 天以上。 此設計符合 GDPR 法規、Microsoft 隱私權合規性規定和 Azure AD 資料保留原則。
+在資料保留方面，Azure AD 佈建服務不會針對超過 30 天的資料產生報告、執行分析或提供見解。 因此，Azure AD 佈建服務不會儲存、處理或保留任何資料達 30 天以上。 這項設計符合 GDPR 法規、Microsoft 隱私權合規性規定和 Azure AD 資料保留原則。
 
 ## <a name="next-steps"></a>後續步驟
 

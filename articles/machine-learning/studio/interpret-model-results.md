@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997000"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456073"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中解譯模型結果
 本主題說明如何視覺化和解譯 Azure Machine Learning Studio 中的預測結果。 在您訓練好模型並完成其預測 (「模型評分」) 之後，您必須了解和解譯預測結果。
 
 
 
-Azure Machine Learning 中有四個主要的機器學習類型：
+Azure Machine Learning Studio 中有四個主要的機器學習類型：
 
 * 分類
 * 叢集
@@ -35,11 +35,11 @@ Azure Machine Learning 中有四個主要的機器學習類型：
 * [指派至叢集][assign-to-clusters]模組，用於加入叢集
 * [評分 Matchbox 推薦][score-matchbox-recommender]，用於推薦系統
 
-本文件說明如何針對每個模組解譯預測結果。 如需這些模組的概觀，請參閱[如何選擇參數來最佳化 Azure Machine Learning 中的演算法](algorithm-parameters-optimize.md)。
+本文件說明如何針對每個模組解譯預測結果。 如需這些模組的概觀，請參閱[如何選擇參數來最佳化 Azure Machine Learning Studio 中的演算法](algorithm-parameters-optimize.md)。
 
-本主題說明預測解譯，但是未說明模型評估。 如需如何評估模型的詳細資訊，請參閱[如何在 Azure Machine Learning 中評估模型效能](evaluate-model-performance.md)。
+本主題說明預測解譯，但是未說明模型評估。 如需如何評估模型的詳細資訊，請參閱[如何在 Azure Machine Learning Studio 中評估模型效能](evaluate-model-performance.md)。
 
-如果您是 Azure Machine Learning 的新手，並且需要建立簡單實驗以開始使用的說明，請參閱[在 Azure Machine Learning Studio 中建立簡單實驗](create-experiment.md)。
+如果您是 Azure Machine Learning Studio 的新手，並且需要建立簡單實驗以開始使用的說明，請參閱[在 Azure Machine Learning Studio 中建立簡單實驗](create-experiment.md)。
 
 ## <a name="classification"></a>分類
 分類問題方面有兩個子類別：
@@ -47,12 +47,12 @@ Azure Machine Learning 中有四個主要的機器學習類型：
 * 只有兩個分類的問題 (雙類別或二進位分類)
 * 兩個以上分類的問題 (多類別分類)
 
-Azure Machine Learning 有不同的模組可以處理各種類型的分類，但解譯其預設結果的方法相似。
+Azure Machine Learning Studio 有不同的模組可以處理各種類型的分類，但解譯其預設結果的方法相似。
 
 ### <a name="two-class-classification"></a>雙類別分類
 **範例實驗**
 
-雙類別分類問題的範例是鳶尾花的分類。 作法是根據特徵來分類鳶尾花。 Azure Machine Learning 中提供的鳶尾花資料集是熱門[鳶尾花資料集](http://en.wikipedia.org/wiki/Iris_flower_data_set)的子集，僅包含兩個花卉物種 (類別 0 和 1) 的執行個體。 每個花卉有四個特徵 (萼片長度、萼片寬度、花瓣長度及花瓣寬度)。
+雙類別分類問題的範例是鳶尾花的分類。 作法是根據特徵來分類鳶尾花。 Azure Machine Learning Studio 中提供的鳶尾花資料集是熱門[鳶尾花資料集](http://en.wikipedia.org/wiki/Iris_flower_data_set)的子集，僅包含兩個花卉物種 (類別 0 和 1) 的執行個體。 每個花卉有四個特徵 (萼片長度、萼片寬度、花瓣長度及花瓣寬度)。
 
 ![鳶尾花實驗的螢幕擷取畫面](./media/interpret-model-results/1.png)
 
@@ -226,7 +226,7 @@ Azure Machine Learning 有不同的模組可以處理各種類型的分類，但
 * 客戶特色資料
 * 餐廳特色資料
 
-我們可以使用 Azure Machine Learning 的[訓練 Matchbox 推薦][train-matchbox-recommender]模組做許多事情：
+我們可以使用 Azure Machine Learning Studio 的[訓練 Matchbox 推薦][train-matchbox-recommender]模組做許多事情：
 
 * 為指定使用者和項目預測評等
 * 對指定使用者推薦項目
@@ -237,7 +237,7 @@ Azure Machine Learning 有不同的模組可以處理各種類型的分類，但
 
 ![Matchbox 推薦](./media/interpret-model-results/19_1.png)
 
-典型的推薦系統 Azure Machine Learning 實驗如圖 20 所示。 如需如何使用這些推薦系統模組的詳細資訊，請參閱[訓練 Matchbox 推薦][train-matchbox-recommender]和[評分 Matchbox 推薦][score-matchbox-recommender]。
+典型的推薦系統 Azure Machine Learning Studio 實驗如圖 20 所示。 如需如何使用這些推薦系統模組的詳細資訊，請參閱[訓練 Matchbox 推薦][train-matchbox-recommender]和[評分 Matchbox 推薦][score-matchbox-recommender]。
 
 ![推薦系統實驗](./media/interpret-model-results/20.png)
 

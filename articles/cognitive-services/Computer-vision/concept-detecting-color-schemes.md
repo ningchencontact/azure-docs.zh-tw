@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0793f572e043248af409e65cca4fd854f1371900
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880866"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313070"
 ---
 # <a name="detect-color-schemes-in-images"></a>偵測影像中的色彩配置
 
-電腦視覺會從影像中擷取色彩。 色彩會依三種不同內容加以分析：主要前景色彩、主要背景色彩、整體影像的主要色彩。 色彩會分為 12 種主要輔色。 這些輔色是黑色、藍色、棕色、灰色、綠色、橙色、粉紅色、紫色、紅色、藍綠色、白色和黃色。 電腦視覺會分析擷取自影像的色彩，透過主要色彩和飽和度的組合，傳回對觀看者而言會呈現出影像最鮮明色彩的輔色。 根據影像中的色彩，簡單的黑白或輔色可用十六進位色彩代碼傳回。 電腦視覺也會傳回布林值，指出影像是否為黑白。
+電腦視覺可分析影像中的色彩，以提供三個不同的屬性：主要前景色彩、主要背景色彩，以及影像整體的主要色彩集合。 屬於該集合的傳回色彩：黑色、藍色、褐色、灰色、綠色、橙色、粉紅色、紫色、紅色、藍綠色、白色和黃色。 
+
+電腦視覺也可根據主要色彩的組和飽和度來擷取輔色 (代表影像中最顯眼的色彩)。 輔色會以十六進位的 HTML 色彩代碼傳回。 
+
+電腦視覺也可傳回布林值，指出影像是否為黑白。
 
 ## <a name="color-scheme-detection-examples"></a>色彩配置偵測範例
 
-下列範例說明偵測範例影像的色彩配置時，電腦視覺所傳回的 JSON 回應。 在此情況下，本範例影像不是黑白影像，但主要前景和背景色彩為黑色，而且整體影像的主要色彩為黑白。
+下列範例說明偵測範例影像的色彩配置時，電腦視覺所傳回的 JSON 回應。 在此情況下，本範例影像不是黑白影像，但主要前景和背景色彩為黑色，而且整體影像的主要色彩為黑色和白色。
 
 ![戶外山景](./Images/mountain_vista.png)
 
@@ -48,7 +52,7 @@ ms.locfileid: "55880866"
 
 ### <a name="dominant-color-examples"></a>主要色彩範例
 
-下表說明電腦視覺傳回的每個範例影像主要前景色彩、主要背景色彩以及影像色彩。
+下表顯示傳回之每個範例影像的前景、背景及影像色彩。
 
 | 映像 | 主要色彩 |
 |-------|-----------------|
@@ -57,7 +61,7 @@ ms.locfileid: "55880866"
 
 ### <a name="accent-color-examples"></a>輔色範例
 
- 下表說明電腦視覺傳回的每個範例影像輔色 (做為十六進位的 HTML 色彩值)。
+ 下表顯示傳回之每個範例影像的輔色 (十六進位 HTML 色彩值)。
 
 | 映像 | 輔色 |
 |-------|--------------|
@@ -67,7 +71,7 @@ ms.locfileid: "55880866"
 
 ### <a name="black--white-detection-examples"></a>黑白偵測範例
 
-下表指出電腦視覺傳回的每個範例影像是否為黑白。
+下表顯示電腦視覺對範例影像的黑白評估。
 
 | 映像 | 黑白？ |
 |-------|----------------|

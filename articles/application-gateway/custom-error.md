@@ -2,23 +2,23 @@
 title: 建立 Azure 應用程式閘道的自訂錯誤頁面
 description: 本文說明如何建立應用程式閘道的自訂錯誤頁面。
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2f76347105743538e9fc1d7588ecb949f2675696
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070924"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301599"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>建立應用程式閘道的自訂錯誤頁面
 
 應用程式閘道可讓您建立自訂的錯誤頁面，而不是顯示預設的錯誤頁面。 您可以使用自訂錯誤頁面來搭配您自己的商標和版面配置。
 
-例如，如果您的 Web 應用程式無法連線，您可以定義自己維護頁面。 或者，如果有惡意要求傳送至 Web 應用程式，您可以建立未經授權的存取頁面。
+例如，如果您的 Web 應用程式無法連線，您可以定義自己的維護頁面。 或者，如果有惡意要求傳送至 Web 應用程式，您可以建立未經授權的存取頁面。
 
 自訂錯誤頁面可支援下列兩種案例：
 
@@ -34,6 +34,7 @@ ms.locfileid: "49070924"
 - **兩者** - 定義於接聽程式層級上的自訂錯誤頁面會覆寫在全域層級上設定的頁面。
 
 若要建立自訂錯誤頁面，您必須具備：
+
 - HTTP 回應狀態碼。
 - 錯誤頁面的對應位置。 
 - 可公開存取的 Azure 儲存體 Blob 位置。
@@ -59,5 +60,19 @@ ms.locfileid: "49070924"
 4. 為給定的錯誤狀態碼指定可公開存取的 Blob URL，然後按一下 [儲存]。 應用程式閘道現在已設定自訂錯誤頁面。
 
    ![應用程式閘道錯誤碼](media/custom-error/ag-error-codes.png)
+
+## <a name="azure-powershell-configuration"></a>Azure PowerShell 組態
+
+您可以使用 Azure PowerShell 設定自訂錯誤頁面。 例如，全域自訂錯誤頁面：
+
+`$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+或接聽程式層級的錯誤頁面：
+
+`$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+如需詳細資訊，請參閱 [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) 和 [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0)。
+
 ## <a name="next-steps"></a>後續步驟
+
 如需應用程式閘道診斷的相關資訊，請參閱[應用程式閘道的後端健康情況、診斷記錄和計量](application-gateway-diagnostics.md)。

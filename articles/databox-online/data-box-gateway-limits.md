@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f785e9e540af01b74678cf75159775cd2888e09e
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 34aac9a589516ace080906095ef3c14b34469bbd
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959573"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311183"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure 資料箱閘道限制 (預覽)
 
@@ -34,9 +34,9 @@ ms.locfileid: "55959573"
 
 | 說明 | 值 |
 |---|---|
-|每個裝置的 檔案數 |1 億 <br> 限制約為每 2 TB 的磁碟空間可以有 2 千 5 百萬個檔案，最大限制為 1 億個 |
-|每個裝置的 共用數 |24 |
-|每個容器的 共用數 |1 |
+|沒有。 (每個裝置的檔案) |1 億 <br> 限制約為每 2 TB 的磁碟空間可以有 2 千 5 百萬個檔案，最大限制為 1 億個 |
+|沒有。 (每個裝置的共用) |24 |
+|沒有。 每個 Azure 儲存體容器的共用 |1 |
 |寫入至共用的檔案大小上限|針對 2 TB 的虛擬裝置，檔案大小上限為 500 GB。 <br> 檔案大小上限會以上述比例隨著資料磁碟大小增加，直到達到上限 5 TB 為止。 |
 
 ## <a name="azure-storage-limits"></a>Azure 儲存體限制

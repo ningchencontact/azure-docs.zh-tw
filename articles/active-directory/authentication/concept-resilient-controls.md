@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44712f364b434d123abe17b043f7c2309871bd12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198944"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339544"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>使用 Azure Active Directory 來建立具彈性的存取控制管理策略
 
@@ -78,7 +78,7 @@ ms.locfileid: "56198944"
 **CA 風險降低原則集：**
 
 * 原則 1：對目標群組外的人員封鎖存取
-  * 使用者和群組：包含所有使用者。 排除 AppAccess、CoreAdmins 及 EmergencyAccess
+  * 使用者和群組：包含所有使用者。 排除 AppUsers、CoreAdmins 及 EmergencyAccess
   * 雲端應用程式：包含所有應用程式
   * 條件：(無)
   * 授與控制權：區塊

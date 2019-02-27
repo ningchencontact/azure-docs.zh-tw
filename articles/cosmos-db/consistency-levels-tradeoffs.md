@@ -4,15 +4,15 @@ description: 在 Azure Cosmos DB 中各種一致性層級的可用性和效能�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113748"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309194"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性與效能權衡取捨 
 
@@ -44,22 +44,23 @@ Azure Cosmos DB 會針對資料一致性提供選項頻譜。 這個方法所包
 
 - 針對指定類型的寫入作業 (例如，插入、取代、更新插入和刪除)，對於要求單位的寫入輸送量會與所有一致性層級完全相同。
 
-## <a name="consistency-levels-and-data-durability"></a>一致性層級和資料持久性
+## <a id="rto"></a>一致性層級和資料持久性
 
-在全域分散式資料庫環境內，當發生全區域中斷情況時，一致性層級與資料持久性之間具有直接關聯性。 下表定義發生全區域中斷情況時，一致性模型與資料持久性之間的關聯性。 請務必注意，因為 CAP 定理的緣故，在分散式系統中，即使是使用強式一致性，也無法讓分散式資料庫的 RPO 和 RTO 為零。 若要深入了解原因，請參閱  [Azure Cosmos DB 中的一致性層級](consistency-levels.md)。
+在全域分散式資料庫環境內，當發生全區域中斷情況時，一致性層級與資料持久性之間具有直接關聯性。 當您開發商務持續性計劃時，您必須了解應用程式在干擾性事件之後完全復原所需的最大可接受時間。 完全復原應用程式所需的時間，也稱為復原時間目標 (RTO)。 您也必須了解在干擾性事件之後復原時，應用程式可忍受遺失的最近資料更新最大期間。 您可能經得起遺失的更新時間週期，也稱為復原點目標 (RPO)。
+
+下表定義發生全區域中斷情況時，一致性模型與資料持久性之間的關聯性。 請務必注意，因為 CAP 定理的緣故，在分散式系統中，即使是使用強式一致性，也無法讓分散式資料庫的 RPO 和 RTO 為零。 若要深入了解原因，請參閱  [Azure Cosmos DB 中的一致性層級](consistency-levels.md)。
 
 |**區域**|**複寫模式**|**一致性層級**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|單一或多重主機|任何一致性層級|< 240 分鐘|< 1 週|
 |> 1|單一主機|工作階段、開頭一致、最終|< 15 分鐘|< 15 分鐘|
-|> 1|單一主機|限定過期|K & T*|< 15 分鐘|
+|> 1|單一主機|限定過期|K & T|< 15 分鐘|
 |> 1|多重主機|工作階段、開頭一致、最終|< 15 分鐘|0|
-|> 1|多重主機|限定過期|K & T*|0|
+|> 1|多重主機|限定過期|K & T|0|
 |> 1|單一或多重主機|強式|0|< 15 分鐘|
 
-* K & T = 一個項目的 "K" 版本 (更新) 數目。 或 "T" 時間間隔。
-
-
+K = 某個項目的 "K" 版本 (更新) 數目。
+T = 自上次更新後的時間 "T" 時間間隔。
 
 ## <a name="next-steps"></a>後續步驟
 

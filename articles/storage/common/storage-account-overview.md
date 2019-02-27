@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244482"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327845"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
 
@@ -78,7 +78,7 @@ Blob 儲存體帳戶提供多個存取層，以便根據您的使用量模式來
 可以針對下列任一效能層級設定一般用途儲存體帳戶：
 
 * 標準效能層可供儲存 Blob、檔案、資料表、佇列和 Azure 虛擬機器磁碟。
-* 進階效能層僅供儲存 Azure 虛擬機器磁碟。 請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md)，以取得進階儲存體的深入概觀。
+* 進階效能層僅供儲存非受控虛擬機器磁碟。
 
 ## <a name="access-tiers-for-block-blob-data"></a>區塊 blob 資料的存取層
 

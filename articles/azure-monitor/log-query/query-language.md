@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 01d452f97134093e9b40b6ec32f1c9fed41564aa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989239"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343046"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure 監視器記錄查詢
-Azure 監視器記錄檔以 Azure 資料總管為基礎建置，且 Azure 監視器記錄查詢使用相同的查詢語言版本。 [Azure 資料總管查詢語言文件](/azure/kusto/query)涵蓋語言的所有詳細資料，而且應該是您用來撰寫 Azure 監視器記錄查詢的主要資源。 此頁面所提供的其他資源連結可用來了解如何撰寫查詢，以及對語言進行 Azure 監視器實作的差異。
+Azure 監視器記錄檔以 Azure 資料總管為基礎建置，且 Azure 監視器記錄查詢使用相同的 Kusto 查詢語言版本。 [Kusto 查詢語言文件](/azure/kusto/query)涵蓋語言的所有詳細資料，而且應該是您用來撰寫 Azure 監視器記錄查詢的主要資源。 此頁面所提供的其他資源連結可用來了解如何撰寫查詢，以及對語言進行 Azure 監視器實作的差異。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,8 +36,8 @@ Azure 監視器記錄檔以 Azure 資料總管為基礎建置，且 Azure 監視
 
 ## <a name="reference"></a>參考
 
-- [查詢語言參考](/azure/kusto/query)是適用於資料總管查詢語言的完整語言參考。
-- [Azure 監視器記錄查詢語言差異](data-explorer-difference.md)說明資料總管查詢語言版本間的差異。
+- [查詢語言參考](/azure/kusto/query)是適用於 Kusto 查詢語言的完整語言參考。
+- [Azure 監視器記錄查詢語言差異](data-explorer-difference.md)說明 Kusto 查詢語言版本間的差異。
 - [Azure 監視器記錄記錄中的標準屬性](../../azure-monitor/platform/log-standard-properties.md)說明所有 Azure 監視器記錄資料的標準屬性。
 - [在 Azure 監視器中執行跨資源記錄搜尋](../../azure-monitor/log-query/cross-workspace-query.md)說明如何撰寫記錄查詢，這類查詢會使用來自多個 Log Analytics 工作區與 Application Insights 應用程式的資料。
 

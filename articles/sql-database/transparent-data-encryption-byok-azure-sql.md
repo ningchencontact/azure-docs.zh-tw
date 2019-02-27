@@ -11,17 +11,17 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 15ca5c007b2f7a1217b4b921e11f97b4fd6e3741
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/20/2019
+ms.openlocfilehash: c8c2c58250b6f806b48241ad1bb2a85202b9b67a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238159"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456872"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL 透明資料加密使用 Azure Key Vault 中的客戶管理金鑰：「攜帶您自己的金鑰」支援
 
-與 Azure Key Vault 整合的[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)，可使用客戶管理非對稱金鑰(稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。  TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 儲存於資料庫開機頁面上的 TDE DEK，是由 TDE 保護裝置進行加密和解密，該保護裝置儲存於 Azure Key Vault 中且永遠都不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL 伺服器對金鑰保存庫的權限，資料庫將無法存取且會將所有資料加密。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對 [Azure SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)，系統會將 TDE 保護裝置設定於執行個體層級，並由該執行個體上的所有「加密」資料庫繼承。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
+與 Azure Key Vault 整合的[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)，可使用客戶管理非對稱金鑰(稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。 這通常也稱為透明資料加密的攜帶您自己的金鑰 (BYOK) 支援。  在 BYOK 情節中，TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 TDE 保護裝置可以由金鑰保存庫[產生](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates)，或者從內部部署 HSM 裝置[轉移](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)到金鑰保存庫。 儲存於資料庫開機頁面上的 TDE DEK，是由儲存在 Azure Key Vault 中的 TDE 保護裝置進行加密和解密，該保護裝置永遠不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL 伺服器對金鑰保存庫的權限，資料庫將無法存取且會將所有資料加密。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對 [Azure SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)，系統會將 TDE 保護裝置設定於執行個體層級，並由該執行個體上的所有「加密」資料庫繼承。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
 
 透過與 Azure Key Vault 整合的 TDE，使用者可以使用 Azure Key Vault 功能來控制金鑰管理工作，包括金鑰輪替、金鑰保存庫權限、金鑰備份，以及啟用所有 TDE 保護裝置的稽核/報告功能。 Key Vault 可提供集中金鑰管理、使用嚴密監控的硬體安全性模組 (HSM)，並能區分管理金鑰和資料的責任，以協助符合安全性原則的合規性。  
 
@@ -60,7 +60,7 @@ ms.locfileid: "56238159"
 - 建立已啟用[虛刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)的金鑰保存庫，以防止在意外刪除金鑰 (或金鑰保存庫) 時遺失資料。  您必須對金鑰保存庫使用 [PowerShell 啟用「虛刪除」屬性](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) (使用 AKV 入口網站時尚不適用此選項 – 但 Azure SQL 則需要此選項)：  
   - 虛刪除的資源預設會保留 90 天的時間，除非您加以復原或清除。
   - **復原**和**清除**動作在金鑰保存庫存取原則中有自己的相關聯權限。
-- 對金鑰保存庫設定資源鎖定，以控制可刪除此重要資源的人員，並協助防止意外或未經授權的刪除。  [深入了解資源鎖定](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
+- 對金鑰保存庫設定資源鎖定，以控制可刪除這項重要資源的人員，並協助防止意外或未經授權的刪除。  [深入了解資源鎖定](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
 - 使用 SQL Database 伺服器的 Azure Active Directory (Azure AD) 身分識別為其授與金鑰保存庫的存取權。  使用入口網站 UI 時會自動建立 Azure AD 身分識別，並將金鑰保存庫的存取權授與伺服器。  使用 PowerShell 設定具有 BYOK 的 TDE 時，則必須建立 Azure AD 身分識別，並確認作業是否完成。 請參閱[設定具有 BYOK 的 TDE](transparent-data-encryption-byok-azure-sql-configure.md)和[針對受控執行個體設定具有 BYOK 的 TDE](http://aka.ms/sqlmibyoktdepowershell)，以取得使用 PowerShell 時的詳細逐步指示。
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
-ms.date: 09/12/2018
+ms.date: 02/19/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 1582cc7e48adcf895dc7c07e7ab485790650ac14
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 7530545c3577a662ac0075b83b3eb7e4a8a40f89
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911906"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428562"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
-在預先設定的 Azure 虛擬機器 (VM) 中使用 Visual Studio，是從零開始到建立已啟動並執行中之開發環境的快速簡單方式。 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1) 中提供具有各種不同 Visual Studio 設定的系統映像。
+在預先設定的 Azure 虛擬機器 (VM) 中使用 Visual Studio，是從零開始到建立已啟動並執行中之開發環境的快速簡單方式。 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1) 中提供具有各種不同 Visual Studio 設定的系統映像。
 
 不熟悉 Azure 嗎？ [建立 Azure 免費帳戶](https://azure.microsoft.com/free)。
 
@@ -34,8 +34,8 @@ ms.locfileid: "54911906"
 
 | 發行版本                                              | 版本                     |     產品版本      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019：預覽 (預覽 2)                   |           Enterprise         | 16.0.0 版預覽 2 |
-| Visual Studio 2017：最新 (版本 15.9)                    |    Enterprise、Community     |      15.9.4 版      |
+|    Visual Studio 2019：預覽 (預覽 3)                   |           Enterprise         | 16.0.0 版預覽 3 |
+| Visual Studio 2017：最新 (版本 15.9)                    |    Enterprise、Community     |      15.9.7 版      |
 |         Visual Studio 2017：RTW                              |    Enterprise、Community     |      15.0.20 版     |
 |   Visual Studio 2015：最新 (更新 3)                      |    Enterprise、Community     |  14.0.25431.01 版   |
 |         Visual Studio 2015：RTW                              |             None             | (服務期滿)  |

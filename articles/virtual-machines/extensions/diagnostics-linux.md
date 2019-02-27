@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387041"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313529"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -316,7 +316,7 @@ type | 識別計量的實際提供者。
 class | 與 "counter" 一起使用，可識別提供者命名空間內的特定計量。
 counter | 與 "class" 一起使用，可識別提供者命名空間內的特定計量。
 counterSpecifier | 可識別 Azure 計量命名空間內的特定計量。
-condition | (選擇性) 選取會套用計量之物件的特定執行個體，或選取該物件所有執行個體的彙總。 如需詳細資訊，請參閱[`builtin`計量定義](#metrics-supported-by-builtin)。
+condition | (選擇性) 選取會套用計量之物件的特定執行個體，或選取該物件所有執行個體的彙總。 如需詳細資訊，請參閱 `builtin` 計量定義。
 sampleRate | IS 8601 間隔，可設定收集此計量原始樣本的速率。 如果未設定，則會由 [sampleRateInSeconds](#ladcfg) 的值設定收集間隔。 支援的最短採樣速率為 15 秒 (PT15S)。
 unit | 應為以下字串之一："Count"、"Bytes"、"Seconds"、"Percent"、"CountPerSecond"、"BytesPerSecond"、"Millisecond"。 定義計量的單位。 收集資料的取用者預期收集的資料值符合這個單位。 LAD 會忽略此欄位。
 displayName | 在 Azure 計量中要附加至此資料的標籤 (採用相關聯地區設定所指定的語言)。 LAD 會忽略此欄位。

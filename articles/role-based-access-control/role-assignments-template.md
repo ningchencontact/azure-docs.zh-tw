@@ -1,6 +1,6 @@
 ---
-title: 使用 RBAC 和 Azure Resource Manager 範本來管理存取權 | Microsoft Docs
-description: 了解如何使用角色型存取控制 (RBAC) 和 Azure Resource Manager 範本來管理使用者、群組和應用程式的存取權。
+title: 使用 RBAC 和 Azure Resource Manager 範本管理對 Azure 資源的存取 | Microsoft Docs
+description: 了解如何使用角色型存取控制 (RBAC) 和 Azure Resource Manager 範本來管理使用者、群組和應用程式對 Azure 資源的存取。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696892"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337198"
 ---
-# <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>使用 RBAC 和 Azure Resource Manager 範本來管理存取權
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>使用 RBAC 和 Azure Resource Manager 範本管理對 Azure 資源的存取
 
-[角色型存取控制 (RBAC)](overview.md) 是您對 Azure 中的資源存取進行管理的機制。 除了使用 Azure PowerShell 或 Azure CLI 外，您可以使用 RBAC 和 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)來管理 Azure 資源的存取權。 如果您需要以一致性和重複的方式來部署資源，範本可以派上用場。 本文描述如何使用 RBAC 和範本來管理存取權。
+[角色型存取控制 (RBAC)](overview.md) 是您管理對 Azure 資源存取的機制。 除了使用 Azure PowerShell 或 Azure CLI 外，您可以使用 RBAC 和 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)來管理 Azure 資源的存取權。 如果您需要以一致性和重複的方式來部署資源，範本可以派上用場。 本文描述如何使用 RBAC 和範本來管理存取權。
 
 ## <a name="example-template-to-create-a-role-assignment"></a>建立角色指派時可以套用的範例範本
 
@@ -251,6 +251,6 @@ ms.locfileid: "55696892"
     
 ## <a name="next-steps"></a>後續步驟
 
-- [建立及部署第一個 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-create-first-template.md)
+- [快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [了解 Azure Resource Manager 範本的的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=rbac)

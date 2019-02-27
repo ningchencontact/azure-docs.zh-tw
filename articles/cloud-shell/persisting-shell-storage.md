@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 4671287d78dafce9b662a167ba99a680d2fa70d2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 7bf31c11c705dbdfe8a326aad99ee8d373db8f3e
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734070"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301089"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -101,6 +101,8 @@ justin@Azure:~$
 ![執行 Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+
+注意：如果您需要在檔案中定義函式，並從 PowerShell Cmdlet 中呼叫，則必須包含點運算子。 例如： .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>後續步驟
 [Cloud Shell 中 Bash 的快速入門](quickstart.md) <br>

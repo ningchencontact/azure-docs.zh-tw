@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 15cbfb9babe38ba6acaf4312735ab839af3f2d99
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 74496cd3d4cd01be326baae870b075eb923983af
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371298"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443401"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>傳統至 Azure Resource Manager 移轉的常見問題
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>此移轉計劃是否會影響任何在 Azure 虛擬機器上執行的現有服務或應用程式？ 
 
-編號 VM (傳統) 是在全面可用性方面完全受支援的服務。 您可以繼續使用這些資源以擴展您在 Microsoft Azure 上的使用量。
+沒有。 VM (傳統) 是在全面可用性方面完全受支援的服務。 您可以繼續使用這些資源以擴展您在 Microsoft Azure 上的使用量。
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>如果我最近沒有移轉的打算，我的 VM 會出現什麼狀況？ 
 
@@ -43,7 +43,7 @@ ms.locfileid: "34371298"
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>如果我必須使用 Resource Manager 下的 IaaS，是否必須購買另一條 ExpressRoute 線路？ 
 
-編號 我們最近啟用了[將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型](../articles/expressroute/expressroute-move.md)的功能。 如果您已有 ExpressRoute 線路，就不需要購買新線路。
+沒有。 我們最近啟用了[將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型](../articles/expressroute/expressroute-move.md)的功能。 如果您已有 ExpressRoute 線路，就不需要購買新線路。
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>如果我已為傳統 IaaS 資源設定角色型存取控制原則，該怎麼辦？ 
 
@@ -54,7 +54,7 @@ ms.locfileid: "34371298"
 <a name="vault">當</a>您將 VM 從傳統改為 Resource Manager 模式時，在移轉之前所建立的備份將不會遷移至剛遷移的 Resource Manager VM。 不過，如果您想要保留傳統 VM 的備份，請在移轉之前執行下列步驟。 
 
 1. 在復原服務保存庫中，移至 [受保護的項目] 索引標籤，然後選取 VM。 
-2. 按一下[停止保護](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines)。 讓 [刪除相關聯的備份資料] 選項保持 [未核取] 狀態。
+2. 按一下 [停止保護]。 讓 [刪除相關聯的備份資料] 選項保持 [未核取] 狀態。
 
 > [!NOTE]
 > 在保留資料之前，您需要一直支付備份執行個體費用。 系統會根據保留範圍剪除備份複本。 不過，最後一個備份複本會永遠保留下來，直到您明確刪除備份資料為止。 建議您檢查虛擬機器的保留範圍，並在超過保留範圍後，對保存庫中的受保護項目核取 [刪除備份資料] 觸發程序。 

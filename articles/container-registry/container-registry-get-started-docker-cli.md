@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982840"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330863"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 將您的第一個映像推送至私人 Docker 容器登錄
 
@@ -116,10 +116,10 @@ docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-若要從 Azure Container Registry 移除映像，您可以使用 Azure CLI 命令 [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete)。 例如，下列命令會刪除標記所參考的資訊清單、任何相關聯的圖層資料，以及參考了資訊清單的所有其他標記。
+若要從 Azure Container Registry 移除映像，您可以使用 Azure CLI 命令 [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete)。 例如，下列命令會刪除 `samples/nginx:latest` 標記所參考的資訊清單、任何唯一的圖層資料，以及參考該資訊清單的所有其他標記。
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -10,21 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: ddda9ef2b9bb716f7cdd33aa8fe9233f6c7d8e82
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55748995"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312969"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中指定實驗室虛擬機器的資源群組
-身為實驗室擁有者，您可以將實驗室虛擬機器設定在特定資源群組中建立。 使用此功能，您就不會達到 Azure 訂用帳戶的資源群組限制。 這項功能也可讓您將所有實驗室資源合併在單一資源群組中。 它也可簡化追蹤那些資源，並套用[原則](../governance/policy/overview.md)以在資源群組層級管理它們。
+身為實驗室擁有者，您可以將實驗室虛擬機器設定在特定資源群組中建立。 此功能可在下列情況中協助您： 
+
+- 透過訂用帳戶中的實驗室建立的資源群組較少。
+- 讓您的實驗室在您所設定的資源群組內操作
+- 解決在 Azure 訂用帳戶內建立資源群組所需的限制和核准。
+- 彙總單一資源群組中的所有實驗室資源，以簡化對這些資源的追蹤，並套用[原則](../governance/policy/overview.md)在資源群組層級對其進行管理。
 
 使用此功能，您可以使用指令碼為所有的實驗室 VM 指定 Azure 訂用帳戶內全新或現有的資源群組。 目前，DevTest Labs 透過 API 支援此功能。 
 
-## <a name="api-to-configure-a-resource-group-for-labs-vms"></a>針對實驗室 VM 設定資源群組的 API
+## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>針對實驗室虛擬機器設定資源群組的 API
 現在，讓我們逐步解說身為實驗室擁有者在使用此 API 時有哪些選項： 
 
 - 您可以為所有虛擬機器選擇**實驗室的資源群組**。
@@ -32,7 +37,7 @@ ms.locfileid: "55748995"
 - 您可以為所有虛擬機器輸入**新的資源群組**名稱。
 - 您可以繼續使用現有的行為，也就是為實驗室中的每個 VM 建立資源群組。
  
-此設定適用於實驗室中建立的新虛擬機器。 在您實驗室中以自身資源組建立的較舊 VM 會繼續運作而不受影響。 不過，您可以將這些虛擬機器從個別的資源群組移轉到通用資源群組，如此一來所有的實驗室虛擬機器都會在一個通用資源群組中。 如需詳細資訊，請參閱[將資源移至新的資源群組](../azure-resource-manager/resource-group-move-resources.md)。 在實驗室中建立的環境會繼續保留在自己的資源群組中。
+此設定適用於實驗室中建立的新虛擬機器。 在您實驗室中以自身資源組建立的較舊 VM 會繼續運作而不受影響。 在實驗室中建立的環境會繼續保留在自己的資源群組中。
 
 ### <a name="how-to-use-this-api"></a>如何使用此 API：
 - 使用此 API 時，請使用 API **2018_10_15_preview** 版。 
@@ -86,7 +91,7 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
                 "labStorageType": "Premium",
                 "premiumDataDisks": "Disabled",
                 "provisioningState": "Succeeded",
-                "uniqueIdentifier": "6e6f668f-992b-435c-bac3-d328b745cd25"
+                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
             },
             "dependsOn": []
         },

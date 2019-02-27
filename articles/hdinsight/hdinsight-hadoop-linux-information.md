@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001918"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339223"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
@@ -126,7 +126,15 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`：與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
 
-使用 __Data Lake Storage__ 時，可使用下列其中一種 URI 配置︰
+使用 __Azure Data Lake Storage Gen2__ 時，可使用下列其中一種 URI 配置︰
+
+* `abfs:///`：使用未加密通訊存取預設儲存體。
+
+* `abfss:///`：使用加密通訊存取預設儲存體。  HDInsight 3.6 版和更新版本才支援 abfss 配置。
+
+* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`：與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
+
+使用 __Azure Data Lake Storage Gen1__ 時，可使用下列其中一種 URI 配置︰
 
 * `adl:///`：存取叢集的預設 Data Lake Storage。
 

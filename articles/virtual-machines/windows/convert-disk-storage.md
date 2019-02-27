@@ -16,25 +16,26 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 94482666d0db3157b0c18c0b47f9937457172521
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 18258bf8ac9d241fd8a01957d903b1db882c2d36
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115992"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326869"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>更新受控磁碟的儲存體類型
 
-Azure 受控磁碟提供三個儲存體類型選項：[進階 SSD](../windows/premium-storage.md)、[標準 SSD](../windows/disks-standard-ssd.md) 和[標準 HDD](../windows/standard-storage.md)。 您可以根據您的效能需求，以最少的停機時間在儲存體類型之間切換受控磁碟。 不支援在非受控磁碟的儲存體類型之間切換；不過，您可以輕鬆地[將非受控磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)。
+Azure 受控磁碟提供四個儲存體類型選項：超固態硬碟 (SSD)、進階 SSD、標準 SSD 和標準硬碟磁碟機 (HDD)。 您可以根據您的效能需求，以最少的停機時間在儲存體類型之間切換受控磁碟。 不支援在非受控磁碟的儲存體類型之間切換；不過，您可以輕鬆地[將非受控磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)。
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 轉換需要重新啟動虛擬機器 (VM)，因此您應在預先存在的維護期間排定磁碟儲存體移轉。 
 * 如果您使用非受控磁碟，請先[將它轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)，才可讓您在儲存體類型之間切換它。 
 * 本文中的範例需要 Azure PowerShell 模組 6.0.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 執行 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) \(英文\) 來建立與 Azure 的連線。
 
+* 本文中的範例需要 Azure PowerShell 模組 6.0.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 執行 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) 以建立與 Azure 的連線。
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>將 VM 的所有受控磁碟從標準轉換至進階
 

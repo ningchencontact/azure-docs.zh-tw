@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108767"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417086"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -55,7 +55,7 @@ ms.locfileid: "56108767"
 * API 管理
 * App Service 應用程式 (Web 應用程式) - 請參閱 [App Service 限制](#app-service-limitations)
 * App Service 憑證 - 請參閱 [App Service 憑證限制](#app-service-certificate-limitations)
-* 自動化
+* 自動化 - Runbook 必須存在於和自動化帳戶相同的資源群組中。
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure 資料總管
@@ -134,6 +134,7 @@ ms.locfileid: "56108767"
 * Azure 防火牆
 * Azure Migrate
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
+* 傳統應用程式
 * Container Instances
 * 容器服務
 * 資料箱
@@ -306,7 +307,7 @@ ms.locfileid: "56108767"
   }
   ```
 
-此作業可能需要幾分鐘的時間執行。
+這項作業可能需要幾分鐘的時間執行。
 
 ### <a name="recovery-services-limitations"></a>復原服務限制
 
@@ -403,7 +404,7 @@ ms.locfileid: "56108767"
 
 ## <a name="validate-move"></a>驗證移動
 
-[驗證移動作業](/rest/api/resources/resources/validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用此作業來判斷移動是否會成功。 若要執行此作業，您需要：
+[驗證移動作業](/rest/api/resources/resources/validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用這項作業來判斷移動是否會成功。 若要執行這項作業，您需要：
 
 * 來源資源群組的名稱
 * 目標資源群組的資源識別碼

@@ -8,27 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 64db05e5e40b76d219ea0e3214c20297f32da4b5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861267"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312519"
 ---
-# <a name="detecting-adult-and-racy-content"></a>偵測成人和猥褻內容
+# <a name="detect-adult-and-racy-content"></a>偵測成人和猥褻內容
 
-各種不同的視覺類別中包含成人和猥褻群組，可用來偵測成人內容及限制包含色情內容的影像顯示。 成人和猥褻內容偵測的篩選條件可用滑動標尺來設定，以配合使用者的喜好設定。
+電腦視覺可以偵測影像中的成人內容，使開發人員可以在其軟體中限制此類影像的顯示。 內容旗標會搭配介於零與一的分數套用，使開發人員可以根據自己的喜好對結果進行解譯。 
 
-## <a name="defining-adult-and-racy-content"></a>定義成人和猥褻內容
+> [!NOTE]
+> 此功能同時也由 [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) 服務提供。 此替代方案為適用於更嚴格內容仲裁案例 (例如文字仲裁和人為檢閱工作流程) 的解決方案。
 
-在[分析影像方法](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (英文) 涵蓋的多種視覺功能中，成人視覺功能可偵測成人和猥褻影像。 「成人」影像的定義是本質上為色情，而且通常會描繪裸露和性行為的影像。 「猥褻」影像的定義是本質上具有性暗示，而且相較於標記為「成人」的影像內容，通常包含內容較不露骨的影像。 成人視覺功能類型通常會用來限制顯示具有性暗示和露骨內容的影像。
+## <a name="content-flag-definitions"></a>內容旗標定義
 
-## <a name="identifying-adult-and-racy-content"></a>識別成人和猥褻內容
+**成人**影像的定義是本質上為色情，而且通常會描繪裸露和性行為的影像。 
 
-分析影像方法會在該方法的 JSON 回應中傳回 `isAdultContent` 和 `isRacyContent` 兩個屬性，藉此分別表示成人和猥褻內容。 這兩個屬性會傳回 True 或 False 的布林值。 此方法也會傳回 `adultScore` 和 `racyScore` 兩個屬性，分別代表識別成人和猥褻內容的信賴分數。 成人和猥褻內容偵測的信賴篩選條件可根據特定案例使用滑動標尺來設定，以配合您的喜好設定。
+**猥褻**影像的定義是本質上具有性暗示，而且相較於標記為**成人**的影像內容，通常包含內容較不露骨的影像。 
+
+## <a name="identify-adult-and-racy-content"></a>識別成人和猥褻內容
+
+[分析](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) \(英文\) API。
+
+分析影像方法會在該方法的 JSON 回應中傳回 `isAdultContent` 和 `isRacyContent` 兩個布林值屬性，分別代表成人和猥褻內容。 此方法也會傳回 `adultScore` 和 `racyScore` 兩個屬性，分別代表識別成人和猥褻內容的信賴分數。
 
 ## <a name="next-steps"></a>後續步驟
 

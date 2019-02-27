@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495215"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327505"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>在 Azure 中設計和實作 Oracle 資料庫
 
@@ -146,9 +146,9 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 ### <a name="disk-types-and-configurations"></a>磁碟類型和設定
 
-- 預設的 OS 磁碟：這些磁碟類型可提供持續性資料和快取。 它們最適合用在啟動時的 OS 存取，但其設計目的並非用於交易式或資料倉儲 (分析) 工作負載。
+- 預設 OS 磁碟：這些磁碟類型可提供持續性資料和快取。 它們最適合用在啟動時的 OS 存取，但其設計目的並非用於交易式或資料倉儲 (分析) 工作負載。
 
-- 非受控磁碟：您可以使用這些磁碟類型來管理用來儲存虛擬硬碟 (VHD) 檔案 (對應至您的 VM 磁碟) 的儲存體帳戶。 VHD 檔案會以分頁 Blob 的形式儲存在 Azure 儲存體帳戶中。
+- 非受控磁碟︰您可以使用這些磁碟類型來管理用來儲存虛擬硬碟 (VHD) 檔案 (對應至您的 VM 磁碟) 的儲存體帳戶。 VHD 檔案會以分頁 Blob 的形式儲存在 Azure 儲存體帳戶中。
 
 - 受控磁碟：Azure 會管理您用於 VM 磁碟的儲存體帳戶。 您可以指定需要的磁碟類型 (進階或標準) 和磁碟大小。 Azure 會為您建立並管理該磁碟。
 
@@ -157,8 +157,6 @@ SQL> @?/rdbms/admin/awrrpt.sql
 當您從入口網站建立新的受控磁碟時，可以選擇您想要使用之磁碟類型的 [帳戶類型]。 請記住，並非所有可用的磁碟都會顯示在下拉式功能表中。 在選擇特定的 VM 大小之後，功能表只會根據該 VM 大小顯示可用的進階儲存體 SKU。
 
 ![受控磁碟頁面的螢幕擷取畫面](./media/oracle-design/premium_disk01.png)
-
-如需詳細資訊，請參閱 [VM 高效能進階儲存體與受控磁碟](https://docs.microsoft.com/azure/storage/storage-premium-storage)。
 
 在 VM 上設定儲存體之後，您可能會想要在建立資料庫之前對磁碟進行負載測試。 知道延遲和輸送量方面的 I/O 速率可以協助您判斷 VM 是否支援具有延遲目標的預期輸送量。
 
@@ -194,13 +192,11 @@ IOPS 是 12,200,000 / 2,358 = 5,174。
 
 - 讀寫：這是「預先讀取」演算法。 快取讀取和寫入，以供未來讀取。 非直接寫入式寫入會先保存到本機快取。 針對 SQL Server，因為它使用直接寫入式，所以寫入會保存到 Azure 儲存體。 它也會為輕量工作負載提供最低的磁碟延遲。
 
-- 無 (停用)：使用此選項即可略過快取。 所有資料都會傳輸至磁碟，並保存到 Azure 儲存體。 這種方法可提供您最高 I/O 速率來進行 I/O 密集式工作負載。 您也需要考量「交易成本」。
+- 無 (已停用)：使用此選項即可略過快取。 所有資料都會傳輸至磁碟，並保存到 Azure 儲存體。 這種方法可提供您最高 I/O 速率來進行 I/O 密集式工作負載。 您也需要考量「交易成本」。
 
 **建議**
 
 若要將輸送量最大化，建議您一開始先對主機快取使用 [無]。 針對進階儲存體，請記住您必須在使用 [唯讀] 或 [無] 選項掛接檔案系統時停用「屏障」。 將具有 UUID 的 /etc/fstab 檔案更新到磁碟。
-
-如需詳細資訊，請參閱[適用於 Linux VM 的進階儲存體](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms)。
 
 ![受控磁碟頁面的螢幕擷取畫面](./media/oracle-design/premium_disk02.png)
 
@@ -215,9 +211,9 @@ IOPS 是 12,200,000 / 2,358 = 5,174。
 
 在安裝並設定 Azure 環境之後，下一個步驟是保護您的網路。 以下是一些建議：
 
-- NSG 原則：可以透過子網路或 NIC 來定義 NSG。 它更容易控制應用程式防火牆這類事項之安全性和強制路由的子網路層級存取。
+- NSG 原則：可依子網路或 NIC 定義 NSG。 它更容易控制應用程式防火牆這類事項之安全性和強制路由的子網路層級存取。
 
-- Jumpbox：基於更安全的存取，系統管理員不應該直接連線至應用程式服務或資料庫。 Jumpbox 作為系統管理員機器與 Azure 資源之間的媒體。
+- *Jumpbox*：基於更安全的存取，系統管理員不應該直接連接至應用程式服務或資料庫。 Jumpbox 作為系統管理員機器與 Azure 資源之間的媒體。
 ![Jumpbox 拓撲頁面的螢幕擷取畫面](./media/oracle-design/jumpbox.png)
 
     系統管理員機器只應該對 Jumpbox 提供 IP 受限的存取權。 Jumpbox 應該要能夠存取應用程式和資料庫。
@@ -234,5 +230,5 @@ IOPS 是 12,200,000 / 2,358 = 5,174。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [教學課程︰建立高可用性 VM](../../linux/create-cli-complete.md)
+- [教學課程：建立高可用性 VM](../../linux/create-cli-complete.md)
 - [瀏覽 VM 部署 Azure CLI 範例](../../linux/cli-samples.md)

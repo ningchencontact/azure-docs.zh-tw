@@ -1,6 +1,6 @@
 ---
-title: 建立管理群組以組織 Azure 資源
-description: 了解如何建立 Azure 管理群組來管理多個資源。
+title: 建立管理群組來組織 Azure 資源 - Azure Governance
+description: 了解如何使用入口網站、Azure PowerShell 和 Azure CLI 建立 Azure 管理群組來管理多個資源。
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 699a9b7a371a004213419567d0672f56b5365598
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 01bfd10b2f37a7990ab9a1badfcb09422baa391a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620109"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342196"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>建立用於資源組織及管理的管理群組
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c9e143a4127807bfffa879103fca42d2d27e71
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993654"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268322"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>從 SQL 到 Azure 監視器記錄查詢功能提要 
 
-下表有助於熟悉 SQL 的使用者了解資料總管查詢語言，以在 Azure 監視器中撰寫記錄查詢。 看看用於解決常見案例的 T-SQL 命令以及 Azure 監視器記錄查詢中的對等項目。
+下表有助於熟悉 SQL 的使用者了解 Kusto 查詢語言，以在 Azure 監視器中撰寫記錄查詢。 看看用於解決常見案例的 T-SQL 命令以及 Azure 監視器記錄查詢中的對等項目。
 
 ## <a name="sql-to-azure-monitor"></a>從 SQL 到 Azure 監視器
 

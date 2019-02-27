@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657411"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430279"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
 
 在 Azure 自動化和混合式 Runbook 背景工作上執行的 Runbook 結構中沒有任何差異。 您使用的每個 Runbook 可能會有大幅差異。 此差異是因為以混合式 Runbook 背景工作角色為目標的 Runbook 通常會管理本機電腦上的資源，或管理部署所在本機環境中的資源。 Azure 自動化中的 Runbook 通常會管理 Azure 雲端中的資源。
 
-當您撰寫要在混合式 Runbook 背景工作角色上執行的 Runbook 時，應該在裝載混合式背景工作角色的機器內編輯並測試 Runbook。 主機電腦具有您管理及存取本機資源所需要的所有 PowerShell 模組和網路存取。 一旦在混合式背景工作角色機器上測試 Runbook 後，接著可以將其上傳至 Azure 自動化環境，其可供您在混合式背景工作角色中執行。 請務必知道，作業會以本機系統帳戶在 Windows 上執行，或以特殊使用者帳戶 **nxautomation** 在 Linux 上執行。 針對混合式 Runbook 背景工作角色撰寫 Runbook 時，此行為可能會造成些微的差異。 當您撰寫 Runbook 時，應該檢閱這些變更。
+當您撰寫要在混合式 Runbook 背景工作角色上執行的 Runbook 時，應該在裝載混合式背景工作角色的機器內編輯並測試 Runbook。 主機電腦具有您管理及存取本機資源所需要的所有 PowerShell 模組和網路存取。 一旦在混合式背景工作角色機器上測試 Runbook 後，接著可以將其上傳至 Azure 自動化環境，其可供您在混合式背景工作角色中執行。 請務必知道，作業會以本機系統帳戶在 Windows 上執行，或以特殊使用者帳戶 `nxautomation` 在 Linux 上執行。 針對混合式 Runbook 背景工作角色撰寫 Runbook 時，此行為可能會造成些微的差異。 當您撰寫 Runbook 時，應該檢閱這些變更。
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上啟動 Runbook
 
@@ -44,7 +44,7 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ### <a name="runbook-authentication"></a>Runbook 驗證
 
-根據預設，內部部署電腦上的 Runbook 是在 Windows 的本機系統帳戶內容中或是 Linux 的特殊使用者帳戶 **nxautomation** 內容中執行，因此，它們必須對要存取的資源提供自己的驗證。
+根據預設，內部部署電腦上的 Runbook 是在 Windows 的本機系統帳戶內容中或是 Linux 的特殊使用者帳戶 `nxautomation` 內容中執行，因此，它們必須對要存取的資源提供自己的驗證。
 
 您可以在您的 Runbook 中使用[認證](automation-credentials.md)和[憑證](automation-certificates.md)資產，搭配可讓您指定認證的 Cmdlet，您就能夠向不同的資源驗證。 下列範例顯示會重新啟動電腦的 Runbook 的一部分。 它會從認證資產擷取認證和從變數資產擷取電腦的名稱，然後使用這些值搭配 Restart-Computer Cmdlet。
 
@@ -59,7 +59,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 ### <a name="runas-account"></a>RunAs 帳戶
 
-根據預設，混合式 Runbook 背景工作角色會使用 Windows 的本機系統和 Linux 的特殊使用者帳戶 **nxautomation** 來執行 Runbook。 您不需要讓 Runbook 提供自己的驗證給本機資源，您可以針對混合式背景工作角色群組指定 **RunAs** 帳戶。 您指定具有本機資源存取權的 [認證資產](automation-credentials.md)，在群組中的 Hybrid Runbook Worker 執行時，所有 Runbook 會在這些認證下執行。
+根據預設，混合式 Runbook 背景工作角色會使用 Windows 的本機系統和 Linux 的特殊使用者帳戶 `nxautomation` 來執行 Runbook。 您不需要讓 Runbook 提供自己的驗證給本機資源，您可以針對混合式背景工作角色群組指定 **RunAs** 帳戶。 您指定具有本機資源存取權的 [認證資產](automation-credentials.md)，在群組中的 Hybrid Runbook Worker 執行時，所有 Runbook 會在這些認證下執行。
 
 認證的使用者名稱必須是下列格式之一：
 
@@ -247,7 +247,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-簽署 Runbook 後，就必須將它匯入到您的自動化帳戶，並與簽章區塊一起發佈。 若要了解如何匯入 Runbook，請參閱[將 Runbook 從檔案匯入 Azure 自動化](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)。
+簽署 Runbook 後，就必須將它匯入到您的自動化帳戶，並與簽章區塊一起發佈。 若要了解如何匯入 Runbook，請參閱[將 Runbook 從檔案匯入 Azure 自動化](manage-runbooks.md#import-a-runbook)。
 
 ### <a name="linux-hybrid-runbook-worker"></a>Linux 混合式 Runbook 背景工作角色
 
@@ -271,7 +271,7 @@ sudo gpg --generate-key
 
 GPG 將引導您完成建立金鑰組的步驟。 您將需針對要產生的金鑰提供名稱、電子郵件地址、到期時間、複雜密碼，以及在該機器上等候足夠的熵。
 
-由於 GPG 目錄是使用 sudo 所產生的，因此，您需要將其擁有者變更為 nxautomation。 
+由於 GPG 目錄是使用 sudo 所產生的，因此，您需要將其擁有者變更為 `nxautomation`。 
 
 執行下列命令以變更擁有者。
 
@@ -300,7 +300,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 一旦設定簽章驗證之後，就能使用下列命令來登入 Runbook：
 
 ```bash
-gpg –clear-sign <runbook name>
+gpg –-clear-sign <runbook name>
 ```
 
 已簽署的 Runbook 將具有 `<runbook name>.asc` 名稱。

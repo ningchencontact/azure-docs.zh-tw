@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 49f045e8da5094f583c01c514bf92f6bf3fe1c09
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994941"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453353"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>從 Azure Machine Learning Studio 匯出和刪除產品內的使用者資料
 
@@ -70,8 +70,8 @@ Machine Learning Studio 中有三種帳戶。 您擁有的帳戶種類可決定�
 ![在 Machine Learning Studio 中刪除免費工作區](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>透過 PowerShell 匯出 Studio 資料
-透過 PowerShell，使用命令從 Azure Machine Learning Studio 將您所有的資訊匯出為可攜式格式。 如需詳細資訊，請參閱[適用於 Azure Machine Learning 的 PowerShell 模組](powershell-module.md)。
+透過 PowerShell，使用命令從 Azure Machine Learning Studio 將您所有的資訊匯出為可攜式格式。 如需詳細資訊，請參閱[適用於 Azure Machine Learning Studio 的 PowerShell 模組](powershell-module.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需涵蓋 Web 服務和承諾計劃計費的文件，請參閱 [Azure Machine Learning REST API 參考](https://docs.microsoft.com/rest/api/machinelearning/)。 
+如需涵蓋 Web 服務和承諾計劃計費的文件，請參閱 [Azure Machine Learning Studio REST API 參考](https://docs.microsoft.com/rest/api/machinelearning/) \(英文\)。 

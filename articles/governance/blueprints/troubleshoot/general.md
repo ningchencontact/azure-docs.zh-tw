@@ -1,6 +1,6 @@
 ---
 title: 常見問題疑難排解
-description: 了解如何針對建立和指派藍圖的問題進行疑難排解
+description: 了解如何針對建立、指派和移除藍圖的問題進行疑難排解。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: cebbc8b61a806663e7cb58e0bf7fbdd589f46cca
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261922"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343301"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
 

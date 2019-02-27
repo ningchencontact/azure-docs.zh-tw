@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c3b27291fc413310393cd0270ec750de14a4985b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117268"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270057"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
 
@@ -34,6 +34,9 @@ Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VI
 
 > [!Note]  
 > 使用者 VIP 是動態的，由使用者自己定義，並不受 Azure Stack 操作員控制。
+
+> [!Note]
+> 在 1811 更新之後，由於新增了[延伸模組主機](azure-stack-extension-host-prepare.md)，不需要再開啟 12495-30015 範圍中的連接埠了。
 
 |端點 (VIP)|DNS 主機 A 記錄|通訊協定|連接埠|
 |---------|---------|---------|---------|

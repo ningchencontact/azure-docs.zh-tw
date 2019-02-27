@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Active Directory B2C 中設定 Azure Active Directory 組織的登入 | Microsoft Docs
+title: 設定 Azure Active Directory 組織的登入 - Azure Active Directory B2C | Microsoft Docs
 description: 在 Azure Active Directory B2C 中設定特定 Azure Active Directory 組織的登入。
 services: active-directory-b2c
 author: davidmu1
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9078cbfd14e61b2de0d513e513413ae3c79137e3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0da27c5ce872d1b4e1b4c63f6f4207bb5ca4d6ef
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166215"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428068"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中設定特定 Azure Active Directory 組織的登入
 
 >[!NOTE]
 > 這項功能處於公開預覽狀態。 請勿在生產環境中使用這項功能。
 
-本文說明如何讓特定 Azure Active Directory (Azure AD) 組織中的使用者能夠使用 Azure Active Directory (Azure AD) B2C 中的使用者流程登入。
+若要在 Azure AD B2C 中使用 Azure Active Directory (Azure AD) 做為[識別提供者](active-directory-b2c-reference-oauth-code.md)，您需要建立代表該識別提供者的應用程式。 本文說明如何讓特定 Azure AD 組織中的使用者能夠使用 Azure AD B2C 中的使用者流程登入。
 
 ## <a name="create-an-azure-ad-app"></a>建立 Azure AD 應用程式
 

@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 02/19/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5c809153b3b86a5460bd2c235d9f6226fb50a024
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f89eca6fb8893210f4c65adc42598ab0e0b531f4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118790"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454301"
 ---
-# <a name="explore-net-trace-logs-in-application-insights"></a>在 Application Insights 中探索 .NET 追蹤記錄
-如果您使用 NLog、log4Net 或 System.Diagnostics.Trace 在 ASP.NET 應用程式中進行診斷追蹤，您可以將記錄傳送至 [Azure Application Insights][start]，以在其中探索和搜尋這些記錄。 您的記錄檔會與來自應用程式的其他遙測合併，讓您可以識別與服務每個使用者要求相關聯的追蹤，並將它們與其他事件和例外狀況報告相互關聯。
+# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>在 Application Insights 中探索 .NET/.NET Core 追蹤記錄
+
+如果您使用 ILogger、NLog、log4Net 或 System.Diagnostics.Trace 在 ASP.NET/ASP.NET Core 應用程式中進行診斷追蹤，您可以將記錄傳送至 [Azure Application Insights][start]，以在其中探索和搜尋這些記錄。 您的記錄檔會與來自應用程式的其他遙測合併，讓您可以識別與服務每個使用者要求相關聯的追蹤，並將它們與其他事件和例外狀況報告相互關聯。
 
 > [!NOTE]
 > 您需要記錄擷取模組嗎？ 對於第三方記錄器來說，它是一個有用的配接器，但是如果您還沒使用 NLog、log4Net 或 System.Diagnostics.Trace，請考慮直接呼叫 [Application Insights TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 。
@@ -30,23 +31,18 @@ ms.locfileid: "54118790"
 ## <a name="install-logging-on-your-app"></a>在您的 app 上安裝記錄
 在專案中安裝您選擇的記錄架構。 這應該會在 app.config 或 web.config 中產生一個項目。
 
-如果您使用 System.Diagnostics.Trace，則必須在 web.config 中加入一個項目：
-
 ```XML
-
     <configuration>
-     <system.diagnostics>
-       <trace autoflush="false" indentsize="4">
-         <listeners>
-           <add name="myListener"
-             type="System.Diagnostics.TextWriterTraceListener"
-             initializeData="TextWriterOutput.log" />
-           <remove name="Default" />
-         </listeners>
-       </trace>
-     </system.diagnostics>
+      <system.diagnostics>
+    <trace autoflush="true" indentsize="0">
+      <listeners>
+        <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
+      </listeners>
+    </trace>
+  </system.diagnostics>
    </configuration>
 ```
+
 ## <a name="configure-application-insights-to-collect-logs"></a>設定 Application Insights 收集記錄
 如果您尚未這麼做，請**[將 Application Insights 新增至您的專案](../../azure-monitor/app/asp-net.md)**。 您將會看見包含記錄收集器的選項。
 
@@ -60,15 +56,28 @@ ms.locfileid: "54118790"
 1. 如果您打算使用 log4Net 或 NLog，請將它安裝在您的專案。
 2. 在 [方案總管] 中，以滑鼠右鍵按一下您的專案並選擇 [ **管理 NuGet 封裝**]。
 3. 搜尋「Application Insights」
-4. 選取適當的套件 - 下列其中一個：
+4. 選取下列其中一個套件：
 
-   * Microsoft.ApplicationInsights.TraceListener (擷取 System.Diagnostics.Trace 呼叫)
-   * Microsoft.ApplicationInsights.EventSourceListener (若為擷取 EventSource 事件)
-   * Microsoft.ApplicationInsights.EtwCollector (若為擷取 ETW 事件)
-   * Microsoft.ApplicationInsights.NLogTarget
-   * Microsoft.ApplicationInsights.Log4NetAppender
+   - 針對 ILogger：[Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - 針對 NLog：[Microsoft.ApplicationInsights.NLogTarget](http://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - 針對 Log4Net：[Microsoft.ApplicationInsights.Log4NetAppender](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - 針對 System.Diagnostics：[Microsoft.ApplicationInsights.TraceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
-NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
+NuGet 套件會安裝必要的組件，並在適用的情況下修改 web.config 或 app.config。
+
+## <a name="ilogger"></a>ILogger
+
+如需使用 Application Insights ILogger 實作搭配主控台應用程式和 ASP.NET Core 的範例，請參閱此[文章](ilogger.md)。
 
 ## <a name="insert-diagnostic-log-calls"></a>插入診斷記錄呼叫
 如果您使用 System.Diagnostics.Trace，典型的呼叫如下：

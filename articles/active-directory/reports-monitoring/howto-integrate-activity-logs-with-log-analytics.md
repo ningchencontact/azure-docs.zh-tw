@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 監視器將 Azure Active Directory 記錄串流至 Log Analytics (預覽) | Microsoft Docs
-description: 了解如何使用 Azure 監視器將 Azure Active Directory 記錄與 Log Analytics 整合 (預覽)
+title: 將 Azure Active Directory 記錄串流至 Azure 監視器 (預覽) | Microsoft Docs
+description: 了解如何將 Azure Active Directory 記錄與 Azure 監視器記錄整合 (預覽)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,30 +17,30 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51db96523a96015822f4507731bad2a398521530
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e9c1b2513f769b065883dc98b649a68d565ccc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165836"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456481"
 ---
-# <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure AD 記錄與 Log Analytics 整合 (預覽)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>將 Azure AD 記錄與 Azure 監視器記錄整合 (預覽)
 
-Log Analytics 可讓您查詢資料，以尋找特定事件、分析趨勢，以及執行各種資料來源之間的相互關聯。 藉由將 Azure AD 活動記錄整合到 Log Analytics 中，您將可執行如下的工作：
+Azure 監視器記錄可讓您查詢資料，以尋找特定事件、分析趨勢，以及執行各種資料來源之間的相互關聯。 藉由將 Azure AD 活動記錄整合到 Azure 監視器記錄中，您可以執行如下的工作：
 
  * 比較您的 Azure AD 登入記錄與 Azure 資訊安全中心所發佈的安全性記錄
 
  * 藉由將 Azure Application Insights 中的應用程式效能資料相互關聯，在應用程式的登入頁面上進行效能瓶頸的疑難排解。  
 
-Ignite 工作階段中的下列影片，會示範在特定使用者案例中針對 Azure AD 記錄使用 Log Analytics 的優點。
+Ignite 工作階段中的下列影片，會示範在特定使用者案例中針對 Azure AD 記錄使用 Azure 監視器記錄的優點。
 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
-在本文中，您將了解如何使用 Azure 監視器將 Azure Active Directory (Azure AD) 記錄與 Log Analytics 整合。
+在此文章中，您將了解如何將 Azure Active Directory (Azure AD) 記錄與 Azure 監視器整合。
 
 ## <a name="supported-reports"></a>支援的報告
 
-您可以將稽核活動記錄和登入活動記錄路由到 Log Analytics，以進行深入分析。 
+您可以將稽核活動記錄和登入活動記錄路由到 Azure 監視器記錄，以進行深入分析。 
 
 * **稽核記錄檔**：[稽核記錄活動報告](concept-audit-logs.md)可讓您對每個在租用戶中執行的工作存取歷程記錄。
 * **登入記錄**：透過[登入活動報告](concept-sign-ins.md)，您可以判斷是誰執行了稽核記錄中所報告的工作。
@@ -58,13 +58,13 @@ Ignite 工作階段中的下列影片，會示範在特定使用者案例中針�
 * 使用者，身分是該 Azure AD 租用戶的「全域管理員」或「安全性管理員」。
 * Azure 訂用帳戶中的 Log Analytics 工作區。 了解如何[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)。
 
-## <a name="send-logs-to-log-analytics"></a>將記錄傳送至 Log Analytics
+## <a name="send-logs-to-azure-monitor-logs"></a>將記錄傳送至 Azure 監視器記錄
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
 2. 選取 [Azure Active Directory] > [診斷設定] -> [新增診斷設定]。 您也可以在 [稽核記錄] 或 [登入] 頁面中選取 [匯出設定]，以移至診斷設定組態頁面。  
     
-3. 在 [診斷設定] 功能表中選取 [傳送至 Log Analytics] 核取方塊，然後選取 [設定]。
+3. 在 [診斷設定] 功能表中選取 [傳送至 Log Analytics 工作區] 核取方塊，然後選取 [設定]。
 
 4. 選取記錄要傳送到的 Log Analytics 工作區，或在畫面上提供的對話方塊中建立新的工作區。  
 
@@ -80,5 +80,5 @@ Ignite 工作階段中的下列影片，會示範在特定使用者案例中針�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 Log Analytics 中分析 Azure AD 活動記錄](howto-analyze-activity-logs-log-analytics.md)
+* [使用 Azure 監視器記錄來分析 Azure AD 活動記錄](howto-analyze-activity-logs-log-analytics.md)
 * [安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)

@@ -16,12 +16,12 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4714a4ee5f90194a3be47b1e5878dfa8e230f42b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d239d372a514b24a4e022f62ceec2dfee94d187
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173482"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430398"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>使用 Azure AD Connect Health 監視 AD FS
 下列文件適用於使用 Azure AD Connect Health 來監視 AD FS 基礎結構。 如需使用 Azure AD Connect Health 來監視 Azure AD Connect (同步處理) 的詳細資訊，請參閱 [使用適用於同步處理的 Azure AD Connect Health](how-to-connect-health-sync.md)。此外，如需使用 Azure AD Connect Health 來監視 Active Directory 網域服務的詳細資訊，請參閱 [在 AD DS 使用 Azure AD Connect Health](how-to-connect-health-adds.md)。
@@ -199,7 +199,7 @@ AD FS 客戶可能會向網際網路公開密碼驗證端點，以提供驗證�
 如果您看見負載平衡器 IP 位址，則很可能表示您的外部負載平衡器未在將要求傳遞至 Web 應用程式 Proxy 伺服器時傳送用戶端 IP 位址。 請正確設定您的負載平衡器，以傳遞轉送用戶端 IP 位址。 
 
 3. 我該如何封鎖 IP 位址？  <br />
-請將已識別出的惡意 IP 位址新增至防火牆，或在 Exchange 中封鎖。   <br />
+請將已識別出的惡意 IP 位址新增至防火牆，或在 Exchange 中封鎖。 針對 ADFS 2016，您可以直接從遭到禁用的 IP 屬性封鎖 IP 位址。 [閱讀更多資訊](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection#banned-ip-addresses)   <br />
 
 4. 為何我未在此報告中看到任何項目？ <br />
    - 失敗登入活動未超過閾值設定。 

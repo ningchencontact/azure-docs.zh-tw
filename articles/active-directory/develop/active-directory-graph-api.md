@@ -1,9 +1,9 @@
 ---
 title: Azure Active Directory Graph API | Microsoft Docs
-description: Azure AD 圖形 API 的概觀和快取入門指南，可讓您以程式設計方式透過 REST API 端點存取 Azure AD。
+description: Azure AD Graph API 的概觀和快速入門指南，可讓您以程式設計方式透過 REST API 端點存取 Azure AD。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: lleonard-msft
 manager: mtillman
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
@@ -13,21 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b26c8a0d040ab91c53e04593280885ef7fd13eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 567ea09a50edc043f2022a47d08576720550e750
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173754"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448087"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 圖形 API
 
 > [!IMPORTANT]
-> 強烈建議您使用 [Microsoft Graph](https://developer.microsoft.com/graph/) 取代 Azure AD Graph API 來存取 Azure Active Directory 資源。 我們的開發工作現在是針對 Microsoft Graph，並沒有針對 Azure AD Graph API 規劃的進一步增強功能 。 有極少數的案例可能仍適用 Azure AD Graph API；如需詳細資訊，請參閱 Office 開發人員中心的 [Microsoft Graph 或 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 部落格文章。
+>
+> 從 2019 年 2 月起，Azure Active Directory Graph API 已被淘汰，並由 Microsoft Graph API 取代。  
+>
+> 為了簡化轉換，較舊版本的 Azure AD Graph API 將會比較新的版本先被淘汰。  
+>
+> 如需詳細資料、更新及時間範圍，請參閱 Office 開發人員中心的 [Microsoft Graph 或 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) \(英文\) 部落格文章。
+>
+> 應用程式於未來皆應該使用 Microsoft Graph API。 
+
+
 
 本文適用於 Azure AD Graph API。 如需與 Microsoft Graph API 相關的類似資訊，請參閱[使用 Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)。 
 

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: b27dd1b9aec89f259649b313d3ba7f944ea647f1
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 40973fbdd1965eb84776fc9365718c65fa0149a7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765709"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416984"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中搭配 Azure CLI 使用 API 版本設定檔
 
@@ -114,7 +114,12 @@ Write-Host "Python Cert store was updated to allow the Azure Stack CA root certi
 
 使用下列步驟連線至 Azure Stack：
 
-1. 執行 `az cloud register` 命令來註冊 Azure Stack 環境。
+1. 執行 `az cloud register` 命令來註冊 Azure Stack 環境。 在某些情況下，直接輸出的網際網路連線是透過 Proxy 或防火牆進行路由傳送，這會強制執行 SSL 攔截。 在這些情況下，`az cloud register` 命令可能會失敗並發生錯誤，例如「無法從雲端取得端點」。 若要解決這個錯誤，您可以設定下列環境變數：
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
     a. 若要註冊「雲端系統管理」環境，請使用：
 
@@ -200,7 +205,7 @@ Write-Host "Python Cert store was updated to allow the Azure Stack CA root certi
       ```
 
       > [!NOTE]
-      > 如果您的使用者帳戶已啟用多重要素驗證，則可以使用 `az login command` 命令，而不需提供 `-u` 參數。 執行此命令可提供您一個 URL 以及必須用來進行驗證的代碼。
+      > 如果您的使用者帳戶已啟用多重要素驗證，則可以使用 `az login` 命令，而不需提供 `-u` 參數。 執行此命令可提供您一個 URL 以及必須用來進行驗證的代碼。
    
       * 使用*服務主體*來登入：在登入之前，請透過 [Azure 入口網站](azure-stack-create-service-principals.md)或 CLI 建立服務主體，並為它指派角色。 現在，請使用下列命令登入：
 

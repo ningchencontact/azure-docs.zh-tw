@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382753"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310570"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>使用資源管理員部署模型將 Windows Server 或用戶端備份至 Azure
 本文說明如何 Resource Manager 部署模型將 Windows Server (或 Windows 用戶端) 檔案和資料夾備份至 Azure。
@@ -72,7 +72,7 @@ ms.locfileid: "54382753"
 
     ![從復原服務保存庫清單中選取新的保存庫](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    當您選取保存庫時，[復原服務保存庫] 刀鋒視窗會縮小﹐而 [概觀] 刀鋒視窗 (*頂端有保存庫名稱*) 和 [保存庫詳細資料] 刀鋒視窗隨即開啟。
+    當您選取保存庫時，[復原服務保存庫] 刀鋒視窗會縮小﹐而 [概觀] 刀鋒視窗 (頂端有保存庫名稱) 和 [保存庫詳細資料] 刀鋒視窗隨即開啟。
 
     ![檢視新保存庫的儲存體組態](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

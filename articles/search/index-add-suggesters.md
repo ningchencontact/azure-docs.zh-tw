@@ -1,7 +1,7 @@
 ---
 title: 將建議工具新增到 Azure 搜尋服務索引
 description: 啟用欄位以取得預先輸入查詢動作功能，其中建議的查詢會由來自 Azure 搜尋服務索引中欄位的文字組成。
-ms.date: 01/31/2019
+ms.date: 02/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 35025d69865aa6890e1cd921e31ac6c26c015789
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007696"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269921"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>將建議工具新增到 Azure 搜尋服務索引
 
@@ -34,9 +34,12 @@ ms.locfileid: "56007696"
 
 針對每個索引，您只能有一個**建議工具**資源 (具體而言，就是**建議工具**集合中只能有一個**建議工具**)。
 
-您隨時都可以建立**建議工具**，但其對您索引所產生的影響會根據欄位而有所不同。 以相同更新的形式新增到建議工具的新欄位造成的影響較小，因為不需要進行任何索引重建。 不過新增現有的欄位則會變更欄位定義，並導致需對索引進行完整重建。
+## <a name="creating-a-suggester"></a>建立建議工具 
 
-## <a name="usage"></a>使用量  
+您隨時都可以建立**建議工具**，但其對您索引所產生的影響會根據欄位而有所不同。 
+
++ 以相同更新的形式新增到建議工具的新欄位造成的影響較小，因為不需要進行任何索引重建。
++ 不過，將現有的欄位新增至建議工具會變更欄位定義，並導致需對索引進行完整重建。
 
  **建議工具**最適合用來建議特定文件，而非鬆散的詞彙或片語。 最佳的候選欄位是標題、名稱，以及可識別項目的其他相關簡短片語。 不太有效的是重複的欄位 (例如，類別和標記) 或非常長的欄位 (例如，說明或註解欄位)。  
 

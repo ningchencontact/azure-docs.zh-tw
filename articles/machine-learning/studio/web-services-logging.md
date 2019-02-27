@@ -1,6 +1,6 @@
 ---
 title: Web 服務記錄 - Azure Machine Learning Studio | Microsoft Docs
-description: 了解如何為 Machine Learning Web 服務啟用記錄。 記錄提供可協助疑難排解 API 的其他資訊。
+description: 了解如何為 Machine Learning Studio Web 服務啟用記錄。 記錄提供可協助疑難排解 API 的其他資訊。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 80a5ec64a2afd2367acaedd6e44ffe1a21e9c622
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474375"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270077"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>啟用 Azure Machine Learning Studio Web 服務的記錄功能
-本文件提供 Machine Learning Web 服務記錄功能的相關資訊。 記錄會提供其他資訊，而不只是錯誤碼和訊息而已，可協助您針對 Machine Learning API 的呼叫進行疑難排解。  
+本文件提供 Machine Learning Studio Web 服務記錄功能的相關資訊。 記錄會提供其他資訊，而不只是錯誤碼和訊息而已，可協助您針對 Machine Learning Studio API 的呼叫進行疑難排解。  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>如何為 Web 服務啟用記錄
 
-從 [Azure Machine Learning Web 服務](https://services.azureml.net)入口網站啟用記錄。 
+從 [Azure Machine Learning Studio Web 服務](https://services.azureml.net)入口網站啟用記錄。 
 
-1. 登入 Azure Machine Learning Web 服務入口網站，網址為 [https://services.azureml.net](https://services.azureml.net)。 對於傳統 Web 服務，您也可以在 Machine Learning Studio 中的 Machine Learning Web 服務頁面上按一下 [新的 Web 服務體驗]，以進入入口網站。
+1. 登入 Azure Machine Learning Studio Web 服務入口網站，網址為 [https://services.azureml.net](https://services.azureml.net)。 對於傳統 Web 服務，您也可以在 Machine Learning Studio 中的 Machine Learning Web 服務頁面上按一下 [新的 Web 服務體驗]，以進入入口網站。
 
    ![新的 Web 服務體驗連結](./media/web-services-logging/new-web-services-experience-link.png)
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358145"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327539"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>從 Azure 入口網站安裝 Chef 用戶端
 您可以從 Azure 入口網站直接將 Chef 用戶端擴充功能新增至 Linux 或 Windows 機器。 這篇文章會逐步引導您完成使用新 Linux 虛擬機器的程序。
@@ -53,7 +53,7 @@ ms.locfileid: "54358145"
 1. 在 [基本] 索引標籤上，指定下列值，然後選取 [確定]。
 
     - **名稱** - 輸入新虛擬機器的名稱。
-    - **虛擬機器磁碟類型** - 針對儲存體磁碟類型指定 **SSD** 或 **HDD**。 如需 Azure 上虛擬機器磁碟類型的詳細資訊，請參閱[虛擬機器的高效能進階儲存體與受控磁碟](/azure/virtual-machines/windows/premium-storage)一文。
+    - **虛擬機器磁碟類型** - 針對儲存體磁碟類型指定 **SSD** 或 **HDD**。 如需 Azure 上虛擬機器磁碟類型的詳細資訊，請參閱[選取磁碟類型](../virtual-machines/windows/disks-types.md)一文。
     - **使用者名稱** - 輸入使用者名稱，系統已在虛擬機器上授與此使用者系統管理員權限。
     - **驗證類型** - 選取 [密碼]。 您也可以選取 **SSH 公開金鑰**，並提供 SSH 公開金鑰值。 針對本示範的目的 (以及在快照集中)，會選取 [密碼]。
     - **密碼**和**確認密碼** - 請輸入使用者的密碼。

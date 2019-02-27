@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: d0af6c098f68c23bf9ef6161bd307afec518ead7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: cc4893837feeec6116750a7e37e7621af11ab0a4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011672"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453914"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -126,11 +126,11 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 >[!IMPORTANT]
 > 要成功部署 API 管理服務，就必須有以**粗體**表示其「目的」的連接埠。 不過，封鎖其他連接埠將會降低使用和監視執行中服務的能力。
 
-* **SSL 功能**：若要啟用 SSL 憑證鏈結建立和驗證，APIM 服務需要 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。 如果您上傳至 API 管理的任何憑證包含 CA 根的完整鏈結，則不需要此相依性。
++ **SSL 功能**：若要啟用 SSL 憑證鏈結建立和驗證，APIM 服務需要 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。 如果您上傳至 API 管理的任何憑證包含 CA 根的完整鏈結，則不需要此相依性。
 
-* **DNS 存取**：需要有連接埠 53 的輸出存取，才能與 DNS 伺服器通訊。 如果 VPN 閘道的另一端有自訂 DNS 伺服器存在，則必須可從裝載 API 管理的子網路連接該 DNS 伺服器。
++ **DNS 存取**：需要有連接埠 53 的輸出存取，才能與 DNS 伺服器通訊。 如果 VPN 閘道的另一端有自訂 DNS 伺服器存在，則必須可從裝載 API 管理的子網路連接該 DNS 伺服器。
 
-* **計量和健康情況監視**：對 Azure 監視端點 (解析為屬於下列網域) 的輸出網路連線能力︰ 
++ **計量和健康情況監視**：對 Azure 監視端點 (解析為屬於下列網域) 的輸出網路連線能力︰ 
 
     | Azure 環境 | 端點                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -138,17 +138,22 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-* **SMTP 轉送**：SMTP 轉送的輸出網路連線，會在主機 `ies.global.microsoft.com` 下方解析。
++ **SMTP 轉送**：SMTP 轉送的輸出網路連線，會在主機 `ies.global.microsoft.com` 下方解析。
 
-* **Azure 入口網站診斷**：從虛擬網路內部使用 APIM 延伸模組時，若要從 Azure 入口網站啟用診斷記錄的流程，則需要在連接埠 443 上有 `dc.services.visualstudio.com` 的輸出存取權。 這有助於針對您在使用延伸模組時所可能面臨的問題進行疑難排解。
++ **開發人員入口網站 CAPTCHA**：開發人員入口網站 CAPTCHA 的輸出網路連線，是在主機 `client.hip.live.com` 下解析。
 
-* **快速路由設定**：常見的客戶組態是定義其專屬預設路由 (0.0.0.0/0)，以強制輸出網際網路流量來替代透過內部部署方式流動。 此流量流程一定會中斷與 Azure API 管理的連線，因為已在內部部署封鎖輸出流量，或者 NAT 至無法再使用各種 Azure 端點的一組無法辨識位址。 解決方法是在子網路上定義包含 Azure API 管理的一 (或多個) 使用者定義路由 ([UDR][UDRs])。 UDR 會定義將使用的子網路特有路由，而非預設路由。
-  如果可能，建議使用下列設定：
- * ExpressRoute 組態會通告 0.0.0.0/0 而且預設會使用強制通道將所有輸出流量傳送至內部部署。
- * 套用至包含 Azure API 管理的子網路之 UDR 會使用網際網路的下一個躍點類型定義 0.0.0.0/0。
- 這些步驟的合併效果是子網路層級 UDR 會優先於 ExpressRoute 強制通道，因而確保來自 Azure API 管理的輸出網際網路存取。
++ **Azure 入口網站診斷**：從虛擬網路內部使用 APIM 延伸模組時，若要從 Azure 入口網站啟用診斷記錄的流程，則需要在連接埠 443 上有 `dc.services.visualstudio.com` 的輸出存取權。 這有助於針對您在使用延伸模組時所可能面臨的問題進行疑難排解。
 
-* **透過網路虛擬設備進行路由：** 組態如果是使用 UDR 搭配預設路由 (0.0.0.0/0)，透過在 Azure 中執行的網路虛擬設備來路由傳送從 APIM 子網路流向網際網路的流量，將可防止來自網際網路的管理流量流向虛擬網路子網路內所部署的 APIM 服務執行個體。 不支援這樣的設定。
++ **快速路由設定**：常見的客戶組態是定義其專屬預設路由 (0.0.0.0/0)，以強制輸出網際網路流量來替代透過內部部署方式流動。 此流量流程一定會中斷與 Azure API 管理的連線，因為已在內部部署封鎖輸出流量，或者 NAT 至無法再使用各種 Azure 端點的一組無法辨識位址。 解決方法是在子網路上定義包含 Azure API 管理的一 (或多個) 使用者定義路由 ([UDR][UDRs])。 UDR 會定義將使用的子網路特有路由，而非預設路由。
+
+    如果可能，建議使用下列設定：
+
+     * ExpressRoute 組態會通告 0.0.0.0/0 而且預設會使用強制通道將所有輸出流量傳送至內部部署。
+     * 套用至包含 Azure API 管理的子網路之 UDR 會使用網際網路的下一個躍點類型定義 0.0.0.0/0。
+
+    這些步驟的合併效果是子網路層級 UDR 會優先於 ExpressRoute 強制通道，因而確保來自 Azure API 管理的輸出網際網路存取。
+
++ **透過網路虛擬設備進行路由：** 組態如果是使用 UDR 搭配預設路由 (0.0.0.0/0)，透過在 Azure 中執行的網路虛擬設備來路由傳送從 APIM 子網路流向網際網路的流量，將可防止來自網際網路的管理流量流向虛擬網路子網路內所部署的 APIM 服務執行個體。 不支援這樣的設定。
 
 >[!WARNING]
 >**未正確交叉通告從公用對等互連路徑至私人對等互連路徑之路由**的 ExpressRoute 組態不支援 Azure API 管理。 已設定公用對等互連的 ExpressRoute 組態，會收到來自 Microsoft 的一大組 Microsoft Azure IP 位址範圍的路由通告。 如果這些位址範圍在私人對等互連路徑上不正確地交叉通告，最後的結果會是來自 Azure API 管理執行個體子網路的所有輸出網路封包，都會不正確地使用強制通道傳送至客戶的內部部署網路基礎結構。 這個網路流量會中斷 Azure API 管理。 此問題的解決方案是停止從公用對等互連路徑至私人對等互連路徑的交叉通告路由。

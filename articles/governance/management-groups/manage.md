@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure 中變更、刪除或管理您的管理群組
-description: 了解如何維護及更新您的管理群組階層。
+title: 如何在 Azure 中變更、刪除或管理您的管理群組 - Azure 治理
+description: 了解如何檢視、維護、更新及刪除您的管理群組階層。
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582406"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342572"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -39,11 +39,11 @@ ms.locfileid: "52582406"
 
 1. 選取頁面頂端的 [重新命名群組] 選項。
 
-   ![重新命名群組](./media/detail_action_small.png)
+   ![[重新命名群組] 選項](./media/detail_action_small.png)
 
 1. 功能表開啟時，輸入您要顯示的新名稱。
 
-   ![重新命名群組](./media/rename_context.png)
+   ![[重新命名群組] 窗格](./media/rename_context.png)
 
 1. 選取 [ **儲存**]。
 
@@ -87,11 +87,11 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
    - 如果無法使用圖示，將您的滑鼠選取器停留在圖示上會顯示原因。
 
-   ![刪除群組](./media/delete.png)
+   ![[刪除群組] 選項](./media/delete.png)
 
 1. 視窗隨即開啟，確認您是否要刪除管理群組。
 
-   ![刪除群組](./media/delete_confirm.png)
+   ![[刪除群組] 確認視窗](./media/delete_confirm.png)
 
 1. 選取 [是]。
 
@@ -195,13 +195,13 @@ az account management-group show --name 'Contoso'
 
 1. 針對清單中您需要移動的訂用帳戶資料列，選取資料列結尾省略符號。
 
-   ![移動](./media/move_small.png)
+   ![[移動] 選項](./media/move_small.png)
 
 1. 選取 [移動]。
 
 1. 在開啟的功能表上，選取**父管理群組**。
 
-   ![移動](./media/move_small_context.png)
+   ![[移動] 窗格](./media/move_small_context.png)
 
 1. 選取 [ **儲存**]。
 

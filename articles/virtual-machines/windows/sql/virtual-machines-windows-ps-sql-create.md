@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c37347928e75986fa8aee0d3d0a4db2667312f56
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3feb691f1f708452b6560dbe92b77ed0417ffb82
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984370"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329399"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 佈建 SQL Server 虛擬機器
 
@@ -57,7 +57,7 @@ $ResourceGroupName = "sqlvm2"
 ### <a name="storage-properties"></a>儲存體屬性
 定義儲存體帳戶和虛擬機器所要使用的儲存體類型。
 
-視需要進行修改，然後執行下列 Cmdlet 來初始化這些變數。 我們建議針對生產環境工作負載使用[進階儲存體](../premium-storage.md)。
+視需要進行修改，然後執行下列 Cmdlet 來初始化這些變數。 我們建議針為生產環境工作負載使用[進階 SSD](../disks-types.md#premium-ssd)。
 
 ```PowerShell
 $StorageName = $ResourceGroupName + "storage"

@@ -10,20 +10,20 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell, runbook, json, azure 自動化
-ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421806"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416107"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自動化 PowerShell Runbook 中部署 Azure Resource Manager 範本
 
 您可以使用 [Azure 資源管理範本](../azure-resource-manager/resource-manager-create-first-template.md)撰寫可部署 Azure 資源的 [Azure 自動化 PowerShell Runbook](automation-first-runbook-textual-powershell.md)。
 
-如此一來，您就可以自動化部署 Azure 資源。 您可以在中央、安全的位置 (例如 Azure 儲存體) 中維護 Resource Manager 範本。
+如此一來，您就可以自動化部署 Azure 資源。 您可以在中央、安全的位置 (例如 Azure 儲存體) 中維護您的 Resource Manager 範本。
 
-在本主題中，我們會建立使用儲存在 [Azure 儲存體](../storage/common/storage-introduction.md)中 Resource Manager 範本的 PowerShell Runbook，來部署新的 Azure 儲存體帳戶。
+在此文章中，我們會建立使用儲存在 [Azure 儲存體](../storage/common/storage-introduction.md)中 Resource Manager 範本的 PowerShell Runbook，來部署新的 Azure 儲存體帳戶。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,7 +36,7 @@ ms.locfileid: "54421806"
 
 ## <a name="create-the-resource-manager-template"></a>建立 Resource Manager 範本
 
-此範例中，我們使用 Resource Manager 範本來部署新的 Azure 儲存體帳戶。
+針對此範例，我們使用 Resource Manager 範本來部署新的 Azure 儲存體帳戶。
 
 在文字編輯器中，複製下列文字：
 
@@ -176,7 +176,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Templa
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>將 Runbook 匯入您的 Azure 自動化帳戶並加以發佈
 
 現在，我們會使用 PowerShell 將 Runbook 匯入您的 Azure 自動化帳戶，然後發佈 Runbook。
-如需關於如何在 Azure 入口網站中匯入並發佈 Runbook 的資訊，請參閱[在 Azure 自動化中建立或匯入 Runbook](automation-creating-importing-runbook.md)。
+如需關於如何在 Azure 入口網站中匯入並發佈 Runbook 的資訊，請參閱[在 Azure 自動化中管理 Runbook](manage-runbooks.md)。
 
 若要將 `DeployTemplate.ps1` 匯入您的自動化帳戶中作為 PowerShell Runbook，請執行下列 PowerShell 命令：
 
