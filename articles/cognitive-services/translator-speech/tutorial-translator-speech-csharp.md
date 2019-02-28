@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 383e17e0a9e60b52a63420af19c2bca4337083d4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876907"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673746"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>教學課程：翻譯工具語音應用程式 (C#)
 
@@ -33,7 +34,7 @@ ms.locfileid: "55876907"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要進行本教學課程，您需要有任何一版的 Visual Studio 2017，包括 Community Edition。 
+若要進行本教學課程，您需要有任何一版的 Visual Studio 2017，包括 Community Edition。
 
 Visual Studio 解決方案也會建置應用程式的安裝程式。 您需要 [WiX Toolset](http://wixtoolset.org/) 和 [WiX Toolset Visual Studio 延伸模組](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension)來支援此功能。
 
@@ -63,7 +64,7 @@ Visual Studio 解決方案也會建置應用程式的安裝程式。 您需要 [
 
 換句話說，若要進行語音翻譯，來源語言必須支援文字記錄。 如果您想要文字結果，則輸出語言可以是任何一種支援文字翻譯的語言。 如果您想要語音輸出，則只能翻譯成支援文字轉換語音的語言。
 
-Microsoft 可能不時新增新語言支援。 因此，您不應該以硬式編碼方式將任何已知的支援語言寫在您的程式中。 取而代之的是，Translator Speech API 會提供一個 Languages 端點，可讓您在執行階段擷取支援的語言。 您可以選擇接收下列一或多個語言清單： 
+Microsoft 可能不時新增新語言支援。 因此，您不應該以硬式編碼方式將任何已知的支援語言寫在您的程式中。 取而代之的是，Translator Speech API 會提供一個 Languages 端點，可讓您在執行階段擷取支援的語言。 您可以選擇接收下列一或多個語言清單：
 
 | | |
 |-|-|
@@ -73,7 +74,7 @@ Microsoft 可能不時新增新語言支援。 因此，您不應該以硬式編
 
 Languages 端點不需要訂用帳戶金鑰，且其使用量不會計入您的配額中。 其 URI 是 `https://dev.microsofttranslator.com/languages`，並且會以 JSON 格式傳回其結果。
 
-以下所示 `MainWindow.xaml.cs` 中的 `UpdateLanguageSettingsAsync()` 會呼叫 Languages 端點以取得支援的語言清單。 
+以下所示 `MainWindow.xaml.cs` 中的 `UpdateLanguageSettingsAsync()` 會呼叫 Languages 端點以取得支援的語言清單。
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -193,9 +194,9 @@ private async Task UpdateLanguageSettingsAsync()
 
 Languages 端點會使用要求的 `Accept-Languages` 標頭來判斷呈現語言名稱的語言。 例如，講英文的人所知的 "German" 語言，在德文中是稱為 "Deutsch"，在西班牙文中則稱為 "Alemán"，而語言清單便會反映這些差異。 系統的預設語言會用於此標頭。
 
-傳送要求且收到 JSON 回應之後，系統就會將回應剖析成內部資料結構。 這些結構會接著用來建構 [原文語言] 和 [目標語言] 功能表。 
+傳送要求且收到 JSON 回應之後，系統就會將回應剖析成內部資料結構。 這些結構會接著用來建構 [原文語言] 和 [目標語言] 功能表。
 
-由於可用的語音取決於使用者所選擇的「原文語言」，因此尚無法設定 [語音] 功能表。 取而代之的是，會將每個語言的可用語音儲存以供日後使用。 `ToLanguage_SelectionChanged` 處理常式 (在相同的來源檔案中) 稍後會在使用者選擇某個「原文語言」時，藉由呼叫 `UpdateVoiceComboBox()` 來更新 [語音] 功能表。 
+由於可用的語音取決於使用者所選擇的「原文語言」，因此尚無法設定 [語音] 功能表。 取而代之的是，會將每個語言的可用語音儲存以供日後使用。 `ToLanguage_SelectionChanged` 處理常式 (在相同的來源檔案中) 稍後會在使用者選擇某個「原文語言」時，藉由呼叫 `UpdateVoiceComboBox()` 來更新 [語音] 功能表。
 
 如果使用者之前未執行過此應用程式，系統會隨機選取一個「原文語言」，這只是為了好玩。 (功能表設定會在各個工作階段之間儲存下來)。
 
@@ -281,7 +282,7 @@ private void Connect()
         TranslateTo = ((ComboBoxItem)this.ToLanguage.SelectedItem).Tag.ToString(),
         Voice = voicename,
     };
-    
+
     options.Hostname = baseUrl;
     options.AuthHeaderKey = "Authorization";
     options.AuthHeaderValue = ""; // set later in ConnectAsync.
@@ -368,11 +369,11 @@ private void Connect()
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
 {
     await ADMAuthenticate(options);
-    
+
     TextMessageDecoder textDecoder;
-    
+
     s2smtClient = new SpeechClient((SpeechTranslateClientOptions)options, CancellationToken.None);
-    
+
     s2smtClient.OnBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnEndOfBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnTextData += (c, a) => { textDecoder.AppendData(a); lastReceivedPacketTick = DateTime.Now.Ticks; };
@@ -410,7 +411,7 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
     {
         SafeInvoke(() =>
         {
-            // We only care to react to server disconnect when our state is Connected. 
+            // We only care to react to server disconnect when our state is Connected.
             if (currentState == UiState.Connected)
             {
                 Log("E: Connection has been lost.");

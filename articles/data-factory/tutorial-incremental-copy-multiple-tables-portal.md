@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354207"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593194"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -270,7 +270,7 @@ END
 1. 在 [整合執行階段設定] 視窗中，選取 [執行資料移動，並分派活動到外部計算]，然後按 [下一步]。 
 
    ![選取整合執行階段類型](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. 選取 **私人網路**，然後按 [下一步]。 
+1. 選取 [私人網路]，然後按 [下一步]。 
 
    ![選取私人網路](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. 輸入 **MySelfHostedIR** 作為 [名稱]，然後按一下 [下一步]。 
@@ -510,7 +510,7 @@ END
 
         | Name | 類型 | 值 | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | 字串 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![預存程序活動 - 預存程序設定](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac777eebeece7cd67126a639c45e5cf6665f7a9b
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b3c4eff92fa0ca63eccf331f5a6ba9e43610fc7b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313053"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>教學課程：Azure Active Directory 與 Cezanne HR Software 整合
 

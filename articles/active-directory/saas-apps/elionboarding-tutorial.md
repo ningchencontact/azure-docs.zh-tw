@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd09bbdbb6bfd83769846d9b2c8638f36b85b607
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 59f0260cf7ca8e538415605f94dabf947fd37210
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186330"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eli-onboarding"></a>教學課程：Azure Active Directory 與 Eli Onboarding 整合
 

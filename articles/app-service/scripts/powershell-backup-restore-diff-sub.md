@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 845d47af75495a158e56312126c8e246b43f789f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e8879b67b79523cc35fb28a707a6c77f3efb75c0
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112762"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56584974"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>使用 PowerShell 從另一個訂用帳戶中的備份還原 Web 應用程式
 
@@ -48,7 +48,7 @@ Remove-AzResourceGroup -Name $resourceGroupName -Force
 
 | 命令 | 注意 |
 |---|---|
-| [Add-AzAccount](/powershell/module/az.profile/add-azaccount) | 新增已驗證的帳戶以用於 Azure Resource Manager Cmdlet 要求。  |
+| [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | 新增已驗證的帳戶以用於 Azure Resource Manager Cmdlet 要求。  |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | 取得 Web 應用程式的備份清單。 |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 建立 Web 應用程式 |
 | [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | 從先前完成的備份中還原 Web 應用程式。 |

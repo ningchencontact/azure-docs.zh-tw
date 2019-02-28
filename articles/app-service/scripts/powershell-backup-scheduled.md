@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1fe21e8c7a4f4b73648eb5cf0cd3ee5e96dff760
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 262706868fe286f2134e71f53330ebd2eeb66488
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107588"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587832"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>使用 PowerShell 建立 Web 應用程式的排程備份
 
@@ -50,8 +50,8 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | 建立儲存體帳戶。 |
-| [New-AzStorageContainer](/powershell/module/azure.storage/new-AzStoragecontainer) | 建立 Azure 儲存體容器。 |
-| [New-AzStorageContainerSASToken](/powershell/module/azure.storage/new-AzStoragecontainersastoken) | 產生 Azure 儲存體容器的 SAS 權杖。 |
+| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | 建立 Azure 儲存體容器。 |
+| [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | 產生 Azure 儲存體容器的 SAS 權杖。 |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | 建立 App Service 方案。 |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 建立 Web 應用程式。 |
 | [Edit-AzWebAppBackupConfiguration](/powershell/module/az.websites/edit-azwebappbackupconfiguration) | 編輯 Web 應用程式的備份設定。 |

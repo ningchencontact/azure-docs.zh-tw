@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3260be2f570e2ad7dcbe3cf459d3da289af46001
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ada3c9a6ed08895727d395363b7e8a9cb1f2f08f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165343"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>教學課程：Azure Active Directory 與 Litmos 整合
 

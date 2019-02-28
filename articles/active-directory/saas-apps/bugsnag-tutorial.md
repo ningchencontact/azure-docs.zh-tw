@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e27bdd9bfcf732add45355f014e4af8a67d0c59
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 54ec962d5f750ab5f78a576d0fdbb1293b72634b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56318973"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>教學課程：Azure Active Directory 與 Bugsnag 整合
 

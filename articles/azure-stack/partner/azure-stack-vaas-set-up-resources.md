@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 460edc7f092764cce3584c81371db4801fbd69bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240007"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593229"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>教學課程：設定驗證即服務的資源
 
@@ -92,7 +92,7 @@ ms.locfileid: "55240007"
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
-在測試執行期間，VaaS 會將診斷記錄輸出至 Azure 儲存體帳戶。 除了測試記錄以外，儲存體帳戶也可用來上傳解決方案驗證工作流程的 OEM 延伸模組套件。
+在測試執行期間，VaaS 會將診斷記錄輸出至 Azure 儲存體帳戶。 除了測試記錄以外，儲存體帳戶也可用來上傳套件驗證工作流程的 OEM 延伸模組套件。
 
 Azure 儲存體帳戶會裝載於 Azure 公用雲端中，而不是您的 Azure Stack 環境。
 

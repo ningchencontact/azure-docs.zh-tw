@@ -4,17 +4,17 @@ description: 在本教學課程中，將 Azure Machine Learning 當作模組部�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/15/2018
+ms.date: 02/21/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 464d16d4bbcbdbefd36ce1132630ad702d7a0c90
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0f7201ffd71a6bc3e68f83f005c693cae4fef84a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076959"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648995"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
 
@@ -58,7 +58,7 @@ Azure IoT Edge 裝置：
 
 若要在 IoT Edge 裝置上停用程序識別，您必須在 IoT Edge 精靈設定的 [連線] 區段中，對 **workload_uri** 和 **management_uri** 提供 IP 位址和連接埠。
 
-先取得 IP 位址。 在命令列中輸入 `ipconfig`，然後複製 **docker0** 介面的 IP 位址。
+先取得 IP 位址。 在命令列中輸入 `ifconfig`，然後複製 **docker0** 介面的 IP 位址。
 
 編輯 IoT Edge 精靈設定檔：
 

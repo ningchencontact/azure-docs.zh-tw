@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846671"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586897"
 ---
 # <a name="get-started-with-service-bus-topics"></a>開始使用服務匯流排主題
 
@@ -41,40 +41,11 @@ ms.locfileid: "54846671"
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1.使用 Azure 入口網站建立命名空間
-
-> [!NOTE] 
-> 您也可以使用 [PowerShell](/powershell/azure/get-started-azureps) 來建立服務匯流排命名空間和傳訊實體。 如需詳細資訊，請參閱[使用 PowerShell 來管理服務匯流排資源](service-bus-manage-with-ps.md)。
-
-如果您已建立服務匯流排傳訊命名空間，請跳至[使用 Azure 入口網站建立主題](#2-create-a-topic-using-the-azure-portal)一節。
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2.使用 Azure 入口網站建立主題
+[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
-1. 登入 [Azure 入口網站][azure-portal]。
-2. 在入口網站的左方瀏覽窗格中，按一下 **[服務匯流排]** \(如果您未看見 **[服務匯流排]** ，請按一下 **[所有服務]** ，或按一下 **[所有資源]** )。 按一下要在其中建立主題的命名空間。 
-3. 命名空間概觀視窗隨即開啟。 按一下 [主題]：
-   
-    ![建立主題][createtopic1]
-4. 按一下 [+ 主題]。
-   
-    ![選取主題][createtopic2]
-5. 輸入主題的名稱。 保留其他選項的預設值。
-   
-    ![選取新增][createtopic3]
-6. 按一下對話方塊底部的 [建立] 。
-
-## <a name="3-create-a-subscription-to-the-topic"></a>3.針對主題建立訂用帳戶
-
-1. 在入口網站的資源窗格中，按一下在步驟 1 所建立的命名空間，接著按一下 [主題]，再按一下在步驟 2 所建立的主題名稱。
-2. 在概觀窗格頂端，按一下 [+ 訂用帳戶]，將訂用帳戶新增至此主題。
-
-    ![建立訂用帳戶][createtopic4]
-
-3. 輸入訂用帳戶名稱。 保留其他選項的預設值。
-
-## <a name="4-send-messages-to-the-topic"></a>4.將訊息傳送到主題
+## <a name="send-messages-to-the-topic"></a>將訊息傳送到主題
 
 為了將訊息傳送至主題，請使用 Visual Studio 撰寫 C# 主控台應用程式。
 
@@ -231,7 +202,7 @@ ms.locfileid: "54846671"
    
       ![訊息大小][topic-message]
 
-## <a name="5-receive-messages-from-the-subscription"></a>5.自訂用帳戶接收訊息
+## <a name="receive-messages-from-the-subscription"></a>自訂用帳戶接收訊息
 
 若要接收您剛傳送的訊息，請建立另一個 .NET Core 主控台應用程式，並安裝 **Microsoft.Azure.ServiceBus** NuGet 套件 (類似於先前的傳送者應用程式)。
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ce4e88a26ffa4970096cc3fb414b634a27d780
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17cdf5c4f2bcb2ff63671fed815d6cea41af89e7
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198383"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>教學課程：Azure Active Directory 與 DigiCert 整合
 

@@ -10,12 +10,12 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 10/08/2018
 ms.author: diberry
-ms.openlocfilehash: 1e4571080a126a771b644f19fc298d26c10a436f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ada2e36f067db685944c683de8cc36d3bbf8cf6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480230"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740908"
 ---
 在 [管理] 區段 (右上方功能表) 的 [金鑰和端點] 頁面 (左側功能表) 中，選取頁面底部的**端點** URL。 此動作會開啟另一個瀏覽器索引標籤，其中網址列會顯示端點 URL。 
 

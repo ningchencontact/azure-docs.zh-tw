@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 845ce074b503dc395ce3444734b16d4ab8224e89
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2022971d24f7ac8a24986f45031f568a86fc31d9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876261"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726358"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來直譯文字
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 099485f37cc188307b6c04343ef174740acf07cb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 705bc49cef13ae80d648ca59b50021250dede3bd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891567"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736765"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來取得支援的語言清單
 

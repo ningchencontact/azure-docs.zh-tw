@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91ef20398bc3e15b1ee47c6e7c28795f4d9bc08c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: da98268d0a6ee015c848e9fe91cb3deecf28c4f4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190937"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>教學課程：Azure Active Directory 與 Dome9 Arc 整合
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2e7e67236a2f9709bafc0a0383f6ac12b26ca57e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: cf39639c6b9e20337412b7b071f6d6840904ba6c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984183"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738210"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視和更新 Windows 虛擬機器
 
@@ -87,7 +87,7 @@ Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "m
 
 ## <a name="install-diagnostics-extension"></a>安裝診斷擴充功能
 
-系統提供基本的主機計量，但若要查看更細微或 VM 特定的計量，則需要在 VM 上安裝 Azure 診斷的擴充功能。 Azure 診斷擴充功能可額外提供從 VM 擷取的監視和診斷資料。 您可以檢視這些效能計量，並依據 VM 的執行狀況建立警示。 診斷擴充功能可透過 Azure 入口網站安裝，如下所示︰
+系統提供基本的主機計量，但若要查看更細微或 VM 特定的計量，則需要在 VM 上安裝 Azure 診斷延伸模組。 Azure 診斷擴充功能可額外提供從 VM 擷取的監視和診斷資料。 您可以檢視這些效能計量，並依據 VM 的執行狀況建立警示。 診斷擴充功能可透過 Azure 入口網站安裝，如下所示︰
 
 1. 從 Azure 入口網站中，按一下 [資源群組]，選取 [myResourceGroupMonitor]，然後選取資源清單中的 [myVM]。
 2. 按一下 [診斷設定]。 清單會顯示在上一節已啟用開機診斷。 按一下 [基本計量] 的核取方塊。

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998513"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649576"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -69,10 +69,8 @@ ms.locfileid: "55998513"
 
     ![在範本頁面完成後加以設定](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. 在 [設定範本] 頁面上，執行下列步驟：這些都是本教學課程的**選擇性**步驟。
-    1. 選取 [啟動] 以啟動範本 VM。
     2. 選取 [連線] 以連線至範本 VM。 
-    3. 在您的範本 VM 上安裝並設定軟體。 
-    4. **停止** VM。  
+    3. 在您的範本 VM 上安裝並設定軟體。     
     5. 輸入範本的 [描述]
 9. 選取 [範本] 頁面上的 [下一步]。 
 10. 在 [發佈範本] 頁面上，執行下列動作。 
@@ -101,7 +99,7 @@ ms.locfileid: "55998513"
 1. 選取左側功能表上的 [使用者]。 預設會啟用 [限制存取] 選項。 當此設定為開啟時，即使使用者有註冊連結，除非使用者位於使用者清單中，否則也無法向實驗室註冊。 只有清單中的使用者可以使用您傳送的註冊連結，向實驗室註冊。 在此程序中，您會在清單中新增使用者。 或者，您可以關閉 [限制存取]，讓使用者能向實驗室註冊 (只要他們有註冊連結)。 
 2. 選取工具列上的 [新增使用者]。 
 
-    ![新增使用者按鈕](../media/how-to-configure-student-usage/add-users-button.png)
+    ![[新增使用者] 按鈕](../media/how-to-configure-student-usage/add-users-button.png)
 1. 在 [新增使用者] 頁面上的不同行或以分號隔開的單一行中，輸入使用者的電子郵件地址。 
 
     ![新增使用者電子郵件地址](../media/how-to-configure-student-usage/add-users-email-addresses.png)

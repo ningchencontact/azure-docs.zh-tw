@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7bc6b57122072c2fe0c063c1278cf11d97469b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191311"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>教學課程：Azure Active Directory 與 Snowflake 整合
 
@@ -141,7 +141,7 @@ Snowflake 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這與您在右上角您使用者名稱底下選取的內容不同
     
-    ![Snowflake admin ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![Snowflake admin](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. 在記事本中開啟**所下載的 Base 64 憑證**。 複製介於 “-----BEGIN CERTIFICATE-----” 與 “-----END CERTIFICATE-----" 之間的值，並將此值貼到下面 [憑證] 旁邊的引號中。 在 [ssoUrl] 中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。 選取 [所有查詢]，然後按一下 [執行]。
 
@@ -219,11 +219,11 @@ Snowflake 與 Azure AD 整合提供下列優點：
 
 2. 按一下頁面右上方的 [設定檔]，**切換角色**為 **ACCOUNTADMIN**。  
 
-    ![Snowflake admin ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![Snowflake admin](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. 執行下列 SQL 查詢來建立使用者，確定「登入名稱」是設定為工作表上的 Azure AD 使用者名稱，如下所示。
 
-    ![Snowflake adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![Snowflake adminsql](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
     use role accountadmin;

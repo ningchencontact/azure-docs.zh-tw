@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d492db8e50a9ff34da1940b01465fe0ca7f7c4b
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: e92d4b66a42592dd06773b3973165ecd064efb4d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302007"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>教學課程：Azure Active Directory 與 CA PPM 整合
 

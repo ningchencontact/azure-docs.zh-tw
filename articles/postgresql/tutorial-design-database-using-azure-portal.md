@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536520"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864544"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站來設計適用於 PostgreSQL 的 Azure 資料庫
 
@@ -78,7 +78,7 @@ ms.locfileid: "53536520"
 
 1.  完成部署之後，從左側功能表中按一下 [所有資源]，然後輸入名稱 **mydemoserver** 來搜尋新建立的伺服器。 按一下搜尋結果中列出的伺服器名稱。 伺服器的 [概觀] 頁面隨即開啟，並提供可進行進一步設定的選項。
 
-   ![適用於 PostgreSQL 的 Azure 資料庫 - 搜尋伺服器 ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![適用於 PostgreSQL 的 Azure 資料庫 - 搜尋伺服器](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  在伺服器頁面中，選取 [連線安全性]。 
 
@@ -98,7 +98,7 @@ ms.locfileid: "53536520"
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您剛建立的伺服器。
 
-   ![適用於 PostgreSQL 的 Azure 資料庫 - 搜尋伺服器 ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![適用於 PostgreSQL 的 Azure 資料庫 - 搜尋伺服器](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2. 按一下伺服器名稱 **mydemoserver**。
 

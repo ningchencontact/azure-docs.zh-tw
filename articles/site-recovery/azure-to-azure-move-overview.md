@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a73eac1dea731bbf1ffb903ddf2438e791fec9d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309857"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726444"
 ---
 # <a name="move-azure-vms-to-another-region"></a>將 Azure VM 移動到另一個區域
 
@@ -70,7 +70,7 @@ Azure 隨著客戶群的增長而持續擴充，且將新增新區域的支援�
 
 
 
- ## <a name="move-vms-as-is-to-a-target-region"></a>將 VM 依原狀移至目標區域
+## <a name="move-vms-as-is-to-a-target-region"></a>將 VM 依原狀移至目標區域
 
 根據前述的[架構](#typical-architectures-for-a-multi-tier-deployment)，以下將說明您執行依原狀移至目標區域的作業後，部署所將呈現的樣貌。
 

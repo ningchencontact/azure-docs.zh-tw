@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 34d397412a6d461325465ccc5dd41a62d91c6fc5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9a6afc4dfb25a2a5f6e778fbda877a93269a96eb
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872045"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673270"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>快速入門：翻譯工具語音 API (使用 Python)
 <a name="HOLTop"></a>
@@ -30,7 +31,7 @@ ms.locfileid: "55872045"
 
 您將需要安裝適用於 Python 的 [websocket-client 套件](https://pypi.python.org/pypi/websocket-client)。
 
-您將需要將一個名為 "speak.wav" 的 .wav 檔案，放在與您從下方程式碼編譯之可執行檔相同的資料夾中。 這個 .wav 檔案應該採用標準 PCM 16 位元 16 kHz 單聲道格式。 
+您將需要將一個名為 "speak.wav" 的 .wav 檔案，放在與您從下方程式碼編譯之可執行檔相同的資料夾中。 這個 .wav 檔案應該採用標準 PCM 16 位元 16 kHz 單聲道格式。
 
 您必須擁有具備 **Microsoft Translator Speech API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您將需要一個來自 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServices)的付費訂用帳戶金鑰。
 
@@ -132,7 +133,7 @@ client.run_forever()
 > [!div class="nextstepaction"]
 > [Translator Speech 教學課程](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>另請參閱
 
 [Translator Speech 概觀](../overview.md)
 [API 參考](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)
