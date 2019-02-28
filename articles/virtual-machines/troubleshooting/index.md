@@ -5,20 +5,15 @@ title: Azure 虛擬機器疑難排解文件 | Microsoft Docs
 services: virtual-machines
 author: genlin
 manager: jeconnoc
-ms.assetid: ''
+ms.assetid: null
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: 493c8053af1648e415fc774dd0031e18554e0458
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877425"
 ---
+
 # <a name="troubleshooting-azure-virtual-machines"></a>針對 Azure 虛擬機器進行疑難排解
 
 - 配置失敗
@@ -61,7 +56,7 @@ ms.locfileid: "52877425"
     - [Windows](troubleshoot-deploy-vm-windows.md)
 - [裝置名稱已變更](troubleshoot-device-names-problems.md)
 - VM 復原存取
-    -  Windows
+    - Windows
         - [PowerShell](troubleshoot-recovery-disks-windows.md)
         - [Azure 入口網站](troubleshoot-recovery-disks-portal-windows.md)
     - Linux
