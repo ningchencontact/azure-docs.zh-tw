@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 28172ed2309c1e97fe6dafa46cf055862a894cee
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: daf643a96195bc5f8f30652eaf1e7b071d63fa87
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730336"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888231"
 documentType: LandingData
 title: Bing 拼字檢查 API 文件
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Bing Spell Check API 文件 - 教學課程和 API 參考 - Azure 認知服務 | Microsoft Docs
   description: 了解如何使用 Bing Spell Check API 來取得文字文件的建議修正。 教學課程會示範如何建置使用 API 的應用程式。
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: aahill
+  manager: cgronlun
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/09/2018
-  ms.author: nolachar
+  ms.date: 02/19/2019
+  ms.author: aahi
 abstract:
   description: Bing 拼字檢查 API 可讓您執行內容的文法與拼字檢查。 Bing 所開發的 Web 架構拼字檢查工具則運用了機器學習服務和統計機器翻譯，以動態方式定型持續進化且內容相關度高的演算法。 此拼字檢查工具以大規模的 Web 搜尋和文件主體為基礎。 透過我們的快速入門、教學課程及範例，了解如何以不同的方式分新內容。
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-spell-check/overview
+      html: <p>深入了解 Bing 拼字檢查 API。</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: 什麼是 Bing 拼字檢查 API？
+    - href: /azure/cognitive-services/bing-spell-check/concepts/sending-requests
+      html: <p>了解如何將拼字檢查要求傳送至 Bing 拼字檢查 API。</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 拼字檢查要求
+    - href: /azure/cognitive-services/bing-spell-check/concepts/using-spell-check
+      html: <p>了解如何使用 API 的不同拼字檢查模式。</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 圖片搜尋回應
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
@@ -63,7 +84,6 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorials/spellcheck.md">單頁 Web 應用程式</a>
-    - html: <a href="tutorials/spellcheck-source.md">單頁 Web 應用程式 (原始程式碼)</a>
 - title: 範例
   items:
   - type: paragraph

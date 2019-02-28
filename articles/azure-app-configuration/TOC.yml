@@ -1,0 +1,60 @@
+items:
+- name: Azure 應用程式組態文件
+  href: index.yml
+- name: 概觀
+  items:
+  - name: 關於 Azure 應用程式組態
+    href: overview.md
+- name: 快速入門
+  items:
+  - name: 建立 ASP.NET Core 應用程式
+    href: quickstart-aspnet-core-app.md
+  - name: 建立 .NET Core 應用程式
+    href: quickstart-dotnet-core-app.md
+  - name: 建立.NET Framework 應用程式
+    href: quickstart-dotnet-app.md
+  - name: 建立 Azure 函式
+    href: quickstart-azure-function-csharp.md
+  - name: 建立 Java Spring 應用程式
+    href: quickstart-java-spring-app.md
+  expanded: true
+- name: 教學課程
+  items:
+  - name: 啟用 ASP.NET Core 中的動態組態
+    href: enable-dynamic-configuration-aspnet-core.md
+  - name: 與 Azure 受控服務識別整合
+    href: integrate-azure-managed-service-identity.md
+- name: 範例
+  items:
+  - name: 程式碼範例
+    href: https://github.com/Azure/AppConfiguration/samples
+  - name: Azure CLI
+    href: cli-samples.md
+- name: 概念
+  items:
+  - name: 索引鍵-值存放區
+    href: concept-key-value.md
+  - name: 時間點快照集
+    href: concept-point-time-snapshot.md
+- name: 使用說明指南
+  items:
+  - name: 匯入或匯出設定資料
+    href: howto-import-export-data.md
+  - name: 與 CI/CD 管線整合
+    href: howto-integrate-ci-cd-pipeline.md
+- name: 參考
+  items:
+  - name: .NET Core 組態提供者
+    href: https://go.microsoft.com/fwlink/?linkid=2074664
+  - name: .NET Framework 組態建立器
+    href: https://go.microsoft.com/fwlink/?linkid=2074663
+  - name: Java Spring 組態提供者
+    href: https://go.microsoft.com/fwlink/?linkid=2074659
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/azure-app-configuration
+ms.openlocfilehash: c35296a6923e464ca20a873de4165ea20c08278f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56884129"

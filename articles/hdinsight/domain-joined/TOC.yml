@@ -47,12 +47,12 @@ items:
   - name: Azure VNet 中的 Apache HBase 叢集複寫
     href: ../hbase/apache-hbase-replication.md
     maintainContext: true
-- name: 使用 Log Analytics 監視
+- name: 使用 Azure 監視器記錄監視
   items:
-  - name: 使用 Azure Log Analytics
+  - name: 使用 Azure 監視器記錄
     href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
     maintainContext: true
-  - name: 透過 Log Analytics 使用查詢
+  - name: 使用 Azure 監視器記錄查詢
     href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
     maintainContext: true
   - name: 監視叢集效能
@@ -103,9 +103,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 98324ce4510b40d21013198efd48f4dcb04a9c18
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: a7e4c066ed79d71a60f01ccba6d7608fefdd3440
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56325818"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886327"

@@ -420,8 +420,6 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Azure 儲存體的診斷或記錄資料
         href: platform/azure-storage-iis-table.md
-      - name: Azure PaaS 資源
-        href: platform/collect-azurepass-posh.md
       - name: 將自訂資料來源相互關聯
         href: app/custom-data-correlation.md
     - name: 收集自訂資料
@@ -448,10 +446,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: 存放診斷記錄
         href: platform/diagnostic-logs-stream-log-store.md
+      - name: Azure 資源資料至事件中樞
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: 將活動記錄串流至事件中樞
         href: platform/activity-logs-stream-event-hubs.md
-      - name: 記錄檔與計量到事件中樞
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: 診斷記錄到事件中樞
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: 應用程式資料到 Log Analytics
@@ -636,8 +634,9 @@ items:
   - name: 顯現資料
     items:
     - name: Views
-      href: platform/view-designer.md
       items:
+      - name: '[檢視設計工具]'
+        href: platform/view-designer.md
       - name: 圖格參考
         href: platform/view-designer-tiles.md
       - name: 視覺效果組件參考
@@ -1031,9 +1030,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 519c8213c715995fea89475e81f8c63f41190d65
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7ca33f101a86f08ce8249bd43975d6ed2aab6141
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455393"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888163"

@@ -1,5 +1,6 @@
 # [Azure Marketplace 和 AppSource 文件](index.md)
 ## [Azure Marketplace 和 AppSource 藍圖](./marketplace-roadmap.md)
+## [Azure Marketplace 的原則和條款](./policies-terms.md)
 
 ## [Azure Marketplace 和 AppSource 概觀和優點](./marketplace-publishers-guide.md)  
 ### [在市集上成為發行者](./become-publisher.md)  
@@ -29,7 +30,6 @@
 #### [供應項目清單最佳做法](./gtm-offer-listing-best-practices.md)
 #### [如何取得精選項目](./gtm-how-to-get-featured.md)
 #### [市集內容驗證](./marketplace-criteria-content-validation.md)
-#### [原則評等和檢閱](./rating-review-policies.md)   
 
 ### [您的市集優惠](./gtm-your-marketplace-benefits.md)
 #### [透過 Microsoft 推廣您的業務](./gtm-promote-your-business.md)
@@ -37,9 +37,6 @@
 
 ### [支援 Azure Marketplace 和 AppSource](./support-azure-marketplace.md)
 #### [Marketplace 常見問題集](./marketplace-faq-publisher-guide.md)
-#### [Marketplace 條款](./marketplace-terms.md)
-#### [Marketplace 參與原則](./marketplace-participation-policy.md)
-
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 

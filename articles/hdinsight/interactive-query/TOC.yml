@@ -339,12 +339,12 @@ items:
     - name: 將 HDInsight 與內部部署網路連線
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: 使用 Log Analytics 監視
+  - name: 使用 Azure 監視器記錄監視
     items:
-    - name: 使用 Azure Log Analytics
+    - name: 使用 Azure 監視器記錄
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: 透過 Log Analytics 使用查詢
+    - name: 使用 Azure 監視器記錄查詢
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: 監視叢集效能
@@ -395,9 +395,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 09faec7121aa502d6fbdf7fb4d956a00de49b2e5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 3a687530afde6f24d1e264b289b7aaebf290c68f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326649"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888248"
