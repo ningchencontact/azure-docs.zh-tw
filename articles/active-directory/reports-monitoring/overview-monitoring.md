@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 961f7bf85ed8bb67c8284edea1846e96895d7f46
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d81905d3e42302a5654b51cc0269e546fee49d2f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452843"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816771"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>什麼是 Azure Active Directory 監視？ (預覽)
 
@@ -35,6 +35,8 @@ ms.locfileid: "56452843"
 - Azure Log Analytics 工作區，您可在其中分析資料、建立儀表板以及特定事件的警示
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="diagnostic-settings-configuration"></a>診斷設定組態
 

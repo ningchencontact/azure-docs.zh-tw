@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a606345655e18cf4991387cfd3cd18716d2df9dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2728ce2c375519646d0781005fc10a4174cf2483
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188183"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>教學課程：Azure Active Directory 與 ClickTime 整合
 

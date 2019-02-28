@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/14/2019
+ms.date: 02/25/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 37d84206246e60ed16244d6172a5e22ca18524c9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270244"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823649"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>快速入門：使用 Visual Studio Code 建立 Azure Resource Manager 範本
 
@@ -132,8 +132,8 @@ ms.locfileid: "56270244"
     read resourceGroupName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
-    az group create --name $resourceGroupName --location $location &&
-    az group deployment create --resource-group $resourceGroupName --template-file "azuredeploy.json"
+    az group create --name $resourceGroupName --location "$location" &&
+    az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
@@ -142,14 +142,11 @@ ms.locfileid: "56270244"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
     ```
     
     ---
-
-    > [!NOTE]
-    > 在 Cloud shell 中使用 Azure PowerShell 時發生檔案 IO 問題。  錯誤訊息是「無法擷取此 Cmdlet 的動態參數。找不到路徑 'Azure:/azuredeploy.json'，因為該路徑不存在。  暫時的解決方法是不要在 `New-AzResourceGroupDeploy` 命令中包含 **-TemplateFile** 參數。 此命令會提示您輸入檔案名稱。
 
     如果您將檔案儲存為 **azuredeploy.json** 以外的名稱，請更新範本檔名。 
 

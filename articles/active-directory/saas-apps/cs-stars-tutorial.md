@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b6433a5c814f2d32fe0d40b7f28e6c8da474456
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8267eebb5193be8209737047e17bc1d4878023ff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186104"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>教學課程：Azure Active Directory 與 CS Stars 整合
 

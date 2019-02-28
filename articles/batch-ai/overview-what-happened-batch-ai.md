@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fb1114e94c227ce6787532c6059186399d0f57f0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447798"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961344"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>Azure Batch AI 的現況為何？
 
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-請參閱 [Azure ML 服務文件](../machine-learning/service/how-to-access-data.md#create-a-datastore)以深入了解如何註冊其他儲存體帳戶，或取得其他已註冊資料存放區的參考。
+請參閱 [Azure ML 服務文件](../machine-learning/service/how-to-access-data.md#access)以深入了解如何註冊其他儲存體帳戶，或取得其他已註冊資料存放區的參考。
 
 
 #### <a name="downloading-and-uploading-data"></a>下載和上傳資料 
@@ -434,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-如需此訓練程式碼片段 (包括 tf_mnist_replica.py 檔案) 的完整資訊，請透過 [Azure ML 範例 Notebook Github 存放庫](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server)取得。 資料存放區本身可掛接在個別節點上，或者，可在節點本身下載訓練資料。 如需關於在估算器中參考資料存放區的詳細資訊，請參閱 [Azure ML 服務文件](../machine-learning/service/how-to-access-data.md#access-datastores-for-training)。 
+如需此訓練程式碼片段 (包括 tf_mnist_replica.py 檔案) 的完整資訊，請透過 [Azure ML 範例 Notebook Github 存放庫](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server)取得。 資料存放區本身可掛接在個別節點上，或者，可在節點本身下載訓練資料。 如需關於在估算器中參考資料存放區的詳細資訊，請參閱 [Azure ML 服務文件](../machine-learning/service/how-to-access-data.md#access)。 
 
 在 Azure ML 中提交執行的作業可透過 submit 函式來完成。
 

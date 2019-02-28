@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 7371808db8d40948f501b051692172fd6a84e2ac
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1390a3be20dd1fc66bb04939f9ce41139db3cb2e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270210"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873265"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault
 
@@ -66,15 +66,23 @@ ms.locfileid: "56270210"
 
 1. 執行下列 Azure PowerShell 或 Azure CLI 命令。  
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli-interactive
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    ```
+    ```   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     ```azurepowershell-interactive
-    $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
+    $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
     (Get-AzADUser -UserPrincipalName $upn).Id
     ```
+    或
+    ```azurepowershell-interactive
+    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right corner of the Azure portal)"
+    (Get-AzADUser -DisplayName $displayName).Id
+    ```
+    ---
 2. 請記下物件識別碼。 稍後在本教學課程中需要用到。
 
 若要建立金鑰保存庫：
@@ -187,12 +195,9 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json `
-    -TemplateParameterFile azuredeploy.parameters.json
+    -TemplateFile "$HOME/azuredeploy.json" `
+    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
 ```
-
-> [!NOTE]
-> 在 Cloud shell 中使用 Azure PowerShell 時發生檔案 IO 問題。  錯誤訊息是「無法擷取此 Cmdlet 的動態參數。找不到路徑 'Azure:/azuredeploy.json'，因為該路徑不存在。  暫時的解決方法是不要在 `New-AzResourceGroupDeploy` 命令中包含 **-TemplateFile** 和 **TemplateParameterFile** 參數。 此命令會提示您輸入檔案名稱。
 
 當您部署範本時，請使用相同的資源群組作為金鑰保存庫。 這可讓您更為輕鬆地清除資源。 您只需要刪除一個資源群組，而非兩個資源群組。
 

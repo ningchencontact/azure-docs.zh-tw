@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19039a6a1337c2ddc7494805b18f564466d4f1f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 85e773d74231b0b0847dad41a071be499724e2d4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168726"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>教學課程：Azure Active Directory 與 InstaVR Viewer 整合
 
@@ -136,11 +136,11 @@ ms.locfileid: "56168726"
 
 2. 按一下 [使用者圖示]，然後選取 [帳戶]。
 
-    ![InstaVR Viewer 組態 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+    ![InstaVR Viewer 組態](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
 3. 向下捲動至 [SAML 驗證]，然後執行下列步驟：
 
-    ![InstaVR Viewer 組態 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![InstaVR Viewer 組態](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
     a. 在 [SSO URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。
 
@@ -215,15 +215,15 @@ ms.locfileid: "56168726"
 
 2. 從左瀏覽面板中選取 [封裝]，然後選取 [針對 Web 進行封裝]。
 
-    ![InstaVR Viewer 組態 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![InstaVR Viewer 組態](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. 選取 [下載]。
 
-    ![InstaVR Viewer 組態 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![InstaVR Viewer 組態](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
 4. 選取 [開啟託管頁面] 之後，它會被重新導向至 Azure AD 進行登入。
 
-    ![InstaVR Viewer 組態 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![InstaVR Viewer 組態](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
 5. 輸入您的 Azure AD 認證以透過 SSO 成功登入 Azure AD。
 

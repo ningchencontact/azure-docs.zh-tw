@@ -1,9 +1,9 @@
 ---
-title: 快速入門 - 建立 Web 應用程式並部署至 Azure Service Fabric Mesh | Microsoft Docs
-description: 本快速入門示範如何建立 ASP.NET Core 網站，並將它發行至 Azure Service Fabric Mesh。
+title: 快速入門 - 將 Web 應用程式至 Azure Service Fabric Mesh | Microsoft Docs
+description: 本快速入門說明如何使用 Visual Studio 建立 ASP.NET Core 網站，並將其發佈至 Azure Service Fabric Mesh。
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylermsft
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7e324b80968017e0160f41b88fa1824669050ac9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407394"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804912"
 ---
-# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>快速入門：建立 Web 應用程式並部署至 Azure Service Fabric Mesh
+# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>快速入門：建立 Web 應用程式，並將其部署至 Azure Service Fabric Mesh
 
 Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員能夠部署微服務應用程式，而不需管理虛擬機器、儲存體或網路功能。
 
@@ -88,7 +88,7 @@ Visual Studio 會建立 Service Fabric Mesh 應用程式專案和 ASP.NET Core �
 
 當您首次發行到 Azure 時，會將 Dcker 映像推送到 Azure Container Registry (ACR)，所需時間取決於映像大小。 後續發行相同專案的速度將會加快。 您可以在 Visual Studio 的 [輸出] 視窗下拉式清單中選取 [Service Fabric 工具]，藉以監視部署的進度。 一旦部署完成之後，**Service Fabric 工具**輸出將會以 URL 形式來顯示應用程式的 IP 位址和連接埠。
 
-```json
+```
 Packaging Application...
 Building Images...
 Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll

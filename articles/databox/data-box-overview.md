@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: b43dac7f81b92ac504427dab164d23d9ebb1ec03
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411402"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875020"
 ---
 # <a name="what-is-azure-data-box"></a>什麼是 Azure 資料箱？
 
@@ -76,7 +76,7 @@ Microsoft Azure 資料箱雲端解決方案可讓您以快速、實惠和可靠�
 
 * **資料箱裝置** - 一種實體裝置，可提供主要儲存體、管理與雲端儲存體的通訊，並協助確保所有儲存在裝置之資料的安全性和機密性。 資料箱裝置的可用儲存容量為 80 TB。 
 
-    ![資料箱的正面和背面 ](media/data-box-overview/data-box-combined3.png)
+    ![資料箱的正面和背面](media/data-box-overview/data-box-combined3.png)
 
     
 * **資料箱服務** - Azure 入口網站的延伸模組，可讓您從不同的地理位置存取 Web 介面來管理資料箱裝置。 使用資料箱服務執行資料箱裝置的每日管理。 服務工作包括如何建立和管理訂單、檢視及管理警示，以及管理共用。  

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f97718cf7698c5a27c3eee21e91ddd912f352121
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 04d80d7a660bb9fabbe926471dc08c7269882569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311642"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-schoox"></a>教學課程：Azure Active Directory 與 Schoox 整合
 

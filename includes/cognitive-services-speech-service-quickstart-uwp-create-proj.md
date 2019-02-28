@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: c8ef95f6a01b64b722544d9397d928387a69d7c7
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2e495f9aed18ebc4007e63b8ef03641a72d21079
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458428"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56963351"
 ---
 1. 啟動 Visual Studio 2017。
 
@@ -49,7 +49,7 @@ ms.locfileid: "56458428"
 1. 下列輸出行會出現在套件管理器主控台中。
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.3.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.3.1' to helloworld
    ```
 
 1. 由於應用程式使用麥克風進行語音輸入，請將 [麥克風] 功能新增至專案。 在 [方案總管] 中，按兩下 [Package.appxmanifest] 以編輯您的應用程式資訊清單。 接著，切換至 [功能] 索引標籤，選取 [麥克風] 功能的方塊，然後儲存您的變更。

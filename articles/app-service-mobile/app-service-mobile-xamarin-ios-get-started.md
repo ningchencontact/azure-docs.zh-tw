@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d08ebc7c1e52022ec918020387264c464d1cd967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307165"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883414"
 ---
 # <a name="create-a-xamarinios-app"></a>建立 Xamarin.iOS 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "38307165"
 
 您必須先完成此教學課程，才能進行所有其他在 Azure App Service 中使用 Mobile Apps 的 Xamarin.iOS 相關教學課程。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要下列必要條件：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，請註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -72,7 +72,7 @@ ms.locfileid: "38307165"
 
 ## <a name="next-steps"></a>後續步驟
 * [將離線同步處理新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [在您的應用程式中新增驗證](app-service-mobile-xamarin-ios-get-started-users.md)
+* [將驗證新增至應用程式中](app-service-mobile-xamarin-ios-get-started-users.md)
 * [將推播通知新增至您的 Xamarin.Android 應用程式](app-service-mobile-xamarin-ios-get-started-push.md)
 * [如何針對 Azure Mobile Apps 使用受控用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)
 

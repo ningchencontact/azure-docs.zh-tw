@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 383524d2882f3e697eb34f442cdb99c80fc21e1e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 10ad763fb8af94ee3735a74d8073cef9ba26a5cf
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161790"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866295"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>教學課程：Azure Active Directory 與 Proofpoint on Demand 整合
 

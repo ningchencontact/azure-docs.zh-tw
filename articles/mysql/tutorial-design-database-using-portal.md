@@ -1,18 +1,18 @@
 ---
 title: 教學課程：使用 Azure 入口網站來設計適用於 MySQL 的 Azure 資料庫
-description: 本教學課程說明如何使用「Azure 入口網站」來建立和管理「適用於 MySQL 的 Azure 資料庫」伺服器和資料庫。
+description: 本教學課程說明如何使用「Azure 入口網站」來建立和管理「適用於 MySQL 的 Azure 資料庫」伺服器。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: bf46b047af69dcd1a751661a701b1eb9b7f75563
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 54d5fdf925769a5dd0db73ae964419388cae913c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537717"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866941"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站來設計「適用於 MySQL 的 Azure 資料庫」資料庫
 「適用於 MySQL 的 Azure 資料庫」是一個受控服務，可讓您在雲端執行、管理及調整高可用性 MySQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
@@ -27,6 +27,8 @@ ms.locfileid: "53537717"
 > * 查詢資料
 > * 更新資料
 > * 還原資料
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 開啟您的慣用網頁瀏覽器，然後瀏覽至 [Microsoft Azure 入口網站](https://portal.azure.com/)。 輸入您的認證來登入此入口網站。 預設檢視是您的服務儀表板。

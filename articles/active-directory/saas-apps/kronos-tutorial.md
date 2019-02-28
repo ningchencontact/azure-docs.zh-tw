@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac66ff60449b6af63488ef18874226c2c0d3d8c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35e7ef28a98cc660f11ec12c19cf45f8c3e224cf
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165583"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kronos"></a>教學課程：Azure Active Directory 與 Kronos 整合
 

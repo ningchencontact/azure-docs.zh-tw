@@ -14,12 +14,12 @@ ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ea36dbe30eddc3d503631c31e46291101ea175d4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f0860552f78e428f5b452aea6bcebe7f6a3a886a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239531"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881697"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 儲存體的資料傳輸工具
 
@@ -45,7 +45,7 @@ Microsoft Azure Stack 提供磁碟、Blob、資料表、佇列和帳戶管理功
 
     具有使用者介面且易於使用的獨立應用程式。
 
-* [Blobfuse ](#blobfuse)
+* [Blobfuse](#blobfuse)
 
     Azure Blob 儲存體的虛擬檔案系統驅動程式，能讓您透過 Linux 檔案系統存取儲存體帳戶中現有的區塊 Blob 資料。 
 

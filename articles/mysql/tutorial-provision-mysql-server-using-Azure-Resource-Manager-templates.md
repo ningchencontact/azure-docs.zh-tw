@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: fa8091011575822907915b67cf48bffaf5e7e728
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657071"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880694"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本佈建「適用於 MySQL 的 Azure 資料庫」伺服器
 
@@ -29,6 +29,8 @@ Azure Resource Manager 會利用基礎的 REST API 來宣告和程式化大規�
 > * 載入範例資料
 > * 查詢資料
 > * 更新資料
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本在 VNet 服務端點建立「適用於 MySQL 的 Azure 資料庫」伺服器
 

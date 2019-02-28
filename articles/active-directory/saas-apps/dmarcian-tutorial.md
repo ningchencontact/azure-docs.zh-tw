@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4768c38b2e76bfa8cdff3187c32c03fdaaf57bbf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207648"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>教學課程：Azure Active Directory 與 dmarcian 整合
 
@@ -143,15 +143,15 @@ dmarcian 與 Azure AD 整合提供下列優點：
 
 2. 按一下右上角的 [設定檔]，然後瀏覽至 [喜好設定]。
 
-    ![喜好設定 ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+    ![喜好設定](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
 3. 向下捲動並按一下 [單一登入] 區段，然後按一下 [設定]。
 
-    ![單一 ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+    ![單一](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
 4. 在 [SAML 單一登入] 頁面上，將 [狀態] 設定為 [已啟用] 並執行下列步驟：
 
-    ![驗證 ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+    ![驗證](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
     * 在 [將 dmarcian 新增至您的識別提供者] 區段下方按一下 [複製]，以複製執行個體的 [判斷提示取用者服務 URL]，並將其貼到 Azure 入口網站上的 [基本 SAML 組態] 區段的 [回覆 URL] 文字方塊中。
 
@@ -229,15 +229,15 @@ dmarcian 與 Azure AD 整合提供下列優點：
 
 2. 按一下右上角的 [設定檔]，然後瀏覽至 [管理使用者]。
 
-    ![使用者 ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+    ![使用者](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
 3. 在 [SSO 使用者] 區段右側，按一下 [新增使用者]。
 
-    ![新增使用者 ](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+    ![新增使用者](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
 
 4. 在 [新增使用者]  區段中，執行下列步驟：
 
-    ![新增使用者 ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+    ![新增使用者](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
     a. 在 [新增使用者電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
 

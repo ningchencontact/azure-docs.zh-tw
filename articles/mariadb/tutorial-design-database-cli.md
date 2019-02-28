@@ -1,6 +1,6 @@
 ---
 title: 教學課程：使用 Azure CLI 來設計適用於 MariaDB 的 Azure 資料庫
-description: 本教學課程說明如何使用 Azure CLI 從命令列建立和管理「適用於 MariaDB 的 Azure 資料庫」伺服器和資料庫。
+description: 本教學課程說明如何使用 Azure CLI 從命令列建立和管理適用於 MariaDB 的 Azure 資料庫伺服器和資料庫。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ed80008548585015c9e29aaea013fdeb85fd8e9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541186"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872772"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>教學課程：使用 Azure CLI 來設計適用於 MariaDB 的 Azure 資料庫
 
@@ -27,6 +27,8 @@ ms.locfileid: "53541186"
 > * 查詢資料
 > * 更新資料
 > * 還原資料
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 您可以在瀏覽器中使用 Azure Cloud Shell 或在自己的電腦上[安裝 Azure CLI]( /cli/azure/install-azure-cli) 以執行本教學課程中的程式碼區塊。
 

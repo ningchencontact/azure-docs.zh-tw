@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6e3f0613e89ef7d6e9b44e519226a793940d41f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006359"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823785"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>教學課程 3：部署信用風險模型 - Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ ms.locfileid: "56006359"
 
 假設您必須根據某個人在信用申請書上提供的資訊預測其信用風險。  
 
-信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為一個範例，以說明如何使用 Microsoft Azure Machine Learning 建立預測性分析解決方案。 針對此解決方案，您將使用 Azure Machine Learning Studio 和 Machine Learning Web 服務。 
+信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為範例，以說明如何使用 Microsoft Azure Machine Learning Studio 建立預測性分析解決方案。 針對此解決方案，您將使用 Azure Machine Learning Studio 和 Machine Learning Web 服務。 
 
 在此三部分的教學課程中，您將從可公開取得的信用風險資料開始著手。  接著，您將開發並訓練預測模型。  最後，您會將模型部署為 Web 服務。
 
@@ -234,7 +234,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 
 這些 Web 應用程式範本可以建立自訂的 Web 應用程式，該應用程式知道您的 Web 服務輸入資料和將傳回的內容。 您所需要做的就是提供 Web 服務和資料的存取權限，範本會執行其餘部分。
 
-如需使用 Web 應用程式範本的詳細資訊，請參閱[使用 Azure Machine Learning Web 服務與 Web 應用程式範本](consume-web-service-with-web-app-template.md)。
+如需使用 Web 應用程式範本的詳細資訊，請參閱[使用 Azure Machine Learning Web 服務與 Web 應用程式範本](/azure/machine-learning/studio/consume-web-services)。
 
 
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 234625825c1d9729d4f06f2bb0c96325cdd81f22
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 0a583a75b72286718b34b84e67ee5aff34726be0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329339"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818233"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 SQL Server 2017 Windows 虛擬機器
 
@@ -150,7 +150,7 @@ ms.locfileid: "54329339"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不需要持續執行 SQL VM，您可以在不使用時將其停止，以避免不必要的費用。 您也可以藉由在入口網站中刪除與虛擬機器相關聯的資源群組，永久刪除與其相關聯的所有資源。 這也會永久刪除虛擬機器，因此請小心使用此命令。 如需詳細資訊，請參閱[透過入口網站管理 Azure 資源](../../../azure-resource-manager/resource-group-portal.md)。
+如果您不需要持續執行 SQL VM，您可以在不使用時將其停止，以避免不必要的費用。 您也可以藉由在入口網站中刪除與虛擬機器相關聯的資源群組，永久刪除與其相關聯的所有資源。 這也會永久刪除虛擬機器，因此請小心使用此命令。 如需詳細資訊，請參閱[透過入口網站管理 Azure 資源](../../../azure-resource-manager/manage-resource-groups-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

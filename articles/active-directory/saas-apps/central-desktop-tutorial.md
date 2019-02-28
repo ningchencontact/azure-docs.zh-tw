@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa1771366efba82fc00886581dac77295e68f9f7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 50ef84c9795065d4186fae9542c18d4df06c85c2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342145"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>教學課程：Azure Active Directory 與 Central Desktop 整合
 

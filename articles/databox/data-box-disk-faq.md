@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 007c63c163b6e972bd59189569c92c99d2718cbe
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 5f44e3c4a1b7f28133ecd232fc49a34931bddfa4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301480"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729813"
 ---
 # <a name="what-is-azure-data-box-disk"></a>什麼是 Azure 資料箱磁碟？
 
@@ -132,8 +132,8 @@ A. 資料箱磁碟隨附的工具組包含三項工具：
  - [下載適用於 Windows 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolswin) 
  - [下載適用於 Linux 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolslinux)
  
- ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>問： 是否可以使用資料箱磁碟將資料傳輸至 Azure 檔案儲存體，然後再搭配 Azure 檔案同步來使用資料？ 
- A. 資料箱磁碟不支援 Azure 檔案儲存體。 如果檔案資料稍後會搭配 Azure 檔案同步來使用，則中繼資料也不會保留下來。
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>問： 是否可以使用資料箱磁碟將資料傳輸至 Azure 檔案儲存體，然後再搭配 Azure 檔案同步來使用資料？ 
+A. 資料箱磁碟不支援 Azure 檔案儲存體。 如果檔案資料稍後會搭配 Azure 檔案同步來使用，則中繼資料也不會保留下來。
 
 
 ## <a name="verify-and-upload"></a>確認和上傳

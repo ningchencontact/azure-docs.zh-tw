@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84ea41388151087a0da965e3f8724907b615dee0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc6bcd30a9835fe3cece103b9a773fb24cadbe4a
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161569"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>教學課程：Azure Active Directory 與 Evidence.com 整合
 
@@ -77,10 +77,10 @@ Evidence.com 與 Azure AD 整合提供下列優點：
 若要設定並測試透過 Evidence.com 使用 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[設定 Evidence.com 單一登入](#configure-evidence.com-single-sign-on)** - 在應用程式端設定單一登入設定。
+2. **[設定 Evidence.com 單一登入](#configure-evidencecom-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Evidence.com 測試使用者](#create-evidence.com-test-user)** - 使 Evidence.com 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+5. **[建立 Evidence.com 測試使用者](#create-evidencecom-test-user)** - 使 Evidence.com 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入

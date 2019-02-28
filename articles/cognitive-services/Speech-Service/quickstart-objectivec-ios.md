@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 5f6a66b4005a0fa7106830d7e53950a9902cd078
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 67acc7a074b26cb7614b5e08d25afd7b7c1caa74
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447237"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958502"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 iOS 上以 Objective-C 辨識語音
 
@@ -35,7 +35,7 @@ ms.locfileid: "56447237"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.3.0`。
+認知服務語音 SDK 目前的版本為 `1.3.1`。
 
 適用於 Mac 和 iOS 的認知服務語音 SDK 目前以 Cocoa Framework 的形式散發。
 您可以從 https://aka.ms/csspeech/iosbinary 加以下載。 請將檔案下載到您的主目錄。

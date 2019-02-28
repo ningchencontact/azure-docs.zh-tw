@@ -3,19 +3,19 @@ title: 使用 C# 將模擬 X.509 裝置佈建到 Azure IoT 中樞 | Microsoft Do
 description: Azure 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/18
+ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: d9b4777067ed1ee9f253714bc82c2a20aaa0d127
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 832d7306c7e397a92e92fb25018b5021e4ac87fb
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997034"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672282"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]

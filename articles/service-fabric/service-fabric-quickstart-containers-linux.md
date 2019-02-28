@@ -3,7 +3,7 @@ title: 在 Azure 中的 Service Fabric 上建立 Linux 容器應用程式 | Micr
 description: 在此快速入門中，您將使用您的應用程式建置 Docker 映像、將映像推送到容器登錄，然後將您的容器部署至 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: linux
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/30/2019
-ms.author: twhitney,suhuruli
+ms.author: aljo,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fdb0d8e8def8429ff4c7c377df254fdfc0300637
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 559b51b70c2bcb18d74d77fddaf928e0356435df
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508839"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804547"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入門：將 Linux 容器部署至 Service Fabric
 

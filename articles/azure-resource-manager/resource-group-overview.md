@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d275455f502cf20eaa573c1716c38023f8e7236e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268120"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821895"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 
@@ -148,7 +148,7 @@ Azure Resource Manager 會分析相依性，確保以正確的順序建立資源
 
 當您需要其他作業 (例如安裝不包含在安裝程式的特定軟體) 時，Resource Manager 會提供案例的延伸模組。 如果您已經使用組態管理服務，例如 DSC、Chef 或 Puppet，您可以透過使用擴充功能繼續使用該服務。 如需虛擬機器擴充功能的相關資訊，請參閱[有關虛擬機器擴充功能和功能](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-當您從入口網站建立方案，方案會自動包含部署範本。 您不必從頭建立您的範本，因為您可以從方案的範本開始，並自訂範本以符合您的特定需求。 如需範例，請參閱[快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](./resource-manager-quickstart-create-templates-use-the-portal.md)。 亦可匯出資源群組的目前狀態，或檢視特定部署所用的範本，以擷取現有資源群組的範本。 檢視[匯出的範本](resource-manager-export-template.md)有助於了解範本語法。
+當您從入口網站建立方案，方案會自動包含部署範本。 您不必從頭建立您的範本，因為您可以從方案的範本開始，並自訂範本以符合您的特定需求。 如需範例，請參閱[快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](./resource-manager-quickstart-create-templates-use-the-portal.md)。 亦可匯出資源群組的目前狀態，或檢視特定部署所用的範本，以擷取現有資源群組的範本。 檢視[匯出的範本](./manage-resource-groups-portal.md#export-resource-groups-to-templates)有助於了解範本語法。
 
 最後，範本會成為應用程式原始碼的一部分。 您可以檢查您的原始程式碼存放庫，並隨著您的應用程式發展加以更新。 您可以透過 Visual Studio 編輯範本。
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc3ad9fcf1bb1aee9392f0dfcf40807b0edf508
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ff46d9644848d197051e574106b029fb44efb069
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183764"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>教學課程：Azure Active Directory 與 Canvas 整合
 

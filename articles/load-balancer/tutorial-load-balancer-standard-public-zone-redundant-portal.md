@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230827"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882632"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過標準 Load Balancer 將 VM 的負載平均分配至多個可用性區域
 
@@ -177,7 +177,7 @@ ms.locfileid: "54230827"
 4. 按一下 [新增後端資源]，將每個虛擬機器 (myVM2 和 myVM3) 新增至負載平衡器的後端集區。
 5. 按一下 [新增] 。
 
-    ![新增至後端位址集區 ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![新增至後端位址集區](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. 確認您的負載平衡器後端集區設定將三個 VM 全都顯示出來 - **myVM1**、**myVM2** 和 **myVM3**。
 

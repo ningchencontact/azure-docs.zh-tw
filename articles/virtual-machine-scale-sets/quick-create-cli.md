@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/18
+ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: cde3bf0565e5c8bef19e27034f967fabbbec1ed3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 414ed5ea34c6f59a980e57ae0056782760b2e87b
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982194"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668815"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>快速入門：使用 Azure CLI 建立虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU、記憶體需求或網路流量等資源使用量進行自動調整。 其後，Azure 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 在本快速入門中，您會使用 Azure CLI 建立虛擬機器擴展集，並部署範例應用程式。

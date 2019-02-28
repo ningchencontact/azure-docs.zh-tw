@@ -7,14 +7,14 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: 076a29de227447c75644bd3b59bda1053794d739
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e739ed1f7cd1b832ffe11299d3444c9bf0ac99e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191882"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874455"
 ---
-# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>使用 Azure 入口網站建立適用於 MariaDB 的 Azure 資料庫伺服器
+# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立適用於 MariaDB 的 Azure 資料庫伺服器
 
 適用於 MariaDB 的 Azure 資料庫是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MariaDB 資料庫。 本快速入門說明如何使用 Azure 入口網站，在大約五分鐘內建立適用於 MariaDB 的 Azure 資料庫伺服器。  
 

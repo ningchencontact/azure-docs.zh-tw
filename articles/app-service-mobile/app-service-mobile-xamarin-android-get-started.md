@@ -14,27 +14,27 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: a3b039b1ea492c44505c427ec171cf7a4a5fad01
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 16f67f55b752e8602d43066cc1ce503ce9e5c1e2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062430"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879198"
 ---
 # <a name="create-a-xamarinandroid-app"></a>建立 Xamarin.Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>概觀
-此教學課程將示範如何將雲端後端服務加入至 Xamarin.Android 應用程式。 如需詳細資訊，請參閱 [什麼是 Mobile Apps？](app-service-mobile-value-prop.md)。
+本教學課程將示範如何將雲端後端服務加入至 Xamarin.Android 應用程式。 如需詳細資訊，請參閱 [什麼是 Mobile Apps？](app-service-mobile-value-prop.md)。
 
 以下是完成之應用程式的螢幕擷取畫面：
 
 ![][0]
 
-完成此教學課程是 Xamarin Android 應用程式所有其他行動應用程式教學課程的先決條件。
+完成本教學課程是 Xamarin Android 應用程式所有其他行動應用程式教學課程的必要條件。
 
-## <a name="prerequisites"></a>先決條件
-若要完成此教學課程，您需要下列先決條件：
+## <a name="prerequisites"></a>必要條件
+若要完成本教學課程，您需要下列必要條件：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，請註冊 Azure 試用版並取得最多 10 個免費的 Mobile Apps。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * Visual Studio 和 Xamarin。 如需相關指示，請參閱 [設定和安裝 Visual Studio 和 Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) 。
@@ -68,11 +68,11 @@ ms.locfileid: "47062430"
 ## <a name="troubleshooting"></a>疑難排解
 如果在建置解決方案時發生問題，請執行 NuGet 套件管理員，並更新 `Xamarin.Android` 支援套件。 快速入門專案不一定會包含最新版本。
 
-請注意，您專案中參考的所有支援套件都必須有相同的版本。 [Azure Mobile Apps NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) 有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免衝突。
+請注意，您專案中參考的所有支援套件都必須有相同的版本。 [Azure Mobile Apps NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) 具有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免發生衝突。
 
 ## <a name="next-steps"></a>後續步驟
 * [將離線同步處理新增至您的應用程式](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [在您的應用程式中新增驗證](app-service-mobile-xamarin-android-get-started-users.md)
+* [將驗證新增至應用程式中](app-service-mobile-xamarin-android-get-started-users.md)
 * [將推播通知新增至您的 Xamarin.Android 應用程式](app-service-mobile-xamarin-android-get-started-push.md)
 * [如何針對 Azure Mobile Apps 使用受控用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)
 

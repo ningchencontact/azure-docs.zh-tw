@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 4e6d981ef1ac7985e9f230cfbbda440a765e20ea
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695480"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959182"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>建置 .NET Core 主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶 (SDK 第 3 版預覽) 中的資料
 
@@ -131,7 +131,7 @@ ms.locfileid: "55695480"
 
    從入口網站複製 URI，並將它貼到 `Program.cs` 檔案的 `<your endpoint URL>` 中。 從入口網站複製主要金鑰，並將它貼到 `<your primary key>` 中。
 
-   ![螢幕擷取畫面：從 Azure 入口網站取得 Azure Cosmso DB 金鑰](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![螢幕擷取畫面：從 Azure 入口網站取得 Azure Cosmos DB 金鑰](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. 接下來，我們會建立 `CosmosClient` 的新執行個體，並為我們的計劃設定一些 Scaffolding。
 

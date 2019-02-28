@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743679"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804635"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>快速入門：訂閱 Event Grid 通知，以便將 Azure Blob 擷取至 Azure 資料總管
 
@@ -48,7 +48,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     | | |
 
 1. 如果您想要追蹤特定容器中的檔案，選取 [其他功能] 索引標籤。 設定通知的篩選條件，如下所示：
-    * [主旨開頭為] 欄位是 Blob 容器的*常值*前置詞 (因為套用的模式為 *startswith*，因此可以跨多個容器)。 不允許使用萬用字元。
+    * [主旨開頭為] 欄位是 Blob 容器的*常值*前置詞 (因為套用的的模式為 *startswith*，因此可以跨多個容器)。 不允許使用萬用字元。
      它*必須*設定如下：*`/blobServices/default/containers/`*[容器前置詞]
     * [主旨結尾為] 欄位是 Blob 的*常值*後置詞。 不允許使用萬用字元。
 
@@ -58,7 +58,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 1. 在 Azure 入口網站中，您的叢集下方，選取 [查詢]。
 
-    ![查詢應用程式連結](media/ingest-data-event-hub/query-explorer-link.png)
+    ![查詢應用程式連結](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. 將下列命令複製到視窗，然後選取 [執行] 以建立資料表 (TestTable)，該資料表會接收內嵌的資料。
 
@@ -82,11 +82,11 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 1. 在您建立的叢集下方，選取 [資料庫]，然後選取 [TestDatabase]。
 
-    ![選取測試資料庫](media/ingest-data-event-hub/select-test-database.png)
+    ![選取測試資料庫](media/ingest-data-event-grid/select-test-database.png)
 
 1. 選取 [資料擷取]，然後選取 [新增資料連線]。
 
-    ![資料擷取](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![資料擷取](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. 選取連線類型：**Blob 儲存體**。
 
@@ -185,9 +185,9 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 1. 在 Azure 入口網站中選取靠左側的 [資源群組]，然後選取您所建立的群組。  
 
-    如果左側功能表已摺疊，請選取 ![[展開] 按鈕](media/ingest-data-event-hub/expand.png) 加以展開。
+    如果左側功能表已摺疊，請選取 ![[展開] 按鈕](media/ingest-data-event-grid/expand.png) 加以展開。
 
-   ![選取要刪除的資源群組](media/ingest-data-event-hub/delete-resources-select.png)
+   ![選取要刪除的資源群組](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. 在 [test-resource-group] 下方，選取 [刪除資源群組]。
 

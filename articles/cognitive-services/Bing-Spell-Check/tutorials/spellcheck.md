@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/28/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 086bcbe48fbace1a199e195e32fd1ad1bbd6ff46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0a7b8637ae3ca7342a04f6bf3f8a808539d980eb
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869886"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886157"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>教學課程：建置網頁拼字檢查用戶端
 
-在本教學課程中，我們將建置一個網頁，讓使用者查詢 Bing 拼字檢查 API。
+在本教學課程中，我們將建置一個網頁，讓使用者查詢 Bing 拼字檢查 API。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html) 上找到此應用程式的原始程式碼。
 
 本教學課程說明如何：
 

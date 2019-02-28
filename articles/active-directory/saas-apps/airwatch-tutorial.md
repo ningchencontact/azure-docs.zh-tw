@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d91f395f2fd7e65f66f1a885dbd09e725029858
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f9bbf8e4ebf59e8084d0a831c55685238c053e13
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183950"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882700"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>教學課程：Azure Active Directory 與 AirWatch 整合
 

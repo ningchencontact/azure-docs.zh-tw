@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.reviewer: sngun
-ms.openlocfilehash: 2033c309a63c7135ba845aebbfc4e353380429f6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ef245c2ef5da2b3dc9780e772a71e8ef896e1aff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043272"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959794"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>使用 React 和 Azure Cosmos DB 建立 MongoDB 應用程式  
 
@@ -102,8 +102,6 @@ ms.locfileid: "54043272"
 > * 將應用程式連線至 Azure Cosmos DB 帳戶
 > * 使用 Postman 來測試應用程式
 > * 執行此應用程式並將 Hero 新增至資料庫
-
-請返回查看本教學課程系列中的其他影片，該影片涵蓋部署應用程式及全域複寫您的資料。
 
 您可以繼續進行下一個教學課程，了解如何將 MongoDB 資料匯入 Azure Cosmos DB中。  
 

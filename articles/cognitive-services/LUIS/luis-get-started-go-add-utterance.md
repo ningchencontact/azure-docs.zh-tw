@@ -4,18 +4,19 @@ description: 在此 Go 語言快速入門中，會將範例語句新增至「家
 titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4bc76f67b2d8908abe601aa1fcdfd1962678c548
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 60594137306bfe58024877947959f2865fffe019
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865646"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961800"
 ---
 # <a name="quickstart-change-model-using-go"></a>快速入門：使用 Go 變更模型
 
@@ -45,7 +46,7 @@ ms.locfileid: "55865646"
 
 3. 新增泛型 HTTP 要求函式，在標頭中包含傳遞製作金鑰。 
 
-   [!code-go[Add HTTP request function which includes passing authoring key in header. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
+   [!code-go[Add HTTP request function which includes passing authoring key in header.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
 
 4. 從 JSON 檔案新增範例語句。
 
@@ -53,15 +54,15 @@ ms.locfileid: "55865646"
 
 5. 要求定型。 使用 helper 函式，將相同路由的 VERB 設為定型狀態。 
 
-   [!code-go[Request training. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
+   [!code-go[Request training.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
 
 6. 要求定型狀態。 使用 helper 函式，將相同路由的 VERB 設為要求定型。 
 
-   [!code-go[Request training status. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
+   [!code-go[Request training status.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
 
 7. 新增 main 函式以處理命令列剖析。
 
-   [!code-go[Add main function to handle command line parsing. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
+   [!code-go[Add main function to handle command line parsing.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
 
 ## <a name="add-an-utterance-from-the-command-line-train-and-get-status"></a>從命令列新增語句、定型及取得狀態
 

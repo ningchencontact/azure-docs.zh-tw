@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8efa99ff8dfad555ea881dd38dc70c2914b923a3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 791e9a33a4a2618c5d25ee4e384c06fb6f6c140e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204571"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>教學課程：Azure Active Directory 與 SAP Cloud for Customer 整合
 
