@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5c88bf00ed1f68e4ddab6175e86a46560c802744
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9f548fbb9611b6d4b16efe5c4d26db73d85c9654
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238210"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882292"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>教學課程：使用 Azure Deployment Manager 搭配 Resource Manager 範本 (個人預覽版)
 
@@ -276,7 +276,7 @@ ms.locfileid: "56238210"
 2. 填入參數值：
 
     - **namePrefix**：輸入含有 4-5 個字元的字串。 此前置詞用來建立唯一的 Azure 資源名稱。
-    - **azureResourceLocation**：目前，Azure 部署管理員資源只能在**美國中部**或**美國東部 2** 建立。
+    - **azureResourceLocation**：目前，Azure 部署管理員資源只能在美國中部或**美國東部 2** 建立。
     - **artifactSourceSASLocation**：輸入部署的服務單位範本和參數檔案儲存所在的根目錄 (Blob 容器) 的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
     - **binaryArtifactRoot**：除非您變更了成品的資料夾結構，否則在本教學課程中請使用 **binaries/1.0.0.0**。
     - **managedIdentityID**：輸入使用者指派的受控識別。 請參閱[建立使用者指派的受控識別](#create-the-user-assigned-managed-identity)。 語法為：
@@ -300,10 +300,10 @@ Azure PowerShell 可用來部署範本。
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     
     # Create the service topology
-    New-AzResourceGroupDeployment `
+    New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
@@ -319,7 +319,7 @@ Azure PowerShell 可用來部署範本。
 
     ```azurepowershell-interactive
     # Create the rollout
-    New-AzResourceGroupDeployment `
+    New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"
