@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b31d22990b79cb37ea5b3b89c699b9511f8d87cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 48ece37e8ef9d058326ee0d981b9540e1b56f593
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211116"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>教學課程：Azure Active Directory 與 Expensify 整合
 

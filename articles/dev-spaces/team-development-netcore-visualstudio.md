@@ -12,12 +12,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: 7a77b8a1a2205465956d8c30a3fee6aec5e8428b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: af0a4a719f964e400119be313842f385b410406c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663786"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817417"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
 
@@ -26,7 +26,7 @@ ms.locfileid: "55663786"
 ## <a name="learn-about-team-development"></a>了解小組開發
 
 目前為止，您已如同您是應用程式唯一的開發人員一般，執行您的應用程式程式碼。 在本節中，您將會了解 Azure Dev Spaces 如何簡化小組開發：
-* 讓開發人員小組能夠依需求在共用的開發人員空間中或相異的開發人員空間中工作，而在相同的環境中工作。
+* 藉由在在共用的開發人員空間中或相異的開發人員空間中工作 (依需求)，讓開發人員小組能夠在相同的環境中工作。
 * 支援每位開發人員獨立在其程式碼中反覆執行，而不需要擔心會打斷其他開發人員。
 * 在程式碼認可之前端對端測試程式碼，不需要建立模擬或模擬相依性。
 
@@ -125,9 +125,9 @@ ms.locfileid: "55663786"
 Azure 開發人員空間的這個內建功能，可讓您在共用環境中端對端測試程式碼，而不需要每位開發人員在其空間中重新建立服務的完整堆疊。 使用此路由時，您必須在應用程式的程式碼中轉送傳播標頭，如本指南的上一個步驟所說明。
 
 ### <a name="test-code-running-in-the-devscott-space"></a>測試在 dev/scott 空間中執行的程式碼
-若要搭配 webfrontend 來測試新版的 mywebapi，請在瀏覽器中開啟到 webfrontend 的公用存取點 URL (例如， http://dev.webfrontend.123456abcdef.eastus.aksapp.io))，然後移至 [關於] 頁面。 您應該會看到原始訊息「來自 webfrontend 的 Hello 和來自 mywebapi 的 Hello」。
+若要搭配 webfrontend 來測試新版的 mywebapi，請在瀏覽器中開啟到 webfrontend 的公用存取點 URL (例如， http://dev.webfrontend.123456abcdef.eus.azds.io))，然後移至 [關於] 頁面。 您應該會看到原始訊息「來自 webfrontend 的 Hello 和來自 mywebapi 的 Hello」。
 
-現在，請將 "scott.s."  部分新增至 URL，使其類似於 http://scott.s.dev.webfrontend.123456abcdef.eastus.aksapp.io，然後重新整理瀏覽器。 系統應會叫用您在 mywebapi 專案中設定的中斷點。 請按 f5 繼續作業，而您此時應會在瀏覽器中看到新的訊息「來自 webfrontend 和 mywebapi 的 Hello 現在顯示了新的內容。」 這是因為您已更新的程式碼在 mywebapi 中的路徑執行於 dev/scott 空間中。
+現在，請將 "scott.s."  部分新增至 URL，使其類似於 http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io，然後重新整理瀏覽器。 系統應會叫用您在 mywebapi 專案中設定的中斷點。 請按 f5 繼續作業，而您此時應會在瀏覽器中看到新的訊息「來自 webfrontend 和 mywebapi 的 Hello 現在顯示了新的內容。」 這是因為您已更新的程式碼在 mywebapi 中的路徑執行於 dev/scott 空間中。
 
 一旦您擁有的 dev 空間一定會包含最新的變更，而且如果您應用程式的設計目的是要利用 DevSpace 的空間型路由 (如本教學課程這一節所述)，您應該就能輕鬆地發現，Dev Spaces 會對在較大的應用程式內容中測試新功能大有助益。 您不必在私用空間中部署所有服務，而是可以建立衍生自 dev 的私用空間，並只「啟動」您實際使用的服務。 Dev Spaces 的路由基礎結構會處理其餘工作，其會盡可能使用所有可以從私用空間找到的服務，同時將其預設回到 dev 空間中所執行的最新版本。 更棒的是，多個開發人員可以同時在自己的空間積極開發不同的服務，卻又不會干擾到彼此。
 

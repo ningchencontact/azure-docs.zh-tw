@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: f13c31b0c7a85ea4e24f73bdc1fee9c96e51ab35
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0d49e65ccfd13637a2e7313a5ec3a48b2ce900ca
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417190"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727446"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -144,7 +144,7 @@ Remove-AzResourceGroup -Name TestRG2
 ```
  
  
- ## <a name="script-explanation"></a>指令碼說明
+## <a name="script-explanation"></a>指令碼說明
 
 此指令碼會使用下列命令來建立部署。 下表中的每個項目都會連結至命令特定的文件。
 

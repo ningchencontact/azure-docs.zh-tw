@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 400e73478210a9394ad4476265bf4867ff1eb821
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 99ca2d44af2e93fb0a9fe1383a7ab902c599650e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179908"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>教學課程：Azure Active Directory 與 ARES for Enterprise 整合
 

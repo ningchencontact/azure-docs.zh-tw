@@ -6,23 +6,23 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: e613f660d4d1abfd45b11d71c2abfda53331cc31
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c3f8d06cf68714f3a8abc203421ae3ff9b533ca6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211199"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737802"
 ---
 # <a name="what-is-custom-translator"></a>什麼是自訂翻譯工具？
 
 [自訂翻譯工具](https://portal.customtranslator.azure.ai)是 Microsoft Translator 服務的功能，可讓翻譯工具企業、應用程式開發人員和語言服務提供者建置自訂的類神經機器翻譯 (NMT) 系統。 自訂的翻譯系統會順暢地整合到現有應用程式、工作流程和網站。 [自訂翻譯工具](https://portal.customtranslator.azure.ai/)所提供的功能，類似於 [Microsoft Translator Hub](https://hub.microsofttranslator.com/) 針對統計機器翻譯 (SMT) 所提供的功能，但前者專供類神經機器翻譯 (NMT) 系統來使用。
 
-使用[自訂翻譯工具](https://portal.customtranslator.azure.ai)所建置的翻譯系統，可透過相同的雲端式、[安全](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality)、高效能、具有高度擴充性的 Microsoft Translator [文字 API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)來使用，其每天支援數十億次翻譯。 
+使用[自訂翻譯工具](https://portal.customtranslator.azure.ai)所建置的翻譯系統，可透過相同的雲端式、[安全](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality)、高效能、具有高度擴充性的 Microsoft Translator [文字 API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)來使用，其每天支援數十億次翻譯。
 
-自訂翻譯工具支援三十幾種以上的語言，並會直接對應至 NMT 可用的語言。 如需完整清單，請參閱 [Microsoft Translator 語言]( https://docs.microsoft.com/azure/cognitive-services/translator/language-support)。
+自訂翻譯工具支援三十幾種以上的語言，並會直接對應至 NMT 可用的語言。 如需完整清單，請參閱 [Microsoft Translator 語言](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)。
 
 ## <a name="features"></a>特性
 
@@ -48,7 +48,7 @@ Microsoft Translator 在 2016 年發行了[類神經機器翻譯 (NMT)](https://
 
 ## <a name="be-productive-and-cost-effective"></a>具生產力且符合成本效益
 
-使用[自訂翻譯工具](https://portal.customtranslator.azure.ai)時，不需要任何程式設計技能就能訓練和部署自訂系統。 
+使用[自訂翻譯工具](https://portal.customtranslator.azure.ai)時，不需要任何程式設計技能就能訓練和部署自訂系統。
 
 使用安全的[自訂翻譯工具](https://portal.customtranslator.azure.ai)入口網站，使用者便可透過直覺式的使用者介面，來上傳訓練資料、對系統進行訓練、測試系統，然後將系統部署至生產環境。 在幾小時內 (實際時間取決於訓練資料大小)，系統便可供大規模使用。
 

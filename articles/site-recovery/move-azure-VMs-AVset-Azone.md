@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5597f3c017ccf2dbb58b7b6b046720c8f49803c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 77c38089a4f9c6518d9736df7f3020c66ad17b3b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312277"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877039"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>將 Azure VM 移至可用性區域中
 Azure 中的可用性區域可讓您的應用程式和資料不因資料中心失敗而受影響。 每個可用性區域由一或多個資料中心組成，配備了電力、冷卻系統及網路系統。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 地區內「可用性區域」的實體區隔可保護應用程式和資料不受資料中心故障影響。 使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。 可用性區域在選定的區域中受到支援，如[此處](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)所說明。 

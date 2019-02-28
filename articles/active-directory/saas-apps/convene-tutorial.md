@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b6462083265c7fa93dd0fc496830fff21f80928
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7fb602b158fc97f6737aaaf5297adf48f63790f1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161333"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convene"></a>教學課程：Azure Active Directory 與 Convene 整合
 

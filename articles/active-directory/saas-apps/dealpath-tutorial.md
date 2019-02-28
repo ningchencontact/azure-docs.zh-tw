@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aed2f5f156c3b934f1328af984c78078c7316b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0df64ccad6d9696bb5d65e32d9e0e9313fdadad8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189968"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>教學課程：Azure Active Directory 與 Dealpath 整合
 
