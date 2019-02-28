@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1af6214833109ad89e8b5f27eefc0c99cdaf2496
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884455"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984181"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶
 
@@ -83,7 +83,7 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 若要在 Azure 入口網站中建立一般用途 v2 儲存體帳戶，請遵循下列步驟：
 
 > [!NOTE]
-> 階層命名空間目前可在所有公用區域中使用。 其目前無法在主權雲端中使用。
+> 階層命名空間目前可在所有公用區域中使用。
 
 1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [所有服務]。 然後，向下捲動至 [儲存體]，然後選擇 [儲存體帳戶]。 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
 2. 選取您先前建立的 [訂用帳戶] 和 [資源群組]。
@@ -141,7 +141,7 @@ Login-AzAccount
 若要使用 PowerShell 建立新的資源群組，請使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令： 
 
 > [!NOTE]
-> 階層命名空間目前可在所有公用區域中使用。 其目前無法在主權雲端中使用。
+> 階層命名空間目前可在所有公用區域中使用。
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -201,7 +201,7 @@ az group create `
 ```
 
 > [!NOTE]
-> > 階層命名空間目前可在所有公用區域中使用。 其目前無法在主權雲端中使用。
+> > 階層命名空間目前可在所有公用區域中使用。
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>建立一般用途的 v2 儲存體帳戶
 

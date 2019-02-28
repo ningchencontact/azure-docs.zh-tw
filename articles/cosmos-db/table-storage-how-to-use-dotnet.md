@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 57ed02463555ce9e958aedd9c2b317f7a167567b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044411"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985881"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>以 .NET 開始使用 Azure 資料表儲存體和 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,6 @@ ms.locfileid: "54044411"
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [適用於 .NET 的 Azure 儲存體通用程式庫 (預覽)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)。 - 在生產環境中受到支援的必要預覽套件。 
 * [適用於 .NET 的 Microsoft Azure CosmosDB 表格文件庫](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - 此文件庫目前僅適用於 .NET Standard，尚不適用於 .NET Core。
-* [適用於.NET 的 Azure 設定管理員](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -77,14 +76,11 @@ ms.locfileid: "54044411"
 
 * [適用於 .NET 的 Microsoft Azure Cosmos DB 表格文件庫](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 此套件可供以程式設計方式存取 Azure 表格儲存體帳戶或 Azure Cosmos DB 表格 API 帳戶中的資料資源。 此文件庫目前僅適用於 .NET Standard，尚不適用於 .NET Core。
 
-* [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
-
 若要取得 NuGet 套件，請遵循下列步驟：
 
 1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 套件]。
 2. 線上搜尋 "Microsoft.Azure.Storage.Common"，選擇 <= 9.0.0.1 的版本，然後選取 [安裝] 以安裝適用於 .NET 的 Azure 儲存體通用程式庫 (預覽) 及其相依性。 請確認已勾選 [包含發行前版本] 方塊，因為這是預覽套件。
 3. 線上搜尋 "Microsoft.Azure.CosmosDB.Table"，然後選取 [安裝] 以安裝 Microsoft Azure CosmosDB 表格文件庫。
-4. 線上搜尋 "WindowsAzure.ConfigurationManager"，然後選取 [安裝] 以安裝 Microsoft Azure Configuration Manager Library。
 
 > [!NOTE]
 > 適用於 .NET 的儲存體通用程式庫中的 ODataLib 相依性現由 ODataLib 套件解析，該套件可在 NuGet 上取得而非由 WCF 資料服務提供。 您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。 Storage Client Library 使用的特定 ODataLib 封裝有 [OData](https://nuget.org/packages/Microsoft.Data.OData/)、[Edm](https://nuget.org/packages/Microsoft.Data.Edm/)，以及 [Spatial](https://nuget.org/packages/System.Spatial/)。 這些程式庫雖由 Azure 表格儲存體類別使用，它們同時也是使用儲存體通用程式庫進行程式設計的必要相依項目。

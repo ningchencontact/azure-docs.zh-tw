@@ -35,12 +35,12 @@ items:
   - name: Azure CLI
     href: cli-samples.md
 - name: 概念
+  href: concepts-overview.md
   items:
   - name: 雲端上傳和儲存體
     href: storage-account-concept.md
-    items:
-    - name: Assets
-      href: assets-concept.md
+  - name: Assets
+    href: assets-concept.md
   - name: 編碼
     items:
     - name: 概觀
@@ -66,13 +66,14 @@ items:
       - name: 動態封裝
         displayName: packager
         href: dynamic-packaging-overview.md
-      - name: 篩選器
-        href: filters-concept.md
       - name: 動態資訊清單
         href: filters-dynamic-manifest-overview.md
+      - name: 篩選器
+        href: filters-concept.md
     - name: 內容保護
-      href: content-protection-overview.md
       items:
+      - name: 概觀
+        href: content-protection-overview.md
       - name: 多 DRM 系統與存取控制
         href: design-multi-drm-system-with-access-control.md
       - name: DRM 授權
@@ -94,8 +95,9 @@ items:
     - name: 內容金鑰原則
       href: content-key-policy-concept.md
   - name: 即時串流
-    href: live-streaming-overview.md
     items:
+    - name: 概觀
+      href: live-streaming-overview.md
     - name: 即時事件與即時輸出
       href: live-events-outputs-concept.md
     - name: 建議的即時編碼器
@@ -242,9 +244,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure 雲端和區域
     href: azure-clouds-regions.md
-ms.openlocfilehash: 05743bbc6bc448fbea5b084fd945d1e056bf16e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 726c49754b1e04be8a9f03cc754c067994b98565
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867774"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958402"
