@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 02c0faf5103ff370d766dd931aa65190e4846139
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700689"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817536"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>在使用 .NET Core 的 Azure Dev Spaces 上開始使用
 
@@ -72,7 +72,7 @@ az group create --name MyResourceGroup --location <region>
 使用下列命令來建立 Kubernetes 叢集：
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
 ```
 
 建立叢集需要幾分鐘的時間。

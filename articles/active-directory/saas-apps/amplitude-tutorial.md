@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c96d78bf797365ef1336211753d9fffcaa227781
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba92047d282ab86b6cd1f72017996f7de92088c2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196310"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>教學課程：Azure Active Directory 與 Amplitude 整合
 

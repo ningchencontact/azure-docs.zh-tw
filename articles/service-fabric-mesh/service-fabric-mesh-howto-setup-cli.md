@@ -3,18 +3,18 @@ title: 設定 Azure Service Fabric Mesh CLI | Microsoft Docs
 description: 了解如何設定 Azure Service Fabric Mesh CLI。
 services: service-fabric-mesh
 keywords: ''
-author: tylermsft
-ms.author: twhitney
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: daeec38863ee7e9dd4e56f2470e5f9459dcc8bc1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 675848f26b991978dce2e8686a71d86756180586
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958588"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806722"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>設定 Service Fabric Mesh CLI
 必須使用 Service Fabric Mesh 命令列介面 (CLI)，才能在本機和 Azure Service Fabric Mesh 中部署及管理資源。 

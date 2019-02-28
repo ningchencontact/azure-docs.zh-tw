@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 222ac0b5dede45b9ae2b6fe9ba464e738ea48b94
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4f51ade234c8792f235bd8c9218b3c6ef9f22de7
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194252"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>教學課程：Azure Active Directory 與 Cisco Umbrella 整合
 
@@ -147,7 +147,7 @@ ms.locfileid: "56194252"
 
 6. 在 [選項 A:XML 檔案上傳] 中，上傳您從 Azure 入口網站下載的 [同盟中繼資料 XML] 檔案，而在上傳中繼資料後會自動填入以下值，然後按 [下一步]。
 
-    ![選擇檔案 ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
+    ![選擇檔案](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
 7. 在 [驗證 SAML 組態] 區段之下，按一下 [測試您的 SAML 組態]。
 
