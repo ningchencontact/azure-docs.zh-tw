@@ -70,10 +70,10 @@ ms.topic: overview
 您有兩種方法可以解決此問題。
 
 1. 從根管理群組中移除所有角色和原則指派
-    1. 從根管理群組中移除所有原則和角色指派之後，服務會將所有訂用帳戶回填至下一個隔日工作週期階層。  此流程是為了確保並未意外地將存取權或原則指派提供給所有租用戶訂用帳戶。
-    1. 要在不影響您服務的情況下進行此流程，最好的方法是將角色或原則指派套用至比根管理群組低一階的層級。 如此一來，您就可以從根範圍中移除所有指派。
+   1. 從根管理群組中移除所有原則和角色指派之後，服務會將所有訂用帳戶回填至下一個隔日工作週期階層。  此流程是為了確保並未意外地將存取權或原則指派提供給所有租用戶訂用帳戶。
+   1. 要在不影響您服務的情況下進行此流程，最好的方法是將角色或原則指派套用至比根管理群組低一階的層級。 如此一來，您就可以從根範圍中移除所有指派。
 1. 直接呼叫 API 以啟動回填流程
-    1. 目錄中的所有客戶都可以呼叫 *TenantBackfillStatusRequest* 或 *StartTenantBackfillRequest* API。 呼叫了 StartTenantBackfillRequest API 之後，系統就會開始初步的設定流程，將所有訂用帳戶移動至該階層。 此流程也會強制將所有新的訂用帳戶均設為根管理群組的子系。 您可以在未變更根層級上任何指派的情況下完成此程序。 您可以呼叫 API，表示根的任何原則或存取指派都能套用至所有訂用帳戶。
+   1. 目錄中的所有客戶都可以呼叫 *TenantBackfillStatusRequest* 或 *StartTenantBackfillRequest* API。 呼叫了 StartTenantBackfillRequest API 之後，系統就會開始初步的設定流程，將所有訂用帳戶移動至該階層。 此流程也會強制將所有新的訂用帳戶均設為根管理群組的子系。 您可以在未變更根層級上任何指派的情況下完成此程序。 您可以呼叫 API，表示根的任何原則或存取指派都能套用至所有訂用帳戶。
 
 若您對於此回填流程有任何問題，請連絡：managementgroups@microsoft.com  
   
@@ -116,6 +116,6 @@ Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角
 
 - [建立管理群組以組織 Azure 資源](create.md)
 - [如何變更、刪除或管理您的管理群組](manage.md)
-- [檢閱 Azure PowerShell 資源模組中的管理群組](https://aka.ms/mgPSdocs)
-- [檢閱 REST API 中的管理群組](https://aka.ms/mgAPIdocs)
-- [檢閱 Azure CLI 中的管理群組](https://aka.ms/mgclidoc)
+- [檢閱 Azure PowerShell 資源模組中的管理群組](/powershell/module/az.resources#resources)
+- [檢閱 REST API 中的管理群組](/rest/api/resources/managementgroups)
+- [檢閱 Azure CLI 中的管理群組](/cli/azure/account/management-group)
