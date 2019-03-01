@@ -1,0 +1,56 @@
+items:
+- name: 適用於 FHIR 的 Azure API
+  href: index.yml
+- name: 概觀
+  items:
+  - name: 關於適用於 FHIR 的 Azure API
+    href: overview.md
+  - name: 關於適用於 Azure 的 FHIR Server
+    href: overview-open-source-server.md
+- name: 快速入門
+  items:
+  - name: 部署適用於 FHIR 的 Azure API - 入口網站
+    href: fhir-paas-portal-quickstart.md
+  - name: 部署適用於 FHIR 的 Azure API - PowerShell
+    href: fhir-paas-powershell-quickstart.md
+  - name: 部署適用於 FHIR 的 Azure API - CLI
+    href: fhir-paas-cli-quickstart.md
+  - name: 部署適用於 Azure 的 FHIR Server - 入口網站
+    href: fhir-oss-portal-quickstart.md
+  - name: 部署適用於 Azure 的 FHIR Server - PowerShell
+    href: fhir-oss-powershell-quickstart.md
+  - name: 部署適用於 Azure 的 FHIR Server - CLI
+    href: fhir-oss-cli-quickstart.md
+  expanded: true
+- name: 教學課程
+  items:
+  - name: 使用 Postman 存取 FHIR API
+    href: access-fhir-postman-tutorial.md
+  expanded: false
+- name: 使用說明指南
+  items:
+  - name: 註冊資源應用程式
+    href: register-resource-azure-ad-client-app.md
+  - name: 註冊機密用戶端應用程式
+    href: register-confidential-azure-ad-client-app.md
+  - name: 註冊公開用戶端應用程式
+    href: register-public-azure-ad-client-app.md
+  - name: 註冊服務用戶端應用程式
+    href: register-service-azure-ad-client-app.md
+  - name: 取得適用於 FHIR 的 Azure API 權杖 - CLI
+    href: get-healthcare-apis-access-token-cli.md
+  - name: 尋找識別物件識別碼
+    href: find-identity-object-ids.md
+  expanded: false
+- name: 資源
+  items:
+  - name: 常見問題集
+    href: fhir-faq.md
+  - name: 支援的功能
+    href: fhir-features-supported.md
+ms.openlocfilehash: 60d0d4b8368a64b9ef66608de6824cec9876b8be
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958111"

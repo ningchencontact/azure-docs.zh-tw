@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b8ce62533af1cf8f921a8a8eafb8e781821c2604
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4428bf710df5eae3b06c8abd38eb85d6128a574d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233807"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959420"
 documentType: LandingData
 title: Machine Learning Studio 文件
 metadata:
@@ -18,21 +18,10 @@ metadata:
   ms.author: jmartens
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.date: 01/24/2019
+  ms.date: 02/24/2019
 abstract:
   description: Machine Learning Studio 是共同作業式的拖放工具，可以用來依據您的資料建置、測試及部署預測分析解決方案。 教學課程、影片和模型範例會示範如何使用 Studio 來建置和部署機器學習模型。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何開始使用 Machine Learning Studio：
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="create-experiment">建立您的第一個 Studio 實驗</a>
-    - html: <a href="algorithm-choice">選擇最佳的演算法</a>
-    - html: <a href="deploy-consume-web-service-guide">將模型部署為 Web 服務</a>
-    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">了解「適用於初學者的資料科學」</a>
 - title: 逐步教學課程
   items:
   - type: paragraph
@@ -40,8 +29,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-part1-credit-risk">建立和部署預測解決方案</a>
-    - html: <a href="azure-ml-customer-churn-scenario">客戶流失範例</a>
+    - html: <a href="create-experiment">建立您的第一個 Studio 實驗</a>
+    - html: <a href="tutorial-part1-credit-risk">為信用風險建立和部署預測解決方案</a>
 - title: 參考
   items:
   - type: list

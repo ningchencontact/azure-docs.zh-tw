@@ -2,7 +2,7 @@
 ## [代理程式監視](../monitoring/index.md)
 
 # 開始使用
-## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Azure 監視器記錄](../log-analytics/log-analytics-get-started.md)
 ## [自動化](/azure/automation/)
 ## [備份](../backup/backup-introduction-to-azure-backup.md)
 ## [站台復原](../site-recovery/site-recovery-overview.md)
@@ -11,7 +11,7 @@
 # 作法
 
 ## 分析
-### [Log Analytics](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## 自動化
 ### [Azure 自動化概觀](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
