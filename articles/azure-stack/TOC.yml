@@ -308,6 +308,8 @@ items:
         href: azure-stack-app-service-release-notes-update-three.md
       - name: App Service on Azure Stack 更新 4 版本資訊
         href: azure-stack-app-service-release-notes-update-four.md
+      - name: App Service on Azure Stack 更新 5 版本資訊
+        href: azure-stack-app-service-release-notes-update-five.md
   - name: 建立方案、供應項目和配額
     items:
     - name: 方案、供應項目、配頭和訂用帳戶概觀
@@ -397,9 +399,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: 訓練與憑證
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 041362b8498cd44fb58f2951b039a2bf14354ee6
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 0a38112e8e57c685dec49a380a0e669429dc2673
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805200"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991610"

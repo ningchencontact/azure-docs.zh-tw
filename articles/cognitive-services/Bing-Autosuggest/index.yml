@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2105919e0c21ef57ae2cd19450110df384252e97
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 43d28cde7e4287b5394087000b5e730a94748713
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730931"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010628"
 documentType: LandingData
 title: Bing 自動建議文件
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Bing 自動建議文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
   description: 了解如何使用 Bing 自動建議 API，依據部分查詢來取得建議的查詢。 教學課程會示範如何建置使用此服務的應用程式。
   services: cognitive-services
-  author: v-jaswel
-  manager: kamrani
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jaswel
+  ms.date: 02/20/2019
+  ms.author: aahi
 abstract:
-  description: Bing 自動建議 API 可讓您將部分搜尋查詢字詞傳送到 Bing，並取得其他使用者已搜尋過的建議查詢清單。  例如，當使用者輸入其搜索字詞的每個字元時，您會呼叫此 API 並將建議的查詢字詞填入搜尋方塊的下拉式清單。 了解如何透過快速入門、教學課程和範例使用自動建議 API。
+  description: Bing 自動建議 API 可讓您將部分搜尋查詢字詞傳送到 Bing，並取得其他使用者已搜尋過的建議查詢清單。  例如，當使用者輸入其搜索字詞的每個字元時，您可以呼叫此 API 以將建議填入搜尋方塊的下拉式清單。 了解如何透過快速入門、教學課程和範例使用自動建議 API。
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-autosuggest/overview
+      html: <p>深入了解 Bing 自動建議 API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: 什麼是 Bing 自動建議 API？
+    - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
+      html: <p>了解如何即時取得搜尋建議</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 從 Bing 自動建議 API 取得建議
+    - href: /azure/cognitive-services/bing-autosuggest/language-support
+      html: <p>了解 API 所支援的語言。</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 支援的語言
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 了解如何使用 Bing 自動建議 API 開發應用程式：
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">單頁 Web 應用程式 </a> | <a href="tutorials/autosuggest-source.md">原始程式碼</a>
+    text: <a href="tutorials/autosuggest.md">單頁 Web 應用程式</a>
 - title: 參考
   items:
   - type: list

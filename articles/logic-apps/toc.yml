@@ -293,14 +293,14 @@ items:
     items:
     - name: 監視邏輯應用程式
       href: logic-apps-monitor-your-logic-apps.md
-    - name: 透過 Log Analytics 監視邏輯應用程式
+    - name: 使用 Azure 監視器記錄監視邏輯應用程式
       href: logic-apps-monitor-your-logic-apps-oms.md
-    - name: 透過 Log Analytics 監視 B2B 訊息
+    - name: 使用 Azure 監視器記錄監視 B2B 訊息
       href: logic-apps-monitor-b2b-message.md
       items:
-      - name: 透過 Log Analytics 追蹤 B2B 訊息
+      - name: 使用 Azure 監視器記錄追蹤 B2B 訊息
         href: logic-apps-track-b2b-messages-omsportal.md
-      - name: 透過 Log Analytics 建立 B2B 訊息的查詢
+      - name: 使用 Azure 監視器記錄為 B2B 訊息建立查詢
         href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
   - name: 範例、案例和逐步解說
     href: logic-apps-examples-and-scenarios.md
@@ -375,9 +375,9 @@ items:
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: 影片
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-ms.openlocfilehash: a0f802723c1c2c74dfb0599ace922ac61e1c2a64
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ceb5c51c3cd189da408ce23f0b03babb73f462ef
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243921"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194226"

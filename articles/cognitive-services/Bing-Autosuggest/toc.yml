@@ -27,8 +27,6 @@ items:
   items:
   - name: 單一頁面 Web 應用程式
     href: tutorials/autosuggest.md
-  - name: 單一頁面 Web 應用程式 (原始程式碼)
-    href: tutorials/autosuggest-source.md
 - name: 使用說明指南
   items:
   - name: 從 v5 升級到 v7
@@ -37,6 +35,8 @@ items:
   items:
   - name: 建議查詢字詞
     href: concepts/get-suggestions.md
+  - name: 正在傳送要求
+    href: concepts/sending-requests.md
 - name: 參考
   items:
   - name: Bing 自動建議 API v7
@@ -56,8 +56,6 @@ items:
     maintainContext: true
 - name: 資源
   items:
-  - name: 常見問題集
-    href: bing-autosuggest-resource-faq.md
   - name: 價格
     href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
   - name: UserVoice
@@ -74,15 +72,13 @@ items:
     href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
   - name: 試試看！
     href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Bing 自動建議端點
-    href: autosuggest-endpoint.md
   - name: 語言與區域支援
     href: language-support.md
   - name: Bing 自動建議 API 的分析
     href: bing-autosuggest-stats.md
-ms.openlocfilehash: 19443b5bf95bd2e9aa982c53612297a63f4110b8
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5e0a0f0734b694a098cc6685e337aa24b41962d5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269782"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011529"

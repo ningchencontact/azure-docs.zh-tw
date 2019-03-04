@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 5f1d6005dd94bc700682e749f08c47356fcdc829
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993328"
+documentType: LandingData
+title: Azure Sentinel 預覽文件
+metadata:
+  title: Azure Sentinel 預覽文件 - 教學課程、快速入門 |Microsoft Docs
+  meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
+  services: sentinel
+  author: cmcclister
+  manager: carolz
+  ms.service: sentinel
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/28/19
+  ms.author: cmcclister
+abstract:
+  description: Azure Sentinel 預覽是雲端原生 SIEM，其可為您的整個企業提供雲端規模的智慧型安全性分析。 取得無限的雲端速度和規模，以協助專注於真正重要的事情。 從您的雲端或內部部署資產、Office 365、Azure 資源和其他雲端輕鬆收集資料。 透過 Microsoft 安全性分析專家提供的內建機器學習有效地偵測威脅。 使用內建協調流程和自動化劇本自動執行威脅回應。
+sections:
+- title: 5 分鐘快速入門
+  items:
+  - type: paragraph
+    text: 了解如何將資料上線至 Azure Sentinel，並掌握您的資料和潛在威脅。
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/deploy.svg
+      text: 使 Azure Sentinel 上線
+      href: /azure/sentinel/quickstart-onboard
+    - image:
+        src: media/index/get-started.svg
+      text: 開始使用 Azure Sentinel
+      href: /azure/sentinel/quickstart-get-visibility
+- title: 逐步教學課程
+  items:
+  - type: paragraph
+    text: 了解如何定義安全性原則，保護您的資源免受惡意活動攻擊，並回應安全性警示和事件。
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sentinel/tutorial-detect-threats">使用 Azure Sentinel 偵測威脅</a>
+    - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">設定自動化的威脅回應</a>
+- title: 透過 Microsoft Learn 增進您的技巧
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure 中的安全性簡介
+      href: https://docs.microsoft.com/learn/azure
+      image:
+        src: media/index/tutorial.svg
+        href: https://docs.microsoft.com/learn/azure
+  - type: paragraph
+    text: <a href="/learn/browse/?term=security">更多互動式學習...</a>
+- title: 參考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - html: <a href="https://azure.microsoft.com/updates/?product=sentinel">服務更新</a>

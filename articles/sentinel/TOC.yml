@@ -1,0 +1,94 @@
+items:
+- name: Azure Sentinel 預覽文件
+  href: index.yml
+- name: 概觀
+  href: overview.md
+- name: 快速入門
+  items:
+  - name: 使 Azure Sentinel 上線
+    href: quickstart-onboard.md
+  - name: 了解警示
+    href: quickstart-get-visibility.md
+  expanded: true
+- name: 教學課程
+  items:
+  - name: 偵測可疑威脅
+    href: tutorial-detect-threats.md
+  - name: 調查案例
+    href: tutorial-investigate-cases.md
+  - name: 回應威脅
+    href: tutorial-respond-threats-playbook.md
+- name: 使用說明指南
+  items:
+  - name: 連線資料來源
+    href: connect-data-sources.md
+    items:
+    - name: 連線 Microsoft 服務
+      items:
+      - name: 連線 Azure AD
+        href: connect-azure-active-directory.md
+      - name: 連線 Office 365
+        href: connect-office-365.md
+      - name: 連線 Microsoft Cloud App Security
+        href: connect-cloud-app-security.md
+      - name: 連線 Azure 活動記錄
+        href: connect-azure-activity.md
+      - name: 連線 Azure AD Identity Protection
+        href: connect-azure-ad-identity-protection.md
+      - name: 連線 Azure 資訊保護
+        href: connect-azure-information-protection.md
+      - name: 連線 Azure ATP
+        href: connect-azure-atp.md
+      - name: 連線 Azure 資訊安全中心
+        href: connect-azure-security-center.md
+      - name: 連線 Windows 防火牆
+        href: connect-windows-firewall.md
+      - name: 連線 Windows 安全性事件
+        href: connect-windows-security-events.md
+    - name: 連線外部解決方案
+      items:
+      - name: 連線一般 CEF
+        href: connect-common-event-format.md
+      - name: 連線 Barracuda
+        href: connect-barracuda.md
+      - name: 連線檢查點
+        href: connect-checkpoint.md
+      - name: 連線 Palo Alto
+        href: connect-paloalto.md
+      - name: 連線 Fortinet
+        href: connect-fortinet.md
+      - name: 連線 F5
+        href: connect-f5.md
+      - name: 連線 Syslog
+        href: connect-syslog.md
+      - name: 連線 Cisco
+        href: connect-cisco.md
+    - name: 連線威脅情報
+      href: connect-threat-intelligence.md
+  - name: 使用者分析
+    href: user-analytics.md
+  - name: 搜捕
+    href: hunting.md
+    items:
+    - name: 使用筆記本來搜捕
+      href: notebooks.md
+    - name: 書籤來搜捕
+      href: bookmarks.md
+  - name: 啟用融合
+    href: connect-fusion.md
+- name: 資源
+  items:
+  - name: 有用的資源
+    href: resources.md
+  - name: Azure 藍圖
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Azure 安全性、隱私權和相容性部落格
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: 區域可用性
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 50587fc6b2fca37ddbe5a9a1cbe4ff1914c809c9
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993362"
