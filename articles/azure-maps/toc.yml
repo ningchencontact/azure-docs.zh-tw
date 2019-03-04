@@ -149,6 +149,30 @@ items:
       href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
   - name: Resource Manager 範本
     href: /azure/templates/microsoft.maps/accounts
+- name: 資源
+  items:
+  - name: Azure 地圖服務使用規定
+    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+  - name: 價格
+    href: https://azure.microsoft.com/pricing/details/azure-maps
+  - name: 定價計算機
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: 堆疊溢位
+    href: https://stackoverflow.com/questions/tagged/azure-maps
+  - name: MSDN 論壇
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
+  - name: 詞彙
+    href: glossary.md
+  - name: 服務更新
+    href: https://azure.microsoft.com/updates
+  - name: Azure IoT 開發人員中心
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Azure 藍圖
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: 技術案例研究
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: 影片
+    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
 - name: 相關參考
   items:
   - name: 解決方案
@@ -175,31 +199,9 @@ items:
       href: /azure/iot-edge
     - name: IoT 裝置 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-- name: 資源
-  items:
-  - name: Azure IoT 開發人員中心
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure 藍圖
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: 詞彙
-    href: glossary.md
-  - name: MSDN 論壇
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: 價格
-    href: https://azure.microsoft.com/pricing/details/azure-maps
-  - name: 定價計算機
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: 服務更新
-    href: https://azure.microsoft.com/updates
-  - name: 堆疊溢位
-    href: https://stackoverflow.com/questions/tagged/azure-maps
-  - name: 技術案例研究
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: 影片
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: 114647e85aa775d37dab827daef2e55867e5a47b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 194b8ff59a19e33a3ec8e2544e4d04c9afb6613f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234385"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246436"

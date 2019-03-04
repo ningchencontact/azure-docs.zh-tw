@@ -7,21 +7,35 @@ items:
     href: billing-understand-your-bill.md
   - name: 了解您的 EA 帳單
     href: billing-understand-your-bill-ea.md
-  - name: 取得發票和使用量資料
-    href: billing-download-azure-invoice-daily-usage-date.md
+  - name: 了解您的帳單 - 僅限 Microsoft 客戶合約
+    href: billing-mca-understand-your-bill.md
+  - name: 檢視及下載您 Microsoft Azure 發票
+    href: billing-download-azure-invoice.md
+  - name: 檢視及下載您 Microsoft Azure 使用量和費用
+    href: billing-download-azure-daily-usage.md
+  - name: 檢視及下載 Microsoft 客戶合約的稅務文件
+    href: billing-mca-download-tax-document.md
   - name: 第三方服務費用
     href: billing-understand-your-azure-marketplace-charges.md
   - name: 使用量條款說明
     href: billing-understand-your-usage.md
+  - name: 使用量條款說明 - 僅限 Microsoft 客戶合約
+    href: billing-mca-understand-your-usage.md
   - name: 發票條款說明
     href: billing-understand-your-invoice.md
+  - name: 發票條款說明 - 僅限 Microsoft 客戶合約
+    href: billing-mca-understand-your-invoice.md
+  - name: Microsoft 客戶合約的帳單帳戶
+    href: billing-mca-overview.md
   expanded: true
 - name: 管理成本
   items:
   - name: 避免非預期成本
     href: billing-getting-started.md
-  - name: 檢視 EA 定價
+  - name: 檢視及下載貴組織的定價
     href: billing-ea-pricing.md
+  - name: 定價表條款說明 - 僅限 Microsoft 客戶合約
+    href: billing-mca-understand-pricesheet.md
   - name: 使用資源標籤
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: 開始分析成本
@@ -30,6 +44,8 @@ items:
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
   - name: 最佳化建議
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: 追蹤 Microsoft 客戶合約的信用額度
+    href: billing-mca-check-azure-credits-balance.md
   - name: 計算價格
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 了解消費限制
@@ -90,12 +106,20 @@ items:
     href: billing-manage-access.md
   - name: Azure 中的 EA 角色
     href: billing-understand-ea-roles.md
+  - name: Azure 中的各項 Microsoft 客戶合約角色
+    href: billing-understand-mca-roles.md
   - name: 連結合作夥伴識別碼
     href: billing-partner-admin-link-started.md
   - name: 檢視計費帳戶
     href: billing-view-all-accounts.md
+  - name: 利用發票區段整理費用
+    href: billing-mca-section-invoice.md
+  - name: Microsoft 客戶合約中的 EA 工作
+    href: billing-mca-enterprise-operations.md
   - name: 解析逾期資產負債
     href: billing-azure-subscription-past-due-balance.md
+  - name: 設定 Microsoft 客戶合約的帳單帳戶
+    href: billing-mca-setup-account.md
   - name: 使用 Office 365 帳戶註冊
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: 以 Azure 帳戶註冊 Office 365
@@ -106,6 +130,8 @@ items:
     href: billing-subscription-become-disable.md
   - name: 轉送擁有權
     href: billing-subscription-transfer.md
+  - name: 要求擁有權 - Microsoft 客戶合約
+    href: billing-mca-request-billing-ownership.md
   - name: 取消訂用帳戶
     href: billing-how-to-cancel-azure-subscription.md
   - name: 變更信用卡
@@ -122,6 +148,8 @@ items:
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: 建立其他訂用帳戶
     href: billing-create-subscription.md
+  - name: 建立額外的訂用帳戶 - Microsoft 客戶合約
+    href: billing-mca-create-subscription.md
   - name: 以程式設計方式建立 Enterprise 訂用帳戶
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: 匯出訂用帳戶資訊
@@ -190,9 +218,9 @@ items:
     items:
     - name: Enterprise 報表 REST API
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 156f9f2ebb293855d541c779c7a2e3ba83cffc07
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5d56504730be60d872c9d1345850925a645c664e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447696"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241641"

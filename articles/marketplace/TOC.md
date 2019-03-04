@@ -14,6 +14,7 @@
 #### [潛在客戶管理](./lead-management-for-cloud-marketplace.md)
 #### [在 Azure Marketplace 中交易](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 #### [私人供應項目](./private-offers.md)
+#### [標準合約](./standard-contract.md)
 
 ### [依供應項目類型的發行指南](./publisher-guide-by-offer-type.md)
 #### [虛擬機器](./marketplace-virtual-machines.md)
@@ -30,13 +31,16 @@
 #### [供應項目清單最佳做法](./gtm-offer-listing-best-practices.md)
 #### [如何取得精選項目](./gtm-how-to-get-featured.md)
 #### [市集內容驗證](./marketplace-criteria-content-validation.md)
+#### [雲端解決方案提供者](./cloud-solution-providers.md)
 
 ### [您的市集優惠](./gtm-your-marketplace-benefits.md)
 #### [透過 Microsoft 推廣您的業務](./gtm-promote-your-business.md)
 #### [慣用的解決方案](./preferred-solutions.md) 
+#### [整合式解決方案](./integrated-solutions.md)
 
 ### [支援 Azure Marketplace 和 AppSource](./support-azure-marketplace.md)
 #### [Marketplace 常見問題集](./marketplace-faq-publisher-guide.md)
+#### [各地區上市情況和貨幣](./marketplace-geo-availability-currencies.md)
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
