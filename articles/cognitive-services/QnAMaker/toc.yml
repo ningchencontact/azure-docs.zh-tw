@@ -67,6 +67,7 @@ items:
 - name: 概念
   items:
   - name: 知識庫
+    displayName: metadata, pair
     href: Concepts/knowledge-base.md
   - name: 知識庫的開發生命週期
     href: Concepts/development-lifecycle-knowledge-base.md
@@ -77,6 +78,7 @@ items:
     displayName: DefaultAnswer, Default answer
     href: Concepts/confidence-score.md
   - name: 支援的資料來源
+    displayName: metadata, pair
     href: Concepts/data-sources-supported.md
 - name: 使用說明指南
   items:
@@ -89,6 +91,7 @@ items:
     - name: 移轉知識庫
       href: Tutorials/migrate-knowledge-base.md
     - name: 編輯知識庫
+      displayName: metadata, pair
       href: How-To/edit-knowledge-base.md
     - name: 在知識庫上共同作業
       href: How-To/collaborate-knowledge-base.md
@@ -97,6 +100,7 @@ items:
     - name: 測試知識庫
       href: How-To/test-knowledge-base.md
     - name: 使用主動學習來改善知識庫
+      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject
       href: How-to/improve-knowledge-base.md
   - name: 使用知識庫
     items:
@@ -186,9 +190,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: 部落格
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: d2843221ae4aae151e423e96b6633b69fc7a706d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 59c69b3436eecd6b3c915ede313eb854ff6af121
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652496"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306641"
