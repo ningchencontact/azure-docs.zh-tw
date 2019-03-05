@@ -23,8 +23,10 @@ items:
       href: php.md
     - name: 使用 Python
       href: python.md
-    - name: 使用拼音
+    - name: 使用 Ruby
       href: ruby.md
+    - name: 使用 Go
+      href: go.md
   - name: SDK
     items:
     - name: 使用 C#
@@ -108,9 +110,9 @@ items:
     href: language-support.md
   - name: Bing 新聞搜尋 API 的分析
     href: bing-news-stats.md
-ms.openlocfilehash: fc75c7142e737cd9db7662946869aaf0f2ced714
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2f560504a582de36ccd55c7755d9113e68a8bf4a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116366"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306709"

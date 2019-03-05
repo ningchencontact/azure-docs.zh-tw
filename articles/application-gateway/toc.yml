@@ -166,13 +166,13 @@ items:
       href: application-gateway-create-probe-ps.md
   - name: 疑難排解
     items:
-    - name: 針對應用程式閘道進行疑難排解 - 使用內部負載平衡器 (ILB) 搭配 App Service 環境 (ASE)
+    - name: ILB 搭配 App Service 環境
       href: create-gateway-internal-load-balancer-app-service-environment.md
-    - name: 針對搭配 App Service 的應用程式閘道進行疑難排解 - 重新導向至 App Service 的 URL
+    - name: 重新導向至 App Service 的 URL
       href: troubleshoot-app-service-redirection-app-service-url.md
-    - name: 針對 Azure 應用程式閘道中的工作階段同質問題進行疑難排解
+    - name: 工作階段同質性問題
       href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
-    - name: 針對不正確的閘道 (502) 錯誤進行疑難排解
+    - name: Bad Gateway (502) 錯誤
       href: application-gateway-troubleshooting-502.md
     - name: 診斷
       href: application-gateway-diagnostics.md
@@ -212,9 +212,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 堆疊溢位
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 7fd344a06dcd29c53d313a59c484101b1d0b2c8f
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7fe790e7b75e3cf6bead50635b7be690b1b7eeb7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985660"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309038"

@@ -51,10 +51,9 @@ ms.collection: M365-identity-device-management
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">概觀</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">管理安全性資訊</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">檢視最近的登入活動</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">管理您的組織</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">管理您的已連線裝置</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">檢視您的隱私權相關資訊</a><br/>                       
+                        <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">管理您已連線的裝置</a><br/>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">檢視您的隱私權相關資訊</a>
                         </p>
                     </div>
                 </div>

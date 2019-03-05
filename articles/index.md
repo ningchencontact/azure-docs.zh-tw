@@ -1314,7 +1314,7 @@ Azure 服務和功能導覽 </a>
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT 基礎</p>
+                                                <p>Azure IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3929,12 +3929,12 @@ Azure 服務和功能導覽 </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iothub.svg" alt="" />
+                                                        <img src="media/index/question-mark-grey.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT 基礎</h3>
-                                                    <p>開始連接裝置</p>
+                                                    <h3>第一次使用 Azure IoT 嗎？</h3>
+                                                    <p>從此處開始了解符合您需求的各項服務</p>
                                                 </div>
                                             </div>
                                         </div>
