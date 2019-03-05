@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ebce27f3558661aca9e1bd6e7130c96c396d33ee
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257117"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958264"
 ---
 # <a name="what-is-azure-data-explorer"></a>什麼是 Azure 資料總管？
 
@@ -47,7 +47,7 @@ Azure 資料總管中的工作通常會遵循此模式：
 
 1. **建立資料庫：** 建立「叢集」，然後在該叢集中建立一或多個「資料庫」。 [快速入門：建立 Azure 資料總管叢集與資料庫](create-cluster-database-portal.md)
 
-1. **內嵌資料：** 將資料載入資料庫資料表中，讓您可以對資料執行查詢。 [快速入門：將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)
+1. **擷取資料：** 將資料載入資料庫資料表中，讓您可以對資料執行查詢。 [快速入門：將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)
 
 1. **查詢資料庫：** 使用我們的 Web 應用程式來執行、檢閱及共用查詢和結果。 這可在 Azure 入口網站中取得，也以獨立應用程式的形式提供。 此外，您可以以程式設計方式 (使用 SDK) 或 REST API 端點傳送查詢。 [快速入門：在 Azure 資料總管中查詢資料](web-query-data.md)
 
@@ -57,7 +57,7 @@ Azure 資料總管中的工作通常會遵循此模式：
 
 Azure 資料總管同樣可以處理大量的結構化、半結構化 (類似 JSON 的巢狀型別) 和非結構化 (自然語言) 資料。 這項服務可讓您搜尋特定的文字字詞、找出特定事件，以及對結構化資料執行計量樣式的計算。 Azure 資料總管透過從自由格式文字欄位中擷取執行階段中的值，來橋接非結構化文字記錄和結構化數字與維度。 結合快速的文字索引編製、資料行存放區和時間序列作業，讓資料探索變得簡單。
 
-其他服務建基於 Azure 資料總管強大的查詢語言，進一步延伸了其功能，這些服務包括 [Log Analytics](/azure/log-analytics/)、[Application Insights](/azure/application-insights/)、[時間序列深入解析](/azure/time-series-insights/)和 [Windows Defender 進階威脅防護](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/)。
+其他服務建基於 Azure 資料總管強大的查詢語言，進一步延伸了其功能，這些服務包括 [Azure 監視器記錄](/azure/log-analytics/)、[Application Insights](/azure/application-insights/)、[時間序列深入解析](/azure/time-series-insights/)和 [Windows Defender 進階威脅防護](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/)。
 
 ## <a name="feedback"></a>意見反應
 

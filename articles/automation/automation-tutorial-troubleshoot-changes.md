@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433674"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816928"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>針對您環境中的變更進行疑難排解
 
@@ -62,12 +62,14 @@ ms.locfileid: "54433674"
 此代理程式用來與 VM 通訊，並取得已安裝軟體的相關資訊。
 
 啟用解決方案可能需要 15 分鐘。 在此期間，請勿關閉瀏覽器視窗。
-啟用解決方案之後，有關在 VM 上已安裝軟體和變更的相關資訊會流向 Log Analytics。
+啟用解決方案之後，VM 上安裝的軟體和變更相關資訊會流向 Azure 監視器記錄。
 可能需要 30 分鐘到 6 小時，資料才可供分析。
 
-## <a name="using-change-tracking-in-log-analytics"></a>使用 Log Analytics 中的變更追蹤
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-變更追蹤所產生的記錄資料會傳送到 Log Analytics。
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>在 Azure 監視器記錄中使用變更追蹤
+
+變更追蹤所產生的記錄資料會傳送到 Azure 監視器記錄。
 若要透過執行查詢來搜尋記錄，請選取 [變更追蹤] 視窗頂端的 [Log Analytics]。
 變更追蹤資料會儲存在 **ConfigurationChange** 類型之下。
 下列範例 Log Analytics 查詢會傳回所有已停止的 Windows 服務。
@@ -77,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-若要深入了解在 Log Analytics 中執行和搜尋記錄檔，請參閱 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md)。
+若要深入了解如何在 Azure 監視器記錄中執行和搜尋記錄，請參閱 [Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)。
 
 ## <a name="configure-change-tracking"></a>設定變更追蹤
 
@@ -193,7 +195,7 @@ ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName ==
 
 ![設定訊號邏輯](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-在 [動作群組] 下方，選取 [新建]。 動作群組是一組可讓您跨多個警示使用的動作。 這些動作可包括 (但不限於) 電子郵件通知、Runbook、Webhook 和等多種項目。 若要深入了解動作群組，請參閱[建立及管理動作群組](../azure-monitor/platform/action-groups.md)。
+在 [動作群組] 底下，選取 [新建]。 動作群組是一組可讓您跨多個警示使用的動作。 這些動作可包括 (但不限於) 電子郵件通知、Runbook、Webhook 和等多種項目。 若要深入了解動作群組，請參閱[建立及管理動作群組](../azure-monitor/platform/action-groups.md)。
 
 在 [警示詳細資料] 之下，輸入警示的名稱和描述。 將 [嚴重性] 設定為 [資訊 (Sev 2)]、[警告 (Sev 1)] 或 [重大 (Sev 0)]。
 

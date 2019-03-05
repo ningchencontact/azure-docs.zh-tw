@@ -1,5 +1,5 @@
 ---
-title: 快速入門：在 Azure 入口網站中新增來賓使用者
+title: 快速入門：在 Azure 入口網站中新增來賓使用者 - Azure Active Directory
 description: 使用此快速入門深入了解 Azure AD 系統管理員如何在 Azure 入口網站中新增 B2B 來賓使用者，並逐步說明 B2B 邀請工作流程。
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8916711ab7d5278f34a3d4ad101a0aabb883f84c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182692"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669970"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中將來賓使用者新增到您的目錄
 

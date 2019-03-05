@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f272f72a0bcae70a25bada266dc6b080f46526cd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431583"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817709"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>使用 Desired State Configuration 來設定 Linux 虛擬機器
 
@@ -144,5 +144,5 @@ DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點
 
 * 若要深入了解 PowerShell Desired State Configuration，請參閱 [PowerShell Desired State Configuration 概觀](https://docs.microsoft.com/powershell/dsc/overview)。
 * 若要深入了解從 PowerShell 管理 Automation DSC，請參閱 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
-* 若要了解如何將 DSC 報告轉寄給 Log Analytics 以進行報告及警示，請參閱[將 DSC 報告轉寄給 Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+* 若要了解如何將 DSC 報告轉寄到 Azure 監視器記錄以進行報告及警示，請參閱[將 DSC 報告轉寄到 Azure 監視器記錄](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
 

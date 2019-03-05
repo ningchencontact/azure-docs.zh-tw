@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 4173c0b26b2d176549d3a89cc6fdfa928b6cca5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0e104f4cbdef7edc5c109781509e3924400e5ba4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963839"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959726"
 ---
 # <a name="import-and-publish-your-first-api"></a>匯入和發佈您的第一個 API 
 
@@ -48,7 +48,7 @@ ms.locfileid: "52963839"
 本節示範如何匯入和發佈 OpenAPI 規格後端 API。
  
 1. 選取 [API 管理] 下方的 [API]。
-2. 從清單中選取 [OpenAPI 規格]。
+2. 從清單中選取 [OpenAPI 規格]，然後在快顯視窗中按一下 [完整]。
 
     ![建立 API](./media/api-management-get-started/create-api.png)
 
@@ -65,7 +65,8 @@ ms.locfileid: "52963839"
     | **URL 配置**            | *HTTPS*                                            | 決定可使用哪些通訊協定來存取 API。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | **API URL 尾碼**        | *conference*                                       | 這個尾碼會附加到 API 管理服務的基底 URL。 API 管理依尾碼來區分 API，因此，特定發行者的每一個 API 必須有唯一的尾碼。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
     | **產品**              | *無限制*                                        | 產品是一或多個 API 的關聯。 您可以將數個 API 納入產品中，並透過開發人員入口網站將它們提供給開發人員。 <br/>透過將 API 關聯至某個產品來發佈 API (在此範例中為 [無限制])。 若要將這個新的 API 新增至產品，請輸入產品名稱 (您也可以稍後從 [設定] 頁面進行此作業)。 可以重複此步驟多次來將 API 加入多個產品。<br/>為了取得 API 的存取權，開發人員必須先訂閱產品。 當他們訂閱時，就能取得適用於該產品中任何 API 的中訂用帳戶金鑰。 <br/> 如果您建立了 APIM 執行個體，表示您已經是系統管理員，因此已訂閱每一個產品。<br/> 依預設，每個 API 管理執行個體會隨附兩個範例產品：[入門] 和 [無限制]。 |
-    | 要為此 API 設定版本嗎?         |                                                    | 如需版本設定的詳細資訊，請參閱[發佈多個 API 版本](api-management-get-started-publish-versions.md)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+    | **標記**                  |                                                    | 用來組織 API 的標記。 標記可用於搜尋、分組或篩選。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+    | **要為此 API 設定版本嗎?**     |                                                    | 如需版本設定的詳細資訊，請參閱[發佈多個 API 版本](api-management-get-started-publish-versions.md)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
     >[!NOTE]
     > 若要發佈 API，您必須將它與產品產生關連。 您可以從 [設定] 頁面執行此作業。

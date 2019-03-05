@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3a9ee66907b51a40e9f4b0871d9f6ba6e29763a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242394"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594044"
 ---
 # <a name="validate-oem-packages"></a>驗證 OEM 套件
 
@@ -35,7 +35,7 @@ ms.locfileid: "55242394"
 
 ## <a name="managing-packages-for-validation"></a>管理要驗證的套件
 
-使用**套件驗證**工作流程來驗證套件時，您必須提供 **Azure 儲存體 Blob** 的 URL。 此 Blob 是在部署時安裝於解決方案上的 OEM 套件。 請使用您在設定期間建立的 Azure 儲存體帳戶來建立 Blob (請參閱[設定您的驗證即服務資源](azure-stack-vaas-set-up-resources.md))。
+使用**套件驗證**工作流程來驗證套件時，您必須提供 **Azure 儲存體 Blob** 的 URL。 此 Blob 是測試簽署的 OEM 套件，該套件會在更新過程中安裝。 請使用您在設定期間建立的 Azure 儲存體帳戶來建立 Blob (請參閱[設定您的驗證即服務資源](azure-stack-vaas-set-up-resources.md))。
 
 ### <a name="prerequisite-provision-a-storage-container"></a>必要條件：佈建儲存體容器
 
@@ -58,7 +58,9 @@ ms.locfileid: "55242394"
 
 在 VaaS 入口網站中建立**套件驗證**工作流程時，您必須為包含套件的 Azure 儲存體 Blob 提供 URL。
 
-#### <a name="option-1-generating-an-account-sas-url"></a>選項 1：產生帳戶 SAS URL
+#### <a name="option-1-generating-a-blob-sas-url"></a>選項 1：產生 Blob SAS URL
+
+如果您不想啟用對您儲存體容器或 Blob 的公用讀取權限，請使用此選項。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中移至儲存體帳戶，然後瀏覽至包含您套件的 .zip
 
@@ -68,20 +70,23 @@ ms.locfileid: "55242394"
 
 4. 將 [開始時間] 設為目前時間，並將 [結束時間] 至少設為**開始時間**的 48 小時後。 如果您會使用相同的套件執行其他測試，請考慮增加**結束時間**以符合您的測試長度。 在**結束時間**後，任何透過 VaaS 排程的測試將會失敗，且必須產生新的 SAS。
 
-5. 選取 [產生 Blob SAS 權杖和 URL]
+5. 選取 [產生 Blob SAS 權杖和 URL]。
 
-在 VaaS 入口網站中啟動新的**套件驗證**工作流程時，請使用 **Blob SAS URL**。
+將套件 Blob URL 提供給入口網站時，請使用 [Blob SAS URL]。
 
-#### <a name="option-2-using-public-read-container"></a>選項 2：使用公用讀取容器
+#### <a name="option-2-grant-public-read-access"></a>選項 2：授與公用讀取權限
 
 > [!CAUTION]
-> 此選項會開啟您的容器以供匿名唯讀存取。
+> 此選項會開啟您的 Blob，以供匿名唯讀存取。
 
 1. 依照[授與容器和 Blob 的匿名使用者權限](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)一節中的指示操作，為套件容器授與 [僅對 Blob 有公開讀取權限]。
 
-2. 在套件容器中，選取容器中的套件 Blob 以開啟 [屬性] 窗格。
+> [!NOTE]
+> 如果您將套件 URL 提供給「互動式測試」(例如，每個月的 Azure Stack 更新驗證或 OEM 擴充功能套件驗證)，則必須授與**完整公用讀取權限**以繼續進行測試。
 
-3. 複製 **URL**。 在 VaaS 入口網站中啟動新的**套件驗證**工作流程時，請使用此值。
+2. 在套件容器中，選取套件 Blob 以開啟 [屬性] 窗格。
+
+3. 複製 **URL**。 將套件 Blob URL 提供給入口網站時，請使用此值。
 
 ## <a name="apply-monthly-update"></a>套用每月更新
 
@@ -99,7 +104,7 @@ ms.locfileid: "55242394"
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
-5. 輸入在部署時安裝於解決方案上的 OEM 套件所具備的 Azure 儲存體 Blob URL。 如需指示，請參閱[產生用於 VaaS 的套件 Blob URL](#generate-package-blob-url-for-vaas)。
+5. 對需要 Microsoft 簽章的測試簽署 OEM 套件，輸入 Azure 儲存體 Blob URL。 如需指示，請參閱[產生用於 VaaS 的套件 Blob URL](#generate-package-blob-url-for-vaas)。
 
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
@@ -113,9 +118,16 @@ ms.locfileid: "55242394"
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     系統會將您重新導向至測試摘要頁面。
 
+## <a name="required-tests"></a>必要的測試
+
+以下是 OEM 套件驗證所需的測試：
+
+- OEM 擴充功能套件驗證
+- 雲端模擬引擎
+
 ## <a name="run-package-validation-tests"></a>執行套件驗證測試
 
-1. 在 [套件驗證測試摘要] 頁面中，您會看到完成驗證所需的測試清單。 此工作流程中的測試大約會執行 24 小時。
+1. 在 [套件驗證測試摘要] 頁面中，您會執行適合您案例的部分所列測試。
 
     在驗證工作流程中，**排程**測試時會使用您在建立工作流程期間所指定的工作流程層級一般參數 (請參閱 [Azure Stack 驗證即服務的工作流程一般參數](azure-stack-vaas-parameters.md))。 如果有任何測試參數值無效，您就必須依照[修改工作流程參數](azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示重新提供參數。
 
@@ -125,13 +137,11 @@ ms.locfileid: "55242394"
 
 2. 選取將執行測試的代理程式。 如需新增本機測試執行代理程式的相關資訊，請參閱[部署本機代理程式](azure-stack-vaas-local-agent.md)。
 
-3. 對下列各項測試，步驟四和步驟五：
-    - OEM 延伸模組套件驗證
-    - 雲端模擬引擎
+3. 若要完成 OEM 擴充功能套件驗證，從內容功能表中選取 [排程]，以開啟排程測試執行個體的提示。
 
-4. 從內容功能表中選取 [排程]，以開啟排程測試執行個體的提示。
+4. 檢閱測試參數，然後選取 [提交] 來排程 OEM 擴充功能套件驗證以供執行。
 
-5. 檢閱測試參數，然後選取 [提交] 以排程要執行的測試。
+5. 檢閱 OEM 擴充功能套件驗證的結果。 測試成功後，排程雲端模擬引擎以供執行。
 
 所有測試均順利完成後，請將您 VaaS 解決方案的名稱和套件驗證傳送至 [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)，以要求套件簽署。
 

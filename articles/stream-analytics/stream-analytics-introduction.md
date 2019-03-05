@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: e14da7dff62d85c730034b620a6168b3d9b3dde7
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: d08fb915870355b49fafa91752cdd4264cbe6ad8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752685"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887534"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure 串流分析是什麼？
 
@@ -76,11 +76,18 @@ Azure 串流分析會在雲端和智慧邊緣上使用相同的查詢語言，�
 
 作為雲端服務，串流分析已進行成本最佳化。 不會有預付費用，您只需針對[您耗用的串流單位](stream-analytics-streaming-unit-consumption.md)和處理的資料量付費。 不必做出承諾或佈建叢集。 您可以根據您的商務需求相應增加或相應減少串流作業。 
 
-## <a name="reliability"></a>可靠性 
+## <a name="mission-critical-ready"></a>任務關鍵性就緒
+Azure 串流分析適用於全球多個區域，其設計訴求是藉由支援可靠性、安全性和合規性需求來執行任務關鍵性工作負載。
+### <a name="reliability"></a>可靠性
+Azure 串流分析可保證僅只一次的事件處理，以及至少一次的事件傳遞，因此永遠不會遺失事件。 如[事件傳遞保證](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)所述，保證選取的輸出恰好處理一次。 Azure 串流分析具有可在事件傳遞失敗時進行復原的內建功能。 此外，串流分析會提供內建檢查點來維護作業的狀態，並提供可重複出現的結果。
 
-串流分析可保證僅只一次的事件處理，以及至少一次的事件傳遞，因此永遠不會遺失事件。 其具有可在事件傳遞失敗時進行復原的內建功能。 此外，串流分析會提供內建檢查點來維護作業的狀態，並提供可重複出現的結果。
+串流分析為受控服務，可保證處理事件在分鐘層級有 99.9% 的可用性。 如需詳細資訊，請參閱[串流分析 SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) 頁面。 
 
-串流分析為受控服務，可保證處理事件有 99.9% 的可用性。 如需詳細資訊，請參閱[串流分析 SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) 頁面。 
+### <a name="security"></a>安全性
+就安全性而言，Azure 串流分析會將所有傳入和傳出的通訊加密，並支援 TLS 1.2。 內建的檢查點也會加密。 串流分析不會儲存傳入資料，因為所有處理都在記憶體內進行。 
+
+### <a name="compliance"></a>法規遵循
+Azure 串流分析會遵循如 [Azure 合規性概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)中所述的多個合規性認證。 
 
 ## <a name="performance"></a>效能
 

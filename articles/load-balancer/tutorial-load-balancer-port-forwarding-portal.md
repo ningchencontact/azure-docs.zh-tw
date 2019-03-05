@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/18
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232187"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959116"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>教學課程：使用入口網站在 Azure Load Balancer 中設定連接埠轉送
 
@@ -42,27 +42,28 @@ ms.locfileid: "54232187"
 
 ## <a name="create-a-standard-load-balancer"></a>建立標準負載平衡器
 
-首先，建立公用標準負載平衡器，以平衡 VM 間的流量負載。 標準負載平衡器只支援標準公用 IP 位址。 當您建立標準負載平衡器時，您也會建立新的標準公用 IP 位址，而該 IP 位址會設定為負載平衡器的前端 (預設的名稱為 **LoadBalancerFrontEnd**)。 
+首先，建立公用標準負載平衡器，以平衡 VM 間的流量負載。 Standard Load Balancer 只支援標準公用 IP 位址。 當您建立標準負載平衡器時，您也會建立新的標準公用 IP 位址，而該 IP 位址會設定為負載平衡器的前端 (預設的名稱為 **LoadBalancerFrontEnd**)。 
 
-1. 在入口網站的左上方，選取 [建立資源] > [網路] > [負載平衡器]。
-   
-1. 在 [建立負載平衡器] 窗格中，輸入或選取下列值：
-   
-   - **名稱**：輸入 MyLoadBalancer。
-   - **類型**：選取 [公用]。 
-   - **SKU**：選取 [標準]。
-   - **公用 IP 位址**：選取 [新建]，並在欄位中輸入 MyPublicIP。
-   - [設定公用 IP 位址] > [可用性區域]：選取 [區域備援]。
-   - **資源群組**：選取 [新建]，然後輸入 MyResourceGroupLB，然後選取 [確定]。 
-   - **位置**：選取 [西歐]。 
+1. 在畫面的左上方，按一下 [建立資源] > [網路] > [負載平衡器]。
+2. 在 [建立負載平衡器] 頁面的 [基本資料] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]：
+
+    | 設定                 | 值                                              |
+    | ---                     | ---                                                |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupLB*。|
+    | Name                   | *myLoadBalancer*                                   |
+    | 區域         | 選取 [西歐]。                                        |
+    | 類型          | 選取 [公用]。                                        |
+    | SKU           | 選取 [標準]。                          |
+    | 公用 IP 位址 | 選取 [建立新的]。 |
+    | 公用 IP 位址名稱              | 在文字方塊中輸入 *myPublicIP*。   |
+    |可用性區域| 選取 [區域備援]。    |
      
-     >[!NOTE]
+    >[!NOTE]
      >務必在支援可用性區域的位置中建立您的 Load Balancer 和其所有資源。 如需詳細資訊，請參閱[支援可用性區域的區域](../availability-zones/az-overview.md#regions-that-support-availability-zones)。 
-   
-1. 選取 [建立] 。
-   
-![建立負載平衡器](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
 
+3. 在 [檢閱 + 建立] 索引標籤中，按一下 [建立]。  
+  
 ## <a name="create-and-configure-back-end-servers"></a>建立及設定後端伺服器
 
 建立一個虛擬網路以及兩部虛擬機器，並將 VM 新增至負載平衡器的後端集區。 
@@ -145,13 +146,13 @@ ms.locfileid: "54232187"
    - **來源**：選取 [服務標記]。  
    - **來源服務標記**：選取 [網際網路]。 
    - **目的地連接埠範圍**：輸入 80。
-   - **通訊協定**：選取 **TCP**。 
+   - **通訊協定**：選取 [TCP]。 
    - **動作**：選取 [允許]。  
    - **優先順序**：輸入 100。 
    - **名稱**：輸入 MyHTTPRule。 
    - **描述**：輸入「允許 HTTP」。 
    
-1. 選取 [新增] 。 
+1. 選取 [新增]。 
    
    ![建立 NSG 規則](./media/tutorial-load-balancer-port-forwarding-portal/8-load-balancer-nsg-rules.png)
    

@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f80f0870400fa7fb46b7787c6c257255a780cf3b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c3c577ce2483c5de3aa458c7fe4b6fced418f684
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244108"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882938"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
@@ -50,20 +50,20 @@ ms.locfileid: "56244108"
 
     若要檢閱可用空間，請在 [區域管理] 中選取您想要探索的區域，然後移至 [資源提供者] > [儲存體]。
 
-    [ ![檢閱儲存體空間](media/azure-stack-download-azure-marketplace-item/storagesm.png "檢閱儲存體空間") ](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
+    [![檢閱儲存空間](media/azure-stack-download-azure-marketplace-item/storagesm.png "檢閱儲存體空間")](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
 
     
 3. 開啟 Azure Stack Marketplace 並連線至 Azure。 若要這樣做，請選取 [Marketplace 管理]，然後選取 [從 Azure 新增]。
 
-    [ ![從 Azure 新增](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "從 Azure 新增") ](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
+    [![從 Azure 新增](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "從 Azure 新增")](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
 
     入口網站會顯示可從 Azure Marketplace 下載的項目清單。 您可以按一下每個項目來檢視其描述及其他相關資訊，包括其下載大小。 
 
-    [ ![Marketplace 清單](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace 清單") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
+    [![Marketplace 清單](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace 清單")](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
 
 4. 選取您想要的項目，然後選取 [下載]。 下載時間會有所不同。
 
-    [ ![下載訊息](media/azure-stack-download-azure-marketplace-item/image04.png "下載訊息") ](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
+    [![下載訊息](media/azure-stack-download-azure-marketplace-item/image04.png "下載訊息")](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
 
     下載完成之後，您可以用 Azure Stack 操作員或使用者身分來部署新市集項目。
 
@@ -134,7 +134,7 @@ ms.locfileid: "56244108"
 
 6. 當工具執行時，您應會看到如下圖所示的畫面，其中包含可用的市集項目清單：
 
-   [ ![Azure Marketplace 項目快顯](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace 項目") ](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Azure Marketplace 項目快顯](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace 項目")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
 7. 選取您想要下載的項目，並記下 version。 您可以按住 Ctrl 鍵以選取多個映像。 您會在下一個程序中匯入項目時參考「版本」。 
    
@@ -158,7 +158,7 @@ ms.locfileid: "56244108"
 
    下圖顯示資料夾結構範例。 `D:\downloadfolder` 包含所有已下載的 Marketplace 項目。 每個子資料夾都是 Marketplace 項目 (例如 `microsoft.custom-script-linux-arm-2.0.3`)，並且依產品識別碼命名。 每個子資料夾都內含 Marketplace 項目的下載內容。
 
-   [ ![Marketplace 下載目錄結構](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace 下載目錄結構") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+   [![Marketplace 下載目錄結構](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace 下載目錄結構")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
 2. 請依照[這篇文章](azure-stack-powershell-configure-admin.md)中的指示來設定 Azure Stack 操作者的 PowerShell 工作階段。 
 
@@ -184,19 +184,19 @@ ms.locfileid: "56244108"
 
 2. 使用管理入口網站，將市集項目套件 (.azpkg 檔案) 和虛擬硬碟映像 (.vhd 檔案) 上傳至 Azure Stack Blob 儲存體。 上傳套件和磁碟檔案使其可供 Azure Stack 使用，以便您稍後將項目發佈至 Azure Stack Marketplace。
 
-   上傳時，您需要有具備可公開存取容器的儲存體帳戶 (請參閱這個案例的先決條件)。  
+   上傳時，您需要有具備可公開存取容器的儲存體帳戶 (請參閱這個案例的必要條件)。  
    1. 在 Azure Stack 管理員入口網站中，移至 [所有服務]，然後在 [資料 + 儲存體] 類別下，選取 [儲存體帳戶]。  
    
    2. 從您的訂用帳戶選取儲存體帳戶，然後在 [Blob 服務] 之下選取 [容器]。  
-      [ ![Blob 服務](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob 服務") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
+      [![Blob 服務](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob 服務")](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. 選取您想要使用的容器，然後選取 [上傳] 以開啟 [上傳 blob] 窗格。  
-      [ ![容器](media/azure-stack-download-azure-marketplace-item/container.png "容器") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
+      [![容器](media/azure-stack-download-azure-marketplace-item/container.png "容器")](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. 在 [上傳 Blob] 窗格上，瀏覽至要載入到儲存體的套件和磁碟檔案，然後選取 [上傳]：[ ![上傳](media/azure-stack-download-azure-marketplace-item/uploadsm.png "上傳") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. 在 [上傳 Blob] 窗格上，瀏覽至要載入到儲存體的套件和磁碟檔案，然後選取 [上傳]：[![上傳](media/azure-stack-download-azure-marketplace-item/uploadsm.png "上傳")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. 您上傳的檔案會出現在 [容器] 窗格中。 選取檔案並從 [Blob 屬性] 窗格複製 URL。 當您將市集項目匯入 Azure Stack 時，您將在下一個步驟中使用此 URL。  在下圖中，容器是 blob-test-storage，而檔案是 Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg。  檔案 URL 是 *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*。  
-      [ ![Blob 屬性](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob 屬性") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
+      [![Blob 屬性](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob 屬性")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. 使用 **Add-AzsPlatformimage** Cmdlet 將 VHD 映像匯入至 Azure Stack。 使用此 Cmdlet 時，請以您所匯入映像的值，取代 publisher、offer 及其他參數值。 
 
@@ -235,7 +235,7 @@ ms.locfileid: "56244108"
      –Verbose
     ```
 5. 資源庫項目在發佈之後，現已可供使用。 若要確認是否已發佈資源庫項目，請移至 [所有服務]，然後在 [一般] 目錄下，選取 [Marketplace]。  如果您下載的是解決方案範本，請務必針對該解決方案範本新增任何相依的 VHD 映像。  
-  [ ![檢視市集](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "檢視市集") ](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
+  [![檢視 Marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "檢視 Marketplace")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
 隨著 Azure Stack PowerShell 1.3.0 的發行，您現在可以新增虛擬機器擴充功能。 例如︰
 

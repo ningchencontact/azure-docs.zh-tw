@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 66640bd60f6ba8c2f612a6bc9b88a07b13012997
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/25/2019
+ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990029"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984878"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure SQL Database 中建立單一資料庫
 
@@ -29,7 +29,7 @@ ms.locfileid: "55990029"
 
 ## <a name="create-a-single-database"></a>建立單一資料庫
 
-單一資料庫具有一組使用兩個 [購買模型] (sql-database-purchase-models.md) 之一定義的計算、記憶體、IO 和儲存體資源。 當您建立單一資料庫時，您也會定義 [SQL Database 伺服器](sql-database-servers.md)加以管理，並將其放入指定區域中的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
+單一資料庫具有一組使用兩個[購買模型](sql-database-purchase-models.md)之一定義的計算、記憶體、IO 和儲存體資源。 當您建立單一資料庫時，您也會定義 [SQL Database 伺服器](sql-database-servers.md)加以管理，並將其放入指定區域中的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
 
 若要建立包含 AdventureWorksLT 範例資料的單一資料庫：
 
@@ -42,8 +42,8 @@ ms.locfileid: "55990029"
    - **資源群組**：選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。
    - **選取來源**：下拉並選取 [範例 (AdventureWorksLT)]。
 
-    >[!IMPORTANT]
-    >請務必選取 [範例 (AdventureWorksLT)] 資料，以便依照本快速入門和使用這項資料的其他 Azure SQL Database 快速入門的指示操作。
+    > [!IMPORTANT]
+    > 請務必選取 [範例 (AdventureWorksLT)] 資料，以便依照本快速入門和使用這項資料的其他 Azure SQL Database 快速入門的指示操作。
   
    ![建立單一資料庫](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -56,18 +56,18 @@ ms.locfileid: "55990029"
    - **確認密碼**：重新輸入密碼。
    - **位置**：下拉並選取任何有效位置。  
 
-   >[!IMPORTANT]
-   >請記得記錄下伺服器管理員登入和密碼，以便在進行這個和其他快速入門時能夠登入伺服器和資料庫。 如果您忘記登入或密碼，您可以在 [SQL Server] 頁面上取得登入名稱或重設密碼。 若要開啟 [SQL Server] 頁面，請在資料庫建立後，選取資料庫 [概觀] 頁面上的伺服器名稱。
+   > [!IMPORTANT]
+   > 請記得記錄下伺服器管理員登入和密碼，以便在進行這個和其他快速入門時能夠登入伺服器和資料庫。 如果您忘記登入或密碼，您可以在 [SQL Server] 頁面上取得登入名稱或重設密碼。 若要開啟 [SQL Server] 頁面，請在資料庫建立後，選取資料庫 [概觀] 頁面上的伺服器名稱。
 
     ![建立伺服器](./media/sql-database-get-started-portal/create-database-server.png)
 
 6. 選擇 [選取]。
 7. 在 [SQL Database] 表單上，選取 [定價層]。 瀏覽每個服務層可用的 DTU 數量和儲存體。
 
-   >[!NOTE]
-   >本快速入門使用 [DTU 型購買模型](sql-database-service-tiers-dtu.md)，但[虛擬核心型購買模型](sql-database-service-tiers-vcore.md)也可供使用。
-   >[!IMPORTANT]
-   >所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：英國北部、美國中西部、英國南部2、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (中南部)、德國東北部、中國北部和 US Gov (東部)。 在這些區域中，進階層中的儲存空間上限為 1 TB。 如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+   > [!NOTE]
+   > 本快速入門使用 [DTU 型購買模型](sql-database-service-tiers-dtu.md)，但[虛擬核心型購買模型](sql-database-service-tiers-vcore.md)也可供使用。
+   > [!IMPORTANT]
+   > 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 區域和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 
 8. 在此快速入門中，請選取 [標準] 服務層，然後使用滑桿選取 **10 DTU (S0)** 和 **1** GB 的儲存體。
 9. 選取 [套用] 。  

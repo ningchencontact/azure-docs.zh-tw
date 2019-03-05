@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867234"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732699"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教學課程：使用簡單實體和片語清單來擷取名稱
 
@@ -120,7 +120,7 @@ ms.locfileid: "55867234"
     |這是我的新會計職位履歷。|會計|
     |內附我的吧檯助理應徵文件。|吧檯助理|
     |我要提交屋頂工和創作者的應徵文件。|屋頂工、創作者|
-    |這是我的的履歷， 我想應徵公車司機。|公車司機|
+    |這是我的履歷， 我想應徵公車司機。|公車司機|
     |我是合格護士。 這是我的履歷。|合格護士|
     |我想要提交我在報上看到的教學職位文件。|教書|
     |這是我的履歷， 我想應徵蔬果裝料工。|裝料工|
@@ -233,7 +233,9 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
     [![建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    如果您想在片語清單中新增更多字組，請檢閱**相關值**，並新增相關字組。 
+    如果您想在片語清單中新增更多字組，請選取 [建議]，然後檢閱新的 [相關值] 並新增相關字組。 
+
+    請務必讓 [這些值可交換使用] 保持核取狀態，因為這些值全都應視為作業的同義字。 深入了解可交換和不可交換使用的[片語清單概念](luis-concept-feature.md#how-to-use-phrase-lists)。
 
 1. 選取 [儲存] 以啟動該片語清單。
 

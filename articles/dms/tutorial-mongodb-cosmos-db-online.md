@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 95286b7a63471ee07f76276d8b4b63ca5f2aecce
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/27/2019
+ms.openlocfilehash: 06e76b8eed283c6ef09f38e876c60b05477cf0ce
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211997"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985813"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>教學課程：使用 DMS 在線上狀態下將 MongoDB 移轉至 Azure Cosmos DB 的 Mongo 版 API (預覽)
 您可以使用 Azure 資料庫移轉服務，在線上狀態下 (以最短的停機時間) 將資料庫從內部部署或雲端的 MongoDB 執行個體移轉至 Azure Cosmos DB 的 Mongo 版 API。
@@ -121,7 +121,18 @@ ms.locfileid: "56211997"
        * **連接字串模式**，可接受[連接字串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中說明的 MongoDB 連接字串。
        * **來自 Azure 儲存體的資料**，可接受 Blob 容器 SAS URL。 如果 Blob 容器含有 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)所產生的 BSON 傾印，請選取 [Blob 包含 BSON 傾印]，如果容器包含 JSON 檔案，則將其取消選取。
 
-    如果無法解析 DNS 名稱，您可以使用 IP 位址。
+      如果您選取此選項，請確定儲存體帳戶連接字串以下列格式顯示：
+
+    ```
+    https://blobnameurl/container?SASKEY
+    ```
+      此外，根據 Azure 儲存體中的類型傾印資訊，請留意下列詳細資料。
+
+      * 就 BSON 傾印而言，Blob 容器內的資料必須採用 bsondump 格式，使資料檔案以 collection.bson 的格式放入依所屬資料庫命名的資料夾中。 中繼資料檔案 (如果有的話) 則應使用 *collection*.metadata.json 的格式命名。
+
+      * 就 JSON 傾印而言，Blob 容器中的檔案必須放入依所屬資料庫命名的資料夾中。 在每個資料庫資料夾中，資料檔案必須放在名為「資料」的子資料夾中，並使用 *collection*.json 的格式命名。 中繼資料檔案 (如果有的話) 必須放在名為「中繼資料」的子資料夾中，並使用相同的格式 *collection*.json 命名。 中繼資料檔案必須採用 MongoDB bsondump 工具所產生的相同格式。
+
+   如果無法解析 DNS 名稱，您可以使用 IP 位址。
 
    ![指定來源詳細資料](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

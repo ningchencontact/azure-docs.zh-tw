@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7035035823e00fb0c12de3f4eeae11d8b3e1d54d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016907"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984759"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook
 
@@ -109,7 +109,7 @@ ms.locfileid: "54016907"
 
     1.  針對 [存取權杖]，從 Azure Databricks 工作區產生它。 您可以在[這裡](https://docs.databricks.com/api/latest/authentication.html#generate-token)找到步驟。
 
-    1.  針對 [叢集版本]，選取 [4.0] (含 Apache Spark 2.3.0、Scala 2.11)
+    1.  針對 [叢集版本]，選取 [4.2] (含 Apache Spark 2.3.1、Scala 2.11)
 
     1.  針對 [叢集節點類型]，請為本教學課程選取 [一般用途 (HDD)] 分類下的 [標準\_D3\_v2]。 
     

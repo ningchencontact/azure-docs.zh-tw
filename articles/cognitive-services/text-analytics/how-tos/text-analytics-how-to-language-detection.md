@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 549ef0d073a740edf700c54d02a0d9ef247db0b7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245082"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886762"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>範例：如何使用文字分析來偵測語言
 
@@ -29,7 +29,7 @@ ms.locfileid: "56245082"
 
 您必須具有此格式的 JSON 文件：識別碼、文字
 
-文件大小必須少於 5,000 個字元，而且您最多可以針對每個集合擁有 1,000 個項目 (識別碼)。 集合會在要求主體中提交。 以下是您可能提交來進行語言偵測的內容範例。
+文件大小必須少於 5,120 個字元，而且您最多可以針對每個集合擁有 1,000 個項目 (識別碼)。 集合會在要求本文中提交。 以下是您可能提交來進行語言偵測的內容範例。
 
    ```
     {

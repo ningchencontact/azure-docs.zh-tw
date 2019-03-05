@@ -13,23 +13,23 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981276"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649079"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>教學課程：建立和測試訂用帳戶
 
 本教學課程說明如何建立含有供應項目的訂用帳戶，然後進行測試。 為了進行測試，您會以雲端管理員的身分登入 Azure Stack 使用者入口網站，訂閱該供應項目，然後建立虛擬機器。
 
 > [!TIP]
-> 若要獲得更進階的評估體驗，您可以[為特定使用者建立訂用帳戶](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)，然後在使用者入口網站中以使用者的身分登入。 
+> 若要獲得更進階的評估體驗，您可以[為特定使用者建立訂用帳戶](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)，然後在使用者入口網站中以使用者的身分登入。
 
 本教學課程說明如何訂閱 Azure Stack 供應項目。
 
@@ -60,10 +60,10 @@ ms.locfileid: "55981276"
 
 ## <a name="test-the-offer"></a>測試供應項目
 
-在登入使用者入口網站時，您可以藉由使用新的訂用帳戶功能佈建虛擬機器，來測試供應項目。 
+在登入使用者入口網站時，您可以藉由使用新的訂用帳戶功能佈建虛擬機器，來測試供應項目。
 
 > [!NOTE]
-> 要進行這項測試，必須已將 Windows Server 2016 資料中心 VM 新增至 Azure Stack 市集。 
+> 要進行這項測試，必須已將 Windows Server 2016 資料中心 VM 新增至 Azure Stack 市集。
 
 1. 登入使用者入口網站。
 
@@ -84,7 +84,6 @@ ms.locfileid: "55981276"
 > [!NOTE]
 > 虛擬機器部署需要數分鐘的時間才能完成。
 
-
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解：
@@ -92,7 +91,6 @@ ms.locfileid: "55981276"
 > [!div class="checklist"]
 > * 訂閱供應項目 
 > * 測試供應項目
-
 
 > [!div class="nextstepaction"]
 > [從社群範本建立 VM](azure-stack-create-vm-template.md)

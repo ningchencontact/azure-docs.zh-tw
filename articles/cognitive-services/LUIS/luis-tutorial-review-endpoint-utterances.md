@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 88ac9f07fb8791ca3d64123663b0380a56220cdd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865944"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878164"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>教學課程：檢閱端點語句以修正不確定的預測
 在本教學課程中，藉由驗證或更正透過 LUIS 不確定的 LUIS HTTPS 端點所收到的語句來改善應用程式的預測。 有些語句可能必須針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。 
@@ -50,11 +50,13 @@ ms.locfileid: "55865944"
 
 1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json)。
 
-2. 將 JSON 匯入新的應用程式中。
+1. 將 JSON 匯入新的應用程式中。
 
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `review`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+1. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `review`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
-    如果您使用本教學課程作為新的已匯入應用程式，則您也需要訓練和發佈端點，然後將語句新增至具有[指令碼](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js)的端點，或從瀏覽器中的端點新增語句。 要新增的語句為：
+1. 將新的應用程式定型並發佈。
+
+1. 使用端點來新增下列語句。 您可以使用[指令碼](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js)或從瀏覽器中的端點來執行此作業。 要新增的語句為：
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
@@ -64,13 +66,13 @@ ms.locfileid: "55865944"
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. 從左側導覽選取 [檢閱端點語句]。 此清單已針對 **ApplyForJob** 意圖進行篩選。 
+1. 從左側導覽選取 [檢閱端點語句]。 此清單已針對 **ApplyForJob** 意圖進行篩選。 
 
-    [ ![[檢閱端點語句] 按鈕在左側導覽中的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
+    [![[檢閱端點語句] 按鈕在左側導覽中的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
-3. 切換 [實體檢視] 以查看加上標籤的實體。 
+1. 切換 [實體檢視] 以查看加上標籤的實體。 
     
-    [ ![已醒目提示 [實體檢視] 開關的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    [![已醒目提示 [實體檢視] 開關的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |語句|正確的意圖|遺漏的實體|
     |:--|:--|:--|
@@ -78,29 +80,29 @@ ms.locfileid: "55865944"
 
     此語句的意圖不正確，且分數小於 50%。 **ApplyForJob** 意圖有 21 個語句，相較之下，**GetJobInformation** 有 7 個語句。 隨著端點語句正確調整，應該會有更多的語句新增至 **GetJobInformation** 意圖。 這部分會留作練習讓您自行完成。 每個意圖 (**無**意圖除外) 應該會有數量大致相同的語句範例。 **無**意圖所包含的語句應該會佔應用程式中總語句的 10%。 
 
-4. 對於 `I'm looking for a job with Natual Language Processing` 意圖，請在 [一致的意圖] 資料行中選取正確的意圖 **GetJobInformation**。 
+1. 對於 `I'm looking for a job with Natual Language Processing` 意圖，請在 [一致的意圖] 資料行中選取正確的意圖 **GetJobInformation**。 
 
-    [ ![讓語句與意圖一致的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+    [![讓語句與意圖一致的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-5. 在同一個語句中，`Natural Language Processing` 的實體是 keyPhrase。 這反而應該是**職位**實體。 從清單中依序選取 [`Natural Language Processing`] 和 [職位] 實體。
+1. 在同一個語句中，`Natural Language Processing` 的實體是 keyPhrase。 這反而應該是**職位**實體。 從清單中依序選取 [`Natural Language Processing`] 和 [職位] 實體。
 
-    [ ![將語句中實體加上標籤的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+    [![將語句中實體加上標籤的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-6. 在同一行中，於 [新增至一致的意圖] 資料行中選取圈選核取記號。 
+1. 在同一行中，於 [新增至一致的意圖] 資料行中選取圈選核取記號。 
 
-    [ ![正在完成讓意圖中的語句一致的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
+    [![正在完成讓意圖中的語句一致的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     此動作會將語句從 [檢閱端點語句] 移到 [GetJobInformation] 意圖。 端點語句現在是該意圖的語句範例。 
 
-7. 檢閱此意圖中剩餘的語句，如果這些語句不正確，請將語句加上標籤並更正 [一致的意圖]。
+1. 檢閱此意圖中剩餘的語句，如果這些語句不正確，請將語句加上標籤並更正 [一致的意圖]。
 
-8. 當所有語句都正確無誤時，請選取每個資料列的核取方塊，然後選取 [新增選取項目] 讓語句變得正確。 
+1. 當所有語句都正確無誤時，請選取每個資料列的核取方塊，然後選取 [新增選取項目] 讓語句變得正確。 
 
-    [ ![正在完成剩餘語句以成為一致意圖的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
+    [![正在完成剩餘語句以成為一致意圖的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. 此清單應該不會再有這些語句。 如果出現更多語句，請繼續檢查清單，更正意圖並將遺漏的實體加上標籤，直到清單清空為止。 
+1. 此清單應該不會再有這些語句。 如果出現更多語句，請繼續檢查清單，更正意圖並將遺漏的實體加上標籤，直到清單清空為止。 
 
-10. 選取 [篩選] 清單中的下一個意圖，然後繼續更正語句並將實體加上標籤。 請記住，每個意圖的最後一個步驟都是選取語句資料列上的 [新增至一致的意圖] 或核取每個意圖旁的方塊，然後選取資料表上方的 [新增選取項目]。
+1. 選取 [篩選] 清單中的下一個意圖，然後繼續更正語句並將實體加上標籤。 請記住，每個意圖的最後一個步驟都是選取語句資料列上的 [新增至一致的意圖] 或核取每個意圖旁的方塊，然後選取資料表上方的 [新增選取項目]。
 
     繼續執行，直到篩選清單中的所有意圖和實體都有空白清單為止。 這是非常小型的應用程式。 檢閱程序只會花上幾分鐘的時間。 
 

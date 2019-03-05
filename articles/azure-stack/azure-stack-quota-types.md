@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 88cbfc895d188162d0f242a5aceaab721a6c877f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239090"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877940"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配額類型
 
@@ -74,7 +74,7 @@ ms.locfileid: "55239090"
 3.  在開啟的刀鋒視窗中，選取 [服務和配額]。
 4.  選取您想要查看的配額，方法是在 [名稱] 資料行中按一下該配額。
 
-    [ ![配額](media/azure-stack-quota-types/quotas1sm.png "檢視配額") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![配額](media/azure-stack-quota-types/quotas1sm.png "檢視配額")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>資源提供者
 
@@ -92,7 +92,7 @@ ms.locfileid: "55239090"
 2.  選取您想要編輯配額的方案，方法是按一下其名稱。
 3.  在開啟的刀鋒視窗中，選取 [服務和配額]。
 4.  選取您想要編輯的配額，方法是在 [名稱] 資料行中按一下該配額。
-    [ ![配額](media/azure-stack-quota-types/quotas1sm.png "檢視配額") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![配額](media/azure-stack-quota-types/quotas1sm.png "檢視配額")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.  在開啟的刀鋒視窗中，選取 [Edit in Compute] \(在計算中編輯\)、[Edit in Network] \(在網路中編輯\) 或 [Edit in Storage] \(在儲存體中編輯\)。
     ![配額](media/azure-stack-quota-types/quotas3.png "檢視配額")    

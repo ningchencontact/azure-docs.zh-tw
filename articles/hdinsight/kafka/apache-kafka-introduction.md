@@ -1,6 +1,6 @@
 ---
 title: HDInsight 上的 Apache Kafka 簡介 - Azure
-description: 了解 HDInsight 上的 Apache Kafka：它是什麼、其用途以及到何處尋找範例和入門資訊。
+description: 了解 HDInsight 上 Apache Kafka：它是什麼、其用途以及到何處尋找範例和入門資訊。
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313957"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889183"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>什麼是 HDInsight 上的 Apache Kafka？
 
@@ -38,7 +38,7 @@ HDInsight 上的 Apache Kafka 特定特性如下：
 
     如需詳細資訊，請參閱[使用 HDInsight 上的 Apache Kafka 確保高可用性](apache-kafka-high-availability.md)文件。
 
-* Azure Log Analytics 可用來監視 HDInsight 上的 Kafka。 Log Analytics 會呈現虛擬機器層級資訊，例如磁碟和 NIC 計量，以及來自 Kafka 的 JMX 計量。
+* Azure 監視器記錄可用來監視 HDInsight 上的 Kafka。 Azure 監視器記錄會呈現虛擬機器層級資訊，例如磁碟和 NIC 計量，以及來自 Kafka 的 JMX 計量。
 
     如需詳細資訊，請參閱[針對 HDInsight 上的 Apache Kafka 分析記錄](apache-kafka-log-analytics-operations-management.md)。
 
@@ -68,27 +68,27 @@ Kafka 會在「主題」中儲存記錄 (資料)。 記錄是由「產生者」�
 
     如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
 
-* **串流處理**︰Kafka 通常與 Apache Storm 或 Spark 一起用來處理即時串流。 Kafka 0.10.0.0 (HDInsight 3.5 和 3.6 版) 引進串流 API，讓您不需要 Storm 或 Spark 就能建置串流解決方案。
+* **串流處理**：Kafka 通常與 Apache Storm 或 Spark 一起用來處理即時串流。 Kafka 0.10.0.0 (HDInsight 3.5 和 3.6 版) 引進串流 API，讓您不需要 Storm 或 Spark 就能建置串流解決方案。
 
     如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
 
-* **水平縮放**︰Kafka 可將串流分割給 HDInsight 叢集的各節點。 取用者處理程序可以與個別的資料分割相關聯，在取用記錄時可平衡負載。
+* **水平調整**：Kafka 可將串流分割給 HDInsight 叢集的各節點。 取用者處理程序可以與個別的資料分割相關聯，在取用記錄時可平衡負載。
 
     如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
 
-* **依序傳遞**︰在每個資料分割內，記錄會依收到時的順序儲存在串流中。 每個資料分割與一個取用者處理序建立關聯之後，就能保證依序處理記錄。
+* **依序傳遞**：在每個資料分割內，記錄會依收到時的順序儲存在串流中。 每個資料分割與一個取用者處理序建立關聯之後，就能保證依序處理記錄。
 
     如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
 
 ## <a name="use-cases"></a>使用案例
 
-* **傳訊**︰Kafka 支援發佈-訂閱傳訊模式，通常作為訊息代理程式。
+* **傳訊**：Kafka 支援發佈-訂閱傳訊模式，因此常會作為訊息代理程式。
 
-* **活動追蹤**︰Kafka 能夠依序登載記錄，可用來追蹤和重新建立活動。 例如，網站或應用程式中的使用者動作。
+* **活動追蹤**：Kafka 能夠依序登載記錄，可用來追蹤和重新建立活動。 例如，網站或應用程式中的使用者動作。
 
-* **彙總**︰您可以利用串流處理來彙總不同串流的資訊，將資訊結合並集中而成為可操作的資料。
+* **彙總**：您可以利用串流處理來彙總不同串流的資訊，將資訊結合並集中而成為可操作的資料。
 
-* **轉換**︰您可以利用串流處理來結合並充實多個輸入主題的資料，而成為一個或多個輸出主題。
+* **轉換**：您可以利用串流處理來結合並充實多個輸入主題的資料，而成為一或多個輸出主題。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -96,6 +96,6 @@ Kafka 會在「主題」中儲存記錄 (資料)。 記錄是由「產生者」�
 
 * [快速入門：建立 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)
 
-* [教學課程：使用 Apache Spark 搭配 HDInsight 上的 Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
+* [教學課程：在 HDInsight 上搭配使用 Apache Spark 與 Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
 
-* [教學課程：使用 Apache Storm 搭配 HDInsight 上的 Apache Kafka](../hdinsight-apache-storm-with-kafka.md)
+* [教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka](../hdinsight-apache-storm-with-kafka.md)

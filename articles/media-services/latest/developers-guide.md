@@ -13,19 +13,19 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/16/2019
+ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 2f0191bd181a8e10fa59f6d1d53da348e6440aba
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343574"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749795"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>使用 SDK/工具透過媒體服務 v3 API 開始進行開發
 
-身為開發人員，您可以使用媒體服務 [REST API](https://aka.ms/ams-v3-rest-sdk)，或是可讓您與 REST API 互動的用戶端程式庫，輕鬆建立、管理及維護自訂媒體工作流程。 媒體服務 v3 API 以 OpenAPI 規格 (先前稱為 Swagger) 作為基礎。
+身為開發人員，您可以使用媒體服務 [REST API](https://aka.ms/ams-v3-rest-ref)，或是可讓您與 REST API 互動的用戶端程式庫，輕鬆建立、管理及維護自訂媒體工作流程。 [媒體服務 v3](https://aka.ms/ams-v3-rest-sdk) API 以 OpenAPI 規格 (先前稱為 Swagger) 作為基礎。
 
 本主題會提供 SDK、工具和文件的連結。 也會提供一些適用於不同開發環境的實用資訊。
 
@@ -95,6 +95,7 @@ AMSE 是一個開放原始碼專案，由社群提供支援 (可將問題回報�
 - [使用 DRM 動態加密與授權傳遞服務 - .NET](protect-with-drm.md)
 - [從現有原則取得簽署金鑰 - .NET](get-content-key-policy-dotnet-howto.md)
 - [使用媒體服務建立篩選 - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [搭配使用 Azure Functions v2 與媒體服務 v3 的進階影片隨選範例](http://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4e4c9ae764e1278251c01d41a0617ed2e88e439
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242309"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879604"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -60,7 +60,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 只有在 Microsoft Edge、Chrome 和 Firefox 上才支援入口網站的工作區儀表板：
 
-[ ![線上入口網站](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![線上入口網站](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 開始使用新的 CLI 和 SDK 來訓練模型以及追蹤執行歷程記錄。 您可以了解如何使用[教學課程：使用 Azure Machine Learning 服務訓練模型](tutorial-train-models-with-aml.md)。
 
@@ -109,7 +109,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 在這個最新版本中，擴充功能已重新命名為「適用於 Visual Studio Code 的 Azure Machine Learning」，並已經過擴充和改善，可與上述新功能搭配運作。
 
-[ ![適用於 Visual Studio Code 的 Azure Machine Learning](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![適用於 Visual Studio Code 的 Azure Machine Learning](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>那麼領域套件呢？
 

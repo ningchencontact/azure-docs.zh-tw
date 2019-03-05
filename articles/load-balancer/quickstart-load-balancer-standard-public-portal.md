@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 97d1cf2817ebfbf2eb1a6ba5a4d20d457b6369c6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232663"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961732"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立標準負載平衡器以平衡 VM 的負載
 
@@ -37,24 +37,23 @@ ms.locfileid: "54232663"
 
 ## <a name="create-a-public-load-balancer"></a>建立公用負載平衡器
 
-在本節中，您會建立公用負載平衡器，協助平衡虛擬機器的負載。 標準負載平衡器只支援標準公用 IP 位址。 當您建立標準負載平衡器時，也必須建立新的標準公用 IP 位址，而該 IP 位址會設定為標準負載平衡器的前端 (預設的名稱為 LoadBalancerFrontend)。 
+在本節中，您會建立公用負載平衡器，協助平衡虛擬機器的負載。 Standard Load Balancer 只支援標準公用 IP 位址。 當您建立標準負載平衡器時，也必須建立新的標準公用 IP 位址，而該 IP 位址會設定為標準負載平衡器的前端 (預設的名稱為 LoadBalancerFrontend)。 
 
 1. 在畫面的左上方，按一下 [建立資源] > [網路] > [負載平衡器]。
-2. 在 [建立負載平衡器] 頁面中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
+2. 在 [建立負載平衡器] 頁面的 [基本資料] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]：
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupSLB*。|
     | Name                   | *myLoadBalancer*                                   |
-    | 類型          | 公開                                        |
-    | SKU           | 標準                          |
-    | 公用 IP 位址 | 選取 [新建]，並在文字方塊中輸入 *myPublicIP*。 依預設會為公用 IP 位址選取標準 SKU。 針對 [可用性區域]，選取 [區域備援]。 |
-    | 訂用帳戶               | 選取您的訂用帳戶。    |
-    |資源群組 | 選取 [新建]，然後輸入 myResourceGroupSLB。    |
-    | 位置           | 選取 [西歐]。                          |
-    
-
-![建立負載平衡器](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-
+    | 區域         | 選取 [西歐]。                                        |
+    | 類型          | 選取 [公用]。                                        |
+    | SKU           | 選取 [標準]。                          |
+    | 公用 IP 位址 | 選取 [建立新的]。 |
+    | 公用 IP 位址名稱              | 在文字方塊中輸入 *myPublicIP*。   |
+    |可用性區域| 選取 [區域備援]。    |
+3. 在 [檢閱 + 建立] 索引標籤中，按一下 [建立]。   
 
 ## <a name="create-backend-servers"></a>建立後端伺服器
 
@@ -84,7 +83,7 @@ ms.locfileid: "54232663"
         2. 在 [建立網路安全性群組] 頁面中，針對 [名稱] 輸入 *myNetworkSecurityGroup*，然後選取 [確定]。
 5. 按一下 [停用] 來停用開機診斷。
 6. 按一下 [確定]，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
-7. 使用步驟 1-6，建立名為 VM2 的第二部 VM，其可用性設定組為 myAvailabilityset、虛擬網路為 myVnet、子網路為 myBackendSubnet，而其網路安全性群組為 myNetworkSecurityGroup。 
+7. 使用步驟 1-6，建立名為 VM2 的第二個 VM，其虛擬網路為 myVnet、子網路為 myBackendSubnet，而其網路安全性群組為 *myNetworkSecurityGroup。 
 
 ### <a name="create-nsg-rule"></a>建立 NSG 規則
 

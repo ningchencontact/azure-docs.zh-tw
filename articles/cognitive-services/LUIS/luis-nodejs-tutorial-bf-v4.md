@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8a24ffa4717244d8ce2ef507183cff06cbea5797
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 852cc5e5b3b018d871bd40775dce64d669fb3011
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492227"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880609"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>教學課程：Node.js 中使用 Bot Framework 4.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 使用 Node.js，您可以建置與 Language Understanding (LUIS) 整合的聊天機器人。 此 Bot 會使用 HomeAutomation 應用程式來實作 Bot 解決方案。 此 Bot 是使用 [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/) 和 [Bot Framework 第 4 版](https://github.com/Microsoft/botbuilder-js)所建置的。
@@ -66,7 +66,7 @@ ms.locfileid: "55492227"
     
 5. 選取 [建立] 。 這會建立 Bot 服務，並將其部署到 Azure。 此程序中的一部份會為您建立名為 `luis-nodejs-bot-XXXX` 的 LUIS 應用程式。 此名稱會以上一節中的 Bot 和應用程式名稱為基礎。
 
-    [ ![建立 Web 應用程式 Bot](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
+    [![建立 Web 應用程式 Bot](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
 6. 讓此瀏覽器索引標籤保持開啟。 對於使用到 LUIS 入口網站的任何步驟，請開啟新的瀏覽器索引標籤。部署新的 Bot 服務後，請繼續下一節。
 
@@ -106,7 +106,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 
 3. 選取 [下載 Bot 原始程式碼]。 
 
-    [ ![下載基本 Bot 的 Web 應用程式 Bot 原始程式碼](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![下載基本 Bot 的 Web 應用程式 Bot 原始程式碼](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. 如果原始程式碼已壓縮為 zip 檔，將會有提供程式碼下載連結的訊息。 選取連結。 
 
@@ -230,7 +230,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 
 2. 在 Bot 模擬器中，選取專案根目錄中的 *.bot 檔案。 此 `.bot` 檔案包含訊息的 Bot URL 端點：
 
-    [ ![Bot 模擬器 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![Bot 模擬器 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. 輸入您在**[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，從 Azure Bot 服務 [應用程式設定] 中複製的 Bot 祕密。 這可讓模擬器存取 .bot 檔案中的任何加密欄位。
 
@@ -239,7 +239,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 
 4. 在 Bot 模擬器中輸入 `Hello`，並取得基本 Bot 的適當回應。
 
-    [ ![模擬器中的基本 Bot 回應](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![模擬器中的基本 Bot 回應](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## <a name="modify-bot-code"></a>修改 Bot 程式碼 
 

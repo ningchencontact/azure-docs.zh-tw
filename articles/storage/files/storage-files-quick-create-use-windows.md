@@ -1,41 +1,45 @@
 ---
-title: 快速入門：建立適用於 Windows 的 Azure 檔案共用並加以使用 | Microsoft Docs
-description: 使用本快速入門建立適用於 Windows 的 Azure 檔案共用並加以使用。
+title: Azure 快速入門 - 在 Windows VM 上建立和使用 Azure 檔案共用並 | Microsoft Docs
+description: 在本快速入門中，您會在 Azure 入口網站中設定 Azure 檔案共用，並將其連線至 Windows 虛擬機器。 您會連線至檔案共用，並將檔案上傳至檔案共用。 然後，您會建立檔案共用的快照集、修改檔案共用中的檔案，並還原檔案共用先前的快照集。
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663990"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652462"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>快速入門：建立適用於 Windows 的 Azure 檔案共用並加以使用
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>快速入門：使用 Windows 虛擬機器建立和管理 Azure 檔案共用
+
 本文示範建立和使用 Azure 檔案共用的基本步驟。 本快速入門主要說明如何快速設定 Azure 檔案共用，以協助您體驗此服務的運作方式。 如需關於在您自己的環境中建立和使用 Azure 檔案共用的詳細指示，請參閱[搭配 Windows 使用 Azure 檔案共用](storage-how-to-use-files-windows.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
+
 登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="prepare-your-environment"></a>準備您的環境
-建立 Azure 檔案共用之前，您必須為本快速入門設定下列項目：
+
+在本快速入門中，您會設定下列項目：
 
 - Azure 儲存體帳戶和 Azure 檔案共用
 - Windows Server 2016 Datacenter VM
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-您必須先建立 Azure 儲存體帳戶，才能使用 Azure 檔案共用。 儲存體帳戶是您可在其中部署 Azure 檔案共用或其他儲存體資源 (例如 blob 或佇列) 的共用儲存體集區。 儲存體帳戶可以包含無限多個共用。 共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。
+您必須先建立 Azure 儲存體帳戶，才能使用 Azure 檔案共用。 一般用途 v2 儲存體帳戶提供對所有 Azure 儲存體服務的存取：Blob、檔案、佇列和資料表。 本快速入門會建立一般用途 v2 儲存體帳戶，但建立任何類型儲存體帳戶的步驟都很類似。 儲存體帳戶可以包含無限多個共用。 共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
+
 接下來，請建立檔案共用。
 
 1. 在 Azure 儲存體帳戶部署完成後，選取 [前往資源]。
@@ -58,6 +62,7 @@ ms.locfileid: "55663990"
 至此，您已建立 Azure 儲存體帳戶，並在 Azure 中建立了具有一個檔案的檔案共用。 接著，您將使用 Windows Server 2016 Datacenter 來建立 Azure VM，以代表本快速入門中的內部部署伺服器。
 
 ### <a name="deploy-a-vm"></a>部署 VM
+
 1. 接下來，展開入口網站左側的功能表，然後在 Azure 入口網站的左上角選擇 [建立資源]。
 1. 在 **Azure Marketplace** 資源清單上方的搜尋方塊中，搜尋並選取**Windows Server 2016 Datacenter**，然後選擇 [建立]。
 1. 在 [基本概念] 索引標籤的 [專案詳細資料] 下方，選取您為本快速入門建立的資源群組。
@@ -112,6 +117,7 @@ ms.locfileid: "55663990"
       ![[Azure 檔案服務連線] 窗格中的 UNC 路徑](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>建立共用快照集
+
 您現在已對應磁碟機，接下來可以建立快照集。
 
 1. 在入口網站中瀏覽至您的檔案共用，然後選取 [建立快照集]。
@@ -132,7 +138,7 @@ ms.locfileid: "55663990"
 
 ## <a name="restore-from-a-snapshot"></a>從快照集還原
 
-1. 在入口網站中，選取 [qsTestFile] > 選取 [還原] 按鈕。
+1. 在 [檔案共用快照集] 刀鋒視窗中，以滑鼠右鍵按一下 *qsTestFile*，然後選取 [還原] 按鈕。
 1. 選取 [覆寫原始檔案]。
 
    ![[下載] 及 [還原] 按鈕](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ ms.locfileid: "55663990"
    ![刪除按鈕](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>在 Windows 中使用共用快照集
+
 就像使用內部部署 VSS 快照集一樣，您可以使用 [先前的版本] 索引標籤從已掛接的 Azure 檔案共用檢視快照集。
 
 1. 在 [檔案總管] 中，找出已掛接的共用。

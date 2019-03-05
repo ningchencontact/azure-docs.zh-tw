@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76e55c643378e689f12d485100a81ccefa4196f4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229807"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985983"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過 Standard Load Balancer 來平衡可用性區域內的 VM 負載
 
@@ -48,18 +48,22 @@ ms.locfileid: "54229807"
 Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載平衡器期間建立新的公用 IP 時，它會自動設定為標準 SKU 版本。 而且也會自動具備區域備援能力。
 
 1. 在畫面的左上方，選取 [建立資源] > [網路] > [負載平衡器]。
-2. 在 [建立負載平衡器] 頁面中，輸入負載平衡器的下列值：
-    - [myLoadBalancer] 作為負載平衡器的名稱。
-    - [公用] 作為負載平衡器的類型。
-      - [myPublicIPZonal] 作為您建立的新公用 IP 位址。 選取 [選擇公用 IP 位址] 。 然後選取 [建立新的] 。 針對名稱，輸入 **myPublicIP**。 SKU 預設為 [標準]。 針對 [可用性區域]，選取 [區域 1]。
-    - [myResourceGroupZLB] 作為您新建立的資源群組的名稱。
-    - [westeurope] 作為位置。
-3. 選取 [建立] 以建立負載平衡器。
-   
-    ![使用 Azure 入口網站建立區域 Standard Load Balancer 執行個體](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+2. 在 [建立負載平衡器] 頁面的 [基本資料] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]：
 
+    | 設定                 | 值                                              |
+    | ---                     | ---                                                |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupZLB*。|
+    | Name                   | *myLoadBalancer*                                   |
+    | 區域         | 選取 [西歐]。                                        |
+    | 類型          | 選取 [公用]。                                        |
+    | SKU           | 選取 [標準]。                          |
+    | 公用 IP 位址 | 選取 [建立新的]。 |
+    | 公用 IP 位址名稱              | 在文字方塊中輸入 *myPublicIP*。   |
+    |可用性區域| 選取 [1]。    |
+3. 在 [檢閱 + 建立] 索引標籤中，按一下 [建立]。   
 
-## <a name="create-backend-servers"></a>建立後端伺服器
+ ## <a name="create-backend-servers"></a>建立後端伺服器
 
 在本節中，您會建立虛擬網路。 您也會針對要新增至負載平衡器後端集區的地區，在相同區域 (也就是區域 1) 中建立兩部虛擬機器。 然後在虛擬機器上安裝 IIS，協助測試區域備援負載平衡器。 如果有一個 VM 失敗，則相同區域中 VM 的健康狀態探查會失敗。 相同區域內的其他 VM 會繼續提供流量。
 

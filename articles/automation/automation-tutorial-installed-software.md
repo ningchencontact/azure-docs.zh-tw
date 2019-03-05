@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ffa14e3fb3fd41d6a30e1cf30713b26d7ecd255a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436003"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815887"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>探索您的 Azure 電腦和非 Azure 電腦上安裝了哪些軟體
 
@@ -58,8 +58,10 @@ ms.locfileid: "54436003"
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區用來收集功能和服務 (例如清查) 所產生的資料。
 工作區提供單一位置來檢閱和分析來自多個來源的資料。
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 啟用解決方案可能需要 15 分鐘。 在此期間，請勿關閉瀏覽器視窗。
-啟用解決方案之後，有關在 VM 上已安裝軟體和變更的相關資訊會流向 Log Analytics。
+啟用解決方案之後，VM 上安裝的軟體和變更相關資訊會流向 Azure 監視器記錄。
 可能需要 30 分鐘到 6 小時，資料才可供分析。
 
 ## <a name="onboard-a-vm"></a>讓 VM 上架
@@ -101,7 +103,7 @@ ms.locfileid: "54436003"
 
 ## <a name="search-inventory-logs-for-installed-software"></a>搜尋已安裝軟體的清查記錄
 
-清查所產生的記錄資料會傳送到 Log Analytics。 若要透過執行查詢來搜尋記錄，請選取 [清查] 視窗頂端的 [Log Analytics]。
+清查所產生的記錄資料會傳送到 Azure 監視器記錄。 若要透過執行查詢來搜尋記錄，請選取 [清查] 視窗頂端的 [Log Analytics]。
 
 清查資料會儲存在 **ConfigurationData** 類型之下。
 下列的 Log Analytics 查詢範例會傳回清查結果，其中「發行者」是 "Microsoft Corporation"。
@@ -113,11 +115,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-若要深入了解在 Log Analytics 中執行和搜尋記錄檔，請參閱 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md)。
+若要深入了解如何在 Azure 監視器記錄中執行和搜尋記錄，請參閱 [Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)。
 
 ### <a name="single-machine-inventory"></a>單一電腦清查
 
-若要查看單一電腦的軟體清查，您可以從 Azure VM 資源頁面存取清查，或是使用 Log Analytics 來篩選到對應的機器。
+若要查看單一電腦的軟體清查，您可以從 Azure VM 資源頁面存取清查，或使用 Azure 監視器記錄來篩選到對應的機器。
 下列範例 Log Analytics 查詢會傳回名為 ContosoVM 的電腦之軟體清單。
 
 ```loganalytics

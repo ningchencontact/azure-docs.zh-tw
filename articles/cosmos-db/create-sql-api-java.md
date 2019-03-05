@@ -8,14 +8,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: sngun
-ms.openlocfilehash: 8fd99b1c68be08ca7c2f4b7cdeaaa8b5b64859e4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0e80fbc96bf1241308c80d108e9f9580122b801b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197415"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587713"
 ---
-# <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>使用 Java 應用程式來建立和管理 Azure Cosmos DB SQL API 帳戶的資源
+# <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>快速入門：使用 Azure Cosmos DB SQL API 帳戶建置 Java 應用程式
+
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)

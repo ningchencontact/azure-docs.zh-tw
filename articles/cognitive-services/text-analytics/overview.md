@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7623f98b9fd6c4bad8a41050e39b6e0e8650dccc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242919"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889272"
 ---
 # <a name="what-is-text-analytics"></a>什麼是文字分析？
 
@@ -64,11 +64,11 @@ ms.locfileid: "56242919"
 
 ## <a name="data-limits"></a>資料限制
 
-所有的文字分析 API 端點均接受原始文字資料。 目前的限制是每個文件 5000 個字元；如果您需要分析較大的文件，您可以其分成較小的區塊。 如果您仍需要更高的限制，請[與我們連絡](https://azure.microsoft.com/overview/sales-number/)，以便共同討論您的需求。
+所有的文字分析 API 端點均接受原始文字資料。 目前的限制是每個文件 5,120 個字元；如果您需要分析較大的文件，您可以其分成較小的區塊。 如果您仍需要更高的限制，請[與我們連絡](https://azure.microsoft.com/overview/sales-number/)，以便共同討論您的需求。
 
 | 限制 | 值 |
 |------------------------|---------------|
-| 單一文件的大小上限 | 依 [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 測量的 5,000 個字元。 |
+| 單一文件的大小上限 | 依 [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 測量的 5,120 個字元。 |
 | 整體要求的大小上限 | 1 MB |
 | 要求中的文件數上限 | 1,000 份文件 |
 
@@ -80,7 +80,7 @@ ms.locfileid: "56242919"
 
 ## <a name="next-steps"></a>後續步驟
 
-首先，試著使用[互動式示範](https://azure.microsoft.com/services/cognitive-services/text-analytics/)。 您可以貼上文字輸入 (最多 5,000 個字元) 以偵測語言 (最多 120 種)、計算情感分數，或擷取關鍵片語。 您不需要註冊。
+首先，試著使用[互動式示範](https://azure.microsoft.com/services/cognitive-services/text-analytics/)。 您可以貼上文字輸入 (最多 5,120 個字元) 以偵測語言 (最多 120 種)、計算情感分數，或擷取關鍵片語。 您不需要註冊。
 
 當您準備好要直接呼叫 API 時：
 

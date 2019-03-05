@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: d35e7cfbf55d0dc53214bbb7b1153c3270c611c2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b2b5c7201fe45fb52eb333b9e32b4996e00df9b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471317"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822918"
 ---
 # <a name="what-is-vpn-gateway"></a>什麼是 VPN 閘道？
 
@@ -57,7 +57,7 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 ## <a name="diagrams"></a>連線拓撲圖表
 
-請務必知道 VPN 閘道連線有不同的組態可用。 您必須決定哪個組態最符合您的需求。 在下列各節中，您可以檢視有關下列 VPN 閘道連線的資訊和拓撲圖表︰下列各節包含的資料表可列出︰
+請務必知道 VPN 閘道連線有不同的組態可用。 您必須決定哪個組態最符合您的需求。 在下列各節中，您可以檢視有關下列 VPN 閘道連線的資訊和拓撲圖表︰下列各節包含的資料表會列出以下資訊︰
 
 * 可用的部署模型
 * 可用的設定工具
@@ -152,7 +152,6 @@ ExpressRoute 是從 WAN (不透過公用網際網路) 到 Microsoft 服務 (包�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 規劃您的 VPN 閘道設定。 請參閱 [VPN 閘道的規劃與設計](vpn-gateway-plan-design.md)。
 - 如需詳細資訊，請參閱 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)。
 - 檢視[訂用帳戶與服務限制](../azure-subscription-service-limits.md#networking-limits)。
 - 了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。

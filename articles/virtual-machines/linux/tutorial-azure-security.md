@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092606"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593296"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>教學課程：使用 Azure 資訊安全中心來監視 Linux 虛擬機器
 
@@ -63,10 +63,10 @@ Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資
 
 設定整個訂用帳戶的安全性原則：
 
-1. 在 [資訊安全中心] 儀表板上，選取 [安全性原則]，然後選取您的訂用帳戶。
+1. 在 [資訊安全中心] 儀表板中，選取 [安全性原則]，然後選取訂用帳戶。
 2. 在 [安全性原則] 刀鋒視窗上，選取 [安全性原則]。 
 3. 在 [安全性原則 - 安全性原則] 刀鋒視窗上，開啟或關閉您要套用至訂用帳戶的原則項目。
-4. 當您選好設定時，請選取刀鋒視窗頂端的 [儲存]。 
+4. 當您選取完設定時，選取刀鋒視窗頂端的 [儲存]。 
 
 ![唯一原則](./media/tutorial-azure-security/unique-policy.png)
 
@@ -106,7 +106,7 @@ Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資
 
 除了資源組態建議外，資訊安全中心也會提供威脅偵測警示。 安全性警示功能會彙總從每個 VM、Azure 網路記錄和連線合作夥伴解決方案所收集到的資料，以偵測不利於 Azure 資源的安全性威脅。 若要深入了解資訊安全中心的威脅偵測功能，請參閱 [Azure 資訊安全中心的偵測功能](../../security-center/security-center-detection-capabilities.md)。
 
-若要使用安全性警示功能，須將資訊安全中心的定價層從「免費」提升為「標準」。 當您改用這個較高的定價層時，會有 60 天的**免費試用**。 
+若要使用安全性警示功能，須將資訊安全中心的定價層從「免費」提升為「標準」。 當您改用這個較高的定價層時，會有**免費試用**。 
 
 若要變更定價層：  
 

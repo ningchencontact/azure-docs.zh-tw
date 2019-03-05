@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571879"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825770"
 ---
 1. 登入 [Azure 入口網站][Azure portal]。
 2. 在左功能表中選取 [+ 建立資源]。 然後，選取 [整合] > [轉送]。 如果清單中未顯示 [轉送]，請選取右上角的 [查看全部]。 
 3. 在 [建立命名空間] 下，輸入命名空間名稱。 系統會立即檢查此名稱是否可用。
 4. 在 [訂用帳戶] 方塊中，選擇要在其中建立命名空間的 Azure 訂用帳戶。
-5. 在 [[資源群組](../articles/azure-resource-manager/resource-group-portal.md)] 方塊中，選取現有資源群組以便放置命名空間，或是建立新的資源群組。  
+5. 在 [[資源群組](../articles/azure-resource-manager/manage-resource-groups-portal.md)] 方塊中，選取現有資源群組以便放置命名空間，或是建立新的資源群組。  
 6. 在 [位置]中，選取要用來裝載命名空間的國家或地區。
    
     ![建立命名空間][create-namespace]

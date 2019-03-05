@@ -13,14 +13,14 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190461"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881799"
 ---
-# <a name="what-is-hybrid-identity"></a>什麼是混合式身分識別？ 
+# <a name="what-is-hybrid-identity"></a>什麼是混合式身分識別？
 
 現今的企業和公司混合使用內部部署和雲端應用程式的情形越來越多。  使用者需要在內部部署環境和雲端存取這些應用程式。 這項需求已成為具有挑戰性的案例。 
 
@@ -30,7 +30,7 @@ Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能�
 
 - **[密碼雜湊同步處理 (PHS)](whatis-phs.md)**  
 - **[傳遞驗證 (PTA)](how-to-connect-pta.md)**  
-- **[同盟](whatis-fed.md)** 
+- **[同盟 (AD FS)](whatis-fed.md)** 
 
 這些驗證方法也會提供[單一登入](how-to-connect-sso.md)功能。  使用者位於連線到貴公司網路的公司裝置時，單一登入功能會自動將他們登入。
 
@@ -47,7 +47,7 @@ Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能�
 |讓我的使用者可以使用其內部部署密碼登入及存取雲端服務。|![建議](./media/whatis-hybrid-identity/ic195031.png)| ![建議](./media/whatis-hybrid-identity/ic195031.png) |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
 |使用公司認證實作單一登入。|![建議](./media/whatis-hybrid-identity/ic195031.png)| ![建議](./media/whatis-hybrid-identity/ic195031.png) |![建議](./media/whatis-hybrid-identity/ic195031.png)|  
 |確定雲端中未儲存任何密碼雜湊。| |![建議](./media/whatis-hybrid-identity/ic195031.png)|![建議](./media/whatis-hybrid-identity/ic195031.png)| 
-|啟用雲端多重要素驗證解決方案。| |![建議](./media/whatis-hybrid-identity/ic195031.png)|![建議](./media/whatis-hybrid-identity/ic195031.png)| 
+|啟用雲端式多重要素驗證解決方案。|![建議](./media/whatis-hybrid-identity/ic195031.png)|![建議](./media/whatis-hybrid-identity/ic195031.png)|![建議](./media/whatis-hybrid-identity/ic195031.png)| 
 |啟用內部部署多重要素驗證解決方案。| | |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
 |對使用者支援智慧卡驗證。<sup>4</sup>| | |![建議](./media/whatis-hybrid-identity/ic195031.png)| 
 |在 Office 入口網站中和 Windows 10 桌面上顯示密碼到期通知。| | |![建議](./media/whatis-hybrid-identity/ic195031.png)| 

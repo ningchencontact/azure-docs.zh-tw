@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8ff8e671d51a148177e66b30225dd7536a48028
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 23a62a9d8d24bbf2223fb5295190ad9acb39faf0
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299738"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806566"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立私人容器登錄
 
@@ -21,7 +21,9 @@ Azure Container Registry 是受控的私用 Docker 容器登錄服務，用於�
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來判斷您安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+本快速入門需要 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 來判斷您安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
 您也必須在本機上安裝 Docker。 Docker 提供 [macOS][docker-mac], [Windows][docker-windows] 及 [Linux][docker-linux] 系統適用的封裝。
 
@@ -29,38 +31,38 @@ Azure Container Registry 是受控的私用 Docker 容器登錄服務，用於�
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-使用 [Connect-AzureRmAccount][Connect-AzureRmAccount] 命令登入 Azure 訂用帳戶，並遵循畫面上的指示進行。
+使用 [Connect-AzAccount][Connect-AzAccount] 命令登入 Azure 訂用帳戶，並遵循畫面上的指示進行。
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="create-resource-group"></a>建立資源群組
 
-在您已經過 Azure 的驗證後，請使用 [New-AzureRmResourceGroup][New-AzureRmResourceGroup] 建立資源群組。 資源群組是一種邏輯容器，您可在其中部署與管理 Azure 資源。
+在您已經過 Azure 的驗證後，請使用 [New-AzResourceGroup][New-AzResourceGroup] 建立資源群組。 資源群組是一種邏輯容器，您可在其中部署與管理 Azure 資源。
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-container-registry"></a>建立容器登錄
 
-接著，使用 [New-AzureRMContainerRegistry][New-AzureRMContainerRegistry] 命令在新的資源群組中建立容器登錄。
+接著，使用 [New-AzContainerRegistry][New-AzContainerRegistry] 命令在新的資源群組中建立容器登錄。
 
 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 下列範例會建立名為「myContainerRegistry007」的登錄。 在下列命令中取代 *myContainerRegistry007*，然後執行命令建立登錄：
 
 ```powershell
-$registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
 您在本快速入門中會建立「基本」登錄，這是正在學習 Azure Container Registry 的開發人員所適用的成本最佳化選項。 如需可用服務層的詳細資訊，請參閱[容器登錄 SKU][container-registry-skus]。
 
 ## <a name="log-in-to-registry"></a>登入登錄
 
-推送和提取容器映像之前，您必須先登入登錄。 在生產案例中，您應使用個別的身分識別或服務主體進行容器登錄存取，但若要盡快完成本快速入門，請使用 [Get-AzureRmContainerRegistryCredential][Get-AzureRmContainerRegistryCredential] 命令在您的登錄上啟用管理使用者：
+推送和提取容器映像之前，您必須先登入登錄。 在生產案例中，您應使用個別的身分識別或服務主體進行容器登錄存取，但若要盡快完成本快速入門，請使用 [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] 命令在您的登錄上啟用管理使用者：
 
 ```powershell
-$creds = Get-AzureRmContainerRegistryCredential -Registry $registry
+$creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
 接下來，執行 [docker login][docker-login] 登入：
@@ -77,10 +79,10 @@ $creds.Password | docker login $registry.LoginServer -u $creds.Username --passwo
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當您使用在本快速入門中建立的資源完成工作後，請使用 [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] 命令移除資源群組、容器登錄，以及儲存於該處的容器映像：
+當您使用在本快速入門中建立的資源完成工作後，請使用 [Remove-AzResourceGroup][Remove-AzResourceGroup] 命令移除資源群組、容器登錄，以及儲存於該處的容器映像：
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>後續步驟
@@ -99,11 +101,11 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- Links - internal -->
-[Connect-AzureRmAccount]: /powershell/module/azurerm.profile/connect-azurermaccount
-[Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
+[Connect-AzAccount]: /powershell/module/az.profile/connect-azaccount
+[Get-AzContainerRegistryCredential]: /powershell/module/az.containerregistry/get-azcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
-[New-AzureRMContainerRegistry]: /powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
-[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
-[Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
+[New-AzContainerRegistry]: /powershell/module/az.containerregistry/New-AzContainerRegistry
+[New-AzResourceGroup]: /powershell/module/az.resources/new-azresourcegroup
+[Remove-AzResourceGroup]: /powershell/module/az.resources/remove-azresourcegroup
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md

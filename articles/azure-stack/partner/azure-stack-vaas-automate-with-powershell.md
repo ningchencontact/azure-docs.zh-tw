@@ -10,25 +10,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6287b4f07c99dd45628ed4b9eb1412200cf7cd43
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 99a1b218919380dcdb0c1dba4540d9f8219d2df3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244601"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593636"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>使用 PowerShell 將 Azure Stack 驗證設為自動化
 
 驗證即服務 (VaaS) 可讓您使用 **LaunchVaaSTests.ps1** 指令碼自動啟動測試。
 
-您可以使用 PowerShell 進行下列工作流程：
-
-- 測試進行
+> [!NOTE]
+> 自動化僅適用於「測試成功」工作流程。 封裝驗證和驗證解決方案工作流程僅透過 VaaS 入口網站支援。
 
 在本教學課程中，您將了解如何建立下列用途的指令碼：
 

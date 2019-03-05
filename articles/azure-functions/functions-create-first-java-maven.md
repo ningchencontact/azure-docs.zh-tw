@@ -12,53 +12,30 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: dfbd8425048ddc5c96349bfd6a7462dcd32dc1d9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a72d6b180db35f3e0f0e0527e8ae0f544a585b25
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727751"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822956"
 ---
-# <a name="create-your-first-function-with-java-and-maven-preview"></a>使用 Java 和 Maven 建立您的第一個函式 (預覽)
+# <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 建立您的第一個函式
 
-> [!NOTE] 
-> 適用於 Azure Functions 的 Java 目前為預覽版。
-
-本快速入門引導您使用 Maven 建立[無伺服器](https://azure.microsoft.com/solutions/serverless/)函式專案、在本機進行測試，並將它部署到 Azure。 當您完成時，您的 Java 函式程式碼會在雲端中執行，並且可以從 HTTP 要求觸發。
-
-![從命令列使用 cURL 存取 Hello World 函式](media/functions-create-java-maven/hello-azure.png)
+本文會引導您使用 Maven 命令列工具來建置 Java 函式並發佈至 Azure Functions。 當您完成時，您的函式程式碼會在 Azure 中的[取用方案](functions-scale.md#consumption-plan)上執行，並且可使用 HTTP 要求來觸發。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
-若要使用 Java 開發函式應用程式，您必須安裝下列項目：
+## <a name="prerequisites"></a>必要條件
 
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/)第 8 版。
--  [Apache Maven](https://maven.apache.org) 3.0 版或更高版本。
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+若要使用 Java 開發函式，您必須安裝下列項目：
 
-> [!IMPORTANT] 
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/)第 8 版。
+- [Apache Maven](https://maven.apache.org) 3.0 版或更高版本。
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure Functions Core Tools](functions-run-local.md#v2) (需要 **.NET Core 2.x SDK**)
+
+> [!IMPORTANT]
 > JAVA_HOME 環境變數必須設定為 JDK 的安裝位置，才能完成本快速入門。
-
-## <a name="install-the-azure-functions-core-tools"></a>安裝 Azure Functions Core Tools
-
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) 提供撰寫、執行和偵錯 Azure Functions 的本機開發環境。 
-
-若要安裝，請瀏覽 Azure Functions Core Tools 專案的[安裝](https://github.com/azure/azure-functions-core-tools#installing)區段，尋找您作業系統的特定指示。
-
-您也可以在安裝下列需求後，使用 [npm](https://www.npmjs.com/) (隨附於 [Node.js](https://nodejs.org/)) 來手動安裝：
-
--  [.NET Core](https://www.microsoft.com/net/core) 最新版本。
--  [Node.js](https://nodejs.org/download/) 8.6 版或更高版本。
-
-若要繼續以 npm 為基礎的安裝，請執行：
-
-```
-npm install -g azure-functions-core-tools
-```
-
-> [!NOTE]
-> 如果您無法安裝 Azure Functions Core Tools 2.0 版，請參閱[版本 2.x 執行階段](/azure/azure-functions/functions-run-local)。
 
 ## <a name="generate-a-new-functions-project"></a>產生新的 Functions 專案
 

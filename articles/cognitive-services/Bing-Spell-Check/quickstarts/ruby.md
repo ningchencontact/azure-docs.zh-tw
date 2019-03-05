@@ -1,80 +1,88 @@
 ---
-title: 快速入門：Bing 拼字檢查 API (Ruby)
+title: 快速入門：使用 Bing 拼字檢查 REST API 和 Ruby 進行檢查拼字
 titlesuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 拼字檢查 API。
+description: 開始使用 Bing 拼字檢查 REST API 來檢查拼字和文法。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: d3c273c7e5774e4f6d5b6984b77ff76bfb041343
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d488923f38a9c65cb117b4535b50bb9fdff2dbfc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873167"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888843"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>搭配使用 Bing 拼字檢查 API 與 Ruby 的快速入門 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>快速入門：使用 Bing 拼字檢查 REST API 和 Ruby 進行檢查拼字
 
-本文說明如何使用以 Ruby 撰寫的 [Bing 拼字檢查 API](https://azure.microsoft.com/services/cognitive-services/spell-check/) 。 拼字檢查 API 會傳回未能辨識的字詞清單，附帶建議的替代項目。 一般而言，您會將文字提交給此 API，然後在文字中進行建議的替代，或者向應用程式使用者顯示建議的替代項目，讓他們決定是否要進行替代。 本文顯示如何傳送其中包含文字 "Hollo, wrld!" 的要求 建議的替代項目是 "Hello" 和 "world"。
+使用本快速入門，透過 Ruby 第一次呼叫 Bing 拼字檢查 REST API。 此簡單應用程式會將要求傳送至 API 並傳回無法辨識的字組清單，後面接著建議的修正。 雖然此應用程式是以 Ruby 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb) 上找到此應用程式的原始程式碼
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要 [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) 或更新版本以執行此程式碼。
+* [Ruby 2.4 或更新版本](https://www.ruby-lang.org/en/downloads/) (英文)。
 
-您必須有具備 **Bing 拼字檢查 API v7** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/#lang)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。 另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>取得拼字檢查結果
 
-1. 在您最愛的 IDE 中建立新的 Ruby 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
-4. 執行程式。
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-```ruby
-require 'net/http'
-require 'uri'
-require 'json'
+1. 在您最愛的編輯器或 IDE 中建立新的 Ruby 檔案，然後新增下列需求。 
 
-uri = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/spellcheck?'
-params = 'mkt=en-us&mode=proof'
+    ```javascript
+    require 'net/http'
+    require 'uri'
+    require 'json'
+    ```
 
-uri = URI(uri + path + params)
-uri.query = URI.encode_www_form({
-    # Request parameters
-    'text' => 'Hollo, wrld!'
-})
+2. 針對您的訂用帳戶金鑰、端點 URI 和路徑建立變數。 將 `mkt=` 參數附加至您的市場，以及將 `&mode` 附加至 `proof` 證明模式，以建立您的要求參數。
 
-# NOTE: Replace this example key with a valid subscription key.
-key = 'ENTER KEY HERE'
+    ```ruby
+    key = 'ENTER YOUR KEY HERE'
+    uri = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/spellcheck?'
+    params = 'mkt=en-us&mode=proof'
+    ```
 
-# The headers in the following example 
-# are optional but should be considered as required:
-#
-# X-MSEdge-ClientIP: 999.999.999.999  
-# X-Search-Location: lat: +90.0000000000000;long: 00.0000000000000;re:100.000000000000
-# X-MSEdge-ClientID: <Client ID from Previous Response Goes Here>
-#
-# See below for more information.
+## <a name="send-a-spell-check-request"></a>傳送拼字檢查要求
 
-request = Net::HTTP::Post.new(uri)
-request['Content-Type'] = "application/x-www-form-urlencoded"
+1. 從您的主機 URI、路徑和參數字串建立 URL。 設定其查詢，以包含您想要拼字檢查的文字。
 
-request['Ocp-Apim-Subscription-Key'] = key
+   ```ruby
+   uri = URI(uri + path + params)
+   uri.query = URI.encode_www_form({
+      # Request parameters
+   'text' => 'Hollo, wrld!'
+   })
+   ```
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
+2. 使用上面所建構的 URI 來建立要求。 將您的金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。
 
-result = JSON.pretty_generate(JSON.parse(response.body))
-puts result
-```
+    ```ruby
+    request = Net::HTTP::Post.new(uri)
+    request['Content-Type'] = "application/x-www-form-urlencoded"
+    request['Ocp-Apim-Subscription-Key'] = key
+    ```
 
-**回應**
+3. 傳送要求。
+
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request(request)
+    end
+    ```
+
+4. 取得 JSON 回應，並將它列印到主控台。 
+
+    ```ruby
+    result = JSON.pretty_generate(JSON.parse(response.body))
+    puts result
+    ```
+
+## <a name="example-json-response"></a>範例 JSON 回應
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
@@ -119,9 +127,7 @@ puts result
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 拼字檢查教學課程](../tutorials/spellcheck.md)
+> [建立單頁 Web 應用程式](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>另請參閱
-
-- [Bing 拼字檢查概觀](../proof-text.md)
+- [什麼是 Bing 拼字檢查 API？](../overview.md)
 - [Bing 拼字檢查 API v7 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

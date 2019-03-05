@@ -8,24 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 02/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 3043067f326f782c51be38382070ae0db0e90f4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314185"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889625"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>適用於 Python 的 Azure 認知服務電腦視覺 SDK
 
-電腦視覺服務可供開發人員存取進階演算法，以處理影像及傳回資訊。 電腦視覺演算法可根據您感興趣的視覺化功能，以不同的方式分析影像的內容。 例如，電腦視覺可判斷影像中是否包含成人或猥褻內容、尋找影像中的所有臉部，取得手寫或列印的文字。 此服務可處理熱門的影像格式，例如 JPEG 和 PNG。 
+電腦視覺服務可供開發人員存取進階演算法，以處理影像及傳回資訊。 電腦視覺演算法可根據您感興趣的視覺化功能，以不同的方式分析影像的內容。 
 
-您可以在應用程式中使用電腦視覺來：
+* [分析影像](#analyze-an-image)
+* [取得主題領域清單](#get-subject-domain-list)
+* [依領域分析影像](#analyze-an-image-by-domain)
+* [取得影像的文字描述](#get-text-description-of-an-image)
+* [取得影像中的手寫文字](#get-text-from-image)
+* [產生縮圖](#generate-thumbnail)
 
-- 深入分析影像
-- 擷取影像中的文字
-- 產生縮圖
+如需此服務的詳細資訊，請參閱[什麼是電腦視覺？][computervision_docs]。
 
 在尋找更多文件嗎？
 
@@ -34,11 +37,21 @@ ms.locfileid: "56314185"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶 - [建立免費帳戶][azure_sub]
-* Azure [電腦視覺資源][computervision_resource]
 * [Python 3.6+][python]
+* 免費的[電腦視覺金鑰][computervision_resource]和相關聯的區域。 在建立 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件的執行個體時，您將需要這些值。 請使用下列其中一種方法取得這些值。 
 
-如果您需要電腦視覺 API 帳戶，則可以使用這個 [Azure CLI][azure_cli] 命令來建立：
+### <a name="if-you-dont-have-an-azure-subscription"></a>如果您沒有 Azure 訂用帳戶
+
+請建立有效期為 7 天且提供**試用**體驗的免費金鑰。 建立金鑰時，請複製金鑰和區域名稱。 您在[建立用戶端](#create-client)時將需要這些資訊。
+
+建立金鑰後請保存下列項目：
+
+* 金鑰值：一個包含 32 個字元、採用 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 格式的字串 
+* 金鑰區域：端點 URL 的子網域 (https://**westcentralus**.api.cognitive.microsoft.com)
+
+### <a name="if-you-have-an-azure-subscription"></a>如果您有 Azure 訂用帳戶
+
+如果您需要電腦視覺 API 帳戶，而想要在訂用帳戶中建立一個帳戶，最簡單的方法是使用下列 [Azure CLI][azure_cli] 命令。 您必須選擇資源群組名稱 (例如 "my-cogserv-group") 和電腦視覺資源名稱 (例如 "my-computer-vision-resource")。 
 
 ```Bash
 RES_REGION=westeurope 
@@ -54,18 +67,20 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="installation"></a>安裝
+<!--
+## Installation
 
-您也可以選擇在[虛擬環境][venv]內，使用 [pip][pip] 安裝 Azure 認知服務電腦視覺 SDK。
+Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
 
-### <a name="configure-a-virtual-environment-optional"></a>設定虛擬環境 (選擇性)
+### Configure a virtual environment (optional)
 
-如果您使用[虛擬環境][virtualenv]，則可以讓基底系統與 Azure SDK 環境彼此隔離，但您不一定要這麼做。 執行下列命令，使用 [venv][venv] 先設定再輸入虛擬環境，例如 `cogsrv-vision-env`：
+Although not required, you can keep your base system and Azure SDK environments isolated from one another if you use a [virtual environment][virtualenv]. Execute the following commands to configure and then enter a virtual environment with [venv][venv], such as `cogsrv-vision-env`:
 
 ```Bash
 python3 -m venv cogsrv-vision-env
 source cogsrv-vision-env/bin/activate
 ```
+-->
 
 ### <a name="install-the-sdk"></a>安裝 SDK
 
@@ -81,9 +96,20 @@ pip install azure-cognitiveservices-vision-computervision
 
 在建立 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件的執行個體時，請使用這些值。 
 
-### <a name="get-credentials"></a>取得認證
+<!--
 
-請使用下面的 [Azure CLI][cloud_shell] 程式碼片段，來為兩個環境變數填入電腦視覺帳戶**區域**及其中一個**金鑰** (您也可以在 [Azure 入口網站][azure_portal]找到這些值)。 此程式碼片段會針對 Bash Shell 加以格式化。
+For example, use the Bash terminal to set the environment variables:
+
+```Bash
+ACCOUNT_REGION=<resourcegroup-name>
+ACCT_NAME=<computervision-account-name>
+```
+
+### For Azure subscription usrs, get credentials for key and region
+
+If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+
+Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -101,44 +127,25 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
+-->
 
 ### <a name="create-client"></a>建立用戶端
 
-在填入 `ACCOUNT_REGION` 和 `ACCOUNT_KEY` 環境變數後，您可以建立 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件。
+建立 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件。 請將下列程式碼範例中的區域和金鑰值變更為您自己的值。
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-import os
-region = os.environ['ACCOUNT_REGION']
-key = os.environ['ACCOUNT_KEY']
+region = "westcentralus"
+key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
 ```
 
-## <a name="usage"></a>使用量
-
-在初始化 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件後，您可以：
-
-* 分析影像：您可以分析影像來找出某些特徵，例如臉部、色彩、標記。   
-* 產生縮圖：建立自訂 JPEG 影像來作為原始影像的縮圖。
-* 取得影像的描述：根據影像的主題領域取得影像的描述。 
-
-如需此服務的詳細資訊，請參閱[什麼是電腦視覺？][computervision_docs]。
-
-## <a name="examples"></a>範例
-
-下列各節提供數個程式碼片段，內容涵蓋一些最常見的電腦視覺工作，包括：
-
-* [分析影像](#analyze-an-image)
-* [取得主題領域清單](#get-subject-domain-list)
-* [依領域分析影像](#analyze-an-image-by-domain)
-* [取得影像的文字描述](#get-text-description-of-an-image)
-* [取得影像中的手寫文字](#get-text-from-image)
-* [產生縮圖](#generate-thumbnail)
+您必須要有 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件，才能使用任何下列工作。
 
 ### <a name="analyze-an-image"></a>分析影像
 
@@ -169,8 +176,13 @@ for x in models.models_property:
 您可以使用 [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain] 來依主題領域分析影像。 請取得[所支援主題領域的清單](#get-subject-domain-list)，以便使用正確的領域名稱。  
 
 ```Python
+# type of prediction
 domain = "landmarks"
-url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
+
+# Public domain image of Eiffel tower
+url = "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"
+
+# English language response
 language = "en"
 
 analysis = client.analyze_image_by_domain(domain, url, language)
@@ -202,6 +214,10 @@ for caption in analysis.captions:
 您可以從影像中取得任何手寫或列印的文字。 這需要對 SDK 發出兩個呼叫：[`recognize_text`][ref_computervisionclient_recognize_text] 和 [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]。 對於 recognize_text 的呼叫是非同步的。 在 get_text_operation_result 呼叫的結果中，您必須先確認第一個呼叫是否已完成且有 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]，再擷取文字資料。 結果中會包含文字以及文字的週框座標。 
 
 ```Python
+# import models
+from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
+from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
 raw = True
@@ -231,10 +247,19 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 您可以使用 [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail] 來產生影像的縮圖 (JPG)。 縮圖的比例不必和原始影像相同。 
 
-此範例會使用 [Pillow][pypi_pillow] 套件在本機儲存新的縮圖影像。
+安裝 **Pillow** 以使用此範例：
+
+```bash
+pip install Pillow
+``` 
+
+安裝 Pillow 之後，請使用下列程式碼範例中的套件來產生縮圖影像。
 
 ```Python
+# Pillow package
 from PIL import Image
+
+# IO package to create local image
 import io
 
 width = 50
@@ -281,17 +306,16 @@ except HTTPFailure as e:
 
 在使用 [ComputerVisionAPI][ref_computervisionclient] 用戶端時，您可能會遇到由於服務強制執行[速率限制][computervision_request_units]而造成的暫時性失敗，或遇到其他暫時性問題 (例如，網路中斷)。 如需如何處理這些失敗類型的相關資訊，請參閱《雲端設計模式》指南中的[重試模式][azure_pattern_retry]，以及相關的[斷路器模式][azure_pattern_circuit_breaker]。
 
-## <a name="next-steps"></a>後續步驟
-
 ### <a name="more-sample-code"></a>更多的程式碼範例
 
 SDK 的 GitHub 存放庫中有數個電腦視覺 Python SDK 範例可供您參考。 這些範例會提供在使用電腦視覺時所經常遇到其他案例的程式碼範例：
 
 * [recognize_text][recognize-text]
 
-### <a name="additional-documentation"></a>其他文件
+## <a name="next-steps"></a>後續步驟
 
-如需更多的電腦視覺服務文件，請參閱 docs.microsoft.com 上的 [Azure 電腦視覺文件][computervision_docs]。
+> [!div class="nextstepaction"]
+> [將內容標記套用到影像](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bee9d2f823fe46d81550ea5090222f491562d636
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ea67c19beeb2fa52b77b04913aee1838569c4ac6
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700106"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675019"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 
@@ -24,7 +24,7 @@ ms.locfileid: "55700106"
 
 
 > [!NOTE]
-> 這些教學課程皆設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱對應案例的**操作說明**區段。
+> 這些教學課程接設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱對應案例的**操作說明**區段。
 
 在本文中，我們會說明在您想要使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 時，如何備妥內部部署 VMware 基礎結構。 您會了解如何：
 
@@ -80,7 +80,7 @@ Site Recovery 需要存取 VMware 伺服器才能：
 3. 檢查內部部署[網路](vmware-physical-azure-support-matrix.md#network)和[儲存體](vmware-physical-azure-support-matrix.md#storage)支援。 
 4. 檢查在容錯移轉之後，[Azure 網路](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)、[儲存體](vmware-physical-azure-support-matrix.md#azure-storage)和[計算](vmware-physical-azure-support-matrix.md#azure-compute)支援的項目。
 5. 您複寫到 Azure 的內部部署 VM 必須符合 [Azure VM 需求](vmware-physical-azure-support-matrix.md#azure-vm-requirements)。
-6. 在 Linux 虛擬機器中，裝置名稱或掛接點名稱應該要是唯一名稱。 請確定沒有任何兩個裝置/掛接點的名稱僅有大小寫之別。 例如，不允許將相同虛擬機器的兩個裝置命名為 *device1* 和 *Device1*。
+6. 在 Linux 虛擬機器中，裝置名稱或掛接點名稱應該要是唯一名稱。 請確定沒有任何兩個裝置/掛接點的名稱相同。 請注意名稱不區分大小寫。 例如，不允許將相同 VM 的兩個裝置命名為 _device1_ 和 _Device1_。
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>準備在容錯移轉後連接到 Azure VM

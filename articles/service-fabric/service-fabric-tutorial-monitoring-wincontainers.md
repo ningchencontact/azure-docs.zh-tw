@@ -3,7 +3,7 @@ title: 在 Azure 中的 Service Fabric 上監視和診斷 Windows 容器 | Micro
 description: 在本教學課程中，您會設定 Log Analytics，以便監視和診斷 Azure Service Fabric 上的 Windows 容器。
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: twhitney, dekapur
+ms.author: aljo, dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9249c0bb559328c878d784b54af5117b785daffe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: f6aa0dcfa4a4f9e2780c8fb886523da347eeaa31
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300620"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806448"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>教學課程：使用 Log Analytics 監視 Service Fabric 上的 Windows 容器
 
@@ -225,7 +225,7 @@ ms.locfileid: "51300620"
 
 請在數分鐘後**重新整理**您的容器監視解決方案，而您應該開始查看傳入的「電腦效能」資料。 這將有助於您了解資源的使用方式。 您也可以使用這些計量作出調整叢集的適當決策，或確認叢集是否正如預期般平衡您的負載。
 
-注意：請確定已正確設定時間篩選，讓您能夠取用這些計量。
+*注意：請確定已正確設定時間篩選，讓您能夠取用這些計量。*
 
 ![效能計數器 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 

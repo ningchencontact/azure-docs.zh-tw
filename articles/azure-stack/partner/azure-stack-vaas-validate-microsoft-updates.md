@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 01/14/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e6f5a17544c1419eb6101acdd6590f034ea4aa3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b7fa03cdf52fc3218e9556c9664daafdc60243f3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241453"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593212"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>驗證來自 Microsoft 的軟體更新
 
@@ -28,25 +28,35 @@ ms.locfileid: "55241453"
 
 Microsoft 會定期發行 Azure Stack 軟體的更新。 這些更新會提供給 Azure Stack 共同設計製造合作夥伴。 這些更新會在公開發行之前先行提供。 您可以對解決方案檢查這些更新，並提供意見反應給 Microsoft。
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
+Microsoft 對 Azure Stack 的軟體更新是使用命名慣例指定的，例如，1803 表示 2018 年 3 月的更新。 如需 Azure Stack 更新原則、頻率和可用版本資訊的相關資訊，請參閱 [Azure Stack 服務原則](https://docs.microsoft.com/azure/azure-stack/azure-stack-servicing-policy)。
 
-## <a name="apply-monthly-update"></a>套用每月更新
+## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+在 VaaS 中練習每月更新程序之前，您應該先熟悉下列項目：
 
-## <a name="create-a-workflow"></a>建立工作流程
+- [驗證即服務的重要概念](azure-stack-vaas-key-concepts.md)
+- [互動式功能驗證測試](azure-stack-vaas-interactive-feature-verification.md)
 
-更新驗證會使用與**解決方案驗證**相同的工作流程。
+## <a name="required-tests"></a>必要的測試
 
-## <a name="run-tests"></a>執行測試
+依照下列順序執行下列測試，以便進行每月軟體驗證：
 
-1. 更新驗證會使用與**解決方案驗證**相同的工作流程。 
+1. 每個月的 Azure Stack 更新驗證
+2. 雲端模擬引擎
 
-2. 請依照[執行解決方案驗證測試](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)中的指示操作。 請改為選取下列測試：
-    - 每個月的 Azure Stack 更新驗證
-    - 雲端模擬引擎
+## <a name="validating-software-updates"></a>驗證軟體更新
 
-進行更新驗證時不需要求套件簽署。
+1. 建立新的 [套件驗證] 工作流程。
+1. 對於上述必要測試，請依照[執行套件驗證測試](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)中的指示操作。 如需**每個月的 Azure Stack 更新驗證**測試的其他指示，請參閱下一節。
+
+### <a name="apply-the-monthly-update"></a>套用每月更新
+
+1. 選取要執行測試的代理程式。
+1. 排程**每個月的 Azure Stack 更新驗證**。
+1. 提供目前部署於戳記的 OEM 擴充功能套件位置，以及將在更新期間套用的 OEM 擴充功能套件位置。 若要設定這些套件的 URL，請參閱[管理套件以供驗證](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation)。
+1. 請遵循所選代理程式 UI 中的步驟。
+
+如有任何問題或疑慮，請連絡 [VaaS 說明](mailto:vaashelp@microsoft.com)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 5c7586ae2ff1a648348c1155a528035fa72c7744
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a48d14f20d885849a233c592db8d9cf587342755
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299809"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870055"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概觀
 Azure Service Fabric 是一個分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務與容器。 Service Fabric 也解決了開發及管理雲端原生應用程式時所面臨的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。 Service Fabric 代表新一代的平台，可用於建置及管理這些在容器中執行的企業級、第一層雲端級別應用程式。
@@ -56,7 +56,7 @@ Service Fabric 可在任何環境執行。 您可以在許多環境 (包括 Azur
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric 的無狀態與具狀態微服務
 Service Fabric 可讓您建置由微服務或容器組成的應用程式。 無狀態微服務 (如通訊協定閘道器、Web Proxy) 不會維護要求之外的可變動狀態及來自服務的回應。 Azure 雲端服務背景工作角色即為無狀態服務的範例。 可設定狀態的微服務 (如使用者帳戶、資料庫、裝置、購物車、佇列) 會維護要求及其回應外的可變動授權狀態。 現今的網際網路級別應用程式包含無狀態與可設定狀態微服務的組合。 
 
-Service Fabric 的主要區別在於，它強烈著重在建置具狀態服務，不論是使用[內建的程式設計模型](service-fabric-choose-framework.md)，還是使用容器化具狀態服務來建置。 [應用程式案例](service-fabric-application-scenarios.md)說明使用具狀態服務的案例。
+Service Fabric 的主要區別在於它強烈著重在建置具狀態服務，不論是使用[內建的程式設計模型](service-fabric-choose-framework.md)，還是使用容器化具狀態服務來建置。 [應用程式案例](service-fabric-application-scenarios.md)說明使用具狀態服務的案例。
 
 
 ## <a name="application-lifecycle-management"></a>應用程式生命週期管理

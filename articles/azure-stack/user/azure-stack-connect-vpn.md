@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 882724c5f45cc2c5b3debb8fa80538239a98b749
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aa467910cfa2dad84af3905db3592657cae85be9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240687"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594350"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 將 Azure Stack 連線至 Azure
 
@@ -34,7 +34,7 @@ ms.locfileid: "55240687"
 若要完成連線設定，請務必在開始前備妥下列項目：
 
 * 直接連線至網際網路的 Azure Stack 整合系統 (多節點) 部署。 必須可從公用網際網路直接連線至您的外部公用 IP 位址範圍。
-* 有效的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以建立[免費 Azure 帳戶](https://azure.microsoft.com/free/?b=17.06)。
+* 有效的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以[在這裡建立免費 Azure 帳戶](https://azure.microsoft.com/free/?b=17.06)。
 
 ### <a name="vpn-connection-diagram"></a>VPN 連線圖表
 
@@ -56,7 +56,7 @@ ms.locfileid: "55240687"
 
 ## <a name="create-the-network-resources-in-azure"></a>在 Azure 中建立網路資源
 
-請先為 Azure 建立網路資源。 下列指示說明如何使用 [Azure 入口網站](https://portal.azure.com/)來建立資源。
+首先，為 Azure 建立網路資源。 下列指示說明如何使用 [Azure 入口網站](https://portal.azure.com/)來建立資源。
 
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>建立虛擬網路和虛擬機器 (VM) 子網路
 
@@ -74,7 +74,7 @@ ms.locfileid: "55240687"
 
 1. 從儀表板開啟您建立的虛擬網路資源 (**AzureVNet**)。
 2. 在 [設定] 區段上，選取 [子網路]。
-3. 選取 [閘道子網路] 以將閘道子網路新增到虛擬網路。
+3. 選取 [閘道子網路]，將閘道子網路新增至虛擬網路。
 4. 子網路名稱預設為 **GatewaySubnet**。
 
    >[!IMPORTANT]
@@ -305,4 +305,4 @@ ms.locfileid: "55240687"
 
 ## <a name="next-steps"></a>後續步驟
 
-[將應用程式部署到 Azure 和 Azure Stack](azure-stack-solution-pipeline.md)
+* [將應用程式部署到 Azure 和 Azure Stack](azure-stack-solution-pipeline.md)

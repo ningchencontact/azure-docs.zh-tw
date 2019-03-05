@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: a4e829f8ae89815c68d80a9f85dfbfd58a03b6a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 02/18/2019
+ms.openlocfilehash: 481c82eb74bcf80c3d0546324009ec0bf6495cfb
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452185"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587050"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入門：建立 Azure SQL Database 受控執行個體
 
@@ -39,7 +39,7 @@ ms.locfileid: "54452185"
 
    ![建立受控執行個體](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. 使用下表中的資訊，填妥**受控執行個體**表單中所要求的資訊：
+4. 使用下表中的資訊，填妥 **SQL 受控執行個體**表單中所要求的資訊：
 
    | 設定| 建議的值 | 說明 |
    | ------ | --------------- | ----------- |
@@ -48,8 +48,8 @@ ms.locfileid: "54452185"
    |**受控執行個體系統管理員登入**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。|
    |**密碼**|任何有效密碼|密碼長度至少必須有 16 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
    |**定序**|您要用於受控執行個體的定序|如果您從 SQL Server 遷移資料庫，請使用 `SELECT SERVERPROPERTY(N'Collation')` 來檢查來源定序並使用該值。 如需定序的相關資訊，請參閱[伺服器層級的定序](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)。|
-   |**位置**|要在其中建立受控執行個體的位置|如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
-   |**虛擬網路**|選取 [建立新的虛擬網路] 或有效的虛擬網路與子網路。| 如果網路/子網路呈現灰色，您必須先[修改成符合網路需求](sql-database-managed-instance-configure-vnet-subnet.md)後，才能選取它作為新的受控執行個體目標。 如需關於設定受控執行個體網路環境的需求資訊，請參閱[設定 Azure SQL Database 受控執行個體的 VNet](sql-database-managed-instance-connectivity-architecture.md)。 |
+   |**位置**|要在其中建立受控執行個體的位置|如需有關區域的資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
+   |**虛擬網路**|選取 [建立新的虛擬網路] 或有效的虛擬網路與子網路。| 如果網路/子網路呈現灰色，您必須先[修改成符合網路需求](sql-database-managed-instance-configure-vnet-subnet.md)後，才能選取它作為新的受控執行個體目標。 如需關於設定受控執行個體網路環境的需求資訊，請參閱[設定受控執行個體的 VNet](sql-database-managed-instance-connectivity-architecture.md)。 |
    |**資源群組**|新的或現有的資源群組|如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
 
    ![受控執行個體表單](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
@@ -74,13 +74,31 @@ ms.locfileid: "54452185"
 
 1. 開啟受控執行個體的資源群組，並檢視其在[建立受控執行個體](#create-a-managed-instance)快速入門中為您所建立的資源。
 
-2. 選取受控執行個體。
-
    ![受控執行個體資源](./media/sql-database-managed-instance-get-started/resources.png)
 
-3. 在 [概觀] 索引標籤上，找出 [主機] 屬性並複製受控執行個體的完整主機位址。
+2. 選取路由表以檢閱為您建立的使用者定義路由 (UDR) 表。
 
-   ![受控執行個體資源](./media/sql-database-managed-instance-get-started/host-name.png)
+   ![路由表](./media/sql-database-managed-instance-get-started/route-table.png)
+
+3. 在路由表中，檢閱要從受控執行個體虛擬網路路由傳送流量的項目。 如果您要手動建立或設定路由表，您必須在路由表中建立這些項目。
+
+   ![本機 MI 子網路的項目](./media/sql-database-managed-instance-get-started/udr.png)
+
+4. 回到資源群組，然後選取網路安全性群組以檢閱安全性規則。
+
+   ![網路安全性群組](./media/sql-database-managed-instance-get-started/network-security-group.png)
+
+5. 檢閱輸入和輸出安全性規則。
+
+   ![安全性規則](./media/sql-database-managed-instance-get-started/security-rules.png)
+
+6. 回到資源群組，然後選取您的受控執行個體。
+
+   ![受控執行個體](./media/sql-database-managed-instance-get-started/managed-instance.png)
+
+7. 在 [概觀] 索引標籤上，找出 [主機] 屬性並複製受控執行個體的完整主機位址，以便在下一個快速入門中使用。
+
+   ![主機名稱](./media/sql-database-managed-instance-get-started/host-name.png)
 
    此名稱類似於 **your_machine_name.a1b2c3d4e5f6.database.windows.net**。
 

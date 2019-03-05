@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882632"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56982788"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過標準 Load Balancer 將 VM 的負載平均分配至多個可用性區域
 
@@ -35,7 +35,7 @@ ms.locfileid: "56882632"
 > * 建立基本 IIS 網站
 > * 檢視作用中的負載平衡器
 
-如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
+如需關於搭配使用可用性區域和 Standard Load Balancer 的詳細資訊，請參閱 [Standard Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
 如果您想要，您可以使用 [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md) 完成本教學課程。
 
@@ -47,19 +47,23 @@ ms.locfileid: "56882632"
 
 ## <a name="create-a-standard-load-balancer"></a>建立標準負載平衡器
 
-標準負載平衡器只支援標準公用 IP 位址。 當您在建立負載平衡器期間建立新的公用 IP 時，它會自動設定為標準 SKU 版本，而且也會自動具備區域備援能力。
+Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載平衡器期間建立新的公用 IP 時，它會自動設定為標準 SKU 版本，而且也會自動具備區域備援能力。
 
 1. 在畫面的左上方，按一下 [建立資源] > [網路] > [負載平衡器]。
-2. 在 [建立負載平衡器] 頁面中輸入負載平衡器的下列值：
-    - myLoadBalancer - 作為負載平衡器的名稱。
-    - Public - 作為負載平衡器的類型。
-     - myPublicIP - 作為您建立的新公用 IP 位址。 若要執行此動作，請依序按一下 [選擇公用 IP 位址] 和 [新建]。 名稱類型 myPublicIP 的 SKU 預設為 [標準]，而針對 [可用性區域] 請選取 [區域備援]。
-    - myResourceGroupLBAZ - 作為您新建立的資源群組的名稱。
-    - westeurope - 作為位置。
-3. 按一下 [建立] 以建立負載平衡器。
-   
-    ![建立負載平衡器](./media/load-balancer-standard-public-availability-zones-portal/1a-load-balancer.png)
+2. 在 [建立負載平衡器] 頁面的 [基本資料] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]：
 
+    | 設定                 | 值                                              |
+    | ---                     | ---                                                |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupLBAZ*。|
+    | Name                   | *myLoadBalancer*                                   |
+    | 區域         | 選取 [西歐]。                                        |
+    | 類型          | 選取 [公用]。                                        |
+    | SKU           | 選取 [標準]。                          |
+    | 公用 IP 位址 | 選取 [建立新的]。 |
+    | 公用 IP 位址名稱              | 在文字方塊中輸入 *myPublicIP*。   |
+    |可用性區域| 選取 [區域備援]。    |
+   
 
 ## <a name="create-backend-servers"></a>建立後端伺服器
 

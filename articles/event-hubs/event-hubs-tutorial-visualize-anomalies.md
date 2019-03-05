@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.openlocfilehash: 5f9af39616e45983a7ec592f33c3f2ffd34ea34f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/26/2019
+ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233395"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888656"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>教學課程：將傳送給 Azure 事件中樞之即時事件中的資料異常視覺化
 
@@ -324,6 +324,8 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
     ![指定儀表板磚標題和副標題的螢幕擷取畫面。](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
+    > [!IMPORTANT]
+    > 當您執行範例應用程式並將資料串流至事件中樞時，此圖格上的數字會迅速 (每秒) 變更。 這是因為串流分析查詢會**每秒**實際更新此值。 將查詢更新為 3 分鐘輪轉視窗，以查看在過去幾分鐘內的總和。 
 11. 新增另一個視覺效果。 再次重複前幾個步驟：
 
    * 按一下 [新增磚]。

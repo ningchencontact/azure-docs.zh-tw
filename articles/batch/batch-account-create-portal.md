@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf47e3b48f1047af88a19c59459c19c078f71a63
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193912"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984470"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 入口網站建立 Batch 帳戶
 
@@ -42,19 +42,21 @@ ms.locfileid: "56193912"
 
     ![建立批次帳戶：][account_portal]
 
-    a. **帳戶名稱**：您選擇的名稱在建立帳戶的 Azure 區域內必須是唯一的 (請參閱下面的「位置」)。 帳戶名稱只能包含小寫字元或數字，且長度必須為 3-24 個字元。
+    a. 訂用帳戶：要在其中建立 Batch 帳戶的訂用帳戶。 如果您只有一個訂用帳戶，則預設會選取此項目。
 
-    b. 訂用帳戶：要在其中建立 Batch 帳戶的訂用帳戶。 如果您只有一個訂用帳戶，則預設會選取此項目。
+    b. **資源群組**：為新的 Batch 帳戶選取一個現有的資源群組，或視需要建立一個新的資源群組。
 
-    c. **資源群組**：為新的 Batch 帳戶選取一個現有的資源群組，或視需要建立一個新的資源群組。
+    c. **帳戶名稱**：您選擇的名稱在建立帳戶的 Azure 區域內必須是唯一的 (請參閱下面的「位置」)。 帳戶名稱只能包含小寫字元或數字，且長度必須為 3-24 個字元。
 
     d. **位置**：要在其中建立 Batch 帳戶的 Azure 區域。 只有您的訂用帳戶和資源群組所支援的區域會顯示為選項。
 
-    e. **儲存體帳戶** (選擇性)：與 Batch 帳戶相關聯的「Azure 儲存體」帳戶。 這是大部分 Batch 帳戶的建議作法。 如需 Batch 中的儲存體帳戶選項，請參閱 [Batch 功能概觀](batch-api-basics.md#azure-storage-account)。 在入口網站中選取現有的儲存體帳戶，或選擇性地建立新的帳戶。
+    e. **儲存體帳戶**：與 Batch 帳戶相關聯的選用 Azure 儲存體帳戶。 建議使用一般用途 v2 儲存體帳戶，以達到最佳效能。 如需 Batch 中的所有儲存體帳戶選項，請參閱 [Batch 功能概觀](batch-api-basics.md#azure-storage-account)。 在入口網站中選取現有的儲存體帳戶，或建立新的帳戶。
 
       ![建立儲存體帳戶][storage_account]
 
-    f. **集區配置模式**：針對大多數情況，請接受預設的 [Batch 服務]。
+    f. **集區配置模式**：在 [進階] 設定索引標籤中，您可以將集區配置模式指定為 [Batch 服務] 或 [使用者訂用帳戶]。 針對大多數情況，請接受預設的 [Batch 服務]。
+
+      ![Batch 集區配置模式][pool_allocation]
 
 1. 選取 [建立] 以建立帳戶。
 
@@ -115,7 +117,7 @@ ms.locfileid: "56193912"
 
 ### <a name="configure-subscription-quotas"></a>設定訂用帳戶配額
 
-根據預設，使用者訂用帳戶的 Batch 帳戶不會設定核心配額。 核心配額必須手動設定，因為一般的 Batch 核心配額不適用於使用者訂用帳戶模式中的帳戶。
+根據預設，使用者訂用帳戶的 Batch 帳戶不會設定核心配額。 核心配額必須手動設定，因為標準 Batch 核心配額不適用於使用者訂用帳戶模式中的帳戶。
 
 1. 在 [Azure 入口網站][azure_portal]中選取您使用者訂用帳戶模式中的 Batch 帳戶，以顯示其設定和屬性。
 
@@ -142,8 +144,8 @@ ms.locfileid: "56193912"
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[pool_allocation]: ./media/batch-account-create-portal/batch-pool-allocation.png
 [account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
-[account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png

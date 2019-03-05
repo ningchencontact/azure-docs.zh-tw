@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429429"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731390"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -132,7 +132,7 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 
 ## <a name="built-on-sql-server-analysis-services"></a>建置在 SQL Server Analysis Services 上
 
-Azure Analysis Services 與 SQL Server Analysis Services Enterprise Edition 中現有的許多優質功能相容。 Azure Analysis Services 支援 1200 或更高[相容性層級](analysis-services-compat-level.md)的表格式模型。 表格式模型屬於關聯式模型建構 (模型、資料表、資料行)，在表格式模型指令碼語言 (TMSL) 和表格式物件模型 (TOM) 程式碼中會以表格式中繼資料物件定義來加以聯結。 分割區、檢視方塊、資料列層級安全性、雙向關聯性和轉譯都有支援*。 多維度模型和 PowerPivot for SharePoint 則不受 Azure Analysis Services 支援。
+Azure Analysis Services 與 SQL Server Analysis Services Enterprise Edition 中現有的許多優質功能相容。 Azure Analysis Services 支援 1200 或更高[相容性層級](analysis-services-compat-level.md)的表格式模型。 表格式模型屬於關聯式模型建構 (模型、資料表、資料行)，在表格式模型指令碼語言 (TMSL) 和表格式物件模型 (TOM) 程式碼中會以表格式中繼資料物件定義來加以聯結。 分割區、檢視方塊、資料列層級安全性、雙向關聯性和轉譯都有支援\*。 多維度模型和 PowerPivot for SharePoint 則不受 Azure Analysis Services 支援。
 
 記憶體內部模式和 DirectQuery 模式皆支援表格式模型。 記憶體內部模式 (預設值) 的表格式模型支援多個資料來源。 因為模型資料經過高度壓縮，且會快取到記憶體內部，此模式可在資料量很大時提供最快的查詢回應速度。 針對複雜的資料集和查詢，它也可提供最大的彈性。 分割能實現累加式載入、增加平行處理能力，並降低記憶體耗用量。 其他進階的資料模型功能 (例如，導出的資料表和所有的 DAX 函式) 都可獲得支援。 記憶體內部模型必須經過重新整理 (處理)，才能從資料來源更新快取資料。 搭配 Azure 服務主體支援，使用 PowerShell、TOM、TMSL 和 REST 的自動重新整理作業可提供彈性，確保模型資料永遠是最新的。 
 
@@ -203,7 +203,7 @@ Azure Analysis Services 受 [Microsoft Online Services 條款](https://www.micro
 
 ### <a name="powershell"></a>PowerShell
 
-建立伺服器資源、暫停或繼續伺服器作業或變更服務層級 (層) 的伺服器資源管理工作會使用 Azure Resource Manager (AzureRM) Cmdlet。 其他用於管理資料庫的工作 (例如新增或移除角色成員、處理或執行 TMSL 指令碼) 會使用 SqlServer 模組中的 Cmdlet。 若要深入了解，請參閱[使用 PowerShell 管理 Azure Analysis Services](analysis-services-powershell.md)。
+建立伺服器資源、暫停或繼續伺服器作業或變更服務層級 (層) 的伺服器資源管理工作會使用 Azure PowerShell Cmdlet。 其他用於管理資料庫的工作 (例如新增或移除角色成員、處理或執行 TMSL 指令碼) 會使用 SqlServer 模組中的 Cmdlet。 若要深入了解，請參閱[使用 PowerShell 管理 Azure Analysis Services](analysis-services-powershell.md)。
 
 ### <a name="object-model-and-scripting"></a>物件模型和編寫指令碼
 

@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337556"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960644"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什麼是 Azure 媒體服務 v3？
 
@@ -88,7 +88,7 @@ v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 API 不會從
 | 快速入門 | 顯示第 1 天的基本指示，讓新客戶快速試用媒體服務。|
 | 教學課程 | 顯示某些常用媒體服務工作的案例式程序。|
 | 範例 | 程式碼範例的連結。 |
-| 概念 | 包含媒體服務 v3 功能和圖表的深入說明。 請先檢閱這些主題所述的基本概念再開始進行開發。<br/><br/>* 雲端上傳和儲存體<br/>* 編碼<br/>* 媒體分析<br/>* 封裝、傳遞、保護<br/>* 即時資料流<br/>* 連續監視<br/>* 播放機用戶端<br/><br/>不勝枚舉。 |
+| 概念 | 包含[媒體服務 v3 概念和功能](concepts-overview.md)的深入說明。 請先檢閱這些主題所述的基本概念再開始進行開發。<br/><br/>* 雲端上傳和儲存體<br/>* 編碼<br/>* 媒體分析<br/>* 封裝、傳遞、保護<br/>* 即時資料流<br/>* 監視<br/>* 播放機用戶端<br/><br/>不勝枚舉。 |
 | 使用說明指南 | 示範如何完成工作。|
 
 ## <a name="next-steps"></a>後續步驟

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232612"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983178"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>教學課程：在 Azure 入口網站中使用基本負載平衡器來平衡內部流量負載
 
@@ -87,20 +87,23 @@ ms.locfileid: "54232612"
 
 1. 在入口網站的左上方，選取 [建立資源] > [網路] > [負載平衡器]。
    
-1. 在 [建立負載平衡器] 窗格中，輸入或選取下列值：
+2. 在 [建立負載平衡器] 頁面的 [基本資料] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]：
+
+    | 設定                 | 值                                              |
+    | ---                     | ---                                                |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupLB*。|
+    | Name                   | *myLoadBalancer*                                   |
+    | 區域         | 選取 [西歐]。                                        |
+    | 類型          | 選取 [公用]。                                        |
+    | SKU           | 選取 [基本]。                          |
+    | 虛擬網路           | 選取 [MyVNet]。                          |    
+| 公用 IP 位址 | 選取 [建立新的]。 |
+    | 公用 IP 位址指派              | 選取 [靜態]。   |
+    | 私人 IP 位址|輸入位於您虛擬網路和子網路的位址空間內的位址，例如 *10.3.0.7*。  |
+
+3. 在 [檢閱 + 建立] 索引標籤中，按一下 [建立]。 
    
-   - **名稱**：輸入 MyLoadBalancer。
-   - **類型**：選取 [內部]。 
-   - **SKU**：選取 [基本]。
-   - **虛擬網路**：選取 [選擇虛擬網路]，然後選取 [MyVNet]。
-   - **子網路**：選取 [選擇子網路]，然後選取 [MyBackendSubnet]。
-   - **IP 位址指派**：選取 [靜態] (若未選取)。
-   - **私人 IP 位址**：輸入位於您虛擬網路和子網路的位址空間內的位址，例如 *10.3.0.7*。
-   - **資源群組**：下拉 [選取現有的]，然後選取 [MyResourceGroupLB]。 
-   
-1. 選取 [建立] 。
-   
-![建立負載平衡器](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 ## <a name="create-basic-load-balancer-resources"></a>建立基本負載平衡器資源
 

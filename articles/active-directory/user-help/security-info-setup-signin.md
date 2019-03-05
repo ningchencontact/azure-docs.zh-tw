@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bb1ec22d4113c7b9cecbc428bf70ac91d9a7e75
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457904"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587883"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>經由登入頁面的提示設定您的安全性資訊 (預覽)
 如果您在登入公司或學校帳戶後隨即看見設定安全性資訊的提示，您可以依照下列步驟進行設定。
@@ -76,7 +76,7 @@ ms.locfileid: "56457904"
 
     您的安全性資訊會更新為使用 Microsoft Authenticator 應用程式作為預設方法，在使用雙步驟驗證或密碼重設時驗證您的身分識別。
 
-9. 在 [電話] 設定頁面中，選擇您要接收簡訊還是通話，然後選取 [下一步]。 此範例使用簡訊，因此您必須使用可接受簡訊之裝置的電話號碼。
+9. 在 [電話] 設定頁面上，選擇您要接收簡訊還是通話，然後選取 [下一步]。 此範例使用簡訊，因此您必須使用可接受簡訊之裝置的電話號碼。
 
     ![開始設定要接收簡訊的電話號碼](media/security-info/securityinfo-prompt-text-msg.png)
 

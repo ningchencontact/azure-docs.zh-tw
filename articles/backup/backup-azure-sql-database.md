@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446846"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887806"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>將 SQL Server 資料庫備份到 Azure VM 
 
@@ -52,8 +52,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 - 不支援 FCI 鏡像資料庫、資料庫快照集及資料庫的備份和還原作業。
 - 無法保護含有大量檔案的資料庫。 支援的檔案數目上限不確定。 此數目取決於檔案數量和檔案的路徑長度。 
 
-如需支援/不支援案例的詳細資訊，請參閱[常見問題集](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq)一節。
-
+檢閱關於備份 SQL Server 資料庫的[常見問題](faq-backup-sql-server.md)。
 ## <a name="scenario-support"></a>案例支援
 
 **支援** | **詳細資料**
@@ -69,9 +68,9 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 備份 SQL Server 資料庫之前，請先檢查下列條件：
 
 1. 在與裝載 SQL Server 執行個體的 VM 相同的區域或地區設定中識別或[建立](backup-azure-sql-database.md#create-a-recovery-services-vault)復原服務保存庫。
-2. 檢查備份 SQL 資料庫所需的 [VM 權限](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms)。
+2. 檢查備份 SQL 資料庫所需的 [VM 權限](#fix-sql-sysadmin-permissions)。
 3. 確認 VM 具有[網路連線](backup-azure-sql-database.md#establish-network-connectivity)。
-4. 確認 SQL Server 資料庫的命名符合 Azure 備份的[命名方針](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup)。
+4. 確認 SQL Server 資料庫的命名符合 Azure 備份的[命名方針](backup-azure-sql-database.md)。
 5. 確認您未針對資料庫啟用任何其他備份解決方案。 在設定此案例前，請停用所有其他的 SQL Server 備份。 您可以同時為 Azure VM 以及在該 VM 上執行的 SQL Server 資料庫啟用 Azure 備份，而不會發生任何衝突。
 
 
@@ -197,7 +196,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
     - 選取預設原則：**HourlyLogBackup**。
     - 選擇之前為 SQL 建立的現有備份原則。
-    - 根據 RPO 和保留範圍[定義新的原則](backup-azure-sql-database.md#define-a-backup-policy)。
+    - 根據 RPO 和保留範圍[定義新的原則](backup-azure-sql-database.md#configure-a-backup-policy)。
     - 在預覽期間，您無法編輯現有的備份原則。
     
 9. 在 [備份] 功能表上，選取 [啟用備份]。
@@ -326,7 +325,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
     ![部署成功訊息](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-或者，您可以藉由在 [自動保護] 欄的對應下拉式清單中選取 [開啟] 選項，在整個執行個體或 Always On 可用性群組上啟用[自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)。 [自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)功能不僅可一次性地在所有現有的資料庫上啟用保護，也會自動保護未來將新增至該執行個體或可用性群組的任何新資料庫。  
+或者，您可以藉由在 [自動保護] 欄的對應下拉式清單中選取 [開啟] 選項，在整個執行個體或 Always On 可用性群組上啟用[自動保護](backup-azure-sql-database.md#enable-auto-protection)。 [自動保護](backup-azure-sql-database.md#enable-auto-protection)功能不僅可一次性地在所有現有的資料庫上啟用保護，也會自動保護未來將新增至該執行個體或可用性群組的任何新資料庫。  
 
    ![在 Always On 可用性群組上啟用自動保護](./media/backup-azure-sql-database/enable-auto-protection.png)
 

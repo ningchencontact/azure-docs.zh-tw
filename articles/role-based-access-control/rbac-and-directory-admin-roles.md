@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 00b96b5bfa88a6c1c31d3415027ce1d4eda11e6b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c53b9f13c365a5ace227f792f5b0c80ae8fac6ff
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339085"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807349"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色
 
@@ -48,11 +48,15 @@ ms.locfileid: "56339085"
 | 服務管理員 | 每個 Azure 訂用帳戶 1 名 | <ul><li>在 [Azure 入口網站](https://portal.azure.com)中管理服務</li><li>將使用者指派給共同管理員角色</li></ul> | 根據預設，新訂用帳戶的帳戶管理員也是服務管理員。<br>服務管理員與在訂用帳戶範圍獲派擁有者角色的使用者具有同等的存取權。<br>服務管理員可完整存取 Azure 入口網站。 |
 | 共同管理員 | 每個訂用帳戶 200 名 | <ul><li>具有與服務管理員相同的存取權限，但無法變更訂用帳戶與 Azure 目錄的關聯</li><li>將使用者指派給共同管理員角色，但無法變更服務管理員</li></ul> | 共同管理員與在訂用帳戶範圍獲派擁有者角色的使用者具有同等的存取權。 |
 
-在 Azure 入口網站中，您可以檢視您訂用帳戶的屬性，以查看獲派帳戶管理員和服務管理員的人員。
+在 Azure 入口網站中，您可以使用 [傳統管理員] 索引標籤管理共同管理員或檢視服務管理員。
 
-![Azure 入口網站中的帳戶管理員和服務管理員](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
+![Azure 入口網站中的 Azure 傳統訂用帳戶管理員](./media/rbac-and-directory-admin-roles/classic-administrators.png)
 
-如需有關如何新增或變更傳統訂用帳戶管理員的資訊，請參閱 Azure 計費文件中的[新增或變更 Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)。
+在 Azure 入口網站中，您可以在訂用帳戶的 [屬性] 刀鋒視窗上檢視或變更服務管理員或檢視帳戶管理員。
+
+![Azure 入口網站中的帳戶管理員和服務管理員](./media/rbac-and-directory-admin-roles/account-admin.png)
+
+如需詳細資訊，請參閱 [Azure 傳統訂用帳戶管理員](classic-administrators.md)。
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Azure 帳戶與 Azure 訂用帳戶
 
@@ -81,9 +85,11 @@ Azure RBAC 是建置於 [Azure Resource Manager](../azure-resource-manager/resou
 
 ![Azure 入口網站中的存取控制 (IAM) 刀鋒視窗](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
-當您按一下 [角色] 選項時，您會看到內建和自訂角色的清單。
+當您按一下 [角色] 索引標籤時，您會看到內建和自訂角色的清單。
 
 ![Azure 入口網站中的內建角色](./media/rbac-and-directory-admin-roles/roles-list.png)
+
+如需詳細資料，請參閱[使用 RBAC 和 Azure 入口網站來管理 Azure 資源的存取權](role-assignments-portal.md)。
 
 ## <a name="azure-ad-administrator-roles"></a>Azure AD 管理員角色
 
@@ -95,9 +101,7 @@ Azure AD 管理員用來管理目錄中的 Azure AD 資源，例如建立或編�
 | [使用者管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>建立及管理使用者與群組的所有層面</li><li>管理支援票證</li><li>監視服務健康情況</li><li>變更使用者、技術支援中心管理員及其他使用者管理員的密碼</li></ul> |  |
 | [計費管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>進行購買</li><li>管理訂用帳戶</li><li>管理支援票證</li><li>監視服務健康狀態</li></ul> |  |
 
-如需所有 Azure AD 管理員角色的清單，請參閱 [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
-
-在 Azure 入口網站中，您可以在 [角色和管理員] 刀鋒視窗上看到 Azure AD 管理員角色清單。
+在 Azure 入口網站中，您可以在 [角色和管理員] 刀鋒視窗上看到 Azure AD 管理員角色清單。 如需所有 Azure AD 管理員角色的清單，請參閱 [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
 
 ![Azure 入口網站中的 Azure AD 管理員角色](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
@@ -124,4 +128,4 @@ Azure AD 管理員用來管理目錄中的 Azure AD 資源，例如建立或編�
 
 - [什麼是 Azure 資源的角色型存取控制 (RBAC)？](overview.md)
 - [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
-- [新增或變更 Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)
+- [Azure 傳統訂用帳戶管理員](classic-administrators.md)

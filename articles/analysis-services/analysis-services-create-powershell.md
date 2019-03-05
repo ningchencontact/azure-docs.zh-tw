@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 571cce2fafe1d19653dfa1e3d9a91042584621eb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426772"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735936"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入門：建立伺服器 - PowerShell
 
@@ -21,49 +21,51 @@ ms.locfileid: "54426772"
 
 ## <a name="prerequisites"></a>必要條件
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure 訂用帳戶**：瀏覽 [Azure 免費試用](https://azure.microsoft.com/offers/ms-azr-0044p/)來建立帳戶。
 - **Azure Active Directory**：您的訂用帳戶必須與 Azure Active Directory 租用戶相關聯，而且您必須在該目錄中有一個帳戶。 若要深入了解，請參閱[驗證和使用者權限](analysis-services-manage-users.md)。
-- **Azure PowerShell 模組 4.0 版或更新版本**。 若要尋找版本，請執行 ` Get-Module -ListAvailable AzureRM`。 若要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
+- **Azure PowerShell**(英文)。 若要尋找已安裝的版本，請執行 `Get-Module -ListAvailable Az`。 若要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
-## <a name="import-azurermanalysisservices-module"></a>Import AzureRm.AnalysisServices 模組
+## <a name="import-azanalysisservices-module"></a>匯入 Az.AnalysisServices 模組
 
-若要在您的訂用帳戶中建立伺服器，您可使用 [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 元件模組。 將 AzureRm.AnalysisServices 模組載入 PowerShell 工作階段中。
+若要在您的訂用帳戶中建立伺服器，您可使用 [Az.AnalysisServices](/powershell/module/az.analysisservices) 模組。 將 Az.AnalysisServices 模組載入 PowerShell 工作階段中。
 
 ```powershell
-Import-Module AzureRM.AnalysisServices
+Import-Module Az.AnalysisServices
 ```
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-使用 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) 命令登入您的 Azure 訂用帳戶。 遵循螢幕上的指示進行。
+使用 [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) 命令登入您的 Azure 訂用帳戶。 遵循螢幕上的指示進行。
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-[Azure 資源群組](../azure-resource-manager/resource-group-overview.md)是在其中以群組方式部署與管理 Azure 資源的邏輯容器。 當您建立伺服器時，必須指定您訂用帳戶中的資源群組。 如果您還沒有資源群組，可以使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令建立一個新的資源群組。 下列範例會在美國西部區域中建立一個名為 `myResourceGroup` 的資源群組。
+[Azure 資源群組](../azure-resource-manager/resource-group-overview.md)是在其中以群組方式部署與管理 Azure 資源的邏輯容器。 當您建立伺服器時，必須指定您訂用帳戶中的資源群組。 如果您還沒有資源群組，可以使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令建立一個新的資源群組。 下列範例會在美國西部區域中建立一個名為 `myResourceGroup` 的資源群組。
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
 ```
 
 ## <a name="create-a-server"></a>建立伺服器
 
-使用 [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 命令建立新的伺服器。 下列範例會在美國西部地區 (免費的 D1 層) 的 myResourceGroup 中建立名為 myServer 的伺服器，並將 philipc@adventureworks.com 指定為伺服器管理員。
+使用 [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver) 命令建立新的伺服器。 下列範例會在美國西部地區 (免費的 D1 層) 的 myResourceGroup 中建立名為 myServer 的伺服器，並將 philipc@adventureworks.com 指定為伺服器管理員。
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您也可以使用 [Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 命令，從您的訂用帳戶中移除伺服器。 如果您繼續進行本集合中的其他快速入門和教學課程，請勿移除您的伺服器。 下列範例會移除在前一個步驟中建立的伺服器。
+您也可以使用 [Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver) 命令，從您的訂用帳戶中移除伺服器。 如果您繼續進行本集合中的其他快速入門和教學課程，請勿移除您的伺服器。 下列範例會移除在前一個步驟中建立的伺服器。
 
 
 ```powershell
-Remove-AzureRmAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
+Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>後續步驟

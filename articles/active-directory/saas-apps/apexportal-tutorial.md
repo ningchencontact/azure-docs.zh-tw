@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a494e403b8afa1424640ac2e24d0f832b3de02dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89b264c35d7dc269252a156aad6a24a565dbd6ea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210606"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>教學課程：Azure Active Directory 與 Apex Portal
 
@@ -217,8 +217,8 @@ ms.locfileid: "56210606"
 
 本節會在 Apex Portal 中建立名為 Britta Simon 的使用者。 Apex Portal 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Apex Portal 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
-> [!NOTE]
-> 如果您需要手動建立使用者，則需要與 [Apex Portal 支援小組](mailto:support@apexanalytix.com)連絡。
+> [!NOTE]
+> 如果您需要手動建立使用者，則需要與 [Apex Portal 支援小組](mailto:support@apexanalytix.com)連絡。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

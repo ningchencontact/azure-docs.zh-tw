@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: f04cd2c6d3d4eff0cbc03ee57b9a57c6883db1d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9d441ed408f9c9348ba091178cf6ce84d67abb3a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239004"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672928"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning
 
@@ -81,7 +81,7 @@ ms.locfileid: "55239004"
 
  ![複製程式庫](./media/quickstart-get-started/clone.png)
 
-1. 如果您看到專案狀態為「已停止」，請按一下 [以免費計算執行]，以使用免費的 Notebook 伺服器。
+1. 如果您看到專案狀態為「已停止」，請按一下 [以免費電腦執行]，以使用免費的 Notebook 伺服器。
 
     ![以免費計算執行專案](./media/quickstart-get-started/run-project.png)
 

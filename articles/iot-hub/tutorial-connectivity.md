@@ -6,15 +6,15 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745804"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674494"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教學課程：使用模擬裝置來測試與您 IoT 中樞的連線能力
 
@@ -122,7 +122,7 @@ node SimulatedDevice-1.js "{your device connection string}"
 
 如果您的裝置使用其中一個 IoT 中樞裝置 SDK，該 SDK 程式庫程式碼將會產生用來對中樞進行驗證的 SAS 權杖。 SAS 權杖會從您的中樞名稱、裝置名稱和裝置金鑰產生。
 
-在某些情況下，例如雲端通訊協定閘道中或自訂驗證配置中，您可能需要自行產生 SAS 權杖。 若要對 SAS 產生碼的問題進行疑難排解，最好能夠產生已知良好的 SAS 權杖，以在測試期間使用。
+在某些情況下，例如雲端通訊協定閘道中或自訂驗證配置中，您可能需要自行產生 SAS 權杖。 若要對 SAS 產生碼的問題進行疑難排解，最好產生已知良好的 SAS 權杖，以在測試期間使用。
 
 > [!NOTE]
 > SimulatedDevice-2.js 範例包含使用和不使用 SDK 來產生 SAS 權杖的範例。
@@ -133,7 +133,7 @@ node SimulatedDevice-1.js "{your device connection string}"
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-完整記下產生的 SAS 權杖文字。 SAS 權杖顯示如下：`'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+完整記下產生的 SAS 權杖文字。 SAS 權杖顯示如下：`SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 在開發機器的終端機視窗中，瀏覽至您下載的範例 Node.js 專案的根資料夾。 然後，瀏覽至 **iot-hub\Tutorials\ConnectivityTests\simulated-device** 資料夾。
 
@@ -189,13 +189,9 @@ node SimulatedDevice-3.js "{your device connection string}"
 
 ![傳送訊息的模擬裝置](media/tutorial-connectivity/sim-3-sending.png)
 
-您可以在入口網站中使用 [計量]，確認遙測訊息已送達您的 IoT 中樞：
+您可以在入口網站中使用 [計量]，確認遙測訊息已送達您的 IoT 中樞。 在 [資源] 下拉式清單中選取您的 IoT 中樞，選取 [已傳送的遙測訊息] 作為計量，並將時間範圍設定為 [過去一小時]。 圖表會顯示模擬裝置所傳送訊息的彙總計數：
 
-![瀏覽至 IoT 中樞計量](media/tutorial-connectivity/metrics-portal.png)
-
-在 [資源] 下拉式清單中選取您的 IoT 中樞，選取 [已傳送的遙測訊息] 作為計量，並將時間範圍設定為 [過去一小時]。 圖表會顯示模擬裝置所傳送訊息的彙總計數：
-
-![顯示 IoT 中樞計量](media/tutorial-connectivity/metrics-active.png)
+![顯示 IoT 中樞計量](media/tutorial-connectivity/metrics-portal.png)
 
 在您啟動模擬裝置後，可能要經過數分鐘才會產生計量。
 

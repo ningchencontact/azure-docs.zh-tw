@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5ba555ad31545e1ae1aa822ec58b0bd22ef486ac
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 12da1b20c5e4e6299445b8ec8ec90eeec6711e2c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295146"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805513"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>使用 Jupyter Notebook 探索 Azure Machine Learning 服務
 
@@ -48,6 +48,8 @@ ms.locfileid: "55295146"
 使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+快速入門指示將安裝您執行快速入門和教學課程 Runbook 所需的套件。  其他範例 Notebook 可能需要安裝其他元件。  如需這些元件的詳細資訊，請參閱 [安裝 適用於 Python 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install)。
 
 <a name="automated-ml-setup"></a>
 

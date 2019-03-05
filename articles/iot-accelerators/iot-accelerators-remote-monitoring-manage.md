@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 869f6d2391632c77e01e4383c1457f88b9171c8b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448069"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651187"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>教學課程：設定連線到監視解決方案的裝置
 
@@ -36,7 +36,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ## <a name="add-a-simulated-device"></a>新增模擬裝置
 
-瀏覽至解決方案中的 [裝置] 頁面，然後按一下 [+ 新增裝置]：
+瀏覽至解決方案中的 [裝置總管] 頁面，然後按一下 [+ 新增裝置]：
 
 [![佈建模擬裝置](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -46,7 +46,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ## <a name="test-the-simulated-device"></a>測試模擬的裝置
 
-若要測試模擬的引擎裝置是否會傳送遙測資料並報告屬性值，請在 [裝置] 頁面上的裝置清單中選取該裝置。 引擎的相關即時資訊會顯示在 [裝置詳細資料] 面板中：
+若要測試模擬的引擎裝置是否會傳送遙測資料並報告屬性值，請在 [裝置總管] 頁面上的裝置清單中選取該裝置。 引擎的相關即時資訊會顯示在 [裝置詳細資料] 面板中：
 
 [![檢視新的模擬引擎裝置](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -60,7 +60,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ## <a name="reconfigure-a-device"></a>重新設定裝置
 
-若要測試是否可以更新引擎的設定屬性，請在 [裝置] 頁面的裝置清單中選取裝置。 接著按一下 [作業]，然後選擇 [屬性]。 [作業] 面板會顯示所選裝置的可更新屬性值：
+若要測試是否可以更新引擎的設定屬性，請在 [裝置總管] 頁面的裝置清單中選取裝置。 接著按一下 [作業]，然後選擇 [屬性]。 [作業] 面板會顯示所選裝置的可更新屬性值：
 
 [![重新設定裝置](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -83,7 +83,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 * Smart Vehicle 小組會管理卡車和原型裝置。
 * Smart Building 小組會管理 chiller、電梯和引擎。
 
-若要顯示所有的裝置，請瀏覽至 [裝置] 頁面，然後選擇 [所有裝置] 篩選條件：
+若要顯示所有的裝置，請瀏覽至 [裝置總管] 頁面，然後選擇 [所有裝置] 篩選條件：
 
 [![顯示所有裝置](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -103,7 +103,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ### <a name="create-filters"></a>建立篩選器
 
-現在，您可以使用標記值來建立篩選條件。 在 [裝置] 頁面上，按一下 [管理裝置群組]：
+現在，您可以使用標記值來建立篩選條件。 在 [裝置總管] 頁面上，按一下 [管理裝置群組]：
 
 [![管理裝置群組](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

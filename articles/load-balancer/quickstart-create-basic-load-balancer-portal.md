@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231966"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986323"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立公用基本負載平衡器
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立基本負載平衡器
 
 負載平衡會將傳入要求分散於多部虛擬機器 (VM)，藉此提供高可用性和範圍。 您可使用 Azure 入口網站建立負載平衡器，以及平衡虛擬機器的流量。 本快速入門說明如何在基本定價層建立及設定負載平衡器、後端伺服器及網路資源。
 
@@ -34,21 +34,23 @@ ms.locfileid: "54231966"
 
 首先，使用入口網站建立公用基本負載平衡器。 您所建立的名稱和公用 IP 位址會自動設定為負載平衡器的前端。
 
-1. 在入口網站的左上方，選取 [建立資源] > [網路] > [負載平衡器]。
-   
-1. 在 [建立負載平衡器] 窗格中，輸入或選取下列值：
-   
-   - **名稱**：輸入 MyLoadBalancer。
-   - **類型**：選取 [公用]。 
-   - **SKU**：選取 [基本]。
-   - **公用 IP 位址：** 選取 [建立新的]。 
-     - **公用 IP 位址**欄位：輸入 MyPublicIP。
-     - **設定公用 IP 位址** > **指派**：選取 [動態]。
-   - **資源群組**：選取 [新建]，然後輸入 MyResourceGroupLB，然後選取 [確定]。 
-   
-1. 選取 [建立] 。
-   
-![建立負載平衡器](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. 在畫面的左上方，按一下 [建立資源] > [網路] > [負載平衡器]。
+2. 在 [建立負載平衡器] 頁面的 [基本資料] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]：
+
+    | 設定                 | 值                                              |
+    | ---                     | ---                                                |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupLB*。|
+    | Name                   | *myLoadBalancer*                                   |
+    | 區域         | 選取 [西歐]。                                        |
+    | 類型          | 選取 [公用]。                                        |
+    | SKU           | 選取 [基本]。                          |
+    | 公用 IP 位址 | 選取 [建立新的]。 |
+    | 公用 IP 位址名稱              | *MyPublicIP*   |
+    | 指派| 靜態|
+
+3. 在 [檢閱 + 建立] 索引標籤中，按一下 [建立]。   
+
 
 ## <a name="create-back-end-servers"></a>建立後端伺服器
 
@@ -111,7 +113,7 @@ ms.locfileid: "54231966"
    - **來源**：選取 [服務標記]。  
    - **來源服務標記**：選取 [網際網路]。 
    - **目的地連接埠範圍**：輸入 80。
-   - **通訊協定**：選取 **TCP**。 
+   - **通訊協定**：選取 [TCP]。 
    - **動作**：選取 [允許]。  
    - **優先順序**：輸入 100。 
    - **名稱**：輸入 MyHTTPRule。 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2d86c0c4838fb2ae9d839e64a067824019133d8b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024428"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872874"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>教學課程：模擬存取讀取權限備援儲存體時失敗
 
@@ -75,7 +75,7 @@ Fiddler ScriptEditor 會啟動並顯示 **SampleRules.js** 檔案。 此檔案�
 
 ### <a name="interrupting-the-application"></a>中斷應用程式
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET、Python 及 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET、 Python 和 Java v7](#tab/dotnet-python-java-v7)
 
 在您的 IDE 或 Shell 中執行應用程式。
 
@@ -83,7 +83,7 @@ Fiddler ScriptEditor 會啟動並顯示 **SampleRules.js** 檔案。 此檔案�
 
 ![應用程式案例](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 在您的 IDE 或 Shell 中執行應用程式。
 
@@ -113,7 +113,7 @@ Fiddler ScriptEditor 會啟動並顯示 **SampleRules.js** 檔案。 此檔案�
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET、Python 及 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET、 Python 和 Java v7](#tab/dotnet-python-java-v7)
 
 若要繼續執行應用程式，請按**任意鍵**。
 
@@ -123,7 +123,7 @@ Fiddler ScriptEditor 會啟動並顯示 **SampleRules.js** 檔案。 此檔案�
 
 ![貼上自訂規則](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 您現在已引進失敗，請輸入 **G** 來測試失敗。
 
@@ -133,7 +133,7 @@ Fiddler ScriptEditor 會啟動並顯示 **SampleRules.js** 檔案。 此檔案�
 
 ### <a name="simulate-primary-endpoint-restoration"></a>模擬主要端點還原
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET、Python 及 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET、 Python 和 Java v7](#tab/dotnet-python-java-v7)
 
 使用上個步驟中設定的 Fiddler 自訂規則集，會使主要端點要求失敗。
 
@@ -153,7 +153,7 @@ Fiddler ScriptEditor 會啟動並顯示 **SampleRules.js** 檔案。 此檔案�
 
 ![繼續執行應用程式](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 使用上個步驟中設定的 Fiddler 自訂規則集，會使主要端點要求失敗。
 
@@ -173,11 +173,11 @@ Fiddler ScriptEditor 會啟動並顯示 **SampleRules.js** 檔案。 此檔案�
 
 ### <a name="start-and-pause-the-application"></a>啟動和暫停應用程式
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET、Python 及 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET、 Python 和 Java v7](#tab/dotnet-python-java-v7)
 
 在您的 IDE 或 Shell 中執行應用程式。 應用程式開始從主要端點讀取時，在主控台視窗中按下**任意鍵**以暫停應用程式。
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 由於您會控制範例，所以不需要中斷它即可測試失敗。
 
@@ -200,7 +200,7 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 
 若要為目的地主機新增靜態路由，請在 Windows 命令提示字元或 Linux 終端機上輸入下列命令。 
 
-#### <a name="linux"></a>Linux
+#### <a name="linux"></a> Linux
 
 `route add <destination_ip> gw <gateway_ip>`
 
@@ -210,13 +210,13 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 
 將 `<destination_ip>` 取代為您的儲存體帳戶 IP 位址，並將 `<gateway_ip>` 取代為您的本機主機 IP 位址。
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET、Python 及 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET、 Python 和 Java v7](#tab/dotnet-python-java-v7)
 
 若要繼續執行應用程式，請按**任意鍵**。
 
 應用程式再次開始執行後，針對主要端點的要求即會開始發生失敗。 應用程式會嘗試重新連線至主要端點 5 次。 超過五次的失敗嘗試閥值後，其會從次要唯讀端點要求映像。 應用程式從次要端點成功取出 20 次映像後，即會嘗試連線至主要端點。 若仍然無法連線至主要端點，則應用程式會繼續從次要端點讀取。 此模式即是在上個教學課程中述及的[斷路器模式](/azure/architecture/patterns/circuit-breaker)。
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 您現在已引進失敗，請輸入 **G** 來測試失敗。 它將告知您正在使用次要管線，而不是主要管線。
 
@@ -228,7 +228,7 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 
 若要刪除目的地主機 (儲存體帳戶) 的靜態路由，請在 Windows 命令提示字元或 Linux 終端機上輸入下列命令。
 
-#### <a name="linux"></a>Linux
+#### <a name="linux"></a> Linux
 
 `route del <destination_ip> gw <gateway_ip>`
 
@@ -236,14 +236,14 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET、Python 及 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET、 Python 和 Java v7](#tab/dotnet-python-java-v7)
 
 按**任意鍵**以繼續執行應用程式。 此應用程式會繼續從主要端點讀取，直至達到 999 次讀取為止。
 
 ![繼續執行應用程式](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 輸入 **G** 以測試下載。 應用程式會回報它現在再度使用主要管線。
 

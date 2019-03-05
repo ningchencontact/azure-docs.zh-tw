@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0b16c6da0066ac4e919c1bef031d3206a359aae6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182633"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818114"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>使用 Azure 入口網站設定 IoT 中樞裝置佈建服務
 
@@ -38,7 +38,7 @@ ms.locfileid: "53182633"
 
     * **名稱：** 提供新的「裝置佈建服務」執行個體的唯一名稱。 如果您輸入的名稱可用，則會出現綠色核取記號。
     * **訂用帳戶：** 選擇您想要用於建立此裝置佈建服務執行個體的訂用帳戶。
-    * **資源群組：** 此欄位可讓您建立新的資源群組，或選擇現有群組以包含新的執行個體。 選擇包含您先前所建立 IoT 中樞的相同資源群組，例如 **TestResources**。 您可以將所有相關資源一起放在群組中，一併加以管理。 例如，刪除資源群組時，將會刪除該群組中包含的所有資源。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-portal.md)。
+    * **資源群組：** 此欄位可讓您建立新的資源群組，或選擇現有群組以包含新的執行個體。 選擇包含您先前所建立 IoT 中樞的相同資源群組，例如 **TestResources**。 您可以將所有相關資源一起放在群組中，一併加以管理。 例如，刪除資源群組時，將會刪除該群組中包含的所有資源。 如需詳細資訊，請參閱[管理 Azure Resource Manager 資源群組](../azure-resource-manager/manage-resource-groups-portal.md)。
     * **位置：** 選取最接近裝置的位置。
 
       ![在入口網站刀鋒視窗中輸入關於裝置佈建服務執行個體的基本資訊](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  

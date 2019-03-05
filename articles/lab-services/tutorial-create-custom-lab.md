@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096631"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804947"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>教學課程：使用 Azure DevTest Labs 設定實驗室
 在本教學課程中，您會使用 Azure 入口網站建立實驗室。 實驗室管理員會在組織設定實驗室，並在實驗室中建立 VM，然後設定原則。 實驗室使用者 (例如：開發人員和測試人員) 會認領實驗室中的 VM、與之連線並加以使用。 
@@ -80,7 +80,7 @@ ms.locfileid: "55096631"
 1. 建立 VM 之後，您看到它出現在 [可認領虛擬機器] 清單中。 
 
     > [!NOTE] 
-    > 將 Linux VM 新增至實驗室時，您可以對 VM 啟用 SSH 和 RDP 存取。 如果您建立 VM 時未啟用此存取權，您可以在與 VM 相關聯的網路安全性群組中手動新增規則，以開啟 SSH 和 RDP 的連接埠。
+    > 在 [進階設定] 頁面上，您可以設定 VM 的公用、私人或共用 IP 位址。 若已啟用**共用 IP**，Azure DevTest Labs 會自動啟用適用於 Windows VM 的 RDP 和適用於 Linux VM 的 SSH。 如果您建立具有**公用 IP** 位址的 VM，則會啟用 RDP 和 SSH (不需從 DevTest Labs 進行任何變更)。  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>將使用者新增至實驗室使用者角色
 

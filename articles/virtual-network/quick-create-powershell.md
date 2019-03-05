@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: ade8329e6e42fae9f3232617488a6d4a69f8ef1f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 57c3b5099c24151794b27f4aeec7845495a4630a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437380"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670397"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>快速入門：使用 PowerShell 建立虛擬網路
 
@@ -29,9 +29,9 @@ ms.locfileid: "54437380"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-如果您決定在本機安裝和使用 PowerShell，則在進行此快速入門時，您必須使用 AzureRM PowerShell 模組 5.4.1 版或更新版本。 若要尋找已安裝的版本，請執行 `Get-Module -ListAvailable AzureRM`。 如需安裝和升級的資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
+如果您決定在本機安裝和使用 PowerShell，則在進行此快速入門時，您必須使用 Azure PowerShell 模組 1.0.0 版或更新版本。 若要尋找已安裝的版本，請執行 `Get-Module -ListAvailable Az`。 如需安裝和升級的資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
-最後，如果您在本機執行 PowerShell，也需要執行 `Connect-AzureRmAccount`。 該命令會建立與 Azure 的連線。
+最後，如果您在本機執行 PowerShell，也需要執行 `Connect-AzAccount`。 該命令會建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>建立資源群組和虛擬網路
 
@@ -39,18 +39,18 @@ ms.locfileid: "54437380"
 
 ### <a name="create-the-resource-group"></a>建立資源群組
 
-建立虛擬網路之前，您必須先建立資源群組來裝載虛擬網路。 使用 [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup)建立資源群組。 此範例會在 *eastus* 位置中建立名為 *myResourceGroup* 的資源群組：
+建立虛擬網路之前，您必須先建立資源群組來裝載虛擬網路。 使用 [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) 來建立資源群組。 此範例會在 *eastus* 位置中建立名為 *myResourceGroup* 的資源群組：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ### <a name="create-the-virtual-network"></a>建立虛擬網路
 
-使用 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) 建立虛擬網路。 此範例會在 *EastUS* 位置建立名為 *myVirtualNetwork* 的預設虛擬網路：
+使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 建立虛擬網路。 此範例會在 *EastUS* 位置建立名為 *myVirtualNetwork* 的預設虛擬網路：
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
+$virtualNetwork = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork `
@@ -59,10 +59,10 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>新增子網路
 
-Azure 會將資源部署至虛擬網路內的子網路，因此您必須建立子網路。 使用 [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) 建立名為 *default* 的子網路設定：
+Azure 會將資源部署至虛擬網路內的子網路，因此您必須建立子網路。 使用 [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) 建立名為 *default* 的子網路設定：
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name default `
   -AddressPrefix 10.0.0.0/24 `
   -VirtualNetwork $virtualNetwork
@@ -70,10 +70,10 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>將子網路與虛擬網路建立關聯
 
-您可以使用 [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork)，將子網路設定寫入至虛擬網路。 此命令會建立子網路：
+您可以使用 [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)，將子網路設定寫入至虛擬網路。 此命令會建立子網路：
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ## <a name="create-virtual-machines"></a>建立虛擬機器
@@ -82,10 +82,10 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 ### <a name="create-the-first-vm"></a>建立第一個 VM
 
-使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 建立第一個 VM。 當您執行下一個命令時，系統會提示您輸入認證。 輸入 VM 的使用者名稱和密碼：
+使用 [New-AzVM](/powershell/module/az.compute/new-azvm) 建立第一個 VM。 當您執行下一個命令時，系統會提示您輸入認證。 輸入 VM 的使用者名稱和密碼：
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "East US" `
     -VirtualNetworkName "myVirtualNetwork" `
@@ -101,7 +101,7 @@ New-AzureRmVm `
 ```powershell
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
 --     ----            -------------   -----         -----------     --------             -------
-1      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmVM
+1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
 ### <a name="create-the-second-vm"></a>建立第二個 VM
@@ -109,7 +109,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 使用此命令建立第二個 VM：
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -VirtualNetworkName "myVirtualNetwork" `
   -SubnetName "default" `
@@ -123,10 +123,10 @@ New-AzureRmVm `
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>從網際網路連線至 VM
 
-請使用 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 來傳回 VM 的公用 IP 位址。 此範例會傳回 *myVm1* VM 的公用 IP 位址：
+請使用 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 來傳回 VM 的公用 IP 位址。 此範例會傳回 *myVm1* VM 的公用 IP 位址：
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress
@@ -135,7 +135,7 @@ Get-AzureRmPublicIpAddress `
 在您的本機電腦上開啟命令提示字元。 執行 `mstsc` 命令。 將 `<publicIpAddress>` 取代為先前步驟傳回的公用 IP 位址：
 
 > [!NOTE]
-> 如果您已在本機電腦上的 PowerShell 提示字元中執行這些命令，且您所執行的 AzureRM PowerShell 模組為 5.4.1 版或更新版本，您可以在該介面中繼續進行。
+> 如果您已在本機電腦上的 PowerShell 提示字元中執行這些命令，且您所使用的 Az PowerShell 模組為 1.0 版或更新版本，您可以在該介面中繼續進行。
 
 ```cmd
 mstsc /v:<publicIpAddress>
@@ -165,7 +165,7 @@ mstsc /v:<publicIpAddress>
     ```powershell
     PS C:\Users\myVm1> ping myVm2
 
-    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudap
+    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
     Request timed out.
     Request timed out.
     Request timed out.
@@ -214,10 +214,10 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當您完成使用虛擬網路和 VM 時，使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 來移除資源群組以及其具有的所有資源：
+當您完成使用虛擬網路和 VM 時，使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 來移除資源群組以及其具有的所有資源：
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>後續步驟

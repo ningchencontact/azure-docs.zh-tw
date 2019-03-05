@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.author: pareshmu
-ms.openlocfilehash: 457eb6335c5a67d381250861a4009225cf04fc25
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 58532eedab2e704861221b75d219a56e0a3f0f2c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488045"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959556"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -95,7 +95,7 @@ ms.locfileid: "55488045"
 | **拉斯維加斯** | Switch | CenturyLink Cloud Connect、Megaport |
 | **倫敦** | Equinix | AT&T NetBond、British Telecom、Colt、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Telehouse - KDDI、Telenor、Telia Carrier、Verizon、Vodafone、Zayo |
 | **London2** | Telehouse | Equinix
-| **洛杉磯** | CoreSite | CoreSite、Equinix、Megaport、NTT、Zayo |
+| **洛杉磯** | CoreSite | CoreSite、Equinix、Megaport、Neutrona Networks、NTT、Zayo |
 | **馬賽** |Interxion | Interxion |
 | **墨爾本** | NEXTDC | AARNet、Equinix、Megaport、NEXTDC、Optus、Telstra Corporation |
 | **邁阿密** | Equinix | C3ntro+、Equinix、Megaport、Neutrona Networks |
@@ -103,7 +103,7 @@ ms.locfileid: "55488045"
 | **孟買** | Tata Communications | Global CloudXchange (GCX)、Sify、Tata Communications、Vodafone Idea |
 | **孟買2** | Airtel | Airtel、Sify、Vodafone Idea |
 | **紐約** | Equinix | CenturyLink Cloud Connect、Coresite、Equinix、InterCloud、Megaport、Zayo |
-| **Newport(Wales)** | 新一代資料 | Level 3 Communications、Next Generation Data |
+| **Newport(Wales)** | 新一代資料 | British Telecom、Level 3 Communications、Next Generation Data |
 | **大阪** | Equinix | Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT SmartConnect、Softbank |
 | **巴黎** | Interxion | Colt、Intercloud、Interxion、Equinix、Orange |
 | **伯斯** | NEXTDC | NEXTDC |
@@ -117,7 +117,7 @@ ms.locfileid: "55488045"
 | **新加坡 2** | 全域切換 | Colt、Megaport、SingTel |
 | **雪梨** | Equinix | AARNet、AT&T NetBond、British Telecom、Equinix、Megaport、NEXTDC、NTT Communications、Optus、Orange、Telstra Corporation、Verizon |
 | **台北** | Chief Telecom | Chief Telecom |
-| **東京** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT EAST、Softbank、Verizon |
+| **東京** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT EAST、Orange、Softbank、Verizon |
 | **多倫多** | Cologix | AT&T NetBond、Bell Canada、CenturyLink Cloud Connect、Cologix、Equinix、Megaport、Telus、Zayo |
 | **華盛頓** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、Cologix、Comcast、Coresite、Equinix、Internet2、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、PacketFabric、Sprint、Tata Communications、Telia Carrier、Verizon、Zayo |
 | **華盛頓特區2** | Coresite | Coresite | 

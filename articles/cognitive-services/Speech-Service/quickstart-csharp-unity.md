@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 8e31717f9fd232a7c256b65d044a97396af8f960
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448614"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878008"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>快速入門：使用適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 來辨識語音
 
@@ -74,7 +74,7 @@ ms.locfileid: "56448614"
 
 完成之後，UI 應該會如下列螢幕擷取畫面所示：
 
-[ ![快速入門使用者介面在 Unity 編輯器中的螢幕擷取畫面](media/sdk/qs-csharp-unity-02-ui-inline.png) ](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+[![快速入門使用者介面在 Unity 編輯器中的螢幕擷取畫面](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>新增範例程式碼
 
@@ -111,7 +111,7 @@ ms.locfileid: "56448614"
 
 * 在應用程式啟動後按一下按鈕，然後對電腦的麥克風說出英文片語或句子。 您的語音會傳送到語音服務，並且轉譯為文字，出現在視窗中。
 
-  [ ![在 Unity 遊戲視窗中執行快速入門的螢幕擷取畫面](media/sdk/qs-csharp-unity-03-output-inline.png) ](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+  [![在 Unity 遊戲視窗中執行快速入門的螢幕擷取畫面](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 
 * 查看[主控台視窗](https://docs.unity3d.com/Manual/Console.html)中偵錯訊息。
 

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184962"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805048"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Java 裝置和服務 SDK 以及註冊群組來建立及佈建模擬 X.509 裝置
 
@@ -46,7 +46,7 @@ ms.locfileid: "53184962"
 
         1. 在 [新增憑證] 之下，輸入下列資訊：
             - 請輸入唯一的憑證名稱。
-            - 選取您剛建立的 **_RootCA.pem_** 檔案。
+            - 選取您建立的 **_RootCA.pem_** 檔案。
             - 完成後，按一下 [儲存] 按鈕。
 
            ![新增憑證](./media/tutorial-group-enrollments/add-certificate.png)
@@ -68,7 +68,7 @@ ms.locfileid: "53184962"
 ## <a name="create-a-device-enrollment-entry"></a>建立裝置註冊項目
 
 1. 開啟命令提示字元。 複製 Java SDK 程式碼範例的 GitHub 存放庫：
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
@@ -77,11 +77,11 @@ ms.locfileid: "53184962"
 
     1. 從入口網站針對佈建服務新增 `[Provisioning Connection String]`，如下所示：
 
-        1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的佈建服務。 
+        1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的佈建服務。
 
         1. 開啟 [共用存取原則]，並選取具有 EnrollmentWrite 權限的原則。
-    
-        1. 複製 [主索引鍵連接字串]。 
+
+        1. 複製 [主索引鍵連接字串]。
 
             ![從入口網站取得佈建連接字串](./media/tutorial-group-enrollments/provisioning-string.png)  
 
@@ -91,7 +91,9 @@ ms.locfileid: "53184962"
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. 在文字編輯器中開啟 **_RootCA.pem_** 檔案。 將**根憑證**的值指定為參數 **PUBLIC_KEY_CERTIFICATE_STRING**，如下所示：
+    1. 在文字編輯器中開啟中繼簽署憑證檔案。 以中繼簽署憑證的值更新 `PUBLIC_KEY_CERTIFICATE_STRING` 值。
+
+        如果您以 Bash 殼層產生了裝置憑證，則 *./certs/azure-iot-test-only.intermediate.cert.pem* 包含中繼憑證金鑰。 如果您以 PowerShell 產生了您的憑證，則 *./Intermediate1.pem* 會是您的中繼憑證檔案。
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -108,7 +110,7 @@ ms.locfileid: "53184962"
                 "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
                 "-----END CERTIFICATE-----\n";
         ```
- 
+
     1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至連結到您佈建服務的 IoT 中樞。 開啟中樞的 [概觀] 索引標籤，並複製 [主機名稱]。 將此 [主機名稱] 指派給 IOTHUB_HOST_NAME 參數。
 
         ```java
@@ -123,7 +125,7 @@ ms.locfileid: "53184962"
         provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
         ```
 
-    1. 儲存 _ServiceEnrollmentGroupSample.java_ 檔案。 
+    1. 儲存 _ServiceEnrollmentGroupSample.java_ 檔案。
 
 1. 開啟命令視窗，並瀏覽至 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 資料夾。
 
@@ -144,8 +146,7 @@ ms.locfileid: "53184962"
 
     ![成功註冊](./media/tutorial-group-enrollments/enrollment.png) 
 
-1. 在 Azure 入口網站中，瀏覽至您的佈建服務。 按一下 [管理註冊]。 請注意，您 X.509 裝置的群組會顯示在 [註冊群組] 索引標籤之下，包含自動產生的群組名稱。 
-
+1. 在 Azure 入口網站中，瀏覽至您的佈建服務。 按一下 [管理註冊]。 請注意，您 X.509 裝置的群組會顯示在 [註冊群組] 索引標籤之下，包含自動產生的群組名稱。
 
 ## <a name="simulate-the-device"></a>模擬裝置
 
@@ -159,36 +160,79 @@ ms.locfileid: "53184962"
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. 以下列方式輸入註冊群組資訊︰
+1. 編輯 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`，使其包含您先前記下的 [識別碼範圍] 和 [佈建服務全域端點]。
 
-    - 編輯 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`，使其包含您前面記下的_識別碼範圍_和_佈建服務全域端點_。 開啟您的 **_{deviceName}-public.pem_** 檔案，並加入此值作為_用戶端憑證_。開啟您的 **_{deviceName}-all.pem_** 檔案，並複製 _-----BEGIN PRIVATE KEY-----_ 與 _-----END PRIVATE KEY-----_ 之間的文字。  請以此作為您的_用戶端憑證私密金鑰_。
+    ```java
+    private static final String idScope = "[Your ID scope here]";
+    private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+    private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+    private static final int MAX_TIME_TO_WAIT_FOR_REGISTRATION = 10000; // in milli seconds
+    private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+    private static final String leafPrivateKey = "<Your Private PEM Key here>";
+    ```
 
-        ```java
-        private static final String idScope = "[Your ID scope here]";
-        private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-        private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-        private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-        private static final String leafPrivateKey = "<Your Private PEM Key here>";
-        ```
+1. 以您的公用和私人裝置憑證更新 `leafPublicPem` 和 `leafPrivateKey` 變數。
 
-        - 您可以使用下列格式來包含憑證及金鑰：
-            
-            ```java
-            private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "-----END CERTIFICATE-----\n";
-            private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXX\n" +
-                "-----END PRIVATE KEY-----\n";
-            ```
+    如果您以 PowerShell 產生了裝置憑證，則檔案 mydevice* 包含裝置的公開金鑰、私密金鑰和 PFX。
 
-1. 建置範例。 瀏覽至目標資料夾並執行建立的 jar 檔案。
+    如果您以 Bash 殼層產生了裝置憑證，則 ./certs/new-device.cert.pem 包含公開金鑰。 裝置的私密金鑰位於 ./private/new-device.key.pem 檔案中。
+
+    開啟您的公開金鑰檔案並以該值更新 `leafPublicPem` 變數。 複製 _-----BEGIN PRIVATE KEY-----_ 與 _-----END PRIVATE KEY-----_ 之間的文字。
+
+    ```java
+    private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+    開啟您的私人金鑰檔案並以該值更新 `leafPrivatePem` 變數。 複製 _-----BEGIN RSA PRIVATE KEY-----_ 與 _-----END RSA PRIVATE KEY-----_ 之間的文字。
+
+    ```java
+    private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END RSA PRIVATE KEY-----\n";
+    ```
+
+1. 將新變數新增在您中繼憑證的 `leafPrivateKey` 下面。 將這個新變數命名為 `intermediateKey`。 將中繼簽署憑證的值提供給該變數。
+
+    如果您以 Bash 殼層產生了裝置憑證，則 *./certs/azure-iot-test-only.intermediate.cert.pem* 包含中繼憑證金鑰。 如果您以 PowerShell 產生了您的憑證，則 *./Intermediate1.pem* 會是您的中繼憑證檔案。
+
+    ```java
+    private static final String intermediateKey = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+1. 在 `main` 函式中，在初始化 `securityProviderX509` 之前將 `intermediateKey` 新增至 `signerCertificates` 集合。
+
+    ```java
+    public static void main(String[] args) throws Exception
+    {
+        ...
+
+        try
+        {
+            ProvisioningStatus provisioningStatus = new ProvisioningStatus();
+
+            // Add intermediate certificate as part of the certificate key chain.
+            signerCertificates.add(intermediateKey);
+
+            SecurityProvider securityProviderX509 = new SecurityProviderX509Cert(leafPublicPem, leafPrivateKey, signerCertificates);
+    ```
+
+1. 儲存變更並建立範例。 瀏覽至目標資料夾並執行建立的 jar 檔案。
 
     ```cmd/sh
     mvn clean install

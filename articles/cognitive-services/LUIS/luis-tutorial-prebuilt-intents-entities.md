@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346e7ac9a76f4ce4a87565ffc77032b095b2975c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877995"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873809"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>教學課程：找出常見的意圖和實體
 
@@ -51,7 +51,7 @@ LUIS 提供數個預先建置的意圖來協助處理常見的使用者意圖。
 
 1. 搜尋 `Utilities`。 
 
-    [ ![搜尋方塊中有 Utilities 的預先建置意圖對話方塊螢幕擷取畫面](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    [![搜尋方塊中有 Utilities 的預先建置意圖對話方塊螢幕擷取畫面](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
 1. 選取下列意圖，然後選取 [Done] \(完成\)： 
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5bc8a408ce247ad2980983c3eb32807074af599f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267695"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820819"
 ---
-# <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>教學課程：將 Azure 資源移到另一個資源群組或訂用帳戶
+# <a name="tutorial-move-azure-resources-to-another-resource-group"></a>教學課程：將 Azure 資源移至其他資源群組
 
 了解如何將 Azure 資源從某個資源群組移到另一個資源群組。 您也可以將 Azure 資源從某個 Azure 訂用帳戶移到另一個 Azure 訂用帳戶。 在本教學課程中，您可使用 Resource Manager 範本來部署兩個資源群組和一個儲存體帳戶。 然後在資源群組間移動儲存體帳戶。
 
@@ -124,7 +124,7 @@ Move-AzResource -DestinationResourceGroupName $resourceGroupDestination -Resourc
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何將儲存體帳戶從某個資源群組移到另一個資源群組。 到目前為止，您已處理一個儲存體帳戶或多個儲存體帳戶執行個體。 在下一個教學課程中，您會開發具有多個資源與多個資源類型的的範本。 某些資源有相依的資源。
+在本教學課程中，您已了解如何將儲存體帳戶從某個資源群組移到另一個資源群組。 到目前為止，您已處理一個儲存體帳戶或多個儲存體帳戶執行個體。 在下一個教學課程中，您會開發具有多個資源與多個資源類型的範本。 某些資源有相依的資源。
 
 > [!div class="nextstepaction"]
 > [建立相依資源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: f6a2f89828dbc13ca716ccb40bb05234b7e31464
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 01e35ed32be8b28f291cc2be69a8b2d71c3acab2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418801"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806635"
 ---
 # <a name="what-is-azure-databricks"></a>何謂 Azure Databricks？
 
@@ -23,15 +23,19 @@ Azure Databricks 是一個針對 Microsoft Azure 雲端服務平台進行最佳�
 
 ![何謂 Azure Databricks？](./media/what-is-azure-databricks/azure-databricks-overview.png "何謂 Azure Databricks？")
 
+Azure Databricks 是快速、簡單且共同作業的 Apache Spark 架構分析服務。 對於巨量資料管線，資料 (原始或結構化) 會透過 Azure Data Factory 分批內嵌到 Azure 中，或使用 Kafka、事件中樞或 IoT 中樞以近乎即時的方式進行串流處理。 此資料會放置在 Data Lake 中長期持續儲存、在 Azure Blob 儲存體或 Azure Data Lake 儲存體中。 在您的分析工作流程中，使用 Azure Databricks 從多個資料來源 (例如 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)、[Azure Data Lake Storage](../data-lake-store/index.md)、[Azure Cosmos DB](../cosmos-db/index.yml) 或 [Azure SQL 資料倉儲](../sql-data-warehouse/index.md)) 讀取資料，並使用 Spark 將它轉換成突破性見解。
+
+![Databricks 管線](./media/what-is-azure-databricks/databricks-pipeline.png)
+
 ## <a name="apache-spark-based-analytics-platform"></a>以 Apache Spark 為基礎的分析平台
 
 Azure Databricks 包含完整的開放原始碼 Apache Spark 叢集技術和功能。 Azure Databricks 中的 Spark 包括下列元件：
 
 ![Azure Databricks 中的 Apache Spark](./media/what-is-azure-databricks/apache-spark-ecosystem-databricks.png "Azure Databricks 中的 Apache Spark")
 
-* **Spark SQL 和 DataFrame**：Spark SQL 是用於使用結構化資料的 Spark 模組。 DataFrame 則是組織成具名資料行的分散式資料集合。 其概念等同於關聯式資料庫中的資料表或 R/Python 中的資料框架。
+* **Spark SQL 和 Dataframe**：Spark SQL 是用於使用結構化資料的 Spark 模組。 DataFrame 則是組織成具名資料行的分散式資料集合。 其概念等同於關聯式資料庫中的資料表或 R/Python 中的資料框架。
 
-* **資料流**：分析應用程式和互動式應用程式的即時資料處理和分析。 與 HDFS、Flume 和 Kafka 整合。
+* **串流**：分析應用程式和互動式應用程式的即時資料處理和分析。 與 HDFS、Flume 和 Kafka 整合。
 
 * **MLib**：一種機器學習程式庫，由常見的學習演算法和公用程式 (包括分類、迴歸、群集、協同篩選、維度縮減，以及基礎最佳化基本項目) 所組成。
 
@@ -84,7 +88,7 @@ Azure Databricks 可提供企業級的 Azure 安全性，包括 Azure Active Dir
 
 ## <a name="integration-with-azure-services"></a>Azure 服務整合
 
-Azure Databricks 與 Azure 的資料庫和儲存體有深入的整合：SQL 資料倉儲、Cosmos DB、Data Lake Store 和 Blob 儲存體。 
+Azure Databricks 會與 Azure 資料庫和存放區深入整合：SQL 資料倉儲、Cosmos DB、Data Lake Store 和 Blob 儲存體。 
 
 ## <a name="integration-with-power-bi"></a>Power BI 整合
 透過 Power BI 的豐富整合，Azure Databricks 可讓您快速且輕鬆地探索和分享具有影響力的深入解析。 您也可以使用其他 BI 工具，例如透過 JDBC/ODBC 叢集端點使用 Tableau Software。

@@ -1,5 +1,5 @@
 ---
-title: 比較 Azure Active Directory 的 B2B 共同作業和 B2C | Microsoft Docs
+title: 比較 B2B 共同作業與 B2C - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B 共同作業和 Azure AD B2C 有何不同？
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37114f15ae7c3c7a0c1c923b3c81cfa1a1fe4d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba06952b4d01e06d7925f70ee4bc26407b48e130
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206781"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670584"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>比較 Azure Active Directory 的 B2B 共同作業和 B2C
 

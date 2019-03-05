@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561190"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736578"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>快速入門：將 .NET 可靠服務應用程式部署至 Service Fabric
 
@@ -55,10 +55,10 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 在您安裝執行階段、SDK、Visual Studio 工具、Docker，且 Docker 開始執行後，建立包含五個叢集的本機開發叢集。
 
-> [!IMPORTANT]
-> **必須**先執行 Docker，您才能建置叢集。
+> [!Note]
+> 當您建立叢集時讓 Docker 執行的原因是讓建立的叢集啟用容器功能。 如果未執行 Docker，您必須重建叢集才能啟用容器功能。
+> 雖然此特殊快速入門沒必要這麼做，但是當您建立叢集時讓 Docker 執行的指示已納入為最佳做法。
 > 請開啟終端機視窗並執行 `docker ps`，然後查看是否有錯誤發生，以測試該 Docker。 如果回應未指出錯誤，表示 Docker 正在執行中，且您已可建置叢集。
-
 
 1. 以系統管理員身分開啟提升權限的新 PowerShell 視窗。
 2. 執行下列 PowerShell 命令，以建立開發叢集：

@@ -5,16 +5,17 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b38f66670ba29022713ae39824a190fcffb688c7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238673"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588937"
 ---
+## <a name="create-a-namespace-in-the-azure-portal"></a>在 Azure 入口網站中建立命名空間
 若要開始在 Azure 中使用服務匯流排傳訊實體，您必須先使用 Azure 中的唯一名稱建立命名空間。 命名空間提供範圍容器，可在應用程式內定址服務匯流排資源。
 
 若要建立命名空間：
@@ -27,7 +28,7 @@ ms.locfileid: "56238673"
     1. 輸入**命名空間的名稱**。 系統會立即檢查此名稱是否可用。
     2. 選取命名空間的定價層 (基本、標準或進階)。 如果您想要使用[主題和訂用帳戶](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)，請選擇 [標準] 或 [進階]。 基本定價層不支援主題/訂用帳戶。
     3. 如果您選取了 [進階] 定價層，請遵循下列步驟： 
-        1. 指定**傳訊單位**的數目。 進階層可讓您的資源在 CPU 和記憶體層級上獲得隔離，讓每個工作負載能夠獨立執行。 此資源容器稱為傳訊單位。 每個進階命名空間都會被配置至少一個傳訊單位。 您可以為每個服務匯流排進階命名空間選取 1、2 或 4 個傳訊單位。 如需詳細資訊，請參閱[服務匯流排進階傳訊](../articles/service-bus-messaging/service-bus-premium-messaging.md)。
+        1. 指定**傳訊單位**的數目。 進階層可讓您的資源在 CPU 和記憶體層級上獲得隔離，讓每個工作負載能夠獨立執行。 此資源容器稱為傳訊單位。 進階命名空間都有至少一個傳訊單位。 您可以為每個服務匯流排進階命名空間選取 1、2 或 4 個傳訊單位。 如需詳細資訊，請參閱[服務匯流排進階傳訊](../articles/service-bus-messaging/service-bus-premium-messaging.md)。
         2. 指定您是否要讓命名空間具有**區域備援功能**。 區域備援可免費在單一區域中的可用性區域間散佈複本，而提供更高的可用性。 如需詳細資訊，請參閱 [Azure 中的可用性區域](../articles/availability-zones/az-overview.md)。
     4. 針對 [訂用帳戶]，選擇要在其中建立命名空間的 Azure 訂用帳戶。
     5. 針對 [資源群組]，選擇將存留命名空間的現有資源群組，或是建立新的資源群組。      
@@ -45,7 +46,7 @@ ms.locfileid: "56238673"
 
     ![服務匯流排命名空間的首頁](./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png)
 
-### <a name="get-the-management-credentials"></a>取得管理認證
+## <a name="get-the-connection-string"></a>取得連接字串 
 建立新命名空間會自動產生初始共用存取簽章 (SAS) 規則，其利用相關聯的主要和次要金鑰組，分別授與命名空間的所有層面的完全控制權。 請參閱[服務匯流排驗證與授權](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md)，以了解如何建立進一步的規則，對一般傳送者和接收者的權限施加更多限制。 若要複製命名空間的主要和次要金鑰，請遵循下列步驟： 
 
 1. 按一下 [所有資源]，然後按一下新建立的命名空間名稱。

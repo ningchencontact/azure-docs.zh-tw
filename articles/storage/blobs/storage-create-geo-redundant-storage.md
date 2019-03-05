@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b031e7b772389aa81fd214d31365c20018cf48ae
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510628"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874438"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教學課程：建置採用 Blob 儲存體的高可用性應用程式
 
@@ -37,24 +37,24 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 
 若要完成本教學課程：
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 * 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
   - **Azure 開發**
 
   ![Azure 開發 (在 [Web 和 Cloud] 之下)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# <a name="python-tabpython"></a>[Python] (#tab/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 * 安裝 [Python](https://www.python.org/downloads/)
 * 下載並安裝 [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
+# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK ](#tab/java-v7)
 
 * 安裝 [Maven](http://maven.apache.org/download.cgi) 並設定成從命令列運作
 * 安裝並設定 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 * 安裝 [Maven](http://maven.apache.org/download.cgi) 並設定成從命令列運作
 * 安裝並設定 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)

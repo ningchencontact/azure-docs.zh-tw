@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fa6d2b7d1fbd99e482cc013720c39b4b150f6742
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264015"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889540"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>快速入門：使用 Azure 入口網站建立服務匯流排佇列
 Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提供安全的傳訊和絕對的可靠性。 典型的服務匯流排案例通常會牽涉到將兩個或更多應用程式、服務或程序彼此分開處理，以及傳輸狀態或資料變更。 此類案例可能牽涉到在另一個應用程式或服務中排程多個批次作業，或觸發訂單履行。 例如，零售公司可能會將其銷售點資料傳送至後端辦公室或區域配送中心，以進行補貨和庫存更新。 在此案例中，用戶端應用程式會對服務匯流排佇列傳送及接收訊息。  
@@ -33,46 +33,9 @@ Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提�
 - [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。
 - [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
 
-## <a name="log-on-to-the-azure-portal"></a>登入 Azure 入口網站
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-首先，使用您的 Azure 訂用帳戶移至 [Azure 入口網站][Azure portal]並登入。 第一個步驟是建立**傳訊**類型的服務匯流排命名空間。
-
-## <a name="create-a-service-bus-namespace"></a>建立服務匯流排命名空間
-
-服務匯流排傳訊命名空間提供唯一的範圍容器 (依其[完整網域名稱][]來參考)，您可以在其中建立一或多個佇列、主題和訂用帳戶。 下列範例會在新的或現有的[資源群組](/azure/azure-resource-manager/resource-group-portal)中建立服務匯流排傳訊命名空間：
-
-1. 在入口網站的左方瀏覽窗格中，依序按一下 [+ 建立資源]、[企業整合] 及 [服務匯流排]。
-2. 在 [建立命名空間]  對話方塊中，輸入命名空間名稱。 系統會立即檢查此名稱是否可用。
-3. 確定命名空間名稱可用之後，請選擇定價層 ([標準] 或 [進階])。
-4. 在 [訂用帳戶]  欄位中，選擇要在其中建立命名空間的 Azure 訂用帳戶。
-5. 在 [資源群組]  欄位中，選擇將存留命名空間的現有資源群組，或是建立新的資源群組。      
-6. 在 [位置] 中，選擇應裝載您命名空間的國家或地區。
-7. 按一下頁面底部的 [新增] 。 此時系統會建立並啟用命名空間。 系統為帳戶提供資源時，您可能需要等幾分鐘。
-
-![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>取得管理認證
-
-建立新命名空間會自動產生初始共用存取簽章 (SAS) 規則，其利用相關聯的主要和次要金鑰組，分別授與命名空間的所有層面的完全控制權。 若要複製初始規則，請遵循下列步驟： 
-
-1.  按一下 [所有資源]，然後按一下新建立的命名空間名稱。
-2. 在命名空間視窗中，按一下 [共用存取原則]。
-3. 在 [共用存取原則] 畫面中，按一下 **RootManageSharedAccessKey**。
-4. 在 [原則：RootManageSharedAccessKey] 視窗中，按一下 [主要連接字串] 旁邊的 [複製] 按鈕，將連接字串複製到剪貼簿以供後續使用。 將此值貼到記事本或一些其他暫存位置。 
-
-    ![connection-string][connection-string]
-5. 重複前一個步驟，複製 [主要金鑰] 的值並貼到暫存位置以供後續使用。
-
-## <a name="create-a-queue"></a>建立佇列
-
-若要建立服務匯流排佇列，請指定您要用來建立主題的命名空間。 下列範例說明如何在入口網站上建立佇列：
-
-1. 在入口網站的左方瀏覽窗格中，按一下 [服務匯流排] \(如果您未看見 [服務匯流排]，請按一下 [更多服務])。
-2. 按一下要在其中建立佇列的命名空間。
-3. 在命名空間視窗中，按一下 [佇列]，然後在 [佇列] 視窗中，按一下 [+ 佇列]。
-4. 輸入佇列 [名稱] 並且讓其他值保留其預設值。
-5. 在視窗底部按一下 [建立]。
-6. 記下佇列名稱。
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>傳送及接收訊息
 
@@ -82,28 +45,22 @@ Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提�
 
 1. 發出下列命令，以複製[服務匯流排 GitHub 存放庫](https://github.com/Azure/azure-service-bus/)︰
 
-   ```shell
+   ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-
 3. 瀏覽至範例資料夾 `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`。
-
-4. 複製您在[取得管理認證](#obtain-the-management-credentials)一節中取得的連接字串和佇列名稱。
-
+4. 複製您在「取得管理認證」一節中取得的連接字串和佇列名稱。
 5.  在命令提示字元中，輸入下列命令：
 
-   ```shell
-   dotnet build
-   ```
-
+    ```
+    dotnet build
+    ```
 6.  瀏覽到 `bin\Debug\netcoreapp2.0` 資料夾。
-
 7.  輸入下列命令以執行程式。 請務必將 `myConnectionString` 取代為您先前取得的值，並將 `myQueueName` 取代為您已建立的佇列名稱：
 
-   ```shell
-   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
-   ``` 
-
+    ```shell
+    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+    ``` 
 8. 觀察 10 個傳送至佇列，和後續接收自佇列的訊息：
 
    ![程式輸出](./media/service-bus-quickstart-portal/dotnet.png)
@@ -254,8 +211,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 
 [免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[完整網域名稱]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
-[connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png

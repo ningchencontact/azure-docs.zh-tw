@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: edd3912b3674f3a80a81fd47ed490479f663852c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830821"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816926"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊 (預覽)
 
@@ -39,8 +39,7 @@ ms.locfileid: "54830821"
 dotnet --version
 ```
 
-從 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip 下載範例 C# 專案並將 ZIP 封存檔解壓縮。
-
+從 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip 下載範例 C# 專案並將 ZIP 封存檔解壓縮。 您在裝置端和服務端都會用到它。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -86,18 +85,17 @@ dotnet --version
     記下顯示如下的傳回值：
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>透過裝置串流在裝置與服務之間進行通訊
 
 ### <a name="run-the-service-side-application"></a>執行服務端應用程式
 
-在解壓縮的專案資料夾中，瀏覽至 `device-streams-echo/service`。 您必須備妥下列資訊：
+在解壓縮的專案資料夾中，瀏覽至 `iot-hub/Quickstarts/device-streams-echo/service`。 您必須備妥下列資訊：
 
 | 參數名稱 | 參數值 |
 |----------------|-----------------|
-| `ServiceConnectionString` | IoT 中樞的服務連接字串。 |
-| `DeviceId` | 您先前建立之裝置的識別碼。 |
+| `ServiceConnectionString` | 提供 IoT 中樞的服務連接字串。 |
+| `DeviceId` | 提供您先前建立之裝置的識別碼，例如 MyDevice。 |
 
 編譯並執行程式碼，如下所示：
 
@@ -109,19 +107,22 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $ServiceConnectionString MyDevice
+dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
-dotnet run %ServiceConnectionString% MyDevice
+dotnet run <ServiceConnectionString> <MyDevice>
 ```
+
+> [!NOTE]
+> 如果裝置端應用程式未及時回應，就會發生逾時。
 
 ### <a name="run-the-device-side-application"></a>執行裝置端應用程式
 
-在解壓縮的專案資料夾中，瀏覽至 `device-streams-echo/device` 目錄。 您必須備妥下列資訊：
+在解壓縮的專案資料夾中，瀏覽至 `iot-hub/Quickstarts/device-streams-echo/device` 目錄。 您必須備妥下列資訊：
 
 | 參數名稱 | 參數值 |
 |----------------|-----------------|
-| `DeviceConnectionString` | 您先前建立之裝置的連接字串。 |
+| `DeviceConnectionString` | 提供 IoT 中樞的裝置連接字串。 |
 
 編譯並執行程式碼，如下所示：
 
@@ -133,28 +134,23 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $DeviceConnectionString
+dotnet run "<DeviceConnectionString>"
 
 # In Windows
-dotnet run %DeviceConnectionString%
+dotnet run <DeviceConnectionString>
 ```
 
 在最後一個步驟結束時，服務端程式將會對您的裝置起始串流，且在建立之後，會透過串流將字串緩衝區傳送至服務。 在此範例中，服務端程式會直接將相同的資料傳回給裝置，而示範兩個應用程式之間成功的雙向通訊。 請參閱下圖。
 
 裝置端上的主控台輸出：![替代文字](./media/quickstart-device-streams-echo-csharp/device-console-output.png "裝置端上的主控台輸出")
 
-
 服務端上的主控台輸出：![替代文字](./media/quickstart-device-streams-echo-csharp/service-console-output.png "服務端上的主控台輸出")
 
-
-
 透過串流傳送的流量將經由 IoT 中樞輸送，而不是直接傳送。 此做法有[這些優點](./iot-hub-device-streams-overview.md#benefits)。
-
 
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## <a name="next-steps"></a>後續步驟
 

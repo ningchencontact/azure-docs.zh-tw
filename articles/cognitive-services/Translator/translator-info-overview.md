@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: df0f1570b4f876cbfb542a5571c8bec7e80e6895
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857712"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729205"
 ---
 # <a name="what-is-translator-text-api"></a>什麼是翻譯工具文字 API？
 
@@ -34,14 +34,6 @@ Microsoft Translator 是一個雲端式機器翻譯服務。 核心服務是翻�
 
 Microsoft Translator 提供翻譯、音譯、語言偵測和字典的多語言支援。 如需完整清單請參閱[語言支援](language-support.md)，或透過 [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) 以程式設計方式存取清單。  
 
-## <a name="language-customization"></a>自訂語言
-
-自訂翻譯工具是核心 Microsoft Translator 服務的擴充功能，與 Translator Text API 搭配使用時，可協助您自訂類神經翻譯系統以及改善特定術語和風格的翻譯。
-
-透過自訂翻譯工具，您將可建置翻譯系統，以處理您自己的企業或產業中使用的術語。 其後，您自訂的翻譯系統將可透過一般 Microsoft Translator Text API，使用類別參數跨多種類型的裝置輕易整合到您現有的應用程式、工作流程和網站中。
-
-深入了解[語言自訂](customization.md)
-
 ## <a name="microsoft-translator-neural-machine-translation"></a>Microsoft Translator 類神經機器翻譯
 
 類神經機器翻譯 (NMT) 是高品質 AI 技術架構機器翻譯的新標準。 它取代了已在 2010 年代中期達到品質高原期的舊有統計機器翻譯 (SMT) 技術。
@@ -52,18 +44,16 @@ NMT 模型位於 API 核心，使用者並不會看到這些模型。 唯一可�
 
 深入了解 [NMT 的運作方式](https://www.microsoft.com/en-us/translator/mt.aspx#nnt) \(英文\)
 
+## <a name="language-customization"></a>自訂語言
+
+自訂翻譯工具是核心 Microsoft Translator 服務的擴充功能，與 Translator Text API 搭配使用時，可協助您自訂類神經翻譯系統以及改善特定術語和風格的翻譯。
+
+透過自訂翻譯工具，您將可建置翻譯系統，以處理您自己的企業或產業中使用的術語。 其後，您自訂的翻譯系統將可透過一般 Microsoft Translator Text API，使用類別參數跨多種類型的裝置輕易整合到您現有的應用程式、工作流程和網站中。
+
+深入了解[語言自訂](customization.md)
+
 ## <a name="next-steps"></a>後續步驟
 
-- 閱讀[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)。
-
 - [註冊](translator-text-how-to-signup.md)存取金鑰。
-
-- [快速入門](quickstarts/csharp.md)是以 C# 撰寫的 REST API 的呼叫適用的逐步解說。 了解如何以最少的程式碼將文字從一種語言翻譯成另一種語言。
-
-- [API 參考文件](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)提供 API 的技術文件。
-
-## <a name="see-also"></a>另請參閱
-
-- [認知服務文件頁面](https://docs.microsoft.com/azure/#pivot=products&panel=ai)
-- [認知服務產品頁面](https://azure.microsoft.com/services/cognitive-services/)
-- [解決方案和定價資訊](https://www.microsoft.com/en-us/translator/default.aspx) \(英文\)
+- [API 參考](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)提供 API 的技術文件。
+- [價格詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

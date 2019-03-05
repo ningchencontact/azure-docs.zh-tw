@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed94b7571acb0ced124644dafc59d805d5112e8a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 10b74b85235cc47375f6289b52371bc588105ad9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268561"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890091"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure AD Graph API
 
@@ -43,10 +43,14 @@ ms.locfileid: "56268561"
 
 ## <a name="connect-to-azure-ad"></a>連接至 Azure AD
 
-您需要連線至 Azure AD 以將 VM 指派給群組，以及對 VM 授與可供擷取其群組成員資格的權限。
+您需要連線至 Azure AD 以將 VM 指派給群組，以及對 VM 授與可供擷取其群組成員資格的權限。 您可以直接使用 Connect-AzureAD Cmdlet；若有多個租用戶，則透過 TenantId 參數來執行。
 
 ```powershell
 Connect-AzureAD
+```
+或
+```powershell
+Connect-AzureAD -TenantId "Object Id of the tenant"
 ```
 
 ## <a name="add-your-vm-identity-to-a-group-in-azure-ad"></a>在 Azure AD 的群組中新增 VM 身分識別
@@ -79,7 +83,13 @@ Azure AD Graph：
    ```powershell
    Connect-AzureAD
    ```
+   若要連線到特定的 Azure Active Directory，請使用 _TenantId_ 參數，如下所示︰
 
+   ```PowerShell
+   Connect-AzureAD -TenantId "Object Id of the tenant"
+   ```
+
+   
 2. 執行下列 PowerShell 命令來指派 ``Directory.Read.All`` 應用程式權限給代表 VM 身分識別的服務主體。
 
    ```powershell

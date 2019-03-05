@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 749120446619bf682d02be0f9290a6d47540c16a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7dddf7e48913aea9d84e0f8b66c2c9d29449ee6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664370"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825829"
 ---
 ### <a name="run-the-service"></a>執行服務
 
@@ -35,10 +35,10 @@ ms.locfileid: "55664370"
     Uri                                                                        Status
     -------------------------------------------------------------------------  ---------
     http://localhost:53831 => mywebapi.scott:80                                Tunneled
-    http://dev.s.dev.webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
+    http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
     ```
 
-1. 不是以 "dev.s." 作為 URL 前置詞，而是在 Web 瀏覽器中取代為 "scott.s." 。 請注意，此更新後的 URL 仍會進行解析。 此 URL 是 dev/scott 空間專屬的。 此特殊 URL 表示傳送到 "Scott URL" 的要求會嘗試先路由到 dev/scott 空間中的服務，但若失敗，則會切換回 dev 空間中的服務。
+1. 使用具有 *scott.s* 前置詞的 URL 瀏覽至您的應用程式。 請注意，此更新後的 URL 仍會進行解析。 此 URL 是 dev/scott 空間專屬的。 此特殊 URL 表示傳送到 "Scott URL" 的要求會嘗試先路由到 dev/scott 空間中的服務，但若失敗，則會切換回 dev 空間中的服務。
 
 <!--
 TODO: replace 2 & 3 with below once bug#753164 and PR#158827 get pushed to production.
@@ -56,7 +56,7 @@ webfrontend               dev       Service  26m ago  Running
 Uri                                                                        Status
 -------------------------------------------------------------------------  ---------
 http://localhost:53831 => mywebapi.scott:80                                Tunneled
-http://scott.s.dev.webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
+http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
 -->
 

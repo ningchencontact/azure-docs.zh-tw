@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e8efcbe080cc33cb6153d97d4435bcb477587980
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565848"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806907"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>快速入門：使用 Azure PowerShell，在 Azure Container Instances 中執行容器應用程式
 
@@ -23,42 +23,44 @@ ms.locfileid: "55565848"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.5 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本教學課程需要 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
 Azure 容器執行個體和所有 Azure 資源相同，都必須部署到資源群組中。 資源群組可讓您組織和管理相關的 Azure 資源。
 
-首先，使用下列 [New-AzureRmResourceGroup][New-AzureRmResourceGroup] 命令，在 *eastus* 位置中建立名為 *myResourceGroup* 的資源群組：
+首先，使用下列 [New-AzResourceGroup][New-AzResourceGroup] 命令，在 *eastus* 位置中建立名為 *myResourceGroup* 的資源群組：
 
  ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-a-container"></a>建立容器
 
-有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure PowerShell 建立容器執行個體，請在 [New-AzureRmContainerGroup][New-AzureRmContainerGroup] Cmdlet 中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 在此快速入門中，您可以使用公用 Docker Hub 登錄中的 `microsoft/iis:nanoserver` Windows 映像。 此映像會封裝 Internet Information Services (IIS) 以在 Nano Server 中執行。
+有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure PowerShell 建立容器執行個體，請在 [New-AzContainerGroup][New-AzContainerGroup] Cmdlet 中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 在此快速入門中，您可以使用公用 Docker Hub 登錄中的 `microsoft/iis:nanoserver` Windows 映像。 此映像會封裝 Internet Information Services (IIS) 以在 Nano Server 中執行。
 
 您可以指定一或多個要開啟的連接埠和 (或) DNS 名稱標籤，以將您的容器公開至網際網路。 在本快速入門中，您會部署附有 DNS 名稱標籤的一個容器，以便公開觸達 IIS。
 
 執行下列命令以啟動容器執行個體。 `-DnsNameLabel` 值在您建立執行個體所在的 Azure 區域中必須是唯一的。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
 
  ```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
+New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-在幾秒內，您應該會從 Azure 收到回應。 一開始，容器會 `ProvisioningState` 會處於 [建立中] 狀態，但應該會在一兩分鐘內變成 [成功]。 請使用 [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] Cmdlet 來查看部署狀態：
+在幾秒內，您應該會從 Azure 收到回應。 一開始，容器會 `ProvisioningState` 會處於 [建立中] 狀態，但應該會在一兩分鐘內變成 [成功]。 請使用 [Get-AzContainerGroup][Get-AzContainerGroup] Cmdlet 來查看部署狀態：
 
  ```azurepowershell-interactive
-Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
 容器的佈建狀態、完整網域名稱 (FQDN) 和 IP 位址會顯示在 Cmdlet 的輸出中：
 
 ```console
-PS Azure:\> Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+PS Azure:\> Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 
 
 ResourceGroupName        : myResourceGroup
@@ -87,10 +89,10 @@ Events                   : {}
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當容器使用完畢後，請使用 [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] Cmdlet 加以移除：
+當容器使用完畢後，請使用 [Remove-AzContainerGroup][Remove-AzContainerGroup] Cmdlet 加以移除：
 
  ```azurepowershell-interactive
-Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
 ## <a name="next-steps"></a>後續步驟
@@ -104,7 +106,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 [qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
 
 <!-- LINKS -->
-[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
-[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
-[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
+[New-AzResourceGroup]: /powershell/module/az.resources/new-Azresourcegroup
+[New-AzContainerGroup]: /powershell/module/az.containerinstance/new-Azcontainergroup
+[Get-AzContainerGroup]: /powershell/module/az.containerinstance/get-Azcontainergroup
+[Remove-AzContainerGroup]: /powershell/module/az.containerinstance/remove-Azcontainergroup

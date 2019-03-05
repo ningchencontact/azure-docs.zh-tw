@@ -7,18 +7,20 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426162"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958969"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>教學課程：監視 Azure 防火牆記錄和計量
 
 您可以使用防火牆記錄來監視 Azure 防火牆。 您也可以使用活動記錄來稽核 Azure 防火牆資源上的作業。 使用計量，您可以在入口網站中檢視效能計數器。 
 
-您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)、儲存體和事件中樞，並在 Log Analytics 中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
+您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)、儲存體和事件中樞，並在 Azure 監視器記錄中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 在本教學課程中，您了解如何：
 
@@ -48,7 +50,7 @@ ms.locfileid: "52426162"
 
 3. 若要開始收集資料，請按一下 [開啟診斷]。
 4. [診斷設定] 頁面中提供診斷記錄的設定。 
-5. 在此範例中，Log Analytics 會儲存記錄，因此請輸入**防火牆記錄分析**作為名稱。
+5. 在此範例中，Azure 監視器記錄會儲存記錄，因此請輸入**防火牆記錄分析**作為名稱。
 6. 按一下 [傳送至 Log Analytics] 來設定您的工作區。 您也可以使用事件中樞和儲存體帳戶來儲存診斷記錄。
 7. 在 [Log Analytics] 下，按一下 [設定]。
 8. 在 Log Analytics 工作區頁面中，按一下 [建立新的工作區]。
@@ -94,7 +96,7 @@ ms.locfileid: "52426162"
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>檢視及分析網路和應用程式規則記錄
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) 會收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
+[Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)會收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
 
 關於 Azure 防火牆的 Log Analytics 查詢範例，請參閱 [Azure 防火牆 Log Analytics 範例](log-analytics-samples.md)。
 
@@ -108,10 +110,10 @@ Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) �
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已設定防火牆來收集記錄，您可以探索 Log Analytics 以檢視您的資料。
+既然您已設定防火牆來收集記錄，您可以探索 Azure 監視器記錄以檢視您的資料。
 
 > [!div class="nextstepaction"]
-> [Log Analytics 中的網路監視解決方案](../azure-monitor/insights/azure-networking-analytics.md)
+> [Azure 監視器記錄中的網路監視解決方案](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

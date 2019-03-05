@@ -1,24 +1,26 @@
 ---
-title: 使用 Azure Log Analytics 的容器執行個體記錄
-description: 了解如何將容器輸出 (STDOUT 與 STDERR) 傳送至 Azure Log Analytics。
+title: 使用 Azure 監視器記錄的容器執行個體記錄
+description: 了解如何將容器輸出 (STDOUT 與 STDERR) 傳送至 Azure 監視器記錄。
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337881"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879699"
 ---
-# <a name="container-instance-logging-with-azure-log-analytics"></a>使用 Azure Log Analytics 的容器執行個體記錄
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>使用 Azure 監視器記錄的容器執行個體記錄
 
-Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源儲存及查詢記錄資料，對於內部部署資源與其他雲端中的資源，也可執行這些作業。 Azure 容器執行個體包含將資料傳送至 Log Analytics 的內建支援。
+Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源儲存及查詢記錄資料，對於內部部署資源與其他雲端中的資源，也可執行這些作業。 Azure 容器執行個體包含將資料傳送至 Azure 監視器記錄的內建支援。
 
-若要將容器執行個體資料傳送至 Log Analytics，您必須使用 Azure CLI (或 Cloud Shell) 和 YAML 檔案建立容器群組。 以下幾節將說明如何建立已啟用記錄的容器群組，以及如何查詢記錄。
+若要將容器執行個體資料傳送至 Azure 監視器記錄，您必須使用 Azure CLI (或 Cloud Shell) 和 YAML 檔案建立容器群組。 以下幾節將說明如何建立已啟用記錄的容器群組，以及如何查詢記錄。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -96,7 +98,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 在發出命令不久後，您應該就會收到 Azure 的回應，其中包含部署詳細資料。
 
-## <a name="view-logs-in-log-analytics"></a>檢視 Log Analytics 中的記錄
+## <a name="view-logs-in-azure-monitor-logs"></a>檢視 Azure 監視器記錄中的記錄
 
 在您部署容器群組後，可能需要幾分鐘的時間 (最多 10 分鐘)，第一個記錄項目才會出現在 Azure 入口網站中。 若要檢視容器群組的記錄，請開啟 Log Analytics 工作區，然後：
 
@@ -109,7 +111,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 ## <a name="query-container-logs"></a>查詢容器記錄
 
-Log Analytics 包含涵蓋範圍廣大的[查詢語言][query_lang]，可從可能高數千行的記錄輸出中提取資訊。
+Azure 監視器記錄包含涵蓋範圍廣大的[查詢語言][query_lang]，可從可能高數千行的記錄輸出中提取資訊。
 
 Azure 容器執行個體記錄代理程式會將項目傳送至 Log Analytics 工作區中的 `ContainerInstanceLog_CL` 資料表。 查詢的基本結構是一個來源資料表 (`ContainerInstanceLog_CL`)，後面接著一系列由管道字元 (`|`) 隔開的運算子。 您可以鏈結數個運算子，以找出更精確的結果及執行進階函式。
 
@@ -130,11 +132,11 @@ ContainerInstanceLog_CL
 
 ## <a name="next-steps"></a>後續步驟
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-如需關於在 Azure Log Analytics 中查詢記錄和設定警示的詳細資訊，請參閱：
+如需關於在 Azure 監視器記錄中查詢記錄和設定警示的詳細資訊，請參閱：
 
-* [了解 Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-search.md)
+* [了解 Azure 監視器記錄中的記錄搜尋](../log-analytics/log-analytics-log-search.md)
 * [Azure 監視器中的整合警示](../azure-monitor/platform/alerts-overview.md)
 
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 60876cb95e6efe4fbde55bd8a224eab658b10d66
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608352"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749982"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>快速入門：試用雲端式遠端監視解決方案
 
@@ -45,7 +45,7 @@ ms.locfileid: "53608352"
 選取您要用來部署解決方案加速器的 [訂用帳戶] 和 [區域]。 一般而言，您會選擇與您最接近的區域。 在本快速入門中，我們會使用 [美國東部]。
 您可以選擇 [Visual Studio Enterprise]，但您必須是[全域管理員或使用者](iot-accelerators-permissions.md)才能這麼做。
 
-若要開始部署，請按一下 [建立解決方案]。 此程序至少需要執行五分鐘：
+若要開始部署，請按一下 [建立]。 此程序至少需要執行五分鐘：
 
 ![遠端監視解決方案的詳細資料](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "53608352"
 
 ![選擇新的解決方案](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-您可以檢視所出現面板中遠端監視解決方案加速器的相關資訊。 選擇 [解決方案儀表板] 以檢視遠端監視解決方案加速器：
+您可以檢視所出現面板中遠端監視解決方案加速器的相關資訊。 選擇 [移至解決方案加速器] 以檢視遠端監視解決方案加速器：
 
 ![解決方案面板](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
@@ -134,6 +134,9 @@ ms.locfileid: "53608352"
 如果您不再需要解決方案加速器，可加以選取，然後按一下 [刪除解決方案]，從[已佈建的解決方案](https://www.azureiotsolutions.com/Accelerators#dashboard)頁面中加以刪除：
 
 ![刪除解決方案](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+
+
+![刪除解決方案](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
 ## <a name="next-steps"></a>後續步驟
 

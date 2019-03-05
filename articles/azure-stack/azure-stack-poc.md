@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9341eefdbe1eaa8e27394fd4b10f50b1a48bd4c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 65894ccd9514bce1d429b336f8bd5e6674048e65
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247318"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820258"
 ---
 # <a name="what-is-azure-stack"></a>什麼是 Azure Stack？
 
@@ -41,7 +41,7 @@ Microsoft [Azure Stack 開發套件 (ASDK)](./asdk/asdk-what-is.md) 是單一節
 ASDK 有下列限制：
 
 * ASDK 會與單一 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 識別提供者相關聯。 您可以在此目錄中建立多位使用者，並對每位使用者指派訂用帳戶。
-* Azure Stack 元件會部署在一部主機電腦上，因此租用戶資源可用的實體資源有限。 此設定不適合進行規模或效能評估。
+* Azure Stack 元件會部署在一部主機電腦上，因此租用戶資源可用的實體資源有限。 此組態不適合進行縮放或效能評估。
 * 因為單一主機和 NIC 部署需求，所以網路功能案例會受到限制。
 
 ## <a name="azure-stack-integrated-systems"></a>Azure Stack 整合系統

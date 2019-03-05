@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856915"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873911"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教學課程：從語句擷取內容相關的資料
 
@@ -74,7 +74,7 @@ ms.locfileid: "55856915"
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [ ![MoveEmployee 意圖中有新語句的 LUIS 螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![MoveEmployee 意圖中有新語句的 LUIS 螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>建立位置實體
 LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何。 如果您需要在語彙基元 (原始) 檢視中查看語句，請在導覽列中選取標示為 [實體檢視] 的語句上方的切換鍵。 切換參數之後，控制項會標示為 [語彙基元檢視]。
@@ -91,7 +91,7 @@ move John W. Smith leaving Seattle headed to Dallas
 
 1. 在 `move John W. Smith leaving Seattle headed to Dallas` 語句中，選取 `Seattle` 這個字。 隨即出現頂端有文字方塊的下拉式功能表。 在文字方塊中輸入實體名稱 `Location`，然後在下拉式功能表中選取 [建立新的實體]。 
 
-    [![在意圖頁面上建立新實體的螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "在意圖頁面上建立新實體的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![在意圖頁面上建立新實體的螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "在意圖頁面上建立新實體的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. 在快顯視窗中，選取 [階層式] 實體類型，並使用 `Origin` 和 `Destination` 作為子實體。 選取 [完成] 。
 
@@ -99,7 +99,7 @@ move John W. Smith leaving Seattle headed to Dallas
 
 1. `Seattle` 的標籤標示為 `Location`，因為 LUIS 不知道該字詞是出發或目的地位置，或兩者皆非。 選取 `Seattle`，然後選取 [Location] \(位置\)，接著選取右側功能表上的 `Origin`。
 
-    [![用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. 標記所有其他語句中的其他位置。 標示所有位置後，語句就會開始看起來像是一個模式。 
 
@@ -171,7 +171,7 @@ move John W. Smith leaving Seattle headed to Dallas
 ## <a name="related-information"></a>相關資訊
 
 * [階層式實體](luis-concept-entity-types.md)概念資訊
-* [如何定型](luis-how-to-train.md)
+* [如何訓練](luis-how-to-train.md)
 * [發佈方法](luis-how-to-publish-app.md)
 * [如何在 LUIS 入口網站中測試](luis-interactive-test.md)
 * [角色與階層式實體](luis-concept-roles.md#roles-versus-hierarchical-entities)

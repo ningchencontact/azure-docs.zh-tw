@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606243"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675087"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>教學課程：使用遠端監視解決方案加速器來偵測邊緣異常狀況
 
@@ -55,12 +55,12 @@ Contoso 想要將智慧型 Edge 模組部署到油泵機，以偵測溫度異常
 
 要將 IoT Edge 裝置新增至遠端監視解決方案加速器，必須執行兩個步驟。 本節說明如何：
 
-* 在遠端監視 Web UI 中的 [裝置] 頁面上新增 IoT Edge 裝置。
+* 在遠端監視 Web UI 中的 [Device Explorer] 頁面上新增 IoT Edge 裝置。
 * 在 Linux 虛擬機器 (VM) 上安裝 IoT Edge 執行階段。
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>將 IoT Edge 裝置新增至解決方案
 
-若要將 IoT Edge 裝置新增至遠端監視解決方案加速器，請瀏覽至 Web UI 中的 [裝置] 頁面，然後按一下 [+ 新增裝置]。
+若要將 IoT Edge 裝置新增至遠端監視解決方案加速器，請瀏覽至 Web UI 中的 [Device Explorer] 頁面，然後按一下 [+ 新增裝置]。
 
 在 [新增裝置] 面板中選擇 **IoT Edge 裝置**，然後輸入 **oil-pump** 作為裝置識別碼。 您可以將其他設定保留為預設值。 然後，按一下 [套用]：
 
@@ -68,13 +68,13 @@ Contoso 想要將智慧型 Edge 模組部署到油泵機，以偵測溫度異常
 
 記下裝置連接字串，您在本教學課程的下一節將用到此字串。
 
-當您在遠端監視解決方案加速器中對 IoT 中樞註冊裝置時，該裝置會列在 Web UI 中的 [裝置] 頁面上：
+當您在遠端監視解決方案加速器中對 IoT 中樞註冊裝置時，該裝置會列在 Web UI 中的 [Device Explorer] 頁面上：
 
 [![新增 IoT Edge 裝置](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 為了方便管理解決方案中的 IoT Edge 裝置，請建立裝置群組，並新增 IoT Edge 裝置：
 
-1. 在 [裝置] 頁面上的清單中選取 **oil-pump** 裝置，然後按一下 [作業]。
+1. 在 [Device Explorer] 頁面上的清單中選取 **oil-pump** 裝置，然後按一下 [作業]。
 
 1. 使用下列設定，建立將 **IsEdge** 標記新增至裝置的作業：
 
@@ -90,7 +90,7 @@ Contoso 想要將智慧型 Edge 模組部署到油泵機，以偵測溫度異常
 
 1. 依序按一下 [套用] 和 [關閉]。
 
-1. 在 [裝置] 頁面上，按一下 [管理裝置群組]。
+1. 在 [Device Explorer] 頁面上，按一下 [管理裝置群組]。
 
 1. 按一下 [建立新的裝置群組]。 使用下列設定建立新的裝置群組：
 
@@ -300,7 +300,7 @@ Edge 裝置需要安裝 Edge 執行階段。 在本教學課程中，您將在 A
 
 您可以在遠端監視 Web UI 中檢視來自油泵裝置的溫度遙測資料：
 
-1. 瀏覽至 [裝置] 頁面，然後選取您的油泵裝置。
+1. 瀏覽至 [Device Explorer] 頁面，然後選取您的油泵裝置。
 1. 在 [裝置詳細資料] 面板的 [遙測] 區段中，按一下 [溫度]：
 
     [![檢視遙測](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)

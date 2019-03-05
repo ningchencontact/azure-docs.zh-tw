@@ -11,16 +11,16 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f6c1af2051d946b29e2022c90d0ad9820b4d283
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1d483d14a08f589fc8d014a13a47008b9fb59690
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823496"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984946"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>教學課程：準備建立迴歸模型所需的資料
 
-在本教學課程中，您將了解如何使用 Azure Machine Learning 資料準備 SDK 來準備建立迴歸模型所需的資料。 您將執行各種轉換來篩選和結合兩個不同的 NYC 計程車資料集。
+在本教學課程中，您將了解如何[適用於 Python 的 Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk) 來準備建立迴歸模型所需的資料。 您將執行各種轉換來篩選和結合兩個不同的 NYC 計程車資料集。
 
 本教學課程是**兩部分教學課程系列的第一部分**。 完成教學課程系列之後，您可以訓練模型的資料特性，以預測計程車車程的費用。 這些特性包括上車的日期和時間、乘客數和上車地點。
 
@@ -48,7 +48,7 @@ ms.locfileid: "56823496"
 
 ### <a name="azure"></a>使用 Azure Notebooks：雲端中的免費 Jupyter Notebook
 
-您可以輕鬆地開始使用 Azure Notebooks！ 我們已為您在 [Azure Notebooks](https://notebooks.azure.com/) 上安裝並設定[適用於 Python 的 Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk)。 Azure 服務會自動管理安裝和未來的更新。
+您可以輕鬆地開始使用 Azure Notebooks！ 我們已為您在 [Azure Notebooks](https://notebooks.azure.com/) 上安裝並設定 Azure Machine Learning 資料準備 SDK。 Azure 服務會自動管理安裝和未來的更新。
 
 完成下列步驟之後，請在您的**開始使用**專案中執行 **tutorials/regression-part1-data-prep.ipynb** Notebook。
 

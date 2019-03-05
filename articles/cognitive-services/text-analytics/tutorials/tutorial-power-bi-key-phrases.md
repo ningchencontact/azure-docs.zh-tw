@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245825"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889472"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>教學課程：將 Power BI 與文字分析認知服務整合
 
@@ -94,7 +94,7 @@ Microsoft Power BI Desktop 是免費的應用程式，可讓您將您的資料�
 | | |
 | - | - |
 | `id`  | 這個文件在要求中的唯一識別碼。 回應中也會包含此欄位。 如此一來，如果您處理多份文件，就可以輕鬆地將擷取到的關鍵片語關聯至其來源文件。 在此教學課程中，因為您針對每個要求只會處理一個文件，您可以針對每個要求將 `id` 的值以硬式編碼設為相同的值。|
-| `text`  | 要處理的文字。 此欄位的值來自您在[前一節](#PreparingData)中建立的 `Merged` 資料行，其中包含了結合的主旨行與評論文字。 關鍵片語 API 要求這項資料的長度不得超過約 5,000 個字元。|
+| `text`  | 要處理的文字。 此欄位的值來自您在[前一節](#PreparingData)中建立的 `Merged` 資料行，其中包含了結合的主旨行與評論文字。 關鍵片語 API 要求這項資料的長度不得超過約 5,120 個字元。|
 | `language` | 撰寫文件所使用之自然語言的代碼。 範例資料中的所有訊息都是英文，因此您可以針對此欄位以硬式編碼方式編寫 `en` 值。|
 
 ## <a name="create-a-custom-function"></a>建立自訂函式
