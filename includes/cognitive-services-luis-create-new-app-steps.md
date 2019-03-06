@@ -21,7 +21,7 @@ ms.locfileid: "56738894"
 
 1. 選取 [建立新的應用程式]。  
 
-    [![Language Understanding (LUIS) [我的應用程式] 頁面的螢幕擷取畫面](./media/cognitive-services-luis/tutorials-create-new-app/app-list.png "Language Understanding (LUIS) [我的應用程式] 頁面的螢幕擷取畫面")](./media/cognitive-services-luis/tutorials-create-new-app/app-list.png#lightbox)
+    [![Language Understanding (LUIS) 我的應用程式 頁面的螢幕擷取畫面](./media/cognitive-services-luis/tutorials-create-new-app/app-list.png "Language Understanding (LUIS) 我的應用程式 頁面的螢幕擷取畫面")](./media/cognitive-services-luis/tutorials-create-new-app/app-list.png#lightbox)
 
 1. 在快顯對話方塊中，輸入名稱 `HumanResources`，並保留預設文化特性 [英文]。 讓描述保留空白。
 
