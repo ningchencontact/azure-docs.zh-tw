@@ -80,7 +80,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 2. **[設定 SAML SSO for Jira by resolution GmbH 單一登入](#configure-saml-sso-for-jira-by-resolution-gmbh-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. ****[建立 SAML SSO for Jira by resolution GmbH 測試使用者](#create-saml-sso-for-jira-by-resolution-gmbh-test-user)**：使 SAML SSO for Jira by resolution GmbH 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+5. **[建立 SAML SSO for Jira by resolution GmbH 測試使用者](#create-saml-sso-for-jira-by-resolution-gmbh-test-user)**：使 SAML SSO for Jira by resolution GmbH 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入

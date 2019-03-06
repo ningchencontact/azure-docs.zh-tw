@@ -38,7 +38,7 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>檢視 App Service 管理中的部署來源
 
-1. 以服務管理員身分登入 Azure Stack 管理入口網站 (https://adminportal.local.azurestack.external)。
+1. 以服務管理員身分登入 Azure Stack 管理入口網站 [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)。
 2. 瀏覽至 [所有服務]，然後選取 [App Service]。
     ![App Service 資源提供者管理][1]
 3. 按一下 [原始檔控制組態]。 您會看見所有已設定的部署來源清單。
