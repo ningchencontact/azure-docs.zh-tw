@@ -99,12 +99,12 @@
 #### [刪除供應項目](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
 
 ### 試用產品
-#### [什麼是試用產品？](./cloud-partner-portal-orig/what-is-test-drive.md)
-#### [Azure Resource Manager 試用產品](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-#### [已裝載的試用產品](./cloud-partner-portal-orig/hosted-test-drive.md)
-#### [邏輯應用程式試用產品](./cloud-partner-portal-orig/logic-app-test-drive.md)
-#### [試用產品的轉換範例](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-#### [行銷與最佳做法](./cloud-partner-portal-orig/marketing-and-best-practices.md)
+#### [什麼是試用產品？](./cloud-partner-portal/test-drive/what-is-test-drive.md)
+#### [Azure Resource Manager 試用產品](./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md)
+#### [已裝載的試用產品](./cloud-partner-portal/test-drive/hosted-test-drive.md)
+#### [邏輯應用程式試用產品](./cloud-partner-portal/test-drive/logic-app-test-drive.md)
+#### [試用產品的轉換範例](./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md)
+#### [行銷與最佳做法](./cloud-partner-portal/test-drive/marketing-and-best-practices.md)
 
 ### [Azure 應用程式供應項目](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [先決條件](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
