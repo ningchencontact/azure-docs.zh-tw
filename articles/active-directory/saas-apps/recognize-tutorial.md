@@ -162,7 +162,7 @@ ms.locfileid: "56218171"
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-1. 在空白瀏覽器下方開啟**中繼資料 URL 連結**，以下載中繼資料文件。 然後，從檔案中複製 EntityDescriptor 值 (entityID)，並貼到 Azure 入口網站上 [Recognize 網域及 URL] 區段的 ****[識別碼] 文字方塊中。
+1. 在空白瀏覽器下方開啟**中繼資料 URL 連結**，以下載中繼資料文件。 然後，從檔案中複製 EntityDescriptor 值 (entityID)，並貼到 Azure 入口網站上 [Recognize 網域及 URL] 區段的[識別碼]文字方塊中。 **** 
     
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_004.png)
 
