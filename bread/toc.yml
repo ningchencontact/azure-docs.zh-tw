@@ -109,9 +109,15 @@ items:
   - name: Azure 資料總管
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
+  - name: Azure Digital Twins
+    tocHref: /azure/digital-twins/
+    topicHref: /azure/digital-twins/
   - name: Azure 監視器
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
+  - name: Azure Spatial Anchors
+    tocHref: /azure/spatial-anchors/
+    topicHref: /azure/spatial-anchors/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -201,6 +207,9 @@ items:
   - name: Blockchain Workbench
     tocHref: /azure/blockchain-workbench/
     topicHref: /azure/blockchain-workbench/
+  - name: Bot 服務
+    tocHref: /azure/bot-service/
+    topicHref: /azure/bot-service/
   - name: 快取
     tocHref: /azure/cache/
     topicHref: /azure/cache/
@@ -384,6 +393,9 @@ items:
   - name: 前端服務
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
+  - name: Genomics
+    tocHref: /azure/genomics/
+    topicHref: /azure/genomics/
   - name: 控管
     tocHref: /azure/governance/
     topicHref: /azure/governance/
@@ -649,9 +661,9 @@ items:
   - name: VPN 閘道
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: 38927a138c186109532729ba1b7e413644e31019
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4118aabcc45a87fdb76c0a4e801cc6ad725d3e6b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339074"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435247"
