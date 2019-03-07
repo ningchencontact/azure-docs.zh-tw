@@ -163,7 +163,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-13. 按一下 [選擇檔案]****以上傳您從 Azure 入口網站下載的中繼資料 XML 檔案，然後按一下 [建立]****。
+13. 按一下 [選擇檔案]以上傳您從 Azure 入口網站下載的中繼資料 XML 檔案，然後按一下 [建立]。
 
     ![設定單一登入](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 

@@ -116,7 +116,7 @@ Cosmos 帳戶，需具有 SQL API 或適用於 MongoDB 的 Azure Cosmos DB API�
     ![刪除 database2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>建立集合
-1. 以滑鼠右鍵按一下您的資料庫，選擇 [建立集合]，然後提供下列資訊 (例如**集合識別碼****儲存體容量**等)。按一下 [確定] 以完成。 
+1. 以滑鼠右鍵按一下您的資料庫，選擇 [建立集合]，然後提供下列資訊 (例如**集合識別碼儲存體容量**等)。按一下 [確定] 以完成。 
 
     ![建立 collection1](./media/storage-explorer/create-collection.png)
 

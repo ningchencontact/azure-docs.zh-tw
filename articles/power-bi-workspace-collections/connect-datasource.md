@@ -19,7 +19,7 @@ ms.locfileid: "55104689"
 ---
 # <a name="connect-to-a-data-source"></a>連接到資料來源
 
-使用 **Power BI 工作區集合**，就可將報表內嵌到您自己的應用程式。 當您將 Power BI 報表內嵌到應用程式時，報告會以**匯入**資料複本的方式連接至基礎資料，或使用 **DirectQuery****直接連接**到資料來源。
+使用 **Power BI 工作區集合**，就可將報表內嵌到您自己的應用程式。 當您將 Power BI 報表內嵌到應用程式時，報告會以 **匯入** 資料複本的方式連接至基礎資料，或使用 **DirectQuery** **直接連接** 到資料來源。
 
 > [!IMPORTANT]
 > Power BI 工作區集合已被取代，只能使用到 2018 年 6 月或您的合約所指出的時間。 建議您進行規劃以移轉至 Power BI Embedded，以免應用程式發生中斷。 如需如何將資料移轉至 Power BI Embedded 的資訊，請參閱[如何將 Power BI 工作區集合的內容移轉至 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。

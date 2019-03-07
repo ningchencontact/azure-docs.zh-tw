@@ -97,7 +97,7 @@ ms.locfileid: "55730895"
 4. 選取已設定的 Azure 監視器資料來源。
     * 收集 Azure 監視器計量 - 在服務下拉式清單中選取 [Azure 監視器]。 這會顯示一個選取器清單，您可以在其中選取要在此圖表中監視的資源和計量。 若要從 VM 收集計量，請使用命名空間 **Microsoft.Compute/VirtualMachines**。 一旦您選取 VM 和計量後，您就可以開始在儀表板中檢視其資料。
     ![Azure 監視器的 Grafana 圖表設定](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * 收集 Azure Log Analytics 資料 - 在服務下拉式清單中選取 [Azure Log Analytics]。 選取您想要查詢的工作區並設定查詢文字。 您可以在此複製已有的任何 Log Analytics 查詢，或建立一個新的 Log Analytics 查詢。 當您輸入查詢時，IntelliSense 將顯示並建議自動完成選項。 選取視覺效果類型 **時間序列****資料表**，然後執行查詢。
+    * 收集 Azure Log Analytics 資料 - 在服務下拉式清單中選取 [Azure Log Analytics]。 選取您想要查詢的工作區並設定查詢文字。 您可以在此複製已有的任何 Log Analytics 查詢，或建立一個新的 Log Analytics 查詢。 當您輸入查詢時，IntelliSense 將顯示並建議自動完成選項。 選取視覺效果類型 **時間序列** **資料表**，然後執行查詢。
     
     > [!NOTE]
     >
