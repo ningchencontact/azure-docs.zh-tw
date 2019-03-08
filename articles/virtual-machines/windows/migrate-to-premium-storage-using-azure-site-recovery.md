@@ -85,7 +85,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 ### <a name="step-2-choose-your-protection-goals"></a>步驟 2：選擇您的保護目標 
 
 1. 在您要安裝組態伺服器的 VM 上，開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 移至 [復原服務保存庫] > [設定] > [Site Recovery] > [步驟 1：準備基礎結構]**[保護目標] > **。
+2. 移至 [復原服務保存庫] > [設定] > [Site Recovery] > [步驟 1：準備基礎結構] > [保護目標]。
 
    ![瀏覽至 [保護目標] 窗格][2]
 
