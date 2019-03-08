@@ -61,7 +61,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 - 社交帳戶技術設定檔 **AAD-UserReadUsingAlternativeSecurityId** 和 **AAD-UserWriteUsingAlternativeSecurityId** 包含 **AlternativeSecurityId** 宣告。 此宣告包含社交帳戶使用者識別碼。
 - 本機帳戶技術設定檔 **AAD-UserReadUsingEmailAddress** 和 **AAD-UserWriteUsingLogonEmail** 包含 **email** 宣告。 此宣告包含本機帳戶的登入名稱。
-- 統一 (本機和社交) 技術設定檔 **AAD-UserReadUsingObjectId****AAD-UserWritePasswordUsingObjectId**、**AAD-UserWriteProfileUsingObjectId**，以及 **AAD-UserWritePhoneNumberUsingObjectId** 包含 **objectId** 宣告。 帳戶的唯一識別碼。
+- 統一 (本機和社交) 技術設定檔 **AAD-UserReadUsingObjectId** **AAD-UserWritePasswordUsingObjectId**、**AAD-UserWriteProfileUsingObjectId**，以及 **AAD-UserWritePhoneNumberUsingObjectId** 包含 **objectId** 宣告。 帳戶的唯一識別碼。
 
 **InputClaimsTransformations** 元素可能含有 **InputClaimsTransformation** 的集合，用於修改輸入宣告或產生新的輸入宣告。
 
@@ -122,7 +122,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 ### <a name="read"></a>讀取
 
-**讀取**作業可讀取單一使用者帳戶的相關資料。 若要讀取使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId****userPrincipalName**、**signInNames** (任何類型、使用者名稱和以電子郵件為基礎的帳戶) 或 **alternativeSecurityId**。  
+**讀取**作業可讀取單一使用者帳戶的相關資料。 若要讀取使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames** (任何類型、使用者名稱和以電子郵件為基礎的帳戶) 或 **alternativeSecurityId**。  
 
 以下技術設定檔會利用使用者的 objectId 讀取使用者帳戶的相關資料：
 
@@ -154,7 +154,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 ### <a name="write"></a>寫入
 
-**寫入**作業可建立或更新單一使用者帳戶。 若要寫入使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId****userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。  
+**寫入**作業可建立或更新單一使用者帳戶。 若要寫入使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。  
 
 下列技術設定檔會建立新的社交帳戶：
 
@@ -219,7 +219,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-**DeleteClaimsPrincipal** 作業會將單一使用者帳戶從目錄中刪除。 若要刪除使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId****userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。  
+**DeleteClaimsPrincipal** 作業會將單一使用者帳戶從目錄中刪除。 若要刪除使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。  
 
 下列技術設定檔會使用使用者主體名稱，將使用者帳戶從目錄中刪除：
 
