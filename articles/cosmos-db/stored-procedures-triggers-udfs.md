@@ -16,7 +16,7 @@ ms.locfileid: "55454210"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>預存程序、觸發程序和使用者定義函式
 
-Azure Cosmos DB 提供 JavaScript 的語言整合式、交易式執行。 在 Azure Cosmos DB 中使用 SQL API 時，您可以使用 JavaScript 語言撰寫**預存程序****觸發程序**和**使用者定義函數 (UDF)**。 您可以使用 JavaScript 寫入在資料庫引擎內執行的邏輯。 您可以透過使用 [Azure 入口網站](https://portal.azure.com/)、[Azure Cosmos DB 中的 JavaScript 語言整合式查詢 API](javascript-query-api.md)，或 [Cosmos DB SQL API 用戶端 SDK](how-to-use-stored-procedures-triggers-udfs.md)，來建立與執行觸發程序、預存程序及 UDF。
+Azure Cosmos DB 提供 JavaScript 的語言整合式、交易式執行。 在 Azure Cosmos DB 中使用 SQL API 時，您可以使用 JavaScript 語言撰寫**預存程序** **觸發程序**和**使用者定義函數 (UDF)**。 您可以使用 JavaScript 寫入在資料庫引擎內執行的邏輯。 您可以透過使用 [Azure 入口網站](https://portal.azure.com/)、[Azure Cosmos DB 中的 JavaScript 語言整合式查詢 API](javascript-query-api.md)，或 [Cosmos DB SQL API 用戶端 SDK](how-to-use-stored-procedures-triggers-udfs.md)，來建立與執行觸發程序、預存程序及 UDF。
 
 ## <a name="benefits-of-using-server-side-programming"></a>使用伺服器端程式設計的好處
 

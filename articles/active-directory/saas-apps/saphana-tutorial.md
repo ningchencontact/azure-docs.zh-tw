@@ -160,7 +160,7 @@ SAP HANA 與 Azure AD 整合提供下列優點：
 
     ![[新增識別提供者] 設定](./media/saphana-tutorial/sap2.png)
 
-    b. 如果 XML 文件的內容有效，剖析程序會擷取 [一般資料] 畫面區域中的 [主旨]、[實體識別碼] 和 [簽發者] 欄位所需的資訊。 該程序也會擷取 [目的地] 畫面區域中 URL 欄位的所需資訊，例如 [基底 URL] 和 [SingleSignOn URL]\ (*) 欄位。
+    b. 如果 XML 文件的內容有效，剖析程序會擷取 [一般資料] 畫面區域中的 [主旨]、[實體識別碼] 和 [簽發者] 欄位所需的資訊。 該程序也會擷取 [目的地] 畫面區域中 URL 欄位的所需資訊，例如 [基底 URL] 和 [SingleSignOn URL]\(*) 欄位。
 
     ![[新增識別提供者] 設定](./media/saphana-tutorial/sap3.png)
 
