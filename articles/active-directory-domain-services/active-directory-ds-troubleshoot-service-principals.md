@@ -28,7 +28,7 @@ ms.locfileid: "55191324"
 
 ## <a name="alert-aadds102-service-principal-not-found"></a>警示 AADDS102：找不到服務主體
 
-**警示訊息：***Azure AD 目錄中已刪除要讓 Azure AD Domain Services 正常運作所需的服務主體。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。*
+**警示訊息：** *Azure AD 目錄中已刪除要讓 Azure AD Domain Services 正常運作所需的服務主體。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。*
 
 [服務主體](../active-directory/develop/app-objects-and-service-principals.md)是 Microsoft 用來管理、更新和維護受控網域的應用程式。 如果將它們刪除，就會使 Microsoft 無法為網域提供服務。
 
