@@ -1,23 +1,23 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8a1f9967b51d3655c962620b9436dfe4f9ffd521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2179b212dbbc7891b003664f4bea3d47cbb3a34e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442523"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575387"
 documentType: LandingData
 title: Azure Data Factory 文件
 metadata:
   title: Azure Data Factory 文件 - 教學課程和 API 參考 | Microsoft Docs
   description: 了解如何使用 Data Factory 來設定內部部署和雲端來源的雙向自動化資料管線，以便移動和處理資料以供分析。
   services: data-factory
-  author: douglaslMS
+  author: sharonlo101
+  ms.author: shlo
   manager: craigg
   ms.service: data-factory
   ms.tgt_pltfrm: na
   ms.topic: overview
   ms.date: 08/06/2018
-  ms.author: douglasl
 abstract:
   description: 了解如何使用 Data Factory (雲端資料整合服務)，將資料儲存、移動及處理服務組合成自動化資料管線。 教學課程和其他文件會示範如何設定和管理資料管線，以及如何移動和轉換資料以供分析。 <p>如果您使用 Data Factory 服務 V1 版，請參閱 <a href=/azure/data-factory/v1/data-factory-introduction>V1 文件</a>。</p>
   aside:

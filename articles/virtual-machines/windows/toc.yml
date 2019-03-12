@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: 備份與復原
     href: backup-recovery.md
-  - name: 高效能運算
-    href: high-performance-computing.md
   - name: 基礎結構範例
     href: infrastructure-example.md
 - name: 使用說明指南
@@ -313,43 +311,46 @@ items:
         href: excel-cluster-hpcpack.md
   - name: 管理儲存體
     items:
-    - name: 磁碟常見問題
-      href: faq-for-disks.md
     - name: 新增磁碟
       items:
       - name: Azure Powershell
         href: attach-disk-ps.md
       - name: Azure 入口網站
         href: attach-managed-disk-portal.md
-    - name: 基準測試磁碟
-      href: disks-benchmarks.md
     - name: 中斷連結磁碟
       href: detach-disk.md
+    - name: 透過範本部署磁碟
+      href: using-managed-disks-template-deployments.md
     - name: 調整磁碟大小
       href: expand-os-disk.md
     - name: 製作磁碟的快照集
       href: snapshot-copy-managed-disk.md
     - name: 備份非受控磁碟
       href: incremental-snapshots.md
-    - name: 在標準和進階間轉換磁碟
-      href: convert-disk-storage.md
-    - name: 使用 Azure Site Recovery 移轉到進階儲存體
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: 移轉和轉換
+      items:
+      - name: 在標準和進階間轉換磁碟
+        href: convert-disk-storage.md
+      - name: 使用 Azure Site Recovery 移轉到進階儲存體
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: 移轉到受控磁碟
+        href: migrate-to-managed-disks.md
+      - name: 非受控 VM 到受控磁碟
+        href: convert-unmanaged-to-managed-disks.md
+    - name: 效能
+      items:
+      - name: 啟用寫入加速器
+        href: how-to-enable-write-accelerator.md
+      - name: 啟用 Ultra SSD
+        href: disks-enable-ultra-ssd.md
+      - name: 基準測試磁碟
+        href: disks-benchmarks.md
     - name: 尋找未連接的磁碟
       href: find-unattached-disks.md
     - name: 使用檔案儲存體
-      href: mount-azure-file-storage.md
-    - name: 透過範本部署磁碟
-      href: using-managed-disks-template-deployments.md
-    - name: 啟用寫入加速器
-      href: how-to-enable-write-accelerator.md
-    - name: 啟用 Ultra SSD
-      href: disks-enable-ultra-ssd.md
-    - name: 移轉到受控磁碟
-      href: migrate-to-managed-disks.md
-      items:
-      - name: 非受控 VM 到受控磁碟
-        href: convert-unmanaged-to-managed-disks.md
+      href: ../../storage/files/storage-files-quick-create-use-windows.md
+    - name: 磁碟常見問題
+      href: faq-for-disks.md
   - name: 管理網路服務
     href: ps-common-network-ref.md
     items:
@@ -461,9 +462,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: 常見問題集
     href: faq.md
-ms.openlocfilehash: 3ddf84852fee0dc30aa9bc7e9d49f06493f6b0cc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 78a321bbf5bbf3c970d7b6caef3409d55d33c808
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448436"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732519"

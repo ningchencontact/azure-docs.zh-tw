@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: 備份與復原
     href: backup-recovery.md
-  - name: 高效能運算
-    href: high-performance-computing.md
   - name: 部署考量
     items:
     - name: 基礎結構方針
@@ -398,7 +396,7 @@ items:
       - name: Linux 上的 MS SQL
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: 高效能運算 (HPC)
-      href: https://docs.microsoft.com/powershell/high-performance-computing/overview
+      href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
     - name: IBM Db2 pureScale
       items:
       - name: 架構
@@ -407,49 +405,52 @@ items:
         href: deploy-ibm-db2-purescale-azure.md
   - name: 管理儲存體
     items:
-    - name: 磁碟常見問題
-      href: faq-for-disks.md
     - name: 新增磁碟
       items:
       - name: Azure CLI
         href: add-disk.md
       - name: Azure 入口網站
         href: attach-disk-portal.md
-    - name: 基準測試磁碟
-      href: disks-benchmarks.md
     - name: 中斷連結磁碟
       href: detach-disk.md
+    - name: 透過範本部署磁碟
+      href: using-managed-disks-template-deployments.md
     - name: 調整磁碟大小
       href: expand-disks.md
     - name: 製作磁碟的快照集
       href: snapshot-copy-managed-disk.md
     - name: 備份非受控磁碟
       href: incremental-snapshots.md
-    - name: 轉換為受控磁碟
-      href: convert-unmanaged-to-managed-disks.md
-    - name: 在標準和進階間轉換磁碟
-      href: convert-disk-storage.md
+    - name: 移轉和轉換
+      items:
+      - name: 使用 Azure Site Recovery 移轉到進階儲存體
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: 轉換為受控磁碟
+        href: convert-unmanaged-to-managed-disks.md
+      - name: 在標準和進階間轉換磁碟
+        href: convert-disk-storage.md
     - name: 將檔案複製到 VM
       href: copy-files-to-linux-vm-using-scp.md
-    - name: 使用 Azure Site Recovery 移轉到進階儲存體
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
-    - name: 尋找未連接的磁碟
-      href: find-unattached-disks.md
-    - name: 使用檔案儲存體
-      href: mount-azure-file-storage-on-linux-using-smb.md
-    - name: 透過範本部署磁碟
-      href: using-managed-disks-template-deployments.md
-    - name: 使用寫入加速器
-      href: how-to-enable-write-accelerator.md
-    - name: 啟用 Ultra SSD
-      href: disks-enable-ultra-ssd.md
-    - name: 效能最佳化
-      href: optimization.md
+    - name: 效能
       items:
+      - name: 使用寫入加速器
+        href: how-to-enable-write-accelerator.md
+      - name: 啟用 Ultra SSD
+        href: disks-enable-ultra-ssd.md
+      - name: 基準測試磁碟
+        href: disks-benchmarks.md
+      - name: 最佳化效能
+        href: optimization.md
       - name: 設定軟體 RAID
         href: configure-raid.md
       - name: 設定 LVM
         href: configure-lvm.md
+    - name: 尋找未連接的磁碟
+      href: find-unattached-disks.md
+    - name: 使用檔案儲存體
+      href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: 磁碟常見問題
+      href: faq-for-disks.md
   - name: 管理網路服務
     items:
     - name: 建立虛擬網路
@@ -559,9 +560,9 @@ items:
     href: faq.md
 - name: 疑難排解
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 776adc5310db7c4a7762409a53c57e896cc95360
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ade43488288949aa22942c8df2d6900e4522615a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438284"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732020"

@@ -9,14 +9,14 @@ items:
     items:
     - name: 最近更新
       href: azure-stack-servicing-policy.md#update-package-release-cadence
+    - name: 1902 更新
+      href: azure-stack-update-1902.md
     - name: 1901 更新
       href: azure-stack-update-1901.md
     - name: 1811 更新
       href: azure-stack-update-1811.md
     - name: 1809 更新
       href: azure-stack-update-1809.md
-    - name: 1808 更新
-      href: azure-stack-update-1808.md
 - name: 快速入門
   items:
   - name: 使用系統管理入口網站
@@ -294,7 +294,7 @@ items:
       href: azure-stack-app-service-update.md
     - name: 離線更新 App Service
       href: azure-stack-app-service-update-offline.md
-    - name: 新增更多 Web 背景工作角色
+    - name: 新增 App Service 基礎結構角色
       href: azure-stack-app-service-add-worker-roles.md
     - name: 設定部署來源
       href: azure-stack-app-service-configure-deployment-sources.md
@@ -399,9 +399,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: 訓練與憑證
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 0a38112e8e57c685dec49a380a0e669429dc2673
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: ed6de4a1839c8fe60248e79e5349d8077193d052
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991610"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774263"

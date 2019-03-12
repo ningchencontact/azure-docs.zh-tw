@@ -63,47 +63,49 @@ items:
       href: how-to-search-for-address.md
     - name: 轉譯靜態地圖上的自訂資料
       href: how-to-render-custom-data.md
-  - name: 建立 JavaScript 地圖
+  - name: 利用 Web SDK 進行開發
     items:
-    - name: 使用地圖控制項
-      href: how-to-use-map-control.md
-    - name: 建立地圖
-      href: map-create.md
-    - name: 選擇地圖樣式
-      href: choose-map-style.md
-    - name: 新增地圖控制項
-      href: map-add-controls.md
-    - name: 新增符號圖層
-      href: map-add-pin.md
-    - name: 新增快顯
-      href: map-add-popup.md
-    - name: 新增泡泡圖層
-      href: map-add-bubble-layer.md
-    - name: 新增圖形
-      href: map-add-shape.md
-    - name: 新增熱度圖層
-      href: map-add-heat-map-layer.md
-    - name: 新增映像圖層
-      href: map-add-image-layer.md
-    - name: 新增圖格圖層
-      href: map-add-tile-layer.md
-    - name: 新增 HTML 標記
-      href: map-add-custom-html.md
-    - name: 服務
+    - name: 地圖控制項
+      items:
+      - name: 使用地圖控制項
+        href: how-to-use-map-control.md
+      - name: 建立地圖
+        href: map-create.md
+      - name: 選擇地圖樣式
+        href: choose-map-style.md
+      - name: 將控制項新增至地圖
+        href: map-add-controls.md
+      - name: 新增符號圖層
+        href: map-add-pin.md
+      - name: 新增快顯
+        href: map-add-popup.md
+      - name: 新增泡泡圖層
+        href: map-add-bubble-layer.md
+      - name: 新增圖形
+        href: map-add-shape.md
+      - name: 新增熱度圖層
+        href: map-add-heat-map-layer.md
+      - name: 將影像重疊
+        href: map-add-image-layer.md
+      - name: 新增圖格圖層
+        href: map-add-tile-layer.md
+      - name: HTML 標記
+        href: map-add-custom-html.md
+      - name: 顯示流量
+        href: map-show-traffic.md
+      - name: 與滑鼠事件互動
+        href: map-events.md
+      - name: 讓應用程式可供存取
+        href: map-accessibility.md
+    - name: 服務模組
       items:
       - name: 顯示搜尋結果
         href: map-search-location.md
       - name: 從座標取得資訊
         href: map-get-information-from-coordinate.md
-      - name: 顯示從 A 到 B 的方向
+      - name: 顯示從甲地到乙地的指示
         href: map-route.md
-    - name: 顯示流量
-      href: map-show-traffic.md
-    - name: 與滑鼠事件互動
-      href: map-events.md
-    - name: 可存取的地圖應用程式
-      href: map-accessibility.md
-  - name: 建立 Android 地圖
+  - name: 使用 Android SDK 進行開發
     items:
     - name: 如何使用 Android 的地圖控制項
       href: how-to-use-android-map-control-library.md
@@ -150,7 +152,7 @@ items:
 - name: 資源
   items:
   - name: Azure 地圖服務使用規定
-    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
   - name: 價格
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: 定價計算機
@@ -197,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: IoT 裝置 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: b0584c77ed7d8b3ed6c6962d02b75e061a97bf14
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336728"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569224"
