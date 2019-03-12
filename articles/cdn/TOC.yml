@@ -13,6 +13,8 @@ items:
     href: cdn-create-new-endpoint.md
   - name: 整合儲存體帳戶
     href: cdn-create-a-storage-account-with-cdn.md
+  - name: 使用 Azure Resource Manager 範本建立設定檔
+    href: create-profile-resource-manager-template.md
 - name: 教學課程
   items:
   - name: 將 Azure CDN 新增 Web 應用程式
@@ -178,12 +180,12 @@ items:
   - name: 服務更新
     href: https://azure.microsoft.com/updates/?product=cdn
   - name: 堆疊溢位
-    href: http://stackoverflow.com/questions/tagged/azure-cdn
+    href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-ms.openlocfilehash: dbb216e848309dc696e1923166deced18827f08e
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3aa21668a51af3d89951a0a5d13d31cacf3f6f4d
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232186"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727088"
