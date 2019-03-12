@@ -7,11 +7,11 @@ items:
     href: container-instances-overview.md
 - name: 快速入門
   items:
-  - name: 建立容器 - CLI
+  - name: 部署容器執行個體 - CLI
     href: container-instances-quickstart.md
-  - name: 建立容器 - 入口網站
+  - name: 部署容器執行個體 - 入口網站
     href: container-instances-quickstart-portal.md
-  - name: 建立容器 - PowerShell
+  - name: 部署容器執行個體 - PowerShell
     href: container-instances-quickstart-powershell.md
   expanded: true
 - name: 教學課程
@@ -30,12 +30,14 @@ items:
     href: container-instances-samples-rm.md
 - name: 概念
   items:
-  - name: 配額和區域限制
-    href: container-instances-quotas.md
-  - name: 與協調者的關聯
-    href: container-instances-orchestrator-relationship.md
   - name: 容器群組
     href: container-instances-container-groups.md
+  - name: 配額和限制
+    href: container-instances-quotas.md
+  - name: 區域可用性
+    href: container-instances-region-availability.md
+  - name: 與協調者的關聯
+    href: container-instances-orchestrator-relationship.md
 - name: 使用說明指南
   items:
   - name: 部署
@@ -44,48 +46,50 @@ items:
       href: container-instances-multi-container-yaml.md
     - name: 多個容器群組 - 資源管理員
       href: container-instances-multi-container-group.md
-    - name: 虛擬網路部署模型 (預覽)
+    - name: 在虛擬網路中部署 (預覽)
       href: container-instances-vnet.md
-    - name: 使用 GPU 資源部署 (預覽)
-      href: container-instances-gpu.md
     - name: 從 Azure Container Registry 進行部署
       href: container-instances-using-azure-container-registry.md
+  - name: 容器案例
+    items:
+    - name: 為僅執行一次的工作設定重新啟動原則
+      href: container-instances-restart-policy.md
     - name: 設定環境變數 (env)
       href: container-instances-environment-variables.md
-    - name: 設定活躍度探查
-      href: container-instances-liveness-probe.md
-  - name: 管理
-    items:
-    - name: 更新執行中的容器
-      href: container-instances-update.md
     - name: 執行命令 (exec)
       href: container-instances-exec.md
-    - name: 監視 CPU 和記憶體使用量
-      href: container-instances-monitor.md
-    - name: 使用 Azure 監視器記錄進行記錄
-      href: container-instances-log-analytics.md
-  - name: 執行工作負載
-    items:
-    - name: 使用重新啟動原則執行工作
-      href: container-instances-restart-policy.md
-    - name: ACI 上的 Jenkins 組建代理程式
+    - name: 執行 Jenkins 組建編號
       href: container-instances-jenkins.md
     - name: 使用受控識別 (預覽)
       href: container-instances-managed-identity.md
-  - name: 設定資料磁碟區
+    - name: 使用 GPU 資源 (預覽)
+      href: container-instances-gpu.md
+  - name: 裝載資料磁碟區
     items:
-    - name: Azure 檔案
+    - name: Azure 檔案共用
       href: container-instances-volume-azure-files.md
-    - name: emptyDir
-      href: container-instances-volume-emptydir.md
-    - name: gitRepo
-      href: container-instances-volume-gitrepo.md
-    - name: secret
+    - name: 祕密
       href: container-instances-volume-secret.md
-  - name: 疑難排解
+    - name: 空目錄
+      href: container-instances-volume-emptydir.md
+    - name: 複製的 Git 存放庫
+      href: container-instances-volume-gitrepo.md
+  - name: 管理執行中的容器
     items:
+    - name: 設定活躍度探查
+      href: container-instances-liveness-probe.md
+    - name: 更新執行中的容器
+      href: container-instances-update.md
+  - name: 監視與記錄
+    items:
+    - name: 監視 CPU 和記憶體使用量
+      href: container-instances-monitor.md
     - name: 取得容器記錄和事件
       href: container-instances-get-logs.md
+    - name: 透過 Azure Log Analytics 記錄
+      href: container-instances-log-analytics.md
+  - name: 疑難排解
+    items:
     - name: 針對常見問題進行疑難排解
       href: container-instances-troubleshooting.md
 - name: 參考
@@ -119,12 +123,12 @@ items:
   - name: 提供產品意見反應
     href: https://feedback.azure.com/forums/602224-azure-container-instances
   - name: 堆疊溢位
-    href: http://stackoverflow.com/questions/tagged/azure-container-instances
+    href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: 影片
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 062c4f2b196ab587577ef4703f79af2f7259c776
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fcee083f7d98aba1856cf204f5c2d559d1b5925b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871701"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731188"
