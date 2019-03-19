@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 1c3a98e6c1aebb497514c074eb66f8cf30e91228
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4aa6fe901a49f4618b4844f9f5d2a94903d49cbd
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819564"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652360"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>建立虛擬網路對等互連 - 不同部署模型、相同訂用帳戶
 
@@ -46,38 +46,38 @@ ms.locfileid: "55819564"
 2. 依序按一下 [新增]、[網路] 及 [虛擬網路]。
 3. 在 [建立虛擬網路] 刀鋒視窗上，輸入或選取下列設定的值，然後按一下 [建立]：
     - **名稱**：*myVnet1*
-    - **位址空間**：*10.0.0.0/16*
+    - **地址空间**：*10.0.0.0/16*
     - **子網路名稱**：*預設值*
     - **子網路位址範圍**︰*10.0.0.0/24*
     - 訂用帳戶：選取您的訂用帳戶
-    - **資源群組**：選取 [新建]，然後輸入 *myResourceGroup*
+    - **资源组**：選取 [新建]，然後輸入 *myResourceGroup*
     - **位置**：美國東部
 4. 按一下 [+ 新增]。 在 [搜尋 Marketplace] 方塊中，輸入*虛擬網路*。 當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]。
 5. 在 [虛擬網路] 刀鋒視窗中，於 [選取部署模型] 方塊中選取 [傳統]，然後按一下 [建立]。
 6. 在 [建立虛擬網路] 刀鋒視窗上，輸入或選取下列設定的值，然後按一下 [建立]：
     - **名稱**： *myVnet2*
-    - **位址空間**：*10.1.0.0/16*
+    - **地址空间**：*10.1.0.0/16*
     - **子網路名稱**：*預設值*
     - **子網路位址範圍**︰*10.1.0.0/24*
     - 訂用帳戶：選取您的訂用帳戶
-    - **資源群組**：選取 [使用現有項目]，然後選取 [myResourceGroup]
+    - **资源组**：選取 [使用現有項目]，然後選取 [myResourceGroup]
     - **位置**：美國東部
 7. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myResourceGroup*。 當搜尋結果中出現 **MyResourceGroup** 時，按一下該項目。 **myresourcegroup** 資源群組的刀鋒視窗隨即出現。 資源群組包含在前述步驟中建立的兩個虛擬網路。
 8. 按一下 [myVNet1]。
 9. 在顯示的 [myVnet1] 刀鋒視窗，從刀鋒視窗左側的垂直選項清單中按一下 [對等互連]。
 10. 在顯示的 [myVnet1 - 對等互連] 刀鋒視窗中，按一下 [+ 新增]
-11. 在顯示的 [新增對等互連] 刀鋒視窗中，輸入或選取下列選項，然後按一下 [確定]：
+11. 在显示的“添加对等互连”边栏选项卡中，输入或选择以下选项，然后单击“确定”：
      - **名稱**：*myVnet1ToMyVnet2*
-     - **虛擬網路部署模型**︰選取 [傳統]。
+     - **虚拟网络部署模型**：选择“经典”。
      - 訂用帳戶：選取您的訂用帳戶
-     - **虛擬網路**：按一下 [選擇虛擬網路]，然後按一下 [myVnet2]。
-     - **允許虛擬網路存取：** 確定已選取 [啟用]。
+     - **虚拟网络**：按一下 [選擇虛擬網路]，然後按一下 [myVnet2]。
+     - **允许虚拟网络访问：** 確定已選取 [啟用]。
     本教學課程中不會使用其他設定。 若要了解所有對等互連設定，請閱讀[管理虛擬網路對等互連](virtual-network-manage-peering.md#create-a-peering)。
 12. 按一下上一個步驟中的 [確定] 後，[新增對等互連] 刀鋒視窗隨即關閉，而且您會再次看到 [myVnet1 - 對等互連] 刀鋒視窗。 幾秒之後，您建立的對等互連會出現在刀鋒視窗中。 您所建立之 **myVnet1ToMyVnet2** 對等互連的 [對等互連狀態] 資料行中會列出 [已連線]。
 
     現在已建立對等互連。 您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
-13. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-14. **選擇性**：若要刪除您在本教學課程中建立的資源，請完成本文中[刪除資源](#delete-portal)一節的步驟。
+13. **可选**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
+14. **可选**：若要刪除您在本教學課程中建立的資源，請完成本文中[刪除資源](#delete-portal)一節的步驟。
 
 ## <a name="cli"></a>建立對等互連 - Azure CLI
 
@@ -139,12 +139,12 @@ ms.locfileid: "55819564"
    輸出會在 **PeeringState** 資料行中顯示 **Connected**。
 
    您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
-7. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-8. **選擇性**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-cli)的步驟。
+7. **可选**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
+8. **可选**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-cli)的步驟。
 
 ## <a name="powershell"></a>建立對等互連 - PowerShell
 
-1. 安裝最新版的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 和 [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+1. 安裝最新版的 powershell [Azure](https://www.powershellgallery.com/packages/Azure)並[Az](https://www.powershellgallery.com/packages/Az/)模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 2. 啟動 PowerShell 工作階段。
 3. 在 PowerShell 中，輸入 `Add-AzureAccount` 命令來登入 Azure。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#requirements-and-constraints)。
 4. 若要使用 PowerShell 來建立虛擬網路 (傳統)，您必須建立一個新的或修改現有的網路組態檔。 了解如何[匯出、更新及匯入網路組態檔](virtual-networks-using-network-configuration-file.md)。 就本教學課程中使用的虛擬網路而言，此檔案應該包含下列 **VirtualNetworkSite** 元素：
@@ -164,35 +164,35 @@ ms.locfileid: "55819564"
 
     > [!WARNING]
     > 匯入變更過的網路組態檔會導致您訂用帳戶中現有的虛擬網路 (傳統) 發生變更。 請確定您只新增先前的虛擬網路，並且未變更或移除您訂用帳戶中任何現有的虛擬網路。
-5. 輸入 `Connect-AzureRmAccount` 命令來登入 Azure 以建立虛擬網路 (Resource Manager)。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#requirements-and-constraints)。
+5. 輸入 `Connect-AzAccount` 命令來登入 Azure 以建立虛擬網路 (Resource Manager)。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#requirements-and-constraints)。
 6. 建立資源群組和虛擬網路 (Resource Manager)。 請複製指令碼並貼到 PowerShell 中，然後按 `Enter`。
 
     ```powershell
     # Create a resource group.
-      New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
+      New-AzResourceGroup -Name myResourceGroup -Location eastus
 
     # Create the virtual network (Resource Manager).
-      $vnet1 = New-AzureRmVirtualNetwork `
+      $vnet1 = New-AzVirtualNetwork `
       -ResourceGroupName myResourceGroup `
       -Name 'myVnet1' `
       -AddressPrefix '10.0.0.0/16' `
       -Location eastus
     ```
 
-7. 在透過不同部署模型建立的兩個虛擬網路之間，建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<subscription id>` 。 如果您不知道您的訂用帳戶識別碼，請輸入 `Get-AzureRmSubscription` 命令來檢視它。 傳回之輸出中的 **Id** 值就是您的訂用帳戶 ID。 若要執行指令碼，請從您的文字編輯器中複製修改過的指令碼，接著在 PowerShell 工作階段中按一下滑鼠右鍵，然後按 `Enter`。
+7. 在透過不同部署模型建立的兩個虛擬網路之間，建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<subscription id>` 。 如果您不知道您的訂用帳戶識別碼，請輸入 `Get-AzSubscription` 命令來檢視它。 傳回之輸出中的 **Id** 值就是您的訂用帳戶 ID。 若要執行指令碼，請從您的文字編輯器中複製修改過的指令碼，接著在 PowerShell 工作階段中按一下滑鼠右鍵，然後按 `Enter`。
 
     ```powershell
     # Peer VNet1 to VNet2.
-    Add-AzureRmVirtualNetworkPeering `
+    Add-AzVirtualNetworkPeering `
       -Name myVnet1ToMyVnet2 `
       -VirtualNetwork $vnet1 `
       -RemoteVirtualNetworkId /subscriptions/<subscription Id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2
     ```
 
-8. 在指令碼執行之後，檢閱虛擬網路 (Resource Manager) 的對等互連。 請複製下列命令並貼到您的 PowerShell 工作階段中，然後按 `Enter`：
+8. 执行该脚本后，请检查虚拟网络（资源管理器）的对等互连。 請複製下列命令並貼到您的 PowerShell 工作階段中，然後按 `Enter`：
 
     ```powershell
-    Get-AzureRmVirtualNetworkPeering `
+    Get-AzVirtualNetworkPeering `
       -ResourceGroupName myResourceGroup `
       -VirtualNetworkName myVnet1 `
       | Format-Table VirtualNetworkName, PeeringState
@@ -202,8 +202,8 @@ ms.locfileid: "55819564"
 
     您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
-9. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-10. **選擇性**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-powershell)的步驟。
+9. **可选**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
+10. **可选**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-powershell)的步驟。
 
 ## <a name="delete"></a>刪除資源
 
@@ -236,10 +236,10 @@ ms.locfileid: "55819564"
 1. 輸入下列命令來刪除虛擬網路 (Resource Manager)：
 
     ```powershell
-    Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+    Remove-AzResourceGroup -Name myResourceGroup -Force
     ```
 
-2. 若要使用 PowerShell 來刪除虛擬網路 (傳統)，您必須修改現有的網路組態檔。 了解如何[匯出、更新及匯入網路組態檔](virtual-networks-using-network-configuration-file.md)。 針對本教學課程中使用的虛擬網路，請移除下列 VirtualNetworkSite 元素：
+2. 若要通过 PowerShell 删除虚拟网络（经典），必须修改现有网络配置文件。 了解如何[匯出、更新及匯入網路組態檔](virtual-networks-using-network-configuration-file.md)。 針對本教學課程中使用的虛擬網路，請移除下列 VirtualNetworkSite 元素：
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">

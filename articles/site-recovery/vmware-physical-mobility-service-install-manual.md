@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 862846c8ec544cf082d45cea650269b6518a016f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003539"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>在 VMware VM 和實體伺服器上手動安裝行動服務
 
@@ -65,29 +65,30 @@ ms.locfileid: "53790804"
 
 1. 將安裝程式複製到您想要保護之伺服器上的本機資料夾 (例如 C:\Temp)。 
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. 依以下方式進行安裝：
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 
 3. 向設定伺服器註冊代理程式。
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="installation-settings"></a>安裝設定
+
 **設定** | **詳細資料**
 --- | ---
-使用量 | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+使用量 | UnifiedAgent.exe /Role <MS\|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 安裝記錄檔 | 在 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 底下。
 /Role | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 /InstallLocation| 選擇性參數。 指定行動服務安裝位置 (任何資料夾)。
@@ -95,6 +96,7 @@ ms.locfileid: "53790804"
 /Silent| 選用。 指定是否要以無訊息模式執行安裝程式。
 
 #### <a name="registration-settings"></a>註冊設定
+
 **設定** | **詳細資料**
 --- | ---
 使用量 | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
@@ -106,33 +108,35 @@ ms.locfileid: "53790804"
 ### <a name="on-a-linux-machine"></a>在 Linux 機器上
 
 1. 將安裝程式複製到您想要保護之伺服器上的本機資料夾 (例如 /tmp)。 在終端機中執行下列命令：
-  ```
-  cd /tmp ;
+   ```
+   cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+   tar -xvzf Microsoft-ASR_UA*release.tar.gz
+   ```
 2. 依以下方式進行安裝：
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+   ```
+   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   ```
 3. 安裝完成後，行動服務必須向組態伺服器註冊。 執行下列命令來向組態伺服器註冊行動服務：
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+   ```
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   ```
 
 
 #### <a name="installation-settings"></a>安裝設定
+
 **設定** | **詳細資料**
 --- | ---
-使用量 | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
+使用量 | ./install -d <Install Location> -r <MS\|MT> -v VmWare -q
 -r | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 -d | 選擇性參數。 指定行動服務安裝位置：/usr/local/ASR。
 -v | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。 
 -q | 選用。 指定是否要以無訊息模式執行安裝程式。
 
 #### <a name="registration-settings"></a>註冊設定
+
 **設定** | **詳細資料**
 --- | ---
 使用量 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
@@ -140,5 +144,6 @@ ms.locfileid: "53790804"
 -P |  必要。 儲存複雜密碼之檔案的完整檔案路徑。 請使用任何有效的資料夾
 
 ## <a name="next-steps"></a>後續步驟
+
 - [為 VMware VM 設定災害復原](vmware-azure-tutorial.md)
 - [為實體伺服器設定災害復原](physical-azure-disaster-recovery.md)

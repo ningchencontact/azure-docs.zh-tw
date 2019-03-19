@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: e87a63a0dad5e1f93b1bea62039abee8ded78ab7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 0a2e5982832dcf1747389eb78c6a1b1cb5762b64
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964096"
 ---
 ## <a name="test-your-app"></a>測試應用程式
 
 1. 針對您的裝置/模擬器執行程式碼。
-2. 嘗試使用 Azure Active Directory 帳戶 (公司或學校帳戶) 或 Microsoft account (live.com、outlook.com) 登入。 
+2. 嘗試使用 Azure Active Directory 帳戶 （公司或學校帳戶） 或 Microsoft 帳戶 （live.com、 outlook.com） 登入。 
 
     ![測試您的應用程式](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>

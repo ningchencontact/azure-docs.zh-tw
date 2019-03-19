@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 64c38d6e7400d49903323159f23b395a8c2c334f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: adacce5c8307f3be972920bd3aef6d8ea912eb30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991989"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流  
 > [!div class="op_single_selector"]
@@ -41,12 +41,12 @@ ms.locfileid: "55998199"
 
 ## <a name="prerequisites"></a>必要條件
 
-* [建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)
+* [创建 Azure 媒体服务帐户](media-services-portal-create-account.md)
 * 確定有執行中的「串流端點」。 如需詳細資訊，請參閱 [在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 啟動工具並連接到您的 AMS 帳戶。
 
-## <a name="tips"></a>祕訣
+## <a name="tips"></a>提示
 
 * 請盡可能使用實體的有線網際網路連線。
 * 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
@@ -117,7 +117,7 @@ ms.locfileid: "55998199"
 
     瀏覽回到 AMSE 工具，並檢查通道的完成狀態。 狀態從 [啟動中] 變更為 [執行中] 後，您便可取得輸入 URL。
 
-    頻道執行時，以滑鼠右鍵按一下頻道名稱，向下瀏覽讓滑鼠游標停留在 [複製輸入 URL 到剪貼簿]，然後選取 [主要輸入 URL]。  
+    频道正在运行时，右键单击频道名称，向下导航，将鼠标悬停在“将输入 URL 复制到剪贴板”上方，然后选择“主要输入 URL”。  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
 9. 在 Tricaster 專案中，於 [Flash Server] 下的 [位置] 欄位貼上這項資訊。 此外也請在 [資料流 ID]  欄位中指派串流名稱。
@@ -152,7 +152,7 @@ ms.locfileid: "55998199"
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
 2. 為程式命名，並視需要調整 [封存時間長度] \(預設為 4 小時)。 您也可以指定儲存體位置，或保留為預設值。  
 3. 勾選 [現在啟動程式]  方塊。
-4. 按一下 [建立程式] 。  
+4. 单击“创建节目” 。  
 
     >[!NOTE]
     >建立程式時所使用的時間會比建立通道時少。

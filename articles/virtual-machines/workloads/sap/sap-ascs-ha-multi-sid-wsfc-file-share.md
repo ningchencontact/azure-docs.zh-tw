@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004599"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -48,7 +48,7 @@ ms.locfileid: "55745013"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -347,7 +347,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![圖 5：多重 SID SOFS 與 SAP GLOBAL 主機名稱 2 相同][sap-ha-guide-figure-8016]
+![圖 5：在 「 容錯移轉叢集管理員 」 中的第二個 Volume2][sap-ha-guide-figure-8016]
 
 _**圖 5：**「容錯移轉叢集管理員」中的第二個 Volume2_
 
@@ -403,26 +403,31 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 _**圖 6：** 啟動 [新增檔案共用] 精靈_
 
 <br>
-![圖 7︰「選取 SMB 共用 - 快速」][sap-ha-guide-figure-8018]
+
+![圖 7︰「 快速選取 SMB 共用 」][sap-ha-guide-figure-8018]
 
 _**圖 7：** 選取 [SMB 共用 - 快速]_
 
 <br>
+
 ![圖 8︰選取 [sapglobalhost2] 並在 Volume2 上指定路徑][sap-ha-guide-figure-8019]
 
 _**圖 8︰** 選取 [sapglobalhost2] 並在 Volume2 上指定路徑_
 
 <br>
-![圖 9︰將檔案共用名稱設定為 [sapmnt]][sap-ha-guide-figure-8020]
+
+![圖 9：將檔案共用名稱設定為 「 sapmnt 」][sap-ha-guide-figure-8020]
 
 _**圖 9︰** 將檔案共用名稱設定為 [sapmnt]_
 
 <br>
+
 ![圖 10︰停用所有設定][sap-ha-guide-figure-8021]
 
 _**圖 10︰** 停用所有設定_
 
 <br>
+
 請針對下列項目將 [ 完全控制] 權限指派給檔案和 sapmnt 共用：
 * **SAP_\<SID>_GlobalAdmin** 網域使用者群組
 * ASCS/SCS 叢集節點 **ascs-1$** 和 **ascs-2$** 的電腦物件
@@ -432,16 +437,19 @@ _**圖 10︰** 停用所有設定_
 _**圖 11︰** 將「完全控制」指派給使用者群組和電腦帳戶_
 
 <br>
+
 ![圖 12︰選取 [建立]][sap-ha-guide-figure-8023]
 
 _**圖 12︰** 選取 [建立]_
 
 <br>
-![圖 13：已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt][sap-ha-guide-figure-8024]
+
+![圖 13：第二個 sapmnt 繫結至 sapglobal2 主機和 Volume2 建立][sap-ha-guide-figure-8024]
 
 _**圖 13：** 已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt_
 
 <br>
+
 ## <a name="install-sap-netweaver-multi-sid"></a>安裝 SAP NetWeaver 多重 SID
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>安裝 SAP \<SID2> ASCS/SCS 和 ERS 執行個體

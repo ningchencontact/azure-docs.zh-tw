@@ -8,16 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: b219e9475151ecd14d8b45db9501a06cde05875b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470591"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182399"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>針對 Azure Event Grid 張貼到自訂主題
 
 本文說明如何將事件張貼到自訂主題。 它會顯示貼文與事件資料的格式。 [服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) 只適用於符合預期格式的貼文。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="endpoint"></a>端點
 
@@ -34,7 +36,7 @@ az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "e
 若要使用 Azure PowerShell 取得自訂主題的端點，請使用：
 
 ```powershell
-(Get-AzureRmEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
+(Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
 ## <a name="header"></a>頁首
@@ -52,7 +54,7 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 若要使用 PowerShell 取得自訂主題的索引鍵，請使用：
 
 ```powershell
-(Get-AzureRmEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
+(Get-AzEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
 ```
 
 ## <a name="event-data"></a>事件資料

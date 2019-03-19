@@ -7,16 +7,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 182a936e97cd6ed2527d618dfe777ae861c757e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816912"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182246"
 ---
 # <a name="filter-events-for-event-grid"></a>針對事件格線篩選事件
 
 本文示範如何在建立事件格線訂用帳戶期間篩選事件。 若要了解適用於事件篩選的選項，請參閱[了解適用於事件格線訂用帳戶的事件篩選](event-filtering.md)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="filter-by-event-type"></a>依事件類型進行篩選
 
@@ -27,7 +29,7 @@ ms.locfileid: "55816912"
 ```powershell
 $includedEventTypes = "Microsoft.Resources.ResourceWriteFailure", "Microsoft.Resources.ResourceWriteSuccess"
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName demoSubToResourceGroup `
   -ResourceGroupName myResourceGroup `
   -Endpoint <endpoint-URL> `
@@ -82,9 +84,9 @@ az eventgrid event-subscription create \
 在下列 PowerShell 範例中，您會建立能依主旨開頭進行篩選的事件訂閱。 您會使用 `-SubjectBeginsWith` 參數來將事件限制為適用於特定資源的事件。 您會傳遞網路安全性群組的資源識別碼。
 
 ```powershell
-$resourceId = (Get-AzureRmResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
+$resourceId = (Get-AzResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -Endpoint <endpoint-URL> `
   -EventSubscriptionName demoSubscriptionToResourceGroup `
   -ResourceGroupName myResourceGroup `
@@ -94,9 +96,9 @@ New-AzureRmEventGridSubscription `
 下一個 PowerShell 範例會建立適用於 Blob 儲存體的訂閱。 它會將事件限制為具有以 `.jpg` 為結尾之主旨的事件。
 
 ```powershell
-$storageId = (Get-AzureRmStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
+$storageId = (Get-AzStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName demoSubToStorage `
   -Endpoint <endpoint-URL> `
   -ResourceId $storageId `
@@ -218,15 +220,15 @@ az eventgrid event-subscription create \
 $topicName = <your-topic-name>
 $endpointURL = <endpoint-URL>
 
-New-AzureRmResourceGroup -Name gridResourceGroup -Location eastus2
-New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
+New-AzResourceGroup -Name gridResourceGroup -Location eastus2
+New-AzEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
 
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
 
 $expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
 $AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint $endpointURL `
@@ -252,8 +254,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
 
 $eventID = Get-Random 99999
 $eventDate = Get-Date -Format s

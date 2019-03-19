@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 2051a14532f00f24be0c8cb0ca03a7b2b4078a45
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905149"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 Net# 類神經規格語言指南
 
@@ -216,17 +216,16 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 + **UpperPad** 和 **LowerPad**：(選用) 更能控制所要使用的填補量。 **重要事項：** 只有在***未***定義上述的 **Padding** 屬性時，才能定義這些屬性。 其值應為長度為套組 Arity 的整數值 Tuple。 在指定這些屬性時，將會在輸入層各個維度的下端和上端新增「虛擬」節點。 在每個維度中的下端和上端新增的節點數目，分別取決於 **LowerPad**[i] 和 **UpperPad**[i]。
 
     若要確定核心只會對應至「實際」節點而非「虛擬」節點，必須要符合下列條件：
-      - **LowerPad** 的每個元件皆務必小於 `KernelShape[d]/2`。
-      - **UpperPad** 的每個元件皆不可大於 `KernelShape[d]/2`。
-      - 這些屬性的預設值是所有元件皆等於 0 的 Tuple。
+  - **LowerPad** 的每個元件皆務必小於 `KernelShape[d]/2`。
+  - **UpperPad** 的每個元件皆不可大於 `KernelShape[d]/2`。
+  - 這些屬性的預設值是所有元件皆等於 0 的 Tuple。
 
     **Padding** = true 設定允許可將核心的「中心」保持在「真實」輸入內所需的填補量。 這麼做會略為改變輸出大小的計算方式。 一般而言，輸出大小 D 的計算方式為 `D = (I - K) / S + 1`，其中 `I` 是輸入大小，`K` 是核心大小，`S` 是分散，而 `/` 是整數除法 (趨近於零)。 如果您設定 UpperPad = [1, 1]，輸入大小 `I` 實際上是 29，因此 `D = (29 - 5) / 2 + 1 = 13`。 不過，當 **Padding** = true 時，基本上 `I` 會藉由 `K - 1` 而提高；因此 `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`。 藉由指定 **UpperPad** 和 **LowerPad** 的值，您對填補的控制權會遠遠超過只設定 **Padding** = true。
 
 如需迴旋網路及其應用程式的詳細資訊，請參閱下列文章：
 
-+ [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
-+ [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
++ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>集區套組
 
@@ -252,13 +251,13 @@ hidden P1 [5, 12, 12]
 
 如需集區層的詳細資訊，請參閱下列文章：
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (第 3.4 節)
-+ [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
-+ [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (第 3.4 節)
++ [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
++ [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
 ## <a name="response-normalization-bundles"></a>回應正規化套組
 
-**回應正規化**是一種本端正規化配置，最早是由 Geoffrey Hinton 等人發表於 [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 報告中。
+**回應正規化**是一種本端正規化配置，最早是由 Geoffrey Hinton 等人發表於 [ImageNet Classification with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 報告中。
 
 回應正規化可用來輔助類神經網路中的一般化。 當一個神經元在非常高的啟動層級上引發時，本端回應正規化層將會抑制周遭神經元的啟動層級。 此動作會使用三個參數 (`α`、`β` 和 `k`) 與迴旋結構 (或鄰區分布型態) 來完成。 目的地層中的每個神經元 **y**，會分別對應至來源層中的一個神經元 **x**。 **y** 的啟用層級來自於下列公式，其中，`f` 是神經元的啟用層級，`Nx` 是核心 (或是包含 **x** 的鄰區中各神經元的集合)，如下列迴旋結構所定義：
 
@@ -463,4 +462,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>通知
 
-自訂類神經網路架構的 Net# 語言是由 Shon Katzenberger (架構、機器學習服務) 和 Alexey Kamenev (軟體工程師、Microsoft Research) 在 Microsoft 開發。 它在內部用於機器學習服務專案與應用程式，範圍從映像偵測到文字分析。 如需詳細資訊，請參閱 [Azure Machine Learning Studio 中的類神經網路 - Net# 簡介](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+自訂類神經網路架構的 Net# 語言是由 Shon Katzenberger (架構、機器學習服務) 和 Alexey Kamenev (軟體工程師、Microsoft Research) 在 Microsoft 開發。 它在內部用於機器學習服務專案與應用程式，範圍從映像偵測到文字分析。 如需詳細資訊，請參閱 [Azure Machine Learning Studio 中的類神經網路 - Net# 簡介](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

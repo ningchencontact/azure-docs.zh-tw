@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244778"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088701"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>部署 StorSimple Virtual Array - 準備 Azure 入口網站
 
@@ -155,15 +155,15 @@ ms.locfileid: "54244778"
 3. 按一下 [新增] 。
 4. 在 [加入儲存體帳戶] 刀鋒視窗中，執行下列動作︰
    
-    1. 在 [訂用帳戶] 中，選取 [目前]。
+   1. 在 [訂用帳戶] 中，選取 [目前]。
    
-    2. 提供您 Azure 儲存體帳戶的名稱。
+   2. 提供您 Azure 儲存體帳戶的名稱。
    
-    3. 選取 [啟用]，為 StorSimple 裝置與雲端之間的網路通訊建立安全通道。 只有當您在私人雲端內操作時，才選取 [停用]。
+   3. 選取 [啟用]，為 StorSimple 裝置與雲端之間的網路通訊建立安全通道。 只有當您在私人雲端內操作時，才選取 [停用]。
    
-    4. 按一下 [新增]。 成功建立儲存體帳戶之後會通知您。<br></br>
+   4. 按一下 [新增]。 成功建立儲存體帳戶之後會通知您。<br></br>
    
-     ![新增現有儲存體帳戶認證](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![新增現有儲存體帳戶認證](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## <a name="next-step"></a>後續步驟
 

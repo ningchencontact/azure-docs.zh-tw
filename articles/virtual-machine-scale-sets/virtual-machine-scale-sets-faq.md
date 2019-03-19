@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978590"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999557"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -55,7 +55,7 @@ ms.locfileid: "55978590"
 
 **答：** 虛擬機器會跨更新網域和容錯網域從擴展集平均地移除，以達到最大的可用性。 系統會先移除具有最高識別碼的 VM。
 
-**問：** 如果我後續又將容量從 15 增加到 18 呢？
+**问：** 如果我後續又將容量從 15 增加到 18 呢？
 
 **答：** 如果您將容量增加到 18，則會建立 3 個新的 VM。 每次 VM 執行個體識別碼都會從上一個最高值遞增 (例如 20、21、22)。 VM 會平衡分散到容錯網域和更新網域。
 
@@ -140,7 +140,7 @@ ms.locfileid: "55978590"
 
 ## <a name="certificates"></a>憑證
 
-### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>如何安全地將憑證送至 VM？ 如何佈建虛擬機器擴展集來執行網站 (其中網站的 SSL 會安全地從憑證組態送出)？ (常見的憑證旋轉作業幾乎與組態更新作業相同。)您是否有如何進行此操作的範例？
+### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>如何安全地將憑證送至 VM？ 如何佈建虛擬機器擴展集來執行網站 (其中網站的 SSL 會安全地從憑證組態送出)？ (常見的憑證旋轉作業幾乎與組態更新作業相同。)您是否有如何進行這項操作的範例？
 
 若要安全地將憑證送至 VM，您可以將客戶憑證直接安裝至客戶金鑰保存庫中的 Windows 憑證存放區。
 
@@ -233,11 +233,11 @@ OS 設定檔也會使用於 [grelayhost.json GitHub 快速入門範本](https://
 }
 ```
 
-linuxConfiguration 元素名稱 | 必要 | 類型 | 說明
---- | --- | --- | --- |  ---
+linuxConfiguration 元素名稱 | 必要項 | 類型 | 描述
+--- | --- | --- | --- 
 ssh | 否 | 集合 | 指定 Linux OS 的 SSH 金鑰組態
-path | yes | 字串 | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
-keyData | yes | 字串 | 指定 base64 編碼的 SSH 公開金鑰
+path | 是 | 字串 | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
+keyData | 是 | 字串 | 指定 base64 編碼的 SSH 公開金鑰
 
 如需範例，請參閱 [101-vm-sshkey GitHub 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)。
 
@@ -307,9 +307,9 @@ CRP 元件不會保存客戶密碼。 如果您對虛擬機器擴展集中的所
 
 Azure Key Vault 文件表示「取得密碼 REST API」應傳回最新版的密碼 (若未指定版本的話)。
 
-方法 | URL
+方法 | 代码
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 將 {密碼-名稱} 替換為名稱，以及將 {密碼-版本} 替換為您想要擷取的密碼版本。 可能會排除密碼版本。 在此情況下會擷取目前的版本。
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 您可以在 `$vmss` 中找到 extensionName 值。
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>是否有與 Log Analytics 整合的虛擬機器擴展集範本範例？
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>是否有虛擬機器擴展集範本範例，可與 Azure 監視器記錄檔整合？
 
-如需與 Log Analytics 整合的虛擬機器擴展集範本範例，請參閱[部署 Azure Service Fabric 叢集並使用 Log Analytics 來啟用監視](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)中的第二個範例。
+針對虛擬機器擴展集範本範例，可與 Azure 監視器記錄檔整合，請參閱中的第二個範例[部署 Azure Service Fabric 叢集，並使用 Azure 監視器記錄檔來啟用監視](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)。
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>擴充功能似乎會在虛擬機器擴展集上平行執行。 這會導致自訂指令碼擴充功能失敗。 可以做什麼來修正這個問題？
 
@@ -535,7 +535,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>如何將虛擬機器擴展集中第一個 VM 的 IP 位址新增至範本的輸出？
 
-若要將虛擬機器擴展集中第一個 VM 的 IP 位址新增至範本的輸出，請參閱 [Azure Resource Manager：取得虛擬機器規模集私人 IP](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
+若要將虛擬機器擴展集中第一個 VM 的 IP 位址新增至範本的輸出，請參閱 [Azure Resource Manager：取得虛擬機器規模集私人 IP](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>我可以搭配加速的網路使用擴展集嗎？
 
@@ -658,15 +658,18 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 如需詳細資訊，請參閱[管理虛擬機器擴展集中的所有 VM](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)。
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>是否有可能將擴展集與 Azure Log Analytics 整合？
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>是否可以整合 Azure 監視器記錄檔中的擴展集？
 
-是，您可以藉由在擴展集 VM 上安裝 Log Analytics 擴充功能來整合。 Azure CLI 的範例如下：
+是，您可以藉由在標尺上安裝的 Azure 監視擴充功能設定 Vm。 Azure CLI 的範例如下：
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 您可以在 Azure 入口網站的 Log Analytics 工作區中找到所需的 workspaceId 和 workspaceKey。 在 [概觀] 頁面中，按一下 [設定] 圖格。 按一下頂端的 [連接的來源] 索引標籤。
 
-注意：如果您的擴展集 _upgradePolicy_ 設為 Manual，您必須透過呼叫升級，將擴充功能套用至集合中的所有虛擬機器。 在 CLI 中，這會是 _az vmss update-instances_。
+> [!NOTE]
+> 如果您的擴展集_upgradePolicy_設為 Manual，您需要透過呼叫升級，擴充功能套用到集合中的所有 Vm。 在 CLI 中，這會是 _az vmss update-instances_。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>疑難排解
 
@@ -718,3 +721,26 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 - 您想要更快速地啟動一組 VM，則可相應放大虛擬機器擴展集。
   - 關於這種情況，您可能已建立自己的自動調整引擎，並想要更快速的端對端擴展。
 - 您的虛擬機器擴展集並未平均分散於各容錯網域或更新網域。 這可能是因為您選擇性地刪除 VM，或是因為 VM 在過度佈建之後遭到刪除。 在虛擬機器擴展集上接續執行 `stop deallocate` 和 `start`，可讓 VM 平均分散於各容錯網域或更新網域。
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>我要如何建立 VMSS 執行個體的快照集？
+將 VMSS 執行個體中建立快照集。
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+從快照集建立受控的磁碟。
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d47c560515a13efa8346974e828f14f9a15f0e4a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729862"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121531"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>針對 Azure App Service 購買自訂網域名稱
 
@@ -43,7 +43,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
-開啟 [Azure 入口網站](https://portal.azure.com)並使用您的 Azure 帳戶登入。
+打开 [Azure 门户](https://portal.azure.com)，然后使用 Azure 帐户登录。
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>瀏覽至 Azure 入口網站中的應用程式
 
@@ -53,7 +53,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 您看到 App Service 應用程式的管理分頁。  
 
-### <a name="check-the-pricing-tier"></a>檢查定價層
+### <a name="check-the-pricing-tier"></a>检查定价层
 
 在應用程式分頁的左側導覽中，捲動到 [設定] 區段，然後選取 [相應增加 (App Service 方案)]。
 
@@ -102,7 +102,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 ### <a name="configure-the-domain-purchase"></a>設定網域購買
 
 在 [App Service 網域] 頁面的 [搜尋網域] 方塊中，輸入要購買的網域名稱，然後輸入 `Enter`。 建議的可用網域會顯示在文字方塊下方。 選取一或多個要購買的網域。
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -111,22 +111,22 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 >
 
 按一下 [連絡人資訊]，然後填寫網域的連絡人資訊表單。 完成之後，請按一下 [確定] 以返回 [App Service 網域] 頁面。
-   
-請務必填寫所有必要欄位，並盡可能正確填寫。 連絡資訊的資料若不正確，可能會導致無法購買網域。 
+
+請務必填寫所有必要欄位，並盡可能正確填寫。 連絡資訊的資料若不正確，可能會導致無法購買網域。
 
 接下來，請為網域選取所需選項。 請參閱下表中的說明：
 
-| 設定 | 建議的值 | 說明 |
+| 設定 | 建議的值 | 描述 |
 |-|-|-|
 |隱私權保護 | 啟用 | 選擇加入「隱私權保護」，此服務已 _免費_ 包含在購買價格中。 有些頂層網域受控於不支援隱私權保護的註冊機構，會將之列在 [隱私權保護] 頁面中。 |
-| 指派預設主機名稱 | **www** 和 **@** | 如有需要，請選取所需的主機名稱繫結。 網域購買作業完成時，即可從選取的主機名稱存取應用程式。 如果應用程式受 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)管理，您就不會看到指派根網域 (@) 的選項，因為流量管理員不支援 A 記錄。 您可以在網域購買完成之後變更主機名稱指派。 |
+| 指派預設主機名稱 | **www** 和 **\@** | 如有需要，請選取所需的主機名稱繫結。 網域購買作業完成時，即可從選取的主機名稱存取應用程式。 如果應用程式受 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)管理，您就不會看到指派根網域 (@) 的選項，因為流量管理員不支援 A 記錄。 您可以在網域購買完成之後變更主機名稱指派。 |
 
 ### <a name="accept-terms-and-purchase"></a>接受條款並購買
 
 按一下 [法律條款] 來檢閱條款與費用，然後按一下 [購買]。
 
 > [!NOTE]
-> App Service 網域使用 Azure DNS 來裝載網域。 除了網域註冊費之外，您也必須支付 Azure DNS 的使用費用。 如需相關資訊，請參閱 [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)。
+> App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。 除了網域註冊費之外，您也必須支付 Azure DNS 的使用費用。 如需相關資訊，請參閱 [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)。
 >
 >
 
@@ -146,7 +146,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-若要測試主機名稱，請在瀏覽器中瀏覽至列出的主機名稱。 在上方螢幕擷取畫面的範例中，嘗試瀏覽至 _kontoso.net_ 和 _www.kontoso.net_。
+若要測試主機名稱，請在瀏覽器中瀏覽至列出的主機名稱。 在上述螢幕擷取畫面的範例，請嘗試瀏覽至_kontoso.net_並_www\.kontoso.net_。
 
 ## <a name="assign-hostnames-to-app"></a>將主機名稱指派給應用程式
 
@@ -177,7 +177,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 在 [新增主機名稱] 對話方塊中，輸入 App Service 網域或任何子網域的完整網域名稱。 例如︰
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 完成之後，請選取 [驗證]。 系統會自動為您選取主機名稱記錄類型。

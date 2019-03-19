@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 23b627d480acf7bbbff7ade2ba6e596a57a15327
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993346"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079941"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>使用 Azure 入口網站，建立有多站台裝載的應用程式閘道
 
-您可以使用 Azure 入口網站，在建立[應用程式閘道](application-gateway-introduction.md)時設定[裝載多個站台](application-gateway-multi-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集建立後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
+您可以使用 Azure 入口網站，在建立[應用程式閘道](application-gateway-introduction.md)時設定[裝載多個站台](application-gateway-multi-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集建立後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有的多個網域，並使用範例*www\.contoso.com*並*www\.fabrikam.com*。
 
 在本文中，您將了解：
 
@@ -46,20 +46,20 @@ ms.locfileid: "52993346"
 2. 在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
 3. 針對應用程式閘道輸入這些值：
 
-    - myAppGateway - 作為應用程式閘道的名稱。
-    - myResourceGroupAG - 作為新資源群組。
+   - myAppGateway - 作為應用程式閘道的名稱。
+   - myResourceGroupAG - 作為新資源群組。
 
-    ![建立新的應用程式閘道](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
+     ![建立新的應用程式閘道](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
 4. 接受其他設定的預設值，然後按一下 [確定]。
 5. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
 
-    - myVNet - 作為虛擬網路的名稱。
-    - 10.0.0.0/16 - 作為虛擬網路位址空間。
-    - myAGSubnet - 作為子網路名稱。
-    - 10.0.0.0/24 - 作為子網路位址空間。
+   - myVNet - 作為虛擬網路的名稱。
+   - 10.0.0.0/16 - 作為虛擬網路位址空間。
+   - myAGSubnet - 作為子網路名稱。
+   - 10.0.0.0/24 - 作為子網路位址空間。
 
-    ![建立虛擬網路](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
+     ![建立虛擬網路](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
 6. 按一下 [確定] 以建立虛擬網路和子網路。
 7. 依序按一下 [選擇公用 IP 位址]、[新建]，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress。 接受其他設定的預設值，然後按一下 [確定]。
@@ -96,6 +96,8 @@ ms.locfileid: "52993346"
 
 ### <a name="install-iis"></a>安裝 IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. 開啟互動式殼層，並確定它是設定為 **PowerShell**。
 
     ![安裝自訂延伸模組](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
@@ -104,7 +106,7 @@ ms.locfileid: "52993346"
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ ms.locfileid: "52993346"
       -Settings $publicSettings
     ```
 
-3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 *fabrikamVM* 作為名稱，並作為 Set-AzureRmVMExtension 中的 VMName 值。
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入的名稱*fabrikamVM*的名稱，然後設定 AzVMExtension 中的 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 
@@ -134,11 +136,11 @@ ms.locfileid: "52993346"
 1. 按一下 [接聽程式]，然後按一下 [多站台]。
 2. 為接聽程式輸入這些值：
     
-    - contosoListener - 作為接聽程式的名稱。
-    - www.contoso.com - 以您的網域名稱取代此主機名稱範例。
+   - contosoListener - 作為接聽程式的名稱。
+   - *www\.contoso.com* -以您的網域名稱取代此主機名稱範例。
 
 3. 按一下 [確定]。
-4. 使用 fabrikamListener 的名稱建立第二個接聽程式，然後使用您的第二個網域名稱。 此範例中使用 www.fabrikam.com。
+4. 使用 fabrikamListener 的名稱建立第二個接聽程式，然後使用您的第二個網域名稱。 在此範例中， *www\.fabrikam.com*用。
 
 會以規則列出的順序進行處理，而且不論精確性為何，都會使用相符的第一個規則將流量進行導向。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。 
 

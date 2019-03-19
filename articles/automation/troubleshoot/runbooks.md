@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005430"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -38,7 +38,7 @@ Unknown_user_type: Unknown User Type
 
 為了判斷錯誤原因，請執行下列步驟：  
 
-1. 確定您不具任何特殊字元。 這些字元包括用來連線到 Azure 之自動化認證資產名稱中的 **@** 字元。  
+1. 確定您不具任何特殊字元。 這些字元包括用來連線到 Azure 之自動化認證資產名稱中的 **\@** 字元。  
 2. 請確認您可以在本機 PowerShell ISE 編輯器中使用儲存在 Azure 自動化認證的使用者名稱和密碼。 您可以在 PowerShell ISE 中執行下列 Cmdlet，以檢查使用者名稱和密碼是否正確：  
 
    ```powershell
@@ -133,7 +133,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 時的常見錯誤
 
-###<a name="child-runbook-object"></a>子 Runbook 會在輸出資料流包含物件而非簡單資料類型時傳回錯誤
+### <a name="child-runbook-object"></a>子 Runbook 會在輸出資料流包含物件而非簡單資料類型時傳回錯誤
 
 #### <a name="issue"></a>問題
 
@@ -303,7 +303,7 @@ The job was tried three times but it failed
 
 3. 模組不相容。 如果模組相依性不正確，就可能發生此錯誤，且當相依性不正確時，您的 Runbook 通常會傳回「找不到命令」或「無法繫結參數」訊息。
 
-4. 您的 Runbook 已嘗試呼叫 Runbook 中的可執行檔或子處理序，而該 Runbook 會在 Azure 沙箱中執行。 Azure 沙箱不支援此案例。
+4. 您的 runbook 會嘗試呼叫可執行檔或 subprocess 會在 Azure 的沙箱中執行的 runbook。 Azure 沙箱不支援此案例。
 
 #### <a name="resolution"></a>解決方案
 

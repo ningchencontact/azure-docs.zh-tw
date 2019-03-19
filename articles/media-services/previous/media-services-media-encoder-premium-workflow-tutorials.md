@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: ee0a57ae1ece63964c7873a471ca7ee615c06978
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d51f5328aec66eee0d8382026e8795db45a6a2c
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898785"
+ms.locfileid: "58189779"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>進階媒體編碼器 Premium 工作流程教學課程
 ## <a name="overview"></a>概觀

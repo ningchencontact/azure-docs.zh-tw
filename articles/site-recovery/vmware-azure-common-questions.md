@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 02/13/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 83c9a0baa4d853c8afcb5afe1c4e5cc4ed1e0073
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901843"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -33,16 +33,13 @@ ms.locfileid: "56235219"
 
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>在 Azure 中需要什麼？
-您需要 Azure 訂用帳戶、復原服務保存庫、儲存體帳戶和虛擬網路。 保存庫、儲存體帳戶和網路必須位於相同的區域中。
-
-### <a name="what-azure-storage-account-do-i-need"></a>我需要怎樣的 Azure 儲存體帳戶？
-您需要 LRS 或 GRS 儲存體帳戶。 我們建議使用 GRS，以便在發生區域性停電或無法復原主要區域時，能夠恢復資料。 可支援進階儲存體。
+您需要 Azure 訂用帳戶、 復原服務保存庫、 快取儲存體帳戶、 受控的磁碟和虛擬網路。 保存庫中，快取儲存體帳戶、 受管理磁碟和網路必須位於相同區域中。
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>我的 Azure 帳戶是否需要建立 VM 的權限？
-如果您是訂用帳戶管理員，則會具有所需的複寫權限。 如果您不是，則需要必要權限才能在您設定 Site Reocvery 時指定的資源群組和虛擬網路中建立 Azure VM，且需要寫入至所選儲存體帳戶的權限。 [深入了解](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
+如果您是訂用帳戶管理員，則會具有所需的複寫權限。 如果您不這樣做，您會需要建立 Azure VM 中的資源群組和您指定當您設定 Site Recovery 及寫入選取的儲存體帳戶的權限或受控磁碟會根據您設定的虛擬網路的權限。 [深入了解](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>可以在 Azure 上使用客體 OS 伺服器授權嗎？
-是，「微軟軟體保證」客戶可以使用 [Azure Hybrid Benefit](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/)，節省遷移至 Azure 之 **Windows Server 電腦**的授權成本，或使用 Azure 進行災害復原。
+是，「微軟軟體保證」客戶可以使用 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，節省遷移至 Azure 之 **Windows Server 電腦**的授權成本，或使用 Azure 進行災害復原。
 
 ## <a name="pricing"></a>價格
 
@@ -52,7 +49,28 @@ ms.locfileid: "56235219"
 
 ### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>如何計算使用 Site Recovery 期間的大約費用？
 
-您可以使用[定價計算機](https://aka.ms/asr_pricing_calculator)來估計使用 Azure Site Recovery 時的成本。 如需詳細的預估成本，請執行部署規劃工具 (https://aka.ms/siterecovery_deployment_planner)，並分析[成本估計報告](https://aka.ms/asr_DP_costreport)。
+您可以使用[定價計算機](https://aka.ms/asr_pricing_calculator)來估計使用 Azure Site Recovery 時的成本。 預估成本的詳細值，執行部署規劃工具 (https://aka.ms/siterecovery_deployment_planner)及分析[成本估計報告](https://aka.ms/asr_DP_costreport)。
+
+### <a name="is-there-any-difference-in-cost-when-i-replicate-directly-to-managed-disk"></a>是否有任何差異的成本時我將直接複寫到受控磁碟？
+
+受控的磁碟會被收取稍有不同的儲存體帳戶。 請參閱下列範例的來源磁碟大小 100 GiB。 此範例旨在差異儲存體成本。 這項成本不包含快照集、 快取儲存體和交易成本。
+
+* Vs 的標準儲存體帳戶。標準的 HDD 受控磁碟
+
+    - **佈建儲存體磁碟的 ASR**:S10
+    - **標準儲存體帳戶收取使用磁碟區**： 每月美金 5
+    - **收取已佈建的磁碟區上的標準受控的磁碟**： 每月美金 5.89
+
+* Vs premium 儲存體帳戶。進階 SSD 受控的磁碟 
+    - **佈建儲存體磁碟的 ASR**:P10
+    - **進階儲存體帳戶收取已佈建的磁碟區上**： 每月美金 17.92
+    - **進階受控的磁碟收取已佈建的磁碟區上**： 每月美金 17.92
+
+深入了解[詳細的受控磁碟定價](https://azure.microsoft.com/pricing/details/managed-disks/)。
+
+### <a name="do-i-incur-additional-charges-for-cache-storage-account-with-managed-disks"></a>我是否會負擔額外費用快取儲存體帳戶具有受控磁碟？
+
+否，您不會產生額外的費用，快取。 快取是一定的 VMware 至 Azure 架構的一部分。 當您複寫至標準儲存體帳戶時，此快取儲存體就會是相同的目標儲存體帳戶的一部分。
 
 ### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>我已經使用 Azure Site Recovery 一個多月了。 我的每個受保護的執行個體是否前 31 天仍然都免費？
 
@@ -107,7 +125,7 @@ Azure Site Recovery 會遵循 N-4 支援模型。 請參閱我們的[支援聲�
 
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>內部部署 VM 會複寫到何處？
-資料會複寫到 Azure 儲存體。 當您容錯移轉時，Site Recovery 會從儲存體帳戶自動建立 Azure VM。
+資料會複寫到 Azure 儲存體。 當您執行容錯移轉時，Site Recovery 會自動從儲存體帳戶中建立 Azure Vm，或受控磁碟上，根據您的組態。
 
 ## <a name="replication"></a>複寫
 
@@ -122,15 +140,31 @@ Azure Site Recovery 會遵循 N-4 支援模型。 請參閱我們的[支援聲�
 Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure 儲存體，或使用 ExpressRoute 公用對等互連進行複寫。 不支援透過站對站 VPN 網路的複寫。
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>是否可透過 ExpressRoute 複寫至 Azure？
-是的，ExpressRoute 可用來將 VM 複寫至 Azure。 Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體帳戶。 您必須設定[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)或 [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)，以使用 Site Recovery 複寫的 ExpressRoute。 Microsoft 對等互連是建議用於複寫的路由網域。 請確認也符合[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)以進行複寫。 VM 容錯移轉至 Azure 虛擬網路之後，您可以使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)加以存取。
+是的，ExpressRoute 可用來將 VM 複寫至 Azure。 Site Recovery 會透過公用端點，將資料複寫至 Azure 儲存體。 您必須設定[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)或 [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)，以使用 Site Recovery 複寫的 ExpressRoute。 Microsoft 對等互連是建議用於複寫的路由網域。 請確認也符合[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)以進行複寫。 VM 容錯移轉至 Azure 虛擬網路之後，您可以使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)加以存取。
 
 ### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>虛擬機器受保護之後如何變更儲存體帳戶？
 
-儲存體帳戶只能升級為進階。 如果您想要使用其他儲存體帳戶，您需要停用來源機器的複寫，然後使用新的儲存體帳戶重新啟用保護。 除此之外，沒有其他方法可在啟用保護之後變更儲存體帳戶。
+您需要停用和啟用升級或降級的儲存體帳戶類型的複寫。
+
+### <a name="can-i-replicate-to-storage-accounts-for-new-machine"></a>我可以複寫到新的機器的儲存體帳戶？
+
+否，從 3 月 19'，您可以複寫至 Azure 上的受控磁碟從入口網站。 複寫至新的機器的儲存體帳戶才可透過 REST API 和 Powershell。 使用 API 2016-08-10 或 2018年-01-10 版本複寫到儲存體帳戶。
+
+### <a name="what-are-the-benefits-in-replicating-to-managed-disks"></a>複寫至受控磁碟的優點有哪些？
+
+閱讀有關[Azure Site Recovery 可簡化使用受控磁碟的災害復原](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/)。
+
+### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>機器受到保護之後，如何變更受控磁碟類型？
+
+是，您可以輕鬆地變更受控磁碟的類型。 [深入了解](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)。 不過，一旦變更受控的磁碟類型，請確定您等候最新的復原點，如果您要執行測試容錯移轉或容錯移轉後此活動會產生。
+
+### <a name="can-i-switch-the-replication-from-managed-disks-to-unmanaged-disks"></a>我可以切換至非受控磁碟的複寫從受控磁碟嗎？
+
+否，從切換 managed 到 unmanaged 不支援。
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>為何我無法透過 VPN 進行複寫？
 
-在複寫至 Azure 時，複寫流量會送到 Azure 儲存體帳戶的公用端點，因此您只能使用公用網際網路透過 ExpressRoute (公用對等互連) 進行複寫，VPN 無法運作。
+當您複寫至 Azure 時，複寫流量到達 「 Azure 儲存體的公用端點，因此您只能複寫透過公用網際網路透過 ExpressRoute （公用對等互連），和 VPN 無法運作。
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>複寫的 VM 有何需求？
 
@@ -143,13 +177,16 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 是，您可以在容錯轉時保留 IP 位址。 進行容錯移轉之前，請務必在 [計算與網路] 刀鋒視窗中提及目標 IP 位址。 此外，請務必在容錯移轉時將虛擬機器關機，以避免在容錯移轉時發生 IP 衝突。
 
 ### <a name="can-i-extend-replication"></a>我可以延伸複寫嗎？
-不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)中提出此功能的要求。
+不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)中提出這項功能的要求。
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可執行離線初始複寫？
-不支援此做法。 請在[意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出此功能的要求。
+不支援此做法。 請在 [意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。
 
 ### <a name="can-i-exclude-disks"></a>是否可排除磁碟嗎？
 是的，您可以將磁碟排除於複寫外。
+
+### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>我可以變更的目標 VM 大小或容錯移轉前的 VM 類型嗎？
+是，您可以變更類型或大小的 VM 容錯移轉之前隨時前往 計算和網路設定，從入口網站的複寫項目。
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>是否可使用動態磁碟來複寫 VM？
 動態磁碟可以複寫。 作業系統磁碟必須是基本磁碟。
@@ -161,7 +198,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 
 對於從 VMware 到 Azure 的複寫，您可以修改磁碟大小。 如果您想要新增磁碟，您必須新增磁碟，並重新啟用對 VM 的保護。
 
-### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>我是否可在不影響進行中複寫的情況下將內部部署電腦遷移至新的 Vcenter？
+### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>我可以移轉到新的 Vcenter 的內部部署機器上不會影響進行中的複寫？
 否，變更 Vcenter 或移轉會影響進行中的複寫。 您必須使用新的 Vcenter 設定 ASR，並為電腦啟用複寫。
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>我是否可以複寫至設有 Vnet (含 Azure 儲存體防火牆) 的快取/目標儲存體帳戶？
@@ -182,7 +219,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 
 ### <a name="what-are-the-requirements-for-the-configuration-server"></a>組態伺服器有何需求？
 
-請檢閱[先決條件](vmware-azure-deploy-configuration-server.md#prerequisites)。
+請檢閱[必要條件](vmware-azure-deploy-configuration-server.md#prerequisites)。
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>是否可以手動設定組態伺服器，而不要使用範本？
 建議您使用最新版的 OVF 範本來[建立組態伺服器 VM](vmware-azure-deploy-configuration-server.md)。 如果您因故無法這麼做 (例如您沒有 VMware 伺服器的存取權)，您可以從入口網站[下載統一安裝檔案](physical-azure-set-up-source.md)，並在 VM 上執行。
@@ -200,9 +237,11 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 建議對於組態伺服器進行定期排程的備份。 為了成功容錯回復，進行容錯回復的虛擬機器必須存在於組態伺服器資料庫，而且組態伺服器必須執行中且處於連線狀態。 您可在[此處](vmware-azure-manage-configuration-server.md)深入了解常見組態伺服器管理工作。
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>在設定組態伺服器時，是否可以手動下載並安裝 MySQL？
+
 是。 請下載 MySQL 並將它放在 **C:\Temp\ASRSetup** 資料夾中。 然後再手動加以安裝。 當您設定組態伺服器 VM 時，如果您接受條款，MySQL 在 [下載並安裝] 中就會列示為 [已安裝]。
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>是否可以不要下載 MySQL 而讓 Site Recovery 加以安裝？
+
 是。 請下載 MySQL 安裝程式，並將它放在 **C:\Temp\ASRSetup** 資料夾中。  當您設定組態伺服器 VM 時，只要接受條款，再按一下 [下載並安裝]，入口網站就會使用您新增的安裝程式來安裝 MySQL。
  
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>組態伺服器 VM 是否可用於任何其他位置？
@@ -267,6 +306,9 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 
 
 ## <a name="failover-and-failback"></a>容錯移轉和容錯回復
+### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>是否可用於處理序伺服器在內部部署容錯回復？
+強烈建議處理序伺服器在 Azure 中建立的容錯回復目的來避免發生資料傳輸的延遲。 此外，如果您將來源 Vm 網路以在組態伺服器的 Azure 公開網路，然後務必要使用在 Azure 中建立的容錯回復處理序伺服器。
+
 ### <a name="how-far-back-can-i-recover"></a>最多可復原至多久之前？
 針對 VMware 到 Azure 的復原，您可以使用的最舊復原點為 72 小時。
 
@@ -277,7 +319,7 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 Azure 是針對復原能力而設計的。 Site Recovery 設計成可根據 Azure SLA 容錯移轉至次要 Azure 資料中心。 當容錯移轉發生時，我們會確保您的中繼資料和保存庫都保留在您為保存庫選擇的相同地理區域中。
 
 ### <a name="is-failover-automatic"></a>容錯移轉是自動發生的嗎？
-[容錯移轉](site-recovery-failover.md)不會自動執行。 您可以在入口網站中按一下適當按鈕來起始容錯移轉，或是使用 [PowerShell](/powershell/module/azurerm.siterecovery) 來觸發容錯移轉。
+[容錯移轉](site-recovery-failover.md)不會自動執行。 您起始容錯移轉，在入口網站中，按一下，或您可以使用[PowerShell](/powershell/module/azurerm.siterecovery)觸發容錯移轉。
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>是否可容錯回復至不同的位置？
 是的，在容錯移轉至 Azure 之後，如果原始位置無法使用，您可以容錯回復至不同的位置。 [深入了解](concepts-types-of-failback.md#alternate-location-recovery-alr)。

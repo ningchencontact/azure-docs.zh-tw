@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4e28dff6235e869c9275a8b0ba8d80252a9ea792
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 6a9a819e75e487999a2b50ae758b8d9c6c716a4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167371"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084890"
 ---
 # <a name="general-claims-transformations"></a>一般宣告轉換
 
@@ -48,7 +48,7 @@ ms.locfileid: "55167371"
 ### <a name="example"></a>範例
 
 - 輸入宣告：
-    - **inputClaim**：someone@contoso.com
+  - **inputClaim**：someone@contoso.com
 - 輸出宣告： 
     - **outputClaim**：true
 

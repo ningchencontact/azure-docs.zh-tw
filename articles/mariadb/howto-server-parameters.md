@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0576941c803dfed6359fe34b67370eaf3f99c7e7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 4b83917a76cb4b3e24ca4f5961d3a00c4d2c9cb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077253"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MariaDB 的 Azure 資料庫中設定伺服器參數
 
@@ -38,7 +38,7 @@ ms.locfileid: "53538254"
 InnoDB 緩衝集區和連線數目上限無法設定，且與您的[定價層](concepts-pricing-tiers.md)有關。
 
 |定價層| **vCore(s)**|**InnoDB 緩衝集區 (MB)**| **連線數目上限**|
-|---|---|---|---|--|
+|---|---|---|---|
 |基本| 1| 1024| 50|
 |基本| 2| 2560| 100|
 |一般用途| 2| 3584| 300|

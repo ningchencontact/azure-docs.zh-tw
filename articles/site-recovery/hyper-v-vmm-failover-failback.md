@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107013"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>將複寫的 Hyper-V VM 容錯移轉及容錯回至次要內部部署網站
 
@@ -49,7 +49,7 @@ ms.locfileid: "53788013"
 - 對非預期的中斷情形使用定期容錯移轉。 當您執行此容錯移轉時，Site Recovery 會在次要網站中建立 VM，然後將它啟動。 視尚未同步處理的擱置中資料而定，可能會發生資料遺失。
 - 規劃的容錯移轉可用於維護，或在預期的中斷期間使用。 此選項會提供資料零遺失。 觸發規劃的容錯移轉時，來源 VM 會關閉。 系統會同步處理未同步處理的資料，並觸發容錯移轉。 
 - 
-此程序說明如何執行定期容錯移轉。
+  此程序說明如何執行定期容錯移轉。
 
 
 1. 在 [設定] > [複寫的項目] 中，按一下 VM > [容錯移轉]。

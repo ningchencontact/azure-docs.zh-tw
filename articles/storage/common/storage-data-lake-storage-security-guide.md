@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008204"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake Storage Gen2 安全性指南
 
@@ -45,11 +45,11 @@ Azure Data Lake Storage Gen2 是一組建置在 Azure 儲存體帳戶上的功�
 
 本指南著重於 Resource Manager 模型的部署，也就是建立儲存體帳戶與 Data Lake Storage Gen2 功能的方法。 使用 Resource Manager 儲存體帳戶，而不是提供整個訂用帳戶的存取權，您可以使用角色型存取控制 (RBAC)，來控制更限定層級上對管理平面的存取。
 
-### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>如何使用角色型存取控制 (RBAC) 保護儲存體帳戶
+### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>如何使用基于角色的访问控制 (RBAC) 来保护存储帐户
 
 讓我們討論何謂 RBAC 及使用方式。 每一個 Azure 訂用帳戶都具有 Azure Active Directory。 您可以為來自該目錄的使用者、群組和應用程式授與存取權，以便在使用資源管理員部署模型的 Azure 訂用帳戶中管理資源。 這種安全性稱為「角色型存取控制」(RBAC)。 若要管理此存取權，請在 Azure 入口網站中使用**存取控制 (IAM)**。
 
-使用資源管理員模型，您可以將儲存體帳戶放置於資源群組中，並使用 Azure Active Directory 來控制該特定儲存體帳戶之管理平面的存取。 例如，您可以為特定使用者提供存取儲存體帳戶金鑰的能力，而其他使用者可以檢視儲存體帳戶的相關資訊，但是無法存取儲存體帳戶金鑰。
+使用資源管理員模型，您可以將儲存體帳戶放置於資源群組中，並使用 Azure Active Directory 來控制該特定儲存體帳戶之管理平面的存取。 例如，可以授权特定用户访问存储帐户密钥，而其他用户可以查看有关存储帐户的信息，但无法访问存储帐户密钥。
 
 #### <a name="granting-access"></a>授與存取權
 
@@ -64,7 +64,7 @@ Azure Data Lake Storage Gen2 是一組建置在 Azure 儲存體帳戶上的功�
 
   * 擁有者 – 他們可以管理一切，包括存取權。
   * 參與者 – 他們可以執行擁有者可執行的所有動作，但指派存取權除外。 擁有此角色的使用者可以檢視和重新產生儲存體帳戶金鑰。 他們可以使用儲存體帳戶金鑰來存取資料物件。
-  * 讀者 – 他們可以檢視儲存體帳戶 (密碼除外) 的相關資訊。 例如，如果您將儲存體帳戶中具有讀者權限的角色指派給某人，他們就能檢視儲存體帳戶的屬性，但無法對屬性進行任何變更或檢視儲存體帳戶金鑰。
+  * 读者 – 他们可以查看有关存储帐户的信息（机密除外）。 例如，如果您將儲存體帳戶中具有讀者權限的角色指派給某人，他們就能檢視儲存體帳戶的屬性，但無法對屬性進行任何變更或檢視儲存體帳戶金鑰。
   * 儲存體帳戶參與者 – 他們可以管理儲存體帳戶 – 他們可以讀取訂用帳戶的資源群組和資源，以及建立和管理訂用帳戶資源群組部署。 他們也可以存取儲存體帳戶金鑰，這表示他們可以存取資料平面。
   * 使用者存取系統管理員 – 他們可以管理儲存體帳戶的使用者存取權。 例如，他們可將「讀者」權限授與特定的使用者。
   * 虛擬機器參與者 – 他們可以管理虛擬機器，但是無法管理他們連接的儲存體帳戶。 這個角色可以列出儲存體帳戶金鑰，這表示您指派此角色的使用者可以更新資料平面。
@@ -88,15 +88,15 @@ Azure Data Lake Storage Gen2 是一組建置在 Azure 儲存體帳戶上的功�
 
 儲存體帳戶金鑰是 Azure 所建立的 512 位元字串，搭配儲存體帳戶名稱就能用來存取儲存在儲存體帳戶中的資料物件，例如 Blob、資料表內的實體、佇列訊息，以及 Azure 檔案共用上的檔案。 控制儲存體帳戶金鑰的存取，就能控制該儲存體帳戶之資料平面的存取。
 
-每個儲存體帳戶在 [Azure 入口網站](http://portal.azure.com/) 和 PowerShell Cmdlet 中都有兩個稱為「金鑰 1」和「金鑰 2」的金鑰。 您可以使用下列其中一種方法手動重新產生它們，包括 (但不限於) 使用 [Azure 入口網站](https://portal.azure.com/)、PowerShell、Azure CLI，或以程式設計方式使用 .NET 儲存體用戶端程式庫或 Azure 儲存體服務 REST API。
+每個儲存體帳戶在 [Azure 入口網站](https://portal.azure.com/) 和 PowerShell Cmdlet 中都有兩個稱為「金鑰 1」和「金鑰 2」的金鑰。 您可以使用下列其中一種方法手動重新產生它們，包括 (但不限於) 使用 [Azure 入口網站](https://portal.azure.com/)、PowerShell、Azure CLI，或以程式設計方式使用 .NET 儲存體用戶端程式庫或 Azure 儲存體服務 REST API。
 
 有許多原因會導致要重新產生儲存體帳戶金鑰。
 
 * 您可能會基於安全性理由定期重新產生它們。
 * 如果某人設法駭入應用程式並擷取硬式編碼或儲存於組態檔案中的金鑰，來為他們提供您儲存體帳戶的完整存取權，則您必須重新產生儲存體帳戶金鑰。
-* 重新產生金鑰的另一種情況是，如果您的小組使用儲存體總管應用程式，其中會保留儲存體帳戶金鑰，而其中一位小組成員離開時。 在他們離開之後，應用程式還會繼續運作，讓他們能夠存取您的儲存體帳戶。 這實際上是他們建立帳戶層級共用存取簽章的主要原因 – 您可以改用帳戶層級的 SAS，而不是將存取金鑰儲存於組態檔案中。
+* 重新產生金鑰的另一種情況是，如果您的小組使用儲存體總管應用程式，其中會保留儲存體帳戶金鑰，而其中一位小組成員離開時。 在他們離開之後，應用程式還會繼續運作，讓他們能夠存取您的儲存體帳戶。 这实际上是他们创建帐户级别共享访问签名的主要原因 – 可以改用帐户级别的 SAS，而不是将访问密钥存储在配置文件中。
 
-#### <a name="key-regeneration-plan"></a>金鑰重新產生計畫
+#### <a name="key-regeneration-plan"></a>密钥重新生成计划
 
 您不想在沒有任何規劃的情況下，只是重新產生所使用的金鑰。 如果您這麼做時，可能會切斷對該儲存體帳戶的所有存取權，而這會造成嚴重中斷。 這就是為什麼要有兩個金鑰。 您一次應該重新產生一個金鑰。
 
@@ -106,7 +106,7 @@ Azure Data Lake Storage Gen2 是一組建置在 Azure 儲存體帳戶上的功�
 
 當您準備好時，以下是一般程序，可詳細說明您應該如何變更金鑰。 在此案例中，假設您目前使用的是金鑰 1，而您想要變更所有項目以改用金鑰 2。
 
-1. 重新產生金鑰 2，以確保該金鑰是安全的。 您可以在 Azure 入口網站中執行此動作。
+1. 重新產生金鑰 2，以確保該金鑰是安全的。 可在 Azure 门户中执行此操作。
 2. 在儲存體金鑰儲存所在的所有應用程式中，變更儲存體金鑰以使用金鑰 2 的新值。 測試並發佈應用程式。
 3. 在所有應用程式和服務已啟動並執行成功之後，重新產生金鑰 1。 這確保您未明確提供新金鑰的任何人都將不再擁有儲存體帳戶的存取權。
 
@@ -183,7 +183,7 @@ http://mystorage.dfs.core.windows.net/myfilesystem/myfile.txt (URL to the file)
 
 #### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Azure 儲存體服務授權共用存取簽章的方式
 
-當儲存體服務收到要求時，它會取得輸入查詢參數，並使用與呼叫程式相同的方法來建立簽章。 然後比較這兩個簽章。 如果它們同意，儲存體服務接著可以檢查儲存體服務版本，以確定它是有效的、檢查目前的日期和時間是在指定時段內、確定所要求的存取權會對應至所提出的要求，依此類推。
+當儲存體服務收到要求時，它會取得輸入查詢參數，並使用與呼叫程式相同的方法來建立簽章。 然后比较这两个签名。 如果它們同意，儲存體服務接著可以檢查儲存體服務版本，以確定它是有效的、檢查目前的日期和時間是在指定時段內、確定所要求的存取權會對應至所提出的要求，依此類推。
 
 例如，利用上述的 URL，如果 URL 指向檔案而不是 Blob，此要求便會失敗，因為它指定共用存取簽章適用於 Blob。 如果呼叫的 REST 命令會更新 Blob，則該命令會失敗，因為共用存取簽章指定只准許讀取權限。
 
@@ -240,7 +240,7 @@ http://mystorage.dfs.core.windows.net/myfilesystem/myfile.txt (URL to the file)
 
 ### <a name="transport-level-encryption--using-https"></a>Transport-Level Encryption – Using HTTPS
 
-您應該採取以確保 Azure 儲存體資料安全性的另一個步驟是在用戶端和 Azure 儲存體之間加密資料。 第一個建議是一律使用 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 通訊協定，可確保透過公用網際網路的安全通訊。
+您應該採取以確保 Azure 儲存體資料安全性的另一個步驟是在用戶端和 Azure 儲存體之間加密資料。 第一条建议是始终使用 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 协议，这可确保通过公共 Internet 进行安全通信。
 
 如果要有安全的通訊通道，呼叫 REST API 或存取儲存體中的物件時，您應該一律使用 HTTPS。 此外， **共用存取簽章** (可用來委派 Azure 儲存體物件的存取權) 包含一個選項，可指定在使用共用存取簽章時只能使用 HTTPS 通訊協定，以確保任何使用 SAS 權杖送出連結的人都將使用正確的通訊協定。
 

@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870925"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>使用 Azure Functions 來管理 Azure SQL 資料倉儲中的計算資源
 
@@ -57,14 +57,14 @@ ms.locfileid: "55470190"
 
 4. 在 [排程] 區域中，新增時間、您想要的 CRON 運算式，以反映 SQL 資料倉儲相應增加的頻率。 
 
-  ![變更函式排程](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![變更函式排程](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  `schedule` 的值是包含以下 6 個欄位的 [CRON 運算式](http://en.wikipedia.org/wiki/Cron#CRON_expression)︰ 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   `schedule` 的值是包含以下 6 個欄位的 [CRON 運算式](https://en.wikipedia.org/wiki/Cron#CRON_expression)︰ 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  例如，*"0 30 9 * * 1-5"* 會反映在每個工作日上午 9:30 執行的觸發程序。 如需詳細資訊，請瀏覽 Azure Functions [排程範例][schedule examples]。
+   例如，*"0 30 9 * * 1-5"* 會反映在每個工作日上午 9:30 執行的觸發程序。 如需詳細資訊，請瀏覽 Azure Functions [排程範例][schedule examples]。
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>變更調整規模作業的時間

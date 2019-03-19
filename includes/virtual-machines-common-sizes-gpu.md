@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bbf619f27c9239ea1b42287c7e81f23da1d43fcb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: HT
+ms.openlocfilehash: c2908ef5c67665b5ba48879626370f977634dc83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57350444"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190642"
 ---
 GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製化虛擬機器。 這些大小是專門針對計算密集型、圖形密集型及視覺效果的工作負載所設計。 本文章提供有關 GPU、vCPU、資料磁碟及 NIC 之數量和類型的資訊。 另說明此群組中每個大小的輸送量和網路頻寬。 
 
@@ -37,10 +37,10 @@ NC 系列 VM 是由 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | GPU 記憶體：GiB | 最大資料磁碟 | 最大 NIC |
 | --- | --- | --- | --- | --- | --- | --- | ---- |
-| Standard_NC6 |6 |56 | 340 | 1 | 8 | 24 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 | 16 | 48 | 2 |
-| Standard_NC24 |24 |224 | 1440 | 4 | 32 | 64 | 4 |
-| Standard_NC24r* |24 |224 | 1440 | 4 | 32 | 64 | 4 |
+| Standard_NC6 |6 |56 | 340 | 1 | 12 | 24 | 1 |
+| Standard_NC12 |12 |112 | 680 | 2 | 24 | 48 | 2 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 48 | 64 | 4 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 48 | 64 | 4 |
 
 1 GPU = 1/2 K80 卡。
 
@@ -52,7 +52,7 @@ NC 系列 VM 是由 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/
 
 進階儲存體快取：支援
 
-NCv2 系列 VM 是由 [NVIDIA Tesla P100](https://www.nvidia.com/data-center/tesla-p100/) GPU 提供技術支援。 這些 GPU 可提供 NC 系列 2 倍以上的計算效能。 客戶可針對儲槽模型、DNA 定序、蛋白質分析、蒙地卡羅模擬等傳統 HPC 工作負載，善用這些更新過的 GPU。 NC24rs v2 組態提供低延遲且高輸送量網路介面，最適合用於緊密結合的平行計算工作負載。
+NCv2 系列 VM 是由 [NVIDIA Tesla P100](https://www.nvidia.com/en-us/data-center/tesla-p100/) GPU 提供技術支援。 這些 GPU 可提供 NC 系列 2 倍以上的計算效能。 客戶可針對儲槽模型、DNA 定序、蛋白質分析、蒙地卡羅模擬等傳統 HPC 工作負載，善用這些更新過的 GPU。 NC24rs v2 組態提供低延遲且高輸送量網路介面，最適合用於緊密結合的平行計算工作負載。
 
 > [!IMPORTANT]
 > 對於這個大小的系列，一開始會在您的訂用帳戶中，將每個區域中的 vCPU (核心) 配額設為 0。 在[可用區域](https://azure.microsoft.com/regions/services/)中，針對這個系列[要求增加 vCPU 配額](../articles/azure-supportability/resource-manager-core-quotas-request.md)。
@@ -75,7 +75,7 @@ NCv2 系列 VM 是由 [NVIDIA Tesla P100](https://www.nvidia.com/data-center/tes
 
 進階儲存體快取：支援
 
-NCv3 系列 VM 是由 [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPU 提供技術支援。 這些 GPU 可提供 NCv2 系列 1.5 倍的計算效能。 客戶可針對儲槽模型、DNA 定序、蛋白質分析、蒙地卡羅模擬等傳統 HPC 工作負載，善用這些更新過的 GPU。 NC24rs v3 組態提供低延遲且高輸送量網路介面，最適合用於緊密結合的平行計算工作負載。
+NCv3 系列 VM 是由 [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-center/tesla-v100/) GPU 提供技術支援。 這些 GPU 可提供 NCv2 系列 1.5 倍的計算效能。 客戶可針對儲槽模型、DNA 定序、蛋白質分析、蒙地卡羅模擬等傳統 HPC 工作負載，善用這些更新過的 GPU。 NC24rs v3 組態提供低延遲且高輸送量網路介面，最適合用於緊密結合的平行計算工作負載。
 
 > [!IMPORTANT]
 > 對於這個大小的系列，一開始會在您的訂用帳戶中，將每個區域中的 vCPU (核心) 配額設為 0。 在[可用區域](https://azure.microsoft.com/regions/services/)中，針對這個系列[要求增加 vCPU 配額](../articles/azure-supportability/resource-manager-core-quotas-request.md)。

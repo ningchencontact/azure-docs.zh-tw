@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b7e7b123560aae3a2d3086c8536969297d31f7ba
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d1751c47ad4507260d9f8d6ea44fcb32ed0e7338
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270968"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864723"
 ---
-# <a name="azure-data-factory-mapping-data-flow-filter-transformation"></a>Azure Data Factory 對應資料流程篩選條件轉換
+# <a name="azure-data-factoryfilter-transformation"></a>Azure 資料 FactoryFilter 轉換
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-篩選條件轉換會提供資料列篩選。 建置一個定義篩選條件的運算式。 在文字方塊中按一下，以啟動運算式建立器。 在運算式建立器中，建置一個篩選條件運算式，以控制允許目前資料流中的哪些資料列可以通過 (篩選) 到下一步的轉換。
+篩選條件轉換會提供資料列篩選。 建置一個定義篩選條件的運算式。 在文字方塊中按一下，以啟動運算式建立器。 在運算式建立器中，建置一個篩選條件運算式，以控制允許目前資料流中的哪些資料列可以通過 (篩選) 到下一步的轉換。 將 SQL 陳述式的 WHERE 子句篩選轉換。
 
-也就是 loan_status 資料行的篩選條件：
+## <a name="filter-on-loanstatus-column"></a>篩選 loan_status 資料行：
 
 ```
 in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
@@ -31,3 +31,7 @@ in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
 ```
 year > 1980
 ```
+
+## <a name="next-steps"></a>後續步驟
+
+請嘗試篩選轉換的資料行[選取轉換](data-flow-select.md)

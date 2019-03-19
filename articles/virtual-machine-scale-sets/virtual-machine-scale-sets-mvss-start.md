@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 601c23bbcddeaeff89e1d1b1a4be8cb6b0256e51
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54258776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008412"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虛擬機器擴展集範本
 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)是部署相關資源群組的絕佳方式。 本教學課程系列說明如何建立最基本的可行擴展集範本，以及如何修改此範本來配合各種案例。 所有範例皆來自這個 [GitHub 存放庫](https://github.com/gatneil/mvss)。 
@@ -40,7 +40,7 @@ ms.locfileid: "54258776"
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
 ## <a name="define-parameters"></a>定義參數
@@ -87,7 +87,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
 ```
 
 ## <a name="specify-virtual-network-properties"></a>指定虛擬網路屬性
-每個 Resource Manager 資源都有自己的 `properties` 區段，用於該資源的特定組態。 在此案例中，請指定虛擬網路應該有一個使用私人 IP 位址範圍 `10.0.0.0/16` 的子網路。 擴展集一律是包含在一個子網路內。 它不能跨子網路。
+每個 Resource Manager 資源都有自己的 `properties` 區段，用於該資源的特定組態。 在此案例中，請指定虛擬網路應該有一個使用私人 IP 位址範圍 `10.0.0.0/16` 的子網路。 擴展集一律是包含在一個子網路內。 它不能跨子网。
 
 ```json
        "properties": {
@@ -136,7 +136,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
 ```
 
 ### <a name="choose-type-of-updates"></a>選擇更新類型
-擴展集也需要知道如何處理擴展集上的更新。 目前有兩個選項：`Manual` 和 `Automatic`。 如需有關兩者之間差異的詳細資訊，請參閱有關[如何升級擴展集](./virtual-machine-scale-sets-upgrade-scale-set.md)的文件。
+擴展集也需要知道如何處理擴展集上的更新。 目前有兩個選項：`Manual` 和 `Automatic`。 有关这两者之间的区别的详细信息，请参阅文档[如何升级规模集](./virtual-machine-scale-sets-upgrade-scale-set.md)。
 
 ```json
        "properties": {

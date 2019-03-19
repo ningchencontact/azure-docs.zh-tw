@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170185"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>使用度量警示來監視 Runbook
 
@@ -36,6 +36,9 @@ ms.locfileid: "53185852"
 2. 您可以在 [設定訊號邏輯] 頁面中定義會觸發警示的邏輯。 歷程記錄圖表下會顯示兩個維度，即 [Runbook 名稱] 和 [狀態]。 維度是可用來篩選結果的不同計量屬性。 針對 [Runbook 名稱]，請選取需要警示的 Runbook，或將所有 Runbook 的警示保留為空白。 針對 [狀態]，請從下拉式清單中選取您要監視的狀態。 出現在下拉式清單中的 Runbook 名稱和狀態值，都僅屬於在過去一週執行的作業。
 
    如果您要使用警示的狀態或 Runbook 未顯示在下拉式清單中，請按一下維度旁的 **\+**。 此動作會開啟一個對話方塊，讓您輸入最近未針對該維度發出的自訂值。 如果您輸入屬性不存在的值，則不會觸發警示。
+
+   > [!NOTE]
+   > 如果您未套用的名稱**RunbookName**維度中，如果有任何 runbook 的符合狀態的準則，其中包括隱藏的系統 runbook，您會收到警示。
 
 3. 在 [警示邏輯] 下，定義警示的條件和閾值。 定義的條件會顯示如下的預覽。
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c49a6320b7ba37297a7c1c0775aef2c2d8c6c868
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104297"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883622"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>範例：建立使用文字翻譯 API 的自訂技能
 
@@ -39,7 +39,7 @@ ms.locfileid: "55104297"
 
 1. 在 [新增專案] 對話方塊中，選取 [已安裝]，展開 [Visual C#] > [雲端]，選取 [Azure Functions]，輸入專案的 [名稱]，然後選取 [確定]。 函式應用程式名稱必須是有效的 C# 命名空間，因此不會使用底線、連字號或任何其他非英數字元。
 
-1. 選取 [Azure Functions v2 (.Net Core)]。 您也可以使用第 1 版來執行，但下方撰寫的程式碼以 v2 範本為基礎。
+1. 選取  **Azure Functions v2 (.NET Core)**。 您也可以使用第 1 版來執行，但下方撰寫的程式碼以 v2 範本為基礎。
 
 1. 選取 [HTTP 觸發程序] 類型
 

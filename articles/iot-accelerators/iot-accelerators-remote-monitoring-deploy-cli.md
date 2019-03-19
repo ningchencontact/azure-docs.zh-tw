@@ -6,18 +6,18 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/30/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463213"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182127"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>使用 CLI 部署遠端監視解決方案加速器
 
-本操作指南會示範如何部署遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)快速入門。
+本操作指南會示範如何部署遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以部署解決方案 azureiotsolutions.com，在使用 web 型 UI，以了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)快速入門。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -49,7 +49,7 @@ pcs login
 
 部署解決方案加速器時，有數個可設定部署程序的選項：
 
-| 選項 | 值 | 說明 |
+| 選項 | 值 | 描述 |
 | ------ | ------ | ----------- |
 | SKU    | `basic`、`standard`, `local` | _basic_ 部署適用於測試和示範環境，它會將所有微服務部署至單一虛擬機器。 _standard_ 部署適用於生產環境，它會將微服務部署至數部虛擬機器。 _local_ 部署會將 Docker 容器設定為在本機電腦上執行微服務，並且使用 Azure 雲端服務 (例如儲存體和 Cosmos DB)。 |
 | 執行階段 | `dotnet`、`java` | 選取微服務的語言實作。 |
@@ -66,7 +66,7 @@ pcs login
 
 基本部署會在您的 Azure 訂用帳戶中建立下列服務︰
 
-| Count | 資源                       | 類型         | 用於 |
+| 計數 | 資源                       | 類型         | 用於 |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 虛擬機器](https://azure.microsoft.com/services/virtual-machines/) | 標準 D1 V2  | 裝載微服務 |
 | 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                  | S1 – 標準層 | 裝置管理與通訊 |
@@ -85,7 +85,7 @@ pcs login
 
 標準部署會在您的 Azure 訂用帳戶中建立下列服務︰
 
-| Count | 資源                                     | SKU / 大小      | 用於 |
+| 計數 | 資源                                     | SKU / 大小      | 用於 |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| 使用完全受控 Kubernetes 容器協調流程服務，預設為 3 個代理程式|
 | 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                     | S2 – 標準層 | 裝置管理、命令和控制 |

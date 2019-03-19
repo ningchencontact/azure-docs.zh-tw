@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124657"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872550"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 AS2 訊息
 
@@ -35,7 +35,7 @@ ms.locfileid: "43124657"
 
 ## <a name="create-an-as2-agreement"></a>建立 AS2 合約
 
-1.  登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。  
+1.  登入 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")。  
 
 2. 在主要 Azure 功能表上，選取 [所有服務]。 在搜尋方塊中輸入「整合」，然後選取 [整合帳戶]。
 
@@ -60,7 +60,7 @@ ms.locfileid: "43124657"
 
     ![提供合約詳細資料](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-    | 屬性 | 說明 |
+    | 屬性 | 描述 |
     | --- | --- |
     | 名稱 |合約的名稱 |
     | 合約類型 | 應該是 AS2 |
@@ -98,7 +98,7 @@ ms.locfileid: "43124657"
 
 您的合約現在已準備好處理符合您所選設定的內送訊息。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | 覆寫訊息屬性 |指出所接收訊息中可被覆寫的屬性。 |
 | 訊息應該簽署 |要求訊息必須經過數位簽署。 設定來賓合作夥伴公開憑證以進行簽章驗證。  |
@@ -143,7 +143,7 @@ ms.locfileid: "43124657"
 
 您的合約現在已準備好處理符合您所選設定的外寄訊息。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | 啟用訊息簽署 |要求傳送自合約的所有訊息都必須經過簽署。 |
 | MIC 演算法 |用於簽署訊息的演算法。 設定主控夥伴私人憑證 MIC 演算法以簽署訊息。 |

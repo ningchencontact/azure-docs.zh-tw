@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2a1785b9c749a8c413987974446190aafc08ed3a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105585"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>事件中樞專用的概觀
 
@@ -28,17 +28,17 @@ ms.locfileid: "56237122"
 
 下表比較事件中樞可用的服務層。 相較於大部分標準功能的使用量定價，事件中樞專用供應項目的每月費用固定。 專用層提供標準方案的所有功能，但可對工作負載需求高的客戶提供企業規模容量。 
 
-| 功能 | 標準 | 專用 |
-| --- |:---:|:---:|:---:|
-| 輸入事件 | 按百萬個事件付費 | 已包括 |
+| 功能 | 標準 | 专用 |
+| --- |:---:|:---:|
+| 輸入事件 | 按百萬個事件付費 | 已含 |
 | 輸送量單位 (每秒 1 MB 輸入，每秒 2 MB 輸出) | 按小時付費 | 已包括 |
 | 訊息大小 | 1 MB | 1 MB |
-| 發行者原則 | yes | yes |   
+| 發行者原則 | 是 | 是 |   
 | 用戶群組 | 20 | 20 |
-| 訊息重播 | yes | yes |
+| 消息重播 | 是 | 是 |
 | 最大輸送量單位 | 20 (可通融至 100)   | 1 容量單位 (CU) ≈ 50 |
 | 代理連線 | 包含 1,000 個 | 包含 10 萬個 |
-| 其他代理連線 | yes | yes |
+| 其他代理連線 | 是 | 是 |
 | 訊息保留期 | 含 1 天 | 最多含 7 天 |
 | 擷取 | 按小時付費 | 已包括 |
 

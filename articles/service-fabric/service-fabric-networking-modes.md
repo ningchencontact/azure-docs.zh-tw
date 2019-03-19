@@ -3,7 +3,7 @@ title: 設定 Azure Service Fabric 容器服務的網路模式 | Microsoft Docs
 description: 了解如何設定 Azure Service Fabric 所支援的不同網路模式。
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.author: aljo, subramar
+ms.openlocfilehash: 01b1cfafab75acef918b001752837a4dc44ca909
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093138"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899038"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
 
@@ -30,7 +30,7 @@ ms.locfileid: "55093138"
 當某個容器服務重新啟動或移到叢集中的另一個節點時，IP 位址便會變更。 因此，不建議使用以動態方式指派的 IP 位址來探索容器服務。 只有 Service Fabric 命名服務或 DNS 服務可用於服務探索。 
 
 >[!WARNING]
->Azure 針對每個虛擬網路皆允許最多 4,096 個 IP。 節點數目和 (使用 Open 模式的) 容器服務執行個體數目的總和，在虛擬網路內不能超過 4,096 個 IP。 針對高密度的情況，建議使用 nat 網路模式。
+>Azure 可讓每個虛擬網路的 65,356 Ip 總計。 節點數目和容器服務執行個體 （也就使用 Open 模式） 的數字的總和不得超過 65,356 Ip，虛擬網路內。 針對高密度的情況，建議使用 nat 網路模式。 此外，其他的相依性，例如負載平衡器會有其他[限制](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits)考量。 目前最多至 50 Ip 每個節點都已通過測試且經過實證的穩定。 
 >
 
 ## <a name="set-up-open-networking-mode"></a>設定 Open 網路模式
@@ -55,15 +55,6 @@ ms.locfileid: "55093138"
                             "name": "IPProviderEnabled",
                             "value": "true"
                       }
-                    ]
-                },
-                {
-                    "name":  "Trace/Etw", 
-                    "parameters": [
-                    {
-                            "name": "Level",
-                            "value": "5"
-                    }
                     ]
                 },
                 {
@@ -212,7 +203,7 @@ ms.locfileid: "55093138"
    |設定 |值 | |
    | --- | --- | --- |
    |優先順序 |2000 | |
-   |Name |Custom_Dns  | |
+   |名稱 |Custom_Dns  | |
    |來源 |VirtualNetwork | |
    |目的地 | VirtualNetwork | |
    |服務 | DNS (UDP/53) | |
@@ -223,7 +214,7 @@ ms.locfileid: "55093138"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <Description>Calculator Application</Description>
       <Parameters>
         <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>

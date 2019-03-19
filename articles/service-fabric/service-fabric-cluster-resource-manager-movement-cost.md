@@ -1,5 +1,5 @@
 ---
-title: Service Fabric 叢集 Resource Manager：移動成本 | Microsoft Docs
+title: Service Fabric 群集资源管理器：移動成本 |Microsoft Docs
 description: Service Fabric 服務的移動成本概觀
 services: service-fabric
 documentationcenter: .net
@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74b61967a796fca22ab86918235f1def27a22f91
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a4431f1d2e9a63ee7797100cc1092244d9a8b880
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204918"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101511"
 ---
 # <a name="service-movement-cost"></a>服務移動成本
 「Service Fabric 叢集資源管理員」在嘗試判斷要對叢集進行哪些變更時會考量一個因素，就是這些變更的成本。 「成本」的概念是針對叢集可以改善多少來做取捨。 成本在移動服務進行平衡、重組和其他需求時納入考量因素。 目標是以最沒有干擾、最便宜的方式符合需求。 
@@ -76,10 +76,11 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>移動成本的影響
-MoveCost 有四個層級：零、低、中和高。 除了零之外，MoveCosts 彼此具有相對性。 零移動成本表示移動是免費的，因此不應計入解決方案的分數。 將移動成本設定為 [高]，並「不」保證複本會待在一個地方。
+MoveCost 有四个级别：零、低、中和高。 除了零之外，MoveCosts 彼此具有相對性。 零移動成本表示移動是免費的，因此不應計入解決方案的分數。 將移動成本設定為 [高]，並「不」保證複本會待在一個地方。
 
 <center>
-![移動成本作為選取要移動之複本的因素][Image1]
+
+![移動成本作為選取複本進行移動的因素][Image1]
 </center>
 
 MoveCost 可協助您在達成對等的平衡時，尋找整體導致最少中斷且最容易達成的解決方案。 服務的成本概念可相對於許多事項。 計算您的移動成本時最常見的因素為：
@@ -100,7 +101,7 @@ ClusterManifest.xml：
         </Section>
 ```
 
-獨立部署透過 ClusterConfig.json，Azure 託管叢集透過 Template.json：
+通过用于独立部署的 ClusterConfig.json 或用于 Azure 托管群集的 Template.json：
 
 ```json
 "fabricSettings": [

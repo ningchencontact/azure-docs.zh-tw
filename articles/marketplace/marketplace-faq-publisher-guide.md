@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5ac8e35614d6f0514f60932bc34aa8cab2c0ad11
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894151"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542143"
 ---
 # <a name="marketplace-faqs"></a>Marketplace 常見問題集
 
@@ -66,10 +66,11 @@ Azure Marketplace 提供 SaaS 應用程式、虛擬機器、解決方案範本�
 
 您可以透過下列途徑購買 Azure Marketplace 供應項目：
 
-* [網路店面](https://azuremarketplace.microsoft.com/marketplace/apps)。
-* [Microsoft Azure 管理入口網站](https://portal.azure.com/)，或透過 [Azure Marketplace 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
+* [網路店面](https://azuremarketplace.microsoft.com/marketplace/apps)
+* [Microsoft Azure 管理入口網站](https://portal.azure.com/)，或透過[Azure Marketplace 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-注意：預付點數及其他形式的預付金無法用來支付軟體授權費用，但可用來支付相關聯的 Azure 使用費用。  列於 [Azure 預付金](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)的項目除外。
+>[!Note]
+>預付點數及其他形式的預付金無法用來支付軟體授權費用，但可用來支付相關聯的 Azure 使用費用。  列於 [Azure 預付金](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)的項目除外。
 
 **我可以選擇在哪個 Microsoft Azure 區域部署 Azure Marketplace 購買項目嗎？**
 
@@ -93,9 +94,11 @@ Azure Marketplace 供應項目的相依性不會自動受到管理。 在使用 
 
 **在哪些國家/地區可以購買透過 Azure Marketplace 銷售/佈建的應用程式和服務？**
 
-Azure Marketplace 開放給以下國家/地區的 Microsoft Azure 客戶使用：
+Azure Marketplace 是適用於 Microsoft Azure 客戶在中所列的國家/地區[參與原則](https://docs.microsoft.com/legal/marketplace/participation-policy)。
 
-阿爾及利亞、阿根廷、澳洲、奧地利巴林、白俄羅斯、比利時、巴西、保加利亞、加拿大、智利、哥倫比亞、哥斯大黎加、克羅埃西亞、賽普勒斯、捷克共和國、丹麥、多明尼加、厄瓜多、埃及、薩爾瓦多、愛沙尼亞、芬蘭、法國、德國、希臘、瓜地馬拉、香港特別行政區、匈牙利、冰島、印度、印尼、愛爾蘭、以色列、義大利、日本、約旦、哈薩克、肯亞、科威特、拉脫維亞、列支敦斯登、立陶宛、盧森堡、馬其頓、馬來西亞、馬爾他、墨西哥、蒙特內哥羅、摩洛哥、荷蘭、紐西蘭、奈及利亞、挪威、阿曼、巴基斯坦、巴拿馬、巴拉圭、秘魯、菲律賓、波蘭、葡萄牙、波多黎各、卡達、羅馬尼亞、俄羅斯、沙烏地阿拉伯、塞爾維亞、新加坡、斯洛伐克、斯洛維尼亞、南非、南韓、西班牙、斯里蘭卡、瑞典、瑞士、台灣、泰國、千里達及托巴哥、突尼西亞、土耳其、烏克蘭、阿拉伯聯合大公國、英國、美國、烏拉圭、委內瑞拉。
+**Azure Marketplace 支援哪些貨幣？**
+
+可為下列 17 貨幣進行交易：AUD、 BRL、 CAD、 CHF、 丹麥幣、 歐元、 GBP、 幣、 JPY、 KRW 韓元、 挪威克朗、 紐西蘭幣、 難處，瑞典克朗、 TWD 新台幣、 美元，RMB。
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>從 Azure Marketplace 部署解決方案
 
@@ -180,17 +183,17 @@ Azure 訂用帳戶會包含在發行者的獨立軟體廠商 (ISV) 解決方案�
 
 **我如何支付這些訂閱？我的 Azure Marketplace 購買會出現在 Azure 帳單上，還是會有另外的帳單？**
 
-Azure Marketplace 購買會沿用 Azure 訂用帳戶的相同付款方法。  這些購買除非能夠使用預付金，否則會與 Azure 使用量分開計費。
+MOSP- [Microsoft 線上訂閱方案](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en)(亦即 web direct) 客戶會被收取其 Azure 訂用帳戶設定檔的檔案上的相同信用卡。 如果您未登記信用卡，您無法從 Azure Marketplace 購買。 在此情況下，您將獲得特別豁免而改以 Azure 帳單付費。
 
-MOSP (Microsoft 線上訂閱方案，亦即 Web Direct) 客戶將透過其 Azure 訂用帳戶設定檔登記的相同信用卡支付費用。 如果客戶未登記信用卡 (經特別豁免而改以 Azure 帳單付費)，則無法從 Azure Marketplace 購買。
-
-Enterprise 合約 (EA) 客戶將透過其 EA 支付費用。 [Azure 預付金](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)中列出的特定 Azure Marketplace 供應項目會先從任何可用預付金中扣除，再以單季發票就超額的部分計費。 間接 EA、教育及政府客戶將由其授權方案提供者 (LSP) 收取費用。
+Enterprise 合約 (EA) 客戶將透過其 EA 支付費用。 此處列出的特定 Azure Marketplace 供應項目會先從任何可用預付金中扣除，再於單季發票以超額形式計費。 間接 EA、教育及政府客戶將由其授權方案提供者 (LSP) 收取費用。
 
 **我可以在哪裡檢視 Azure Marketplace 訂閱詳細資料和帳單資訊？**
 
-MOSP (Microsoft 線上訂閱方案，亦即 Web Direct) 客戶可以在 Azure 計費入口網站的 [Marketplace] 功能表下檢視 Marketplace 訂閱詳細資料。 從 Marketplace 購買虛擬機器的客戶，可以在 Microsoft Azure 管理入口網站中檢視其預估的應計費用。
+MOSP- [Microsoft 線上訂閱方案](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en)(web 直接) 客戶可以在 [發票] 索引標籤的 成本管理 + Azure 管理入口網站的 [帳務] 區段中，檢視 Marketplace 購買詳細資料。
 
-Enterprise 合約 (EA) 客戶可以在企業版入口網站帳單和帳戶管理檢視的 [Azure Marketplace] 索引標籤中，檢視 Marketplace 訂閱詳細資料。 注意：間接 EA 客戶只能查看供應項目和使用量資訊。 企業入口網站並不提供定價詳細資料。
+Enterprise 合約 (EA) 客戶可以檢視 發票 索引標籤的 成本管理 + Azure 管理入口網站的 帳務 區段中的 Marketplace 購買詳細資料。
+
+雲端解決方案提供者 (CSP) 合作夥伴可以檢視每個客戶在合作夥伴中心 [Order History] 索引標籤內 Marketplace 購買詳細資料之後選取 [客戶] 檢視中的公司。
 
 **如何取消 Azure VM 的 Azure Marketplace 附加元件？**
 
@@ -198,9 +201,9 @@ Enterprise 合約 (EA) 客戶可以在企業版入口網站帳單和帳戶管理
 
 **我的 Azure Marketplace 購買多久計費一次？**
 
-對於[列出的特定服務](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)，Enterprise 合約客戶可用的預付金會先扣掉使用這些服務當月的總費用。 不會從預付金當中扣除的所有 Azure Marketplace 供應項目，則會按月結算。
+列出，特定服務的 Enterprise 合約客戶第一次有可用的預付金扣掉使用的總費用為這些服務當月。 不會從預付金當中扣除的所有 Azure Marketplace 供應項目，則會按月結算。 年度 SaaS 訂用帳戶的計費方式一次完整的年服務。
 
-對於 MOSP (亦即 Web Direct) 客戶，會透過其 Azure 訂用帳戶設定檔上登記的相同信用卡按月收取費用。
+MOSP- [Microsoft 線上訂閱方案](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en)(web 直接) 客戶收取每月在其 Azure 訂用帳戶設定檔的檔案上的相同信用卡。 年度 SaaS 訂用帳戶的計費方式一次完整的年服務。
 
 **我如何將 Azure Marketplace 購買從 MOSP 訂用帳戶移至直接 Enterprise 合約 (EA) 訂用帳戶？**
 
@@ -246,7 +249,7 @@ Enterprise 合約 (EA) 客戶可以在企業版入口網站帳單和帳戶管理
 
 **如果不滿意，可以退貨嗎？**
 
-從 Azure Marketplace 購買的產品無法退貨，但可以取消/刪除。 取消/刪除訂閱後，後續月份就不會再收費。
+從購買的產品[Azure Marketplace](https://azuremarketplace.microsoft.com/)無法退貨，但可以取消/刪除。 根據供應項目會根據使用量計費的消耗因此當它停止時，費用也停止。 訂用帳戶已取消，並不會超過目前的計費期間計費。 如果訂用帳戶已取消購買 （每月和每年為 14 天 24 小時） 之後不久，提供全額退費。
 
 客戶如有 Marketplace 服務或購買方面的任何技術性問題，必須直接與發行者連絡。 您可在 Azure Marketplace 的解決方案詳細資料頁面上找到發行者連絡資訊及 (或) 支援網站的連結。
 
@@ -335,6 +338,10 @@ Microsoft 提供兩個不同的雲端市集店面 – Azure Marketplace 和 AppS
 **透過 Azure Marketplace 購買商品是否需要任何交易費用？**
 
 透過 Azure Marketplace 購買解決方案授權時，軟體授權收益由發行者與 Microsoft 拆分。  收益拆分方式以 [Marketplace 發行者合約](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf)中的條款和條件為依據。 此外，BYOL (自備授權) 的發行者解決方案不會產生任何交易費用。
+
+**什麼是標準的合約？**
+
+Microsoft 提供標準合約條款，讓客戶擁有簡化的採購及檢閱法律程序，若要利用，可以選取 「 發行者 」。
 
 **何處可以找到整合應用程式與 Azure Active Directory (AAD) 的相關指導方針？**
 
@@ -490,6 +497,35 @@ Azure Marketplace 供應項目的相依性不會自動受到管理。 請先仔�
 Azure Marketplace 開放給以下國家/地區的 Microsoft Azure 客戶使用：
 
 阿爾及利亞、阿根廷、澳洲、奧地利巴林、白俄羅斯、比利時、巴西、保加利亞、加拿大、智利、哥倫比亞、哥斯大黎加、克羅埃西亞、賽普勒斯、捷克共和國、丹麥、多明尼加、厄瓜多、埃及、薩爾瓦多、愛沙尼亞、芬蘭、法國、德國、希臘、瓜地馬拉、香港特別行政區、匈牙利、冰島、印度、印尼、愛爾蘭、以色列、義大利、日本、約旦、哈薩克、肯亞、科威特、拉脫維亞、列支敦斯登、立陶宛、盧森堡、馬其頓、馬來西亞、馬爾他、墨西哥、蒙特內哥羅、摩洛哥、荷蘭、紐西蘭、奈及利亞、挪威、阿曼、巴基斯坦、巴拿馬、巴拉圭、秘魯、菲律賓、波蘭、葡萄牙、波多黎各、卡達、羅馬尼亞、俄羅斯、沙烏地阿拉伯、塞爾維亞、新加坡、斯洛伐克、斯洛維尼亞、南非、南韓、西班牙、斯里蘭卡、瑞典、瑞士、台灣、泰國、千里達及托巴哥、突尼西亞、土耳其、烏克蘭、阿拉伯聯合大公國、英國、美國、烏拉圭、委內瑞拉。
+
+**如何定義以便在不同國家/地區中銷售我各地區上市？**
+
+1.  在 Cloud Partner 入口網站中，瀏覽至您要新增新的國家/地區的 SKU。  在 [SKU 詳細資料] 瀏覽到 「 國家/地區可用性 」 並按一下 「 選取的地區。 」
+
+    ![選取區域](media/marketplace-publishers-guide/FAQ-choose-geo.png)
+
+1.  使用所有可用的國家/地區來販售給清單就會出現。  按一下您想要提供此 SKU 的每個國家/地區旁邊的核取方塊。 按一下 [確定]。
+
+    ![選取國家/地區清單](media/marketplace-publishers-guide/FAQ-select-countries.png)
+
+1.  最後要套用至在上線優惠變更，按一下 [發佈]。  
+
+>[!Note]
+>將需要 24 小時，變更才會生效。
+
+<!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
+
+**發行者可以如何變更的現有供應項目在各地區上市？**
+
+「 發行者 」 可以編輯現有的供應項目，選取新的國家/地區，並使用試算表下載/上傳函式設定價格。
+
+**在哪些國家/地區可以客戶購買 Azure Marketplace 供應項目？**
+
+Azure Marketplace 支援 141 購買從地理位置，客戶的帳單地址所定義。 請參閱[參與原則](https://docs.microsoft.com/legal/marketplace/participation-policy)取得一份國家/地區。
+
+**Azure Marketplace 支援哪些貨幣？**
+
+可為下列 17 貨幣進行交易：AUD、 BRL、 CAD、 CHF、 丹麥幣、 歐元，GBP、 幣、 JPY、 KRW 韓元、 挪威克朗、 紐西蘭幣、 難處，瑞典克朗、 TWD 新台幣、 美元。
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>從 Azure Marketplace 部署解決方案
 

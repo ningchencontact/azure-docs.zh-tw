@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee78516cbed46174e98c483970a21d740eac6829
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 32d218e057fa040eded07f0adc813485ddaa52fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080094"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>針對應用程式 Proxy 問題和錯誤訊息進行疑難排解
 如果在存取已發佈的應用程式或發佈應用程式時發生錯誤，請檢查下列選項以查看 Microsoft Azure AD 應用程式 Proxy 是否運作正常︰
@@ -36,7 +36,7 @@ ms.locfileid: "56209620"
 ## <a name="the-page-is-not-rendered-correctly"></a>無法正確轉譯頁面
 您可能會遇到應用程式轉譯有問題或運作不正確，但沒有收到特定錯誤訊息的情況。 如果您已發佈文章路徑，但應用程式需要存在於該路徑以外的內容，就可能發生此問題。
 
-例如，如果您發佈的路徑是 https://yourapp/app，但應用程式呼叫的是 https://yourapp/media 中的影像，系統便不會轉譯那些影像。 請確定您是使用包含所有相關內容所需的最高層級路徑來發佈應用程式。 在此範例中會是 http://yourapp/。
+例如，如果您發佈的路徑是 `https://yourapp/app`，但應用程式呼叫的是 `https://yourapp/media` 中的影像，系統便不會轉譯那些影像。 請確定您是使用包含所有相關內容所需的最高層級路徑來發佈應用程式。 在此範例中會是 `http://yourapp/`。
 
 如果您變更路徑以包含參考的內容，但仍需要使用者登入該路徑中更深層的連結，請參閱部落格文章 [在 Azure AD 存取面板和 Office 365 應用程式啟動程式中為應用程式 Proxy 應用程式設定正確的連結](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)。
 
@@ -77,16 +77,16 @@ ms.locfileid: "56209620"
 | Error | 建議的步驟 |
 | ----- | ----------------- |
 | 網站無法顯示頁面。 | 如果應用程式是 IWA 應用程式，則使用者在嘗試存取此應用程式時可能會發生此錯誤。 為此應用程式定義的 SPN 可能不正確。 若是 IWA 應用程式，確定為此應用程式設定的 SPN 正確無誤。 |
-| 網站無法顯示頁面。 | 如果應用程式是 OWA 應用程式，則使用者在嘗試存取此應用程式時可能會發生此錯誤。 這可能是由下列下列其中一項所造成︰<br><li>為此應用程式定義的 SPN 不正確。 確定為此應用程式設定的 SPN 正確無誤。</li><li>嘗試存取應用程式的使用者使用 Microsoft 帳戶，而不是使用適當的公司帳戶進行登入，或使用者是來賓使用者。 確定使用者是使用符合已發佈應用程式之網域的公司帳戶進行登入。 Microsoft 帳戶使用者和來賓無法存取 IWA 應用程式。</li><li>未在內部部署端針對此應用程式正確地定義嘗試存取應用程式的使用者。 確定此使用者具有適當的權限，如在內部部署電腦上針對此後端應用程式所定義的權限。 |
+| 網站無法顯示頁面。 | 如果應用程式是 OWA 應用程式，則使用者在嘗試存取此應用程式時可能會發生此錯誤。 這可能是由下列下列其中一項所造成︰<br><li>為此應用程式定義的 SPN 不正確。 確定為此應用程式設定的 SPN 正確無誤。</li><li>嘗試存取應用程式的使用者使用 Microsoft 帳戶，而不是使用適當的公司帳戶進行登入，或使用者是來賓使用者。 確定使用者是使用符合已發佈應用程式之網域的公司帳戶進行登入。 Microsoft 帳戶使用者和來賓無法存取 IWA 應用程式。</li><li>此應用程式在內部部署端未正確地定義嘗試存取應用程式的使用者。 請確定此使用者具有適當的權限，針對此後端應用程式，在內部部署機器上所定義。 |
 | 無法存取此公司應用程式。 您未獲得授權存取此應用程式。 授權失敗。 務必將此應用程式的存取權指派給使用者。 | 如果使用者使用 Microsoft 帳戶而非其公司帳戶進行登入，則使用者在嘗試存取您發佈的應用程式時可能會發生此錯誤。 來賓使用者也可能會發生此錯誤。 Microsoft 帳戶使用者和來賓無法存取 IWA 應用程式。 確定使用者是使用符合已發佈應用程式之網域的公司帳戶進行登入。<br><br>您可能尚未對此應用程式指派使用者。 移至 [應用程式] 索引標籤，在 [使用者和群組] 底下，將此使用者或使用者群組指派給此應用程式。 |
-| 無法立即存取此公司應用程式。 請稍後再試...連接器已逾時。 | 如果未在內部部署端針對此應用程式正確地定義使用者，則使用者在嘗試存取此應用程式時可能會發生此錯誤。 確定使用者具有適當的權限，如在內部部署電腦上針對此後端應用程式所定義的權限。 |
+| 無法立即存取此公司應用程式。 請稍後再試...連接器已逾時。 | 嘗試存取您發佈，則為此應用程式在內部部署端未正確定義的應用程式時，使用者可能會發生此錯誤。 請確定您的使用者有適當的權限，針對此後端應用程式，在內部部署機器上所定義。 |
 | 無法存取此公司應用程式。 您未獲得授權存取此應用程式。 授權失敗。 確定使用者有 Azure Active Directory Premium 或 Basic 的授權。 | 如果訂閱者的系統管理員未明確將Premium/Basic 授權指派給使用者，則使用者在嘗試存取您發佈的應用程式時可能會發生此錯誤。 移至訂用帳戶的 Active Directory [授權]  索引標籤，並確定此使用者或使用者群組已被指派 Premium 或 Basic 授權。 |
 
 ## <a name="my-error-wasnt-listed-here"></a>此處未列出我的錯誤
 
 如果您遇到的 Azure AD 應用程式 Proxy 錯誤或問題沒有列在這份疑難排解指南中，我們想要知道更多。 請用電子郵件將該錯誤的詳細資料傳送給我們的[意見反應小組](mailto:aadapfeedback@microsoft.com)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [啟用 Azure Active Directory 的應用程式 Proxy](application-proxy-add-on-premises-application.md)
 * [使用應用程式 Proxy 發行應用程式](application-proxy-add-on-premises-application.md)
 * [啟用單一登入](application-proxy-configure-single-sign-on-with-kcd.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077848"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso 移轉：將內部部署 Linux 應用程式重新裝載至 Azure VM 和 Azure MySQL
 
@@ -127,7 +127,7 @@ Contoso 會按照下列方式完成移轉程序：
 > [!div class="checklist"]
 > * **步驟 1：針對 Site Recovery 準備 Azure**：他們建立一個 Azure 儲存體帳戶來保存複寫的資料，並建立復原服務保存庫。
 > * **步驟 2：針對 Site Recovery 準備內部部署 VMware**：此外，準備帳戶以便探索 VM 和安裝代理程式，並且準備在容錯移轉後連線至 Azure VM。
- * **步驟 3：佈建資料庫]**：在 Azure 中，他們會佈建 Azure MySQL 資料庫的執行個體。
+>   * **步驟 3：佈建資料庫]**：在 Azure 中，他們會佈建 Azure MySQL 資料庫的執行個體。
 > * **步驟 4：複寫 VM**：他們會設定 Site Recovery 的來源和目標環境、設定複寫原則，並開始將 VM 複寫至 Azure 儲存體。
 > * **步驟 5：遷移資料庫**：他們會利用 MySQL 工具設定移轉。
 > * **步驟 6：使用 Site Recovery 遷移 VM**：最後，他們會執行測試容錯移轉，確定一切都能正常運作，然後執行完整的容錯移轉，以便將 VM 遷移至 Azure。
@@ -147,10 +147,10 @@ Contoso 管理員會建立儲存體帳戶和保存庫，如下所示：
 
 1. 他們會在美國東部 2 區域中，建立儲存體帳戶 (**contosovmsacc20180528**)。
 
-    - 儲存體帳戶與復原服務保存庫必須位於相同的區域。
-    - 他們會使用一般用途的帳戶，並配備標準儲存體和 LRS 複寫。
+   - 儲存體帳戶與復原服務保存庫必須位於相同的區域。
+   - 他們會使用一般用途的帳戶，並配備標準儲存體和 LRS 複寫。
 
-    ![Site Recovery 儲存體](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Site Recovery 儲存體](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. 網路和儲存體帳戶準備就緒之後，他們會建立保存庫 (ContosoMigrationVault)，然後將它放在美國東部 2 主要區域的 **ContosoFailoverRG** 資源群組中。
 

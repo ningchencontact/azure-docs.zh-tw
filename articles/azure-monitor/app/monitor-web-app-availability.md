@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857143"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124315"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -92,7 +92,7 @@ ms.locfileid: "54857143"
 
     ![在 Visual Studio Enterprise 版本中，從「Web 效能」和「負載測試」範本建立專案。](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *沒看見 Web 效能和負載測試範本嗎？* - 關閉 Visual Studio Enterprise。 開啟 [Visual Studio 安裝程式] 以修改 Visual Studio Enterprise 安裝。 在 [個別元件] 之下，選取 [Web 效能和負載測試工具]。
+   * *沒看見 Web 效能和負載測試範本嗎？* - 關閉 Visual Studio Enterprise。 開啟 [Visual Studio 安裝程式] 以修改 Visual Studio Enterprise 安裝。 在 [個別元件] 之下，選取 [Web 效能和負載測試工具]。
 
 2. 開啟 .webtest 檔案，並開始記錄。
 
@@ -329,7 +329,8 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 * *是否支援 HTTPS？*
 
-    我們支援 TLS 1.1 和 TLS 1.2。
+    我們支援 TLS 1.1 和 TLS 1.2。 我們目前不會檢查 HTTPS 憑證錯誤。  
+
 * *「Web 測試」和「可用性測試」之間有任何差異嗎？*
 
     這兩個詞彙可能會交替參考。 可用性測試是更廣泛的詞彙，除了多重步驟 Web 測試以外，還包含單一 URL ping 測試。
@@ -368,7 +369,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 * 如果是有關可用性計量的警示 (或這方面的任何 Application Insights 計量)，[大量/群組] 核取方塊選項 (如已啟用) 就會傳送給訂用帳戶中具有擁有者、參與者或讀者角色的使用者。 實際上，「所有」有權存取 Application Insights 資源之訂用帳戶的使用者都在涵蓋範圍內，而且將會收到通知。 
 
 > [!NOTE]
-> 如果您目前使用 [大量/群組] 核取方塊選項並停用它，則您將無法還原變更。
+> 如果您目前使用 [大量/群組] 核取方塊選項並停用它，您將無法還原變更。
 
 如果您需要根據使用者的角色來通知他們，請使用新警示體驗/近乎即時警示。 使用[動作群組](../platform/action-groups.md)，您可以為具有任一個參與者/擁有者/讀者角色 (不會結合來作為單一選項) 的使用者設定電子郵件通知。
 

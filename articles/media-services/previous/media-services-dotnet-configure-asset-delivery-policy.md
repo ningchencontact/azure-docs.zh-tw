@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ac8596fd20802ccf487899de2c7d4c62ad6c552a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b5e733c93fef8920c73c8cf460dac7a7051fddb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180665"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>使用 .NET SDK 設定資產傳遞原則
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -34,9 +34,9 @@ ms.locfileid: "56003562"
 >
 >此外，為了能夠使用動態封裝和動態加密功能，您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。
 
-您可以將不同的原則套用至相同的資產。 例如，您可以將 PlayReady 加密套用到 Smooth Streaming，將 AES 信封加密套用到 MPEG DASH 和 HLS。 傳遞原則中未定義的任何通訊協定 (例如，您加入單一原則，它只有指定 HLS 做為通訊協定) 將會遭到封鎖無法串流。 例外情形是當您完全未定義資產傳遞原則時。 那麼，將允許所有通訊協定，不受阻礙。
+可以将不同的策略应用到同一个资产。 例如，您可以將 PlayReady 加密套用到 Smooth Streaming，將 AES 信封加密套用到 MPEG DASH 和 HLS。 傳遞原則中未定義的任何通訊協定 (例如，您加入單一原則，它只有指定 HLS 做為通訊協定) 將會遭到封鎖無法串流。 例外情形是當您完全未定義資產傳遞原則時。 那麼，將允許所有通訊協定，不受阻礙。
 
-如果您想要傳遞儲存體加密資產，就必須設定資產的傳遞原則。 資產可以串流處理之前，串流伺服器會移除儲存體加密，並使用指定的傳遞原則來串流您的內容。 例如，若要傳遞使用進階加密標準 (AES) 信封加密金鑰加密的資產，請將原則類型設定為 **DynamicEnvelopeEncryption**。 如果您要移除儲存體加密，並且不受阻礙地串流資產，請將原則類型設定為 **NoDynamicEncryption**。 下列範例示範如何設定這些原則類型。
+如果您想要傳遞儲存體加密資產，就必須設定資產的傳遞原則。 在流式传输资产之前，流式处理服务器会删除存储加密，再使用指定的传送策略流式传输用户的内容。 例如，若要傳遞使用進階加密標準 (AES) 信封加密金鑰加密的資產，請將原則類型設定為 **DynamicEnvelopeEncryption**。 如果您要移除儲存體加密，並且不受阻礙地串流資產，請將原則類型設定為 **NoDynamicEncryption**。 下列範例示範如何設定這些原則類型。
 
 視您如何設定資產傳遞原則而定，您可以動態封裝、加密及串流下列串流通訊協定：Smooth Streaming、HLS 與 MPEG DASH。
 
@@ -77,7 +77,7 @@ MPEG DASH
         asset.DeliveryPolicies.Add(policy);
     }
 ```
-## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 資產傳遞原則
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 资产传送策略
 
 下列 **CreateAssetDeliveryPolicy** 方法會建立 **AssetDeliveryPolicy**，而後者設定成將動態一般加密 (**DynamicCommonEncryption**) 套用至 Smooth Streaming 通訊協定 (將會封鎖其他通訊協定進行串流處理)。 此方法接受兩個參數：**Asset** (您要套用傳遞原則的資產) 和 **IContentKey** (**CommonEncryption** 類型的內容金鑰，如需詳細資訊，請參閱：[建立內容金鑰](media-services-dotnet-create-contentkey.md#common_contentkey)。
 
@@ -203,7 +203,7 @@ Azure 媒體服務也可讓您加入 Widevine 加密。 下列範例會示範 Pl
 
 ### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
 
-下列列舉描述您可以針對資產傳遞通訊協定設定的值。
+以下枚举说明可以为资产传送协议设置的值。
 
 ```csharp
     [Flags]
@@ -272,7 +272,7 @@ Azure 媒體服務也可讓您加入 Widevine 加密。 下列範例會示範 Pl
 ```
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
-下列列舉描述您可用來設定將內容金鑰傳遞給用戶端之方法的值。
+以下枚举说明可用于配置将内容密钥传送到客户端的方法的值。
   ```csharp  
     public enum ContentKeyDeliveryType
     {

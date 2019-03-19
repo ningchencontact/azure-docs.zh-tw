@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: aaebad004e5d426ca1c593941b15a2515c4476de
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118318"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>透過 Hortonworks 沙箱使用 HDInsight Tools for IntelliJ
 
@@ -53,20 +53,20 @@ ms.locfileid: "53635658"
    1. 選取 [HDInsight] > [HDInsight 上的 Spark (Scala)]。
    2. 在 [建置工具] 清單中，根據您的狀況選取下列項目：
 
-    * **Maven**：適用於支援 Scala 專案建立精靈。
-    * **SBT**：適用於管理 Scala 專案的相依性和建置。
+      * **Maven**：適用於支援 Scala 專案建立精靈。
+      * **SBT**：適用於管理 Scala 專案的相依性和建置。
 
    ![[新增專案] 對話方塊](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. 選取 [下一步] 。
 3. 在下一個 [新增專案] 對話方塊中，完成下列步驟：
 
-    1. 在 [專案名稱] 方塊中，輸入專案名稱。
-    2. 在 [專案位置] 方塊中，輸入專案位置。
-    3. 在 [專案 SDK] 下拉式清單旁邊，選取 [新增]，並選取 [JDK]，然後指定 Java JDK 1.7 版或更新版本的資料夾。 如果是 Spark 2.x 叢集，選取 **Java 1.8**。 如果是 Spark 1.x 叢集，選取 **Java 1.7**。 預設位置是 C:\Program Files\Java\jdk1.8.x_xxx。
-    4. 在 [Spark 版本] 下拉式清單中，Scala 專案建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]。 否則，請選取 [Spark2.x]。 此範例使用 Spark 1.6.2 (Scala 2.10.5)。 確定您使用標示為 **Scala 2.10.x** 的儲存機制。 請勿使用標示為 Scala 2.11.x 的儲存機制。
+   1. 在 [專案名稱] 方塊中，輸入專案名稱。
+   2. 在 [專案位置] 方塊中，輸入專案位置。
+   3. 在 [專案 SDK] 下拉式清單旁邊，選取 [新增]，並選取 [JDK]，然後指定 Java JDK 1.7 版或更新版本的資料夾。 如果是 Spark 2.x 叢集，選取 **Java 1.8**。 如果是 Spark 1.x 叢集，選取 **Java 1.7**。 預設位置是 C:\Program Files\Java\jdk1.8.x_xxx。
+   4. 在 [Spark 版本] 下拉式清單中，Scala 專案建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]。 否則，請選取 [Spark2.x]。 此範例使用 Spark 1.6.2 (Scala 2.10.5)。 確定您使用標示為 **Scala 2.10.x** 的儲存機制。 請勿使用標示為 Scala 2.11.x 的儲存機制。
     
-    ![建立 IntelliJ Scala 專案屬性](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+      ![建立 IntelliJ Scala 專案屬性](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
 4. 選取 [完成]。

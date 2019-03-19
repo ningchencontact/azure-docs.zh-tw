@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d10d39a65acd3664c99e8b5aa5cc015a76d9d1aa
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 89ae8bd4139623cfafe811b7c82433cfb8400611
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189660"
 ---
-# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>移難排解：無法在 Azure 資料總管中連線至叢集
+# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>疑難排解：無法在 Azure 資料總管中連線至叢集
 
 如果您無法在 Azure 資料總管中連線至叢集，請遵循下列步驟。
 
@@ -27,7 +27,7 @@ ms.locfileid: "50209372"
 
 1. 請確認叢集未遭到刪除：檢閱您訂用帳戶中的活動記錄檔。
 
-1. 查看 [Azure 服務健康情況儀表板](https://azure.microsoft.com/status/>)。 請在您要嘗試連線至叢集的區域中尋找 Azure 資料總管的狀態。
+1. 查看 [Azure 服務健康情況儀表板](https://azure.microsoft.com/status/)。 請在您要嘗試連線至叢集的區域中尋找 Azure 資料總管的狀態。
 
     如果狀態不是**良好** (綠色核取記號)，請在狀態改善之後嘗試連線至叢集。
 

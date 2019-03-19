@@ -8,46 +8,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: d430f6252157c5d34aa236ef88f8490b4ad6a184
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0a7a16a43b208bf2d14b86cd5cb23544ec03f9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497939"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877525"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
 本文說明如何使用 PowerShell 在 Windows Server 或 Windows 用戶端上設定 Azure 備份，以及管理備份和復原。
 
 ## <a name="install-azure-powershell"></a>安裝 Azure PowerShell
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-本文著重於可讓您在資源群組中使用復原服務保存庫的 Azure Resource Manager (ARM) 和 MS Online Backup PowerShell Cmdlet。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-在 2015 年 10 月，Azure PowerShell 1.0 已發行。 此版本繼承 0.9.8 版，且帶來一些重要的變更，尤其是 Cmdlet 的命名模式。 1.0 Cmdlet 遵循命名模式 {動詞}-AzureRm{名詞}；然而，0.9.8 的名稱不包含 **Rm** (例如，New-AzureRmResourceGroup，而不是 New-AzureResourceGroup)。 在使用 Azure PowerShell 0.9.8 時，您必須先執行 **Switch-AzureMode AzureResourceManager** 命令啟用資源管理員模式。 1.0 或更新版本不需要執行此命令。
-
-如果您想要使用針對 0.9.8 環境所撰寫的指令碼，在 1.0 或更新版本的環境中，您應該先在預先生產環境中小心地更新和測試指令碼，然後才在生產環境中使用它們，以避免產生非預期的影響。
-
-[下載最新版 PowerShell](https://github.com/Azure/azure-powershell/releases) (所需的最低版本為：1.0.0)
-
-[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+若要開始，[安裝最新版的 PowerShell](/powershell/azure/install-az-ps)。
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
 下列步驟將引導您完成建立復原服務保存庫。 復原服務保存庫不同於備份保存庫。
 
-1. 如果您是第一次使用 Azure 備份，您必須使用 **Register-AzureRMResourceProvider** Cmdlet 利用您的訂用帳戶來註冊 Azure 復原服務提供者。
+1. 如果您是第一次使用 Azure 備份，您必須使用 **Register-AzResourceProvider** Cmdlet 利用您的訂用帳戶來註冊 Azure 復原服務提供者。
 
     ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. 復原服務保存庫是 ARM 資源，因此您必須將它放在資源群組內。 您可以使用現有的資源群組，或建立一個新的群組。 建立新的資源群組時，請指定資源群組的名稱和位置。  
 
     ```
-    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "WestUS"
+    PS C:\> New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
-3. 使用 **New-AzureRmRecoveryServicesVault** Cmdlet 來建立新的保存庫。 請務必為保存庫指定與用於資源群組相同的位置。
+3. 使用**新增 AzRecoveryServicesVault** cmdlet 來建立新的保存庫。 請務必為保存庫指定與用於資源群組相同的位置。
 
     ```
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
+    PS C:\> New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 4. 指定要使用的儲存體備援類型；您可以使用[本地備援儲存體 (LRS)](../storage/common/storage-redundancy-lrs.md) 或[異地備援儲存體 (GRS)](../storage/common/storage-redundancy-grs.md)。 以下範例示範 testVault 設定為 GeoRedundant 的 BackupStorageRedundancy 選項。
 
@@ -57,17 +50,17 @@ ms.locfileid: "55497939"
    >
 
     ```
-    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
-    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    PS C:\> $vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
 ## <a name="view-the-vaults-in-a-subscription"></a>在訂用帳戶中檢視保存庫
-使用 **Get-AzureRmRecoveryServicesVault** 來檢視目前訂用帳戶中所有保存庫的清單。 您可以使用此命令來檢查是否已建立新的保存庫，或查看訂用帳戶中有哪些保存庫可用。
+使用**Get AzRecoveryServicesVault**來檢視目前的訂用帳戶中所有保存庫的清單。 您可以使用此命令來檢查是否已建立新的保存庫，或查看訂用帳戶中有哪些保存庫可用。
 
-執行命令時，會列出 **Get-AzureRmRecoveryServicesVault** 以及訂用帳戶中的所有保存庫。
+執行命令， **Get AzRecoveryServicesVault**，並會列出訂用帳戶中的所有保存庫。
 
 ```
-PS C:\> Get-AzureRmRecoveryServicesVault
+PS C:\> Get-AzRecoveryServicesVault
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -102,9 +95,9 @@ PS C:\> MARSAgentInstaller.exe /q
 
 若要查看已安裝的程式清單，請移至 [控制台] > [程式] > [程式和功能]。
 
-![已安裝代理程式](./media/backup-client-automation/installed-agent-listing.png)
+![已安装代理](./media/backup-client-automation/installed-agent-listing.png)
 
-### <a name="installation-options"></a>安裝選項
+### <a name="installation-options"></a>安装选项
 若要查看所有可透過命令列執行的選項，請使用下列命令：
 
 ```
@@ -113,7 +106,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 可用的選項包括：
 
-| 選項 | 詳細資料 | 預設值 |
+| 选项 | 詳細資料 | 預設值 |
 | --- | --- | --- |
 | /q |無訊息安裝 |- |
 | /p:"location" |Azure 備份代理程式的安裝資料夾路徑。 |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -131,7 +124,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 ```
 PS C:\> $credspath = "C:\downloads"
-PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
 ```
 
 在 Windows Server 或 Windows 用戶端電腦上，執行 [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) Cmdlet 向保存庫註冊電腦。
@@ -183,8 +176,8 @@ PS C:\> Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 
-## <a name="encryption-settings"></a>加密設定
-傳送至 Azure 備份的備份資料會進行加密來保護資料的機密性。 加密複雜密碼是在還原時用來解密資料的「密碼」。
+## <a name="encryption-settings"></a>加密设置
+傳送至 Azure 備份的備份資料會進行加密來保護資料的機密性。 加密通行短语是在还原时用于解密数据的“密码”。
 
 ```
 PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
@@ -200,10 +193,10 @@ Server properties updated successfully
 >
 
 ## <a name="back-up-files-and-folders"></a>備份檔案和資料夾
-Windows Server 和用戶端的所有 Azure 備份都是由原則來掌管。 原則包含三個部分：
+Windows Server 和用戶端的所有 Azure 備份都是由原則來掌管。 策略由三个部分组成：
 
 1. **備份排程** ，指定何時進行備份並與服務同步。
-2. **保留排程** 可指定要在 Azure 中保留復原點多久時間。
+2. **保留计划** ，用于指定要在 Azure 中保留恢复点的时长。
 3. **檔案包含/排除規格** ，指出要備份的項目。
 
 本文件中要說明如何將備份自動化，因此我們假設還未設定任何選項。 一開始，請先使用 [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) Cmdlet 建立新的備份原則。
@@ -212,7 +205,7 @@ Windows Server 和用戶端的所有 Azure 備份都是由原則來掌管。 原
 PS C:\> $newpolicy = New-OBPolicy
 ```
 
-此時，原則是空的，需要使用其他 Cmdlet 來定義要包含或排除的項目、執行備份的時機，以及儲存備份的位置。
+该策略暂时为空，需要使用其他 cmdlet 来定义要包含或排除的项、运行备份的时间，以及备份的存储位置。
 
 ### <a name="configuring-the-backup-schedule"></a>設定備份排程
 原則 3 部分的第 1 個部分是備份排程，請使用 [New-OBSchedule](https://technet.microsoft.com/library/hh770401) Cmdlet 建立。 備份排程會定義何時需要進行備份。 建立排程時，您需要指定 2 個輸入參數：
@@ -364,7 +357,7 @@ PolicyState     : Valid
 ```
 
 ### <a name="applying-the-policy"></a>套用原則
-現在原則物件已完成，且具有關聯的備份排程、保留原則及包含/排除的檔案清單。 此原則現在已經過認可，適合用於 Azure 備份。 套用新建立的原則之前，請使用 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) Cmdlet 確認沒有與伺服器未與現有的備份原則相關聯。 移除原則時，系統會提示確認。 若要略過確認，Cmdlet 中請使用 ```-Confirm:$false``` 。
+現在原則物件已完成，且具有關聯的備份排程、保留原則及包含/排除的檔案清單。 此原則現在已經過認可，適合用於 Azure 備份。 套用新建立的原則之前，請使用 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) Cmdlet 確認沒有與伺服器未與現有的備份原則相關聯。 移除原則時，系統會提示確認。 若要跳过确认，请在 cmdlet 中请使用 ```-Confirm:$false``` 标志。
 
 ```
 PS C:> Get-OBPolicy | Remove-OBPolicy

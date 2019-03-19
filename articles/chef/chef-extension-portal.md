@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084737"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>從 Azure 入口網站安裝 Chef 用戶端
 您可以從 Azure 入口網站直接將 Chef 用戶端擴充功能新增至 Linux 或 Windows 機器。 這篇文章會逐步引導您完成使用新 Linux 虛擬機器的程序。
@@ -30,7 +30,7 @@ ms.locfileid: "56327539"
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>在新的 Linux 虛擬機器上安裝 Chef 擴充功能
 在本節中，首先您會使用 Azure 入口網站建立 Linux 機器。 在過程中，您也會看到如何在新的虛擬機器上安裝 Chef 擴充功能。
 
-1. 瀏覽至 [Azure 入口網站](http://portal.azure.com)。
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 
 1. 從左邊的功能表上，選取 [虛擬機器] 選項。 如果 [虛擬機器] 選項未顯示，請選取 [所有服務]，然後選取 [虛擬機器]。
 
@@ -52,31 +52,31 @@ ms.locfileid: "56327539"
 
 1. 在 [基本] 索引標籤上，指定下列值，然後選取 [確定]。
 
-    - **名稱** - 輸入新虛擬機器的名稱。
-    - **虛擬機器磁碟類型** - 針對儲存體磁碟類型指定 **SSD** 或 **HDD**。 如需 Azure 上虛擬機器磁碟類型的詳細資訊，請參閱[選取磁碟類型](../virtual-machines/windows/disks-types.md)一文。
-    - **使用者名稱** - 輸入使用者名稱，系統已在虛擬機器上授與此使用者系統管理員權限。
-    - **驗證類型** - 選取 [密碼]。 您也可以選取 **SSH 公開金鑰**，並提供 SSH 公開金鑰值。 針對本示範的目的 (以及在快照集中)，會選取 [密碼]。
-    - **密碼**和**確認密碼** - 請輸入使用者的密碼。
-    - **使用 Azure Active Directory 進行登入** - 請選取 [停用]。
-    - **訂用帳戶** - 如果您有多個 Azure 訂用帳戶，請選取所需的訂用帳戶。
-    - **資源群組** - 請輸入資源群組的名稱。
-    - **位置** - 選取 [美國東部]。
+   - **名稱** - 輸入新虛擬機器的名稱。
+   - **虛擬機器磁碟類型** - 針對儲存體磁碟類型指定 **SSD** 或 **HDD**。 如需 Azure 上虛擬機器磁碟類型的詳細資訊，請參閱[選取磁碟類型](../virtual-machines/windows/disks-types.md)一文。
+   - **使用者名稱** - 輸入使用者名稱，系統已在虛擬機器上授與此使用者系統管理員權限。
+   - **驗證類型** - 選取 [密碼]。 您也可以選取 **SSH 公開金鑰**，並提供 SSH 公開金鑰值。 針對本示範的目的 (以及在快照集中)，會選取 [密碼]。
+   - **密碼**和**確認密碼** - 請輸入使用者的密碼。
+   - **使用 Azure Active Directory 進行登入** - 請選取 [停用]。
+   - **訂用帳戶** - 如果您有多個 Azure 訂用帳戶，請選取所需的訂用帳戶。
+   - **資源群組** - 請輸入資源群組的名稱。
+   - **位置** - 選取 [美國東部]。
 
-    ![用來建立虛擬機器的 [基本] 索引標籤](./media/chef-extension-portal/add-vm-basics.png)
+     ![用來建立虛擬機器的 [基本] 索引標籤](./media/chef-extension-portal/add-vm-basics.png)
 
 1. 請在 [選擇大小] 索引標籤上，選取虛擬機器的大小，然後選取 [選取]。
 
 1. 在 [設定] 索引標籤上，系統會根據您在上一個索引標籤中選取的值，為您填入大部分的值。 選取 [擴充功能]。
 
-    ![擴充功能會透過 [設定] 索引標籤新增至虛擬機器](./media/chef-extension-portal/add-vm-select-extensions.png)
+     ![擴充功能會透過 [設定] 索引標籤新增至虛擬機器](./media/chef-extension-portal/add-vm-select-extensions.png)
 
 1. 請在 [擴充功能] 索引標籤上，選取 [新增擴充功能]。
 
-    ![請選取 [新增擴充功能] 以將擴充功能新增至虛擬機器](./media/chef-extension-portal/add-vm-add-extension.png)
+     ![請選取 [新增擴充功能] 以將擴充功能新增至虛擬機器](./media/chef-extension-portal/add-vm-add-extension.png)
 
 1. 請在 [新增資源] 索引標籤上，選取 [Linux Chef 擴充功能 (1.2.3)]。
 
-    ![Chef 具有 Linux 和 Windows 虛擬機器的擴充功能](./media/chef-extension-portal/select-linux-chef-extension.png)
+     ![Chef 具有 Linux 和 Windows 虛擬機器的擴充功能](./media/chef-extension-portal/select-linux-chef-extension.png)
 
 1. 請在 [Linux Chef 擴充功能] 索引標籤上，選取 [建立]。
 
@@ -94,7 +94,7 @@ ms.locfileid: "56327539"
     - **加密 Databag 祕密** - 請選取包含加密 Databag 祕密的檔案，讓這部機器存取。 此項目可保留為空白。
     - **Chef 伺服器 SSL 憑證** - 請選取指派給 Chef 伺服器的 SSL 憑證。 此項目可保留為空白。
 
-    ![在 Linux 虛擬機器上安裝 Chef 伺服器](./media/chef-extension-portal/install-extension.png)
+      ![在 Linux 虛擬機器上安裝 Chef 伺服器](./media/chef-extension-portal/install-extension.png)
 
 1. 返回 [擴充功能] 索引標籤後，選取 [確定]。
 

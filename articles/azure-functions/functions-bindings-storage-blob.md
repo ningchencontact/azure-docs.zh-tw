@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 33f79569a2478c7e234b04ba2dee4e9b8883abae
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895885"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737776"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -95,7 +95,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需有關 `BlobTrigger` 屬性的詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
 
@@ -120,7 +120,7 @@ Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建�
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需 *function.json* 檔案屬性的詳細資訊，請參閱[設定](#trigger---configuration)一節中這些屬性的說明。
 
@@ -167,7 +167,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需 *function.json* 檔案屬性的詳細資訊，請參閱[設定](#trigger---configuration)一節中這些屬性的說明。
 
@@ -202,7 +202,7 @@ module.exports = function(context) {
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需 *function.json* 檔案屬性的詳細資訊，請參閱[設定](#trigger---configuration)一節中這些屬性的說明。
 
@@ -314,12 +314,12 @@ public void run(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `BlobTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `blobTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 例外狀況在[使用方式](#trigger---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。 | 
-|**路徑** | **BlobPath** |要監視的容器。  可能是 [Blob 名稱模式](#trigger---blob-name-patterns)。 | 
+|**路徑** | **BlobPath** |[要監](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)視的容器。  可能是 [Blob 名稱模式](#trigger---blob-name-patterns)。 | 
 |**連接** | **連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須是用於一般用途的儲存體帳戶，而不是[Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -348,7 +348,7 @@ public void run(
 
 ## <a name="trigger---blob-name-patterns"></a>觸發程序 - Blob 名稱模式
 
-您可以在 *function.json* 中的 `path` 屬性或 `BlobTrigger` 屬性建構函式中，指定 Blob 名稱模式。 名稱模式可以是[篩選條件或繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)。 下列各節提供相關範例。
+您可以在 *function.json* 中的 `path` 屬性或 `BlobTrigger` 屬性建構函式中，指定 Blob 名稱模式。 名稱模式可以是[篩選條件或繫結運算式](./functions-bindings-expressions-patterns.md)。 下列各節提供相關範例。
 
 ### <a name="get-file-name-and-extension"></a>取得檔案名稱和副檔名
 
@@ -391,7 +391,7 @@ public void run(
 
 Blob 觸發程序提供數個中繼資料屬性。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些值的語意與 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) 類型相同。
 
-|屬性  |類型  |說明  |
+|屬性  |類型  |描述  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|觸發 Blob 的路徑。|
 |`Uri`|`System.Uri`|Blob 的主要位置 URI。|
@@ -723,7 +723,7 @@ public static void Run(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Blob` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `blob`。 |
 |**direction** | n/a | 必須設為 `in`。 例外狀況在[使用方式](#input---usage)一節中會加以說明。 |
@@ -1057,7 +1057,7 @@ public static void Run(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Blob` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `blob`。 |
 |**direction** | n/a | 必須針對輸出繫結設定為 `out`。 例外狀況在[使用方式](#output---usage)一節中會加以說明。 |

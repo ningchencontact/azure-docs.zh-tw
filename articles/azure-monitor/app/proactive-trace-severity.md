@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: a593e42ed87ab985d4f4584ed6b73109716120bf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027336"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001225"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>追蹤嚴重性比率降低 (預覽)
 
@@ -26,7 +26,7 @@ ms.locfileid: "54027336"
 此功能不需任何特殊的設定，只需要為您的應用程式設定追蹤記錄 (請參閱如何為 [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) 或 [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs) 設定追蹤記錄檔接聽程式)。 當您的應用程式產生足夠的例外狀況遙測時，它就會是在作用中狀態。
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>何時會取得這個類型的智慧偵測通知？
-相較於過去七天所計算的基準，如果「良好」追蹤 (記錄了*資訊*或*詳細資訊*層級的追蹤) 與「不良」追蹤 (記錄了*警告*、*錯誤或*嚴重錯誤*層級的追蹤) 之間的比率在特定的日子變差，您可能會收到此類型的通知。
+您可能會收到這種類型的通知，如果 「 良好 」 追蹤之間的比率 (記錄層級的追蹤*Info*或*Verbose*) 與 「 不良 」 追蹤 (記錄層級的追蹤*警告*，*錯誤*，或*嚴重錯誤*) 降低在特定一天，相較於過去七天的計算基準。
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>我的應用程式絕對有問題嗎？
 否，通知並不表示您的應用程式一定有問題。 雖然「良好」與「不良」追蹤之間的比率降低可能表示應用程式問題，這項比例的變更可能會是良性。 例如，增加可能是因為應用程式由於新流程而發出較現有流程更多個「不良」追蹤)。

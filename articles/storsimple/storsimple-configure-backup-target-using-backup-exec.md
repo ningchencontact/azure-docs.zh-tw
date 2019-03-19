@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011138"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>使用 StorSimple 做為 Backup Exec 的備份目標
 
@@ -94,6 +94,7 @@ StorSimple 提供下列優點︰
 |------------------------|---------------|-----------------|
 | 本機儲存體容量 | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | 雲端儲存體容量 | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* 儲存體大小假設沒有重複資料刪除或壓縮。
 
 **StorSimple 的主要和次要備份容量**
@@ -206,16 +207,16 @@ StorSimple 提供下列優點︰
 
 ### <a name="operating-system-best-practices"></a>作業系統最佳作法
 
--   停用 NTFS 檔案系統的 Windows Server 加密和重複資料刪除。
--   停用 StorSimple 磁碟區的 Windows Server 磁碟重組。
--   停用 StorSimple 磁碟區的 Windows Server 索引。
--   在來源主機 (不是針對 StorSimple 磁碟區) 執行防毒軟體掃描。
--   在工作管理員中關閉預設 [Windows Server 維護](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)。 利用下列其中一種方式來執行此作業：
-   - 在 Windows 工作排程器中關閉維護設定程式。
-   - 從 Windows Sysinternals 下載 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)。 下載 PsExec 之後，請以系統管理員身分執行 Azure PowerShell：
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- 停用 NTFS 檔案系統的 Windows Server 加密和重複資料刪除。
+- 停用 StorSimple 磁碟區的 Windows Server 磁碟重組。
+- 停用 StorSimple 磁碟區的 Windows Server 索引。
+- 在來源主機 (不是針對 StorSimple 磁碟區) 執行防毒軟體掃描。
+- 在工作管理員中關閉預設 [Windows Server 維護](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)。 利用下列其中一種方式來執行此作業：
+  - 在 Windows 工作排程器中關閉維護設定程式。
+  - 從 Windows Sysinternals 下載 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)。 下載 PsExec 之後，請以系統管理員身分執行 Azure PowerShell：
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>StorSimple 最佳作法
 
@@ -259,6 +260,7 @@ StorSimple 提供下列優點︰
 | 每年完整 | 1  | 10 | 10 |
 | GFS 需求 |   | 38 |   |
 | 其他配額  | 4  |   | 42 (總計 GFS 需求)  |
+
 \*GFS 乘數是您為了符合備份原則需求所需保護和保留的複本數目。
 
 ## <a name="set-up-backup-exec-storage"></a>設定 Backup Exec 儲存體
@@ -312,7 +314,7 @@ StorSimple 提供下列優點︰
 |---|---|---|
 | 每週 (第 1 - 4 週) | 星期六 | 星期一至星期五 |
 | 每月  | 星期六  |   |
-| 每年 | 星期六  |   |   |
+| 每年 | 星期六  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>將 StorSimple 磁碟區指派給 Backup Exec 備份作業
@@ -373,6 +375,7 @@ StorSimple 提供下列優點︰
 | 每月完整 |StorSimple 磁碟 (長期) | 1 | 12 | 12 |
 | 每年完整 |StorSimple 磁碟 (長期) | 1 | 1 | 1 |
 |GFS 磁碟區大小需求 |  |  |  | 18*|
+
 \* 總容量包含 17 TiB 的 StorSimple 磁碟和 1 TiB 的本機 RAID 磁碟區。
 
 
@@ -385,7 +388,7 @@ StorSimple 提供下列優點︰
 | 第 3 週 | StorSimple 第 2-4 週 |   |   |   |   |   |
 | 第 4 週 | StorSimple 第 2-4 週 |   |   |   |   |   |
 | 每月 | StorSimple 每月 |   |   |   |   |   |
-| 每年 | StorSimple 每年  |   |   |   |   |   |   |
+| 每年 | StorSimple 每年  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>將 StorSimple 磁碟區指派給 Backup Exec 封存和/重複資料刪除作業
@@ -445,15 +448,15 @@ StorSimple 雲端快照集可保護位於 StorSimple 裝置中的資料。 建�
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>若要啟動或刪除雲端快照集
 
-1.  [安裝 Azure PowerShell](/powershell/azure/overview)。
+1. [安裝 Azure PowerShell](/powershell/azure/overview)。
 2. 下載及安裝 [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell 指令碼。
 3. 在執行指令碼的伺服器上，以系統管理員身分執行 PowerShell。 請確定您搭配 `-WhatIf $true` 執行指令碼，以查看指令碼會執行哪些變更。 完成驗證之後，傳遞 `-WhatIf $false`。 執行下列命令：
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  編輯 Backup Exec 作業選項的前處理和後處理命令，以在 Backup Exec 的備份作業中新增指令碼。
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. 編輯 Backup Exec 作業選項的前處理和後處理命令，以在 Backup Exec 的備份作業中新增指令碼。
 
-    ![Backup Exec 主控台，備份選項，前處理和後處理命令索引標籤](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
+   ![Backup Exec 主控台，備份選項，前處理和後處理命令索引標籤](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
 > 我們建議您在每日備份作業結束時執行 StorSimple 雲端快照集集備份原則，做為後處理指令碼。 如需有關如何備份和還原備份應用程式環境以符合 RPO 和 RTO 的詳細資訊，請洽詢您的備份架構設計人員。

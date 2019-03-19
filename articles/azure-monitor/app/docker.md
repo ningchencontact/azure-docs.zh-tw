@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996465"
 ---
-# <a name="monitor-docker-applications-in-application-insights"></a>在 Application Insights 中監視 Docker 應用程式
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>在 Application Insights （已過時） 監視 Docker 應用程式
+
+> [!NOTE]
+> 此解決方案已被取代。 若要深入了解我們目前對於容器監視所做的投資，建議查看[適用於容器的 Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)。
 
 [Docker](https://www.docker.com/) 容器的週期事件和效能計數器可以在 Application Insights 上繪製成圖表。 在您的主機的容器中安裝 [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) 映像，它會顯示主機及其他映像的效能計數器。
 
@@ -29,10 +32,7 @@ ms.locfileid: "54077448"
 
 * 主機上執行之所有容器的相關週期遙測 - 啟動、停止等。
 * 所有容器的效能計數器。 CPU、記憶體、網路使用量等。
-* 如果您在於容器中執行的應用程式中[安裝了 Application Insights SDK for Java](../../azure-monitor/app/java-live.md)，則這些應用程式的所有遙測將會有可識別容器和主機電腦的額外屬性。 例如，如果您在多部主機上執行某個應用程式的多個執行個體，您可以輕鬆地依主機來篩選應用程式遙測。
-
-> [!NOTE]
-> 此解決方案已被取代。 若要深入了解我們目前對於容器監視所做的投資，建議查看[適用於容器的 Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)。
+* 如果您在於容器中執行的應用程式中[安裝了 Application Insights SDK for Java](../../azure-monitor/app/java-get-started.md)，則這些應用程式的所有遙測將會有可識別容器和主機電腦的額外屬性。 例如，如果您在多部主機上執行某個應用程式的多個執行個體，您可以輕鬆地依主機來篩選應用程式遙測。
 
 ## <a name="set-up-your-application-insights-resource"></a>設定您的 Application Insights 資源
 
@@ -40,7 +40,7 @@ ms.locfileid: "54077448"
    
     *我應該使用哪種資源？* 如果您在主機上執行的應用程式是由其他人所開發，則您需要[建立新的 Application Insights 資源](../../azure-monitor/app/create-new-resource.md )。 這是您檢視及分析遙測的位置 (針對應用程式類型選取 [一般])。
    
-    但如果您是應用程式的開發人員，我們希望您 [將 Application Insights SDK 加入](../../azure-monitor/app/java-live.md) 每個應用程式中。 如果這些應用程式其實全部都是單一商務應用程式的元件，則您可能會設定所有應用程式將遙測資料傳送至一個資源，再使用該相同的資源來顯示 Docker 週期和效能資料。 
+    但如果您是應用程式的開發人員，我們希望您 [將 Application Insights SDK 加入](../../azure-monitor/app/java-get-started.md) 每個應用程式中。 如果這些應用程式其實全部都是單一商務應用程式的元件，則您可能會設定所有應用程式將遙測資料傳送至一個資源，再使用該相同的資源來顯示 Docker 週期和效能資料。 
    
     第三種情況是您已開發大部分應用程式，但想要使用不同的資源來顯示其遙測。 在這種情況下，您可能也需要為 Docker 資料建立不同的資源。
 

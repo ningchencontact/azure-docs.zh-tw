@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0b99c3a388dcfd0dabaf874e03f276c494553
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082614"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>適用於群組管理的 Azure Active Directory 第 2 版 Cmdlet
 
@@ -218,15 +218,15 @@ Cmdlet 將會傳回所連線目錄中的所有群組。
 
 1. 請確認允許非管理使用者建立群組：
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. 如果它傳回 `UsersPermissionToCreateGroupsEnabled : True`，非管理使用者就可以建立群組。 若要停用這項功能：
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
   
 ## <a name="manage-owners-of-groups"></a>管理群組擁有者
 若要將擁有者新增到群組，請使用 Add-AzureADGroupOwner Cmdlet︰
@@ -251,7 +251,7 @@ Cmdlet 會傳回所指定群組的擁有者清單︰
 
 ## <a name="reserved-aliases"></a>保留的別名 
 當群組建立時，某些端點允許終端使用者指定 mailNickname 或別名，以作為群組電子郵件地址的一部分。 以下的電子郵件別名具有高度權限，只有 Azure AD 全域管理員才能建立使用這些別名的群組。 
-  
+  
 * abuse 
 * admin 
 * administrator 

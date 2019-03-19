@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: fd64376f68a177f12b2105ae0974eeeeefa94f4b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460075"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996142"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>使用 Microsoft Azure 儲存體資料移動程式庫傳輸資料
 
 ## <a name="overview"></a>概觀
 Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程式庫，設計用來提供 Azure 儲存體 Blob 和檔案的高效能上傳、下載及複製。 這個程式庫是支援 [AzCopy](../storage-use-azcopy.md) 的核心資料移動架構。 資料移動程式庫可提供傳統的 [.NET Azure 儲存體用戶端程式庫](../blobs/storage-dotnet-how-to-use-blobs.md)中並未提供的簡便方法。 這包括設定平行作業數目、追蹤傳輸進度、輕鬆繼續已取消的傳輸等等。
 
-此程式庫也會使用 .NET Core，這表示您在建置適用於 Windows、Linux 和 macOS 的 .NET 應用程式時可以使用它。 若要深入了解 .NET Core，請參閱 [.NET Core 文件 (英文)](https://dotnet.github.io/)。 這個程式庫也適用於 Windows 的傳統 .NET 架構應用程式。
+此程式庫也會使用 .NET Core，這表示您在建置適用於 Windows、Linux 和 macOS 的 .NET 應用程式時可以使用它。 若要了解有关 .NET Core 的详细信息，请参阅 [.NET Core 文档](https://dotnet.github.io/)。 這個程式庫也適用於 Windows 的傳統 .NET 架構應用程式。
 
 本文件將示範如何建立可在 Windows、Linux 和 macOS 上執行的 .NET Core 主控台應用程式，並執行下列案例：
 
@@ -35,7 +35,7 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 **您需要的項目：**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure 儲存體帳戶](storage-quickstart-create-account.md)
+* 一个 [Azure 存储帐户](storage-quickstart-create-account.md)
 
 > [!NOTE]
 > 本指南假設您已熟悉 [Azure 儲存體](https://azure.microsoft.com/services/storage/)。 如果不熟悉，閱讀 [Azure 儲存體簡介](storage-introduction.md)說明文件會很有幫助。 最重要的是，您需要[建立儲存體帳戶](storage-quickstart-create-account.md)才能開始使用資料移動程式庫。
@@ -55,7 +55,7 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 ## <a name="add-data-movement-library-to-your-project"></a>將資料移動程式庫加入至專案
 
 1. 將最新版本的資料移動程式庫加入到 `<project-name>.csproj` 檔案的 `dependencies` 區段。 撰寫本文時，此版本為 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
-2. 您應該會看到提示顯示以還原專案。 按一下 [還原] 按鈕。 您也可以在專案目錄的根目錄中輸入命令 `dotnet restore`，來從命令列還原專案。
+2. 此时应会显示一条提示，指出要还原项目。 按一下 [還原] 按鈕。 您也可以在專案目錄的根目錄中輸入命令 `dotnet restore`，來從命令列還原專案。
 
 修改 `<project-name>.csproj`：
 
@@ -193,7 +193,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 此程式碼會提示我們輸入本機檔案的路徑、新的或現有容器的名稱，和新的 Blob 的名稱。 `TransferManager.UploadAsync` 方法會利用此資訊執行上傳。
 
-按 `F5` 以執行應用程式。 您可以使用 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)檢視儲存體帳戶，確認是否有上傳。
+按 `F5` 以執行應用程式。 您可以使用 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)檢視儲存體帳戶，確認是否有上傳。
 
 ## <a name="set-number-of-parallel-operations"></a>設定平行作業的數目
 資料移動程式庫提供的一項絕佳功能是設定平行作業的數目，以增加資料傳輸輸送量。 根據預設，資料移動程式庫會將平行作業的數目設為 8 * 您電腦的核心數目。

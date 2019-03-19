@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7054946a15ca27f4b5a36d3d2ac712cba2fd68d8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6e79b0fc0ef23287c8871b7a7634d28d129b900e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185123"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101137"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 
 
@@ -85,19 +85,19 @@ ms.locfileid: "56185123"
 
     ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-    - Autoworkplace.exe 無法以無訊息方式使用 Azure AD 或 AD FS 進行驗證。 造成此情況的原因可能是 AD FS (適用於同盟網域) 遺漏或設定不正確、「Azure AD 無縫單一登入」(適用於受控網域) 遺漏或設定不正確，或網路問題。 
+  - Autoworkplace.exe 無法以無訊息方式使用 Azure AD 或 AD FS 進行驗證。 造成此情況的原因可能是 AD FS (適用於同盟網域) 遺漏或設定不正確、「Azure AD 無縫單一登入」(適用於受控網域) 遺漏或設定不正確，或網路問題。 
     
-     - 也可能是已針對使用者啟用/設定多重要素驗證 (MFA)，但未在 AD FS 伺服器設定 WIAORMUTLIAUTHN。 
+    - 也可能是已針對使用者啟用/設定多重要素驗證 (MFA)，但未在 AD FS 伺服器設定 WIAORMUTLIAUTHN。 
      
-     - 另一個可能原因是主領域探索 (HRD) 頁面正在等候使用者互動，而導致 **autoworkplace.exe** 無法以無訊息方式要求權杖。
+    - 另一個可能原因是主領域探索 (HRD) 頁面正在等候使用者互動，而導致 **autoworkplace.exe** 無法以無訊息方式要求權杖。
      
-     - 可能是用戶端上 IE 的內部網路區域中遺漏 AD FS 和 Azure AD URL。
+    - 可能是用戶端上 IE 的內部網路區域中遺漏 AD FS 和 Azure AD URL。
      
-     - 網路連線能力問題可能會導致 **autoworkplace.exe** 無法連線至 AD FS 或 Azure AD URL。 
+    - 網路連線能力問題可能會導致 **autoworkplace.exe** 無法連線至 AD FS 或 Azure AD URL。 
      
-     - **Autoworkplace.exe** 會要求用戶端必須具有用戶端到組織內部部署 AD 網域控制站的直接視線，這意謂著混合式 Azure AD 加入只有在用戶端連線至組織的內部網路時才會成功。
+    - **Autoworkplace.exe**需要用戶端具有直接直視從用戶端組織的內部部署 AD 網域控制站，這表示該混合式 Azure AD 聯結成功只有當用戶端在連接至組織的內部網路。
      
-     - 貴組織使用的是 Azure AD 無縫單一登入，`https://autologon.microsoftazuread-sso.com` 或 `https://aadg.windows.net.nsatc.net` 不在裝置的 IE 內部網路設定中，並且未針對內部網路區域啟用 [允許透過指令碼更新至狀態列]。
+    - 貴組織使用的是 Azure AD 無縫單一登入，`https://autologon.microsoftazuread-sso.com` 或 `https://aadg.windows.net.nsatc.net` 不在裝置的 IE 內部網路設定中，並且未針對內部網路區域啟用 [允許透過指令碼更新至狀態列]。
 
 - 您不是以網域使用者身分登入
 

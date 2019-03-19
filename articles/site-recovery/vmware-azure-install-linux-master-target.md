@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217980"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099047"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安裝 Linux 主要目標伺服器以便進行容錯回復
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 
@@ -56,13 +56,13 @@ ms.locfileid: "55217980"
 |4.10     |4.10.0-24-generic        |
 
 
-## <a name="deploy-the-master-target-server"></a>部署主要目標伺服器
+## <a name="deploy-the-master-target-server"></a>部署主目标服务器
 
 ### <a name="install-ubuntu-16042-minimal"></a>安裝 Ubuntu 16.04.2 極簡版
 
 請依循下列步驟以安裝 Ubuntu 16.04.2 64 位元作業系統。
 
-1.   前往[下載連結](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso) \(英文\)，選擇最接近的鏡像，然後下載 Ubuntu 16.04.2 極簡版 64 位元 ISO。
+1.   移至[下載連結](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)，選擇最接近的鏡像，然後下載 Ubuntu 16.04.2 極簡版 64 位元 ISO。
 將 Ubuntu 16.04.2 極簡版 64 位元 ISO 放在 DVD 光碟機中，並啟動系統。
 
 1.  選取 [English] \(英文\) 作為慣用語言，然後選取 **Enter**。
@@ -168,15 +168,15 @@ ms.locfileid: "55217980"
 
 5. 查看含有 [disk.EnableUUID] 的資料列是否已經存在。
 
-    - 如果該值存在，而且設定為 [False]，請將該值變更為 [True]。 (值不區分大小寫。)
+   - 如果該值存在，而且設定為 [False]，請將該值變更為 [True]。 (值不區分大小寫。)
 
-    - 如果該值存在，而且設定為 [True]，請按一下 [取消]。
+   - 如果該值存在，而且設定為 [True]，請按一下 [取消]。
 
-    - 如果該值不存在，請選取 [新增資料列]。
+   - 如果該值不存在，請選取 [新增資料列]。
 
-    - 在名稱欄位中新增 **disk.EnableUUID**，然後將值設定為 [TRUE]。
+   - 在名稱欄位中新增 **disk.EnableUUID**，然後將值設定為 [TRUE]。
 
-    ![檢查 disk.EnableUUID 是否已存在](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![检查 disk.EnableUUID 是否存在](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>停用核心升級
 
@@ -193,7 +193,7 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
 
 如果您的主要目標有網際網路連線，您可以使用下列步驟下載安裝程式。 否則，您可以從處理序伺服器複製安裝程式並加以安裝。
 
-#### <a name="download-the-master-target-installation-packages"></a>下載主要目標安裝套件
+#### <a name="download-the-master-target-installation-packages"></a>下载主目标安装包
 
 [下載最新的 Linux 主要目標安裝位元](https://aka.ms/latestlinuxmobsvc)。
 
@@ -223,7 +223,7 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
 
     ![所執行命令的螢幕擷取畫面](./media/vmware-azure-install-linux-master-target/image16.png)
 
-2. 執行下列命令來授與權限。
+2. 运行以下命令来指定权限。
 
     `chmod 755 ./ApplyCustomChanges.sh`
 
@@ -260,7 +260,7 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
     
     `vi /etc/fstab`
     
-    按 **Insert** 鍵來開始編輯檔案。 建立新的一行，並插入下列文字。 根據前一個命令中醒目提示的多重路徑識別碼，編輯磁碟多重路徑識別碼。
+    按 **Insert** 鍵來開始編輯檔案。 建立新的一行，並插入下列文字。 根据前一命令中突出显示的多路径 ID 编辑磁盘多路径 ID。
 
     **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
@@ -269,7 +269,7 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
 ### <a name="install-the-master-target"></a>安裝主要目標
 
 > [!IMPORTANT]
-> 主要目標伺服器的版本必須等於或早於處理序伺服器和組態伺服器的版本。 如果不符合此條件，重新保護會成功，但複寫會失敗。
+> 主目标服务器的版本应该低于或等于进程服务器和配置服务器的版本。 如果不符合此條件，重新保護會成功，但複寫會失敗。
 
 
 > [!NOTE]
@@ -287,7 +287,6 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
 2. 記下設定伺服器的 IP 位址。 執行下列命令來安裝主要目標伺服器，並向組態伺服器註冊伺服器。
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
@@ -310,7 +309,7 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
 
 2. 選擇預設安裝位置，然後按 **Enter** 以繼續。
 
-    ![選擇主要目標的預設安裝位置](./media/vmware-azure-install-linux-master-target/image17.png)
+    ![选择主目标的默认安装位置](./media/vmware-azure-install-linux-master-target/image17.png)
 
 安裝完成之後，使用命令列來註冊組態伺服器。
 
@@ -348,7 +347,7 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
 
 * 請確定您未在任何管理元件 (例如主要目標) 上啟動 Storage vMotion。 如果在成功重新保護之後主要目標有移動，則無法中斷連結虛擬機器磁碟 (VMDK)。 在此情況下，容錯回復會失敗。
 
-* 主要目標在虛擬機器上不應該有任何快照集。 如果有快照集，容錯回復會失敗。
+* 主目标不应在虚拟机上留下任何快照。 如果有快照集，容錯回復會失敗。
 
 * 由於一些自訂 NIC 組態，因而會在啟動期間停用網路介面，並導致主要目標代理程式無法初始化。 請確定已正確設定下列屬性。 在乙太網路卡檔案的 /etc/sysconfig/network-scripts/ifcfg-eth* 中檢查這些屬性。
     * BOOTPROTO=dhcp

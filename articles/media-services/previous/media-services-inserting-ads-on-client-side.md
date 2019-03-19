@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: cc5f3f729acca1f7aa23a7714300c1b581c6f7f8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3c2101576f9b0d0c7908e62bd5cc1d6e6eeb0b2
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993889"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189796"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在用戶端插入廣告
 本文包含如何在用戶端上插入各種類型廣告的相關資訊。
@@ -38,7 +38,7 @@ Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framewo
 * **非線性** – 播放被當做主要影片而顯示的疊加廣告，通常是播放器中的標誌或其他靜態影像。
 * **隨播** – 顯示在播放器之外的廣告。
 
-廣告可以放在主要影片時間軸的任何時間點。 您必須告訴播放器何時播放廣告以及要播放哪些廣告。 使用一組標準的 XML 格式檔案即可：Video Ad Service Template (VAST)、Digital Video Multiple Ad Playlist (VMAP)、Media Abstract Sequencing Template (MAST) 以及 Digital Video Player Ad Interface Definition (VPAID)。 VAST 檔案會指定要顯示的廣告。 VMAP 檔案會指定何時播放各種廣告而且包含 VAST XML。 MAST 檔案是另一種廣告排序的方法，而且也包含 VAST XML。 VPAID 檔案會定義影片播放器廣告和廣告或廣告伺服器之間的介面。
+广告可置于主视频时间线中的任何一个时间点。 您必須告訴播放器何時播放廣告以及要播放哪些廣告。 使用一組標準的 XML 格式檔案即可：Video Ad Service Template (VAST)、Digital Video Multiple Ad Playlist (VMAP)、Media Abstract Sequencing Template (MAST) 以及 Digital Video Player Ad Interface Definition (VPAID)。 VAST 檔案會指定要顯示的廣告。 VMAP 檔案會指定何時播放各種廣告而且包含 VAST XML。 MAST 檔案是另一種廣告排序的方法，而且也包含 VAST XML。 VPAID 檔案會定義影片播放器廣告和廣告或廣告伺服器之間的介面。
 
 每個播放器架構的運作方式不同，而且分別涵蓋於各自的文章中。 本文說明用來插入廣告的基本機制。 影片播放程式應用程式會向廣告伺服器要求廣告。 廣告伺服器可以使用數種方法回應：
 
@@ -51,7 +51,7 @@ Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framewo
 VAST 檔案會指定要顯示的廣告。 下列 XML 是線性廣告的 VAST 檔案範例：
 
 ```xml
-    <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+    <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="115571748">
         <InLine>
           <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -99,7 +99,7 @@ VAST 檔案會指定要顯示的廣告。 下列 XML 是線性廣告的 VAST 檔
 線性廣告可以依照指定的順序顯示。 若要這樣做，請將其他 <Ad> 元素加入至 VAST 檔案，並使用順序屬性指定順序。 下列範例會加以說明：
 
 ```xml
-    <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+    <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="1" sequence="0">
         <InLine>
           <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -180,7 +180,7 @@ VMAP 檔案可讓您指定何時插播廣告、每個插播多久、插播中可
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
         <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
           <vmap:VASTData>
-            <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+            <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
               <Ad id="115571748">
                 <InLine>
                   <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -188,7 +188,7 @@ VMAP 檔案可讓您指定何時插播廣告、每個插播多久、插播中可
                   <Description>Unknown</Description>
                   <Survey></Survey>
                   <Error></Error>
-                  <Impression id="Atlas"><![CDATA[http://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
+                  <Impression id="Atlas"><![CDATA[https://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
                   <Creatives>
                     <Creative id="video" sequence="0" AdID="">
                       <Linear>
@@ -282,7 +282,7 @@ VMAP 檔案開頭為 <VMAP> 元素，包含一或多個 <AdBreak> 元素，每�
 MAST 檔案可讓您指定觸發程序，定義何時顯示廣告。 以下是範例 MAST 檔案，其中包含片頭廣告、片中廣告和片尾廣告的觸發程序。
 
 ```xml
-    <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <triggers>
         <trigger id="preroll" description="preroll every item"  >
           <startConditions>
@@ -352,7 +352,7 @@ MAST 檔案開頭為 **MAST** 元素，其中包含一個 **triggers** 元素。
 ### <a name="using-video-player-ad-interface-definition-vpaid"></a>使用 Video Player-Ad Interface Definition (VPAID)
 VPAID 是 API，用於啟用可執行廣告單元，以便與視訊播放器通訊。 如此可提供高度互動性與體驗。 使用者可以與廣告互動，而且廣告可以回應檢視者採取的動作。 例如，廣告可能會顯示按鈕，讓使用者檢視更多詳細資訊或廣告的加長版。 視訊播放器必須支援 VPAID API，可執行廣告必須實作 API。 當播放器向廣告伺服器要求廣告時，該伺服器可能會以包含 VPAID 廣告的 VAST 回應進行回應。
 
-必須在如 Adobe Flash™ 或可以在網頁瀏覽器中執行的 JavaScript 執行階段環境中執行的程式碼中建立可執行廣告。 當廣告伺服器傳回包含 VPAID 廣告的 VAST 回應時，<MediaFile> 元素中屬性 apiFramework 的值必須是 "VPAID"。 這個屬性會指定包含的廣告是 VPAID 可執行廣告。 類型屬性必須設定為可執行的 MIME 類型，例如 “application/x-shockwave-flash” 或 “application/x-javascript”。 下列 XML 程式碼片段顯示來自包含 VPAID 可執行廣告之 VAST 回應的 <MediaFile> 元素。
+必須在如 Adobe Flash™ 或可以在網頁瀏覽器中執行的 JavaScript 執行階段環境中執行的程式碼中建立可執行廣告。 當廣告伺服器傳回包含 VPAID 廣告的 VAST 回應時，<MediaFile> 元素中屬性 apiFramework 的值必須是 "VPAID"。 此属性指定所含广告为 VPAID 可执行广告。 類型屬性必須設定為可執行的 MIME 類型，例如 “application/x-shockwave-flash” 或 “application/x-javascript”。 下列 XML 程式碼片段顯示來自包含 VPAID 可執行廣告之 VAST 回應的 <MediaFile> 元素。
 
 ```xml
     <MediaFiles>
@@ -405,7 +405,7 @@ Microsoft 媒體平台：Player Framework for Windows 8 和 Windows Phone 8 包�
     </mmppf:MediaPlayer>
 ```
 
-如需 AdSchedulerPlugin 的詳細資訊，請參閱 [Windows 8 和 Windows Phone 8 上 Player Framework 中的廣告](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
+如需 AdSchedulerPlugin 的詳細資訊，請參閱 [Windows 8 和 Windows Phone 8 上 Player Framework 中的廣告](https://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### <a name="adschedulingpage"></a>AdSchedulingPage
 此範例也會使用 AdSchedulerPlugin。 它會排程三個廣告，片頭廣告、片中廣告和片尾廣告。 每個廣告的 VAST 的 URI 是在 <RemoteAdSource> 元素中指定。
@@ -595,7 +595,7 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
     // How to schedule an Ad using VMAP.
     //First download the VMAP manifest
 
-    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVMAP.xml"]])
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVMAP.xml"]])
             {
                 [self logFrameworkError];
             }
@@ -619,7 +619,7 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
     adLinearTime.startTime = 13;
     adLinearTime.duration = 0;
     // Specify the URI of the VAST file
-    NSString *vastAd1=@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml";
+    NSString *vastAd1=@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml";
     // Create an AdInfo object
      AdInfo *vastAdInfo1 = [[[AdInfo alloc] init] autorelease];
     // set URL to VAST file
@@ -645,7 +645,7 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 ```csharp
     //Example:4 Schedule an early binding VAST ad
     //Download the VAST file
-    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
     {
         [self logFrameworkError];
     }
@@ -849,6 +849,6 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
 

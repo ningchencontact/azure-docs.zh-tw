@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 02adb36bec574719f3f6d7f1c1b66124f96ccae1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 01bb628a6520488dcebf49a1e868213b955abc31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309228"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895600"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>使用 FMLE 編碼器來傳送單一位元速率的即時串流 (舊版)
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>使用 FMLE 編碼器來傳送單一位元速率的即時串流 
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -29,19 +29,19 @@ ms.locfileid: "56309228"
 >
 >
 
-本文示範如何設定 [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 編碼器，藉此將單一位元速率的即時串流傳送到已啟用即時編碼的 AMS 通道。 如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+本文示範如何設定 [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) (FMLE) 編碼器，藉此將單一位元速率的即時串流傳送到已啟用即時編碼的 AMS 通道。 如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果您是用 Mac 或 Linux，請使用 Azure 入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
-本教學課程說明如何使用 AAC。 不過，依預設 FMLE 不支援 AAC。 您必須購買 AAC 編碼的外掛程式，例如從 MainConcept 購買：[AAC 外掛程式](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+本教學課程說明如何使用 AAC。 不過，依預設 FMLE 不支援 AAC。 您必須購買 AAC 編碼的外掛程式，例如從 MainConcept 購買：[AAC 外掛程式](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>必要條件
-* [建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)
+* [创建 Azure 媒体服务帐户](media-services-portal-create-account.md)
 * 確定有執行中的「串流端點」。 如需詳細資訊，請參閱 [在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 啟動工具並連接到您的 AMS 帳戶。
 
-## <a name="tips"></a>祕訣
+## <a name="tips"></a>提示
 * 請盡可能使用實體的有線網際網路連線。
 * 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
 * 使用軟體型編碼器時，請關閉任何不必要的程式。
@@ -55,7 +55,7 @@ ms.locfileid: "56309228"
 
     請確認已選取 [ **立即啟動新頻道** ]。
 
-3. 按一下 [ **建立頻道**]。
+3. 单击“创建频道” 。
 
    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
@@ -150,7 +150,7 @@ ms.locfileid: "56309228"
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
 2. 為程式命名，並視需要調整 **封存時間長度** (預設為 4 小時)。 您也可以指定儲存體位置，或保留為預設值。  
 3. 勾選 [現在啟動程式]  方塊。
-4. 按一下 [建立程式] 。  
+4. 单击“创建节目” 。  
 
     >[!NOTE]
     >建立程式時所使用的時間會比建立通道時少。

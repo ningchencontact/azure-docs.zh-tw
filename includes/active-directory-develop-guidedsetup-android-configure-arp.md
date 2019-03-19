@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 0154aac14168c9d897698a15e31b3124b208db46
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 589fd350d50eee62006906ff94007c66b3f064cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142695"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114722"
 ---
 ## <a name="add-the-applications-registration-to-your-code"></a>將應用程式註冊資訊新增到您的程式碼
 
@@ -27,9 +27,9 @@ ms.locfileid: "50142695"
 
 1. 開啟 `MainActivity` (在 `app` > `java` > *`{host}.{namespace}`* 底下)
 2. 將開頭為 `final static String CLIENT_ID` 的那一行取代為：
-```java
-final static String CLIENT_ID = "[Enter the application Id here]";
-```
+   ```java
+   final static String CLIENT_ID = "[Enter the application Id here]";
+   ```
 3. 開啟：`app` > `manifests` > `AndroidManifest.xml`
 4. 將下列活動新增到 `manifest\application`。 `BrowserTabActivity` 可讓 Microsoft 在完成驗證後回呼您的應用程式：
 

@@ -3,20 +3,20 @@ title: 資料庫移轉案例狀態 | Microsoft Docs
 description: 了解「Azure 資料庫移轉服務」支援的移轉案例狀態。
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: fea50b896c769587b21b8a4e2ce8c585d7aee8c4
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b07f36055f9c0690450e8d4ab5abacb8c84d9bf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791557"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182535"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Azure 資料庫移轉服務支援的移轉案例狀態
 「Azure 資料庫移轉服務」是設計成可同時支援離線 (單次) 和線上 (持續同步) 移轉的各種移轉案例 (來源/目標組)。 「Azure 資料庫移轉服務」所提供的案例涵蓋範圍會隨著時間擴展。 定期都會新增新的案例。 本文會指出「Azure 資料庫移轉服務」目前支援的移轉案例，以及狀態 (個人 [或有限] 預覽版、公開預覽版或正式推出版) 或每個案例。

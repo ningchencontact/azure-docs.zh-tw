@@ -3,8 +3,8 @@ title: 教學課程 - 升級 Azure Service Fabric Mesh 應用程式 | Microsoft 
 description: 了解如何使用 Visual Studio 升級 Service Fabric 應用程式
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/29/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0f6ede488ae118f8df00febda3c53eabb73f2030
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 23809abd06d626eb87e5d5d15d265f1769b97b66
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890223"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806723"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>教學課程：了解如何使用 Visual Studio 升級 Service Fabric 應用程式
 

@@ -10,18 +10,27 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 60a76df6360ca66e8f55b03d5914283f669eb402
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118100"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840438"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>在 Azure 虛擬網路內安全地執行實驗與推斷
 
 在本文中，您會學習如何在虛擬網路內執行實驗和推斷。 虛擬網路充當安全邊界，將 Azure 資源與公用網際網路隔離。 您也可以將 Azure 虛擬網路加入到您的內部部署網路， 讓您能夠安全地將模型定型，並可存取所部署的模型進行推斷。
 
 Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 計算資源 (計算目標) 用於定型和部署模型。 這些計算目標可建立在虛擬網路內部。 例如，您可以使用 Microsoft 資料科學虛擬機器來定型模型，然後將模型部署到 Azure Kubernetes Service (AKS)。 如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)。
+
+## <a name="prerequisites"></a>必要條件
+
+本文件假設您已熟悉 Azure 虛擬網路和 IP 網路一般。 本文也假設您已建立的虛擬網路和子網路，以使用您的計算資源。 如果您不熟悉 Azure 虛擬網路，請閱讀下列文章以了解服務：
+
+* [IP 定址](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [快速入門：建立虛擬網路](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [篩選網路流量](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 ## <a name="storage-account-for-your-workspace"></a>您工作區的儲存體帳戶
 
@@ -51,15 +60,17 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 
     - 一個負載平衡器
 
-   這些資源會被訂用帳戶的[資源配額](https://docs.microsoft.com/azure/azure-subscription-service-limits)所限制。
+  這些資源會被訂用帳戶的[資源配額](https://docs.microsoft.com/azure/azure-subscription-service-limits)所限制。
 
 ### <a id="mlcports"></a> 所需連接埠
 
 Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定的虛擬網路中。 子網路必須允許來自 Batch 服務的輸入通訊。 此通訊用於排程在 Machine Learning Compute 節點上的執行，並與 Azure 儲存體和其他資源進行通訊。 Batch 會在 VM 連結的網路介面 (NIC) 層級新增 NSG。 這些 NSG 會自動設定輸入和輸出規則，以允許下列流量：
 
-- 連接埠 29876 和 29877 上來自 Batch 服務角色 IP 位址的輸入 TCP 流量。
+- 輸入連接埠 29876 和 29877，從上的 TCP 流量__服務標籤__的__BatchNodeManagement__。
+
+    ![顯示使用 BatchNodeManagement 服務標記的輸入的規則的 Azure 入口網站的映像](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- 連接埠 22 上的輸入 TCP 流量，以允許遠端存取。
+- （選擇性）連接埠 22 以允許遠端存取上的連入的 TCP 流量。 如果您想要使用的公用 IP 上的 SSH 連線時才需要此是。
  
 - 任何連接埠上傳至虛擬網路的輸出流量。
 
@@ -151,7 +162,7 @@ except ComputeTargetException:
 
     * __來源服務標記__：選取 [AzureMachineLearning]。
 
-    * __來源連接埠範圍__:選取 [*]。
+    * __來源連接埠範圍__:選取 __[*]__。
 
     * __目的地__:選取 [任何]。
 

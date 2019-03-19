@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 3ec6b6f22e32a628edc3146ac17a9e5d8e605b05
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 816233368c2274e34d2acdd712aed270a5e3bfa5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010901"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>在 Azure 中使用 JAVA 建立並管理 Windows VM
 
@@ -40,7 +40,7 @@ ms.locfileid: "54884209"
 ## <a name="create-a-maven-project"></a>建立 Maven 專案
 
 1. 如果尚未這麼做，請先安裝 [JAVA](https://aka.ms/azure-jdks)。
-2. 安裝 [Maven](http://maven.apache.org/download.cgi)。
+2. 安裝 [Maven](https://maven.apache.org/download.cgi)。
 3. 建立新的資料夾和專案：
     
     ```
@@ -96,7 +96,7 @@ ms.locfileid: "54884209"
       <artifactId>okio</artifactId>
       <version>1.13.0</version>
     </dependency>
-    <dependency> 
+    <dependency>
       <groupId>com.nimbusds</groupId>
       <artifactId>nimbus-jose-jwt</artifactId>
       <version>3.6</version>
@@ -172,7 +172,7 @@ ms.locfileid: "54884209"
 2. 若要建立您提出要求所需的 Active Directory 認證，請將此程式碼新增至 App 類別的 Main 方法：
    
     ```java
-    try {    
+    try {
         final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
         Azure azure = Azure.configure()
             .withLogLevel(LogLevel.BASIC)
@@ -294,30 +294,30 @@ input.nextLine();
 ```
 
 > [!NOTE]
-> 本教學課程中會建立執行 Windows Server 作業系統版本的虛擬機器。 若要深入了解如何選取其他映像，請參閱 [使用 Windows PowerShell 和 Azure CLI 來瀏覽和選取 Azure 虛擬機器映像](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+> 本教學課程中會建立執行 Windows Server 作業系統版本的虛擬機器。 若要详细了解如何选择其他映像，请参阅[使用 Windows PowerShell 和 Azure CLI 来导航和选择 Azure 虚拟机映像](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 > 
 >
 
 如果您想要使用現有的磁碟而不使用市集映像，請使用以下程式碼： 
 
 ```java
-ManagedDisk managedDisk = azure.disks.define("myosdisk") 
-    .withRegion(Region.US_EAST) 
-    .withExistingResourceGroup("myResourceGroup") 
-    .withWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd") 
-    .withSizeInGB(128) 
-    .withSku(DiskSkuTypes.PremiumLRS) 
-    .create(); 
+ManagedDisk managedDisk = azure.disks.define("myosdisk")
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
+    .withWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd")
+    .withSizeInGB(128)
+    .withSku(DiskSkuTypes.PremiumLRS)
+    .create();
 
-azure.virtualMachines.define("myVM") 
-    .withRegion(Region.US_EAST) 
-    .withExistingResourceGroup("myResourceGroup") 
-    .withExistingPrimaryNetworkInterface(networkInterface) 
-    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows) 
-    .withExistingAvailabilitySet(availabilitySet) 
-    .withSize(VirtualMachineSizeTypes.StandardDS1) 
-    .create(); 
-``` 
+azure.virtualMachines.define("myVM")
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
+    .withExistingPrimaryNetworkInterface(networkInterface)
+    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows)
+    .withExistingAvailabilitySet(availabilitySet)
+    .withSize(VirtualMachineSizeTypes.StandardDS1)
+    .create();
+```
 
 ## <a name="perform-management-tasks"></a>執行管理工作
 
@@ -384,12 +384,12 @@ for(InstanceViewStatus status : vm.instanceView().statuses()) {
     System.out.println("  displayStatus: " + status.displayStatus());
 }
 System.out.println("Press enter to continue...");
-input.nextLine();   
+input.nextLine();
 ```
 
 ### <a name="stop-the-vm"></a>停止 VM
 
-您可以停止虛擬機器並保留其所有的設定，但仍繼續計費，或您可以停止虛擬機器並將其解除配置。 當解除配置虛擬機器時，與其相關聯的所有資源也都會解除配置且其計費會結束。
+可停止虚拟机并保留其所有设置，但需继续付费；还可停止虚拟机并解除分配。 當解除配置虛擬機器時，與其相關聯的所有資源也都會解除配置且其計費會結束。
 
 若要停止虛擬機器而不解除配置，請將以下程式碼新增到 Main 方法中的 try 區塊：
 
@@ -451,10 +451,10 @@ input.nextLine();
 
 1. 若要刪除資源群組，請將以下程式碼新增到 Main 方法中的 try 區塊：
    
-```java
-System.out.println("Deleting resources...");
-azure.resourceGroups().deleteByName("myResourceGroup");
-```
+    ```java
+    System.out.println("Deleting resources...");
+    azure.resourceGroups().deleteByName("myResourceGroup");
+    ```
 
 2. 儲存 App.java 檔案。
 

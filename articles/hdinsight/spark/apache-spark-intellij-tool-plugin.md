@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: a22dd1114b6ad49695b1ce7cab2ff26f23b7e1be
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077967"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for IntelliJ 為 HDInsight 叢集建立 Apache Spark 應用程式
 
@@ -26,8 +26,8 @@ ms.locfileid: "56447849"
 
 ## <a name="prerequisites"></a>必要條件
 
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
-* [Oracle Java Development Kit](https://www.azul.com/downloads/azure-only/zulu/)。  本教學課程使用 Java 8.0.202 版。
+* HDInsight 上的 Apache Spark 群集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* [Oracle Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。  本教學課程使用 Java 8.0.202 版。
 * IntelliJ IDEA。 本文使用 [IntelliJ IDEA Community 版本2018.3.4](https://www.jetbrains.com/idea/download/)。
 * Azure Toolkit for IntelliJ。  請參閱[安裝 Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable)。
 * WINUTILS.EXE。  請參閱[在 Windows 上執行 Hadoop 的問題](https://wiki.apache.org/hadoop/WindowsProblems)。
@@ -57,16 +57,16 @@ ms.locfileid: "56447849"
 3. 選取主視窗中的 [Spark 專案 (Scala)]。
 
 4. 從 [建置工具] 下拉式清單中，選取下列其中一項：
-      * **Maven**：建立 Scala 專案精靈支援。
-      * **SBT**：可供管理相依性並建置 Scala 專案。
+   * **Maven**：建立 Scala 專案精靈支援。
+   * **SBT**：可供管理相依性並建置 Scala 專案。
 
-    ![[新增專案] 對話方塊](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![[新增專案] 對話方塊](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. 選取 [下一步] 。
 
 6. 在 [新增專案] 視窗中，提供下列資訊：  
 
-    |  屬性   | 說明   |  
+    |  屬性   | 描述   |  
     | ----- | ----- |  
     |專案名稱| 輸入名稱。  本教學課程會使用 `myApp`。|  
     |專案&nbsp;位置| 輸入所要的位置以儲存您的專案。|
@@ -209,7 +209,7 @@ ms.locfileid: "56447849"
     |Spark 叢集 (僅限 Linux)|選取您要在其中執行應用程式的 HDInsight Spark 叢集。|
     |選取要提交的成品|保留預設值。|
     |主類別名稱|預設值是來自所選取檔案的主類別。 選取省略符號 (**...**) 並選擇另一個類別，即可變更類別。|
-    |作業設定|您可以變更預設的金鑰和/或值。 如需詳細資訊，請參閱 [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)。|
+    |作業設定|您可以變更預設的金鑰和/或值。 如需詳細資訊，請參閱 [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html)。|
     |命令列引數|如有需要，您可以為主類別輸入以空格隔開的引數。|
     |參考的 Jar 和參考的檔案|您可以輸入參考的 Jar 和檔案的路徑 (如果有的話)。 其他資訊：[Apache Spark 設定](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。  也請參閱[如何將資源上傳至叢集](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)。|
     |作業上傳儲存體|展開以顯示其他選項。|
@@ -394,7 +394,7 @@ ms.locfileid: "56447849"
 如果您有任何建議或意見反應，或使用此外掛程式時遇到任何問題，請將電子郵件傳送到 hdivstool@microsoft.com。
 
 ## <a name="seealso"></a>接續步驟
-* [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
+* [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>示範
 * 建立 Scala 專案 (影片)：[建立 Apache Spark Scala 應用程式](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) \(英文\)
@@ -418,7 +418,7 @@ ms.locfileid: "56447849"
 * [在 HDInsight 上搭配使用 Apache Zeppelin Notebook 和 Apache Spark 叢集](apache-spark-zeppelin-notebook.md)
 * [HDInsight Apache Spark 叢集中 Jupyter Notebook 的可用核心](apache-spark-jupyter-notebook-kernels.md)
 * [搭配 Jupyter Notebook 使用外部套件](apache-spark-jupyter-notebook-use-external-packages.md)
-* [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="managing-resources"></a>管理資源
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)

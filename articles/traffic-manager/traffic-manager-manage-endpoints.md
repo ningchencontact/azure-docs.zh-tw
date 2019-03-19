@@ -6,17 +6,17 @@ documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244997"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009296"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>新增、停用、啟用或刪除端點
 
@@ -29,16 +29,16 @@ ms.locfileid: "51244997"
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>若要將雲端服務或應用程式服務端點新增至流量管理員設定檔：
 
-1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。
+1. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在入口網站的搜尋列中，搜尋您想要修改的**流量管理員設定檔**名稱，然後按一下結果中顯示的流量管理員設定檔。
 3. 在 [流量管理員設定檔] 刀鋒視窗中，請在 [設定] 區段中按一下 [端點]。
 4. 在顯示的 [端點] 刀鋒視窗中，按一下 [新增]。
 5. 在 [新增端點] 刀鋒視窗中，如下所示操作︰
     1. 在 [類型] 中，按一下 [Azure 端點]。
-    2. 提供您要用來識別這個端點的 [名稱]。
+    2. 提供要用于识别此终结点的**名称**。
     3. 對於 [目標資源類型]，從下拉式清單中選擇適當的資源類型。
     4. 對於 [目標資源]，按一下 [選擇...] 以在 [資源] 刀鋒視窗中列出相同訂用帳戶下的資源。 在顯示的 [資源] 刀鋒視窗中，挑選您想要新增為第一個端點的服務。
-    5. 在 [優先順序] 中，選取 [1]。 這會使得所有流量傳送至此端點 (如果狀況良好)。
+    5. 对于**优先级**，选为 **1**。 這會使得所有流量傳送至此端點 (如果狀況良好)。
     6. 維持不勾選 [新增為已停用]。
     7. 按一下 [確定] 
 6.  重複步驟 4 和 5，新增下一個 Azure 端點。 新增它時務必將 [優先順序] 值設為 [2]。
@@ -49,7 +49,7 @@ ms.locfileid: "51244997"
 
 ## <a name="to-disable-an-endpoint"></a>若要停用端點
 
-1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。
+1. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在入口網站的搜尋列中，搜尋您想要修改的**流量管理員設定檔**名稱，然後按一下結果中顯示的流量管理員設定檔。
 3. 在 [流量管理員設定檔] 刀鋒視窗中，請在 [設定] 區段中按一下 [端點]。 
 4. 按一下您要停用的端點，然後在顯示的 [端點] 刀鋒視窗上，按一下 [編輯]。
@@ -58,19 +58,19 @@ ms.locfileid: "51244997"
 
 ## <a name="to-enable-an-endpoint"></a>若要啟用端點
 
-1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。
+1. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在入口網站的搜尋列中，搜尋您想要修改的**流量管理員設定檔**名稱，然後按一下結果中顯示的流量管理員設定檔。
 3. 在 [流量管理員設定檔] 刀鋒視窗中，請在 [設定] 區段中按一下 [端點]。 
-4. 按一下您要停用的端點，然後在顯示的 [端點] 刀鋒視窗上，按一下 [編輯]。
+4. 单击要禁用的终结点，并在显示的“终结点”边栏选项卡中，单击“编辑”。
 5. 在 [端點] 刀鋒視窗中，將端點狀態變更為 [已啟用]，然後按一下 [儲存]。
-6. 用戶端會繼續將流量傳送至端點以取得存留時間 (TTL) 持續時間。 您可以在流量管理員設定檔的 [組態] 頁面上變更 TTL。
+6. 用戶端會繼續將流量傳送至端點以取得存留時間 (TTL) 持續時間。 可以在流量管理器配置文件的“配置”页上更改 TTL。
 
 ## <a name="to-delete-an-endpoint"></a>若要刪除端點：
 
-1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。
+1. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在入口網站的搜尋列中，搜尋您想要修改的**流量管理員設定檔**名稱，然後按一下結果中顯示的流量管理員設定檔。
 3. 在 [流量管理員設定檔] 刀鋒視窗中，請在 [設定] 區段中按一下 [端點]。 
-4. 按一下您要停用的端點，然後在顯示的 [端點] 刀鋒視窗上，按一下 [編輯]。
+4. 单击要禁用的终结点，并在显示的“终结点”边栏选项卡中，单击“编辑”。
 5. 在 [端點] 刀鋒視窗中，將端點狀態變更為 [已啟用]，然後按一下 [儲存]。
 
 

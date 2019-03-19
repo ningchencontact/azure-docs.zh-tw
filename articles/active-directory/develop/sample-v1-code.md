@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05b1885871c83da79839448fce2814016f0c082
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 64c199df2012e6ce3b3de5f34989cf5cbc135fdc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194558"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101018"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 程式碼範例 (v1.0 端點)
 
@@ -45,7 +45,7 @@ ms.locfileid: "56194558"
 這個範例示範如何撰寫使用 Azure AD 保護的單頁應用程式。
 
  平台 | 呼叫它自己的 API | 呼叫其他 Web API
- -------- |  --------------------- | ------------------ | ----------------
+ -------- |  --------------------- | ------------------ 
 ![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
@@ -67,8 +67,8 @@ ms.locfileid: "56194558"
 
 下列範例會示範如何實作角色型存取控制 (RBAC)。 RBAC 可用來限制只能將 Web 應用程式特定功能的權限，提供給特定使用者。 系統會根據使用者屬於 **Azure AD 群組**還是具有指定應用程式**角色**來對使用者授權。
 
-平台 | 範例
- -------- | -------------------
+平台 | 範例 |
+ -------- | ------------------- |
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | 使用 Azure AD **角色**進行授權的 .NET 4.5 MVC Web 應用程式
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>呼叫 Microsoft Graph 或 Web API 的桌上型與行動裝置公開用戶端應用程式
@@ -95,7 +95,7 @@ ms.locfileid: "56194558"
 下列範例的桌上型或 Web 應用程式會以應用程式識別碼 (無使用者) 來存取 Microsoft Graph 或 Web API。
 
 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 ASP.NET 或 ASP.NET Core 2.0 Web API
------------------- | -------- | ---------- | -------------------- | -------------------------
+------------------ | -------- | ---------- | -------------------- 
 精靈應用程式 (主控台)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | 使用應用程式祕密或憑證的用戶端認證 | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 精靈應用程式 (主控台)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | 使用憑證的用戶端認證| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
 ASP.NET Web 應用程式  | ![.NET](media/sample-v2-code/logo_NETframework.png) | 用戶端認證 | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
@@ -124,7 +124,7 @@ ASP.NET Web 應用程式  | ![.NET](media/sample-v2-code/logo_NETframework.png) 
 
 如需示範 Microsoft Graph API 不同使用模式的範例和教學課程 (包括使用 Azure AD 驗證)，請參閱 [Microsoft Graph 社群範例和教學課程](https://github.com/microsoftgraph/msgraph-community-samples)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [Azure Active Directory 開發人員指南](v1-overview.md)
 

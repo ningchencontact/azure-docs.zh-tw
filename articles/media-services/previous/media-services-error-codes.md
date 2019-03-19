@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d700423ea966cab3b0f546d21d4d2f5ca5208971
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f3c362730e7908e88b363659b7fa580b6f2cddf1
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990508"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189456"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒體服務錯誤代碼
 使用 Microsoft Azure 媒體服務時，您可能會根據問題從服務收到 HTTP 錯誤代碼，例如驗證權杖過期到媒體服務中不支援的動作。 以下是媒體服務可能會傳回的「HTTP 錯誤代碼」的清單，以及其可能原因。  
@@ -35,7 +35,7 @@ ms.locfileid: "55990508"
   > 
   > 
 * 已指定未定義的屬性。 屬性名稱在錯誤訊息中。 只能指定屬於指定實體的屬性。 請參閱 [Azure 媒體服務 REST API 參考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)，以取得實體及其屬性的清單。
-* 已指定無效的屬性值。 屬性名稱在錯誤訊息中。 請參閱先前連結以取得有效屬性類型及其值。
+* 已指定無效的屬性值。 错误消息中提供属性名称。 請參閱先前連結以取得有效屬性類型及其值。
 * 遺漏必要的屬性值。
 * 指定 URL 的一部分包含不正確的值。
 * 嘗試更新 WriteOnce 屬性。
@@ -52,7 +52,7 @@ ms.locfileid: "55990508"
   * 權杖包含無效的簽章。
 
 ## <a name="403-forbidden"></a>403 禁止
-基於下列原因之一不允許此要求：
+出于以下原因之一，不允许该请求：
 
 * 找不到媒體服務帳戶，或已被刪除。
 * 媒體服務帳戶已停用，且要求類型並非 HTTP GET。 服務作業也會傳回 403 回應。
@@ -89,7 +89,7 @@ ms.locfileid: "55990508"
 * 將資產的儲存體帳戶連結到 IngestManifestAsset，與父項 IngestManifest 所使用的儲存體帳戶不相同。  
 
 ## <a name="500-internal-server-error"></a>500 內部伺服器錯誤
-在處理要求時，媒體服務遇到錯誤，而導致無法繼續處理。 這可能是下列其中一個原因所造成：
+在處理要求時，媒體服務遇到錯誤，而導致無法繼續處理。 这可能是以下原因之一造成的：
 
 * 無法建立資產或作業，因為媒體服務帳戶的服務配額資訊暫時無法使用。
 * 無法建立資產或 IngestManifest blob 儲存體容器，因為帳戶的儲存體帳戶資訊暫時無法使用。
@@ -116,7 +116,7 @@ ms.locfileid: "55990508"
 > 
 > 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [媒體服務管理錯誤代碼](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>後續步驟

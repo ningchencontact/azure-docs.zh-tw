@@ -1,6 +1,6 @@
 ---
 title: 設定 Azure 匯入/匯出工具 v1 | Microsoft Docs
-description: 了解如何設定 Azure 匯入/匯出服務的磁碟機準備及修復工具。 這是指 v1 的匯入/匯出工具。
+description: 了解如何設定 Azure 匯入/匯出服務的磁碟機準備及修復工具。 本文所述的导入/导出工具为 v1 版本。
 author: muralikk
 services: storage
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087443"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>設定 Azure 匯入/匯出工具
 Microsoft Azure 匯入/匯出工具是磁碟機準備及修復工具，可搭配 Microsoft Azure 匯入/匯出服務使用。 您可以使用此工具來執行下列功能︰  
@@ -41,40 +41,40 @@ Microsoft Azure 匯入/匯出工具是磁碟機準備及修復工具，可搭配
   
 -   您將需要一個或多個包含要匯入資料的磁碟機，或連接至複製電腦的空白 3.5 吋 SATA 硬碟。  
   
--   您想匯入的檔案必須可從複製機器上存取，無論它們是在網路共用或本機硬碟上。 
+-   打算导入的文件必须可从复制计算机访问，无论这些文件是位于网络共享还是本地硬盘驱动器上。 
   
 如果您嘗試修復已部分失敗的匯入，您將需要︰  
   
--   複製記錄檔  
+- 複製記錄檔  
   
--   儲存體帳戶金鑰。  
+- 儲存體帳戶金鑰。  
   
   如果您嘗試修復已部分失敗的匯出，您將需要︰  
   
--   複製記錄檔  
+- 複製記錄檔  
   
--   資訊清單檔案 (選擇性)  
+- 資訊清單檔案 (選擇性)  
   
--   儲存體帳戶金鑰。  
+- 儲存體帳戶金鑰。  
   
 ## <a name="installing-the-azure-importexport-tool"></a>安裝 Azure 匯入/匯出工具  
  Azure 匯入/匯出工具包含下列檔案：  
   
--   WAImportExport.exe  
+- WAImportExport.exe  
   
--   WAImportExport.exe.config  
+- WAImportExport.exe.config  
   
--   WAImportExportCore.dll  
+- WAImportExportCore.dll  
   
--   WAImportExportRepair.dll  
+- WAImportExportRepair.dll  
   
--   Microsoft.WindowsAzure.Storage.dll  
+- Microsoft.WindowsAzure.Storage.dll  
   
--   Hddid.dll  
+- Hddid.dll  
   
- 將這些檔案複製到工作目錄，例如，`c:\WAImportExport`。 接下來，在系統管理員模式中開啟命令列視窗，並將上述目錄設為目前的目錄。  
+  將這些檔案複製到工作目錄，例如，`c:\WAImportExport`。 接下來，在系統管理員模式中開啟命令列視窗，並將上述目錄設為目前的目錄。  
   
- 若要輸出命令的說明，執行此工具而不包含參數︰  
+  若要輸出命令的說明，執行此工具而不包含參數︰  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e6e25424981118363070d42b2fb057b18fdb91a9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806968"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878642"
 ---
 <a name="api-prerequisites"></a>API 先決條件
 ================
@@ -55,7 +55,7 @@ ms.locfileid: "48806968"
 
      ![將受控應用程式新增至入口網站](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. 按一下 [新增]，將服務主體新增至您的帳戶。
+1. 按一下 [新增]，將服務主體新增至您的帳戶。
 
    ![新增服務主體](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
@@ -66,7 +66,7 @@ ms.locfileid: "48806968"
 Cloud Partner 入口網站 API 會在驗證期間使用下列資產和通訊協定：
 
 - JSON Web 權杖 (JWT) 持有人權杖，可要求資源的存取權
-- [OpenID Connect](http://openid.net/connect/) (OIDC) 通訊協定，可驗證身分識別
+- [OpenID Connect](https://openid.net/connect/) (OIDC) 通訊協定，可驗證身分識別
 - [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)，作為身分識別授權單位
 
 使用程式設計方式取得 JWT 權杖有兩種主要方法：

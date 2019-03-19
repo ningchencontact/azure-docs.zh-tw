@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 08/30/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: fe1227d91c0d039a94e5b9a3046b879f4f17355a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 844e4a0d2715799b808f2c7630c201f6e792bd63
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246752"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124387"
 ---
 | 資源 | 基本 | 標準 | 進階 |
-|---|---|---|---|---|
+|---|---|---|---|
 | 儲存體<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
-| 映像層大小上限 | 20 GiB | 20 GiB | 50 GiB |
+| 最大的映像層大小 | 20 GiB | 20 GiB | 50 GiB |
 | 每分鐘的 ReadOps<sup>2, 3</sup> | 1,000 | 3,000 | 10,000 |
 | 每分鐘的 WriteOps<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | 下載頻寬 Mbps<sup>2</sup> | 30 | 60 | 100 |
@@ -27,13 +27,13 @@ ms.locfileid: "56246752"
 | 異地複寫 | N/A | N/A | [支援][geo-replication] |
 | 內容信任 (預覽) | N/A | N/A | [支援][content-trust] |
 
-<sup>1</sup> 指定的儲存體限制為每個層級內含的儲存體數量。 對於超過這些限制的影像儲存，您需要依每 GiB 的每日費率另外支付費用。 如需費率資訊，請參閱 [Container Registry 定價][pricing]。
+<sup>1</sup>是指當指定的儲存體限制*包含*每個層級的儲存體。 對於超過這些限制的影像儲存，您需要依每 GiB 的每日費率另外支付費用。 費率的詳細資訊，請參閱 < [Azure Container Registry 定價][pricing]。
 
-<sup>2</sup> *ReadOps*、*WriteOps* 和「頻寬」是最小預估值。 ACR 致力於改善需要使用時的效能。
+<sup>2</sup>*ReadOps*， *WriteOps*，和*頻寬*是最小的估計值。 Azure Container Registry 致力於改善效能，需要使用。
 
-<sup>3</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) 會根據映像中的圖層數目以及資訊清單擷取，來轉譯為多個讀取作業。
+<sup>3</sup>A [docker 提取](https://docs.docker.com/registry/spec/api/#pulling-an-image)會轉譯為多個映像，加上資訊清單擷取的圖層數目為基礎的讀取作業。
 
-<sup>4</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) 會根據必須推送的圖層數目，來轉譯為多個寫入作業。 `docker push` 包含 *ReadOps*，以擷取現有映像的資訊清單。
+<sup>4</sup>A [docker 推播](https://docs.docker.com/registry/spec/api/#pushing-an-image)會轉譯為多個寫入作業，根據必須推送的圖層數目。 `docker push` 包含 *ReadOps*，以擷取現有映像的資訊清單。
 
 <!-- LINKS - External -->
 [pricing]: https://azure.microsoft.com/pricing/details/container-registry/

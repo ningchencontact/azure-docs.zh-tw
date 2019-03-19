@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: f65a6a0f9564eafda36b8a8f4988e064e39a3bb1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430602"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007841"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性
 
@@ -94,15 +94,15 @@ NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 S
 * 後端組態
   * 連線到應該屬於 (A)SCS/ERS 叢集一部分之所有虛擬機器的主要網路介面
 * 探查連接埠
-  * 連接埠 620**&lt;nr&gt;**
+  * 連接埠 620<strong>&lt;nr&gt;</strong>
 * 負載平衡規則
-  * 32**&lt;nr&gt;** TCP
-  * 36**&lt;nr&gt;** TCP
-  * 39**&lt;nr&gt;** TCP
-  * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 32<strong>&lt;nr&gt;</strong> TCP
+  * 36<strong>&lt;nr&gt;</strong> TCP
+  * 39<strong>&lt;nr&gt;</strong> TCP
+  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -111,12 +111,12 @@ NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 S
 * 後端組態
   * 連線到應該屬於 (A)SCS/ERS 叢集一部分之所有虛擬機器的主要網路介面
 * 探查連接埠
-  * 連接埠 621**&lt;nr&gt;**
+  * 連接埠 621<strong>&lt;nr&gt;</strong>
 * 負載平衡規則
-  * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>設定高可用性的 NFS 伺服器
 
@@ -212,6 +212,9 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
       1. ASCS ERS 的其他連接埠
          * 重複上述步驟來為 ASCS ERS 設定連接埠 33**02**、5**02**13、5**02**14、5**02**16 和 TCP
 
+> [!IMPORTANT]
+> 不會啟用 TCP 放置 Azure 負載平衡器後方的 Azure Vm 上的時間戳記。 啟用 TCP 加上時間戳記將會造成失敗的健康狀態探查。 設定參數**net.ipv4.tcp_timestamps**要**0**。 如需詳細資訊，請參閱[負載平衡器健康情況探查](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview)。
+
 ### <a name="create-pacemaker-cluster"></a>建立 Pacemaker 叢集
 
 依照[在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker](high-availability-guide-suse-pacemaker.md) 中的步驟，建立此 (A)SCS 伺服器的基本 Pacemaker 叢集。
@@ -230,7 +233,8 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
    請確定您已安裝新版的 SAP SUSE 叢集連接器。 舊版連接器稱為 sap_suse_cluster_connector，新版連接器稱為 **sap-suse-cluster-connector**。
 
-   <pre><code>sudo zypper info sap-suse-cluster-connector
+   ```
+   sudo zypper info sap-suse-cluster-connector
    
    Information for package sap-suse-cluster-connector:
    ---------------------------------------------------
@@ -245,7 +249,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    Status         : up-to-date
    Source package : sap-suse-cluster-connector-3.0.0-2.2.src
    Summary        : SUSE High Availability Setup for SAP Products
-   </code></pre>
+   ```
 
 1. **[A]** 更新 SAP 資源代理程式  
    
@@ -685,7 +689,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. 準備應用程式伺服器
 
-依照上述 [SAP NetWeaver 應用程式伺服器準備](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7)章節中的步驟，準備應用程式伺服器。
+   依照上述 [SAP NetWeaver 應用程式伺服器準備](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7)章節中的步驟，準備應用程式伺服器。
 
 1. 安裝 SAP NetWeaver 應用程式伺服器
 

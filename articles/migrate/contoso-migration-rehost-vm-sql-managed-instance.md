@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 832614c46f0269460245d081f20897b591e31fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101562"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso 移轉：在 Azure VM 和 SQL Database 受控執行個體上重新裝載內部部署應用程式
 
@@ -131,7 +131,7 @@ Contoso 會完成下列步驟，以將 SmartHotel360 應用程式的 Web 和資�
 
 ### <a name="azure-services"></a>Azure 服務
 
-服務 | 說明 | 成本
+服務 | 描述 | 成本
 --- | --- | ---
 [Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) | 資料庫移轉服務能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。 | 深入了解[支援的區域](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability)和[資料庫移轉服務定價](https://azure.microsoft.com/pricing/details/database-migration/)。
 [Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | 受控執行個體是一種受控資料庫服務，可代表 Azure 雲端中的完全受控 SQL Server 執行個體。 它會使用與最新版 SQL Server 資料庫引擎相同的程式碼，並擁有最新的功能、效能增強功能和安全性修補程式。 | 使用在 Azure 中執行的 SQL Database 受控執行個體會根據所用容量產生費用。 深入了解[受控執行個體定價](https://azure.microsoft.com/pricing/details/sql-database/managed/)。 
@@ -222,7 +222,7 @@ Contoso 會考量下列因素：
 - 一個子網路只能與一個路由表相關聯。
 - 在 Microsoft Azure 中建立路由表，沒有任何額外的費用。
 
- 若要設定路由，Contoso 管理員可執行下列動作：
+  若要設定路由，Contoso 管理員可執行下列動作：
 
 1. 他們會在 **ContosoNetworkingRG** 資源群組中建立 UDR (路由) 表。
 
@@ -441,11 +441,11 @@ Contoso 管理員現在會設定目標複寫環境：
 
 1. 在 [準備基礎結構] > [複寫設定] > [複寫原則] >  [建立和關聯] 中，他們會建立 **ContosoMigrationPolicy** 原則。
 2. 他們使用預設設定：
-    - **RPO 閾值**：預設值是 60 分鐘。 這個值可定義復原點的建立頻率。 連續複寫超過此限制時會產生警示。
-    - **復原點保留**：預設值為 24 小時。 此值會指定每個復原點的保留週期有多長。 複寫的 VM 可以還原至一個週期內的任何時間點。
-    - **應用程式一致的快照頻率**：預設值為 1 小時。 此值會指定應用程式一致快照的建立頻率。
+   - **RPO 閾值**：預設值是 60 分鐘。 這個值可定義復原點的建立頻率。 連續複寫超過此限制時會產生警示。
+   - **復原點保留**：預設值為 24 小時。 此值會指定每個復原點的保留週期有多長。 複寫的 VM 可以還原至一個週期內的任何時間點。
+   - **應用程式一致的快照頻率**：預設值為 1 小時。 此值會指定應用程式一致快照的建立頻率。
  
-    ![複寫原則 - 建立](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![複寫原則 - 建立](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. 此原則會自動與設定伺服器產生關聯。 
 

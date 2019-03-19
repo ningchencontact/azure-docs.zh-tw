@@ -3,23 +3,23 @@ title: Azure 資訊安全中心的檔案完整性監視 | Microsoft Docs
 description: " 了解如何在 Azure 資訊安全中心啟用檔案完整性監視。 "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
-editor: ''
+editor: monhaber
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
-ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.author: monhaber
+ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310719"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901573"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的檔案完整性監視
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定檔案完整性監視 (FIM)。
@@ -36,15 +36,12 @@ ms.locfileid: "56310719"
 資訊安全中心會建議要監視的實體，您可以輕鬆地對其啟用 FIM。 您也可以定義自己的 FIM 原則或要監視的實體。 本逐步解說會示範做法。
 
 > [!NOTE]
-> 檔案完整性監視 (FIM) 功能適用於 Windows 和 Linux 電腦及 VM，並可在資訊安全中心的標準層使用。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
-FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量，需要支付資料費用。 請參閱 [Log Analytics 定價](https://azure.microsoft.com/pricing/details/log-analytics/)以深入了解。
->
->
+> 檔案完整性監視 (FIM) 功能適用於 Windows 和 Linux 電腦及 VM，並可在資訊安全中心的標準層使用。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。 FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量，需要支付資料費用。 請參閱 [Log Analytics 定價](https://azure.microsoft.com/pricing/details/log-analytics/)以深入了解。
+
+FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更。 啟用檔案完整性監視時，您必須**變更追蹤**類型的資源**解決方案**。 資料收集頻率的詳細資訊，請參閱 <<c0> [ 變更追蹤的資料收集詳細資料](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details)為 Azure 變更追蹤。
 
 > [!NOTE]
-> FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更。 啟用檔案完整性監視時，您會有解決方案類型的**變更追蹤**資源。 如果您移除**變更追蹤**資源，您會停用資訊安全中心的檔案完整性監視功能。
->
->
+> 如果您移除**變更追蹤**資源，您也會停用檔案完整性監視資訊安全中心的功能。
 
 ## <a name="which-files-should-i-monitor"></a>我應該監視哪些檔案？
 選擇要監視的檔案時，您應該考慮對系統和應用程式重要的檔案。 請考慮選擇不會未經計劃就變更的檔案。 選擇應用程式或作業系統經常變更的檔案 (例如記錄檔和文字檔) 會造成許多干擾而難以識別攻擊。
@@ -134,15 +131,15 @@ FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量
 
 1. 返回 [檔案完整性監視] 儀表板，然後選取 [設定]。
 
-  ![設定][11]
+   ![設定][11]
 
-  **工作區設定**隨即開啟，並顯示三個索引標籤：**Windows 登錄**、**Windows 檔案**和 **Linux 檔案**。 每個索引標籤會列出您可以在該類別中編輯的實體。 針對每個列出的實體，資訊安全中心會識別 FIM 已啟用 (True) 或未啟用 (False)。  編輯實體可讓您啟用或停用 FIM。
+   **工作區設定**隨即開啟，並顯示三個索引標籤：**Windows 登錄**、**Windows 檔案**和 **Linux 檔案**。 每個索引標籤會列出您可以在該類別中編輯的實體。 針對每個列出的實體，資訊安全中心會識別 FIM 已啟用 (True) 或未啟用 (False)。  編輯實體可讓您啟用或停用 FIM。
 
-  ![工作區設定][12]
+   ![工作區設定][12]
 
-2. 選取 identityprotection。 在此範例中，已選取 [Windows 登錄] 下的項目。 [Edit for Change Tracking] \(編輯變更追蹤項目\) 會隨即開啟。
+2. 選取 識別身分保護。 在此範例中，已選取 [Windows 登錄] 下的項目。 [Edit for Change Tracking] \(編輯變更追蹤項目\) 會隨即開啟。
 
-  ![編輯或變更追蹤][13]
+   ![編輯或變更追蹤][13]
 
 在 [Edit for Change Tracking] \(編輯變更追蹤項目\) 下，您可以：
 
@@ -155,11 +152,11 @@ FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量
 1. 返回 [檔案完整性監視] 儀表板，然後選取頂端的 [設定]。 [工作區設定] 會隨即開啟。
 2. 在 [工作區設定] 下，選取您要對於實體類型新增的索引標籤：[Windows 登錄]、[Windows 檔案] 或 [Linux 檔案]。 在此範例中，已選取 [Linux 檔案]。
 
-  ![新增要監視的項目][14]
+   ![新增要監視的項目][14]
 
 3. 選取 [新增] 。 [Add for Change Tracking] \(新增變更追蹤項目\) 會隨即開啟。
 
-  ![輸入所要求的資訊][15]
+   ![輸入所要求的資訊][15]
 
 4. 在 [新增] 頁面上，鍵入所要求的資訊，然後選取 [儲存]。
 
@@ -167,19 +164,19 @@ FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量
 1. 返回 [檔案完整性監視] 儀表板。
 2. 選取目前啟用 FIM 的工作區。 如果缺少 [啟用] 按鈕或 [升級計劃] 按鈕，則工作區已啟用 FIM。
 
-  ![選取啟用 FIM 的工作區][16]
+   ![選取啟用 FIM 的工作區][16]
 
 3. 在 [檔案完整性監視] 下，選取 [設定]。
 
-  ![選取 [設定]][17]
+   ![選取 [設定]][17]
 
 4. 在 [工作區設定] 下，選取 [已啟用] 設定為 True 的群組。
 
-  ![工作區設定][18]
+   ![工作區設定][18]
 
 5. 在 [Edit for Change Tracking] \(編輯變更追蹤項目\) 視窗下，將 [已啟用] 設定為 False。
 
-  ![將 [已啟用] 設定為 False][19]
+   ![將 [已啟用] 設定為 False][19]
 
 6. 選取 [ **儲存**]。
 
@@ -198,7 +195,7 @@ FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量
 2. 選取工作區。
 3. 在 [檔案完整性監視] 下，選取 [停用]。
 
-  ![停用 FIM][20]
+   ![停用 FIM][20]
 
 4. 選取 [移除] 以停用。
 

@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 26ea184055f1496babf4f98f5d103b9af9c77ac0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 92eef714f651ef0ce4e58fcfbb8fad75a38c55c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973446"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121327"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>VMware 至 Azure 災害復原的組態伺服器需求
 
@@ -75,11 +75,12 @@ MySQL | 應該安裝 MySQL。 您可以手動安裝，或者 Site Recovery 可�
 
 **元件** | **需求** 
 --- | ---
-**CPU** | **記憶體** | **快取磁碟** | **資料變更率** | **複寫的機器**
---- | --- | --- | --- | ---
-8 個 vCPU<br/><br/> 2 個插槽 * 4 個核心 \@ 2.5 GHz | 16 GB | 300 GB | 500 GB 或更少 | 少於 100 部電腦
-12 個 vCPU<br/><br/> 2 個插槽 * 6 個核心 \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 到 150 部機器
-16 個 vCPU<br/><br/> 2 個插槽 * 8 個核心 \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 部電腦
+
+| **CPU** | **記憶體** | **快取磁碟** | **資料變更率** | **複寫的機器** |
+| --- | --- | --- | --- | --- |
+| 8 個 vCPU<br/><br/> 2 個插槽 * 4 個核心 \@ 2.5 GHz | 16 GB | 300 GB | 500 GB 或更少 | 少於 100 部電腦 |
+| 12 個 vCPU<br/><br/> 2 個插槽 * 6 個核心 \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 到 150 部機器 |
+| 16 個 vCPU<br/><br/> 2 個插槽 * 8 個核心 \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 部電腦 | 
 
 
 

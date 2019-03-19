@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119793"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013302"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 監視 Node.js 服務和應用程式
 
@@ -28,8 +28,6 @@ ms.locfileid: "54119793"
 Node.js SDK 可以自動監視傳入和傳出 HTTP 要求、例外狀況、和一些系統計量。 從 0.20 版開始，SDK 也可以監視一些常見的第三方套件，像是 MongoDB、MySQL 和 Redis。 與傳入 HTTP 要求相關的所有事件都會相互關聯，以進行快速疑難排解。
 
 您可以使用 TelemetryClient API 手動檢測和監視您的應用程式及系統的其他層面。 我們將在本文稍後更詳細說明 TelemetryClient API。
-
-![範例效能監視圖表](./media/nodejs/10-perf.png)
 
 ## <a name="get-started"></a>開始使用
 
@@ -49,11 +47,7 @@ Node.js SDK 可以自動監視傳入和傳出 HTTP 要求、例外狀況、和�
 1. 登入 [Azure 入口網站][portal]。
 2. 選取 [建立資源] > [開發人員工具] > [Application Insights]。 此資源包含用於接收遙測資料的端點、此資料的儲存體、已儲存的報告和儀表板、規則和警示組態等等。
 
-  ![建立 Application Insights 資源](./media/nodejs/03-new_appinsights_resource.png)
-
 3. 在資源建立頁面上，於 [應用程式類型] 方塊中選取 [Node.js 應用程式]。 應用程式類型可決定建立的預設儀表板和報告。 (任何 Application Insights 資源都可以從任何語言和平台收集資料。)
-
-  ![新增 Application Insights 資源表單](./media/nodejs/04-create_appinsights_resource.png)
 
 ### <a name="sdk"></a> 設定 Node.js SDK
 
@@ -61,29 +55,29 @@ Node.js SDK 可以自動監視傳入和傳出 HTTP 要求、例外狀況、和�
 
 1. 從 Azure 入口網站複製資源的檢測金鑰 (也稱為 *ikey*)。 Application Insights 使用 ikey 來將資料對應至您的 Azure 資源。 在 SDK 可以使用您的 ikey 之前，您必須在環境變數或程式碼中指定 ikey。  
 
-  ![複製檢測金鑰](./media/nodejs/05-appinsights_ikey_portal.png)
+   ![複製檢測金鑰](./media/nodejs/instrumentation-key-001.png)
 
 2. 接著透過 package.json，將 Node.js SDK 程式庫新增至您應用程式的相依性。 從您應用程式的根資料夾，執行︰
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. 在您的程式碼中明確地載入此程式庫。 因為 SDK 會將檢測插入其他許多程式庫中，請儘早載入程式庫，甚至插入在其他 `require` 陳述式之前。 
 
-  在第一個 .js 檔案的頂端，加入下列程式碼。 `setup` 方法會針對所有追蹤的項目，設定預設要使用的金鑰 (以及 Azure 資源)。
+   在第一個 .js 檔案的頂端，加入下列程式碼。 `setup` 方法會針對所有追蹤的項目，設定預設要使用的金鑰 (以及 Azure 資源)。
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  您也可以透過環境變數 APPINSIGHTS\_INSTRUMENTATIONKEY 提供 ikey，而非以手動方式將它傳遞至 `setup()` 或 `new appInsights.TelemetryClient()`。 這種做法可讓您將 ikeys 保留在認可的原始程式碼之外，而您可以針對不同的環境指定不同的 ikey。
+   您也可以透過環境變數 APPINSIGHTS\_INSTRUMENTATIONKEY 提供 ikey，而非以手動方式將它傳遞至 `setup()` 或 `new appInsights.TelemetryClient()`。 這種做法可讓您將 ikeys 保留在認可的原始程式碼之外，而您可以針對不同的環境指定不同的 ikey。
 
-  如需其他組態選項，請參閱下列各節。
+   如需其他組態選項，請參閱下列各節。
 
-  藉由設定 `appInsights.defaultClient.config.disableAppInsights = true`，您可以嘗試 SDK，而不需要傳送遙測。
+   藉由設定 `appInsights.defaultClient.config.disableAppInsights = true`，您可以嘗試 SDK，而不需要傳送遙測。
 
 ### <a name="monitor"></a> 監視您的應用程式
 
@@ -91,15 +85,13 @@ SDK 會自動蒐集有關 Node.js 執行階段和一些常見第三方模組的�
 
 然後，在 [Azure 入口網站][portal]中，前往您稍早建立的 Application Insights 資源。 在**概觀時間表**中，尋找您的前幾個資料點。 若要查看更詳細的資料，請在圖表中選取不同的元件。
 
-![第一個資料點](./media/nodejs/12-first-perf.png)
-
 若要檢視針對您的應用程式找到的拓撲，請選取 [應用程式對應] 按鈕。 在對應中選取元件來查看更多詳細資料。
 
-![簡單的應用程式對應](./media/nodejs/06-appinsights_appmap.png)
+![簡單的應用程式對應](./media/nodejs/application-map-002.png)
 
 若要深入了解您的應用程式，以及疑難排解問題，請在 [調查] 區段中，選取可用的其他檢視。
 
-![調查區段](./media/nodejs/07-appinsights_investigate_blades.png)
+![調查區段](./media/nodejs/007-investigate-pane.png)
 
 #### <a name="no-data"></a>沒有資料？
 

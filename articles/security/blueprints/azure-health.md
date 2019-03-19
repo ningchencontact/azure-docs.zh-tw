@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103067"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544557"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
@@ -48,7 +48,7 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 
 -   **架構圖。** 此圖顯示用於藍圖和範例使用案例的參考架構。
 
--   [IaaS 延伸模組](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   此解決方案會示範如何將內部部署 SQL 式解決方案移轉至 Azure，以及如何實作「特殊權限存取工作站」，以安全地管理雲端式服務和解決方案。 
+-   [IaaS 擴充功能](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)此解決方案會示範如何將內部部署 SQL 架構方案移轉至 Azure，以及如何實作安全地管理雲端服務和解決方案的特殊權限存取工作站。 
 
 ## <a name="solution-components"></a>方案元件
 
@@ -59,7 +59,7 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 
 -   **[客戶實作矩陣](https://aka.ms/healthcrmblueprint)** Microsoft Excel 活頁簿會列出相關的 HITRUST 需求，並說明 Microsoft 和客戶如何負責符合每一個需求。
 
--   **[健康狀態檢閱。](https://aka.ms/healthreviewpaper)** 該解決方案已由 Coalfire systems, Inc. 檢閱。健康情況合規性 (HIPAA 和 HITRUST) 檢閱和實作指引提供稽核員對解決方案的檢閱，以及將藍圖轉換為實際可執行部署的考量。
+-   **[健康狀態檢閱。](https://aka.ms/healthreviewpaper)** 該解決方案已由 Coalfire systems, Inc. 檢閱。健康情況合規性 (HIPAA 和 HITRUST) 檢閱和實作指引提供稽核員對解決\'方案的檢閱，以及將藍圖轉換為實際可執行部署的考量。
 
 ## <a name="architectural-diagram"></a>架構圖
 
@@ -93,7 +93,7 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 
 -   範圍：ResourceGroup
 
- ### <a name="data-scientist"></a>資料科學家
+### <a name="data-scientist"></a>資料科學家
 
 
 資料科學家負責操作 Azure Machine Learning Studio。 他們可以匯入、匯出及管理資料，以及執行報告。 資料科學家具有病患資料的存取權，但沒有系統管理權限。
@@ -272,7 +272,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 
 **2.金鑰保存庫**會要求與所要求權杖相關聯的密碼。
 
-**3. Azure 角色會驗證要求，並授權金鑰保存庫的存取要求。
+**3.Azure 角色**驗證要求，並授權至金鑰保存庫的存取要求。
 
 **4.金鑰保存庫**會傳回密碼，在此情況下為 SQL DB 連接字串。
 
@@ -361,8 +361,8 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 ### <a name="azure-alerts"></a>Azure 警示
 - [警示會提供監視 Azure 服務的方法，並可讓您針對資料設定條件。 當警示條件符合監視資料時，警示也會提供通知。
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) 是管理服務的集合。
+### <a name="azure-monitor-logs"></a>Azure 監視器記錄
+[Azure 監視器記錄](/azure/operations-management-suite/operations-management-suite-overview)是管理服務的集合。
 
 -   已針對資訊安全中心啟用工作區
 

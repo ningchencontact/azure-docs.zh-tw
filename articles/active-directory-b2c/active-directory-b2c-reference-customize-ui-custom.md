@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122921"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>使用自訂原則來自訂使用者旅程的 UI
 
@@ -66,7 +66,7 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 - 確保內容符合 HTML5 規範且可供存取
 - 確保內容伺服器已啟用 CORS。
 - 透過 HTTPS 提供內容。
-- 對所有連結和 CSS 內容使用絕對 URL，例如 https://yourdomain/content。
+- 對所有連結和 CSS 內容使用絕對 URL，例如 `https://yourdomain/content`。
 
 > [!TIP]
 > 若要確認您要用來裝載內容的網站已啟用 CORS 並測試 CORS 要求，您可以使用 https://test-cors.org/ 網站。 由於有此網站，您可以將 CORS 要求傳送到遠端伺服器 (以進行測試，前提是該伺服器支援 CORS)，或將 CORS 要求傳送至測試伺服器 (以瀏覽 CORS 的某些功能)。
@@ -121,16 +121,16 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 1. 開啟瀏覽工作階段，並使用 unified.html 頁面在儲存體帳戶中所在位置的完整 URL `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html` 來瀏覽至該頁面。 例如： https://contoso369b2c.blob.core.windows.net/b2c/unified.html。
 2. 瀏覽至 https://test-cors.org。這個網站可讓您確認您要使用的頁面已啟用 CORS。  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. 在 [遠端 URL] 中，輸入 unified.html 內容的完整 URL，然後按一下 [傳送要求]。
 4. 確認 [結果] 區段中的輸出包含「XHR status:*200*，這表示已啟用 CORS。
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-儲存體帳戶現在應該包含示圖中名為 b2c 的 Blob 容器，其中並包含下列來自 Starter-Pack 的 wingtiptoys 範本。
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   儲存體帳戶現在應該包含示圖中名為 b2c 的 Blob 容器，其中並包含下列來自 Starter-Pack 的 wingtiptoys 範本。
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
@@ -138,7 +138,7 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 下表說明前述 HTML5 網頁的目的。
 
-| HTML5 範本 | 說明 |
+| HTML5 範本 | 描述 |
 |----------------|-------------|
 | phonefactor.html | 此頁面可作為 Multi-Factor Authentication 頁面的範本。 |
 | resetpassword.html | 此頁面可作為忘記密碼頁面的範本。 |
@@ -154,7 +154,7 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 下表說明 Azure AD B2C 身分識別體驗引擎所能辨識之內容定義識別碼的集合，以及與這些識別碼有關的頁面類型。
 
-| 內容定義識別碼 | 說明 |
+| 內容定義識別碼 | 描述 |
 |-----------------------|-------------|
 | api.error | **錯誤頁面**。 在發生例外狀況或錯誤時，系統會顯示此頁面。 |
 | api.idpselections | **識別提供者選取頁面**。 此頁面包含使用者可以在登入期間選擇的識別提供者清單。 這些提供者是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶 (以電子郵件地址或使用者名稱為基礎)。 |

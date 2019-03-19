@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/12/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121701"
 ---
 # <a name="locking-down-an-app-service-environment"></a>鎖定 App Service 環境
 
@@ -91,7 +91,6 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 - 萬用字元 HTTP/HTTPS 端點是根據一些限定條件，可能隨著 ASE 而變的相依性。 
 - 只有在您要將 Linux 應用程式部署到 ASE 時，才需要考量 Linux 相依性。 如果您沒有要將 Linux 應用程式部署到 ASE，則這些位址不需要新增至您的防火牆。 
 
-
 #### <a name="service-endpoint-capable-dependencies"></a>服務端點功能相依性 
 
 | 端點 |
@@ -106,6 +105,14 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 |----------| ----- |
 | \*:123 | NTP 時鐘檢查。 在連接埠 123 上的多個端點檢查流量 |
 | \*:12000 | 此連接埠用於某些系統監視。 如果被封鎖，則某些問題會更加難以分類，但你的 ASE 會繼續運作 |
+| 40.77.24.27:80 | 需要 ASE 的問題的監視和警示 |
+| 40.77.24.27:443 | 需要 ASE 的問題的監視和警示 |
+| 13.90.249.229:80 | 需要 ASE 的問題的監視和警示 |
+| 13.90.249.229:443 | 需要 ASE 的問題的監視和警示 |
+| 104.45.230.69:80 | 需要 ASE 的問題的監視和警示 |
+| 104.45.230.69:443 | 需要 ASE 的問題的監視和警示 |
+| 13.82.184.151:80 | 需要 ASE 的問題的監視和警示 |
+| 13.82.184.151:443 | 需要 ASE 的問題的監視和警示 |
 
 使用 Azure 防火牆，您可以自動獲得以下使用 FQDN 標記設定的所有內容。 
 
@@ -140,7 +147,8 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 |cacerts.digicert.com:80 |
 |azperfcounters1.blob.core.windows.net:443 |
 |azurewatsonanalysis-prod.core.windows.net:443 |
-|global.metrics.nsatc.net:80   |
+|global.metrics.nsatc.net:80 |
+|global.metrics.nsatc.net:443 |
 |az-prod.metrics.nsatc.net:443 |
 |antares.metrics.nsatc.net:443 |
 |azglobal-black.azglobal.metrics.nsatc.net:443 |
@@ -175,12 +183,6 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-|grmdsprod\*mini\*.servicebus.windows.net:443 |
-|grmdsprod\*lini\*.servicebus.windows.net:443 |
-|grsecprod\*mini\*.servicebus.windows.net:443 |
-|grsecprod\*lini\*.servicebus.windows.net:443 |
-|graudprod\*mini\*.servicebus.windows.net:443 |
-|graudprod\*lini\*.servicebus.windows.net:443 |
 
 #### <a name="linux-dependencies"></a>Linux 相依項目 
 

@@ -3,19 +3,19 @@ title: 在 Azure IoT Central 應用程式中管理裝置 | Microsoft Docs
 description: 了解如何以操作員的身分在 Azure IoT Central 應用程式中管理裝置。
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 11/02/2018
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 1e67c22a55068ce42cb1eb6d9c0c9bdf8215f44e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658109"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167978"
 ---
-# <a name="manage-devices-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中管理裝置
+# <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>在 Azure IoT Central 應用程式中管理裝置 (新的 UI 設計)
 
 本文說明如何以操作員的身分在 Azure IoT Central 應用程式中管理裝置。 身為操作員，您可以：
 
@@ -24,19 +24,17 @@ ms.locfileid: "55658109"
 - 透過變更儲存於裝置屬性中的值，將裝置中繼資料保持為最新的版本。
 - 透過從 [設定] 頁面更新特定裝置上的設定來控制裝置的行為。
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
-
 ## <a name="view-your-devices"></a>檢視您的裝置
 
 檢視個別裝置：
 
 1. 在左側導覽功能表上選擇 [Device Explorer]。 您將能在此看見[裝置範本](howto-set-up-template.md)的清單。
 
-1. 在左側窗格的 [範本] 筆下，選擇一個裝置範本。
+1. 在 [範本] 清單中選擇一個裝置範本。
 
-1. 在 [Device Explorer] 頁面的右側窗格中，您會看到從該裝置範本所建立之裝置的清單，如下所示。 選擇個別的裝置以查看該裝置的 [裝置詳細資料] 頁面：
+1. 在 [Device Explorer] 頁面的右側窗格中，您會看到從該裝置範本建立的裝置清單。 選擇個別的裝置以查看該裝置的 [裝置詳細資料] 頁面：
 
-    [![[裝置詳細資料] 頁面](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
+    ![[裝置詳細資料] 頁面](./media/howto-manage-devices/devicelist.png)
 
 ## <a name="add-a-device"></a>新增裝置
 
@@ -48,15 +46,14 @@ ms.locfileid: "55658109"
 
 1. 選擇 [+ 新增]。
 
-1. 選擇 [真實] 或 [模擬]。 真實裝置是您連線至 Azure IoT Central 應用程式的實體裝置。 模擬裝置具有由 Azure IoT Central 為您產生的範例資料。 此範例會使用真實裝置。 選擇 [真實] 以瀏覽至新裝置的 [裝置詳細資料] 頁面。
-
+1. 選擇 [真實] 或 [模擬]。 真實裝置是您連線至 Azure IoT Central 應用程式的實體裝置。 模擬裝置具有由 Azure IoT Central 為您產生的範例資料。
 
 ## <a name="import-devices"></a>匯入裝置
 
-若要將大量裝置連線至您的應用程式，Azure IoT Central 有提供透過 CSV 檔案大量匯入裝置的功能。 CSV 檔案應該具有下列資料行 (及標頭)
-1.  IOTC_DeviceID **<span style="color:Red">(應為小寫)</span>**
-1.  IOTC_DeviceName (選擇性)
+若要將大量裝置連接至您的應用程式，您可以從 CSV 檔案中大量匯入裝置。 CSV 檔案應該具有下列資料行及標頭：
 
+* **IOTC_DeviceID**：裝置識別碼應該是全部小寫。
+* **IOTC_DeviceName**：此資料行是選擇性的。
 
 在應用程式中大量註冊裝置：
 
@@ -64,12 +61,12 @@ ms.locfileid: "55658109"
 
 1. 在左側窗格上，選擇您要用來大量建立裝置的裝置範本。
 
- >   [!NOTE] 
-    如果您還沒有裝置範本，您可以在 [未關聯的裝置] 下匯入裝置，並在沒有任何範本的情況下註冊這些裝置。 匯入裝置後，您就可以透過後續步驟將其與範本產生關聯。
+    > [!NOTE]
+    > 如果您還沒有裝置範本，您可以在 [未關聯的裝置] 下方匯入裝置，並在沒有範本的情況下註冊這些裝置。 匯入裝置後，您接著可將其與範本產生關聯。
 
-1. 按一下 [匯入] 。
+1. 選取 [匯入]。
 
-    [![匯入動作](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+    ![匯入動作](./media/howto-manage-devices/BulkImport1.png)
 
 1. 選取具有所要匯入裝置識別碼清單的 CSV 檔案。
 
@@ -77,54 +74,65 @@ ms.locfileid: "55658109"
 
 1. 匯入完成之後，裝置方格上會顯示成功訊息。
 
-    [![匯入成功](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    ![匯入成功](./media/howto-manage-devices/BulkImport3.png)
 
-如果裝置匯入作業失敗，您會在裝置方格上看到錯誤訊息。 系統會產生擷取所有錯誤的記錄檔，使用者可以透過按一下錯誤訊息來下載該記錄檔。
-
+如果裝置匯入作業失敗，您會在裝置格線上看到錯誤訊息。 隨即會產生擷取所有錯誤的記錄檔，以供您下載。
 
 **讓裝置與範本產生關聯**
 
-如果您是藉由在 [未關聯的裝置] 下啟動匯入來註冊裝置，則裝置會在沒有與任何裝置範本產生關聯的情況下建立。 裝置必須與範本產生關聯，才能探索裝置的資料和其他詳細資料。 請遵循下列步驟讓裝置與範本產生關聯：
-1. 在左側導覽功能表上選擇 [Device Explorer]。
-1. 在左側面板上選擇 [未關聯的裝置]。
-    [![未關聯的裝置](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
-1. 選取要與範本產生關聯的裝置。
-1. 按一下 [產生關聯] 選項。
-    [![與裝置產生關聯](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
-1. 從可用範本清單中選擇範本，然後按一下 [產生關聯] 按鈕。
-1. 選取的裝置會移至個別的裝置範本底下。
+如果您是藉由在 [未關聯的裝置] 下啟動匯入來註冊裝置，則裝置會在沒有與任何裝置範本產生關聯的情況下建立。 裝置必須與範本產生關聯，才能探索有關裝置的資料和其他詳細資料。 請遵循下列步驟讓裝置與範本產生關聯：
 
- >   [!NOTE] 
-    一旦裝置與範本產生關聯後，就不可解除關聯或與其他範本產生關聯。
+1. 在左側導覽功能表上選擇 [Device Explorer]。
+
+1. 在左側面板上，選擇 [未關聯的裝置]：
+
+    ![未關聯的裝置](./media/howto-manage-devices/UnassociatedDevices1.png)
+
+1. 選取要與範本產生關聯的裝置：
+
+1. 選取 **產生關聯**:
+
+    ![建立裝置的關聯](./media/howto-manage-devices/UnassociatedDevices2.png)
+
+1. 從可用的範本清單中選擇的範本，然後選取**產生關聯**。
+
+1. 選取的裝置會與您選擇的裝置範本產生關聯。
+
+> [!NOTE]
+> 一旦裝置與範本產生關聯後，就無法解除關聯或與其他範本產生關聯。
 
 ## <a name="export-devices"></a>匯出裝置
 
-如需佈建裝置來連線到 IoT Central，您將需要 IoT Central 所產生的裝置連接字串。 您可以使用「匯出」功能，從您的應用程式大量取得連接字串和裝置的其他屬性。 「匯出」可針對所有選取的裝置建立包含裝置身分識別、裝置名稱及主要連接字串的 CSV 檔案。
+若要將真實裝置連接至 IoT Central，您需要它的連接字串。 您可以匯出以取得您要建立裝置的連接字串所需資訊的大量裝置詳細資料。 匯出程序會使用裝置身分識別、 裝置名稱和金鑰的所有選取的裝置建立 CSV 檔案。
 
 若要從您的應用程式大量匯出裝置：
+
 1. 在左側導覽功能表上選擇 [Device Explorer]。
 
-1. 請在左側面板上，選擇您要用來匯出裝置的裝置範本。
+1. 在左側面板上，選擇您要從中匯出裝置的裝置範本。
 
-1. 選取您想要匯出的裝置，然後按一下 [匯出] 動作。
+1. 選取您想要匯出，然後選取的裝置**匯出**動作。
 
-    [![匯出](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+    ![匯出](./media/howto-manage-devices/Export1.png)
 
-1. 匯出程序將會啟動，且您可以在方格頂端追蹤狀態。 
+1. 匯出程序隨即啟動。 您可以在格線頂端追蹤狀態。
 
-1. 匯出完成之後，隨即顯示成功訊息，以及下載所產生檔案的連結。
+1. 匯出完成之後，即會顯示一則成功訊息，以及下載所產生檔案的連結。
 
-1. 按一下 [成功訊息] 將檔案下載到磁碟上的本機資料夾。
+1. 選取 **成功訊息**檔案下載到磁碟上的本機資料夾。
 
-    [![匯出成功](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+    ![匯出成功](./media/howto-manage-devices/Export2.png)
 
-1. 匯出的 CSV 檔案將會擁有下列資料行資訊：**裝置識別碼、裝置名稱、裝置的主要/次要金鑰及主要/次要憑證指紋**
-    *   IOTC_DEVICEID
-    *   IOTC_DEVICENAME
-    *   IOTC_SASKEY_PRIMARY
-    *   IOTC_SASKEY_SECONDARY
-    *   IOTC_X509THUMBPRINT_PRIMARY 
-    *   IOTC_X509THUMBPRINT_SECONDARY
+1. 匯出的 CSV 檔案會包含下列資料行：裝置識別碼、裝置名稱、裝置金鑰及 X509 憑證指紋：
+
+    * IOTC_DEVICEID
+    * IOTC_DEVICENAME
+    * IOTC_SASKEY_PRIMARY
+    * IOTC_SASKEY_SECONDARY
+    * IOTC_X509THUMBPRINT_PRIMARY
+    * IOTC_X509THUMBPRINT_SECONDARY
+
+請參閱[裝置的連線，在 Azure IoT Central](concepts-connectivity.md)，如需有關連接字串和連接的實際裝置，您的 IoT Central 應用程式。
 
 ## <a name="delete-a-device"></a>刪除裝置
 
@@ -150,7 +158,7 @@ ms.locfileid: "55658109"
 
 1. 將設定修改為您所需的值。 您可以一次修改多個設定，並同時上傳它們。
 
-1. 選擇 [更新]。 值將會傳送至您的裝置。 當裝置確認設定變更之後，該設定的狀態將會回復為 [已同步]。
+1. 選擇 [更新]。 值將會傳送至您的裝置。 當裝置確認設定變更之後，設定的狀態就會回到 [已同步]。
 
 ## <a name="change-a-property"></a>變更屬性
 

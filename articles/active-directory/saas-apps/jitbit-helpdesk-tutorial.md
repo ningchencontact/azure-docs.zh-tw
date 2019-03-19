@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb752a6b598c9fe7f146cd6ce96182405fc0dc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 86148d428bc526e071f095233b0692a6f3775a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167672"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>教學課程：Azure Active Directory 與 Jitbit Helpdesk 整合
 
@@ -114,6 +114,7 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
     ![設定單一登入](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ 
+    
     | |     
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -224,7 +225,7 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
    
    a. 在 [使用者名稱] 文字方塊中輸入 **BrittaSimon**，亦即 Azure 入口網站中的使用者名稱。
 
-   b. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **BrittaSimon@contoso.com**。
+   b. 在 **電子郵件**文字方塊中，輸入使用者電子郵件，例如**BrittaSimon\@contoso.com**。
 
    c. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
 

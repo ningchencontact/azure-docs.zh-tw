@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 60f475afd8e9d599d3771b875f15a29e8a082fb7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d3557be2fd8fdb459571d2c792302963e17e4471
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245883"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189388"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中分割資料表
 在 Azure SQL 資料倉儲中使用資料表分割的建議與範例。
@@ -109,27 +109,6 @@ GROUP BY    s.[name]
 ;
 ```
 
-## <a name="workload-management"></a>工作負載管理
-資料表分割決策的最後一項考量要素是[工作負載管理](resource-classes-for-workload-management.md)。 SQL 資料倉儲中的工作負載管理主要是記憶體和並行存取管理。 在 SQL 資料倉儲中，由資源類別控管在查詢執行期間配置給每個散發的最大記憶體。 在理想的情況下，會考量建置叢集資料行存放區索引的記憶體需求等其他因素，以調整您的分割區大小。 配置更多記憶體給叢集資料行存放區索引時，即可獲得極大的好處。 因此，您會想要確定重建資料分割索引不會耗盡記憶體。 從預設角色 smallrc 切換到其他角色 (例如 largerc)，即可增加您的查詢可用的記憶體數量。
-
-查詢 Resource Governor 動態管理檢視，即可取得每個散發的記憶體配置資訊。 事實上，記憶體授與會小於下列查詢的結果。 不過，此查詢會提供指導方針，以便在針對資料管理作業調整分割區大小時使用。 盡量避免將分割大小調整超過超大型資源類別所提供的記憶體授與。 如果分割區成長超過此數據，您就會冒著記憶體壓力的風險，進而導致比較不理想的壓縮。
-
-```sql
-SELECT  rp.[name]                                AS [pool_name]
-,       rp.[max_memory_kb]                        AS [max_memory_kb]
-,       rp.[max_memory_kb]/1024                    AS [max_memory_mb]
-,       rp.[max_memory_kb]/1048576                AS [mex_memory_gb]
-,       rp.[max_memory_percent]                    AS [max_memory_percent]
-,       wg.[name]                                AS [group_name]
-,       wg.[importance]                            AS [group_importance]
-,       wg.[request_max_memory_grant_percent]    AS [request_max_memory_grant_percent]
-FROM    sys.dm_pdw_nodes_resource_governor_workload_groups    wg
-JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools    rp ON wg.[pool_id] = rp.[pool_id]
-WHERE   wg.[name] like 'SloDWGroup%'
-AND     rp.[name]    = 'SloDWPool'
-;
-```
-
 ## <a name="partition-switching"></a>分割切換
 SQL 資料倉儲支援資料分割、合併和切換。 這些功能都是使用 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) 陳述式執行。
 
@@ -166,15 +145,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,19990101,1,1,1,1,1,1);
 INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
-
-
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
-
-> [!NOTE]
-> 藉由建立統計資料物件，資料表中繼資料會更加精確。 如果您省略了統計資料，SQL 資料倉儲將會使用預設值。 如需統計資料的詳細資訊，請檢閱[統計資料](sql-data-warehouse-tables-statistics.md)。
-> 
-> 
 
 下列查詢會使用 `sys.partitions` 目錄檢視來尋找資料列計數：
 
@@ -252,6 +223,31 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
+```
+
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>將新的資料包含在一個步驟中的資料分割的載入
+將資料載入至資料分割切換資料分割是便利的方式，階段看不到使用者資料表中的新資料交換器的新資料。  它可以是一項挑戰在忙碌的系統，來處理資料分割切換相關聯的鎖定爭用。  若要清除的資料分割中的現有資料`ALTER TABLE`用以必須切換移出資料。  另一個`ALTER TABLE`才能切換移入新的資料。  在 SQL 資料倉儲中，`TRUNCATE_TARGET`支援選項`ALTER TABLE`命令。  具有`TRUNCATE_TARGET``ALTER TABLE`命令覆寫新資料分割區中的現有資料。  以下是範例會使用`CTAS`為與現有的資料，建立新的資料表會將新的資料，則參數的所有資料都傳回至目標資料表，並覆寫現有的資料。
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_NewSales]
+    WITH    (   DISTRIBUTION = HASH([ProductKey])
+            ,   CLUSTERED COLUMNSTORE INDEX
+            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
+                                (20000101,20010101
+                                )
+                            )
+            )
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
+
+INSERT INTO dbo.FactInternetSales_NewSales
+VALUES (1,20000101,2,2,2,2,2,2);
+
+ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2 WITH (TRUNCATE_TARGET = ON);  
 ```
 
 ### <a name="table-partitioning-source-control"></a>資料表分割原始檔控制

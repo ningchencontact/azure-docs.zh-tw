@@ -11,15 +11,15 @@ ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 2972d04d1617b755bb6c2ff60d9922accdd09f2a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838403"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>使用 Azure 轉送將內部部署 WCF 服務公開至雲端中的 Web 應用程式 
 本文示範如何使用 Microsoft Azure 和 Visual Studio 建置混合式雲端應用程式。 您將建立一個使用多個 Azure 資源，於雲端上啟動並執行的應用程式。
@@ -43,7 +43,7 @@ ms.locfileid: "51614832"
 若要完成本教學課程，您需要下列必要條件：
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
-- [Visual Studio 2015 或更新版本](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017。
+- [Visual Studio 2015 或更新版本](https://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017。
 - 適用於 .NET 的 Azure SDK。 從 [SDK 下載頁面](https://azure.microsoft.com/downloads/)進行安裝。
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Azure 轉送如何透過混合式解決方案提供協助
@@ -51,14 +51,14 @@ ms.locfileid: "51614832"
 
 眾多方案架構爭相開始使用雲端，以期能夠更輕鬆地處理擴充需求並降低操作成本。 在這麼做之後，它們發現想要運用做為其方案建置組塊的現有服務資產是在公司防火牆內，無法供雲端方案輕易存取。 許多內部服務並不是以可輕易在公司網路邊緣公開的方式建置或主控。
 
-[Azure 轉送](https://azure.microsoft.com/services/service-bus/)是針對採取現有 Windows Communication Foundation (WCF) Web 服務，並使那些服務可供公司周邊外之解決方案安全存取的使用案例而設計，不需要進行會干擾公司網路基礎結構的變更。 此類轉送服務仍然裝載在其現有環境，但它們會將接聽連入工作階段和要求的工作委派給雲端裝載的轉送服務。 Azure 轉送也可使用[共用存取簽章 (SAS)](../service-bus-messaging/service-bus-sas.md) 驗證，保護那些服務免受未經授權的存取。
+[Azure 轉送](https://azure.microsoft.com/services/service-bus/)是針對採取現有 Windows Communication Foundation (WCF) Web 服務，並使那些服務可供公司周邊外之解決方案安全存取的使用案例而設計，不需要進行會干擾公司網路基礎結構的變更。 虽然此类中继服务仍托管在现有环境中，但它们会将侦听传入会话和请求这一任务委派给云托管的中继服务。 Azure 轉送也可使用[共用存取簽章 (SAS)](../service-bus-messaging/service-bus-sas.md) 驗證，保護那些服務免受未經授權的存取。
 
 ## <a name="review-the-scenario"></a>檢閱案例
 在本教學課程中，您將建立 ASP.NET 網站，讓您可在產品庫存頁面上看到產品清單。
 
 ![案例][0]
 
-此教學課程假設您有現有內部部署系統中的產品資訊，並使用 Azure 轉送來連接該系統。 這項模擬是由簡單主控台應用程式中執行的 Web 服務來進行，並由記憶體內的產品集支援。 您將能夠在自己的電腦上執行這個主控台應用程式，並將 Web 角色部署至 Azure。 在這麼做之後，您將看到在 Azure 資料中心執行的 Web 角色將確實呼叫至電腦，即使電腦幾乎確定會位於至少一個防火牆和網路位址轉譯 (NAT) 層後面也一樣。
+此教學課程假設您有現有內部部署系統中的產品資訊，並使用 Azure 轉送來連接該系統。 這項模擬是由簡單主控台應用程式中執行的 Web 服務來進行，並由記憶體內的產品集支援。 您將能夠在自己的電腦上執行這個主控台應用程式，並將 Web 角色部署至 Azure。 通过此操作，将会看到在 Azure 数据中心运行的 Web 角色确实会调入你的计算机，即使你的计算机几乎肯定会驻留在至少一个防火墙和一个网络地址转换 (NAT) 层后面，情况也是如此。
 
 ## <a name="set-up-the-development-environment"></a>設定開發環境
 
@@ -85,7 +85,7 @@ ms.locfileid: "51614832"
 
    ![New Project dialog box][11]
 4. 按一下 [確定] 以建立 **ProductsServer** 專案。
-5. 如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。 否則，請造訪 [NuGet][NuGet]，然後按一下[安裝 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。 按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
+5. 如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。 否則，請造訪 [NuGet][NuGet]，然後按一下[安裝 NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。 按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
 6. 在 [方案總管] 中，以滑鼠右鍵按一下 **ProductsServer** 專案，然後按一下 [管理 NuGet 套件]。
 7. 按一下 [瀏覽] 索引標籤，然後搜尋 **WindowsAzure.ServiceBus**。 選取 [WindowsAzure.ServiceBus] 套件。
 8. 按一下 [安裝] 並接受使用條款。
@@ -185,7 +185,7 @@ ms.locfileid: "51614832"
         }
     }
     ```
-12. 在 [方案總管] 中，按兩下 **App.config** 檔案，以在 Visual Studio 編輯器中開啟它。 在 `<system.ServiceModel>` 元素底下 (但仍在 `<system.ServiceModel>` 內) 新增下列 XML 程式碼：請務必以您的命名空間名稱取代 yourServiceNamespace，並以您先前從入口網站擷取到的 SAS 金鑰取代 yourKey：
+12. 在 [方案總管] 中，按兩下 **App.config** 檔案，以在 Visual Studio 編輯器中開啟它。 在底部`<system.ServiceModel>`項目 (但仍在`<system.ServiceModel>`)，新增下列 XML 程式碼：請務必以您的命名空間名稱取代 yourServiceNamespace ，並以您先前從入口網站擷取到的 SAS 金鑰取代 yourKey：
 
     ```xml
     <system.serviceModel>
@@ -350,7 +350,7 @@ ms.locfileid: "51614832"
 
    ![新增為連結][24]
 
-6. 現在，在 Visual Studio 編輯器中開啟 **HomeController.cs** 檔案，並以下列程式碼取代命名空間定義：請務必以您的服務命名空間名稱取代 yourServiceNamespace，並以您的 SAS 金鑰取代 yourKey。 這可讓用戶端呼叫內部部署服務，並傳回呼叫結果。
+6. 現在，請開啟**HomeController.cs**檔案在 Visual Studio 編輯器中，並取代為下列程式碼中的命名空間定義：請務必以服務命名空間名稱取代 *yourServiceNamespace*，並以 SAS 金鑰取代 *yourKey*。 這可讓用戶端呼叫內部部署服務，並傳回呼叫結果。
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -399,7 +399,7 @@ ms.locfileid: "51614832"
       ![多個啟始專案][25]
 
 11. 仍是在 [屬性] 對話方塊中，按一下左側的 [專案相依性]。
-12. 在 [專案] 清單中，按一下 **ProductsServer**。 確定未選取 [ProductsPortal]。
+12. 在“项目”列表中，单击“ProductsServer”。 確定未選取 [ProductsPortal]。
 13. 在 [專案] 清單中，按一下 **ProductsPortal**。 確定已選取 [ProductsServer]。
 
     ![專案相依性][26]
@@ -422,14 +422,14 @@ ms.locfileid: "51614832"
 
 1. 在 [方案總管] 中，於 **ProductsPortal** 專案上按一下滑鼠右鍵，然後按一下 [發佈]。 然後，按一下 [發佈] 頁面上的 [發佈]。
 
-  > [!NOTE]
-  > 在部署後自動啟動 **ProductsPortal** Web 專案時，您可在瀏覽器視窗中看到錯誤訊息。 這是預期的，且因為 **ProductsServer** 應用程式尚未執行而出現。
->
->
+   > [!NOTE]
+   > 在部署後自動啟動 **ProductsPortal** Web 專案時，您可在瀏覽器視窗中看到錯誤訊息。 這是預期的，且因為 **ProductsServer** 應用程式尚未執行而出現。
+   >
+   >
 
 2. 請複製已部署 Web 應用程式的 URL，印為您在下一個步驟中需要用到 URL。 您也可以從 Visual Studio 中的 [Azure App Service 活動] 視窗中取得此 URL：
 
-  ![已部署應用程式的 URL][9]
+   ![已部署應用程式的 URL][9]
 
 3. 關閉瀏覽器視窗以停止執行中的應用程式。
 
@@ -448,7 +448,7 @@ ms.locfileid: "51614832"
 
 ## <a name="run-the-application"></a>執行應用程式
 
-1. 按 F5 以建置並執行應用程式。 內部部署伺服器 (**ProductsServer** 主控台應用程式) 應該會先啟動，然後，**ProductsPortal** 應用程式應該會在瀏覽器視窗中啟動，如下列螢幕擷取畫面所示：再次注意，產品庫存會列出從產品服務內部部署系統擷取的資料，並在 Web 應用程式中顯示該資料。 檢查 URL，確定 **ProductsPortal** 正在雲端中以 Azure Web 應用程式的形式執行。
+1. 按 F5 以建置並執行應用程式。 在內部部署伺服器 ( **ProductsServer**主控台應用程式) 應該會先啟動，則**ProductsPortal**應用程式應該啟動瀏覽器視窗中，如下列螢幕擷取畫面所示：再次注意，產品庫存清單會列出從產品服務內部部署系統擷取的資料，並在 Web 應用程式中顯示該資訊。 檢查 URL，確定 **ProductsPortal** 正在雲端中以 Azure Web 應用程式的形式執行。
 
    ![在 Azure 上執行 Web 應用程式][1]
 
@@ -470,7 +470,7 @@ ms.locfileid: "51614832"
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[NuGet]: http://nuget.org
+[NuGet]: https://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
 [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png

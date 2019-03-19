@@ -3,7 +3,6 @@ title: Log Analytics 中的 Azure SQL Analytics 解決方案 | Microsoft Docs
 description: Azure SQL 分析解決方案可協助您管理 Azure SQL 資料庫
 services: log-analytics
 ms.service: log-analytics
-ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
@@ -11,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170219"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL 分析來監視 Azure SQL Database (預覽)
 
@@ -35,7 +34,7 @@ Azure SQL 分析是一個進階雲端監視解決方案，可以透過單一窗�
 
 Azure SQL 分析是僅限雲端的監視解決方案，支援適用於 Azure SQL 資料庫 (單一、集區，以及受控執行個體資料庫) 的診斷遙測串流。 由於該解決方案不使用代理程式連線至 Log Analytics 服務，因此不支援對 SQL Server 裝載的內部部署環境或在 VM 中進行監視，請參閱下方的相容性資料表。
 
-| 連接的來源 | 支援 | 說明 |
+| 連接的來源 | 支援 | 描述 |
 | --- | --- | --- |
 | [Azure 診斷](../platform/collect-azure-metrics-logs.md) | **是** | Azure 會將 Azure 計量與記錄資料直接傳送至 Log Analytics。 |
 | [Azure 儲存體帳戶](../platform/collect-azure-metrics-logs.md) | 否 | Log Analytics 不會從儲存體帳戶讀取資料。 |
@@ -67,9 +66,13 @@ Azure SQL 分析是僅限雲端的監視解決方案，支援適用於 Azure SQL
 
 ## <a name="using-the-solution"></a>使用解決方案
 
-當您將解決方案新增至您的工作區時，Azure SQL 分析圖格會新增至您的工作區，而且會顯示在 [概觀] 中。 此圖格會顯示解決方案從中接收診斷遙測的 Azure SQL Database、彈性集區、受控執行個體和受控執行個體資料庫各有多少數量。
+當您將解決方案新增至您的工作區時，Azure SQL 分析圖格會新增至您的工作區，而且會顯示在 [概觀] 中。 選取 檢視摘要連結，以載入磚內容。
 
-![Azure SQL 分析圖格](./media/azure-sql/azure-sql-sol-tile.png)
+![Azure SQL 分析摘要圖格](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+載入之後，圖格會顯示 Azure SQL 資料庫、 彈性集區、 受控執行個體和資料庫的數字，方案會接收從診斷遙測的受控執行個體中。
+
+![Azure SQL 分析圖格](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 解決方案可提供兩個不同的檢視，一個用於監視 Azure SQL Database 和彈性集區，另一個檢視用於監視受控執行個體和受控執行個體中的資料庫。
 
@@ -109,7 +112,7 @@ Azure SQL 分析是僅限雲端的監視解決方案，支援適用於 Azure SQL
 
 下表概述兩個儀表板版本所支援的檢視方塊，一個適用於 Azure SQL Database 和彈性集區，另一個適用於受控執行個體。
 
-| 檢視方塊 | 說明 | SQL Database 和彈性集區支援 | 支援受控執行個體 |
+| 檢視方塊 | 描述 | SQL Database 和彈性集區支援 | 支援受控執行個體 |
 | --- | ------- | ----- | ----- |
 | 資源 (依類型) | 可計算所有受監視資源的檢視方塊。 | 是 | 是 |
 | 深入解析 | 可透過階層的方式，向下鑽研至 Intelligent Insights 乃至效能。 | 是 | 是 |
@@ -146,14 +149,16 @@ Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intell
 
 ### <a name="creating-a-custom-role-in-portal"></a>在入口網站中建立自訂角色
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 我們了解到某些組織會在 Azure 中實施嚴格的使用權限控制，因此請參閱下列 PowerShell 指令碼，它可以在 Azure 入口網站中建立自訂角色「SQL 分析監視人員」，此角色僅擁有使用完整 Azure SQL 分析所需之最低限度讀取和寫入使用權限。
 
 在下列指令碼中，請將 “{SubscriptionId}" 取代為您的 Azure 訂用帳戶識別碼，接著以擁有者或參與者角色身分登入 Azure 並執行指令碼。
 
    ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription {SubscriptionId}
-    $role = Get-AzureRmRoleDefinition -Name Reader
+    Connect-AzAccount
+    Select-AzSubscription {SubscriptionId}
+    $role = Get-AzRoleDefinition -Name Reader
     $role.Name = "SQL Analytics Monitoring Operator"
     $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
     $role.IsCustom = $true
@@ -172,7 +177,7 @@ Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intell
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Resources/deployments/write");
     $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-    New-AzureRmRoleDefinition $role
+    New-AzRoleDefinition $role
    ```
 
 新角色建立後，請將這個角色指派給需要 Azure SQL 分析使用權限的每一位使用者。

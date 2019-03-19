@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013047"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>教學課程：建立和管理 Azure 預算
 
@@ -39,7 +39,7 @@ ms.locfileid: "55814039"
 
  針對 Azure EA 訂用帳戶，您必須具備檢視預算的讀取存取權。 若要建立及管理預算，您必須具有參與者權限。 您可以個別為 EA 訂用帳戶和資源群組建立預算。 不過，您無法為 EA 帳單帳戶建立預算。
 
-使用者和群組針對預算的每個訂用帳戶支援下列 Azure 權限：
+依使用者和群組，會將下列的 Azure 權限或範圍，支援每個訂用帳戶的預算。 如需有關範圍的詳細資訊，請參閱 <<c0> [ 了解及使用範圍](understand-work-scopes.md)。
 
 - 擁有者：可以建立、修改或刪除訂用帳戶的預算。
 - 參與者和成本管理參與者 – 可以建立、修改或刪除他們自己的預算。 可以修改其他人所建立之預算的預算金額。
@@ -53,7 +53,9 @@ ms.locfileid: "55814039"
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>在 Azure 入口網站中建立預算
 
-您可以針對每月、每季或每年期間建立 Azure 訂用帳戶預算。 您在 Azure 入口網站中的瀏覽內容會決定您是否要針對訂用帳戶或資源群組建立預算。 例如，在 Azure 入口網站中，瀏覽至 [訂用帳戶] &gt; 選取訂用帳戶 &gt; [預算]。 在此範例中，您建立的預算適用於您所選取的訂用帳戶。 如果您想要建立資源群組的預算，請瀏覽至 [資源群組] > 選取資源群組 > [預算]。
+您可以針對每月、每季或每年期間建立 Azure 訂用帳戶預算。 Azure 入口網站中瀏覽的內容會決定您是否建立訂用帳戶或管理群組的預算。
+
+若要建立或檢視的預算，開啟 在 Azure 入口網站，然後選取 所需的範圍內**預算**功能表中。 例如，瀏覽至**訂用帳戶**從清單中，選取訂用帳戶，然後選取**預算**功能表中。 使用**範圍**丸切換到不同的範圍，管理群組，在預算等。 如需有關範圍的詳細資訊，請參閱 <<c0> [ 了解及使用範圍](understand-work-scopes.md)。
 
 建立預算之後，會針對它們顯示您目前費用的簡單檢視。
 
@@ -85,6 +87,28 @@ ms.locfileid: "55814039"
 
 ![編輯預算以變更各種屬性的範例](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## <a name="trigger-an-action-group"></a>觸發程序的動作群組
+
+當您建立或編輯訂用帳戶或資源群組範圍的預算時，您可以設定它來呼叫動作群組。 符合您預算臨界值時，動作群組可以執行各種不同的動作。 如需有關動作群組的詳細資訊，請參閱 <<c0> [ 建立和管理 Azure 入口網站中的動作群組](../azure-monitor/platform/action-groups.md)。 如需使用預算為基礎的自動化與動作群組的詳細資訊，請參閱[使用 Azure 的預算管理成本](../billing/billing-cost-management-budget-scenario.md)。
+
+若要建立或更新動作群組，按一下**管理動作群組**而您要建立或編輯在預算。
+
+![建立的預算，向管理動作群組的範例](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+接下來，按一下**新增動作群組**和建立動作群組。
+
+
+![新增動作群組中的映像](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+動作群組建立之後，關閉此方塊可返回您的預算。
+
+設定您的預算符合個別的臨界值時，請使用動作群組。 最多五個不同的臨界值支援。
+
+![顯示警示的條件的動作群組選取項目範例](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+下列範例顯示設定為 50%、 75%和 100%的預算臨界值。 每個已設定為觸發程序在指定的動作群組內指定的動作。
+
+![範例，示範使用各種不同的動作群組和動作的類型設定的警示狀況](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>後續步驟
 

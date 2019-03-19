@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe1ef8c141c4a4daa443f800181f8e6e3199d0cc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331294"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997008"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Pig 活動轉換資料
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,7 +82,8 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活�
 ```
 
 ## <a name="syntax-details"></a>語法詳細資料
-| 屬性 | 說明 | 必要 |
+
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | name |活動的名稱 |是 |
 | 說明 |說明活動用途的文字 |否 |
@@ -124,7 +125,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 1. 建立連結服務以註冊[您自己的 HDInsight 計算叢集](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或設定[隨選 HDInsight 計算叢集](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 讓我們將此連結服務命名為 **HDInsightLinkedService**。
 2. 建立 [連結服務](data-factory-azure-blob-connector.md) 以設定裝載資料之 Azure Blob 儲存體的連接。 讓我們將此連結服務命名為 **StorageLinkedService**。
 3. 建立指向輸入和輸出資料的 [資料集](data-factory-create-datasets.md) 。 讓我們將此輸出資料集命名為 **PigSampleIn**，以及將輸出資料集命名為 **PigSampleOut**。
-4. 複製「Azure Blob 儲存體」在步驟 #2 所設定之檔案中的Pig 查詢。 如果裝載資料的 Azure 儲存體與裝載查詢檔案的儲存體不同，請建立個別的「Azure 儲存體」連結服務。 請參考活動組態中的連結服務。 使用 **scriptPath ** 來指定 Pig 指令碼檔案和 **scriptLinkedService** 的路徑。 
+4. 複製「Azure Blob 儲存體」在步驟 #2 所設定之檔案中的Pig 查詢。 如果裝載資料的 Azure 儲存體與裝載查詢檔案的儲存體不同，請建立個別的「Azure 儲存體」連結服務。 請參考活動組態中的連結服務。 使用**scriptPath**來指定 pig 指令碼檔案的路徑並**scriptLinkedService**。 
    
    > [!NOTE]
    > 您也可以使用 **script** 屬性，在活動定義中以內嵌方式提供 Pig 指令碼。 不過，不建議使用此方法，因為必須逸出指令碼中的所有特殊字元，而且可能造成偵錯問題。 最佳做法是遵循步驟 #4。
@@ -219,7 +220,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [Hive 活動](data-factory-hive-activity.md)
 * [MapReduce 活動](data-factory-map-reduce.md)
 * [Hadoop 串流活動](data-factory-hadoop-streaming-activity.md)

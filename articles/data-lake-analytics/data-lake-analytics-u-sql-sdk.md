@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089959"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>使用 Azure Data Lake U-SQL SDK 來執行及測試 U-SQL
 
@@ -32,11 +32,11 @@ Data Lake U-SQL SDK 需要下列相依性︰
 - [Microsoft .NET Framework 4.6 或更新版本](https://www.microsoft.com/download/details.aspx?id=17851)。
 - Microsoft Visual C++ 14 和 Windows SDK 10.0.10240.0 或更新版本 (在本文中稱為 CppSDK)。 有兩種方式可取得 CppSDK：
 
-    - 安裝 [Visual Studio Community 版本](https://developer.microsoft.com/downloads/vs-thankyou)。 在 Program Files 資料夾下應該會有 \Windows Kits\10 資料夾，例如 C:\Program Files (x86)\Windows Kits\10。 您也會在 \Windows Kits\10\Lib 下找到 Windows 10 SDK 版本。 如果您看不見這些資料夾，請重新安裝 Visual Studio，並務必在安裝期間選取 Windows 10 SDK。 如果您已經隨 Visual Studio 一起安裝此項目，U-SQL 本機編譯器會自動尋找它。
+  - 安裝 [Visual Studio Community 版本](https://developer.microsoft.com/downloads/vs-thankyou)。 在 Program Files 資料夾下應該會有 \Windows Kits\10 資料夾，例如 C:\Program Files (x86)\Windows Kits\10。 您也會在 \Windows Kits\10\Lib 下找到 Windows 10 SDK 版本。 如果您看不見這些資料夾，請重新安裝 Visual Studio，並務必在安裝期間選取 Windows 10 SDK。 如果您已經隨 Visual Studio 一起安裝此項目，U-SQL 本機編譯器會自動尋找它。
 
     ![Data Lake Tools for Visual Studio 本機執行的 Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - 安裝 [Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)。 您可以在 C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK 找到預先封裝的 Visual C++ 和 Windows SDK 檔案。 在此情況下，U-SQL 本機編譯器就無法自動找到相依性。 您必須為它指定 CppSDK 路徑。 您可以將檔案複製到另一個位置，或直接使用它。
+  - 安裝 [Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)。 您可以在 C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK 找到預先封裝的 Visual C++ 和 Windows SDK 檔案。 在此情況下，U-SQL 本機編譯器就無法自動找到相依性。 您必須為它指定 CppSDK 路徑。 您可以將檔案複製到另一個位置，或直接使用它。
 
 ## <a name="understand-basic-concepts"></a>了解基本概念
 
@@ -63,7 +63,7 @@ Data Lake U-SQL SDK 需要下列相依性︰
 
 當在本機執行 U-SQL 指令碼時，系統會在編譯期間於目前執行的目錄下建立一個工作目錄。 除了編譯輸出，本機執行所需的執行階段檔案會陰影複製到這個工作目錄。 工作目錄根資料夾稱為 "ScopeWorkDir"，而在工作目錄下的檔案如下：
 
-|目錄/檔案|目錄/檔案|目錄/檔案|定義|說明|
+|目錄/檔案|目錄/檔案|目錄/檔案|定義|描述|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |執行階段版本的雜湊字串|陰影複製本機執行所需的執行階段檔案|
 | |Script_66AE4909AA0ED06C| |指令碼名稱 + 指令碼路徑的雜湊字串|編譯輸出和執行步驟記錄|
@@ -137,7 +137,7 @@ U-SQL 本機執行需要指定的資料根做為本機儲存體帳戶，以及�
 下列為 **run** 的選擇性引數：
 
 
-|引數|預設值|說明|
+|引數|預設值|描述|
 |--------|-------------|-----------|
 |-CodeBehind|False|指令碼具有.cs 程式碼後置|
 |-CppSDK| |CppSDK 目錄|
@@ -169,7 +169,7 @@ U-SQL 本機執行需要指定的資料根做為本機儲存體帳戶，以及�
 下列為 **compile** 的選擇性引數：
 
 
-|引數|說明|
+|引數|描述|
 |--------|-----------|
 | -CodeBehind [預設值 'False']|指令碼具有.cs 程式碼後置|
 | -CppSDK [預設值 '']|CppSDK 目錄|
@@ -207,7 +207,7 @@ U-SQL 本機執行需要指定的資料根做為本機儲存體帳戶，以及�
 
 下列為 **execute** 的選擇性引數：
 
-|引數|預設值|說明|
+|引數|預設值|描述|
 |--------|-------------|-----------|
 |-DataRoot | '' |中繼資料執行的資料根。 它預設為 **LOCALRUN_DATAROOT** 環境變數。|
 |-MessageOut | '' |將主控台上的訊息傾印成檔案。|
@@ -223,7 +223,7 @@ U-SQL 本機執行需要指定的資料根做為本機儲存體帳戶，以及�
 
 程式設計介面都位於 LocalRunHelper.exe 中。 您可以使用它們來整合 U-SQL SDK 的功能性及 C# 測試架構，以調整您的 U-SQL 指令碼本機測試。 在此文章中，我將會使用標準 C# 單元測試專案來示範如何使用這些介面來測試您的 U-SQL 指令碼。
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>步驟 1︰建立 C# 單元測試專案和設定
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>步驟 1：建立C#單元測試專案和組態
 
 - 透過 [檔案] > [新增] > [專案] > [Visual C#] > [測試] > [單元測試專案] 來建立 C# 單元測試專案。
 - 加入 LocalRunHelper.exe 做為專案的參考。 LocalRunHelper.exe 位於 Nuget 套件中的 \build\runtime\LocalRunHelper.exe。
@@ -240,7 +240,7 @@ U-SQL 本機執行需要指定的資料根做為本機儲存體帳戶，以及�
 
 - 請務必將 NugetPackage\build\runtime\ 下的所有相依性檔案複製到專案工作目錄 (通常位於 ProjectFolder\bin\x64\Debug 之下)。
 
-### <a name="step-2-create-u-sql-script-test-case"></a>步驟 2：建立 U-SQL 指令碼測試案例
+### <a name="step-2-create-u-sql-script-test-case"></a>步驟 2：建立 U-SQL 指令碼的測試案例
 
 以下是 U-SQL 指令碼測試的範例程式碼。 若要進行測試，您需要準備指令碼、輸入檔和預期的輸出檔。
 
@@ -332,13 +332,13 @@ LocalRunHelper.exe 提供 U-SQL 本機編譯、執行等等的程式設計介面
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|參數|類型|說明|
+|參數|類型|描述|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|針對輸出訊息，請設為 null 以使用主控台|
 
 **屬性**
 
-|屬性|類型|說明|
+|屬性|類型|描述|
 |--------|----|-----------|
 |AlgebraPath|字串|代數檔案的路徑 (代數檔案是其中一個編譯結果)|
 |CodeBehindReferences|字串|如果指令碼具有其他程式碼後置參考，請指定路徑並以 ';' 分隔|
@@ -364,7 +364,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **方法**
 
-|方法|說明|傳回|參數|
+|方法|描述|傳回|參數|
 |------|-----------|------|---------|
 |public bool DoCompile()|編譯 U-SQL 指令碼|成功時為 True| |
 |public bool DoExec()|執行編譯的結果|成功時為 True| |
@@ -375,11 +375,11 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 ## <a name="faq-about-common-issue"></a>有關常見問題的常見問題集
 
 ### <a name="error-1"></a>錯誤 1：
-E_CSC_SYSTEM_INTERNAL: 內部錯誤! 無法載入檔案或組件 'ScopeEngineManaged.dll' 或其相依性的其中之一。 找不到指定的模組。
+E_CSC_SYSTEM_INTERNAL:內部錯誤 ！ 無法載入檔案或組件 'ScopeEngineManaged.dll' 或其相依性的其中之一。 找不到指定的模組。
 
 請檢查下列項目：
 
-- 確定您使用 x64 環境。 建置目標平台和測試環境應該要是 x64，請參閱上方的＜步驟 1︰建立 C# 單元測試專案和設定＞。
+- 確定您使用 x64 環境。 建置目標平台和測試環境應該要是 x64，請參閱**步驟 1:建立C#單元測試專案和組態**上方。
 - 確定您已經將 NugetPackage\build\runtime\ 下的所有相依性檔案複製到專案工作目錄。
 
 

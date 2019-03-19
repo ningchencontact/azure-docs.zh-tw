@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: a771b437258046f937b97a9e37ffedbe0a17c1c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446362"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079783"
 ---
 # <a name="configure-a-custom-domain-name"></a>設定自訂網域名稱 
 
@@ -42,22 +42,26 @@ ms.locfileid: "52446362"
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>使用 Azure 入口網站來設定自訂網域名稱
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您的 APIM 執行個體。
-2. 選取 [自訂網域和 SSL]。
+1. 選取 [自訂網域和 SSL]。
     
-    有許多端點可供您指派自訂網域名稱。 目前有下列端點可用： 
-    + **Proxy** (預設值為：`<apim-service-name>.azure-api.net`)、 
-    + **入口網站** (預設值為：`<apim-service-name>.portal.azure-api.net`)、     
-    + **管理** (預設值為：`<apim-service-name>.management.azure-api.net`)、 
-    + **SCM** (預設值為：`<apim-service-name>.scm.azure-api.net`)。
+    可以为许多终结点分配自定义域名。 目前有下列端點可用： 
+   + **Proxy** (預設值為：`<apim-service-name>.azure-api.net`)、 
+   + **入口網站** (預設值為：`<apim-service-name>.portal.azure-api.net`)、     
+   + **管理** (預設值為：`<apim-service-name>.management.azure-api.net`)、 
+   + **SCM** (預設值為：`<apim-service-name>.scm.azure-api.net`)。
 
-    >[!NOTE]
-    > 您可以更新所有端點或一部分端點。 客戶通常會更新 **Proxy** (此 URL 用來呼叫透過 API 管理公開的 API) 和**入口網站** (開發人員入口網站 URL)。 **管理**和 **SCM** 端點供 APIM 客戶在內部使用，因此很少會指派自訂網域名稱。
-3. 選取您想要更新的端點。 
-4. 在右側視窗中，按一下 [自訂]。
+     >[!NOTE]
+     > 您可以更新所有端點或一部分端點。 客戶通常會更新 **Proxy** (此 URL 用來呼叫透過 API 管理公開的 API) 和**入口網站** (開發人員入口網站 URL)。 **管理**和 **SCM** 端點供 APIM 客戶在內部使用，因此很少會指派自訂網域名稱。
 
-    + 在 [自訂網域名稱] 中，指定您想要使用的名稱。 例如： `api.contoso.com`。 <br/>也支援萬用字元網域名稱 (例如，*.domain.com)。
-    + 在 [憑證] 中，指定您想要上傳的有效 .PFX 檔案。 
-    + 如果憑證有密碼，請在 [密碼] 欄位中輸入。
+1. 選取您想要更新的端點。 
+1. 在右側視窗中，按一下 [自訂]。
+
+   + 在 [自訂網域名稱] 中，指定您想要使用的名稱。 例如： `api.contoso.com`。 也支援萬用字元網域名稱 (例如，*.domain.com)。
+   + 在**证书**中，从密钥保管库中选择证书。 如果证书受密码保护，你还可以上传有效的 .PFX 文件并提供其**密码**。
+
+     > [!TIP]
+     > 如果使用 Azure 密钥保管库来管理自定义域 SSL 证书，请确保该证书[作为证书](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)而不是机密插入到密钥保管库中。 如果证书设置为“自动轮换”，API 管理会自动选取最新版本。
+
 1. 按一下 [套用]。
 
     >[!NOTE]

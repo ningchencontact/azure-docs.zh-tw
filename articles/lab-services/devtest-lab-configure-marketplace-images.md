@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 2bf059b9ebf73f6ea801b8e5a5440baa2e6c19c4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d0375713c4881c0b73b91fc07bda3ceac2dbc620
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093485"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中設定 Azure Marketplace 映像設定
 DevTest Labs 支援根據 Azure Marketplace 映像來建立 VM，而這取決於您設定 Azure Marketplace 映像使用於實驗室的方式。 本文將說明在實驗室中建立 VM 時，如何指定可以使用哪些 Azure Marketplace 映像 (如果有的話)。 這可確保您的小組只能存取他們所需的 Marketplace 映像。 
@@ -36,7 +36,7 @@ DevTest Labs 支援根據 Azure Marketplace 映像來建立 VM，而這取決於
    * 映像會使用 Azure Resource Manager 來佈建 VM， **而且**
    * 映像不需要購買額外的授權方案
      
-    如果您不想允許任何映像，或者想要指定可以使用哪些映像，請選取 [否] 。
+     如果您不想允許任何映像，或者想要指定可以使用哪些映像，請選取 [否] 。
      
      ![允許使用所有 Marketplace 映像做為 VM 基底映像的選項](./media/devtest-lab-configure-marketplace-images/allow-all-marketplace-images.png)
 7. 如果您在上一個步驟中選取 [否]，將會啟用 [允許的映像/全選] 核取方塊。 
@@ -44,7 +44,7 @@ DevTest Labs 支援根據 Azure Marketplace 映像來建立 VM，而這取決於
    * 藉由核取每個映像的對應核取方塊，個別選取您想要允許來建立 VM 的 Azure Marketplace 映像。
    * 如果您不想在實驗室中允許使用任何 Azure Marketplace 映像，請不要從清單中選取任何項目。
    
-    ![您可以指定可使用哪些 Marketplace 映像做為 VM 的基底映像](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
+     ![您可以指定可使用哪些 Marketplace 映像做為 VM 的基底映像](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
