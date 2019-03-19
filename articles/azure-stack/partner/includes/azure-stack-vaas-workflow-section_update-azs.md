@@ -2,16 +2,16 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: dd1bf8824f6a7657b8cd17847821d95d5052ed4d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 263e9205c124b8fefa6ee8426237a0719e76c6de
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55807143"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57786659"
 ---
 確定您已套用當月的更新。 如需最新版本，請參閱 [Azure Stack 操作員文件 > 概觀 > 版本資訊](https://docs.microsoft.com/azure/azure-stack/)中的最新版本。
 

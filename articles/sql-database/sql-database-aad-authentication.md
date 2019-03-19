@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453132"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308375"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用適用於 SQL 驗證的 Azure Active Directory Authentication
 
@@ -28,7 +28,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 您可以使用 Azure AD 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理資料庫使用者並簡化權限管理。 包括以下優點：
 
-- 它提供 SQL Server 驗證的替代方案。
+- 提供一个 SQL Server 身份验证的替代方法。
 - 協助停止跨資料庫伺服器使用過多的使用者身分識別。
 - 允許在單一位置變換密碼。
 - 客戶可以使用外部 (Azure AD) 群組來管理資料庫權限。
@@ -56,11 +56,11 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 ## <a name="trust-architecture"></a>信認架構
 
-下列高階圖表摘要說明搭配使用 Azure AD 驗證與 Azure SQL Database 的解決方案架構。 相同的概念適用於 SQL 資料倉儲。 若要支援 Azure AD 原生使用者密碼，只會考慮雲端部分和 Azure AD/Azure SQL Database。 若要支援同盟驗證 (或 Windows 認證的使用者/密碼)，需要與 ADFS 區塊進行通訊。 箭頭表示通訊路徑。
+下列高階圖表摘要說明搭配使用 Azure AD 驗證與 Azure SQL Database 的解決方案架構。 相同的概念适用于 SQL 数据仓库。 若要支援 Azure AD 原生使用者密碼，只會考慮雲端部分和 Azure AD/Azure SQL Database。 若要支援同盟驗證 (或 Windows 認證的使用者/密碼)，需要與 ADFS 區塊進行通訊。 箭頭表示通訊路徑。
 
 ![aad 驗證圖表][1]
 
-下圖表示允許用戶端藉由提交權杖連線到資料庫的同盟、信任和主控關聯性。 此權杖是由 Azure AD 所驗證，並受到資料庫信任。 客戶 1 可以代表具有原生使用者的 Azure AD 或具有同盟使用者的 Azure Active Directory。 客戶 2 代表包含已匯入使用者的可能解決方案；在此範例中，來自同盟 Azure Active Directory 且 ADFS 正與 Azure Active Directory 進行同步處理。 請務必了解使用 Azure AD 驗證存取資料庫的必要條件是裝載訂用帳戶要與 Azure AD 相關聯。 您必須使用相同的訂用帳戶來建立裝載 Azure SQL Database 或 SQL 資料倉儲的 SQL Server。
+下圖表示允許用戶端藉由提交權杖連線到資料庫的同盟、信任和主控關聯性。 该令牌已由 Azure AD 进行身份验证且受数据库信任。 客戶 1 可以代表具有原生使用者的 Azure AD 或具有同盟使用者的 Azure Active Directory。 客戶 2 代表包含已匯入使用者的可能解決方案；在此範例中，來自同盟 Azure Active Directory 且 ADFS 正與 Azure Active Directory 進行同步處理。 請務必了解使用 Azure AD 驗證存取資料庫的必要條件是裝載訂用帳戶要與 Azure AD 相關聯。 您必須使用相同的訂用帳戶來建立裝載 Azure SQL Database 或 SQL 資料倉儲的 SQL Server。
 
 ![訂用帳戶關聯性][2]
 
@@ -81,7 +81,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 - 下列 Azure AD 的成員可在 Azure SQL 伺服器或 SQL 資料倉儲中佈建：
 
   - 原生成員：在受控網域或客戶網域的 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [將您自己的網域名稱新增至 Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)。
-  - 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
+  - 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)。
   - 從其他 Azure AD 匯入，且為原生網域或同盟網域成員者。
   - 建立 Active Directory 群組作為安全性群組。
 
@@ -115,7 +115,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 ## <a name="connecting-using-azure-ad-identities"></a>使用 Azure AD 身分識別連接
 
-Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別連接至資料庫：
+Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据库的以下方法：
 
 - 使用整合式 Windows 驗證
 - 使用 Azure AD 主體名稱和密碼

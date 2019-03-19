@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e44b6a8232bcd0bc72c4faa0f7116d42cec79111
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 67f2af94f32d5439585ad4d727fd2b1bd80fc41b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172411"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431695"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -72,9 +72,9 @@ ms.locfileid: "56172411"
 
 ![在 Azure 入口網站中自訂 Azure AD 智慧鎖定原則](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smartlockout-feature-is-working-or-not"></a>如何判斷 Smartlockout 功能是否運作
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>如何判斷與否，是否正在運作的智慧鎖定功能
 
-觸發 smartlockout 臨界值時，您會在帳戶鎖定的情形下收到下列訊息：
+觸發的智慧鎖定臨界值時，您會在帳戶鎖定時，收到下列訊息：
 
 **您的帳戶已暫時鎖定以防未經授權的使用。請稍後再試一次，如果仍有問題，請連絡您的管理員。**
 

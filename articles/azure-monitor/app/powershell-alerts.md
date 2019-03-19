@@ -12,22 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b94136f063f9d4793ce4c8a03c17454df920af26
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 1da3b71cbb809c92ba3228676f8a47235829b499
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117549"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309531"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>在 Application Insights 中使用 PowerShell 設定警示
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 您可以在 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中自動設定[警示](../../azure-monitor/app/alerts.md)的組態。
 
 此外，您可以[設定 webhook 以自動回應至警示](../../azure-monitor/platform/alerts-webhooks.md)。
 
 > [!NOTE]
 > 如果您想要同時建立資源和警示，請考慮[使用 Azure Resource Manager 範本](powershell.md)。
->
->
 
 ## <a name="one-time-setup"></a>單次設定
 若您未曾將 PowerShell 與 Azure 訂用帳戶搭配使用：
@@ -42,15 +43,15 @@ ms.locfileid: "54117549"
 
 ```PowerShell
 
-    Add-AzureRmAccount
+    Add-AzAccount
 ```
 
 
 ## <a name="get-alerts"></a>取得警示
-    Get-AzureRmAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## <a name="add-alert"></a>Add alert
-    Add-AzureRmMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
+    Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
      -MetricName "{METRIC NAME}" `
@@ -69,7 +70,7 @@ ms.locfileid: "54117549"
 
 GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 
-    Add-AzureRmMetricAlertRule -Name "slow responses" `
+    Add-AzMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -83,7 +84,7 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 ## <a name="example-2"></a>範例 2
 我已有應用程式，並在其中使用 [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) 來報告名為 "salesPerHour" 的度量。 若 salesPerHour 超過 24 小時皆低於平均值 100，則傳送電子郵件給我的同事。
 
-    Add-AzureRmMetricAlertRule -Name "poor sales" `
+    Add-AzMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -97,7 +98,7 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 您亦可針對使用其他追蹤呼叫之 [測量參數](../../azure-monitor/app/api-custom-events-metrics.md#properties) (例如 TrackEvent 或 trackPageView) 報告的度量，使用相同的規則。
 
 ## <a name="metric-names"></a>度量名稱
-| 度量名稱 | 畫面名稱 | 說明 |
+| 度量名稱 | 畫面名稱 | 描述 |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |瀏覽器例外狀況 |在瀏覽器中擲回的未攔截例外狀況計數。 |
 | `basicExceptionServer.count` |伺服器例外狀況 |應用程式擲回的未處理例外狀況計數 |
@@ -134,7 +135,7 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 ## <a name="webhooks"></a>Webhook
 您可以[自動回應至警示](../../azure-monitor/platform/alerts-webhooks.md)。 Azure 會在出現警示時呼叫您選擇的網址。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [用來設定 Application Insights 的指令碼](powershell-script-create-resource.md)
 * [從範本建立 Application Insights 和 Web 測試資源](powershell.md)
 * [自動化 Microsoft Azure 診斷與 Application Insights 的耦合](powershell-azure-diagnostics.md)

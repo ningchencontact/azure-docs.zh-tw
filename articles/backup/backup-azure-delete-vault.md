@@ -1,250 +1,222 @@
 ---
 title: 刪除 Azure 中的復原服務保存庫
-description: 本文說明如何刪除復原服務保存庫。 本文包含當您嘗試刪除保存庫卻無法做到時的疑難排解步驟。
+description: 描述如何刪除復原服務保存庫。
 services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/05/2019
 ms.author: raynew
-ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e83698af6bb1caab1568375b726753d34a8c8467
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310961"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861344"
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 
-本文描述如何從復原服務保存庫中移除所有項目，然後刪除該保存庫。 如果復原服務保存庫已向伺服器註冊並保留備份資料，則無法刪除該保存庫。 如果您嘗試刪除保存庫，但是無法刪除，則保存庫仍會設定為接收備份資料。
+這篇文章描述如何刪除[Azure 備份](backup-overview.md)復原服務保存庫。 它包含移除相依性，刪除保存庫，然後刪除保存庫強制的指示。
 
-若要了解如何刪除保存庫，請參閱[從 Azure 入口網站刪除保存庫](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal)一節。 如果您不要保留復原服務保存庫中的任何資料，並且想刪除保存庫，請參閱[強制刪除保存庫](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force)一節。 如果您不確定保存庫中有什麼，但必須確認您可以刪除保存庫，請參閱[移除保存庫相依性並刪除保存庫](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault)。
 
-## <a name="delete-a-vault-from-azure-portal"></a>從 Azure 入口網站刪除保存庫
 
-如果您已開啟復原服務保存庫，請跳至第 2 步驟。
 
-1. 開啟 Azure 入口網站，從儀表板中開啟您要刪除的保存庫。
+## <a name="before-you-start"></a>開始之前
 
-   如果儀表板中尚未釘選復原服務保存庫，請按一下 [中樞] 功能表上的 [所有服務]，然後在資源清單中輸入**復原服務**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 若要檢視訂用帳戶中的保存庫清單，按一下 [復原服務保存庫]。
+開始之前，請務必了解，您無法刪除具有伺服器的復原服務保存庫註冊，或含有備份的資料。
 
-   ![建立復原服務保存庫的步驟 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   隨即會顯示 [復原服務保存庫] 清單。
+- 若要依正常程序刪除保存庫，取消註冊伺服器，並移除保存庫資料。
+- 如果您不想要保留在復原服務保存庫中的任何資料，而且想要刪除保存庫，您可以刪除強制的保存庫。
+- 如果您嘗試刪除保存庫，但是無法刪除，則保存庫仍會設定為接收備份資料。
 
-   ![從清單中選擇保存庫](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
+若要了解如何刪除保存庫，請參閱[從 Azure 入口網站刪除保存庫](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal)一節。 如果區段中，[刪除保存庫強制](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force)。 如果您不確定保存庫中有什麼，但必須確認您可以刪除保存庫，請參閱[移除保存庫相依性並刪除保存庫](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault)。
 
-1. 從清單中，選取您要刪除的保存庫。 當您選取保存庫時，其保存庫儀表板隨即開啟。
+## <a name="delete-a-vault-from-the-azure-portal"></a>從 Azure 入口網站中刪除保存庫
+
+1. 在入口網站中開啟您的復原服務保存庫清單。
+2. 從清單中，選取您要刪除的保存庫。 保存庫儀表板隨即開啟。
 
     ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-1. 若要刪除保存庫，在保存庫儀表板中按一下 [刪除]。 系統會向您確認是否要刪除保存庫。
+1. 在保存庫儀表板中，按一下**刪除**。 請確認您想要刪除。
 
     ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
 
-    如果出現**保存庫刪除錯誤**，您可以從保存庫中移除相依性，或者可以使用 PowerShell 強制刪除保存庫。 下列各節將說明如何完成這些工作。
+2. 如果有保存庫的相依性**保存庫刪除錯誤**出現： 
 
     ![保存庫刪除錯誤](./media/backup-azure-delete-vault/vault-delete-error.png)
 
+    - 請遵循下列指示，然後再刪除保存庫移除相依性，請檢閱
+    - [請遵循下列指示](#delete-the-recovery-services-vault-by-force)使用 PowerShell 來刪除保存庫強制。 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>強制刪除復原服務保存庫
 
-您可以使用 PowerShell 來強制刪除復原服務保存庫。 強制刪除表示會永久刪除復原服務保存庫和所有相關聯的備份資料。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+您可以使用 PowerShell 來強制刪除復原服務保存庫。 這表示的保存庫和所有相關聯的備份資料會永久刪除。 
 
 > [!Warning]
-> 使用 PowerShell 來刪除復原服務保存庫時，請先確定您要永久刪除保存庫中的所有備份資料。
+> 當使用 PowerShell 來刪除復原服務保存庫，請確認您想要永久刪除保存庫中的所有備份資料。
 >
 
 刪除復原服務保存庫：
 
-1. 登入您的 Azure 帳戶。
-
-   使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+1. 使用您 Azure 訂用帳戶登入`Connect-AzAccount`命令，並遵循螢幕上指示。
 
    ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
    ```
-   第一次使用 Azure 備份時，您必須使用 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 在您的訂用帳戶中註冊 Azure 復原服務提供者。
+2. 第一次使用 Azure 備份時，您必須在您訂用帳戶中註冊 Azure 復原服務提供者[註冊 AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider)。
 
    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
    ```
 
-1. 以系統管理權限開啟 PowerShell 視窗。
-
-1. 使用 `Set-ExecutionPolicy Unrestricted` 移除任何限制。
-
-1. 執行下列命令，從 chocolately.org 下載 Azure Resource Manager 用戶端套件。
+3. 以系統管理權限開啟 PowerShell 視窗。
+4. 使用 `Set-ExecutionPolicy Unrestricted` 移除任何限制。
+5. 執行下列命令，從 chocolately.org 下載 Azure Resource Manager 用戶端套件。
 
     `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-1. 使用下列命令來安裝 Azure Resource Manager API 用戶端。
+6. 使用下列命令來安裝 Azure Resource Manager API 用戶端。
 
    `choco.exe install armclient`
 
-1. 在 Azure 入口網站中，針對您要刪除的復原服務保存庫，收集其訂用帳戶識別碼和相關聯的資源群組名稱。
-
-1. 在 PowerShell 中，使用您的訂用帳戶識別碼、資源群組名稱和復原服務保存庫名稱來執行下列命令。 當您執行命令時，此命令會刪除保存庫和所有相依性。
+7. 在 Azure 入口網站中，蒐集您想要刪除的保存庫的訂用帳戶識別碼和資源群組名稱。
+8. 在 PowerShell 中，執行下列命令使用您的訂用帳戶識別碼、 資源群組名稱和保存庫名稱。 當您執行命令時，此命令會刪除保存庫和所有相依性。
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-   保存庫必須是空的，您才能將其刪除。 否則，您會收到指出「因為此保存庫中仍包含資源，所以無法刪除」的錯誤。 下列命令示範如何移除保存庫內的容器：
+9. 如果保存庫不的空的您會收到錯誤，「 如有此保存庫內的現有資源，無法刪除保存庫 」 集。 若要移除所包含的保存庫中，執行下列作業：
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-1. 在 Azure 入口網站中登入您的訂用帳戶，並確認保存庫已刪除。
+10. 登入您的訂用帳戶，在 Azure 入口網站中，並確認刪除的保存庫。
 
 
 ## <a name="remove-vault-dependencies-and-delete-vault"></a>移除保存庫相依性並刪除保存庫
 
-若要手動移除保存庫相依性，請刪除每個項目或伺服器與復原服務保存庫之間的組態。 當您進行下列程序時，請使用 [備份項目] 功能表 (請參閱圖片) 來找出下列項目：
+可以手動移除保存庫相依性，如下所示：
 
-* Azure 儲存體 (Azure 檔案服務) 的備份
-* Azure VM 中 SQL Server 的備份
-* Azure 虛擬機器的備份
+- 在 **備份項目**功能表中，移除相依性：
+    - Azure 儲存體 (Azure 檔案服務) 的備份
+    - Azure VM 中 SQL Server 的備份
+    - Azure 虛擬機器的備份
+- 在 **備份基礎結構**功能表中，移除相依性：
+    - Microsoft Azure 備份伺服器 (MABS) 備份
+    - System Center DPM 的備份
 
-使用 [備份基礎結構]功能表 (請參閱影像) 找出下列項目：
+![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 
-* Azure 備份伺服器的備份
-* System Center DPM 的備份
+### <a name="remove-backup-items"></a>移除備份項目
 
-    ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
+此程序提供範例，示範如何移除 Azure 檔案的備份資料。
 
-1. 在保存庫儀表板功能表中，向下捲動到 [受保護項目] 區段，然後按一下 [備份項目]。 在此功能表中，您可以停止和刪除 Azure 檔案伺服器、Azure VM 中的 SQL Server 和 Azure 虛擬機器。 在此範例中，我們將會移除 Azure 檔案伺服器中的備份資料。
-
-    ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/selected-backup-items.png)
-
-1. 選取備份類型，即可檢視該類型的所有項目。
+1. 按一下 **備份項目** > **Azure 儲存體 （Azure 檔案服務）**
 
     ![選取備份類型](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
-1. 針對清單中的所有項目，以滑鼠右鍵按一下項目，然後從捷徑功能表中選取 [停止備份]。
+2. 以滑鼠右鍵按一下 移除，然後按一下 每個 Azure 檔案項目**停止備份**。
 
     ![選取備份類型](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    [停止備份] 功能表隨即開啟。
 
-1. 在 [停止備份] 功能表中，從 [選擇選項] 功能表中選取 [刪除備份資料]，輸入項目的名稱，然後按一下 [停止備份]。
+3. 在 **停止備份** > **選擇選項**，選取**刪除備份資料**。
+4. 輸入項目的名稱，然後按一下**停止備份**。 
+   - 這會確認您想要刪除的項目。
+   - **停止備份**確認之後，就會啟動 按鈕。
+   - 如果您保留並不會刪除資料時，您無法刪除保存庫。
 
-    輸入項目的名稱，以確認您想要刪除它。 一旦您確認項目之後，[停止備份] 按鈕會生效。 如果您有保留資料，則會無法刪除保存庫。
+     ![刪除備份資料](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-    ![刪除備份資料](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
-
-    您想要的話也可以提供為什麼要刪除資料的原因，並加入註解。 若要確認作業已完成，請檢查 Azure 訊息 ![刪除備份資料](./media/backup-azure-delete-vault/messages.png)。 <br/>
-    作業完成之後，服務會傳送一則訊息：*備份程序已停止，並已刪除備份資料*。
-
-1. 刪除清單中的項目後，在 [備份項目] 功能表上按一下 [重新整理]，以查看保存庫中的項目。
+5. 選擇性地提供的原因為何您要刪除資料，並加入註解。
+6. 若要確認刪除作業完成，請檢查 Azure 訊息 ![刪除備份資料](./media/backup-azure-delete-vault/messages.png)上也提供本文中使用的原始碼。
+7. 在作業完成之後，服務會傳送一則訊息：**備份的程序已停止，且已刪除備份資料**。
+8. 刪除清單中的項目後，在 [備份項目] 功能表上按一下 [重新整理]，以查看保存庫中的項目。
 
       ![刪除備份資料](./media/backup-azure-delete-vault/empty-items-list.png)
 
-      當清單中沒有任何項目時，捲動到復原服務保存庫功能表中的 [基本資訊] 窗格。 清單中不應該有任何 [備份項目]、[備份管理伺服器] 或 [複寫的項目]。 如果保存庫中仍有項目，請返回步驟三，並選擇其他項目類型清單。  
 
-1. 當保存庫工具列中沒有其他項目，按一下 [刪除] 。
+### <a name="remove-backup-infrastructure-servers"></a>移除備份基礎結構伺服器
 
-    ![刪除備份資料](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
-
-1. 若要確認您想要刪除保存庫，請按一下 [是]。
-
-    保存庫便會被刪除，入口網站會回到 [新增]  服務功能表。
-
-## <a name="removing-azure-backup-server-or-dpm"></a>移除 Azure 備份伺服器或 DPM
-
-1. 在保存庫儀表板功能表中，向下捲動到 [管理] 區段，然後按一下 [備份基礎結構]。
-
-1. 在子功能表中按一下 [備份管理伺服器]，即可檢視 Azure 備份伺服器和 System Center DPM 伺服器。 您可以停止和刪除 Azure 檔案伺服器、Azure VM 中的 SQL Server 和 Azure 虛擬機器。
+1. 在 [保存庫儀表板] 功能表中，按一下**備份基礎結構**。
+2. 按一下 **備份管理伺服器**來檢視伺服器。 
 
     ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-1. 以滑鼠右鍵按一下您要刪除的項目，然後從子功能表中選取 [刪除]。
+2. 以滑鼠右鍵按一下項目 >**刪除**。
 
     ![選取備份類型](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
-    [停止備份] 功能表隨即開啟。
+3. 上也提供本文中使用的原始碼。 在 **停止備份** > **選擇選項**，選取**刪除備份資料**。
+4. 輸入項目的名稱，然後按一下**停止備份**。 
+   - 這會確認您想要刪除的項目。
+   - **停止備份**確認之後，就會啟動 按鈕。
+   - 如果您保留並不會刪除資料時，您無法刪除保存庫。
 
-1. 在 [停止備份] 功能表中，從 [選擇選項] 功能表中選取 [刪除備份資料]，輸入項目的名稱，然後按一下 [停止備份]。
+     ![刪除備份資料](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-    請輸入項目名稱以確認要將其刪除。 一旦您確認項目之後，[停止備份] 按鈕會生效。 如果您有保留資料，則會無法刪除保存庫。
-
-    ![刪除備份資料](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
-
-    或者，您可以提供您為什麼要刪除資料的原因，並加入註解。 若要確認作業已完成，請檢查 Azure 訊息 ![delete backup data](./media/backup-azure-delete-vault/messages.png)。 <br/>
-    作業完成之後，服務會傳送一則訊息：備份程序已停止，並已刪除備份資料。
-
-1. 刪除清單中的項目後，在 [備份項目] 功能表上按一下 [重新整理]，以查看保存庫中的其餘項目。
-
-      ![刪除備份資料](./media/backup-azure-delete-vault/empty-items-list.png)
-
-      當清單中沒有任何項目時，捲動到復原服務保存庫功能表中的 [基本資訊] 窗格。 清單中不應該有任何 [備份項目]、[備份管理伺服器] 或 [複寫的項目]。 如果保存庫中仍有項目，請返回步驟三，並選擇其他項目類型清單。  
-1. 當保存庫中沒有其他項目時，在保存庫儀表板中按一下 [刪除] 。
-
-    ![刪除備份資料](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
-
-1. 若要確認您想要刪除保存庫，請按一下 [是]。
-
-    保存庫便會被刪除，入口網站會回到 [新增]  服務功能表。
+5. 選擇性地提供的原因為何您要刪除資料，並加入註解。
+6. 若要確認刪除作業完成，請檢查 Azure 訊息 ![刪除備份資料](./media/backup-azure-delete-vault/messages.png)上也提供本文中使用的原始碼。
+7. 在作業完成之後，服務會傳送一則訊息：**備份的程序已停止，且已刪除備份資料**。
+8. 刪除清單中的項目後，在 [備份項目] 功能表上按一下 [重新整理]，以查看保存庫中的項目。
 
 
-## <a name="removing-azure-backup-agent-recovery-points"></a>移除 Azure 備份代理程式復原點
+### <a name="remove-azure-backup-agent-recovery-points"></a>移除 Azure Backup agent 復原點
 
-1. 在保存庫儀表板功能表中，向下捲動到 [管理] 區段，然後按一下 [備份基礎結構]。
-
-1. 在子功能表中按一下 [受保護的伺服器]，即可檢視受保護的伺服器類型清單，包括 Azure 備份代理程式。
+1. 在 [保存庫儀表板] 功能表中，按一下**備份基礎結構**。
+2. 按一下 **備份管理伺服器**若要檢視的基礎結構伺服器。
 
     ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-1. 在 [受保護的伺服器] 清單中，按一下 [Azure 備份代理程式]。
+3. 在 [受保護的伺服器] 清單中，按一下 [Azure 備份代理程式]。
 
     ![選取備份類型](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
 
-    使用 Azure 備份代理程式保護的伺服器清單隨即開啟。
+4. 按一下 保護使用 Azure 備份代理程式的伺服器清單中的伺服器。
 
     ![選取特定受保護的伺服器](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
 
-1. 在伺服器清單中，按一下任一伺服器以開啟其功能表。
-
-    ![檢視所選伺服器的儀表板](./media/backup-azure-delete-vault/selected-protected-server.png)
-
-1. 在選取的伺服器儀表板功能表上，按一下 [刪除]。
+5. 在選取的伺服器儀表板中，按一下 **刪除**。
 
     ![刪除選取的伺服器](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-1. 在 [刪除] 功能表中，輸入項目的名稱，然後按一下 [刪除]。
+6. 在 [刪除] 功能表中，輸入項目的名稱，然後按一下 [刪除]。
+   - 這會確認您想要刪除的項目。
+   - **停止備份**確認之後，就會啟動 按鈕。
+   - 如果您保留並不會刪除資料時，您無法刪除保存庫。
 
-    輸入項目的名稱，以確認您想要刪除它。 一旦您確認項目之後，[刪除] 按鈕會生效。
+     ![刪除備份資料](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
-    ![刪除備份資料](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+7. 選擇性地提供的原因為何您要刪除資料，並加入註解。
+8. 若要確認刪除作業完成，請檢查 Azure 訊息 ![刪除備份資料](./media/backup-azure-delete-vault/messages.png)上也提供本文中使用的原始碼。
+7. 在作業完成之後，服務會傳送一則訊息：**備份的程序已停止，且已刪除備份資料**。
+8. 刪除清單中的項目後，在 [備份項目] 功能表上按一下 [重新整理]，以查看保存庫中的項目。
 
-    或者，您可以提供您為什麼要刪除資料的原因，並加入註解。 若要確認作業已完成，請檢查 Azure 訊息 ![delete backup data](./media/backup-azure-delete-vault/messages.png)。 <br/>
-    作業完成之後，服務會傳送一則訊息：備份程序已停止，並已刪除備份資料。
 
-1. 刪除清單中的項目後，在 [備份項目] 功能表上按一下 [重新整理]，以查看保存庫中的其餘項目。
 
-      ![刪除備份資料](./media/backup-azure-delete-vault/empty-items-list.png)
+### <a name="delete-the-vault-after-removing-dependencies"></a>移除相依性之後刪除保存庫
 
-      當清單中沒有任何項目時，捲動到復原服務保存庫功能表中的 [基本資訊] 窗格。 清單中不應該有任何 [備份項目]、[備份管理伺服器] 或 [複寫的項目]。 如果保存庫中仍有項目，請返回步驟三，並選擇其他項目類型清單。  
-1. 當保存庫中沒有其他項目時，在保存庫儀表板中按一下 [刪除] 。
+1. 當已移除所有相依性時，捲動至**Essentials**保存庫功能表中的窗格。
+
+    - 清單中不應該有任何 [備份項目]、[備份管理伺服器] 或 [複寫的項目]。
+    - 如果項目仍會出現在保存庫，請將它們移除。
+
+2. 當保存庫中沒有其他項目時，在保存庫儀表板中按一下 [刪除] 。
 
     ![刪除備份資料](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-1. 若要確認您想要刪除保存庫，請按一下 [是]。
-
-    保存庫便會被刪除，入口網站會回到 [新增]  服務功能表。
+1. 若要確認您想要刪除保存庫，請按一下 [是]。 保存庫便會被刪除，入口網站會回到 [新增]  服務功能表。
 
 ## <a name="what-if-i-stop-the-backup-process-but-retain-the-data"></a>如果我停止備份程序但卻保留了資料，會怎麼樣？
 
-如果您停止備份程序，但是不小心「保留」  資料，您必須先刪除備份資料，才能刪除保存庫。 刪除備份資料：
+如果您停止備份程序，但是不小心保留資料，您必須先刪除備份資料，如先前各節中所述。
 
-1. 在 [備份項目] 功能表中，以滑鼠右鍵按一下項目，然後在內容功能表中按一下 [刪除備份資料]。
+## <a name="next-steps"></a>後續步驟
 
-    ![刪除備份資料](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
-
-    [刪除備份資料] 功能表隨即開啟。
-1. 在 [刪除備份資料] 功能表中，輸入項目的名稱，然後按一下 [刪除]。
-
-    ![刪除備份資料](./media/backup-azure-delete-vault/delete-retained-vault.png)
-
-    刪除資料之後，請返回步驟 4c，並繼續進行程序。
+[深入了解](backup-azure-recovery-services-vault-overview.md)復原服務保存庫。

@@ -12,16 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993627"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316042"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
-此頁面提供透過 [Intelligent Insights](sql-database-intelligent-insights.md) 資料庫效能診斷記錄偵測到之 Azure SQL Database 和受控執行個體效能問題的相關資訊。 診斷記錄遙測資料可以串流到 [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)、[Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、[Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案，以取得自訂的 DevOps 警示和報告功能。
+此頁面提供透過 [Intelligent Insights](sql-database-intelligent-insights.md) 資料庫效能診斷記錄偵測到之 Azure SQL Database 和受控執行個體效能問題的相關資訊。 診斷記錄遙測可以串流處理至[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)， [Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)， [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)，或第三方解決方案，可自訂的 DevOps 警示和報告功能。
 
 > [!NOTE]
 > 如需使用 Intelligent Insights 進行快速 SQL Database 效能疑難排解的指南，請參閱此文件中的[建議的疑難排解流程](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow)流程圖。
@@ -73,7 +73,7 @@ SQL Database 上的資源通常是指 [DTU](sql-database-what-is-a-dtu.md) 或�
 
 如果您已達到可用工作階段限制，則可以透過減少資料庫的登入次數來對應用程式進行最佳化。 如果您無法減少應用程式針對資料庫的登入數，請考慮提高資料庫的定價層。 或者，您可以將資料庫分割並移至多個資料庫，以取得更加平衡的工作負載分佈。
 
-如需更多有關解決工作階段限制的建議，請參閱[如何處理 SQL Database 登入次數上限的限制](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) \(英文\)。 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
+如需更多有關解決工作階段限制的建議，請參閱[如何處理 SQL Database 登入次數上限的限制](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) \(英文\)。 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
 
 ## <a name="workload-increase"></a>工作負載增加
 
@@ -109,7 +109,7 @@ SQL Database 上的資源通常是指 [DTU](sql-database-what-is-a-dtu.md) 或�
 
 您也可以對工作負載進行最佳化，或將它散發至多個資料庫來減少工作負載。 或者，您可以將工作負載散發至多個資料庫。 如果這些解決方案都不可行，請考慮提高 SQL 資料庫訂用帳戶的定價層，以增加可供資料庫使用的記憶體資源數量。
 
-如需其他疑難排解建議，請參閱[記憶體授與深思：有許多名稱的神秘 SQL Server 記憶體取用者](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) \(英文\)。
+如需其他疑難排解建議，請參閱[記憶體授與深思：有許多名稱的神秘 SQL Server 記憶體取用者](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) \(英文\)。
 
 ## <a name="locking"></a>鎖定
 
@@ -259,7 +259,7 @@ SQL 資料庫會判斷出查詢執行成本最低的查詢執行計畫。 隨著
 
 新計畫迴歸情況所指的狀態是 SQL Database 開始執行效率比舊計畫差的新查詢執行計畫。 舊計畫迴歸情況所指的狀態是 SQL Database 從使用較有效率的新計畫切換成使用效率比新計畫差的舊計畫。 現有計畫變更工作負載迴歸所指的狀態是新計畫和舊計畫會不斷交替，並逐漸朝向效能不佳的計畫方向發展。
 
-如需有關計畫迴歸的詳細資訊，請參閱[什麼是 SQL Server 中的計畫迴歸？](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/)\(英文\)。 
+如需有關計畫迴歸的詳細資訊，請參閱[什麼是 SQL Server 中的計畫迴歸？](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/)\(英文\)。 
 
 ### <a name="troubleshooting"></a>疑難排解
 
@@ -267,7 +267,7 @@ SQL 資料庫會判斷出查詢執行成本最低的查詢執行計畫。 隨著
 
 您可以分析對特定的查詢 (可以藉由系統提供的查詢雜湊來識別) 而言哪個計畫的效能較佳。 判斷出哪個計畫較適用於您的查詢之後，您即可手動強制執行該計畫。 
 
-如需詳細資訊，請參閱[了解 SQL Server 如何防止計畫迴歸](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/) \(英文\)。
+如需詳細資訊，請參閱[了解 SQL Server 如何防止計畫迴歸](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/) \(英文\)。
 
 > [!TIP]
 > 您知道 SQL Database 內建的智慧功能可以自動為資料庫管理效能最佳的查詢執行計畫嗎？

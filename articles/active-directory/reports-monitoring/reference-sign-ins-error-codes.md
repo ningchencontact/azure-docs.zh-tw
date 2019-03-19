@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190903"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443397"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -53,7 +53,7 @@ ms.locfileid: "56190903"
 ## <a name="error-codes"></a>錯誤碼
 
 
-|Error|說明|
+|Error|描述|
 |---|---|
 |16000|這是內部實作詳細資料，而不是錯誤狀況。 您可以放心地忽略此參考。|
 |20001|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
@@ -79,7 +79,7 @@ ms.locfileid: "56190903"
 |50027|JWT 權杖無效，原因如下：<ul><li>未包含 nonce 宣告、子宣告</li><li>主旨識別碼不相符</li><li>idToken 宣告中的宣告重複</li><li>未預期的簽發者</li><li>未預期的對象</li><li>不在其有效時間範圍內 </li><li>權杖格式不正確</li><li>來自簽發者的外部 ID 權杖未能通過簽章驗證。</li></ul>請連絡應用程式擁有者|
 |50029|URI 無效 - 網域名稱包含無效字元。 請連絡租用戶管理員。|
 |50034|使用者不存在於目錄中。 請連絡租用戶管理員。|
-|50042|主體中遺漏欲產生成對識別碼所需的 salt。 請連絡租用戶管理員。|
+|50042|原則上遺漏產生成對識別碼所需的 salt。 請連絡租用戶管理員。|
 |50048|主體與用戶端判斷提示中的簽發者宣告不符。 請連絡租用戶管理員。|
 |50050|要求格式不正確。 請連絡應用程式擁有者。|
 |50053|帳戶遭到鎖定，因為使用者嘗試使用不正確的使用者識別碼或密碼登入太多次。|
@@ -129,7 +129,7 @@ ms.locfileid: "56190903"
 |50180|需要 Windows 整合式驗證。 為租用戶啟用無縫 SSO。|
 |51001|所顯示的網域提示沒有內部部署安全性識別碼 - 內部部署 UPN。|
 |51004|目錄中不存在使用者帳戶。|
-|51006|需要 Windows 整合式驗證。 使用者用來登入的工作階段權杖遺漏 wia 宣告。 請要求使用者重新登入。|
+|51006|需要 Windows 整合式驗證。 使用透過宣告遺漏的工作階段權杖來登入的使用者。 請要求使用者重新登入。|
 |52004|使用者尚未同意存取 LinkedIn 資源。 |
 |53000|條件式存取原則需要相容的裝置，但裝置不相容。 讓使用者向 Intune 等獲得核准的 MDM 提供者註冊其裝置。|
 |53001|條件式存取原則需要已加入網域的裝置，但該裝置尚未加入網域。 請使用者使用已加入網域的裝置。|
@@ -138,7 +138,7 @@ ms.locfileid: "56190903"
 |53004|使用者必須先完成多重要素驗證註冊程序，才能存取此內容。 使用者應該註冊多重要素驗證。|
 |65001|應用程式 X 沒有存取應用程式 Y 的權限，或已撤銷此權限。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。針對此使用者和資源傳送互動式授權要求。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。請將授權要求傳送給租用戶管理員，以代表應用程式Y 針對資源Z 採取行動。|
 |65004|使用者不同意存取應用程式。 讓使用者重試登入，並同意應用程式|
-|65005|應用程式所需資源存取清單不包含資源可探索的應用程式，或用戶端應用程式已要求存取未在其所需資源存取清單中指定的資源，或 Graph 服務傳回不正確的要求或找不到資源。 如果應用程式支援 SAML，則可能是您在設定應用程式時所使用的識別碼 (實體) 不正確。 請嘗試使用下列連結中針對 SAML 所列出的解決方案：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|應用程式所需資源存取清單不包含資源可探索的應用程式，或用戶端應用程式已要求存取未在其所需資源存取清單中指定的資源，或 Graph 服務傳回不正確的要求或找不到資源。 如果應用程式支援 SAML，則可能是您在設定應用程式時所使用的識別碼 (實體) 不正確。 請嘗試使用下列連結中針對 SAML 所列出的解決方案：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|授與無效，原因如下：<ul><li>所要求 SAML 2.0 判斷提示的主體確認方法無效</li><li>V2 上不支援應用程式 OnBehalfOf 流程</li><li>未使用工作階段金鑰簽署主要的重新整理權杖</li><li>外部重新整理權杖無效</li><li>所取得的存取權授與，是不同租用戶的。</li></ul>|
 |70001|在名為 Y 的租用戶中找不到名為 X 的應用程式。如果租用戶系統管理員尚未安裝識別碼為 X 的應用程式，或租用戶中的任何使用者尚未同意使用此應用程式，便可能發生此錯誤。 可能是針對應用程式所設定的識別碼值不正確，或將驗證要求傳送給錯誤的租用戶。|
 |70002|應用程式傳回的用戶端認證無效。 請連絡應用程式擁有者。|

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a8cfb39c26813b605d69fb3a2b3057ec2b0d897
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e68175471b24c48f23cc48cff9d0b47c937f588a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217457"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217184"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ ms.locfileid: "56217457"
 
 下表說明三種 Multi-Factor Authentication 版本之間的差異︰
 
-| 版本 | 說明 |
+| 版本 | 描述 |
 | --- | --- |
 | Multi-Factor Authentication for Office 365 <br> Microsoft 365 商務版 |這個版本專門搭配 Office 365 應用程式運作，並且可從 Office 365 或 Microsoft 365 入口網站管理。 系統管理員可以[使用雙步驟驗證來保護 Office 365 資源的安全](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本是 Office 365 或 Microsoft 365 商務版訂用帳戶的一部分。 |
 | 適用於 Azure AD 系統管理員的 Multi-Factor Authentication | Azure AD 租用戶中指派為 Azure AD 全域管理員角色的使用者，可以啟用雙步驟驗證，而不需要額外收費。|
@@ -41,7 +41,7 @@ ms.locfileid: "56217457"
 
 ## <a name="feature-comparison-of-versions"></a>版本的功能比較
 
-下表提供 Azure Multi-Factor Authentication 各版本中可用的功能清單。
+下表提供了 Azure 多重身份验证的各个版本中可用的功能列表。
 
 > [!NOTE]
 > 此比較表會討論每個 Multi-Factor Authentication 版本中所包含的功能。 如果您擁有完整的 Azure Multi-Factor Authentication 服務，則依您使用的是[雲端中的 MFA 或內部部署 MFA](concept-mfa-whichversion.md) 而定，某些功能可能無法使用。
@@ -65,6 +65,9 @@ ms.locfileid: "56217457"
 | 信任的 IP | | |● |
 | 記住受信任裝置的 MFA |● |● |● |
 | 內部部署應用程式的 MFA | | |● |
+
+> [!IMPORTANT]
+> 從於 2019 年 3 月開始撥打電話選項將無法使用免費/試用 Azure AD 租用戶中的 MFA 和 SSPR 的使用者。 這項變更不會影響簡訊。 通話會繼續在使用者可使用付費 Azure AD 租用戶。 這項變更只會影響免費/試用 Azure AD 租用戶。
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>如何開啟 Azure AD 系統管理員適用的 Azure Multi-Factor Authentication
 

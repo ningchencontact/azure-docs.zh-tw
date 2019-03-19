@@ -9,19 +9,29 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/27/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 52e7fdf6de25300d4f78ee9822aca4ad83f646e9
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408420"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243614"
 ---
 # <a name="encoding-with-media-services"></a>使用媒體服務編碼
 
-Azure 媒體服務可讓您將高品質數位媒體檔案編碼成可在各種不同的瀏覽器和裝置上播放的格式。 例如，您可能會想要串流處理 Apple 的 HLS 或 MPEG DASH 格式的內容。 本主題會指導您如何使用媒體服務 v3 將內容編碼。
+Azure 媒體服務可讓您將高品質的數位媒體檔案編碼成調適性位元速率 MP4 檔案，因此可以在各種不同的瀏覽器和裝置上播放您的內容。 成功的媒體服務編碼作業建立的輸出資產與一組調適性位元速率 mp4 和串流處理組態檔。 組態檔包含.ism、.ismc、.mpi 和其他您不應該修改的檔案。 編碼作業完成後，您可以善用[動態封裝](dynamic-packaging-overview.md)和啟動資料流。
+
+要在輸出中的視訊播放的用戶端可用的資產，您必須建立**串流定位器**並建置串流 Url。 然後，根據指定的格式資訊清單中，您的用戶端收到資料流他們選擇的通訊協定。
+
+下圖顯示使用動態封裝工作流程上隨選資料流。
+
+![動態封裝](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+
+本主題會指導您如何使用媒體服務 v3 將內容編碼。
+
+## <a name="transforms-and-jobs"></a>轉換和作業
 
 若要使用媒體服務 v3 來編碼，您需要建立[轉換](https://docs.microsoft.com/rest/api/media/transforms) \(英文\) 和[作業](https://docs.microsoft.com/rest/api/media/jobs) \(英文\)。 轉換可定義編碼的設定和輸出配方，作業則是配方的執行個體。 如需詳細資訊，請參閱[轉換和作業](transforms-jobs-concept.md)
 
@@ -60,9 +70,11 @@ Azure 媒體服務可讓您將高品質數位媒體檔案編碼成可在各種�
 
 ## <a name="scaling-encoding-in-v3"></a>在 v3 中調整編碼
 
-目前，客戶必須使用 Azure 入口網站或媒體服務 v2 API 來設定 RU (如[調整媒體處理](../previous/media-services-scale-media-processing-overview.md)所述)。 
+若要調整媒體處理，請參閱[使用 CLI 進行調整](media-reserved-units-cli-how-to.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [轉換與作業](transforms-jobs-concept.md)
+* [從使用內建的預先設定的 HTTPS URL 編碼](job-input-from-http-how-to.md)
+* [將本機檔案，使用內建的預設編碼](job-input-from-local-file-how-to.md)
+* [建置自訂預設值為目標的特定案例或裝置需求](customize-encoder-presets-how-to.md)
 * [使用媒體服務上傳、編碼和串流](stream-files-tutorial-with-api.md)

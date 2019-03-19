@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ceb9c7b18de5262a38fc724aad9605e82a615a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238414"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>教學課程：Azure Active Directory 與多個 Amazon Web Services (AWS) 帳戶整合
 
@@ -50,7 +50,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 * 所有的 AWS 帳戶都將使用相同的同盟中繼資料 XML 檔案，且在憑證變換時，您必須驅動此大規模演練，同時更新所有 AWS 帳戶上的憑證
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Amazon Web Services (AWS) 整合，您需要下列項目：
 
@@ -213,9 +213,9 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     c. 選取 [Allow programmatic and AWS Management Console access] \(允許透過程式設計方式和 AWS 管理主控台存取\)。
   
-    d. 按一下 [下一步:權限]。
+    d. 按一下 **[下一步:權限]**。
 
-9. 在 [Attach Permissions Policies] \(附加權限原則\) 對話方塊中，請根據您的組織需求附加適當的原則。 按一下 下一步:。  
+9. 在 [附加權限原則] 對話方塊中，請根據您的組織需求附加適當的原則。 按一下 **下一步:**。  
 
     ![設定單一登入原則][33]
 

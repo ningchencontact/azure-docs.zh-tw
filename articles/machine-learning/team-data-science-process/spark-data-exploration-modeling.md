@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b1e6884366300a4edfce1eb05971e50f673b3a22
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4ddcd2429ce1b7e44670b52a0a7b7494d0400af7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860970"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>使用 Spark 資料探索和模型化
 
@@ -29,8 +29,8 @@ ms.locfileid: "55457219"
 
 * [使用 SGD 的線性迴歸](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) 是一種使用隨機梯度下降 (SGD) 方法的線性迴歸模型，並使用最佳化和功能縮放比例來預測支付的小費金額。 
 * [使用 LBFGS 的羅吉斯迴歸](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) 或「對數優劣比」迴歸是使用相依變數來執行資料分類時，可使用的迴歸模型。 LBFGS 是牛頓最佳化演算法，可使用有限的電腦記憶體量來逼近 Broyden–Fletcher–Goldfarb–Shanno (BFGS) 演算法，且廣泛用於機器學習中。
-* [隨機樹系](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) 是整體的決策樹。  隨機樹系結合許多決策樹來降低風險過度膨脹。 隨機樹系適用於迴歸和分類，可處理分類功能，也可擴充至多類別分類設定。 隨機樹系不需要調整功能，而且能夠擷取非線性和功能互動。 隨機樹系是其中一個最成功的分類和迴歸的機器學習模型。
-* [漸層停駐推進式決策樹](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) 是整體的決策樹。 GBT 反覆地訓練決策樹以盡可能降低遺失函式。 GBT 適用於迴歸和分類，並可處理分類功能、不需要調整功能，而且能夠擷取非線性和功能互動。 它們也可用於多類別分類設定。
+* [隨機樹系](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) 是整體的決策樹。  隨機樹系結合許多決策樹來降低風險過度膨脹。 隨機樹系適用於迴歸和分類，可處理分類功能，也可擴充至多類別分類設定。 隨機樹系不需要調整功能，而且能夠擷取非線性和功能互動。 隨機樹系是其中一個最成功的分類和迴歸的機器學習模型。
+* [漸層停駐推進式決策樹](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) 是整體的決策樹。 GBT 反覆地訓練決策樹以盡可能降低遺失函式。 GBT 適用於迴歸和分類，並可處理分類功能、不需要調整功能，而且能夠擷取非線性和功能互動。 它們也可用於多類別分類設定。
 
 模型化步驟也包含程式碼來示範如何定型、評估和儲存每類模型。 已使用 Python 來編寫解決方案程式碼，並顯示相關的繪圖。   
 
@@ -60,19 +60,17 @@ ms.locfileid: "55457219"
 
 > [!NOTE]
 > Spark 2.0 Notebook 中新增了航班資料集，以更清楚地說明使用的分類演算法。 請參閱下列連結，以取得航班準時出發資料集和天氣資料集的相關資訊：
-
->- 航班準時出發資料：[http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
-
->- 機場天氣資料：[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
+> - 航班準時出發資料：[https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 > 
+> - 機場天氣資料：[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 
 <!-- -->
 
 <!-- -->
 
 > [!NOTE]
-NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 分鐘或更久 (取決於 HDI 叢集的大小) 才能執行。 上述清單中的第一個 Notebook 會顯示 Notebook 中資料探索、視覺效果和 ML 模型定型的許多層面，使用預先聯結之計程車和車資檔案的縮減取樣 NYC 資料集，讓執行時間更短：[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) 這個 Notebook 完成所需時間較短 (2-3 分鐘)，而且可能是一個很好的起點，讓您能夠快速探索我們針對 Spark 2.0 所提供的程式碼。 
+> NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 分鐘或更久 (取決於 HDI 叢集的大小) 才能執行。 上述清單中的第一個 Notebook 會顯示 Notebook 中資料探索、視覺效果和 ML 模型定型的許多層面，使用預先聯結之計程車和車資檔案的縮減取樣 NYC 資料集，讓執行時間更短：[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) 這個 Notebook 完成所需時間較短 (2-3 分鐘)，而且可能是一個很好的起點，讓您能夠快速探索我們針對 Spark 2.0 所提供的程式碼。 
 
 <!-- -->
 
@@ -81,7 +79,7 @@ NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 �
 <!-- -->
 
 > [!NOTE]
-以下說明與使用 Spark 1.6 有關。 對於 Spark 2.0 版本，請使用上方說明和連結的 Notebook。 
+> 以下說明與使用 Spark 1.6 有關。 對於 Spark 2.0 版本，請使用上方說明和連結的 Notebook。 
 
 <!-- -->
 
@@ -362,8 +360,8 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 ### <a name="index-and-encode-categorical-features-for-input-into-modeling-functions"></a>索引並編碼分類功能以輸入模型化函式中
 本節說明如何索引並編碼分類功能，以輸入模型化函式中。 MLlib 的模型化和預測函式需要先執行功能來分類要索引或編碼的分類輸入資料，才能使用這些資料。 根據模型，您需要以不同方式索引或編碼它們︰  
 
-* **樹狀結構型模型化** 需要將類別編碼為數值 (例如，含 3 個類別的特徵可能會使用 0、1、2 編碼)。 這是由 MLlib 的 [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) 函式所提供。 此函式會將標籤的字串資料行，編碼為標籤頻率所排序的標籤索引的資料行。 雖然使用輸入和資料處理的數值編製索引，仍可指定樹狀結構型演算法，將它們視為類別適當地處理。 
-* **羅吉斯和線性迴歸模型**需要一個有效編碼方式，例如，含 3 個類別的一個功能可擴充至 3 個功能資料行，根據觀察的類別，每個資料行包含 0 或 1。 MLlib 提供 [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 函式以執行 one-hot 編碼。 此編碼器會將標籤索引資料行對應到二進位向量資料行 (最多有一個單一值)。 這種編碼方式允許將預期數值功能的演算法 (例如羅吉斯迴歸) 套用至分類功能。
+* **樹狀結構型模型化** 需要將類別編碼為數值 (例如，含 3 個類別的特徵可能會使用 0、1、2 編碼)。 這是由 MLlib 的 [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) 函式所提供。 此函式會將標籤的字串資料行，編碼為標籤頻率所排序的標籤索引的資料行。 雖然使用輸入和資料處理的數值編製索引，仍可指定樹狀結構型演算法，將它們視為類別適當地處理。 
+* **羅吉斯和線性迴歸模型**需要一個有效編碼方式，例如，含 3 個類別的一個功能可擴充至 3 個功能資料行，根據觀察的類別，每個資料行包含 0 或 1。 MLlib 提供 [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 函式以執行 one-hot 編碼。 此編碼器會將標籤索引資料行對應到二進位向量資料行 (最多有一個單一值)。 這種編碼方式允許將預期數值功能的演算法 (例如羅吉斯迴歸) 套用至分類功能。
 
 以下是要索引及編碼分類功能的程式碼︰
 

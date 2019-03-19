@@ -1,19 +1,18 @@
 ---
 title: 概觀 - IaaS VM 適用的 Azure 磁碟加密 | Microsoft Docs
 description: 本文提供 IaaS VM 適用的 Microsoft Azure 磁碟加密概觀。
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 12/07/2018
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200848"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862007"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM 適用的 Azure 磁碟加密
 
@@ -72,7 +71,7 @@ Microsoft Azure 致力於確保您的資料隱私權和資料主權。 Azure 可
    > [!NOTE]
    > 不支援某些 Linux 發行版本的 OS 磁碟機加密。 如需詳細資訊，請參閱 [Azure 磁碟加密常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)一文。
    
-* 在已設定「Windows 儲存空間」的 Windows VM 上啟用加密。
+* 使用 Windows Server 2016 中的 Windows 儲存空間開頭設定的 Vm 上啟用加密。
 * 更新現有已加密進階與非進階儲存體 VM 的加密設定。
 * 針對金鑰加密金鑰 (KEK) 與非 KEK 案例備份和還原已加密的 VM。
 * 支援所有 Azure 公用區域與 Azure Government 區域。

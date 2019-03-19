@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f9ea2fd1e9a346046c55db451bc333373896db5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118083"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439678"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>了解 Azure 資訊安全中心的安全性警示
 本文可協助您了解 Azure 資訊安全中心各種可用的安全性警示和相關深入資訊的類型。 如需如何管理警示和事件的詳細資訊，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。
@@ -96,7 +96,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 * **已刪除所有檔案陰影複本**：此警示表示已刪除陰影複本。
 * **可疑的檔案清除命令**：此警示表示用來執行入侵後自助清除活動的 systeminfo 命令組合。  雖然 systeminfo.exe 是合法的 Windows 工具，但連續執行兩次，接著執行刪除命令很少見。
 * **可疑的帳戶建立**：此警示表示已建立與現有內建系統管理權限帳戶非常相似的帳戶。 攻擊者可以使用此技巧來建立 Rouge 帳戶，以免被偵測到。
-* **可疑的磁碟區陰影複製活動**：此警示表示資源上的陰影複本刪除活動。 磁碟區陰影複製 (VSC) 是儲存資料快照集的重要成品。 此活動與 Ransowmare 相關聯，但也可能是合法的。
+* **可疑的磁碟區陰影複製活動**：此警示表示資源上的陰影複本刪除活動。 磁碟區陰影複製 (VSC) 是儲存資料快照集的重要成品。 此活動是勒索軟體相關聯，但也可能是合法。
 * **Windows 登錄持續性方法**：此警示表示嘗試在 Windows 登錄中保存可執行檔。 惡意程式碼通常會使用這類技術在開機時倖存。
 * **可疑的新防火牆規則**：此警示表示已透過 *netsh.exe* 新增防火牆規則，以允許來自可疑位置中可執行檔的流量。
 * **可疑的 XCOPY 執行**：此警示表示一系列的 XCOPY 執行，這可能表示您的其中一部機器已遭入侵且用來傳播惡意程式碼。

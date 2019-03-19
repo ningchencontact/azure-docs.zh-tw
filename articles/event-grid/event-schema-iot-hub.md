@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475198"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449184"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IoT 中樞的 Azure Event Grid 事件結構描述
 
@@ -27,7 +27,7 @@ ms.locfileid: "54475198"
 
 Azure IoT 中樞會發出下列事件類型：
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | 向 IoT 中樞註冊裝置時發佈。 |
 | Microsoft.Devices.DeviceDeleted | 從 IoT 中樞刪除裝置時發佈。 | 
@@ -111,7 +111,7 @@ DeviceCreated 和 DeviceDeleted 事件的結構描述具有相同的結構。 �
 
 所有事件都包含相同的最高層級資料： 
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | id | 字串 | 事件的唯一識別碼。 |
 | 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
@@ -124,14 +124,14 @@ DeviceCreated 和 DeviceDeleted 事件的結構描述具有相同的結構。 �
 
 對於所有 IoT 中樞事件，資料物件都會包含下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | hubName | 字串 | 已建立或刪除裝置的 IoT 中樞名稱。 |
 | deviceId | 字串 | 裝置的唯一識別碼。 此區分大小寫的字串最長為 128 個字元，並支援 ASCII 7 位元英數字元和下列特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
 
 每個事件發行者有不同的資料物件內容。 對於**裝置連線**和**裝置中斷連線** IoT 中樞事件，資料物件會包含下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | moduleId | 字串 | 模組的唯一識別碼。 針對模組裝置才會輸出此欄位。 此區分大小寫的字串最長為 128 個字元，並支援 ASCII 7 位元英數字元和下列特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
 | deviceConnectionStateEventInfo | 物件 | 裝置連線狀態事件資訊
@@ -139,9 +139,9 @@ DeviceCreated 和 DeviceDeleted 事件的結構描述具有相同的結構。 �
 
 每個事件發行者有不同的資料物件內容。 對於**裝置建立**和**裝置刪除** IoT 中樞事件，資料物件會包含下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| twin | 物件 | 裝置對應項的相關資訊，也就是應用程式裝置中繼資料的雲端表示。 | 
+| twin | 物件 | 裝置對應項，也就是雲端中顯示的應用程式裝置中繼資料的相關資訊。 | 
 | deviceID | 字串 | 裝置對應項的唯一識別碼。 | 
 | etag | 字串 | 可確保裝置對應項的更新具有一致性的驗證程式。 對每個裝對應項而言，每個 etag 保證都是唯一的。 |  
 | deviceEtag| 字串 | 可確保裝置登錄的更新具有一致性的驗證程式。 對每個裝置登錄而言，每個 deviceEtag 保證都是唯一的。 |

@@ -3,7 +3,7 @@ title: SQL Server 可用性群組 - Azure 虛擬機器 - 災害復原 | Microsof
 description: 本文說明如何在於不同區域中有複本的 Azure 虛擬機器上設定 SQL Server 可用性群組。
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 5e4b63d4fc8b437bd4d476c72d23f9dbf5242d5b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972374"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780553"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在不同區域的 Azure 虛擬機器上設定 Always On 可用性群組
 
@@ -124,7 +124,7 @@ ms.locfileid: "53972374"
    >[!IMPORTANT]
    >叢集資源群組同時包含兩個 IP位址。 這兩個 IP 位址都是接聽程式用戶端存取點的相依性。 在叢集相依性組態中，請使用 **OR** 運算子。
 
-1. [在 PowerShell 中設定叢集參數](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam)。
+1. [在 PowerShell 中设置群集参数](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam)。
 
 使用您在新區域中負載平衡器上設定的叢集網路名稱、IP 位址及探查連接埠來執行 PowerShell 指令碼。
 
@@ -168,8 +168,8 @@ ms.locfileid: "53972374"
 | 位置 | 伺服器執行個體 | 角色 | 可用性模式 | 容錯移轉模式
 | ----- | ----- | ----- | ----- | -----
 | 主要資料中心 | SQL-1 | 主要 | 同步 | 自動
-| 主要資料中心 | SQL-2 | 次要 | 同步 | 自動
-| 次要或遠端資料中心 | SQL-3 | 次要 | 非同步 | 手動
+| 主数据中心 | SQL-2 | 次要 | 同步 | 自动
+| 次要或遠端資料中心 | SQL-3 | 辅助 | 异步 | 手動
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>有關計劃性和強制性容錯移轉的更多詳細資訊
@@ -181,7 +181,7 @@ ms.locfileid: "53972374"
 
 ## <a name="additional-links"></a>其他連結
 
-* [Always On 可用性群組](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Always On 可用性组](https://msdn.microsoft.com/library/hh510230.aspx)
+* [Azure 虚拟机](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure 可用性設定組](../manage-availability.md)

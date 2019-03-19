@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 29e01177d4b096449cd906a22b47223078c6493e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 8325e2d1dccf1184c5297a60161200b41fc1d412
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107815"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338275"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>針對復原到 Azure 的 VMware 災害復原進行容量和規模調整規劃
 
@@ -114,7 +114,7 @@ CPU | 記憶體 | 快取磁碟大小 | 資料變更率 | 受保護的機器
 1. 若要衡量這些參數，請在您的環境執行「Site Recovery 部署規劃工具」。 如需有幫助的指導方針，請參閱[關於 VMware 至 Azure 的 Site Recovery 部署規劃工具](site-recovery-deployment-planner.md)。
 2. 部署符合[設定伺服器的大小建議](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server)的設定伺服器。 如果您的生產工作負載超過 650 個虛擬機器，請部署另一個組態伺服器。
 3. 根據所測得的每日資料變更率，參考[大小指導方針](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server)來部署[向外延展處理伺服器](vmware-azure-set-up-process-server-scale.md#download-installation-file)。
-4. 如果您預期磁碟虛擬機器的資料變更率會超過 2 MBps，請[設定進階儲存體帳戶](tutorial-prepare-azure.md#create-a-storage-account)。 「Site Recovery 部署規劃工具」會在一段特定的期間內執行。 報告中可能不會擷取其他時間發生的資料變更率尖峰。
+4. 如果您預期的資料變更率超過 2 MBps 磁碟虛擬機器，請確定您使用進階受控磁碟。 「Site Recovery 部署規劃工具」會在一段特定的期間內執行。 報告中可能不會擷取其他時間發生的資料變更率尖峰。
 5. 根據您想要達成的 RPO 來[設定網路頻寬](site-recovery-plan-capacity-vmware.md#control-network-bandwidth)。
 6. 設定妥基礎結構時，為您的工作負載啟用災害復原。 若要了解做法，請參閱[設定 VMware 至 Azure 複寫的來源環境](vmware-azure-set-up-source.md)。
 

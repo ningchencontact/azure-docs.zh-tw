@@ -12,26 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: aa29b1e2d0e80b3134be69d17ed5be454f8a51c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998700"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850355"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>自訂 MES 預設值來執行進階編碼 
 
 ## <a name="overview"></a>概觀
 
-本主題說明如何自訂媒體編碼器標準預設。 [透過使用自訂預設的媒體編碼器標準進行編碼](media-services-custom-mes-presets-with-dotnet.md)主題說明如何使用 .NET 來建立編碼工作，以及執行此工作的作業。 一旦您自訂預設之後，請將自訂預設提供給編碼工作。 
+本主題說明如何自訂媒體編碼器標準預設。 [透過使用自訂預設的媒體編碼器標準進行編碼](media-services-custom-mes-presets-with-dotnet.md)主題說明如何使用 .NET 來建立編碼工作，以及執行此工作的作業。 自定义预设后，请将自定义预设提供给编码任务。 
 
 >[!NOTE]
 >如果使用 XML 預設值，請務必維持元素的順序，如下列 XML 範例所示 (例如，KeyFrameInterval 應在 SceneChangeDetection 之前)。
 >
 
-在本主題中，將示範執行下列編碼工作的自訂預設。
+本主题演示了执行以下编码任务的自定义预设。
 
 ## <a name="support-for-relative-sizes"></a>支援相對大小
 
@@ -45,18 +45,18 @@ ms.locfileid: "55998700"
     <Width>100%</Width>
     <Height>100%</Height>
 
-## <a id="thumbnails"></a>產生縮圖
+## <a id="thumbnails"></a>生成缩略图
 
-本節說明如何自訂產生縮圖的預設值。 下面定義的預設值包含有關如何將檔案編碼的資訊，以及產生縮圖時所需的資訊。 您可以使用[此](media-services-mes-presets-overview.md)節記載的任何 MES 預設值，並加入可產生縮圖的程式碼。  
+本節說明如何自訂產生縮圖的預設值。 下面定义的预设包含有关如何对文件编码的信息，以及生成缩略图所需的信息。 您可以使用[此](media-services-mes-presets-overview.md)節記載的任何 MES 預設值，並加入可產生縮圖的程式碼。  
 
 > [!NOTE]
-> 如果編碼為單一位元速率視訊，下列預設值中的 **SceneChangeDetection** 設定只能設定為 true。 如果您是針對多位元速率視訊進行編碼，並將 **SceneChangeDetection** 設為 true，編碼器會傳回錯誤。  
+> 如果要编码为单比特率视频，以下预设中的 **SceneChangeDetection** 设置只能设置为 true。 如果您是針對多位元速率視訊進行編碼，並將 **SceneChangeDetection** 設為 true，編碼器會傳回錯誤。  
 >
 >
 
-如需結構描述的資訊，請參閱 [這個](media-services-mes-schema.md) 主題。
+有关架构的信息，请参阅[此](media-services-mes-schema.md)主题。
 
-請務必閱讀 [考量](#considerations) 一節。
+请务必仔细阅读 [注意事项](#considerations) 部分。
 
 ### <a id="json"></a>JSON 預設值
     {
@@ -160,7 +160,7 @@ ms.locfileid: "55998700"
 
 ### <a id="xml"></a>XML 預設值
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <H264Video>
           <KeyFrameInterval>00:00:02</KeyFrameInterval>
@@ -246,14 +246,14 @@ ms.locfileid: "55998700"
 
     此外， Start 也支援特殊的巨集 (即 {Best})，它會嘗試判斷第一個「 有趣 」的內容畫面。附註：(Start 設為 {Best} 時，會忽略 Step 與 Range)
   * 預設：Start:{Best}
-* 必須明確地提供每個影像格式的輸出格式：Jpg/Png/BmpFormat。 顯示時，MES 會比對 JpgVideo 與 JpgFormat，依此類推。 OutputFormat 引進了新的影像轉碼器特定巨集 (即 {Index})，必須針對影像輸出格式提供一次 (只需一次)。
+* 必須明確地提供每個影像格式的輸出格式：Jpg/Png/BmpFormat。 顯示時，MES 會比對 JpgVideo 與 JpgFormat，依此類推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
 
 ## <a id="trim_video"></a>修剪視訊 (裁剪)
 本節說明修改編碼器預設值，以裁剪或修剪其輸入為所謂的夾層檔或隨選檔的輸入視訊。 編碼器也可以用來裁剪或修剪從即時串流擷取或封存的資產 - [此部落格](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)提供詳細資料。
 
 若要修剪您的影片，您可以使用[此](media-services-mes-presets-overview.md)節記載的任何 MES 預設值，並修改 **Sources** 元素 (如下所示)。 StartTime 值必須符合輸入視訊的絕對時間戳記。 例如，如果輸入視訊的第一個畫面有 12:00:10.000 的時間戳記，則 StartTime 至少應該為 12:00:10.000 以上。 在下列範例中，我們假設輸入視訊的開始時間戳記為零。 **Sources** 應該位於預設值開頭。
 
-### <a id="json"></a>JSON 預設值
+### <a id="json"></a>JSON 预设
     {
       "Version": 1.0,
       "Sources": [
@@ -376,7 +376,7 @@ ms.locfileid: "55998700"
 若要修剪您的影片，您可以使用 [這裡](media-services-mes-presets-overview.md) 記載的任何 MES 預設值，並修改 **Sources** 元素 (如下所示)。
 
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source StartTime="PT4S" Duration="PT14S"/>
       </Sources>
@@ -554,13 +554,13 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。 目前支援�
 > [!NOTE]
 > 目前限制：
 >
-> 不支援疊加不透明度設定。
+> 不支持覆盖层不透明度设置。
 >
 > 來源視訊檔案和疊加影像檔案必須位在相同的資產中，而且視訊檔案需要設定為此資產中的主要檔案。
 >
 >
 
-### <a name="json-preset"></a>JSON 預設值
+### <a name="json-preset"></a>JSON 预设
     {
       "Version": 1.0,
       "Sources": [
@@ -581,8 +581,7 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。 目前支援�
                 },
                 {
                   "IsOverlay": true,
-                  "OverlayLoopCount": 1,
-                  "InputLoop": true
+                  "OverlayLoopCount": 1
                 }
               ],
               "Source": "Image001.png",
@@ -639,7 +638,7 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。 目前支援�
 
 ### <a name="xml-preset"></a>XML 預設值
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source>
           <Streams />
@@ -656,12 +655,10 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。 目前支援�
                 <MediaParam>
                   <IsOverlay>false</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>false</InputLoop>
                 </MediaParam>
                 <MediaParam>
                   <IsOverlay>true</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>true</InputLoop>
                 </MediaParam>
               </MediaParams>
             </VideoOverlay>
@@ -705,7 +702,7 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。 目前支援�
 
 若要強制編碼器在輸入不含音訊時產生包含靜音曲目的資產，請指定 "InsertSilenceIfNoAudio" 值。
 
-您可以使用[此](media-services-mes-presets-overview.md)節記載的任何 MES 預設值，並執行以下修改：
+可使用 [此部分](media-services-mes-presets-overview.md) 中所述的任何 MES 预设，并进行以下修改：
 
 ### <a name="json-preset"></a>JSON 預設值
     {
@@ -776,7 +773,7 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。 目前支援�
       ]
     }
 
-### <a name="aac-good-quality-audio"></a>AAC 好品質音訊
+### <a name="aac-good-quality-audio"></a>AAC 优质音频
     {
       "Version": 1.0,
       "Codecs": [
@@ -963,7 +960,7 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。 目前支援�
 . . .
 ```
 
-### <a name="inserting-video-at-all-output-bitrates"></a>以所有輸出位元速率插入視訊
+### <a name="inserting-video-at-all-output-bitrates"></a>按所有输出比特率插入视频
 假設您正在使用多重位元速率編碼預設值 (例如 [「H264 Multiple 多重位元速率 720p」](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) ) 來將整個輸入目錄針對串流進行編碼，這將會包含各種視訊檔案和純音訊檔案。 在這個案例中，當輸入沒有視訊時，您可能需要強制編碼器於所有輸出位元速率插入單色視訊播放軌。 這能確保您所有的輸出資產與視訊播放軌和音訊播放軌之間的同質性。 若要達成此目的，您必須指定 "InsertBlackIfNoVideo" 旗標。
 
 您可以使用[此](media-services-mes-presets-overview.md)節記載的任何 MES 預設值，並執行以下修改：
@@ -1041,5 +1038,5 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。 目前支援�
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [媒體服務編碼概觀](media-services-encode-asset.md)

@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75570cb289af7c7b718414974e5770f692233758
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210861"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444276"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>安裝應用程式 Proxy 代理程式連接器時遇到問題
 
@@ -64,7 +64,7 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>確認是以系統管理員身分安裝連接器
 
-**目標：** 確認嘗試安裝連接器的使用者是具有正確認證的系統管理員。 目前使用者必須是應用程式系統管理員或全域管理員，才能成功安裝。
+**目標：** 確認嘗試安裝連接器的使用者是具有正確認證的系統管理員。 目前，使用者必須是應用程式系統管理員或全域管理員安裝成功。
 
 **確認認證是否正確：**
 

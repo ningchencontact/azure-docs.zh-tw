@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 12589d9fa4623dbb6ebfd12d2e007eb9303ecdbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007596"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441555"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure 搜尋服務中的簡單查詢語法
 Azure 搜尋服務會實作兩種以 Lucene 為基礎的查詢語言：[簡單查詢剖析器](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html)和 [Lucene 查詢剖析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)。 在 Azure 搜尋服務中，簡單查詢語法會排除 fuzzy/slop 選項。  
@@ -46,7 +46,7 @@ Azure 搜尋服務會實作兩種以 Lucene 為基礎的查詢語言：[簡單�
 
 ## <a name="operators-in-simple-search"></a>簡單搜尋中的運算子
 
-您可以在查詢字串中內嵌運算子，以根據所要尋找的相符文件建置一組完整的準則。 
+您可以在查詢字串來建立一組豐富的準則，針對找到相符的文件中內嵌運算子。 
 
 ## <a name="and-operator-"></a>AND 運算子 `+`
 
@@ -87,7 +87,7 @@ NOT 運算子是負號。 例如，`wifi –luxury` 會搜尋含有 `wifi` 一�
 > [!NOTE]  
 >  雖然逸出可讓語彙基元結合為整體，但文字分析可能會根據分析模式加以分割。 如需詳細資訊，請參閱[語言支援 (Azure 搜尋服務 REST API)](index-add-language-analyzers.md)。  
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
 
 + [搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Lucene 查詢語法](query-lucene-syntax.md)

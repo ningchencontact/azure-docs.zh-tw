@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 32e705c5c338d9bd7c16514b2dc2ab081a9caf6a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115550"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245235"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 
-Azure 透過 Azure Active Directory (Azure AD)、Azure Log Analytics 和 Azure 資訊安全中心這類服務，提供內建的進階威脅偵測功能。 這個安全性服務和功能集合提供簡單且快速的方式，來了解您 Azure 部署內的一舉一動。
+Azure 提供內建的進階的威脅偵測功能，透過 Azure Active Directory (Azure AD)、 Azure 監視器記錄檔和 Azure 資訊安全中心等服務。 這個安全性服務和功能集合提供簡單且快速的方式，來了解您 Azure 部署內的一舉一動。
 
 Azure 提供各種選項來設定和自訂安全性，以符合您應用程式部署的需求。 本文討論如何滿足這些需求。
 
@@ -75,17 +75,17 @@ PIM 可協助您：
 
 -   取得有關特殊權限角色存取的警示。
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 因為 Log Analytics 實作為雲端型服務，所以您對基礎結構服務進行最小的投資就可以快速啟動並執行它。 會自動提供新的安全性功能，以節省持續維護和升級成本。
+[Azure 監視器記錄](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)是 Microsoft 雲端型 IT 管理解決方案，可協助您管理並保護您內部部署和雲端基礎結構。 由於 Azure 監視器記錄檔會實作為雲端服務中，您可以將它啟動並執行快速且最少的投資，基礎結構服務中。 會自動提供新的安全性功能，以節省持續維護和升級成本。
 
-除了自行提供重要服務之外，Log Analytics 還可以整合 System Center 元件 (例如 [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/))，以便將現有的安全性管理投資擴充到雲端。 System Center 和 Log Analytics 可以搭配運作，來提供完整的混合式管理經驗。
+除了提供重要服務，Azure 監視器上記錄檔可以整合 System Center 元件，例如[System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/)，以您現存的安全性管理投資擴充到雲端。 System Center 和 Azure 監視器的記錄檔可一起運作來提供完整的混合式管理體驗。
 
 ### <a name="holistic-security-and-compliance-posture"></a>整體安全性與合規性狀態
 
-[Log Analytics 安全性與稽核儀表板](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)針對值得您注意的問題，使用內建的搜尋查詢，為您組織的 IT 安全性狀態提供全面檢視。 [安全性和稽核] 儀表板是 Log Analytics 中所有安全性相關項目的主畫面。 它可讓您深入了解您的電腦的安全性狀態。 您也可以檢視過去 24 小時、7 天或任何其他自訂時間範圍內的所有事件。
+[Log Analytics 安全性與稽核儀表板](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)針對值得您注意的問題，使用內建的搜尋查詢，為您組織的 IT 安全性狀態提供全面檢視。 安全性和稽核儀表板是與 Azure 監視器記錄檔中的安全性相關的所有項目的主畫面。 它可讓您深入了解您的電腦的安全性狀態。 您也可以檢視過去 24 小時、7 天或任何其他自訂時間範圍內的所有事件。
 
-Log Analytics 可協助您快速且輕鬆地了解任何環境的整體安全性狀態，全部都在 IT 作業的內容中，包括軟體更新評定、反惡意程式碼評定和設定基準。 可立即存取安全性記錄資料，以簡化安全性與合規性稽核程序。
+Azure 監視器記錄檔幫助您快速且輕鬆地了解任何環境中，所有內容中的 IT 作業，包括軟體更新評估、 反惡意程式碼評估和設定基準的整體安全性狀態。 可立即存取安全性記錄資料，以簡化安全性與合規性稽核程序。
 
 ![Log Analytics 安全性與稽核儀表板](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -102,25 +102,25 @@ Log Analytics 可協助您快速且輕鬆地了解任何環境的整體安全性
 -   **常見安全性查詢**︰列出最常見的安全性查詢，以用來監視您的環境。 當您選取任何查詢時，即會開啟 [搜尋] 窗格，並顯示該查詢的結果。
 
 ### <a name="insight-and-analytics"></a>見解與分析
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 的中心是 Azure 所裝載的存放庫。
+在中央[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)由 Azure 託管的存放庫。
 
 ![見解和分析圖表](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 您可以藉由設定資料來源並將解決方案新增至訂用帳戶，將資料從連線的來源收集到存放庫。
 
-![Log Analytics 儀表板 ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Azure 監視器記錄儀表板](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 資料來源和解決方案各會建立具有其專屬屬性集的不同記錄類型，但仍能一起分析來查詢存放庫。 您可以使用相同的工具和方法，來處理各種來源所收集的各種資料。
 
 
-與 Log Analytics 的大部分互動都會透過 Azure 入口網站，它可以在任何瀏覽器中執行，並讓您存取組態設定和多項工具來分析及處理所收集的資料。 從入口網站中，您可以使用：
+Azure 監視器記錄檔與您互動的大部分是透過 Azure 入口網站中，它在任何瀏覽器中執行，並讓您存取組態設定和多項工具來分析及處理收集到的資料。 從入口網站中，您可以使用：
 * [記錄搜尋](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)，以建構查詢來分析收集的資料。
 * [儀表板](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards)，可使用最有價值搜尋的圖形檢視來自訂。
 * [解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)，提供額外的功能和分析工具。
 
 ![分析工具](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-方案會將功能加入 Log Analytics。 它們主要是在雲端執行，並提供 Log Analytics 存放庫中所收集資料的分析。 解決方案也可能會定義要收集的新記錄類型，以使用記錄搜尋來進行分析，或藉由使用解決方案在 Log Analytics 儀表板中所提供的其他使用者介面來進行分析。
+解決方案會將功能加入 Azure 監視器記錄檔。 它們主要是在雲端中執行，並提供分析在 log analytics 存放庫中收集的資料。 解決方案可能也會定義新記錄類型來收集，可以使用記錄搜尋，或使用此解決方案會提供 log analytics 儀表板中的其他使用者介面進行分析。
 
 [安全性與稽核] 儀表板是這類解決方案的範例。
 

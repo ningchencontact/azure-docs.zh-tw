@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c4acb3b779821193949c69d440edaafec5e3d803
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474049"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444492"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>資料取得與認知階段的 Team Data Science Process
 
@@ -66,9 +66,9 @@ TDSP 提供自動化公用程式 [IDEAR](https://github.com/Azure/Azure-TDSP-Uti
 ## <a name="artifacts"></a>構件
 以下是此階段的交付項目：
 
-   * [資料品質檢查](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md)：這份報告包含資料摘要、每個屬性與目標之間的關聯性、變數排名等等。 TDSP 中所提供的 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) 工具，可在任何表格式資料集 (例如 CSV 檔案或關聯式資料表) 上快速產生這份報告。 
+   * [資料品質檢查](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md)：這份報告包含資料摘要、每個屬性與目標之間的關聯性、變數排名等等。 TDSP 中所提供的 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) 工具，可在任何表格式資料集 (例如 CSV 檔案或關聯式資料表) 上快速產生這份報告。 
    * **解決方案架構**：在您建置模型後，方案架構可以是用來對新資料執行評分，或預測資料管線的圖表或描述。 它也包含可根據新資料重新訓練模型的管線。 當您使用 TDSP 目錄結構範本時，請將文件儲存在 [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) 目錄中。
-   * **檢查點決策**：在開始完整的功能設計和模型建置之前，您可以重新評估專案，以判斷預期值是否足以繼續追求此專案。 比方說，您可能已準備好繼續、需要收集更多資料，或是因為不存在可以回答問題的資料而放棄專案。
+   * **檢查點決策**：您完整的功能設計和模型建置開始之前，您可以重新評估專案，以判斷預期值是否足以繼續追求它。 比方說，您可能已準備好繼續、需要收集更多資料，或是因為不存在可以回答問題的資料而放棄專案。
 
 ## <a name="next-steps"></a>後續步驟
 

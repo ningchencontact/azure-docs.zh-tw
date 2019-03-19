@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 27a8e160fc33729c5b5266dffeb346f0296276fd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: ff3f1e405dc7a1e69c3b1d1d20936ca78b97fcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855090"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL Database
 
@@ -71,7 +71,7 @@ ms.locfileid: "56005279"
 
 ## <a name="point-in-time-restore"></a>還原時間點
 
-您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases)，將單一資料庫、集區資料庫或執行個體資料庫還原到先前的時間點，以作為相同伺服器上的新資料庫。 資料庫可以還原至任何服務層或計算大小。 請確定在您要還原資料庫的目標伺服器上具有足夠的資源。 完成之後，還原的資料庫會是一般、完全可供存取的線上資料庫。 還原的資料庫會根據其服務層和計算大小依一般費率計費。 在完成資料庫還原之前，不會產生任何費用。
+您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases)，將獨立、集區或執行個體資料庫還原到先前的時間點，以作為相同伺服器上的新資料庫。 資料庫可以還原至任何服務層或計算大小。 請確定在您要還原資料庫的目標伺服器上具有足夠的資源。 完成之後，還原的資料庫會是一般、完全可供存取的線上資料庫。 還原的資料庫會根據其服務層和計算大小依一般費率計費。 在完成資料庫還原之前，不會產生任何費用。
 
 基於復原目的，您通常會將資料庫還原到較早的時間點。 當您執行此動作時，可以將還原的資料庫視為原始資料庫的替代品，或用它來從原始資料庫擷取資料並將其更新。
 
@@ -92,7 +92,7 @@ ms.locfileid: "56005279"
 
 ## <a name="deleted-database-restore"></a>還原已刪除的資料庫
 
-您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，將已刪除的資料庫還原到相同 SQL Database 伺服器上已刪除資料庫的刪除時間。 您可以[使用 PowerShell 在受控執行個體上還原已刪除的資料庫](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance)。 您可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)，將已刪除的資料庫還原到保留期間內的較早時間點。
+您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，將已刪除的資料庫還原到相同 SQL Database 伺服器上已刪除資料庫的刪除時間。 您可以[使用 PowerShell 在受控執行個體上還原已刪除的資料庫](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance)。 您可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)，將已刪除的資料庫還原到保留期間內的較早時間點。
 
 > [!TIP]
 > 如需示範如何還原已刪除資料庫的 PowerShell 指令碼範例，請參閱[使用 PowerShell 還原 SQL 資料庫](scripts/sql-database-restore-database-powershell.md)。
@@ -114,9 +114,6 @@ ms.locfileid: "56005279"
 
 您可以從最新的異地複寫備份，在任何 Azure 區域中的任何伺服器上還原 SQL Database。 異地還原使用異地備援備份做為其來源，即使因為中斷而無法存取資料庫或資料中心，也能用來復原資料庫。
 
-> [!Note]
-> 異地還原功能不適用於受控執行個體。
-
 當您的資料庫因為裝載資料庫區域中的事件而無法使用時，異地還原就是預設的復原選項。 如果區域中的大規模意外導致您無法使用資料庫應用程式，則您可以從異地複寫備份，將資料庫還原到任何其他區域中的伺服器。 在建立備份時以及對它進行異地複寫到不同區域中的 Azure Blob 之間會有延遲。 此延遲可能最長達一小時，因此當發生災害時，最多可能會遺失最長達一小時的資料。 下圖顯示從另一個區域中的上次可用備份來還原資料庫。
 
 ![異地還原](./media/sql-database-geo-restore/geo-restore-2.png)
@@ -133,38 +130,52 @@ ms.locfileid: "56005279"
 
 若要使用 Azure 入口網站異地還原處於其[以 DTU 為基礎的模型保留期限](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的模型保留期限](sql-database-service-tiers-vcore.md)的資料庫，請開啟 [SQL Database] 頁面，然後按一下 [新增]。 在 [選取來源] 文字方塊中，選取 [備份]。 指定要在區域和您選擇的伺服器上，執行復原的來源備份。
 
+> [!Note]
+> 使用 Azure 入口網站進行異地還原不適用於受控執行個體。 請改用 PowerShell。
+
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>使用自動備份以程式設計方式執行復原
 
 如先前所述，除了 Azure 入口網站之外，還可使用 Azure PowerShell 或 REST API，以程式設計方式執行資料庫復原。 下表描述可用的命令集。
 
 ### <a name="powershell"></a>PowerShell
 
-- 若要還原單一或集區資料庫，請參閱 [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) \(英文\)
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
-  | Cmdlet | 說明 |
+- 若要還原的獨立或集區的資料庫，請參閱[還原 AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)。
+
+  | Cmdlet | 描述 |
   | --- | --- |
-  | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |取得一或多個資料庫。 |
-  | [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | 取得可還原的已刪除資料庫。 |
-  | [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |取得資料庫的異地備援備份。 |
-  | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |還原 SQL Database。 |
+  | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |取得一或多個資料庫。 |
+  | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 取得可還原的已刪除資料庫。 |
+  | [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) |取得資料庫的異地備援備份。 |
+  | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |還原 SQL Database。 |
 
   > [!TIP]
   > 如需示範如何執行資料庫還原時間點的 PowerShell 指令碼範例，請參閱[使用 PowerShell 還原 SQL 資料庫](scripts/sql-database-restore-database-powershell.md)。
 
-- 若要還原受控執行個體資料庫，請參閱[使用 AzureRm.Sql PowerShell 程式庫在 Azure SQL 受控執行個體上進行資料庫的時間點還原](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/) \(英文\)
+- 若要將受控執行個體的資料庫還原，請參閱[還原 AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)。
+
+  | Cmdlet | 描述 |
+  | --- | --- |
+  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |取得一或多個受管理的執行個體。 |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 取得執行個體的資料庫。 |
+  | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |將執行個體的資料庫還原。 |
 
 ### <a name="rest-api"></a>REST API
 
 使用 REST API 來還原單一或集區資料庫：
 
-| API | 說明 |
+| API | 描述 |
 | --- | --- |
 | [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |還原資料庫 |
 | [取得建立或更新資料庫狀態](https://docs.microsoft.com/rest/api/sql/operations) |在還原作業期間傳回狀態 |
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要使用 Azure CLI 來還原單一或集區資料庫，請參閱 [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore) \(英文\)。
+- 若要使用 Azure CLI 來還原單一或集區資料庫，請參閱 [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) \(英文\)。
+- 若要還原的受管理的執行個體，使用 Azure CLI，請參閱[az sql midb 還原](/cli/azure/sql/db)
 
 ## <a name="summary"></a>總結
 

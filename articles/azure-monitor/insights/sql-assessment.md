@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e20623c015f8bc80b61f07e28c49d49df73887b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 534307cfd71551de5427a196902b275a15ad44b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189433"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436369"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL Server 健康情況檢查方案最佳化 SQL 環境
 
@@ -186,7 +186,7 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    以下是顯示記錄檔搜尋查詢的螢幕擷取畫面︰<br><br> ![失敗的建議](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    以下是顯示記錄搜尋查詢的螢幕擷取畫面：<br><br> ![失敗的建議](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. 選擇您想要忽略的建議。 您將使用下一個程序中的 RecommendationId 值。
 

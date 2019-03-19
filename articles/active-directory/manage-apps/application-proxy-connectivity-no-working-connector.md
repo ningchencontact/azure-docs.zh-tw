@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6004feaa4b720b1745fbbbeaab1cddb0a46a7498
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 96608853d2eec3cf90f1425992d755cbe6c2e8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170613"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437899"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>針對應用程式 Proxy 應用程式找不到作用中的連接器群組
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170613"
 
 -   如果群組中沒有連接器，您可以：
 
-    -   在正確的內部部署伺服器上下載新的連接器，然後將它指派到此群組
+    -   下載新的連接器，在內部部署伺服器上的權限，並將它指派給此群組
 
     -   將作用中的連接器移至群組中
 

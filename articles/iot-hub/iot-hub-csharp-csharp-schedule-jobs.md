@@ -1,19 +1,19 @@
 ---
 title: 使用 Azure IoT 中樞 (.NET/.NET) 排程作業 | Microsoft Docs
 description: 如何排定 Azure IoT 中樞作業在多個裝置上叫用直接方法。 您可以使用適用於 .NET 的 Azure IoT 裝置 SDK，實作模擬裝置應用程式和服務應用程式來執行作業。
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: dobett
-ms.openlocfilehash: 4089ee74b44bc17324c7cd33b1bbd734a651d75f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514803"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008877"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>排程及廣播作業 (.NET/.NET)
 
@@ -23,7 +23,7 @@ ms.locfileid: "51514803"
 
 * 更新所需屬性
 * 更新標籤
-* 叫用直接方法
+* 调用直接方法
 
 作業會包裝上述其中一個動作，然後針對由裝置對應項查詢所定義的一組裝置，追蹤執行進度。 例如，後端應用程式可以使用作業，以在 10,000 部裝置上叫用重新開機裝置的直接方法。 您以裝置對應項查詢指定一組裝置，並排程在未來的時間執行作業。 作業會在每部裝置接收和執行重新開機直接方法時追蹤進度。
 
@@ -31,7 +31,7 @@ ms.locfileid: "51514803"
 
 * 裝置對應項和屬性：[開始使用裝置對應項](iot-hub-csharp-csharp-twin-getstarted.md)和[教學課程：如何使用裝置對應項屬性](tutorial-device-twins.md)
 
-* 直接方法：[IoT 中樞開發人員指南 - 直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：使用直接方法](quickstart-control-device-dotnet.md)
+* 直接方法：[IoT 中樞開發人員指南-直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：使用直接方法](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -291,6 +291,6 @@ ms.locfileid: "51514803"
 
 在本教學課程中，您已使用作業來排定裝置的直接方法，以及更新裝置對應項 (twin) 的屬性。
 
-若要繼續開始使用「IoT 中樞」和裝置管理模式 (例如遠端無線韌體更新)，請參閱[教學課程：如何進行韌體更新](tutorial-firmware-update.md)。
+若要繼續開始使用 IoT 中樞和裝置管理模式，例如遠端無線韌體更新，請參閱[教學課程：如何進行韌體更新](tutorial-firmware-update.md)。
 
 若要深入了解將 AI 部署到具有 Azure IoT Edge 的邊緣裝置，請參閱[開始使用 IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)。
