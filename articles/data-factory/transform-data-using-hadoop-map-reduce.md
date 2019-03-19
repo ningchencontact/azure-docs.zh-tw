@@ -3,20 +3,20 @@ title: 使用 Azure Data Factory 中的 Hadoop MapReduce 活動轉換資料 | Mi
 description: 了解如何從 Azure Data Factory，在 Azure HDInsight 叢集上執行 Hadoop MapReduce 程式以處理資料。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: 4543982f731feb44a8f02581c11714dec2b206f9
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214499"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576390"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop MapReduce 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Data Factory [管線](concepts-pipelines-activities.md) 中的 HDInsight MapRedu
 
 ## <a name="syntax-details"></a>語法詳細資料
 
-| 屬性          | 說明                              | 必要 |
+| 屬性          | 描述                              | 必要項 |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | 活動的名稱                     | 是      |
 | 說明       | 說明活動用途的文字 | 否       |

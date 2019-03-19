@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: cab5b9317102a86dd75d2cb7e5a820cf64d2e831
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338800"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535541"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>檢視活動記錄檔中 Azure 資源的各種 RBAC 變更
 
@@ -108,9 +108,9 @@ az monitor activity-log list --resource-group pharma-sales-projectforecast --sta
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 是另一個您可以用來收集並分析所有 Azure 資源之 RBAC 變更的工具。 Log Analytics 具有下列優點：
+[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)是另一個工具，可用來收集並分析您所有的 Azure 資源的 RBAC 變更。 Azure 監視器記錄檔具有下列優點：
 
 - 撰寫複雜的查詢和邏輯
 - 整合警示、Power BI 和其他工具
@@ -123,9 +123,9 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 1. 為您的工作區[設定活動記錄分析解決方案](../azure-monitor/platform/collect-activity-logs.md#configuration)。
 
-1. [檢視活動記錄](../azure-monitor/platform/collect-activity-logs.md#using-the-solution)。 瀏覽至 [活動記錄分析概觀] 頁面的快速方法是按一下 [Log Analytics] 選項。
+1. [檢視活動記錄](../azure-monitor/platform/collect-activity-logs.md#using-the-solution)。 若要瀏覽至 [活動 Log Analytics 解決方案概觀] 頁面的快速方法是按一下**Log Analytics**選項。
 
-   ![入口網站中的 [Log Analytics] 選項](./media/change-history-report/azure-log-analytics-option.png)
+   ![Azure 監視器登入入口網站的選項](./media/change-history-report/azure-log-analytics-option.png)
 
 1. 選擇性使用 [記錄搜尋](../log-analytics/log-analytics-log-search.md) 頁面或[進階分析入口網站](../azure-monitor/log-query/get-started-portal.md)來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../azure-monitor/log-query/portals.md)。
 

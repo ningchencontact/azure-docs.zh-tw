@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 83eea565a12ee5201c42b543cdbdad72ddc28ca9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 542db0200229b4fea4ac67ad19c468f2b9dc67d1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345292"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772774"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>判斷管理端點 IP 位址
 
@@ -29,7 +29,7 @@ Azure SQL Database 受控執行個體的虛擬叢集包含 Microsoft 用來進�
 
 ![解析內部主機名稱](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
 
-現在執行另一個`nslookup`反白顯示的名稱移除`.vnet.`區段。 執行此命令後，您將取得公用 IP 位址。
+現在執行另一個`nslookup`反白顯示的名稱移除`.vnet.`區段。 當您執行此命令時，您將取得的公用 IP 位址。
 
 ![解析公用 IP 位址](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 

@@ -12,12 +12,12 @@ ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16032ec5ba1e613462f92b86281ce93153b70923
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 1f9bd8503c2e8f2aa3c54d41b8585c6fbf81c92b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409712"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542078"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Batch AI 服務配額和限制
 
@@ -34,7 +34,7 @@ ms.locfileid: "53409712"
 > 
 > 
 
-## <a name="resource-quotas"></a>資源配額
+## <a name="resource-quotas"></a>资源配额
 
 [!INCLUDE [azure-batch-ai-limits](../../includes/azure-batch-ai-limits.md)]
 
@@ -77,7 +77,7 @@ ms.locfileid: "53409712"
    
     d. [支援方案] > 選取您的支援方案。
 
-    按 [下一步] 。
+    单击“下一步”。
 4. 在 [問題]：
    
     a. 根據[商業影響][support_sev]選取 [嚴重性]。
@@ -86,7 +86,7 @@ ms.locfileid: "53409712"
 
     c. 選擇性 - 上傳相關檔案，提供更多資訊說明您希望增加的原因。
    
-    按 [下一步] 。
+    单击“下一步”。
 5. 在 [合約資訊] 中：
    
     a. 選取 [偏好的連絡方式]。
@@ -108,4 +108,4 @@ ms.locfileid: "53409712"
 > [深入了解 Batch AI 資源](resource-concepts.md)
 
 [portal]: https://portal.azure.com
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity

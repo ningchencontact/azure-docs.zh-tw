@@ -13,17 +13,17 @@ caps.latest.revision: 42
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 9cb78362b5c0613d6ed6820bbf8e6d3275ab4787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5f1084090561d3233d0587cf426581ab6ef0ab94
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250657"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532995"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure 雲端服務定義結構描述 (.csdef 檔)
 服務定義檔會定義應用程式的服務模型。 檔案會包含可供雲端服務使用的角色定義、指定服務端點，並建立服務的組態設定。 組態設定值是在服務組態檔中設定，如[雲端服務 (傳統) 組態結構描述](https://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35)所述。
 
-根據預設，Azure 診斷組態結構描述檔案是安裝於 `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` 目錄中。 請使用安裝的 [Azure SDK](http://www.windowsazure.com/develop/downloads/) 版本來取代 `<version>`。
+根據預設，Azure 診斷組態結構描述檔案是安裝於 `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` 目錄中。 請使用安裝的 [Azure SDK](https://www.windowsazure.com/develop/downloads/) 版本來取代 `<version>`。
 
 服務定義檔的預設副檔名為 .csdef。
 
@@ -67,7 +67,7 @@ ms.locfileid: "51250657"
 
 下表說明 `ServiceDefinition` 元素的屬性。
 
-| 屬性               | 說明 |
+| 屬性               | 描述 |
 | ----------------------- | ----------- |
 | name                    |必要。 服務的名稱。 名稱在服務帳戶內必須是唯一的。|
 | topologyChangeDiscovery | 選用。 指定拓撲變更通知的類型。 可能的值包括：<br /><br /> -   `Blast` - 儘速將更新傳送到所有角色執行個體。 如果您選擇選項，角色就應該能夠處理拓撲更新而不必重新啟動。<br />-   `UpgradeDomainWalk` - 在前一個執行個體成功接受更新之後，以循序方式將更新傳送到每個角色執行個體。|

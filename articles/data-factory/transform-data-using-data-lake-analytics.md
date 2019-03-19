@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268071"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760965"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 
 下表提供 JSON 定義中所使用之一般屬性的描述。 
 
-| 屬性                 | 說明                              | 必要                                 |
+| 屬性                 | 描述                              | 必要項                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | type 屬性應設為：**AzureDataLakeAnalytics**。 | 是                                      |
 | **accountName**          | Azure Data Lake Analytics 帳戶名稱。  | 是                                      |
@@ -53,7 +53,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 
 指定下列屬性以使用服務主體驗證：
 
-| 屬性                | 說明                              | 必要 |
+| 屬性                | 描述                              | 必要項 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 指定應用程式的用戶端識別碼。     | 是      |
 | **servicePrincipalKey** | 指定應用程式的金鑰。           | 是      |
@@ -117,7 +117,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 
 下表描述此活動特有的屬性之名稱和描述。 
 
-| 屬性            | 說明                              | 必要 |
+| 屬性            | 描述                              | 必要項 |
 | :------------------ | :--------------------------------------- | :------- |
 | name                | 管線中的活動名稱     | 是      |
 | 說明         | 說明活動用途的文字。  | 否       |
@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-在上述指令碼範例中，指令碼的輸入和輸出是在 **@in** 和 **@out** 參數中定義。 Data Factory 會使用 ‘parameters’ 區段來動態傳遞 U-SQL 指令碼中 **@in** 和 **@out** 參數的值。 
+在上述指令碼範例中，輸入和輸出的指令碼會定義於**\@中**並**\@出**參數。 值**\@中**並**\@出**U-SQL 指令碼中的參數來動態傳遞 Data Factory 使用 'parameters' 區段。 
 
 您也可以在管線定義中，針對在 Azure Data Lake Analytics 服務上執行的作業，指定其他屬性 (例如 degreeOfParallelism 和 priority)。
 

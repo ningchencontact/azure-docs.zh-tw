@@ -7,19 +7,19 @@ author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
-ms.service: na
+ms.service: api-management
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421584"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765793"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>上傳 Azure 服務管理憑證
 管理憑證可讓您使用 Azure 所提供的傳統部署模型進行驗證。 許多程式和工具 (例如 Visual Studio 或 Azure SDK) 會使用這些憑證，將各種 Azure 服務的設定與部署自動化。 
@@ -33,7 +33,7 @@ ms.locfileid: "52421584"
 
 您也可以使用 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 驗證用於自動化用途的用戶端程式碼。
 
-**注意：** 您必須是訂用帳戶的共同管理員，才能在 [管理憑證] 下執行任何作業。 [進一步了解](https://go.microsoft.com/fwlink/?linkid=849300)如何從新版 Azure 入口網站新增或移除共同管理員 
+**附註：** 您必須是訂用帳戶共同管理員來執行任何管理憑證 下的作業。 [進一步了解](https://go.microsoft.com/fwlink/?linkid=849300)如何從新版 Azure 入口網站新增或移除共同管理員 
 
 ## <a name="upload-a-management-certificate"></a>上傳管理憑證
 一旦建立管理憑證 (僅包含公開金鑰的 .cer 檔案) 之後，您就可以將其上傳到入口網站。 入口網站提供憑證時，具有符合的憑證 (私密金鑰) 的任何人都可以透過管理 API 連線，並存取相關聯訂用帳戶的資源。

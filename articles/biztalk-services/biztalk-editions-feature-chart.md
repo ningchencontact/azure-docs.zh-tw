@@ -1,6 +1,6 @@
 ---
 title: 深入了解 BizTalk 服務各版本的功能 | Microsoft Docs
-description: 比較 BizTalk 服務各版本的功能：免費、開發人員、基本、標準和高級。 MABS，WABS。
+description: 比較 BizTalk 服務各版本的功能：免費的開發人員、 基本、 標準和 Premium。 MABS，WABS。
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d16bf73c1d9871e4de8940e4ab9bbd7ed0f39384
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240506"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765623"
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk 服務：版本圖表
 
@@ -34,7 +34,7 @@ Azure BizTalk 服務提供數個版本。 使用本文決定最適合您的案�
 
 **開發人員**
 
-包括混合式連線、EAI 和 EDI 訊息處理與易於使用的交易夥伴管理入口網站、支援一般 EDI 結構描述，以及透過 X12 和 AS2 的豐富 EDI 處理。 建立一般 EAI 案例，以利用任何 HTTP/S、REST、FTP、WCF 和 SFTP 通訊協定連接雲端中的服務，來讀取和寫入訊息。  利用易於使用的 SAP、Oracle eBusiness、Oracle DB、Siebel 和 SQL Server 介面卡，來使用內部部署 LOB 系統的連線。 在開發人員為主的環境中，使用 Visual Studio 工具輕鬆開發和部署。 僅限沒有服務等級協定 (SLA) 的開發和測試目的。
+包括混合式連線、EAI 和 EDI 訊息處理與易於使用的交易夥伴管理入口網站、支援一般 EDI 結構描述，以及透過 X12 和 AS2 的豐富 EDI 處理。 建立一般 EAI 案例，以利用任何 HTTP/S、REST、FTP、WCF 和 SFTP 通訊協定連接雲端中的服務，來讀取和寫入訊息。  利用易於使用的 SAP、Oracle eBusiness、Oracle DB、Siebel 和 SQL Server 介面卡，來使用內部部署 LOB 系統的連線。 使用 Visual Studio 工具的開發人員為主的環境，方便開發與部署。 僅限沒有服務等級協定 (SLA) 的開發和測試目的。
 
 **基本**
 
@@ -239,20 +239,20 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。 BizTalk 配接器服
 #### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>如何從 BizTalk 服務的某層移轉至另一層？
 免費版本無法移轉或「調高」到另一層，而且無法備份及還原到另一層。 如果您需要另一層，請使用新的服務層建立新的 BizTalk 服務。 必須在新的 BizTalk 服務中重建任何使用免費版本建立的成品 (包括混合式連線)。 
 
-對於其餘的版本，使用備份與還原將您的成品從某一層移轉至另一層。 例如，在標準層中備份成品，然後將它們還原至高階層。 [BizTalk 服務：備份與還原](biztalk-backup-restore.md) 說明支援的移轉路徑和備份的成品清單。 請注意，混合式連線無法備份。 備份及還原至新的服務層之後，您會重建混合式連線。  
+對於其餘的版本，使用備份與還原將您的成品從某一層移轉至另一層。 例如，在標準層中備份成品，然後將它們還原至高階層。 [BizTalk 服務：備份與還原](biztalk-backup-restore.md)描述支援的移轉路徑，並列出備份的哪些成品。 請注意，混合式連線無法備份。 備份及還原至新的服務層之後，您會重建混合式連線。  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>服務中是否包括 BizTalk 介面卡服務？ 如何接收軟體？
 是，BizTalk 介面卡服務 (含 BizTalk 介面卡套件) 隨附於 Azure BizTalk 服務 SDK [下載](https://www.microsoft.com/download/details.aspx?id=39087)(英文)。
 
 ## <a name="next-steps"></a>後續步驟
-若要在 Azure 入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)。 若要開始建立應用程式，請移至 [Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=235197)(英文)。
+若要在 Azure 入口網站中建立 Azure BizTalk 服務，請移至[BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)。 若要開始建立應用程式，請移至 [Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=235197)(英文)。
 
 ## <a name="additional-resources"></a>其他資源
 * [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)<br/>
 * [BizTalk 服務：佈建狀態圖](biztalk-service-state-chart.md)<br/>
-* [BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)<br/>
-* [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
-* [BizTalk 服務：節流](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk 服務：儀表板、 監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+* [BizTalk 服務：備份與還原](biztalk-backup-restore.md)<br/>
+* [BizTalk 服務：節流設定](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
 * [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

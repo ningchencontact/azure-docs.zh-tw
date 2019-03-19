@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653657"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730110"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 
@@ -88,13 +88,84 @@ ms.locfileid: "53653657"
 - 訂用帳戶已達到單一訂用帳戶允許的購買限制。
 
     **解決方案**：預付型方案和 EA 訂用帳戶類型的 App Service 憑證有購買 10 個憑證的限制。 其他訂用帳戶類型的限制則為 3 個。 若要提高限制，請連絡 [Azure支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
-- App Service 憑證已標示為詐騙。 您收到下列錯誤訊息：「您的憑證已標示為可能的詐欺。 要求目前正在進行檢閱。 如果憑證在 24 小時內無法成為可使用，請連絡 Azure 支援」。
+- App Service 憑證已標示為詐騙。 您收到下列錯誤訊息：「您的憑證已標示為可能的詐欺。 要求目前正在進行檢閱。 如果憑證未變為可用在 24 小時內，請連絡 Azure 支援。 」
 
     **解決方案**：如果憑證已標示為詐騙，且在 24 小時後仍未解決，請依照下列步驟進行操作：
 
     1. 登入 [Azure 入口網站](https://portal.azure.com)。
     2. 前往 [App Service 憑證]，然後選取憑證。
     3. 選取 [憑證組態] > [步驟 2：驗證] > [網域驗證]。 此步驟會傳送電子郵件通知給 Azure 憑證提供者，尋求解決問題。
+
+## <a name="custom-domain-problems"></a>自訂網域的問題
+
+### <a name="a-custom-domain-returns-a-404-error"></a>自訂網域傳回 404 錯誤 
+
+#### <a name="symptom"></a>徵狀
+
+當您使用自訂網域名稱瀏覽至往暫時，收到以下錯誤訊息：
+
+「錯誤 404 - 找不到 Web 應用程式。」
+
+#### <a name="cause-and-solution"></a>原因和解決方案
+
+**原因 1** 
+
+您設定的自訂網域遺漏 CNAME 或 A 記錄。 
+
+**原因 1 的解決方案**
+
+- 如果您已新增 A 記錄，請務必一併新增 TXT 記錄。 如需詳細資訊，請參閱[建立 A 記錄](./app-service-web-tutorial-custom-domain.md#create-the-a-record)。
+- 如果您的應用程式不一定要使用根網域，建議您使用 CNAME 記錄，避免使用 A 記錄。
+- CNAME 記錄和 A 記錄不應同時用於同一個網域。 此問題會造成衝突，並且防止網域解析。 
+
+**原因 2** 
+
+網際網路瀏覽器快取的網域可能還是舊有的 IP 位址。 
+
+**原因 2 的解決方案**
+
+清除瀏覽器。 如果您使用 Windows 裝置，可以執行命令 `ipconfig /flushdns`。 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向應用程式的 IP 位址。 
+
+### <a name="you-cant-add-a-subdomain"></a>您無法新增子網域 
+
+#### <a name="symptom"></a>徵狀
+
+您無法將新主機名稱新增至應用程式來指派子網域。
+
+#### <a name="solution"></a>解決方法
+
+- 請洽詢訂用帳戶管理員，確認您擁有將主機名稱新增至應用程式的權限。
+- 如果您需要更多的子網域時，我們建議您變更網域裝載到 Azure 網域名稱服務 (DNS)。 只要使用 Azure DNS，您就可以將 500 個主機名稱新增至應用程式。 如需詳細資訊，請參閱[新增子網域](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)。
+
+### <a name="dns-cant-be-resolved"></a>無法解析 DNS
+
+#### <a name="symptom"></a>徵狀
+
+您收到下列錯誤訊息：
+
+「找不到 DNS 記錄。」
+
+#### <a name="cause"></a>原因
+這個問題發生的原因如下：
+
+- 存留時間 (TTL) 期間尚未到期。 請檢查網域的 DNS 組態以判斷 TTL 值，然後等待期間到期。
+- DNS 組態不正確。
+
+#### <a name="solution"></a>解決方法
+- 等候 48 小時讓該問題自行解決。
+- 如果您可以變更 DNS 組態中的 TTL 設定，請將值變更為 5 分鐘，看看是否能解決問題。
+- 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向應用程式的 IP 位址。 如果情況並非如此，請設定 A 記錄來更正應用程式的 IP 位址。
+
+### <a name="you-need-to-restore-a-deleted-domain"></a>您必須還原已刪除的網域 
+
+#### <a name="symptom"></a>徵狀
+您的網域不再顯示於 Azure 入口網站中。
+
+#### <a name="cause"></a>原因 
+訂用帳戶的擁有者可能已意外刪除網域。
+
+#### <a name="solution"></a>解決方法
+如果網域遭到刪除的時間距離今天不到七天，網域的刪除程序可能尚未開始。 此時，您可以 Azure 入口網站中以同一個訂用帳戶再次購買相同的網域。 (請務必在搜尋方塊內輸入完全相同的網域名稱。)您將不需要再支付這個網域的費用。 如果超過七天已刪除網域，請連絡[Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)還原網域的相關說明。
 
 ## <a name="domain-problems"></a>網域問題
 
@@ -199,102 +270,59 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
     |TXT|@|<app-name>.azurewebsites.net|
     |CNAME|www|<app-name>.azurewebsites.net|
 
-### <a name="dns-cant-be-resolved"></a>無法解析 DNS
+## <a name="faq"></a>常見問題集
 
-#### <a name="symptom"></a>徵狀
+**我是否必須購買它之後，設定我自訂的網域，我的網站？**
 
-您收到下列錯誤訊息：
+當您購買網域，以從 Azure 入口網站時，App Service 應用程式會自動設定為使用該自訂網域。 您不必採取任何額外的步驟。 如需詳細資訊，請觀賞[Azure App Service 自助說明：新增自訂網域名稱](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name)Channel9 上。
 
-「找不到 DNS 記錄。」
+**可以使用 Azure 入口網站中購買的網域以改為指向 Azure VM 嗎？**
 
-#### <a name="cause"></a>原因
-這個問題發生的原因如下：
+是，您可以將網域指向儲存體等的 VM。如需詳細資訊，請參閱 <<c0> [ 在 Azure 入口網站中建立 Windows VM 自訂的 FQDN](../virtual-machines/windows/portal-create-fqdn.md)。
 
-- 存留時間 (TTL) 期間尚未到期。 請檢查網域的 DNS 組態以判斷 TTL 值，然後等待期間到期。
-- DNS 組態不正確。
+**我的網域裝載在 GoDaddy 或 Azure DNS？**
 
-#### <a name="solution"></a>解決方法
-- 等候 48 小時讓該問題自行解決。
-- 如果您可以變更 DNS 組態中的 TTL 設定，請將值變更為 5 分鐘，看看是否能解決問題。
-- 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向應用程式的 IP 位址。 如果情況並非如此，請設定 A 記錄來更正應用程式的 IP 位址。
+App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。 
 
-### <a name="you-need-to-restore-a-deleted-domain"></a>您必須還原已刪除的網域 
+**我有自動更新啟用，但仍然會收到我的網域，透過電子郵件的續約通知。我該怎麼辦？**
 
-#### <a name="symptom"></a>徵狀
-您的網域不再顯示於 Azure 入口網站中。
+如果您有自動更新啟用，您不需要採取任何動作。 提供通知電子郵件通知您的網域是即將過期，並手動更新，如果自動更新未在啟用。
 
-#### <a name="cause"></a>原因 
-訂用帳戶的擁有者可能已意外刪除網域。
+**我會收取 Azure DNS 裝載我的網域嗎？**
 
-#### <a name="solution"></a>解決方法
-如果網域遭到刪除的時間距離今天不到七天，網域的刪除程序可能尚未開始。 此時，您可以 Azure 入口網站中以同一個訂用帳戶再次購買相同的網域。 (請務必在搜尋方塊內輸入完全相同的網域名稱。)您將不需要再支付這個網域的費用。 如果網域的刪除時間距離今天已超過七天，請連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)尋求網域還原協助。
+網域註冊只適用於網域購買的初始成本。 除了註冊成本，還有您的使用量為基礎的 Azure dns 會產生費用。 如需詳細資訊，請參閱 < [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)如需詳細資訊。
 
-### <a name="a-custom-domain-returns-a-404-error"></a>自訂網域傳回 404 錯誤 
+**我購買我稍早從 Azure 入口網站的網域，而且想要從 GoDaddy 裝載 Azure DNS 裝載移動。如何執行這個？**
 
-#### <a name="symptom"></a>徵狀
+您不一定要移轉至 Azure DNS 託管服務。 如果您想要移轉至 Azure DNS，在 Azure 入口網站中的網域管理體驗的相關資訊提供移往 Azure DNS 所需的步驟。 透過 App Service 購買網域，如果從 GoDaddy 給 Azure DNS 所主控的移轉會是相當順暢的程序。
 
-當您使用自訂網域名稱瀏覽至往暫時，收到以下錯誤訊息：
+**我想要購買我的 App Service 網域的網域，但是我可以裝載我的網域，而不是 Azure DNS 的 GoDaddy 上？**
 
-「錯誤 404 - 找不到 Web 應用程式。」
+從 2017 年 7 月 24 日起，在入口網站中購買的 App Service 網域裝載於 Azure DNS。 如果您想要使用不同的主機服務提供者，您必須移至其網站，以取得網域託管解決方案。
 
+**我必須支付隱私權保護我的網域嗎？**
 
-#### <a name="cause-and-solution"></a>原因和解決方案
+當您購買網域，以透過 Azure 入口網站時，您可以選擇新增隱私權，不需要額外收費。 這是購買您的網域，透過 Azure App Service 的優點之一。
 
-**原因 1** 
+**如果我決定我不想再我的網域，可以取得我的金錢回復？**
 
-您設定的自訂網域遺漏 CNAME 或 A 記錄。 
+當您購買網域時，您不會收取一段五天，在這段期間您可以決定您不要在網域。 如果您決定不想網域這五天的期間內，您無須付費。 （.uk 網域會是這個例外狀況。 如果您購買.uk 網域，您都需立即支付費用，您無法退還）。
 
-**原因 1 的解決方案**
+**可以使用另一個 Azure App Service 應用程式中的網域中 我的訂用帳戶嗎？**
 
-- 如果您已新增 A 記錄，請務必一併新增 TXT 記錄。 如需詳細資訊，請參閱[建立 A 記錄](./app-service-web-tutorial-custom-domain.md#create-the-a-record)。
-- 如果您的應用程式不一定要使用根網域，建議您使用 CNAME 記錄，避免使用 A 記錄。
-- CNAME 記錄和 A 記錄不應同時用於同一個網域。 這樣可能會導致衝突，使網域無法解析。 
+是。 當您存取 Azure 入口網站中的 [自訂網域及 SSL] 刀鋒視窗時，您會看到您已購買的網域。 您可以設定您的應用程式使用任何這些網域。
 
-**原因 2** 
+**可以將傳輸網域從一個訂用帳戶到另一個訂用帳戶嗎？**
 
-網際網路瀏覽器快取的網域可能還是舊有的 IP 位址。 
+您可以將網域移到另一個訂用帳戶/資源群組使用[Move-azurermresource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet。
 
-**原因 2 的解決方案**
+**如果我目前還沒有 Azure App Service 應用程式，如何管理我的自訂網域？**
 
-清除瀏覽器。 如果您使用 Windows 裝置，可以執行命令 `ipconfig /flushdns`。 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向應用程式的 IP 位址。 
+即使您沒有 App Service Web 應用程式，您可以管理您的網域。 網域可以用於如虛擬機器、 儲存體等的 Azure 服務。如果您想要使用 App Service Web Apps 的網域，您需要包含 Web 應用程式不是免費的 App Service 方案，以繫結至您的 web 應用程式的網域。
 
-### <a name="you-cant-add-a-subdomain"></a>您無法新增子網域 
+**可移與自訂網域的 web 應用程式到另一個訂用帳戶，或從 App Service Environment v1 至 V2？**
 
-#### <a name="symptom"></a>徵狀
+是，您可以移動您的 web 應用程式跨訂用帳戶。 請依照下列中的指導方針[如何將資源移入 Azure](../azure-resource-manager/resource-group-move-resources.md)。 移動 web 應用程式時，有一些限制。 如需詳細資訊，請參閱 <<c0> [ 移動 App Service 資源的限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
+)。
 
-您無法將新主機名稱新增至應用程式來指派子網域。
-
-#### <a name="solution"></a>解決方法
-
-- 請洽詢訂用帳戶管理員，確認您擁有將主機名稱新增至應用程式的權限。
-- 如果您需要更多子網域，建議您將網域主機代管變更為 Azure DNS。 只要使用 Azure DNS，您就可以將 500 個主機名稱新增至應用程式。 如需詳細資訊，請參閱[新增子網域](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)。
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+移動後的 web 應用程式，設定自訂網域中的定義域的主機名稱繫結，也應該保持相同。 若要設定的主機名稱繫結，不需要任何額外的步驟。

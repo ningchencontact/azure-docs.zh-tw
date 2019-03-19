@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 13a1ed626e7741c90cf902c9ed01911985ca8424
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453438"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730019"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>在適用於 PostgreSQL 的 Azure 資料庫中設定 SSL 連線能力
 適用於 PostgreSQL 的 Azure 資料庫偏好使用安全通訊端層 (SSL)，來將用戶端應用程式連接到 PostgreSQL 服務。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。
@@ -50,65 +50,21 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 ### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>從憑證授權單位 (CA) 下載憑證檔 
 您可以在[這裡](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)找到要透過 SSL 與您適用於 PostgreSQL 之 Azure 資料庫伺服器通訊所需的憑證。 本機下載憑證檔。
 
-### <a name="download-and-install-openssl-on-your-machine"></a>在您的電腦上下載並安裝 OpenSSL 
-若要將應用程式所需的憑證檔解碼以便安全地連接到您的資料庫伺服器，您需要在本機電腦上安裝 OpenSSL。
+### <a name="install-a-cert-decoder-on-your-machine"></a>在電腦上安裝憑證解碼器 
+您可以使用[OpenSSL](https://github.com/openssl/openssl)解碼安全地連線到您的資料庫伺服器的應用程式所需的憑證檔案。 若要了解如何安裝 OpenSSL，請參閱[OpenSSL 的安裝指示](https://github.com/openssl/openssl/blob/master/INSTALL)。 
 
-#### <a name="for-linux-os-x-or-unix"></a>針對 Linux、OS X 或 Unix
-[OpenSSL Software Foundation (英文)](https://www.openssl.org) 中會以原始程式碼形式直接提供 OpenSSL 程式庫。 下列指示會引導您逐步完成在 Linux 電腦上安裝 OpenSSL 的必要步驟。 這篇文章會使用已知可在 Ubuntu 12.04 和更新版本上運作的命令。
-
-開啟終端機工作階段並下載 OpenSSL。
-```bash
-wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
-``` 
-從已下載套件中將檔案解壓縮。
-```bash
-tar -xvzf openssl-1.1.0e.tar.gz
-```
-進入已解壓縮檔案的目錄。 它預設應該如下。
-
-```bash
-cd openssl-1.1.0e
-```
-執行下列命令來設定 OpenSSL。 如果您想要使用與 /usr/local/openssl 不同資料夾中的檔案，請務必適當地變更下列內容。
-
-```bash
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
-```
-既然已正確設定 OpenSSL，則您需要編譯它來轉換憑證。 若要進行編譯，請執行下列命令：
-
-```bash
-make
-```
-編譯完成之後，您就可以執行下列命令，以可執行檔形式安裝 OpenSSL：
-```bash
-make install
-```
-若要確認您已在系統上成功安裝 OpenSSL，請執行下列命令，然後檢查以確定您得到相同的輸出。
-
-```bash
-/usr/local/openssl/bin/openssl version
-```
-如果成功，您應該會看到下列訊息。
-```bash
-OpenSSL 1.1.0e 7 Apr 2014
-```
-
-#### <a name="for-windows"></a>若為 Windows
-在 Windows 電腦上安裝 OpenSSL，可使用下列方式來完成：
-1. **(建議)** 在 Window 10 和更新版本中使用內建的 Bash for Windows 功能，預設會安裝 OpenSSL。 您可以在[這裡](https://msdn.microsoft.com/commandline/wsl/install_guide)找到如何在 Window 10 啟用 Bash for Windows 功能的指示。
-2. 透過下載社群所提供的 Win32/64 應用程式。 雖然 OpenSSL Software Foundation 並不提供或建議任何特定的 Windows 安裝程式，但他們在[這裡](https://wiki.openssl.org/index.php/Binaries)提供了可用的安裝程式清單。
 
 ### <a name="decode-your-certificate-file"></a>將憑證檔案解碼
 下載的根 CA 檔案是加密格式。 使用 OpenSSL 來將憑證檔案解碼。 若要這樣做，請執行此 OpenSSL 命令：
 
-```dos
+```
 openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ```
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>使用 SSL 憑證驗證連接至適用於 PostgreSQL 的 Azure 資料庫
-既然您已成功將憑證解碼，您現在可以透過 SSL 安全地連接到資料庫伺服器。 若要允許伺服器憑證驗證，憑證必須放置於使用者主目錄上的 ~/.postgresql/root.crt 檔案中 (在 Microsoft Windows 上，此檔案會命名為 %APPDATA%\postgresql\root.crt)。 以下提供連接到適用於 PostgreSQL 之 Azure 資料庫的指示。
+既然您已成功將憑證解碼，您現在可以透過 SSL 安全地連接到資料庫伺服器。 若要允許伺服器憑證驗證，憑證必須放置於使用者主目錄上的 ~/.postgresql/root.crt 檔案中 (在 Microsoft Windows 上，此檔案會命名為 %APPDATA%\postgresql\root.crt)。 
 
-#### <a name="using-psql-command-line-utility"></a>使用 psql 命令列公用程式
+#### <a name="connect-using-psql"></a>使用 psql 來連線
 下列範例會示範如何使用 psql 命令列公用程式，來成功地連線到 PostgreSQL 伺服器。 使用所建立的 `root.crt` 檔案和 `sslmode=verify-ca` 或 `sslmode=verify-full` 選項。
 
 使用 PostgreSQL 命令列介面，執行下列命令：
@@ -127,11 +83,6 @@ Type "help" for help.
 
 postgres=>
 ```
-
-#### <a name="using-pgadmin-gui-tool"></a>使用 pgAdmin GUI 工具
-若要將 pgAdmin 4 設定為透過 SSL 進行安全連線，您必須如下所示地設定 `SSL mode = Verify-CA` 或 `SSL mode = Verify-Full`：
-
-![pgAdmin - 連接 - 需要 SSL 模式的螢幕擷取畫面](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>後續步驟
 在[適用於 PostgreSQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)之後，檢閱各種應用程式連線能力選項。

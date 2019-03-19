@@ -3,20 +3,20 @@ title: 使用 Azure Data Factory 中的 Hadoop Pig 活動轉換資料 | Microsof
 description: 了解如何使用 Azure 資料處理站中的 Pig 活動，以在隨選/您自己的 HDInsight 叢集上執行 Pig 指令碼。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: a29bd64c6b18d41028c8952f531698bbfa9e01e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014704"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574911"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop Pig 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 HDInsight Pig 活�
 ```
 ## <a name="syntax-details"></a>語法詳細資料
 
-| 屬性            | 說明                              | 必要 |
+| 屬性            | 描述                              | 必要項 |
 | ------------------- | ---------------------------------------- | -------- |
 | name                | 活動的名稱                     | 是      |
 | 說明         | 說明活動用途的文字 | 否       |

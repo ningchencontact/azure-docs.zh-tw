@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 517afe21fbf9241e2b2423525e9caee12a5603f6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270975"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726867"
 ---
-# <a name="azure-data-factory-data-flow-join-transformation"></a>Azure Data Factory 對應資料流程聯結轉換
+# <a name="mapping-data-flow-join-transformation"></a>對應資料流程聯結轉換
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ ms.locfileid: "56270975"
 
 ## <a name="join-types"></a>聯結類型
 
-對於聯結轉換需要選取聯結類型
+「 聯結 」 轉換需要選取 聯結類型。
 
 ### <a name="inner-join"></a>內部聯結
 
-內部聯結只會通過兩個資料表的資料行條件都相符的資料列
+內部聯結將會傳遞符合兩個資料表的資料行條件的資料列。
 
 ### <a name="left-outer"></a>左方外部
 
@@ -40,11 +40,11 @@ ms.locfileid: "56270975"
 
 ### <a name="full-outer"></a>完整外部
 
-完整外部會從兩側產生所有資料行和資料列，對於另一個資料表中未出現的資料行則為 NULL 值
+完整外部產生的所有資料行，並在另一個資料表中的兩端具有 NULL 值的資料行的資料列不存在。
 
 ### <a name="cross-join"></a>交叉聯結
 
-使用運算式指定兩個資料串流的交叉乘積
+使用運算式中指定的兩個資料流的交叉乘積。 您可以使用此工具來建立自訂的聯結條件。
 
 ## <a name="specify-join-conditions"></a>指定聯結條件
 
@@ -67,3 +67,7 @@ ms.locfileid: "56270975"
 ![自我聯結](media/data-flow/selfjoin.png "自我聯結")
 
 在上圖中，選取轉換位於最上層。 這是在設定原始資料流的別名為「OrigSourceBatting」。 在下方反白顯示的聯結轉換中，您可以看到，我們使用這個選取別名資料流做為右邊的聯結，以便我們參考內部聯結左右兩邊的同個索引鍵。
+
+## <a name="next-steps"></a>後續步驟
+
+加入資料之後, 您可以接著[建立新的資料行](data-flow-derived-column.md)並[接收資料至目的地資料存放區](data-flow-sink.md)。

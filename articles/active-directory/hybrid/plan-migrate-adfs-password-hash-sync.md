@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2effd6c067a1378d9f774f282f6cea69a50596c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204435"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532774"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>從同盟移轉至 Azure Active Directory 的密碼雜湊同步處理
 
@@ -139,9 +139,9 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 |-|-|
 | 您打算繼續將 AD FS 用於 Azure AD 和 Office 365 以外的其他應用程式。 | 在轉換網域之後，您將使用 AD FS 和 Azure AD。 請考量使用者體驗。 在某些情況下，使用者可能需要進行兩次驗證：一次是對 Azure AD (此時使用者會取得對其他應用程式的 SSO 存取權，例如 Office 365)，另一次則是針對任何仍繫結至 AD FS 作為信賴憑證者信任的應用程式。 |
 | 您的 AD FS 執行個體經過高度自訂，且仰賴 onload.js 檔案中特定的自訂設定 (例如您已變更登入體驗，使得使用者的使用者名稱必須採用 **SamAccountName** 格式，而非使用者主體名稱 (UPN)，或是您的組織已將登入體驗高度品牌化)。 在 Azure AD 中無法複製 onload.js 檔案。 | 在繼續作業之前，您必須確認 Azure AD 可符合您目前的自訂需求。 如需詳細資訊和指引，請參閱 AD FS 商標和 AD FS 自訂的相關章節。|
-| 您 AD FS 使用來封鎖舊版驗證用戶端。| 請考慮使用[條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)和 [Exchange Online 用戶端存取規則](http://aka.ms/EXOCAR)的組合，以取代封鎖舊版驗證用戶端的 AD FS 控制項。 |
+| 您 AD FS 使用來封鎖舊版驗證用戶端。| 請考慮使用[條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)和 [Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)的組合，以取代封鎖舊版驗證用戶端的 AD FS 控制項。 |
 | 當使用者向 AD FS 進行驗證時，您要求使用者依據內部部署多重要素驗證伺服器解決方案執行多重要素驗證。| 在受控識別網域中，您無法透過內部部署多重要素驗證解決方案將多重要素驗證挑戰插入驗證流程中。 不過，您可以在轉換網域後使用 Azure Multi-factor Authentication 服務進行多重要素驗證。<br /><br /> 如果您的使用者目前未使用 Azure Multi-factor Authentication，則需執行一次性的使用者註冊步驟。 您必須準備好計劃性的註冊，並將其傳達給使用者。 |
-| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管對 Office 365 的存取。| 請考慮將這些原則替換為對等的 Azure AD [條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)和 [Exchange Online 用戶端存取規則](http://aka.ms/EXOCAR)。|
+| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管對 Office 365 的存取。| 請考慮將這些原則替換為對等的 Azure AD [條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)和 [Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)。|
 
 ### <a name="common-ad-fs-customizations"></a>常見的 AD FS 自訂
 
@@ -319,7 +319,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
    * [無縫單一登入] 設為 [啟用]。
    * [密碼同步處理] 設為 [啟用]。<br /> 
 
-   ![此螢幕擷取畫面顯示 [使用者登入] 區段中的設定 ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![此螢幕擷取畫面顯示 [使用者登入] 區段中的設定](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 跳到[測試和下一個步驟](#testing-and-next-steps)。
 
@@ -337,7 +337,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
    在啟用密碼雜湊同步處理之前：![螢幕擷取畫面：顯示 [使用者登入] 頁面上的 [不要設定] 選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   在啟用密碼雜湊同步處理之後：![螢幕擷取畫面：顯示 [使用者登入] 頁面上的新選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   在啟用密碼雜湊同步處理之後：![顯示在使用者登入頁面上的新選項的螢幕擷取畫面](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > 開始使用 Azure AD Connect 1.1.880.0 版，在預設情況下會選取 [無縫單一登入] 核取方塊。
@@ -400,7 +400,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 若要測試密碼雜湊同步處理：
 
 1. 以 InPrivate 模式開啟 Internet Explorer，使無縫 SSO 不會將您自動登入。
-2. 移至 Office 365 登入頁面 ([http://portal.office.com](http://portal.office.com/))。
+2. 移至 Office 365 登入頁面 ([https://portal.office.com](https://portal.office.com/))。
 3. 輸入使用者 UPN，然後選取 [下一步]。 請務必輸入從內部部署 Active Directory 執行個體同步，且先前已使用同盟驗證的混合式使用者 UPN。 您輸入使用者名稱和密碼的頁面顯示如下：
 
    ![此螢幕擷取畫面顯示您輸入使用者名稱的登入頁面](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)

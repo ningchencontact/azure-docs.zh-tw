@@ -12,18 +12,24 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b3a77a28945b597fe4fdd57aadfc3e05196a353
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478248"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726952"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>啟用自動調整以監視查詢並改進工作負載效能
 
 Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查詢，並識別您為改善工作負載效能可以執行的動作。 您可以檢閱建議並加以手動套用，或讓 Azure SQL Database 自動套用矯正措施 - 這稱為**模式**。
 
 您可以透過 [Azure 入口網站](sql-database-automatic-tuning-enable.md#azure-portal)、[REST API](sql-database-automatic-tuning-enable.md#rest-api) 呼叫和 [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) 命令，在伺服器或資料庫層級啟用自動調整。
+
+> [!NOTE]
+> 可以透過設定支援的選項 force_last_good_plan 和受控執行個體[T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)只。 入口網站設定和這篇文章中所述的自動索引微調選項不會套用到受控執行個體。
+
+> [!NOTE]
+> 在此階段不支援設定透過 ARM (Azure Resource Manager) 範本的自動調整選項。
 
 ## <a name="enable-automatic-tuning-on-server"></a>在伺服器上啟用自動調整
 
@@ -51,7 +57,7 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 
 Azure SQL Database 可讓您個別指定每個資料庫的自動調整設定。 在資料庫層級上，您可以選擇繼承父伺服器「Azure 預設值」的自動調整設定，或不繼承設定。 Azure 預設值會設為已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
 
-> [!NOTE]
+> [!TIP]
 > 一般建議是在**伺服器層級**管理自動調整設定，以便在每一個資料庫上自動套用相同的組態設定。 只有在您要求該資料庫的設定不同於繼承自相同伺服器的其他設定時，設定自動調整個別的資料庫。
 >
 
@@ -107,4 +113,4 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 
 * 閱讀[自動調整文章](sql-database-automatic-tuning.md)，進一步了解自動調整，以及它如何協助您改善效能。
 * 如需 Azure SQL Database 效能建議的概觀，請參閱[效能建議](sql-database-advisor.md)。
-* 請參閱[查詢效能深入解析](sql-database-query-performance.md)，以了解如何檢視排名最前面查詢的效能影響。
+* 请参阅[查询性能见解](sql-database-query-performance.md)，了解排名靠前的查询的性能影响。

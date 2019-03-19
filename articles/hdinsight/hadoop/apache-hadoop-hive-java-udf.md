@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4a3da9e2ad4d5ab83c1e906b3ab43540e819b48c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 94e9a70707472eb94109ebcc404fd7a1a3074135
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341995"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575741"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>在 HDInsight 中搭配使用 Java UDF 和 Apache Hive
 
@@ -51,7 +51,7 @@ ms.locfileid: "56341995"
 
     此命令會建立名為 **exampleudf** 的目錄，其包含 Maven 專案。
 
-2. 建立專案後，請刪除隨專案一同建立的 **exampleudf/src/test** 目錄。
+2. 创建该项目后，删除作为项目的一部分创建的 **exampleudf/src/test** 目录。
 
 3. 開啟 **exampleudf/pom.xml**，以下列 XML 取代現有的 `<dependencies>` 項目︰
 
@@ -130,11 +130,11 @@ ms.locfileid: "56341995"
 
     這些項目會定義如何建置專案。 具體來說，定義專案使用的 Java 版本以及如何建置 uberjar 以部署至叢集。
 
-    完成變更後，儲存檔案。
+    一旦进行了更改，请保存该文件。
 
 4. 將 **exampleudf/src/main/java/com/microsoft/examples/App.java** 重新命名為 **ExampleUDF.java**，然後在編輯器中開啟檔案。
 
-5. 以下文中的內容取代 **ExampleUDF.java** 檔案的內容，然後儲存檔案。
+5. 将 **ExampleUDF.java** 文件的内容替换为以下内容，并保存该文件。
 
     ```java
     package com.microsoft.examples;
@@ -165,7 +165,7 @@ ms.locfileid: "56341995"
 
 ## <a name="build-and-install-the-udf"></a>建置及安裝 UDF
 
-1. 使用下列命令來編譯及封裝 UDF：
+1. 使用以下命令编译和打包 UDF：
 
     ```bash
     mvn compile package
@@ -176,7 +176,7 @@ ms.locfileid: "56341995"
 2. 使用 `scp` 命令將檔案複製到 HDInsight 叢集。
 
     ```bash
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight.net
     ```
 
     將 `myuser` 取代為叢集的 SSH 使用者帳戶。 將 `mycluster` 取代為叢集名稱。 如果您使用密碼來保護 SSH 帳戶，系統會提示您輸入密碼。 如果您使用憑證，可能需要使用 `-i` 參數來指定私密金鑰檔案。

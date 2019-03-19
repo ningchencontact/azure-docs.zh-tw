@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09914de48df09dabd4069cd33e7acbea328fa89d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193147"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546852"
 ---
 # <a name="start-using-pim"></a>開始使用 PIM
 
@@ -102,11 +102,10 @@ PIM 設定完成後，您可以執行身分識別管理工作。
 
 ![PIM 的最上層工作 - 螢幕擷取畫面](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| 工作 + 管理 | 說明 |
+| 工作 + 管理 | 描述 |
 | --- | --- |
 | **我的角色**  | 顯示一個清單，列出已指派給您的合格和使用中角色。 您可以在這裡啟動任何指派的合格角色。 |
 | **我的要求** | 顯示您啟動合格角色指派的任何擱置要求。 |
-| **應用程式存取** | 可讓您減少潛在的延遲，並在啟用後立即使用角色。 |
 | **核准要求** | 顯示一個清單，列出您目錄中的使用者為了啟動合格角色所提出的要求，而此目錄是指定給您以進行核准的目錄。 |
 | **檢閱存取** | 列出指派給您完成的使用中存取權檢閱 (無論您是在檢閱自己還是他人的存取權)。 |
 | **Azure AD 角色** | 顯示儀表板和設定，讓特殊權限角色管理員可管理 Azure AD Directory 角色指派。 對於任何不是特殊權限角色管理員的人員，系統會停用此儀表板。 這些使用者可以存取標題為 [我的檢視] 的特殊儀表板。 [我的檢視] 儀表板只會顯示存取儀表板的使用者，而非整個租用戶的相關資訊。 |

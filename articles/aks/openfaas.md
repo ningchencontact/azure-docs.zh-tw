@@ -9,63 +9,68 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: dc0f4bd1e5b07e30f3c89807fbbbc908b3149810
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: HT
+ms.openlocfilehash: 5ed6e0b21b00ede3f78a102fd004e5706ae3cea5
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542526"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571213"
 ---
 # <a name="using-openfaas-on-aks"></a>在 AKS 上使用 OpenFaaS
 
-[OpenFaaS][open-faas] 是一種架構，用於在容器上建置無伺服器的函式。 由於是開放原始碼專案，它在社群內被廣泛採用。 此文件詳述在 Azure Kubernetes Service (AKS) 叢集上安裝和使用 OpenFaas 的做法。
+[OpenFaaS] [ open-faas]是用於建置無伺服器函式，透過容器使用的架構。 由於是開放原始碼專案，它在社群內被廣泛採用。 本文件詳述在 Azure Kubernetes Service (AKS) 叢集上安裝和使用 OpenFaas 的做法。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-為了要完成此文章中的步驟，您需要下列項目。
+為了要完成本文中的步驟，您需要下列項目。
 
 * 對 Kubernetes 的基本了解。
 * Azure Kubernetes Service (AKS) 叢集，並在您的開發系統上設定好 AKS 認證。
 * 在您的開發系統上安裝 Azure CLI。
 * 在您的系統上安裝 Git 命令列工具。
 
-## <a name="get-openfaas"></a>取得 OpenFaaS
+## <a name="add-the-openfaas-helm-chart-repo"></a>將 OpenFaaS 的 helm 圖表存放庫新增
 
-將 OpenFaaS 專案存放庫複製到您的開發系統。
-
-```azurecli-interactive
-git clone https://github.com/openfaas/faas-netes
-```
-
-變更為複製的存放庫目錄。
+OpenFaaS 會維護它自己的 helm 圖表，以保持最新狀態的所有最新的變更。
 
 ```azurecli-interactive
-cd faas-netes
+helm repo add openfaas https://openfaas.github.io/faas-netes/
+helm repo update
 ```
 
 ## <a name="deploy-openfaas"></a>部署 OpenFaaS
 
 好的做法是 OpenFaaS 和 OpenFaaS 函式應該儲存在自己的 Kubernetes 命名空間中。
 
-建立 OpenFaaS 系統的命名空間。
+建立 OpenFaaS 系統和函式的命名空間：
 
 ```azurecli-interactive
-kubectl create namespace openfaas
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-建立第二個命名空間用於 OpenFaaS 函式。
+OpenFaaS UI 入口網站和 REST API 產生的密碼：
 
 ```azurecli-interactive
-kubectl create namespace openfaas-fn
+# generate a random password
+PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1)
+
+kubectl -n openfaas create secret generic basic-auth \
+--from-literal=basic-auth-user=admin \
+--from-literal=basic-auth-password="$PASSWORD"
 ```
+
+您可以取得的祕密值`echo $PASSWORD`。
+
+我們在這裡建立的密碼將供 helm 圖表，以啟用 OpenFaaS 閘道，其會公開至網際網路，透過雲端負載平衡器上的基本驗證。
 
 複製的存放庫中包含適用於 OpenFaaS 的 Helm 圖表。 使用此圖表來將 OpenFaaS 部署至 AKS 叢集。
 
 ```azurecli-interactive
-helm install --namespace openfaas -n openfaas \
-  --set functionNamespace=openfaas-fn, \
-  --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/
+helm upgrade openfaas --install openfaas/openfaas \
+    --namespace openfaas  \
+    --set basic_auth=true \
+    --set functionNamespace=openfaas-fn \
+    --set serviceType=LoadBalancer
 ```
 
 輸出：
@@ -104,7 +109,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-若要測試 OpenFaaS 系統，瀏覽至外部 IP 位址的 8080 連接埠，在此範例中是 `http://52.186.64.52:8080`。
+若要測試 OpenFaaS 系統，瀏覽至外部 IP 位址的 8080 連接埠，在此範例中是 `http://52.186.64.52:8080`。 系統會提示您登入。 若要擷取您的密碼，請輸入`echo $PASSWORD`。
 
 ![OpenFaaS 使用者介面](media/container-service-serverless/openfaas.png)
 
@@ -112,6 +117,15 @@ gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP  
 
 ```console
 brew install faas-cli
+```
+
+設定`$OPENFAAS_URL`上面找到的公用 ip。
+
+Azure CLI 登入：
+
+```azurecli-interactive
+export OPENFAAS_URL=http://52.186.64.52:8080
+echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
 
 ## <a name="create-first-function"></a>建立第一個函式
@@ -233,10 +247,11 @@ curl -s http://52.186.64.52:8080/function/cosmos-query
 
 ## <a name="next-steps"></a>後續步驟
 
-OpenFaas 的預設部署需要鎖定 OpenFaaS 閘道和函式。 [Alex Ellis 部落格文章](https://blog.alexellis.io/lock-down-openfaas/)中有更詳細的安全組態選項說明。
+您可以繼續使用 OpenFaaS 研討會，探討主題，例如如何建立您自己的 GitHub 機器人的實際操作實驗室的一組透過了解使用祕密，檢視計量，和自動調整。
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [open-faas]: https://www.openfaas.com/
 [open-faas-cli]: https://github.com/openfaas/faas-cli
+[openfaas-workshop]: https://github.com/openfaas/workshop

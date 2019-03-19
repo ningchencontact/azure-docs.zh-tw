@@ -14,14 +14,14 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bc579cd372616563b61e5ba04fe32612f3efb1c7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474338"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541242"
 ---
-# <a name="persist-job-and-task-output"></a>持續作業及工作輸出
+# <a name="persist-job-and-task-output"></a>持久保存作业和任务输出
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
@@ -70,7 +70,7 @@ Batch 會定義一組選擇性的慣例，可在 Azure 儲存體中命名工作�
 您也可以實作自己的完整檔案移動解決方案。 使用這個方法的時機：
 
 - 您想要將工作資料保存到 Azure 儲存體以外的資料存放區。 若要將檔案上傳至諸如 Azure SQL 或 Azure Data Lake 等資料存放區，您可以建立自訂指令碼或可執行檔，以上傳至該位置。 接著，您在執行主要可執行檔之後，可以在命令列上呼叫它。 例如，在 Windows 節點上，您可能會呼叫這兩個命令：`doMyWork.exe && uploadMyFilesToSql.exe`
-- 您想要執行檢查點或提前上傳初始結果。
+- 需对初始结果执行检查点或提前上传操作。
 - 您需要保持更精確地控制錯誤處理。 例如，如果您想要使用工作相依性動作，以特定的工作結束代碼作為基礎來採取某些上傳動作，您將需要實作自己的解決方案。 如需有關工作相依性動作的詳細資訊，請參閱[建立工作相依性，以執行相依於其他工作的工作](batch-task-dependencies.md)。
 
 ## <a name="design-considerations-for-persisting-output"></a>保存輸出的設計考量
@@ -93,5 +93,5 @@ Batch 會定義一組選擇性的慣例，可在 Azure 儲存體中命名工作�
 
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
-[storage_explorer]: http://storageexplorer.com/
+[storage_explorer]: https://storageexplorer.com/
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 

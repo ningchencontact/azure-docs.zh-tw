@@ -3,7 +3,7 @@ title: 如何解除安裝彈性資料庫工作工具
 description: 了解如何使用 Azure 入口網站或 PowerShell 解除安裝彈性資料庫工作元件。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 2131aa63f0f5cdbbc9e0b4eb7c1f57604fe75cdb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 12f923724616378a6ea6c83a947bd5362840a697
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754949"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768859"
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>解除安裝彈性資料庫工作元件
 
@@ -28,7 +28,7 @@ ms.locfileid: "55754949"
 **彈性資料庫工作**元件可以使用 Azure 入口網站或 PowerShell 加以解除安裝。
 
 ## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>使用 Azure 入口網站解除安裝彈性資料庫工作元件
-1. 開啟 [Azure 入口網站](https://portal.azure.com/)。
+1. 打开 [Azure 门户](https://portal.azure.com/)。
 2. 瀏覽至包含 **彈性資料庫工作** 元件的訂用帳戶，也就是彈性資料庫工作元件安裝所在的訂用帳戶。
 3. 按一下 [瀏覽]，然後按一下 [資源群組]。
 4. 選取名為 "__ElasticDatabaseJob" 的資源群組。

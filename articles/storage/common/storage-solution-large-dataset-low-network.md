@@ -4,16 +4,16 @@ description: 了解當您的環境中具備有限或無網路頻寬，且您正�
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 54a51f5f124857419727ed7ca574f717e17b125a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263213"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776660"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>在低速或無網路頻寬之情況下進行大型資料集的資料轉送
  
@@ -38,7 +38,7 @@ ms.locfileid: "53263213"
 
 在此案例中可用的選項是適用於 Azure 資料箱離線轉送或 Azure 匯入/匯出的裝置。
 
-- **適用於離線轉送的 Azure 資料箱系列**：當您受到時間、網路可用性或成本的限制時，使用 Microsoft 提供的資料箱裝置以將大量資料移動到 Azure。 使用如 Robocopy 等工具複製內部部署資料。 根據要轉送的資料大小，您可以選擇資料箱磁碟、資料箱或 Data Box Heavy。
+- **適用於離線轉送的 Azure 資料箱系列**：當您受到時間、網路可用性或成本的限制時，使用 Microsoft 提供的資料箱裝置以將大量資料移動到 Azure。 使用如 Robocopy 等工具複製內部部署資料。 根據要轉送之資料的大小，您可以選擇資料箱磁碟、資料箱或 Data Box Heavy。
 - **Azure 匯入/匯出**：使用 Azure 匯入/匯出服務，透過寄送您自己的磁碟機，安全地將大量資料匯入至 Azure Blob 儲存體和 Azure 檔案中。 這項服務也能用來將資料從 Azure Blob 儲存體傳輸到磁碟機，然後運送到您的內部部署網站。
 
 ## <a name="comparison-of-key-capabilities"></a>主要功能的比較
@@ -50,7 +50,7 @@ ms.locfileid: "53263213"
 |    資料大小                        |    最多 35 TB                 |    每個裝置最多 80 TB                       |    每個裝置最多 800 TB               |    變數                            |
 |    資料類型                        |    Azure Blob                  |    Azure Blob<br>Azure 檔案                    |    Azure Blob<br>Azure 檔案            |    Azure Blob<br>Azure 檔案          |
 |    板型規格                      |    每筆訂單 5 個 SSD             |    每筆訂單 1 X 50 磅 桌上型電腦大小裝置    |    每筆訂單 1 X ~500 磅 大型裝置    |    每筆訂單最多 10 個 HDD/SSD        |
-|    初始設定時間               |    低 <br>(15 分鐘)            |    低至中度 <br> (< 30 分鐘)               |    中度<br>(1-2 小時)               |    中度到困難<br>(變動) |
+|    初始設定時間               |    低 <br>(15 分鐘)            |    低至中度 <br> (<30 分鐘)               |    中度<br>(1-2 小時)               |    中度到困難<br>(變動) |
 |    將資料傳送到 Azure               |    是                          |    是                                           |    是                                   |    是                                 |
 |    從 Azure 匯出資料           |    否                           |    否                                            |    否                                    |    是                                 |
 |    加密                       |    AES 128 位元                  |    AES 256 位元                                   |    AES 256 位元                           |    AES 128 位元                         |

@@ -5,27 +5,25 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
+ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446506"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544031"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>自動調整規模和區域備援應用程式閘道 (公開預覽)
 
 在提供效能增強功能並新增重要新功能 (例如自動調整規模、區域備援及靜態 VIP 支援) 支援的新 v2 SKU 下，現以「公開預覽版」方式提供了「應用程式閘道」和「Web 應用程式防火牆」(WAF)。 除了已知限制一節中所列的幾個例外項目之外，新 v2 SKU 會繼續支援已正式推出之 SKU 下的現有功能。 新的 v2 SKU 包含下列增強功能：
 
-- **自動調整**：自動調整 SKU 下的「應用程式閘道」或 WAF 部署可以根據變動的流量負載模式來相應增加或相應減少。 自動調整規模也可讓您在佈建時，無須選擇部署大小或執行個體計數。 因此，SKU 可提供真正的靈活彈性。 在新 SKU 中，「應用程式閘道」可在固定容量 (停用自動調整規模功能) 模式下運作，也可在啟用自動調整規模功能模式下運作。 固定容量模式適用於工作負載一致且可預測的案例。 自動調整規模模式則有利於在應用程式流量中可看到許多變異的應用程式。
+- **自動調整**：自動調整 SKU 下的「應用程式閘道」或 WAF 部署可以根據變動的流量負載模式來相應增加或相應減少。 自動調整規模也可讓您在佈建時，無須選擇部署大小或執行個體計數。 此 SKU 提供，則為 true 的彈性。 在新 SKU 中，「應用程式閘道」可在固定容量 (停用自動調整規模功能) 模式下運作，也可在啟用自動調整規模功能模式下運作。 固定容量模式適用於工作負載一致且可預測的案例。 自動調整規模模式則有利於在應用程式流量中可看到許多變異的應用程式。
 
-   > [!NOTE]
-   > 目前針對 WAF SKU 並未提供自動調整規模功能。 請為 WAF 設定固定容量模式，而不是自動調整規模模式。
 - **區域備援**：「應用程式閘道」或 WAF 部署可以跨多個「可用性區域」，讓您無須使用「流量管理員」在每個區域中佈建及運轉個別的「應用程式閘道」執行個體。 您可以選擇已部署「應用程式閘道」執行個體的單一區域或多個區域，藉此確保區域在失敗後能夠復原。 應用程式的後端集區可以均等分散在可用性區域間。
 - **效能增強功能**：與已正式推出的 SKU 相比，自動調整規模 SKU 最多可提升 5 倍的 SSL 卸載效能。
 - **更快的佈建和更新速度**：與已正式推出的 SKU 相比，自動調整規模 SKU 提供更快的佈建和更新速度。
-- **靜態 VIP**：應用程式閘道 VIP 現在獨家支援靜態 VIP 類型。 這可確保與應用程式閘道相關的 VIP 即使在重新啟動後也不會變更。
+- **靜態 VIP**：應用程式閘道 VIP 現在獨家支援靜態 VIP 類型。 這可確保應用程式閘道相關聯的 VIP 不會變更即使重新啟動。
 
 > [!IMPORTANT]
 > 自動調整規模和區域備援應用程式閘道 SKU 目前為公開預覽版。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -38,7 +36,7 @@ ms.locfileid: "56446506"
 
 ## <a name="pricing"></a>價格
 
-預覽期間無須付費。 將向您收取的是應用程式閘道以外資源 (例如 Key Vault、虛擬機器等) 的費用。
+在預覽期間，完全免費。 您需支付應用程式閘道，Key Vault 中，虛擬機器，例如以外的資源，並以此類推。
 
 ## <a name="known-issues-and-limitations"></a>已知問題與限制
 
@@ -52,7 +50,6 @@ ms.locfileid: "56446506"
 |計費|目前不收費。|
 |FIPS 模式、WebSocket|目前不支援。|
 |純 ILB 模式|目前不支援。 支援將公用與 ILB 模式搭配使用。|
-|Web 應用程式防火牆自動調整規模|WAF 不支援自動調整規模模式。 支援固定容量模式。|
 |Netwatcher 整合|公開預覽版不支援此功能。|
 
 ## <a name="next-steps"></a>後續步驟

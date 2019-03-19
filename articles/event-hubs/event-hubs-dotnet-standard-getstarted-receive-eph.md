@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a3c4bc741cef60576bec17cd3257914132b72666
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ee9e0f65d05e323f6fa0be584e9286390832d10d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452620"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758399"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-core"></a>開始使用 .NET Core 中的事件處理器主機來接收訊息
 「事件中樞」是一種服務，可處理來自連接裝置和應用程式的大量事件資料 (遙測)。 收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。 此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網 (IoT)) 的重要元件。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
@@ -41,9 +41,9 @@ ms.locfileid: "56452620"
 
 ## <a name="create-a-console-application"></a>建立主控台應用程式
 
-啟動 Visual Studio。 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。 建立 .NET Core 主控台應用程式。
+啟動 Visual Studio。 在“文件”菜单中，单击“新建”，并单击“项目”。 建立 .NET Core 主控台應用程式。
 
-![新增專案][2]
+![新建项目][2]
 
 ## <a name="add-the-event-hubs-nuget-package"></a>新增事件中樞 NuGet 封裝
 
@@ -154,7 +154,7 @@ ms.locfileid: "56452620"
     MainAsync(args).GetAwaiter().GetResult();
     ```
 
-    Program.cs 檔案看起來應該會像下面這樣：
+    Program.cs 文件的内容如下所示：
 
     ```csharp
     namespace SampleEphReceiver
@@ -199,7 +199,7 @@ ms.locfileid: "56452620"
     }
     ```
 
-4. 執行程式，並確定沒有任何錯誤。
+4. 运行程序，并确保没有任何错误。
 
 恭喜！ 您現在已使用「事件處理器主機」從事件中樞接收訊息。
 

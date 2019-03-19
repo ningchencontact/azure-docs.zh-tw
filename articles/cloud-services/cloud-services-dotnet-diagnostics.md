@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6a22a3dabf1aa71e0d092c4145523da9b0121c8c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.openlocfilehash: 017461d5b73bb48ce61678fbbd795026cef60bc1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322204"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536842"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 雲端服務中啟用 Azure 診斷
 如需有關 Azure 診斷的背景資訊，請參閱 [Azure 診斷概觀](../azure-diagnostics.md) 。
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>如何在背景工作角色中啟用診斷
-本逐步解說說明如何實作 Azure 背景工作角色，該角色使用 .NET EventSource 類別發出遙測資料。 Azure 診斷可用來收集遙測資料，並將資料儲存在 Azure 儲存體帳戶。 建立背景工作角色時，Visual Studio 會自動啟用診斷 1.0 來作為 Azure SDK for .NET 2.4 及更早版本中解決方案的一部分。 下列指示說明建立背景工作角色、從解決方案停用診斷 1.0，以及將診斷 1.2 或 1.3 部署至背景工作角色的程序。
+本逐步解說說明如何實作 Azure 背景工作角色，該角色使用 .NET EventSource 類別發出遙測資料。 Azure 診斷可用來收集遙測資料，並將資料儲存在 Azure 儲存體帳戶。 建立背景工作角色時，Visual Studio 會自動啟用診斷 1.0 來作為 Azure SDK for .NET 2.4 及更早版本中解決方案的一部分。 以下说明介绍了创建辅助角色、从解决方案禁用 Diagnostics 1.0，以及在辅助角色中部署 Diagnostics 1.2 或 1.3 的过程。
 
 ### <a name="prerequisites"></a>必要條件
 本文假設您擁有 Azure 訂用帳戶，並且搭配 Azure SDK 使用 Visual Studio。 如果您沒有 Azure 訂用帳戶，可以註冊[免費試用版][Free Trial]。 請務必[安裝並設定 Azure PowerShell 0.8.7 版或更新版本][Install and configure Azure PowerShell version 0.8.7 or later]。
@@ -113,7 +113,7 @@ namespace WorkerRole1
             ServicePointManager.DefaultConnectionLimit = 12;
 
             // For information on handling configuration changes
-            // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+            // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
 
             return base.OnStart();
         }
@@ -140,10 +140,10 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. 以滑鼠右鍵按一下 **WorkerRole1** 專案，然後選取 [新增]  ->  [新增項目]，將 XML 檔新增至您的 **WorkerRole1** 專案 -> [Visual C# 項目] -> [資料] -> [XML 檔案]。 將檔案命名為 "WadExample.xml"。
+2. 通过右键单击 WorkerRole1 项目并选择“添加” -> “新建项...”，将 XML 文件添加到 WorkerRole1 项目中 -> “Visual C# 项” -> “数据” -> “XML 文件”。 將檔案命名為 "WadExample.xml"。
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. 將 WadConfig.xsd 與組態檔產生關聯。 確定 WadExample.xml 編輯器視窗是使用中視窗。 按 **F4** 鍵開啟 [屬性] 視窗。 在 [屬性] 視窗中，按一下 [結構描述] 屬性。 按一下 [...] 在 [結構描述] 屬性中。 按一下 [新增...] 按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。 按一下 [確定]。
+3. 將 WadConfig.xsd 與組態檔產生關聯。 確定 WadExample.xml 編輯器視窗是使用中視窗。 按 **F4** 鍵開啟 [屬性] 視窗。 在 [屬性] 視窗中，按一下 [結構描述] 屬性。 在“架构”属性中 在 [結構描述] 屬性中。 在“架构”属性中单击“...”  按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。 按一下 [確定]。
 
 4. 以下列 XML 取代 WadExample.xml 組態檔的內容，然後儲存檔案。 此組態檔可定義兩個要收集的效能計數器：一個用於 CPU 使用率，一個用於記憶體使用率。 組態會接著定義四個事件，分別對應至 SampleEventSourceWriter 類別中的方法。
 
@@ -199,9 +199,9 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ## <a name="next-steps"></a>後續步驟
 [請參閱相關的 Azure 虛擬機器診斷文章清單](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics)，以變更您收集的資料、為問題進行疑難排解，或深入了解一般的診斷。
 
-[EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
-[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Free Trial]: https://azure.microsoft.com/pricing/free-trial/
+[Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313478"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550765"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -40,19 +40,13 @@ ms.locfileid: "56313478"
 
 ## <a name="preview-limitations"></a>預覽限制
 
-當此功能在預覽階段時，若將容器執行個體部署至虛擬網路，會有下列限制。 
+雖然這項功能處於預覽狀態，部署至虛擬網路的容器群組時，也會適用下列限制。 
 
-**支援的國家/地區與資源限制**
-
-| 位置 | 作業系統 | CPU | 記憶體 (GB) |
-| -------- | :---: | :---: | :-----------: |
-| 西歐 |  Linux | 4 | 14 |
-| 美國東部、美國西部 |  Linux | 2 | 3.5 |
-| 澳大利亞東部、北歐 |  Linux | 1 | 1.5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 容器資源限制會隨著這些區域中非網路的容器執行個體其限制不同而異。 目前僅支援 Linux 容器的這項功能。 已計劃支援 Windows。
 
-**不支援的網路資源與功能**
+### <a name="unsupported-network-resources-and-features"></a>不支援的網路資源和功能
 
 * Azure Load Balancer
 * 虛擬網路對等互連

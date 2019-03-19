@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015078"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544513"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 - 如果並行要求數目超過限制，系統就會進行節流，您將會看到隨機失敗。
 - 如果要求總數超過限制，將會封鎖 Salesforce 帳戶 24 小時。
 
-在上述兩種情況中，您也可能會收到 "REQUEST_LIMIT_EXCEEDED" 錯誤。 如需詳細資訊，請參閱 [Salesforce 開發人員限制](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf)中的＜API 要求限制＞一節。
+在上述兩種情況中，您也可能會收到 "REQUEST_LIMIT_EXCEEDED" 錯誤。 如需詳細資訊，請參閱 [Salesforce 開發人員限制](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf)中的＜API 要求限制＞一節。
 
 ## <a name="get-started"></a>開始使用
 
@@ -60,7 +60,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 以下是針對 Salesforce 連結服務支援的屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type |type 屬性必須設為 **Salesforce**。 |是 |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
@@ -138,7 +138,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 若要從 Salesforce 複製資料以及將資料複製到 Salesforce，請將資料集的 type 屬性設定為 **SalesforceObject**。 以下是支援的屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | type 屬性必須設為 **SalesforceObject**。  | 是 |
 | objectApiName | 要從其中擷取資料的 Salesforce 物件名稱。 | 否 (來源)；是 (接收) |
@@ -169,7 +169,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 >[!NOTE]
 >基於回溯相容性：從 Salesforce 複製資料時，如果使用先前的 "RelationalTable" 類型資料集，它仍可正常運作，但會看到改用新的 SalesforceObject 類型的建議。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的 type 屬性必須設定為 **RelationalTable**。 | 是 |
 | tableName | Salesforce 中資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -182,7 +182,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 [來源] 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為 **SalesforceSource**。 | 是 |
 | query |使用自訂查詢來讀取資料。 您可以使用 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢或 SQL-92 查詢。 請參閱[查詢秘訣](#query-tips)一節中的秘訣。 如果未指定查詢，將會在資料集內擷取 "objectApiName" 中所指定之 Salesforce 物件的所有資料。 | 否 (如果在資料集中指定 "objectApiName") |
@@ -232,7 +232,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 [接收] 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為 **SalesforceSink**。 | 是 |
 | writeBehavior | 作業的寫入行為。<br/>允許的值為 **Insert** 和 **Upsert**。 | 否 (預設為 Insert) |
@@ -291,7 +291,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | 語法 | SOQL 模式 | SQL 模式 |
 |:--- |:--- |:--- |
-| 資料行選擇 | 需要列舉要在查詢中複製的欄位，例如 `SELECT field1, filed2 FROM objectname` | 支援 `SELECT *` (資料行選取除外)。 |
+| 資料行選擇 | 要列舉的欄位，例如複製在查詢中， `SELECT field1, filed2 FROM objectname` | 支援 `SELECT *` (資料行選取除外)。 |
 | 引號 | 欄位/物件名稱不能加上引號。 | 欄位/物件名稱可以加上引號，例如 `SELECT "id" FROM "Account"` |
 | 日期時間格式 |  請參閱[這裡](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm)的詳細資料和下一節中的範例。 | 請參閱[這裡](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017)的詳細資料和下一節中的範例。 |
 | 布林值 | 以 `False` 和 `True` 表示，例如 `SELECT … WHERE IsDeleted=True`。 | 以 0 或 1 表示，例如 `SELECT … WHERE IsDeleted=1`。 |
@@ -313,15 +313,15 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 |:--- |:--- |
 | 自動編號 |字串 |
 | 核取方塊 |BOOLEAN |
-| 貨幣 |十進位 |
-| 日期 |Datetime |
-| 日期/時間 |Datetime |
+| 貨幣 |Decimal |
+| 日期 |DateTime |
+| 日期/時間 |DateTime |
 | 電子郵件 |字串 |
 | id |字串 |
 | 查閱關聯性 |字串 |
 | 複選挑選清單 |字串 |
-| 數字 |十進位 |
-| 百分比 |十進位 |
+| 數字 |Decimal |
+| 百分比 |Decimal |
 | 電話 |字串 |
 | 挑選清單 |字串 |
 | 文字 |字串 |

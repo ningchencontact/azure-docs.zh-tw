@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76b752df4557ac5b0b493f1fb40d1712d37c8e22
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d25963d44960ec3ab15fdee2c264c3bf18e26c2a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207665"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540563"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 用戶端認證流程
 
@@ -108,11 +108,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | --- | --- | --- |
-| `tenant` | 必要 | 您想要要求權限的目錄租用戶。 這可以採用 GUID 或易記名稱格式。 如果您不知道使用者屬於哪個租用戶，而想要讓他們以任何租用戶登入，請使用 `common`。 |
-| `client_id` | 必要 | 指派給應用程式的應用程式 (用戶端) 識別碼。 您可以在用來註冊應用程式的入口網站中找到此資訊。 |
-| `redirect_uri` | 必要 | 您想要傳送回應以供應用程式處理的重新導向 URI。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，只是它必須是採用 URL 編碼，並且可以有額外的路徑區段。 |
+| `tenant` | 必要項 | 您想要要求權限的目錄租用戶。 這可以採用 GUID 或易記名稱格式。 如果不知道用户属于哪个租户并想让他们登录到任一租户，请使用 `common`。 |
+| `client_id` | 必要項 | 指派給應用程式的應用程式 (用戶端) 識別碼。 您可以在用來註冊應用程式的入口網站中找到這項資訊。 |
+| `redirect_uri` | 必要項 | 您想要傳送回應以供應用程式處理的重新導向 URI。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，只是它必須是採用 URL 編碼，並且可以有額外的路徑區段。 |
 | `state` | 建議 | 要求中包含的值，也會隨權杖回應傳回。 它可以是您所想要內容中的字串。 此狀態用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
 
 此時，Azure AD 會強制只有租用戶系統管理員可以登入來完成要求。 系統會請系統管理員核准您在應用程式註冊入口網站中，為您應用程式要求的所有直接應用程式權限。
@@ -125,7 +125,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | `tenant` | 將應用程式所要求的權限授與應用程式的目錄租用戶 (採用 GUID 格式)。 |
 | `state` | 一個包含在要求中而將一併在權杖回應中傳回的值。 它可以是您所想要內容中的字串。 此狀態用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
@@ -139,14 +139,14 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | `error` | 您可用來分類錯誤類型並對錯誤做出反應的錯誤碼字串。 |
 | `error_description` | 可協助您識別錯誤根本原因的特定錯誤訊息。 |
 
 從應用程式佈建端點收到成功回應後，您的應用程式便已取得它所要求的直接應用程式權限。 現在，您可以針對您想要的資源要求權杖。
 
-## <a name="get-a-token"></a>取得權杖
+## <a name="get-a-token"></a>获取令牌
 
 取得應用程式的必要授權後，請繼續取得 API 的存取權杖。 若要使用用戶端認證授與來取得權杖，請將 POST 要求傳送至 `/token` v2.0 端點︰
 
@@ -167,13 +167,13 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | --- | --- | --- |
-| `tenant` | 必要 | 應用程式預期要對其執行作業的目錄租用戶 (以 GUID 或網域名稱格式)。 |
-| `client_id` | 必要 | 指派給應用程式的應用程式識別碼。 您可以在用來註冊應用程式的入口網站中找到此資訊。 |
-| `scope` | 必要 | 在這個要求中針對 `scope` 參數傳遞的值應該是您所要資源的資源識別碼 (應用程式識別碼 URI)，並附加 `.default` 尾碼。 就 Microsoft Graph 範例而言，值為 `https://graph.microsoft.com/.default`。 </br>這個值會告知 v2.0 端點有關您已為應用程式設定的所有直接應用程式權限，端點應該會針對與您所要使用資源關聯的權限發出權杖。 若要深入了解有關 `/.default` 範圍，請參閱[同意文件](v2-permissions-and-consent.md#the-default-scope)。 |
-| `client_secret` | 必要 | 您在應用程式註冊入口網站中為應用程式產生的應用程式密碼。 用戶端密碼必須在傳送之前先進行 URL 編碼。 |
-| `grant_type` | 必要 | 必須設為 `client_credentials`。 |
+| `tenant` | 必要項 | 應用程式預期要對其執行作業的目錄租用戶 (以 GUID 或網域名稱格式)。 |
+| `client_id` | 必要項 | 指派給應用程式的應用程式識別碼。 您可以在用來註冊應用程式的入口網站中找到這項資訊。 |
+| `scope` | 必要項 | 在這個要求中針對 `scope` 參數傳遞的值應該是您所要資源的資源識別碼 (應用程式識別碼 URI)，並附加 `.default` 尾碼。 就 Microsoft Graph 範例而言，值為 `https://graph.microsoft.com/.default`。 </br>這個值會告知 v2.0 端點有關您已為應用程式設定的所有直接應用程式權限，端點應該會針對與您所要使用資源關聯的權限發出權杖。 若要深入了解有關 `/.default` 範圍，請參閱[同意文件](v2-permissions-and-consent.md#the-default-scope)。 |
+| `client_secret` | 必要項 | 您在應用程式註冊入口網站中為應用程式產生的應用程式密碼。 用戶端密碼必須在傳送之前先進行 URL 編碼。 |
+| `grant_type` | 必要項 | 必須設為 `client_credentials`。 |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>第二種情況︰使用憑證的存取權杖要求
 
@@ -189,14 +189,14 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | --- | --- | --- |
-| `tenant` | 必要 | 應用程式預期要對其執行作業的目錄租用戶 (以 GUID 或網域名稱格式)。 |
-| `client_id` | 必要 |指派給應用程式的應用程式 (用戶端) 識別碼。 |
-| `scope` | 必要 | 在這個要求中針對 `scope` 參數傳遞的值應該是您所要資源的資源識別碼 (應用程式識別碼 URI)，並附加 `.default` 尾碼。 就 Microsoft Graph 範例而言，值為 `https://graph.microsoft.com/.default`。 <br>這個值會通知 v2.0 端點有關您已為應用程式設定的所有直接應用程式權限，它應該會針對與您所要使用資源關聯的權限發出權杖。 若要深入了解有關 `/.default` 範圍，請參閱[同意文件](v2-permissions-and-consent.md#the-default-scope)。 |
-| `client_assertion_type` | 必要 | 此值必須設定為 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`。 |
-| `client_assertion` | 必要 | 您必須建立判斷提示 (JSON Web 權杖)，並使用註冊的憑證來簽署，以作為應用程式的認證。 請參閱[憑證認證](active-directory-certificate-credentials.md)，以了解如何註冊您的憑證與判斷提示的格式。|
-| `grant_type` | 必要 | 必須設為 `client_credentials`。 |
+| `tenant` | 必要項 | 應用程式預期要對其執行作業的目錄租用戶 (以 GUID 或網域名稱格式)。 |
+| `client_id` | 必要項 |指派給應用程式的應用程式 (用戶端) 識別碼。 |
+| `scope` | 必要項 | 在這個要求中針對 `scope` 參數傳遞的值應該是您所要資源的資源識別碼 (應用程式識別碼 URI)，並附加 `.default` 尾碼。 就 Microsoft Graph 範例而言，值為 `https://graph.microsoft.com/.default`。 <br>這個值會通知 v2.0 端點有關您已為應用程式設定的所有直接應用程式權限，它應該會針對與您所要使用資源關聯的權限發出權杖。 若要深入了解有關 `/.default` 範圍，請參閱[同意文件](v2-permissions-and-consent.md#the-default-scope)。 |
+| `client_assertion_type` | 必要項 | 此值必須設定為 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`。 |
+| `client_assertion` | 必要項 | 您必須建立判斷提示 (JSON Web 權杖)，並使用註冊的憑證來簽署，以作為應用程式的認證。 請參閱[憑證認證](active-directory-certificate-credentials.md)，以了解如何註冊您的憑證與判斷提示的格式。|
+| `grant_type` | 必要項 | 必須設為 `client_credentials`。 |
 
 請注意，在透過共用密碼要求的情況中，參數幾乎相同，不同之處在於使用下列兩個參數來取代 client_secret 參數：client_assertion_type 和 client_assertion。
 
@@ -212,9 +212,9 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 }
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
-| `access_token` | 所要求的存取權杖。 應用程式可以使用這個權杖向受保護的資源 (例如 Web API) 進行驗證。 |
+| `access_token` | 所要求的存取權杖。 应用可以使用此令牌验证受保护的资源，例如验证 Web API。 |
 | `token_type` | 表示權杖類型值。 Azure AD 唯一支援的類型是 `bearer`。 |
 | `expires_in` | 存取權杖的有效時間長度 (以秒為單位)。 |
 
@@ -235,7 +235,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 }
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | `error` | 您可用來分類發生的錯誤類型並對錯誤做出反應的錯誤碼字串。 |
 | `error_description` | 可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -264,9 +264,9 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## <a name="code-samples-and-other-documentation"></a>程式碼範例和其他文件
 
-讀取 Microsoft 驗證程式庫中的[用戶端認證概觀文件](http://aka.ms/msal-net-client-credentials)
+讀取 Microsoft 驗證程式庫中的[用戶端認證概觀文件](https://aka.ms/msal-net-client-credentials)
 
-| 範例 | 平台 |說明 |
+| 範例 | 平台 |描述 |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET core 2.1 主控台 | 一個簡單的.NET Core 應用程式，它會顯示使用應用程式的身分識別查詢 Microsoft Graph 之租用戶的使用者，而不是代表使用者。 該範例也會說明使用憑證進行驗證的變化。 |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | 一個 Web 應用程式，它使用應用程式的身分識別同步處理 Microsoft Graph 中的資料，而不是代表使用者。 |

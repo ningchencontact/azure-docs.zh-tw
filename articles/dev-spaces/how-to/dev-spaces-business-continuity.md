@@ -1,22 +1,21 @@
 ---
-title: Azure Dev Space 的商務持續性和災害復原 | Microsoft Docs
+title: Azure Dev Space 的商務持續性和災害復原
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
-ms.topic: article
+ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
+keywords: 'Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器，Helm，服務網格，服務網格路由、 kubectl，k8s '
 manager: jeconnoc
-ms.openlocfilehash: 877d49a49333d70ac7660900e49e7c588f52756c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451558"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775632"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Space 的商務持續性和災害復原
 
@@ -93,7 +92,7 @@ azds space select -n <space name>
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>存取備份叢集上的服務
 
-如果您已將服務設定為使用公用 DNS 名稱，則在備份叢集上執行服務時，服務將會有不同的 URL。 公用 DNS 名稱的格式一律為 `<space name>.s.<service name>.<cluster GUID>.<region>.aksapp.io`。 如果您切換至不同的叢集，叢集 GUID 將會變更，而區域也有此可能。
+如果您已將服務設定為使用公用 DNS 名稱，則在備份叢集上執行服務時，服務將會有不同的 URL。 公用 DNS 名稱的格式一律為 `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`。 如果您切換至不同的叢集，叢集 GUID 將會變更，而區域也有此可能。
 
 執行 `azds up` 時，或是在 Visual Studio **Azure Dev Spaces** 下的 [輸出] 視窗中，Dev Spaces 一律會顯示正確的服務 URL。
 
@@ -102,7 +101,7 @@ azds space select -n <space name>
 $ azds list-uris
 Uri                                                     Status
 ------------------------------------------------------  ---------
-http://mywebapi.d05afe7e006a4fddb73c.eastus.aksapp.io/  Available
+http://default.mywebapi.d05afe7e006a4fddb73c.eus.azds.io/  Available
 ```
 
 存取服務時請使用此 URL。

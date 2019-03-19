@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234283"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452006"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>驗證與授權錯誤碼
 
@@ -33,7 +33,7 @@ ms.locfileid: "56234283"
 
 ## <a name="aadsts-error-codes"></a>AADSTS 錯誤碼
 
-| Error | 說明 |
+| Error | 描述 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 這是 Azure AD 所擲回的插斷，會導致 UI 允許使用者從多個有效的 SSO 工作階段進行選取。 此錯誤很常見，如果指定 `prompt=none`，則可能會傳回給應用程式。 |
 | AADSTS16001 | UserAccountSelectionInvalid - 如果使用者按一下工作階段選取邏輯已遭拒絕的圖格，則會看到此錯誤。 若已觸發，此錯誤可讓使用者藉由從已更新的圖格/工作階段清單進行挑選，或選擇另一個帳戶來復原。 此錯誤可能因為程式碼缺失或競爭條件而發生。 |
@@ -68,7 +68,7 @@ ms.locfileid: "56234283"
 | AADSTS50032 | WeakRsaKey - 表示錯誤的使用者嘗試使用弱式 RSA 金鑰。 |
 | AADSTS50033 | RetryableError - 表示與資料庫作業無關的暫時性錯誤。 |
 | AADSTS50034 | UserAccountNotFound - 若要登入此應用程式，必須將帳戶新增至目錄。 |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - 主體中遺漏欲產生成對識別碼所需的 salt。 請連絡租用戶管理員。 |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt-產生成對識別碼所需的 salt 遺漏原則。 請連絡租用戶管理員。 |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - 主體與用戶端判斷提示中的簽發者宣告不符。 請連絡租用戶管理員。 |
 | AADSTS50049 | NoSuchInstanceForDiscovery - 未知或無效的執行個體。 |
@@ -140,7 +140,7 @@ ms.locfileid: "56234283"
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - 使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。針對此使用者和資源傳送互動式授權要求。 |
 | AADSTS65004 | UserDeclinedConsent - 使用者不同意存取應用程式。 讓使用者重試登入，並同意應用程式|
-| AADSTS65005 | MisconfiguredApplication - 應用程式所需資源存取清單不包含資源可探索的應用程式，或用戶端應用程式已要求存取未在其所需資源存取清單中指定的資源，或 Graph 服務傳回不正確的要求或找不到資源。 如果應用程式支援 SAML，則可能是您在設定應用程式時所使用的識別碼 (實體) 不正確。 請嘗試使用下列連結中針對 SAML 所列出的解決方案：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication - 應用程式所需資源存取清單不包含資源可探索的應用程式，或用戶端應用程式已要求存取未在其所需資源存取清單中指定的資源，或 Graph 服務傳回不正確的要求或找不到資源。 如果應用程式支援 SAML，則可能是您在設定應用程式時所使用的識別碼 (實體) 不正確。 請嘗試使用下列連結中針對 SAML 所列出的解決方案：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - 驗證失敗。 重新整理權杖無效。 錯誤原因如下：<ul><li>權杖繫結標頭是空的</li><li>權杖繫結雜湊不相符</li></ul> |
 | AADSTS70001 | UnauthorizedClient - 應用程式已停用。 |
@@ -255,6 +255,7 @@ ms.locfileid: "56234283"
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 此資源並未設定為接受僅限裝置的權杖。 |
 | AADSTS240001 | BulkAADJTokenUnauthorized - 使用者未經授權，無法在 Azure AD 中註冊裝置。 |
 | AADSTS240002 | RequiredClaimIsMissing - 無法使用 id_token 作為 `urn:ietf:params:oauth:grant-type:jwt-bearer` 授與。|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - 租户管理员已配置了阻止此请求的安全策略。 检查在租户级别定义的安全策略来确定你的请求是否满足策略要求。 |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - 在目錄/租用戶中找不到應用程式。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 可能是針對應用程式所設定的識別碼值不正確，或將驗證要求傳送給錯誤的租用戶。 |
 | AADSTS700020 | InteractionRequired - 存取權授與需要互動。 |
 | AADSTS700022 | InvalidMultipleResourcesScope - 所提供的輸入參數範圍值無效，因為它包含多個資源。 |

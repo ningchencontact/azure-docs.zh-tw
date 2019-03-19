@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 79d10a02b02ecb69f656e5b3d7b0c9ae986504d1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438961"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731504"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活動記錄警示的 Webhook
 在定義動作群組的過程中，您可以設定 Webhook 端點以接收活動記錄警示通知。 您可以使用 Webhook 將這些通知路由到其他系統，以進行後置處理或自訂動作。 本文會說明 HTTP POST 至 Webhook 的承載資料樣貌。
@@ -146,7 +146,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
                     "currentHealthStatus": "Unavailable",
                     "previousHealthStatus": "Available",
                     "type": "Downtime",
-                    "cause": "PlatformInitiated",
+                    "cause": "PlatformInitiated"
                 },
                 "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
                 "resourceGroupName": "<resource group>",
@@ -165,13 +165,13 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 
 如需了解所有其他活動記錄警示的特定結構詳細資料，請參閱 [Azure 活動記錄的概觀](../../azure-monitor/platform/activity-logs-overview.md)。
 
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | status |用於度量警示。 針對活動記錄警示，一律設為「啟動」。 |
 | context |事件的內容。 |
 | resourceProviderName |受影響資源的資源提供者。 |
 | conditionType |一律為「事件」。 |
-| name |警示規則的名稱。 |
+| name |警报规则的名称。 |
 | id |警示的資源識別碼。 |
 | 說明 |建立警示時，會設定警示描述。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
@@ -191,7 +191,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | 層級 |下列其中一個值：重大、錯誤、警告和告知性。 |
 | operationId |通常是對應至單一作業的事件之間共用的 GUID。 |
 | operationName |作業名稱。 |
-| properties |事件的屬性。 |
+| properties |事件的属性。 |
 | status |字串。 作業的狀態。 常見的值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「使用中」和「已解決」。 |
 | 子狀態 |通常包含對應 REST 呼叫的 HTTP 狀態碼。 它也可以包含其他描述子狀態的字串。 常見的子狀態值包括正常 (HTTP 狀態碼:200)、已建立 (HTTP 狀態碼:201)、已接受 (HTTP 狀態碼:202)、無內容 (HTTP 狀態碼:204)、錯誤的要求 (HTTP 狀態碼:400)、找不到 (HTTP 狀態碼:404)、衝突 (HTTP 狀態碼:409)、內部伺服器錯誤 (HTTP 狀態碼:500)、無法使用服務 (HTTP 狀態碼:503)，以及閘道逾時 (HTTP 狀態碼:504)。 |
 
