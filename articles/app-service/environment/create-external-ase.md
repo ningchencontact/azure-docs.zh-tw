@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7f0af2c64d04d83cc3eb4043007979c17c75e051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105160"
 ---
 > [!NOTE]
 > 每個應用程式服務環境都有虛擬 IP (VIP)，可用來連絡 App Service 環境。
->
-# <a name="create-an-external-app-service-environment"></a>建立外部 App Service 環境 #
+> 
+> # <a name="create-an-external-app-service-environment"></a>建立外部 App Service 環境 #
 
 Azure App Service Environment (ASE) 是將 Azure App Service 部署到客戶 Azure 虛擬網路 (VNet) 中子網路的一種部署。 有二種方法可以部署 App Service Environment (ASE)：
 

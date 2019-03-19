@@ -1,6 +1,6 @@
 ---
 title: 利用 Media Encoder Premium Workflow 進行進階編碼 | Microsoft Docs
-description: 了解如何使用 Media Encoder Premium Workflow 進行編碼。 程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。
+description: 了解如何使用 Media Encoder Premium Workflow 進行編碼。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7b91f63057fa8b781fdfab17e0837a9f5547c1eb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d28d6836189bb9cca3eefb328310405550c4f94c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120154"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>使用 Media Encoder Premium Workflow 進行進階編碼
 > [!NOTE]
@@ -62,12 +62,12 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
     在大部分情況下，工作的組態字串是空的 (如下列範例)。 在一些進階的案例 (會要求您動態設定執行階段屬性) 情況下，您可以提供 XML 字串給編碼工作。 這類案例的範例包括：建立疊加、平行或循序的媒體編結、顯示字幕。
 5. 將兩個輸入資產加入工作 (Task)。
 
-    1. 第一個 – 工作流程資產。
-    2. 第二個 – 視訊資產。
+   1. 第一個 – 工作流程資產。
+   2. 第二個 – 視訊資產。
 
-    >[!NOTE]
-    >新增媒體資產前，必須先將工作流程資產新增至工作 (Task)。
-   這項工作 (Task) 的組態字串應該是空的。
+      >[!NOTE]
+      >新增媒體資產前，必須先將工作流程資產新增至工作 (Task)。
+      這項工作 (Task) 的組態字串應該是空的。
    
 6. 提交編碼工作 (Job)。
 

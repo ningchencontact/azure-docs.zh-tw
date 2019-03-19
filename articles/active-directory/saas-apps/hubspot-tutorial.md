@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fd70b80dd512b530d367d57cd9fc04ec28f27b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8bbb307654d4aaf753a4a3284875dee4f5707f2a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211694"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>教學課程：Azure Active Directory 與 HubSpot 整合
 
@@ -187,7 +187,7 @@ HubSpot 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -215,7 +215,7 @@ HubSpot 需以手動方式佈建。
 
     ![設定單一登入](./media/hubspot-tutorial/user2.png)
 
-5. 輸入使用者的電子郵件地址，例如在 [電子郵件地址] 文字方塊中輸入 **brittasimon@contoso.com**，然後按 [下一步]。
+5. 輸入像是使用者的電子郵件地址**brittasimon\@contoso.com**中**新增電子郵件 addess(es)** 文字方塊中，按一下 [**下一步]**。
 
     ![設定單一登入](./media/hubspot-tutorial/user3.png)
 

@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313028"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002351"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 此 Microsoft 常見問題集是 Microsoft Azure 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
 
 
@@ -69,7 +72,7 @@ Azure 入口網站中的新 [Logs] 體驗是以進階分析入口網站為基礎
 答：記錄中的「檢視設計工具」僅適用於獲派「參與者」權限或更高權限的使用者。
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>問： 我仍可在 Azure 外部使用 Analytics 入口網站嗎？
-A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程式碼為基礎。 Log Analytics 會整合為 Azure 監視器中的功能，以提供更加統一的監視體驗。 您仍然可以使用以下 URL 存取 Analytics 入口網站： https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}。
+A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程式碼為基礎。 Log Analytics 會整合為 Azure 監視器中的功能，以提供更加統一的監視體驗。 您仍然可以存取分析入口網站中使用的 URL: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}。
 
 
 
@@ -168,7 +171,7 @@ A. [ExpressRoute 文件](../../expressroute/expressroute-faqs.md#supported-servi
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>問： 有簡單且輕鬆的方法，可將現有的 Log Analytics 工作區移至另一個 Log Analytics 工作區/Azure 訂用帳戶嗎？
 
-A. `Move-AzureRmResource` Cmdlet 可讓您將 Log Analytics 工作區及自動化帳戶從一個 Azure 訂用帳戶移至另一個 Azure 訂用帳戶。 如需詳細資訊，請參閱 [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx)。
+A. `Move-AzResource` Cmdlet 可讓您將 Log Analytics 工作區及自動化帳戶從一個 Azure 訂用帳戶移至另一個 Azure 訂用帳戶。 如需詳細資訊，請參閱 <<c0> [ 移動 AzResource](https://msdn.microsoft.com/library/mt652516.aspx)。
 
 這項變更也可在 Azure 入口網站進行。
 

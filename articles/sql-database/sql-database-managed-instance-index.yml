@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0de87f1038a7e91e5d66bb579ac7087e75a8db5f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454682"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308069"
 documentType: LandingData
 title: Azure SQL Database 受控執行個體
 metadata:
@@ -81,7 +81,7 @@ sections:
     - html: (預覽) 使用<a href="https://aka.ms/managed-instance-failover-groups">異地分散的容錯移轉群組</a>將執行個體保留在另一個區域中，確保即使在區域性災害案例中，您的資料仍可供使用。
     - html: (預覽) 移轉已啟用「透明資料加密」(TDE) 的內部部署資料庫時<a href="https://aka.ms/managed-instance-tde-byok">攜帶您自己的加密金鑰</a>。
     - html: 受控執行個體受<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">內建防火牆</a>的保護。
-    - html: (預覽) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance/">重新建立卸除的資料庫</a>。
+    - html: (預覽) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/">重新建立卸除的資料庫</a>。
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
@@ -105,32 +105,32 @@ sections:
     - title: 建立新的執行個體
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: 修改執行個體
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../change-size-azure-sql-managed-instance-using-powershell/
       - href: 
     - title: 設定 Azure 網路環境
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
     - title: 還原時間點
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
       - href: 
     - title: 還原已卸除的資料庫
       values:
       - href: 
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/
       - href: 
 - title: 逐步教學課程和學習資料
   items:
@@ -143,11 +143,11 @@ sections:
     - html: 深入了解<a href="/azure/sql-database/sql-database-managed-instance-resource-limits">硬體特性和限制</a>、<a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">Transact-SQL 語言差異</a>和<a href="/azure/sql-database/sql-database-managed-instance-create-manage"> Transact-SQL、PowerShell、Azure CLI API 來設定受控執行個體<a/>。
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">設定</a>將部署受控執行個體的 Azure VNet。
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">驗證</a>您現有的 Azure VNet 是否可用來部署受控執行個體。
-    - html: 使用 <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure 虛擬機器</a>或<a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">點對站連線</a>或<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">應用程式</a>，連線到您的執行個體。
-    - html: 確認可以使用 <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> 或<a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">資料庫測試助理</a>來遷移您的資料庫。
+    - html: 使用 <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure 虛擬機器</a>或<a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">點對站連線</a>或<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">應用程式</a>，連線到您的執行個體。
+    - html: 確認可以使用 <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> 或<a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">資料庫測試助理</a>來遷移您的資料庫。
     - html: 使用<a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">原生還原</a>或<a href="/azure/dms/tutorial-sql-server-managed-instance-online">資料移轉服務</a>，將資料庫帶到受控執行個體。
     - html: 將 SSIS 套件移至 <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>、將 SSAS 表格式模型移至 <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>，以及將 SSRS 報告移至 <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>。
-    - html: 了解<a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">一般用途層</a>中的儲存體層，並套用<a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">一般用途服務層的儲存體效能最佳做法和考量</a> (英文)。
+    - html: 了解<a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">一般用途層</a>中的儲存體層，並套用<a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">一般用途服務層的儲存體效能最佳做法和考量</a> (英文)。
     - html: 尋找<a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">保護執行個體</a>的最佳做法和建議。
     - html: 深入了解可幫助您設定受控執行個體的<a href="sql-database-howto-managed-instance.md">操作指南</a>。
 - title: 參考

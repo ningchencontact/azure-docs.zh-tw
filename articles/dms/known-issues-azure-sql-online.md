@@ -2,21 +2,21 @@
 title: 關於線上移轉到 Azure SQL Database 已知問題/移轉限制的文章 | Microsoft Docs
 description: 深入了解線上移轉到 Azure SQL Database 的已知問題/移轉限制。
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/11/2019
-ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.date: 03/05/2019
+ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091489"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>線上移轉到 Azure SQL DB 的已知問題/移轉限制
 
@@ -62,9 +62,9 @@ ms.locfileid: "54231813"
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
- 2. 從 [進行移轉設定] 刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
+   1. 從 [進行移轉設定] 刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
 
- 3. 重新執行移轉活動。
+   1. 重新執行移轉活動。
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>移轉失敗，具有「完整資料載入」或「增量資料同步處理」期間，結構描述中使用中觸發程序的各種完整性違規
 
@@ -89,7 +89,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **因應措施**
 
-如果您有大於 32 KB 的 LOB 資料行，請連絡工程小組：[ dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)。
+如果您有大於 32 KB 的 LOB 資料行，請連絡工程團隊[詢問的 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
 
 ### <a name="issues-with-timestamp-columns"></a>時間戳記資料行的問題
 
@@ -99,7 +99,7 @@ DMS 不會遷移來源時間戳記值；相反地，DMS 會在目標資料表中
 
 **因應措施**
 
-如果您需要 DMS 遷移儲存在來源資料表中的確切時間戳記值，請連絡工程小組：[dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)。
+如果您需要移轉的來源資料表中儲存的確切的時間戳記值的 DMS，請連絡工程團隊[詢問的 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
 
 ### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>資料移轉錯誤不會在資料庫詳細狀態刀鋒視窗上，提供其他詳細資料。
 

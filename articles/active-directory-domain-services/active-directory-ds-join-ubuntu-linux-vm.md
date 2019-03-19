@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: f9c8273e82d46c34c36533605c08200c308815af
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8699585a7f8e5cdfc81a40b94fbe10fa677a0030
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120987"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>在 Azure 中將 Ubuntu 虛擬機器加入受控網域
 本文說明如何將 Ubuntu Linux 虛擬機器加入 Azure AD Domain Services 受控網域。
@@ -125,10 +125,9 @@ sudo systemctl start ntp
 
    > [!NOTE]
    > **疑難排解：** 如果「領域探索」找不到您的受控網域：
-     * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
-     * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
-     * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。
-   >
+   >   * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
+   >   * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
+   >   * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。
 
 2. 初始化 Kerberos。 在 SSH 終端機中輸入下列命令：
 

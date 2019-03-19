@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215111"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003150"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>遠端桌面服務未在 Azure VM 上啟動
 
 本文說明如何針對在遠端桌面服務 (或 TermService) 未啟動或無法啟動的問題，以及連線到 Azure 虛擬機器 (VM) 的問題進行疑難排解。
 
 > [!NOTE]  
-> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager 和傳統模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不使用傳統部署模型。
+> Azure 建立和處理資源的部署模型有兩種：[Azure 资源管理器部署模型和经典部署模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不使用傳統部署模型。
 
 ## <a name="symptoms"></a>徵兆
 
@@ -37,10 +37,10 @@ ms.locfileid: "54215111"
 
 - 您使用事件檢視器從遠端檢視 VM 中的事件記錄檔。 您看到遠端桌面服務 (TermService)，沒有啟動或無法啟動。 下列記錄檔是範例：
 
-    **記錄檔名稱**：    系統 </br>
+    **日志名称**：    系統 </br>
     **來源**：      服務控制管理員 </br>
     **日期**：        2017 年 12 月 16 日上午 11:19:36</br>
-    **事件識別碼**：    7022</br>
+    **事件 ID**：    7022</br>
     **工作類別**：None</br>
     **層級**：       Error</br>
     **關鍵字**：    傳統</br>
@@ -58,7 +58,7 @@ ms.locfileid: "54215111"
 
 - 已將 TermService 服務設定為**停用**。 
 - TermService 服務當機或停止回應。 
-- TermService 因錯誤的設定而未啟動。
+- TermService 未啟動因為設定不正確。
 
 ## <a name="solution"></a>解決方法
 
@@ -99,7 +99,8 @@ ms.locfileid: "54215111"
 
     |  Error |  建議 |
     |---|---|
-    |5- 拒絕存取 |請參閱 [TermService 服務因為拒絕存取錯誤而停止](#termService-service-is-stopped-because-of-an-access-denied-problem)。 |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |請參閱 [TermService 服務已停用](#termService-service-is-disabled)。  |  
+    |5- 拒絕存取 |請參閱 [TermService 服務因為拒絕存取錯誤而停止](#termService-service-is-stopped-because-of-an-access-denied-problem)。 |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |請參閱 [TermService 服務已停用](#termService-service-is-disabled)。  |  
     |1058 - ERROR_SERVICE_DISABLED  |請參閱 [TermService 服務當機或停止回應](#termService-service-crashes-or-hangs)。  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。|
     |1067 - ERROR_PROCESS_ABORTED  |請參閱 [TermService 服務當機或停止回應](#termService-service-crashes-or-hangs)。  |
@@ -108,7 +109,7 @@ ms.locfileid: "54215111"
     |1070 - ERROR_SERVICE_START_HANG   | 請參閱 [TermService 服務當機或停止回應](#termService-service-crashes-or-hangs)。 |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | 請參閱 [TermService 服務已停用](#termService-service-is-disabled)。  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。 |
-    |1753   |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。   |   |5- 拒絕存取 |請參閱 [TermService 服務因為拒絕存取錯誤而停止](#termService-service-is-stopped-because-of-an-access-denied-error)。 |
+    |1753   |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService 服務因為拒絕存取問題而停止
 
@@ -205,7 +206,7 @@ ms.locfileid: "54215111"
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給所連結 OS 磁碟的磁碟機代號。
-3.  開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 我們假設指派給所連結 OS 磁碟的磁碟機代號是 **F**。將它取代為您 VM 中適當的值。 
+3. 開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 我們假設指派給所連結 OS 磁碟的磁碟機代號是 **F**。將它取代為您 VM 中適當的值。 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

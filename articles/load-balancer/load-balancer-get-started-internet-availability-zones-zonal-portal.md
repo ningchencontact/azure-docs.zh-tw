@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0a746ace4806495b17462b506f030811247240e2
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: c81ff5ea330c4c0ba26a92a3b5399cfa961e4b2b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247186"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856853"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>使用 Azure 入口網站來建立具有區域前端的 Standard Load Balancer
 
@@ -36,7 +36,7 @@ ms.locfileid: "54247186"
 
 ## <a name="create-a-load-balancer-with-zonal-frontend-ip-address"></a>建立具有區域前端 IP 位址的負載平衡器
 
-1. 透過瀏覽器瀏覽至 Azure 入口網站：[http://portal.azure.com](http://portal.azure.com)，並使用您的 Azure 帳戶登入。
+1. 透過瀏覽器瀏覽至 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)，並使用您的 Azure 帳戶登入。
 2. 在畫面的左上方，選取 [建立資源] > [網路] > [負載平衡器]。
 3. 在 [建立負載平衡器] 頁面的 [名稱] 底下，輸入 **myLoadBalancer**。
 4. 在 [類型] 底下選取 [公用]。
@@ -46,8 +46,8 @@ ms.locfileid: "54247186"
 >[!NOTE] 
 > 在此步驟中建立的公用 IP 預設屬於 [標準] SKU。
 
-7. 針對 [資源群組]，按一下 [新建]，然後輸入 **myResourceGroupZLB** 作為資源群組的名稱。
-8. 針對 [位置]，選取 [西歐]，然後按一下 [確定]。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
+1. 針對 [資源群組]，按一下 [新建]，然後輸入 **myResourceGroupZLB** 作為資源群組的名稱。
+1. 針對 [位置]，選取 [西歐]，然後按一下 [確定]。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
 
     ![使用 Azure 入口網站建立區域備援 Standard Load Balancer](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 

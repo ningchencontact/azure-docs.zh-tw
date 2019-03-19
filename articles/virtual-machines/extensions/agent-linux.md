@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011606"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解與使用 Azure Linux 代理程式
 
@@ -67,13 +67,13 @@ Microsoft Azure Linux 代理程式 (waagent) 管理 Linux 與 FreeBSD 佈建，�
 資訊經由兩個管道從平台流向代理程式：
 
 * 在 IaaS 部署中，開機時連接的 DVD。 此 DVD 包含 OVF 相容組態檔，內含實際 SSH 金鑰組以外的所有佈建資訊。
-* TCP 端點，公開可用來取得部署和拓撲組態的 REST API。
+* 用于获取部署和拓扑配置的一个公开 REST API 的 TCP 终结点。
 
 ## <a name="requirements"></a>需求
 下列系統已經過測試，且已知可與 Azure Linux 代理程式一同運作：
 
 > [!NOTE]
-> 這份清單可能與 Microsoft Azure 平台上官方的支援系統清單不同，如下所述：[http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> 這份清單可能與 Microsoft Azure 平台上官方的支援系統清單不同，如下所述：[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -86,7 +86,7 @@ Microsoft Azure Linux 代理程式 (waagent) 管理 Linux 與 FreeBSD 佈建，�
 * SLES 11 SP3+
 * Oracle Linux 6.4+
 
-其他支援的系統：
+其他受支持的系统：
 
 * FreeBSD 10+ (Azure Linux 代理程式 v2.0.10+)
 
@@ -95,25 +95,25 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 * Python 2.6+
 * OpenSSL 1.0+
 * OpenSSH 5.3+
-* 檔案系統公用程式：sfdisk、fdisk、mkfs、parted
+* 文件系统实用程序：sfdisk、fdisk、mkfs、parted
 * 密碼工具：chpasswd、sudo
 * 文字處理工具：sed、grep
 * 網路工具：ip-route
 * 掛接 UDF 檔案系統的核心支援。
 
-## <a name="installation"></a>安裝
+## <a name="installation"></a>安装
 安裝和升級 Azure Linux 代理程式時，建議使用散發套件的封裝儲存機制所提供的 RPM 或 DEB 封裝來安裝。 所有[認可的散發套件提供者](../linux/endorsed-distros.md)都會將 Azure Linux 代理程式套件整合於本身的映像和儲存機制中。
 
 如需了解進階安裝選項，例如從來源安裝或安裝到自訂的位置或前置詞，請參閱 [GitHub 上 Azure Linux 代理程式存放庫](https://github.com/Azure/WALinuxAgent)中的文件。
 
 ## <a name="command-line-options"></a>命令列選項
 ### <a name="flags"></a>旗標
-* verbose：提高指定命令的詳細程度
-* force：略過某些命令的互動式確認
+* 詳細資訊：提高指定命令的詳細資訊
+* 強制執行：略過某些命令的互動式確認
 
 ### <a name="commands"></a>命令
-* help：列出支援的命令和旗標。
-* deprovision：嘗試清理系統，使之適合重新佈建。 下列作業會刪除：
+* 說明：列出支援的命令和旗標。
+* 取消佈建：嘗試清除系統，使之適合重新佈建。 下列作業會刪除：
   
   * 所有 SSH 主機金鑰 (如果組態檔中的 Provisioning.RegenerateSshHostKeyPair 是 'y')
   * /etc/resolv.conf 中的名稱伺服器設定
@@ -126,11 +126,11 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 > 
 > 
 
-* deprovision+user：執行 -deprovision (上述) 中的一切動作，並刪除最後佈建的使用者帳戶 (取自於 /var/lib/waagent) 和相關聯的資料。 此參數是為了取消佈建 Azure 上先前佈建的映像，以便擷取並重複使用。
-* version：顯示 waagent 的版本
-* serialconsole：設定 GRUB，以將 ttyS0 (第一個序列埠) 標示為開機主控台。 這可確保將核心開機記錄傳送至序號埠且可用於偵錯。
-* daemon：以精靈方式執行 waagent 來管理與平台之間的互動。 此引數是在 waagent init 指令碼中指定給 waagent。
-* 開始︰以背景處理序方式執行 waagent
+* deprovision + user:在-deprovision （上述） 中執行的所有項目也會刪除最後佈建的使用者帳戶 （取自於 /var/lib/waagent） 和相關聯的資料。 此參數是為了取消佈建 Azure 上先前佈建的映像，以便擷取並重複使用。
+* 版本：顯示 waagent 的版本
+* serialconsole:設定 GRUB，以將 ttyS0 （第一個序列埠） 為開機主控台。 這可確保將核心開機記錄傳送至序號埠且可用於偵錯。
+* 精靈：精靈，以管理與平台間的互動方式執行 waagent。 此引數是在 waagent init 指令碼中指定給 waagent。
+* 啟動：背景處理序方式執行 waagent
 
 ## <a name="configuration"></a>組態
 組態檔 (/etc/waagent.conf) 控制 waagent 的動作。 以下顯示的是範例組態檔：
@@ -168,7 +168,7 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 Type: Boolean  
 Default: y
 ```
-這可讓使用者啟用或停用代理程式的佈建功能。 有效值為 "y" 或 "n"。 如果停用佈建，則會保留映像檔中的 SSH 主機金鑰和使用者金鑰，並忽略 Azure 佈建 API 中指定的任何組態。
+這可讓使用者啟用或停用代理程式的佈建功能。 有效值為 "y" 或 "n"。 如果禁用预配，则会保留映像中的 SSH 主机和用户密钥，并忽略 Azure 预配 API 中指定的所有配置。
 
 > [!NOTE]
 > 針對使用 cloud-init 執行佈建工作的 Ubuntu 雲端映像，`Provisioning.Enabled` 參數的預設值為 "n"。
@@ -344,6 +344,6 @@ Ubuntu 雲端映像會利用 [cloud-init](https://launchpad.net/ubuntu/+source/c
 
 * 如需詳細資訊，請參閱下列資源，以便在佈建期間，於 Ubuntu 雲端映像上設定資源磁碟掛接點和交換空間：
   
-  * [Ubuntu Wiki：設定交換資料分割](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki:設定交換資料分割](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [將自訂資料插入 Azure 虛擬機器](../windows/classic/inject-custom-data.md)
 

@@ -5,30 +5,29 @@ description: Machine Learning Studio 中包含的範例模型所使用之資料�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 55cf124baf7614813620602212856cc586b721df
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244329"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880988"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中使用範例資料集
 [top]: #machine-learning-sample-datasets
 
-在 Azure Machine Learning 中建立新的工作區時，預設會包含一些範例資料集和實驗。 其中許多範例資料集由 [Azure AI 資源庫](http://gallery.azure.ai/)中的範例模型使用。 其他則是機器學習中經常使用的各種範例。
+當您在 Azure Machine Learning Studio 中建立新的工作區時，預設會包含一些範例資料集和實驗。 其中許多範例資料集由 [Azure AI 資源庫](https://gallery.azure.ai/)中的範例模型使用。 其他則是機器學習中經常使用的各種範例。
 
 其中的部分資料集可在 Azure Blob 儲存體中使用。 下表提供這些資料集的直接連結。 您也可以透過[匯入資料][import-data]模組在實驗中使用這些資料集。
 
 在**儲存的資料集**之下的工作區中可使用這些範例資料集的其餘部分。 您可以在 Machine Learning Studio 的實驗畫布左邊的模組調色盤中找到這個。
 您可以將資料集拖曳到您的實驗畫布上，在自己的實驗中使用任一資料集。
 
-
-
+## <a name="datasets"></a>資料集
 
 <table>
 
@@ -44,7 +43,7 @@ ms.locfileid: "56244329"
 <p></p>
 <b>使用方式：</b>使用人口統計來將人口分類，以預測個人年收入是否超過 5 萬元。
 <p></p>
-<b>相關研究：</b>Kohavi, R., Becker, B. (1996)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Kohavi, R., Becker, B. (1996)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -65,7 +64,7 @@ ms.locfileid: "56244329"
 <p></p>
 <b>使用方式：</b>使用迴歸或多變量分類，依特性預測風險評分。 
 <p></p>
-<b>相關研究：</b>Schlimmer, J.C. (1987 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Schlimmer, J.C. (1987 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -96,9 +95,9 @@ ms.locfileid: "56244329"
 <p></p>
 <b>使用方式：</b>目標是透過分類來預測捐血者是否曾在 2007 年 3 月份捐過血；1 表示目標期間內有 1 名捐血者，0 表示沒有捐血者。 
 <p></p>
-<b>相關研究：</b>Yeh, I.C. (2008)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science
+<b>相關研究：</b>Yeh, I.C. (2008)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science
 <p></p>
-Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -109,7 +108,7 @@ Oncology Institute 所提供的三個癌症相關資料集之一，常出現在�
 <p></p>
 <b>使用方式：</b>根據 9 個屬性 (有些是線性，有些則為類別) 將癌症類型分類。 
 <p></p>
-<b>相關研究：</b>Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -162,13 +161,13 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 <p></p>
 <b>使用方式：</b>使用迴歸或分類，根據兩個實數值回應的其中之一來預測電源效率評等。 就多類別分類而言，會將回應變數進位至最接近的整數。 
 <p></p>
-<b>相關研究：</b>Xifara, A. & Tsanas, A.(2012 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Xifara, A. & Tsanas, A.(2012 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
   <td>航班誤點資料</td>
   <td>
-美國交通部收集的 TranStats 資料所包含的客機航班準點率資料(<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">準點</a>)。
+美國交通部收集的 TranStats 資料所包含的客機航班準點率資料(<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">準點</a>)。
 <p></p>
 此資料集涵蓋的其間為 2013 年 4 月至 10 月。 上傳至 Azure Machine Learning Studio 之前，資料集已經過下列處理：
 <ul>
@@ -187,7 +186,7 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 <p></p>
 <b>使用方式：</b>預測航班誤點。 
 <p></p>
-<b>相關研究：</b>來自美國運輸部 <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>。
+<b>相關研究：</b>來自美國運輸部 <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>。
   </td>
 </tr>
 
@@ -198,7 +197,7 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 <p></p>
 <b>使用方式：</b>這是一項困難的迴歸工作，其目的是要預測森林火災的燃燒區域。 
 <p></p>
-<b>相關研究：</b>Cortez, P., & Morais, A.(2008 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science
+<b>相關研究：</b>Cortez, P., & Morais, A.(2008 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science
 <p></p>
 [Cortez and Morais, 2007] P. Cortez and A. Morais。 一個使用氣象資料預測森林火災的資料採礦方法。 In J. Neves, M. F. Santos 與 J. Machado 編著，New Trends in Artificial Intelligence (人工智慧的新趨勢)，第 13 屆 EPIA 2007 年會議論文集 - 葡萄牙人工智慧會議，12 月，葡萄牙吉馬良斯，第 512-523 頁，2007 年。 APPIA, ISBN-13 978-989-95618-0-9. 可在下列地方獲取：<a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>。
   </td>
@@ -207,7 +206,7 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 <tr>
   <td>德國信用卡 UCI 資料集</td>
   <td>
-UCI Statlog (德國信用卡) 資料集 (<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog+German+Credit+Data</a>)，使用 german.data 檔案。
+UCI Statlog (德國信用卡) 資料集 (<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog+German+Credit+Data</a>)，使用 german.data 檔案。
 <p></p>
 此資料集會將申請者 (以一組屬性說明) 分類為低或高信用風險。 每個範例代表一名申請者。 共有 20 項特性 (包括數值和類別) 以及一個二進位標籤 (信用風險值)。 高信用風險項目的標籤 = 2，低信用風險項目的標籤 = 1。 將低風險範例誤判為高風險的成本為 1，而將高風險範例誤判為低風險的成本為 5。
   </td>
@@ -227,13 +226,13 @@ UCI Statlog (德國信用卡) 資料集 (<a href="http://archive.ics.uci.edu/ml/
 <p></p>
 <b>使用方式：</b>從尺寸預測鳶尾花類型。  
 <p></p>
-<b>相關研究：</b>Fisher, R.A. (1988 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Fisher, R.A. (1988 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
   <td>影片推文</td>
   <td>
-資料集是 Movie Tweetings 資料集的擴充版本。 資料集包含 17 萬個影片的分級，擷取自 Twitter 上結構良好的推文。 每個執行個體代表推文，並且是 Tuple：使用者識別碼、IMDB 影片識別碼、分級、時間戳記、推文的收藏數，以及這個推文的轉推數。 資料集是由 A. Said、S. Dooms、B. Loni 和 D. Tikk 為 Recommender Systems Challenge 2014 提供。
+資料集是 Movie Tweetings 資料集的擴充版本。 資料集包含 17 萬個影片的分級，擷取自 Twitter 上結構良好的推文。 每個執行個體代表推文，並且是 tuple： 使用者識別碼、 IMDB 影片識別碼、 分級、 時間戳記、 的我的最愛，以這個推文，以及這個推文的轉推數。 資料集是由 A. Said、S. Dooms、B. Loni 和 D. Tikk 為 Recommender Systems Challenge 2014 提供。
   </td>
 </tr>
 
@@ -246,7 +245,7 @@ UCI Statlog (德國信用卡) 資料集 (<a href="http://archive.ics.uci.edu/ml/
 <p></p>
 <b>使用方式：</b>根據三個多重值離散屬性和五個連續屬性，預測燃料經濟效益。 
 <p></p>
-<b>相關研究：</b>StatLib, Carnegie Mellon University, (1993)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>StatLib, Carnegie Mellon University, (1993)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -256,7 +255,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>預測受測者是否罹患糖尿病 (二元分類)。 
 <p></p>
-<b>相關研究：</b>Sigillito, V.(1990 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Sigillito, V.(1990 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml"</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -266,7 +265,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以將推薦系統定型並進行測試。 
 <p></p>
-<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science。
+<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science。
   </td>
 </tr>
 
@@ -277,7 +276,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以將推薦系統定型並進行測試。 
 <p></p>
-<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science。
+<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science。
   </td>
 </tr>
 
@@ -288,7 +287,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以將推薦系統定型並進行測試。 
 <p></p>
-<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science。
+<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science。
   </td>
 </tr>
 
@@ -301,7 +300,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 鋼鐵等級會遵循 SAE 和其他組織所定義的一組標準。 您想要尋找特定的「等級」(類別變數)，並了解所需的值。 
 <p></p>
-<b>相關研究：</b>Sterling, D. & Buntine, W.(NA)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science
+<b>相關研究：</b>Sterling, D. & Buntine, W.(NA)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science
 <p></p>
 鋼鐵等級的實用指南可在這裡找到：<a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,13 +321,13 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 此外請注意，背景活動的數目 (h 表示強子波) 會被低估。 在實際的測量中，h 或雜訊類別會佔活動的多數。 
 <p></p>
-<b>相關研究：</b>Bock, R.K. (1995 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information </td>
+<b>相關研究：</b>Bock, R.K. (1995 年)。 UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information </td>
 </tr>
 
 <tr>
   <td>天氣資料集</td>
   <td>
-NOAA 提供的每小時起降天候觀測值 (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">將 201304 的資料合併至 201310</a>)。
+NOAA 提供的每小時起降天候觀測值 (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">將 201304 的資料合併至 201310</a>)。
 <p></p>
 天氣資料涵蓋從機場天候觀測站進行的觀測，涵蓋期間為 2013 年 4 月至 10 月。 上傳至 Azure Machine Learning Studio 之前，資料集已經過下列處理：
 <ul>
@@ -343,7 +342,7 @@ NOAA 提供的每小時起降天候觀測值 (<a href="http://az754797.vo.msecnd
 <tr>
   <td>Wikipedia SP 500 資料集</td>
   <td>
-資料是從 Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) 上每家 S&P 500 公司的文章衍生而來 (儲存為 XML 資料)。
+資料是從 Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) 上每家 S&P 500 公司的文章衍生而來 (儲存為 XML 資料)。
 <p></p>
 上傳至 Azure Machine Learning Studio 之前，資料集已經過下列處理：
 <ul>
@@ -382,7 +381,7 @@ RCV1-V2 路透社新聞資料集中訓練功能的範例。 資料集有 2 萬 3
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td>
-來自 KDD Cup 1999 知識探索和資料探勘工具競賽 (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>) 的資料集。
+來自 KDD Cup 1999 知識探索和資料探勘工具競賽 (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>) 的資料集。
 <p></p>
 此資料集已下載並儲存在 Azure Blob 儲存體 (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) 中，同時包含訓練和測試資料集。 訓練資料集約有 126K 個資料列和 43 個資料行，內含標籤。 有 3 個資料行屬於標籤資訊，而 40 個資料行 (包含數值和字串/類別特性) 可用於訓練模型。 測試資料約有 22.5K 個測試範例 (具有與訓練資料相同的 43 個資料行)。
   </td>
@@ -398,7 +397,7 @@ RCV1-V2 路透社新聞資料集中新聞文章的主題指派。 一篇新聞�
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-此資料來自 KDD Cup 2010 學員績效評估挑戰 (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>)。 使用的資料為 Algebra_2008_2009 訓練集 (Stamper, J.、Niculescu-Mizil, A.、Ritter, S.、Gordon, G.J.、& Koedinger, K.R. (2010)。 Algebra I 2008-2009。 KDD Cup 2010 教育資料探勘挑戰中的的挑戰資料集。 請在 <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> 尋找。
+此資料來自 KDD Cup 2010 學員績效評估挑戰 (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>)。 使用的資料為 Algebra_2008_2009 訓練集 (Stamper, J.、Niculescu-Mizil, A.、Ritter, S.、Gordon, G.J.、& Koedinger, K.R. (2010)。 Algebra I 2008-2009。 KDD Cup 2010 教育資料探勘挑戰中的的挑戰資料集。 請在 <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> 尋找。
 <p></p>
 此資料集已下載並儲存在 Azure Blob 儲存體 (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) 中並包含來自學員教學系統的記錄檔。 提供的特性包括問題識別碼及其簡短說明、學員識別碼、時間戳記，以及學員以正確方式解出問題之間的嘗試次數。 原始資料集有 8.9M 的記錄，此資料集已縮減為前 100K 個資料列。 此資料集有 23 個以 Tab 字元分隔的各種資料行：數值、類別和時間戳記。
   </td>
@@ -406,6 +405,10 @@ RCV1-V2 路透社新聞資料集中新聞文章的主題指派。 一篇新聞�
 
 </table>
 
+## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+> [著手進行您的實驗範例](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

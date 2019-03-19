@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0885a469877d0ea9f52f6191b4cd894ddbbce5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>教學課程：Azure Active Directory 與 InsideView 整合
 
@@ -39,7 +39,7 @@ InsideView 與 Azure AD 整合提供下列優點：
 若要設定 Azure AD 與 InsideView 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 已啟用 InsideView 單一登入的訂用帳戶
+- 啟用 InsideView 單一登入的 訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -91,7 +91,7 @@ InsideView 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 InsideView 測試使用者](#creating-a-insideview-test-user)** - 使 InsideView 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[建立 InsideView 測試使用者](#creating-a-insideview-test-user)** -若要在 InsideView 與 Azure AD 中代表使用者的連結的 Britta Simon 的對應。
 1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
@@ -116,7 +116,7 @@ InsideView 與 Azure AD 整合提供下列優點：
     在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [InsideView 支援小組](mailto:support@insideview.com)以取得此值。
+    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡[InsideView 支援小組](mailto:support@insideview.com)以取得此值。
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (原始)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -191,7 +191,7 @@ InsideView 與 Azure AD 整合提供下列優點：
 
     d. 按一下頁面底部的 [新增] 。
  
-### <a name="creating-a-insideview-test-user"></a>建立 InsideView 測試使用者
+### <a name="creating-an-insideview-test-user"></a>建立 InsideView 測試使用者
 
 若要讓 Azure AD 使用者可以登入 InsideView，則必須將他們佈建到 InsideView。 在 InsideView 的情況下，佈建是手動工作。
 

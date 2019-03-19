@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998564"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890044"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 編碼器來傳送單一位元速率的即時串流 
 > [!div class="op_single_selector"]
@@ -29,17 +29,17 @@ ms.locfileid: "55998564"
 >
 >
 
-本文示範如何設定 [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) 即時編碼器，藉此將單一位元速率的即時串流傳送到已啟用即時編碼的 AMS 通道。  如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+本文示範如何設定 [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) 即時編碼器，藉此將單一位元速率的即時串流傳送到已啟用即時編碼的 AMS 通道。  如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
-本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果您是用 Mac 或 Linux，請使用 Azure 入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel.md)。
+本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果使用的是 Mac 或 Linux，则可使用 Azure 门户创建[频道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[节目](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
 ## <a name="prerequisites"></a>必要條件
-* [建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)
+* [创建 Azure 媒体服务帐户](media-services-portal-create-account.md)
 * 確定有執行中的「串流端點」。 如需詳細資訊，請參閱 [在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 啟動工具並連接到您的 AMS 帳戶。
 
-## <a name="tips"></a>祕訣
+## <a name="tips"></a>提示
 * 請盡可能使用實體的有線網際網路連線。
 * 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
 * 使用軟體型編碼器時，請關閉任何不必要的程式。
@@ -109,7 +109,7 @@ ms.locfileid: "55998564"
    * 設定檔：主要區段
    * 畫面間隔：60 個畫面
 
-    **音訊**
+     **音訊**
 
    * 目標位元速率：192 kbit/秒
    * 採樣速率：44.100 kHz
@@ -134,7 +134,7 @@ ms.locfileid: "55998564"
 1. 選取 [確定] 。
 2. 在 **Wirecast** 主畫面上，確認視訊和音訊的輸入來源已就緒，然後按下左上角的 [資料流]。
 
-   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > 在您按一下 [資料流] 之前，**必須**確保通道已就緒。
@@ -158,7 +158,7 @@ ms.locfileid: "55998564"
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 2. 為程式命名，並視需要調整 [封存時間長度] \(預設為 4 小時)。 您也可以指定儲存體位置，或保留為預設值。  
 3. 勾選 [現在啟動程式]  方塊。
-4. 按一下 [建立程式] 。  
+4. 单击“创建节目” 。  
 
    >[!NOTE]
    >建立程式時所使用的時間會比建立通道時少。

@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471142"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838845"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>使用資料庫異地複寫進行多租用戶 SaaS 應用程式的災害復原
 
@@ -25,14 +25,14 @@ ms.locfileid: "55471142"
 
 本教學課程會探索容錯移轉和容錯回復的工作流程。 您將學習如何：
 > [!div class="checklist"]
-
->* 將資料庫和彈性集區組態資訊同步至租用戶目錄中
->* 在替代區域中設定由應用程式、伺服器和集區組成的復原環境
->* 使用_異地複寫_將目錄和租用戶資料庫複寫至復原區域
->* 將應用程式以及目錄和租用戶資料庫容錯移轉至復原區域 
->* 隨後，在中斷問題解決後將應用程式、目錄和租用戶資料庫重新容錯移轉至原始區域
->* 在每個租用戶資料庫容錯移轉後更新目錄，以追蹤每個租用戶資料庫的主要位置
->* 確定應用程式和主要租用戶資料庫一律共置於相同的 Azure 區域中，以降低延遲  
+> 
+> * 將資料庫和彈性集區組態資訊同步至租用戶目錄中
+> * 在替代區域中設定由應用程式、伺服器和集區組成的復原環境
+> * 使用_異地複寫_將目錄和租用戶資料庫複寫至復原區域
+> * 將應用程式以及目錄和租用戶資料庫容錯移轉至復原區域 
+> * 隨後，在中斷問題解決後將應用程式、目錄和租用戶資料庫重新容錯移轉至原始區域
+> * 在每個租用戶資料庫容錯移轉後更新目錄，以追蹤每個租用戶資料庫的主要位置
+> * 確定應用程式和主要租用戶資料庫一律共置於相同的 Azure 區域中，以降低延遲  
  
 
 在開始本教學課程前，請確定已符合下列必要條件：
@@ -43,7 +43,7 @@ ms.locfileid: "55471142"
 
 ![復原架構](media/saas-dbpertenant-dr-geo-replication/recovery-architecture.png)
  
-災害復原 (DR) 對許多應用程式而言都是重要的考量，無論是基於合規性因素，還是商務持續性。 如果預期會有長時間的服務中斷，妥善的 DR 計畫將盡可能縮短運作中斷的時間。 使用異地複寫將可在復原區域中維護能夠在短時間內容錯移轉的資料庫複本，而提供最低的 RPO 和 RTO。
+災害復原 (DR) 對許多應用程式而言都是重要的考量，無論是基於合規性因素，還是業務持續性。 如果預期會有長時間的服務中斷，妥善的 DR 計畫將盡可能縮短運作中斷的時間。 使用異地複寫將可在復原區域中維護能夠在短時間內容錯移轉的資料庫複本，而提供最低的 RPO 和 RTO。
 
 以異地複寫為基礎的 DR 計畫包含三個不同的部分：
 * 設定 - 建立和維護復原環境
@@ -106,7 +106,7 @@ ms.locfileid: "55471142"
 在此工作中，您會開始進行將伺服器、彈性集區和資料庫的組態同步至租用戶目錄中的程序。 此程序會將目錄中的這些資訊保持在最新狀態。  此程序會處理使用中的目錄，無論目錄位於原始區域還是復原區域中。 組態資訊會作為復原程序的一部分，以確保復原環境與原始環境的一致性，並且在隨後的回復期間確保原始區域會透過在復原環境中所做的任何變更保有一致性。 此目錄也可用來追蹤租用戶資源的復原狀態
 
 > [!IMPORTANT]
-> 為了方便說明，在這些教學課程中，一律會以在您的用戶端使用者登入下執行的本機 Powershell 作業或工作階段，來實作同步程序和其他長時間執行的復原與回復程序。 在您登入時核發的驗證權杖將在數小時後到期，屆時作業即會失敗。 在生產環境中，應以某種可靠、在服務主體下執行的 Azure 服務來實作長時間執行的程序。 請參閱[使用 Azure PowerShell 建立具有憑證的服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)。
+> 為了簡單起見，同步處理程序和其他長時間執行的復原與回復程序會實作在這些教學課程中為本機 PowerShell 作業或在您的用戶端使用者登入下執行的工作階段。 在您登入時核發的驗證權杖將在數小時後到期，屆時作業即會失敗。 在生產環境中，應以某種可靠、在服務主體下執行的 Azure 服務來實作長時間執行的程序。 請參閱[使用 Azure PowerShell 建立具有憑證的服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)。
 
 1. 在 _PowerShell ISE_ 中，開啟 ...\Learning Modules\UserConfig.psm1 檔案。 請將第 10 和 11 行上的 `<resourcegroup>` 與 `<user>` 取代為您部署應用程式時所使用的值。  儲存檔案。
 
@@ -199,15 +199,15 @@ ms.locfileid: "55471142"
 當應用程式端點在流量管理員中停用時，應用程式無法使用。 當目錄容錯移轉至復原區域，且所有租用戶皆標示為離線後，應用程式即會重新上線。 雖然應用程式可供使用，但每個租用戶在事件中樞內都會顯示為離線，直到其資料庫容錯移轉為止。 請務必設計您的應用程式以處理離線的租用戶資料庫。
 
 1. 在復原目錄資料庫後，立即在網頁瀏覽器中重新整理 Wingtip Tickets 事件中樞。
-    * 在頁尾中，請留意目錄伺服器名稱此時具有 _-recovery_ 尾碼，且位於復原區域中。
-    * 留意到尚未還原的租用戶會標示為離線，且無法選取。  
+   * 在頁尾中，請留意目錄伺服器名稱此時具有 _-recovery_ 尾碼，且位於復原區域中。
+   * 留意到尚未還原的租用戶會標示為離線，且無法選取。  
 
-    > [!Note]
-    > 如果只有幾個資料庫要復原，您可能無法在復原完成前重新整理瀏覽器，因此您在租用戶處於離線狀態時可能不會看見租用戶。 
+     > [!Note]
+     > 如果只有幾個資料庫要復原，您可能無法在復原完成前重新整理瀏覽器，因此您在租用戶處於離線狀態時可能不會看見租用戶。 
  
-    ![事件中樞離線](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
+     ![事件中樞離線](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * 如果您直接開啟離線租用戶的 [事件] 頁面，頁面上會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&ltuser&gt;.trafficmanager.net/contosoconcerthall ![Contoso 離線頁面](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * 如果您直接開啟離線租用戶的 [事件] 頁面，頁面上會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&ltuser&gt;.trafficmanager.net/contosoconcerthall ![Contoso 離線頁面](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>在復原區域中佈建新租用戶
 即使在所有現有的租用戶資料庫皆完成容錯移轉之前，您也可以在復原區域中佈建新的租用戶。  
@@ -236,12 +236,12 @@ ms.locfileid: "55471142"
     * 請查看您已部署的資源群組，以及具有 _-recovery_ 尾碼的復原資源群組。  復原資源群組中包含所有在復原程序期間建立的資源，以及在中斷期間建立的新資源。  
 
 3. 開啟復原資源群組，並請查看下列項目：
-    * 目錄的復原版本和 tenants1 伺服器 (具有 _-recovery_ 尾碼)。  這些伺服器上已還原的目錄和租用戶資料庫都具有在原始區域中使用的名稱。
+   * 目錄的復原版本和 tenants1 伺服器 (具有 _-recovery_ 尾碼)。  這些伺服器上已還原的目錄和租用戶資料庫都具有在原始區域中使用的名稱。
 
-    * _tenants2-dpt-&lt;user&gt;-recovery_ SQL 伺服器。  這是在中斷期間用來佈建新租用戶的伺服器。
-    *   名為 _events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt_; 的 App Service，這是事件應用程式的復原執行個體。 
+   * _tenants2-dpt-&lt;user&gt;-recovery_ SQL 伺服器。  這是在中斷期間用來佈建新租用戶的伺服器。
+   * 名為 _events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt_; 的 App Service，這是事件應用程式的復原執行個體。 
 
-    ![Azure 復原資源 ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)    
+     ![Azure 復原資源](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. 開啟 _tenants2-dpt-&lt;user&gt;-recovery_ SQL 伺服器。  請留意其中包含資料庫 _hawthornhall_ 和彈性集區 _Pool1_。  _Hawthornhall_ 資料庫設定為 _Pool1_ 彈性集區中的彈性資料庫。
 
@@ -305,12 +305,12 @@ ms.locfileid: "55471142"
 
 在本教學課程中，您已了解如何：
 > [!div class="checklist"]
-
->* 將資料庫和彈性集區組態資訊同步至租用戶目錄中
->* 在替代區域中設定由應用程式、伺服器和集區組成的復原環境
->* 使用_異地複寫_將目錄和租用戶資料庫複寫至復原區域
->* 將應用程式以及目錄和租用戶資料庫容錯移轉至復原區域 
->* 在中斷問題解決後，將應用程式、目錄和租用戶資料庫容錯回復至原始區域
+> 
+> * 將資料庫和彈性集區組態資訊同步至租用戶目錄中
+> * 在替代區域中設定由應用程式、伺服器和集區組成的復原環境
+> * 使用_異地複寫_將目錄和租用戶資料庫複寫至復原區域
+> * 將應用程式以及目錄和租用戶資料庫容錯移轉至復原區域 
+> * 在中斷問題解決後，將應用程式、目錄和租用戶資料庫容錯回復至原始區域
 
 您可以在[商務持續性概觀](sql-database-business-continuity.md)文件中深入了解 Azure SQL 資料庫為了啟用商務持續性而提供的技術。
 

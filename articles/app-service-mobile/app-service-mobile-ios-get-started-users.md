@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
-ms.openlocfilehash: e0eeee05ebad2e8148752f988bbbc2f6a0d7c296
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592689"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445903"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>將驗證新增至您的 iOS 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "27592689"
 
 ## <a name="redirecturl"></a>將您的應用程式新增至允許的外部重新導向 URL
 
-安全的驗證會要求您為應用程式定義新的 URL 配置。  這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。  我們會在這整個教學課程中使用 URL 配置 appname。  不過，您可以使用任何您選擇的 URL 結構描述。  它對於您的行動應用程式而言應該是唯一的。  若要在伺服器端啟用重新導向：
+安全身份验证要求为应用定义新的 URL 方案。  這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。  我們會在這整個教學課程中使用 URL 配置 appname。  不過，您可以使用任何您選擇的 URL 結構描述。  它對於您的行動應用程式而言應該是唯一的。  若要在伺服器端啟用重新導向：
 
 1. 在 [Azure 入口網站]中，選取您的 App Service。
 
@@ -41,9 +41,9 @@ ms.locfileid: "27592689"
 
 4. 將 [管理模式] 設定為 [進階]。
 
-5. 在 [允許的外部重新導向 URL] 中，輸入 `appname://easyauth.callback`。  此字串中的 appname 是您行動應用程式的 URL 配置。  它必須遵循通訊協定的標準 URL 規格 (只使用字母和數字，並以字母為開頭)。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
+5. 在 [允許的外部重新導向 URL] 中，輸入 `appname://easyauth.callback`。  此字串中的 appname 是您行動應用程式的 URL 配置。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
 
-6. 按一下 [SERVICEPRINCIPAL] 。
+6. 按一下 [確定]。
 
 7. 按一下 [檔案] 。
 
@@ -77,7 +77,7 @@ ms.locfileid: "27592689"
     }
     ```
 
-    如果您不使用 Google 作為識別提供者，請將 google 變更為 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入允許清單][1]。
+    如果您不使用 Google 作為識別提供者，請將 google 變更為 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入白名單][1]。
 
     使用您應用程式的唯一名稱來取代 **urlScheme**。  urlScheme 必須與您在 Azure 入口網站中的 [允許的外部重新導向 URL] 欄位中指定的 URL 配置通訊協定相同。 urlScheme 可在完成驗證要求之後，供驗證回呼用來切換回您的應用程式。
 
@@ -87,7 +87,7 @@ ms.locfileid: "27592689"
     [self loginAndGetData];
     ```
 
-3. 開啟 `QSAppDelegate.h` 檔案並新增下列程式碼：
+3. 打开 `QSAppDelegate.h` 文件，并添加以下代码：
 
     ```Objective-C
     #import "QSTodoService.h"
@@ -110,7 +110,7 @@ ms.locfileid: "27592689"
     }
     ```
 
-   將下列程式碼新增於 `#pragma mark - Core Data stack` 行的正前方。  利用您在步驟 1 中所使用的 urlScheme 值來取代appname。
+   將下列程式碼新增於 `#pragma mark - Core Data stack` 行的正前方。  取代_appname_與您在步驟 1 中使用的 urlScheme 值。
 
 5. 開啟 `AppName-Info.plist` 檔案 (使用您的應用程式名稱來取代 AppName)，並新增下列程式碼：
 
@@ -132,7 +132,7 @@ ms.locfileid: "27592689"
 
     使用您的 Apple 套件組合識別碼，來取代 **CFBundleURLName** 的 `com.microsoft.azure.zumo` 字串。
 
-6. 按下 [執行] 以啟動應用程式，然後登入。 當您登入時，應該能夠檢視待辦事項清單並進行更新。
+6. 按下 [執行] 以啟動應用程式，然後登入。 登录后，应可以查看 Todo 列表并进行更新。
 
 **Swift**：
 
@@ -163,11 +163,11 @@ ms.locfileid: "27592689"
     }
     ```
 
-    如果您不使用 Google 作為識別提供者，請將 google 變更為 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入允許清單][1]。
+    如果您不使用 Google 作為識別提供者，請將 google 變更為 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入白名單][1]。
 
     使用您應用程式的唯一名稱來取代 **urlScheme**。  urlScheme 必須與您在 Azure 入口網站中的 [允許的外部重新導向 URL] 欄位中指定的 URL 配置通訊協定相同。 urlScheme 可在完成驗證要求之後，供驗證回呼用來切換回您的應用程式。
 
-2. 移除 ToDoTableViewController.swift 中 `viewDidLoad()` 結尾處的 `self.refreshControl?.beginRefreshing()` 和 `self.onRefresh(self.refreshControl)` 行。 在其位置新增呼叫至 `loginAndGetData()` ：
+2. 删除 ToDoTableViewController.swift 中 `viewDidLoad()` 末尾的 `self.refreshControl?.beginRefreshing()` 和 `self.onRefresh(self.refreshControl)` 行。 在其位置上添加对 `loginAndGetData()` 的调用：
 
     ```swift
     loginAndGetData()
@@ -188,7 +188,7 @@ ms.locfileid: "27592689"
     }
     ```
 
-    利用您在步驟 1 中所使用的 urlScheme 值來取代appname。
+    取代_appname_與您在步驟 1 中使用的 urlScheme 值。
 
 4. 開啟 `AppName-Info.plist` 檔案 (使用您的應用程式名稱來取代 AppName)，並新增下列程式碼：
 
@@ -212,7 +212,7 @@ ms.locfileid: "27592689"
 
 5. 按下 [執行] 以啟動應用程式，然後登入。 當您登入時，應該能夠檢視待辦事項清單並進行更新。
 
-App Service 驗證會使用 Apples Inter-App Communication。  如需有關這個主題的詳細資訊，請參閱 [Apple 文件][2]
+App Service 驗證會使用 Apples Inter-App Communication。  有关此主题的更多详细信息，请参阅 [Apple 文档][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

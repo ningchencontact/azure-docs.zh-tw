@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3521ea7599aecd20784bd925492649b86921c567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 57b7f540ccf80c6d25a7dfcfcad1ba7ca6698167
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182301"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113226"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求必須從已核准的用戶端應用程式存取雲端應用程式 
 
@@ -97,7 +97,7 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 - 能夠存取電子郵件
 
-任何 Intune 應用程式防護原則都會在存取公司資料時啟動，而且可能會提示使用者重新啟動應用程式、使用其他 PIN 碼等 (若有針對應用程式和平台設定)。
+任何 Intune 應用程式保護原則會啟動一次存取公司資料，而且可能會提示使用者重新啟動應用程式，請使用其他 pin 碼等 （若已設定的應用程式 」 和 「 平台）。
 
 ### <a name="configuration"></a>組態 
 
@@ -292,13 +292,13 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 5. [存取控制項] 需要選取下列項目：
 
-    - [裝置需要標記為合規]
+   - [裝置需要標記為合規]
 
-    - [需要經過核准的用戶端應用程式 \(預覽\)\]
+   - [需要經過核准的用戶端應用程式 \(預覽\)\]
 
-    - [需要其中一個選取的控制項]   
+   - [需要其中一個選取的控制項]   
  
-    ![條件式存取](./media/app-based-conditional-access/11.png)
+     ![條件式存取](./media/app-based-conditional-access/11.png)
 
 
 
@@ -388,13 +388,13 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 5. [存取控制項] 需要選取下列項目：
 
-    - [裝置需要標記為合規]
+   - [裝置需要標記為合規]
 
-    - [需要經過核准的用戶端應用程式 \(預覽\)\]
+   - [需要經過核准的用戶端應用程式 \(預覽\)\]
 
-    - [需要所有選取的控制項]   
+   - [需要所有選取的控制項]   
  
-    ![條件式存取](./media/app-based-conditional-access/13.png)
+     ![條件式存取](./media/app-based-conditional-access/13.png)
 
 
 
@@ -420,13 +420,13 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 5. [存取控制項] 需要選取下列項目：
 
-    - [裝置需要標記為合規]
+   - [裝置需要標記為合規]
 
-    - [需要經過核准的用戶端應用程式 \(預覽\)\]
+   - [需要經過核准的用戶端應用程式 \(預覽\)\]
 
-    - [需要所有選取的控制項]   
+   - [需要所有選取的控制項]   
  
-    ![條件式存取](./media/app-based-conditional-access/64.png)
+     ![條件式存取](./media/app-based-conditional-access/64.png)
 
 
 

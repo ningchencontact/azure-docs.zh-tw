@@ -13,26 +13,26 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209739"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102096"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>作法：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
 > [!NOTE]
-> 此功能會取代目前透過入口網站提供的[宣告自訂](active-directory-saml-claims-customization.md)。 在同一應用程式中，如果自訂宣告的方法不止本文詳述的 Graph/PowerShell 方法，還包括入口網站，則對應用程式發出的權杖將會忽略入口網站中的設定。 透過本文詳述的方法所進行的設定將不會反映在入口網站中。
+> 這項功能會取代目前透過入口網站提供的[宣告自訂](active-directory-saml-claims-customization.md)。 在同一應用程式中，如果自訂宣告的方法不止本文詳述的 Graph/PowerShell 方法，還包括入口網站，則對應用程式發出的權杖將會忽略入口網站中的設定。 透過本文詳述的方法所進行的設定將不會反映在入口網站中。
 
-租用戶系統管理員會使用此功能，以針對其租用戶的特定應用程式自訂權杖中所發出的宣告。 您可以使用宣告對應原則來進行下列作業：
+租用戶系統管理員會使用這項功能，以針對其租用戶的特定應用程式自訂權杖中所發出的宣告。 您可以使用宣告對應原則來進行下列作業：
 
 - 選取要在權杖中包含哪些宣告。
 - 建立尚未存在的宣告類型。
 - 選擇或變更特定宣告中所發出的資料來源。
 
 > [!NOTE]
-> 此功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 公用預覽版期間功能可用於任何 Azure Active Directory (Azure AD) 訂用帳戶。 不過，當此功能變成公開推出版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。 此功能支援為 WS-Fed、SAML、OAuth 及 OpenID Connect 通訊協定設定宣告對應原則。
+> 這項功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 公用預覽版期間功能可用於任何 Azure Active Directory (Azure AD) 訂用帳戶。 不過，當此功能變成正式運作版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。 此功能支援為 WS-Fed、SAML、OAuth 及 OpenID Connect 通訊協定設定宣告對應原則。
 
 ## <a name="claims-mapping-policy-type"></a>宣告對應原則類型
 
@@ -44,7 +44,7 @@ ms.locfileid: "56209739"
 
 有些宣告集界定了自己在權杖中的使用方式和使用時機。
 
-| 宣告集 | 說明 |
+| 宣告集 | 描述 |
 |---|---|
 | 核心宣告集 | 無論原則為何，都存在於每個權杖中。 這些宣告也都將被視為受限制的宣告，無法予以修改。 |
 | 基本宣告集 | 包含會根據預設向權杖發出的宣告 (除了核心宣告集以外)。 您可以使用宣告對應原則，省略或修改基本宣告。 |
@@ -81,7 +81,7 @@ ms.locfileid: "56209739"
 |azpacr|
 |c_hash|
 |ca_enf|
-|副本|
+|cc|
 |cert_token_use|
 |client_id|
 |cloud_graph_host_name|
@@ -97,7 +97,7 @@ ms.locfileid: "56209739"
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|電子郵件|
+|电子邮件|
 |endpoint|
 |enfpolids|
 |exp|
@@ -109,13 +109,13 @@ ms.locfileid: "56209739"
 |hasgroups|
 |hash_alg|
 |home_oid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
 |iat|
 |identityprovider|
 |idp|
@@ -157,7 +157,7 @@ ms.locfileid: "56209739"
 |refreshtoken|
 |request_nonce|
 |resource|
-|角色|
+|role|
 |角色|
 |scope|
 |scp|
@@ -189,52 +189,52 @@ ms.locfileid: "56209739"
 
 |宣告類型 (URI)|
 | ----- |
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.microsoft.com/identity/claims/accesstoken|
-|http://schemas.microsoft.com/identity/claims/openid2_id|
-|http://schemas.microsoft.com/identity/claims/identityprovider|
-|http://schemas.microsoft.com/identity/claims/objectidentifier|
-|http://schemas.microsoft.com/identity/claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
-|http://schemas.microsoft.com/identity/claims/tenantid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
-|http://schemas.microsoft.com/claims/groups.link|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
-|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
-|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
-|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
-|http://schemas.microsoft.com/2014/03/psso|
-|http://schemas.microsoft.com/claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
-|http://schemas.microsoft.com/identity/claims/scope|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.microsoft.com/identity/claims/accesstoken`|
+|`http://schemas.microsoft.com/identity/claims/openid2_id`|
+|`http://schemas.microsoft.com/identity/claims/identityprovider`|
+|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
+|`http://schemas.microsoft.com/identity/claims/puid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.microsoft.com/identity/claims/tenantid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
+|`http://schemas.microsoft.com/claims/groups.link`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
+|`http://schemas.microsoft.com/2014/03/psso`|
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
+|`http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
+|`http://schemas.microsoft.com/identity/claims/scope`|
 
 ## <a name="claims-mapping-policy-properties"></a>宣告對應原則屬性
 
@@ -284,11 +284,11 @@ ms.locfileid: "56209739"
 
 #### <a name="table-3-valid-id-values-per-source"></a>表 3：每個來源的有效識別碼值
 
-|來源|ID|說明|
+|來源|ID|描述|
 |-----|-----|-----|
 |使用者|surname|姓氏|
 |使用者|givenname|名字|
-|使用者|displayname|顯示名稱|
+|使用者|displayname|显示名称|
 |使用者|objectid|ObjectID|
 |使用者|mail|電子郵件地址|
 |使用者|userprincipalname|使用者主體名稱|
@@ -319,7 +319,7 @@ ms.locfileid: "56209739"
 |使用者|extensionattribute14|擴充屬性 14|
 |使用者|extensionattribute15|擴充屬性 15|
 |使用者|othermail|其他郵件|
-|使用者|country|國家 (地區)|
+|使用者|country|国家/地区|
 |使用者|city|City|
 |使用者|state|State|
 |使用者|jobtitle|職稱|
@@ -327,7 +327,7 @@ ms.locfileid: "56209739"
 |使用者|facsimiletelephonenumber|傳真電話號碼|
 |application, resource, audience|displayname|顯示名稱|
 |application, resource, audience|objected|ObjectID|
-|application, resource, audience|tags|服務主體標籤|
+|application、resource、audience|标记|服務主體標籤|
 |公司|tenantcountry|租用戶的國家/地區|
 
 **TransformationID：** 只有在來源元素設定為「轉換」時，才必須提供 TransformationID 元素。
@@ -350,7 +350,7 @@ ms.locfileid: "56209739"
 
 **摘要：** 使用此屬性可對來源資料套用常見的轉換，以便為宣告結構描述中指定的宣告產生輸出資料。
 
-**識別碼：** 使用識別碼元素可在 TransformationID 宣告結構描述項目中參考此轉換項目。 對於此原則內的每個轉換項目，此值都必須是唯一的。
+**識別碼：** 使用識別碼元素可在 TransformationID 宣告結構描述項目中參考此轉換項目。 對於這項原則內的每個轉換項目，此值都必須是唯一的。
 
 **TransformationMethod：** TransformationMethod 元素可識別該執行哪個作業才能為宣告產生資料。
 
@@ -358,9 +358,9 @@ ms.locfileid: "56209739"
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>表 4：轉換方法和預期的輸入和輸出
 
-|TransformationMethod|預期的輸入|預期的輸出|說明|
+|TransformationMethod|預期的輸入|預期的輸出|描述|
 |-----|-----|-----|-----|
-|Join|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
+|联接|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|擷取電子郵件地址的本機部分。 例如：mail:"foo@bar.com" 會導致 outputClaim:"foo"。 如果沒有 \@ 符號，原始輸入字串會以現狀傳回。|
 
 **InputClaims：** 使用 InputClaims 元素可從宣告結構描述項目將資料傳遞至轉換。 它有兩個屬性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
@@ -384,7 +384,7 @@ ms.locfileid: "56209739"
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>表 5：允許作為 SAML NameID 資料來源的屬性
 
-|來源|ID|說明|
+|來源|ID|描述|
 |-----|-----|-----|
 |使用者|mail|電子郵件地址|
 |使用者|userprincipalname|使用者主體名稱|
@@ -429,14 +429,14 @@ ms.locfileid: "56209739"
 
 在 Azure AD 中，當您可以為特定的服務主體自訂權杖中所發出的宣告時，許多案例便可能實現。 在本節中，我們將逐步解說一些常見案例，以協助您掌握如何使用宣告對應原則類型。
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 在下列範例中，您會為服務主體建立、更新、連結和刪除原則。 如果您是 Azure AD 的新手，建議您[先了解如何取得 Azure AD 租用戶](quickstart-create-new-tenant.md)，然後再參考範例繼續操作。
 
 若要開始使用，請執行下列步驟：
 
 1. 下載最新的 [Azure AD PowerShell 模組公開預覽版本](https://www.powershellgallery.com/packages/AzureADPreview)。
-1. 執行 Connect 命令以登入您的 Azure AD 管理帳戶。 您每次啟動新的工作階段時執行此命令。
+1. 執行 Connect 命令以登入您的 Azure AD 管理帳戶。 每次启动新会话都需要运行此命令。
     
      ``` powershell
     Connect-AzureAD -Confirm
@@ -448,72 +448,72 @@ ms.locfileid: "56209739"
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>範例：建立並指派原則，以在核發給服務主體的權杖中省略基本宣告。
-在此範例中，您將會建立原則，以從核發給連結之服務主體的權杖中移除基本宣告集。
+   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>範例：建立並指派原則，以在核發給服務主體的權杖中省略基本宣告。
+   在此範例中，您將會建立原則，以從核發給連結之服務主體的權杖中移除基本宣告集。
 
 1. 建立宣告對應原則。 這個連結至特定服務主體的原則會從權杖中移除基本宣告。
-    1. 若要建立原則，請執行此命令： 
+   1. 若要建立原則，請執行此命令： 
     
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
-    ```
-    2. 若要查看您的新原則並取得原則的 ObjectId，請執行下列命令：
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
+      ```
+   2. 若要查看您的新原則並取得原則的 ObjectId，請執行下列命令：
     
-     ``` powershell
-    Get-AzureADPolicy
-    ```
-1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。 
-    1.  若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
-    2.  當您有服務主體的 ObjectId 時，執行下列命令︰  
+      ``` powershell
+      Get-AzureADPolicy
+      ```
+1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
+   1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
+   2. 當您有服務主體的 ObjectId 時，執行下列命令︰  
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>範例：建立並指派原則，在核發給服務主體的權杖中加入 EmployeeID 和 TenantCountry 作為宣告
 
 在此範例中，您將會建立原則，以在核發給連結之服務主體的權杖中新增 EmployeeID 和 TenantCountry。 在 SAML 權杖和 JWT 中，系統會以名稱宣告類型來發出 EmployeeID。 在 SAML 權杖和 JWT 中，系統會以國家/地區宣告類型來發出 TenantCountry。 在此範例中，我們會繼續在權杖中納入基本宣告集。
 
 1. 建立宣告對應原則。 這個連結至特定服務主體的原則會在權杖中新增 EmployeeID 和 TenantCountry 宣告。
-    1. 若要建立原則，請執行此命令：  
+   1. 若要建立原則，請執行此命令：  
      
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
-    ```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
+      ```
     
-    2. 若要查看您的新原則並取得原則的 ObjectId，請執行下列命令：
+   2. 若要查看您的新原則並取得原則的 ObjectId，請執行下列命令：
      
-     ``` powershell  
-    Get-AzureADPolicy
-    ```
-1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。 
-    1.  若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
-    2.  當您有服務主體的 ObjectId 時，執行下列命令︰  
+      ``` powershell  
+      Get-AzureADPolicy
+      ```
+1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
+   1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
+   2. 當您有服務主體的 ObjectId 時，執行下列命令︰  
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>範例：建立並指派在核發給服務主體的權杖中使用宣告轉換的原則
 
 在此範例中，您將會建立原則，以對核發給連結之服務主體的 JWT 發出自訂宣告「JoinedData」。 這個宣告會包含藉由聯結資料 (儲存於使用者物件上的 extensionattribute1 屬性中) 與「.sandbox」所建立的值。 在此範例中，我們會在權杖中排除基本宣告集。
 
 1. 建立宣告對應原則。 這個連結至特定服務主體的原則會在權杖中新增 EmployeeID 和 TenantCountry 宣告。
-    1. 若要建立原則，請執行此命令： 
+   1. 若要建立原則，請執行此命令： 
      
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
-    ```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      ```
     
-    2. 若要查看您的新原則並取得原則的 ObjectId，請執行下列命令： 
+   2. 若要查看您的新原則並取得原則的 ObjectId，請執行下列命令： 
      
-     ``` powershell
-    Get-AzureADPolicy
-    ```
-1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。 
-    1.  若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
-    2.  當您有服務主體的 ObjectId 時，執行下列命令︰ 
+      ``` powershell
+      Get-AzureADPolicy
+      ```
+1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
+   1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
+   2. 當您有服務主體的 ObjectId 時，執行下列命令︰ 
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```

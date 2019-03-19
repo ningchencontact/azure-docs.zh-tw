@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308718"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779142"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>處理 Azure Logic Apps 中的錯誤和例外狀況
 
@@ -29,7 +29,7 @@ ms.locfileid: "56308718"
 
 以下是重試原則的類型： 
 
-| 類型 | 說明 | 
+| 類型 | 描述 | 
 |------|-------------| 
 | **預設值** | 此原則會以*指數漸增*的間隔 (依 7.5 秒調整，但限制在 5 到 45 秒之間) 傳送最多 4 次重試。 | 
 | **指數間隔**  | 此原則會先等待選自指數成長範圍內的隨機間隔時間，再傳送下一個要求。 | 
@@ -71,7 +71,7 @@ ms.locfileid: "56308718"
 
 *必要*
 
-| 值 | 類型 | 說明 |
+| 值 | 類型 | 描述 |
 |-------|------|-------------|
 | <retry-policy-type> | 字串 | 您想要使用的重試原則類型：`default`、`none`、`fixed` 或 `exponential` | 
 | <retry-interval> | 字串 | 值必須使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的重試間隔。 預設最小間隔是 `PT5S`，最大間隔則是 `PT1D`。 當您使用指數間隔原則時，您可以指定不同的最小和最大值。 | 
@@ -80,7 +80,7 @@ ms.locfileid: "56308718"
 
 *選擇性*
 
-| 值 | 類型 | 說明 |
+| 值 | 類型 | 描述 |
 |-------|------|-------------|
 | <minimum-interval> | 字串 | 對於指數間隔原則，此為隨機選取間隔的最小間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <maximum-interval> | 字串 | 對於指數間隔原則，此為隨機選取間隔的最大間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
@@ -223,9 +223,9 @@ ms.locfileid: "56308718"
 
 雖然從範圍擷取失敗很實用，但還是建議您取得內容以協助解實際上有哪些動作失敗，以及所傳回的任何錯誤或狀態碼。 `@result()` 運算式會提供範圍內所有動作結果的相關內容。
 
-`@result()` 運算式會接受單一參數 (範圍名稱)，並傳回該範圍內所有動作結果的陣列。 這些動作物件包含與 **@actions()** 物件相同的屬性，例如動作的開始時間、結束時間、狀態、輸入、相互關聯識別碼和輸出。 若要傳送在某個範圍內失敗之任何動作的內容，您可以輕鬆地將 **@result()** 函式與 **runAfter** 屬性配對。
+`@result()` 運算式會接受單一參數 (範圍名稱)，並傳回該範圍內所有動作結果的陣列。 這些動作物件包含相同的屬性 **\@actions()** 物件，例如動作的開始時間、 結束時間、 狀態、 輸入、 相互關聯識別碼和輸出。 若要在範圍內傳送失敗的任何動作的內容，您可以輕易地配對 **\@result()** 函式搭配**runAfter**屬性。
 
-若要針對範圍中結果為 **Failed** 的每個動作執行動作，以及篩選結果陣列以顯示失敗的動作，您可以將 **@result()** 與**[篩選陣列](../connectors/connectors-native-query.md)** 動作及 [**For each**](../logic-apps/logic-apps-control-flow-loops.md) 迴圈配對。 您可以取得篩選後的結果陣列，並使用 **For each** 迴圈對每個失敗執行動作。 
+若要執行的範圍中的每個動作的動作**失敗**結果，及篩選結果陣列以顯示失敗的動作，您可以配對 **\@result()** 與 **[篩選陣列](../connectors/connectors-native-query.md)** 動作並[**每個**](../logic-apps/logic-apps-control-flow-loops.md)迴圈。 您可以取得篩選後的結果陣列，並使用 **For each** 迴圈對每個失敗執行動作。 
 
 以下範例 (隨後並有詳細說明) 會傳送 HTTP POST 要求，其中含有任何在 "My_Scope" 範圍內失敗之動作的回應本文：
 
@@ -317,7 +317,7 @@ ms.locfileid: "56308718"
 }
 ```
 
-若要執行不同的例外狀況處理模式，您可以使用本文前面描述的運算式。 您可以選擇在範圍外執行單一例外狀況處理動作，以接受整個篩選後的失敗陣列，並移除 **For each** 動作。 您也可以包含 **@result()** 回應中的其他有用屬性，如先前所述。
+若要執行不同的例外狀況處理模式，您可以使用本文前面描述的運算式。 您可以選擇在範圍外執行單一例外狀況處理動作，以接受整個篩選後的失敗陣列，並移除 **For each** 動作。 您也可以包含其他有用屬性 **\@result()** 如先前所述的回應。
 
 ## <a name="azure-diagnostics-and-metrics"></a>Azure 診斷和計量
 

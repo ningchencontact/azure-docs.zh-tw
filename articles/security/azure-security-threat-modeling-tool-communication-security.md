@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897294"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>安全性架構：通訊安全性 | 風險降低 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Azure 事件中樞** | <ul><li>[使用 SSL/TLS 保護與事件中樞的通訊](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[檢查服務帳戶權限，並確認自訂服務或 ASP.NET 網頁採用 CRM 的安全性](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[在將內部部署 SQL Server 連線至 Azure Data Factory 時使用資料管理閘道](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[在內部部署 SQL Server 連線至 Azure Data Factory 時使用資料管理閘道](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[確定前往 Identity Server 的所有流量都是透過 HTTPS 連線](#identity-https)</li></ul> |
 | **Web 應用程式** | <ul><li>[驗證用來驗證 SSL、TLS 及 DTLS 連線的 X.509 憑證](#x509-ssltls)</li><li>[在 Azure App Service 中設定自訂網域的 SSL 憑證](#ssl-appservice)</li><li>[強制所有前往 Azure App Service 的流量透過 HTTPS 連線來進行](#appservice-https)</li><li>[啟用 HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **資料庫** | <ul><li>[啟用 SQL Server 連線加密和憑證驗證](#sqlserver-validation)</li><li>[強制加密與 SQL Server 的通訊](#encrypted-sqlserver)</li></ul> |
@@ -60,15 +60,15 @@ ms.locfileid: "53013180"
 | **參考**              | N/A  |
 | **步驟** | 檢查服務帳戶權限，並確認自訂服務或 ASP.NET 網頁採用 CRM 的安全性 |
 
-## <a id="sqlserver-factory"></a>在將內部部署 SQL Server 連線至 Azure Data Factory 時使用資料管理閘道
+## <a id="sqlserver-factory"></a>在內部部署 SQL Server 連線至 Azure Data Factory 時使用資料管理閘道
 
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure Data Factory | 
 | **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
-| **屬性**              | 連結服務類型 - Azure 和內部部署 |
-| **參考**              |[在內部部署與 Azure Data Factory 之間移動資料](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway)、[資料管理閘道](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **屬性**              | 連結的服務類型-Azure 和內部部署 |
+| **參考**              |[在內部部署環境與 Azure Data Factory 之間移動資料](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway)，[資料管理閘道](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **步驟** | <p>必須有資料管理閘道 (DMG) 工具才能連線到受到公司網路或防火牆保護的資料來源。</p><ol><li>鎖定電腦會隔離 DMG 工具，防止資料來源電腦上未正常運作的程式損壞或窺探。 (例如， 必須安裝最新的更新，啟用最低需求連接埠、受控制的帳戶佈建、啟用稽核、啟用磁碟加密等。)</li><li>資料閘道金鑰必須經常輪替，或是在每次 DMG 服務帳戶密碼更新時輪替</li><li>必須加密透過連結服務傳輸的資料</li></ol> |
 
 ## <a id="identity-https"></a>確定前往 Identity Server 的所有流量都是透過 HTTPS 連線
@@ -146,7 +146,7 @@ ms.locfileid: "53013180"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [OWASP HTTP Strict Transport Security 功能提要](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **步驟** | <p>HTTP Strict Transport Security (HSTS) 是可供選擇加入的安全性增強功能，可由 Web 應用程式透過使用特殊的回應標頭來指定。 支援的瀏覽器在收到此標頭之後，該瀏覽器會防止任何通訊透過 HTTP 傳送到指定網域，並改為透過 HTTPS 傳送所有通訊。 它也可以防止瀏覽器上出現 HTTPS 點選提示。</p><p>若要實作 HSTS，必須在網站全域設定下列回應標頭，不論是設定於程式碼或組態中。Strict-Transport-Security: max-age=300；includeSubDomains HSTS 可應付下列威脅：</p><ul><li>使用者手動輸入 http://example.com 或將其設定為書籤，而且容易受到中間人攻擊的危害︰HSTS 會自動將目標網域的 HTTP 要求重新導向至 HTTPS</li><li>預計只能使用 HTTPS 的 Web 應用程式不慎包含 HTTP 連結或透過 HTTP 提供內容︰HSTS 會自動將目標網域的 HTTP 要求重新導向至 HTTPS</li><li>攔截式攻擊者嘗試使用無效憑證攔截受害使用者的流量，並希望使用者會接受不正確的憑證︰HSTS 不允許使用者覆寫無效的憑證訊息</li></ul>|
+| **步驟** | <p>HTTP Strict Transport Security (HSTS) 是可供選擇加入的安全性增強功能，可由 Web 應用程式透過使用特殊的回應標頭來指定。 支援的瀏覽器在收到此標頭之後，該瀏覽器會防止任何通訊透過 HTTP 傳送到指定網域，並改為透過 HTTPS 傳送所有通訊。 它也可以防止瀏覽器上出現 HTTPS 點選提示。</p><p>若要實作 HSTS，必須在網站全域設定下列回應標頭，不論是設定於程式碼或組態中。Strict-Transport-Security: max-age=300；includeSubDomains HSTS 可應付下列威脅：</p><ul><li>使用者手動輸入 https://example.com 或將其設定為書籤，而且容易受到中間人攻擊的危害︰HSTS 會自動將目標網域的 HTTP 要求重新導向至 HTTPS</li><li>預計只能使用 HTTPS 的 Web 應用程式不慎包含 HTTP 連結或透過 HTTP 提供內容︰HSTS 會自動將目標網域的 HTTP 要求重新導向至 HTTPS</li><li>攔截式攻擊者嘗試使用無效憑證攔截受害使用者的流量，並希望使用者會接受不正確的憑證︰HSTS 不允許使用者覆寫無效的憑證訊息</li></ul>|
 
 ## <a id="sqlserver-validation"></a>啟用 SQL Server 連線加密和憑證驗證
 
@@ -339,7 +339,7 @@ string GetData(int value);
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | MVC5、MVC6 |
 | **屬性**              | N/A  |
-| **參考**              | [在 Web API 控制器中強制執行 SSL](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
+| **參考**              | [在 Web API 控制器中強制執行 SSL](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **步驟** | 如果應用程式同時具有 HTTPS 和 HTTP 繫結，用戶端仍可使用 HTTP 來存取網站。 若要避免這個問題，請使用動作篩選來確保受保護之 API 的要求一律會透過 HTTPS。|
 
 ### <a name="example"></a>範例 

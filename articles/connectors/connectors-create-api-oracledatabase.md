@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 06f65aef203b4f0d765f21b9d17b90081de85c94
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295352"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551750"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>開始使用 Oracle Database 連接器
 
@@ -40,7 +40,7 @@ ms.locfileid: "55295352"
 
 * 在您安裝內部部署資料閘道的機器上安裝 Oracle Client。 請務必從 Oracle 安裝 64 位元的 Oracle Data Provider for .NET：  
 
-  [適用於 Windows x64 的 64 位元 ODAC 12c 版本 4 (12.1.0.2.4)](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
+  [適用於 Windows x64 的 64 位元 ODAC 12c 版本 4 (12.1.0.2.4)](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
     > 若未安裝 Oracle 用戶端，當您嘗試建立或使用連線時會發生錯誤。 請參閱本文中常見的錯誤。

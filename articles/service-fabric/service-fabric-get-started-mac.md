@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 4dac40e9fad8361c0e6c8a8758028743f2506f56
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 95d7fc55accb163e07dcb7d103cc896794720cf4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428086"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845446"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -152,7 +152,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
     node -v
     npm -v
     ```
-2. 在您的機器上透過 NPM 安裝 [Yeoman](http://yeoman.io/) 範本產生器：
+2. 在您的機器上透過 NPM 安裝 [Yeoman](https://yeoman.io/) 範本產生器：
 
     ```bash
     npm install -g yo

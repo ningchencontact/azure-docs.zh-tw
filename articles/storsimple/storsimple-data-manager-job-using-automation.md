@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 6e62e923b6e983dfff8eb72c9526708a3b360930
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494743"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086015"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>使用 Azure 自動化來觸發作業
 
@@ -53,20 +53,20 @@ ms.locfileid: "55494743"
 
 3. 在 [新增自動化] 中：
 
-    1. 提供自動化帳戶的 [名稱]。
-    2. 選取連結至 StorSimple 裝置管理員服務的 [訂用帳戶]。
-    3. 建立新的資源群組，或從現有的資源群組中選取。
-    4. 選取 [位置] 。
-    5. 保持選取預設值 [建立執行身分帳戶] 選項。
-    6. 若要在儀表板上取得可供快速存取的連結，請核取 [釘選到儀表板]。 按一下頁面底部的 [新增] 。
+   1. 提供自動化帳戶的 [名稱]。
+   2. 選取連結至 StorSimple 裝置管理員服務的 [訂用帳戶]。
+   3. 建立新的資源群組，或從現有的資源群組中選取。
+   4. 選取 [位置] 。
+   5. 保持選取預設值 [建立執行身分帳戶] 選項。
+   6. 若要在儀表板上取得可供快速存取的連結，請核取 [釘選到儀表板]。 按一下頁面底部的 [新增] 。
 
-    ![建立執行身分自動化帳戶](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![建立執行身分自動化帳戶](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    成功建立自動化帳戶之後會通知您。
+      成功建立自動化帳戶之後會通知您。
     
-    ![自動化帳戶部署通知](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![自動化帳戶部署通知](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    如需詳細資訊，請移至[建立執行身分帳戶](../automation/automation-create-runas-account.md)。
+      如需詳細資訊，請移至[建立執行身分帳戶](../automation/automation-create-runas-account.md)。
 
 3. 在新建立的帳戶中，移至 [共用資源] > [模組] 並按一下 [+ 新增模組]。
 

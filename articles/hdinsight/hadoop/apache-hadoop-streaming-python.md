@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: e8cf8de25a35909cb2a0fc94237bfa517c72e685
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 4c1d7357dc78ca6c9387fc594f3d49f043008631
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120564"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>開發 HDInsight 的 Python 串流處理 MapReduce 程式
 
@@ -39,7 +39,7 @@ ms.locfileid: "53410341"
 
 此範例是使用 python 對應器和歸納器實作的基本字數統計。 對應器會將句子拆解成個別文字，歸納器則會彙總文字和計數來產生輸出。
 
-下列流程圖說明在對應和歸納階段期間所執行的程序。
+下图演示了在映射和化简阶段发生的情况。
 
 ![mapreduce 程序圖](./media/apache-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
@@ -124,7 +124,7 @@ Python 可以使用 `sys` 模組來讀取 STDIN 並使用 `print` 來列印到 S
 
 ## <a name="run-using-powershell"></a>使用 PowerShell 執行
 
-若要確保您的檔案有正確的行尾結束符號，請使用下列 PowerShell 指令碼︰
+若要确保文件具有适当的行尾，请使用以下 PowerShell 脚本：
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
@@ -145,7 +145,7 @@ Python 可以使用 `sys` 模組來讀取 STDIN 並使用 `print` 來列印到 S
     此命令會將檔案從本機系統複製到前端節點。
 
     > [!NOTE]  
-    > 如果您使用密碼來保護 SSH 帳戶，系統就會提示您輸入密碼。 如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。 例如： `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`。
+    > 如果您使用密碼來保護 SSH 帳戶，系統就會提示您輸入密碼。 如果使用了 SSH 密钥，可能必须使用 `-i` 参数和私钥的路径。 例如： `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`。
 
 2. 使用 SSH 連線到叢集：
 
@@ -182,7 +182,7 @@ Python 可以使用 `sys` 模組來讀取 STDIN 並使用 `print` 來列印到 S
 
    * **-output**：輸出時寫入的目錄。
 
-    MapReduce 作業執行時會以百分比顯示過程。
+     MapReduce 作業執行時會以百分比顯示過程。
 
         15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%    15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%    15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%
 

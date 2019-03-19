@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f033a93c0e4fc2648e151572bee25db5463e32e3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996428"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>將 SQL Server 資料庫移轉至 Azure SQL Database
 
@@ -28,7 +28,7 @@ ms.locfileid: "56101290"
 
 將 SQL Server 2005 或更新版本的資料庫移轉至 Azure SQL Database 中單一或集區資料庫的主要方法有兩種。 第一種方法比較簡單，但在移轉期間需要一些可能較長期的停機時間。 第二種方法比較複雜，但可大幅免去移轉期間的停機時間。
 
-不論是哪一種方法，您都需要使用 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) 來確定來源資料庫與 Azure SQL Database 相容。 除了伺服器層級和跨資料庫作業的問題相關之外，SQL Database V12 的功能正逐漸與 SQL Server 的[功能相等](sql-database-features.md)。 依賴[部分支援或未支援功能](sql-database-transact-sql-information.md)的資料庫和應用程式需要一些[再造來修正這些不相容情況](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues)，然後才能移轉 SQL Server 資料。
+不論是哪一種方法，您都需要使用 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) 來確定來源資料庫與 Azure SQL Database 相容。 除了伺服器層級和跨資料庫作業的問題相關之外，SQL Database V12 的功能正逐漸與 SQL Server 的[功能相等](sql-database-features.md)。 依赖[部分支持或不受支持的函数](sql-database-transact-sql-information.md)的数据库和应用程序需要进行某种程度的[重新设计来修复这些不兼容性](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues)，然后才能迁移 SQL Server 数据库。
 
 > [!NOTE]
 > 若要將非 SQL Server 資料庫 (包括 Microsoft Access、Sybase、MySQL Oracle 和 DB2) 移轉到 Azure SQL Database，請參閱 [SQL Server 移轉小幫手](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/)。
@@ -71,7 +71,7 @@ ms.locfileid: "56101290"
 
 若要使用此解決方案，您需將 Azure SQL Database 設定為您想要移轉之 SQL Server 執行個體的訂閱者。 異動複寫散發者會在新交易繼續進行的同時，從要被同步處理的資料庫 (發行者) 同步處理資料。
 
-使用異動複寫時，對您資料或結構描述所做的一切變更都會顯示在 Azure SQL Database 中。 同步處理完成且您已準備好進行移轉之後，請將您應用程式的連接字串變更成指向您的 Azure SQL Database。 當異動複寫清空留在來源資料庫上的所有變更，並且您的所有應用程式都指向 Azure DB 之後，您便可以將異動複寫解除安裝。 您的 Azure SQL Database 現在已是您的生產環境系統。
+使用異動複寫時，對您資料或結構描述所做的一切變更都會顯示在 Azure SQL Database 中。 同步完成后，如果已准备好进行迁移，则可更改应用程序的连接字符串，使其指向 Azure SQL 数据库。 當異動複寫清空留在來源資料庫上的所有變更，並且您的所有應用程式都指向 Azure DB 之後，您便可以將異動複寫解除安裝。 您的 Azure SQL Database 現在已是您的生產環境系統。
 
  ![SeedCloudTR 圖表](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
@@ -114,7 +114,7 @@ ms.locfileid: "56101290"
 - [SQL Server 2008 R2 中已終止的資料庫引擎功能](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [SQL Server 2005 中已終止的資料庫引擎功能](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-除了搜尋網際網路和使用這些資源，另請使用 [MSDN SQL Server 社群論壇](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver)或 [StackOverflow](http://stackoverflow.com/)。
+除了搜尋網際網路和使用這些資源，另請使用 [MSDN SQL Server 社群論壇](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver)或 [StackOverflow](https://stackoverflow.com/)。
 
 > [!IMPORTANT]
 > 「SQL Database 受控執行個體」可在將相容性問題降到最低至零的情況下，讓您移轉現有的 SQL Server 執行個體及其資料庫。 請參閱[什麼是受控執行個體](sql-database-managed-instance.md)。
@@ -123,6 +123,6 @@ ms.locfileid: "56101290"
 
 - 使用 Azure SQL EMEA 工程師部落格上的指令碼來[監視移轉期間的 tempdb 使用量](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/)。
 - 使用 Azure SQL EMEA 工程師部落格上的指令碼來[監視移轉時資料庫的交易記錄檔空間](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0)。
-- 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)。
+- 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
 - 如需移轉後的 UTC 時間處理相關資訊，請參閱[修改當地時區的預設時區](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/)。
 - 如需移轉後變更資料庫預設語言的相關資訊，請參閱[如何變更 Azure SQL Database 的預設語言](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/)。

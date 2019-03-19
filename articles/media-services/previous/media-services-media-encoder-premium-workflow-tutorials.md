@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: e0f4506afee134f2f6453ea1b1298925ff00084c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ee0a57ae1ece63964c7873a471ca7ee615c06978
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898785"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>進階媒體編碼器 Premium 工作流程教學課程
 ## <a name="overview"></a>概觀
@@ -75,7 +75,7 @@ ms.locfileid: "56004585"
 
 新的工作流程會顯示三個元素︰
 
-* 主要來源檔案
+* 主源文件
 * 剪輯清單 XML
 * 輸出檔案/資產  
 
@@ -116,7 +116,7 @@ ms.locfileid: "56004585"
 
 若要將視訊串流編碼成 H.264，請將 AVC 視訊編碼器元件加入至設計工具介面。 此元件會將未壓縮的視訊串流做為輸入，並在其輸出接點上提供 AVC 壓縮視訊串流。
 
-![未連接的 AVC 編碼器](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
+![未连接的 AVC 编码器](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
 
 *未連接的 AVC 編碼器*
 
@@ -208,7 +208,7 @@ ms.locfileid: "56004585"
 
 將 [檔案輸出] 元件連接到 [輸出檔案/資產] 元件以完成工作流程。
 
-![工作流程完成](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow.png)
+![已完成的工作流](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow.png)
 
 *工作流程完成*
 
@@ -297,7 +297,7 @@ ms.locfileid: "56004585"
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-    <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+    <smil xmlns="https://www.w3.org/2001/SMIL20/Language">
       <head>
         <meta name="formats" content="mp4" />
       </head>
@@ -360,7 +360,7 @@ ms.locfileid: "56004585"
 
 設定 [發佈] 對話方塊，以發佈至我們的工作流程圖形的根目錄，使用發佈的名稱 "video1bitrate" 以及可讀取的顯示名稱「視訊 1 位元速率」。 設定名為「串流處理位元速率」的自訂群組名稱，並按 [發佈]。
 
-![發佈位元速率屬性](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-bitrate-property.png)
+![发布比特率属性](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-bitrate-property.png)
 
 *位元速率屬性的發佈對話方塊*
 
@@ -559,7 +559,7 @@ ms.locfileid: "56004585"
 ### <a id="time_based_trim_finish"></a>工作流程完成
 ![工作流程完成](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
 
-*工作流程完成*
+*已完成的工作流*
 
 ## <a id="scripting"></a>推出指令碼元件
 指令碼元件可以在我們的工作流程執行階段期間執行任意指令碼。 有四個可以執行的不同指令碼，每個都具有特定特性，以及在工作流程生命週期中的位置：
@@ -939,7 +939,7 @@ ms.locfileid: "56004585"
 ```
 
 ## <a name="also-see"></a>另請參閱
-[介紹 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[在 Azure 媒体服务中引入高级编码](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
 [如何使用 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
@@ -947,7 +947,7 @@ ms.locfileid: "56004585"
 
 [Media Encoder Premium Workflow 格式和轉碼器](media-services-premium-workflow-encoder-formats.md)
 
-[範例工作流程檔案](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
+[範例工作流程檔案](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Azure 媒體服務總管工具](https://aka.ms/amse)
 

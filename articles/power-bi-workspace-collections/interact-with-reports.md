@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: bfc80318eb43992e292159a0cd99a9b2f4a3c041
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d5a411e227704eb80b0020f68fad072491576f18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233097"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883792"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>使用 JavaScript API 與 Power BI 報告進行互動
 
@@ -43,29 +43,29 @@ Power BI JavaScript API 可讓您撰寫可安全地通過 iframe 界限的程式
 ### <a name="manage-reports"></a>管理報告
 Javascript API 可讓您管理報告和頁面層級的行為︰
 
-* 在應用程式中安全地內嵌特定 Power BI 報告 - 試用 [內嵌示範應用程式](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+* 在應用程式中安全地內嵌特定 Power BI 報告 - 試用 [內嵌示範應用程式](https://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   * 設定存取權杖
 * 設定報告
-  * 啟用和停用篩選器窗格和頁面導覽窗格 - 試用 [更新設定示範應用程式](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-  * 設定頁面和篩選器的預設值 - 試用 [預設值示範](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+  * 啟用和停用篩選器窗格和頁面導覽窗格 - 試用 [更新設定示範應用程式](https://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * 設定頁面和篩選器的預設值 - 試用 [預設值示範](https://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 * 進入或離開全螢幕模式
 
 [深入了解內嵌報告](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 ### <a name="navigate-to-pages-in-a-report"></a>瀏覽至報告中的頁面
-JavaScript API enbales 可讓您探索報告中的所有頁面，以及設定目前的頁面。 試用 [瀏覽示範應用程式](http://azure-samples.github.io/powerbi-angular-client/#/scenario3)。
+JavaScript API enbales 可讓您探索報告中的所有頁面，以及設定目前的頁面。 試用 [瀏覽示範應用程式](https://azure-samples.github.io/powerbi-angular-client/#/scenario3)。
 
 [深入了解頁面瀏覽](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### <a name="filter-a-report"></a>篩選報告
-JavaScript API 會提供內嵌報告和報告頁面的基本和進階篩選功能。 試用 [篩選示範應用程式](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)，並檢閱以下一些入門程式碼。
+JavaScript API 會提供內嵌報告和報告頁面的基本和進階篩選功能。 試用 [篩選示範應用程式](https://azure-samples.github.io/powerbi-angular-client/#/scenario4)，並檢閱以下一些入門程式碼。
 
 #### <a name="basic-filters"></a>基本篩選器
 基本篩選器置於資料行或階層層級，而且包含一份要包含或排除的值清單。
 
 ```typescript
 const basicFilter: pbi.models.IBasicFilter = {
-  $schema: "http://powerbi.com/product/schema#basic",
+  $schema: "https://powerbi.com/product/schema#basic",
   target: {
     table: "Store",
     column: "Count"
@@ -94,7 +94,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 
 ```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
-  $schema: "http://powerbi.com/product/schema#advanced",
+  $schema: "https://powerbi.com/product/schema#advanced",
   target: {
     table: "Store",
     column: "Name"
@@ -121,7 +121,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 
 * 內嵌
   * 已載入
-  * 錯誤
+  * error
 * 報告
   * pageChanged
   * dataSelected (敬請期待)

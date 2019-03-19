@@ -6,22 +6,22 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429259"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443040"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
 本文將協助您使用變更追蹤解決方案，輕鬆地找出您環境中的變更。 此解決方案會追蹤 Windows 與 Linux 軟體、Windows 和 Linux 檔案、Windows 登錄機碼、Windows 服務以及 Linux 精靈的變更。 識別組態變更可協助您找出操作問題。
 
-受監視的伺服器上安裝的軟體、Windows 服務、Windows 登錄和檔案以及 Linux 精靈的變更，會傳送至雲端中的 Log Analytics 服務進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。 使用 [變更追蹤] 儀表板上的資訊，您可以輕鬆地看到您的伺服器基礎結構中所做的變更。
+若要安裝的軟體、 Windows 服務、 Windows 登錄和檔案，以及 Linux 精靈在受監視伺服器上的變更會傳送至雲端中 Azure 監視器服務進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。 使用 [變更追蹤] 儀表板上的資訊，您可以輕鬆地看到您的伺服器基礎結構中所做的變更。
 
 ## <a name="supported-windows-operating-systems"></a>支援的 Windows 作業系統
 
@@ -74,7 +74,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 2. 在 [變更追蹤] 頁面上選取 [Linux 檔案]，然後按一下 [+ 新增]，以新增要追蹤的新檔案。
 3. 在 [為變更追蹤新增 Linux 檔案] 上，輸入要追蹤的檔案或目錄資訊，然後按一下 [儲存]。
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |已啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
@@ -97,7 +97,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 2. 在 [變更追蹤] 頁面上選取 [Windows 檔案]，然後按一下 [+ 新增]，以新增要追蹤的新檔案。
 3. 在 [為變更追蹤新增 Windows 檔案] 上，輸入要追蹤之檔案的資訊，然後按一下 [儲存]
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |已啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
@@ -129,7 +129,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 2. 在 [變更追蹤] 頁面上選取 [Windows 登錄]，然後按一下 [+ 新增]，以新增要追蹤的新登錄機碼。
 3. 在 [為變更追蹤新增 Windows 登錄] 上，輸入要追蹤之機碼的資訊，然後按一下 [儲存]。
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |已啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之登錄機碼的易記名稱。        |
@@ -155,6 +155,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 「變更追蹤」解決方案目前有下列問題︰
 
 * Windows Server 2016 Core RS3 機器不會收集 Hotfix 更新。
+* Linux 精靈可能會顯示已變更的狀態，即使沒有變更。 這是因為如何`SvcRunLevels`擷取欄位。
 
 ## <a name="change-tracking-data-collection-details"></a>「變更追蹤」資料收集詳細資訊
 
@@ -261,13 +262,13 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 
 ## <a name="search-logs"></a>搜尋記錄
 
-除了入口網站中提供的詳細資訊以外，您也可以對記錄執行搜尋。 在 [變更追蹤] 頁面開啟的情況下，按一下 [記錄分析]，[記錄搜尋] 頁面會隨即開啟。
+除了入口網站中提供的詳細資訊以外，您也可以對記錄執行搜尋。 具有**變更追蹤**頁面開啟時，按一下**Log Analytics**，這會開啟**記錄**頁面。
 
 ### <a name="sample-queries"></a>範例查詢
 
 下表提供此解決方案所收集之變更記錄的記錄搜尋範例：
 
-|查詢  |說明  |
+|查詢  |描述  |
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | 針對已設為 [自動]、但回報為 [正在停止] 的 Windows 服務顯示最新的清查記錄<br>結果會限定為該 SoftwareName 和電腦的最新記錄      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|顯示已移除之軟體的變更記錄|
@@ -296,7 +297,7 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 
 雖然對變更追蹤或清查資料而言，Hosts 檔案的變更警示是一個很好的警示應用，但是有更多警示案例，包括已定義的情況及其在下一節的範例查詢。
 
-|查詢  |說明  |
+|查詢  |描述  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|適用於追蹤系統重要檔案的變更|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|適用於追蹤重要組態檔的修改|
@@ -314,5 +315,5 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 > [!div class="nextstepaction"]
 > [對您環境中的變更進行疑難排解](automation-tutorial-troubleshoot-changes.md)
 
-* 使用 [Log Analytics 中的記錄檔搜尋](../log-analytics/log-analytics-log-searches.md) ，檢視詳細的變更追蹤資料。
+* 使用[Azure 監視器記錄檔中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)以檢視詳細的變更追蹤資料。
 

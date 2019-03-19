@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 26090067923c468b7102ac5b7bb78b9d7b7960bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 981a753ab33d511bffe9c1ec3f42fe4f3accd946
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995607"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892501"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測動作
 ## <a name="overview"></a>概觀
@@ -39,7 +39,7 @@ ms.locfileid: "55995607"
 ### <a name="parameters"></a>參數
 您可以使用以下參數：
 
-| Name | 選項 | 說明 | 預設值 |
+| 名稱 | 選項 | 描述 | 預設值 |
 | --- | --- | --- | --- |
 | sensitivityLevel |字串：'low'、'medium'、'high' |設定要報告哪些動作的敏感度等級。 調整該項目可調整誤判的數目。 |'medium' |
 | frameSamplingValue |正整數 |設定演算法的執行頻率。 1 等於每個畫面，2 表示每 2 個畫面，依此類推。 |1 |
@@ -92,7 +92,7 @@ ms.locfileid: "55995607"
 
 下表說明輸出 JSON 的元素。
 
-| 元素 | 說明 |
+| 元素 | 描述 |
 | --- | --- |
 | 版本 |這是指影片 API 的版本。 目前版本為 2。 |
 | 時幅 |影片每秒的「刻度」數目。 |
@@ -105,7 +105,7 @@ ms.locfileid: "55995607"
 | 活動 |每個事件片段皆包含在該持續期間內所偵測到的動作。 |
 | 類型 |在目前的版本中，針對一般動作，這永遠會是「2」。 此標籤可讓影片 API 在未來的版本中能夠彈性地為動作進行分類。 |
 | RegionID |如前文所述，這在此版本中將永遠會是 0。 此標籤可讓影片 API 在未來的版本中能夠彈性地在各個區域中尋找動作。 |
-| 區域 |指的是影片中您會關心其中所發生之動作的區塊。 <br/><br/>-「識別碼」表示區域區塊 – 在此版本中只有一個，識別碼為 0。 <br/>-「類型」代表您關心動作的區域形狀。 目前支援「矩形」和「多邊形」。<br/> 如果您指定「矩形」，區域的維度將以 X、Y、寬度及高度表示。 X 和 Y 座標代表以標準化縮放 (0.0 到 1.0) 顯示之區域左上角的 XY 座標。 寬度和高度代表以標準化縮放 (0.0 到 1.0) 顯示之區域的大小。 在目前版本中，X、Y、寬度和高度一律固定為 0, 0 和 1, 1。 <br/>如果您指定「多邊形」，區域的維度將以點表示。 <br/> |
+| 区域 |指的是影片中您會關心其中所發生之動作的區塊。 <br/><br/>-「識別碼」表示區域區塊 – 在此版本中只有一個，識別碼為 0。 <br/>-「類型」代表您關心動作的區域形狀。 目前支援「矩形」和「多邊形」。<br/> 如果您指定「矩形」，區域的維度將以 X、Y、寬度及高度表示。 X 和 Y 座標代表以標準化縮放 (0.0 到 1.0) 顯示之區域左上角的 XY 座標。 寬度和高度代表以標準化縮放 (0.0 到 1.0) 顯示之區域的大小。 在目前版本中，X、Y、寬度和高度一律固定為 0, 0 和 1, 1。 <br/>如果您指定「多邊形」，區域的維度將以點表示。 <br/> |
 | 片段 |中繼資料會被分成稱為「片段」的不同區段。 每個片段皆包含開始、持續時間、間隔數字及事件。 沒有事件的片段，代表在該片段的開始時間和持續時間之間沒有偵測到任何動作。 |
 | 括號 [] |每個括號皆代表事件中的單一間隔。 如果間隔顯示空白括號，便代表沒有偵測到動作。 |
 | 位置 |這是位在事件下的新項目，它能列出動作的發生位置。 它比偵測區域更明確。 |
@@ -157,7 +157,7 @@ ms.locfileid: "55995607"
 ```
 
 ## <a name="limitations"></a>限制
-* 支援的輸入影片格式包括 MP4、MOV 及 WMV。
+* 支持的输入视频格式包括 MP4、MOV 和 WMV。
 * 動作偵測已針對固定背景的影片最佳化。 演算法會專注在降低誤判之上，例如光源變化和陰影。
 * 某些動作可能會因技術挑戰而無法偵測，例如夜視影片、半透明物件及小型物件。
 
@@ -386,5 +386,5 @@ namespace VideoMotionDetection
 
 [Azure 媒體服務分析概觀](media-services-analytics-overview.md)
 
-[Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

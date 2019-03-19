@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870141"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>適用於預測性維護解決方案的 AI 指南
 
@@ -401,15 +401,15 @@ PdM 有另一個實用的技巧，就是使用可偵測資料異常的演算法�
 
 如先前所述，PdM 的模型運算化與其對等項目不同。 涉及異常偵測和失敗偵測的案例通常會實作「線上計分」(也稱為「即時計分」)。 在此，模型對每筆傳入的記錄「計分」，並傳回預測。 對於異常偵測，預測會指出發生異常 (範例：單一類別 SVM)。 對於失敗偵測，它會是失敗的類型或類別。
 
-相反地，PdM 牽涉到「批次計分」。 若要遵循模型簽章，必須以相同的方式將新資料中的特徵設計為訓練資料。 對於新資料特有的大型資料集，則會彙總各時段的特徵並且分批計分。 分批計分通常會在分散式系統中進行，例如 [Spark](http://spark.apache.org/) 或 [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)。 還有幾種替代方案 - 兩者都不是最理想的：
+相反地，PdM 牽涉到「批次計分」。 若要遵循模型簽章，必須以相同的方式將新資料中的特徵設計為訓練資料。 對於新資料特有的大型資料集，則會彙總各時段的特徵並且分批計分。 分批計分通常會在分散式系統中進行，例如 [Spark](https://spark.apache.org/) 或 [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)。 還有幾種替代方案 - 兩者都不是最理想的：
 - 串流資料引擎支援在記憶體中進行時段彙總。 所以其支援線上計分有所爭議。 但這些系統很適合於狹窄時段中的密集資料，或較寬時段中的疏鬆元素。 如 PdM 案例所示，它們無法針對較寬時段中的密集資料進行妥善擴充。
 - 如果無法使用分批計分，解決方式就是調整線上計分，以一次數個小批次的方式處理新資料。
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>預測性維護的解決方案範本
 
-本指南的最後一節提供 PdM 解決方案範本、教學課程，以及在 Azure 中實作之實驗的清單。 在某些情況下，只要分鐘內就可以將這些 PdM 應用程式部署到 Azure 訂用帳戶。 它們可以當作概念證明示範、替代方式試驗的沙箱，或實際生產實作的加速器。 這些範本位於 [Azure AI 資源庫](http://gallery.azure.ai)或 [Azure GitHub](https://github.com/Azure)。 經過一段時間，這些不同的範例就會納入此解決方案範本。
+本指南的最後一節提供 PdM 解決方案範本、教學課程，以及在 Azure 中實作之實驗的清單。 在某些情況下，只要分鐘內就可以將這些 PdM 應用程式部署到 Azure 訂用帳戶。 它們可以當作概念證明示範、替代方式試驗的沙箱，或實際生產實作的加速器。 這些範本位於 [Azure AI 資源庫](https://gallery.azure.ai)或 [Azure GitHub](https://github.com/Azure)。 經過一段時間，這些不同的範例就會納入此解決方案範本。
 
-| # | 標題 | 說明 |
+| # | 標題 | 描述 |
 |--:|:------|-------------|
 | 2 | [Azure 預測性維護解決方案範本](https://github.com/Azure/AI-PredictiveMaintenance) | 此開放原始碼解決方案範本展現了 ML 模型化和完整的 Azure 基礎結構，能夠支援 IoT 遠端監控環境中的預測性維護方案。 |
 | 3 | [深入學習預測性維護](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook，內含使用 LSTM (長短期記憶) 網路 (循環類神經網路的類別) 進行預測性維護的示範解決方案，以及[有關此範例的部落格文章](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance)。|
@@ -431,9 +431,9 @@ PdM 有另一個實用的技巧，就是使用可偵測資料異常的演算法�
 | [使用 Azure 的 AI 開發人員](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | 公開 |
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | 公開 |
 | [GitHub 中的 Azure AI 學習](https://github.com/Azure/connectthedots/blob/master/readme.md) | 公開 |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | 公開 |
-| [Microsoft AI Youtube 網路研討會](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | 公開 |
-| [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | 公開 |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | 公開 |
+| [Microsoft AI YouTube 網路研討會](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | 公開 |
+| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | 公開 |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | 合作夥伴 |
 | [Microsoft 合作夥伴網路](https://learningportal.microsoft.com) | 合作夥伴 |
 

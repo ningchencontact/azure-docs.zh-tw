@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 933d37f576d0b8507d2311a3e31e34182a0a2e69
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996295"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure 監視器記錄查詢中的 workspace() 運算式
 
@@ -33,7 +33,7 @@ ms.locfileid: "56269830"
 
 - *識別碼*：使用下表中的其中一個格式識別工作區。
 
-| 識別碼 | 說明 | 範例
+| 識別碼 | 描述 | 範例
 |:---|:---|:---|
 | 資源名稱 | 人類可閱讀的工作區名稱 (也稱為「元件名稱」) | workspace("contosoretail") |
 | 完整名稱 | 使用下列形式的工作區完整名稱："subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
@@ -71,6 +71,6 @@ union
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱[應用程式運算式](app-expression.md)來參考 Application Insights 應用程式。
+- 請參閱[應用程式運算式](app-expression.md)參考至 Application Insights 應用程式。
 - 了解 [Azure 監視器資料](log-query-overview.md)的儲存方式。
 - 存取 [Kusto 查詢語言](/azure/kusto/query/)的完整文件。

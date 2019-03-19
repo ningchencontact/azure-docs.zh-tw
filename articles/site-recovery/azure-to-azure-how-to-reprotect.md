@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110489"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保護已容錯移轉到主要區域的 Azure VM
 
@@ -35,12 +35,12 @@ ms.locfileid: "52839954"
 
 1. 在 [保存庫] > [已複寫的項目] 中，以滑鼠右鍵按一下已容錯移轉的 VM，然後選取 [重新保護]。 重新保護的顯示方向應該是從次要到主要。
 
-  ![重新保護](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![重新保護](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. 檢閱資源群組、網路、儲存體和可用性設定組。 然後按一下 [確定] 。 如果已將任何資源標記為新資源，即會在重新保護過程中建立它們。
 3. 重新保護作業會在目標網站植入最新資料。 完成該作業之後，即會進行差異複寫。 然後，您可以容錯移轉回到主要網站。 您可以使用自訂選項，來選取您想要在重新保護期間使用的儲存體帳戶或網路。
 
-  ![自訂選項](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![自訂選項](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>自訂重新保護設定
 

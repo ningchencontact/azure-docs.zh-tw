@@ -4,18 +4,17 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Resource Manager 範本建立新的 Azure Machine Learning 服務工作區。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: larryfr
-ms.author: haining
-author: hning86
+ms.author: larryfr
+author: Blackmist
 ms.date: 02/11/2019
-ms.openlocfilehash: b9d05e8de01178fd8731e492d2aeefd28f3ef4cf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105700"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850072"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>使用範本建立 Azure Machine Learning 服務工作區
 
@@ -23,9 +22,9 @@ ms.locfileid: "56105700"
 
 如需詳細資訊，請參閱 [使用 Azure Resource Manager 範本部署應用程式](../../azure-resource-manager/resource-group-template-deploy.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以[試用免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+* **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以[試用免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 * 若要從 CLI 使用範本，您需要 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
@@ -193,12 +192,12 @@ Resource Manager 範本可讓您輕鬆地以單一、協調的作業建立資源
 1. 遵循[從自訂範本部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)的步驟。 當您看見 [編輯範本] 畫面時，貼入此文件的範本。
 1. 選取 [儲存] 以使用範本。 提供下列資訊，並同意列出的條款及條件：
 
-    * 訂用帳戶：選取要用於這些資源的 Azure 訂用帳戶。
-    * 資源群組：選取或建立資源群組以包含服務。
-    * 工作區名稱：要用於將建立之Azure Machine Learning 工作區的名稱。 工作區名稱必須介於 3 到 33 個字元之間。 只能包含英數字元和 '-'。
-    * 位置：選取將建立資源的位置。
+   * 訂用帳戶：選取要用於這些資源的 Azure 訂用帳戶。
+   * 資源群組：選取或建立資源群組以包含服務。
+   * 工作區名稱：要用於將建立之Azure Machine Learning 工作區的名稱。 工作區名稱必須介於 3 到 33 個字元之間。 只能包含英數字元和 '-'。
+   * 位置：選取將建立資源的位置。
 
-    ![Azure 入口網站中的範本參數](media/how-to-create-workspace-template/template-parameters.png)
+     ![Azure 入口網站中的範本參數](media/how-to-create-workspace-template/template-parameters.png)
 
 如需詳細資訊，請參閱[從自訂範本部署資源](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)。
 

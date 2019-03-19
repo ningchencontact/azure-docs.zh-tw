@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 495325696dad79a6cc1a77b9a87f6db0af4c1156
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253250"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108826"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>針對 Azure Load Balancer 進行疑難排解
 
@@ -49,7 +49,7 @@ ms.locfileid: "53253250"
 
 **驗證和解決方式**
 
-1. 登入後端 VM。 
+1. 登录到后端 VM。 
 2. 開啟命令提示字元並執行下列命令以驗證有應用程式正在接聽探查連接埠︰   
             netstat -an
 3. 如果連接埠狀態未列為 **LISTENING**，請設定適當的連接埠。 
@@ -77,7 +77,7 @@ ms.locfileid: "53253250"
     - 在目標後端集區 VM 上以及從相同 VNet 的另一個測試 VM 同時執行 Netsh trace。 現在，執行 PsPing 測試一段時間、收集一些網路追蹤資料，然後停止測試。 
     - 分析網路擷取，並查看是否有與 ping 查詢相關的傳入和傳出封包。 
         - 如果後端集區 VM 上觀察不到任何傳入封包，則可能是網路安全性群組或 UDR 設定錯誤而封鎖流量。 
-        - 如果後端集區 VM 上觀察不到任何傳出封包，則必須檢查 VM 是否有任何相關問題 (例如，應用程式封鎖探查連接埠)。 
+        - 如果後端集區 VM 上觀察不到任何傳出封包，VM 就必須檢查任何相關問題 （例如，應用程式封鎖探查連接埠）。 
     - 確認探查封包是否在到達負載平衡器之前被強制傳送到另一個目的地 (可能是透過 UDR 設定)。 這可能會導致流量永遠都無法到達後端 VM。 
 * 變更探查類型 (例如，將 HTTP 變更為 TCP)，並在網路安全性群組 ACL 和防火牆中設定對應的連接埠以驗證探查回應的組態是否有問題。 如需健康狀態探查組態的詳細資訊，請參閱[端點負載平衡健康狀態探查組態 (英文)](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)。
 
@@ -128,7 +128,7 @@ ms.locfileid: "53253250"
 如果您決定開啟支援案例，請收集下列資訊以便更快解決問題。 選擇單一的後端 VM 來執行下列測試︰
 - 從 VNet 內的其中一個後端 VM 使用 Psping 測試探查連接埠回應 (範例︰psping 10.0.0.4:3389) 並記錄結果。 
 - 如果這些 ping 測試沒有收到任何回應，請在執行 PsPing 時對後端 VM 和 VNet 測試 VM 同時執行 Netsh trace，然後停止 Netsh trace。 
-  
+  
 ## <a name="next-steps"></a>後續步驟
 
 如果上述步驟無法解決問題，請開啟 [支援票證](https://azure.microsoft.com/support/options/)。

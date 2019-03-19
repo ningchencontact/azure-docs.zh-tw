@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: aab0e5eab0edcbc0a26b673730f9fef5a5b01fde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122705"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901996"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>適用於 Windows 10 的離線 PlayReady 串流
 
@@ -41,7 +41,7 @@ Azure 媒體服務支援在具備 DRM 保護的情況下離線下載/播放。 �
 * 許多播放器和編碼器工具支援 MP4，但 MP4 容器與 DRM 並未綁定，因此彼此之間沒有約束力；
 * 長期來看，可以使用 CFF 搭配 CENC。 但是目前工具/播放器支援生態系統尚未成形。 而我們現在就需要一個解決方案。
  
-這個概念是：將採用 H264/AAC 的 Smooth Streaming ([PIFF](http://go.microsoft.com/?linkid=9682897)) 檔案格式與 PlayReady (AES-128 CTR) 綁定，並產生約束力。 個別 Smooth Streaming .ismv 檔案 (假設影片中的音訊是多工的) 本身是 fMP4，而且可用於播放。 如果 Smooth Streaming 內容透過 PlayReady 加密，每個 .ismv 檔案都會變成受 PlayReady 保護的分散式 MP4。 我們可以選擇具備偏好位元速率的 .ismv 檔案，然後將它重新命名為 .mp4 以用於下載。
+這個概念是：將採用 H264/AAC 的 Smooth Streaming ([PIFF](https://go.microsoft.com/?linkid=9682897)) 檔案格式與 PlayReady (AES-128 CTR) 綁定，並產生約束力。 個別 Smooth Streaming .ismv 檔案 (假設影片中的音訊是多工的) 本身是 fMP4，而且可用於播放。 如果 Smooth Streaming 內容透過 PlayReady 加密，每個 .ismv 檔案都會變成受 PlayReady 保護的分散式 MP4。 我們可以選擇具備偏好位元速率的 .ismv 檔案，然後將它重新命名為 .mp4 以用於下載。
 
 裝載受 PlayReady 保護的 MP4 以用於漸進式下載時有兩個選項可選擇：
 
@@ -57,13 +57,13 @@ Azure 媒體服務支援在具備 DRM 保護的情況下離線下載/播放。 �
 
 資產 1：
 
-* 漸進式下載 URL：[http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* 漸進式下載 URL：[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
 * PlayReady LA_URL (AMS)：[https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 資產 2：
 
-* 漸進式下載 URL：[http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (內部部署)：[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* 漸進式下載 URL：[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL （內部部署）： [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 針對播放測試，我們使用 Windows 10 上的通用 Windows 應用程式。 在 [Windows 10 通用範例](https://github.com/Microsoft/Windows-universal-samples)中，有一個名為[彈性資料流樣本](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming)的基本播放器樣本。 我們只需要自行新增程式碼，以選擇下載的視訊並使用它做為來源，而不是作為彈性資料流來源。 這些變更是在按鈕按下事件處理常式中：
 

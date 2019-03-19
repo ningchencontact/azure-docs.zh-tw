@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e52d5f3b30490227541e99e067c096a7df6dd911
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566183"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867570"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 匯入/匯出服務：常見問題集 
 以下是當您使用 Azure 匯入/匯出服務將資料轉送至 Azure 儲存體時可能會遇到的問題與解答。 問題和解答可分為下列幾個類別：
@@ -87,8 +87,18 @@ ms.locfileid: "55566183"
 - 美國或歐洲地區的 FedEx 帳戶號碼，或是
 - 亞洲和澳洲地區的 DHL 帳戶號碼。
 
+> [!NOTE]
+> 在印度資料中心需要在您的信紙標頭 (傳遞 challan) 要傳回的磁碟機上宣告代號。 若要排列的必要項目傳遞，也必須預訂挑選，使用您所選的貨運公司並且共用詳細資料與資料中心。
+
 ### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>將我的磁碟機進行國際運送有任何限制嗎？
 請注意，您寄送的實體媒體可能需要跨國界。 您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。 在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。 這有助於確保及時送達 Microsoft。
+
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>是否有任何特殊的需求，以傳遞給資料中心的 我的磁碟？
+
+需求取決於特定的 Azure 資料中心的限制。
+- 有幾個網站，需要 Microsoft 資料中心要基於安全性理由一塊寫入輸入的 ID 編號。 您寄送您的磁碟機或磁碟到資料中心之前，請連絡 Azure 資料箱作業 (adbops@microsoft.com) 若要取得此數字。 沒有這個號碼，封裝將會遭到拒絕。
+- 在印度資料中心需要驅動程式，例如政府識別碼卡片或證明否。 個人詳細的資料 （例如移動瀏覽、 AADHAR、 DL），名稱、 連絡人及汽車版面來取得一門項目傳遞的數目。 若要避免傳遞延遲，通知您的電訊廠商有關這些需求。
+
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>建立作業時，寄送地址是與我儲存體帳戶位置不同的位置。 我該怎麼辦？
 
@@ -128,7 +138,7 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure 匯入/匯出所支援的最大區塊 Blob 和分頁 Blob 大小是多少？
 
 最大區塊 Blob 大小大約是 4.768 TB 或 5,000,000 MB。
-最大分頁 Blob 大小為 1 TB。
+最大分頁 Blob 大小為 8 TB。
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure 匯入/匯出是否支援 AES-256 加密？

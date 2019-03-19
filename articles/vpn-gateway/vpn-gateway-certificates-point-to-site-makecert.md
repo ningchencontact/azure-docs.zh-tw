@@ -1,5 +1,5 @@
 ---
-title: 產生並匯出點對站的憑證：MakeCert：Azure | Microsoft Docs
+title: 產生並匯出點對站的憑證：MakeCert:Azure | Microsoft Docs
 description: 建立自我簽署的根憑證、匯出公開金鑰，以及使用 MakeCert 產生用戶端憑證。
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297854"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102072"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 MakeCert 來產生並匯出點對站連線的憑證
 
@@ -28,16 +28,16 @@ ms.locfileid: "44297854"
 下列步驟說明如何使用 MakeCert 來建立自我簽署憑證。 這些並非部署模型特定的步驟。 它們同樣適用於資源管理員和傳統部署模型。
 
 1. 下載並安裝 [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)。
-2. 安裝之後，您通常可以在下列路徑中找到 makecert.exe 公用程式：'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'。 雖然，它有可能已安裝到另一個位置。 以系統管理員身分開啟命令提示字元，然後瀏覽至 MakeCert 公用程式的位置。 您可以使用下列範例，並針對適當的位置進行調整：
+2. 安裝完成後，您通常可以找到 makecert.exe 公用程式，此路徑下：'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. 雖然，它有可能已安裝到另一個位置。 以系統管理員身分開啟命令提示字元，然後瀏覽至 MakeCert 公用程式的位置。 您可以使用下列範例，並針對適當的位置進行調整：
 
-  ```cmd
-  cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-  ```
+   ```cmd
+   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+   ```
 3. 在您電腦上的 [個人] 憑證存放區中建立並安裝憑證。 下列範例會建立對應的 .cer 檔案，您在設定 P2S 時會將此檔案上傳至 Azure。 將 'P2SRootCert' 和 'P2SRootCert.cer' 取代為您想使用的憑證名稱。 憑證位於您的 '[憑證 - 目前的使用者]\[個人]\[憑證]' 中。
 
-  ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
-  ```
+   ```cmd
+   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
+   ```
 
 ## <a name="cer"></a>匯出公開金鑰 (.cer)
 
@@ -60,15 +60,15 @@ ms.locfileid: "44297854"
 下列步驟將逐步引導您完成從自我簽署的根憑證產生用戶端憑證。 您可以從相同根憑證產生多個用戶端憑證。 當您使用下列步驟產生用戶端憑證時，用戶端憑證會自動安裝在您用來產生憑證的電腦上。 如果您想要在另一部用戶端電腦上安裝用戶端憑證，您可以匯出憑證。
  
 1. 在用來建立自我簽署憑證的相同電腦上，以系統管理員身分開啟命令提示字元。
-2. 修改並執行範例以產生用戶端憑證。
-  * 將 *"P2SRootCert"* 變更為您從中產生用戶端憑證的自我簽署根憑證名稱。 確定您使用的是根憑證名稱，亦即您建立自我簽署根憑證時所指定的 'CN=' 值。
-  * 將 *P2SChildCert* 變更為所產生的用戶端憑證要使用的名稱。
+2. 修改并运行示例，生成客户端证书。
+   * 將 *"P2SRootCert"* 變更為您從中產生用戶端憑證的自我簽署根憑證名稱。 確定您使用的是根憑證名稱，亦即您建立自我簽署根憑證時所指定的 'CN=' 值。
+   * 將 *P2SChildCert* 變更為所產生的用戶端憑證要使用的名稱。
 
-  如果您執行以下範例而未做任何修改，您的個人憑證存放區中就會有一個從根憑證 P2SRootCert 產生的用戶端憑證，名為 P2SChildcert。
+   如果您執行以下範例而未做任何修改，您的個人憑證存放區中就會有一個從根憑證 P2SRootCert 產生的用戶端憑證，名為 P2SChildcert。
 
-  ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
-  ```
+   ```cmd
+   makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
+   ```
 
 ### <a name="clientexport"></a>匯出用戶端憑證
 

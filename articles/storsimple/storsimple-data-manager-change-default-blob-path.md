@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f73d9dcedee5165af752b9e10fb70de860e8e98b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: HT
+ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011626"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>變更預設的 blob 路徑
 
 StorSimple 資料管理員服務在轉換資料時，預設會將經過轉換的 blob 放在您於建立目標存放庫期間所指定的儲存體容器內。 當 blob 抵達此位置時，建議您將這些 blob 移到其他位置。 本文說明如何設定 Azure 函式來重新命名預設的 blob 檔案路徑，並從此將 blob 移到其他位置。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 確定 StorSimple 資料管理員服務中已有正確設定的作業定義。
 
@@ -33,7 +33,7 @@ StorSimple 資料管理員服務在轉換資料時，預設會將經過轉換的
 
 若要建立 Azure 函式，請執行下列步驟：
 
-1. 移至 [Azure 入口網站](http://portal.azure.com/)。
+1. 移至 [Azure 入口網站](https://portal.azure.com/)。
 
 2. 按一下 [+ 建立資源]。 在 [搜尋] 方塊中輸入**函式應用程式**，然後按 **Enter** 鍵。 在顯示的應用程式清單中選取並按一下 [函式應用程式]。
 

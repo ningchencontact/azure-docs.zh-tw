@@ -1,6 +1,6 @@
 ---
 title: 在 SAP HANA on Azure (大型執行個體) 上安裝 SAP HANA | Microsoft Docs
-description: 如何在 SAP HANA on Azure (大型執行個體) 上安裝 SAP HANA。
+description: 如何在 SAP HANA on Azure （大型執行個體） 上安裝 SAP HANA。
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc63eb792e58d960ae67138b5e58e6b705945030
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446387"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999833"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)
 
@@ -28,7 +28,7 @@ ms.locfileid: "56446387"
 安裝 SAP HANA 是由您負責。 您可以在 Azure 虛擬網路與「HANA 大型執行個體」單位之間建立連線之後，開始安裝新的「Azure 上的 SAP HANA (大型執行個體)」伺服器。 
 
 > [!Note]
-> 依據 SAP 原則，SAP HANA 的安裝必須由已經通過「認證 SAP 技術協會」測驗 (SAP HANA 安裝認證測驗) 的人員，或由身為 SAP 認證系統整合者 (SI) 的人員執行。
+> 依據 SAP 原則，SAP HANA 安裝必須由個人使用者已通過認證的 SAP 技術認證檢定、 SAP HANA 安裝認證測驗，或 SAP 認證系統整合者 (SI) 執行。
 
 當您打算安裝 HANA 2.0 時，請參閱 [SAP 支援附註 #2235581 - SAP HANA：支援的作業系統](https://launchpad.support.sap.com/#/notes/2235581/E)，以確保 OS 受您所要安裝的 SAP HANA 版本支援。 HANA 2.0 支援的 OS 所受到的限制比 HANA 1.0 支援的 OS 更多。 
 
@@ -50,7 +50,7 @@ ms.locfileid: "56446387"
 
 HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需詳細資訊，請參閱[如何設定 SUSE Linux 的 SMT 伺服器](hana-setup-smt.md))。 或者，需要向您必須連線的 Red Hat Subscription Manager 註冊 Red Hat OS。 如需詳細資訊，請參閱[什麼是 Azure 上的 SAP HANA (大型執行個體)？](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中的備註。 
 
-客戶也必須負責執行這個步驟，以便修補 OS。 若為 SUSE，請尋找文件上有關 [SMT 安裝](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)的這個頁面，以了解如何安裝和設定 SMT。
+這個步驟是必要的修補作業系統，也就是客戶的責任。 若為 SUSE，請尋找文件上有關 [SMT 安裝](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)的這個頁面，以了解如何安裝和設定 SMT。
 
 **第二步**是檢查是否有特定 OS 版次/版本的新修補程式和修正。 請確認「HANA 大型執行個體」的修補程式等級是否為最新狀態。 在某些情況下，可能不會包含最新的修補程式。 在接管 HANA 大型執行個體單位之後，必須檢查是否需要套用修補程式。
 
@@ -80,6 +80,7 @@ HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需�
 
 **第五步**是檢查 etc/hosts。 在移交刀鋒伺服器時，會針對不同的用途為它們指派不同的 IP 位址。 檢查 etc/hosts 檔案。 將單位新增到現有的租用戶時，請勿期望系統會使用先前交付之系統的 IP 位址來正確維護新部署之系統的 etc/hosts。 身為客戶，您必須負責確定新部署的執行個體可以互動並解析您租用戶中先前所部署單位的名稱。 
 
+
 ## <a name="operating-system"></a>作業系統
 
 > [!IMPORTANT] 
@@ -95,17 +96,17 @@ HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需�
 
 - [SUSE Linux 網站上的 SAP HANA](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
 - [SAP 的最佳做法：加入佇列複寫 – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
-- [ClamSAP – SLES Virus Protection for SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (包括 SLES 12 for SAP 應用程式)
+- [ClamSAP – SLES Virus Protection for SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (包括 SLES 12 for SAP 應用程式)
 
 以下是適用於在 SLES 12 上實作 SAP HANA 的 SAP 支援附註︰
 
-- [SAP 支援附註 #1944799 – SLES 作業系統安裝的 SAP HANA 指南](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+- [SAP 支援附註 #1944799 – SLES 作業系統安裝的 SAP HANA 指南](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 - [SAP 支援附註 #2205917 – 針對 SLES 12 for SAP 應用程式的 SAP HANA DB 建議作業系統設定](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [SAP 支援附註 #1984787 – SUSE Linux Enterprise Server 12：安裝注意事項](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP 支援附註 #171356 – 在 Linux 上的 SAP 軟體︰一般資訊](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP 支援附註 #1391070 – Linux UUID 解決方案](https://launchpad.support.sap.com/#/notes/1391070)
 
-[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) 是可供在 HANA Large Instances 上執行 SAP HANA 的另一個供應項目。 版本 RHEL 6.7 和 7.2 均可使用。 請注意，與僅支援 RHEL 7.2 和更新版本的原生 Azure VM 不同，HANA 大型執行個體也支援 RHEL 6.7。 不過，我們建議使用 RHEL 7.x 版本。
+[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) 是可供在 HANA Large Instances 上執行 SAP HANA 的另一個供應項目。 版本 RHEL 6.7 和 7.2 均可使用。 請注意，相對於容量原生 Azure Vm，其中支援只 RHEL 7.2 和更新版本，HANA 大型執行個體也支援 RHEL 6.7。 不過，我們建議使用 RHEL 7.x 版本。
 
 以下是其他有用的 SAP on Red Hat 相關連結︰
 - [Red Hat Linux 網站上的 SAP HANA](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat)。
@@ -142,7 +143,7 @@ HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需�
 
 ## <a name="storage"></a>儲存體
 
-SAP HANA on Azure (大型執行個體) 的儲存體配置是由 Azure服務管理透過 SAP 建議的指引進行設定。 這些指引列載於 [SAP HANA 儲存體需求](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)白皮書中。 
+SAP HANA on Azure (大型執行個體) 的儲存體配置是由 Azure服務管理透過 SAP 建議的指引進行設定。 這些指引列載於 [SAP HANA 儲存體需求](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)白皮書中。 
 
 有不同 HANA 大型執行個體 SKU 的不同磁碟區的約略大小記載於 [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
@@ -200,6 +201,17 @@ S72m HANA 大型執行個體單元的 df -h 命令輸出應該像這樣：
 針對從 SAP HANA 1.0 到 SPS12 的版本，您可以在安裝 SAP HANA 資料庫時設定這些參數，如 [SAP 附註 #2267798 - SAP HANA 資料庫組態 (英文)](https://launchpad.support.sap.com/#/notes/2267798) 所述。
 
 您也可以透過使用 hdbparam 架構，在安裝 SAP HANA 資料庫之後設定這些參數。 
+
+使用 HANA 大型執行個體中的儲存體有檔案大小限制。 [大小限制為 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html)每個檔案。 不同於在 EXT3 檔案系統中的檔案大小限制 HANA 並不知道會隱含地強制執行的 HANA 大型執行個體儲存體的儲存體限制。 如此一來 HANA 不會自動建立新的資料檔案時達到 16 TB 的檔案大小限制。 因為 HANA 嘗試成長超過 16 TB 的檔案時，HANA 會報告錯誤和索引伺服器將會損毀結尾。
+
+> [!IMPORTANT]
+> 為了防止嘗試超過 16 TB 的檔案大小限制的 HANA 大型執行個體儲存體的資料檔成長的 HANA，您需要在 SAP HANA global.ini 組態檔中設定下列參數
+> 
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - 另請參閱 SAP 附註[#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - SAP 附註請留意[#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+
 
 在 SAP HANA 2.0，hdbparam 架構已被取代。 因此，必須使用 SQL 命令來設定參數。 如需詳細資訊，請參閱 [SAP 附註 #2399079：在 HANA 2 中刪除 hdbparam](https://launchpad.support.sap.com/#/notes/2399079)。
 

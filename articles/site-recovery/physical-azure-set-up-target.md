@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57866287"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>準備目標 (VMware 至 Azure)
 
@@ -21,12 +21,12 @@ ms.locfileid: "52849224"
 ## <a name="prerequisites"></a>必要條件
 
 本文假設：
-- 您已建立復原服務保存庫，用以保護實體伺服器。 您可以從 [Azure 入口網站] (http://portal.azure.com "Azure 入口網站")建立復原服務保存庫。
+- 您已建立復原服務保存庫，用以保護實體伺服器。 您可以從 [Azure 入口網站] (https://portal.azure.com "Azure 入口網站")建立復原服務保存庫。
 - 您已[設定內部部署環境](physical-azure-disaster-recovery.md)以將實體伺服器複寫至 Azure。
 
 ## <a name="prepare-target"></a>準備目標
 
-完成**步驟 1：選取保護目標**和**步驟 2︰準備來源**之後，即會進入**步驟 3︰目標**
+完成“步骤 1: 选择保护目标”和“步骤 2: 准备源”后，会转到“步骤 3: 目标”
 
 ![準備目標](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 

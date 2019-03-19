@@ -8,22 +8,24 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079863"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178062"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>透過事件方格使用 CloudEvents 結構描述
 
-除了[預設事件結構描述](event-schema.md)以外，Azure 事件方格原本也就支援 [CloudEvents JSON 結構描述](https://github.com/cloudevents/spec/blob/master/json-format.md)中的事件。 [CloudEvents](http://cloudevents.io/) 是用來說明事件資料的[開放式規格](https://github.com/cloudevents/spec/blob/master/spec.md)。
+除了[預設事件結構描述](event-schema.md)以外，Azure 事件方格原本也就支援 [CloudEvents JSON 結構描述](https://github.com/cloudevents/spec/blob/master/json-format.md)中的事件。 [CloudEvents](https://cloudevents.io/) 是用來說明事件資料的[開放式規格](https://github.com/cloudevents/spec/blob/master/spec.md)。
 
 CloudEvents 提供用以發佈和取用雲端型事件的常見事件結構描述，可簡化互通性。 此結構描述可支援統一的工具、路由和處理事件的標準方式，以及將外部事件結構描述還原序列化的通用方式。 透過通用結構描述，您將可更輕鬆地跨平台整合工作。
 
 目前有數個[共同作業者](https://github.com/cloudevents/spec/blob/master/community/contributors.md) (包括 Microsoft) 正透過 [Cloud Native Computing Foundation](https://www.cncf.io/) 建置 CloudEvents。 目前可用的版本為 0.1。
 
 本文說明如何透過事件方格使用 CloudEvents 結構描述。
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>安裝預覽功能
 
@@ -60,7 +62,7 @@ CloudEvents 提供用以發佈和取用雲端型事件的常見事件結構描�
 
 CloudEvents v0.1 具有下列可用屬性：
 
-| CloudEvents        | 類型     | 範例 JSON 值             | 說明                                                        | 事件方格對應
+| CloudEvents        | 類型     | 範例 JSON 值             | 描述                                                        | 事件方格對應
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | 字串   | "com.example.someevent"          | 發生的事件類型                                   | eventType
 | eventTypeVersion   | 字串   | "1.0"                            | eventType 的版本 (選用)                            | dataVersion

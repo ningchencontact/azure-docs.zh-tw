@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: fd37c0c118812bb3554b19fec9bf5ae3f33a2fdc
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bbf619f27c9239ea1b42287c7e81f23da1d43fcb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54314096"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57350444"
 ---
 GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製化虛擬機器。 這些大小是專門針對計算密集型、圖形密集型及視覺效果的工作負載所設計。 本文章提供有關 GPU、vCPU、資料磁碟及 NIC 之數量和類型的資訊。 另說明此群組中每個大小的輸送量和網路頻寬。 
 
@@ -52,7 +52,7 @@ NC 系列 VM 是由 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/
 
 進階儲存體快取：支援
 
-NCv2 系列 VM 是由 [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU 提供技術支援。 這些 GPU 可提供 NC 系列 2 倍以上的計算效能。 客戶可針對儲槽模型、DNA 定序、蛋白質分析、蒙地卡羅模擬等傳統 HPC 工作負載，善用這些更新過的 GPU。 NC24rs v2 組態提供低延遲且高輸送量網路介面，最適合用於緊密結合的平行計算工作負載。
+NCv2 系列 VM 是由 [NVIDIA Tesla P100](https://www.nvidia.com/data-center/tesla-p100/) GPU 提供技術支援。 這些 GPU 可提供 NC 系列 2 倍以上的計算效能。 客戶可針對儲槽模型、DNA 定序、蛋白質分析、蒙地卡羅模擬等傳統 HPC 工作負載，善用這些更新過的 GPU。 NC24rs v2 組態提供低延遲且高輸送量網路介面，最適合用於緊密結合的平行計算工作負載。
 
 > [!IMPORTANT]
 > 對於這個大小的系列，一開始會在您的訂用帳戶中，將每個區域中的 vCPU (核心) 配額設為 0。 在[可用區域](https://azure.microsoft.com/regions/services/)中，針對這個系列[要求增加 vCPU 配額](../articles/azure-supportability/resource-manager-core-quotas-request.md)。
@@ -108,9 +108,9 @@ NDv2 系列虛擬機器是 GPU 家族的新增項目，專為 HPC、AI 和機器
 <br>
 
 
-| 大小              | vCPU | GPU              | 記憶體  | NIC (最大) | 最大 磁碟大小           | 最大 資料磁碟 (每個 1023 GB) | 最大網路頻寬 | 
+| 大小              | vCPU | GPU              | 記憶體  | NIC 数（最大值） | 最大 磁碟大小           | 最大 資料磁碟 (每個 1023 GB) | 最大網路頻寬 | 
 |-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
-| Standard_ND40s_v2 | 40   | 8 V100 (NVlilnk) | 672 GiB | 8          | 暫存 1344 / 2948XIO | 32                             | 24,000 Mbps           |
+| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 GiB | 8          | 暫存 1344 / 2948XIO | 32                             | 24,000 Mbps           |
 
 ## <a name="nd-series"></a>ND 系列
 

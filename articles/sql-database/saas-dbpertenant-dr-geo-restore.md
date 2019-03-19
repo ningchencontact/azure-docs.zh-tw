@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 14c43fbc138d6d70b65f6afd1ef174488e066796
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567735"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116770"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>使用異地還原從資料庫備份復原多租用戶 SaaS 應用程式
 
@@ -32,13 +32,13 @@ ms.locfileid: "55567735"
 
 本教學課程會探索還原和回復工作流程。 您會了解如何：
 > [!div class="checklist"]
-
->* 將資料庫和彈性集區組態資訊同步至租用戶目錄中。
->* 在復原區域中設定包含應用程式、伺服器和集區的鏡像映像環境。   
->* 使用異地還原來復原目錄和租用戶資料庫。
->* 在中斷問題解決之後，使用異地複寫來回復租用戶目錄和變更的租用戶資料庫。
->* 在每個資料庫還原 (或回復) 時更新目錄，以追蹤每個租用戶資料庫的使用中複本的目前位置。
->* 確定應用程式和租用戶資料庫一律共置於相同的 Azure 區域中，以降低延遲。 
+> 
+> * 將資料庫和彈性集區組態資訊同步至租用戶目錄中。
+> * 在復原區域中設定包含應用程式、伺服器和集區的鏡像映像環境。   
+> * 使用異地還原來復原目錄和租用戶資料庫。
+> * 在中斷問題解決之後，使用異地複寫來回復租用戶目錄和變更的租用戶資料庫。
+> * 在每個資料庫還原 (或回復) 時更新目錄，以追蹤每個租用戶資料庫的使用中複本的目前位置。
+> * 確定應用程式和租用戶資料庫一律共置於相同的 Azure 區域中，以降低延遲。 
  
 
 在開始本教學課程之前，請完成下列先決條件：
@@ -194,13 +194,13 @@ ms.locfileid: "55567735"
 
 * 在復原目錄資料庫後，但在租用戶重新上線之前，在網頁瀏覽器中重新整理 Wingtip Tickets 事件中樞。
 
-    * 在頁尾中，請留意目錄伺服器名稱此時具有 -recovery 尾碼，且位於復原區域中。
+  * 在頁尾中，請留意目錄伺服器名稱此時具有 -recovery 尾碼，且位於復原區域中。
 
-    * 請注意，尚未還原的租用戶會標示為離線，且無法選取。   
+  * 請注意，尚未還原的租用戶會標示為離線，且無法選取。   
  
     ![復原程序](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * 如果您在租用戶離線時直接開啟租用戶的 [事件] 頁面，該頁面會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall。
+  * 如果您在租用戶離線時直接開啟租用戶的 [事件] 頁面，該頁面會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall。
 
     ![復原程序](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -245,13 +245,13 @@ ms.locfileid: "55567735"
 
 4. 開啟復原資源群組，並請查看下列項目：
 
-    * 目錄的復原版本和 tenants1 伺服器 (具有 -recovery 尾碼)。 這些伺服器上已還原的目錄和租用戶資料庫都具有在原始區域中使用的名稱。
+   * 目錄的復原版本和 tenants1 伺服器 (具有 -recovery 尾碼)。 這些伺服器上已還原的目錄和租用戶資料庫都具有在原始區域中使用的名稱。
 
-    * tenants2-dpt-&lt;user&gt;-recovery SQL 伺服器。 這是在中斷期間用來佈建新租用戶的伺服器。
+   * tenants2-dpt-&lt;user&gt;-recovery SQL 伺服器。 這是在中斷期間用來佈建新租用戶的伺服器。
 
-    * 名為 events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt; 的 App Service，這是事件應用程式的復原執行個體。
+   * 名為 events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt; 的 App Service，這是事件應用程式的復原執行個體。
 
-    ![復原區域中的 Contoso 資源](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![復原區域中的 Contoso 資源](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
 5. 開啟 tenants2-dpt-&lt;user&gt;-recovery SQL 伺服器。 請留意其中包含資料庫 hawthornhall 和彈性集區 Pool1。 Hawthornhall 資料庫設定為 Pool1 彈性集區中的彈性資料庫。
 
@@ -367,12 +367,12 @@ ms.locfileid: "55567735"
 
 在本教學課程中，您已了解如何：
 > [!div class="checklist"]
-
->* 使用租用戶目錄來保存定期重新整理的組態資訊，如此可在另一個區域中建立鏡像映像復原環境。
->* 使用異地還原將 Azure SQL 資料庫復原到復原區域中。
->* 更新租用戶目錄以反映已還原租用戶資料庫位置。 
->* 使用 DNS 別名，可讓應用程式連線至整個租用戶目錄，而無需重新設定。
->* 在中斷問題解決之後，使用異地複寫將已復原的資料庫重新回復到其原始區域。
+> 
+> * 使用租用戶目錄來保存定期重新整理的組態資訊，如此可在另一個區域中建立鏡像映像復原環境。
+> * 使用異地還原將 Azure SQL 資料庫復原到復原區域中。
+> * 更新租用戶目錄以反映已還原租用戶資料庫位置。 
+> * 使用 DNS 別名，可讓應用程式連線至整個租用戶目錄，而無需重新設定。
+> * 在中斷問題解決之後，使用異地複寫將已復原的資料庫重新回復到其原始區域。
 
 嘗試[使用資料庫異地複寫，為多租用戶 SaaS 應用程式進行災害復原](saas-dbpertenant-dr-geo-replication.md)教學課程，以了解如何使用異地複寫來大幅減少復原大規模的多租用戶應用程式所需的時間。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491649"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008388"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>使用 StorSimple 裝置管理員服務來修改 StorSimple 裝置組態
 
@@ -71,7 +71,7 @@ Azure 入口網站之 [設定] 刀鋒視窗中的 [裝置設定] 區段包含所
 
 設定 NTP 伺服器時，請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。 指定公用 NTP 伺服器時，您必須確定網路防火牆和其他安全性裝置皆設定為允許 NTP 流量傳入及傳出外部網路。 若不允許雙向 NTP 流量，您必須使用內部 NTP 伺服器 (Windows 網域控制器會提供這個函式)。 如果您的裝置無法同步時間，它可能無法與您的雲端儲存空間提供者進行通訊。
 
-若要查看公用 NTP 伺服器清單，請移至 [NTP 伺服器網頁](http://support.ntp.org/bin/view/Servers/WebHome)。
+若要查看公用 NTP 伺服器清單，請移至 [NTP 伺服器網頁](https://support.ntp.org/bin/view/Servers/WebHome)。
 
 ### <a name="what-happens-if-the-device-is-deployed-in-a-different-time-zone"></a>如果裝置部署在不同的時區會發生什麼狀況？
 

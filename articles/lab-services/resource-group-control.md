@@ -10,42 +10,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: f6e604940c9e2e84f119fdd1859ad4b2cda23aef
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312969"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588698"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中指定實驗室虛擬機器的資源群組
-身為實驗室擁有者，您可以將實驗室虛擬機器設定在特定資源群組中建立。 此功能可在下列情況中協助您： 
+
+身為實驗室擁有者，您可以將實驗室虛擬機器設定在特定資源群組中建立。 此功能可在下列情況中協助您：
 
 - 透過訂用帳戶中的實驗室建立的資源群組較少。
-- 讓您的實驗室在您所設定的資源群組內操作
+- 有一組固定的您所設定的資源群組內操作實驗室。
 - 解決在 Azure 訂用帳戶內建立資源群組所需的限制和核准。
-- 彙總單一資源群組中的所有實驗室資源，以簡化對這些資源的追蹤，並套用[原則](../governance/policy/overview.md)在資源群組層級對其進行管理。
+- 彙總內的單一資源群組，以簡化追蹤這些資源和套用所有實驗室資源[原則](../governance/policy/overview.md)來管理資源群組層級的資源。
 
-使用此功能，您可以使用指令碼為所有的實驗室 VM 指定 Azure 訂用帳戶內全新或現有的資源群組。 目前，DevTest Labs 透過 API 支援此功能。 
+使用此功能，您可以使用指令碼來指定您 Azure 訂用帳戶內的新的或現有的資源群組，為所有實驗室 Vm。 目前，Azure DevTest Labs 支援透過 API 這項功能。
 
-## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>針對實驗室虛擬機器設定資源群組的 API
-現在，讓我們逐步解說身為實驗室擁有者在使用此 API 時有哪些選項： 
+## <a name="use-azure-portal"></a>使用 Azure 入口網站
+請遵循下列步驟來指定適用於實驗室中建立的所有 Vm 的資源群組。 
 
-- 您可以為所有虛擬機器選擇**實驗室的資源群組**。
-- 您可以為所有虛擬機器選擇實驗室資源群組以外的**現有資源群組**。
-- 您可以為所有虛擬機器輸入**新的資源群組**名稱。
-- 您可以繼續使用現有的行為，也就是為實驗室中的每個 VM 建立資源群組。
- 
-此設定適用於實驗室中建立的新虛擬機器。 在您實驗室中以自身資源組建立的較舊 VM 會繼續運作而不受影響。 在實驗室中建立的環境會繼續保留在自己的資源群組中。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 選取 **所有服務**左側的導覽功能表上。 
+3. 選取  **DevTest Labs**從清單中。
+4. 從實驗室清單中，選取您**實驗室**。  
+5. 選取 **組態和原則**中**設定**左側功能表上的一節。 
+6. 選取 **實驗室設定**左側功能表上。 
+7. 選取 **一個資源群組中的所有虛擬機器**。 
+8. 選取現有的資源群組中的下拉式清單 （或） 選取**新建**，輸入**名稱**資源群組，然後選取**確定**。 
 
-### <a name="how-to-use-this-api"></a>如何使用此 API：
-- 使用此 API 時，請使用 API **2018_10_15_preview** 版。 
-- 如果您指定新的資源群組，確定您在訂用帳戶內擁有**對資源群組的寫入權限**。 若沒有寫入權限，在指定的資源群組中建立新的虛擬機器時會導致失敗。 
-- 在使用 API 時，請傳入**完整的資源群組識別碼**。 例如： `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>` 。 確定資源群組與該實驗室位在相同的訂用帳戶中。 
+    ![選取的資源群組的所有實驗室 Vm](./media/resource-group-control/select-resource-group.png)
 
 ## <a name="use-powershell"></a>使用 PowerShell 
-下列範例說明如何使用 PowerShell 指令碼，在新的資源群組中建立所有的實驗室虛擬機器。
+下列範例示範如何使用 PowerShell 指令碼來建立新的資源群組中的所有實驗室虛擬機器。
 
 ```PowerShell
 [CmdletBinding()]
@@ -69,14 +69,14 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
 "Done. New virtual machines will now be created in the resource group '$vmRg'."
 ```
 
-使用下列命令叫用指令碼 (ResourceGroup.ps1 是包含上述指令碼的檔案)： 
+使用下列命令來叫用指令碼。 ResourceGroup.ps1 是包含上述指令碼的檔案：
 
 ```PowerShell
 .\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
 ```
 
-## <a name="use-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
-如果您使用 Azure Resource Manager 範本建立實驗室，請在 Resource Manager 範本中的實驗室屬性區段使用 **vmCreationResourceGroupId** 屬性，如下列範例所示：
+## <a name="use-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
+如果您使用 Azure Resource Manager 範本建立實驗室，使用**vmCreationResourceGroupId**實驗室屬性區段中的範本，如下列範例所示的屬性：
 
 ```json
         {
@@ -96,6 +96,22 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
             "dependsOn": []
         },
 ```
+
+
+## <a name="api-to-configure-a-resource-group-for-lab-vms"></a>設定實驗室 Vm 的資源群組的 API
+使用此 API 時，您可以有為實驗室擁有者的下列選項：
+
+- 選擇**實驗室的資源群組**的所有虛擬機器。
+- 選擇**現有的資源群組**以外的所有虛擬機器的實驗室的資源群組。
+- 請輸入**新的資源群組**所有虛擬機器的名稱。
+- 繼續使用現有的行為，在實驗室中的每個 VM 會建立資源群組。
+ 
+此設定適用於實驗室中建立的新虛擬機器。 在自己的資源群組中建立較舊的 Vm 在實驗室中不受影響。 在您的實驗室中建立的環境會繼續保留在自己的資源群組中。
+
+如何使用此 API：
+- 使用 API 版本**2018_10_15_preview**。
+- 如果您指定新的資源群組，請確定您已**資源群組寫入權限**您訂用帳戶中。 如果您沒有寫入權限，在指定的資源群組中建立新的虛擬機器將會失敗。
+- 在使用 API 時，請傳入**完整的資源群組識別碼**。 例如： `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>` 。 請確定資源群組是實驗室位於相同訂用帳戶。 
 
 
 ## <a name="next-steps"></a>後續步驟

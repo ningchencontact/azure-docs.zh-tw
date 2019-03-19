@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f0bffdf439a192fb10fe695fbfa18e8c7abf8077
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173652"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>教學課程：Azure Active Directory 與 Spotinst 整合
 
@@ -221,7 +221,7 @@ Spotinst 與 Azure AD 整合提供下列優點：
 
     * 在 [全名] 文字方塊中，輸入使用者的全名，例如 **BrittaSimon**。
 
-    * 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件地址，例如 **brittasimon@contoso.com**。
+    * 在 **電子郵件**文字方塊中，輸入像是使用者的電子郵件地址**brittasimon\@contoso.com**。
 
     * 針對 [組織角色、帳戶角色和帳戶] 選取組織特定詳細資料。
 

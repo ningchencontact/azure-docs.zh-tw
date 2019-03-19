@@ -10,20 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6b849ad72554af163d8ac3d5ff1248023dc71052
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 358ca13548f0215fabee949c5fa3dee64beb2d6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268521"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996968"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
 此程序會設定 ASP.NET web 應用程式以將遙測傳送至 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 服務。 這適用於在您擁有的內部部署 IIS 伺服器或雲端中託管的 ASP.NET 應用程式。 取得圖表和功能強大的查詢語言可幫助您了解您應用程式的效能以及人員如何使用它，再加上發生失敗或效能問題時的自動警示。 許多開發人員發現這些功能本身就很棒，但是您也可以視需要擴充和自訂遙測。
 
-在 Visual Studio 中只需按幾下滑鼠即可進行安裝。 您可以選擇限制遙測的磁碟區來避免產生費用。 這可讓您實驗和偵錯，或使用不多的使用者監視網站。 當您決定要繼續監視您的生產網站時，很容易在稍後提升限制。
+在 Visual Studio 中只需按幾下滑鼠即可進行安裝。 您可以選擇限制遙測的磁碟區來避免產生費用。 這項功能可讓您實驗和偵錯，或使用不多的使用者監視網站。 當您決定要繼續監視您的生產網站時，很容易在稍後提升限制。
 
 ## <a name="prerequisites"></a>必要條件
 若要將 Application Insights 新增至您的 ASP.NET 網站，您必須：
@@ -37,11 +37,11 @@ ms.locfileid: "56268521"
 ## <a name="ide"></a>步驟 1：新增 Application Insights SDK
 
 > [!IMPORTANT]
-> 新增 Application Insights 的程序會因 ASP.NET 範本類型而異。 如果您使用 [空白] 或 [Azure 行動裝置應用程式] 範本，請選取 [專案] > [新增 Application Insights 遙測]。 如需其他所有 ASP.NET 範本，請參閱下面的指示。 
+> 在此範例中的螢幕擷取畫面根據 Visual Studio 2017 版本 15.9.9。 將 Application Insights 的體驗是根據版本的 Visual Studio 2017，以及因 ASP.NET 範本類型而異。 較舊版本可能會有替代的文字，例如 [設定 Application Insights]。
 
-在 [方案總管] 中以滑鼠右鍵按一下 Web 應用程式名稱，然後選擇 [設定 Application Insights]。
+以滑鼠右鍵按一下您在 方案總管 中的 web 應用程式名稱，然後選擇 **新增** > **Application Insights 遙測**
 
-![醒目提示 [設定 Application Insights] 的 [方案總管] 螢幕擷取畫面](./media/asp-net/0001-configure-application-insights.png)
+![醒目提示 [設定 Application Insights] 的 [方案總管] 螢幕擷取畫面](./media/asp-net/add-telemetry-new.png)
 
 (根據您的 Application Insights SDK 版本，系統可能會提示您升級至最新的 SDK 版本。 如果出現提示，請選取 [更新 SDK]。)
 
@@ -49,15 +49,15 @@ ms.locfileid: "56268521"
 
 Application Insights 設定畫面：
 
-選取 [開始免費使用]。
+選取 **[馬上開始]** 。
 
-![[向 Application Insights 註冊您的應用程式] 頁面的螢幕擷取畫面](./media/asp-net/0004-start-free.png)
+![[向 Application Insights 註冊您的應用程式] 頁面的螢幕擷取畫面](./media/asp-net/00004-start-free.png)
 
 如果您想要設定資源群組，或資料的儲存位置，請按一下 [進行設定]。 資源群組用來控制資料的存取。 例如，如果您有數個應用程式組成相同系統時，您可能會將其 Application Insights 資料放在相同的資源群組中。
 
- 選取 [註冊]。 
+ 選取 [註冊]。
 
-![[向 Application Insights 註冊您的應用程式] 頁面的螢幕擷取畫面](./media/asp-net/0005-register-ed.png)
+![[向 Application Insights 註冊您的應用程式] 頁面的螢幕擷取畫面](./media/asp-net/00005-register-ed.png)
 
  在偵錯期間和您發佈應用程式之後，遙測會傳送至 [Azure 入口網站](https://portal.azure.com)。
 > [!NOTE]
@@ -68,7 +68,7 @@ Application Insights 設定畫面：
 
 在 Visual Studio 中，您會看見已記錄的事件計數。
 
-![Visual Studio 的螢幕擷取畫面。 偵錯期間會顯示 Application Insights 按鈕。](./media/asp-net/0006-Events.png)
+![Visual Studio 的螢幕擷取畫面。 偵錯期間會顯示 Application Insights 按鈕。](./media/asp-net/00006-Events.png)
 
 ## <a name="step-3-see-your-telemetry"></a>步驟 3：查看遙測
 您可以在 Visual Studio 或 Application Insights Web 入口網站中看到遙測。 在 Visual Studio 中搜尋遙測可協助您偵錯應用程式。 當系統作用中時監視效能及 web 入口網站的使用量。 
@@ -95,7 +95,7 @@ Application Insights 設定畫面：
 
 入口網站會從您的應用程式開啟遙測檢視。
 
-![Application Insights 概觀頁面的螢幕擷取畫面](./media/asp-net/66.png)
+![Application Insights 概觀頁面的螢幕擷取畫面](./media/asp-net/007.png)
 
 在入口網站中，按一下任何圖格或圖表以查看詳細資料。
 
@@ -117,8 +117,6 @@ Application Insights 設定畫面：
 
 恭喜！ 您在應用程式中安裝了 Application Insights 套件，並將其設定為將遙測傳送至 Azure 上的 Application Insights 服務。
 
-![遙測移動的圖表](./media/asp-net/01-scheme.png)
-
 接收您應用程式遙測的 Azure 資源會由檢測金鑰識別。 您可以在 ApplicationInsights.config 檔案中找到此金鑰。
 
 
@@ -126,10 +124,6 @@ Application Insights 設定畫面：
 若要升級至[新版的 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases)，請開啟 **NuGet 套件管理員**，並篩選已安裝的套件。 選取 **Microsoft.ApplicationInsights.Web**，然後選擇 [升級]。
 
 如果您已對 ApplicationInsights.config 進行任何的自訂，請在升級前儲存複本。 然後，將您的變更合併至新版本中。
-
-## <a name="video"></a>影片
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -155,7 +149,7 @@ Application Insights 設定畫面：
 
 * [可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)：建立測試，以確保網路上看得見您的網站。
 * [智慧型診斷](../../azure-monitor/app/proactive-diagnostics.md)︰這些測試會自動執行，您不需要採取任何動作來設定它們。 它們會讓您知道應用程式是否有不尋常的失敗要求率。
-* [計量警示](../../azure-monitor/app/alerts.md)：設定這些警示，當計量超出臨界值時警告您。 您可以在撰寫於程式碼中的自訂度量上設定它們。
+* [計量警示](../../azure-monitor/app/alerts.md)：設定警示來警告您當度量超出臨界值。 您可以在撰寫於程式碼中的自訂度量上設定它們。
 
 ### <a name="automation"></a>自動化
 

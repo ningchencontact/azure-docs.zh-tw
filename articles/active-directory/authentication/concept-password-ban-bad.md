@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ccad4f9aaa85d528697c1bcf34e1b034eeabe9e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996021"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>避免在組織中使用不當密碼
 
@@ -60,7 +60,7 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 | '0'  | 'o' |
 | '1'  | 'l' |
 | '$'  | 's' |
-| '@'  | 'a' |
+| '\@'  | 'a' |
 
 範例：假設密碼 "blank" 遭到禁止，而使用者嘗試將其密碼變更為 “Bl@nK”。 即使 “Bl@nk” 並未明確遭到禁用，正規化程序會將這個密碼轉換為 “blank”，這禁用密碼。
 
@@ -96,7 +96,7 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 
 正規化之後，此密碼會變成 “contosoblank12”。 比對程序發現此密碼包含兩個禁用密碼：contoso 和 blank。 此密碼接著會被評分：
 
-[contoso] + [blank] = [1] + [2] = 4 分，因為此密碼低於 5 分，所以遭到拒絕。
+[contoso] + [空白] + [1] + [2] = 4 個點因為此密碼是在 5 點，它將會遭到拒絕。
 
 範例：使用者將其密碼變更為 “ContoS0Bl@nkf9!”。
 

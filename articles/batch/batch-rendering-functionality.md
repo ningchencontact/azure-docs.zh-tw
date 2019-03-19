@@ -2,16 +2,17 @@
 title: 轉譯功能 - Azure Batch
 description: Azure Batch 中的特定轉譯功能
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: a1408720a5387d044416ded377189e4539f782a7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543031"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791795"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 轉譯功能
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565474"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889775"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>安裝彈性資料庫工作概觀
 
@@ -27,12 +27,12 @@ ms.locfileid: "55565474"
 
 您可以經由 PowerShell 或透過 Azure 入口網站安裝[**彈性資料庫工作**](sql-database-elastic-jobs-overview.md)。只有在安裝 PowerShell 套件的情況下，您才能取得可使用 PowerShell API 來建立和管理工作的存取權。 此外，PowerShell API 目前比入口網站提供更多的功能。
 
-如果您已透過「入口網站」從現有的「彈性集區」安裝「彈性資料庫工作」，最新的 Powershell 預覽版包含可升級現有安裝的指令碼。 強烈建議將安裝升級至最新的 **彈性資料庫工作** 元件，以利用透過 PowerShell API 公開的新功能。
+如果您已安裝**彈性資料庫工作**透過入口網站中從現有**彈性集區**，最新的 PowerShell 預覽版包含可升級您現有的安裝指令碼。 強烈建議將安裝升級至最新的 **彈性資料庫工作** 元件，以利用透過 PowerShell API 公開的新功能。
 
 ## <a name="prerequisites"></a>必要條件
 * Azure 訂用帳戶。 如需免費試用版，請參閱 [免費試用版](https://azure.microsoft.com/pricing/free-trial/)。
 * Azure PowerShell。 使用 [Web Platform Installer](https://go.microsoft.com/fwlink/p/?linkid=320376)安裝最新版本。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
-* [NuGet 命令列公用程式](https://nuget.org/nuget.exe) 可用來安裝彈性資料庫工作封裝。 如需詳細資訊，請參閱 http://docs.nuget.org/docs/start-here/installing-nuget。
+* [NuGet 命令列公用程式](https://nuget.org/nuget.exe) 可用來安裝彈性資料庫工作封裝。 如需詳細資訊，請參閱 https://docs.nuget.org/docs/start-here/installing-nuget。
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>下載並匯入彈性資料庫工作 PowerShell 封裝
 1. 啟動 Microsoft Azure PowerShell 命令視窗，並瀏覽至您下載 NuGet 命令列公用程式 (nuget.exe) 的目錄。
@@ -67,7 +67,7 @@ ms.locfileid: "55565474"
 <table style="width:100%">
   <tr>
     <th>參數</th>
-    <th>說明</th>
+    <th>描述</th>
   </tr>
 
 <tr>
@@ -75,9 +75,7 @@ ms.locfileid: "55565474"
     <td>提供建立的 Azure 資源群組名稱，以包含新建的 Azure 元件。 此參數預設為 “__ElasticDatabaseJob”。 不建議變更此值。</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>提供要用於新建的 Azure 元件的 Azure 位置。 此參數預設為美國中部位置。</td>
 </tr>
@@ -85,28 +83,24 @@ ms.locfileid: "55565474"
 <tr>
     <td>ServiceWorkerCount</td>
     <td>提供要安裝的服務背景工作數目。 此參數預設為 1。 可以使用更多的背景工作來相應放大服務，並提供高可用性。 建議針對需要服務的高可用性的部署使用 "2"。</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
-    <td>提供在雲端服務內使用的 VM 大小。 此參數預設為 A0。 接受 A0/A1/A2/A3 的參數值，這會導致背景工作角色分別使用 ExtraSmall/Small/Medium/Large 大小。 如需有關背景工作角色大小的詳細資訊，請參閱[彈性資料庫工作元件和價格](sql-database-elastic-jobs-overview.md#components-and-pricing)。</td>
+    <td>提供在雲端服務內使用的 VM 大小。 此參數預設為 A0。 參數值.../../ A3 會接受這會導致背景工作角色分別使用 ExtraSmall/Small/Medium/Large 大小。 如需有關背景工作角色大小的詳細資訊，請參閱[彈性資料庫工作元件和價格](sql-database-elastic-jobs-overview.md#components-and-pricing)。</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>提供標準版的計算大小。 此參數預設為 S0。 接受 S0/S1/S2/S3/S4/S6/S9/S12 的參數值，這會導致 Azure SQL Database 使用各自的計算大小。 如需有關 SQL Database 計算大小的詳細資訊，請參閱[彈性資料庫工作元件和價格](sql-database-elastic-jobs-overview.md#components-and-pricing)。</td>
+    <td>提供標準版的計算大小。 此參數預設為 S0。 參數值.../../../../ S9/S12 接受的這會導致 Azure SQL Database 使用各自的計算大小。 如需有關 SQL Database 計算大小的詳細資訊，請參閱[彈性資料庫工作元件和價格](sql-database-elastic-jobs-overview.md#components-and-pricing)。</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>提供新建的 Azure SQL Database 伺服器的系統管理員使用者名稱。 未指定時，將開啟 PowerShell 認證視窗，提示輸入認證。</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>提供新建的 Azure SQL Database 伺服器的系統管理員密碼。 未提供時，將開啟 PowerShell 認證視窗，提示輸入認證。</td>
 </tr>
@@ -128,27 +122,22 @@ ms.locfileid: "55565474"
 <table style="width:100%">
   <tr>
   <th>參數</th>
-  <th>說明</th>
+  <th>描述</th>
 </tr>
 
-  <tr>
+<tr>
     <td>resourceGroupName</td>
     <td>識別一開始安裝彈性資料庫工作元件時所使用的 Azure 資源群組名稱。 此參數預設為 “__ElasticDatabaseJob”。 不建議變更此值，因為您應該不必指定此參數。</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>提供要安裝的服務背景工作數目。  此參數預設為 1。  可以使用更多的背景工作來相應放大服務，並提供高可用性。  建議針對需要服務的高可用性的部署使用 "2"。</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
-    <td>提供在雲端服務內使用的 VM 大小。 此參數預設為 A0。 接受 A0/A1/A2/A3 的參數值，這會導致背景工作角色分別使用 ExtraSmall/Small/Medium/Large 大小。 如需有關背景工作角色大小的詳細資訊，請參閱[彈性資料庫工作元件和價格](sql-database-elastic-jobs-overview.md#components-and-pricing)。</td>
+    <td>提供在雲端服務內使用的 VM 大小。 此參數預設為 A0。 參數值.../../ A3 會接受這會導致背景工作角色分別使用 ExtraSmall/Small/Medium/Large 大小。 如需有關背景工作角色大小的詳細資訊，請參閱[彈性資料庫工作元件和價格](sql-database-elastic-jobs-overview.md#components-and-pricing)。</td>
 </tr>
 
 </table>
@@ -167,7 +156,7 @@ ms.locfileid: "55565474"
 5. 輸入資料庫管理員的使用者名稱和密碼。在安裝過程中，會建立新的 Azure SQL Database 伺服器。 在這個新的伺服器內，會建立稱為控制資料庫的新資料庫，並用來包含彈性資料庫工作的中繼資料。 這裡建立的使用者名稱和密碼用於登入控制資料庫。 個別的認證用於對集區內的資料庫執行指令碼。
    
     ![建立使用者名稱和密碼][2]
-6. 按一下 [確定] 按鈕。 幾分鐘內，就會在新的[資源群組](../azure-resource-manager/resource-group-overview.md)中為您建立元件。 新的資源群組已釘選到「開始面板」，如下所示。 建立後，會在群組中建立所有彈性資料庫工作 (雲端服務、SQL Database、服務匯流排和儲存體)。
+6. 单击“确定”按钮。 幾分鐘內，就會在新的[資源群組](../azure-resource-manager/resource-group-overview.md)中為您建立元件。 新的資源群組已釘選到「開始面板」，如下所示。 建立後，會在群組中建立所有彈性資料庫工作 (雲端服務、SQL Database、服務匯流排和儲存體)。
    
     ![「開始面板」中的資源群組][3]
 7. 如果您嘗試在安裝彈性資料庫工作時建立或管理工作，您會在提供 **認證** 時看到下列訊息。

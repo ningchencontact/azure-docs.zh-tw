@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f82ce7cbc060d7bb97e2ee90d872fbf2abd1983b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725264"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117773"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 
@@ -51,24 +51,24 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 **Grant permission to these groups (將權限授與這些群組)** ![Grant permission to these groups (將權限授與這些群組)](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
 
-4. 若要新增使用者，請選取 [Add User] \(新增使用者\) 按鈕。
+1. 若要新增使用者，請選取 [Add User] \(新增使用者\) 按鈕。
 
-    * 開始輸入使用者名稱，您將會看到先前已定義之名稱的下拉式清單。
+   * 開始輸入使用者名稱，您將會看到先前已定義之名稱的下拉式清單。
 
-    ![使用者自動完成](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![使用者自動完成](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
 
-    * 選取使用者名稱，或完成使用者名稱輸入。 若要新增此使用者名稱作為新使用者，請選取 [New] \(新增\) 按鈕。
+   * 選取使用者名稱，或完成使用者名稱輸入。 若要新增此使用者名稱作為新使用者，請選取 [New] \(新增\) 按鈕。
 
-    * 若要儲存您的變更，請選取**藍色核取方塊**。
+   * 若要儲存您的變更，請選取**藍色核取方塊**。
 
-    ![已輸入使用者](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![已輸入使用者](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
 
-5. 若要新增群組，請選取 [Add Group] \(新增群組\) 按鈕。
+1. 若要新增群組，請選取 [Add Group] \(新增群組\) 按鈕。
 
-    * 開始輸入群組名稱。 不論是選取現有的群組名稱，還是新增新的群組，程序都與新增使用者相同。
-    * 若要儲存您的變更，請選取**藍色核取方塊**。
+   * 開始輸入群組名稱。 不論是選取現有的群組名稱，還是新增新的群組，程序都與新增使用者相同。
+   * 若要儲存您的變更，請選取**藍色核取方塊**。
 
-    ![已輸入群組](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![已輸入群組](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
 
 當您想要指派權限給使用者來使用該檢視，但不想要讓使用者成為具有額外權限之群組的成員時，將使用者直接新增到檢視會相當有用。 若要降低系統管理額外負擔，將權限指派給群組可能會是更簡單的方式。
 
@@ -88,7 +88,7 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 * 叢集系統管理員
 * 叢集操作員
-* 服務管理員
+* 服务管理员
 * 服務操作員
 * 叢集使用者
 

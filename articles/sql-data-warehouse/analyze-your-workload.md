@@ -2,111 +2,31 @@
 title: 分析工作負載 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中用來分析工作負載查詢優先順序的技術。
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
-ms.date: 04/17/2018
-ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: 9025eccabcbf7052131fee741a1e1f6a2139366b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.subservice: workload management
+ms.date: 03/13/2019
+ms.author: rortloff
+ms.reviewer: jrasnick
+ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476752"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896801"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>分析 Azure SQL 資料倉儲的工作負載 | Microsoft Docs
-在 Azure SQL 資料倉儲中用來分析工作負載查詢優先順序的技術。
 
-## <a name="workload-groups"></a>工作負載群組 
-SQL 資料倉儲使用工作負載群組來實作資源類別。 共有八個工作負載群組，它們可跨各種 DWU 大小控制資源類別的行為。 對於任何 DWU，SQL 資料倉儲只會使用這八個工作負載群組的其中四個。 此方法很合理，因為每個工作負載群組都會指派給四個資源類別之一：smallrc、mediumrc、largerc 或 xlargerc。 了解這些工作負載群組的重要性在於其中某些工作負載群組會設定為較高的「重要性」 。 重要性可用於 CPU 排程。 以高重要性執行的查詢會取得比中度重要性的查詢高三倍的 CPU 週期。 因此，並行存取插槽對應也會判斷 CPU 優先順序。 當查詢取用 16 個以上的插槽時，就會以高重要性執行。
+分析您的工作負載，Azure SQL 資料倉儲中的技術。
 
-下表是每個工作負載群組的重要性對應。
+## <a name="resource-classes"></a>資源課程
 
-### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>工作負載群組與並行存取插槽數目和重要性的對應
-
-| 工作負載群組 | 並行存取插槽對應 | MB / 散發 (彈性) | MB / 散發 (計算) | 重要性對應 |
-|:---------------:|:------------------------:|:------------------------------:|:---------------------------:|:------------------:|
-| SloDWGroupC00   | 1                        |    100                         | 250                         | 中             |
-| SloDWGroupC01   | 2                        |    200                         | 500                         | 中             |
-| SloDWGroupC02   | 4                        |    400                         | 1000                        | 中             |
-| SloDWGroupC03   | 8                        |    800                         | 2000                        | 中             |
-| SloDWGroupC04   | 16                       |  1,600                         | 4000                        | 高               |
-| SloDWGroupC05   | 32                       |  3,200                         | 8000                        | 高               |
-| SloDWGroupC06   | 64                       |  6,400                         | 16,000                      | 高               |
-| SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | 高               |
-| SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | 高               |
-
-<!-- where are the allocation and consumption of concurrency slots charts? -->**並行存取插槽的配置和耗用量**圖表中，顯示 DW500 針對 smallrc、mediumrc、largerc 和 xlargerc，分別使用了 1、4、8 或 16 個並行存取插槽。 若要了解每個資源類別的重要性，您可以在上述圖表中查詢這些值。
-
-### <a name="dw500-mapping-of-resource-classes-to-importance"></a>重要性與資源類別的 DW500 對應
-| 資源類別 | 工作負載群組 | 已使用的並行存取插槽 | MB / 散發套件 | 重要性 |
-|:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
-| smallrc        | SloDWGroupC00  | 1                      | 100               | 中     |
-| mediumrc       | SloDWGroupC02  | 4                      | 400               | 中     |
-| largerc        | SloDWGroupC03  | 8                      | 800               | 中     |
-| xlargerc       | SloDWGroupC04  | 16                     | 1,600             | 高       |
-| staticrc10     | SloDWGroupC00  | 1                      | 100               | 中     |
-| staticrc20     | SloDWGroupC01  | 2                      | 200               | 中     |
-| staticrc30     | SloDWGroupC02  | 4                      | 400               | 中     |
-| staticrc40     | SloDWGroupC03  | 8                      | 800               | 中     |
-| staticrc50     | SloDWGroupC03  | 16                     | 1,600             | 高       |
-| staticrc60     | SloDWGroupC03  | 16                     | 1,600             | 高       |
-| staticrc70     | SloDWGroupC03  | 16                     | 1,600             | 高       |
-| staticrc80     | SloDWGroupC03  | 16                     | 1,600             | 高       |
-
-## <a name="view-workload-groups"></a>檢視工作負載群組
-下列查詢會顯示從資源管理員的觀點顯示記憶體資源配置的詳細資料。 這有助於在進行疑難排解時，分析工作負載群組的作用中和歷史使用量。
-
-```sql
-WITH rg
-AS
-(   SELECT  
-     pn.name                                AS node_name
-    ,pn.[type]                              AS node_type
-    ,pn.pdw_node_id                         AS node_id
-    ,rp.name                                AS pool_name
-    ,rp.max_memory_kb*1.0/1024              AS pool_max_mem_MB
-    ,wg.name                                AS group_name
-    ,wg.importance                          AS group_importance
-    ,wg.request_max_memory_grant_percent    AS group_request_max_memory_grant_pcnt
-    ,wg.max_dop                             AS group_max_dop
-    ,wg.effective_max_dop                   AS group_effective_max_dop
-    ,wg.total_request_count                 AS group_total_request_count
-    ,wg.total_queued_request_count          AS group_total_queued_request_count
-    ,wg.active_request_count                AS group_active_request_count
-    ,wg.queued_request_count                AS group_queued_request_count
-    FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
-    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    
-            ON  wg.pdw_node_id  = rp.pdw_node_id
-            AND wg.pool_id      = rp.pool_id
-    JOIN    sys.dm_pdw_nodes pn
-            ON    wg.pdw_node_id    = pn.pdw_node_id
-    WHERE   wg.name like 'SloDWGroup%'
-    AND     rp.name    = 'SloDWPool'
-)
-SELECT  pool_name
-,       pool_max_mem_MB
-,       group_name
-,       group_importance
-,       (pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
-,       node_name
-,       node_type
-,       group_total_request_count
-,       group_total_queued_request_count
-,       group_active_request_count
-,       group_queued_request_count
-FROM    rg
-ORDER BY
-        node_name
-,       group_request_max_memory_grant_pcnt
-,       group_importance
-;
-```
+SQL 資料倉儲提供的資源類別來將系統資源指派給查詢。  如需有關資源類別的詳細資訊，請參閱[資源類別與工作負載管理](resource-classes-for-workload-management.md)。  如果指派給查詢的資源類別需要比目前可用的更多資源，查詢會等候。
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>已排入佇列的查詢偵測和其他 DMV
+
 您可以使用 `sys.dm_pdw_exec_requests` DMV，來識別正在並行存取佇列中等候的查詢。 正在等待並行存取插槽的查詢狀態為**暫止**。
 
 ```sql
@@ -186,7 +106,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-`sys.dm_pdw_resource_waits` DMV 只會顯示等待指定查詢取用的資源。 資源等候時間只會測量等候提供資源的時間，與訊號等候時間相反，後者是基礎 SQL Server 將查詢排程到 CPU 所需的時間。
+`sys.dm_pdw_resource_waits` DMV 會顯示指定的查詢等候資訊。 資源等候時間量值提供的資源所等候的時間。 訊號等候時間為基礎的 SQL server 將查詢排程到 CPU 所花費的時間。
 
 ```sql
 SELECT  [session_id]
@@ -204,12 +124,13 @@ FROM    sys.dm_pdw_resource_waits
 WHERE    [session_id] <> SESSION_ID()
 ;
 ```
+
 您也可以使用 `sys.dm_pdw_resource_waits` DMV 來計算已授與的並行位置數量。
 
 ```sql
-SELECT  SUM([concurrency_slots_used]) as total_granted_slots 
-FROM    sys.[dm_pdw_resource_waits] 
-WHERE   [state]           = 'Granted' 
+SELECT  SUM([concurrency_slots_used]) as total_granted_slots
+FROM    sys.[dm_pdw_resource_waits]
+WHERE   [state]           = 'Granted'
 AND     [resource_class] is not null
 AND     [session_id]     <> session_id()
 ;
@@ -230,6 +151,5 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 如需管理資料庫使用者和安全性的詳細資訊，請參閱 [保護 SQL 資料倉儲中的資料庫](sql-data-warehouse-overview-manage-security.md)。 如需較大資源類別如何改善叢集資料行存放區索引品質的詳細資訊，請參閱 [重建索引以提升區段品質](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)。
-
-

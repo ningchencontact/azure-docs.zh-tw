@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898787"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>使用 U-SQL 資料庫專案開發 Azure Data Lake 的 U-SQL 資料庫
 
@@ -57,7 +57,7 @@ Azure Data Lake Tools for Visual Studio 在 2.3.3000.0 之後的版本中，新�
 
 U-SQL 資料庫專案的建置輸出，是一個名稱加上 `.usqldbpack` 尾碼的 U-SQL 資料庫部署套件。 `.usqldbpack` 套件是一個 ZIP 檔案，其中的 **DDL** 資料夾含有單一 U-SQL 指令碼中的所有 DDL 陳述式，而 **Temp** 資料夾則含有組件的所有 DLL 和額外檔案。
 
-深入了解[如何使用 MSBuild 命令列和Azure DevOps Service 建置工作來建置 U-SQL 資料庫專案](data-lake-analytics-cicd-overview.md)。
+深入了解[如何建置 U-SQL 資料庫專案使用 MSBuild 命令列] 和 [Azure DevOps 服務建置工作](data-lake-analytics-cicd-overview.md)。
 
 ## <a name="deploy-a-u-sql-database"></a>部署 U-SQL 資料庫
 
@@ -100,8 +100,8 @@ U-SQL 資料庫專案的建置輸出，是一個名稱加上 `.usqldbpack` 尾�
 
 U-SQL 專案可以參考 U-SQL 資料庫專案。 參考會影響兩種工作負載：
 
-- 專案建置：在編譯 U-SQL 指令碼之前設定參考資料庫環境。 
-- 以 (Local-project) 帳戶進行本機執行：參考資料庫環境會在 U-SQL 指令碼執行之前部署到 (Local-project) 帳戶。 [在這裡可深入了解本機執行及 (Local-machine) 和 (Local-project) 帳戶之間的差異](data-lake-analytics-data-lake-tools-local-run.md)。
+- *專案組建*:設定受參考的資料庫環境，然後再建立 U-SQL 指令碼。 
+- *針對 （本機專案） 執行的本機帳戶*:受參考的資料庫環境會部署至 （本機專案） U-SQL 指令碼執行之前的帳戶。 [在這裡可深入了解本機執行及 (Local-machine) 和 (Local-project) 帳戶之間的差異](data-lake-analytics-data-lake-tools-local-run.md)。
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>如何新增 U-SQL 資料庫參考
 

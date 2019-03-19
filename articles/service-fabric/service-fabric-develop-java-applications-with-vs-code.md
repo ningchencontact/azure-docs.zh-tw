@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 54c94c50f6292694e947d97a10fd6976c14e19df
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: 9e5a2138de7e2c0e892bd0efeb0db1e2aee87422
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115340"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014685"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>使用 Visual Studio Code 開發 Java Service Fabric 應用程式
 
@@ -30,7 +30,7 @@ ms.locfileid: "37115340"
 > [!IMPORTANT]
 > Service Fabric Java 應用程式可以在 Windows 機器上開發，但是只能部署到 Azure Linux 叢集上。 不支援在 Windows 上針對 Java 應用程式進行偵錯。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您已安裝 VS Code、適用於 VS Code 的 Service Fabric Reliable Services 擴充功能，和開發環境所需的任何相依性。 若要深入了解，請參閱[使用者入門](./service-fabric-get-started-vs-code.md#prerequisites)。
 
@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ## <a name="build-the-application"></a>建置應用程式
 
 1. 按下 (Ctrl + Shift + p) 以在 VS Code 中開啟 [命令選擇區]。
-2. 搜尋並選取 **Service Fabric: Build Application** 命令。 建置輸出會傳送到整合式終端機。
+2. 搜尋並選取 **Service Fabric:Build Application** 命令。 建置輸出會傳送到整合式終端機。
 
    ![VS Code 中的建置應用程式命令](./media/service-fabric-develop-java-applications-with-vs-code/sf-build-application.png)
 
@@ -62,19 +62,19 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 > [!IMPORTANT]
 > 在 Windows 機器上不支援將 Java 應用程式部署到本機叢集。
 
-1. 從 [命令選擇區] 中選取 **Service Fabric: Deploy Application (Localhost)** 命令。 安裝程序的輸出會傳送到整合式終端機。
+1. 從 [命令選擇區] 中選取 **Service Fabric:Deploy Application (Localhost)** 命令。 安裝程序的輸出會傳送到整合式終端機。
 
    ![VS Code 中的部署應用程式命令](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
-4. 部署完成時，請啟動瀏覽器並開啟 Service Fabric Explorer：http://localhost:19080/Explorer。 您應該會看到應用程式正在執行。 這可能需要一些時間，請耐心等候。 
+4. 部署完成時，請啟動瀏覽器並開啟 Service Fabric Explorer：`http://localhost:19080/Explorer`。 您應該會看到應用程式正在執行。 這可能需要一些時間，請耐心等候。 
 
    ![Service Fabric Explorer 中的投票應用程式](./media/service-fabric-develop-java-applications-with-vs-code/sfx-localhost-java.png)
 
-4. 確認應用程式正在執行之後，請啟動瀏覽器並開啟此頁面：http://localhost:8080。 這是應用程式的 Web 前端。 您可以新增項目，然後按一下以進行投票。
+4. 確認應用程式正在執行之後，請啟動瀏覽器並開啟此頁面：`http://localhost:8080`。 這是應用程式的 Web 前端。 您可以新增項目，然後按一下以進行投票。
 
    ![瀏覽器中的投票應用程式](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. 若要從叢集內移除應用程式，請從 [命令選擇區] 中選取 **Service Fabric: Remove Application** 命令。 解除安裝程序的輸出會傳送到整合式終端機。 您可以使用 Service Fabric Explorer，來確認應用程式是否已從本機叢集內移除。
+5. 若要從叢集移除應用程式，請選取**Service Fabric:移除應用程式**命令**命令選擇區**。 解除安裝程序的輸出會傳送到整合式終端機。 您可以使用 Service Fabric Explorer，來確認應用程式是否已從本機叢集內移除。
 
 ## <a name="debug-the-application"></a>偵錯應用程式
 在 VS Code 中針對應用程式進行偵錯時，應用程式必須在本機叢集上執行。 然後您可以將中斷點新增到程式碼中。
@@ -105,7 +105,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
    ![針對 launch.json 的組態進行偵錯](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
-4. 藉由使用 **Service Fabric: Deploy Application (Localhost)** 命令，將應用程式部署到本機叢集。 確認應用程式正在 Service Fabric Explorer 中執行。 您的應用程式現已完成偵錯準備。
+4. 部署到本機叢集的應用程式使用**Service Fabric:部署應用程式 (Localhost)** 命令。 確認應用程式正在 Service Fabric Explorer 中執行。 您的應用程式現已完成偵錯準備。
 
 若要設定中斷點，請完成下列步驟：
 
@@ -119,7 +119,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
    ![偵錯 (附加) 組態](./media/service-fabric-develop-java-applications-with-vs-code/debug-attach-java.png)
 
-3. 在網頁瀏覽器中移至 http://localhost:8080。 在文字方塊中輸入新項目，然後按一下 [+ 新增]。 您的中斷點應已遭點擊。 您可以使用 VS Code 頂端的 [偵錯] 工具列繼續執行，越過程式碼行、逐步執行方法，或跳離目前的方法。 
+3. 在網頁瀏覽器中移至 `http://localhost:8080`。 在文字方塊中輸入新項目，然後按一下 [+ 新增]。 您的中斷點應已遭點擊。 您可以使用 VS Code 頂端的 [偵錯] 工具列繼續執行，越過程式碼行、逐步執行方法，或跳離目前的方法。 
    
    ![點擊中斷點](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-hit.png)
        
@@ -127,8 +127,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
    
    ![中斷與偵錯工具的連線](./media/service-fabric-develop-java-applications-with-vs-code/debug-bar-disconnect.png)
        
-5. 當您完成偵錯時，您可以使用 **Service Fabric: Remove Application** 命令，從您的本機叢集內移除投票應用程式。 
+5. 當您完成偵錯時，可以使用 **Service Fabric:移除應用程式**命令，從您的本機叢集移除投票應用程式。 
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解如何[使用 VS Code 開發 C# Service Fabric 應用程式及進行偵錯](./service-fabric-develop-csharp-applications-with-vs-code.md)。
+* 了解如何[使用 VS Code 開發 C# Service Fabric 應用程式及進行偵錯](./service-fabric-develop-csharp-applications-with-vs-code.md)。

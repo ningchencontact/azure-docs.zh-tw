@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 222c2983d83fe2373159ea542260be7b5a8d8ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885176"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>開始使用 Power BI 工作區集合範例
 
@@ -28,7 +28,7 @@ ms.locfileid: "56237955"
 
 * [範例工作區 Web 應用程式](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI 工作區集合 API 參考](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK ](https://go.microsoft.com/fwlink/?LinkId=746472) \(英文\) (透過 NuGet 提供)
+* [Power BI.NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472) （透過 NuGet 提供）
 * [JavaScript 報告內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -52,7 +52,7 @@ ms.locfileid: "56237955"
 
     ![Azure 入口網站內的工作區識別碼](media/get-started-sample/workspace-id.png)
 9. 若要將 PBIX 檔案匯入到您的**工作區**，請選取選項 **6。** \[將 PBIX Desktop 檔案匯入現有的工作區\]。 如果您現在沒有 PBIX 檔案，可以下載[零售分析範例 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)。
-10. 如果出現提示，請輸入易記名稱做為您「資料集」 的名稱。
+10. 如果出现提示，请为**数据集**输入一个易记的名称。
 
 您應該會看到像這樣的回應：
 
@@ -93,7 +93,7 @@ Web 應用程式範例是一個範例應用程式，會轉譯匯入到您**工�
 
 ## <a name="explore-the-sample-code"></a>探討範例程式碼
 
-**Microsoft Power BI 工作區集合**範例是一個範例 Web 應用程式，會示範如何將 **Power BI** 報表整合到您的應用程式。 它會使用「模型-檢視-控制器」(MVC) 設計樣式來示範最佳作法。 本節重點在於 **PowerBI-embedded** Web 應用程式方案中您可以探討的部分範例程式碼。 Model-View-Controller (MVC) 模式會根據使用者在下列三個個別類別中的輸入，來分隔網域、展示及動作的模型化：「模型」、「檢視」及「控制」。 若要詳細了解 MVC，請參閱[了解 ASP.NET](http://www.asp.net/mvc)。
+**Microsoft Power BI 工作區集合**範例是一個範例 Web 應用程式，會示範如何將 **Power BI** 報表整合到您的應用程式。 它會使用「模型-檢視-控制器」(MVC) 設計樣式來示範最佳作法。 本節重點在於 **PowerBI-embedded** Web 應用程式方案中您可以探討的部分範例程式碼。 Model-View-Controller (MVC) 模式會根據使用者在下列三個個別類別中的輸入，來分隔網域、展示及動作的模型化：「模型」、「檢視」及「控制」。 若要詳細了解 MVC，請參閱[了解 ASP.NET](https://www.asp.net/mvc)。
 
 **Microsoft Power BI 工作區集合**範例程式碼的各部分如下。 每個區段都包含 PowerBI-embedded.sln 解決方案中的檔案名稱，因此您可以很容易地在範例中找到程式碼。
 
@@ -140,7 +140,7 @@ Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 
 **Reports.cshtml**：逐一查看 **Model.Reports** 來建立 **ActionLink**。 **ActionLink** 是由以下項目組成：
 
-| 部分 | 說明 |
+| 部分 | 描述 |
 | --- | --- |
 | 標題 |報表名稱。 |
 | QueryString |報表識別碼的連結。 |
@@ -261,13 +261,13 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > [!NOTE]
 > {表格名稱/欄位名稱} 不能包含空格或特殊字元。 {欄位值} 接受單一類別目錄值。  
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [常見的 Microsoft Power BI 工作區集合案例](scenarios.md)  
 [在 Power BI 工作區集合中驗證和授權](app-token-flow.md)  
 [內嵌報告](embed-report.md)  
-[從資料集建立新的報告](create-report-from-dataset.md)  
+[从数据集创建新报表](create-report-from-dataset.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-有其他疑問？ [試用 Power BI 社群](http://community.powerbi.com/)
+有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)

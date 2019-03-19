@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109758"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>在總管中將資料視覺化 (預覽)
 
@@ -141,7 +141,7 @@ Azure 時間序列深入解析預覽總管包含下列元素：
 
 1. **日期範圍結束與開始日期 Web 控制項**：您可以運用此 Web 控制項，輕鬆地按一下並選取所需的日期和時間範圍。 您也可以使用控制項切換不同的時區。 進行變更之後，若要套用至您目前的工作區，請選取 [儲存]。
 
-  ![explorer-thirteen][13]
+   ![explorer-thirteen][13]
 
 ## <a name="time-series-insights-preview-navigation-panel"></a>時間序列深入解析預覽導覽面板
 

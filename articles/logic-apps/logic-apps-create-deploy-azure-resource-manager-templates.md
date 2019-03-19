@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 3abe7bae5506b721d4baf1e18da390b3e67977d8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894575"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立和部署邏輯應用程式
 
@@ -79,10 +79,10 @@ Azure Logic Apps 提供 Azure Resource Manager 範本，不僅可用來建立自
 
 以下是範本中參數的描述：
 
-| 參數 | 說明 | JSON 定義範例 | 
+| 參數 | 描述 | JSON 定義範例 | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | 定義該範本所建立之邏輯應用程式的名稱。 | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | 定義要 Ping 以進行測試的位置。 | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | 定義要 Ping 以進行測試的位置。 | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 深入了解[邏輯應用程式工作流程定義和屬性的 REST API](https://docs.microsoft.com/rest/api/logic/workflows) 和[使用 JSON 根據邏輯應用程式定義建置](logic-apps-author-definitions.md)。

@@ -10,26 +10,27 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 19e0e5797e05589baa1e104f3e9ab8b4d9cc2d6c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 92a7c1a45655f8804aa1f81b1a77ebf7cd5197e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267286"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122160"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 在 [Azure 入口網站](https://portal.azure.com)中，您可以為 [Azure App Service](../../app-service/overview.md) 中的 Web 應用程式、行動後端和 API 應用程式設定應用程式效能監視。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會檢測您的應用程式，將其活動的相關遙測傳送給 Application Insights 服務，以在其中儲存和分析遙測。 該處的度量圖表和搜尋工具可用於協助診斷問題、改善效能，以及評估使用方式。
 
-## <a name="run-time-or-build-time"></a>執行階段或建置階段
+## <a name="runtime-or-build-time"></a>執行階段或建置時間
 您可以用任一種方式檢測應用程式，進而設定監視︰
 
-* **執行階段** - 您可以在應用程式服務已經上線時，選取效能監視延伸模組。 不需要重建或重新安裝您的應用程式。 您會取得一組標準封裝，用以監視回應時間、成功率、例外狀況、相依性等。 
-* **建置階段** - 您可以在開發應用程式中安裝封裝。 此選項比較靈活。 除了相同的標準封裝以外，您可以撰寫程式碼以自訂遙測，或傳送自己的遙測。 您可以根據您的應用程式網域，記錄特定活動或記錄事件。 
+* **執行階段**-您可以選取您的 app service 已經上線時，監視擴充功能的效能。 不需要重建或重新安裝您的應用程式。 您會取得一組標準封裝，用以監視回應時間、成功率、例外狀況、相依性等。
 
-## <a name="run-time-instrumentation-with-application-insights"></a>使用 Application Insights 執行時間檢測
-如果您已經在 Azure 中執行應用程式服務，您便已經得到一些監視︰要求率和錯誤率。 新增 Application Insights 可得到更多監視，例如回應時間、監視相依性呼叫、智慧偵測，以及強大的 Kusto 查詢語言。 
+* **建置階段** - 您可以在開發應用程式中安裝封裝。 此選項比較靈活。 除了相同的標準封裝以外，您可以撰寫程式碼以自訂遙測，或傳送自己的遙測。 您可以根據您的應用程式網域，記錄特定活動或記錄事件。 這也讓您能夠測試最新版的 Application Insights SDK，因為您可以選擇將評估 beta 版的 Sdk，而執行階段監視限制為最新穩定版本。
+
+## <a name="runtime-instrumentation-with-application-insights"></a>使用 Application Insights 的執行階段檢測
+如果您目前在 Azure 中執行 app service，您已得到一些監視： 預設的要求和錯誤的速率。 將 Application Insights 加入更多，例如回應時間、 監視相依性，智慧偵測，以及存取強大的 Kusto 查詢語言。 
 
 1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]。
 
@@ -37,25 +38,25 @@ ms.locfileid: "56267286"
 
    * 除非您已經為此應用程式設定 Application Insights 資源，否則請選擇建立新的資源。 
 
-    > [!NOTE]
-    > 當您按一下 [確定] 來建立新資源時，系統會提示您 [套用監視設定]。 選取 [繼續] 會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
+     > [!NOTE]
+     > 當您按一下 [確定] 來建立新資源時，系統會提示您 [套用監視設定]。 選取 [繼續] 會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
 
-    ![檢測 Web 應用程式](./media/azure-web-apps/create-resource.png)
+     ![檢測 Web 應用程式](./media/azure-web-apps/create-resource.png)
 
-2. 在指定要使用的資源之後，您可以選擇要如何讓 Application Insights 收集每個應用程式平台的資料。(ASP.NET 應用程式監視預設為開啟，且具有兩種不同層級的收集。)
+2. 在指定要使用的資源之後，您可以選擇要如何讓 Application Insights 收集每個應用程式平台的資料。 ASP.NET 應用程式監視是在預設為具有兩個不同的層級的集合。
 
     ![選擇每個平台的選項](./media/azure-web-apps/choose-options-new.png)
 
-    * .NET **基本收集**層級提供基本的單一執行個體 APM 功能。
+   * .NET **基本收集**層級提供基本的單一執行個體 APM 功能。
     
-    * .NET **建議收集**層級：
-        * 新增 CPU、記憶體和 I/O 使用趨勢。
-        * 將不同要求/相依性界限間的微服務相互關聯。
-        * 收集使用趨勢，並啟用從可用性結果到交易的相互關聯。
-        * 收集主機程序未處理的例外狀況。
-        * 在使用取樣時，改善 APM 計量在負載下的精確度。
+   * .NET **建議收集**層級：
+       * 新增 CPU、記憶體和 I/O 使用趨勢。
+       * 將不同要求/相依性界限間的微服務相互關聯。
+       * 收集使用趨勢，並啟用從可用性結果到交易的相互關聯。
+       * 收集主機程序未處理的例外狀況。
+       * 在使用取樣時，改善 APM 計量在負載下的精確度。
     
-    .NET Core 提供**建議收集**或「停用」(.NET Core 2.0 和 2.1)。
+     .NET core 可提供**建議集合**或是**停用**適用於.NET Core 2.0 和 2.1。
 
 3. 在安裝 Application Insights 之後，**檢測您的應用程式服務**。
 
@@ -66,9 +67,9 @@ ms.locfileid: "56267286"
    * 選取 [設定] > [應用程式設定]
    * 在 [應用程式設定] 之下，新增索引鍵值組︰
 
-    索引鍵︰`APPINSIGHTS_JAVASCRIPT_ENABLED`
+     索引鍵︰`APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-    值: `true`
+     值: `true`
    * **儲存**設定並**重新啟動**您的應用程式。
 
 4. 選取 [設定] > [Application Insights] > [在 Application Insights 中檢視更多]，以探索應用程式的監視資料。
@@ -101,6 +102,65 @@ Application Insights 可以提供更詳細的遙測，方法是將 SDK 安裝至
 
 * 在 Visual Studio 中，以滑鼠右鍵按一下專案，選擇 [設定 Application Insights]，然後選擇您想要的資源。 您可取得建立新資源的選項。 重建並重新部署。
 
+## <a name="automate-monitoring"></a>自動化監視作業
+
+若要啟用遙測收集與 Application Insights 應用程式設定必須設定：
+
+   ![使用可用的 Application Insights 設定 app Service 應用程式設定](./media/azure-web-apps/application-settings.png)
+
+### <a name="application-settings-definitions"></a>應用程式設定定義
+
+|應用程式設定名稱 |  定義 | 值 |
+|-----------------|:------------|-------------:|
+|ApplicationInsightsAgent_EXTENSION_VERSION | 主要擴充功能，控制執行階段監視。 | `~2` |
+|XDT_MicrosoftApplicationInsights_Mode |  在預設模式的唯一、 不可或缺的功能會啟用以確保最佳效能。 | `default` 或 `recommended`。 |
+|InstrumentationEngine_EXTENSION_VERSION | 如果可控制二進位重寫引擎`InstrumentationEngine`將會開啟。 此設定會影響效能，並會影響冷起始/啟動時間。 | `~1` |
+|XDT_MicrosoftApplicationInsights_BaseExtensions | 如果 SQL 和 Azure 資料表的文字控制項將會擷取以及相依性呼叫。 效能警告： 這需要`InstrumentationEngine`。 | `~1` |
+
+### <a name="app-service-application-settings-with-azure-resource-manager"></a>應用程式服務應用程式設定使用 Azure Resource Manager
+
+應用程式服務的應用程式設定可管理且設有[Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)。 部署使用 Azure Resource Manager 自動化，或修改現有的資源設定新的 App Service 資源時，就可以使用這個方法。
+
+App service 的應用程式設定 JSON 的基本結構如下：
+
+```JSON
+      "resources": [
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('webSiteName'))]"
+          ],
+          "tags": {
+            "displayName": "Application Insights Settings"
+          },
+          "properties": {
+            "key1": "value1",
+            "key2": "value2"
+          }
+        }
+      ]
+
+```
+
+如需範例 Azure Resource Manager 範本和應用程式設定設定 Application Insights 的這[樣板](https://github.com/Andrew-MSFT/BasicImageGallery)很有幫助，特別是起的一節[行 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238)。
+
+### <a name="automate-the-creation-of-an-application-insights-resource-and-link-to-your-newly-created-app-service"></a>自動建立 Application Insights 資源並連結至您新建立的 App Service。
+
+若要建立的 Azure Resource Manager 範本與設定的所有預設 Application Insights 設定，請開始程序，因為如果您要建立新的 Web 應用程式已啟用 Application insights。
+
+選取**自動化選項**
+
+   ![App Service web 應用程式建立功能表](./media/azure-web-apps/create-web-app.png)
+
+這會產生所有必要的設定，設定最新的 Azure Resource Manager 範本。
+
+  ![App Service web 應用程式範本](./media/azure-web-apps/arm-template.png)
+
+> [!NOTE]
+> 在 「 預設 」 模式中，範本會產生應用程式設定。 此模式會是效能最佳化，雖然您可以修改範本，以啟用任何您喜歡的功能。
+
 ## <a name="more-telemetry"></a>更多遙測
 
 * [網頁載入資料](../../azure-monitor/app/javascript.md)
@@ -108,14 +168,28 @@ Application Insights 可以提供更詳細的遙測，方法是將 SDK 安裝至
 
 ## <a name="troubleshooting"></a>疑難排解
 
+### <a name="do-i-still-need-to-go-to-extensions---add---application-insights-extension-for-new-app-service-apps"></a>我仍需要移至 擴充功能-新增-新的 App Service 應用程式的 Application Insights 延伸模組嗎？
+
+否，您不再需要手動新增延伸模組。 透過 [設定] 刀鋒視窗中啟用 Application Insights 將會新增所有必要應用程式設定，以啟用監視。 這個功能現在成真，因為先前的延伸模組所新增的檔案現在[預先安裝](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)納入應用程式服務映像。 檔案位於`d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`。
+
+### <a name="if-runtime-and-build-time-monitoring-are-both-enabled-do-i-end-up-with-duplicate-data"></a>如果執行階段和建置時間監視會同時啟用我最後的重複資料嗎？
+
+否，根據預設組建時間監視會偵測到執行階段監視透過擴充功能，將會停止傳送資料，將適用於只監視組態的建置時間。 判斷是否要停用執行階段監視基礎偵測的任何這三個檔案：
+
+* Microsoft.ApplicationInsights dll
+* Microsoft.ASP.NET.TelemetryCorrelation dll
+* System.Diagnostics.DiagnosticSource dll
+
+請務必記住，在許多版本的 Visual Studio 中，部分或所有這些檔案預設會新增至 ASP.NET 和 ASP.NET Core 中的 Visual Studio 範本檔案。 如果您的專案已建立根據其中一個範本，即使您未明確地啟用 Application Insights，會讓檔案相依性存在，執行階段啟用監視。
+
 ### <a name="appinsightsjavascriptenabled-causes-incomplete-html-response-in-net-core-web-applications"></a>APPINSIGHTS_JAVASCRIPT_ENABLED 在 NET CORE Web 應用程式中造成不完整的 HTML 回應。
 
 透過 App Service 啟用 Javascript 可能導致 HTML 回應被切斷。
 
 * 因應措施 1：將 APPINSIGHTS_JAVASCRIPT_ENABLED 應用程式設定設為 false，或將其完全移除，然後重新啟動
-* 因應措施 2：透過程式碼新增 SDK，然後移除延伸模組 (使用此設定時，將無法使用 Profiler 和快照偵錯工具)
+* 因應措施 2： 新增 sdk，透過程式碼，並移除副檔名 （Profiler 和快照集偵錯工具不會使用此設定）
 
-我們正在[此處](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)追蹤此問題
+若要追蹤此問題，請前往[Azure 擴充功能造成不完整的 HTML 回應](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)。
 
 .NET Core 目前**沒有以下支援**：
 
@@ -134,4 +208,3 @@ Application Insights 可以提供更詳細的遙測，方法是將 SDK 安裝至
 * 每當發生作業事件或計量超過臨界值時，[接收警示通知](../../azure-monitor/platform/alerts-overview.md)。
 * 使用 [JavaScript 應用程式和網頁適用的 Application Insights](../../azure-monitor/app/javascript.md) ，以從造訪網頁的瀏覽器取得用戶端遙測。
 * [設定可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md) ，以在您的網站關閉時發出警示。
-

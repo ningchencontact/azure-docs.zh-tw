@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 71463b523f0afdf63a7c89ff2b3137ae8d091b3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228193"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086695"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>使用 BizTalk 服務狀態可執行以及不可執行的作業分別有哪些
 
@@ -48,11 +48,11 @@ ms.locfileid: "51228193"
 | 暫止失敗 <br/> 繼續失敗|  |  |  | ✔ | ✔ | ✔ | |  |  | 
 | 建立失敗 <br/> 還原失敗 |  |  |  |  |  | ✔ | |  |  | 
 | 設定更新失敗  |  |  | ✔ |  |  | ✔ | |✔ | |
-| 調整失敗 |  |  |  |  |  | ✔ |✔ | |  |  | 
+| 調整失敗 |  |  |  |  |  | ✔ |✔ | |  |
 
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [您可以在 BizTalk 服務的儀表板、監視和調整索引標籤中執行哪些作業](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [您可以從 BizTalk 服務中的開發人員、基本、標準和高級版本取得哪些功能](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [如何備份和還原 BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

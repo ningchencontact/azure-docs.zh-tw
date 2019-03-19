@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462965"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999132"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>開始使用彈性資料庫工具
 
@@ -28,7 +28,7 @@ ms.locfileid: "55462965"
 ### <a name="prerequisites"></a>必要條件
 
 * Java Developer Kit (JDK) 1.8 版或更新版本
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * 在 Azure 或本機 SQL Server 執行個體中的 SQL Database 伺服器
 
 ### <a name="download-and-run-the-sample-app"></a>下載及執行範例應用程式
@@ -74,7 +74,7 @@ ms.locfileid: "55462965"
 ### <a name="prerequisites"></a>必要條件
 
 * 含 C# 的 Visual Studio 2012 或更新版本。 請在 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)上下載免費版本。
-* NuGet 2.7 或更新版本。 若要取得最新版本，請參閱[安裝 NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)。
+* NuGet 2.7 或更新版本。 若要取得最新版本，請參閱[安裝 NuGet](https://docs.nuget.org/docs/start-here/installing-nuget)。
 
 ### <a name="download-and-run-the-sample-app"></a>下載及執行範例應用程式
 
@@ -131,8 +131,8 @@ ms.locfileid: "55462965"
   * 彈性資料庫工具 ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)、[Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [適用於 Azure SQL 的彈性資料庫工具 - Entity Framework 整合](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [指令碼中心的分區彈性](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* 部落格：[Elastic Scale 公告 (英文)](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
-* 第 9 頻道：[Elastic Scale 概觀影片 (英文)](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* 部落格：[Elastic Scale 公告 (英文)](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
+* 第 9 頻道：[Elastic Scale 概觀影片 (英文)](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * 討論論壇：[Azure SQL Database 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * 若要測量效能：[分區對應管理員的效能計數器](sql-database-elastic-database-client-library.md)
 

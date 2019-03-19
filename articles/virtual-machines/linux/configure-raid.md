@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 2bced71a7211907e0e517e47c4f5d301d4a56f56
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e773fdcb031f0f8f896ea40d76231fd54a603dc4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457406"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089024"
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上設定軟體 RAID
 在 Azure 的 Linux 虛擬機器上使用軟體 RAID，以單一 RAID 裝置的形式顯示多個連接的資料磁碟，這種案例很常遇到。 相較於只使用單一磁碟，這通常可用來提高效能並允許增加輸送量。
@@ -31,20 +31,20 @@ ms.locfileid: "55457406"
 
 ## <a name="install-the-mdadm-utility"></a>安裝 mdadm 公用程式
 * **Ubuntu**
-```bash
-sudo apt-get update
-sudo apt-get install mdadm
-```
+  ```bash
+  sudo apt-get update
+  sudo apt-get install mdadm
+  ```
 
 * **CentOS & Oracle Linux**
-```bash
-sudo yum install mdadm
-```
+  ```bash
+  sudo yum install mdadm
+  ```
 
 * **SLES 和 openSUSE**
-```bash  
-zypper install mdadm
-```
+  ```bash  
+  zypper install mdadm
+  ```
 
 ## <a name="create-the-disk-partitions"></a>建立磁碟分割
 在本範例中，我們會在 /dev/sdc 上建立單一磁碟分割。 新磁碟分割的名稱會是 /dev/sdc1。
@@ -150,7 +150,7 @@ zypper install mdadm
 > [!IMPORTANT]
 > 不當編輯 /etc/fstab 檔案會導致系統無法開機。 如果不確定，請參閱散發套件的文件，以取得如何適當編輯此檔案的相關資訊。 在編輯之前，也建議先備份 /etc/fstab 檔案。
 
-1. 建立新檔案系統所需的掛接點，例如：
+1. 为新文件系统创建所需的安装点，例如：
 
     ```bash
     sudo mkdir /data
@@ -163,7 +163,7 @@ zypper install mdadm
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
     ```
 
-1. 在文字編輯器中開啟 /etc/fstab，並為新檔案系統新增項目，例如：
+1. 在文本编辑器中打开 /etc/fstab，并为新文件系统添加条目，例如：
 
     ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
@@ -220,7 +220,7 @@ zypper install mdadm
 
 有兩種方式可在 Linux VM 中啟用 TRIM 支援。 像往常一樣，請參閱您的散發套件以了解建議的方法︰
 
-- 在 `/etc/fstab` 中使用 `discard` 掛接選項，例如：
+- 在 `/etc/fstab` 中使用 `discard` 装载选项，例如：
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2

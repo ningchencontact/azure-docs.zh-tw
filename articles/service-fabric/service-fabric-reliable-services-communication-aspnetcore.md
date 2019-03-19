@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: d74cee712b33f8d8d9924b9b8906ccd97e0b1756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902989"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
@@ -334,6 +334,123 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 
 在此組態中，`KestrelCommunicationListener` 會自動從應用程式連接埠範圍選取未使用的連接埠。
 
+## <a name="service-fabric-configuration-provider"></a>Service Fabric 組態提供者
+ASP.NET Core 中的應用程式設定為基礎的組態提供者，閱讀所建立的金鑰-值配對[ASP.NET Core 中的組態](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/)若要了解更多在一般 ASP.NET Core 組態的支援。
+
+本節說明 Service Fabric 組態提供者，將使用 ASP.NET Core 組態匯入`Microsoft.ServiceFabric.AspNetCore.Configuration`NuGet 套件。
+
+### <a name="addservicefabricconfiguration-startup-extensions"></a>AddServiceFabricConfiguration 啟動延伸模組
+匯入之後`Microsoft.ServiceFabric.AspNetCore.Configuration`NuGet 套件，您需要以 ASP.NET Core 組態 API 藉由註冊 Service Fabric 設定來源**AddServiceFabricConfiguration**中的延伸模組`Microsoft.ServiceFabric.AspNetCore.Configuration`命名空間針對 `IConfigurationBuilder`
+
+```csharp
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
+
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        .AddServiceFabricConfiguration() // Add Service Fabric configuration settings.
+        .AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+```
+
+現在的 ASP.NET Core 服務可以存取 Service Fabric 組態設定，就像任何其他應用程式設定。 比方說，您可以使用 「 選項 」 模式來載入強型別物件的設定。
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MyOptions>(Configuration);  // Strongly typed configuration object.
+    services.AddMvc();
+}
+```
+### <a name="default-key-mapping"></a>預設對應的索引鍵
+根據預設，Service Fabric 組態提供者會包含封裝名稱、 區段名稱和屬性名稱一起以形成 asp.net core 組態金鑰使用下列函式：
+```csharp
+$"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
+```
+
+例如，如果您擁有名為組態封裝`MyConfigPackage`與下列內容，然後設定值可在 ASP.NET Core`IConfiguration`透過金鑰*MyConfigPackage:MyConfigSection:MyParameter*
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+  <Section Name="MyConfigSection">
+    <Parameter Name="MyParameter" Value="Value1" />
+  </Section>  
+</Settings>
+```
+### <a name="service-fabric-configuration-options"></a>Service Fabric 組態選項
+Service Fabric 組態提供者也支援`ServiceFabricConfigurationOptions`變更索引鍵對應的預設行為。
+
+#### <a name="encrypted-settings"></a>加密的設定
+Service Fabric 支援加密設定，Service Fabric 組態提供者也支援此。 若要進行安全的預設原則，預設會將 ASP.NET Core 的加密的設定 are't descrypted `IConfiguration`，加密的值儲存於該處改。 不過，如果您想要將值儲存在 ASP.NET Core IConfiguration 解密您無法設定 DecryptValue 旗標設為 false，在`AddServiceFabricConfiguration`延伸模組，如下所示：
+
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+    Configuration = builder.Build();
+}
+```
+#### <a name="multiple-configuration-packages"></a>多個組態封裝
+Service Fabric 支援多個組態封裝。 根據預設，封裝名稱包含在設定索引鍵。 您可以設定`IncludePackageName`來變更預設行為的旗標。
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        // exclude package name from key.
+        .AddServiceFabricConfiguration(activationContext, (options) => options.IncludePackageName = false); 
+    Configuration = builder.Build();
+}
+```
+#### <a name="custom-key-mapping-value-extraction-and-data-population"></a>自訂的索引鍵對應 」、 「 值擷取和 「 資料母體擴展
+Besides 上方 2 的旗標來變更預設行為，Service Fabric 組態提供者也支援更進階的案例為自訂的索引鍵的對應，透過`ExtractKeyFunc`及自訂来擷取的值，透過`ExtractValueFunc`。 您甚至可以變更整個程序來填入從 Service Fabric 組態資料，透過 ASP.NET Core 組態`ConfigAction`。
+
+下列範例說明使用`ConfigAction`來自訂資料母體擴展。
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    
+    this.valueCount = 0;
+    this.sectionCount = 0;
+    var builder = new ConfigurationBuilder();
+    builder.AddServiceFabricConfiguration(activationContext, (options) =>
+        {
+            options.ConfigAction = (package, configData) =>
+            {
+                ILogger logger = new ConsoleLogger("Test", null, false);
+                logger.LogInformation($"Config Update for package {package.Path} started");
+
+                foreach (var section in package.Settings.Sections)
+                {
+                    this.sectionCount++;
+
+                    foreach (var param in section.Parameters)
+                    {
+                        configData[options.ExtractKeyFunc(section, param)] = options.ExtractValueFunc(section, param);
+                        this.valueCount++;
+                    }
+                }
+
+                logger.LogInformation($"Config Update for package {package.Path} finished");
+            };
+        });
+  Configuration = builder.Build();
+}
+```
+### <a name="configuration-update"></a>設定更新
+Service Fabric 組態提供者也支援的組態更新，並且您可以使用 ASP.NET Core`IOptionsMonitor`收到變更通知以及`IOptionsSnapshot`重新載入組態資料。 如需詳細資訊，請參閱 < [ASP.NET Core 選項](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)。
+
+這支援根據預設，再撰寫程式碼會啟用所需的組態更新。
+
 ## <a name="scenarios-and-configurations"></a>案例和組態
 本章節描述下列案例，並提供建議的 web 伺服器、通訊埠組態、Service Fabric 整合選項，以及其他設定的組合，來達成正常運作的服務︰
  - 外部公開 ASP.NET Core 無狀態服務
@@ -352,7 +469,7 @@ Kestrel 建議用於前端服務的 web 伺服器，這些服務會公開於外�
  
 當公開至網際網路時，無狀態服務應使用可透過負載平衡器連線的已知且穩定端點。 這是您提供給使用者的應用程式 URL。 建議使用下列組態：
 
-|  |  | **注意事項** |
+|  |  | **说明** |
 | --- | --- | --- |
 | Web 伺服器 | Kestrel | Kestrel 是慣用的 Web 伺服器，因為 Windows 和 Linux 均支援它。 |
 | 連接埠組態 | 靜態 | 已知的靜態連接埠應在 ServiceManifest.xml 的 `Endpoints` 組態中設定，例如 HTTP 為 80 或 443 為 HTTPS。 |
@@ -377,21 +494,21 @@ Kestrel 建議用於前端服務的 web 伺服器，這些服務會公開於外�
 ### <a name="internal-only-stateless-aspnet-core-service"></a>僅供內部使用的無狀態 ASP.NET Core 服務
 只會從叢集內呼叫的無狀態服務應該使用唯一的 URL 並動態指派連接埠，以確保多個服務之間的合作。 建議使用下列組態：
 
-|  |  | **注意事項** |
+|  |  | **说明** |
 | --- | --- | --- |
 | Web 伺服器 | Kestrel | 雖然可能會針對內部的無狀態服務使用 HttpSys，但 Kestrel 是建議的伺服器，可允許多個服務執行個體共用主機。  |
 | 連接埠組態 | 動態指派 | 多個具狀態服務的複本可能會共用主機處理序或主機作業系統，因此需要唯一的連接埠。 |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 使用動態連接埠指派，此設定可防止稍早所述的誤用識別問題。 |
-| InstanceCount | any | 執行個體計數設定可以設定為操作本服務所需的任何值。 |
+| InstanceCount | 任意 | 執行個體計數設定可以設定為操作本服務所需的任何值。 |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>僅供內部使用的具狀態 ASP.NET Core 服務
 只會從叢集內呼叫的具狀態服務應該使用動態指派連接埠，以確保多個服務之間的合作。 建議使用下列組態：
 
-|  |  | **注意事項** |
+|  |  | **说明** |
 | --- | --- | --- |
 | Web 伺服器 | Kestrel | `HttpSysCommunicationListener`不是設計由複本共用主機處理序的具狀態服務使用。 |
 | 連接埠組態 | 動態指派 | 多個具狀態服務的複本可能會共用主機處理序或主機作業系統，因此需要唯一的連接埠。 |
-| ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 使用動態連接埠指派，此設定可防止稍早所述的誤用識別問題。 |
+| ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 通过动态端口分配，此设置可以防止前面所述的错误标识问题。 |
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Visual Studio 偵錯 Service Fabric 應用程式](service-fabric-debugging-your-application.md)

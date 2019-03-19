@@ -3,15 +3,15 @@ title: 設定 Avere vFXT 儲存體 - Azure
 description: 如何將後端儲存體系統新增至「適用於 Azure 的 Avere vFXT」
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
+ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078802"
 ---
 # <a name="configure-storage"></a>設定儲存體
 
@@ -72,7 +72,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
 若要使用 Azure Blob 儲存體作為您 vFXT 叢集的後端儲存體，您需要一個空的容器來新增為核心檔案管理工具。
 
 > [!TIP] 
-> 如果您選擇在建立 Avere vFXT 叢集的同時建立 Blob 容器，則部署範例或指令碼會建立一個儲存體容器、將其定義為核心檔案管理工具，然後在建立 vFXT 叢集的過程中一併建立命名空間連接點。 
+> 如果您選擇在建立 Avere vFXT 叢集的同時建立 Blob 容器，則部署範例或指令碼會建立一個儲存體容器、將其定義為核心檔案管理工具，然後在建立 vFXT 叢集的過程中一併建立命名空間連接點。 此範本也會建立叢集的虛擬網路內的儲存體服務端點。 
 
 將 Blob 儲存體新增到您的叢集需要執行下列步驟：
 
@@ -144,12 +144,12 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
    * 將 [Bucket contents] \(貯體內容\) 設定為 [Empty] \(空白\)
    * 將 [Certificate verification] \(憑證驗證\) 變更為 [Disabled] \(已停用\)
    * 將 [Compression mode] \(壓縮模式\) 變更為 [None] \(無\)  
-   * 按 [下一步] 。
+   * 单击“下一步”。
    * 在第四頁上，於 [Bucket name] \(貯體名稱\) 中將容器名稱輸入為 *storage_account_name*/*container_name*。
    * 視需要將 [Encryption type] \(加密類型\) 設定為 [None] \(無\)。  「Azure 儲存體」預設會經過加密。
    * 按一下 [Add Filer] \(新增檔案管理工具\)。
 
-  如需更多詳細資訊，請參閱 Avere 叢集設定指南中的[新增雲端核心檔案管理工具](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) \(英文\)。 
+   如需更多詳細資訊，請參閱 Avere 叢集設定指南中的[新增雲端核心檔案管理工具](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) \(英文\)。 
 
 頁面將會重新整理，或是您也可以重新整理頁面來顯示您的新核心檔案管理工具。
 
@@ -169,7 +169,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
 * 提供以 / (斜線) 開頭的命名空間路徑，例如 ``/avere/data``。
 * 選擇您的核心檔案管理工具。
 * 選擇核心檔案管理工具匯出項。
-* 按 [下一步] 。
+* 单击“下一步”。
 
   ![已完成連接點、核心檔案管理工具及匯出項欄位的 [Add new junction] \(新增連接點\) 頁面螢幕擷取畫面](media/avere-vfxt-add-junction.png)
 

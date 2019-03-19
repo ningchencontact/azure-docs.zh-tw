@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 2/12/2019
+ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2bbac21b9ac3e07cbb41ea8aa4cf93dcbd636d15
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118607"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -25,18 +25,29 @@ Azure 檔案同步代理程式支援下列版本：
 
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
-| V5 版本 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019 年 2 月 12 日 | 支援 (建議的版本) |
+| 2019 年 3 月更新彙總套件- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 年 3 月 7日日 | 支援 (建議的版本) |
+| V5 版本 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019 年 2 月 12 日 | 支援 |
 | 2019 年 1 月更新彙總套件 - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 2019 年 1 月 14 日 | 支援 |
 | 2018 年 12 月更新彙總套件 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 2018 年 12 月 10 日 | 支援 |
 | 2018 年 12 月更新彙總套件 | 4.1.0.0 | 2018 年 12 月 4 日 | 支援 |
 | V4 版本 | 4.0.1.0 | 2018 年 11 月 13 日 | 支援 |
 | 2018 年 9 月更新彙總套件 | 3.3.0.0 | 2018 年 9 月 24 日 | 支援的代理程式版本將於 2019 年 7 月 19 日到期 |
 | 2018 年 8 月更新彙總套件 | 3.2.0.0 | 2018 年 8 月 15 日 | 支援的代理程式版本將於 2019 年 7 月 19 日到期 |
-| 公開推出 | 3.1.0.0 | 2018 年 7 月 19 日 | 支援的代理程式版本將於 2019 年 7 月 19 日到期 |
+| 正式運作 | 3.1.0.0 | 2018 年 7 月 19 日 | 支援的代理程式版本將於 2019 年 7 月 19 日到期 |
 | 過期的代理程式 | 1.1.0.0 - 3.0.13.0 | N/A | 不支援 - 代理程式版本已於 2018 年 10 月1 日過期 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-5100"></a>代理程式版本 5.1.0.0
+下列版本資訊適用於 5.1.0.0 Azure 檔案同步代理程式的發行版本於 2019 年 3 月 7 日。 這些是除了版本 5.0.2.0 所列的版本資訊。
+
+此版本修正的問題清單：  
+- 檔案可能無法與錯誤 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) 同步處理，如果伺服器上失敗的變更列舉
+- 如果同步處理工作階段或檔案收到錯誤 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE) 時，同步處理會立即重試此作業
+- 檔案可能無法同步處理與錯誤 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
+- 恢復檔案時，可能會發生高記憶體使用量
+- 雲端階層處理遙測改善 
 
 ## <a name="agent-version-5020"></a>代理程式版本 5.0.2.0
 下列版本資訊適用於 Azure 檔案同步代理程式版本 5.0.2.0 (在 2019 年 2 月 12 日發行)。
@@ -44,7 +55,7 @@ Azure 檔案同步代理程式支援下列版本：
 ### <a name="improvements-and-issues-that-are-fixed"></a>增強功能和已修正的問題
 
 - 支援 Azure Government 雲端
-    - 我們已新增對 Azure Government 雲端的預覽支援。 這需要在允許清單中的訂用帳戶，並從 Microsoft 下載特殊的代理程式。 若要存取預覽，請直接傳送電子郵件給我們 ([AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com))。
+  - 我們已新增對 Azure Government 雲端的預覽支援。 這需要在允許清單中的訂用帳戶，並從 Microsoft 下載特殊的代理程式。 若要存取預覽，請直接傳送電子郵件給我們 ([AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com))。
 - 支援重複資料刪除
     - 在 Windows Server 2016 和 Windows Server 2019 上啟用的雲端階層處理現已完整支援重複資料刪除。 在已啟用雲端階層處理的磁碟區上啟用重複資料刪除，可讓您在內部部署中快取更多檔案，而不需佈建更多儲存空間。
 - 支援離線資料傳輸 (例如透過資料箱)

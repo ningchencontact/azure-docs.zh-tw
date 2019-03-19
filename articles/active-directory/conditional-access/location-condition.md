@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e59e00b0be7b7694d03961b19fadfa92c5db98b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171069"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的位置條件？ 
 
@@ -59,7 +59,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 - **名稱** - 具名位置的顯示名稱。
 
-- **IP 範圍** - CIDR 格式的一或多個 IPv4 位址範圍。 不支援指定 Ipv6 位址範圍。
+- **IP 範圍** - CIDR 格式的一或多個 IPv4 位址範圍。 不支援指定的 IPv6 位址範圍。
 
 - **標記為信任位置** - 您可以為具名位置設定旗標，以指出信任的位置。 一般而言，信任的位置是由您的 IT 部門所控制的網路區域。 除了條件式存取，Azure Identity Protection 與 Azure AD 安全性報告也會使用信任的具名位置以減少[誤判](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)。
 
@@ -67,7 +67,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 - **包括未知區域** - 部分 IP 位址未對應至特定國家/地區。 此選項可讓您選擇這些 IP 位址是否應包含在具名位置中。 當使用具名位置的原則應套用到未知位置時，請使用此設定。
 
-您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 您可以設定：
+您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 您可以設定下列其中一項：
 
 - 一個具名位置最多有 1200 個 IP 範圍。
 
@@ -78,7 +78,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 ## <a name="trusted-ips"></a>信任的 IP
 
-您也可以在[多重要素驗證服務設定](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)中設定代表您組織的近端內部網路的 IP 位址範圍。 此功能可讓您設定最多 50 個 IP 位址範圍。 IP 位址範圍是 CIDR 格式。 如需詳細資訊，請參閱[信任的 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)。  
+您也可以在[多重要素驗證服務設定](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)中設定代表您組織的近端內部網路的 IP 位址範圍。 這項功能可讓您設定最多 50 個 IP 位址範圍。 IP 位址範圍是 CIDR 格式。 如需詳細資訊，請參閱[信任的 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)。  
 
 如果您已設定信任的 IP，在位置條件的位置清單中，它們會顯示為 **MFA 信任的 IP**。   
 
@@ -110,7 +110,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 ### <a name="any-location"></a>任何位置
 
-根據預設，選取 [任何位置] 會將原則套用到所有 IP 位址，而這意味著網際網路上的所有位址。 此設定不限於您已設為具名位置的 IP 位址。 當您選取 [任何位置] 時，您仍然可以從原則中排除特定位置。 例如，您可以將原則套用到受信任位置以外的所有位置，以將範圍設為公司網路以外的所有位置。
+根據預設，選取 [任何位置] 會將原則套用到所有 IP 位址，而這意味著網際網路上的所有位址。 這項設定不限於您已設為具名位置的 IP 位址。 當您選取 [任何位置] 時，您仍然可以從原則中排除特定位置。 例如，您可以將原則套用到受信任位置以外的所有位置，以將範圍設為公司網路以外的所有位置。
 
 ### <a name="all-trusted-locations"></a>所有信任的位置
 
@@ -142,7 +142,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 ### <a name="user-ip-address"></a>使用者 IP 位址
 
-使用於原則評估的 IP 位址是使用者的公用 IP 位址。 對於私人網路上的裝置，這不是內部網路上使用者裝置的用戶端 IP，而是用來連接到公用網際網路的網路位址。 
+使用於原則評估的 IP 位址是使用者的公用 IP 位址。 對於私人網路上的裝置，這不是內部網路上使用者裝置的用戶端 IP，而是用來連接到公用網際網路的網路位址。 如果您的裝置有只具有 IPv6 位址，不支援設定位置條件。
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>大量上傳與下載具名位置
 

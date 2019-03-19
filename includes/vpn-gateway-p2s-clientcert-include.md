@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57964091"
 ---
 每個使用點對站連線來連線至 VNet 的用戶端電腦都必須安裝用戶端憑證。 您會從根憑證產生用戶端憑證，並將其安裝在每部用戶端電腦上。 如果您沒有安裝有效的用戶端憑證，用戶端嘗試連線至 VNet 時所進行的驗證將會失敗。
 
@@ -22,7 +22,7 @@ ms.locfileid: "55985388"
 
 - **企業憑證︰**
 
-  - 如果您使用企業憑證解決方案，請以一般的名稱值格式 name@yourdomain.com 產生用戶端憑證。 請使用此格式，而不是「網域名稱\使用者名稱」的格式。
+  - 如果您使用企業憑證解決方案，產生一般的名稱值格式的用戶端憑證*名稱\@yourdomain.com*。 請使用此格式，而不是「網域名稱\使用者名稱」的格式。
   - 請確定用戶端憑證所根據的憑證範本，是將「用戶端驗證」列為使用者清單中第一個項目的使用者憑證範本。 按兩下憑證，然後檢視 [詳細資料] 索引標籤中的 [增強金鑰使用方法]，即可檢查憑證。
 
 - **自我簽署根憑證：** 請遵循下列任一 P2S 憑證文章中的步驟，讓您建立的用戶端憑證可與 P2S 連線相容。 這些文章中的步驟都會產生相容的用戶端憑證： 

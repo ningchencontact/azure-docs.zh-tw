@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dab0a6a5eee8893f28a221b44d57afe255841fa0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329740"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543724"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>對應資料流程運算式產生器
 
@@ -51,7 +51,7 @@ ms.locfileid: "56329740"
 
 ## <a name="regular-expressions"></a>規則運算式
 
-Azure Data Factory 資料流程運算式語言 ([完整參考文件在此](http://aka.ms/dataflowexpressions) \(英文\)) 可提供包含規則運算式語法的函數。 使用規則運算式函數時，運算式產生器將會嘗試把反斜線 (\) 解譯為逸出字元序列。 在規則運算式中使用反斜線時，請以刻度 ` ` 或雙反斜線括住整個 RegEx。
+Azure Data Factory 資料流程運算式語言 ([完整參考文件在此](https://aka.ms/dataflowexpressions) \(英文\)) 可提供包含規則運算式語法的函數。 使用規則運算式函數時，運算式產生器將會嘗試把反斜線 (\) 解譯為逸出字元序列。 在規則運算式中使用反斜線時，請以刻度 ` ` 或雙反斜線括住整個 RegEx。
 
 使用刻度的範例
 
@@ -65,8 +65,17 @@ regex_replace('100 and 200', `(\d+)`, 'digits')
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>處理陣列索引
+## <a name="addressing-array-indexes"></a>定址陣列索引
 
 針對會傳回陣列的運算式函數，請使用方括號 [] 來處理內部會傳回陣列物件的特定索引。 陣列是以一為基礎。
 
 ![運算式產生器陣列](media/data-flow/expb2.png "運算式 [資料預覽]")
+
+## <a name="handling-names-with-special-characters"></a>處理特殊字元的名稱
+
+當您有資料行名稱包含特殊字元或空格時，括住的大括號名稱。
+* ```{[dbo].this_is my complex name$$$}```
+
+## <a name="next-steps"></a>後續步驟
+
+[開始建立資料轉換運算式](data-flow-expression-functions.md)

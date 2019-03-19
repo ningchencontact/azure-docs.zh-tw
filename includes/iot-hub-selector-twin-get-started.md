@@ -1,15 +1,15 @@
 ---
-author: dominicbetts
+author: wesmc7777
+ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: 304637422c0b8fd4dfa99e2e434e13d12f1fb342
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 72ccad94301e053d8103ca949d41202e58d9f5bb
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165464"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011657"
 ---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
@@ -17,7 +17,7 @@ ms.locfileid: "50165464"
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
-「裝置對應項」是存放裝置狀態資訊 (中繼資料、組態和條件) 的 JSON 文件。 IoT 中樞會為其連線的每個裝置保存裝置對應項。
+「裝置對應項」是存放裝置狀態資訊 (中繼資料、組態和條件) 的 JSON 文件。 IoT 中心为连接到它的每台设备保留一个设备孪生。
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
@@ -25,11 +25,11 @@ ms.locfileid: "50165464"
 
 * 從您的解決方案後端儲存裝置中繼資料。
 
-* 從您的裝置應用程式報告目前狀態資訊，例如可用功能和狀況 (例如，使用的連接方法)。
+* 通过设备应用报告当前状态信息，例如可用功能和条件（例如，使用的连接方法）。
 
 * 同步處理裝置應用程式與後端應用程式之間長時間執行之工作流程的狀態 (例如韌體和組態更新)。
 
-* 查詢裝置中繼資料、組態或狀態。
+* 查询设备的元数据、配置或状态。
 
 裝置對應項是設計來進行同步處理和查詢裝置組態和條件。 如需何時使用裝置對應項的詳細資訊，請參閱[了解裝置對應項](../articles/iot-hub/iot-hub-devguide-device-twins.md)。
 

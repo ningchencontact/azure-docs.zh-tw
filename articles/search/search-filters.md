@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079140"
 ---
 # <a name="filters-in-azure-search"></a>Azure 搜尋服務中的篩選條件 
 
@@ -32,17 +32,17 @@ ms.locfileid: "53629589"
 
 1. 使用篩選條件，根據索引中的資料值來為索引配量。 假設有一個具有城市、房屋類型及便利設施的結構描述，您可能會建立一個篩選條件，明確選取滿足您準則 (位於西雅圖、公寓、濱水區) 的文件。 
 
-  具備相同輸入的全文檢索搜尋通常會產生類似的結果，但篩選條件更為精確，因為它需要針對索引中的內容取得與篩選條件完全相符的項目。 
+   具備相同輸入的全文檢索搜尋通常會產生類似的結果，但篩選條件更為精確，因為它需要針對索引中的內容取得與篩選條件完全相符的項目。 
 
 2. 如果搜尋體驗伴隨著篩選條件需求，請使用篩選條件：
 
- * [多面向導覽](search-faceted-navigation.md)會使用篩選條件，傳回使用者所選取的 Facet 類別。
- * 地理搜尋會使用篩選條件，在 "find near me" 應用程式中傳遞目前位置的座標。 
- * 安全性篩選條件會傳遞安全性識別碼作為篩選條件準則，索引中的相符項目則會作為用以存取文件權限的 Proxy。
+   * [多面向導覽](search-faceted-navigation.md)會使用篩選條件，傳回使用者所選取的 Facet 類別。
+   * 地理搜尋會使用篩選條件，在 "find near me" 應用程式中傳遞目前位置的座標。 
+   * 安全性篩選條件會傳遞安全性識別碼作為篩選條件準則，索引中的相符項目則會作為用以存取文件權限的 Proxy。
 
 3. 如果您想要數值欄位上的搜尋準則，請使用篩選條件。 
 
-  數值欄位在文件中是可擷取且可出現在搜尋結果中，但不可單獨搜尋它們 (受限於全文檢索搜尋)。 如果您需要以數值資料為基礎的選取準則，請使用篩選條件。
+   數值欄位在文件中是可擷取且可出現在搜尋結果中，但不可單獨搜尋它們 (受限於全文檢索搜尋)。 如果您需要以數值資料為基礎的選取準則，請使用篩選條件。
 
 ### <a name="alternative-methods-for-reducing-scope"></a>縮減範圍的替代方法
 
@@ -141,10 +141,8 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 如果欄位為不可篩選的欄位，而您想要將它設定為可篩選，則必須新增一個欄位，或重建現有的欄位。 變更欄位定義會改變索引的實體結構。 在 Azure 搜尋服務中，所有允許的存取路徑均已編製索引以加快查詢速度，其會在欄位定義變更時，強制執行資料結構的重建。 
 
-重建個別欄位可以是影響很小的作業，只需一個合併作業來將現有的文件索引鍵和相關聯的值傳送至索引，並原封不動地留下每份文件的其餘部分。 如果您遇到重建需求，請參閱下列連結以取得指示：
+重建個別欄位可以是影響很小的作業，只需一個合併作業來將現有的文件索引鍵和相關聯的值傳送至索引，並原封不動地留下每份文件的其餘部分。 如果您遇到重建需求，請參閱[索引編製動作 (上傳、 合併、 mergeOrUpload 刪除)](search-what-is-data-import.md#indexing-actions)如選項的清單。
 
- + [使用 .NET SDK 的索引編製動作](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [使用 REST API 的索引編製動作](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>文字篩選條件基本概念
 
@@ -155,7 +153,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 文字字串會區分大小寫。 沒有大寫字的小寫寫法：`$filter=f eq 'Sunny day'` 將找不到 'sunny day'`。
 
 
-| 方法 | 說明 | 
+| 方法 | 描述 | 
 |----------|-------------|
 | [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | 針對指定的欄位提供以逗號分隔之字串清單的函式。 字串由篩選條件準則所組成，其會套用至查詢範圍中的每個欄位。 <br/><br/>`search.in(f, ‘a, b, c’)` 語意上相當於 `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`，只不過它在值清單太大時執行的速度更快。<br/><br/>我們建議針對[安全性篩選條件](search-security-trimming-for-azure-search.md)使用 **search.in** 函式，以及針對由要符合指定欄位之值的未經處理文字所組成的任何篩選條件使用該函式。 這個方法是基於速度而設計的。 傳回數百甚至數千個值只需要不到一秒的時間。 雖然對於您可以傳遞給函式的項目數並無明確的限制，但延遲會根據您提供的字串數目按比例增加。 | 
 | [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | 此函式可讓您在相同的篩選條件運算式中，混用全文檢索搜尋作業以及純布林值篩選作業。 它可以讓您在一個要求中使用多個查詢篩選條件組合。 您也可以將它用於 *contains* 篩選條件，以篩選較大字串內的部分字串。 |  
@@ -194,7 +192,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 若要使用更多範例，請參閱 [OData 篩選條件運算式語法 > 範例](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) \(英文\)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md)
 + [搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

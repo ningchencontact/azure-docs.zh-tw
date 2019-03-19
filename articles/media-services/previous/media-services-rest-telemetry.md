@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4b2028b16c395b770e935fdba47dc0e965284fc2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6be9c785e12f588addabbe14fb5d199ea9d4b256
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993653"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079958"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 設定 Azure 媒體服務遙測
 
@@ -38,7 +38,7 @@ ms.locfileid: "55993653"
   
 - 取得監視組態
 
-    針對要監視的服務建立監視組態設定。 系統最多只允許一個監視組態設定。 
+    針對要監視的服務建立監視組態設定。 最多允许一个监视配置设置。 
 
 - 新增監視組態
 
@@ -125,8 +125,8 @@ ms.locfileid: "55993653"
         "EndPointType":2
     }
 
->[!NOTE]
->別忘記將 "https://telemetryvalidationstore.table.core.windows.net" 值變更為您的儲存體帳戶。
+> [!NOTE]
+> 別忘記將 "https://telemetryvalidationstore.table.core.windows.net" 值變更為您的儲存體帳戶。
 
 ### <a name="response"></a>Response
 

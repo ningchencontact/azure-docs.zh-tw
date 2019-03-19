@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e81e842e059e09f24627138ba9fbf6510a603efe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d225ece7b8a8841d17f20bc27de3aa640fa7d37b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353289"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436420"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的計時器
 
@@ -132,7 +132,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> 如果程式碼不會等候永久性計時器完成，請使用 `CancellationTokenSource` 來取消它 (C#) 或在傳回的 `TimerTask` 上呼叫 `cancel()` (JavaScript)。 等到所有未完成的工作都完成或取消之後，「永久性工作架構」才會將協調流程的狀態變更為「已完成」。
+> 如果程式碼不會等候永久性計時器完成，請使用 `CancellationTokenSource` 來取消它 (C#) 或在傳回的 `TimerTask` 上呼叫 `cancel()` (JavaScript)。 長期工作架構不會變更為 「 已完成 「 直到所有未完成的工作都完成或取消的協調流程的狀態。
 
 這項機制並不會實際終止進行中的活動函式執行。 只是讓協調器函式略過結果並繼續執行。 如果函式應用程式使用取用量方案，您仍然要為已放棄的活動函式所耗用的任何時間和記憶體付費。 根據預設，在取用量方案中執行的函式會在五分鐘後逾時。 如果超過此限制，Azure Functions 主機會重新開機來停止所有執行，以避免計費失控狀況發生。 [函式逾時可設定](../functions-host-json.md#functiontimeout)。
 

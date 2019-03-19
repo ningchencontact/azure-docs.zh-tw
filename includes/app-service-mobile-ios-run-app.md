@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 8146489a913ce863cee7534331231a248a3ea7ac
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890982"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114718"
 ---
 1. 在 Mac 上，造訪 [Azure 入口網站]。 按一下 [所有服務] > [應用程式服務] > 您剛才建立的後端。 在行動應用程式設定中，選擇您慣用的語言：
 
-    - Objective-C &ndash; **快速入門** > **iOS (Objective-C)**
-    - Swift &ndash; **快速入門** > **iOS (Swift)**
+   - Objective-C &ndash; **快速入門** > **iOS (Objective-C)**
+   - Swift &ndash; **快速入門** > **iOS (Swift)**
 
-    在 [3. 定義動作群組]**在 [設定用戶端應用程式]** 下方，按一下 [下載]。 這會下載已預先設定為會連線至後端的完整 Xcode 專案。 使用 Xcode 開啟專案。
+     在 [3. 定義動作群組]**在 [設定用戶端應用程式]** 下方，按一下 [下載]。 這會下載已預先設定為會連線至後端的完整 Xcode 專案。 使用 Xcode 開啟專案。
 
 1. 按 [執行]  按鈕以建置專案，並在 iOS 模擬器中啟動應用程式。
 

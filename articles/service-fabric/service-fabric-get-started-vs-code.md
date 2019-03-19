@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: dc9c11e2c0d5642e31eace2a4dcb6065d990e25d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413650"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121021"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>適用於 Visual Studio Code 的 Service Fabric
 
@@ -67,18 +67,18 @@ ms.locfileid: "50413650"
 ## <a name="commands"></a>命令
 適用於 VS Code 的 Service Fabric Reliable Services 擴充功能提供許多命令，可以協助開發人員建立及部署 Service Fabric 專案。 您可以按下 `(Ctrl + Shift + p)`、將命令名稱鍵入到輸入列中，然後從提示清單選取想要的命令，從 [命令選擇區] 中呼叫命令。 
 
-* Service Fabric: Create Application 
-* Service Fabric: Publish Application 
-* Service Fabric: Deploy Application 
-* Service Fabric: Remove Application  
-* Service Fabric: Build Application 
-* Service Fabric: Clean Application 
+* Service Fabric:创建应用程序 
+* Service Fabric:发布应用程序 
+* Service Fabric:部署应用程序 
+* Service Fabric:删除应用程序  
+* Service Fabric:生成应用程序 
+* Service Fabric:清理应用程序 
 
-### <a name="service-fabric-create-application"></a>Service Fabric: Create Application
+### <a name="service-fabric-create-application"></a>Service Fabric:创建应用程序
 
-**Service Fabric: Create Application** 命令會在您目前的工作區中建立全新 Service Fabric 應用程式。 根據開發機器上安裝的是哪個 Yeoman 產生器，您可以建立數種類型的 Service Fabric 應用程式，包括 Java、C#、容器及客體專案。 
+“Service Fabric:创建应用程序”命令在当前工作区中创建新的 Service Fabric 应用程序。 根據開發機器上安裝的是哪個 Yeoman 產生器，您可以建立數種類型的 Service Fabric 應用程式，包括 Java、C#、容器及客體專案。 
 
-1.  選取 **Service Fabric: Add Service** 命令
+1.  选择“Service Fabric:添加服务”命令
 2.  選取新 Service Fabric 應用程式的類型。 
 3.  輸入您想要建立的應用程式名稱
 3.  選取您想要新增到 Service Fabric 應用程式中的服務類型。 
@@ -86,51 +86,51 @@ ms.locfileid: "50413650"
 5.  新的 Service Fabric 應用程式會出現在工作區中。
 6.  開啟新的應用程式資料夾，使其變成工作區中的根資料夾。 您可以從這裡繼續執行命令。
 
-### <a name="service-fabric-add-service"></a>Service Fabric: Add Service
-**Service Fabric: Add Service** 命令會將新服務新增至現有的 Service Fabric 應用程式中。 服務要新增至其中的應用程式，必須位於工作區的根目錄中。 
+### <a name="service-fabric-add-service"></a>Service Fabric:添加服务
+“Service Fabric:添加服务”命令将新服务添加到现有的 Service Fabric 应用程序。 服務要新增至其中的應用程式，必須位於工作區的根目錄中。 
 
-1.  選取 **Service Fabric: Add Service** 命令。
+1.  选择“Service Fabric:添加服务”命令。
 2.  選取目前 Service Fabric 應用程式的類型。 
 3.  選取您想要新增到 Service Fabric 應用程式中的服務類型。 
 4.  遵循提示來為服務命名。 
 5.  新的服務會出現在專案目錄中。 
 
-### <a name="service-fabric-publish-application"></a>Service Fabric: Publish Application
-**Service Fabric: Publish Application** 命令會在遠端叢集上部署您的 Service Fabric 應用程式。 目標叢集安全與否並無大礙。 若未在 Cloud.json 中設定參數，則應用程式會部署到本機叢集。
+### <a name="service-fabric-publish-application"></a>Service Fabric:发布应用程序
+“Service Fabric:发布应用程序”命令在远程群集上部署 Service Fabric 应用程序。 目標叢集安全與否並無大礙。 若未在 Cloud.json 中設定參數，則應用程式會部署到本機叢集。
 
 1.  第一次建置應用程式時，會在專案目錄中產生 Cloud.json 檔案。
 2.  將您想要連線的叢集值輸入到 Cloud.json 檔案中。
-3.  選取 **Service Fabric: Publish Application** 命令。
+3.  选择“Service Fabric:发布应用程序”命令。
 4.  使用 Service Fabric Explorer 檢視目標叢集，確認應用程式是否已安裝。 
 
-### <a name="service-fabric-deploy-application-localhost"></a>Service Fabric: Deploy Application (Localhost)
-**Service Fabric: Deploy Application** 命令會在本機叢集上部署您的 Service Fabric 應用程式。 在使用命令之前，請先確定您的本機叢集正在執行。 
+### <a name="service-fabric-deploy-application-localhost"></a>Service Fabric:部署应用程序(Localhost)
+“Service Fabric:部署应用程序”命令将 Service Fabric 应用程序部署到本地群集。 在使用命令之前，請先確定您的本機叢集正在執行。 
 
-1.  選取 **Service Fabric: Deploy Application** 命令
-2.  使用 Service Fabric Explorer (http://localhost:19080/Explorer) 檢視本機叢集，確認應用程式是否已安裝。 這可能需要一些時間，請耐心等候。
-3.  您也可以於未在 Cloud.json 檔案中設定參數時使用 **Service Fabric: Publish Application** 命令，以部署到本機叢集。
+1. 选择“Service Fabric:部署应用程序”命令
+2. 使用 Service Fabric Explorer (http://localhost:19080/Explorer) 檢視本機叢集，確認應用程式是否已安裝。 這可能需要一些時間，請耐心等候。
+3. 也可以在未在 Cloud.json 文件中设置任何参数的情况下，使用“Service Fabric:发布应用程序”命令部署到本地群集。
 
 > [!NOTE]
 > 在 Windows 機器上不支援將 Java 應用程式部署到本機叢集。
 
-### <a name="service-fabric-remove-application"></a>Service Fabric: Remove Application
-**Service Fabric: Remove Application** 命令會從先前使用 VS Code 擴充功能部署所在的叢集內，移除 Service Fabric 應用程式。 
+### <a name="service-fabric-remove-application"></a>Service Fabric:删除应用程序
+“Service Fabric:删除应用程序”命令将 Service Fabric 应用程序从先前使用 VS Code 扩展将它部署到的群集中删除它。 
 
-1.  選取 **Service Fabric: Remove Application** 命令。
+1.  选择“Service Fabric:删除应用程序”命令。
 2.  使用 Service Fabric Explorer 檢視叢集，確認應用程式是否已移除。 這可能需要一些時間，請耐心等候。
 
-### <a name="service-fabric-build-application"></a>Service Fabric: Build Application
-**Service Fabric: Remove Application** 命令可以建置 Java 或 C# Service Fabric 應用程式。 
+### <a name="service-fabric-build-application"></a>Service Fabric:生成应用程序
+“Service Fabric:生成应用程序”命令可以生成 Java 或 C# Service Fabric 应用程序。 
 
 1.  在執行此命令之前，請先確定您是在應用程式根資料夾中。 命令會識別應用程式類型 (C# 或 Java)，並且據以建置您的應用程式。
-2.  選取 **Service Fabric: Build Application** 命令。
+2.  选择“Service Fabric:生成应用程序”命令。
 3.  建置程序的輸出會寫入到整合式終端機。
 
-### <a name="service-fabric-clean-application"></a>Service Fabric: Clean Application
-**Service Fabric: Clean Application** 命令會刪除建置所產生的所有 jar 檔案和原生程式庫。 僅適用於 Java 應用程式。 
+### <a name="service-fabric-clean-application"></a>Service Fabric:清理应用程序
+“Service Fabric:清理应用程序”命令会删除生成过程生成的所有 jar 文件和本机库。 僅適用於 Java 應用程式。 
 
 1.  在執行此命令之前，請先確定您是在應用程式根資料夾中。 
-2.  選取 **Service Fabric: Clean Application** 命令。
+2.  选择“Service Fabric:清理应用程序”命令。
 3.  清除程序的輸出會寫入到整合式終端機。
 
 ## <a name="next-steps"></a>後續步驟

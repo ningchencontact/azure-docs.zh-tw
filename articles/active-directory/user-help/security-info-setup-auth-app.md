@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b797cc6e1c0ef0df61c4d1384d2beb12c37112ba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456852"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102378"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>將安全性資訊 (預覽) 設定為使用驗證器應用程式
-您可以遵循下列步驟來新增雙因素驗證和密碼重設方法。 在您首次將此設定好之後，即可返回**安全性資訊**頁面來新增、更新或刪除安全性資訊。
+您可以遵循下列步驟來新增雙因素驗證和密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
 
 如果系統提示您要在登入公司或學校帳戶之後立即設定此資訊，請參閱[從登入頁面的提示字元中設定安全性資訊](security-info-setup-signin.md)一文中的詳細步驟。
 
@@ -36,11 +36,11 @@ ms.locfileid: "56456852"
 
 1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
 
-    ![我的設定檔頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile.png)
+    ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 
-2. 從左側瀏覽窗格或 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後從 [安全性資訊] 頁面選取 [新增方法]。
+2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [驗證器應用程式]，然後選取 [新增]。
 
@@ -52,10 +52,10 @@ ms.locfileid: "56456852"
 
     ![從取得應用程式開始的頁面](media/security-info/securityinfo-myprofile-getauthapp.png)
 
-    >[!Note]
-    >如果您想要使用 Microsoft Authenticator 應用程式以外的驗證器應用程式，請選取 [我想要使用其他驗證器應用程式] 連結。
-    
-    >如果您的組織允許您選擇驗證器應用程式以外的方法，您可以選取 [我想要設定其他方法連結]。
+   > [!Note]
+   > 如果您想要使用 Microsoft Authenticator 應用程式以外的驗證器應用程式，請選取 [我想要使用其他驗證器應用程式] 連結。
+   > 
+   > 如果您的組織允許您選擇驗證器應用程式以外的方法，您可以選取 [我想要設定其他方法連結]。
 
 5. 在行動裝置上設定 Microsoft Authenticator 應用程式時，請讓 [設定帳戶] 頁面保持開啟。
 
@@ -81,9 +81,9 @@ ms.locfileid: "56456852"
 
 8. 在 Microsoft Authenticator 應用程式中核准通知，然後選取 [下一步]。
 
-    ![成功通知，指出正在連線應用程式和您的帳戶](media/security-info/securityinfo-myprofile-successauthapp.png)
+     ![成功通知，指出正在連線應用程式和您的帳戶](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    您的安全性資訊會更新為使用 Microsoft Authenticator 應用程式作為預設方法，在使用雙步驟驗證或密碼重設時驗證您的身分識別。
+     您的安全性資訊會更新為使用 Microsoft Authenticator 應用程式作為預設方法，在使用雙步驟驗證或密碼重設時驗證您的身分識別。
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>從您的安全性資訊方法中刪除驗證器應用程式
 如果您不想再使用驗證器應用程式作為安全性資訊方法，您可以從 [安全性資訊] 頁面中刪除應用程式。 這適用於所有驗證器應用程式，並非只適用於 Microsoft Authenticator 應用程式。 刪除應用程式之後，您必須進入行動裝置上的驗證器應用程式，然後刪除帳戶。

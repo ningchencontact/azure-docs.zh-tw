@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722901"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999544"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "53722901"
 
 本文提供了 C# 程式碼範例，示範如何透過 Azure 佇列儲存體服務使用 Azure WebJobs SDK 1.x 版。
 
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。 如需詳細資訊，請參閱 [以 .NET 開始使用 Azure 佇列儲存體](../storage/queues/storage-dotnet-how-to-use-queues.md) 。 如需 ASP.NET 的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
+Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。 如需詳細資訊，請參閱 [以 .NET 開始使用 Azure 佇列儲存體](../storage/queues/storage-dotnet-how-to-use-queues.md) 。 有关 ASP.NET 的详细信息，请参阅 [ASP.NET](https://www.asp.net)。
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>如何在接收到佇列訊息時觸發函數
 若要撰寫 WebJobs SDK 在收到佇列訊息時所呼叫的函數，請使用 **QueueTrigger** 屬性。 屬性建構函式採用字串參數，來指定要輪詢的佇列名稱。 若要了解如何動態設定佇列名稱，請參閱 [如何設定組態選項](#how-to-set-configuration-options)。
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 除了 **string** 以外，參數可能是位元組陣列、**CloudQueueMessage** 物件或您定義的 POCO。
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO ([簡單的 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO ([簡單的 CLR 物件](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
 在下列範例中，佇列訊息會包含 **BlobInformation** 物件的 JSON，其中包含 **BlobName** 屬性。 SDK 會自動將物件還原序列化。
 
 ```csharp
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-SDK 會使用 [Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.Json) 封裝來序列化和還原序列化訊息。 如果您在不使用 WebJobs SDK 的程式中建立佇列訊息，您可以撰寫和下面範例類似的程式碼來建立 SDK 能夠剖析的 POCO 佇列訊息。
+SDK 會使用 [Newtonsoft.Json NuGet](https://www.nuget.org/packages/Newtonsoft.Json) 封裝來序列化和還原序列化訊息。 如果您在不使用 WebJobs SDK 的程式中建立佇列訊息，您可以撰寫和下面範例類似的程式碼來建立 SDK 能夠剖析的 POCO 佇列訊息。
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -62,7 +62,7 @@ var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 logQueue.AddMessage(queueMessage);
 ```
 
-### <a name="async-functions"></a>Async 函數
+### <a name="async-functions"></a>异步函数
 下面的非同步函式會 [將記錄檔寫入儀表板](#how-to-write-logs)。
 
 ```csharp
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Async 函數可能需要取 [消語彙基元](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)，如下列範例所示 (會複製 Blob)。 (如需 **queueTrigger** 預留位置的說明，請參閱 [Blob](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) 區段)。
+Async 函數可能需要取 [消語彙基元](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)，如下列範例所示 (會複製 Blob)。 (如需 **queueTrigger** 預留位置的說明，請參閱 [Blob](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) 區段)。
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -94,7 +94,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>輪詢演算法
-SDK 會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲存體交易成本的影響。  找到訊息時，SDK 會等待兩秒，然後檢查的另一個訊息；當找不到任何訊息時，它會等候大約四秒，然後再試一次。 連續嘗試取得佇列訊息失敗後，等候時間會持續增加，直到它到達等待時間上限 (預設值為一分鐘)。 [您可以設定等待時間上限](#how-to-set-configuration-options)。
+SDK 实现了随机指数退让算法，以降低空闲队列轮询对存储事务成本造成的影响。  找到訊息時，SDK 會等待兩秒，然後檢查的另一個訊息；當找不到任何訊息時，它會等候大約四秒，然後再試一次。 連續嘗試取得佇列訊息失敗後，等候時間會持續增加，直到它到達等待時間上限 (預設值為一分鐘)。 [您可以設定等待時間上限](#how-to-set-configuration-options)。
 
 ## <a name="multiple-instances"></a>多個執行個體
 如果您的 Web 應用程式在多個執行個體上執行，則連續 WebJob 將在每部機器上執行，而且每部機器將會等待觸發程序並嘗試執行函數。 在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。  
@@ -190,7 +190,7 @@ public static void GracefulShutdownDemo(
 若要編寫會建立新佇列訊息的函數，請使用 **Queue** 屬性。 如同 **QueueTrigger**，您可透過字串傳入佇列名稱，或可以 [動態設定的佇列名稱](#how-to-set-configuration-options)。
 
 ### <a name="string-queue-messages"></a>字串佇列訊息
-下面的非同步程式碼範例會在名稱為 "outputqueue" 的佇列中建立一個新的佇列訊息，其內容與名為 "inputqueue" 的佇列中收到的佇列訊息相同。 (如需非同步函式，請使用 **IAsyncCollector<T>**，如本節後續內容所示。)
+下面的非异步代码示例在名为“outputqueue”的队列中创建新的队列消息，该消息的内容与名为“inputqueue”的队列中收到的队列消息相同。 (如需非同步函式，請使用 **IAsyncCollector<T>**，如本節後續內容所示。)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO ([簡單的 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO ([簡單的 CLR 物件](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
 若要建立包含 POCO 物件 (而非字串) 的佇列訊息，請將 POCO 做為輸出參數傳送至 **Queue** 屬性建構函式。
 
 ```csharp
@@ -246,7 +246,7 @@ public static void CreateQueueMessages(
 ### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>在函式主體中使用 WebJobs SDK 屬性
 如果您需要先在函式中執行部分工作，然後再使用 WebJobs SDK 屬性，例如 **Queue** **Blob** 或 **Table**，您可以使用 **IBinder** 介面。
 
-下列範例會使用輸入佇列訊息，並在輸出佇列中建立含有相同內容的新訊息。 輸出佇列名稱會由函數主體中的程式碼設定。
+下列範例會使用輸入佇列訊息，並在輸出佇列中建立含有相同內容的新訊息。 输出队列名称由函数正文中的代码设置。
 
 ```csharp
 public static void CreateQueueMessage(
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO ([簡單的 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO ([簡單的 CLR 物件](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
 針對以 JSON 格式儲存在佇列訊息中的 POCO，您可以使用 **Queue** 屬性之 **blobPath** 參數中物件的屬性名稱來做為預留位置。 您也可以使用佇列中繼資料屬性名稱做為預留位置。 請參閱 [取得佇列或佇列訊息中繼資料](#get-queue-or-queue-message-metadata)。
 
 下列範例會將 Blob 複製到具有不同副檔名的新 Blob。 佇列訊息是包含 **BlobName** 和 **BlobNameWithoutExtension** 屬性的 **BlobInformation** 物件。 在 **Blob** 屬性的 Blob 路徑中使用屬性名稱做為預留位置。
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-SDK 會使用 [Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.Json) 封裝來序列化和還原序列化訊息。 如果您在不使用 WebJobs SDK 的程式中建立佇列訊息，您可以撰寫和下面範例類似的程式碼來建立 SDK 能夠剖析的 POCO 佇列訊息。
+SDK 會使用 [Newtonsoft.Json NuGet](https://www.nuget.org/packages/Newtonsoft.Json) 封裝來序列化和還原序列化訊息。 如果在不使用 WebJobs SDK 的程序中创建队列消息，可以如以下示例所示编写代码，以创建 SDK 可以分析的 POCO 队列消息。
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
@@ -340,7 +340,7 @@ logQueue.AddMessage(queueMessage);
 內容會導致函數失敗的訊息稱為「有害訊息」 。 當函數失敗時不會刪除佇列訊息，最後會再度挑選到該訊息，造成重複循環。 SDK 可在有限的反覆次數之後自動中斷循環，或者您可以手動中斷循環。
 
 ### <a name="automatic-poison-message-handling"></a>自動處理有害訊息
-SDK 將會呼叫函數最多 5 次以處理佇列訊息。 如果第五次嘗試失敗，訊息便會移到有害佇列中。 您可以在 [如何設定組態選項](#how-to-set-configuration-options)中了解如何設定重試次數上限。
+SDK 在处理一个队列消息时最多会调用某个函数 5 次。 如果第五次嘗試失敗，訊息便會移到有害佇列中。 您可以在 [如何設定組態選項](#how-to-set-configuration-options)中了解如何設定重試次數上限。
 
 有害佇列名為 *{originalqueuename}*-poison。 您可以撰寫函數，透過記錄或傳送通知表示需要手動處理，來處理有害佇列中的訊息。
 
@@ -362,7 +362,7 @@ public static void ProcessPoisonMessage(
 }
 ```
 
-下圖顯示這些函數處理有害訊息之後的主控台輸出。
+下图显示了处理有害消息时这些函数的控制台输出。
 
 ![主控台輸出中的有害訊息處理](./media/vs-storage-webjobs-getting-started-queues/poison.png)
 
@@ -556,7 +556,7 @@ public static void WriteLog(
 
 ![在資料表中的資訊記錄檔](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
-![在資料表中的錯誤記錄檔](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
+![表中的错误日志](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>後續步驟
 本文提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。 如需如何使用 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 文件資源](https://go.microsoft.com/fwlink/?linkid=390226)。

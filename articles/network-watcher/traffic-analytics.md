@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081061"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -41,8 +41,8 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 - **網路安全性群組 (NSG)**：包含安全性規則清單，可允許或拒絕連線至 Azure 虛擬網路之資源的網路流量。 NSG 可以與子網路、個別 VM (傳統) 或已連結至 VM (Resource Manager) 的個別網路介面 (NIC) 建立關聯。 如需詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 - **網路安全性群組 (NSG) 流程記錄**：可讓您檢視透過網路安全性群組輸入和輸出 IP 流量的相關資訊。 NSG 流量記錄是以 json 格式撰寫，會顯示每一規則的輸出和輸入流量、套用流量的 NIC、關於流量的 5 個 Tuple 資訊 (來源/目的地 IP 位址、來源/目的地連接埠、通訊協定)，以及流量是被允許或拒絕。 如須 NSG 流量記錄的詳細資訊，請參閱 [NSG 流量記錄](network-watcher-nsg-flow-logging-overview.md)。
-- **Log Analytics**：一項 Azure 服務，會收集監視資料並將其儲存在中央存放庫中。 此資料可能包含事件、效能資料，或透過 Azure API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。 網路效能監視器和流量分析等監視應用程式皆以 Log Analytics 作為建置基礎。 如需詳細資訊，請參閱 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
-- **Log Analytics 工作區**：一個 Log Analytics 執行個體，會儲存 Azure 帳戶的相關資料。 如需 Log Analytics 工作區的詳細資訊，請參閱[建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+- **Log Analytics**：一項 Azure 服務，會收集監視資料並將其儲存在中央存放庫中。 此資料可能包含事件、效能資料，或透過 Azure API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。 監視應用程式，例如網路效能監視器 」 和 「 流量分析會使用 Azure 監視器記錄檔做為基礎所建置。 如需詳細資訊，請參閱 < [Azure 監視器記錄](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+- **Log Analytics 工作區**：Azure 監視器記錄檔，儲存 Azure 帳戶的相關資料的執行個體。 如需 Log Analytics 工作區的詳細資訊，請參閱[建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 - **網路監看員**：一項區域性服務，可讓您監視與診斷 Azure 中的網路案例層級情況。 您可以透過網路監看員將 NSG 流量記錄開啟和關閉。 如需詳細資訊，請參閱[網路監看員](network-watcher-monitoring-overview.md)。
 
 ## <a name="how-traffic-analytics-works"></a>流量分析的運作方式
@@ -75,6 +75,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 * 印度中部
 * 印度南部
 * 日本東部 
+* 美國政府維吉尼亞州
 
 Log Analytics 工作區必須存在於下列區域：
 * 加拿大中部
@@ -86,6 +87,7 @@ Log Analytics 工作區必須存在於下列區域：
 * 東南亞
 * 印度中部
 * 日本東部
+* 美國政府維吉尼亞州
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -164,9 +166,9 @@ New-AzureRmStorageAccount `
 2. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。
 3. 將 [保留] 設為您要儲存資料的天數。
 4. 針對 [流量分析狀態]，選取 [開啟]。
-5. 選取現有的 Log Analytics 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個支援區域中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+5. 選取現有的 Log Analytics 工作區，或選取**建立新的工作區**建立新的帳戶。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個支援區域中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需有關查詢語言的詳細資訊，請參閱[Azure 監視器記錄升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
-    裝載流量分析解決方案和 NSG 的 Log Analytics 工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
+    在相同區域中沒有裝載流量分析解決方案和 Nsg 的 Log Analytics 工作區。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
 6. 選取 [ **儲存**]。
 
     ![選取儲存體帳戶、Log Analytics 工作區和啟用流量分析](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
@@ -199,7 +201,7 @@ New-AzureRmStorageAccount `
 - 封鎖的流量統計資料。
     - 主機封鎖大量良性流量的原因為何？ 這種行為需要進一步調查與可能的組態最佳化
 - 允許/封鎖的惡意流量統計資料
-    - 為什麼主機收到惡意流量，且為什麼允許惡意來源？ 這種行為需要進一步調查與可能的組態最佳化。
+  - 為什麼主機收到惡意流量，且為什麼允許惡意來源？ 這種行為需要進一步調查與可能的組態最佳化。
 
     選取 [主機] 底下的 [檢視全部]，如下圖所示：
 
@@ -258,8 +260,8 @@ New-AzureRmStorageAccount `
 **尋找**
 
 - 每個資料中心的流量分布，例如，資料中心流量最常見的來源、最常與資料中心交談的 Rogue 網路，以及最常用的交談應用程式通訊協定。
-    - 如果您發現資料中心的負載較高，您可以規劃有效率的流量分配。
-    - 如果有 Rogue 網路在資料中心內交談，請更正 NSG 規則以封鎖這些網路。
+  - 如果您發現資料中心的負載較高，您可以規劃有效率的流量分配。
+  - 如果有 Rogue 網路在資料中心內交談，請更正 NSG 規則以封鎖這些網路。
 
     選取 [您的環境] 底下的 [檢視對應]，如下圖所示：
 
@@ -280,8 +282,8 @@ New-AzureRmStorageAccount `
 **尋找**
 
 - 每個虛擬網路的流量分布、拓撲、虛擬網路流量最常見的來源、最常與虛擬網路交談的 Rogue 網路，以及最常用的交談應用程式通訊協定。
-    - 了解哪些虛擬網路正在互相交談。 如果交談不符預期，可加以更正。
-    - 如果有 Rogue 網路與虛擬網路交談，您可以更正 NSG 規則以封鎖 Rogue 網路。
+  - 了解哪些虛擬網路正在互相交談。 如果交談不符預期，可加以更正。
+  - 如果有 Rogue 網路與虛擬網路交談，您可以更正 NSG 規則以封鎖 Rogue 網路。
  
     選取 [您的環境] 底下的 [檢視 Vnet]，如下圖所示：
 
@@ -321,7 +323,7 @@ New-AzureRmStorageAccount `
 **尋找**
 
 - 哪些開啟的連接埠透過網際網路進行交談？
-    - 如果您發現有非預期的連接埠已開啟，您可以更正設定：
+  - 如果您發現有非預期的連接埠已開啟，您可以更正設定：
 
     ![顯示對網際網路接收和傳送流量之連接埠的儀表板](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
@@ -345,9 +347,9 @@ New-AzureRmStorageAccount `
 
 - 下圖顯示 NSG 規則命中的時間趨勢，以及網路安全性群組的來源-目的地流量詳細資料：
 
-    - 快速偵測哪些 NSG 與 NSG 規則正在周遊惡意流量，以及哪些惡意 IP 位址最常存取您的雲端環境
-    - 識別哪些 NSG/NSG 規則允許/封鎖重要的網路流量
-    - 選取最常用於 NSG 或 NSG 規則細微檢查的篩選
+  - 快速偵測哪些 NSG 與 NSG 規則正在周遊惡意流量，以及哪些惡意 IP 位址最常存取您的雲端環境
+  - 識別哪些 NSG/NSG 規則允許/封鎖重要的網路流量
+  - 選取最常用於 NSG 或 NSG 規則細微檢查的篩選
 
     ![顯示 NSG 規則命中的時間趨勢以及最高排名 NSG 規則](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 

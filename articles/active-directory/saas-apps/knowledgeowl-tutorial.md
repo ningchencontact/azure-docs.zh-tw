@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f53742de3242fb3b60a15d436ec6cd842aa429
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183979"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>教學課程：Azure Active Directory 與 KnowledgeOwl 整合
 
@@ -110,6 +110,7 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
     ![KnowledgeOwl 網域及 URL 單一登入資訊](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
     a. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
+
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -117,6 +118,7 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
     |||
 
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -132,6 +134,7 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
     ![KnowledgeOwl 網域及 URL 單一登入資訊](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+    
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -185,29 +188,29 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
 
 1. 按一下 [設定]，然後選取 [安全性]。
 
-    ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure1.png)
+     ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure1.png)
 
 1. 捲動至 [SAML SSO 整合]，然後執行下列步驟：
     
-    ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure2.png)
+     ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. 選取 [啟用 SAML SSO]。
+     a. 選取 [啟用 SAML SSO]。
 
-    b. 複製 **SP Entity ID** (SP 實體識別碼) 值，並將它貼至 Azure 入口網站上 [KnowledgeOwl 網域及 URL] 區段中的 [識別碼 (實體識別碼)] 文字方塊。
+     b. 複製 **SP Entity ID** (SP 實體識別碼) 值，並將它貼至 Azure 入口網站上 [KnowledgeOwl 網域及 URL] 區段中的 [識別碼 (實體識別碼)] 文字方塊。
 
-    c. 複製 **SP Login URL** (SP 登入 URL) 值，並將它貼至 Azure 入口網站上 [KnowledgeOwl 網域及 URL] 區段中的 [登入 URL 和回覆 URL] 文字方塊。
+     c. 複製 **SP Login URL** (SP 登入 URL) 值，並將它貼至 Azure 入口網站上 [KnowledgeOwl 網域及 URL] 區段中的 [登入 URL 和回覆 URL] 文字方塊。
 
-    d. 在 [IdP 實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 **SAML 實體識別碼**值。
+     d. 在 [IdP 實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 **SAML 實體識別碼**值。
 
-    e. 在 [IdP 登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 **SAML 單一登入服務 URL** 值。
+     e. 在 [IdP 登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 **SAML 單一登入服務 URL** 值。
 
-    f. 在 [IdP 登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登出 URL** 值。
+     f. 在 [IdP 登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登出 URL** 值。
 
-    g. 按一下 [上傳 IdP 憑證]，以上傳從 Azure 入口網站下載的憑證。
+     g. 按一下 [上傳 IdP 憑證]，以上傳從 Azure 入口網站下載的憑證。
 
-    h. 按一下 [對應 SAML 屬性] 以對應屬性，然後執行下列步驟：
+     h. 按一下 [對應 SAML 屬性] 以對應屬性，然後執行下列步驟：
     
-    ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure3.png)
+     ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure3.png)
 
     * 在 [SSO 識別碼] 文字方塊中輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid`。
     * 在 [使用者名稱/電子郵件] 文字方塊中輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
@@ -215,9 +218,9 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
     * 在 [姓氏] 文字方塊中輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。
     * 按一下 [儲存] 
 
-    i. 按一下頁面底部的 [儲存]  。
+      i. 按一下頁面底部的 [儲存]  。
 
-    ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure4.png)
+      ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

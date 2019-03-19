@@ -8,12 +8,12 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 47646a1593f01c4ea695b549bbde22260ffaf2f7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011064"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob Filesystem 驅動程式 (ABFS)：適用於 Hadoop 的專用 Azure 儲存體驅動程式
 
@@ -21,7 +21,7 @@ Azure Data Lake Storage Gen2 中資料的主要存取方法之一是透過 [Hado
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>先前的功能：Windows Azure 儲存體 Blob 驅動程式
 
-Windows Azure 儲存體 Blob 驅動程式，也稱為 [WASB 驅動程式](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) \(英文\)，能提供 Azure 儲存體 Blob 的原始支援。 此驅動程式所執行的複雜工作是將檔案系統語意 (如 Hadoop 檔案系統介面所要求) 對應到 Azure Blob 儲存體所公開物件存放區樣式介面的檔案系統語意。 此驅動程式會繼續支援此模型，可針對儲存於 Blob 中的資料提供高效能存取，但會包含執行此對應的大量程式碼，因而使其難以維護。 此外，某些作業 (例如 [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) \(英文\) 和 [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) \(英文\)) 在套用到目錄時需要此驅動程式來執行大量作業 (由於物件存放區不支援目錄)，這通常會導致效能降低。 ABFS 驅動程式的設計訴求，是要克服 WASB 固有的缺點。
+Windows Azure 儲存體 Blob 驅動程式，也稱為 [WASB 驅動程式](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) \(英文\)，能提供 Azure 儲存體 Blob 的原始支援。 此驅動程式所執行的複雜工作是將檔案系統語意 (如 Hadoop 檔案系統介面所要求) 對應到 Azure Blob 儲存體所公開物件存放區樣式介面的檔案系統語意。 此驅動程式會繼續支援此模型，可針對儲存於 Blob 中的資料提供高效能存取，但會包含執行此對應的大量程式碼，因而使其難以維護。 此外，某些作業 (例如 [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) \(英文\) 和 [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) \(英文\)) 在套用到目錄時需要此驅動程式來執行大量作業 (由於物件存放區不支援目錄)，這通常會導致效能降低。 ABFS 驅動程式的設計訴求，是要克服 WASB 固有的缺點。
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob 檔案系統驅動程式
 
@@ -52,13 +52,13 @@ ABFS 驅動程式支援兩種形式的驗證，讓 Hadoop 應用程式可以安�
 
 ### <a name="configuration"></a>組態
 
-適用於 ABFS 驅動程式的所有設定均儲存於 <code>core-site.xml</code> 設定檔中。 在以 [Ambari](http://ambari.apache.org/) \(英文\) 為特色的 Hadoop 發行版本中，也可以使用 Web 入口網站或 Ambari REST API 來管理設定。
+適用於 ABFS 驅動程式的所有設定均儲存於 <code>core-site.xml</code> 設定檔中。 在以 [Ambari](https://ambari.apache.org/) \(英文\) 為特色的 Hadoop 發行版本中，也可以使用 Web 入口網站或 Ambari REST API 來管理設定。
 
-所有支援設定項目的詳細資料均指定於 [Hadoop 官方文件](http://hadoop.apache.org/docs/current/hadoop-azure/index.html) \(英文\) 中。
+所有支援設定項目的詳細資料均指定於 [Hadoop 官方文件](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) \(英文\) 中。
 
 ### <a name="hadoop-documentation"></a>Hadoop 文件
 
-ABFS 驅動程式完整記載於 [Hadoop 官方文件](http://hadoop.apache.org/docs/current/hadoop-azure/index.html) \(英文\) 中。
+ABFS 驅動程式完整記載於 [Hadoop 官方文件](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) \(英文\) 中。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,22 +11,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a1eb946d3f1b18aaa86735dedcfbaa1fd6a89621
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089976"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>針對儲存體資源刪除錯誤進行疑難排解
 
 在某些情況下，當您在 Azure Resource Manager 部署中嘗試刪除 Azure 儲存體帳戶、容器或 Blob 時，可能會發生下列其中一個錯誤：
 
->**無法刪除儲存體帳戶 'StorageAccountName'。Error:因為儲存體帳戶的成品正在使用中，因此無法刪除該儲存體帳戶。**
-
->**無法刪除 #/# 個容器：<br>vhds:目前容器上沒有租用，且要求中沒有指定任何租用識別碼。**
-
->**無法刪除 #/# 個 Blob：<br>BlobName.vhd:目前 Blob 上沒有租用，且要求中沒有指定任何租用識別碼。**
+> **無法刪除儲存體帳戶 'StorageAccountName'。Error:因為儲存體帳戶的成品正在使用中，因此無法刪除該儲存體帳戶。**
+> 
+> **無法刪除 #/# 個容器：<br>vhds:目前容器上沒有租用，且要求中沒有指定任何租用識別碼。**
+> 
+> **無法刪除 #/# 個 Blob：<br>BlobName.vhd:目前 Blob 上沒有租用，且要求中沒有指定任何租用識別碼。**
 
 Azure VM 中使用的 VHD 是以分頁 Blob 形式儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。 如需 Azure 磁碟的詳細資訊，請參閱我們的[受控磁碟簡介](../linux/managed-disks-overview.md)。
 

@@ -1,5 +1,5 @@
 ---
-title: 將多個 VPN 閘道站對站連線新增到 VNet：Azure 入口網站：Resource Manager| Microsoft Docs
+title: 向 VNet 添加多个 VPN 网关站点到站点连接：Azure 门户：资源管理器 | Microsoft Docs
 description: 將多個 S2S 連線新增至具有現有連線的 VPN 閘道
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873116"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998829"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>將站台對站台連線新增至使用現有 VPN 閘道連線的 VNet
 
@@ -41,7 +41,7 @@ ms.locfileid: "52873116"
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="before"></a>開始之前
+## <a name="before"></a>准备工作
 請確認下列事項：
 
 * 您尚未建立 ExpressRoute/S2S 並存連線。
@@ -52,7 +52,7 @@ ms.locfileid: "52873116"
 * 您的 VPN 裝置有對外開放的公用 IP 位址。 此 IP 位址不能位於 NAT 後方。
 
 ## <a name="part1"></a>第 1 部分 - 設定連線
-1. 透過瀏覽器瀏覽至 [Azure 入口網站](http://portal.azure.com) ，並視需要使用您的 Azure 帳戶登入。
+1. 从浏览器导航到 [Azure 门户](https://portal.azure.com)，并在必要时用 Azure 帐户登录。
 2. 按一下 [所有資源]，在資源清單中找到您的 [虛擬網路閘道]，並按一下它。
 3. 在 [虛擬網路閘道] 頁面上，按一下 [連線]。
    

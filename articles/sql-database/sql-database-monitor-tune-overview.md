@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875128"
 ---
 # <a name="monitoring-and-performance-tuning"></a>監視和效能微調
 
@@ -29,7 +29,7 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 
 您有下列選項可以用來針對資料庫效能進行監視和疑難排解：
 
-- 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Database]、選取資料庫，然後使用監視圖表尋找接近其上限的資源。 預設會顯示 DTU 耗用量。 按一下 [編輯]  來變更所顯示的時間範圍和值。
+- 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Database]、選取資料庫，然後使用監視圖表尋找接近其上限的資源。 默认情况下将显示 DTU 消耗量。 按一下 [編輯]  來變更所顯示的時間範圍和值。
 - 使用[查詢效能深入解析](sql-database-query-performance.md)來找出花費最多資源的查詢。
 - 使用 [SQL Database Advisor](sql-database-advisor-portal.md) 來檢視建立和卸除索引、參數化查詢，以及修正結構描述問題的建議。
 - 使用 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) 來自動監視您的資料庫效能。 在偵測到效能問題之後，系統就會產生包含問題詳細資料和「根本原因分析」(RCA) 的診斷記錄。 在可能的情況下會提供效能改進建議。
@@ -41,7 +41,7 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 入口網站監視資料庫
 
-在 [Azure 入口網站](https://portal.azure.com/)中，您可以透過選取資料庫，然後按一下 [監視] 圖表，來監視個別資料庫的使用率。 如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。 新增下列度量：
+在  [Azure 入口網站](https://portal.azure.com/)，您可以監視個別資料庫的使用率選取您的資料庫，然後按一下**監視**圖表。 如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。 添加以下指标：
 
 - CPU 百分比
 - DTU 百分比
@@ -52,7 +52,7 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 
 ![資料庫效能的服務層監視。](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
-您也可以在效能度量中設定警示。 按一下 [度量] 視窗中的 [新增警示] 按鈕。 遵循精靈的指示以設定警示。 您可以選擇在度量超出或低於特定臨界值時發出警示。
+还可针对性能指标配置警报。 按一下 [度量] 視窗中的 [新增警示] 按鈕。 按照向导说明来配置警报。 您可以選擇在度量超出或低於特定臨界值時發出警示。
 
 例如，如果您預期資料庫中的工作負載會成長，可以選擇設定電子郵件警示，以便在資料庫的任何效能度量達到 80% 時收到警示。 您可以使用此警示作為早期警告，協助您判斷何時需要切換至更高的計算大小。
 
@@ -102,10 +102,10 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 
 如需解決這類問題的詳細資訊，請參閱：
 
-- 此[參數的特徵](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) \(英文\) 部落格文章
-- 此[參數探查問題和因應措施](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) \(英文\) 部落格文章
+- 此[參數的特徵](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) \(英文\) 部落格文章
+- 此[參數探查問題和因應措施](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/) \(英文\) 部落格文章
 - 此[大象與老鼠的參數探查](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) \(英文\) 部落格文章
-- 此[動態 sql 與參數化查詢的計畫品質](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) \(英文\) 部落格文章
+- 此[動態 sql 與參數化查詢的計畫品質](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) \(英文\) 部落格文章
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>疑難排解由於不正確的參數化所導致的編譯活動失敗
 
@@ -175,7 +175,7 @@ where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
 
 一旦確信您未遇到高 CPU 的執行相關效能問題之後，則您所遇到的就是等候相關的效能問題。 也就是說，並未有效率地使用您的 CPU 資源，因為 CPU 正在等候其他資源。 在此情況下，您的下一個步驟就是識別出哪些 CPU 資源正處於等候狀態。 顯示最常等候項目類型類別的最常見方法：
 
-- [查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)可提供一段時間每個查詢的等候統計資料。 在查詢存放區中，等候類型會合併到等候類別中。 等候類別與等候類型的對應位於 [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table)。
+- [查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)可提供一段時間每個查詢的等候統計資料。 在查詢存放區中，等候類型會合併到等候類別中。 等候類別與等候類型的對應位於 [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table)。
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) 會傳回作業期間執行緒執行時所遇到的所有等候相關資訊。 您可以使用此彙總的檢視來診斷關於 Azure SQL Database 及特定查詢和批次的效能問題。
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) 會傳回正在等候某些資源的工作等候佇列相關資訊。
 

@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d86b2c71515900405b0e7714d2c36cd8e4cbc7fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993218"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何使用 C++ 的 Blob 儲存體
 
-本指南會示範如何使用 Azure Blob 儲存體儲存體執行一般案例。 範例將說明如何上傳、列出、下載及刪除 Blob。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。   
+本指南會示範如何使用 Azure Blob 儲存體儲存體執行一般案例。 範例將說明如何上傳、列出、下載及刪除 Blob。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。   
 
 若要深入了解 Blob 儲存體，請參閱 [Azure Blob 儲存體簡介](storage-blobs-introduction.md)。
 
 > [!NOTE]
-> 本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。 Microsoft 建議使用可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得的 C++ 最新版儲存體用戶端程式庫。
+> 本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。 Microsoft 建議使用可透過 [NuGet](https://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得的 C++ 最新版儲存體用戶端程式庫。
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -34,7 +34,7 @@ ms.locfileid: "55236933"
 若要安裝 Azure Storage Client Library for C++，您可以使用下列方法：
 
 * **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。  
-* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。  
+* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。  
   
      Install-Package wastorage
 
@@ -65,7 +65,7 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 
 若要啟動 Azure 儲存體模擬器，選取 [開始] 按鈕或按下 [Windows] 鍵。 開始輸入 **Azure 儲存體模擬器**，然後從應用程式清單選取 [Microsoft Azure 儲存體模擬器]。  
 
-下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。  
+下面的示例假定使用了这两个方法之一来获取存储连接字符串。  
 
 ## <a name="retrieve-your-connection-string"></a>擷取連接字串
 您可以使用 **cloud_storage_account** 類別來代表儲存體帳戶資訊。 若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 **parse** 方法。  
@@ -108,7 +108,7 @@ catch (const std::exception& e)
 }  
 ```
 
-根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰才能從此容器下載 Blob。 若要讓所有人都能使用容器中的檔案 (Blob)，您可以使用下列程式碼將容器設定為公用容器：  
+默认情况下，新容器是专用容器，因此，必须指定存储访问密钥才能从该容器下载 Blob。 若要讓所有人都能使用容器中的檔案 (Blob)，您可以使用下列程式碼將容器設定為公用容器：  
 
 ```cpp
 // Make the blob container publicly accessible.
@@ -120,7 +120,7 @@ container.upload_permissions(permissions);
 網際網路上的任何人都可以看到公用容器中的 Blob，但要有適當的存取金鑰，才能修改或刪除這些 Blob。  
 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>作法：將 Blob 上傳至容器
-Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。 在大多數情況下，建議使用區塊 Blob 的類型。  
+Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。 大多数情况下，推荐使用的类型是块 Blob。  
 
 若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。 取得 Blob 參考後，即可藉由呼叫 **upload_from_stream** 方法，將任何資料流上傳至 Blob。 此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。 下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。  
 
@@ -258,7 +258,7 @@ blockBlob.delete_blob();
 * [如何使用 C++ 的佇列儲存體](../storage-c-plus-plus-how-to-use-queues.md)
 * [如何使用 C++ 的資料表儲存體](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [以 C++ 列出 Azure 儲存體資源](../storage-c-plus-plus-enumeration.md)
-* [Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
-* [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
-* [使用 AzCopy 命令列公用程式傳輸資料](../storage-use-azcopy.md)
+* [Storage Client Library for C++ 參考資料](https://azure.github.io/azure-storage-cpp)
+* [Azure 存储文档](https://azure.microsoft.com/documentation/services/storage/)
+* [使用 AzCopy 命令行实用工具传输数据](../storage-use-azcopy.md)
 

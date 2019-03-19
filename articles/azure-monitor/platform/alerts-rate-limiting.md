@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476439"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109486"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>語音、SMS、電子郵件、Azure App 推播通知和 Webhook 發佈的速率限制
 速率限制是當傳送了太多通知給特定電話號碼、電子郵件地址或裝置時所發生的通知暫停。 速率限制可確保警示為可管理且可採取動作。
 
 以下項目的速率限制閾值：
 
- - **SMS**：每 5 分鐘不超過 1 個 SMS。
- - **語音**：每 5 分鐘不超過 1 則語音。
- - **電子郵件**：一小時內不超過 100 個電子郵件。
+- **SMS**：每 5 分鐘不超過 1 個 SMS。
+- **語音**：每 5 分鐘不超過 1 則語音。
+- **電子郵件**：一小時內不超過 100 個電子郵件。
  
- 其他動作不受速率限制。
+  其他動作不受速率限制。
 
 ## <a name="rate-limit-rules"></a>速率限制規則
 - 當特定電話號碼或電子郵件收到的訊息超過閾值允許數量時，會受到速率限制。

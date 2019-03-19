@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
-ms.translationtype: HT
+ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993874"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>在 Linux 虛擬機器中設定 DPDK
 
@@ -33,7 +33,7 @@ DPDK 可以在 Azure 虛擬機器中執行，並支援多個作業系統散發�
 
 ## <a name="benefit"></a>優點
 
-**更高的每秒封包數 (PPS)**：略過核心並掌控使用者空間中的封包，可透過消除環境切換來減少週期計數。 它也可以改善 Azure Linux 虛擬機器中每秒處理的封包速率。
+**每秒 (PPS) 更高的封包**:略過的核心和控制使用者空間中的封包可減少循環計數消除內容切換。 它也可以改善 Azure Linux 虛擬機器中每秒處理的封包速率。
 
 
 ## <a name="supported-operating-systems"></a>受支援的作業系統
@@ -56,7 +56,7 @@ DPDK 可以在 Azure 虛擬機器中執行，並支援多個作業系統散發�
 
 所有 Azure 區域都支援 DPDK。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 必須在 Linux 虛擬機器上啟用加速網路。 虛擬機器應該有至少兩個網路介面，其中一個介面用於管理。 了解如何[建立已啟用加速網路的 Linux 虛擬機器](create-vm-accelerated-networking-cli.md)。
 
@@ -126,14 +126,14 @@ zypper \
      /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   *  使用 `mkdir /mnt/huge` 建立可供掛接的目錄。
-   *  使用 `mount -t hugetlbfs nodev /mnt/huge` 掛接 Hugepage。
-   *  使用 `grep Huge /proc/meminfo` 檢查 Hugepage 是否已保留。
+   * 使用 `mkdir /mnt/huge` 建立可供掛接的目錄。
+   * 使用 `mount -t hugetlbfs nodev /mnt/huge` 掛接 Hugepage。
+   * 使用 `grep Huge /proc/meminfo` 檢查 Hugepage 是否已保留。
 
      > [!NOTE]
-     > 依照 DPDK 的[指示](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)可以修改 grub 檔案，以便在開機時保留 Hugepage。 指示位於頁面底部。 當您使用 Azure Linux 虛擬機器時，請改為修改 **/etc/config/grub.d** 下的檔案，以在重新開機期間保留 Hugepage。
+     > 依照 DPDK 的[指示](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)可以修改 grub 檔案，以便在開機時保留 Hugepage。 指示位於頁面底部。 當您使用 Azure Linux 虛擬機器時，請改為修改 **/etc/config/grub.d** 下的檔案，以在重新開機期間保留 Hugepage。
 
-2. MAC 和 IP 位址： 使用 `ifconfig –a` 來檢視網路介面的 MAC 和 IP 位址。 *VF* 網路介面和 *NETVSC* 網路介面都有相同的 MAC 位址，但僅限於具有 IP 位址的 *NETVSC* 網路介面。 VF 介面會當作 NETVSC 介面的從屬介面執行。
+2. MAC 和 IP 位址：使用`ifconfig –a`若要檢視網路介面的 MAC 和 IP 位址。 *VF* 網路介面和 *NETVSC* 網路介面都有相同的 MAC 位址，但僅限於具有 IP 位址的 *NETVSC* 網路介面。 VF 介面會當作 NETVSC 介面的從屬介面執行。
 
 3. PCI 位址
 
@@ -146,13 +146,13 @@ zypper \
 
 DPDK 應用程式必須透過在 Azure 中公開的保全 PMD 執行。 若應用程式直接透過 VF PMD 執行，它不會收到**所有**傳送到 VM 的封包，因為某些封包會透過綜合介面顯示。 
 
-若透過具備故障保險功能的 PMD 執行 DPDK 應用程式，它可以保證應用程式會接受傳送給它的所有封包。 它也會確定應用程式持續在 DPDK 模式中執行，即使 VF 已在系統為主機提供服務時被叫用也一樣。 如需有關故障保險 PMD 的詳細資訊，請參閱[故障保險輪詢模式驅動程式庫](http://doc.dpdk.org/guides/nics/fail_safe.html)。
+若透過具備故障保險功能的 PMD 執行 DPDK 應用程式，它可以保證應用程式會接受傳送給它的所有封包。 它也會確定應用程式持續在 DPDK 模式中執行，即使 VF 已在系統為主機提供服務時被叫用也一樣。 如需有關故障保險 PMD 的詳細資訊，請參閱[故障保險輪詢模式驅動程式庫](https://doc.dpdk.org/guides/nics/fail_safe.html)。
 
 ## <a name="run-testpmd"></a>執行 testpmd
 
 若要在 root 模式中執行 testpmd，請在 *testpmd* 命令之前使用 `sudo`。
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>基本：例行性檢查、保全配接器初始化
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>基本：例行性檢查，保全配接器初始化
 
 1. 執行下列命令來啟動單一連接埠 testpmd 應用程式：
 
@@ -216,7 +216,7 @@ DPDK 應用程式必須透過在 Azure 中公開的保全 PMD 執行。 若應�
 
 當您在虛擬機器上執行前述命令時，變更 `app/test-pmd/txonly.c` 中的 *IP_SRC_ADDR* 與 *IP_DST_ADDR*，以在編譯前符合虛擬機器的實際 IP 位址。 否則，封包會在到達接收者之前捨棄。
 
-### <a name="advanced-single-sendersingle-forwarder"></a>進階：單一傳送者/單一轉寄者
+### <a name="advanced-single-sendersingle-forwarder"></a>進階：單一傳送者/單一轉寄站
 下列命令會定期列印每秒封包數的統計資料：
 
 1. 在 TX 端上，執行下列命令：

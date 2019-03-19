@@ -11,23 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 5fd51e2d847b540d2eb8c17c2bc31f4e162a21ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904621"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
 Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料庫可靠地執行 T-SQL 指令碼，同時自動重試並提供最終完成保證。 如需有關彈性資料庫作業功能的詳細資訊，請參閱[彈性作業](sql-database-elastic-jobs-overview.md)。
 
 本文會延伸[彈性資料庫工具入門](sql-database-elastic-scale-get-started.md)中可找到的範例。 完成時，您會了解如何建立和管理作業，該作業管理一組相關資料庫。 您不需要使用「彈性延展」工具，就能善用彈性工作的優點。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 下載並執行 [彈性資料庫工具範例入門](sql-database-elastic-scale-get-started.md)。
 
@@ -50,12 +52,12 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>建立自訂集合，然後將伺服器中的所有資料庫 (master 除外) 新增至自訂集合目標
 
-   ```Powershell
+   ```PowerShell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
     $ServerName = "samples"
-    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
+    $dbsinserver = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
     $dbsinserver | %{
     $currentdb = $_.DatabaseName
     $ErrorActionPreference = "Stop"
@@ -301,7 +303,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
     Write-Output $updatedExecutionPolicy
    ```
 
-## <a name="cancel-a-job"></a>取消工作
+## <a name="cancel-a-job"></a>取消作业
 
 彈性資料庫工作支援取消工作要求。  如果彈性資料庫作業偵測到目前正在執行作業的取消要求，它會嘗試停止作業。
 
@@ -314,7 +316,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 
 若要提交取消要求，請使用 **Stop-AzureSqlJobExecution** Cmdlet 並設定 **JobExecutionId** 參數。
 
-   ```Powershell
+   ```PowerShell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
@@ -346,7 +348,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 ## <a name="create-a-custom-database-collection-target"></a>建立自訂資料庫集合目標
 可以定義自訂資料庫集合目標，以跨多個已定義資料庫目標執行。 建立資料庫群組之後，資料庫可以與自訂集合目標相關聯。
 
-設定下列變數以反映所需的自訂集合目標組態：
+设置以下变量以反映所需的自定义集合目标配置：
 
    ```
     $customCollectionName = "{Custom Database Collection Name}"
@@ -389,7 +391,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ## <a name="data-collection-across-databases"></a>跨資料庫的資料集合
-**彈性資料庫工作** 支援跨資料庫群組執行查詢，並將結果傳送至指定的資料庫資料表。 可以在事實之後查詢資料表，以查看每個資料庫的查詢結果。 這提供跨多個資料庫執行查詢的非同步機制。 例如其中一個資料庫暫時無法使用的失敗案例是透過重試自動處理。
+**彈性資料庫工作** 支援跨資料庫群組執行查詢，並將結果傳送至指定的資料庫資料表。 可以在事实之后查询该表，以查看每个数据库的查询结果。 這提供跨多個資料庫執行查詢的非同步機制。 例如其中一個資料庫暫時無法使用的失敗案例是透過重試自動處理。
 
 如果指定的目的地資料表尚未存在以對應於傳回的結果集的結構描述，則會自動建立。 如果指令碼執行傳回多個結果集，彈性資料庫作業只會將第一個傳送至提供的目的地資料表。
 
@@ -431,7 +433,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>建立工作觸發程序，讓工作在時間排程時執行
-可以定義工作觸發程序，讓工作根據時間排程執行。 下列 PowerShell 指令碼可以用來建立工作觸發程序。
+可以定義工作觸發程序，讓工作根據時間排程執行。 以下 PowerShell 脚本可用于创建作业触发器。
 
 設定下列變數以對應所需的工作和排程：
 

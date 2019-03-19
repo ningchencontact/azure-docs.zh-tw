@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3918030925022ac20144f9adac6e7683bac64aa4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181757"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106792"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
-當您透過 Azure Active Directory 應用程式 Proxy 發佈應用程式時，您會建立可供使用者在遠端工作時移至的外部 URL。 此 URL 會取得預設網域 *yourtenant.msappproxy.net*。 例如，如果您發佈一個名為 Expenses 的應用程式，且您的租用戶名為 Contoso，則外部 URL 會是 https://expenses-contoso.msappproxy.net。 如果您想要使用自己的網域名稱，請為您的應用程式設定自訂網域。 
+當您透過 Azure Active Directory 應用程式 Proxy 發佈應用程式時，您會建立可供使用者在遠端工作時移至的外部 URL。 此 URL 會取得預設網域 *yourtenant.msappproxy.net*。 例如，如果您發佈一個名為 Expenses 的應用程式，且您的租用戶名為 Contoso，則外部 URL 會是 `https://expenses-contoso.msappproxy.net`。 如果您想要使用自己的網域名稱，請為您的應用程式設定自訂網域。 
 
 建議您盡可能為應用程式設定自訂網域。 自訂網域的一些優點包括：
 

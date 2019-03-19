@@ -12,18 +12,29 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884518"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database 的多模型功能
 
 多模型資料庫可讓您儲存及處理以多種資料格式 (例如關聯式資料、圖形、JSON/XML 文件、索引鍵/值組) 表現的資料。
 
-Azure SQL Database 的設計訴求是要使用關聯式模型，在各種一般用途應用程式的大部分情況下達到最佳效能。 不過，Azure SQL Database 不限於關聯式資料。 Azure SQL Database 可讓您使用緊密整合到關聯式模型中的各種非關聯式格式。 Azure SQL 提供下列多模型功能：
+## <a name="when-to-use-multi-model-capabilities"></a>使用多模型功能的時機
+
+Azure SQL Database 的設計訴求是要使用關聯式模型，在各種一般用途應用程式的大部分情況下達到最佳效能。 不過，Azure SQL Database 不限於關聯式資料。 Azure SQL Database 可讓您使用緊密整合到關聯式模型中的各種非關聯式格式。
+您應該考慮使用 Azure SQL Database 的多模型的功能在下列情況：
+- 您有一些資訊或結構，會更適合用於 NoSQL 模型，而且您不想要使用不同的 NoSQL 資料庫。
+- 多數資料適用於關聯式模型中，並且您要建立您的資料，NoSQL 樣式中的某些部分的模型。
+- 您想要利用豐富的 TRANSACT-SQL 語言來查詢及分析關聯式和 NoSQL 資料，並將它與各種不同的工具，可以使用 SQL 語言的應用程式整合。
+- 您想要套用的資料庫功能，例如[記憶體內部技術](sql-database-in-memory.md)提升您分析效能或處理您的 NoSQL 資料 strucutres，使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取複本](sql-database-read-scale-out.md)上其他位置中建立資料複本，並卸載某些分析的工作負載，從主要資料庫。
+
+## <a name="overview"></a>概觀
+
+Azure SQL 提供下列多模型功能：
 - [圖形功能](#graph-features)可讓您以一組節點和邊緣的形式表現資料，並使用以 `MATCH` 運算子增強的標準 Transact-SQL 查詢來查詢圖形資料。
 - [JSON 功能](#json-features)可讓您將 JSON 文件放在資料表、將關聯式資料轉換為 JSON 文件，反之亦然。 您可以使用以 JSON 函式增強的標準 Transact-SQL 語言來剖析文件，並使用非叢集式索引、資料行存放區索引或記憶體最佳化的資料表，將查詢最佳化。
 - [空間功能](#spatial-features)可讓您儲存地理和幾何資料、使用空間索引來編製其索引，以及使用空間查詢來擷取資料。
@@ -56,13 +67,13 @@ Azure SQL Database 會提供圖形資料庫功能，以將資料庫中的多對�
 
 ## <a name="json-features"></a>JSON 功能
 
-Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](http://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。
+Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](https://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。
 
 JSON 是一種用於在新式的 Web 與行動應用程式中交換資料的常用資料格式。 JSON 也用於將半結構化的資料儲存在記錄檔或 NoSQL 資料庫 (例如 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)) 中。 許多 REST Web 服務都會傳回採用 JSON 文字格式的結果，或是接受採用 JSON 格式的資料。 大多數 Azure 服務 (例如 [Azure 搜尋服務](https://azure.microsoft.com/services/search/)、[Azure 儲存體](https://azure.microsoft.com/services/storage/)、[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)) 都有會傳回或取用 JSON 的 REST 端點。
 
 Azure SQL Database 可讓您輕鬆使用 JSON 資料，並將資料庫與新式服務整合。 Azure SQL Database 提供下列可與 JSON 資料搭配使用的函數：
 
-![JSON 函數](./media/sql-database-json-features/image_1.png)
+![JSON 函数](./media/sql-database-json-features/image_1.png)
 
 如果您有 JSON 文字，您可以透過使用內建的函式 [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx)、[JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) 及 [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx)，從 JSON 擷取資料或確認 JSON 的格式是否正確。 [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) 函式可讓您更新 JSON 文字內的值。 針對更進階的查詢和分析， [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) 函數可以將 JSON 物件陣列轉換成一組資料列。 您可以在傳回的結果集上執行任何 SQL 查詢。 最後，還有 [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) 子句，此子句可讓您將儲存在關聯式資料表中的資料格式化為 JSON 文字。
 
@@ -124,7 +135,7 @@ CREATE TABLE Collection (
 
 您可自訂此索引鍵/值結構以符合您的需求，沒有任何限制。 例如，此值可以是 XML 文件，而不是 `nvarchar(max)` 類型，如果值為 JSON 文件，您可以放置 `CHECK` 條件約束來確認 JSON 內容的有效性。 您可以在額外的資料行中放置某個索引鍵的任意多個相關值、新增計算的資料行和索引以簡化和最佳化資料存取、將資料表定義為僅限記憶體/最佳化結構描述的資料表以取得更佳效能等等。
 
-請參閱 [BWin 如何使用記憶體內部 OLTP 來達到前所未有的效能和規模](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/)中達成每秒快取 1.200.000 個批次的 ASP.NET 快取解決方案，作為關聯式模型如何才能有效地實際作為索引鍵/值組解決方案的範例。
+請參閱 [BWin 如何使用記憶體內部 OLTP 來達到前所未有的效能和規模](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/)中達成每秒快取 1.200.000 個批次的 ASP.NET 快取解決方案，作為關聯式模型如何才能有效地實際作為索引鍵/值組解決方案的範例。
 
 ## <a name="next-steps"></a>後續步驟
 Azure SQL Database 中的多模型功能也是 Azure SQL Database 與 SQL Server 之間共用的核心 SQL Server 資料庫引擎功能。 若要了解這些功能的詳細資訊，請瀏覽 SQL 關聯式資料庫文件頁面：

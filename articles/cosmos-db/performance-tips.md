@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 67bdabe24e789dc4d1f2020a7a7853eafaa607c3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429361"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861888"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
 
@@ -38,41 +38,41 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
    * 直接模式
 
-     直接模式支援透過 TCP 和 HTTPS 通訊協定連線。 目前，只有 .NET Standard 2.0 支援直接模式。 使用直接模式時，有兩個可用的通訊協定選項：
+     直接模式支援透過 TCP 和 HTTPS 通訊協定連線。 如果您使用.NET SDK 的最新版本，在.NET Standard 2.0 和.NET framework 支援直接連線模式。 使用直接模式時，有兩個可用的通訊協定選項：
 
-    * TCP
-    * HTTPS
+     * TCP
+     * HTTPS
 
-    使用閘道模式時，Cosmos DB 會在使用適用於 MongoDB 的 Azure Cosmos DB API 時，使用連接埠 443 與連接埠 10250、10255 及 10256。 10250 連接埠會對應至預設 MongoDB 執行個體而不使用異地複寫，10255/10256 連接埠則會使用異地複寫功能對應至 MongoDB 執行個體。 在直接模式下使用 TCP 時，除了「閘道」連接埠之外，您還務必要開啟 10000 到 20000 之間的連接埠範圍，因為 Azure Cosmos DB 使用動態 TCP 連接埠。 如果未開啟這些連接埠而您嘗試使用 TCP，您就會收到「503 服務無法使用」錯誤。 下表顯示不同 API 的可用連線模式，以及每個 API 的服務連接埠使用者：
+     使用閘道模式時，Cosmos DB 會在使用適用於 MongoDB 的 Azure Cosmos DB API 時，使用連接埠 443 與連接埠 10250、10255 及 10256。 10250 連接埠會對應至預設 MongoDB 執行個體而不使用異地複寫，10255/10256 連接埠則會使用異地複寫功能對應至 MongoDB 執行個體。 在直接模式下使用 TCP 時，除了「閘道」連接埠之外，您還務必要開啟 10000 到 20000 之間的連接埠範圍，因為 Azure Cosmos DB 使用動態 TCP 連接埠。 如果未開啟這些連接埠而您嘗試使用 TCP，您就會收到「503 服務無法使用」錯誤。 下表顯示不同 API 的可用連線模式，以及每個 API 的服務連接埠使用者：
 
-    |連線模式  |支援的通訊協定  |支援的 SDK  |API/服務連接埠  |
-    |---------|---------|---------|---------|
-    |閘道器  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)、Table(443)、Cassandra(443)、Graph(443)    |
-    |直接    |    HTTPS     |  .Net 和 Java SDK    |   10,000-20,000 範圍內的連接埠    |
-    |直接    |     TCP    |  .Net SDK    | 10,000-20,000 範圍內的連接埠 |
+     |連線模式  |支援的通訊協定  |支援的 SDK  |API/服務連接埠  |
+     |---------|---------|---------|---------|
+     |閘道器  |   HTTPS    |  所有 SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
+     |直接    |    HTTPS     |  .NET 和 Java SDK    |   10,000-20,000 範圍內的連接埠    |
+     |直接    |     TCP    |  .NET SDK    | 10,000-20,000 範圍內的連接埠 |
 
-    Azure Cosmos DB 提供透過 HTTPS 的簡單且開放 RESTful 程式設計模型。 此外，它可提供有效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 .NET 用戶端 SDK 取得。 直接 TCP 和 HTTPS 皆使用 SSL 來進行初始驗證和加密流量。 為了達到最佳效能，儘可能使用 TCP 通訊協定。
+     Azure Cosmos DB 提供透過 HTTPS 的簡單且開放 RESTful 程式設計模型。 此外，它可提供有效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 .NET 用戶端 SDK 取得。 直接 TCP 和 HTTPS 皆使用 SSL 來進行初始驗證和加密流量。 為了達到最佳效能，儘可能使用 TCP 通訊協定。
 
-    連接模式設定於使用 ConnectionPolicy 參數建構 DocumentClient 執行個體期間。 如果使用直接模式，也可以在 ConnectionPolicy 參數內設定 Protocol。
+     連接模式設定於使用 ConnectionPolicy 參數建構 DocumentClient 執行個體期間。 如果使用直接模式，也可以在 ConnectionPolicy 參數內設定 Protocol。
 
-    ```csharp
-    var serviceEndpoint = new Uri("https://contoso.documents.net");
-    var authKey = new "your authKey from the Azure portal";
-    DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-    new ConnectionPolicy
-    {
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = new "your authKey from the Azure portal";
+     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+     new ConnectionPolicy
+     {
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp
-    });
-    ```
+     });
+     ```
 
-    因為只有直接模式支援 TCP，所以如果使用閘道模式，則 HTTPS 通訊協定一律用來與閘道通訊，並忽略 ConnectionPolicy 中的 Protocol 值。
+     因為只有直接模式支援 TCP，所以如果使用閘道模式，則 HTTPS 通訊協定一律用來與閘道通訊，並忽略 ConnectionPolicy 中的 Protocol 值。
 
-    ![Azure Cosmos DB 連接原則的圖例](./media/performance-tips/connection-policy.png)
+     ![Azure Cosmos DB 連接原則的圖例](./media/performance-tips/connection-policy.png)
 
-2. **呼叫 OpenAsync 以避免第一次要求的啟動延遲**
+2. **调用 OpenAsync 以避免首次请求时启动延迟**
 
-    根據預設，第一個要求會因為必須擷取位址路由表而有較高的延遲。 若要避免此第一次要求的啟動延遲，您應該在初始化期間呼叫 OpenAsync() 一次，如下所示。
+    根據預設，第一個要求會因為必須擷取位址路由表而有較高的延遲。 为了避免首次请求时的这种启动延迟，应该在初始化期间调用 OpenAsync() 一次，如下所示。
 
         await client.OpenAsync();
    <a id="same-region"></a>
@@ -114,7 +114,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     在某些情況下，降低廢棄項目收集頻率可能會有幫助。 在 .NET 中，請將 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) 設定為 true。
 6. **在 RetryAfter 間隔實作降速**
 
-    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。 如果進行節流處理，用戶端應用程式應該在節流時降速，且持續時間達伺服器指定的重試間隔。 採用降速可確保您在重試之間花費最少的等待時間。 重試原則支援包含於 SQL [.NET](sql-api-sdk-dotnet.md) 和 [Java](sql-api-sdk-java.md) 的版本 1.8.0 和以上版本中，[Node.js](sql-api-sdk-node.md) 和 [Python](sql-api-sdk-python.md) 的版本 1.9.0 或以上版本中，以及 [.NET 核心](sql-api-sdk-dotnet-core.md) SDK 所有支援的版本。 如需詳細資訊，請參閱 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx) \(英文\)。
+    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔在限制时退让。 採用降速可確保您在重試之間花費最少的等待時間。 重試原則支援包含於 SQL [.NET](sql-api-sdk-dotnet.md) 和 [Java](sql-api-sdk-java.md) 的版本 1.8.0 和以上版本中，[Node.js](sql-api-sdk-node.md) 和 [Python](sql-api-sdk-python.md) 的版本 1.9.0 或以上版本中，以及 [.NET 核心](sql-api-sdk-dotnet-core.md) SDK 所有支援的版本。 如需詳細資訊，請參閱 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx) \(英文\)。
     
     使用 .NET SDK 1.19 版和更新版本時，有一個機制可以記錄診斷資訊，並且針對延遲問題進行移難排解，如以下範例所示。 您可以針對具有較高讀取延遲的要求記錄診斷字串。 所擷取的診斷字串有助於您了解針對指定要求觀察 429s 的次數。
     ```csharp
@@ -141,15 +141,15 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 10. **增加執行緒/工作數目**
 
-    請參閱＜網路＞一節中的[增加執行緒/工作數目](#increase-threads)。
+    请参阅“网络”部分中的 [增加线程/任务数目](#increase-threads) 。
 
 11. **使用 64 位元主機處理序**
 
     當您使用 SQL .NET SDK 版本 1.11.4 和更新版本時，SQL SDK 會在 32 位元主機處理序中運作。 不過，若使用跨分割區查詢，建議您使用 64 位元主機處理以獲得改進的效能。 下列的應用程式類型預設使用 32 位元主機處理序，若要將其變更為 64 位元，請根據您的應用程式類型依照下列步驟執行：
 
-    - 針對「可執行檔」應用程式，做法是在 [專案屬性] 視窗中的 [建置] 索引標籤上取消選取 [建議使用 32 位元] 選項。
+    - 对于可执行应用程序，在“生成”选项卡的“项目属性”窗口中，通过取消“首选 32 位”选项可实现以上目的。
 
-    - 針對 VSTest 型的測試專案，可以從 [Visual Studio 測試] 功能表選項，選取 [測試]->[測試設定]->[以 X64 做為預設處理器架構] 來完成。
+    - 对于基于 VSTest 的测试项目，可通过从“Visual Studio 测试”菜单选项中选择“测试”->“测试设置”->“默认处理器体系结构为 X64”来完成。
 
     - 針對本機部署的 ASP.NET Web 應用程式，可以在 [工具]->[選項]->[專案和方案]->[Web 專案] 之下，選取 [將 64 位元版本的 IIS Express 用於網站和專案] 來完成。
 
@@ -159,7 +159,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
  
 1. **從索引編製中排除未使用的路徑以加快寫入速度**
 
-    Cosmos DB 的索引編製原則也可讓您利用檢索路徑 (IndexingPolicy.IncludedPaths 和 IndexingPolicy.ExcludedPaths)，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。  例如，以下程式碼示範如何將文件的整個區段 (也稱為 樹狀子目錄) 自索引編製作業中排除 (透過使用 "*" 萬用字元)。
+    Cosmos DB 的索引編製原則也可讓您利用檢索路徑 (IndexingPolicy.IncludedPaths 和 IndexingPolicy.ExcludedPaths)，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。  例如，以下程式碼示範如何將文件的整個區段 (也稱為 从索引中排除文档的整个部分（也称为子树）。
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -170,7 +170,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     如需詳細資訊，請參閱 [Azure Cosmos DB 索引編製原則](index-policy.md)。
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>吞吐量
 <a id="measure-rus"></a>
 
 1. **測量和調整較低的要求單位/秒使用量**

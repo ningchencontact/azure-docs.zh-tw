@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991972"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>將現有的 MongoDB 應用程式與適用於 MongoDB 的 Azure Cosmos DB API 和 Open Service Broker for Azure (OSBA) 整合
 
@@ -81,7 +81,7 @@ BUILD SUCCESSFUL in 10s
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-在瀏覽器中瀏覽至 http://localhost:8080。
+在瀏覽器中瀏覽至 `http://localhost:8080`。
 
 ![有預設資料的春天音樂應用程式](media/music-app.png)
 
@@ -184,12 +184,12 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 請注意，您的應用程式仍使用 *mongodb* 設定檔和開頭為 *mongodb://* 的 URI 來連線到 Cosmos DB 資料庫。 [適用於 MongoDB 的 Azure Cosmos DB API](../cosmos-db/mongodb-introduction.md) 提供此相容性。 它可讓您的應用程式就像使用 MongoDB 資料庫一樣繼續運作，但其實使用的是 Cosmos DB。
 
-在瀏覽器中瀏覽至 http://localhost:8080。 請注意，預設資料已被還原。 請刪除一些現有專輯並建立幾個新專輯，來與其進行互動。 您可以藉由停止應用程式、重新啟動應用程式，然後在瀏覽器中瀏覽回該應用程式，來確認您的變更是否已保存下來。 請注意，您所做的變更還在。 這些變更會保存至您使用 Service Broker for Azure 來建立的 Cosmos DB 中。
+在瀏覽器中瀏覽至 `http://localhost:8080`。 請注意，預設資料已被還原。 請刪除一些現有專輯並建立幾個新專輯，來與其進行互動。 您可以藉由停止應用程式、重新啟動應用程式，然後在瀏覽器中瀏覽回該應用程式，來確認您的變更是否已保存下來。 請注意，您所做的變更還在。 這些變更會保存至您使用 Service Broker for Azure 來建立的 Cosmos DB 中。
 
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>在 AKS 叢集上執行您的應用程式
 
-您可以使用 [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) 將應用程式部署到您的 AKS 叢集。 Azure Dev Spaces 可協助您產生成品 (例如 Dockerfile 和 Helm 圖表)，然後在 AKS 中部署和執行應用程式。
+您可以使用 [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) 將應用程式部署到您的 AKS 叢集。 Azure 開發人員的空間可協助您產生成品，例如 Dockerfile 和 Helm 圖表，並部署在 AKS 中執行的應用程式。
 
 在您的 AKS 叢集中啟用 Azure Dev Spaces：
 

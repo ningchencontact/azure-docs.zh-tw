@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30245732"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078137"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>為 StorSimple 裝置設定多重路徑 I/O
 
@@ -35,14 +35,14 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 
 請依照下列步驟在 StorSimple 裝置上設定 MPIO：
 
-* 步驟 1：在 Windows Server 主機上安裝 MPIO
-* 步驟 2：為 StorSimple 磁碟區設定 MPIO 
+* 步驟 1：Windows Server 主機上安裝 MPIO
+* 步驟 2：為 StorSimple 磁碟區設定 MPIO
 * 步驟 3：在主機上掛接 StorSimple 磁碟區
-* 步驟 4：設定 MPIO 以獲得高可用性與負載平衡
+* 步驟 4：設定 MPIO 以獲得高可用性和負載平衡
 
 上述步驟會在下列各節討論。
 
-## <a name="step-1-install-mpio-on-the-windows-server-host"></a>步驟 1：在 Windows Server 主機上安裝 MPIO
+## <a name="step-1-install-mpio-on-the-windows-server-host"></a>步驟 1：Windows Server 主機上安裝 MPIO
 
 若要在 Windows Server 主機上安裝這項功能，請完成下列程序。
 
@@ -58,10 +58,10 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 3. 在 [新增角色及功能] 精靈中，執行下列步驟：
    
    1. 在 [開始之前] 頁面中按 [下一步]。
-   2. 在 [選取安裝類型] 頁面上，接受 [角色型或功能型安裝] 的預設值。 按 [下一步] 。
+   2. 在 [選取安裝類型] 頁面上，接受 [角色型或功能型安裝] 的預設值。 单击“下一步”。
    
        ![新增角色及功能精靈 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   3. 在 [選取目的地伺服器] 頁面上，選擇 [從伺服器集區選取伺服器]。 應該會自動探索主機伺服器。 按 [下一步] 。
+   3. 在 [選取目的地伺服器] 頁面上，選擇 [從伺服器集區選取伺服器]。 應該會自動探索主機伺服器。 单击“下一步”。
    4. 在 [選取伺服器角色] 頁面上，按 [下一步]。
    5. 在 [選取功能] 頁面上，選取 [多重路徑 I/O]，然後按 [下一步]。
    
@@ -73,7 +73,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
    
        ![新增角色及功能精靈 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
-## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>步驟 2：為 StorSimple 磁碟區設定 MPIO 
+## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>步驟 2：為 StorSimple 磁碟區設定 MPIO
 
 您必須設定 MPIO 才能識別 StorSimple 磁碟區。 若要設定 MPIO 以辨識 StorSimple 磁碟區，請執行下列步驟。
 
@@ -104,8 +104,8 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
    1. 輸入 StorSimple 裝置的 DATA 連接埠 IP 位址 (例如，輸入 DATA 0)。
    2. 按一下 [確定] 以返回 [iSCSI 啟動器內容] 對話方塊。
      
-     > [!IMPORTANT]
-     > **如果您使用私人網路進行 iSCSI 連線，請輸入連線到私人網路的 DATA 連接埠 IP 位址。**
+      > [!IMPORTANT]
+      > **如果您使用私人網路進行 iSCSI 連線，請輸入連線到私人網路的 DATA 連接埠 IP 位址。**
     
 4. 在裝置上針對第二個網路介面 (例如，DATA 1) 重複步驟 2-3 。 請記住，您應該為 iSCSI 啟用這些介面。 如需詳細資訊，請參閱[修改網路介面](storsimple-8000-modify-device-config.md#modify-network-interfaces)。
 5. 在 [iSCSI 啟動器內容] 對話方塊中，選取 [目標] 索引標籤。 您應該會在 [探索到的目標] 下看到 StorSimple 裝置目標 IQN。
@@ -148,7 +148,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 > **請不要修改預設的參數。**
 
 
-## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>步驟 4：設定 MPIO 以獲得高可用性與負載平衡
+## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>步驟 4：設定 MPIO 以獲得高可用性和負載平衡
 
 多個工作階段必須以手動方式加入以宣告不同的路徑，才能獲得以多重路徑為基礎的高可用性與負載平衡。 比方說，如果主機有兩個介面連接到 iSCSI 網路，而裝置也有兩個介面連接到 iSCSI 網路，那麼您需要以正確的路徑排列組合設定四個工作階段 (如果每個 DATA 介面與主機介面都位在不同的 IP 子網路且不可路由時，將只需要兩個工作階段)。
 

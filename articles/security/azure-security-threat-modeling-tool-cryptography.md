@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887097"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>安全性架構：密碼編譯 | 風險降低 
+
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Web 應用程式** | <ul><li>[只使用核准的對稱區塊編碼器和金鑰長度](#cipher-length)</li><li>[針對對稱編碼器使用核准的區塊編碼器模式和初始化向量](#vector-ciphers)</li><li>[使用核准的非對稱演算法、金鑰長度和填補](#padding)</li><li>[使用核准的亂數產生器](#numgen)</li><li>[請勿使用對稱串流編碼器](#stream-ciphers)</li><li>[使用核准的 MAC/HMAC/索引雜湊演算法](#mac-hash)</li><li>[只使用核准的密碼編譯雜湊函式](#hash-functions)</li></ul> |
@@ -96,7 +97,7 @@ ms.locfileid: "54824621"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | <p>產品只能使用核准的訊息驗證碼 (MAC) 或雜湊式訊息驗證碼 (HMAC) 演算法。</p><p>訊息驗證碼 (MAC) 是附加到訊息的一條資訊，可供其收件者驗證寄件者的真實性和使用秘密金鑰之訊息的完整性。 只要獲准使用所有基礎雜湊或對稱加密演算法，則也允許使用雜湊式 MAC ([HMAC](http://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) 或[區塊編碼器式 MAC](http://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf)；目前來說，這包括 HMAC-SHA2 函式 (HMAC-SHA256、HMAC-SHA384 和 HMAC-SHA512) 以及 CMAC/OMAC1 和 OMAC2 區塊編碼器式 MAC (這些是以 AES 為基礎)。</p><p>為了平台相容性，或許會允許您使用 HMAC-SHA1，但您必須針對這項程序申請例外狀況，並接受貴組織的密碼編譯委員會審核。 不允許將 HMAC 截斷為少於 128 位元。 使用客戶的方法對金鑰和資料進行雜湊處理是不被允許的，且必須先經過貴組織的密碼編譯委員會審核後才能使用。</p>|
+| **步驟** | <p>產品只能使用核准的訊息驗證碼 (MAC) 或雜湊式訊息驗證碼 (HMAC) 演算法。</p><p>訊息驗證碼 (MAC) 是附加到訊息的一條資訊，可供其收件者驗證寄件者的真實性和使用秘密金鑰之訊息的完整性。 只要獲准使用所有基礎雜湊或對稱加密演算法，則也允許使用雜湊式 MAC ([HMAC](https://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) 或[區塊編碼器式 MAC](https://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf)；目前來說，這包括 HMAC-SHA2 函式 (HMAC-SHA256、HMAC-SHA384 和 HMAC-SHA512) 以及 CMAC/OMAC1 和 OMAC2 區塊編碼器式 MAC (這些是以 AES 為基礎)。</p><p>為了平台相容性，或許會允許您使用 HMAC-SHA1，但您必須針對這項程序申請例外狀況，並接受貴組織的密碼編譯委員會審核。 不允許將 HMAC 截斷為少於 128 位元。 使用客戶的方法對金鑰和資料進行雜湊處理是不被允許的，且必須先經過貴組織的密碼編譯委員會審核後才能使用。</p>|
 
 ## <a id="hash-functions"></a>只使用核准的密碼編譯雜湊函式
 
@@ -107,7 +108,7 @@ ms.locfileid: "54824621"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | <p>產品必須使用 SHA-2 系列的雜湊演算法 (SHA256、SHA384 及 SHA512)。 如果需要較短的雜湊，例如 128 位元的輸出長度，以配合設計時預設使用較短 MD5 雜湊的資料結構，產品小組可截斷其中一個 SHA2 雜湊 (通常是 SHA256)。 請注意，SHA384 是 SHA512 的截斷版本。 不允許基於安全性考量而將密碼編譯雜湊截斷為少於 128 位元。 新的程式碼不得使用 MD2、MD4、MD5、SHA-0、SHA-1 或 RIPEMD 雜湊演算法。 這些演算法在計算時可能會發生雜湊衝突，而結果便是打斷演算法。</p><p>為了實現受控密碼編譯靈活性所允許的 .NET 雜湊演算法 (依偏好順序)：</p><ul><li>SHA512Cng (符合 FIPS 規範)</li><li>SHA384Cng (符合 FIPS 規範)</li><li>SHA256Cng (符合 FIPS 規範)</li><li>SHA512Managed (不符合 FIPS 規範) (使用 SHA512 作為 HashAlgorithm.Create 或 CryptoConfig.CreateFromName 之呼叫中的演算法名稱)</li><li>SHA384Managed (不符合 FIPS 規範) (使用 SHA384 作為 HashAlgorithm.Create 或 CryptoConfig.CreateFromName 之呼叫中的演算法名稱)</li><li>SHA256Managed (不符合 FIPS 規範) (使用 SHA256 作為 HashAlgorithm.Create 或 CryptoConfig.CreateFromName 之呼叫中的演算法名稱)</li><li>SHA512CryptoServiceProvider (符合 FIPS 規範)</li><li>SHA256CryptoServiceProvider (符合 FIPS 規範)</li><li>SHA384CryptoServiceProvider (符合 FIPS 規範)</li></ul>| 
+| **步驟** | <p>產品必須使用 SHA-2 系列的雜湊演算法 (SHA256、SHA384 及 SHA512)。 如果需要較短的雜湊，例如 128 位元的輸出長度，以配合設計時預設使用較短 MD5 雜湊的資料結構，產品小組可截斷其中一個 SHA2 雜湊 (通常是 SHA256)。 請注意，SHA384 是 SHA512 的截斷版本。 不允許基於安全性考量而將密碼編譯雜湊截斷為少於 128 位元。 新的程式碼不得使用 MD2、MD4、MD5、SHA-0、SHA-1 或 RIPEMD 雜湊演算法。 這些演算法在計算時可能會發生雜湊衝突，而結果便是打斷演算法。</p><p>為了實現受控密碼編譯靈活性所允許的 .NET 雜湊演算法 (依偏好順序)：</p><ul><li>SHA512Cng (符合 FIPS 規範)</li><li>SHA384Cng (符合 FIPS 規範)</li><li>SHA256Cng (符合 FIPS 規範)</li><li>SHA512Managed （不符合 FIPS 規範） （使用 SHA512 作為 HashAlgorithm.Create 或 cryptoconfig.createfromname 之呼叫中的演算法名稱）</li><li>SHA384Managed （不符合 FIPS 規範） （使用 SHA384 作為 HashAlgorithm.Create 或 cryptoconfig.createfromname 之呼叫中的演算法名稱）</li><li>SHA256Managed （不符合 FIPS 規範） （使用 SHA256 作為 HashAlgorithm.Create 或 cryptoconfig.createfromname 之呼叫中的演算法名稱）</li><li>SHA512CryptoServiceProvider (符合 FIPS 規範)</li><li>SHA256CryptoServiceProvider (符合 FIPS 規範)</li><li>SHA384CryptoServiceProvider (符合 FIPS 規範)</li></ul>| 
 
 ## <a id="strong-db"></a>使用增強式加密演算法來加密資料庫中的資料
 
@@ -228,7 +229,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [Identity Server - 金鑰、簽章和密碼編譯](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **參考**              | [Identity Server-金鑰、 簽章和加密](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **步驟** | 確定在使用 Identity Server 時會變換簽署金鑰。 [參考] 區段中的連結會說明該如何進行規劃，而不會造成仰賴 Identity Server 的應用程式發生中斷。 |
 
 ## <a id="client-server"></a>確定 Identity Server 會使用密碼編譯增強式用戶端識別碼和用戶端祕密

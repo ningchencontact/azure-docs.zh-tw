@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 74cd56f5a8bfe8717927c13e6bf30eb27b43fbc9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: b18ae44a140d77c24d8b5741bc09740767d1344f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558517"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075947"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>在 Azure 入口網站中建立新的 Time Series Insights 環境
 本文說明如何使用 Azure 入口網站建立新的時間序列深入解析環境。
@@ -26,21 +26,21 @@ ms.locfileid: "53558517"
 ## <a name="steps-to-create-the-environment"></a>用以建立環境的步驟
 請遵循下列步驟來建立環境：
 
-1.  登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2.  選取 [+ 新增] 按鈕。
+2. 選取 [+ 新增] 按鈕。
 
-3.  選取 [物聯網] 類別，然後選取 [時間序列深入解析]。
+3. 選取 [物聯網] 類別，然後選取 [時間序列深入解析]。
 
    ![建立 Time Series Insights 環境](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.  在 [時間序列深入解析] 分頁上，選取 [建立]。
+4. 在 [時間序列深入解析] 分頁上，選取 [建立]。
 
 5. 填入必要參數。 下表說明每個參數：
    
    ![建立 Time Series Insights 資源群組](media/time-series-insights-get-started/2-create-tsi.png)
    
-   設定|建議的值|說明
+   設定|建議的值|描述
    ---|---|---
    環境名稱 | 唯一的名稱 | 此名稱代表[時間序列總管](https://insights.timeseries.azure.com)中的環境
    訂用帳戶 | 您的訂用帳戶 | 如果您有多個訂用帳戶，最好是選擇包含事件來源的訂用帳戶。 Time Series Insights 可以自動偵測相同訂用帳戶中現有的 Azure IoT 中樞與事件中樞資源。

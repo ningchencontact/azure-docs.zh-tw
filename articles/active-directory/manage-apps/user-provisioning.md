@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 198f32b5f3d7572807b6af3e41ccf8085d9cbc0b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186347"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576934"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 可讓您自動化在雲端 ([SaaS](https://az
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
-**以下是此功能可讓您執行的一些範例：**
+**以下是這項功能可讓您執行的一些範例：**
 
 * 當人員加入您的小組或組織時，在正確的系統中為新的人員自動建立新帳戶。
 * 當人員離開小組或組織時，在正確的系統中自動停用帳戶。
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) 可讓您自動化在雲端 ([SaaS](https://az
 
 ## <a name="why-use-automated-provisioning"></a>為何要使用自動化佈建？
 
-一些使用此功能的常見動機包括：
+一些使用這項功能的常見動機包括：
 
 * 避免成本、效率不彰，以及與手動佈建程序相關的人為錯誤。
 * 避免與裝載及維護自訂開發的佈建解決方案和指令碼相關的成本。
@@ -78,7 +78,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)提交訊息。
 
 > [!NOTE]
-> 若要讓應用程式支援自動化使用者佈建，它必須先提供必要的使用者管理 API，以允許外部程式自動建立、維護及移除使用者。 因此，並非所有 SaaS 應用程式都與此功能相容。 針對支援使用者管理 API 的應用程式，Azure AD 工程小組則是能夠建置與這些應用程式的佈建連接器，此工作是以目前和潛在客戶的需求來排定優先順序。 
+> 若要讓應用程式支援自動化使用者佈建，它必須先提供必要的使用者管理 API，以允許外部程式自動建立、維護及移除使用者。 因此，並非所有 SaaS 應用程式都與此功能相容。 針對支援使用者管理 API 的應用程式，Azure AD 工程小組則是能夠建置與這些應用程式的佈建連接器，這項工作是以目前和潛在客戶的需求來排定優先順序。 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>連線支援 SCIM 2.0 的應用程式
 
@@ -89,7 +89,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
-對於所選應用程式的 Azure AD 佈建服務設定會從 **[Azure 入口網站](https://portal.azure.com)** 開始。 在 [Azure Active Directory] > [企業應用程式] 區段中，選取 [新增]，然後選取 [所有]，並根據您的情況新增下列其中一個：
+對於所選應用程式的 Azure AD 佈建服務設定會從 **[Azure 入口網站](https://portal.azure.com)** 開始。 在 [Azure Active Directory] > [企業應用程式] 區段中，選取 [新增]，然後選取 [所有]，並根據您的情況新增下列其中一項：
 
 * [精選應用程式] 區段中的所有應用程式皆支援自動佈建。 如需額外的應用程式，請參閱[適用於使用者佈建的應用程式教學課程清單](../saas-apps/tutorial-list.md)。
 
@@ -223,7 +223,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 * [稽核記錄](check-status-user-account-provisioning.md)中的錯誤數目。 如果有許多錯誤且佈建服務已進入隔離狀態，效能就會變差。    
 
-* 目標系統實作的要求速率限制和節流設定。 某些目標系統會實作要求速率限制和節流設定，這可能會影響大型同步作業的效能。 在這樣的情況下，太快收到太多要求的應用程式，可能會因此降低其回應速率或關閉連線。 若要改善效能，連接器必須進行調整，傳送應用程式要求的速度不可比應用程式處理這些要求的速度快。 由 Microsoft 所建置的佈建連接器會進行此調整。 
+* 目標系統實作的要求速率限制和節流設定。 某些目標系統會實作要求速率限制和節流設定，這可能會影響大型同步作業的效能。 在這樣的情況下，太快收到太多要求的應用程式，可能會因此降低其回應速率或關閉連線。 若要改善效能，連接器必須進行調整，傳送應用程式要求的速度不可比應用程式處理這些要求的速度快。 由 Microsoft 所建置的佈建連接器會進行這項調整。 
 
 * 指派群組的數目和大小。 同步指派群組所花的時間可能比同步使用者的時間長。 指派群組的數目和大小會影響效能。 如果應用程式[啟用群組物件同步處理的對應](customize-application-attributes.md#editing-group-attribute-mappings)，則除了使用者外，群組屬性 (例如群組名稱和成員資格) 也會一起同步。 比起只同步使用者物件，這些額外的同步處理將會花費更長時間。
 
@@ -260,7 +260,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 不過，使用動態群組可能會影響到從 Azure AD 到 SaaS 應用程式進行端對端使用者佈建的整體效能。 使用動態群組時，請記住下列注意事項和建議：
 
-* 在 SaaS 應用程式中佈建或取消佈建動態群組使用者的速度，取決於動態群組評估成員資格變更的速度。 如需如何檢查動態群組處理狀態的相關資訊，請參閱[檢查成員資格規則的處理狀態](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule)。
+* 在 SaaS 應用程式中佈建或取消佈建動態群組使用者的速度，取決於動態群組評估成員資格變更的速度。 如需如何檢查動態群組處理狀態的相關資訊，請參閱[檢查成員資格規則的處理狀態](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)。
 
 * 使用動態群組時，必須仔細考量使用者佈建和取消佈建的規則，因為失去成員資格將會導致取消佈建事件。
 

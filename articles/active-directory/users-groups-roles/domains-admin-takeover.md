@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af2628e1da24bd790e94306703aab797a0d56a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f166555e2f21ed38e78e659ec181c2d5d90d6bf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886995"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？](directory-self-service-signup.md)
@@ -44,11 +44,11 @@ ms.locfileid: "56164765"
 
 4. 使用 Power BI 使用者帳戶來登入 [Office 365 系統管理中心](https://portal.office.com/admintakeover)。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
   
-  ![[成為管理員] 的第一個螢幕擷取畫面](./media/domains-admin-takeover/become-admin-first.png)
+   ![[成為管理員] 的第一個螢幕擷取畫面](./media/domains-admin-takeover/become-admin-first.png)
   
 5. 在您的網域名稱登錄器新增 TXT 記錄，以證明您擁有網域名稱 **fourthcoffee.xyz**。 在此範例中為 GoDaddy.com。
   
-  ![新增網域名稱的 txt 記錄](./media/domains-admin-takeover/become-admin-txt-record.png)
+   ![新增網域名稱的 txt 記錄](./media/domains-admin-takeover/become-admin-txt-record.png)
 
 在您的網域名稱登錄器驗證 DNS TXT 記錄之後，您便可以管理 Azure AD 租用戶。
 
@@ -57,22 +57,22 @@ ms.locfileid: "56164765"
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>將網域名稱新增至 Azure AD 中的受控租用戶
 
 1. 開啟 [Office 365 系統管理中心](https://portal.office.com/admintakeover)。
-2. 選取 [使用者] 索引標籤，然後使用 *user@fourthcoffeexyz.onmicrosoft.com* 這類未使用自訂網域名稱的名稱來建立新使用者帳戶。 
+2. 選取 **使用者**索引標籤，然後建立新的使用者帳戶的名稱，例如*使用者\@fourthcoffeexyz.onmicrosoft.com* ，不會使用自訂網域名稱。 
 3. 確定新使用者帳戶具有 Azure AD 租用戶的全域管理員權限。
 4. 在「Office 365 系統管理中心」中開啟 [網域] 索引標籤，選取網域名稱，然後選取 [移除]。 
   
-  ![從 Office 365 移除網域名稱](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![從 Office 365 移除網域名稱](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. 如果您在 Office 365 中有任何使用者或群組參考已移除的網域名稱，就必須將他們重新命名為 .onmicrosoft.com 網域。 如果您強制刪除網域名稱，系統就會自動將所有使用者重新命名，在此範例中是重新命名為 *user@fourthcoffeexyz.onmicrosoft.com*。
+5. 如果您在 Office 365 中有任何使用者或群組參考已移除的網域名稱，就必須將他們重新命名為 .onmicrosoft.com 網域。 如果您強制刪除網域名稱，所有使用者會自動重新都命名，在此範例中以*使用者\@fourthcoffeexyz.onmicrosoft.com*。
   
 6. 使用具備 Azure AD 租用戶全域管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
   
 7. 選取 [自訂網域名稱]，然後新增網域名稱。 您將必須輸入 DNS TXT 記錄來驗證網域名稱擁有權。 
   
-  ![新增至 Azure AD 的網域](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![新增至 Azure AD 的網域](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> 如果將網域名稱移除，任何 Power BI 或 Azure Rights Management 服務使用者只要在 Office 365 租用戶中已獲指派授權，就必須儲存其儀表板。 他們必須使用 *user@fourthcoffeexyz.onmicrosoft.com* 這類使用者名稱而不是 *user@fourthcoffee.xyz* 來進行登入。
+> 如果將網域名稱移除，任何 Power BI 或 Azure Rights Management 服務使用者只要在 Office 365 租用戶中已獲指派授權，就必須儲存其儀表板。 他們必須登入使用者名稱，例如*使用者\@fourthcoffeexyz.onmicrosoft.com*而非*使用者\@fourthcoffee.xyz*。
 
 ## <a name="external-admin-takeover"></a>外部管理員接管
 
@@ -132,42 +132,42 @@ Cmdlet | 使用量
 ### <a name="powershell-example"></a>PowerShell 範例
 
 1. 使用用來回應自助式供應項目的認證來連接至 Azure AD：
-  ```
+   ```
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ```
+   ```
 2. 取得網域清單：
   
-  ```
+   ```
     Get-MsolDomain
-  ```
+   ```
 3. 執行 Get-MsolDomainVerificationDns Cmdlet 以建立挑戰：
-  ```
+   ```
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ```
+   ```
 
 4. 複製從此命令傳回的值 (挑戰)。 例如︰
-  ```
+   ```
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ```
+   ```
 5. 在公用 DNS 命名空間中，建立 DNS txt 記錄，其中包含您在上一個步驟中複製的值。 此記錄的名稱是父系網域的名稱，因此如果您使用 Windows Server 的 DNS 角色來建立此資源記錄，請將記錄名稱留白，而只要將此值貼到文字方塊中即可。
 6. 執行 onfirm-MsolDomain Cmdlet 來驗證挑戰：
   
-  ```
+   ```
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-  ```
+   ```
   
-  例如︰
+   例如︰
   
-  ```
+   ```
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ```
+   ```
 
 成功挑戰會讓您回到提示，但不會產生錯誤。
 

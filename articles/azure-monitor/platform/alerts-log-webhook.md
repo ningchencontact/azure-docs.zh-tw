@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 908422927feabd156c5dcdc7a04d44ff8fc42094
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433164"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442870"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立記錄警示](alerts-log.md)後，您可以選擇[使用動作群組設定](action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
@@ -25,7 +25,7 @@ Webhook 動作可讓您透過單一 HTTP POST 要求叫用外部處理序。  �
 
 Webhook 動作需要下表中的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | Webhook URL |Webhook 的 URL。 |
 | 自訂 JSON 承載 |自訂在警示建立期間選擇此選項時使用 Webhook 傳送承載。 您可以在[管理記錄警示](alerts-log.md)找到詳細資料 |
@@ -36,7 +36,7 @@ Webhook 動作需要下表中的屬性：
 Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務的資料)。  根據預設，承載會包含下表中的值：您可以選擇用自己的自訂承載來取代此承載。  在此情況下，您可以使用下表中每個參數的變數，將其值包含在您的自訂承載中。
 
 
-| 參數 | 變數 | 說明 |
+| 參數 | 變數 | 描述 |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |警示規則的名稱。 |
 | 嚴重性 |#severity |為引發的記錄警示設定的嚴重性。 |
@@ -54,7 +54,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 | 訂用帳戶識別碼 |#subscriptionid |搭配 Application Insights 使用之 Azure 訂用帳戶的識別碼。 
 
 > [!NOTE]
-> LinkToSearchResults 會將參數 (例如 SearchQuery、URL 中的搜尋間隔開始時間和搜尋間隔結束時間) 傳遞至 Azure 入口網站，以便在 Analytics 區段中檢視。 Azure 入口網站有大約 2000 個字元的 URI 大小限制，如果參數值超過該限制，則「不會」開啟警示中提供的連結。 使用者可以手動輸入詳細資料，以在 Analytics 入口網站中檢視結果，或使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](https://dev.loganalytics.io/reference) 以程式設計方式擷取結果 
+> LinkToSearchResults 會將參數 (例如 SearchQuery、URL 中的搜尋間隔開始時間和搜尋間隔結束時間) 傳遞至 Azure 入口網站，以便在 Analytics 區段中檢視。 Azure 入口網站有大小限制，大約 2000年個字元，並將 URI*不*提供在警示中，如果參數值超過該的限制的開啟連結。 使用者可以手動輸入詳細資料，以在 Analytics 入口網站中檢視結果，或使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](https://dev.loganalytics.io/reference) 以程式設計方式擷取結果 
 
 例如，您可以指定下列自訂承載，其中包含稱為 text 的單一參數。  此 Webhook 所呼叫的服務需要有這個參數。
 
@@ -77,9 +77,6 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 
 ## <a name="sample-payloads"></a>承載範例
 本節說明記錄警示的 Webhook 範例承載，包括其為標準和自訂承載時。
-
-> [!NOTE]
-> 為了確保回溯相容性，使用 Azure Log Analytics 的警示標準 Webhook 承載會與 [Log Analytics 警示管理](alerts-metric.md)相同。 但是對於使用 [Application Insights](../../azure-monitor/app/analytics.md) 的記錄警示，標準 Webhook 承載是以動作群組結構描述為基礎的。
 
 ### <a name="standard-webhook-for-log-alerts"></a>記錄警示的標準 Webhook 
 這兩個範例都提供只含有兩個資料行和兩個資料列的虛擬承載。
@@ -118,7 +115,11 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> 嚴重性 欄位值可能會變更，如果您有[切換您 API 的喜好設定](alerts-log-api-switch.md)Log analytics 的記錄警示。
+
 
 #### <a name="log-alert-for-azure-application-insights"></a>Azure Application Insights 記錄警示
 以下是用於 Application Insights 型記錄警示時，*不含自訂 Json 選項*的標準 Webhook 範例承載。
@@ -154,7 +155,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }

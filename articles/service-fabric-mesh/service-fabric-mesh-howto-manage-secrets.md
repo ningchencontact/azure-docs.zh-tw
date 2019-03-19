@@ -6,15 +6,15 @@ keywords: 密碼
 author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236746"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900636"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>管理 Service Fabric Mesh 應用程式秘密
 Service Fabric Mesh 支援以祕密作為 Azure 資源。 Service Fabric Mesh 秘密可以是任何機密文字資訊，例如儲存體連接字串、密碼，或其他應安全地儲存和傳輸的值。 本文說明如何使用 Service Fabric Secure Store Service 來部署和維護祕密。
@@ -24,20 +24,20 @@ Mesh 應用程式秘密包含：
 * 一或多個儲存在**祕密**資源容器中的**祕密/值**資源。 各個**祕密/值**資源可用版本號碼來區分。 您無法修改**祕密/值**資源的版本，而只能附加新版本。
 
 管理祕密的步驟如下：
-1. 使用 inlinedValue 類別和 SecretsStoreRef contentType 定義，在 Azure 資源模型 YAML 或 JSON 檔案中宣告 Mesh **秘密**資源。
-2. 在 Azure 資源模型 YAML 或 JSON 檔案中宣告將會儲存於**秘密**資源 (來自步驟 1) 中的 Mesh **秘密/值**資源。
+1. 宣告網狀結構**祕密**使用 inlinedValue 種類和 SecretsStoreRef contentType 定義 Azure 資源模型 YAML 或 JSON 檔案中的資源。
+2. 宣告網狀結構 **/值的祕密**會儲存在 Azure 資源模型 YAML 或 JSON 檔案中的資源**祕密**（來自步驟 1） 的資源。
 3. 將 Mesh 應用程式修改成參考 Mesh 祕密值。
 4. 部署或輪流升級 Mesh 應用程式以使用祕密值。
 5. 使用 Azure "az" CLI 命令進行 Secure Store Service 生命週期管理。
 
 ## <a name="declare-a-mesh-secrets-resource"></a>宣告 Mesh 祕密資源
-Mesh 秘密資源可使用 inlinedValue 類別和 SecretsStoreRef contentType 定義，宣告於 Azure 資源模型 JSON 或 YAML 檔案中。 Mesh 祕密資源支援源自 Secure Store Service 的秘密。 
+Mesh 的祕密資源中的 Azure 資源模型 JSON 或 YAML 檔案使用 inlinedValue 種類和 SecretsStoreRef contentType 定義宣告。 Mesh 祕密資源支援源自 Secure Store Service 的秘密。 
 >
 下列範例說明如何在 JSON 檔案中宣告 Mesh 祕密資源：
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -103,7 +103,7 @@ Mesh 祕密/值資源須依賴在先前的步驟中定義的 Mesh 祕密資源�
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -215,9 +215,9 @@ az mesh secret show --Resource-group <myResourceGroup> --secret-name <mySecret>
 
 - Mesh 應用程式正在參考的祕密無法刪除。
 - 刪除祕密資源時，將一併刪除所有的秘密/資源版本。
-```azurecli-interactive
-az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
-```
+  ```azurecli-interactive
+  az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
+  ```
 
 ### <a name="list-secrets-in-subscription"></a>列出訂用帳戶中的祕密
 ```azurecli-interactive

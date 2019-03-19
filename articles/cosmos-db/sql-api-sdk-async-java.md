@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/8/2019
+ms.date: 3/5/2019
 ms.author: moderakh
-ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416270"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570091"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Async JAVA SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -43,6 +43,17 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 | **最低支援執行階段**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
+* Client#close() 上的資源流失的錯誤修正 ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88))。
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+* 已新增的接續權杖支援跨分割區查詢。
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* 在直接模式中，已修正一些 bug。
+* 在直接模式中改進的記錄功能。
+* 改善的連線管理。
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * 直接模式連線能力現已正式推出 (GA)。 如需使用直接模式連線能力的範例，請參閱 [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 存放庫。
@@ -135,6 +146,9 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.4.3](#2.4.3) |2019 年 5 月 5日日|--- |
+| [2.4.2](#2.4.2) |2019 年 5 月 1日日|--- |
+| [2.4.1](#2.4.1) |2019 年 2 月 20日日|--- |
 | [2.4.0](#2.4.0) |2019 年 2 月 8日|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |2019 年 2 月 4日|--- |
 | [2.3.1](#2.3.1) |2019 年 1 月 15日|--- |
@@ -152,6 +166,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。
 

@@ -1,22 +1,22 @@
 ---
 title: 重設 Azure VPN 閘道以重新建立 IPsec 通道 | Microsoft Docs
-description: 本文將逐步引導您重設「Azure VPN 閘道」以重新建立 IPsec 通道。 本文章適用於傳統，和 Resource Manager 部署模型兩者的 VPN 閘道。
+description: 本文將逐步引導您重設「Azure VPN 閘道」以重新建立 IPsec 通道。 本文适用于经典和 Resource Manager 部署模型中的 VPN 网关。
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414928"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118794"
 ---
-# <a name="reset-a-vpn-gateway"></a>重設 VPN 閘道
+# <a name="reset-a-vpn-gateway"></a>重置 VPN 网关
 
-如果您遺失一或多個站對站 VPN 通道上的跨單位 VPN 連線，重設 Azure VPN 閘道會很有幫助。 在此情況下，您的所有內部部署 VPN 裝置都會運作正常，但無法使用 Azure VPN 閘道建立 IPsec 通道。 本文可協助您重設 VPN 閘道。
+如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 Azure VPN 网关可有效解决该情况。 在此情況下，您的所有內部部署 VPN 裝置都會運作正常，但無法使用 Azure VPN 閘道建立 IPsec 通道。 本文可協助您重設 VPN 閘道。
 
 ### <a name="what-happens-during-a-reset"></a>重設期間會發生什麼事？
 
@@ -47,7 +47,7 @@ VPN 閘道是由兩個在「作用中-待命」設定中執行的 VM 執行個�
 1. 開啟 [Azure 入口網站](https://portal.azure.com)，並瀏覽至您想要重設的 Resource Manager 虛擬網路閘道。
 2. 在虛擬網路閘道的刀鋒視窗上，按一下 [重設]。
 
-  ![重設 VPN 閘道刀鋒視窗](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+   ![重設 VPN 閘道刀鋒視窗](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. 在 [重設] 刀鋒視窗中，按一下 [重設] 按鈕。
 
 ## <a name="ps"></a>PowerShell
@@ -56,16 +56,16 @@ VPN 閘道是由兩個在「作用中-待命」設定中執行的 VM 執行個�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Reset-AzVirtualNetworkGateway** 是可用來重設閘道的 Cmdlet。 執行重設之前，請確認您已安裝最新版的 [Resource Manager PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0)。 下列範例會重設 TestRG1 資源群組中名為 VNet1GW 的虛擬網路閘道：
+**Reset-AzVirtualNetworkGateway** 是可用來重設閘道的 Cmdlet。 之前執行重設，請確定您有最新版[PowerShell Az cmdlet](https://docs.microsoft.com/powershell/module/az.network)。 下列範例會重設 TestRG1 資源群組中名為 VNet1GW 的虛擬網路閘道：
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
-結果︰
+结果：
 
-當您收到傳回的結果時，可能會認為閘道已成功重設。 不過，傳回結果中並沒有明確指出已成功重設。 如果您想要進一步查看歷程記錄，以確實掌握閘道重設發生的時間，您可以在 [Azure 入口網站](https://portal.azure.com)中檢視該項資訊。 在入口網站中，瀏覽至 'GatewayName' -> [資源健康狀態]。
+當您收到傳回的結果時，可能會認為閘道已成功重設。 不過，傳回結果中並沒有明確指出已成功重設。 如果您想要進一步查看歷程記錄，以確實掌握閘道重設發生的時間，您可以在 [Azure 入口網站](https://portal.azure.com)中檢視該項資訊。 在门户中，导航到“GatewayName”->“资源运行状况”。
 
 ### <a name="resetclassic"></a>傳統部署模型
 

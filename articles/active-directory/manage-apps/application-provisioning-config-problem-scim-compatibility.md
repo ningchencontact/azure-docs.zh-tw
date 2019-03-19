@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124061"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 使用者佈建服務 SCIM 2.0 通訊協定相容性的已知問題和解決方法
 
@@ -37,10 +37,10 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 
 | **SCIM 2.0 相容性問題** |  **已修正？** | **修正日期**  |  
 |---|---|---|
-| Azure AD 要求應用程式的 SCIM 端點 URL 根目錄中必須有 "/scim"  | yes  |  2018 年 12 月 18 日 | 
-| 延伸模組屬性在屬性名稱前面使用點 "." 標記法，而不是冒號 ":" 標記法 |  yes  | 2018 年 12 月 18 日  | 
-|  多重值屬性的修補程式要求包含無效的路徑篩選語法 | yes  |  2018 年 12 月 18 日  | 
-|  群組建立要求包含無效的結構描述 URI | yes  |  2018 年 12 月 18 日  |  
+| Azure AD 要求應用程式的 SCIM 端點 URL 根目錄中必須有 "/scim"  | 是  |  2018 年 12 月 18 日 | 
+| 延伸模組屬性在屬性名稱前面使用點 "." 標記法，而不是冒號 ":" 標記法 |  是  | 2018 年 12 月 18 日  | 
+|  多重值屬性的修補程式要求包含無效的路徑篩選語法 | 是  |  2018 年 12 月 18 日  | 
+|  群組建立要求包含無效的結構描述 URI | 是  |  2018 年 12 月 18 日  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>上述服務修正會自動套用至我既存的 SCIM 應用程式嗎？
 
@@ -59,36 +59,36 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
  
 1. 登入 Azure 入口網站 https://portal.azure.com。
 2. 在 Azure 入口網站的 [Azure Active Directory] > [企業應用程式] 區段中，尋找並選取您現有的 SCIM 應用程式。
-3.  在您現有 SCIM 應用程式的 [屬性] 區段中，複製 [物件識別碼]。
-4.  在新的網頁瀏覽器視窗中，前往 https://developer.microsoft.com/graph/graph-explorer 並以新增應用程式所在的 Azure AD 租用戶系統管理員身分登入。
+3. 在您現有 SCIM 應用程式的 [屬性] 區段中，複製 [物件識別碼]。
+4. 在新的網頁瀏覽器視窗中，前往 https://developer.microsoft.com/graph/graph-explorer 並以新增應用程式所在的 Azure AD 租用戶系統管理員身分登入。
 5. 在 [Graph 總管] 中，執行下列命令以尋找您佈建作業的識別碼。 將 "[object-id]" 取代為您從第三個步驟複製的服務主體識別碼 (物件識別碼)。
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
- ![取得作業](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "取得作業") 
+   ![取得作業](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "取得作業") 
 
 
 6. 在結果中，複製開頭為 "customappsso" 或 "scim" 的完整「識別碼」字串。
 7. 執行下列命令以擷取屬性對應設定，以便進行備份。 使用上述相同的 [object-id]，並將 [job-id] 取代為您從上一個步驟複製的佈建作業識別碼。
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
- ![]取得結構描述(./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "取得結構描述") 
+   ![]取得結構描述(./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "取得結構描述") 
 
 8. 複製上一個步驟中的 JSON 輸出，並將其儲存至文字檔。 這包含已新增至舊應用程式的任何自訂屬性對應，大約應為幾千行的 JSON。
 9. 執行下列命令以刪除佈建作業：
  
- `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
+   `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. 執行下列命令以建立具有最新服務修正的新佈建作業。
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
- `{   templateId: "scim"   } `
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
+    `{   templateId: "scim"   } `
    
 11. 在上一個步驟的結果中，複製開頭為 "scim" 的完整「識別碼」字串。 (選擇性) 執行下列命令以重新套用舊的屬性對應，將 [new-job-id] 取代為您剛才複製的新作業識別碼，然後輸入步驟 #7 中的 JSON 輸出作為要求本文。
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
- `{   <your-schema-json-here>   }`
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
+    `{   <your-schema-json-here>   }`
 
 12. 返回第一個網頁瀏覽器視窗，然後針對您的應用程式選取 [佈建] 索引標籤。
 13. 驗證您的設定，然後啟動佈建作業。 
@@ -97,15 +97,15 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 
 是。 如果您已撰寫應用程式程式碼來使用修正前的舊行為，且需要部署應用程式的新執行個體，請遵循下列程序。 此程序描述如何使用 Microsoft Graph API 和 Microsoft Graph API 總管，建立 SCIM 佈建作業來展示舊行為。
  
-1.  登入 Azure 入口網站 https://portal.azure.com。
+1. 登入 Azure 入口網站 https://portal.azure.com。
 2. 在 Azure 入口網站的 [Azure Active Directory] > [企業應用程式] > [建立應用程式] 區段中，建立**不在資源庫內**的新應用程式。
-3.  在新自訂應用程式的 [屬性] 區段中，複製 [物件識別碼]。
-4.  在新的網頁瀏覽器視窗中，前往 https://developer.microsoft.com/graph/graph-explorer 並以新增應用程式所在的 Azure AD 租用戶系統管理員身分登入。
+3. 在新自訂應用程式的 [屬性] 區段中，複製 [物件識別碼]。
+4. 在新的網頁瀏覽器視窗中，前往 https://developer.microsoft.com/graph/graph-explorer 並以新增應用程式所在的 Azure AD 租用戶系統管理員身分登入。
 5. 在 [Graph 總管] 中，執行下列命令以初始化應用程式的佈建設定。
-將 "[object-id]" 取代為您從第三個步驟複製的服務主體識別碼 (物件識別碼)。
+   將 "[object-id]" 取代為您從第三個步驟複製的服務主體識別碼 (物件識別碼)。
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "customappsso"   }`
+   `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+   `{   templateId: "customappsso"   }`
  
 6. 返回第一個網頁瀏覽器視窗，然後針對您的應用程式選取 [佈建] 索引標籤。
 7. 如往常般完成使用者佈建設定。

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0d31129a94d6e575ead01a62d22ae3ce8f2acf64
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 1096c120b4e7731fabd574c4096e70fe02b6272d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414911"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081078"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 驗證設定 VNet 的點對站連線：PowerShell
 
@@ -20,7 +20,7 @@ ms.locfileid: "56414911"
 
 點對站 (P2S) VPN 閘道可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 當您想要從遠端位置連線到您的 VNet 時 (例如，當您從住家或會議進行遠距工作時)，點對站 VPN 連線很實用。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的方案 (而不是使用站對站 VPN)。
 
-P2S VPN 連線會從 Windows 和 Mac 裝置啟動。 您可使用下列驗證方法來與用戶端連線：
+P2S VPN 連線會從 Windows 和 Mac 裝置啟動。 您可使用下列驗證方法來與用戶端連線： 
 
 * RADIUS 伺服器
 * VPN 閘道原生憑證驗證
@@ -46,7 +46,7 @@ P2S 連線需要下列各個條件：
 ## <a name="aboutad"></a>關於適用於 P2S VPN 的 Active Directory (AD) 網域驗證
 
 AD 網域驗證可讓使用者使用其組織網域認證來登入 Azure。 它需要可與 AD 伺服器整合的 RADIUS 伺服器。 組織也可利用其現有的 RADIUS 部署。
- 
+ 
 RADIUS 伺服器可位於內部部署環境或 Azure VNet 中。 在驗證期間，VPN 閘道可作為 RADIUS 伺服器與連線裝置之間的通道，在兩者間來回轉送驗證訊息。 務必讓 VPN 閘道能夠連線到 RADIUS 伺服器。 如果 RADIUS 伺服器位於內部部署環境，則需要從 Azure 到內部部署網站的 VPN 站對站連線。
 
 除了 Active Directory，RADIUS 伺服器也可以與其他外部身分識別系統整合。 這會開啟許多點對站 VPN 的驗證選項，包括 MFA 選項。 查閱 RADIUS 伺服器廠商文件，以取得與其整合的身分識別系統清單。
@@ -63,10 +63,6 @@ RADIUS 伺服器可位於內部部署環境或 Azure VNet 中。 在驗證期間
 請確認您有 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial)。
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
-
-### <a name="sign-in"></a>登入
-
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="example"></a>範例值
 
@@ -87,7 +83,34 @@ RADIUS 伺服器可位於內部部署環境或 Azure VNet 中。 在驗證期間
 * **DNS 伺服器：** 您想要用於 VNet 名稱解析的 DNS 伺服器的 IP 位址。 (選用)
 * **GW 名稱：Vnet1GW**
 * **公用 IP 名稱：VNet1GWPIP**
-* **VpnType：RouteBased** 
+* **VpnType：RouteBased**
+
+
+## <a name="signin"></a>登入，並設定變數
+
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+
+### <a name="declare-variables"></a>宣告變數
+
+宣告您想要使用的變數。 使用以下範例，在需要時將該值替換為您自己的值。 如果您在練習的任何時刻關閉了 PowerShell/Cloud Shell 工作階段，請再次複製值並貼上，以重新宣告變數。
+
+  ```azurepowershell-interactive
+  $VNetName  = "VNet1"
+  $FESubName = "FrontEnd"
+  $BESubName = "Backend"
+  $GWSubName = "GatewaySubnet"
+  $VNetPrefix1 = "192.168.0.0/16"
+  $VNetPrefix2 = "10.254.0.0/16"
+  $FESubPrefix = "192.168.1.0/24"
+  $BESubPrefix = "10.254.1.0/24"
+  $GWSubPrefix = "192.168.200.0/26"
+  $VPNClientAddressPool = "172.16.201.0/24"
+  $RG = "TestRG"
+  $Location = "East US"
+  $GWName = "VNet1GW"
+  $GWIPName = "VNet1GWPIP"
+  $GWIPconfName = "gwipconf"
+  ```
 
 ## 1.<a name="vnet"></a>建立資源群組、VNet 和公用 IP 位址
 
@@ -95,33 +118,33 @@ RADIUS 伺服器可位於內部部署環境或 Azure VNet 中。 在驗證期間
 
 1. 建立資源群組。
 
-  ```azurepowershell-interactive
-  New-AzResourceGroup -Name "TestRG" -Location "East US"
-  ```
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name "TestRG" -Location "East US"
+   ```
 2. 為虛擬網路建立子網路組態，將其命名為 FrontEndBackEnd 和 GatewaySubnet。 這些前置詞必須是您宣告的 VNet 位址空間的一部分。
 
-  ```azurepowershell-interactive
-  $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
-  $besub = New-AzVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.254.1.0/24"  
-  $gwsub = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "192.168.200.0/24"
-  ```
+   ```azurepowershell-interactive
+   $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
+   $besub = New-AzVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.254.1.0/24"  
+   $gwsub = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "192.168.200.0/24"
+   ```
 3. 建立虛擬網路
 
-  在此範例中，-DnsServer 伺服器是選擇性的。 指定一個值並不會建立新的 DNS 伺服器。 您指定的 DNS 伺服器 IP 位址應該是可以解析您從 VNet 連線之資源名稱的 DNS 伺服器。 在此範例中，我們使用了私人 IP 位址，但這可能不是您 DNS 伺服器的 IP 位址。 請務必使用您自己的值。 您指定的值是由您部署至 VNet 的資源使用，不是由 P2S 連線使用。
+   在此範例中，-DnsServer 伺服器是選擇性的。 指定一個值並不會建立新的 DNS 伺服器。 您指定的 DNS 伺服器 IP 位址應該是可以解析您從 VNet 連線之資源名稱的 DNS 伺服器。 在此範例中，我們使用了私人 IP 位址，但這可能不是您 DNS 伺服器的 IP 位址。 請務必使用您自己的值。 您指定的值是由您部署至 VNet 的資源使用，不是由 P2S 連線使用。
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG" -Location "East US" -AddressPrefix "192.168.0.0/16","10.254.0.0/16" -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
-  ```
-4. VPN 閘道必須具有公用 IP 位址。 您會先要求 IP 位址資源，然後在建立虛擬網路閘道時參考它。 建立 VPN 閘道時，系統會將 IP 位址動態指派給此資源。 VPN 閘道目前僅支援*動態*公用 IP 位址配置。 您無法要求靜態公用 IP 位址指派。 不過，這不表示 IP 位址變更之後已被指派至您的 VPN 閘道。 公用 IP 位址只會在刪除或重新建立閘道時變更。 它不會因為重新調整、重設或 VPN 閘道的其他內部維護/升級而變更。
+   ```azurepowershell-interactive
+   New-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG" -Location "East US" -AddressPrefix "192.168.0.0/16","10.254.0.0/16" -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
+   ```
+4. VPN 閘道必須具有公用 IP 位址。 您會先要求 IP 位址資源，然後在建立虛擬網路閘道時參考它。 建立 VPN 閘道時，系統會將 IP 位址動態指派給此資源。 VPN 网关当前仅支持动态公共 IP 地址分配。 不能请求静态公共 IP 地址分配。 不過，這不表示 IP 位址變更之後已被指派至您的 VPN 閘道。 公共 IP 地址只在删除或重新创建网关时更改。 它不會因為重新調整、重設或 VPN 閘道的其他內部維護/升級而變更。
 
-  指定可要求動態指派之公用 IP 位址的變數。
+   指定可要求動態指派之公用 IP 位址的變數。
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG"  
-  $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet 
-  $pip = New-AzPublicIpAddress -Name "VNet1GWPIP" -ResourceGroupName "TestRG" -Location "East US" -AllocationMethod Dynamic 
-  $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG"  
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet 
+   $pip = New-AzPublicIpAddress -Name "VNet1GWPIP" -ResourceGroupName "TestRG" -Location "East US" -AllocationMethod Dynamic 
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
+   ```
 
 ## 2.<a name="radius"></a>設定 RADIUS 伺服器
 
@@ -147,25 +170,25 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 ```
 
 ## 4.<a name="addradius"></a>新增 RADIUS 伺服器和用戶端位址集區
- 
+ 
 * 可以依名稱或依 IP 位址指定 -RadiusServer。 如果您指定名稱且伺服器位於內部部署環境，則 VPN 閘道可能無法解析此名稱。 如果是這樣，最好是指定伺服器的 IP 位址。 
 * -RadiusSecret 應符合 RADIUS 伺服器的設定。
 * -VpnClientAddressPool 是連線 VPN 用戶端時從中接收 IP 位址的範圍。 使用不會重疊的私人 IP 位址範圍搭配您將從其連線的內部部署位置，或搭配您要連線至的 VNet。 確定您已設定夠大的位址集區。  
 
 1. 為 Radius 祕密建立安全字串。
 
-  ```azurepowershell-interactive
-  $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
-  ```
+   ```azurepowershell-interactive
+   $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
+   ```
 
 2. 系統會提示您輸入 RADIUS 祕密。 您輸入的字元並不會顯示，將由 "*" 字元所取代。
 
-  ```azurepowershell-interactive
-  RadiusSecret:***
-  ```
+   ```azurepowershell-interactive
+   RadiusSecret:***
+   ```
 3. 新增 VPN 用戶端位址集區和 RADIUS 伺服器資訊。
 
-  對於 SSTP 組態：
+   對於 SSTP 組態：
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -174,7 +197,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-  對於 IKEv2 組態：
+   對於 IKEv2 組態：
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -183,7 +206,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-  對於 SSTP + IKEv2
+   對於 SSTP + IKEv2
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -202,10 +225,10 @@ VPN 用戶端組態可讓裝置透過 P2S 連線來連線至 VNet。 若要產�
 
 1. 若要連接至您的 VNet，在用戶端電腦上瀏覽到 VPN 連線，然後找出所建立的 VPN 連線。 其名稱會與虛擬網路相同。 輸入網域認證並按一下 [連線]。 隨即出現要求提高權限的快顯訊息。 接受它並然後輸入認證。
 
-  ![VPN 用戶端連線至 Azure](./media/point-to-site-how-to-radius-ps/client.png)
+   ![VPN 用戶端連線至 Azure](./media/point-to-site-how-to-radius-ps/client.png)
 2. 已建立您的連線。
 
-  ![連線已建立](./media/point-to-site-how-to-radius-ps/connected.png)
+   ![連線已建立](./media/point-to-site-how-to-radius-ps/connected.png)
 
 ### <a name="connect-from-a-mac-vpn-client"></a>從 Mac VPN 用戶端連線
 
@@ -216,10 +239,10 @@ VPN 用戶端組態可讓裝置透過 P2S 連線來連線至 VNet。 若要產�
 ## <a name="verify"></a>驗證您的連線
 
 1. 若要驗證您的 VPN 連線為作用中狀態，請開啟提升權限的命令提示字元，並執行 *ipconfig/all*。
-2. 檢視結果。 請注意，您接收到的 IP 位址是您在組態中指定的點對站 VPN 用戶端位址集區中的其中一個位址。 結果類似於此範例：
+2. 查看结果。 請注意，您接收到的 IP 位址是您在組態中指定的點對站 VPN 用戶端位址集區中的其中一個位址。 結果類似於此範例：
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -229,7 +252,7 @@ VPN 用戶端組態可讓裝置透過 P2S 連線來連線至 VNet。 若要產�
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 如要針對 P2S 進行疑難排解，請參閱[針對 Azure 點對站連線進行疑難排解](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
 

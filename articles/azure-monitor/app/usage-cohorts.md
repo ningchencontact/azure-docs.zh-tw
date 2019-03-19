@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 810ccae08b540c417a0e7dfecb6ad5a8b110cd7b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045130"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108520"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 世代
 
@@ -105,16 +105,16 @@ ms.locfileid: "54045130"
     ![空白使用者世代](./media/usage-cohorts/001.png)
 
     其中包含三個區段：
-    * Markdown 文字區段；您可以在其中為其他小組成員詳細說明世代。
+   * Markdown 文字區段；您可以在其中為其他小組成員詳細說明世代。
 
-    * 參數區段，可讓您自行設定參數，例如**活動**，以及上述兩個範例中的其他下拉式方塊。
+   * 參數區段，可讓您自行設定參數，例如**活動**，以及上述兩個範例中的其他下拉式方塊。
 
-    * 查詢區段，可讓您使用分析查詢定義世代。
+   * 查詢區段，可讓您使用分析查詢定義世代。
 
-    在查詢區段中，您可以[撰寫分析查詢](/azure/kusto/query)。 查詢會選取特定的幾列來說明您要定義的世代。 然後，「世代」工具會隱含地在查詢中加入 “| summarize by user_Id” 子句。 您可以在查詢下方的資料表中預覽此資料，以確定您的查詢會傳回結果。
+     在查詢區段中，您可以[撰寫分析查詢](/azure/kusto/query)。 查詢會選取特定的幾列來說明您要定義的世代。 然後，「世代」工具會隱含地在查詢中加入 “| summarize by user_Id” 子句。 您可以在查詢下方的資料表中預覽此資料，以確定您的查詢會傳回結果。
 
-    > [!NOTE]
-    > 如果未看見查詢，請嘗試調高區段的高度，以呈現查詢。 此區段的開頭會以動畫 .gif 說明調整大小的行為。
+     > [!NOTE]
+     > 如果未看見查詢，請嘗試調高區段的高度，以呈現查詢。 此區段的開頭會以動畫 .gif 說明調整大小的行為。
 
 2. 複製以下文字並貼到查詢編輯器中：
 

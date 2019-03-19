@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1170266ed0b59c53adce4e44fe3e7a0bc62f394e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888582"
 ---
 # <a name="security-frame-authentication--mitigations"></a>安全性框架：驗證 | 緩和措施 
+
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Web 應用程式**    | <ul><li>[考慮使用標準驗證機制來驗證 Web 應用程式](#standard-authn-web-app)</li><li>[應用程式必須安全地處理失敗的驗證案例](#handle-failed-authn)</li><li>[啟用升級或調適性驗證](#step-up-adaptive-authn)</li><li>[確保已適當地鎖定系統管理介面](#admin-interface-lockdown)</li><li>[安全地實作忘記密碼功能](#forgot-pword-fxn)</li><li>[確保已實作密碼和帳戶原則](#pword-account-policy)</li><li>[實作控制項以避免列舉使用者名稱](#controls-username-enum)</li></ul> |
@@ -338,7 +339,7 @@ ms.locfileid: "53014850"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [ASP.NET Web API 中的驗證和授權](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api)、[外部驗證服務與 ASP.NET Web API (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
+| **參考**              | [ASP.NET Web API 中的驗證和授權](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api)、[外部驗證服務與 ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
 | **步驟** | <p>驗證是實體證明其身分識別的程序 (通常透過使用者名稱和密碼等認證)。 有多個驗證通訊協定可列入考量。 下列是其中一些通訊協定︰</p><ul><li>Client certificates</li><li>Windows 架構</li><li>表單架構</li><li>同盟 - ADFS</li><li>同盟 - Azure AD</li><li>同盟 - Identity Server</li></ul><p>[參考] 區段中的連結提供如何實作每個驗證方案來保護 Web API 的低階詳細資料。</p>|
 
 ## <a id="authn-aad"></a>使用 Azure Active Directory 所支援的標準驗證案例
@@ -454,7 +455,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、C#、Node.JS  |
 | **屬性**              | N/A、閘道選擇 - Azure IoT 中樞 |
-| **參考**              | N/A、[採用 .NET 的 Azure IoT 中樞](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/)、[開始使用 IoT 中樞和 Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted)、[使用 SAS 和憑證保護 IoT](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/)、[Git 儲存機制](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **參考**              | 不適用，[使用.NET 的 Azure IoT 中樞](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/)，[開始使用 IoT 中樞和 Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted)， [SAS 和憑證的保護 IoT](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/)， [Git 存放庫](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **步驟** | <ul><li>**泛型：** 使用傳輸層安全性 (TLS) 或 IPSec 來驗證裝置。 如果裝置無法處理完整的非對稱密碼編譯，則基礎結構應該支援在這些裝置上使用預先共用金鑰 (PSK)。 利用 Azure AD、Oauth。</li><li>**C#:** 建立 DeviceClient 執行個體時，Create 方法預設會建立一個使用 AMQP 通訊協定來與 IoT 中樞通訊的 DeviceClient 執行個體。 若要使用 HTTPS 通訊協定，請使用可讓您指定通訊協定的 Create 方法的覆寫。 若您使用 HTTPS 通訊協定，您也應該將 `Microsoft.AspNet.WebApi.Client` Nuget 套件新增至您的專案，以包含 `System.Net.Http.Formatting` 命名空間。</li></ul>|
 
 ### <a name="example"></a>範例
@@ -475,7 +476,7 @@ await deviceClient.SendEventAsync(message);
 ### <a name="example"></a>範例
 **Node.JS：驗證**
 #### <a name="symmetric-key"></a>對稱金鑰
-* 在 Azure 上建立 IoT 中樞
+* 在 azure 上建立 IoT 中樞
 * 在裝置識別登錄中建立一個項目
     ```javascript
     var device = new iothub.Device(null);
@@ -489,7 +490,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### <a name="sas-token"></a>SAS 權杖
+  #### <a name="sas-token"></a>SAS 權杖
 * 取得使用對稱金鑰時在內部產生的權杖，但我們也可以明確地產生和使用權杖
 * 定義通訊協定︰`var Http = require('azure-iot-device-http').Http;`
 * 建立 SAS 權杖：
@@ -506,7 +507,7 @@ await deviceClient.SendEventAsync(message);
     var base64UriEncoded = encodeURIComponent(base64signature);
     // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
-    + base64UriEncoded + "&se=" + expires;
+  + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
@@ -514,7 +515,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
-#### <a name="certificates"></a>憑證
+  #### <a name="certificates"></a>憑證
 * 使用任何工具 (例如 OpenSSL) 產生自我簽署的 X509 憑證，以產生 .cert 和 .key 檔案來分別儲存憑證和金鑰
 * 使用憑證佈建可接受安全連線的裝置。
     ```javascript

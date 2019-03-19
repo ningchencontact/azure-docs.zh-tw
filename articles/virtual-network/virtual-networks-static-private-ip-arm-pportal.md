@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff9d025980f80cb77246ea12dbf2e9bcedd73f86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: e5efe0516d1b2dd387532d31a0a6654e6651fe41
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705879"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011729"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>使用 Azure 入口網站設定虛擬機器的私人 IP 位址
 
@@ -49,7 +49,7 @@ ms.locfileid: "38705879"
 
 若要在名為 TestVNet 之 VNet 的 FrontEnd 子網路中建立名為 DNS01 的 VM，請遵循下列步驟：
 
-1. 透過瀏覽器瀏覽至 http://portal.azure.com，並視需要使用您的 Azure 帳戶登入。
+1. 透過瀏覽器瀏覽至 https://portal.azure.com，並視需要使用您的 Azure 帳戶登入。
 2. 按一下 [建立資源] > [計算] > [Windows Server 2012 R2 Datacenter]，注意 [選取部署模型] 清單已經顯示 [Resource Manager]，然後按一下 [建立]，如下圖所示。
    
     ![在 Azure 入口網站中建立 VM](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
@@ -66,8 +66,8 @@ ms.locfileid: "38705879"
    
     -**儲存體帳戶**：vnetstorage
    
-   * **網路**：TestVNet
-   * **子網路**：FrontEnd
+   * **網路**：*TestVNet*
+   * **子網路**：*前端*
      
      ![[選擇大小] 窗格](./media/virtual-networks-static-ip-arm-pportal/figure05.png)     
 7. 在 [摘要] 窗格中，按一下 [確定]。 請注意儀表板中顯示的下列圖格。
