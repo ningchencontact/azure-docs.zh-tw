@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b975f84106507da6adff11dc62441526773f5cab
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998140"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992459"
 ---
 # <a name="enable-support-uploads"></a>啟用支援上傳的功能
 
@@ -42,6 +42,6 @@ ms.locfileid: "52998140"
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您需要將內部部署儲存體系統新增至叢集，或更新新建 Blob 容器中的預設加密金鑰，請依照[設定儲存體](avere-vfxt-add-storage.md)中的指示。 
+如果您需要將內部部署的新增或現有的雲端儲存體系統，到叢集，請遵循指示[設定儲存體](avere-vfxt-add-storage.md)。 
 
 如果您已做好開始將用戶端連結至叢集的準備，請參閱[掛接 Avere vFXT 叢集](avere-vfxt-mount-clients.md)。

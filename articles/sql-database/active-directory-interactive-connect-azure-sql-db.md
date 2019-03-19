@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 manager: craigg
-ms.openlocfilehash: a7f2dbdb089df8035d18db25b3968d63a3c97c0f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 5f089148bafbab21721c83c0d4b6977a7db86320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767493"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834582"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>使用 Active Directory MFA 連線到 Azure SQL Database
 
@@ -99,7 +99,7 @@ ms.locfileid: "55767493"
 
 SQL Database 伺服器的 Azure AD 管理員可以執行 C# 範例程式。 若 Azure AD 使用者在資料庫內，他們可以執行程式。 已經存在於資料庫並擁有 `ALTER ANY USER` 權限的 Azure AD SQL 管理員或 Azure AD 使用者可以新增使用者。
 
-您可以使用 SQL 的 [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) 命令將使用者新增至資料庫。 例如： `CREATE USER [<username>] FROM EXTERNAL PROVIDER`。
+您可以使用 SQL 的 [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 命令將使用者新增至資料庫。 例如： `CREATE USER [<username>] FROM EXTERNAL PROVIDER`。
 
 如需詳細資訊，請參閱[使用 Azure Active Directory 驗證向 SQL Database、受控執行個體或 SQL 資料倉儲進行驗證](sql-database-aad-authentication.md)。
 
@@ -126,7 +126,7 @@ C# 範例仰賴 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/
 | 靜態欄位名稱 | 範例值 | 在 Azure 入口網站中的位置 |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | [SQL Server] > [依名稱篩選] |
-| AzureAD_UserID | "auser@abc.onmicrosoft.com" | [Azure Active Directory] > [使用者] > [新增來賓使用者] |
+| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | [Azure Active Directory] > [使用者] > [新增來賓使用者] |
 | Initial_DatabaseName | "myDatabase" | [SQL Server] > [SQL 資料庫] |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | [Azure Active Directory] > [應用程式註冊] > [依名稱搜尋] > [應用程式識別碼] |
 | RedirectUri | new Uri("https://mywebserver.com/") | [Azure Active Directory] > [應用程式註冊] > [依名稱搜尋] > [Your-App-regis] > [設定] > [RedirectURIs]<br /><br />對於這篇文章，任何有效值都適用於 RedirectUri，因為該值不會在此處使用。 |
@@ -341,5 +341,8 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得 SQL Server Azure AD 系統管理員的相關資訊](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator)
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
+- [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

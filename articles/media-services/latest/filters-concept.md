@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 09de372ffdb48c00fde9a43c07f8f8b574462d1f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56372934"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889353"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>定義帳戶篩選器和資產篩選器  
 
-當提供您的內容給客戶 (串流處理即時事件或點播視訊) 時，您的用戶端可能需要比預設資產資訊清單檔案中所述還大的彈性。 Azure 媒體服務可讓您為內容定義帳戶篩選器和資產篩選器。 
+當您將內容傳遞給客戶 （即時資料流的事件或隨選視訊） 您的用戶端可能需要更多的彈性比預設資產資訊清單檔中所述。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 
 
 篩選器是伺服器端規則，可讓您的客戶執行下列動作： 
 
@@ -38,10 +38,9 @@ ms.locfileid: "56372934"
 
 |通訊協定|範例|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>針對 HLS 第 3 版中，使用： `format=m3u8-aapl-v3`。|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="define-filters"></a>定義篩選條件
 
@@ -56,35 +55,35 @@ ms.locfileid: "56372934"
 
 您可以使用下列屬性來描述篩選器。 
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |firstQuality|篩選器的首次品質位元速率。|
 |presentationTimeRange|簡報時間範圍。 此屬性用於篩選資訊清單起始/結束點、簡報視窗長度，以及即時起始位置。 <br/>如需詳細資訊，請參閱 [PresentationTimeRange](#PresentationTimeRange)。|
 |tracks|資料軌選取條件。 如需詳細資訊，請參閱[資料軌](#tracks)|
 
-### <a name="presentationtimerange"></a>PresentationTimeRange
+### <a name="presentationtimerange"></a>presentationTimeRange
 
 將此屬性與**資產篩選器**搭配使用。 不建議搭配**帳戶篩選器**設定此屬性。
 
-|Name|說明|
+|名稱|描述|
 |---|---|
-|**endTimestamp**|絕對結束時間界限。 適用於點播視訊 (VoD)。 對於即時簡報，系統會以無訊息方式忽略它並在簡報結束時套用，然後資料流會成為 VoD。<br/><br/>此值代表資料流的絕對結束點。 系統會將它四捨五入到最接近的下一個 GOP 起始。<br/><br/>使用 StartTimestamp 和 EndTimestamp 修剪播放清單 (資訊清單)。 例如，StartTimestamp=40000000 和 EndTimestamp = 100000000 會產生包含 StartTimestamp 和 EndTimestamp 之間媒體的播放清單。 如果片段跨越界限，則整個片段都會包含在資訊清單中。<br/><br/>此外，請參閱下列 **forceEndTimestamp** 定義。|
-|**forceEndTimestamp**|適用於即時篩選器。<br/><br/>**forceEndTimestamp** 是布林值，指出 **endTimestamp** 是否設定為有效值。 <br/><br/>如果值為 **true**，就會指定 **endTimestamp** 值。 如果未指定，則會傳回不正確的要求。<br/><br/>例如，如果您想要在輸入視訊中定義在 5 分鐘時開始的篩選器，並且持續直到資料流結束，您可以將 **forceEndTimestamp** 設定為 false，並省略設定 **endTimestamp**。|
-|**liveBackoffDuration**|僅適用於即時。 此屬性用於定義即時播放位置。 您可以使用此規則來延遲即時播放位置，並為播放程式建立伺服器端緩衝區。 LiveBackoffDuration 是相對於即時位置。 即時輪詢持續時間的最大值是 300 秒。|
-|**presentationWindowDuration**|適用於即時。 使用 **presentationWindowDuration**，將滑動視窗套用至播放清單。 例如，設定 presentationWindowDuration=1200000000 以套用兩分鐘長的滑動視窗。 在即時邊緣 2 分鐘內的媒體都會包含在播放清單中。 如果片段跨越界限，則整個片段都會包含在播放清單中。 簡報視窗持續時間的最小值是 60 秒。|
-|**startTimestamp**|適用於 VoD 或即時資料流。 此值代表資料流的絕對起始點。 系統會將此值四捨五入到最接近的下一個 GOP 起始。<br/><br/>使用 **startTimestamp** 和 **endTimestamp** 修剪播放清單 (資訊清單)。 例如，startTimestamp=40000000 和 endTimestamp = 100000000 會產生包含 StartTimestamp 和 EndTimestamp 之間媒體的播放清單。 如果片段跨越界限，則整個片段都會包含在資訊清單中。|
-|**timescale**|適用於 VoD 或即時資料流。 timescale 是由上述指定的 timestamp 和 duration 使用。 預設的 timescale 為 10000000。 可以使用替代的 timescale。 預設值為 10000000 HNS (百奈秒)。|
+|**endTimestamp**|適用於點播視訊 (VoD)。<br/>Live Streaming 展示檔，它會以無訊息方式忽略並且套用簡報結束，然後再將資料流時 VoD。<br/>這是簡報的長數值，表示絕對結束點，四捨五入為最接近的下一個 GOP 入門。 單位為的時幅，因此 endTimestamp 1800000000 的會是 3 分鐘。<br/>使用 startTimestamp 和 endTimestamp 修剪會播放清單 （資訊清單） 中的片段。<br/>比方說，startTimestamp = 40000000 和 endTimestamp = 100000000 使用預設的時幅，將會產生包含片段介於 4 秒和 VoD 簡報的 10 秒的播放清單。 如果片段跨越界限，則整個片段都會包含在資訊清單中。|
+|**forceEndTimestamp**|適用於僅即時的資料流。<br/>指出是否必須存在 endTimestamp 屬性。 如果為 true，必須指定 endTimestamp 或傳回不正確的要求程式碼。<br/>允許的值：false、true。|
+|**liveBackoffDuration**|適用於僅即時的資料流。<br/> 此值會定義用戶端可以尋找最新即時位置。<br/>您可以使用這個屬性，來延遲即時播放位置，為玩家建立伺服器端緩衝區項目。<br/>這個屬性的單位是時幅 （如下所示）。<br/>即時輪詢持續時間的上限為 300 秒 (3000000000)。<br/>例如，值為最新可用的內容是 20 秒的 2000000000 表示延遲其真正即時邊緣。|
+|**presentationWindowDuration**|適用於僅即時的資料流。<br/>您可以使用 presentationWindowDuration 套用滑動視窗的播放清單中包含的片段。<br/>這個屬性的單位是時幅 （如下所示）。<br/>例如，設定 presentationWindowDuration=1200000000 以套用兩分鐘長的滑動視窗。 在即時邊緣 2 分鐘內的媒體都會包含在播放清單中。 如果片段跨越界限，則整個片段都會包含在播放清單中。 簡報視窗持續時間的最小值是 60 秒。|
+|**startTimestamp**|適用於影片 (Vod) 或即時資料流。<br/>這是長數值，表示資料流的絕對的起始點。 系統會將此值四捨五入到最接近的下一個 GOP 起始。 因此 startTimestamp 150000000 的會是 15 秒時幅，已包含單位。<br/>使用 startTimestamp 和 endTimestampp 修剪會播放清單 （資訊清單） 中的片段。<br/>比方說，startTimestamp = 40000000 和 endTimestamp = 100000000 使用預設的時幅，將會產生包含片段介於 4 秒和 VoD 簡報的 10 秒的播放清單。 如果片段跨越界限，則整個片段都會包含在資訊清單中。|
+|**timescale**|在簡報時間範圍內，指定的增量數目為一秒內，以套用到所有的時間戳記和持續時間。<br/>預設值為 10000000-一千萬遞增一秒，其中每個增量會是 100 奈秒內。<br/>比方說，如果您想要在 30 秒設定 startTimestamp，您會使用 300000000 值時使用預設的時幅。|
 
 ### <a name="tracks"></a>資料軌
 
-根據應將您資料流的哪個資料軌 (即時或點播視訊) 包含至動態建立的資訊清單中，來指定篩選器資料軌屬性條件 (FilterTrackPropertyConditions) 清單。 篩選器是使用邏輯 **AND** 和 **OR** 運算。
+您指定的篩選器追蹤屬性條件 (FilterTrackPropertyConditions) 清單型的串流 （即時資料流或隨選視訊） 的追蹤記錄應納入動態建立資訊清單。 篩選器是使用邏輯 **AND** 和 **OR** 運算。
 
 篩選器資料軌屬性條件描述資料軌類型、值 (下表中所述) 和運算 (Equal、NotEqual)。 
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |**Bitrate**|使用資料軌的位元速率來篩選。<br/><br/>建議的值是位元速率範圍 (以每秒位元數為單位)。 例如，"0-2427000"。<br/><br/>注意：雖然您可以使用特定的位元速率值，如 250000 (每秒位元數)，但不建議使用此方法，因為資產之間的確切位元速率可能會變動。|
-|**FourCC**|將資料軌的 FourCC 值用於篩選。<br/><br/>該值是轉碼器格式的第一個元素，如 [RFC 6381](https://tools.ietf.org/html/rfc6381) \(英文\) 中所指定。 目前支援下列轉碼器： <br/>視訊："avc1"、"hev1"、"hvc1"<br/>音訊："mp4a"、"ec-3"<br/><br/>若要判斷 Asset 中資料軌的 FourCC 值，請[取得並檢查資訊清單檔案](#get-and-examine-manifest-files)。|
+|**FourCC**|將資料軌的 FourCC 值用於篩選。<br/><br/>該值是轉碼器格式的第一個元素，如 [RFC 6381](https://tools.ietf.org/html/rfc6381) \(英文\) 中所指定。 目前支援下列轉碼器： <br/>視訊："avc1"、"hev1"、"hvc1"<br/>音訊："mp4a"、"ec-3"<br/><br/>若要判斷在資產中的資料軌的 FourCC 值，取得，並檢查資訊清單檔案。|
 |**語言**|使用資料軌的語言來篩選。<br/><br/>此值是您要包含之語言的標籤，如 RFC 5646 中所指定。 例如，"en"。|
 |**名稱**|使用資料軌的名稱來篩選。|
 |**類型**|使用資料軌的類型來篩選。<br/><br/>允許下列值："video"、"audio" 或 "text"。|

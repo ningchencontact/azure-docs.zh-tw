@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422383"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957686"
 ---
 # <a name="azure-firewall-logs"></a>Azure 防火牆記錄
 
 您可以使用防火牆記錄來監視 Azure 防火牆。 您也可以使用活動記錄來稽核 Azure 防火牆資源上的作業。
 
-您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)、儲存體和事件中樞，並在 Log Analytics 中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
+您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)、儲存體和事件中樞，並在 Azure 監視器記錄中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
 
 ## <a name="diagnostic-logs"></a>診斷記錄檔
 
@@ -26,7 +26,7 @@ ms.locfileid: "52422383"
 
 * **應用程式規則記錄**
 
-   只有當您針對每個 Azure 防火牆加以啟用時，應用程式規則記錄才會儲存到儲存體帳戶、串流至事件中樞及/或傳送至 Log Analytics。 符合其中一個已設定應用程式規則的每個新連線，都會產生接受/拒絕連線的記錄。 資料會以 JSON 格式記錄下來，如下列範例所示：
+   應用程式規則記錄檔會儲存到儲存體帳戶、 串流至事件中樞及/或傳送到 Azure 監視器記錄檔中，只有當您為每個 Azure 防火牆啟用它。 符合其中一個已設定應用程式規則的每個新連線，都會產生接受/拒絕連線的記錄。 資料會以 JSON 格式記錄下來，如下列範例所示：
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ ms.locfileid: "52422383"
 
 * **網路規則記錄**
 
-   只有當您針對每個 Azure 防火牆加以啟用時，網路規則記錄才會儲存到儲存體帳戶、串流至事件中樞及/或傳送至 Log Analytics。 符合其中一個已設定網路規則的每個新連線，都會產生接受/拒絕連線的記錄。 資料會以 JSON 格式記錄下來，如下列範例所示：
+   網路規則記錄檔會儲存到儲存體帳戶、 串流至事件中樞及/或傳送到 Azure 監視器記錄檔中，只有當您為每個 Azure 防火牆啟用它。 符合其中一個已設定網路規則的每個新連線，都會產生接受/拒絕連線的記錄。 資料會以 JSON 格式記錄下來，如下列範例所示：
 
    ```
    Category: network rule logs.
@@ -75,7 +75,7 @@ ms.locfileid: "52422383"
 
 * **儲存體帳戶**：如果記錄會儲存一段較長的持續期間，並在需要時加以檢閱，則最好針對記錄使用儲存體帳戶。
 * **事件中樞**：如果要整合其他安全性資訊和事件管理 (SEIM) 工具以便在資源上取得警示，則事件中樞是絕佳的選項。
-* **Log Analytics**：Log Analytics 最適合用來進行應用程式的一般即時監視，或查看趨勢。
+* **Azure 監視器記錄**：Azure 監視器記錄最適合用來進行應用程式的一般即時監視，或查看趨勢。
 
 ## <a name="activity-logs"></a>活動記錄
 
@@ -86,4 +86,4 @@ ms.locfileid: "52422383"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解如何監視 Azure 防火牆記錄和計量，請參閱[教學課程：監視 Azure 防火牆記錄](tutorial-diagnostics.md)。
+若要了解如何監視 Azure 防火牆記錄檔和度量，請參閱[教學課程：監視 Azure 防火牆記錄](tutorial-diagnostics.md)。

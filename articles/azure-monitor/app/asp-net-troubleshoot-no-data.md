@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 11d63889555d6899df07e83168813994907476af
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700905"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860324"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
 *在 Application Insights 中，我只會看到我的應用程式所產生的一小部分事件。*
 
-* 如果您持續看到同一個部分，可能是因為調適性 [取樣](../../azure-monitor/app/sampling.md)所導致。 若要確認這一點，開啟 [搜尋] \(從 [概觀] 刀鋒視窗)，並查看要求或其他事件的執行個體。 按一下 [屬性] 區段底部的 [...]，以取得完整的屬性詳細資料。 如果要求計數 > 1，則表示取樣正在運作中。 
+* 如果您持續看到同一個部分，可能是因為調適性 [取樣](../../azure-monitor/app/sampling.md)所導致。 若要確認這一點，開啟 [搜尋] \(從 [概觀] 刀鋒視窗)，並查看要求或其他事件的執行個體。 按一下 [屬性] 區段底部的 [...]，以取得完整的屬性詳細資料。 如果要求計數 > 1，則表示取樣正在運作中。
 * 否則，有可能是您已達到定價方案的 [資料速率限制](../../azure-monitor/app/pricing.md#limits-summary) 。 每分鐘都會套用這些限制。
 
 ## <a name="no-data-from-my-server"></a>沒有來自我的伺服器的資料
@@ -34,7 +34,7 @@ ms.locfileid: "55700905"
 
 *我已在 Web 伺服器上[安裝狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md)來監視現有的應用程式。我沒有看到任何結果。*
 
-* 請參閱 [疑難排解狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)。 
+* 請參閱 [疑難排解狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)。
 
 ## <a name="q01"></a>在 Visual Studio 中沒有「新增 Application Insights」選項
 當我以滑鼠右鍵按一下 [方案總管] 中的現有專案時，沒有看到任何 Application Insights 選項。
@@ -55,10 +55,10 @@ ms.locfileid: "55700905"
 
 修正：
 
-* 請檢查您為正確的 Azure 帳戶提供登入認證。 
+* 請檢查您為正確的 Azure 帳戶提供登入認證。
 * 在瀏覽器中，檢查您是否可以存取 [Azure 入口網站](https://portal.azure.com)。 開啟 [設定] 並查看是否有任何限制。
 * [將 Application Insights 新增至您現有的專案](../../azure-monitor/app/asp-net.md)：在 [方案總管] 中以滑鼠右鍵按一下您的專案，並選擇 [新增 Application Insights]。
-* 如果仍然無法運作，請依照下列 [手動程序](../../azure-monitor/app/windows-services.md) ，在入口網站中加入資源，然後將 SDK 加入至您的專案。 
+* 如果仍然無法運作，請依照下列 [手動程序](../../azure-monitor/app/windows-services.md) ，在入口網站中加入資源，然後將 SDK 加入至您的專案。
 
 ## <a name="emptykey"></a>我收到「檢測金鑰不能是空白」的錯誤
 可能是您在安裝 Application Insights 或記錄配接器時發生問題。
@@ -76,7 +76,7 @@ ms.locfileid: "55700905"
 可能的原因：
 
 * 如果您是以手動方式建立 Application Insights 資源，或專案是 Application Insights 工具不支援的類型。
-* 您的 Visual Studio 中已停用開發人員分析工具。 
+* 您的 Visual Studio 中已停用開發人員分析工具。
 * 您的 Visual Studio 版本比 2013 Update 3 還舊。
 
 修正：
@@ -90,13 +90,11 @@ ms.locfileid: "55700905"
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>從 Visual Studio 開啟 Application Insights 時「拒絕存取」
 *[開啟 Application Insights] 功能表命令帶我前往 Azure 入口網站，但是我收到「拒絕存取」錯誤。*
 
-您上一次在預設瀏覽器中使用的 Microsoft 登入，沒有 [將 Application Insights 新增至這個應用程式時所建立的資源](../../azure-monitor/app/asp-net.md)的存取權。 有兩個可能的原因： 
+您上一次在預設瀏覽器中使用的 Microsoft 登入，沒有 [將 Application Insights 新增至這個應用程式時所建立的資源](../../azure-monitor/app/asp-net.md)的存取權。 有兩個可能的原因：
 
-* 您有一個以上的 Microsoft 帳戶 - 可能是工作和個人 Microsoft 帳戶？ 您上一次在預設瀏覽器上使用的登入，是與具有 [將 Application Insights 新增至專案](../../azure-monitor/app/asp-net.md)的存取權的帳戶不同的帳戶。 
-  
+* 您有一個以上的 Microsoft 帳戶 - 可能是工作和個人 Microsoft 帳戶？ 您上一次在預設瀏覽器上使用的登入，是與具有 [將 Application Insights 新增至專案](../../azure-monitor/app/asp-net.md)的存取權的帳戶不同的帳戶。
   * 修正：按一下瀏覽器視窗右上方的您的名稱並且登出。然後以具有存取權的帳戶登入。 然後在左側的導覽列中，按一下 [Application Insights]，並選取您的應用程式。
-* 其他人將 Application Insights 新增至專案，且他們忘記為您提供所建立的 [資源群組的存取權](../../azure-monitor/app/resources-roles-access-control.md) 。 
-  
+* 其他人將 Application Insights 新增至專案，且他們忘記為您提供所建立的 [資源群組的存取權](../../azure-monitor/app/resources-roles-access-control.md) 。
   * 修正：如果他們使用組織帳戶，他們可以將您加入小組；或者，他們可以授與您資源群組的個別存取權。
 
 ## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>從 Visual Studio 開啟 Application Insights 時「找不到資產」
@@ -105,9 +103,9 @@ ms.locfileid: "55700905"
 可能的原因：
 
 * 您的應用程式的 Application Insights 資源已刪除；或
-* 檢測金鑰已在 ApplicationInsights.config 中直接編輯以設定或變更，而不需更新專案檔案。 
+* 檢測金鑰已在 ApplicationInsights.config 中直接編輯以設定或變更，而不需更新專案檔案。
 
-ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 專案檔案中的資料行控制當您在 Visual Studio 中使用命令時會開啟哪一個資源。 
+ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 專案檔案中的資料行控制當您在 Visual Studio 中使用命令時會開啟哪一個資源。
 
 修正：
 
@@ -117,25 +115,21 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 ## <a name="where-do-i-find-my-telemetry"></a>哪裡可以找到我的遙測？
 *我已登入 [Microsoft Azure 入口網站](https://portal.azure.com)，且正在查看 Azure 主儀表板。那麼我可以在哪裡找到我的 Application Insights 資料？*
 
-* 在左側的導覽列中，按一下 [Application Insights]，然後選取您的應用程式名稱。 如果您在其中沒有任何專案，則需要 [在您的 Web 專案中新增或設定 Application Insights](../../azure-monitor/app/asp-net.md)。
-  
-    您可以從中看到一些摘要圖表。 您可以逐一點選以查看更詳細的資料。
+* 在左側的導覽列中，按一下 [Application Insights]，然後選取您的應用程式名稱。 如果您在其中沒有任何專案，則需要 [在您的 Web 專案中新增或設定 Application Insights](../../azure-monitor/app/asp-net.md)。  
+  您可以從中看到一些摘要圖表。 您可以逐一點選以查看更詳細的資料。
 * 在 Visual Studio 中偵錯應用程式時，按一下 [Application Insights] 按鈕。
 
 ## <a name="q03"></a> 沒有任何伺服器資料 (或根本沒有資料)
 我執行我的應用程式，然後在 Microsoft Azure 中開啟 Application Insights 服務，但是所有圖表都顯示「了解如何收集...」或「未設定」。 或者，只有頁面檢視和使用者資料，但卻沒有任何伺服器資料。
 
-* 在 Visual Studio 中以偵錯模式執行您的應用程式 (F5)。 使用您的應用程式以產生一些遙測。 請檢查您可以在 Visual Studio 的 [輸出] 視窗中看到所記錄的事件。 
-  
-    ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+* 在 Visual Studio 中以偵錯模式執行您的應用程式 (F5)。 使用您的應用程式以產生一些遙測。 請檢查您可以在 Visual Studio 的 [輸出] 視窗中看到所記錄的事件。  
+  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * 在 Application Insights 入口網站中，開啟 [診斷搜尋](../../azure-monitor/app/diagnostic-search.md)。 這裡通常會先顯示資料。
 * 按一下 [重新整理] 按鈕。 刀鋒視窗會定期自行重新整理，但您也可以手動重新整理。 時間範圍越大，重新整理的間隔就越長。
-* 檢查檢測金鑰相符。 在 Application Insights 入口網站的應用程式主要刀鋒視窗中，在 [Essentials] 下拉式清單中，查看 [檢測金鑰]。 然後，在您的 Visual Studio 的專案中，開啟 ApplicationInsights.config，並尋找 `<instrumentationkey>`。 請檢查兩個金鑰是否相等。 如果不是：
-  
+* 檢查檢測金鑰相符。 在 Application Insights 入口網站的應用程式主要刀鋒視窗中，在 [Essentials] 下拉式清單中，查看 [檢測金鑰]。 然後，在您的 Visual Studio 的專案中，開啟 ApplicationInsights.config，並尋找 `<instrumentationkey>`。 請檢查兩個金鑰是否相等。 如果不是：  
   * 在入口網站中，按一下 [Application Insights]，並且尋找具有正確金鑰的應用程式資源；或
   * 在 Visual Studio [方案總管] 中，以滑鼠右鍵按一下專案，然後選擇 [Application Insights]、[設定]。 重設應用程式，以將遙測傳送至正確的資源。
   * 如果找不到相符的金鑰，請確認您在 Visual Studio 中使用與入口網站相同的登入認證。
-    
 * 在 [Microsoft Azure 主儀表板](https://portal.azure.com)中，查看服務健全狀況對應。 如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
 * 也請查閱 [我們的狀態部落格](https://blogs.msdn.microsoft.com/servicemap-status/)。
 * 您針對[伺服器端 SDK](../../azure-monitor/app/api-custom-events-metrics.md) 撰寫的任何程式碼是否可能會變更 `TelemetryClient` 執行個體或 `TelemetryContext` 中的檢測金鑰？ 或者您撰寫的 [篩選或取樣組態](../../azure-monitor/app/api-filtering-sampling.md) 可能會篩選出過多項目？
@@ -167,9 +161,9 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 * 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>我並沒有看到預期的所有資料
-如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則 [調適性取樣](../../azure-monitor/app/sampling.md) 功能可能會運作，並只傳送一部分的遙測資料。 
+如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則 [調適性取樣](../../azure-monitor/app/sampling.md) 功能可能會運作，並只傳送一部分的遙測資料。
 
-您可以停用它，但是這不是建議的作法。 取樣經過設計，以便能正確傳輸相關的遙測，供診斷之用。 
+您可以停用它，但是這不是建議的作法。 取樣經過設計，以便能正確傳輸相關的遙測，供診斷之用。
 
 ## <a name="client-ip-address-is-0000"></a>用戶端 IP 位址為 0.0.0.0
 
@@ -178,7 +172,6 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 > [!NOTE]
 > 如果您需要 IP 位址的前 3 個八位元，可以使用[遙測初始設定式](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)來新增自訂屬性。
 > 這不會影響到 2018 年 2 月 5 日以前收集的資料。
-
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>使用者遙測中錯誤的地理資料
 城市、區域和國家/地區維度衍生自 IP 位址，而且不一定準確。 這些 IP 位址會先針對位置進行處理，然後變更為 0.0.0.0 以進行儲存。
@@ -190,30 +183,30 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 
 請依照下列指示擷取架構的疑難排解記錄。
 
-### <a name="net-framework"></a>.Net Framework
+### <a name="net-framework"></a>.NET Framework
 
 1. 從 NuGet 安裝 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 套件。 您安裝的版本必須符合目前安裝的 `Microsoft.ApplicationInsighs` 版本
 
 2. 修改您的 applicationinsights.config 檔案以包含下列內容：
 
-   ```xml
-   <TelemetryModules>
+    ```xml
+    <TelemetryModules>
       <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
         <Severity>Verbose</Severity>
         <LogFileName>mylog.txt</LogFileName>
         <LogFilePath>C:\\SDKLOGS</LogFilePath>
       </Add>
-   </TelemetryModules>
-   ```
-   您的應用程式必須對設定的位置具有寫入權限
- 
- 3. 重新啟動程序，讓 SDK 取得這些新設定
- 
- 4. 完成作業後，請還原這些變更。
-  
-### <a name="net-core"></a>.Net Core
+    </TelemetryModules>
+    ```
+    您的應用程式必須對設定的位置具有寫入權限
 
-1. 從 NuGet 安裝 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 套件。 您安裝的版本必須符合目前安裝的 `Microsoft.ApplicationInsighs` 版本
+3. 重新啟動程序，讓 SDK 取得這些新設定
+
+4. 完成作業後，請還原這些變更。
+
+### <a name="net-core"></a>.NET Core
+
+1. 安裝[Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup)來自 NuGet 的套件。 您安裝的版本必須符合目前安裝的 `Microsoft.ApplicationInsights` 版本
 
 2. 修改 `Startup.cs` 類別中的 `ConfigureServices` 方法：
 
@@ -225,13 +218,11 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
         module.Severity = "Verbose";
     } );
     ```
-   您的應用程式必須對設定的位置具有寫入權限
- 
- 3. 重新啟動程序，讓 SDK 取得這些新設定
- 
- 4. 完成作業後，請還原這些變更。
-  
+    您的應用程式必須對設定的位置具有寫入權限
+
+3. 重新啟動程序，讓 SDK 取得這些新設定
+
+4. 完成作業後，請還原這些變更。
 
 ## <a name="still-not-working"></a>仍然無法運作...
 * [Application Insights 論壇](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-

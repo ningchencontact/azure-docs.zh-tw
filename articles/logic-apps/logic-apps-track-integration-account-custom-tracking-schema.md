@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 68c5d6e68562d4027c102e1bde42c775648e58c4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f919e9a7cca210fa5920bcc6bed05a9a41fba8bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124838"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192379"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>建立自訂追蹤結構描述，以監視 Azure Logic Apps 中的端對端工作流程
 
@@ -56,7 +56,7 @@ ms.locfileid: "43124838"
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | sourceType |   | 執行來源的類型。 允許的值為 **Microsoft.Logic/workflows** 和 **custom**。 (必要) |
 | 來源 |   | 如果來源類型是 **Microsoft.Logic/workflows**，則來源資訊必須遵循此結構描述。 如果來源類型為 **custom**，則結構描述為 JToken。 (必要) |
@@ -84,4 +84,4 @@ ms.locfileid: "43124838"
 ## <a name="next-steps"></a>後續步驟
 
 * [深入了解監視 B2B 訊息](logic-apps-monitor-b2b-message.md)
-* 了解[在 Log Analytics 中追蹤 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* 深入了解[追蹤 Azure 監視器記錄檔中的 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

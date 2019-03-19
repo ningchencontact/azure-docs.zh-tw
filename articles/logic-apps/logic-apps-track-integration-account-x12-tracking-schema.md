@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.openlocfilehash: cfd195f2f812c8b2e09058d325d0dbb6f7a60d59
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125596"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195178"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>建立結構描述，以便追蹤 Azure Logic Apps 整合帳戶中的 X12 訊息
 
@@ -57,7 +57,7 @@ ms.locfileid: "43125596"
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | senderPartnerName | 字串 | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | 字串 | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -113,7 +113,7 @@ ms.locfileid: "43125596"
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | senderPartnerName | 字串 | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | 字串 | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -171,7 +171,7 @@ ms.locfileid: "43125596"
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | senderPartnerName | 字串 | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | 字串 | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -222,7 +222,7 @@ ms.locfileid: "43125596"
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | senderPartnerName | 字串 | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | 字串 | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -275,7 +275,7 @@ ms.locfileid: "43125596"
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | senderPartnerName | 字串 | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | 字串 | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -331,7 +331,7 @@ ms.locfileid: "43125596"
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | senderPartnerName | 字串 | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | 字串 | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -365,4 +365,4 @@ ms.locfileid: "43125596"
 ## <a name="next-steps"></a>後續步驟
 
 * [深入了解監視 B2B 訊息](logic-apps-monitor-b2b-message.md)。
-* 了解[在 Log Analytics 中追蹤 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
+* 深入了解[追蹤 B2B 訊息，在 Azure 監視器記錄檔中的](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
