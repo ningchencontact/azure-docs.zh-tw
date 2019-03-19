@@ -3,22 +3,22 @@ title: 使用 U-SQL 指令碼轉換資料 - Azure | Microsoft Docs
 description: 了解如何在 Azure Data Lake Analytics 計算服務上執行 U-SQL 指令碼來處理或轉換資料。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020841"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777289"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,7 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 
 下表提供 JSON 定義中所使用之一般屬性的描述。 您可以在服務主體與使用者認證驗證之間進一步選擇。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | **type** |type 屬性應設為：**AzureDataLakeAnalytics**。 |是 |
 | **accountName** |Azure Data Lake Analytics 帳戶名稱。 |是 |
@@ -62,7 +62,7 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 
 指定下列屬性以使用服務主體驗證：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | 是 |
 | **servicePrincipalKey** | 指定應用程式的金鑰。 | 是 |
@@ -90,7 +90,7 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 ### <a name="user-credential-authentication"></a>使用者認證驗證
 或者，您也可以藉由指定下列屬性，使用 Data Lake Analytics 的使用者認證驗證：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
 | **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | 是 |
@@ -206,7 +206,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 下表描述此活動特有的屬性之名稱和描述。 
 
-| 屬性            | 說明                              | 必要                                 |
+| 屬性            | 描述                              | 必要項                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
 | type                | 類型屬性必須設為 DataLakeAnalyticsU-SQL 。 | 是                                      |
 | 預設容器   | 參考 Azure Data Lake Analytics 註冊為 Data Factory 中的連結服務 | 是                                      |
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-ADF 會使用 ‘parameters’ 區段來動態傳遞 U-SQL 指令碼中 **@in** 和 **@out** 參數的值。 請參閱管線定義中的 ‘parameters’ 區段。
+值**\@中**並**\@出**U-SQL 指令碼中的參數來動態傳遞 ADF 使用 'parameters' 區段。 請參閱管線定義中的 ‘parameters’ 區段。
 
 您也可以在管線定義中，針對在 Azure Data Lake Analytics 服務上執行的作業，指定其他屬性 (例如 degreeOfParallelism 和 priority)。
 

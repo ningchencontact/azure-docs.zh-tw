@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 38a01b4f81b76ba90a5fda4909d0e65e6307057e
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408709"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569020"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>對應資料流程來源轉換
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-來源轉換會設定您想要用來將資料帶入資料流程的資料來源。 在單一資料流程中，您可以有多個來源轉換。 一律使用來源開始設計資料流程。
+來源轉換會設定您想要用來將資料帶入資料流程的資料來源。 在單一資料流程中，您可以有多個來源轉換。 一定會開始設計您的資料流動，以來源轉換。
 
 > [!NOTE]
-> 每個資料流程需要至少一個來源轉換。 視需要新增多個其他來源，以完成您的資料轉換。 您可以使用聯結或聯集轉換，將這些來源聯結在一起。
+> 每個資料流程需要至少一個來源轉換。 視需要新增多個其他來源，以完成您的資料轉換。 您可以使用聯結或聯集轉換，將這些來源聯結在一起。 當偵錯在偵錯工作階段中的資料流時，則會使用取樣設定或偵錯來源限制從來源讀取資料。 不過，不會再寫入資料到接收在您執行在資料流程管線資料流活動之前。 
 
 ![來源轉換選項](media/data-flow/source.png "來源")
 
-每個資料流程來源轉換必須與正好一個 Data Factory 資料集相關聯，該資料集會定義要寫入或讀取您的資料的圖形和位置。 您可以在來源中使用萬用字元和檔案清單，一次處理一個以上的檔案。
+每個資料流程來源轉換必須只有一個 Data Factory 資料集相關聯。 資料集定義的圖形和寫入或讀取資料的位置。 您也可以在您的來源中使用萬用字元和檔案的清單，一次處理一個以上的檔案時使用檔案的來源。
 
 ## <a name="data-flow-staging-areas"></a>資料流程暫存區域
 
@@ -43,7 +43,7 @@ ms.locfileid: "56408709"
 如果來源資料的新近版本不符合定義的結構描述，則資料流程會執行失敗。
 
 ### <a name="sampling"></a>取樣
-使用取樣來限制您來源中的資料列數目。  當您只需要您的來源資料範例進行測試及偵錯時，這非常有用。
+使用取樣來限制您來源中的資料列數目。  這是測試或從您的來源，以進行偵錯取樣資料時很有用。
 
 ## <a name="define-schema"></a>定義結構描述
 
@@ -53,7 +53,7 @@ ms.locfileid: "56408709"
 
 ![來源轉換](media/data-flow/source003.png "資料類型")
 
-對於強型別來源，您可以修改 
+針對強型別來源，您可以修改中後續的選取轉換的資料類型。 
 
 ### <a name="optimize"></a>最佳化
 
@@ -74,7 +74,7 @@ ms.locfileid: "56408709"
 ## <a name="source-file-management"></a>來源檔案管理
 ![新增來源設定](media/data-flow/source2.png "新增設定")
 
-* 萬用字元路徑，從您的來源資料夾中挑選一系列符合模式的檔案。 這會覆寫您已在資料集定義中設定的任何檔案。
+* 萬用字元路徑，從您的來源資料夾中挑選一系列符合模式的檔案。 這會覆寫您已設定您的資料集定義中的任何檔案。
 * 檔案清單。 與檔案集相同。 指向您建立的文字檔案，其中包含一份要處理的相對路徑檔案清單。
 * 要儲存檔案名稱的資料行會在您資料的資料行中，儲存來源中的檔案名稱。 在此輸入新的名稱以儲存檔案名稱字串。
 * 完成之後 (在資料流執行之後，您可以選擇不對來源檔案執行任何作業、刪除來源檔案或移動來源檔案。) 用於移動的路徑都是相對路徑。

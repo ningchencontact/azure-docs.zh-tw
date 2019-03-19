@@ -12,23 +12,17 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/03/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: a4a86576b8f9f842c54cfa195305a3e0d0ff4724
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: HT
+ms.openlocfilehash: eb3435d8c7b10e2de55cb0cf1f3ad2548bf2bcef
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527614"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766745"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
-本文描述您可以在Azure Resource Manager 範本中使用的所有函式。
-
-您要在範本中新增函式，方法是分別將它們以括弧括住：`[` 和 `]`。 在部署期間，會評估運算式。 雖然是以字串常值撰寫，評估運算式的結果，可能會是不同的 JSON 類型 (例如陣列、物件或整數)。 和在 JavaScript 中相同，函式呼叫的格式為 `functionName(arg1,arg2,arg3)`。 您可以使用點與 [index] 運算子來參考屬性。
-
-範本運算式不能超過 24,576 個字元。
-
-範本函數和其參數不區分大小寫。 例如，Resource Manager 在解析 **variables('var1')** 和 **VARIABLES('VAR1')** 時，會將它們視為相同。 評估時，除非函式明確修改大小寫 (例如 toUpper 或 toLower)，否則函式將會保留大小寫。 特定資源類型可能有與評估函式方式無關的大小寫需求。
+本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 如需在範本中使用函式的資訊，請參閱[範本語法](resource-group-authoring-templates.md#syntax)。
 
 若要建立自己的函式，請參閱[使用者定義的函式](resource-group-authoring-templates.md#functions)。
 
@@ -190,7 +184,7 @@ Resource Manager 提供下列函式以使用邏輯條件：
 <a id="uricomponenttostring" />
 
 ## <a name="string-functions"></a>字串函數
-資源管理員提供下列函式以使用字串：
+Resource Manager 提供以下用于处理字符串的函数：
 
 * [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
@@ -207,12 +201,13 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [length](resource-group-template-functions-string.md#length)
+* [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
 * [分割](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [字串](resource-group-template-functions-string.md#string)
+* [字符串](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
@@ -222,9 +217,10 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [uri](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
+* [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Azure 資源管理員範本中各區段的說明，請參閱 [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 * 若要合併多個範本，請參閱 [透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
 * 建立資源類型時若要逐一查看指定的次數，請參閱 [在 Azure Resource Manager 中建立資源的多個執行個體](resource-group-create-multiple.md)
-* 若要了解如何部署已建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
+* 若要了解如何部署已建立的範本，請參閱[部署應用程式使用 Azure Resource Manager 範本](resource-group-template-deploy.md)

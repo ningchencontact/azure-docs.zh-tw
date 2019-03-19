@@ -12,15 +12,15 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 9203e786f701929a25251066190f5d507eacac02
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 656645326314fec42ba909957c9dc27fe88ae338
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982019"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773294"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的網路
 
@@ -141,7 +141,7 @@ az vmss create \
 }
 ```
 
-個別虛擬機器 DNS 名稱的輸出格式如下： 
+单个虚拟机 DNS 名称的输出将采用以下形式： 
 ```
 <vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```

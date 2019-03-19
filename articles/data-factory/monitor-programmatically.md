@@ -3,28 +3,29 @@ title: 以程式設計方式監視 Azure Data Factory | Microsoft Docs
 description: 了解如何使用不同的軟體開發套件 (SDK) 來監視資料處理站中的管線。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: ed1d6ab96a7658880a8784c5e03c3787cf87a8ba
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022796"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576305"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>以程式設計方式監視 Azure Data Factory
 本文說明如何使用不同的軟體開發套件 (SDK) 來監視資料處理站中的管線。 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="data-range"></a>資料範圍
 
-Data Factory 只會儲存管線執行資料 45 天。 當您以程式設計方式查詢有關 Data Factory 管線執行的資料時 (例如，使用 PowerShell 命令 `Get-AzureRmDataFactoryV2PipelineRun`)，可選的 `LastUpdatedAfter` 和 `LastUpdatedBefore` 參數沒有最大日期。 但如果您查詢過去一年的資料，例如，查詢不會傳回錯誤，但僅傳回最近 45 天的管線執行資料。
+Data Factory 只會儲存管線執行資料 45 天。 當您以程式設計方式查詢有關 Data Factory 管線執行的資料時 (例如，使用 PowerShell 命令 `Get-AzDataFactoryV2PipelineRun`)，可選的 `LastUpdatedAfter` 和 `LastUpdatedBefore` 參數沒有最大日期。 但如果您查詢過去一年的資料，例如，查詢不會傳回錯誤，但僅傳回最近 45 天的管線執行資料。
 
 如果要將管線執行資料保存超過 45 天，請使用 [Azure 監視器](monitor-using-azure-monitor.md)設定您自己的診斷記錄。
 
@@ -119,7 +120,7 @@ print_activity_run_details(activity_runs_paged[0])
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
@@ -137,7 +138,7 @@ print_activity_run_details(activity_runs_paged[0])
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -147,7 +148,7 @@ print_activity_run_details(activity_runs_paged[0])
     $result.Error -join "`r`n"
     ```
 
-如需有關 PowerShell Cmdlet 的完整文件，請參閱 [Data Factory PowerShell Cmdlet 參考](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1)。
+如需有關 PowerShell Cmdlet 的完整文件，請參閱 [Data Factory PowerShell Cmdlet 參考](/powershell/module/az.datafactory)。
 
 ## <a name="next-steps"></a>後續步驟
 請參閱[使用 Azure 監視器來監視管線](monitor-using-azure-monitor.md)文章，以了解如何使用 Azure 監視器來監視 Data Factory 管線。 

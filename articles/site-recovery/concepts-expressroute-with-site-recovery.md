@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 3/8/2019
 ms.author: mayg
-ms.openlocfilehash: 1fabbe3a9a486abc862bfb6c2671c60d11d8e8c7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: f8179f5e647039737a59afdd04d345bf465acfdf
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809925"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726340"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute 搭配 Azure Site Recovery
 
@@ -38,7 +38,7 @@ ExpressRoute 線路有多個相關聯的路由網域：
 
 Azure Site Recovery 能夠針對內部部署的 [Hyper-V 虛擬機器](hyper-v-azure-architecture.md)、[VMware 虛擬機器](vmware-azure-architecture.md)和[實體伺服器](physical-azure-architecture.md)進行災害復原並移轉到 Azure。 針對所有內部部署到 Azure 的案例，會將複寫資料傳送到並儲存於 Azure 儲存體帳戶。 在複寫期間，您不需支付任何虛擬機器費用。 當您容錯移轉到 Azure 時，Site Recovery 會自動建立 Azure IaaS 虛擬機器。
 
-Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體帳戶。 若要使用 ExpressRoute 進行 Site Recovery 複寫，您可以運用[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)或 [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)。 Microsoft 對等互連是建議用於複寫的路由網域。 請確認也符合[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)以進行複寫。 將虛擬機器容錯移轉到 Azure 虛擬網路之後，您就可以使用[私用對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)存取它們。 私用對等互連不支援複寫。
+Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體帳戶。 若要使用 Site Recovery 複寫的 ExpressRoute，您可以利用[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)（新建立的已過時） 或[Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)。 Microsoft 對等互連是建議用於複寫的路由網域。 請確認也符合[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)以進行複寫。 將虛擬機器容錯移轉到 Azure 虛擬網路之後，您就可以使用[私用對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)存取它們。 私用對等互連不支援複寫。
 
 下圖顯示組合案例：![使用 ExpressRoute 進行內部部署到 Azure 複寫](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
@@ -56,4 +56,4 @@ Azure Site Recovery 會啟用 [Azure 虛擬機器](azure-to-azure-architecture.m
 - 深入了解 [ExpressRoute 線路](../expressroute/expressroute-circuit-peerings.md)。
 - 深入了解 [ExpressRoute 路由網域](../expressroute/expressroute-circuit-peerings.md#peeringcompare)。
 - 深入了解 [ExpressRoute 位置](../expressroute/expressroute-locations.md)。
-- 深入了解 [Azure 虛擬機器與 ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md) 的災害復原。
+- 深入了解災害復原[透過 ExpressRoute 的 Azure 虛擬機器](azure-vm-disaster-recovery-with-expressroute.md)。

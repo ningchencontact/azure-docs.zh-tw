@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666869"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534254"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>在 Azure Machine Learning 中使用 IoT 中樞的感應器資料進行氣象預報
 
@@ -43,7 +43,7 @@ ms.locfileid: "38666869"
 
 - 完成涵蓋下列需求的[設定裝置](iot-hub-raspberry-pi-kit-node-get-started.md)教學課程︰
   - 有效的 Azure 訂用帳戶。
-  - 位於您訂用帳戶中的 Azure IoT 中樞。
+  - 已在订阅中创建一个 Azure IoT 中心。
   - 將訊息傳送到您 Azure IoT 中樞的用戶端應用程式。
 - Azure Machine Learning Studio 帳戶。 ([免費試用 Machine Learning Studio](https://studio.azureml.net/))。
 
@@ -79,17 +79,17 @@ ms.locfileid: "38666869"
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [建立資源] > [物聯網] > [串流分析作業]。
 1. 輸入作業的以下資訊。
 
-   **作業名稱**：作業名稱。 此名稱必須是全域唯一的。
+   **作業名稱**：作業的名稱。 此名稱必須是全域唯一的。
 
-   **資源群組**︰使用 IoT 中樞所用的相同資源群組。
+   **資源群組**：使用 IoT 中樞所用的相同資源群組。
 
-   **位置**︰使用與資源群組相同的位置。
+   **位置**：使用與資源群組相同的位置。
 
-   **釘選至儀表板**︰核取此選項可讓您從儀表板輕鬆地存取 IoT 中樞。
+   **釘選到儀表板**：核取此選項可讓您從儀表板輕鬆地存取 IoT 中樞。
 
    ![在 Azure 中建立串流分析作業](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. 按一下頁面底部的 [新增] 。
+1. 单击“创建”。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
@@ -97,9 +97,9 @@ ms.locfileid: "38666869"
 1. 在 [作業拓撲] 之下，按一下 [輸入]。
 1. 在 [輸入] 窗格中，按一下 [新增]，然後輸入下列資訊︰
 
-   **輸入別名**︰輸入的唯一別名。
+   **輸入別名**：輸入唯一別名。
 
-   **來源**︰選取 [IoT 中樞]。
+   **來源**：選取 [IoT 中樞]。
 
    **取用者群組**：選取您建立的取用者群組。
 
@@ -112,15 +112,15 @@ ms.locfileid: "38666869"
 1. 在 [作業拓撲] 之下，按一下 [輸出]。
 1. 在 [輸出] 窗格中，按一下 [新增]，然後輸入下列資訊︰
 
-   **輸出別名**︰輸出的唯一別名。
+   **輸出別名**：輸出的唯一別名。
 
-   **接收器**：選取 [Blob 儲存體]。
+   **接收**：選取  **Blob 儲存體**。
 
-   **儲存體帳戶**：您 Blob 儲存體的儲存體帳戶。 您可以建立儲存體帳戶，或使用現有的帳戶。
+   **儲存體帳戶**：您的 blob 儲存體的儲存體帳戶。 您可以建立儲存體帳戶，或使用現有的帳戶。
 
-   **容器**：儲存 Blob 所在位置的容器。 您可以建立容器或是使用現有的容器。
+   **容器**：儲存 blob 容器。 您可以建立容器或是使用現有的容器。
 
-   **事件序列化格式**：選取 [CSV]。
+   **事件序列化格式**:選取 [CSV]。
 
    ![在 Azure 中將輸出新增至串流分析作業](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
@@ -131,15 +131,15 @@ ms.locfileid: "38666869"
 1. 在 [作業拓撲] 下，按一下 [函式] > [新增]。
 1. 輸入以下資訊：
 
-   **函式別名**：輸入 `machinelearning`。
+   **函式別名**:輸入 `machinelearning` 。
 
-   **函式類型**：選取 [Azure ML]。
+   **函式類型**:選取  **Azure ML**。
 
-   **匯入選項**：選取 [從不同的訂用帳戶匯入]。
+   **匯入選項**：選取 **從不同的訂用帳戶匯入**。
 
-   **URL**：輸入您從 Excel 活頁簿記下的 Web 服務 URL。
+   **URL**：從 Excel 活頁簿，請輸入您記下的 WEB 服務 URL。
 
-   **金鑰**：輸入您從 Excel 活頁簿記下的存取金鑰。
+   **金鑰**：從 Excel 活頁簿中輸入您記下的存取金鑰。
 
    ![在 Azure 中將功能新增至串流分析作業](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
@@ -175,7 +175,7 @@ ms.locfileid: "38666869"
 
 執行用戶端應用程式來開始收集和傳送溫度和溼度資料至 IoT 中樞。 對於 IoT 中樞收到的每個訊息，串流分析作業會呼叫氣象預報 Web 服務，以產生下雨的機會。 接著會將結果儲存到您的 Azure Blob 儲存體。 Azure 儲存體總管是一個工具，可供您用來檢視結果。
 
-1. [下載並安裝 Microsoft Azure 儲存體總管](http://storageexplorer.com/)。
+1. [下載並安裝 Microsoft Azure 儲存體總管](https://storageexplorer.com/)。
 1. 開啟 [Azure 儲存體總管]。
 1. 登入您的 Azure 帳戶。
 1. 選取您的訂用帳戶。

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f47de0544d6d708d3c8b104be4edada86c11551
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190359"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549012"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -149,23 +149,13 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ## <a name="download-sign-in-activities"></a>下載登入活動
 
-如果您想要在 Azure 入口網站以外使用登入活動資料，您可以[下載登入資料](quickstart-download-sign-in-report.md)。 按一下 [下載]，以建立最近 5000 筆記錄的 CSV 檔案。  除了 [下載] 按鈕以外，Azure 入口網站也提供讓您[產生指令碼以下載資料](tutorial-signin-logs-download-script.md)的選項。  
+如果您想要在 Azure 入口網站以外使用登入活動資料，您可以[下載登入資料](quickstart-download-sign-in-report.md)。 按一下 **下載**可讓您建立 CSV 或 JSCON 檔案的最新的 250,000 記錄的選項。  
 
 ![下載](./media/concept-sign-ins/71.png "下載")
-
-如果您需要更多彈性，您可以使用指令碼解決方案。 按一下 [指令碼]，這樣會建立一個 PowerShell 指令碼，而且它包含所有您已設定的篩選條件。 下載此指令碼並在**系統管理員模式**中執行來產生 CSV 檔案。 
 
 > [!IMPORTANT]
 > 您可以下載的記錄數目會受限於 [Azure Active Directory 報告保留原則](reference-reports-data-retention.md)。  
 
-### <a name="running-the-script-on-a-windows-10-machine"></a>在 Windows 10 電腦上執行指令碼
-
-如果您想要在 **Windows 10** 電腦上執行指令碼，必須先執行一些額外的步驟。 
-
-1. 安裝 [Az 模組](/powershell/azure/install-az-ps)。
-2. 開啟 PowerShell 提示字元並執行 **Import-Module Az** 命令來匯入模組。
-3. 執行 **Set-ExecutionPolicy unrestricted** 然後選擇 [全部皆是]。 
-4. 現在您可以在系統管理員模式中執行下載的 PowerShell 指令碼執行來產生 CSV 檔案。
 
 ## <a name="sign-ins-data-shortcuts"></a>登入資料捷徑
 

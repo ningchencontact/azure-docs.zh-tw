@@ -1,9 +1,8 @@
 ---
-title: Azure SQL Database (預覽) 中的機器學習服務 (搭配 R) 概觀
+title: Azure SQL 資料庫機器學習服務 R （預覽） 概觀
 description: 本主題說明 Azure SQL Database 機器學習服務 (搭配 R) 及其運作方式。
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,22 +10,26 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 02/06/2019
-ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: e6d6250da4df6ab267ef28f8f15a73c8cbc68618
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875598"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762054"
 ---
-# <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Azure SQL Database (預覽) 中的機器學習服務 (搭配 R)
+# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL 資料庫機器學習服務使用 R （預覽）
 
 機器學習服務是 Azure SQL Database 的功能，用來執行資料庫內 R 指令碼。 此功能包含高效能預測性分析和機器學習服務的 Microsoft R 套件。 透過預存程序、包含 R 陳述式的 T-SQL 指令碼或包含 T-SQL 的 R 程式碼，關聯式資料可在 R 指令碼中使用。
 
 > [!IMPORTANT]
-> Azure SQL Database 中的機器學習服務 (搭配 R) 目前對於在**一般用途**和**商務關鍵**服務層中使用虛擬核心購買模型的單一資料庫和彈性集區提供公開預覽。 在此初始公開預覽版中，**超大規模**服務層和**受控執行個體**部署選項皆不受支援。 目前，R 是唯一支援的語言。 目前不支援 Python。 
+> Azure SQL Database Machine Learning 服務 （使用 R) 目前處於公開預覽狀態。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
+> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 >
-> 預覽目前適用於以下區域：西歐、北歐、美國西部 2、美國東部、美國中南部、美國中北部、加拿大中部、東南亞、印度南部及澳大利亞東南部。 
+> 公開預覽版本可供單一資料庫和彈性集區的使用中，以 vCore 為基礎的購買模型**一般用途**並**商務關鍵性**服務層。 在此初始公開預覽版中，**超大規模**服務層和**受控執行個體**部署選項皆不受支援。 目前，R 是唯一支援的語言。 目前不支援 Python。
+>
+> 預覽目前已推出在下列區域：西歐、 北歐、 美國西部 2、 美國東部、 美國中南部、 North Central US、 加拿大中部、 東南亞、 印度南部和澳大利亞東南部。
 >
 > 請至下方[註冊預覽版](#signup)。
 
@@ -40,7 +43,7 @@ ms.locfileid: "55875598"
 
 最常見的開放原始碼 R 套件已預先安裝在機器學習服務中。 下列來自 Microsoft 的 R 套件也包含在內：
 
-| R 封裝 | 說明|
+| R 封裝 | 描述|
 |-|-|
 | [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open 是 Microsoft 提供的增強版 R。 這是一個完整的統計分析和資料科學開放原始碼平台， 以 R 為基礎並百分之百與 R 相容，而且包含提升效能與重現性的額外功能。 |
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR 是擴充 R 的主要程式庫，此程式庫的函式最廣泛受到使用。 在這些程式庫中，可以找到資料轉換和操作、統計摘要、視覺效果，以及多種形式的模型與分析。 此外，這些程式庫中的函式會自動將工作負載發散到可用的核心進行平行處理，且能夠在計算引擎協調與管理的資料區塊上運作。 |
@@ -60,7 +63,7 @@ ms.locfileid: "55875598"
 
 當您在計畫中註冊後，Microsoft 即會將您加入公開預覽版，並為您現有或新的資料庫啟用 R。
 
-在公開預覽期間，請勿將搭配 R 的機器學習服務用於生產工作負載。
+在公開預覽期間生產工作負載不建議使用 R 的 machine Learning 服務。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,19 +1,19 @@
 ---
 title: 管理 Azure IoT Central 應用程式 | Microsoft Docs
-description: 了解如何以系統管理員的身分管理 Azure IoT Central 應用程式
+description: 身為管理員，如何管理您的 Azure IoT Central 應用程式
 author: viv-liu
 ms.author: viviali
-ms.date: 04/16/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 29ded279e2a76940049c257b954b1dae75f14836
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822590"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778598"
 ---
 # <a name="administer-your-iot-central-application"></a>管理您的 IoT Central 應用程式
 
@@ -44,11 +44,11 @@ ms.locfileid: "55822590"
 若要變更應用程式影像，請參閱[準備及上傳影像至您的 Azure IoT Central 應用程式](howto-prepare-images.md)。
 
 ### <a name="copy-an-application"></a>複製應用程式
-您可以建立任何應用程式複本，並減去其中的任何裝置執行個體、裝置資料歷程記錄和使用者資料。 這個複本將會是您必須支付費用的預付型方案應用程式。 如此一來，您無法建立試用版應用程式。
+您可以建立任何應用程式複本，並減去其中的任何裝置執行個體、裝置資料歷程記錄和使用者資料。 複本是您將支付的隨用隨付應用程式。 如此一來，您無法建立試用版應用程式。
 
-按一下 [複製] 按鈕。 在對話方塊中，輸入新預付型方案應用程式的詳細資料。 接著，按一下 [複製] 按鈕來確認您想要繼續進行。 在[建立應用程式](quick-deploy-iot-central.md)快速入門中，深入了解此表單中的欄位。
+選取 **複製**。 在對話方塊中，輸入新預付型方案應用程式的詳細資料。 然後選取**複製**以確認您想要繼續進行。 在[建立應用程式](quick-deploy-iot-central.md)快速入門中，深入了解此表單中的欄位。
 
-![[應用程式設定] 頁面](media/howto-administer/appCopy2.png)
+![[應用程式設定] 頁面](media/howto-administer/appcopy2.png)
 
 當應用程式複製作業成功之後，您就可以移至透過使用所出現的連結複製應用程式所建立的新應用程式。
 
@@ -62,7 +62,7 @@ ms.locfileid: "55822590"
 > [!Note]
 > 若要刪除應用程式，您必須在建立應用程式時所選擇的 Azure 訂用帳戶中具有刪除資源的權限。 若要深入了解，請參閱[使用角色型存取控制來管理 Azure 訂用帳戶資源的存取](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)。
 
-使用 [刪除] 按鈕可永久刪除您的 IoT Central 應用程式。 如此將會永久刪除所有與該應用程式相關聯的資料。
+使用 [刪除] 按鈕可永久刪除您的 IoT Central 應用程式。 如此一來永久刪除與該應用程式相關聯的所有資料。
 
 ## <a name="manage-users"></a>管理使用者
 
@@ -95,7 +95,7 @@ ms.locfileid: "55822590"
 
 ## <a name="manage-roles"></a>管理角色
 
-角色可讓您控制組織中的哪些人員可以在 IoT Central 中執行各種不同的工作。 有三個角色您可以指派給應用程式的使用者。 
+角色可讓您控制組織中的哪些人員可以在 IoT Central 中執行各種不同的工作。 有三個角色您可以指派給應用程式的使用者。
 
 ### <a name="administrator"></a>系統管理員
 
@@ -111,7 +111,6 @@ ms.locfileid: "55822590"
 
 擔任 [應用程式操作員] 角色的使用者無法對裝置範本進行變更，也無法管理應用程式。 也就是說，操作員可以新增和刪除裝置、管理裝置集合，以及執行分析和作業。 操作員無法存取應用程式的 [應用程式建置者] 和 [管理] 頁面。
 
-
 ## <a name="view-your-bill"></a>檢視您的帳單
 
 若要檢視帳單，請移至 [管理] 區段中的 [帳單] 頁面。 Azure 帳單頁面即會在新的索引標籤中開啟，您可在其中看見每個 Azure IoT Central 應用程式的帳單。
@@ -124,32 +123,32 @@ ms.locfileid: "55822590"
 - **預付型方案**應用程式會依據裝置收費，前 5 個裝置免費。
 
 在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解定價。
-    
+
 若要完成此自助程序，請遵循這些步驟：
 
-1. 請移至 [管理] 區段中的 [帳單] 頁面。 
+1. 請移至 [管理] 區段中的 [帳單] 頁面。
 
     ![試用狀態](media/howto-administer/freetrialbilling.png)
 
-1. 按一下 [轉換為預付型方案]。 
+1. 選取 **轉換成隨用隨付**。
 
     ![轉換試用](media/howto-administer/convert.png)
 
 1. 選取適當的 Azure Active Directory，然後選取要用於預付型方案應用程式的 Azure 訂用帳戶。
 
-1. 按一下 [轉換] 之後，您的應用程式現在是預付型方案應用程式並開始計費。
+1. 選取後**轉換**、 您的應用程式現在是隨用隨付的應用程式，並開始計費。
 
 ## <a name="export-data"></a>匯出資料
 
-您可以啟用 [連續資料匯出]，將計量、裝置和裝置範本資料匯出至 Azure Blob 儲存體帳戶。 深入了解如何匯出資料。
+您可以啟用 [連續資料匯出]，將計量、裝置和裝置範本資料匯出至 Azure Blob 儲存體帳戶。 深入了解如何[匯出您的資料](howto-export-data.md)。
 
 ## <a name="manage-device-connection"></a>管理裝置連線
 
-使用此處的金鑰和憑證，在應用程式中大規模連線裝置。 深入了解連線裝置。
+使用此處的金鑰和憑證，在應用程式中大規模連線裝置。 深入了解[連線裝置](concepts-connectivity.md)。
 
 ## <a name="use-access-tokens"></a>使用存取權杖
 
-產生存取權杖，在開發人員工具中使用它們。 目前沒有一個屬於 IoT Central Explorer 的開發人員工具可用來監視屬性和設定中的裝置訊息和變更。 深入了解 IoT Central Explorer。 
+產生存取權杖，在開發人員工具中使用它們。 目前沒有一個開發人員工具可用來監視裝置的訊息和屬性和設定的變更即 IoT Central 總管。 深入了解 [IoT Central Explorer](howto-use-iotc-explorer.md)。
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>使用 Azure SDK 進行控制平面作業
 

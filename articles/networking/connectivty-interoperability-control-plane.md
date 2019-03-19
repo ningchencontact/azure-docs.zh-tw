@@ -5,19 +5,19 @@ documentationcenter: na
 services: networking
 author: rambk
 manager: tracsman
-ms.service: expressroute,vpn-gateway,virtual-network
+ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 77a405e2f020ff764348370fc001388610ad75b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 7ce50ed32f845fb21e8d95f4d2da1786e5f6f540
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155522"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772478"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Azure 後端連線功能的互通性：控制平面分析
+# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Azure 后端连接功能中的互操作性：控制平面分析
 
 本文說明[測試設定][Setup]的控制平面分析。 您也可以檢閱測試設定的[測試設定組態][Configuration]和[資料平面分析][Data-Analysis]。
 
