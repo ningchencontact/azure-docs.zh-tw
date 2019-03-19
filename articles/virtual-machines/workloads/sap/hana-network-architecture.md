@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
-ms.translationtype: HT
+ms.openlocfilehash: 724a91b6ba0be030a2281bce366e4378892df59b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392868"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011573"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA (大型執行個體) 網路架構
 
@@ -27,7 +27,7 @@ Azure 網路服務的架構是在 HANA 大型執行個體上成功部署 SAP 應
 
 - 部署在內部部署環境中的 SAP 系統。 因大小的緣故，這些系統目前無法裝載在 Azure 中。 例如，如果生產 SAP ERP 系統在 SQL Server (作為資料庫) 上執行，且所需的 CPU 或記憶體資源高於 VM 所能提供，就是如此。
 - 部署在內部部署環境中以 SAP HANA 為基礎的 SAP 系統。
-- 部署在 VM 中的 SAP 系統。 根據資源耗用量與記憶體需求，這些系統可以是任何可在 Azure (在 VM 上) 順利部署之 SAP NetWeaver 型應用程式的開發、測試、沙箱或生產環境執行個體。 這些系統也可能以 SQL Server 之類的資料庫為基礎。 如需詳細資訊，請參閱 [SAP 支援附註 1928533 - Azure 上的 SAP 應用程式︰支援的產品和 Azure VM 類型](https://launchpad.support.sap.com/#/notes/1928533/E)。 此外，這些系統也可能以 SAP HANA 之類的資料庫為基礎。 如需詳細資訊，請參閱[經 SAP HANA 認證的 IaaS 平台](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)。
+- 部署在 VM 中的 SAP 系統。 根據資源耗用量與記憶體需求，這些系統可以是任何可在 Azure (在 VM 上) 順利部署之 SAP NetWeaver 型應用程式的開發、測試、沙箱或生產環境執行個體。 這些系統也可能以 SQL Server 之類的資料庫為基礎。 如需詳細資訊，請參閱[SAP 支援附註 #1928533-Azure 上的 SAP 應用程式：支援的產品和 Azure VM 類型](https://launchpad.support.sap.com/#/notes/1928533/E)。 此外，這些系統也可能以 SAP HANA 之類的資料庫為基礎。 如需詳細資訊，請參閱[經 SAP HANA 認證的 IaaS 平台](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)。
 - 部署在 Azure (在 VM 上) 中並利用「Azure 大型執行個體」戳記中 SAP HANA on Azure (大型執行個體) 的 SAP 應用程式伺服器。
 
 混合式 SAP 架構 (含有四個以上的不同部署案例) 為典型架構。 此外也有許多在 Azure 中完成 SAP 架構執行的客戶案例。 由於 VM 的功能愈來愈強大，將所有 SAP 解決方案都移至 Azure 的客戶數目也隨之增加。
@@ -79,7 +79,7 @@ Azure 閘道可以與 ExpressRoute 搭配用於 Azure 以外的基礎結構或 A
 - 相較於在內部部署與 Azure 之間交換資料的典型案例，SAP 應用程式架構對於網路延遲更敏感。
 - 虛擬網路閘道至少會有兩個 ExpressRoute 連線。 這兩個連線會共用虛擬網路閘道之連入資料的最大頻寬。
 
-在 VM 與 HANA 大型執行個體單位之間經歷的網路延遲，可能大於典型的 VM 對 VM 網路來回延遲。 相依於 Azure 區域，測量到的值可超過 0.7 毫秒的來回延遲，這在 [SAP 附註 #1100926 - 常見問題集：網路效能](https://launchpad.support.sap.com/#/notes/1100926/E)中已歸類為低於平均值。 根據測量 Azure VM 與 HANA 大型執行個體單位之間的網路來回延遲時所使用的 Azure 區域和工具，測量的延遲最高可達 2 毫秒左右。 不過，客戶可順利在 SAP HANA 大型執行個體上部署以 SAP HANA 為基礎的生產環境 SAP 應用程式。 請務必在 Azure HANA 大型執行個體中徹底測試您的商務程序。
+在 VM 與 HANA 大型執行個體單位之間經歷的網路延遲，可能大於典型的 VM 對 VM 網路來回延遲。 相依於 Azure 區域，測量到的值可超過 0.7 毫秒的來回延遲已歸類為低於平均值[SAP 附註 #1100926-常見問題集：網路效能](https://launchpad.support.sap.com/#/notes/1100926/E)。 根據測量 Azure VM 與 HANA 大型執行個體單位之間的網路來回延遲時所使用的 Azure 區域和工具，測量的延遲最高可達 2 毫秒左右。 不過，客戶可順利在 SAP HANA 大型執行個體上部署以 SAP HANA 為基礎的生產環境 SAP 應用程式。 請務必在 Azure HANA 大型執行個體中徹底測試您的商務程序。
  
 若要提供 VM 和 HANA 大型執行個體之間具決定性的網路延遲，則必須選擇虛擬網路閘道 SKU。 不同於內部部署與 VM 之間的流量模式，VM 和 HANA 大型執行個體之間的流量模式可以開發很小但高載的要求和資料磁碟區來進行傳輸。 為了妥善處理這類高載，強烈建議您使用 UltraPerformance 閘道 SKU。 針對類型 II 類別的 HANA 大型執行個體 SKU，使用 UltraPerformance 閘道 SKU 作為虛擬網路閘道是必要的。
 
@@ -113,7 +113,7 @@ Azure 閘道可以與 ExpressRoute 搭配用於 Azure 以外的基礎結構或 A
 - 針對單一的較大 SAP 應用程式層，運用多個虛擬網路。
 - 相較於將所部署的 SAP 系統結合在相同虛擬網路下的個別子網路中，為這些 SAP 系統中的每一個系統部署一個個別的虛擬網路。
 
- 適用於 SAP HANA on Azure (大型執行個體) 的更有彈性網路架構：
+  適用於 SAP HANA on Azure (大型執行個體) 的更有彈性網路架構：
 
 ![跨多個虛擬網路部署 SAP 應用程式層](./media/hana-overview-architecture/image4-networking-architecture.png)
 
@@ -132,12 +132,12 @@ SAP HANA on Azure (大型執行個體) 有三項重要的網路路由考量：
 
 * SAP HANA on Azure (大型執行個體) 單位會被指派一個 IP 位址，且該位址來自於您所提交的伺服器 IP 集區為址範圍。 如需詳細資料，請參閱 [Azure 上的 SAP HANA (大型執行個體) 基礎結構和連線](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 透過 Azure 訂用帳戶和將虛擬網路連線至 HANA on Azure (大型執行個體) 的 ExpressRoute，即可存取此 IP 位址。 從該伺服器 IP 集區位址範圍指派的 IP 位址會直接指派給硬體單位。 它*不會*再經過 NAT 處理，因為這是此解決方案的第一次部署才會有的情況。 
 
-> [!NOTE] 
+> [!NOTE]
 > 若要克服前兩個清單項目中所述之暫時性路由的限制，請使用其他元件進行路由。 可用來克服這項限制的元件可能為：
-
+> 
 > * 路由資料的反向 Proxy，往返方向皆有可能。 例如，搭配部署在 Azure 中作為虛擬防火牆/流量路由解決方案之「流量管理員」的 F5 BIG-IP、NGINX。
 > * 在 Linux VM 中使用 [IPTables 規則](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)，以啟用在內部部署位置和 HANA 大型執行個體單位之間的路由，或不同區域中 HANA 大型執行個體單位之間的路由。
-
+> 
 > 請注意，Microsoft 並不提供與協力廠商網路設備或 IPTables 相關自定義解決方案的實作和支援。 必須由所使用元件的廠商或整合者提供支援。 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>HANA 大型執行個體的網際網路連線

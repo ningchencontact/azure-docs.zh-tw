@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886621"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "54213995"
 
 Azure 入口網站為所有 Azure 服務的中樞，提供豐富的管理體驗，例如用以建立資源關聯的儀表板、用以尋找資源的智慧型搜尋，以及用以管理資源的標記等功能。 為了整合及簡化監控和管理工作流程，我們已陸續將 OMS 入口網站的功能加入 Azure 入口網站。 現在 OMS 入口網站的所有功能都已納入 Azure 入口網站。 事實上，流量分析等一些新功能僅能在 Azure 入口網站中使用。 您將能夠在 Azure 入口網站中，完成您在 OMS 入口網站中所執行的動作以及其他更多項目。 如果您尚未這麼做，請立即開始使用 Azure 入口網站！
 
-**在 OMS 入口網站將於 2019 年 1 月 15 日正式淘汰**，對於 Azure 商務雲端和 Azure 美國政府雲端，OMS 入口網站**將於 2019 年 3 月 30 日正式淘汰。** 我們很高興移至 Azure 入口網站，並預期此次轉換將會很簡單。 但我們了解任何變更均有其難度，而且可能會對您造成困擾。 如有任何問題、意見反應或考量，請傳送至 **LAUpgradeFeedback@microsoft.com**。 本文其餘部分將介紹關鍵案例和此次轉換的藍圖。
+**在 OMS 入口網站將於 2019 年 1 月 15 日正式淘汰**，對於 Azure 商務雲端和 Azure 美國政府雲端，OMS 入口網站**將於 2019 年 3 月 30 日正式淘汰。** 我們很高興移至 Azure 入口網站，並預期此次轉換將會很簡單。 但我們了解任何變更均有其難度，而且可能會對您造成困擾。 傳送任何問題、 意見反應或想法，才能**LAUpgradeFeedback\@microsoft.com**。 本文其餘部分將介紹關鍵案例和此次轉換的藍圖。
 
 ## <a name="what-is-changing"></a>變更內容為何？ 
 下列變更會隨著 OMS 入口網站的淘汰一併宣布。 並將在下列各節中逐一詳細說明這些變更。
@@ -47,7 +47,7 @@ Azure 入口網站為所有 Azure 服務的中樞，提供豐富的管理體驗�
 - 您需要[遷移您的使用者權限](#user-access-and-role-migration)至 Azure 入口網站。
 - 如需轉移更新管理解決方案的詳細資訊，請參閱[將您的 OMS 更新部署移轉至 Azure](../../automation/migrate-oms-update-deployments.md)。
 
-如需有關如何轉換到 Azure 入口網站的資訊，請參閱 [Log Analytics 使用者從 OMS 入口網站轉換至 Azure 入口網站的常見問題](oms-portal-faq.md)。 如有任何意見反應、問題或疑慮，請傳送至 **LAUpgradeFeedback@microsoft.com**。
+如需有關如何轉換到 Azure 入口網站的資訊，請參閱 [Log Analytics 使用者從 OMS 入口網站轉換至 Azure 入口網站的常見問題](oms-portal-faq.md)。 傳送任何意見反應、 問題或關注**LAUpgradeFeedback\@microsoft.com**。
 
 ## <a name="user-access-and-role-migration"></a>使用者存取權和角色的移轉
 Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理功能更為豐富而強大。 請參閱[管理工作區](manage-access.md#manage-accounts-and-users)，以瞭解 Log Analytics 中存取管理的詳細資料。

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc6b9ad5227bc5bffd1f44f664351843896aec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181604"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109775"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 為發佈的應用程式設定自訂首頁
 
@@ -30,10 +30,10 @@ ms.locfileid: "56181604"
 當使用者啟動應用程式時，預設會將他們導向已發佈應用程式的根網域 URL。 登陸頁面通常設定為首頁 URL。 如果您想要讓應用程式使用者登陸應用程式內的特定頁面，請使用 Azure AD PowerShell 模組定義自訂首頁 URL。 
 
 公司為什麼要設定自訂首頁，以下即是一例：
-- 在您的公司網路內部，使用者會前往 *https://ExpenseApp/login/login.aspx*，以登入並存取您的應用程式。
-- 由於您有應用程式 Proxy 需要在資料夾結構最上層存取的其他資產 (例如影像)，因此會以 *https://ExpenseApp* 作為內部 URL 來發佈應用程式。
-- 預設外部 URL 是 *https://ExpenseApp-contoso.msappproxy.net*，其不會將使用者帶往登入頁面。  
-- 設定 *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* 作為首頁 URL。 
+- 在您的公司網路內的使用者，請移至`https://ExpenseApp/login/login.aspx`登入並存取您的應用程式。
+- 由於您擁有這類應用程式 Proxy 需要存取的資料夾結構的高層級的映像的其他資產，您發行應用程式與`https://ExpenseApp`作為內部 URL。
+- 預設外部 URL 是`https://ExpenseApp-contoso.msappproxy.net`，不會引導使用者登入頁面。  
+- 設定`https://ExpenseApp-contoso.msappproxy.net/login/login.aspx`為首頁 URL。 
 
 >[!NOTE]
 >當您將已發佈應用程式的存取權提供給使用者時，應用程式會顯示在 [Azure AD 存取面板](../user-help/active-directory-saas-access-panel-introduction.md)和 [Office 365 應用程式啟動器](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher)。
@@ -113,7 +113,7 @@ ms.locfileid: "56181604"
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- 您現在已確認應用程式，可以開始依照下列指示更新首頁。
+   您現在已確認應用程式，可以開始依照下列指示更新首頁。
 
 2. 建立空白應用程式物件以存放您要進行的變更。 這個變數會包含您要更新的值。 此步驟不會建立任何項目。
 

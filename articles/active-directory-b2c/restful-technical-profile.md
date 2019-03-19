@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9eb60f9581099813d96cecb9cb88155e64b7caa8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 7ff14af756a55ccc6bbf40dd39d49c5168f4af1f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076321"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的 RESTful 技術設定檔
 
@@ -83,7 +83,7 @@ Azure Active Directory (Azure AD) B2C 可支援您自己的 RESTful 服務。 Az
 
 ## <a name="metadata"></a>中繼資料
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | ServiceUrl | 是 | REST API 端點的 URL。 | 
 | AuthenticationType | 是 | RESTful 宣告提供者正在執行的驗證類型。 可能的值：`None`、`Basic` 或 `ClientCertificate`。 `None` 值表示 REST API 並非匿名。 `Basic` 值表示 REST API 受到 HTTP 基本驗證保護。 只有經過驗證的使用者 (包括 Azure AD B2C) 才能存取您的 API。 `ClientCertificate` (建議) 值表示 REST API 使用客戶端憑證驗證限制存取。 只有具有適當憑證 (例如 Azure AD B2C) 的服務才能存取您的服務。 | 
@@ -109,7 +109,7 @@ Azure Active Directory (Azure AD) B2C 可支援您自己的 RESTful 服務。 Az
 
 如果驗證類型設為 `Basic`，則 **CryptographicKeys** 元素會包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | 是 | 用來驗證的使用者名稱。 | 
 | BasicAuthenticationPassword | 是 | 用來驗證的密碼。 |
@@ -134,7 +134,7 @@ Azure Active Directory (Azure AD) B2C 可支援您自己的 RESTful 服務。 Az
 
 如果驗證類型設為 `ClientCertificate`，則 **CryptographicKeys** 元素會包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | ClientCertificate | 是 | 用來驗證的 X509 憑證 (RSA 金鑰組)。 | 
 
@@ -157,7 +157,7 @@ Azure Active Directory (Azure AD) B2C 可支援您自己的 RESTful 服務。 Az
 
 您的 REST API 可能需要傳回錯誤訊息，例如「CRM 系統中找不到使用者」。 發生錯誤時，REST API 應會傳回 HTTP 409 錯誤訊息 (衝突回應狀態碼)，其中包含以下屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | version | 是 | 1.0.0 | 
 | status | 是 | 409 | 
@@ -171,13 +171,13 @@ Azure Active Directory (Azure AD) B2C 可支援您自己的 RESTful 服務。 Az
 
 ```JSON
 {
-  "version": "1.0.0",
-  "status": 409,
-  "code": "API12345",
-  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
-  "userMessage": "Message for the user", 
-  "developerMessage": "Verbose description of problem and how to fix it.", 
-  "moreInfo": "https://restapi/error/API12345/moreinfo" 
+  "version": "1.0.0",
+  "status": 409,
+  "code": "API12345",
+  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
+  "userMessage": "Message for the user", 
+  "developerMessage": "Verbose description of problem and how to fix it.", 
+  "moreInfo": "https://restapi/error/API12345/moreinfo" 
 }
 ```
 

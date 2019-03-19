@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: df65c29b39921eda6ba2bd682e5938f58a9e4de7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 15d9210e356da6d7757582dc4dad25cb2882ccfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964572"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003231"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2
 
@@ -32,7 +32,7 @@ Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合�
 
 下圖提供使用 Azure 儲存體之 HDInsight 儲存架構的摘要檢視：
 
-![Hadoop 叢集會使用 HDFS API 來存取和儲存 Blob 儲存體中的結構化和非結構化資料。](./media/data-lake-storage-use-hdi-cluster/HDI.ABFS.Arch.png "HDInsight 儲存體架構")
+![Hadoop 群集使用 HDFS API 来访问 Blob 存储中的结构化和非结构化数据，并在其中存储这些数据。](./media/data-lake-storage-use-hdi-cluster/HDI.ABFS.Arch.png "HDInsight Storage Architecture")
 
 HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可使用完整 URI 來存取此檔案系統，例如：
 
@@ -97,7 +97,7 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 ![HDinsight hadoop 建立資料來源](./media/data-lake-storage-use-hdi-cluster/create-storage-account.png)
 
 > [!WARNING]
-> 不支援在與 HDInsight 叢集不同的位置中使用其他儲存體帳戶。
+> 不支持在 HDInsight 群集之外的其他位置使用别的存储帐户。
 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
@@ -152,9 +152,6 @@ az storage account create \
     --kind StorageV2 \
     --Enable-hierarchical-namespace true
 ```
-
-> [!NOTE]
-> Data Lake Storage Gen2 的公開期間僅支援 `--sku Standard_LRS`。
 
 系統會提示您指定將建立儲存體帳戶的地理區域。 請在您計劃要建立 HDInsight 叢集的相同區域中建立儲存體帳戶。
 
@@ -214,7 +211,7 @@ URI 配置提供未加密存取 (使用 abfs: 首碼) 和 SSL 加密存取 (使�
 [powershell-install]: /powershell/azure/install-az-ps
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
-[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: ../common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/data-lake-storage-use-hdi-cluster/HDI.PowerShell.BlobCommands.png

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: d4293bf6a375f3e1a26c0c4fb50fcdc7bb5b8e8e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: HT
+ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243851"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181345"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -28,7 +28,7 @@ Kubernetes 是一個快速發展中的平台，可管理容器型應用程式及
 
 Kubernetes 屬於開放式平台，可讓您使用慣用的程式設計語言、作業系統、程式庫或訊息匯流排來建置您的應用程式。 現有的持續整合與持續傳遞 (CI/CD) 工具可與 Kubernetes 整合，以排程及部署發行。
 
-Azure Kubernetes Service (AKS) 提供受控 Kubernetes 服務，可降低部署和核心管理工作的複雜度，包括協調升級。 AKS 叢集主機由 Azure 平台所管理，且您只需針對執行應用程式的 AKS 節點付費。 AKS 以開放原始碼 Azure Kubernetes Service 引擎 (aks-engine) 作為建置基礎。
+Azure Kubernetes Service (AKS) 提供受控 Kubernetes 服務，可降低部署和核心管理工作的複雜度，包括協調升級。 AKS 叢集主機由 Azure 平台所管理，且您只需針對執行應用程式的 AKS 節點付費。 AKS 會以開放原始碼 Azure Kubernetes Service 引擎為基礎 ([aks 引擎][aks-engine])。
 
 ## <a name="kubernetes-cluster-architecture"></a>Kubernetes 叢集架構
 

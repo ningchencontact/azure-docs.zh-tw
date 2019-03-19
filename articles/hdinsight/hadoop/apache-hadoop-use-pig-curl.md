@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098299"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 在 HDInsight 上搭配 Apache Hadoop 執行 Apache Pig 作業
 
@@ -27,7 +27,7 @@ ms.locfileid: "53715421"
 
 ## <a id="prereq"></a>必要條件
 
-* Azure HDInsight (HDInsight 上的 Hadoop) 叢集 (Linux 型或 Windows 型)
+* Azure HDInsight（HDInsight 上的 Hadoop）群集（基于 Linux 或 Windows）
 
   > [!IMPORTANT]  
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -58,8 +58,8 @@ ms.locfileid: "53715421"
 
     此命令中使用的參數如下：
 
-    * **-u**：用來驗證要求的使用者名稱和密碼
-    * **-G**：指出此要求是 GET 要求
+   * **-u**：用來驗證要求的使用者名稱和密碼
+   * **-G**：指出此要求是 GET 要求
 
      URL 的開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 適用於所有的要求。 路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。
 
@@ -71,18 +71,18 @@ ms.locfileid: "53715421"
 
     此命令中使用的參數如下：
 
-    * **-d**：因為未使用 `-G`，要求會依預設使用 POST 方法。 `-d` 可指定與要求一起傳送的資料值。
+   * **-d**：因為未使用 `-G`，要求會依預設使用 POST 方法。 `-d` 可指定與要求一起傳送的資料值。
 
-    * **user.name**：執行命令的使用者
-    * **execute**：要執行的 Pig Latin 陳述式
-    * **statusdir**：此作業的狀態要寫入的目錄
+   * **user.name**：執行命令的使用者
+   * **execute**：要執行的 Pig Latin 陳述式
+   * **statusdir**：此作業的狀態要寫入的目錄
 
-    > [!NOTE]  
-    > 請注意，與 Curl 搭配使用時，會將 Pig Latin 陳述式中的空格取代為 `+` 字元。
+     > [!NOTE]  
+     > 請注意，與 Curl 搭配使用時，會將 Pig Latin 陳述式中的空格取代為 `+` 字元。
 
-    此命令應該會傳回可用來檢查工作狀態的工作識別碼，例如：
+     此命令應該會傳回可用來檢查工作狀態的工作識別碼，例如：
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. 若要檢查作業的狀態，請使用下列命令：
 
@@ -95,7 +95,7 @@ ms.locfileid: "53715421"
     如果作業已完成，則狀態會是 **SUCCEEDED**。
 
     > [!NOTE]  
-    > 此 Curl 要求會傳回含有工作資訊的 JavaScript Object Notation (JSON) 文件，而 jq 則用來僅擷取狀態值。
+    > 此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
 
 ## <a id="results"></a>檢視結果
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157936"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105959"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 
@@ -249,10 +249,10 @@ ms.locfileid: "55157936"
 下列 XML 程式碼片段包含一個宣告提供者節點，其中具有兩個技術設定檔：
 
 * **TechnicalProfile Id="REST-API-SignUp"**：定義您的 RESTful 服務。
-   * `Proprietary` 會描述為以 RESTful 為基礎之提供者的通訊協定。
-   * `InputClaims` 會定義將從 Azure AD B2C 傳送至 REST 服務的宣告。
+  * `Proprietary` 會描述為以 RESTful 為基礎之提供者的通訊協定。
+  * `InputClaims` 會定義將從 Azure AD B2C 傳送至 REST 服務的宣告。
 
-   在此範例中，`givenName` 宣告的內容會傳送至 REST 服務做為 `firstName`，宣告 `surname` 的內容會傳送至 REST 服務做為 `lastName`，而 `email` 會依原狀傳送。 `OutputClaims` 元素定義的宣告會從 RESTful 服務擷取回 Azure AD B2C。
+    在此範例中，`givenName` 宣告的內容會傳送至 REST 服務做為 `firstName`，宣告 `surname` 的內容會傳送至 REST 服務做為 `lastName`，而 `email` 會依原狀傳送。 `OutputClaims` 元素定義的宣告會從 RESTful 服務擷取回 Azure AD B2C。
 
 * **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**：將驗證技術的設定檔新增至現有的技術設定檔 (於基底原則中定義)。 在註冊旅程期間，驗證技術設定檔會叫用上述技術設定檔。 如果 RESTful 服務傳回 HTTP 錯誤 409 (衝突錯誤)，錯誤訊息會顯示給使用者。
 

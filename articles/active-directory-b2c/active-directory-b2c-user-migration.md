@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5a168ca3aafc171e4ed9b9f7572ee60b2ac7c350
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 0ca35c5d7a882a67bdce5e006b94d1f16daf9130
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893199"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C：使用者移轉
 當您將識別提供者移轉到 Azure Active Directory B2C (Azure AD B2C) 時，可能也需要移轉使用者帳戶。 本文說明如何將任何識別提供者的現有使用者帳戶移轉至 Azure AD B2C。 本文章並非是為了做出規定，而是要說明數個案例。 每種方法是否適合則屬開發人員的責任。
@@ -63,7 +63,7 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 原則為基礎的。 Az
 1. 執行下列動作建立新的應用程式：
    - 在 [名稱] 中使用 **B2CUserMigration** 或其他任何您想要的名稱。
    - 針對 [應用程式類型] 使用 [Web 應用程式/API]。
-   - 在 [登入 URL] 中使用 **https://localhost** (因為它與此應用程式無關)。
+   - 針對**登入 URL**，使用`https://localhost`（因為它不是此應用程式相關）。
    - 選取 [建立] 。
    
 1. 在應用程式建立後，於 [應用程式] 清單中選取新建立的 **B2CUserMigration** 應用程式。
@@ -94,7 +94,7 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 原則為基礎的。 Az
 讀取和寫入目錄資料權限「不」包含刪除使用者的能力。 若要讓您的應用程式能夠刪除使用者 (清除您的環境)，您必須執行額外的步驟，這牽涉到執行 PowerShell 設定使用者帳戶系統管理員權限。 否則，您可以跳到下一節。
 
 > [!IMPORTANT]
-> 您必須使用 B2C 租用戶*本機*的 B2C 租用戶系統管理員帳戶。 帳戶名稱語法是 *admin@contosob2c.onmicrosoft.com*。
+> 您必須使用 B2C 租用戶*本機*的 B2C 租用戶系統管理員帳戶。 帳戶名稱語法是*系統管理員\@contosob2c.onmicrosoft.com*。
 
 >[!NOTE]
 > 下列 PowerShell 指令碼需要 [Azure Active Directory PowerShell 第 2 版][AD-Powershell]。
@@ -370,4 +370,4 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration
+[UserMigrationSample]: https://github.com/yoelhor/Azure-AD-B2C-UserMigration

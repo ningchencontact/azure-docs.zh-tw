@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234232"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090809"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure 監視器中建立、檢視及管理活動記錄警示  
 
@@ -27,13 +27,13 @@ ms.locfileid: "56234232"
 ## <a name="azure-portal"></a>Azure 入口網站
 
 > [!NOTE]
-
+> 
 >  在建立警示規則時，請確定下列各項：
-
+> 
 > - 範圍中的訂用帳戶和警示建立所在訂用帳戶並無不同。
-- 設定警示必須以層級/狀態/呼叫端/資源群組/資源識別碼/資源類型/事件類別目錄為準則。
-- 警示設定 JSON 中不得有 “anyOf” 條件或巢狀條件 (基本上，只允許 allOf，不得進一步使用 allOf/anyOf)。
-- 當類別為「系統管理」時。 您必須在您的警示中指定至少一個上述準則。 您不能建立會在每次活動記錄中建立事件時即啟動的警示。
+> - 設定警示必須以層級/狀態/呼叫端/資源群組/資源識別碼/資源類型/事件類別目錄為準則。
+> - 警示設定 JSON 中不得有 “anyOf” 條件或巢狀條件 (基本上，只允許 allOf，不得進一步使用 allOf/anyOf)。
+> - 當類別為「系統管理」時。 您必須在您的警示中指定至少一個上述準則。 您不能建立會在每次活動記錄中建立事件時即啟動的警示。
 
 ### <a name="create-with-azure-portal"></a>使用 Azure 入口網站建立
 
@@ -50,35 +50,36 @@ ms.locfileid: "56234232"
 
 3. 在 [定義警示條件] 下提供下列資訊，然後按一下 [完成]。
 
-    - **警示目標：** 若要檢視和選取新警示的目標，請使用 [依訂用帳戶篩選] / [依資源類型篩選]，然後從顯示的清單中選取資源或資源群組。
+   - **警示目標：** 若要檢視和選取新警示的目標，請使用 [依訂用帳戶篩選] / [依資源類型篩選]，然後從顯示的清單中選取資源或資源群組。
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > 您可以為活動記錄訊號選取資源、資源群組或整個訂用帳戶。
 
-    > 您可以為活動記錄訊號選取資源、資源群組或整個訂用帳戶。
+     **警示目標範例檢視**
+     ![選取目標](media/alerts-activity-log/select-target.png)
 
-    **警示目標範例檢視**![選取目標](media/alerts-activity-log/select-target.png)
+   - 在 [目標準則] 之下，按一下 [新增準則]，接著會顯示適用於目標的所有可用訊號，包括來自 [活動記錄] 各種類別的訊號；具有附加在 [監視服務] 名稱中的類別名稱。
 
-    - 在 [目標準則] 之下，按一下 [新增準則]，接著會顯示適用於目標的所有可用訊號，包括來自 [活動記錄] 各種類別的訊號；具有附加在 [監視服務] 名稱中的類別名稱。
+   - 從類型 [活動記錄] 的各種可能作業顯示的清單中選取訊號。
 
-    - 從類型 [活動記錄] 的各種可能作業顯示的清單中選取訊號。
+     您可以選取此目標訊號的記錄歷程記錄時間軸和對應的警示邏輯：
 
-    您可以選取此目標訊號的記錄歷程記錄時間軸和對應的警示邏輯：
+     **新增準則畫面**
 
-    **新增準則畫面**
+     ![新增準則](media/alerts-activity-log/add-criteria.png)
 
-    ![新增準則](media/alerts-activity-log/add-criteria.png)
+     **歷程記錄時間**：所選作業的可用事件是可在過去 6/12/24 小時 (或) 過去一週繪製的。
 
-    **歷程記錄時間**：所選作業的可用事件是可在過去 6/12/24 小時 (或) 過去一週繪製的。
-
-    **警示邏輯**：
+     **警示邏輯**：
 
      - **事件等級**- 事件的嚴重性等級。 _詳細資訊__資訊__警告__錯誤_或_嚴重_。
      - **狀態**：事件的狀態。 _已啟動__失敗_或_成功_。
      - **事件起始者**：也稱為呼叫端；執行作業之使用者的電子郵件地址或 Azure Active Directory 識別碼。
 
-        已套用警示邏輯的範例訊號圖表：
+       已套用警示邏輯的範例訊號圖表：
 
-        ![ 選取的準則](media/alerts-activity-log/criteria-selected.png)
+       ![ 選取的準則](media/alerts-activity-log/criteria-selected.png)
 
 4. 在 [定義警示規則詳細資料] 下，提供下列詳細資料：
 
@@ -115,15 +116,15 @@ ms.locfileid: "56234232"
 
     您可以使用可用的篩選條件 ([訂用帳戶][資源群組][資源][訊號類型] 或 [狀態]) 來尋找您想要編輯的活動規則。
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > 您只能編輯 [描述]、[目標準則] 與 [動作群組]。
 
-    > 您只能編輯 [描述]、[目標準則] 與 [動作群組]。
+3. 選取規則，然後按兩下以編輯規則選項。 進行所需的變更，然後按一下 [儲存]。
 
-3.  選取規則，然後按兩下以編輯規則選項。 進行所需的變更，然後按一下 [儲存]。
+   ![ 管理警示規則](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ 管理警示規則](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  您可以停用、啟用或刪除規則。 選取規則之後，在視窗頂端選取適當選項，詳細資料如步驟 2 所示。
+4. 您可以停用、啟用或刪除規則。 選取規則之後，在視窗頂端選取適當選項，詳細資料如步驟 2 所示。
 
 
 ## <a name="azure-resource-template"></a>Azure 資源範本
@@ -204,13 +205,26 @@ ms.locfileid: "56234232"
 
 ## <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>部署 Resource Manager 範本與 PowerShell
+若要使用 PowerShell 來部署範例前一個 [資源範本區段] 所示的資源範本 (#resource manager-範本，請使用下列命令：
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+
+其中 sampleActivityLogAlert.parameters.json 包含提供給警示規則建立作業所需的參數的值。
+
+### <a name="use-activity-log-powershell-cmdlets"></a>使用活動記錄檔的 PowerShell cmdlet
+
 活動記錄警示有專用的 PowerShell Cmdlet 可供使用：
 
-- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert)：可建立新的或更新現有的活動記錄警示規則資源
-- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert)：可擷取一或多個活動記錄警示規則資源
-- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert)：可透過使用者確認來刪除活動記錄警示規則資源
-- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert)：可啟用現有的活動記錄警示規則資源
-- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert)：可停用現有的活動記錄警示規則資源
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) :新建或更新現有的活動記錄警示。
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) :取得一或多個活動記錄警示的資源。
+- [啟用 AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) :啟用現有活動記錄警示並設定其標籤。
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) :停用現有活動記錄警示，並設定其標籤。
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    :移除活動記錄警示。
 
 ## <a name="cli"></a>CLI
 

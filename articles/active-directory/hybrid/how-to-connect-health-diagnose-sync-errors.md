@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2924a45ae8851095944131b6fb1598775247f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885312"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>對重複屬性同步處理錯誤進行診斷和修復
 
@@ -33,7 +33,7 @@ ms.locfileid: "56193997"
 
 ## <a name="problems"></a>問題
 ### <a name="a-common-scenario"></a>常見案例
-發生 **QuarantinedAttributeValueMustBeUnique** 和 **AttributeValueMustBeUnique** 同步處理錯誤時，您常會在 Azure AD 中發現 **UserPrincipalName** 或 **Proxy 位址**衝突。 您可以從內部部署端更新衝突的來源物件，藉以解決同步處理錯誤。 同步處理錯誤會在下一次同步處理後獲得解決。例如，下圖指出兩個使用者的 **UserPrincipalName** 有所衝突。 兩者都是 **Joe.J@contoso.com**。 有衝突的物件會在 Azure AD 中隔離。
+發生 **QuarantinedAttributeValueMustBeUnique** 和 **AttributeValueMustBeUnique** 同步處理錯誤時，您常會在 Azure AD 中發現 **UserPrincipalName** 或 **Proxy 位址**衝突。 您可以從內部部署端更新衝突的來源物件，藉以解決同步處理錯誤。 同步處理錯誤會在下一次同步處理後獲得解決。例如，下圖指出兩個使用者的 **UserPrincipalName** 有所衝突。 兩者都**Joe.J\@contoso.com**。 有衝突的物件會在 Azure AD 中隔離。
 
 ![診斷同步處理錯誤的常見案例](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -66,32 +66,34 @@ ms.locfileid: "56193997"
 
 在 Azure 入口網站中，執行若干步驟以找出可修正的特定案例：  
 1.  檢查 [診斷狀態] 資料行。 狀態會顯示是否有辦法直接從 Azure Active Directory 修正同步處理錯誤。 換句話說，就是有疑難排解流程可供縮小錯誤案例範圍，從而有可能加以修正。
+
 | 狀態 | 這代表什麼意思？ |
 | ------------------ | -----------------|
 | 未啟動 | 您並未瀏覽此診斷程序。 根據診斷結果，或許可直接從入口網站修正同步處理錯誤。 |
 | 需要手動修正 | 錯誤不符合從入口網站修正的條件。 衝突的物件類型不是使用者，或者，您已執行過診斷步驟，但沒有可從入口網站執行的修正解決方案。 若是後者，從內部部署端修正也是其中一個解決方案。 [深入了解內部部署修正](https://support.microsoft.com/help/2647098)。 | 
 | 待同步 | 已套用修正方法。 入口網站正在等候下一個同步處理週期將錯誤清除。 |
+
   >[!IMPORTANT]
   > 在每個同步處理週期結束後，都會重設診斷狀態資料行。 
   >
 
-2.  選取錯誤詳細資料底下的 [診斷] 按鈕。 您會回答幾個問題，並找出同步處理錯誤的詳細資料。 問題答案可協助找出孤立物件案例。
+1. 選取錯誤詳細資料底下的 [診斷] 按鈕。 您會回答幾個問題，並找出同步處理錯誤的詳細資料。 問題答案可協助找出孤立物件案例。
 
-3.  如果在診斷結束時出現 [關閉] 按鈕，即表示根據您的答案，並沒有可從入口網站執行的快速修正。 請參閱最後一個步驟中顯示的解決方案。 從內部部署修正仍會是解決方案。 選取 [關閉] 按鈕。 目前同步處理錯誤的狀態會切換為 [需要手動修正]。 在目前的同步處理週期內，狀態會保持不變。
+1. 如果在診斷結束時出現 [關閉] 按鈕，即表示根據您的答案，並沒有可從入口網站執行的快速修正。 請參閱最後一個步驟中顯示的解決方案。 從內部部署修正仍會是解決方案。 選取 [關閉] 按鈕。 目前同步處理錯誤的狀態會切換為 [需要手動修正]。 在目前的同步處理週期內，狀態會保持不變。
 
-4.  發現孤立物件案例後，您即可直接從入口網站修正重複屬性同步處理錯誤。 若要觸發此程序，請選取 [套用修正] 按鈕。 目前同步處理錯誤的狀態會更新為 [待同步]。
+1. 發現孤立物件案例後，您即可直接從入口網站修正重複屬性同步處理錯誤。 若要觸發此程序，請選取 [套用修正] 按鈕。 目前同步處理錯誤的狀態會更新為 [待同步]。
 
-5.  錯誤應會在下一個同步處理週期之後從清單中移除。
+1. 錯誤應會在下一個同步處理週期之後從清單中移除。
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>如何回答診斷問題 
 ### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>使用者是否存在於您的內部部署 Active Directory 中？
 
 此問題嘗試從內部部署 Active Directory 中找出現有使用者的來源物件。  
-1.  檢查 Azure Active Directory 中是否有物件具備提供的 **UserPrincipalName**。 如果沒有，請回答 [否]。
-2.  如果有，請檢查物件是否仍在同步處理範圍內。  
-  - 使用 DN 在 Azure AD 連接器空間中搜尋。
-  - 如果發現該物件的狀態為 [待新增]，請回答 [否]。 Azure AD Connect 無法將物件連線至正確的 Azure AD 物件。
-  - 如果找不到物件，請回答 [是]。
+1. 檢查 Azure Active Directory 中是否有物件具備提供的 **UserPrincipalName**。 如果沒有，請回答 [否]。
+2. 如果有，請檢查物件是否仍在同步處理範圍內。  
+   - 使用 DN 在 Azure AD 連接器空間中搜尋。
+   - 如果發現該物件的狀態為 [待新增]，請回答 [否]。 Azure AD Connect 無法將物件連線至正確的 Azure AD 物件。
+   - 如果找不到物件，請回答 [是]。
 
 在這些範例中，問題會嘗試識別 **Joe Jackson** 是否仍存在於內部部署 Active Directory 中。
 在**常見的案例**中，**Joe Johnson** 和 **Joe Jackson** 這兩個使用者會出現在內部部署 Active Directory 中。 隔離的物件是兩個不同的使用者。
@@ -104,11 +106,11 @@ ms.locfileid: "56193997"
 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>這兩個帳戶是否屬於同一個使用者？
 此問題會在 Azure AD 中檢查後續發生衝突的使用者與現有的使用者物件，以確認兩者是否屬於相同的使用者。  
-1.  衝突的物件是同步處理至 Azure Active Directory 的新物件。 比較物件的屬性：  
-  - 顯示名稱
-  - 使用者主體名稱
-  - 物件識別碼
-2.  如果 Azure AD 無法比較這兩者，請檢查 Active Directory 中是否有物件具備提供的 **UserPrincipalNames**。 如果兩者均發現，請回答 [否]。
+1. 衝突的物件是同步處理至 Azure Active Directory 的新物件。 比較物件的屬性：  
+   - 顯示名稱
+   - 使用者主體名稱
+   - 物件識別碼
+2. 如果 Azure AD 無法比較這兩者，請檢查 Active Directory 中是否有物件具備提供的 **UserPrincipalNames**。 如果兩者均發現，請回答 [否]。
 
 在下列範例中，兩個物件會屬於相同的使用者 **Joe Johnson**。
 

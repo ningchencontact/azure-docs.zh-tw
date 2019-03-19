@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 04bb32abf7100975d72e5782b79b44006f1ac965
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 01edd378ee85a3e209892250788fd3a26c628648
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090826"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>教學課程：設定 Azure SQL Database 與內部部署 SQL Server 之間的 SQL 資料同步
 
@@ -45,21 +45,21 @@ ms.locfileid: "55567922"
 
 1. 在 [同步至其他資料庫] 頁面上，選取 [新增同步群組]。 [新增同步群組] 頁面隨即開啟並醒目提示 [建立同步群組 (步驟 1)]。
 
-  ![步驟 1 設定](media/sql-database-get-started-sql-data-sync/stepone.png)
+   ![步驟 1 設定](media/sql-database-get-started-sql-data-sync/stepone.png)
 
-  在 [建立資料同步群組] 頁面上，變更下列設定：
+   在 [建立資料同步群組] 頁面上，變更下列設定：
 
-  | 設定                        | 說明 |
-  | ------------------------------ | ------------------------------------------------- |
-  | **同步群組名稱** | 輸入新同步群組的名稱。 這個名稱與資料庫本身的名稱不同。 |
-  | **同步處理中繼資料資料庫** | 選擇建立資料庫 (建議) 或使用現有的資料庫。<br/><br/>如果您選擇 [新增資料庫]，請選取 [建立新的資料庫]。 然後在 [SQL Database] 頁面上，命名並設定新的資料庫，然後選取 [確定]。<br/><br/>如果您選擇 [使用現有資料庫]，請從清單中選取資料庫。 |
-  | **自動同步處理** | 選取 [開啟] 或 [關閉]。<br/><br/>如果您選擇 [開啟]，請在 [同步頻率] 區段中輸入數字，然後選取 [秒]、[分鐘]、[小時] 或 [天]。 |
-  | **衝突解決** | 選取 [中樞獲勝] 或 [成員獲勝]。<br/><br/>**中樞獲勝**表示發生衝突時，中樞資料庫中的資料會覆寫成員資料庫中的衝突資料。<br/><br/>**成員獲勝**表示發生衝突時，成員資料庫中的資料會覆寫中樞資料庫中的衝突資料。 |
+   | 設定                        | 描述 |
+   | ------------------------------ | ------------------------------------------------- |
+   | **同步群組名稱** | 輸入新同步群組的名稱。 這個名稱與資料庫本身的名稱不同。 |
+   | **同步處理中繼資料資料庫** | 選擇建立資料庫 (建議) 或使用現有的資料庫。<br/><br/>如果您選擇 [新增資料庫]，請選取 [建立新的資料庫]。 然後在 [SQL Database] 頁面上，命名並設定新的資料庫，然後選取 [確定]。<br/><br/>如果您選擇 [使用現有資料庫]，請從清單中選取資料庫。 |
+   | **自動同步處理** | 選取 [開啟] 或 [關閉]。<br/><br/>如果您選擇 [開啟]，請在 [同步頻率] 區段中輸入數字，然後選取 [秒]、[分鐘]、[小時] 或 [天]。 |
+   | **衝突解決** | 選取 [中樞獲勝] 或 [成員獲勝]。<br/><br/>**中樞獲勝**表示發生衝突時，中樞資料庫中的資料會覆寫成員資料庫中的衝突資料。<br/><br/>**成員獲勝**表示發生衝突時，成員資料庫中的資料會覆寫中樞資料庫中的衝突資料。 |
 
-  > [!NOTE]
-  > Microsoft 建議您建立新的空白資料庫作為 [同步中繼資料資料庫]。 資料同步會在此資料庫中建立資料表，並頻繁執行工作負載。 此資料庫會由所選區域中的所有同步群組當作 [同步中繼資料資料庫] 共用，而您無法在不移除區域中所有同步群組和同步代理程式的情況下，變更資料庫或其名稱。
+   > [!NOTE]
+   > Microsoft 建議您建立新的空白資料庫作為 [同步中繼資料資料庫]。 資料同步會在此資料庫中建立資料表，並頻繁執行工作負載。 此資料庫會由所選區域中的所有同步群組當作 [同步中繼資料資料庫] 共用，而您無法在不移除區域中所有同步群組和同步代理程式的情況下，變更資料庫或其名稱。
 
-  選取 [確定] 並等候同步群組建立和部署完成。
+   選取 [確定] 並等候同步群組建立和部署完成。
 
 ## <a name="add-sync-members"></a>新增同步成員
 
@@ -77,7 +77,7 @@ ms.locfileid: "55567922"
 
   在 [設定 Azure SQL Database] 頁面上，變更下列設定：
 
-  | 設定                       | 說明 |
+  | 設定                       | 描述 |
   | ----------------------------- | ------------------------------------------------- |
   | **同步成員名稱** | 提供新同步成員的名稱。 這個名稱與資料庫本身的名稱不同。 |
   | **訂用帳戶** | 選取相關聯的 Azure 訂用帳戶以便計費。 |
@@ -95,28 +95,28 @@ ms.locfileid: "55567922"
 
 1. 選取 [選擇同步代理程式閘道]。 [選取同步代理程式] 頁面隨即開啟。
 
-  ![建立同步代理程式](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
+   ![建立同步代理程式](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
 
 1. 在 [選擇同步代理程式] 頁面上，選擇要使用現有代理程式，或建立代理程式。
 
-  如果您選擇 [現有代理程式]，請從清單中選取現有的代理程式。
+   如果您選擇 [現有代理程式]，請從清單中選取現有的代理程式。
 
-  如果您選擇 [建立新的代理程式]，請執行下列步驟：
+   如果您選擇 [建立新的代理程式]，請執行下列步驟：
 
-    1. 從提供的連結下載資料同步代理程式，並安裝在 SQL Server 所在的電腦上。 您也可以直接從 [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693) 下載代理程式。
+   1. 從提供的連結下載資料同步代理程式，並安裝在 SQL Server 所在的電腦上。 您也可以直接從 [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693) 下載代理程式。
 
       > [!IMPORTANT]
       > 您必須在防火牆開啟輸出 TCP 連接埠 1433，以讓用戶端代理程式和伺服器通訊。
 
-    1. 輸入代理程式的名稱。
+   1. 輸入代理程式的名稱。
 
-    1. 選取 [建立並產生金鑰] 並將代理程式金鑰複製到剪貼簿。
+   1. 選取 [建立並產生金鑰] 並將代理程式金鑰複製到剪貼簿。
 
-    1. 選取 [確定] 以關閉 [選取同步代理程式] 頁面。
+   1. 選取 [確定] 以關閉 [選取同步代理程式] 頁面。
 
 1. 在 SQL Server 電腦上，找出並執行用戶端同步代理程式應用程式。
 
-  ![資料同步用戶端代理程式應用程式](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
+   ![資料同步用戶端代理程式應用程式](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
 
     1. 在同步處理代理程式應用程式中，選取 [提交代理程式金鑰]。 [同步中繼資料的資料庫組態] 對話方塊隨即開啟。
 
@@ -230,9 +230,9 @@ ms.locfileid: "55567922"
 
 如需 SQL 資料同步的詳細資訊，請參閱：
 
-- [適用於 Azure SQL 資料同步的資料同步代理程式](sql-database-data-sync-agent.md)
+- [適用於 Azure SQL Data Sync 的 Data Sync Agent](sql-database-data-sync-agent.md)
 - [最佳做法](sql-database-best-practices-data-sync.md)和[如何針對 Azure SQL 資料同步問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
-- [使用 Log Analytics 監視 SQL 資料同步](sql-database-sync-monitor-oms.md)
+- [使用 Azure 監視器監視 SQL 資料同步記錄](sql-database-sync-monitor-oms.md)
 - 使用 [Transact-SQL](sql-database-update-sync-schema.md) 或 [PowerShell](scripts/sql-database-sync-update-schema.md) 更新同步結構描述
 
 如需 SQL Database 的詳細資訊，請參閱：

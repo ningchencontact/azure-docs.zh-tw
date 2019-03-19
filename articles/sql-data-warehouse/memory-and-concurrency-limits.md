@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/04/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890781"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的記憶體和並行存取限制
 檢視在 Azure SQL 資料倉儲 中配置給不同效能等級與資源類別的記憶體和並行存取限制。 如需詳細資訊，並將這些功能套用到工作負載管理計劃，請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。 
@@ -70,7 +70,7 @@ Gen1 的服務等級範圍從 DW100 到 DW6000。
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## <a name="concurrency-maximums"></a>並行最大值
-為了確保每個查詢都有足夠的資源可以有效率地執行，SQL 資料倉儲會藉由將並行位置指派給每個查詢，來追蹤資源使用量。 系統會將查詢放入佇列，它們會在其中等候，直到有足夠的[並行位置](resource-classes-for-workload-management.md#concurrency-slots)可用為止。 並行位置也會決定 CPU 優先順序。 如需詳細資訊，請參閱[分析工作負載](analyze-your-workload.md)。
+為了確保每個查詢都有足夠的資源可以有效率地執行，SQL 資料倉儲會藉由將並行位置指派給每個查詢，來追蹤資源使用量。 系統會將查詢放入佇列，根據重要性和並行存取插槽。 查詢等候佇列中，直到有足夠的並行位置可用為止。 [重要性](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance)和並行存取插槽會決定 CPU 優先順序。 如需詳細資訊，請參閱[分析工作負載](analyze-your-workload.md)。
 
 ### <a name="gen2"></a>Gen2
  
@@ -78,7 +78,7 @@ Gen1 的服務等級範圍從 DW100 到 DW6000。
 
 下表針對每個[靜態資源類別](resource-classes-for-workload-management.md)顯示並行查詢數量和並行位置數量的最大值。  
 
-| 服務等級 | 並行查詢上限 | 可用的並行位置數量 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| 服務等級 | 並行查詢上限 | 可用的並行位置數量 | staticrc10 使用的槽数 | staticrc20 使用的槽数 | staticrc30 使用的槽数 | staticrc40 使用的槽数 | staticrc50 使用的槽数 | staticrc60 使用的槽数 | staticrc70 使用的槽数 | staticrc80 使用的槽数 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Gen1 的服務等級範圍從 DW100 到 DW6000。
 
 下表針對 **Gen1** 上每個[靜態資源類別](resource-classes-for-workload-management.md)顯示並行查詢數量和並行位置數量的最大值。
 
-| 服務等級 | 並行查詢上限 | 並行位置數量最大值 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| 服務等級 | 並行查詢上限 | 並行位置數量最大值 | staticrc10 使用的槽数 | staticrc20 使用的槽数 | staticrc30 使用的槽数 | staticrc40 使用的槽数 | staticrc50 使用的槽数 | staticrc60 使用的槽数 | staticrc70 使用的槽数 | staticrc80 使用的槽数 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Gen1 的服務等級範圍從 DW100 到 DW6000。
 
 下表針對 **Gen1** 上每個[動態資源類別](resource-classes-for-workload-management.md)顯示並行查詢數量和並行位置數量的最大值。
 
-| 服務等級 | 並行查詢上限 | 可用的並行位置數量 | smallrc | mediumrc | largerc | xlargerc |
+| 服務等級 | 並行查詢上限 | 可用的並行位置數量 | Smallrc 所使用的插槽 | Mediumrc 所使用的插槽 | Largerc 所使用的插槽 | Xlargerc 所使用的插槽 |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

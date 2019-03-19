@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: b2e8d629f4007729ad0538aee9bdb8e67747b026
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015118"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 
@@ -44,8 +44,8 @@ ms.locfileid: "54159480"
 
 * 若要在每個迴圈反覆項目的執行期間，從針對變數所執行的作業獲得可預測的結果，請循序執行這些迴圈。 例如，當並行執行的迴圈結束時，遞增、遞減和附加至變數的作業會傳回可預測的結果。 不過，在並行執行迴圈中的每個反覆項目執行期間，這些作業可能會傳回無法預測的結果。 
 
-* "Foreach" 迴圈中的動作會使用 [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 運算式來參考和處理陣列中的每個項目。 
-expression to reference and process each item in the array. 如果您指定的資料不是在陣列中，則邏輯應用程式工作流程將會失敗。 
+* 動作在"Foreach"迴圈使用 [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+運算式，來參考，以及處理陣列中的每個項目。 如果您指定的資料不是在陣列中，則邏輯應用程式工作流程將會失敗。 
 
 此範例邏輯應用程式會傳送網站 RSS 摘要的每日摘要。 此應用程式會使用 "Foreach" 迴圈，針對每個新項目傳送電子郵件。
 
@@ -166,7 +166,8 @@ expression to reference and process each item in the array. 如果您指定的�
 > 這些步驟會使用 Office 365 Outlook 來進行，但您也可以使用 Logic Apps 支援的任何電子郵件提供者。 
 > [請參考這裡的連接器清單](https://docs.microsoft.com/connectors/)。 如果您使用其他電子郵件帳戶，整體步驟將維持不變，但您的 UI 外觀可能會略有不同。 
 
-1. 建立空白邏輯應用程式。 在邏輯應用程式設計工具中的搜尋方塊底下，選擇 [全部]。 搜尋「週期」。 從觸發程序清單中，選取此觸發程序：**週期 - 排程**
+1. 建立空白邏輯應用程式。 在邏輯應用程式設計工具中的搜尋方塊底下，選擇 [全部]。 搜尋「週期」。 
+   從觸發程序清單中，選取此觸發程序：**週期 - 排程**
 
    ![新增「週期 - 排程」觸發程序](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -181,7 +182,8 @@ expression to reference and process each item in the array. 如果您指定的�
    | **在這幾小時內** | 8 |
    ||| 
 
-1. 在觸發程序下方，選擇 [新增步驟]。 搜尋「變數」，然後選取此動作：**初始化變數 - 變數**
+1. 在觸發程序下方，選擇 [新增步驟]。 
+   搜尋「變數」，然後選取此動作：**初始化變數 - 變數**
 
    ![新增「初始化變數 - 變數」動作](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -189,7 +191,7 @@ expression to reference and process each item in the array. 如果您指定的�
 
    ![設定變數屬性](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 屬性 | 值 | 說明 |
+   | 屬性 | 值 | 描述 |
    | -------- | ----- | ----------- |
    | **名稱** | 限制 | 變數的名稱 | 
    | **類型** | 整數  | 變數的資料類型 | 
@@ -202,7 +204,8 @@ expression to reference and process each item in the array. 如果您指定的�
 
    ![新增 "Until" 迴圈](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. 選取**限制**變數和**等於**運算子，可建置迴圈的結束條件。 輸入 **10** 作為比較值。
+1. 選取**限制**變數和**等於**運算子，可建置迴圈的結束條件。 
+   輸入 **10** 作為比較值。
 
    ![建置停止迴圈的結束條件](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
@@ -214,38 +217,39 @@ expression to reference and process each item in the array. 如果您指定的�
 
 1. 針對 [名稱]，選取**限制**變數。 針對 [值]，輸入 "1"。 
 
-   ![以 1 遞增 [限制]](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+    ![以 1 遞增 [限制]](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. 在迴圈外部底下，選擇 [新增步驟]。 
 
-1. 在搜尋方塊下方，選擇 [全部]。 尋找並新增會傳送電子郵件的動作，例如： 
+1. 在搜尋方塊下方，選擇 [全部]。 
+    尋找並新增會傳送電子郵件的動作，例如： 
 
-   ![新增傳送電子郵件的動作](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+    ![新增傳送電子郵件的動作](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. 如果出現提示，請登入您的電子郵件帳戶。
 
 1. 設定電子郵件動作的屬性。 在主旨上新增**限制**變數。 這樣一來，您可以確認變數的目前值符合您指定的條件，例如：
 
-    ![設定電子郵件內容](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+     ![設定電子郵件內容](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | 屬性 | 值 | 說明 |
-    | -------- | ----- | ----------- | 
-    | **To** | *<email-address@domain>* | 收件者的電子郵件地址。 若要進行測試，請使用自己的電子郵件地址。 | 
-    | **主旨** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 
-    | **內文** | <*email-content*> | 指定您想要傳送的電子郵件訊息內容。 針對此範例，輸入任何您喜歡的文字。 | 
-    |||| 
+     | 屬性 | 值 | 描述 |
+     | -------- | ----- | ----------- | 
+     | **To** | *<email-address\@domain>* | 收件者的電子郵件地址。 若要進行測試，請使用自己的電子郵件地址。 | 
+     | **主旨** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 
+     | **內文** | <*email-content*> | 指定您想要傳送的電子郵件訊息內容。 針對此範例，輸入任何您喜歡的文字。 | 
+     |||| 
 
 1. 儲存您的邏輯應用程式。 若要手動測試邏輯應用程式，在設計工具的工具列上，選擇 [執行]。
 
-    當您的邏輯開始執行之後，您會收到電子郵件及您指定的內容：
+     當您的邏輯開始執行之後，您會收到電子郵件及您指定的內容：
 
-    ![收到的電子郵件](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+     ![收到的電子郵件](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>避免無止盡的迴圈
 
 "Until" 迴圈具有預設的限制，就是達到下列任何條件時，便會停止執行：
 
-| 屬性 | 預設值 | 說明 | 
+| 屬性 | 預設值 | 描述 | 
 | -------- | ------------- | ----------- | 
 | **Count** | 60 | 迴圈結束前可執行的最高迴圈數。 預設為 60 個循環。 | 
 | **逾時** | PT1H | 迴圈結束前可執行迴圈的最大時間。 預設值是一小時，並以 ISO 8601 格式指定。 <p>逾時值的評估會以每個迴圈循環為基礎。 如果迴圈中有任何動作所花費的時間超過逾時限制，目前的循環並不會停止。 但不會啟動下一個循環，因為不符合限制條件。 | 

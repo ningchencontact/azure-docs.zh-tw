@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: aba7d2ff73fc1fdca6f57742582b38662177012d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995113"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899558"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>使用 Azure 媒體內容仲裁來偵測潛在的成人和猥褻內容 
 
@@ -44,10 +44,10 @@ JSON 格式的仲裁輸出包含自動偵測的擷取畫面和主要畫面格。
 
 ### <a name="root-json-elements"></a>根 JSON 元素
 
-| 元素 | 說明 |
+| 元素 | 描述 |
 | --- | --- |
 | version |內容仲裁的版本。 |
-| timescale |影片每秒的「刻度」數目。 |
+| timescale |视频每秒的“刻度”数。 |
 | Offset |時間戳記的時間位移。 在 1.0 版的影片 API 中，此值永遠是 0。 此值未來可能會變更。 |
 | framerate |影片的每秒畫面格數。 |
 | width |輸出影片畫面格的寬度 (以像素為單位)。|
@@ -57,7 +57,7 @@ JSON 格式的仲裁輸出包含自動偵測的擷取畫面和主要畫面格。
 
 ### <a name="fragments-json-elements"></a>Fragments JSON 元素
 
-|元素|說明|
+|元素|描述|
 |---|---|
 | start |第一個事件的開始時間 (以「刻度」為單位)。 |
 | duration |片段的長度 (以「刻度」為單位)。 |
@@ -66,7 +66,7 @@ JSON 格式的仲裁輸出包含自動偵測的擷取畫面和主要畫面格。
 
 ### <a name="events-json-elements"></a>Events JSON 元素
 
-|元素|說明|
+|元素|描述|
 |---|---|
 | reviewRecommended | `true` 或 `false` 需視 **adultScore** 或 **racyScore** 是否超出內部閾值而定。 |
 | adultScore | 是否有潛在成人內容的信賴分數，範圍為 0.00 到 0.99。 |
@@ -224,9 +224,9 @@ The following example of a Content Moderator JSON output was truncated.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>相關連結
-[Azure 媒體服務分析概觀](media-services-analytics-overview.md)
+[Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a66584aa1cd3f335111774ef1df37cddc630f69d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 8de31479e55aca64a5412bb89765c9b6062c0358
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864876"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中報表儲存
 
@@ -129,7 +129,7 @@ var embedConfiguration = {
 </script>
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [開始使用範例](get-started-sample.md)  
 [內嵌報告](embed-report.md)  
@@ -138,5 +138,5 @@ var embedConfiguration = {
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-有其他疑問？ [試用 Power BI 社群](http://community.powerbi.com/)
+有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)
 

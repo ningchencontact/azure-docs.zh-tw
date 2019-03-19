@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3064b3eb5f29e2b2d1ff8516dce97bbb3fb8062
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 09ff573683ef681a053f2bcd37325d48b3823371
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100814"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>設定 Azure Multi-Factor Authentication Server 以與 AD FS 2.0 搭配運作
 
@@ -32,7 +32,9 @@ ms.locfileid: "56166261"
 2. 按一下 [表單架構] 索引標籤。
 3. 按一下 [新增] 。
 
-   <center>![設定](./media/howto-mfaserver-adfs-2/setup1.png)</center>
+   <center>
+   
+   ![設定](./media/howto-mfaserver-adfs-2/setup1.png)</center>
 
 4. 若要自動偵測使用者名稱、密碼和網域變數，請在 [自動設定表單架構網站] 對話方塊中輸入登入 URL (例如 https://sso.contoso.com/adfs/ls))，然後按一下 [確定]。
 5. 如果所有使用者都已經或將要匯入到「伺服器」，且必須接受雙步驟驗證，請核取 [需要進行 Azure Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器及/或將免除雙步驟驗證，請勿核取此方塊。
@@ -41,7 +43,9 @@ ms.locfileid: "56166261"
 8. 將要求格式設定為 **POST 或 GET**。
 9. 輸入使用者名稱變數 (ctl00$ContentPlaceHolder1$UsernameTextBox) 和密碼變數 (ctl00$ContentPlaceHolder1$PasswordTextBox)。 如果表單架構登入頁面顯示網域文字方塊，請輸入網域變數。 若要尋找登入頁面內的輸入方塊名稱，請移至網頁瀏覽器中的登入頁面，在頁面上按一下滑鼠右鍵，並選取 [檢視來源]。
 10. 如果所有使用者都已經或將要匯入到「伺服器」，且必須接受雙步驟驗證，請核取 [需要進行 Azure Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器及/或將免除雙步驟驗證，請勿核取此方塊。
-    <center>![設定](./media/howto-mfaserver-adfs-2/manual.png)</center>
+    <center>
+    
+    ![設定](./media/howto-mfaserver-adfs-2/manual.png)</center>
 11. 按一下 [進階...] 以檢閱進階設定。 您可以進行的設定包括︰
 
     - 選取自訂拒絕頁面檔案
@@ -63,13 +67,17 @@ ms.locfileid: "56166261"
 1. 按一下 [目錄整合] 圖示。
 2. 在 [設定] 索引標籤上，選取 [使用特定 LDAP 設定] 選項按鈕。
 
-   <center>![設定](./media/howto-mfaserver-adfs-2/ldap1.png)</center>
+   <center>
+    
+   ![設定](./media/howto-mfaserver-adfs-2/ldap1.png)</center>
 
 3. 按一下 [編輯]。
 4. 在 [編輯 LDAP 設定] 對話方塊的欄位中，填入連接到 AD 網域控制站所需的資訊。 欄位說明包含在 Azure Multi-Factor Authentication Server 說明檔中。
 5. 按一下 [測試] 按鈕來測試 LDAP 連接。
 
-   <center>![設定](./media/howto-mfaserver-adfs-2/ldap2.png)</center>
+   <center>
+    
+   ![設定](./media/howto-mfaserver-adfs-2/ldap2.png)</center>
 
 6. 如果 LDAP 連接測試成功，請按一下 [確定]。
 
@@ -79,9 +87,11 @@ ms.locfileid: "56166261"
 3. 如果使用者以 "domain\username" 格式輸入其使用者名稱，伺服器則需能夠在建立 LDAP 查詢時，刪除使用者名稱中的網域。 這個動作可透過登錄設定完成。
 4. 開啟登錄編輯程式並移至 64 位元伺服器上的 HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor。 如果在 32 位元伺服器上，請拿掉路徑中的 "Wow6432Node"。 建立名為 "UsernameCxz_stripPrefixDomain" 的 DWORD 登錄機碼，並將值設定為 1。 Azure Multi-Factor Authentication 現已保護 AD FS Proxy。
 
-確定已將使用者從 Active Directory 匯入伺服器中。 如果您想要將內部 IP 位址列入白名單，以便從這些位置登入網站時不需進行雙步驟驗證，請參閱[信任的 IP](#trusted-ips) 一節。
+確定已將使用者從 Active Directory 匯入伺服器中。 如果您想要將內部 IP 位址列入允許清單，以便從這些位置登入網站時不需進行雙步驟驗證，請參閱[信任的 IP](#trusted-ips) 一節。
 
-<center>![設定](./media/howto-mfaserver-adfs-2/reg.png)</center>
+<center>
+
+![設定](./media/howto-mfaserver-adfs-2/reg.png)</center>
 
 ## <a name="ad-fs-20-direct-without-a-proxy"></a>沒有 Proxy 的 AD FS 2.0 Direct
 您可以在未使用 AD FS Proxy 的情況下保護 AD FS。 請在 AD FS 伺服器上安裝 Azure Multi-Factor Authentication Server，並依照下列步驟設定伺服器：
@@ -94,7 +104,9 @@ ms.locfileid: "56166261"
 6. 如果所有使用者都已經或將要匯入到「伺服器」，且必須接受雙步驟驗證，請核取 [需要進行 Azure Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器及/或將免除雙步驟驗證，請勿核取此方塊。
 7. 如有需要，請核取 Cookie 快取方塊。
 
-   <center>![設定](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
+   <center>
+   
+   ![設定](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
 
 8. 按一下 [確定]。
 9. 按一下 [原生模組] 索引標籤，然後選取伺服器、網站 (例如 [預設網站]) 或 AD FS 應用程式 (例如 "adfs" 之下的 "ls")，以在所需的層級啟用 IIS 外掛程式。
@@ -113,4 +125,6 @@ Azure Multi-Factor Authentication 現已保護 AD FS。
 3. 當 [新增信任的 IP] 對話方塊出現時，請選取 [單一 IP]、[IP 範圍] 或 [子網路] 選項按鈕的其中一個。
 4. 輸入應列入白名單中的 IP 位址、IP 位址範圍或子網路。 如果輸入子網路，請選取適當的網路遮罩，然後按一下 [確定] 按鈕。 現在已加入信任的 IP。
 
-<center>![設定](./media/howto-mfaserver-adfs-2/trusted.png)</center>
+<center>
+
+![設定](./media/howto-mfaserver-adfs-2/trusted.png)</center>

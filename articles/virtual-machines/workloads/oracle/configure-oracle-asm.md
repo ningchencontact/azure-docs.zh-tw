@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8cf977f9c5bbf10c6a4d862a29fda98d3ce71844
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755681"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998956"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上設定 Oracle ASM  
 
@@ -90,7 +90,7 @@ ssh <publicIpAddress>
 
 若要安裝 Oracle ASM，請完成下列步驟。 
 
-如需關於安裝 Oracle ASM 的詳細資訊，請參閱 [Oracle ASMLib Downloads for Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html)。  
+如需關於安裝 Oracle ASM 的詳細資訊，請參閱 [Oracle ASMLib Downloads for Oracle Linux 6](https://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html)。  
 
 1. 您必須以根使用者身分登入才能繼續安裝 ASM：
 
@@ -104,7 +104,7 @@ ssh <publicIpAddress>
     yum list | grep oracleasm 
     yum -y install kmod-oracleasm.x86_64 
     yum -y install oracleasm-support.x86_64 
-    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
@@ -336,24 +336,24 @@ ssh <publicIpAddress>
 
 10. 變更資料夾權限︰
 
-   ```bash
-   chmod -R 775 /opt 
-   chown grid:oinstall /opt 
-   chown oracle:oinstall /dev/sdc1 
-   chown oracle:oinstall /dev/sdd1 
-   chown oracle:oinstall /dev/sde1 
-   chown oracle:oinstall /dev/sdf1 
-   chmod 600 /dev/sdc1 
-   chmod 600 /dev/sdd1 
-   chmod 600 /dev/sde1 
-   chmod 600 /dev/sdf1
-   ```
+    ```bash
+    chmod -R 775 /opt 
+    chown grid:oinstall /opt 
+    chown oracle:oinstall /dev/sdc1 
+    chown oracle:oinstall /dev/sdd1 
+    chown oracle:oinstall /dev/sde1 
+    chown oracle:oinstall /dev/sdf1 
+    chmod 600 /dev/sdc1 
+    chmod 600 /dev/sdd1 
+    chmod 600 /dev/sde1 
+    chmod 600 /dev/sdf1
+    ```
 
 ## <a name="download-and-prepare-oracle-grid-infrastructure"></a>下載並準備 Oracle Grid Infrastructure
 
 若要下載並準備 Oracle Grid Infrastructure 軟體，請完成下列步驟︰
 
-1. 從 [Oracle ASM 下載頁面](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)下載 Oracle Grid Infrastructure。 
+1. 從 [Oracle ASM 下載頁面](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)下載 Oracle Grid Infrastructure。 
 
    在 **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64** 下載標題底下，下載兩個 .zip 檔案。
 
@@ -402,7 +402,7 @@ ssh <publicIpAddress>
 ## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>讓本機用戶端和 VM 準備執行 x11
 設定 Oracle ASM 時，您需要圖形化介面才能完成安裝和設定。 我們會使用 x11 通訊協定簡化此安裝。 如果您正在使用已啟用且已設定 X11 功能的用戶端系統 (Mac 或 Linux)，則可以跳過這項特定於 Windows 電腦的組態和設定。 
 
-1. 將 [PuTTY](http://www.putty.org/) 和 [Xming](https://xming.en.softonic.com/) 下載到 Windows 電腦。 繼續進行之前，您必須以預設值完成這兩個應用程式的安裝。
+1. 將 [PuTTY](https://www.putty.org/) 和 [Xming](https://xming.en.softonic.com/) 下載到 Windows 電腦。 繼續進行之前，您必須以預設值完成這兩個應用程式的安裝。
 
 2. 安裝 PuTTY 之後，請開啟命令提示字元，變更至 PuTTY 資料夾 (例如，C:\Program Files\PuTTY)，並執行 `puttygen.exe` 以產生金鑰。
 

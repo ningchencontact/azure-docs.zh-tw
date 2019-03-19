@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba2bde039cec65a1afe33efac58752d26f22c2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9cdb842c4cebe48f2f6534417a7fe6aa4686d1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171888"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894677"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>教學課程：Azure Active Directory 與 Zscaler Private Access Administrator 整合
 
@@ -217,7 +217,7 @@ ms.locfileid: "56171888"
 
     ![Zscaler Private Access Administrator 管理員使用者](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. 在 [Username] \(使用者名稱\) 文字方塊中，輸入使用者的電子郵件，例如 **BrittaSimon@contoso.com**。
+    a. 在 **使用者名稱**文字方塊中，輸入使用者電子郵件，例如**BrittaSimon\@contoso.com**。
 
     b. 在 [Password] \(密碼\) 文字方塊中，輸入密碼。
 
@@ -225,7 +225,7 @@ ms.locfileid: "56171888"
 
     d. 在 [Role] \(角色\) 選取 [Zscaler Private Access Administrator]。
 
-    e. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **BrittaSimon@contoso.com**。
+    e. 在 **電子郵件**文字方塊中，輸入使用者電子郵件，例如**BrittaSimon\@contoso.com**。
 
     f. 在 [Phone] \(電話\) 文字方塊中，輸入電話號碼。
 

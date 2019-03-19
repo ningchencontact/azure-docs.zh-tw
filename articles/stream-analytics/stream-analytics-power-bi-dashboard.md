@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556971"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116176"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>教學課程：串流分析及 Power BI：適用於串流資料的即時分析儀表板
 Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Microsoft Power BI](https://powerbi.com/)。 在本文中，您將了解如何使用 Power BI 作為 Azure 串流分析作業的輸出，以建立商業智慧工具。 您也將了解如何建立和使用即時儀表板。
@@ -56,16 +56,16 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
 7. 當您返回 [新輸出] 刀鋒視窗時，請輸入下列資訊：
 
-    * **群組工作區**：在 Power BI 租用戶中，選取您要建立資料集的工作區。
-    * **資料集名稱**：輸入 `sa-dataset` 。 您可以使用不同的名稱。 如果這樣做，請記下來供稍後使用。
-    * **資料表名稱**：輸入 `fraudulent-calls` 。 目前，串流分析作業的 Power BI 輸出在資料集內只能有一個資料表。
+   * **群組工作區**：在 Power BI 租用戶中，選取您要建立資料集的工作區。
+   * **資料集名稱**：輸入 `sa-dataset` 。 您可以使用不同的名稱。 如果這樣做，請記下來供稍後使用。
+   * **資料表名稱**：輸入 `fraudulent-calls` 。 目前，串流分析作業的 Power BI 輸出在資料集內只能有一個資料表。
 
-    ![Power BI 工作區資料集和資料表](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+     ![Power BI 工作區資料集和資料表](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
-    > [!WARNING]
-    > 如果 Power BI 的資料集和資料表名稱與您在串流分析作業中所指定的名稱相同，則會覆寫現有的資料集和資料表。
-    > 我們不建議您在 Power BI 帳戶中明確建立此資料集和資料表。 當您啟動串流分析作業，而該作業開始將輸出提取至 Power BI 時，系統會自動建立資料集和資料表。 如果作業查詢沒有傳回任何結果，則不會建立資料集和資料表。
-    >
+     > [!WARNING]
+     > 如果 Power BI 的資料集和資料表名稱與您在串流分析作業中所指定的名稱相同，則會覆寫現有的資料集和資料表。
+     > 我們不建議您在 Power BI 帳戶中明確建立此資料集和資料表。 當您啟動串流分析作業，而該作業開始將輸出提取至 Power BI 時，系統會自動建立資料集和資料表。 如果作業查詢沒有傳回任何結果，則不會建立資料集和資料表。
+     >
 
 8. 按一下頁面底部的 [新增] 。
 
@@ -170,7 +170,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
     ![新磚的視覺效果詳細資料](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
-7. 按 [下一步] 。
+7. 单击“下一步”。
 
 8. 填寫磚詳細資料，例如標題和副標題。
 
@@ -189,13 +189,13 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
     * 新增值並選取 [fraudulentcalls]。
     * 在 [要顯示的時間範圍] 中，選取過去 10 分鐘。
 
-    ![在 Power BI 中建立適用於折線圖的磚](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![在 Power BI 中建立適用於折線圖的磚](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. 按 [下一步]，新增標題和副標題，然後按一下 [套用]。
 
-    Power BI 儀表板現在提供兩個檢視，讓您看到串流資料中偵測到之詐騙電話的相關資料。
+     Power BI 儀表板現在提供兩個檢視，讓您看到串流資料中偵測到之詐騙電話的相關資料。
 
-    ![完成的 Power BI 儀表板，以兩個磚來顯示詐騙電話](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![完成的 Power BI 儀表板，以兩個磚來顯示詐騙電話](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
 ## <a name="learn-more-about-power-bi"></a>深入了解 Power BI
@@ -248,11 +248,11 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 Power BI 在重新整理過授權後，授權區域就會出現綠色警示，表示問題已獲得解決。
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3bd7f895e3cc30c4c5a0496977d65d68c220931f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079685"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>快速入門：遷移本機 Jupyter 筆記本
 
@@ -36,7 +36,7 @@ ms.locfileid: "53084497"
 
     ![瀏覽器視窗頂端的 [我的專案] 連結](media/quickstarts/my-projects-link.png)
 
-1. 在 [我的專案] 頁面上，選取 [+ 新增專案] (鍵盤快速鍵：n)；只有在瀏覽器視窗很窄時，該按鈕才會顯示為 **+**：
+1. 在 [我的專案] 頁面上，選取 [+ 新增專案] \(鍵盤快速鍵：n\)；只有在瀏覽器視窗很窄時，該按鈕才會顯示為 **+**：
 
     ![[我的專案] 頁面上的 [新增專案] 命令](media/quickstarts/new-project-command.png)
 
@@ -50,19 +50,19 @@ ms.locfileid: "53084497"
 
    (同樣地，如果您的 Notebook 位於 GitHub 存放庫中，請改為遵循[快速入門：複製 Notebook](quickstart-clone-jupyter-notebook.md) 中的步驟。)
 
-    - 如果您使用 [從電腦]，請將 *.ipynb* 檔案拖放到快顯視窗中，或選取 [選擇檔案]，然後瀏覽至您要匯入的檔案，並加以選取。 然後選取 [上傳]。 上傳的檔案會獲得與本機檔案相同的名稱。 (您不需要上傳 *.ipynb_checkpoints* 資料夾的任何內容。)
+   - 如果您使用 [從電腦]，請將 *.ipynb* 檔案拖放到快顯視窗中，或選取 [選擇檔案]，然後瀏覽至您要匯入的檔案，並加以選取。 然後選取 [上傳]。 上傳的檔案會獲得與本機檔案相同的名稱。 (您不需要上傳 *.ipynb_checkpoints* 資料夾的任何內容。)
 
-    ![從電腦上傳的快顯視窗](media/quickstarts/upload-from-computer-popup.png)
+     ![從電腦上傳的快顯視窗](media/quickstarts/upload-from-computer-popup.png)
 
-    - 如果您使用 [從 URL]，請在 [檔案 URL] 欄位中輸入來源位址，然後在 [檔案名稱] 欄位中，輸入要指派給專案中 Notebook 的檔案名稱。 然後選取 [上傳]。 如果您有多個具有不同 URL 的檔案，請使用 **+ 新增檔案**命令來檢查您輸入的第一個 URL，其後快顯視窗將會提供另一個檔案的新欄位。
+   - 如果您使用 [從 URL]，請在 [檔案 URL] 欄位中輸入來源位址，然後在 [檔案名稱] 欄位中，輸入要指派給專案中 Notebook 的檔案名稱。 然後選取 [上傳]。 如果您有多個具有不同 URL 的檔案，請使用 **+ 新增檔案**命令來檢查您輸入的第一個 URL，其後快顯視窗將會提供另一個檔案的新欄位。
 
-    ![從 URL 上傳的快顯視窗](media/quickstarts/upload-from-url-popup.png)
+     ![從 URL 上傳的快顯視窗](media/quickstarts/upload-from-url-popup.png)
 
 1. 開啟並執行您剛上傳的 Notebook，以確認其內容和作業。 完成之後，請選取 [檔案] > [終止並關閉] 以關閉 Notebook。
 
 1. 若要共用已上傳 Notebook 的連結，請以滑鼠右鍵按一下專案中的檔案，並選取 [複製連結] (鍵盤快速鍵：y)，然後將該連結貼到適當的訊息中。 或者，您可以使用專案頁面上的 [共用] 控制項共用整個專案。
 
-1. 若要編輯 Notebook 以外的檔案，請以滑鼠右鍵按一下專案中的檔案，然後選取 [編輯檔案] (鍵盤快速鍵：i)。 預設動作 [執行] (鍵盤快速鍵：r) 只會顯示檔案內容，不允許編輯。
+1. 若要編輯 Notebook 以外的檔案，請以滑鼠右鍵按一下專案中的檔案，然後選取 [編輯檔案] (鍵盤快速鍵：i)。 預設動作 **執行** (鍵盤快速鍵：r) 只會顯示檔案內容，而且不允許編輯。
 
 ## <a name="next-steps"></a>後續步驟
 

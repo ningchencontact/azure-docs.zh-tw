@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996975"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>保留的 IP 位址 (傳統部署)
 
@@ -28,18 +28,18 @@ ms.locfileid: "51228176"
 若要防止 IP 位址變更，您可以保留 IP 位址。 保留的 IP 只能用來作為 VIP，用以確保在即使資源關閉或停止 (解除配置) 的情況下，雲端服務的 IP 位址也會保持相同。 此外，您可以轉換現有的動態 IP，作為保留的 IP 位址的 VIP。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 了解如何使用 [Resource Manager 部署模型](virtual-network-ip-addresses-overview-arm.md)來保留靜態公用 IP 位址。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 了解如何使用 [Resource Manager 部署模型](virtual-network-ip-addresses-overview-arm.md)來保留靜態公用 IP 位址。
 
 若要深入了解 Azure 中的 IP 位址，請閱讀 [IP 位址](virtual-network-ip-addresses-overview-classic.md)文章。
 
 ## <a name="when-do-i-need-a-reserved-ip"></a>何時需要保留的 IP？
 * **您想要確保 IP 會保留在您的訂用帳戶中**。 如果您想要保留一個在任何情況下都不會從您訂用帳戶釋出的 IP 位址，您應該使用保留的公用 IP。  
-* **即使在已停止或解除配置狀態 (VM)，您想要保持 IP 與雲端服務之間的關聯**。 如果您想要讓使用者使用一個即使雲端服務中的 VM 被關閉或停止 (解除配置) 也不會變更的 IP 位址來存取服務。
-* **您想要確保來自 Azure 的輸出流量使用可預測的 IP 位址**。 您可能必須設定內部部署防火牆，以便僅允許來自特定 IP 位址的流量。 藉由保留 IP，您會知道來源 IP 位址，而不必因為 IP 變更而需要更新您的防火牆規則。
+* **想要 IP 始终与云服务相关联，即使 VM 处于停止或释放状态下**。 如果您想要讓使用者使用一個即使雲端服務中的 VM 被關閉或停止 (解除配置) 也不會變更的 IP 位址來存取服務。
+* **想要确保 Azure 的出站流量使用可预测的 IP 地址**。 您可能必須設定內部部署防火牆，以便僅允許來自特定 IP 位址的流量。 藉由保留 IP，您會知道來源 IP 位址，而不必因為 IP 變更而需要更新您的防火牆規則。
 
 ## <a name="faqs"></a>常見問題集
 - 我是否可以針對所有 Azure 服務都使用保留的 IP？
-    否。 保留的 IP 僅可用於 VM 和雲端服務透過 VIP 公開的執行個體角色。
+    沒有。 保留的 IP 僅可用於 VM 和雲端服務透過 VIP 公開的執行個體角色。
 - 我可以有多少保留的 IP？
     如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
 - 保留的 IP 是否會收取費用？
@@ -47,7 +47,7 @@ ms.locfileid: "51228176"
 - 我該如何保留 IP 位址？
     您可以使用 PowerShell、[Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 或 [Azure 入口網站](https://portal.azure.com)，在 Azure 區域中保留 IP 位址。 保留的 IP 位址會與您的訂用帳戶關聯。
 - 我是否可以將保留的 IP 位址與同質群組型 VNet 搭配使用？
-    否。 保留的 IP 僅在區域 VNet 才受支援。 與同質群組關聯的 VNet 不支援保留的 IP。 如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱[關於區域 VNet 與同質群組](virtual-networks-migrate-to-regional-vnet.md)一文。
+    沒有。 保留的 IP 僅在區域 VNet 才受支援。 與同質群組關聯的 VNet 不支援保留的 IP。 如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱[關於區域 VNet 與同質群組](virtual-networks-migrate-to-regional-vnet.md)一文。
 
 ## <a name="manage-reserved-vips"></a>管理保留的 VIP
 
@@ -83,7 +83,7 @@ Get-AzureReservedIP
     OperationStatus      : Succeeded
 
 >[!NOTE]
->使用 PowerShell 來建立保留的 IP 位址時，您無法指定資源群組以在其中建立保留的 IP。 Azure 會自動將它放在名為 *Default-Networking* 的資源群組中。 如果您使用 [Azure 入口網站](http://portal.azure.com)來建立保留的 IP，則可以指定您選擇的任何資源群組。 不過，如果您是在 *Default-Networking* 以外的資源群組中建立保留的 IP，則每當您使用 `Get-AzureReservedIP` 和 `Remove-AzureReservedIP` 之類的命令來參考保留的 IP 時，都必須參考 *Group resource-group-name reserved-ip-name* 名稱。  例如，如果您在名為 *myResourceGroup* 的資源群組中建立名為 *myReservedIP* 的保留 IP，就必須以 *Group myResourceGroup myReservedIP* 的形式參考保留的 IP 名稱。   
+>使用 PowerShell 來建立保留的 IP 位址時，您無法指定資源群組以在其中建立保留的 IP。 Azure 會自動將它放在名為 *Default-Networking* 的資源群組中。 如果您使用 [Azure 入口網站](https://portal.azure.com)來建立保留的 IP，則可以指定您選擇的任何資源群組。 不過，如果您是在 *Default-Networking* 以外的資源群組中建立保留的 IP，則每當您使用 `Get-AzureReservedIP` 和 `Remove-AzureReservedIP` 之類的命令來參考保留的 IP 時，都必須參考 *Group resource-group-name reserved-ip-name* 名稱。  例如，如果您在名為 *myResourceGroup* 的資源群組中建立名為 *myReservedIP* 的保留 IP，就必須以 *Group myResourceGroup myReservedIP* 的形式參考保留的 IP 名稱。   
 
 
 一旦保留 IP，其就會與您的訂用帳戶相關聯，直到刪除為止。 請刪除保留的 IP，如下所示：

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104398"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>快速入門：建立及共用筆記本
 
@@ -28,18 +28,18 @@ ms.locfileid: "53096268"
 
     ![瀏覽器視窗頂端的 [我的專案] 連結](media/quickstarts/my-projects-link.png)
 
-1. 在 [我的專案] 頁面上，選取 [+ 新增專案] (鍵盤快速鍵：n)；只有在瀏覽器視窗很窄時，該按鈕才會顯示為 **+**：
+1. 在 [我的專案] 頁面上，選取 [+ 新增專案] \(鍵盤快速鍵：n\)；只有在瀏覽器視窗很窄時，該按鈕才會顯示為 **+**：
 
     ![[我的專案] 頁面上的 [新增專案] 命令](media/quickstarts/new-project-command.png)
 
 1. 在顯示的 [建立新專案] 快顯視窗中，輸入或設定下列詳細資料，然後選取 [建立]：
 
-    - **專案名稱**：Python 中的 Hello World
-    - **專案識別碼**：hello-world-python
-    - **公用專案**：(已清除)
-    - **建立 README.md**：(已清除)
+   - **專案名稱**：Python 中的 Hello World
+   - **專案識別碼**：hello-world-python
+   - **公用專案**：(已清除)
+   - **建立 README.md**：(已清除)
 
-    ![已填入詳細資料的新增專案快顯視窗](media/quickstarts/new-project-popup.png)
+     ![已填入詳細資料的新增專案快顯視窗](media/quickstarts/new-project-popup.png)
 
 1. 幾分鐘後，Azure Notebooks 會帶您瀏覽至新的專案。 選取 [+ 新增] 下拉式清單 (可能只顯示為 **+**)，然後選取 [Notebook]，將 Notebook 新增至專案：
 
@@ -93,7 +93,7 @@ ms.locfileid: "53096268"
 
     ![Jupyter Notebook 工具列上的 [儲存] 圖示](media/quickstarts/hello-results-save-icon.png)
 
-1. 選取 [檔案] > [終止並關閉] 功能表命令，以停止伺服器並關閉瀏覽器視窗。
+1. 選取 **檔案** > **關閉並停止**功能表命令來停止伺服器，然後關閉瀏覽器視窗。
 
 ## <a name="share-the-notebook"></a>共用 Notebook
 

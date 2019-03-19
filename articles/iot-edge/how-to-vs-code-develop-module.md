@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884234"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的模組，並對其進行偵錯
 
@@ -154,7 +154,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 
 1. 準備環境以便根據您的開發語言需求進行偵錯、在您的模組中設定中斷點，然後選取要使用的偵錯設定：
    - **C#**
-     - 在 Visual Studio Code 整合式終端機中，將目錄變更為 ***&lt;您的模組名稱&gt;*** 資料夾，然後執行下列命令以建置 .Net Core 應用程式。
+     - 在 Visual Studio Code 整合式終端機中，將目錄變更***&lt;您的模組名稱&gt;*** 資料夾，然後再執行下列命令來建置.NET Core 應用程式。
 
        ```cmd
        dotnet build
@@ -165,7 +165,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
      - 選取 [檢視] > [偵錯] 以巡覽至 Visual Studio Code 偵錯檢視。 從下拉式清單中選取偵錯設定 [*&lt;您的模組名稱&gt;* 本機偵錯 (.NET Core)]。
 
         > [!NOTE]
-        > 如果您的 .Net Core `TargetFramework` 與 `launch.json` 中的程式路徑不一致，您必須手動更新 `launch.json` 中的程式路徑，以符合 .csproj 檔案中的 `TargetFramework`，Visual Studio Code 才能成功啟動此程式。
+        > 如果您的.NET Core`TargetFramework`與您的程式路徑中不一致`launch.json`，您必須手動更新中的程式路徑`launch.json`比對`TargetFramework`中您.csproj 檔案，讓該 Visual Studio 程式碼可以成功啟動它計劃。
 
    - **Node.js**
      - 在 Visual Studio Code 整合式終端機中，將目錄變更為 ***&lt;您的模組名稱&gt;*** 資料夾，然後執行下列命令以安裝 Node 套件

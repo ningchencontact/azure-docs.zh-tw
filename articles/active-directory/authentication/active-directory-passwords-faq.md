@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6194ed8ffa5732c9f187679e934aad306293d46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186364"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878188"
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -98,12 +98,10 @@ ms.locfileid: "56186364"
 * **問：密碼重設之後，我應該等待多久才能收到電子郵件、SMS 或來電？**
 
   > **答：** 應該在 1 分鐘內即可收到電子郵件、SMS 訊息及來電。 一般情況下為 5 到 20 秒。
-    >如果您未在此時間範圍內收到通知，請︰
-        > * 檢查您的垃圾郵件資料夾。
-        > * 確認所聯繫的號碼或電子郵件是您預期的號碼或電子郵件。
-        > * 確認目錄中的驗證資料已正確格式化，例如 +1 4255551234 或 *user@contoso.com*。 
-  >
-  >
+  > 如果您未在此時間範圍內收到通知，請︰
+  > * 檢查您的垃圾郵件資料夾。
+  > * 確認所聯繫的號碼或電子郵件是您預期的號碼或電子郵件。
+  > * 確認目錄中的驗證資料已正確格式化，例如，+ 1 4255551234 或*使用者\@contoso.com*。 
 * **問：密碼重設支援哪些語言？**
 
   > **答：** 密碼重設 UI、SMS 訊息及語音通話都已採用 Office 365 支援的相同語言當地語系化。

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453666"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000213"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>部署及探索搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式
 
@@ -56,14 +56,14 @@ ms.locfileid: "55453666"
 
 1. 若要在 Azure 入口網站中開啟 Wingtip Tickets SaaS 每一租用戶一個資料庫的部署範本，請選取 [部署至 Azure]。
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. 在範本中，為必要參數輸入值。
 
     > [!IMPORTANT]
     > 為了示範的目的，已刻意將某些驗證和伺服器防火牆設為不安全。 建議您建立新的資源群組。 請勿使用現有的資源群組、伺服器或集區。 請勿將此應用程式、指令碼或任何部署的資源用於生產環境。 不使用應用程式之後，請將此資源群組刪除，以停止相關計費。
 
-    - **資源群組**：選取 [新建]，並提供您先前為資源群組選擇的唯一名稱。
+    - **资源组**：選取 [新建]，並提供您先前為資源群組選擇的唯一名稱。
     - **位置**：從下拉式清單中選取位置。
     - **使用者**：使用您先前選擇的使用者名稱值。
 
@@ -127,7 +127,7 @@ Wingtip 應用程式使用  [*Azure 流量管理員*](../traffic-manager/traffi
 
     下表有前述格式各部分的解說。
 
-    | URL 部分        | 說明       |
+    | URL 部分        | 描述       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | Wingtip 應用程式的事件部分。<br /><br /> -dpt 能將 Wingtip Tickets 的「每一租用戶一個資料庫」實作與其他實作進行區分。 例如，「單一」每一租用戶一個應用程式 (-sa)，或「多租用戶資料庫」 (-mt) 實作。 |
     | .&lt;user&gt; | 範例中的 af1。 |
@@ -186,9 +186,9 @@ Demo-LoadGenerator.ps1 會模擬客戶交易的作用中工作負載。 下列�
 
 4. 如果 `$OneTime = $false`，負載產生器會啟動背景作業，然後再繼續執行。 每隔 10 秒鐘，系統會監視所有已佈建的新租用戶。 如果您設定 `$OneTime = $true`，LoadGenerator 將啟動背景作業，然後在前景中停止執行。 請針對本教學課程預留 `$OneTime = $false` 的時間。
 
-  如果您需要停止或重新啟動負載產生器，請使用 Ctrl-C 或停止作業 Ctrl-Break。
+   如果您需要停止或重新啟動負載產生器，請使用 Ctrl-C 或停止作業 Ctrl-Break。
 
-  如果您將負載產生器保留在前景執行，請使用另一個 PowerShell ISE 執行個體來執行其他 PowerShell 指令碼。
+   如果您將負載產生器保留在前景執行，請使用另一個 PowerShell ISE 執行個體來執行其他 PowerShell 指令碼。
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Demo-LoadGenerator.ps1 會模擬客戶交易的作用中工作負載。 下列�
 
 既然您已經開始對租用戶集合執行負載，讓我們看看已部署的一些資源。
 
-1. 在  [Azure 入口網站](http://portal.azure.com)中，瀏覽到您的 SQL 伺服器清單。 然後開啟  **catalog-dpt-&lt;USER&gt;** 伺服器。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，瀏覽到您的 SQL 伺服器清單。 然後開啟  **catalog-dpt-&lt;USER&gt;** 伺服器。
     - 目錄伺服器包含兩個資料庫，**tenantcatalog** 和 **basetenantdb** (basetenantdb 是複製的範本資料庫，用以建立新租用戶)。
 
    ![資料庫](./media/saas-dbpertenant-get-started-deploy/databases.png)

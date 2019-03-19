@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447815"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099098"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>資料倉儲單位 (DWU) 和計算資料倉儲單位 (cDWU)
 選擇理想的資料倉儲單位 (DWU、cDWU) 數目以獲得最佳價格與效能，以及如何變更單位數目的建議。 
@@ -68,7 +68,7 @@ WITH
 
 DWU 和 cDWU 均支援將計算相應增加或減少，並且在您不需使用資料倉儲時暫停計算。 這些作業全都依需求指定。 Gen2 會使用計算節點上的本機磁碟型快取來改善效能。 當您調整或暫停系統時，快取就會失效，因此，需要一段快取準備時間，才能達到最佳效能。  
 
-當您增加資料倉儲單位時，正是以線性方式增加運算資源。 Gen2 會提供最佳查詢效能和最高規模，但具有較高的項目價格。 它是專為持續具有效能需求的企業而設計的。 這些系統會充分利用快取。 
+當您增加資料倉儲單位時，正是以線性方式增加運算資源。 Gen2 提供最佳查詢效能和最大的規模。 這些系統會充分利用快取。
 
 ### <a name="capacity-limits"></a>容量限制
 每部 SQL 伺服器 (例如 myserver.database.windows.net) 都有[資料庫交易單位 (DTU)](../sql-database/sql-database-what-is-a-dtu.md) 配額，允許有特定數目的資料倉儲單位。 如需詳細資訊，請參閱[工作負載管理容量限制](sql-data-warehouse-service-capacity-limits.md#workload-management)。
@@ -124,10 +124,13 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 3. 按一下 [儲存] 。 確認訊息隨即出現。 按一下 [是] 以確認或 [否] 以取消。
 
 ### <a name="powershell"></a>PowerShell
-若要變更 DWU 或 cDWU，請使用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell Cmdlet。 下列範例會將裝載在 MyServer 伺服器上的資料庫 MySQLDW 的服務等級目標設定為 DW1000。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+若要變更 Dwu 或 Cdwu，請使用[組 AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet。 下列範例會將裝載在 MyServer 伺服器上的資料庫 MySQLDW 的服務等級目標設定為 DW1000。
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 如需詳細資訊，請參閱 [SQL 資料倉儲的 PowerShell Cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
@@ -183,7 +186,7 @@ FROM      sys.databases
 ;
 ```
 
-3. 提交下列查詢以檢查作業的狀態
+1. 提交下列查詢以檢查作業的狀態
 
 ```sql
 SELECT    *

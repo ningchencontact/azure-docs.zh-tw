@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127759"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074710"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure Logic Apps 與 Enterprise Integration Pack 接收 B2B 資料
 
@@ -47,11 +47,13 @@ ms.locfileid: "43127759"
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. 新增要做為輸入使用的 [主體]。 在此範例中，選取觸發邏輯應用程式的 HTTP 要求主體。 或者，輸入會在 [標頭] 欄位輸入標頭的運算式：
+6. 新增要做為輸入使用的 [主體]。 
+   在此範例中，選取觸發邏輯應用程式的 HTTP 要求主體。 或者，輸入會在 [標頭] 欄位輸入標頭的運算式：
 
     @triggerOutputs()['headers']
 
-7. 針對 AS2 新增要求的 [標頭]，您可以在 HTTP 要求標頭中找到標頭。 在此範例中，選取觸發邏輯應用程式的 HTTP 要求標頭。
+7. 針對 AS2 新增要求的 [標頭]，您可以在 HTTP 要求標頭中找到標頭。 
+   在此範例中，選取觸發邏輯應用程式的 HTTP 要求標頭。
 
 8. 現在，新增「將 X12 訊息解碼」動作。 選取 [新增動作]。
 
@@ -65,7 +67,8 @@ ms.locfileid: "43127759"
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
 
-11. 現在您必須指定此動作的輸入。 此輸入是上一個 AS2 動作的輸出。
+11. 現在您必須指定此動作的輸入。 
+    此輸入是上一個 AS2 動作的輸出。
 
     實際訊息內容是 JSON 物件格式且使用 base64 編碼，因此您必須將運算式指定為輸入。 
     在 [要解碼的 X12 一般檔案訊息] 輸入欄位中輸入下列運算式：

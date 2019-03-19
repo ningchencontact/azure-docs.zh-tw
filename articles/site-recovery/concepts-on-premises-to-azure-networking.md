@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 334537e77d5f291dc38e008af7fed9a4ea973265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108843"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>設定 IP 位址以在容錯移轉之後連線至 Azure VM
 
@@ -49,8 +49,8 @@ Site Recovery 提供可在容錯移轉至 Azure (藉由子網路容錯移轉) �
 - Woodgrove Bank 將商務應用程式裝載在內部部署網站中。 他們在 Azure 上裝載其行動應用程式。
 - 其內部部署邊緣網路與 Azure 虛擬網路之間有 VPN 站對站連線。 因為此 VPN 連線，Azure 中的虛擬網路會顯示為內部部署網路的延伸。
 - Woodgrove 想要使用 Site Recovery 將內部部署工作負載複寫到 Azure。
- - Woodgrove 具有相依於硬式編碼 IP 位址的應用程式，因此在容錯移轉至 Azure 之後，需要保留應用程式的 IP 位址。
- - 在 Azure 中執行的資源會使用 IP 位址範圍 172.16.1.0/24、172.16.2.0/24。
+  - Woodgrove 具有相依於硬式編碼 IP 位址的應用程式，因此在容錯移轉至 Azure 之後，需要保留應用程式的 IP 位址。
+  - 在 Azure 中執行的資源會使用 IP 位址範圍 172.16.1.0/24、172.16.2.0/24。
 
 ![子網路容錯移轉之前](./media/site-recovery-network-design/network-design7.png)
 

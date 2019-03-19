@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a810ae13d9cfb68d11293ba883c52858aa4a2deb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b98cc0141954a079b848bd9639b081499819b8ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164748"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876998"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>使用 Azure Active Directory 將最近刪除的使用者還原或移除
 刪除使用者之後，其帳戶會維持在暫時停權狀態 30 天。 在這 30 天期間，可以還原該使用者帳戶及其所有屬性。 30 天期限過後，系統會自動將該使用者永久刪除。
@@ -31,13 +31,13 @@ ms.locfileid: "56164748"
 ## <a name="required-permissions"></a>所需的權限
 您必須具備下列其中一個角色，才能還原及永久刪除使用者。
 
-- 公司系統管理員
+- 全域管理員
 
 - 合作夥伴第 1 層支援
 
 - 合作夥伴第 2 層支援
 
-- 使用者帳戶管理員
+- 使用者管理員
 
 ## <a name="view-your-restorable-users"></a>檢視可還原的使用者
 您可以查看刪除 30 天以內的所有使用者。 這些使用者均可還原。

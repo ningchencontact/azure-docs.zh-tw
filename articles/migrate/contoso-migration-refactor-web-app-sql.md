@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102749"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso 移轉：將內部部署應用程式重構至 Azure Web 應用程式和 Azure SQL 資料庫
 
@@ -244,9 +244,9 @@ Contoso 管理員將使用 DMA 來移轉 SmartHotel360 資料庫。
 
 Contoso 需要為應用程式建置 DevOps 基礎結構和管線。  為此，Contoso 管理員會建立新的 DevOps 專案、匯入程式碼，然後設定建置和發行管線。
 
-1.   在 Contoso Azure DevOps 帳戶中，他們會建立一個新專案 (**ContosoSmartHotelRefactor**)，然後選取 [Git] 來進行版本控制。
+1. 在 Contoso Azure DevOps 帳戶中，他們會建立一個新專案 (**ContosoSmartHotelRefactor**)，然後選取 [Git] 來進行版本控制。
 
-    ![新增專案](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![新增專案](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. 其會匯入目前保有其應用程式程式碼的 Git 存放庫。 此程式碼位於[公用存放庫](https://github.com/Microsoft/SmartHotel360-internal-booking-apps)，所以可供下載。
 
     ![下載應用程式程式碼](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -277,7 +277,7 @@ Contoso 管理員必須確定 Web 應用程式和資料庫皆可進行通訊。 
 
     ![連接字串](media/contoso-migration-refactor-web-app-sql/strings3.png)
 
-5. 程式碼進行變更後，管理員必須認可這些變更。 他們在 Visual Studio 中使用 Team Explorer 進行認可和同步。
+5. 程式碼進行變更後，管理員必須認可這些變更。 他們使用 Team Explorer，在 Visual Studio 中，認可並同步處理。
 
 
 ## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>步驟 6：在 Azure DevOps 中設定組建和發行管線
@@ -306,8 +306,8 @@ Contoso 管理員現在會設定 Azure DevOps 以執行建置和發行程序。
 
 6. [Drop] 資料夾會包含組建結果。
 
-    - 這兩個 zip 檔案是包含應用程式的套件。
-    - 這些檔案會用於部署至 Azure Web Apps 的發行管線中
+   - 這兩個 zip 檔案是包含應用程式的套件。
+   - 這些檔案會用於部署至 Azure Web Apps 的發行管線中
 
      ![構件](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -341,7 +341,7 @@ Contoso 管理員現在會設定 Azure DevOps 以執行建置和發行程序。
 
 16. 持續部署觸發程序應設定為 [已啟用]。
 
-   ![持續部署已啟用](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![持續部署已啟用](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. 現在，他們會回到 [1 個作業, 1 個工作] 階段，然後按一下 [部署 Azure App Service]。
 

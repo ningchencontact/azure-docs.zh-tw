@@ -11,21 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 52a12486add25cd32400af755aa6cd8cac07c6f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905050"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>使用 PowerShell 建立和管理 SQL Database 彈性作業 (預覽)
 
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
-
 適用於 **彈性資料庫工作** (預覽版) 的 PowerShell API 可讓您定義一組資料庫，然後針對這組資料庫執行指令碼。 本文將說明如何使用 Powershell Cmdlet 建立和管理 **彈性資料庫工作** 。 請參閱 [彈性工作概觀](sql-database-elastic-jobs-overview.md)。 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 ## <a name="prerequisites"></a>必要條件
 * Azure 訂用帳戶。 如需免費試用，請參閱 [免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
@@ -34,9 +34,9 @@ ms.locfileid: "55472638"
 * **彈性資料庫工作** PowerShell 封裝：請參閱[安裝彈性資料庫工作](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>選取您的 Azure 訂用帳戶
-若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID (**-SubscriptionId**) 或訂用帳戶名稱 (**-SubscriptionName**)。 如果您有多個訂用帳戶，則可以執行 **Get-AzureRmSubscription** Cmdlet，然後從結果集複製所需的訂用帳戶資訊。 準備好訂用帳戶資訊之後，請執行以下 Cmdlet 將此訂用帳戶設定為預設帳戶，也就是建立和管理工作的目標：
+若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID (**-SubscriptionId**) 或訂用帳戶名稱 (**-SubscriptionName**)。 如果您有多個訂用帳戶您可以執行**Get AzSubscription** cmdlet，並複製所需的訂用帳戶資訊，從結果集。 準備好訂用帳戶資訊之後，請執行以下 Cmdlet 將此訂用帳戶設定為預設帳戶，也就是建立和管理工作的目標：
 
-    Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
+    Select-AzSubscription -SubscriptionId {SubscriptionID}
 
 建議使用 [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) 以針對彈性資料庫工作開發和執行 PowerShell 指令碼。
 
@@ -46,7 +46,7 @@ ms.locfileid: "55472638"
 <table style="width:100%">
   <tr>
     <th>物件類型</th>
-    <th>說明</th>
+    <th>描述</th>
     <th>相關 PowerShell API</th>
   </tr>
   <tr>
@@ -321,7 +321,7 @@ ms.locfileid: "55472638"
 ## <a name="to-execute-a-job"></a>執行工作
 此 PowerShell 指令碼會執行現有工作：
 
-更新下列變數以反映要執行的所需工作名稱：
+更新以下变量以反映要执行的所需作业名称：
 
     $jobName = "{Job Name}"
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
@@ -404,7 +404,7 @@ ms.locfileid: "55472638"
         }
 
 ## <a name="to-wait-for-a-job-execution-to-complete"></a>等候工作執行完成
-下列 PowerShell 指令碼可以用來等候工作作業完成：
+以下 PowerShell 脚本可用于等待作业任务完成：
 
     $jobExecutionId = "{Job Execution Id}"
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
@@ -523,7 +523,7 @@ ms.locfileid: "55472638"
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
     Write-Output $job
 
-## <a name="data-collection-across-databases"></a>跨資料庫的資料集合
+## <a name="data-collection-across-databases"></a>跨数据库收集数据
 您可以使用工作來跨一組資料庫執行查詢，並將結果傳送至特定的資料表。 可以在事實之後查詢資料表，以查看每個資料庫的查詢結果。 這麼做即可以非同步方式執行跨許多資料庫的查詢。 嘗試失敗時自動經由重試來處理。
 
 如果指定的目的地資料表尚未存在，則會自動建立。 新的資料表符合傳回的結果集的結構描述。 如果指令碼傳回多個結果集，彈性資料庫工作只會將第一個結果集傳送至目的地資料表。
@@ -562,7 +562,7 @@ ms.locfileid: "55472638"
 ## <a name="to-schedule-a-job-execution-trigger"></a>排程工作執行觸發程序
 下列 PowerShell 指令碼可以用來建立週期性排程。 這個指令碼使用分鐘間隔，但是 [**New-AzureSqlJobSchedule**](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule) 也支援 -DayInterval、-HourInterval、-MonthInterval 和 -WeekInterval 參數。 您可以藉由傳遞 -OneTime，建立僅執行一次的排程。
 
-建立新的排程：
+创建新计划：
 
     $scheduleName = "Every one minute"
     $minuteInterval = 1
@@ -574,7 +574,7 @@ ms.locfileid: "55472638"
     Write-Output $schedule
 
 ### <a name="to-trigger-a-job-executed-on-a-time-schedule"></a>觸發依時間排程執行的工作
-可以定義工作觸發程序，讓工作根據時間排程執行。 下列 PowerShell 指令碼可以用來建立工作觸發程序。
+可以定义作业触发器，使作业根据时间计划执行。 下列 PowerShell 指令碼可以用來建立工作觸發程序。
 
 使用 [New-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger) ，並設定下列變數以對應至所需的工作和排程：
 
@@ -625,7 +625,7 @@ ms.locfileid: "55472638"
     Write-Output $updatedDacpac
 
 ## <a name="to-create-a-job-to-apply-a-data-tier-application-dacpac-across-databases"></a>建立工作以跨資料庫套用資料層應用程式 (DACPAC)
-在彈性資料庫工作內建立 DACPAC 之後，可以建立工作以跨資料庫群組套用 DACPAC。 下列 PowerShell 指令碼可以用來跨自訂資料庫集合建立 DACPAC 工作：
+在彈性資料庫工作內建立 DACPAC 之後，可以建立工作以跨資料庫群組套用 DACPAC。 以下 PowerShell 脚本可用于创建跨自定义数据库集合的 DACPAC 作业：
 
     $jobName = "{Job Name}"
     $dacpacName = "{Dacpac Name}"

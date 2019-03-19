@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: a4e29ce7ebb20753c3313e1148e1c91e853f49f5
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: HT
+ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
-ms.locfileid: "27577440"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007300"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>使用 D: 磁碟機作為 Windows VM 上的資料磁碟機
 如果您的應用程式需要使用 D 磁碟機來儲存資料，請遵循下列指示，使用不同的磁碟機代號來代表暫存磁碟。 切勿使用暫存磁碟儲存需要保留的資料。
@@ -42,14 +42,14 @@ ms.locfileid: "27577440"
 7. 選取 **C** 磁碟機，然後依序按一下 [系統管理大小] 和 [設定]。
 8. 選取 **D** 磁碟機，然後依序按一下 [沒有分頁檔] 和 [設定]。
 9. 按一下 [套用]。 您將會收到一則警告，表示電腦必須重新啟動，才能讓變更生效。
-10. 重新啟動虛擬機器。
+10. 重启虚拟机。
 
 ## <a name="change-the-drive-letters"></a>變更磁碟機代號
 1. 重新啟動 VM 之後，再次登入 VM。
-2. 按一下 [開始] 功能表，然後輸入 **diskmgmt.msc** 並按下 Enter 鍵。 隨即會啟動「磁碟管理」。
-3. 使用滑鼠右鍵按一下 **D**、暫存磁碟機，然後選取 [變更磁碟機代號及路徑]。
+2. 按一下 [開始] 功能表，然後輸入 **diskmgmt.msc** 並按下 Enter 鍵。 此时会启动“磁盘管理”。
+3. 右键单击 **D**（临时存储驱动器），并选择“更改驱动器号和路径”。
 4. 在磁碟機代號下方，選取新的磁碟機 (例如 **T**)，然後按一下 [確定]。 
-5. 使用滑鼠右鍵按一下資料磁碟，然後選取 [變更磁碟機代號及路徑] 。
+5. 右键单击数据磁盘，并选择“更改驱动器号和路径”。
 6. 在 [磁碟機代號] 下方，選取磁碟機 **D**，然後按一下 [確定]。 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>將 pagefile.sys 移回暫存磁碟機
@@ -64,5 +64,5 @@ ms.locfileid: "27577440"
 9. 重新啟動虛擬機器。
 
 ## <a name="next-steps"></a>後續步驟
-* 您可以[連接其他資料磁碟](attach-managed-disk-portal.md)來增加虛擬機器可以使用的儲存體。
+* 您可以增加可用的儲存體的虛擬機器[附加的額外資料磁碟](attach-managed-disk-portal.md)。
 

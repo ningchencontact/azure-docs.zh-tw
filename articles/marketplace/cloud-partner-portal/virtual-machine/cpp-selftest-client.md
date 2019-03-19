@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7afa64ebedb38b4514bbd155bf8f29268d420d18
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745753"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078681"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>建立用來預先驗證 Azure 虛擬機器映像的自我測試用戶端
 
@@ -73,7 +73,7 @@ Request body:    The Request body parameters should use the following JSON forma
 下表說明 API 欄位。
 
 
-|      欄位         |    說明    |
+|      欄位         |    描述    |
 |  ---------------   |  ---------------  |
 |  Authorization     |  "Bearer xxxx-xxxx-xxxx-xxxxx" 字串包含可使用 PowerShell 建立的 Azure Active Directory (AD) 用戶端權杖。          |
 |  DNS 名稱           |  要測試的 VM 所具備的 DNS 名稱    |
@@ -297,8 +297,8 @@ https://isvapp.azurewebsites.net/selftest-vm
     - 選取 [儲存] 以產生金鑰。
     - 在 [值] 下方複製金鑰。
 
-     >[!Important]
-     >退出 [金鑰] 表單之後，即無法檢視金鑰值。
+      >[!Important]
+      >退出 [金鑰] 表單之後，即無法檢視金鑰值。
 
     ![金鑰值表單](./media/stclient-create-key.png)
 

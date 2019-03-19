@@ -5,15 +5,15 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 11/11/2018
+ms.date: 02/21/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 4207031652db7ec4b2ae5468dc159320f6efdbc2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 79af6512e9ce3d3f897be216ee3626c5d4fbcf1d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228809"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56741423"
 ---
 ## <a name="create-a-media-services-account"></a>建立媒體服務帳戶
 
@@ -29,19 +29,20 @@ az group create --name amsResourceGroup --location westus2
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-建立媒體服務帳戶時，您需要提供 Azure 儲存體帳戶資源的名稱。 指定的儲存體帳戶會附加到您的媒體服務帳戶。 
+建立媒體服務帳戶時，您需要提供 Azure 儲存體帳戶資源的名稱。 指定的儲存體帳戶會附加到您的媒體服務帳戶。 如需如何在媒體服務中使用儲存體帳戶的詳細資訊，請參閱[儲存體帳戶](../articles/media-services/latest/storage-account-concept.md)。
 
 您只能有一個**主要**儲存體帳戶，而與您的媒體服務帳戶相關聯的**次要**儲存體帳戶可以有任意數量。 媒體服務支援**一般用途 v2** (GPv2) 或**一般用途 v1** (GPv1) 帳戶。 僅有 Blob 的帳戶不允許作為**主要**帳戶。 如果您要深入了解儲存體帳戶，請參閱 [Azure 儲存體帳戶選項](../articles/storage/common/storage-account-options.md)。 
 
-如需如何在媒體服務中使用儲存體帳戶的詳細資訊，請參閱[儲存體帳戶](../articles/media-services/latest/storage-account-concept.md)。
-
+在此範例中，我們將建立一般用途 v2 的標準 LRS 帳戶。 如果您想要以儲存體帳戶進行試驗，請使用 `--sku Standard_LRS`。 不過，在選擇用於生產環境的 SKU 時應考慮使用 `--sku Standard_RAGRS`，以提供地理複寫功能而確保商務持續性。 如需詳細資訊，請參閱[儲存體帳戶](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)。
+ 
 以下命令會建立即將與媒體服務帳戶相關聯的儲存體帳戶。 在下列指令碼中，您可將 `storageaccountforams` 替換為您的值。 帳戶名稱的長度必須小於 24。
 
 ```azurecli
 az storage account create --name storageaccountforams \  
---kind StorageV2 \
---sku Standard_RAGRS \
---resource-group amsResourceGroup
+  --kind StorageV2 \
+  --sku Standard_LRS \
+  -l westus2 \
+  -g amsResourceGroup
 ```
 
 ### <a name="create-a-media-services-account"></a>建立媒體服務帳戶
@@ -49,5 +50,7 @@ az storage account create --name storageaccountforams \
 以下 Azure CLI 命令會建立新的媒體服務帳戶。 您可以取代下列值：`amsaccount`  `storageaccountforams` (必須符合您為儲存體帳戶提供的值)，以及 `amsResourceGroup` (必須符合您為資源群組提供的值)。
 
 ```azurecli
-az ams account create --name amsaccount --resource-group amsResourceGroup --storage-account storageaccountforams
+az ams account create --name amsaccount \
+  -l westus2 \
+  -g amsResourceGroup --storage-account storageaccountforams
 ```

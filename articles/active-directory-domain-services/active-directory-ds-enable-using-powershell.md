@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: ergreenl
-ms.openlocfilehash: 758183efd6a6a2c2b8d172c52ad3bd5c5e12d969
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119899"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 啟用 Azure Active Directory Domain Services
 本文說明如何使用 PowerShell 啟用 Azure Active Directory (AD) Domain Services。
@@ -141,8 +141,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **佈建受控網域之後，別忘了其他設定步驟。**
 > 佈建受控網域之後，您仍然需要完成下列工作：
 > * 為虛擬網路**[更新 DNS 設定](active-directory-ds-getting-started-dns.md)**，讓虛擬機器可以找到受管理的網域來進行網域聯結或驗證。
-* **[啟用 Azure AD Domain Services 的密碼同步化](active-directory-ds-getting-started-password-sync.md)**，讓使用者可使用他們的公司認證來登入受管理的網域。
->
+> * **[啟用 Azure AD Domain Services 的密碼同步化](active-directory-ds-getting-started-password-sync.md)**，讓使用者可使用他們的公司認證來登入受管理的網域。
 
 
 ## <a name="powershell-script"></a>PowerShell 指令碼
@@ -226,8 +225,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **佈建受控網域之後，別忘了其他設定步驟。**
 > 佈建受控網域之後，您仍然需要完成下列工作：
 > * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受控網域來進行網域聯結或驗證。
-* 啟用 Azure AD Domain Services 的密碼同步化，讓使用者可使用他們的公司認證來登入受控網域。
->
+> * 啟用 Azure AD Domain Services 的密碼同步化，讓使用者可使用他們的公司認證來登入受控網域。
 
 ## <a name="next-steps"></a>後續步驟
 建立受控網域之後，請執行下列設定工作，如此一來您就可以使用受控網域：

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 99953b486fbd1daa9800aa850684447465eead9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599939"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182093"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>在 Windows 或 Linux 上部署連線處理站解決方案加速器的 Edge 閘道
 
@@ -39,7 +39,7 @@ ms.locfileid: "53599939"
 
 ## <a name="choose-a-gateway-device"></a>選擇閘道裝置
 
-如果您還沒有閘道裝置，Microsoft 建議您向合作夥伴購買商業閘道。 如需與連線處理站解決方案相容的閘道裝置清單，請造訪  [Azure IoT 裝置目錄](https://catalog.azureiotsuite.com/?q=opc)。 依照裝置隨附的指示來設定閘道。
+如果您還沒有閘道裝置，Microsoft 建議您向合作夥伴購買商業閘道。 如需與連線處理站解決方案相容的閘道裝置清單，請造訪  [Azure IoT 裝置目錄](https://catalog.azureiotsolutions.com/?q=opc)。 依照裝置隨附的指示來設定閘道。
 
 如果您需要手動設定現有的閘道裝置，請使用下列指示。
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005824"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric 聯盟網路
 
@@ -76,13 +76,13 @@ ms.locfileid: "56328022"
 
 ![基本概念](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
-| 參數名稱 | 說明 | 允許的值 |
+| 參數名稱 | 描述 | 允許的值 |
 |---|---|---|
-**資源前置詞**| 部署時所佈建資源的名稱前置詞 |6 個字元以下 |
-**使用者名稱**| 為此成員所部署的每個虛擬機器，其管理員的使用者名稱 |1 - 64 個字元 |
-**驗證類型**| 用來向虛擬機器驗證的方法 |密碼或 SSH 公開金鑰|
-**密碼 (驗證類型 = 密碼)**|每個所部署虛擬機器的管理員帳戶密碼。 密碼必須包含下列字元類別的其中三種：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元<br /><br />所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼|12 - 72 個字元|
-**SSH 金鑰 (驗證類型 = SSH 公開金鑰)**|用於遠端登入的安全殼層金鑰 ||
+**資源前置詞** | 部署時所佈建資源的名稱前置詞 |6 個字元以下 |
+**使用者名稱** | 為此成員所部署的每個虛擬機器，其管理員的使用者名稱 |1 - 64 個字元 |
+**驗證類型** | 用來向虛擬機器驗證的方法 |密碼或 SSH 公開金鑰|
+**密碼 (驗證類型 = 密碼)** |每個所部署虛擬機器的管理員帳戶密碼。 密碼必須包含下列字元類別的其中三種：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元<br /><br />所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼|12 - 72 個字元|
+**SSH 金鑰 (驗證類型 = SSH 公開金鑰)** |用於遠端登入的安全殼層金鑰 ||
 **訂用帳戶** |要作為部署目的地的訂用帳戶 ||
 **資源群組** |要對其部署聯盟網路的資源群組 ||
 **位置** |要在其中部署第一個成員的 Azure 區域 ||
@@ -95,12 +95,12 @@ ms.locfileid: "56328022"
 
 ![聯盟網路設定](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
 
-| 參數名稱 | 說明 | 允許的值 |
+| 參數名稱 | 描述 | 允許的值 |
 |---|---|---|
-**網路組態**|您可以選擇建立新的，或加入現有的網路。 如果選擇*加入現有*，您需要提供其他的值。 |新增網路 <br/> 加入現有的 |
-**HLF CA 密碼**|用於部署時建立的憑證授權單位所產生憑證的密碼。 密碼必須包含下列字元類別的其中三種：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。<br /><br />所有虛擬機器一開始都有相同的密碼，但您可以在佈建之後變更密碼。|1 - 25 個字元 |
+**網路組態** |您可以選擇建立新的，或加入現有的網路。 如果選擇*加入現有*，您需要提供其他的值。 |新增網路 <br/> 加入現有的 |
+**HLF CA 密碼** |用於部署時建立的憑證授權單位所產生憑證的密碼。 密碼必須包含下列字元類別的其中三種：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。<br /><br />所有虛擬機器一開始都有相同的密碼，但您可以在佈建之後變更密碼。|1 - 25 個字元 |
 **組織設定** |您可以自訂組織的名稱和憑證，或使用預設值。|預設值 <br/> 進階 |
-**VPN 網路設定**| 佈建 VPN 通道閘道以存取 VM | yes <br/> 否 |
+**VPN 網路設定** | 佈建 VPN 通道閘道以存取 VM | 是 <br/> 否 |
 
 選取 [確定] 。
 
@@ -110,21 +110,21 @@ ms.locfileid: "56328022"
 
 ![Fabric 設定](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
 
-| 參數名稱 | 說明 | 允許的值 |
+| 參數名稱 | 描述 | 允許的值 |
 |---|---|---|
-**調整類型**|部署類型可以是單一虛擬機器具備多個容器，或在相應放大模型中具備多個虛擬機器。|單一 VM 或多個 VM |
-**VM 磁碟類型**|支援每個所部署節點的儲存體類型。 <br/> 若要深入了解可用的磁碟類型，請參閱[選取磁碟類型](../../virtual-machines/windows/disks-types.md)。|標準 SSD <br/> 進階 SSD |
+**調整類型** |部署類型可以是單一虛擬機器具備多個容器，或在相應放大模型中具備多個虛擬機器。|單一 VM 或多個 VM |
+**VM 磁碟類型** |支援每個所部署節點的儲存體類型。 <br/> 若要深入了解可用的磁碟類型，請參閱[選取磁碟類型](../../virtual-machines/windows/disks-types.md)。|標準 SSD <br/> 進階 SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>多個 VM 部署 (額外設定)
 
 ![適用於多個 VM 部署的網狀架構設定](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
 
-| 參數名稱 | 說明 | 允許的值 |
+| 參數名稱 | 描述 | 允許的值 |
 |---|---|---|
 **排序者節點數目** |將交易排序 (組織) 到區塊的節點數目。 <br />如需排序服務的其他詳細資料，請瀏覽 Hyperledger [文件](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1 - 4 |
 **排序者節點的虛擬機器大小** |網路中排序者節點所使用的虛擬機器大小|標準 Bs、<br />標準 Ds、<br />標準 FS |
-**對等節點的數目**| 執行交易並維持狀態和總帳複本的聯盟成員所擁有的節點。<br />如需排序服務的其他詳細資料，請瀏覽 Hyperledger [文件](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html)。|1 - 4 |
-**節點強制持續性** |對等節點所使用的持續性引擎。 您可以為每個對等節點設定此引擎。 查看下方多個對等節點的詳細資料。|CouchDB </br>LevelDB |
+**對等節點的數目** | 執行交易並維持狀態和總帳複本的聯盟成員所擁有的節點。<br />如需排序服務的其他詳細資料，請瀏覽 Hyperledger [文件](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html)。|1 - 4 |
+**節點強制持續性** |對等節點所使用的持續性引擎。 您可以為每個對等節點設定此引擎。 查看下方多個對等節點的詳細資料。|CouchDB <br />LevelDB |
 **對等節點的虛擬機器大小** |網路中所有節點所使用的虛擬機器大小|標準 Bs、<br />標準 Ds、<br />標準 FS |
 
 ### <a name="multiple-peer-node-configuration"></a>多個對等節點設定

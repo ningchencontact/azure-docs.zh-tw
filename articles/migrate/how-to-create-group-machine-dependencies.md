@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 388a0419d5de87c3eb7faff9b556f888e52ac12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117365"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>使用機器相依性對應分組機器
 
@@ -21,7 +21,7 @@ ms.locfileid: "55456012"
 > 在 Azure Government 中無法使用相依性視覺效果功能。
 
 ## <a name="prepare-for-dependency-visualization"></a>為相依性視覺效果做準備
-Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈現機器的相依性視覺效果。
+Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性視覺效果中的服務對應解決方案。
 
 ### <a name="associate-a-log-analytics-workspace"></a>與 Log Analytics 工作區建立關聯
 若要利用相依性視覺效果，您需要將新的或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。 您只能在建立移轉專案的相同訂用帳戶中，建立或連結工作區。
@@ -58,9 +58,9 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 2. 在 [歡迎] 頁面中按 [下一步]。 在 [授權條款] 頁面上，按一下 [我同意] 以接受授權。
 3. 在 [目的地資料夾] 中，保留或修改預設的安裝資料夾 > [下一步]。
 4. 在 [代理程式安裝選項] 中，選取 [Azure Log Analytics] > [下一步]。
-5. 按一下 [新增] 以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 按 [下一步] 。
+5. 按一下 [新增] 以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 单击“下一步”。
 
-您可以從命令列或使用自動化方法 (例如 Azure 自動化 DSC、System Center Configuration Manager) 來安裝代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。 [了解更多](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)有關如何使用這些方法來安裝 MMA 代理程式。
+您可以從命令列或使用自動化方法 (例如 Azure Automation DSC、System Center Configuration Manager) 來安裝代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。 [了解更多](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)有關如何使用這些方法來安裝 MMA 代理程式。
 
 #### <a name="install-the-agent-on-a-linux-machine"></a>在 Linux 電腦上安裝代理程式
 
@@ -105,8 +105,8 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 
 4. 您可以按一下時間範圍標籤中的持續時間，以查看不同持續時間的相依性。 根據預設，範圍是一小時。 您可以修改時間範圍，或指定開始和結束日期，以及持續時間。
 
-    > [!NOTE]
-      目前，相依性視覺效果 UI 不支援選取超過一小時的時間範圍。 使用 Log Analytics 可在較長的持續期間內[查詢相依性資料](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics)。
+   > [!NOTE]
+   >    目前，相依性視覺效果 UI 不支援選取超過一小時的時間範圍。 使用 Azure 監視器記錄到[查詢相依性資料](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies)較長的持續期間內。
 
 5. 找出您需要劃為同一群組的相依機器後，請使用 Ctrl + 按一下來選取對應中的多部機器，然後按一下 [群組機器]。
 6. 指定群組名稱。 確認 Azure Migrate 已探索到相依機器。
@@ -119,19 +119,19 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 
 一旦建立群組之後，建議您在群組的所有機器上安裝代理程式，並將整個群組的相依性視覺化來調整群組。
 
-## <a name="query-dependency-data-from-log-analytics"></a>從 Log Analytics 查詢相依性資料
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>查詢 Azure 監視器記錄檔的相依性資料
 
-服務對應擷取的相依性資料可供在與 Azure Migrate 專案相關聯的 Log Analytics 工作區中查詢。 [深入了解](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)可在 Log Analytics 中查詢的服務對應資料表。 
+服務對應擷取的相依性資料可供在與 Azure Migrate 專案相關聯的 Log Analytics 工作區中查詢。 [了解更多](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)查詢 Azure 監視器中的服務對應資料表的相關記錄。 
 
-若要執行 Log Analytics 查詢：
+若要執行的 Kusto 查詢：
 
 1. 安裝代理程式之後，請移至入口網站，然後按一下 [概觀]。
 2. 在 [概觀] 中，移至專案的 [Essentials] 區域，然後按一下 [OMS 工作區] 旁提供的工作區名稱。
-3. 在 Log Analytics 工作區頁面上，按一下 [一般]  >  [記錄]。
-4. 撰寫查詢以使用 Log Analytics 蒐集相依性資料。 [此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)提供收集相依性資料的範例查詢。
+3. 在 Log Analytics 工作區頁面上，按一下 [一般] > [記錄]。
+4. 撰寫查詢，以蒐集使用 Azure 監視器記錄檔的相依性資料。 [此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)提供收集相依性資料的範例查詢。
 5. 按一下 [執行] 以執行查詢。 
 
-[深入了解](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)如何撰寫 Log Analytics 查詢。 
+[了解更多](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)關於如何撰寫 Kusto 查詢。 
 
 ## <a name="next-steps"></a>後續步驟
 

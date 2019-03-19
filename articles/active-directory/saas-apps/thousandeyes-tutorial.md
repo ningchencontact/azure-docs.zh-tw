@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43aa43d37099d69441a5dde47327e784d67fa9ac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5d85c4dbd3cc1c3d827a3f8324e63f75eb942425
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>教學課程：Azure Active Directory 與 ThousandEyes 整合
 
@@ -214,7 +214,7 @@ ThousandEyes 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入使用者的名稱，例如 **Britta Simon**。
 
-    b. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
+    b. 在 **電子郵件**文字方塊中，輸入電子郵件的使用者，例如**brittasimon\@contoso.com**。
 
     b. 按一下 [加入使用者至帳戶] 按鈕。
 

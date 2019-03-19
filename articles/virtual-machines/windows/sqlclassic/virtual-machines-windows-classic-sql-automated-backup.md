@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3aba118354c51285d714bb127e6f5984f8a50057
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096294"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Azure 虛擬機器中的 SQL Server 自動備份 (傳統)
 > [!div class="op_single_selector"]
@@ -65,15 +65,16 @@ ms.locfileid: "54329747"
 * [安裝 SQL Server IaaS 擴充功能](../classic/sql-server-agent-extension.md)。
 
 ## <a name="settings"></a>設定
-下表說明可以為自動備份設定的選項。 針對傳統 VM，您必須使用 PowerShell 來設定這些設定。
+下表說明可以為自動備份設定的選項。 对于经典 VM，必须使用 PowerShell 配置以下设置。
 
-| 設定 | 範圍 (預設值) | 說明 |
+| 設定 | 範圍 (預設值) | 描述 |
 | --- | --- | --- |
 | **自動備份** |啟用/停用 (已停用) |針對執行 SQL Server 2014 Standard 或 Enterprise 的 Azure VM，啟用或停用自動備份。 |
-| **保留期限** |1-30 天 (30 天) |保留備份的天數。 |
+| **保留期限** |1-30 天（30 天） |保留備份的天數。 |
 | **儲存體帳戶** |Azure 儲存體帳戶 (針對指定 VM 建立的儲存體帳戶) |將自動備份檔案儲存在 Blob 儲存體中時，所使用的 Azure 儲存體帳戶。 這個位置會建立一個容器來儲存所有備份檔案。 備份檔案命名慣例包括日期、時間和電腦名稱。 |
-| **加密** |啟用/停用 (已停用) |啟用或停用加密。 啟用加密時，用來還原備份的憑證會放在與使用相同命名慣例之相同 automaticbackup 容器中的指定儲存體帳戶裡。 如果密碼變更，就會以該密碼產生新的憑證，但是舊的憑證還是會保留，以還原先前的備份。 |
-| **密碼** |密碼文字 (無) |加密金鑰的密碼。 唯有啟用加密時，才需要此密碼。 若要還原加密的備份，您必須要有建立備份時所使用的正確密碼和相關憑證。 | **備份系統資料庫** | 啟用/停用 (已停用) | 完整備份 Master、Model 及 MSDB |
+| **加密** |启用/禁用（已禁用） |啟用或停用加密。 啟用加密時，用來還原備份的憑證會放在與使用相同命名慣例之相同 automaticbackup 容器中的指定儲存體帳戶裡。 如果密碼變更，就會以該密碼產生新的憑證，但是舊的憑證還是會保留，以還原先前的備份。 |
+| **密碼** |密碼文字 (無) |加密金鑰的密碼。 唯有啟用加密時，才需要此密碼。 若要還原加密的備份，您必須要有建立備份時所使用的正確密碼和相關憑證。 |
+| **備份系統資料庫** | 啟用/停用 (已停用) | 完整備份 Master、Model 及 MSDB |
 | **設定備份排程** | 手動/自動化 (自動化) | 若要根據記錄檔的成長情況自動執行完整或記錄備份，請選取 [手動]。 若要指定完整或記錄備份的排程，請選取 [手動]。 |
 
 ## <a name="configuration-with-powershell"></a>使用 PowerShell 進行設定
@@ -102,7 +103,7 @@ ms.locfileid: "54329747"
 若要停用自動備份，請執行相同的指令碼，但不要對 **New-AzureVMSqlServerAutoBackupConfig** 使用 **-Enable** 參數。 和安裝一樣，可能需要幾分鐘的時間來停用自動備份。
 
 > [!NOTE]
-> 停用及解除安裝 SQL Server IaaS 代理程式不會移除先前設定的受控備份設定。 在停用或解除安裝 SQL Server IaaS 代理程式之前，應先停用自動備份。
+> 停用及解除安裝 SQL Server IaaS 代理程式不會移除先前設定的受控備份設定。 应该在禁用或卸载 SQL Server IaaS 代理之前禁用自动备份。
 > 
 > 
 

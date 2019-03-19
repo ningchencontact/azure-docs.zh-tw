@@ -15,12 +15,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e1d3058600bca6630c3efcbb860b7f8eeeaf57
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096855"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
 
@@ -195,8 +195,8 @@ Azure AD 會將新版的軟體當作已簽署的 **Windows Installer 套件 (MSI
 3. 更新程式驗證 MSI 是否由 Microsoft 簽署。
 4. 更新程式執行 MSI。 此動作涉及下列步驟：
 
- > [!NOTE]
- > 更新程式會以 [本機系統](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 權限執行。
+   > [!NOTE]
+   > 更新程式會以 [本機系統](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 權限執行。
 
     - 停止驗證代理程式服務
     - 在伺服器上安裝新版的驗證代理程式

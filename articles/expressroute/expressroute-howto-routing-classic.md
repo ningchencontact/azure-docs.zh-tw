@@ -1,6 +1,6 @@
 ---
 title: 設定線路的對等互連 - ExpresssRoute：Azure：傳統 | Microsoft Docs
-description: 本文將逐步引導您為 ExpressRoute 線路建立和佈建私用、公用及 Microsoft 對等。 本文也示範如何檢查狀態、更新或刪除線路的對等。
+description: 本文將逐步引導您為 ExpressRoute 線路建立和佈建私用、公用及 Microsoft 對等。 本文还介绍了如何检查状态，以及如何更新或删除线路的对等互连。
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: fbf97c984a00d6bdd7f79c26094ae36348e00236
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103820"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>建立和修改 ExpressRoute 線路的對等互連 (傳統)
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.locfileid: "53342029"
 
 ## <a name="configuration-prerequisites"></a>組態必要條件
 
-* 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)頁面、[路由需求](expressroute-routing.md)頁面和[工作流程](expressroute-workflows.md)頁面。
+* 在开始配置之前，请务必查看[先决条件](expressroute-prerequisites.md)页、[路由要求](expressroute-routing.md)页和[工作流](expressroute-workflows.md)页。
 * 您必須擁有作用中的 ExpressRoute 線路。 繼續之前，請遵循指示來 [建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由您的連線提供者來啟用該線路。 ExpressRoute 線路必須處於已佈建和已啟用狀態，您才能執行如下所述的 Cmdlet。
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>下載最新的 PowerShell Cmdlet
@@ -58,25 +58,25 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 1. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 2. 檢查帳戶的訂用帳戶。
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. 如果您有多個訂用帳戶，請選取您要使用的訂用帳戶。
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. 接下來，使用下列 Cmdlet，將您的 Azure 訂用帳戶新增到 PowerShell，以供傳統部署模型使用。
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="azure-private-peering"></a>Azure 私用對等
 
@@ -86,59 +86,59 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 1. **建立 ExpressRoute 線路。**
 
-  請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
+   請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
 2. **檢查 ExpressRoute 線路以確定已佈建。**
    
-  檢查 ExpressRoute 線路是否為 Provisioned 和 Enabled。
+   檢查 ExpressRoute 線路是否為 Provisioned 和 Enabled。
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  傳回：
+   傳回：
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  請確定線路顯示為 Provisioned 和 Enabled。 如果不是，請與連線提供者合作，讓線路變成所需的狀態。
+   請確定線路顯示為 Provisioned 和 Enabled。 如果不是，請與連線提供者合作，讓線路變成所需的狀態。
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **設定線路的 Azure 私用對等。**
 
-  繼續執行接下來的步驟之前，請確定您有下列項目：
+   繼續執行接下來的步驟之前，請確定您有下列項目：
    
-  * 主要連結的 /30 子網路。 這不能在保留給虛擬網路的任何位址空間中。
-  * 次要連結的 /30 子網路。 這不能在保留給虛擬網路的任何位址空間中。
-  * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
-  * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 您可以將私用 AS 編號用於此對等。 請確定您不是使用 65515。
-  * MD5 雜湊 (如果選擇使用)。 **選擇性**。
+   * 主要連結的 /30 子網路。 這不能在保留給虛擬網路的任何位址空間中。
+   * 辅助链路的 /30 子网。 這不能在保留給虛擬網路的任何位址空間中。
+   * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
+   * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 您可以將私用 AS 編號用於此對等。 請確定您不是使用 65515。
+   * MD5 雜湊 (如果選擇使用)。 **選擇性**。
      
-  您可以使用下列範例來為線路設定 Azure 私用對等互連：
+   您可以使用下列範例來為線路設定 Azure 私用對等互連：
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
-  ```    
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+   ```    
 
-  如果您想要使用 MD5 雜湊，可以使用下列範例來為線路設定私用對等互連：
+   如果您想要使用 MD5 雜湊，可以使用下列範例來為線路設定私用對等互連：
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+   ```
      
-  > [!IMPORTANT]
-  > 請確定您將 AS 編號指定為對等 ASN，而不是客戶 ASN。
-  > 
+   > [!IMPORTANT]
+   > 請確定您將 AS 編號指定為對等 ASN，而不是客戶 ASN。
+   > 
 
 ### <a name="to-view-azure-private-peering-details"></a>檢視 Azure 私用對等詳細資訊
 
@@ -189,59 +189,59 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 
 1. **建立 ExpressRoute 線路**
 
-  請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 公用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
+   請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 公用對等。 在这种情况下，不需要遵循后续部分中所列的说明。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
 2. **檢查 ExpressRoute 線路以確定已佈建**
 
-  您必須先檢查 ExpressRoute 線路是否為 Provisioned 和 Enabled。
+   您必須先檢查 ExpressRoute 線路是否為 Provisioned 和 Enabled。
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  傳回：
+   傳回：
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  請確定線路顯示為 Provisioned 和 Enabled。 如果不是，請與連線提供者合作，讓線路變成所需的狀態。
+   請確定線路顯示為 Provisioned 和 Enabled。 如果不是，請與連線提供者合作，讓線路變成所需的狀態。
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 4. **設定線路的 Azure 公用對等**
    
-  繼續之前，請確定您具有下列資訊：
+   繼續之前，請確定您具有下列資訊：
    
-  * 主要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
-  * 次要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
-  * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
-  * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-  * MD5 雜湊 (如果選擇使用)。 **選擇性**。
+   * 主要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
+   * 次要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
+   * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
+   * 對等的 AS 編號。 可以使用 2 字节和 4 字节 AS 编号。
+   * MD5 雜湊 (如果選擇使用)。 **選擇性**。
 
-  > [!IMPORTANT]
-  > 請確定您將 AS 編號指定為對等 ASN，而不是客戶 ASN。
-  >  
+   > [!IMPORTANT]
+   > 請確定您將 AS 編號指定為對等 ASN，而不是客戶 ASN。
+   >  
      
-  您可以執行下列範例來為線路設定 Azure 公用對等互連：
+   您可以執行下列範例來為線路設定 Azure 公用對等互連：
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+   ```
      
-  如果您想要使用 MD5 雜湊，可以使用下列範例來設定線路：
+   如果您想要使用 MD5 雜湊，可以使用下列範例來設定線路：
      
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+   ```
      
 ### <a name="to-view-azure-public-peering-details"></a>檢視 Azure 公用對等詳細資訊
 
@@ -293,34 +293,34 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
 
 1. **建立 ExpressRoute 線路**
   
-  請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
+   請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
 2. **檢查 ExpressRoute 線路以確定已佈建**
 
-  請確定線路顯示為 Provisioned 和 Enabled。 
+   請確定線路顯示為 Provisioned 和 Enabled。 
    
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  傳回：
+   傳回：
    
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  請確定線路顯示為 Provisioned 和 Enabled。 如果不是，請與連線提供者合作，讓線路變成所需的狀態。
+   請確定線路顯示為 Provisioned 和 Enabled。 如果不是，請與連線提供者合作，讓線路變成所需的狀態。
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **設定線路的 Microsoft 對等**
    
     繼續之前，請確定您擁有下列資訊：
@@ -334,11 +334,11 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    * 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
    * MD5 雜湊 (如果選擇使用)。 **選用。**
      
-  執行下列 Cmdlet 來為線路設定 Microsoft 對等：
+   執行下列 Cmdlet 來為線路設定 Microsoft 對等：
  
-  ```powershell
-  New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+   ```
 
 ### <a name="to-view-microsoft-peering-details"></a>檢視 Microsoft 對等詳細資訊
 

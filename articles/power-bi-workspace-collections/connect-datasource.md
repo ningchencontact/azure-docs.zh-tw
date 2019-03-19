@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: c67369edec2f3c84ada14e6c2a3a3ab8056b3e0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104689"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870090"
 ---
 # <a name="connect-to-a-data-source"></a>連接到資料來源
 
@@ -38,8 +38,8 @@ ms.locfileid: "55104689"
 ## <a name="supported-data-sources"></a>支援的資料來源
 
 **DirectQuery**
-* Azure SQL Database
-* Azure SQL 資料倉儲
+* Azure SQL 数据库
+* Azure SQL 数据仓库
 
 **Import**
 
@@ -64,13 +64,13 @@ ms.locfileid: "55104689"
 
 <a name="measures"/>
 
-## <a name="directquery-and-measures"></a>DirectQuery 和量值
+## <a name="directquery-and-measures"></a>DirectQuery 和度量值
 為確保傳送至基礎資料來源的查詢都有可接受的效能，所以將限制加諸於量值之上。 使用 **Power BI Desktop** 時，進階使用者可以選擇 [檔案] > [選項和設定] > [選項]，選擇略過這項限制。 在 [選項] 對話方塊中選擇 [DirectQuery]，並選取選項 [允許在 DirectQuery 模式中量值不受限制]。 選取該選項後，即可使用對量值有效的任何 DAX 運算式。 不過，使用者必須知道，當資料匯入時，某些執行得很好的運算式在 **DirectQuery** 模式中可能會造成後端來源的查詢變慢。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 
 * [開始使用 Microsoft Power BI 工作區集合](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-有其他疑問？ [試用 Power BI 社群](http://community.powerbi.com/)
+有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)
 

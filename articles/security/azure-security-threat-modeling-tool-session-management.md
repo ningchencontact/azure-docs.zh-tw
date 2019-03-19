@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 18dfc6badf640afb418e661e6c464442fbb41945
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875164"
 ---
-# <a name="security-frame-session-management"></a>安全性架構︰工作階段管理
+# <a name="security-frame-session-management"></a>安全框架︰工作階段管理
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[在使用 Azure AD 時以 ADAL 方法實作適當的登出](#logout-adal)</li></ul> |
@@ -270,7 +270,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | MVC5、MVC6 |
 | **屬性**              | N/A  |
-| **參考**              | [在 ASP.NET MVC 和網頁中防止 XSRF/CSRF](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
+| **參考**              | [在 ASP.NET MVC 和網頁中防止 XSRF/CSRF](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
 | **步驟** | 防 CSRF 和 ASP.NET MVC 表單 - 在檢視上使用 `AntiForgeryToken` 協助程式方法；例如，在表單內放入 `Html.AntiForgeryToken()`。|
 
 ### <a name="example"></a>範例
@@ -304,7 +304,7 @@ public ViewResult SubmitUpdate()
 * 這些 Cookie 和 `Request.Form` 值符合假設一切正常，要求就會正常通過。 但如果沒有，則授權會失敗並出現訊息「未提供必要的防偽權杖或權杖無效」。 
 
 ### <a name="example"></a>範例
-防 CSRF 和 AJAX︰表單權杖可能會成為 AJAX 要求的麻煩，因為 AJAX 要求可能會傳送 JSON 資料，而非 HTML 表單資料。 有一個解決方案是在自訂 HTTP 標頭中傳送權杖。 下列程式碼使用 Razor 語法來產生權杖，然後將權杖新增至 AJAX 要求。 
+防 CSRF 和 AJAX:表單語彙基元可能會有問題的 AJAX 要求，因為 AJAX 要求可能會傳送 JSON 資料，非 HTML 表單資料。 有一個解決方案是在自訂 HTTP 標頭中傳送權杖。 下列程式碼使用 Razor 語法來產生權杖，然後將權杖新增至 AJAX 要求。 
 ```csharp
 <script>
     @functions{
@@ -377,7 +377,7 @@ void Page_Init (object sender, EventArgs e) {
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [HttpSessionState.Timeout 屬性](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
-| **步驟** | 工作階段逾時代表使用者在一段間隔時間內 (由網頁伺服器定義) 未在網站上執行任何動作時所發生的事件。 伺服器端上的事件會將使用者工作階段的狀態變更為「無效」(例如「不再被使用」)，並指示網頁伺服器終結它 (刪除其中包含的所有資料)。 下列程式碼範例會在 Web.config 檔案中將逾時工作階段屬性設定為 15 分鐘。|
+| **步驟** | 工作階段逾時表示使用者不會執行任何動作的網站上期間 （由 web 伺服器定義） 的時間間隔時所發生的事件。 伺服器端上的事件會將使用者工作階段的狀態變更為「無效」(例如「不再被使用」)，並指示網頁伺服器終結它 (刪除其中包含的所有資料)。 下列程式碼範例會在 Web.config 檔案中將逾時工作階段屬性設定為 15 分鐘。|
 
 ### <a name="example"></a>範例
 ```XML 
@@ -467,8 +467,8 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | MVC5、MVC6 |
 | **屬性**              | N/A  |
-| **參考**              | [避免 ASP.NET Web API 中發生跨網站偽造要求 (CSRF) 攻擊](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| **步驟** | 防 CSRF 和 AJAX︰表單權杖可能會成為 AJAX 要求的麻煩，因為 AJAX 要求可能會傳送 JSON 資料，而非 HTML 表單資料。 有一個解決方案是在自訂 HTTP 標頭中傳送權杖。 下列程式碼使用 Razor 語法來產生權杖，然後將權杖新增至 AJAX 要求。 |
+| **參考**              | [避免 ASP.NET Web API 中發生跨網站偽造要求 (CSRF) 攻擊](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
+| **步驟** | 防 CSRF 和 AJAX:表單語彙基元可能會有問題的 AJAX 要求，因為 AJAX 要求可能會傳送 JSON 資料，非 HTML 表單資料。 有一個解決方案是在自訂 HTTP 標頭中傳送權杖。 下列程式碼使用 Razor 語法來產生權杖，然後將權杖新增至 AJAX 要求。 |
 
 ### <a name="example"></a>範例
 ```Javascript
@@ -554,7 +554,7 @@ public ViewResult SubmitUpdate()
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | MVC5、MVC6 |
 | **屬性**              | 識別提供者 - ADFS、識別提供者 - Azure AD |
-| **參考**              | [在 ASP.NET Web API 2.2 中使用個別帳戶和本機登入保護 Web API](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
+| **參考**              | [在 ASP.NET Web API 2.2 中使用個別帳戶和本機登入保護 Web API](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
 | **步驟** | 如果使用 OAuth 2.0 保護 Web API，則它會預期授權要求標頭中有持有人權杖，並且只會在權杖有效時將存取權授與要求。 不同於以 Cookie 為基礎的驗證，瀏覽器不會在要求中附加持有人權杖。 提出要求的用戶端必須在要求標頭中明確附加持有人權杖。 因此，對於使用 OAuth 2.0 來保護的 ASP.NET Web API，會將持有人權杖視為 CSRF 攻擊的防禦手段。 請注意，如果應用程式的 MVC 部分使用表單驗證 (亦即，使用 Cookie)，MVC Web 應用程式必須使用防偽權杖。 |
 
 ### <a name="example"></a>範例

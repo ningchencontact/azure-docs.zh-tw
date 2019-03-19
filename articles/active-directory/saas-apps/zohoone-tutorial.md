@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17a297d3099d51b3a58a6654560a67f9a4192a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aadb3188969e099a709711ac18916b67c83b5da1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884433"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>教學課程：Azure Active Directory 與 Zoho One 整合
 
@@ -223,7 +223,7 @@ ms.locfileid: "56208311"
     
     a. 在 [Name] \(名稱\) 文字方塊中，輸入使用者的名稱，例如 **Britta Simon**。
     
-    b. 在 [電子郵件地址] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
+    b. 在 **電子郵件地址**文字方塊中，輸入使用者電子郵件，例如**brittasimon\@contoso.com**。
 
     >[!Note]
     >從網域清單中選取已驗證的網域。

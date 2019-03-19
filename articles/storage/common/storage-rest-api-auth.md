@@ -4,16 +4,16 @@ description: 呼叫包含驗證的 Azure 儲存體服務 REST API 作業
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012787"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 儲存體 REST API
 
@@ -46,7 +46,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 ## <a name="what-is-rest"></a>什麼是 REST？
 
-REST 表示*具像狀態傳輸*。 如需特定定義，請查看[維基百科](http://en.wikipedia.org/wiki/Representational_state_transfer)。
+REST 表示*具像狀態傳輸*。 如需特定定義，請查看[維基百科](https://en.wikipedia.org/wiki/Representational_state_transfer)。
 
 基本上，REST 是您可以在呼叫 API 或讓 API 可供呼叫時使用的架構。 它與任一端的情況，以及在傳送或接收 REST 呼叫時使用哪些其他軟體無關。 您可以撰寫在 Mac、Windows、Linux、Android 手機或平板電腦、iPhone、iPod 或網站上執行的應用程式，並針對上述這些平台使用相同的 REST API。 呼叫 REST API 時，可以傳入及/或傳出資料。 REST API 不在意它是從哪個平台呼叫 – 重要的是在要求中傳遞的資訊以及在回應中提供的資料。
 
@@ -80,7 +80,7 @@ REST 表示*具像狀態傳輸*。 如需特定定義，請查看[維基百科](
 
 [要求本文](/rest/api/storageservices/List-Containers2#request-body)**：** ListContainers 沒有要求主體。 要求主體使用於上傳 blob 時的所有 PUT 作業，也會使用於 SetContainerAccessPolicy，其可讓您以要套用之預存存取原則的 XML 清單傳送。 [使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文會討論預存存取原則。
 
-[回應狀態碼](/rest/api/storageservices/List-Containers2#status-code)**：** 告知您需要知道的任何狀態碼。 在此範例中，HTTP 狀態碼 200 表示「正常」。 如需完整的 HTTP 狀態碼清單，請參閱[狀態碼定義](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看儲存體 REST API 特有的錯誤碼，請參閱[常見的 REST API 錯誤碼](/rest/api/storageservices/common-rest-api-error-codes)
+[回應狀態碼](/rest/api/storageservices/List-Containers2#status-code)**：** 告知您需要知道的任何狀態碼。 在此範例中，HTTP 狀態碼 200 表示「正常」。 如需完整的 HTTP 狀態碼清單，請參閱[狀態碼定義](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看儲存體 REST API 特有的錯誤碼，請參閱[常見的 REST API 錯誤碼](/rest/api/storageservices/common-rest-api-error-codes)
 
 [回應標頭](/rest/api/storageservices/List-Containers2#response-headers)**：** 包括「內容類型」、x-ms-request-id (您傳入的要求識別碼 (適用的話))、x-ms-version (表示使用的 Blob 服務版本) 和「日期」 (UTC，告知提出要求的時間)。
 
@@ -88,7 +88,7 @@ REST 表示*具像狀態傳輸*。 如需特定定義，請查看[維基百科](
 
 ## <a name="creating-the-rest-request"></a>建立 REST 要求
 
-開始前的注意事項 – 基於安全性考量，在生產環境中執行時，一律使用 HTTPS，而不是 HTTP。 基於此練習的目的，您應該使用 HTTP，以便您檢視要求和回應資料。 若要檢視實際 REST 呼叫中的要求和回應資訊，您可以下載 [Fiddler](http://www.telerik.com/fiddler) 或類似的應用程式。 在 Visual Studio 解決方案中，儲存體帳戶名稱和金鑰都已硬式編碼在類別中，而 ListContainersAsyncREST 方法會將儲存體帳戶名稱和儲存體帳戶金鑰傳遞給用來建立 REST 要求之各種元件的方法。 在真實世界的應用程式中，儲存體帳戶名稱和金鑰會位於組態檔、環境變數，或從 Azure Key Vault 擷取而來。
+開始前的注意事項 – 基於安全性考量，在生產環境中執行時，一律使用 HTTPS，而不是 HTTP。 基於此練習的目的，您應該使用 HTTP，以便您檢視要求和回應資料。 若要檢視實際 REST 呼叫中的要求和回應資訊，您可以下載 [Fiddler](https://www.telerik.com/fiddler) 或類似的應用程式。 在 Visual Studio 解決方案中，儲存體帳戶名稱和金鑰都已硬式編碼在類別中，而 ListContainersAsyncREST 方法會將儲存體帳戶名稱和儲存體帳戶金鑰傳遞給用來建立 REST 要求之各種元件的方法。 在真實世界的應用程式中，儲存體帳戶名稱和金鑰會位於組態檔、環境變數，或從 Azure Key Vault 擷取而來。
 
 在我們的範例專案中，用於建立授權標頭的程式碼位於個別的類別中，其概念是您無法取得整個類別，將它新增至自己的解決方案並依「現況」使用它。 授權標頭程式碼適用於對 Azure 儲存體的大部分 REST API 呼叫。
 
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
 
 大部分的上述欄位都很少使用。 對於 Blob 儲存體，您可以指定 VERB、md5、內容長度、正式標頭和正式資源。 您可以將其他欄位空白 (但放入 `\n`，讓它知道是空白的)。
 
-什麼是 CanonicalizedHeaders 和 CanonicalizedResource？ 好問題。 事實上，正式 (canonicalized) 是什麼意思？ Microsoft Word 甚至不會將它視為一個字。 以下是[維基百科對於正式化 (canonicalization) 的說明](http://en.wikipedia.org/wiki/Canonicalization)：*在資訊科學中，正式化 (有時稱為標準化或正規化) 是一種程序，用於將具有一種以上可能表示法的資料轉換為「標準」、「正規」或正式形式。* 一般來說，這表示取得項目 (例如正式標頭中的標頭) 清單，並將它們標準化成為所需的格式。 基本上，Microsoft 已決定格式，而您必須符合它。
+什麼是 CanonicalizedHeaders 和 CanonicalizedResource？ 好問題。 事實上，正式 (canonicalized) 是什麼意思？ Microsoft Word 甚至不會將它視為一個字。 以下是[維基百科對於正式化 (canonicalization) 的說明](https://en.wikipedia.org/wiki/Canonicalization)：*在資訊科學中，正式化 (有時稱為標準化或正規化) 是一種程序，用於將具有一種以上可能表示法的資料轉換為「標準」、「正規」或正式形式。* 一般來說，這表示取得項目 (例如正式標頭中的標頭) 清單，並將它們標準化成為所需的格式。 基本上，Microsoft 已決定格式，而您必須符合它。
 
 讓我們從這兩個正式欄位著手，因為需有它們才能建立授權標頭。
 
@@ -325,7 +325,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
     StringBuilder sb = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
-    //   it means put in a standard format. http://en.wikipedia.org/wiki/Canonicalization
+    //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
         StringBuilder headerBuilder = new StringBuilder(kvp.Key);
@@ -482,7 +482,7 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-下列值來自 [Fiddler](http://www.telerik.com/fiddler)：
+下列值來自 [Fiddler](https://www.telerik.com/fiddler)：
 
 **要求：**
 

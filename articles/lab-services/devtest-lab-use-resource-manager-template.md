@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: eaa285318a868d0ccee07d830e1cc1be18f457a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746909"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181549"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立虛擬機器 
 
 透過 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)在 DevTest Labs 中建立虛擬機器 (VM) 時，您可以在儲存 VM 之前檢視 Azure Resource Manager 範本。 然後可以使用範本作為基礎來建立具有相同設定的多個實驗室 VM。
 
 本文說明多部 VM 與單一 VM Resource Manager 範本，並示範如何在建立 VM 時檢視和儲存範本。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>多部 VM 與單一 VM Resource Manager 範本
 有兩種方式可以在使用Resource Manager 範本，在 DevTest Labs 中建立 VM：佈建 Microsoft.DevTestLab/labs/virtualmachines 資源或佈建 Microsoft.Commpute/virtualmachines 資源。 每種方式都在不同案例中使用，而且需要不同的權限。
@@ -34,7 +36,7 @@ ms.locfileid: "55746909"
 
    ![DevTest Labs 虛擬機器清單中單一項目之 VM 的清單](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   這個類型的 Resource Manager 範本可以透過 Azure PowerShell 命令 **New-AzureRmResourceGroupDeployment**，或透過 Azure CLI 命令 **az group deployment create** 進行佈建。 它需要系統管理員權限，所以獲得 DevTest Labs 使用者角色指派的使用者無法執行部署。 
+   這種類型的 Resource Manager 範本可以透過 Azure PowerShell 命令進行佈建**新增 AzResourceGroupDeployment**或透過 Azure CLI 命令**az 群組部署建立**。 它需要系統管理員權限，所以獲得 DevTest Labs 使用者角色指派的使用者無法執行部署。 
 
 - 使用 Microsoft.Compute/virtualmachines 資源類型的 Resource Manager 範本可以將多個 VM 佈建為 DevTest Labs 虛擬機器清單中的單一環境：
 
@@ -64,5 +66,5 @@ Resource Manager 範本現在可用來[建立 VM](devtest-lab-create-environment
 
 ### <a name="next-steps"></a>後續步驟
 * 了解如何[使用 Resource Manager 範本建立多個 VM 環境](devtest-lab-create-environment-from-arm.md)。
-* [部署 Resource Manager 範本以建立 VM](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm)
+* [部署 Resource Manager 範本以建立 VM](devtest-lab-create-environment-from-arm.md#automate-deployment-of-environments)
 * 從[公用 DevTest Labs GitHub 存放庫](https://github.com/Azure/azure-quickstart-templates) \(英文\) 探索更多 DevTest Labs 自動化的快速入門 Resource Manager 範本。
