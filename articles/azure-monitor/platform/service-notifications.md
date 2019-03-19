@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474025"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995160"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 入口網站檢視服務健康情況通知
 
@@ -30,7 +30,7 @@ Azure 會發佈服務健康情況通知，其中包含您訂用帳戶下資源�
 
 每個服務健康狀態通知皆會包含關於範圍以及資源所受影響的詳細資料。 詳細資料包括：
 
-屬性名稱 | 說明
+屬性名稱 | 描述
 -------- | -----------
 通道 | 下列其中一個值：**Admin** 或 **Operation**。
 correlationId | 通常是字串格式的 GUID。 屬於相同動作的事件通常會共用同一個 correlationId。
@@ -60,24 +60,24 @@ Properties.communicationId | 與此事件相關聯的通訊。
 ### <a name="details-on-service-health-level-information"></a>服務健康情況層級資訊的詳細資料
 
 **所需的動作** (properties.incidentType == ActionRequired)
-    - 資訊 - 避免影響現有服務所需的系統管理員動作
+- 資訊 - 避免影響現有服務所需的系統管理員動作
     
 **維護** (properties.incidentType == Maintenance)
-    - 警告 - 緊急維護
-    - 資訊 - 標準計劃性維護
+- 警告 - 緊急維護
+- 資訊 - 標準計劃性維護
 
 **資訊** (properties.incidentType == Information)
-    - 資訊 - 可能需要系統管理員採取動作，以避免影響現有服務
+- 資訊 - 可能需要系統管理員採取動作，以避免影響現有服務
 
 **安全性** (properties.incidentType == Security)
-    - 錯誤 - 跨多個區域存取多個服務的廣泛問題會影響廣泛的一組客戶。
-    - 警告 - 存取特定服務及/或特定區域的問題會影響一部分客戶。
-    - 資訊 - 影響管理作業和/或延遲的問題，不會影響服務可用性。
+- 錯誤 - 跨多個區域存取多個服務的廣泛問題會影響廣泛的一組客戶。
+- 警告 - 存取特定服務及/或特定區域的問題會影響一部分客戶。
+- 資訊 - 影響管理作業和/或延遲的問題，不會影響服務可用性。
 
 **服務問題** (properties.incidentType == Incident)
-    - 錯誤 - 跨多個區域存取多個服務的廣泛問題會影響廣泛的一組客戶。
-    - 警告 - 存取特定服務及/或特定區域的問題會影響一部分客戶。
-    - 資訊 - 影響管理作業和/或延遲的問題，不會影響服務可用性。
+- 錯誤 - 跨多個區域存取多個服務的廣泛問題會影響廣泛的一組客戶。
+- 警告 - 存取特定服務及/或特定區域的問題會影響一部分客戶。
+- 資訊 - 影響管理作業和/或延遲的問題，不會影響服務可用性。
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>在 Azure 入口網站中檢視您的服務健康情況通知

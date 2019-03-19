@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4d5c7f8a91bb63cdd80a6f70603e34f8130b92ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106676"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089466"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>開發針對雲端一致性的 Azure Resource Manager 範本
 
@@ -49,8 +49,6 @@ Microsoft 在許多位置提供符合企業需求的智慧型雲端服務，包�
 
 如需 Azure Resource Manger 範本的介紹，請參閱[範本部署](resource-group-overview.md#template-deployment)。
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="ensure-template-functions-work"></a>確定範本函式都能運作
 
 Resource Manager 範本的基本語法是 JSON。 範本使用 JSON 的超集，擴展運算式和函式的語法。 範本語言處理器經常更新，以支援額外的範本函式。 如需可用範本函式的詳細說明，請參閱 [Azure Resource Manager 範本函式](resource-group-template-functions.md)。
@@ -65,13 +63,13 @@ Azure Resource Manager 功能一律先引入全球 Azure。 您可以使用下�
 
 1. 匯入 psm1 模組並執行 Test-AzureRmureRmTemplateFunctions Cmdlet：
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
-  ```
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone>
+   ```
 
 指令碼會部署多個最小化範本，每一個都只包含唯一的範本函式。 指令碼輸出會報告受支援但無法使用的範本函式。
 
@@ -108,7 +106,7 @@ Azure Resource Manager 在執行階段評估主要範本，然後擷取並評估
 
 ### <a name="make-linked-templates-accessible-across-clouds"></a>讓連結的範本能跨雲端存取
 
-考慮在哪裡以及如何儲存您使用的所有範本。 Azure Resource Manager 會在執行階段擷取任何連結的範本，因此需要直接存取連結的範本。 常見做法是使用 GitHub 儲存巢狀範本。 GitHub 存放庫可以包含透過 URL 公開存取的檔案。 雖然此技術在公用雲端和主權雲端運作良好，但 Azure Stack 環境可能位於公司網路或中斷連線的遠端位置，沒有任何連外的網際網路存取。 在這些情況下，Azure Resource Manager 會無法擷取巢狀範本。 
+考慮在哪裡以及如何儲存您使用的所有範本。 Azure Resource Manager 會在執行階段擷取任何連結的範本，因此需要直接存取連結的範本。 常見做法是使用 GitHub 儲存巢狀範本。 GitHub 存放庫可以包含透過 URL 公開存取的檔案。 雖然這項技術在公用雲端和主權雲端運作良好，但 Azure Stack 環境可能位於公司網路或中斷連線的遠端位置，沒有任何連外的網際網路存取。 在這些情況下，Azure Resource Manager 會無法擷取巢狀範本。 
 
 跨雲端部署的較佳做法是將您的連結範本儲存在可供目標雲端存取的位置。 理想的情況是，所有部署成品都是在持續整合/持續開發 (CI/CD) 管線中維護，並由此部署。 或者，您可以將巢狀範本儲存在 Blob 儲存體容器中，Azure Resource Manager 從容器擷取範本。 
 
@@ -197,7 +195,7 @@ Resource Manager 會在執行階段擷取巢狀範本。 在 VM 延伸模組，�
 }
 ```
 
-若要建構成品的絕對 URI，慣用方法是使用 uri 範本函式，而不是 concat 範本函式。 透過以 uri 範本函式取代 VM 延伸模組的指令碼硬式編碼連結，範本中的此功能是針對雲端一致性所設定。
+若要建構成品的絕對 URI，慣用方法是使用 uri 範本函式，而不是 concat 範本函式。 透過以 uri 範本函式取代 VM 延伸模組的指令碼硬式編碼連結，範本中的這項功能是針對雲端一致性所設定。
 
 ```json
 "properties": {
@@ -582,7 +580,7 @@ Get-AzureRmVMSize -Location "West Europe"
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>請確認 Azure Stack 中可以使用 VM 延伸模組
 
-雲端一致性的另一個考量，是使用[虛擬機器延伸模組](../virtual-machines/windows/extensions-features.md)在 VM 內設定資源。 不是所有的 VM 延伸模組都可供 Azure Stack 使用。 範本可以指定 VM 延伸模組專用的資源，在範本內建立相依性和條件。
+雲端一致性的另一項考量，是使用[虛擬機器延伸模組](../virtual-machines/windows/extensions-features.md)在 VM 內設定資源。 不是所有的 VM 延伸模組都可供 Azure Stack 使用。 範本可以指定 VM 延伸模組專用的資源，在範本內建立相依性和條件。
 
 例如，如果您想要設定執行 Microsoft SQL Server 的 VM，則 VM 延伸模組可以將 SQL Server 設定為範本部署的一部分。 請考慮，如果部署範本包含的應用程式伺服器，也設定在執行 SQL Server 的 VM 上建立資料庫，會發生什麼情況。 除了也為應用程式伺服器使用 VM 延伸模組之外，您可以在成功傳回的 SQL Server VM 延伸模組資源上設定應用程式伺服器的相依性。 這個方法可確保已設定執行 SQL Server 的 VM 時，並能在應用程式伺服器接獲指示建立資料庫時供其使用。
 

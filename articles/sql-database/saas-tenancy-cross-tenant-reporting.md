@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096022"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>使用分散式查詢跨租用戶報告
 
@@ -27,7 +27,7 @@ ms.locfileid: "55476242"
 您會在本教學課程中學到：
 
 > [!div class="checklist"]
-
+> 
 > * 如何部署報表資料庫
 > * 如何對所有租用戶資料庫執行分散式查詢
 > * 每個資料庫中的全域檢視可以如何跨租用戶啟用高效率查詢
@@ -148,7 +148,7 @@ SaaS 應用程式的其中一個機會是使用儲存在雲端的大量租用戶
 
 檢查執行計畫時，將滑鼠停留在計畫圖示上方，以取得詳細資料。 
 
-值得注意的是，定義外部資料來源時的設定 **DISTRIBUTION = SHARDED(VenueId)** 可改善許多情況的效能。 因為每個 *VenueId* 都對應到個別資料庫，所以篩選會輕鬆地在遠端完成，只傳回所需的資料。
+值得注意的是，定義外部資料來源時的設定 **DISTRIBUTION = SHARDED(VenueId)** 可改善許多情況的效能。 因為每個*VenueId*對應到個別的資料庫，篩選會輕鬆地完成遠端電腦上，傳回所需的資料。
 
 1. 在 SSMS 中開啟 ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\Demo-AdhocReportingQueries.sql。
 2. 確定您已連線到 **adhocreporting** 資料庫。
@@ -181,7 +181,7 @@ SaaS 應用程式的其中一個機會是使用儲存在雲端的大量租用戶
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-
+> 
 > * 對所有租用戶資料庫執行分散式查詢
 > * 部署報表資料庫，並且定義執行分散式查詢所需的結構描述。
 

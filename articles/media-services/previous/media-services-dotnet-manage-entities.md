@@ -1,8 +1,8 @@
 ---
-title: 使用媒體服務 .NET SDK 管理資產和相關的實體
+title: 使用媒体服务 .NET SDK 管理资产和相关的实体
 description: 深入了解使用 Media Services SDK for .NET 管理資產和相關的實體
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: d2651bc47f262a45a05217585eb00cbc721c01a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165772"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>使用媒體服務 .NET SDK 管理資產和相關的實體
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "55979967"
 > 
 > 
 
-本主題說明如何使用 .NET (舊版) 管理 Azure 媒體服務實體
+本主題說明如何使用 .NET 管理 Azure 媒體服務實體。
 
 >[!NOTE]
 > 從 2017 年 4 月 1 日起，您的帳戶中任何超過 90 天的作業記錄以及其相關工作記錄都會自動刪除，即使記錄總數低於配額上限亦然。 例如，在 2017 年 4 月 1 日，您帳戶中任何在 2016 年 12 月 31 日以前的作業記錄將會自動刪除。 如果您需要封存作業/工作資訊，您可以使用本主題中所述的程式碼。
@@ -55,8 +55,8 @@ ms.locfileid: "55979967"
     }
 ```
 
-## <a name="list-all-assets"></a>列出所有資產
-當您在儲存體中的資產數目增加時，最好能將資產列出。 下列程式碼範例顯示如何在伺服器內容物件上逐一查看「資產」集合。 使用各個資產時，程式碼範例也會將它的某些屬性值寫入主控台。 例如，每個資產可以包含多個媒體檔案。 程式碼範例會寫出與每個資產相關聯的所有檔案。
+## <a name="list-all-assets"></a>列出所有资产
+當您在儲存體中的資產數目增加時，最好能將資產列出。 下列程式碼範例顯示如何在伺服器內容物件上逐一查看「資產」集合。 使用各個資產時，程式碼範例也會將它的某些屬性值寫入主控台。 例如，每個資產可以包含多個媒體檔案。 代码示例会写出与每个资产关联的所有文件。
 
 ```csharp
     static void ListAssets()
@@ -201,7 +201,7 @@ ms.locfileid: "55979967"
 ```
 
 ## <a name="list-all-access-policies"></a>列出所有存取原則
-在媒體服務中，您可以定義資產或其檔案的存取原則。 存取原則會定義檔案或資產 (存取的類型和持續時間) 的權限。 在您的媒體服務程式碼中，通常會藉由建立 IAccessPolicy 物件，然後將其與現有資產產生關聯，來定義存取原則。 然後您會建立 ILocator 物件，這可讓您直接存取媒體服務中的資產。 本文件系列隨附的 Visual Studio 專案包含數個程式碼範例，示範如何建立及指派存取原則和定位器給資產。
+在媒體服務中，您可以定義資產或其檔案的存取原則。 存取原則會定義檔案或資產 (存取的類型和持續時間) 的權限。 在您的媒體服務程式碼中，通常會藉由建立 IAccessPolicy 物件，然後將其與現有資產產生關聯，來定義存取原則。 然後，您會建立 ILocator 物件，這可讓您直接存取媒體服務中的資產。 本文件系列隨附的 Visual Studio 專案包含數個程式碼範例，示範如何建立及指派存取原則和定位器給資產。
 
 下列程式碼範例顯示如何列出伺服器上的所有存取原則，並顯示每個相關聯的權限的類型。 檢視存取原則的另一個實用方式，是列出伺服器上的所有 ILocator 物件，然後針對每個定位器，您可以使用其 AccessPolicy 屬性列出其相關聯的存取原則。
 
@@ -263,7 +263,7 @@ ms.locfileid: "55979967"
     Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
 ```
 
-## <a name="list-all-locators"></a>列出所有定位器
+## <a name="list-all-locators"></a>列出所有定位符
 定位器是 URL，提供存取資產的直接路徑，以及由定位器相關聯的存取原則所定義之對於資產的權限。 每個資產在其定位器屬性上可以有與其相關聯的 ILocator 物件的集合。 伺服器內容也有定位器集合，其中包含所有定位器。
 
 下列程式碼範例列出伺服器上的所有定位器。 針對每個定位器，它會顯示相關資產與存取原則的識別碼。 也會顯示資產的權限類型、到期日和完整路徑。
@@ -290,7 +290,7 @@ ms.locfileid: "55979967"
     }
 ```
 
-## <a name="enumerating-through-large-collections-of-entities"></a>透過實體的大型集合列舉
+## <a name="enumerating-through-large-collections-of-entities"></a>枚举大型实体集合
 查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。 透過實體的大型集合列舉時您需要使用 Skip 和 Take。 
 
 下列函式會對「媒體服務帳戶」中提供的所有工作進行迴圈。 媒體服務會傳回工作集合中的 1000 個工作。 此函式利用 Skip 和 Take 來確保已列舉所有工作 (以免您帳戶中的工作超過 1000 個)。

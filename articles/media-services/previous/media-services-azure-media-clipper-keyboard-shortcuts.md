@@ -6,15 +6,15 @@ keywords: clip;subclip;encoding;media;剪輯;子剪輯;編碼;媒體
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6d50c99b64442bf009707b7619ec19f3d40e604e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2eb32b8ec265a4afa2581374c1f07ac06958a576
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992495"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992800"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>設定 Azure Media Clipper 鍵盤快速鍵 
 

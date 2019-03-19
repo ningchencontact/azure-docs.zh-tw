@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 7d8a654b6b2f429119323fa5d18eb0596f63e6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719688"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105262"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>在 HDInsight 上使用 Apache Ambari 檢視來為 Apache Tez 作業偵錯
 
@@ -25,7 +25,7 @@ ms.locfileid: "53719688"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 以 Linux 為基礎的 HDInsight 叢集。 如需建立叢集的步驟，請參閱[開始使用以 Linux 為基礎的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
+* 基于 Linux 的 HDInsight 群集。 如需建立叢集的步驟，請參閱[開始使用以 Linux 為基礎的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 * 支援 HTML5 的新式網頁瀏覽器。
 
 ## <a name="understanding-apache-tez"></a>了解 Apache Tez
@@ -34,9 +34,9 @@ Tez 是 Apache Hadoop 中資料處理用的可延伸架構，資料處理的速�
 
 Tez 會建立有向非循環圖 (DAG)，說明作業所需動作的順序。 個別的動作稱為頂點，它會執行整體作業的一部分。 而由端點所描述的實際工作 (Work) 執行程序稱為工作 (Task)，且可能會分散到叢集中的多個節點上。
 
-### <a name="understanding-the-tez-view"></a>了解 Tez 檢視
+### <a name="understanding-the-tez-view"></a>了解 Tez 视图
 
-Tez 檢視同時提供歷程記錄資訊和正在執行之處理序的資訊。 這項資訊顯示作業如何分散到叢集。 它也會顯示工作和頂點使用的計數器，以及與作業相關的錯誤資訊。 它可能會提供下列案例中的有用資訊：
+Tez 檢視同時提供歷程記錄資訊和正在執行之處理序的資訊。 這項資訊顯示作業如何分散到叢集。 它也會顯示工作和頂點使用的計數器，以及與作業相關的錯誤資訊。 它可以为以下情况提供有用的信息：
 
 * 監視長期執行的處理序、檢視對應進度，以及減少工作。
 * 分析成功或失敗的處理序歷史資料，以便了解如何改進處理序，或是處理序失敗的原因。
@@ -49,7 +49,7 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 
 1. 在網頁瀏覽器中瀏覽至 https://CLUSTERNAME.azurehdinsight.net，其中 **CLUSTERNAME** 是 HDInsight 叢集的名稱。
 
-2. 在頁面頂端的功能表中，選取 [檢視] 圖示。 此圖示看起來像一系列正方形。 在隨後出現的下拉式清單中，選取 [Hive 檢視]。
+2. 在頁面頂端的功能表中，選取 [檢視] 圖示。 此圖示看起來像一系列正方形。 在显示的下拉列表中，选择“Hive 视图”。
 
     ![選取 [Hive 檢視]](./media/hdinsight-debug-ambari-tez-view/selecthive.png)
 
@@ -57,7 +57,7 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
 
-    當作業完成之後，您應該會在 [查詢處理程序結果] 區段看到輸出。 結果應該會與下列文字類似：
+    完成该作业后，会看到输出显示在“查询处理结果”部分。 結果應該會與下列文字類似：
 
         market  state       country
         en-GB   Hessen      Germany
@@ -90,14 +90,14 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 
 5. 此頁面上的索引標籤可讓您檢視下列資訊：
 
-    * **查詢詳細資料**：Hive 查詢的相關詳細資料。
-    * **時間軸**：每個處理階段所耗費時間的相關資訊。
-    * **組態**：此查詢使用的組態。
+   * **查詢詳細資料**：Hive 查詢的相關詳細資料。
+   * **時間軸**：每個處理階段所耗費時間的相關資訊。
+   * **組態**：此查詢使用的組態。
 
-    從 [Query Details] \(查詢詳細資料\)，您可以使用連結來尋找和此查詢的 [Application] \(應用程式\) 或 [DAG] 相關的資訊。
+     從 [Query Details] \(查詢詳細資料\)，您可以使用連結來尋找和此查詢的 [Application] \(應用程式\) 或 [DAG] 相關的資訊。
     
-    * [Application] \(應用程式\) 連結會顯示此查詢的 YARN 應用程式相關資訊。 您可以從此處存取 YARN 應用程式記錄檔。
-    * [DAG] 連結會顯示此查詢的有向非循環圖相關資訊。 您可以從此處以圖形化的方式檢視 DAG。 您也可以尋找關於 DAG 內之頂點的資訊。
+   * [Application] \(應用程式\) 連結會顯示此查詢的 YARN 應用程式相關資訊。 您可以從此處存取 YARN 應用程式記錄檔。
+   * [DAG] 連結會顯示此查詢的有向非循環圖相關資訊。 您可以從此處以圖形化的方式檢視 DAG。 您也可以尋找關於 DAG 內之頂點的資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

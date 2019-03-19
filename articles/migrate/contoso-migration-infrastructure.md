@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec8eb779dec560cfc5350fecc0fb819e89195a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876675"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - 部署移轉基礎結構
 
@@ -101,10 +101,10 @@ Contoso 將使用 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/e
 - 「Azure Enterprise 註冊」會定義 Azure 服務在公司內的形式和用途，並定義核心治理結構。
 - 在第一個步驟中，Contoso 決定 Enterprise 註冊的結構 (稱為企業 Scaffold)。 Contoso 使用了[本文](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance)來協助其了解和設計 Scaffold。
 - 現在，Contoso 已決定使用函式型方法來管理訂用帳戶。
-    - 在企業內，其會以單一 IT 部門來控制 Azure 預算。 這將是唯一具有訂用帳戶的群組。
-    - Contoso 會在未來擴充此模型，讓其他公司群組也可加入 Enterprise 註冊的部門。
-    - 在 IT 部門內，Contoso 建構了兩個訂用帳戶：生產和開發。
-    - 如果 Contoso 在未來需要其他訂用帳戶，便需要管理這些訂用帳戶的存取、原則和合規性。 為此，Contoso 必須將 [Azure 管理群組](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview)加入作為訂用帳戶上的額外層級。
+  - 在企業內，其會以單一 IT 部門來控制 Azure 預算。 這將是唯一具有訂用帳戶的群組。
+  - Contoso 會在未來擴充此模型，讓其他公司群組也可加入 Enterprise 註冊的部門。
+  - 在 IT 部門內，Contoso 建構了兩個訂用帳戶：生產和開發。
+  - 如果 Contoso 在未來需要其他訂用帳戶，便需要管理這些訂用帳戶的存取、原則和合規性。 為此，Contoso 必須將 [Azure 管理群組](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview)加入作為訂用帳戶上的額外層級。
 
     ![企業結構](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -146,7 +146,7 @@ Azure Hybrid Benefit 為 Contoso 的移轉提供符合成本效益的方法，�
 
 Contoso 會使用 Azure 訂用帳戶隨附的 Azure AD Free 版本。 Contoso 管理員會如下所示地設定 AD 目錄：
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，其瀏覽至 [建立資源] > [身分識別] > [Azure Active Directory]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，其瀏覽至 [建立資源] > [身分識別] > [Azure Active Directory]。
 2. 在 [建立目錄] 中，他們指定目錄的名稱、初始網域名稱，以及應建立 Azure AD 目錄的區域。
 
     ![建立 Azure AD](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -310,7 +310,7 @@ Contoso 決定採取折衷方式。 它會在主要區域中部署應用程式�
 
 Contoso 針對 Azure 與內部部署資料中心之間的混合式網路考量了[多種架構](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)。 [深入了解](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations)選項的比較。
 
-Contoso 內部部署網路基礎結構目前包含位於紐約的資料中心，以及位於美國東部的地區分公司。  所有位置都具有商務等級的網際網路連線。  每家分公司會再透過網際網路經由 IPSec VPN 通道連線至資料中心。
+Contoso 內部部署網路基礎結構目前包含位於紐約的資料中心，以及位於美國東部的地區分公司。  所有位置都具有商務等級的網際網路連線。  每個分支則是透過網際網路連線到資料中心，透過 IPSec VPN 通道。
 
 ![Contoso 網路](./media/contoso-migration-infrastructure/contoso-networking.png) 
 
@@ -451,7 +451,7 @@ Azure IaaS 元件位於生產網路中。 每個應用程式層都有其本身�
 **PROD-FE-EUS2** | 10.245.32.0/22 | 1019 | 前端/網路層 VM
 **PROD-APP-EUS2** | 10.245.36.0/22 | 1019 | 應用程式層 VM
 **PROD-DB-EUS2** | 10.245.40.0/23 | 507 | 資料庫 VM
-**PROD-DC-EUS2** | 10.245.42.0/23 | 251 | 網域控制站 VM
+**PROD-DC-EUS2** | 10.245.42.0/24 | 251 | 網域控制站 VM
 
 
 ![中樞網路架構](./media/contoso-migration-infrastructure/azure-networks-eus2.png)
@@ -581,18 +581,18 @@ CUS | CONTOSODC6 | VNET-PROD-CUS | PROD-DC-CUS | 10.255.42.4
 
 1. 在 Azure 入口網站中，他們可以將新的 Windows Server VM 部署至適當的 VNet。
 2. 他們可以在每個位置中建立 VM 的可用性設定組。 可用性設定組有下列功用：
-    - 確保 Azure 網狀架構會將 VM 分隔至 Azure 區域的不同基礎結構中。 
-    -  可讓 Contoso 針對 Azure 中的 VM 達到 99.95% SLA 的標準。  [深入了解](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)。
+   - 確保 Azure 網狀架構會將 VM 分隔至 Azure 區域的不同基礎結構中。 
+   - 可讓 Contoso 針對 Azure 中的 VM 達到 99.95% SLA 的標準。  [深入了解](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)。
 
-    ![可用性群組](./media/contoso-migration-infrastructure/availability-group.png) 
+     ![可用性群組](./media/contoso-migration-infrastructure/availability-group.png) 
 3. 部署 VM 之後，他們會對 VM 開放網路介面。 他們會將私人 IP 位址設定為靜態，並指定有效位址。
 
     ![VM NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
 4. 此時，他們將新的資料磁碟連結至 VM。 此磁碟包含 Active Directory 資料庫和 sysvol 共用。 
-    - 磁碟的大小將會決定它所支援的 IOPS 數目。
-    - 經過一段時間後，磁碟大小可能需要隨著環境成長而增加。
-    - 磁碟機的主機快取不應設為讀取/寫入。 Active Directory 資料庫不支援此功能。
+   - 磁碟的大小將會決定它所支援的 IOPS 數目。
+   - 經過一段時間後，磁碟大小可能需要隨著環境成長而增加。
+   - 磁碟機的主機快取不應設為讀取/寫入。 Active Directory 資料庫不支援此功能。
 
      ![Active Directory 磁碟](./media/contoso-migration-infrastructure/ad-disk.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 無邀請將 B2B 共同作業使用者新增至 Azure Active Directory | Microsoft Docs
+title: 新增 B2B 共同作業使用者，而不需要邀請連結或電子郵件-Azure Active Directory |Microsoft Docs
 description: 您可以讓來賓使用者將其他來賓使用者加入您的 Azure AD，而不需在 Azure Active Directory B2B 共同作業中兌換邀請。
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e156f1d1d7bbbb6c4f65a4762977d28a5a0b89
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182590"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337663"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>在沒有邀請的情況下新增 B2B 共同作業來賓使用者
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>新增 B2B 共同作業來賓使用者，而不需要邀請連結或電子郵件
 
 您現在可以送出共用應用程式的直接連結，來邀請來賓使用者。 透過此方法，除了某些特殊情況，來賓使用者已不再需要使用邀請電子郵件。 來賓使用者可以按一下應用程式連結、檢閱並接受隱私權條款，然後順暢地存取應用程式。 如需詳細資訊，請參閱 [B2B 共同作業邀請兌換](redemption-experience.md)。   
 

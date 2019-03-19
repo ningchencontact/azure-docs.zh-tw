@@ -3,7 +3,7 @@ title: 使用 Service Fabric 和 VS 對 Windows 容器進行偵錯 | Microsoft D
 description: 了解如何使用 Visual Studio 2017 對 Azure Service Fabric 中的 Windows 容器進行偵錯。
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: msfussell
 editor: ''
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: twhitney, mikhegn
-ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.author: aljo, mikhegn
+ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113566"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>作法：使用 Visual Studio 2017 對 Azure Service Fabric 中的 Windows 容器進行偵錯
 
@@ -35,37 +35,37 @@ ms.locfileid: "56311217"
 1. 先確定適用於 Windows 服務的 Docker 有在執行，再繼續進行下一個步驟。
 
 1. 為了在容器之間支援 DNS 解析，您必須使用機器名稱來設定本機開發叢集。 如果您想要透過反向 Proxy 處理服務，則也需要執行這些步驟。
-    1. 以系統管理員身分開啟 PowerShell
-    2. 瀏覽至 SDK 叢集的安裝程式資料夾，通常是 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`。
-    3. 執行指令碼`DevClusterSetup.ps1`
+   1. 以系統管理員身分開啟 PowerShell
+   2. 瀏覽至 SDK 叢集的安裝程式資料夾，通常是 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`。
+   3. 執行指令碼`DevClusterSetup.ps1`
 
-       ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
-       ```
+      ``` PowerShell
+        C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
+      ```
 
-    > [!NOTE]
-    > 您可以使用 `-CreateOneNodeCluster` 來設定單節點叢集。 依預設會建立五節點的本機叢集。
-    >
+      > [!NOTE]
+      > 您可以使用 `-CreateOneNodeCluster` 來設定單節點叢集。 依預設會建立五節點的本機叢集。
+      >
 
-    若要深入了解 Service Fabric 中的 DNS 服務，請參閱 [Azure Service Fabric 中的 DNS 服務](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice)。 若要深入了解如何從在容器中執行的服務使用 Service Fabric 反向 Proxy，請參閱[針對在容器中執行的服務進行反向 Proxy 特殊處理](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)。
+      若要深入了解 Service Fabric 中的 DNS 服務，請參閱 [Azure Service Fabric 中的 DNS 服務](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice)。 若要深入了解如何從在容器中執行的服務使用 Service Fabric 反向 Proxy，請參閱[針對在容器中執行的服務進行反向 Proxy 特殊處理](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)。
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>在對 Service Fabric 中的容器進行偵錯時的已知限制
 
 以下是對 Service Fabric 中的容器進行偵錯時的已知限制和可能的解決方式清單：
 
 * 對 ClusterFQDNorIP 使用 localhost 不會在容器中支援 DNS 解析。
-    * 解決方式：使用機器名稱設定本機叢集 (請參閱上文)
+    * 解決方案：使用機器名稱設定本機叢集 (請參閱上文)
 * 在虛擬機器中執行 Windows10 不會讓 DNS 回覆返回容器。
-    * 解決方式：對虛擬機器 NIC 上的 IPv4 停用 UDP 總和檢查碼卸載
+    * 解決方案：對虛擬機器 NIC 上的 IPv4 停用 UDP 總和檢查碼卸載
     * 請注意，這會降低機器的網路效能。
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * 如果使用了 Docker Compose 來部署應用程式，則無法在 Windows10 上使用 DNS 服務名稱來解析相同應用程式中的服務
-    * 解決方式：使用 servicename.applicationname 來解析服務端點
+    * 解決方案：使用 servicename.applicationname 來解析服務端點
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * 如果對 ClusterFQDNorIP 使用 IP-address，則在主機上變更主要 IP 會破壞 DNS 功能。
-    * 解決方式：使用主機上的新主要 IP 或使用機器名稱來重新建立叢集。 原先的設計就是如此。
+    * 解決方案：使用主機上的新主要 IP 或使用機器名稱來重新建立叢集。 原先的設計就是如此。
 * 如果無法在網路上解析用來建立叢集的 FQDN，則 DNS 會失敗。
-    * 解決方式：使用主機的主要 IP 來重新建立本機叢集。 原先的設計就是如此。
+    * 解決方案：使用主機的主要 IP 來重新建立本機叢集。 原先的設計就是如此。
 * 在對容器進行偵錯時，Docker 記錄只能透過 Visual Studio 輸出視窗取得，而無法透過 Service Fabric API (包括 Service Fabric Explorer) 取得
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>針對在 Service Fabric 上的 Docker 容器中執行的 .NET 應用程式進行偵錯

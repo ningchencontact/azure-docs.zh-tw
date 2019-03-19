@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: 65f9b392f3ae57c1eaad7454434b4870954f36f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515466"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085094"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>將 Adafruit Feather HUZZAH ESP8266 連線到位於雲端的 Azure IoT 中樞
 
@@ -27,7 +27,7 @@ ms.locfileid: "51515466"
 將 Adafruit Feather HUZZAH ESP8266 連線到您將建立的 IoT 中樞。 然後，在 ESP8266 上執行範例應用程式，以收集 DHT22 感應器中的溫度和溼度資料。 最後，將感應器資料傳送至 IoT 中樞。
 
 > [!NOTE]
-> 如果您使用其他 ESP8266 電路版，依然可以遵循下列步驟將它連線到 IoT 中樞。 根據您使用的 ESP8266 電路板，您可能需要重新設定 `LED_PIN`。 例如，如果您使用 AI-Thinker 的 ESP8266，可以將它從 `0` 變更為 `2`。 還沒有套件嗎？ 從 [Azure 網站](http://azure.com/iotstarterkits)取得它。
+> 如果您使用其他 ESP8266 電路版，依然可以遵循下列步驟將它連線到 IoT 中樞。 根據您使用的 ESP8266 電路板，您可能需要重新設定 `LED_PIN`。 例如，如果您使用 AI-Thinker 的 ESP8266，可以將它從 `0` 變更為 `2`。 還沒有套件嗎？ 從 [Azure 網站](https://azure.com/iotstarterkits)取得它。
 
 ## <a name="what-you-learn"></a>您學到什麼
 
@@ -80,15 +80,15 @@ ms.locfileid: "51515466"
 
 ### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266"></a>將 DHT22 溫度和溼度感應器連接至 Feather HUZZAH ESP8266
 
-使用麵包板和跳線來進行連接，如下所示。 如果您沒有感應器，請略過本節，因為您可以改為使用模擬的感應器資料。
+使用麵包板和跳線來進行連接，如下所示。 如果没有传感器，请跳过本部分，因为可以改用模拟的传感器数据。
 
 ![連接參考](./media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 針對感應器針腳，請使用下列接線方式：
 
-| 開始 (感應器)           | 結束 (電路版)            | 纜線顏色   |
+| 启动（传感器）           | 結束 (電路版)            | 纜線顏色   |
 | -----------------------  | ---------------------- | ------------  |
-| VDD (針腳 31F)            | 3V (針腳 58H)           | 紅色纜線     |
+| VDD (針腳 31F)            | 3V (針腳 58H)           | 红线     |
 | DATA (針腳 32F)           | GPIO 2 (針腳 46A)       | 藍色纜線    |
 | GND (針腳 34F)            | GND (針腳 56I)          | 黑色纜線   |
 
@@ -122,7 +122,7 @@ ms.locfileid: "51515466"
 
    在輸出中，請注意 `uucp` 或 `dialout` 是 USB 連接埠的群組擁有者名稱。
 
-2. 執行下列命令，將使用者新增至群組︰
+2. 运行以下命令，将用户添加到该组中：
 
    ```bash
    sudo usermod -a -G <group-owner-name> <username>
@@ -136,7 +136,7 @@ ms.locfileid: "51515466"
 
 在本節中，您可以在 Feather HUZZAH ESP8266 上部署和執行範例應用程式。 範例應用程式會在 Feather HUZZAH ESP8266 上閃爍 LED，並將從 DHT22 感應器收集的溫度和溼度資料傳送至 IoT 中樞。
 
-### <a name="get-the-sample-application-from-github"></a>從 GitHub 取得範例應用程式
+### <a name="get-the-sample-application-from-github"></a>从 GitHub 获取示例应用程序
 
 範例應用程式會裝載在 GitHub 上。 請從 GitHub 複製包含範例應用程式的範例存放庫。 若要複製範例存放庫，請遵循下列步驟︰
 
@@ -160,7 +160,7 @@ ms.locfileid: "51515466"
 
 6. 在 Visual Studio Code 中，輸入 `F1`。
 
-7. 輸入 **Arduino**，然後選取 [Arduino: 面板管理員]。
+7. 型別**Arduino** ，然後選取**Arduino:** Board Manager。
 
 8. 在 [Arduino 面板管理員] 索引標籤中，按一下 [其他 URL]。
 
@@ -180,19 +180,19 @@ ms.locfileid: "51515466"
 
 12. 針對 esp8266 按一下 [安裝] 按鈕。
 
-   [電路板管理員] 指出已安裝的 ESP8266 版本為 2.2.0 版或更新版本。
+    [電路板管理員] 指出已安裝的 ESP8266 版本為 2.2.0 版或更新版本。
 
-   ![已安裝 esp8266 套件](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
+    ![已安裝 esp8266 套件](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-13. 輸入 `F1`，然後輸入 **Arduino** 並選取 [Arduino: 面板設定]。
+13. 請輸入`F1`，然後輸入**Arduino** ，然後選取**Arduino:面板設定**。
 
 14. 按一下 [選取的面板:] 的方塊並輸入 **esp8266**，然後選取 [Adafruit HUZZAH ESP8266 (esp8266)]。
 
-   ![選取 esp8266 面板](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
+    ![選取 esp8266 面板](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>安裝必要的程式庫
 
-1. 在 Visual Studio Code 中，輸入 `F1`，然後輸入 **Arduino** 並選取 [Arduino: 程式庫管理員]。
+1. 在 Visual Studio Code 中，輸入`F1`，然後輸入**Arduino** ，然後選取**Arduino:程式庫管理員**。
 
 2. 逐一搜尋下列程式庫名稱。 針對您找到的每個程式庫，按一下 [安裝]。
    * `AzureIoTHub`
@@ -222,7 +222,7 @@ ms.locfileid: "51515466"
 
 1. 在 Visual Studio Code 中，按一下狀態列上的 [<Select Serial Port>]，然後按一下 Feather HUZZAH ESP8266 的序列埠。
 
-2. 輸入 `F1`，然後輸入 **Arduino** 並選取 [Arduino: 上傳]，以建置範例應用程式並將其部署至 Feather HUZZAH ESP8266。
+2. 請輸入`F1`，然後輸入**Arduino** ，然後選取**Arduino:上傳**建置及部署至 Feather HUZZAH ESP8266 的範例應用程式。
 
 ### <a name="enter-your-credentials"></a>輸入認證
 
@@ -232,7 +232,7 @@ ms.locfileid: "51515466"
 
 2. 在 [序列監視器] 視窗中，請注意右下角的兩個下拉式清單。
 
-3. 在左邊的下拉式清單中選取 [無行尾結束符號]。
+3. 在左侧下拉列表中选择“No line ending”（无行尾）。
 
 4. 在右邊的下拉式清單中選取 [115200 傳輸速率]。
 

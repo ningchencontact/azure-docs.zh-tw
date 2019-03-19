@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 5814e05aa65bf005a3156aa75e65747bbd46733c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746485"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171052"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
 
@@ -45,29 +45,60 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 如果您發現 `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`，請將部署中所使用 VM 的 SKU 變更為具有更多記憶體的 SKU。
 
 ## <a name="fpgas"></a>FPGA
+
 您將無法在 FPGA 上部署模型，直到您已針對 FPGA 配額提出要求並已獲得核准。 若要要求存取權，請填妥配額要求表單： https://aka.ms/aml-real-time-ai
 
 ## <a name="databricks"></a>Databricks
 
 Databricks 與 Azure Machine Learning 問題。
 
-1. 在安裝多個套件時，Databricks 上的 Azure 機器學習服務 SDK 安裝失敗。
+### <a name="failure-when-installing-packages"></a>安裝套件時的失敗
 
-   有些套件 (例如 `psutil`) 會導致發生衝突。 若要避免發生安裝錯誤，請透過凍結 lib 版本來安裝套件。 此問題與 Databricks 有關，和 Azure Machine Learning 服務 SDK 無關 - 您可能也會在其他程式庫遇到相同的問題。 範例：
-   ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+在 Azure Databricks 上的 azure 機器學習服務 SDK 安裝失敗，安裝多個套件時。 有些套件 (例如 `psutil`) 會導致發生衝突。 若要避免安裝錯誤，請透過凍結的程式庫版本中安裝套件。 此問題與 Databricks，不適用於 Azure Machine Learning 服務 SDK。 您也可能會遇到這個問題的其他程式庫。 範例：
+
+```python
+pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+```
+
+或者，您可以使用 init 指令碼，如果您保留遇到安裝的 Python 程式庫的問題。 這個方法不受正式支援。 如需詳細資訊，請參閱 <<c0> [ 叢集為範圍的 init 指令碼](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)。
+
+### <a name="cancel-an-automated-machine-learning-run"></a>取消自動化的機器學習服務執行
+
+當您使用自動化的機器學習服務在 Azure Databricks 上的功能時，以取消執行，並開始新的實驗執行時，重新啟動您的 Azure Databricks 叢集。
+
+### <a name="10-iterations-for-automated-machine-learning"></a>> 自動化的機器學習服務 10 個反覆項目
+
+在 自動化的機器學習的設定，如果您有超過 10 個反覆項目，設定`show_output`至`False`當您提交的執行。
+
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/自動化機器學習服務的小工具
+
+Azure 機器學習服務 SDK 的小工具不支援在 Databricks notebook 中，因為 notebook 無法剖析的 HTML widget。 您可以檢視入口網站中的小工具，在您的 Azure Databricks notebook 資料格中使用此 Python 程式碼：
+
+```
+displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
+### <a name="import-error-no-module-named-pandascoreindexes"></a>匯入錯誤：沒有名為 'pandas.core.indexes' 的模組
+
+如果您看到此錯誤，當您使用自動化機器學習服務：
+
+1. 執行此命令以安裝在您的 Azure Databricks 叢集中的兩個套件： 
+
    ```
-   或者，如果您持續遇到 Python 程式庫的安裝問題，可以使用初始化指令碼。 這個方法不是正式的支援方法。 您可以參考[這份文件](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)。
+   scikit-learn==0.19.1
+   pandas==0.22.0
+   ```
 
-2. 在 Databricks 上使用自動化機器學習時，如果您想要取消某個回合並開始新的實驗回合，請重新啟動您的 Azure Databricks 叢集。
+1. 中斷連結並再重新附加至您的 notebook 叢集。 
 
-3. 在自動化 ml 設定中，如果您有 10 個以上的反覆項目，在您提交執行時將 `show_output` 設定為 `False`。
-
+如果這樣做無法解決此問題，請嘗試重新啟動叢集。
 
 ## <a name="azure-portal"></a>Azure 入口網站
+
 如果您從 SDK 或入口網站的共用連結直接檢視工作區，將無法在延伸模組中檢視包含訂用帳戶資訊的一般 [概觀] 頁面。 您也無法切換至另一個工作區。 如果要檢視另一個工作區，因應措施是直接前往 [Azure 入口網站](https://portal.azure.com)並搜尋工作區名稱。
 
 ## <a name="diagnostic-logs"></a>診斷記錄檔
+
 當您在尋求協助時，如果能夠提供診斷資訊，有時可能會相當有幫助。
 以下是記錄檔的所在位置：
 

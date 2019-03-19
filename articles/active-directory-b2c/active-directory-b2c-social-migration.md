@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662885"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089347"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C：遷移具有社交身分識別的使用者
 當您計劃將識別提供者遷移到 Azure AD B2C 時，您可能也需要遷移具社交識別的使用者。 本文說明如何將現有的社交身分識別帳戶 (例如：Facebook、LinkedIn、Microsoft 及 Google 帳戶) 移轉至 Azure AD B2C。 本文也適用於同盟身分識別，不過這些移轉較不常見。
@@ -32,14 +32,14 @@ ms.locfileid: "55662885"
 * **結合本機帳戶與社交識別**。 如前所述，本機帳戶登入名稱和社交帳戶身分識別會儲存在不同的屬性中。 `signInNames` 用於本機帳戶，`userIdentities` 則用於社交帳戶。 單一 Azure AD B2C 帳戶可以是純本機帳戶、純社交帳戶，或在一個使用者記錄中結合本機帳戶與社交識別。 此行為可讓您管理單一帳戶，而使用者又可使用本機帳戶認證或使用社交識別來登入。
 
 * `UserIdentity` 類型 - 包含 Azure AD B2C 租用戶中社交帳戶使用者的身分識別相關資訊：
-    * `issuer` 以字串表示、發出了使用者識別碼的識別提供者，例如 facebook.com。
-    * `issuerUserId` 社交識別提供者所使用的唯一使用者識別碼 (採用 base64 格式)。
+  * `issuer` 以字串表示、發出了使用者識別碼的識別提供者，例如 facebook.com。
+  * `issuerUserId` 社交識別提供者所使用的唯一使用者識別碼 (採用 base64 格式)。
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 
@@ -139,7 +139,7 @@ ms.locfileid: "55662885"
 1. 使用其中一個社交帳戶進行登入
 2. 從 JWT 權杖複製 `sub` 值。 `sub` 通常會包含 Azure AD B2C 中的使用者物件識別碼。 或從 Azure 入口網站開啟使用者的屬性，並複製物件識別碼。
 3. 開啟 [Azure AD Graph 總管](https://graphexplorer.azurewebsites.net)
-4. 使用您的系統管理員來登入。 N
+4. 使用您的系統管理員來登入。
 5. 執行下列 GET 要求。 將 userObjectId 取代為您所複製的使用者識別碼。 **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. 在 Azure AD B2C 所傳回的 JSON 內找到 `userIdentities` 元素。
 7. [選用] 您也可以將 `issuerUserId` 值解碼。

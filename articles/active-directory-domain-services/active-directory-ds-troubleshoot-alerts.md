@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7d99f5a5d027c825fa1145328bb9576229ce39b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121990"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 針對警示進行疑難排解
 本文提供的疑難排解指引，適用於受控網域上可能會遇到的任何警示。
@@ -42,10 +42,10 @@ ms.locfileid: "55817524"
 | AADDS108 | *Azure AD Domain Services 所使用的訂用帳戶已移至另一個目錄。Azure AD 網域服務必須在相同目錄中有有效的訂用帳戶才能正確運作。* | [訂用帳戶移動目錄](#aadds108-subscription-moved-directories) |
 | AADDS109 | *用於受控網域的資源已遭刪除。Azure AD Domain Services 需要這項資源才能正常運作。* | [資源已遭刪除](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *所選取要部署 Azure AD Domain Services 的子網路已滿，而且也沒有空間可供建立其他必要的網域控制站。* | [子網路已滿](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | *Azure AD Domain Services 用來為您的網域提供服務的服務主體未獲授權，無法管理 Azure 訂用帳戶的資源。 服務主體必須取得權限，才能為您的受控網域提供服務。 * | 服務主體未獲授權 |
+| AADDS111 | *Azure AD Domain Services 用來為您的網域提供服務的服務主體未獲授權，無法管理 Azure 訂用帳戶的資源。服務主體必須取得權限，才能為您的受控網域提供服務。* | [服務主體未獲授權](#aadds111-service-principal-unauthorized) |
 | AADDS112 | *我們發現此網域中的虛擬網路子網路可能沒有足夠的 IP 位址。在啟用 Azure AD Domain Services 的子網路內，需要至少有兩個可用的 IP 位址。我們建議在該子網路內至少要有 3-5 個備用 IP 位址。如果在子網路內部署其他虛擬機器，因而耗盡可用的 IP 位址數目，或子網路中的可用 IP 位址數目有限時，就可能會發生這種情況。* | [IP 位址不足](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *偵測到 Azure AD Domain Services 使用的資源處於非預期狀態且無法復原。* | [無法復原資源](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | * 選取用於部署 Azure AD Domain Services 的子網路無效，因此無法使用。 * | [子網路無效](#aadds114-subnet-invalid) |
+| AADDS114 | *選取用於部署 Azure AD Domain Services 的子網路無效，因此無法使用。* | [子網路無效](#aadds114-subnet-invalid) |
 | AADDS115 | *因為目標範圍已鎖定，而無法操作一或多個使用受控網域的網路資源。* | [資源遭鎖定](#aadds115-resources-are-locked) |
 | AADDS116 | *由於原則限制，而無法操作一或多個使用受控網域的網路資源。* | [無法使用資源](#aadds116-resources-are-unusable) |
 | AADDS500 | *受控網域前次是在 [date] 與 Azure AD 同步處理。* 使用者可能無法登入受控網域，或者群組成員資格可能無法與 Azure AD 同步。 | [有一陣子未發生同步處理](#aadds500-synchronization-has-not-completed-in-a-while) |
@@ -57,7 +57,7 @@ ms.locfileid: "55817524"
 
 
 ## <a name="aadds100-missing-directory"></a>AADDS100：遺失目錄
-**警示訊息：**
+**警示訊息：** 
 
 *與受控網域相關聯的 Azure AD 目錄可能已遭刪除。受控網域已不在支援的設定中。Microsoft 無法監視、管理、修補及同步處理受控網域。*
 
@@ -68,7 +68,7 @@ ms.locfileid: "55817524"
 此錯誤無法復原。 若要加以解決，您必須[刪除現有受控網域](active-directory-ds-disable-aadds.md)，然後在新目錄中予以重新建立。 如果您在刪除時遇到問題，請連絡 Azure Active Directory Domain Services 產品小組以[尋求支援](active-directory-ds-contact-us.md)。
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101：Azure AD B2C 在此目錄中執行
-**警示訊息：**
+**警示訊息：** 
 
 無法在 Azure AD B2C 目錄中啟用 Azure AD Domain Services。
 
@@ -85,7 +85,7 @@ ms.locfileid: "55817524"
 
 ## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103：位址位於公用 IP 範圍中
 
-**警示訊息：**
+**警示訊息：** 
 
 *您於其中啟用 Azure AD Domain Services 之虛擬網路的 IP 位址範圍位於公用 IP 範圍中。Azure AD Domain Services 必須在具有私人 IP 位址範圍的虛擬網路中啟用。此設定會影響 Microsoft 的監視、管理、修補及同步處理受控網域等功能。*
 
@@ -103,20 +103,20 @@ ms.locfileid: "55817524"
 
 1. 從目錄中[刪除受控網域](active-directory-ds-disable-aadds.md)。
 2. 修正子網路的 IP 位址範圍
-  1. 瀏覽至 [Azure 入口網站上的虛擬網路頁面](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)。
-  2. 選取您打算用於 Azure AD Domain Services 的虛擬網路。
-  3. 按一下 [設定] 下的 [位址空間]
-  4. 按一下現有位址範圍並加以編輯，或是新增其他位址範圍，來更新位址範圍。 請確定新的位址範圍位於私人 IP 範圍中。 儲存您的變更。
-  5. 在左側導覽中按一下 [子網路]。
-  6. 在資料表中按一下您要編輯的子網路。
-  7. 更新位址範圍，並儲存變更。
+   1. 瀏覽至 [Azure 入口網站上的虛擬網路頁面](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)。
+   2. 選取您打算用於 Azure AD Domain Services 的虛擬網路。
+   3. 按一下 [設定] 下的 [位址空間]
+   4. 按一下現有位址範圍並加以編輯，或是新增其他位址範圍，來更新位址範圍。 請確定新的位址範圍位於私人 IP 範圍中。 儲存您的變更。
+   5. 在左側導覽中按一下 [子網路]。
+   6. 在資料表中按一下您要編輯的子網路。
+   7. 更新位址範圍，並儲存變更。
 3. 遵循[開始使用 Azure AD Domain Services 指南](active-directory-ds-getting-started.md)，以重新建立受控網域。 請確定您挑選的是具有私人 IP 位址範圍的虛擬網路。
 4. 若要將虛擬機器的網域加入新的網域，請遵循[本指南](active-directory-ds-admin-guide-join-windows-vm-portal.md)。
 8. 若要確保解決警示，請在兩小時內檢查您網域的健康情況。
 
 ## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106：找不到 Azure 訂用帳戶
 
-**警示訊息：**
+**警示訊息：** 
 
 *與受控網域相關聯的 Azure 訂用帳戶已遭到刪除。Azure AD Domain Services 需要有使用中的訂用帳戶，才能繼續正常運作。*
 
@@ -130,7 +130,7 @@ Azure AD Domain Services 需要訂用帳戶才能運作，而且無法移到不�
 
 ## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107：Azure 訂用帳戶已停用
 
-**警示訊息：**
+**警示訊息：** 
 
 *與受控網域相關聯的 Azure 訂用帳戶不在使用中。Azure AD Domain Services 需要有使用中的訂用帳戶，才能繼續正常運作。*
 
@@ -142,7 +142,7 @@ Azure AD Domain Services 需要訂用帳戶才能運作，而且無法移到不�
 
 ## <a name="aadds108-subscription-moved-directories"></a>AADDS108：訂用帳戶移動目錄
 
-**警示訊息：**
+**警示訊息：** 
 
 *Azure AD Domain Services 所使用的訂用帳戶已移至另一個目錄。Azure AD 網域服務必須在相同目錄中有有效的訂用帳戶才能正確運作。*
 
@@ -152,7 +152,7 @@ Azure AD Domain Services 需要訂用帳戶才能運作，而且無法移到不�
 
 ## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109：找不到您受控網域的資源
 
-**警示訊息：**
+**警示訊息：** 
 
 *用於受控網域的資源已遭刪除。Azure AD Domain Services 需要這項資源才能正常運作。*
 
@@ -160,18 +160,18 @@ Azure AD Domain Services 需要訂用帳戶才能運作，而且無法移到不�
 
 Azure AD Domain Services 為了能正常運作，會在部署時建立特定資源，包括公用 IP 位址、 NIC 及負載平衡器。 如果有任何具名項目遭刪除，這會導致受控網域處於不支援的狀態，並阻止該網域受到管理。 當可編輯 Azure AD Domain Services 資源的人員刪除所需的資源時，就會出現此警示。 下列步驟概述如何還原受控網域。
 
-1.  瀏覽至 Azure AD Domain Services 健康情況頁面
-  1.    在 Azure 入口網站中，移動至 [Azure AD Domain Services 頁面](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)。
-  2.    在左側導覽中，按一下 [健康情況]
-2.  檢查該警示是否出現不到 4 小時
-  1.    在 [健康情況] 頁面上，按一下識別碼為 **AADDS109** 的警示
-  2.    該警示會有初次現身時的時間戳記。 如果該時間戳記建立不到 4 小時，則 Azure Active Directory Domain Services 還有機會可以重新建立遭刪除的資源。
-3.  如果警示已出現超過 4 小時，受控網域就會處於無法復原的狀態。 您必須刪除並重新建立 Azure AD Domain Services。
+1. 瀏覽至 Azure AD Domain Services 健康情況頁面
+   1.    在 Azure 入口網站中，移動至 [Azure AD Domain Services 頁面](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)。
+   2.    在左側導覽中，按一下 [健康情況]
+2. 檢查該警示是否出現不到 4 小時
+   1.    在 [健康情況] 頁面上，按一下識別碼為 **AADDS109** 的警示
+   2.    該警示會有初次現身時的時間戳記。 如果該時間戳記建立不到 4 小時，則 Azure Active Directory Domain Services 還有機會可以重新建立遭刪除的資源。
+3. 如果警示已出現超過 4 小時，受控網域就會處於無法復原的狀態。 您必須刪除並重新建立 Azure AD Domain Services。
 
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110：與受控網域相關聯的子網路已滿
 
-**警示訊息：**
+**警示訊息：** 
 
 *所選取要部署 Azure AD Domain Services 的子網路已滿，而且也沒有空間可供建立其他必要的網域控制站。*
 
@@ -181,7 +181,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 ## <a name="aadds111-service-principal-unauthorized"></a>AADDS111：服務主體未獲授權
 
-**警示訊息：**
+**警示訊息：** 
 
 *Azure AD Domain Services 用來為您的網域提供服務的服務主體未獲授權，無法管理 Azure 訂用帳戶的資源。服務主體必須取得權限，才能為您的受控網域提供服務。*
 
@@ -195,7 +195,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112：受控網域中沒有足夠的 IP 位址
 
-**警示訊息：**
+**警示訊息：** 
 
 *我們發現此網域中的虛擬網路子網路可能沒有足夠的 IP 位址。在啟用 Azure AD Domain Services 的子網路內，需要至少有兩個可用的 IP 位址。我們建議在該子網路內至少要有 3-5 個備用 IP 位址。如果在子網路內部署其他虛擬機器，因而耗盡可用的 IP 位址數目，或子網路中的可用 IP 位址數目有限時，就可能會發生這種情況。*
 
@@ -203,20 +203,20 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 1. 從租用戶中刪除受控網域。
 2. 修正子網路的 IP 位址範圍
-  1. 瀏覽至 [Azure 入口網站上的虛擬網路頁面](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)。
-  2. 選取您打算用於 Azure AD Domain Services 的虛擬網路。
-  3. 按一下 [設定] 下的 [位址空間]
-  4. 按一下現有位址範圍並加以編輯，或是新增其他位址範圍，來更新位址範圍。 儲存您的變更。
-  5. 在左側導覽中按一下 [子網路]。
-  6. 在資料表中按一下您要編輯的子網路。
-  7. 更新位址範圍，並儲存變更。
+   1. 瀏覽至 [Azure 入口網站上的虛擬網路頁面](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)。
+   2. 選取您打算用於 Azure AD Domain Services 的虛擬網路。
+   3. 按一下 [設定] 下的 [位址空間]
+   4. 按一下現有位址範圍並加以編輯，或是新增其他位址範圍，來更新位址範圍。 儲存您的變更。
+   5. 在左側導覽中按一下 [子網路]。
+   6. 在資料表中按一下您要編輯的子網路。
+   7. 更新位址範圍，並儲存變更。
 3. 遵循[開始使用 Azure AD Domain Services 指南](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)，以重新建立受控網域。 請確定您挑選的是具有私人 IP 位址範圍的虛擬網路。
 4. 若要將虛擬機器的網域加入新的網域，請遵循[本指南](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)。
 5. 請在兩個小時後檢查網域的健康情況，以確保您已正確完成所有步驟。
 
 ## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113：無法復原資源
 
-**警示訊息：**
+**警示訊息：** 
 
 *偵測到 Azure AD Domain Services 使用的資源處於非預期狀態且無法復原。*
 
@@ -226,7 +226,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 ## <a name="aadds114-subnet-invalid"></a>AADDS114：子網路無效
 
-**警示訊息：**
+**警示訊息：** 
 
 *選取用於部署 Azure AD Domain Services 的子網路無效，因此無法使用。*
 
@@ -236,7 +236,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 ## <a name="aadds115-resources-are-locked"></a>AADDS115：資源遭鎖定
 
-**警示訊息：**
+**警示訊息：** 
 
 *因為目標範圍已鎖定，而無法操作一或多個使用受控網域的網路資源。*
 
@@ -247,7 +247,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116：無法使用資源
 
-**警示訊息：**
+**警示訊息：** 
 
 *由於原則限制，而無法操作一或多個使用受控網域的網路資源。*
 
@@ -260,7 +260,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500：同步處理有一陣子未完成
 
-**警示訊息：**
+**警示訊息：** 
 
 *受控網域前次是在 [date] 與 Azure AD 同步處理。* 使用者可能無法登入受控網域，或者群組成員資格可能無法與 Azure AD 同步。
 
@@ -274,7 +274,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501：有一陣子未進行備份
 
-**警示訊息：**
+**警示訊息：** 
 
 *受控網域前次是在 [date] 進行備份。*
 
@@ -285,7 +285,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503：因為停用的訂用帳戶而造成擱置
 
-**警示訊息：**
+**警示訊息：** 
 
 *受控網域已擱置，因為與此網域相關聯的 Azure 訂用帳戶不在作用中。*
 
@@ -298,7 +298,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504：因為無效的組態而造成擱置
 
-**警示訊息：**
+**警示訊息：** 
 
 受控網域因為無效的組態而造成擱置。此服務已無法針對受控網域管理、修補或更新網域控制站很長一段時間。
 

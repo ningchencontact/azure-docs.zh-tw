@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4761a50905f28c215a47d579b931ab5db9d7e424
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b3ffc9794967f44708d8330d4dc5d5de11b794d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079174"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>如何為 SQL 資料倉儲建立支援票證
 如果您的 SQL 資料倉儲有任何問題，請建立支援票證，以便工程支援小組協助您。
@@ -35,8 +35,8 @@ ms.locfileid: "55468065"
      
      如果您有頂級支援計劃，您也可以在 [Microsoft Premier 線上入口網站][Microsoft Premier online portal]回報 SQL 資料倉儲的相關問題。  請參閱 [Azure 支援計畫][Azure support plan]，進一步了解包括範圍、回應時間、價格等各種 Azure 支援計畫。如需有關 Azure 支援的常見問題集，請參閱 [Azure 支援常見問題集][Azure support FAQs]。  
         
-    ![基本概念刀鋒視窗](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
-    ![基本概念刀鋒視窗1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
+     ![基本概念刀鋒視窗](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
+     ![基本概念刀鋒視窗1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
 4. 填妥 [問題] 刀鋒視窗。
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
@@ -46,7 +46,7 @@ ms.locfileid: "55468065"
    > 
    
 5. 填妥**連絡人資訊**。
-![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
+   ![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
 
     
 6. 按一下 [建立]  提交支援要求。

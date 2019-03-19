@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 0182df40a4e7815560a85e60fe9062ccd8001c18
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 5d0e919159569e7512b6e7dc0458a4a3e397943b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978835"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251905"
 ---
 > [!NOTE]
 > - 適用於 Blob 和佇列的 Azure AD 驗證預覽版僅供用於非生產環境。 生產環境的服務等級協定 (SLA) 目前無法使用。 如果您的案例尚未支援 Azure AD 驗證，請繼續在應用程式中使用您的共用金鑰授權或 SAS 權杖。
@@ -22,7 +22,7 @@ ms.locfileid: "52978835"
 >
 > - 若要以 OAuth 權杖為 Blob 和佇列作業授權，您必須使用 HTTPS。
 >
-> - Azure 入口網站現在支援在預覽版本中使用 Azure AD 認證來讀取和寫入 Blob 與佇列資料。
+> - Azure 入口網站現在支援在預覽版本中使用 Azure AD 認證來讀取和寫入 Blob 與佇列資料。 若要存取 Azure 入口網站中的 blob 和佇列資料，使用者必須指派 Azure Resource Manager 讀取器 RBAC 角色，除了 blob 或佇列的存取權的適當預覽角色。 如需詳細資訊，請參閱 <<c0> [ 授與存取權的 Azure 容器，使用 RBAC 在 Azure 入口網站 （預覽） 中的佇列](../articles/storage/common/storage-auth-aad-rbac.md)。 
 > 
 > - [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)目前使用儲存體帳戶金鑰來存取 Blob 和佇列資料。 Blob 可支援 OAuth 存取。
 >

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999942"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>如何使用適用於 Java v7 的用戶端程式庫上傳、下載及列出 Blob
 
@@ -34,7 +34,7 @@ ms.locfileid: "55753209"
 
 * 或者，安裝並設定 Maven 從命令列運作。
 
-本指南使用具備「適用於 Java 開發人員的 Eclipse IDE」設定的 [Eclipse](http://www.eclipse.org/downloads/)。
+本指南使用具備「適用於 Java 開發人員的 Eclipse IDE」設定的 [Eclipse](https://www.eclipse.org/downloads/)。
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 
@@ -87,7 +87,7 @@ Deleting the source, and downloaded files
 在繼續之前，請先檢查預設目錄 (如果是 Windows 使用者，則是 C:\Users\<user>\AppData\Local\Temp) 是否有範例檔案。 複製主控台視窗的 Blob URL，將它貼至瀏覽器以檢視 Blob 儲存體中的檔案內容。 如果您比較目錄中的範例檔案與 Blob 儲存體中儲存的內容，您會發現兩者相同。 
 
   >[!NOTE]
-  >您也可以使用 [Azure 儲存體總管](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。
+  >您也可以使用 [Azure 儲存體總管](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。
 
 確認檔案之後，請按 **Enter** 鍵以完成示範並刪除測試檔案。 現在您已知道這個範例的功用，請開啟 **AzureApp.java** 檔案查看程式碼。 
 

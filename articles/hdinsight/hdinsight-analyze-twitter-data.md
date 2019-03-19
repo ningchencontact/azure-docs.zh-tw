@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b8ab4acd24a53267711fde4408bb9fa8f52c35f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 653043c756fbb36c037524309073b82dc20cf62a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079855"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>在 HDInsight 中使用 Apache Hive 分析 Twitter 資料
 社群網站是驅使採用巨量資料的其中一個主要動力。 像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。
@@ -28,9 +28,9 @@ ms.locfileid: "53635573"
 
 * **工作站** 。
 
-    若要執行 Windows PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。 請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
+    要执行 Windows PowerShell 脚本，必须以管理员身份运行 Azure PowerShell 并将执行策略设为 *RemoteSigned*。 請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
 
-    執行 Windows PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
+    运行 Windows PowerShell 脚本之前，确保使用以下 cmdlet 连接到 Azure 订阅：
 
     ```powershell
     Connect-AzureRmAccount
@@ -51,14 +51,14 @@ ms.locfileid: "53635573"
 
 下表列出本教學課程中使用的檔案：
 
-| 檔案 | 說明 |
+| 文件 | 描述 |
 | --- | --- |
 | /tutorials/twitter/data/tweets.txt |Hive 工作的來源資料。 |
 | /tutorials/twitter/output |Hive 工作的輸出資料夾。 預設 Hive 工作的輸出檔案名稱為 **000000_0**。 |
 | tutorials/twitter/twitter.hql |HiveQL 指令碼檔案。 |
 | /tutorials/twitter/jobstatus |Hadoop 工作狀態。 |
 
-## <a name="get-twitter-feed"></a>取得 Twitter 摘要
+## <a name="get-twitter-feed"></a>获取 Twitter 源
 在本教學課程中，您將使用 [Twitter 串流 API][twitter-streaming-api]。 您將使用的特定 Twitter 串流 API 為 [statuses/filter][twitter-statuses-filter]。
 
 > [!NOTE]  
@@ -78,8 +78,8 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
 
    | 欄位 | 值 |
    | --- | --- |
-   |  Name |MyHDInsightApp |
-   |  說明 |MyHDInsightApp |
+   |  名稱 |MyHDInsightApp |
+   |  描述 |MyHDInsightApp |
    |  網站 |https://www.myhdinsightapp.com |
 4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
 5. 按一下 [權限]  索引標籤。預設權限為 [唯讀] 。 本教學課程使用預設值即可。
@@ -91,7 +91,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
 在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。 另一項常用來發出 Web 服務呼叫的工具是 [*Curl*][curl]。 您可以從[這裡][curl-download]下載 Curl。
 
 > [!NOTE]  
-> 在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
+> 在 Windows 中使用 curl 命令时，请使用双引号（而不是单引号）括起选项值。
 
 **取得推文**
 
@@ -226,7 +226,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
 
 3. 設定指令碼中的前五到八個變數：
 
-    變數|說明
+    變數|描述
     ---|---
     $clusterName|這是您要執行應用程式的 HDInsight 叢集名稱。
     $oauth_consumer_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式 **消費者金鑰** 。
@@ -260,7 +260,7 @@ HiveQL 指令碼將執行下列作業：
 
 **建立 Hive 指令碼並將它上傳至 Azure**
 
-1. 開啟 Windows PowerShell ISE。
+1. 打开 Windows PowerShell ISE。
 2. 將下列指令碼複製到指令碼窗格中：
 
     ```powershell
@@ -435,7 +435,7 @@ HiveQL 指令碼將執行下列作業：
 
 3. 設定指令碼中的前兩個變數：
 
-   | 變數 | 說明 |
+   | 變數 | 描述 |
    | --- | --- |
    |  $clusterName |# 提供您要在其中執行 Hive 工作的 HDInsight 叢集名稱 |
    |  $subscriptionID |輸入您的 Azure 訂用帳戶 ID。 |
@@ -447,13 +447,13 @@ HiveQL 指令碼將執行下列作業：
 
 在驗證程序中，您可以使用 Azure 儲存體總管或 Azure PowerShell，在您的 Azure Blob 儲存體上查看輸出檔案 **/tutorials/twitter/twitter.hql**。 如需用於列出這些檔案的範例 Windows PowerShell 指令碼，請參閱[搭配 HDInsight 使用 Blob 儲存體][hdinsight-storage-powershell]。
 
-## <a name="process-twitter-data-by-using-hive"></a>使用 Hive 處理 Twitter 資料
+## <a name="process-twitter-data-by-using-hive"></a>使用 Hive 处理 Twitter 数据
 您已完成所有準備工作。 現在，您可以叫用 Hive 指令碼，並查看結果。
 
 ### <a name="submit-a-hive-job"></a>提交 Hive 工作
 使用下列 Window PowerShell 指令碼可執行 Hive 指令碼。 您必須設定第一個變數。
 
-> [!NOTE]  
+> [!NOTE]
 > 若要使用您在前兩節中上傳的推文和 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 指令碼，請將 $hqlScriptFile 設定為 "/tutorials/twitter/twitter.hql"。 若要使用已上傳至公用 Blob 的項目，請將 $hqlScriptFile 設定為 "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"。
 
 ```powershell

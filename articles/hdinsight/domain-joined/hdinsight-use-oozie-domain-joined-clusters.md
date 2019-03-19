@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 15cdc78559a8f299e2bf0f357bbb7c0664881712
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343284"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116889"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie
 
@@ -38,9 +38,9 @@ Apache Oozie 是可管理 Apache Hadoop 作業的工作流程和協調系統。 
 如需安全殼層 (SSH) 的詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 1. 使用 SSH 連線到 HDInsight 叢集：  
- ```bash
-ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
- ```
+   ```bash
+   ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+   ```
 
 2. 若要確認 Kerberos 驗證是否成功，請使用 `klist` 命令。 如果不成功，請使用 `kinit` 啟動 Kerberos 驗證。
 
@@ -54,23 +54,25 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
 ## <a name="define-the-workflow"></a>定義工作流程
 Oozie 工作流程定義是以 Apache Hadoop 流程定義語言 (hPDL) 撰寫的。 hPDL 是一種 XML 流程定義語言。 採用下列步驟定義工作流程：
 
-1.  設定網域使用者的工作區：
- ```bash
-hdfs dfs -mkdir /user/<DomainUser>
-cd /home/<DomainUserPath>
-cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
-tar -xvf oozie-examples.tar.gz
-hdfs dfs -put examples /user/<DomainUser>/
- ```
-將 `DomainUser` 取代為網域使用者名稱。 將 `DomainUserPath` 取代為網域使用者的主目錄路徑。 將 `ClusterVersion` 取代您的叢集 Hortonworks Data Platform (HDP) 版本。
+1. 設定網域使用者的工作區：
+   ```bash
+   hdfs dfs -mkdir /user/<DomainUser>
+   cd /home/<DomainUserPath>
+   cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
+   tar -xvf oozie-examples.tar.gz
+   hdfs dfs -put examples /user/<DomainUser>/
+   ```
+   將 `DomainUser` 取代為網域使用者名稱。 
+   將 `DomainUserPath` 取代為網域使用者的主目錄路徑。 
+   將 `ClusterVersion` 取代您的叢集 Hortonworks Data Platform (HDP) 版本。
 
-2.  使用以下陳述式建立和編輯新的檔案：
- ```bash
-nano workflow.xml
- ```
+2. 使用以下陳述式建立和編輯新的檔案：
+   ```bash
+   nano workflow.xml
+   ```
 
 3. 在 nano 編輯器開啟後，請輸入下列 XML 做為檔案內容：
- ```xml
+   ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
        <credentials>
@@ -165,25 +167,25 @@ nano workflow.xml
        </kill>
        <end name="end" />
     </workflow-app>
- ```
+   ```
 4. 將 `clustername` 取代為叢集的名稱。 
 
 5. 若要儲存檔案，請選取 Ctrl+X。 輸入 `Y` 。 然後，選取 **Enter** 鍵。
 
     工作流程分成兩個部分：
-    *   **[認證] 區段。** 此區段會採用將用來驗證 Oozie 動作的認證：
+   * **[認證] 區段。** 此區段會採用將用來驗證 Oozie 動作的認證：
 
-       此範例使用的是 Hive 動作的驗證。 若要深入了解，請參閱[動作驗證](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html)。
+     此範例使用的是 Hive 動作的驗證。 若要深入了解，請參閱[動作驗證](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html)。
 
-       認證服務允許 Oozie 動作模擬使用者存取 Hadoop 服務。
+     認證服務允許 Oozie 動作模擬使用者存取 Hadoop 服務。
 
-    *   **[動作] 區段。** 此區段會有三個動作：map-reduce、Hive server 2 和 Hive server 1：
+   * **[動作] 區段。** 此區段會有三個動作：map-reduce、Hive server 2 和 Hive server 1：
 
-      - map-reduce 動作會從 Oozie 套件為輸出彙總字數的 map-reduce 執行範例。
+     - map-reduce 動作會從 Oozie 套件為輸出彙總字數的 map-reduce 執行範例。
 
-       - Hive server 2 和 Hive server 1 動作會對隨 HDInsight 提供的範例 Hive 資料表執行查詢。
+     - Hive server 2 和 Hive server 1 動作會對隨 HDInsight 提供的範例 Hive 資料表執行查詢。
 
-        Hive 動作會透過動作元素中的關鍵字 `cred`，使用 [認證] 區段中定義的認證來進行驗證。
+     Hive 動作會透過動作元素中的關鍵字 `cred`，使用 [認證] 區段中定義的認證來進行驗證。
 
 6. 使用下列命令將 `workflow.xml` 檔案複製到 `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`：
      ```bash

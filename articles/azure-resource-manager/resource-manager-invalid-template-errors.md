@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 59f07b9ba8116cb1a4b5ab50382d89d01a78853b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: ee4bce38e0fcde93ba0417617ae90dab2eefda67
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357685"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316195"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>解決無效範本的錯誤
 
@@ -134,7 +134,7 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-在範本中重複檢查允許的值，並在部署期間提供一個值。 如需允許的參數值詳細資訊，請參閱 [Azure Resource Manager 範本的 Parameters 區段](resource-manager-templates-parameters.md)。
+在範本中重複檢查允許的值，並在部署期間提供一個值。 如需允許的參數值詳細資訊，請參閱 [Azure Resource Manager 範本的 Parameters 區段](resource-group-authoring-templates.md#parameters)。
 
 <a id="too-many-resource-groups" />
 

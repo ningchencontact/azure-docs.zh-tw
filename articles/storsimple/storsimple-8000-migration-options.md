@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: e3412e31ae976efc8164076b30ad61360a030db4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: ea8a6d604187a25e5186d7200feba6aaab1f676a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511933"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339448"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>從 StorSimple 5000-7000 系列移轉資料的選項 
 
@@ -54,6 +54,10 @@ StorSimple 5000-7000 客戶可以選擇移轉至 Panzura Freedom NAS 以將其�
 #### <a name="migrate-to-cohesity"></a>遷移至 Cohesity
 
 Cohesity 可讓您將資料從目前的 StorSimple 5000-7000 遷移至 Azure 上的 Cohesity 資料平台。 Cohesity 資料平台是一種以軟體定義的網路規模解決方案，可將檔案、備份、物件和 VM 合併到單一的雲端原生解決方案。 在移轉至資料平台後，您可以透過單一窗口，來管理和保護資料與應用程式，並將其從雲端佈建到核心位置。 在使用 Cohesity 時，請先從三個節點開始。 深入了解如何[移轉至 Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html)。
+
+#### <a name="migrate-to-nasuni"></a>移轉至 Nasuni
+
+Nasuni 輕鬆移轉，並將其資料保存在 Azure 中的 StorSimple 5000-7000 客戶。  Nasuni 是一套領先的 Azure 架構的 NAS 儲存體解決方案，為客戶提供的效能和安全性預期應該來自內部部署解決方案，雲端經濟效益和小數位數。  除了高效能檔案儲存體、 Nasuni 和 Azure 的控制代碼備份和 DR，可讓您進行共用及共同作業對您使用集中式的檔案儲存體管理在世界各地的資料。 Nasuni 有的體驗，方便您移轉 – 立即開始使用： https://info.nasuni.com/nasuni-storsimple-migration
 
 ## <a name="migration---frequently-asked-questions"></a>移轉 - 常見問題集
 

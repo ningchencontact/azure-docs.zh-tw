@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 389578cb45977890645020fe7fcd6c69c08c41f5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: fae790f9b2d5ecc492f7ece5d259809e8664898d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991890"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>適用於 Azure VPN 閘道的社群建議協力廠商 VPN 或防火牆裝置設定
 
@@ -33,14 +33,14 @@ ms.locfileid: "55694246"
 
 下表列出數個常見裝置和相關說明：
 
-|產品    |參考                                                |
+|产品    |參考                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[適用於 Azure VPN 上 Cisco ASA 的社群建議解決方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco) \(英文\)   |
 |Cisco ISR  |[適用於 Azure VPN 上 Cisco ISR 的社群建議解決方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco) \(英文\)   |
 |Cisco ASR  |[適用於 Azure VPN 上 Cisco ASR 的社群建議解決方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco) \(英文\)   |
 |Sonicwall |在 [Sonicwall 網站](https://www.sonicwall.com/en-us/support) \(英文\) 上搜尋 **Azure VPN** |
 | Checkpoint    |在 [Checkpoint 網站](https://supportcenter.checkpoint.com/supportcenter/portal)上 \(英文\) 搜尋 **Azure VPN** |
-|Juniper |在 [Juniper 網站]( http://www.juniper.net/search/public/)上 \(英文\) 搜尋 **Azure VPN**|
+|Juniper |在 [Juniper 網站]( https://www.juniper.net/search/public/)上 \(英文\) 搜尋 **Azure VPN**|
 |Barracuda  |[適用於 Azure VPN 上 Barracuda 的社群建議解決方案](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0) \(英文\)   |
 |F5         |[適用於 Azure VPN 上 F5 的社群建議解決方案](https://support.f5.com/csp/#/federated-search?q=%22Azure%20VPN%22&source=support) \(英文\)          |
 |Palo       |[適用於 Azure VPN 上 Palo 的社群建議解決方案](https://live.paloaltonetworks.com/t5/forums/searchpage/tab/message?q=Azure+VPN) \(英文\)        |

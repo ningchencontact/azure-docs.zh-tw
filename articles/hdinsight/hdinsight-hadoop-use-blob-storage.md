@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: a48e9a21c97ecb881798b0f944e91cfcf81f0a72
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: cf6122b45f82b9304acd28819861b9fda2dcb5ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085723"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Azure 儲存體
 
@@ -45,7 +45,7 @@ Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合�
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 儲存架構
 下圖提供使用 Azure 儲存體之 HDInsight 儲存架構的摘要檢視：
 
-![Hadoop 叢集會使用 HDFS API 來存取和儲存 Blob 儲存體中的結構化和非結構化資料。](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight 儲存體架構")
+![Hadoop 群集使用 HDFS API 来访问 Blob 存储中的结构化和非结构化数据，并在其中存储这些数据。](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
 
 HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可使用完整 URI 來存取此檔案系統，例如：
 
@@ -70,7 +70,7 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 
 多個 WebHCat 工作 (包括 Apache Hive、MapReduce、Apache Hadoop 資料流和 Apache Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料。 (目前適用於含儲存體帳戶的 Pig，但不適用於中繼資料)。如需詳細資訊，請參閱 [在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
-Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組來儲存資料，沒有目錄階層。 但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。 例如，Blob 的機碼可能是 *input/log1.txt*。 實際上， *input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
+Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組來儲存資料，沒有目錄階層。 不过，可在键名称中使用斜杠字符 (/)，使其看起来像存储在目录结构中的文件。 例如，Blob 的機碼可能是 *input/log1.txt*。 實際上， *input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
 
 ## <a id="benefits"></a>Azure 儲存體的優點
 計算叢集和儲存體叢集未並存於同處所隱含的效能損失，可經由將計算叢集建立到靠近 Azure 區域內的儲存體帳戶資源來彌補，其中的高速網路可讓計算節點有效率地存取 Azure 儲存體內的資料。
@@ -89,7 +89,7 @@ Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組�
 > 大部分 HDFS 命令 (例如，<b>ls</b>、<b>copyFromLocal</b> 和 <b>mkdir</b>) 仍可正常運作。 只有原生 HDFS 實作 (稱為 DFS) 的特定命令 (例如 <b>fschk</b> 和 <b>dfsadmin</b>) 才會在 Azure 儲存體上出現不同的行為。
 
 
-## <a name="create-blob-containers"></a>建立 Blob 容器
+## <a name="create-blob-containers"></a>创建 Blob 容器
 若要使用 Blob，您必須先建立 [Azure 儲存體帳戶][azure-storage-create]。 在這個過程中，您可以指定建立儲存體帳戶所在的 Azure 區域。 叢集與儲存體帳戶必須在相同區域內託管。 Hive 中繼存放區 SQL Server 資料庫和 Apache Oozie 中繼存放區 SQL Server 資料庫也必須位在相同的區域內。
 
 您所建立的每個 Blob 不論位於何處，都屬於 Azure 儲存體帳戶中的某個容器。 此容器可能是在 HDInsight 外建立的現有 Blob，也可能是為 HDInsight 叢集建立的容器。
@@ -104,7 +104,7 @@ Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組�
 ![HDinsight hadoop 建立資料來源](./media/hdinsight-hadoop-use-blob-storage/storage.png)
 
 > [!WARNING]  
-> 不支援在與 HDInsight 叢集不同的位置中使用其他儲存體帳戶。
+> 不支持在 HDInsight 群集之外的其他位置使用别的存储帐户。
 
 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
@@ -146,7 +146,7 @@ azure storage account create <storageaccountname> --type LRS
 > [!NOTE]  
 > `--type` 參數表示儲存體帳戶的複寫方式。 如需詳細資訊，請參閱 [Azure 儲存體複寫](../storage/storage-redundancy.md)。 請勿使用 ZRS，因為 ZRS 不支援分頁 Blob、檔案、資料表或佇列。
 
-系統會提示您指定將建立儲存體帳戶的地理區域。 您應該在您計劃建立 HDInsight 叢集的相同區域中建立儲存體帳戶。
+系統會提示您指定將建立儲存體帳戶的地理區域。 应在计划创建 HDInsight 群集的同一区域中创建存储帐户。
 
 建立儲存體帳戶後，使用下列命令來抓取儲存體帳戶金鑰：
 
@@ -160,17 +160,17 @@ azure storage account keys list <storageaccountname>
 azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-## <a name="address-files-in-azure-storage"></a>定址 Azure 儲存體中的檔案
+## <a name="address-files-in-azure-storage"></a>确定 Azure 存储中文件的地址
 從 HDInsight 存取 Azure 儲存體中的檔案的 URI 配置如下：
 
 ```config
 wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 ```
 
-URI 配置提供未加密存取 (使用 wasb: 首碼) 和 SSL 加密存取 (使用 wasbs)。 建議盡可能使用 wasbs  ，即使存取 Azure 中相同區域內的資料也一樣。
+URI 配置提供未加密存取 (使用 wasb: 首碼) 和 SSL 加密存取 (使用 wasbs)。 建议尽量使用 *wasbs* ，即使在访问位于同一 Azure 区域内的数据时也是如此。
 
 &lt;BlobStorageContainerName&gt; 可識別 Azure 儲存體中的 Blob 容器名稱。
-&lt;StorageAccountName&gt; 可識別 Azure 儲存體帳戶名稱。 需要使用完整網域名稱 (FQDN)。
+&lt;StorageAccountName 标识&gt; Azure 存储帐户名。 需要使用完整網域名稱 (FQDN)。
 
 如果 &lt;BlobStorageContainerName&gt; 和 &lt;StorageAccountName&gt; 都未指定，則會使用預設檔案系統。 對於預設檔案系統上的檔案，您可以使用相對路徑或絕對路徑。 例如，可使用下列語法來參考 HDInsight 叢集隨附的 *hadoop-mapreduce-examples.jar* 檔案：
 
@@ -197,7 +197,7 @@ example/jars/hadoop-mapreduce-examples.jar
 ### <a name="access-blobs-using-azure-powershell"></a> 使用 Azure PowerShell
 
 > [!NOTE]
-
+> 
 > 本章中的命令會提供使用 PowerShell 來存取儲存在 Blob 中的資料的基本範例。 如需使用 HDInsight 的更完整範例，請參閱 [HDInsight 工具](https://github.com/Blackmist/hdinsight-tools)。
 
 請使用下列命令來列出 Blob 相關的 Cmdlet：

@@ -2,21 +2,21 @@
 title: 使用 Azure 資料庫移轉服務來監視移轉活動 | Microsoft Docs
 description: 深入了解如何使用 Azure 資料庫移轉服務來監視移轉活動。
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/14/2018
-ms.openlocfilehash: a7fc48c149d488ab7860513b617b8a5806b1feb6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721150"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173850"
 ---
 # <a name="monitor-migration-activity"></a>監視移轉活動
 在本文中，您會學習如何在資料庫層級與資料表層級監視移轉的進度。
@@ -108,7 +108,7 @@ ms.locfileid: "53721150"
 
 下表描述了資料表層級詳細資料中所顯示的欄位。
 
-| 欄位名稱        | 說明       |
+| 欄位名稱        | 描述       |
 | ------------- | ------------- |
 | **完整載入已完成**      | 已完成完整資料載入的資料表數目。 |
 | **完整載入已排入佇列**      | 已排入佇列以進行完整載入的資料表數目。      |
@@ -129,11 +129,11 @@ ms.locfileid: "53721150"
 
 下表描述了資料表層級移轉進度中所顯示的欄位。
 
-| 欄位名稱        | 說明       |
+| 欄位名稱        | 描述       |
 | ------------- | ------------- |
 | **狀態 - 同步處理**      | 持續同步正在執行中。 |
 | **插入**      | 套用到目標的資料列中，CDC 插入的數目。      |
-| 更新 | 套用到目標的資料列中，CDC 更新的數目。      |
+| **更新** | 套用到目標的資料列中，CDC 更新的數目。      |
 | **刪除**      | 套用到目標的資料列中，CDC 刪除的數目。 |
 | **套用項目總計**      | 套用到目標的資料列中，CDC 更新、插入及刪除的總數。 |
 | **資料錯誤** | 此資料表中發生的資料錯誤數目。 這些錯誤的一些範例包括：*511：無法建立大小為 %d 的資料列，這個大小大於允許的資料列大小上限 %d。8114：將資料類型從 %ls 轉換到 %ls 時發生錯誤。*  客戶應該從 Azure 目標中的 dms_apply_exceptions 資料表查詢，以查看錯誤詳細資料。    |

@@ -8,17 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a86a965a746ed659b73c359ee44fb9be250aae97
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 5f46e7846a5b0cd9479f19d475d4604f37bead4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168736"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 
-了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至 HDInsight。 這份文件中的步驟會在現有的 Linux 架構 HDInsight 叢集中新增儲存體帳戶。
+了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至 HDInsight。 這份文件中的步驟會在現有的 Linux 架構 HDInsight 叢集中新增儲存體帳戶。 本文適用於[Azure 儲存體](hdinsight-hadoop-use-blob-storage.md)和只有額外的儲存體帳戶 （非預設叢集儲存體帳戶）。 這篇文章並不適用於[Azure Data Lake 儲存體 Gen1](hdinsight-hadoop-use-data-lake-store.md)並[Azure Data Lake 儲存體 Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)。
 
 > [!IMPORTANT]  
 > 本文件中的資訊是有關如何在建立叢集之後，將其他儲存體新增至叢集。 如需在叢集建立期間新增儲存體帳戶的資訊，請參閱[使用 Apache Hadoop、Apache Spark、Apache Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
@@ -39,7 +38,7 @@ ms.locfileid: "53714278"
 
 * 確認儲存體帳戶存在並可使用金鑰來存取。
 
-* 使用叢集認證加密金鑰。
+* 使用群集凭据对密钥进行加密。
 
 * 將儲存體帳戶新增至 core-site.xml 檔案。
 
@@ -109,7 +108,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 再次執行指令碼動作並__不會__更新金鑰，因為指令碼會查看儲存體帳戶的項目是否已經存在。 如果項目已經存在，就不會進行任何變更。
 
-若要解決這個問題，您必須移除儲存體帳戶的現有項目。 執行下列步驟以移除現有項目：
+若要解决此问题，必须删除存储帐户的现有条目。 執行下列步驟以移除現有項目：
 
 1. 在 Web 瀏覽器中，對您的 HDInsight 叢集開啟 Ambari Web UI。 URI 為 https://CLUSTERNAME.azurehdinsight.net。 將 __CLUSTERNAME__ 取代為您叢集的名稱。
 
@@ -117,9 +116,9 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 2. 從頁面左邊的服務清單中，選取 [HDFS]。 然後選取頁面中間的 [設定] 索引標籤。
 
-3. 在 [篩選...] 欄位中，輸入 __fs.azure.account__ 值。 這會傳回已新增到叢集的任何其他儲存體帳戶項目。 有兩種項目類型：__keyprovider__ 和 __key__。 兩者都會包含儲存體帳戶名稱做為金鑰名稱的一部分。
+3. 在“筛选...”字段中，输入值 __fs.azure.account__。 這會傳回已新增到叢集的任何其他儲存體帳戶項目。 条目的类型为两种：__keyprovider__ 和 __key__。 兩者都會包含儲存體帳戶名稱做為金鑰名稱的一部分。
 
-    下列是名為 __mystorage__ 之儲存體帳戶的項目範例：
+    以下是名为 __mystorage__ 的存储帐户的示例条目：
 
         fs.azure.account.keyprovider.mystorage.blob.core.windows.net
         fs.azure.account.key.mystorage.blob.core.windows.net
@@ -133,7 +132,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 如果儲存體帳戶位於與 HDInsight 叢集不同的區域中，您可能會遇到效能不佳。 存取不同區域中的資料會傳送 Azure 資料中心外部和跨越公用網際網路的網路流量，這可能會造成延遲。
 
 > [!WARNING]  
-> 不支援在 HDInsight 叢集以外的區域中使用儲存體帳戶。
+> 不支持在 HDInsight 群集之外的其他区域中使用存储帐户。
 
 ### <a name="additional-charges"></a>額外費用
 

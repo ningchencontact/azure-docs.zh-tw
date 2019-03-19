@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: bbbce45b7c321fd4934374c76f2a4421b125d46f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600949"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994696"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>在您自己的 DNS 伺服器中使用動態 DNS 來註冊主機名稱
 
@@ -63,7 +63,7 @@ fi
 
 您也可以使用 `nsupdate` 命令來執行安全 DDNS 更新。 例如，當您使用繫結 DNS 伺服器時，會 [產生](http://linux.yyz.us/nsupdate/)公開-私密金鑰組。 DNS 伺服器已使用金鑰的公開部分進行[設定](http://linux.yyz.us/dns/ddns-server.html)，因此其可驗證要求的簽章。 若要將金鑰組提供給 `nsupdate`，請使用 `-k` 選項簽署 DDNS 更新要求。
 
-當您使用 Windows DNS 伺服器時，可以使用 Kerberos 驗證搭配 `nsupdate` 的 `-g` 參數 (`nsupdate` 的 Windows 版本未提供)。 若要使用 Kerberos，請使用 `kinit` 載入認證。 例如，您可以從 [keytab 檔案](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)載入認證，然後 `nsupdate -g` 會從快取中取得認證。
+當您使用 Windows DNS 伺服器時，可以使用 Kerberos 驗證搭配 `nsupdate` 的 `-g` 參數 (`nsupdate` 的 Windows 版本未提供)。 若要使用 Kerberos，請使用 `kinit` 載入認證。 例如，您可以從 [keytab 檔案](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)載入認證，然後 `nsupdate -g` 會從快取中取得認證。
 
 如有需要，您可以將 DNS 搜尋尾碼加入您的 VM。 DNS 尾碼是在 */etc/resolv.conf* 檔案中指定。 大多數的 Linux 發行版會自動管理這個檔案的內容，因此通常您無法編輯該檔案。 不過，您可以使用 DHCP 用戶端的 `supersede` 命令以覆寫尾碼。 若要覆寫尾碼，請將以下程式行加入到 */etc/dhcp/dhclient.conf* 檔案中：
 

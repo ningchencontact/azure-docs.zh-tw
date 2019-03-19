@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6f3b3216c279b8adb4fe02ccea94fa40ff30bf6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: e7ff4f992d26217584f44cb7977cf7e766224564
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010972"
 ---
-# <a name="create-an-sap-netweaver-multi-sid-configuration"></a>建立 SAP NetWeaver 多 SID 組態
+# <a name="create-an-sap-netweaver-multi-sid-configuration"></a>创建 SAP NetWeaver 多 SID 配置
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -157,7 +157,7 @@ ms.locfileid: "56326835"
 [deploy-template-portal]:../../../resource-group-template-deploy.md#deploy-with-the-preview-portal
 [deploy-template-powershell]:../../../resource-group-template-deploy.md#deploy-with-powershell
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:../../virtual-machines-windows-sap-get-started.md
 [getting-started-dbms]:../../virtual-machines-windows-sap-get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -171,7 +171,7 @@ ms.locfileid: "56326835"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [ha-guide]:high-availability-guide.md
 
@@ -445,14 +445,14 @@ ms.locfileid: "56326835"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 這項功能已存在 Azure 外部負載平衡器。
+2016 年 9 月，Microsoft 发布了一项功能，让用户可通过 [Azure 内部负载均衡器][load-balancer-multivip-overview]管理多个虚拟 IP 地址。 Azure 外部负载均衡器中已存在此功能。
 
 如果您有 SAP 部署，可以使用內部負載平衡器針對 SAP 的 ASCS/SCS 建立 Windows 叢集組態，如 [Windows VM 上的高可用性 SAP NetWeaver 指南][sap-ha-guide]所述。
 
 本文將著重於如何將單一 ASCS/SCS 安裝移至 SAP 多 SID 組態，方法是將其他 SAP ASCS/SCS 叢集執行個體安裝至現有 Windows Server 容錯移轉叢集 (WSFC) 叢集。 完成此程序之後，您將已設定 SAP 多 SID 叢集。
 
 > [!NOTE]
-> 這項功能僅適用於 Azure Resource Manager 部署模型。
+> 此功能仅在 Azure Resource Manager 部署模型中可用。
 
 ## <a name="prerequisites"></a>必要條件
 您已經設定用於一個 SAP ASCS/SCS 執行個體的 WSFC 叢集，如 [Windows VM 上的高可用性 SAP NetWeaver 指南][sap-ha-guide]所述及如下圖所示。
@@ -484,7 +484,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 > - SAP 應用程式伺服器屬於必須擁有自己專用 VM 的一個 SAP 系統 SID。
 
 
-## <a name="prepare-the-infrastructure"></a>準備基礎結構
+## <a name="prepare-the-infrastructure"></a>准备基础结构
 若要準備您的基礎結構，您可以安裝額外的 SAP ASCS/SCS 執行個體，並使用下列參數︰
 
 | 參數名稱 | 值 |
@@ -503,7 +503,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 
 您可以在具有兩個節點的現有 WSFC 叢集中安裝額外 SAP ASCS/SCS 執行個體︰
 
-| 虛擬機器角色 | 虛擬機器主機名稱 | 靜態 IP 位址 |
+| 虛擬機器角色 | 虛擬機器主機名稱 | 静态 IP 地址 |
 | --- | --- | --- |
 | ASCS/SCS 執行個體的第 1 個叢集節點 |pr1-ascs-0 |10.0.0.10 |
 | ASCS/SCS 執行個體的第 2 個叢集節點 |pr1-ascs-1 |10.0.0.9 |
@@ -513,12 +513,12 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 您可以使用下列參數為 ASCS/SCS 執行個體的虛擬主機名稱建立 DNS 項目：
 
 | 新的 SAP ASCS/SCS 虛擬主機名稱 | 相關聯的 IP 位址 |
-| --- | --- | --- |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
 新的主機名稱和 IP 位址會顯示在 DNS 管理員中，如下列螢幕擷取畫面所示︰
 
-![DNS 管理員清單反白顯示已定義之新的 SAP ASCS/SCS 叢集虛擬名稱和 TCP/IP 位址的 DNS 項目][sap-ha-guide-figure-6004]
+![DNS 管理器列表，突出显示新 SAP ASCS/SCS 群集虚拟名称和 TCP/IP 地址的已定义 DNS 项][sap-ha-guide-figure-6004]
 
 建立 DNS 項目的程序在主要的 [Windows VM 上的高可用性 SAP NetWeaver 指南][sap-ha-guide-9.1.1]中也有詳細說明。
 
@@ -531,7 +531,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 
 若要在相同的 WSFC 叢集中建立多個 SAP ASCS/SCS 執行個體，請使用 PowerShell 將 IP 位址新增至現有的 Azure 內部負載平衡器。 每個 IP 位址都需要有自己的負載平衡規則、探查連接埠、前端 IP 集區和後端集區。
 
-下列指令碼會將新的 IP 位址新增至現有的負載平衡器。 請更新您環境的 PowerShell 變數。 指令碼會為所有 SAP ASCS/SCS 通訊埠建立所有必要的負載平衡規則。
+下列指令碼會將新的 IP 位址新增至現有的負載平衡器。 更新环境的 PowerShell 变量。 指令碼會為所有 SAP ASCS/SCS 通訊埠建立所有必要的負載平衡規則。
 
 ```powershell
 
@@ -620,7 +620,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 執行下列動作：
 1. 將額外磁碟或大小相同的磁碟 (您需要等量的磁碟) 新增至每個叢集節點中，並將其格式化。
-2. 使用 SIOS DataKeeper 設定儲存體複寫。
+2. 使用 SIOS DataKeeper 配置存储复制。
 
 此程序假設您已在 WSFC 叢集機器上安裝了 SIOS DataKeeper。 如果已經安裝，您現在必須在電腦之間設定複寫。 如需此程序的詳細說明，請參閱主要的 [Windows VM 上的高可用性 SAP NetWeaver 指南][sap-ha-guide-8.12.3.3]。  
 
@@ -634,11 +634,11 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 2. 為 DBMS 叢集部署專用 VM，並將它們放在其自己專用的可用性群組。
 
 
-## <a name="install-the-second-sap-sid2-netweaver-system"></a>安裝第二個 SAP SID2 NetWeaver 系統
+## <a name="install-the-second-sap-sid2-netweaver-system"></a>安装第二个 SAP SID2 NetWeaver 系统
 
 如需有關安裝第二個 SAP SID2 系統的完整程序說明，請參閱主要的 [Windows VM 上的高可用性 SAP NetWeaver 指南][sap-ha-guide-9]。
 
-高階程序如下所示︰
+高级过程如下所示：
 
 1. [安裝 SAP 的第一個叢集節點][sap-ha-guide-9.1.2]。  
  在此步驟中，您要在**現有 WSFC 叢集節點 1** 上使用高可用性 ASCS/SCS 執行個體安裝 SAP。
@@ -652,11 +652,11 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
  在此步驟中，您要在專用的 WSFC 叢集上安裝 DBMS。
 
 5. [安裝第二個叢集節點][sap-ha-guide-9.3]。  
- 在此步驟中，您要在現有 WSFC 叢集節點 2 上使用高可用性 ASCS/SCS 執行個體安裝 SAP。
+ 此步骤在现有 WSFC 群集节点 2 上安装包含高可用性 ASCS/SCS 实例的 SAP。
 
 6. 開啟 SAP ASCS/SCS 執行個體和 ProbePort 的 Windows 防火牆連接埠。  
- 在用於 SAP ASCS/SCS 執行個體的兩個叢集節點上，您要開啟 SAP ASCS/SCS 所使用的所有 Windows 防火牆連接埠。 如需這些連接埠的清單，請參閱 [Windows VM 上的高可用性 SAP NetWeaver 指南][sap-ha-guide-8.8]。  
- 此外，開啟 Azure 內部負載平衡器探查連接埠，在我們的案例中為 62350。
+ 在用于 SAP ASCS/SCS 实例的两个群集节点上，打开 SAP ASCS/SCS 使用的所有 Windows 防火墙端口。 如需這些連接埠的清單，請參閱 [Windows VM 上的高可用性 SAP NetWeaver 指南][sap-ha-guide-8.8]。  
+ 此外，打开 Azure 内部负载均衡器探测端口，在本方案中为 62350。
 
 7. [變更 SAP ERS Windows 服務執行個體的啟動類型][sap-ha-guide-9.4]。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: ergreenl
-ms.openlocfilehash: d72fa2551eb4db3cb68a52cd8a76dd7b9d27b6f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a2abdbf1409564f94356279332d253627c5b447a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111917"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站停用 Azure Active Directory Domain Services
 本文將示範如何使用 Azure 入口網站停用您 Azure AD 目錄的 Azure Active Directory (AD) 網域服務。
@@ -28,12 +28,11 @@ ms.locfileid: "55178999"
 > [!WARNING]
 > **這是無法回復的永久性刪除。**
 > 請謹慎執行！ 當您刪除受控網域時：
-  * 受控網域的網域控制站會解除佈建，並從虛擬網路中移除。
-  * 受控網域上的資料會永久刪除。 這包括已在受控網域上建立的自訂 OU、GPO、自訂 DNS 記錄、服務主體和 GMSA 等。
-  * 聯結至受控網域的機器會失去與網域間的信任關係，且必須從網域中解除聯結。
-  * 您無法使用公司 AD 認證登入這些電腦。 須改用本機系統管理員認證登入機器。
-刪除受控網域不會刪除您的 Azure AD 目錄，或對目錄造成負面影響。
->
+>   * 受控網域的網域控制站會解除佈建，並從虛擬網路中移除。
+>   * 受控網域上的資料會永久刪除。 這包括已在受控網域上建立的自訂 OU、GPO、自訂 DNS 記錄、服務主體和 GMSA 等。
+>   * 聯結至受控網域的機器會失去與網域間的信任關係，且必須從網域中解除聯結。
+>   * 您無法使用公司 AD 認證登入這些電腦。 須改用本機系統管理員認證登入機器。
+> 刪除受控網域不會刪除您的 Azure AD 目錄，或對目錄造成負面影響。
 
 執行下列步驟，以刪除您的 Azure AD Domain Services 的受控網域：
 1. 在 Azure 入口網站中瀏覽至 [Azure AD Domain Services 擴充](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)。

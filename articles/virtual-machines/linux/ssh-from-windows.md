@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298648"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005687"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上搭配 Windows 使用 SSH 金鑰
 
@@ -37,9 +37,9 @@ Windows 電腦不一定會安裝類似的 SSH 命令。 最新版本的 Windows 
 
 您可以在本機安裝的其他常見 Windows SSH 用戶端包含在下列套件中：
 
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git For Windows](https://git-for-windows.github.io/)
-* [MobaXterm](http://mobaxterm.mobatek.net/)
+* [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 您也可以使用從 [Azure Cloud Shell](../../cloud-shell/overview.md) Bash 獲得的 SSH 公用程式。 
@@ -62,7 +62,7 @@ ssh-keygen -t rsa -b 2048
 
 ### <a name="create-ssh-keys-with-puttygen"></a>利用 PuTTYgen 建立 SSH 金鑰
 
-如果您想使用 GUI 工具來建立 SSH 金鑰，則可以使用 [PuTTY 下載套件](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)隨附的 PuTTYgen 金鑰產生器。 
+如果您想使用 GUI 工具來建立 SSH 金鑰，則可以使用 [PuTTY 下載套件](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)隨附的 PuTTYgen 金鑰產生器。 
 
 若要使用 PuTTYgen 建立 SSH RSA 金鑰組：
 
@@ -110,7 +110,7 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 ### <a name="connect-with-putty"></a>使用 PuTTY 進行連線
 
-如果您已安裝 [PuTTY 下載套件](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)而且之前產生了 PuTTY 私密金鑰 (.ppk) 檔案，便可以使用 PuTTY 連線至 Linux VM。
+如果您已安裝 [PuTTY 下載套件](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)而且之前產生了 PuTTY 私密金鑰 (.ppk) 檔案，便可以使用 PuTTY 連線至 Linux VM。
 
 1. 啟動 PuTTY。
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b856227733fcc65e12eb43ea1f6b704502a7b29a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bd2c4b6102d359aba35c9211fdcc86e3521b4062
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169338"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>教學課程：Azure Active Directory 與 Onit 整合
 
@@ -232,11 +232,11 @@ Onit 與 Azure AD 整合提供下列優點：
    
    ![新增使用者](./media/onit-tutorial/IC791181.png "新增使用者")
    
-  1. 在相關的文字方塊中，輸入您想要佈建之有效 Azure AD 帳戶的 [名稱] 與 [電子郵件地址]。
-  1. 按一下頁面底部的 [新增] 。    
+   1. 在相關的文字方塊中，輸入您想要佈建之有效 Azure AD 帳戶的 [名稱] 與 [電子郵件地址]。
+   1. 按一下頁面底部的 [新增] 。    
    
- > [!NOTE]
- > Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
+   > [!NOTE]
+   > Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

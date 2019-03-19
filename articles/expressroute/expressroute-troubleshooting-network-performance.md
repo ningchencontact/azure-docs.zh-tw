@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: dfd55ac12587cf99cc3fc3ff8eac4f4572229396
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753494"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995787"
 ---
 # <a name="troubleshooting-network-performance"></a>網路效能疑難排解
 ## <a name="overview"></a>概觀
@@ -180,25 +180,25 @@ AzureCT PowerShell 模組有兩個構成要素，分別是[可用性測試][Avai
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>位置|Azure<br/>區域|預估<br/>距離 (公里)|Latency|1 個工作階段<br/>頻寬|最大值<br/>頻寬|
-| Seattle | 美國西部 2        |    191 公里 |   5 毫秒 | 262.0 Mbits/秒 |  3.74 Gbits/秒 | 21
-| Seattle | 美國西部          |  1,094 公里 |  18 毫秒 |  82.3 Mbits/秒 |  3.70 Gbits/秒 | 20
-| Seattle | 美國中部       |  2,357 公里 |  40 毫秒 |  38.8 Mbits/秒 |  2.55 Gbits/秒 | 17
-| Seattle | 美國中南部 |  2,877 公里 |  51 毫秒 |  30.6 Mbits/秒 |  2.49 Gbits/秒 | 19
-| Seattle | 美國中北部 |  2,792 公里 |  55 毫秒 |  27.7 Mbits/秒 |  2.19 Gbits/秒 | 18
-| Seattle | 美國東部 2        |  3,769 公里 |  73 毫秒 |  21.3 Mbits/秒 |  1.79 Gbits/秒 | 16
-| Seattle | 美國東部          |  3,699 公里 |  74 毫秒 |  21.1 Mbits/秒 |  1.78 Gbits/秒 | 15
-| Seattle | 日本東部       |  7,705 公里 | 106 毫秒 |  14.6 Mbits/秒 |  1.22 Gbits/秒 | 28
-| Seattle | 英國南部         |  7,708 公里 | 146 毫秒 |  10.6 Mbits/秒 |   896 Mbits/秒 | 24
-| Seattle | 西歐      |  7,834 公里 | 153 毫秒 |  10.2 Mbits/秒 |   761 Mbits/秒 | 23
-| Seattle | 澳洲東部   | 12,484 公里 | 165 毫秒 |   9.4 Mbits/秒 |   794 Mbits/秒 | 26
-| Seattle | 東南亞   | 12,989 公里 | 170 毫秒 |   9.2 Mbits/秒 |   756 Mbits/秒 | 25
-| Seattle | 巴西南部 *   | 10,930 公里 | 189 毫秒 |   8.2 Mbits/秒 |   699 Mbits/秒 | 22
-| Seattle | 印度南部      | 12,918 公里 | 202 毫秒 |   7.7 Mbits/秒 |   634 Mbits/秒 | 27
+| Seattle | 美國西部 2        |    191 公里 |   5 毫秒 | 262.0 Mbits/秒 |  3.74 Gbits/秒 |
+| Seattle | 美國西部          |  1,094 公里 |  18 毫秒 |  82.3 Mbits/秒 |  3.70 Gbits/秒 |
+| Seattle | 美國中部       |  2,357 公里 |  40 毫秒 |  38.8 Mbits/秒 |  2.55 Gbits/秒 |
+| Seattle | 美國中南部 |  2,877 公里 |  51 毫秒 |  30.6 Mbits/秒 |  2.49 Gbits/秒 |
+| Seattle | 美國中北部 |  2,792 公里 |  55 毫秒 |  27.7 Mbits/秒 |  2.19 Gbits/秒 |
+| Seattle | 美國東部 2        |  3,769 公里 |  73 毫秒 |  21.3 Mbits/秒 |  1.79 Gbits/秒 |
+| Seattle | 美國東部          |  3,699 公里 |  74 毫秒 |  21.1 Mbits/秒 |  1.78 Gbits/秒 |
+| Seattle | 日本東部       |  7,705 公里 | 106 毫秒 |  14.6 Mbits/秒 |  1.22 Gbits/秒 |
+| Seattle | 英國南部         |  7,708 公里 | 146 毫秒 |  10.6 Mbits/秒 |   896 Mbits/秒 |
+| Seattle | 西歐      |  7,834 公里 | 153 毫秒 |  10.2 Mbits/秒 |   761 Mbits/秒 |
+| Seattle | 澳洲東部   | 12,484 公里 | 165 毫秒 |   9.4 Mbits/秒 |   794 Mbits/秒 |
+| Seattle | 東南亞   | 12,989 公里 | 170 毫秒 |   9.2 Mbits/秒 |   756 Mbits/秒 |
+| Seattle | 巴西南部 *   | 10,930 公里 | 189 毫秒 |   8.2 Mbits/秒 |   699 Mbits/秒 |
+| Seattle | 印度南部      | 12,918 公里 | 202 毫秒 |   7.7 Mbits/秒 |   634 Mbits/秒 |
 
 \* 巴西延遲是不錯的範例，其中的直線距離明顯不同於光纖運行距離。 我本來預期延遲大約為 160 毫秒，但是實際上是 189 毫秒。 與我預期不符的這項差異可能表示某個地方存在網路問題，但最有可能的是光纖運行並不是以直線進入巴西，而是距離西雅圖還超過 1,000 公里左右，才能到達巴西。
 
 ## <a name="next-steps"></a>後續步驟
-1. 從 GitHub 下載「Azure 連線能力工具組」，網址是：[http://aka.ms/AzCT][ACT]
+1. 從 GitHub 下載「Azure 連線能力工具組」，網址是：[https://aka.ms/AzCT][ACT]
 2. 依照指示進行[連結效能測試][Performance Doc]
 
 <!--Image References-->
@@ -212,15 +212,4 @@ AzureCT PowerShell 模組有兩個構成要素，分別是[可用性測試][Avai
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
-[ACT]: http://aka.ms/AzCT
-
-
-
-
-
-
-
-
-
-
-
+[ACT]: https://aka.ms/AzCT

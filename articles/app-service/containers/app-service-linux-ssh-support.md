@@ -4,8 +4,8 @@ description: 了解如何使用 SSH 搭配 Linux 上的 Azure App Service。
 keywords: azure app service, web 應用程式, linux, oss
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: wesmc
+ms.date: 02/25/2019
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a56c4b0bac61bd2039138ffed554130c6e520821
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167128"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -67,7 +67,7 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
         && echo "root:Docker!" | chpasswd
     ```
 
-2. 將 [`COPY` 指示](https://docs.docker.com/engine/reference/builder/#copy)新增至 Dockerfile，以將 [sshd_config](https://man.openbsd.org/sshd_config) 檔案複製到 */etc/ssh/* 目錄。 組態檔需根據[這裡](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config)的 Azure-App-Service GitHub 存放庫中的 sshd_config 檔案。
+2. 將 [`COPY` 指示](https://docs.docker.com/engine/reference/builder/#copy)新增至 Dockerfile，以將 [sshd_config](https://man.openbsd.org/sshd_config) 檔案複製到 */etc/ssh/* 目錄。 組態檔需根據[這裡](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config)的 Azure-App-Service GitHub 存放庫中的 sshd_config 檔案。
 
     > [!NOTE]
     > sshd_config 檔案必須包含下列項目，否則無法連線︰ 
@@ -110,18 +110,6 @@ Dockerfile 會使用 [`ENTRYPOINT` 指示](https://docs.docker.com/engine/refere
 使用 TCP 通道，您可以透過已驗證的 WebSocket 連線，在您的開發電腦與「用於容器的 Web App」之間建立網路連線。 它可讓您從所選的用戶端，開啟您的容器在 App Service 中執行的 SSH 工作階段。
 
 若要開始，您必須安裝 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 若要查看未安裝 Azure CLI 時的運作方式，請開啟 [Azure Cloud Shell](../../cloud-shell/overview.md)。 
-
-執行 [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add)，以新增最新的 App Service 擴充功能：
-
-```azurecli-interactive
-az extension add --name webapp
-```
-
-如果您之前已經執行 `az extension add`，請改為執行 [az extension update](/cli/azure/extension?view=azure-cli-latest#az-extension-update)：
-
-```azurecli-interactive
-az extension update --name webapp
-```
 
 使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 為您的應用程式指定 _\<subscription\_id>_、_\<group\_name>_ 和 \_<app\_name>_。
 
@@ -167,7 +155,7 @@ A P P   S E R V I C E   O N   L I N U X
 0e690efa93e2:~#
 ```
 
-您現在已連線到您的連接器。 
+您現在已連線到您的連接器。  
 
 嘗試執行 [top](https://ss64.com/bash/top.html) 命令。 您應能夠在程序清單中看到您應用程式的程序。 在下列範例輸出中，它是具有 `PID 263` 的程序。
 

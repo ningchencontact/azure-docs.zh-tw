@@ -1,24 +1,24 @@
 ---
 title: 服務對應與 System Center Operations Manager 的整合 | Microsoft Docs
 description: 服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文說明使用服務對應在 Operations Manager 中自動建立分散式應用程式圖表。
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
-ms.author: bwren
-ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.author: magoedte
+ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818748"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110098"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服務對應與 System Center Operations Manager 的整合
 
@@ -67,11 +67,11 @@ ms.locfileid: "55818748"
 
     若要讓整合針對伺服器建立分散式應用程式圖表，該伺服器必須是︰
 
-    * 由 Operations Manager 管理
-    * 由服務對應管理
-    * 列於服務對應伺服器群組中
+   * 由 Operations Manager 管理
+   * 由服務對應管理
+   * 列於服務對應伺服器群組中
 
-    ![Operations Manager 設定群組](media/service-map-scom/scom-config-group.png)
+     ![Operations Manager 設定群組](media/service-map-scom/scom-config-group.png)
 
 6. 選用：選取要與 Log Analytics 通訊的管理伺服器資源集區，然後按一下 [新增工作區]。
 

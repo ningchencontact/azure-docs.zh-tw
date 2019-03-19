@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
-ms.openlocfilehash: 0b3094abfe1642cb65043729489f3aaed0732df9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568963"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112767"
 ---
 # <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>將使用儲存空間直接存取的 Azure 虛擬機器複寫到另一個 Azure 區域
 
@@ -23,10 +23,10 @@ ms.locfileid: "55568963"
 >對於儲存空間直接存取叢集僅支援損毀一致復原點。
 >
 
-##<a name="introduction"></a>簡介 
+## <a name="introduction"></a>簡介 
 [儲存空間直接存取 (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) 是軟體定義的儲存體，可用來在 Azure 上建立[客體叢集](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure)。  在 Microsoft Azure 中的客體叢集是 IaaS VM 組成的容錯移轉叢集。 裝載的 VM 工作負載可容錯移轉到客體叢集，對於應用程式可達到比單一 Azure VM 更高的可用性 SLA。 這適用於 VM 裝載 SQL 或擴充檔案伺服器等等重要應用程式的情況。
 
-##<a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>使用儲存空間直接存取進行 Azure 虛擬機器的災害復原
+## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>使用儲存空間直接存取進行 Azure 虛擬機器的災害復原
 在典型的案例中，Azure 可能有虛擬機器客體叢集，能夠達到擴充檔案伺服器等等應用程式的較高恢復功能。 雖然這可以提供應用程式的高可用性，不過您會想使用站台復原來保護應用程式在區域層級的失敗。 站台復原會將一個區域的資料複寫到另一個 Azure 區域，並且以容錯移轉在災害復原區域中啟動叢集。
 
 下圖顯示使用儲存體空間直接存取的兩個 Azure VM 容錯移轉叢集。
@@ -45,7 +45,7 @@ ms.locfileid: "55568963"
 2. 如果您要將虛擬機器容錯移轉到與來源區域不同的 DR 區域上的子網路，則叢集 IP 位址必須在容錯移轉後變更。  若要變更叢集的 IP，需要使用 ASR [復原方案指令碼。](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
 使用自訂指令碼擴充功能在 VM 內執行命令的[範例指令碼](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) 
 
-###<a name="enabling-site-recovery-for-s2d-cluster"></a>啟用 S2D 叢集的站台復原：
+### <a name="enabling-site-recovery-for-s2d-cluster"></a>啟用 S2D 叢集的站台復原：
 
 1. 在復原服務保存庫中，按一下 [+複寫]
 1. 選取叢集中的所有節點，並將這些節點設定為[多 VM 一致性群組](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions#multi-vm-consistency)的一部分
@@ -72,7 +72,7 @@ ms.locfileid: "55568963"
 為了讓應用程式可正常運作，您可能需要在容錯移轉後或測試容錯移轉期間，於 Azure 虛擬機器上執行某些作業。 您可以自動化某些容錯移轉後的作業。 例如，我們在這裡連接負載平衡器並變更叢集 IP。
 
 
-###<a name="failover-of-the-virtual-machines"></a>虛擬機器的容錯移轉 
+### <a name="failover-of-the-virtual-machines"></a>虛擬機器的容錯移轉 
 需要使用 [ASR 復原方案](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans)容錯移轉這兩個虛擬機器的節點 
 
 ![storagespacesdirect 保護](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)

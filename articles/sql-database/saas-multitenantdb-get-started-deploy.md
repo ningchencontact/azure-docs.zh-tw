@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994913"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>部署及探索分區化多租用戶應用程式
 
@@ -66,9 +66,9 @@ ms.locfileid: "55567378"
 ### <a name="steps"></a>步驟
 
 1. 按一下以下藍色的 [部署至 Azure] 按鈕。
-    - 它會開啟 Azure 入口網站以及 Wingtip Tickets SaaS 部署範本。
+   - 它會開啟 Azure 入口網站以及 Wingtip Tickets SaaS 部署範本。
 
-    [![部署至 Azure 的按鈕.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![部署至 Azure 的按鈕.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. 輸入部署所需的參數值。
 
@@ -125,9 +125,9 @@ ms.locfileid: "55567378"
 中央 [事件中樞] 網頁提供特定部署中租用戶的連結清單。 使用下列步驟，以體驗 [事件中樞] 網頁和個別 Web 應用程式：
 
 1. 在網頁瀏覽器中開啟 [事件中樞]：
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; (將 &lt;user&gt; 取代為您部署的使用者值。)
+   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; (將 &lt;user&gt; 取代為您部署的使用者值。)
 
-    ![事件中樞](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![事件中樞](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. 按一下 [Events Hub (活動中心)] 中的 [Fabrikam Jazz Club (Fabrikam 爵士俱樂部)]。
 
@@ -208,7 +208,7 @@ ms.locfileid: "55567378"
 
 現在我們看看一些已部署的資源：
 
-1. 在 [Azure 入口網站](http://portal.azure.com)中，瀏覽至資源群組的清單。 開啟當您部署應用程式時建立的資源群組。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至資源群組的清單。 開啟當您部署應用程式時建立的資源群組。
 
    ![資源群組](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "部署至 Azure 的按鈕。"

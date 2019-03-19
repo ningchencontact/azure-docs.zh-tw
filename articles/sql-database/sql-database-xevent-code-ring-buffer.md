@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: b15a884821fa067c329766169cb4c704e9ed069a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f47c6b63ce5f18aa896b086ec884b9a3020cadd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993267"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database 中擴充事件的信號緩衝區目標程式碼
 
@@ -37,7 +37,7 @@ ms.locfileid: "55563060"
 5. 發出 SQL SELECT 陳述式擷取信號緩衝區的事件輸出。
    
    * **sys.dm_xe_database_session_targets** 和其他動態管理檢視 (DMV) 會聯結在一起。
-6. 停止事件工作階段。
+6. 停止事件会话。
 7. 卸除信號緩衝區目標以釋放其資源。
 8. 卸除事件工作階段和示範資料表。
 
@@ -57,7 +57,7 @@ ms.locfileid: "55563060"
 
 只要稍加修改，就可以在 Azure SQL Database 或 Microsoft SQL Server 上執行下列信號緩衝區的程式碼範例。 不同之處在於有些動態管理檢視 (DMV) (步驟 5 的 FROM 子句中所使用) 的名稱中有 '_database' ()。 例如︰
 
-* sys.dm_xe **_database**_session_targets
+* sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;

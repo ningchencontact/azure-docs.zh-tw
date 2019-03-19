@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447509"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889319"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 傳統訂用帳戶管理員
 
@@ -91,7 +91,7 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 請參閱[變更服務管理員的限制](#limits)，確定您的情況是否受支援。
+1. 請確定您的案例支援藉由檢查變更服務管理員的限制。
 
 1. 以帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -109,7 +109,7 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 ### <a name="account-center"></a>帳戶中心
 
-1. 請參閱[變更服務管理員的限制](#limits)，確定您的情況是否受支援。
+1. 請確定您的案例支援藉由檢查變更服務管理員的限制。
 
 1. 以帳戶管理員身分登入[帳戶中心](https://account.windowsazure.com/subscriptions)。
 
@@ -133,8 +133,8 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
   | 登入方法 | 要將 Microsoft 帳戶使用者新增為服務管理員嗎？ | 要將同一組織中的公司或學校帳戶新增為服務管理員嗎？ | 要將不同組織中的公司或學校帳戶新增為服務管理員嗎？ |
   | --- | --- | --- | --- |
-  |  Microsoft 帳戶 |yes |否 |否 |
-  |  公司帳戶或學校帳戶 |yes |是 |否 |
+  |  Microsoft 帳戶 |是 |否 |否 |
+  |  公司帳戶或學校帳戶 |是 |是 |否 |
 
 ## <a name="view-the-account-administrator"></a>檢視帳戶管理員
 
@@ -156,3 +156,4 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 * [了解 Azure 中的不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [使用 RBAC 和 Azure 入口網站管理 Azure 資源的存取權](../role-based-access-control/role-assignments-portal.md)
+* [新增或變更 Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)

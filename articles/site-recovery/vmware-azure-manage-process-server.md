@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: fd434ed8d5b625a1a0ed1ff195da0f864a4024b0
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769419"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863622"
 ---
 # <a name="manage-process-servers"></a>管理處理序伺服器
 
@@ -30,7 +30,7 @@ ms.locfileid: "55769419"
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
 > [!NOTE]
-  一般而言，當您為了容錯回復目的，在 Azure 中使用 Azure 資源庫映像來建立處理序伺服器時，它會執行可用的最新版本。 Site Recovery 小組會定期發行修正程式和增強功能，我們建議您將處理序伺服器保持在最新狀態。
+>   一般而言，當您為了容錯回復目的，在 Azure 中使用 Azure 資源庫映像來建立處理序伺服器時，它會執行可用的最新版本。 Site Recovery 小組會定期發行修正程式和增強功能，我們建議您將處理序伺服器保持在最新狀態。
 
 ## <a name="balance-the-load-on-process-server"></a>對處理序伺服器上的負載進行平衡
 
@@ -91,23 +91,23 @@ ms.locfileid: "55769419"
 
 1. 登入處理序伺服器電腦。 
 2. 開啟系統管理 PowerShell 命令視窗並執行下列命令：
-  ```powershell
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```powershell
+   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
+   net stop obengine
+   net start obengine
+   ```
 2. 瀏覽至 **%PROGRAMDATA%\ASR\Agent** 資料夾，然後執行下列命令：
-  ```
-  cmd
-  cdpcli.exe --registermt
+   ```
+   cmd
+   cdpcli.exe --registermt
 
-  net stop obengine
+   net stop obengine
 
-  net start obengine
+   net start obengine
 
-  exit
-  ```
+   exit
+   ```
 
 
 ## <a name="remove-a-process-server"></a>移除處理序伺服器

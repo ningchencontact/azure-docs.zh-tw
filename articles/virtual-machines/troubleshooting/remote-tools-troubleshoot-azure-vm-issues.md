@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 6f55491ba7d422b19b3ee9db8b9ee804b920e422
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 2126ed2624d735d88d52ddc1ee97bfb970cc8a74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119763"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用遠端工具對 Azure VM 問題進行疑難排解
 
@@ -172,14 +172,14 @@ cmd.exe /C $command
 
 * 在 VNET 或部署之外
 
-    * 針對傳統 VM，請執行下列命令：
+  * 針對傳統 VM，請執行下列命令：
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-    * 針對 ARM VM，請先將 DNS 名稱新增至公用 IP 位址。 如需詳細步驟，請參閱[在 Azure 入口網站中為 Windows VM 建立完整網域名稱](../windows/portal-create-fqdn.md)。 然後，執行下列命令：
+  * 針對 ARM VM，請先將 DNS 名稱新增至公用 IP 位址。 如需詳細步驟，請參閱[在 Azure 入口網站中為 Windows VM 建立完整網域名稱](../windows/portal-create-fqdn.md)。 然後，執行下列命令：
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
