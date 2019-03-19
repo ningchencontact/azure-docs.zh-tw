@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017373"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540125"
 ---
 # <a name="use-case---product-recommendations"></a>使用案例 - 產品建議
 Azure Data Factory 是許多服務之一，可用來實作解決方案加速器的 Cortana Intelligence 套件。  請參閱 [Cortana Intelligence 套件](https://www.microsoft.com/cortanaanalytics) 頁面以了解這個套件的詳細資料。 在本文中，我們描述 Azure 使用者已經使用 Azure Data Factory 和其他 Cortana Intelligence 元件服務解決與實作的常見使用案例。
@@ -50,7 +50,7 @@ Azure Data Factory 是許多服務之一，可用來實作解決方案加速器�
 
 線上零售商網站每天都會產生數 GB 的未經處理 web 記錄檔，做為半結構化的檔案。 未經處理的 web 記錄檔和客戶及產品目錄資訊會定期擷取到 Azure Blob 儲存體，使用 Data Factory 的全域部署資料移動做為服務。 一天的未經處理記錄檔會在 Blob 儲存體中分割 (根據年和月) 以進行長期儲存。  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 可用來分割 Blob 存放區中的未經處理記錄檔，並使用 Hive 和 Pig 指令碼大規模處理擷取的記錄檔。 接著會處理分割的 Web 記錄檔資料，以擷取需要的輸入，讓機器學習服務建議系統產生個人化的產品建議。
 
-在此範例中，用於機器學習的建議系統是來自 [Apache Mahout](http://mahout.apache.org/)的開放原始碼機器學習建議平台。  任何 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 或自訂模型皆可套用至案例。  Mahout 模型可用來根據整體使用模式預測網站上項目之間的相似性，並根據個別使用者產生個人化的建議。
+在此範例中，用於機器學習的建議系統是來自 [Apache Mahout](https://mahout.apache.org/)的開放原始碼機器學習建議平台。  任何 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 或自訂模型皆可套用至案例。  Mahout 模型可用來根據整體使用模式預測網站上項目之間的相似性，並根據個別使用者產生個人化的建議。
 
 最後，個人化產品建議的結果集會移到關聯式資料市集供零售商網站使用。  結果集也可由另一個應用程式直接從 Blob 儲存體存取，或移至其他存放區供其他客戶及使用案例使用。
 

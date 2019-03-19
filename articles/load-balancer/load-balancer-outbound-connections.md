@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814821"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194073"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -40,7 +40,7 @@ Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 當多個�
 
 使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 時，會明確定義 Azure Load Balancer 和相關資源。  Azure 目前提供三個不同的方法，來達成 Azure Resource Manager 資源的輸出連線。 
 
-| SKU | 案例 | 方法 | IP 通訊協定 | 說明 |
+| SKU | 案例 | 方法 | IP 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | 標準、基本 | [1.具有執行個體層級公用 IP 位址的 VM (無論是否有 Load Balancer)](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派給執行個體 NIC 之 IP 設定的公用 IP。 執行個體有所有可用的暫時連接埠。 使用 Standard Load Balancer 時，您應該使用[輸出規則](load-balancer-outbound-rules-overview.md)明確定義輸出連線 |
 | 標準、基本 | [2.與 VM 關聯的公用 Load Balancer (執行個體上沒有執行個體層級公用 IP 位址)](#lb) | SNAT 搭配使用 Load Balancer 前端的連接埠偽裝 (PAT) | TCP、UDP |Azure 會與多個私人 IP 位址共用公用 Load Balancer 前端的公用 IP 位址。 Azure 會使用前端的暫時連接埠來進行 PAT。 |
@@ -70,7 +70,7 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 當[多個公用 IP 位址與 Load Balancer Basic 建立關聯](load-balancer-multivip-overview.md)時，這些公用 IP 位址中的任一位址都是輸出流程的候選項目，且會隨機選取其中一個位址。  
 
-若要使用 Load Balancer Basic 來監視輸出連線的健康情況，您可以使用 [Load Balancer 的 Log Analytics](load-balancer-monitor-log.md) 和[警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)，來監視是否有 SNAT 連接埠耗盡訊息。
+若要監視使用 Load Balancer Basic 的輸出連線的健康情況，您可以使用[負載平衡器會記錄 Azure 監視器](load-balancer-monitor-log.md)並[警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)要監視的 SNAT 連接埠耗盡訊息。
 
 ### <a name="defaultsnat"></a>案例 3：無執行個體層級公用 IP 位址的獨立 VM
 

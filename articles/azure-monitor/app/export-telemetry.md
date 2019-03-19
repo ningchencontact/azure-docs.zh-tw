@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076768"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307814"
 ---
 # <a name="export-telemetry-from-application-insights"></a>從 Application Insights 匯出遙測
 想要讓遙測保留比標準保留期限還久的時間？ 或以某些特殊方式處理它？ 連續匯出很適合此用途。 在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。 從那裡，您可以下載資料並編寫處理所需的任何程式碼。  
@@ -29,9 +29,19 @@ ms.locfileid: "54076768"
 * [分析](../../azure-monitor/app/analytics.md) 可提供功能強大的遙測查詢語言。 它也可以匯出結果。
 * 如果您想要 [在 Power BI 中探索資料](../../azure-monitor/app/export-power-bi.md )，不需要用到「連續匯出」也可以這麼做。
 * [資料存取 REST API](https://dev.applicationinsights.io/) 可讓您以程式設計方式存取您的遙測。
-* 您也可以[透過 Powershell 存取連續匯出設定](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0)。
+* 您也可以[透過 Powershell 存取連續匯出設定](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)。
 
 在「連續匯出」將您的資料複製到儲存體 (資料可在此依您喜好的時間長短存放) 之後，資料仍然會在 Application Insights 中依一般的[保留期間](../../azure-monitor/app/data-retention-privacy.md)可供使用。
+
+## <a name="continuous-export-advanced-storage-configuration"></a>連續匯出進階儲存體組態
+
+連續匯出**不支援**下列 Azure 儲存體的功能/組態：
+
+* 利用[VNET/Azure 儲存體防火牆](https://docs.microsoft.com/azure/storage/common/storage-network-security)搭配 Azure Blob 儲存體。
+
+* [不可變的儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)Azure Blob 儲存體。
+
+* [Azure Data Lake 儲存體 Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)。
 
 ## <a name="setup"></a> 建立連續匯出
 1. 在您應用程式的 Application Insights 資源中，開啟 [連續匯出]，然後選擇 [新增]：
@@ -140,7 +150,7 @@ Where
 如需較大型的程式碼範例，請參閱[使用背景工作角色][exportasa]。
 
 ## <a name="delete"></a>刪除舊資料
-請注意，您負責管理儲存容量，以及在必要時刪除舊資料。
+您負責管理您的儲存體容量，以及刪除舊的資料，如有必要。
 
 ## <a name="if-you-regenerate-your-storage-key"></a>如果您重新產生儲存體金鑰...
 如果您變更儲存體的金鑰，連續匯出將停止運作。 您將在 Azure 帳戶中看到通知。
@@ -177,7 +187,7 @@ Where
 * *應該在儲存體中看到多少 Blob？*
 
   * 針對您選取要匯出的每個資料類型，會每分鐘建立一個新的 Blob (如果有可用的資料)。
-  * 此外，針對具有高流量的應用程式，則會配置額外的分割單位。 在此情況下，每個單位會每分鐘建立一個 Blob。
+  * 此外，針對具有高流量的應用程式，則會配置額外的分割單位。 在此情況下，每個單位建立 blob 每隔一分鐘。
 * *我對我的儲存體重新產生了金鑰，或變更了容器的名稱，現在匯出沒有作用。*
 
     編輯匯出並開啟匯出目的地分頁。 照舊保留選取相關的儲存體，並按一下 [確定] 來確認。 匯出將重新開始。 如果變更是在最近幾天內，您不會遺失資料。

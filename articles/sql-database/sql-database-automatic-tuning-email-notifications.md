@@ -11,19 +11,23 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: cdd709fa446ffe769c8c57aeb44fe592b12e92d4
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 0d0452cba099bbc568f2b9e926258eb16060eaf4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855915"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>針對自動調整的電子郵件通知
 
 SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-database-automatic-tuning.md)產生。 這個解決方案會持續監視並分析 SQL Database 的工作負載，針對與建立索引、刪除索引和最佳化查詢執行計畫相關的個別資料庫提供自訂的調整建議。
 
-您可以在 [Azure 入口網站](sql-database-advisor-portal.md)中檢視使用 [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) 呼叫或使用 [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 和 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) 命令擷取的 SQL Database 自動調整建議。 本文使用 PowerShell 指令碼來擷取自動調整建議。
+您可以在 [Azure 入口網站](sql-database-advisor-portal.md)中檢視使用 [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) 呼叫或使用 [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 和 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) 命令擷取的 SQL Database 自動調整建議。 本文使用 PowerShell 指令碼來擷取自動調整建議。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>對自動調整建議的電子郵件通知進行自動化
 
@@ -55,7 +59,7 @@ SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-databas
 
 ## <a name="update-azure-automation-modules"></a>更新 Azure 自動化模組
 
-擷取自動調整建議的 PowerShell 指令碼會使用 [Get AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) 和 [Get AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) 命令，因此必須將 Azure 模組更新到第 4 版及更新版本。
+擷取自動調整建議的 PowerShell 指令碼會使用[Get AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource)並[Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction)命令的第 4 版來更新 Azure 模組和以上是必要的。
 
 遵循下列步驟來更新 Azure PowerShell 模組：
 
@@ -63,8 +67,6 @@ SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-databas
 - 在 [模組] 窗格中，按一下上方的 [更新 Azure 模組]，並等候「已更新 Azure 模組」訊息顯示。 此程序需要數分鐘的時間完成。
 
 ![更新 Azure 自動化模組](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
-
-AzureRM.Resources 和 AzureRM.Sql 模組的必要版本必須是第 4 版及更新版本。
 
 ## <a name="create-azure-automation-runbook"></a>建立 Azure 自動化 Runbook
 
@@ -85,7 +87,7 @@ AzureRM.Resources 和 AzureRM.Sql 模組的必要版本必須是第 4 版及更�
 - 在 [編輯 PowerShell Runbook] 窗格的功能表樹狀上，選取 [RUNBOOK]並展開檢視，直到您看到 Runbook 的名稱 (此範例中為 **AutomaticTuningEmailAutomation**)。 選取此 Runbook。
 - 在 [編輯 PowerShell Runbook] 的第一行 (從數字 1 開始)，複製貼上下列 PowerShell 指令碼。 這個 PowerShell 指令碼是依現狀提供，以協助您開始使用。 請修改指令碼以符合您的需求。
 
-在提供的 PowerShell 指令碼標頭中，必須以您的 Azure 訂用帳戶識別碼取代 `<SUBSCRIPTION_ID_WITH_DATABASES>`。 若要深入了解如何擷取您的 Azure 訂用帳戶識別碼，請參閱[取得您的 Azure 訂用帳戶 GUID](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal/) \(英文\)。
+在提供的 PowerShell 指令碼標頭中，必須以您的 Azure 訂用帳戶識別碼取代 `<SUBSCRIPTION_ID_WITH_DATABASES>`。 若要深入了解如何擷取您的 Azure 訂用帳戶識別碼，請參閱[取得您的 Azure 訂用帳戶 GUID](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/) \(英文\)。
 
 若有多個訂用帳戶，您能以逗號分隔的格式將它們加入到指令碼標頭中的 "$subscriptions" 屬性。
 
@@ -104,7 +106,7 @@ $subscriptions = ("<SUBSCRIPTION_ID_WITH_DATABASES>", "<SECOND_SUBSCRIPTION_ID_W
 
 # Get credentials
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Define the resource types
 $resourceTypes = ("Microsoft.Sql/servers/databases")
@@ -113,8 +115,8 @@ $results = @()
 
 # Loop through all subscriptions
 foreach($subscriptionId in $subscriptions) {
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
-    $rgs = Get-AzureRmResourceGroup
+    Select-AzSubscription -SubscriptionId $subscriptionId
+    $rgs = Get-AzResourceGroup
 
     # Loop through all resource groups
     foreach($rg in $rgs) {
@@ -122,7 +124,7 @@ foreach($subscriptionId in $subscriptions) {
 
         # Loop through all resource types
         foreach($resourceType in $resourceTypes) {
-            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType
+            $resources = Get-AzResource -ResourceGroupName $rgname -ResourceType $resourceType
 
             # Loop through all databases
             # Extract resource groups, servers and databases
@@ -151,7 +153,7 @@ foreach($subscriptionId in $subscriptions) {
 
                 # Loop through all Automatic tuning recommendation types
                 foreach ($advisor in $advisors) {
-                    $recs = Get-AzureRmSqlDatabaseRecommendedAction -ResourceGroupName $ResourceGroupName -ServerName $ServerName  -DatabaseName $DatabaseName -AdvisorName $advisor
+                    $recs = Get-AzSqlDatabaseRecommendedAction -ResourceGroupName $ResourceGroupName -ServerName $ServerName  -DatabaseName $DatabaseName -AdvisorName $advisor
                     foreach ($r in $recs) {
                         if ($r.State.CurrentValue -eq "Active") {
                             $object = New-Object -TypeName PSObject

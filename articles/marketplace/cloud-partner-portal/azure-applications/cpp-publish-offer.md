@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fdca47877d4cb2192eef0a26448cd21e8afe4b77
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098216"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217932"
 ---
 # <a name="publish-azure-application-offer"></a>發佈 Azure 應用程式供應項目
 
@@ -36,9 +36,9 @@ ms.locfileid: "56098216"
 
 |  **發佈步驟**           | <bpt id="p1">**</bpt>Time<ept id="p1">**</ept>    | **說明**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| 檢查先決條件         | < 15 分鐘    | 檢查供應項目資訊和供應項目設定。                        |
+| 檢查必要條件         | < 15 分鐘    | 檢查供應項目資訊和供應項目設定。                        |
 | 驗證受影響的營收設定 | < 15 分鐘  | 已檢查供應項目的 Azure 資源使用狀況。             |
-| 認證                  | < 1 天     | Azure 認證團隊會分析供應項目。 掃描供應項目中是否有病毒、惡意程式碼、安全合規性和安全性問題。 檢查供應項目以查看它是否符合所有資格條件。 如需詳細資訊，請參閱[先決條件](./cpp-prerequisites.md)。 若發現問題，將提供意見反應。 |
+| 認證                  | < 1 天     | Azure 認證團隊會分析供應項目。 掃描供應項目中是否有病毒、惡意程式碼、安全合規性和安全性問題。 檢查供應項目以查看它是否符合所有資格條件。 如需詳細資訊，請參閱[必要條件](./cpp-prerequisites.md)。 若發現問題，將提供意見反應。 |
 | 試用產品驗證          | < 2 小時   | (選擇性) 如果有試用產品，則 Microsoft 會驗證它是否可以部署及複寫。  |
 | 封裝和潛在客戶開發註冊 | < 1 小時  | 供應項目的技術資產會封裝供客戶使用，潛在客戶系統也設定且部署完畢。 |
 |  發佈者登出             |  manual    | 供應項目上線前發行者最終檢閱與確認。 現在供應項目可供預覽。  您可以在所選訂用帳戶部署供應項目 (供應項目資訊步驟)，確認是否符合您所有要求。  確認該供應項目之後，請選取 [Go Live]，您的供應項目就可以移至下一個步驟。 |
@@ -52,6 +52,8 @@ ms.locfileid: "56098216"
 
 完成發佈程序之後，您的供應項目將會列在 [Microsoft Azure Marketplace 應用程式類別](https://azuremarketplace.microsoft.com/marketplace/apps/)中。
 
+>[!Note]
+>雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
 
 ## <a name="errors-and-review-feedback"></a>錯誤和審核意見反應
 

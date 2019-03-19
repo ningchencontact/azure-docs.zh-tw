@@ -9,18 +9,18 @@ editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 862d587442b4d3b752092810c33a197ba15a6b51
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 60ea054f6a3305e523e0843690bf58f7998cf0bb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994082"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783206"
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>使用 PowerShell 建立、啟動或刪除應用程式閘道 
 
@@ -31,15 +31,15 @@ ms.locfileid: "52994082"
 > * [Azure Resource Manager 範本](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內部部署中，此閘道均提供在不同伺服器之間進行容錯移轉及效能路由傳送 HTTP 要求。 應用程式閘道提供許多應用程式傳遞控制器 (ADC) 功能，包括 HTTP 負載平衡、以 Cookie 為基礎的工作階段同質性、安全通訊端層 (SSL) 卸載、自訂健全狀態探查、多網站支援，以及許多其他功能。 若要尋找完整的支援功能清單，請瀏覽 [應用程式閘道概觀](application-gateway-introduction.md)
+Azure 应用程序网关是第 7 层负载均衡器。 不論是在雲端或內部部署中，此閘道均提供在不同伺服器之間進行容錯移轉及效能路由傳送 HTTP 要求。 应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。 若要尋找完整的支援功能清單，請瀏覽 [應用程式閘道概觀](application-gateway-introduction.md)
 
 本文將逐步引導您完成建立、設定、啟動及刪除應用程式閘道的步驟。
 
 ## <a name="before-you-begin"></a>開始之前
 
-1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。 您可以從 **下載頁面** 的 [Windows PowerShell](https://azure.microsoft.com/downloads/)區段下載並安裝最新版本。
+1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。 可以从[下载页](https://azure.microsoft.com/downloads/)的“Windows PowerShell”部分下载并安装最新版本。
 2. 如果您有現有的虛擬網路，請選取現有的空白子網路，或在現有的虛擬網路中建立新的子網路，僅供應用程式閘道使用。 除非使用 VNet 對等互連，否則，您無法將應用程式閘道部署到與您打算部署於應用程式閘道後方的資源不同的虛擬網路。 如需深入了解，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)
-3. 請確認您的運作中虛擬網路具有有效子網路。 請確定沒有虛擬機器或是雲端部署正在使用子網路。 應用程式閘道必須單獨位於虛擬網路子網路中。
+3. 請確認您的運作中虛擬網路具有有效子網路。 请确保没有虚拟机或云部署正在使用子网。 應用程式閘道必須單獨位於虛擬網路子網路中。
 4. 您要設定來使用應用程式閘道的伺服器必須存在，或是在虛擬網路中建立其端點，或是已指派公用 IP/VIP。
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>建立應用程式閘道需要什麼？
@@ -69,7 +69,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 ### <a name="create-an-application-gateway-resource"></a>建立應用程式閘道資源
 
-若要建立閘道，請使用 `New-AzureApplicationGateway` Cmdlet，並以您自己的值來取代這些值。 此時還不會開始對閘道計費。 會在稍後的步驟中於成功啟動閘道之後開始計費。
+要创建网关，请使用 `New-AzureApplicationGateway` cmdlet，并将值替换为你自己的值。 此時還不會開始對閘道計費。 會在稍後的步驟中於成功啟動閘道之後開始計費。
 
 下列範例會使用名為 "testvnet1" 的虛擬網路和名為 "subnet-1" 的子網路來建立應用程式閘道：
 
@@ -100,7 +100,7 @@ DnsName       :
 > [!NOTE]
 > *InstanceCount* 的預設值是 2，且最大值是 10。 *GatewaySize* 的預設值是 Medium。 您可以選擇 Small、Medium 和 Large。
 
-因為尚未啟動閘道，所以 VirtualIPs 和 DnsName 會顯示為空白。 閘道處於執行中狀態之後，就會建立這些項目。
+VirtualIPs 和 DnsName 显示为空白，因为网关尚未启动。 这些值在网关进入运行状态后立即创建。
 
 ## <a name="configure-the-application-gateway"></a>設定應用程式閘道
 
@@ -159,7 +159,7 @@ DnsName       :
 </ApplicationGatewayConfiguration>
 ```
 
-編輯設定項目括號間的值。 以 .xml 副檔名儲存檔案。
+編輯設定項目括號間的值。 使用扩展名 .xml 保存文件。
 
 > [!IMPORTANT]
 > 通訊協定項目 Http 或 Https 會區分大小寫。
@@ -213,13 +213,13 @@ DnsName       :
 
 #### <a name="step-2"></a>步驟 2
 
-接下來，設定應用程式閘道。 使用 `Set-AzureApplicationGatewayConfig` Cmdlet 搭配組態 XML 檔案。
+下一步，设置应用程序网关。 使用 `Set-AzureApplicationGatewayConfig` Cmdlet 搭配組態 XML 檔案。
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>使用設定物件設定應用程式閘道
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>使用配置对象配置应用程序网关
 
 下列範例示範如何使用設定物件來設定應用程式閘道。 必須個別設定所有組態項目，然後再將其新增至應用程式閘道組態物件。 建立組態物件之後，您會使用 `Set-AzureApplicationGateway` 命令，將組態認可到先前建立的應用程式閘道資源。
 
@@ -361,7 +361,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 Start-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="verify-the-gateway-status"></a>確認閘道狀態
+## <a name="verify-the-gateway-status"></a>验证网关状态
 
 使用 `Get-AzureApplicationGateway` Cmdlet 檢查閘道狀態。 如果上一個步驟中的 `Start-AzureApplicationGateway` 成功，則 *State* 應該是 Running，而且 *Vip* 和 *DnsName* 應該具備有效的輸入。
 
@@ -421,7 +421,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-若要確認已移除服務，您可以使用 `Get-AzureApplicationGateway` Cmdlet。 這不是必要步驟。
+若要验证是否已删除服务，可以使用 `Get-AzureApplicationGateway` cmdlet。 這不是必要步驟。
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest

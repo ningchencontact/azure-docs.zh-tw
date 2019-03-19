@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696978"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855397"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>了解 Azure 藍圖中的資源鎖定
 
-如果有一種機制可維護環境一致性，那麼大規模建立一貫化的環境才真正有用。 本文說明 Azure 藍圖中資源鎖定的運作方式。
+如果有一種機制可維護環境一致性，那麼大規模建立一貫化的環境才真正有用。 本文說明 Azure 藍圖中資源鎖定的運作方式。 資源鎖定和應用程式的範例，請參閱_拒絕指派_，請參閱[保護新的資源](../tutorials/protect-new-resources.md)教學課程。
 
 ## <a name="locking-modes-and-states"></a>鎖定模式和狀態
 
@@ -27,7 +27,7 @@ ms.locfileid: "55696978"
 
 藍圖指派中成品所建立的資源有四種狀態：**未鎖定**、**唯讀**、**無法編輯/刪除**或**無法刪除**。 每個成品類型都可以處於**未鎖定**狀態。 下表可用來判斷資源的狀態：
 
-|Mode|成品資源類型|State|說明|
+|Mode|成品資源類型|State|描述|
 |-|-|-|-|
 |不要鎖定|*|未鎖定|資源並未受到藍圖保護。 此狀態也可用於從藍圖指派外部新增至**唯讀**或**不要刪除**資源群組成品的資源。|
 |唯讀|資源群組|無法編輯/刪除|此資源群組是唯讀的，而且無法修改資源群組上的標記。 **未鎖定**資源可以在這個資源群組中新增、移動、變更或刪除。|
@@ -58,8 +58,9 @@ ms.locfileid: "55696978"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解[藍圖生命週期](lifecycle.md) (英文)
-- 了解如何使用[靜態和動態參數](parameters.md) (英文)
-- 了解如何自訂[藍圖排序順序](sequencing-order.md)
-- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)
-- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題
+- 請遵循[保護新的資源](../tutorials/protect-new-resources.md)教學課程。
+- 深入了解[藍圖生命週期](lifecycle.md)。
+- 了解如何使用[靜態和動態參數](parameters.md)。
+- 了解如何自訂[藍圖排序順序](sequencing-order.md)。
+- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)。
+- 解決問題的藍圖，以使用在指派期間[一般疑難排解](../troubleshoot/general.md)。

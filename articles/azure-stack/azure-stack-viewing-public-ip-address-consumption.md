@@ -10,16 +10,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d97674940f0af91bf50af87cfe96fda9644d469b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2cb1dde60f8d8aa76e0b678347df9be120c39e7c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242047"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782100"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>檢視 Azure Stack 中的公用 IP 位址使用
 
@@ -63,11 +63,11 @@ ms.locfileid: "55242047"
 
 | **公用 IP 位址指派案例** | **顯示於使用方式摘要** | **顯示於租用戶公用 IP 位址清單** |
 | --- | --- | --- |
-| 尚未指派給 NIC 或負載平衡器 (暫時) 的動態公用 IP 位址 |否 |是 |
-| 已指派給 NIC 或負載平衡器的動態公用 IP 位址。 |是 |是 |
-| 已指派給租用戶 NIC 或負載平衡器的靜態公用 IP 位址。 |是 |是 |
-| 已指派給網狀架構基礎結構服務端點的靜態公用 IP 位址。 |是 |否 |
-| 公用 IP 位址會以隱含方式針對 IaaS VM 執行個體而建立，並用於虛擬網路上的輸出 NAT。 每當租用戶建立 VM 執行個體，讓 VM 可以將資訊送出到網際網路時，這些位址便會在幕後建立。 |是 |否 |
+| 尚未指派給 NIC 或負載平衡器 (暫時) 的動態公用 IP 位址 |否 |yes |
+| 已指派給 NIC 或負載平衡器的動態公用 IP 位址。 |yes |yes |
+| 已指派給租用戶 NIC 或負載平衡器的靜態公用 IP 位址。 |yes |yes |
+| 已指派給網狀架構基礎結構服務端點的靜態公用 IP 位址。 |yes |否 |
+| 公用 IP 位址會以隱含方式針對 IaaS VM 執行個體而建立，並用於虛擬網路上的輸出 NAT。 每當租用戶建立 VM 執行個體，讓 VM 可以將資訊送出到網際網路時，這些位址便會在幕後建立。 |yes |否 |
 
 ## <a name="next-steps"></a>後續步驟
 

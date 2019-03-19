@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda3cb2b8d8edd4567440be627a58f576aebcca0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458285"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339159"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>從我的設定檔 (預覽) 入口網站檢視您的隱私權相關資訊
 您可以檢視您的組織如何使用**我的設定檔**入口網站的 [隱私權] 頁面中的資料。
@@ -29,7 +29,7 @@ ms.locfileid: "56458285"
 
 2. 從左側瀏覽窗格中選取 [隱私權]，或從 [隱私權] 區塊中選取 [檢閱隱私權] 連結。
 
-    ![我的設定檔頁面，顯示醒目提示的 [隱私權] 連結](media/myprofile-portal/myprofile-portal-privacy-links.png)
+    ![我的設定檔頁面，顯示醒目提示的 [隱私權] 連結](media/myprofile-portal/myprofile-portal-privacy.png)
 
 3. 檢閱資訊，包括：
 
@@ -39,4 +39,4 @@ ms.locfileid: "56458285"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 檢視最近的登入活動之後，您可以選取要檢視或管理您的[安全性資訊](user-help-security-info-overview.md)、[最近的登入活動](myprofile-portal-recent-activity-page.md)、[已連線裝置](myprofile-portal-devices-page.md)或[組織](myprofile-portal-organizations-page.md)。
+- 檢視您的組織如何使用您的資料之後, 您可以選取要檢視或管理您[安全性資訊](user-help-security-info-overview.md)，您已連線[裝置](myprofile-portal-devices-page.md)，或您[組織](myprofile-portal-organizations-page.md)。

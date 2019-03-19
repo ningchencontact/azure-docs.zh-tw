@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158812"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312478"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 資料管理員解決方案概觀
 
@@ -68,7 +68,9 @@ StorSimple 資料管理員適用於下列 7 個區域：
  - 讓來源儲存體帳戶 (與 StorSimple 裝置相關聯的帳戶) 和目標儲存體帳戶 (要讓資料採用原生格式的帳戶) 位於相同的 Azure 區域。
  - 在包含 StorSimple 儲存體帳戶的區域中啟動您的資料管理員與作業定義。 如果無法這麼做，則在最接近的 Azure 區域中啟動資料管理員，然後在與 StorSimple 儲存體帳戶相同的區域中建立作業定義。 
 
-    如果 StorSimple 儲存體帳戶不是位於支援建立作業定義的 26 個區域，則建議您不要執行 StorSimple 資料管理員，否則您會發現延遲時間很久，而且輸出費用可能會很高。
+    如果您的 StorSimple 儲存體帳戶不在支援建立作業定義的 26 個區域中，我們建議您不要執行 StorSimple 資料管理員，您會看到長的延遲和潛在的輸出費用。
+    
+Microsoft 致力於確保 Azure 服務一律可在以下所有區域。 不過，非計劃性的服務中斷可能會發生短在特定區域。 在此情況下，您可以在中斷情況，不會影響區域中啟動資料管理員與作業定義，並執行轉換作業。 您可能會遇到一些額外的延遲，在這類案例中，但這可能是您在區域中斷這類罕見事件中的復原策略。
 
 ## <a name="security-considerations"></a>安全性考量
 

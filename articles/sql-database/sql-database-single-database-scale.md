@@ -11,72 +11,63 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/14/2019
+ms.openlocfilehash: 02dcdfa6f356d48b8fa22603323a7f3035e0fe51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858765"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整單一資料庫資源
 
 本文說明如何在 Azure SQL Database 中調整單一資料庫可用的計算和儲存資源。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> 您需要支付使用最高服務層資料庫存在的時數 + 在該小時適用的計算大小，不論使用狀況或資料庫是否在作用中少於一小時。 例如，假設您建立了單一資料庫並在五分鐘後刪除，您的帳單就會反映一個資料庫時數的費用。
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
-## <a name="vcore-based-purchasing-model-change-storage-size"></a>以虛擬核心為基礎的購買模型：變更儲存體大小
+## <a name="change-compute-resources-vcores-or-dtus"></a>變更計算資源 （虛擬核心或 Dtu）
 
-- 可以使用 1GB 為增量單位，將儲存體佈建到大小上限。 資料儲存體的最小可設定值是 5 GB
-- 藉由使用 [Azure 入口網站](https://portal.azure.com)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 增加或減少其大小上限，即可佈建單一資料庫的儲存體。
-- SQL Database 會自動為記錄檔配置 30% 的額外儲存體，為 TempDB 的每個虛擬核心配置 32GB 儲存體，但不超過 384GB。 TempDB 位於所有服務層中的已連結 SSD 上。
-- 單一資料庫的儲存體價格為資料儲存體和記錄儲存體數量的總和乘以服務層的儲存體單價。 TempDB 的成本包含在虛擬核心價格內。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
+一開始選取的虛擬核心或 Dtu 數目之後, 您可以單一資料庫相應增加或相應減少以動態方式根據實際經驗，使用[Azure 入口網站](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)， [TRANSACT-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)， [PowerShell](/powershell/module/az.sql/set-azsqldatabase)，則[Azure CLI](/cli/azure/sql/db#az-sql-db-update)，或有[REST API](https://docs.microsoft.com/rest/api/sql/databases/update)。
 
-> [!IMPORTANT]
-> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
-
-## <a name="vcore-based-purchasing-model-change-compute-resources"></a>以虛擬核心為基礎的購買模型：變更計算資源
-
-一開始選取虛擬核心數目之後，您可以根據實際經驗，使用 [Azure 入口網站](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 來動態地相應增加或相應減少單一資料庫。
-
-變更資料庫的服務層和/或運算大小會以新的運算大小建立原始資料庫的複本，然後將連線切換到複本。 此程序期間不會遺失任何資料，但在我們切換到複本的短暫期間，資料庫的連接會停用，因此執行中的某些交易可能會回復。 切換的時間長度會有所不同，但通常 99% 的時間會小於 30 秒。 如果在連線停用時正在執行大型交易，則切換的時間長度可能會更長。
-
-整個向上調整程序的期間通常取決於資料庫變更前後的大小和服務層。 例如，在一般用途服務層中變更計算大小之任何大小的資料庫應在幾分鐘內完成。另一方面，在業務關鍵層中變更計算大小的延遲通常為每 100 GB 90 分鐘或更少。
-
-> [!TIP]
-> 若要監視進行中的作業，請參閱：[使用 SQL REST API 管理作業](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理作業](/cli/azure/sql/db/op)、[使用 T-SQL 監視作業](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)，以及下列兩個 PowerShell 命令：[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 和 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。
-
-- 如果您要升級到較高服務層或計算大小，除非明確指定較大的大小 (大小上限)，否則資料庫大小上限不會增加。
-- 若要將資料庫降級，資料庫已用的空間必須小於目標服務層和運算大小允許的大小上限。
-- 若在已啟用[異地複寫](sql-database-geo-replication-portal.md)的情況下升級資料庫，您必須先將其次要資料庫升級為所需的服務層與計算大小，然後再升級主要資料庫 (最佳效能的一般指導方針)。 升級至不同的版本時，必須先升級次要資料庫。
-- 在已啟用[異地複寫](sql-database-geo-replication-portal.md)的情況下將資料庫降級時，必須先將其主要資料庫降級為所需的服務層與計算大小，然後再降級次要資料庫 (最佳效能的一般指導方針)。 降級至不同的版本時，必須先降級主要資料庫。
-- 完成變更之前，不會將新屬性套用至資料庫。
-
-## <a name="dtu-based-purchasing-model-change-storage-size"></a>以 DTU 為基礎的購買模型：變更儲存體大小
-
-- 單一資料庫的 DTU 價格包含一定數量不額外收費的儲存體。 佈建超過內含量的額外儲存體會產生額外費用，以 250 GB 為單位最多增加到大小上限 1 TB，超過 1 TB 則以 256 GB 為單位增加。 如需了解內含儲存體數量與大小上限，請參閱[單一資料庫：儲存體大小與計算大小](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)。
-- 可以透過使用 Azure 入口網站、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 增加其大小上限，以佈建單一資料庫的額外儲存體。
-- 單一資料庫之額外儲存體的價格為額外儲存體數量乘以服務層的額外儲存體單價。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
-
-> [!IMPORTANT]
-> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
-
-## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>以 DTU 為基礎的購買模型：變更計算資源 (DTU)
-
-一開始選取服務層、計算大小和儲存體數量之後，您可以根據實際經驗，使用 Azure 入口網站、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 來動態地相應增加或相應減少單一資料庫。
-
-下列影片示範了如何動態變更服務層與計算大小，以增加單一資料庫的可用 DTU。
+下列影片示範如何動態變更服務層與計算大小，以提高單一資料庫的可用 DTU。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
-變更資料庫的服務層和/或運算大小會以新的運算大小建立原始資料庫的複本，然後將連線切換到複本。 此程序期間不會遺失任何資料，但在我們切換到複本的短暫期間，資料庫的連接會停用，因此執行中的某些交易可能會回復。 切換的時間長度會有所不同，但 99% 的時間會小於 30 秒。 如果在連線停用時正在執行大型交易，則切換的時間長度可能會更長。
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
-整個向上調整程序的期間取決於資料庫變更前後的大小和服務層。 例如，在標準服務層內進行變更的 250 GB 資料庫應在六小時內完成。 針對進階服務層內變更計算大小的相同大小資料庫，相應增加應該會在三小時內完成。
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>變更服務層或重新調整計算大小的影響
+
+變更服務層，或計算的單一資料庫的大小主要牽涉的服務，執行下列步驟：
+
+1. 建立新的計算執行個體資料庫  
+
+    新的計算執行個體，資料庫會建立要求的服務層與計算大小。 服務層和計算的大小變更的一些組合，資料庫的複本必須建立新的計算執行個體這牽涉到將資料複製，並會強烈影響的整體延遲。 不論如何，在此步驟中，在資料庫保持上線，連接可以繼續以導向至原始的計算執行個體中的資料庫。
+
+2. 切換到新的計算執行個體的連線的路由
+
+    會卸除現有的連線至原始的計算執行個體中的資料庫。 資料庫會建立任何新的連線，新的計算執行個體中。 服務層和計算的大小變更的一些組合，資料庫檔案中斷連結，並在切換期間重新附加上。  不論如何，此參數可能會導致短暫服務中斷時資料庫是無法使用，通常對小於 30 秒，而且通常只有幾秒鐘的時間。 如果有長時間執行交易時的連接會中斷執行，此步驟的持續時間可能更久才能復原中止的交易。 [加速資料庫復原](sql-database-accelerated-database-recovery.md)可以減少從中止長時間執行交易的影響。
+
+> [!IMPORTANT]
+> 在工作流程中的任何步驟期間，不會遺失任何資料。
+
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>變更服務層或重新調整計算大小的延遲
+
+若要變更服務層，或重新調整單一資料庫或彈性集區的計算大小的延遲是經過參數化，如下所示：
+
+|服務層|基本的單一資料庫，</br>標準 (S0 S1)|基本的彈性集區</br>標準 (S2-S12) </br>超大規模 </br>一般用途的單一資料庫或彈性集區|進階或業務關鍵的單一資料庫或彈性集區|
+|:---|:---|:---|:---|
+|**基本的單一資料庫，</br>標準 (S0 S1)**|&bull; &nbsp;獨立的空間使用的常數時間延遲</br>&bull; &nbsp;一般而言，小於 5 分鐘|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|
+|**基本的彈性集區</br>標準 (S2-S12)</br>超大規模</br>一般用途的單一資料庫或彈性集區**|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|&bull; &nbsp;獨立的空間使用的常數時間延遲</br>&bull; &nbsp;一般而言，小於 5 分鐘|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|
+|**進階或業務關鍵的單一資料庫或彈性集區**|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|
 
 > [!TIP]
-> 若要監視進行中的作業，請參閱：[使用 SQL REST API 管理作業](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理作業](/cli/azure/sql/db/op)、[使用 T-SQL 監視作業](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)，以及下列兩個 PowerShell 命令：[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 和 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。
+> 若要監視進行中的作業，請參閱：[使用 SQL REST API 管理作業](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理作業](/cli/azure/sql/db/op)、[使用 T-SQL 監視作業](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)，以及下列兩個 PowerShell 命令：[取得 AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity)並[停止 AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)。
+
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>其他考量事項變更服務層或重新調整運算大小
 
 - 如果您要升級到較高服務層或計算大小，除非明確指定較大的大小 (大小上限)，否則資料庫大小上限不會增加。
 - 若要將資料庫降級，資料庫已使用的空間必須小於目標服務層和計算大小允許的大小上限。
@@ -86,9 +77,34 @@ ms.locfileid: "56454016"
 - 還原服務會針對各種服務層提供不同的供應項目。 如果降級至**基本**層，會有較短的備份保留期。 請參閱 [Azure SQL Database 備份](sql-database-automated-backups.md)。
 - 完成變更之前，不會將新屬性套用至資料庫。
 
+### <a name="billing-during-rescaling"></a>重新調整期間的計費
+
+您需要支付使用最高服務層資料庫存在的時數 + 在該小時適用的計算大小，不論使用狀況或資料庫是否在作用中少於一小時。 例如，假設您建立了單一資料庫並在五分鐘後刪除，您的帳單就會反映一個資料庫時數的費用。
+
+## <a name="change-storage-size"></a>變更儲存體大小
+
+### <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
+
+- 可以使用 1GB 為增量單位，將儲存體佈建到大小上限。 資料儲存體的最小可設定值是 5 GB
+- 藉由使用 [Azure 入口網站](https://portal.azure.com)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、[PowerShell](/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 增加或減少其大小上限，即可佈建單一資料庫的儲存體。
+- SQL Database 會自動為記錄檔配置 30% 的額外儲存體，為 TempDB 的每個虛擬核心配置 32GB 儲存體，但不超過 384GB。 TempDB 位於所有服務層中的已連結 SSD 上。
+- 單一資料庫的儲存體價格為資料儲存體和記錄儲存體數量的總和乘以服務層的儲存體單價。 TempDB 的成本包含在虛擬核心價格內。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
+
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
+
+### <a name="dtu-based-purchasing-model"></a>以 DTU 為基礎的購買模型
+
+- 單一資料庫的 DTU 價格包含一定數量不額外收費的儲存體。 佈建超過內含量的額外儲存體會產生額外費用，以 250 GB 為單位最多增加到大小上限 1 TB，超過 1 TB 則以 256 GB 為單位增加。 如需了解內含儲存體數量與大小上限，請參閱[單一資料庫：儲存體大小與計算大小](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)。
+- 可以透過使用 Azure 入口網站、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、[PowerShell](/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 增加其大小上限，以佈建單一資料庫的額外儲存體。
+- 單一資料庫之額外儲存體的價格為額外儲存體數量乘以服務層的額外儲存體單價。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
+
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
+
 ## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>以 DTU 為基礎的購買模型：當大小上限大於 1 TB 時，P11 和 P15 的限制
 
-下列區域支援大小上限大於 1 TB 的 P11 和 P15 資料庫：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、南韓中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、US Gov 維吉尼亞州及西歐。 下列考量與限制適用於大小上限大於 1 TB 的 P11 和 P15 資料庫：
+所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 區域和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。 如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。 下列考量與限制適用於大小上限大於 1 TB 的 P11 和 P15 資料庫：
 
 - 如果您在建立資料庫時選擇的大小上限大於 1 TB (使用的值為 4 TB 或 4096 GB)，但資料庫佈建在不受支援的區域，create 命令會失敗並產生錯誤。
 - 若現有的 P11 和 P15 資料庫位於其中一個受支援區域，則能以 256 GB 為單位，將儲存體上限提高到 1 TB 以上，最多可增加到 4 TB。 若要查看您所在的區域是否支援較大的大小，請使用 [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) 函數或在 Azure 入口網站中檢查資料庫大小。 只有伺服器層級的主要登入或 dbmanager 資料庫角色的成員，才能執行現有的 P11 或 P15 資料庫升級。

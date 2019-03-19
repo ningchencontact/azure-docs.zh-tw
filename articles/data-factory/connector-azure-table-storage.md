@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 32fc3f1c93261f6fb19c084f51dea4942310ac47
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 7ef8f80f44c921cc1f2524351c8acb78ebd713bf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664139"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434788"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -25,6 +25,8 @@ ms.locfileid: "55664139"
 > * [目前的版本](connector-azure-table-storage.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，將資料複製到「Azure 資料表」儲存體及從該處複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -44,10 +46,10 @@ ms.locfileid: "55664139"
 
 您可以使用帳戶金鑰來建立 Azure 儲存體連結服務。 它可將儲存體的全域存取權提供給資料處理站。 以下是支援的屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為 **AzureTableStorage**。 |yes |
-| connectionString | 針對 connectionString 屬性指定連線到儲存體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將帳戶金鑰放在 Azure Key Vault 並從連接字串中提取 `accountKey` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 |yes |
+| type | 類型屬性必須設為 **AzureTableStorage**。 |是 |
+| connectionString | 針對 connectionString 屬性指定連線到儲存體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將帳戶金鑰放在 Azure Key Vault 並從連接字串中提取 `accountKey` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 |是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
@@ -114,15 +116,15 @@ ms.locfileid: "55664139"
 
 > [!TIP]
 > 若要為儲存體帳戶產生服務共用存取簽章，您可以執行下列 PowerShell 命令。 取代預留位置，並授與所需的權限。
-> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 若要使用共用存取簽章驗證，以下是支援的屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為 **AzureTableStorage**。 |yes |
-| sasUri | 將共用存取簽章 URI 的 SAS URI 指定至資料表。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將 SAS 權杖放在 Azure Key Vault 中，以便運用自動輪替並移除權杖部分。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | yes |
+| type | 類型屬性必須設為 **AzureTableStorage**。 |是 |
+| sasUri | 將共用存取簽章 URI 的 SAS URI 指定至資料表。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將 SAS 權杖放在 Azure Key Vault，利用自動旋轉並移除語彙基元的部分。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
@@ -190,10 +192,10 @@ ms.locfileid: "55664139"
 
 若要將資料複製到「Azure 資料表」以及從該處複製資料，請將資料集的類型屬性設定為 **AzureTable**。 以下是支援的屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 type 屬性必須設定為 **AzureTable**。 |yes |
-| tableName |資料表儲存體資料庫執行個體中連結服務所參照的資料表名稱。 |yes |
+| type | 資料集的 type 屬性必須設定為 **AzureTable**。 |是 |
+| tableName |資料表儲存體資料庫執行個體中連結服務所參照的資料表名稱。 |是 |
 
 **範例：**
 
@@ -231,9 +233,9 @@ ms.locfileid: "55664139"
 
 若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSource**。 複製活動的 [來源] 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為 **AzureTableSource**。 |yes |
+| type | 複製活動來源的 type 屬性必須設定為 **AzureTableSource**。 |是 |
 | AzureTableSourceQuery |使用自訂的資料表儲存體查詢來讀取資料。 請參閱下一節中的範例。 |否 |
 | azureTableSourceIgnoreTableNotFound |指出是否讓資料表例外狀況不存在。<br/>允許的值為 **True** 和 **False** (預設值)。 |否 |
 
@@ -257,9 +259,9 @@ ms.locfileid: "55664139"
 
 若要將資料複製到 Azure 資料表，將複製活動中的接收類型設定為 **AzureTableSink**。 複製活動的 [接收] 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動接收的 type 屬性必須設定為 **AzureTableSink**。 |yes |
+| type | 複製活動接收的 type 屬性必須設定為 **AzureTableSink**。 |是 |
 | azureTableDefaultPartitionKeyValue |可供接收使用的預設資料分割索引鍵值。 |否 |
 | azureTablePartitionKeyName |指定其值用來作為分割區索引鍵的資料行名稱。 如果未指定，則會使用 "AzureTableDefaultPartitionKeyValue" 作為分割區索引鍵。 |否 |
 | azureTableRowKeyName |指定其值用來作為資料列索引鍵的資料行名稱。 如果未指定，則會針對每個資料列使用 GUID。 |否 |

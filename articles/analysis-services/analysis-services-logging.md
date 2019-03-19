@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428987"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010917"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
@@ -21,6 +21,7 @@ ms.locfileid: "56428987"
 
 ![針對儲存體、事件中樞或 Azure 監視器記錄的診斷記錄](./media/analysis-services-logging/aas-logging-overview.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-logged"></a>記錄的內容？
 
@@ -82,7 +83,7 @@ ms.locfileid: "56428987"
 
     * **封存至儲存體帳戶**。 若要使用此選項，您需要可以連接的現有儲存體帳戶。 請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)。 請依照指示建立資源管理員、一般用途的帳戶，然後在返回入口網站上的此頁面時，選取您的儲存體帳戶。 新建立的儲存體帳戶可能在數分鐘後才會出現在下拉式功能表中。
     * **串流處理至事件中樞**。 若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若想深入了解，請參閱[使用 Azure 入口網站來建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後返回入口網站的此頁面選取事件中樞命名空間和原則名稱。
-    * **傳送至 Azure 監視器 (Log Analytics 工作區)**。 若要使用此選項，請使用現有的工作區，或是在入口網站中[建立新的工作區](../azure-monitor/learn/quick-create-workspace.md)資源。 如需有關如何檢視記錄的詳細資訊，請參閱本文中的[檢視 Log Analytics 工作區中的記錄](#view-logs-in-log-analytics)。
+    * **傳送至 Azure 監視器 (Log Analytics 工作區)**。 若要使用此選項，請使用現有的工作區，或是在入口網站中[建立新的工作區](../azure-monitor/learn/quick-create-workspace.md)資源。 如需有關如何檢視記錄的詳細資訊，請參閱本文中的[檢視 Log Analytics 工作區中的記錄](#view-logs-in-log-analytics-workspace)。
 
     * **引擎**。 選取此選項可記錄 xEvents。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **服務**。 選取此選項可記錄服務層級事件。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
@@ -103,7 +104,7 @@ ms.locfileid: "56428987"
 - 若要啟用儲存體帳戶中診斷記錄的儲存體，請使用下列命令：
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    儲存體帳戶識別碼是您要傳送記錄之目標儲存體帳戶的資源識別碼。
@@ -111,7 +112,7 @@ ms.locfileid: "56428987"
 - 若要將診斷記錄串流至事件中樞，請使用下列命令：
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    Azure 服務匯流排規則識別碼是此格式的字串︰
@@ -123,13 +124,13 @@ ms.locfileid: "56428987"
 - 若要將診斷記錄傳送到 Log Analytics 工作區，請使用下列命令：
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - 您可以使用下列命令取得 Log Analytics 工作區的資源識別碼：
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 您可以結合這些參數讓多個輸出選項。
@@ -187,7 +188,7 @@ window
 
 ## <a name="turn-on-logging-by-using-powershell"></a>使用 PowerShell 開啟記錄
 
-在本快速教學課程中，您可以在與 Analysis Service 伺服器相同的訂用帳戶和資源群組中，建立儲存體帳戶。 接著使用 Set-AzureRmDiagnosticSetting 開啟診斷記錄，將輸出傳送至新的儲存體帳戶。
+在本快速教學課程中，您可以在與 Analysis Service 伺服器相同的訂用帳戶和資源群組中，建立儲存體帳戶。 然後，您會使用組 AzDiagnosticSetting 開啟診斷記錄，將輸出傳送到新的儲存體帳戶。
 
 ### <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您必須具備下列資源：
@@ -199,7 +200,7 @@ window
 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶：  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。 Azure PowerShell 會取得與此帳戶相關聯的所有訂用帳戶，並依預設使用第一個訂用帳戶。
@@ -207,13 +208,13 @@ Connect-AzureRmAccount
 如果您有多個訂用帳戶，您可能必須指定用來建立 Azure 金鑰保存庫的那一個特定訂用帳戶。 輸入下列命令以查看您帳戶的訂用帳戶：
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 然後為了指定已與所要記錄 Azure Analysis Services 帳戶建立關聯的訂用帳戶，輸入：
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -228,7 +229,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 您也可以使用與包含 Analysis Services 伺服器資源群組相同的資源群組。 請將 `awsales_resgroup`、`awsaleslogs` 和 `West Central US` 的值替代成您自己的值：
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
+$sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
@@ -237,16 +238,16 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 將帳戶名稱設為名為 **account** 的變數，其中的 ResourceName 是帳戶的名稱。
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
+$account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
 ### <a name="enable-logging"></a>啟用記錄
 
-若要啟用記錄，請使用 Set-AzureRmDiagnosticSetting Cmdlet，並搭配新儲存體帳戶、伺服器帳戶和類別的變數一起使用。 執行下列命令，將 **-Enabled** 旗標設為 **$true**：
+若要啟用記錄，請使用組 AzDiagnosticSetting cmdlet 搭配變數的新的儲存體帳戶、 伺服器帳戶，和類別目錄。 執行下列命令，將 **-Enabled** 旗標設為 **$true**：
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
 輸出應會如下列範例所示：
@@ -293,7 +294,7 @@ Tags                        :
 您也可以設定記錄的保留原則，以便自動刪除較舊的記錄。 例如，使用 **-RetentionEnabled** 旗標將保留原則設為 **$true** 並將 **-RetentionInDays** 參數設為 **90**。 系統將自動刪除超過 90 天的舊記錄。
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories Engine`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -302,4 +303,4 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 深入了解 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)。
 
-請參閱 PowerShell 說明中的 [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting)。
+請參閱[組 AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell 說明 中。

@@ -1,19 +1,18 @@
 ---
 title: 具有 Azure AD App 必要條件的 Azure 磁碟加密 (舊版)
 description: 本文提供要對 IaaS VM 使用 Microsoft Azure 磁碟加密所需滿足的先決條件。
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 01/14/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 76e25c04afbce215028699d54cb6022f0caeced5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 70cf7876a0c8979467da7cc4d38c31e21a234d4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861174"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure 磁碟加密必要條件 (舊版)
 
@@ -27,12 +26,13 @@ ms.locfileid: "56118236"
 > - 某些建議可能會增加資料、網路或計算資源的使用量，導致額外的授權或訂用帳戶成本。 您必須擁有有效的作用中 Azure 訂用帳戶，才能在 Azure 支援的區域中建立資源。
 > - 如果您先前曾使用 [Azure 磁碟加密搭配 Azure AD 應用程式](azure-security-disk-encryption-prerequisites-aad.md)來加密此 VM，則必須繼續使用此選項來加密 VM。 您無法在此加密的 VM 上使用 [Azure 磁碟加密](azure-security-disk-encryption-prerequisites.md)，因為這不是支援的案例，表示尚未對此加密的 VM 支援從 AAD 應用程式離開。 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="bkmk_OSs"></a> 受支援的作業系統
 下列作業系統支援 Azure 磁碟加密：
 
 - Windows Server 版本：Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 及 Windows Server 2016。
-    - 針對 Windows Server 2008 R2，您必須先安裝 .NET Framework 4.5，才能在 Azure 中啟用加密。 請從 Windows Update 使用選用的更新「Windows Server 2008 R2 x64 型系統的 Microsoft .NET Framework 4.5.2 ([KB2901983](https://support.microsoft.com/kb/2901983))」來加以安裝。    
+  - 針對 Windows Server 2008 R2，您必須先安裝 .NET Framework 4.5，才能在 Azure 中啟用加密。 請從 Windows Update 使用選用的更新「Windows Server 2008 R2 x64 型系統的 Microsoft .NET Framework 4.5.2 ([KB2901983](https://support.microsoft.com/kb/2901983))」來加以安裝。    
 - Windows 用戶端版本：Windows 8 用戶端和 Windows 10 用戶端。
 - 只有特定以 Azure 資源庫為基礎的 Linux 伺服器散發套件和版本可支援 Azure 磁碟加密。 如需目前支援的版本清單，請參閱 [Azure 磁碟加密常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)。
 - Azure 磁碟加密需要您的金鑰保存庫和 VM 位於相同的 Azure 區域和訂用帳戶中。 若在不同的區域設定資源，會導致 Azure 磁碟加密功能啟用失敗。
@@ -42,9 +42,9 @@ ms.locfileid: "56118236"
 - Linux 的 Azure 磁碟加密要求 VM 上要有 7 GB 的 RAM，才能在[受支援的映像](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)上啟用 OS 磁碟加密。 OS 磁碟加密程序完成之後，就可以將 VM 設定為使用較少的記憶體來執行。
 - 在啟用加密之前，所要加密的資料磁碟必須在 /etc/fstab 中正確列出。 請為此項目使用永續性區塊裝置名稱，原因是採用「/dev/sdX」格式的裝置名稱不一定會在重新開機時與相同的磁碟相關聯，在套用加密後尤其如此。 如需此行為的詳細資訊，請參閱：[針對 Linux VM 裝置名稱變更進行疑難排解](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - 確定 /etc/fstab 設定已正確設定而能夠掛接。 若要設定這些設定，請執行 mount -a 命令，或重新啟動 VM 再以該方式觸發重新掛接。 完成之後，檢查 lsblk 命令的輸出以確認所需的磁碟機仍有掛接。 
-    - 如果 /etc/fstab 檔案還未正確掛接磁碟機就啟用加密，Azure 磁碟加密將無法正確地掛接磁碟機。
-    - Azure 磁碟加密程序會在加密程序進行期間，將掛接資訊從 /etc/fstab 移出，並移入自己的設定檔中。 在資料磁碟機加密完成之後，若發現 /etc/fstab 中有項目遺失，請不要擔心。
-    -  重新開機後，Azure 磁碟加密程序需要一點時間才能掛接新加密的磁碟。 這些磁碟無法在重新開機後立即可供使用。 此程序需要時間來將加密的磁碟機啟動、解除鎖定再加以掛接，然後這些磁碟機才可供其他程序來存取。 視系統特性而定，在重新開機後，此程序可能需要進行超過一分鐘。
+  - 如果 /etc/fstab 檔案還未正確掛接磁碟機就啟用加密，Azure 磁碟加密將無法正確地掛接磁碟機。
+  - Azure 磁碟加密程序會在加密程序進行期間，將掛接資訊從 /etc/fstab 移出，並移入自己的設定檔中。 在資料磁碟機加密完成之後，若發現 /etc/fstab 中有項目遺失，請不要擔心。
+  -  重新開機後，Azure 磁碟加密程序需要一點時間才能掛接新加密的磁碟。 這些磁碟無法在重新開機後立即可供使用。 此程序需要時間來將加密的磁碟機啟動、解除鎖定再加以掛接，然後這些磁碟機才可供其他程序來存取。 視系統特性而定，在重新開機後，此程序可能需要進行超過一分鐘。
 
 如需可用來掛接資料磁碟並建立所需 /etc/fstab 項目的命令範例，請見[此指令檔的第 197 至 205 行](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205)。 
 
@@ -77,12 +77,10 @@ ms.locfileid: "56118236"
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
-[Azure PowerShell](/powershell/azure/overview) 提供了一組 Cmdlet，它們會使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 模型來管理 Azure 資源。 您可以在瀏覽器中將它與 [Azure Cloud Shell](../cloud-shell/overview.md) 搭配使用，也可以使用下列指示將它安裝在本機電腦上，以在任何 PowerShell 工作階段中使用它。 如果您已將它安裝在本機上，請確定您是使用最新版的 Azure PowerShell SDK 版本來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell 版本](https://github.com/Azure/azure-powershell/releases)。
+[Azure PowerShell](/powershell/azure/overview) 提供了一組 Cmdlet，它們會使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 模型來管理 Azure 資源。 您可以在瀏覽器中將它與 [Azure Cloud Shell](../cloud-shell/overview.md) 搭配使用，也可以使用下列指示將它安裝在本機電腦上，以在任何 PowerShell 工作階段中使用它。 如果您已經有在本機安裝，請確定您使用最新版的 Azure PowerShell 來設定 Azure 磁碟加密。
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>安裝 Azure PowerShell 以便在本機電腦上使用 (選擇性)：  
-1. 遵循作業系統所適用連結內的指示，然後繼續完成下列其餘步驟。
-    - [安裝並設定適用於 Windows 的 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)。 
-        - 安裝 PowerShellGet、Azure PowerShell，並載入 AzureRM 模組。 
+1. [安裝和設定 Azure PowerShell](/powershell/azure/install-az-ps)。 
 
 2. 安裝 [Azure Active Directory PowerShell 模組](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module)。 
 
@@ -92,21 +90,21 @@ ms.locfileid: "56118236"
 
 3. 確認已安裝的模組版本。
       ```powershell
-      Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
+      Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
       Get-Module AzureAD -ListAvailable | Select-Object -Property Name,Version,Path
       ```
-4. 使用 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) Cmdlet 登入 Azure。
+4. 若要設定使用的 Azure 登入[Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet。
      
      ```powershell
-     Connect-AzureRmAccount
+     Connect-AzAccount
      # For specific instances of Azure, use the -Environment parameter.
-     Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+     Connect-AzAccount –Environment (Get-AzEnvironment –Name AzureUSGovernment)
     
      <# If you have multiple subscriptions and want to specify a specific one, 
-     get your subscription list with Get-AzureRmSubscription and 
-     specify it with Set-AzureRmContext.  #>
-     Get-AzureRmSubscription
-     Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+     get your subscription list with Get-AzSubscription and 
+     specify it with Set-AzContext.  #>
+     Get-AzSubscription
+     Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
      ```
 
 5.  連線至 Azure AD [Connect-AzureAD](/powershell/module/azuread/connect-azuread)。
@@ -155,7 +153,7 @@ ms.locfileid: "56118236"
 4. 設定金鑰保存庫進階存取原則。
  
 ## <a name="bkmk_KeyVault"></a> 建立金鑰保存庫 
-Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) 整合，協助您控制及管理金鑰保存庫訂用帳戶中的磁碟加密金鑰與祕密。 針對 Azure 磁碟加密，您可以建立金鑰保存庫，也可以使用現有保存庫。 如需金鑰保存庫的詳細資訊，請參閱[什麼是 Azure Key Vault？](../key-vault/key-vault-overview.md)和[保護金鑰保存庫](../key-vault/key-vault-secure-your-key-vault.md)。 您可以使用 Resource Manager 範本、Azure PowerShell 或 Azure CLI 來建立金鑰保存庫。 
+Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) 整合，協助您控制及管理金鑰保存庫訂用帳戶中的磁碟加密金鑰與祕密。 針對 Azure 磁碟加密，您可以建立金鑰保存庫，也可以使用現有保存庫。 如需金鑰保存庫的詳細資訊，請參閱[開始使用 Azure Key Vault](../key-vault/key-vault-get-started.md) 和[保護金鑰保存庫](../key-vault/key-vault-secure-your-key-vault.md)。 您可以使用 Resource Manager 範本、Azure PowerShell 或 Azure CLI 來建立金鑰保存庫。 
 
 
 >[!WARNING]
@@ -164,20 +162,20 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 ### <a name="bkmk_KVPSH"></a> 使用 PowerShell 建立金鑰保存庫
 
-您可以搭配使用 Azure PowerShell 與 [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault) Cmdlet 來建立金鑰保存庫。 如需 Key Vault 的其他 Cmdlet，請參閱 [AzureRM.KeyVault](/powershell/module/azurerm.keyvault/)。 
+您可以使用 Azure PowerShell 建立 key vault[新增 AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet。 金鑰保存庫的其他 cmdlet，請參閱[Az.KeyVault](/powershell/module/az.keyvault/)。 
 
 1. 如有需要，請[連線至 Azure 訂用帳戶](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH)。 
-2. 如有需要，請使用 [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) 建立新的資源群組。  若要列出資料中心位置，請使用 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation)。 
+2. 如有需要建立新的資源群組，具有[新增 AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)。  若要列出的資料中心位置，請使用[Get AzLocation](/powershell/module/az.resources/get-azlocation)。 
      
      ```azurepowershell-interactive
-     # Get-AzureRmLocation 
-     New-AzureRmResourceGroup –Name 'MySecureRG' –Location 'East US'
+     # Get-AzLocation 
+     New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
-3. 使用 [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault) 建立新的金鑰保存庫
+3. 建立新的金鑰保存庫使用[新增 AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
     
       ```azurepowershell-interactive
-     New-AzureRmKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -Location 'East US'
+     New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
 4. 記下傳回的**保存庫名稱**、**資源群組名稱**、**資源識別碼**、**保存庫 URI** 和**物件識別碼**，以供稍後在加密磁碟時使用。 
@@ -191,13 +189,13 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
-     az group create -n "MySecureRG" -l "East US"
+     az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
 3. 使用 [az keyvault create](/cli/azure/keyvault#az-keyvault-create) 建立新的金鑰保存庫。
     
      ```azurecli-interactive
-     az keyvault create --name "MySecureVault" --resource-group "MySecureRG" --location "East US"
+     az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
 4. 記下傳回的**保存庫名稱** (名稱)、**資源群組名稱**、**資源識別碼** (識別碼)、**保存庫 URI** 和**物件識別碼**，以供稍後使用。 
@@ -218,13 +216,13 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 若要執行下列命令，請取得並使用 [Azure AD PowerShell 模組](/powershell/azure/active-directory/install-adv2)。 
 
 1. 如有需要，請[連線至 Azure 訂用帳戶](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH)。
-2. 使用 [New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication) PowerShell Cmdlet 建立 Azure AD 應用程式。 MyApplicationHomePage 和 MyApplicationUri 可以是任何您想要的值。
+2. 使用[新增 AzADApplication](/powershell/module/az.resources/new-azadapplication) PowerShell cmdlet 來建立 Azure AD 應用程式。 MyApplicationHomePage 和 MyApplicationUri 可以是任何您想要的值。
 
-     ```azurepowershell-interactive
+     ```azurepowershell
      $aadClientSecret = "My AAD client secret"
      $aadClientSecretSec = ConvertTo-SecureString -String $aadClientSecret -AsPlainText -Force
-     $azureAdApplication = New-AzureRmADApplication -DisplayName "My Application Display Name" -HomePage "https://MyApplicationHomePage" -IdentifierUris "https://MyApplicationUri" -Password $aadClientSecretSec
-     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
+     $azureAdApplication = New-AzADApplication -DisplayName "My Application Display Name" -HomePage "https://MyApplicationHomePage" -IdentifierUris "https://MyApplicationUri" -Password $aadClientSecretSec
+     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
      ```
 
 3. $azureAdApplication.ApplicationId 是 Azure AD ClientID，而 $aadClientSecret 是用戶端密碼，您稍後會用此資訊來啟用 Azure 磁碟加密。 適當地保護 Azure AD 用戶端密碼。 執行 `$azureAdApplication.ApplicationId` 會顯示 ApplicationID。
@@ -232,7 +230,7 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 ### <a name="bkmk_ADappCLI"></a> 使用 Azure CLI 設定 Azure AD 應用程式和服務主體
 
-您可以搭配使用 Azure CLI 和 [az ad sp](/cli/azure/ad/sp) 命令來管理服務主體。 如需詳細資訊，請參閱[建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)。
+您可以搭配使用 Azure CLI 和 [az ad sp](/cli/azure/ad/sp) 命令來管理服務主體。 如需詳細資訊，請參閱 <<c0> [ 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)。
 
 1. 如有需要，請[連線至 Azure 訂用帳戶](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI)。
 2. 建立新的服務主體。
@@ -249,9 +247,9 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 2. [建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - 在建立應用程式時，您可以使用任何您想要的名稱和登入 URL。
 3. [取得應用程式識別碼和驗證金鑰](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)。 
-     - 驗證金鑰就是用戶端密碼，可作為 Set-AzureRmVMDiskEncryptionExtension 的 AadClientSecret。 
+     - 驗證金鑰是用戶端密碼，並作為組 AzVMDiskEncryptionExtension AadClientSecret。 
         - 應用程式會使用驗證金鑰作為認證來登入 Azure AD。 在 Azure 入口網站中，此密碼稱為金鑰，但實際上與金鑰保存庫並無任何關聯。 請適當地保護這個祕密。 
-     - 稍後，我們會使用應用程式識別碼作為 Set-AzureRmVMDiskEncryptionExtension 的 AadClientId 和 Set-AzureRmKeyVaultAccessPolicy 的 ServicePrincipalName。 
+     - 應用程式識別碼將用於稍後的組 AzVMDiskEncryptionExtension AadClientId 以及如組 AzKeyVaultAccessPolicy ServicePrincipalName。 
 
 ## <a name="bkmk_KVAP"></a> 設定 Azure AD 應用程式的金鑰保存庫存取原則
 為了將加密祕密寫入指定的 Key Vault，Azure 磁碟加密需要有權將祕密寫入 Key Vault 的 Azure Active Directory 應用程式用戶端識別碼和用戶端密碼。 
@@ -260,16 +258,16 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 > 若要使用 Azure 磁碟加密，您必須對 Azure AD 用戶端應用程式設定下列存取原則：_WrapKey_ 和 _Set_ 權限。
 
 ### <a name="bkmk_KVAPPSH"></a> 使用 Azure PowerShell 設定 Azure AD 應用程式的金鑰保存庫存取原則
-您的 Azure AD 應用程式需要權限，才能存取保存庫中的金鑰或密碼。 使用 [Set-AzureKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) Cmdlet 可授與應用程式權限，使用用戶端識別碼 (登錄應用程式時所產生) 作為 -ServicePrincipalName 參數值。 若要深入了解，請參閱部落格文章 [Azure Key Vault - 逐步解說](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx)。 
+您的 Azure AD 應用程式需要權限，才能存取保存庫中的金鑰或密碼。 使用[組 AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet 可授與權限的應用程式中，然後再使用用戶端識別碼 （登錄應用程式時所產生） 做為 _-ServicePrincipalName_參數值。 若要深入了解，請參閱部落格文章 [Azure Key Vault - 逐步解說](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx)。 
 
 1. 如有需要，請[連線至 Azure 訂用帳戶](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH)。
 2. 使用 PowerShell 設定 AD 應用程式的金鑰保存庫存取原則。
 
-     ```azurepowershell-interactive
+     ```azurepowershell
      $keyVaultName = 'MySecureVault'
      $aadClientID = 'MyAadAppClientID'
-     $rgname = 'MySecureRG'
-     Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
+     $KVRGname = 'MyKeyVaultResourceGroup'
+     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $KVRGname
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> 使用 Azure CLI 設定 Azure AD 應用程式的金鑰保存庫存取原則
@@ -293,30 +291,30 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 ![Azure Key Vault 密碼編譯作業 - 包裝金鑰](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
-![Azure Key Vault 密碼權限 - 設定 ](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
+![Azure Key Vault 密碼權限 - 設定](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 ## <a name="bkmk_KVper"></a> 設定金鑰保存庫進階存取原則
 Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該資訊可供 VM 用來開機和解密磁碟區。 在金鑰保存庫或部署上啟用磁碟加密將會失敗。  
 
 ### <a name="bkmk_KVperPSH"></a> 使用 Azure PowerShell 設定金鑰保存庫進階存取原則
- 使用金鑰保存庫 PowerShell Cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) 可啟用金鑰保存庫的磁碟加密。
+ 使用金鑰保存庫 PowerShell cmdlet[組 AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)啟用磁碟加密金鑰保存庫。
 
   - **針對磁碟加密啟用 Key Vault**：Azure 磁碟加密需要 EnabledForDiskEncryption。
       
      ```azurepowershell-interactive 
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDiskEncryption
+     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
   - **視需要針對部署啟用 Key Vault**：可讓 Microsoft.Compute 資源提供者在資源建立期間 (例如，在建立虛擬機器時) 參考了這個金鑰保存庫的情況下，從這個金鑰保存庫擷取祕密。
 
      ```azurepowershell-interactive
-      Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDeployment
+      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
      ```
 
   - **視需要針對範本部署啟用 Key Vault**：可讓 Azure Resource Manager 在範本部署參考了這個金鑰保存庫的情況下，從這個金鑰保存庫取得祕密。
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
+     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> 使用 Azure CLI 設定金鑰保存庫進階存取原則
@@ -325,17 +323,17 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
  - **針對磁碟加密啟用 Key Vault**：需要 Enabled-for-disk-encryption。 
 
      ```azurecli-interactive
-     az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-disk-encryption "true"
+     az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
  - **視需要針對部署啟用 Key Vault**：允許虛擬機器從保存庫擷取儲存為祕密的憑證。
      ```azurecli-interactive
-     az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-deployment "true"
+     az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-deployment "true"
      ``` 
 
  - **視需要針對範本部署啟用 Key Vault**：允許 Resource Manager 從保存庫擷取秘密。
      ```azurecli-interactive  
-     az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-template-deployment "true"
+     az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-template-deployment "true"
      ```
 
 
@@ -350,9 +348,11 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
 
 ## <a name="bkmk_KEK"></a> 設定金鑰加密金鑰 (選擇性)
-如果您想使用金鑰加密金鑰 (KEK) 來為加密金鑰額外添加一層安全性，請將 KEK 新增至金鑰保存庫。 使用 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) Cmdlet 在金鑰保存庫中建立金鑰加密金鑰。 您也可以從內部部署金鑰管理 HSM 匯入 KEK。 如需詳細資訊，請參閱 [Key Vault 文件](../key-vault/key-vault-hsm-protected-keys.md)。 若指定了金鑰加密金鑰，Azure 磁碟加密會先使用該金鑰包裝加密祕密，再寫入 Key Vault。 
+如果您想使用金鑰加密金鑰 (KEK) 來為加密金鑰額外添加一層安全性，請將 KEK 新增至金鑰保存庫。 使用[新增 AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet 來建立金鑰保存庫中的金鑰加密金鑰。 您也可以從內部部署金鑰管理 HSM 匯入 KEK。 如需詳細資訊，請參閱 [Key Vault 文件](../key-vault/key-vault-hsm-protected-keys.md)。 若指定了金鑰加密金鑰，Azure 磁碟加密會先使用該金鑰包裝加密祕密，再寫入 Key Vault。 
 
-* 您的金鑰保存庫密碼和 KEK URL 必須已設定版本。 Azure 會強制執行設定版本的這項限制。 針對有效的密碼和 KEK URL，請參閱下列範例︰
+* 當產生金鑰，使用 RSA 金鑰類型。 Azure 磁碟加密還不支援使用橢圓曲線金鑰。
+
+* 您的金鑰保存庫密碼和 KEK URL 必須已設定版本。 Azure 会强制实施这项版本控制限制。 針對有效的密碼和 KEK URL，請參閱下列範例︰
 
   * 有效祕密 URL 的範例：*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * 有效 KEK URL 的範例：*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
@@ -367,18 +367,18 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
  ```powershell
  # Step 1: Create a new resource group and key vault in the same location.
-     # Fill in 'MyLocation', 'MySecureRG', and 'MySecureVault' with your values.
-     # Use Get-AzureRmLocation to get available locations and use the DisplayName.
-     # To use an existing resource group, comment out the line for New-AzureRmResourceGroup
+     # Fill in 'MyLocation', 'MyKeyVaultResourceGroup', and 'MySecureVault' with your values.
+     # Use Get-AzLocation to get available locations and use the DisplayName.
+     # To use an existing resource group, comment out the line for New-AzResourceGroup
      
      $Loc = 'MyLocation';
-     $rgname = 'MySecureRG';
+     $KVRGname = 'MyKeyVaultResourceGroup';
      $KeyVaultName = 'MySecureVault'; 
-     New-AzureRmResourceGroup –Name $rgname –Location $Loc;
-     New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc;
-     $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
-     $KeyVaultResourceId = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId;
-     $diskEncryptionKeyVaultUrl = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).VaultUri;
+     New-AzResourceGroup –Name  $KVRGname –Location $Loc;
+     New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname -Location $Loc;
+     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName  $KVRGname;
+     $KeyVaultResourceId = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName  $KVRGname).ResourceId;
+     $diskEncryptionKeyVaultUrl = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName  $KVRGname).VaultUri;
      
  # Step 2: Create the AD application and service principal.
      # Fill in 'MyAADClientSecret', "<My Application Display Name>", "<https://MyApplicationHomePage>", and "<https://MyApplicationUri>" with your values.
@@ -386,14 +386,14 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
      
      $aadClientSecret =  'MyAADClientSecret';
      $aadClientSecretSec = ConvertTo-SecureString -String $aadClientSecret -AsPlainText -Force;
-     $azureAdApplication = New-AzureRmADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -Password $aadClientSecretSec
-     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId;
+     $azureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -Password $aadClientSecretSec
+     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId;
      $aadClientID = $azureAdApplication.ApplicationId;
      
  #Step 3: Enable the vault for disk encryption and set the access policy for the Azure AD application.
      
-     Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption;
-     Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname;
+     Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $KVRGname -EnabledForDiskEncryption;
+     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName  $KVRGname;
      
  #Step 4: Create a new key in the key vault with the Add-AzureKeyVaultKey cmdlet.
      # Fill in 'MyKeyEncryptionKey' with your value.
@@ -403,10 +403,11 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
      
  #Step 5: Encrypt the disks of an existing IaaS VM
-     # Fill in 'MySecureVM' with your value. 
+     # Fill in 'MySecureVM' and 'MyVirtualMachineResourceGroup' with your values. 
      
      $VMName = 'MySecureVM';
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+      $VMRGName = 'MyVirtualMachineResourceGroup';
+     Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
 ```
 
 ## <a name="bkmk_Cert"></a> 憑證式驗證 (選擇性)
@@ -415,20 +416,20 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
      
  ```powershell
 
- # Fill in "MySecureRG", "MySecureVault", and 'MyLocation' ('My location' only if needed)
+ # Fill in "MyKeyVaultResourceGroup", "MySecureVault", and 'MyLocation' ('My location' only if needed)
 
-   $rgname = 'MySecureRG'
+   $KVRGname = 'MyKeyVaultResourceGroup'
    $KeyVaultName= 'MySecureVault'
 
    # Create a key vault and set enabledForDiskEncryption property on it. 
    # Comment out the next three lines if you already have an existing key vault enabled for encryption. No need to set 'My location' in this case.
 
    $Loc = 'MyLocation'
-   New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption
+   New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname -Location $Loc
+   Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $KVRGname -EnabledForDiskEncryption
 
    #Setting some variables with the key vault information 
-   $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname
+   $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname
    $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
    $KeyVaultResourceId = $KeyVault.ResourceId
 
@@ -441,13 +442,13 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
    $Cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($CertPath, $CertPassword)
    $CertValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-   $AzureAdApplication = New-AzureRmADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue 
-   $ServicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
+   $AzureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue 
+   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
 
    $AADClientID = $AzureAdApplication.ApplicationId
    $aadClientCertThumbprint= $cert.Thumbprint
 
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
+   Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $KVRGname
    
    # Upload the pfx file to the key vault. 
    # Fill in "MyAADCert".  
@@ -470,21 +471,22 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
    $Secret = ConvertTo-SecureString -String $JSONEncoded -AsPlainText -Force
    Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName -SecretValue $Secret
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDeployment
+   Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $KVRGname -EnabledForDeployment
 
    # Deploy the certificate to the VM
-   # Fill in 'MySecureVM' with your value.
+   # Fill in 'MySecureVM' and 'MyVirtualMachineResourceGroup' with your values.
 
    $VMName = 'MySecureVM'
+   $VMRGName = 'MyVirtualMachineResourceGroup'
    $CertUrl = (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName).Id
-   $SourceVaultId = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId
-   $VM = Get-AzureRmVM -ResourceGroupName $rgname -Name $VMName 
-   $VM = Add-AzureRmVMSecret -VM $VM -SourceVaultId $SourceVaultId -CertificateStore "My" -CertificateUrl $CertUrl
-   Update-AzureRmVM -VM $VM -ResourceGroupName $rgname 
+   $SourceVaultId = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGName).ResourceId
+   $VM = Get-AzVM -ResourceGroupName $VMRGName -Name $VMName 
+   $VM = Add-AzVMSecret -VM $VM -SourceVaultId $SourceVaultId -CertificateStore "My" -CertificateUrl $CertUrl
+   Update-AzVM -VM $VM -ResourceGroupName $VMRGName 
 
    #Enable encryption on the VM using Azure AD client ID and the client certificate thumbprint
 
-   Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId
+   Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId
  ```
 
 ## <a name="bkmk_CertKEK"></a> 憑證式驗證和 KEK (選擇性)
@@ -498,17 +500,17 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
      
  ```powershell
-# Fill in 'MySecureRG', 'MySecureVault', and 'MyLocation' (if needed)
+# Fill in 'MyKeyVaultResourceGroup', 'MySecureVault', and 'MyLocation' (if needed)
 
-   $rgname = 'MySecureRG'
+   $KVRGname = 'MyKeyVaultResourceGroup'
    $KeyVaultName= 'MySecureVault'
 
    # Create a key vault and set enabledForDiskEncryption property on it. 
    # Comment out the next three lines if you already have an existing key vault enabled for encryption.
 
    $Loc = 'MyLocation'
-   New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption
+   New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname -Location $Loc
+   Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $KVRGname -EnabledForDiskEncryption
 
    # Create the Azure AD application and associate the certificate with it.  
    # Fill in "C:\certificates\mycert.pfx", "Password", "<My Application Display Name>", "<https://MyApplicationHomePage>", and "<https://MyApplicationUri>" with your values.
@@ -519,14 +521,14 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
    $Cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($CertPath, $CertPassword)
    $CertValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-   $AzureAdApplication = New-AzureRmADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue 
-   $ServicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
+   $AzureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue 
+   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
 
    $AADClientID = $AzureAdApplication.ApplicationId
    $aadClientCertThumbprint= $cert.Thumbprint
 
    ## Give access for setting secrets and wraping keys
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
+   Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $KVRGname
 
    # Upload the pfx file to the key vault. 
    # Fill in "MyAADCert". 
@@ -549,13 +551,13 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
    $Secret = ConvertTo-SecureString -String $JSONEncoded -AsPlainText -Force
    Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName -SecretValue $Secret
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDeployment
+   Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $KVRGname -EnabledForDeployment
 
    #Setting some variables with the key vault information and generating a KEK 
    # FIll in 'KEKName'
    
    $KEKName ='KEKName'
-   $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname
+   $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname
    $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
    $KeyVaultResourceId = $KeyVault.ResourceId
    $KEK = Add-AzureKeyVaultKey -VaultName $KeyVaultName -Name $KEKName -Destination "Software"
@@ -564,18 +566,19 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
 
    # Deploy the certificate to the VM
-   # Fill in 'MySecureVM' with your value.
+   # Fill in 'MySecureVM' and 'MyVirtualMachineResourceGroup' with your values.
 
-   $VMName = 'MySecureVM'
+   $VMName = 'MySecureVM';
+   $VMRGName = 'MyVirtualMachineResourceGroup';
    $CertUrl = (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName).Id
-   $SourceVaultId = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId
-   $VM = Get-AzureRmVM -ResourceGroupName $rgname -Name $VMName 
-   $VM = Add-AzureRmVMSecret -VM $VM -SourceVaultId $SourceVaultId -CertificateStore "My" -CertificateUrl $CertUrl
-   Update-AzureRmVM -VM $VM -ResourceGroupName $rgname 
+   $SourceVaultId = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGName).ResourceId
+   $VM = Get-AzVM -ResourceGroupName $VMRGName -Name $VMName 
+   $VM = Add-AzVMSecret -VM $VM -SourceVaultId $SourceVaultId -CertificateStore "My" -CertificateUrl $CertUrl
+   Update-AzVM -VM $VM -ResourceGroupName $VMRGName
 
    #Enable encryption on the VM using Azure AD client ID and the client certificate thumbprint
 
-   Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId
+   Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId
 ```
 
  

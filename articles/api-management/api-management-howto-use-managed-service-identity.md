@@ -1,6 +1,6 @@
 ---
-title: 在 Azure API 管理中使用 Azure 受控服務識別 | Microsoft Docs
-description: 了解如何在 API 管理中使用 Azure 受控服務識別
+title: 在 Azure API 管理中使用受管理的身分識別 |Microsoft Docs
+description: 了解如何在 API 管理中使用受控身分識別
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -11,27 +11,27 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730742"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310551"
 ---
-# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>在 Azure API 管理中使用 Azure 受控服務識別
+# <a name="use-managed-identities-in-azure-api-management"></a>在 Azure API 管理中使用受管理的身分識別
 
-本文說明如何為「API 管理」服務執行個體建立受控服務識別，以及如何存取其他資源。 Azure Active Directory (Azure AD) 所產生的受控服務識別可讓您的「API 管理」執行個體輕鬆且安全地存取其他受 Azure AD 保護的資源 (例如 Azure Key Vault)。 這個受控服務識別是由 Azure 所管理的，因此您不需要佈建或輪替任何祕密。 如需有關「Azure 受控服務識別」的詳細資訊，請參閱[受控服務識別 (適用於 Azure 資源)](../active-directory/msi-overview.md)。
+這篇文章說明如何建立 API 管理服務執行個體的受管理身分識別，以及如何存取其他資源。 Azure Active Directory (Azure AD) 所產生的受管理身分識別可讓您輕鬆且安全地存取其他 Azure AD 保護的資源，例如 Azure Key Vault 的 API 管理執行個體。 此身分識別由 Azure 管理，而且不需要您佈建或輪替任何祕密。 如需有關受管理的身分識別的詳細資訊，請參閱[什麼是適用於 Azure 資源管理的身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>為 API 管理執行個體建立受控服務識別
+## <a name="create-a-managed-identity-for-an-api-management-instance"></a>建立 API 管理執行個體的受管理身分識別
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
 
-若要在入口網站中設定受控服務識別，您需要先像平常一樣建立 API 管理執行個體，然後再啟用功能。
+若要設定受管理的身分識別，在入口網站中，您將第一次建立 API 管理執行個體，如往常一樣，然後再啟用 此功能。
 
 1. 像平常一樣在入口網站中建立 API 管理執行個體。 在入口網站中瀏覽至該應用程式。
-2. 選取 [受控服務識別]。
+2. 選取 **受控服務識別**。
 3. 將 [向 Azure Active Directory 註冊應用程式] 切換為 [開啟]。 按一下 [儲存]。
 
 ![啟用 MSI](./media/api-management-msi/enable-msi.png)
@@ -80,7 +80,7 @@ ms.locfileid: "55730742"
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>使用受控服務識別來存取其他資源
 
 > [!NOTE]
-> 目前，受控服務識別可用來從 API 管理自訂網域名稱的 Azure Key Vault 中取得憑證。 很快就會支援更多的案例。
+> 目前，受管理的身分識別可用來從 Azure Key Vault 取得憑證以用於 API 管理自訂網域名稱。 很快就會支援更多的案例。
 >
 >
 
@@ -110,7 +110,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 下列範例顯示的 Azure Resource Manager 範本包含下列步驟：
 
-1. 使用受控服務識別建立 API 管理執行個體。
+1. 建立 API 管理執行個體管理的身分識別。
 2. 更新 Azure Key Vault 執行個體的存取原則，以允許「API 管理」執行個體從它取得祕密。
 3. 透過來自 Key Vault 執行個體的憑證來設定自訂網域名稱，以更新「API 管理」執行個體。
 
@@ -166,7 +166,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
         "keyVaultIdToCertificate": {
             "type": "string",
             "metadata": {
-                "description": "Reference to the KeyVault certificate."
+                "description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
             }
         }
     },
@@ -238,7 +238,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解「Azure 受控服務識別」：
+深入了解適用於 Azure 資源管理的身分識別：
 
-* [受控服務識別 (適用於 Azure 資源)](../active-directory/msi-overview.md)
+* [什麼是適用於 Azure 資源管理的身分識別](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure 資源管理員範本](https://github.com/Azure/azure-quickstart-templates)

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467691"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860698"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>複寫至 SQL Database 單一資料庫與集區資料庫
 
@@ -40,7 +40,7 @@ ms.locfileid: "55467691"
 - SQL Server 2014 (12.x) RTM CU10
 - SQL Server 2012 (11.x) SP2 CU8 or SP3
 - 嘗試使用舊版設定複寫可能會導致錯誤號碼 MSSQL_REPL20084 (處理序無法連線到訂閱者。) 和 MSSQL_REPL40532 (無法開啟登入所要求的公開伺服器 \<名稱>。 登入失敗。)。  
-- 若要使用 Azure SQL Database 的所有功能，您必須使用最新版的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)。  
+- 若要使用 Azure SQL Database 的所有功能，您必須使用最新版的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。  
   
 ## <a name="remarks"></a>備註
 
@@ -109,7 +109,7 @@ Azure SQL Database 訂閱不支援下列選項：
 - [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 **N'azuresqldbdns.database.windows.net'**)，並使用 Azure SQL Database 名稱作為目的地資料庫 (例如 **AdventureWorks**)。  
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>另请参阅  
 
 - [異動複寫](sql-database-managed-instance-transactional-replication.md)
 - [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

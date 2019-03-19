@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: fb8b3ac69797400af962ae40816943d6a32b8ec6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245543"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450442"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 健康情況探查
 
@@ -212,9 +212,9 @@ AzureLoadBalancer 服務標籤會在您的[網路安全性群組](../virtual-net
 
 ## <a name="monitoring"></a>監視
 
-公用和內部 [Standard Load Balancer](load-balancer-standard-overview.md) 會透過 Azure 監視器將每個端點和後端執行個體的健康情況探查狀態公開為多維度計量。 其他 Azure 服務或第三方應用程式會取用這些計量。 
+公用和內部 [Standard Load Balancer](load-balancer-standard-overview.md) 會透過 Azure 監視器將每個端點和後端執行個體的健康情況探查狀態公開為多維度計量。 這些計量可供其他 Azure 服務或協力廠商應用程式。 
 
-公用 Basic Load Balancer 會透過 Log Analytics 公開每個後端集區的健康情況探查狀態總結。  Log Analytics 不適用於內部 Basic Load Balancer。  您可以使用[記錄分析](load-balancer-monitor-log.md)來檢查公用負載平衡器探查健全狀況和探查計數。 記錄可以與 Power BI 或 Azure Operation Insights 搭配使用，以提供負載平衡器健康狀態。
+基本的公用 Load Balancer 會公開每個後端集區，透過 Azure 監視器記錄檔彙總的健康情況探查狀態。  Azure 監視器記錄不適用於內部基本負載平衡器。  您可以使用[Azure 監視器記錄](load-balancer-monitor-log.md)檢查公用負載平衡器探查健全狀況狀態和探查計數。 記錄可以與 Power BI 或 Azure Operation Insights 搭配使用，以提供負載平衡器健康狀態。
 
 ## <a name="limitations"></a>限制
 

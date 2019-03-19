@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727903"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337918"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>從 Azure Container Registry 部署至 Azure 容器執行個體
 
@@ -33,7 +33,7 @@ ms.locfileid: "55727903"
 
 ### <a name="create-key-vault"></a>建立金鑰保存庫
 
-如果您在 [Azure Key Vault](/azure/key-vault/) 中還沒有保存庫，使用 Azure CLI 以下列命令建立一個。
+如果您在 [Azure Key Vault](../key-vault/key-vault-overview.md) 中還沒有保存庫，使用 Azure CLI 以下列命令建立一個。
 
 將 `RES_GROUP` 變數更新為您將在其中建立金鑰保存庫之現有資源群組的名稱，將 `ACR_NAME` 更新為容器登錄的名稱。 在 `AKV_NAME` 指定新金鑰保存庫的名稱。 保存庫名稱在 Azure 內必須是唯一的，長度介於 3 到 24 個英數字元之間，以字母開頭、以字母或數字作為結尾，且不可包含連續的連字號。
 

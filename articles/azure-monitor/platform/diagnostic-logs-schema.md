@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 6470e2e48854d091c219fb4ec3224e87b1567dd7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300212"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436472"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -23,14 +23,14 @@ ms.locfileid: "55300212"
 
 ## <a name="top-level-diagnostic-logs-schema"></a>最上層診斷記錄結構描述
 
-| Name | 必要/選用 | 說明 |
+| 名稱 | 必要/選用 | 描述 |
 |---|---|---|
-| 分析 | 必要 | 事件的時間戳記 (UTC)。 |
-| ResourceId | 必要 | 發出事件之資源的資源識別碼。 對於租用戶服務，這是 /tenants/tenant-id/providers/provider-name 的格式。 |
+| 分析 | 必要項 | 事件的時間戳記 (UTC)。 |
+| ResourceId | 必要項 | 發出事件之資源的資源識別碼。 對於租用戶服務，這是 /tenants/tenant-id/providers/provider-name 的格式。 |
 | tenantId | 租用戶記錄所需的 | 此事件所繫結 Active Directory 租用戶的租用戶識別碼。 這個屬性只能用於租用戶層級記錄，並不會出現在資源層級記錄中。 |
-| operationName | 必要 | 此事件所代表的作業名稱。 如果事件代表 RBAC 作業，則這是 RBAC 作業名稱 (例如 Microsoft.Storage/storageAccounts/BlobServices/Blobs/Read)。 通常以 Resource Manager 作業形式建模，即使它們不是實際記載的 Resource Manager 作業也是一樣 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | 必要項 | 此事件所代表的作業名稱。 如果事件代表 RBAC 作業，則這是 RBAC 作業名稱 (例如 Microsoft.Storage/storageAccounts/BlobServices/Blobs/Read)。 通常以 Resource Manager 作業形式建模，即使它們不是實際記載的 Resource Manager 作業也是一樣 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | 選用 | 與作業建立關聯的 api-version，如果使用 API 執行 operationName (例如 `http://myservice.windowsazure.net/object?api-version=2016-06-01`)。 如果沒有對應至此作業的 API，則版本代表該作業的版本，以防與作業建立關聯的屬性在未來變更。 |
-| category | 必要 | 事件的記錄類別。 類別是您可在特定資源上啟用或停用記錄的資料粒度。 事件之屬性 Blob 內顯示的屬性，會與特定記錄類別和資源類型內的屬性相同。 典型記錄類別是「稽核」、「作業」、「執行」和「要求」。 |
+| category | 必要項 | 事件的記錄類別。 類別是您可在特定資源上啟用或停用記錄的資料粒度。 事件之屬性 Blob 內顯示的屬性，會與特定記錄類別和資源類型內的屬性相同。 典型記錄類別是「稽核」、「作業」、「執行」和「要求」。 |
 | resultType | 選用 | 事件的狀態。 一般值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「作用中」和「已解決」。 |
 | resultSignature | 選用 | 事件的子狀態。 如果此作業對應至 REST API 呼叫，則這是對應 REST 呼叫的 HTTP 狀態碼。 |
 | resultDescription | 選用 | 此作業的靜態文字描述，例如 “Get storage file.” |
@@ -47,7 +47,7 @@ ms.locfileid: "55300212"
 
 | 服務 | 結構描述與文件 |
 | --- | --- |
-| Azure Active Directory | [概觀](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)、[稽核記錄結構描述](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登入結構描述](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [概觀](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)，[稽核記錄檔結構描述](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登入的結構描述](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API 管理 | [API 管理診斷記錄](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 應用程式閘道 |[應用程式閘道的診斷記錄功能](../../application-gateway/application-gateway-diagnostics.md) |
@@ -103,8 +103,8 @@ ms.locfileid: "55300212"
 |Microsoft.DataFactory/factories|ActivityRuns|管線活動執行記錄|
 |Microsoft.DataFactory/factories|PipelineRuns|管線執行記錄|
 |Microsoft.DataFactory/factories|TriggerRuns|觸發程序執行記錄|
-|Microsoft.DataLakeAnalytics/accounts|稽核|稽核記錄|
-|Microsoft.DataLakeAnalytics/accounts|要求|要求記錄檔|
+|Microsoft.DataLakeAnalytics/accounts|审核|稽核記錄|
+|Microsoft.DataLakeAnalytics/accounts|要求|请求日志|
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄|
 |Microsoft.DataLakeStore/accounts|Requests|要求記錄檔|
 |Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL 伺服器記錄|
@@ -198,7 +198,7 @@ ms.locfileid: "55300212"
 |Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|查詢存放區執行階段統計資料|
 |Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|查詢存放區等候統計資料|
 |Microsoft.Sql/managedInstances/databases|Errors|Errors|
-|Microsoft.StreamAnalytics/streamingjobs|執行|執行|
+|Microsoft.StreamAnalytics/streamingjobs|执行|執行|
 |Microsoft.StreamAnalytics/streamingjobs|編寫|編寫|
 |microsoft.web/sites|FunctionExecutionLogs|函式執行記錄|
 |microsoft.web/sites/slots|FunctionExecutionLogs|函式執行記錄|

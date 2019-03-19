@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb6cebca0fe165315215813eb939dc2d5d120cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6794d7eaccb488bb345227161f0bca02f14bc518
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177318"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852547"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>教學課程：Azure Active Directory 與 Salesforce Sandbox 整合
 
@@ -163,7 +163,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-13. 按一下 [選擇檔案]以上傳您從 Azure 入口網站下載的中繼資料 XML 檔案，然後按一下 [建立]。
+13. 按一下 [**選擇檔案**] 以上傳您從 Azure 入口網站下載的中繼資料 XML 檔案，然後按一下 [**建立**]。
 
     ![設定單一登入](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
@@ -259,7 +259,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

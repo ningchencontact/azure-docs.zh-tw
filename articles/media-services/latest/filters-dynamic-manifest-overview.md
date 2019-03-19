@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3a496aa5dc08ac59fb51f8bf3010bd1edf1e605d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861429"
 ---
 # <a name="dynamic-manifests"></a>動態資訊清單
 
@@ -28,10 +28,9 @@ ms.locfileid: "56447934"
 
 |通訊協定|範例|
 |---|---|
-|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
-
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 > [!NOTE]
 > 動態資訊清單不會變更資產和該資產的預設資訊清單。 您的用戶端可以選擇要求包含或不含篩選器的資料流。 
@@ -39,32 +38,9 @@ ms.locfileid: "56447934"
 
 本主題說明**動態資訊清單**相關的概念，並提供您可能會想使用此功能的案例範例。
 
-## <a name="manifest-files-overview"></a>資訊清單檔概觀
+## <a name="manifests-overview"></a>資訊清單概觀
 
-當您將資產編碼以進行彈性位元速率資料流時，會建立 **資訊清單** (播放清單) 檔案 (此檔案是以文字或 XML 為基礎)。 **資訊清單** 檔案包含資料流中繼資料，例如：資料軌類型 (音訊、視訊或文字)、資料軌名稱、開始和結束時間、位元速率 (品質)、資料軌語言、簡報視窗 (持續時間固定的滑動視窗)，視訊轉碼器 (FourCC)。 此檔案也會透過提供下一個可播放視訊片段及其位置的相關資訊，來指示播放程式擷取下一個片段。 片段 (或區段) 實際上是視訊內容的「區塊」。
-
-以下是 HLS 資訊清單檔案的範例： 
-
-```
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="aac_eng_2_128041_2_1",LANGUAGE="eng",DEFAULT=YES,AUTOSELECT=YES,URI="QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)"
-#EXT-X-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
-QualityLevels(380658)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d",URI="QualityLevels(380658)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015,mp4a.40.2",AUDIO="audio"
-QualityLevels(721426)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015",URI="QualityLevels(721426)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2",AUDIO="audio"
-QualityLevels(1155246)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e",URI="QualityLevels(1155246)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"
-QualityLevels(2218559)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f",URI="QualityLevels(2218559)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020,mp4a.40.2",AUDIO="audio"
-QualityLevels(3579378)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020",URI="QualityLevels(3579378)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=139017,CODECS="mp4a.40.2",AUDIO="audio"
-QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
-```
+媒體服務支援 HLS、 MPEG DASH、 Smooth Streaming 通訊協定。 做為一部分[動態封裝](dynamic-packaging-overview.md)，串流用戶端資訊清單 （HLS 主要播放清單、 DASH Media Presentation Description (MPD)，和 Smooth Streaming） 動態產生的 URL 中的格式選取器為基礎。 請參閱中的傳遞通訊協定[本節](dynamic-packaging-overview.md#delivery-protocols)。 
 
 ### <a name="get-and-examine-manifest-files"></a>取得並檢查資訊清單檔案
 
@@ -76,7 +52,7 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>監視視訊資料流的位元速率
 
-您可以使用 [Azure 媒體播放器示範頁面](http://aka.ms/amp) \(英文\) 來監視視訊資料流的位元速率。 示範頁面會在 [Diagnostics] (診斷) 索引標籤中顯示診斷資訊：
+您可以使用 [Azure 媒體播放器示範頁面](https://aka.ms/amp) \(英文\) 來監視視訊資料流的位元速率。 示範頁面會在 [Diagnostics] (診斷) 索引標籤中顯示診斷資訊：
 
 ![Azure 媒體播放器診斷][amp_diagnostics]
 
@@ -95,7 +71,7 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ## <a name="removing-language-tracks"></a>移除語言資料軌
 您的資產可能包含多個音訊語言，例如英文、西班牙文、法文等。通常，播放程式 SDK 管理員會預設音訊資料軌選取範圍，以及每個使用者可選擇的可用音訊資料軌。 開發這類的播放程式 SDK 相當有挑戰性，因為在各個裝置特有的播放程式架構之間有不同的實作方式。 此外播放程式 API 在某些平台上受到限制，且不包含音訊選擇功能，因此使用者無法選取或變更預設的音訊資料軌。有了資產篩選器，您可以藉由建立只包含所需音訊語言的篩選器來控制行為。
 
-![語言資料軌篩選][language_filter]
+![语言音轨筛选][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>修剪資產開頭
 在大部分的即時資料流事件中，操作人員必須在實際的事件前先進行測試。 例如，他們可以在事件開始前包含如下 slate 訊息：「程式將立刻開始」。 如果程式正在進行封存，則測試和靜態圖像資料也會一併封存並包含在簡報中。 但是此資訊不會對用戶端顯示。 透過動態資訊清單，您可以建立開始時間篩選器，並從資訊清單中移除不必要的資料。

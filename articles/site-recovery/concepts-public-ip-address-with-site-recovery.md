@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: eaf18cf7d7a5f150d3400e133bf0703bb03e7b8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: cba9a334ae014351b1156f34325e9f134b1592a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845972"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439192"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>在容錯移轉之後設定公用 IP 位址
 
@@ -44,7 +44,7 @@ ms.locfileid: "52845972"
 Azure 流量管理員允許在端點之間切換 DNS 層級路由，並可針對 DR 案例，協助[降低您的 RTO](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations)。 
 
 深入了解流量管理員的容錯移轉案例：
-1. 使用流量管理員[從內部部署容錯移轉至 Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) 
+1. [內部部署容錯移轉至 Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover)使用流量管理員 
 2. 使用流量管理員[在 Azure 之間容錯移轉](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) 
 
 設定方式如下︰

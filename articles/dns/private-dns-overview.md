@@ -5,26 +5,31 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/23/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7f5f377f34a43dfb01ea516e023bb98f118d0dd4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816317"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247217"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>將 Azure DNS 用於私人網域
 
 「網域名稱系統」(DNS) 會負責將服務名稱轉譯 (或解析) 為其 IP 位址。 Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來提供名稱解析。 除了支援網際網路對向 DNS 網域之外，Azure DNS 現在也支援私人 DNS 網域作為預覽版功能。
 
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+
 Azure DNS 提供一個可靠、安全的 DNS 服務，讓您不必新增自訂 DNS 解決方案，就能管理及解析虛擬網路中的網域名稱。 藉由使用私人 DNS 區域，您就可以使用自己的自訂網域名稱，而不是現今可用的 Azure 提供名稱。 使用自訂網域名稱可協助您量身打造虛擬網路架構，來充分滿足您的組織需求。 它可以為虛擬網路內的虛擬機器 (VM) 及虛擬網路之間提供名稱解析。 此外，您還可以利用水平分割檢視來設定區域名稱，使私人與公用 DNS 區域能夠共用名稱。
+
+若要將私人 DNS 區域發佈至虛擬網路，指定可以在區域內解析記錄的虛擬網路清單。 這稱為「解析虛擬網路」。 您也可以指定一個虛擬網路，每當 VM 建立、變更 IP 或刪除時，Azure DNS 就會維護其主機名稱記錄。 這稱為「註冊虛擬網路」。
 
 如果您指定了註冊虛擬網路，在已註冊至私人區域的該虛擬網路中，將無法從 Azure PowerShell 和 AzureCLI API 檢視或擷取來自該虛擬網路虛擬機器的 DNS 記錄，但虛擬機器記錄實際上已註冊，且將會成功解析。
 
 ![DNS 概觀](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> 最佳做法，請勿用於.local 網域私人 DNS 區域。 並非所有作業系統都支援這。
 
 ## <a name="benefits"></a>優點
 

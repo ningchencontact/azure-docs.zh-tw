@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 8f4b39141a9509990525769833e2cd193419752c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469367"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309310"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>將 Azure 診斷記錄檔串流至 Log Analytics
 
@@ -65,10 +65,13 @@ Log Analytics 工作區並不一定要與發出記錄檔的資源位於相同的
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且只要一產生新的事件資料，就會立即將診斷記錄串流至該工作區。 請注意，從發出事件到事件出現在 Log Analytics 中，之間最多會有 15 分鐘的間隔。
 
 ### <a name="via-powershell-cmdlets"></a>透過 PowerShell Cmdlet
-若要透過 [Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md) 啟用串流功能，您可以使用 `Set-AzureRmDiagnosticSetting` Cmdlet 搭配下列參數︰
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+若要透過 [Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md) 啟用串流功能，您可以使用 `Set-AzDiagnosticSetting` Cmdlet 搭配下列參數︰
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
 ```
 
 請注意，workspaceID 屬性會採用工作區的完整 Azure 資源識別碼，而不是採用 Log Analytics 入口網站中顯示的工作區識別碼/金鑰。

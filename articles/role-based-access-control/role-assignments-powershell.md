@@ -1,6 +1,6 @@
 ---
 title: 使用 RBAC 與 Azure PowerShell 管理 Azure 資源的存取權 | Microsoft Docs
-description: 了解如何使用角色型存取控制 (RBAC) 和 Azure PowerShell 來管理使用者、群組和應用程式對 Azure 資源的存取。 這包括如何列出存取權、授與存取權以及移除存取權。
+description: 了解如何管理使用者、 群組和應用程式使用角色型存取控制 (RBAC) 和 Azure PowerShell 對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ace70dea5277b4e9d8c8b0e6e0cdc49da0b674e0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343769"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432221"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 與 Azure PowerShell 管理 Azure 資源的存取權
 
@@ -81,9 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### <a name="list-a-specific-role-in-json-format"></a>使用 JSON 格式列出特定角色
+## <a name="list-a-role-definition"></a>列出角色定义
 
-若要使用 JSON 格式列出特定角色，使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)。
+### <a name="list-a-role-definition-in-json-format"></a>以 JSON 格式列出角色定义
+
+若要以 JSON 格式列出角色定义，请使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)。
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
@@ -328,4 +330,4 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 - [教學課程：使用 RBAC 與 Azure PowerShell 為群組授與 Azure 資源的存取權](tutorial-role-assignments-group-powershell.md)
 - [教學課程：使用 Azure PowerShell 為 Azure 資源建立自訂角色](tutorial-custom-role-powershell.md)
-- [使用 Azure PowerShell 管理資源](../azure-resource-manager/powershell-azure-resource-manager.md)
+- [使用 Azure PowerShell 管理資源](../azure-resource-manager/manage-resources-powershell.md)

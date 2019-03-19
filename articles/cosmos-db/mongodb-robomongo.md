@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5696c376ad64df01d7f9d43ff59c87402c334c52
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: ab066fef4bffe35408fdc5f3ad6d66796b4d0818
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034806"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443965"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>使用 Robo 3T 搭配 Azure Cosmos DB 適用於 MongoDB 的 API
 
@@ -26,14 +26,14 @@ ms.locfileid: "54034806"
 
 1. 使用[這裡](connect-mongodb-account.md)的指示，擷取由 Azure Cosmos DB API MongoDB 為您的 Cosmos 帳戶設定的連線資訊。
 
-    ![[連接字串] 刀鋒視窗的螢幕擷取畫面](./media/mongodb-robomongo/connectionstringblade.png)
+    ![連接字串 刀鋒視窗的螢幕擷取畫面](./media/mongodb-robomongo/connectionstringblade.png)
 2. 執行 *Robomongo.exe*
 
 3. 按一下 [檔案] 下的 [連接] 按鈕來管理您的連接。 然後，按一下 [MongoDB 連接] 視窗中的 [建立]，將會開啟 [連接設定] 視窗。
 
 4. 在 [連接設定] 視窗中，選擇名稱。 然後，從步驟 1 的連接資訊中，找出 [主機] 和 [連接埠]，分別輸入至 [位址] 和 [連接埠]。
 
-    ![Robomongo 管理連線的螢幕擷取畫面](./media/mongodb-robomongo/manageconnections.png)
+    ![螢幕擷取畫面的 Robomongo 管理連線](./media/mongodb-robomongo/manageconnections.png)
 5. 在 [驗證] 索引標籤上，按一下 [執行驗證]。 然後，輸入您的 [資料庫] \(預設值是 *Admin*)、[使用者名稱] 和 [密碼]。
 在步驟 1 的連接資訊中，可以找到 [使用者名稱] 和 [密碼]。
 

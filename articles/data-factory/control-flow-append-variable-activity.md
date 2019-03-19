@@ -3,21 +3,20 @@ title: Azure Data Factory 中的附加變數活動 | Microsoft Docs
 description: 了解如何設定「附加變數」活動，以將值新增至 Data Factory 管線中定義的現有陣列變數
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: douglasl
-ms.openlocfilehash: e904075908fe7108c0566856b25fe03be0b7fd86
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023790"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575149"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure Data Factory 中的附加變數活動
 
@@ -25,7 +24,7 @@ ms.locfileid: "54023790"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 必要
+屬性 | 描述 | 必要項
 -------- | ----------- | --------
 name | 管線中的活動名稱 | 是
 說明 | 說明活動用途的文字 | no

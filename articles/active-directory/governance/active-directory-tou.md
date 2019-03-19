@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 02/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163762"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443448"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用使用規定。
@@ -51,7 +51,7 @@ Azure AD 使用規定具有下列功能：
 - 顯示使用規定活動的記錄，以符合合規性及進行稽核。
 - 使用 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) \(英文\) (目前處於預覽狀態) 來建立和管理使用規定。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用及設定 Azure AD 使用規定，您必須有：
 
 - Azure AD Premium P1、P2、EMS E3 或 EMS E5 訂用帳戶。
@@ -121,7 +121,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
     ![條件式存取範本](./media/active-directory-tou/conditional-access-templates.png)
 
-    | 範本 | 說明 |
+    | 範本 | 描述 |
     | --- | --- |
     | **所有來賓的雲端應用程式存取權** | 系統將會針對所有來賓和所有雲端應用程式建立條件式存取原則。 此原則會影響 Azure 入口網站。 建立此原則之後，您可能需要登出然後再登入。 |
     | **所有使用者的雲端應用程式存取權** | 系統將會針對所有使用者和所有雲端應用程式建立條件式存取原則。 此原則會影響 Azure 入口網站。 建立此原則之後，您必須登出然後再登入。 |
@@ -258,10 +258,10 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | 其他 |
 > | --- | --- | --- | --- | --- |
-> | **原生應用程式** | yes | 是 | yes |  |
-> | **Microsoft Edge** | yes | 是 | yes |  |
-> | **Internet Explorer** | yes | 是 | yes |  |
-> | **Chrome (搭配擴充功能)** | yes | 是 | yes |  |
+> | **原生應用程式** | 是 | 是 | 是 |  |
+> | **Microsoft Edge** | 是 | 是 | 是 |  |
+> | **Internet Explorer** | 是 | 是 | 是 |  |
+> | **Chrome (搭配擴充功能)** | 是 | 是 | 是 |  |
 
 每部裝置的使用規定具有下列限制：
 
@@ -313,15 +313,15 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 ## <a name="b2b-guests-preview"></a>B2B 來賓 (預覽)
 
-大部分的組織都具有供其員工同意該組織之使用規定和隱私權聲明的程序。 但在 Azure AD 企業對企業 (B2B) 來賓透過 SharePoint 或 Teams 新增的情況下，您要如何強制執行相同的同意程序呢？ 透過使用條件式存取和使用規定，您可以直接對 B2B 來賓使用者強制執行原則。 在邀請兌換流程期間，系統會向該使用者呈現使用規定。 此支援目前只能預覽。
+大部分的組織都具有供其員工同意該組織之使用規定和隱私權聲明的程序。 但在 Azure AD 企業對企業 (B2B) 來賓透過 SharePoint 或 Teams 新增的情況下，您要如何強制執行相同的同意程序呢？ 透過使用條件式存取和使用規定，您可以直接對 B2B 來賓使用者強制執行原則。 在邀請兌換流程期間，系統會向該使用者呈現使用規定。 這項支援目前只能預覽。
 
-使用規定只會在使用者於 Azure AD 中具有來賓帳戶的情況下顯示。 SharePoint Online 目前提供[臨機操作外部共用收件者體驗](/sharepoint/what-s-new-in-sharing-in-targeted-release)，讓使用者不需要具有來賓帳戶即可共用文件或資料夾。 在此情況下，系統將不會顯示使用規定。
+使用規定只會在使用者於 Azure AD 中具有來賓帳戶的情況下顯示。 SharePoint Online 目前有[臨機操作外部共用收件者經驗](/sharepoint/what-s-new-in-sharing-in-targeted-release)共用文件或不需要使用者具有來賓帳戶的資料夾。 在此情況下，系統將不會顯示使用規定。
 
 ![所有來賓使用者](./media/active-directory-tou/b2b-guests.png)
 
 ## <a name="support-for-cloud-apps-preview"></a>針對雲端應用程式的支援 (預覽)
 
-使用規定可以用於不同的雲端應用程式，例如 Azure 資訊保護和 Microsoft Intune。 此支援目前只能預覽。
+使用規定可以用於不同的雲端應用程式，例如 Azure 資訊保護和 Microsoft Intune。 這項支援目前只能預覽。
 
 ### <a name="azure-information-protection"></a>Azure 資訊保護
 

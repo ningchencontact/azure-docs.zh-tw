@@ -1,5 +1,5 @@
 ---
-title: 將安全性資訊 (預覽) 設定為使用簡訊 - Azure Active Directory | Microsoft Docs
+title: 設定安全性資訊 （預覽） 使用文字訊息-Azure Active Directory |Microsoft Docs
 description: 如何設定安全性資訊以使用簡訊和行動裝置來驗證您的身分識別。
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a130113c7e6052befdc61927589c1151a062bdb9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456090"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341029"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>將安全性資訊 (預覽) 設定為使用簡訊
 您可以遵循下列步驟來新增雙因素驗證和密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
@@ -39,11 +39,11 @@ ms.locfileid: "56456090"
 
 1. 登入您的公司或學校帳戶，然後移至您的 https://myprofile.microsoft.com/ 頁面。
 
-    ![我的設定檔頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile.png)
+    ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 
-2. 從左側瀏覽窗格或 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後從 [安全性資訊] 頁面選取 [新增方法]。
+2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [電話]，然後選取 [新增]。
 

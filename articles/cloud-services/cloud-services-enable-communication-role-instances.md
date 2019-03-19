@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 9d6cc542b6af0b508529c1392e16df93e1ba084d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005939"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539627"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>啟用 Azure 中角色執行個體的通訊
 雲端服務角色透過內部和外部連線通訊。 外部連接稱為**輸入端點**，而內部連接稱為**內部端點**。 本主題描述如何修改 [服務定義](cloud-services-model-and-package.md#csdef) 以建立端點。
@@ -104,7 +104,7 @@ Azure 受控程式庫提供讓角色執行個體在執行階段通訊的方法�
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-**Instances** 屬性會傳回 **RoleInstance** 物件的集合。 這個集合一律會包含目前的執行個體。 如果該角色沒有定義內部端點，則該集合只包含目前的執行個體，沒有其他執行個體。 在沒有為角色定義內部端點的情況下，集合中的角色執行個體數量一律為 1。 如果該角色定義了一個內部端點，就可以在執行階段中探索其執行個體，而且集合中執行個體的數量將與服務組態檔中為該角色指定的執行個體數量相對應。
+**Instances** 屬性會傳回 **RoleInstance** 物件的集合。 此集合始终包含当前实例。 如果該角色沒有定義內部端點，則該集合只包含目前的執行個體，沒有其他執行個體。 在沒有為角色定義內部端點的情況下，集合中的角色執行個體數量一律為 1。 如果該角色定義了一個內部端點，就可以在執行階段中探索其執行個體，而且集合中執行個體的數量將與服務組態檔中為該角色指定的執行個體數量相對應。
 
 > [!NOTE]
 > Azure 設管理程式庫沒有提供判斷其他角色執行個體健康狀態的方法，但是如果您的服務需要這類功能，您可以自行實作此健康狀態評估。 您可以使用 [Azure 診斷](cloud-services-dotnet-diagnostics.md) 來取得執行中角色執行個體的相關資訊。
@@ -210,7 +210,7 @@ namespace WorkerRole1
       ServicePointManager.DefaultConnectionLimit = 12;
 
       // For information on handling configuration changes
-      // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+      // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
       return base.OnStart();
     }
   }
@@ -218,7 +218,7 @@ namespace WorkerRole1
 ```
 
 ## <a name="network-traffic-rules-to-control-role-communication"></a>用網路流量規則控制角色通訊
-定義內部端點之後，您可以新增網路流量規則 (根據建立的端點) 來控制角色之間通訊的方式。 下圖顯示一些控制角色通訊的常見案例：
+定義內部端點之後，您可以新增網路流量規則 (根據建立的端點) 來控制角色之間通訊的方式。 下图演示了一些用于控制角色通信的常见方案：
 
 ![網路流量規則案例](./media/cloud-services-enable-communication-role-instances/scenarios.png "網路流量規則案例")
 
@@ -298,7 +298,7 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-### <a name="scenario-3"></a>案例 3
+### <a name="scenario-3"></a>方案 3
 只允許從 **WebRole1** 至 **WorkerRole1**，以及從 **WorkerRole1** 至 **WorkerRole2** 的網路流量。
 
 ```xml
@@ -327,7 +327,7 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-### <a name="scenario-4"></a>案例 4
+### <a name="scenario-4"></a>方案 4
 只允許從 **WebRole1** 至 **WorkerRole1**、從 **WebRole1** 至 **WorkerRole2**，以及從 **WorkerRole1** 至 **WorkerRole2** 的網路流量。
 
 ```xml

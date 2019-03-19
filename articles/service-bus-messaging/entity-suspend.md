@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8feee92e9105259bddf45114ac48a54347266cd7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845994"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436743"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>暫止及重新啟動傳訊實體 (停用)
 
@@ -28,7 +28,7 @@ ms.locfileid: "54845994"
 
 暫止或重新啟動可以由使用者或系統執行。 系統只會因為重大的管理原因暫止實體，如達到訂用帳戶消費限制。 使用者無法重新啟動由系統停用的實體，不過當導致暫止的原因排除後實體將能恢復正常狀態。
 
-在入口網站中，您可以在各個實體的 [屬性] 區段變更狀態。以下螢幕擷取畫面顯示佇列的切換開關：
+在入口網站**屬性**各個實體的區段可讓您變更狀態，以下的螢幕擷取畫面顯示佇列的切換開關：
 
 ![][1]
 

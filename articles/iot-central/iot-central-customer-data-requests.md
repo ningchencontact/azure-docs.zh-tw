@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: bb5e263b0332f957b4e7f4a928ccd53f639bcd9c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 2952008ca788a620f2b558d5997aeebd59196b7a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629400"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314563"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客戶資料要求功能的摘要
 
@@ -33,7 +33,7 @@ Azure Active Directory 物件識別碼可用來識別使用者和指派角色。
 
 ## <a name="deleting-customer-data"></a>刪除客戶資料
 
-若要刪除使用者資料，只能透過 IoT 中心管理頁面。 應用程式系統管理員可選取要刪除的使用者，並按一下應用程式右上角的 [刪除] 來刪除記錄。 應用程式系統管理員也可以移除不再與特定應用程式相關聯的個人帳戶。
+若要刪除使用者資料，只能透過 IoT 中心管理頁面。 應用程式系統管理員可以選取要刪除選取的使用者**刪除**中要刪除記錄的應用程式右上角。 應用程式系統管理員也可以移除不再與特定應用程式相關聯的個人帳戶。
 
 刪除使用者之後，就不會再將警示以電子郵件傳送給他們。 不過，這些使用者的電子郵件地址必須從每個已設定的警示中個別移除。
 

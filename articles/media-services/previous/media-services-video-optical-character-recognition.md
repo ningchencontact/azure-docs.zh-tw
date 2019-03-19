@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: e0fa769c9071cac0dccaf43c312c80c7d097e345
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c1983f14a23f8929091f5b7ae43e24bb9a834034
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005126"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857737"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒體分析以將視訊檔案中的文字內容轉換為數位文字  
 ## <a name="overview"></a>概觀
@@ -35,14 +35,14 @@ ms.locfileid: "56005126"
 影片檔案。 目前支援下列格式：MP4、MOV 與 WMV。
 
 ## <a name="task-configuration"></a>工作組態
-工作組態 (預設)。 使用 **Azure 媒體 OCR** 建立工作時，您必須使用 JSON 或 XML 來指定組態預設。 
+任务配置（预设） 在使用 **Azure 媒体 OCR** 创建任务时，必须使用 JSON 或 XML 指定配置预设。 
 
 >[!NOTE]
 >OCR 引擎只會接受高度/寬度兩者在最小 40 像素到最大 32000 像素的影像區域為有效的輸入。
 >
 
 ### <a name="attribute-descriptions"></a>屬性描述
-| 屬性名稱 | 說明 |
+| 属性名称 | 描述 |
 | --- | --- |
 |AdvancedOutput| 如果您將 AdvancedOutput 設為 true，JSON 輸出就會包含每一個文字的位置資料 (除了片語和區域)。 如果您不想要查看這些詳細資料，請將旗標設定為 false。 預設值為 False。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)。|
 | 語言 |(選擇性) 說明要尋找的文字語言。 下列其中之一：AutoDetect (預設值)、Arabic、ChineseSimplified、ChineseTraditional、Czech Danish、Dutch、English、Finnish、French、German、Greek、Hungarian、Italian、Japanese、Korean、Norwegian、Polish、Portuguese、Romanian、Russian、SerbianCyrillic、SerbianLatin、Slovak、Spanish、Swedish、Turkish。 |
@@ -50,7 +50,7 @@ ms.locfileid: "56005126"
 | TimeInterval |(選擇性) 說明取樣率。  預設值為每 1/2 秒。<br/>JSON 格式 – HH:mm:ss.SSS (預設值 00:00:00.500)<br/>XML 格式 – W3C XSD 持續時間基本型別 (預設值 PT0.5) |
 | DetectRegions |(選擇性) DetectRegion 物件的陣列，指定在其中偵測文字的視訊畫面格內的區域。<br/>DetectRegion 物件是由下列四個整數值組成︰<br/>左 – 像素的左邊界<br/>上 – 像素的上邊界<br/>寬度 – 以像素為單位的區域寬度<br/>高度 – 以像素為單位的區域高度 |
 
-#### <a name="json-preset-example"></a>JSON 預設範例
+#### <a name="json-preset-example"></a>JSON 预设示例
 
 ```json
     {
@@ -77,7 +77,7 @@ ms.locfileid: "56005126"
 
 ```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
-    <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
+    <VideoOcrPreset xmlns:xsi=""https://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""https://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""https://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
          <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>
@@ -98,25 +98,25 @@ ms.locfileid: "56005126"
 ## <a name="ocr-output-files"></a>OCR 輸出檔案
 OCR 媒體處理器的輸出是 JSON 檔案。
 
-### <a name="elements-of-the-output-json-file"></a>輸出 JSON 檔案的元素
+### <a name="elements-of-the-output-json-file"></a>输出 JSON 文件中的元素
 視訊 OCR 輸出會在可於視訊上找到的字元中提供時間分段資料。  您可以使用屬性 (例如語言或方向)，確實琢磨您有興趣進行分析的文字。 
 
 輸出包含下列屬性：
 
-| 元素 | 說明 |
+| 元素 | 描述 |
 | --- | --- |
-| 時幅 |影片每秒的「刻度」數目 |
+| 时间刻度 |影片每秒的「刻度」數目 |
 | Offset |時間戳記的時間位移。 在版本 1.0 的影片 API 中，這永遠會是 0。 |
-| 畫面播放速率 |影片的每秒畫面格數 |
+| Framerate |影片的每秒畫面格數 |
 | width |視訊寬度 (以像素為單位) |
 | height |視訊高度 (以像素為單位) |
-| 片段 |在視訊中，將中繼資料切割為以時間為基礎的區塊陣列 |
+| Fragments |在視訊中，將中繼資料切割為以時間為基礎的區塊陣列 |
 | start |片段的開始時間 (以「刻度」為單位) |
 | duration |片段的長度 (以「刻度」為單位) |
 | interval |指定片段內每個事件的間隔 |
 | events |包含區域的陣列 |
 | region |物件，代表偵測到的單字或片語 |
-| 語言 |區域內偵測到的文字語言 |
+| 语言 |區域內偵測到的文字語言 |
 | orientation |區域內偵測到的文字方向 |
 | lines |區域內偵測到的文字行陣列 |
 | text |實際的文字 |

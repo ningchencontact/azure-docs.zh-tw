@@ -9,49 +9,37 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a2f243b1a8b891419de7e3ca949e7591f55879
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211354"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337680"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory 中歐洲客戶的身分識別資料儲存體
 Azure Active Directory (Azure AD) 可協助您管理使用者身分識別，以及建立以資訊為依據的存取原則，以利確保組織資源的安全。 身分識別資料的儲存位置，會以組織在您訂閱服務時所提供的位址為基礎。 例如，當您訂閱 Office 365 或 Azure 時。 若想了解有關於您的身分識別資料儲存於何處的特定資訊，您可以使用 Microsoft 信任中心的 [您的資料所在位置](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 區段。
 
-雖然大多數與 Azure AD 有關的歐洲身分識別資料都儲存在歐洲資料中心，但有五項使用者相關屬性通常會儲存在美國資料中心。 這些屬性是 GivenName、Surname、userPrincipalName、Domain 和 PasswordHash。 但 PasswordHash 屬性有時屬例外；如果您使用內部部署的同盟驗證方法，而使 PasswordHash 值無法與 Azure AD 同步處理，該屬性就不會儲存在美國。 此外，有一些服務特有的作業資料是一般 Azure AD 作業不可或缺的，此類資料會儲存在美國，但不會包含任何個人資料。
+雖然大部分的 Azure AD 相關歐洲的身分識別資料保持在歐洲資料中心內，有一些操作、 服務特定的資料所需的一般 Azure AD 」 作業，其中會儲存在美國，而且不包含任何個人資料。
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>儲存在歐洲資料中心以外的歐洲客戶資料
 
 就具有歐洲區位址的組織而言，與 Azure AD 有關的歐洲身分識別資料，大多都會保存在歐洲資料中心。 不會儲存在歐洲資料中心，而且會複寫到美國資料中心的 Azure AD 資料，包括：
-
-- **身分識別相關屬性**
-
-    下列身分識別相關屬性將會複寫至美國：
-
-    - GivenName
-    - Surname
-    - userPrincipalName
-    - 網域
-    - PasswordHash
-    - SourceAnchor
-    - AccountEnabled
-    - PasswordPolicies
-    - StrongAuthenticationRequirement
-    - ApplicationPassword
-    - PUID
 
 - **Microsoft Azure 多因素驗證 (MFA) 和 Azure AD 自助式密碼重設 (SSPR)**
     
     MFA 會將所有待用的使用者資料儲存在歐洲資料中心。 不過，某些 MFA 服務特有的資料會儲存在美國，包括：
     
     - 如果您使用 MFA 或 SSPR，則雙因素驗證及其相關個人資料可能會儲存在美國。
+
         - 所有使用通話或 SMS 的雙因素驗證都可能須由美國電信業者完成。
+    
         - 使用 Microsoft Authenticator 應用程式的推播通知需要來自製造商通知服務 (Apple 或 Google) 的通知，而這可能不在歐洲境內。
+    
         - OATH 代碼一律會在美國進行驗證。 
+    
     - 某些 MFA 和 SSPR 記錄會儲存在美國 30 天，無論驗證類型為何。
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
@@ -75,7 +63,11 @@ Azure Active Directory (Azure AD) 可協助您管理使用者身分識別，以�
 ## <a name="next-steps"></a>後續步驟
 如需前述任何特性和功能的詳細資訊，請參閱下列文章：
 - [何謂 Multi-Factor Authentication？](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+
 - [Azure AD 自助式密碼重設](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+
 - [什麼是 Azure Active Directory B2C？](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+
 - [何謂 Azure AD B2B 共同作業？](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+
 - [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)

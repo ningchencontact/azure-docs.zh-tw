@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: fda6ca26c39d49c0d16c9933cc0a14f0bfea90a9
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: e16b523a366cabd04a5f12441874aa60460d508f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857109"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213957"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure 監視器中的 Azure 服務匯流排計量 (預覽)
 
@@ -28,7 +28,7 @@ ms.locfileid: "54857109"
 
 ## <a name="access-metrics"></a>存取計量
 
-Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure 入口網站](https://portal.azure.com)來存取計量，或使用 Azure 監視器 API (REST 和 .NET) 和分析解決方案 (例如 Log Analytics 和事件中樞) 來存取計量。 如需詳細資訊，請參閱[監視 Azure 監視器所收集的資料](../azure-monitor/platform/data-collection.md)。
+Azure 監視器提供了多種方法供您存取計量。 您可以透過存取計量[Azure 入口網站](https://portal.azure.com)，或使用 Azure 監視器 Api （REST 和.NET） 和分析解決方案，例如 Azure 監視器記錄檔和事件中樞。 如需詳細資訊，請參閱[監視 Azure 監視器所收集的資料](../azure-monitor/platform/data-collection.md)。
 
 計量是預設啟用的功能，您可以存取最近 30 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 在「Azure 監視器」的[診斷設定](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)中即可設定此值。
 
@@ -46,7 +46,7 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 ## <a name="billing"></a>計費
 
-在預覽版「Azure 監視器」中使用計量是免費的。 不過，如果您使用內嵌計量資料的額外解決方案，可能就需支付這些解決方案的使用費。 例如，如果您將計量資料封存到 Azure 儲存體帳戶，就要支付 Azure 儲存體的使用費。 如果您將計量資料串流到 Log Analytics 進行進階分析，則也需支付 Log Analytics 的費用。
+在預覽版「Azure 監視器」中使用計量是免費的。 不過，如果您使用內嵌計量資料的額外解決方案，可能就需支付這些解決方案的使用費。 例如，如果您將計量資料封存到 Azure 儲存體帳戶，就要支付 Azure 儲存體的使用費。 如果您要進行進階分析的 Azure 監視器記錄檔的計量資料串流，則也會計費由 Azure 監視器的記錄。
 
 下列計量會提供您服務健康狀態的概觀。 
 
@@ -59,13 +59,13 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 計算資料和管理作業要求的數目。
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
-| 傳入的要求 (預覽) | 在指定時段內，向服務匯流排服務提出的要求數目。 <br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|成功的要求 (預覽)|在指定時段內，向服務匯流排服務提出的成功要求數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|伺服器錯誤 (預覽)|在指定時段內，服務匯流排服務中因錯誤而未處理的要求數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|使用者錯誤 (預覽 - 請參閱以下子區段)|在指定的期間內，因使用者錯誤而未處理的要求數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|節流的要求 (預覽)|因為超過使用量而節流的要求數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+| 傳入的要求 (預覽) | 在指定時段內，向服務匯流排服務提出的要求數目。 <br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|成功的要求 (預覽)|在指定時段內，向服務匯流排服務提出的成功要求數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|伺服器錯誤 (預覽)|在指定時段內，服務匯流排服務中因錯誤而未處理的要求數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|使用者錯誤 (預覽 - 請參閱以下子區段)|在指定的期間內，因使用者錯誤而未處理的要求數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|節流的要求 (預覽)|因為超過使用量而節流的要求數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
 
 ### <a name="user-errors"></a>使用者錯誤
 
@@ -77,36 +77,36 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 ## <a name="message-metrics"></a>訊息計量
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
-|傳入訊息 (預覽)|在指定時段內，傳送至服務匯流排的事件或訊息數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|傳出訊息 (預覽)|在指定時段內，從服務匯流排接收的事件或訊息數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
-| 訊息 (預覽) | 佇列/主題中的訊息計數。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 維度：EntityName |
-| ActiveMessages (預覽) | 佇列/主題中的作用中訊息計數。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 維度：EntityName |
+|傳入訊息 (預覽)|在指定時段內，傳送至服務匯流排的事件或訊息數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|傳出訊息 (預覽)|在指定時段內，從服務匯流排接收的事件或訊息數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+| 訊息 (預覽) | 佇列/主題中的訊息計數。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 維度：EntityName |
+| ActiveMessages (預覽) | 佇列/主題中的作用中訊息計數。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 維度：EntityName |
 
 ## <a name="connection-metrics"></a>連接計量
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
-|ActiveConnections (預覽)|命名空間及實體上的作用中連線數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|已開啟的連線 (預覽)|已開啟的連線數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|已關閉的連線 (預覽)|已關閉的連線數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName |
+|ActiveConnections (預覽)|命名空間及實體上的作用中連線數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|已開啟的連線 (預覽)|已開啟的連線數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|已關閉的連線 (預覽)|已關閉的連線數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName |
 
 ## <a name="resource-usage-metrics"></a>資源使用量計量
 
 > [!NOTE] 
 > 下列計量僅適用於**進階**層。 
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
-|每個命名空間的 CPU 使用量 (預覽)|命名空間的 CPU 使用量百分比。<br/><br/> 單位：百分比 <br/> 彙總類型：最大值 <br/> 維度：EntityName|
-|每個命名空間的記憶體大小使用量 (預覽)|命名空間的記憶體使用量百分比。<br/><br/> 單位：百分比 <br/> 彙總類型：最大值 <br/> 維度：EntityName|
+|每個命名空間的 CPU 使用量 (預覽)|命名空間的 CPU 使用量百分比。<br/><br/> 单元：百分比 <br/> 聚合类型：最大值 <br/> 维度：EntityName|
+|每個命名空間的記憶體大小使用量 (預覽)|命名空間的記憶體使用量百分比。<br/><br/> 单元：百分比 <br/> 聚合类型：最大值 <br/> 维度：EntityName|
 
 ## <a name="metrics-dimensions"></a>計量維度
 
 Azure 服務匯流排支援下列的 Azure 監視器計量維度。 將維度新增至計量為選擇性。 如果不新增維度，會在命名空間層級指定計量。 
 
-|維度名稱|說明|
+|維度名稱|描述|
 | ------------------- | ----------------- |
 |EntityName| 服務匯流排支援命名空間下的訊息實體。|
 

@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8667db4ed4777614a8c99c823b833ff673c1e98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211762"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449133"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>作法：從 Azure 存取控制服務移轉
 
@@ -148,12 +148,12 @@ https://<mynamespace>.accesscontrol.windows.net
 
 ### <a name="sharepoint-customers"></a>SharePoint 客戶
 
-SharePoint 2013、2016 和 SharePoint Online 客戶已長期使用 ACS 在雲端、內部部署及混合式案例中進行驗證。 有些 SharePoint 功能和使用案例將會受到 ACS 淘汰影響，有些則不會。 下表針對一些利用 ACS 的最常用 SharePoint 功能，摘要說明移轉指導方針：
+SharePoint 2013、 2016年和 SharePoint Online 客戶已長期使用 ACS 在雲端、 內部部署與混合式案例中進行驗證。 有些 SharePoint 功能和使用案例將會受到 ACS 淘汰影響，有些則不會。 下表針對一些利用 ACS 的最常用 SharePoint 功能，摘要說明移轉指導方針：
 
 | 功能 | 指引 |
 | ------- | -------- |
 | 從 Azure AD 驗證使用者 | 先前，Azure AD 並不支援 SharePoint 進行驗證所需的 SAML 1.1 權杖，因此 ACS 被用來作為讓 SharePoint 與 Azure AD 權杖格式相容的媒介。 現在，您可以[在內部部署應用程式上使用 Azure AD 應用程式庫 SharePoint 將 SharePoint 直接連線到 Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)。 |
-| [內部部署 SharePoint 中的應用程式驗證和伺服器對伺服器驗證](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | 不受 ACS 淘汰影響；無須進行任何變更。 | 
+| [應用程式驗證和內部部署的 SharePoint 中的伺服器對伺服器驗證](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | 不受 ACS 淘汰影響；無須進行任何變更。 | 
 | [SharePoint 增益集 (提供者裝載和 SharePoint 裝載) 的低信任度授權](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | 不受 ACS 淘汰影響；無須進行任何變更。 |
 | [SharePoint 雲端混合式搜尋](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | 不受 ACS 淘汰影響；無須進行任何變更。 |
 
@@ -286,7 +286,7 @@ Azure AD 租用戶也可以透過 AD FS，與內部部署 Active Directory 的�
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) 是彈性的雲端識別服務，不僅建立了[適用於存取控制客戶的高階移轉指南](https://auth0.com/acs)，而且幾乎能支援 ACS 支援的所有功能。 |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) 提供兩種類似 ACS 的解決方案。 PingOne 是支援許多與 ACS 相同之功能的雲端識別服務，而 PingFederate 則是類似的內部部署身分識別產品，不過彈性更大。 如需有關使用這些產品的詳細資料，請參閱 [Ping 的 ACS 淘汰指導](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)。 |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) 提供兩種類似 ACS 的解決方案。 PingOne 是支援許多與 ACS 的相同功能的雲端身分識別服務，而 PingFederate 則類似的內部部署身分識別產品，可提供更大的彈性。 如需有關使用這些產品的詳細資料，請參閱 [Ping 的 ACS 淘汰指導](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)。 |
 
 我們與 Ping Identity 和 Auth0 合作的目的是，確保所有存取控制客戶都能獲得從存取控制中，盡可能簡單地搬移其應用程式和服務的移轉方式。
 
@@ -348,7 +348,7 @@ Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) 是彈性的雲端識別服務，不僅建立了[適用於存取控制客戶的高階移轉指南](https://auth0.com/acs)，而且幾乎能支援 ACS 支援的所有功能。 |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) 提供兩種類似 ACS 的解決方案。 PingOne 是支援許多與 ACS 相同之功能的雲端識別服務，而 PingFederate 則是類似的內部部署身分識別產品，不過彈性更大。 如需有關使用這些產品的詳細資料，請參閱 [Ping 的 ACS 淘汰指導](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)。 |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) 提供兩種類似 ACS 的解決方案。 PingOne 是支援許多與 ACS 的相同功能的雲端身分識別服務，而 PingFederate 則類似的內部部署身分識別產品，可提供更大的彈性。 如需有關使用這些產品的詳細資料，請參閱 [Ping 的 ACS 淘汰指導](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)。 |
 
 我們與 Ping Identity 和 Auth0 合作的目的是，確保所有存取控制客戶都能獲得從存取控制中，盡可能簡單地搬移其應用程式和服務的移轉方式。
 

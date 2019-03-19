@@ -5,16 +5,16 @@ services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
 manager: jeconnoc
-ms.service: backup, virtual-machines-windows
+ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: c41f609786620c8b90d484813d675efcd667d1e1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0392a187bf40e1fe35053b493733c7e89aa6969e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692625"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783120"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>適用於 Azure 備份的 VM Snapshot Windows 擴充功能
 
@@ -61,7 +61,7 @@ VM Snapshot 擴充功能會要求目標虛擬機器在採用虛擬機器備份�
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | 字串 |

@@ -5,17 +5,17 @@ description: 如何使用 Azure Resource Manager 範本部署 Azure Machine Lear
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 38cd41fecb98a008bbf5a93eddd0d6a346cf3ef7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 1b2790a4673fd162deca445b4300850fc0e3a087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453958"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57851976"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>使用 Azure Resource Manager 部署 Azure Machine Learning Studio 工作區
 
@@ -31,7 +31,7 @@ Machine Learning 工作區需有 Azure 儲存體帳戶來儲存連結到它的�
 ```
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "variables": {
         "namePrefix": "[resourceGroup().name]",
         "location": "[resourceGroup().location]",

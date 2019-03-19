@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8254e3221fee3d76e2d27715f76c26397c309f08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863350"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用大量執行程式 Java 程式庫執行大量作業
 
 本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 容器。 匯入之後，您會大量更新文件的某些屬性。 
 
-目前，只有 Azure Cosmos DB SQL API 和 Gremlin API 帳戶可支援大量執行程式程式庫。 本文說明如何搭配 SQL API 帳戶使用大量執行程式 .Net 程式庫。 若要了解如何搭配 Gremlin API 使用大量執行程式 .Net 程式庫，請參閱[在 Azure Cosmos DB Gremlin API 中執行大量作業](bulk-executor-graph-dotnet.md)。
+目前，只有 Azure Cosmos DB SQL API 和 Gremlin API 帳戶可支援大量執行程式程式庫。 本文說明如何搭配 SQL API 帳戶使用大量執行程式 .NET 程式庫。 若要了解如何搭配 Gremlin API 使用大量執行程式 .Net 程式庫，請參閱[在 Azure Cosmos DB Gremlin API 中執行大量作業](bulk-executor-graph-dotnet.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -86,13 +86,13 @@ ms.locfileid: "55862712"
    // Set retries to 0 to pass complete control to bulk executor
    client.getConnectionPolicy().getRetryOptions().setMaxRetryWaitTimeInSeconds(0);
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
-```
+   ```
 
 4. 呼叫 importAll API，以產生隨機文件來大量匯入至 Azure Cosmos DB 容器。 您可以設定 CmdLineConfiguration.java 檔案內的命令列組態。
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
-```
+   ```
    大量匯入 API 會接受 JSON 序列化的文件集合，並且具有下列語法。如需詳細資訊，請參閱 [API 文件](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)：
 
    ```java
