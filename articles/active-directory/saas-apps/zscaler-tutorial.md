@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c1465169ccbd2e6a6901566d8eb4fafb7d5c09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0264cad4177c5e1abbf3fb18220a6401615ccf69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler"></a>教學課程：Azure Active Directory 與 Zscaler 整合
 
@@ -246,7 +246,7 @@ ms.locfileid: "56182760"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中，輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

@@ -1,6 +1,6 @@
 ---
 title: 使用 REST 傳遞點播內容入門 | Microsoft Docs
-description: 本教學課程會帶您逐步完成使用 REST API 實作含 Azure 媒體服務的點播內容傳遞應用程式。
+description: 本教程介绍了使用 Azure 媒体服务和 REST API 实现点播内容传送应用程序的步骤。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0efbabf658210c733a7a7f201cb4a36f63456b28
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835337"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>使用 REST 傳遞點播內容入門  
 
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
-本快速入門將逐步引導您使用 REST API 完成利用 Azure 媒體服務 (AMS) 來實作點播視訊 (VoD) 內容傳遞應用程式。
+本快速入门介绍了使用 Azure 媒体服务 (AMS) REST API 实现视频点播 (VoD) 内容传送应用程序的步骤。
 
 教學課程中介紹基本的媒體服務工作流程，以及媒體服務開發最常用的程式設計物件和必要工作。 完成本教學課程時，您將能夠串流或以漸進方式下載您已上傳、編碼和下載的範例媒體檔案。
 
@@ -39,15 +39,15 @@ ms.locfileid: "55991238"
 需要下列必要條件，才能開始使用 REST API 用媒體服務進行開發。
 
 * 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* 媒體服務帳戶。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
-* 了解如何使用媒體服務 REST API 進行開發。 如需詳細資訊，請參閱[媒體服務 REST API 概觀](media-services-rest-how-to-use.md)。
-* 由您選擇可以傳送 HTTP 要求和回應的應用程式。 本教學課程使用 [Fiddler](http://www.telerik.com/download/fiddler)。
+* 一个媒体服务帐户。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
+* 了解如何使用媒体服务 REST API 进行开发。 如需詳細資訊，請參閱[媒體服務 REST API 概觀](media-services-rest-how-to-use.md)。
+* 可以发送 HTTP 请求和响应的所选应用程序。 本教學課程使用 [Fiddler](https://www.telerik.com/download/fiddler)。
 
 本快速入門會顯示下列工作。
 
 1. 啟動串流端點 (使用 Azure 入口網站)。
 2. 使用 REST API 連接到媒體服務帳戶。
-3. 使用 REST API 建立新資產並上傳視訊檔案。
+3. 使用 REST API 创建新资产并上传视频文件。
 4. 使用 REST API 將來源檔案編碼為一組調適性位元速率 MP4 檔案。
 5. 使用 REST API 發行資產及取得串流和漸進式下載 URL。
 6. 播放您的內容。
@@ -71,7 +71,7 @@ ms.locfileid: "55991238"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在 [設定] 視窗中，按一下 [串流端點]。
-3. 按一下預設串流端點。
+3. 单击默认的流式处理终结点。
 
     [預設串流端點詳細資料] 視窗隨即出現。
 
@@ -88,14 +88,14 @@ ms.locfileid: "55991238"
 
 您必須建立資產時提供的值是資產建立選項。 **Options** 屬性是描述可以使用建立資產之加密選項的列舉值。 有效的值是以下清單的其中一個值，而不是值的組合。
 
-* **None** = **0** - 不使用加密。 使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。
+* **None** = **0** - 不使用加密。 使用此选项时，内容在传送过程中或静态存储过程中都不会受到保护。
     如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。
-* **StorageEncrypted** = **1** - 使用 AES-256 位元加密對您的內容進行本機加密，接著上傳到已靜止加密儲存的 Azure 儲存體。 以儲存體加密保護的資產會自動解除加密並在編碼前放置在加密的檔案系統中，並且會在上傳為新輸出資產之前選擇性地重新編碼。 儲存體加密的主要使用案例是讓您可以使用強式加密來保護磁碟中靜止的高品質輸入媒體檔。
+* **StorageEncrypted** = **1** - 使用 AES-256 位元加密對您的內容進行本機加密，接著上傳到已靜止加密儲存的 Azure 儲存體。 以儲存體加密保護的資產會自動解除加密並在編碼前放置在加密的檔案系統中，並且會在上傳為新輸出資產之前選擇性地重新編碼。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
 * **CommonEncryptionProtected** = **2** - 如果您要上傳已經使用一般加密或 PlayReady DRM (例如使用 PlayReady DRM 保護的 Smooth Streaming) 加密及保護的內容，請使用這個選項。
 * **EnvelopeEncryptionProtected** = **4** – 如果您要上傳使用 AES 加密的 HLS，請使用這個選項。 檔案必須已由 Transform Manager 編碼和加密。
 
-### <a name="create-an-asset"></a>建立資產
-資產是媒體服務中多種類型或物件集的容器，包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式字幕檔案。 在 REST API 中，建立資產必須傳送 POST 要求給媒體服務，並將關於您資產的任何屬性資訊放在要求主體中。
+### <a name="create-an-asset"></a>创建资产
+资产是媒体服务中多种类型的对象或多组对象（包括视频、音频、图像、缩略图集合、文本轨道和隐藏的解释性字幕文件）的容器。 在 REST API 中，建立資產必須傳送 POST 要求給媒體服務，並將關於您資產的任何屬性資訊放在要求主體中。
 
 下列範例示範如何建立資產。
 
@@ -149,7 +149,7 @@ ms.locfileid: "55991238"
     }
 
 ### <a name="create-an-assetfile"></a>建立 AssetFile
-[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 實體代表儲存在 blob 容器中的視訊或音訊檔案。 資產檔案一律會與資產相關聯，資產可包含一或多個 Assetfile。 如果資產檔案物件並未與 blob 容器中的數位檔案相關聯，媒體服務編碼器工作將會失敗。
+[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 实体表示 blob 容器中存储的视频或音频文件。 資產檔案一律會與資產相關聯，資產可包含一或多個 Assetfile。 如果資產檔案物件並未與 blob 容器中的數位檔案相關聯，媒體服務編碼器工作將會失敗。
 
 您將數位媒體檔案上傳至 blob 容器之後，您將使用 **MERGE** HTTP 要求，以媒體檔案的相關資訊來更新 AssetFile (如本主題稍後所示)。
 
@@ -211,11 +211,11 @@ ms.locfileid: "55991238"
 
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>建立具有寫入權限的 AccessPolicy
-將任何檔案上傳到 blob 儲存體之前，請設定寫入資產的存取原則權限。 若要這樣做，請 POST HTTP 要求到 AccessPolicies 實體集。 請在建立時定義 DurationInMinutes 值，否則您會在回應中收到 500 內部伺服器錯誤訊息。 如需 AccessPolicies 的詳細資訊，請參閱 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy)。
+將任何檔案上傳到 blob 儲存體之前，請設定寫入資產的存取原則權限。 若要這樣做，請 POST HTTP 要求到 AccessPolicies 實體集。 請在建立時定義 DurationInMinutes 值，否則您會在回應中收到 500 內部伺服器錯誤訊息。 有关 AccessPolicies 的详细信息，请参阅 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy)。
 
 下列範例示範如何建立 AccessPolicy：
 
-**HTTP 要求**
+**HTTP 请求**
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/AccessPolicies HTTP/1.1
     Content-Type: application/json
@@ -260,7 +260,7 @@ ms.locfileid: "55991238"
 
 ### <a name="get-the-upload-url"></a>取得上傳 URL
 
-若要接收實際的上傳 URL，請建立 SAS 定位器。 定位器為想要存取資產中之檔案的用戶端定義連線端點的開始時間和類型。 您可以為指定的 AccessPolicy 與 Asset 配對建立多個 Locator 實體，以處理不同的用戶端要求與需求。 這些 Locator 每個都會使用 StartTime 值加上 AccessPolicy 的 DurationInMinutes 值，以判斷可以使用 URL 的時間長度。 如需詳細資訊，請參閱 [定位器](https://docs.microsoft.com/rest/api/media/operations/locator)。
+若要接收實際的上傳 URL，請建立 SAS 定位器。 定位器為想要存取資產中之檔案的用戶端定義連線端點的開始時間和類型。 您可以為指定的 AccessPolicy 與 Asset 配對建立多個 Locator 實體，以處理不同的用戶端要求與需求。 這些 Locator 每個都會使用 StartTime 值加上 AccessPolicy 的 DurationInMinutes 值，以判斷可以使用 URL 的時間長度。 有关详细信息，请参阅 [定位符](https://docs.microsoft.com/rest/api/media/operations/locator)。
 
 SAS URL 具有下列格式：
 
@@ -331,7 +331,7 @@ SAS URL 具有下列格式：
 一旦設定 AccessPolicy 與 Locator，就會使用「Azure 儲存體 REST API」將實際檔案上傳到 Azure Blob 儲存體容器。 您必須將檔案以區塊 Blob 形式上傳。 「Azure 媒體服務」不支援分頁 Blob。  
 
 > [!NOTE]
-> 您必須將要上傳的檔案名稱新增到上一節中所收到的 Locator **Path** 值。 例如， https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上也提供本文中使用的原始碼。 . 上也提供本文中使用的原始碼。
+> 您必須將要上傳的檔案名稱新增到上一節中所收到的 Locator **Path** 值。 例如： `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`。
 >
 >
 
@@ -404,15 +404,15 @@ SAS URL 具有下列格式：
     HTTP/1.1 204 No Content
     ...
 
-## <a id="encode"></a>將來源檔案編碼為一組調適性位元速率 MP4 檔案
+## <a id="encode"></a>将源文件编码为一组自适应比特率 MP4 文件
 
 將資產內嵌到媒體服務之後，可以先將媒體編碼、轉碼多工處理、加上浮水印等，再傳遞給用戶端。 這些活動會針對多個背景角色執行個體排定和執行，以確保高效能與可用性。 這些活動稱為作業，每個作業包含對資產檔案執行實際工作的不可部分完成的工作 (如需詳細資訊，請參閱[作業](https://docs.microsoft.com/rest/api/media/operations/job)、[工作](https://docs.microsoft.com/rest/api/media/operations/task)說明)。
 
 如稍早所提及，使用 Azure 媒體服務時，其中一個最常見的案例是將調適性位元速率串流傳遞給用戶端。 媒體服務可以以下列其中一種格式動態封裝一組自適性 MP4 檔案：HTTP 即時串流 (HLS)、Smooth Streaming、MPEG DASH。
 
-下一節示範如何建立包含一個編碼工作的工作。 此工作指定使用 **媒體編碼器標準**，將夾層檔案轉換為一組調適性位元速率 MP4。 此節也會示範如何監視工作處理進度。 工作完成時，您將能夠建立存取資產所需的定位器。
+下一節示範如何建立包含一個編碼工作的工作。 此工作指定使用 **媒體編碼器標準**，將夾層檔案轉換為一組調適性位元速率 MP4。 该部分还说明了如何监视作业处理进度。 工作完成時，您將能夠建立存取資產所需的定位器。
 
-### <a name="get-a-media-processor"></a>取得媒體處理器
+### <a name="get-a-media-processor"></a>获取媒体处理器
 在媒體服務中，媒體處理器是可處理特定處理工作的元件，例如編碼、格式轉換、加密或解密媒體內容。 此教學課程中所示的編碼工作，我們將使用媒體編碼器標準。
 
 下列程式碼要求編碼器的識別碼。
@@ -429,7 +429,7 @@ SAS URL 具有下列格式：
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
-**HTTP 回應**
+**HTTP 响应**
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -459,7 +459,7 @@ SAS URL 具有下列格式：
     }
 
 ### <a name="create-a-job"></a>建立工作
-每個工作可以有一或多個工作，視您想要完成的處理類型而定。 透過 REST API，您可以用兩種方式之一建立工作和其相關的工作：工作可以透過 Job 實體上的 Tasks 導覽屬性，或透過 OData 批次處理進行內嵌定義。 媒體服務 SDK 使用批次處理。 不過，為了本文章中程式碼範例的可讀性，工作都是以內嵌定義。 如需批次處理的資訊，請參閱 [開放式資料通訊協定 (OData) 批次處理](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
+每個工作可以有一或多個工作，視您想要完成的處理類型而定。 透過 REST API，您可以用兩種方式之一建立工作和其相關的工作：工作可以透過 Job 實體上的 Tasks 導覽屬性，或透過 OData 批次處理進行內嵌定義。 媒體服務 SDK 使用批次處理。 不過，為了本文章中程式碼範例的可讀性，工作都是以內嵌定義。 如需批次處理的資訊，請參閱 [開放式資料通訊協定 (OData) 批次處理](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
 
 下列範例會示範如何建立和張貼工作，並將一個工作設為在特定的解析度與品質將視訊編碼。 下列文件區段包含媒體編碼器標準處理器支援的所有 [工作預設](https://msdn.microsoft.com/library/mt269960) 清單。  
 
@@ -564,20 +564,20 @@ SAS URL 具有下列格式：
 * 每個工作可以有多個輸出資產。 一個 JobOutputAsset(x) 只能使用一次做為工作中的工作輸出。
 * 您可以指定 JobInputAsset 或 JobOutputAsset 做為工作的輸入資產。
 * 工作不能形成循環。
-* 您傳遞至 JobInputAsset 或 JobOutputAsset 的 value 參數代表資產的索引值。 實際資產定義在作業實體定義上的 InputMediaAsset 與 OutputMediaAsset 導覽屬性。
+* 您傳遞至 JobInputAsset 或 JobOutputAsset 的 value 參數代表資產的索引值。 在作业实体定义的 InputMediaAssets 和 OutputMediaAssets 导航属性中定义实际资产。
 
 > [!NOTE]
 > 由於媒體服務建置在 OData v3 之上，因此 InputMediaAsset 與 OutputMediaAsset 導覽屬性集合中的個別資產會透過 "__metadata : uri" 名稱 / 值組參考。
 >
 >
 
-* InputMediaAsset 對應至您在媒體服務中建立的一個或多個資產。 OutputMediaAsset 由系統建立。 它們不會參考現有的資產。
-* OutputMediaAsset 可以使用 assetName 屬性命名。 如果這個屬性不存在，則 OutputMediaAsset 的名稱是 <outputAsset> 元素的任何內部文字值，並且尾碼為工作名稱值或工作識別碼值 (在未定義 Name 屬性的情況下)。 例如，如果您將 assetName 的值設為 "Sample"，則 OutputMediaAsset Name 屬性會設為 "Sample"。 不過，如果您未設定 assetName 的值，但已將工作名稱設為 "NewJob"，則 OutputMediaAsset Name 會是 "JobOutputAsset(value)_NewJob"。
+* InputMediaAsset 對應至您在媒體服務中建立的一個或多個資產。 OutputMediaAssets 由系统创建。 它們不會參考現有的資產。
+* OutputMediaAssets 可以使用 assetName 属性来命名。 如果這個屬性不存在，則 OutputMediaAsset 的名稱是 <outputAsset> 元素的任何內部文字值，並且尾碼為工作名稱值或工作識別碼值 (在未定義 Name 屬性的情況下)。 例如，如果您將 assetName 的值設為 "Sample"，則 OutputMediaAsset Name 屬性會設為 "Sample"。 不過，如果您未設定 assetName 的值，但已將工作名稱設為 "NewJob"，則 OutputMediaAsset Name 會是 "JobOutputAsset(value)_NewJob"。
 
-    下列範例示範如何設定 assetName 屬性：
+    以下示例说明了如何设置 assetName 属性：
 
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
-* 啟用工作鏈結：
+* 若要启用任务链，必须满足以下条件：
 
   * 工作必須有至少 2 個工作
   * 必須有至少一個工作的輸入是工作中另一項工作的輸出。
@@ -700,11 +700,11 @@ SAS URL 具有下列格式：
 >[!NOTE]
 >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。
 
-Smooth Streaming 的串流 URL 具有下列格式：
+平滑流式处理的流 URL 采用以下格式：
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-HLS 的串流 URL 具有下列格式：
+HLS 的流 URL 采用以下格式：
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
@@ -817,10 +817,8 @@ MPEG DASH 的串流 URL 具有下列格式：
 
 > [!NOTE]
 > 您必須將要下載的檔案名稱新增到前一節中所收到的 Locator **Path** 值。 例如， https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上也提供本文中使用的原始碼。 . 上也提供本文中使用的原始碼。
->
->
 
-如需使用 Azure 儲存體 blob 的詳細資訊，請參閱 [Blob 服務 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
+有关使用 Azure 存储 Blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
 由於您先前執行的編碼工作 (編碼成自調適性 MP4 集)，您有多個可以漸進式下載的 MP4 檔案。 例如︰    
 
@@ -912,7 +910,7 @@ MPEG DASH 的串流 URL 具有下列格式：
 
 
 ## <a id="play"></a>播放您的內容
-若要串流您的視訊，請使用 [Azure 媒體服務播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
+若要流式处理视频，请使用 [Azure 媒体服务播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)。
 
 若要測試漸進式下載，請將 URL 貼入瀏覽器 (例如，IE、Chrome、Safari)。
 

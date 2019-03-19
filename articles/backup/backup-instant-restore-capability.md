@@ -8,26 +8,27 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a618482b73e8e423bc00b7c9010c9282da69cd3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452809"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844701"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>透過 Azure 備份的立即還原功能取得改良的備份和還原效能
 
 > [!NOTE]
 > 我們根據使用者的意見反應，正在將 **VM 備份堆疊 V2** 重新命名為**立即還原**，以減少與 Azure Stack 功能的混淆。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 「立即還原」的新模型提供下列增強功能：
 
 * 能夠使用在備份作業中所建立的快照集 (可用於復原)，而不需等到資料轉送到保存庫完成。 如此可減少觸發還原之前，將快照集複製到保存庫的等候時間。
 * 藉由本機預設保留 2 天的快照集，可減少備份和還原時間。 此預設值可設定為介於 1 至 5 天的任何值。
-* 支援最多 4 TB 磁碟大小。
+* 最大支持 4 TB 的磁盘。
 * 支援標準 SSD 磁碟。
 *   還原時，能夠使用非受控 VM 的原始儲存體帳戶 (依據磁碟)。 即使 VM 的磁碟分散於多個儲存體帳戶，仍然具有此功能。 它能夠針對各種不同的 VM 設定，加快還原作業的速度。
-
 
 
 ## <a name="whats-new-in-this-feature"></a>這項功能有什麼新增功能？
@@ -37,18 +38,19 @@ ms.locfileid: "56452809"
 1.  建立 VM 快照集。
 2.  將 VM 快照集傳輸到 Azure 復原服務保存庫。
 
-復原點只會在第 1 和第 2 階段完成之後才建立。 在此升級中，完成快照集時就會建立復原點，而且快照集類型的此復原點可用來執行還原 (使用相同的還原流程)。 您可以使用「快照集」作為復原點類型，以在 Azure 入口網站中識別此復原點，而在快照集傳輸至保存庫之後，復原點類型就會變更為「快照集和保存庫」。
+復原點只會在第 1 和第 2 階段完成之後才建立。 在此升級中，完成快照集時就會建立復原點，而且快照集類型的此復原點可用來執行還原 (使用相同的還原流程)。 您可以使用 「 快照集 」 作為復原點類型，來識別此復原點，在 Azure 入口網站中的，快照集傳輸至保存庫之後，復原點類型變更為 「 快照集與保存庫 」。
 
 ![VM 備份堆疊 Resource Manager 部署模型的備份作業 -- 儲存體與保存庫](./media/backup-azure-vms/instant-rp-flow.png)
 
-快照集會保留七天。 這項功能允許從這些快照集進行還原作業，因而縮減還原時間。 在非受控磁碟案例中，它可減少轉換資料並將資料從保存庫複製回到使用者儲存體帳戶所需的時間，然而對於受控磁碟使用者，則會從備份資料建立受控磁碟。
+默认情况下，快照将保留两天。 此功能允许从保管库中的这些快照执行还原操作，并可缩短还原时间。 对于非托管磁盘方案，此功能减少了转换数据并将数据从保管库复制回到用户存储帐户所需的时间；对于托管磁盘用户，它可以基于恢复服务数据创建托管磁盘。
 
-## <a name="feature-considerations"></a>功能考量
+## <a name="feature-considerations"></a>功能注意事项
 
 * 快照集會儲存在磁碟上，以便建立復原點及加快還原作業的速度。 因此，您將看見儲存體成本會隨著在這段期間內取得的快照集而增減。
 * 增量快照會儲存為分頁 Blob。 使用非受控磁碟的所有客戶，需對儲存在其本機儲存體帳戶中的快照集付費。 因為由受控 VM 備份所使用的還原點集合會於基礎儲存體層級使用 Blob 快照集，因此針對受控磁碟，您將會看見對應到 Blob 快照集定價的成本，而且它們會持續累加。
 * 對於進階儲存體帳戶，針對立即復原點取得的快照集會計入配置空間的 10 TB 限制。
 * 您可以根據還原需求來設定快照集保留期。 您可以根據需求，在備份原則刀鋒視窗中，將快照集保留期最少設為一天，如下所述。 如果您沒有經常執行還原，此方式可以協助您省下快照集保留期的成本。
+* 這是一個方向升級，升級後立即還原，您不能移回。
 
 
 >[!NOTE]
@@ -77,7 +79,7 @@ ms.locfileid: "56452809"
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>使用 Azure 入口網站設定快照集保留期
-此選項目前在美國中西部、印度南部及澳洲東部可以使用。
+所有的所有使用者**公開地理**已升級至 「 立即還原。
 
 如果使用者已升級，您可以在 Azure 入口網站中，於**立即還原**區段下的 **VM 備份原則**刀鋒視窗中見到新增的欄位。 您可以針對與特定備份原則相關聯的所有 VM，從 **VM 備份原則**刀鋒視窗變更快照集保留持續時間。
 
@@ -90,19 +92,19 @@ ms.locfileid: "56452809"
 1.  登入您的 Azure 帳戶：
 
     ```
-    PS C:> Connect-AzureRmAccount
+    PS C:> Connect-AzAccount
     ```
 
 2.  選取您要註冊的訂用帳戶：
 
     ```
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
     ```
 
 3.  註冊此訂用帳戶：
 
     ```
-    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
 ## <a name="upgrade-to-instant-restore-using-cli"></a>使用 CLI 升級至立即還原
@@ -133,7 +135,7 @@ ms.locfileid: "56452809"
 從提高權限的 PowerShell 終端機執行下列 Cmdlet︰
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
+Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ### <a name="cli"></a>CLI

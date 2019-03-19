@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d9f1b99407f5c94581a3108c785292e9928cbb4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: d0a32f45326eb307bc31d10f4efb842d811a38c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432315"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842492"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>部署 Windows 混合式 Runbook 背景工作角色
 
@@ -61,7 +61,7 @@ ms.locfileid: "54432315"
    * *WorkspaceName* (選擇性)：Log Analytics 工作區名稱。 如果您沒有 Log Analytics 工作區，此指令碼就會建立並設定一個 Log Analytics 工作區。
 
      > [!NOTE]
-     > 目前，支援與 Log Analytics 整合的「自動化」區域只有**澳大利亞東南部**、**美國東部 2**、**東南亞**和**西歐**。 如果您的「自動化」帳戶不在上述其中一個區域，指令碼會建立 Log Analytics 工作區，但會警告您，指出無法將它們連結在一起。
+     > 目前，支援與 Azure 監視器記錄檔整合的自動化區域只是**澳大利亞東南部**，**美國東部 2**，**東南亞**，以及**西歐**。 如果您的「自動化」帳戶不在上述其中一個區域，指令碼會建立 Log Analytics 工作區，但會警告您，指出無法將它們連結在一起。
 
 2. 在您的電腦上，從 [開始] 畫面以系統管理員模式開啟 **Windows PowerShell**。
 3. 從 PowerShell 命令列殼層，瀏覽至包含您所下載指令碼的資料夾。 變更參數 *-AutomationAccountName*、*-AAResourceGroupName*、*-OMSResourceGroupName*、*-HybridGroupName*、*-SubscriptionId* 及 *-WorkspaceName* 的值。 然後執行指令碼。
@@ -83,33 +83,35 @@ ms.locfileid: "54432315"
 
 請對您的「自動化」環境執行一次前兩個步驟，再對每一台背景工作角色電腦重複其餘步驟。
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 #### <a name="1-create-a-log-analytics-workspace"></a>1.建立 Log Analytics 工作區
 
 如果您還沒有 Log Analytics 工作區，請使用[管理您的工作區](../azure-monitor/platform/manage-access.md)中的指示來建立。 如果您已經有工作區，可以使用現有的工作區。
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2.將自動化解決方案新增至 Log Analytics 工作區
 
-方案會將功能加入 Log Analytics。 「自動化」解決方案會增加「Azure 自動化」的功能，包括對「混合式 Runbook 背景工作角色」的支援。 將解決方案新增至工作區時，它會自動將背景工作角色元件推送給您在下一步將安裝的代理程式電腦。
+解決方案會將功能加入 Azure 監視器記錄檔。 「自動化」解決方案會增加「Azure 自動化」的功能，包括對「混合式 Runbook 背景工作角色」的支援。 將解決方案新增至工作區時，它會自動將背景工作角色元件推送給您在下一步將安裝的代理程式電腦。
 
 若要將**自動化**解決方案新增至 Log Analytics 工作區，請依照[使用方案庫新增解決方案](../log-analytics/log-analytics-add-solutions.md)中的指示進行操作。
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3.安裝 Microsoft Monitoring Agent
 
-Microsoft Monitoring Agent 可將電腦連線至 Log Analytics。 將代理程式安裝在內部部署電腦上並連線到您的工作區時，它會自動下載「混合式 Runbook 背景工作角色」所需的元件。
+Microsoft Monitoring Agent 可將電腦連線到 Azure 監視器記錄檔。 將代理程式安裝在內部部署電腦上並連線到您的工作區時，它會自動下載「混合式 Runbook 背景工作角色」所需的元件。
 
-若要將代理程式安裝在內部部署電腦上，請依照[將 Windows 電腦連線到 Log Analytics](../log-analytics/log-analytics-windows-agent.md) 中的指示進行操作。 您可以對多部電腦重複此程序，將多個背景工作角色加入至您的環境。
+若要在內部部署電腦上安裝代理程式，請遵循的指示[連線的 Windows 電腦連線到 Azure 監視器記錄](../log-analytics/log-analytics-windows-agent.md)。 您可以對多部電腦重複此程序，將多個背景工作角色加入至您的環境。
 
-當代理程式成功連線到 Log Analytics 時，它會列在 Log Analytics [設定] 頁面的 [連接的來源] 索引標籤上。 當 C:\Program Files\Microsoft Monitoring Agent\Agent 中出現 **AzureAutomationFiles** 資料夾時，就可確認代理程式已正確下載自動化解決方案。 若要確認「混合式 Runbook 背景工作角色」版本，您可以瀏覽至 C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\，並記下 \\version 子資料夾。
+當代理程式已成功連線到 Azure 監視器記錄檔中時，它會列在**連接的來源**] 索引標籤的 [log analytics**設定**頁面。 當 C:\Program Files\Microsoft Monitoring Agent\Agent 中出現 **AzureAutomationFiles** 資料夾時，就可確認代理程式已正確下載自動化解決方案。 若要確認「混合式 Runbook 背景工作角色」版本，您可以瀏覽至 C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\，並記下 \\version 子資料夾。
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4.安裝 Runbook 環境並連接到 Azure 自動化
 
-將代理程式新增至 Log Analytics 時，自動化解決方案會往下推送包含 **Add-HybridRunbookWorker** Cmdlet 的 **HybridRegistration** PowerShell 模組。 您可以使用這個 Cmdlet 在電腦上安裝 Runbook 環境並向 Azure 自動化進行註冊。
+當您將代理程式加入 Azure 監視器記錄檔時，自動化解決方案會向下**Add-hybridrunbookworker** PowerShell 模組，其中包含**Add-hybridrunbookworker** cmdlet。 您可以使用這個 Cmdlet 在電腦上安裝 Runbook 環境並向 Azure 自動化進行註冊。
 
 以系統管理員模式開啟 PowerShell 工作階段，然後執行下列命令來匯入模組：
 
 ```powershell-interactive
 cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-Import-Module HybridRegistration.psd1
+Import-Module .\HybridRegistration.psd1
 ```
 
 接著，使用下列語法來執行 **Add-HybridRunbookWorker** Cmdlet：
@@ -136,14 +138,9 @@ Runbook 可以使用「Azure 自動化」環境內所安裝模組中定義的任
 
 安裝的模組必須位於 **PSModulePath** 環境變數所參考的位置中，如此混合式背景工作角色才能自動匯入它們。 如需詳細資訊，請參閱[修改 PSModulePath 安裝路徑](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx)。
 
-## <a name="troubleshoot"></a>疑難排解
-
-若要了解如何針對「混合式 Runbook 背景工作角色」進行疑難排解，請參閱[針對 Windows 混合式 Runbook 背景工作角色進行疑難排解](troubleshoot/hybrid-runbook-worker.md#windows)
-
-如需如何針對更新管理的問題進行疑難排解的其他步驟，請參閱[更新管理：疑難排解](troubleshoot/update-management.md)。
-
 ## <a name="next-steps"></a>後續步驟
 
 * 若要了解如何設定您的 Runbook，將您在內部部署資料中心或其他雲端環境中的程序自動化，請參閱[在混合式 Runbook 背景工作角色上執行 Runbook](automation-hrw-run-runbooks.md)。
 * 如需移除混合式 Runbook 背景工作角色的指示，請參閱[移除 Azure 自動化混合式 Runbook 背景工作角色](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker)。
-
+* 若要了解如何針對「混合式 Runbook 背景工作角色」進行疑難排解，請參閱[針對 Windows 混合式 Runbook 背景工作角色進行疑難排解](troubleshoot/hybrid-runbook-worker.md#windows)
+* 如需如何針對更新管理的問題進行疑難排解的其他步驟，請參閱[更新管理：疑難排解](troubleshoot/update-management.md)。

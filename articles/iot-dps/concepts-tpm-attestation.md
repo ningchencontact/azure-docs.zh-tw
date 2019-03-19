@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: e4a86585fbf1e00512e9e8e111a9a259663f8a26
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141293"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536773"
 ---
 # <a name="tpm-attestation"></a>TPM 證明
 
 IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於設定在指定 IoT 中樞上的全自動佈建裝置作業。 這項裝置佈建服務可以讓您以安全的方式佈建數百萬個裝置。
 
-本文將說明使用 [TPM](./concepts-device.md) 時的識別證明程序。 TPM 代表的是「信賴平台模組 (Trusted Platform Module)」，而且是一種硬體安全模組 (HSM)。 本文假設您使用的是個別、韌體或整合式 TPM。 模擬軟體的 TPM 非常適合用來建立原型或測試，但是其不提供與個別、韌體或整合式 TPM 相同的安全性等級。 我們不建議將軟體 TPM 用在生產環境中。 如需 TPM 類型的詳細資訊，請參閱 [TPM 簡短介紹](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf)。
+本文將說明使用 [TPM](./concepts-device.md) 時的識別證明程序。 TPM 代表的是「信賴平台模組 (Trusted Platform Module)」，而且是一種硬體安全模組 (HSM)。 本文假設您使用的是個別、韌體或整合式 TPM。 模擬軟體的 TPM 非常適合用來建立原型或測試，但是其不提供與個別、韌體或整合式 TPM 相同的安全性等級。 我們不建議將軟體 TPM 用在生產環境中。 如需 TPM 類型的詳細資訊，請參閱 [TPM 簡短介紹](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf)。
 
 本文僅與使用 TPM 2.0 及具有 HMAC 金鑰支援的裝置和其簽署金鑰有關。 不適用於使用 X.509 憑證進行驗證的裝置。 在信賴運算群組中，TPM 是業界廣泛使用的 ISO 標準，您可以在[完整 TPM 2.0 規格](https://trustedcomputinggroup.org/tpm-library-specification/)或 [ISO/IEC 11889 規格](https://www.iso.org/standard/66510.html)中深入了解 TPM。本文也假設您熟悉公用和私密金鑰組，以及其用於加密的方式。
 
@@ -35,7 +35,7 @@ TPM 有另一種類型的金鑰，稱為儲存根金鑰 (SRK)。 TPM 的擁有�
 
 ![取得 TPM 擁有權](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-關於取得 TPM 擁有權，有一點需要注意：能否取得 TPM 擁有權取決於很多事情，包括 TPM 製造商、正在使用的 TPM 工具集，以及裝置作業系統。 請遵循適用於您系統的指示來取得擁有權。
+取得 TPM 的擁有權的一個注意事項：取得 TPM 的擁有權取決於許多因素，包括 TPM 製造商、 TPM 所使用的工具組和裝置作業系統。 請遵循適用於您系統的指示來取得擁有權。
 
 裝置佈建服務會使用 EK (EK_pub) 的公開部分來識別和註冊裝置。 裝置廠商可以在製造或最終測試期間讀取 EK_pub，並將 EK_pub 上傳至佈建服務，以便裝置連線到佈建時，佈建可辨識出此裝置。 裝置佈建服務不會檢查 SRK 或擁有者，因此「清除」TPM 會清除客戶資料，但會保留 EK (和其他廠商資料)，而且裝置佈建服務仍可在裝置連線至佈建時辨識出裝置。
 

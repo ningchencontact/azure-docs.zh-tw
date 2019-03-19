@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 7c47e6df1e8b92d122dcc6bed55506f2fccf9e89
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877502"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845115"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業
 
@@ -194,7 +194,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
       </listeners>
     </trace>
   </system.diagnostics>
-```
+  ```
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解 Nuget 套件及大量執行程式 .Net 程式庫的版本資訊，請參閱[大量執行程式 SDK 詳細資料](sql-api-sdk-bulk-executor-dot-net.md)。 
+* 若要深入了解 Nuget 套件詳細資料及版本的大量執行程式的.NET 程式庫的資訊，請參閱[大量執行程式 SDK 的詳細資訊](sql-api-sdk-bulk-executor-dot-net.md)。 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e208f899ff26135d3ce26bfa18096210513381
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bcc93254b50da9bff6f687034d39d0058aa514e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192042"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765946"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>教學課程：Azure Active Directory 與 Perception United States (非 UltiPro) 整合
 
@@ -166,7 +166,7 @@ Perception United States (非 UltiPro) 與 Azure AD 整合提供下列優點：
     
     c. 在 [識別提供者姓名] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。 
 
-    d. 在 [SAML 網域] 文字方塊中，輸入網域，例如 **@contoso.com**。
+    d. 在  **SAML 網域文字方塊**，輸入網域，例如 **\@contoso.com**。
 
     e. 按一下 [再次上傳]，以上傳**中繼資料 XML** 檔案。
 

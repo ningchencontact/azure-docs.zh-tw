@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 92d5d458615b029553dee2f8047c85e3fb5f9696
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838913"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -47,6 +47,10 @@ ms.locfileid: "55892589"
 * 新的物件模型，其最上層 CosmosClient 和方法分佈在相關 CosmosDatabases、CosmosContainers 與 CosmosItems 類別之間。 
 * 支援資料流。 
 * 更新來自伺服器的 CosmosResponseMessage 以傳回狀態碼，並只會在沒有傳回回應時擲回例外狀況。 
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+
+* 診斷改良功能
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -191,7 +195,7 @@ ms.locfileid: "55892589"
 * 已修正在 ASP.NET 內容內部使用時會在某些非同步 API 中造成死結的問題。
 
 ### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
-* 修正來讓 SDK 在某些情況下能夠更有彈性地進行自動容錯移轉。
+* 修复程序，用于使 SDK 更具弹性，以便在某些情况下自动故障转移。
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
 * 修正偶爾會造成「WebException:The remote name could not be resolved」的問題。
@@ -210,7 +214,7 @@ ms.locfileid: "55892589"
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4
 * 修正一個某些跨分割區查詢在 32 位元主機處理序中失敗的問題。
 * 修正在閘道模式中未使用失敗要求的權杖來更新工作階段容器的問題。
-* 修正縱向選取中具有 UDF 呼叫的查詢在某些案例中失敗的問題。
+* 修复了以下问题：投影中调用 UDF 的查询在某些情况下失败。
 * 已修正用戶端效能，以提高要求的讀取和寫入輸送量。
 
 ### <a name="a-name11131113"></a><a name="1.11.3"/>1.11.3
@@ -224,7 +228,7 @@ ms.locfileid: "55892589"
 * 針對和高比例並行要求有關的案例，修正 SDK 中的效能。
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
-* 支援新的類別和方法以在集合內處理文件的[變更摘要](change-feed.md)。
+* 支持新类和方法，可处理集合内的文档[更改源](change-feed.md)。
 * 支援跨資料分割繼續查詢和改善跨資料分割查詢的一些效能。
 * 新增 CreateDatabaseIfNotExistsAsync 和 CreateDocumentCollectionIfNotExistsAsync 方法。
 * 針對下列系統函數的 LINQ 支援：IsDefined、IsNull 及 IsPrimitive。
@@ -243,7 +247,7 @@ ms.locfileid: "55892589"
 * 公開 ResourceResponse 類別中的 ResponseStream 屬性，可讓您直接從回應存取基礎資料流。
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
-* 修改了 ResourceResponse、FeedResponse、StoredProcedureResponse 和 MediaResponse 類別以實作對應的公用介面，讓它們可以模擬用於測試導向部署 (TDD)。
+* 修改了 ResourceResponse、FeedResponse、StoredProcedureResponse 和 MediaResponse 类，以实现相应的公共接口，以便可以模拟它们进行测试驱动的部署 (TDD)。
 * 修正了使用自訂 JsonSerializerSettings 物件來序列化資料時，會造成資料分割索引鍵標頭格式不正確的問題。
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
@@ -260,14 +264,14 @@ ms.locfileid: "55892589"
   * UpsertAttachmentAsync 方法，會接受 mediaStream 及選項做為參數
   * CreateAttachmentAsync 方法，會接受選項做為參數
   * CreateOfferQuery 方法，會接受 querySpec 做為參數
-* 已解除密封 IDocumentClient 介面中公開的公用類別。
+* 已解封 IDocumentClient 接口中公开的公共类。
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
-* 新增對多重區域資料庫帳戶的支援。
+* 添加了对多区域数据库帐户的支持。
 * 新增在已節流處理的要求上進行重試的支援。  使用者可以藉由設定 ConnectionPolicy.RetryOptions 屬性，來自訂重試次數和等待時間上限。
 * 新增新的 IDocumentClient 介面，其中會定義所有 DocumenClient 屬性和方法的簽章。  做為此變更的一部分，也將建立 IQueryable 和 IOrderedQueryable 的擴充方法變更為 DocumentClient 類別本身上的方法。
 * 新增組態選項，以針對指定的 Azure Cosmos DB 端點 URI 設定 ServicePoint.ConnectionLimit。  使用 ConnectionPolicy.MaxConnectionLimit 來變更預設值 (已設為 50)。
-* 已淘汰 IPartitionResolver 及其實作。  現在不支援 IPartitionResolver。 建議您針對更高的儲存體和輸送量使用分割集合。
+* 已淘汰 IPartitionResolver 及其實作。  現在不支援 IPartitionResolver。 建议使用分区集合来提高存储和吞吐量。
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
 * 根據會接受 RequestOptions 做為參數的 ExecuteStoredProcedureAsync 方法，新加入 URI 多載。
@@ -292,15 +296,15 @@ ms.locfileid: "55892589"
 * **[已修正]** 將模型投射與 LINQ 查詢中的 Where-In 結合使用時發生 ArgumentOutOfRangeException。 [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
-* **[已修正]** 如果 Select 不是最後一個運算式，LINQ 提供者會假設沒有任何預測，並會產生不正確的 SELECT *。  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
+* **[已修复]** 如果 Select 不是最后一个表达式，则 LINQ 提供程序假定没有投影，并且错误地生成 SELECT *。  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
-* 實作 Upsert、新增 UpsertXXXAsync 方法
+* 实现的 Upsert，已添加 UpsertXXXAsync 方法
 * 所有要求的效能改進
 * LINQ 提供者支援字串的條件式、聯合和 CompareTo 方法
 * **[已修正]** LINQ 提供者 --> 在 List 上實作 Contains 方法，以產生與 IEnumerable 和 Array 上相同的 SQL
 * **[已修正]** 重試時，BackoffRetryUtility 會再次使用相同的 HttpRequestMessage，而非建立新的
-* **[已過時]** UriFactory.CreateCollection --> 現應使用 UriFactory.CreateDocumentCollection
+* **[已过时]** UriFactory.CreateCollection --> 现在应使用 UriFactory.CreateDocumentCollection
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 * **[已修正]** 使用非 en 文化特性資訊時 (例如 nl-NL 等) 的當地語系化問題。 
@@ -357,6 +361,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |2019 年 2 月 11日日 |--- |
 | [2.2.2](#2.2.2) |2019 年 2 月 6 日 |--- |
 | [2.2.1](#2.2.1) |2018 年 12 月 24 日 |--- |
 | [2.2.0](#2.2.0) |2018 年 12 月 7 日 |--- |
@@ -416,6 +421,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。 
 

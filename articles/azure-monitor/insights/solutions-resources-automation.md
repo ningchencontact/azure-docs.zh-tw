@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229484"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763601"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>將 Azure 自動化資源新增至管理解決方案 (預覽)
 > [!NOTE]
@@ -75,7 +75,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明 Runbook 的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | runbookType |指定 Runbook 的類型。 <br><br> Script - PowerShell 指令碼 <br>PowerShell - PowerShell 工作流程 <br> GraphPowerShell - 圖形化 PowerShell 指令碼 Runbook <br> GraphPowerShellWorkflow - 圖形化 PowerShell 工作流程 Runbook |
 | logProgress |指定是否應針對 Runbook 產生[進度記錄](../../automation/automation-runbook-output-and-messages.md)。 |
@@ -111,7 +111,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明自動化作業的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | Runbook |具有要啟動之 Runbook 名稱的單一名稱實體。 |
 | parameters |Runbook 所需之每個參數值的實體。 |
@@ -142,7 +142,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明憑證資源的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | base64Value |憑證的 Base 64 值。 |
 | thumbprint |憑證的指紋。 |
@@ -169,7 +169,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明認證資源的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | userName |認證的使用者名稱。 |
 | password |認證的密碼。 |
@@ -197,7 +197,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明排程資源的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 說明 |排程的選擇性說明。 |
 | startTime |將排程的開始時間指定為 DateTime 物件。 如果可以轉換成有效的 DateTime，即可提供字串。 |
@@ -240,7 +240,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明作業排程的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 排程名稱 |包含排程名稱的單一**名稱**實體。 |
 | Runbook 名稱  |包含 Runbook 名稱的單一**名稱**實體。  |
@@ -267,7 +267,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明變數資源的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 說明 | 變數的選擇性說明。 |
 | isEncrypted | 指定是否應加密變數。 |
@@ -279,7 +279,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 如果您設定變數的初始值，則必須將它設定為正確的資料類型。  下表提供允許的不同資料類型和其語法。  請注意，JSON 中的值應該一律要用引號括住，並以括號括住任何特殊字元。  例如，以括住字串的引號指定字串值 (使用逸出字元 (\\))，並以一組引號指定數值。
 
-| 資料類型 | 說明 | 範例 | 解析成 |
+| 資料類型 | 描述 | 範例 | 解析成 |
 |:--|:--|:--|:--|
 | 字串   | 以雙引號括住值。  | "\"Hello world\"" | "Hello world" |
 | numeric  | 以單引號括住數值。| "64" | 64 |
@@ -307,7 +307,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明模組資源的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | contentLink |指定模組的內容。 <br><br>uri - 模組內容的 Uri。  這會是 PowerShell 和 Script Runbook 的 .ps1 檔案，以及 Graph Runbook 的已匯出圖形化 Runbook 檔案。  <br> 版本 - 自有追蹤的模組版本。 |
 

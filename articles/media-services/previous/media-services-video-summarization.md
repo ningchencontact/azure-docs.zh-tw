@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 30c342ca31b33d910406bf74d90d49979e5c46bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838073"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒體視訊縮圖建立視訊摘要  
 ## <a name="overview"></a>概觀
@@ -37,10 +37,10 @@ ms.locfileid: "56004797"
 以下是 Azure 媒體視訊縮圖媒體處理器可以執行的一些範例：
 
 ### <a name="original-video"></a>原始視訊
-[原始視訊](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[原始視訊](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
 ### <a name="video-thumbnail-result"></a>視訊縮圖的結果
-[視訊縮圖的結果](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[視訊縮圖的結果](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="task-configuration-preset"></a>工作組態 (預設)
 以 **Azure 媒體視訊縮圖**建立視訊縮圖工作時，您必須指定設定預設值。 上述縮圖是使用下列基本 JSON 組態建立的範例︰
@@ -53,7 +53,7 @@ ms.locfileid: "56004797"
 
 目前，您可以變更下列參數：
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | outputAudio |指定結果視訊是否要包含任何音訊。 <br/>允許的值包括：True 或 False。 預設值是 True。 |
 | fadeInFadeOut |指定不同的動作縮圖之間是否要使用淡化轉換。  <br/>允許的值包括：True 或 False。  預設值是 True。 |
@@ -62,8 +62,8 @@ ms.locfileid: "56004797"
 下表說明未使用 **maxMotionThumbnailInSecs** 時的預設持續時間。
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
-| 視訊持續時間 |d < 3 分鐘 |3 分鐘 < d < 15 分鐘 |
+| --- | --- | --- |
+| 視訊持續時間 |d < 3 分鐘 |3 分钟 < d < 15 分钟 |
 | 縮圖持續時間 |15 秒 (2-3 個場景) |30 秒 (3-5 個場景) |
 
 下列 JSON 會設定可用的參數。
@@ -276,7 +276,7 @@ ms.locfileid: "56004797"
 ```
 
 ### <a name="video-thumbnail-output"></a>視訊縮圖的輸出
-[視訊縮圖的輸出](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[視訊縮圖的輸出](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -285,7 +285,7 @@ ms.locfileid: "56004797"
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>相關連結
-[Azure 媒體服務分析概觀](media-services-analytics-overview.md)
+[Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

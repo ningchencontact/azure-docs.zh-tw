@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/16/19
+ms.date: 03/12/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1496653c319b4732614cd1c8148afb5c5b06215
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: f06446cb6af1fa145e5fcec41cc85a1452af207a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456736"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839248"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
-使用 Azure Active Directory (Azure AD) 時，您可以指定受限的系統管理員，以較低權限的角色來執行功能。 您可以在 Azure AD 入口網站中指定系統管理員以執行多種工作，例如新增或變更使用者、指派系統管理角色、重設使用者密碼、管理使用者授權，以及管理網域名稱等。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
+使用 Azure Active Directory (Azure AD)，您可以指定有限的系統管理員管理較低權限角色中的身分識別工作。 系統管理員可以指派等目的的新增或變更使用者、 指派系統管理角色、 重設使用者密碼、 管理使用者授權，及管理網域名稱。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
 
 全域管理員可以存取所有系統管理功能。 註冊 Azure 訂用帳戶的人員預設會獲指派目錄的全域管理員角色。 只有全域管理員和特殊權限角色管理員才能委派系統管理員角色。 為了降低業務風險，建議您將此角色僅指派給您公司中的幾個人員。
 
@@ -36,21 +36,24 @@ ms.locfileid: "56456736"
 
 可用的系統管理員角色如下：
 
-* **[應用程式系統管理員](#application-administrator)**：此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 建立新的應用程式註冊或企業應用程式時，不會加入此角色的成員作為擁有者。
+* **[應用程式系統管理員](#application-administrator)**：此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 建立新的應用程式註冊 」 或 「 企業應用程式時，指派給這個角色的使用者不會新增為擁有者。
 
   <b>重要</b>：此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
 
-* **[應用程式開發人員](#application-developer)**：將「使用者可以註冊應用程式」設定設為「否」時，此角色中的使用者可以建立應用程式註冊。 將「使用者可同意應用程式代表自己存取公司資料」設定設為「否」時，此角色也允許成員代表他們自己同意。 建立新的應用程式註冊或企業應用程式時，不會加入此角色的成員作為擁有者。
+* **[應用程式開發人員](#application-developer)**：將「使用者可以註冊應用程式」設定設為「否」時，此角色中的使用者可以建立應用程式註冊。 這個角色也會授與的權限，其代表同意時 「 使用者可同意應用程式存取公司資料，其代表"設定為 [否]。 建立新的應用程式註冊 」 或 「 企業應用程式時，會指派給這個角色的使用者新增為擁有者。
 
-* **[驗證系統管理員](#authentication-administrator)**：具有此角色的使用者可以設定或重設非密碼認證。 驗證系統管理員可以強制使用者針對現有的非密碼認證 (例如 MFA，FIDO) 重新註冊並撤銷「在裝置上記住 MFA」，在其他非系統管理員或下列角色成員的使用者下次登入時提示 MFA：
+* **[驗證系統管理員](#authentication-administrator)**：具有此角色的使用者可以設定或重設非密碼認證。 驗證系統管理員可以要求使用者重新向現有的非密碼認證 （例如 MFA 或 FIDO） 註冊及撤銷**裝置上記住 MFA**，這會提示在下次登入使用者的 mfa非系統管理員或指派下列角色：
   * 驗證系統管理員
   * 目錄讀取器
   * 來賓邀請者
   * 訊息中心讀取者
   * 報告讀者
-  
+
+  驗證系統管理員角色目前為公開預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
   <b>重要</b>：對於可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員，具備此角色的使用者可以變更認證。 變更使用者的認證表示可承擔該使用者身分識別和權限。 例如︰
-  * 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 驗證系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
+
+  * 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 透過此路徑驗證系統管理員可以擔任應用程式擁有者的身分識別，並進一步假設藉由更新應用程式的認證的特殊權限的應用程式的識別。
   * Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
   * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
   * Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
@@ -58,7 +61,7 @@ ms.locfileid: "56456736"
 
 * **[計費管理員](#billing-administrator)**：進行採購、管理訂用帳戶、管理支援票證，以及監控服務健全狀況。
 
-* **[雲端應用程式系統管理員](#cloud-application-administrator)**：此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 建立新的應用程式註冊或企業應用程式時，不會加入此角色的成員作為擁有者。
+* **[雲端應用程式系統管理員](#cloud-application-administrator)**：此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 建立新的應用程式註冊 」 或 「 企業應用程式時，指派給這個角色的使用者不會新增為擁有者。
 
   <b>重要</b>：此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將雲端應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
 
@@ -89,7 +92,7 @@ ms.locfileid: "56456736"
   > 若要在 Azure 中部署 Exchange ActiveSync 條件式存取原則，使用者也必須是全域系統管理員。
   
 * **[客戶加密箱存取核准者](#customer-lockbox-access-approver)**：管理您組織中的[客戶加密箱要求](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests)。 他們會收到「客戶加密箱」要求的電子郵件通知，並且可以核准和拒絕來自 Microsoft 365 系統管理中心的要求。 他們也可以開啟或關閉「客戶加密箱」功能。 只有全域管理員可以重設指派給此角色之人員的密碼。
-<!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
+  <!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
 
 * **[裝置系統管理員](#device-administrators)**：此角色是只能指派為[裝置設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)中的其他本機系統管理員。 具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。 
 
@@ -131,7 +134,7 @@ ms.locfileid: "56456736"
 
 * **[合作夥伴第 2 層支援](#partner-tier2-support)**：請勿使用。 此角色已被取代，而且未來將從 Azure AD 中移除。 此角色僅供少數 Microsoft 轉售合作夥伴使用，不適用於一般用途。
 
-* **[密碼管理員/技術支援中心管理員](#helpdesk-administrator)**：具備此角色的使用者可以變更密碼、讓重新整理權杖失效、管理服務要求，以及監視服務健康情況。 讓重新整理權杖失效會強制使用者重新登入。 技術支援中心系統管理員可以重設密碼，並且讓非系統管理員或下列角色成員的其他使用者重新整理的權杖失效：
+* **[密碼管理員/技術支援中心管理員](#helpdesk-administrator)**：具備此角色的使用者可以變更密碼、讓重新整理權杖失效、管理服務要求，以及監視服務健康情況。 讓重新整理權杖失效會強制使用者重新登入。 技術支援中心管理員可以重設密碼，並使其失效的非系統管理員或指派下列角色的其他使用者的重新整理權杖：
   * 目錄讀取器
   * 來賓邀請者
   * 服務台系統管理員
@@ -153,9 +156,13 @@ ms.locfileid: "56456736"
   > [!NOTE]
   > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「Power BI 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com)中則是「Power BI 管理員」。
 
+* **[驗證系統管理員特殊權限](#privileged-authentication-administrator)**:具備此角色的使用者可以設定或重設所有的使用者，包括全域系統管理員的非密碼認證。 特殊權限的驗證系統管理員可以強制使用者針對現有的非密碼認證 (例如 MFA，FIDO) 重新註冊及撤銷 '在裝置上記住 MFA' 上的所有使用者下次登入時提示適用於 MFA。 特殊權限的驗證系統管理員可以：
+  * 強制使用者必須重新註冊針對現有的非密碼認證 (例如 MFA，FIDO)
+  * 撤銷 '在裝置上記住 MFA，' 在下次登入時提示 mfa
+
 * **[特殊權限角色管理員](#privileged-role-administrator)**：具備此角色的使用者可以管理 Azure Active Directory 中，以及 Azure AD Privileged Identity Management 內的角色指派。 此外，這個角色允許各個層面的 Privileged Identity Management 管理。
 
-  <b>重要</b>：此角色會獲得授與管理所有 Azure AD 角色成員資格的能力，包括全域管理員角色。 此角色不包含 Azure AD 中的任何其他特殊權限能力，例如建立或更新使用者。 不過，指派給這個角色的使用者可以藉由指派額外的角色，來授與自己或其他人額外權限。
+  <b>重要</b>：此角色授與管理的所有 Azure AD 角色，包括全域系統管理員角色指派的能力。 此角色不包含 Azure AD 中的任何其他特殊權限能力，例如建立或更新使用者。 不過，指派給這個角色的使用者可以藉由指派額外的角色，來授與自己或其他人額外權限。
 
 * **[報表讀者](#reports-reader)**：具有此角色的使用者可檢視 Office 365 系統管理中心內的使用報告資料與報表儀表板，以及 PowerBI 中的採用內容套件。 此外，此角色還可讓使用者存取 Azure AD 中的登入報告與活動，以及 Microsoft Graph 報告 API 所傳回的資料。 獲指派「報告讀者」角色的使用者只能存取相關的使用情況和採用計量。 他們並不具備任何系統管理權限，因此無法進行設定或存取產品特定的系統管理中心 (例如 Exchange)。 這個角色沒有檢視、建立或管理支援票證的存取權。
 
@@ -165,7 +172,7 @@ ms.locfileid: "56456736"
   --- | ---
   [Microsoft 365 資訊安全中心](https://protection.microsoft.com) | 監視所有 Microsoft 365 服務的安全性相關原則<br>管理安全性威脅和警示<br>檢視報告
   身分識別防護中心 | 「安全性讀取者」角色的所有權限<br>此外，還能夠執行除了重設密碼以外的所有身分識別防護中心作業
-  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 「安全性讀取者」角色的所有權限<br>**無法**管理 Azure AD 角色成員資格或設定
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 「安全性讀取者」角色的所有權限<br>**無法**管理 Azure AD 角色指派 」 或 「 設定
   [Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理安全性原則<br>檢視、調查及回應安全性威脅<br>檢視報告
   Azure 進階威脅防護 | 監視及回應可疑的安全性活動
   Windows Defender ATP 和 EDR | 指派角色<br>管理電腦群組<br>設定端點威脅偵測和自動補救<br>檢視、調查及回應警示
@@ -193,7 +200,7 @@ ms.locfileid: "56456736"
   --- | ---
   [Microsoft 365 資訊安全中心](https://protection.microsoft.com) | 檢視所有 Microsoft 365 服務的安全性相關原則<br>檢視安全性威脅和警示<br>檢視報告
   身分識別防護中心 | 讀取安全性功能的所有安全性報告和設定資訊<br><ul><li>反垃圾郵件<li>加密<li>資料外洩防護<li>反惡意程式碼<li>進階威脅防護<li>防網路釣魚<li>郵件流程規則
-  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 以唯讀方式存取 Azure AD PIM 中所顯示的一切資訊︰Azure AD 角色指派的原則和報告、安全性檢閱，以及在未來還可透過讀取來存取 Azure AD 角色指派以外案例的原則資料和報告。<br>**無法**註冊 Azure AD PIM 或對它進行任何變更。 擔任此角色的人員可以在 PIM 的入口網站中或是透過 PowerShell，來啟用其他角色 (例如「全域管理員」或「特殊權限角色管理員」)，前提是該使用者必須有資格擔任該角色。
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 以唯讀方式存取 Azure AD PIM 中所顯示的一切資訊︰Azure AD 角色指派的原則和報告、安全性檢閱，以及在未來還可透過讀取來存取 Azure AD 角色指派以外案例的原則資料和報告。<br>**無法**註冊 Azure AD PIM 或對它進行任何變更。 在 PIM 入口網站或透過 PowerShell 中，此角色中的使用者可以啟用其他角色 （例如，全域管理員或特殊權限角色管理員），如果使用者有資格它們。
   [Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 檢視安全性原則<br>檢視及調查安全性威脅<br>檢視報告
   Windows Defender ATP 和 EDR | 檢視和調查警示
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視使用者、裝置、註冊、設定及應用程式資訊。 無法對 Intune 進行變更。
@@ -224,15 +231,15 @@ ms.locfileid: "56456736"
 
 * **[Teams 通訊支援專家](#teams-communications-support-specialist)**：此角色的使用者可以使用 Microsoft Teams 和商務用 Skype 系統管理中心內的使用者呼叫疑難排解工具，針對 Microsoft Teams 和商務用 Skype 內的通訊問題進行疑難排解。 此角色的使用者只能檢視其所查閱特定使用者的呼叫中所含有的使用者詳細資料。 這個角色沒有檢視、建立或管理支援票證的存取權。
 
-* **[使用者帳戶管理員](#user-account-administrator)**：具有此角色的使用者可以建立使用者，以及管理具有部分限制使用者的所有層面 (如下所示)。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。
+* **[使用者管理員](#user-account-administrator)**:具有此角色的使用者可以建立使用者，以及管理具有部分限制使用者的所有層面 (如下所示)。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。
 
   | | |
   | --- | --- |
   |一般權限|<p>建立 [使用者和群組]</p><p>建立和管理使用者檢視</p><p>建立 Office 支援票證|
   |<p>所有使用者，包括所有管理員</p>|<p>管理授權</p><p>管理使用者主體名稱以外的所有使用者屬性</p>
-  |只有非管理員或者下列任何有限管理員角色的使用者：<ul><li>目錄讀取器<li>來賓邀請者<li>服務台系統管理員<li>訊息中心讀取者<li>報告讀者<li>使用者帳戶管理員|<p>刪除及還原</p><p>停用和啟用</p><p>使重新整理權杖失效</p><p>管理包含使用者主體名稱的所有使用者屬性</p><p>重設密碼</p><p>更新 (FIDO) 裝置金鑰</p>
+  |只有非管理員或者下列任何有限管理員角色的使用者：<ul><li>目錄讀取器<li>來賓邀請者<li>服務台系統管理員<li>訊息中心讀取者<li>報告讀者<li>使用者管理員|<p>刪除及還原</p><p>停用和啟用</p><p>使重新整理權杖失效</p><p>管理包含使用者主體名稱的所有使用者屬性</p><p>重設密碼</p><p>更新 (FIDO) 裝置金鑰</p>
   
-  <b>重要</b>：具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如︰
+  <b>重要说明</b>：具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如︰
   * 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與使用者系統管理員。 使用者系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
   * Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
   * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
@@ -319,7 +326,6 @@ ms.locfileid: "56456736"
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | 更新 Azure Active Directory 中 organization 的基本屬性。 |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | 更新 Azure Active Directory 中的 organization.trustedCAsForPasswordlessAuth 屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.commerce.billing/allEntities/allTasks | 管理 Office 365 帳單的所有層面。 |
@@ -448,14 +454,12 @@ ms.locfileid: "56456736"
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.commerce.billing/allEntities/allTasks | 管理 Office 365 帳單的所有層面。 |
 | microsoft.intune/allEntities/allTasks | 管理 Intune 的所有層面。 |
-| microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.complianceManager/allEntities/allTasks | 管理 Office 365 合規性管理員的所有層面 |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | 管理電腦分析的所有層面。 |
 | microsoft.office365.exchange/allEntities/allTasks | 管理 Exchange Online 的所有層面。 |
 | microsoft.office365.lockbox/allEntities/allTasks | 管理 Office 365 客戶加密箱的所有層面 |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
 | microsoft.office365.messageCenter/securityMessages/read | 讀取 microsoft.office365.messageCenter 中的 securityMessages。 |
-| microsoft.powerApps.powerBI/allEntities/allTasks | 管理 Power BI 的所有層面。 |
 | microsoft.office365.protectionCenter/allEntities/allTasks | 管理 Office 365 防護中心的所有層面。 |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | 建立和刪除所有資源，以及讀取和更新 microsoft.office365.securityComplianceCenter 中的標準屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
@@ -463,7 +467,9 @@ ms.locfileid: "56456736"
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | 管理商務用 Skype Online 的所有層面。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 | microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
+| microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | 管理 Dynamics 365 的所有層面。 |
+| microsoft.powerApps.powerBI/allEntities/allTasks | 管理 Power BI 的所有層面。 |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | 讀取 microsoft.aad.defenderAdvancedThreatProtection 中的所有資源。 |
 
 ### <a name="compliance-administrator"></a>規範管理員
@@ -517,8 +523,8 @@ ms.locfileid: "56456736"
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
-### <a name="customer-lockbox-access-approver"></a>客戶加密箱存取核准者
-可核准 Microsoft 支援要求，以存取客戶組織的資料。 這個角色沒有檢視、建立或管理支援票證的存取權。
+### <a name="customer-lockbox-access-approver"></a>客戶 LockBox 存取核准者
+可核准 Microsoft 支援要求，以存取客戶組織的資料。
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -531,7 +537,7 @@ ms.locfileid: "56456736"
 | microsoft.office365.lockbox/allEntities/allTasks | 管理 Office 365 客戶加密箱的所有層面 |
 
 ### <a name="device-administrators"></a>裝置系統管理員
-此角色的成員會新增至已加入 Azure AD 的裝置上的本機系統管理員群組群組。
+指派給這個角色的使用者會新增至 Azure AD 已加入的裝置上的本機 administrators 群組。
 
 | **動作** | **說明** |
 | --- | --- |
@@ -782,7 +788,7 @@ ms.locfileid: "56456736"
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
 ### <a name="message-center-reader"></a>訊息中心讀取者
-只可在 Office 365 訊息中心讀取及更新其組織的訊息。 這個角色沒有檢視、建立或管理支援票證的存取權。
+只可在 Office 365 訊息中心讀取及更新其組織的訊息。 
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -845,7 +851,6 @@ ms.locfileid: "56456736"
 | microsoft.aad.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
 | microsoft.aad.directory/groups/restore | 還原 Azure Active Directory 中的 groups。 |
 | microsoft.aad.directory/organization/basic/update | 更新 Azure Active Directory 中 organization 的基本屬性。 |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | 更新 Azure Active Directory 中的 organization.trustedCAsForPasswordlessAuth 屬性。 |
 | microsoft.aad.directory/users/appRoleAssignments/update | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
 | microsoft.aad.directory/users/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
 | microsoft.aad.directory/users/basic/update | 更新 Azure Active Directory 中 users 的基本屬性。 |
@@ -874,6 +879,19 @@ ms.locfileid: "56456736"
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.powerApps.powerBI/allEntities/allTasks | 管理 Power BI 的所有層面。 |
+| microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
+| microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
+| microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
+
+### <a name="privileged-authentication-administrator"></a>特殊權限驗證管理員
+可檢視、設定及重設所有使用者 (管理員或非管理員) 的驗證方法資訊。
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
+| microsoft.aad.directory/users/strongAuthentication/update | 更新 MFA 認證資訊等增強式驗證屬性。 |
+| microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
+| microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
@@ -1041,7 +1059,7 @@ ms.locfileid: "56456736"
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 
 ### <a name="teams-service-administrator"></a>Microsoft Teams 服務管理員
-能夠管理 Microsoft Teams 服務。 
+能夠管理 Microsoft Teams 服務。
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -1064,7 +1082,7 @@ ms.locfileid: "56456736"
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 | microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
 
-### <a name="user-account-administrator"></a>使用者帳戶管理員
+### <a name="user-administrator"></a>使用者管理員
 能夠管理使用者與群組的所有層面，包含為受限制的管理員重設密碼。
 
 | **動作** | **說明** |
@@ -1100,6 +1118,56 @@ ms.locfileid: "56456736"
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
+
+## <a name="role-template-ids"></a>角色範本識別碼
+
+主要 Graph API 或 PowerShell 的使用者會使用角色範本識別碼。
+
+圖形顯示名稱 | Azure 入口網站的顯示名稱 | directoryRoleTemplateId
+----------------- | ------------------------- | -------------------------
+應用程式系統管理員 | 應用程式管理員 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
+應用程式開發人員 | 應用程式開發人員 | CF1C38E5-3621-4004-A7CB-879624DCED7C
+計費管理員 | 計費管理員 | b0f54661-2d74-4c50-afa3-1ec803f12efe
+電腦分析系統管理員 | 電腦分析系統管理員 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
+雲端應用程式系統管理員 | 雲端應用程式系統管理員 | 158c047a-c907-4556-b7ef-446551a6b5f7
+雲端裝置管理員 | 雲端裝置管理員 | 7698a772-787b-4ac8-901f-60d6b08affd2
+公司系統管理員 | 全域管理員 | 62e90394-69f5-4237-9190-012177145e10
+規範管理員 | 規範管理員 | 17315797-102d-40b4-93e0-432062caca18
+條件式存取系統管理員 | 條件式存取系統管理員 | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
+CRM 服務管理員 | Dynamics 365 系統管理員 | 44367163-eba1-44c3-98af-f5787879f96a
+客戶 LockBox 存取核准者 | 客戶加密箱存取核准者 | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+裝置系統管理員 | 裝置系統管理員 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+加入裝置 | 加入裝置 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+裝置管理員 | 裝置管理員 | 2b499bcd-da44-4968-8aec-78e1674fa64d
+裝置使用者 | 裝置使用者 | d405c6df-0af8-4e3b-95e4-4d06e542189e
+目錄讀取器 | 目錄讀取器 | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
+目錄同步處理帳戶 | 目錄同步處理帳戶 | d29b2b05-8046-44ba-8758-1e26182fcf32
+目錄撰寫者 | 目錄寫入器 | 9360feb5-f418-4baa-8175-e2a00bac4301
+Exchange 服務管理員 | Exchange 系統管理員 | 29232cdf-9323-42fd-ade2-1d097af3e4de
+來賓邀請者 | 來賓邀請者 | 95e79109-95c0-4d8e-aee3-d01accf2d47b
+服務台系統管理員 | 密碼管理員 | 729827e3-9c14-49f7-bb1b-9608f156bbb8
+資訊保護管理員 | 資訊保護管理員 | 7495fdc4-34c4-4d15-a289-98788ce399fd
+Intune 服務管理員 | Intune 系統管理員 | 3a2c62db-5318-420d-8d74-23affee5d9d5
+授權管理員 | 授權管理員 | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
+Lync 服務管理員 | 商務用 Skype 的管理員 | 75941009-915a-4869-abe7-691bff18279e
+訊息中心讀取者 | 訊息中心讀者 | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+合作夥伴第 1 層支援 | 合作夥伴第 1 層支援 | 4ba39ca4-527c-499a-b93d-d9b492c50246
+合作夥伴第 2 層支援 | 合作夥伴第 2 層支援 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Power BI 服務管理員 | Power BI 管理員 | a9ea8996-122f-4c74-9520-8edcd192826c
+特殊權限角色管理員 | 特殊權限角色管理員 | e8611ab8-c189-46e8-94e1-60213ab1f814
+報告讀者 | 報表讀者 | 4a5d8f65-41da-4de4-8968-e035b65339cf
+安全性系統管理員 | 安全性系統管理員 | 194ae4cb-b126-40b2-bd5b-6091b380977d
+安全性讀取者 | 安全性讀取者 | 5d6b6bb7-de71-4623-b4af-96380a352509
+服務支援管理員 | 服務管理員 | f023fd81-a637-4b56-95fd-791ac0226033
+SharePoint 服務管理員 | Sharepoint 系統管理員 | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Microsoft Teams 通訊系統管理員 | Microsoft Teams 通訊系統管理員 | baf37b3a-610e-45da-9e62-d9d1e5e8914b
+Microsoft Teams 通訊支援工程師 | Microsoft Teams 通訊支援工程師 | f70938a0-fc10-4177-9e90-2178f8765737
+Microsoft Teams 通訊支援專家 | Microsoft Teams 通訊支援專家 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
+Microsoft Teams 服務管理員 | Microsoft Teams 服務管理員 | 69091246-20e8-4a56-aa4d-066075b2a7a8
+使用者 | 使用者 | a0b1b346-4d3e-4e8b-98f8-753987be4970
+使用者帳戶管理員 | 使用者管理員 | fe930be7-5e62-47db-91af-98c3a49a38b1
+加入工作場所裝置 | 工作場所裝置 | c34f683f-4d5a-4403-affd-6615e00e3a7f
+
 
 ## <a name="deprecated-roles"></a>已被取代的角色
 

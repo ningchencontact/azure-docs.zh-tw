@@ -2,16 +2,17 @@
 title: 用於轉譯的儲存體和資料移動 - Azure Batch
 description: 轉譯工作負載的儲存體和資料移動選項
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546091"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790241"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>轉譯資產和輸出檔案的儲存體和資料移動選項
 
@@ -25,7 +26,7 @@ ms.locfileid: "53546091"
   * 此選項的優點是非常符合成本效益，因為檔案系統不需要任何 VM，且 VM 上的 blobfuse 快取可避免為多個作業和工作重複下載相同的檔案。  資料移動也非常簡單，因為檔案都只是 Blob，並且可使用標準 API 和工具 (例如 azcopy) 在內部部署檔案系統與 Azure 儲存體之間檔案複製。
 * 檔案系統或檔案共用：
   * 根據 VM 作業系統和效能/調整需求，選項包括 [Azure 檔案服務](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)、將 VM 搭配連接的磁碟用於 NFS、將多個 VM 搭配連接的磁碟用於分散式檔案系統 (例如 GlusterFS)，或使用第三方供應項目。
-  * [Avere 系統](http://www.averesystems.com/)現在是 Microsoft 的一部分，且近期將會有適合用於大規模、高效能轉譯的解決方案。  Avere 解決方案將可讓您建立以 Azure 為基礎的 NFS 或 SMB 快取，與 Blob 儲存體或內部部署 NAS 裝置搭配使用。
+  * [Avere 系統](https://www.averesystems.com/)現在是 Microsoft 的一部分，且近期將會有適合用於大規模、高效能轉譯的解決方案。  Avere 解決方案將可讓您建立以 Azure 為基礎的 NFS 或 SMB 快取，與 Blob 儲存體或內部部署 NAS 裝置搭配使用。
   * 透過檔案系統，檔案將可直接讀取或寫入至檔案系統，或是在檔案系統與集區 VM 之間複製。
   * 共用的檔案系統可讓您在要使用的專案和工作之間共用大量資產，且轉譯工作只會存取所需的項目。
 
@@ -133,4 +134,4 @@ Blobfuse 是 Azure Blob 儲存體的虛擬檔案系統驅動程式，可讓您�
 
 * [Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
-* [Azure 檔案](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
+* [Azure 文件](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)

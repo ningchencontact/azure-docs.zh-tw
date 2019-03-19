@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 69dc9c974c259f51ac0c6c9d64bfcda7ee65e181
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a839a4cad824a74bde388317cf3aaddf9c5bd47f
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844580"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588749"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>服務匯流排交易處理概觀
 
-本文討論 Microsoft Azure 服務匯流排的交易功能。 [使用服務匯流排的不可部分完成交易範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)會說明大部分的討論。 本文只包含交易處理概觀以及服務匯流排中的「傳送方式」功能，而「不可部分完成交易」範例的範圍更廣且更複雜。
+本文討論 Microsoft Azure 服務匯流排的交易功能。 大部分的討論內容說明[AMQP 使用服務匯流排交易範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)。 本文只包含交易處理概觀以及服務匯流排中的「傳送方式」功能，而「不可部分完成交易」範例的範圍更廣且更複雜。
 
 ## <a name="transactions-in-service-bus"></a>服務匯流排中的交易
 
-[*交易*](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions)會將兩個以上的作業一起分組到「執行範圍」。 本質上，這類交易必須確定屬於指定作業群組的所有作業都一起成功或失敗。 在這部分，所有交易都會當成一個單位，通常稱為「不可部分完成性」。 
+*交易*會將兩個以上的作業一起分組到「執行範圍」。 本質上，這類交易必須確定屬於指定作業群組的所有作業都一起成功或失敗。 在這部分，所有交易都會當成一個單位，通常稱為「不可部分完成性」。
 
 服務匯流排是交易訊息代理人，並確保其訊息存放區之所有內部作業的交易完整性。 服務匯流排內的所有訊息傳輸 (例如，將訊息移至[寄不出的信件佇列](service-bus-dead-letter-queues.md)，或[自動轉寄](service-bus-auto-forwarding.md)實體之間的訊息) 為交易式。 這麼一來，如果服務匯流排接受訊息，表示訊息已經儲存並標上序號。 從那時開始，服務匯流排內的任何訊息傳輸都是跨實體的協調作業，並且不會導致訊息遺失 (來源成功，但目標失敗) 或重複 (來源失敗，但目標成功)。
 
@@ -55,26 +55,47 @@ ms.locfileid: "54844580"
 若要設定這類傳輸，您可以建立將目標設為透過傳輸佇列之目的地佇列的訊息寄件者。 您也要有從相同佇列提取訊息的收件者。 例如︰
 
 ```csharp
-var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
-var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
+var connection = new ServiceBusConnection(connectionString);
+
+var sender = new MessageSender(connection, QueueName);
+var receiver = new MessageReceiver(connection, QueueName);
 ```
 
-簡單交易接著會使用這些元素，如下列範例所示︰
+簡單交易接著會使用這些項目，如下列範例所示。 若要參考的完整範例，請參閱[GitHub 上的原始程式碼](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
 
 ```csharp
-var msg = receiver.Receive();
+var receivedMessage = await receiver.ReceiveAsync();
 
-using (scope = new TransactionScope())
+using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 {
-    // Do whatever work is required 
+    try
+    {
+        // do some processing
+        if (receivedMessage != null)
+            await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
 
-    var newmsg = ... // package the result 
+        var myMsgBody = new MyMessage
+        {
+            Name = "Some name",
+            Address = "Some street address",
+            ZipCode = "Some zip code"
+        };
 
-    msg.Complete(); // mark the message as done
-    sender.Send(newmsg); // forward the result
+        // send message
+        var message = myMsgBody.AsMessage();
+        await sender.SendAsync(message).ConfigureAwait(false);
+        Console.WriteLine("Message has been sent");
 
-    scope.Complete(); // declare the transaction done
-} 
+        // complete the transaction
+        ts.Complete();
+    }
+    catch (Exception ex)
+    {
+        // This rolls back send and complete in case an exception happens
+        ts.Dispose();
+        Console.WriteLine(ex.ToString());
+    }
+}
 ```
 
 ## <a name="next-steps"></a>後續步驟

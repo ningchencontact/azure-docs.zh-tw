@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341705"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838304"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>使用 RBAC 與 Azure CLI 管理對 Azure 資源的存取
 
@@ -89,9 +89,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role"></a>列出角色的動作
+## <a name="list-a-role-definition"></a>列出角色定义
 
-若要列出角色定義的動作，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list):
+若要列出角色定义，请使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list)：
 
 ```azurecli
 az role definition list --name <role_name>
@@ -104,6 +104,7 @@ az role definition list --name "Contributor"
 ```
 
 ```Output
+[
   {
     "additionalProperties": {},
     "assignableScopes": [
@@ -134,7 +135,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-下列範例會列出「參與者」的 actions 和 notActions：
+### <a name="list-actions-of-a-role"></a>列出角色的動作
+
+以下示例仅列出了“参与者”角色的 actions 和 notActions：
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -153,7 +156,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-下列範例會列出「虛擬機器參與者」角色的動作：
+以下示例仅列出了“虚拟机参与者”角色的 actions：
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -191,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 預設只會顯示訂用帳戶範圍內的指派。 若要檢視資源或群組範圍內的指派，請使用 `--all`。
 
-下列範例會列出直接指派給 patlong@contoso.com 使用者的角色指派：
+下列範例會列出直接指派給角色指派*patlong\@contoso.com*使用者：
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -249,7 +252,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-下列範例會將「虛擬機器參與者」角色指派給 pharma-sales-projectforecast 資源群組範圍中的 patlong@contoso.com 使用者：
+下列範例會將指派*虛擬機器參與者*角色，才能*patlong\@contoso.com*使用者 *「 pharma-sales-projectforecast*資源群組範圍：
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -297,7 +300,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-下列範例會從 pharma-sales-projectforecast 資源群組上的 patlong@contoso.com 使用者移除「虛擬機器參與者」角色指派：
+下列範例會移除*虛擬機器參與者*從角色分派*patlong\@contoso.com*上的使用者 *「 pharma-sales-projectforecast*資源群組：
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast

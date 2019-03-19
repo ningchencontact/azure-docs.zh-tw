@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015741"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539610"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 資料移動的安全性考量
 
@@ -46,6 +46,8 @@ Azure Data Factory 本身除了用於雲端資料存放區的已連結服務認�
 - **雲端案例** - 在此案例中，可透過網際網路公開存取您的來源和目的地。 這些包括受控雲端儲存體服務 (例如「Azure 儲存體」、「Azure SQL 資料倉儲」、Azure SQL Database、Azure Data Lake Store、Amazon S3、Amazon Redshift)、SaaS 服務 (例如 Salesforce)，以及 Web 通訊協定 (例如 FTP 和 OData)。 如需完整的支援資料來源清單，請參閱[這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。
 - **混合式案例**- 在此案例中，您的來源或目的地是在防火牆之後或在內部部署的公司網路內，或是資料存放區位於私人網路/虛擬網路中 (最常見的是來源) 而不可公開存取。 裝載在虛擬機器上的資料庫伺服器也屬於此案例的涵蓋範圍。
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="cloud-scenarios"></a>雲端案例
 ### <a name="securing-data-store-credentials"></a>保護資料存放區認證
 Azure Data Factory 可透過使用「受 Microsoft 管理的憑證」來「加密」資料存放區認證，為這些認證提供保護。 這些憑證每隔「兩年」會輪替一次 (包括憑證更新和憑證移轉)。 這些已加密的認證會安全地儲存在「受 Azure Data Factory 管理服務管理的 Azure 儲存體」中。 如需有關「Azure 儲存體」安全性的詳細資訊，請參閱 [Azure 儲存體安全性概觀](../../security/security-storage-overview.md)。
@@ -72,10 +74,10 @@ Azure Data Lake Store 也針對儲存在帳戶中的資料提供加密功能。 
 「Azure Blob 儲存體」和「Azure 資料表儲存體」支援「儲存體服務加密」(SSE)，此功能會在將資料保存到儲存體之前先自動加密資料，並在擷取資料之前先解密資料。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](../../storage/common/storage-service-encryption.md)。
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 同時支援用戶端和伺服器的待用資料加密。 如需詳細資訊，請參閱[使用加密來保護資料 (英文)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)。 目前，Data Factory 並不支援虛擬私人雲端 (VPC) 內的 Amazon S3。
+Amazon S3 同時支援用戶端和伺服器的待用資料加密。 如需詳細資訊，請參閱[使用加密來保護資料 (英文)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)。 目前，Data Factory 並不支援虛擬私人雲端 (VPC) 內的 Amazon S3。
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift 支援叢集待用資料加密。 如需詳細資訊，請參閱 [Amazon Redshift 資料庫加密 (英文)](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)。 目前，Data Factory 並不支援 VPC 內的 Amazon Redshift。 
+Amazon Redshift 支援叢集待用資料加密。 如需詳細資訊，請參閱 [Amazon Redshift 資料庫加密 (英文)](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)。 目前，Data Factory 並不支援 VPC 內的 Amazon Redshift。 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、自訂欄位。 如需詳細資訊，請參閱[了解 Web 伺服器 OAuth 驗證流程 (英文)](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)。  
@@ -93,7 +95,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 - 從「Azure 入口網站」/「複製精靈」透過 HTTPS 使用**純文字** (較不安全)。 認證會以純文字形式傳送到內部部署閘道。
 - **從複製精靈使用 JavaScript 密碼編譯程式庫**。
 - 使用 **Click-Once 型認證管理員應用程式**。 Click-Once 應用程式會在能夠存取閘道的內部部署電腦上執行，並為資料存放區設定認證。 此選項及下一個選項是最安全的選項。 認證管理員應用程式預設會在具有閘道的電腦上使用連接埠 8050 來進行安全通訊。  
-- 使用 [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) PowerShell Cmdlet 來加密認證。 此 cmdlet 會使用閘道器設定用來加密認證的憑證。 您可以使用此 Cmdlet 所傳回的已加密認證，並將它新增到與 [New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) Cmdlet 搭配使用之 JSON 檔案中 **connectionString** 的 **EncryptedCredential** 元素中，或新增到入口網站之「Data Factory 編輯器」的 JSON 程式碼片段中。 此選項及 Click-Once 應用程式是最安全的選項。 
+- 使用[新增 AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell cmdlet 來加密認證。 此 cmdlet 會使用閘道器設定用來加密認證的憑證。 您可以使用此 cmdlet 所傳回的加密的認證，並將它新增至**EncryptedCredential**項目**connectionString**搭配使用 JSON 檔案中[新 AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet 或在 JSON 程式碼片段在 Data Factory 編輯器在入口網站中。 此選項及 Click-Once 應用程式是最安全的選項。 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>JavaScript 密碼編譯程式庫型加密
 您可以從[複製精靈](data-factory-copy-wizard.md)使用 [JavaScript 密碼編譯程式庫](https://www.microsoft.com/download/details.aspx?id=52439)來加密資料存放區認證。 當您選取此選項時，「複製精靈」會擷取閘道的公開金鑰，然後使用它來加密金鑰存放區認證。 這些認證會由閘道電腦解密，並受到 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 保護。
@@ -148,7 +150,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 
 下表提供「公司防火牆」的「輸出連接埠」和網域需求。
 
-| 網域名稱 | 輸出連接埠 | 說明 |
+| 網域名稱 | 輸出連接埠 | 描述 |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443、80 | 必須提供此資訊，閘道才能連接到 Data Factory 中的資料移動服務 |
 | `*.core.windows.net` | 443 | 當您使用[分段複製](data-factory-copy-activity-performance.md#staged-copy)功能時，可供閘道用來連接到「Azure 儲存體帳戶」。 | 
@@ -161,7 +163,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 
 下表提供「Windows 防火牆」的「輸入連接埠」需求。
 
-| 輸入連接埠 | 說明 | 
+| 輸入連接埠 | 描述 | 
 | ------------- | ----------- | 
 | 8050 (TCP) | 必須提供此資訊，認證管理員應用程式才能為閘道上的內部部署資料存放區安全地設定認證。 | 
 
@@ -176,7 +178,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 - [Azure SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 

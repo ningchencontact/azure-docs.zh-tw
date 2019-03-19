@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 5b9e0a30658e1cb8fe0f83d55c04f120637babaf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023015"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549199"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>資料處理站的疑難排解
 > [!NOTE]
 > 本文適用於 Azure Data Factory 第 1 版。 
 
 這篇文章提供使用 Azure Data Factory 時的問題疑難排解提示。 這篇文章並未列出使用服務時的所有可能問題，但是涵蓋部分問題和一般疑難排解提示。   
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-tips"></a>疑難排解秘訣
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Error:訂用帳戶未註冊為使用命名空間 'Microsoft.DataFactory'
@@ -34,20 +36,20 @@ ms.locfileid: "54023015"
 2. 使用下列命令來登入您的 Azure 帳戶。
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. 執行下列命令以註冊 Azure Data Factory 提供者。
 
     ```powershell        
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>問題：執行 Data Factory Cmdlet 時發生未授權錯誤
 您在 Azure PowerShell 中可能未使用正確的 Azure 帳戶或訂用帳戶。 請使用下列 Cmdlet 來選取要用於 Azure PowerShell 的正確 Azure 帳戶和訂用帳戶帳戶。
 
-1. Connect-AzureRmAccount：使用正確的使用者識別碼和密碼
-2. Get-AzureRmSubscription - 檢視帳戶的所有訂用帳戶。
-3. Select-AzureRmSubscription &lt;訂用帳戶名稱&gt; - 選取正確的訂用帳戶。 請使用您在 Azure 入口網站上用來建立 Data Factory 的相同帳戶。
+1. 連線-AzAccount-使用正確的使用者識別碼和密碼
+2. Get-AzSubscription-檢視帳戶的所有訂用帳戶。
+3. 選取 AzSubscription&lt;訂用帳戶名稱&gt;-選取正確的訂用帳戶。 請使用您在 Azure 入口網站上用來建立 Data Factory 的相同帳戶。
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>問題：無法從 Azure 入口網站啟動「資料管理閘道快速安裝」
 資料管理閘道的快速安裝需要有 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。 如果無法啟動快速安裝，請執行下列其中一項：
@@ -128,9 +130,9 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[json-scripting-reference]: https://go.microsoft.com/fwlink/?LinkId=516971
 
 [azure-portal]: https://portal.azure.com/
 

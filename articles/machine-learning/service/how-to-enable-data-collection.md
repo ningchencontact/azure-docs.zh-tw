@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 11/08/2018
+ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79a2c0c98cdee0532856a90ec4a7b98dda09cdb7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247369"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842629"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
 
@@ -50,7 +50,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 - 已安裝 Machine Learning services 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
 
@@ -136,15 +136,15 @@ Blob 中輸出資料的路徑遵循此語法：
 
   1. 移至 [部署] -> [選取服務] -> [編輯]。
 
-    [![[編輯] 選項](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![[編輯] 選項](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. 在 [進階設定] 中，取消選取 [啟用模型資料收集]。 
 
-    [![取消核取資料收集](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![取消核取資料收集](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. 選取 [更新] 以套用變更。
 
-* 選項 2 - 使用 Python 停用資料收集：
++ 選項 2 - 使用 Python 停用資料收集：
 
   ```python 
   ## replace <service_name> with the name of the web service

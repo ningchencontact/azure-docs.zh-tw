@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 780799103708483fb0092c7a4c15bfaa3269c073
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
-ms.translationtype: HT
+ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636450"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550083"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>從 VM 建立自訂映像
 
@@ -61,7 +61,7 @@ ms.locfileid: "51636450"
 ## <a name="related-blog-posts"></a>相關部落格文章
 
 - [自訂映像或公式？](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [在 Azure DevTest Labs 之間複製自訂映像](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [在 Azure DevTest Labs 之間複製自訂映像](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>後續步驟
 

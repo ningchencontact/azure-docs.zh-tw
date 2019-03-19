@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835776"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>使用分區化多租用 Azure SQL 資料庫在 SaaS 應用程式中對新的租用戶進行佈建及編目
 
@@ -161,7 +161,7 @@ ms.locfileid: "55562890"
    - **$VenueType** = **blues**，其中一個預先定義的場地類型：blues、classicalmusic、dance、jazz、judo、motorracing、multipurpose、opera、rockmusic、soccer (小寫、不含空格)。
    - **$DemoScenario** = **1**，在與其他租用戶共用的資料庫中佈建租用戶。
 
-2. 將游標置於第 38 行 (該行顯示︰*New-Tenant `*) 上的任意位置來新增中斷點，然後按 **F9**。
+2. 將游標置於第 38 行上的任一處加入中斷點：*新租用戶 '*，然後按下**F9**。
 
    ![中斷點](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -237,7 +237,7 @@ ms.locfileid: "55562890"
 - 租用戶名稱會儲存在租用戶資料表中。
 - 資料庫名稱會儲存在分區管理資料表中。
 
-1. 在 SQL Server Management Studio (SSMS) 中，使用登入 = **developer** 和密碼 = **P@ssword1** 連線到 **catalog-mt.\<USER\>.database.windows.net** 上的租用戶伺服器
+1. 在 SQL Server Management Studio (SSMS)，在連接到租用戶伺服器**catalog-mt\<使用者\>。 database.windows.net**，使用登入 =**開發人員**，和密碼 = **P\@ssword1**
 
     ![SSMS 連線對話方塊](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
