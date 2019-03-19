@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 11/07/2018
+ms.date: 12/4/2018
 ms.custom: seodec18
-ms.openlocfilehash: a8ead1fedc8c21152b1ef095dbaebe605776b6e3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 3f1dd0921153d6b65bdc257f91019483adbb18fa
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243863"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213665"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務建置機器學習管線
 
@@ -34,17 +34,27 @@ ms.locfileid: "55243863"
 
 ![Azure Machine Learning 服務中的機器學習管線](./media/concept-ml-pipelines/pipelines.png)
 
+### <a name="which-azure-pipeline-technology-should-i-use"></a>我應該使用哪一種 Azure 管線技術？
+
+Azure 雲端提供數個其他管線，各有不同的用途。 下表列出不同的管線，以及使用如：
+
+| 管線 | 作用 | 標準管道 |
+| ---- | ---- | ---- |
+| Azure 機器學習服務管線 | 定義可重複使用的機器學習服務可以用做為範本，為您的機器學習案例的工作流程。 | 資料]-> [模型 |
+| [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | 群組資料移動、 轉換和控制活動才能執行工作。  | 資料]-> [資料 |
+| [Azure 的管線](https://azure.microsoft.com/services/devops/pipelines/) | 持續整合與傳遞到任何應用程式的任何平台/雲端  | 程式碼]-> [應用程式/服務 |
+
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>為何使用 Azure Machine Learning 來建置管線？
 
 您可以使用[適用於 Python 的 Azure Machine Learning SDK](#the-python-sdk-for-pipelines) 來建立 ML 管線，以及送出和追蹤個別管線執行。
 
 透過管線，您可以從簡易性、速度、可攜性和重複使用率方面來最佳化工作流程。 使用 Azure Machine Learning 建置管線時，您可以專注於您的專業知識 (機器學習)，而非基礎結構。
 
-使用不同步驟，便可在調整和測試工作流程時，只重新執行所需的步驟。 步驟是在管線中的計算單位。 如上圖所示，準備資料的工作可能涉及許多步驟。 這些步驟包括但不限於正規化、轉換、驗證及功能。 資料來源和中繼資料會在管線上重複使用，如此可節省計算時間和資源。 
+使用不同步驟，便可在調整和測試工作流程時，只重新執行所需的步驟。 步驟是在管線中的計算單位。 如上圖所示，準備資料的工作可能涉及許多步驟。 這些步驟包括但不限於正規化、 轉換、 驗證和功能。 資料來源和中繼資料會在管線上重複使用，如此可節省計算時間和資源。 
 
 設計管線之後，在管線的定型迴圈上通常需要更多微調。 當您重新執行管線時，該執行會跳至需要重新執行的步驟，例如更新的訓練指令碼，並略過未變更的項目。 相同範例適用於用來執行步驟的未變更指令碼。 
 
-透過 Azure Machine Learning，您可以對管線中的每個步驟使用各種工具組和架構，例如 Microsoft Cognitive Toolkit 或 TensorFlow。 Azure 會協調您使用的各種[計算目標](concept-azure-machine-learning-architecture.md)，讓您的中繼資料可輕易地與下游計算目標共用。 
+使用 Azure Machine Learning，您可以使用各種不同的工具組和架構，例如 PyTorch 或 TensorFlow、 您的管線中每個步驟。 Azure 會協調您使用的各種[計算目標](concept-azure-machine-learning-architecture.md)，讓您的中繼資料可輕易地與下游計算目標共用。 
 
 您可以直接在 Azure 入口網站中[追蹤管線實驗的計量](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments)。 
 
@@ -52,7 +62,7 @@ ms.locfileid: "55243863"
 
 為機器學習工作流程建置管線的主要優點如下：
 
-|主要優點|說明|
+|主要優點|描述|
 |:-------:|-----------|
 |**自動&nbsp;執行**|以自動且可靠的方式排定要平行執行或依序執行的幾個步驟。 由於資料準備和模型化可持續數天或數週，因此，您現在可以在管線執行的同時專注於其他工作。 |
 |**混合和多元計算**|您可以使用多個管線，這些管線可在異質且可調整的計算和儲存體中可靠地進行協調。 您可以在不同計算目標上執行個別的管線步驟，例如 HDInsight、GPU 資料科學 VM 及 Databricks。 這可有效地使用可用的計算選項。|

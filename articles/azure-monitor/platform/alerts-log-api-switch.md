@@ -5,20 +5,20 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6af1c5347a522f7e42feecb6722dfbb64439d086
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341006"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214634"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>切換記錄警示的 API 喜好設定
 
 > [!NOTE]
-> 所述內容**不**適用於 Azure GovCloud 的使用者，而僅適用於 Azure 公用雲端的使用者。  
+> 內容所述適用於使用者僅限 Azure 公用雲端並**不**適用於 Azure Government 或 Azure 中國雲端。  
 
 直到最近，您都還是在 Microsoft Operations Management Suite 入口網站中管理警示規則。 新的警示體驗已與 Microsoft Azure 中的各種服務 (包括 Log Analytics) 整合，我們要求[您將警示規則從 OMS 入口網站延伸至 Azure](alerts-extend.md)。 但為了確保能盡可能縮短客戶的中斷時間，此過程並未改變其供使用的程式設計介面 - 以 SavedSearch 為基礎的 [Log Analytics 警示 API](api-alerts.md)。
 
@@ -43,6 +43,7 @@ ms.locfileid: "56341006"
 
 - 為了透過程式設計介面來管理記錄警示所做的所有互動，現在都必須改用 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來完成。 如需詳細資訊，請參閱[透過 Azure 資源範本的使用範例](alerts-log.md#managing-log-alerts-using-azure-resource-template)和[透過 Azure CLI 和 PowerShell 的使用範例](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
 - 任何在 Azure 入口網站中建立的新記錄警示規則，都將使用 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來建立，並且也允許使用者透過 Azure 入口網站使用[新 API 的其他功能](#Benefits-of-switching-to-new-Azure-API)
+- 記錄警示規則的嚴重性將會從轉換：*重大、 警告和資訊*，以*嚴重性值 0、 1 與 2*。 以及用於建立/更新警示規則嚴重性以及 4 的選項。
 
 任何自願切換至新的 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)，並停止使用[舊版 Log Analytics 警示 API](api-alerts.md) 的客戶，都可在下列 API 執行 PUT 呼叫，以切換所有與特定 Log Analytics 工作區相關聯的警示規則，而達到此目的。
 

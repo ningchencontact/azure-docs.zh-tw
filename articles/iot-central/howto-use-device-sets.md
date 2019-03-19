@@ -3,17 +3,17 @@ title: 在 Azure IoT Central 應用程式中使用裝置集合 | Microsoft Docs
 description: 如何以操作員的身分在 Azure IoT Central 應用程式中使用裝置集合。
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004114"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759810"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中使用裝置集合
 
@@ -27,7 +27,7 @@ ms.locfileid: "51004114"
 
 1. 在左側導覽功能表上選擇 [裝置集合]。
 
-1. 按一下 [+ 新增]。
+1. 選取  **+ 新增**。
 
     ![新增裝置集合](media/howto-use-device-sets/image1.png)
 
@@ -48,9 +48,11 @@ ms.locfileid: "51004114"
 
 1. 在左側導覽功能表上選擇 [裝置集合]。
 
-1. 選擇 [儀表板] 索引標籤。
+1. 選取您的裝置集。
 
-1. 按一下 [編輯範本]。
+1. 選取 [ **儀表板** ] 索引標籤。
+
+1. 選取 [編輯]。
 
     ![設計模式開啟](media/howto-use-device-sets/image3.png)
 
@@ -59,7 +61,7 @@ ms.locfileid: "51004114"
 1. 新增連結圖格：
     1. 選擇右窗格上的 [連結]。
     1. 為連結提供**標題**。
-    1. 選擇要在按下連結時開啟的 URL。
+    1. 選擇要選取連結時開啟的 URL。
     1. 為連結提供描述，此描述會顯示在**標題**下面。
     1. 選擇 [儲存]。
 
@@ -69,9 +71,6 @@ ms.locfileid: "51004114"
 
 1. 新增格線。 格線是一份資料表，內含裝置集合中的裝置以及您所選擇的資料行。
     1. 選擇右窗格上的 [格線]。
-
-        ![選擇格線](media/howto-use-device-sets/image8.png)
-
     1. 為格線提供**標題**。
     1. 選擇 [新增/移除] 來選取要顯示的資料行。 在跳出的面板中選擇您想要顯示的資料行，並選擇向右箭號來加以選取。
     1. 選擇 [確定]。
@@ -81,31 +80,24 @@ ms.locfileid: "51004114"
 
     1. 拖放格線以將其放在 [儀表板] 上。
 
-    > [!NOTE]
-    > 您可以新增多個影像、連結和格線。
+        > [!NOTE]
+        > 您可以新增多個影像、連結和格線。
   
-    1. 按一下 [完成] 。
+    1. 選取 [完成] 。
 
-    ![設計模式關閉](media/howto-use-device-sets/image10.png)
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>在裝置集合儀表板中設定位置圖
 
-
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>在裝置集合儀表板中設定位置圖 
 您可以在地圖中新增位置圖，以將裝置集合位置視覺化。
 
 若要將位置圖新增到裝置集合儀表板，您必須先在 [裝置範本] 中設定好位置屬性，請參閱[建立位置屬性 (採用 Azure 地圖服務)](howto-set-up-template.md)。
 
-
 1. 在 [裝置集合儀表板] 上，從資源庫選取 [地圖]。
-
-    ![裝置集合儀表板地圖](media/howto-use-device-sets/LocationMaps1.png)
-
 2. 提供標題，然後選擇您先前在 [裝置屬性] 中設定的位置屬性。
 3. 儲存之後，就會在 [裝置集合] 中看到顯示您裝置位置的地圖磚。
-4. 現在，當操作員檢視裝置集合儀表板時，就可以看到您設定的所有磚 (包括位置圖格)，一眼就能看到以視覺化方式呈現的所有裝置位置！ 
-    
-> [!NOTE] 
-> 您可以將地圖調整為需要的大小。 按一下地圖中的大頭針，即會顯示裝置資訊、名稱和位置。 您可以按一下快顯視窗，然後開啟裝置屬性頁。  
+4. 現在，當操作員檢視裝置集合儀表板時，就可以看到您設定的所有磚 (包括位置圖格)，一眼就能看到以視覺化方式呈現的所有裝置位置！
 
+> [!NOTE]
+> 您可以將地圖調整為所需的大小。 選取釘選在對應中顯示的裝置資訊、 名稱和位置。 您可以選取快顯視窗中，前往 [裝置] 屬性頁。
 
 ## <a name="configure-the-list-for-your-device-set"></a>設定裝置集合的清單
 
@@ -127,7 +119,7 @@ ms.locfileid: "51004114"
 
 ## <a name="analytics"></a>分析
 
-裝置集合中的分析等同於左側導覽功能表中的 [主要分析] 索引標籤。 您可以在關於[如何建立分析](howto-create-analytics.md)的文章中深入了解分析。
+裝置集合中的分析等同於左側導覽功能表中的 [主要分析] 索引標籤。 您可以在關於[如何建立分析](howto-use-device-sets.md)的文章中深入了解分析。
 
 ## <a name="next-steps"></a>後續步驟
 

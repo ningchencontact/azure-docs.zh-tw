@@ -1,25 +1,65 @@
 ---
 title: Azure 儲存體總管疑難排解指南 | Microsoft Docs
-description: Azure 兩個偵錯功能的概觀
+description: Azure 儲存體總管偵錯技術的概觀
 services: virtual-machines
 author: Deland-Han
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.subservice: common
-ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: bff1e8c111a8a50e15b6d316e422a641a778c73c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415505"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775164"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
 Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。 應用程式可以連線至裝載於 Azure、National Clouds 和 Azure Stack 上的儲存體帳戶。
 
 本指南摘要說明儲存體總管中常見的問題解決方案。
+
+## <a name="role-based-access-control-permission-issues"></a>角色型存取控制的權限問題
+
+[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)藉由結合到權限集合提供更細緻的存取管理 Azure 資源_角色_。 以下是一些您可以遵循以取得使用儲存體總管中的 RBAC 的建議。
+
+### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>我要請參閱我在儲存體總管 中的資源？
+
+如果您遇到存取使用 RBAC 的儲存體資源的問題，可能是因為您沒有被指派適當的角色。 下列各節說明儲存體總管目前需要存取您的儲存體資源的權限。
+
+如果您不確定您有適當的角色或權限，請連絡您的 Azure 帳戶系統管理員。
+
+#### <a name="read-listget-storage-accounts"></a>讀取：列出/取得儲存體帳戶
+
+您必須列出儲存體帳戶的權限。 您可以指派 「 讀者 」 角色，以取得此權限。
+
+#### <a name="list-storage-account-keys"></a>清單儲存體帳戶金鑰
+
+儲存體總管也可以使用帳戶金鑰來驗證要求。 您可以取得存取金鑰與更強大的角色，例如 「 參與者 」 角色。
+
+> [!NOTE]
+> 存取金鑰授與不受限制的權限會保留它們的任何人。 因此，通常不建議他們交給帳戶使用者。 如果您需要撤銷存取金鑰，您可以重新產生它們[Azure 入口網站](https://portal.azure.com/)。
+
+#### <a name="data-roles"></a>資料角色
+
+您必須指派至少一個角色，授與存取權從資源讀取資料。 例如，如果您要列出或下載 blob，您將至少需要 「 儲存體 Blob 資料讀者 」 角色。
+
+### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>為什麼需要管理層級角色，即可查看我的資源在儲存體總管？
+
+Azure 儲存體有兩個層級的存取權限：_管理_並_資料_。 透過管理層存取的訂用帳戶和儲存體帳戶。 透過資料層存取的容器、 blob 和其他資料資源。 例如，如果您想要從 Azure 取得的儲存體帳戶清單，請管理端點傳送要求。 如果您想在帳戶中的 blob 容器的清單，您會將要求傳送至適當的服務端點。
+
+RBAC 角色可能會包含管理] 或 [資料層存取的權限。 「 讀者 」 角色，例如，授與您唯讀存取權管理層資源。
+
+嚴格來說，「 讀者 」 角色會不提供任何資料層級權限，並不需要存取資料層。
+
+儲存體總管可讓您更輕鬆地存取您的資源所收集其連線到您的 Azure 資源中，為您所需的資訊。 例如，若要顯示 blob 容器，儲存體總管會傳送至 blob 服務端點清單容器要求。 若要取得該端點，儲存體總管會搜尋訂用帳戶清單，並儲存體帳戶有存取權。 但是，若要尋找您的訂用帳戶和儲存體帳戶，儲存體總管也需要存取管理層。
+
+如果您還沒有授與任何管理層級權限的角色，儲存體總管無法取得所需連接到資料層的資訊。
+
+### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>如果我不能管理層級權限需要系統管理員身分從嗎？
+
+我們目前還沒有 RBAC 相關的解決方案。 因應措施，您可以要求 SAS URI[附加至您的資源](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas)。
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error:憑證鏈結中的自我簽署憑證 (和類似錯誤)
 
@@ -38,15 +78,13 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 如果您不確定憑證來自何處，可以嘗試下列步驟找出憑證：
 
 1. 安裝 Open SSL
-
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (任一輕裝版足可應對)
     * Mac 和 Linux：應該包含在作業系統中
 2. 執行 Open SSL
-
     * Windows：開啟安裝目錄，按一下 **/bin/**，再按兩下 **openssl.exe**。
     * Mac 和 Linux：從終端機執行 **openssl**。
 3. 執行 `s_client -showcerts -connect microsoft.com:443`
-4. 尋找自我簽署憑證。 如果不確定哪些是自我簽署的憑證，請尋找主旨 `("s:")` 和簽發者 `("i:")` 相同的所有位置。
+4. 尋找自我簽署憑證。 如果您不確定哪一個憑證是自我簽署，請尋找任何位置主旨`("s:")`和 簽發者`("i:")`都相同。
 5. 發現任何自我簽署的憑證時，請將每個憑證從 **-----BEGIN CERTIFICATE-----** 到 **-----END CERTIFICATE-----** (含) 的所有內容，複製並貼到新的 .cer 檔案。
 6. 開啟儲存體總管，按一下 [編輯] > [SSL 憑證] > [匯入憑證]，然後使用檔案選擇器來尋找、選取及開啟您所建立的 .cer 檔案。
 
@@ -54,31 +92,37 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 
 ## <a name="sign-in-issues"></a>登入問題
 
-### <a name="blank-sign-in-dialog"></a>空白登入對話方塊
-造成空白對話方塊的原因通常是 ADFS 要求儲存體總管執行 Electron 不支援的重新導向。 若要解決此問題，您可以嘗試使用裝置程式碼流程來登入。 若要進行，請執行下列步驟：
-1. [移至實驗性] -> [使用裝置程式碼登入]。
+### <a name="blank-sign-in-dialog"></a>空白的 [登入] 對話方塊
+
+空白的登入對話方塊的原因通常 ADFS 所要求儲存體總管來執行支援的 Electron 的重新導向。 若要解決此問題，您可以嘗試使用裝置程式碼流程來登入。 若要進行，請執行下列步驟：
+
+1. 移至 預覽-> 使用裝置程式碼登入。
 2. 開啟 [連線] 對話方塊 (透過左側垂直列上的插頭圖示，或透過在 [帳戶] 面板上的 [新增帳戶])。
-3. 選擇您想要登入的環境。
+3. 選擇您想要登入哪些的環境。
 4. 按一下 [登入] 按鈕。
 5. 遵循下一個面板上的指示。
 
-注意：此功能目前只能在 1.7.0 預覽版中取得。
+如果您發現自己到您想要使用，因為預設瀏覽器已登入不同的帳戶的帳戶登入時發生問題，您可以：
 
-如果您因為在預設瀏覽器中已登入其他帳戶，而在登入想使用的帳戶時遇到問題，您可以執行下列任一項：
 1. 手動將連結和程式碼複製到您瀏覽器的隱私工作階段。
 2. 手動將連結和程式碼複製到其他瀏覽器。
 
 ### <a name="reauthentication-loop-or-upn-change"></a>重新驗證迴圈或 UPN 變更
+
 如果您處於重新驗證的迴圈中，或已變更其中一個帳戶的 UPN，請嘗試下列方法：
+
 1. 移除所有的帳戶，然後關閉 [儲存體總管]
 2. 從您的機器中刪除 .IdentityService 資料夾。 在 Windows 中，該資料夾位於 `C:\users\<username>\AppData\Local`。 對於 Mac 和 Linux，您可以在使用者目錄的根目錄中找到此資料夾。
 3. 如果您使用 Mac 或 Linux，您也必須從您的作業系統金鑰儲存區中刪除 Microsoft.Developer.IdentityService 項目。 在 Mac 上，金鑰儲存區會是 "Gnome Keychain" 應用程式。 針對 Linux，此應用程式通常稱為 "Keyring"，但此名稱可能會因為您的散發版本不同而有差異。
 
 ### <a name="conditional-access"></a>條件式存取
+
 在 Windows 10、Linux 或 macOS 上使用儲存體總管時，不支援條件式存取。 這是因為儲存體總管所使用之 AAD 程式庫中的限制。
 
 ## <a name="mac-keychain-errors"></a>Mac Keychain 錯誤
-macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生問題的狀態。 若要使鑰匙圈脫離這種狀態，請嘗試下列步驟：
+
+macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生問題的狀態。 若要發揮這種狀態中的金鑰鏈，請嘗試下列步驟：
+
 1. 關閉 [儲存體總管]。
 2. 開啟鑰匙圈 (**cmd + 空格鍵**，鍵入 keychain，按 Enter)。
 3. 選取 [登入] 鑰匙圈。
@@ -91,11 +135,12 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 7. 嘗試登入。
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>一般登入疑難排解步驟
-* 如果您位於 macOS 上，且登入視窗不曾出現在「正在等候驗證...」對話方塊中，請嘗試[這些步驟](#mac-keychain-errors)
+
+* 如果您是在 macOS 上，而且透過 「 正在等候驗證...」 永遠不會出現 [登入] 視窗對話方塊中，然後再次嘗試[這些步驟](#mac-keychain-errors)
 * 重新啟動儲存體總管
 * 如果驗證視窗空白，請在關閉驗證對話方塊之前先等待至少一分鐘。
 * 確認您的機器和儲存體總管都已正確設定 Proxy 和憑證設定。
-* 如果您是在 Windows 上，而且能夠在相同機器上存取 Visual Studio 2017 並登入，請嘗試登入 Visual Studio 2017。 成功登入 Visual Studio 2017 之後，您應該能夠開啟 [儲存體總管]，並在 [帳戶] 面板中查看您的帳戶。
+* 如果您在 Windows 上和在相同電腦上存取 Visual Studio 2017 並登入，請嘗試登入 Visual Studio 2017。 成功登入 Visual Studio 2017 之後，您應該能夠開啟 [儲存體總管]，並在 [帳戶] 面板中查看您的帳戶。
 
 如果這些方法都沒有用，請[在 GitHub 上開立問題](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 
@@ -103,7 +148,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 如果成功登入後無法擷取您的訂用帳戶，請嘗試下列疑難排解方法：
 
-* 確認您的帳戶可存取預期的訂用帳戶。 您可以登入想要使用的 Azure 環境入口網站，以確認存取。
+* 確認您的帳戶可存取預期的訂用帳戶。 您可以登入入口網站中，您嘗試使用的 Azure 環境，以確認您的存取權。
 * 確定已使用正確的 Azure 環境 (Azure、Azure 中國 21Vianet、Azure 德國、Azure 美國政府或自訂環境) 來登入。
 * 如果您是在 proxy 背景，請確定已正確設定儲存體總管的 proxy。
 * 嘗試移除再重新新增帳戶。
@@ -118,10 +163,10 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 * Linux：`~/.config/StorageExplorer`
 
 > [!NOTE]
->  請先關閉儲存體總管，然後再刪除上述資料夾。
+> 請先關閉儲存體總管，然後再刪除上述資料夾。
 
 > [!NOTE]
->  如果您曾經匯入任何 SSL 憑證，請備份 `certs` 目錄的內容。 稍後，您可以使用備份來重新匯入 SSL 憑證。
+> 如果您曾經匯入任何 SSL 憑證，請備份 `certs` 目錄的內容。 稍後，您可以使用備份來重新匯入 SSL 憑證。
 
 ## <a name="proxy-issues"></a>Proxy 問題
 
@@ -130,7 +175,8 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 * Proxy URL 和連接埠號碼
 * 使用者名稱和密碼 (如果 proxy 要求)
 
-請注意，儲存體總管不支援使用 Proxy 自動設定檔案來設定 Proxy 設定。
+> [!NOTE]
+> 儲存體總管不支援 proxy 自動設定檔來設定 proxy 設定。
 
 ### <a name="common-solutions"></a>常見的解決方案
 
@@ -161,15 +207,16 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 ## <a name="unable-to-retrieve-children-error-message"></a>「無法擷取子系」錯誤訊息
 
-如果透過 proxy 連線至 Azure，請確認您的 proxy 設定正確無誤。 如已獲授權可存取訂用帳戶或帳戶擁有者的資源，請確認您已閱讀或列出該資源的權限。
+如果透過 proxy 連線至 Azure，請確認您的 proxy 設定正確無誤。 如果您授與存取資源的訂用帳戶或帳戶擁有者，請確認您已閱讀或列出該資源的權限。
 
 ## <a name="connection-string-does-not-have-complete-configuration-settings"></a>連接字串沒有完整的組態設定
 
-如果您收到此錯誤訊息，很可能您沒有取得儲存體帳戶金鑰所需的權限。 若要確認是否為此情形，請移至入口網站並找到您的儲存體帳戶。 您可以以滑鼠右鍵按一下儲存體帳戶的節點，然後按一下 [在入口網站中開啟] 來快速完成此動作。 這麼做之後，會移至 [存取金鑰] 刀鋒視窗。 如果您沒有檢視金鑰的權限，則您會看到頁面顯示訊息：「您沒有存取權」。 若要解決此問題，您可以從其他人取得帳戶金鑰，並使用其名稱和金鑰來連結，或是要求其他人的儲存體帳戶共用存取簽章 (SAS)，並使用它來連結儲存體帳戶。
+如果您收到此錯誤訊息，很可能您沒有取得儲存體帳戶金鑰所需的權限。 若要確認是否為此情形，請移至入口網站並找到您的儲存體帳戶。 您可以快速地執行這項操作您的儲存體帳戶的節點上按一下滑鼠右鍵，然後按一下 [開啟在入口網站]。 這麼做之後，會移至 [存取金鑰] 刀鋒視窗。 如果您沒有權限可檢視索引鍵，您會看到 「 您不具存取 」 訊息的頁面。 若要解決此問題，您可以從其他人取得帳戶金鑰，並附加具有名稱和金鑰，或儲存體帳戶之 sas 要求的人並用它來附加儲存體帳戶。
 
-如果您可以看到帳戶金鑰，請在 GitHub 上提出問題，以便我們協助您解決問題。
+如果您看到的帳戶金鑰，提出問題在 GitHub 上讓我們協助您解決問題。
 
 ## <a name="issues-with-sas-url"></a>SAS URL 問題
+
 如果您使用 SAS URL 連線到服務，而碰到此錯誤：
 
 * 請確認 URL 提供讀取或列出資源的必要權限。
@@ -177,21 +224,31 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 * 如果 SAS URL 是以存取原則為基礎，請確認尚未撤銷存取原則。
 
 如果您不慎以無效的 SAS URL 進行連結，但是無法中斷連結，請遵循下列步驟：
-1.  執行儲存體總管時，按下 F12 以開啟開發人員工具視窗。
-2.  按一下 [應用程式] 索引標籤，然後在左邊樹狀目錄中，按一下 [本機儲存體] > file://。
-3.  尋找與有問題的 SAS URI 服務類型相關聯的索引鍵。 例如，如果是 Blob 容器的 SAS URI 不正確，請尋找名為 `StorageExplorer_AddStorageServiceSAS_v1_blob` 的索引鍵。
-4.  索引鍵的值應該是 JSON 陣列。 尋找與不正確 URI 相關聯的物件，並將它移除。
-5.  按下 Ctrl+R，重新載入儲存體總管。
+
+1. 執行儲存體總管時，按下 F12 以開啟開發人員工具視窗。
+2. 按一下 [應用程式] 索引標籤，然後在左邊樹狀目錄中，按一下 [本機儲存體] > file://。
+3. 尋找與有問題的 SAS URI 服務類型相關聯的索引鍵。 例如，如果是 Blob 容器的 SAS URI 不正確，請尋找名為 `StorageExplorer_AddStorageServiceSAS_v1_blob` 的索引鍵。
+4. 索引鍵的值應該是 JSON 陣列。 尋找與不正確 URI 相關聯的物件，並將它移除。
+5. 按下 Ctrl+R，重新載入儲存體總管。
 
 ## <a name="linux-dependencies"></a>Linux 相依項目
 
-針對 Ubuntu 16.04 以外的 Linux 散發版本，您可能需要手動安裝某些相依性。 一般而言，必要的套件如下：
+針對 Ubuntu 16.04 以外的 Linux 散發套件，您可能需要手動安裝某些相依性。 一般而言，必要的套件如下：
+
 * [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * 最新的 GCC
 
-依據您的散發版本，您可能需要安裝其他套件。 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些散發版本的特定步驟。
+根據您的散發套件，可能是您需要安裝其他套件。 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些散發套件的特定步驟。
+
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>開啟在 檔案總管從 Azure 入口網站無法運作
+
+如果在 Azure 入口網站的 開啟在 總管 按鈕不適合您，請確定您使用相容的瀏覽器。 下列瀏覽器的相容性測試。
+* Microsoft Edge
+* Mozilla Firefox
+* Google Chrome
+* Microsoft Internet Explorer
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Machine Learning Studio Web 服務入口網站
+title: 管理 Web 服務
 titleSuffix: Azure Machine Learning Studio
-description: 您可以使用 Microsoft Azure Machine Learning Web 服務入口網站，管理 Machine Learning 新式和傳統 Web 服務。 因為傳統 Web 服務和新式 Web 服務是根據不同的基礎技術，所以各有稍微不同的管理功能。
+description: 管理 Machine Learning 新式和傳統 Web 服務使用 Microsoft Azure Machine Learning Web 服務入口網站。 因為傳統 Web 服務和新式 Web 服務是根據不同的基礎技術，所以各有稍微不同的管理功能。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453863"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838369"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>使用 Azure Machine Learning Studio Web 服務入口網站管理 Web 服務
 您可以使用 Microsoft Azure Machine Learning Web 服務入口網站，管理 Machine Learning 新式和傳統 Web 服務。 因為傳統 Web 服務和新式 Web 服務是根據不同的基礎技術，所以各有稍微不同的管理功能。
@@ -29,7 +29,7 @@ ms.locfileid: "56453863"
 * 新增和刪除端點 (僅限傳統)
 
 >[!NOTE]
->您也可以在 [Web 服務] 索引標籤上的 [[Machine Learning Studio](http://studio.azureml.net)] 中管理傳統 Web 服務。
+>您也可以在 [Web 服務] 索引標籤上的 [[Machine Learning Studio](https://studio.azureml.net)] 中管理傳統 Web 服務。
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>管理以資源管理員為基礎的新 Web 服務的權限
 

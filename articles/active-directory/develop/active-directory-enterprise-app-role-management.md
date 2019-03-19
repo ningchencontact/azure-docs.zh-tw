@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7604fbe306e606e56c9dd0a2b09b4641257dbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203349"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990505"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
 
@@ -157,6 +157,9 @@ ms.locfileid: "56203349"
     | 屬性名稱 | 屬性值 |
     | -------------- | ----------------|
     | 角色名稱  | user.assignedroles |
+
+    >[!NOTE]
+    >如果角色宣告值是 null，則 Azure AD 不會傳送此值在權杖中，而這是預設是根據設計。
 
     a. 按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900233"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008588"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結到您的 Azure 帳戶
 
@@ -138,3 +138,25 @@ C:\ az managementpartner delete --partner-id 12345
 **其他合作夥伴或客戶是否可編輯或移除合作夥伴識別碼的連結？**
 
 連結會在使用者帳戶層級產生關聯。 只有您才可編輯或移除合作夥伴識別碼的連結。 客戶和其他合作夥伴無法變更合作夥伴識別碼的連結。 
+
+
+**如果我的公司有多個，應使用哪個 MPN 識別碼？**
+
+您可以使用任何有效的 MPN 識別碼除了虛擬 orgnization(v-org) MPN 識別碼。 大部分的合作夥伴選擇 MPN 識別碼用於的地理位置以客戶為基礎，或提供服務。
+
+**哪裡可以找到受影響的收入報告的已連結的合作夥伴識別碼？**
+
+您可以找到受影響的收入報告[我的深入解析儀表板](https://partner.microsoft.com/membership/reports/myinsights)。 您必須選取夥伴系統管理員連結為夥伴關聯型別。
+
+**為什麼看不到我的報表中的客戶？**
+
+看不到由下列原因所造成的報表中的客戶
+
+1. 連結的使用者帳戶沒有[角色型存取](https://docs.microsoft.com/azure/role-based-access-control/overview)上任何客戶 Azure 訂用帳戶或資源。
+
+2. 使用者具有 Azure 訂用帳戶[角色型存取](https://docs.microsoft.com/azure/role-based-access-control/overview)access 沒有任何使用方式。
+
+**沒有連結的合作夥伴識別碼適用於 Azure Stack？**
+
+是，您可以連結合作夥伴識別碼適用於 Azure Stack。
+

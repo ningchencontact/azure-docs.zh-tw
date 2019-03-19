@@ -1,5 +1,5 @@
 ---
-title: PowerShell 指令碼：在 Azure 實驗室服務中設定允許的 VM 大小 | Microsoft Docs
+title: PowerShell 指令碼：設定 Azure 實驗室服務中允許的 VM 大小 |Microsoft Docs
 description: 這個 PowerShell 指令碼會在 Azure 實驗室服務中設定允許的 VM 大小。
 services: lab-services
 author: spelluru
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 159f175e7bb27b2d89001e1eba737c67adb89e50
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 0c82e304d3e3d8df1206c7c05883399b74229af7
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638138"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192185"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>使用 PowerShell 在 Azure 實驗室服務中設定允許的 VM 大小
 
 此範例 PowerShell 指令碼會在 Azure 實驗室服務中設定允許的虛擬機器 (VM) 大小。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
+
+## <a name="prerequisites"></a>必要條件
 * **實驗室**。 指令碼需要您擁有現有的實驗室。 
 
 ## <a name="sample-script"></a>範例指令碼
@@ -38,10 +40,10 @@ ms.locfileid: "34638138"
 
 | 命令 | 注意 |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | 根據指定的參數搜尋資源。 |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | 取得資源。 |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | 修改資源。 |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | 建立資源。 |
+| Find-AzResource | 根據指定的參數搜尋資源。 |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | 取得資源。 |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | 修改資源。 |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | 建立資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

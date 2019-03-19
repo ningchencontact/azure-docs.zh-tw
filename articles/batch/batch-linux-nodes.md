@@ -1,6 +1,6 @@
 ---
 title: 在虛擬機器計算節點上執行 Linux - Azure Batch | Microsoft Docs
-description: 了解如何在 Azure Batch 中處理您的 Linux 虛擬機器集區的平行計算工作負載。
+description: 了解如何处理 Azure Batch 中 Linux 虚拟机池上的并行计算工作负荷。
 services: batch
 documentationcenter: python
 author: laurenhughes
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e11f5cfcd80d3aa29530736a7e334c9af741322
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e228e73283685988247c8d419ba0a97b8c7b2974
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733717"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546960"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 集區中佈建 Linux 計算節點
 
@@ -46,7 +46,7 @@ Batch 服務使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-
 | **映像參考屬性** | **範例** |
 | --- | --- |
 | 發行者 |Canonical |
-| 供應項目 |UbuntuServer |
+| 产品/服务 |UbuntuServer |
 | SKU |14.04.4-LTS |
 | 版本 |最新 |
 
@@ -327,9 +327,9 @@ Azure Batch 採用 Azure 雲端服務和 Azure 虛擬機器技術。 Batch 服�
 
 GitHub 上 [azure-batch-samples][github_samples] 存放庫中的 [Python 程式碼範例][github_samples_py]包含幾個指令碼，會示範如何執行一般 Batch 作業 (例如建立集區、作業和工作)。 Python 範例隨附的[讀我檔案][github_py_readme]詳細說明如何安裝必要的套件。
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://azure.microsoft.com/pricing/details/cloud-services/
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples

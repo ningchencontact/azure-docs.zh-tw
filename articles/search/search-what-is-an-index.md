@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: addc1a0d7356cf1ba536c7ab47e376a48621e2d9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342485"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537587"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜尋服務中建立基本索引
 
@@ -57,76 +57,76 @@ ms.locfileid: "56342485"
 「[欄位集合](#fields-collection)」通常是索引中最大的一部分，其中每個欄位都會具有名稱、類型和屬性，以及可決定其使用方式的可允許行為。 其他元素包括[建議工具](#suggesters)、[評分設定檔](#scoring-profiles)、具有元件組件以支援自訂的[分析器](#analyzers)，以及 [CORS](#cors) 選項。
 
 ```json
-{  
-  "name": (optional on PUT; required on POST) "name_of_index",  
-  "fields": [  
-    {  
-      "name": "name_of_field",  
-      "type": "Edm.String | Collection(Edm.String) | Edm.Int32 | Edm.Int64 | Edm.Double | Edm.Boolean | Edm.DateTimeOffset | Edm.GeographyPoint",  
-      "searchable": true (default where applicable) | false (only Edm.String and Collection(Edm.String) fields can be searchable),  
-      "filterable": true (default) | false,  
-      "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),  
-      "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),  
-      "key": true | false (default, only Edm.String fields can be keys),  
-      "retrievable": true (default) | false,  
+{
+  "name": (optional on PUT; required on POST) "name_of_index",
+  "fields": [
+    {
+      "name": "name_of_field",
+      "type": "Edm.String | Collection(Edm.String) | Edm.Int32 | Edm.Int64 | Edm.Double | Edm.Boolean | Edm.DateTimeOffset | Edm.GeographyPoint",
+      "searchable": true (default where applicable) | false (only Edm.String and Collection(Edm.String) fields can be searchable),
+      "filterable": true (default) | false,
+      "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
+      "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
+      "key": true | false (default, only Edm.String fields can be keys),
+      "retrievable": true (default) | false,
       "analyzer": "name_of_analyzer_for_search_and_indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
       "searchAnalyzer": "name_of_search_analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
       "indexAnalyzer": "name_of_indexing_analyzer", (only if 'searchAnalyzer' is set and 'analyzer' is not set)
       "synonymMaps": [ "name_of_synonym_map" ] (optional, only one synonym map per field is currently supported)
-    }  
-  ],  
-  "suggesters": [  
-    {  
-      "name": "name of suggester",  
-      "searchMode": "analyzingInfixMatching",  
-      "sourceFields": ["field1", "field2", ...]  
-    }  
-  ],  
-  "scoringProfiles": [  
-    {  
-      "name": "name of scoring profile",  
-      "text": (optional, only applies to searchable fields) {  
-        "weights": {  
-          "searchable_field_name": relative_weight_value (positive #'s),  
-          ...  
-        }  
-      },  
-      "functions": (optional) [  
-        {  
-          "type": "magnitude | freshness | distance | tag",  
-          "boost": # (positive number used as multiplier for raw score != 1),  
-          "fieldName": "...",  
-          "interpolation": "constant | linear (default) | quadratic | logarithmic",  
-          "magnitude": {  
-            "boostingRangeStart": #,  
-            "boostingRangeEnd": #,  
-            "constantBoostBeyondRange": true | false (default)  
-          },  
-          "freshness": {  
-            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)  
-          },  
-          "distance": {  
-            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)  
-            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)  
-          },  
-          "tag": {  
-            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)  
-          }  
-        }  
-      ],  
-      "functionAggregation": (optional, applies only when functions are specified)   
-        "sum (default) | average | minimum | maximum | firstMatching"  
-    }  
-  ],  
+    }
+  ],
+  "suggesters": [
+    {
+      "name": "name of suggester",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": ["field1", "field2", ...]
+    }
+  ],
+  "scoringProfiles": [
+    {
+      "name": "name of scoring profile",
+      "text": (optional, only applies to searchable fields) {
+        "weights": {
+          "searchable_field_name": relative_weight_value (positive #'s),
+          ...
+        }
+      },
+      "functions": (optional) [
+        {
+          "type": "magnitude | freshness | distance | tag",
+          "boost": # (positive number used as multiplier for raw score != 1),
+          "fieldName": "...",
+          "interpolation": "constant | linear (default) | quadratic | logarithmic",
+          "magnitude": {
+            "boostingRangeStart": #,
+            "boostingRangeEnd": #,
+            "constantBoostBeyondRange": true | false (default)
+          },
+          "freshness": {
+            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)
+          },
+          "distance": {
+            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
+            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
+          },
+          "tag": {
+            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)
+          }
+        }
+      ],
+      "functionAggregation": (optional, applies only when functions are specified) 
+        "sum (default) | average | minimum | maximum | firstMatching"
+    }
+  ],
   "analyzers":(optional)[ ... ],
   "charFilters":(optional)[ ... ],
   "tokenizers":(optional)[ ... ],
   "tokenFilters":(optional)[ ... ],
-  "defaultScoringProfile": (optional) "...",  
-  "corsOptions": (optional) {  
-    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],  
-    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)  
-  }  
+  "defaultScoringProfile": (optional) "...",
+  "corsOptions": (optional) {
+    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
+    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  }
 }
 ```
 
@@ -137,7 +137,7 @@ ms.locfileid: "56342485"
 您在定義結構描述時必須指定索引中每個欄位的名稱、類型和屬性。 欄位類型可分類該欄位中儲存的資料。 個別欄位上設定的屬性可指定使用欄位的方式。 下列幾個資料表列舉您可以指定的類型和屬性。
 
 ### <a name="data-types"></a>資料類型
-| 類型 | 說明 |
+| 類型 | 描述 |
 | --- | --- |
 | *Edm.String* |可選擇性予以 Token 化以供進行全文檢索搜尋 (斷字、詞幹分析等) 的文字。 |
 | *Collection(Edm.String)* |可選擇性予以 Token 化以供進行全文檢索搜尋的字串清單。 理論上，集合中的項目數沒有上限，但集合的承載大小有 16 MB 的上限。 |
@@ -151,7 +151,7 @@ ms.locfileid: "56342485"
 您可以在這裡找到有關 Azure 搜尋服務 [支援的資料類型](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)的詳細資訊。
 
 ### <a name="index-attributes"></a>索引屬性
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | *金鑰* |字串，提供每一份文件的唯一識別碼，用於查閱文件。 每個索引必須有一個索引鍵。 只有一個欄位可以做為索引鍵，而且其類型必須設定為 Edm.String。 |
 | *Retrievable* |指定搜尋結果中是否可傳回某欄位。 |

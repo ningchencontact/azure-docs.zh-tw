@@ -10,22 +10,25 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3e877733d473993a5acd2f44e088b8b0b4fe130
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447254"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314835"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>升級 SQL 資料倉儲可將效能發揮到極限
+
 將「Azure SQL 資料倉儲」升級至最新一代 Azure 硬體和儲存體架構。
 
 ## <a name="why-upgrade"></a>為何要升級？
+
 您現在可以在[所支援區域](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)的 Azure 入口網站中順暢地升級至 SQL 資料倉儲計算最佳化 Gen2 層。 如果您所在的區域不支援自我升級，您可以升級至支援的區域，或靜候您的區域支援自我升級。 請立即升級，以利用最新一代的 Azure 硬體和增強的儲存體架構，包括更快的效能、更高的延展性，以及無限制的單欄式儲存體。 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>適用於
+
 這項升級適用於[所支援區域](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)中的計算最佳化 Gen1 層資料倉儲。
 
 ## <a name="before-you-begin"></a>開始之前
@@ -49,13 +52,18 @@ ms.locfileid: "56447254"
    |           DW2000            |           DW2000c           |
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
->[!Note]
->建議的效能層級並非直接轉換。 例如，我們建議從 DW600 轉換至 DW500c。
+
+> [!Note]
+> 建議的效能層級並非直接轉換。 例如，我們建議從 DW600 轉換至 DW500c。
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>使用 Azure 入口網站在支援的區域中進行升級
 
+## <a name="before-you-begin"></a>開始之前
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!NOTE]
-> 透過 Azure 入口網站從 GEN1 移轉至 GEN2 將是永久性的。 沒有程序可讓您返回 GEN1。  
+> 從移轉 Gen1 至 Gen2 透過 Azure 入口網站是永久性的。 不是傳回至 Gen1 的程序。  
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -73,13 +81,13 @@ ms.locfileid: "56447254"
    原始 Gen1 PowerShell 命令：
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
    ```
 
    修改為：
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
    > [!NOTE] 
@@ -100,8 +108,6 @@ ms.locfileid: "56447254"
    > [!NOTE] 
    > SERVICE_OBJECTIVE = 'DW300' 已變更為 SERVICE_OBJECTIVE = 'DW300**c**'
 
-
-
 ## <a name="start-the-upgrade"></a>開始升級
 
 1. 在 Azure 入口網站中移至計算最佳化 Gen1 層資料倉儲。 如果要升級的計算最佳化 Gen1 層資料倉儲已暫停，請[繼續執行資料倉儲](pause-and-resume-compute-portal.md)。 
@@ -110,7 +116,6 @@ ms.locfileid: "56447254"
     > [!NOTE]
     > 如果您未在 [工作] 索引標籤下看見 [升級至 Gen2] 卡片，您的訂用帳戶類型受限於目前的區域。
     > [提交支援票證](sql-data-warehouse-get-started-create-support-ticket.md)，將您的訂用帳戶列入允許清單中。
-
 
 3. 在升級之前，請確定您的工作負載已完成執行並停止。 在您的資料倉儲重新上線成為計算最佳化 Gen2 層資料倉儲之前，會發生幾分鐘的停機時間。 **選取升級**：
 
@@ -173,6 +178,7 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
+
 ## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>透過 Azure 入口網站使用還原功能從 Azure 地理區域升級
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>使用 Azure 入口網站建立使用者定義的還原點
@@ -190,6 +196,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![還原點名稱](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>使用 Azure 入口網站還原作用中或已暫停的資料庫
+
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 瀏覽至您想要還原的 SQL 資料倉儲。
 3. 在 [概觀] 區段頂端，選取 [還原]。
@@ -205,11 +212,13 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![使用者定義的還原點](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>使用 PowerShell 從 Azure 地理區域還原
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 若要復原資料庫，請使用 [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) Cmdlet。
 
 > [!NOTE]
 > 您可以執行異地還原來還原至 Gen2！ 若要這麼做，請指定 Gen2 ServiceObjectiveName (例如 DW1000**c**) 作為選擇性參數。
->
 
 1. 開啟 Windows PowerShell。
 2. 連接到您的 Azure 帳戶，然後列出與您帳戶關聯的所有訂用帳戶。
@@ -235,7 +244,6 @@ $GeoRestoredDatabase.status
 
 > [!NOTE]
 > 若要在還原完成之後設定資料庫，請參閱 [在復原之後設定資料庫](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery)。
->
 
 如果來源資料庫是啟用 TDE，則復原的資料庫將是啟用 TDE。
 
@@ -243,4 +251,5 @@ $GeoRestoredDatabase.status
 如果您遇到任何關於資料倉儲的問題，請建立[支援票證](sql-data-warehouse-get-started-create-support-ticket.md)以及將「Gen2 升級」當作可能原因。
 
 ## <a name="next-steps"></a>後續步驟
+
 您升級的資料倉儲已上線。 若要充分利用增強的架構，請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。

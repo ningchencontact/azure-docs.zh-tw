@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339751"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240162"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>使用 Azure IoT 中樞偵測連線中斷並進行疑難排解
 
@@ -54,7 +54,7 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
 
 ## <a name="resolve-connectivity-errors"></a>解決連線錯誤
 
-開啟已連線裝置的診斷記錄和警示後，您會在發生錯誤時收到警示。 這一節說明如何在收到警示時解決常見問題。 下列步驟假設您已針對診斷記錄設定 Azure Log Analytics。
+開啟已連線裝置的診斷記錄和警示後，您會在發生錯誤時收到警示。 這一節說明如何在收到警示時解決常見問題。 下列步驟假設您已設定 Azure 監視器記錄檔來儲存診斷記錄。
 
 1. 在 Azure 入口網站中，前往 **Log Analytics** 的工作區。
 1. 選取 [記錄搜尋]。

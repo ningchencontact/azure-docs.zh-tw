@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d8f42b49fe3dbdecec163ab47579346b71f0bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b4be5087af70e10e5a73ea2a183a25b326aea664
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190495"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>教學課程：Azure Active Directory 與 ServiceChannel 整合
 
@@ -155,7 +155,7 @@ ServiceChannel 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/servicechannel-tutorial/tutorial_general_400.png)
 
-1. 在 [ServiceChannel 組態] 區段上，按一下 [設定 ServiceChannel] 以開啟 [設定登入] 視窗。 請記下 [快速參考] 區段中的 [SAML 實體識別碼]。
+1. 在 [ServiceChannel 組態] 區段上，按一下 [設定 ServiceChannel] 以開啟 [設定登入] 視窗。 請注意**SAML 實體識別碼**從**快速參考**一節。
 
 1. 若要在 **ServiceChannel** 端設定單一登入，您需要將已下載的**憑證 (Base64)** 和 **SAML 實體識別碼**傳送給 [ServiceChannel 支援小組](https://servicechannel.zendesk.com/hc/en-us)。 他們將會設定妥當，讓兩端的 SAML SSO 連線都設定正確。
 

@@ -3,8 +3,8 @@ title: 了解 Azure Service Fabric 叢集版本 | Microsoft Docs
 description: 支援的 Azure Service Fabric 叢集版本
 services: service-fabric
 documentationcenter: .net
-author: twhitney
-manager: jpconnock
+author: aljo-microsoft
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,22 +13,22 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
-ms.author: TylerMSFT
-ms.openlocfilehash: 154869c3e6bcd44a71480a3cf7363537dddcebf9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727676"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191642"
 ---
 # <a name="supported-service-fabric-versions"></a>支援的 Service Fabric 版本
 
-請確定您的叢集一律執行支援的 Service Fabric 版本。 當我們宣布發行新版本的 Service Fabric 時，從當日起至少 60 天後，舊版就會標示為結束支援。 新的版本會於 [Service Fabric 小組部落格上](https://blogs.msdn.microsoft.com/azureservicefabric/)發佈。
+请确保群集始终运行受支持的 Service Fabric 版本。 當我們宣布發行新版本的 Service Fabric 時，從當日起至少 60 天後，舊版就會標示為結束支援。 新版本在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中公布。
 
 請詳閱下列文件，以了解如何保持您的叢集執行支援的 Service Fabric 版本。
 
 - [在 Azure 叢集上升級 Service Fabric 版本](service-fabric-cluster-upgrade.md)
-- [在獨立 Windows 伺服器叢集上升級 Service Fabric 版本](service-fabric-cluster-upgrade-windows-server.md)
+- [升級獨立 windows 伺服器叢集上的 Service Fabric 版本](service-fabric-cluster-upgrade-windows-server.md)
 
 以下是支援的 Service Fabric 版本清單以及其支援結束日期。
 
@@ -43,5 +43,5 @@ ms.locfileid: "52727676"
 | 6.0.* | 5.6.205.* |小於或等於 2.8 版 |2018 年 3 月 30 日     |
 | 6.1.* | 5.7.221.* |小於或等於 3.0 版 |2018 年 7 月 15 日      |
 | 6.2.* | 6.0.232.* |小於或等於 3.1 版 |2018 年 10 月 26 日   |
-| 6.3.* | 6.1.480.* |小於或等於 3.2 版 |2019 年 2 月 28 日  |
+| 6.3.* | 6.1.480.* |小於或等於 3.2 版 |31,2019 年 3 月  |
 | 6.4.* | 6.2.301.* |小於或等於 3.3 版 |目前版本，沒有結束日期 |

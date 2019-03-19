@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbfade56ff12aa719927d496606a6ce4b4fe5a38
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167145"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217732"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>部署雲端式 Azure Multi-Factor Authentication
 
@@ -42,6 +42,9 @@ ms.locfileid: "56167145"
 ## <a name="choose-authentication-methods"></a>選擇驗證方法
 
 請根據組織的需求，為使用者啟用至少一個驗證方法。 我們發現，當您為使用者啟用時，Microsoft Authenticator 應用程式可提供最佳使用者體驗。 如果您需要了解有哪些方法可供使用以及如何設定這些方式，請參閱[驗證方法有哪些](concept-authentication-methods.md)一文。
+
+> [!IMPORTANT]
+> 從於 2019 年 3 月開始撥打電話選項將無法使用免費/試用 Azure AD 租用戶中的 MFA 和 SSPR 的使用者。 這項變更不會影響簡訊。 通話會繼續在使用者可使用付費 Azure AD 租用戶。 這項變更只會影響免費/試用 Azure AD 租用戶。
 
 ## <a name="get-users-to-enroll"></a>讓使用者註冊
 

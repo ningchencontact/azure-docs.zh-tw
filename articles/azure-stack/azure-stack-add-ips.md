@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ed2205455c4d3c82554f3d552bacc059fffa68e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 09805719262f0a1d30f3b38af4b5209667d25e5a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174651"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195365"
 ---
 # <a name="add-public-ip-addresses"></a>新增公用 IP 位址
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*  
@@ -53,11 +53,6 @@ ms.locfileid: "56174651"
 8.   輸入要以 CIDR 標記法新增的位址區塊。  例如︰192.168.203.0/24
 9.  您在 [位址範圍 (CIDR 區塊) 欄位] 中提供有效的 CIDR 範圍時，[起始 IP 位址]、[結束 IP 位址] 和 [可用的 IP 位址] 欄位會自動填入。  這些是唯讀而且自動產生，因此，不需要修改 [位址範圍] 欄位中的值便無法變更這些值。
 10. 檢閱刀鋒視窗的資訊，並確認一切正確之後，按一下 [確定] 認可變更，並將位址範圍新增到 Azure Stack。
-
-## <a name="update-the-acls-on-your-top-of-rack-switches"></a>在機架頂端交換器上更新 ACL
-您啟用新加入的 IP 範圍最後需要處理的一件事是，在機架頂端 (ToR) 交換器上更新存取控制清單 (ACL)。  ToR 交換器上的 ACL 已鎖定，因此從 Azure Stack 外部到新加入的 IP 範圍之間的連線無法運作，直到新的範圍新增到交換器上的 ACL 為止。  
-
-您需要連絡 OEM，並配合更新 ToR 交換器上的 ACL。  他們有對於這項操作提供支援所需的工具。
 
 
 ## <a name="next-steps"></a>後續步驟 

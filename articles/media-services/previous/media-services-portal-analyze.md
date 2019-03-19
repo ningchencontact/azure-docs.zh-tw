@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 02b972c0591bb05f72887e3e1c3d057d373ff48c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa48713034de5660218d2d568be6673a7d39a7e3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004864"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245288"
 ---
-# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>使用 Azure 入口網站分析您的媒體 (舊版)
+# <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 入口網站分析您的媒體 
 > [!NOTE]
 > 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
 > 
@@ -93,10 +93,10 @@ Azure Media Hyperlapse 是能夠利用第一人稱視角或運動攝影的內容
 
 * **臉部偵測**
   
-    臉部偵測能夠找出並追蹤影片中的臉部。 可以同時追蹤多個臉部，隨著對象移動持續進行追蹤，並將時間和位置的中繼資料以 JSON 檔案的格式回傳。 追蹤期間，服務會在人員於螢幕上四處移動時，嘗試為他們的臉部賦予相同的識別碼，就算他們被擋住或暫時離開畫面也一樣。
+    臉部偵測能夠找出並追蹤影片中的臉部。 可以同時追蹤多個臉部，隨著對象移動持續進行追蹤，並將時間和位置的中繼資料以 JSON 檔案的格式回傳。 跟踪期间，该服务会在人员于屏幕上四处移动时，尝试为他们的面部赋予相同的 ID，即使他们被挡住或暂时离帧。
   
   > [!NOTE]
-  > 此服務並不會執行臉部辨識。 臉部離開畫面或被擋住太久的人員，將會在回來時被賦予新的識別碼。
+  > 此服務並不會執行臉部辨識。 面部离帧或被挡住太久的人员，会在回来时赋予新的 ID。
   > 
   > 
 * **情緒偵測**
@@ -112,7 +112,7 @@ Azure Media Hyperlapse 是能夠利用第一人稱視角或運動攝影的內容
 * 每一人臉情緒偵測
 * 彙總情緒偵測
 
-### <a name="job-name"></a>作業名稱
+### <a name="job-name"></a>作业名称
 可讓您識別作業的易記名稱。 [本文](media-services-portal-check-job-progress.md)說明如何監視作業進度。 
 
 ### <a name="output-file"></a>輸出檔案
@@ -126,7 +126,7 @@ Azure Media Hyperlapse 是能夠利用第一人稱視角或運動攝影的內容
 ![分析影片](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
 
 ## <a name="azure-media-video-thumbnails"></a>Azure 媒體視訊縮圖
-此處理器可自動選取來源視訊的有趣片段，協助您建立較長視訊的摘要。 針對片長較長的視訊，如果您想要提供精彩內容的快速概觀，這非常有用。 如需詳細資訊和範例，請參閱 [使用 Azure 媒體視訊縮圖建立視訊摘要](media-services-video-summarization.md)
+此處理器可自動選取來源視訊的有趣片段，協助您建立較長視訊的摘要。 針對片長較長的視訊，如果您想要提供精彩內容的快速概觀，這非常有用。 有关详细信息和示例，请参阅 [使用 Azure 媒体视频缩略图创建视频摘要](media-services-video-summarization.md)
 
 ![分析影片](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
 

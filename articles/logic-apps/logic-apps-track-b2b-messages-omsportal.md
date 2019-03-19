@@ -1,5 +1,5 @@
 ---
-title: 使用 Log Analytics 追蹤 B2B 訊息 - Azure Logic Apps | Microsoft Docs
+title: 追蹤 Azure 監視器記錄檔-Azure Logic Apps B2B 訊息 |Microsoft Docs
 description: 使用 Azure Log Analytics 追蹤整合帳戶和 Azure Logic Apps 的 B2B 通訊
 services: logic-apps
 ms.service: logic-apps
@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996551"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193206"
 ---
-# <a name="track-b2b-messages-with-azure-log-analytics"></a>使用 Azure Log Analytics 追蹤 B2B 訊息
+# <a name="track-b2b-messages-with-azure-monitor-logs"></a>使用 Azure 監視器記錄追蹤 B2B 訊息
 
-當您在整合帳戶中的交易合作夥伴之間設定了 B2B 通訊之後，合作夥伴就可以使用通訊協定 (例如 AS2、X12 和 EDIFACT) 交換訊息。 若要檢查這些訊息是否有經過正確處理，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 追蹤這些訊息。 例如，您可以使用這些網頁追蹤功能來追蹤訊息：
+當您在整合帳戶中的交易合作夥伴之間設定了 B2B 通訊之後，合作夥伴就可以使用通訊協定 (例如 AS2、X12 和 EDIFACT) 交換訊息。 若要檢查正確處理這些訊息，您可以追蹤這些訊息[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 例如，您可以使用這些網頁追蹤功能來追蹤訊息：
 
 * 訊息計數和狀態
 * 通知狀態
@@ -29,19 +29,21 @@ ms.locfileid: "52996551"
 > [!NOTE]
 > 以前，本頁面所描述的是如何使用 Microsoft Operations Management Suite (OMS) 來執行這些工作的步驟，但 OMS 將於 [2019 年 1 月淘汰](../azure-monitor/platform/oms-portal-transition.md)，請改為使用 Azure Log Analytics 來取代這些步驟。 
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 * 已設定診斷記錄的邏輯應用程式。 了解[如何建立邏輯應用程式](quickstart-create-first-logic-app-workflow.md)和[如何設定該邏輯應用程式的記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
 
 * 已設定監視和記錄的整合帳戶。 了解[如何建立整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)和[如何設定該帳戶的監視和記錄](../logic-apps/logic-apps-monitor-b2b-message.md)。
 
-* 如果您還沒有這麼做，請[將診斷資料發佈至 Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
+* 如果您還[將診斷資料發佈至 Azure 監視器記錄](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
 
 * 當您符合上述需求之後，也需要一個 Log Analytics 工作區，用以透過 Log Analytics 追蹤 B2B 通訊。 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
 ## <a name="install-logic-apps-b2b-solution"></a>安裝 Logic Apps B2B 解決方案
 
-若要讓 Log Analytics 追蹤邏輯應用程式的 B2B 訊息，請將 **Logic Apps B2B** 解決方案新增至 Log Analytics。 深入了解[將解決方案新增至 Log Analytics](../azure-monitor/learn/quick-create-workspace.md)。
+您可以追蹤 B2B 訊息的邏輯應用程式的 Azure 監視器記錄檔之前，新增**Logic Apps B2B** Azure 監視器記錄檔的方案。 深入了解[將解決方案新增至 Azure 監視器記錄](../azure-monitor/learn/quick-create-workspace.md)。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「log analytics」，然後選取 [Log Analytics]。
 
@@ -128,7 +130,7 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
    * 若要搜尋具有預先建置查詢的結果，請選擇 [我的最愛]。
 
    * 了解[如何新增篩選來建置查詢](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)。 
-   或者深入了解[如何在 Log Analytics 中使用記錄搜尋尋找資料](../log-analytics/log-analytics-log-searches.md)。
+   或者進一步了解[如何在 Azure 監視器記錄檔中尋找資料與記錄搜尋](../log-analytics/log-analytics-log-searches.md)。
 
    * 若要變更搜尋方塊中的查詢，請使用您想要用作篩選的資料行和值來更新查詢。
 
@@ -144,7 +146,7 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 
 以下是每個 AS2 訊息的屬性描述。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | 傳送者 | 針對 AS2 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
 | 接收者 | 針對 AS2 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
@@ -175,7 +177,7 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 
 以下是每個 X12 訊息的屬性描述。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | 傳送者 | 針對 X12 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
 | 接收者 | 針對 X12 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
@@ -208,7 +210,7 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 
 以下是每個 EDIFACT 訊息的屬性描述。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | 傳送者 | 針對 EDIFACT 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
 | 接收者 | 針對 EDIFACT 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
@@ -237,7 +239,7 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [查詢 Log Analytics 中的 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [查詢 Azure 監視器記錄檔中的 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2 追蹤結構描述](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 追蹤結構描述](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [自訂追蹤結構描述](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

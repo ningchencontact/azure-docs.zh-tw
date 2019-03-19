@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: fb59740289caffaf8325aa75aaf8ae649611b347
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa94bffc05879be9d6bbaaa7cd884c36ffe7e0b8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991628"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451275"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure 監視器中的 Syslog 資料來源
 Syslog 是通用於 Linux 的事件記錄通訊協定。  應用程式將傳送的訊息可能會儲存在本機電腦上，或傳遞到 Syslog 收集器。  安裝 Log Analytics Linux 代理程式時，它會設定本機 Syslog 精靈來將訊息轉送到代理程式。  然後，代理程式會將訊息傳送至 Azure 監視器 (建立相對應記錄的位置)。  
@@ -183,7 +183,7 @@ Log Analytics 代理程式會在本機用戶端的連接埠 25224 上接聽 Sysl
 ## <a name="syslog-record-properties"></a>Syslog 記錄屬性
 Syslog 記錄具有 **Syslog** 類型，以及下表中的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 電腦 |收集事件的來源電腦。 |
 | Facility |定義產生訊息之系統的一部分。 |
@@ -197,7 +197,7 @@ Syslog 記錄具有 **Syslog** 類型，以及下表中的屬性。
 ## <a name="log-queries-with-syslog-records"></a>含有 Syslog 記錄的記錄查詢
 下表提供擷取 Syslog 記錄的不同記錄查詢範例。
 
-| 查詢 | 說明 |
+| 查詢 | 描述 |
 |:--- |:--- |
 | syslog |所有的 Syslog。 |
 | Syslog &#124; where SeverityLevel == "error" |嚴重性為錯誤的所有 Syslog 記錄。 |

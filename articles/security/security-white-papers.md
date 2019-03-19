@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 01688c120a8302da4903302ab8bcd2d1fa4ab351
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3fb6e42e55119684ace8547a55297d38dbb9a26e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113408"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57402371"
 ---
 # <a name="azure-security-white-papers"></a>Azure 安全性白皮書
 | | |
@@ -42,4 +42,4 @@ ms.locfileid: "56113408"
 |[Azure 合規性的概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|這份可下載的文件探討 Azure 合規性供應項目，除了由 Microsoft 產生的契約修訂、自我評量及客戶指引文件之外，也包括由獨立的第三方稽核公司所產生的正式認證、證明、驗證、授權及評量。 <br/> 每個供應項目描述都會說明評量範圍包含哪些 Azure 客戶面向服務，並提供可下載的資源連結，以協助客戶履行自己的合規性義務。|
 |[Azure 的安全性管理](azure-security-management.md)|探討 Azure 資源的遠端存取問題。 雲端在本質上便需要進行遠端存取管理，因此安全性至關重要。 涵蓋一般安全性指導方針、用戶端設定、最佳做法，以及作業原則和程序。 |
 |[Azure AD 資料和安全性](https://aka.ms/aaddatawhitepaper) | 可下載的文件說明 Azure Active Directory 的不同元件及其彼此之間的互動方式。 其中概述各種元件如何對於傳輸中的資料 (例如，透過網際網路) 進行保護、維護、加密或雜湊，以及如何在待用時進行保護。 其中說明各種 Azure AD 資料中心位置及其與內部部署目錄進行互動的方式，以及進出 Azure AD 的流量。 最後，其中描述 Azure AD 工程小組管理和保護服務所用的操作程序。|
-
+|[無密碼驗證的概觀](https://aka.ms/pwdless-whitepaper)|本文件是使用 Windows Hello for Business、 FIDO2 安全性金鑰，以及 Microsoft Authenticator 應用程式的無密碼驗證的主要優點的概觀。 建議您針對安全性專業人員和 Ciso 他們有興趣了解 Microsoft 如何協助超越密碼及部署下一個產生的驗證認證。|

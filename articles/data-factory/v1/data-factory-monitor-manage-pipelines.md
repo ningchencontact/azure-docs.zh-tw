@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015487"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445138"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>使用 Azure 入口網站和 PowerShell 監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
@@ -35,6 +35,8 @@ ms.locfileid: "54015487"
 
 > [!IMPORTANT]
 > Azure Data Factory 第 1 版現在會使用新的 [Azure 監視器警示基礎結構](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。 舊的警示基礎結構已淘汰。 因此，針對第 1 版 Data Factory 所設定的現有警示不再有效。 第 1 版 Data Factory 的現有警示不會自動遷移。 您必須在新的警示基礎結構上重新建立這些警示。 登入 Azure 入口網站，並選取 [監視器] 來對第 1 版 Data Factory 的計量建立新警示 (例如，執行失敗或執行成功)。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="understand-pipelines-and-activity-states"></a>了解管線和活動狀態
 藉由使用 Azure 入口網站，您可以：
@@ -87,7 +89,7 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">子狀態</th><th align="left">說明</th>
+    <th align="left">State</th><th align="left">子狀態</th><th align="left">描述</th>
 </tr>
 <tr>
     <td rowspan="8">等候</td><td>ScheduleTime</td><td>尚未到達執行配量的時間。</td>
@@ -173,26 +175,26 @@ Data Factory 內的資料集狀態轉換流程如下：等候中 -> 進行中/�
 > [!NOTE] 
 > 圖表檢視不支援暫停和繼續管線。 如果您想要使用使用者介面，請使用監視及管理應用程式。 如需使用應用程式的詳細資訊，請參閱[使用監視及管理應用程式來監視及管理 Data Factory 管線](data-factory-monitor-manage-app.md)一文。 
 
-您可以使用 **Suspend-AzureRmDataFactoryPipeline** PowerShell Cmdlet 來暫停/暫止管線。 若您在問題獲得解決之前不想執行管線，此 Cmdlet 非常有用。 
+您可以暫停/暫止管線使用**暫止 AzDataFactoryPipeline** PowerShell cmdlet。 若您在問題獲得解決之前不想執行管線，此 Cmdlet 非常有用。 
 
 ```powershell
-Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
 例如︰
 
 ```powershell
-Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
+Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
 在修正管線的問題後，您可以執行下列 PowerShell 命令來繼續暫止的管線：
 
 ```powershell
-Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
 例如︰
 
 ```powershell
-Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
+Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
 ## <a name="debug-pipelines"></a>偵錯管線
@@ -217,29 +219,29 @@ Azure Data Factory 提供了許多功能供您使用 Azure 入口網站和 Azure
 
 #### <a name="use-powershell-to-debug-an-error"></a>使用 PowerShell 偵錯錯誤
 1. 啟動 **PowerShell**。
-2. 執行 **Get-AzureRmDataFactorySlice** 命令來查看配量及其狀態。 您應該會看到狀態為 [失敗] 的配量。        
+2. 執行**Get AzDataFactorySlice**命令來查看配量及其狀態。 您應該會看到狀態為 [失敗] 的配量。        
 
     ```powershell   
-    Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+    Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
    例如︰
 
     ```powershell   
-    Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+    Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    將 **StartDateTime** 取代為您的管線開始時間。 
-3. 現在，執行 **Get-AzureRmDataFactoryRun** Cmdlet，以取得關於此配量之活動執行的詳細資料。
+3. 現在，執行**Get AzDataFactoryRun**配量執行的 cmdlet 來取得有關活動的詳細資料。
 
     ```powershell   
-    Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
+    Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
     例如︰
 
     ```powershell   
-    Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+    Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
     ```
 
     StartDateTime 的值就是您在上一步驟記下的錯誤/問題配量的開始時間。 date-time 應該用雙引號括住。
@@ -267,10 +269,10 @@ Azure Data Factory 提供了許多功能供您使用 Azure 入口網站和 Azure
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. 您可以使用在輸出中看見的 ID 值執行 **Save-AzureRmDataFactoryLog** Cmdlet，並在 Cmdlet 中使用 **-DownloadLogsoption** 來下載記錄檔。
+5. 您可以執行**儲存 AzDataFactoryLog** cmdlet 搭配您從輸出中，請參閱並使用下載的記錄檔的識別碼值 **-DownloadLogsoption** cmdlet。
 
     ```powershell
-    Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+    Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
     ```
 
 ## <a name="rerun-failures-in-a-pipeline"></a>重新執行管線中的失敗
@@ -288,7 +290,7 @@ Azure Data Factory 提供了許多功能供您使用 Azure 入口網站和 Azure
 ![修正錯誤並進行驗證](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
-您可以使用 **Set-AzureRmDataFactorySliceStatus** Cmdlet 來重新執行失敗。 如需該 Cmdlet 的語法及其他詳細資料，請參閱 [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) 主題。
+您可以使用重新執行失敗**組 AzDataFactorySliceStatus** cmdlet。 請參閱[組 AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus)的語法和 cmdlet 的其他詳細資料。
 
 **範例：**
 
@@ -297,7 +299,7 @@ Azure Data Factory 提供了許多功能供您使用 Azure 入口網站和 Azure
 'UpdateType' 已設為 'UpstreamInPipeline'，這代表資料表中每個配量的狀態以及所有相依 (上游) 資料表的狀態都設為 'Waiting'。 此參數的另一個可能值為 'Individual'。
 
 ```powershell
-Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
 ## <a name="create-alerts-in-the-azure-portal"></a>在 Azure 入口網站中建立警示
 

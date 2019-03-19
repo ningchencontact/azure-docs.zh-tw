@@ -1,19 +1,19 @@
 ---
 title: 了解 Azure IoT 中樞檔案上傳 | Microsoft Docs
 description: 開發人員指南 - 使用 IoT 中樞的檔案上傳功能，管理將檔案從裝置上傳至 Azure 儲存體 blob 容器。
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: dobett
-ms.openlocfilehash: 724f655229347aa73747476e6bb4837b30e0fc4f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 7678c50cbda0ea112c737e8230586081efe61081
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838999"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008554"
 ---
 # <a name="upload-files-with-iot-hub"></a>透過 IoT 中樞上傳檔案
 
@@ -97,16 +97,16 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 
 如[端點](iot-hub-devguide-endpoints.md)中所述，IoT 中樞會透過面向服務的端點 (**/messages/servicebound/fileuploadnotifications**) 利用訊息來傳遞檔案上傳通知。 檔案上傳通知的接收語意與雲端到裝置訊息的接收語意相同，並且具有相同的[訊息生命週期](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle)。 從檔案上傳通知端點擷取的每則訊息是具有下列屬性的 JSON 記錄：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | EnqueuedTimeUtc |指出通知建立時間的時間戳記。 |
-| deviceId |**DeviceId** 。 |
+| DeviceId |**DeviceId** 。 |
 | BlobUri |上傳檔案的 URI。 |
 | BlobName |上傳檔案的名稱。 |
 | LastUpdatedTime |指出上次更新檔案的時間戳記。 |
 | BlobSizeInBytes |上傳檔案的大小。 |
 
-**範例**。 此範例顯示檔案上傳通知訊息的本文。
+**示例**。 此範例顯示檔案上傳通知訊息的本文。
 
 ```json
 {
@@ -123,7 +123,7 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 
 每個 IoT 中樞都具備下列適用於檔案上傳通知的組態選項：
 
-| 屬性 | 說明 | 範圍和預設值 |
+| 屬性 | 描述 | 范围和默认值 |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |控制是否將檔案上傳通知寫入檔案通知端點。 |布林 預設值：True。 |
 | **fileNotifications.ttlAsIso8601** |檔案上傳通知的預設 TTL。 |ISO_8601 間隔高達 48H (最小為 1 分鐘)。 預設值：1 小時。 |

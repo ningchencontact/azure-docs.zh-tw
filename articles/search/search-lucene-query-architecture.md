@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633856"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537223"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>全文檢索搜尋如何在 Azure 搜尋服務中運作
 
@@ -55,14 +55,14 @@ ms.locfileid: "53633856"
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2017-11-11 
-{  
-    "search": "Spacious, air-condition* +\"Ocean view\"",  
-    "searchFields": "description, title",  
+{
+    "search": "Spacious, air-condition* +\"Ocean view\"",
+    "searchFields": "description, title",
     "searchMode": "any",
-    "filter": "price ge 60 and price lt 300",  
+    "filter": "price ge 60 and price lt 300",
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
- } 
+}
 ~~~~
 
 針對此要求，搜尋引擎會執行下列作業︰
@@ -117,7 +117,7 @@ Spacious,||air-condition*+"Ocean view"
 假設我們現在設定 `searchMode=all`。 在此情況下，空白會解譯為 "and" 作業。 每個其餘詞彙都必須存在於文件中，才可認定為相符。 產生的範例查詢會如下解譯︰ 
 
 ~~~~
-+Spacious,+air-condition*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"
 ~~~~
 
 此查詢的經修改查詢樹狀結構會如下所示，其中相符文件是所有三個子查詢的交集︰ 
@@ -155,7 +155,7 @@ Spacious,||air-condition*+"Ocean view"
 可以使用[分析 API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)來測試分析器的行為。 提供您想要分析的詞彙，查看指定分析器將會產生的文字。 例如，若要查看標準分析器會如何處理 "air-condition" 文字，您可以發出下列要求︰
 
 ~~~~
-{ 
+{
     "text": "air-condition",
     "analyzer": "standard"
 }
@@ -164,7 +164,7 @@ Spacious,||air-condition*+"Ocean view"
 標準分析器會將輸入文字分成下列兩個權杖，並以開始和結束位移 (用於點閱數醒目提示) 等屬性以及它們的位置 (用於相符片語) 加以註解︰
 
 ~~~~
-{  
+{
   "tokens": [
     {
       "token": "air",
@@ -195,11 +195,11 @@ Spacious,||air-condition*+"Ocean view"
 擷取文件是指在索引中尋找包含相符詞彙的文件。 了解這個階段的最佳方式就是範例。 讓我們從具有下列簡單結構描述的旅館索引開始︰ 
 
 ~~~~
-{   
-    "name": "hotels",     
-    "fields": [     
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },     
-        { "name": "title", "type": "Edm.String", "searchable": true },     
+{
+    "name": "hotels",
+    "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "title", "type": "Edm.String", "searchable": true },
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
@@ -208,28 +208,28 @@ Spacious,||air-condition*+"Ocean view"
 進一步假設這個索引包含下列四個文件︰ 
 
 ~~~~
-{ 
+{
     "value": [
-        {         
-            "id": "1",         
-            "title": "Hotel Atman",         
-            "description": "Spacious rooms, ocean view, walking distance to the beach."   
-        },       
-        {         
-            "id": "2",         
-            "title": "Beach Resort",        
-            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-        },       
-        {         
-            "id": "3",         
-            "title": "Playa Hotel",         
+        {
+            "id": "1",
+            "title": "Hotel Atman",
+            "description": "Spacious rooms, ocean view, walking distance to the beach."
+        },
+        {
+            "id": "2",
+            "title": "Beach Resort",
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."
+        },
+        {
+            "id": "3",
+            "title": "Playa Hotel",
             "description": "Comfortable, air-conditioned rooms with ocean view."
-        },       
-        {         
-            "id": "4",         
-            "title": "Ocean Retreat",         
+        },
+        {
+            "id": "4",
+            "title": "Ocean Retreat",
             "description": "Quiet and secluded"
-        }    
+        }
     ]
 }
 ~~~~
@@ -327,7 +327,7 @@ Spacious,||air-condition*+"Ocean view"
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
 ~~~~
-{  
+{
   "value": [
     {
       "@search.score": 0.25610128,
@@ -395,7 +395,7 @@ Azure 搜尋服務中的所有索引會自動分成多個分區，讓我們可�
 
 + 在這個示範網站上同時[比較標準和英文分析器](https://alice.unearth.ai/)。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

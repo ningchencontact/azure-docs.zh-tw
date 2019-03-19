@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 507aa1485cb039db2c26d0e513af58d67bb9fa58
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 1afc40bd601c06def57ae59797d31a5edf4095bd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381277"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57430912"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>使用 Azure 彈性資料庫作業清除 SSISDB 記錄
 
@@ -30,6 +30,8 @@ ms.locfileid: "54381277"
 下列各節將說明如何觸發預存程序 `[internal].[cleanup_server_retention_window_exclusive]`，以將保留週期 (由系統管理員設定) 以外的 SSISDB 記錄移除。
 
 ## <a name="clean-up-logs-with-power-shell"></a>使用 Power Shell 清除記錄
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 下列 PowerShell 指令碼範例會建立新的彈性作業來觸發清除 SSISDB 記錄的預存程序。 如需詳細資訊，請參閱[使用 PowerShell 建立彈性作業代理程式](../sql-database/elastic-jobs-powershell.md)。
 

@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: d663a63f82878163fa2db562906edad910498be5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: c8ac14f11d7f2eeed050997de42da4f512b46bc5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011386"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767256"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>使用 Azure NetApp Files 管理磁碟區
 您可以藉由檢視、更新或刪除磁碟區來管理磁碟區。 

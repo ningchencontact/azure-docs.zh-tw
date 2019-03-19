@@ -11,15 +11,15 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 5df59e886a2a4950e2ca6e1ef96487d3d59e7524
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f3eb781e7f84e8cf03a975f7cb77f6a7ef074d44
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718124"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771795"
 ---
 # <a name="getting-started"> </a>關於 Azure App Service 中的 Mobile Apps
 Azure App Service 是完全受控的[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 供應項目，適用於專業開發人員。 此服務為 Web、行動及整合案例提供一組豐富的功能。 
@@ -58,7 +58,7 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 ## <a name="azure-app-service-features"></a>Azure App Service 功能
 下列平台功能適合用於行動生產網站：
 
-* **自動調整**：使用 App Service，您可以快速地相應增加或相應放大，以處理任何傳入的客戶負載。 手動選取 VM 的數目和大小，或設定自動調整以根據負載或排程調整行動裝置應用程式後端。
+* **自动缩放**：使用 App Service，您可以快速地相應增加或相應放大，以處理任何傳入的客戶負載。 手動選取 VM 的數目和大小，或設定自動調整以根據負載或排程調整行動裝置應用程式後端。
 
   深入探索[自動調整]。
 

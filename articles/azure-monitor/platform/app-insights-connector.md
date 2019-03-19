@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447866"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878450"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Connector 管理解決方案 (取代)
 
@@ -46,7 +46,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 不同於大部分其他 Log Analytics 解決方案，代理程式不會收集 Application Insights Connector 的資料。 解決方案使用的所有資料直接來自於 Azure。
 
-| 連接的來源 | 支援 | 說明 |
+| 連接的來源 | 支援 | 描述 |
 | --- | --- | --- |
 | [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
 | [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
@@ -127,7 +127,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 不論您按一下 [Application Insights Connector] 儀表板上的某個項目，或按一下 [搜尋] 頁面本身，任何傳回 Application Insights 資料的查詢都會顯示 Application Insights 檢視方塊。 例如，如果您正在檢視 Application Insights 資料，**&#42;** 查詢也會顯示如下圖所示的檢視方塊索引標籤：
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 檢視方塊元件會根據搜尋查詢進行更新。 這表示您可以使用任何搜尋欄位來篩選結果，以便您查看下列各項的資料：
 
@@ -178,7 +178,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="generic-fields"></a>一般欄位
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | 類型 | ApplicationInsights |
 | ClientIP |   |
@@ -204,7 +204,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="availability-specific-fields"></a>可用性專屬欄位
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | TelemetryType | 可用性 |
 | AvailabilityTestName | Web 測試的名稱 |
@@ -246,7 +246,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="request-specific-fields"></a>要求專屬欄位
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | 類型 | ApplicationInsights |
 | TelemetryType | 要求 |

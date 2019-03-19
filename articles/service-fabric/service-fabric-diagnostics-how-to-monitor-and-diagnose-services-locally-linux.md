@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 144b3f8ae210d515695c2184c2c3193084755746
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185460"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841016"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>監視和診斷本機開發設定中的服務
 
@@ -35,9 +35,9 @@ ms.locfileid: "55185460"
 
 ## <a name="debugging-service-fabric-java-applications"></a>針對 Service Fabric Java 應用程式進行偵錯
 
-對於 Java 應用程式，有 [多個記錄架構](http://en.wikipedia.org/wiki/Java_logging_framework) 可用。 由於 `java.util.logging` 是 JRE 的預設選項，它也會用於 [GitHub 中的程式碼範例](http://github.com/Azure-Samples/service-fabric-java-getting-started)。 下列討論說明如何設定 `java.util.logging` 架構。
+對於 Java 應用程式，有 [多個記錄架構](https://en.wikipedia.org/wiki/Java_logging_framework) 可用。 由於 `java.util.logging` 是 JRE 的預設選項，它也會用於 [GitHub 中的程式碼範例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。 下列討論說明如何設定 `java.util.logging` 架構。
 
-您可以使用 java.util.logging 將應用程式記錄檔重新導向至記憶體、輸出串流、主控台檔案或通訊端。 對於其中每個選項，架構中已經提供預設處理常式。 您可以建立 `app.properties` 檔案來設定應用程式的檔案處理常式，將所有記錄檔重新導向至本機檔案。
+您可以使用 java.util.logging 將應用程式記錄檔重新導向至記憶體、輸出串流、主控台檔案或通訊端。 对于其中的每个选项，框架中已提供默认处理程序。 您可以建立 `app.properties` 檔案來設定應用程式的檔案處理常式，將所有記錄檔重新導向至本機檔案。
 
 下列程式碼片段包含範例組態︰
 
@@ -58,13 +58,13 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
 
 
-此設定會導致在 `/tmp/servicefabric/logs/`中以輪替方式收集記錄檔。 在此情況下，記錄檔的名稱為 mysfapp%u.%g.log，其中︰
+此设置会导致在 `/tmp/servicefabric/logs/` 中以轮替方式收集日志。 在此情況下，記錄檔的名稱為 mysfapp%u.%g.log，其中︰
 * **%u** 是解決同時 Java 處理序之間衝突的唯一號碼。
 * **%g** 是區分輪替記錄的產生號碼。
 
 依預設，如果未明確設定任何處理常式，則會註冊主控台處理常式。 使用者可以在 /var/log/syslog 下檢視 syslog 中的記錄檔。
 
-如需詳細資訊，請參閱 [GitHub 中的程式碼範例](http://github.com/Azure-Samples/service-fabric-java-getting-started)。
+如需詳細資訊，請參閱 [GitHub 中的程式碼範例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>針對 Service Fabric C# 應用程式進行偵錯
@@ -143,4 +143,4 @@ public static TextWriter Out = Console.Out;
 
 ## <a name="next-steps"></a>後續步驟
 新增至應用程式的相同追蹤程式碼，也可以用來配合診斷 Azure 叢集上的應用程式。 請參閱下列文章，其中討論各種適用於工具的選項，並說明如何設定它們。
-* [如何利用 Azure 診斷收集記錄檔](service-fabric-diagnostics-how-to-setup-lad.md)
+* [如何使用 Azure 诊断收集日志](service-fabric-diagnostics-how-to-setup-lad.md)

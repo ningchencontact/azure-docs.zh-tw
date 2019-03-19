@@ -1,18 +1,19 @@
 ---
 title: Azure IoT 中樞雲端到裝置選項 | Microsoft Docs
 description: 開發人員指南 - 針對雲端到裝置通訊，提供直接方法、裝置對應項的所需屬性或雲端到裝置訊息的使用時機指引。
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: 2c2701b2ccfceef7f64078d13501aa9184fc87a3
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: 4b738f34ae75478c0120832e7ad2b6a6a83dbf69
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451624"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010696"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Cloud-to-device communications guidance
 
@@ -31,7 +32,7 @@ IoT 中樞提供三個選項以便裝置應用程式對後端應用程式公開�
 |  | 直接方法 | 對應項的所需屬性 | 雲端到裝置的訊息 |
 | ---- | ------- | ---------- | ---- |
 | 案例 | 需要立即確認的命令，例如開啟風扇。 | 可讓裝置進入特定所需狀態的長時間執行命令。 例如，將遙測傳送間隔設定為 30 分鐘。 | 對裝置應用程式的單向通知。 |
-| 資料流 | 雙向。 裝置應用程式可以立即回應方法。 解決方案後端會接收到根據要求上下文的結果。 | 單向。 裝置應用程式會收到屬性變更的通知。 | 單向。 裝置應用程式接收訊息
+| 資料流 | 雙向。 设备应用可以立即响应方法。 解決方案後端會接收到根據要求上下文的結果。 | 单向。 裝置應用程式會收到屬性變更的通知。 | 單向。 裝置應用程式接收訊息
 | 耐久性 | 無法聯繫已中斷連接的裝置。 解決方案後端會收到裝置未連線的通知。 | 屬性值會保留在裝置對應項中。 裝置會在下一次重新連線時讀取它。 使用 [IoT 中樞查詢語言](iot-hub-devguide-query-language.md)可擷取屬性值。 | IoT 中樞可以保留訊息長達 48 小時。 |
 | 目標 | 使用 **deviceId** 的單一裝置，或使用[作業](iot-hub-devguide-jobs.md)的多個裝置。 | 使用 **deviceId** 的單一裝置，或使用[作業](iot-hub-devguide-jobs.md)的多個裝置。 | 依照 **deviceId** 的單一裝置。 |
 | 大小 | 直接方法承載的大小上限為 128 KB。 | 所需屬性大小上限為 8 KB。 | 上限為 64 KB 訊息。 |

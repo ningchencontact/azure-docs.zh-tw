@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f4dbfae4bada77cf882f7249353a17defebf312e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: ce6fc0a90ad093a6bba5a4720777e409202c73ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209344"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439820"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解串流分析工作監視功能，以及如何監視查詢
 
@@ -34,7 +34,7 @@ Azure 入口網站會顯示關鍵效能計量，可供您用來監視查詢和�
 | 資料轉換錯誤 | 無法轉換為預期輸出結構描述的輸出事件數目。 可以將錯誤原則變更為 'Drop' 來卸除遇到此狀況的事件。 |
 | 早期輸入事件       | 應用程序時間戳記早於其抵達時間超過 5 分鐘的事件。 |
 | 失敗的函式要求 | 失敗的 Azure Machine Learning 函式呼叫次數 (如果有的話)。 |
-| 函式事件        | 傳送給 Azure Machine Learning 函式的事件數目 (如果有的話)。 |
+| 函数事件数        | 傳送給 Azure Machine Learning 函式的事件數目 (如果有的話)。 |
 | 函式要求      | 對 Azure Machine Learning 函式發出的呼叫次數 (如果有的話)。 |
 | 輸入還原序列化錯誤       | 無法還原序列化的輸入事件數目。  |
 | 輸入事件位元組      | 「串流分析」工作所接收到的資料量 (以位元組為單位)。 這可以用來驗證傳送到輸入來源的事件。 |
@@ -43,14 +43,14 @@ Azure 入口網站會顯示關鍵效能計量，可供您用來監視查詢和�
 | 延遲輸入事件      | 晚於已設定延遲傳入容錯時間抵達的事件。 深入了解 [Azure 串流分析事件的順序考量](stream-analytics-out-of-order-and-late-events.md)。 |
 | 順序錯亂事件    | 所收到順序錯亂的事件數目，這些事件會根據事件順序原則，予以捨棄或指定調整後的時間戳記。 順序錯亂容錯視窗設定的組態可能會造成影響。 |
 | 輸出事件          | 「串流分析」工作所傳送的資料量 (以事件數為單位)。 |
-| 執行階段錯誤         | 與查詢處理相關的錯誤總數 (不包括在擷取事件或輸出結果時發現的錯誤) |
+| 執行階段錯誤         | （不含內嵌事件或輸出結果時發現錯誤） 的查詢處理相關的錯誤數總計 |
 | SU % 使用率       | 從工作的 [調整] 索引標籤指派給工作的串流處理單元使用率。 若此指標達到 80% 以上，則代表事件處理作業極有可能延遲或暫停。 |
 | 浮水印延遲秒數       | 作業中所有輸出分割區的延遲秒數上限。 |
 
 您可以使用這些計量來[監視串流分析作業的效能](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor)。 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中自訂監視
-您可以在 [編輯圖表] 設定中調整圖表類型、顯示的度量和時間範圍。 如需詳細資料，請參閱[如何自訂監視](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
+可以在“编辑图表”设置中调整图表类型、显示的指标和时间范围。 如需詳細資料，請參閱[如何自訂監視](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 
   ![串流分析查詢監視時間圖](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
@@ -66,6 +66,6 @@ Azure 入口網站會顯示關鍵效能計量，可供您用來監視查詢和�
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

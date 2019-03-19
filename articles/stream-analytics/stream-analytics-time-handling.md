@@ -6,17 +6,17 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: 4accff7410d17e76a000b7cef957b75c65a16960
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/05/2018
+ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007666"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543282"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>了解 Azure 串流分析中的時間處理
 
-在本文中，我們將討論如何選擇適當的設計來解決 Azure 串流分析服務中實際的時間處理問題。 時間處理設計決策與事件順序因素有密切的關聯。 如需詳細資訊，請參閱下列相關文章：[Azure 串流分析事件順序考量](stream-analytics-out-of-order-and-late-events.md)。
+在本文中，我們將討論如何選擇適當的設計來解決 Azure 串流分析服務中實際的時間處理問題。 時間處理設計決策與事件順序因素有密切的關聯。
 
 ## <a name="background-time-concepts"></a>背景時間概念
 
@@ -128,7 +128,7 @@ ms.locfileid: "56007666"
 
 您可以透過[串流分析作業計量](stream-analytics-monitoring.md)來觀察許多事件排序時間容錯效果。 相關計量如下：
 
-|計量  | 說明  |
+|計量  | 描述  |
 |---------|---------|
 | **順序錯亂事件** | 指出已收到、但因順序錯亂而遭到捨棄或調整時間戳記的事件數目。 在 Azure 入口網站中，針對作業在 [事件順序] 頁面上設定 [順序錯亂事件] 設定，將對此計量產生直接的影響。 |
 | **延遲輸入事件** | 指出從來源延遲抵達的事件數目。 此計量包含已遭捨棄或已調整時間戳記的事件。 在 Azure 入口網站中，針對作業在 [事件順序] 頁面上設定 [延遲抵達的事件] 設定，將對此計量產生直接的影響。 |
@@ -163,7 +163,7 @@ Azure 串流分析會以浮水印進度作為產生輸出事件的唯一觸發�
 
 使用[時間範圍型彙總](stream-analytics-window-functions.md)時，服務只會在時間範圍結束時產生輸出。 在某些情況下，使用者可能會想要查看從時間範圍產生的部分彙總。 Azure 串流分析目前不支援部分彙總。
 
-在其他串流解決方案中，輸出事件可根據外部情況在不同的觸發點具體化。 在某些解決方案中，給定時間範圍的輸出事件有可能多次產生。 隨著輸入值的調整，彙總結果會變得更精確。 事件一開始可能是推測的，其後再逐漸修訂。 例如，當一個裝置未連接網路時，系統可能會使用預估值。 其後，該裝置連上了網路。 此時，就可將實際的事件資料包含在輸入資料流中。 處理該時間範圍的輸出結果會產生更精確的輸出。
+在其他串流解決方案中，輸出事件可根據外部情況在不同的觸發點具體化。 您可在指定的時間範圍的輸出事件，無法產生多次某些解決方案。 隨著輸入值的調整，彙總結果會變得更精確。 事件一開始可能是推測的，其後再逐漸修訂。 例如，當一個裝置未連接網路時，系統可能會使用預估值。 其後，該裝置連上了網路。 此時，就可將實際的事件資料包含在輸入資料流中。 處理該時間範圍的輸出結果會產生更精確的輸出。
 
 ## <a name="illustrated-example-of-watermarks"></a>浮水印的說明範例
 

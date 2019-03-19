@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861582"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>使用 Azure Functions 在 Azure Logic Apps 中新增和執行自訂程式碼片段
 
@@ -44,7 +44,7 @@ ms.locfileid: "50233305"
     HTTP 觸發程序範本可以接受內容中有來自邏輯應用程式的 `application/json` 類型。 
     當您將 Azure 函式新增至邏輯應用程式時，邏輯應用程式設計工具會顯示 Azure 訂用帳戶內透過此範本建立的自訂函式。 
 
-  * 您的函式不會使用自訂路由，除非您已定義 [OpenAPI 定義](../azure-functions/functions-openapi-definition.md) (先前稱為 [Swagger 檔案](http://swagger.io/))。 
+  * 您的函式不會使用自訂路由，除非您已定義 [OpenAPI 定義](../azure-functions/functions-openapi-definition.md) (先前稱為 [Swagger 檔案](https://swagger.io/))。 
   
   * 如果您已為函式定義 OpenAPI 定義，邏輯應用程式設計工具會在使用函式參數上提供更豐富的體驗。 邏輯應用程式若要尋找和存取具有 OpenAPI 定義的函式，必須先[遵循下列步驟來設定函式應用程式](#function-swagger)。
 
@@ -52,7 +52,7 @@ ms.locfileid: "50233305"
 
   邏輯應用程式必須以觸發程序作為開頭，才能新增可執行函式的動作。
 
-  如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+  如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 <a name="create-function-external"></a>
 
@@ -67,7 +67,7 @@ ms.locfileid: "50233305"
 
 <a name="function-swagger"></a>
 
-* (選擇性) 如果您為函式[產生 API 定義](../azure-functions/functions-openapi-definition.md) (先前稱為 [Swagger 檔案](http://swagger.io/))，當您在邏輯應用程式設計工具中使用函式參數時將可獲得更豐富的體驗。 若要設定函式應用程式，讓邏輯應用程式可以尋找和使用具有 Swagger 描述的函式，請遵循下列步驟：
+* (選擇性) 如果您為函式[產生 API 定義](../azure-functions/functions-openapi-definition.md) (先前稱為 [Swagger 檔案](https://swagger.io/))，當您在邏輯應用程式設計工具中使用函式參數時將可獲得更豐富的體驗。 若要設定函式應用程式，讓邏輯應用程式可以尋找和使用具有 Swagger 描述的函式，請遵循下列步驟：
 
   1. 確定函式應用程式正在執行。
 
@@ -125,11 +125,11 @@ function convertToDateString(request, response){
    * 在邏輯應用程式工作流程的現有步驟之間，將滑鼠移到箭號，並選擇加號 (+)，然後選取 [新增動作]。
 
 3. 在搜尋方塊中，輸入「azure functions」作為篩選條件。
-從動作清單中選取此動作：**選擇 Azure 函式 – Azure Functions** 
+從 [動作] 清單中，選取此動作：**選擇 Azure 函式 – Azure Functions** 
 
    ![尋找 "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-4. 從函式應用程式清單中，選取您的函式應用程式。 動作清單開啟後，請選取此動作：**Azure Functions - 建立新函式**
+4. 從函式應用程式清單中，選取您的函式應用程式。 [動作] 清單開啟後，請選取此動作：**Azure 函式-建立新的函式**
 
    ![選取函式應用程式](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -181,7 +181,7 @@ function convertToDateString(request, response){
 2. 在想要新增函式的步驟底下，選擇 [新增步驟] > [新增動作]。 
 
 3. 在搜尋方塊中，輸入「azure functions」作為篩選條件。
-從動作清單中選取此動作：**選擇 Azure 函式 – Azure Functions** 
+從 [動作] 清單中，選取此動作：**選擇 Azure 函式 – Azure Functions** 
 
    ![尋找 "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

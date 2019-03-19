@@ -1,5 +1,5 @@
 ---
-title: 使用 RBAC 和 REST API 管理對 Azure 資源的存取 - Azure | Microsoft Docs
+title: 管理存取 Azure 資源使用 RBAC 和 REST API-Azure |Microsoft Docs
 description: 了解如何使用角色型存取控制 (RBAC) 和 REST API 來管理使用者、群組和應用程式對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338405"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439327"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理對 Azure 資源的存取
 
@@ -46,7 +46,7 @@ ms.locfileid: "56338405"
 
 1. 將 *{filter}* 取代為您要針對角色指派清單篩選套用的條件。
 
-    | Filter | 說明 |
+    | Filter | 描述 |
     | --- | --- |
     | `$filter=atScope()` | 僅列出指定範圍的角色指派，不包括子範圍內的角色指派。 |
     | `$filter=principalId%20eq%20'{objectId}'` | 列出所指定使用者、群組或服務主體的角色指派。 |

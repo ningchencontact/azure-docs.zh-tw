@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 65104503af2e177f1898d8509c2d82bd9b58c266
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217202"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446957"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric 應用程式生命週期
 如同其他平台，Azure Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。 從開發到部署、到每日管理、維護，以及最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。 服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。 本文章提供 API 的概觀以及其使用方式，這些 API 是由不同的角色在 Service Fabric 應用程式生命週期的各個階段使用。
@@ -29,7 +29,7 @@ ms.locfileid: "56217202"
 ## <a name="service-model-roles"></a>服務模型角色
 服務模型角色是：
 
-* **服務開發人員**：開發模組化和泛型服務，可以重新制定目的以及在相同類型或不同類型的多個應用程式中使用。 例如，佇列服務可以用於建立票證應用程式 ( 技術支援中心) 或電子商務應用程式 (購物車)。
+* **服務開發人員**：開發可以移作他用，並在相同或不同類型的多個應用程式中使用的模組化和泛型服務。 例如，佇列服務可以用於建立票證應用程式 ( 技術支援中心) 或電子商務應用程式 (購物車)。
 * **應用程式開發人員**：藉由整合服務集合來建立應用程式，以滿足部分特定需求或案例。 例如，電子商務網站可能會整合「JSON 無狀態前端服務」、「拍賣可設定狀態服務」和「佇列可設定狀態服務」，以建立拍賣解決方案。
 * **應用程式系統管理員**：進行應用程式組態 (填入組態範本參數)、部署 (對應至可用的資源)，以及服務品質的決策。 例如，應用程式系統管理員會決定應用程式的語言地區設定 (例如，在美國使用美式英文、在日本使用日文)。 以不同方式部署的應用程式可以有不同的設定。
 * **操作員**：根據應用程式組態和應用程式系統管理員所指定的需求，部署應用程式。 例如，操作員佈建和部署應用程式，並確保它在 Azure 中執行。 操作員會監視應用程式健康狀況和效能資訊，並視需要維護實體基礎結構。
@@ -44,7 +44,7 @@ ms.locfileid: "56217202"
 
 ## <a name="deploy"></a>部署
 1. *應用程式系統管理員* 會將應用程式類型調整為要部署至 Service Fabric 叢集的特定應用程式，方法是在應用程式資訊清單中指定 **ApplicationType** 元素的適當參數。
-2. 「運算子」會使用 [**CopyApplicationPackage** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)或 [**Copy-ServiceFabricApplicationPackage** Cmdlet](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)，將應用程式封裝上傳至叢集映像存放區。 應用程式封裝包含應用程式資訊清單和服務封裝集合。 Service Fabric 會從儲存在映像存放區 (可以是 Azure Blob 存放區或 Service Fabric 系統服務) 中的應用程式封裝部署應用程式。
+2. 「運算子」會使用 [**CopyApplicationPackage** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)或 [**Copy-ServiceFabricApplicationPackage** Cmdlet](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)，將應用程式封裝上傳至叢集映像存放區。 应用程序包包含应用程序清单和服务包集合。 Service Fabric 會從儲存在映像存放區 (可以是 Azure Blob 存放區或 Service Fabric 系統服務) 中的應用程式封裝部署應用程式。
 3. 然後，「運算子」會使用 [**ProvisionApplicationAsync** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)、[**Register-ServiceFabricApplicationType** Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype),，或[**佈建應用程式** REST 作業](https://docs.microsoft.com/rest/api/servicefabric/provision-an-application)，從上傳的應用程式封裝在目標叢集中佈建應用程式類型。
 4. 佈建應用程式之後，「運算子」會使用「應用程式系統管理員」提供的參數啟動應用程式，方法是使用 [**CreateApplicationAsync** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)、[**New-ServiceFabricApplication** Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication)，或[**建立應用程式** REST 作業](https://docs.microsoft.com/rest/api/servicefabric/create-an-application)。
 5. 在部署應用程式之後，「運算子」會使用 [**CreateServiceAsync** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient)、[**New-ServiceFabricService** Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice)，或[**建立服務** REST 作業](https://docs.microsoft.com/rest/api/servicefabric/create-a-service)，根據可用的服務類型針對應用程式建立新的服務執行個體。
@@ -95,4 +95,4 @@ ms.locfileid: "56217202"
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [部署應用程式](service-fabric-deploy-remove-applications.md)
 * [應用程式升級](service-fabric-application-upgrade.md)
-* [Testability 概觀](service-fabric-testability-overview.md)
+* [可测试性概述](service-fabric-testability-overview.md)

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 66fc5c92410118f4e0042738d2107b272d68f9bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456498"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240332"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式和叢集的安全性概念
 
@@ -28,13 +28,13 @@ ms.locfileid: "56456498"
 
 ## <a name="master-security"></a>主要元件安全性
 
-在 AKS 中，Kubernetes 主要元件包含在 Microsoft 所提供的受控服務中。 每個 AKS 叢集都有本身的單一租用戶專用 Kubernetes 主機，負責提供 API 伺服器、排程器等項目。此主機由 Microsoft 所管理和維護
+在 AKS 中，Kubernetes 主要元件包含在 Microsoft 所提供的受控服務中。 每個 AKS 叢集都有本身的單一租用戶專用 Kubernetes 主機，負責提供 API 伺服器、排程器等項目。這個主要是由管理和維護 Microsoft。
 
 根據預設，Kubernetes API 伺服器會使用公用 IP 位址，且具有完整網域名稱 (FQDN)。 您可以使用 Kubernetes 角色型存取控制和 Azure Active Directory 來控制對 API 伺服器的存取。 如需詳細資訊，請參閱 [Azure AD 與 AKS 的整合][aks-aad]。
 
 ## <a name="node-security"></a>節點安全性
 
-AKS 節點是您所管理和維護的 Azure 虛擬機器。 這些節點會透過 Docker 容器執行階段執行最佳化 Ubuntu Linux 發行版本。 當 AKS 叢集建立或相應增加時，節點將會自動以最新的 OS 安全性更新和設定進行部署。
+AKS 節點是您所管理和維護的 Azure 虛擬機器。 執行使用白鯨容器執行階段最佳化的 Ubuntu Linux 散發套件的節點。 當 AKS 叢集建立或相應增加時，節點將會自動以最新的 OS 安全性更新和設定進行部署。
 
 Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如果 OS 安全性更新需要重新啟動主機，此重新啟動作業並不會自動執行。 您可以手動重新啟動節點，或者，常見的方法是使用 [Kured][kured]，此為 Kubernetes 的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet][aks-daemonsets] 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 系統會使用相同的 [cordon 和 drain 程序](#cordon-and-drain)作為叢集升級，跨叢集管理作業系統重新啟動。
 
@@ -65,7 +65,7 @@ Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如
 
 ### <a name="azure-network-security-groups"></a>Azure 網路安全性群組
 
-為了篩選虛擬網路中的流量，Azure 會使用網路安全性群組規則。 這些規則可定義允許或拒絕存取資源的來源和目的地 IP 範圍、連接埠和通訊協定。 系統會建立預設規則，以允許 Kubernetes API 伺服器的 TLS 流量，並允許透過 SSH 存取節點。 當您建立具有負載平衡器、連接埠對應或輸入路由的服務時，AKS 將會自動修改網路安全性群組，讓流量以適當方式傳輸。
+為了篩選虛擬網路中的流量，Azure 會使用網路安全性群組規則。 這些規則可定義允許或拒絕存取資源的來源和目的地 IP 範圍、連接埠和通訊協定。 若要允許 TLS Kubernetes API 伺服器的流量，會建立預設規則。 當您建立具有負載平衡器、連接埠對應或輸入路由的服務時，AKS 將會自動修改網路安全性群組，讓流量以適當方式傳輸。
 
 ## <a name="kubernetes-secrets"></a>Kubernetes 秘密
 
@@ -76,6 +76,8 @@ Kubernetes *祕密*可用來將敏感性資料插入 Pod 中，例如存取認�
 ## <a name="next-steps"></a>後續步驟
 
 若要開始保護您的 AKS 叢集，請參閱[升級 AKS 叢集][aks-upgrade-cluster]。
+
+如需相關聯的最佳作法，請參閱[的叢集安全性與 AKS 中的升級最佳做法][operator-best-practices-cluster-security]。
 
 如需關於 Kubernetes 及 AKS 核心概念的詳細資訊，請參閱下列文章：
 
@@ -99,3 +101,4 @@ Kubernetes *祕密*可用來將敏感性資料插入 Pod 中，例如存取認�
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 0a73119c7d079498f0e766fb92904c86ff5131c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4fb2a398baa306cf9303284526bb43cd7f778441
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767217"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734620"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>更換 Azure Stack 中的實體磁碟
 
@@ -39,7 +39,7 @@ ms.locfileid: "55767217"
 
 如果您開啟該警示，警示描述會包含您必須更換之磁碟的縮放單位節點和確切實體插槽位置。 Azure Stack 會使用 LED 指示器功能來進一步協助您識別故障的磁碟。
 
- ## <a name="replace-the-disk"></a>更換磁碟
+## <a name="replace-the-disk"></a>更換磁碟
 
 請依照您 OEM 硬體廠商的 FRU 指示來實際更換磁碟。
 
@@ -50,7 +50,7 @@ ms.locfileid: "55767217"
 
 在您更換磁碟之後，Azure Stack 會自動探索新磁碟，並啟動虛擬磁碟修復程序。
  
- ## <a name="check-the-status-of-virtual-disk-repair"></a>檢查虛擬磁碟修復狀態
+## <a name="check-the-status-of-virtual-disk-repair"></a>檢查虛擬磁碟修復狀態
  
  在您更換磁碟之後，您可以使用具特殊權限的端點，來監視虛擬磁碟健康狀態和修復作業進度。 請從任何能夠透過網路連線到具特殊權限端點的電腦，依照下列步驟操作。
 

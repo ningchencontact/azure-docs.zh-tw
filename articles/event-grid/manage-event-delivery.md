@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a15797e9b181aa877b6dfa3350e69b210af5885e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 69c26ab522a925032c5a255d07489de0052756c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731762"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340843"
 ---
 # <a name="dead-letter-and-retry-policies"></a>無效信件與重試原則
 
@@ -21,6 +21,9 @@ ms.locfileid: "55731762"
 ## <a name="set-dead-letter-location"></a>設定無效信件位置
 
 若要設定無效信件位置，您必須要有儲存體帳戶用以保存無法傳遞至端點的事件。 範例會取得現有儲存體帳戶的資源識別碼。 它們會建立事件訂閱，使用該儲存體帳戶中的容器作為無效信件端點。
+
+> [!NOTE]
+> 儲存體中建立儲存體帳戶和 blob 容器之前先執行本文中的命令。
 
 ### <a name="azure-cli"></a>Azure CLI
 

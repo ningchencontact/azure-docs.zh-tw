@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327550"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432629"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -63,10 +63,30 @@ ms.locfileid: "56327550"
 
 如果沒有看到 Kubernetes 儀表板，請檢查 `kube-proxy` Pod 是否正在 `kube-system` 命名空間中執行。 如果它並未處於執行中狀態，請刪除該 Pod，而它會重新啟動。
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到「伺服器錯誤：撥接後端時發生錯誤: 撥接 tcp...」 我該怎麼辦？
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到 「 伺服器發生錯誤： 錯誤撥號後端： 撥接 tcp...」。 我該怎麼辦？
 
-請確定並未修改預設的網路安全性群組 (NSG)，並已針對與 API 伺服器的連線開啟連接埠 22。 檢查 `tunnelfront` Pod 是否正在 `kube-system` 命名空間中執行。 若非如此，請強制刪除該 Pod，而它會重新啟動。
+請確定未修改預設網路安全性群組，且連接埠 22 已開啟至 API 伺服器的連線。 檢查是否`tunnelfront`pod 中執行*kube 系統*命名空間使用`kubectl get pods --namespace kube-system`命令。 若非如此，請強制刪除該 Pod，而它會重新啟動。
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>我正嘗試升級或調整，卻收到「訊息：不允許變更 'ImageReference' 屬性」錯誤。  如何修正此問題？
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>我正嘗試升級或調整，卻收到「訊息：不允許變更 'ImageReference' 屬性」錯誤。 如何修正此問題？
 
 您可能會因為修改了 AKS 叢集內代理程式節點中的標記而收到此錯誤。 修改和刪除 MC_* 資源群組中資源的標記和其他屬性可能會導致非預期的結果。 在 AKS 叢集中修改 MC_* 群組下的資源會破壞服務層級目標 (SLO)。
+
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>我收到錯誤，我的叢集處於失敗狀態，並修正之前升級或調整將會無法運作
+
+*從重新導向到這個疑難排解的協助 https://aka.ms/aks-cluster-failed*
+
+當叢集有多種原因進入失敗的狀態時，就會發生此錯誤。 請遵循下列步驟來解決您的叢集失敗狀態，再重試先前失敗的作業：
+
+1. 直到叢集共`failed`狀態，`upgrade`和`scale`作業會失敗。 常見的根本問題和解決方式包括：
+    * 使用自動調整規模**不足，無法計算 (CRP) 配額**。 若要解決，第一次調整您的叢集回到穩定的目標狀態在配額內。 請遵循這些[步驟來要求的計算配額增加](../azure-supportability/resource-manager-core-quotas-request.md)之前嘗試相應增加一次除了初始的配額限制。
+    * 調整叢集的進階網路功能及**不足的子網路 （網路） 資源**。 若要解決，第一次調整您的叢集回到穩定的目標狀態在配額內。 然後依照[這些步驟來要求資源配額增加](../azure-resource-manager/resource-manager-quota-errors.md#solution)之前嘗試相應增加一次除了初始的配額限制。
+2. 一旦解決升級失敗的根本原因，您的叢集應該處於成功狀態。 狀態為已成功驗證後，請再試一次原始作業。
+
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>我收到錯誤時嘗試升級或小數位數指出我的叢集目前正在執行升級或升級失敗
+
+*從重新導向到這個疑難排解的協助 https://aka.ms/aks-pending-upgrade*
+
+發生作用中的升級作業，或升級已嘗試，但後續失敗時，叢集作業會受到限制。 若要診斷問題執行`az aks show -g myResourceGroup -n myAKSCluster -o table`擷取在叢集上的詳細的狀態。 根據結果：
+
+* 如果叢集正在主動升級，等到作業會終止。 如果成功，重試先前失敗的作業。
+* 如果叢集已經無法升級，請遵循上述步驟

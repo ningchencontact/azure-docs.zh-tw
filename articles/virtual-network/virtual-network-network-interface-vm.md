@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 3daea64d9c9c94b334a57b81c47dd298f7ae4d78
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a6371746d156fb0be2d45ac94c898652a3147a6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658058"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887483"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>在虛擬機器中新增網路介面或移除網路介面
 
@@ -30,11 +30,13 @@ ms.locfileid: "55658058"
 
 ## <a name="before-you-begin"></a>開始之前
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 在完成本文任一節的步驟之前，請先完成下列工作︰
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.2.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組版本 1.0.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.26 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>將現有的網路介面新增至新的 VM
@@ -48,29 +50,30 @@ ms.locfileid: "55658058"
 |工具|命令|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzVM](/powershell/module/az.compute/new-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>將網路介面新增至現有的 VM
 
 1. 登入 Azure 入口網站。
 2. 在入口網站頂端的搜尋方塊中，輸入您想要新增網路介面的 VM 名稱，或選取 [所有服務]，然後選取 [虛擬機器] 來瀏覽 VM。 找到 VM 之後，請加以選取。 VM 必須支援您想要新增的網路介面數目。 若要知道每個 VM 大小支援多少個網路介面，請參閱 [Azure 中的 Linux 虛擬機器大小](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或 [Azure 中的 Windows 虛擬機器大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  
-3. 在 [設定] 底下，選取 [概觀]。 選取 [停止]，然後等到 VM 的 [狀態] 變成 [已停止 (已取消配置)] 為止。 
+3. 在 [設定] 底下，選取 [概觀]。 選取 [停止]，然後等到 VM 的 [狀態] 變成 [已停止 (已取消配置)] 為止。
 4. 在 [設定] 底下，選取 [網路]。
-5. 選取 [連結網路介面]。 從目前未連結至其他 VM 的網路介面清單中，選取您想要連結的網路介面。 
+5. 選取 [連結網路介面]。 從目前未連結至其他 VM 的網路介面清單中，選取您想要連結的網路介面。
 
-    >[!NOTE]
-    您選取的網路介面不得啟用加速網路、不得指派為 IPv6 位址，而且必須和目前已與 VM 連結的網路介面存在於相同的虛擬網路中。 
+   >[!NOTE]
+   >您選取的網路介面不得啟用加速網路、不得指派為 IPv6 位址，而且必須和目前已與 VM 連結的網路介面存在於相同的虛擬網路中。
 
-    如果您沒有現有的網路介面，則必須先建立一個。 若要這樣做，請選取 [建立網路介面]。 若要深入了解如何建立網路介面的詳細資訊，請參閱[建立網路介面](virtual-network-network-interface.md#create-a-network-interface)。 若要深入了解將網路介面新增至虛擬機器時的其他條件約束，請參閱[條件約束](#constraints)。
+   如果您沒有現有的網路介面，則必須先建立一個。 若要這樣做，請選取 [建立網路介面]。 若要深入了解如何建立網路介面的詳細資訊，請參閱[建立網路介面](virtual-network-network-interface.md#create-a-network-interface)。 若要深入了解將網路介面新增至虛擬機器時的其他條件約束，請參閱[條件約束](#constraints)。
 
 6. 選取 [確定] 。
 7. 在 [設定] 底下，選取 [概觀]，然後選取 [啟動] 以啟動虛擬機器。
 8. 設定 VM 作業系統以正確使用多個網路介面。 了解如何設定 [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) 或 [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) 以供使用多個網路介面。
 
+### <a name="commands"></a>命令
 |工具|命令|
 |---|---|
 |CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (參考) 或[詳細步驟](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (參考) 或[詳細步驟](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|[新增 AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) （參考） 或[詳細步驟](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>檢視 VM 網路介面
 
@@ -86,18 +89,18 @@ ms.locfileid: "55658058"
 |工具|命令|
 |---|---|
 |CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-a-network-interface-from-a-vm"></a>從 VM 移除網路介面
 
 1. 登入 Azure 入口網站。
 2. 在入口網站頂端的搜尋方塊中，搜尋您想要從中移除 (中斷連結) 網路介面的 VM 名稱，或選取 [所有服務]，然後選取 [虛擬機器] 來瀏覽 VM。 找到 VM 之後，請加以選取。
-3. 在 [設定] 底下，選取 [概觀]，然後選取 [停止]。 等到 VM 的 [狀態] 變成 [已停止 (已取消配置)] 為止。 
+3. 在 [設定] 底下，選取 [概觀]，然後選取 [停止]。 等到 VM 的 [狀態] 變成 [已停止 (已取消配置)] 為止。
 4. 在 [設定] 底下，選取 [網路]。
-5. 選取 [將網路介面中斷連結]。 從目前連結至虛擬機器的網路介面清單中，選取您想要與之中斷連結的網路介面。 
+5. 選取 [將網路介面中斷連結]。 從目前連結至虛擬機器的網路介面清單中，選取您想要與之中斷連結的網路介面。
 
-    >[!NOTE]
-    如果只列出一個網路介面，則無法加以中斷連結，因為虛擬機器一律至少必須有一個連結的網路介面。
+   >[!NOTE]
+   >如果只列出一個網路介面，則無法加以中斷連結，因為虛擬機器一律至少必須有一個連結的網路介面。
 6. 選取 [確定] 。
 
 ### <a name="commands"></a>命令
@@ -105,7 +108,7 @@ ms.locfileid: "55658058"
 |工具|命令|
 |---|---|
 |CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (參考) 或[詳細步驟](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (參考) 或[詳細步驟](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|PowerShell|[移除 AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) （參考） 或[詳細步驟](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>條件約束
 
@@ -123,14 +126,10 @@ ms.locfileid: "55658058"
 - 如同 IPv6，您無法在建立 VM 之後，將啟用加速網路的網路介面與 VM 連結。 此外，若要利用加速網路，您也必須在 VM 作業系統內完成一些步驟。 深入了解加速網路，以及在 [Windows](create-vm-accelerated-networking-powershell.md) 或 [Linux](create-vm-accelerated-networking-cli.md) 虛擬機器使用時的其他條件約束。
 
 ## <a name="next-steps"></a>後續步驟
-若要建立具有多個網路介面或 IP 位址的 VM，請閱讀下列文章：
-
-### <a name="commands"></a>命令
+若要建立具有多個網路介面或 IP 位址的 VM，請參閱下列文章：
 
 |Task|工具|
 |---|---|
 |建立具有多個 NIC 的 VM|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |建立具有多個 IPv4 位址的單一 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)、[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |建立具有私人 IPv6 位址的單一 NIC VM (在 Azure Load Balancer 後端)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[Azure Resource Manager 範本](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
-

@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 中檢視表設計工具圖格的參考指南 | Microsoft Docs
-description: 藉由使用 Log Analytics 中的檢視設計工具，您可以在 Azure 入口網站中建立能顯示 Log Analytics 工作區中各種資料視覺效果的自訂檢視。 本文章是自訂檢視中可用的圖格設定的參考指南。
+title: Azure 監視器中檢視表設計工具圖格參考指南 |Microsoft Docs
+description: 透過 Azure 監視器中檢視表設計工具，您可以建立自訂的檢視會顯示在 Azure 入口網站，並包含各種不同的 Log Analytics 工作區中的資料視覺效果。 本文章是自訂檢視中可用的圖格設定的參考指南。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c380f0391c51628b0eb71723a0faf982a4399680
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817377"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887755"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics 中的檢視設計工具圖格參考指南
-藉由使用 Azure Log Analytics 中的檢視設計工具，您可以在 Azure 入口網站中建立能顯示 Log Analytics 工作區中各種資料視覺效果的自訂檢視。 本文章是自訂檢視中可用的圖格設定的參考指南。
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure 監視器中的檢視表設計工具圖格參考指南
+透過 Azure 監視器中檢視表設計工具，您可以建立各種不同的自訂檢視，在 Azure 入口網站中，可協助您以視覺化方式檢視您的 Log Analytics 工作區中的資料。 本文章是自訂檢視中可用的圖格設定的參考指南。
 
 如需檢視設計工具的詳細資訊，請參閱：
 
@@ -31,7 +31,7 @@ ms.locfileid: "55817377"
 
 下表說明可用的檢視設計工具圖格：  
 
-| 圖格 | 說明 |
+| 圖格 | 描述 |
 |:--- |:--- |
 | [Number](#number-tile) |來自查詢的記錄計數。 |
 | [雙數字](#two-numbers-tile) |來自兩個不同查詢的記錄計數。 |
@@ -47,10 +47,10 @@ ms.locfileid: "55817377"
 
 ![數字圖格](media/view-designer-tiles/tile-number.png)
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
-| 說明 |圖格名稱下方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
+| 描述 |圖格名稱下方顯示的文字。 |
 | **圖格** | |
 | 圖例 |值下方顯示的文字。 |
 | 查詢 |執行的查詢。 顯示查詢所傳回的記錄計數。 |
@@ -65,10 +65,10 @@ ms.locfileid: "55817377"
 
 ![雙數字圖格](media/view-designer-tiles/tile-two-numbers.png)
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
-| 說明 |圖格名稱下方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
+| 描述 |圖格名稱下方顯示的文字。 |
 | **第一個圖格** | |
 | 圖例 |值下方顯示的文字。 |
 | 查詢 |執行的查詢。 顯示查詢所傳回的記錄計數。 |
@@ -86,10 +86,10 @@ ms.locfileid: "55817377"
 
 ![環圈圖格](media/view-designer-tiles/tile-donut.png)
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
-| 說明 |圖格名稱下方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
+| 描述 |圖格名稱下方顯示的文字。 |
 | **環圈** | |
 | 查詢 |針對環圈圖執行的查詢。 第一個屬性是文字值，而第二個屬性是數值。 此查詢通常是使用 *measure* 關鍵字來彙總結果。 |
 | **環圈** |**> 中心** |
@@ -110,10 +110,10 @@ ms.locfileid: "55817377"
 
 ![折線圖與圖說文字圖格](media/view-designer-tiles/tile-line-chart.png)
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
-| 說明 |圖格名稱下方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
+| 描述 |圖格名稱下方顯示的文字。 |
 | **折線圖** | |
 | 查詢 |針對折線圖執行的查詢。 第一個屬性是文字值，而第二個屬性是數值。 此查詢通常是使用 *measure* 關鍵字來彙總結果。 如果查詢使用 *interval* 關鍵字，則 X 軸會使用此時間間隔。 如果查詢未包含 *interval* 關鍵字，則 X 軸會使用每小時的間隔。 |
 | **折線圖** |**> Y 軸** |
@@ -131,10 +131,10 @@ ms.locfileid: "55817377"
 
 ![折線圖與圖說文字圖格](media/view-designer-tiles/tile-line-chart-callout.png)
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
-| 說明 |圖格名稱下方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
+| 描述 |圖格名稱下方顯示的文字。 |
 | **折線圖** | |
 | 查詢 |針對折線圖執行的查詢。 第一個屬性是文字值，而第二個屬性是數值。 此查詢通常是使用 *measure* 關鍵字來彙總結果。 如果查詢使用 *interval* 關鍵字，則 X 軸會使用此時間間隔。 如果查詢未包含 *interval* 關鍵字，則 X 軸會使用每小時的間隔。 |
 | **折線圖** |**> 圖說文字** |
@@ -156,10 +156,10 @@ ms.locfileid: "55817377"
 
 ![雙時間軸圖格](media/view-designer-tiles/tile-two-timelines.png)
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |:--- |:--- |
-| Name |圖格上方顯示的文字。 |
-| 說明 |圖格名稱下方顯示的文字。 |
+| 名稱 |圖格上方顯示的文字。 |
+| 描述 |圖格名稱下方顯示的文字。 |
 | 第一個圖 | |
 | 圖例 |第一個數列圖說文字下方顯示的文字。 |
 | 色彩 |用於第一個數列中資料行的色彩。 |
@@ -177,5 +177,5 @@ ms.locfileid: "55817377"
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解[記錄檔搜尋](../../azure-monitor/log-query/log-query-overview.md)以支援在圖格中查詢。
+* 深入了解[記錄查詢](../log-query/log-query-overview.md)以支援查詢磚中。
 * 將[視覺效果組件](view-designer-parts.md)新增至您的自訂檢視。

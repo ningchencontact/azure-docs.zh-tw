@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822828"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763362"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>將儲存體總管連線到 Azure Stack 訂用帳戶或儲存體帳戶
 
@@ -30,7 +30,7 @@ ms.locfileid: "55822828"
 > [!NOTE]  
 > 有數個工具可協助您將資料移動至 Azure Stack 儲存體，以及從 Azure Stack 儲存體移動資料。 如需詳細資訊，請參閱 [Azure Stack 儲存體適用的資料傳輸工具](azure-stack-storage-transfer.md)。
 
-如果您尚未安裝儲存體總管，請[下載儲存體總管](http://www.storageexplorer.com/)並加以安裝。
+如果您尚未安裝儲存體總管，請[下載儲存體總管](https://www.storageexplorer.com/)並加以安裝。
 
 連線到 Azure Stack 訂用帳戶或儲存體帳戶之後，您可以使用 [Azure 儲存體總管文章](../../vs-azure-tools-storage-manage-with-storage-explorer.md)來處理 Azure Stack 資料。 
 

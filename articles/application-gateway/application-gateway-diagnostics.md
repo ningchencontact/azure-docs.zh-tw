@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453288"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309123"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -23,6 +23,8 @@ ms.locfileid: "56453288"
 * [記錄](#diagnostic-logging)：記錄能夠儲存效能、存取和其他資料，或從資源取用記錄以便進行監視。
 
 * [計量](#metrics)：應用程式閘道目前有七個計量，可用來檢視效能計數器。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="back-end-health"></a>後端健康情況
 
@@ -47,10 +49,10 @@ ms.locfileid: "56453288"
 
 ### <a name="view-back-end-health-through-powershell"></a>透過 PowerShell 檢視後端健康情況
 
-下列 PowerShell 程式碼示範如何使用 `Get-AzureRmApplicationGatewayBackendHealth` Cmdlet 檢視後端健康情況：
+下列 PowerShell 程式碼示範如何使用 `Get-AzApplicationGatewayBackendHealth` Cmdlet 檢視後端健康情況：
 
 ```powershell
-Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
 ### <a name="view-back-end-health-through-azure-cli"></a>透過 Azure CLI 檢視後端健康情況
@@ -121,7 +123,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 3. 使用下列 Powershell Cmdlet 啟用診斷記錄功能：
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
     
 > [!TIP] 
@@ -137,7 +139,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
    * 效能記錄檔
    * 防火牆記錄檔
 
-2. 若要開始收集資料，請按一下 [開啟診斷]。
+2. 若要开始收集数据，请单击“启用诊断” 。
 
    ![開啟診斷][1]
 
@@ -162,11 +164,11 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 只有當您如上述步驟所述，在每個應用程式閘道上啟用存取記錄，才會產生存取記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 應用程式閘道的每次存取會以 JSON 格式記錄下來，如下列範例所示：
 
 
-|值  |說明  |
+|值  |描述  |
 |---------|---------|
 |instanceId     | 處理要求的應用程式閘道執行個體。        |
 |clientIP     | 要求的原始 IP。        |
-|clientPort     | 要求的原始連接埠。       |
+|clientPort     | 请求的起始端口。       |
 |httpMethod     | 要求使用的 HTTP 方法。       |
 |requestUri     | 接收之要求的 URI。        |
 |RequestQuery     | **Server-routed**：傳送要求的後端集區執行個體。</br>**X-AzureApplicationGateway-LOG-ID**：要求所使用的相互關聯識別碼。 它可以用來針對後端伺服器上的流量問題進行疑難排解。 </br>**SERVER-STATUS**：應用程式閘道從後端收到的 HTTP 回應碼。       |
@@ -206,7 +208,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 只有當您如上述步驟所述，在每個應用程式閘道上啟用效能記錄，才會產生效能記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 產生效能記錄資料的時間間隔為 1 分鐘。 會記錄下列資料：
 
 
-|值  |說明  |
+|值  |描述  |
 |---------|---------|
 |instanceId     |  將產生此應用程式閘道執行個體的效能資料。 應用程式閘道若有多個執行個體，則是一個執行個體一行資料。        |
 |healthyHostCount     | 後端集區中狀況良好主機的數目。        |
@@ -240,12 +242,12 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="firewall-log"></a>防火牆記錄檔
 
-只有當您如上述步驟所述，在每個應用程式閘道上啟用防火牆記錄，才會產生防火牆記錄。 此記錄也需要在應用程式閘道上設定該 Web 應用程式防火牆。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 會記錄下列資料：
+只有當您如上述步驟所述，在每個應用程式閘道上啟用防火牆記錄，才會產生防火牆記錄。 此記錄也需要在應用程式閘道上設定該 Web 應用程式防火牆。 数据存储在启用日志记录时指定的存储帐户中。 會記錄下列資料：
 
 
-|值  |說明  |
+|值  |描述  |
 |---------|---------|
-|instanceId     | 將產生此應用程式閘道執行個體的防火牆資料。 應用程式閘道若有多個執行個體，則是一個執行個體一行資料。         |
+|instanceId     | 將產生此應用程式閘道執行個體的防火牆資料。 对于多实例应用程序网关，一个实例对应于一行。         |
 |clientIp     |   要求的原始 IP。      |
 |clientPort     |  要求的原始連接埠。       |
 |requestUri     | 接收之要求的 URL。       |
@@ -253,7 +255,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |ruleSetVersion     | 規則集版本。 可用值為 2.2.9 和 3.0。     |
 |ruleId     | 觸發事件的規則識別碼。        |
 |Message     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
-|動作     |  對要求採取的動作。 可用的值為 Blocked 和 Allowed。      |
+|action     |  對要求採取的動作。 可用的值為 Blocked 和 Allowed。      |
 |site     | 將產生此網站的記錄。 目前只列出 Global，因為規則為全域。|
 |詳細資料     | 觸發事件的詳細資料。        |
 |details.message     | 規則的描述。        |

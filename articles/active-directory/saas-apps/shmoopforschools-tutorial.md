@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 095aff293b23f4589dce9f71890b5e9bfd8636d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201851"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>教學課程：Azure Active Directory 與 Shmoop For Schools 整合
 
@@ -47,7 +47,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
 若要測試本教學課程中的步驟，我們建議：
 
-- 只在必要時才使用生產環境。
+- 只有在需要時，請使用您的生產環境。
 - 如果您還沒有 Azure AD 試用環境，請取得[一個月免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
@@ -65,7 +65,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
+2. 移至 **企業應用程式**。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
@@ -131,7 +131,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
     a. 若要開啟 [新增屬性] 對話方塊，請選取 [新增屬性]。
     
-    ![設定單一登入 ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
+    ![設定單一登入](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
     
     ![設定單一登入](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
     
