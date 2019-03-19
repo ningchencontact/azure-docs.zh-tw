@@ -7,17 +7,17 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 03/05/2019
 ms.author: jdial
-ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 9185bfea8bddff52f6183ac3e5395cdbc0b73bb1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860766"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -29,7 +29,7 @@ ms.locfileid: "56675036"
 您也可以透過公用 IP 前置詞，建立連續範圍的靜態公用 IP 位址。 [深入瞭解功用首碼。](public-ip-address-prefix.md)
 
 > [!NOTE]
-> Azure 針對建立和使用資源方面，有二種不同的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  本文涵蓋內容包括使用 Resource Manager 部署模型，Microsoft 建議大部分的新部署使用此模型，而不是[傳統部署模型](virtual-network-ip-addresses-overview-classic.md)。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  本文涵蓋內容包括使用 Resource Manager 部署模型，Microsoft 建議大部分的新部署使用此模型，而不是[傳統部署模型](virtual-network-ip-addresses-overview-classic.md)。
 > 
 
 如果您熟悉傳統部署模型，請參閱 [傳統與 Resource Manager 之間的 IP 定址差異](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments)。
@@ -71,7 +71,7 @@ ms.locfileid: "56675036"
 標準 SKU 的公用 IP 位址有下列特性：
 
 - 一律使用靜態配置方法。
-- 讓可調整的輸入起源和輸出起源流量閒置逾時為 4 到 30 分鐘 (預設值為 4 分鐘)。
+- 讓可調整的輸入起源流量閒置逾時 4 到 30 分鐘 (預設值為 4 分鐘)，固定的輸出起源流量閒置逾時 4 分鐘。
 - 預設為保護狀態，且禁止輸入流量。 您必須透過[網路安全性群組](security-overview.md#network-security-groups)，明確地將允許的輸入流量列入允許清單。
 - 會指派給網路介面、公用 Standard Load Balancer、應用程式閘道或 VPN 閘道。 如需 Standard Load Balancer 的詳細資訊，請參閱 [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 - 預設為區域備援，也可為區域型 (可以建立為區域型，並保證在特定可用性區域中)。 若要了解可用性區域，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[標準負載平衡器和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
@@ -121,16 +121,16 @@ ms.locfileid: "56675036"
 
 ### <a name="application-gateways"></a>應用程式閘道
 
-您可以將公用 IP 位址指派給閘道的 [前端](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)組態，以建立其與 Azure **應用程式閘道** 的關聯。 此公用 IP 位址可做為負載平衡的 VIP。 您只可以將「動態」基本公用 IP 位址指派給應用程式閘道 V1 前端組態，且只可以將靜態、基本或標準 SKU 位址指派給 V2 前端組態。
+您可以將公用 IP 位址指派給閘道的 [前端](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)組態，以建立其與 Azure **應用程式閘道** 的關聯。 此公用 IP 位址可做為負載平衡的 VIP。 您只能指派*動態*基本公用 IP 位址給應用程式閘道 V1 前端組態，並只*靜態*V2 前端組態的標準 SKU 位址。
 
 ### <a name="at-a-glance"></a>快速總覽
 下表顯示特定的屬性，公用 IP 位址可透過它關聯到最上層資源，以及顯示可以使用的可能配置方法 (動態或靜態)。
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |yes |yes |
-| 網際網路對應負載平衡器 |前端組態 |yes |yes |
-| VPN 閘道 |閘道 IP 組態 |yes |yes |
+| 虛擬機器 |Linux |是 |是 |
+| 網際網路對應負載平衡器 |前端組態 |是 |是 |
+| VPN 网关 |閘道 IP 組態 |是 |是 |
 | 應用程式閘道 |前端組態 |是 (僅限 V1) |是 (僅限 V2) |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
@@ -174,11 +174,11 @@ ms.locfileid: "56675036"
 ### <a name="at-a-glance"></a>快速總覽
 下表顯示特定的屬性，私人 IP 位址可透過它關聯到最上層資源，以及顯示可以使用的可能配置方法 (動態或靜態)。
 
-| 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
+| 最上層資源 | IP 位址關聯 | 动态 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |yes |yes |
-| 負載平衡器 |前端組態 |yes |yes |
-| 應用程式閘道 |前端組態 |yes |yes |
+| 虛擬機器 |Linux |是 |是 |
+| 負載平衡器 |前端組態 |是 |是 |
+| 應用程式閘道 |前端組態 |是 |是 |
 
 ## <a name="limits"></a>限制
 加諸於 IP 位址上的限制，如在 Azure 中的完整[網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)所示。 這些限制是針對每一區域和每一訂用帳戶。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 329125d39c0da403ff078182af2eee74bcd9c84d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270977"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861905"
 ---
-# <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Azure Data Factory 對應資料流程視窗轉換
+# <a name="azure-data-factory-window-transformation"></a>Azure Data Factory 視窗轉換
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,3 +46,6 @@ Over 子句的另一個部分是設定 ```Order By```。 這會設定資料排�
 
 彙總及分析的函式 (可供您在 ADF 資料流程運算式語言透過運算式產生器中使用) 完整清單如下： https://aka.ms/dataflowexpressions。
 
+## <a name="next-steps"></a>後續步驟
+
+如果您要尋找簡單的 group by 彙總，使用[彙總轉換](data-flow-aggregate.md)

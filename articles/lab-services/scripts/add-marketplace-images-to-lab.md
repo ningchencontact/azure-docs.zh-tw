@@ -1,5 +1,5 @@
 ---
-title: PowerShell 指令碼：將市集映像新增至 Azure DevTest Labs 的實驗室中 | Microsoft Docs
+title: PowerShell 指令碼：在 Azure DevTest Labs 中對實驗室新增 marketplace 映像 |Microsoft Docs
 description: 這個 PowerShell 指令碼會將市集映像新增至 Azure DevTest Labs 的實驗室中。
 services: lab-services
 author: spelluru
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: a3a007bf19a28e6f361837856f83a191a761ef9b
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: e099a29a198d43bf8d00487ab45e2648479aedbe
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247409"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194772"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>使用 PowerShell 將市集映像新增至 Azure DevTest Labs 的實驗室中
 
 這個範例 PowerShell 指令碼會將市集映像新增至 Azure DevTest Labs 的實驗室中。 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -38,10 +40,10 @@ ms.locfileid: "43247409"
 
 | 命令 | 注意 |
 |---|---|
-| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | 根據指定的參數搜尋資源。 |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | 取得資源。 |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | 修改資源。 |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | 建立資源。 |
+| Find-AzResource | 根據指定的參數搜尋資源。 |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | 取得資源。 |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | 修改資源。 |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | 建立資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

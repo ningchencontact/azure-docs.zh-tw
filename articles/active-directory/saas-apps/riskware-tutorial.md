@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>教學課程：Azure Active Directory 與 Riskware 整合
 
@@ -110,6 +110,7 @@ ms.locfileid: "56203908"
     ![[Riskware 網域及 URL] 單一登入資訊](./media/riskware-tutorial/tutorial_riskware_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+
     | 環境| URL 模式|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ ms.locfileid: "56203908"
     |||
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：
+    
     | 環境| URL 模式|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ ms.locfileid: "56203908"
 
     a. 在 [Authentication]\(驗證\) 區段下，選取您已設定的 [Authentication]\(驗證\) 模式，例如 [AZURE Configuration for SSO] \(AZURE 的 SSO 設定\)。
 
-    b. 在 [Logon Details]\(登入詳細資料\) 區段下的 [User ID] \(使用者識別碼\) 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
+    b. 底下**登入詳細資料**區段中**使用者識別碼**文字方塊中，輸入使用者電子郵件，例如**brittasimon\@contoso.com**。
 
     c. 在 [Password] \(密碼\) 文字方塊中，輸入使用者的密碼。
 

@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7d4748ced196abdb4f3f0bcb70ad6fe254b24bf7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657569"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850287"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>使用 Azure SQL Database、SQL 資料倉儲、Data Factory 及 Power BI 探索 SaaS 分析
 
@@ -94,7 +94,7 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
 
 現在，請檢閱您所部署的 Azure 資源：
 #### <a name="tenant-databases-and-analytics-store"></a>租用戶資料庫和分析存放區
-使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 連線到 **tenants1-dpt-&lt;user&gt;** 和 **catalog-dpt-&lt;user&gt;** 伺服器。 將 &lt;user&gt; 取代為您部署應用程式時所使用的值。 使用者登入 = *developer*，密碼 = *P@ssword1*。 如需詳細指引，請參閱[簡介教學課程](saas-dbpertenant-wingtip-app-overview.md)。
+使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 連線到 **tenants1-dpt-&lt;user&gt;** 和 **catalog-dpt-&lt;user&gt;** 伺服器。 將 &lt;user&gt; 取代為您部署應用程式時所使用的值。 使用登入 =*開發人員*和 密碼 = *P\@ssword1*。 如需詳細指引，請參閱[簡介教學課程](saas-dbpertenant-wingtip-app-overview.md)。
 
 ![從 SSMS 連線到 SQL Database 伺服器](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -113,7 +113,7 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
 #### <a name="blob-storage"></a>Blob 儲存體
 1. 在 [Azure 入口網站](https://ms.portal.azure.com)中，巡覽至您用來部署應用程式的資源群組。 確認已新增名為 **wingtipstaging\<user\>** 的儲存體帳戶。
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. 按一下 [wingtipstaginguser]**\<\>** 儲存體帳戶，探索現有物件。
 1. 按一下 [Blob] 圖格
@@ -195,7 +195,7 @@ SQL 資料倉儲可做為分析存放區使用，以便彙總租用戶資料。 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 在左窗格中選取 [資料庫]，然後輸入使用者名稱 = developer，輸入密碼 = P@ssword1。 按一下 [ **連接**]。  
+5. 選取 **資料庫**的左窗格中，然後輸入使用者名稱 =*開發人員*，然後輸入密碼 = *P\@ssword1*。 按一下 [ **連接**]。  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: cbc11e2fc54ecffbea22a66354f334f3562e3339
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e40b763aa2a36e3afd85a82b66e393ac78d3afaa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459201"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839571"
 ---
 # <a name="work-with-azure-cosmos-account"></a>使用 Azure Cosmos 帳戶
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 容器是延展性的基本單位。 您在容器上可佈建的
 
 目前，您在一個 Azure 訂用帳戶下最多可建立 100 個 Azure Cosmos 帳戶。 單一 Azure Cosmos 帳戶可管理的資料量和佈建的輸送量幾乎不受限制。 若要管理您的資料和佈建的輸送量，您可以在您的帳戶下建立一或多個 Azure Cosmos 資料庫，並且可在該資料庫內建立一或多個容器。 下圖顯示 Azure Cosmos 帳戶中的元素階層：
 
-![Azure Cosmos 帳戶的階層](./media/account-overview/hierarchy.png)
+![Azure Cosmos 帳戶的階層架構](./media/account-overview/hierarchy.png)
 
 ## <a name="next-steps"></a>後續步驟
 

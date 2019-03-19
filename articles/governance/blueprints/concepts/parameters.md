@@ -4,17 +4,17 @@ description: 了解靜態與動態參數，以及如何使用它們來建立動�
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838012"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>透過參數建立動態藍圖
 
@@ -41,8 +41,13 @@ ms.locfileid: "55567480"
 - Key Vault 祕密名稱
 - Key Vault 祕密版本
 
-參考的 Key Vault 必須存在於與藍圖要被指派至的相同訂用帳戶中。
-而且必須在 Key Vault 的 [存取原則] 頁面上設定 [為範本部署啟用對 Azure Resource Manager 的存取]。 如需如何啟用此功能的相關指示，請參閱 [Key Vault - 啟用範本部署](../../../managed-applications/key-vault-access.md#enable-template-deployment)。 如需 Azure Key Vault 的詳細資訊，請參閱 [Azure Key Vault 概觀](../../../key-vault/key-vault-overview.md)。
+如果使用藍圖指派**系統指派給受控身分識別**，則參考金鑰保存庫_必須_存在藍圖定義指派給同一個訂用帳戶中。
+
+如果使用藍圖指派**指派使用者給受控身分識別**，則參考金鑰保存庫_可能_集中式的訂用帳戶中存在。 受管理的身分識別必須被授與金鑰保存庫之前藍圖指派的適當權限。
+
+在這兩種情況下，必須具有金鑰保存庫**啟用存取至 Azure Resource Manager 範本部署**上設定**存取原則**頁面。 如需如何啟用此功能的相關指示，請參閱 [Key Vault - 啟用範本部署](../../../managed-applications/key-vault-access.md#enable-template-deployment)。
+
+如需 Azure Key Vault 的詳細資訊，請參閱 [Azure Key Vault 概觀](../../../key-vault/key-vault-overview.md)。
 
 ## <a name="parameter-types"></a>參數類型
 
@@ -52,13 +57,13 @@ ms.locfileid: "55567480"
 
 #### <a name="setting-static-parameters-in-the-portal"></a>在入口網站中設定靜態參數
 
-1. 在左窗格中按一下 [所有服務]，然後搜尋並選取 [原則]。 在 [原則] 頁面上，按一下 [藍圖]。
+1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 在頁面左邊選取 [藍圖定義]。
+1. 在頁面左側選取 [藍圖定義]。
 
-1. 按一下現有的藍圖，然後按一下 [編輯藍圖]，或按一下 [+ 建立藍圖]，然後填寫 [基本] 索引標籤上的資訊。
+1. 在現有的藍圖上按一下，然後按一下**編輯藍圖**，或按一下 **+ 建立藍圖**並填寫資訊上**基本概念** 索引標籤。
 
-1. 按一下 [下一步:成品] ，或按一下 [成品] 索引標籤。
+1. 按一下 **[下一步成品]** ，或按一下 [成品] 索引標籤。
 
 1. 新增到具有參數選項之藍圖的成品會在 [參數] 欄中顯示 [已填入 X 個參數 (共 Y 個)]。 按一下成品列來編輯成品參數。
 
@@ -169,13 +174,13 @@ ms.locfileid: "55567480"
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>在入口網站中設定動態參數
 
-1. 在左窗格中按一下 [所有服務]，然後搜尋並選取 [原則]。 在 [原則] 頁面上，按一下 [藍圖]。
+1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 在頁面左邊選取 [藍圖定義]。
+1. 在頁面左側選取 [藍圖定義]。
 
-1. 以滑鼠右鍵按一下您想要指派的藍圖。 選取 [指派藍圖]，或按一下您要指派的藍圖，然後按一下 [指派藍圖] 按鈕。
+1. 以滑鼠右鍵按一下您想要指派的藍圖。 選取 [**指派藍圖**或按一下您想要指派，的藍圖，然後按一下**指派藍圖**] 按鈕。
 
-1. 在 [指派藍圖] 頁面上，尋找 [成品參數] 區段。 至少具有一個**動態參數**的每個成品都會顯示成品與設定選項。 指派藍圖之前，請先為參數提供所需的值。 在下列範例中，「名稱」是必須先定義才能完成藍圖指派的**動態參數**。
+1. 在 **指派藍圖**頁面上，尋找**構件參數**一節。 至少具有一個**動態參數**的每個成品都會顯示成品與設定選項。 指派藍圖之前，請先為參數提供所需的值。 在下列範例中，「名稱」是必須先定義才能完成藍圖指派的**動態參數**。
 
    ![藍圖動態參數](../media/parameters/dynamic-parameter.png)
 
@@ -236,8 +241,8 @@ ms.locfileid: "55567480"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解[藍圖生命週期](lifecycle.md) (英文)
-- 了解如何自訂[藍圖排序順序](sequencing-order.md)
-- 了解如何使用[藍圖資源鎖定](resource-locking.md)
-- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)
-- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題
+- 深入了解[藍圖生命週期](lifecycle.md)。
+- 了解如何自訂[藍圖排序順序](sequencing-order.md)。
+- 了解如何使用[藍圖資源鎖定](resource-locking.md)。
+- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)。
+- 解決問題的藍圖，以使用在指派期間[一般疑難排解](../troubleshoot/general.md)。

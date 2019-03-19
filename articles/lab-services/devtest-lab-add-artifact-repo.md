@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c7b9921d7eacb9b40e39f8e68d13357ce6bcfd78
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852486"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>新增可以存放自訂構件和 Resource Manager 範本的 Git 存放庫
 
@@ -30,7 +30,7 @@ ms.locfileid: "51241543"
 建立 VM 時，您可以儲存 Resource Manager 範本，並依您的需求自訂，並在稍後使用範本來建立更多 VM。 您必須建立您自己的私人存放庫，來儲存您自訂的 Resource Manager 範本。  
 
 * 若要了解如何建立 GitHub 儲存機制，請參閱 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)。
-* 若要了解如何建立具有 Git 存放庫的 Azure DevOps Services 專案，請參閱[連線到 Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)。
+* 若要了解如何建立具有 Git 存放庫的 Azure DevOps 服務專案，請參閱[連接到 Azure 的 DevOps 服務](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)。
 
 下圖顯示具有構件的存放庫在 GitHub 中的可能外觀範例：  
 
@@ -78,18 +78,18 @@ ms.locfileid: "51241543"
 
     ![[新增存放庫] 按鈕](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. 在第二個 [存放庫] 頁面上，指定下列資訊︰
-  1. **名稱**。 輸入存放庫的名稱。
-  2. **Git Clone URL**。 輸入您先前從 GitHub 或 Azure DevOps Services 複製的 Git HTTPS 複製 URL。
-  3. **分支**。 若要取得您的定義，請輸入分支。
-  4. **個人存取權杖**。 輸入您先前從 GitHub 或 Azure DevOps Services 取得的個人存取權杖。
-  5. **資料夾路徑**。 輸入至少與複製 URL 相關的一個資料夾路徑，其中包含構件或 Resource Manager 範本。 指定子目錄時，請確定您有在資料夾路徑中包含斜線。
+   1. **名稱**。 輸入存放庫的名稱。
+   2. **Git Clone URL**。 輸入您先前從 GitHub 或 Azure DevOps Services 複製的 Git HTTPS 複製 URL。
+   3. **分支**。 若要取得您的定義，請輸入分支。
+   4. **個人存取權杖**。 輸入您先前從 GitHub 或 Azure DevOps Services 取得的個人存取權杖。
+   5. **資料夾路徑**。 輸入至少與複製 URL 相關的一個資料夾路徑，其中包含構件或 Resource Manager 範本。 指定子目錄時，請確定您有在資料夾路徑中包含斜線。
 
-     ![存放庫區域](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+      ![存放庫區域](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. 選取 [ **儲存**]。
 
 ### <a name="related-blog-posts"></a>相關部落格文章
 * [在 DevTest Labs 中針對失敗的構件進行疑難排解](devtest-lab-troubleshoot-artifact-failure.md)
-* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (在 DevTest Labs 中使用 Resource Manager 範本將 VM 加入至現有 Active Directory 網域)
+* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (在 DevTest Labs 中使用 Resource Manager 範本將 VM 加入至現有 Active Directory 網域)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
