@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b6a7fe2c12b2f1f5bcc0ba8cccd1a51ee39c4a6f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882076"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855668"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>針對啟用或檢視 Application Insights Profiler 的問題進行疑難排解
 
@@ -36,11 +36,11 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
     ```
     下圖顯示從兩個 AI 資源進行搜尋的兩個範例： 
     
-    * 在左側，應用程式在 Profiler 執行時並未接收要求。 訊息指出上傳已因沒有活動而取消。 
+   * 在左側，應用程式在 Profiler 執行時並未接收要求。 訊息指出上傳已因沒有活動而取消。 
 
-    * 在右側，Profiler 已啟動，並在偵測到於 Profiler 執行期間有要求提出時傳送自訂事件。 如果顯示 ServiceProfilerSample 自訂事件，表示 Profiler 已將追蹤附加至要求，而您可以在 [Application Insights 效能] 窗格中檢視追蹤。
+   * 在右側，Profiler 已啟動，並在偵測到於 Profiler 執行期間有要求提出時傳送自訂事件。 如果顯示 ServiceProfilerSample 自訂事件，表示 Profiler 已將追蹤附加至要求，而您可以在 [Application Insights 效能] 窗格中檢視追蹤。
 
-    若未顯示遙測資料，表示 Profiler 並未執行。 若要進行疑難排解，請參閱本文後續與您的應用程式類型有關的疑難排解章節。  
+     若未顯示遙測資料，表示 Profiler 並未執行。 若要進行疑難排解，請參閱本文後續與您的應用程式類型有關的疑難排解章節。  
 
      ![搜尋 Profiler 遙測資料][profiler-search-telemetry]
 
@@ -90,7 +90,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 
 1. 在 [Web 應用程式控制項] 窗格中，開啟 [設定]。
 
-1. 將 [.Net Framework 版本] 設定為 [v4.6]。
+1. 設定 **.NET Framework 版本**要**v4.6**。
 
 1. 將 [一律開啟] 設定為 [開啟]。
 
@@ -124,6 +124,8 @@ Profiler 會在 Web 應用程式中以連續 WebJob 的形式執行。 您可以
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>對 Profiler 和 Azure 診斷的問題進行疑難排解
 
+  >**分析工具中隨附的 WAD 的最新版本的雲端服務中沒有錯誤。** 若要使用的雲端服務中的程式碼剖析工具，它只支援 AI SDK 升級到版本 2.7.2。 如果您使用較新版的 AI SDK，您必須返回 2.7.2 若要使用分析工具。 如果您使用 Visual Studio 的應用程式的 application Insights SDK 的版本降級時，您可能會在執行階段的繫結重新導向錯誤。 這是因為 「 newVersion"Microsoft.ApplicationInsights 的 web.config 檔案中應該設定為"2.7.2.0 」 之後降級 AI SDK，但它不會自動更新。
+
 若要查看 Azure 診斷是否已正確設定 Profiler，請執行下列三項作業： 
 1. 首先，請確認部署的 Azure 診斷組態內容是否符合您的預期。 
 
@@ -133,15 +135,19 @@ Profiler 會在 Web 應用程式中以連續 WebJob 的形式執行。 您可以
 
 若要檢查用來設定 Azure 診斷的設定：
 
-1. 登入虛擬機器 (VM)，然後開啟位於下列位置的記錄檔： 
+1. 登入虛擬機器 (VM)，然後再開啟 記錄檔，此位置。 （磁碟機可能是 c： 或 d： 及的外掛程式版本可能不同）。
 
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    ```
+    或
+    ```
+    c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. 在該檔案中，您可以搜尋 **WadCfg** 字串，以找出傳至 VM 用以設定 Azure 診斷的設定。 您可以確認 Profiler 接收所使用的 iKey 是否正確。
 
-1. 檢查用來啟動 Profiler 的命令列。 用來啟動 Profiler 的引數會位於下列檔案中：
+1. 檢查用來啟動 Profiler 的命令列。 用來啟動 Profiler 的引數會在下列檔案。 （磁碟機可能是 c： 或 d:）
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

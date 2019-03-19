@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 428934a6e93ced56274bd27123bea9d92cd45240
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 69099fe1369223871142f74d8f6d1c6a8bd66dab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997935"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851754"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>開發具有媒體服務的 Azure Functions
 
@@ -34,7 +34,7 @@ ms.locfileid: "55997935"
     
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
-1. 移至 [Azure 入口網站](http://portal.azure.com) ，然後以您的 Azure 帳戶登入。
+1. 移至 [Azure 入口網站](https://portal.azure.com) ，然後以您的 Azure 帳戶登入。
 2. 如[這裡](../../azure-functions/functions-create-function-app-portal.md)所述建立函式應用程式。
 
 >[!NOTE]

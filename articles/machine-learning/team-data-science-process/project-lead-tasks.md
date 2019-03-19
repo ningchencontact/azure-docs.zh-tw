@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d574f62a51b8aed7acbd1ba7f8b427395add854a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1ee409bc9e4ad60602ddffd3d1896baf09df52da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854784"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>專案負責人在 Team Data Science Process 中的工作
 
@@ -126,11 +126,11 @@ ms.locfileid: "55454125"
 
 如果您使用 Azure DevOps 作為程式碼裝載平台，*專案範本存放庫的 SSH URL* 通常是：
 
-***ssh://\<Azure DevOps Services 名稱\>@\<Azure DevOps Services 名稱\>.visualstudio.com:22/\<您的專案名稱>/_git/\<您的專案範本存放庫名稱\>***。 
+***ssh://\<Azure DevOps Services 名稱\>\@\<Azure DevOps Services 名稱\>.visualstudio.com:22/\<您的專案名稱>/_git/\<您的專案範本存放庫名稱\>***。 
 
 在此範例中，我們有：
 
-***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***。 
+***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***。 
 
 ### <a name="clone-dsproject1-repository-r5-to-a-directory-d5-on-your-local-machine"></a>將 DSProject1 存放庫 (R5) 複製到本機電腦上的目錄 (D5)
 
@@ -150,7 +150,7 @@ ms.locfileid: "55454125"
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-如果您使用 Azure DevOps 作為程式碼裝載平台，_專案存放庫的 SSH URL_ 通常是 _ssh://<Azure DevOps Services 名稱\>@<Azure DevOps Services 名稱\>.visualstudio.com:22/<Your Project Name>/\_git/<您的專案存放庫名稱\>。 在此範例中，我們有 ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***。
+如果您使用 Azure DevOps 作為程式碼裝載平台，_專案存放庫的 SSH URL_ 通常是 _ssh://<Azure DevOps Services 名稱\>@<Azure DevOps Services 名稱\>.visualstudio.com:22/<Your Project Name>/\_git/<您的專案存放庫名稱\>。 在此範例中，我們有***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***。
 
 ### <a name="copy-contents-of-d3-to-d5"></a>將 D3 的內容複製到 D5 
 

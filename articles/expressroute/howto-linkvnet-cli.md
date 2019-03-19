@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ae97fff6a81f437510def1141dd226ad4e67209a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074038"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408253"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>使用 CLI 將虛擬網路連線到 ExpressRoute 線路
 
@@ -35,7 +35,7 @@ ms.locfileid: "53074038"
 
 * 您必須擁有作用中的 ExpressRoute 線路。 
   * 遵循指示來 [建立 ExpressRoute 線路](howto-circuit-cli.md) ，並由您的連線提供者來啟用該線路。 
-  * 確定您已針對循環設定了 Azure 私用對等。 請參閱 [設定路由](howto-routing-cli.md) 一文，以取得路由指示。 
+  * 确保为线路配置 Azure 专用对等互连。 請參閱 [設定路由](howto-routing-cli.md) 一文，以取得路由指示。 
   * 確定已設定 Azure 私用對等互連。 已開啟您的網路與 Microsoft 之間的 BGP 對等互連，讓您可以啟用端對端連線。
   * 請確定您有已建立且完整佈建的虛擬網路和虛擬網路閘道。 請遵循指示[為 ExpressRoute 設定虛擬網路閘道](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)。 請務必使用 `--gateway-type ExpressRoute`。
 
@@ -125,7 +125,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 線路使用者需要具備對等識別碼以及線路擁有者所提供的授權金鑰。 授權金鑰是 GUID。
 
 ```azurecli
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **兌換連線授權**
@@ -138,8 +138,8 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 **釋出連線授權**
 
-您可以藉由刪除將 ExpressRoute 線路連結到虛擬網路的連線來釋出授權。
+可以通过删除 ExpressRoute 线路与虚拟网络之间的连接释放授权。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
+有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](expressroute-faqs.md)。

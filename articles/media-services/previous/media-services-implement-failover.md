@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: f367d6e1b1c545bcad0faf030a56fdec2ffafca2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1ea11c44806e2375a272fe8f5e256d8ffde7affb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989060"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240400"
 ---
-# <a name="implement-failover-streaming-with-media-services-legacy"></a>使用媒體服務實作容錯移轉串流 (舊版)
+# <a name="implement-failover-streaming-with-media-services"></a>實作容錯移轉串流媒體服務 
 
 本逐步解說示範如何將內容 (Blob) 從一個資產複製到另一個資產，以便處理隨選資料流處理的備援。 如果您想要設定 Azure 內容傳遞網路，以便在某個資料中心發生中斷時在兩個資料中心之間進行容錯移轉，這個案例會很有用。 本逐步解說使用 Azure 媒體服務 SDK、Azure 媒體服務 REST API 和 Azure 儲存體 SDK 來示範下列工作：
 
@@ -51,7 +51,7 @@ ms.locfileid: "55989060"
 * 如果您想要利用動態封裝，請確定您想要從中串流內容的串流端點是處於 [執行中] 狀態。
 
 ## <a name="prerequisites"></a>必要條件
-* 在新的或現有的 Azure 訂用帳戶中有兩個媒體服務帳戶。 請參閱 [如何建立媒體服務帳戶](media-services-portal-create-account.md)。
+* 在新的或现有的 Azure 订阅中拥有两个媒体服务帐户。 請參閱 [如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
 * .NET Framework 4.5 或 .NET Framework 4。
 * Visual Studio 2010 SP1 或更新版本 (Professional, Premium、Ultimate 或 Express)。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 89161f3dad68c4b208f4badc548e2057c7ed58c1
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 5ab967cbd630447132300b22da5c5deb31fd50e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852351"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>在動作項目服務中實作服務層級功能
 
@@ -160,13 +160,13 @@ public class Program
 
 若要使用遠端 V2_1 堆疊，必須進行下列變更：
 
- 1. 在動作項目介面上新增下列組件屬性。
+1. 在動作項目介面上新增下列組件屬性。
   
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. 建置和升級動作項目服務和動作項目用戶端專案，以開始使用 V2 堆疊。
+2. 建置和升級動作項目服務和動作項目用戶端專案，以開始使用 V2 堆疊。
 
 ### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>將動作項目服務升級至遠端 V2 (介面相容) 堆疊，而不會影響服務可用性。
 
@@ -174,12 +174,12 @@ public class Program
 
 1. 在動作項目介面上新增下列組件屬性。 此屬性會為動作項目服務啟動兩個接聽程式：V1 (現有) 與 V2_1 接聽程式。 透過這項變更來升級動作項目服務。
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
 
 2. 在完成先前的升級之後，將動作項目用戶端升級。
-此步驟可確保動作項目 Proxy 使用遠端 V2_1 堆疊。
+   此步驟可確保動作項目 Proxy 使用遠端 V2_1 堆疊。
 
 3. 此為選用步驟。 變更前一個屬性以移除 V1 接聽程式。
 
@@ -193,13 +193,13 @@ public class Program
 
 若要使用遠端 V2 堆疊，必須進行下列變更。
 
- 1. 在動作項目介面上新增下列組件屬性。
+1. 在動作項目介面上新增下列組件屬性。
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. 建置和升級動作項目服務和動作項目用戶端專案，以開始使用 V2 堆疊。
+2. 建置和升級動作項目服務和動作項目用戶端專案，以開始使用 V2 堆疊。
 
 ### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>將動作項目服務升級至遠端 V2 堆疊，而不會影響服務可用性。
 
@@ -207,12 +207,12 @@ public class Program
 
 1. 在動作項目介面上新增下列組件屬性。 此屬性會為動作項目服務啟動兩個接聽程式：V1 (現有) 與 V2 接聽程式。 透過這項變更來升級動作項目服務。
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 2. 在完成先前的升級之後，將動作項目用戶端升級。
-此步驟可確保動作項目 Proxy 使用遠端 V2 堆疊。
+   此步驟可確保動作項目 Proxy 使用遠端 V2 堆疊。
 
 3. 此為選用步驟。 變更前一個屬性以移除 V1 接聽程式。
 
@@ -226,7 +226,7 @@ public class Program
 * [動作項目生命週期與記憶體回收](service-fabric-reliable-actors-lifecycle.md)
 * [動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET 範例程式碼 (英文)](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java 範例程式碼 (英文)](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java 範例程式碼 (英文)](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

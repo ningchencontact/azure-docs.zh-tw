@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 6df29543df2b7b2609582f7e8dd9a0629182760c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849768"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps 的結構描述更新 - 2016 年 6 月 1 日
 
@@ -42,7 +42,7 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
             "Http": {
                "inputs": {
                    "method": "GET",
-                   "uri": "http://www.bing.com"
+                   "uri": "https://www.bing.com"
                },
                "runAfter": {},
                "type": "Http"
@@ -69,7 +69,7 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
          "Http_2": {
             "inputs": {
                 "method": "GET",
-                "uri": "http://www.bing.com"
+                "uri": "https://www.bing.com"
             },
             "runAfter": {},
             "type": "Http"
@@ -137,13 +137,13 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 ### <a name="resource-tags"></a>資源標籤
 
-在升級之後，會移除資源標籤，因此您必須重設它們以升級工作流程。
+在升級之後，會移除資源標籤，因此您必須加以重設以升級工作流程。
 
 ## <a name="other-changes"></a>其他變更
 
 ### <a name="renamed-manual-trigger-to-request-trigger"></a>將 'manual' 觸發程序重新命名為 'request' 觸發程序
 
-`manual` 觸發程序類型已被取代，並重新命名為 `request` 類型 `http`。 此變更會針對觸發程序用來建置的模式類型建立較佳的一致性。
+`manual` 觸發程序類型已被取代，並重新命名為 `request` 類型 `http`。 這項變更會針對觸發程序用來建置的模式類型建立較佳的一致性。
 
 ### <a name="new-filter-action"></a>新的「篩選」動作
 
@@ -162,7 +162,7 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
    "Http": {
       "inputs": {
          "method": "GET",
-         "uri": "http://www.bing.com"
+         "uri": "https://www.bing.com"
       },
       "runAfter": {},
       "type": "Http",

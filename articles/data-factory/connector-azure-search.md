@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023340"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852836"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 搜尋服務索引
 
@@ -41,7 +41,7 @@ ms.locfileid: "54023340"
 
 以下是針對「Azure 搜尋服務」已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**AzureSearch** | 是 |
 | URL | Azure 搜尋服務的 URL。 | 是 |
@@ -49,7 +49,7 @@ ms.locfileid: "54023340"
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 > [!IMPORTANT]
-> 將資料從雲端資料存放區複製到「Azure 搜尋服務」索引時，在「Azure 搜尋服務」已連結的服務中，您必須藉由在 connactVia 中指定明確的區域來參考 Azure Integration Runtime。 請將區域設定為您「Azure 搜尋服務」所在的區域。 請參閱 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime) 以深入了解。
+> 資料複製到 Azure 搜尋服務索引，Azure 搜尋服務中的雲端資料存放區連結服務時，您需要 Azure 整合執行階段在 connactVia 中指定明確的區域，請參閱。 請將區域設定為您「Azure 搜尋服務」所在的區域。 請參閱 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime) 以深入了解。
 
 **範例：**
 
@@ -79,7 +79,7 @@ ms.locfileid: "54023340"
 
 若要從「Azure 搜尋服務」複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**AzureSearchIndex** | 是 |
 | IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | 是 |
@@ -110,7 +110,7 @@ ms.locfileid: "54023340"
 
 若要將資料複製到「Azure 搜尋服務」，請將複製活動中的來源類型設定為 **AzureSearchIndexSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**AzureSearchIndexSink** | 是 |
 | writeBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 請參閱 [WriteBehavior 屬性](#writebehavior-property)。<br/><br/>允許的值包括：**Merge** (預設值) 和 **Upload**。 | 否 |
@@ -172,7 +172,7 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 | 字串 | Y |
 | Int32 | Y |
 | Int64 | Y |
-| 兩倍 | Y |
+| Double | Y |
 | BOOLEAN | Y |
 | DataTimeOffset | Y |
 | 字串陣列 | N |

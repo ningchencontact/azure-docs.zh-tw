@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
-ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117794"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404802"
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
 
@@ -85,7 +85,7 @@ PaaS 與傳統內部部署的另一個重大差異在於一個新觀點，就是
 以下是管理身分識別周邊的最佳做法。
 
 **最佳做法**：保護您用來保護 PaaS 部署的金鑰和認證。   
-**詳細資料**：遺失金鑰和認證是相當常見的問題。 您可以使用集中式解決方案，將金鑰和密碼存放在硬體安全性模組 (HSM) 中。 Azure 藉由 [Azure Key Vault](../key-vault/key-vault-whatis.md) 提供您一個雲端 HSM。
+**詳細資料**：遺失金鑰和認證是相當常見的問題。 您可以使用集中式的解決方案，在硬體安全性模組 (Hsm) 中儲存金鑰和祕密。 [Azure Key Vault](../key-vault/key-vault-whatis.md)透過加密驗證金鑰、 儲存體帳戶金鑰、 資料加密金鑰、.pfx 檔案，以及使用 Hsm 所保護的金鑰的密碼來保護您的金鑰和祕密。
 
 **最佳做法**：不要將認證與其他祕密放在原始程式碼或 GitHub 中。   
 **詳細資料**：唯一比遺失金鑰和認證更糟的情況，就是讓未經授權者能夠存取這些機密資料。 攻擊者能夠利用 Bot 技術來尋找存放在程式碼存放庫 (例如 GitHub) 中的金鑰和密碼。 請勿將金鑰和密碼放在這些公用程式碼存放庫中。
@@ -153,7 +153,7 @@ Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 
 
 使用 [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) 來監視應用程式的可用性、效能及使用情況 (不論該應用程式是裝載在雲端還是內部部署環境)。 使用 Application Insights，您可以快速識別並診斷應用程式的錯誤，不必等使用者回報。 有了所收集的資訊之後，您便可以針對應用程式的維護和改善，進行資訊充分的選擇。
 
-Application Insights 具有廣泛的工具，能與它所收集的資料進行互動。 Application Insights 會將其資料儲存在一般存放庫中。 它可以利用共用功能，例如警示、儀表板，以及採用 Log Analytics 查詢語言的深入分析。
+Application Insights 具有廣泛的工具，能與它所收集的資料進行互動。 Application Insights 會將其資料儲存在一般存放庫中。 它可以利用共用功能，例如警示、 儀表板和使用 Kusto 查詢語言的深入分析。
 
 
 

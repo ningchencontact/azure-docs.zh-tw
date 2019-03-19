@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 24a7d2354693e362d7709b8817c438555caae0e3
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 0c57eec4d739da13d98099a6b2f01fbf0ad0051c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857533"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>設定 Azure Load Balancer 的 TCP 閒置逾時設定
 
@@ -30,11 +30,11 @@ ms.locfileid: "53256191"
 
 常見作法是使用 TCP Keep-Alive。 此作法可讓連線保持長時間連線。 如需詳細資訊，請參閱這些 [.NET 文章](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)。 啟用 Keep-Alive 之後，就會在連線無活動期間傳送封包。 這些 Keep-Alive 封包可確保永遠不會達到閒置逾時值，因此可以長期維持連線。
 
-此設定僅適用於輸入連線。 若要避免連線中斷，您必須使用比閒置逾時設定短的間隔來設定 TCP Keep-Alive，或增加閒置逾時值。 為了支援這類情況，我們新增了可設定閒置逾時的支援。 您現在可以設定 4 至 30 分鐘的持續時間。
+此设置仅适用于入站连接。 若要避免連線中斷，您必須使用比閒置逾時設定短的間隔來設定 TCP Keep-Alive，或增加閒置逾時值。 我们已允许对空闲超时进行配置，以便支持这样的情况。 您現在可以設定 4 至 30 分鐘的持續時間。
 
 TCP Keep-Alive 非常適合用於電池使用時間不受約束的情況。 不建議用於行動應用程式。 在行動裝置應用程式中使用 TCP Keep-Alive 可能會更快耗盡裝置電池電力。
 
-![TCP 逾時](./media/load-balancer-tcp-idle-timeout/image1.png)
+![TCP 超时](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 下列各節說明如何在虛擬機器和雲端服務中變更閒置逾時設定。
 
@@ -122,7 +122,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Prot
 ### <a name="response"></a>Response
 
 ```xml
-<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
     <InputEndpoint>
     <LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
     <LocalPort>local-port-number</LocalPort>

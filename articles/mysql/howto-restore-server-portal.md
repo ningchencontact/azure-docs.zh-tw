@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: d76a644de8cb55da5e743e482d14946d371c3dfe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548862"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867221"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 入口網站在適用於 MySQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -61,7 +61,7 @@ ms.locfileid: "53548862"
 
 3. 在 [還原] 表單中填入必要資訊︰
 
-   ![適用於 MySQL 的 Azure 資料庫 - 還原資訊 ](./media/howto-restore-server-portal/3-restore.png)
+   ![適用於 MySQL 的 Azure 資料庫 - 還原資訊](./media/howto-restore-server-portal/3-restore.png)
    - **還原點**：選取您想要還原到那時候的時間點。
    - **目標伺服器**：提供新伺服器的名稱。
    - **位置**：您無法選取區域。 它預設與來源伺服器相同。

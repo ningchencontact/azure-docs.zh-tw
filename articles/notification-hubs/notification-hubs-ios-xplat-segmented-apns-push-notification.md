@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 8b37f86706e47e3998a4ba85e4416ce1a8a44c22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567073"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834212"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推播至特定 iOS 裝置
 
@@ -49,14 +49,14 @@ ms.locfileid: "55567073"
 
 1. 在您的 **MainStoryboard_iPhone.storyboard** 中，從物件程式庫新增下列元件：
 
-    * 具有「即時新聞」文字的標籤，
-    * 具有「世界」、「政治」、「商業」、「技術」、「科學」、「體育」等類別文字的標籤，
-    * 六個參數 (一個類別一個)，預設會將每個參數 [狀態] 設為 [關閉]。
-    * 一個標示為「訂閱」的按鈕
+   * 具有「即時新聞」文字的標籤，
+   * 具有「世界」、「政治」、「商業」、「技術」、「科學」、「體育」等類別文字的標籤，
+   * 六個參數 (一個類別一個)，預設會將每個參數 [狀態] 設為 [關閉]。
+   * 一個標示為「訂閱」的按鈕
 
-    您的腳本應如下所示：
+     您的腳本應如下所示：
 
-    ![Xcode 介面產生器][3]
+     ![Xcode 介面產生器][3]
 
 2. 在輔助編輯器中，建立所有參數的出口，並將其命名為 "WorldSwitch"、"PoliticsSwitch"、"BusinessSwitch"、"TechnologySwitch"、"ScienceSwitch"、"SportsSwitch"
 3. 為按鈕建立名為 `subscribe` 的動作；您的 `ViewController.h` 應包含下列程式碼：
@@ -334,7 +334,7 @@ ms.locfileid: "55567073"
 
 ## <a name="run-the-app-and-generate-notifications"></a>執行應用程式並產生通知
 
-1. 按 [執行] 按鈕，以建置專案並啟動應用程式。 選取要訂閱的一些即時新聞選項，然後按 [訂閱]  按鈕。 您應該會看到一個對話方塊，表示已訂閱通知。
+1. 按“运行”按钮生成项目并启动应用程序。 選取要訂閱的一些即時新聞選項，然後按 [訂閱]  按鈕。 您應該會看到一個對話方塊，表示已訂閱通知。
 
     ![iOS 上的範例通知][1]
 
@@ -359,11 +359,11 @@ ms.locfileid: "55567073"
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Azure 入口網站]: https://portal.azure.com

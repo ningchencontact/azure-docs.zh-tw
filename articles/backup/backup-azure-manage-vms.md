@@ -1,150 +1,158 @@
 ---
-title: 使用 Azure 備份服務管理和監視 Azure VM 備份
-description: 了解如何使用 Azure 備份服務管理和監視 Azure VM 備份。
+title: 管理和監視 Azure VM 備份使用 Azure 備份服務
+description: 了解如何管理和監視 Azure VM 備份使用 Azure 備份服務。
 services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: f5c0373e2ef094a7fc5be64f4aeb8c0bb132e683
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430058"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858935"
 ---
 # <a name="manage-azure-vm-backups"></a>管理 Azure VM 備份
 
-本文說明如何使用 [Azure 備份服務](backup-overview.md)管理 Azure VM 備份，並彙整入口網站儀表板中可用的備份警示資訊。
+這篇文章說明如何管理 Azure 的虛擬機器 (Vm) 使用備份[Azure 備份服務](backup-overview.md)。 本文件也摘要了保存庫儀表板上的備份資訊可以找到。
 
 
-在 Azure 入口網站中，復原服務保存庫儀表板可讓您存取保存庫的相關資訊，包括︰
+在 Azure 入口網站中，復原服務保存庫儀表板會提供存取保存庫的詳細資訊，包括：
 
 * 最新的備份，也就是最新的還原點。
-* 備份原則
-* 所有備份快照的大小總計
-* 已啟用備份的 VM 數目
+* 備份原則。
+* 所有備份快照的大小總計。
+* 已啟用的備份的 Vm 數目。
 
-您可以使用儀表板管理備份，並且向下切入至個別 VM。 虛擬機器備份從儀表板中開啟保存庫開始。 
+藉由使用儀表板和向下的個別 Vm 鑽研，您可以管理備份。 若要開始機器備份，請開啟保存庫儀表板上。
 
-![使用滑桿以完整檢視](./media/backup-azure-manage-vms/bottom-slider.png)
+![使用滑桿的完整儀表板檢視](./media/backup-azure-manage-vms/bottom-slider.png)
 
-## <a name="view-vms-in-the-dashboard"></a>檢視儀表板中的 VM
+## <a name="view-vms-on-the-dashboard"></a>檢視儀表板上的 Vm
+
+若要檢視保存庫儀表板上的 Vm:
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 [中樞] 功能表上按一下 [瀏覽]，然後在資源清單中輸入**復原服務**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 按一下 [復原服務保存庫] 。 
-    ![建立復原服務保存庫的步驟 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+2. 在 [中樞] 功能表中，選取**瀏覽**。 在資源清單中輸入 **復原服務**。 當您輸入時，清單會篩選根據您的輸入。 選取 [復原服務保存庫]。
 
-3. 為了方便使用，以滑鼠右鍵按一下保存庫清單中的保存庫 >[Pin to dashboard]\(釘選到儀表板\)。
-3. 開啟保存庫儀表板。 
-    ![開啟保存庫儀表板和設定刀鋒視窗](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+    ![建立復原服務保存庫](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
-4. 在 [備份項目] 圖格上，按一下 [Azure 虛擬機器]。
+3. 為了方便使用，以滑鼠右鍵按一下該保存庫，然後選取**釘選到儀表板**。
+4. 開啟保存庫儀表板。
 
-    ![開啟備份項目備份圖格](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![開啟 [設定] 刀鋒視窗與保存庫儀表板](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-5. 在 [備份項目] 刀鋒視窗中，您可以看到每個項目的最後一個備份作業。 在此範例中，有一個受此保存庫保護的虛擬機器：demovm markgal。  
+5. 在 **備份項目**磚中，選取**Azure 虛擬機器**。
 
-    ![備份項目圖格](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![開啟 [備份項目] 圖格](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
- 
-6. 從保存庫項目儀表板中，您可以建立或修改備份原則、檢視還原點、執行隨選備份、停止和繼續保護 VM、刪除復原點，以及執行還原。
+6. 在  **備份項目** 刀鋒視窗中，您可以檢視受保護的 Vm 清單。 在此範例中，保存庫能保護一部虛擬機器： demobackup。  
 
-    ![搭配設定刀鋒視窗的備份項目儀表板](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+    ![檢視 [備份項目] 刀鋒視窗](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
+7. 從保存庫項目的儀表板中，修改備份原則、 執行隨選備份、 停止或繼續 Vm 的保護、 刪除備份資料、 檢視還原點，和執行還原。
 
+    ![備份項目儀表板和 [設定] 刀鋒視窗](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-## <a name="manage-backup-policies"></a>管理備份原則
-1. 在[保存庫項目儀表板](backup-azure-manage-vms.md#open-a-vault-item-dashboard)上，按一下 [所有設定]。
+## <a name="manage-backup-policy-for-a-vm"></a>管理 VM 的備份原則
 
-    ![備份原則刀鋒視窗](./media/backup-azure-manage-vms/all-settings-button.png)
-2. 在 [設定] 中，按一下 [備份原則]。
-3. 從 [選擇備份原則]  功能表︰
+若要管理的備份原則：
 
-   * 若要變更原則，請選取不同的原則，然後按一下 [儲存] 。 新原則時會立即套用至保存庫。
-   * 若要建立原則，請選取 [建立新項目] 。 [深入了解](backup-azure-arm-vms-prepare.md#configure-a-backup-policy)
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。 開啟保存庫儀表板。
+2. 在 **備份項目**磚中，選取**Azure 虛擬機器**。
 
-     ![虛擬機器備份](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+    ![開啟 [備份項目] 圖格](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
+3. 在  **備份項目** 刀鋒視窗中，您可以檢視受保護的 Vm 和最新的還原點時間與上次備份狀態的清單。
+
+    ![檢視 [備份項目] 刀鋒視窗](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+
+4. 從保存庫項目的儀表板，您可以選取備份原則。
+
+   * 若要切換原則，選取不同的原則，然後選取**儲存**。 新原則時會立即套用至保存庫。
+
+     ![選擇備份原則](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>執行隨選備份
-設定保護後，您可以執行 VM 的隨選備份。
-- 如果初始備份已暫止，則隨選備份會在復原服務保存庫中建立虛擬機器的完整複本。
-- 如果已完成初始備份，隨選備份只會將前一個備份快照的變更傳送到復原服務保存庫。 亦即，後續備份一律是增量備份。
-- 隨選備份的保留範圍是原則中為「每日」備份點所指定的保留值。 如果未選取任何「每日」備份點，則會使用每週備份點。
+設定其保護之後，您可以執行 VM 的隨選備份。 請記住這些詳細資料：
 
+- 如果初始備份已暫止，隨選備份會建立 VM 的完整複本在復原服務保存庫中。
+- 如果初始備份已完成，視備份會只將變更傳送上一個快照集復原服務保存庫。 也就是更新備份一律是增量。
+- 隨選備份的保留範圍是您指定當您觸發備份的保留值。
 
 若要觸發隨選備份：
 
-1. 在[保存庫項目儀表板](backup-azure-manage-vms.md#open-a-vault-item-dashboard)上，按一下 [立即備份]。
+1. 在上[保存庫項目儀表板](#view-vms-in-the-dashboard)下方**保護的項目**，選取**備份項目**。
 
-    ![立即備份按鈕](./media/backup-azure-manage-vms/backup-now-button.png)
+    ![備份現在選項](./media/backup-azure-manage-vms/backup-now-button.png)
 
- 2. 按一下 [是]  啟動備份作業。
+2. 從**備份管理類型**，選取**Azure 虛擬機器**。 **備份項目 （Azure 虛擬機器）** 刀鋒視窗隨即出現。
+3. 選取 VM，然後選取**立即備份**建立隨選備份。 **立即備份**刀鋒視窗隨即出現。
+4. 在 **保留備份到**欄位中，指定要保留備份的日期。
 
-    ![立即備份按鈕](./media/backup-azure-manage-vms/backup-now-check.png)
+    ![立即備份行事曆](./media/backup-azure-manage-vms/backup-now-check.png)
 
- 
- 備份作業會建立復原點。 復原點的保留範圍與在虛擬機器相關的原則中指定的保留範圍相同。 若要追蹤作業的進度，請在保存庫儀表板中按一下 [備份作業]  圖格。  
+5. 選取 **確定**執行備份作業。
+
+若要追蹤作業的進度，請在保存庫儀表板中，選取**備份作業**圖格。
 
 ## <a name="stop-protecting-a-vm"></a>停止保護 VM
 
-有兩種方式可停止保護 VM︰
+有兩種方式可停止保護 VM:
 
-- 停止所有未來的備份作業並刪除所有復原點。 您無法在此情況下還原 VM。
-- 停止所有未來的備份作業但保留復原點。 在儲存體中保留復原點需要付出相關的成本。 不過，保留復原點的好處是可以在需要時還原 VM。 [深入了解](https://azure.microsoft.com/pricing/details/backup/)定價詳細資料。
+- 停止所有未來的備份作業並刪除所有復原點。 在此情況下，您將無法還原 VM。
+- 停止所有未來的備份作業，並保留復原點。 雖然您會需要保存庫中保留復原點，用多少付多少，您將能夠還原 VM，如有需要。 如需詳細資訊，請參閱 < [Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。
 
-若要停止保護虛擬機器：
+>[!NOTE]
+>如果您刪除資料來源而不需停止備份時，新的備份將會失敗。 根據原則，將到期的舊的復原點，但將一律會保留最後一個復原點，直到您停止備份並刪除資料。
+>
 
-1. 在[保存庫項目儀表板](backup-azure-manage-vms.md#open-a-vault-item-dashboard)上，按一下 [停止備份]。
+若要停止 VM 的保護：
 
-    ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button.png
-2. 請視需要，選擇是否保留或刪除備份資料並確認。 請視需要確認，並選擇是否提供註解。 如果您不確定項目名稱，請以滑鼠暫留在驚嘆號來檢視名稱。
+1. 在 [保存庫項目的儀表板](#view-vms-in-the-dashboard)，選取**停止備份**。
+2. 選擇是否要保留或刪除備份資料，並視需要請確認您的選取項目。 如果您想要請新增註解。 如果您不確定項目的名稱，請暫留在驚嘆號來檢視的名稱。
 
     ![停止保護](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
- 通知訊息可讓您知道備份作業已停止。
-
+     通知可讓您知道備份作業已停止。
 
 ## <a name="resume-protection-of-a-vm"></a>繼續保護 VM
 
-如果 VM 停止時您有保留備份資料，則可以繼續保護。 如果您刪除備份資料，則無法繼續。
+如果當您停止 VM 時，您就會保留備份資料，您可以稍後繼續保護。 如果您刪除備份資料時，您無法繼續保護。
 
-Te
+若要繼續保護 VM:
 
-1. 在[保存庫項目儀表板](backup-azure-manage-vms.md#open-a-vault-item-dashboard)上，按一下 [繼續備份]。
+1. 在 [保存庫項目的儀表板](#view-vms-in-the-dashboard)，選取**繼續備份**。
 
-2. 請依照[管理備份原則](backup-azure-manage-vms.md#manage-backup-policies)中的步驟，指派虛擬機器的原則。 您可以選擇與最初用於保護虛擬機器不同的原則。
-3. 備份原則套用至虛擬機器後，您會看到下列訊息。
+2. 請依照下列中的步驟[管理備份原則](#manage-backup-policies)vm 指派的原則。 您不需要選擇 VM 的初始的保護原則。
+3. 您套用至 VM 的備份原則之後，您會看到下列訊息：
 
-    ![已成功保護 VM](./media/backup-azure-manage-vms/success-message.png)
+    ![訊息，指出已成功保護的 VM](./media/backup-azure-manage-vms/success-message.png)
 
 ## <a name="delete-backup-data"></a>刪除備份資料
 
-您可以在**停止備份**作業期間，或在備份作業完成之後的任何時間，刪除與 VM 相關聯的備份資料。
+您可以刪除虛擬機器的備份資料期間**停止備份**作業或在備份作業完成之後。 刪除備份資料之前，請記住這些詳細資料：
 
-- 先等候幾天或幾週再刪除復原點甚至可能會讓您受益。
-- 不同於還原復原點，當您刪除備份資料時，您無法選擇刪除特定的復原點。 如果您選擇刪除備份資料，則會刪除與項目相關聯的所有復原點。
+- 它可能是個不錯的主意，等候幾天或數週之前刪除復原點。
+- 不同於處理程序來還原復原點，當您刪除備份資料，您無法選擇刪除特定的復原點。 如果您刪除備份資料時，您就會刪除所有相關聯的復原點。
 
-此程序假設 VM 的備份作業已停止或停用。
+在您停止或停用 VM 的備份作業之後，您可以刪除備份資料：
 
 
-1. 在[保存庫項目儀表板](backup-azure-manage-vms.md#open-a-vault-item-dashboard)上，按一下 [刪除備份]。
+1. 在 [保存庫項目儀表板](#view-vms-in-the-dashboard)，選取**刪除備份資料**。
 
-    ![VM 類型](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+    ![選取 刪除備份](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-2. 輸入項目的名稱，以確認您想要刪除復原點。
+1. 輸入備份項目，以確認您想要刪除復原點的名稱。
 
-    ![停止驗證](./media/backup-azure-manage-vms/item-verification-box.png)
+    ![確認您想要刪除復原點](./media/backup-azure-manage-vms/item-verification-box.png)
 
-4. 若要刪除目前項目的備份資料，請按一下![停止備份按鈕](./media/backup-azure-manage-vms/delete-button.png)
-
-    通知訊息可讓您知道備份資料已刪除。
+1. 若要刪除之項目的備份資料，請選取**刪除**。 通知訊息可讓您知道已刪除備份資料。
 
 ## <a name="next-steps"></a>後續步驟
-- [深入了解](backup-azure-vms-first-look-arm.md)從 VM 設定備份 Azure VM。
-- [深入了解](backup-azure-arm-restore-vms.md)還原 VM。 
-- [深入了解](backup-azure-monitor-vms.md)監視 Azure VM 備份。
- 
+- 了解如何[從 VM 的 設定 Azure Vm 備份](backup-azure-vms-first-look-arm.md)。
+- 了解如何[還原 Vm](backup-azure-arm-restore-vms.md)。
+- 了解如何[監視 Azure VM 備份](backup-azure-monitor-vms.md)。

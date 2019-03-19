@@ -1,31 +1,28 @@
 ---
-title: 使用 API 管理來管理 Machine Learning Studio Web 服務
+title: 管理 web 服務使用 API 管理
 titleSuffix: Azure Machine Learning Studio
 description: 示範如何使用 API 管理來管理 AzureML Web 服務的指南 藉由定義使用者存取、使用節流設定和儀表板監視來管理 REST API 端點。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488504"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852877"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>使用 API 管理來管理 Machine Learning Studio Web 服務
 ## <a name="overview"></a>概觀
 本指南示範如何快速開始使用 API 管理，來管理您的 Azure Machine Learning Studio Web 服務。
 
 ## <a name="what-is-azure-api-management"></a>什麼是 Azure API 管理？
-Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、使用節流設定和儀表板監視，來管理 REST API 端點。 如需 Azure API 管理的詳細資訊，請按一下 [這裡](https://azure.microsoft.com/services/api-management/) 。 如需如何開始使用 Azure API 管理的指南，請按一下 [這裡](../../api-management/api-management-get-started.md) 。 這是本指南所依據的另一份指南，涵蓋更多主題，包括通知組態、定價層、回應處理、使用者驗證、建立產品、開發人員訂用帳戶和使用量儀表板。
-
-## <a name="what-is-azureml"></a>什麼是 AzureML？
-AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共用進階分析解決方案。 如需 AzureML 的詳細資訊，請按一下 [這裡](https://azure.microsoft.com/services/machine-learning/) 。
+Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、使用節流設定和儀表板監視，來管理 REST API 端點。 如需 Azure API 管理的詳細資訊，請按一下 [這裡](https://azure.microsoft.com/services/api-management/) 。 如需如何開始使用 Azure API 管理的指南，請按一下 [這裡](/azure/api-management/import-and-publish) 。 這是本指南所依據的另一份指南，涵蓋更多主題，包括通知組態、定價層、回應處理、使用者驗證、建立產品、開發人員訂用帳戶和使用量儀表板。
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本指南，您需要：
@@ -185,11 +182,11 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 
 展開 [資料轉換] 和 [操作]，將 [選取資料集中的資料行] 拖曳到您的實驗。 將 [來自 Amazon 的書籍評論] 連接到 [選取資料集中的資料行]。
 
-![選取資料行](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![書籍評論資料集模組連接到專案的資料行 」 模組](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 按一下 [選取資料集中的資料行]，然後按一下 [啟動資料行選取器] 並選取 [Col2]。 按一下核取記號以套用這些變更。
 
-![選取資料行](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![選取資料行使用資料行名稱](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 展開 [文字分析]，將 [特徵雜湊] 拖曳到實驗。 將 [選取資料集中的資料行] 連接到 [特徵雜湊]。
 

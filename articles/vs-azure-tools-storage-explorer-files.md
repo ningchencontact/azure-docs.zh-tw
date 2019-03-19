@@ -11,15 +11,15 @@ ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 194b13e889de4bc1c5938a6ce9cfded6fe2c88c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768233"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847292"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>搭配使用儲存體總管與 Azure 檔案儲存體
 
@@ -31,7 +31,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 - [下載並安裝儲存體總管](https://www.storageexplorer.com/)
 
-- [連接到 Azure 儲存體帳戶或服務](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [連線到 Azure 儲存體帳戶或服務](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>建立檔案共用
 
@@ -89,7 +89,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 1. 以滑鼠右鍵按一下您想要刪除的檔案共用，從內容功能表中，選取 [刪除]。 您也可以按 [刪除] 以刪除目前選取的檔案共用。
 
-    ![刪除](media/vs-azure-tools-storage-explorer-files/image6.png)
+    ![删除](media/vs-azure-tools-storage-explorer-files/image6.png)
 
 1. 選取確認對話方塊上的 [是]  。
     
@@ -105,7 +105,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 1. 在左窗格中，展開儲存體帳戶，其中包含您要複製的檔案共用。
 
-1. 展開儲存體帳戶的 [檔案共用]。
+1. 展开该存储帐户的“文件共享”。
 
 1. 以滑鼠右鍵按一下您想要複製的檔案共用，從內容功能表中，選取 [複製檔案共用]。
 
@@ -117,7 +117,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 ## <a name="get-the-sas-for-a-file-share"></a>取得檔案共用的 SAS
 
-[共用存取簽章 (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) 可提供您儲存體帳戶中資源的委派存取。 這表示您可以在無需分享您帳戶存取金鑰的情況下，將您儲存體帳戶中的物件有限權限授與用戶端，該用戶端便可在指定的時間期間內及使用指定的權限集來進行存取。
+[共享访问签名 (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) 用于对存储帐户中的资源进行委托访问。 這表示您可以在無需分享您帳戶存取金鑰的情況下，將您儲存體帳戶中的物件有限權限授與用戶端，該用戶端便可在指定的時間期間內及使用指定的權限集來進行存取。
 
 下列步驟說明如何建立檔案共用的 SAS：
 
@@ -135,9 +135,9 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
     ![SAS 對話方塊](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-1. 當您完成指定 SAS 選項時，選取 [建立] 。
+1. 指定完 SAS 选项以后，选择“创建”。
 
-1. 第二個 [共用存取簽章] 對話方塊會顯示，列出您可以用來存取儲存體資源的檔案共用及 URL 和 QueryStrings。 選取您想要複製到剪貼簿的 URL 旁邊的 [複製]  。
+1. 第二個 [共用存取簽章] 對話方塊會顯示，列出您可以用來存取儲存體資源的檔案共用及 URL 和 QueryStrings。 选择要复制到剪贴板的 URL 旁边的“复制”。
     
     ![第二個 SAS 對話方塊](media/vs-azure-tools-storage-explorer-files/image12.png)
 
@@ -167,7 +167,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
     - **編輯存取原則** - 進行任何所需的編輯，然後選取 [儲存]。
 
-    - **移除存取原則** -選取您想要移除的存取原則旁邊的 [移除]。
+    - **删除访问策略** - 在要删除的访问策略旁边选择“删除”。
 
 1. 使用您稍早建立的存取原則建立新的 SAS URL︰
     
@@ -195,7 +195,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 1.  主窗格會顯示檔案共用的內容。
 
-1.  根據您想要執行的工作遵循下列步驟︰
+1.  根据所要执行的任务完成以下步骤：
 
     - **將檔案上傳至檔案共用**
 
@@ -207,7 +207,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
         ![新增檔案](media/vs-azure-tools-storage-explorer-files/image19.png)
 
-        c. 選取 [上傳] 。
+        c. 选择“上传”。
 
     - **將資料夾上傳至檔案共用**
         
@@ -225,7 +225,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
         
         a. 選取您想要下載的檔案。
         
-        b. 在主窗格工具列上選取 [下載] 。
+        b. 在主窗格的工具栏上，选择“下载”。
         
         c. 在 [指定儲存下載的檔案的位置] 對話方塊中，指定要下載檔案的位置，和您想要給予它的名稱。
 
@@ -243,7 +243,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
         a. 選取您想要複製的檔案。
 
-        b. 在主窗格工具列上選取 [複製] 。
+        b. 在主窗格的工具栏上，选择“复制”。
 
         c. 在左窗格中，瀏覽至另一個檔案共用，然後在主窗格中按兩下加以檢視。
 
@@ -255,7 +255,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
         b. 在主窗格工具列上選取 [刪除] 。
 
-        c. 選取確認對話方塊上的 [是]  。
+        c. 出现确认对话框时，选择“是”。
 
 ## <a name="next-steps"></a>後續步驟
 

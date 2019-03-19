@@ -3,20 +3,20 @@ title: 在 Azure 資料處理站管線中使用自訂活動
 description: 了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: douglasl
-ms.openlocfilehash: 0236d9118389b4f8fb79453b425c70f09e94bbb8
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213802"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855864"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,11 +30,13 @@ ms.locfileid: "54213802"
 
 若要將資料移入/移出 Data Factory 不支援的資料存放區，或者以 Data Factory 不支援的方式轉換/處理資料，您可以利用自己的資料移動或轉換邏輯建立**自訂活動**，然後在管線中使用活動。 自訂活動會在虛擬機器的 **Azure Batch** 集區上執行自訂程式碼邏輯。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 如果您不熟悉 Azure Batch 服務，請參閱下列文章：
 
 * [Azure Batch 基本知識](../batch/batch-technical-overview.md) ，以取得 Azure Batch 服務的概觀。
-* [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 入口網站](../batch/batch-account-create-portal.md)，以使用 Azure 入口網站建立 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)一文。
-* [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) Cmdlet 可建立 Azure Batch 集區。
+* [新 AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet 來建立 Azure Batch 帳戶 （或） [Azure 入口網站](../batch/batch-account-create-portal.md)來建立使用 Azure 入口網站的 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)一文。
+* [新 AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet 來建立 Azure Batch 集區。
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 已連結的服務
 下列 JSON 會定義範例 Azure Batch 已連結的服務。 如需詳細資訊，請參閱 [Azure Data Factory 支援的計算環境](compute-linked-services.md)
@@ -96,7 +98,7 @@ ms.locfileid: "54213802"
 
 下表描述此活動特有的屬性之名稱和描述。
 
-| 屬性              | 說明                              | 必要 |
+| 屬性              | 描述                              | 必要項 |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | 管線中的活動名稱     | 是      |
 | 說明           | 說明活動用途的文字。  | 否       |
@@ -107,8 +109,12 @@ ms.locfileid: "54213802"
 | folderPath            | 自訂應用程式及其所有相依項目的資料夾路徑<br/><br/>如果您將相依性儲存在子資料夾中 (也就是 folderPath 下的階層式資料夾結構)，當您將檔案複製到 Azure Batch 時，目前的資料夾結構會遭到壓平合併。 也就是所有檔案會複製到沒有子資料夾的單一資料夾中。 若要解決這個問題行為，請考慮壓縮檔案並複製壓縮的檔案，然後在所需位置中以自訂程式碼來將其解壓縮。 | 否 &#42;       |
 | referenceObjects      | 現有已連結的服務和資料集的陣列。 參考的已連結的服務和資料集會傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考 Data Factory 的資源 | 否       |
 | extendedProperties    | 使用者定義的屬性，可以傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考其他屬性 | 否       |
+| retentionTimeInDays | 針對自訂活動送出的檔案保留時間。 預設值為 30 天。 | 否 |
 
 &#42; 必須同時指定或同時省略 `resourceLinkedService` 和 `folderPath` 屬性。
+
+> [!NOTE]
+> 如果您傳遞已連結的服務為 referenceObjects 在自訂活動中，很好的安全性做法將 Azure Key Vault 啟用連結的服務 （因為它不包含任何安全字串） 和 fetch 使用祕密的名稱，直接從金鑰的認證保存庫的程式碼。 您可以找到範例[此處](https://github.com/nabhishek/customactivity_sample/tree/linkedservice)參考 AKV 啟用連結的服務，會從 Key Vault 擷取認證，然後再存取 程式碼中的儲存體。  
 
 ## <a name="custom-activity-permissions"></a>自訂活動權限
 
@@ -227,13 +233,13 @@ namespace SampleApp
 您可以使用下列 PowerShell 命令啟動管線的執行：
 
 ```.powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
 管線正在執行時，您可以使用下列命令檢查執行的輸出：
 
 ```.powershell
 while ($True) {
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
     if(!$result) {
         Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
@@ -318,9 +324,9 @@ Activity Error section:
 
 ## <a name="compare-v2-v1"></a> 比較 v2 自訂活動和第 1 版 (自訂) DotNet 活動
 
-在 Azure Data Factory 第 1 版中，您必須藉由建立一個 .NET 類別庫專案，其中含有實作 `IDotNetActivity` 介面之 `Execute` 方法的類別，來實作 (自訂) DotNet 活動。 (自訂) DotNet 活動之 JSON 承載中的已連結服務、資料集及擴充屬性，都會以強型別物件的形式傳遞至執行方法。 如需第 1 版行為的詳細資料，請參閱[第 1 版中的 (自訂) DotNet](v1/data-factory-use-custom-activities.md)。 基於此實作，您的第 1 版 DotNet 活動程式碼必須將目標設為 .Net Framework 4.5.2。 第 1 版 DotNet 活動也必須在 Windows 型 Azure Batch 集區節點上執行。
+在 Azure Data Factory 第 1 版，您必須實作 （自訂） DotNet 活動所實作的類別中建立.NET 類別庫專案`Execute`方法的`IDotNetActivity`介面。 (自訂) DotNet 活動之 JSON 承載中的已連結服務、資料集及擴充屬性，都會以強型別物件的形式傳遞至執行方法。 如需第 1 版行為的詳細資料，請參閱[第 1 版中的 (自訂) DotNet](v1/data-factory-use-custom-activities.md)。 由於此實作中，您的第 1 版 DotNet 活動程式碼有.NET Framework 4.5.2 為目標。 第 1 版 DotNet 活動也必須在 Windows 型 Azure Batch 集區節點上執行。
 
-在 Azure Data Factory V2 自訂活動中，您不需要實作 .Net 介面。 您現在可以在將之編譯為可執行檔的情況下，直接執行命令、指令碼，以及自己的自訂程式碼。 若要設定此實作，您需要一併指定 `Command` 屬性和 `folderPath` 屬性。 自訂活動會將可執行檔及其相依性上傳至 `folderpath`，並為您執行命令。
+在 Azure Data Factory V2 自訂活動，您不需要實作.NET 介面。 您現在可以在將之編譯為可執行檔的情況下，直接執行命令、指令碼，以及自己的自訂程式碼。 若要設定此實作，您需要一併指定 `Command` 屬性和 `folderPath` 屬性。 自訂活動會將可執行檔及其相依性上傳至 `folderpath`，並為您執行命令。
 
 定義於 Data Factory V2 自訂活動之 JSON 承載中的已連結服務、資料集(定義於 referenceObjects) 及擴充屬性，可以 JSON 檔案的形式由可執行檔加以存取。 您可以使用 JSON 序列化程式存取所需的屬性，如之前的 SampleApp.exe 程式碼範例中所示。
 
@@ -331,18 +337,18 @@ Activity Error section:
 
 |差異      | 自訂活動      | 第 1 版 (自訂) DotNet 活動      |
 | ---- | ---- | ---- |
-|定義自訂邏輯的方式      |提供可執行檔      |實作 .Net DLL      |
-|自訂邏輯的執行環境      |Windows 或 Linux      |Windows (.Net Framework 4.5.2)      |
-|執行指令碼      |支援直接執行指令碼 (例如，Windows VM 上的 "cmd /c echo hello world")      |要求在 .Net DLL 中實作      |
+|定義自訂邏輯的方式      |提供可執行檔      |藉由實作.NET DLL      |
+|自訂邏輯的執行環境      |Windows 或 Linux      |Windows (.NET Framework 4.5.2)      |
+|執行指令碼      |支援直接執行指令碼 (例如，Windows VM 上的 "cmd /c echo hello world")      |需要實作.NET DLL 中      |
 |需要資料集      |選用      |需要資料集來鏈結活動並傳遞資訊      |
 |將來自活動的資訊傳遞至自訂邏輯      |透過 ReferenceObjects (LinkedServices 和資料集) 和 ExtendedProperties (自訂屬性)      |透過 ExtendedProperties (自訂屬性)、輸入和輸出資料集      |
-|擷取自訂邏輯中的資訊      |剖析與可執行檔儲存於相同資料夾的 activity.json、linkedServices.json 和 datasets.json      |透過 .Net SDK (.Net Frame 4.5.2)      |
-|記錄      |直接寫入 STDOUT      |實作 .Net DLL 中的記錄器      |
+|擷取自訂邏輯中的資訊      |剖析與可執行檔儲存於相同資料夾的 activity.json、linkedServices.json 和 datasets.json      |透過.NET SDK (.NET Frame 4.5.2)      |
+|記錄      |直接寫入 STDOUT      |實作.NET DLL 中的記錄器      |
 
 
-如果您的現有 .Net 程式碼是針對第 1 版 (自訂) DotNet 活動所撰寫，您就必須修改程式碼，才能與目前自訂活動的版本搭配使用。 遵循下列高階指導方針來更新程式碼：
+如果您有針對版本 1 （自訂） DotNet 活動所撰寫的現有.NET 程式碼時，您需要修改您的程式碼，才能使用自訂活動的目前版本。 遵循下列高階指導方針來更新程式碼：
 
-  - 將專案由 .Net 類別庫變更為主控台應用程式。
+  - 變更從.NET 類別庫專案，為主控台應用程式。
   - 使用 `Main` 方法啟動您的應用程式。 已不再需要 `IDotNetActivity` 介面的 `Execute` 方法。
   - 使用 JSON 序列化程式來讀取和剖析已連結的服務、資料集和活動，而不是作為強型別物件。 將必要屬性的值傳遞給您主要的自訂程式碼邏輯。 請參閱之前的 SampleApp.exe 程式碼作為範例。
   - 不再支援記錄器物件。 您可以將可執行檔的輸出列印到主控台並儲存至 stdout.txt。

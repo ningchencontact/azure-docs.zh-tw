@@ -3,7 +3,7 @@ title: SQL Server FCI - Azure 虛擬機器 | Microsoft Docs
 description: 本文說明如何在 Azure 虛擬機器上建立 SQL Server 容錯移轉叢集執行個體。
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842748"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -37,7 +37,7 @@ ms.locfileid: "56328547"
 - 每部虛擬機器有兩個以上的資料磁碟。
 - S2D 會同步處理資料磁碟上的資料，並將已同步處理的儲存體當做儲存體集區使用。
 - 儲存體集區會向容錯移轉提供叢集共用磁碟區 (CSV)。
-- SQL Server FCI 叢集角色會針對資料硬碟使用 CSV。
+- SQL Server FCI 群集角色为数据驱动器使用 CSV。
 - 保留 SQL Server FCI IP 位址的 Azure Load Balancer。
 - 保留所有資源的 Azure 可用性設定組。
 
@@ -74,12 +74,12 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 - [Windows 叢集技術](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 容錯移轉叢集執行個體](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)。
 
-其中一個重要差異在於，在 Azure IaaS VM 客體容錯移轉叢集上，我們建議每個伺服器 (叢集節點) 使用單一 NIC，以及單一的子網路。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
+一個重要的差異是，在 Azure IaaS VM 客體容錯移轉叢集上，建議每個伺服器 （叢集節點） 和單一子網路的單一 NIC。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
 
 此外，您也應對下列技術有大概了解：
 
 - [在 Windows Server 2016 中使用儲存空間直接存取的超交集解決方案](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Azure 資源群組](../../../azure-resource-manager/resource-group-portal.md)
+- [Azure 資源群組](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > 目前不支援將 [SQL Server IaaS 代理程式擴充功能](virtual-machines-windows-sql-server-agent-extension.md)用於 Azure 上的 SQL Server FCI。 建議您在參與 FCI 的 VM 上解除安裝此擴充功能。 針對 SQL，此擴充功能支援自動備份和修補之類的功能，以及部分入口網站功能。 在代理程式解除安裝後，這些功能即不適用於 SQL VM。
@@ -92,16 +92,16 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 - Azure 虛擬機器上的 Windows 網域。
 - 擁有在 Azure 虛擬機器中建立物件之權限的帳戶。
 - Azure 虛擬網路和子網路，且具有足夠 IP 位址空間以容納下列元件：
-   - 兩部虛擬機器。
+   - 两台虚拟机。
    - 容錯移轉叢集的 IP 位址。
    - 每個 FCI 上一個 IP 位址。
-- 設定 Azure 網路上的 DNS，並指向網域控制站。
+- 在 Azure 网络中配置的、指向域控制器的 DNS。
 
 備妥這些先決條件後，便可繼續建置您的容錯移轉叢集。 第一步是建立虛擬機器。
 
 ## <a name="step-1-create-virtual-machines"></a>步驟 1：建立虛擬機器
 
-1. 使用您的訂用帳戶登入 [Azure 入口網站](http://portal.azure.com)。
+1. 使用您的訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
 1. [建立 Azure 可用性設定組](../tutorial-availability-sets.md)。
 
@@ -158,7 +158,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 1. Azure 建立虛擬機器後，請透過 RDP 連接至每部虛擬機器。
 
-   首次透過 RDP 連接至虛擬機器時，電腦會詢問您是否允許此電腦在網路上可供搜尋。 按一下 [是] 。
+   首次透過 RDP 連接至虛擬機器時，電腦會詢問您是否允許此電腦在網路上可供搜尋。 单击 **“是”**。
 
 1. 若您正在使用其中一個 SQL Server 型虛擬機器映像，請移除 SQL Server 執行個體。
 
@@ -175,7 +175,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
    在每部虛擬機器上，開啟 Windows 防火牆上的下列連接埠。
 
-   | 目的 | TCP 連接埠 | 注意
+   | 目的 | TCP 端口 | 注意
    | ------ | ------ | ------
    | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。  
@@ -202,7 +202,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 下一步是透過 S2D 設定容錯移轉叢集。 在此步驟中，您將執行下列子步驟：
 
-1. 新增 Windows 容錯移轉叢集功能
+1. 添加 Windows 故障转移群集功能
 1. 驗證叢集
 1. 建立容錯移轉叢集
 1. 建立雲端見證
@@ -239,19 +239,19 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 1. 在 [伺服器管理員] 中，按一下 [工具]，然後按一下 [容錯移轉叢集管理員]。
 1. 在 [容錯移轉叢集管理員] 中，按一下 [動作]，然後按一下 [驗證設定...]。
-1. 按 [下一步] 。
+1. 单击“资源组名称” 的 Azure 数据工厂。
 1. 在 [選取伺服器或叢集] 中，輸入這兩部虛擬機器的名稱。
-1. 在 [測試選項] 中，選擇 [僅執行我選取的測試]。 按 [下一步] 。
+1. 在 [測試選項] 中，選擇 [僅執行我選取的測試]。 单击“下一步”。
 1. 在 [測試選取範圍] 中，選取**儲存體**以外的所有測試。 請參閱下圖︰
 
    ![驗證測試](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. 按 [下一步] 。
+1. 单击“下一步”。
 1. 在 [確認] 中，，按一下 [下一步]。
 
 [驗證設定精靈] 會執行驗證測試。
 
-若要透過 PowerShell 驗證叢集，請在其中一部虛擬機器上，執行下列來自系統管理員 PowerShell 工作階段的指令碼。
+若要使用 PowerShell 验证群集，请在某个虚拟机上通过管理员 PowerShell 会话运行以下脚本。
 
    ```PowerShell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
@@ -259,12 +259,12 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 驗證叢集後，請建立容錯移轉叢集。
 
-### <a name="create-the-failover-cluster"></a>建立容錯移轉叢集
+### <a name="create-the-failover-cluster"></a>创建故障转移群集
 
 本指南會參考[建立容錯移轉叢集](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster)。
 
 若要建立容錯移轉叢集，您需要：
-- 成為叢集節點的虛擬機器名稱。
+- 成为群集节点的虚拟机的名称。
 - 容錯移轉叢集的名稱
 - 容錯移轉叢集的 IP 位址。 您可以使用與叢集節點一樣，沒有在 Azure 虛擬網路和子網路上用過的 IP 位址。
 
@@ -322,11 +322,11 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 設定容錯移轉叢集與所有叢集元件 (包括儲存體) 後，您可以建立 SQL Server FCI。
 
-1. 透過 RDP 連接至第一部虛擬機器。
+1. 使用 RDP 连接到第一个虚拟机。
 
 1. 在**容錯移轉叢集管理員**中，請確認所有叢集核心資源皆位於第一部虛擬機器中。 如有必要，請將所有資源移至此虛擬機器。
 
-1. 找出安裝媒體。 若虛擬機器是使用其中一個 Azure Marketplace 映像，則媒體會位於 `C:\SQLServer_<version number>_Full`。 按一下 [設定] 。
+1. 找出安裝媒體。 若虛擬機器是使用其中一個 Azure Marketplace 映像，則媒體會位於 `C:\SQLServer_<version number>_Full`。 单击“设置”。
 
 1. 在 [SQL Server 安裝中心] 中，按一下 [安裝]。
 
@@ -491,7 +491,7 @@ Azure 虛擬機器支援 Windows Server 2019 上的 Microsoft 分散式交易協
 - 叢集 MSDTC 資源無法設定為使用共用儲存體。 若在 Windows Server 2016 上建立 MSDTC 資源，即使有共用儲存體存在，系統也不會顯示任何可用的共用儲存體。 Windows Server 2019 中已修正此問題。
 - 基本負載平衡器不會處理 RPC 連接埠。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 
 [透過遠端桌面 (Azure) 設定 S2D](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

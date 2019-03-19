@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848008"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -109,13 +109,13 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 1. 按一下頁面左下方的 [說明及支援]。
 1. 按一下 [新增支援要求]。
 1. 在 [新增支援要求] 頁面的 [基本] 索引標籤上，選取下列選項：
-    - **問題類型**：**服務與訂用帳戶限制 (配額)**
-    - **訂用帳戶**：您需要修改的訂用帳戶
-    - **配額類型**：**HDInsight**
+   - **問題類型**：**服務與訂用帳戶限制 (配額)**
+   - **訂用帳戶**：您需要修改的訂用帳戶
+   - **配額類型**：**HDInsight**
     
-    ![建立支援要求以提高 HDInsight 核心配額](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![建立支援要求以提高 HDInsight 核心配額](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. 按 [下一步] 。
+1. 单击“下一步”。
 1. 在 [詳細資料] 頁面中，輸入問題的說明、選取問題的嚴重性，然後選取慣用的連絡方法。
 1. 按 [下一步：檢閱 + 建立]。
 1. 在 [檢閱 + 建立] 索引標籤上，按一下 [建立]。
@@ -125,7 +125,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 您可以[連絡支援人員以要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
 
-不過，有一些固定的配額限制，例如單一 Azure 訂用帳戶最多可以有 10,000 個核心。 如需這些限制的詳細資料，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager)。
+不過，有一些固定的配額限制，例如單一 Azure 訂用帳戶最多可以有 10,000 個核心。 如需這些限制的詳細資料，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](https://docs.microsoft.com/azure/azure-subscription-service-limits)。
 
 ## <a name="next-steps"></a>後續步驟
 

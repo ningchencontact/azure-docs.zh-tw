@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842442"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
@@ -45,23 +45,23 @@ ms.locfileid: "54077550"
 *   了解 [Microsoft 合作夥伴網路](https://partner.microsoft.com/commercial)的權益
 *   如果您的組織已擁有成員資格，可以在註冊時加入您的組織。 如果您使用[合作夥伴中心](https://partnercenter.microsoft.com/partner/home)，可以在合作夥伴中心帳戶中看到識別碼。 如果您使用 [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx)，可以在 Partner Membership Center 帳戶中看到識別碼。 
 
----  
+---
 
 ## <a name="2-create-a-microsoft-account"></a>2.建立 Microsoft 帳戶  
 | 15 分鐘 |  
-Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Microsoft 裝置和服務。 這對於 Azure Marketplace 交易供應項目而言是必要的，而我們建議您將其用於所有雲端發行者。 如需深入了解 Microsoft 帳戶的優勢與用途，[請瀏覽此頁面](https://account.microsoft.com/account/)。 您將使用個人的 Microsoft 帳戶來存取 Cloud Partner 入口網站，也就是要用來建立及管理市集供應項目的發行平台。 
+Microsoft 帳戶，例如 *\@outlook.com 或\@live.com*，用來存取許多 Microsoft 裝置和服務。 這對於 Azure Marketplace 交易供應項目而言是必要的，而我們建議您將其用於所有雲端發行者。 如需深入了解 Microsoft 帳戶的優勢與用途，[請瀏覽此頁面](https://account.microsoft.com/account/)。 您將使用個人的 Microsoft 帳戶來存取 Cloud Partner 入口網站，也就是要用來建立及管理市集供應項目的發行平台。 
 
 [! 重要] 請注意，與您工作電子郵件相關聯的 Microsoft 帳戶將不允許用來存取入口網站。
 
->[!Note]
->如果您已經有 Microsoft 帳戶，請檢閱[建立 Microsoft 識別碼以管理市集帳戶的指導方針](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)，來判斷此帳戶是否可以用在市集發行上。 
-
->使用 Azure Active Directory 同盟公司帳戶的使用者應該先閱讀[這篇文章](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain)，再嘗試建立或使用現有的 Microsoft 帳戶。
+> [!Note]
+> 如果您已經有 Microsoft 帳戶，請檢閱[建立 Microsoft 識別碼以管理市集帳戶的指導方針](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)，來判斷此帳戶是否可以用在市集發行上。 
+> 
+> 使用 Azure Active Directory 同盟公司帳戶的使用者應該先閱讀[這篇文章](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain)，再嘗試建立或使用現有的 Microsoft 帳戶。
 
 *   如需建立或管理 Microsoft 帳戶的說明，請瀏覽 [Microsoft 帳戶說明的支援頁面](https://support.microsoft.com/products/microsoft-account?category=manage-account)。
 
 
----  
+---
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3.提交市集註冊表單  
 | 15 分鐘 |  
@@ -72,7 +72,7 @@ Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Micros
 *   簡短描述您要發行的初始應用程式或諮詢服務供應項目，包括與您供應項目最密切相關的 Microsoft 產品或服務
 *   您應用程式或服務的目標對象 
 
----  
+---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4.登入 Cloud Partner 入口網站
 | 1-3 天 | <br>
 我們的 Marketplace 上線小組會驗證您在步驟 3 提供的市集註冊詳細資料。 一旦核准之後，您會收到歡迎電子郵件帳戶，其中包含帳戶認證及登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)的指引。
@@ -108,4 +108,4 @@ Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Micros
 *   [決定您解決方案的清單類型](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)。
 
  
----  
+---

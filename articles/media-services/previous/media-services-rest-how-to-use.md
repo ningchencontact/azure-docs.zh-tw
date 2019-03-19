@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1e8d21c39a428049594237900aa76f783a3ed0ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860342"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒體服務作業 REST API 概觀 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "56005449"
 使用 REST 時須考量下列事項：
 
 * 查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。 您需要使用 **Skip** 和 **Take** (.NET)/ **top** (REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。 
-* 使用 JSON 並指定在要求中使用 **__metadata** 關鍵字時 (例如，為了參考連結的物件)，您「必須」將 **Accept** 標頭設為 [JSON Verbose 格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (請參閱下列範例)。 Odata 並不了解要求中的 **__metadata** 屬性，除非您將它設為 verbose。  
+* 使用 JSON 並指定在要求中使用 **__metadata** 關鍵字時 (例如，為了參考連結的物件)，您「必須」將 **Accept** 標頭設為 [JSON Verbose 格式](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (請參閱下列範例)。 Odata 並不了解要求中的 **__metadata** 屬性，除非您將它設為 verbose。  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose
@@ -57,7 +57,7 @@ ms.locfileid: "56005449"
 
 | 頁首 | 類型 | 值 |
 | --- | --- | --- |
-| Authorization |Bearer |Bearer 是唯一接受的授權機制。 此值也必須包含 Azure Active Directory 所提供的存取權杖。 |
+| 授权 |Bearer |Bearer 是唯一接受的授權機制。 此值也必須包含 Azure Active Directory 所提供的存取權杖。 |
 | x-ms-version |Decimal |2.17 (或最新版本)|
 | DataServiceVersion |Decimal |3.0 |
 | MaxDataServiceVersion |Decimal |3.0 |
@@ -72,13 +72,13 @@ ms.locfileid: "56005449"
 | 頁首 | 類型 | 值 |
 | --- | --- | --- |
 | 日期 |RFC 1123 日期 |要求的時間戳記 |
-| Accept |內容類型 |如下所示的回應要求內容類型：<p> -application/json;odata=verbose<p> - application/atom+xml<p> 回應可能會有不同的內容類型，例如 Blob 擷取，成功的回應會在其中包含 Blob 資料流做為裝載。 |
+| Accept |内容类型 |如下所示的回應要求內容類型：<p> -application/json;odata=verbose<p> - application/atom+xml<p> 回應可能會有不同的內容類型，例如 Blob 擷取，成功的回應會在其中包含 Blob 資料流做為裝載。 |
 | Accept-Encoding |Gzip、deflate |GZIP 和 DEFLATE 編碼 (適用時)。 注意：若是大型資源，媒體服務可能會忽略此標頭，並傳回未壓縮的資料。 |
 | Accept-Language |"en"、"es" 等。 |指定回應的慣用語言。 |
 | Accept-Charset |字元集類型，如 "UTF-8" |預設值為 UTF-8。 |
 | X-HTTP-Method |HTTP 方法 |可讓不支援 PUT 或 DELETE 等 HTTP 方法的用戶端或防火牆，透過 GET 呼叫通道傳送使用這些方法。 |
 | Content-Type |內容類型 |PUT 或 POST 要求中的要求主體內容類型。 |
-| client-request-id |字串 |呼叫端定義的值，識別指定的要求。 如果指定，回應訊息中將包含此值以做為對應要求的方式。 <p><p>**重要**<p>值的上限應該為 2096b (2k)。 |
+| client-request-id |字串 |呼叫端定義的值，識別指定的要求。 如果指定，回應訊息中將包含此值以做為對應要求的方式。 <p><p>**重要**<p>值的上限应为 2096b (2k)。 |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>媒體服務支援的標準 HTTP 回應標頭
 以下是一組可能會根據您所要求的資源，以及您要執行的動作而傳回給您的標頭。
@@ -94,7 +94,7 @@ ms.locfileid: "56005449"
 ## <a name="standard-http-verbs-supported-by-media-services"></a>媒體服務支援的標準 HTTP 指令動詞
 以下是進行 HTTP 要求時，可以使用的 HTTP 指令動詞完整清單：
 
-| 指令動詞 | 說明 |
+| 指令動詞 | 描述 |
 | --- | --- |
 | GET |傳回物件的目前值。 |
 | POST |根據提供的資料建立物件或提交命令。 |

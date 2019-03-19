@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 3ff0d0db554fe514fdd6be6383b6d1a19f1c39ec
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451454"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848672"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>透過百度開始使用通知中樞
 
@@ -132,8 +132,8 @@ ms.locfileid: "54451454"
 5. 然後新增 Azure 通知中樞程式庫。 在應用程式的 `Build.Gradle` 檔案中，於 dependencies 區段中新增下列幾行。
 
     ```javascript
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
     將下列存放庫新增到 dependencies 區段之後。
@@ -141,7 +141,7 @@ ms.locfileid: "54451454"
     ```javascript
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -161,7 +161,7 @@ ms.locfileid: "54451454"
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6. 下載並解壓縮 [百度推播 Android SDK](http://push.baidu.com/doc/android/api)。 複製 libs 資料夾中的 `pushservice-x.y.z jar` 檔案。 然後複製 Android 應用程式的 `src/main/jniLibs` (建立新的資料夾) 資料夾中的 `.so` 檔案。
+6. 下載並解壓縮 [百度推播 Android SDK](https://push.baidu.com/doc/android/api)。 複製 libs 資料夾中的 `pushservice-x.y.z jar` 檔案。 然後複製 Android 應用程式的 `src/main/jniLibs` (建立新的資料夾) 資料夾中的 `.so` 檔案。
 
     ![Azure 通知中樞 - 百度 SDK 程式庫](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -487,7 +487,7 @@ ms.locfileid: "54451454"
 
 在本節中，我們會說明如何使用.NET 主控台應用程式傳送通知。
 
-1. 建立新的 Visual C# 主控台應用程式：
+1. 创建新的 Visual C# 控制台应用程序：
 
     ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
@@ -497,7 +497,7 @@ ms.locfileid: "54451454"
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-    此指示會使用 [Microsoft.Azure.Notification Hubs NuGet 套件](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)新增對 Azure 通知中樞 SDK 的參考。
+    此指示會使用 [Microsoft.Azure.Notification Hubs NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)新增對 Azure 通知中樞 SDK 的參考。
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -537,6 +537,6 @@ ms.locfileid: "54451454"
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[百度推播 Android SDK]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[百度推播 Android SDK]: https://push.baidu.com/sdk/push_client_sdk_for_android
 [Azure 入口網站]: https://portal.azure.com/
-[百度入口網站]: http://www.baidu.com/
+[百度入口網站]: https://www.baidu.com/

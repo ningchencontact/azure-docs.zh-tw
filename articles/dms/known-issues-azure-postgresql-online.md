@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/22/2018
-ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 5cca15e609a723870be7a564bf61fcd0d88e5706
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724128"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790538"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>線上移轉到適用於 PostgreSQL 的 Azure DB 的已知問題/移轉限制
 
@@ -97,7 +97,7 @@ ms.locfileid: "53724128"
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **因應措施**：如果您的 LOB 物件大於 32 KB，請連絡工程小組：[dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)。
+    **因應措施**：如果您有大於 32 KB 的 LOB 物件時，請連絡工程團隊[詢問的 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
 
 - **限制**：如果資料表中有 LOB 資料行，而且並未針對資料表設定主索引鍵，則系統可能不會針對此資料表移轉資料。
 

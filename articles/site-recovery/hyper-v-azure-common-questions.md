@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 11e29aa8d85ed7e3cf5ce7b4a8360e4b5eb628f9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 9ce236748c1ca4f5e166fe1d7574f6a635d6204b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855881"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常見問題 - 從 Hyper-V 至 Azure 的災害復原
 
@@ -65,10 +65,9 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 ### <a name="what-do-i-need-on-premises"></a>我的內部部署環境需要什麼？
 
 您需要在一或多部獨立或叢集 Hyper-V 主機上執行的一或多部 VM。 您也可以複寫在主機上執行且由 System Center Virtual Machine Manager (VMM) 管理的 VM。
-    - 若您未執行 VMM，在 Site Recovery 部署期間，您會將 Hyper-V 主機與叢集收集到 Hyper-V 網站中。 您可在每部 Hyper-V 主機上安裝 Site Recovery 代理程式 (Azure Site Recovery Provider 與復原服務服務代理程式)。
-    - 若 Hyper-V 主機位於 VMM 雲端中，您可以協調 VMM 中的複寫。 您可以在每部 VMM 伺服器上安裝 Site Recovery Provider，並在每部 Hyper-V 主機上安裝復原服務代理程式。 您必須在 VMM 邏輯/VM 網路與 Azure VNet 之間對應。
-    - 
-[深入了解](hyper-v-azure-architecture.md) Hyper-V 到 Azure 的架構。
+- 若您未執行 VMM，在 Site Recovery 部署期間，您會將 Hyper-V 主機與叢集收集到 Hyper-V 網站中。 您可在每部 Hyper-V 主機上安裝 Site Recovery 代理程式 (Azure Site Recovery Provider 與復原服務服務代理程式)。
+- 若 Hyper-V 主機位於 VMM 雲端中，您可以協調 VMM 中的複寫。 您可以在每部 VMM 伺服器上安裝 Site Recovery Provider，並在每部 Hyper-V 主機上安裝復原服務代理程式。 您必須在 VMM 邏輯/VM 網路與 Azure VNet 之間對應。
+- [深入了解](hyper-v-azure-architecture.md) Hyper-V 到 Azure 的架構。
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>我是否可以複寫 Hyper-V 叢集上的 VM？
 
@@ -139,11 +138,11 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 
 Hyper-V VM 可以每隔 30 秒 (進階儲存體除外)、5 分鐘或 15 分鐘複寫一次。
 
-###<a name="can-i-extend-replication"></a>我可以延伸複寫嗎？
-不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)中提出這項功能的要求。
+### <a name="can-i-extend-replication"></a>我可以延伸複寫嗎？
+不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)中提出這項功能的要求。
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可執行離線初始複寫？
-不支援此做法。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。
+不支援此做法。 請在 [意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。
 
 ### <a name="can-i-exclude-disks"></a>是否可排除磁碟嗎？
 是的，您可以將磁碟排除於複寫外。 
@@ -189,7 +188,7 @@ Site Recovery 不會在已針對複寫啟用的 Hyper-V VM 上安裝任何項目
 Azure 是針對復原能力而設計的。 Site Recovery 設計成可根據 Azure SLA 容錯移轉至次要 Azure 資料中心。 當容錯移轉發生時，我們會確保您的中繼資料和保存庫都保留在您為保存庫選擇的相同地理區域中。
 
 ### <a name="is-failover-automatic"></a>容錯移轉是自動發生的嗎？
-[容錯移轉](site-recovery-failover.md)不會自動執行。 您可以在入口網站中按一下適當按鈕來起始容錯移轉，或是使用 [PowerShell](/powershell/module/azurerm.siterecovery) 來觸發容錯移轉。
+[容錯移轉](site-recovery-failover.md)不會自動執行。 您起始容錯移轉，在入口網站中，按一下，或您可以使用[PowerShell](/powershell/module/azurerm.siterecovery)觸發容錯移轉。
 
 ### <a name="how-do-i-fail-back"></a>如何容錯回復？
 

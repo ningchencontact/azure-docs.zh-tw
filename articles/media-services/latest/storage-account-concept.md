@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: d49d056ab84b60389df8bcaf1c75d6224633863d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: cda029dd11e8cb4cb07e9fce7eef95d6d4d78d7e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337851"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960205"
 ---
 # <a name="cloud-upload-and-storage"></a>雲端上傳和儲存體
 
@@ -31,14 +31,14 @@ ms.locfileid: "56337851"
 
 我們建議您使用 GPv2，這樣便能在經常性存取層與非經常性存取層之間做選擇。 若要深入了解儲存體帳戶，請參閱 [Azure 儲存體帳戶概觀](../../storage/common/storage-account-overview.md)。 
 
+有不同的 Sku，您可以選擇儲存體帳戶。 如需詳細資訊，請參閱[儲存體帳戶](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)。 如果您想要以儲存體帳戶進行試驗，請使用 `--sku Standard_LRS`。 不過，在選擇用於生產環境的 SKU 時應考慮使用 `--sku Standard_RAGRS`，以提供地理複寫功能而確保商務持續性。 
+
 ## <a name="assets-in-a-storage-account"></a>儲存體帳戶中的資產
 
-在媒體服務 v3 中，儲存體 API 可用來將檔案上傳。
+在媒體服務 v3，儲存體 Api 來將檔案上傳到資產。 如需詳細資訊，請參閱 <<c0> [ 資產概念](assets-concept.md)。
 
 > [!Note]
 > blob 容器若是由媒體服務 SDK 產生時，請務必使用媒體服務 API 變更 blob 容器的內容。
-
-要想知道如何使用儲存體 API 搭配媒體服務來上傳您的輸入檔案，請參閱[從本機檔案建立作輸入](job-input-from-local-file-how-to.md)。 
  
 ## <a name="next-steps"></a>後續步驟
 

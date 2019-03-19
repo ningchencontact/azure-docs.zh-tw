@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 0f2e4ee393c07e6b15f128ed60922b8a280cabb5
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b17706b09ce64735cd9d68ace579fd7f5b366dc3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984659"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244463"
 ---
-# <a name="manage-streaming-endpoints-with-the-azure-portal-legacy"></a>透過 Azure 入口網站管理串流端點 (舊版)
+# <a name="manage-streaming-endpoints-with-the-azure-portal"></a>透過 Azure 入口網站管理串流端點 
 
 本文說明如何使用 Azure 入口網站來管理串流端點。 
 
@@ -33,7 +33,7 @@ ms.locfileid: "55984659"
 
 ## <a name="start-managing-streaming-endpoints"></a>開始管理串流端點 
 
-若要開始管理您帳戶的串流端點，請執行下列作業。
+要开始管理帐户的流式处理终结点，请执行以下操作。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 Azure 媒體服務帳戶。
 2. 在 [設定] 刀鋒視窗中，選取 [串流端點]。
@@ -41,26 +41,26 @@ ms.locfileid: "55984659"
     ![串流端點](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
-> 只有當串流端點處於執行中狀態時，才會向您收取費用。
+> 仅当流式处理终结点处于运行状态时才进行计费。
 
-## <a name="adddelete-a-streaming-endpoint"></a>新增/移除串流端點
+## <a name="adddelete-a-streaming-endpoint"></a>添加/删除流式处理终结点
 
 >[!NOTE]
 >預設串流端點不可刪除。
 
-若要使用 Azure 入口網站來新增或移除串流端點，以執行下列作業：
+若要使用 Azure 门户添加/删除流式处理终结点，请执行以下操作：
 
-1. 若要新增串流端點，請按一下頁面頂端的 [+端點]  。 
+1. 若要添加流式处理终结点，请单击页面顶部的“+ 终结点”  。 
 
     如果您打算有不同的 CDN 或一個 CDN 和直接存取，您可能需要有多個串流端點。
 
-2. 若要刪除串流端點，請按下 [刪除]  按鈕。      
+2. 若要删除流式处理终结点，请按“删除”  按钮。      
 3. 按一下 [啟動]  按鈕以啟動串流端點。
    
     ![串流端點](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a id="configure_streaming_endpoints"></a>設定串流端點
+## <a id="configure_streaming_endpoints"></a>配置流式处理终结点
 串流端點可讓您設定下列屬性：
 
 * 存取控制
@@ -79,10 +79,10 @@ ms.locfileid: "55984659"
 
 隨時顯示簡要的欄位說明。
 
-![串流端點](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![流式处理终结点](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. 最大快取原則：用來設定透過此串流端點所提供的資源快取存留期。 如果沒有設定任何值，則會使用預設值。 預設值也可以直接在 Azure 儲存體中定義。 如果 Azure CDN 已針對串流端點啟用，您便不應該將快取原則值設定成少於 600 秒。  
-2. 允許的 IP 位址：用來指定能夠連接到已發佈之串流端點的 IP 位址。 若未指定 IP 位址，則任何 IP 位址都可連接。 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1(255.255.255.0)’)。
+2. 允許的 IP 位址：用來指定能夠連接到已發佈之串流端點的 IP 位址。 如果未指定 IP 地址，则任何 IP 地址都可以连接。 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1(255.255.255.0)’)。
 3. 針對 Akamai 簽章標頭驗證的設定：用來指定來自 Akamai 伺服器的簽章標頭驗證的設定方式。 到期時間的格式為 UTC。
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>調整您的進階串流端點
@@ -100,7 +100,7 @@ ms.locfileid: "55984659"
 啟用後，[存取控制]、 ** [自訂主機名稱]和 [Akamai 簽章驗證] 設定就會停用。
  
 > [!IMPORTANT]
-> 如果是標準串流端點，Azure 媒體服務與 Azure CDN 的整合是在**來自 Verizon 的 Azure CDN** 上實作。 您可以使用所有 **Azure CDN 定價層和提供者**來設定進階串流端點。 如需 Azure CDN 功能的詳細資訊，請參閱 [CDN 概觀](../../cdn/cdn-overview.md)。
+> 如果是標準串流端點，Azure 媒體服務與 Azure CDN 的整合是在**來自 Verizon 的 Azure CDN** 上實作。 您可以使用所有 **Azure CDN 定價層和提供者**來設定進階串流端點。 有关 Azure CDN 功能的详细信息，请参阅 [CDN 概述](../../cdn/cdn-overview.md)。
  
 ### <a name="additional-considerations"></a>其他考量
 

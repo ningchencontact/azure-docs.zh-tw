@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: e90dd052f6a4af83d2dd794dd405a4700da75bde
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839503"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -28,7 +28,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 - 即時視訊編碼器，可將來自相機 (或另一部裝置，例如膝上型電腦) 的訊號轉換成發佈摘要以傳送給「媒體服務」。 發佈摘要可以包含廣告相關訊號，例如 SCTE-35 標記。<br/>如需建議的即時串流編碼器清單，請參閱[即時串流編碼器](recommended-on-premises-live-encoders.md)。 此外，也請參閱這個部落格：[使用 OBS 來產生即時串流](https://link.medium.com/ttuwHpaJeT) \(英文\)。
 - 媒體服務中的元件可讓您內嵌、預覽、封裝、記錄、加密實況活動，並向客戶廣播這些活動，或是向 CDN 廣播以進一步發佈。
 
-有了「媒體服務」，您便可以利用**動態封裝**，從您要傳送給該服務的發佈摘要來預覽和廣播 [MPEG DASH、HLS 及 Smooth Streaming 格式](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)的即時資料流。 您的檢視者可以搭配支援 HLS、DASH 或 Smooth Streaming 的播放器播放即時串流。 您可以在網路或行動應用程式中使用 [Azure 媒體播放器](http://amp.azure.net/libs/amp/latest/docs/index.html)，透過這些通訊協定中的任何一個傳遞串流。
+有了「媒體服務」，您便可以利用**動態封裝**，從您要傳送給該服務的發佈摘要來預覽和廣播 [MPEG DASH、HLS 及 Smooth Streaming 格式](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)的即時資料流。 您的檢視者可以搭配支援 HLS、DASH 或 Smooth Streaming 的播放器播放即時串流。 您可以在網路或行動應用程式中使用 [Azure 媒體播放器](https://amp.azure.net/libs/amp/latest/docs/index.html)，透過這些通訊協定中的任何一個傳遞串流。
 
 媒體服務可讓您傳遞利用進階加密標準 (AES-128) 或下列三個主要數位版權管理 (DRM) 系統中任一個所動態加密 (**動態加密**) 的內容：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，傳遞 AES 金鑰和 DRM 授權給授權用戶端。 如需如何使用媒體服務加密內容的詳細資訊，請參閱[保護內容概觀](content-protection-overview.md)
 
@@ -42,6 +42,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 - [串流端點](streaming-endpoint-concept.md)
 - [實況活動與實況輸出](live-events-outputs-concept.md)
+- [串流定位器](streaming-locators-concept.md)
 
 ## <a name="live-streaming-workflow"></a>即時串流工作流程
 
