@@ -1,23 +1,23 @@
 ---
-title: 機器學習服務模型如何變成 Web 服務
+title: 模型如何變成 web 服務
 titleSuffix: Azure Machine Learning Studio
-description: 機制的概觀，說明 Azure Machine Learning Studio 模型如何從開發實驗進展為實際運作的 Web 服務。
+description: 機制如何您 Azure Machine Learning Studio 模型如何從開發實驗進展到 Web 服務的概觀。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 776f33e3e550ad9a711a90732c6c4526e647aa89
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456787"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835117"
 ---
-# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio 模型如何從實驗進展為實際運作的 Web 服務
+# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio 模型如何進展從實驗的 Web 服務
 Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行、測試及反覆運算代表預測性分析模型的***實驗***。 有各種可用的模組可以︰
 
 * 將資料輸入到實驗
@@ -32,7 +32,7 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 在本文中我們將提供機制的概觀，說明 Machine Learning 模型如何從開發實驗進展為實際運作的 Web 服務。
 
 > [!NOTE]
-> 有其他方式可開發和部署機器學習模型，但本文著重在如何使用 Machine Learning Studio。 例如，若要閱讀如何使用 R 來建立傳統預測性 Web 服務的說明，請參閱部落格文章[使用 RStudio 和 Azure Machine Learning Studio 建置和部署預測性 Web Apps](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (英文)。
+> 有其他方式可開發和部署機器學習模型，但本文著重在如何使用 Machine Learning Studio。 例如，若要閱讀如何使用 R 來建立傳統預測性 Web 服務的說明，請參閱部落格文章[使用 RStudio 和 Azure Machine Learning Studio 建置和部署預測性 Web Apps](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (英文)。
 >
 >
 
@@ -95,7 +95,7 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 
 如果您想要保留您的機器學習模型，但您想要以新的資料重新定型，您有兩個選擇：
 
-1. **Web 服務執行時重新訓練模型** - 如果您想要在預測性 Web 服務執行時重新訓練模型，您可以藉由對訓練實驗進行幾個修改，使它成為***重新訓練實驗***，然後可以將它部署為***重新訓練 Web* 服務**。 如需如何執行這項操作的指示，請參閱 [以程式設計方式重新定型機器學習服務模型](retrain-models-programmatically.md)。
+1. **Web 服務執行時重新訓練模型** - 如果您想要在預測性 Web 服務執行時重新訓練模型，您可以藉由對訓練實驗進行幾個修改，使它成為***重新訓練實驗***，然後可以將它部署為***重新訓練 Web* 服務**。 如需如何執行這項操作的指示，請參閱 [以程式設計方式重新定型機器學習服務模型](/azure/machine-learning/studio/retrain-machine-learning-model)。
 2. **返回原始訓練實驗並使用不同的訓練資料來開發您的模型** - 您的預測實驗連結至 Web 服務，但訓練實驗未以這種方式直接連結。 如果您修改原始的訓練實驗，並按一下 [設定 Web 服務]，它會建立「新的」預測實驗，部署時將會建立「新的」Web 服務。 它不只是更新原始的 Web 服務。
 
    如果您需要修改訓練實驗，請開啟它並按一下 [另存新檔] 以製作複本。 這將會原始的訓練實驗、預測實驗和 Web 服務維持不變。 您現在可以利用您的變更建立新的 Web 服務。 部署新的 Web 服務之後，可以再決定是否要停止先前的 Web 服務，或讓它隨著新的服務一起執行。
@@ -109,7 +109,7 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 
 * 轉換實驗 - [如何準備您的模型以在 Azure Machine Learning Studio 中部署](convert-training-experiment-to-scoring-experiment.md)
 * 部署 Web 服務 - [部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)
-* 重新定型模型 - [以程式設計方式重新定型機器學習服務模型](retrain-models-programmatically.md)
+* 重新定型模型 - [以程式設計方式重新定型機器學習服務模型](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 如需整個程序的範例，請參閱：
 
