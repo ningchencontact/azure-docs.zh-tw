@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
-ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768297"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727309"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中使用結構描述來驗證 XML
 
@@ -89,7 +89,7 @@ ms.locfileid: "55768297"
 
 ### <a name="add-schemas-more-than-2-mb"></a>新增超過 2 MB 的結構描述
 
-若要新增較大的結構描述，您可以在您的 Azure 儲存體帳戶中將結構描述上傳到 Azure Blob 容器。 新增結構描述的步驟取決於您的 Blob 容器是否包含公用讀取權限。 因此，請先依照下列步驟檢查您的 Blob 容器是否有公用讀取權限：[為 Blob 容器設定公用存取層級](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+若要新增較大的結構描述，您可以在您的 Azure 儲存體帳戶中將結構描述上傳到 Azure Blob 容器。 您新增結構描述的步驟有所不同，您的 blob 容器是否為公用讀取權限。 因此，請先依照下列步驟檢查您的 Blob 容器是否有公用讀取權限：[為 Blob 容器設定公用存取層級](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>檢查容器存取層級
 

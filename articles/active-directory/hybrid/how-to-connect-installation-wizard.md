@@ -1,6 +1,6 @@
 ---
 title: 重新執行 Azure AD Connect 安裝精靈 | Microsoft Docs
-description: 說明安裝精靈在第二次執行時的運作方式。
+description: 介绍安装向导第二次运行时的工作原理。
 keywords: Azure AD Connect 安裝精靈可讓您在第二次執行時設定維護設定
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07fc6c4ce7477cd6f1c64d5de1574ae7c4cecff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168947"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191982"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：再次執行安裝精靈
 第一次執行 Azure AD Connect 安裝精靈時，它會逐步引導您設定安裝。 如果您再次執行安裝精靈，它則會提供維護選項。
@@ -73,10 +73,10 @@ ms.locfileid: "56168947"
 ![含有環境中所有目錄清單的頁面](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>設定預備模式
-此選項可讓您啟用及停用伺服器上的預備模式。 預備模式和其使用方式的詳細資訊可在 [作業](how-to-connect-sync-operations.md#staging-mode)中找到。
+此選項可讓您啟用及停用伺服器上的預備模式。 預備模式和其使用方式的詳細資訊可在 [作業](how-to-connect-sync-staging-server.md)中找到。
 
 此選項會顯示預備模式目前是已啟用還是已停用︰  
-![也會顯示預備模式目前狀態的選項](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![同时显示暂存模式当前状态的选项](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 若要變更狀態，請選取此選項，並選取或取消選取核取方塊。  
 ![也會顯示預備模式目前狀態的選項](./media/how-to-connect-installation-wizard/stagingmodeenable.png)

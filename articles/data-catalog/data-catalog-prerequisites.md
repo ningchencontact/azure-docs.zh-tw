@@ -8,12 +8,12 @@ ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 5d05371d9b948dc2f7d6f834eb9431af80fc6365
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 788e7a453e9879d9c901448659ff1c8cfa7201ff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406867"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548300"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Azure 資料目錄必要條件
 
@@ -30,7 +30,7 @@ Azure 訂用帳戶可協助您組織雲端服務資源 (例如 Azure 資料目�
 Azure AD 提供了簡單的方法，讓您的企業無論能輕鬆地管理雲端和內部部署中的身分識別與存取權。 使用者可以使用單一公司帳戶或學校帳戶，以單一登入方法登入任何雲端和內部部署 Web 應用程式。 資料目錄採用 Azure AD 來驗證登入。 若要深入了解，請參閱[什麼是 Azure Active Directory？](../active-directory/fundamentals/active-directory-whatis.md)。
 
 > [!NOTE]
-> 透過使用 [Azure 入口網站](http://portal.azure.com/)，您可以使用個人 Microsoft 帳戶或 Azure Active Directory 公司或學校帳戶進行登入。 若要使用 Azure 入口網站或[資料目錄入口網站](http://www.azuredatacatalog.com)設定資料目錄，您必須使用 Azure Active Directory 帳戶而非個人帳戶來登入。
+> 透過使用 [Azure 入口網站](https://portal.azure.com/)，您可以使用個人 Microsoft 帳戶或 Azure Active Directory 公司或學校帳戶進行登入。 若要使用 Azure 入口網站或[資料目錄入口網站](https://www.azuredatacatalog.com)設定資料目錄，您必須使用 Azure Active Directory 帳戶而非個人帳戶來登入。
 >
 >
 

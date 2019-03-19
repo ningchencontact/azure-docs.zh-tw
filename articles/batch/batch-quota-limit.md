@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753194"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532389"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
-如同使用其他 Azure 服務，對於與 Batch 服務相關聯的特定資源有一些限制。 這其中有許多限制是 Azure 在訂用帳戶或帳戶層級上所套用的預設配額。 本文將討論這些預設值，以及如何申請加大配額。
+与其他 Azure 服务一样，与 Batch 服务关联的某些资源存在限制。 這其中有許多限制是 Azure 在訂用帳戶或帳戶層級上所套用的預設配額。 本文將討論這些預設值，以及如何申請加大配額。
 
 當您設計和相應增加您的 Batch 工作負載時，請記住這些配額。 比方說，如果您的集區未達到您所指定的計算節點目標數目，您可能已達到 Batch 帳戶的核心配額限制。
 
 您可以在單一 Batch 帳戶中執行多個 Batch 工作負載，或在相同訂用帳戶 (但不同 Azure 區域) 的 Batch 帳戶之間散佈工作負載。
 
-如果您計劃在 Batch 中執行生產工作負載，您可能需要增加一或多個高於預設值的配額。 若要加大配額，您可以開啟線上 [客戶支援要求](#increase-a-quota) ，不另外加收費用。
+如果打算在 Batch 中运行生产工作负荷，可能需要将一个或多个配额提高到默认值以上。 若要加大配額，您可以開啟線上 [客戶支援要求](#increase-a-quota) ，不另外加收費用。
 
 > [!NOTE]
 > 配額是一種信用限制，不是容量保證。 如果您有大規模的容量需求，請連絡 Azure 支援。
@@ -99,14 +99,14 @@ ms.locfileid: "53753194"
    
     d. **支援方案** > **配額支援 - 已包含**
    
-    按 [下一步] 。
+    单击“下一步”。
 1. 在 [問題]：
    
     a. 根據[商業影響][support_sev]選取 [嚴重性]。
    
     b. 在 [詳細資料] 中，指定每個您想要變更的配額、Batch 帳戶名稱和新限制。
    
-    按 [下一步] 。
+    单击“下一步”。
 1. 在 [合約資訊] 中：
    
     a. 選取 [偏好的連絡方式]。
@@ -135,6 +135,6 @@ ms.locfileid: "53753194"
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png

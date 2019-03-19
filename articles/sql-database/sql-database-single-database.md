@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099321"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431110"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>什麼是 Azure SQL Database 中的單一資料庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "56099321"
 > [!NOTE]
 > 如需 Azure SQL Database 的詞彙解釋，請參閱 [SQL 資料庫術語詞彙](sql-database-glossary-terms.md)
 
-## <a name="dynamic-scalabilty"></a>動態延展性
+## <a name="dynamic-scalability"></a>動態延展性
 
 您可以每個月在低性價比服務層支付少量費用，在小型單一資料庫中建置第一個應用程式，然後，隨時以手動或程式設計方式將[服務層變更為](sql-database-single-database-scale.md)較高性價比的服務層，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
@@ -42,7 +42,7 @@ ms.locfileid: "56099321"
 
 ## <a name="availability-capabilities"></a>可用性功能
 
-單一資料庫、彈性集區和受控執行個體均提供許多可用性特性。 如需相關資訊，請參閱[可用性特性](sql-database-technical-overview.md#availability-capabilities)。
+單一資料庫、 彈性集區，以及受管理的執行個體所有提供許多的可用性特性。 如需相關資訊，請參閱[可用性特性](sql-database-technical-overview.md#availability-capabilities)。
 
 ## <a name="transact-sql-differences"></a>Transact-SQL 差異
 

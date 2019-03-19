@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755147"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316484"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 連接到 SQL Database
 
@@ -37,7 +37,7 @@ Azure SQL 建置在 Microsoft SQL Server 上，旨在提供高可用性、高效
 Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (VM) 上的 Azure SQL Database、資料庫即服務和 SQL Server。 我們不會詳細說明這兩個之間的差異，除非 Azure SQL Database 是您新雲端應用程式，可充分節省成本的最佳選擇，且雲端服務可提供的效能最佳化。 如果您考慮將您的內部應用程式移轉或擴充至雲端，Azure 虛擬機器上的 SQL Server 可能較合適您。 若要將本文簡化，讓我們建立 Azure SQL Database。
 
 ## <a id="ODBC"></a>資料存取技術︰ODBC 和 OLE DB
-連線到 Azure SQL DB 並無不同，目前有兩種方式可連接到資料庫：ODBC (開放式資料庫連接) 和 OLE DB (物件連結與嵌入資料庫)。 近年來，Microsoft 已配合 [ODBC 進行原生關聯式資料存取](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相當簡單，而且也比 OLE DB 更快速。 唯一必須注意的是 ODBC 會使用舊的 C 樣式 API。
+連線到 Azure SQL DB 並無不同，目前有兩種方式可連接到資料庫：ODBC (開放式資料庫連接) 和 OLE DB (物件連結與嵌入資料庫)。 近年來，Microsoft 已配合 [ODBC 進行原生關聯式資料存取](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相當簡單，而且也比 OLE DB 更快速。 唯一必須注意的是 ODBC 會使用舊的 C 樣式 API。
 
 ## <a id="Create"></a>步驟 1：建立 Azure SQL Database
 請參閱 [快速入門頁面](sql-database-single-database-get-started.md) ，以了解如何建立範例資料庫。  或者，您可以依照此[兩分鐘短片](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)使用 Azure 入口網站建立 Azure SQL Database。
@@ -78,7 +78,7 @@ Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (
 恭喜！ 您現在已在 Windows 上使用 C++ 和 ODBC 成功連接至 Azure SQL。 您可以繼續閱讀，針對 Linux 平台上執行相同的作業。
 
 ## <a id="Linux"></a>步驟 5：從 Linux C/C++ 應用程式連接
-如果您還沒聽過新聞，那麼 Visual Studio 現在也可讓您開發 C++ Linux 應用程式。 您可以在 [Linux 開發的 Visual C++](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) 部落格中閱讀這個新的案例。 若要針對 Linux 建置，您需要正在執行您 Linux 散發版本的遠端電腦。 如果您沒有帳戶，可以使用 [Linux Azure 虛擬機器](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)快速設定一個。
+如果您還沒聽過新聞，那麼 Visual Studio 現在也可讓您開發 C++ Linux 應用程式。 您可以在 [Linux 開發的 Visual C++](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) 部落格中閱讀這個新的案例。 若要針對 Linux 建置，您需要正在執行您 Linux 散發版本的遠端電腦。 如果您沒有帳戶，可以使用 [Linux Azure 虛擬機器](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)快速設定一個。
 
 針對本教學課程，讓我們假設您已設定 Ubuntu 16.04 Linux 散發套件。 以下步驟應該也適用於 Ubuntu 15.10、Red Hat 6 和 Red Hat 7。
 

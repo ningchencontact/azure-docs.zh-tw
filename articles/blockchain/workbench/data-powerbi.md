@@ -10,16 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: e50a82f0f141fec266a8348c0a1a8b5fbdb38b45
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 1e12af686a450d39332c37700b9a14b9eb620307
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329839"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530879"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>將 Azure Blockchain Workbench 資料搭配 Microsoft Power BI 使用
 
-Microsoft Power BI 中的功能可供使用 Power BI Desktop 輕鬆地從 SQL DB 資料庫產生強大的報告，然後將報告發佈到 [https://www.powerbi.com](http://www.powerbi.com)。
+Microsoft Power BI 中的功能可供使用 Power BI Desktop 輕鬆地從 SQL DB 資料庫產生強大的報告，然後將報告發佈到 [https://www.powerbi.com](https://www.powerbi.com)。
 
 本文包含如何從 PowerBI 桌面連線至 Azure Blockchain Workbench SQL Database、建立報告，並將報告部署至 powerbi.com 的逐步解說。
 

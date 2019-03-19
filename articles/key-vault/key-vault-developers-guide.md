@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 274ba6d6a1ce2e9c8f2cae0ca29de8442525391e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 06fd66c3fb9e90e0198d40253f3c554fe8596c3d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106473"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543355"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 金鑰保存庫開發人員指南
 
@@ -110,7 +110,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 - [建立金鑰保存庫](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [開始在 Node.js 中使用 Key Vault](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
-### <a name="code-examples"></a>程式碼範例
+### <a name="code-examples"></a>代码示例
 
 如需搭配使用金鑰保存庫和應用程式的完整範例，請參閱︰
 
@@ -144,7 +144,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 的概觀和概念
 
-- [Key Vault 虛刪除行為](key-vault-ovw-soft-delete.md)描述一個功能，該功能可復原已刪除的物件，無論是無意或有意刪除的。
+- [Key Vault 虛刪除行為](key-vault-ovw-soft-delete.md)描述一項功能，該功能可復原已刪除的物件，無論是無意或有意刪除的。
 - [Key Vault 用戶端節流](key-vault-ovw-throttling.md)可讓您了解節流的基本概念，並提供適用於您應用程式的方法。
 - [Key Vault 儲存體帳戶金鑰概觀](key-vault-ovw-storage-keys.md)描述 Key Vault 與 Azure 儲存體帳戶金鑰的整合。
 - [Key Vault 安全世界](key-vault-ovw-security-worlds.md)描述地區和安全區域之間的關聯性。
@@ -152,9 +152,9 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 ## <a name="social"></a>社交
 
 - [Key Vault Blog (金鑰保存庫部落格)](https://aka.ms/kvblog)
-- [Key Vault Forum (金鑰保存庫論壇)](https://aka.ms/kvforum)
+- [密钥保管库论坛](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>支援程式庫
 
-- [Microsoft Azure Key Vault 核心程式庫](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)提供 **IKey** 和 **IKeyResolver** 介面，以從識別碼找出金鑰和使用金鑰執行作業。
-- [Microsoft Azure 金鑰保存庫擴充](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions)提供 Azure 金鑰保存庫的擴充功能。
+- [Microsoft Azure Key Vault 核心程式庫](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)提供 **IKey** 和 **IKeyResolver** 介面，以從識別碼找出金鑰和使用金鑰執行作業。
+- [Microsoft Azure 金鑰保存庫擴充](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions)提供 Azure 金鑰保存庫的擴充功能。

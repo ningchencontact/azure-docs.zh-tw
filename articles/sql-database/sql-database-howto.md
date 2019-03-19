@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f63f929f21d4df06e409784e2ccab611e951a1bc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f7e31c9e153f25faae9224f04eabf5ca54bb06b4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477704"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759214"
 ---
 # <a name="how-to-use-azure-sql-database"></a>如何使用 Azure SQL Database
 
@@ -34,7 +34,7 @@ ms.locfileid: "55477704"
 ### <a name="data-sync"></a>資料同步
 
 - [SQL 資料同步](sql-database-sync-data.md)
-- [資料同步代理程式](sql-database-data-sync-agent.md)
+- [Data Sync Agent](sql-database-data-sync-agent.md)
 - [複寫結構描述變更](sql-database-update-sync-schema.md)
 - [透過 OMS 進行監視](sql-database-sync-monitor-oms.md)
 - [資料同步最佳做法](sql-database-best-practices-data-sync.md)

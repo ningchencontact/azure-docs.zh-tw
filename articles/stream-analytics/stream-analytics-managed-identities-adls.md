@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 194f43a0005f17a22b3a60d6decd049444e56c20
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745771"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570108"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>使用受控識別向 Azure Data Lake Storage Gen1 驗證串流分析 (預覽)
 
@@ -23,13 +23,15 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
 
 本文說明的三種方式可讓您透過 Azure 入口網站、Azure Resource Manager 範本部署和適用於 Visual Studio 的 Azure 串流分析工具，為輸出至 Azure Data Lake Storage Gen1 的 Azure 串流分析作業啟用受控識別。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="azure-portal"></a>Azure 入口網站
 
 1. 一開始先建立新的串流分析作業，或在 Azure 入口網站中開啟現有作業。 從畫面左側的功能表列選取位在 [設定] 下的 [受控識別 (預覽)]。
 
    ![設定串流分析受控識別預覽](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. 選取右側出現的視窗 [使用系統指派的受控識別 (預覽)]。 按一下 [儲存] 在 Azure Active Directory 中建立串流分析作業的識別服務主體。 Azure 會負責管理新建立的身分識別生命週期。 當串流分析作業刪除時，Azure 會自動刪除已與其建立關聯的身分識別 (亦即服務主體)。
+2. 選取右側出現的視窗 [使用系統指派的受控識別 (預覽)]。 按一下 **儲存**Stream Analytics 作業，在 Azure Active Directory 中的身分識別的服務主體。 Azure 會負責管理新建立的身分識別生命週期。 當串流分析作業刪除時，Azure 會自動刪除已與其建立關聯的身分識別 (亦即服務主體)。
 
    當組態儲存時，服務主體的物件識別碼 (OID) 會列為主體識別碼，如下所示：
 
@@ -91,62 +93,61 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
 
 1. 您現在可以建立具有受控識別的 *Microsoft.StreamAnalytics/streamingjobs* 資源，方法是在 Resource Manager 範本的資源區段中加入下列屬性：
 
-   ```json
-   "Identity": {
-   "Type": "SystemAssigned",
-   },
-   ```
+    ```json
+    "Identity": {
+      "Type": "SystemAssigned",
+    },
+    ```
 
    這個屬性會要求 Azure Resource Manager 建立及管理您的 Azure 串流分析作業身分識別。
 
    **範例作業**
 
-   ```json
-   { 
-   "Name": "AsaJobWithIdentity", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
-   "Location": "West US",
-   "Identity": {
-     "Type": "SystemAssigned", 
-     }, 
-   "properties": {
-      "sku": {
-       "name": "standard"
-       },
-   "outputs": [
-         {
-           "name": "string",
-           "properties":{
-             "datasource": {        
-               "type": "Microsoft.DataLake/Accounts",
-               "properties": {
-                 "accountName": “myDataLakeAccountName",
-                 "filePathPrefix": “cluster1/logs/{date}/{time}",
-                 "dateFormat": "YYYY/MM/DD",
-                 "timeFormat": "HH",
-                 "authenticationMode": "Msi"
-                 }
-                 
-   }
+    ```json
+    {
+      "Name": "AsaJobWithIdentity",
+      "Type": "Microsoft.StreamAnalytics/streamingjobs",
+      "Location": "West US",
+      "Identity": {
+        "Type": "SystemAssigned",
+      },
+      "properties": {
+        "sku": {
+          "name": "standard"
+        },
+        "outputs": [
+          {
+            "name": "string",
+            "properties":{
+              "datasource": {
+                "type": "Microsoft.DataLake/Accounts",
+                "properties": {
+                  "accountName": "myDataLakeAccountName",
+                  "filePathPrefix": "cluster1/logs/{date}/{time}",
+                  "dateFormat": "YYYY/MM/DD",
+                  "timeFormat": "HH",
+                  "authenticationMode": "Msi"
+                }
+              }
    ```
   
    **範例作業回應**
 
    ```json
-   { 
-   "Name": "mySAJob", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
-   "Location": "West US",
-   "Identity": {
-   "Type": "SystemAssigned",
-    "principalId": "GUID", 
-    "tenantId": "GUID", 
-   }, 
-   "properties": {
-           "sku": {
-             "name": "standard"
-           },
-   }
+   {
+    "Name": "mySAJob",
+    "Type": "Microsoft.StreamAnalytics/streamingjobs",
+    "Location": "West US",
+    "Identity": {
+      "Type": "SystemAssigned",
+        "principalId": "GUID",
+        "tenantId": "GUID",
+      },
+      "properties": {
+        "sku": {
+          "name": "standard"
+        },
+      }
    ```
 
    請記下作業回應中的主體識別碼，以授予必要 ADLS 資源的存取權。
@@ -158,7 +159,7 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
 2. 使用 PowerShell 提供服務主體的存取。 若要經由 PowerShell 提供服務主體的存取權，請執行下列命令：
 
    ```powershell
-   Set-AzureRmDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
+   Set-AzDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
    ```
 
    **PrincipalId** 是服務主體的物件識別碼，並會在服務主體建立時，列於入口網站畫面上。 如果您使用了 Resource Manager 範本部署來建立作業，物件識別碼會列在作業回應的識別屬性中。
@@ -166,11 +167,19 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
    **範例**
 
    ```powershell
-   PS > Set-AzureRmDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
+   PS > Set-AzDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   若要深入了解上述 PowerShell 命令，請參閱 [Set-AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) 文件。
+   若要深入了解上述 PowerShell 命令，請參閱[組 AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry)文件。
+
+## <a name="limitations"></a>限制
+這項功能不支援下列功能：
+
+1.  **多租用戶存取**:針對給定的 Stream Analytics 作業所建立的服務主體會位於 Azure Active Directory 租用戶的作業已建立，而且不能針對位於不同的 Azure Active Directory 租用戶的資源。 因此，您只可以使用 MSI 與您的 Azure Stream Analytics 作業相同的 Azure Active Directory 租用戶內的 ADLS Gen 1 資源上。 
+
+2.  **[使用者指派身分識別](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**： 不支援這表示使用者不是可以輸入自己的服務主體，以供其 Stream Analytics 作業。 Azure Stream Analytics 會產生服務主體。 
+
 
 ## <a name="next-steps"></a>後續步驟
 

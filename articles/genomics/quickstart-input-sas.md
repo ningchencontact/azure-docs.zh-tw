@@ -1,24 +1,26 @@
 ---
-title: 使用 SAS (而非儲存體帳戶金鑰) 提交工作流程 - Microsoft Genomics
+title: 使用共用的存取簽章-Microsoft Genomics 提交工作流程
 titleSuffix: Azure
-description: 本快速入門假設您已安裝 msgen 用戶端，並已透過服務成功地執行範例資料。
+description: 本文假設您已安裝 msgen 用戶端，並已成功執行透過服務的範例資料。
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 7c51a0934457a2fcc03f9be1535712e97ac91a1e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749013"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451377"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>使用 SAS (而非儲存體帳戶金鑰) 將工作流程提交到 Microsoft Genomics 
 
-本快速入門示範如何使用包含[共用存取簽章 (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)的 config.txt 檔案 (而非儲存體帳戶金鑰)，將工作流程提交至 Microsoft Genomics 服務。 如果對於在 config.txt 檔案中看得見儲存體帳戶金鑰有安全性疑慮，這項功能很有用。 本文假設您已安裝並執行 `msgen` 用戶端，且熟悉如何使用 Azure 儲存體。 如果您已使用提供的範例資料成功地提交工作流程，即準備好繼續進行本快速入門。 
+這篇文章示範如何提交至 Microsoft Genomics 服務使用 config.txt 檔案，其中包含工作流程[共用存取簽章 (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)而不是儲存體帳戶金鑰。 如果對於在 config.txt 檔案中看得見儲存體帳戶金鑰有安全性疑慮，這項功能很有用。 
+
+本文假設您已安裝並執行 `msgen` 用戶端，且熟悉如何使用 Azure 儲存體。 如果您已成功提交工作流程使用提供的範例資料，您已準備好繼續進行這篇文章。 
 
 ## <a name="what-is-a-sas"></a>什麼是 SAS？
 [共用存取簽章 (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 可提供您儲存體帳戶中資源的委派存取。 透過 SAS，您可以對用戶端授與儲存體帳戶中資源的存取權，而不必共用帳戶金鑰。 這是在您應用程式中使用共用存取簽章的重點 - SAS 是共用儲存體資源的安全方式，而不會危害您的帳戶金鑰。
@@ -54,7 +56,7 @@ ms.locfileid: "55749013"
  ![Genomics SAS 儲存體總管](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS 儲存體總管")
 
 
-### <a name="set-up-create-a-sas-programattically"></a>設定：以程式設計方式建立 SAS
+### <a name="set-up-create-a-sas-programmatically"></a>設定：以程式設計方式建立的 SAS
 
 若要使用 Azure 儲存體 SDK 建立 SAS，請參閱數種語言的現有文件 (包括 [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob)、[Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) 和 [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage))。 
 

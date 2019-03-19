@@ -11,15 +11,15 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.topic: conceptual
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9e9c8918556b7ff003bcfed062ea1e15233b2845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855290"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761951"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服務匯流排進階和標準傳訊層級
 
@@ -54,6 +54,21 @@ ms.locfileid: "54855290"
 因為進階傳訊是在完全隔離的執行階段環境中執行，所以在進階命名空間中並不支援快速實體。 如需快速功能的詳細資訊，請參閱 [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 屬性。
 
 如果您的程式碼是在標準傳訊下執行，而您想要將它移植到高階層，請確定 [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 屬性設為 **false** (預設值)。
+
+## <a name="premium-messaging-resource-usage"></a>進階傳訊資源使用狀況
+一般情況下，實體上的任何作業可能會導致 CPU 和記憶體使用量。 以下是其中一些作業： 
+
+- 管理作業，例如 CRUD （建立、 擷取、 更新和刪除） 作業佇列、 主題和訂用帳戶。
+- 執行階段作業 （傳送和接收訊息）
+- 監視作業和警示
+
+額外的 CPU 和記憶體使用量的不計費單位此外不過。 進階傳訊層中，沒有單一訊息單位的價格。
+
+CPU 和記憶體使用量會追蹤，並顯示給您，原因如下： 
+
+- 提供系統內部的透明度
+- 了解購買的資源容量。
+- 容量規劃，可協助您決定要相應增加/減少。
 
 ## <a name="get-started-with-premium-messaging"></a>開始使用進階傳訊
 

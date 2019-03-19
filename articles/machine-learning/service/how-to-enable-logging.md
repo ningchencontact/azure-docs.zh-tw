@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8e39734a6f5fa13240d24eb35c431f746e540484
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447526"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342117"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>在 Azure Machine Learning 服務中啟用記錄
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-請參閱 `Run` 類別的參考[文件](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)以了解其他的記錄函式。
+請參閱參考文件[執行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)其他記錄函式的類別。
 
 若要在定型過程中啟用應用程式狀態的本機記錄，請使用 `show_output` 參數。 啟用詳細記錄可讓您查看定型過程的詳細資料，以及任何遠端資源或計算目標的相關資訊。 使用下列程式碼來啟用記錄實驗提交。
 

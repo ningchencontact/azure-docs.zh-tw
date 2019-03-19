@@ -11,22 +11,22 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: da5b099a5574d34c3676819c930f3e89610cf4ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767430"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455797"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 在 Azure Logic Apps 中以對應來轉換 XML
 
-若要在 Azure Logic Apps 中的企業整合案例的格式之間轉換 XML 資料，您的邏輯應用程式可以使用對應，或更具體而言，使用可延伸樣式表語言轉換 (XSLT) 對應。 對應是一個 XML 文件，它描述如何將資料從 XML 文件轉換為其他格式。 
+若要將 XML 資料之間的企業整合案例，Azure Logic Apps 中的格式，邏輯應用程式可以使用對應或更具體來說，可延伸樣式表語言轉換 (XSLT) 對應。 對應是一個 XML 文件，它描述如何將資料從 XML 文件轉換為其他格式。 
 
 例如，假設您會定期收到客戶的 B2B 訂單或發票，而該客戶使用 YYYMMDD 日期格式。 不過，您的組織使用 MMDDYYY 日期格式。 您可以定義並使用對應，先將 YYYMMDD 日期格式轉換為 MMDDYYY 格式，然後再將訂單或發票儲存在您的客戶活動資料庫中。
 
 針對與整合帳戶和成品 (例如對應) 的限制，請參閱 [Azure Logic Apps 的限制與設定資訊](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，請<a href="https://azure.microsoft.com/free/" target="_blank">註冊一個免費的 Azure 帳戶</a>。
 
@@ -39,7 +39,7 @@ ms.locfileid: "55767430"
   * 針對組件，您需要 Azure Blob 容器 (以在其中上傳您的組件) 與該容器的位置。 如此一來，您就可以在稍後將組件新增到您的整合帳戶時提供該位置。 
   針對此工作，您需要下列項目：
 
-    | 項目 | 描述 |
+    | Item | 描述 |
     |------|-------------|
     | [Azure 儲存體帳戶](../storage/common/storage-account-overview.md) | 在此帳戶中，為您的組件建立 Azure Blob 容器。 了解[如何建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。 |
     | Blob 容器 | 在此容器中，您可以上傳您的組件。 當您將組件新增到您的整合帳戶時，您也需要此容器的位置。 了解如何[建立 Blob 容器](../storage/blobs/storage-quickstart-blobs-portal.md)。 |
@@ -62,7 +62,7 @@ ms.locfileid: "55767430"
 
 1. 選取要將組件新增到其中的整合帳戶，例如：
 
-   ![選取整合帳戶](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
+   ![選取企業整合帳戶](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
 1. 在您的整合帳戶的 [概觀] 頁面上的 [元件] 下，選取 [組件] 圖格。
 
@@ -180,7 +180,7 @@ ms.locfileid: "55767430"
 
 1. 選取要將對應新增到其中的整合帳戶，例如：
 
-   ![選取整合帳戶](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
+   ![選取企業整合帳戶](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
 1. 在您的整合帳戶的 [概觀] 頁面上的 [元件] 下，選取 [對應] 圖格。
 

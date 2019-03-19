@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100873"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446704"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure 與 AppSource Marketplace 供應項目
 
@@ -41,7 +41,7 @@ ms.locfileid: "56100873"
 
 ## <a name="test-drive"></a>試用產品
 
-*試用產品*是一個市集功能，可為客戶提供每個供應項目的「購買前先試用」示範選項，因此會加以啟用。  試用產品功能僅限於下列供應項目類型子集：[Azure 應用程式](./azure-applications/cpp-azure-app-offer.md)、[Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md)、[Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md)、[Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md)、[SaaS 應用程式](./saas-app/cpp-saas-offer.md) 及[虛擬機器](./virtual-machine/cpp-virtual-machine-offer.md)。  此功能會要求發行者建立試用產品範本 (已針對其供應項目自訂)。  如需詳細資訊，請參閱[試用產品](../cloud-partner-portal-orig/what-is-test-drive.md)一節。
+*試用產品*是一個市集功能，可為客戶提供每個供應項目的「購買前先試用」示範選項，因此會加以啟用。  試用產品功能僅限於下列供應項目類型子集：[Azure 應用程式](./azure-applications/cpp-azure-app-offer.md)、[Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md)、[Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md)、[Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md)、[SaaS 應用程式](./saas-app/cpp-saas-offer.md) 及[虛擬機器](./virtual-machine/cpp-virtual-machine-offer.md)。  此功能會要求發行者建立試用產品範本 (已針對其供應項目自訂)。  如需詳細資訊，請參閱[試用產品](./test-drive/what-is-test-drive.md)一節。
 
 您可以藉由套用[試用產品篩選條件](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive)，來瀏覽目前具有試用產品示範的市集供應項目。 
 
@@ -50,7 +50,7 @@ ms.locfileid: "56100873"
 
 下表列出 [Cloud Partner 入口網站](https://cloudpartner.azure.com)目前支援的供應項目類型。  此資料表針對每個供應項目類型列出可陳列供應項目的市集，以及供應項目解決方案技術的一般描述。
 
-|                供應項目類型                |  Marketplace  |   說明                                                           |
+|                供應項目類型                |  Marketplace  |   描述                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
 | [Azure 應用程式](./azure-applications/cpp-azure-app-offer.md) | Azure | 解決方案由透過 Azure Resource Manager 範本部署的一個或多個虛擬機器 (VM) 及選擇性自訂 Azure 程式碼組成。  部署可以由客戶透過解決方案範本進行，或者由發行者進行管理。 此類型主要用來提供更大的彈性 (與所提供的虛擬機器供應項目類型相比)。  |
 | [諮詢服務](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | 兩者皆可 | Microsoft 的合格顧問可以在 Azure Marketplace 或 AppSource 列出他們領域專屬的服務。  他們的專業可協助客戶評估問題，並建立和部署符合客戶營運目標的適當解決方案。  |

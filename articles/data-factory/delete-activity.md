@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 407bb2e39e92390576da9c23868f5af9c444bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341527"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404761"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Delete 活動
 
@@ -37,21 +37,20 @@ ms.locfileid: "56341527"
 
 -   請確定您未在檔案寫入的同時刪除檔案。 
 
--   如果您想要從內部部署系統中刪除檔案或資料夾，請確定您使用大於 3.13 版的自我裝載整合執行階段。
+-   如果您想要從內部部署系統中刪除檔案或資料夾，請確定您使用版本大於 3.14 自我裝載的整合執行階段。
 
 ## <a name="supported-data-stores"></a>支援的資料存放區
 
-### <a name="azure-data-stores"></a>Azure 資料存放區
-
 -   [Azure Blob 儲存體](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2 (預覽版)](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>檔案系統資料存放區
 
 -   [檔案系統](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## <a name="syntax"></a>語法
 
@@ -61,7 +60,7 @@ ms.locfileid: "56341527"
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -80,14 +79,14 @@ ms.locfileid: "56341527"
 
 ## <a name="type-properties"></a>類型屬性
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| 資料集 | 提供資料集參考，以判斷要刪除哪些檔案或資料夾 | yes |
+| 資料集 | 提供資料集參考，以判斷要刪除哪些檔案或資料夾 | 是 |
 | 遞迴 | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式刪除檔案。  | 沒有。 預設值為 `false`。 |
 | maxConcurrentConnections | 同時連線到儲存體存放區以刪除資料夾或檔案的連線數。   |  沒有。 預設值為 `1`。 |
 | enablelogging | 指出您是否需要記錄已刪除的資料夾或檔案名稱。 如果為 true，則您需要進一步提供儲存體帳戶來儲存記錄檔，以便您可以藉由讀取記錄檔來追蹤 Delete 活動的行為。 | 否 |
 | logStorageSettings | 僅適用於 enablelogging = true 時。<br/><br/>一組儲存體屬性，可指定您要儲存記錄檔 (包含由 Delete 活動刪除的資料夾或檔案名稱) 的位置。 | 否 |
-| 預設容器 | 僅適用於 enablelogging = true 時。<br/><br/>[Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)或 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) 的連結服務，以儲存記錄檔，其中包含由 Delete 活動刪除的資料夾或檔案名稱。 | 否 |
+| 預設容器 | 僅適用於 enablelogging = true 時。<br/><br/>連結的服務[Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)， [Azure Data Lake 儲存體 Gen1](connector-azure-data-lake-store.md#linked-service-properties)，或[Azure Data Lake 儲存體 Gen2](connector-azure-data-lake-storage.md#linked-service-properties)儲存記錄檔包含資料夾或檔案名稱已刪除 「 刪除 」 活動。 | 否 |
 | path | 僅適用於 enablelogging = true 時。<br/><br/>要在您的儲存體帳戶中儲存記錄檔的路徑。 如不提供路徑，服務會為您建立容器。 | 否 |
 
 ## <a name="monitoring"></a>監視
@@ -100,13 +99,15 @@ ms.locfileid: "56341527"
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -114,22 +115,12 @@ ms.locfileid: "56341527"
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Delete 活動的範例記錄檔
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| 名稱 | 類別 | 狀態 | Error |
+|:--- |:--- |:--- |:--- |
+| test1/yyy.json | 檔案 | Deleted |  |
+| test2/hello789.txt | 檔案 | Deleted |  |
+| test2/test3/hello000.txt | 檔案 | Deleted |  |
+| test2/test3/zzz.json | 檔案 | Deleted |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>使用 Delete 活動的範例
 
@@ -322,7 +313,7 @@ Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         },
         "type": "AzureBlob",
         "typeProperties": {
-            "fileName": "",
+            "fileName": "*",
             "folderPath": "mycontainer",
             "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
         }
@@ -332,7 +323,7 @@ Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>藉由鏈結 Copy 活動與 Delete 活動來移動檔案
 
-您可以藉由在管線中使用複製活動來複製檔案，然後使用 Delete 活動來刪除檔案，以便移動檔案。  當您想要移動多個檔案時，可以使用 GetMetadata 活動 + Filter 活動 + Foreach 活動 + Copy 活動 + Delete 活動，如下列範例所示：
+您可以使用 「 複製活動將複製檔案，然後刪除管線中的檔案刪除活動來移動檔案。  當您想要移動多個檔案時，可以使用 GetMetadata 活動 + Filter 活動 + Foreach 活動 + Copy 活動 + Delete 活動，如下列範例所示：
 
 > [!NOTE]
 > 如果您想要藉由定義資料集 (只包含資料夾路徑) 然後使用複製活動和 Delete 活動來參考代表資料集的相同資料集以便移動整個資料夾，您必須非常小心。 這是因為您必須確定在複製作業與刪除作業之間，不會有新檔案抵達資料夾。  如果在您的複製活動剛剛完成複製作業但是 Delete 活動尚未開始時就有新檔案抵達資料夾，Delete 活動可能會刪除這個新抵達檔案，系統未透過刪除整個資料夾將該檔案複製到目的地。 
@@ -572,12 +563,14 @@ GetMetadata 活動使用資料集來列舉檔案清單。
     }
 }
 ```
+## <a name="known-limitation"></a>已知的限制
+
+-   刪除活動不支援的萬用字元所描述的資料夾刪除的清單。
+
+-   使用檔案屬性篩選條件時： modifiedDatetimeStart 和 modifiedDatetimeEnd 來選取要刪除，請務必將"fileName":"*"資料集中。
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解在 Azure Data Factory 中複製檔案。
-
--   [Azure Data Factory 中的複製活動](copy-activity-overview.md)
+深入了解 Azure Data Factory 中移動檔案。
 
 -   [Azure Data Factory 中的複製資料工具](copy-data-tool.md)
-- 

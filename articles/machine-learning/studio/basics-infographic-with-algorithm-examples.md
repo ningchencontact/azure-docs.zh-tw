@@ -5,17 +5,17 @@ description: 機器學習服務基本概念的簡易概觀包含演算法範例�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodc18
-ms.date: 12/18/2017
-ms.openlocfilehash: 78daf4534334d56c962d97e7a9aac8a7910db34c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453591"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455185"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>可下載的資訊圖：機器學習基本概念和演算法範例
 
@@ -23,7 +23,7 @@ ms.locfileid: "56453591"
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Machine Learning Studio 中的常見演算法
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) 隨附用於預測性分析的大型演算法程式庫。 資訊圖可識別四種熱門的演算法系列 (迴歸、異常偵測、叢集、和分類)，並提供 [Azure AI 資源庫](https://gallery.azure.ai/)中所含實用範例的連結。 該資源庫包含範例實驗和教學課程，會示範如何在許多真實解決方案中套用這些演算法。
+[Azure Machine Learning Studio](https://studio.azureml.net/) 隨附用於預測性分析的大型演算法程式庫。 此資訊圖可識別四種熱門的演算法-迴歸、 異常偵測、 叢集、 和分類-系列，並提供連結中的工作範例[Azure AI 資源庫](https://gallery.azure.ai/)。 該資源庫包含範例實驗和教學課程，會示範如何在許多真實解決方案中套用這些演算法。
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>下載具有演算法範例的資訊圖
 
@@ -40,7 +40,7 @@ ms.locfileid: "56453591"
 
 
 <!-- Module References -->
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
-[initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
-[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
-[one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e294a8b0e34e1fac24d0cbe01791e2eb290a43
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 334f5fa2309c44bebe8583f497fdaa3c7578e5ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162573"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>教學課程：Azure Active Directory 與 T&E Express 整合
 
@@ -134,7 +134,7 @@ T&E Express 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. 將 [Activar (啟動)] 選項從 [No (否)] 改為選取 [SI (是)]。 在 [識別提供者中繼資料] 文字方塊中，貼上您從 Azure 入口網站下載的中繼資料 XML。
+1. 將 [Activar (啟動)] 選項從 [No (否)] 改為選取 [SI (是)]。 在 **身分識別提供者中繼資料**文字方塊中，貼上您從 Azure 入口網站下載的 XML 中繼資料。
 
     ![設定單一登入](./media/tyeexpress-tutorial/tyeAdmin.png)
 

@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: ba332bb0f77dc198abdd76ccf024336788a77a33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385426"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435016"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Apache Hive 查詢最佳化
 
 在 Azure HDInsight 中，有數種叢集類型與技術可執行 Apache Hive查詢。 當您建立 HDInsight 叢集時，選擇適當的叢集類型，有助於針對工作負載需求將效能最佳化。 
 
-例如，選擇**互動式查詢**叢集類型，可將特定、互動式查詢最佳化。 選擇 Apache **Hadoop** 叢集類型，將作為批次程序使用的 Hive 查詢最佳化。 **Spark** 與 **HBase** 叢集類型也可以執行 Hive 查詢。 如需針對不同 HDInsight 叢集類型執行 Hive 查詢的詳細資訊，請參閱[Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？](hadoop/hdinsight-use-hive.md)。
+例如，選擇**互動式查詢**叢集來最佳化臨機操作、 互動式查詢的類型。 選擇 Apache **Hadoop** 叢集類型，將作為批次程序使用的 Hive 查詢最佳化。 **Spark** 與 **HBase** 叢集類型也可以執行 Hive 查詢。 如需針對不同 HDInsight 叢集類型執行 Hive 查詢的詳細資訊，請參閱[Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？](hadoop/hdinsight-use-hive.md)。
 
 根據預設，Hadoop 叢集類型的 HDInsight 叢集未針對效能進行最佳化。 本文說明幾個將 Hive 效能最佳化的最常見方法，您可將這些方法套用於查詢。
 
@@ -189,7 +189,7 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 您有更多最佳化方法可以考慮，例如：
 
 * **Hive 值區：** 能將大型資料集叢集化或分段以最佳化查詢效能的技術。
-* **聯結最佳化：** Hive 的查詢執行計劃最佳化，可改善聯結的效率並減少使用者提示的需求。 如需詳細資訊，請參閱 [聯結最佳化](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization)。
+* **聯結最佳化：** Hive 的查詢執行計劃最佳化，可改善聯結的效率並減少使用者提示的需求。 有关详细信息，请参阅 [联接优化](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization)。
 * **增加歸納器**。
 
 ## <a name="next-steps"></a>後續步驟

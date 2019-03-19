@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 936a47593b9db6e4989c30b2df37dfd82c286c59
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
-ms.translationtype: HT
+ms.openlocfilehash: c4ce8e01b1dc819453610f68d044cc268e27eed7
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290513"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242746"
 ---
 # <a name="service-fabric-events"></a>Service Fabric 事件 
 
@@ -40,12 +40,12 @@ Service Fabric 平台會撰寫好幾種結構化事件，呈現叢集內發生�
 * 應用程式/服務的部署/刪除：每個應用程式、服務及容器建立或刪除時，都會產生相應的事件，且當相應縮小或相應放大時 (例如，增加複本的數目) 也很有用
 * 分割區移動 (重新組態)：每當具狀態分割區經歷重新組態 (複本集發生變更) 時，平台會記錄事件。 如果您正在嘗試了解分割區複本集變更或容錯移轉的頻率，或是追蹤哪個節點在任何時間點執行主要複本，此功能將能派上用場。
 * Chaos 事件：使用 Service Fabric 的 [Chaos](service-fabric-controlled-chaos.md) 服務時，每當服務啟動或停止，或是在系統中插入錯誤時，您都可以看到事件。
-* 健康情況事件：每當警告或錯誤健康情況報告建立時、實體恢復良好健康情況時，或健康情況報告到期時，Service Fabric 都會公開健康情況事件。 這些事件特別有助於追蹤實體的歷史健康情況統計資料。 
+* 运行状况事件：每次创建了“警告”或“错误”运行状况报告时，或者当实体恢复为“正常”运行状况状态时，或者当运行状况报告过期时，Service Fabric 都会公开运行状况事件。 這些事件特別有助於追蹤實體的歷史健康情況統計資料。 
 
 ## <a name="how-to-access-events"></a>如何存取事件
 
 存取 Service Fabric 事件的方法有好幾個：
-* 事件透過標準的管道 (例如 ETW/Windows 事件記錄檔) 記錄，並且可由任何支援這些事件的監視工具 (例如 Log Analytics) 顯示。 根據預設，在入口網站中建立的叢集已開啟診斷，並讓 Windows Azure 診斷代理程式將事件傳送至 Azure 資料表儲存體，但您仍需要將其與 Log Analytics 資源整合。 深入了解如何設定 [Azure 診斷代理程式](service-fabric-diagnostics-event-aggregation-wad.md)修改叢集的診斷設定，以選取更多記錄或效能計數器，以及 [Log Analytics 整合](service-fabric-diagnostics-event-analysis-oms.md)
+* 事件會透過標準的管道，例如 ETW/Windows 事件記錄檔記錄，並可藉由支援這些等 Azure 監視記錄檔的任何監視工具。 根據預設，入口網站中建立的叢集已開啟的診斷和 Windows Azure 診斷代理程式將事件傳送至 Azure 資料表儲存體，但您仍然需要整合這與您的 log analytics 資源。 深入了解設定[Azure 診斷代理程式](service-fabric-diagnostics-event-aggregation-wad.md)若要修改您的叢集，以取得更多記錄或效能計數器的診斷組態和[Azure 監視器記錄整合](service-fabric-diagnostics-event-analysis-oms.md)
 * EventStore 服務 Rest API，或透過 Service Fabric 用戶端程式庫可讓您直接查詢叢集。 請參閱[查詢 EventStore API 以查詢叢集事件](service-fabric-diagnostics-eventstore-query.md)。
 
 ## <a name="next-steps"></a>後續步驟

@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c70c3cc1818e85c03c78524d1e8571af6d686218
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 4fb14b49e573770aaef13d6b5d47c265337c408c
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429055"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568918"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>映像分析認知技能
 
@@ -34,16 +34,16 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 這些參數會區分大小寫。
 
-| 參數名稱     | 說明 |
+| 參數名稱     | 描述 |
 |--------------------|-------------|
 | defaultLanguageCode   |  此字串表示要傳回的語言。 服務會以指定語言傳回辨識結果。 如果未指定此屬性，則預設值為「en」。 <br/><br/>支援的語言為： <br/>*en* - 英文 (預設) <br/> *zh* - 簡體中文|
-|visualFeatures |   此字串陣列表示要傳回的視覺功能類型。 有效的視覺功能類型包括：  <ul><li> *類別* - 根據認知服務[說明文件](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)中定義的分類法，來分類映像內容。</li><li> *標記* - 使用與映像內容相關之字組的詳細清單標記映像。</li><li>*說明* - 用完整的英文句子說明映像內容。</li><li>*臉部* - 偵測臉部是否存在。 如果有的話，會產生座標、性別和年齡。</li><li> *ImageType* - 偵測映像是美工圖案或線條繪圖。</li><li>   *色彩* - 決定輔色、主要色彩，以及映像是否為黑白。</li><li>*成人* - 偵測映像是否涉及色情 (描繪裸露或性行為)。 也會偵測出性暗示內容。</li></ul> 視覺功能的名稱會區分大小寫。|
+|visualFeatures |   此字串陣列表示要傳回的視覺功能類型。 有效的視覺功能類型包括：  <ul><li> *類別* - 根據認知服務[說明文件](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)中定義的分類法，來分類映像內容。</li><li> *標記* - 使用與映像內容相關之字組的詳細清單標記映像。</li><li>*說明* - 用完整的英文句子說明映像內容。</li><li>*臉部* - 偵測臉部是否存在。 如果有的話，會產生座標、性別和年齡。</li><li> *ImageType* -偵測到映像是否為美工圖案或線條繪圖。</li><li>  *色彩* - 決定輔色、主要色彩，以及映像是否為黑白。</li><li>*成人* - 偵測映像是否涉及色情 (描繪裸露或性行為)。 也會偵測出性暗示內容。</li></ul> 視覺功能的名稱會區分大小寫。|
 | 詳細資料   | 字串陣列表示要傳回的特定領域詳細資料。 有效的視覺功能類型包括： <ul><li>*名人* - 識別映像中偵測到的名人。</li><li>*地標* - 識別映像中偵測到的地標。</li></ul>
  |
 
 ## <a name="skill-inputs"></a>技能輸入
 
-| 輸入名稱      | 說明                                          |
+| 輸入名稱      | 描述                                          |
 |---------------|------------------------------------------------------|
 | 映像         | 複雜類型。 目前僅可搭配 "/document/normalized_images" 欄位使用，該欄位是由 Azure Blob 索引子在 ```imageAction``` 被設定為 ```none``` 以外的其他值時產生。 如需詳細資訊，請參閱[範例](#sample-output)。|
 
@@ -110,16 +110,16 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
     "values": [
         {
             "recordId": "1",
-            "data": {                
-                "image":  {
-                               "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
-                               "width": 500,
-                               "height": 300,
-                               "originalWidth": 5000,  
-                               "originalHeight": 3000,
-                               "rotationFromOriginal": 90,
-                               "contentOffset": 500  
-                           }
+            "data": {
+                "image": {
+                    "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
+                    "width": 500,
+                    "height": 300,
+                    "originalWidth": 5000,
+                    "originalHeight": 3000,
+                    "rotationFromOriginal": 90,
+                    "contentOffset": 500
+                }
             }
         }
     ]
@@ -132,18 +132,18 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 ```json
 {
     "values": [
-      {
-        "recordId": "1",
+        {
+            "recordId": "1",
             "data": {
                 "categories": [
-           {
+                    {
                         "name": "abstract_",
                         "score": 0.00390625
                     },
                     {
-                "name": "people_",
+                        "name": "people_",
                         "score": 0.83984375,
-                "detail": {
+                        "detail": {
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
@@ -214,7 +214,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
                     {
                         "age": 44,
                         "gender": "Male",
-                    "faceBoundingBox": {
+                        "faceBoundingBox": {
                             "left": 593,
                             "top": 160,
                             "width": 250,
@@ -236,8 +236,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
                     "clipArtType": 0,
                     "lineDrawingType": 0
                 }
-           }
-      }
+            }
+        }
     ]
 }
 ```
@@ -246,7 +246,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 ## <a name="error-cases"></a>錯誤案例
 在下列錯誤案例中，不會擷取任何元素。
 
-| 錯誤碼 | 說明 |
+| 錯誤碼 | 描述 |
 |------------|-------------|
 | NotSupportedLanguage | 不支援提供的語言。 |
 | InvalidImageUrl | 映像 URL 格式不正確或無法存取。|
@@ -256,7 +256,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | NotSupportedImage | 不支援的映像，例如兒童色情內容。 |
 | InvalidDetails | 不支援的特定領域模型。 |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

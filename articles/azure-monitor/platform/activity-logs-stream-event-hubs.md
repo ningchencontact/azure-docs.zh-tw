@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 3d4c1029315e754410f31b13042d1d6acb105da1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429764"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309684"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>將 Azure 活動記錄檔串流至事件中樞
 您可以藉由下列任一方式，將 [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)近乎即時地串流至任何應用程式：
@@ -58,21 +58,24 @@ ms.locfileid: "54429764"
 6. 如果您有數個訂用帳戶，請重複執行此動作，並將所有資料傳送給相同的事件中樞。
 
 ### <a name="via-powershell-cmdlets"></a>透過 PowerShell Cmdlet
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 如果記錄設定檔已經存在，您必須先移除現有的記錄設定檔，然後再建立新的記錄設定檔。
 
-1. 使用 `Get-AzureRmLogProfile` 來識別記錄設定檔是否存在。  如果記錄設定檔存在，請找出 name 屬性。
-2. 使用 `Remove-AzureRmLogProfile` 透過 name 屬性中的值來移除記錄設定檔。
+1. 使用 `Get-AzLogProfile` 來識別記錄設定檔是否存在。  如果記錄設定檔存在，請找出 name 屬性。
+2. 使用 `Remove-AzLogProfile` 透過 name 屬性中的值來移除記錄設定檔。
 
     ```powershell
     # For example, if the log profile name is 'default'
-    Remove-AzureRmLogProfile -Name "default"
+    Remove-AzLogProfile -Name "default"
     ```
-3. 使用 `Add-AzureRmLogProfile` 來建立新的記錄設定檔：
+3. 使用 `Add-AzLogProfile` 來建立新的記錄設定檔：
 
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your event hub belongs to>"
@@ -81,7 +84,7 @@ ms.locfileid: "54429764"
    # Build the service bus rule Id from the settings above
    $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
 ### <a name="via-azure-cli"></a>透過 Azure CLI

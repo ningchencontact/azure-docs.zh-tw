@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076429"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452652"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>管理 Azure DevTest Labs 公式
 
@@ -69,7 +69,7 @@ ms.locfileid: "55076429"
     - **IP 位址組態** - 指定您想要公用、私人或共用 IP 位址。 如需共用 IP 位址的詳細資訊，請參閱[了解 Azure DevTest Labs 中的共用 IP 位址](./devtest-lab-shared-ip.md)。
     - **到期日和時間** - 指定 VM 的到期日和時間，以便自動刪除 VM。 
     - **允許宣告此機器** -「允許宣告」機器表示建立機器時不會指派擁有權。 取而代之的是，實驗室使用者將能夠在實驗室的頁面中，取得 (認領) 機器的擁有權。     
-    - **可認領的執行個體數目** - 指定您想要建立的可認領執行個體數目。 
+    - **可宣告的執行個體數目**-指定您要建立多少個可宣告的執行個體。 
 8. 選取 [提交] 以建立公式。
 
 9. 公式在建立之後會顯示在 [公式] 頁面的清單中。

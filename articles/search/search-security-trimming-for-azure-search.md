@@ -9,12 +9,12 @@ author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314222"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453485"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>在 Azure 搜尋服務中進行安全性篩選以調整結果
 
@@ -152,9 +152,9 @@ api-key: [admin or query key]
 ```
 ## <a name="conclusion"></a>結論
 
-以此作法，可根據使用者身分識別與 Azure 搜尋服務 `search.in()` 函式來篩選結果。 您可使用此函式傳入要求使用者的主體識別碼，向每個目標文件比對關聯的主體識別碼。 處理搜尋要求時，`search.in` 函式會篩選出沒有任何使用者主體具備讀取權限的搜尋結果。 主體識別碼可代表安全性群組、角色等等，甚至可代表使用者的專屬身分識別。
+以此作法，可根據使用者身分識別與 Azure 搜尋服務 `search.in()` 函式來篩選結果。 您可以使用此函式將在提出要求的使用者，要比對每個目標文件相關聯的主體識別碼的主體識別項。 處理搜尋要求時，`search.in` 函式會篩選出沒有任何使用者主體具備讀取權限的搜尋結果。 主體識別碼可代表安全性群組、角色等等，甚至可代表使用者的專屬身分識別。
  
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [使用 Azure 搜尋服務篩選來進行 Active Directory 身分識別型存取控制](search-security-trimming-for-azure-search-with-aad.md)
 + [Azure 搜尋服務中的篩選條件](search-filters.md)

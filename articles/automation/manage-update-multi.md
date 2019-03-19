@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427418"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531314"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -70,9 +70,9 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>為非 Azure 虛擬機器和電腦啟用「更新管理」
 
-若要了解如何為非 Azure Windows 虛擬機器和電腦啟用「更新管理」，請參閱[將 Windows 電腦連線到 Azure 中的 Log Analytics 服務](../log-analytics/log-analytics-windows-agent.md)。
+若要了解如何為非 Azure Windows 虛擬機器和電腦啟用更新管理，請參閱[連線的 Windows 電腦連線到 Azure 中的 Azure 監視器服務](../log-analytics/log-analytics-windows-agent.md)。
 
-若要了解如何為非 Azure Linux 虛擬機器和電腦啟用「更新管理」，請參閱[將您的 Linux 電腦連線到 Log Analytics](../log-analytics/log-analytics-agent-linux.md)。
+若要了解如何為非 Azure Linux 虛擬機器和電腦啟用更新管理，請參閱[將您的 Linux 電腦連線至 Azure 監視器記錄](../log-analytics/log-analytics-agent-linux.md)。
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>檢視連結到自動化帳戶的電腦
 
@@ -104,7 +104,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 下表描述本解決方案支援的連線來源：
 
-| 連線的來源 | 支援 | 說明 |
+| 連線的來源 | 支援 | 描述 |
 | --- | --- | --- |
 | Windows 代理程式 |是 |「更新管理」會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
 | Linux 代理程式 |是 |「更新管理」會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
@@ -113,7 +113,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ### <a name="collection-frequency"></a>收集頻率
 
-在電腦完成更新合規性掃描之後，代理程式會將資訊以大量方式轉送至 Azure Log Analytics。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。
+在電腦完成更新合規性掃描之後，代理程式會將轉送至 Azure 監視器記錄的大量資訊。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。
 
 除了掃描排程，如果在更新安裝之前與更新安裝之後重新啟動 MMA，則會在 15 分鐘內起始更新合規性掃描。
 
@@ -132,7 +132,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 - **名稱**：輸入唯一名稱來識別更新部署。
 - **作業系統**：選取 [Windows] 或 [Linux]。
 - **要更新的群組 (預覽)**：根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建置要包含在您部署中的動態 Azure VM 群組。 若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)
-- **要更新的機器**：選取已儲存的搜尋或已匯入的群組，或選取機器，以選擇您想要更新的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 您可以在排程更新部署之前，先查看機器的健康情況。 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../azure-monitor/platform/computer-groups.md)
+- **要更新的機器**：選取已儲存的搜尋或已匯入的群組，或選取機器，以選擇您想要更新的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 您可以在排程更新部署之前，先查看機器的健康情況。 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md)
 
   ![[新增更新部署] 窗格](./media/manage-update-multi/update-select-computers.png)
 
@@ -159,7 +159,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 - **重新啟動控制** - 此設定可決定如何處理更新部署的重新開機。
 
-   |選項|說明|
+   |選項|描述|
    |---|---|
    |在必要時重新開機| **(預設值)** 如有需要，會在維護時段允許的情況下啟動重新開機。|
    |一律重新開機|不論是否有必要，皆會啟動重新開機。 |

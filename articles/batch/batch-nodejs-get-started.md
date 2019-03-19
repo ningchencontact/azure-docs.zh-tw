@@ -7,16 +7,16 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164614"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772169"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>開始使用適用於 Node.js 的 Batch SDK
 
@@ -260,7 +260,7 @@ Azure Batch 作業是相似工作的邏輯群組。 在我們的案例中，這�
 這些工作會以平行方式執行並且部署於多個節點 (由 Azure Batch 服務協調)。
 
 > [!Tip]
-> 您可以使用 [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 屬性來指定可以在單一節點上同時執行的工作數目上限。
+> 您可以使用 [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 屬性來指定可以在單一節點上同時執行的工作數目上限。
 >
 >
 
@@ -273,7 +273,7 @@ Azure Batch 作業是相似工作的邏輯群組。 在我們的案例中，這�
 您可以在 Azure 儲存體帳戶上傳指令碼，並產生 SAS URI 來存取指令碼。 使用 Azure 儲存體 Node.js SDK 也可以自動執行此程序。
 
 > [!Tip]
-> 作業的準備工作只會在需要執行特定工作的 VM 節點上執行。 如果您想要在所有節點上安裝必要條件 (不管其上執行的工作為何)，可以在新增集區時使用 [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 屬性。 您可以使用下列準備工作定義以供參考。
+> 作業的準備工作只會在需要執行特定工作的 VM 節點上執行。 如果您想要在所有節點上安裝必要條件 (不管其上執行的工作為何)，可以在新增集區時使用 [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 屬性。 您可以使用下列準備工作定義以供參考。
 >
 >
 
@@ -349,7 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 此程式碼會將多個工作新增至集區。 而每項工作會在所建立 VM 集區中的節點上執行。 如果工作數目超過集區或 maxTasksPerNode 屬性中的 VM 數目，工作會等到節點可用為止。 Azure Batch 會自動處理此協調流程。
 
-入口網站有工作與作業狀態的詳細檢視。 您也可以使用此清單並取得 Azure 節點 SDK 中的函式。 文件[連結](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)中會提供詳細資料。
+入口網站有工作與作業狀態的詳細檢視。 您也可以使用此清單並取得 Azure 節點 SDK 中的函式。 文件[連結](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)中會提供詳細資料。
 
 ## <a name="next-steps"></a>後續步驟
 

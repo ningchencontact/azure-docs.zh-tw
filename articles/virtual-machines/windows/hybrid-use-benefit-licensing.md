@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 4de6e4429543ea4f691cc3a38c15b896b866075b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980715"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570363"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Benefit
 對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit 部署具有 Windows OS 的新虛擬機器。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟，以及您如何更新現有的執行中 VM。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
@@ -33,7 +33,7 @@ ms.locfileid: "55980715"
 >
 
 > [!NOTE]
-> 對於傳統 VM，只支援從內部部署的自訂映像部署新 VM。 若要充分利用本文章所支援的功能，您必須先將傳統 VM 移轉至 Resource Manager 模型。
+> 針對傳統 Vm，支援僅部署新的 VM 從內部部署自訂映像上。 若要充分利用本文章所支援的功能，您必須先將傳統 VM 移轉至 Resource Manager 模型。
 >
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
@@ -53,7 +53,7 @@ ms.locfileid: "55980715"
 ### <a name="portal"></a>入口網站
 若要使用適用於 Windows Server 的 Azure Hybrid Benefit 建立 VM，請使用 [省錢] 區段底下的切換開關。
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 
 
 ```powershell
@@ -77,11 +77,11 @@ az vm create \
 ### <a name="template"></a>範本
 在 Resource Manager 範本內，必須指定 `licenseType` 的額外參數。 您可以進一步了解如何[製作 Azure Resource Manager 範本](../../resource-group-authoring-templates.md)
 ```json
-"properties": {  
-   "licenseType": "Windows_Server",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Server",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>轉換使用適用於 Windows Server 的 Azure Hybrid Benefit 的現有 VM
@@ -94,7 +94,7 @@ az vm create \
 ### <a name="portal"></a>入口網站
 您可以從入口網站 VM 刀鋒視窗中，藉由選取 [設定] 選項並且切換 [Azure Hybrid Benefit] 選項，將 VM 更新為使用 Azure Hybrid Benefit
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 - 將現有的 Windows Server VM 轉換為適用於 Windows Server 的 Azure Hybrid Benefit
 
     ```powershell
@@ -124,7 +124,7 @@ az vm create \
 ### <a name="portal"></a>入口網站
 從入口網站 VM 刀鋒視窗中，您可以選取 [設定] 索引標籤以檢視適用於 Windows Server 的 Azure Hybrid Benefit 切換開關。
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 下列範例顯示單一 VM 的授權類型
 ```powershell
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
@@ -159,9 +159,9 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Wind
 ### <a name="portal"></a>入口網站
 從虛擬機器或虛擬機器擴展集資源刀鋒視窗中，您可以將資料表資料行設定為包含 "Azure Hybrid Benefit"，以檢視所有 VM 和授權類型的清單。 VM 設定可以處於「已啟用」、「未啟用」或「不支援」狀態。
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzVM 
+$vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>使用適用於 Windows Server 的 Azure Hybrid Benefit 部署虛擬機器擴展集
-在虛擬機器擴展集 Resource Manager 範本內，必須在 VirtualMachineProfile 屬性中指定額外參數 `licenseType`。 您可以在建立或更新擴展集期間，透過 ARM 範本、Powershell、Azure CLI 或 REST 執行此動作。
+在虛擬機器擴展集 Resource Manager 範本內，必須在 VirtualMachineProfile 屬性中指定額外參數 `licenseType`。 您可以在建立期間執行這項操作，或更新您的擴展集透過 ARM 範本、 PowerShell、 Azure CLI 或 REST。
 
 下列範例使用 ARM 範本搭配 Windows Server 2016 Datacenter 映像︰
 ```json

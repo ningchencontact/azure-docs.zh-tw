@@ -11,15 +11,15 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: db540326ccdf1683394eda4e168a684e8e2ae3db
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 2cfb8f922819802834d9833ae614f5bc5b4ff886
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605869"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764459"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>採用 Python Tools for Visual Studio 的 Python Web 和背景工作角色
 
@@ -74,7 +74,7 @@ Azure 提供三種用以執行應用程式的計算模型：[Azure App Service �
 
 安裝指令碼的主要問題是其未安裝 python。 首先，在 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 檔案中定義兩個[啟動工作](cloud-services-startup-tasks.md)。 第一個工作 (**PrepPython.ps1**) 會下載並安裝 Python 執行階段。 第二個工作 (**PipInstaller.ps1**) 會執行 pip 以安裝您可能具有的任何相依項目。
 
-下列指令碼是針對 Python 3.5 而撰寫。 如果您想要使用 2.x 版的 python，請針對兩個啟動工作以及執行階段工作將 **PYTHON2** 變數檔案設定為 [on]︰`<Variable name="PYTHON2" value="<mark>on</mark>" />`。
+下列指令碼是針對 Python 3.5 而撰寫。 要使用 2.x 版 Python，请针对两个启动任务以及运行时任务将 **PYTHON2** 变量文件设置为 **on**：`<Variable name="PYTHON2" value="<mark>on</mark>" />`。
 
 ```xml
 <Startup>
@@ -360,11 +360,11 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Python Tools for Visual Studio]: https://aka.ms/ptvs
+[Python Tools for Visual Studio Documentation]: https://aka.ms/ptvsdocs
 [Cloud Service Projects]: https://docs.microsoft.com/visualstudio/python/python-azure-cloud-service-project-template
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
-[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
-[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
+[Azure SDK Tools for VS 2013]: https://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: https://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/

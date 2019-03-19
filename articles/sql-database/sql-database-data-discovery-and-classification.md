@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892876"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448759"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database 的資料探索與分類
 
@@ -31,7 +31,7 @@ ms.locfileid: "55892876"
 資料探索與分類是[進階資料安全性](sql-database-advanced-data-security.md) (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 資料探索與分類可以透過中央 SQL ADS 入口網站存取及管理。
 
 > [!NOTE]
-> 這份文件只與 Azure SQL Database 相關。 若是 SQL Server (內部部署)，請參閱 [SQL 資料探索與分類](https://go.microsoft.com/fwlink/?linkid=866999)。
+> 這份文件只與 Azure SQL Database 相關。 SQL Server （內部部署），請參閱 < [SQL 資料探索和分類](https://go.microsoft.com/fwlink/?linkid=866999)。
 
 ## <a id="subheading-1"></a>什麼是資料探索與分類
 
@@ -132,7 +132,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 您可以使用 T-SQL 新增/移除資料行分類，以及擷取整個資料庫的所有分類。
 
 > [!NOTE]
-> 使用 T-SQL 管理標籤時，系統不會驗證新增到資料行的標籤是否存在於組織資訊保護原則 (顯示於入口網站建議中的那組標籤)。 因此，此驗證需由您執行。
+> 使用 T-SQL 管理標籤時，系統不會驗證新增到資料行的標籤是否存在於組織資訊保護原則 (顯示於入口網站建議中的那組標籤)。 因此，這項驗證需由您執行。
 
 - 新增/更新一或多個資料行的分類：[新增敏感度分類](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - 移除一或多個資料行的分類：[卸除敏感度分類](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
@@ -144,7 +144,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - [刪除](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 刪除指定資料行的敏感度標籤
 - [取得](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 取得指定資料行的敏感度標籤
 - [依資料庫列出目前的標籤](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) \(英文\) - 取得指定資料庫目前的敏感度標籤
-- [依資料庫列出建議的標籤](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) \(英文\) - 取得指定資料庫目前的敏感度標籤
+- [按数据库列出建议项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 获取给定数据库的建议敏感度标签
 
 ## <a id="subheading-5"></a>接續步驟
 

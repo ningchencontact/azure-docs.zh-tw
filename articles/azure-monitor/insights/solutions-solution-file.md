@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999363"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776643"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
@@ -68,7 +68,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 下表說明參數的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | type |變數的資料類型。 針對使用者顯示的輸入控制項視資料類型而定。<br><br>bool - 下拉式方塊<br>string - 文字方塊<br>int - 文字方塊<br>securestring - 密碼欄位<br> |
 | category |參數的選擇性類別。  相同類別中的參數會群組在一起。 |
@@ -83,7 +83,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 >
 >
 
-| 參數 | 類型 | 說明 |
+| 參數 | 類型 | 描述 |
 |:--- |:--- |:--- |
 | accountName |字串 |Azure 自動化帳戶名稱。 |
 | pricingTier |字串 |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
@@ -211,7 +211,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 ### <a name="properties"></a>properties
 解決方案資源具有下表中的屬性。  這包括由定義解決方案安裝後如何管理資源的解決方案所參考及包含的資源。  解決方案中的每個資源應列在 **referencedResources** 或 **containedResources** 屬性中。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | workspaceResourceId |具有以下形式的 Log Analytics 工作區識別碼：*<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<工作區名稱\>*。 |
 | referencedResources |解決方案移除時不應移除的解決方案資源清單。 |
@@ -222,20 +222,13 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 ### <a name="plan"></a>規劃
 解決方案資源的**計劃**實體具有下表中的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | name |解決方案的名稱。 |
 | version |作者所決定的解決方案版本。 |
 | product |識別解決方案的唯一字串。 |
 | publisher |解決方案的發佈者。 |
 
-
-
-## <a name="sample"></a>範例
-您可以在以下位置檢視具有解決方案資源的解決方案檔範例。
-
-- [自動化資源](solutions-resources-automation.md#sample)
-- [搜尋和警示資源](solutions-resources-searches-alerts.md#sample)
 
 
 ## <a name="next-steps"></a>後續步驟

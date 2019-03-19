@@ -1,7 +1,7 @@
 ---
 title: 在 Azure 儲存體總管中管理 Azure Data Lake Storage Gen1 資源
 description: 了解如何在 Azure 儲存體總管中存取和管理 Azure Data Lake Storage Gen1 資料與資源
-Keywords: Azure Data Lake Store, Azure Storage Explorer
+Keywords: Azure Data Lake Store、 Azure 儲存體總管
 services: Data Lake Store
 documentationcenter: ''
 author: jejiang
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: bf2af67bb9498d4814f63fa66fdd50171ce0b4a1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966257"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534339"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>使用儲存體總管管理 Azure Data Lake Storage Gen1 資源
 
@@ -195,7 +195,7 @@ Data Lake Storage Gen1 帳戶的資源包含資料夾和檔案。
 
 
 ## <a name="next-steps"></a>後續步驟
-* 檢視 [最新的儲存體 Explorer 版本資訊與影片](http://www.storageexplorer.com)。
+* 檢視 [最新的儲存體 Explorer 版本資訊與影片](https://www.storageexplorer.com)。
 * 了解如何[在 Azure 儲存體總管中管理 Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/storage-explorer)。
 * [開始使用儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [開始使用 Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)。

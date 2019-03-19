@@ -4,16 +4,16 @@ description: 與 Azure 地圖服務、位置服務，以及 GIS 相關的常用�
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/18/2018
-ms.topic: resource
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 3b8af6f3f91c54c78cc3b277068272c27055e4aa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816878"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775028"
 ---
 # <a name="glossary"></a>詞彙
 
@@ -55,7 +55,7 @@ ms.locfileid: "55816878"
 
 <a name="azure-maps-key"></a> **Azure Maps key** (Azure 地圖服務金鑰)：Azure 地圖服務金鑰是用來驗證使用者的 Azure 地圖服務應用程式或服務要求的唯一字串。 
 
-## <a name="b"></a>B
+## <a name="b"></a>b
 
 <a name="base-map"></a> **Base map** (基本地圖)：地圖應用程式顯示背景參考資訊 (例如道路、地標及行政界線) 的部分。
 

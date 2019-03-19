@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2364152cc897ac02c3fcdff68423c64737bb1a78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 104caa001f773c48a708879f3f9b50b74190fc74
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187657"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>教學課程：Azure Active Directory 與 ForeSee CX Suite 整合
 
@@ -120,7 +120,7 @@ ms.locfileid: "56187657"
 
     ![[ForeSee CX Suite 網域及 URL] 單一登入資訊](./media/foreseecxsuite-tutorial/urlupload.png)
 
-1. 如果您沒有**服務提供者中繼資料檔案**，請執行下列步驟：
+1. 如果您尚未**服務提供者中繼資料檔案**，執行下列步驟：
 
     ![[ForeSee CX Suite 網域及 URL] 單一登入資訊](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 

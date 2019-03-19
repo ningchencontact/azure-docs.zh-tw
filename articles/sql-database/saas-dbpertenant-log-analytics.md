@@ -1,6 +1,6 @@
 ---
-title: 搭配 SQL Database 多租用戶應用程式使用 Log Analytics | Microsoft Docs
-description: 設定及使用 Log Analytics 搭配多租用戶 Azure SQL Database SaaS 應用程式
+title: SQL Database 多租用戶應用程式中使用 Azure 監視器記錄檔 |Microsoft Docs
+description: 設定及使用多租用戶的 Azure SQL Database SaaS 應用程式使用 Azure 監視器記錄檔
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,22 +12,24 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7a5245a9c97748e7b46132eaaa91f6bbc8311266
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475137"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455916"
 ---
-# <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>設定及使用 Log Analytics 搭配多租用戶 SQL Database SaaS 應用程式
+# <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>設定和多租用戶的 SQL Database SaaS 應用程式中使用 Azure 監視器記錄檔
 
-在本教學課程中，您會設定及使用 Azure [Log Analytics](/azure/log-analytics/log-analytics-overview) 來監視彈性集區和資料庫。 本教學課程是以[效能監視與管理教學課程](saas-dbpertenant-performance-monitoring.md)為基礎。 其中示範如何使用 Log Analytics 來增強 Azure 入口網站中所提供的監視和警示功能。 Log Analytics 支援監視數千個彈性集區和數十萬個資料庫。 Log Analytics 也提供單一監視解決方案，可以跨多個 Azure 訂用帳戶，整合不同應用程式和 Azure 服務的監視。
+在本教學課程中，設定及使用[Azure 監視器記錄](/azure/log-analytics/log-analytics-overview)來監視彈性集區和資料庫。 本教學課程是以[效能監視與管理教學課程](saas-dbpertenant-performance-monitoring.md)為基礎。 它示範如何使用 Azure 監視器記錄檔來增強的監視和警示功能在 Azure 入口網站中提供。 Azure 監視器記錄支援監視數千個彈性集區和數十萬個資料庫。 Azure 監視器記錄檔會提供單一監視解決方案，可以整合不同的應用程式和 Azure 服務的監視跨多個 Azure 訂用帳戶。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-> * 安裝及設定 Log Analytics。
-> * 使用 Log Analytics 來監視集區和資料庫。
+> * 安裝和設定 Azure 監視器記錄檔。
+> * 使用 Azure 監視器來監視集區和資料庫的記錄。
 
 若要完成本教學課程，請確定已完成下列必要條件：
 
@@ -36,11 +38,11 @@ ms.locfileid: "55475137"
 
 如需了解 SaaS 案例和模式的討論，及其對於監視解決方案需求的影響，請參閱[效能監視與管理教學課程](saas-dbpertenant-performance-monitoring.md)。
 
-## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics"></a>使用 Log Analytics 來監視及管理資料庫和彈性集區的效能
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-azure-monitor-logs"></a>監視及管理使用 Azure 監視器記錄的資料庫和彈性集區效能
 
 針對 Azure SQL Database，Azure 入口網站中提供了有關資料庫和集區的監視與警示功能。 這個內建的監視與警示功能相當方便，但它也是資源特定的功能。 這意謂著它較不適合用來監視大型安裝項目，或是提供跨資源和訂用帳戶的合併檢視。
 
-針對大量的情況，您可以使用 Log Analytics 來進行監視和警示。 Log Analytics 是個別的 Azure 服務，能夠針對 可能從許多服務收集至工作區中的診斷記錄和遙測資料進行分析。 Log Analytics 提供內建的查詢語言和資料視覺化工具，可進行操作資料分析。 「SQL 分析」解決方案提供數個預先定義的彈性集區及資料庫監視與警示檢視和查詢。 Log Analytics 也提供自訂檢視設計工具。
+高容量的情況下，您可以使用 Azure 監視器記錄檔，用於監視和警示。 Azure 監視器是一種個別的 Azure 服務，可透過診斷記錄檔和工作區中從可能有多個服務所收集的遙測。 Azure 監視器記錄檔會提供內建的查詢語言和資料視覺效果工具，可讓操作資料分析。 「SQL 分析」解決方案提供數個預先定義的彈性集區及資料庫監視與警示檢視和查詢。 Azure 監視器記錄檔也會提供自訂檢視設計工具。
 
 OMS 工作區現在稱為 Log Analytics 工作區。 您可以在 Azure 入口網站中開啟 Log Analytics 工作區和分析解決方案。 Azure 入口網站是較新的存取點，但在某些方面可能落後於 Operations Management Suite 入口網站。
 
@@ -55,7 +57,7 @@ OMS 工作區現在稱為 Log Analytics 工作區。 您可以在 Azure 入口�
 
 1. 現在，啟動負載產生器，以在所有租用戶上執行模擬負載。
 
-    a. 設定 **$DemoScenario = 2**，產生一般強度負載 (約為 30 DTU)。
+    a. 設定 **$DemoScenario = 2**，_產生一般強度負載 (大約 30 DTU)_。
 
     b. 若要執行指令碼，請按 F5。
 
@@ -63,27 +65,27 @@ OMS 工作區現在稱為 Log Analytics 工作區。 您可以在 Azure 入口�
 
 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 存放庫中提供了 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式原始程式碼。 如需有關下載 Wingtip Tickets PowerShell 指令碼及將其解除封鎖的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
 
-## <a name="install-and-configure-log-analytics-and-the-azure-sql-analytics-solution"></a>安裝及設定 Log Analytics 和 Azure SQL 分析解決方案
+## <a name="install-and-configure-log-analytics-workspace-and-the-azure-sql-analytics-solution"></a>安裝及設定 Log Analytics 工作區和 Azure SQL 分析解決方案
 
-Log Analytics 是一項必須設定的個別服務。 Log Analytics 會將記錄資料、遙測及計量收集至 Log Analytics 工作區中。 就像 Azure 中的其他資源一樣，Log Analytics 工作區是必須建立的資源。 工作區不一定要建立在與其監視之應用程式相同的資源群組中。 不過，這麼做通常最有意義。 針對 Wingtip Tickets 應用程式，請使用單一資源群組，以確保工作區會隨著應用程式一起刪除。
+Azure 監視器是個別的服務，您必須設定。 Azure 監視器會記錄在 Log Analytics 工作區中收集記錄資料、 遙測以及計量。 就像 Azure 中的其他資源一樣，Log Analytics 工作區是必須建立的資源。 工作區不一定要建立在與其監視之應用程式相同的資源群組中。 不過，這麼做通常最有意義。 針對 Wingtip Tickets 應用程式，請使用單一資源群組，以確保工作區會隨著應用程式一起刪除。
 
 1. 在 PowerShell ISE 中，開啟 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*。
 1. 若要執行指令碼，請按 F5。
 
-現在，您可以在 Azure 入口網站中開啟 Log Analytics。 需要幾分鐘的時間才能將遙測資料收集至 Log Analytics 工作區中並顯示出來。 您讓系統收集診斷資料的時間越長，體驗就會更有趣。 
+現在您可以開啟 Azure 監視器會記錄在 Azure 入口網站中。 需要幾分鐘的時間才能將遙測資料收集至 Log Analytics 工作區中並顯示出來。 您讓系統收集診斷資料的時間越長，體驗就會更有趣。 
 
-## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>使用 Log Analytics 和 SQL 分析解決方案來監視集區和資料庫
+## <a name="use-log-analytics-workspace-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>使用 Log Analytics 工作區和 SQL 分析解決方案來監視集區和資料庫
 
 
-在此練習中，開啟 Azure 入口網站中的 Log Analytics，以查看針對資料庫和集區蒐集的遙測資料。
+在此練習中，開啟 Azure 入口網站，以查看針對資料庫和集區蒐集遙測資料中的 Log Analytics 工作區。
 
-1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 [所有服務] 以開啟 Log Analytics。 然後搜尋 Log Analytics。
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 **所有服務**以開啟 Log Analytics 工作區。 然後搜尋 Log Analytics。
 
-   ![開啟 Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
+   ![開啟 Log Analytics 工作區](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
 1. 選取名為 wtploganalytics-&lt;user&gt; 的工作區。
 
-1. 選取 [概觀] 以在 Azure 入口網站中開啟 Log Analytics 解決方案。
+1. 選取 **概觀**以在 Azure 入口網站中開啟 log analytics 解決方案。
 
    ![概觀](media/saas-dbpertenant-log-analytics/click-overview.png)
 
@@ -98,7 +100,7 @@ Log Analytics 是一項必須設定的個別服務。 Log Analytics 會將記錄
 
 1. 若要瀏覽摘要頁面，請選取圖格或個別的資料庫，以開啟向下鑽研的總管頁面。
 
-    ![Log Analytics 儀表板](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
+    ![Log analytics 儀表板](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
 1. 變更篩選設定以修改時間範圍。 針對本教學課程，請選取 [過去 1 小時]。
 
@@ -131,11 +133,11 @@ Log Analytics 是一項必須設定的個別服務。 Log Analytics 會將記錄
 
 在 Log Analytics 工作區中，您可以進一步探索記錄和計量資料。 
 
-Log Analytics 中的監視和警示是以工作區中的資料查詢為基礎，不同於 Azure 入口網站中每個資源上定義的警示。 由於警示是以查詢為基礎，因此您可以定義可查看所有資料庫的單一警示，而不是為每個資料庫定義一個警示。 查詢僅受限於工作區中可用的資料。
+監視和警示 Azure 監視器中記錄檔以查詢為基礎，請在工作區，不同於 Azure 入口網站中的每個資源上定義的警示中的資料。 由於警示是以查詢為基礎，因此您可以定義可查看所有資料庫的單一警示，而不是為每個資料庫定義一個警示。 查詢僅受限於工作區中可用的資料。
 
-如需有關如何使用 Log Analytics 來查詢及設定警示的詳細資訊，請參閱[使用 Log Analytics 中的警示規則](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating)。
+如需有關如何使用 Azure 監視器記錄檔來查詢及設定警示的詳細資訊，請參閱 < [Azure 監視器中的警示規則的工作記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating)。
 
-SQL Database 的 Log Analytics 會根據工作區中的資料量收費。 在本教學課程中，您已建立一個免費工作區，其每天的限制為 500 MB。 在達到該限制之後，就不會再將資料新增至該工作區。
+Azure 監視器記錄的工作區中的資料量為基礎的 SQL Database 費用。 在本教學課程中，您已建立一個免費工作區，其每天的限制為 500 MB。 在達到該限制之後，就不會再將資料新增至該工作區。
 
 
 ## <a name="next-steps"></a>後續步驟
@@ -143,12 +145,12 @@ SQL Database 的 Log Analytics 會根據工作區中的資料量收費。 在本
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-> * 安裝及設定 Log Analytics。
-> * 使用 Log Analytics 來監視集區和資料庫。
+> * 安裝和設定 Azure 監視器記錄檔。
+> * 使用 Azure 監視器來監視集區和資料庫的記錄。
 
 請嘗試[租用戶分析教學課程](saas-dbpertenant-log-analytics.md)。
 
 ## <a name="additional-resources"></a>其他資源
 
 * [以每一租用戶一個資料庫的初始 Tickets SaaS 應用程式部署為基礎的其他教學課程](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)
+* [Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)

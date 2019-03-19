@@ -2,18 +2,18 @@
 title: Azure 資料目錄版本資訊
 description: Azure 資料目錄的版本資訊。
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 539ef4f591a1ef0c6ab344e1d93a750133d9e089
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 60c5b7b55e417a5703010ea34cf75dcb20146c37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052813"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531674"
 ---
 # <a name="azure-data-catalog-release-notes"></a>Azure 資料目錄版本資訊
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Azure 資料目錄 2015 年 11 月 20 日版本的注意事項
@@ -29,7 +29,7 @@ ms.locfileid: "43052813"
 ### <a name="registering-and-connecting-to-teradata"></a>註冊並連接至 Teradata
 連接到 Teradata 資料來源時，使用者必須已安裝正確的 Teradata ODBC 驅動程式，符合所使用軟體的位元 (32 位元或 64 位元)。
 
-截至本 ADC 發行日為止，最新 [適用於 Windows 的 Teradata ODBC 驅動程式 (15.10 版)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) 相容於 Office 2013，但不相容於 Office 2016。
+截至本 ADC 發行日為止，最新 [適用於 Windows 的 Teradata ODBC 驅動程式 (15.10 版)](https://downloads.teradata.com/download/connectivity/odbc-driver/windows) 相容於 Office 2013，但不相容於 Office 2016。
 
 ## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Azure 資料目錄 2015 年 7 月 13 日版本的注意事項
 ### <a name="registering-and-connecting-to-oracle-database"></a>註冊並連接至 Oracle 資料庫
@@ -53,13 +53,13 @@ ms.locfileid: "43052813"
 
 此問題行為有兩個可能的原因：
 
-**原因 1：Active Directory Federation Services 設定**。資料來源註冊工具使用「表單驗證」，根據 Active Directory 驗證使用者登入。 Active Directory 系統管理員必須在全域驗證原則中啟用表單驗證，登入才會成功。
+**原因 1：Active Directory Federation Services 設定**資料來源註冊工具會使用表單驗證來驗證對 Active Directory 的使用者登入。 Active Directory 系統管理員必須在全域驗證原則中啟用表單驗證，登入才會成功。
 
 在某些情況下，只有當使用者是在公司網路上，或只有當使用者從公司網路外部連接時，才會發生此錯誤行為。 全域驗證原則允許分別為內部網路和外部網路連線啟用驗證方法。 如果使用者連線的網路未啟用表單驗證，可能會發生登入錯誤。
 
 如需詳細資訊，請參閱 [設定驗證原則](https://technet.microsoft.com/library/dn486781.aspx)。
 
-**原因 2：網路 Proxy 設定**。如果公司網路使用 Proxy 伺服器，註冊工具可能無法透過 Proxy 連線到 Azure Active Directory。 使用者可以編輯註冊工具的組態檔，將此區段加入至檔案，以確保註冊工具能夠連線：
+**原因 2：網路 proxy 設定**如果公司網路使用 proxy 伺服器，註冊工具可能無法透過 proxy 連線至 Azure Active Directory。 使用者可以編輯註冊工具的組態檔，將此區段加入至檔案，以確保註冊工具能夠連線：
 
       <system.net>
         <defaultProxy useDefaultCredentials="true" enabled="true">

@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458086"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769161"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
@@ -406,10 +406,10 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 
 
-|預存程序  |說明  |
+|預存程序  |描述  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     新增作業。    |
-|[sp_update_job ](#spupdatejob)    |      更新現有作業。   |
+|[sp_update_job](#spupdatejob)    |      更新現有作業。   |
 |[sp_delete_job](#spdeletejob)     |      刪除現有作業。   |
 |[sp_add_jobstep](#spaddjobstep)    |    將步驟新增至作業。     |
 |[sp_update_jobstep](#spupdatejobstep)     |     更新作業步驟。    |
@@ -420,7 +420,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 |[sp_delete_target_group](#spdeletetargetgroup)     |    刪除目標群組。     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    將資料庫或資料庫群組新增至目標群組。     |
 |[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     從目標群組中移除目標群組成員。    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    移除作業的歷程記錄。     |
+|[sp_purge_jobhistory](#sppurgejobhistory)    |    移除作業的歷程記錄。     |
 
 
 
@@ -447,16 +447,16 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
   
 #### <a name="arguments"></a>引數  
 
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 作業的名稱。 名稱必須是唯一的，且不可包含百分比 (%) 字元。 job_name 是 nvarchar(128)，沒有預設值。
 
-[ **@description =** ] 'description'  
+[ **\@description =** ] 'description'  
 作業的描述。 description 是 nvarchar (512)，預設值為 NULL。 如果省略 description，則會使用空字串。
 
-[ **@enabled =** ] enabled  
+[ **\@enabled =** ] enabled  
 指定是否啟用作業的排程。 Enabled 是位元，預設值是 0 (停用)。 如果為 0，則不會啟用作業，且不會依據排程執行作業；但您可以手動執行作業。 如果為 1，則會依據排程執行作業，且您可以手動執行作業。
 
-[ **@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =**] schedule_interval_type  
 此值表示要執行作業的時機。 schedule_interval_type 是 nvarchar(50)，預設值為 [單次]，而其值可以是下列其中之一：
 - 「單次」、
 - 「分鐘」、
@@ -465,16 +465,16 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 - 「週」、
 - 「月」、
 
-[ **@schedule_interval_count =** ] schedule_interval_count  
+[ **\@schedule_interval_count =** ] schedule_interval_count  
 每次執行作業之間所發生的 schedule_interval_count 期間數目。 schedule_interval_count 是 int，預設值為 1。 此值必須大於或等於 1。
 
-[ **@schedule_start_time =** ] schedule_start_time  
+[ **\@schedule_start_time =** ] schedule_start_time  
 可開始執行作業的日期。 schedule_start_time 是 DATETIME2，預設值為 0001-01-01 00:00:00.0000000。
 
-[ **@schedule_end_time =** ] schedule_end_time  
+[ **\@schedule_end_time =** ] schedule_end_time  
 可停止執行作業的日期。 schedule_end_time 是 DATETIME2，預設值為 9999-12-31 11:59:59.0000000。 
 
-[ **@job_id =** ] job_id OUTPUT  
+[ **\@job_id =** ] job_id OUTPUT  
 在作業成功建立後指派給作業的識別碼。 job_id 是 uniqueidentifier 類型的輸出變數。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -510,19 +510,19 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 ```
 
 #### <a name="arguments"></a>引數
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要更新的作業名稱。 job_name 是 nvarchar(128)。
 
-[ **@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 作業的新名稱。 new_name 是 nvarchar(128)。
 
-[ **@description =** ] 'description'  
+[ **\@description =** ] 'description'  
 作業的描述。 description 是 nvarchar(512)。
 
-[ **@enabled =** ] enabled  
+[ **\@enabled =** ] enabled  
 指定要啟用 (1) 還是不啟用 (0) 作業的排程。 Enabled 是位元。
 
-[ **@schedule_interval_type=** ] schedule_interval_type  
+[ **\@schedule_interval_type=** ] schedule_interval_type  
 此值表示要執行作業的時機。 schedule_interval_type 是 nvarchar(50)，而其值可以是下列其中之一：
 
 - 「單次」、
@@ -532,13 +532,13 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 - 「週」、
 - 「月」、
 
-[ **@schedule_interval_count=** ] schedule_interval_count  
+[ **\@schedule_interval_count=** ] schedule_interval_count  
 每次執行作業之間所發生的 schedule_interval_count 期間數目。 schedule_interval_count 是 int，預設值為 1。 此值必須大於或等於 1。
 
-[ **@schedule_start_time=** ] schedule_start_time  
+[ **\@schedule_start_time=** ] schedule_start_time  
 可開始執行作業的日期。 schedule_start_time 是 DATETIME2，預設值為 0001-01-01 00:00:00.0000000。
 
-[ **@schedule_end_time=** ] schedule_end_time  
+[ **\@schedule_end_time=** ] schedule_end_time  
 可停止執行作業的日期。 schedule_end_time 是 DATETIME2，預設值為 9999-12-31 11:59:59.0000000。 
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -567,10 +567,10 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 ```
 
 #### <a name="arguments"></a>引數
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要刪除的作業名稱。 job_name 是 nvarchar(128)。
 
-[ **@force =** ] force  
+[ **\@force =** ] force  
 指定是要在有任何作業正在執行時刪除並取消所有執行中的作業 (1)，還是要使任何執行中的作業成為失敗的作業 (0)。 force 是位元。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -622,79 +622,79 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 
 #### <a name="arguments"></a>引數
 
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要新增步驟的作業名稱。 job_name 是 nvarchar(128)。
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 作業步驟的序列識別碼。 步驟識別碼從 1 開始，並漸次遞增而不會跳號。 如果現有的步驟已具有此識別碼，則該步驟和所有後續步驟將會有累加的識別碼，而使這個新步驟可插入序列中。 若未指定，則會將 step_id 自動指派給步驟序列中的最後一個項目。 step_id 是 int。
 
-[ **@step_name =** ] step_name  
+[ **\@step_name =** ] step_name  
 步驟的名稱。 必須指定，但具有預設名稱 'JobStep' 的作業中採用的第一個步驟除外 (以利操作)。 step_name 是 nvarchar(128)。
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 此作業步驟所執行的命令類型。 command_type 是 nvarchar(50)，預設值為 TSql，表示 @command_type 參數的值為 T-SQL 指令碼。
 
 如果指定，則值必須是 TSql。
 
-[ **@command_source =** ] 'command_source'  
+[ **\@command_source =** ] 'command_source'  
 用來存放命令的位置類型。 command_source 是 nvarchar(50)，預設值為內嵌，表示 @command_source 參數的值為命令的常值文字。
 
 如果指定，則值必須是內嵌。
 
-[ **@command =** ] 'command'  
+[ **\@command =** ] 'command'  
 command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執行。 command 是 nvarchar(max)，預設值為 NULL。
 
-[ **@credential_name =** ] 'credential_name'  
+[ **\@credential_name =** ] 'credential_name'  
 存放在此作業控制資料庫中的資料庫範圍認證名稱，在此步驟執行時用來連線至目標群組內的每個目標資料庫。 credential_name 是 nvarchar(128)。
 
-[ **@target_group_name =** ] 'target-group_name'  
+[ **\@target_group_name =** ] 'target-group_name'  
 將執行作業步驟的目標資料庫所屬的目標群組名稱。 target_group_name 是 nvarchar(128)。
 
-[ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 作業步驟的初始執行嘗試失敗時，在第一次重試之前的延遲時間。 initial_retry_interval_seconds 是 int，預設值為 1。
 
-[ **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 重試之間的延遲上限。 如果重試之間的延遲時間超出此值，該延遲將會限定為此值。 maximum_retry_interval_seconds 是 int，預設值為 120。
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 在多個作業步驟執行嘗試失敗時要套用至重試延遲的乘數。 例如，如果第一次重試的延遲為 5 秒，降速乘數為 2.0，則第二次重試的延遲將是 10 秒，第三次重試的延遲將是 20 秒。 retry_interval_backoff_multiplier 是實數，預設值為 2.0。
 
-[ **@retry_attempts =** ] retry_attempts  
+[ **\@retry_attempts =** ] retry_attempts  
 初始嘗試失敗時的重試執行次數。 例如，如果 retry_attempts 值為 10，則將會有 1 次初始嘗試和 10 次重試，共計 11 次嘗試。 在最後一次重試失敗後，作業執行將會終止，且生命週期會失敗。 retry_attempts 是 int，預設值為 10。
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 允許執行步驟的時間長度上限。 如果超出此時間，作業執行將會終止，且生命週期會逾時。 step_timeout_seconds 是 int，預設值為 43,200 秒 (12 小時)。
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 如果不是 Null，則為命令的第一個結果集寫入的目的地類型。 output_type 是 nvarchar(50)，預設值為 NULL。
 
 如果指定，則值必須是 SqlDatabase。
 
-[ **@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] 'output_credential_name'  
 如果不是 Null，則為用來連線至輸出目的地資料庫的資料庫範圍認證的名稱。 如果 output_type 是 SqlDatabase，則必須指定。 output_credential_name 是 nvarchar(128)，預設值為 NULL。
 
-[ **@output_subscription_id =** ] 'output_subscription_id'  
+[ **\@output_subscription_id =** ] 'output_subscription_id'  
 需要描述。
 
-[ **@output_resource_group_name =** ] 'output_resource_group_name'  
+[ **\@output_resource_group_name =** ] 'output_resource_group_name'  
 需要描述。
 
-[ **@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] 'output_server_name'  
 如果不是 Null，則為包含輸出目的地資料庫的伺服器所具備的完整 DNS 名稱。 如果 output_type 是 SqlDatabase，則必須指定。 output_server_name 是 nvarchar(256)，預設值為 NULL。
 
-[ **@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] 'output_database_name'  
 如果不是 Null，則為包含輸出目的地資料表的資料庫名稱。 如果 output_type 是 SqlDatabase，則必須指定。 output_database_name 是 nvarchar(128)，預設值為 NULL。
 
-[ **@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] 'output_schema_name'  
 如果不是 Null，則為包含輸出目的地資料表的 SQL 結構描述名稱。 如果 output_type 是 SqlDatabase，則預設值為 dbo。 output_schema_name 是 nvarchar(128)。
 
-[ **@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] 'output_table_name'  
 如果不是 Null，則為命令的第一個結果集將會寫入的目標資料表名稱。 如果資料表尚不存在，則會根據傳回的結果集所具備的結構描述建立資料表。 如果 output_type 是 SqlDatabase，則必須指定。 output_table_name 是 nvarchar(128)，預設值為 NULL。
 
-[ **@job_version =** ] job_version OUTPUT  
+[  **\@job_version =** ] job_version 輸出  
 將會被指派新的作業版本號碼的輸出參數。 job_version 是 int。
 
-[ **@max_parallelism =** ] max_parallelism OUTPUT  
+[ **\@max_parallelism =** ] max_parallelism OUTPUT  
 每個彈性集區的平行處理原則最大層級。 如果設定，則作業步驟將會限定為最多僅為每個彈性集區執行該數量的資料庫。 此項目會套用至直接包含在目標群組中的每個彈性集區，或目標群組所含伺服器內的每個彈性集區。 max_parallelism 是 int。
 
 
@@ -746,79 +746,79 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 ```
 
 #### <a name="arguments"></a>引數
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 步驟所屬作業的名稱。 job_name 是 nvarchar(128)。
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 要修改的作業步驟識別碼。 必須指定 step_id 或 step_name。 step_id 是 int。
 
-[ **@step_name =** ] 'step_name'  
+[ **\@step_name =** ] 'step_name'  
 要修改的步驟名稱。 必須指定 step_id 或 step_name。 step_name 是 nvarchar(128)。
 
-[ **@new_id =** ] new_id  
+[ **\@new_id =** ] new_id  
 作業步驟的新序列識別碼。 步驟識別碼從 1 開始，並漸次遞增而不會跳號。 如果某個步驟重新排序，其他步驟將會自動重新編碼。
 
-[ **@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 步驟的新名稱。 new_name 是 nvarchar(128)。
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 此作業步驟所執行的命令類型。 command_type 是 nvarchar(50)，預設值為 TSql，表示 @command_type 參數的值為 T-SQL 指令碼。
 
 如果指定，則值必須是 TSql。
 
-[ **@command_source =** ] 'command_source'  
+[ **\@command_source =** ] 'command_source'  
 用來存放命令的位置類型。 command_source 是 nvarchar(50)，預設值為內嵌，表示 @command_source 參數的值為命令的常值文字。
 
 如果指定，則值必須是內嵌。
 
-[ **@command =** ] 'command'  
+[ **\@command =** ] 'command'  
 command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執行。 command 是 nvarchar(max)，預設值為 NULL。
 
-[ **@credential_name =** ] 'credential_name'  
+[ **\@credential_name =** ] 'credential_name'  
 存放在此作業控制資料庫中的資料庫範圍認證名稱，在此步驟執行時用來連線至目標群組內的每個目標資料庫。 credential_name 是 nvarchar(128)。
 
-[ **@target_group_name =** ] 'target-group_name'  
+[ **\@target_group_name =** ] 'target-group_name'  
 將執行作業步驟的目標資料庫所屬的目標群組名稱。 target_group_name 是 nvarchar(128)。
 
-[ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 作業步驟的初始執行嘗試失敗時，在第一次重試之前的延遲時間。 initial_retry_interval_seconds 是 int，預設值為 1。
 
-[ **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 重試之間的延遲上限。 如果重試之間的延遲時間超出此值，該延遲將會限定為此值。 maximum_retry_interval_seconds 是 int，預設值為 120。
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 在多個作業步驟執行嘗試失敗時要套用至重試延遲的乘數。 例如，如果第一次重試的延遲為 5 秒，降速乘數為 2.0，則第二次重試的延遲將是 10 秒，第三次重試的延遲將是 20 秒。 retry_interval_backoff_multiplier 是實數，預設值為 2.0。
 
-[ **@retry_attempts =** ] retry_attempts  
+[ **\@retry_attempts =** ] retry_attempts  
 初始嘗試失敗時的重試執行次數。 例如，如果 retry_attempts 值為 10，則將會有 1 次初始嘗試和 10 次重試，共計 11 次嘗試。 在最後一次重試失敗後，作業執行將會終止，且生命週期會失敗。 retry_attempts 是 int，預設值為 10。
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 允許執行步驟的時間長度上限。 如果超出此時間，作業執行將會終止，且生命週期會逾時。 step_timeout_seconds 是 int，預設值為 43,200 秒 (12 小時)。
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 如果不是 Null，則為命令的第一個結果集寫入的目的地類型。 若要將 output_type 的值重設為 NULL，請將此參數的值設為 '' (空字串)。 output_type 是 nvarchar(50)，預設值為 NULL。
 
 如果指定，則值必須是 SqlDatabase。
 
-[ **@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] 'output_credential_name'  
 如果不是 Null，則為用來連線至輸出目的地資料庫的資料庫範圍認證的名稱。 如果 output_type 是 SqlDatabase，則必須指定。 若要將 output_credential_name 的值重設為 NULL，請將此參數的值設為 '' (空字串)。 output_credential_name 是 nvarchar(128)，預設值為 NULL。
 
-[ **@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] 'output_server_name'  
 如果不是 Null，則為包含輸出目的地資料庫的伺服器所具備的完整 DNS 名稱。 如果 output_type 是 SqlDatabase，則必須指定。 若要將 output_server_name 的值重設為 NULL，請將此參數的值設為 '' (空字串)。 output_server_name 是 nvarchar(256)，預設值為 NULL。
 
-[ **@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] 'output_database_name'  
 如果不是 Null，則為包含輸出目的地資料表的資料庫名稱。 如果 output_type 是 SqlDatabase，則必須指定。 若要將 output_database_name 的值重設為 NULL，請將此參數的值設為 '' (空字串)。 output_database_name 是 nvarchar(128)，預設值為 NULL。
 
-[ **@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] 'output_schema_name'  
 如果不是 Null，則為包含輸出目的地資料表的 SQL 結構描述名稱。 如果 output_type 是 SqlDatabase，則預設值為 dbo。 若要將 output_schema_name 的值重設為 NULL，請將此參數的值設為 '' (空字串)。 output_schema_name 是 nvarchar(128)。
 
-[ **@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] 'output_table_name'  
 如果不是 Null，則為命令的第一個結果集將會寫入的目標資料表名稱。 如果資料表尚不存在，則會根據傳回的結果集所具備的結構描述建立資料表。 如果 output_type 是 SqlDatabase，則必須指定。 若要將 output_server_name 的值重設為 NULL，請將此參數的值設為 '' (空字串)。 output_table_name 是 nvarchar(128)，預設值為 NULL。
 
-[ **@job_version =** ] job_version OUTPUT  
+[  **\@job_version =** ] job_version 輸出  
 將會被指派新的作業版本號碼的輸出參數。 job_version 是 int。
 
-[ **@max_parallelism =** ] max_parallelism OUTPUT  
+[ **\@max_parallelism =** ] max_parallelism OUTPUT  
 每個彈性集區的平行處理原則最大層級。 如果設定，則作業步驟將會限定為最多僅為每個彈性集區執行該數量的資料庫。 此項目會套用至直接包含在目標群組中的每個彈性集區，或目標群組所含伺服器內的每個彈性集區。 若要將 max_parallelism 的值重設為 Null，請將此參數的值設為 -1。 max_parallelism 是 int。
 
 
@@ -853,16 +853,16 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 ```
 
 #### <a name="arguments"></a>引數
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要從中移除步驟的作業名稱。 job_name 是 nvarchar(128)，沒有預設值。
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 要刪除的作業步驟識別碼。 必須指定 step_id 或 step_name。 step_id 是 int。
 
-[ **@step_name =** ] 'step_name'  
+[ **\@step_name =** ] 'step_name'  
 要刪除的步驟名稱。 必須指定 step_id 或 step_name。 step_name 是 nvarchar(128)。
 
-[ **@job_version =** ] job_version OUTPUT  
+[  **\@job_version =** ] job_version 輸出  
 將會被指派新的作業版本號碼的輸出參數。 job_version 是 int。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -897,10 +897,10 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 ```
 
 #### <a name="arguments"></a>引數
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要從中移除步驟的作業名稱。 job_name 是 nvarchar(128)，沒有預設值。
 
-[ **@job_execution_id =** ] job_execution_id OUTPUT  
+[ **\@job_execution_id =** ] job_execution_id OUTPUT  
 將會被指派作業執行識別碼的輸出參數。job_version 是 uniqueidentifier。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -928,7 +928,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 
 #### <a name="arguments"></a>引數
-[ **@job_execution_id =** ] job_execution_id  
+[ **\@job_execution_id =** ] job_execution_id  
 要停止的作業執行識別碼。 job_execution_id 是 uniqueidentifier，識別碼為 NULL。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -958,10 +958,10 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 
 #### <a name="arguments"></a>引數
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 要建立的目標群組名稱。 target_group_name 是 nvarchar(128)，沒有預設值。
 
-[ **@target_group_id =** ] target_group_id OUTPUT 在作業成功建立後指派給作業的目標群組識別碼。 target_group_id 是 uniqueidentifier 類型的輸出變數，預設值為 NULL。
+[  **\@target_group_id =** ] target_group_id 輸出目標群組建立成功時，指派給作業的識別碼。 target_group_id 是 uniqueidentifier 類型的輸出變數，預設值為 NULL。
 
 #### <a name="return-code-values"></a>傳回碼值
 0 (成功) 或 1 (失敗)
@@ -988,7 +988,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 
 #### <a name="arguments"></a>引數
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 要刪除的目標群組名稱。 target_group_name 是 nvarchar(128)，沒有預設值。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -1022,31 +1022,31 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 ```
 
 #### <a name="arguments"></a>引數
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 要新增成員的目標群組名稱。 target_group_name 是 nvarchar(128)，沒有預設值。
 
-[ **@membership_type =** ] 'membership_type'  
+[ **\@membership_type =** ] 'membership_type'  
 指定是否要包含或排除目標群組成員。 target_group_name 是 nvarchar(128)，預設值為「包含」。 target_group_name 的有效值為「包含」或「排除」。
 
-[ **@target_type =** ] 'target_type'  
+[ **\@target_type =** ] 'target_type'  
 包含伺服器中的所有資料庫、彈性集區中的所有資料庫、分區對應中的所有資料庫或個別資料庫的目標資料庫或資料庫集合的類型。 target_type 是 nvarchar(128)，沒有預設值。 Target_type 的有效值為 'SqlServer'、'SqlElasticPool'、'Sql Database' 或 'SqlShardMap'。 
 
-[ **@refresh_credential_name =** ] 'refresh_credential_name'  
+[ **\@refresh_credential_name =** ] 'refresh_credential_name'  
 SQL Database 伺服器的名稱。 refresh_credential_name 是 nvarchar(128)，沒有預設值。
 
-[ **@server_name =** ] 'server_name'  
+[ **\@server_name =** ] 'server_name'  
 應新增至指定目標群組的 SQL Database 伺服器名稱。 當 target_type 為 ‘SqlServer’ 時，即應指定 server_name。 server_name 是 nvarchar(128)，沒有預設值。
 
-[ **@database_name =** ] 'database_name'  
+[ **\@database_name =** ] 'database_name'  
 應新增至指定目標群組的資料庫名稱。 當 target_type 為 ‘SqlDatabase’ 時，即應指定 database_name。 database_name 是 nvarchar(128)，沒有預設值。
 
-[ **@elastic_pool_name =** ] 'elastic_pool_name'  
+[ **\@elastic_pool_name =** ] 'elastic_pool_name'  
 應新增至指定目標群組的彈性集區名稱。 當 target_type 為 ‘SqlElasticPool’ 時，即應指定 elastic_pool_name。 elastic_pool_name 是 nvarchar(128)，沒有預設值。
 
-[ **@shard_map_name =** ] 'shard_map_name'  
+[ **\@shard_map_name =** ] 'shard_map_name'  
 應新增至指定目標群組的分區對應集區名稱。 當 target_type 為 ‘SqlSqlShardMap’ 時，即應指定 elastic_pool_name。 shard_map_name 是 nvarchar(128)，沒有預設值。
 
-[ **@target_id =** ] target_group_id OUTPUT  
+[ **\@target_id =** ] target_group_id OUTPUT  
 在目標群組成員新增至目標群組時指派給該成員的目標識別碼。 target_id 是 uniqueidentifier 類型的輸出變數，預設值為 NULL。
 傳回碼值 0 (成功) 或 1 (失敗)
 
@@ -1157,13 +1157,13 @@ GO
 ```
 
 #### <a name="arguments"></a>引數
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要刪除歷程記錄的作業名稱。 job_name 是 nvarchar(128)，預設值為 NULL。 必須指定 job_id 或 job_name，但不可同時指定兩者。
 
-[ **@job_id =** ] job_id  
+[ **\@job_id =** ] job_id  
  要刪除記錄的作業識別碼。 job_id 是 uniqueidentifier，預設值為 NULL。 必須指定 job_id 或 job_name，但不可同時指定兩者。
 
-[ **@oldest_date =** ] oldest_date  
+[ **\@oldest_date =** ] oldest_date  
  歷程記錄中要保存的最舊記錄。 oldest_date 是 DATETIME2，預設值為 NULL。 指定了 oldest_date 時，sp_purge_jobhistory 只會移除比指定的值還舊的記錄。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -1193,7 +1193,7 @@ GO
 [作業資料庫](sql-database-job-automation-overview.md#job-database)中提供下列檢視。
 
 
-|檢視  |說明  |
+|檢視  |描述  |
 |---------|---------|
 |[jobs_executions](#jobsexecutions-view)     |  顯示作業執行歷程記錄。      |
 |[jobs](#jobs-view)     |   顯示所有作業。      |
@@ -1211,7 +1211,7 @@ GO
 顯示作業執行歷程記錄。
 
 
-|資料行名稱|   資料類型   |說明|
+|資料行名稱|   資料類型   |描述|
 |---------|---------|---------|
 |**job_execution_id**   |uniqueidentifier|  作業執行的執行個體唯一識別碼。
 |**job_name**   |nvarchar(128)  |作業的名稱。
@@ -1239,7 +1239,7 @@ GO
 
 顯示所有作業。
 
-|資料行名稱|   資料類型|  說明|
+|資料行名稱|   資料類型|  描述|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |作業的名稱。|
 |**job_id**|    uniqueidentifier    |作業的唯一識別碼。|
@@ -1257,7 +1257,7 @@ GO
 
 顯示所有作業版本。
 
-|資料行名稱|   資料類型|  說明|
+|資料行名稱|   資料類型|  描述|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |作業的名稱。|
 |**job_id**|    uniqueidentifier    |作業的唯一識別碼。|
@@ -1270,7 +1270,7 @@ GO
 
 顯示每項作業的目前版本中包含的所有步驟。
 
-|資料行名稱    |資料類型| 說明|
+|資料行名稱    |資料類型| 描述|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| 作業的名稱。|
 |**job_id** |uniqueidentifier   |作業的唯一識別碼。|
@@ -1311,7 +1311,7 @@ GO
 
 列出所有目標群組。
 
-|資料行名稱|資料類型| 說明|
+|資料行名稱|資料類型| 描述|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |要刪除的目標群組 (資料庫集合) 的名稱。 
 |**target_group_id**    |uniqueidentifier   |目標群組的唯一識別碼。
@@ -1322,7 +1322,7 @@ GO
 
 顯示所有目標群組的所有成員。
 
-|資料行名稱|資料類型| 說明|
+|資料行名稱|資料類型| 描述|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128|要刪除的目標群組 (資料庫集合) 的名稱。 |
 |**target_group_id**    |uniqueidentifier   |目標群組的唯一識別碼。|

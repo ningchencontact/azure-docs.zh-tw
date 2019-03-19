@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 9a240e15049d1acd7344f3ecf7dbf41ff2c3850d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818782"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548212"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Python SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -33,9 +33,9 @@ ms.locfileid: "55818782"
 | |  |
 |---|---|
 |**下載 SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API 文件**|[Python API 參考文件](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**API 文件**|[Python API 參考文件](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**SDK 安裝指示**|[SDK 安裝指示](https://github.com/Azure/azure-cosmos-python)|
-|**參與 SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**参与 SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
 |**開始使用**|[開始使用 Python SDK](sql-api-python-application.md)|
 |**目前支援的平台**|[Python 2.7](https://www.python.org/downloads/) 和 [Python 3.5](https://www.python.org/downloads/)|
 
@@ -87,11 +87,11 @@ ms.locfileid: "55818782"
 * 新增針對 Cosmos DB 模擬器執行時停用 SSL 驗證的選項。
 * 移除相依要求模組必須為 2.10.0 的限制。
 * 已將分割區集合的最小輸送量從 10,100 RU/s 降低為 2500 RU/s。
-* 在預存程序執行期間，加入支援指令碼記錄功能。
+* 添加了在存储过程执行期间对启用脚本日志记录的支持。
 * REST API 版本在此版本中提升至 '2017-01-19'。
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* 對文件註解進行編輯性的變更。
+* 对文档注释进行编辑性更改。
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * 新增 Python 3.5 的支援。
@@ -108,7 +108,7 @@ ms.locfileid: "55818782"
 * 新增對多重區域資料庫帳戶的支援。
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
-* 新加入文件的存留時間 (TTL) 功能支援。
+* 添加了对文档生存时间 (TTL) 功能的支持。
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
 * 伺服器端資料分割相關錯誤修正，允許在分割區索引鍵路徑中使用特殊字元。
@@ -121,7 +121,7 @@ ms.locfileid: "55818782"
 
 ### <a name="a-name142142"></a><a name="1.4.2"/>1.4.2
 * 實作 Upsert。 已新增新的 UpsertXXX 方法以支援 Upsert 功能。
-* 實作以識別碼為基礎的路由。 不需變更公用 API，所有變更皆為內部變更。
+* 實作以識別碼為基礎的路由。 无公共 API 更改，全部均为内部更改。
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * 支援地理空間索引。
@@ -185,6 +185,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。 
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ede0b7cbeee9227a7023e5c0550a951897cc43e4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 69a3032ee96accdbafb32c96f4e9f3c89a0b3458
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821179"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539491"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用適用於 .NET 的 Batch 檔案慣例程式庫將作業和工作輸出保存到 Azure 儲存體
 
@@ -43,7 +43,7 @@ Azure Batch 提供多個方法來保存工作輸出。 檔案慣例最適合這�
 - 用戶端應用程式或作業中的其他工作必須依識別碼或依用途來尋找及下載工作輸出檔案。
 - 您想要在 Azure 入口網站中檢視工作輸出。
 
-如果您的情節與以上所列不同，可能需要考慮不同的方法。 如需保存工作輸出之其他選項的詳細資訊，請參閱[將作業和工作輸出保存到 Azure 儲存體](batch-task-output.md)。
+如果你的情形不同于上面列出的情形，则可能需要考虑其他方式。 若要详细了解持久保存任务输出的其他选项，请参阅[将作业和任务输出持久保存到 Azure 存储](batch-task-output.md)。
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Batch 檔案慣例標準是什麼？
 
@@ -57,7 +57,7 @@ Azure Batch 提供多個方法來保存工作輸出。 檔案慣例最適合這�
 
 若要使用檔案慣例程式庫將輸出資料保存到 Azure 儲存體，您必須先將 Azure 儲存體帳戶連結到您的 Batch 帳戶。 如果您尚未這麼做，請使用 [Azure 入口網站](https://portal.azure.com)將儲存體帳戶連結到您的 Batch 帳戶：
 
-1. 在 Azure 入口網站中瀏覽至您的 Batch 帳戶。
+1. 导航到 Azure 门户中的 Batch 帐户。
 1. 在 [設定] 下，選取 [儲存體帳戶]。
 1. 如果您還沒有與您的 Batch 帳戶相關聯的儲存體帳戶，請按一下 [儲存體帳戶 (無)]。
 1. 從訂用帳戶清單中選取儲存體帳戶。 為了達到最佳效能，使用位於與您執行工作所在之 Batch 帳戶相同區域的 Azure 儲存體帳戶。
@@ -121,7 +121,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 除了儲存工作輸出，您也可以儲存和整個作業相關聯的輸出。 例如，在影片轉譯作業的合併工作中，您可以將完整轉譯的影片以作業輸出的形式保存。 當您的作業完成時，用戶端應用程式即可列出並擷取該作業的輸出，而不需要查詢個別的工作。
 
-呼叫 [JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] 方法，並指定 [JobOutputKind][net_joboutputkind] 和檔案名稱以儲存作業輸出：
+通过调用 [JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] 方法存储作业输出，并指定 [JobOutputKind][net_joboutputkind] 和文件名：
 
 ```csharp
 CloudJob job = new JobOutputStorage(acct, jobId);
@@ -133,7 +133,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4"
 
 如同工作輸出的 **TaskOutputKind** 類型，您會使用 [JobOutputKind][net_joboutputkind] 類型來分類作業的保存檔案。 此參數可讓您在稍後查詢 (列出) 特定的輸出類型。 **JobOutputKind** 類型包含了輸出和預覽類別，且支援建立自訂類別。
 
-### <a name="store-task-logs"></a>儲存工作記錄檔
+### <a name="store-task-logs"></a>存储任务日志
 
 除了在工作或作業完成時將檔案保存到永久性儲存體之外，您可能也會需要保存在工作執行期間更新的檔案 &mdash; 例如記錄檔或 `stdout.txt` 和 `stderr.txt`。 針對此目的，Azure Batch 檔案慣例庫會提供 [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync] 方法。 透過 [SaveTrackedAsync][net_savetrackedasync]，您可以追蹤節點上檔案的更新 (依照您指定的時間間隔)，並將這些更新保存到 Azure 儲存體。
 
@@ -162,7 +162,7 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-加上註解的區段 `Code to process data and produce output file(s)` 是您的工作正常會執行的程式碼預留位置。 例如，您可能有程式碼會從 Azure 儲存體下載資料，並對這些資料執行轉換或計算。 此程式碼片段的重點，在於示範如何將這樣的程式碼用 `using` 區塊包裝，以透過 [SaveTrackedAsync][net_savetrackedasync] 定期更新檔案。
+加上註解的區段 `Code to process data and produce output file(s)` 是您的工作正常會執行的程式碼預留位置。 例如，您可能有程式碼會從 Azure 儲存體下載資料，並對這些資料執行轉換或計算。 此代码片段的重要部分演示了如何在 `using` 块中包装此类代码，以定期使用 [SaveTrackedAsync][net_savetrackedasync] 更新文件。
 
 節點代理程式是一項程式，會在集區中的每個節點上執行，並在節點與 Batch 服務之間提供命令和控制介面。 `Task.Delay` 呼叫在此 `using` 區塊的結尾是必要的，以確保節點代理程式有時間清除節點上 stdout.txt 檔案的標準內容。 若沒有此延遲，就可能會遺漏輸出的最後幾秒。 此延遲可能並非所有檔案都需要。
 
@@ -200,13 +200,13 @@ Azure 入口網站會顯示使用 [Batch 檔案慣例標準](https://github.com/
 1. 將 Azure 儲存體帳戶連結到您的 Batch 帳戶。
 1. 保存輸出時，依照預先定義的儲存體容器命名與檔案命名慣例。 您可以在檔案慣例程式庫的[讀我檔案][github_file_conventions_readme]中找到這些慣例的定義。 如果您使用 [Azure Batch 檔案慣例][nuget_package]程式庫來保存您的輸出，您的檔案會根據檔案慣例標準進行保存。
 
-若要在 Azure 入口網站中檢視工作輸出檔案和記錄，請瀏覽到您對其輸出有興趣的工作，然後按一下 [已儲存的輸出檔案] 或 [已儲存的記錄]。 此影像顯示識別碼為 "007" 之工作的 [已儲存的輸出檔案]  ：
+若要在 Azure 入口網站中檢視工作輸出檔案和記錄，請瀏覽到您對其輸出有興趣的工作，然後按一下 [已儲存的輸出檔案] 或 [已儲存的記錄]。 下图显示了 ID 为“007”的任务的“保存的输出文件”：
 
 ![Azure 入口網站中的 [工作輸出] 刀鋒視窗][2]
 
 ## <a name="code-sample"></a>程式碼範例
 
-[PersistOutputs][github_persistoutputs] 範例專案是 GitHub 上的其中一個 [Azure Batch 程式碼範例][github_samples]。 此 Visual Studio 解決方案示範如何使用 Azure Batch 檔案慣例庫，將工作輸出保存到永久性儲存體。 若要執行範例，請遵循下列步驟：
+[PersistOutputs][github_persistoutputs] 示例项目是 GitHub 上的 [Azure Batch 代码示例][github_samples]之一。 此 Visual Studio 解決方案示範如何使用 Azure Batch 檔案慣例庫，將工作輸出保存到永久性儲存體。 若要執行範例，請遵循下列步驟：
 
 1. 在 **Visual Studio 2017** 中開啟專案。
 2. 將您 Batch 和儲存體的**帳戶認證**新增到 Microsoft.Azure.Batch.Samples.Common 專案中的 **AccountSettings.settings**。
@@ -250,7 +250,7 @@ Azure 入口網站會顯示使用 [Batch 檔案慣例標準](https://github.com/
 [nuget_manager]: https://docs.nuget.org/consume/installing-nuget
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
-[storage_explorer]: http://storageexplorer.com/
+[storage_explorer]: https://storageexplorer.com/
 
-[1]: ./media/batch-task-output/task-output-01.png "入口網站中的 [已儲存的輸出檔案] 和 [已儲存的記錄檔] 選取器"
+[1]: ./media/batch-task-output/task-output-01.png "门户中“保存的输出文件”和“保存的日志”选择器"
 [2]: ./media/batch-task-output/task-output-02.png "Azure 入口網站中的 [工作輸出] 刀鋒視窗"

@@ -1,20 +1,20 @@
 ---
 title: 將裝置中的檔案上傳至使用節點的 Azure IoT 中樞 | Microsoft Docs
 description: 如何使用適用於 Node.js 的 Azure IoT 裝置 SDK 將檔案從裝置上傳至雲端。 上傳的檔案會儲存在 Azure 儲存體 blob 容器中。
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: dobett
-ms.openlocfilehash: b3afbeb5a3fa2cda6ec5eaabe368163a370352d1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f110fe84ab09e930947411a79c950af21cc5334c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568187"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544507"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
@@ -29,7 +29,7 @@ ms.locfileid: "55568187"
 
 * 包含映像的大型檔案
 * 影片
-* 取樣高頻率的震動資料
+* 以高频率采样的振动数据
 * 某種經前置處理過的資料。
 
 這些檔案通常會使用工具 (例如 [Azure Data Factory](../data-factory/introduction.md) 或 [Hadoop](../hdinsight/index.yml) 堆疊) 在雲端中進行批次處理。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
@@ -211,14 +211,14 @@ node SimulatedDevice.js
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已學到如何使用 IoT 中樞的檔案上傳功能來簡化從裝置上傳檔案。 您可以利用下列文章繼續探索 IoT 中樞功能和案例：
+在本教學課程中，您已學到如何使用 IoT 中樞的檔案上傳功能來簡化從裝置上傳檔案。 可以使用以下文章继续探索 IoT 中心功能和方案：
 
 * [以程式設計方式建立 IoT 中樞][lnk-create-hub]
 * [C SDK 簡介][lnk-c-sdk]
 * [Azure IoT SDK][lnk-sdks]
 
 <!-- Links -->
-[Azure IoT 開發人員中心]: http://azure.microsoft.com/develop/iot
+[Azure IoT 開發人員中心]: https://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

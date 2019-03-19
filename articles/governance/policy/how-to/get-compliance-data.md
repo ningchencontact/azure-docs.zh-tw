@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114105"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535199"
 ---
 # <a name="getting-compliance-data"></a>取得合規性資料
 
@@ -28,7 +28,7 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 在查看這些報告合規性的方法之前，讓我們來看何時會更新合規性資訊，以及觸發評估週期的頻率和事件。
 
 > [!WARNING]
-> 如果合規性狀態報告為**未註冊**，請確認您已註冊 **Microsoft.PolicyInsights** 資源提供者，且使用者有適當的角色型存取控制 (RBAC) 權限，如[此處](../overview.md#rbac-permissions-in-azure-policy)所述。
+> 如果合規性狀態報告為**未註冊**，確認**Microsoft.PolicyInsights**註冊資源提供者和使用者有適當的角色型存取控制 （RBAC) 權限中所述[Azure 原則中的 RBAC](../overview.md#rbac-permissions-in-azure-policy)。
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -142,25 +142,11 @@ Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形�
 
 ![原則合規性活動記錄](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="change-history-preview"></a>變更歷程記錄 (預覽)
+### <a name="understand-non-compliance"></a>了解非合規性
 
-在**公開預覽版**中，會提供不符合規範的資源過去 14 天的變更歷程記錄。 變更歷程記錄會提供關於何時偵測到變更的詳細資料，以及每項變更的_視覺化差異_。 對不符合規範的資源新增、移除或更改「資源管理員」屬性時，就會觸發變更偵測。
+<a name="change-history-preview"></a>
 
-1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
-
-1. 在 [概觀] 或 [合規性] 頁面上，選取 [不符合規範] 的原則。
-
-1. 在 [原則合規性] 頁面的 [資源合規性] 索引標籤下方，選取 [不符合規範] 的資源。
-
-1. 選取 [資源合規性] 頁面上的 [變更歷程記錄 (預覽)] 索引標籤。 偵測到的變更清單 (如果有的話) 會隨即顯示。
-
-   ![原則變更歷程記錄 - 索引標籤](../media/getting-compliance-data/change-history-tab.png)
-
-1. 選取其中一個偵測到的變更。 不符合規範的資源會在 [變更歷程記錄] 頁面上顯示其_視覺化差異_。
-
-   ![原則變更歷程記錄 - 視覺化差異](../media/getting-compliance-data/change-history-visual-diff.png)
-
-_視覺化差異_有助於識別資源的變更。 偵測到的變更不一定與導致資源不符合所選原則的原因有關。
+當資源已決定要**不符合規範**，有許多可能的原因。 若要判斷資源的原因**不符合規範**或責任的變更，請參閱[判斷非合規性](./determine-non-compliance.md)。
 
 ## <a name="command-line"></a>命令列
 
@@ -430,7 +416,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-如果您有一個 [Log Analytics 工作區](../../../log-analytics/log-analytics-overview.md)，其中 `AzureActivity` 解決方案已繫結至您的訂用帳戶，則您也可以使用簡單的「Azure 資料總管」查詢和 `AzureActivity` 資料表，以檢視來自評估週期的不符合規範結果。 有了「Azure 監視器」記錄中的詳細資料，您便可以設定警示來監看不符合規範的情況。
+如果您有[Log Analytics 工作區](../../../log-analytics/log-analytics-overview.md)具有`AzureActivity`從[Activity Log Analytics 解決方案](../../../azure-monitor/platform/collect-activity-logs.md)繫結至您的訂用帳戶，您也可以檢視從評估週期使用的非合規性結果簡單的 Kusto 查詢和`AzureActivity`資料表。 有了「Azure 監視器」記錄中的詳細資料，您便可以設定警示來監看不符合規範的情況。
 
 ![使用 Azure 監視器記錄的原則合規性](../media/getting-compliance-data/compliance-loganalytics.png)
 

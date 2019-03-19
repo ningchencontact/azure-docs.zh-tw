@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 534d1785336c68a771722f0f464eae278551ffc0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 89c14f783cd4e46809cb4cae2dcc4c0853a10993
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660233"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552039"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -43,7 +43,7 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 下表包含每一種支援語言的程式碼範例連結，並指出要用來以 MQTT 通訊協定連接到 IoT 中樞的參數。
 
-| 語言 | 通訊協定參數 |
+| 語言 | 协议参数 |
 | --- | --- |
 | [Node.js][lnk-sample-node] |azure-iot-device-mqtt |
 | [Java][lnk-sample-java] |IotHubClientProtocol.MQTT |
@@ -57,7 +57,7 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 這麼做時，請務必檢查下列項目︰
 
-* AMQP 在許多情況下會傳回錯誤，而 MQTT 會終止連線。 因此，可能需要稍微變更您的例外狀況處理邏輯。
+* AMQP 在許多情況下會傳回錯誤，而 MQTT 會終止連線。 因此异常处理逻辑可能需要进行一些更改。
 * MQTT 在接收[雲端到裝置訊息][lnk-messaging]時不支援「拒絕」作業。 如果您的後端應用程式需要接收來自裝置應用程式的回應，請考慮使用[直接方法][lnk-methods]。
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>直接使用 MQTT 通訊協定 (作為裝置)
@@ -192,13 +192,13 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 如需詳細資訊，請參閱[傳訊開發人員指南][lnk-messaging]。
 
-### <a name="receiving-cloud-to-device-messages"></a>接收雲端到裝置訊息
+### <a name="receiving-cloud-to-device-messages"></a>接收“云到设备”消息
 
 若要從 IoT 中樞接收訊息，裝置應該使用 `devices/{device_id}/messages/devicebound/#` 做為**主題篩選**來進行訂閱。 「主題篩選」中的多層級萬用字元 `#` 僅供用來允許裝置接收主題名稱中的額外屬性。 IoT 中樞不允許使用 `#` 或 `?` 萬用字元來篩選子主題。 由於「IoT 中樞」不是一般用途的發行/訂閱傳訊訊息代理程式，因此它只支援已記載的主題名稱和主題篩選。
 
 裝置在成功訂閱 IoT 中樞的裝置特定端點 (由 `devices/{device_id}/messages/devicebound/#` 主題篩選代表) 之後，才會收到來自 IoT 中樞的訊息。 建立訂閱之後，裝置將會接收在訂閱之後傳送給它的雲端到裝置訊息。 如果裝置是在 **CleanSession** 旗標設定為 **0** 的情況下連線，訂閱將會跨不同的工作階段持續保留。 在此情況下，下次裝置以 **CleanSession 0** 進行連線時，就會收到中斷連線時傳送給它的任何未送訊息。 如果裝置使用設定為 **1** 的 **CleanSession** 旗標，則必須等到訂閱 IoT 中樞的裝置端點之後，才會收到來自 IoT 中樞的訊息。
 
-IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 或 `devices/{device_id}/messages/devicebound/{property_bag}` (如果有訊息屬性) 來傳遞訊息。 `{property_bag}` 包含訊息屬性的 url 編碼索引鍵/值組。 屬性包中只會包含應用程式屬性和使用者可設定的系統屬性 (例如 **messageId** 或 **correlationId**)。 系統屬性名稱具有前置詞 **$**，但應用程式屬性則會使用沒有前置詞的原始屬性名稱。
+IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 或 `devices/{device_id}/messages/devicebound/{property_bag}` (如果有訊息屬性) 來傳遞訊息。 `{property_bag}` 包含訊息屬性的 url 編碼索引鍵/值組。 屬性包中只會包含應用程式屬性和使用者可設定的系統屬性 (例如 **messageId** 或 **correlationId**)。 系统属性名称具有前缀 **$**，但应用程序属性使用没有前缀的原始属性名称。
 
 當裝置應用程式訂閱具有 **QoS 2** 的主題時，IoT 中樞會在 **SUBACK** 封包中授與最大 QoS 層級 1。 之後，IoT 中樞會使用 QoS 1 將訊息傳遞給裝置。
 
@@ -226,7 +226,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 可能的狀態碼如下︰
 
-|狀態 | 說明 |
+|狀態 | 描述 |
 | ----- | ----------- |
 | 204 | 成功 (不會傳回任何內容) |
 | 429 | 要求過多 (已節流)，根據 [IoT 中樞節流][lnk-quotas] |
@@ -255,9 +255,9 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 }
 ```
 
-可能的狀態碼如下︰
+可能的状态代码为：
 
-|狀態 | 說明 |
+|狀態 | 描述 |
 | ----- | ----------- |
 | 200 | 成功 |
 | 400 | 不正確的要求。 JSON 格式錯誤 |
@@ -280,9 +280,9 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 如需詳細資訊，請參閱[裝置對應項開發人員指南][lnk-devguide-twin]。
 
-### <a name="receiving-desired-properties-update-notifications"></a>接收所需屬性更新通知
+### <a name="receiving-desired-properties-update-notifications"></a>接收所需属性更新通知
 
-當連接裝置時，IoT 中樞傳送通知給主題 `$iothub/twin/PATCH/properties/desired/?$version={new version}`，其中包含解決方案後端所執行的更新內容。 例如︰
+设备连接时，IoT 中心会向主题 `$iothub/twin/PATCH/properties/desired/?$version={new version}`发送通知，内附解决方案后端执行的更新内容。 例如︰
 
 ```json
 {
@@ -297,7 +297,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 > [!IMPORTANT]
 > IoT 中樞只會在連接裝置時產生變更通知。 請務必實作[裝置重新連線流程][lnk-devguide-twin-reconnection]，以便讓 IoT 中樞與裝置應用程式兩者所需的屬性保持同步。
 
-如需詳細資訊，請參閱[裝置對應項開發人員指南][lnk-devguide-twin]。
+有关详细信息，请参阅[设备孪生开发人员指南][lnk-devguide-twin]。
 
 ### <a name="respond-to-a-direct-method"></a>回應直接方法
 
@@ -319,7 +319,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 * [Azure IoT 認證裝置目錄][lnk-devices]
 * [支援其他通訊協定][lnk-protocols]
-* [與事件中樞比較][lnk-compare]
+* [与事件中心比较][lnk-compare]
 * [縮放、HA 及 DR][lnk-scaling]
 
 若要進一步探索 IoT 中樞的功能，請參閱︰
@@ -328,8 +328,8 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 * [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-mqtt-org]: http://mqtt.org/
-[lnk-mqtt-docs]: http://mqtt.org/documentation
+[lnk-mqtt-org]: https://mqtt.org/
+[lnk-mqtt-docs]: https://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm
@@ -339,7 +339,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 [lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-[lnk-devices]: https://catalog.azureiotsuite.com/
+[lnk-devices]: https://catalog.azureiotsolutions.com/
 [lnk-protocols]: iot-hub-protocol-gateway.md
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md

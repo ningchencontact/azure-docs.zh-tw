@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a21c9682cfeaa7421d089bf75eb9d8b45e1d3d46
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 68376751a3c673b2d89d028312f992aec40d4dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982755"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534611"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>使用 Azure 入口網站為 ExpressRoute 設定虛擬網路閘道
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "55982755"
 
 **組態參考清單**
 
-* 虛擬網路名稱 = "TestVNet"
+* 虚拟网络名称 = “TestVNet”
 * 虛擬網路位址空間 = 192.168.0.0/16
 * 子網路名稱 = "FrontEnd" 
     * 子網路位址空間 = "192.168.1.0/24"
@@ -49,7 +49,7 @@ ms.locfileid: "55982755"
 
 ## <a name="create-the-gateway-subnet"></a>建立閘道子網路
 
-1. 在[入口網站](http://portal.azure.com)中，瀏覽至要建立虛擬網路閘道的 Resource Manager 虛擬網路。
+1. 在[门户](https://portal.azure.com)中，导航到要为其创建虚拟网关的 Resource Manager 虚拟网络。
 2. 在 VNet 刀鋒視窗的 [設定] 中，按一下 [子網路] 以展開 [子網路] 刀鋒視窗。
 3. 在 [子網路] 刀鋒視窗中，按一下 [+閘道子網路] 以開啟 [新增子網路] 刀鋒視窗。 
    
@@ -62,7 +62,7 @@ ms.locfileid: "55982755"
 
 ## <a name="create-the-virtual-network-gateway"></a>建立虛擬網路閘道
 
-1. 在入口網站中，按一下左側的 **+** 並在搜尋中輸入「虛擬網路閘道」。 在搜尋傳回的結果中找出**虛擬網路閘道**，然後按一下該項目。 在 [虛擬網路閘道] 刀鋒視窗上，按一下刀鋒視窗底部的 [建立]。 這會開啟 [建立虛擬網路閘道] 刀鋒視窗。
+1. 在入口網站中，按一下左側的 **+** 並在搜尋中輸入「虛擬網路閘道」。 在搜索返回结果中找到“虚拟网络网关”，并单击该条目。 在 [虛擬網路閘道] 刀鋒視窗上，按一下刀鋒視窗底部的 [建立]。 這會開啟 [建立虛擬網路閘道] 刀鋒視窗。
 2. 在 [建立虛擬網路閘道] 刀鋒視窗上，填入您虛擬網路閘道的值。
 
     ![建立虛擬網路閘道刀鋒視窗欄位](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "建立虛擬網路閘道刀鋒視窗欄位")
@@ -70,7 +70,7 @@ ms.locfileid: "55982755"
 4. **閘道類型**：選取 [ExpressRoute]。
 5. **SKU**：從下拉式清單中選取閘道 SKU。
 6. **位置**：調整 [位置]  欄位以指向您的虛擬網路所在的位置。 如果位置並未指向您的虛擬網路所在的區域，則此虛擬網路不會出現在 [選擇虛擬網路] 下拉式清單中。
-7. 選擇您要新增此閘道的虛擬網路。 按一下 [虛擬網路] 以開啟 [選擇擇虛擬網路] 刀鋒視窗。 選取 VNet。 如果您沒看到您的 VNet，請確定 [位置] 欄位是指向您的虛擬網路所在的區域。
+7. 選擇您要新增此閘道的虛擬網路。 按一下 [虛擬網路] 以開啟 [選擇擇虛擬網路] 刀鋒視窗。 选择 VNet。 如果您沒看到您的 VNet，請確定 [位置] 欄位是指向您的虛擬網路所在的區域。
 9. 選擇公用 IP 位址。 按一下 [公用 IP 位址] 以開啟 [選擇公用 IP 位址] 刀鋒視窗。 按一下 [+新建] 以開啟 [建立公用 IP 位址] 刀鋒視窗。 輸入公用 IP 位址的名稱。 此刀鋒視窗會建立將動態獲派公用 IP 位址的公用 IP 位址物件。 按一下 [確定] 將變更儲存至此刀鋒視窗。
 10. 訂用帳戶：請確認已選取正確的訂用帳戶。
 11. **資源群組**：此設定取決於您選取的虛擬網路。

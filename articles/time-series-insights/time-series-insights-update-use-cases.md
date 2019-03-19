@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7625eb383beef2e86cc8a977362db09329a6ea1b
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: f4e14435c2ccab98619bec57fef0e121e2df4403
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556708"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431599"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure 時間序列深入解析預覽版使用案例
 
@@ -32,7 +32,7 @@ ms.locfileid: "53556708"
 
 ## <a name="introduction"></a>簡介
 
-時間序列深入解析為端對端的平台即服務供應項目。 它用來內嵌、處理、儲存和查詢高度相關的語境、時間序列最佳化 IoT 規模資料。 時間序列深入解析十分適用於特定資料探索及營運分析。 時間序列深入解析是唯一可延伸、可自訂，符合產業 IoT 部署廣泛需求的服務供應項目。
+時間序列深入解析為端對端的平台即服務供應項目。 它用來內嵌、處理、儲存和查詢高度相關的語境、時間序列最佳化 IoT 規模資料。 時間序列深入解析是適用於特定資料瀏覽和操作的分析。 時間序列深入解析是唯一可延伸、可自訂，符合產業 IoT 部署廣泛需求的服務供應項目。
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>資料探索與視覺化的異常偵測
 

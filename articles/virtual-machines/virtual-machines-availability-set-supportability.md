@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 13448f4b335d84264d4141cb4fb8c3eadcf0303e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: HT
+ms.openlocfilehash: 7a5e97b66fec040b4ec32caa8d58cf9b50169a33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35767495"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433139"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>在現有的可用性設定組中新增 Azure VM 的可支援性
 
@@ -38,4 +38,4 @@ ms.locfileid: "35767495"
 
 其他所有系列由於需要特定硬體，因此無法存在於相同的可用性設定組。
 
-因為專用 RDMA 後端網路的需求，所以 A8/A9 VM 大小不能混合。
+A8/A9 VM 大小不能混合因為專用 RDMA 後端網路上的需求。

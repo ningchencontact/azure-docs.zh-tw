@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9d80eddffaf376b6f6f0090dce74a4884b291531
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: de67ca0c209f9a61b00c5451a27a1198d0de3724
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405524"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532897"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>如何保護對資料目錄及資料資產的存取
 > [!IMPORTANT]
@@ -23,7 +23,7 @@ ms.locfileid: "47405524"
 ## <a name="catalog-users-and-permissions"></a>目錄使用者和權限
 將資料目錄的存取權授與使用者或群組並設定權限：
 
-1. 在[您資料目錄的首頁](http://www.azuredatacatalog.com)，按一下工具列上的 [設定]。
+1. 在[您資料目錄的首頁](https://www.azuredatacatalog.com)，按一下工具列上的 [設定]。
 
     ![資料目錄 - 設定](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. 在 [設定] 頁面中，展開 [目錄使用者] 區段。

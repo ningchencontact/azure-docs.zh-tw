@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: ff5890dcaf642d51c53b054e986689290be773ca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699239"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546666"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -42,35 +42,38 @@ ms.locfileid: "55699239"
 
 > [!IMPORTANT]
 > 從 2018 年 12 月 12 日開始，新的客戶將無法在巴西南部、加拿大中部、加拿大東部、東亞、美國東部 2、印度中部、印度西部、日本西部、美國中北部、美國西部佈建第 4 代計算伺服器。 先前在這些區域中建立的第 4 代計算伺服器，將於 2019 年 2 月 1 日移轉到第 5 代計算。
+>
+> [!IMPORTANT]
+> 從開始 2019 年 2 月 15 日，新客戶將無法佈建在美國中部、 美國東部、 日本東部、 北歐、 美國中南部、 東南亞、 西歐的計算第 4 代伺服器。 先前建立 4 部伺服器將會移轉至計算世代 5 開始於 2019 年 4 月 1 日，在這些區域中的計算世代。
 
 | **Azure 區域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|
 | 美國中部 |  | X |
 | 美國東部 |  | X |
-| 美國東部 2 | X | X |
-| 美國中北部 | X | X |
+| 美國東部 2 |  | X |
+| 美國中北部 |  | X |
 | 美國中南部 | X | X |
-| 美國西部 | X | X |
+| 美國西部 |  | X |
 | 美國西部 2 |  | X |
-| 巴西南部 | X | X |
-| 加拿大中部 | X | X |
-| 加拿大東部 | X | X |
+| 巴西南部 |  | X |
+| 加拿大中部 |  | X |
+| 加拿大東部 |  | X |
 | 北歐 | X | X |
 | 西歐 |  | X |
 | 法國中部 |  | X |
 | 英國南部 |  | X |
 | 英國西部 |  | X |
-| 東亞 | X | X |
+| 東亞 |  | X |
 | 東南亞 | X | X |
 | 澳洲東部 |  | X |
 | 澳大利亞中部 |  | X |
 | 澳大利亞中部 2 |  | X |
 | 澳大利亞東南部 |  | X |
-| 印度中部 | X | X |
+| 印度中部 |  | X |
 | 印度南部 |  | X |
-| 印度西部 | X | X |
+| 印度西部 |  | X |
 | 日本東部 | X | X |
-| 日本西部 | X | X |
+| 日本西部 |  | X |
 | 南韓中部 |  | X |
 | 南韓南部 |  | X |
 | 中國東部 1 | X |  |

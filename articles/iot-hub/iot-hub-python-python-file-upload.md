@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 295f96258b2f5d6612ae7c5f86c9f360232111f6
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 0fe2b33bc5f9a0b599934c4cabb065d4c97ea61b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507836"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549879"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
@@ -152,18 +152,18 @@ ms.locfileid: "55507836"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已學到如何使用 IoT 中樞的檔案上傳功能來簡化從裝置上傳檔案。 您可以利用下列文章繼續探索 IoT 中樞功能和案例：
+在本教學課程中，您已學到如何使用 IoT 中樞的檔案上傳功能來簡化從裝置上傳檔案。 可以使用以下文章继续探索 IoT 中心功能和方案：
 
 * [以程式設計方式建立 IoT 中樞][lnk-create-hub]
 * [C SDK 簡介][lnk-c-sdk]
 * [Azure IoT SDK][lnk-sdks]
 
 <!-- Links -->
-[Azure IoT 開發人員中心]: http://azure.microsoft.com/develop/iot
+[Azure IoT 開發人員中心]: https://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
+[lnk-visual-c-redist]: https://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/

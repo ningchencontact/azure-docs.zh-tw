@@ -3,20 +3,20 @@ title: 在 Azure Data Factory 中建立事件型觸發程序 | Microsoft Docs
 description: 了解如何在 Azure Data Factory 中建立會執行管線來回應事件的觸發程序。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: douglasl
-ms.openlocfilehash: fd7355c342a075f7b0c2e1173717c0345f1f94ba
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 94c9c3f997143d72262c1ba3d8dbfea90d6f920c
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428545"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576611"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>建立會執行管線來回應事件的觸發程序
 
@@ -69,7 +69,7 @@ ms.locfileid: "56428545"
 
 | **JSON 元素** | **說明** | **類型** | **允許的值** | **必要** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| scope | 儲存體帳戶的 Azure Resource Manager 資源識別碼。 | 字串 | Azure Resource Manager 識別碼 | yes |
+| scope | 儲存體帳戶的 Azure Resource Manager 資源識別碼。 | 字串 | Azure Resource Manager 識別碼 | 是 |
 | **events** | 會導致引發此觸發程序的事件類型。 | 陣列    | Microsoft.Storage.BlobCreated、Microsoft.Storage.BlobDeleted | 是，這些值的任意組合。 |
 | **blobPathBeginsWith** | Blob 路徑的開頭必須是提供來引發觸發程序的模式。 例如，`/records/blobs/december/` 只會針對 `records` 容器下 `december` 資料夾中的 Blob 引發觸發程序。 | 字串   | | 您必須為下列屬性中的至少一個屬性提供值：`blobPathBeginsWith` 或 `blobPathEndsWith`。 |
 | **blobPathEndsWith** | Blob 路徑的結尾必須是提供來引發觸發程序的模式。 例如，`december/boxes.csv` 只會針對 `december` 資料夾中名為 `boxes` 的 Blob 引發觸發程序。 | 字串   | | 您必須為下列屬性中的至少一個屬性提供值：`blobPathBeginsWith` 或 `blobPathEndsWith`。 |
@@ -81,7 +81,7 @@ ms.locfileid: "56428545"
 > [!IMPORTANT]
 > 每當您指定容器與資料夾、容器與檔案，或容器、資料夾與檔案時，都必須包含路徑的 `/blobs/` 區段，如下列範例所示。
 
-| 屬性 | 範例 | 說明 |
+| 屬性 | 範例 | 描述 |
 |---|---|---|
 | **Blob 路徑開頭** | `/containername/` | 接收容器中任何 Blob 的事件。 |
 | **Blob 路徑開頭** | `/containername/blobs/foldername/` | 接收 `containername` 容器與 `foldername` 資料夾中任何 Blob 的事件。 |

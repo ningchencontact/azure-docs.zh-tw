@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c547eba931e23b6ffc7cae176e19959d43bcf5e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602489"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405016"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>本機 Git 部署至 Azure App Service
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>使用 Kudu 組建從本機 Git 進行部署
+## <a name="deploy-with-kudu-builds"></a>部署使用 Kudu 組建
 
 使用 Kudu 組建伺服器為您的應用程式啟用本機 Git 部署的最簡單方式是使用 Cloud Shell。
 
@@ -102,7 +102,7 @@ git push azure master
 
 瀏覽至您的應用程式以確認已部署內容。
 
-## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>使用 Azure DevOps Services 組建從本機 Git 進行部署
+## <a name="deploy-with-azure-devops-builds"></a>部署使用 Azure DevOps 的組建
 
 > [!NOTE]
 > 若要讓 App Service 在 Azure DevOps Services 組織中建立必要的 Azure Pipelines，您的 Azure 帳戶必須具備 Azure 訂用帳戶的**擁有者**角色。
@@ -110,20 +110,18 @@ git push azure master
 
 若要使用 Kudu 組建伺服器為您的應用程式啟用本機 Git 部署，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至應用程式。
 
-在應用程式頁面的左側導覽中，按一下 [部署中心] > [本機 Git] > [繼續]。 
+在應用程式頁面的左側導覽中，按一下 [部署中心] > [本機 Git] > [繼續]。
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-按一下 [Azure DevOps Services 持續傳遞] > [繼續]。
+按一下  **Azure 管線 （預覽）** > **繼續**。
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-在 [設定] 頁面中，設定新的 Azure DevOps Services 組織或指定現有的組織。 完成後，按一下 [繼續]。
+在 **設定**頁面上，設定新的 Azure DevOps 組織，或指定現有的組織。 完成後，按一下 [繼續]。
 
 > [!NOTE]
-> 如果您想要使用未列出的現有 Azure DevOps Services 組織，則必須[將 Azure DevOps Services 組織連結至 Azure 訂用帳戶](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
-
-在 [測試] 頁面上，選擇是否要啟用負載測試，然後按一下 [繼續]。
+> 如果您想要使用現有的 Azure DevOps 組織未列出，您需要[連結至您的 Azure 訂用帳戶的 Azure DevOps 服務組織](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
 
 視 App Service 方案的[定價層](https://azure.microsoft.com/pricing/details/app-service/plans/)而定，您可能也會看到 [部署至預備] 頁面。 選擇是否要啟用部署位置，然後按一下 [繼續]。
 

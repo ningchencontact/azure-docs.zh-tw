@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 07592c6852a7fce057381cb9086baedc9d2b1bd6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111742"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239822"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>安全性警示地圖和威脅情報
 本文可協助您使用的 Azure 資訊安全中心安全性警訊地圖和以安全性事件為基礎的威脅情報地圖，以解決安全性相關問題。
@@ -62,7 +62,7 @@ ms.locfileid: "56111742"
 4. 在對應的頂端，選取 [檢視傳統威脅情報]。 [威脅情報] 儀表板隨即開啟。
 
    > [!NOTE]
-   > 如果最右側的資料行顯示 [升級計劃]，則此工作區是使用免費訂用帳戶。 升級至標準以使用此功能。 如果最右側的資料行顯示 [需要更新]，則更新 [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 以使用這項功能。 如需有關定價方案的詳細資訊，請閱讀 Azure 資訊安全中心定價。
+   > 如果最右側的資料行顯示 [升級計劃]，則此工作區是使用免費訂用帳戶。 升級至標準以使用此功能。 如果最右側資料行顯示**需要更新**，更新[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)使用這項功能。 如需有關定價方案的詳細資訊，請閱讀 Azure 資訊安全中心定價。
    >
 5. 如果您有多個工作區要調查，則根據 [惡意 IP] 資料行排定調查的優先順序。 它會顯示此工作區中的目前惡意 IP 數目。 選取您需要使用的工作區，[威脅情報] 儀表板隨即出現。
 
@@ -98,7 +98,7 @@ ms.locfileid: "56111742"
 - DNS 事件 (Type=DnsEvents)
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 在這篇文章中，您已學會如何使用資訊安全中心的威脅情報，可協助您識別可疑的活動。 如要深入了解資訊安全中心，請參閱下列文章：
 
 * [在 Azure 資訊安全中心管理和回應安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

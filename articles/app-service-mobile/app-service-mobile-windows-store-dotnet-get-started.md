@@ -11,15 +11,15 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 00b635853d0dfad73a258ddc8ef9b168559fc5df
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098420"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771305"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>建立具有 Azure 後端的 Windows 應用程式
 
@@ -44,11 +44,11 @@ ms.locfileid: "56098420"
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>建立新的 Azure 行動應用程式後端
 
-依照下列步驟建立新的行動應用程式後端。
+按照下列步骤创建新的移动应用后端。
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-您現在已佈建 Azure 行動應用程式後端，可供您的行動用戶端應用程式使用。 接下來，您將下載簡易「待辦事項清單」後端的伺服器專案，然後將專案發佈至 Azure。
+现已预配可供移动客户端应用程序使用的 Azure 移动应用后端。 接下来，将为简单的“待办事项列表”后端下载服务器项目并将其发布到 Azure。
 
 ## <a name="configure-the-server-project"></a>設定伺服器專案
 
@@ -65,7 +65,7 @@ ms.locfileid: "56098420"
 2. 開啟 UWP 專案，然後按 F5 鍵以部署和執行應用程式。
 3. 在應用程式的 [插入 TodoItem] 文字方塊中輸入有意義的文字 (例如「完成教學課程」(Complete the tutorial)」)，然後按一下 [儲存]。
 
-    ![Windows 快速入門完整桌面](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
+    ![Windows 快速入门完整桌面](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
     如此會傳送 POST 要求到 Azure 中代管的新行動應用程式後端。
 
@@ -78,7 +78,7 @@ ms.locfileid: "56098420"
   了解如何利用識別提供者來驗證應用程式的使用者。
 * [將推播通知新增至應用程式中](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   了解如何將推播通知支援新增至應用程式，並設定行動應用程式後端以使用 Azure 通知中樞傳送推播通知。
-* [啟用應用程式的離線同步處理](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+* [为应用启用脱机同步](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   了解如何使用行動應用程式後端，將離線支援新增至應用程式。 離線同步處理可讓使用者與行動應用程式進行互動&mdash;檢視、新增或修改資料&mdash;即使沒有網路連線進也可行。
 
 <!-- Anchors. -->

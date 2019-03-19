@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: bb5ef610e55495c372a47ff78e3252c9d8ec7055
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078775"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435911"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>能源需求預測的 Cortana Intelligence 解決方案範本教戰守則
 ## <a name="executive-summary"></a>執行摘要
@@ -85,7 +85,7 @@ ms.locfileid: "55078775"
 * 尖峰需求預測
 * 需求面管理
 * 負載平衡和預防超載
-* 長期負載預測
+* 长期负载预测
 * 故障和異常偵測
 * 尖峰限電/調節
 
@@ -187,7 +187,7 @@ Cortana Intelligence Suite 是位於雲端的整合式環境。 在雲端環境�
 
 下一段說明這 4 個步驟的程序︰
 
-1. **資料收集** – 任何以進階分析為基礎的解決方案都仰賴資料 (請參閱**了解資料**)。 具體來說，在提及預測性分析和預測時，我們需要持續、動態的資料流。 就能源需求預測而言，這項資料可能直接來自智慧型電表，或已在內部部署資料庫上彙總。 我們也依賴其他外部資料來源，例如天氣和溫度。 這個持續的資料流必須協調、排程及儲存。 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) 是我們完成這項工作的主力工具。
+1. **資料收集** – 任何以進階分析為基礎的解決方案都仰賴資料 (請參閱**了解資料**)。 具體來說，在提及預測性分析和預測時，我們需要持續、動態的資料流。 如果是能源需求預測而言，這項資料可以直接來自智慧型電表，或已在內部部署資料庫上彙總。 我們也依賴其他外部資料來源，例如天氣和溫度。 這個持續的資料流必須協調、排程及儲存。 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) 是我們完成這項工作的主力工具。
 2. **模型化** – 為了獲得精確又可靠的能源預測，我們必須開發 (訓練) 並維護一個優秀的模型，以利用歷史資料，並從資料中擷取有意義和可預測的模式。 隨著不斷開發出先進的演算法，機器學習服務 (ML) 領域一直在快速成長。 Azure ML Studio 提供絕佳的使用者體驗，有助於在完整的工作流程中利用最先進的 ML 演算法。 該工作流程如直覺式流程圖所示，包含準備資料、萃取特徵、模型化和評估模型。 使用者可以取用此環境中數以百計的各種不同模型。 此階段的結束時，資料科學家會獲得一個已完整評估且可部署的工作模型。
 
    下圖是一般工作流程的說明︰
@@ -213,9 +213,9 @@ Cortana Intelligence Suite 是位於雲端的整合式環境。 在雲端環境�
 * 問題編寫
 * 資料擷取和資料探索
 * 資料準備和特徵設計
-* 模型化
+* 建模
 * 模型評估
-* 開發
+* 开发
 
 在本節的其餘部分，我們將說明個別的步驟及每個步驟需要考量的項目。
 

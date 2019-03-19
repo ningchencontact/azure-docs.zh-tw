@@ -3,20 +3,20 @@ title: 使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料 | Mic
 description: 說明如何使用 Azure Data Factory 中的 Hadoop 資料流活動，藉由在 Hadoop 叢集上執行 Hadoop 資料流程式來轉換資料。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: b498e09e53f8b0844470bf3948a664d8ad4337b7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022218"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576424"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 HDInsight 資料�
 
 ## <a name="syntax-details"></a>語法詳細資料
 
-| 屬性          | 說明                              | 必要 |
+| 屬性          | 描述                              | 必要項 |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | 活動的名稱                     | 是      |
 | 說明       | 說明活動用途的文字 | 否       |

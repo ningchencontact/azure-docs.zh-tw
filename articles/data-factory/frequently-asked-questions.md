@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024088"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240791"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文提供 Azure Data Factory 常見問題集的解答。  
@@ -174,6 +174,33 @@ Data Factory 中的連結服務，有兩個用途：
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>如何正常處理活動輸出中的 Null 值？ 
 您可以在運算式中使用 `@coalesce` 建構來正常處理 Null 值。 
+
+## <a name="mapping-data-flows"></a>對應資料流程
+
+### <a name="which-adf-version-do-i-use-to-create-data-flows"></a>若要建立資料流程使用 ADF 版本？
+若要建立資料流程的使用 ADF V2 版本
+  
+### <a name="i-was-a-previous-private-preview-customer-using-data-flows-and-i-used-the-adf-v2-wdata-flows-preview-version"></a>我先前的私人預覽客戶，使用資料流，而且我使用 ADF V2 w/資料流預覽版本
+此版本現在已過時。 使用 ADF V2 資料流量
+  
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-data-flows"></a>功能已從私人預覽中變更為資料流程中的有限公開預覽？
+您不再必須攜帶您自己的 Databricks 叢集。 ADF 會管理叢集中建立和終止程式碼。 Blob 資料集和 ADLS 資料集分成分隔的文字和 Parquet 資料集。 您仍然可以使用 ADLS & Blob 存放區來儲存這些檔案。 這些儲存體引擎使用適當的連結服務。
+
+### <a name="can-i-migrate-my-private-preview-factories-to-adf-v2"></a>我是否可以將我的私人預覽 factory 移轉至 ADF V2？
+
+[是，請遵循此處的指示](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-do-you-need"></a>我需要幫助您疑難排解資料的流程邏輯，您需要什麼？
+
+當 Microsoft 將提供說明或疑難排解資料流動時，請提供 [DSL 程式碼方案]。 若要這樣做，請遵循下列步驟：
+
+* 從資料流程設計師，按一下右上角的"Code"。 這會顯示資料流程中的可編輯的 JSON 程式碼。
+* 從程式碼 檢視中，按一下 方案 右上角。 計劃切換會從 JSON 切換，唯讀格式化 DSL 指令碼方案。
+* 複製和貼上此指令碼或將它儲存在文字檔中。
+
+### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>如何存取在 ADF 中使用的其他 80 的資料集類型的資料？
+
+資料流目前可讓 Azure SQL DB、 Azure SQL DW、 從 Blob 或 ADLS，分隔的文字檔案和 Parquet 檔案從 Blob 或 ADLS 原生來源和接收。 使用 「 複製活動來接移資料，從任何其他的連接器，並執行資料流程的活動轉換資料之後已預備。 例如，您的管線會先將複製到 Blob，然後資料流程的活動會使用資料集來源中來轉換該資料。
 
 ## <a name="next-steps"></a>後續步驟
 如需建立資料處理站的逐步指示，請參閱下列教學課程：

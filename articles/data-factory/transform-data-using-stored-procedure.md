@@ -3,20 +3,19 @@ title: 使用 Azure Data Factory 中的預存程序活動轉換資料 | Microsof
 description: 說明如何使用 SQL Server 預存程序活動，以從 Data Factory 管線叫用 Azure SQL Database/資料倉儲中的預存程序。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: douglasl
-ms.openlocfilehash: a56e9c2a7cceed8012f35c9d02e9c3bc5703b31f
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353204"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575885"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 SQL Server 預存程序活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +65,7 @@ ms.locfileid: "54353204"
 
 下表說明這些 JSON 屬性：
 
-| 屬性                  | 說明                              | 必要 |
+| 屬性                  | 描述                              | 必要項 |
 | ------------------------- | ---------------------------------------- | -------- |
 | name                      | 活動的名稱                     | 是      |
 | 說明               | 說明活動用途的文字 | 否       |

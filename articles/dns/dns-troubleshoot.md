@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
-ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069094"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541565"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 疑難排解指南
 
@@ -69,11 +69,11 @@ DNS 名稱解析是多步驟程序，可能會因為許多原因而失敗。 下
 
 1.  確認已經在 Azure DNS 中正確設定 DNS 記錄。 在 Azure 入口網站中檢閱 DNS 記錄、檢查區域名稱、記錄名稱及記錄類型是否正確。
 2.  確認 DNS 記錄已在 Azure DNS 名稱伺服器上正確解析。
-    - 如果您從本機電腦執行 DNS 查詢，您可能會看到沒有反映名稱伺服器目前狀態的快取結果。  而且，公司網路通常是使用會防止 DNS 查詢被導向到特定名稱伺服器的 DNS Proxy 伺服器。  為避免發生這些問題，請使用網路型名稱解析服務，例如 [digwebinterface](http://digwebinterface.com)。
+    - 如果您從本機電腦執行 DNS 查詢，您可能會看到沒有反映名稱伺服器目前狀態的快取結果。  而且，公司網路通常是使用會防止 DNS 查詢被導向到特定名稱伺服器的 DNS Proxy 伺服器。  為避免發生這些問題，請使用網路型名稱解析服務，例如 [digwebinterface](https://digwebinterface.com)。
     - 請務必為您的 DNS 區域指定正確的名稱伺服器，如 Azure 入口網站中所顯示的。
     - 檢查 DNS 名稱是否正確 (您將必須指定包括區域名稱在內的完整名稱) 和記錄類型是否正確
 3.  確認 DNS 網域名稱已經正確[委派給 Azure DNS 名稱伺服器](dns-domain-delegation.md)。 有[許多第三方網站可提供 DNS 委派驗證](https://www.bing.com/search?q=dns+check+tool)。 這是一個*區域*委派測試，所以您應該只輸入 DNS 區域名稱，而不是完整的記錄名稱。
-4.  完成上述步驟之後，現在應該可以正確解析您的 DNS 記錄。 若要確認，您可以再使用一次 [digwebinterface](http://digwebinterface.com)，這一次使用預設名稱伺服器設定。
+4.  完成上述步驟之後，現在應該可以正確解析您的 DNS 記錄。 若要確認，您可以再使用一次 [digwebinterface](https://digwebinterface.com)，這一次使用預設名稱伺服器設定。
 
 
 ### <a name="recommended-documents"></a>**建議的文件**

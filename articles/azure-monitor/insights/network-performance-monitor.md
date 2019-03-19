@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729790"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452125"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -119,19 +119,13 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
    **ExpressRoute 監視**：選取 [立即探索]，以探索在與此 Log Analytics 工作區連結的 Azure 訂用帳戶中，連線到虛擬網路的所有 ExpressRoute 私人對等互連。 
 
-   >[!NOTE] 
-   > 目前，解決方案只會探索 ExpressRoute 私人對等互連。 
-
-   >[!NOTE] 
-   > 只會探索已連線至虛擬網路 (這些虛擬網路與連結到此 Log Analytics 工作區的訂用帳戶相關聯) 的私人對等互連。 如果 ExpressRoute 連線到與此工作區連結之訂用帳戶以外的虛擬網路，請在那些訂用帳戶中建立 Log Analytics 工作區。 請使用網路效能監控來監視那些對等互連。
-
    ![ExpressRoute 監視器檢視](media/network-performance-monitor/npm-express-route.png)
 
-   完成探索之後，探索到的私人對等互連會列在表格中。 
+   完成探索之後，探索到的線路和對等互連會列在資料表中。 
 
    ![網路效能監視器組態頁面](media/network-performance-monitor/npm-private-peerings.png)
     
-這些對等互連的監視一開始會處於停用狀態。 請選取您要監視的每個對等互連，然後從右側的詳細資料檢視設定其監視。 選取 [儲存] 以儲存組態。 若要深入了解，請參閱「設定 ExpressRoute 監視」一文。 
+這些線路和對等互連的監視一開始會處於已停用狀態。 選取您想要監視的每個資源，並設定從右邊的 [詳細資料] 檢視其監視。 選取 [儲存] 以儲存組態。 若要深入了解，請參閱「設定 ExpressRoute 監視」一文。 
 
 設定完成之後，需要 30 分鐘到一小時的時間來填入資料。 當解決方案從您的網路中彙總資料時，您會在網路效能監視器的 [概觀] 圖格上看到「解決方案需要其他設定」訊息。 在收集資料並編製索引之後，[概觀] 圖格會變更，並對您通知網路的健康情況摘要。 接著，您可以編輯 Log Analytics 代理程式安裝所在節點的監視，以及從環境中探索到的子網路監視。
 
@@ -269,7 +263,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 3. 如果您選擇使用動作群組，必須選取先前建立的動作群組。 您可以在[這裡](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)了解如何建立動作群組。 
 4. 成功建立警示後，您可以使用「管理警示」連結管理警示。 
 
-每當您建立警示時，NPM 就會在 Azure 監視器中建立查詢型記錄警示規則。 此查詢預設會每隔 5 分鐘觸發一次。 Azure 監視器不會對您建立的前 250 個記錄警示規則收費，超過 250 個記錄警示規則限制之後的任何警示規則，則會依 [Azure 監視器定價頁面中的警示定價](https://azure.microsoft.com/en-us/pricing/details/monitor/)來計費。
+每當您建立警示時，NPM 就會在 Azure 監視器中建立查詢型記錄警示規則。 此查詢，就會觸發預設每隔 5 分鐘。 Azure 監視器不會對您建立的前 250 個記錄警示規則收費，超過 250 個記錄警示規則限制之後的任何警示規則，則會依 [Azure 監視器定價頁面中的警示定價](https://azure.microsoft.com/en-us/pricing/details/monitor/)來計費。
 通知則會依 [Azure 監視器定價頁面中的通知定價](https://azure.microsoft.com/en-us/pricing/details/monitor/)來個別計費。
 
 

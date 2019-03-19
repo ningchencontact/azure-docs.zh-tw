@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: ac9abaaea7f33627332a9bc7563745b5efdf3d12
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118416"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436234"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>在 Azure 中診斷 Durable Functions
 
@@ -327,7 +327,7 @@ Azure Functions 支援直接偵錯函式程式碼，相同支援適用於長期�
 
 根據預設，長期函式會將狀態儲存在 Azure 儲存體。 這表示您可以使用工具 (例如 [Microsoft Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)) 來檢查協調流程的狀態。
 
-![Azure 儲存體總管螢幕擷取畫面](./media/durable-functions-diagnostics/storage-explorer.png)
+![Azure 儲存體總管的螢幕擷取畫面](./media/durable-functions-diagnostics/storage-explorer.png)
 
 這對於偵錯相當有用，因為您會確實看到協調流程的狀態。 也可以檢查佇列中的訊息來了解哪些工作擱置 (在某些情況下停滯)。
 
