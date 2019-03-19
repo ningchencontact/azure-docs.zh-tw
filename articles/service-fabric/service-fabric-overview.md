@@ -49,7 +49,7 @@ Service Fabric 可在任何環境執行。 您可以在許多環境 (包括 Azur
 
 ![Service Fabric 平台][Image1]
 
-對於 Windows 開發，Service Fabric.NET SDK 與 Visual Studio 和 Powershell 整合。 請參閱[在 Windows 上準備您的開發環境](service-fabric-get-started.md)。 對於 Linux 開發，Service Fabric Java SDK 與 Eclipse 整合，Yeoman 用於為 Java、.NET Core 和容器應用程式產生範本。 請參閱[在 Linux 上準備您的開發環境](service-fabric-get-started.md)
+對於 Windows 開發，Service Fabric.NET SDK 與 Visual Studio 和 Powershell 整合。 請參閱[在 Windows 上準備您的開發環境](service-fabric-get-started.md)。 對於 Linux 開發，Service Fabric Java SDK 與 Eclipse 整合，Yeoman 用於為 Java、.NET Core 和容器應用程式產生範本。 請參閱[在 Linux 上準備您的開發環境](service-fabric-get-started-linux.md)
 
 如需建立叢集的詳細資訊，請參閱[在 Windows Server 或 Linux 上建立叢集](service-fabric-deploy-anywhere.md)，或是[透過 Azure 入口網站](service-fabric-cluster-creation-via-portal.md)針對 Azure 建立叢集。
 
