@@ -3,23 +3,23 @@ title: Azure Data Factory 中的 Wait 活動 | Microsoft Docs
 description: Wait (等待) 活動會讓管線執行暫停一段指定的時間。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shlo
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/12/2018
 ms.author: shlo
-ms.openlocfilehash: 731df55a11f4671670a65dac8a83927d81da454c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015792"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807808"
 ---
-# <a name="wait-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Wait 活動
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Azure Data Factory 中執行 wait 活動
 在管線中使用 Wait (等待) 活動時，管線便會等待一段指定的時間，然後再繼續執行後續的活動。 
 
 ## <a name="syntax"></a>語法
@@ -37,7 +37,7 @@ ms.locfileid: "54015792"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
 name | `Wait` 活動的名稱。 | 字串 | 是
 type | 必須設為 **Wait**。 | 字串 | 是

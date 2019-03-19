@@ -5,17 +5,17 @@ description: 了解如何在 Azure Machine Learning Studio 中重新定型模型
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456549"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822014"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>重新定型並部署傳統的 Studio Web 服務
 
@@ -23,7 +23,7 @@ ms.locfileid: "56456549"
 
 ## <a name="prerequisites"></a>必要條件
 
-本文假設您進行過了重新定型實驗和預測性實驗。 [重新定型和部署機器學習模型](retrain-models-programmatically.md)一文有講解這些步驟。 不過，無需將您的機器學習模型部署為新 Web 服務，而是要將預測性實驗部署為傳統 Web 服務。
+本文假設您進行過了重新定型實驗和預測性實驗。 [重新定型和部署機器學習模型](/azure/machine-learning/studio/retrain-machine-learning-model)一文有講解這些步驟。 不過，無需將您的機器學習模型部署為新 Web 服務，而是要將預測性實驗部署為傳統 Web 服務。
      
 ## <a name="add-a-new-endpoint"></a>新增端點
 
@@ -60,7 +60,7 @@ ms.locfileid: "56456549"
 1. 執行 [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) 範例程式碼。
 1. 從 AddEndpoint 的輸出中找出「HelpLocation」  值並複製 URL。
 
-   ![addEndpoint 範例之輸出中的 HelpLocation。](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
+   ![addEndpoint 範例之輸出中的 HelpLocation。](./media/retrain-classic/addEndpoint-output.png)
 1. 將此 URL 貼到瀏覽器中，瀏覽到提供 Web 服務說明連結的頁面。
 1. 按一下 [更新資源] 連結以開啟修補說明頁面。
 
@@ -81,7 +81,7 @@ ms.locfileid: "56456549"
 
 PATCH 說明頁面包含必須使用的 PATCH URL，並提供可用來呼叫它的範例程式碼。
 
-![修補 URL。](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
+![修補 URL。](./media/retrain-classic/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>更新端點
 

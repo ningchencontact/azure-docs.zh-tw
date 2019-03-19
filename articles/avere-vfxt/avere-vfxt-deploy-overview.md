@@ -4,14 +4,14 @@ description: 部署 Avere vFXT for Azure 的概觀
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298529"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991796"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT for Azure - 部署概觀
 
@@ -52,10 +52,12 @@ Azure Marketplace 中的 Azure Resource Manager 範本會收集所需的資訊�
 
      叢集控制器是一個簡單 VM，位於與 Avere vFXT 叢集相同的虛擬網路中，且具有建立和管理叢集所需的自訂軟體。 控制器會建立 vFXT 節點並構成叢集，而且它也提供命令列介面讓您在叢集生命週期內管理叢集。
 
-     若您使用公用 IP 位址來設定您的控制器，它也能當成跳板主機以便從虛擬網路外部連線到叢集。
+     如果您在部署期間建立新的 vnet，您的控制器會有公用 IP 位址。 這表示控制器時，可以做為跳躍主機上，連接到該叢集 vnet 之外。
 
    * 建立叢集節點 VM
-   * 將叢集節點 VM 設定為叢集
+
+   * 設定叢集節點 Vm，以構成的叢集
+
    * (選擇性) 建立新的 Blob 容器，並將其設定為叢集的後端儲存體
 
 1. 設定叢集 

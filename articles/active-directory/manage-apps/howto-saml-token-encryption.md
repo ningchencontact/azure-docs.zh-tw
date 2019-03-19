@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3a2c79fd46b9c14f1bbb2794581746f6ff45cd6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a7a12cf677661c36a42df36a8fdc6b8f4a8ef75
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179615"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669885"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>作法：設定 Azure AD SAML 權杖加密 (預覽)
 
@@ -123,7 +123,7 @@ Azure AD 會使用 AES-256 加密 SAML 判斷提示的資料。
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>使用 PowerShell 設定權杖加密
 
-此功能即將登場。 
+這項功能即將登場。 
 
 <!--
 1. Use the latest Azure AD PowerShell module to connect to your tenant.

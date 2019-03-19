@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 54f9e19ae6cb9afba0de621c36352c3b1038b100
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 2f2a96e46b76ce41131b8e745075648bf0c68716
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806432"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867332"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>針對 Salesforce 設定潛在客戶管理
 
@@ -38,4 +38,4 @@ ms.locfileid: "48806432"
 5. 在 [建立 Web 到潛在客戶表單] 上，選取 [產生] ![Salesforce 產生](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. 複製範例中的 OID 並儲存。 您要在 Cloud Partner 入口網站上的 [物件識別碼] 欄位中貼上 OID。
-![Salesforce 取得 OID ](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![Salesforce 取得 OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

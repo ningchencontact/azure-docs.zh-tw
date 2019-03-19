@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/14/2018
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c1a9b526f08f330d62c30dd1d676e95460aee6c2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: eb4b87a008b9e43de7e7a5f7895449303f1e44a6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712342"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593976"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>使用 Azure Blockchain Workbench REST API
 
-Azure Blockchain Workbench REST API 讓開發人員和資訊工作者能夠組建大量與區塊鏈應用程式整合的項目。 此文件會引導您瞭解 Workbench REST API 的數種重要方法。 例如，假設開發人員想要建立自訂的區塊鏈用戶端。 此區塊鏈用戶端可讓已登入的使用者檢視其指派的區塊鏈應用程式並與其互動。 用戶端可讓使用者檢視合約執行個體，並對智慧合約採取動作。 用戶端在已登入使用者的內容中使用 Workbench REST API，以執行下列動作：
+Azure Blockchain Workbench REST API 讓開發人員和資訊工作者能夠組建大量與區塊鏈應用程式整合的項目。 本文會引導您瞭解 Workbench REST API 的數種重要方法。 例如，假設開發人員想要建立自訂的區塊鏈用戶端。 此區塊鏈用戶端可讓已登入的使用者檢視其指派的區塊鏈應用程式並與其互動。 用戶端可讓使用者檢視合約執行個體，並對智慧合約採取動作。 用戶端在已登入使用者的內容中使用 Workbench REST API，以執行下列動作：
 
 * 列出應用程式
 * 列出應用程式的工作流程
@@ -210,8 +210,8 @@ Content-type: application/json
 
 一旦使用者決定深入了解某個合約之後，區塊鏈用戶端接著就會根據合約狀態顯示可用的使用者動作。 在此範例中，使用者正在查看其所建立新智慧合約的所有可用動作：
 
-* 修改：允許使用者資產的描述和價格。
-* 終止：允許使用者結束資產的合約。
+* 修改：可讓使用者修改的描述和價格的資產。
+* 終止：可讓使用者結束資產的合約。
 
 使用[合約動作 GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget)：
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 接著使用者可決定為指定的智慧合約執行個體採取動作. 在此情況下，假定情節為使用者想要將資產的描述與價格修改為下列動作：
 
-* 描述：「我的已更新汽車」
+* Description:「 我已更新的汽車 」
 * 價格：54321
 
 使用[合約動作 POST API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost)：

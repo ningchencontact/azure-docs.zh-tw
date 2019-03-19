@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: fecab4dc3a0674b0b64638676f4538af145b52ac
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821859"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652640"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>診斷虛擬機器網路流量篩選問題
 
@@ -77,13 +77,15 @@ NSG 可讓您針對流入和流出 VM 的流量，控制流量的類型。 您�
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 進行診斷
 
-您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從電腦執行 PowerShell，便需要 *AzureRM* PowerShell 模組 6.0.1 版或更新的版本。 請在您的電腦上執行 `Get-Module -ListAvailable AzureRM`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，還需要執行 `Login-AzureRmAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-使用 [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 來取得網路介面的有效安全性規則。 下列範例會針對名為 *myVMVMNic* 的網路介面取得有效的安全性規則，該介面位於名為 *myResourceGroup* 的資源群組中：
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從您的電腦執行 PowerShell，您需要 Azure PowerShell 模組版本 1.0.0 或更新版本。 請在您的電腦上執行 `Get-Module -ListAvailable Az`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，還需要執行 `Connect-AzAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
+
+取得網路介面的有效安全性規則[Get AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)。 下列範例會針對名為 *myVMVMNic* 的網路介面取得有效的安全性規則，該介面位於名為 *myResourceGroup* 的資源群組中：
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveNetworkSecurityGroup `
-  -NetworkInterfaceName myVMVMNic interface `
+Get-AzEffectiveNetworkSecurityGroup `
+  -NetworkInterfaceName myVMVMNic `
   -ResourceGroupName myResourceGroup
 ```
 
@@ -95,7 +97,7 @@ Get-AzureRmEffectiveNetworkSecurityGroup `
 如果您不知道網路介面的名稱，但知道該網路介面所附加至的 VM 名稱，則下列命令會針對所有附加至 VM 的網路介面，傳回其識別碼：
 
 ```azurepowershell-interactive
-$VM = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+$VM = Get-AzVM -Name myVM -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
 
@@ -175,7 +177,7 @@ az vm show \
 | 通訊協定                | TCP                                                                                |
 | 動作                  | 允許                                                                              |
 | 優先順序                | 100                                                                                |
-| Name                    | Allow-HTTP-All                                                                     |
+| 名稱                    | Allow-HTTP-All                                                                     |
 
 當您建立規則之後，系統就會允許從網際網路經由連接埠 80 進行輸入，因為該規則的優先順序高於名為 *DenyAllInBound* 且會拒絕該流量的預設安全性規則。 了解如何[建立安全性規則](manage-network-security-group.md#create-a-security-rule)。 如果有不同的 NSG 同時關聯至網路介面和子網路，您就必須在那兩個 NSG 中建立相同的規則。
 

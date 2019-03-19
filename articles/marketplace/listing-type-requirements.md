@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f88c7b9350d104241524284950865e1f2ca6f559
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818527"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729401"
 ---
 # <a name="requirements-by-listing-type"></a>依清單類型別需求  
 技術與行銷內容需求會因店面、供應項目類型和清單類型而異。 請檢閱以下規格，檢查您的合規性。  
@@ -34,15 +34,15 @@ ms.locfileid: "55818527"
 
 | 需求 | 詳細資料 | 必要或建議 |  
 |:--- |:--- |:--- |  
-| ***Azure Active Directory (Azure AD)*** | 您的應用程式必須允許 Azure Active Directory 同盟單一登入 (Azure AD 同盟 SSO) 並同意啟用。<ul> <li>如需有關啟用 Azure AD 同盟 SSO 的詳細資訊，請瀏覽 [設定不在 Azure Active Directory 應用程式庫中的應用程式的單一登入] 網頁：[docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)。</li> </ul> | 必要 |   
+| ***Azure Active Directory (Azure AD)*** | 您的應用程式必須允許 Azure Active Directory 同盟單一登入 (Azure AD 同盟 SSO) 並同意啟用。<ul> <li>如需有關啟用 Azure AD 同盟 SSO 的詳細資訊，請瀏覽 [設定不在 Azure Active Directory 應用程式庫中的應用程式的單一登入] 網頁：[docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)。</li> </ul> | 必要項 |   
 | ***與 Microsoft Cloud 服務整合*** | 您的應用程式應與 Microsoft Power BI、Cortana Intelligence、Microsoft Azure 服務等其他 Microsoft Cloud 服務整合。<ul> <li>Microsoft 雲端服務的範例為物聯網。</li> </ul> | 建議 |  
-| ***目標對象*** | 您的應用程式必須以企業營運使用者與企業擁有者為目標。 | 必要 | 
-| ***商用軟體即服務 (SaaS) 應用程式*** | 您的應用程式必須符合下列需求。<ul> <li>企業營運 SaaS 應用程式</li> <li>著重於業務流程</li> <li>以商務客戶為目標</li> <li>讓使用者能夠透過其公司認證 (使用者名稱與密碼) 登入</li> </ul> | 必要 |  
-| ***免費試用期與試用版體驗*** | 您的應用程式必須包含下列其中一個選項，客戶才能在一段有限時間內免費使用您的應用程式。<ul> <li>提供 `try` 方法，客戶才能在 AppSource 內啟動您應用程式的試用版</li> <li>在 AppSource 提供 `request trial` 選項，客戶才能要求使用您應用程式的試用版</li> </ul>您提供的免費試用版必須讓客戶能在預先設定的期間內試用應用程式，無須支付額外費用。 | 必要 |  
-| ***輕鬆設定、立即可用的解決方案*** | 應用程式的安裝與設定必須簡單快速而且無須自訂。 | 必要 |  
-| ***潛在客戶管理*** | 您必須先啟用 CRM 以接受潛在客戶資料，方可獲得來自店面的潛在客戶。<ul> <li>CRM 的範例包括 Marketo、Microsoft Dynamics 或 Salesforce</li> </ul> | 必要 |  
-| ***隱私權原則及使用規定*** | 您的應用程式必須提供公用 URL，連結至您的隱私權原則網頁。 您的使用條款必須在發行期間以文字形式提供。 | 必要 |  
-| ***支援*** | 您的應用程式必須使用公用 URL，提供前往您的客戶支援網頁的連結。 如果您的應用程式是試用版，您必須在試用期間提供支援，而且不收取額外費用。 | 必要 |  
+| ***目標對象*** | 您的應用程式必須以企業營運使用者與企業擁有者為目標。 | 必要項 | 
+| ***商用軟體即服務 (SaaS) 應用程式*** | 您的應用程式必須符合下列需求。<ul> <li>企業營運 SaaS 應用程式</li> <li>著重於業務流程</li> <li>以商務客戶為目標</li> <li>讓使用者能夠透過其公司認證 (使用者名稱與密碼) 登入</li> </ul> | 必要項 |  
+| ***免費試用期與試用版體驗*** | 您的應用程式必須包含下列其中一個選項，客戶才能在一段有限時間內免費使用您的應用程式。<ul> <li>提供 `try` 方法，客戶才能在 AppSource 內啟動您應用程式的試用版</li> <li>在 AppSource 提供 `request trial` 選項，客戶才能要求使用您應用程式的試用版</li> </ul>您提供的免費試用版必須讓客戶能在預先設定的期間內試用應用程式，無須支付額外費用。 | 必要項 |  
+| ***輕鬆設定、立即可用的解決方案*** | 應用程式的安裝與設定必須簡單快速而且無須自訂。 | 必要項 |  
+| ***潛在客戶管理*** | 您必須先啟用 CRM 以接受潛在客戶資料，方可獲得來自店面的潛在客戶。<ul> <li>CRM 的範例包括 Marketo、Microsoft Dynamics 或 Salesforce</li> </ul> | 必要項 |  
+| ***隱私權原則及使用規定*** | 您的應用程式必須提供公用 URL，連結至您的隱私權原則網頁。 您的使用條款必須在發行期間以文字形式提供。 | 必要項 |  
+| ***支援*** | 您的應用程式必須使用公用 URL，提供前往您的客戶支援網頁的連結。 如果您的應用程式是試用版，您必須在試用期間提供支援，而且不收取額外費用。 | 必要項 |  
 
 ## <a name="storefront-requirements-azure-marketplace"></a>店面需求：Azure Marketplace  
 以下是 Azure Marketplace 中清單類型的必要條件需求。  
@@ -85,7 +85,7 @@ ms.locfileid: "55818527"
 
 <!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
----   
+---
 
 ### <a name="trial"></a>試用版  
 

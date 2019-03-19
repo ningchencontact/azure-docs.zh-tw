@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
-ms.translationtype: HT
+ms.openlocfilehash: a0ab88b1375f5178ca6f41689de8d2f30f8d7808
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307480"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728126"
 ---
 # <a name="guidelines"></a>指導方針  
 
 <!--
 ## Guidelines for AppSource  
 -->
----  
+---
 
 ## <a name="guidelines-for-azure-marketplace"></a>適用於 Azure Marketplace 的指導方針  
 
@@ -35,7 +35,7 @@ ms.locfileid: "36307480"
 
 >[!IMPORTANT]
 >若要授權多位使用者存取您的 Microsoft 開發人員中心 (Dev Center) 帳戶，Microsoft 建議您使用 Azure Active Directory (Azure AD) 將角色指派給個別使用者。 每位使用者都必須使用個別 Azure AD 認證進行登入，以存取該帳戶。 請使用註冊至貴公司網域中的電子郵件地址，來建立您的 Microsoft ID；Microsoft 建議不要將電子郵件指派給個人。 例如 `windowsapps@fabrikam.com`。  
->*   如需詳細資訊，請造訪[問題：Azure AD 同盟網域中的 Microsoft ID](#issue-microsoft-id-in-an-azure-ad-federated-domain) 一節。  
+>*   如需詳細資訊，請瀏覽[問題：在 Azure AD 中的 Microsoft ID 同盟網域](#issue-microsoft-id-in-an-azure-ad-federated-domain)一節。  
 
 *   請盡可能只讓最少數的開發人員能夠存取 Microsoft ID。 
 *   設定公司電子郵件通訊群組清單 (DL)，其中包含每一位必須存取您開發人員中心帳戶的使用者。 將 DL 電子郵件地址新增至您的安全性資訊。 DL 可讓清單上的所有員工在要求時接收安全碼，以及管理您 Microsoft ID 的安全性資訊。 如果設定通訊群組清單不可行，則個人電子郵件帳戶的擁有者必須能在出現提示時，存取及共用安全碼。  
@@ -49,9 +49,9 @@ ms.locfileid: "36307480"
 開發人員中心帳戶主要應從受信任的電腦進行存取。 因為每個開發人員中心帳戶每週產生的代碼數目有所限制，所以請務必從受信任的電腦存取。 使用受信任的電腦也可獲得最安全且一致的登入體驗。 
 *   如需有關其他開發人員中心帳戶指導方針和安全性的詳細資訊，請瀏覽 [開啟開發人員帳戶] 頁面：[docs.microsoft.com/windows/uwp/publish/opening-a-developer-account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account)。 
 
----  
+---
 
-#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>問題：Azure AD 同盟網域中的 Microsoft ID  
+#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>問題：在 Azure AD 同盟網域中的 Microsoft ID  
 貴公司帳戶可透過 Azure Active Directory (Azure AD) 進行同盟。 如果您嘗試使用與 Azure AD 同盟的公司電子郵件地址來建立 Microsoft ID，則會收到錯誤訊息。 如果您收到錯誤訊息，請洽詢您的 IT 團隊，以確認您的帳戶是否透過 Azure AD 同盟。 Azure AD 同盟的電子郵件是已知的問題，Microsoft 已著手進行解決。  
 *   如需有關 Azure AD 的詳細資訊，請瀏覽 [Azure Active Directory 文件] 頁面：[docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory)。
 
@@ -75,4 +75,4 @@ Microsoft 建議的因應措施。 請遵循下列步驟，在 `outlook.com` 網
 ## <a name="next-steps"></a>後續步驟
 *   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
  
----  
+---

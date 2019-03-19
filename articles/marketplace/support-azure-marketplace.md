@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: ae3716654f40322205212ca02a99993326a1cf35
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073351"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727429"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace 的支援  
 以下是 Marketplace 的支援選項清單。  
@@ -32,13 +32,13 @@ ms.locfileid: "54073351"
 
 ## <a name="cloud-partner-portal"></a>雲端合作夥伴入口網站  
 
-| 支援通道 | 說明 | 可用性 |  
+| 支援通道 | 描述 | 可用性 |  
 |:--- |:--- |:--- |  
 | 如需協助，請瀏覽位於 [Marketplace 支援服務](https://go.microsoft.com/fwlink/?linkid=844975) \(英文\) 的「建立事件」頁面</li> </ul> | 支援「Cloud Partner 入口網站」。 | 提供支援的時間為太平洋標準時間早上 6 點到晚上 6 點。 |  
 
 ## <a name="technical"></a>技術需求  
 
-| 支援通道 | 說明 |  
+| 支援通道 | 描述 |  
 |:--- |:--- |  
 | Slack：[join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | 此 Slack 環境可支援有技術問題的合作夥伴。 目前有超過 350 個合作夥伴在此環境中工作。 |  
 | MSDN 論壇：Marketplace：[social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network 論壇。 |  
@@ -47,7 +47,7 @@ ms.locfileid: "54073351"
 
 ## <a name="marketing-resources"></a>行銷資源  
 
-| 支援通道 | 說明 | 可用性 |  
+| 支援通道 | 描述 | 可用性 |  
 |:--- |:--- |:--- |  
 | 電子郵件：[cosell@microsoft.com](mailto:cosell@microsoft.com) | 支援上架程序和有關共同銷售計劃的問題。 | 以美國太平洋時區為準。 |  
 | 電子郵件：[gtm@microsoft.com](mailto:gtm@microsoft.com) | 支援 GTM 權益和計劃問題。 | 上班時間採用美國太平洋時區。 |  
@@ -57,4 +57,4 @@ ms.locfileid: "54073351"
 ## <a name="next-steps"></a>後續步驟
 請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
  
----  
+---

@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager 的 Load Balancer 支援 | Microsoft Docs
-description: 搭配使用適用於 Load Balancer 的 PowerShell 與 Azure Resource Manager。 在負載平衡器中使用範本
+description: 搭配使用適用於 Load Balancer 的 PowerShell 與 Azure Resource Manager。 对负载均衡器使用模板
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235032"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593806"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>搭配 Azure Load Balancer 使用 Azure Resource Manager 支援
 
@@ -30,15 +30,15 @@ Azure Resource Manager 是 Azure 中慣用的服務管理架構。 Azure Load Ba
 
 * 前端 IP 組態 - Load balancer 可以包括一或多個前端 IP 位址 (亦稱為虛擬 IP (VIP))。 這些 IP 位址做為流量的輸入。
 * 後端位址集區 - 這些是與虛擬機器網路介面卡 (NIC) 相關聯的 IP 位址，而負載會散發到那些虛擬機器網路介面卡。
-* 負載平衡規則 - 規則屬性會將指定的前端 IP 與連接埠組合對應到一組後端 IP 位址與連接埠組合。 單一負載平衡器可以有多個負載平衡規則。 每個規則都是與 VM 相關聯的前端 IP 和連接埠以及後端 IP 和連接埠的組合。
+* 負載平衡規則-規則屬性會對應指定的前端 IP 和連接埠組合，以一組後端 IP 位址和連接埠 」 組合。 單一負載平衡器可以有多個負載平衡規則。 每個規則都是前端 IP 和連接埠和後端 IP 和連接埠與 Vm 相關聯的組合。
 * 探查 - 探查可讓您追蹤 VM 執行個體的健全狀況。 如果健康情況探查失敗，則 VM 執行個體不會自動進入輪替。
-* 輸入 NAT 規則 - 定義流經前端 IP 並散發到後端 IP 之輸入流量的 NAT 規則。
+* 輸入的 NAT 規則-NAT 規則定義流經前端 IP 之輸入的流量，並散發到後端 IP。
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
 ## <a name="quickstart-templates"></a>快速入門範本
 
-Azure 資源管理員可讓您使用宣告式範本佈建應用程式。 在單一的範本中，您可以部署多個服務及其相依性。 您可以使用相同的範本，在應用程式生命週期的每個階段重複部署應用程式。
+Azure 資源管理員可讓您使用宣告式範本佈建應用程式。 您只需要使用一個範本，就能部署多項服務及其相依項目。 您可以使用相同的範本，在應用程式生命週期的每個階段重複部署應用程式。
 
 範本可以包含虛擬機器、虛擬網路、可用性設定組、網路介面 (NIC)、儲存體帳戶、負載平衡器、網路安全性群組和公開 IP 的定義。 您可以使用範本來建立複雜應用程式所需的一切。 您可以將範本檔案簽入內容管理系統中，以進行版本控制和共同作業。
 
@@ -58,7 +58,7 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。 在單�
 
 開始使用 Azure Resource Manager Cmdlet、命令列工具和 REST API
 
-* [Azure 網路 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.network#networking) 可用來建立負載平衡器。
+* [Azure 網路 Cmdlet](https://docs.microsoft.com/powershell/module/az.network#networking) 可用來建立負載平衡器。
 * [如何使用 Azure 資源管理員建立負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 * [搭配使用 Azure 資源管理與 Azure CLI](../xplat-cli-azure-resource-manager.md)
 * [負載平衡器 REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx)

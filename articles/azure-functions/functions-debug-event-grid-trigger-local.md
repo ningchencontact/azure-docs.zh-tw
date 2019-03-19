@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a3468d9a0d128bd51ae742189e60bb8e2af6c0e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128777"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736493"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Functions 事件方格觸發程序本機偵錯
 
@@ -62,7 +62,7 @@ ngrok http -host-header=localhost 7071
 
 複製在執行 ngrok 時所產生的 **HTTPS** URL。 在設定事件方格事件端點時會使用此值。
 
- ## <a name="add-a-storage-event"></a>新增儲存體事件
+## <a name="add-a-storage-event"></a>新增儲存體事件
 
 開啟 Azure 入口網站並瀏覽至儲存體帳戶，然後按一下 [事件] 選項。
 

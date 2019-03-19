@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413544"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875781"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務來尋找地址
 
@@ -37,7 +37,7 @@ ms.locfileid: "54413544"
 
 2. 在 [建立器] 索引標籤上，選取 [取得] HTTP 方法，然後輸入您 API 端點的要求 URL。
 
-    ![模糊搜尋 ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | 參數 | 建議的值 |
     |---------------|------------------------------------------------|
@@ -49,7 +49,7 @@ ms.locfileid: "54413544"
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
 
-    ![模糊搜尋 ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Key | 值 |
     |------------------|-------------------------|
@@ -75,7 +75,7 @@ ms.locfileid: "54413544"
   
 6. 在 Params 中，輸入下列金鑰 / 值組，並按一下 [傳送]：
 
-    ![模糊搜尋 ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Key | 值 |
     |-----|------------|
@@ -89,7 +89,7 @@ ms.locfileid: "54413544"
 1. 在 Postman 中，按一下 [新要求] | [取得要求]，然後將它命名為**地址搜尋**。
 2. 在 [建立器] 索引標籤上，選取 [取得] HTTP 方法、輸入您 API 端點的要求 URL，然後選取授權通訊協定 (如果有的話)。
 
-    ![地址搜尋 ](./media/how-to-search-for-address/address_search_url.png)
+    ![地址搜尋](./media/how-to-search-for-address/address_search_url.png)
   
     | 參數 | 建議的值 |
     |---------------|------------------------------------------------|
@@ -99,7 +99,7 @@ ms.locfileid: "54413544"
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
-    ![地址搜尋 ](./media/how-to-search-for-address/address_search_params.png)
+    ![地址搜尋](./media/how-to-search-for-address/address_search_params.png)
   
     | Key | 值 |
     |------------------|-------------------------|
@@ -130,7 +130,7 @@ ms.locfileid: "54413544"
 
 2. 在 [建立器] 索引標籤上，選取 [取得] HTTP 方法，然後輸入您 API 端點的要求 URL。
   
-    ![反向地址搜尋 URL ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![反向地址搜尋 URL](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | 參數 | 建議的值 |
     |---------------|------------------------------------------------|
@@ -140,7 +140,7 @@ ms.locfileid: "54413544"
   
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
-    ![反向位址搜尋參數 ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![反向位址搜尋參數](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Key | 值 |
     |------------------|-------------------------|
@@ -190,7 +190,7 @@ ms.locfileid: "54413544"
 
 2. 在 [建立器] 索引標籤上，選取 [取得] HTTP 方法，然後輸入您 API 端點的要求 URL。
   
-    ![反向地址交叉街道搜尋 ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![反向地址交叉街道搜尋](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | 參數 | 建議的值 |
     |---------------|------------------------------------------------|

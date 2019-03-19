@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001165"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749914"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure App Service 中使用 WebJob 執行背景工作
 
 ## <a name="overview"></a>概觀
-WebJobs 是一個 [Azure App Service](https://docs.microsoft.com/azure/app-service/) 功能，可讓您在與 Web 應用程式、API 應用程式或行動應用程式相同的內容中執行程式或指令碼。 使用 WebJob 不會產生額外的費用。
+WebJobs 是一項 [Azure App Service](https://docs.microsoft.com/azure/app-service/) 功能，可讓您在與 Web 應用程式、API 應用程式或行動應用程式相同的內容中執行程式或指令碼。 使用 WebJob 不會產生額外的費用。
 
 > [!IMPORTANT]
 > Linux 上的 App Service 尚不支援 WebJob。
@@ -47,8 +47,7 @@ Azure Functions 提供另一種方式來執行程式和指令碼。 如需 WebJo
 | 在 Web 應用程式執行所在的所有執行個體上執行。 您可以選擇性地將 WebJob 限制為單一執行個體。 |在 Azure 選取來進行負載平衡的單一執行個體上執行。|
 | 支援遠端偵錯。 | 不支援遠端偵錯。|
 
-> [!NOTE]
-> Web 應用程式會在 20 分鐘沒有活動之後逾時。 只有對實際 Web 應用程式所提出的要求會重設計時器。 在 Azure 入口網站中檢視應用程式的組態，或者對進階工具網站 (https://<app_name>.scm.azurewebsites.net) 提出要求，並不會重設計時器。 如果您的應用程式執行連續或已排程的 WebJob，請啟用 [永遠開啟]，確保 Webjob 會可靠地執行。 此功能僅適用於基本、標準和進階[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>指令碼或程式支援的檔案類型
 
@@ -83,7 +82,7 @@ when making changes in one don't forget the other two.
 
    ![新增 WebJob 分頁](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | 設定      | 範例值   | 說明  |
+   | 設定      | 範例值   | 描述  |
    | ------------ | ----------------- | ------------ |
    | **名稱** | myContinuousWebJob | App Service 應用程式中唯一的名稱。 開頭必須是字母或數字，而且不能含有 "-" 和 "_" 之外的特殊字元。 |
    | **檔案上傳** | ConsoleApp.zip | .zip 檔案包含您的可執行檔或指令碼檔案，以及執行程式或指令碼所需的任何支援檔案。 支援的可執行檔或指令碼檔案類型會列在[支援的檔案類型](#acceptablefiles)一節。 |
@@ -121,7 +120,7 @@ when making changes in one don't forget the other two.
 
    ![新增 WebJob 分頁](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | 設定      | 範例值   | 說明  |
+   | 設定      | 範例值   | 描述  |
    | ------------ | ----------------- | ------------ |
    | **名稱** | myTriggeredWebJob | App Service 應用程式中唯一的名稱。 開頭必須是字母或數字，而且不能含有 "-" 和 "_" 之外的特殊字元。|
    | **檔案上傳** | ConsoleApp.zip | .zip 檔案包含您的可執行檔或指令碼檔案，以及執行程式或指令碼所需的任何支援檔案。 支援的可執行檔或指令碼檔案類型會列在[支援的檔案類型](#acceptablefiles)一節。 |
@@ -159,7 +158,7 @@ when making changes in one don't forget the other two.
 
    ![新增 WebJob 分頁](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | 設定      | 範例值   | 說明  |
+   | 設定      | 範例值   | 描述  |
    | ------------ | ----------------- | ------------ |
    | **名稱** | myScheduledWebJob | App Service 應用程式中唯一的名稱。 開頭必須是字母或數字，而且不能含有 "-" 和 "_" 之外的特殊字元。 |
    | **檔案上傳** | ConsoleApp.zip | .zip 檔案包含您的可執行檔或指令碼檔案，以及執行程式或指令碼所需的任何支援檔案。 支援的可執行檔或指令碼檔案類型會列在[支援的檔案類型](#acceptablefiles)一節。 |
@@ -181,10 +180,9 @@ when making changes in one don't forget the other two.
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> 當您從 Visual Studio 部署 WebJob 時，請將您的 `settings.job` 檔案屬性標示為 [有更新時才複製]。
+若要了解详细信息，请参阅[计划触发的 Web 作业](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)。
 
 ## <a name="ViewJobHistory"></a>檢視作業記錄
 

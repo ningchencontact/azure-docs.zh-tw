@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dfad3199ba3a9cd2f3bca55be50760ddde676e70
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: b11f11aa3966bc57caa5b8dd0379f4d5c59c8375
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558187"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672894"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全性精靈和執行階段
 
@@ -28,7 +28,7 @@ ms.locfileid: "53558187"
 >* 您尚未將您的裝置升級到 Windows 組建 17763。 IoT Edge 版本 1.0.5 不支援 17763 以前的 Windows 組建。
 >* 您在 Windows 裝置上執行 Java 或 Node.js 模組。 即使您已經將您的 Windows 裝置更新為最新的組建，也請跳過版本 1.0.5。 
 >
->如需有關 IoT Edge 版本 1.0.5 的詳細資訊，請參閱 [1.0.5 版本資訊](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)。 如需如何防止開發工具更新為最新版本的詳細資訊，請參閱 [IoT 開發人員部落格](https://aka.ms/dev-win-iot-edge-module)。
+>如需有關 IoT Edge 版本 1.0.5 的詳細資訊，請參閱 [1.0.5 版本資訊](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)。 如需如何防止開發工具更新為最新版本的詳細資訊，請參閱 [IoT 開發人員部落格](https://devblogs.microsoft.com/iotdev/)。
 
 
 若要尋找最新版的 Azure IoT Edge，請參閱 [Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)。

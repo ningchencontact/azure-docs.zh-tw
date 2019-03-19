@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: b706e229bed48c821d5ca772450df320fd7e0b7f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270965"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728228"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>建立 Azure Data Factory 資料流程
 
@@ -34,7 +34,12 @@ ms.locfileid: "56270965"
 
 [這些範例所使用的資料可以在這裡找到](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata)。 下載範例資料，並將檔案儲存在您的 Azure Blob 儲存體帳戶上，以便您執行範例。
 
+## <a name="create-new-data-flow"></a>建立新的資料流程
+
 使用 ADF UI 中的建立資源「加號」按鈕建立資料流程
 
 ![資料流程選項](media/data-flow/newresource.png "新資源")
 
+## <a name="next-steps"></a>後續步驟
+
+開始建置您的資料轉換與[來源轉換](data-flow-source.md)。

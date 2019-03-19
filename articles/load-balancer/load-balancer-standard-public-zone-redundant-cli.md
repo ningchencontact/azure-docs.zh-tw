@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197788"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592922"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>使用 Azure CLI 來進行跨所有可用性區域的 VM 負載平衡
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>建立區域備援標準公用 IP
-若要存取網際網路上您的應用程式，您需要負載平衡器的公用 IP 位址。 區域中的所有可用性區域會同時為區域備援前端提供服務。 請使用 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 來建立區域備援公用 IP 位址。 當您建立標準公用 IP 位址時，它預設會具備區域備援能力。
+若要存取網際網路上您的應用程式，您需要負載平衡器的公用 IP 位址。 區域中的所有可用性區域會同時為區域備援前端提供服務。 建立區域備援公用 IP 位址[az 網路公用 ip 建立](/cli/azure/network/public-ip#az-network-public-ip-create)。 當您建立標準公用 IP 位址時，它預設會具備區域備援能力。
 
 下列範例會在 *myResourceGroupLoadBalancer* 資源群組中建立名為 *myPublicIP* 的公用 IP 位址。
 

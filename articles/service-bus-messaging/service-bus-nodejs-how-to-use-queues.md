@@ -14,25 +14,26 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: b8036c373541d76ecaaec7664e3bfc3ad3e35703
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 32b566056de76d4e73b88c7ce37e148b4ecc3fd7
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853082"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587866"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>如何將服務匯流排佇列搭配 Node.js 使用
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本文說明如何將服務匯流排佇列搭配 Node.js 使用。 這些範例均以 JavaScript 撰寫並使用 Node.js Azure 模組。 本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。 如需佇列的詳細資訊，請參閱[後續步驟](#next-steps)一節。
+本文說明如何將服務匯流排佇列搭配 Node.js 使用。 這些範例均以 JavaScript 撰寫並使用 Node.js Azure 模組。 涉及的任务包括**创建队列**、**发送和接收消息**以及**删除队列**。 如需佇列的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
+
 ## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
-建立空白的 Node.js 應用程式。 如需有關建立 Node.js 應用程式的指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][Create and deploy a Node.js application to an Azure Website]或 [Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell)。
+创建一个空的 Node.js 应用程序。 如需有關建立 Node.js 應用程式的指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][Create and deploy a Node.js application to an Azure Website]或 [Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell)。
 
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 若要使用 Azure 服務匯流排，請下載及使用 Node.js Azure 套件。 此封裝含有一組能與服務匯流排 REST 服務通訊的便利程式庫。
@@ -101,7 +102,7 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ```
 
 ### <a name="filters"></a>篩選器
-您可以將選用的篩選作業套用至使用 **ServiceBusService** 執行的作業。 篩選作業可包括記錄、自動重試等等。篩選器是以簽章實作方法的物件：
+您可以將選用的篩選作業套用至使用 **ServiceBusService** 執行的作業。 筛选操作可包括日志记录、自动重试等。篩選器是以簽章實作方法的物件：
 
 ```javascript
 function handle (requestOptions, next)

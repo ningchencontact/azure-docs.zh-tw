@@ -2,21 +2,22 @@
 title: Azure IoT 中樞和事件格線 | Microsoft Docs
 description: 使用「Azure 事件格線」以根據「IoT 中樞」中發生的動作來觸發程序。
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249463"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673848"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>使用事件方格來觸發動作以回應 IoT 中樞事件
 
-「Azure IoT 中樞」與「Azure 事件格線」整合，讓您能夠將事件通知傳送給其他服務並觸發下游程序。 請設定您的商務應用程式來接聽「IoT 中樞」事件，以便以可靠、彈性且安全的方式回應重大事件。 例如，建置應用程式來執行多個動作，像是更新資料庫、建立票證，以及在每次將新 IoT 裝置註冊至 IoT 中樞時傳遞電子郵件通知。 
+「Azure IoT 中樞」與「Azure 事件格線」整合，讓您能夠將事件通知傳送給其他服務並觸發下游程序。 請設定您的商務應用程式來接聽「IoT 中樞」事件，以便以可靠、彈性且安全的方式回應重大事件。 比方說，建置應用程式，更新資料庫、 建立工作票證，及傳遞電子郵件通知每次新的 IoT 裝置註冊至 IoT 中樞。 
 
 [Azure 事件方格](../event-grid/overview.md)是一個完全受控的事件路由服務，其使用發佈-訂閱模型。 「事件格線」針對 Azure 服務 (例如 [Azure Functions](../azure-functions/functions-overview.md) 和 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)) 內建支援，並可使用 Webhook 將事件警示傳遞給非 Azure 服務。 如需事件方格所支援的事件處理常式完整清單，請參閱 [Azure 事件方格簡介](../event-grid/overview.md)。 
 
@@ -30,7 +31,7 @@ ms.locfileid: "48249463"
 
 「IoT 中樞」會發佈下列事件類型： 
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | 向 IoT 中樞註冊裝置時發佈。 |
 | Microsoft.Devices.DeviceDeleted | 從 IoT 中樞刪除裝置時發佈。 |
@@ -118,7 +119,7 @@ ms.locfileid: "48249463"
 }]
 ```
 
-如需每個屬性的詳細描述，請參閱[適用於 IoT 中樞的 Azure 事件格線事件結構描述](../event-grid/event-schema-iot-hub.md)
+如需每個屬性的詳細說明，請參閱[IoT 中樞的 Azure Event Grid 事件結構描述](../event-grid/event-schema-iot-hub.md)。
 
 ## <a name="filter-events"></a>篩選事件
 
@@ -131,15 +132,15 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>裝置連線和裝置中斷連線事件的限制
 
-若要接收裝置連線和裝置中斷連線事件，您必須為裝置開啟 D2C 連結或 C2D 連結。 如果您的裝置使用 MQTT 通訊協定，則 IoT 中樞會讓 C2D 連結保持開啟。 針對 AMQP，您可以藉由呼叫[接收非同步 API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) 來開啟 C2D 連結。 
+若要接收裝置連線和裝置中斷連線事件，您必須為裝置開啟 D2C 連結或 C2D 連結。 如果您的裝置使用 MQTT 通訊協定，則 IoT 中樞會讓 C2D 連結保持開啟。 AMQP，您可以開啟 C2D 連結藉由呼叫[接收非同步 API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)。 
 
-如果您要傳送遙測資料，應開啟 D2C 連結。 如果裝置連線不斷變動 (也就是裝置會頻繁地連線和中斷連線)，我們將不會傳送每一個連線狀態，但會發佈每分鐘擷取快照的連線狀態。 IoT 中樞運作中斷時，我們將在中斷狀況結束後隨即發佈裝置連線狀態。 如果裝置在這段停止運作期間中斷連線，裝置中斷連線事件將在 10 分鐘內發佈。
+如果您要傳送遙測資料，應開啟 D2C 連結。 如果裝置連線會閃爍，裝置連線，並中斷連線經常，這表示我們將不會傳送每個單一連接狀態 中，但仍會將發佈為快照每隔一分鐘的連接狀態。 IoT 中樞運作中斷時，我們將在中斷狀況結束後隨即發佈裝置連線狀態。 如果裝置在這段停止運作期間中斷連線，裝置中斷連線事件將在 10 分鐘內發佈。
 
 ## <a name="tips-for-consuming-events"></a>取用事件的秘訣
 
 處理「IoT 中樞」事件的應用程式應該依循下列建議做法：
 
-* 由於可以設定讓多個訂用帳戶將事件路由傳送至相同的事件處理常式，因此有一點相當重要，就是請勿假設事件來自特定的來源。 請一律檢查訊息主題，以確保訊息來自您預期的 IoT 中樞。 
+* 事件路由傳送至同一個事件處理常式，因此不要假設事件是來自特定來源，可以設定多個訂用帳戶。 請一律檢查訊息主題，以確保訊息來自您預期的 IoT 中樞。 
 
 * 請勿假設您收到的所有事件都是您預期的類型。 處理訊息之前，請一律先檢查 eventType。
 

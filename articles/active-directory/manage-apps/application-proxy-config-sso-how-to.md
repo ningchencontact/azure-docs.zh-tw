@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: asteen
+ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df7469a6975fa5e84b43487b524ca888718d7d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f9c4f2c618851b596cd8f2dfa1fd45820a05049
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162317"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791676"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>如何針對應用程式 Proxy 應用程式設定單一登入
 
@@ -43,11 +43,16 @@ ms.locfileid: "56162317"
 
 -   **標頭式登入**：標頭式登入是透過合作關係啟用，並且需要一些額外設定。 如需合作關係的詳細資料，以及針對使用標頭進行驗證之應用程式設定單一登入的逐步指示，請參閱 [Azure AD 的 PingAccess 文件](application-proxy-configure-single-sign-on-with-ping-access.md)。
 
-每個選項都可透過在 [企業應用程式] 中移至您的應用程式，然後開啟左側功能表上的 [單一登入] 頁面來找到。 請注意，如果您的應用程式是在舊版入口網站中建立，您可能無法看到所有選項。
+-   **SAML 單一登入**:使用 SAML 單一登入，Azure AD 應用程式使用驗證使用者的 Azure AD 帳戶。 Azure AD 與應用程式透過連線通訊協定，進行登入資訊通訊。 使用 SAML 單一登入時，您可以根據您在 SAML 宣告中定義的規則，將使用者對應至特定的應用程式角色。 如需設定 SAML 單一登入的詳細資訊，請參閱[使用應用程式 Proxy 進行單一登入 SAML](application-proxy-configure-single-sign-on-on-premises-apps.md)。
+
+每個選項都可透過在 [企業應用程式] 中移至您的應用程式，然後開啟左側功能表上的 [單一登入] 頁面來找到。 請注意，是否您的應用程式建立在舊的入口網站中，您可能無法看到所有這些選項。
 
 在此頁面上，您還會看到一個額外登入選項：連結的登入。 應用程式 Proxy 也支援此選項。 不過，此選項並不會將單一登入新增至應用程式。 不過，應用程式可能已經使用另一項服務 (例如 Active Directory 同盟服務) 來實作單一登入。 
 
 這個選項可讓系統管理員建立應用程式連結，以供使用者首次存取應用程式時使用。 例如，如果有一個應用程式設定為使用 Active Directory 同盟服務 2.0 來驗證使用者，系統管理員可以使用 [連結的登入] 選項在存取面板上建立應用程式的連結。
 
 ## <a name="next-steps"></a>後續步驟
-[使用應用程式 Proxy 提供單一登入應用程式](application-proxy-configure-single-sign-on-with-kcd.md)
+- [使用應用程式 Proxy 進行單一登入的密碼保存庫](application-proxy-configure-single-sign-on-password-vaulting.md)
+- [可供使用應用程式 Proxy 單一登入的 Kerberos 限制委派](application-proxy-configure-single-sign-on-with-kcd.md)
+- [使用應用程式 Proxy 單一登入的標頭型驗證](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [使用應用程式 Proxy 進行單一登入 SAML](application-proxy-configure-single-sign-on-on-premises-apps.md)。

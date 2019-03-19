@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: d55f6097e3e1eed508580676edcf008b0739034c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 41d9f21688df6f32918500365bc88f3f168604d2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230969"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869644"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>採用 Azure Resource Manager 範本的預期狀態設定延伸模組
 
@@ -36,33 +36,46 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 ```json
 {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-    "apiVersion": "2018-04-01",
-    "location": "[resourceGroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.Powershell",
-        "type": "DSC",
-        "typeHandlerVersion": "2.76",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "configurationArguments": {
-                "RegistrationUrl" : "registrationUrl",
-                "NodeConfigurationName" : "nodeConfigurationName"
-            }
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "Microsoft.Powershell.DSC",
+  "apiVersion": "2018-06-30",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.Powershell",
+    "type": "DSC",
+    "typeHandlerVersion": "2.77",
+    "autoUpgradeMinorVersion": true,
+    "protectedSettings": {
+      "Items": {
+        "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
+      }
+    },
+    "settings": {
+      "Properties": [
+        {
+          "Name": "RegistrationKey",
+          "Value": {
+            "UserName": "PLACEHOLDER_DONOTUSE",
+            "Password": "PrivateSettingsRef:registrationKeyPrivate"
+          },
+          "TypeName": "System.Management.Automation.PSCredential"
         },
-        "protectedSettings": {
-            "configurationArguments": {
-                "RegistrationKey": {
-                    "userName": "NOT_USED",
-                    "Password": "registrationKey"
-                }
-            }
+        {
+          "Name": "RegistrationUrl",
+          "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+          "TypeName": "System.String"
+        },
+        {
+          "Name": "NodeConfigurationName",
+          "Value": "[parameters('nodeConfigurationName')]",
+          "TypeName": "System.String"
         }
+      ]
     }
+  }
 }
 ```
 
@@ -77,37 +90,44 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 ```json
 "extensionProfile": {
     "extensions": [
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-            "apiVersion": "2018-04-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.Powershell",
-                "type": "DSC",
-                "typeHandlerVersion": "2.76",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "configurationArguments": {
-                        "RegistrationUrl" : "registrationUrl",
-                        "NodeConfigurationName" : "nodeConfigurationName"
-                    }
-                },
-                "protectedSettings": {
-                    "configurationArguments": {
-                        "RegistrationKey": {
-                            "userName": "NOT_USED",
-                            "Password": "registrationKey"
-                        }
-                    }
-                }
+      {
+        "name": "Microsoft.Powershell.DSC",
+        "properties": {
+          "publisher": "Microsoft.Powershell",
+          "type": "DSC",
+          "typeHandlerVersion": "2.77",
+          "autoUpgradeMinorVersion": true,
+          "protectedSettings": {
+            "Items": {
+              "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
             }
+          },
+          "settings": {
+            "Properties": [
+              {
+                "Name": "RegistrationKey",
+                "Value": {
+                  "UserName": "PLACEHOLDER_DONOTUSE",
+                  "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                },
+                "TypeName": "System.Management.Automation.PSCredential"
+              },
+              {
+                "Name": "RegistrationUrl",
+                "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+                "TypeName": "System.String"
+              },
+              {
+                "Name": "NodeConfigurationName",
+                "Value": "[parameters('nodeConfigurationName')]",
+                "TypeName": "System.String"
+              }
+            ]
+          }
         }
+      }
     ]
-}
+  }
 ```
 
 ## <a name="detailed-settings-information"></a>詳細的設定資訊
@@ -158,7 +178,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 ## <a name="details"></a>詳細資料
 
-| 屬性名稱 | 類型 | 說明 |
+| 屬性名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | settings.wmfVersion |字串 |指定應該安裝在您 VM 上的 Windows Management Framework (WMF) 版本。 將此屬性設定為 **latest** 會安裝最新版的 WMF。 此屬性目前只有下列可能值： **4.0**、**5.0**、**5.1**, 與**latest**。 這些可能的值可能會更新。 預設值為 **latest**。 |
 | settings.configuration.url |字串 |指定要從中下載 DSC 設定 .zip 檔案的 URL 位置。 如果所提供的 URL 需要 SAS 權杖才能存取，請將 **protectedSettings.configurationUrlSasToken** 屬性設定為您 SAS 權杖的值。 如果已定義 **settings.configuration.script** 或 **settings.configuration.function**，就需要這個屬性。 如果沒有為這些屬性指定值，延伸模組就會呼叫預設設定指令碼來設定「位置設定管理員」(LCM) 中繼資料，而應該提供引數。 |
@@ -177,7 +197,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 如需有關下列值的詳細資訊，請參閱[本機設定管理員基本設定](/powershell/dsc/metaconfig#basic-settings)。
 您可以使用 DSC 延伸模組預設設定指令碼來設定的 LCM 屬性僅限下表所列的屬性。
 
-| 屬性名稱 | 類型 | 說明 |
+| 屬性名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |必要屬性。 指定節點向「Azure 自動化」服務註冊時，用來作為 PowerShell 認證物件密碼的金鑰。 針對「自動化」帳戶使用 **listkeys** 方法，即可自動探索此值。  查看[範例](#example-using-referenced-azure-automation-registration-values)。 |
 | settings.configurationArguments.RegistrationUrl |字串 |必要屬性。 指定節點嘗試進行註冊之「自動化」端點的 URL。 針對「自動化」帳戶使用**reference** 方法，即可自動探索此值。 |
@@ -234,7 +254,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 下列範例來自 [DSC 延伸模組處理常式概觀](dsc-overview.md)。
 此範例使用 Resource Manager 範本 (而不是Cmdlet) 來部署擴充功能。
-請儲存 IisInstall.ps1 設定、將它放在 .zip 檔案中，然後以可存取的 URL 上傳此檔案。
+儲存 IisInstall.ps1 設定、 將它放在.zip 檔案 (範例： `iisinstall.zip`)，然後上傳的檔案中存取的 URL。
 此範例會使用 Azure Blob 儲存體，但您可以從任意位置下載 .zip 檔案。
 
 在 Resource Manager 範本中，下列程式碼會指示 VM 下載正確的檔案，然後執行適當的 PowerShell 函式：
@@ -242,7 +262,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 ```json
 "settings": {
     "configuration": {
-        "url": "https://demo.blob.core.windows.net/",
+        "url": "https://demo.blob.core.windows.net/iisinstall.zip",
         "script": "IisInstall.ps1",
         "function": "IISInstall"
     }
@@ -335,27 +355,27 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 「WmfVersion 為 '{0}'。
 可能的值為 … 和 'latest'"。
 
-**問題**︰所提供的值不是允許的值。
+**問題**:不允許所提供的值。
 
-**解決方式**︰將無效的值變更為有效的值。
+**解決方案**：無效的值變更為有效的值。
 如需詳細資訊，請參閱[詳細資料](#details)中的表格。
 
 ### <a name="invalid-url"></a>無效的 URL
 
 「ConfigurationData.url 為 '{0}'。 這不是有效的 URL」「DataBlobUri 為 '{0}'。 這不是有效的 URL」「Configuration.url 為 '{0}'。 這不是有效的 URL」
 
-**問題**︰所提供的 URL 無效。
+**問題**:提供的 URL 無效。
 
-**解決方式**︰檢查您提供的所有 URL。
+**解決方案**：請檢查您提供的 Url。
 請確定所有 URL 都會解析成延伸模組可在遠端電腦上存取的有效位置。
 
 ### <a name="invalid-registrationkey-type"></a>無效的 RegistrationKey 類型
 
 "參數 RegistrationKey (類型為 PSCredential) 的類型無效。"
 
-**問題**：protectedSettings.configurationArguments 中的 *RegistrationKey* 值無法提供為 PSCredential 以外的任何類型。
+**問題**:*RegistrationKey* protectedSettings.configurationArguments 中的值不能提供 PSCredential 以外的任何類型。
 
-**解決方式**：使用下列格式將 RegistrationKey 的 protectedSettings.configurationArguments 項目變更為 PSCredential 類型：
+**解決方案**：將 RegistrationKey 您 protectedSettings.configurationArguments 項目變更成 PSCredential 類型，使用下列格式：
 
 ```json
 "configurationArguments": {
@@ -370,18 +390,18 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 「無效的 configurationArguments 類型 {0}」
 
-**問題**：*ConfigurationArguments* 屬性無法解析為**雜湊表**物件。
+**問題**:*ConfigurationArguments*屬性無法解析成**雜湊表**物件。
 
-**解決方式**：將您的 *ConfigurationArguments* 屬性設定為**雜湊表**。
+**解決方案**：讓您*ConfigurationArguments*屬性**雜湊表**。
 請依照上述範例中提供的格式。 請留意引號、逗號及大括號。
 
 ### <a name="duplicate-configurationarguments"></a>重複的 ConfigurationArguments
 
 「在公用和受保護的 configurationArguments 中找到重複的引數 '{0}'」
 
-**問題**︰公用設定中的 *ConfigurationArguments* 和受保護設定中的 *ConfigurationArguments* 具有相同名稱的屬性。
+**問題**:*ConfigurationArguments*公用設定中並*ConfigurationArguments*受保護設定中有具有相同名稱的屬性。
 
-**解決方式**︰移除其中一個重複的屬性。
+**解決方案**：請移除其中一個重複的屬性。
 
 ### <a name="missing-properties"></a>遺漏屬性
 
@@ -397,7 +417,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 「protectedSettings.ConfigurationDataUrlSasToken 要求指定 settings.configurationData.url」
 
-**問題**︰已定義的屬性需要另一個屬性，但遺漏該屬性。
+**問題**:定義的屬性需要遺漏的另一個屬性。
 
 **解決方式**：
 

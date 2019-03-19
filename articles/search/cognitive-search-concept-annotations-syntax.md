@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315799"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749608"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>如何參考認知搜尋技能集中的註釋
 
@@ -28,7 +28,7 @@ ms.locfileid: "53315799"
 
 在檢閱語法之前，讓我們先回顧幾個重要的概念，以深入了解本文稍後所提供的範例。
 
-| 詞彙 | 說明 |
+| 詞彙 | 描述 |
 |------|-------------|
 | 擴充的文件 | 擴充的文件是管線所建立及使用的內部結構，用來保存與文件相關的所有註解。 請將擴充的文件設想為註解的樹狀結構。 一般而言，從上一個註解建立的註解將會成為其子系。<p/>只有在技能集執行期間，才會有擴充的文件。 在內容對應至搜尋索引後，即不再需要擴充的文件。 雖然您無法直接擴充的文件互動，但在建立技能集時，具有文件的心智模型將有所幫助。 |
 | 擴充內容 | 執行擴充所在的內容，以擴充何種元素的觀點來表示。 根據預設，擴充內容會在 `"/document"` 層級上，其範圍僅限於個別文件。 當技能執行時，該技能的輸出會成為[已定義內容的屬性](#example-2)。|
@@ -123,7 +123,7 @@ ms.locfileid: "53315799"
 
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 + [如何將自訂技能整合到擴充管線中](cognitive-search-custom-skill-interface.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

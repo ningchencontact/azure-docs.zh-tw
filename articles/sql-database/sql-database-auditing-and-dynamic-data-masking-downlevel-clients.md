@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/14/2019
-ms.openlocfilehash: 76fe764d828a7fa6e4ebb015f98b9af485d5df5f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567076"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866822"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 資料表稽核的舊版用戶端支援與 IP 端點變更
 
@@ -25,9 +25,10 @@ ms.locfileid: "55567076"
 > 本文件僅適用於資料表稽核，也就是**現已淘汰**。<br>
 > 請使用新的 [Blob 稽核](sql-database-auditing.md)方法，**不**需要修改舊版用戶端連接字串。 Blob 稽核的其他資訊位在[開始使用 SQL Database 稽核](sql-database-auditing.md)。
 
-[資料庫稽核](sql-database-auditing.md)可自動與支援 TDS 重新導向的 SQL 用戶端搭配運作。 請注意，使用「Blob 稽核」方法時，不適用重新導向。
+对于支持 TDS 重定向的 SQL 客户端，可以自动使用[数据库审核](sql-database-auditing.md)。 请注意，使用 Blob 审核方法时，重定向不适用。
 
-## <a id="subheading-1"></a>舊版用戶端支援
+## <a id="subheading-1"></a>下层客户端支持
+
 實作 TDS 7.4 的任何用戶端應該也支援重新導向。 例外包括其中未完全支援重新導向功能的 JDBC 4.0，和其中未實作重新導向的 Tedious for Node.JS。
 
 對於「舊版用戶端」，也就是支援 TDS 7.3 版和以下版本 - 應該修改連接字串中的伺服器 FQDN：
@@ -46,13 +47,14 @@ ms.locfileid: "55567076"
 **備註：** 上述伺服器 FQDN 修改可能會對於套用 SQL Server 層級稽核原則有所助益，不需要每個資料庫中的組態步驟 (暫存緩和)。
 
 ## <a id="subheading-2"></a>啟用稽核的 IP 端點變更
+
 請注意，當您啟用「資料表稽核」時，您資料庫的 IP 端點將會變更。 如果您有嚴格的防火牆設定，請適當更新這些防火牆設定。
 
 新的資料庫 IP 端點將取決於資料庫區域：
 
 | 資料庫區域 | 可能的 IP 端點 |
 | --- | --- |
-| 中國北部 |139.217.29.176, 139.217.28.254 |
+| 中国北部 |139.217.29.176, 139.217.28.254 |
 | 中國東部 |42.159.245.65, 42.159.246.245 |
 | 澳洲東部 |104.210.91.32, 40.126.244.159, 191.239.64.60, 40.126.255.94 |
 | 澳大利亞東南部 |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
@@ -78,5 +80,4 @@ ms.locfileid: "55567076"
 | 美國中西部 |52.161.29.186, 52.161.27.213 |
 | 加拿大中部 |13.88.248.106, 13.88.248.110 |
 | 加拿大東部 |40.86.227.82, 40.86.225.194 |
-| 英國北部 |13.87.101.18, 13.87.100.232 |
-| 英國南部 2 |13.87.32.202, 13.87.32.226 |
+| 英國南部 |13.87.32.202, 13.87.32.226 |

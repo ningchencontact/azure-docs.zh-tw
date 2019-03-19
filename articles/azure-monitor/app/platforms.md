@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 2a40249dc347b8ebac905c5e9b6557e6f00f238f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 5a7fbeafe74926c7d89ac76dc2964756b3582d61
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299440"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671143"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>開發人員分析：程式語言、平台和整合
 這些項目是我們曾聽過的 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 實作，包括一些協力廠商提供的實作。
@@ -52,7 +52,6 @@ ms.locfileid: "56299440"
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
-* [Java EE - 適用於即時應用程式](../../azure-monitor/app/java-live.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE 堆疊](https://safe-stack.github.io/docs/template-azure-ai/)

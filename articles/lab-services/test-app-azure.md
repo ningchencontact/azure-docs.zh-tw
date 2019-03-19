@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814879"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730404"
 ---
 # <a name="test-your-app-in-azure"></a>在 Azure 測試您的應用程式 
 本文提供在 Azure 中使用 DevTest Labs 測試應用程式的步驟。 首先，您會在實驗室內設定檔案共用，並將它掛接為本機開發電腦和實驗室內 VM 上的磁碟機。 然後，您可使用 Visual Studio 2017 將應用程式部署到檔案共用，以便在實驗室中的 VM 上執行應用程式。  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件 
 1. [建立 Azure 訂用帳戶](https://azure.microsoft.com/free/) (如果您還沒有的話)，然後登入 [Azure 入口網站](https://portal.azure.com)。
@@ -56,7 +58,7 @@ ms.locfileid: "55814879"
 
     ![選取實驗室 VM](media/test-app-in-azure/select-lab-vm.png)
 2. 選取工具列上的 [連線]，以連線到 VM。 
-3. 利用 [命令列工具] 區段中的 [Windows 安裝] 連結，[安裝 Azure PowerShell](https://azure.microsoft.com/downloads/)。 如需安裝 Azure PowerShell 的其他方式，請參閱[這篇文章](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1)。
+3. [安裝 Azure PowerShell](/powershell/azure/install-az-ps)。
 4. 遵循＜掛接檔案共用＞一節中的指示。 
 
 ## <a name="publish-your-app-from-visual-studio"></a>從 Visual Studio 發佈應用程式

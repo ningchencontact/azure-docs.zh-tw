@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7e680e3cd8a3d7056141814c5e7d4539b72073b4
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
-ms.translationtype: HT
+ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756938"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592820"
 ---
 # <a name="create-an-advanced-device-model"></a>建立進階裝置型號
 
@@ -164,8 +164,8 @@ IoT 裝置可以使用不同的通訊協定來連線。 模擬可讓您使用 **
 * 文字
 * BOOLEAN
 * 整數 
-* 兩倍
-* Datetime
+* Double
+* DateTime
 
 ### <a name="supported-methods"></a>支援的方法
 
@@ -516,4 +516,4 @@ function main(context, state) {
 
 ## <a name="next-steps"></a>後續步驟
 
-在本操作指南中，您會了解在裝置模擬中使用的裝置型號檔案，以如何建立進階裝置型號。 接下來，您可能想要探索如何[使用時間序列深入分析將從裝置模擬解決方案加速器傳送的遙測資料視覺化](about-iot-accelerators.md)。
+在本操作指南中，您會了解在裝置模擬中使用的裝置型號檔案，以如何建立進階裝置型號。 接下來，您可能想要探索如何[使用時間序列深入分析將從裝置模擬解決方案加速器傳送的遙測資料視覺化](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights)。

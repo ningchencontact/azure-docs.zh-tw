@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d97e2542200703201b1c20738581a938ba209e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 60fc8cb8be39b2ffc217641464a991d8d2f3b997
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165989"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674288"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Azure Active Directory 中用於存取內部部署網站的 Cookie 設定
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 有可透過「應用程式 Proxy」存取內�
 
 [應用程式 Proxy](application-proxy.md) 會使用下列存取和工作階段 Cookie 設定。
 
-| Cookie 設定 | 預設值 | 說明 | 建議 |
+| Cookie 設定 | 預設值 | 描述 | 建議 |
 | -------------- | ------- | ----------- | --------------- |
 | 使用僅限 HTTP Cookie | **否** | 使用 [是] 時，可讓「應用程式 Proxy」在 HTTP 回應標頭中包含 HTTPOnly 旗標。 此旗標提供額外的安全性優點，例如可防止用戶端指令碼處理 (CSS) 複製或修改 Cookie。<br></br><br></br>在我們支援「僅限 HTTP」設定之前，「應用程式 Proxy」是透過受保護的 SSL 通道來加密和傳輸 Cookie，以防止修改。 | 為了獲得額外的安全性優點，請使用 [是]。<br></br><br></br>針對不需要存取工作階段 Cookie 的用戶端或使用者代理程式，請使用 [否]。 例如，針對透過「應用程式 Proxy」連線到「遠端桌面閘道伺服器」地 RDP 或 MTSC 用戶端，請使用 [否]。|
 | 使用安全的 Cookie | **否** | 使用 [是] 時，可讓「應用程式 Proxy」在 HTTP 回應標頭中包含 Secure 旗標。 安全 Cookie 可藉由透過 TLS 安全防護通道 (例如 HTTPS) 傳輸 Cookie 來提升安全性。 這可防止因以純文字傳輸 Cookie 而讓未經授權的對象得以看見 Cookie。 | 為了獲得額外的安全性優點，請使用 [是]。|
@@ -43,21 +43,19 @@ Azure Active Directory (Azure AD) 有可透過「應用程式 Proxy」存取內�
 5. 在 [其他設定] 底下，將 Cookie 設定設為 [是] 或 [否]。
 6. 按一下 [儲存] 套用變更。 
 
-<!---
+## <a name="view-current-cookie-settings---powershell"></a>檢視目前的 cookie 設定-PowerShell
 
-## View current cookie settings - PowerShell
-
-To see the current cookie settings for the application, use this PowerShell command:  
+若要查看目前的 cookie 設定，應用程式，請使用此 PowerShell 命令：  
 
 ```PowerShell
 Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl * 
 ```
 
-## Set cookie settings - PowerShell
+## <a name="set-cookie-settings---powershell"></a>設定 cookie 設定-PowerShell
 
-In the following PowerShell commands, ```<ObjectId>``` is the ObjectId of the application. 
+在下列 PowerShell 命令中，```<ObjectId>```應用程式的 objectid。 
 
-**Http-Only Cookie** 
+**僅限 http Cookie** 
 
 ```PowerShell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 
@@ -71,11 +69,9 @@ Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabl
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $false 
 ```
 
-**Persistent Cookies**
+**永續性 Cookie**
 
 ```PowerShell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $false 
 ```
-
--->

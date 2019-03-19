@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
-ms.translationtype: HT
+ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035613"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821656"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何驗證傳輸到虛擬網路的 VPN 輸送量
 
@@ -49,7 +49,7 @@ VPN 閘道連線涉及下列元件：
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>計算最大預期輸入/輸出
 
 1.  判斷您應用程式的基準輸送量需求。
-2.  判斷您的 Azure VPN 閘道輸送量限制。 如需說明，請參閱 [規劃與設計 VPN 閘道](vpn-gateway-plan-design.md) 的「依 SKU 和 VPN 類型彙總輸送量」區段。
+2.  判斷您的 Azure VPN 閘道輸送量限制。 如需說明，請參閱 「 閘道 Sku 」 一節[關於 VPN 閘道](vpn-gateway-about-vpngateways.md#gwsku)。
 3.  判斷 VM 大小的 [Azure VM 輸送量指引](../virtual-machines/virtual-machines-windows-sizes.md)。
 4.  決定您網際網路服務提供者 (ISP) 的頻寬。
 5.  計算您預期的輸送量 - 最小頻寬的 (VM、閘道、ISP) * 0.8。
@@ -77,7 +77,7 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
 
 2. 在這兩個節點上，啟用連接埠 5001 的防火牆例外狀況。
 
-    **Windows：** 以系統管理員身分執行下列命令。
+    **Windows：** 系統管理員身分執行下列命令：
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +89,7 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Azure Linux：** Azure Linux 映像有寬鬆的防火牆。 如果有應用程式接聽連接埠，則允許通過流量。 受保護的自訂映像可能需要明確開啟連接埠。 常見的 Linux OS 層防火牆包括 `iptables`、`ufw` 或 `firewalld`。
+    **Azure Linux:** Azure 的 Linux 映像有寬鬆的防火牆。 如果有應用程式接聽連接埠，則允許通過流量。 受保護的自訂映像可能需要明確開啟連接埠。 常見的 Linux OS 層防火牆包括 `iptables`、`ufw` 或 `firewalld`。
 
 3. 在伺服器節點上，請變更至將 iperf3.exe 解壓縮的目錄。 然後在伺服器模式中執行 iPerf，並以下列命令設為接聽連接埠 5001︰
 

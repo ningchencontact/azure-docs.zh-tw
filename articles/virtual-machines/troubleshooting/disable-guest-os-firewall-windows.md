@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318977"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820020"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>停用 Azure VM 中的客體 OS 防火牆
 
@@ -33,7 +33,7 @@ ms.locfileid: "52318977"
 
 如果 VM 為連線狀態，並可透過相同虛擬網路上的其他 VM 來存取，您即可使用另一部 VM 來進行這些緩解措施。
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>緩解措施 1：自訂指令碼延伸模組或執行命令功能
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>降低風險 1：自訂指令碼擴充功能或執行命令的功能
 
 如果您具備使用中的 Azure 代理程式，即可使用[自訂指令碼延伸模組](../extensions/custom-script-windows.md)或[執行命令](../windows/run-command.md)功能 (僅限 Resource Manager VM)，從遠端執行下列指令碼。
 
@@ -54,7 +54,7 @@ ms.locfileid: "52318977"
 >   ```
 >   不過，只要套用此原則，您就會被移出遠端工作階段。 這個問題的永久解決之道是修改套用至此電腦的原則。
 
-#### <a name="mitigation-2-remote-powershell"></a>緩解措施 2：遠端 Powershell
+#### <a name="mitigation-2-remote-powershell"></a>缓解措施 2：遠端 Powershell
 
 1.  針對您無法使用 RDP 連線來連接的 VM，連線到與此 VM 相同虛擬網路的某部 VM。
 
@@ -70,9 +70,9 @@ ms.locfileid: "52318977"
     ```
 
 > [!Note]
-> 如果防火牆是透過群組原則物件設定，此方法可能無效，因為這個命令只會變更本機登錄項目。 如果已備有原則，該原則會覆寫這項變更。 
+> 如果您透過群組原則物件設定防火牆，這個方法可能不會運作，因為此命令會變更本機登錄項目。 如果已備有原則，該原則會覆寫這項變更。 
 
-#### <a name="mitigation-3-pstools-commands"></a>緩解措施 3：PSTools 命令
+#### <a name="mitigation-3-pstools-commands"></a>缓解措施 3：PSTools 命令
 
 1.  在要對其進行疑難排解的 VM 上，下載 [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)。
 
@@ -86,7 +86,7 @@ ms.locfileid: "52318977"
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>緩解措施 4：遠端登錄 
+#### <a name="mitigation-4-remote-registry"></a>缓解措施 4：遠端登錄 
 
 請遵循下列步驟使用[遠端登錄](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 

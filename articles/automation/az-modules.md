@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e9240949c589717303fe00205c5374b5e3a6a791
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007496"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585057"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure 自動化中的 Az 模組支援
 
@@ -31,7 +31,7 @@ Azure 自動化支援在您的 Runbook 中使用 [Azure Powershell Az 模組](/p
 * 當相依於模組的其他模組匯入到 PowerShell 工作階段時
 
 > [!IMPORTANT]
-> 請務必確定自動化帳戶中的 Runbook 僅將 `Az` 或 `AzureRM` 模組匯入到 Runbook 使用的 PowerShell 工作階段，而不是兩者皆匯入。 如果在 Runbook 中 `Az` 於 `AzureRM` 前面匯入，Runbook 就會完成，但是[參考 get_SerializationSettings 方法時發生錯誤](/troubleshoot/runbooks.md#get-serializationsettings)會顯示在作業串流中，而且 Cmdlet 可能無法適當地執行。 如果您匯入 `AzureRM` 然後匯入 `Az`，您的 Runbook 仍然會完成，但是您會在作業串流中看到錯誤，指出 `Az` 和 `AzureRM` 兩者無法在相同工作階段中匯入或者在相同 Runbook 中使用。
+> 請務必確定自動化帳戶中的 Runbook 僅將 `Az` 或 `AzureRM` 模組匯入到 Runbook 使用的 PowerShell 工作階段，而不是兩者皆匯入。 如果在 Runbook 中 `Az` 於 `AzureRM` 前面匯入，Runbook 就會完成，但是[參考 get_SerializationSettings 方法時發生錯誤](troubleshoot/runbooks.md#get-serializationsettings)會顯示在作業串流中，而且 Cmdlet 可能無法適當地執行。 如果您匯入 `AzureRM` 然後匯入 `Az`，您的 Runbook 仍然會完成，但是您會在作業串流中看到錯誤，指出 `Az` 和 `AzureRM` 兩者無法在相同工作階段中匯入或者在相同 Runbook 中使用。
 
 ## <a name="migrating-to-az-modules"></a>遷移至 Az 模組
 

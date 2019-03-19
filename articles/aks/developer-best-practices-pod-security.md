@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559071"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651953"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中的 Pod 安全性最佳做法
 
@@ -70,7 +70,7 @@ spec:
 
 若要限制在應用程式程式碼中公開認證的風險，請避免使用固定或共用認證。 認證或金鑰不應直接包含在程式碼中。 如果公開這些認證，就需要更新和重新部署應用程式。 較好的方法是提供 Pod 自己的身分識別和自我驗證方式，或從數位保存庫自動擷取認證。
 
-AKS 包含自動驗證 Pod 或向數位保存庫要求認證與金鑰的兩種方式：
+以下[关联的 AKS 开放源代码项目][aks-associated-projects]可让你自动验证 Pod 或请求凭据和数字保管库中的密钥：
 
 * Azure 資源的受控身分識別，以及
 * Azure Key Vault FlexVol 驅動程式
@@ -83,7 +83,7 @@ Azure 資源的受控身分識別可讓 Pod 向 Azure 中任何支援此功能�
 
 使用受控身分識別，應用程式程式碼就不需要包含認證以存取服務時，例如 Azure 儲存體。 每個 Pod 都以自己的身分識別驗證，因此您可以稽核和檢閱存取權。 如果應用程式會與其他 Azure 服務連線，請使用受控身分識別來限制重複使用和公開認證的風險。
 
-如需 Pod 身分識別的詳細資訊，請參閱[設定 AKS 叢集以使用 Pod 受控身分識別][aad-pod-identity]與[在程式碼中使用指派和使用 Pod 受控身分識別][aad-pod-identity]。
+有关 Pod 标识的详细信息，请参阅[配置 AKS 群集以通过应用程序使用 Pod 托管标识][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>搭配使用 Azure Key Vault 與 FlexVol
 
@@ -107,6 +107,7 @@ Azure 資源的受控身分識別可讓 Pod 向 Azure 中任何支援此功能�
 [aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

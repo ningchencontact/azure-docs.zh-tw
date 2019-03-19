@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747521"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887245"
 ---
 # <a name="your-marketplace-benefits"></a>您的市集優惠
 
@@ -63,9 +63,9 @@ Azure Marketplace 和 AppSource 中的新清單都有資格透過我們的 Micro
 1. 在 Azure Marketplace 或 AppSource 中發佈供應項目。
 2. 確保您已在供應項目的**連絡人資訊**部分中輸入行銷連絡人。 這應該是專用的行銷資源，而不是一個包羅萬象的別名。 (也就是避免使用 "support\@"、"info\@"、"marketing\@" 等)
 
-根據您的解決方案狀態，您將收到一封內含自助資源，或者邀請您與專門的業務開發經理進行諮詢的電子郵件。 您不需要採取任何動作即可啟始呼叫 — Marketplace 上架小組將根據您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)中提供的資訊與您連絡。
+根據您的解決方案狀態，供應項目清單、 試用版，或 Transact-sql 中，您會收到電子郵件，內含的自助資源或未諮詢呼叫使用專用 Engagement 管理員 」 中的邀請。 您不需要採取任何動作即可啟始呼叫 — Marketplace 上架小組將根據您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)中提供的資訊與您連絡。
 
-隨著您在市集中增加供應項目，您可以使用的活動範圍也會擴展。 所有清單都會收到基礎等級的的最佳化建議和升級。  根據解決方案的狀態，選擇的市集和 Microsoft 合作夥伴的專長認證成就，這些清單還有資格獲得額外的行銷優勢。 
+隨著您在市集中增加供應項目，您可以使用的活動範圍也會擴展。 所有清單都會收到基礎等級的的最佳化建議和升級。  這些清單也可進行額外的行銷優勢，根據解決方案的狀態 （清單、 試用版或交易），選擇服務商場和 Microsoft 合作夥伴的專長認證的成就。
 
 下表摘要說明資格需求：
 

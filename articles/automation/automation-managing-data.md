@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428472"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817451"
 ---
-# <a name="managing-azure-automation-data"></a>管理 Azure 自動化資料
+# <a name="managing-azure-automation-data"></a>管理 Azure 自动化数据
 本文章包含用於管理 Azure 自動化環境的多個主題。
 
-## <a name="data-retention"></a>資料保留
+## <a name="data-retention"></a>数据保留
 當您刪除 Azure 自動化中的資源時，會將它保留 90 天作為稽核用途，之後才永久移除。  在這段期間您無法看到或使用該資源。  此原則也適用於屬於已刪除的自動化帳戶的資源。
 
 Azure 自動化會自動刪除並永久移除超過 90 天的工作。
@@ -30,7 +30,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 |:--- |:--- |
 | 帳戶 |刪除使用者帳戶 90 天後永久移除。 |
 | Assets |使用者刪除資產後 90 天，或使用者刪除持有資產的帳戶 90 天後永久移除。 |
-| 模組 |使用者刪除模組後 90 天，或使用者刪除持有模組的帳戶 90 天後永久移除。 |
+| 模块 |使用者刪除模組後 90 天，或使用者刪除持有模組的帳戶 90 天後永久移除。 |
 | Runbook |使用者刪除資源後 90 天，或使用者刪除持有資源的帳戶 90 天後永久移除。 |
 | 工作 |在上次修改日期的 90 天後刪除並永久移除。 這可以是在工作完成、停止或暫止之後。 |
 | 節點組態/MOF 檔案 |舊的節點組態會在新的節點組態產生之後的 90 天永久移除。 |
@@ -39,7 +39,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 保留原則適用於所有使用者，而且目前無法自訂。
 
-不過，如果您需要將資料保留更長的時間，則可以將 Runbook 作業記錄轉送到 Log Analytics。  如需進一步資訊，請檢閱[將 Azure 自動化作業資料轉送到 Log Analytics](automation-manage-send-joblogs-log-analytics.md)。   
+不過，如果您需要保留較長的一段時間的資料，您可以將轉送 runbook 作業記錄，以 Azure 監視器記錄檔。  如需詳細資訊，請檢閱[Azure 自動化作業資料轉送到 Azure 監視器記錄](automation-manage-send-joblogs-log-analytics.md)。   
 
 ## <a name="backing-up-azure-automation"></a>備份 Azure 自動化
 在 Microsoft Azure 中刪除自動化帳戶時，會刪除帳戶中的所有物件，包括 Runbook、模組、組態、設定、工作和資產。 刪除帳戶之後，就無法復原物件。  您可以使用下列資訊，在刪除之前備份您的自動化帳戶的內容。 
@@ -55,7 +55,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 您可以使用 [Azure Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) 來擷取未加密的資產的詳細資料並加以儲存供日後參考，或在另一個自動化帳戶中建立對等的資產。
 
-您無法使用 Cmdlet 擷取加密的變數的值或認證的密碼欄位。  如果您不知道這些值，則可從 Runbook 使用 [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) 和 [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx) 活動來擷取它們。
+无法使用 cmdlet 检索已加密变量或凭据密码字段的值。  如果您不知道這些值，則可從 Runbook 使用 [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) 和 [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx) 活動來擷取它們。
 
 您無法從 Azure 自動化匯出憑證。  您必須確定 Azure 外部有任何憑證可供使用。
 
@@ -70,10 +70,10 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 | 主要 | 次要 |
 | --- | --- |
 | 美國中南部 |美國中北部 |
-| 美國東部 2 |美國中部 |
-| 西歐 |北歐 |
-| 東南亞 |東亞 |
-| 日本東部 |日本西部 |
+| 美国东部 2 |美国中部 |
+| 欧洲西部 |欧洲北部 |
+| 东南亚 |東亞 |
+| 日本东部 |日本西部 |
 
 萬一主區域資料遺失，Microsoft 會嘗試將它復原。 如果主要資料無法復原，則會執行異地容錯移轉，而且將透過受影響客戶的訂用帳戶將此情況通知他們。
 

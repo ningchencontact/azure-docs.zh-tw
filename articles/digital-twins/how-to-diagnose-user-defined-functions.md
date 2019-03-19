@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119202"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961409"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中的使用者定義函式偵錯
 
@@ -29,10 +29,10 @@ ms.locfileid: "54119202"
 
 ### <a name="enable-log-analytics-for-your-instance"></a>啟用適用於您執行個體的 Log Analytics
 
-Azure Digital Twins 執行個體的記錄和計量顯示在 Azure 監視器中。 此文件假設您已透過 [Azure 入口網站](../azure-monitor/learn/quick-create-workspace.md)、[Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md) 或 [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md) 建立 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) 工作區。
+Azure Digital Twins 執行個體的記錄和計量顯示在 Azure 監視器中。 這份文件假設您已建立[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)工作區透過[Azure 入口網站](../azure-monitor/learn/quick-create-workspace.md)，透過[Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md)，或透過[PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md)。
 
 > [!NOTE]
-> 當您第一次將事件傳送到 Azure Log Analytics 時，可能會經歷 5 分鐘的延遲。
+> 第一次將事件傳送至 Azure 監視器記錄檔時，可能會遇到有 5 分鐘的延遲。
 
 若要針對 Azure Digital Twins 資源設定監視和記錄，請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
 
@@ -43,11 +43,11 @@ Azure Digital Twins 執行個體的記錄和計量顯示在 Azure 監視器中�
 
 ### <a name="trace-sensor-telemetry"></a>追蹤感應器遙測
 
-若要追蹤感應器遙測，請確認已針對您的 Azure Digital Twins 執行個體啟用診斷設定。 然後，請確定已選取所有需要的記錄檔類別。 最後，請確認所需的記錄傳送至 Azure Log Analytics。
+若要追蹤感應器遙測，請確認已針對您的 Azure Digital Twins 執行個體啟用診斷設定。 然後，請確定已選取所有需要的記錄檔類別。 最後，請確認所需的記錄傳送至 Azure 監視器記錄檔。
 
 若要使感應器遙測訊息與其各自的記錄檔相符，您可以針對所傳送的事件資料指定相互關聯識別碼。 若要這樣做，將 `x-ms-client-request-id` 屬性設為 GUID。
 
-傳送遙測資料之後，開啟 Azure Log Analytics，就可以使用設定的相互關聯識別碼查詢記錄檔：
+在傳送遙測資料之後, 開啟 log analytics 中使用的記錄檔查詢來相互關聯識別碼：
 
 ```Kusto
 AzureDiagnostics
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | 針對事件資料指定的相互關聯識別碼 |
 
-如果您啟用使用者定義函式的記錄，這些記錄將會出現在類別為 `UserDefinedFunction` 的 Azure Log Analytics 執行個體中。 若要擷取這些記錄檔，請在 Azure Log Analytics 中輸入下列查詢條件：
+如果您啟用記錄您的使用者定義函式時，這些記錄檔會出現在您的 log analytics 執行個體與分類`UserDefinedFunction`。 若要擷取它們，請輸入下列查詢條件在 log analytics 中：
 
 ```Kusto
 AzureDiagnostics

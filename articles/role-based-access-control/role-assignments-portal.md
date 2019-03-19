@@ -1,5 +1,5 @@
 ---
-title: 使用 RBAC 和 Azure 入口網站管理對 Azure 資源的存取 | Microsoft Docs
+title: 管理 Azure 資源使用 RBAC 和 Azure 入口網站的存取權 |Microsoft Docs
 description: 了解如何使用角色型存取控制 (RBAC) 與 Azure 入口網站來管理使用者、群組、服務主體與受控識別針對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
@@ -11,43 +11,79 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342332"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805285"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 入口網站管理對 Azure 資源的存取
 
-[角色型存取控制 (RBAC)](overview.md) 是您管理對 Azure 資源存取的機制。 此文章說明如何使用 RBAC 與 Azure 入口網站來管理使用者、群組、服務主體與受控識別的存取權。
+[角色型存取控制 (RBAC)](overview.md) 是您管理對 Azure 資源存取的機制。 本文將告訴您如何管理使用 Azure 入口網站的存取。 如果您需要管理 Azure Active Directory 存取權，請參閱[Azure Active Directory 中的檢視，並指派系統管理員角色](../active-directory/users-groups-roles/directory-manage-roles-portal.md)。
+
+## <a name="prerequisites"></a>必要條件
+
+若要新增及移除角色指派，您必須：
+
+- `Microsoft.Authorization/roleAssignments/write` 並`Microsoft.Authorization/roleAssignments/delete`權限，例如[使用者存取系統管理員](built-in-roles.md#user-access-administrator)或[擁有者](built-in-roles.md#owner)
+
+## <a name="overview-of-access-control-iam"></a>存取控制 (IAM) 的概觀
+
+**存取控制 (IAM)** 是您用來管理 Azure 資源的存取權 刀鋒視窗。 它亦稱為身分識別和存取管理，並顯示在 Azure 入口網站中的數個位置。 下面顯示某訂用帳戶之 [存取控制 (IAM)] 刀鋒視窗的範例。
+
+![訂用帳戶的存取控制 (IAM) 刀鋒視窗](./media/role-assignments-portal/access-control-numbers.png)
+
+下表說明的某些元素是適用於：
+
+| # | 元素 | 您將它用於 |
+| --- | --- | --- |
+| 1 | 資源的存取控制 (IAM) 開啟的位置 | 識別範圍 （在此範例中的訂閱） |
+| 2 | **新增**按鈕 | 新增角色指派 |
+| 3 | **檢查存取** 索引標籤 | 檢視單一使用者的角色指派 |
+| 4 | **角色指派** 索引標籤 | 檢視目前範圍的角色指派 |
+| 5 | **角色** 索引標籤 | 檢視所有的角色和權限 |
+
+若要最有效的存取控制 (IAM) 刀鋒視窗，將有所助益時想要管理存取權，您可以回答下列三個問題：
+
+1. **誰需要存取？**
+
+    誰是指使用者、 群組、 服務主體或受管理的身分識別。 這也稱為*安全性主體*。
+
+1. **他們需要什麼權限？**
+
+    權限會分組放入角色。 您可以從數個內建角色清單中選取。
+
+1. **他們需要在其中存取？**
+
+    其中是指一組存取權會套用到的資源。 其中可以是管理群組、 訂用帳戶、 資源群組或單一資源，例如儲存體帳戶。 這就叫做*範圍*。
 
 ## <a name="open-access-control-iam"></a>開啟存取控制 (IAM)
 
-[存取控制 (IAM)] 刀鋒視窗 (亦稱為身分識別與存取管理) 會出現在入口網站各處。 若要在入口網站中檢視或管理存取權，您通常必須做的第一件事是在您要檢視或變更的範圍內開啟 [存取控制 (TAM)] 刀鋒視窗。
+您必須決定的第一件事就是開啟存取控制 (IAM) 刀鋒視窗的位置。 這取決於您想要何種的資源管理的存取權。 若要管理存取權管理群組、 訂用帳戶、 資源群組或單一資源中的所有項目中的所有項目中的所有項目嗎？
 
-1. 在 Azure 入口網站中，按一下 [所有服務]，然後選取您要檢視或管理的範圍或資源。 例如，您可以選取 [管理群組]、[訂用帳戶]、[資源群組]或資源。
+1. 在 Azure 入口網站中，按一下**所有服務**，然後選取範圍。 例如，您可以選取 [管理群組]、[訂用帳戶]、[資源群組]或資源。
 
-1. 按一下您要檢視或管理的特定資源。
+1. 按一下特定的資源。
 
 1. 按一下 [存取控制 (IAM)]。
 
-    下面顯示某訂用帳戶之 [存取控制 (IAM)] 刀鋒視窗的範例。
+    下面顯示某訂用帳戶之 [存取控制 (IAM)] 刀鋒視窗的範例。 如果您在任何存取控制此變更，它們會套用到整個訂用帳戶。
 
     ![訂用帳戶的存取控制 (IAM) 刀鋒視窗](./media/role-assignments-portal/access-control-subscription.png)
 
 ## <a name="view-roles-and-permissions"></a>檢視角色與權限
 
-角色定義是您用於角色指派的權限集合。 Azure 具有超過 70 個[適用於 Azure 資源的內建角色](built-in-roles.md)。 依照這些步驟檢視可在管理與資料面板上執行的角色與權限。
+角色定義是您用於角色指派的權限集合。 Azure 具有超過 70 個[適用於 Azure 資源的內建角色](built-in-roles.md)。 請遵循下列步驟來檢視可用的角色和權限。
 
-1. 針對您要檢視角色與權限的範圍 (例如管理群組、訂用帳戶、資源群組或資源) 開啟 [存取控制 (IAM)]。
+1. 開啟**存取控制 (IAM)** 在任何範圍。
 
 1. 按一下 [角色] 索引標籤以查看所有內建與自訂角色清單。
 
-   您可以查看在此範圍指派給每個角色的使用者與群組數目。
+   您可以看到使用者和群組指派給在目前的範圍內的每個角色的數目。
 
    ![角色清單](./media/role-assignments-portal/roles-list.png)
 
@@ -57,7 +93,7 @@ ms.locfileid: "56342332"
 
 ## <a name="view-role-assignments"></a>檢視角色指派
 
-在管理存取權時，您想要知道誰具有存取權、其權限為何，以及在何種層級上。 若要列出使用者、群組、服務主體或受控識別的存取權，您可以檢視角色指派。
+管理存取權，當您想要知道誰可以存取，什麼是其權限，以及在何種範圍內。 清單存取使用者、 群組、 服務主體或受控身分識別，以檢視其角色指派。
 
 ### <a name="view-role-assignments-for-a-single-user"></a>檢視單一使用者的角色指派
 
@@ -85,7 +121,7 @@ ms.locfileid: "56342332"
 
 1. 針對您要檢視存取權的範圍 (例如管理群組、訂用帳戶、資源群組或資源) 開啟 [存取控制 (IAM)]。
 
-1. 按一下 [角色指派] 索引標籤 (或按一下 [檢視角色指派] 圖格上的 [檢視] 按鈕) 以檢視此範圍中的所有角色指派。
+1. 按一下 [角色指派] 索引標籤以檢視此範圍中的所有角色指派。
 
    ![存取控制︰[角色指派] 索引標籤](./media/role-assignments-portal/access-control-role-assignments.png)
 
@@ -101,9 +137,11 @@ ms.locfileid: "56342332"
 
 1. 按一下 [角色指派] 索引標籤以檢視此範圍中的所有角色指派。
 
-1. 按一下 [新增角色指派] 以開啟 [新增角色指派] 窗格。
+1. 按一下 [新增] > [新增角色指派]，以開啟 [新增角色指派] 窗格。
 
    若您沒有指派角色的權限，[新增角色指派] 選項將會被停用。
+
+   ![[新增] 功能表](./media/role-assignments-portal/add-menu.png)
 
    ![[新增角色指派] 窗格](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -127,9 +165,11 @@ ms.locfileid: "56342332"
 
 1. 按一下 [角色指派] 索引標籤以檢視此訂用帳戶的所有角色指派。
 
-1. 按一下 [新增角色指派] 以開啟 [新增角色指派] 窗格。
+1. 按一下 [新增] > [新增角色指派]，以開啟 [新增角色指派] 窗格。
 
    若您沒有指派角色的權限，[新增角色指派] 選項將會被停用。
+
+   ![[新增] 功能表](./media/role-assignments-portal/add-menu.png)
 
    ![[新增角色指派] 窗格](./media/role-assignments-portal/add-role-assignment.png)
 
