@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003237"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Java SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -37,18 +37,29 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 |**SDK 下載**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API 文件**|[Java API 參考文件](/java/api/com.microsoft.azure.documentdb)|
 |**參與 SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**開始使用**|[開始使用 Java SDK](sql-api-java-get-started.md)|
+|**開始使用**|[Java SDK 入门](sql-api-java-get-started.md)|
 |**Web 應用程式教學課程**|[使用 Azure Cosmos DB 進行 Web 應用程式開發](sql-api-java-application.md)|
 |**最低支援執行階段**|[Java 開發套件 (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+* 修正在 PartitionKey 雜湊 v2 中的錯誤。
+
+### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2
+* 已新增的支援複合索引。
+* 強制重新整理的全域端點管理員中已修正的 bug。
+* 會插入在直接模式中的前置條件與所修正的錯誤。
+
+### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+* 閘道位址快取中已修正的 bug。
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * 針對直接模式新增多重區域寫入支援。
 * 新增處理從 Proxy 擲回為 ServiceUnavailable 例外狀況之 IOExceptions 的支援。
 * 修正端點探索重試原則中的錯誤 (bug)。
 * 修正錯誤 (bug) 以確保不會在 BaseDatabaseAccountConfigurationProvider 中擲回 Null 指標例外狀況。
-* 修正錯誤 (bug) 以確保查詢 Iterator 不會傳回 Null。
+* 已修正的 bug，以確保 QueryIterator 不會傳回 null。
 * 修正錯誤 (bug) 以確保允許大型 PartitionKey
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -105,14 +116,14 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 * 已啟用對低至 2,500 RU/秒且以 100 RU/秒遞增量進行調整之資料分割集合的支援。
-* 已修正原生組件中的 Bug，這會在某些查詢中導致 NullRef 例外狀況。
+* 修复了本机程序集中的 bug，该 bug 在某些查询中可能会导致 NullRef 异常。
 
 ### <a name="a-name196196"></a><a name="1.9.6"/>1.9.6
 * 修正查詢引擎組態中可能對閘道模式中的查詢造成例外狀況的錯誤。
-* 修正工作階段容器中可能在集合建立後立即對要求造成「找不到擁有者資源」例外狀況的幾個錯誤。
+* 修复了会话容器中的一些 Bug，这些 Bug 可能会在创建集合后立即导致“找不到所有者资源”请求异常。
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* 新增彙總查詢的支援 (COUNT、MIN、MAX、SUM 和 AVG)。 請參閱[彙總支援](how-to-sql-query.md#Aggregates)。
+* 新增彙總查詢的支援 (COUNT、MIN、MAX、SUM 和 AVG)。 请参阅[聚合支持](how-to-sql-query.md#Aggregates)。
 * 新增變更摘要的支援。
 * 新增透過 RequestOptions.setPopulateQuotaInfo 收集配額資訊的支援。
 * 新增透過 RequestOptions.setScriptLoggingEnabled 進行預存程序指令碼記錄的支援。
@@ -122,7 +133,7 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 * 改善 DirectHttps 模式的效能。
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
-* 在 ConnectionPolicy.setProxy() API 加入簡單的用戶端執行個體 Proxy 支援。
+* 使用 ConnectionPolicy.setProxy() API 添加了基于简单客户端实例的代理支持。
 * 加入的 DocumentClient.close() API 可正確關閉 DocumentClient 執行個體。
 * 從原生組件 (而不是從閘道) 衍生的查詢計劃利用直接連線模式改善查詢效能。
 * 設定 FAIL_ON_UNKNOWN_PROPERTIES = false，讓使用者不需要在其 POJO 定義 JsonIgnoreProperties。
@@ -152,10 +163,10 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 * 修正以使得 ActivityId 在所有要求重試之間保持一致。
 * 修正與以相同名稱重新建立集合時之工作階段快取相關的錯誤。
 * 新增為異地隔離空間查詢指定集合索引編製原則時的 Polygon 和 LineString 資料類型。
-* 修正適用於 Java 1.8 之 Java Doc 的錯誤。
+* 解决 Java 文档中的 Java 1.8 的问题。
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
-* 修正 PartitionKeyDefinitionMap 中將單一資料分割集合加入快取，而非提出額外擷取資料分割索引鍵要求的錯誤。
+* 修复了 PartitionKeyDefinitionMap 中的一个 bug，以便缓存单个分区集合，而不进行额外的提取分区键的请求。
 * 修正在提供不正確的資料分割索引鍵時不重試的錯誤。
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
@@ -167,23 +178,23 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 * 已新增速率限制的重試原則支援。  
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
-* 新加入文件的存留時間 (TTL) 支援。
+* 对文档添加了生存时间 (TTL) 支持。
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
-* 實作[已分割的集合](partition-data.md)和[使用者定義的效能等級](performance-levels.md)。
+* 实现了[分区集合](partition-data.md)和[用户定义的性能级别](performance-levels.md)。
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * 修正 HashPartitionResolver 中的錯誤以產生與其他 SDK 一致的 little-endian 雜湊值。
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
-* 新增「雜湊和範圍」分割區解析程式來協助將應用程式跨多個分割區分區。
+* 添加哈希和范围分区冲突解决程序以协助跨多个分区对应用程序进行分片。
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * 實作 Upsert。 已新增新的 upsertXXX 方法以支援 Upsert 功能。
 * 實作以識別碼為基礎的路由。 不需變更公用 API，所有變更皆為內部變更。
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
-* 已略過版本以配合其他 SDK 的版本號碼
+* 跳过了发布以使版本号与其他 SDK 符合
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * 支援地理空間索引
@@ -212,7 +223,10 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| 2.1.1 |2018 年 11 月 21 日 |--- |
+| [2.1.3](#2.1.3) |2018 年 3 月 13日日 |--- |
+| [2.1.2](#2.1.2) |2018 年 3 月 09 日 |--- |
+| [2.1.1](#2.1.1) |2018 年 12 月 13日日 |--- |
+| [2.1.0](#2.1.0) |2018 年 11 月 20日日 |--- |
 | [2.0.0](#2.0.0) |2018 年 9 月 21 日 |--- |
 | [1.16.4](#1.16.4) |2018 年 9 月 10 日 |--- |
 | [1.16.3](#1.16.3) |2018 年 9 月 9 日 |--- |
@@ -255,6 +269,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。
 

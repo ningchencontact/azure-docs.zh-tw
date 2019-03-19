@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858162"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>使用儲存體總管來管理 Azure Blob 儲存體資源
 ## <a name="overview"></a>概觀
@@ -30,7 +30,7 @@ ms.locfileid: "52422047"
 若要完成這篇文章中的步驟，您需要下列項目︰
 
 * [下載並安裝儲存體總管](https://www.storageexplorer.com)
-* [連接到 Azure 儲存體帳戶或服務](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [連線到 Azure 儲存體帳戶或服務](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>建立 Blob 容器
 所有 blob 必須都位於 blob 容器，這是 blob 的邏輯群組。 帳戶可以包含無限數量的容器，每個容器可以儲存無限數量的 blob。
@@ -41,7 +41,7 @@ ms.locfileid: "52422047"
 2. 在左窗格中，展開您要在其中建立 blob 容器的儲存體帳戶。
 3. 以滑鼠右鍵按一下 [Blob 容器]，從內容功能表中，選取 [建立 Blob 容器]。
 
-   ![建立 Blob 容器內容功能表][0]
+   ![“创建 Blob 容器”上下文菜单][0]
 4. [Blob 容器]  資料夾底下會出現文字方塊。 輸入 blob 容器的名稱。 請參閱[建立容器與設定權限](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)，以取得為 Blob 容器命名的規則和限制。
 
    ![建立 Blob 容器文字方塊][1]
@@ -72,7 +72,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
 
 1. 開啟儲存體總管。
 2. 在左窗格中，展開儲存體帳戶，其中包含您要檢視的 blob 容器。
-3. 展開儲存體帳戶的 [Blob 容器] 。
+3. 展开该存储帐户的“Blob 容器”。
 4. 以滑鼠右鍵按一下您想要刪除的 blob 容器，從內容功能表中，選取 [刪除] 。
    您也可以按 [刪除]  以刪除目前選取的 blob 容器。
 
@@ -194,7 +194,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
      1. 選取您想要下載的 blob。
      2. 在主窗格工具列上選取 [下載] 。
      3. 在 [指定儲存下載的 blob 的位置]  對話方塊中，指定要下載 blob 的位置，和您想要給予它的名稱。  
-     4. 選取 [ **儲存**]。
+     4. 选择“保存”。
    * **在您的本機電腦上開啟 blob**
 
      1. 選取您想要開啟的 blob。
