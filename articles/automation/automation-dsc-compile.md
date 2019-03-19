@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423403"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594265"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>編譯 Azure Automation State Configuration 中的 DSC 組態
 
@@ -130,7 +130,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="composite-resources"></a>複合資源
 
-**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。 這可讓您將多個組態套用至單一資源。 如需深入了解**複合資源**，請參閱[複合資源：使用 DSC 組態作為資源](/powershell/dsc/authoringresourcecomposite)。
+**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。 這可讓您將多個組態套用至單一資源。 請參閱[複合資源：當做資源使用 DSC 組態](/powershell/dsc/authoringresourcecomposite)若要深入了解**複合資源**。
 
 > [!NOTE]
 > 為使**複合資源**正確編譯，您必須先確定複合依賴的任何 DSC 資源都已先安裝在 Azure 自動化帳戶模組存放庫中，否則它就無法正確匯入。
@@ -230,7 +230,7 @@ Azure Automation State Configuration 和 Runbook 中的資產參考是相同的�
 
 - [憑證](automation-certificates.md)
 - [連線](automation-connections.md)
-- [認證](automation-credentials.md)
+- [凭据](automation-credentials.md)
 - [變數](automation-variables.md)
 
 ### <a name="credential-assets"></a>認證資產
@@ -284,6 +284,14 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > 完成編譯時，您可能會收到錯誤，指出：**並未匯入 'Microsoft.PowerShell.Management' 模組，因為已經匯入 'Microsoft.PowerShell.Management' 嵌入式管理單元。** 請放心忽略這項警告。
+
+## <a name="partial-configuration"></a>部分配置
+
+Azure 自动化状态配置支持使用[部分配置](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs)。
+在此方案中，DSC 配置为独立管理多个配置，并且每个配置都从 Azure 自动化中检索。
+但是，每个自动化帐户只能为一个节点分配一个配置。
+这意味着，如果对节点使用两种配置，则需要两个自动化帐户。
+有关团队如何协作以代码形式使用配置来协作管理服务器的更多信息，请参见[了解 DSC 在 CI/CD 管道中的角色](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced)。
 
 ## <a name="importing-node-configurations"></a>匯入節點組態
 

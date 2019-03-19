@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7a3abd854ec5e492407d1fbdc8d170f2a27ba1bc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053614"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816720"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 進行事件分析和視覺效果
 
@@ -48,50 +48,6 @@ Application Insights 有用於查詢所有傳入資訊的指定檢視。 按一�
 ![Application Insights 要求詳細資料](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
 若要進一步探索 Application Insights 入口網站的功能，請前往 [Application Insights 入口網站文件](../azure-monitor/app/app-insights-dashboards.md)。
-
-### <a name="configuring-application-insights-with-wad"></a>使用 WAD 設定 Application Insights
-
->[!NOTE]
->目前這僅適用於 Windows 叢集。
-
-有兩種主要方式可將資料從 WAD 的傳送至 Azure Application Insights，只要將 Application Insights 接收新增到 WAD 設定中即可，詳細資訊請參閱[本文](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)。
-
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>在 Azure 入口網站中建立叢集時新增 Application Insights 檢測金鑰
-
-![新增 AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-建立叢集時，如果診斷已 [開啟]，即會顯示輸入 Application Insights 檢測金鑰的選擇性欄位。 如果在此貼上您的 Application Insights 金鑰，用來部署叢集的 Resource Manager 範本就會自動為您設定 Application Insights 接收。
-
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>將 Application Insights 接收新增至 Resource Manager 範本
-
-在 Resource Manager 範本的 "WadCfg" 中，納入下列兩項變更以新增「接收」：
-
-1. 直接在宣告 `DiagnosticMonitorConfiguration` 完成之後，新增接收設定：
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. 在 `DiagnosticMonitorConfiguration` 中包含接收，方法是在 `WadCfg` 的 `DiagnosticMonitorConfiguration` 中新增下列行 (在 `EtwProviders` 宣告之前)：
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-上面這兩個程式碼片段都使用 "applicationInsights" 名稱來描述接收。 這不是需求，而是只要在「接收」中包含接收的名稱，就可以在任何字串設定該名稱。
-
-目前，叢集中的記錄會顯示為 Application Insights 記錄檢視器中的**追蹤**。 由於大部分來自平台的追蹤層級都是「資訊」，您也可以考慮將接收設定變更為僅傳送「重大」或「錯誤」類型的記錄。 只要將「通道」新增至接收器即可，如[本文](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)所示。
-
->[!NOTE]
->如果您在入口網站或 Resource Manager 範本中使用不正確的 Application Insights 金鑰，您就必須手動變更金鑰，並更新/重新部署叢集。
 
 ### <a name="configuring-application-insights-with-eventflow"></a>使用 EventFlow 設定 Application Insights
 

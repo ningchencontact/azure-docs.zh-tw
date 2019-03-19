@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329843"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878059"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SAP Business One
 本文提供在 Azure 虛擬機器上部署 SAP Business One 的指引。 本文無法取代 SAP Business One 的安裝文件。 本文應涵蓋在 Azure 基礎結構上執行 Business One 應用程式的基本規劃與部署指引。
@@ -38,7 +38,7 @@ Business One 支援兩種不同的資料庫：
 - [Windows 上的 Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Linux 上的 Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [使用 PowerShell 來進行 Azure 網路作業和虛擬網路管理](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [使用 CLI 來進行 Azure 網路作業和虛擬網路管理](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Azure 網路和使用 CLI 的虛擬網路](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [使用 Azure CLI 來管理 Azure 磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 即使您只對 Business One 感興趣，[SAP NetWeaver 的 Azure 虛擬機器規劃和實作](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)一文也提供了不錯的資訊。

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.openlocfilehash: 5f804bf656b423d6dbe8f5c2ed73ba54d8361000
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: a75ac9773072423c13eef85ecad29c632c13d024
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124530"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873248"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>採用 Enterprise Integration Pack 的 Azure Logic Apps 中的 X12 訊息和一般檔案
 
@@ -31,7 +31,7 @@ ms.locfileid: "43124530"
 * [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - 可擴充訊息，並從訊息擷取特定的屬性。 然後您可以使用擷取的屬性將訊息傳送至目的地或中繼端點。
 
 ## <a name="try-it-out"></a>試做
-使用 Azure Logic Apps 中的 XML 功能，[部署全功能的邏輯應用程式 (GitHub sample)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline)。
+[將完整運作的邏輯應用程式部署](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline)(GitHub sample) 使用 Azure Logic Apps 中的 XML 功能。
 
 ## <a name="learn-more"></a>深入了解
 [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")

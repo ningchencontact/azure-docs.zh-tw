@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269851"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871633"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>開始使用 Azure 監視器記錄查詢
 
 
 > [!NOTE]
-> 請先完成[開始使用 Azure 監視器記錄分析](get-started-portal.md)，再完成本教學課程。
+> 您應該先完成[開始使用 Azure 監視器 Log Analytics](get-started-portal.md)之前完成本教學課程。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-在本教學課程中，您會了解如何撰寫 Azure LMonitor 記錄查詢。 它會告訴您如何：
+在本教學課程，您將了解如何撰寫 Azure 監視器記錄的查詢。 它會告訴您如何：
 
 - 了解查詢的結構
 - 排序查詢結果
@@ -108,7 +108,7 @@ SecurityEvent
 
 在撰寫篩選條件時，您可以使用下列運算式：
 
-| 運算是 | 說明 | 範例 |
+| 運算是 | 描述 | 範例 |
 |:---|:---|:---|
 | == | 檢查是否相等<br>(區分大小寫) | `Level == 8` |
 | =~ | 檢查是否相等<br>(不區分大小寫) | `EventSourceName =~ "microsoft-windows-security-auditing"` |

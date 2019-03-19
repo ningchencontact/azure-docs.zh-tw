@@ -3,7 +3,7 @@ title: Azure Service Fabric 具狀態服務中的 Reliable Collection 簡介 | M
 description: Service Fabric 具狀態服務提供可靠的集合，可讓您撰寫高度可用、可調整且低延遲的雲端應用程式。
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 1/3/2019
-ms.author: twhitney
-ms.openlocfilehash: 422b4bbcfc6811cdc6bbf1649e2c660d04d95776
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 944bb69ed028338efb243c8646035089566ccf80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039668"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806499"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric 具狀態服務中可靠的集合簡介
 
@@ -69,4 +69,4 @@ Reliable Collection 具有增強式一致性保證，可讓您更輕鬆地推論
   * [Reliable State Manager 組態](service-fabric-reliable-services-configuration.md)
 * 其他
   * [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
-  * [可靠的集合的開發人員參考資料](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

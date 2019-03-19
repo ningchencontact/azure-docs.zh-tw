@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 檢視中的篩選 | Microsoft Docs
-description: Log Analytics 檢視中的篩選可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。
+title: Azure 監視器檢視中的篩選 |Microsoft Docs
+description: Azure 監視器檢視中的篩選器可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 6a4ac2f26c01555ef54a4ee2248db7cd2818661e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189416"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888333"
 ---
-# <a name="filters-in-log-analytics-views"></a>Log Analytics 檢視中的篩選
-[Log Analytics 檢視](view-designer.md)中的**篩選**可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  例如，您可以允許檢視的使用者篩選檢視，只顯示來自某個特定電腦或一組電腦的資料。  您可以在單一檢視上建立多個篩選，以允許使用者依多個屬性進行篩選。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。
+# <a name="filters-in-azure-monitor-views"></a>Azure 監視器檢視中的篩選
+A**篩選條件**中[Azure 監視器檢視](view-designer.md)可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  例如，您可以允許檢視的使用者篩選檢視，只顯示來自某個特定電腦或一組電腦的資料。  您可以在單一檢視上建立多個篩選，以允許使用者依多個屬性進行篩選。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。
 
 ## <a name="using-a-filter"></a>使用篩選
-按一下檢視頂端的資料時間範圍，以開啟下拉式清單，您可以在其中變更檢視的資料時間範圍。
+按一下頂端的檢視，以開啟下拉式清單，您可以變更檢視的日期時間範圍的日期時間範圍。
 
 ![篩選範例](media/view-designer-filters/filters-example-time.png)
 
@@ -44,10 +44,10 @@ ms.locfileid: "53189416"
 
 下表說明篩選的設定。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |:---|:---|
-| 欄位名稱 | 用於篩選的欄位名稱。  這必須與 [查詢值] 中的 summarize 欄位相符。 |
-| 查詢值 | 所要執行以填入使用者篩選下拉式清單的查詢。  這必須使用 [summarize](/azure/kusto/query/summarizeoperator) 或 [distinct](/azure/kusto/query/distinctoperator) 來為特定欄位提供獨特的值，並且必須與 [欄位名稱]相符。  您可以使用 [sort](/azure/kusto/query/sortoperator) 來排序對使用者顯示的值。 |
+| 欄位名稱 | 用於篩選的欄位名稱。  此欄位必須符合中的 summarize 欄位**查詢值**。 |
+| 查詢值 | 所要執行以填入使用者篩選下拉式清單的查詢。  這項查詢都必須使用[摘述](/azure/kusto/query/summarizeoperator)或是[相異](/azure/kusto/query/distinctoperator)提供唯一值，讓特定的欄位，而且必須符合**欄位名稱**。  您可以使用 [sort](/azure/kusto/query/sortoperator) 來排序對使用者顯示的值。 |
 | Tag | 支援篩選之查詢中使用的欄位名稱，此名稱也會對使用者顯示。 |
 
 ### <a name="examples"></a>範例
@@ -64,13 +64,13 @@ ms.locfileid: "53189416"
 
 ## <a name="modify-view-queries"></a>修改檢視查詢
 
-若要讓篩選產生任何效果，您就必須將檢視中的任何查詢修改成依據選取的值進行篩選。  如果您未修改檢視中的任何查詢，則使用者選取的任何值都不會有任何效果。
+若要讓篩選產生任何效果，您就必須將檢視中的任何查詢修改成依據選取的值進行篩選。  如果您未修改任何查詢檢視中的，任何使用者選取的值將會有任何作用。
 
 在查詢中使用篩選值的語法如下： 
 
     where ${filter name}  
 
-例如，如果您的檢視有一個會傳回事件並使用名為 Computers 之篩選的查詢，您便可以使用以下語法。
+例如，如果您的檢視具有查詢所傳回的事件，並使用名為篩選_電腦_，您可以使用下列查詢。
 
     Event | where ${Computers} | summarize count() by EventLevelName
 

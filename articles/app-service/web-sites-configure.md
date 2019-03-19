@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: fb8dedac8b795ec127d7b4a14728d73c9397a1dd
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716458"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807400"
 ---
 # <a name="configure-apps-in-azure-app-service"></a>在 Azure App Service 中設定應用程式
 
@@ -170,6 +170,7 @@ ms.locfileid: "53716458"
 * [針對 Azure App Service 中的 App 啟用 HTTPS]
 * [在 Azure App Service 中調整應用程式規模]
 * [在 Azure App Service 中監視基本概念]
+* [變更與 applicationHost.xdt applicationHost.config 設定](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 

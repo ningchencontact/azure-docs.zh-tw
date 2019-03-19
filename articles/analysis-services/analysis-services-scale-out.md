@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 8f253d150a5073d2d19daf51c12180c9f7b3660b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411674"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734518"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -87,11 +87,13 @@ ms.locfileid: "54411674"
 
 ### <a name="powershell"></a>PowerShell
 
-使用 PowerShell 之前，請[安裝或更新最新的 AzureRM 模組](https://github.com/Azure/azure-powershell/releases)。 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要設定查詢複本數目，請使用 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)。 指定選擇性的 `-ReadonlyReplicaCount` 參數。
+使用 PowerShell 之前,[安裝或更新的最新的 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 
 
-若要執行同步處理，請使用 [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)。
+若要設定查詢複本的數目，請使用[組 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定選擇性的 `-ReadonlyReplicaCount` 參數。
+
+若要執行同步處理，請使用[同步 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)。
 
 ## <a name="connections"></a>連線
 

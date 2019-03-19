@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038070"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983586"
 ---
-# <a name="tuning-query-performance-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 調整查詢效能
+# <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 
 Azure Cosmos DB 提供一個[適用於查詢資料的 SQL API](how-to-sql-query.md)，而不需結構描述或次要索引。 本文可為開發人員提供下列資訊：
 
@@ -38,7 +38,7 @@ Azure Cosmos DB 提供一個[適用於查詢資料的 SQL API](how-to-sql-query.
 
 SDK 提供適用於查詢執行的各種選項。 例如，在 .NET 中，下列選項適用於 `FeedOptions` 類別。 下表描述這些選項，以及它們如何影響查詢執行時間。 
 
-| 選項 | 說明 |
+| 選項 | 描述 |
 | ------ | ----------- |
 | `EnableCrossPartitionQuery` | 必須針對任何需要跨多個分割區執行的查詢設定為 true。 這是一個明確的旗標，讓您能夠在開發期間進行明智的效能取捨。 |
 | `EnableScanInQuery` | 如果您已選擇不編製索引，但仍想透過掃描繼續執行查詢，就必須設定為 true。 只有在已停用針對所要求篩選路徑編製索引的功能時才適用。 | 
@@ -124,7 +124,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 
 從查詢傳回的索引鍵回應標頭包括下列項目：
 
-| 選項 | 說明 |
+| 選項 | 描述 |
 | ------ | ----------- |
 | `x-ms-item-count` | 在回應中傳回的項目數。 這相依於所提供的 `x-ms-max-item-count`、最大回應承載大小內可容納的項目數、佈建的輸送量，以及查詢執行時間。 |  
 | `x-ms-continuation:` | 要繼續執行查詢的接續 Token (如果有其他結果可供使用)。 | 
@@ -145,14 +145,14 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 | 索引原則 | 確定您具有查詢所需的編製索引路徑/原則。 |
 | 查詢執行計量 | 分析查詢執行計量，以識別可能發生重新寫入的查詢與資料圖形。  |
 
-### <a name="provisioned-throughput"></a>佈建的輸送量
-在 Cosmos DB 中，您會建立資料的容器，每一個容器都具有以每秒要求單位 (RU) 表示的保留輸送量。 讀取 1 KB 文件就是 1 RU，而每個操作 (包括查詢) 都會根據它的複雜度正規化為固定數目的 RU。 例如，如果您已針對容器佈建了 1000 RU/秒，且具有類似 `SELECT * FROM c WHERE c.city = 'Seattle'` 的查詢 (其取用 5 RU)，則您每秒可執行 (1000 RU/秒) / (5 RU/查詢) = 200 個查詢/秒之類的查詢。 
+### <a name="provisioned-throughput"></a>预配的吞吐量
+在 Cosmos DB 中，创建数据容器，每个容器都具有以每秒请求单位 (RU) 表示的预留吞吐量。 读取 1-KB 文档为 1 个 RU，每个操作（包括查询）都根据其复杂性规范化为固定数量的 RU。 例如，如果您已針對容器佈建了 1000 RU/秒，且具有類似 `SELECT * FROM c WHERE c.city = 'Seattle'` 的查詢 (其取用 5 RU)，則您每秒可執行 (1000 RU/秒) / (5 RU/查詢) = 200 個查詢/秒之類的查詢。 
 
 如果您每秒提交 200 個以上的查詢，則服務會在每秒的傳入要求超過 200 個時啟動速率限制。 SDK 會藉由執行輪詢/重試來自動處理這種情況，因此您可能會注意到這些查詢具有較高的延遲。 將佈建的輸送量提高為要求的值，即可改善您的查詢延遲和輸送量。 
 
 若要深入了解要求單位，請參閱[要求單位](request-units.md)。
 
-### <a name="partitioning-and-partition-keys"></a>分割區和分割區索引鍵
+### <a name="partitioning-and-partition-keys"></a>分区和分区键
 在 Azure Cosmos DB 中，查詢通常會以下列順序，從最快/最有效率到較慢/較無效率的方式執行。 
 
 * 單一分割區索引鍵和項目索引鍵上的 GET
@@ -165,10 +165,10 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 若要深入了解分割區和分割區索引鍵，請參閱[在 Azure Cosmos DB 中進行資料分割](partition-data.md)。
 
 ### <a name="sdk-and-query-options"></a>SDK 與查詢選項
-若要了解如何從 Azure Cosmos DB 取得最佳用戶端效能，請參閱[效能祕訣](performance-tips.md)和[效能測試](performance-testing.md)。 這包括使用最新的 SDK、設定平台專屬設定 (例如預設的連線數目)、記憶體回收的頻率，以及使用輕量級連線選項 (例如直接/TCP)。 
+若要了解如何從 Azure Cosmos DB 取得最佳用戶端效能，請參閱[效能祕訣](performance-tips.md)和[效能測試](performance-testing.md)。 这包括使用最新的 SDK、配置特定于平台的配置（例如默认连接数、垃圾收集频率）以及使用诸如直连/TCP 之类的轻型连接。 
 
 
-#### <a name="max-item-count"></a>最大項目計數
+#### <a name="max-item-count"></a>最大项计数
 對於查詢，`MaxItemCount` 的值可能會對端對端查詢時間有重大影響。 伺服器每次往返將會傳回不超過 `MaxItemCount` 中的項目數 (預設值是 100 個項目)。 將此設為較高的值 (-1 是最大值，建議使用)，會限制伺服器和用戶端之間的往返次數，尤其是具有大量結果集的查詢，以改善整體查詢持續時間。
 
 ```cs
@@ -209,12 +209,14 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 如需 SDK 版本資訊，以及所實作類別和方法的詳細資訊，請參閱 [SQL SDK](sql-api-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>網路延遲
-若要了解如何設定全域散發，並連線到最接近的區域，請參閱 [Azure Cosmos DB 全域散發](tutorial-global-distribution-sql-api.md)。 當您需要進行多次來回行程或從查詢擷取大型結果集時，網路延遲會對查詢效能產生顯著影響。 
+若要了解如何設定全域散發，並連線到最接近的區域，請參閱 [Azure Cosmos DB 全域散發](tutorial-global-distribution-sql-api.md)。 当需要进行多次往返或需要通过查询检索大型结果集时，网络延迟对查询性能有显著影响。 
 
-查詢執行計量上的區段說明如何擷取查詢的伺服器執行時間 ( `totalExecutionTimeInMs`)，以便您可以區分查詢執行所花費的時間以及網路傳輸所花費的時間。
+有关查询执行指标的部分介绍如何检索查询的服务器执行时间 ( `totalExecutionTimeInMs`)，以便可区分查询执行和网络传输所用的时间。
 
-### <a name="indexing-policy"></a>編製索引原則
+### <a name="indexing-policy"></a>索引策略
 若要了解編製索引路徑、種類和模式，以及它們如何影響執行查詢，請參閱[設定編製索引原則](index-policy.md)。 根據預設，編製索引原則會針對字串使用雜湊索引編製，這對於等號比較查詢很有效率，但不適用於範圍查詢/排序依據查詢。 如果您需要針對字串進行範圍查詢，我們建議針對所有字串指定範圍索引類型。 
+
+根據預設，Azure Cosmos DB 會套用到所有的資料自動編製索引。 高效能插入案例，請考慮排除路徑，因為這樣會減少每項插入作業的 RU 費用。 
 
 ## <a name="query-execution-metrics"></a>查詢執行計量
 您可以藉由傳入選擇性的 `x-ms-documentdb-populatequerymetrics` 標頭 (.NET SDK 中的 `FeedOptions.PopulateQueryMetrics`)，來取得查詢執行的詳細計量。 `x-ms-documentdb-query-metrics` 中傳回的值含有下列索引鍵/值組，適用於對查詢執行進行進階疑難排解。 
@@ -235,7 +237,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| 計量 | 單位 | 說明 | 
+| 計量 | 單位 | 描述 | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | 毫秒 | 查詢執行時間 | 
 | `queryCompileTimeInMs` | 毫秒 | 查詢編譯時間  | 
@@ -249,7 +251,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `userFunctionExecuteTimeInMs` | 毫秒 | 執行使用者定義函式所花費的總時間，以毫秒為單位 | 
 | `retrievedDocumentCount` | count | 擷取的文件總數  | 
 | `retrievedDocumentSize` | 位元組 | 擷取的文件大小總計，以位元組為單位  | 
-| `outputDocumentCount` | count | 輸出文件數目 | 
+| `outputDocumentCount` | 计数 | 輸出文件數目 | 
 | `writeOutputTimeInMs` | 毫秒 | 查詢執行時間，以毫秒為單位 | 
 | `indexUtilizationRatio` | 比率 (<=1) | 符合篩選的文件數目與所載入文件數目的比率  | 
 
@@ -257,7 +259,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 以下是一些範例查詢，以及如何解譯從查詢執行傳回的部分計量資訊： 
 
-| 查詢 | 範例計量 | 說明 | 
+| 查詢 | 範例計量 | 描述 | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | 擷取的文件數目為 100 + 1，可符合 TOP 子句。 查詢時間大部分花費在 `WriteOutputTime` 和 `DocumentLoadTime`，因為它是一次掃描。 | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount 現在較高 (500+1 以符合 TOP 子句)。 | 

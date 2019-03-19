@@ -16,12 +16,12 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c83fe4655b3b3d4de04be74c0f3ced1ddac5ec2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 39ac0e9cf11a0c6c212c4beadb6635ad2b6b056d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185548"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734705"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory Federation Services (AD FS) 伺服器陣列的 SSL 憑證
 
@@ -81,15 +81,15 @@ Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣�
 
 組態完成之後，Azure AD Connect 會顯示訊息，指出更新的狀態，並且會提供一個選項來驗證 AD FS 登入。
 
-![組態完成](./media/how-to-connect-fed-ssl-update/configurecomplete.png)   
+![配置完成](./media/how-to-connect-fed-ssl-update/configurecomplete.png)   
 
 ## <a name="faqs"></a>常見問題集
 
-* **新 AD FS SSL 憑證之憑證的主體名稱應該是什麼？**
+* **对于新的 AD FS SSL 证书，证书的使用者名称应该是什么？**
 
     Azure AD Connect 會檢查憑證的主體名稱/替代主體名稱是否包含同盟服務名稱。 例如，如果同盟服務名稱為 fs.contoso.com，則主體名稱/替代主體名稱必須是 fs.contoso.com。  也接受萬用字元憑證。
 
-* **為什麼會要求我於 WAP 伺服器頁面上再次輸入認證？**
+* **为什么在 WAP 服务器页上又要求我提供凭据？**
 
     如果提供用於連線至 AD FS 伺服器的認證也不具備管理 WAP 伺服器的權限，Azure AD Connect 會要求提供在 WAP 伺服器上具有系統管理權限的認證。
 
@@ -97,7 +97,7 @@ Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣�
 
     如果伺服器已離線，Azure AD Connect 即無法執行任何作業。 如果伺服器是 AD FS 伺服器陣列的一部分，請檢查伺服器的連線。 在解決問題之後，按下 [重新整理] 圖示，以更新精靈中的狀態。 如果伺服器稍早是伺服器陣列的一部分，但現在已不存在，請按一下 [移除]，以將它從 Azure AD Connect 維護的伺服器清單中刪除。 從 Azure AD Connect 的清單中移除伺服器並不會改變 AD FS 組態本身。 如果您在 Windows Server 2016 或更新版本中使用 AD FS，則伺服器會保持在組態設定，並且會在下一次執行工作再次顯示。
 
-* **可以使用新的 SSL 憑證更新我的伺服器陣列伺服器子集嗎？**
+* **能否使用新的 SSL 证书更新一部分场服务器？**
 
     是。 您永遠可以再次執行工作「更新 SSL 憑證」來更新其餘的伺服器。 在 [選取要進行 SSL 憑證更新的伺服器] 頁面上，您可以依「SSL 到期日」來排序伺服器清單，以便輕鬆地存取尚未更新的伺服器。
 
@@ -107,6 +107,6 @@ Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure AD Connect 和同盟](how-to-connect-fed-whatis.md)
-- [使用 Azure AD Connect 管理和自訂 Active Directory Federation Services](how-to-connect-fed-management.md)
+- [Azure AD Connect 和联合身份验证](how-to-connect-fed-whatis.md)
+- [使用 Azure AD Connect 进行 Active Directory 联合身份验证服务的管理和自定义](how-to-connect-fed-management.md)
 

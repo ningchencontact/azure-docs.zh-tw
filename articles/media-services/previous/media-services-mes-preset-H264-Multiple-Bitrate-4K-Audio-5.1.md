@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 9bf1b39e8cd0192a3d516bf64b32da4fcc500080
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ed56fa80917221f5856d26bc4ab29eec9909e592
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003120"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837806"
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 多重位元速率 4K 音訊 5.1
-`Media Encoder Standard` 定義一組編碼預設，供您在建立編碼作業時使用。 您可以使用 `preset name` 來指定您想要將媒體檔案編碼成哪一種格式。 或者，您可以建立自己的 JSON 或 XML 型預設 (使用 UTF-8 或 UTF-16 編碼)。 然後，您要將自訂預設傳遞給編碼器。 如需這個 `Media Encoder Standard` 編碼器支援的所有預設名稱清單，請參閱[媒體編碼器標準的工作預設](media-services-mes-presets-overview.md)。  
+`Media Encoder Standard` 定義一組編碼預設，供您在建立編碼作業時使用。 您可以使用 `preset name` 來指定您想要將媒體檔案編碼成哪一種格式。 或者，您可以建立自己的 JSON 或 XML 型預設 (使用 UTF-8 或 UTF-16 編碼)。 然後，您要將自訂預設傳遞給編碼器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
   
- 本主題說明 XML 和 JSON 格式的 `H264 Multiple Bitrate 4K Audio 5.1` 預設。  
+ 本主题演示 XML 和 JSON 格式的 `H264 Multiple Bitrate 4K Audio 5.1` 预设。  
   
  此預設會產生一組 12 個對齊 GOP 的 MP4 檔案 (範圍從 20000 kbps 到 1000 kbps) 和 AAC 5.1 音訊。 如需此預設的設定檔、位元速率、取樣率等的詳細資訊，請檢查以下定義的 XML 或 JSON。 如需每個元素的意義說明，以及每個元素的有效值，請參閱[媒體編碼器標準結構描述](media-services-mes-schema.md)。  
   
 > [!NOTE]
->  您應該會取得具有 4K 編碼的進階保留單元類型。 如需詳細資訊，請參閱 [如何調整編碼](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)。  
+>  您應該會取得具有 4K 編碼的進階保留單元類型。 有关详细信息，请参阅[如何缩放编码](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)。  
   
 > [!NOTE]
 >  跨層修改 `Width` 和 `Height` 值時，請確定長寬比保持一致。 例如︰1920x1080、1280x720、1080x576、640x360。 請勿混用長寬比，例如：1280x720、720x480、640x360。  
@@ -38,7 +38,7 @@ ms.locfileid: "56003120"
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

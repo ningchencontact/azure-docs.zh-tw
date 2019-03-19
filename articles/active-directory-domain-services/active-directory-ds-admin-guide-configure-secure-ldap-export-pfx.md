@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: 18c91b0bfee3f423e2d60e3c9893e8e5208aa292
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164600"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883448"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>為受控網域建立具有安全 LDAP (LDAPS) 憑證的 .PFX 檔案
 
@@ -80,9 +80,9 @@ ms.locfileid: "55164600"
     >
     >
 
-14. 在 [安全性] 頁面上選取 [密碼] 選項，然後輸入密碼來保護 .PFX 檔案。 請記住此密碼，因為下一個工作會用到它。 按 [下一步] 。
+14. 在 [安全性] 頁面上選取 [密碼] 選項，然後輸入密碼來保護 .PFX 檔案。 請記住此密碼，因為下一個工作會用到它。 单击“下一步”。
 
-    ![憑證匯出的密碼 ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![憑證匯出的密碼](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
     > 記下此密碼。 在[工作 3 - 為受控網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md) 中針對此受控網域啟用安全 LDAP 時，需要這個密碼

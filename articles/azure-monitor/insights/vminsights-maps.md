@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187740"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984844"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器 (預覽) 對應來了解應用程式元件
 檢視在 Azure 中執行之 Windows 和 Linux 虛擬機器上探索到的應用程式元件，可搭配適用於 VM 的 Azure 監視器使用下列兩種方式來觀測您的環境：直接從虛擬機器，或者從 Azure 監視器跨 VM 群組進行。 
@@ -39,7 +39,7 @@ ms.locfileid: "54187740"
 
 ![電腦的系統屬性](./media/vminsights-maps/properties-pane-01.png)
 
-在窗格右側，按一下 [記錄事件] 圖示以切換窗格的焦點來顯示資料表清單，其已將從 VM 收集到的資料傳送到 Log Analytics，可供查詢。  按一下任一個列出的記錄類型，將會開啟 [記錄] 頁面，透過已針對特定虛擬機器篩選過的預先設定查詢來檢視該類型的結果。  
+在右邊窗格中，按一下**記錄事件**切換以顯示一份資料表，從 VM 收集資料 窗格的焦點圖示已經傳送至 Azure 監視器，可供查詢。  按一下任一個列出的記錄類型，將會開啟 [記錄] 頁面，透過已針對特定虛擬機器篩選過的預先設定查詢來檢視該類型的結果。  
 
 ![[屬性] 窗格中的記錄搜尋清單](./media/vminsights-maps/properties-pane-logs-01.png)
 

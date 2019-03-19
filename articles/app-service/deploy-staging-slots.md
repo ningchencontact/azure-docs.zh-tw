@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9530d35bbaf608ae25e2a753685ee90e9e13501
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181417"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823292"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -42,7 +42,7 @@ ms.locfileid: "56181417"
 ## <a name="add-slot"></a>新增位置
 應用程式必須在 [標準]、[進階] 或 [隔離] 層中執行，您才能啟用多個部署位置。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟應用程式的[資源頁面](../azure-resource-manager/resource-group-portal.md#manage-resources)。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟應用程式的[資源頁面](../azure-resource-manager/manage-resources-portal.md#manage-resources)。
 
 2. 在左側導覽中選擇 [部署位置 (預覽)] 選項，然後按一下 [新增位置]。
    
@@ -205,7 +205,9 @@ ms.locfileid: "56181417"
         </applicationInitialization>
     </system.webServer>
 
-您也可以使用下列一或多個[應用程式設定](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md)來自訂準備行為：
+有关自定义 `applicationInitialization` 元素的详细信息，请参阅[最常见的部署槽位交换故障以及如何修复它们](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/)。
+
+您也可以使用下列一或多個[應用程式設定](web-sites-configure.md)來自訂準備行為：
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`：用來準備您網站的偵測路徑。 請指定開頭為斜線的自訂路徑作為值，以新增此應用程式設定。 例如： `/statuscheck`。 預設值為 `/`。 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`：準備作業的有效 HTTP 回應碼。 請以 HTTP 代碼的逗號分隔清單方式新增此應用程式設定。 例如：`200,202`。 如果傳回的狀態碼不在清單中，準備和交換作業就會停止。 預設是所有回應碼都有效。
@@ -220,7 +222,7 @@ ms.locfileid: "56181417"
 
 ## <a name="route-traffic"></a>路由流量
 
-根據預設，對應用程式生產 URL (`http://<app_name>.azurewebsites.net`) 的所有用戶端要求都會路由至生產位置。 您可以將部分流量路由至其他位置。 如果您需要使用者針對新的更新提供意見反應，但尚未準備好要將更新發行至生產環境，此功能將有其效用。
+根據預設，對應用程式生產 URL (`http://<app_name>.azurewebsites.net`) 的所有用戶端要求都會路由至生產位置。 您可以將部分流量路由至其他位置。 如果您需要使用者針對新的更新提供意見反應，但尚未準備好要將更新發行至生產環境，這項功能將有其效用。
 
 ### <a name="route-production-traffic-automatically"></a>自動路由生產流量
 

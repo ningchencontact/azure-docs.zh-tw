@@ -4,17 +4,17 @@ description: 開發可與執行階段和 IoT 中樞通訊的 Azure IoT Edge 自�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3dd5005312e1c59fa53a0d917951c89033374192
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200627"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882734"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>開發您自己的 IoT Edge 模組
 
@@ -48,7 +48,7 @@ IoT Edge 中樞會根據[模組資訊清單](module-composition.md)中所述的�
 
 最後，使用下列系統屬性來為 Edge 中樞所處理的裝置到雲端訊息加上戳記：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | -------- | ----------- |
 | $connectionDeviceId | 傳送訊息之用戶端的裝置識別碼 |
 | $connectionModuleId | 傳送訊息之模組的模組識別碼 |
@@ -65,5 +65,9 @@ IoT Edge 中樞會根據[模組資訊清單](module-composition.md)中所述的�
 
 ## <a name="next-steps"></a>後續步驟
 
-當您開發模組之後，請了解如何[大範圍部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)。
+[準備 IoT Edge 開發和測試環境](development-environment.md)
+
+[使用 Visual Studio 2017 來開發C#適用於 IoT Edge 模組](how-to-visual-studio-develop-csharp-module.md)
+
+[使用 Visual Studio Code 開發 IoT Edge 模組](how-to-vs-code-develop-module.md)
 

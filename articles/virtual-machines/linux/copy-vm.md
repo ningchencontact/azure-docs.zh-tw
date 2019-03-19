@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a9caaaa0dfe402339ba01be899073bb17de15906
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: abc8c09a51104c81b827afb7055531df98691714
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962039"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731339"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>使用 Azure CLI 和受控磁碟來建立 Azure Linux VM 的複本
 
@@ -75,7 +75,7 @@ az vm deallocate \
          --name myCopiedDisk --source myDisk
     ``` 
 
-1.  使用 [az disk list](/cli/azure/disk#az-disk-list) 來確認此受控磁碟現在位於您的資源群組中。 下列範例會列出名為 *myResourceGroup* 的資源群組中的受控磁碟：
+1.  现在请使用 [az disk list](/cli/azure/disk#az-disk-list) 验证资源组中的托管磁盘。 下列範例會列出名為 *myResourceGroup* 的資源群組中的受控磁碟：
 
     ```azurecli
     az disk list --resource-group myResourceGroup --output table

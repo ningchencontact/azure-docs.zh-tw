@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 2755232ea81f1551477431f4eb1f0aeab8b8bfe8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074465"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734032"
 ---
 # <a name="determine-your-publishing-option"></a>決定您的發佈選項
 您為供應項目選擇的發佈選項，與資格需求和市集 GTM 權益直接相關。 更重要的是，Cloud Partner 入口網站中發佈選項和供應項目類型的選取項目，會定義使用者與市集供應項目互動的方式。

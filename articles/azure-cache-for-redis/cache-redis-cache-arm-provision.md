@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: e223cb060857d45d9f25e2ee1dfca7e159225d8b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 5bdad61df732f0aeb1a758aacb5844204387e19b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237105"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983895"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>使用範本來建立 Azure Cache for Redis
 
@@ -37,8 +37,8 @@ ms.locfileid: "56237105"
 > 新 [Premium 層](cache-premium-tier-intro.md) 中有可用的 Resource Manager 範本。 
 > 
 > * [建立具有叢集的進階 Azure Cache for Redis](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [建立具有資料持續性的進階 Azure Cache for Redis](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
-> * [建立具有 VNet 和選擇性叢集的進階 Azure Cache for Redis](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+> * [建立具有資料持續性的進階 Azure Cache for Redis](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+> * [建立進階 Redis 快取部署到虛擬網路](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > 若要查看最新的範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)並搜尋 `Azure Cache for Redis`。
 > 
@@ -52,8 +52,8 @@ ms.locfileid: "56237105"
 [![部署至 Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>參數
-透過 Azure 資源管理員，您可以定義在部署範本時想要指定之值的參數。 此範本有一個 Parameters 區段，內含所有參數值。
-您應該為會隨著要部署的專案或要部署到的環境而變化的值定義參數。 請不要為永遠保持不變的值定義參數。 每個參數值都可在範本中用來定義所部署的資源。 
+使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 Parameters 的部分，其中包含所有参数值。
+您應該為會隨著要部署的專案或要部署到的環境而變化的值定義參數。 不要为永远保持不变的值定义参数。 每個參數值都可在範本中用來定義所部署的資源。 
 
 [!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
 

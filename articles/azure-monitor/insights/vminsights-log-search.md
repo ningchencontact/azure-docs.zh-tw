@@ -1,6 +1,6 @@
 ---
 title: 如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄 | Microsoft Docs
-description: 適用於 VM 的 Azure 監視器解決方案會將計量和記錄資料轉送到 Log Analytics，本文將說明記錄並提供範例查詢。
+description: Azure 監視器 Vm 解決方案所收集的計量和記錄資料和這篇文章描述的記錄，並包含範例查詢。
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f33b87fa2c90eda7e4fa135e55565781e8491418
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864412"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983773"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄
-適用於 VM 的 Azure 監視器會收集效能和連線計量、電腦和處理序清查資料，以及健康狀態資訊，並將它轉送到 Azure 監視器中的 Log Analytics 資料存放區。  此資料可用來在 Log Analytics 中進行[搜尋](../../azure-monitor/log-query/log-query-overview.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
+適用於 Vm 的 azure 監視器會收集效能和連線計量、 電腦和處理程序清查資料，以及健全狀況狀態資訊，並將它轉送至 Log Analytics 工作區，在 Azure 監視器中。  這項資料可供[查詢](../../azure-monitor/log-query/log-query-overview.md)Azure 監視器中。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
 
 ## <a name="map-records"></a>對應記錄
 除了當處理序或電腦啟動或是上線到適用於 VM 的 Azure 監視器對應功能時所產生的記錄外，每小時還會為每個唯一的電腦和處理序產生一筆記錄。 這些記錄具有下表中的屬性。 ServiceMapComputer_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的機器資源欄位。 ServiceMapProcess_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的處理序資源欄位。 ResourceName_s 欄位會符合對應 Resource Manager 資源中的名稱欄位。 
@@ -34,13 +34,13 @@ ms.locfileid: "55864412"
 因為在指定時間範圍內可以有多筆指定處理序和電腦的記錄，針對相同電腦或處理序的查詢可能會傳回多筆記錄。 若只要包含最新的記錄，請在查詢中加入 "| dedup ResourceId"。
 
 ### <a name="connections"></a>連線
-連線計量會寫入到 Log Analytics 中的新資料表：VMConnection。 這個資料表會提供機器連線 (輸入和輸出) 的相關資訊。 連線計量也會透過 API 來公開，這類 API 會提供方法來取得某個時間範圍內的特定計量。  因為在接聽通訊端上「接受」而產生的 TCP 連線是輸入，因為「連線」到指定 IP 和連接埠而建立的連線則為輸出。 連線的方向會透過 Direction 屬性來表示，此屬性可設為 **inbound** 或 **outbound**。 
+連接計量會寫入 Azure 監視器記錄檔-VMConnection 中的新資料表。 這個資料表會提供機器連線 (輸入和輸出) 的相關資訊。 連線計量也會透過 API 來公開，這類 API 會提供方法來取得某個時間範圍內的特定計量。  因為在接聽通訊端上「接受」而產生的 TCP 連線是輸入，因為「連線」到指定 IP 和連接埠而建立的連線則為輸出。 連線的方向會透過 Direction 屬性來表示，此屬性可設為 **inbound** 或 **outbound**。 
 
 這些資料表中的記錄都是從 Dependency Agent 所報告的資料產生的。 每筆記錄均代表在一分鐘時間間隔內的觀測。 TimeGenerated 屬性表示時間間隔的開始時間。 每筆記錄均包含資訊來識別個別的實體 (也就是連線或連接埠)，以及與該實體相關聯的計量。 目前只會報告透過 IPv4 使用 TCP 而發生的網路活動。
 
 為了管理成本和複雜度，連線記錄不代表個別的實體網路連線。 將多個實體網路連線群組為一個邏輯連線，其接著會反映於各自的資料表中。  這表示，*VMConnection* 資料表中的記錄代表一個邏輯群組，而非觀測到的個別實體連線。 在指定的一分鐘時間間隔內，共用下列屬性相同值的實體網路連線會彙總為 *VMConnection* 中的單一邏輯記錄。 
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |方向 |連線的方向，值為 *inbound* 或 *outbound* |
 |機器 |電腦 FQDN |
@@ -52,7 +52,7 @@ ms.locfileid: "55864412"
 
 為了說明群組的影響，會在記錄的下列屬性中提供群組實體連線數目的相關資訊：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |LinksEstablished |已在報告時間範圍內建立的實體網路連線數目 |
 |LinksTerminated |已在報告時間範圍內終止的實體網路連線數目 |
@@ -63,7 +63,7 @@ ms.locfileid: "55864412"
 
 除了連線計數計量，在指定邏輯連線或網路連接埠上傳送與接收的資料量相關資訊也會包含於記錄的下列屬性中：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |BytesSent |已在報告時間範圍內傳送的位元組總數 |
 |BytesReceived |已在報告時間範圍內接收的位元組總數 |
@@ -89,7 +89,7 @@ ms.locfileid: "55864412"
 #### <a name="geolocation"></a>地理位置
 *VMConnection* 也會在記錄的下列屬性中，包含每個連線記錄遠端的地理位置資訊： 
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |RemoteCountry |裝載 RemoteIp 的國家/地區名稱。  例如，*United States* |
 |RemoteLatitude |地理位置緯度。 例如，*47.68* |
@@ -98,11 +98,11 @@ ms.locfileid: "55864412"
 #### <a name="malicious-ip"></a>惡意 IP
 *VMConnection* 資料表中的每個 RemoteIp 屬性均會根據一組具有已知惡意活動的 IP 進行檢查。 如果 RemoteIp 被識別為惡意的，將在記錄的下列屬性中填入下列屬性 (如果 IP 被視為不是惡意的，則它們是空的)：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |MaliciousIP |RemoteIp 位址 |
 |IndicatorThreadType |偵測到的威脅指標是下列值之一：*殭屍網路*、*C2*、*CryptoMining*、*Darknet*、*DDos*、*MaliciousUrl*、*惡意程式碼*、*網路釣魚*、*Proxy*、*PUA*、*關注清單*。   |
-|說明 |觀察到的威脅的說明。 |
+|描述 |觀察到的威脅的說明。 |
 |TLPLevel |號誌燈通訊協定 (TLP) 層級是已定義的值 (*白色*、*綠色*、*琥珀色*、*紅色*) 之一。 |
 |信賴度 |值為 *0 – 100*。 |
 |嚴重性 |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
@@ -115,7 +115,7 @@ ms.locfileid: "55864412"
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 記錄
 類型為 *ServiceMapComputer_CL* 的記錄會有伺服器 (具有 Dependency Agent) 的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | 類型 | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -140,7 +140,7 @@ ms.locfileid: "55864412"
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 類型記錄
 類型為 *ServiceMapProcess_CL* 的記錄會有伺服器 (具有 Dependency Agent) 上 TCP 連線處理序的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | 類型 | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
@@ -255,5 +255,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* 如果您不熟悉如何在 Log Analytics 中撰寫查詢，請檢閱 Azure 入口網站中的[如何使用 Log Analytics 頁面](../../azure-monitor/log-query/get-started-portal.md)以撰寫 Log Analytics 查詢。
+* 如果您不熟悉 Azure 監視器中寫入記錄檔查詢，請檢閱[如何使用 Log Analytics](../../azure-monitor/log-query/get-started-portal.md)在 Azure 入口網站中要寫入記錄檔查詢。
 * 了解如何[撰寫搜尋查詢](../../azure-monitor/log-query/search-queries.md)。

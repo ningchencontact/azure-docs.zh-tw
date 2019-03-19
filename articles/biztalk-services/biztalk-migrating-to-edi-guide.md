@@ -10,22 +10,22 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253817"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983025"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>將 BizTalk Server EDI 解決方案移轉至 BizTalk 服務：技術指南
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-作者：Tim Wieman 和 Nitin Mehrotra
+作者︰Tim Wieman 和 Nitin Mehrotra
 
-審稿者：Karthik Bharthy
+校稿者：Karthik Bharthy
 
-撰寫工具：Microsoft Azure BizTalk 服務 – 2014 年 2 月版本。
+撰寫使用：Microsoft Azure BizTalk 服務 – 2014 年 2 月版本。
 
 ## <a name="introduction"></a>簡介
 電子資料交換 (EDI) 是企業是以電子方式交換資料的其中一個最普遍的方法，也稱為「企業對企業」或 B2B 交易。 自初始的 BizTalk Sever 版本以來，BizTalk Server 已經支援 EDI 超過十年。 使用 BizTalk 服務，Microsoft 會持續在 Microsoft Azure 平台上支援 EDI 解決方案。 B2B 交易大部分在組織外部進行，因此，它更容易在雲端平台上實作。 Microsoft Azure 透過 BizTalk 服務提供這項功能。
@@ -102,7 +102,7 @@ Microsoft Azure BizTalk 服務提供工具，可將 BizTalk Server 移轉至 Biz
 
 * [*如何整合 WCF 工作流程服務與服務匯流排佇列和主題*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) (由 Paolo Salvatori 撰寫)。 
 * [*使用 Windows Workflow Foundation 和 Azure 建置應用程式*講習](https://go.microsoft.com/fwlink/p/?LinkId=237314) (來自 Build 2011 會議)。
-* [*Windows Workflow Foundation 開發人員中心*](https://go.microsoft.com/fwlink/p/?LinkId=237315) (位於 MSDN 上)。
+* [*Windows Workflow Foundation 開發人員中心*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10))。
 * [*Windows Workflow Foundation 4 (WF4) 文件*](https://msdn.microsoft.com/library/dd489441.aspx) (位於 MSDN 上)。
 
 ## <a name="other-considerations"></a>其他考量
@@ -114,7 +114,7 @@ BizTalk Server EDI 處理程序有「後援合約」概念。  到目前為止�
 ### <a name="routing-to-multiple-destinations"></a>路由至多個目的地
 BizTalk 服務橋接器目前不支援使用發佈-訂閱模型，將訊息路由至多個目的地。 您可以轉為將訊息從 BizTalk 服務橋接器路由到服務匯流排主題，如此即可有多個訂用帳戶會接收位於多個端點的訊息。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [Azure 中的 LOB 解決方案](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

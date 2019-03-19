@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563213"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593313"
 ---
 # <a name="split-merge-security-configuration"></a>分割合併安全性設定
 
@@ -54,7 +54,7 @@ ms.locfileid: "55563213"
 
 需要 SSL 憑證，才能將通訊加密和驗證伺服器。 從以下三種案例中選擇最適用的案例，然後執行其所有步驟：
 
-### <a name="create-a-new-self-signed-certificate"></a>建立新的自我簽署憑證
+### <a name="create-a-new-self-signed-certificate"></a>创建新的自签名证书
 
 1. [建立自我簽署憑證](#create-a-self-signed-certificate)
 2. [建立自我簽署 SSL 憑證的 PFX 檔案](#create-pfx-file-for-self-signed-ssl-certificate)
@@ -90,9 +90,9 @@ ms.locfileid: "55563213"
 ### <a name="use-existing-client-certificates"></a>使用現有的用戶端憑證
 1. [Find CA Public Key](#find-ca-public-key)
 2. [將 CA 憑證上傳至雲端服務](#Upload-CA-certificate-to-cloud-service)
-3. [在服務組態檔中更新 CA 憑證](#Update-CA-Certificate-in-Service-Configuration-File)
+3. [在服务配置文件中更新 CA 证书](#Update-CA-Certificate-in-Service-Configuration-File)
 4. [複製用戶端憑證指紋](#Copy-Client-Certificate-Thumbprints)
-5. [在服務組態檔中設定允許的用戶端](#configure-allowed-clients-in-the-service-configuration-file)
+5. [在服务配置文件中配置允许的客户端](#configure-allowed-clients-in-the-service-configuration-file)
 6. [設定用戶端憑證撤銷檢查](#Configure-Client-Certificate-Revocation-Check)
 
 ## <a name="allowed-ip-addresses"></a>允許的 IP 位址
@@ -105,7 +105,7 @@ ms.locfileid: "55563213"
 1. [建立自我簽署憑證](#create-a-self-signed-certificate)
 2. [建立自我簽署加密憑證的 PFX 檔案](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [將加密憑證上傳至雲端服務](#upload-encryption-certificate-to-cloud-service)
-4. [在服務組態檔中更新加密憑證](#update-encryption-certificate-in-service-configuration-file)
+4. [在服务配置文件中更新加密证书](#update-encryption-certificate-in-service-configuration-file)
 
 ### <a name="use-an-existing-certificate-from-the-certificate-store"></a>從憑證存放區使用現有的憑證
 1. [從憑證存放區匯出加密憑證](#export-encryption-certificate-from-certificate-store)
@@ -114,31 +114,36 @@ ms.locfileid: "55563213"
 
 ### <a name="use-an-existing-certificate-in-a-pfx-file"></a>使用 PFX 檔案中現有的憑證
 1. [將加密憑證上傳至雲端服務](#upload-encryption-certificate-to-cloud-service)
-2. [在服務組態檔中更新加密憑證](#update-encryption-certificate-in-service-configuration-file)
+2. [在服务配置文件中更新加密证书](#update-encryption-certificate-in-service-configuration-file)
 
 ## <a name="the-default-configuration"></a>預設組態
 預設組態會拒絕對 HTTP 端點的所有存取。 這是建議設定，因為對這些端點的要求可能帶有機密資訊 (如資料庫認證)。
 預設組態會允許對 HTTPS 端點的所有存取。 這項設定可能會進一步限制。
 
 ### <a name="changing-the-configuration"></a>變更組態
-套用至端點的存取控制規則群組是在**服務組態檔**的 **<EndpointAcls>** 區段中設定。
+所应用的访问控制规则的组和终结点是在**服务配置文件**的 **\<EndpointAcls>** 部分中配置的。
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```xml
+<EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
-存取控制群組中的規則會設定於服務組態檔的 <AccessControl name=""> 區段中。 
+访问控制组中的规则是在服务配置文件的 \<AccessControl name=""> 部分中配置的。 
 
 網路存取控制清單文件會說明其格式。
 例如，若只要允許範圍 100.100.0.0 至 100.100.255.255 中的 IP 存取 HTTPS 端點，則規則看起來如下：
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
+```xml
+<AccessControl name="Retricted">
+    <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+    <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+</EndpointAcls>
+```
 
 ## <a name="denial-of-service-prevention"></a>阻絕服務預防
 支援兩個不同的機制來偵測並防止阻斷服務攻擊：
@@ -152,31 +157,38 @@ ms.locfileid: "55563213"
 * 考量每個 Web 角色中對任何資源的要求 (例如載入指令碼、影像等)
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>限制並行存取的數量
-設定此行為的設定包括：
+配置此行为的设置如下：
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 將 DynamicIpRestrictionDenyByConcurrentRequests 變更為 true，以啟用這項保護。
 
 ## <a name="restricting-rate-of-access"></a>限制存取的速率
 設定此行為的設定包括：
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## <a name="configuring-the-response-to-a-denied-request"></a>設定拒絕要求的回應
 下列設定會設定拒絕要求的回應：
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```xml
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+
 關於其他支援的值，請參閱「IIS 中的動態 IP 安全性」文件。
 
 ## <a name="operations-for-configuring-service-certificates"></a>設定服務憑證的作業
 本主題僅供參考。 遵循以下所述的設定步驟：
 
 * 設定 SSL 憑證
-* 設定用戶端憑證
+* 配置客户端证书
 
 ## <a name="create-a-self-signed-certificate"></a>建立自我簽署憑證
 執行：
@@ -204,8 +216,8 @@ ms.locfileid: "55563213"
 * 匯出所有延伸內容
 
 ## <a name="export-ssl-certificate-from-certificate-store"></a>從憑證存放區匯出 SSL 憑證
-* 尋找憑證
-* 按一下 [動作] -> [所有工作] -> [匯出...]
+* 查找证书
+* 依次单击“操作”->“所有任务”->“导出...”
 * 使用這些選項將憑證匯出至 .PFX 檔案：
   * 是，匯出私密金鑰
   * 如果可能的話，包含憑證路徑中的所有憑證 *匯出所有延伸內容
@@ -232,12 +244,16 @@ ms.locfileid: "55563213"
 
 在服務組態檔中將這些設定變更為 false 以關閉功能：
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```xml
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 接著，在 CA 憑證設定中複製與 SSL 憑證相同的憑證指紋：
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="create-a-self-signed-certification-authority"></a>建立自我簽署憑證授權單位
 執行下列步驟來建立自我簽署憑證，以做為憑證授權單位：
@@ -280,11 +296,15 @@ ms.locfileid: "55563213"
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>在服務組態檔中更新 CA 憑證
 使用上傳至雲端服務的憑證指紋，在服務組態檔中更新下列設定的指紋值：
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 使用相同的憑證指紋更新下列設定的值：
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```xml
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## <a name="issue-client-certificates"></a>發行用戶端憑證
 每個獲授權存取服務的人應該有發行給他們專用的用戶端憑證，而且應該選擇他們自己的強式密碼來保護私密金鑰。 
@@ -299,7 +319,7 @@ ms.locfileid: "55563213"
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
-自訂：
+自定义：
 
 * -n 與將會使用此憑證進行驗證的用戶端的識別碼
 * -e 與憑證到期日
@@ -338,17 +358,23 @@ ms.locfileid: "55563213"
 * 在開啟的 [憑證] 對話方塊中，選取 [詳細資料] 索引標籤
 * 請確定 [顯示] 是顯示 [全部]
 * 在清單中選取名為 [憑證指紋] 的欄位
-* 複製憑證指紋值 ** 刪除第一個數字前面不可見的 Unicode 字元 ** 刪除所有的空格
+* 复制指纹的值
+  * 删除第一个数字前的不可见 Unicode 字符
+  * 删除所有空格
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>在服務組態檔中設定允許的用戶端
 使用允許存取服務的用戶端憑證指紋的逗號分隔清單，在服務組態檔中更新下列設定的值：
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```xml
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## <a name="configure-client-certificate-revocation-check"></a>設定用戶端憑證撤銷檢查
 預設不會向憑證授權單位查詢用戶端憑證的撤銷狀態。 若要開啟檢查 (如果發行用戶端憑證的憑證授權單位支援此檢查)，請使用 X509RevocationMode 列舉所定義的其中一個值來變更下列設定：
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```xml
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>建立自我簽署加密憑證的 PFX 檔案
 如需加密憑證，請執行：
@@ -362,12 +388,12 @@ ms.locfileid: "55563213"
 輸入密碼，然後使用這些選項來匯出憑證：
 
 * 是，匯出私密金鑰
-* 匯出所有延伸內容
+* 导出所有扩展属性
 * 將憑證上傳至雲端服務時，您將需要密碼。
 
 ## <a name="export-encryption-certificate-from-certificate-store"></a>從憑證存放區匯出加密憑證
 * 尋找憑證
-* 按一下 [動作] -> [所有工作] -> [匯出...]
+* 依次单击“操作”->“所有任务”->“导出...”
 * 使用這些選項將憑證匯出至 .PFX 檔案： 
   * 是，匯出私密金鑰
   * 如果可能的話，包含憑證路徑中的所有憑證 
@@ -376,24 +402,26 @@ ms.locfileid: "55563213"
 ## <a name="upload-encryption-certificate-to-cloud-service"></a>將加密憑證上傳至雲端服務
 將現有或產生的 .PFX 檔案及加密金鑰組連同憑證一起上傳：
 
-* 輸入密碼以保護私密金鑰資訊
+* 输入用于保护私钥信息的密码
 
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>在服務組態檔中更新加密憑證
 使用上傳至雲端服務的憑證指紋，在服務組態檔中更新下列設定的指紋值：
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="common-certificate-operations"></a>常見的憑證作業
 * 設定 SSL 憑證
 * 設定用戶端憑證
 
 ## <a name="find-certificate"></a>尋找憑證
-請遵循下列步驟：
+执行以下步骤：
 
 1. 執行 mmc.exe。
 2. [檔案] -> [新增/移除嵌入式管理單元]
 3. 選取 [ **憑證**]。
-4. 按一下 [新增] 。
+4. 单击“添加” 。
 5. 選擇憑證存放區位置。
 6. 按一下 [完成] 。
 7. 按一下 [確定]。
@@ -402,30 +430,30 @@ ms.locfileid: "55563213"
 10. 展開 [憑證] 子節點。
 11. 在清單中選取憑證。
 
-## <a name="export-certificate"></a>匯出憑證
+## <a name="export-certificate"></a>导出证书
 在 [ **憑證匯出精靈**] 中：
 
-1. 按 [下一步] 。
+1. 单击“下一步”。
 2. 選取 [是]，再選取 [匯出私密金鑰]。
-3. 按 [下一步] 。
+3. 单击“下一步”。
 4. 選取想要的輸出檔案格式。
 5. 核取所需的選項。
 6. 核取 [ **密碼**]。
 7. 輸入強式密碼並加以確認。
-8. 按 [下一步] 。
+8. 单击“下一步”。
 9. 輸入或瀏覽至用來儲存憑證的檔案名稱 (使用 .PFX 副檔名)。
 10. 按一下 [下一步] 。
 11. 按一下 [完成] 。
 12. 按一下 [確定]。
 
-## <a name="import-certificate"></a>匯入憑證
+## <a name="import-certificate"></a>导入证书
 在 [憑證匯入精靈] 中：
 
 1. 選取存放區位置。
    
    * 如果只有在目前使用者下執行的處理程序會存取服務，請選取 [ **目前使用者** ]
    * 如果這台電腦中的其他處理程序會存取服務，請選取 [ **本機電腦** ]
-2. 按 [下一步] 。
+2. 单击“下一步”。
 3. 如果從檔案匯入，請確認檔案路徑。
 4. 如果匯入 .PFX 檔案：
    1. 輸入密碼以保護私密金鑰
@@ -447,12 +475,14 @@ ms.locfileid: "55563213"
 4. 按一下底列的 [ **上傳**]。
 5. 選取憑證檔。
 6. 如果是 .PFX 檔案，請輸入私密金鑰的密碼。
-7. 完成後，從清單中的新項目複製憑證指紋。
+7. 完成操作后，从列表中的新条目复制证书指纹。
 
 ## <a name="other-security-considerations"></a>其他安全性考量
 使用 HTTPS 端點時，這份文件中所述的 SSL 設定會加密服務和用戶端之間的通訊。 這很重要，因為通訊中包含用來存取資料庫和其他可能機密資訊的認證。 但是請注意，服務會將內部狀態 (包括認證) 保存在 Microsoft Azure SQL 資料庫的內部資料表中 (您在 Microsoft Azure 訂用帳戶中已提供作為中繼資料儲存體)。 在服務組態檔中 (.CSCFG 檔案)，下列設定中已定義該資料庫： 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```xml
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 這個資料庫中儲存的認證會被加密。 此外，最佳作法是確定服務部署的 Web 和背景工作角色保持在最新狀態且安全，因為它們都能存取中繼資料資料庫和用來加密和解密已儲存的認證。 
 

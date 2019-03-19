@@ -1,5 +1,5 @@
 ---
-title: PowerShell 指令碼：將外部使用者新增至 Azure DevTest Labs 的實驗室中 | Microsoft Docs
+title: PowerShell 指令碼：在 Azure DevTest Labs 中對實驗室新增外部使用者 |Microsoft Docs
 description: 這個 PowerShell 指令碼會將外部使用者新增至 Azure DevTest Labs 的實驗室中。
 services: lab-services
 author: spelluru
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0acff1eb4cee441187205b11a7e07cc718072cbf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 042fa1e24ebadfb00a2d55cc97d742f198cb5662
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248184"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738346"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>使用 PowerShell 將外部使用者新增至 Azure DevTest Labs 的實驗室中
 
 這個範例 PowerShell 指令碼會將外部使用者新增至 Azure DevTest Labs 的實驗室中。 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -38,8 +40,8 @@ ms.locfileid: "43248184"
 
 | 命令 | 注意 |
 |---|---|
-| [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | 從 Azure Active Directory 擷取使用者物件。 |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | 在指定的範圍中，將指定的角色指派給指定的主體。 |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | 從 Azure Active Directory 擷取使用者物件。 |
+| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | 在指定的範圍中，將指定的角色指派給指定的主體。 |
 
 ## <a name="next-steps"></a>後續步驟
 

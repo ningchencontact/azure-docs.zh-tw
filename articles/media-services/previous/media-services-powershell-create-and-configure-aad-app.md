@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bec7fdbbbedb44cb4e74206c05ecec18400a4dbb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 13e4b99da6de7d9c1fb08edc80605d38ed07c6f5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989005"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727191"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>使用 PowerShell 建立 Azure AD 應用程式，以搭配 Azure 媒體服務 API 使用
 
@@ -26,20 +26,22 @@ ms.locfileid: "55989005"
 
 ## <a name="prerequisites"></a>必要條件
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 - 一個 Azure 帳戶。 如果您沒有帳戶，請先從 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。 
 - 媒體服務帳戶。 如需詳細資訊，請參閱[在 Azure 入口網站建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)。
-- Azure PowerShell 0.8.8 版或更新版本。 如需詳細資訊，請參閱[如何使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) \(英文\)。
-- Azure Resource Manager Cmdlet。  
+
+- Azure PowerShell。 如需詳細資訊，請參閱[如何使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) \(英文\)。
 
 ## <a name="create-an-azure-ad-app-by-using-powershell"></a>使用 PowerShell 建立 Azure AD 應用程式  
 
 ```powershell
-Connect-AzureRmAccount
-Import-Module AzureRM.Resources
-Set-AzureRmContext -SubscriptionId $SubscriptionId
-$ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+Connect-AzAccount
+Import-Module Az.Resources
+Set-AzContext -SubscriptionId $SubscriptionId
+$ServicePrincipal = New-AzADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
 
-Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
+Get-AzADServicePrincipal -ObjectId $ServicePrincipal.Id 
 $NewRole = $null
 $Scope = "/subscriptions/your subscription id/resourceGroups/userresourcegroup/providers/microsoft.media/mediaservices/your media account"
 
@@ -47,8 +49,8 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 {
     # Sleep here for a few seconds to allow the service principal application to become active (usually, it will take only a couple of seconds)
     Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
     $Retries++;
 }
 ```

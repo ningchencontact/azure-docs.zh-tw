@@ -2,7 +2,7 @@
 title: 使用 Azure 資料庫移轉服務的相關常見問題集 | Microsoft Docs
 description: 了解使用 Azure 資料庫移轉服務來執行資料庫移轉的相關常見問題集。
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: a3b32fcb7d776bd127db55ba06cfc526574e839b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714690"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790862"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的相關常見問題集
 本文列出使用 Azure 資料庫移轉服務的相關常見問題集以及相關解答。
@@ -28,7 +28,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 - 持續投資無衝突的移轉。
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>問： Azure 資料庫移轉服務目前支援哪些來源目標組？
-這項服務目前支援各種移轉案例。 如需每個可用移轉案例狀態的完整清單，請參閱 [Azure 資料庫移轉服務支援的移轉案例狀態](https://docs.microsoft.com/azure/dms/resource-scenario-status)一文。 其他移轉案例僅限預覽，需要透過 DMS 預覽網站提交提名。 如需限制預覽中的完整案例清單，且若要註冊參與其中一個供應項目，請參閱 [DMS 預覽網站](https://aka.ms/dms-preview/)。
+這項服務目前支援各種移轉案例。 如需每個可用移轉案例狀態的完整清單，請參閱 [Azure 資料庫移轉服務支援的移轉案例狀態](https://docs.microsoft.com/azure/dms/resource-scenario-status)一文。 其他移轉案例僅限預覽，需要透過 DMS 預覽網站提交提名。 處於有限預覽狀態，並參與這些供應項目註冊案例的完整清單，請參閱 < [DMS 預覽網站](https://aka.ms/dms-preview/)。
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>問： Azure 資料庫移轉服務和其他 Microsoft 資料庫移轉工具 (例如，資料庫移轉小幫手 (DMA) 或 SQL Server 移轉小幫手 (SSMA)) 相較之下，孰優孰劣？
 若要將資料庫大規模移轉至 Microsoft Azure，建議您使用 Azure 資料庫移轉服務這個方法。 如需 Azure 資料庫移轉服務和其他 Microsoft 資料庫移轉工具相較之下孰優孰劣的詳細資訊，以及在各種案例中使用這項服務的建議，請參閱[區分 Microsoft 的資料庫移轉工具和服務](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/)部落格文章。
@@ -90,7 +90,7 @@ Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是�
 如果使用者明確地停止 Azure 資料庫移轉服務 (DMS) 或服務未使用達 24 小時，服務將會處於停止或自動暫停的狀態。 在每個情況下，服務都將無法使用並處於停止的狀態。  若要繼續使用中的移轉，請重新啟動服務。
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>問： 我可以在哪裡留下有關 Azure 資料庫移轉服務的意見反應？
-我們很樂於聽取您的意見。 請透過 User Voice ([這裡](https://feedback.azure.com/forums/906100-azure-database-migration-service)) 傳送有關於 Azure 資料庫移轉服務的意見反應和想法。
+我們很樂於聽取您的意見。 請傳送意見反應和 / 您有關於 Azure 資料庫移轉服務，透過 User Voice 意見[此處](https://feedback.azure.com/forums/906100-azure-database-migration-service)，或連絡的團隊[詢問的 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure 資料庫移轉服務和區域可用性的概觀，請參閱[什麼是 Azure 資料庫移轉服務](dms-overview.md)一文。 

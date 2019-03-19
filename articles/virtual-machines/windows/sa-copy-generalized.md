@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf0eb7a0b9e38397034c03ef2b4310ed67c6e6dd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980375"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864969"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何從 Azure VM 建立非受控 VM 映像
 
@@ -41,11 +41,11 @@ ms.locfileid: "55980375"
 > 
 > 
 
-您也可以使用 `sudo waagent -deprovision+user` 將 Linux VM 一般化，然後使用 PowerShell 來擷取該 VM. 如需有關使用 CLI 來擷取 VM 的資訊，請參閱[如何使用 Azure CLI 來一般化和擷取 Linux 虛擬機器](../linux/capture-image.md)。
+您也可以使用 `sudo waagent -deprovision+user` 將 Linux VM 一般化，然後使用 PowerShell 來擷取該 VM. 如需使用 CLI 擷取 VM 的相關資訊，請參閱 <<c0> [ 如何一般化和擷取 Linux 虛擬機器使用 Azure CLI](../linux/capture-image.md)。
 
 
 1. 登入 Windows 虛擬機器。
-2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 **%windir%\system32\sysprep** 目錄，然後執行 `sysprep.exe`。
+2. 以系統管理員身分開啟 [命令提示字元] 視窗。 将目录切换到 **%windir%\system32\sysprep**，然后运行 `sysprep.exe`。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
 4. 在 [關機選項] 中選取 [關機]。
 5. 按一下 [確定]。
@@ -104,7 +104,7 @@ ms.locfileid: "55980375"
 
 ## <a name="create-the-image"></a>建立映像
 
-使用這個命令，在目的地儲存體容器中建立非受控虛擬機器映像。 此映像會建立在與原始虛擬機器相同的儲存體帳戶中。 `-Path` 參數會將來源 VM 的 JSON 範本複本儲存到本機電腦。 `-DestinationContainerName` 參數是要用以保存映像的容器名稱。 如果此容器不存在，則會為您建立。
+使用這個命令，在目的地儲存體容器中建立非受控虛擬機器映像。 此映像會建立在與原始虛擬機器相同的儲存體帳戶中。 `-Path` 參數會將來源 VM 的 JSON 範本複本儲存到本機電腦。 `-DestinationContainerName` 參數是要用以保存映像的容器名稱。 如果该容器不存在，系统自动创建。
    
 ```powershell
 Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
@@ -149,7 +149,7 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>建立公用 IP 位址和網路介面
-若要能夠與虛擬網路中的虛擬機器進行通訊，您需要 [公用 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 和網路介面。
+若要与虚拟网络中的虚拟机通信，需要一个 [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 和网络接口。
 
 1. 建立公用 IP 位址。 此範例會建立名為 **myPip** 的公用 IP 位址。 
    
@@ -169,7 +169,7 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>建立網路安全性群組和 RDP 規則
 若要能夠使用 RDP 登入 VM，您必須有可在連接埠 3389 上允許 RDP 存取的安全性規則。 
 
-此範例會建立名為 **myNsg** 的 NSG，其包含的規則 **myRdpRule** 可允許透過連接埠 3389 的 RDP 流量。 如需 NSG 的詳細資訊，請參閱[使用 PowerShell 對 Azure 中的 VM 開啟連接埠](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+此範例會建立名為 **myNsg** 的 NSG，其包含的規則 **myRdpRule** 可允許透過連接埠 3389 的 RDP 流量。 有关 NSG 的详细信息，请参阅 [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（使用 PowerShell 在 Azure 中打开 VM 端口）。
 
 ```powershell
 $nsgName = "myNsg"
@@ -185,13 +185,13 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 
 
 ### <a name="create-a-variable-for-the-virtual-network"></a>建立虛擬網路的變數
-為已完成的虛擬網路建立變數。 
+为完成的虚拟网络创建变量。 
 
 ```powershell
 $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
-### <a name="create-the-vm"></a>建立 VM
+### <a name="create-the-vm"></a>创建 VM
 下列 PowerShell 會完成虛擬機器設定，並使用非受控映像當做新安裝的來源。
 
 </br>
@@ -249,7 +249,7 @@ $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
     New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
-### <a name="verify-that-the-vm-was-created"></a>確認已建立 VM
+### <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM
 完成時，在 [Azure 入口網站](https://portal.azure.com)的 [瀏覽] > [虛擬機器] 底下，或是使用下列 PowerShell 命令，應該就可以看到新建立的 VM：
 
 ```powershell

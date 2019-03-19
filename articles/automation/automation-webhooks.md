@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab50bd5a2b5b1b0e63060986d4336774be7875b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 920d6ee9b584e908885cf661d32aa700e655c3f8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245859"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816414"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 Webhook 啟動 Azure 自動化 Runbook
 
-*Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。 這可讓 Azure DevOps、GitHub、Azure Log Analytics 或自訂應用程式等外部服務不需使用 Azure 自動化 API 實作完整的解決方案，即可啟動 Runbook。  
+*Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。 這可讓外部服務，例如 Azure DevOps 服務、 GitHub、 Azure 監視器記錄檔或啟動 runbook，而不需要實作完整的解決方案使用 Azure 自動化 API 的自訂應用程式。  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 您可以透過 [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
@@ -27,9 +27,9 @@ ms.locfileid: "56245859"
 
 下表描述您必須為 Webhook 設定的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
-| Name |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。 該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br> 最佳做法是您給予 Webhook 的名稱應該與要使用它的用戶端相關。 |
+| 名稱 |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。 該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br> 最佳做法是您給予 Webhook 的名稱應該與要使用它的用戶端相關。 |
 | URL |Webhook 的 URL 是一種唯一性的位址，即用戶端用來呼叫 HTTP POST 以啟動連結至 Webhook的 Runbook。 當您建立 Webhook 時其會自動產生。 您無法指定自訂 URL。 <br> <br> URL 包含可讓協力廠商系統不需進一步驗證即可叫用 Runbook 的安全性權杖。 基於這個原因，應該將其視為一種密碼。 基於安全性原因，您僅能於 Webhook 建立時在 Azure 入口網站中檢視 URL。 請在安全的位置記下 URL 以供日後使用。 |
 | 到期日期 |例如憑證，每個 Webhook 都會有一個到期日期，到期後便無法再使用。 此到期日可在 Webhook 建立後進行修改，只要 Webhook尚未過期即可。 |
 | 已啟用 |建立 Runbook 時 Webhook 會預設為啟用。 如果您將其設定為 [停用]，則任何用戶端皆無法使用。 當您建立 Webhook 時或在建立後的任何時候，您可以設定 [啟用] 屬性。 |
@@ -44,7 +44,7 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 
 **$WebhookData** 物件具有下列屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | WebhookName |Webhook 的名稱。 |
 | RequestHeader |雜湊表包含傳入 POST 要求的標頭。 |
@@ -107,7 +107,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 用戶端會從 POST 要求中接收下列其中一個傳回碼。
 
-| 代碼 | 文字 | 說明 |
+| 代碼 | 文字 | 描述 |
 |:--- |:--- |:--- |
 | 202 |已接受 |已接受要求，且 Runbook 已經成功排入佇列。 |
 | 400 |不正確的要求 |基於下列其中一個因素而不接受此要求： <ul> <li>Webhook 已過期。</li> <li>Webhook 已停用。</li> <li>URL 中的權杖無效。</li>  </ul> |
@@ -120,7 +120,7 @@ http://<Webhook Server>/token?=<Token Value>
 {"JobIds":["<JobId>"]}
 ```
 
-用戶端無法從 Webhook 判斷 Runbook 的工作何時完成或完成狀態。 此資訊可使用工作識別碼搭配其他方法 (例如 [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) 或 [Azure 自動化 API](/rest/api/automation/job)) 來判斷。
+用戶端無法從 Webhook 判斷 Runbook 的工作何時完成或完成狀態。 這項資訊可使用工作識別碼搭配其他方法 (例如 [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) 或 [Azure 自動化 API](/rest/api/automation/job)) 來判斷。
 
 ## <a name="renew-webhook"></a>更新 Webhook
 
