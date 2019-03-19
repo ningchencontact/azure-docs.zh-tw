@@ -1,19 +1,19 @@
 ---
 title: 了解 Azure IoT 中樞自訂端點 | Microsoft Docs
 description: 開發人員指南：使用路由查詢，將裝置到雲端訊息路由傳送到自訂端點。
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.author: dobett
-ms.openlocfilehash: 1b0e99998aaf29c366cce1926f930174686cfee6
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414893"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008707"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>針對裝置對雲端訊息使用訊息路由和自訂端點
 
@@ -21,7 +21,7 @@ ms.locfileid: "56414893"
 
 IoT 中樞[訊息路由](iot-hub-devguide-routing-query-syntax.md)讓使用者能夠將裝置到雲端的訊息路由傳送到服務對應端點。 路由也會提供查詢功能，在將資料路由傳送到端點前先篩選資料。 您設定的每個路由查詢都具有下列屬性：
 
-| 屬性      | 說明 |
+| 屬性      | 描述 |
 | ------------- | ----------- |
 | **名稱**      | 可識別查詢的唯一名稱。 |
 | **來源**    | 要據以處理的資料串流來源。 例如裝置遙測。 |

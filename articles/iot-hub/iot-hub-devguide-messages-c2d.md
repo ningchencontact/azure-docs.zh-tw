@@ -1,19 +1,19 @@
 ---
 title: 了解 Azure IoT 中樞的雲端到裝置傳訊 | Microsoft Docs
 description: 開發人員指南 - 如何使用 IoT 中樞的雲端到裝置傳訊。 包含訊息生命週期和設定選項的相關資訊。
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: dobett
-ms.openlocfilehash: 3f137ea80dc67bb075f34846e5563fb72c72b69a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585640"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010237"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>從 IoT 中樞傳送雲端到裝置訊息
 
@@ -57,7 +57,7 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入�
 
 ## <a name="message-expiration-time-to-live"></a>訊息到期 (存留時間)
 
-每個雲端到裝置的訊息都有到期時間。 此時間是由下列其中一個所設定：
+每個雲端到裝置的訊息都有到期時間。 此時間是由下列其中一項所設定：
 
 * 服務中的 **ExpiryTimeUtc** 屬性。
 * IoT 中樞，使用預設*存留時間*來指定作為 IoT 中樞屬性。
@@ -83,7 +83,7 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入�
 
 如 [端點](iot-hub-devguide-endpoints.md)中所述，IoT 中樞會透過面向服務的端點 (**/messages/servicebound/feedback**) 利用訊息來傳遞意見反應。 接收意見反應的語意與雲端到裝置訊息的接收語意相同。 可能的話，訊息意見反應會放入單一訊息中，其格式如下：
 
-| 屬性     | 說明 |
+| 屬性     | 描述 |
 | ------------ | ----------- |
 | EnqueuedTime | 時間戳記，指出中樞收到意見反應訊息的時間。 |
 | UserId       | `{iot hub name}` |
@@ -91,18 +91,18 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入�
 
 主體是記錄的 JSON 序列化陣列，而每筆記錄都具有下列屬性︰
 
-| 屬性           | 說明 |
+| 屬性           | 描述 |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | 指出訊息的結果出現時的時間戳記。 例如，中樞收到意見反應訊息或原始訊息已過期。 |
 | OriginalMessageId  | 此意見反應資訊相關之雲端到裝置訊息的 **MessageId**。 |
 | StatusCode         | 必要字串。 用於 IoT 中樞所產生的回饋訊息中。 <br/> 「成功」 <br/> 「已過期」 <br/> 「DeliveryCountExceeded」 <br/> 「已拒絕」 <br/> 「已清除」 |
-| 說明        | **StatusCode**的字串值。 |
+| 描述        | **StatusCode**的字串值。 |
 | deviceId           | 此意見反應資訊相關之雲端到裝置訊息的目標裝置 **DeviceId**。 |
 | DeviceGenerationId | 此意見反應資訊相關之雲端到裝置訊息的目標裝置 **DeviceGenerationId**。 |
 
 服務必須指定雲端到裝置訊息的 **MessageId** ，才能使其意見反應與原始訊息相互關聯。
 
-下列範例顯示意見反應訊息的本文。
+以下示例演示了反馈消息的正文。
 
 ```json
 [
@@ -125,12 +125,12 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入�
 
 每個 IoT 中樞都會針對雲端到裝置傳訊公開下列設定選項：
 
-| 屬性                  | 說明 | 範圍和預設值 |
+| 屬性                  | 描述 | 範圍和預設值 |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | 雲端到裝置訊息的預設 TTL。 | ISO_8601 間隔高達 2D (最小為 1 分鐘)。 預設值︰1 小時。 |
-| maxDeliveryCount          | 每個裝置佇列的雲端到裝置最大傳遞計數。 | 1 到 100。 預設值：10 |
-| feedback.ttlAsIso8601     | 保留服務繫結的意見反應訊息。 | ISO_8601 間隔高達 2D (最小為 1 分鐘)。 預設值︰1 小時。 |
-| feedback.maxDeliveryCount |意見反應佇列的最大傳遞計數。 | 1 到 100。 預設值 = 100。 |
+| defaultTtlAsIso8601       | 云到设备消息的默认 TTL。 | ISO_8601 間隔高達 2D (最小為 1 分鐘)。 預設值：1 小時。 |
+| maxDeliveryCount          | 每個裝置佇列的雲端到裝置最大傳遞計數。 | 1 到 100。 預設值：10. |
+| feedback.ttlAsIso8601     | 保留服務繫結的意見反應訊息。 | ISO_8601 間隔高達 2D (最小為 1 分鐘)。 預設值：1 小時。 |
+| feedback.maxDeliveryCount |意見反應佇列的最大傳遞計數。 | 1 到 100。 預設值：100。 |
 
 如需如何設定這些設定選項的詳細資訊，請參閱[建立 IoT 中樞](iot-hub-create-through-portal.md)。
 

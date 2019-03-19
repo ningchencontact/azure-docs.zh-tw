@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894046"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240077"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
@@ -42,7 +42,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 ### <a name="pass-through"></a>傳遞
 
-![即時通行](./media/live-streaming/pass-through.png)
+![即時通行](./media/live-streaming/pass-through.svg)
 
 使用傳遞**實況活動**時，您會依賴內部部署即時編碼器來產生多重位元速率視訊資料流，然後將其當作發佈摘要傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會接著完成傳入的視訊資料流，而不會再進一步處理。 這類即時通行 LiveEvent 最適合長時間執行的實況活動，或是 24x365 的線性即時串流。 建立這類型的「實況活動」時，請指定 [無] (LiveEventEncodingType.None)。
 
@@ -56,11 +56,16 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 ### <a name="live-encoding"></a>即時編碼  
 
-![即時編碼](./media/live-streaming/live-encoding.png)
+![即時編碼](./media/live-streaming/live-encoding.svg)
 
 搭配「媒體服務」使用即時編碼時，您會設定讓內部部署即時編碼器將單一位元速率視訊當作發佈摘要，傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會將該項傳入的單一位元速率資料流編碼成[多重位元速率視訊資料流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，使其可供透過 MPEG-DASH、HLS 及 Smooth Streaming 等通訊協定，傳遞給播放裝置。 建立這類型的「實況活動」時，請將編碼類型指定為 [標準] (LiveEventEncodingType.Standard)。
 
 您可以使用 H.264/AVC 視訊轉碼器以及 AAC (AAC-LC、HE-AACv1 或 HE-AACv2) 音訊轉碼器，以高達 1080p 的解析度和每秒 30 個畫面的畫面播放速率傳送發佈摘要。 如需更多詳細資料，請參閱[實況活動類型比較](live-event-types-comparison.md)一文。
+
+使用即時編碼時 (即時事件設定為**標準**)，編碼預設值可讓您定義如何將內送資料流編碼成多個位元速率或圖層。 如需資訊，請參閱[系統預設](live-event-types-comparison.md#system-presets)。
+
+> [!NOTE]
+> 目前，唯一允許的預設的值為標準類型的即時事件*Default720p*。 如果您需要使用自訂的即時編碼預設值，請連絡amshelp@microsoft.com。 您應該指定解析度和位元速率的所需的資料表。 ，請確認只有一個圖層中的 720p，和最多 6 個圖層。
 
 ## <a name="live-event-creation-options"></a>實況活動建立選項
 

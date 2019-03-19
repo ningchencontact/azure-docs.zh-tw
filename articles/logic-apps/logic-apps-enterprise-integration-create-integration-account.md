@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297983"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191913"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>建立和管理 B2B 解決方案與 Logic Apps 的整合帳戶
 
@@ -52,14 +52,14 @@ ms.locfileid: "35297983"
 
    ![提供整合帳戶的詳細資料](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | 屬性 | 必要 | 範例值 | 說明 | 
+   | 屬性 | 必要項 | 範例值 | 描述 | 
    |----------|----------|---------------|-------------|
-   | Name | yes | test-integration-account | 整合帳戶的名稱。 在此範例中，請使用指定的名稱。 | 
-   | 訂用帳戶 | yes | <*Azure-subscription-name*> | 要使用的 Azure 訂用帳戶的名稱 | 
-   | 資源群組 | yes | test-integration-account-rg | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 在此範例中，請使用指定的名稱建立新的資源群組。 | 
-   | 定價層 | yes | 免費 | 您想要使用的定價層。 在此範例中，選取 [免費]，但如需詳細資訊，請參閱 [Logic Apps 限制和設定](../logic-apps/logic-apps-limits-and-config.md)和[Logic Apps 價格](https://azure.microsoft.com/pricing/details/logic-apps/)。 | 
-   | 位置 | yes | 美國西部 | 用來存放整合帳戶資訊的區域。 請選取與邏輯應用程式相同的位置，或在與整合帳戶相同的位置中建立邏輯應用程式。 | 
-   | Log Analytics | 否 | 關閉 | 保留診斷記錄的 [關閉] 設定。 | 
+   | 名稱 | 是 | test-integration-account | 整合帳戶的名稱。 在此範例中，請使用指定的名稱。 | 
+   | 訂用帳戶 | 是 | <*Azure-subscription-name*> | 要使用的 Azure 訂用帳戶的名稱 | 
+   | 資源群組 | 是 | test-integration-account-rg | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 在此範例中，請使用指定的名稱建立新的資源群組。 | 
+   | 定價層 | 是 | 免費 | 您想要使用的定價層。 在此範例中，選取 [免費]，但如需詳細資訊，請參閱 [Logic Apps 限制和設定](../logic-apps/logic-apps-limits-and-config.md)和[Logic Apps 價格](https://azure.microsoft.com/pricing/details/logic-apps/)。 | 
+   | 位置 | 是 | 美國西部 | 用來存放整合帳戶資訊的區域。 請選取與邏輯應用程式相同的位置，或在與整合帳戶相同的位置中建立邏輯應用程式。 | 
+   | Log Analytics 工作區 | 否 | 關閉 | 保留診斷記錄的 [關閉] 設定。 | 
    ||||| 
 
 4. 當您準備就緒，選取 [釘選到儀表板]，然後選擇 [建立]。
