@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 93c70e038589667ae97acb86663a6179dcc81637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877321"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>如何透過 Cloud Partner 入口網站建立 Dynamics 365 for Operations 供應項目
 
@@ -31,10 +31,10 @@ ms.locfileid: "51245081"
 
 一旦符合所有先決條件後，您便已準備好開始製作您的 Dynamics 365 for Operations 供應項目。
 
-1. 登入 [Cloud Partner 入口網站](http://cloudpartner.azure.com/)。
-2. 從左側導覽列，按一下 [新增供應項目] 並選取 [Dynamics 365 for Operations]。
-3. 接著會開啟新供應項目的 [編輯器] 檢視，我們便準備好開始進行製作。
-4. 在左側 [編輯器] 檢視中，可以看到需要填寫的「表單」。 每個「表單」都包含需要填寫的欄位。必填欄位會標示紅色星號 (\*)。
+1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
+2. 從左側導覽列，按一下 \"[新增供應項目]\" 並選取 \"[Dynamics 365 for Operations]\"。
+3. 接著會開啟新供應項目的 \"[編輯器]\" 檢視，我們便準備好開始進行製作。
+4. 在左側 \"[編輯器]\" 檢視中，可以看到需要填寫的\"「表單」\"。 每個\"「表單」\"都包含需要填寫的欄位。必填欄位會標示紅色星號 (\*)。
 
 針對製作 Dynamics 365 for Operations 供應項目，有四個主要的表單：
 
@@ -51,7 +51,7 @@ ms.locfileid: "51245081"
 
 這是在發行者設定檔內供應項目的唯一識別碼。 此識別碼會出現在產品 URL 中。 此識別碼只能包含小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且不能超過 50 個字元。 供應項目上架後，此欄位便會鎖住。
 
-例如，如果發行者 contoso 建立具有供應項目識別碼 *sample-dynamics365 for operations* 的供應項目，它將會在 AppSource 中顯示為 \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics 365 for operations*?tab=Overview\"
+例如，如果發行者 contoso 發行者建立供應項目與供應項目 ID*作業的範例 dynamics365*，它會顯示在 AppSource 為`https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`。
 
 ### <a name="publisher-id"></a>發行者識別碼
 
@@ -61,7 +61,7 @@ ms.locfileid: "51245081"
 
 您供應項目的顯示名稱。 這是會顯示在 [AppSource](https://appsource.microsoft.com) 中的名稱。 它最多不能超過 50 個字元。
 
-按一下 [儲存] 以儲存您的進度。 下一個步驟是填寫供應項目的技術資訊。
+按一下 \"[儲存]\" 以儲存您的進度。 下一個步驟是填寫供應項目的技術資訊。
 
 ## <a name="how-to-fill-out-the-technical-info-form"></a>如何填寫技術資訊表單
 
@@ -138,7 +138,7 @@ ms.locfileid: "51245081"
 
 ### <a name="leads-management"></a>潛在客戶管理
 
-選取將儲存您潛在客戶的 CRM 系統。 如果您使用下列其中一個 CRM 系統，請在此選取 [Azure 資料表]\"\"： Salesforce、Marketo、Microsoft Dynamics CRM。 針對在 AppSource 上嘗試您應用程式的使用者 (潛在客戶)，我們會將其詳細資料寫入至您在此所選取的 CRM 系統。 請根據您所選取的 CRM 系統，按一下下面相對應的 URL 來取得完成下一組欄位的方式。
+選取將儲存您潛在客戶的 CRM 系統。 選取  \"Azure 表格\"這裡，如果您有下列的 CRM 系統的其中一個：Salesforce、Marketo、Microsoft Dynamics CRM。 我們會於您於此處所選的 CRM 系統上，寫入在 AppSource (潛在客戶) 上試用您應用程式的終端使用者詳細資料。 請根據您所選取的 CRM 系統，按一下下面相對應的 URL 來取得完成下一組欄位的方式。
 
 ![[潛在客戶管理] 詳細資料](./media/publish_d365_new_offer/leads.png)
 

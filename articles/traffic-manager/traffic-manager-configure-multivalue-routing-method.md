@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094798"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>在流量管理員中設定多值路由方法
 
@@ -42,14 +42,14 @@ ms.locfileid: "54197163"
     
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Name                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
+    | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
     | 路由方法          | 選取 [多值] 路由方法。                                       |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [myResourceGroupTM1]。 |
     | 位置                | 這項設定是指資源群組的位置，完全不影響將部署到全球的流量管理員設定檔。                              |
    |        |           | 
   
-  ![建立流量管理員設定檔](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+   ![建立流量管理員設定檔](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>新增流量管理員端點
 
@@ -62,12 +62,12 @@ ms.locfileid: "54197163"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | 外部端點                                   |
-    | Name           | myEndpoint1                                        |
+    | 名稱           | myEndpoint1                                        |
     | 完網域名稱 (FQDN) 或 IP           | 輸入您希望新增至此流量管理員設定檔之端點的公用 IP 位址                         |
     |        |           |
 
 4. 重複步驟 2 和 3 以新增名為 *myEndpoint2* 的其他端點；至於**完整網域名稱 (FQDN) 或 IP**，則輸入第二個端點的公用 IP 位址。
-5.  這兩個端點新增完畢後，它們會顯示在 [流量管理員設定檔] 中，而且監視狀態是 [線上]。
+5. 這兩個端點新增完畢後，它們會顯示在 [流量管理員設定檔] 中，而且監視狀態是 [線上]。
 
    ![新增流量管理員端點](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
