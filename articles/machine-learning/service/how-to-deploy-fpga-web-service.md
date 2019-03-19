@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7403d4f791151b167f03ee79c30623bbd644008
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: abf1ed8e06bf9f78c7df07194567ffb5bfdc2709
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100672"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842714"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務在 FPGA 上將模型部署為 Web 服務
 
@@ -28,7 +28,7 @@ ms.locfileid: "56100672"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 - 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
  
@@ -51,7 +51,7 @@ ms.locfileid: "56100672"
 為了方便起見，此教學課程以 Jupyter Notebook 形式提供。 請遵循以下程式碼或執行[快速入門筆記本](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb)。
 
 ## <a name="create-and-deploy-your-model"></a>建立及部署您的模型
-建立管道以預先處理輸入映像、在 FPGA 上使用 ResNet 50 將它功能化，然後透過在 ImageNet 資料集上定型的分類器執行功能。
+建立管線，以在前置處理輸入的映像，使其使用 ResNet 50 FPGA 上, 一項功能，並再跑 ImageNet 資料集上定型分類器的功能。
 
 依照指示執行以：
 

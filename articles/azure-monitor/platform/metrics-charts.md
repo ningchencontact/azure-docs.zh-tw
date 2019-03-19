@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 576a7948d4df7957d934fb4c8888712fa94cb202
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310928"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337069"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure 監視器計量瀏覽器
 
@@ -21,7 +21,7 @@ Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，
 
 ## <a name="metrics-in-azure"></a>Azure 中的計量
 
-[Azure 監視器](data-collection.md#metrics)中的計量是隨時間收集並儲存的一系列度量與計數值。 計量包括標準 (或稱為「平台」) 計量與自訂計量。 標準計量是由 Azure 平台本身提供給您使用。 標準計量反映您 Azure 資源的健康情況與使用情形統計資料。 而自訂計量則是由您的應用程式使用[適用於自訂事件的 Application Insights API ](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) 傳送給 Azure。 自訂計量是隨著其他應用程式特定計量儲存在 Application Insights 資源中。
+[Azure 監視器](data-collection.md#metrics)中的計量是隨時間收集並儲存的一系列度量與計數值。 計量包括標準 (或稱為「平台」) 計量與自訂計量。 標準計量是由 Azure 平台本身提供給您使用。 標準計量反映您 Azure 資源的健康情況與使用情形統計資料。 而自訂計量時，會傳送至 Azure 上，使用的應用程式所[自訂事件和度量的 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)， [Windows Azure 診斷 (WAD) extension](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)，或由[Azure監視 REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)。
 
 ## <a name="create-a-new-chart"></a>建立新的頻道
 
@@ -76,16 +76,16 @@ Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，
 
 5. 您可以重複步驟 1-4 以將多個篩選器套用到相同的圖表。
 
-## <a name="segment-a-chart"></a>將圖表劃分為不同的區段
+## <a name="apply-splitting-to-a-chart"></a>套用至圖表分割
 
 您可以依維度來分割計量，以視覺化方式顯示維度的各區段與彼此之間的差異，並識別維度中與其他區段差異較大的區段。 
 
-### <a name="to-segment-a-chart"></a>將圖表劃分為不同的區段
+### <a name="to-apply-splitting"></a>若要套用分割
 
 1. 按一下圖表上方的 [套用分割]。
  
    > [!NOTE]
-   > 任何單一圖表上均可有多個篩選器，但只能有一個分割/劃分值。
+   > 分割不能有多個度量的圖表。 此外，您可以有多個篩選器，但只有一個分割的維度，套用至任何單一的圖表。
 
 2. 選擇要據以將圖表分割為不同區段的維度：
 

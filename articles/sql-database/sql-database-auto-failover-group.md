@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861072"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -129,6 +129,18 @@ ms.locfileid: "56301922"
 
   > [!IMPORTANT]
   > 受控執行個體不支援多個容錯移轉群組。
+  
+## <a name="permissions"></a>權限
+透過管理容錯移轉群組的權限[角色型存取控制 (RBAC)](../role-based-access-control/overview.md)。 [SQL Server 參與者](../role-based-access-control/built-in-roles.md#sql-server-contributor)角色具有所有必要的權限來管理容錯移轉群組。 
+
+### <a name="create-failover-group"></a>建立容錯移轉群組
+若要建立的容錯移轉群組，您會需要這兩個主要和次要伺服器，並在容錯移轉群組中的所有資料庫的 RBAC 的寫入存取。 是受管理的執行個體，您需要 RBAC 寫入權限，這兩個主要和次要受控執行個體，但個別資料庫的權限不相關，因為無法加入或從容錯移轉群組中移除個別受管理的執行個體的資料庫。 
+
+### <a name="update-a-failover-group"></a>更新容錯移轉群組
+若要更新的容錯移轉群組，您需要 RBAC 容錯移轉群組，並在目前的主要伺服器或受管理的執行個體上的所有資料庫的寫入權限。  
+
+### <a name="failover-a-failover-group"></a>容錯移轉的容錯移轉群組
+若要容錯移轉的容錯移轉群組，您需要在新的主要伺服器上的容錯移轉群組的 RBAC 寫入權限，或受控執行個體。 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>將容錯移轉群組與單一資料庫和彈性集區一起使用的最佳做法
 
@@ -203,7 +215,7 @@ ms.locfileid: "56301922"
   > [!NOTE]
   > 在特定的服務層次，Azure SQL Database 支援使用[唯讀複本](sql-database-read-scale-out.md)來使用一個唯讀複本的容量，並使用連接字串中的 `ApplicationIntent=ReadOnly` 參數，對唯讀查詢工作負載進行負載平衡。 當您已設定異地複寫的次要執行個體時，可以使用此功能連接至主要位置或異地複寫位置中的唯讀複本。
   > - 若要連線至主要位置的唯讀複本，請使用 `failover-group-name.zone_id.database.windows.net`。
-  > - 若要連線至主要位置的唯讀複本，請使用 `failover-group-name.secondary.zone_id.database.windows.net`。
+  > - 若要連線至唯讀複本在次要位置中，使用`failover-group-name.secondary.zone_id.database.windows.net`。
 
 - **對效能降低做好心理準備**
 
@@ -270,14 +282,16 @@ ms.locfileid: "56301922"
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升級或降級主要資料庫
 
-您可以將主要資料庫升級或降級至不同的計算大小 (在相同的服務層內，而不是一般用途和業務關鍵之間)，而不需要將任何次要資料庫中斷連線。 升級時，我們建議您先升級次要資料庫，然後再升級主要資料庫。 降級時，順序相反︰先降級主要資料庫，然後再降級次要資料庫。 當您將資料庫升級或降級到不同的服務層時，會強制執行這項建議。
+您可以將主要資料庫升級或降級至不同的計算大小 (在相同的服務層內，而不是一般用途和業務關鍵之間)，而不需要將任何次要資料庫中斷連線。 升級時，我們建議您先升級所有次要資料庫，然後再升級主要。 降級時，順序相反︰ 先降級主要，然後再降級次要資料庫的所有。 當您將資料庫升級或降級到不同的服務層時，會強制執行這項建議。
+
+此順序特別建議可避免在較低 SKU 的次要位置取得多載，而且必須是升級或降級的程序期間重新植入的問題。 您也可以將主要變成唯讀，但會犧牲影響所有針對主要的讀寫工作負載，以避免此問題。 
 
 > [!NOTE]
 > 如果您已在容錯移轉群組設定中建立次要資料庫，則不建議降級次要資料庫。 這是為了確保您的資料層在容錯移轉啟動之後有足夠的容量來處理一般工作負載。
 
 ## <a name="preventing-the-loss-of-critical-data"></a>防止重要資料遺失
 
-由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 不過，有些應用程式可能會要求資料不能遺失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 **sp_wait_for_database_copy_sync** 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 **sp_wait_for_database_copy_sync** 以特定的連續複製連結為範圍。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
+由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 但是，某些应用程序可能要求不能有数据丢失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 **sp_wait_for_database_copy_sync** 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 **sp_wait_for_database_copy_sync** 以特定的連續複製連結為範圍。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** 可避免在容錯移轉之後資料遺失，但是不保證讀取權限會完整同步。 **sp_wait_for_database_copy_sync** 程序呼叫所造成的延遲可能會相當明顯，且取決於呼叫時的交易記錄大小。
@@ -292,14 +306,14 @@ ms.locfileid: "56301922"
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell：使用單一資料庫與彈性集區管理 SQL 資料庫容錯移轉
 
-| Cmdlet | 說明 |
+| Cmdlet | 描述 |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | 從伺服器移除容錯移轉群組，並刪除包含群組的所有次要資料庫 |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | 擷取容錯移轉群組設定 |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |修改容錯移轉群組的設定 |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | 觸發容錯移轉群組的容錯移轉到次要伺服器 |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|將一或多個資料庫新增至 Azure SQL Database 容錯移轉群組|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 從伺服器移除容錯移轉群組，並刪除包含群組的所有次要資料庫 |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | 擷取容錯移轉群組設定 |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |修改容錯移轉群組的設定 |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | 觸發容錯移轉群組的容錯移轉到次要伺服器 |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|將一或多個資料庫新增至 Azure SQL Database 容錯移轉群組|
 |  | |
 
 > [!IMPORTANT]
@@ -308,55 +322,55 @@ ms.locfileid: "56301922"
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell：使用受控執行個體管理容錯移轉叢集 (預覽)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>安裝 Powershell 的最新發行前版本
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>安裝最新發行前版本的 PowerShell
 
 1. 將 PowerShellGet 模組更新為 1.6.5 (或最新預覽版本)。 請參閱 [PowerShel Preview 網站](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview)。
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. 在新的 PowerShell 視窗中，執行下列命令：
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```
 
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Powershell 指令程式，用於建立執行個體容錯移轉群組
+#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>若要建立執行個體容錯移轉群組的 PowerShell 指令程式
 
-| API | 說明 |
+| API | 描述 |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |修改容錯移轉群組的設定|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |擷取容錯移轉群組設定|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |觸發容錯移轉群組的容錯移轉到次要伺服器|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | 移除容錯移轉群組|
+| New-AzSqlDatabaseInstanceFailoverGroup |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
+| Set-AzSqlDatabaseInstanceFailoverGroup |修改容錯移轉群組的設定|
+| Get-AzSqlDatabaseInstanceFailoverGroup |擷取容錯移轉群組設定|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |觸發容錯移轉群組的容錯移轉到次要伺服器|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | 移除容錯移轉群組|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API：使用單一和集區資料庫管理 SQL Database 容錯移轉群組
 
-| API | 說明 |
+| API | 描述 |
 | --- | --- |
 | [建立或更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | 建立或更新容錯移轉群組 |
-| [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 從伺服器中移除容錯移轉群組 |
+| [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 从服务器中删除故障转移组 |
 | [容錯移轉 (計劃性)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | 從目前主要伺服器容錯移轉到此伺服器。 |
 | [強制容錯移轉允許資料遺失](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |從目前主要伺服器容錯移轉到此伺服器。 這項作業可能會導致資料遺失。 |
-| [取得容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | 取得容錯移轉群組。 |
+| [获取故障转移组](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | 取得容錯移轉群組。 |
 | [依伺服器列出容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | 列出伺服器中的容錯移轉群組。 |
 | [更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | 更新容錯移轉群組。 |
 |  | |
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>REST API：使用受控執行個體管理容錯移轉群組 (預覽)
 
-| API | 說明 |
+| API | 描述 |
 | --- | --- |
 | [建立或更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 建立或更新容錯移轉群組 |
-| [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 從伺服器中移除容錯移轉群組 |
+| [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 从服务器中删除故障转移组 |
 | [容錯移轉 (計劃性)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | 從目前主要伺服器容錯移轉到此伺服器。 |
 | [強制容錯移轉允許資料遺失](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |從目前主要伺服器容錯移轉到此伺服器。 這項作業可能會導致資料遺失。 |
-| [取得容錯移轉群組](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | 取得容錯移轉群組。 |
+| [获取故障转移组](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | 取得容錯移轉群組。 |
 | [列出容錯移轉群組 - 依位置列出](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | 列出位置中的容錯移轉群組。 |
 
 ## <a name="next-steps"></a>後續步驟
@@ -367,5 +381,5 @@ ms.locfileid: "56301922"
   - [設定單一資料庫的容錯移轉群組並進行容錯移轉](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 - 如需商務持續性概觀和案例，請參閱 [商務持續性概觀](sql-database-business-continuity.md)
 - 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
-- 若要了解如何使用自動備份進行復原，請參閱 [從服務起始的備份還原資料庫](sql-database-recovery-using-backups.md)。
-- 若要深入了解新的主要伺服器和資料庫的驗證需求，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)。
+- 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)。
+- 若要了解新主服务器和数据库的身份验证要求，请参阅[灾难恢复后的 SQL 数据库安全性](sql-database-geo-replication-security-config.md)。

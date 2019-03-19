@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 039e2d3c70493868ca2f79e89fc82d8970ec6865
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032383"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837757"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>從 Azure 虛擬機器讓更新管理、變更追蹤和清查解決方案上線
 
@@ -26,7 +26,7 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 ## <a name="enable-the-solutions"></a>啟用解決方案
 
-移至現有的虛擬機器。 在 [作業] 底下，選取 [更新管理]、[清查] 或 [變更追蹤]。
+移至現有的虛擬機器。 在 [作業] 底下，選取 [更新管理]、[清查] 或 [變更追蹤]。 虛擬機器可以位於任何區域，無論您的自動化帳戶的位置。
 
 若只要啟用 VM 的解決方案，請確定您已選取 [對此 VM 啟用]。 若要在解決方案中將多部機器上線，請選取 [對此訂用帳戶中的 VM 啟用]，然後選取 [按一下以選取要啟用的機器]。 若要了解如何讓多部機器一次上線，請參閱[讓更新管理、變更追蹤和清查解決方案上線](automation-onboard-solutions-from-automation-account.md)。
 
@@ -34,7 +34,7 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 ![讓更新管理解決方案上線](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-移至其他解決方案，然後選取 [啟用]。 Log Analytics 和自動化帳戶下拉式清單會停用，原因是這些解決方案使用的工作區和自動化帳戶與先前啟用的解決方案相同。
+移至其他解決方案，然後選取 [啟用]。 因為這些解決方案會使用相同的工作區和自動化帳戶先前啟用的解決方案，就會停用的 Log Analytics 工作區和自動化帳戶下拉式清單。
 
 > [!NOTE]
 > [變更追蹤] 和 [清查] 使用相同的解決方案。 當其中的某個解決方案啟用時，另一個也會啟用。
@@ -73,10 +73,10 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 下列解決方案相依於 Log Analytics 工作區：
 
 * [更新管理](automation-update-management.md)
-* [變更追蹤](automation-change-tracking.md)
+* [更改跟踪](automation-change-tracking.md)
 * [於下班時間啟動/停止 VM](automation-solution-vm-management.md)
 
-若決定不想再讓自動化帳戶與 Log Analytics 整合，您可以直接從 Azure 入口網站將您的帳戶取消連結。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
+如果您決定您不再想要整合您的自動化帳戶與 Log Analytics 工作區，您可以取消連結您的帳戶，直接從 Azure 入口網站。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
 
 移除這些解決方案之後，您可以執行下列步驟以將您的自動化帳戶取消連結。
 
@@ -87,7 +87,7 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 1. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
 
-   ![取消連結工作區頁面](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
+   ![取消連結工作區頁面](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png)上也提供本文中使用的原始碼。
 
    您會收到提示，確認您想要繼續。
 

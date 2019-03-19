@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244874"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431184"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>相應增加 Azure DevTest Labs 基礎結構
 在企業級規模實作 DevTest Labs 之前，有數個重要決策點。 了解這些高層的決策點可協助組織未來設計決策。 不過，這些決策點應該不會妨礙組織開始概念證明。 初始相應增加計劃的前三個領域如下：
@@ -46,7 +46,7 @@ ms.locfileid: "56244874"
 一個訂用帳戶的方法通常在大型企業中不容易管理。 不過，限制訂用帳戶的數目有下列優點：
 
 - **預測**企業的成本。  單一訂用帳戶的預算變得更容易，因為所有資源都在單一集區中。 此方法更容易決定在計費期間的任何指定時間執行成本控制措施。
-- VM、成品、公式、網路設定、權限、原則等的**管理**更容易，因為所有更新只需要在一個訂用帳戶進行，而不需要對許多訂用帳戶進行更新。
+- **管理性**的 Vm、 成品、 公式、 網路設定、 權限、 原則，等會更容易因為所有的更新只需要在一個訂用帳戶，而不是跨許多訂用帳戶進行更新。
 - 對於需要內部部署連線的企業，單一訂用帳戶的**網路**工作大幅簡化。 額外的訂用帳戶需要跨訂用帳戶連接虛擬網路 (中樞-支點模型)，而這需要額外的設定、管理、IP 位址空間等。
 - 當每個人都使用相同的訂用帳戶時，**小組共同作業**更容易，例如，更容易將 VM 重新指派給同事、共用小組資源等。
 

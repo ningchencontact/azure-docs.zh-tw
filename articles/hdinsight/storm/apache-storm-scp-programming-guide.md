@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853285"
 ---
 # <a name="scp-programming-guide"></a>SCP 程式設計指南
 SCP 是一個用來建置即時、可靠、一致和高效能資料處理應用程式的平台。 建置在由 OSS 社群所設計的串流處理系統 [Apache Storm](https://storm.incubator.apache.org/) 之上。 Storm 由 Nathan Marz 所設計，由 Twitter 公開原始碼。 它採用 [Apache ZooKeeper](https://zookeeper.apache.org/)，這是另一個可發揮極可靠的分散式協調和狀態管理的 Apache 專案。 
@@ -26,13 +26,13 @@ SCP 專案不僅將 Storm 移植到 Windows 上，此專案也為 Windows 生態
 ## <a name="processing-model"></a>處理模型
 SCP 中的資料模擬成連續的 Tuple 串流。 通常，Tuple 會先流進一些佇列，經過挑選，再由 Storm 拓撲內裝載的商業邏輯來轉換，最後，輸出以 Tuple 的形式傳遞至另一個 SCP 系統，或認可到存放區 (例如分散式檔案系統) 或資料庫 (例如 SQL Server)。
 
-![佇列饋送資料 (饋送資料存放區) 以供處理的圖](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+![馈送待处理数据的队列（在数据存储中馈送数据）示意图](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
 
 在 Storm 中，應用程式拓撲定義一份運算圖。 拓撲中的每個節點包含處理邏輯，節點之間的連結代表資料流程。 將輸入資料注入拓撲中的節點稱為 _Spout_，可用來編排資料。 輸入資料可能位於檔案記錄、交易式資料庫、系統效能計數器等。同時有輸入和輸出資料流程的節點稱為 _Bolt_，負責進行實際的資料篩選及挑選和彙總。
 
 SCP 支援竭盡所能、至少一次和剛好一次這三種資料處理方法。 在分散式串流處理應用程式中，資料處理期間可能發生各種錯誤，例如網路中斷、機器故障或使用者程式碼錯誤等。至少一次的處理方法會在錯誤發生時自動重播相同資料，以確保所有資料至少處理一次。 至少一次的處理方法簡單又可靠，在許多應用程式中都很適合。 不過，當應用程式需要準確計數時 (只是舉例)，至少一次的處理方法就無法勝任，因為同樣的資料可能在應用程式拓撲中播放。 在此情況下，剛好一次的處理方法可確保即使資料可能重播和處理多次，結果也一定正確。
 
-SCP 可讓 .NET 開發人員以 Java 虛擬機器 (JVM) 涵蓋 Storm，開發即時資料處理應用程式。 .NET 與 JVM 是透過 TCP 本機通訊端來進行通訊。 基本上，每個 Spout/Bolt 就是一對 .Net/Java 程序，而使用者邏輯在 .Net 程序中以外掛程式的方式運作。
+SCP 可讓 .NET 開發人員以 Java 虛擬機器 (JVM) 涵蓋 Storm，開發即時資料處理應用程式。 .NET 與 JVM 是透過 TCP 本機通訊端來進行通訊。 基本上每個 Spout/Bolt 是.NET/Java 程序組，使用者邏輯在.NET 程序，為外掛程式的位置。
 
 若要根據 SCP 來建置資料處理應用程式，需要幾個步驟：
 
@@ -71,7 +71,7 @@ ISCPSpout 為非交易式 spout 的介面。
 
 呼叫 `NextTuple()` 時，C\# 使用者程式碼可能發出一或多個 Tuple。 如果沒有資料可發出，此方法應該返回而不發出任何資料。 請注意，`NextTuple()`、`Ack()` 和 `Fail()` 都是在 C\# 程序的單一執行緒中放在密封迴圈內呼叫。 沒有 Tuple 可發出時，建議讓 NextTuple 短暫休息 (例如 10 毫秒)，不致於浪費太多 CPU。
 
-只有當規格檔中啟用認可機制時，才會呼叫 `Ack()` 和 `Fail()`。 `seqId` 用來識別已認可或失敗的 Tuple。 因此，如果非交易式拓撲中啟用認可，則 Spout 中應該使用下列 emit 函數：
+只有當規格檔中啟用認可機制時，才會呼叫 `Ack()` 和 `Fail()`。 `seqId`用來識別已認可或失敗的 tuple。 因此，如果非交易式拓撲中啟用認可，則 Spout 中應該使用下列 emit 函數：
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -420,7 +420,7 @@ runspec 命令會隨著程式碼一起部署，用法如下：
 ### <a name="multi-stream-support"></a>多重串流支援
 SCP 支援使用者程式碼同時發出或接收多個不同串流。 此支援反映在 Context 物件中，因為 Emit 方法接受一個選擇性串流 ID 參數。
 
-SCP.NET Context 物件中已增加兩個方法。 用以發出一或多個 Tuple 來指定 StreamId。 StreamId 是字串，在 C\# 與拓撲定義規格中必須一致。
+SCP.NET Context 物件中已增加兩個方法。 这些方法用于发送一个或多个元组以指定 StreamId。 StreamId 是字串，在 C\# 與拓撲定義規格中必須一致。
 
         /* Emit tuple to the specific stream. */
         public abstract void Emit(string streamId, List<object> values);
@@ -431,7 +431,7 @@ SCP.NET Context 物件中已增加兩個方法。 用以發出一或多個 Tuple
 發出給不存在的串流會造成執行階段例外狀況。
 
 ### <a name="fields-grouping"></a>欄位分組
-Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。 在 Java Proxy 端，所有欄位資料類型實際上為 byte[]，而欄位群組會使用 byte[] 物件雜湊碼來執行群組。 byte[] 物件雜湊碼是此物件在記憶體中的位址。 因此，共用相同內容但不是相同位址的兩個 byte[] 物件，分組會錯誤。
+在 Storm 中內建的欄位群組不會在 SCP.NET 中正常運作。 在 Java Proxy 端，所有欄位資料類型實際上為 byte[]，而欄位群組會使用 byte[] 物件雜湊碼來執行群組。 byte[] 物件雜湊碼是此物件在記憶體中的位址。 因此，共用相同內容但不是相同位址的兩個 byte[] 物件，分組會錯誤。
 
 SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執行分組。 在 **SPEC** 檔案中，語法如下：
 
@@ -450,7 +450,7 @@ SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執�
 3. [0,1] 表示欄位識別碼的雜湊集，從 0 開始。
 
 ### <a name="hybrid-topology"></a>混合式拓撲
-原生 Storm 是以 Java 撰寫。 且 SCP.Net 已經增強，讓 C\# 開發者可以撰寫 C\# 程式碼來處理其商業邏輯。 但它也支援混合式拓撲，不僅包含 C\# spout/bolt，也包含 Java Spout/Bolt。
+原生 Storm 是以 Java 撰寫。 且 SCP.NET 已經增強，讓 C\#開發人員可以撰寫 C\#處理其商業邏輯的程式碼。 但它也支援混合式拓撲，不僅包含 C\# spout/bolt，也包含 Java Spout/Bolt。
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>在規格檔中指定 Java Spout/Bolt
 在規格檔中，"scp-spout" 和 "scp-bolt" 也可用來指定 Java Spout 和 Bolt，如下列範例所示：
@@ -466,7 +466,7 @@ SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執�
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 
-在這裡，**examples\\HybridTopology\\java\\target\\** 是包含 Java Spout/Bolt Jar 檔案的資料夾。
+其中，examples\\HybridTopology\\java\\target\\ 是包含 Java Spout/Bolt Jar 文件的文件夹。
 
 ### <a name="serialization-and-deserialization-between-java-and-c"></a>Java 與 C\# 之間的序列化和還原序列化
 SCP 元件包含 Java 和 C\# 端。 為了與原生 Java Spout/Bolt 互動，必須在 Java 和 C\# 端之間進行序列化/還原序列化，如下圖所示。
@@ -562,7 +562,7 @@ SCP 元件包含 Java 和 C\# 端。 為了與原生 Java Spout/Bolt 互動，�
 
 ## <a name="scp-programming-examples"></a>SCP 程式設計範例
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** 是一個體驗 SCP.Net 的簡單範例。 它使用非交易拓撲，具有一個名為 **generator** 的 spout，以及名為 **splitter** 和 **counter** 的兩個 bolt。 spout **generator** 會隨機產生句子，並發出這些句子給 **splitter**。 bolt **splitter** 會將這些句子分割成單字，再發出這些單字給 **counter** bolt。 bolt "counter" 使用字典來記錄每個單字出現的次數。
+**HelloWorld**是一個體驗 SCP.NET 的簡單範例。 它使用非交易拓撲，具有一個名為 **generator** 的 spout，以及名為 **splitter** 和 **counter** 的兩個 bolt。 spout **generator** 會隨機產生句子，並發出這些句子給 **splitter**。 bolt **splitter** 會將這些句子分割成單字，再發出這些單字給 **counter** bolt。 bolt "counter" 使用字典來記錄每個單字出現的次數。
 
 此範例有兩個規格檔：**HelloWorld.spec** 和 **HelloWorld\_EnableAck.spec**。 在 C\# 程式碼中，可從 Java 端取得 pluginConf 來檢查認可是否已啟用。
 
@@ -573,7 +573,7 @@ SCP 元件包含 Java 和 C\# 端。 為了與原生 Java Spout/Bolt 互動，�
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-在 spout 中，如果認可已啟用，則會使用字典來快取尚未認可的 Tuple。 如果呼叫 Fail()，則會重播失敗的 Tuple：
+在 spout 中，如果啟用通知，則會使用字典來快取尚未認可的 tuple。 如果呼叫 Fail()，則會重播失敗的 Tuple：
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

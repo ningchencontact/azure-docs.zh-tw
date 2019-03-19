@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850712"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>運用 Azure 資料表進行潛在客戶管理之說明
 
@@ -38,7 +38,7 @@ ms.locfileid: "53193581"
     
     ![Azure 儲存體金鑰](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-您可以使用 [Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/) \(英文\) 或任何其他工具，來檢視儲存體資料表中的資料。 您也可以將 Azure 資料表中的資料匯出。
+您可以使用 [Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/) \(英文\) 或任何其他工具，來檢視儲存體資料表中的資料。 您也可以將 Azure 資料表中的資料匯出。
 資料。
 
 ## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(選擇性)** 使用 Microsoft Flow 搭配 Azure 資料表
