@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 09/24/2018
+ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2be77cdc4a5ad38a7d8c125fd95256e77cd92019
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202939"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543181"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
@@ -44,7 +44,6 @@ ms.locfileid: "56202939"
 
 具體而言，下列情節需要程式碼來處理條件式存取「挑戰」：
 
-* 存取 Microsoft Graph 的應用程式
 * 執行代理者流程的應用程式
 * 存取多個服務/資源的應用程式
 * 使用 ADAL.js 的單頁應用程式
@@ -58,15 +57,28 @@ ms.locfileid: "56202939"
 
 某些情節需要程式碼變更才能處理條件式存取，而其他情節則是以原狀運作。 以下幾個情節使用條件式存取來執行多重要素驗證，能深入解析一些差異。
 
-* 您要建置單一租用戶 iOS 應用程式，並套用條件式存取原則。 應用程式會將使用者登入，且不會要求存取 API。 當使用者登入時，會自動叫用原則，而使用者必須執行多重要素驗證 (MFA)。
-* 您要建置使用 Microsoft Graph 在其他服務之間存取 Exchange 的多租用戶 Web 應用程式。 採用此應用程式的企業客戶會在 Exchange 上設定原則。 當 Web 應用程式要求 MS Graph 的權杖時，應用程式不需要符合原則。 終端使用者需要以有效的權杖登入。 當應用程式嘗試針對 Microsoft Graph 使用此權杖來存取 Exchange 資料時，將會透過 ```WWW-Authenticate``` 標頭將宣告「挑戰」傳回給 Web 應用程式。 然後，應用程式就可以在新的要求中使用 ```claims```，系統也會提示終端使用者必須符合條件。
+* 您要建置單一租用戶 iOS 應用程式，並套用條件式存取原則。 應用程式會將使用者登入，且不會要求存取 API。 當使用者登入時，會自動叫用原則，而使用者必須執行多重要素驗證 (MFA)。 
 * 您正在建置一個會使用中介層服務來存取下游 API 的原生應用程式。 公司中使用此應用程式的企業客戶會將原則套用至下游 API。 當使用者登入時，原生應用程式會要求存取中介層並傳送權杖。 中介層會執行代理者流程來要求存取下游 API。 此時，宣告「挑戰」會呈現至中介層。 中介層會將挑戰傳送回原生應用程式，其必須遵守條件式存取原則。
+
+#### <a name="microsoft-graph"></a>Microsoft Graph
+
+建置在條件式存取的環境中的應用程式時，Microsoft Graph 會有特殊的考量。 一般而言，條件式存取的運作原理的行為相同，但您的使用者看到的原則會根據您的應用程式正在要求從圖形的基礎資料。 
+
+具體而言，所有的 Microsoft Graph 範圍代表一些可以個別已套用原則的資料集。 條件式存取原則指派特定的資料集，因為 Azure AD 會強制執行條件式存取原則，根據圖表-背後的資料而非圖形本身。
+
+例如，如果應用程式要求下列的 Microsoft Graph 範圍，
+
+```
+scopes="Bookings.Read.All Mail.Read"
+```
+
+應用程式可以預期他們的使用者，以滿足所有 Bookings 和 Exchange 上設定的原則。 如果其授與存取，某些領域可能會對應至多個資料集。 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>遵守條件式存取原則
 
 針對幾個不同的應用程式拓樸，當工作階段建立時，會評估條件式存取原則。 由於條件式存取原則是運作於應用程式和服務的資料粒度，其叫用的點會大幅度取決於您嘗試完成的情節。
 
-當您的應用程式嘗試存取具有條件式存取原則的服務時，它可能會遇到條件式存取的挑戰。 這項挑戰會以來自 Azure AD 或 Microsoft Graph 之回應的 `claims` 參數進行編碼。 以下是這項挑戰參數的範例：
+當您的應用程式嘗試存取具有條件式存取原則的服務時，它可能會遇到條件式存取的挑戰。 這項挑戰編碼`claims`從 Azure AD 之回應的參數。 以下是這項挑戰參數的範例： 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -84,70 +96,15 @@ Azure AD 條件式存取是 [Azure AD Premium](https://docs.microsoft.com/azure/
 
 下列資訊僅適用於這些條件式存取情節：
 
-* 存取 Microsoft Graph 的應用程式
 * 執行代理者流程的應用程式
 * 存取多個服務/資源的應用程式
 * 使用 ADAL.js 的單頁應用程式
 
-下列各節會討論更複雜的常見案例。 核心作業的原則是在要求權杖提供已套用條件式存取原則的服務時評估條件式存取原則，除非它是透過 Microsoft Graph 進行存取。
-
-## <a name="scenario-app-accessing-microsoft-graph"></a>案例：存取 Microsoft Graph 的應用程式
-
-在此案例中，了解 Web 應用程式如何要求存取 Microsoft Graph。 在此案例中，可以將條件式存取原則指派給 SharePoint、Exchange，或是透過 Microsoft Graph 存取作為工作負載的一些其他服務。 在此範例中，假設 SharePoint Online 上具有條件式存取原則。
-
-![存取 Microsoft Graph 流程圖的應用程式](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
-
-應用程式會先要求對 Microsoft Graph 的授權，這需要在沒有條件式存取的情況下存取下游工作負載。 要求成功且無需叫用任何原則，應用程式會接收 Microsoft Graph 的權杖。 此時，應用程式會針對已要求的端點使用持有人要求中的存取權杖。 現在，應用程式需要存取 Microsoft Graph 的 SharePoint Online 端點，例如：`https://graph.microsoft.com/v1.0/me/mySite`
-
-應用程式已經具有 Microsoft Graph 的有效權杖，因此它不需接收新的權杖即可執行新的要求。 此要求失敗，且從 Microsoft Graph 以包含 ```WWW-Authenticate``` 挑戰的 HTTP 403 禁止形式發行宣告挑戰。
-
-回應的範例如下：
-
-```
-HTTP 403; Forbidden
-error=insufficient_claims
-www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
-```
-
-宣告挑戰位於 ```WWW-Authenticate``` 標頭內，可加以剖析來擷取下一個要求的宣告參數。 一旦附加至新的要求之後，Azure AD 便得知要在將使用者登入時評估條件式存取原則，而應用程式現在已符合此條件式存取原則。 重複對 SharePoint Online 端點的要求成功。
-
-```WWW-Authenticate``` 標頭有獨特的結構，要剖析來擷取值並非易事。 以下簡短方法有所幫助。
-
-```csharp
-        /// <summary>
-        /// This method extracts the claims value from the 403 error response from MS Graph.
-        /// </summary>
-        /// <param name="wwwAuthHeader"></param>
-        /// <returns>Value of the claims entry. This should be considered an opaque string.
-        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
-        private String extractClaims(String wwwAuthHeader)
-        {
-            String ClaimsKey = "claims=";
-            String ClaimsSubstring = "";
-            if (wwwAuthHeader.Contains(ClaimsKey))
-            {
-                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
-                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
-                string ClaimsChallenge;
-                if (Regex.Match(ClaimsSubstring, @"}$").Success)
-                {
-                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
-                }
-                else
-                {
-                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
-                }
-                return ClaimsChallenge;
-            }
-            return null;
-        }
-```
-
-關於示範如何處理宣告挑戰的程式碼範例，請參閱適用於 ADAL .NET 的[代理者程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)。
+下列各節會討論更複雜的常見案例。 核心作業的原則是條件式存取原則會評估要求權杖時，已套用條件式存取原則的服務。
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>案例：執行代理者流程的應用程式
 
-在此情節中，我們會逐步解說原生應用程式呼叫 web 服務/API 的案例。 接著，此服務會執行「代理者」流程來呼叫下游服務。 在我們的案例中，已將我們的條件式存取原則套用至下游服務 (Web API 2)，且是使用原生應用程式，而不是伺服器/精靈應用程式。
+在此情節中，我們會逐步解說原生應用程式呼叫 web 服務/API 的案例。 接著，此服務會執行「代理者」流程來呼叫下游服務。 在我們的案例中，已將我們的條件式存取原則套用至下游服務 (Web API 2)，且是使用原生應用程式，而不是伺服器/精靈應用程式。 
 
 ![執行代理者流程圖的應用程式](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -218,8 +175,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 若要試用此情節，請參閱我們的 [JS SPA 代理者程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)。 此程式碼範例會使用條件式存取原則，以及您稍早向 JS SPA 註冊來示範此情節的 web API。 它會示範如何正確處理宣告挑戰，並取得可用於您 Web API 的存取權杖。 或者，查看一般 [Angular.js 程式碼範例](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)，以取得 Angular SPA 的指引
 
-
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * 若要深入了解功能，請參閱 [Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
 * 如需更多的 Azure AD 程式碼範例，請參閱[程式碼範例的 Github 存放庫](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)。

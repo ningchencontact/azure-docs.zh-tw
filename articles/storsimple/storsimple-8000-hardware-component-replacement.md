@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 6de50c5031db59176bdf17ecc69b934559220f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108446"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433649"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>更換 StorSimple 8000 系列裝置上的硬體元件
 
@@ -68,10 +68,10 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 | 元件 | # Present | 外掛程式模組？ | 更換程序 |
 |:--- |:--- |:--- |:--- |
 | 底座 |1 |否 |[更換 StorSimple 裝置上的底座](storsimple-8000-chassis-replacement.md) |
-| 主要控制器 |2 |yes |[更換 StorSimple 裝置上的控制器模組](storsimple-8000-controller-replacement.md) |
-| 764 瓦電源和冷卻模組 (PCM) |2 |yes |[更換 StorSimple 裝置上的電源和冷卻模組](storsimple-8000-power-cooling-module-replacement.md) |
-| 備用電池 |2 |yes |[更換 StorSimple 裝置上的備用電池模組](storsimple-8000-battery-replacement.md) |
-| 磁碟機 |12 |yes |[更換 StorSimple 裝置上的磁碟機](storsimple-8000-disk-drive-replacement.md) |
+| 主要控制器 |2 |是 |[更換 StorSimple 裝置上的控制器模組](storsimple-8000-controller-replacement.md) |
+| 764 瓦電源和冷卻模組 (PCM) |2 |是 |[更換 StorSimple 裝置上的電源和冷卻模組](storsimple-8000-power-cooling-module-replacement.md) |
+| 備用電池 |2 |是 |[更換 StorSimple 裝置上的備用電池模組](storsimple-8000-battery-replacement.md) |
+| 磁碟機 |12 |是 |[更換 StorSimple 裝置上的磁碟機](storsimple-8000-disk-drive-replacement.md) |
 
 **表 1** 主要機箱中的硬體元件
 
@@ -80,19 +80,19 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 | 元件 | # Present | 外掛程式模組？ | 更換程序 |
 |:--- |:--- |:--- |:--- |
 | 底座 |1 |否 |[更換 StorSimple 裝置上的底座](storsimple-8000-chassis-replacement.md) |
-| EBOD 控制器 |2 |yes |[更換 StorSimple 裝置上的 EBOD 控制器](storsimple-8000-ebod-controller-replacement.md) |
-| 580 瓦電源和冷卻模組 (PCM) |2 |yes |[更換 StorSimple 裝置上的電源和冷卻模組](storsimple-8000-power-cooling-module-replacement.md) |
-| 磁碟機 |12 |yes |[更換 StorSimple 裝置上的磁碟機](storsimple-8000-disk-drive-replacement.md) |
+| EBOD 控制器 |2 |是 |[更換 StorSimple 裝置上的 EBOD 控制器](storsimple-8000-ebod-controller-replacement.md) |
+| 580 瓦電源和冷卻模組 (PCM) |2 |是 |[更換 StorSimple 裝置上的電源和冷卻模組](storsimple-8000-power-cooling-module-replacement.md) |
+| 磁碟機 |12 |是 |[更換 StorSimple 裝置上的磁碟機](storsimple-8000-disk-drive-replacement.md) |
 
 **表 2** EBOD 機箱中的硬體元件
 
 裝置上的外掛程式模組會在下列前端和後端圖表中反白顯示。 如果需要更換，您可以使用這些圖表，來判斷各種外掛程式模組的位置。 前端圖表顯示磁碟機，而 EBOD 機箱和主要機箱的後端圖表則顯示外掛程式模組。
 
-![具有磁碟機的裝置前擋板](./media/storsimple-hardware-component-replacement/IC741028.png)
+![具有磁碟機的裝置前端面板](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **圖 1** 裝置正面
 
-| 標籤 | 說明 |
+| 標籤 | 描述 |
 |:--- |:--- |
 | 0 - 11 |磁碟機 (總共 12 部) |
 
@@ -102,7 +102,7 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 
 **圖 2** 主要機箱背面
 
-| 標籤 | 說明 |
+| 標籤 | 描述 |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 
 **圖 3** EBOD 機箱背面
 
-| 標籤 | 說明 |
+| 標籤 | 描述 |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

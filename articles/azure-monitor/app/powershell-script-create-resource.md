@@ -12,15 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3fe6a89073da731332a91ece40a6ea6f667d150a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: 91790f372dce4322d316b42c4bfa7ad36625c91d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004280"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315566"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>建立 Application Insights 資源的 PowerShell 指令碼
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 當您想要使用 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 來監視新的應用程式或新版應用程式時，需在 Microsoft Azure 中設定新的資源。 此資源是分析和顯示應用程式之遙測資料的位置。 
 
@@ -36,8 +37,8 @@ ms.locfileid: "54004280"
 ## <a name="script-to-create-an-application-insights-resource"></a>建立 Application Insights 資源的指令碼
 請參閱相關的 Cmdlet 規格：
 
-* [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
-* [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
+* [New-AzResource](https://msdn.microsoft.com/library/mt652510.aspx)
+* [New-AzRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
 
 *PowerShell 指令碼*  
 
@@ -51,7 +52,7 @@ ms.locfileid: "54004280"
 # If running manually, uncomment before the first 
 # execution to login to the Azure Portal:
 
-# Connect-AzureRmAccount / Connect-AzureRmAccount
+# Connect-AzAccount / Connect-AzAccount
 
 # Set the name of the Application Insights Resource
 
@@ -75,7 +76,7 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 # Create the App Insights Resource
 
 
-$resource = New-AzureRmResource `
+$resource = New-AzResource `
   -ResourceName $appInsightsName `
   -ResourceGroupName $resourceGroupName `
   -Tag @{ applicationType = "web"; applicationName = $applicationTagName} `
@@ -86,7 +87,7 @@ $resource = New-AzureRmResource `
 
 # Give owner access to the team
 
-New-AzureRmRoleAssignment `
+New-AzRoleAssignment `
   -SignInName "myteam@fabrikam.com" `
   -RoleDefinitionName Owner `
   -Scope $resource.ResourceId 
@@ -109,7 +110,7 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [從範本建立 Application Insights 和 Web 測試資源](powershell.md)
 * [Set 使用 PowerShell 設定 Azure 診斷的監視](powershell-azure-diagnostics.md) 
 * [使用 PowerShell 設定警示](powershell-alerts.md)

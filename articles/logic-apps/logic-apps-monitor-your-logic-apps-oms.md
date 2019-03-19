@@ -1,5 +1,5 @@
 ---
-title: 使用 Log Analytics 監視邏輯應用程式 - Azure Logic Apps | Microsoft Docs
+title: 監視 logic apps 與 Azure 監視器記錄檔-Azure Logic Apps |Microsoft Docs
 description: 使用 Azure Log Analytics 取得深入解析和偵錯資料，以便進行邏輯應用程式執行的疑難排解和診斷
 services: logic-apps
 ms.service: logic-apps
@@ -9,21 +9,23 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995650"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192457"
 ---
-# <a name="monitor-logic-apps-with-azure-log-analytics"></a>使用 Azure Log Analytics 監視邏輯應用程式
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>使用 Azure 監視器記錄監視邏輯應用程式
 
-若要監視並取得更豐富的邏輯應用程式偵錯詳細資料，請在建立邏輯應用程式時開啟 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)。 當您在 Azure 入口網站中安裝 Logic Apps 管理解決方案時，Log Analytics 可提供邏輯應用程式的診斷記錄和監視功能。 此解決方案也可提供邏輯應用程式執行的彙總資訊，以及狀態、執行時間、重新提交狀態和相互關聯識別碼等特定詳細資料。 本文說明如何開啟 Log Analytics，讓您能夠檢視邏輯應用程式執行的執行階段事件和資料。
+若要監視，並取得更豐富的偵錯詳細資料，關於您的 logic apps，請開啟[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)當您建立邏輯應用程式。 Azure 監視器記錄檔會提供診斷記錄和監視您的邏輯應用程式，當您在 Azure 入口網站中安裝 Logic Apps 管理解決方案。 此解決方案也可提供邏輯應用程式執行的彙總資訊，以及狀態、執行時間、重新提交狀態和相互關聯識別碼等特定詳細資料。 本文說明如何開啟 Azure 監視器記錄檔，因此您可以檢視執行階段事件，並執行邏輯應用程式的資料。
 
-若要開啟現有邏輯應用程式的 Azure Log Analytics，請遵循下列步驟以[開啟診斷記錄，並將邏輯應用程式執行階段資料傳送至 Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
+若要開啟現有的 logic apps 的 Azure 監視器記錄檔，請遵循下列步驟[開啟診斷記錄，並將邏輯應用程式執行階段資料傳送至 Azure 監視器記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
 
 > [!NOTE]
 > 以前，本頁面所描述的是如何使用 Microsoft Operations Management Suite (OMS) 來執行這些工作的步驟，但 OMS 將於 [2019 年 1 月淘汰](../azure-monitor/platform/oms-portal-transition.md)，請改為使用 Azure Log Analytics 來取代這些步驟。 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -56,7 +58,7 @@ ms.locfileid: "52995650"
 
 ## <a name="install-logic-apps-management-solution"></a>安裝 Logic Apps 管理解決方案
 
-如果您在建立邏輯應用程式時已開啟 Log Analytics，請略過此步驟。 您已安裝 Logic Apps 管理解決方案。
+如果您已開啟 Azure 監視器記錄您在建立邏輯應用程式時，略過此步驟。 您已安裝 Logic Apps 管理解決方案。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「log analytics」，然後選取 [Log Analytics]。
 
@@ -149,9 +151,9 @@ ms.locfileid: "52995650"
 
      ![檢視邏輯應用程式執行的動作和詳細資料](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     在 [Azure Log Analytics] 頁面上，您可以更新查詢並透過表格檢視結果。 此查詢使用 [Kusto 查詢語言](https://aka.ms/LogAnalyticsLanguageReference)，如果您想要檢視不同的結果，可予以編輯。 
+     在 log analytics 頁面上，您可以更新查詢，並檢視資料表的結果。 此查詢使用 [Kusto 查詢語言](https://aka.ms/LogAnalyticsLanguageReference)，如果您想要檢視不同的結果，可予以編輯。 
 
-     ![Azure Log Analytics - 查詢檢視](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![log analytics-查詢檢視](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>後續步驟
 

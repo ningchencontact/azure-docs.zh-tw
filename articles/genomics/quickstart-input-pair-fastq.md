@@ -1,30 +1,30 @@
 ---
-title: 快速入門：使用 FASTQ 檔案輸入來提交工作流程 | Microsoft Genomics
+title: 使用 Microsoft Genomics-FASTQ 檔案輸入提交工作流程
 titleSuffix: Azure
-description: 此快速入門假設您已安裝 msgen 用戶端，並已透過服務成功地執行範例資料。
+description: 本文假設您已安裝 msgen 用戶端，並已成功執行透過服務的範例資料。
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: acbcceb32ec54ab85db05ef743e9c10cd8cf025c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 2662a8f52c58a39916e5789fa9ed7fadd91216c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735844"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438800"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>在 Microsoft Genomics 中使用 FASTQ 檔案輸入來提交工作流程
 
-此快速入門示範如何在您的輸入檔案是單一的 FASTQ 配對檔案時，將工作流程提交到 Microsoft Genomics 服務。 此主題假設您已安裝並執行 `msgen` 用戶端，且熟悉如何使用 Azure 儲存體。 如果您已使用提供的範例資料成功地提交工作流程，即準備好繼續進行此快速入門。 
+這篇文章會示範如何提交至 Microsoft Genomics 服務的工作流程，如果您的輸入的檔案是單一的一組 FASTQ 檔案。 本主題假設您已安裝並執行 `msgen` 用戶端，且熟悉如何使用 Azure 儲存體。 如果您已成功提交工作流程使用提供的範例資料，您已準備好繼續進行這篇文章。 
 
 ## <a name="set-up-upload-your-fastq-files-to-azure-storage"></a>設定：將您的 FASTQ 檔案上傳至 Azure 儲存體
 假設您有兩個檔案，reads_1.fq.gz 和 reads_2.fq.gz，且已將它們上傳至 Azure 中的儲存體帳戶 myaccount 作為 **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads_1<span></span>.fq<span></span>.gz<span></span>** 和 **https://<span></span>myaccount.blob.core.<span></span>windows<span></span>.net/<span></span>inputs/<span></span>reads_2.fq<span></span>.gz<span></span>**。 您具有 API URL 以及存取金鑰。 您需要 **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 中的輸出。
 
 
-## <a name="submit-your-job-to-the-msgen-client"></a>將作業提交到 `msgen` 用戶端 
+## <a name="submit-your-job-to-the-msgen-client"></a>將作業提交至 `msgen` 用戶端 
 
 以下是您必須提供給 `msgen` 用戶端的引數最低組數，為了清楚起見，已新增分行符號：
 
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 使用這個引動過程來提交 `config.txt` 檔案：`msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>後續步驟
-在此文章中，您已將一組 FASTQ 檔案上傳到 Azure 儲存體，並已透過 `msgen` Python 用戶端將工作流程提交到 Microsoft Genomics 服務。 如需有關工作流程提交以及可與 Microsoft Genomics 服務搭配使用之其他命令的詳細資訊，請參閱我們的[常見問題集](frequently-asked-questions-genomics.md)。 
+在本文中，您已將一組 FASTQ 檔案上傳到 Azure 儲存體，並已透過 `msgen` Python 用戶端將工作流程提交至 Microsoft Genomics 服務。 若要深入了解工作流程提交以及您可以使用 Microsoft Genomics 服務搭配其他命令，請參閱我們[常見問題集](frequently-asked-questions-genomics.md)。 

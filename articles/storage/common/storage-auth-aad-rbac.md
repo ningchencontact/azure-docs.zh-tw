@@ -1,98 +1,114 @@
 ---
-title: 使用 RBAC 管理容器和佇列的存取權限 (預覽版) - Azure 儲存體 | Microsoft Docs
-description: 使用角色型存取控制 (RBA)，將存取 Blob 和佇列資料的角色指派給使用者、群組、應用程式服務主體或受控服務識別。 Azure 儲存體支援讓內建和自訂角色來取得容器和佇列的存取權限。
+title: 使用 Azure 入口網站來管理對容器與使用 RBAC （預覽）-Azure 儲存體佇列的 Azure AD 存取權限 |Microsoft Docs
+description: 您可以使用從 Azure 入口網站的角色型存取控制 (RBAC) 來指派存取權給容器和安全性主體的佇列。 Azure 儲存體支援透過 Azure AD 的驗證內建和自訂的 RBAC 角色。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 03/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6cecb2d5fde4fc651cf0ba971189ef62fa330c13
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241699"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431851"
 ---
-# <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>使用 RBAC 來管理 Azure Blob 和佇列資料的存取權限 (預覽)
+# <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>授與存取權的 Azure 容器和佇列使用 RBAC 在 Azure 入口網站 （預覽）
 
-Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)，來授與存取受保護資源的權限。 Azure 儲存體會定義一組內建的 RBAC 角色，其中包含一般用來存取容器或佇列的權限集合。 當 RBAC 角色指派給 Azure AD 身分識別時，該身分識別會根據指定的範圍，獲得存取這些資源的權限。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 您可以使用 Azure 入口網站、Azure 命令列工具或 Azure 管理 API 來指派 Azure 儲存體資源的存取權限。 
+Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)，來授與存取受保護資源的權限。 Azure 儲存體會定義一組內建的 RBAC 角色，其中包含一般用來存取容器或佇列的權限集合。 
 
-Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是 Azure 資源的受控識別。 安全性主體可以是使用者、群組或應用程式服務主體。 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)是自動受控識別，用來在 Azure 虛擬機器中執行的應用程式、函式應用程式和虛擬機器擴展集等之中執行驗證。 如需 Azure AD 中的身分識別概觀，請參閱[了解 Azure 身分識別解決方案](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)。
+RBAC 角色指派給 Azure AD 安全性主體時，Azure 授與存取這些資源的安全性主體。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 Azure AD 安全性主體，可能是使用者、 群組、 應用程式的服務主體，或[受管理的 Azure 資源的識別](../../active-directory/managed-identities-azure-resources/overview.md)。
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+本文說明如何使用 Azure 入口網站指派的 RBAC 角色。 Azure 入口網站提供簡單的介面，用於將 RBAC 角色指派和管理儲存體資源的存取權。 您也可以指派使用 Azure 命令列工具或 Azure 儲存體管理 Api 的 blob 和佇列資源的 RBAC 角色。 如需有關儲存體資源的 RBAC 角色的詳細資訊，請參閱[驗證存取 Azure blob 和佇列使用 Azure Active Directory （預覽）](storage-auth-aad.md)。 
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>適用於 Blob 和佇列的 RBAC 角色
 
-Azure 儲存體支援內建與自訂 RBAC 角色。 Azure 儲存體提供下列可與 Azure AD 搭配使用的內建 RBAC 角色：
+[!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-- [儲存體 Blob 資料擁有者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)：用來設定擁有權和管理 Azure Data Lake Storage Gen2 的 POSIX 存取控制 (預覽)。 如需詳細資訊，請參閱 [Azure Data Lake Storage Gen2 中的存取控制](../blobs/data-lake-storage-access-control.md)。
-- [儲存體 Blob 資料參與者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)：用來授與 Blob 儲存體資源的讀取/寫入/刪除權限。
-- [儲存體 Blob 資料讀者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)：用來授與 Blob 儲存體資源的唯讀權限。
-- [儲存體佇列資料參與者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)：用來授與 Azure 佇列的讀取/寫入/刪除權限。
-- [儲存體佇列資料讀者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)：用來授與 Azure 佇列的唯讀權限。
+## <a name="determine-resource-scope"></a>判斷資源範圍 
 
-如需有關如何為 Azure 儲存體定義內建角色的詳細資訊，請參閱[了解角色定義](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview)。
+您將 RBAC 角色指派給安全性主體之前，決定安全性主體應該有的存取的範圍。 最佳做法應規定，最好是一律將只有最少的可能範圍授與。
 
-您也可以定義能與容器和佇列搭配使用的自訂角色。 如需詳細資訊，請參閱[建立 Azure 角色型存取控制的自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)。 
+下列清單描述的您可以將存取範圍對 Azure 的 blob 和佇列資源，以最窄的範圍開始的層級：
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+- **個別的容器。** 在這個範圍內，安全性主體會有所有的 blob 容器，以及容器屬性和中繼資料的存取權。
+- **個別的佇列。** 在這個範圍內，安全性主體可以存取佇列，以及佇列屬性和中繼資料中的訊息。
+- **儲存體帳戶中。** 在這個範圍內，安全性主體擁有存取所有的容器和其 blob，或所有佇列和其訊息。
+- **資源群組中。** 在這個範圍內，安全性主體會有所有的容器或佇列中所有的資源群組中的儲存體帳戶的存取權。
+- **訂用帳戶。** 在這個範圍內，安全性主體會有存取權的所有容器或所有儲存體帳戶中的所有訂用帳戶中的資源群組中的佇列。
 
-## <a name="assign-a-role-to-a-security-principal"></a>將角色指派給安全性主體
+當您已經決定角色指派所需範圍內時，瀏覽至 Azure 入口網站中適當的資源。 顯示**存取控制 (IAM)** 設定資源，並遵循後續各節中的指示，來管理角色指派。
 
-將 RBAC 角色指派給 Azure 身分識別，可授與存取您儲存體帳戶中容器或佇列的權限。 您可以將角色指派範圍限定在儲存體帳戶或特定容器或佇列。 下表摘要說明內建角色在不同範圍中授與的存取權限：
+## <a name="assign-rbac-roles-using-the-azure-portal"></a>將使用 Azure 入口網站的 RBAC 角色指派
 
-|影響範圍|Blob 資料擁有者|Blob 資料參與者|Blob 資料讀者|佇列資料參與者|佇列資料讀者|
-|---|---|---|---|---|---|
-|訂用帳戶層級|訂用帳戶中所有容器和 Blob 的讀取/寫入存取和 POSIX 存取控制管理|訂用帳戶中所有容器和 Blob 的讀取/寫入存取| 訂用帳戶中所有容器和 Blob 的讀取存取|訂用帳戶中所有佇列的讀取/寫入存取|訂用帳戶中所有佇列的讀取存取|
-|資源群組層級|資源群組中所有容器和 Blob 的讀取/寫入存取和 POSIX 存取控制管理|資源群組中所有容器和 Blob 的讀取/寫入存取|資源群組中所有容器和 Blob 的讀取存取|資源群組中所有佇列的讀取/寫入存取|資源群組中所有佇列的讀取存取|
-|儲存體帳戶層級|儲存體帳戶中所有容器和 Blob 的讀取/寫入存取和 POSIX 存取控制管理|儲存體帳戶中所有容器和 Blob 的讀取/寫入存取|儲存體帳戶中所有容器和 Blob 的讀取存取|儲存體帳戶中所有佇列的讀取/寫入存取|儲存體帳戶中所有佇列的讀取存取|
-|容器/佇列層級|指定的容器及其 Blob 的讀取/寫入存取和 POSIX 存取控制管理。|指定容器和其 Blob 的讀取/寫入存取|指定容器和其 Blob 的讀取存取|指定佇列的讀取/寫入存取|指定佇列的讀取存取|
+使用 Azure AD 認證，在 Azure 入口網站中的 blob 和佇列資源的存取權授與包含下列步驟： 
 
-> [!NOTE]
-> 身為 Azure 儲存體帳戶擁有者的您，並不會自動收到指派的資料存取權限。 您必須明確地將 Azure 儲存體的 RBAC 角色指派給自己。 您可以在訂用帳戶、資源群組、儲存體帳戶或容器/佇列層級上指派此角色。
+1. 指派適當的 Azure 儲存體的 RBAC 角色，授與容器或佇列的存取權。 讀取權限，指派**Blob 資料讀者 （預覽）** 或是**佇列資料讀者 （預覽）** 角色。 讀取、 寫入和刪除權限，指派**Blob 資料參與者 （預覽）** 或是**佇列資料參與者 （預覽）** 角色。 您也可以指派自訂角色。
 
-如需呼叫 Azure 儲存體作業所需權限的詳細資訊，請參閱[呼叫 REST 作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。
+1. 指派 Azure Resource Manager[讀取器](../../role-based-access-control/built-in-roles.md#reader)角色給使用者，需要存取容器或透過使用其 Azure AD 認證在 Azure 入口網站的佇列。 
 
-下列章節將示範如何對儲存體帳戶或個別容器範圍指派角色。
+下列各節描述每個詳細步驟。
 
-### <a name="assign-a-role-scoped-to-the-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中對儲存體帳戶範圍指派角色
+### <a name="assign-a-built-in-rbac-role"></a>將內建的 RBAC 角色指派
 
-在 Azure 入口網站中指派內建角色，以授與儲存體帳戶中所有容器或佇列的存取權：
+您將角色指派給安全性主體之前，請務必考慮您要授與的權限的範圍。 檢閱[判斷資源範圍](#determine-resource-scope)一節以決定適當的範圍內。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶。
-1. 選取儲存體帳戶，然後選取 [存取控制 (IAM)]，以顯示帳戶的存取控制設定。 選取 [角色指派] 索引標籤，以查看角色指派的清單。
-
-    ![顯示儲存體存取控制設定的螢幕擷取畫面](media/storage-auth-aad-rbac/portal-access-control.png)
-
-1. 按一下 [新增角色指派] 按鈕新增角色。
-1. 在 [新增角色指派] 視窗中，選取要指派給 Azure AD 身分識別的角色。 然後搜尋以找出您要對其指派該角色的身分識別。 如下圖所示，指派給使用者的是**儲存體 Blob 資料讀者 (預覽)** 角色。
-
-    ![顯示如何指派 RBAC 角色的螢幕擷取畫面](media/storage-auth-aad-rbac/add-rbac-role.png)
-
-1. 按一下 [檔案] 。 您對其指派角色的身分識別會出現在該角色下方。 如下圖所示，新增的使用者現在具有讀取所有儲存體帳戶中所有 Blob 資料的權限。
-
-    ![顯示指派至角色的使用者清單螢幕擷取畫面](media/storage-auth-aad-rbac/account-scoped-role.png)
-
-### <a name="assign-a-role-scoped-to-a-container-or-queue-in-the-azure-portal"></a>在 Azure 入口網站中對容器或佇列範圍指派角色
-
-> [!IMPORTANT]
-> 如果您使用啟用階層命名空間的帳戶，則您無法這麼做。
-
-對容器或佇列範圍指派內建角色的步驟很類似。 這裡顯示的程序會對容器範圍指派角色，但是您可以依照相同的步驟，對佇列範圍指派角色： 
+這裡顯示的程序會對容器範圍指派角色，但是您可以依照相同的步驟，對佇列範圍指派角色： 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶，並顯示帳戶的**概觀**。
 1. 在 [服務] 下，選取 [Blob]。 
 1. 找出您要為其指派角色的容器，並顯示容器的設定。 
 1. 選取 [存取控制 (IAM)]，以顯示容器的存取控制設定。 選取 [角色指派] 索引標籤，以查看角色指派的清單。
 
-    ![顯示容器存取控制設定的螢幕擷取畫面](media/storage-auth-aad-rbac/portal-access-control-container.png)
+    ![顯示容器的存取控制設定螢幕擷取畫面](media/storage-auth-aad-rbac/portal-access-control-container.png)
+
 1. 按一下 [新增角色指派] 按鈕新增角色。
-1. 在 [新增角色指派] 視窗中，選取要指派給 Azure AD 身分識別的角色。 然後搜尋以找出您要對其指派該角色的身分識別。
+1. 在 [**新增的角色指派**] 視窗中，選取您想要指派的 Azure 儲存體角色。 然後搜尋以找出您要將該角色指派的安全性主體。
+
+    ![顯示如何指派 RBAC 角色的螢幕擷取畫面](media/storage-auth-aad-rbac/add-rbac-role.png)
+
 1. 按一下 [檔案] 。 您對其指派角色的身分識別會出現在該角色下方。 如下圖所示，新增的使用者現在有權對名為 sample-container 容器讀取資料。
 
-    ![顯示指派至角色的使用者清單螢幕擷取畫面](media/storage-auth-aad-rbac/container-scoped-role.png)
+    ![指派給角色之使用者的螢幕擷取畫面顯示清單](media/storage-auth-aad-rbac/container-scoped-role.png)
+
+您可以依照類似的步驟，若要將範圍設定至儲存體帳戶、 資源群組或訂用帳戶的角色指派。
+
+> [!NOTE]
+> 身為 Azure 儲存體帳戶擁有者的您，並不會自動收到指派的資料存取權限。 您必須明確地將 Azure 儲存體的 RBAC 角色指派給自己。 您可以在訂用帳戶、資源群組、儲存體帳戶或容器/佇列層級上指派此角色。
+> 
+> 您無法指派範圍設定至容器或佇列儲存體帳戶是否已啟用階層式命名空間的角色。
+
+### <a name="assign-the-reader-role-for-portal-access"></a>指派讀取者角色存取入口網站
+
+當您將 Azure 儲存體的內建或自訂的角色指派給安全性主體時，您會授與權限給該安全性主體，執行您的儲存體帳戶中的資料上的作業。 內建**資料讀取器**角色，提供容器或佇列中的資料的讀取權限而中的 內建**Data 參與者**角色提供讀取、 寫入和刪除容器的權限或佇列。 權限範圍都限於指定的資源。  
+
+比方說，如果您指派**儲存體 Blob 資料參與者 （預覽）** 角色，以使用者層級的容器，名為 Mary **sample container>**、 然後 Mary 授與讀取、 寫入和刪除所有的存取權該容器中 blob。
+
+不過，如果想要在 Azure 入口網站中檢視 blob 的 Mary 則**儲存體 Blob 資料參與者 （預覽）** 角色本身將不會提供足夠的權限來瀏覽 blob 入口網站中，才能檢視它。 其他 Azure AD 權限，才能透過入口網站瀏覽和檢視會顯示有的其他資源。
+
+如果您的使用者必須能夠存取 Azure 入口網站中的 blob，然後將它們指派 RBAC 角色，可[讀取器](../../role-based-access-control/built-in-roles.md#reader)角色給這些使用者，在層級的儲存體帳戶或更新版本。 **讀取器**角色是 Azure Resource Manager 角色，以允許使用者檢視儲存體帳戶資源，但無法修改它們。 它不提供 Azure 儲存體中的資料，只針對帳戶管理資源的讀取權限。
+
+請遵循這些步驟，將指派**讀取器**角色，讓使用者可以從 Azure 入口網站存取 blob。 在此範例中，指派的範圍為儲存體帳戶：
+
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶。
+1. 選取 **存取控制 (IAM)** 來顯示儲存體帳戶的存取控制設定。 選取 [角色指派] 索引標籤，以查看角色指派的清單。
+1. 在 **新增的角色指派**視窗中，選取**讀取器**角色。 
+1. 從**存取權指派給**下拉式清單中，選取**Azure AD 使用者、 群組或服務主體**。
+1. [搜尋]，以找出您要將角色指派的安全性主體。
+1. 儲存角色指派。
+
+> [!NOTE]
+> 僅適用於需要存取 blob 或佇列使用 Azure 入口網站的使用者必須指派 「 讀者 」 角色。 
+
+## <a name="use-azure-ad-credentials-with-the-portal"></a>使用入口網站中使用 Azure AD 認證
+
+若要存取 blob 或佇列，在 Azure 入口網站中使用 Azure AD 認證，使用 [預覽] 連結，如下圖所示：
+
+![存取 blob 或佇列，使用入口網站中的 Azure AD 認證](media/storage-auth-aad-rbac/access-data-azure-ad.png)
+
+如果您存取使用生產環境的連結，而不是預覽連結的 blob 或佇列資料時，Azure 入口網站會使用您的帳戶金鑰來授權存取，而不是使用 Azure AD。
 
 ## <a name="next-steps"></a>後續步驟
 

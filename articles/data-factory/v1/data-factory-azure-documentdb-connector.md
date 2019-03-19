@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 54e78496b98fffefd2932a2ce7625f8b325fb32a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812645"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437423"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Cosmos DB 來回移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,8 +59,8 @@ ms.locfileid: "55812645"
 
 | **屬性** | **說明** | **必要** |
 | --- | --- | --- |
-| type |類型屬性必須設定為：**DocumentDb** |yes |
-| connectionString |指定連接到 Azure Cosmos DB 資料庫所需的資訊。 |yes |
+| type |類型屬性必須設定為：**DocumentDb** |是 |
+| connectionString |指定連接到 Azure Cosmos DB 資料庫所需的資訊。 |是 |
 
 範例：
 
@@ -83,7 +83,7 @@ ms.locfileid: "55812645"
 
 | **屬性** | **說明** | **必要** |
 | --- | --- | --- |
-| collectionName |Cosmos DB 文件集合的名稱。 |yes |
+| collectionName |Cosmos DB 文件集合的名稱。 |是 |
 
 範例：
 
@@ -139,7 +139,7 @@ ms.locfileid: "55812645"
 使用此 Cosmos DB 連接器，您可以輕鬆地
 
 * 將 JSON 文件從各種來源匯入到 Cosmos DB，包括 Azure Blob、Azure Data Lake、內部部署的檔案系統，或 Azure Data Factory 所支援的其他檔案型存放區。
-* 將 JSON 文件從 Cosmos DB 集合匯出至各種檔案型存放區。
+* 將 JSON 文件從 Cosmos DB 集合至各種檔案型存放區。
 * 在兩個 Cosmos DB 集合之間依原樣移轉資料。
 
 達成這種無從驗證結構描述的複製

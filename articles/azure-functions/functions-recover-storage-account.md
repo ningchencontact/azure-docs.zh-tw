@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732153"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311894"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何針對「無法連線至函式執行階段」的情形進行疑難排解
 
@@ -55,7 +55,7 @@ ms.locfileid: "55732153"
 
 ### <a name="required-application-settings"></a>必要的應用程式設定
 
-* 必要
+* 必要項
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * 取用方案函式所必備
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#websitecontentazurefileconnectionstring)
@@ -66,7 +66,7 @@ ms.locfileid: "55732153"
 ### <a name="guidance"></a>指引
 
 * 請勿對上述任何設定核取 [位置設定]。 當您交換部署位置時，函式將會中斷。
-* 使用自動化部署時，請勿設定這些設定。
+* 請勿修改這些設定自動化部署的一部分。
 * 在建立時，必須提供這些設定，且設定必須有效。 即使事後新增設定，不包含這些設定的自動化部署仍會導致應用程式無法運作。
 
 ## <a name="storage-account-credentials-invalid"></a>儲存體帳戶的認證無效

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: dc30b28203ad416370f1304436e7e6e642921be9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416780"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441503"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>管理前置和後置指令碼 (預覽)
 
-透過前置和後置指令碼，您可以在更新部署的之前 (前置工作) 和之後 (後置工作)，於自動化帳戶中執行 PowerShell Runbook。 前置和後置指令碼會在 Azure 環境中執行，而不是在本機執行。 前置指令碼會在更新部署開始時執行。 後置指令碼會在部署結束時及在已設定的任何重新啟動之後執行。
+透過前置和後置指令碼，您可以在更新部署的之前 (前置工作) 和之後 (後置工作)，於自動化帳戶中執行 PowerShell Runbook。 前置和後置指令碼會在 Azure 環境中執行，而不是在本機執行。 前置指令碼會執行更新部署的開頭。 後置指令碼會在部署結束時及在已設定的任何重新啟動之後執行。
 
 ## <a name="runbook-requirements"></a>Runbook 需求
 
@@ -70,7 +70,7 @@ ms.locfileid: "56416780"
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 屬性
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | 軟體更新設定的名稱        |
 |SoftwareUpdateConfigurationRunId     | 執行的唯一識別碼。        |

@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565236"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441367"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>管理相應放大的雲端資料庫
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**彈性資料庫作業**是客戶裝載的 Azure 雲端服務，可以執行臨機操作和排程的管理作業，稱為**作業**。 利用工作，您可以執行 Transact-SQL 指令碼來執行管理作業，進而輕鬆又可靠地管理大量 Azure SQL 資料庫群組。
+**彈性資料庫工作**是客戶裝載 Azure 雲端服務，可讓執行臨機操作和排程的系統管理工作，稱為**作業**。 利用工作，您可以執行 Transact-SQL 指令碼來執行管理作業，進而輕鬆又可靠地管理大量 Azure SQL 資料庫群組。
 
 若要管理相應放大的共用資料庫，**彈性資料庫作業**功能 (預覽) 可讓您在一組資料庫中可靠地執行 TRANSACT-SQL (T-SQL) 指令碼，其中包括：
 
@@ -114,7 +114,7 @@ ms.locfileid: "55565236"
 
 ## <a name="components-and-pricing"></a>元件和價格
 
-下列元件共同建立允許臨機執行管理工作的 Azure 雲端服務。 這些元件會於安裝期間在您的訂用帳戶中自動安裝和設定。 您可以識別服務，因為這些服務都有自動產生的相同名稱。 這個名稱是唯一的，包含前置詞 "edj"，後面接著隨機產生的 21 個字元。
+下列元件一起運作來建立 Azure 雲端服務，可讓臨機操作執行管理工作。 這些元件會於安裝期間在您的訂用帳戶中自動安裝和設定。 您可以識別服務，因為這些服務都有自動產生的相同名稱。 這個名稱是唯一的，包含前置詞 "edj"，後面接著隨機產生的 21 個字元。
 
 - Azure 雲端服務
 

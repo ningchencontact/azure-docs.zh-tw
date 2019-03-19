@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 02/27/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dad650ac1cc7ab8822925a4a9759b68ee0d0088
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b4015f99e9281285c530c6ae40dbda4e97846af8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185986"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311027"
 ---
 # <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>作法：設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取 
 
@@ -77,7 +77,7 @@ ms.locfileid: "56185986"
 
 Exchange Active Sync 雖然支援新式驗證，不過有些與條件式存取案例支援相關的限制：
 
-- 您只能設定裝置平台條件  
+- 選取時**Exchange Active Sync 用戶端**在原則中，您無法設定其他條件。  
 
     ![裝置平台](./media/conditional-access-for-exo-and-spo/05.png)
 
@@ -93,7 +93,7 @@ Exchange Active Sync 雖然支援新式驗證，不過有些與條件式存取�
 
     ![條件式存取](./media/conditional-access-for-exo-and-spo/04.png)
 
-    b. 將 [Exchange Active Sync] 選為**用戶端應用程式**，然後選取 [只將原則套用到支援的平台]。  
+    b. 選取  **Exchange Active Sync**作為**用戶端應用程式**。  
 
     ![裝置平台](./media/conditional-access-for-exo-and-spo/03.png)
 
