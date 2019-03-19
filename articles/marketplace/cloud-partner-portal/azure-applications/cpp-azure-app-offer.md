@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 82d072cc6f86ae758bd0fdd4d02b68b1ac1de53a
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 9faa38a23b2039902366e5b885ab73c68a2a3d80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076015"
 ---
 # <a name="azure-application-offer"></a>Azure 應用程式供應項目
 
@@ -44,6 +44,9 @@ Azure 應用程式有兩種：受控應用程式和解決方案範本。
 
 除了 Azure Marketplace，您也可以提供服務類別目錄中的受控應用程式。 服務類別目錄是組織中使用者適用的已核准解決方案的內部目錄。 您會使用目錄來符合組織標準，同時為組織中的群組提供解決方案。 員工會使用目錄輕鬆尋找其 IT 部門所建議和核准的應用程式。
 
+>[!Note]
+>雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
+
 如需受控應用程式的優點與類型詳細資訊，請參閱 [Azure 受控應用程式概觀](https://docs.microsoft.com/azure/managed-applications/overview)。
 
 
@@ -55,16 +58,15 @@ Azure 應用程式有兩種：受控應用程式和解決方案範本。
 
 發佈 Azure 應用程式供應項目的概略步驟如下：
 
-0. 符合[必要條件](./cpp-prerequisites.md) - (未顯示) 確認您已符合將 Azure 應用程式發佈到 Azure Marketplace 的商業和技術需求。 
+1. 符合[必要條件](./cpp-prerequisites.md) - (未顯示) 確認您已符合將 Azure 應用程式發佈到 Azure Marketplace 的商業和技術需求。 
 
 1. [建立供應項目](./cpp-create-offer.md) - 提供有關供應項目的詳細資訊。 這些資訊包括：供應項目說明、行銷資料、支援資訊，以及資產規格。
 
-2. [建立或收集現有的商業及技術資產](./cpp-create-technical-assets.md) - 建立相關解決方案的商業資產 (法律聲明文件和行銷資料) 及技術資產。
+1. [建立或收集現有的商業及技術資產](./cpp-create-technical-assets.md) - 建立相關解決方案的商業資產 (法律聲明文件和行銷資料) 及技術資產。
 
-3. [建立 SKU](./cpp-skus-tab.md) - 建立與供應項目相關聯的 SKU。 您需要針對預計發佈的每個映像提供個別的 SKU。
+1. [建立 SKU](./cpp-skus-tab.md) - 建立與供應項目相關聯的 SKU。 您需要針對預計發佈的每個映像提供個別的 SKU。
 
-4. 認證及[發佈供應項目](./cpp-publish-offer.md) - 供應項目和技術資產完成後，便可以提交供應項目。 提交作業將啟動發佈程序。 在此程序中，解決方案會經過測試、驗證、認證，然後在 Azure Marketplace「上線」。
-
+1. 認證及[發佈供應項目](./cpp-publish-offer.md) - 供應項目和技術資產完成後，便可以提交供應項目。 提交作業將啟動發佈程序。 在此程序中，解決方案會經過測試、驗證、認證，然後在 Azure Marketplace「上線」。
 
 ## <a name="next-steps"></a>後續步驟
 

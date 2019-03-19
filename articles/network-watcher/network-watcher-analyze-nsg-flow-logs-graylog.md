@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57879934"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>使用網路監看員和 Graylog 在 Azure 中管理和分析網路安全性群組流量記錄
 
@@ -47,12 +47,12 @@ ms.locfileid: "51823039"
 
 此範例會在部署於 Azure 的 Ubuntu 14.04 伺服器上同時設定 Graylog 和 Logstash。
 
-- 請參閱 Graylog 所提供的[文件](http://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html)，以取得如何安裝到 Ubuntu 的逐步指示。
-- 請務必同時遵循該[文件](http://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif)來設定 Graylog Web 介面。
+- 請參閱 Graylog 所提供的[文件](https://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html)，以取得如何安裝到 Ubuntu 的逐步指示。
+- 請務必同時遵循該[文件](https://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif)來設定 Graylog Web 介面。
 
-此範例會使用最小型的 Graylog 安裝 (亦即 單一 Graylog 執行個體)，但您可以將 Graylog 建構為可依據您的系統和生產環境需求來調整資源。 如需架構考量或深度架構指南的詳細資訊，請參閱 Graylog 的[文件](http://docs.graylog.org/en/2.2/pages/architecture.html)和[架構指南](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)。
+此範例會使用最小型的 Graylog 安裝 (亦即 單一 Graylog 執行個體)，但您可以將 Graylog 建構為可依據您的系統和生產環境需求來調整資源。 如需架構考量或深度架構指南的詳細資訊，請參閱 Graylog 的[文件](https://docs.graylog.org/en/2.2/pages/architecture.html)和[架構指南](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)。
 
-根據平台和喜好設定，Graylog 可以進行多種方式的安裝。 如需完整的可行安裝方法清單，請參閱 Graylog 的官方[文件](http://docs.graylog.org/en/2.2/pages/installation.html)。 Graylog 伺服器應用程式會在 Linux 發行版本上執行，並具有下列必要條件：
+根據平台和喜好設定，Graylog 可以進行多種方式的安裝。 如需完整的可行安裝方法清單，請參閱 Graylog 的官方[文件](https://docs.graylog.org/en/2.2/pages/installation.html)。 Graylog 伺服器應用程式會在 Linux 發行版本上執行，並具有下列必要條件：
 
 -  Java SE 8 或更新版本 – [Azul Azure JDK 文件](https://aka.ms/azure-jdks)
 -  ElasticSearch 2.x (2.1.0 或更新版本) - [Elasticsearch 安裝文件](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
@@ -150,7 +150,7 @@ ms.locfileid: "51823039"
         }
     }
     ```
-所提供的 Logstash 設定檔是由三個部分組成的：輸入、篩選和輸出。 「輸入」區段會指定 Logstash 將要處理的記錄輸入來源，在此案例中，您會使用 Azure 部落格輸入外掛程式 (會於後續步驟中安裝)，它能讓我們存取 Blob 儲存體中所儲存的網路安全性群組流量記錄 JSON 檔案。
+   所提供的 Logstash 設定檔是由三個部分組成的：輸入、篩選和輸出。 「輸入」區段會指定 Logstash 將要處理的記錄輸入來源，在此案例中，您會使用 Azure 部落格輸入外掛程式 (會於後續步驟中安裝)，它能讓我們存取 Blob 儲存體中所儲存的網路安全性群組流量記錄 JSON 檔案。
 
 「篩選」區段接著會將每個流量記錄壓平合併，讓每個個別的流量 Tuple 和其相關聯的屬性變成個別的 Logstash 事件。
 
@@ -183,7 +183,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
    ![開始使用](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3. 若要啟動新的輸入，請在 [選取輸入] 下拉式清單中選取 [GELF UDP]，然後填寫表單。 GELF 代表 Graylog Extended Log Format。 GELF 格式是由 Graylog 所開發的。 若要深入了解其優點，請參閱 Graylog [文件](http://docs.graylog.org/en/2.2/pages/gelf.html)。
+3. 若要啟動新的輸入，請在 [選取輸入] 下拉式清單中選取 [GELF UDP]，然後填寫表單。 GELF 代表 Graylog Extended Log Format。 GELF 格式是由 Graylog 所開發的。 若要深入了解其優點，請參閱 Graylog [文件](https://docs.graylog.org/en/2.2/pages/gelf.html)。
 
    請務必將輸入繫結至 Graylog 伺服器設定所在的 IP。 IP 位址應符合 Logstash 設定檔 UDP 輸出的 [主機] 欄位。 預設連接埠應為 12201。 請確保連接埠符合 Logstash 設定檔所指定之 UDP 輸出中的 [連接埠] 欄位。
 
@@ -193,7 +193,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
    ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
-   若要深入了解 Graylog 訊息輸入，請參閱[文件](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs)。
+   若要深入了解 Graylog 訊息輸入，請參閱[文件](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs)。
 
 4. 在完成這些設定後，您就可以使用下列命令啟動 Logstash 以開始讀取流量記錄：`sudo systemctl start logstash.service`。
 
@@ -207,7 +207,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 ![訊息](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
-依預設，如果您沒有選取要搜尋特定的訊息欄位，則系統會在搜尋中包含所有訊息欄位。 如果您想要搜尋特定訊息 (亦即 來自特定來源 IP 的流量 Tuple)，則可以如[記載](http://docs.graylog.org/en/2.2/pages/queries.html)內容所述使用 Graylog 搜尋查詢語言
+依預設，如果您沒有選取要搜尋特定的訊息欄位，則系統會在搜尋中包含所有訊息欄位。 如果您想要搜尋特定訊息 (亦即 來自特定來源 IP 的流量 Tuple)，則可以如[記載](https://docs.graylog.org/en/2.2/pages/queries.html)內容所述使用 Graylog 搜尋查詢語言
 
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>使用 Graylog 分析網路安全性群組流量記錄
 
@@ -241,7 +241,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
    ![流量記錄儀表板](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
 
-    如需儀表板和其他類型之小工具的進一步說明，請參閱 Graylog 的[文件](http://docs.graylog.org/en/2.2/pages/dashboards.html)。
+    如需儀表板和其他類型之小工具的進一步說明，請參閱 Graylog 的[文件](https://docs.graylog.org/en/2.2/pages/dashboards.html)。
 
 藉由整合網路監看員與 Graylog，您現在可以方便且集中地管理網路安全性群組流量記錄並加以視覺化。 Graylog 還有許多功能強大的功能 (例如資料流和警示)，可供您用來進一步管理流量記錄並深入了解您的網路流量。 您已經設定好 Graylog 並將其連線到 Azure，接下來請放心地繼續瀏覽它所提供的其他功能。
 

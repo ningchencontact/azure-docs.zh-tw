@@ -8,12 +8,12 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 6d75bf86dab8775e77efb21ecc3b0d60063a9823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088956"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 對 Apache Hive 進行疑難排解
 
@@ -33,13 +33,13 @@ ms.locfileid: "53407011"
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-  此命令會產生名為 allatables.sql 的檔案。
+   此命令會產生名為 allatables.sql 的檔案。
 
 3. 將 alltables.sql 檔案複製到 HDInsight 叢集，然後執行下列命令：
 
-  ```apache
-  hive -f alltables.sql
-  ```
+   ```apache
+   hive -f alltables.sql
+   ```
 
 解決步驟中的程式碼會假設新叢集上的資料路徑與舊叢集上的資料路徑相同。 如果資料路徑不同，您可以手動編輯產生的 alltables.sql 檔案以反映任何變更。
 
@@ -56,21 +56,21 @@ ms.locfileid: "53407011"
 
 2. 若要檢視 Hive 用戶端記錄，請使用下列命令：
 
-  ```apache
-  /tmp/<username>/hive.log 
-  ```
+   ```apache
+   /tmp/<username>/hive.log 
+   ```
 
 3. 若要檢視 Hive 中繼存放區記錄，請使用下列命令：
 
-  ```apache
-  /var/log/hive/hivemetastore.log 
-  ```
+   ```apache
+   /var/log/hive/hivemetastore.log 
+   ```
 
 4. 若要檢視 Hive 伺服器記錄，請使用下列命令：
 
-  ```apache
-  /var/log/hive/hiveserver2.log 
-  ```
+   ```apache
+   /var/log/hive/hiveserver2.log 
+   ```
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
@@ -83,21 +83,21 @@ ms.locfileid: "53407011"
 
 1. 當您啟動 Hive Shell 時，請指定設定機碼值組。 如需詳細資訊，請參閱[其他閱讀資料](#additional-reading-end)。
 
-  ```apache
-  hive -hiveconf a=b 
-  ```
+   ```apache
+   hive -hiveconf a=b 
+   ```
 
 2. 若要列出 Hive Shell 上所有有效的設定，使用下列命令：
 
-  ```apache
-  hive> set;
-  ```
+   ```apache
+   hive> set;
+   ```
 
-  例如，使用下列命令，以啟動 Hive Shell 並在主控台上啟用偵錯記錄：
+   例如，使用下列命令，以啟動 Hive Shell 並在主控台上啟用偵錯記錄：
 
-  ```apache
-  hive -hiveconf hive.root.logger=ALL,console 
-  ```
+   ```apache
+   hive -hiveconf hive.root.logger=ALL,console 
+   ```
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
@@ -113,19 +113,19 @@ ms.locfileid: "53407011"
 
 2. 在命令提示字元中，執行下列命令：
    
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
+   ```
 
 3. 若要列出可用來分析 Tez DAG 的其他分析器，請使用下列命令：
 
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+   ```
 
-  您必須提供範例程式作為第一個引數。
+   您必須提供範例程式作為第一個引數。
 
-  有效的程式名稱包括：
+   有效的程式名稱包括：
     - **ContainerReuseAnalyzer**：列印 DAG 中的容器重複使用詳細資料
     - **CriticalPath**：尋找 DAG 的關鍵路徑
     - **LocalityAnalyzer**：列印 DAG 中的位置詳細資料
@@ -171,7 +171,7 @@ ms.locfileid: "53407011"
 [使用 SSH 連線到 HDInsight 叢集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-### <a name="see-also"></a>另請參閱
+### <a name="see-also"></a>另请参阅
 [使用 Azure HDInsight 進行疑難排解](hdinsight-troubleshoot-guide.md)
 
 

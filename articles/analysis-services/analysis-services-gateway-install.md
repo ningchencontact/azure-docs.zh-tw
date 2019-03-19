@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190369"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110863"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 
@@ -28,7 +28,7 @@ ms.locfileid: "54190369"
 
 **建議配備：**
 
-* 8 核心 CPU
+* 8 核 CPU
 * 8 GB 記憶體
 * 64 位元版本的 Windows 2012 R2 (或更新版本)
 
@@ -90,19 +90,19 @@ ms.locfileid: "54190369"
 
 2. 在 [建立連線閘道] 中，輸入下列設定：
 
-    * **名稱**：輸入閘道資源的名稱。 
+   * **名称**：輸入閘道資源的名稱。 
 
-    * 訂用帳戶：選取要與閘道資源關聯的 Azure 訂用帳戶。 
+   * 訂用帳戶：選取要與閘道資源關聯的 Azure 訂用帳戶。 
    
-      預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。
+     預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。
 
-    * **資源群組**：建立資源群組，或選取現有的資源群組。
+   * **资源组**：建立資源群組，或選取現有的資源群組。
 
-    * **位置**：選取您註冊閘道的區域。
+   * **位置**：選取您註冊閘道的區域。
 
-    * **安裝名稱**︰如果您的閘道安裝還不是選取狀態，請選取已註冊的閘道。 
+   * **安裝名稱**︰如果您的閘道安裝還不是選取狀態，請選取已註冊的閘道。 
 
-    完成之後，請按一下 [建立] 。
+     完成之後，請按一下 [建立] 。
 
 ## <a name="connect-servers"></a>將伺服器連線到閘道資源
 

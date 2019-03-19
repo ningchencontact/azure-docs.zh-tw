@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 7da765bda815e9112dac809d259fd417dc4d866e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 4b305087c0c755254d72811fb9275c509343c87e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878392"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -50,11 +50,14 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2、2.0 |1.6.0 |1.5.2 |1.3.1 (僅限 Windows) |-|-|
 | Apache Livy |0.5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1 |1.1、1.0、0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1 |1.1 和 1.0 * （請參閱下列附註） | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 | Apache 滑桿 |-| 0.92.0 |-|-|-|-|-|-|
+
+> [!NOTE]
+> 系統效能考量，因為在 2019 年 3 月中過期的 Kafka 0.10 版支援。
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>檢查目前的 Hadoop 元件版本資訊
 
@@ -76,9 +79,9 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 | HDInsight 版本 | HDP 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站上的可用性 | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 <br> (預覽) |HDP 3.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |yes |yes |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | | |yes |yes |
-| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2019 年 3 月 13 日 |2019 年 3 月 13 日 |yes |yes |
+| HDInsight 4.0 <br> (預覽) |HDP 3.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |是 |是 |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | | |是 |是 |
+| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2019 年 3 月 13 日 |2019 年 3 月 13 日 |是 |是 |
 
 *&ast;HDInsight 3.5 支援僅針對 Spark 叢集類型延伸*
 
@@ -92,14 +95,14 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 | HDInsight 版本 | HDP 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站上的可用性 | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 <br> (非 Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2017 年 9 月 5 日 |2018 年 6 月 28 日 |yes |否 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016 年 3 月 29 日 |2016 年 12 月 29 日 |2018 年 1 月 9 日 |yes |否 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2018 年 7 月 31 日 |yes |否 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2017 年 7 月 31 日 |yes |否 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 或 Windows Server 2012 R2 |2015 年 2 月 18 日 |2016 年 3 月 1 日 |2017 年 4 月 1 日 |yes |否 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014 年 6 月 24 日 |2015 年 5 月 18 日 |2016 年 6 月 30 日 |yes |否 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014 年 2 月 11 日 |2014 年 9 月 17 日 |2015 年 6 月 30 日 |yes |否 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013 年 10 月 28 日 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |yes |否 |
+| HDInsight 3.5 <br> (非 Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2017 年 9 月 5 日 |2018 年 6 月 28 日 |是 |否 |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016 年 3 月 29 日 |2016 年 12 月 29 日 |2018 年 1 月 9 日 |是 |否 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2018 年 7 月 31 日 |是 |否 |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2017 年 7 月 31 日 |是 |否 |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 或 Windows Server 2012 R2 |2015 年 2 月 18 日 |2016 年 3 月 1 日 |2017 年 4 月 1 日 |是 |否 |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014 年 6 月 24 日 |2015 年 5 月 18 日 |2016 年 6 月 30 日 |是 |否 |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014 年 2 月 11 日 |2014 年 9 月 17 日 |2015 年 6 月 30 日 |是 |否 |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013 年 10 月 28 日 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |是 |否 |
 | HDInsight 1.6 |HDP 1.1 | |2013 年 10 月 28 日 |2014 年 4 月 26 日 |2015 年 5 月 31 日 |否 |否 |
 
 > [!NOTE]  
@@ -122,12 +125,12 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 - 資料的授權
 
-    - 與 Apache Ranger 整合可取得 Hive、Spark SQL 和 Yarn 佇列的授權。
-    - 您可以設定檔案和資料夾的存取控制。
+  - 與 Apache Ranger 整合可取得 Hive、Spark SQL 和 Yarn 佇列的授權。
+  - 您可以設定檔案和資料夾的存取控制。
 
     如需詳細資訊，請參閱
 
-    - [在已加入網域的 HDInsight 中設定 Apache Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
+  - [在已加入網域的 HDInsight 中設定 Apache Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
 
 - 檢視稽核記錄可監視存取和設定的原則。 
 

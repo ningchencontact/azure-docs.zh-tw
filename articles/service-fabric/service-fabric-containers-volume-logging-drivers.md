@@ -3,7 +3,7 @@ title: Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽) | Microso
 description: Service Fabric 支援使用 Azure 檔案服務以備份來自您容器的磁碟區。 這目前為預覽狀態。
 services: service-fabric
 documentationcenter: other
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: f2636720f6f1faeffb9a63052efdf009668d806f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.author: aljo, subramar
+ms.openlocfilehash: 24cda5d6c96355ab4df086a2649c136116f200f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863078"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽)
 Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/) \(英文\)，針對 Docker 容器提供以 [Azure 檔案服務](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)為基礎的磁碟區。 此 Docker 磁碟區外掛程式會封裝為可部署至 Service Fabric 叢集的 Service Fabric 應用程式。 其目的是為部署至叢集的其他 Service Fabric 容器應用程式，提供以 Azure 檔案服務為基礎的磁碟區。
 
 > [!NOTE]
-> 6.4.571.9494 版的 Azure 檔案服務磁碟區外掛程式為預覽版，只在此文件中提供。 因為是預覽版本，此版本並**不**支援在生產環境中使用。
+> Azure 檔案磁碟區外掛程式 6.4.571.9590 版是使用這份文件的預覽版本。 因為是預覽版本，此版本並**不**支援在生產環境中使用。
 >
 
 ## <a name="prerequisites"></a>必要條件
@@ -39,11 +39,11 @@ Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https:
 
 * 如果您使用 hyperv 容器，則必須在 ClusterManifest (本機叢集) 或在 ARM 範本 (Azure 叢集) 或 ClusterConfig.json (獨立叢集) 的 fabricSettings 區段中新增下列程式碼片段。 您需要磁碟區名稱，以及磁碟區在叢集上接聽的連接埠。 
 
-在 ClusterManifest 中，必須在 Hosting 區段中新增下列內容。 在此範例中，磁碟區名稱是 **sfazurefile**，而它在叢集上接聽的連接埠為 **19300**。  
+在 ClusterManifest 中，必須在 Hosting 區段中新增下列內容。 在此範例中，磁碟區名稱是**sfazurefile**會在叢集接聽的連接埠，而且**19100**。  
 
 ``` xml 
 <Section Name="Hosting">
-  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19100" />
 </Section>
 ```
 
@@ -56,7 +56,7 @@ Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https:
     "parameters": [
       {
           "name": "VolumePluginPorts",
-          "value": "sfazurefile:19300"
+          "value": "sfazurefile:19100"
       }
     ]
   }
@@ -66,7 +66,7 @@ Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https:
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>部署 Service Fabric Azure 檔案服務應用程式
 
-為您的容器提供磁碟區的 Service Fabric 應用程式，可從此[連結](https://aka.ms/sfvolume6.4)下載。 您可以透過 [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)、[CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) 或 [FabricClient API](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient) 將應用程式部署到叢集。
+為您的容器提供磁碟區的 Service Fabric 應用程式，可從此[連結](https://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip)下載。 您可以透過 [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)、[CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) 或 [FabricClient API](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient) 將應用程式部署到叢集。
 
 1. 使用命令列將目錄變更至已下載應用程式套件的根目錄。
 
@@ -99,63 +99,62 @@ Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https:
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. 在命令中建立應用程式以建立下方的應用程式，請記下 **ListenPort** 應用程式參數。 針對此應用程式參數所指定的值為連接埠，Azure 檔案服務磁碟區外掛程式會透過這個連接埠來接聽來自 Docker 精靈的要求。 請務必確認為應用程式提供的連接埠，沒有和叢集或應用程式所使用的任何其他連接埠衝突。
+4. 在命令中建立應用程式以建立下方的應用程式，請記下 **ListenPort** 應用程式參數。 針對此應用程式參數所指定的值為連接埠，Azure 檔案服務磁碟區外掛程式會透過這個連接埠來接聽來自 Docker 精靈的要求。 請務必確保連接埠提供給應用程式比對在 ClusterManifest 中的 VolumePluginPorts，並且不會與其他叢集或您的應用程式使用的連接埠衝突。
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
-
+> 
 > Windows Server 2016 Datacenter 不支援將 SMB 掛接對應至容器 ([該功能僅在 Windows Server 1709 版上受到支援](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage))。 這條件約束可避免在早於 1709 的版本上使用網路磁碟區對應和 Azure 檔案服務磁碟區驅動程式。
->   
 
 ### <a name="deploy-the-application-on-a-local-development-cluster"></a>在本機開發叢集上部署應用程式
 Azure 檔案服務磁碟區外掛程式應用程式的預設服務執行個體計數為 -1，這表示針對叢集中的每個節點都有部署一個服務的執行個體。 但是，將 Azure 檔案服務磁碟區外掛程式應用程式部署到本機開發叢集上時，服務執行個體計數應指定為 1。 這可以透過 **InstanceCount** 應用程式參數來完成。 因此，將 Azure 檔案服務磁碟區外掛程式應用程式部署到本機開發叢集的命令為：
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 ## <a name="configure-your-applications-to-use-the-volume"></a>設定您的應用程式以使用磁碟區
 下列程式碼片段會顯示如何在應用程式的應用程式資訊清單中指定以 Azure 檔案服務為基礎的磁碟區。 需要關注的特定元素為 **Volume** 標記：
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
-<ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Description>Calculator Application</Description>
-    <Parameters>
-      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
-      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
-      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
-    </Parameters>
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
+<ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+    <Description>Calculator Application</Description>
+    <Parameters>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
+     <Policies>
        <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
-            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
-            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
+            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
                 <DriverOption Name="shareName" Value="" />
                 <DriverOption Name="storageAccountName" Value="" />
                 <DriverOption Name="storageAccountKey" Value="" />
                 <DriverOption Name="storageAccountFQDN" Value="" />
             </Volume>
-       </ContainerHostPolicies>
-   </Policies>
-    </ServiceManifestImport>
-    <ServiceTemplates>
-        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
-            <SingletonPartition></SingletonPartition>
-        </StatelessService>
-    </ServiceTemplates>
+       </ContainerHostPolicies>
+   </Policies>
+    </ServiceManifestImport>
+    <ServiceTemplates>
+        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
+            <SingletonPartition></SingletonPartition>
+        </StatelessService>
+    </ServiceTemplates>
 </ApplicationManifest>
 ```
 

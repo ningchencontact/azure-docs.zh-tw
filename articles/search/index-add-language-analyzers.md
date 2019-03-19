@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9584f0ee4264724787c5913c0d6baa4c2769fa82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085672"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>將語言分析器新增至 Azure 搜尋服務索引
 
@@ -46,12 +46,12 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 
 + Microsoft 的英文分析器會執行詞形的歸併還原，而不是詞幹分析。 這表示它可以把變形和不規則的字詞形式處理得更好，以得到相關性更強的搜尋結果 
 
- > [!Tip]
- > [搜尋分析器示範](https://alice.unearth.ai/) \(英文\) 會顯示由標準 Lucene 分析器、Lucene 的英文語言分析器，以及 Microsoft 的英文版自然語言處理器所產生之結果的並排比較。 針對您所提供的每個搜尋輸入，每個分析器的結果都會顯示在相鄰的窗格中。
+  > [!Tip]
+  > [搜尋分析器示範](https://alice.unearth.ai/) \(英文\) 會顯示由標準 Lucene 分析器、Lucene 的英文語言分析器，以及 Microsoft 的英文版自然語言處理器所產生之結果的並排比較。 針對您所提供的每個搜尋輸入，每個分析器的結果都會顯示在相鄰的窗格中。
 
 ## <a name="configuring-analyzers"></a>設定分析器
 
-語言分析器是以現況使用。 針對索引定義中的每一個欄位，您可以將 **analyzer** 屬性設為能指定語言和語言堆疊 (Microsoft 或 Lucene) 的分析器名稱。 搜尋與編製該欄位索引時會套用相同的分析器。 例如，您可以有個別適用於英文、法文及西班牙文旅館說明的欄位，這些欄位會在相同的索引中並列存在。 或者，與其使用 **analyzer**，您可以使用 **indexAnalyzer** 和 **searchAnalyzer** 來在編製索引和查詢時間時使用不同的分析規則。 
+語言分析器是以現況使用。 針對索引定義中的每一個欄位，您可以將 **analyzer** 屬性設為能指定語言和語言堆疊 (Microsoft 或 Lucene) 的分析器名稱。 搜尋與編制該欄位索引時會套用相同的分析器。 例如，您可以有個別適用於英文、法文及西班牙文旅館說明的欄位，這些欄位會在相同的索引中並列存在。 或者，與其使用 **analyzer**，您可以使用 **indexAnalyzer** 和 **searchAnalyzer** 來在編製索引和查詢時間時使用不同的分析規則。 
 
 使用 **searchFields** 查詢參數來指定針對查詢所要搜尋的語言特定欄位。 您可以在[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents) \(英文\) 中檢閱包含分析器屬性的查詢範例。 
 
@@ -123,7 +123,7 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 
  所有名稱加上 **Lucene** 註解的分析器都是由 [Apache Lucene 的語言分析器](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ) \(英文\) 所提供。
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
  [建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)  
  [AnalyzerName 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername) \(英文\)  
  [影片：Azure 搜尋服務 MVA 簡報的課程模組 7](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07) \(英文\)。  

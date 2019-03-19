@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992073"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>適用於 SUSE Linux Enterprise Server 之 Azure VM 上 NFS 的高可用性
 
@@ -426,9 +426,9 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
    使用 drbd 將資料從一部主機同步處理至另一部主機時，可能發生所謂的核心分裂。 核心分裂係指兩個叢集節點都將 drbd 裝置升階成主要裝置，而造成不同步的情況。這種情況可能相當罕見，但您仍然會想要儘快處理和解決核心分裂問題。 因此，在發生核心分裂時收到通知便相當重要。
 
-   如需了解如何設定核心分裂通知，請參閱[官方 drbd 文件](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) \(英文\)。
+   如需了解如何設定核心分裂通知，請參閱[官方 drbd 文件](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) \(英文\)。
 
-   也有可能從核心分裂情況自動復原。 如需詳細資訊，請參閱[核心分裂自動復原原則](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration) \(英文\)
+   也有可能從核心分裂情況自動復原。 如需詳細資訊，請參閱[核心分裂自動復原原則](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration) \(英文\)
    
 ### <a name="configure-cluster-framework"></a>設定叢集架構
 

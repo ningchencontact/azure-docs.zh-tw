@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862287"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120511"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>使用 Azure Cosmos DB 變更摘要以視覺方式呈現即時資料分析
 
@@ -105,7 +105,7 @@ Azure Cosmos DB 變更摘要是可在記錄建立或修改的同時，從 Azure 
 
 3. 接著，建立名為 **leases** 的另一個集合，以進行變更摘要處理。 租用集合會協調如何處理多個背景工作間的變更摘要。 另外會有一個集合用來儲存租用 (每個分割區一個租用)。  
 
-4.  回到 [資料總管] 窗格並選取 [新增集合]，然後在表單中填寫下列詳細資料：
+4. 回到 [資料總管] 窗格並選取 [新增集合]，然後在表單中填寫下列詳細資料：
 
    * 針對 [資料庫識別碼] 欄位，選取 [使用現有的]，然後輸入 **changefeedlabdatabase**。  
    * 針對 [集合識別碼] 欄位，輸入 **leases**。  

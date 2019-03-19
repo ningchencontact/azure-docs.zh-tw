@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 1015e6774dac1258820e3ca4b3d06786046a8554
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: dea8547905cb558cb0be7dc23f89099773e84ff0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074773"
 ---
 # <a name="create-a-snapshot"></a>建立快照集
 
@@ -48,41 +48,41 @@ ms.locfileid: "55980851"
 
 1. 設定一些參數： 
 
- ```azurepowershell-interactive
-$resourceGroupName = 'myResourceGroup' 
-$location = 'eastus' 
-$vmName = 'myVM'
-$snapshotName = 'mySnapshot'  
-```
+   ```azurepowershell-interactive
+   $resourceGroupName = 'myResourceGroup' 
+   $location = 'eastus' 
+   $vmName = 'myVM'
+   $snapshotName = 'mySnapshot'  
+   ```
 
 2. 取得 VM：
 
- ```azurepowershell-interactive
-$vm = get-azvm `
+   ```azurepowershell-interactive
+   $vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
-```
+   ```
 
 3. 建立快照集組態。 在此範例中，快照集屬於 OS 磁碟：
 
- ```azurepowershell-interactive
-$snapshot =  New-AzSnapshotConfig 
+   ```azurepowershell-interactive
+   $snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
-```
+   ```
    
    > [!NOTE]
    > 如果您想要將快照集儲存於區域復原的儲存體中，請在支援[可用性區域](../../availability-zones/az-overview.md)且包含 `-SkuName Standard_ZRS` 參數的區域中建立它。   
    
 4. 製作快照集：
 
- ```azurepowershell-interactive
-New-AzSnapshot 
+   ```azurepowershell-interactive
+   New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 
-```
+   ```
 
 
 ## <a name="next-steps"></a>後續步驟

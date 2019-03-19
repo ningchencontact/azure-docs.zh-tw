@@ -1,5 +1,5 @@
 ---
-title: 取得在 Azure Active Directory 中存取和使用 MyApps 入口網站的協助 | Microsoft Docs
+title: 取得存取和使用 MyApps 入口網站-Azure Active Directory 的協助 |Microsoft Docs
 description: 取得在存取面板中登入及執行常見工作的協助。
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64090e67c7bdc019498d35d7e9f5dfc8402ea57e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cad68afd02694ec471d032a554ed468691ff914b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105466"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>針對存取和使用 MyApps 入口網站的問題進行疑難排解
 
@@ -95,8 +96,8 @@ MyApps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如�
 
 ## <a name="how-do-i-add-a-new-app"></a>如何新增應用程式？
 
-1.  在 [應用程式] 頁面上，選取 [新增應用程式]。
-2.  搜尋您想要新增的應用程式，然後選取 [新增]。
+1. 在 [應用程式] 頁面上，選取 [新增應用程式]。
+2. 搜尋您想要新增的應用程式，然後選取 [新增]。
 
    > [!NOTE]
    > * 只有當系統管理員已為您的帳戶啟用此選項時，您才可以存取此選項。

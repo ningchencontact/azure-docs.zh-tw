@@ -10,21 +10,21 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 3ad657fb695d88ffc75a37ee566ce59126906748
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108064"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>使用 Azure 入口網站建立 Durable Functions
 
 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 中提供 Azure Functions 的 [Durable Functions](durable-functions-overview.md) 擴充。 此延伸模組必須安裝在您的函式應用程式中。 本文說明如何安裝此套件，以便您可以在 Azure 入口網站中開發長期函式。
 
->[!NOTE]
->
->* 如果您正在使用 C# 開發長期函式，則應考慮 [Visual Studio 2017 開發](durable-functions-create-first-csharp.md)。
-* 如果您正在使用 JavaScript 開發長期函式，則應考慮 [Visual Studio Code 開發](./quickstart-js-vscode.md)。
+> [!NOTE]
+> 
+> * 如果您正在使用 C# 開發長期函式，則應考慮 [Visual Studio 2017 開發](durable-functions-create-first-csharp.md)。
+> * 如果您正在使用 JavaScript 開發長期函式，則應考慮 [Visual Studio Code 開發](./quickstart-js-vscode.md)。
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 

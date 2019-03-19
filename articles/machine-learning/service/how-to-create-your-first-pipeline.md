@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5d453fbacb44105c491c9e69085a219099943fa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 8fe8b365974086ef530b83988c63eda338a6079f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014595"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -26,7 +26,7 @@ ms.locfileid: "56326903"
 
 管線使用遠端計算目標，來計算和儲存與該管線相關的中繼資料和最終資料。 管線可以對支援的 [Azure 儲存體](https://docs.microsoft.com/azure/storage/)位置讀取和寫入資料。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,14 +34,14 @@ ms.locfileid: "56326903"
 
 * 建立 [Azure Machine Learning 工作區](how-to-configure-environment.md#workspace)以保存您的所有管線資源。 
 
- ```python
- ws = Workspace.create(
+  ```python
+  ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
      resource_group = '<resource-group>',
      location = '<workspace_region>',
      exist_ok = True)
- ```
+  ```
 
 ## <a name="set-up-machine-learning-resources"></a>設定機器學習資源
 
@@ -234,7 +234,7 @@ except ComputeTargetException:
 
 ## <a id="steps"></a>建構您的管線步驟
 
-建立計算目標並將其連結至您的工作區之後，您便已做好定義管線步驟的準備。 透過 Azure Machine Learning SDK，有許多內建的步驟可供使用。 這些步驟中最基本的就是 [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)，此步驟會在指定的計算目標中執行 Python 指令碼。
+建立計算目標並將其連結至您的工作區之後，您便已做好定義管線步驟的準備。 透過 Azure Machine Learning SDK，有許多內建的步驟可供使用。 是最基本的這些步驟[PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)，在指定的計算目標中執行 Python 指令碼：
 
 ```python
 trainStep = PythonScriptStep(
@@ -281,6 +281,8 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
+如需詳細資訊，請參閱 <<c0> [ 步驟管線 azure 執行套件](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)並[管線類別](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py)參考。
+
 ## <a name="submit-the-pipeline"></a>提交管線
 
 當您提交管線時，Azure Machine Learning 服務會檢查每個步驟的相依性，並上傳您所指定之來源目錄的快照集。 如果未指定來源目錄，則會上傳目前的本機目錄。
@@ -303,29 +305,31 @@ pipeline_run1.wait_for_completion()
 
 ![以管線的形式執行實驗的圖表](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
+如需詳細資訊，請參閱 <<c0> [ 實驗類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)參考。
+
 ## <a name="publish-a-pipeline"></a>發佈管線
 
 您可以發佈管線以稍後使用不同的輸入來執行它。 若要讓已發佈之管線的 REST 端點接受參數，您必須在發佈管線前將其參數化。 
 
 1. 若要建立管線參數，請使用 [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) 物件搭配預設值。
 
- ```python
- pipeline_param = PipelineParameter(
+   ```python
+   pipeline_param = PipelineParameter(
      name="pipeline_arg", 
      default_value=10)
- ```
+   ```
 
 2. 將這個 `PipelineParameter` 物件以參數形式新增至管線中的任何步驟，如下所示：
 
- ```python
- compareStep = PythonScriptStep(
+   ```python
+   compareStep = PythonScriptStep(
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
      outputs=[out_data3],    
      target=compute_target, 
      source_directory=project_folder)
- ```
+   ```
 
 3. 發佈這個將在被叫用時接受參數的管線。
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994750"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888463"
 ---
 # <a name="security-frame-authorization--mitigations"></a>安全性框架：授權 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -397,7 +397,7 @@ return result;
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、MVC5 |
 | **屬性**              | N/A、識別提供者 - ADFS、識別提供者 - Azure AD |
-| **參考**              | [ASP.NET Web API 中的驗證與授權](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
+| **參考**              | [ASP.NET Web API 中的驗證與授權](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
 | **步驟** | <p>如果應用程式依賴 Azure AD 或 ADFS 宣告作為識別提供者，即可從 Azure AD 或 ADFS 宣告擷取應用程式使用者的角色資訊，否則應用程式本身可能會提供此資訊。 在任何這類情況下，自訂授權實作應驗證使用者角色資訊。</p><p>如果應用程式依賴 Azure AD 或 ADFS 宣告作為識別提供者，即可從 Azure AD 或 ADFS 宣告擷取應用程式使用者的角色資訊，否則應用程式本身可能會提供此資訊。 在任何這類情況下，自訂授權實作應驗證使用者角色資訊。</p>
 
 ### <a name="example"></a>範例

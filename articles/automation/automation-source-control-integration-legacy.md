@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901537"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure 自動化中的原始檔控制整合 - 舊版
 
@@ -65,23 +65,23 @@ ms.locfileid: "54434864"
      
      | **參數** | **值** |
      |:--- |:--- |
-     | Name |Microsoft.Azure.Automation.SourceControl.Connection |
+     | 名稱 |Microsoft.Azure.Automation.SourceControl.Connection |
      | 類型 |字串 |
      | 值 |{"Branch":\<您的分支名稱>,"RunbookFolderPath":\<Runbook 資料夾路徑>,"ProviderType":\<GitHub 的值為 1>,"Repository":\<您的儲存機制名稱>,"Username":\<您的 GitHub 使用者名稱>} |
 
-    * **Microsoft.Azure.Automation.SourceControl.OauthToken**變數包含 OAuthToken 的安全加密值。  
+     * **Microsoft.Azure.Automation.SourceControl.OauthToken**變數包含 OAuthToken 的安全加密值。  
 
-    |**參數**            |**值** |
-    |:---|:---|
-    | Name  | Microsoft.Azure.Automation.SourceControl.OauthToken |
-    | 類型 | Unknown(Encrypted) |
-    | 值 | <*已加密的 OAuthToken*> |  
+     |**參數**            |**值** |
+     |:---|:---|
+     | 名稱  | Microsoft.Azure.Automation.SourceControl.OauthToken |
+     | 類型 | Unknown(Encrypted) |
+     | 值 | <*已加密的 OAuthToken*> |  
 
-    ![變數](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![變數](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **自動化原始檔控制** 已做為已授權的應用程式加入至您的 GitHub 帳戶。 若要檢視應用程式：從 GitHub 首頁，瀏覽至您的 [設定檔] > [設定] > [應用程式]。 此應用程式可讓 Azure 自動化將 GitHub 儲存機制同步至自動化帳戶。  
+     * **自動化原始檔控制** 已做為已授權的應用程式加入至您的 GitHub 帳戶。 若要檢視應用程式：從 GitHub 首頁，瀏覽至您的 [設定檔] > [設定] > [應用程式]。 此應用程式可讓 Azure 自動化將 GitHub 儲存機制同步至自動化帳戶。  
 
-    ![Git 應用程式](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![Git 應用程式](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>在自動化中使用原始檔控制
@@ -124,10 +124,6 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
     > [!NOTE] 
     > 從原始檔控制進行的同步處理會針對目前在原始檔控制中的 **所有** Runbook，覆寫目前存在於您的自動化帳戶中的 Runbook 草稿版本。 要同步處理的 Git 對等命令列指示為 **git pull**
-
-
-## <a name="troubleshooting-source-control-problems"></a>原始檔控制問題的疑難排解
-簽入或同步處理作業如有任何錯誤，作業狀態應為 [暫止]，而您可以在作業分頁中檢視更多錯誤詳細資訊。  [所有記錄] 部分會顯示與該作業相關聯的所有 PowerShell 串流。 這會提供協助您修正任何簽入或同步處理問題所需的細節。它也會顯示同步處理或簽入 Runbook 時發生的動作順序。  
 
 ![AllLogs 映像](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 

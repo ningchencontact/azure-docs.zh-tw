@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 927b887dbe9214867c0a694a611ca9fd9dc647a2
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565287"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013707"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>使用適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器加速即時巨量資料分析
 
@@ -219,5 +219,5 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 -   [Azure Databricks Notebook 範例](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [指令碼範例 (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-您也可以檢閱 [Apache Spark SQL、DataFrame 和 Dataset 指南](http://spark.apache.org/docs/latest/sql-programming-guide.html) (英文) 和 [Azure Databricks 文件](https://docs.microsoft.com/azure/azure-databricks/)。
+您也可以檢閱 [Apache Spark SQL、DataFrame 和 Dataset 指南](https://spark.apache.org/docs/latest/sql-programming-guide.html) (英文) 和 [Azure Databricks 文件](https://docs.microsoft.com/azure/azure-databricks/)。
 

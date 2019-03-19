@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 0cc0068f9e1d836800aa77b3057815962581d47b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 401827f3fa5eb6d364d0f133d8cd672cf8968031
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243363"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103174"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路的對等互連
 
@@ -33,7 +33,7 @@ ms.locfileid: "55243363"
 
 ## <a name="configuration-prerequisites"></a>組態必要條件
 
-* 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)頁面、[路由需求](expressroute-routing.md)頁面和[工作流程](expressroute-workflows.md)頁面。
+* 在开始配置之前，请务必查看[先决条件](expressroute-prerequisites.md)页、[路由要求](expressroute-routing.md)页和[工作流](expressroute-workflows.md)页。
 * 您必須擁有作用中的 ExpressRoute 線路。 繼續之前，請遵循指示來 [建立 ExpressRoute 線路](expressroute-howto-circuit-portal-resource-manager.md) ，並由您的連線提供者來啟用該線路。 ExpressRoute 線路必須處於已佈建和已啟用狀態，您才能執行下一節中的 Cmdlet。
 * 如果您打算使用共用金鑰/MD5 雜湊，請務必將它使用於通道的兩端，並將字元數目限制為最多 25 個。
 
@@ -57,37 +57,37 @@ ms.locfileid: "55243363"
 
 1. 設定 ExpressRoute 電路。 先確定連線提供者已完整佈建電路，再繼續作業。 若您的連線提供者提供受控第 3 層服務，您可以要求連線提供者為您啟用 Microsoft 對等互連。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
 
-  ![列出 Microsoft 對等互連](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![列出 Microsoft 對等互連](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. 設定線路的 Microsoft 對等。 繼續之前，請確定您擁有下列資訊。
 
-  * 主要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
-  * 次要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
-  * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。 如果同時需要主要和次要連結，則必須使用相同的 VLAN ID。
-  * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-  * 公告的首碼：您必須提供一份您打算透過 BGP 工作階段公告的所有首碼清單。 只接受公用 IP 位址首碼。 如果計劃傳送一組首碼，可以傳送以逗號分隔的清單。 這些首碼必須在 RIR / IRR 中註冊給您。
-  * **選用：** 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。
-  * 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
-  * **選用：** MD5 雜湊 (如果選擇使用)。
+   * 主要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
+   * 次要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
+   * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。 如果同時需要主要和次要連結，則必須使用相同的 VLAN ID。
+   * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
+   * 公告的首碼：您必須提供一份您打算透過 BGP 工作階段公告的所有首碼清單。 只接受公用 IP 位址首碼。 如果計劃傳送一組首碼，可以傳送以逗號分隔的清單。 這些首碼必須在 RIR / IRR 中註冊給您。
+   * **選用：** 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。
+   * 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
+   * **選用：** MD5 雜湊 (如果選擇使用)。
 3. 如下列範例所示，您可以選取要設定的對等互連。 選取 Microsoft 對等資料列。
 
-  ![選取 Microsoft 對等互連列](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
+   ![選取 Microsoft 對等互連列](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
 4. 設定 Microsoft 對等。 下圖顯示設定範例：
 
-  ![設定 Microsoft 對等互連](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
+   ![設定 Microsoft 對等互連](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. 指定所有參數後，請儲存組態。
 
-  如果您的線路出現「需要驗證」狀態 (如下圖所示)，您必須開立支援票證，向我們的支援小組出示首碼擁有權的證明。
+   如果您的線路出現「需要驗證」狀態 (如下圖所示)，您必須開立支援票證，向我們的支援小組出示首碼擁有權的證明。
 
-  ![儲存 Microsoft 對等互連設定](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
+   ![儲存 Microsoft 對等互連設定](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-  如下列範例所示，您可以直接從入口網站開立支援票證：
+   如下列範例所示，您可以直接從入口網站開立支援票證：
 
-  ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
+   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
 
 1. 成功接受設定後，會出現類似下圖的畫面：
 
-  ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
 ### <a name="getmsft"></a>檢視 Microsoft 對等詳細資訊
 
@@ -115,23 +115,23 @@ ms.locfileid: "55243363"
 
 1. 設定 ExpressRoute 電路。 先確定連線提供者已完整佈建電路，再繼續作業。 若您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私人對等互連。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
 
-  ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. 設定線路的 Azure 私用對等。 繼續執行接下來的步驟之前，請確定您有下列項目：
 
-  * 主要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
-  * 次要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
-  * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。 如果同時需要主要和次要連結，則必須使用相同的 VLAN ID。
-  * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 除了編號 65515 到 65520 (含) 以外，您可以將私人 AS 編號用於此對等互連。
-  * **選用：** MD5 雜湊 (如果選擇使用)。
+   * 主要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
+   * 次要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
+   * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。 如果同時需要主要和次要連結，則必須使用相同的 VLAN ID。
+   * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 除了編號 65515 到 65520 (含) 以外，您可以將私人 AS 編號用於此對等互連。
+   * **選用：** MD5 雜湊 (如果選擇使用)。
 3. 如下列範例所示，選取 Azure 私用對等互連列：
 
-  ![私用](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
+   ![私用](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
 4. 設定私用對等。 下圖顯示設定範例：
 
-  ![設定私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+   ![設定私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 5. 指定所有參數後，請儲存組態。 成功接受設定後，會出現類似下列範例的畫面：
 
-  ![儲存私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+   ![儲存私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
 ### <a name="getprivate"></a>檢視 Azure 私用對等詳細資訊
 
@@ -162,25 +162,25 @@ ms.locfileid: "55243363"
 
 ### <a name="to-create-azure-public-peering"></a>建立 Azure 公用對等
 
-1. 設定 ExpressRoute 電路。 先確定連線提供者已完整佈建電路，再繼續作業。 若您的連線提供者提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 公用對等互連。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
+1. 配置 ExpressRoute 线路。 先確定連線提供者已完整佈建電路，再繼續作業。 若您的連線提供者提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 公用對等互連。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
 
-  ![列出公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![列出公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. 設定線路的 Azure 公用對等。 繼續執行接下來的步驟之前，請確定您有下列項目：
 
-  * 主要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。 
-  * 次要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
-  * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。 如果同時需要主要和次要連結，則必須使用相同的 VLAN ID。
-  * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-  * **選用：** MD5 雜湊 (如果選擇使用)。
+   * 主要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。 
+   * 次要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。 您會從這個子網路將第一個可用 IP 位址指派給路由器，因為 Microsoft 會將第二個可用 IP 用於其路由器。
+   * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。 如果同時需要主要和次要連結，則必須使用相同的 VLAN ID。
+   * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
+   * **選用：** MD5 雜湊 (如果選擇使用)。
 3. 如下圖所示，選取 Azure 公用對等互連列：
 
-  ![選取公用對等互連列](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
+   ![選取公用對等互連列](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
 4. 設定公用對等。 下圖顯示設定範例：
 
-  ![設定公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+   ![設定公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 5. 指定所有參數後，請儲存組態。 成功接受設定後，會出現類似下列範例的畫面：
 
-  ![儲存公用對等互連設定](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+   ![儲存公用對等互連設定](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
 ### <a name="getpublic"></a>檢視 Azure 公用對等詳細資訊
 

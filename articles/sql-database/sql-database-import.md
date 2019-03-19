@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: c5f90776cb0e8617f0e524bd6b1701f4bf20d0a1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 3eaa12b5ba735d1e2aa0e074054328942a3041eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415695"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900093"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>快速入門：在 Azure SQL Database 中將 BACPAC 檔案匯入資料庫
 
@@ -58,6 +58,8 @@ ms.locfileid: "56415695"
 
 為了規模和效能，我們建議在大部分生產環境中使用 SqlPackage，而不使用 Azure 入口網站。 如需 SQL Server 客戶諮詢小組部落格中有關使用 `BACPAC` 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) \(英文\)。
 
+基於調整能力和效能，建議在大部分的生產環境中均應使用 SqlPackage。 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)。
+
 下列 SqlPackage 命令會將 **AdventureWorks2008R2** 資料庫從本機儲存體匯入至名為 **mynewserver20170403** 的 Azure SQL Database 伺服器。 此命令會建立名為 **myMigratedDatabase**、且具有**進階**服務層和 **P6** 服務目標的新資料庫。 請針對您的環境適當變更這些值。
 
 ```cmd
@@ -77,19 +79,23 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>使用 PowerShell 從 BACPAC 檔案匯入至單一資料庫
 
 > [!NOTE]
-> [受控執行個體](sql-database-managed-instance.md)目前不支援使用 Azure PowerShell 從 BACPAC 檔案將資料庫移轉到執行個體資料庫中。 若要匯入至受控執行個體，請使用 SQL Server Management Studio 或 SQLPackage。
+> [受管理的執行個體](sql-database-managed-instance.md)目前不支援將資料庫移轉到執行個體資料庫從 BACPAC 檔案，使用 Azure PowerShell。 若要匯入至受控執行個體，請使用 SQL Server Management Studio 或 SQLPackage。
 
 
-使用 [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) Cmdlet 來提交匯入資料庫要求至 Azure SQL Database 服務。 匯入可能需要一些時間才能完成，視資料庫大小而定。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+
+使用[新增 AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet 來匯入資料庫要求提交到 Azure SQL Database 服務。 匯入可能需要一些時間才能完成，視資料庫大小而定。
 
  ```powershell
- $importRequest = New-AzureRmSqlDatabaseImport
+ $importRequest = New-AzSqlDatabaseImport 
     -ResourceGroupName "<your_resource_group>" `
     -ServerName "<your_server>" `
     -DatabaseName "<your_database>" `
     -DatabaseMaxSizeBytes "<database_size_in_bytes>" `
     -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
+    -StorageKey $(Get-AzStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
     -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
     -Edition "Standard" `
     -ServiceObjectiveName "P6" `
@@ -98,14 +104,14 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
  ```
 
- 您可以使用 [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) Cmdlet 來查看匯入的進度。 如果在要求後立即執行此 Cmdlet，通常會傳回 **Status:InProgress**。 當您看見 **Status:Succeeded** 時，即表示匯入已完成。
+ 您可以使用[Get AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet 來檢查匯入的進度。 如果在要求後立即執行此 Cmdlet，通常會傳回 **Status:InProgress**。 當您看見 **Status:Succeeded** 時，即表示匯入已完成。
 
 ```powershell
-$importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+$importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 [Console]::Write("Importing")
 while ($importStatus.Status -eq "InProgress")
 {
-    $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+    $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
     [Console]::Write(".")
     Start-Sleep -s 10
 }
@@ -114,7 +120,7 @@ $importStatus
 ```
 
 > [!TIP]
-如需其他指令碼範例，請參閱[從 BACPAC 檔案匯入資料庫](scripts/sql-database-import-from-bacpac-powershell.md)。
+> 如需其他指令碼範例，請參閱[從 BACPAC 檔案匯入資料庫](scripts/sql-database-import-from-bacpac-powershell.md)。
 
 ## <a name="limitations"></a>限制
 

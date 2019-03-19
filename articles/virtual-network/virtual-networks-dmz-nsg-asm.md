@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 115a459c6a9e4ea96931c89272a49396f0656258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23125496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993332"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>範例 1 – 使用 NSG 搭配傳統 PowerShell 建立簡單的 DMZ
 [返回 [安全性界限最佳作法] 頁面][HOME]
 
 > [!div class="op_single_selector"]
 > * [Resource Manager 範本](virtual-networks-dmz-nsg.md)
-> * [傳統 - PowerShell](virtual-networks-dmz-nsg-asm.md)
+> * [经典 - PowerShell](virtual-networks-dmz-nsg-asm.md)
 > 
 >
 
@@ -37,7 +37,7 @@ ms.locfileid: "23125496"
 ## <a name="environment-description"></a>環境描述
 此範例中，訂用帳戶包含下列資源：
 
-* 兩個雲端服務：“FrontEnd001” 和 “BackEnd001”
+* 兩個雲端服務："FrontEnd001" 和 "BackEnd001"
 * 一個虛擬網路 “CorpNetwork”，包含兩個子網路：“FrontEnd” 和 “BackEnd”
 * 套用至這兩個子網路的單一網路安全性群組
 * 一個代表應用程式 Web 伺服器的 Windows Server (“IIS01”)
@@ -48,7 +48,7 @@ ms.locfileid: "23125496"
 
 建置環境：
 
-1. 儲存＜參考＞一節中所包含的網路組態 xml 檔 (更新名稱、位置和 IP 位址以符合給定的案例)
+1. 保存“参考”部分中包含的网络配置 xml 文件（更新了名称、位置和 IP 地址以匹配给定方案）
 2. 更新指令碼中的使用者變數，以符合要用來執行指令碼的環境 (訂用帳戶、服務名稱等)
 3. 在 PowerShell 中執行指令碼
 
@@ -57,7 +57,7 @@ ms.locfileid: "23125496"
 >
 >
 
-指令碼順利執行後，即可採取其他選擇性步驟，＜參考＞一節中有兩個指令碼，其會設定 Web 伺服器和具有簡單 Web 應用程式的應用程式伺服器，以便能使用此 DMZ 組態進行測試。
+成功运行脚本后，可以执行其他可选步骤。“参考”部分中提供了两个脚本，用于设置 Web 服务器和包含简单 Web 应用程序的应用服务器，以便能使用此外围网络配置进行测试。
 
 下列各節藉由逐步解說 PowerShell 指令碼的重要程式行，詳細說明此範例的網路安全性群組和其運作方式。
 
@@ -65,11 +65,11 @@ ms.locfileid: "23125496"
 此範例會組建 NSG 群組，然後載入六個規則。 
 
 > [!TIP]
-> 一般而言，您應該先建立特定的「允許」規則，最後再建立較一般的「拒絕」規則。 所指定的優先順序會決定要先評估哪些規則。 一旦發現流量適用特定規則，就不會再評估後續規則。 NSG 規則可以套用在輸入或輸出方向 (從子網路的觀點出發)。
+> 一般而言，您應該先建立特定的「允許」規則，最後再建立較一般的「拒絕」規則。 所指定的優先順序會決定要先評估哪些規則。 发现要向流量应用的特定规则后，不再需要评估后续规则。 NSG 規則可以套用在輸入或輸出方向 (從子網路的觀點出發)。
 > 
 > 
 
-指令碼會以宣告方式為輸入流量建置下列規則：
+以声明性的方式为入站流量构建以下规则：
 
 1. 允許內部 DNS 流量 (連接埠 53)
 2. 允許從網際網路到任何 VM 的 RDP 流量 (連接埠 3389)
@@ -92,21 +92,21 @@ ms.locfileid: "23125496"
         -Label "Security group for $VNetName subnets in $DeploymentLocation"
     ```
 
-2. 此範例中的第一個規則會允許所有內部網路之間的 DNS 流量流往 Backend 子網路上的 DNS 伺服器。 此規則有一些重要參數：
+2. 本示例中的第一个规则允许所有内部网络之间的 DNS 流量发往后端子网上的 DNS 服务器。 此規則有一些重要參數：
    
    * 「類型」表示此規則會生效的傳輸流量方向。 方向是來自子網路或虛擬機器的角度 (取決於此 NSG 繫結的位置)。 因此，如果 Type 是 “Inbound” 且流量進入子網路，此規則將會適用，而離開子網路的流量則不受此規則所影響。
    * "Priority" 會設定流量的評估順序。 編號愈低，優先順序就愈高。 當規則套用至特定流量時，就不會再處理其他規則。 因此，如果優先順序為 1 的規則允許流量，優先順序為 2 的規則拒絕流量，而這兩個規則皆適用於流量，則會允許流量流動 (規則 1 有更高的優先順序，所以會生效，並且不會再套用其他規則)。
    * “Action” 指出受此規則影響的流量是要封鎖或允許。
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-    ```
+     ```
 
 3. 此規則會允許 RDP 流量從網際網路流往繫結子網路上任何伺服器的 RDP 連接埠。 此規則使用兩種特殊位址前置詞：“VIRTUAL_NETWORK” 和 “INTERNET”。 這些標記可輕易處理較大類別的位址前置詞。
 
@@ -188,7 +188,7 @@ ms.locfileid: "23125496"
 9. AppVM01 接收 SQL 查詢並回應
 10. Backend 子網路上沒有輸出規則，所以允許回應
 11. Frontend 子網路開始處理輸入規則：
-    1. Backend 子網路到 Frontend 子網路的輸入流量沒有適用的 NSG 規則，因此不會套用任何 NSG 規則
+    1. 后端子网到前端子网的入站流量没有适用的 NSG 规则，因此不会应用任何 NSG 规则
     2. 允許子網路間流量的預設系統規則會允許此流量，因此允許流量。
 12. IIS 伺服器接收 SQL 回應、完成 HTTP 回應並傳送給要求者
 13. Frontend 子網路上沒有輸出規則，所以允許回應，網際網路使用者會收到要求的網頁。
@@ -217,10 +217,10 @@ ms.locfileid: "23125496"
 11. Frontend 子網路開始處理輸入規則：
     1. Backend 子網路到 Frontend 子網路的輸入流量沒有適用的 NSG 規則，因此不會套用任何 NSG 規則
     2. 允許子網路間流量的預設系統規則會允許此流量，因此允許流量
-12. IIS01 從 DNS01 接收回應
+12. IIS01 从 DNS01 接收响应
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(允許) Web 伺服器存取 AppVM01 上的檔案
-1. IIS01 要求 AppVM01 上的檔案
+1. IIS01 请求 AppVM01 上的文件
 2. Frontend 子網路上沒有輸出規則，允許流量
 3. Backend 子網路開始處理輸入規則：
    1. NSG 規則 1 (DNS) 不適用，移至下一個規則
@@ -230,7 +230,7 @@ ms.locfileid: "23125496"
 4. AppVM01 接收要求並以檔案回應 (假設已獲得存取授權)
 5. Backend 子網路上沒有輸出規則，所以允許回應
 6. Frontend 子網路開始處理輸入規則：
-   1. Backend 子網路到 Frontend 子網路的輸入流量沒有適用的 NSG 規則，因此不會套用任何 NSG 規則
+   1. 后端子网到前端子网的入站流量没有适用的 NSG 规则，因此不会应用任何 NSG 规则
    2. 允許子網路間流量的預設系統規則會允許此流量，因此允許流量。
 7. IIS 伺服器接收檔案
 
@@ -239,7 +239,7 @@ ms.locfileid: "23125496"
 2. 因為沒有用於檔案共用的開放端點，此流量不會通過雲端服務到達伺服器
 3. 如果基於某些原因而開放端點，NSG 規則 5 (網際網路到 VNet) 會封鎖此流量
 
-#### <a name="denied-web-dns-look-up-on-dns-server"></a>(拒絕) DNS 伺服器上的 Web DNS 查閱
+#### <a name="denied-web-dns-look-up-on-dns-server"></a>（*拒绝*）在 DNS 服务器上执行 Web DNS 查找
 1. 網際網路使用者嘗試透過 BackEnd001.CloudApp.Net 服務查閱 DNS01 上的內部 DNS 記錄
 2. 因為沒有用於 DNS 的開放端點，此流量不會通過雲端服務到達伺服器
 3. 如果基於某些原因而開放端點，NSG 規則 5 (網際網路到 VNet) 會封鎖此流量 (注意：有兩個原因導致規則 1 (DNS) 不適用，首先，來源位址是網際網路，此規則只適用於以本機 VNet 做為來源，再者，此規則是允許規則，所以它永遠不會拒絕流量)
@@ -257,7 +257,7 @@ ms.locfileid: "23125496"
 ## <a name="conclusion"></a>結論
 這個範例隔離後端子網路與輸入流量的方式相當直接簡單。
 
-您可以在[這裡][HOME]找到更多範例和網路安全性界限的概觀。
+可以在 [此处][HOME]找到更多示例和网络安全边界的概述。
 
 ## <a name="references"></a>參考
 ### <a name="main-script-and-network-config"></a>主要的指令碼和網路組態
@@ -544,7 +544,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 以更新的位置儲存此 xml 檔案，並將此檔案的連結新增到先前指令碼中的 $NetworkConfigFile 變數。
 
 ```XML
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>
@@ -576,7 +576,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 ```
 
 #### <a name="sample-application-scripts"></a>範例應用程式指令碼
-如果您想要為此範例和其他 DMZ 範例安裝範例應用程式，下列連結中有提供一個：[範例應用程式指令碼][SampleApp]
+如果您希望為此範例和其他 DMZ 範例安裝範例應用程式，下列連結中有提供一個：[範例應用程式指令碼][SampleApp]
 
 ## <a name="next-steps"></a>後續步驟
 * 更新並儲存 XML 檔案
@@ -585,7 +585,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 * 測試流經此 DMZ 的不同流量
 
 <!--Image References-->
-[1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "具有 NSG 的輸入 DMZ"
+[1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "使用 NSG 的入站外围网络"
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md

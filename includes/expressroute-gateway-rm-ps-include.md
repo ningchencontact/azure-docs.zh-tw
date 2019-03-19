@@ -5,26 +5,24 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 03/22/2018
+ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7e33d4ed7100287ef6b22aa4c90fd52671363902
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 03a56951b68163a9160cc4a57f15354b5f210eb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31613614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115159"
 ---
 此工作的步驟會根據下列組態參考清單中的值來使用 VNet。 其他設定和名稱也會概述於這份清單中。 雖然我們會根據這份清單中的值加入變數，但不會在任何步驟中直接使用這份清單。 您可以複製清單以供參考，並使用您自己的值來取代其中的值。
 
-**組態參考清單**
-
 * 虛擬網路名稱 = "TestVNet"
-* 虛擬網路位址空間 = 192.168.0.0/16
+* 虚拟网络地址空间 = 192.168.0.0/16
 * 資源群組 = "TestRG"
 * Subnet1 名稱 = "FrontEnd" 
 * Subnet1 位址空間 = "192.168.1.0/24"
-* 閘道器子網路名稱："GatewaySubnet"，您必須一律將閘道器子網路命名為 *GatewaySubnet*。
+* 閘道子網路名稱："GatewaySubnet"，您必須一律將閘道器子網路命名為 *GatewaySubnet*。
 * 閘道子網路位址空間 = "192.168.200.0/26"
 * 區域 = "East US"
 * 閘道名稱 = "GW"
@@ -36,62 +34,58 @@ ms.locfileid: "31613614"
 ## <a name="add-a-gateway"></a>新增閘道
 1. 連接到您的 Azure 訂用帳戶。
 
-  ```powershell 
-  Connect-AzureRmAccount
-  Get-AzureRmSubscription 
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
+   [!INCLUDE [Sign in](expressroute-cloud-shell-connect.md)]
 2. 宣告您在本練習中使用的變數。 請務必編輯範例，以反映您要使用的設定。
 
-  ```powershell 
-  $RG = "TestRG"
-  $Location = "East US"
-  $GWName = "GW"
-  $GWIPName = "GWIP"
-  $GWIPconfName = "gwipconf"
-  $VNetName = "TestVNet"
-  ```
+   ```azurepowershell-interactive 
+   $RG = "TestRG"
+   $Location = "East US"
+   $GWName = "GW"
+   $GWIPName = "GWIP"
+   $GWIPconfName = "gwipconf"
+   $VNetName = "TestVNet"
+   ```
 3. 將虛擬網路物件儲存為變數。
 
-  ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-  ```
-4. 將閘道子網路加入至虛擬網路。 閘道子網路必須命名為 "GatewaySubnet"。 您應建立 /27 或更大 (/26、/25 等) 的閘道子網路。
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+   ```
+4. 將閘道子網路加入至虛擬網路。 网关子网必须命名为“GatewaySubnet”。 您應建立 /27 或更大 (/26、/25 等) 的閘道子網路。
 
-  ```powershell
-  Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
-  ```
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
 5. 設定組態。
 
-  ```powershell
-  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 6. 將閘道子網路儲存為變數。
 
-  ```powershell
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+   ```
 7. 要求公用 IP 位址。 建立閘道之前需要有 IP 位址。 您無法指定想要使用的 IP 位址；該 IP 位址會以動態方式進行配置。 下一個組態章節將使用此 IP 位址。 AllocationMethod 必須是動態的。
 
-  ```powershell
-  $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
-  ```
-8. 建立適用於閘道的組態。 閘道器組態定義要使用的子網路和公用 IP 位址。 在此步驟中，您要指定在建立閘道將使用的組態。 這個步驟不會實際建立閘道物件。 使用以下的範例來建立閘道器組態。
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+   ```
+8. 建立適用於閘道的組態。 网关配置定义要使用的子网和公共 IP 地址。 在此步驟中，您要指定在建立閘道將使用的組態。 這個步驟不會實際建立閘道物件。 使用以下的範例來建立閘道器組態。
 
-  ```powershell
-  $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
-  ```
+   ```azurepowershell-interactive
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+   ```
 9. 建立閘道。 在這個步驟中， **-GatewayType** 特別重要。 您必須使用值 **ExpressRoute**。 執行這些 Cmdlet 之後，閘道需要花費 45 分鐘或更久的時間來建立。
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
+   ```
 
 ## <a name="verify-the-gateway-was-created"></a>確認已建立閘道
 使用下列命令，確認已建立閘道：
 
-```powershell
-Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
+```azurepowershell-interactive
+Get-AzVirtualNetworkGateway -ResourceGroupName $RG
 ```
 
 ## <a name="resize-a-gateway"></a>調整閘道器大小
@@ -102,14 +96,14 @@ Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
 > 
 > 
 
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+```azurepowershell-interactive
+$gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>移除閘道器
 使用下列命令來移除閘道：
 
-```powershell
-Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 ```

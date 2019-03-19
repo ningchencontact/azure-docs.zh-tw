@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698321"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103480"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso 移轉：將內部部署 Linux 應用程式重新裝載至 Azure VM
 
@@ -314,17 +314,17 @@ Contoso 管理員現在可以開始複寫 **OSTICKETWEB** VM。
 
 3. 他們會選取 **OSTICKETWEB** VM 進行複寫。 
 
-    - 在這個階段，他們只會選取 **OSTICKETWEB**，因為必須選取 VNet 和子網路，而且 VM 不在相同的子網路中。
-    - 啟用 VM 複寫時，Site Recovery 會自動安裝行動服務。
+   - 在這個階段，他們只會選取 **OSTICKETWEB**，因為必須選取 VNet 和子網路，而且 VM 不在相同的子網路中。
+   - 啟用 VM 複寫時，Site Recovery 會自動安裝行動服務。
 
-    ![啟用複寫](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![啟用複寫](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. 在 VM 屬性中，他們會選取處理序伺服器所用的帳戶，以在電腦上自動安裝行動服務。
 
      ![行動服務](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. 在 [複寫設定] > [設定複寫設定] 中，他們會確認已套用正確的複寫原則，然後選取 [啟用複寫]。
-6.  他們在 [作業] 中追踨複寫進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
+6. 他們在 [作業] 中追踨複寫進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
 
 
 
@@ -374,11 +374,11 @@ Contoso 管理員會執行快速測試容錯移轉，然後遷移 VM。
     ![復原計畫](./media/contoso-migration-rehost-linux-vm/recovery-plan.png)
 
 2. 建立方案之後，他們會選取它自訂進行自訂 ([復原方案] > [OsTicketMigrationPlan] > [自訂])。
-3.  他們會從 [群組 1：啟動] 移除 **OSTICKETWEB**。  這樣可確保第一個啟動動作只會影響 **OSTICKETMYSQL**。
+3.  移除**OSTICKETWEB**從**群組 1:啟動**。  這樣可確保第一個啟動動作只會影響 **OSTICKETMYSQL**。
 
     ![復原群組](./media/contoso-migration-rehost-linux-vm/recovery-group1.png)
 
-4.  在 [+群組] > [新增受保護項目] 中，他們會將 **OSTICKETWEB** 新增至 [群組 2：開始]。  他們需要將這些項目放在兩個不同的群組中。
+4.  在  **+ 群組** > **新增受保護的項目**，他們將其新增**OSTICKETWEB**至**群組 2:啟動**。  他們需要將這些項目放在兩個不同的群組中。
 
     ![復原群組](./media/contoso-migration-rehost-linux-vm/recovery-group2.png)
 
@@ -408,7 +408,7 @@ Contoso 管理員現在已準備好在復原方案上執行容錯移轉，以便
 
 ### <a name="connect-the-vm-to-the-database"></a>將 VM 連線到資料庫
 
-在移轉程序的最後一個步驟中，Contoso 管理員會將應用程式的連接字串更新為指向在 **OSTICKETMYSQL** VM 上執行的應用程式資料庫。 
+移轉程序中最後一個步驟中，Contoso 系統管理員會更新為指向上執行的應用程式資料庫的應用程式的連接字串**OSTICKETMYSQL** VM。 
 
 1. 他們會使用 Putty 或另一個 SSH 用戶端，對 **OSTICKETWEB** VM 進行 SSH 連線。 VM 為私用的，所以會使用私人 IP 位址進行連線。
 

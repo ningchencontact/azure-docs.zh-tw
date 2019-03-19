@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4f6dbb52778893de0468dbab82351b9020af2927
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: HT
+ms.openlocfilehash: cae657736d78958259c04dee48034f97ac9d3d1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412804"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871223"
 ---
 # <a name="create-an-azure-application-offer"></a>建立 Azure 應用程式供應項目
 
@@ -27,7 +27,7 @@ ms.locfileid: "53412804"
 
 ## <a name="new-offer-form"></a>新增供應項目表單
 
-登入 [Cloud Partner 入口網站](http://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表上，選取 [Azure 應用程式] 以顯示 [新增供應項目] 表單，然後開始定義新供應項目的資產程序。
+登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表上，選取 [Azure 應用程式] 以顯示 [新增供應項目] 表單，然後開始定義新供應項目的資產程序。
 
 ![新增供應項目表單](./media/azure-new-managedapp-offer.png)
 

@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4067a54326d0a4a8ab9029dd4afceea384cf6aa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188625"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107741"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>如何將已授權的使用者新增至群組以便在 Azure Active Directory 中授權
 
@@ -39,17 +39,17 @@ ms.locfileid: "56188625"
 
 4. 確認授權已套用至這些群組中的所有使用者。 此應用程式可以透過檢查每個群組上的處理狀態以及檢查稽核記錄來完成。
 
-  - 您可以特別檢查個別使用者，方法是查看他們的授權詳細資料。 您會看到他們具有從群組「直接」和「繼承」指派的相同授權。
+   - 您可以特別檢查個別使用者，方法是查看他們的授權詳細資料。 您會看到他們具有從群組「直接」和「繼承」指派的相同授權。
 
-  - 您可以執行 PowerShell 指令碼，以[確認授權指派給使用者的方式](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses)。
+   - 您可以執行 PowerShell 指令碼，以[確認授權指派給使用者的方式](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses)。
 
-  - 當相同的產品授權同時直接和透過群組指派給使用者時，只能有一個授權由使用者取用。 因此不需要額外授權即可執行移轉。
+   - 當相同的產品授權同時直接和透過群組指派給使用者時，只能有一個授權由使用者取用。 因此不需要額外授權即可執行移轉。
 
 5. 確認沒有授權指派失敗，方法是檢查每個群組中是否有使用者處於錯誤狀態。 如需詳細資訊，請參閱[識別及解決群組的授權問題](licensing-groups-resolve-problems.md)。
 
 6. 請考慮移除原始的直接指派；您可能想要「一波一波」逐漸地進行，以便先監視使用者子集上的結果。
 
-  您可以留著使用者上的原始直接指派，但是當使用者離開其授權群組時，將仍保留原始授權，而這可能不是您所想要的。
+   您可以留著使用者上的原始直接指派，但是當使用者離開其授權群組時，將仍保留原始授權，而這可能不是您所想要的。
 
 ## <a name="an-example"></a>範例
 
@@ -61,25 +61,25 @@ ms.locfileid: "56188625"
 
 2. 對於每個群組，確認針對所有使用者已完成授權指派。 移至每個群組中的刀鋒視窗，選取 [授權]，然後在 [授權] 刀鋒視窗頂端檢查處理狀態。
 
-  - 尋找「最新的授權變更已套用至所有使用者」以確認處理已完成。
+   - 尋找「最新的授權變更已套用至所有使用者」以確認處理已完成。
 
-  - 在最上層尋找任何使用者的授權可能尚未成功指派的相關通知。 我們對於某些使用者是否已用盡授權？ 某些使用者是否有衝突的授權 SKU，使其無法繼承群組授權？
+   - 在最上層尋找任何使用者的授權可能尚未成功指派的相關通知。 我們對於某些使用者是否已用盡授權？ 某些使用者是否有衝突的授權 SKU，使其無法繼承群組授權？
 
 3. 特別檢查某些使用者，以確認其套用直接和群組授權。 移至使用者的刀鋒視窗，選取 [授權]，然後檢查授權狀態。
 
-  - 這是移轉期間預期的使用者狀態︰
+   - 這是移轉期間預期的使用者狀態︰
 
       ![預期的使用者狀態](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-  這可確認使用者同時具有直接和繼承的授權。 我們看到同時指派 **EMS** 和 **E3**。
+   這可確認使用者同時具有直接和繼承的授權。 我們看到同時指派 **EMS** 和 **E3**。
 
-  - 選取每個授權，以顯示已啟用服務的相關詳細資料。 這可以用來檢查直接和群組授權是否針對使用者啟用完全相同的服務方案。
+   - 選取每個授權，以顯示已啟用服務的相關詳細資料。 這可以用來檢查直接和群組授權是否針對使用者啟用完全相同的服務方案。
 
       ![檢查服務方案](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. 在確認直接和群組授權是對等的之後，您可以開始從使用者移除直接授權。 您可以藉由在入口網站中移除個別使用者的直接授權來進行測試，然後再執行自動化指令碼，將它們大量移除。 以下是透過入口網站移除直接授權的相同使用者範例。 請注意，授權狀態會維持不變，但是我們不會再看見直接指派。
 
-  ![直接授權已移除](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+   ![直接授權已移除](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 
 ## <a name="next-steps"></a>後續步驟

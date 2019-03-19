@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf73708be8a8bc597b70d0cb50fc337efa72906
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 23d829ad9b85b6e7944f6dd534ea7fbb3f92a0d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211677"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887912"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>在 Azure Active Directory 中將靜態群組成員資格變更為動態
 
@@ -33,7 +33,7 @@ ms.locfileid: "56211677"
 
 ## <a name="change-the-membership-type-for-a-group"></a>變更群組的成員資格類型
 
-1. 使用具備您租用戶中全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
+1. 登入[Azure AD 系統管理中心](https://aad.portal.azure.com)是全域管理員或使用者系統管理員在您的租用戶中的帳戶。
 2. 選取 [群組]。
 3. 從 [所有群組] 清單中，開啟您想要變更的群組。
 4. 選取 [屬性] 。

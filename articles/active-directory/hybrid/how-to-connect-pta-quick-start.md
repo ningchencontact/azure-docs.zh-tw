@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415862"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101001"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
      如果您的防火牆會根據原始使用者強制執行規則，請開啟這些連接埠，讓來自以網路服務形式執行之 Windows 服務的流量得以通行。
    - 如果您的防火牆或 Proxy 允許建立 DNS 允許清單，便可將對 **\*.msappproxy.net** 與 **\*.servicebus.windows.net** 的連線加入允許清單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
    - 您的驗證代理程式必須存取 **login.windows.net** 與 **login.microsoftonline.com**才能進行初始註冊， 因此也請針對這些 URL 開啟您的防火牆。
-   - 為了驗證憑證，請解除封鎖以下 URL：**mscrl.microsoft.com:80**、**crl.microsoft.com:80**、**ocsp.msocsp.com:80** 和 **www.microsoft.com:80**。 由於這些 URL 會用於其他 Microsoft 產品的憑證驗證，因此您可能已將這些 URL 解除封鎖。
+   - 驗證憑證，請解除封鎖下列 Url: **mscrl.microsoft.com:80**， **crl.microsoft.com:80**， **ocsp.msocsp.com:80**，和**www\.microsoft.com:80**。 由於這些 URL 會用於其他 Microsoft 產品的憑證驗證，因此您可能已將這些 URL 解除封鎖。
 
 ## <a name="step-2-enable-the-feature"></a>步驟 2：啟用此功能
 

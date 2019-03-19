@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083949"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>使用 Azure Logic Apps 建立並執行週期性工作和工作流程
 
@@ -95,10 +95,10 @@ ms.locfileid: "54107832"
 
 您可以設定重複觸發程序的下列屬性。
 
-| Name | 必要 | 屬性名稱 | 類型 | 說明 | 
+| 名稱 | 必要項 | 屬性名稱 | 類型 | 描述 | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **頻率** | 是 | frequency | 字串 | 用於週期的時間單位：**秒**、**分鐘**、**小時**、**天**、**週**或**月** | 
-| **間隔** | 是 | interval | 整數  | 描述工作流程根據 frequency 多久執行一次的正整數。 <p>預設間隔是 1。 以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 | 
+| **間隔** | 是 | interval | 整數  | 描述工作流程根據 frequency 多久執行一次的正整數。 <p>預設間隔是 1。 以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 | 
 | **時區** | 否 | timeZone | 字串 | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 選取您要套用的時區。 | 
 | **開始時間** | 否 | startTime | 字串 | 提供下列格式的開始時間： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後選取時區，例「美國太平洋時間」。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**附註：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不選取時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 [*我可以使用開始日期和時間的方式有哪些？*](#start-time) | 
 | **在這幾天內** | 否 | weekDays | 字串或字串陣列 | 如果您選取 [週]，可以選取想要在哪一天或哪幾天執行工作流程：**星期一**、**星期二**、**星期三**、**星期四**、**星期五**、**星期六**和**星期日** | 
@@ -202,7 +202,7 @@ ms.locfileid: "54107832"
 | 開始時間 | 第一次執行時間 | 未來的執行時間 | 
 | ---------- | ------------ | ---------- | 
 | 2017-09-**07**下午 2:00 | 2017-09-**09**下午 2:00 | 2017-09-**11**下午 2:00 </br>2017-09-**13**下午 2:00 </br>2017-09-**15**下午 2:00 </br>依此類推。
-||||| 
+||||
 
 所以對於此案例而言，無論您指定的開始時間 (例如，2017-09-**05**下午 2:00 或 2017-09-**01**下午 2:00) 已經過了多久，第一次執行的時間都相同。
 

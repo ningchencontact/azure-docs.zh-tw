@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079021"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 將網路安全性群組流程記錄視覺化
 
@@ -56,10 +56,10 @@ ms.locfileid: "54913292"
 
 1. 在 Power BI Desktop 應用程式的[網路監看員 PowerBI 流程記錄範本](https://aka.ms/networkwatcherpowerbiflowlogstemplate)中，下載並開啟下列 Power BI 範本
 1. 輸入必要的查詢參數
-    1. **StorageAccountName** – 指定儲存體帳戶的名稱，此帳戶包含您想要載入和視覺化的 NSG 流程記錄。
-    1. **NumberOfLogFiles** – 指定您想要在 Power BI 中下載和視覺化的記錄檔數目。 例如，指定 50 代表最新的 50 個記錄檔。 如果我們有 2 個 NSG 已啟用並設定為將 NSG 流程記錄傳送至這個帳戶，則可以檢視過去 25 小時的記錄。
+   1. **StorageAccountName** – 指定儲存體帳戶的名稱，此帳戶包含您想要載入和視覺化的 NSG 流程記錄。
+   1. **NumberOfLogFiles** – 指定您想要在 Power BI 中下載和視覺化的記錄檔數目。 例如，指定 50 代表最新的 50 個記錄檔。 如果我們有 2 個 NSG 已啟用並設定為將 NSG 流程記錄傳送至這個帳戶，則可以檢視過去 25 小時的記錄。
 
-    ![power BI 主畫面][2]
+      ![power BI 主畫面][2]
 
 1. 輸入儲存體帳戶的存取金鑰。 您可以在 Azure 入口網站瀏覽至您的儲存體帳戶，然後從 [設定] 功能表選取 [存取金鑰]，即可找到有效的存取金鑰。 按一下 [連線]，然後套用變更。
 
@@ -67,7 +67,7 @@ ms.locfileid: "54913292"
 
     ![存取金鑰 2][4]
 
-4.  您的記錄已下載和剖析，現在可以利用預先建立的視覺效果。
+4. 您的記錄已下載和剖析，現在可以利用預先建立的視覺效果。
 
 ## <a name="understanding-the-visuals"></a>了解視覺效果
 
