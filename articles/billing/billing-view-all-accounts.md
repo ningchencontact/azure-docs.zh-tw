@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 入口網站檢視您所有的帳單帳戶 | Microsoft Docs
-description: 了解如何在 Azure 入口網站中檢視您的個人合約和 Enterprise 合約的帳單帳戶。
+title: 在 Azure 入口網站中檢視您的帳單帳戶 |Microsoft Docs
+description: 了解如何在 Azure 入口網站中檢視您的計費帳戶。
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,33 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: a9f299f8987b5a2023d668d41c98b473f1a626d4
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 31e4eb1d6493c8de99ac48e09dfb2b8b6481b70a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902257"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854274"
 ---
-# <a name="view-all-your-billing-accounts-in-azure-portal"></a>在 Azure 入口網站檢視您所有的帳單帳戶  
+# <a name="view-your-billing-accounts-in-azure-portal"></a>在 Azure 入口網站中檢視您的帳單帳戶  
 
-您的 Azure 帳單的關聯性是由帳單帳戶所定義。 您可以擁有多個帳單帳戶。 舉例而言，您可能擁有個人專案所用的 Azure 訂用帳戶， 但也可以透過貴組織的 Enterprise 合約獲得 Azure 的使用權限。 前往 Azure 入口網站中的 [成本管理 + 帳單](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview)，即可檢視您所有的帳單帳戶。
+針對每份合約，若要使用 Azure 登入與 Microsoft 建立計費的帳戶。 您使用您的帳單帳戶來管理您的發票與付款方法，並追蹤 Azure 服務的成本。 您可以有多個計費帳戶的存取權。 比方說，您可能已註冊 Azure 為您個人的專案。 您也可以透過您組織的 Enterprise 合約或 Microsoft 客戶合約的存取。 針對每個這些案例中，您必須使用個別的帳單帳戶。
 
-目前只能檢視您個人的帳單帳戶和 Enterprise 合約的帳單帳戶。 預設情況下， [成本管理 + 帳單](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview)頁面會顯示您的個人帳單帳戶。 不過，您可以前往 [帳單帳戶] 進行變更。
+Azure 入口網站目前支援下列類型的計費帳戶：
 
-您可以在 [Azure 入口網站](https://portal.azure.com)管理和檢視個人帳單帳戶的所有費用。 不過，在 Enterprise 合約帳戶的部分，只能檢視 Azure 保留購買項目、餘額和月初至今的費用。 這些 Enterprise 合約功能為預覽狀態，除非您具有 Enterprise 系統管理員的角色，否則無法使用上述功能。
+- **Microsoft Online Services Program**:當您註冊 Azure 透過 Azure 網站時，會建立 Microsoft Online Services 方案的計費帳戶。 例如，當您申請[Azure 免費帳戶](https://azure.microsoft.com/offers/ms-azr-0044p/)， [Azure 預付優惠](https://azure.microsoft.com/offers/ms-azr-0003p/)或是[Visual studio 訂閱者](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)。
 
-## <a name="change-billing-account-view"></a>變更檢視的帳單帳戶 
+- **Enterprise 合約**：當貴組織註冊 Enterprise 合約使用 Azure 建立的 Enterprise 合約帳單帳戶。 Enterprise 合約的計費帳戶的系統管理員使用部門和計費範圍來管理及組織其組織的計費帳戶。
 
-1.  登入 [Azure 入口網站](https://portal.azure.com)。
+- **Microsoft 客戶合約**:當貴組織註冊 Microsoft 客戶合約使用 Azure 建立的 Microsoft 客戶合約計費帳戶。 Microsoft 客戶合約的計費帳戶的系統管理員使用計費的設定檔和發票計費範圍來管理及組織其組織的計費的區段。 如需詳細資訊，請參閱 <<c0> [ 開始使用您的帳單帳戶的 Microsoft 客戶合約](billing-mca-overview.md)。
 
-2.  在入口網站左側選取 [成本管理 + 帳單]。 
+## <a name="change-billing-account-view-in-the-azure-portal"></a>變更計費帳戶在 Azure 入口網站中的檢視
 
-3.  預設狀況下，您會看見個人帳單帳戶 (如果您有該類帳戶的話)。 如果您沒有個人帳單帳戶，或您想要變更為 Enterprise 合約帳戶，請選取 [帳單帳戶]。
+範圍是使用者用來檢視及管理計費的帳單帳戶內的節點。 例如，Microsoft Online Services 方案的計費帳戶具有只範圍-計費帳戶，而計費帳戶的 Enterprise 合約帳單帳戶、 部門和帳戶範圍。 您可以存取多個計費的範圍，根據預設，如果其中一個範圍會顯示在 Azure 成本管理 + 計費 頁面。 您可以依照下列指示來變更範圍：
 
-4.  選取帳戶即可檢視詳細資料。 若為 Enterprise 合約，您只會看見您身為 Enterprise 系統管理員的帳單帳戶。 未來會支援其他 Enterprise 合約角色。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-    ![顯示帳單帳戶列表的螢幕截圖](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+2. 針對 [成本管理 + 帳單] 進行搜尋。
+
+   ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
+
+3. 選取 **計費的所有領域**從左邊出現。
+
+   ![顯示所有計費範圍的螢幕擷取畫面](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+
+4. 選取範圍以檢視詳細資料。
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
+如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

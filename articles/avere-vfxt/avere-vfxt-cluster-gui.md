@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300467"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856836"
 ---
 # <a name="access-the-vfxt-cluster"></a>存取 vFXT 叢集
 
@@ -31,7 +31,7 @@ vFXT 叢集位於私人虛擬網路內，因此您必須建立 SSH 通道，或�
 
 如果使用 Linux 型用戶端，請使用這種形式的 SSH 通道命令： 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 此命令會透過叢集控制器的 IP 位址，連線到叢集的管理 IP 位址。
 
@@ -47,7 +47,7 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
 此範例會使用一般 Windows 型終端機公用程式 (PuTTY)。
 
-請在 PuTTY **hostname** 欄位中填入叢集控制器的使用者名稱及其 IP 位址：*your_username*@*controller_public_IP*。
+請在 PuTTY **hostname** 欄位中填入叢集控制器的使用者名稱及其 IP 位址：*your_username*\@*controller_public_IP*。
 
 範例： ``azureuser@203.0.113.51``
 
@@ -69,7 +69,7 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
 此步驟使用網頁瀏覽器連線到 vFXT 叢集上執行的設定公用程式。
 
-* 針對 SSH 通道連線，開啟網頁瀏覽器並巡覽至 https://127.0.0.1:8443 。 
+* 針對 SSH 通道連線，開啟網頁瀏覽器並巡覽至 `https://127.0.0.1:8443` 。 
 
   您在建立通道時連線到叢集 IP 位址，因此您只需要在瀏覽器中使用 localhost IP 位址。 如果您使用 8443 以外的本機連接埠，請改為使用連接埠號碼。
 
