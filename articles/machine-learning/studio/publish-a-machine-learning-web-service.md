@@ -5,17 +5,17 @@ description: 如何將訓練實驗轉換為預測實驗，將其準備妥當進�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895718"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>部署 Azure Machine Learning Studio Web 服務
 
@@ -93,23 +93,23 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 
 若要使用 RRS 測試，請從清單檢視模式，針對輸入輸入適當的值，並按一下 [測試要求-回應] 。 您的預測結果會顯示在左邊的輸出資料行。
 
-![部署 Web 服務](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![輸入適當的值，以測試您的 web 服務](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 若要測試您的 BES，請按一下 [批次] 。 在 [批次] 測試頁面上，在您的輸入下按一下 [瀏覽] 並選取包含適當範例值的 CSV 檔案。 如果您沒有 CSV 檔案，而且是使用 Machine Learning Studio 建立預測實驗，您可以下載預測實驗的資料集來使用。
 
 若要下載資料集，請開啟 Machine Learning Studio。 開啟您的預測實驗，並以滑鼠右鍵按一下實驗的輸入。 從操作功能表中，選取 [資料集]，然後選取 [下載]。
 
-![部署 Web 服務](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![從 Studio 畫布下載您的資料集](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 按一下 [ **測試**]。 批次執行作業的狀態會顯示在右邊的 [測試批次作業] 之下。
 
-![部署 Web 服務](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![測試您的批次執行作業，使用 web 服務入口網站](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
 在 [組態] 頁面上，可以變更 Web 服務的描述、標題、更新儲存體帳戶金鑰，以及啟用範例資料。
 
-![設定 Web 服務](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![設定您的 web 服務](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
 ### <a name="access-your-new-web-service"></a>存取新式 Web 服務
 
@@ -161,7 +161,7 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 
 若要部署您的預測實驗，請按一下實驗畫布底端的 [執行]，然後按一下 [部署 Web 服務]。 系統會設定 Web 服務，且會將您帶往 Web 服務儀表板。
 
-![部署 Web 服務](./media/publish-a-machine-learning-web-service/figure-2.png)
+![部署您的 web 服務，從 Studio](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>測試傳統 Web 服務
 
@@ -181,7 +181,7 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 
 您可以啟用記錄來診斷您在 Web 服務被存取時看到的任何錯誤。 如需詳細資訊，請參閱 [為 Machine Learning Studio Web 服務啟用記錄](web-services-logging.md)。
 
-![設定 Web 服務](./media/publish-a-machine-learning-web-service/figure-4.png)
+![在 web 服務入口網站中啟用記錄](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 您也可以在 Azure Machine Learning Web 服務入口網站中設定 Web 服務的端點，作法類似先前在「新式 Web 服務」一節所示的程序。 選項有所不同，您可以新增或變更服務描述、啟用記錄，以及啟用範例資料進行測試。
 
@@ -209,7 +209,7 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 > [!NOTE]
 > 如果您在原始 Web 服務中進行組態變更，例如輸入新的顯示名稱或說明，則您必須再次輸入這些值。
 
-更新 Web 服務的一個選擇是以程式設計方式重新定型模型。 如需詳細資訊，請參閱[以程式設計方式重新定型 Machine Learning Studio 模型](retrain-models-programmatically.md)。
+更新 Web 服務的一個選擇是以程式設計方式重新定型模型。 如需詳細資訊，請參閱[以程式設計方式重新定型 Machine Learning Studio 模型](/azure/machine-learning/studio/retrain-machine-learning-model)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -219,13 +219,12 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 
 * 有數種方法可以使用 REST API 和存取 Web 服務。 請參閱[如何使用 Azure Machine Learning Studio Web 服務](consume-web-services.md)。
 
-
 <!-- internal links -->
 [建立訓練實驗]: #create-a-training-experiment
 [將其轉換為預測實驗]: #convert-the-training-experiment-to-a-predictive-experiment
 [新式 Web 服務]: #deploy-it-as-a-new-web-service
 [傳統 Web 服務]: #deploy-it-as-a-classic-web-service
-[新式]: #deploy-the-predictive-experiment-as-a-new-web-service
+[新式]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal

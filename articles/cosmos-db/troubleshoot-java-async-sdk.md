@@ -9,12 +9,12 @@ ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 86e5a0a0cf4c820efdcc65505d11e2fb0c198f0b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039838"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880035"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>針對搭配 Azure Cosmos DB SQL API 帳戶使用 Java Async SDK 時所發生的問題進行疑難排解
 此文章涵蓋搭配 Azure Cosmos DB SQL API 帳戶使用 [Java Async SDK](sql-api-sdk-async-java.md) 時的常見問題、因應措施、診斷步驟與工具。
@@ -150,6 +150,40 @@ createObservable
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>無法連線至 Azure Cosmos DB 模擬器
 
 Azure Cosmos DB 模擬器的 HTTPS 憑證是自我簽署的。 針對要與模擬器搭配運作的 SDK，將模擬器憑證匯入到 Java TrustStore。 如需詳細資訊，請參閱[匯出 Azure Cosmos DB 模擬器憑證](local-emulator-export-ssl-certificates.md)。
+
+### <a name="dependency-conflict-issues"></a>相依性衝突問題
+
+```console
+Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
+```
+
+上述的例外狀況會建議您在較舊版本的 RxJava lib (例如 1.2.2) 上的相依性。 我們的 SDK 會依賴 RxJava 1.3.8 包含不適用於舊版 RxJava 的 Api。 
+
+因應措施是要找出其相依性的這類 issuses 帶入 RxJava 1.2.2 及排除對 RxJava-1.2.2 的可轉移相依性，並允許 CosmosDB SDK 將較新版本。
+
+若要識別哪一個程式庫帶入 RxJava 1.2.2 旁您的專案 pom.xml 檔案中執行下列命令：
+```bash
+mvn dependency:tree
+```
+如需詳細資訊，請參閱 < [maven 相依性樹狀結構輔助線](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)。
+
+一旦您找出 RxJava 1.2.2 是專案的可轉移相依性的其他相依性，您可以修改相依性它 lib 在您的 pom 檔案和排除 RxJava 可轉移相依性：
+
+```xml
+<dependency>
+  <groupId>${groupid-of-lib-which-brings-in-rxjava1.2.2}</groupId>
+  <artifactId>${artifactId-of-lib-which-brings-in-rxjava1.2.2}</artifactId>
+  <version>${version-of-lib-which-brings-in-rxjava1.2.2}</version>
+  <exclusions>
+    <exclusion>
+      <groupId>io.reactivex</groupId>
+      <artifactId>rxjava</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+```
+
+如需詳細資訊，請參閱 <<c0> [ 排除可轉移相依性指南](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)。
 
 
 ## <a name="enable-client-sice-logging"></a>啟用用戶端 SDK 記錄

@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104147"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990029"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Azure 事件中樞 - 驗證和安全性模型
 
@@ -32,7 +32,7 @@ Azure 事件中樞安全性模型符合下列需求：
 
 ## <a name="client-authentication"></a>用戶端驗證
 
-事件中樞安全性模型是以 [共用存取簽章 (SAS)](../service-bus-messaging/service-bus-sas.md) 權杖和「事件發行者」的組合為基礎。 事件發行者會定義事件中樞的虛擬端點。 發行者只能用來將訊息傳送到事件中樞。 您無法接收來自發佈者的訊息。
+事件中樞安全性模型是以 [共用存取簽章 (SAS)](../service-bus-messaging/service-bus-sas.md) 權杖和「事件發行者」的組合為基礎。 事件發行者會定義事件中樞的虛擬端點。 發行者只能用來將訊息傳送到事件中樞。 无法从发布者接收消息。
 
 一般而言，事件中樞會針對每個用戶端採用一個發行者。 系統會將傳送到事件中樞之任何發行者的所有訊息，排入該事件中樞內的佇列中。 發行者會啟用更細緻的存取控制和節流。
 
@@ -40,7 +40,7 @@ Azure 事件中樞安全性模型符合下列需求：
 
 您可以讓裝置具備可授與事件中樞直接存取權的權杖，不過並不建議這樣做。 任何擁有此權杖的裝置都可以將訊息直接傳送到該事件中樞。 這類裝置將不受節流所約束。 此外，您也無法將這類裝置加入黑名單，以禁止其傳送到該事件中樞。
 
-所有權杖都經過 SAS 金鑰簽署。 一般而言，所有權杖都會經過同一個金鑰簽署。 用戶端並不知道該金鑰；這可避免其他用戶端製造權杖。
+所有令牌都使用 SAS 密钥进行签名。 一般而言，所有權杖都會經過同一個金鑰簽署。 用戶端並不知道該金鑰；這可避免其他用戶端製造權杖。
 
 ### <a name="create-the-sas-key"></a>建立 SAS 金鑰
 
@@ -68,13 +68,13 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>產生權杖
 
-您可以使用 SAS 金鑰來產生權杖。 您只能為每個用戶端產生一個權杖。 您可以使用下列方法來產生權杖。 所有權杖都是以 **EventHubSendKey** 金鑰產生。 每個權杖均有一個指派的唯一 URI。
+您可以使用 SAS 金鑰來產生權杖。 您只能為每個用戶端產生一個權杖。 您可以使用下列方法來產生權杖。 所有權杖都是以 **EventHubSendKey** 金鑰產生。 每個權杖均有一個指派的唯一 URI。 'Resource' 參數對應至 URI 的服務端點 （在本例中的 「 事件中樞 」）。
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-在呼叫這個方法時，您應該將 URI 指定為 `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`。 此 URI 對所有權杖來說是完全相同的，但 `PUBLISHER_NAME`除外，每個權杖的該項目應該是不同的。 在理想的情況下，`PUBLISHER_NAME` 代表收到該權杖之用戶端的識別碼。
+在呼叫這個方法時，您應該將 URI 指定為 `https://<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`。 此 URI 對所有權杖來說是完全相同的，但 `PUBLISHER_NAME`除外，每個權杖的該項目應該是不同的。 在理想的情況下，`PUBLISHER_NAME` 代表收到該權杖之用戶端的識別碼。
 
 這個方法會產生具有下列結構的權杖：
 
@@ -94,7 +94,7 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 建立權杖之後，系統就會為每個用戶端佈建其自己的唯一權杖。
 
-當用戶端將資料傳送到事件中樞時，會使用權杖標記自己傳送的要求。 為了防止攻擊者竊聽及竊取權杖，用戶端與事件中樞之間的通訊必須透過已加密的通道進行。
+當用戶端將資料傳送到事件中樞時，會使用權杖標記自己傳送的要求。 为了防止攻击者窃听和盗取令牌，客户端与事件中心之间的通信必须通过加密通道进行。
 
 ### <a name="blacklisting-clients"></a>將用戶端列入黑名單
 
@@ -113,10 +113,10 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 若要深入了解事件中樞，請造訪下列主題：
 
 * [事件中心概觀]
-* [共用存取簽章的概觀]
-* [使用事件中樞的完整範例應用程式]
+* [共享访问签名概述]
+* [使用事件中心的示例应用程序]
 
 [事件中心概觀]: event-hubs-what-is-event-hubs.md
-[使用事件中樞的完整範例應用程式]: https://github.com/Azure/azure-event-hubs/tree/master/samples
-[共用存取簽章的概觀]: ../service-bus-messaging/service-bus-sas.md
+[使用事件中心的示例应用程序]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[共享访问签名概述]: ../service-bus-messaging/service-bus-sas.md
 

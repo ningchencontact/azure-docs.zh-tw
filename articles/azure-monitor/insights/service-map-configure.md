@@ -1,24 +1,24 @@
 ---
 title: 在 Azure 中設定服務對應 | Microsoft Docs
 description: 服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
-ms.author: bwren
-ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.author: magoedte
+ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822694"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995133"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉以檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -28,8 +28,10 @@ ms.locfileid: "55822694"
 ## <a name="supported-azure-regions"></a>支援的 Azure 區域
 服務對應目前已在以下 Azure 區域中推出：
 - 美國東部
-- 西歐
 - 美國中西部
+- 加拿大中部
+- 英國南部
+- 西歐
 - 東南亞
 
 ## <a name="supported-windows-operating-systems"></a>支援的 Windows 作業系統
@@ -40,6 +42,7 @@ ms.locfileid: "55822694"
 >
 
 ### <a name="windows-server"></a>Windows Server
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -59,17 +62,13 @@ ms.locfileid: "55822694"
 - 只支援預設版本和 SMP Linux 核心版本。
 - 所有 Linux 散發套件皆不支援非標準的核心版本 (例如 PAE 和 Xen)。 舉例來說，版本字串為「2.6.16.21-0.8-xen」的系統就不受支援。
 - 不支援自訂核心，包括重新編譯的標準核心。
-- 不支援 CentOSPlus 核心。
+- 支援 CentOSPlus 核心。
 - Oracle Unbreakable Enterprise Kernel (UEK) 在本文稍後的章節有相關討論。
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | 作業系統版本 | 核心版本 |
 |:--|:--|
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7.2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
@@ -78,49 +77,36 @@ ms.locfileid: "55822694"
 
 | 作業系統版本 | 核心版本 |
 |:--|:--|
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6.5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### <a name="centosplus"></a>CentOSPlus
+| 作業系統版本 | 核心版本 |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
 | 作業系統版本 | 核心版本 |
 |:--|:--|
-| Ubuntu 18.04 | 核心 4.15.* |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | 核心 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>搭載 Unbreakable Enterprise Kernel 的 Oracle Enterprise Linux 6
-| 作業系統版本 | 核心版本
-|:--|:--|
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4 | Oracle 2.6.39-400 (UEK R2) |
-| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
-
-### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>搭載 Unbreakable Enterprise Kernel 的 Oracle Enterprise Linux 5
+### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
 | 作業系統版本 | 核心版本
 |:--|:--|
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+| 11 SP4 | 3.0.* |
 
-## <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
+### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | 作業系統版本 | 核心版本
 |:--|:--|
-|12 SP2 | 4.4.* |
-|12 SP3 | 4.4.* |
+| 12 SP2 | 4.4.* |
+| 12 SP3 | 4.4.* |
 
 ## <a name="dependency-agent-downloads"></a>Dependency Agent 下載
 
@@ -132,11 +118,11 @@ ms.locfileid: "55822694"
 ## <a name="connected-sources"></a>連接的來源
 服務對應會從 Microsoft Dependency Agent 取得它的資料。 Dependency Agent 須憑藉 Log Analytics 代理程式才能連線至 Log Analytics。 這表示，伺服器必須先安裝 Log Analytics 代理程式，並設定 Dependency Agent。  下表描述服務對應解決方案支援的連線來源。
 
-| 連線的來源 | 支援 | 說明 |
+| 連線的來源 | 支援 | 描述 |
 |:--|:--|:--|
-| Windows 代理程式 | yes | 服務對應會分析並收集來自 Windows 電腦的資料。 <br><br>除了[適用於 Windows 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Windows 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱＜支援的作業系統＞。 |
-| Linux 代理程式 | yes | 服務對應會分析並收集來自 Linux 電腦的資料。 <br><br>除了[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Linux 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱＜支援的作業系統＞。 |
-| System Center Operations Manager 管理群組 | yes | 服務對應會在連線的 [System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Log Analytics。 |
+| Windows 代理程式 | 是 | 服務對應會分析並收集來自 Windows 電腦的資料。 <br><br>除了[適用於 Windows 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Windows 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱＜支援的作業系統＞。 |
+| Linux 代理程式 | 是 | 服務對應會分析並收集來自 Linux 電腦的資料。 <br><br>除了[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)以外，Linux 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱＜支援的作業系統＞。 |
+| System Center Operations Manager 管理群組 | 是 | 服務對應會在連線的 [System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)中，分析並收集來自 Windows 和 Linux 代理程式的資料。 <br><br>System Center Operations Manager 代理程式電腦必須直接連線到 Log Analytics。 |
 | Azure 儲存體帳戶 | 否 | 服務對應會收集來自代理程式電腦的資料，因此不會從 Azure 儲存體收集資料。 |
 
 在 Windows 上，System Center Operations Manager 和 Log Analytics 會使用 Microsoft Monitoring Agent (MMA) 來收集和傳送監視資料。 (視內容而定，此代理程式可稱為 System Center Operations Manager 代理程式、Log Analytics 代理程式、MMA 或直接代理程式)System Center Operations Manager 和 Log Analytics 提供的預設 MMA 版本不同。 這些版本可以各自向 System Center Operations Manager 或 Log Analytics 報告，或同時向兩者報告。  
@@ -173,6 +159,8 @@ Dependency Agent 一般會耗用 0.1% 的系統記憶體和 0.1% 的系統 CPU�
 
 ## <a name="installation"></a>安裝
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="azure-vm-extension"></a>Azure VM 擴充功能
 有一個可供 Windows (DependencyAgentWindows) 和 Linux (DependencyAgentLinux) 使用的擴充功能，您可以使用 [Azure VM 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)輕鬆地將 Dependency Agent 部署至您的 Azure VM。  透過 Azure VM 擴充功能，您可以使用 PowerShell 指令碼，或直接在 VM 中使用 Azure Resource Manager 範本，將 Dependency Agent 部署至您的 Windows 和 Linux VM。  如果您使用 Azure VM 擴充功能來部署代理程式，您的代理程式就可自動更新為最新版本。
 
@@ -188,7 +176,7 @@ $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
 
-Get-AzureRmVM -ResourceGroupName $rmgroup |
+Get-AzVM -ResourceGroupName $rmgroup |
 ForEach-Object {
     ""
     $name = $_.Name
@@ -198,7 +186,7 @@ ForEach-Object {
     "${name}: ${os} (${location})"
     Date -Format o
     $ext = $OsExtensionMap.($os.ToString())
-    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    $result = Set-AzVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
     -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
     $result.IsSuccessStatusCode
 }
@@ -244,7 +232,7 @@ ForEach-Object {
 
     InstallDependencyAgent-Windows.exe /?
 
-| 旗標 | 說明 |
+| 旗標 | 描述 |
 |:--|:--|
 | /? | 取得命令列選項的清單。 |
 | /S | 執行無訊息安裝，不會出現任何使用者提示。 |
@@ -270,7 +258,7 @@ Windows Dependency Agent 的檔案預設位於 C:\Program Files\Microsoft Depend
 
     InstallDependencyAgent-Linux64.bin -help
 
-| 旗標 | 說明 |
+| 旗標 | 描述 |
 |:--|:--|
 | -help | 取得命令列選項的清單。 |
 | -s | 執行無訊息安裝，不會出現任何使用者提示。 |
@@ -374,7 +362,7 @@ Microsoft Dependency Agent 建置於 Microsoft Visual Studio 執行階段程式�
 
 下表列出代碼和建議的解決方式。
 
-| 代碼 | 說明 | 解決方案 |
+| 代碼 | 描述 | 解決方案 |
 |:--|:--|:--|
 | 0x17 | 程式庫安裝程式會要求尚未安裝的 Windows 更新。 | 查看最新的程式庫安裝程式記錄。<br><br>如果提到 "Windows8.1-KB2999226-x64.msu"，隨後一行是 "Error 0x80240017:Failed to execute MSU package"，則表示您尚未具備安裝 KB2999226 所需的必要條件。 請依照 [Windows 中的通用 C 執行階段](https://support.microsoft.com/kb/2999226) \(機器翻譯\) 中必要條件一節的指示進行。 您可能需要執行 Windows Update 並重新開機多次，才能安裝必要條件。<br><br>再次執行 Microsoft Dependency Agent 安裝程式。 |
 

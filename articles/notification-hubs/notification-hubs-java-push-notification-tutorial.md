@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 45ff4ff79a443e49a7d01a41a249db9e4d0a070b
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 993eafd5a0b74be706d13fe8e06483c223f81eb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560799"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901180"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>如何從 Java 使用通知中樞
 
@@ -69,7 +69,7 @@ SDK 目前支援：
     hub = namespaceManager.createNotificationHub(hub);
     ```
 
- 或
+ 或者
 
     ```java
     hub = new NotificationHub("connection string", "hubname");
@@ -178,7 +178,7 @@ SDK 目前支援：
     hub.getRegistrationsByChannel("devicetoken");
     ```
 
-所有集合查詢都支援 $top 和接續權杖。
+所有集合查询都支持 $top 和继续标记。
 
 ### <a name="installation-api-usage"></a>安裝 API 的使用方式
 
@@ -389,4 +389,4 @@ SDK 目前支援：
 [傳送當地語系化的即時新聞]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [傳送通知給已驗證的使用者]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [傳送跨平台通知給已驗證的使用者]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Maven]: http://maven.apache.org/
+[Maven]: https://maven.apache.org/

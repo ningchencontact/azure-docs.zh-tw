@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 15d85d30f73a9880a6a68a62ab208bb0bdbf5402
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 84b1cfd54f5ff9e6a29c975622847e3ae6304bf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107146"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
@@ -33,7 +33,7 @@ Hyper-V (不含 Virtual Machine Manager) | 您可以針對在不是由 Virtual M
 
 **伺服器** | **需求** | **詳細資料**
 --- | --- | ---
-Hyper-V (執行時不含 Virtual Machine Manager) | Windows Server 2016 (包括 Server Core 安裝)、具有最新更新的 Windows Server 2012 R2 | 對於位在執行 Windows Server 2016 之主機上的 VM，不支援復原到替代位置。<br/><br/> 如果您已使用 Azure Site Recovery 設定 Windows Server 2012 R2 和/或 SCVMM 2012 R2，並且打算升級作業系統，請依照此[文件](upgrade-2012R2-to-2016.md)的說明進行。 
+Hyper-V (執行時不含 Virtual Machine Manager) | Windows Server 2016 (包括 Server Core 安裝)、具有最新更新的 Windows Server 2012 R2 | 如果您已使用 Azure Site Recovery 設定 Windows Server 2012 R2 和/或 SCVMM 2012 R2，並且打算升級作業系統，請依照此[文件](upgrade-2012R2-to-2016.md)的說明進行。 
 Hyper-V (執行時含 Virtual Machine Manager) | Virtual Machine Manager 2016、Virtual Machine Manager 2012 R2 | 使用 Virtual Machine Manager 時，Windows Server 2016 主機應在 Virtual Machine Manager 2016 中管理。<br/><br/>
 
 
@@ -80,7 +80,7 @@ Azure ExpressRoute | 是 | 是
 ILB | 是 | 是
 ELB | 是 | 是
 Azure 流量管理員 | 是 | 是
-多個 NIC | 是 | 是
+多 NIC | 是 | 是
 保留的 IP | 是 | 是
 IPv4 | 是 | 是
 保留來源 IP 位址 | 是 | 是
@@ -91,7 +91,7 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是 | �
 ## <a name="hyper-v-host-storage"></a>Hyper-V 主機儲存體
 
 **儲存體** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
---- | --- | --- | ---
+--- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | 是 | 是
 SAN (ISCSI) | 是 | 是
@@ -116,9 +116,9 @@ RDM | NA | NA
 邏輯磁碟區管理 (LVM)。 資料磁碟上才支援 LVM。 Azure 只提供單一 OS 磁碟。 | 是 | 是
 使用等量磁碟的磁碟區 > 1 TB | 是 | 是
 儲存空間 | 是 | 是
-熱新增/移除磁碟 | 否 | 否
+热添加/移除磁盘 | 否 | 否
 排除磁碟 | 是 | 是
-多重路徑 (MPIO) | 是 | 是
+多路径 (MPIO) | 是 | 是
 
 ## <a name="azure-storage"></a>Azure 儲存體
 
@@ -168,7 +168,7 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 
 **Action** |  **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否 | 否
+在資源群組間移動保存庫<br/><br/> 订阅内和跨订阅移动 | 否 | 否
 跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否 | 否
 
 > [!NOTE]
@@ -180,7 +180,7 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 若要確定您的部署與本文中的設定相容，請確定您所執行的是最新的提供者和代理程式版本。
 
 **名稱** | **說明** | **詳細資料**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Azure Site Recovery 提供者 | 協調內部部署伺服器與 Azure 之間的通訊 <br/><br/> Hyper-V (含 Virtual Machine Manager)：安裝在 Virtual Machine Manager 伺服器<br/><br/> Hyper-V (不含 Virtual Machine Manager)：安裝在 Hyper-V 主機| 最新版本：5.1.2700.1 (可從 Azure 入口網站取得)<br/><br/> [最新功能和修正](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure 復原服務代理程式 | 協調 HYPER-V VM 與 Azure 之間的複寫<br/><br/> 安裝在內部部署 Hyper-V 伺服器上 (無論是否有 Virtual Machine Manager) | 最新的代理程式可從入口網站取得
 

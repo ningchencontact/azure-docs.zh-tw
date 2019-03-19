@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997560"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -209,7 +209,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Token` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於驗證權杖的變數名稱。 請參閱[從程式碼使用驗證權杖輸入繫結](#token-input-code)。|
 |**type**||必要項目 - 必須設定為 `token`。|
@@ -344,7 +344,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Excel` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於 Excel 資料表的變數名稱。 請參閱[從程式碼使用 Excel 資料表輸入繫結](#excel-input-code)。|
 |**type**||必要項目 - 必須設定為 `excel`。|
@@ -360,6 +360,7 @@ module.exports = function (context, req) {
 ### <a name="excel-input---usage"></a>Excel 輸入 - 使用方式
 
 這個繫結需要下列 Azure AD 權限︰
+
 |資源|權限|
 |--------|--------|
 |Microsoft Graph|讀取使用者檔案|
@@ -505,7 +506,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Excel` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於驗證權杖的變數名稱。 請參閱[從程式碼使用 Excel 資料表輸出繫結](#excel-output-code)。|
 |**type**||必要項目 - 必須設定為 `excel`。|
@@ -522,6 +523,7 @@ module.exports = function (context, req) {
 ### <a name="excel-output---usage"></a>Excel 輸出 - 使用方式
 
 這個繫結需要下列 Azure AD 權限︰
+
 |資源|權限|
 |--------|--------|
 |Microsoft Graph|可以完整存取使用者檔案|
@@ -650,7 +652,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `OneDrive` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於檔案的變數名稱。 請參閱[從程式碼使用 OneDrive 檔案輸入繫結](#onedrive-input-code)。|
 |**type**||必要項目 - 必須設定為 `onedrive`。|
@@ -664,6 +666,7 @@ module.exports = function (context, req) {
 ### <a name="file-input---usage"></a>檔案輸入 - 使用方式
 
 這個繫結需要下列 Azure AD 權限︰
+
 |資源|權限|
 |--------|--------|
 |Microsoft Graph|讀取使用者檔案|
@@ -797,7 +800,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `OneDrive` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於檔案的變數名稱。 請參閱[從程式碼使用 OneDrive 檔案輸出繫結](#onedrive-output-code)。|
 |**type**||必要項目 - 必須設定為 `onedrive`。|
@@ -811,6 +814,7 @@ module.exports = function (context, req) {
 #### <a name="file-output---usage"></a>檔案輸出 - 使用方式
 
 這個繫結需要下列 Azure AD 權限︰
+
 |資源|權限|
 |--------|--------|
 |Microsoft Graph|可以完整存取使用者檔案|
@@ -947,7 +951,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Outlook` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
 |**type**||必要項目 - 必須設定為 `outlook`。|
@@ -960,6 +964,7 @@ module.exports = function (context, req) {
 ### <a name="outlook-output---usage"></a>Outlook 輸出 - 使用方式
 
 這個繫結需要下列 Azure AD 權限︰
+
 |資源|權限|
 |--------|--------|
 |Microsoft Graph|以使用者的身分傳送電子郵件|
@@ -1089,7 +1094,7 @@ module.exports = function (context) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebHookTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
 |**type**||必要項目 - 必須設定為 `graphWebhook`。|
@@ -1241,12 +1246,12 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebHookSubscription` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
 |**type**||必要項目 - 必須設定為 `graphWebhookSubscription`。|
 |**direction**||必要項目 - 必須設定為 `in`。|
-|**filter**|**Filter**| 如果設定為 `userFromRequest`，繫結就只會擷取呼叫使用者擁有的訂用帳戶 (僅在搭配 [HTTP 觸發程序]時有效)。| 
+|**filter**|**Filter**| 如果设置为 `userFromRequest`，则此绑定将只检索调用者所拥有的订阅（仅对 [HTTP 觸發程序]有效）。| 
 
 ### <a name="webhook-input---usage"></a>Webhook 輸入 - 使用方式
 
@@ -1382,7 +1387,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebHookSubscription` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
 |**type**||必要項目 - 必須設定為 `graphWebhookSubscription`。|

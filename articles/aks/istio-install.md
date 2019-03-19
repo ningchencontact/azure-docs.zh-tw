@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: f34d8c547738921374eaf5edcfcec4911423d9dc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: d85b830b63e2d52f3eeb5df8645edccfccf43c76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138145"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
 
@@ -38,7 +38,7 @@ ms.locfileid: "55699206"
 
 ## <a name="download-istio"></a>下載 Istio
 
-首先，下載並解壓縮最新的 Istio 版本。 在 MacOS、Linux 或適用於 Linux 的 Windows 子系統上的 Bash 殼層與 PowerShell 殼層，其步驟稍有不同。 請選擇下列其中一個適用於您慣用環境的安裝步驟：
+首先，下載並解壓縮最新的 Istio 版本。 步驟適用於 MacOS、 Linux 或適用於 Linux，和 PowerShell 殼層的 Windows 子系統上的 bash 殼層稍有不同。 請選擇下列其中一個適用於您慣用環境的安裝步驟：
 
 * [MacOS、Linux 或適用於 Linux 的 Windows 子系統上的 Bash](#bash)
 * [PowerShell](#powershell)
@@ -82,7 +82,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 `istioctl` 用戶端二進位檔會在用戶端電腦上執行，並可讓您管理 Istio 路由規則和原則。 同樣地，各個用戶端作業系統之間的安裝步驟稍有不同。 請選擇下列其中一個適用於您慣用環境的安裝步驟。
 
 > [!IMPORTANT]
-> 從您在上一節下載並解壓縮的 Istio 版本最上層資料夾，執行所有剩餘的步驟。
+> 請確定在此區段中，執行步驟，從您下載並解壓縮的 Istio 版次的最上層資料夾。
 
 ### <a name="macos"></a>MacOS
 
@@ -145,6 +145,12 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 ```
 
 ## <a name="install-the-istio-kubernetes-components"></a>安裝 Istio Kubernetes 元件
+
+> [!IMPORTANT]
+> 請確定在此區段中，執行步驟，從您下載並解壓縮的 Istio 版次的最上層資料夾。
+
+> [!NOTE]
+> 版本`1.0.6`和較新的 Istio Helm 圖表有重大變更。 如果您選取要安裝此版本中，您現在必須手動建立 Kiali 祕密。 您也必須以手動方式建立祕密的 Grafana，如果您已將`grafana.security.enabled=true`。 請參閱 Istio Helm 圖表[README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart)如需有關如何建立這些機密資料的詳細資訊。
 
 若要將 Istio 元件安裝到 AKS 叢集，請使用 Helm。 將 Istio 資源安裝到 `istio-system` 命名空間，然後啟用關於安全性和監視的其他選項，如下所示：
 

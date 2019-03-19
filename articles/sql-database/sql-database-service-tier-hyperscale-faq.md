@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099766"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075930"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -45,7 +45,7 @@ ms.locfileid: "56099766"
 - 商務關鍵服務層適用於 IO 延遲是優先考量的商務工作負載。
 
 | | 資源類型 | 一般用途 |  超大規模 | 業務關鍵 |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **適用對象** |全部|  大部分的商業工作負載。 提供以預算為導向且平衡的計算與儲存體選項。 | 具有大型資料容量需求，且能夠自動調整儲存體並流暢地調整計算的資料應用程式。 | 具有高交易率和最低延遲 IO 的 OLTP 應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|
 |  **資源類型** ||單一資料庫/彈性集區/受控執行個體 | 單一資料庫 | 單一資料庫/彈性集區/受控執行個體 |
 | **計算大小**|單一資料庫/彈性集區 * | 1 到 80 個虛擬核心 | 1 到 80 個虛擬核心* | 1 到 80 個虛擬核心 |
@@ -73,7 +73,7 @@ ms.locfileid: "56099766"
 
 ### <a name="what-regions-currently-support-hyperscale"></a>目前有哪些區域支援超大規模
 
-超大規模目前可在下列區域的單一資料庫中使用：美國西部 1、美國西部 2、美國東部 1、美國中部、西歐、北歐、英國西部、東南亞、日本東部、韓國中部、澳大利亞東南部和澳大利亞東部。
+超大規模目前可在下列區域的單一資料庫中使用：西部 US1、 美國西部 2、 東亞 US1、 美國中部、 西歐、 北歐、 東南亞、 日本東部、 韓國中部、 澳大利亞東南部、 和澳大利亞東部。
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>是否可為每個 SQL Database 伺服器建立多個超大規模資料庫
 
@@ -198,7 +198,7 @@ SQL Database 超大規模架構不僅支援大型資料庫，同時也可提供�
 
 ### <a name="is-database-compression-supported"></a>是否支援資料庫壓縮
 
-yes
+是
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>如果我有很大的資料表，資料表的資料是否會分散到多個資料檔案
 
@@ -257,7 +257,7 @@ SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Azure SQL Database 服務是否會為我管理資料庫備份
 
-yes
+是
 
 ### <a name="how-often-are-the-database-backups-taken"></a>資料庫備份多久執行一次
 
@@ -265,7 +265,7 @@ SQL Database 超大規模資料庫並沒有傳統的完整、差異和記錄備�
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>「SQL Database 超大規模」是否支援時間點還原
 
-yes
+是
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>「SQL Database 超大規模」中的備份/還原具有怎樣的復原點目標 (RPO)/復原時間目標 (RTO)
 
