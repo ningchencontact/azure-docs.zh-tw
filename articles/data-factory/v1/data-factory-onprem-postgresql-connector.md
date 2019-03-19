@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081826"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,12 +50,12 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 - 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 - 您也可以使用下列工具來建立管線：
-    - Azure 入口網站
-    - Visual Studio
-    - Azure PowerShell
-    - Azure Resource Manager 範本
-    - .NET API
-    - REST API
+  - Azure 入口網站
+  - Visual Studio
+  - Azure PowerShell
+  - Azure Resource Manager 範本
+  - .NET API
+  - REST API
 
     如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
@@ -72,7 +72,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 PostgreSQL 連結服務專屬 JSON 元素的描述。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**OnPremisesPostgreSql** |是 |
 | 伺服器 |PostgreSQL 伺服器的名稱。 |是 |
@@ -88,7 +88,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。 **RelationalTable** 資料集類型的 typeProperties 區段 (包含 PostgreSQL 資料集) 具有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | tableName |PostgreSQL 資料庫執行個體中連結服務所參照的資料表名稱。 tableName 會區分大小寫。 |否 (如果已指定 **RelationalSource** 的 **query**) |
 
@@ -99,7 +99,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 當來源的類型為 **RelationalSource** (包括 PostgreSQL) 時，typeProperties 區段中會有下列可用屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如： `"query": "select * from \"MySchema\".\"MyTable\""` 。 |否 (如果已指定 **dataset** 的 **tableName**) |
 
@@ -306,46 +306,46 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 | PostgreSQL 資料庫類型 | PostgresSQL 別名 | .NET Framework 類型 |
 | --- | --- | --- |
-| abstime | |DateTime | &nbsp;
+| abstime | |DateTime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte[]、String | &nbsp;
+| bit [(n)] | |Byte[]、String |
 | 位元不同 [ (n) ] |varbit |Byte[]、String |
 | 布林值 |布林 |BOOLEAN |
-| 方塊 | |Byte[]、String |&nbsp;
-| bytea | |Byte[]、String |&nbsp;
+| 方塊 | |Byte[]、String |
+| bytea | |Byte[]、String |
 | character [(n)] |char [(n)] |字串 |
 | character varying [(n)] |varchar [(n)] |字串 |
-| cid | |字串 |&nbsp;
-| cidr | |字串 |&nbsp;
-| 圓形 | |Byte[]、String |&nbsp;
-| 日期 | |DateTime |&nbsp;
-| daterange | |字串 |&nbsp;
-| 雙精度 |float8 |兩倍 |
-| inet | |Byte[]、String |&nbsp;
-| intarry | |字串 |&nbsp;
-| int4range | |字串 |&nbsp;
-| int8range | |字串 |&nbsp;
+| cid | |字串 |
+| cidr | |字串 |
+| 圓形 | |Byte[]、String |
+| 日期 | |DateTime |
+| daterange | |字串 |
+| 雙精度 |float8 |Double |
+| inet | |Byte[]、String |
+| intarry | |字串 |
+| int4range | |字串 |
+| int8range | |字串 |
 | integer |int, int4 |Int32 |
-| interval [fields] [(p)] | |Timespan |&nbsp;
-| json | |字串 |&nbsp;
-| jsonb | |Byte[] |&nbsp;
-| 線條 | |Byte[]、String |&nbsp;
-| lseg | |Byte[]、String |&nbsp;
-| macaddr | |Byte[]、String |&nbsp;
-| money | |十進位 |&nbsp;
-| numeric [(p, s)] |decimal [(p, s)] |十進位 |
-| numrange | |字串 |&nbsp;
-| oid | |Int32 |&nbsp;
-| path | |Byte[]、String |&nbsp;
-| pg_lsn | |Int64 |&nbsp;
-| 點 | |Byte[]、String |&nbsp;
-| 多邊形 | |Byte[]、String |&nbsp;
-| real |float4 |單一 |
+| interval [fields] [(p)] | |Timespan |
+| json | |字串 |
+| jsonb | |Byte[] |
+| 線條 | |Byte[]、String |
+| lseg | |Byte[]、String |
+| macaddr | |Byte[]、String |
+| money | |Decimal |
+| numeric [(p, s)] |decimal [(p, s)] |Decimal |
+| numrange | |字串 |
+| oid | |Int32 |
+| path | |Byte[]、String |
+| pg_lsn | |Int64 |
+| 點 | |Byte[]、String |
+| 多邊形 | |Byte[]、String |
+| real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |字串 |&nbsp;
+| text | |字串 |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
 若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。

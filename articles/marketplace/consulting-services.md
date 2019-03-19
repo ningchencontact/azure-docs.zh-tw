@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213616"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078750"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 的諮詢服務
 Azure Marketplace 和 AppSource 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用和商務目標。 
@@ -41,12 +41,12 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 
 以 Microsoft Dynamics 365、Office 365 和 Power BI 為基礎的服務供應項目有資格列入 AppSource。 如需詳細資訊，請參閱 [Microsoft AppSource 諮詢服務清單指導方針](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)。 
 
->[!Note]
->Azure Marketplace 的諮詢服務應該利用**技術受眾導向的供應項目，著重於 *Azure 技術解決方案和服務*。 ** AppSource 中的諮詢服務應利用其專業面向的供應項目，針對要在 AppSource 上列出諮詢服務供應項目的 Dynamics 365、Power BI 或 PowerApps 提供高品質的解決方案
-
-
->[!TIP]
->若要發行至 Azure Marketplace 店面，需在 Cloud Partner 入口網站中的 [主要產品] 下拉式功能表選擇 [Azure]，來進行選取。 若要發行至 AppSource，需在 Cloud Partner 入口網站中的 [主要產品] 下拉式功能表選擇 [Dynamics 365]、[Power BI] 或 [Power Apps]，來進行選取。
+> [!Note]
+> Azure Marketplace 的諮詢服務應該利用**技術受眾導向的供應項目，著重於 *Azure 技術解決方案和服務*。 ** AppSource 中的諮詢服務應利用其專業面向的供應項目，針對要在 AppSource 上列出諮詢服務供應項目的 Dynamics 365、Power BI 或 PowerApps 提供高品質的解決方案
+> 
+> 
+> [!TIP]
+> 若要發行至 Azure Marketplace 店面，需在 Cloud Partner 入口網站中的 [主要產品] 下拉式功能表選擇 [Azure]，來進行選取。 若要發行至 AppSource，需在 Cloud Partner 入口網站中的 [主要產品] 下拉式功能表選擇 [Dynamics 365]、[Power BI] 或 [Power Apps]，來進行選取。
 
 ## <a name="eligible-partners-and-supported-countries"></a>合格的合作夥伴和支援的國家/地區
 
@@ -156,7 +156,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 
 檢閱供應項目描述和供應項目摘要時，小組會套用下列準則：
 
-|供應項目類型  |必要 |建議  |
+|供應項目類型  |必要項 |建議  |
 |---------|---------|---------|
 |**評量**    |   包含多天或多週評量的詳細議程，並且清楚表達客戶可以預期有什麼交付成果      |    使用您的熱門搜尋引擎最佳化關鍵字來最佳化供應項目摘要     |
 |**簡報**    |   清楚表達客戶可以預期有什麼交付成果。 請記住，簡報必須親赴現場提供。 如果您提供虛擬服務，請選擇不同的供應項目類型    |  使用您的熱門搜尋引擎最佳化關鍵字來最佳化供應項目摘要       |

@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810715"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107452"
 ---
-# <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
+# <a name="offline-backup-workflow-in-azure-backup"></a>Azure 备份中的脱机备份工作流
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 透過離線植入程序，Azure 備份可以使用磁碟將離線備份資料上傳至 Azure。
 
 Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md)緊密整合，可讓您使用磁碟將初始備份資料傳輸到 Azure。 如果您的初始備份資料大小達到 TB，且需要透過高延遲和低頻寬網路傳輸時，您可以使用離線植入工作流程將初始備份複本送至 Azure 資料中心的一個或多個硬碟上。 下圖提供工作流程中的步驟概觀。
@@ -73,7 +73,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
     ![匯入畫面](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  輸入的說明如下：
+   輸入的說明如下：
 
     * **暫存位置**：寫入初始備份副本的暫時儲存位置。 暫存位置可能位於網路共用或本機電腦上。 如果複本電腦和來源電腦不同，則建議您指定預備位置的完整網路路徑。
     * **Azure Resource Manager 儲存體帳戶**：任何 Azure 訂用帳戶中 Resource Manager 類型儲存體帳戶的名稱。
@@ -81,7 +81,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
     * **Azure 訂用帳戶識別碼**：Azure 儲存體帳戶建立所在的 Azure 訂用帳戶識別碼。
     * **Azure 匯入作業名稱**：Azure 匯入服務和 Azure 備份在追蹤磁碟上傳送至 Azure 之資料的傳輸活動時所使用的唯一名稱。 
   
-  在畫面上提供輸入，然後按 [下一步]。 儲存所提供的「暫存位置」和「Azure 匯入作業名稱」 ，因為這是準備磁碟時所需的資訊。
+   在畫面上提供輸入，然後按 [下一步]。 儲存所提供的「暫存位置」和「Azure 匯入作業名稱」 ，因為這是準備磁碟時所需的資訊。
 
 2. 出現系統提示時，登入您的 Azure 訂用帳戶。 您必須先登入，Azure 備份才能建立 Azure Active Directory 應用程式，並提供必要的權限來存取 Azure 匯入服務。
 
@@ -106,20 +106,20 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 1. 移至該目錄，然後將 **AzureOfflineBackupDiskPrep** 目錄複製到已連接 SATA 磁碟機的另一部電腦。 在已連接 SATA 磁碟機的電腦上，請確定：
 
-    * 複本電腦可使用在 **起始離線備份** 工作流程中所提供的相同網路路徑，存取離線植入工作流程的預備位置。
-    * 已在複本電腦上啟用 BitLocker。
-    * 已安裝 Azure PowerShell 3.7.0。
-    * 已安裝最新相容的瀏覽器 (Microsoft Edge 或 Internet Explorer 11) 並已啟用 JavaScript。 
-    * 複本電腦可以存取 Azure 入口網站。 必要時，複本電腦可以與來源電腦相同。
+   * 複本電腦可使用在 **起始離線備份** 工作流程中所提供的相同網路路徑，存取離線植入工作流程的預備位置。
+   * 已在複本電腦上啟用 BitLocker。
+   * 已安裝 Azure PowerShell 3.7.0。
+   * 已安裝最新相容的瀏覽器 (Microsoft Edge 或 Internet Explorer 11) 並已啟用 JavaScript。 
+   * 複本電腦可以存取 Azure 入口網站。 必要時，複本電腦可以與來源電腦相同。
     
-    > [!IMPORTANT] 
-    > 如果來源電腦是虛擬機器，則複本電腦必須是與來源電腦不同的實體伺服器或用戶端電腦。
+     > [!IMPORTANT] 
+     > 如果來源電腦是虛擬機器，則複本電腦必須是與來源電腦不同的實體伺服器或用戶端電腦。
 
 2. 在複本電腦上以 *AzureOfflineBackupDiskPrep* 公用程式目錄作為目前的目錄來開啟已提高權限的命令提示字元，然後執行下列命令：
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | 參數 | 說明 |
+    | 參數 | 描述 |
     | --- | --- |
     | s:&lt;*預備位置路徑*&gt; |強制性輸入用來提供在**起始離線備份**工作流程中所輸入的暫存位置路徑。 |
     | p:&lt;*PublishSettingsFile 的路徑*&gt; |選擇性輸入內容，用來提供在**起始離線備份**工作流程中所輸入的 **Azure 發佈設定**檔案路徑。 |
@@ -137,11 +137,11 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
     工具接著便會開始準備磁碟並複製備份資料。 當工具顯示提示時，您可能需要連接額外的磁碟，以免所提供的磁碟沒有足夠空間來容納備份資料。 <br/>
 
     在工具順利執行結束時，命令提示字元會提供三項資訊：
-    1. 您所提供的一或多個磁碟已準備好寄送到 Azure。 
-    2. 您會收到已建立匯入作業的確認。 匯入作業會使用您提供的名稱。
-    3. 此工具會顯示 Azure 資料中心的寄送地址。
+   1. 您所提供的一或多個磁碟已準備好寄送到 Azure。 
+   2. 您會收到已建立匯入作業的確認。 匯入作業會使用您提供的名稱。
+   3. 此工具會顯示 Azure 資料中心的寄送地址。
 
-    ![Azure 磁碟準備完成](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Azure 磁碟準備完成](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. 在命令執行結束時，您可更新寄送資訊。
 

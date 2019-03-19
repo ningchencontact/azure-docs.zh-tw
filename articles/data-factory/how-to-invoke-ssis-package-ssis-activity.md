@@ -8,22 +8,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2a948a75ce3f6c21d7e92e3e1ccb1ef98dbe2ea0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 8e01ac4efa3c310b17e88351383861cbdccb68e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171103"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Execute SSIS 套件活動執行 SSIS 套件
 本文描述如何使用 Execute SSIS 套件活動，在 Azure Data Factory (ADF) 管線執行 SSIS 套件。 
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 如果您未依照以下教學課程中的逐步指示進行，請建立 Azure SSIS 整合執行階段 (IR)：[教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。
 
@@ -49,19 +51,19 @@ ms.locfileid: "56114377"
 
    ![在 [一般] 索引標籤上設定屬性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. 在 Execute SSIS 套件活動的 [設定] 索引標籤上，選取與 SSISDB 資料庫 (套件部署所在) 相關聯的 Azure-SSIS IR。 如果您的套件需要 32 位元執行階段以便執行，請核取 [32 位元執行階段] 核取方塊。 針對 [記錄層級]，針對您的套件執行選取預先定義的記錄範圍。 如果您想要改為輸入您的自訂記錄名稱，請核取 [自訂] 核取方塊。 執行您的 Azure-SSIS IR 且 [手動項目] 核取方塊未核取時，您可以瀏覽並從 SSISDB 選取現有資料夾/專案/套件/環境。 按一下 [重新整理] 按鈕，擷取您剛剛從 SSISDB 新增的資料夾/專案/套件/環境，讓它們可供瀏覽和選取。 
+4. 在 Execute SSIS 套件活動的 [設定] 索引標籤上，選取與 SSISDB 資料庫 (套件部署所在) 相關聯的 Azure-SSIS IR。 如果您的套件會使用 Windows 驗證來存取資料存放區，例如 SQL 伺服器/檔案共用內部部署，Azure 檔案等檢查**Windows 驗證**核取方塊，然後輸入網域/使用者名稱/密碼為您的封裝執行。 如果您的套件需要 32 位元執行階段以便執行，請核取 [32 位元執行階段] 核取方塊。 針對 [記錄層級]，針對您的套件執行選取預先定義的記錄範圍。 如果您想要改為輸入您的自訂記錄名稱，請核取 [自訂] 核取方塊。 執行您的 Azure-SSIS IR 且 [手動項目] 核取方塊未核取時，您可以瀏覽並從 SSISDB 選取現有資料夾/專案/套件/環境。 按一下 [重新整理] 按鈕，擷取您剛剛從 SSISDB 新增的資料夾/專案/套件/環境，讓它們可供瀏覽和選取。 
 
    ![在 [設定] 索引標籤上設定屬性 - 自動化](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   當您的 Azure-SSIS IR 未執行或已核取 [手動項目] 核取方塊時，您可以使用下列格式輸入來自 SSISDB 的套件和環境路徑：`<folder name>/<project name>/<package name>.dtsx` 和 `<folder name>/<environment name>`。
+   未執行您的 Azure SSIS IR 時或**手動的項目**核取方塊已核取，您可以從 SSISDB 輸入您的封裝和環境路徑，直接以下列格式：`<folder name>/<project name>/<package name>.dtsx`和`<folder name>/<environment name>`。
 
    ![在 [設定] 索引標籤上設定屬性 - 手動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. 在執行 SSIS 套件活動的 [SSIS 參數] 索引標籤上，當您的 Azure-SSIS IR 執行中且未核取 [設定] 索引標籤上的 [手動項目] 核取方塊時，會為您顯示從 SSISDB 選取的專案/套件的現有 SSIS 參數，讓您為它們指派值。 否則，您可以逐一輸入以手動將值指派給它們，請確定它們存在且已正確輸入，您的套件執行才會成功。 您也可以使用運算式、函式、ADF 系統變數及 ADF 管線參數/變數，將動態內容新增至其值。
+5. 在執行 SSIS 套件活動的 [SSIS 參數] 索引標籤上，當您的 Azure-SSIS IR 執行中且未核取 [設定] 索引標籤上的 [手動項目] 核取方塊時，會為您顯示從 SSISDB 選取的專案/套件的現有 SSIS 參數，讓您為它們指派值。 否則，您可以逐一輸入以手動將值指派給它們，請確定它們存在且已正確輸入，您的套件執行才會成功。 您可以將動態內容新增至它們使用運算式、 函式、 ADF 系統變數和 ADF 管線的參數/變數的值。 或者，您可以使用儲存在您的 Azure Key Vault (AKV) 做為其值的祕密。 若要這樣做，請按一下**AZURE KEY VAULT**相關的參數，旁邊的核取方塊選取/編輯現有連結的 AKV 服務或建立新的程式，然後選取祕密參數值的名稱/版本。  當您建立/編輯連結的 AKV 服務時，您可以選取/編輯您現有的 AKV 或建立新的連線，但請 ADF 受控身分識別存取權授與您 AKV 如果您還沒做這樣。 您也可以直接以下列格式輸入您的祕密： `<AKV linked service name>/<secret name>/<secret version>`。
 
    ![在 [SSIS 參數] 索引標籤上設定屬性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. 在執行 SSIS 套件活動的 [連線管理員] 索引標籤上，當您的 Azure-SSIS IR 執行中且未核取 [設定] 索引標籤上的 [手動項目] 核取方塊時，會為您顯示從 SSISDB 選取的專案/套件的現有連線管理員，讓您為它們指派值。 否則，您可以逐一輸入以手動將值指派給它們，請確定它們存在且已正確輸入，您的套件執行才會成功。 您也可以使用運算式、函式、ADF 系統變數及 ADF 管線參數/變數，將動態內容新增至其值。
+6. 上**連接管理員**索引標籤上執行 SSIS 套件活動，在執行您的 Azure SSIS IR 時，**手動項目**上的核取方塊**設定** 索引標籤上未選取，在您所選專案/套件從 SSISDB 的現有連接管理員會顯示，以將值指派給它們的屬性。 否則，您可以輸入它們其中一個用來以手動方式將值指派給它們的屬性，請確定它們存在，並且為您的封裝執行成功輸入正確的。 您可以將動態內容新增至它們使用運算式、 函式、 ADF 系統變數和 ADF 管線的參數/變數的屬性值。 或者，您可以使用儲存在您的 Azure Key Vault (AKV) 做為其屬性值的祕密。 若要這樣做，請按一下**AZURE KEY VAULT**相關屬性旁的核取方塊選取/編輯現有連結的 AKV 服務或建立新的程式，然後選取祕密名稱/版本的屬性值。  當您建立/編輯連結的 AKV 服務時，您可以選取/編輯您現有的 AKV 或建立新的連線，但請 ADF 受控身分識別存取權授與您 AKV 如果您還沒做這樣。 您也可以直接以下列格式輸入您的祕密： `<AKV linked service name>/<secret name>/<secret version>`。
 
    ![在 [連線管理員] 索引標籤上設定屬性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
@@ -111,7 +113,7 @@ ms.locfileid: "56114377"
 ## <a name="run-a-package-with-powershell"></a>使用 PowerShell 執行套件
 在本節中，您會使用 Azure PowerShell 來建立 ADF 管線，其中具有要執行 SSIS 套件的執行 SSIS 套件活動。 
 
-依照[如何安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)中的逐步指示，安裝最新的 Azure PowerShell 模組。
+依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-az-ps)中的逐步指示，安裝最新的 Azure PowerShell 模組。
 
 ### <a name="create-an-adf-with-azure-ssis-ir"></a>建立具有 Azure-SSIS IR 的 ADF
 您可以遵循下列教學課程中的逐步指示，使用已佈建 Azure-SSIS IR 的現有 ADF，或建立具有 Azure-SSIS IR 的新 ADF：[教學課程：透過 PowerShell 將 SSIS 套件部署至 Azure](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell)。
@@ -137,6 +139,14 @@ ms.locfileid: "56114377"
                        "referenceName": "myAzureSSISIR",
                        "type": "IntegrationRuntimeReference"
                    },
+                   "executionCredential": {
+                       "domain": "MyDomain",
+                       "userName": "MyUsername",
+                       "password": {
+                           "type": "SecureString",
+                           "value": "**********"
+                       }
+                   },
                    "runtime": "x64",
                    "loggingLevel": "Basic",
                    "packageLocation": {
@@ -146,11 +156,27 @@ ms.locfileid: "56114377"
                    "projectParameters": {
                        "project_param_1": {
                            "value": "123"
+                       },
+                       "project_param_2": {
+                           "value": {
+                               "value": "@pipeline().parameters.MyPipelineParameter",
+                               "type": "Expression"
+                           }
                        }
                    },
                    "packageParameters": {
                        "package_param_1": {
                            "value": "345"
+                       },
+                       "package_param_2": {
+                           "value": {
+                               "type": "AzureKeyVaultSecret",
+                               "store": {
+                                   "referenceName": "myAKV",
+                                   "type": "LinkedServiceReference"
+                               },
+                               "secretName": "MySecret"
+                           }
                        }
                    },
                    "projectConnectionManagers": {
@@ -169,12 +195,20 @@ ms.locfileid: "56114377"
                    "packageConnectionManagers": {
                        "MyOledbCM": {
                            "userName": {
-                               "value": "sa"
+                               "value": {
+                                   "value": "@pipeline().parameters.MyUsername",
+                                   "type": "Expression"
+                               }
                            },
                            "passWord": {
                                "value": {
-                                   "type": "SecureString",
-                                   "value": "def"
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyPassword",
+                                   "secretVersion": "3a1b74e361bf4ef4a00e47053b872149"
                                }
                            }
                        }
@@ -198,10 +232,10 @@ ms.locfileid: "56114377"
 
 2. 在 Azure PowerShell 中，切換至 `C:\ADF\RunSSISPackage` 資料夾。
 
-3. 若要建立管線 **RunSSISPackagePipeline**，請執行 **Set-AzureRmDataFactoryV2Pipeline** Cmdlet。
+3. 若要建立管線**RunSSISPackagePipeline**，請執行**組 AzDataFactoryV2Pipeline** cmdlet。
 
    ```powershell
-   $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+   $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                                   -ResourceGroupName $ResGrp.ResourceGroupName `
                                                   -Name "RunSSISPackagePipeline"
                                                   -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -218,10 +252,10 @@ ms.locfileid: "56114377"
    ```
 
 ### <a name="run-the-pipeline"></a>執行管道
-使用 **Invoke-AzureRmDataFactoryV2Pipeline** Cmdlet 執行管線。 Cmdlet 會傳回管線執行識別碼，方便後續監視。
+使用**Invoke AzDataFactoryV2Pipeline** cmdlet 執行管線。 Cmdlet 會傳回管線執行識別碼，方便後續監視。
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+$RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                              -ResourceGroupName $ResGrp.ResourceGroupName `
                                              -PipelineName $DFPipeLine.Name
 ```
@@ -232,7 +266,7 @@ $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataF
 
 ```powershell
 while ($True) {
-    $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
+    $Run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
                                                -DataFactoryName $DataFactory.DataFactoryName `
                                                -PipelineRunId $RunId
 
@@ -280,31 +314,31 @@ while ($True) {
    }    
    ```
 2. 在 **Azure PowerShell** 中，切換至 **C:\ADF\RunSSISPackage** 資料夾。
-3. 執行 **Set-AzureRmDataFactoryV2Trigger** Cmdlet，以建立觸發程序。 
+3. 執行**組 AzDataFactoryV2Trigger** cmdlet，以建立觸發程序。 
 
    ```powershell
-   Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                    -DataFactoryName $DataFactory.DataFactoryName `
                                    -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
    ```
-4. 觸發程序預設處於已停止狀態。 執行 **Start-AzureRmDataFactoryV2Trigger** Cmdlet 啟動觸發程序。 
+4. 觸發程序預設處於已停止狀態。 執行來啟動觸發程序**開始 AzDataFactoryV2Trigger** cmdlet。 
 
    ```powershell
-   Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                      -DataFactoryName $DataFactory.DataFactoryName `
                                      -Name "MyTrigger" 
    ```
-5. 執行 **Get-AzureRmDataFactoryV2Trigger** Cmdlet，確認觸發程序已啟動。 
+5. 確認 執行啟動觸發程序**Get AzDataFactoryV2Trigger** cmdlet。 
 
    ```powershell
-   Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
                                    -DataFactoryName $DataFactoryName `
                                    -Name "MyTrigger"     
    ```    
 6. 在下一個小時後，執行下列命令。 例如，如果目前的時間是 UTC 下午 3:25，請在 UTC 下午 4:00 執行命令。 
     
    ```powershell
-   Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
                                       -DataFactoryName $DataFactoryName `
                                       -TriggerName "MyTrigger" `
                                       -TriggerRunStartedAfter "2017-12-06" `

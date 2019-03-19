@@ -3,7 +3,7 @@ title: 驗證、要求和回應
 description: 使用 Key Vault 向 AD 驗證
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 57f04a79396cd286ea87e6a8cc7b37f5459fa14c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111521"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081775"
 ---
 # <a name="authentication-requests-and-responses"></a>驗證、要求和回應
 
@@ -31,17 +31,17 @@ Azure Key Vault 支援 JSON 格式化要求和回應。 搭配使用 HTTPS 與�
 
  若要使用 Azure Key Vault 中的物件，則範例 URL 如下：  
 
--   若要在 Key Vault 中 CREATE (建立) 稱為 TESTKEY 的金鑰，請使用：`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- 若要在 Key Vault 中 CREATE (建立) 稱為 TESTKEY 的金鑰，請使用：`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
--   若要將稱為 IMPORTEDKEY 的金鑰 IMPORT (匯入) 至 Key Vault，請使用：`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- 若要將稱為 IMPORTEDKEY 的金鑰 IMPORT (匯入) 至 Key Vault，請使用：`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
--   若要 GET (取得) Key Vault 中稱為 MYSECRET 的祕密，請使用：`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- 若要 GET (取得) Key Vault 中稱為 MYSECRET 的祕密，請使用：`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
--   若要使用 Key Vault 中稱為 TESTKEY 的金鑰來 SIGN (簽署) 摘要，請使用：`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- 若要使用 Key Vault 中稱為 TESTKEY 的金鑰來 SIGN (簽署) 摘要，請使用：`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
- 對 Key Vault 之要求的授權單位一律如下：`https://{keyvault-name}.vault.azure.net/`  
+  對 Key Vault 之要求的授權單位一律如下：`https://{keyvault-name}.vault.azure.net/`  
 
- 金鑰一律儲存在 /keys 路徑下方，祕密則一律儲存在 /secrets 路徑下方。  
+  金鑰一律儲存在 /keys 路徑下方，祕密則一律儲存在 /secrets 路徑下方。  
 
 ## <a name="api-version"></a>API 版本  
  儘管這些用戶端並非都能使用所有功能，但是 Azure Key Vault 服務支援通訊協定版本控制來提供與下層用戶端的相容性。 用戶端必須使用 `api-version` 查詢字串參數，指定其支援且沒有預設值之通訊協定的版本。  
@@ -64,17 +64,17 @@ Azure Key Vault 支援 JSON 格式化要求和回應。 搭配使用 HTTPS 與�
 ## <a name="error-responses"></a>錯誤回應  
  錯誤處理將會使用 HTTP 狀態碼。 一般結果為：  
 
--   2xx – 成功：用於一般作業。 回應本文將會包含預期的結果  
+- 2xx – 成功：用於一般作業。 回應本文將會包含預期的結果  
 
--   3xx – 重新導向：可能會傳回 304「未修改」，以滿足條件式 GET。 未來可能會使用其他 3xx 代碼指出 DNS 和路徑變更。  
+- 3xx – 重新導向：可能會傳回 304「未修改」，以滿足條件式 GET。 未來可能會使用其他 3xx 代碼指出 DNS 和路徑變更。  
 
--   4xx – 用戶端錯誤：用於不正確的要求、遺漏金鑰、語法錯誤、無效參數、驗證錯誤等等。回應本文將會包含詳細錯誤說明。  
+- 4xx – 用戶端錯誤：用於不正確的要求、遺漏金鑰、語法錯誤、無效參數、驗證錯誤等等。回應本文將會包含詳細錯誤說明。  
 
--   5xx – 伺服器錯誤：用於內部伺服器錯誤。 回應本文將會包含摘要錯誤資訊。  
+- 5xx – 伺服器錯誤：用於內部伺服器錯誤。 回應本文將會包含摘要錯誤資訊。  
 
- 系統設計成受到 Proxy 或防火牆保護。 因此，用戶端可能會收到其他錯誤碼。  
+  系統設計成受到 Proxy 或防火牆保護。 因此，用戶端可能會收到其他錯誤碼。  
 
- Azure Key Vault 也會在發生問題時於回應本文中傳回錯誤資訊。 回應本文的格式為 JSON，並採用下列格式：  
+  Azure Key Vault 也會在發生問題時於回應本文中傳回錯誤資訊。 回應本文的格式為 JSON，並採用下列格式：  
 
 ```  
 
@@ -92,7 +92,7 @@ Azure Key Vault 支援 JSON 格式化要求和回應。 搭配使用 HTTPS 與�
 ```  
 
 ## <a name="authentication"></a>Authentication  
- 必須驗證所有對 Azure Key Vault 的要求。 Azure Key Vault 支援可使用 OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)] 取得的 Azure Active Directory 存取權杖。 
+ 必須驗證所有對 Azure Key Vault 的要求。 Azure Key Vault 支援可使用 OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)] 取得的 Azure Active Directory 存取權杖。 
  
  如需註冊應用程式並使用 Azure Key Vault 驗證的詳細資訊，請參閱[使用 Azure AD 註冊用戶端應用程式](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)。
  
@@ -118,5 +118,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   resource：要在授權要求中使用的資源名稱。  
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>另请参阅  
  [關於金鑰、密碼與憑證](about-keys-secrets-and-certificates.md)

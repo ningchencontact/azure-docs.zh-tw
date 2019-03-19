@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 9b54c35a5dcd495e7ed460f1fdbbe96ba3dee4fe
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903380"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 受控執行個體及從該處複製資料
 
@@ -51,7 +51,7 @@ ms.locfileid: "55663548"
 
 以下是針對 Azure SQL Database 受控執行個體連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為 **SqlServer**。 | 是。 |
 | connectionString |此屬性會指定使用 SQL 驗證或 Windows 驗證來連線到受控執行個體所需的 connectionString 資訊。 如需詳細資訊，請參閱下列範例。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，而且，如果這是 SQL 驗證，則會從連接字串中提取 `password` 組態。 請參閱表格下方的 JSON 範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文深入了解詳細資料。 |是。 |
@@ -144,7 +144,7 @@ ms.locfileid: "55663548"
 
 若要從 Azure SQL Database 受控執行個體複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **SqlServerTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為 **SqlServerTable**。 | 是。 |
 | tableName |此屬性是資料庫執行個體中連結服務所參考的資料表或檢視名稱。 | 不是來源的必要項目。 是接收的必要項目。 |
@@ -176,7 +176,7 @@ ms.locfileid: "55663548"
 
 若要從 Azure SQL Database 受控執行個體複製資料，請將複製活動中的來源類型設定為 **SqlSource**。 複製活動的 [來源] 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type屬性必須設定為 **SqlSource**。 | 是。 |
 | SqlReaderQuery |此屬性使用自訂 SQL 查詢來讀取資料。 例如 `select * from MyTable`。 |沒有。 |
@@ -279,7 +279,7 @@ GO
 
 若要將資料複製到 Azure SQL Database 受控執行個體，請將複製活動中的接收類型設定為 **SqlSink**。 複製活動的 [接收] 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為 **SqlSink**。 | 是。 |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，此屬性會將資料插入 SQL 資料表中。<br/>允許的值為整數的資料列數目。 |否 (預設值：10,000)。 |
@@ -487,7 +487,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -497,14 +497,11 @@ END
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL，
-    [Category] [varchar](256) NOT NULL，
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 預存程序功能使用[資料表值參數](https://msdn.microsoft.com/library/bb675163.aspx)。
-
->[!NOTE]
->如果透過叫用預存程序來寫入 **Money/Smallmoney** 資料類型，值可能會四捨五入。 在資料表值參數中將對應的資料類型指定為 **Decimal** 而不是 **Money/Smallmoney**，以降低發生此問題的風險。 
 
 ## <a name="data-type-mapping-for-azure-sql-database-managed-instance"></a>Azure SQL Database 受控執行個體的資料類型對應
 

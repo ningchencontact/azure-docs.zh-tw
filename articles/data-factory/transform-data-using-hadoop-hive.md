@@ -3,21 +3,21 @@ title: 使用 Azure Data Factory 中的 Hadoop Hive 活動轉換資料 | Microso
 description: 了解如何使用 Azure 資料處理站中的 Hive 活動，以在隨選/您自己的 HDInsight 叢集上執行 Hive 查詢。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: douglasl
-ms.openlocfilehash: e77b8c89954064fb143f04f0f901d1512d4fc50d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 3852b2d18b48be63cbc612159facb6273f23dc2b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491003"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575574"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop Hive 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,14 +56,14 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 HDInsight Hive 活
 }
 ```
 ## <a name="syntax-details"></a>語法詳細資料
-| 屬性            | 說明                                                  | 必要 |
+| 屬性            | 描述                                                  | 必要項 |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| name                | 活動的名稱                                         | yes      |
+| name                | 活動的名稱                                         | 是      |
 | 說明         | 說明活動用途的文字                | 否       |
-| type                | 對於 Hive 活動，活動類型為 HDinsightHive        | yes      |
-| 預設容器   | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | yes      |
+| type                | 對於 Hive 活動，活動類型為 HDinsightHive        | 是      |
+| 預設容器   | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | scriptLinkedService | Azure 儲存體已連結的服務用來儲存要執行之 Hive 指令碼的參考。 如果您未指定這項連結服務，則會使用 HDInsight 已連結的服務中定義的 Azure 儲存體已連結的服務。 | 否       |
-| scriptPath          | 提供儲存在 scriptLinkedService 引用之 Azure 儲存體中指令碼檔案的路徑。 檔案名稱有區分大小寫。 | yes      |
+| scriptPath          | 提供儲存在 scriptLinkedService 引用之 Azure 儲存體中指令碼檔案的路徑。 檔案名稱有區分大小寫。 | 是      |
 | getDebugInfo        | 指定何時將記錄檔複製到 HDInsight 叢集所使用 (或) scriptLinkedService 所指定的 Azure 儲存體。 允許的值：None、Always 或 Failure。 預設值：無。 | 否       |
 | arguments           | 指定 Hadoop 作業的引數陣列。 引數會以命令列引數的方式傳遞給每項工作。 | 否       |
 | 定義             | 指定參數作為機碼/值組，以供在 Hive 指令碼內參考。 | 否       |

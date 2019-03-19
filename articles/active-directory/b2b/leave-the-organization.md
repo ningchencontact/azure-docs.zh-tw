@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 03/13/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d8183f7fa55a410b44d33295ad24f0f07adb145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185922"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005661"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>以來賓使用者的身分從組織離職
 
@@ -24,13 +24,17 @@ Azure Active Directory (Azure AD) B2B 使用者如果不再需要組織的應用
 
 ## <a name="leave-an-organization"></a>從組織離職
 
-若要從組織離職，請以使用者身分登入 [存取面板](https://myapps.microsoft.com)，接著執行下列動作：
+若要離開組織，請遵循下列步驟。
 
-1. 如果您尚未登入打算離開的組織，請在右上角選取您的名稱，然後按一下要離開的組織。
-2. 在右上角選取您的名稱。
-3. 選取 [組織] 旁邊的設定圖示 (齒輪)。
+1. 請移至您的存取面板設定檔頁面，執行下列其中一項：
+   
+   - 在  [Azure 入口網站](https://portal.azure.com)，按一下您右上方的名稱，然後選取**檢視帳戶**。
+   - 開啟您[存取面板](https://myapps.microsoft.com)，按一下您的名稱，右和下一步 的左上方**組織**，選取 [設定] 圖示 （齒輪）。
  
    ![顯示 [存取面板] 中使用者設定的螢幕擷取畫面](media/leave-the-organization/UserSettings.png) 
+
+   > [!NOTE]
+   > 如果您在尚未登入，組織您想要離開，底下**組織**，按一下**登入以離開組織**組織的名稱旁邊的連結。 您已登入之後，按一下您的名稱，一次在右上方，接下來**組織**，選取 [設定] 圖示 （齒輪）。
 
 3. 在 [組織] 下方找到要離開的組織，然後選取 [從組織離職]。
 

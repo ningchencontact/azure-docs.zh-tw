@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002378"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>將 Azure Stack VM 複寫至 Azure
 
@@ -172,7 +172,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
     ![設定來源](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. 在 [新增伺服器] 中，檢查 [設定伺服器] 是否出現在 [伺服器類型] 中。
-5. 下載 Site Recovery 統一安裝的安裝檔案。
+5. 下载站点恢复统一安装程序安装文件。
 6. 下載保存庫註冊金鑰。 執行「整合安裝」時，您需要該註冊金鑰。 該金鑰在產生後會維持 5 天有效。
 
     ![設定來源](./media/azure-stack-site-recovery/set-source2.png)
@@ -190,7 +190,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 
 > [!NOTE]
 > 組態伺服器也可從命令列安裝。 [深入了解](physical-manage-configuration-server.md#install-from-the-command-line)。
-
+> 
 > 可能需要 15 分鐘以上，帳戶名稱才會出現在入口網站。 若要立即更新，請選取 [設定伺服器] > 伺服器名稱 > [重新整理伺服器]。
 
 ## <a name="step-4-set-up-the-target-environment"></a>步驟 4：設定目標環境
@@ -214,7 +214,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 4. 在 [復原點保留] 中，指定每個復原點會保留多久的時間。 複寫的 VM 可以還原至所指定時間範圍內的任何時間點。
 5. 在 [應用程式一致快照集頻率] 中，指定建立應用程式一致快照集的頻率。
 
-    - 應用程式一致快照集是 VM 內應用程式資料的時間點快照集。
+    - 應用程式一致的快照集是 VM 內應用程式資料的時間點快照集。
     - 磁碟區陰影複製服務 (VSS) 可確保在建立快照集時，VM 上的應用程式處於一致狀態。
 6. 選取 [確定] 以建立原則。
 
@@ -249,9 +249,9 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 
 > [!NOTE]
 > Site Recovery 會在 VM 已啟用複寫時安裝行動服務。
-
+> 
 > 可能需要 15 分鐘或更久的時間，變更才會生效並顯示在入口網站中。
-
+> 
 > 若要監視您新增的 VM，請在 [設定伺服器] >  [上次連絡時間] 中查看上次探索 VM 的時間。 若要新增 VM 而不等候已排定的探索，請醒目提示設定伺服器 (但不要選取)，然後選取 [重新整理]。
 
 

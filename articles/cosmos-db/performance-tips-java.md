@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 747f58ba5062bd8bcc3995bbfa73cea49e8ddc4b
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: a3f194150d1ce452f79db273266d3c9d77e560fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094730"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB 和 Java 的效能祕訣
 
@@ -36,25 +36,25 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
    1. [閘道 (預設)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
    2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
 
-    預設會設定所有 SDK 平台都支援的閘道模式。  如果您的應用程式在有嚴格防火牆限制的公司網路中執行，則閘道會是最佳的選擇，因為它會使用標準 HTTPS 連接埠與單一端點。 不過，對於效能的影響是每次讀取或寫入 Azure Cosmos DB 資料時，閘道模式都會涉及額外的網路躍點。 因此，DirectHttps 模式因為網路躍點較少，所以可提供較佳的效能。 
+      預設會設定所有 SDK 平台都支援的閘道模式。  如果您的應用程式在有嚴格防火牆限制的公司網路中執行，則閘道會是最佳的選擇，因為它會使用標準 HTTPS 連接埠與單一端點。 不過，對於效能的影響是每次讀取或寫入 Azure Cosmos DB 資料時，閘道模式都會涉及額外的網路躍點。 因此，DirectHttps 模式因為網路躍點較少，所以可提供較佳的效能。 
 
-    Java SDK 使用 HTTPS 作為傳輸通訊協定。 HTTPS 使用 SSL 來進行初始驗證和加密流量。 當使用 Java SDK 時，只需要開啟 HTTPS 連接埠 443。 
+      Java SDK 使用 HTTPS 作為傳輸通訊協定。 HTTPS 使用 SSL 來進行初始驗證和加密流量。 當使用 Java SDK 時，只需要開啟 HTTPS 連接埠 443。 
 
-    ConnectionMode 設定於使用 ConnectionPolicy 參數建構 DocumentClient 執行個體期間。 
+      ConnectionMode 設定於使用 ConnectionPolicy 參數建構 DocumentClient 執行個體期間。 
 
-    ```Java
-    public ConnectionPolicy getConnectionPolicy() {
+      ```Java
+      public ConnectionPolicy getConnectionPolicy() {
         ConnectionPolicy policy = new ConnectionPolicy();
         policy.setConnectionMode(ConnectionMode.DirectHttps);
         policy.setMaxPoolSize(1000);
         return policy;
-    }
+      }
         
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-    ```
+      ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+      DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+      ```
 
-    ![Azure Cosmos DB 連接原則的圖例](./media/performance-tips-java/connection-policy.png)
+      ![Azure Cosmos DB 連接原則的圖例](./media/performance-tips-java/connection-policy.png)
 
    <a id="same-region"></a>
 2. **為了效能在相同 Azure 區域中共置用戶端**
@@ -90,7 +90,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 5. **依 getRetryAfterInMilliseconds 間隔實作輪詢**
 
-    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。 如果進行節流處理，用戶端應用程式應該在節流時降速，且持續時間達伺服器指定的重試間隔。 採用降速可確保您在重試之間花費最少的等待時間。 [Java SDK](documentdb-sdk-java.md) 1.8.0 版和更新版本包含重試原則支援。 如需詳細資訊，請參閱 [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds) \(英文\)。
+    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔在限制时退让。 採用降速可確保您在重試之間花費最少的等待時間。 [Java SDK](documentdb-sdk-java.md) 1.8.0 版和更新版本包含重試原則支援。 如需詳細資訊，請參閱 [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds) \(英文\)。
 
 6. **相應放大用戶端工作負載**
 
@@ -113,7 +113,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
  
 1. **從索引編製中排除未使用的路徑以加快寫入速度**
 
-    Azure Cosmos DB 的索引編製原則可讓您利用檢索路徑 ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) 和 [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths))，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。  例如，以下程式碼示範如何將文件的整個區段 (也稱為 樹狀子目錄) 自索引編製作業中排除 (透過使用 "*" 萬用字元)。
+    Azure Cosmos DB 的索引編製原則可讓您利用檢索路徑 ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) 和 [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths))，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。  例如，以下程式碼示範如何將文件的整個區段 (也稱為 从索引中排除文档的整个部分（也称为子树）。
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -127,7 +127,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     如需詳細資訊，請參閱 [Azure Cosmos DB 索引編製原則](indexing-policies.md)。
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>吞吐量
 <a id="measure-rus"></a>
 
 1. **測量和調整較低的要求單位/秒使用量**
@@ -147,7 +147,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     ```             
 
     在此標頭中傳回的要求費用是佈建輸送量的一小部分。 例如，如果您佈建了 2000 RU/秒，且前述查詢傳回 1000 份 1 KB 文件，則作業成本會是 1000。 因此在一秒內，伺服器在對後續要求進行速率限制前，只會接受兩個這類要求。 如需詳細資訊，請參閱[要求單位](request-units.md)和[要求單位計算機](https://www.documentdb.com/capacityplanner)。
-<a id="429"></a>
+   <a id="429"></a>
 1. **處理速率限制/要求速率太大**
 
     當用戶端嘗試超過帳戶保留的輸送量時，伺服器的效能不會降低，而且不會使用超過保留層級的輸送量容量。 伺服器將預先使用 RequestRateTooLarge (HTTP 狀態碼 429) 來結束要求，並傳回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 標頭，以指出使用者重試要求之前必須等候的時間量 (毫秒)。

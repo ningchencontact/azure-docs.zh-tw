@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15b42572648f875ac4bda2eae5813f0cf6b17ef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085366"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -47,9 +47,9 @@ ms.locfileid: "56187180"
 | -- | -- |
 | 存取面板 | https://myapps.microsoft.com/contoso.com |
 | 網路版 Outlook | https://outlook.office365.com/contoso.com |
-| Office 365 入口網站 | https://portal.office.com?domain_hint=contoso.com、 https://www.office.com?domain_hint=contoso.com |
+| Office 365 入口網站 | <https://portal.office.com?domain_hint=contoso.com>、<https://www.office.com?domain_hint=contoso.com> |
 
-此外，如果應用程式將登入要求傳送至 Azure AD 的租用戶端點 (也就是 https://login.microsoftonline.com/contoso.com/<..> 或 https://login.microsoftonline.com/<tenant_ID>/<..>) 而不是 Azure AD 的一般端點 (也就是 https://login.microsoftonline.com/common/<...>)，使用者也可獲得無訊息登入體驗。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
+如果應用程式將登入要求傳送至 Azure AD 的端點設定為租用戶-也就是使用者獲得無訊息登入體驗的颾魤 ㄛ https://login.microsoftonline.com/contoso.com/<..>或是 https://login.microsoftonline.com/<tenant_ID>/<..>-而不是 Azure AD 常見端點時-也就是 https://login.microsoftonline.com/common/<...>。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
 
 | 應用程式名稱 | 要使用的應用程式 URL |
 | -- | -- |
@@ -62,7 +62,7 @@ ms.locfileid: "56187180"
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>無縫 SSO 支援 `Alternate ID` 作為使用者名稱，而不是 `userPrincipalName`？
 
-是。 如[這裡](how-to-connect-install-custom.md)所述設定於 Azure AD Connect 時，無縫 SSO 支援 `Alternate ID` 作為使用者名稱。 並非所有 Office 365 應用程式都支援 `Alternate ID`。 請參閱支援陳述式的特定應用程式文件。
+是。 如[這裡](how-to-connect-install-custom.md)所述設定於 Azure AD Connect 時，無縫 SSO 支援 `Alternate ID` 作為使用者名稱。 并非所有 Office 365 应用程序都支持 `Alternate ID`。 請參閱支援陳述式的特定應用程式文件。
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>[Azure AD 聯結](../active-directory-azureadjoin-overview.md)與「無縫 SSO」所提供的單一登入體驗有何差異？
 
@@ -95,8 +95,8 @@ ms.locfileid: "56187180"
 
 1. 呼叫 `$creds = Get-Credential`。 出現提示時，輸入預定 Azure AD 樹系的網域系統管理員認證。
 
-    >[!NOTE]
-    >我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
+   > [!NOTE]
+   > 我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
 
 2. 呼叫 `Update-AzureADSSOForest -OnPremCredentials $creds`。 此命令會更新此特定 AD 樹系中 `AZUREADSSOACC` 電腦帳戶的 Kerberos 解密金鑰，並且在 Azure AD 中更新它。
 3. 針對您已設定此功能的每個 AD 樹系，重複上述步驟。
@@ -146,7 +146,7 @@ ms.locfileid: "56187180"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [**快速入門**](how-to-connect-sso-quick-start.md) - 開始使用 Azure AD 無縫 SSO。
+- [**快速入门**](how-to-connect-sso-quick-start.md) - 启动并运行 Azure AD 无缝 SSO。
 - [**技術性深入探討**](how-to-connect-sso-how-it-works.md) - 了解這項功能的運作方式。
-- [**疑難排解**](tshoot-connect-sso.md) - 了解如何解決此功能的常見問題。
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。
+- [**故障排除**](tshoot-connect-sso.md) - 了解如何解决此功能的常见问题。
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用于提出新的功能请求。

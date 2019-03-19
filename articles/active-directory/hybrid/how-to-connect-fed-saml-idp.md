@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09151dee2d458e2ff4fae8a8a3bc93fa466e4efc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167791"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096940"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入
 
@@ -30,16 +30,16 @@ ms.locfileid: "56167791"
 
 Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正確設定的 SAML 2.0 設定檔型 IdP，來支援此登入體驗。 SAML 2.0 識別提供者是第三方產品，因此 Microsoft 不支援與這些識別提供者有關的部署、設定和疑難排解最佳做法。 適當地設定之後，就可以使用 Microsoft 連線分析程式工具，來測試與 SAML 2.0 識別提供者的整合是否已適當設定，詳情請見下面說明。 如需 SAML 2.0 SP-Lite 設定檔型識別提供者的詳細資訊，請詢問提供此識別提供者的組織。
 
->[!IMPORTANT]
->在此登入案例中，只有一小部分的用戶端可與 SAML 2.0 識別提供者搭配使用，這些用戶端包括：
-
->- Web 型用戶端，例如 Outlook Web Access 和 SharePoint Online
-- 豐富型電子郵件用戶端，其使用基本驗證和受支援的 Exchange 存取方法 (例如 IMAP、POP、Active Sync、MAPI 等) (必須有增強型用戶端通訊協定端點才能部署)，這些用戶端包括：
-    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016、Apple iPhone (各種 iOS 版本)
-    - 各種 Google Android 裝置
-    - Windows Phone 7、Windows Phone 7.8 及 Windows Phone 8.0
-    - Windows 8 郵件用戶端和 Windows 8.1 郵件用戶端
-    - Windows 10 郵件用戶端
+> [!IMPORTANT]
+> 在此登入案例中，只有一小部分的用戶端可與 SAML 2.0 識別提供者搭配使用，這些用戶端包括：
+> 
+> - Web 型用戶端，例如 Outlook Web Access 和 SharePoint Online
+> - 豐富型電子郵件用戶端，其使用基本驗證和受支援的 Exchange 存取方法 (例如 IMAP、POP、Active Sync、MAPI 等) (必須有增強型用戶端通訊協定端點才能部署)，這些用戶端包括：
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016、Apple iPhone (各種 iOS 版本)
+>     - 各種 Google Android 裝置
+>     - Windows Phone 7、Windows Phone 7.8 及 Windows Phone 8.0
+>     - Windows 8 郵件用戶端和 Windows 8.1 郵件用戶端
+>     - Windows 10 郵件用戶端
 
 在此登入案例中，其他所有用戶端則無法與 SAML 2.0 識別提供者搭配使用。 例如，在 SAML 2.0 識別提供者已針對單一登入設定的情況下，Lync 2010 桌面用戶端將無法登入該服務。
 
@@ -77,7 +77,7 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 ## <a name="required-attributes"></a>必要的屬性
 下表顯示 SAML 2.0 訊息中特定屬性的需求。
  
-|屬性|說明|
+|屬性|描述|
 | ----- | ----- |
 |NameID|這個判斷提示的值必須與 Azure AD 使用者的 ImmutableID 相同。 此值最多可以有 64 個英數字元。 任何非 html 的安全字元都必須編碼，例如，"+" 字元會顯示為 ".2B"。|
 |IDPEmail|在 SAML 回應中，系統會將使用者主體名稱 (UPN) 列為名稱是 IDPEmail 的元素，其為使用者在 Azure AD/Office 365 中的 UserPrincipalName (UPN)。 此 UPN 會使用電子郵件地址格式。 Windows Office 365 (Azure Active Directory) 中的 UPN 值。|
@@ -194,9 +194,9 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 如需有關 “Set-MsolDomainAuthentication” 的詳細資訊，請參閱：[https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)。
 
 >[!NOTE]
->只有在已經為識別提供者設定 ECP 延伸模組時，才必須使用 “$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"” 來執行。 Exchange Online 用戶端 (Outlook Web App (OWA) 除外) 仰賴以 POST 為基礎的作用中端點。 如果您的 SAML 2.0 STS 所實作的作用中端點，類似於 Shibboleth 以 ECP 實作的作用中端點，則這些豐富型用戶端可能可以和 Exchange Online 服務互動。
+>您必須執行，請使用`$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"`只有當您為您的身分識別提供者設定 ECP 延伸模組。 Exchange Online 用戶端 (Outlook Web App (OWA) 除外) 仰賴以 POST 為基礎的作用中端點。 如果您的 SAML 2.0 STS 所實作的作用中端點，類似於 Shibboleth 以 ECP 實作的作用中端點，則這些豐富型用戶端可能可以和 Exchange Online 服務互動。
 
-已設定同盟之後，您可以切換回「非同盟」(或「受控」) 模式，不過，系統最多需要兩個小時才能完成這項變更，而且您必須對每個使用者指派新的隨機密碼以用於雲端式登入。 在某些情況下，您可能需要切換回「受控」模式，以將設定中的錯誤重設。 如需有關網域轉換的詳細資訊，請參閱[https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx)。
+已設定同盟之後，您可以切換回「非同盟」(或「受控」) 模式，不過，系統最多需要兩個小時才能完成這項變更，而且您必須對每個使用者指派新的隨機密碼以用於雲端式登入。 在某些情況下，您可能需要切換回「受控」模式，以將設定中的錯誤重設。 如需有關網域轉換的詳細資訊，請參閱[https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx)。
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>將使用者主體佈建到 Azure AD/Office 365
 您必須先以使用者主體 (對應到 SAML 2.0 宣告中的判斷提示) 佈建 Azure AD，然後才能向 Office 365 驗證您的使用者。 如果 Azure AD 事先不知道這些使用者主體，則無法使用它們進行同盟登入。 Azure AD Connect 或 Windows PowerShell 均可用來佈建使用者主體。

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3465a891d91bc54bfe39b9501a7ad0e970932860
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309619"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086797"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>從儲存體帳戶中的特製化 VHD 建立 VM
 
@@ -38,12 +38,12 @@ ms.locfileid: "56309619"
 
 您可以上傳從特製化的 VM，以在內部部署虛擬化工具，像是從另一個雲端匯出 HYPER-V 或在 VM 建立 VHD。
 
-### <a name="prepare-the-vm"></a>準備 VM
+### <a name="prepare-the-vm"></a>准备 VM
 您可以上傳使用內部部署 VM 建立的特製化 VHD，或上傳從另一個雲端匯出的 VHD。 特製化的 VHD 會從原始的 VM 維護使用者帳戶、應用程式和其他狀態資料。 如果您想要使用 VHD 現狀建立新的 VM，請確定完成下列步驟。 
   
   * [準備要上傳至 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **不要**使用 Sysprep 一般化 VM。
   * 移除任何 VM 上 (也就是 VMware 工具) 已安裝的來賓虛擬化工具和代理程式。
-  * 確認已透過 DHCP 設定 VM 提取其 IP 位址和 DNS 設定。 這可確保伺服器在啟動時取得 VNet 內的 IP 位址。 
+  * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 這可確保伺服器在啟動時取得 VNet 內的 IP 位址。 
 
 
 ### <a name="get-the-storage-account"></a>取得儲存體帳戶
@@ -187,7 +187,7 @@ Elapsed time:            00.00:13:07
 ```
 
 ### <a name="troubleshooting"></a>疑難排解
-* 當您使用 AZCopy 時，如果您看到「伺服器無法驗證要求」錯誤，請確定授權標頭值的格式正確 (包含簽章)。 如果您正在使用金鑰 2 或次要儲存體金鑰，請嘗試使用主要或第 1 個儲存體金鑰。
+* 當您使用 AZCopy 時，如果您看到「伺服器無法驗證要求」錯誤，請確定授權標頭值的格式正確 (包含簽章)。 如果使用的是密钥 2 或辅助存储密钥，则请尝试使用主密钥或第一个存储密钥。
 
 ## <a name="create-the-new-vm"></a>建立新 VM 
 
@@ -212,10 +212,10 @@ Elapsed time:            00.00:13:07
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>建立網路安全性群組和 RDP 規則
-若要能夠使用 RDP 登入 VM，您必須有可在連接埠 3389 上允許 RDP 存取的安全性規則。 因為新 VM 的 VHD 是從現有的特製化 VM 所建立，在建立 VM 之後，您可以從具有使用 RDP 之登入權限的來源虛擬機器使用現有帳戶。
-這需要在建立相關聯網路介面之前完成。  
-此範例會將 NSG 名稱設定為 **myNsg** 以及將 RDP 規則名稱設定為 **myRdpRule**。
+   ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>建立網路安全性群組和 RDP 規則
+   若要能夠使用 RDP 登入 VM，您必須有可在連接埠 3389 上允許 RDP 存取的安全性規則。 因為新 VM 的 VHD 是從現有的特製化 VM 所建立，在建立 VM 之後，您可以從具有使用 RDP 之登入權限的來源虛擬機器使用現有帳戶。
+   這需要在建立相關聯網路介面之前完成。  
+   此範例會將 NSG 名稱設定為 **myNsg** 以及將 RDP 規則名稱設定為 **myRdpRule**。
 
 ```powershell
 $nsgName = "myNsg"
@@ -271,7 +271,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. 新增 OS 磁碟。 在此範例中，建立 OS 磁碟時，"osDisk" 一詞會附加至 VM 名稱而形成 OS 磁碟名稱。 這個範例也指定這個以 Windows 為基礎的 VHD，應該附加至 VM 作為 OS 磁碟。
+2. 新增 OS 磁碟。 在此範例中，建立 OS 磁碟時，"osDisk"一詞會附加至 VM 名稱改為建立 OS 磁碟名稱。 這個範例也指定這個以 Windows 為基礎的 VHD，應該附加至 VM 作為 OS 磁碟。
     
     ```powershell
     $osDiskName = $vmName + "osDisk"
@@ -285,7 +285,7 @@ $dataDiskName = $vmName + "dataDisk"
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
-使用儲存體帳戶時，資料和作業系統磁碟的 URL 近似於︰`https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`。 您可以藉由下列方法在入口網站上找到它：瀏覽至目標儲存體容器，按一下複製的作業系統或資料 VHD，然後複製 URL 的內容。
+使用儲存體帳戶時，資料和作業系統磁碟的 URL 近似於︰`https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`。 可通过以下方法在门户上找到此信息：浏览到目标存储容器，单击复制的操作系统或数据 VHD，并复制 URL 的内容。
 
 
 ### <a name="complete-the-vm"></a>完成 VM 
@@ -297,7 +297,7 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -
 New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
-如果此命令成功，您會看到如下的輸出︰
+如果此命令成功，会看到类似于下面的输出：
 
 ```powershell
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase

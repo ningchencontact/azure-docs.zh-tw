@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082937"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
-針對 [Azure App Service 的 Web Apps 功能](https://azure.microsoft.com/services/app-service/web/)之中的開放原始碼技術相關問題，本文提供常見問題集的解答。
+本文对 [Azure App Service Web 应用功能](https://azure.microsoft.com/services/app-service/web/)开源技术常见问题 (FAQ) 进行了解答。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何開啟 PHP 記錄進行 PHP 問題的疑難排解？
+## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何启用 PHP 日志记录以便对 PHP 问题进行故障排除？
 
 若要開啟 PHP 記錄：
 
@@ -44,10 +44,10 @@ ms.locfileid: "54191440"
 9. 選取 [ **儲存**]。
 10. 選取 **wp-config.php** 旁邊的鉛筆圖示。
 11. 將文字變更為下列程式碼：
-   ```php
-   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
-   ```
+    ```php
+    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
+    ```
 12. 在 Azure 入口網站的 Web 應用程式功能表中，重新啟動 Web 應用程式。
 
 如需詳細資訊，請參閱[啟用 WordPress 錯誤記錄檔](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) (英文)。
@@ -59,31 +59,31 @@ ms.locfileid: "54191440"
 
 若要變更 Node.js 應用程式版本，可以使用下列其中一個選項：
 
-*   在 Azure 入口網站中，使用 [應用程式設定]。
-    1. 在 Azure 入口網站中，移至您的 Web 應用程式。
-    2. 在 [設定] 刀鋒視窗上，選取 [應用程式設定]。
-    3. 在 [應用程式設定] 中，您可以包含 WEBSITE_NODE_DEFAULT_VERSION 做為索引鍵，並包含所需的 Node.js 版本做為值。
-    4. 移至 [Kudu 主控台](https://*yourwebsitename*.scm.azurewebsites.net)。
-    5. 若要檢查 Node.js 版本，請輸入下列命令：  
-   ```
-   node -v
-   ```
-*   修改 iisnode.yml 檔案。 在 iisnode.yml 檔案中變更 Node.js 版本只會設定 iisnode 使用的執行階段環境。 Kudu cmd 和其他命令仍然使用在 Azure 入口網站**應用程式設定**中所設的 Node.js 版本。
+* 在 Azure 入口網站中，使用 [應用程式設定]。
+  1. 在 Azure 入口網站中，移至您的 Web 應用程式。
+  2. 在 [設定] 刀鋒視窗上，選取 [應用程式設定]。
+  3. 在 [應用程式設定] 中，您可以包含 WEBSITE_NODE_DEFAULT_VERSION 做為索引鍵，並包含所需的 Node.js 版本做為值。
+  4. 移至 [Kudu 主控台](https://*yourwebsitename*.scm.azurewebsites.net)。
+  5. 若要檢查 Node.js 版本，請輸入下列命令：  
+     ```
+     node -v
+     ```
+* 修改 iisnode.yml 檔案。 在 iisnode.yml 檔案中變更 Node.js 版本只會設定 iisnode 使用的執行階段環境。 Kudu cmd 和其他命令仍然使用在 Azure 入口網站**應用程式設定**中所設的 Node.js 版本。
 
-    若要手動設定 iisnode.yml，請在應用程式根資料夾中建立 iisnode.yml 檔案。 在檔案中，包含下列一行：
-   ```yml
-   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-   ```
+  若要手動設定 iisnode.yml，請在應用程式根資料夾中建立 iisnode.yml 檔案。 在檔案中，包含下列一行：
+  ```yml
+  nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+  ```
    
-*   在原始檔控制部署期間使用 package.json，以便設定 iisnode.yml 檔案。
-    Azure 原始檔控制部署程序包含下列步驟：
-    1. 將內容移至 Azure Web 應用程式。
-    2. 如果 Web 應用程式根資料夾中沒有部署指令碼 (deploy.cmd、.deployment 檔案)，則建立預設部署指令碼。
-    3. 如果您在 package.json 檔案 > 引擎 `"engines": {"node": "5.9.1","npm": "3.7.3"}` 中提到 Node.js 版本，則執行部署指令碼來建立 iisnode.yml 檔案。
-    4. iisnode.yml 檔案具有下列一行程式碼：
-        ```yml
-        nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-        ```
+* 在原始檔控制部署期間使用 package.json，以便設定 iisnode.yml 檔案。
+  Azure 原始檔控制部署程序包含下列步驟：
+  1. 將內容移至 Azure Web 應用程式。
+  2. 如果 Web 應用程式根資料夾中沒有部署指令碼 (deploy.cmd、.deployment 檔案)，則建立預設部署指令碼。
+  3. 如果您在 package.json 檔案 > 引擎 `"engines": {"node": "5.9.1","npm": "3.7.3"}` 中提到 Node.js 版本，則執行部署指令碼來建立 iisnode.yml 檔案。
+  4. iisnode.yml 檔案具有下列一行程式碼：
+      ```yml
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>在 App Service 裝載的 WordPress 應用程式中，顯示「建立資料庫連接時發生錯誤」訊息。 我該如何進行疑難排解？
 

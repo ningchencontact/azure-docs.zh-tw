@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217348"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096668"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 同步：處理 userCertificate 屬性所造成的 LargeObject 錯誤 | Microsoft Docs
 
@@ -70,7 +70,7 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 8. 將變更匯出至 Azure AD。
 9. 重新啟用同步排程器。
 
-### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>步驟 1. 停用同步排程器，並確認沒有任何同步處理在進行中
+### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>步驟 1. 禁用同步计划程序，并验证是否没有正在进行的同步操作
 請確定您在實作新的同步規則時不會發生同步處理，以避免非預期的變更匯出至 Azure AD。 若要停用內建的同步排程器︰
 1. 在 Azure AD Connect 伺服器上啟動 PowerShell 工作階段。
 
@@ -79,14 +79,14 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 > [!Note]
 > 上述步驟僅適用於已內建排程器之較新版本 (1.1.xxx.x) 的 Azure AD Connect。 如果您使用較舊版本 (1.0.xxx.x) 的 Azure AD Connect (使用 Windows 工作排程器)，或使用您自己的自訂排程器 (不常見) 觸發定期同步處理，則必須視情況停用它們。
 
-3. 移至 [開始] → [同步處理服務] 來啟動 **Synchronization Service Manager**。
+1. 移至 [開始] → [同步處理服務] 來啟動 **Synchronization Service Manager**。
 
-4. 移至 [作業] 索引標籤，確認沒有任何作業是「進行中」狀態。
+1. 移至 [作業] 索引標籤，確認沒有任何作業是「進行中」狀態。
 
-### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>步驟 2. 尋找 userCertificate 屬性的現有輸出同步規則
+### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>步骤 2. 尋找 userCertificate 屬性的現有輸出同步規則
 應該有一個現有的同步規則已啟用，且設定為將 User 物件的 userCertificate 屬性匯出至 Azure AD。 找出此同步規則，查明其**優先順序**和**範圍設定篩選**設定︰
 
-1. 移至 [開始] → [同步處理規則編輯器] 來啟動**同步處理規則編輯器**。
+1. 转到“开始”→“同步规则编辑器”，启动“同步规则编辑器”。
 
 2. 使用下列值來設定搜尋篩選條件：
 
@@ -105,9 +105,9 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 7. 在編輯畫面中，選取 [範圍設定篩選] 索引標籤。
 8. 記下的範圍設定篩選組態。 如果您使用 OOB 同步規則，應該只有**一個範圍設定篩選群組，含有兩個子句**，包括︰
 
-    | 屬性 | 運算子 | 值 |
+    | 屬性 | 运算符 | 值 |
     | --- | --- | --- |
-    | sourceObjectType | EQUAL | 使用者 |
+    | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>步驟 3. 建立所需的輸出同步規則
@@ -117,12 +117,12 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | Name | 提供名稱 | 例如，「輸出至 AAD – userCertificate 的自訂覆寫」 |
-    | 說明 | 提供描述 | 例如，「如果 userCertificate 屬性有 15 個以上的值，匯出 NULL」。 |
+    | 名稱 | 提供名稱 | 例如，「輸出至 AAD – userCertificate 的自訂覆寫」 |
+    | 描述 | *提供说明* | 例如，「如果 userCertificate 屬性有 15 個以上的值，匯出 NULL」。 |
     | 連線系統 | 選取 Azure AD 連接器 |
     | 連線系統物件類型 | **user** | |
     | Metaverse 物件類型 | **person** | |
-    | 連結類型 | **Join** | |
+    | 链接类型 | **Join** | |
     | 優先順序 | 選擇 1-99 之間的數字 | 選擇的數字不能被任何現有的同步規則使用，而且比現有同步規則的值更小 (因此，優先順序較高)。 |
 
 3. 移至 [範圍設定篩選] 索引標籤，實作與現有同步規則相同的範圍設定篩選。
@@ -158,7 +158,7 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 5. 如果您有多個 AD 連接器，請對剩餘的 AD 連接器重複上述步驟。 通常，如果您有多個內部部署目錄，則需要多個連接器。
 
 ### <a name="step-6-verify-there-are-no-unexpected-changes-waiting-to-be-exported-to-azure-ad"></a>步驟 6. 確認沒有非預期的變更在等候匯出至 Azure AD
-1. 移至 Synchronization Service Manager 中的 [連接器] 索引標籤。
+1. 在 Synchronization Service Manager 中转到“连接器”选项卡。
 2. 以滑鼠右鍵按一下 [Azure AD 連接器]，然後選取 [搜尋連接器空間]。
 3. 在 [搜尋連接器空間] 快顯視窗中：
     1. 將 [範圍] 設定為 [暫止匯出]。
@@ -175,11 +175,11 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 
 ### <a name="step-8-re-enable-sync-scheduler"></a>步驟 8。 重新啟用同步排程器
 現在已解決問題，請重新啟用內建的同步排程器︰
-1. 啟動 PowerShell 工作階段。
-2. 執行 Cmdlet 以重新啟用排定的同步處理︰`Set-ADSyncScheduler -SyncCycleEnabled $true`
+1. 启动 PowerShell 会话。
+2. 通过运行以下 cmdlet 来重新启用计划的同步：`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
-> 上述步驟僅適用於已內建排程器之較新版本 (1.1.xxx.x) 的 Azure AD Connect。 如果您使用較舊版本 (1.0.xxx.x) 的 Azure AD Connect (使用 Windows 工作排程器)，或使用您自己的自訂排程器 (不常見) 觸發定期同步處理，則必須視情況停用它們。
+> 上述步驟僅適用於已內建排程器之較新版本 (1.1.xxx.x) 的 Azure AD Connect。 如果你操作的是使用 Windows 任务计划程序的较旧 Azure AD Connect 版本 (1.0.xxx.x)，或者使用你自己的自定义计划程序（不常见）来触发定期同步，则需要相应地禁用这种同步。
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

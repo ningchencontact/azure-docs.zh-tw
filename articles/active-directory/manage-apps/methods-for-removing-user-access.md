@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7f3619e345666256a63181eb978506914d55d1e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: db9ac671b616e2b5af59c033d08768c9e572876f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196530"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105364"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>如何移除使用者的應用程式存取
 
@@ -38,25 +38,25 @@ ms.locfileid: "56196530"
 
 若要**刪除應用程式**，請遵循下列指示：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式] 以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式] 以檢視所有應用程式的清單。
 
    * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  選取您要刪除的應用程式。
+6. 選取您要刪除的應用程式。
 
-7.  應用程式載入後，在頂端應用程式的 [概觀] 窗格按一下 [刪除] 圖示。
+7. 應用程式載入後，在頂端應用程式的 [概觀] 窗格按一下 [刪除] 圖示。
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>我想要停用任何應用程式的所有未來使用者同意作業
 
-停用整個目錄的使用者同意會阻止使用者同意任何應用程式。 系統管理員仍然可以代表使用者行使同意。 若要進一步了解應用程式同意，以及您想要或不想這樣做的原因，請參閱[了解使用者和系統管理員同意](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)。 另請參閱[權限及同意](../develop/v2-permissions-and-consent.md)。
+停用整個目錄的使用者同意會阻止使用者同意任何應用程式。 系統管理員仍然可以代表使用者同意。 若要進一步了解應用程式同意，以及您想要或不想這樣做的原因，請參閱[了解使用者和系統管理員同意](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)。 另請參閱[權限及同意](../develop/v2-permissions-and-consent.md)。
 
 若要**停用整個目錄中的所有未來使用者同意作業**，請遵循下列指示：
 

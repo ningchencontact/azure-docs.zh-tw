@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078154"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>針對傳統儲存體資源刪除錯誤進行疑難排解
 本文章提供疑難排解指引，協助您排解在嘗試刪除 Azure 傳統儲存體帳戶、容器或 *.vhd 分頁 Blob 檔案時發生的以下任一錯誤。 
@@ -59,10 +59,10 @@ ms.locfileid: "56330608"
 #### <a name="azure-powershell"></a>Azure PowerShell
 使用者嘗試使用傳統 PowerShell Cmdlet 刪除不再使用的儲存體帳戶。 使用者會看到下列訊息：
 
-><span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
-
-><span style="color:red">Remove-AzureStorageAccount :BadRequest:儲存體帳戶 myclassicaccount 有一些作用中映像和/或磁碟，例如，  
-myclassicaccount. 確認這些映像及/或磁碟已移除之後再刪除此儲存體帳戶。</span>
+> <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
+> 
+> <span style="color:red">Remove-AzureStorageAccount :BadRequest:儲存體帳戶 myclassicaccount 有一些作用中映像和/或磁碟，例如，  
+> myclassicaccount. 確認這些映像及/或磁碟已移除之後再刪除此儲存體帳戶。</span>
 
 ## <a name="unable-to-delete-storage-container"></a>無法刪除儲存體容器
 
@@ -77,9 +77,9 @@ myclassicaccount. 確認這些映像及/或磁碟已移除之後再刪除此儲�
 #### <a name="azure-powershell"></a>Azure PowerShell
 如果使用者選擇使用 PowerShell 進行刪除，則會導致下列錯誤。 
 
-><span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
-
-><span style="color:red">Remove-AzureStorageContainer :遠端伺服器傳回錯誤：(412) 目前容器上沒有租用，且要求中沒有指定任何租用識別碼。HTTP 狀態碼：412 - HTTP 錯誤訊息：目前容器上沒有租用，且要求中沒有指定任何租用識別碼。</span>
+> <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
+> 
+> <span style="color:red">Remove-AzureStorageContainer :遠端伺服器傳回錯誤：(412) 目前容器上沒有租用，且要求中沒有指定任何租用識別碼。HTTP 狀態碼：412 - HTTP 錯誤訊息：目前容器上沒有租用，且要求中沒有指定任何租用識別碼。</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>無法刪除 vhd 
 
@@ -99,9 +99,9 @@ myclassicaccount. 確認這些映像及/或磁碟已移除之後再刪除此儲�
 #### <a name="azure-powershell"></a>Azure PowerShell 
 如果使用者選擇使用 PowerShell 進行刪除，則會導致下列錯誤。 
 
-><span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
-
-><span style="color:red">Remove-AzureStorageBlob :遠端伺服器傳回錯誤：(412) 目前 Blob 上沒有租用，且要求中沒有指定任何租用識別碼。HTTP 狀態碼：412 - HTTP 錯誤訊息：目前 Blob 上沒有租用，且要求中沒有指定任何租用識別碼。</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> 
+> <span style="color:red">Remove-AzureStorageBlob :遠端伺服器傳回錯誤：(412) 目前 Blob 上沒有租用，且要求中沒有指定任何租用識別碼。HTTP 狀態碼：412 - HTTP 錯誤訊息：目前 Blob 上沒有租用，且要求中沒有指定任何租用識別碼。</span>
 
 
 ## <a name="resolution-steps"></a>解決步驟

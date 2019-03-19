@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 7a8556edd793cbde47c14d2b79792dbe42f8e44b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993593"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894286"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
 
@@ -33,7 +33,7 @@ ms.locfileid: "55993593"
 服務層的選擇主要視業務持續性、儲存體和效能需求而定。
 
 ||基本|標準|進階|
-| :-- | --: |--:| --:| --:|
+| :-- | --: |--:| --:|
 |目標工作負載|開發與生產|開發與生產|開發與生產|
 |執行時間 SLA|99.99%|99.99%|99.99%|
 |備份保留期|7 天|35 天|35 天|
@@ -45,34 +45,34 @@ ms.locfileid: "55993593"
 |||||
 
 > [!NOTE]
-> 您可以在基本服務層取得免費的 Azure SQL Database，並搭配 Azure 免費帳戶來探索 Azure。 如需相關資訊，請參閱[使用您的免費 Azure 免費帳戶，建立受管理的雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
+> 您可以取得免費的 Azure SQL database 搭配使用 Azure 免費帳戶探索 Azure 的基本服務層。 如需相關資訊，請參閱[使用您的免費 Azure 免費帳戶，建立受管理的雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
 
 ## <a name="single-database-dtu-and-storage-limits"></a>單一資料庫 DTU 和儲存空間限制
 
 單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-purchase-models.md#dtu-based-purchasing-model)。
 
 ||基本|標準|進階|
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | 儲存體大小上限 | 2 GB | 1 TB | 4 TB  |
 | DTU 上限 | 5 | 3000 | 4000 | 
-||||||
+|||||
 
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>彈性集區 eDTU、儲存體及集區資料庫限制
 
-| | **基本** | **標準** | **高級** |
-| :-- | --: | --: | --: | --: |
+| | **基本** | **标准** | **高級** |
+| :-- | --: | --: | --: |
 | 每個資料庫的儲存體大小上限  | 2 GB | 1 TB | 1 TB |
 | 每個集區的儲存體大小上限 | 156 GB | 4 TB | 4 TB |
 | 每個資料庫的 eDTU 上限 | 5 | 3000 | 4000 |
 | 每個集區的 eDTU 上限 | 1600 | 3000 | 4000 |
 | 每個集區的資料庫數目上限 | 500  | 500 | 100 |
-||||||
+|||||
 
 > [!IMPORTANT]
-> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：美國中西部、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (愛荷華)、德國東北部、中國北部。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+> 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 區域和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
@@ -104,32 +104,32 @@ ms.locfileid: "55993593"
 
 工作負載包含九種交易類型，如下表所示。 每一筆交易都設計為反白顯示資料庫引擎和系統硬體中特定的一組系統特性，與其他交易呈現高度對比。 此方法可讓您更容易評估不同元件對整體效能的影響。 例如，「頻繁讀取」交易會從磁碟產生大量的讀取作業。
 
-| 交易類型 | 說明 |
+| 交易類型 | 描述 |
 | --- | --- |
 | 輕度讀取 |SELECT；記憶體中；唯讀 |
 | 中度讀取 |SELECT；大部分記憶體中；唯讀 |
 | 重度讀取 |SELECT；大部分非記憶體中；唯讀 |
-| 輕度更新 |UPDATE；記憶體中；讀寫 |
-| 重度更新 |UPDATE；大部分非記憶體中；讀寫 |
+| Update Lite |UPDATE；記憶體中；讀寫 |
+| Update Heavy |UPDATE；大部分非記憶體中；讀寫 |
 | 輕度插入 |INSERT；記憶體中；讀寫 |
 | 重度插入 |INSERT；大部分非記憶體中；讀寫 |
 | 刪除 |DELETE；記憶體中與非記憶體中的混合；讀寫 |
-| 重度 CPU |SELECT；記憶體中；非常重度的 CPU 負載；唯讀 |
+| CPU Heavy |SELECT；記憶體中；非常重度的 CPU 負載；唯讀 |
 
 ### <a name="workload-mix"></a>工作負載混合
 
 利用下列整體混合從加權分佈中隨機選取交易。 整體混合具有大約 2:1 的讀/寫比率。
 
-| 交易類型 | 混合 % |
+| 事务类型 | 混合 % |
 | --- | --- |
 | 輕度讀取 |35 |
-| 中度讀取 |20 |
-| 重度讀取 |5 |
+| Read Medium |20 |
+| Read Heavy |5 |
 | 輕度更新 |20 |
 | 重度更新 |3 |
-| 輕度插入 |3 |
+| Insert Lite |3 |
 | 重度插入 |2 |
-| 刪除 |2 |
+| Delete |2 |
 | 重度 CPU |10 |
 
 ### <a name="users-and-pacing"></a>使用者與步調
@@ -156,7 +156,7 @@ ms.locfileid: "55993593"
 
 有效的基準測試執行需要至少一個小時的穩定狀態測量持續時間。
 
-### <a name="metrics"></a>度量
+### <a name="metrics"></a>指标
 
 基準測試中的關鍵度量是輸送量和回應時間。
 

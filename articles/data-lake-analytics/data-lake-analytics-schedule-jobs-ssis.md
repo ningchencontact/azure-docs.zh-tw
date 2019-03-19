@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 5393e202c7b5005552f164c9c6f55da92fc82572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104432"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>使用 SQL Server Integration Services (SSIS) 對 U-SQL 作業進行排程
 
@@ -93,16 +93,16 @@ Azure Data Lake Analytics 工作能讓使用者將 U-SQL 作業提交至 Azure D
     
     若要建立此檔案連線：
 
-    1. 選擇 [FileConnection] 設定中的 **<New Connection...>**。
-    2. 將 [使用類型] 設定為 [現有檔案]，並將 [檔案] 設定為任何現有檔案的檔案路徑。
+   1. 選擇 [FileConnection] 設定中的 **<New Connection...>**。
+   2. 將 [使用類型] 設定為 [現有檔案]，並將 [檔案] 設定為任何現有檔案的檔案路徑。
 
-        ![設定 Foreach 迴圈容器](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![設定 Foreach 迴圈容器](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-    3. 在 [連線管理員] 檢視中，以滑鼠右鍵按一下剛剛建立的檔案連線，然後選擇 [屬性]。
+   3. 在 [連線管理員] 檢視中，以滑鼠右鍵按一下剛剛建立的檔案連線，然後選擇 [屬性]。
 
-    4. 在 [屬性] 視窗中，展開 [運算式]，然後將 [ConnectionString] 設定為在 Foreach 迴圈容器中定義的變數，例如 `@[User::FileName]`。
+   4. 在 [屬性] 視窗中，展開 [運算式]，然後將 [ConnectionString] 設定為在 Foreach 迴圈容器中定義的變數，例如 `@[User::FileName]`。
 
-        ![設定 Foreach 迴圈容器](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
+       ![設定 Foreach 迴圈容器](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
 3. 將 [AzureDataLakeAnalyticsConnection] 設定為您想要提交作業的 Azure Data Lake Analytics 帳戶。 深入了解 [Azure Data Lake Analytics 連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017)。
 

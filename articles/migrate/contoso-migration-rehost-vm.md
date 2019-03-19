@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694494"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118386"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso 移轉：將內部部署應用程式重新裝載至 Azure VM
 
@@ -168,10 +168,10 @@ Contoso 會透過 Site Recovery，將應用程式前端和資料庫 VM 遷移至
     - 應用程式前端 VM (SQLVM) 將移轉至生產網路中的資料庫子網路 (PROD-DB-EUS2)。
 
 2. 設定儲存體帳戶 - Contoso 在主要區域中建立 Azure 儲存體帳戶 (contosovmsacc20180528)。
-    - 儲存體帳戶與復原服務保存庫必須位於相同的區域。
-    - 他們使用一般用途的帳戶，並配備標準儲存體和 LRS 複寫。
+   - 儲存體帳戶與復原服務保存庫必須位於相同的區域。
+   - 他們使用一般用途的帳戶，並配備標準儲存體和 LRS 複寫。
 
-    ![Site Recovery 儲存體](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Site Recovery 儲存體](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. 建立保存庫 - 網路和儲存體帳戶準備就緒之後，Contoso 現在會建立復原服務保存庫 (ContosoMigrationVault)，然後將它放在美國東部 2 主要區域的 ContosoFailoverRG 資源群組中。
 
@@ -221,15 +221,15 @@ Contoso 管理員會依照下列方式設定帳戶：
 
 1. 為了透過網際網路存取，他們：
 
- - 先在內部部署 VM 上啟用 RDP，然後再容錯移轉。
- - 確定已為**公用**設定檔新增 TCP 和 UDP 規則。
- - 針對所有設定檔，在 [Windows 防火牆] > [允許的應用程式] 中檢查是否允許 RDP。
+   - 先在內部部署 VM 上啟用 RDP，然後再容錯移轉。
+   - 確定已為**公用**設定檔新增 TCP 和 UDP 規則。
+   - 針對所有設定檔，在 [Windows 防火牆] > [允許的應用程式] 中檢查是否允許 RDP。
 
 2. 為了透過站對站 VPN 存取，他們：
 
- - 在內部部署機器上啟用 RDP。
- - 在 [Windows 防火牆] -> [允許的應用程式與功能] 中，允許 [網域和私人] 網路使用 RDP。
- - 將內部部署 VM 的作業系統 SAN 原則設定為 **OnlineAll**。
+   - 在內部部署機器上啟用 RDP。
+   - 在 [Windows 防火牆] -> [允許的應用程式與功能] 中，允許 [網域和私人] 網路使用 RDP。
+   - 將內部部署 VM 的作業系統 SAN 原則設定為 **OnlineAll**。
 
 此外，當他們執行容錯移轉時，需要檢查以下各項：
 
@@ -341,10 +341,10 @@ Contoso 管理員現在會指定目標複寫設定。
 
 4. 他們會選取 **WebVM** 來進行複寫、檢查複寫原則並啟用複寫。
 
-    - 在這個階段中，因為必須選取 VNet 和子網路，而且應用程式 VM 放在不同的子網路中，所以他們只會選取 WEBVM。
-    - 啟用複寫時，Site Recovery 會自動在 VM 上安裝行動服務。
+   - 在這個階段中，因為必須選取 VNet 和子網路，而且應用程式 VM 放在不同的子網路中，所以他們只會選取 WEBVM。
+   - 啟用複寫時，Site Recovery 會自動在 VM 上安裝行動服務。
 
-    ![啟用複寫](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![啟用複寫](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. 他們在 [作業] 中追踨複寫進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
 6. 在 Azure 入口網站的 [基本資訊] 中，他們可以看到 VM 複寫至 Azure 的結構。

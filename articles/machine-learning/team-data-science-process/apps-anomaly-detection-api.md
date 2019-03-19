@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469816"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899344"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
 ## <a name="overview"></a>概觀
@@ -32,7 +32,7 @@ ms.locfileid: "55469816"
 
 異常偵測供應項目在供應時會隨附有用的工具以讓您快速入門。
 
-* [Web 應用程式](http://anomalydetection-aml.azurewebsites.net/) 可協助您評估和視覺化將異常偵測 API 套用在您的資料後所產生的結果。
+* [Web 應用程式](https://anomalydetection-aml.azurewebsites.net/) 可協助您評估和視覺化將異常偵測 API 套用在您的資料後所產生的結果。
 
 > [!NOTE]
 > 請嘗試採用[這個 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) 的 **IT 異常洞察解決方案**
@@ -107,17 +107,17 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 ### <a name="detectors"></a>偵測器
 異常偵測 API 支援 3 大類別的偵測器。 下表中可以找到每個偵測器的特定輸入參數和輸出的詳細資料。
 
-| 偵測器類別 | 偵測器 | 說明 | 輸入參數 | 輸出 |
+| 偵測器類別 | 偵測器 | 描述 | 輸入參數 | 輸出 |
 | --- | --- | --- | --- | --- |
 | 尖峰偵測器 |TSpike 偵測器 |偵測尖峰和下降是根據值與第一個和第三個四分位數的差距 |*tspikedetector.sensitivity:* 接受範圍 1 - 10 的整數值，預設值︰3；較高的值將會攔截愈極端的值，因而讓敏感度變低 |TSpike︰二進位值 - 如果偵測到尖峰/下降則為 ‘1’，否則為 ‘0’ |
-| 尖峰偵測器 | ZSpike 偵測器 |偵測尖峰和下降是根據資料點與平均數的差距 |*zspikedetector.sensitivity:* 接受範圍 1 - 10 的整數值，預設值︰3；較高的值將會攔截愈極端的值，讓敏感度變低 |ZSpike︰二進位值 - 如果偵測到尖峰/下降則為 ‘1’，否則為 ‘0’ | |
+| 尖峰偵測器 | ZSpike 偵測器 |偵測尖峰和下降是根據資料點與平均數的差距 |*zspikedetector.sensitivity:* 接受範圍 1 - 10 的整數值，預設值︰3；較高的值將會攔截愈極端的值，讓敏感度變低 |ZSpike︰二進位值 - 如果偵測到尖峰/下降則為 ‘1’，否則為 ‘0’ |
 | 緩慢趨勢偵測器 |緩慢趨勢偵測器 |根據所設定的敏感度偵測緩慢的正向趨勢 |*trenddetector.sensitivity:* 偵測器分數上的閾值 (預設值：3.25，3.25 – 5 是可選取的合理範圍；值愈高，敏感度就愈低) |tscore︰代表趨勢異常分數的浮動數字 |
-| 層級變更偵測器 | 雙向層級變更偵測器 |根據所設定的敏感度偵測向上和向下層級變更 |*trenddetector.sensitivity:* 偵測器分數上的閾值 (預設值：3.25，3.25 – 5 是可選取的合理範圍；值愈高，敏感度就愈低) |rpscore︰代表向上和向下層級變更異常分數的浮動數字 | |
+| 層級變更偵測器 | 雙向層級變更偵測器 |根據所設定的敏感度偵測向上和向下層級變更 |*trenddetector.sensitivity:* 偵測器分數上的閾值 (預設值：3.25，3.25 – 5 是可選取的合理範圍；值愈高，敏感度就愈低) |rpscore︰代表向上和向下層級變更異常分數的浮動數字 |
 
 ### <a name="parameters"></a>參數
 下表列出這些輸入參數的詳細資訊：
 
-| 輸入參數 | 說明 | 預設設定 | 類型 | 有效範圍 | 建議範圍 |
+| 輸入參數 | 描述 | 預設設定 | 類型 | 有效範圍 | 建議範圍 |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |integer |10 - 2000 |取決於時間序列 |
 | detectors.spikesdips | 是否偵測只有尖峰、只有下降，或兩者 |兩者 |列舉 |兩者、尖峰、下降 |兩者 |
@@ -130,7 +130,7 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 ### <a name="output"></a>輸出
 API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。
 
-| 輸出 | 說明 |
+| 輸出 | 描述 |
 | --- | --- |
 | 時間 |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的時間戳記 |
 | 資料 |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的值 |
@@ -153,7 +153,7 @@ ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行�
 
 下表列出這些輸入參數的詳細資訊：
 
-| 輸入參數 | 說明 | 預設設定 | 類型 | 有效範圍 | 建議範圍 |
+| 輸入參數 | 描述 | 預設設定 | 類型 | 有效範圍 | 建議範圍 |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |用來彙總輸入時間序列的彙總間隔 (秒) |0 (不執行彙總) |integer |0︰略過彙總，否則 > 0 |5 分鐘到 1 天，取決於時間序列 |
 | preprocess.aggregationFunc |用來將資料彙總到指定 AggregationInterval 的函式 |平均值 |列舉 |平均值、總和、長度 |N/A |
@@ -173,7 +173,7 @@ ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行�
 ### <a name="output"></a>輸出
 API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。
 
-| 輸出 | 說明 |
+| 輸出 | 描述 |
 | --- | --- |
 | 時間 |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的時間戳記 |
 | OriginalData |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的值 |

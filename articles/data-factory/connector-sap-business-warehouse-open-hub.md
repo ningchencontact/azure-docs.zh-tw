@@ -10,26 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103905"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，透過 Open Hub 從 SAP Business Warehouse (BW) 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub 整合 
-
-[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) 可讓您有效地從 SAP BW 中擷取資料。 下圖顯示客戶在其 SAP 系統中的常見流程之一，其資料流程為 SAP ECC -> PSA -> DSO -> Cube。
-
-SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 SAP 資料傳輸程序 (DTP) 所支援的任何物件皆可作為 Open Hub 資料來源，例如 DSO、InfoCube、MultiProvider、DataSource 等等。Open Hub Destination 類型是轉送的資料儲存所在之處，可以是資料庫資料表 (本機或遠端) 和一般檔案。 此 SAP BW Open Hub 連接器支援從 BW 中的 OHD 本機資料表複製資料。 如果您使用其他類型，您可以使用其他連接器直接連線到資料庫或檔案系統。
-
-![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -37,10 +29,41 @@ SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 SAP 資
 
 具體而言，此 SAP Business Warehouse Open Hub 連接器支援：
 
-- SAP Business Warehouse **7.30 版或更新版本 (位於 2015 年之後發行的最新 SAP 支援套件堆疊中)**。
+- SAP Business Warehouse **7.01 或 （堆疊中較高層最近 SAP 支援封裝之後 2015 年發行） 版本**。
 - 透過 Open Hub Destination 本機資料表複製資料，其下可能是 DSO、InfoCube、MultiProvider、DataSource 等等。
 - 使用基本驗證來複製資料。
 - 連線至應用程式伺服器。
+
+## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub 整合 
+
+[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) 可讓您有效地從 SAP BW 中擷取資料。 下圖顯示客戶在其 SAP 系統中的常見流程之一，其資料流程為 SAP ECC -> PSA -> DSO -> Cube。
+
+SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 支援的 SAP 資料傳輸程序 (DTP) 的任何物件可用來當做開啟中樞的資料來源，比方說，DSO、 InfoCube、 資料來源等。Open Hub Destination 類型是轉送的資料儲存所在之處，可以是資料庫資料表 (本機或遠端) 和一般檔案。 此 SAP BW Open Hub 連接器支援從 BW 中的 OHD 本機資料表複製資料。 如果您使用其他類型，您可以使用其他連接器直接連線到資料庫或檔案系統。
+
+![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+
+## <a name="delta-extraction-flow"></a>差異擷取流程
+
+ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastRequest`和`baseRequestId`可用來處理差異負載，或從開啟的中樞。 
+
+- **excludeLastRequestId**:是否要排除最後一個要求的記錄。 預設值為 true。 
+- **baseRequestId**:差異載入的要求識別碼。 一旦設定之後，將會擷取 requestid 大於這個屬性的值的資料。 
+
+整體來說，擷取 SAP InfoProviders 從 Azure Data Factory (ADF) 包含 2 個步驟： 
+
+1. **SAP BW 資料傳輸程序 (DTP)** 此步驟中將資料從 SAP BW InfoProvider 複製到 SAP BW Open Hub 資料表 
+
+1. **ADF 資料複製**在此步驟中，由 ADF 連接器讀取 Open Hub 資料表 
+
+![差異擷取流程](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
+
+在第一個步驟中，會執行 DTP。 每次執行會建立新的 SAP 要求識別碼。 要求識別碼會儲存在中樞開啟資料表，然後由 ADF 連接器用來識別差異。 以非同步方式執行的兩個步驟： DTP 由 SAP，觸發，並透過 ADF 觸發 ADF 複製資料。 
+
+根據預設，ADF 器不會讀取最新的 delta 從 Open Hub 資料表 （「 排除的最後一個要求 」 的選項為 true）。 謹此，在 ADF 中的資料不是 100%開放中樞資料表 （最後一個差異是缺少） 中的資料保持最新狀態。 此程序可確保沒有任何資料列會遺失非同步擷取所造成。 沒問題即使 ADF 會讀取 Open Hub 資料表，而 DTP 仍是寫入至相同的資料表。 
+
+您通常會儲存 adf 暫存資料存放區 （例如 Azure Blob 中圖表上方) 中最後一個執行中的最大的複製的要求識別碼。 因此，相同的要求是讀取第二次 adf 後續執行中。 同時，請注意從 Open Hub 資料表不會自動刪除資料。
+
+適當的差異處理它不是允許將要求從不同的 DTPs Id 在相同資料表中，開啟的中樞。 因此，您必須建立一個以上的 DTP 的每個開啟中樞目的地 」 (OHD)。 當需要從同一個 InfoProvider 完整和差異的擷取，您應該建立兩個 OHDs 相同 InfoProvider。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -61,6 +84,10 @@ SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 SAP 資
 
 ## <a name="getting-started"></a>開始使用
 
+> [!TIP]
+>
+> 使用 SAP BW Open Hub 連接器的逐步解說，請參閱 <<c0> [ 使用 Azure Data Factory 將資料從 SAP Business Warehouse (BW)](load-sap-bw-data.md)。
+
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 SAP Business Warehouse Open Hub 連接器專屬的 Data Factory 實體。
@@ -69,7 +96,7 @@ SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 SAP 資
 
 以下是 SAP Business Warehouse Open Hub 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapOpenHub** | 是 |
 | 伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
@@ -111,7 +138,7 @@ SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 SAP 資
 
 若要從 SAP BW Open Hub 複製資料以及將資料複製到該處，請將資料集的 type 屬性設為 **SapOpenHubTable**。 以下是支援的屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為 **SapOpenHubTable**。  | 是 |
 | openHubDestinationName | 要從中複製資料的 Open Hub Destination 名稱。 | 是 |

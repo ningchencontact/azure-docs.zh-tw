@@ -5,17 +5,17 @@ description: 在 Azure Machine Learning Studio 中建立 Web 服務端點。 Web
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 62505a89be5535f7b8b7b50ad2462e33d44db57a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084686"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>針對已部署的 Azure Machine Learning Studio Web 服務建立端點
 
@@ -34,7 +34,7 @@ Web 服務的每個端點都是個別定址、節流以及管理。 每個端點
 
 1. 在 Machine Learning Studio 中，按一下左側的 [Web 服務]。
 2. 在 Web 服務儀表板底部，按一下 [管理端點]。 Azure Machine Learning Web 服務 入口網站會開啟 Web 服務的端點頁面。
-3. 按一下 [新增]。
+3. 按一下 [新增] 。
 4. 輸入新端點的名稱和描述。 端點名稱長度不可超過 24 個字元，而且必須由小寫字母或數字組成。 選取記錄層級，以及是否啟用範例資料。 如需有關記錄的詳細資訊，請參閱 [為 Machine Learning Web 服務啟用記錄](web-services-logging.md)。
 
 ## <a id="scaling"></a> 透過新增額外端點來調整 Web 服務規模

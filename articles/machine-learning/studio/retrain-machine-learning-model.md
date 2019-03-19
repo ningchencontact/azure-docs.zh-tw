@@ -5,17 +5,17 @@ description: 了解如何在 Azure Machine Learning Studio 中更新 Web 服務�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330506"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108115"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>重新定型和部署機器學習模型
 
@@ -42,7 +42,7 @@ ms.locfileid: "56330506"
 
     執行實驗後，產生的工作流程應該如下圖所示：
 
-    ![產生的工作流程](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![產生的工作流程](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     現在，您可將定型實驗部署為重新定型的 Web 服務，此服務可輸出定型的模型與模型評估結果。
 
@@ -68,7 +68,7 @@ ms.locfileid: "56330506"
 
 下列螢幕擷取畫面顯示 Azure Machine Learning Web 服務入口網站的 [取用]頁面。
 
-![取用頁面](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![取用頁面](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>更新 apikey 宣告
 
@@ -114,7 +114,7 @@ BES 範例程式碼會將檔案從本機磁碟機 (例如，C:\temp\CensusInput.
 
 以下是重新定型輸出的範例︰
 
-![重新定型輸出](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![重新定型輸出](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>評估重新定型結果
 

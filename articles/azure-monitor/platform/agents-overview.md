@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: dececc961e40d83cf44442dc61054bc8833208f0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d1e896aee4ba699704ce01e0cff8210d53700993
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899803"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 監視代理程式概觀 
 Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或其他雲端提供者中，且執行 Microsoft Windows 和 Linux 的虛擬機器收集不同類型的資料。 三種可用來監視 VM 的代理程式類型為：
@@ -52,7 +52,7 @@ Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或�
 * 設定 Log Analytics，以匯入從儲存在 Azure 儲存體帳戶中的雲端服務、傳統 VM 和 Service Fabric 節點收集到的計量和記錄資料。
 
 ## <a name="log-analytics-agent"></a>Log Analytics 代理程式
-若要進行不只需要收集計量和一部分記錄的進階監視，一定要有適用於 Windows 和 Linux 的 Log Analytics 代理程式。 Log Analytics 代理程式的開發目的，是為了要全方位管理內部部署的實體和虛擬機器、System Center Operations Manager 所監視的電腦，和裝載在其他雲端中的 VM。 Windows 和 Linux 代理程式會連線到 Log Analytics 工作區，以收集以監視解決方案為基礎的資料，和您所設定的自訂資料來源。
+進階監視您需要多個會收集計量和記錄的子集，（也稱為做為 Microsoft Monitoring Agent (MMA)） 的 Windows 和 Linux 的 Log Analytics 代理程式則是必要項目。 Log Analytics 代理程式的開發目的，是為了要全方位管理內部部署的實體和虛擬機器、System Center Operations Manager 所監視的電腦，和裝載在其他雲端中的 VM。 Windows 和 Linux 代理程式會連線到 Log Analytics 工作區，以收集以監視解決方案為基礎的資料，和您所設定的自訂資料來源。
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

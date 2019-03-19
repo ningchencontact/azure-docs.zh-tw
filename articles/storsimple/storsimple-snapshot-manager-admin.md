@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
-ms.openlocfilehash: a99b3d7336c3dc1a1f249915d6971a49f4b69be6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109216"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872178"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案
 
@@ -48,7 +48,7 @@ StorSimple Snapshot Manager 中央管理主控台可讓您建立一致、 時間
 
 | 如果您想要執行此動作... | 使用本教學課程... |
 |:--- |:--- |
-| 深入了解 StorSimple Snapshot Manager |[什麼是 StorSimple Snapshot Manager？ ](storsimple-what-is-snapshot-manager.md) |
+| 深入了解 StorSimple Snapshot Manager |[什麼是 StorSimple Snapshot Manager？](storsimple-what-is-snapshot-manager.md) |
 | 安裝 StorSimple Snapshot Manager<br>重新安裝 StorSimple Snapshot Manager<br>移除 StorSimple Snapshot Manager |[部署 StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md) |
 | 使用 StorSimple Snapshot Manager 功能表和功能：<ul><li>功能表列</li><li>工具列</li><li>範圍窗格</li><li>結果窗格</li><li>動作窗格</li><li>鍵盤瀏覽和快速鍵</li></ul> |[StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md) |
 | 使用包含在 StorSimple Snapshot Manager 中的常見 MMC 功能：<ul><li>檢視</li><li>從這裡開啟新視窗</li><li>重新整理</li><li>匯出清單</li><li>說明</li></ul> |[使用 StorSimple Snapshot Manager 中的 MMC 功能表動作](storsimple-snapshot-manager-mmc-menu.md) |

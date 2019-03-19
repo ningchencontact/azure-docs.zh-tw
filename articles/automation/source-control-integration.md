@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 49a28901e2ea471f97270c0407e2f6c0a4a533fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58169148"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
@@ -47,7 +47,7 @@ Azure 自動化支援三種類型的原始檔控制：
 
 在 [原始檔控制摘要] 頁面上，填入資訊並按一下 [儲存]。 下表顯示可用欄位的說明。
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |原始檔控制名稱     | 原始檔控制的易記名稱        |
 |原始檔控制類型     | 原始檔控制來源的類型。 可用選項包括：</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
@@ -56,7 +56,7 @@ Azure 自動化支援三種類型的原始檔控制：
 |資料夾路徑     | 包含要同步處理之 Runbook 的資料夾。範例：/Runbooks         |
 |自動同步處理     | 在原始檔控制存放庫中進行認可時開啟或關閉自動同步處理         |
 |發佈 Runbook     | 如果設定為 [開啟]，從原始檔控制同步處理 Runbook 之後，就會自動發佈 Runbook。         |
-|說明     | 用來提供其他詳細資料的文字欄位        |
+|描述     | 用來提供其他詳細資料的文字欄位        |
 
 ![原始檔控制摘要](./media/source-control-integration/source-control-summary.png)
 
@@ -112,7 +112,7 @@ Source Control Sync Summary:
 
 ### <a name="github"></a>GitHub
 
-|影響範圍  |說明  |
+|影響範圍  |描述  |
 |---------|---------|
 |**存放庫**     |         |
 |repo:status     | 存取認可狀態         |
@@ -140,6 +140,10 @@ Source Control Sync Summary:
 若要中斷與原始檔控制存放庫的連線，請在自動化帳戶的 [帳戶設定] 之下開啟 [原始檔控制 (預覽)]。
 
 選取您想要移除的原始檔控制。 在 [原始檔控制摘要] 頁面上，按一下 [刪除]。
+
+## <a name="encoding"></a>編碼
+
+如果多人正在使用不同的編輯器編輯您的原始檔控制儲存機制中的 runbook 沒有機會執行為編碼問題。 這可以在 runbook 中插入正確的字元。 若要深入了解，請參閱[常見編碼問題的原因](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>後續步驟
 

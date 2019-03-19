@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08b1f3889136fadee68b3aa95d879b0495bddb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198402"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>教學課程：Azure Active Directory 與 Yonyx Interactive Guides 整合
 
@@ -174,8 +174,8 @@ Yonyx Interactive Guides 與 Azure AD 整合提供下列優點：
 
 在這一節沒有您需要進行的動作項目。 嘗試存取 Yonyx Interactive Guides 期間會建立新使用者 (如果尚不存在)。
 
->[!NOTE]
->如果您需要手動建立使用者，您需要透過 <mailto:support@yonyx.com> 連絡 Yonyx Interactive Guides 支援小組。 
+> [!NOTE]
+> 如果您需要手動建立使用者，您需要透過 <mailto:support@yonyx.com> 連絡 Yonyx Interactive Guides 支援小組。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

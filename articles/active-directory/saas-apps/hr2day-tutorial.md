@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e932fd59fb888d73fb2ad9aee3f440b4aca3e662
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 378aab82fac5298c3785f752478e3bfc3c6e325b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180568"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103140"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>教學課程：Azure Active Directory 與 HR2day by Merces 整合
 
@@ -60,11 +60,11 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 HR2day by Merces，請採取下列步驟：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com) 的左方瀏覽窗格中，選取 **[Azure Active Directory]** 圖示。 
+1. 在 [Azure 入口網站](https://portal.azure.com) 的左方瀏覽窗格中，選取 **Azure Active Directory** 圖示。 
 
     ![Active Directory][1]
 
-1. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 移至 **企業應用程式**。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
@@ -132,8 +132,8 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
-    > [!NOTE] 
-    您必須先連絡 [HR2day by Merces 用戶端支援小組](mailto:servicedesk@merces.nl)，向其要求取得您租用戶的唯一識別碼屬性值，才能設定 SAML 判斷提示。 您需要這個值來完成下一節中的步驟： 
+   > [!NOTE]
+   >  您必須先連絡 [HR2day by Merces 用戶端支援小組](mailto:servicedesk@merces.nl)，向其要求取得您租用戶的唯一識別碼屬性值，才能設定 SAML 判斷提示。 您需要這個值來完成下一節中的步驟： 
 
 1. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，設定 SAML 權杖屬性，如下圖所示。 然後採取下列步驟。
     
@@ -174,7 +174,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
     > [!TIP]
     >現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，選取 [單一登入] 索引標籤。然後透過底部的 [設定] 區段來存取內嵌的文件。 您可以在 [Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)中閱讀更多有關內嵌文件功能的資訊。
-> 
+   > 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -183,7 +183,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請採取下列步驟：**
 
-1. 在 **Azure 入口網站** 的左方瀏覽窗格中，選取 **[Azure Active Directory]** 圖示。
+1. 在 **Azure 入口網站** 的左方瀏覽窗格中，選取 **Azure Active Directory** 圖示。
 
     ![建立 Azure AD 測試使用者](./media/hr2day-tutorial/create_aaduser_01.png) 
 

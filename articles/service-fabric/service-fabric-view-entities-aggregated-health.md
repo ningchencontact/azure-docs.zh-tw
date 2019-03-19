@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 09696c606fdf57f5ac55fc50eb06c2c5eea55dfe
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: d2b2a772e1cab50b8bad91c6b102529dfb362166
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105211"
 ---
 # <a name="view-service-fabric-health-reports"></a>檢視 Service Fabric 健康狀態報告
 Azure Service Fabric 導入了由健康情況實體組成的[健康情況模型](service-fabric-health-introduction.md)，系統元件和看門狗可以在其上回報所監視的本機情況。 [健康情況存放區](service-fabric-health-introduction.md#health-store) 會彙總所有健康情況資料，以判斷實體是否狀況良好。
@@ -53,7 +53,7 @@ Service Fabric 總管提供叢集的視覺化檢視。 在下圖中，您可以�
 
 使用 Service Fabric 總管檢視叢集：
 
-![使用 Service Fabric 總管檢視叢集。][1]
+![使用 Service Fabric Explorer 查看群集。][1]
 
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
@@ -149,43 +149,43 @@ PS D:\ServiceFabric> Get-ServiceFabricClusterHealth
 AggregatedHealthState   : Warning
 UnhealthyEvaluations    : 
                           Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
-                          
+
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Warning'.
-                          
+
                             Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                          
+
                             Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
-                          
+
                                 Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                          
+
                                 Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
-                          
+
                                     Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                          
-                          
+
+
 NodeHealthStates        : 
                           NodeName              : _Node_4
                           AggregatedHealthState : Ok
-                          
+
                           NodeName              : _Node_3
                           AggregatedHealthState : Ok
-                          
+
                           NodeName              : _Node_2
                           AggregatedHealthState : Ok
-                          
+
                           NodeName              : _Node_1
                           AggregatedHealthState : Ok
-                          
+
                           NodeName              : _Node_0
                           AggregatedHealthState : Ok
-                          
+
 ApplicationHealthStates : 
                           ApplicationName       : fabric:/System
                           AggregatedHealthState : Ok
-                          
+
                           ApplicationName       : fabric:/WordCount
                           AggregatedHealthState : Warning
-                          
+
 HealthEvents            : None
 HealthStatistics        : 
                           Node                  : 5 Ok, 0 Warning, 0 Error
@@ -211,25 +211,25 @@ Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -
 AggregatedHealthState   : Error
 UnhealthyEvaluations    : 
                           Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
-                          
+
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Error'.
-                          
+
                             Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                          
+
                             Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
-                          
+
                                 Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                          
+
                                 Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
-                          
+
                                     Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
-                          
-                          
+
+
 NodeHealthStates        : None
 ApplicationHealthStates : 
                           ApplicationName       : fabric:/WordCount
                           AggregatedHealthState : Error
-                          
+
 HealthEvents            : None
 ```
 
@@ -237,7 +237,7 @@ HealthEvents            : None
 您可以使用 [GET 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster)或 [POST 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) (含有其本文中所述的健康狀態原則) 取得叢集健全狀況。
 
 ## <a name="get-node-health"></a>取得節點的健康情況
-傳回節點實體的健全狀況，並且包含節點上報告的健康狀態事件。 輸入：
+傳回節點實體的健全狀況，並且包含節點上報告的健康狀態事件。 输入：
 
 * [必要] 可識別節點的節點名稱。
 * [選擇性] 用來評估健康情況的叢集健康情況原則設定。
@@ -305,7 +305,7 @@ _Node_0                     Ok
 ### <a name="rest"></a>REST
 您可以使用 [GET 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node)或 [POST 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) (含有其本文中所述的健康狀態原則) 取得節點健全狀況。
 
-## <a name="get-application-health"></a>取得應用程式健康情況
+## <a name="get-application-health"></a>获取应用程序运行状况
 傳回應用程式實體的健康情況。 包含已部署應用程式和服務子系的健康情況狀態。 輸入：
 
 * [必要] 可識別應用程式的應用程式名稱 (URI)。
@@ -363,43 +363,43 @@ ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
 UnhealthyEvaluations            : 
                                   Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                                  
+
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
-                                  
+
                                     Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                                  
+
                                     Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
-                                  
+
                                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                                  
+
 ServiceHealthStates             : 
                                   ServiceName           : fabric:/WordCount/WordCountWebService
                                   AggregatedHealthState : Ok
-                                  
+
                                   ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Warning
-                                  
+
 DeployedApplicationHealthStates : 
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_4
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_3
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_0
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_2
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_1
                                   AggregatedHealthState : Ok
-                                  
+
 HealthEvents                    : 
                                   SourceId              : System.CM
                                   Property              : State
@@ -412,7 +412,7 @@ HealthEvents                    :
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
                                   Transitions           : Error->Ok = 7/13/2017 5:57:05 PM, LastWarning = 1/1/0001 12:00:00 AM
-                                  
+
 HealthStatistics                : 
                                   Replica               : 6 Ok, 0 Warning, 0 Error
                                   Partition             : 1 Ok, 1 Warning, 0 Error
@@ -431,19 +431,19 @@ ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
 UnhealthyEvaluations            : 
                                   Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                                  
+
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
-                                  
+
                                     Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                                  
+
                                     Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
-                                  
+
                                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
-                                  
+
 ServiceHealthStates             : 
                                   ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Error
-                                  
+
 DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
@@ -481,7 +481,7 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-取得服務健全狀況的 Cmdlet 是 [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth)。 首先會使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Cmdlet 連接到叢集。
+取得服務健全狀況的 Cmdlet 是 [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth)。 首先，使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 连接到群集。
 
 以下 Cmdlet 會使用預設的健康情況原則，取得服務健康情況：
 
@@ -493,15 +493,15 @@ ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                        
+
                         Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
-                        
+
                             Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 PartitionHealthStates : 
                         PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
                         AggregatedHealthState : Warning
-                        
+
 HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
@@ -514,7 +514,7 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-                        
+
 HealthStatistics      : 
                         Replica               : 5 Ok, 0 Warning, 0 Error
                         Partition             : 0 Ok, 1 Warning, 0 Error
@@ -527,7 +527,7 @@ HealthStatistics      :
 傳回分割區實體的健康情況。 包含複本的健康情況狀態。 輸入：
 
 * [必要] 可識別分割區的分割識別碼 (GUID)。
-* [選擇性] 用來覆寫應用程式資訊清單原則的應用程式健康情況原則。
+* [可选] 用于取代应用程序清单策略的应用程序运行状况策略。
 * [選擇性] 事件和複本的篩選，指定對那些項目感到興趣，並且應該在結果中傳回 (例如，僅限錯誤、或警告和錯誤)。 所有事件和複本都會用來評估實體彙總健全狀況，不論篩選器為何。
 * [選用] 用於排除健康情況統計資料的篩選條件。 如果未指定，健康情況統計資料會顯示處於 OK、警告和錯誤狀態的複本數目。
 
@@ -550,7 +550,7 @@ PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 ReplicaHealthStates   : None
 HealthEvents          : 
                         SourceId              : System.FM
@@ -568,11 +568,11 @@ HealthEvents          :
                           N/S RD _Node_1 Up 131444422293118720
                           N/S RD _Node_0 Up 131444422293118721
                           (Showing 5 out of 5 replicas. Total available replicas: 5.)
-                        
+
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Ok->Warning = 7/13/2017 5:57:48 PM, LastError = 1/1/0001 12:00:00 AM
-                        
+
                         SourceId              : System.PLB
                         Property              : ServiceReplicaUnplacedHealth_Secondary_af2e3e44-a8f8-45ac-9f31-4093eb897600
                         HealthState           : Warning
@@ -585,29 +585,29 @@ HealthEvents          :
                         TargetReplicaSetSize: 7
                         Placement Constraint: N/A
                         Parent Service: N/A
-                        
+
                         Constraint Elimination Sequence:
                         Existing Secondary Replicas eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
                         Existing Primary Replica eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
-                        
+
                         Nodes Eliminated By Constraints:
-                        
+
                         Existing Secondary Replicas -- Nodes with Partition's Existing Secondary Replicas/Instances:
                         --
                         FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status: None/None
-                        
+
                         Existing Primary Replica -- Nodes with Partition's Existing Primary Replica or Secondary Replicas:
                         --
                         FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status: None/None
-                        
-                        
+
+
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 7/13/2017 5:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
-                        
+
 HealthStatistics      : 
                         Replica               : 5 Ok, 0 Warning, 0 Error
 ```
@@ -658,7 +658,7 @@ HealthEvents          :
 ### <a name="rest"></a>REST
 您可以使用 [GET 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica)或 [POST 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) (含有其本文中所述的健康狀態原則) 取得複本健全狀況。
 
-## <a name="get-deployed-application-health"></a>取得已部署應用程式的健康情況
+## <a name="get-deployed-application-health"></a>获取已部署应用程序的运行状况
 傳回部署在節點實體上的應用程式健康情況。 包含已部署的服務封裝健康情況狀態。 輸入：
 
 * [必要] 可識別已部署應用程式的應用程式名稱 (URI) 和節點名稱 (字串)。
@@ -675,7 +675,7 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-取得已部署應用程式健全狀況的 Cmdlet 是 [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps)。 首先會使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Cmdlet 連接到叢集。 若要找出應用程式的部署位置，請執行 [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) ，並查看部署的應用程式子系。
+取得已部署應用程式健全狀況的 Cmdlet 是 [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps)。 首先使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 连接到群集。 若要找出應用程式的部署位置，請執行 [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) ，並查看部署的應用程式子系。
 
 以下 Cmdlet 會取得部署在 **_Node_2** 節點上的 **fabric:/WordCount** 應用程式健康情況。
 
@@ -691,12 +691,12 @@ DeployedServicePackageHealthStates :
                                      ServicePackageActivationId : 
                                      NodeName              : _Node_0
                                      AggregatedHealthState : Ok
-                                     
+
                                      ServiceManifestName   : WordCountWebServicePkg
                                      ServicePackageActivationId : 
                                      NodeName              : _Node_0
                                      AggregatedHealthState : Ok
-                                     
+
 HealthEvents                       : 
                                      SourceId              : System.Hosting
                                      Property              : Activation
@@ -709,7 +709,7 @@ HealthEvents                       :
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
                                      Transitions           : Error->Ok = 7/13/2017 5:57:17 PM, LastWarning = 1/1/0001 12:00:00 AM
-                                     
+
 HealthStatistics                   : 
                                      DeployedServicePackage : 2 Ok, 0 Warning, 0 Error
 ```
@@ -717,7 +717,7 @@ HealthStatistics                   :
 ### <a name="rest"></a>REST
 您可以使用 [GET 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application)或 [POST 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) (含有其本文中所述的健康狀態原則) 取得已部署應用程式健全狀況。
 
-## <a name="get-deployed-service-package-health"></a>取得已部署服務封裝的健康情況
+## <a name="get-deployed-service-package-health"></a>获取已部署服务包的运行状况
 傳回已部署服務封裝實體的健康情況。 輸入：
 
 * [必要] 可識別已部署服務封裝的應用程式名稱 (URI)、節點名稱 (字串) 及服務資訊清單名稱 (字串)。
@@ -758,7 +758,7 @@ HealthEvents               :
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-                             
+
                              SourceId              : System.Hosting
                              Property              : CodePackageActivation:Code:EntryPoint
                              HealthState           : Ok
@@ -770,7 +770,7 @@ HealthEvents               :
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-                             
+
                              SourceId              : System.Hosting
                              Property              : ServiceTypeRegistration:WordCountServiceType
                              HealthState           : Ok
@@ -811,9 +811,9 @@ HealthEvents               :
 傳回叢集實體的健全狀況，並包含必要子系的階層健康狀態區塊。 輸入：
 
 * [選擇性] 用來評估節點和叢集事件的叢集健康狀態原則。
-* [選擇性] 應用程式健康情況原則對應，加上用來覆寫應用程式資訊清單原則的健康情況原則。
+* [可选] 应用程序运行状况策略与用于取代应用程序清单策略的运行状况策略进行映射。
 * [選擇性] 節點和應用程式的篩選器，指定對那些項目感到興趣，並且應該在結果中傳回。 篩選器專屬於實體的實體/群組，或適用於該層級的所有實體。 篩選器清單可包含一個一般篩選器及/或由查詢傳回之細微實體的特定識別碼篩選器。 如果子系是空的，依預設不會傳回子系。
-  如需深入了解篩選器，請參閱 [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) 和 [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter)。 應用程式篩選器可以遞迴方式指定進階的篩選器給子系。
+  如需深入了解篩選器，請參閱 [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) 和 [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter)。 应用程序筛选器可采用递归方式为子项指定高级筛选器。
 
 區塊結果包含採用篩選器的子系。
 
@@ -887,10 +887,10 @@ Get-ServiceFabricClusterHealthChunk -NodeFilters $nodeFilters
 HealthState                  : Warning
 NodeHealthStateChunks        : 
                                TotalCount            : 1
-                               
+
                                NodeName              : _Node_1
                                HealthState           : Ok
-                               
+
 ApplicationHealthStateChunks : None
 ```
 
@@ -927,35 +927,35 @@ HealthState                  : Error
 NodeHealthStateChunks        : None
 ApplicationHealthStateChunks : 
                                TotalCount            : 1
-                               
+
                                ApplicationName       : fabric:/WordCount
                                ApplicationTypeName   : WordCount
                                HealthState           : Error
                                ServiceHealthStateChunks : 
                                 TotalCount            : 1
-                               
+
                                 ServiceName           : fabric:/WordCount/WordCountService
                                 HealthState           : Error
                                 PartitionHealthStateChunks : 
                                     TotalCount            : 1
-                               
+
                                     PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
                                     HealthState           : Error
                                     ReplicaHealthStateChunks : 
                                         TotalCount            : 5
-                               
+
                                         ReplicaOrInstanceId   : 131444422293118720
                                         HealthState           : Ok
-                               
+
                                         ReplicaOrInstanceId   : 131444422293118721
                                         HealthState           : Ok
-                               
+
                                         ReplicaOrInstanceId   : 131444422293113678
                                         HealthState           : Ok
-                               
+
                                         ReplicaOrInstanceId   : 131444422293113679
                                         HealthState           : Ok
-                               
+
                                         ReplicaOrInstanceId   : 131444422260002646
                                         HealthState           : Error
 ```
@@ -982,34 +982,34 @@ HealthState                  : Error
 NodeHealthStateChunks        : None
 ApplicationHealthStateChunks : 
                                TotalCount            : 2
-                               
+
                                ApplicationName       : fabric:/System
                                HealthState           : Ok
                                DeployedApplicationHealthStateChunks : 
                                 TotalCount            : 1
-                               
+
                                 NodeName              : _Node_2
                                 HealthState           : Ok
                                 DeployedServicePackageHealthStateChunks :
                                     TotalCount            : 1
-                               
+
                                     ServiceManifestName   : FAS
                                     ServicePackageActivationId : 
                                     HealthState           : Ok
-                               
-                               
-                               
+
+
+
                                ApplicationName       : fabric:/WordCount
                                ApplicationTypeName   : WordCount
                                HealthState           : Error
                                DeployedApplicationHealthStateChunks : 
                                 TotalCount            : 1
-                               
+
                                 NodeName              : _Node_2
                                 HealthState           : Ok
                                 DeployedServicePackageHealthStateChunks :
                                     TotalCount            : 1
-                               
+
                                     ServiceManifestName   : WordCountServicePkg
                                     ServicePackageActivationId : 
                                     HealthState           : Ok
@@ -1054,8 +1054,6 @@ ApplicationHealthStateChunks :
 
 > [!NOTE]
 > 有些查詢會傳回已分頁的結果。 這些查詢的傳回內容是衍生自 [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1) 的清單。 如果結果不符合訊息，只會傳回頁面，且 ContinuationToken 會追蹤列舉停止之處。 繼續呼叫相同的查詢，並從先前的查詢傳入接續權杖以取得後續結果。
->
->
 
 ### <a name="examples"></a>範例
 以下程式碼會取得叢集中健全狀況不佳的應用程式：
@@ -1177,19 +1175,19 @@ ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
 UnhealthyEvaluations            : 
                                   Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                                  
+
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
-                                  
+
                                     Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                                  
+
                                     Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
-                                  
+
                                         Unhealthy replicas: 20% (1/5), MaxPercentUnhealthyReplicasPerPartition=0%.
-                                  
+
                                         Unhealthy replica: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', ReplicaOrInstanceId='131444422260002646', AggregatedHealthState='Error'.
-                                  
+
                                             Error event: SourceId='MyWatchdog', Property='Memory'.
-                                  
+
 ServiceHealthStates             : None
 DeployedApplicationHealthStates : None
 HealthEvents                    : None
@@ -1206,7 +1204,7 @@ ReplicaId             : 131444422260002646
 AggregatedHealthState : Error
 UnhealthyEvaluations  : 
                         Error event: SourceId='MyWatchdog', Property='Memory'.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : State
@@ -1219,7 +1217,7 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-                        
+
                         SourceId              : MyWatchdog
                         Property              : Memory
                         HealthState           : Error

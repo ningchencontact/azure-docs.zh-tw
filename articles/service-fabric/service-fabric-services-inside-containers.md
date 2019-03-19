@@ -3,7 +3,7 @@ title: 在 Windows 上將 Azure Service Fabric 服務容器化
 description: 了解如何在 Windows 上將 Service Fabric Reliable Services 和 Reliable Actors 容器化。
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: anmolah
 editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: twhitney, anmola
-ms.openlocfilehash: 24ec0de77c796ad2abf8587b7542e53f745c532d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.author: aljo, anmola
+ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298651"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079821"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>將 Windows 上的 Service Fabric Reliable Services 和 Reliable Actors 容器化
 
@@ -38,9 +38,9 @@ Service Fabric 支援將 Service Fabric 微服務 (Reliable Services 和 Reliabl
 
 3. 針對每個想要容器化的程式碼套件，於程式進入點初始化載入器。 將下列程式碼片段所示的靜態建構函式新增至程式的進入點檔案。
 
-  ```csharp
-  namespace MyApplication
-  {
+   ```csharp
+   namespace MyApplication
+   {
       internal static class Program
       {
           static Program()
@@ -53,7 +53,7 @@ Service Fabric 支援將 Service Fabric 微服務 (Reliable Services 和 Reliabl
           /// </summary>
           private static void Main()
           {
-  ```
+   ```
 
 4. 建置和[封裝](service-fabric-package-apps.md#Package-App)您的專案。 若要建置和建立套件，請以滑鼠右鍵按一下方案總管中的應用程式專案，然後選擇 [封裝] 命令。
 
@@ -79,49 +79,49 @@ Service Fabric 支援將 Service Fabric 微服務 (Reliable Services 和 Reliabl
 
 7. 修改 ApplicationManifest.xml 和 ServiceManifest.xml 以新增容器映像、存放庫資訊、登錄驗證和「連接埠與主機的對應」。 若要修改資訊清單，請參閱[建立 Azure Service Fabric 容器應用程式](service-fabric-get-started-containers.md)。 服務資訊清單中的程式碼套件定義需以對應的容器映像來加以取代。 請務必要將 EntryPoint 變更為 ContainerHost 類型。
 
-  ```xml
-<!-- Code package is your service executable. -->
-<CodePackage Name="Code" Version="1.0.0">
-  <EntryPoint>
+   ```xml
+   <!-- Code package is your service executable. -->
+   <CodePackage Name="Code" Version="1.0.0">
+   <EntryPoint>
     <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
     <ContainerHost>
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
-  </EntryPoint>
-  <!-- Pass environment variables to your container: -->
-</CodePackage>
-  ```
+   </EntryPoint>
+   <!-- Pass environment variables to your container: -->
+   </CodePackage>
+   ```
 
 8. 為您的複寫器和服務端點新增「連接埠與主機的對應」。 這兩個連接埠都會在執行階段由 Service Fabric 加以指派，因此 ContainerPort 會設定為零以使用指派的連接埠來進行對應。
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code">
     <PortBinding ContainerPort="0" EndpointRef="ServiceEndpoint"/>
     <PortBinding ContainerPort="0" EndpointRef="ReplicatorEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
- ```
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 9. 若要設定容器隔離模式，請參閱[設定隔離模式]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode)。 Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
-  ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 10. 若要測試此應用程式，您必須將它部署至執行 5.7 版或更高版本的叢集。 若為執行階段 6.1 版或更低版本，您還需要編輯和更新叢集設定，以啟用此預覽功能。 請遵循這篇[文章](service-fabric-cluster-fabric-settings.md)中的步驟，以新增接下來顯示的設定。
-```
+    ```
       {
         "name": "Hosting",
         "parameters": [
@@ -131,7 +131,7 @@ Service Fabric 支援將 Service Fabric 微服務 (Reliable Services 和 Reliabl
           }
         ]
       }
-```
+    ```
 
 11. 接著，將編輯過的應用程式套件[部署](service-fabric-deploy-remove-applications.md)至此叢集。
 

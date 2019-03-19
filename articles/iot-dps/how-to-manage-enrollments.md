@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0970131c4b674fd864ad574b0f749cd6d7f6f2a2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089381"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>如何透過 Azure 入口網站管理裝置註冊
 
@@ -28,15 +28,15 @@ ms.locfileid: "42142310"
 
     您可以使用下列步驟在入口網站中為裝置群組建立註冊群組：
 
-    1. 登入 Azure 入口網站，然後在左側功能表中按一下 [所有資源]。  
-    1. 在資源清單中按一下要用來註冊裝置的裝置佈建服務。  
-    1. 在您的佈建服務中：  
-       a. 按一下 [管理註冊]，然後選取 [註冊群組] 索引標籤。  
-       b. 按一下位於頂端的 [新增] 按鈕。  
-       c. 當 [新增註冊群組] 面板出現時，請輸入註冊清單項目的資訊。  需要 [群組名稱]。 此外，針對 [憑證類型]，請選取「CA 或中繼」，並上傳裝置群組的根 [主要憑證]。  
-       d. 按一下 [檔案] 。 在成功建立註冊群組後，您應該會看到群組名稱出現在 [註冊群組] 索引標籤底下。  
+  1. 登入 Azure 入口網站，然後在左側功能表中按一下 [所有資源]。  
+  1. 在資源清單中按一下要用來註冊裝置的裝置佈建服務。  
+  1. 在您的佈建服務中：  
+     a. 按一下 [管理註冊]，然後選取 [註冊群組] 索引標籤。  
+     b. 按一下位於頂端的 [新增] 按鈕。  
+     c. 當 [新增註冊群組] 面板出現時，請輸入註冊清單項目的資訊。  需要 [群組名稱]。 此外，針對 [憑證類型]，請選取「CA 或中繼」，並上傳裝置群組的根 [主要憑證]。  
+     d. 按一下 [檔案] 。 在成功建立註冊群組後，您應該會看到群組名稱出現在 [註冊群組] 索引標籤底下。  
 
-       [![入口網站中的註冊群組](./media/how-to-manage-enrollments/group-enrollment.png)]  (./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [![在入口網站中的註冊群組](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
 * **個別註冊**是可能會註冊之單一裝置的項目。 個別註冊可使用 x509 憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 對於需要唯一初始設定的裝置，或是只能透過 TPM 或虛擬 TPM 將 SAS 權杖作為證明機制的裝置，建議您使用個別註冊。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。

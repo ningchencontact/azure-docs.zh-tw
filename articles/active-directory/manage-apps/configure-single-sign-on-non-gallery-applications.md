@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177288"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117654"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>在 Azure Active Directory 中設定非資源庫應用程式的單一登入
 
@@ -29,8 +29,8 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 - 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式整合 (SP 起始或 IdP 起始)
 - Web 應用程式可在使用 [密碼型 SSO](what-is-single-sign-on.md#password-based-sso)
-* 應用程式可使用 SCIM 通訊協定進行自助式連線，以執行使用者佈建 ([說明請見此處](use-scim-to-provision-users-and-groups.md))
-* 能夠在 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](what-is-single-sign-on.md#linked-sso)中新增任何應用程式的連結
+- 應用程式可使用 SCIM 通訊協定進行自助式連線，以執行使用者佈建 ([說明請見此處](use-scim-to-provision-users-and-groups.md))
+- 能夠在 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](what-is-single-sign-on.md#linked-sso)中新增任何應用程式的連結
 
 這不僅包括您所使用、但尚未在 Azure AD 應用程式庫中上線的 SaaS 應用程式，也包括您的組織已部署至您所控制的伺服器 (在雲端或內部部署中) 的第三方 Web 應用程式。
 
@@ -60,7 +60,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
   ![Litware 網域和 URL](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **登入 URL (僅限 SP 起始)** - 使用者在此登入此應用程式。 如果已將應用程式設定為執行服務提供者所起始的單一登入，則當使用者瀏覽至此 URL 時，服務提供者就會執行必要的重新導向來連至 Azure AD，以進行使用者驗證和登入。 如果已填入此欄位，Azure AD 將使用此 URL 從 Office 365 和 Azure AD 存取面板中啟動應用程式。 如果略過這個欄位，則從 Office 365、Azure AD 存取面板或 Azure AD 單一登入 URL (可從 [儀表板] 索引標籤複製) 啟動應用程式時，Azure AD 會改為執行識別提供者所起始的登入。
+- **登入 URL (僅限 SP 起始)** - 使用者在此登入此應用程式。 如果已將應用程式設定為執行服務提供者所起始的單一登入，則當使用者瀏覽至此 URL 時，服務提供者就會執行必要的重新導向來連至 Azure AD，以進行使用者驗證和登入。 如果已填入此欄位，Azure AD 將使用此 URL 從 Office 365 和 Azure AD 存取面板中啟動應用程式。 如果省略此欄位，則 Azure AD 會改為執行身分識別提供者-從 Office 365，Azure AD 存取面板中，或從 Azure AD 單一登入 URL （可從複製的 [儀表板] 索引標籤） 啟動應用程式時起始登入。
 - **識別碼** - 可唯一識別要設定單一登入的應用程式。 您可在應用程式傳送的 AuthRequest (SAML 要求) 中的簽發者元素找到這個值。 在應用程式中提供的任何 SAML 中繼資料中，這個值也會顯示為實體識別碼  。 請查看應用程式的 SAML 文件，以了解其「實體識別碼」或「對象」值的詳細資訊。 
 
     以下範例說明應用程式傳送至 Azure AD 的 SAML 要求中如何顯示識別碼或簽發者：

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1622de0cccdbc8fee0681e209e756b30da292d3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003499"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>Azure 上的 IBM DB2 pureScale
 
@@ -66,7 +66,7 @@ IBM DB2 pureScale 環境提供適用於 Azure 的資料庫叢集，可在 Linux 
 
 ### <a name="compute-considerations"></a>計算考量
 
-此架構會在 Azure 虛擬機器上執行應用程式、儲存體與資料層。 [部署安裝程式指令碼](http://aka.ms/db2onazure)會建立下列項目：
+此架構會在 Azure 虛擬機器上執行應用程式、儲存體與資料層。 [部署安裝程式指令碼](https://aka.ms/db2onazure)會建立下列項目：
 
 -   DB2 pureScale 叢集。 您在 Azure 上需要的計算資源類型取決於您的安裝程式。 一般而言，您可以使用下列兩種方式：
 

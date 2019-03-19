@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 64008a91033b1fdd9cb318e76db2b1958f2337e9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309314"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005197"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護檔案伺服器 
 
@@ -63,12 +63,13 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 
 ### <a name="site-recovery-support"></a>Site Recovery 支援
 由於 Site Recovery 複寫無法以應用程式驗證，下列建議應該適用於下列案例。
+
 | 來源    |至次要網站    |至 Azure
 |---------|---------|---------|
-|Azure| -|yes|
-|Hyper-V|   yes |yes
-|VMware |yes|   yes
-|實體伺服器|   yes |yes
+|Azure| -|是|
+|Hyper-V|   是 |是
+|VMware |是|   是
+|實體伺服器|   是 |是
  
 
 > [!IMPORTANT]

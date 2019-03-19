@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260313"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093536"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk 服務的版本資訊
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Microsoft Azure BizTalk 服務的版本資訊包含此版本已知的問題。
@@ -47,7 +47,8 @@ Microsoft Azure BizTalk 服務的版本資訊包含此版本已知的問題。
 * 對於傳送端合約，您現在可以為每個結構描述指定不同的分隔符號集。 此設定是在傳送端合約的通訊協定設定下指定。 如需詳細資訊，請參閱[在 Azure BizTalk 服務中建立 X12 合約](https://msdn.microsoft.com/library/azure/hh689847.aspx)和[在 Azure BizTalk 服務中建立 EDIFACT合約](https://msdn.microsoft.com/library/azure/dn606267.aspx)。 兩個新的實體也為了相同目的而新增至 TPM OM API。 請參閱 [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) 和 [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx)。  
 * 現在支援標準 XSD 建構，包括衍生類型。 請參閱[在您的對應中使用標準 XSD 建構](https://msdn.microsoft.com/library/azure/dn793987.aspx)和[在對應案例和範例中使用衍生類型](https://msdn.microsoft.com/library/azure/dn793997.aspx)。  
 * AS2 支援用於訊息簽署的新 MIC 演算法，以及新的加密演算法。 請參閱 [在 Azure BizTalk 服務中建立 AS2合約](https://msdn.microsoft.com/library/azure/hh689890.aspx)。  
-  ## <a name="know-issues"></a>已知問題
+
+## <a name="known-issues"></a>已知問題
 
 ### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>BizTalk 服務入口網站更新之後的連線能力問題
   當升級 BizTalk 服務來導入服務的變更時，如果 BizTalk 服務入口網站中已開啟，BizTalk 服務入口網站的連線能力可能會發生問題。  
@@ -127,7 +128,7 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
 <faultcode>s:Client</faultcode>
 <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
 <detail>
-  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
     <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
   </AFConnectRuntimeFault>
 </detail>

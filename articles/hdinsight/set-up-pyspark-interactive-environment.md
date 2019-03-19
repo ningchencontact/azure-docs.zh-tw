@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 8c0b40f0e6204d6cff59d3de3f20604d6913b9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910643"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111628"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>設定 Visual Studio Code 的 PySpark 互動式環境
 
@@ -30,8 +30,8 @@ ms.locfileid: "54910643"
  
         ![Python pip 版本](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-    > [!NOTE]
-    > 建議您以手動方式安裝 Python，不要使用 MacOS 預設版本。
+     > [!NOTE]
+     > 建議您以手動方式安裝 Python，不要使用 MacOS 預設版本。
 
 
 2. 執行下列命令來安裝 **virtualenv**。
@@ -71,4 +71,4 @@ ms.locfileid: "54910643"
 * [搭配 Jupyter Notebook 使用外部套件](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [在 Azure HDInsight 中使用 Microsoft Power BI 將 Apache Hive 資料視覺化](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢](hdinsight-connect-hive-zeppelin.md)
+* [使用 Apache Zeppelin 才能在 Azure HDInsight 中執行 Apache Hive 查詢](hdinsight-connect-hive-zeppelin.md)

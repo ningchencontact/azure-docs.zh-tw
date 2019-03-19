@@ -1,6 +1,6 @@
 ---
 title: 在向外延展的雲端資料庫之間移動資料 | Microsoft Docs
-description: 說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。
+description: 介绍如何使用弹性数据库 API 通过自托管服务来操作分片和移动数据。
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 1d350cae379c5ec790413775138225b60b9c5e32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901928"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在向外延展的雲端資料庫之間移動資料
 
@@ -29,14 +29,14 @@ ms.locfileid: "55564930"
 
 ## <a name="download"></a>下載
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>文件
 
 1. [彈性資料庫分割合併工具教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 2. [Split-Merge 安全性設定](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [分割合併安全性考量](sql-database-elastic-scale-split-merge-security-configuration.md)
-4. [分區對應管理](sql-database-elastic-scale-shard-map-management.md)
+4. [分片映射管理](sql-database-elastic-scale-shard-map-management.md)
 5. [轉換現有的資料庫以使用彈性資料庫工具](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [彈性資料庫功能概觀](sql-database-elastic-scale-introduction.md)
 7. [彈性資料庫工具字彙](sql-database-elastic-scale-glossary.md)
@@ -136,7 +136,7 @@ ms.locfileid: "55564930"
 
 - **分區對應**
 
- 下一節的要求參數討論分區對應和主控分區對應之資料庫的相關資訊。 特別的是，您需要提供 Azure SQL Database 伺服器名稱和裝載 shardmap 的資料庫名稱、用以連接到分區對應資料庫的認證，以及分區對應名稱的名稱。 目前，此作業只接受一組認證。 這些認證必須有足夠權限來變更分區對應及分區上的使用者資料。
+  下一節的要求參數討論分區對應和主控分區對應之資料庫的相關資訊。 特別的是，您需要提供 Azure SQL Database 伺服器名稱和裝載 shardmap 的資料庫名稱、用以連接到分區對應資料庫的認證，以及分區對應名稱的名稱。 目前，此作業只接受一組認證。 這些認證必須有足夠權限來變更分區對應及分區上的使用者資料。
 
 - **來源範圍 (分割和合併)**
 
@@ -216,12 +216,16 @@ ms.locfileid: "55564930"
 
 ## <a name="deploy-diagnostics"></a>部署診斷
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+
 針對 NuGet 封裝所提供的 Web 和背景工作角色，若要使用診斷組態啟用監視和診斷，請使用 Azure PowerShell 執行下列命令：
 
 ```powershell
     $storage_name = "<YourAzureStorageAccount>"
     $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
+    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
     $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
     $service_name = "<YourCloudServiceName>"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"

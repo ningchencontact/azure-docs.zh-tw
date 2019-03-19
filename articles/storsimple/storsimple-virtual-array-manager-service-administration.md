@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109896"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091863"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員服務管理 StorSimple Virtual Array
 ![安裝程序流程](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -53,7 +53,7 @@ StorSimple Manager 裝置管理員服務在 Microsoft Azure 中執行，並連�
 
 #### <a name="storsimple-device-manager-workflows"></a>StorSimple 裝置管理員工作流程
 | 如果您想要執行此動作... | 使用此程序 |
-| --- | --- | --- |
+| --- | --- |
 | 建立服務</br>刪除服務</br>取得服務註冊金鑰。</br>重新產生服務註冊金鑰 |[部署 StorSimple 裝置管理員服務](storsimple-virtual-array-manage-service.md) |
 | 檢視活動記錄檔 |[使用 StorSimple 服務摘要](storsimple-virtual-array-service-summary.md) |
 | 停用 Virtual Array</br>刪除 Virtual Array |[停用或刪除虛擬陣列](storsimple-virtual-array-deactivate-and-delete-device.md) |

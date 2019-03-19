@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180699"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900585"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>將 Windows Server 虛擬機器加入受控網域
 本文說明如何使用 Azure 入口網站來部署 Windows Server 虛擬機器。 然後會說明如何將虛擬機器加入 Azure Active Directory Domain Services (Azure AD DS) 受控網域。
@@ -107,7 +107,7 @@ ms.locfileid: "55180699"
 
 7. 您可以透過下列任一方式指定認證︰
 
-   * **UPN 格式**：(建議) 指定 Azure AD 中所設定使用者帳戶的使用者主體名稱 (UPN) 尾碼。 在此範例中，使用者 bob 的 UPN 尾碼是 bob@domainservicespreview.onmicrosoft.com。
+   * **UPN 格式**：(建議) 指定 Azure AD 中所設定使用者帳戶的使用者主體名稱 (UPN) 尾碼。 在此範例中，使用者的 UPN 尾碼*bob*是*bob\@domainservicespreview.onmicrosoft.com*。
 
    * **SAMAccountName 格式**：您可以使用 SAMAccountName 格式指定帳戶名稱。 在此範例中，使用者 bob 必須輸入 CONTOSO100\bob。
 
@@ -146,7 +146,7 @@ ms.locfileid: "55180699"
 
 * 確認您已為受控網域[啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)。
 
-* 確認您已使用 Azure AD 中所設定的使用者 UPN (例如 *bob@domainservicespreview.onmicrosoft.com*) 來登入。
+* 請檢查 Azure AD 中所設定已使用使用者的 UPN (例如*bob\@domainservicespreview.onmicrosoft.com*) 來登入。
 
 * 等候足夠長的時間以讓密碼同步處理完成，如《快速入門指南》中所指定。
 

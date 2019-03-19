@@ -1,21 +1,21 @@
 ---
-title: 將分析從 Excel 遷移至 Azure Machine Learning Studio
+title: 從 Excel 的移轉分析
 titleSuffix: Azure Machine Learning Studio
 description: 在 Excel 和 Azure Machine Learning Studio 中的線性迴歸模型的比較
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 5db8c4be9317706fcc8a31b916cff72fd13596d6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453287"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864825"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>將分析從 Excel 遷移至 Azure Machine Learning Studio
 
@@ -102,14 +102,14 @@ ms.locfileid: "56453287"
 
 *Web 服務儀表板* 一節包含可下載的 Excel 活頁簿。 活頁簿已使用 Web 服務 API 預先格式化並內嵌結構描述資訊。 按一下 [下載 Excel 活頁簿] 開啟活頁簿，您可以將它儲存到本機電腦。 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
+![從 Web 服務儀表板下載 Excel 活頁簿](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 在活頁簿開啟時，請將預先定義的參數複製到藍色的 Parameter 區段，如下所示。 一旦輸入參數，Excel 即會對外呼叫 Machine Learning Web 服務，而會在綠色的預測值區段中顯示預測的計分標籤。 活頁簿將會針對在 Parameters 下輸入參數下的所有資料列項目，繼續根據您的訓練模型建立預測。 如需有關如何使用這項功能的詳細資訊，請參閱 [從 Excel 使用 Azure Machine Learning Web 服務](consuming-from-excel.md)。 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
+![範本 Excel 活頁簿連接到已部署的 web 服務](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>最佳化及進一步實驗
-現在我們已具備 Excel 模型的基準，我們可以進行最佳化 Machine Learning 線性迴歸模型。 我們使用[以篩選為基礎的特徵選取][filter-based-feature-selection]模組，改善我們選取的初始資料元素，有助於我們的效能提升達到平均絕對誤差 4.6%。 針對未來的專案，我們將使用這項功能，它可以為逐一查看資料屬性，以找出正確的功能，用於模型化組合上，可為我們節省數週的時間。 
+現在我們已具備 Excel 模型的基準，我們可以進行最佳化 Machine Learning 線性迴歸模型。 我們使用[以篩選為基礎的特徵選取][filter-based-feature-selection]模組，改善我們選取的初始資料元素，有助於我們的效能提升達到平均絕對誤差 4.6%。 為未來的專案中，我們將使用此功能，無法我們節省數週中逐一查看資料屬性，以找出正確的功能，可用於模型化。 
 
 接下來，我們打算在實驗中納入其他演算法來比較效能，例如 [Bayesian][bayesian-linear-regression]或[推進式決策樹][boosted-decision-tree-regression]。 
 
@@ -132,13 +132,9 @@ ms.locfileid: "56453287"
 ## <a name="resources"></a>資源
 以下是一些可幫助您處理迴歸的資源： 
 
-* Excel 中的迴歸。 如果您從未嘗試過使用 Excel 進行迴歸，此教學課程可讓您輕鬆地完成：[http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Excel 中的迴歸。 如果您從未嘗試過使用 Excel 進行迴歸，此教學課程可讓您輕鬆地完成：[https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
 * 迴歸與預測。 Tyler Chessman 撰寫部落格文章，說明如何在 Excel 中執行時間序列預測，其中包含初學者適用的良好線性迴歸描述。 [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* 普通最小平方線性迴歸：缺點、問題和陷阱。 如需迴歸的簡介與討論：[http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
-
-[1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
-[2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png
-
+* 普通最小平方線性迴歸：缺點、問題和陷阱。 如需迴歸的簡介與討論：[https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/

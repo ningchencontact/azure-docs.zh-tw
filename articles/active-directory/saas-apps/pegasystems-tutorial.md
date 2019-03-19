@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a6fd51ad14395b3c195ae1ceb5a188dd2c708c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fa3a3dbda3f184b0c2541dc9df6c39afa86458e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162504"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437627"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>教學課程：Azure Active Directory 與 Pega Systems 整合
 
@@ -170,7 +170,7 @@ Pega Systems 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-1. 在 [建立驗證服務] 畫面上執行下列動作：
+1. 上執行下列動作**建立驗證服務**螢幕：
 
     ![設定單一登入儲存按鈕](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 

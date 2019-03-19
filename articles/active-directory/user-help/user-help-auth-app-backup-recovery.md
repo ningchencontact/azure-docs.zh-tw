@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077763"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 應用程式保來備份和復原帳戶認證
 
@@ -27,8 +27,10 @@ ms.locfileid: "56167825"
 
 Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程式設定 (例如您的帳戶順序) 備份到雲端。 備份之後，您也可以使用此應用程式在新裝置上復原您的資訊，這有可能避免遭到鎖定或者必須重新建立帳戶。
 
->[!IMPORTANT]
-> 對於每個備份儲存位置，您需要一個個人 Microsoft 帳戶和一個 iCloud 帳戶。 但是在該儲存位置內，您可以備份數個帳戶。 例如，您可以有個人帳戶、學校帳戶，以及 Facebook、Google 等的第三方帳戶。<br><br>系統只會儲存您的個人帳戶認證和協力廠商帳戶認證，包括您的使用者名稱與證明身分識別所需的帳戶驗證碼。 我們不會儲存任何與您帳戶相關聯的其他資訊，包括電子郵件或檔案。 我們也不會以任何方式或與其他產品或服務關聯或共用您的帳戶。 最後，您的 IT 管理員將不會取得有關上述任何帳戶的任何資訊。
+> [!IMPORTANT]
+> 對於每個備份儲存位置，您需要一個個人 Microsoft 帳戶和一個 iCloud 帳戶。 但是在該儲存位置內，您可以備份數個帳戶。 例如，您可以有個人帳戶、學校帳戶，以及 Facebook、Google 等的第三方帳戶。
+> 
+> 系統只會儲存您的個人帳戶認證和協力廠商帳戶認證，包括您的使用者名稱與證明身分識別所需的帳戶驗證碼。 我們不會儲存任何與您帳戶相關聯的其他資訊，包括電子郵件或檔案。 我們也不會以任何方式或與其他產品或服務關聯或共用您的帳戶。 最後，您的 IT 管理員將不會取得有關上述任何帳戶的任何資訊。
 
 ## <a name="back-up-your-account-credentials"></a>備份您的帳戶認證
 您必須先具備下列兩者，才能備份您的認證：
@@ -84,7 +86,7 @@ Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程�
     ![Microsoft Authenticator 應用程式，可讓您掃描您的 QR 代碼](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >如需如何取得 QR 代碼的詳細資訊，請參閱[開始使用 Microsoft Authenticator 應用程式](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install)或[將安全性資訊設定為使用驗證器應用程式](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app) (取決於系統管理員是否已開啟安全性資訊)。
+    >如需如何取得 QR 代碼的詳細資訊，請參閱[開始使用 Microsoft Authenticator 應用程式](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install)或[將安全性資訊設定為使用驗證器應用程式](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app) (取決於系統管理員是否已開啟安全性資訊)。
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>針對備份和復原問題進行疑難排解
 您的備份無法使用的可能原因如下：
@@ -98,10 +100,12 @@ Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程�
 -   **現有的 Microsoft Authenticator 帳戶。** 如果您已經在 Microsoft Authenticator 應用程式中設定帳戶，則應用程式將無法復原您已備份的帳戶。 防止復原有助於確保過時資訊不會覆寫您的帳戶詳細資料。 在此情況下，您必須先從在 Microsoft Authenticator 應用程式中設定的現有帳戶移除任何現有的帳戶資訊，才可以復原您的備份。
 
 ## <a name="next-steps"></a>後續步驟
-既然您已將帳戶認證備份和復原至新裝置，即可繼續使用 Microsoft Authenticator 應用程式來驗證您的身分識別。
+既然您已將帳戶認證備份和復原至新裝置，即可繼續使用 Microsoft Authenticator 應用程式來驗證您的身分識別。 如需詳細資訊，請參閱 <<c0> [ 給您使用 Microsoft Authenticator 應用程式的帳戶登入](user-help-sign-in.md)。
 
 ## <a name="related-topics"></a>相關主題
-- [開始使用 Microsoft Authenticator 應用程式](user-help-auth-app-download-install.md)  
+
+- [什麼是 Microsoft Authenticator 應用程式？](user-help-auth-app-overview.md)
+
 - [Microsoft Authenticator 應用程式常見問題集](user-help-auth-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

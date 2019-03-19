@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268425"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875269"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -144,18 +144,18 @@ Task | 最低特殊權限角色 | 其他角色
 
 Task | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-指派授權 | 使用者帳戶管理員 | 
-建立群組 | 使用者帳戶管理員 | 
-建立、更新或刪除群組或應用程式的存取權檢閱 | 使用者帳戶管理員 | 
-管理群組到期日 | 使用者帳戶管理員 | 
+指派授權 | 使用者管理員 | 
+建立群組 | 使用者管理員 | 
+建立、更新或刪除群組或應用程式的存取權檢閱 | 使用者管理員 | 
+管理群組到期日 | 使用者管理員 | 
 管理群組設定 | 全域管理員 | 
 讀取所有設定 (隱藏的成員資格除外) | 目錄讀取器 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-讀取隱藏的成員資格 | 群組成員 | 群組擁有者、密碼管理員、Exchange 系統管理員、SharePoint 系統管理員、Teams 管理員、使用者帳戶管理員
-讀取具有隱藏成員資格之群組的成員資格 | 服務台系統管理員 | 使用者帳戶管理員、Teams 管理員
-撤銷授權 | 授權管理員 | 使用者帳戶管理員
-更新群組成員資格 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者帳戶管理員
-更新群組擁有者 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者帳戶管理員
-更新群組屬性 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者帳戶管理員
+讀取隱藏的成員資格 | 群組成員 | 群組擁有者、 密碼管理員、 Exchange 系統管理員、 SharePoint 系統管理員、 小組系統管理員、 使用者管理員
+讀取具有隱藏成員資格之群組的成員資格 | 服務台系統管理員 | 小組系統管理員使用者管理員
+撤銷授權 | 授權管理員 | 使用者管理員
+更新群組成員資格 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
+更新群組擁有者 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
+更新群組屬性 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
 
 ## <a name="identity-protection"></a>身分識別保護
 
@@ -176,9 +176,9 @@ Task | 最低特殊權限角色 | 其他角色
 
 Task | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-指派授權 | 授權管理員 | 使用者帳戶管理員
+指派授權 | 授權管理員 | 使用者管理員
 讀取所有設定 | 目錄讀取器 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-撤銷授權 | 授權管理員 | 使用者帳戶管理員
+撤銷授權 | 授權管理員 | 使用者管理員
 試用或購買訂用帳戶 | 計費管理員 | 
 
 
@@ -315,21 +315,21 @@ Task | 最低特殊權限角色 | 其他角色
 Task | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
 將使用者新增至目錄角色 | 特殊權限角色管理員 | 
-將使用者新增至群組 | 使用者帳戶管理員 | 
-指派授權 | 授權管理員 | 使用者帳戶管理員
-建立來賓使用者 | 來賓邀請者 | 使用者帳戶管理員
-建立使用者 | 使用者帳戶管理員 | 
-刪除使用者 | 使用者帳戶管理員 | 
-使受限制管理員的重新整理權杖失效 (請參閱文件) | 使用者帳戶管理員 | 
-使非管理員的重新整理權杖失效 (請參閱文件) | 密碼管理員 | 使用者帳戶管理員
+將使用者新增至群組 | 使用者管理員 | 
+指派授權 | 授權管理員 | 使用者管理員
+建立來賓使用者 | 來賓邀請者 | 使用者管理員
+建立使用者 | 使用者管理員 | 
+刪除使用者 | 使用者管理員 | 
+使受限制管理員的重新整理權杖失效 (請參閱文件) | 使用者管理員 | 
+使非管理員的重新整理權杖失效 (請參閱文件) | 密碼管理員 | 使用者管理員
 使具特殊權限管理員的重新整理權杖失效 (請參閱文件) | 全域管理員 | 
 讀取基本設定 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-為受限制的管理員重設密碼 (請參閱文件) | 使用者帳戶管理員 | 
-為非管理員重設密碼 (請參閱文件) | 密碼管理員 | 使用者帳戶管理員
+為受限制的管理員重設密碼 (請參閱文件) | 使用者管理員 | 
+為非管理員重設密碼 (請參閱文件) | 密碼管理員 | 使用者管理員
 為具特殊權限的管理員重設密碼 | 全域管理員 | 
-撤銷授權 | 授權管理員 | 使用者帳戶管理員
-更新使用者主體名稱以外的所有屬性 | 使用者帳戶管理員 | 
-更新適用於受限制管理員的使用者主體名稱 (請參閱文件) | 使用者帳戶管理員 | 
+撤銷授權 | 授權管理員 | 使用者管理員
+更新使用者主體名稱以外的所有屬性 | 使用者管理員 | 
+更新適用於受限制管理員的使用者主體名稱 (請參閱文件) | 使用者管理員 | 
 更新具特殊權限管理員上的使用者主體名稱屬性 (請參閱文件) | 全域管理員 | 
 更新使用者設定 | 全域管理員 | 
 

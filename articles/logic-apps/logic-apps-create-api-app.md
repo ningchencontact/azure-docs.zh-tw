@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895850"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>建立您可以從 Azure Logic Apps 呼叫的自訂 API
 
@@ -25,7 +25,7 @@ ms.locfileid: "53600708"
 * 協助客戶使用您的服務來管理專業或個人工作。
 * 展開您服務的觸達、搜尋功能以及用途。
 
-基本上，連接器是使用 REST 作為隨插即用介面、[Swagger 中繼資料格式](http://swagger.io/specification/)作為文件，以及 JSON 作為其資料交換格式的 web API。 因為連接器是透過 HTTP 端點進行通訊的 REST API，您可以使用諸如 .NET、Java 或 Node.js 等任何語言來建置連接器。 您也可以在 [Azure App Service](../app-service/overview.md) 上裝載您的 API，Azure App Service 是平台即服務 (PaaS) 供應項目，能為 API 裝載提供最佳、最簡單且擴充性最高的方法。 
+基本上，連接器是使用 REST 作為隨插即用介面、[Swagger 中繼資料格式](https://swagger.io/specification/)作為文件，以及 JSON 作為其資料交換格式的 web API。 因為連接器是透過 HTTP 端點進行通訊的 REST API，您可以使用諸如 .NET、Java 或 Node.js 等任何語言來建置連接器。 您也可以在 [Azure App Service](../app-service/overview.md) 上裝載您的 API，Azure App Service 是平台即服務 (PaaS) 供應項目，能為 API 裝載提供最佳、最簡單且擴充性最高的方法。 
 
 若要讓自訂 API 與 Logic Apps 搭配使用，您的 API 可以提供[*動作*](./logic-apps-overview.md#logic-app-concepts)，能在邏輯應用程式工作流程中執行特定的工作。 您的 API 也可作為[*觸發程序*](./logic-apps-overview.md#logic-app-concepts)，當新資料或事件符合指定的條件時，能啟動邏輯應用程式工作流程。 本主題描述常見的模式，以您想要 API 提供的行為作為基礎，加以遵循即可在您的 API 中建置動作和觸發程序。
 
@@ -41,11 +41,11 @@ ms.locfileid: "53600708"
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> 如需針對 Logic Apps 建置的 API 應用程式範例，請瀏覽 [Azure Logic Apps GitHub 存放庫](http://github.com/logicappsio)或[部落格](https://aka.ms/logicappsblog)。
+> 如需針對 Logic Apps 建置的 API 應用程式範例，請瀏覽 [Azure Logic Apps GitHub 存放庫](https://github.com/logicappsio)或[部落格](https://aka.ms/logicappsblog)。
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>自訂 API 與自訂連接器有何不同？
 
-自訂 API 和[自訂連接器](../logic-apps/custom-connector-overview.md)是針對可插式介面使用 REST、針對文件使用 [Swagger 中繼資料格式](http://swagger.io/specification/)以及使用 JSON 作為其資料交換格式的 Web API。 而由於這些 API 和連接器是透過 HTTP 端點進行通訊的 REST API，因此您可以使用任何語言 (例如 .NET、Java 或 Node.js) 來建置自訂 API 和連接器。
+自訂 API 和[自訂連接器](../logic-apps/custom-connector-overview.md)是針對可插式介面使用 REST、針對文件使用 [Swagger 中繼資料格式](https://swagger.io/specification/)以及使用 JSON 作為其資料交換格式的 Web API。 而由於這些 API 和連接器是透過 HTTP 端點進行通訊的 REST API，因此您可以使用任何語言 (例如 .NET、Java 或 Node.js) 來建置自訂 API 和連接器。
 
 自訂 API 可讓您呼叫不是連接器的 API，並提供您可以使用 HTTP + Swagger、「Azure API 管理」或「應用程式服務」來呼叫的端點。 自訂連接器的運作方式與自訂 API 類似，但還具有下列屬性：
 
@@ -63,7 +63,7 @@ ms.locfileid: "53600708"
 
 ## <a name="helpful-tools"></a>實用工具
 
-當 API 也具有描述 API 作業和參數的 [Swagger 文件](http://swagger.io/specification/)時，自訂 API 最適合與 Logic Apps 搭配使用。
+當 API 也具有描述 API 作業和參數的 [Swagger 文件](https://swagger.io/specification/)時，自訂 API 最適合與 Logic Apps 搭配使用。
 許多程式庫 (例如 [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)) 可為您自動產生 Swagger 檔案。 若要標註 Swagger 檔案的顯示名稱、屬性類型等等，您也可以使用 [TRex](https://github.com/nihaue/TRex) ，讓您的 Swagger 檔案能適用於 Logic Apps。
 
 <a name="actions"></a>
@@ -106,7 +106,7 @@ ms.locfileid: "53600708"
    
    * 必要：`location` 標頭所指定的 URL 絕對路徑，可讓 Logic Apps 引擎在其中檢查您的 API 作業狀態
 
-   * *選擇性*：`retry-after` 標頭所指定的秒數，是引擎在檢查 `location` URL 以了解作業狀態時所需等候的時間。 
+   * *可选*：`retry-after` 標頭所指定的秒數，是引擎在檢查 `location` URL 以了解作業狀態時所需等候的時間。 
 
      根據預設，引擎每隔 20 秒會進行檢查。 若要指定不同的間隔，請包括 `retry-after` 標頭，以及下一次輪詢之前的秒數。
 

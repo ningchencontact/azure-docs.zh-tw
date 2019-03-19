@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 8941ec26cef5e3dc2f17faf0d7eb843b76f8926f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101749"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory 中的複製資料工具
 Azure Data Factory「複製資料」工具把將資料內嵌到 Data Lake 的程序 (通常是端對端資料整合案例中的第一步) 簡化並最佳化。  它可節省時間，尤其是當您第一次使用 Azure Data Factory 從資料來源內嵌資料的時候。 使用此工具的一些優點包括：
@@ -48,7 +48,7 @@ Azure Data Factory「複製資料」工具把將資料內嵌到 Data Lake 的程
 5. 檢閱所要建立之 Data Factory 實體的**摘要**。 
 6. 視需要**編輯**管線，以更新複製活動的設定。 
 
- 此工具從一開始設計時就已將巨量資料納入構想，可支援多樣化的資料和物件類型。 您可以使用它來移動數百個資料夾、檔案或資料表。 此工具支援自動資料預覽、結構描述擷取及自動對應，也支援資料篩選。
+   此工具從一開始設計時就已將巨量資料納入構想，可支援多樣化的資料和物件類型。 您可以使用它來移動數百個資料夾、檔案或資料表。 此工具支援自動資料預覽、結構描述擷取及自動對應，也支援資料篩選。
 
 ![複製資料工具](./media/copy-data-tool/copy-data-tool.png)
 

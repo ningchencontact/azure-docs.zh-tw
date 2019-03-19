@@ -5,17 +5,17 @@ description: 若要使用 Azure Machine Learning Studio，您必須具有 Machin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: bcd5b377f00ad43ff727c581471aad3ac651bdbb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 7aeee4f24f6c7133ad978bc0c6c7fb8853bc4c35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086134"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>建立和共用 Azure Machine Learning Studio 工作區
 
@@ -36,10 +36,10 @@ ms.locfileid: "56270085"
 
 4. 輸入您的工作區資訊：
 
-    - 工作區名稱可能最多 260 個字元，結尾不可為空格。 名稱不能包含下列字元︰`< > * % & : \ ? + /`
-    - 會使用您選擇 (或建立) 的 Web 服務方案，以及您選取的相關聯定價層，如果您從此工作區中部署 web 服務。
+   - 工作區名稱可能最多 260 個字元，結尾不可為空格。 名稱不能包含下列字元︰`< > * % & : \ ? + /`
+   - 會使用您選擇 (或建立) 的 Web 服務方案，以及您選取的相關聯定價層，如果您從此工作區中部署 web 服務。
 
-    ![建立新的 Studio 工作區](./media/create-workspace/create-new-workspace.png)
+     ![建立新的 Studio 工作區](./media/create-workspace/create-new-workspace.png)
 
 5. 按一下頁面底部的 [新增] 。
 

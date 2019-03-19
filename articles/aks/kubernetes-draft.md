@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: d94f70771cf3ee364dbb3e4c4256cd2248ce3828
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 5169b8856155df5e62b1e85d291ce6c1b54c8a87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164767"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011940"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>使用 Draft 搭配 Azure Kubernetes Service (AKS)
 
@@ -144,7 +144,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-若要存取應用程式，請使用 `draft connect` 輸出中指定的位址和連接埠 (例如，*http://localhost:49804*) 開啟網頁瀏覽器。 
+若要存取您的應用程式，開啟 web 瀏覽器的位址和連接埠中指定`draft connect`輸出，例如`http://localhost:49804`。 
 
 ![使用 Draft 執行的 Java 應用程式範例](media/kubernetes-draft/sample-app.png)
 

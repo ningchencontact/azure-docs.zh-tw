@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fd7145be5f82a90acced0f02e35f6c8880dbcad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211201"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120392"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>教學課程：設定 Cisco Spark 來自動佈建使用者
 
@@ -31,9 +31,9 @@ ms.locfileid: "56211201"
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-此教學課程中概述的案例假設您已經具有下列先決條件：
+本教學課程中概述的案例假設您已經具有下列必要條件：
 
 *   Azure AD 租用戶
 *   Cisco Spark 租用戶
@@ -113,28 +113,28 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
     *   在 [祕密權杖] 欄位中，填入祕密權杖，如步驟 6 所述。
 
 1. 使用您的系統管理員帳戶登入 [Cisco Spark 開發人員網站](https://developer.webex.com/)，即可找到您 Cisco Spark 帳戶的 [租用戶識別碼] 和 [祕密權杖]。 登入之後 -
-    * 移至 [Getting Started](https://developer.webex.com/getting-started.html) (開始使用) 頁面
-    * 向下捲動至 [Authentication](https://developer.webex.com/getting-started.html#authentication) (驗證) 區段
-    ![Cisco Spark 驗證權杖](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
-    * 方塊中的英數字元字串就是您的**祕密權杖**。 請將此權杖複製到剪貼簿
-    * 移至 [Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html) (取得我自己的詳細資料) 頁面
-        * 確定 [Test Mode] \(測試模式\) 為 [ON] \(開啟\)
-        * 鍵入 "Bearer" 單字，後面接著一個空格，然後將「祕密權杖」貼到 ![Cisco Spark 驗證權杖](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png) [Authorization] \(授權\) 欄位中
-        * 按一下 [執行]
-    * 在右側的回應文字中，[租用戶識別碼] 會顯示為 "orgId"：
+   * 移至 [Getting Started](https://developer.webex.com/getting-started.html) (開始使用) 頁面
+   * 向下捲動至 [Authentication](https://developer.webex.com/getting-started.html#authentication) (驗證) 區段
+     ![Cisco Spark 驗證權杖](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
+   * 方塊中的英數字元字串就是您的**祕密權杖**。 請將此權杖複製到剪貼簿
+   * 移至 [Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html) (取得我自己的詳細資料) 頁面
+       * 確定 [Test Mode] \(測試模式\) 為 [ON] \(開啟\)
+       * 鍵入 "Bearer" 單字，後面接著一個空格，然後將「祕密權杖」貼到 ![Cisco Spark 驗證權杖](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png) [Authorization] \(授權\) 欄位中
+       * 按一下 [執行]
+   * 在右側的回應文字中，[租用戶識別碼] 會顯示為 "orgId"：
 
-    ```json
-    {
-        "id": "(...)",
-        "emails": [
-            "admin.user@contoso.com"
-        ],
-        "displayName": "John Smith",
-        "nickName": "John",
-        "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        (...)
-    }
-    ```
+     ```json
+     {
+       "id": "(...)",
+       "emails": [
+           "admin.user@contoso.com"
+       ],
+       "displayName": "John Smith",
+       "nickName": "John",
+       "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+       (...)
+     }
+     ```
 
 1. 填入步驟 5 所示的欄位後，按一下 [測試連線] 以確定 Azure AD 可以連線到 Cisco Spark。 如果連線失敗，請確定您的 Cisco Spark 帳戶具有系統管理員權限，然後再試一次。
 

@@ -4,16 +4,16 @@ description: 了解如何搭配 Windows 和 Windows Server 使用 Azure 檔案�
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076338"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -24,15 +24,15 @@ ms.locfileid: "55509015"
 
 | Windows 版本        | SMB 版本 | 可在 Azure VM 中掛接 | 可在內部部署環境掛接 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | yes | yes |
-| Windows 10<sup>1</sup> | SMB 3.0 | yes | yes |
-| Windows Server 半年度通道<sup>2</sup> | SMB 3.0 | yes | yes |
-| Windows Server 2016    | SMB 3.0     | yes                   | yes                  |
-| Windows 8.1            | SMB 3.0     | yes                   | yes                  |
-| Windows Server 2012 R2 | SMB 3.0     | yes                   | yes                  |
-| Windows Server 2012    | SMB 3.0     | yes                   | yes                  |
-| Windows 7              | SMB 2.1     | yes                   | 否                   |
-| Windows Server 2008 R2 | SMB 2.1     | yes                   | 否                   |
+| Windows Server 2019    | SMB 3.0 | 是 | 是 |
+| Windows 10<sup>1</sup> | SMB 3.0 | 是 | 是 |
+| Windows Server 半年度通道<sup>2</sup> | SMB 3.0 | 是 | 是 |
+| Windows Server 2016    | SMB 3.0     | 是                   | 是                  |
+| Windows 8.1            | SMB 3.0     | 是                   | 是                  |
+| Windows Server 2012 R2 | SMB 3.0     | 是                   | 是                  |
+| Windows Server 2012    | SMB 3.0     | 是                   | 是                  |
+| Windows 7              | SMB 2.1     | 是                   | 否                   |
+| Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
 
 <sup>1</sup>Windows 10 版本 1507、1607、1703、1709、1803 和 1809。  
 <sup>2</sup>Windows Server 版本 1709 和 1803。
@@ -45,7 +45,9 @@ ms.locfileid: "55509015"
 
 * **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您將需要主要 (或次要) 儲存體金鑰。 掛接目前不支援 SAS 金鑰。
 
-* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 下列 PowerShell 程式碼假設您已安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
+* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 您可以了解[各種因應措施，封鎖連接埠 445 這裡](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。
+
+    下列 PowerShell 程式碼假設您已安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -301,5 +303,5 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 ## <a name="next-steps"></a>後續步驟
 請參閱這些連結，以取得 Azure 檔案服務的詳細資訊：
 - [規劃 Azure 檔案部署](storage-files-planning.md)
-* [常見問題集](../storage-files-faq.md)
-* [在 Windows 上進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)      
+- [常見問題集](../storage-files-faq.md)
+- [在 Windows 上進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)      

@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c7b5472c6a10e7a184d6db9d4c889b8fd37a9186
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000779"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>新增 Azure 虛擬機器的擴充計量
 
@@ -31,7 +31,7 @@ Cloudyn 會使用 Azure VM 的 Azure 計量資料來顯示其資源的詳細資�
 例如，您可以監視 Azure VM 的 CPU % 和記憶體 %。 Azure VM 計量會對應至「[主機] 百分比 CPU」和「[來賓] 記憶體百分比」。
 
 > [!NOTE]
-> 目前僅支援將擴充的計量資料收集用於 Azure 來賓層級監視。 Cloudyn 與 Log Analytics VM 延伸模組不相容。
+> 目前僅支援將擴充的計量資料收集用於 Azure 來賓層級監視。 Cloudyn 與不相容的 Azure 監視器記錄 VM 擴充功能。
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>決定是否啟用擴充計量
 

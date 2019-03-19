@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105122"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098996"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>在 Azure 資訊安全中心套用系統更新
 Azure 資訊安全中心每日監視 Windows 和 Linux 虛擬機器 (VM) 和電腦是否有遺漏的作業系統更新。 資訊安全中心會根據 Windows 電腦上設定的服務，從 Windows Update 或 Windows Server Update Services (WSUS) 擷取可用的安全性和重大更新清單。 資訊安全中心也會檢查 Linux 系統中的最新更新。 如果您的 VM 或電腦遺漏系統更新，資訊安全中心會建議您套用系統更新。
@@ -43,7 +43,7 @@ Azure 資訊安全中心每日監視 Windows 和 Linux 虛擬機器 (VM) 和電�
     - VM 和電腦遺漏的重大更新總數。
     - VM 和電腦遺漏的安全性更新總數。
 
-  儀表板底部會列出 VM 和電腦所有遺漏的更新，以及缺少更新的嚴重性。  此清單包括：
+   儀表板底部會列出 VM 和電腦所有遺漏的更新，以及缺少更新的嚴重性。  此清單包括：
 
     - 名稱：遺漏更新的名稱。
     - 否。 VM 及電腦數目：遺漏此更新的 VM 和電腦總數。
@@ -63,13 +63,13 @@ Azure 資訊安全中心每日監視 Windows 和 Linux 虛擬機器 (VM) 和電�
 
    ![遺漏的安全性更新][3]
 
-4. 選取頂端功能區中的 [搜尋] 圖示。  Log Analytics 搜尋查詢隨即開啟，篩選條件會設為遺漏更新的電腦。
+4. 選取頂端功能區中的 [搜尋] 圖示。  Azure 監視器記錄檔搜尋查詢隨即開啟篩選至遺漏更新的電腦。
 
-   ![Log Analytics 搜尋][4]
+   ![Azure 監視器記錄檔搜尋][4]
 
 5. 從清單中選取電腦以了解更多資訊。 會出現僅針對該電腦篩選出的其他搜尋結果。
 
-    ![Log Analytics 搜尋][5]
+    ![Azure 監視器記錄檔搜尋][5]
 
 ## <a name="reboot-after-system-updates"></a>在系統更新之後重新開機
 1. 返回 [建議]  刀鋒視窗。 在您套用系統更新之後會產生新的項目，稱為「在系統更新之後重新開機」。 此項目可讓您知道您需要重新啟動 VM 以完成套用系統更新的程序。

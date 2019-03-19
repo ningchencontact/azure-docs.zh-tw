@@ -9,89 +9,122 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: af36f38bf206da588d327dc319d2418460f79b13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165023"
 ---
-# <a name="access-data-during-training-from-your-datastores"></a>在訓練期間從資料存放區存取資料
-使用資料存放區存取 Azure Machine Learning 工作流程中的資料並與其互動。
+# <a name="access-data-from-your-datastores"></a>從您的資料存放區存取資料
 
-在 Azure Machine Learning 服務中，資料存放區是 [Azure 儲存體](https://docs.microsoft.com/azure/storage/common/storage-introduction)的抽象概念。 資料存放區可參照 [Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) 容器或 [Azure 檔案共用](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)作為底層儲存體。 
+資料存放區可讓您與互動，並存取您的資料是否在執行您的程式碼在本機的計算叢集上，或在虛擬機器上。 在本文中，您會了解 Azure Machine Learning 工作流程，以確保您的資料存放區都可以存取及開放給您的計算內容。
 
-## <a name="create-a-datastore"></a>建立資料存放區
-若要使用資料存放區，必須先有[工作區](concept-azure-machine-learning-architecture.md#workspace)。 從[建立新工作區](quickstart-create-workspace-with-python.md)，或擷取現有工作區開始：
+此操作說明會顯示下列工作的範例：
+* [選擇資料存放區](#access)
+* [取得資料](#get)
+* [上傳和下載資料至資料存放區](#up-and-down)
+* [在定型期間存取資料存放區](#train)
+
+## <a name="prerequisites"></a>必要條件
+
+若要使用資料存放區，您需要[工作區](concept-azure-machine-learning-architecture.md#workspace)第一次。 
+
+從[建立新工作區](quickstart-create-workspace-with-python.md)，或擷取現有工作區開始：
 
 ```Python
 import azureml.core
-from azureml.core import Workspace
+from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
 
-### <a name="use-the-default-datastore"></a>使用預設資料存放區
-不需要建立或設定儲存體帳戶。  每個工作區都有您可以立即開始使用的預設資料存放區。
+或者，[遵循本 Python 快速入門](quickstart-create-workspace-with-python.md)若要建立您的工作區，並開始使用 SDK。
+
+<a name="access"></a>
+
+## <a name="choose-a-datastore"></a>選擇資料存放區
+
+您可以使用的預設資料存放區，或自備。
+
+### <a name="use-the-default-datastore-in-your-workspace"></a>在 您的工作區中使用的預設資料存放區
+
+不是需要建立或設定儲存體帳戶，因為每個工作區的預設資料存放區。 您可以使用資料存放區立即因為它已註冊的工作區中。 
 
 取得工作區的預設資料存放區：
 ```Python
 ds = ws.get_default_datastore()
 ```
 
-### <a name="register-a-datastore"></a>註冊資料存放區
-如果您有現有的 Azure 儲存體，可以在工作區中將它註冊為資料存放區。 您可以註冊 Azure Blob 容器或 Azure 檔案共用作為資料存放區。 所有註冊方法都在 `Datastore` 類別上且形式為 `register_azure_*`。
+### <a name="register-your-own-datastore-with-the-workspace"></a>註冊您自己的資料存放區與工作區
+如果您有現有的 Azure 儲存體，可以在工作區中將它註冊為資料存放區。   上的所有註冊的方法都都[ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)類別，並有表單 register_azure_ *。 
 
-#### <a name="azure-blob-container-datastore"></a>Azure Blob 容器資料存放區
-註冊 Azure Blob 容器資料存放區：
+下列範例將示範以 Azure Blob 容器或 Azure 檔案共用註冊為資料存放區。
+
++ 針對**Azure Blob 容器資料存放區**，使用 [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
+
+  ```Python
+  ds = Datastore.register_azure_blob_container(workspace=ws, 
+                                               datastore_name='your datastore name', 
+                                               container_name='your azure blob container name',
+                                               account_name='your storage account name', 
+                                               account_key='your storage account key',
+                                               create_if_not_exists=True)
+  ```
+
++ 針對**Azure 檔案共用資料存放區**，使用[ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)。 例如︰ 
+  ```Python
+  ds = Datastore.register_azure_file_share(workspace=ws, 
+                                           datastore_name='your datastore name', 
+                                           container_name='your file share name',
+                                           account_name='your storage account name', 
+                                           account_key='your storage account key',
+                                           create_if_not_exists=True)
+  ```
+
+<a name="get"></a>
+
+## <a name="find--define-datastores"></a>尋找與定義資料存放區
+
+若要取得指定的資料存放區中目前的工作區註冊，請使用[ `get()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
 ```Python
-ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                             datastore_name='your datastore name', 
-                                             container_name='your azure blob container name',
-                                             account_name='your storage account name', 
-                                             account_key='your storage account key',
-                                             create_if_not_exists=True)
-```
-
-#### <a name="azure-file-share-datastore"></a>Azure 檔案共用資料存放區
-註冊 Azure 檔案共用資料存放區：
-
-```Python
-ds = Datastore.register_azure_file_share(workspace=ws, 
-                                         datastore_name='your datastore name', 
-                                         container_name='your file share name',
-                                         account_name='your storage account name', 
-                                         account_key='your storage account key',
-                                         create_if_not_exists=True)
-```
-
-### <a name="get-an-existing-datastore"></a>取得現有資料庫
-依名稱查詢註冊的資料存放區：
-```Python
+#get named datastore from current workspace
 ds = Datastore.get(ws, datastore_name='your datastore name')
 ```
 
-您也可以取得工作區的所有資料存放區：
+若要在指定的工作區中取得的所有資料存放區清單，請使用此程式碼：
+
 ```Python
+#list all datastores registered in current workspace
 datastores = ws.datastores
 for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 
-為了方便起見，請將已註冊的其中一個資料存放區設定為工作區的預設資料存放區：
+若要定義不同的預設資料存放區目前的工作區，請使用[ `set_default_datastore()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-):
+
 ```Python
+#define default datastore for current workspace
 ws.set_default_datastore('your datastore name')
 ```
 
-## <a name="upload-and-download-data"></a>上傳及下載資料
+<a name="up-and-down"></a>
+## <a name="upload--download-data"></a>上傳與下載資料
+[ `upload()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-)並[ `download()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-)在下列範例中所述的方法是專用的而且完全一樣的[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)並[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)類別。
+
 ### <a name="upload"></a>上傳
-使用 Python SDK 將目錄或個別檔案上傳至資料存放區。
+
+ 使用 Python SDK 將目錄或個別檔案上傳至資料存放區。
 
 上傳目錄至資料存放區 `ds`：
+
 ```Python
+import azureml.data
+from azureml.data import AzureFileDatastore, AzureBlobDatastore
+
 ds.upload(src_dir='your source directory',
           target_path='your target path',
           overwrite=True,
@@ -111,21 +144,46 @@ ds.download(target_path='your target path',
 ```
 `target_path` 是儲存下載資料的本機目錄位置。 若要指定檔案共用 (或 Blob 容器) 中資料夾的路徑以進行下載，請在 `prefix` 中提供該路徑。 如果 `prefix` 是 `None`，表示將會下載檔案共用 (或 Blob 容器) 的所有內容。
 
-## <a name="access-datastores-for-training"></a>存取資料存放區以進行定型
-您可以透過 Python SKD 於定型回合 (例如，定型或驗證資料) 期間在遠端計算目標上存取資料存放區。 
+<a name="train"></a>
+## <a name="access-datastores-during-training"></a>在定型期間存取資料存放區
 
-有兩種支援的方式可讓資料存放區能夠在遠端計算中使用：
-* **掛接**  
-`ds.as_mount()`：透過指定此掛接模式，資料存放區將會掛接至遠端計算以供您使用。 
-* **下載/上傳**  
-    * `ds.as_download(path_on_compute='your path on compute')` 會將資料從資料存放區下載到遠端計算中透過 `path_on_compute` 指定的位置。
-    * `ds.as_upload(path_on_compute='yourfilename'` 會將資料上傳到資料存放區。  假設您的定型指令碼會在遠端計算的目前工作目錄中建立 `foo.pkl` 檔案。 在指令碼建立檔案之後，使用 `ds.as_upload(path_on_compute='./foo.pkl')` 將此檔案上傳至您的資料存放區。 此檔案會上傳至您資料存放區的根目錄。
-    
-若要參照資料存放區中的特定資料夾或檔案，請使用資料存放區的 **`path`** 函式。 例如，若要將 `./bar` 目錄的內容從資料存放區下載至您的計算目標，請使用 `ds.path('./bar').as_download()`。
+一旦您對您的資料存放區可以使用遠端計算，則您可以直接將路徑傳遞給它訓練指令碼中的參數定型執行 （例如，訓練或驗證資料） 期間存取它。
 
-任何 `ds` 或 `ds.path` 物件都會解析為 `"$AZUREML_DATAREFERENCE_XXXX"`，其值代表遠端計算上的掛接/下載路徑。 遠端計算上的資料存放區路徑可能與指令碼的執行路徑不同。
+下表列出常見[ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)使資料存放區在遠端計算中可用的方法。
 
-若要在定型期間存取資料存放區，請透過 `script_params` 將它傳入定型指令碼中作為命令列引數：
+##
+
+方法|方法|描述
+----|-----|--------
+掛接| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| 使用遠端計算上掛接的資料存放區。 資料存放區的預設模式。
+下載|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|用來從所指定的位置下載資料`path_on_compute`您資料存放區的遠端電腦上。
+上傳|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| 若要將資料上傳至您的資料存放區的根目錄中所指定的位置使用`path_on_compute`。
+
+```Python
+import azureml.data
+from azureml.data import DataReference
+
+ds.as_mount()
+ds.as_download(path_on_compute='your path on compute')
+ds.as_upload(path_on_compute='yourfilename')
+```  
+
+若要參照資料存放區中的特定資料夾或檔案，請使用資料存放區的 [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) 函式。
+
+```Python
+#download the contents of the `./bar` directory from the datastore to the remote compute
+ds.path('./bar').as_download()
+```
+
+
+
+> [!NOTE]
+> 任何 `ds` 或 `ds.path` 物件都會解析為 `"$AZUREML_DATAREFERENCE_XXXX"`，其值代表遠端計算上的掛接/下載路徑。 在遠端計算的資料存放區路徑可能不會當做定型指令碼的執行路徑相同。
+
+### <a name="examples"></a>範例 
+
+下列說明範例特有[ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)類別可用於在定型期間存取您的資料存放區。
+
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -139,9 +197,13 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py')
 ```
-`as_mount()` 是資料存放區的預設模式，因此您也可以直接將 `ds` 傳遞至 `'--data_dir'` 引數。
 
-或者，將資料存放區清單傳入估算程式建構函式 `inputs` 參數，以掛接或複製到資料存放區 (或從資料存放區複製)：
+由於`as_mount()`是預設模式針對資料存放區中，您可能也會直接傳遞`ds`到`'--data_dir'`引數。
+
+傳入的資料存放區清單，估算器建構函式或`inputs`參數，以裝載，或從您的資料來回複製。 此程式碼範例：
+* 資料存放區中的所有內容都下載`ds1`訓練指令碼的遠端電腦`train.py`執行
+* 下載資料夾`'./foo'`在資料存放區`ds2`之前的遠端電腦`train.py`執行
+* 將檔案上傳`'./bar.pkl'`從遠端計算，最多資料存放區`ds3`指令碼執行之後
 
 ```Python
 est = Estimator(source_directory='your code directory',
@@ -149,10 +211,10 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
-上述程式碼將會：
-* 在執行定型指令碼 `train.py` 之前，先將資料存放區 `ds1` 中的所有內容下載至遠端計算
-* 在執行 `train.py` 之前，先將資料存放區 `ds2` 中的資料夾 `'./foo'` 下載至遠端計算
-* 在執行指令碼之後，將檔案 `'./bar.pkl'` 從遠端計算上傳至資料存放區 `d3`
+
 
 ## <a name="next-steps"></a>後續步驟
+
 * [將模型定型](how-to-train-ml-models.md)
+
+* [部署模型](how-to-deploy-and-where.md)

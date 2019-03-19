@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: abdce8b63a035fe55f4bd37acc5012237bd499da
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430563"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178130"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中基本排程器功能的最佳做法
 
@@ -122,9 +122,9 @@ kubectl apply -f nginx-pdb.yaml
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>使用 kube-advisor 定期檢查叢集的問題
 
-**最佳做法指引** - 定期執行最新版本的 `kube-advisor`，以偵測您叢集中的問題。 如果您在現有的 AKS 叢集上套用資源配額，請先執行 `kube-advisor` 以尋找未定義資源要求和限制的 Pod。
+**最佳作法指引**-定期執行的最新版本`kube-advisor`開放原始碼工具，來偵測您的叢集中的問題。 如果您在現有的 AKS 叢集上套用資源配額，請先執行 `kube-advisor` 以尋找未定義資源要求和限制的 Pod。
 
-[kube-advisor][kube-advisor] 工具會掃描 Kubernetes 叢集，並報告所找到的問題。 一個實用的檢查，就是找出沒有備妥資源要求和限制的 Pod。
+[Kube advisor] [ kube-advisor]工具是相關聯的 AKS 開放原始碼專案，掃描的 Kubernetes 叢集，並報告它找到的問題。 一個實用的檢查，就是找出沒有備妥資源要求和限制的 Pod。
 
 在裝載多個開發小組和應用程式的 AKS 叢集中，若沒有這些資源要求和限制集，就可能難以追蹤 Pod。 最佳做法是在您的 AKS 叢集上定期執行 `kube-advisor`，特別是如果您未對命名空間指派資源配額時。
 

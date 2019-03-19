@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6017aa5172efa72bb708004e2c4aee7f9ae4acad
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733904"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888394"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure
 
@@ -52,7 +52,7 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 
 * **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文。 建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。 請參閱[管理儲存體存取金鑰](../../storage/common/storage-account-manage.md#access-keys)。
-* 存取 **Azure SQL Database**。 如果您必須設定 Azure SQL Database，[開始使用 Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) 主題會提供如何佈建 Azure SQL Database 之新執行個體的相關資訊。
+* 存取 **Azure SQL Database**。 如果您必須設定 Azure SQL Database，本主題[開始使用 Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md)提供如何佈建 Azure SQL Database 的新執行個體的相關資訊。
 * 已在本機上安裝和設定 **Azure PowerShell** 。 如需指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
 > [!NOTE]
@@ -61,7 +61,7 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 >
 
 ## <a name="upload-data"></a> 將資料上傳至您的內部部署 SQL Server
-我們會使用 [NYC 計程車資料集](http://chriswhong.com/open-data/foil_nyc_taxi/) 示範移轉程序。 NYC 計程車資料集可在 Azure Blob 儲存體 [NYC 計程車資料](http://www.andresmh.com/nyctaxitrips/)中取得 (如該文章所述)。 該資料有兩個檔案：包含路線詳細資料的 trip_data.csv 檔案，以及包含每次車程支付車資之詳細資料的 trip_far.csv 檔案。 這些檔案的範例和說明都會在 [NYC 計程車車程資料集說明](sql-walkthrough.md#dataset)中提供。
+我們會使用 [NYC 計程車資料集](https://chriswhong.com/open-data/foil_nyc_taxi/) 示範移轉程序。 NYC 計程車資料集可在 Azure Blob 儲存體 [NYC 計程車資料](https://www.andresmh.com/nyctaxitrips/)中取得 (如該文章所述)。 該資料有兩個檔案：包含路線詳細資料的 trip_data.csv 檔案，以及包含每次車程支付車資之詳細資料的 trip_far.csv 檔案。 這些檔案的範例和說明都會在 [NYC 計程車車程資料集說明](sql-walkthrough.md#dataset)中提供。
 
 您可以將這裡提供的程序調整為自己的資料集，或者遵循上述步驟使用 NYC 計程車資料集。 若要將 NYC 計程車資料集上傳至您的內部部署 SQL Server 資料庫，請遵循[大量匯入資料至 SQL Server 資料庫](sql-walkthrough.md#dbload)中概述的程序進行。 這些指示適用於 Azure 虛擬機器上的 SQL Server，但將資料上傳至內部部署 SQL Server 的程序是相同的。
 
@@ -71,7 +71,7 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>安裝和設定 Azure Data Factory Integration Runtime
 Integration Runtime 為 Azure Data Factory 使用的客戶受控資料整合基礎結構，可提供跨不同網路環境的資料整合功能。 此執行階段先前稱為「資料管理閘道」。
 
-若要設定，請[遵循建立管線的指示](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+若要設定，[遵循指示來建立管線](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>建立連結服務以連接至資料資源
 連結服務定義會定義 Azure Data Factory 所需的資訊，以便連接到資料資源。 此案例中的三個資源都必須使用連結服務：
@@ -99,7 +99,7 @@ Integration Runtime 為 Azure Data Factory 使用的客戶受控資料整合基�
 此 ADF 管線所需的三個資料表定義為：
 
 1. [SQL 內部部署資料表](#adf-table-onprem-sql)
-2. [Blob 資料表 ](#adf-table-blob-store)
+2. [Blob 資料表](#adf-table-blob-store)
 3. [SQL Azure 資料表](#adf-table-azure-sql)
 
 > [!NOTE]

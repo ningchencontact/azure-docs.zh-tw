@@ -5,17 +5,17 @@ description: 您可以使用 Azure Machine Learning Studio 來部署機器學習
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: a1ddf6aae9fdd661e30719fafb6000fb6559df20
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116702"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web 服務：部署和取用
 
@@ -37,7 +37,7 @@ Studio 入口網站和 Microsoft Azure Machine Learning Web 服務入口網站�
 * 如需部署 Web 服務的特定範例，請參閱︰
 
   * [教學課程 3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)
-  * [如何將 Web 服務部署到多個區域](how-to-deploy-to-multiple-regions.md)
+  * [如何將 Web 服務部署到多個區域](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>使用 Web 服務資源提供者 API (Azure Resource Manager API)
 
@@ -49,7 +49,7 @@ Studio 入口網站和 Microsoft Azure Machine Learning Web 服務入口網站�
 
 用於 Web 服務的 Azure Machine Learning Studio 資源提供者，可利用 PowerShell Cmdlet 來部署和管理 Web 服務。
 
-若要使用 Cmdlet，您必須先在 PowerShell 環境中，使用 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) Cmdlet 登入您的 Azure 帳戶。 如果您不熟悉如何呼叫以 Resource Manager 為基礎的 PowerShell 命令，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)。
+若要使用 Cmdlet，您必須先在 PowerShell 環境中，使用 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) Cmdlet 登入您的 Azure 帳戶。 如果您不熟悉如何呼叫以 Resource Manager 為基礎的 PowerShell 命令，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)。
 
 若要匯出預測實驗，請使用這個 [範例程式碼](https://github.com/ritwik20/AzureML-WebServices)。 由程式碼建立 .exe 檔案之後，您可以輸入︰
 

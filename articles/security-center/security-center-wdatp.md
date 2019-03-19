@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 09e8ee05017c47c5b01bc529135004eff19b846f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ee5ed8871ea5c021ad8c87e35f45e42ad641a324
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118457"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124162"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender 進階威脅防護與 Azure 資訊安全中心
 
@@ -64,11 +64,11 @@ Azure 資訊安全中心的客戶現在可以使用 Windows Defender ATP 中的�
 1. 在 [上線] 刀鋒視窗中，選取或建立工作區 (即資料儲存位置)。 <br>
 2. 如果您看不到所有的工作區，可能是因為權限不足，請確定您的工作區設定為 Azure 安全性標準層。 如需詳細資訊，請參閱[升級為 Azure 資訊安全中心標準層以增強安全性](security-center-pricing.md)。
     
-3.  選取 [新增伺服器] 以檢視如何安裝 Microsoft Monitoring Agent 的指示。 
+3. 選取 [新增伺服器] 以檢視如何安裝 Microsoft Monitoring Agent 的指示。 
 
-4.  上線之後，您可以在 [計算與應用程式] 底下監視電腦。
+4. 上線之後，您可以在 [計算與應用程式] 底下監視電腦。
 
-  ![上線的電腦](media/security-center-wdatp/onboard-computers.png)
+   ![上線的電腦](media/security-center-wdatp/onboard-computers.png)
 
 
 ## <a name="enable-windows-defender-atp-integration"></a>啟用 Windows Defender ATP 整合

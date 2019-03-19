@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: 5cb26b98f5969032bcff95e4408fcf685399d6da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898698"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>使用 REST API 檢閱 Enterprise 註冊計費
 
@@ -41,7 +41,7 @@ Authorization: Bearer
 
 以下是必要標頭： 
 
-|要求標頭|說明|  
+|要求標頭|描述|  
 |--------------------|-----------------|  
 |*Content-Type:*|必要。 設定為 `application/json`。|  
 |*Authorization:*|必要。 設定為有效的 `Bearer` [API 金鑰](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)。 |  
@@ -78,7 +78,7 @@ Authorization: Bearer
 }
 ```  
 
-此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得帳單帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/listbybillingaccount)。
+此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得帳單帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist)。
 
 ## <a name="department-billing"></a>部門帳單 
 
@@ -94,7 +94,7 @@ Authorization: Bearer
 
 以下是必要標頭： 
 
-|要求標頭|說明|  
+|要求標頭|描述|  
 |--------------------|-----------------|  
 |*Content-Type:*|必要。 設定為 `application/json`。|  
 |*Authorization:*|必要。 設定為有效的 `Bearer` [API 金鑰](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)。 |  
@@ -134,7 +134,7 @@ Authorization: Bearer
 }
 ```  
 
-此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得部門的使用量詳細資料](/rest/api/consumption/usagedetails/listbydepartment)。
+此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得部門的使用量詳細資料](/rest/api/consumption/usagedetails/list#departmentusagedetailslist)。
 
 ## <a name="enrollment-account-billing"></a>註冊帳戶帳單
 
@@ -150,7 +150,7 @@ Authorization: Bearer
 
 以下是必要標頭： 
 
-|要求標頭|說明|  
+|要求標頭|描述|  
 |--------------------|-----------------|  
 |*Content-Type:*|必要。 設定為 `application/json`。|  
 |*Authorization:*|必要。 設定為有效的 `Bearer` [API 金鑰](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)。 |  
@@ -187,7 +187,7 @@ Authorization: Bearer
 }
 ``` 
 
-此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得註冊帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/listbyenrollmentaccount)。
+此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得註冊帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist)。
 
 ## <a name="next-steps"></a>後續步驟 
 - 檢閱[企業報告概觀](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

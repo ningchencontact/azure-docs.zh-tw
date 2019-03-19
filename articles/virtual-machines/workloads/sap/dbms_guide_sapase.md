@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b93c6ebdc29429920096245c74c71b7918c095c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9c37c5339dedb3db68ed9bd23cd28e16a195bbde
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330676"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005775"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 SAP ASE Azure 虛擬機器 DBMS 部署
 
@@ -158,7 +158,7 @@ ms.locfileid: "56330676"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56330676"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -401,8 +401,6 @@ SAP ASE 可執行檔應該位於或安裝於 VM OS 磁碟的系統磁碟機 (磁
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
 
 在此情況下，您需要確定︰
 
@@ -467,7 +465,7 @@ SAP ASE HADR 不需要使用 Azure Internal Load Balancer，對 OS 層級叢集�
 
 若要部署 Azure VM，請務必了解官方 SLA，請參閱：<https://azure.microsoft.com/support/legal/sla>
 
-SAP 附註 [1928533] 會提供 SAP 大小調整資訊和 SAP 認證的 VM SKU 清單。 Azure 虛擬機器的其他 SAP 大小調整文件可在 <http://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> 和 <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx> 找到
+SAP 附註 [1928533] 會提供 SAP 大小調整資訊和 SAP 認證的 VM SKU 清單。 Azure 虛擬機器的其他 SAP 大小調整文件可在 <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> 和 <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx> 找到
 
 關於 Azure 儲存體使用方式、部署 SAP VM 或 SAP 監視的陳述與建議適用於搭配 SAP 應用程式來部署 SAP ASE，如本文件前四章所述。
 
@@ -476,7 +474,7 @@ SAP 附註 [1928533] 會提供 SAP 大小調整資訊和 SAP 認證的 VM SKU �
 * [2134316]
 * [1941500]
 
-### <a name="sap-ase-version-support"></a>SAP ASE 版本支援
+### <a name="sap-ase-version-support"></a>SAP ASE 版本支持
 SAP 目前支援 SAP ASE 版本 16.0，可與 SAP 商務套件產品搭配使用。 不論是適用於 SAP ASE 伺服器的所有更新，還是要與「SAP 商務套件」產品搭配使用的 JDBC 和 ODBC 驅動程式，都只會透過 SAP Service Marketplace 來提供，網址是：<https://support.sap.com/swdc>。
 
 如同內部部署安裝，不要直接從 Sybase 網站下載適用於 SAP ASE 伺服器或適用於 JDBC 和 ODBC 驅動程式的更新。 如需在內部部署和 Azure 虛擬機器中支援與 SAP 商務套件產品搭配使用之修補程式的詳細資訊，請參閱下列 SAP 附註：
@@ -556,8 +554,6 @@ SAP ASE 可執行檔應該位於或安裝於 VM 的根檔案系統 ( /sybase )�
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
 
 在此情況下，您需要確定︰
 
@@ -595,7 +591,7 @@ SAP ASE 可執行檔應該位於或安裝於 VM 的根檔案系統 ( /sybase )�
 
 不要使用 Azure VM 暫存空間 /mnt 或 /mnt/resource 做為資料庫或記錄傾印目的地。
 
-#### <a name="performance-considerations-for-backupsrestores"></a>備份/還原的效能考量
+#### <a name="performance-considerations-for-backupsrestores"></a>备份/还原的性能注意事项
 如同裸機部署，備份/還原效能取決於可以平行讀取的磁碟區數目，以及這些磁碟區可能的輸送量。 請記住，備份壓縮會取用 CPU 資源。 備份壓縮的 CPU 耗用量在具有少量 CPU 執行緒的 VM 上扮演重要的角色。  因此，您可以假設︰
 
 * 用來儲存資料庫裝置的磁碟數目越少，讀取的整體輸送量就越小

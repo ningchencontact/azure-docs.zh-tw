@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: c4f32113c0750b825f217330f94b45484dc3be29
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313461"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101086"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 中
 
@@ -77,12 +77,12 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
     
 4. 在 [指定 Amazon S3 連線] 頁面中，執行下列步驟：
 
-    1. 指定 [存取金鑰識別碼] 值。
-    2. 指定 [祕密存取金鑰] 值。
-    3. 按一下 [測試連線] 以驗證設定，然後選取 [完成]。
-    4. 您會看到新的連線隨即建立。 選取 [下一步] 。
+   1. 指定 [存取金鑰識別碼] 值。
+   2. 指定 [祕密存取金鑰] 值。
+   3. 按一下 [測試連線] 以驗證設定，然後選取 [完成]。
+   4. 您會看到新的連線隨即建立。 選取 [下一步] 。
    
-    ![指定 Amazon S3 帳戶](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      ![指定 Amazon S3 帳戶](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       
 5. 在 [選擇輸入檔案或資料夾] 頁面中，瀏覽至您要複製過去的資料夾和檔案。 選取資料夾/檔案，選取 [選擇]：
 

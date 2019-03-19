@@ -11,33 +11,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 53716fa343df25026dcc668ed8483673d934d1ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339119"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992102"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>了解 Azure 資源的拒絕指派
 
-與角色指派相同，「拒絕指派」也會基於拒絕存取權的目的來附加一組在特定範圍內拒絕使用者、群組或服務主體的動作。 拒絕指派會封鎖使用者執行指定的 Azure 資源動作，即使角色指派授予他們存取權也一樣。 Azure 中的某些資源提供者現在包含拒絕指派。 目前，拒絕指派是**唯讀的**，而且只能由 Microsoft 設定。
+與角色指派相同，「拒絕指派」也會基於拒絕存取權的目的來附加一組在特定範圍內拒絕使用者、群組或服務主體的動作。 拒絕指派會封鎖使用者執行指定的 Azure 資源動作，即使角色指派授予他們存取權也一樣。 Azure 中的某些資源提供者現在包含拒絕指派。
 
 在某些方面，拒絕指派與角色指派不同。 拒絕指派可以排除主體，並且防止繼承到子範圍。 拒絕指派也可套用至[傳統訂用帳戶管理員](rbac-and-directory-admin-roles.md)指派。
 
 此文章說明如何定義拒絕指派。
+
+> [!NOTE]
+> 在此階段中，您也可以加入自己的唯一方式會拒絕指派是使用 Azure 藍圖。 如需詳細資訊，請參閱 <<c0> [ 保護新的資源，Azure 藍圖資源鎖定](../governance/blueprints/tutorials/protect-new-resources.md)。
 
 ## <a name="deny-assignment-properties"></a>拒絕指派屬性
 
  拒絕指派有下列屬性：
 
 > [!div class="mx-tableFixed"]
-> | 屬性 | 必要 | 類型 | 說明 |
+> | 屬性 | 必要項 | 類型 | 描述 |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | yes | 字串 | 拒絕指派的顯示名稱。 名稱在指定範圍內必須是唯一的。 |
+> | `DenyAssignmentName` | 是 | 字串 | 拒絕指派的顯示名稱。 名稱在指定範圍內必須是唯一的。 |
 > | `Description` | 否 | 字串 | 拒絕指派的描述。 |
 > | `Permissions.Actions` | 至少一個 Actions 或一個 DataActions | String[] | 一個字串陣列，指定拒絕指派要封鎖存取權的管理作業。 |
 > | `Permissions.NotActions` | 否 | String[] | 一個字串陣列，指定要從拒絕指派排除的管理作業。 |
@@ -45,7 +48,7 @@ ms.locfileid: "56339119"
 > | `Permissions.NotDataActions` | 否 | String[] | 一個字串陣列，指定要從拒絕指派排除的資料作業。 |
 > | `Scope` | 否 | 字串 | 一個字串， 指定拒絕指派要套用的範圍。 |
 > | `DoNotApplyToChildScopes` | 否 | BOOLEAN | 指定拒絕指派是否要套用到子範圍。 預設值為 false。 |
-> | `Principals[i].Id` | yes | String[] | 要套用拒絕指派的 Azure AD 主體物件識別碼 (使用者、群組、服務主體或受控識別) 陣列。 設定為空 GUID `00000000-0000-0000-0000-000000000000` 以代表所有主體。 |
+> | `Principals[i].Id` | 是 | String[] | 要套用拒絕指派的 Azure AD 主體物件識別碼 (使用者、群組、服務主體或受控識別) 陣列。 設定為空 GUID `00000000-0000-0000-0000-000000000000` 以代表所有主體。 |
 > | `Principals[i].Type` | 否 | String[] | 由 Principals[i].Id 代表的物件類型陣列。設定為 `SystemDefined` 以代表所有主體。 |
 > | `ExcludePrincipals[i].Id` | 否 | String[] | 不套用拒絕指派的 Azure AD 主體物件識別碼 (使用者、群組、服務主體或受控識別) 陣列。 |
 > | `ExcludePrincipals[i].Type` | 否 | String[] | 由 ExcludePrincipals[i].Id 代表的物件類型陣列。 |

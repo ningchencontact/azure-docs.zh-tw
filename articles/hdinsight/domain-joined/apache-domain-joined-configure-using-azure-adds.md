@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415726"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176169"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
 
@@ -56,7 +56,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 ## <a name="create-and-authorize-a-managed-identity"></a>建立和授權受控識別
 
-**使用者指派的受控識別**可用來簡化和保護網域服務作業。 當您將 HDInsight 網域服務參與者角色指派給受控識別時，該角色將可讀取、建立、修改和刪除網域服務作業。 HDInsight 企業安全性套件需要特定的網域服務作業，例如建立 OU 和服務主體。 受控識別可建立在任何訂用帳戶中。 如需詳細資訊，請參閱[適用於 Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)。
+**使用者指派的受控識別**可用來簡化和保護網域服務作業。 當您將 HDInsight 網域服務參與者角色指派給受控識別時，該角色將可讀取、建立、修改和刪除網域服務作業。 HDInsight 企業安全性套件需要特定的網域服務作業，例如建立 OU 和服務主體。 受控識別可建立在任何訂用帳戶中。 如需詳細資訊在一般情況下管理身分識別，請參閱[管理 Azure 資源的身分識別](../../active-directory/managed-identities-azure-resources/overview.md)。 如需有關如何管理 Azure HDInsight 中的身分識別工作的詳細資訊，請參閱 <<c0> [ 管理 Azure HDInsight 中的身分識別](../hdinsight-managed-identities.md)。
 
 若要設定 ESP 叢集，請建立使用者指派的受控識別 (如果您還沒有的話)。 請參閱[使用 Azure 入口網站對使用者指派的受控識別建立、列出、刪除或指派角色](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)，以取得指示。 接著，請在 Azure AD-DS 存取控制中，將 **HDInsight 網域服務參與者**角色指派給受控識別 (必須具有 AAD-DS 管理員權限才能執行此角色指派)。
 

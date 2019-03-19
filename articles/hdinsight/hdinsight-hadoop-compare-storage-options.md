@@ -8,24 +8,53 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 91b6808e5f74d82a980dc633b2fa2bb0fe6752f1
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: fa08d2fb2185bd4b6cd0e2e9d20e1c44a4a35eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301344"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101477"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>比較與 Azure HDInsight 叢集搭配使用的儲存體選項
 
-Microsoft Azure HDInsight 使用者可以在建立 HDInsight 叢集時選擇幾個不同的儲存體選項：
+您可以建立 HDInsight 叢集時的幾個不同的 Azure 儲存體服務之間進行選擇：
 
-* Azure Data Lake Storage Gen2
 * Azure 儲存體
+* Azure Data Lake Storage Gen2
 * Azure Data Lake Storage Gen1
 
 本文提供了這些儲存體類型和其獨特功能的概觀。
 
-## <a name="azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure Data Lake Storage Gen2 搭配 Azure HDInsight 中的 Apache Hadoop
+下表摘要說明支援不同版本的 HDInsight 的 Azure 儲存體服務：
+
+| 儲存體服務 | 帳戶類型 | 命名空間類型 | 支援的服務 | 支援的效能層級 | 支援的存取層 | HDInsight 版本 | 叢集類型 |
+|---|---|---|---|---|---|---|---|
+|Azure Data Lake Storage Gen2| 一般用途 V2 | 階層 （檔案系統） | Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 3.6+ | 全部 |
+|Azure 儲存體| 一般用途 V2 | Object | Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 3.6+ | 全部 |
+|Azure 儲存體| 一般用途 V1 | Object | Blob | 標準 | N/A | 全部 | 全部 |
+|Azure 儲存體| Blob 儲存體 | Object | Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 全部 | 全部 |
+|Azure Data Lake Storage Gen1| N/A | 階層 （檔案系統） | N/A | N/A | N/A | 只有 3.6 | HBase 的全部項目 |
+
+如需有關 Azure 儲存體存取層的詳細資訊，請參閱[Azure Blob 儲存體：Premium （預覽）、 經常性、 非經常性與封存儲存層](../storage/blobs/storage-blob-storage-tiers.md)
+
+您可以使用建立叢集的主要和選用次要的儲存體服務的不同組合。 下表摘要說明目前支援在 HDInsight 叢集儲存體組態：
+
+| HDInsight 版本 | 主要儲存體 | 次要的儲存體 | 支援 |
+|---|---|---|---|
+| 3.6 & 4.0 | 標準 Blob | 標準 Blob | 是 |
+| 3.6 & 4.0 | 標準 Blob | Data Lake Storage Gen2 | 否 |
+| 3.6 & 4.0 | 標準 Blob | Data Lake Storage Gen1 | 是 |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | 是 |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | 標準 Blob | 是 |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 否 |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | 是 |
+| 3.6 | Data Lake Storage Gen1 | 標準 Blob | 是 |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 否 |
+| 4.0 | Data Lake Storage Gen1 | 任意 | 否 |
+
+* =，只要它們是相同的受管理身分識別用於叢集存取權的所有安裝程式，這可能是一或多個 Data Lake 儲存體 Gen2 帳戶。
+
+## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>搭配 Azure HDInsight 中的 Apache Hadoop 使用 Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 採用 Azure Data Lake Storage Gen1 的核心功能，並將這些功能整合到 Azure Blob 儲存體。 這些功能包括與 Hadoop 相容的檔案系統、Azure Active Directory (Azure AD) 和 POSIX 型存取控制清單 (ACL)。 此組合可讓您擁有 Azure Data Lake Storage Gen1 的效能優勢，同時還能使用 Blob 儲存體的分層功能和資料生命週期管理。
 
@@ -89,21 +118,10 @@ abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapredu
 
 Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合了 HDInsight。 HDInsight 可以使用 Azure 儲存體中的 Blob 容器做為叢集的預設檔案系統。 透過 HDFS 介面，HDInsight 中的完整元件集可直接處理儲存為 Blob 的結構化或非結構化資料。
 
-建立 Azure 儲存體帳戶時，您可以選擇數種儲存體帳戶類型。 下表提供 HDInsight 所支援選項的相關資訊。
-
-| **儲存體帳戶類型** | **支援的服務** | **支援的效能層級** | **支援的存取層** |
-|----------------------|--------------------|-----------------------------|------------------------|
-| 一般用途 V2   | Blob               | 標準                    | 經常性、非經常性、封存*    |
-| 一般用途 V1   | Blob               | 標準                    | N/A                    |
-| Blob 儲存體         | Blob               | 標準                    | 經常性、非經常性、封存*    |
-
-*「封存」存取層是一個有數小時擷取延遲的離線層。 請勿將此層次使用於 HDInsight。 如需詳細資訊，請參閱[封存存取層](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier)。
-
-> [!WARNING]  
-> 不建議使用預設的 Blob 容器來儲存商務資料。 預設容器保留應用程式與系統記錄。 請務必先擷取記錄，再刪除預設 Blob 容器。 在每次使用後刪除 Blob 容器，可降低儲存成本。 此外請記住，一個 Blob 容器無法作為多個叢集的預設檔案系統。
-
+我們建議使用預設叢集儲存體和您的商務資料的個別的儲存體容器隔離的 HDInsight 記錄檔和暫存檔案，從您自己的商務資料。 我們也建議您刪除預設的 blob 容器，其中包含應用程式和系統記錄檔之後每次使用，以減少儲存成本。 請務必先擷取記錄檔再刪除容器。
 
 ### <a name="hdinsight-storage-architecture"></a>HDInsight 儲存架構
+
 下圖提供 Azure 儲存體的 HDInsight 架構摘要檢視：
 
 ![此圖顯示 Hadoop 叢集如何使用 HDFS API 來存取和儲存 Blob 儲存體中的結構化和非結構化資料](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "HDInsight 儲存體架構")

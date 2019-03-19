@@ -5,16 +5,16 @@ description: 如何將 Machine Learning Studio 訓練實驗轉換為預測實驗
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 2a318edada5cdc4124e221fdc8c441ab323a9289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455104"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119610"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>如何準備您的模型以在 Azure Machine Learning Studio 中部署
 
@@ -22,7 +22,7 @@ Azure Machine Learning Studio 提供所需的工具，以讓您開發預測分�
 
 若要這樣做，您必須使用 Studio 建立一個稱為「訓練實驗」的實驗，以訓練、評分和編輯您的模型。 滿意之後，即備妥模型以進行部署，方法是將訓練實驗轉換成「預測實驗」，並將後者設定成給使用者資料評分。
 
-您可以在[教學課程 1：預測信用風險](tutorial-part1-credit-risk.md)中查看此程序的範例。
+您可以看到此程序範例[教學課程 1:預測信用風險](tutorial-part1-credit-risk.md)開始。
 
 本文所深入探討的詳細資料是有關如何將訓練實驗轉換成預測實驗，以及預測實驗的部署方式。 了解這些詳細資料，即可了解如何設定您已部署的模型，以讓它更具效率。
 

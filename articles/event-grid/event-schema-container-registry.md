@@ -1,19 +1,19 @@
 ---
 title: Azure Event Grid 的 Container Registry 事件結構描述
-description: 描述利用 Azure Event Grid 提供給 Container Registry 事件的屬性
+description: 描述 Azure Event grid 的容器登錄事件提供的屬性
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/13/2019
+ms.date: 03/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084322"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Container Registry 的 Azure Event Grid 事件結構描述
 
@@ -21,12 +21,14 @@ ms.locfileid: "54462839"
 
 ## <a name="available-event-types"></a>可用的事件類型
 
-blob 儲存體會發出下列事件類型：
+Azure Container Registry 會發出下列事件類型：
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | 會在推送映像時引發。 |
 | Microsoft.ContainerRegistry.ImageDeleted | 會在刪除映像時引發。 |
+| Microsoft.ContainerRegistry.ChartPushed | 當推送 Helm 圖表時，就會引發。 |
+| Microsoft.ContainerRegistry.ChartDeleted | 刪除 Helm 圖表時，就會引發。 |
 
 ## <a name="example-event"></a>事件範例
 
@@ -93,11 +95,67 @@ blob 儲存體會發出下列事件類型：
 }]
 ```
 
+推送事件圖表的結構描述的映像已推送事件的結構描述類似，但它不包含要求物件：
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+刪除圖表事件的結構描述類似於映像的已刪除事件的結構描述，但它不包含要求物件：
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## <a name="event-properties"></a>事件屬性
 
 事件具有下列的最高層級資料：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
 | 主旨 | 字串 | 發行者定義事件主體的路徑。 |
@@ -110,7 +168,7 @@ blob 儲存體會發出下列事件類型：
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | id | 字串 | 事件識別碼。 |
 | timestamp | 字串 | 事件發生的時間。 |
@@ -120,7 +178,7 @@ blob 儲存體會發出下列事件類型：
 
 target 物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | mediaType | 字串 | 參考物件的 MIME 類型。 |
 | size | integer | 內容的位元組數目。 與長度欄位相同。 |
@@ -128,10 +186,12 @@ target 物件具有下列屬性：
 | length | integer | 內容的位元組數目。 [與大小相同] 欄位。 |
 | repository | 字串 | 存放庫名稱。 |
 | tag | 字串 | 標籤名稱。 |
+| name | 字串 | 圖表名稱。 |
+| version | 字串 | 圖表的版本。 |
 
 request 物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | id | 字串 | 起始事件之要求的識別碼。 |
 | addr | 字串 | 用戶端連線 (用於起始事件) 的 IP 或主機名稱，也可能是連接埠。 在標準 http 要求中，此值是 RemoteAddr。 |

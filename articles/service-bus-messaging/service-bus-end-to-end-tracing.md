@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852978"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107030"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>透過服務匯流排傳訊進行分散式追蹤與相互關聯
 
@@ -30,7 +30,7 @@ ms.locfileid: "54852978"
 Microsoft Azure 服務匯流排傳訊已定義產生者與取用者應用來傳遞此類追蹤內容的裝載屬性。
 該通訊協定是以 [HTTP 關聯性通訊協定](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) \(英文\) 為基礎。
 
-| 屬性名稱        | 說明                                                 |
+| 屬性名稱        | 描述                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | 產生者針對佇列之外部呼叫的唯一識別碼。 請參閱 [HTTP 通訊協定中的 Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) \(英文\) 以了解邏輯依據、考量及格式 |
 |  Correlation-Context | 作業內容，系統會將它傳播至涉及作業處理的所有服務。 如需詳細資訊，請參閱 [HTTP 通訊協定中的 Correlation-Context](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) \(英文\) |
@@ -213,7 +213,7 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 1. 以 `IsEnabled(<OperationName>, string entity, null)` 為例，`IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`。 請注意到末端並沒有 'Start' 或 'Stop'。 請使用它來將特定作業或佇列篩選出來。 若回呼傳回 `false`，代表針對作業的事件並沒有傳送
 
-  * 針對 'Process' 和 'ProcessSession' 作業，您也會接收到 `IsEnabled(<OperationName>, string entity, Activity activity)` 回呼。 請使用它來根據 `activity.Id` 或 Tags 屬性篩選事件。
+   * 針對 'Process' 和 'ProcessSession' 作業，您也會接收到 `IsEnabled(<OperationName>, string entity, Activity activity)` 回呼。 請使用它來根據 `activity.Id` 或 Tags 屬性篩選事件。
   
 2. 以 `IsEnabled(<OperationName>.Start)` 為例，`IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`。 檢查是否應該引發 'Start' 事件。 結果只會影響 'Start' 事件，但進一步的檢測並不會相依於它。
 

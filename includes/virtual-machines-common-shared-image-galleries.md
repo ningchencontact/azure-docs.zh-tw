@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985385"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051777"
 ---
 共用映像庫服務可協助您圍繞自訂受控虛擬機器映像來建置結構和組織。 使用共用映像庫，即可在組織內對於不同的使用者、服務主體或 AD 群組共用您的映像。 共用映像可以複寫至多個區域，以更快速調整您的部署。
 
@@ -23,7 +23,7 @@ ms.locfileid: "55985385"
 
 共用映像庫具有多個資源類型：
 
-| 資源 | 說明|
+| 資源 | 描述|
 |----------|------------|
 | **受控映像** | 這是基本映像，既可單獨使用，也可用來在映像庫中建立個**映像版本**。 受控映像是從一般化 VM 建立的。 受控映像是一種特殊的 VHD 類型，可用來產生多個 VM，現在可以用來建立共用映像版本。 |
 | **映像庫** | 和 Azure Marketplace 一樣，**映像庫**是用於管理和共用映像的存放庫，但您可以控制哪些使用者能夠存取。 |
@@ -74,9 +74,9 @@ ms.locfileid: "55985385"
 
 | 與使用者共用     | 共用映像庫 | 共用映像 | 共用映像版本 |
 |----------------------|----------------------|--------------|----------------------|
-| 共用映像庫 | yes                  | 是          | yes                  |
-| 共用映像         | 否                   | yes          | yes                  |
-| 共用映像版本 | 否                   | 否           | yes                  |
+| 共用映像庫 | 是                  | 是          | 是                  |
+| 共用映像         | 否                   | yes          | 是                  |
+| 共用映像版本 | 否                   | 否           | 是                  |
 
 
 
@@ -128,18 +128,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  
  A. 若要針對您可在 Azure 入口網站上存取的訂用帳戶，列出其彼此之間的所有共用映像庫資源，請遵循下列步驟：
 
- 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
- 1. 移至 [所有資源]。
- 1. 選取所有要列出其內含全部資源的訂用帳戶。
- 1. 尋找類型為 [私用資源庫] 的資源。
+1. 開啟 [Azure 入口網站](https://portal.azure.com)。
+1. 移至 [所有資源]。
+1. 選取所有要列出其內含全部資源的訂用帳戶。
+1. 尋找類型為 [私用資源庫] 的資源。
  
- 若要查看映像定義和映像版本，您還應該選取 [顯示隱藏的類型]。
+   若要查看映像定義和映像版本，您還應該選取 [顯示隱藏的類型]。
  
- 若要列出您有權存取之所有訂用帳戶的共用映像庫資源，請在 Azure CLI 中使用下列命令：
+   若要列出您有權存取之所有訂用帳戶的共用映像庫資源，請在 Azure CLI 中使用下列命令：
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **問：** 如何跨訂用帳戶共用映像？
@@ -155,9 +155,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
  案例 2：如果您擁有非受控的一般化映像，則可以透過該映像建立受控映像，繼而建立映像定義和映像版本。 
 
- 案例 3：如果您在本機檔案系統擁有 VHD，則需要上傳 VHD、建立受控映像，然後就可以從中建立映像定義和映像版本。 
-    - 如果是 Windows VM 的 VHD，請參閱[上傳一般化 VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)。
-    - 如果是 Linux VM 的 VHD，請參閱[上傳 VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+ 案例 3：如果您在本機檔案系統擁有 VHD，則需要上傳 VHD、建立受控映像，然後就可以從中建立映像定義和映像版本。
+- 如果是 Windows VM 的 VHD，請參閱[上傳一般化 VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)。
+- 如果是 Linux VM 的 VHD，請參閱[上傳 VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
 **問：** 是否可以從特製化磁碟建立映像版本？
@@ -175,12 +175,12 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  A. 每個資源可更新的詳細資料如下所述：
  
 共用映像庫：
-- 說明
+- 描述
 
 映像定義：
 - 建議的 vCPU
 - 記憶體
-- 說明
+- 描述
 - 生命週期結束日期
 
 映像版本：

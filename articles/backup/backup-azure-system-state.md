@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268718"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105194"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>在 Resource Manager 部署中備份 Windows 系統狀態
 本文說明如何將 Windows Server 的系統狀態備份至 Azure。 本文中的教學課程是要讓您逐步了解基本概念。
@@ -41,7 +41,7 @@ ms.locfileid: "56268718"
 
     ![建立復原服務保存庫的步驟 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-4. 在 [名稱] 中，輸入易記名稱來識別保存庫。 必須是 Azure 訂用帳戶中唯一的名稱。 輸入包含 2 到 50 個字元的名稱。 該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。
+4. 在 [名稱] 中，輸入易記名稱來識別保存庫。 必須是 Azure 訂用帳戶中唯一的名稱。 键入包含 2 到 50 个字符的名称。 該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。
 
 5. 在 [訂用帳戶] 區段中，使用下拉式功能表來選擇 Azure 訂用帳戶。 如果您只使用一個訂用帳戶，該訂用帳戶會出現，您可以跳到下一個步驟。 如果您不確定要使用哪個訂用帳戶，請使用預設 (或建議) 的訂用帳戶。 只有在您的組織帳戶與多個 Azure 訂用帳戶相關聯時，才會有多個選擇。
 
@@ -51,7 +51,7 @@ ms.locfileid: "56268718"
     或
     * 選取 [使用現有的]﹐然後按一下下拉式功能表，以查看可用的資源群組清單。
 
-  如需資源群組的完整資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
+   如需資源群組的完整資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
 
 7. 按一下 [位置]  以選取保存庫的地理區域。 此選項會決定您的備份資料要傳送到哪個地理區域。
 
@@ -61,12 +61,12 @@ ms.locfileid: "56268718"
 
     ![按一下 [重新整理] 按鈕。](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
-    一旦在復原服務保存庫清單中看到您的保存庫，您即可開始設定儲存體備援。
+    一旦在恢复服务保管库列表中看到保管库，即可设置存储冗余。
 
 ### <a name="set-storage-redundancy-for-the-vault"></a>設定保存庫的儲存體備援
 當您建立復原服務保存庫時，務必以您想要的方式設定儲存體備援。
 
-1. 從 [復原服務保存庫] 刀鋒視窗，按一下 [新增保存庫]。
+1. 从“恢复服务保管库”边栏选项卡中，单击新保管库  。
 
     ![從復原服務保存庫清單中選取新的保存庫](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
@@ -78,11 +78,11 @@ ms.locfileid: "56268718"
 3. 在 [備份基礎結構] 刀鋒視窗中，按一下 [備份設定]開啟 [備份設定] 刀鋒視窗。
 
     ![為新保存庫設定儲存體組態](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
-4. 為保存庫選擇適當的儲存體複寫選項。
+4. 为保管库选择合适的存储复制选项。
 
     ![儲存體組態選項](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    根據預設，保存庫具有異地備援儲存體。 如果您使用 Azure 做為主要的備份儲存體端點，請繼續使用 [異地備援]。 如果您未使用 Azure 做為主要的備份儲存體端點，則選擇 [本地備援]，以減少 Azure 儲存體成本。 在此[儲存體備援概觀](../storage/common/storage-redundancy.md)中，深入了解[異地備援](../storage/common/storage-redundancy-grs.md)和[本地備援](../storage/common/storage-redundancy-lrs.md)儲存體選項。
+    默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果您未使用 Azure 做為主要的備份儲存體端點，則選擇 [本地備援]，以減少 Azure 儲存體成本。 在此[儲存體備援概觀](../storage/common/storage-redundancy.md)中，深入了解[異地備援](../storage/common/storage-redundancy-grs.md)和[本地備援](../storage/common/storage-redundancy-lrs.md)儲存體選項。
 
 您已建立了保存庫，接著請設定它來備份 Windows 系統狀態。
 
@@ -127,12 +127,12 @@ ms.locfileid: "56268718"
 
     ![下載保存庫認證](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    保存庫認證會下載至「下載」資料夾。 保存庫認證下載完成之後，您會看到快顯視窗，詢問您是否要開啟或儲存認證。 按一下 [檔案] 。 如果您不小心按到 [開啟]，請讓嘗試開啟保存庫認證的對話方塊失敗。 您無法開啟保存庫認證。 請繼續進行下一個步驟。 保存庫認證位於 [下載] 資料夾中。   
+    保管库凭据下载到“下载”文件夹。 保存庫認證下載完成之後，您會看到快顯視窗，詢問您是否要開啟或儲存認證。 按一下 [檔案] 。 如果您不小心按到 [開啟]，請讓嘗試開啟保存庫認證的對話方塊失敗。 您無法開啟保存庫認證。 請繼續進行下一個步驟。 保存庫認證位於 [下載] 資料夾中。   
 
     ![保存庫認證下載完成](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> 保存庫認證只能儲存至您要使用代理程式的 Windows Server 的本機位置。
->
+   > [!NOTE]
+   > 保存庫認證只能儲存至您要使用代理程式的 Windows Server 的本機位置。
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
@@ -182,7 +182,7 @@ ms.locfileid: "56268718"
 
     ![啟動 Azure 復原服務代理程式](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
-2. 在復原服務代理程式中，按一下 [排程備份] 。
+2. 在恢复服务代理中，单击“ **计划备份**”。
 
     ![Windows Server 備份排程](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
@@ -192,7 +192,7 @@ ms.locfileid: "56268718"
 
 5. 選取 [系統狀態]，然後按一下 [確定]。
 
-6. 按 [下一步] 。
+6. 单击“下一步”。
 
 7. 在後續頁面中針對系統狀態備份選取所需的備份頻率和保留原則。
 
@@ -215,7 +215,7 @@ ms.locfileid: "56268718"
 4. 按一下 [關閉]  即可關閉精靈。 如果您在備份程序完成之前關閉精靈，精靈會繼續在背景中執行。
 
 
-完成初始備份之後，備份主控台中會顯示 [作業已完成]  狀態。
+完成初始备份后，备份控制台中显示“**作业已完成**”状态。
 
   ![IR 已完成](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 

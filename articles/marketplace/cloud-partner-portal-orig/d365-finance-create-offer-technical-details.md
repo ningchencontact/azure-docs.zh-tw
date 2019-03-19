@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb8e5074d0cd99f5c7cb2130e6f9181eb5382015
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 5aa118815146287d00a3bb8ee7d5fce57a6ad9ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805590"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120290"
 ---
 <a name="how-to-fill-out-the-technical-info-form"></a>如何填寫技術資訊表單
 ===========================================
@@ -36,9 +36,9 @@ ms.locfileid: "48805590"
 
 -   **應用程式測試自動化** -- 必要 - 您必須為自動化延伸模組測試建立的 VS 程式碼撰寫測試套件。
 
-2.  在 [延伸模組的額外資訊] 區段中，上傳您延伸模組的額外資訊。 此資訊將會在驗證期間使用。
+1. 在 [延伸模組的額外資訊] 區段中，上傳您延伸模組的額外資訊。 此資訊將會在驗證期間使用。
 
-    ![應用程式延伸模組表單的額外資訊](./media/d365-financials/image016.png)
+   ![應用程式延伸模組表單的額外資訊](./media/d365-financials/image016.png)
 
 
 -   **產品文件的 URL** -- 必要 - 延伸模組文件的 URL。

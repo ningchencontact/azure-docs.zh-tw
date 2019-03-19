@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121123"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何透過「Azure 監視器」警示觸發複雜動作
 
@@ -275,19 +275,19 @@ Azure 監視器警示會在觸發時呼叫[動作群組](../../azure-monitor/pla
 - 步驟 9 和 10 相同。
 - 針對步驟 11 至 14，請使用下列程序：
 
-   1. 選取 [+ 新增步驟]，然後選擇 [新增條件]。 設定下列條件，只有當輸入資料符合下列值的時候，邏輯應用程式才會執行。 將版本值輸入到文字方塊時，在值的周圍加上引號 ("2.0")，以確保系統會將值評估為字串，而不是數值類型。  如果您返回頁面，但是基礎程式碼仍然維持字串類型，則系統不會顯示引號。 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. 選取 [+ 新增步驟]，然後選擇 [新增條件]。 設定下列條件，只有當輸入資料符合下列值的時候，邏輯應用程式才會執行。 將版本值輸入到文字方塊時，在值的周圍加上引號 ("2.0")，以確保系統會將值評估為字串，而不是數值類型。  如果您返回頁面，但是基礎程式碼仍然維持字串類型，則系統不會顯示引號。 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        ![「計量警示承載條件」](media/action-groups-logic-app/metric-alert-payload-condition.png "計量警示承載條件")
 
-   1. 在 [若為 true] 條件中，新增 **For each** 迴圈和 Microsoft Teams 動作。 使用 HTML 與動態內容的組合來定義訊息。
+  1. 在 [若為 true] 條件中，新增 **For each** 迴圈和 Microsoft Teams 動作。 使用 HTML 與動態內容的組合來定義訊息。
 
-       ![「計量警示的 True 條件張貼動作」](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "計量警示的 True 條件張貼動作")
+      ![「計量警示的 True 條件張貼動作」](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "計量警示的 True 條件張貼動作")
 
-   1. 在 [若為 false] 條件中，定義 Microsoft Teams 動作，以傳達計量警示不符合邏輯應用程式預期的訊息。 請包含自訂 JSON 承載。 請注意如何在 `json()` 運算式中參考 `triggerBody` 動態內容。
+  1. 在 [若為 false] 條件中，定義 Microsoft Teams 動作，以傳達計量警示不符合邏輯應用程式預期的訊息。 請包含自訂 JSON 承載。 請注意如何在 `json()` 運算式中參考 `triggerBody` 動態內容。
 
-       ![「計量警示的 False 條件張貼動作」](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "計量警示的 False 條件張貼動作")
+      ![「計量警示的 False 條件張貼動作」](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "計量警示的 False 條件張貼動作")
 
 - 步驟 15 相同。 請依照指示來儲存邏輯應用程式並更新動作群組。
 

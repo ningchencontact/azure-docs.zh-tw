@@ -2,7 +2,6 @@
 title: 連線到 SAP 系統 - Azure Logic Apps | Microsoft Docs
 description: 如何透過 Azure Logic Apps 自動化執行工作流程，以存取和管理 SAP 資源
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -11,18 +10,17 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77d1e11c1400f9a3d6bb6bda8e935cd4d24a195e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170831"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
 > [!NOTE]
-> 此 SAP 連接器即將淘汰。 我們已發行更先進的全新 SAP 連接器，並建議您選擇或移動至[新的 SAP 連接器](./logic-apps-using-sap-connector.md)。
->  
+> 此 SAP 連接器會針對 deprecation 排程。 請使用，或移轉至[較新且更進階的 SAP 連接器](./logic-apps-using-sap-connector.md)。 
 
 本文顯示如何使用 SAP 應用程式伺服器和 SAP 訊息伺服器連接器，從邏輯應用程式內部存取 SAP 資源。 如此您即可建立邏輯應用程式，以自動化用來管理 SAP 資料和資源的工作、流程和工作流程。
 
@@ -38,7 +36,7 @@ ms.locfileid: "50230891"
 
 若要遵循本文中的範例，您需要以下項目：
 
-* 您要用來存取 SAP 系統的邏輯應用程式，以及啟動邏輯應用程式工作流程的觸發程序。 SAP 連接器目前僅提供動作。 如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+* 您要用來存取 SAP 系統的邏輯應用程式，以及啟動邏輯應用程式工作流程的觸發程序。 SAP 連接器目前僅提供動作。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 * 您的 <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP 應用程式伺服器</a>或 <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP 訊息伺服器</a>
 
@@ -67,7 +65,7 @@ ms.locfileid: "50230891"
 
 1. 在 Azure 入口網站中，建立空白的邏輯應用程式，以開啟邏輯應用程式設計工具。 
 
-2. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中選取此觸發程序：[要求 - 收到 HTTP 要求時]
+2. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**要求 - 收到 HTTP 要求時**
 
    ![新增 HTTP 要求觸發程序](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
@@ -93,7 +91,7 @@ ms.locfileid: "50230891"
    * **SAP 應用程式伺服器 - 傳送至 SAP**
    * **SAP 訊息伺服器 - 傳送至 SAP**
 
-   此範例使用此動作：[SAP 應用程式伺服器 - 傳送至 SAP]
+   此範例會使用這項動作：**SAP 應用程式伺服器 - 傳送至 SAP**
 
    ![選取 [SAP 應用程式伺服器] 或 [SAP 訊息伺服器]](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
@@ -154,7 +152,7 @@ ms.locfileid: "50230891"
 
 1. 在邏輯應用程式設計工具的 SAP 動作之下，依序選擇 [新增步驟]  >  [新增動作]。
 
-2. 在搜尋方塊中，輸入「回應」做為篩選條件。 從 [動作] 清單中，選取此動作：[要求 - 回應]
+2. 在搜尋方塊中，輸入「回應」做為篩選條件。 從 [動作] 清單中，選取此動作：**要求 - 回應**
 
 3. 在 [內文] 方塊內按一下，動態內容清單隨即顯示。 從該清單的 [傳送至 SAP] 之下，選取 [內文] 欄位。 
 

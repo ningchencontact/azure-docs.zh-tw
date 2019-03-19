@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.author: sogup
-ms.openlocfilehash: 0ab626bffa3520af0ea23314cbaed118d66e280f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082070"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>跨 Azure 訂用帳戶和資源群組來移動復原服務保存庫 (有限公開預覽)
 
@@ -37,10 +37,8 @@ ms.locfileid: "56007506"
 -   如果您跨訂用帳戶移動含有 VM 備份資料的保存庫，則必須將 VM 移至相同的訂用帳戶，並使用相同的目標資源群組來繼續備份。<br>
 
 > [!NOTE]
->
-依設定要與 **Azure Site Recovery** 搭配使用的復原服務保存庫還無法移動。 如果您已使用 **Azure Site Recovery** 來為任何 VM (Azure IaaS、Hyper-V、VMware) 或實體機器設定災害復原，則無法進行移動作業。 Site Recovery 服務的資源移動功能尚未正式運作。
->
->
+> 
+> 依設定要與 **Azure Site Recovery** 搭配使用的復原服務保存庫還無法移動。 如果您已使用 **Azure Site Recovery** 來為任何 VM (Azure IaaS、Hyper-V、VMware) 或實體機器設定災害復原，則無法進行移動作業。 Site Recovery 服務的資源移動功能尚未正式運作。
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>註冊來源訂用帳戶以移動復原服務保存庫
 
@@ -48,26 +46,26 @@ ms.locfileid: "56007506"
 
 1. 登入您的 Azure 帳戶
 
-  ```
-  Connect-AzureRmAccount
-  ```
+   ```
+   Connect-AzureRmAccount
+   ```
 
-2.  選取您要註冊的訂用帳戶
+2. 選取您要註冊的訂用帳戶
 
-    ```
-    Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3.  註冊此訂用帳戶
+   ```
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   ```
+3. 註冊此訂用帳戶
 
-  ```
-  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
-  ```
+   ```
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   ```
 
 4. 執行命令
 
-  ```
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-  ```
+   ```
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   ```
 
 等候 30 分鐘，讓訂用帳戶加入到允許清單，再使用 Azure 入口網站或 PowerShell 開始移動作業。
 
@@ -78,27 +76,27 @@ ms.locfileid: "56007506"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 開啟**復原服務保存庫**的清單，然後選取您想要移動的保存庫。 保存庫儀表板開啟時會如下圖所示。
 
-  ![開啟復原服務保存庫](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![開啟復原服務保存庫](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-  如果您沒看到保存庫的 [基本資訊] 資訊，請按下拉圖示。 您現在應該就會看到保存庫的 [基本資訊] 資訊。
+   如果您沒看到保存庫的 [基本資訊] 資訊，請按下拉圖示。 您現在應該就會看到保存庫的 [基本資訊] 資訊。
 
-  ![[基本資訊] 索引標籤](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
+   ![[基本資訊] 索引標籤](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
 3. 在保存庫的 [概觀] 功能表中，按一下 [資源群組] 旁的 [變更]，以開啟 [移動資源] 刀鋒視窗。
 
-  ![變更資源群組](./media/backup-azure-move-recovery-services/change-resource-group.png)
+   ![變更資源群組](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
 4. 在 [移動資源] 刀鋒視窗中，我們針對所選保存庫的建議是，藉由如下圖所示地選取核取方塊，來移動選擇性的相關資源。
 
-  ![移動訂用帳戶](./media/backup-azure-move-recovery-services/move-resource.png)
+   ![移動訂用帳戶](./media/backup-azure-move-recovery-services/move-resource.png)
 
 5. 若要新增目標資源群組，請在 [資源群組] 下拉式清單中選取現有資源群組，或按一下 [建立新群組] 選項。
 
-  ![建立資源](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
+   ![建立資源](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
 6. 在新增資源群組之後，請確認 [我了解我必須先更新移動之資源所關聯的工具與指令碼，這些工具與指令碼才能使用新的資源識別碼] 選項，然後按一下 [確定] 以完成保存庫移動作業。
 
-  ![確認訊息](./media/backup-azure-move-recovery-services/confirmation-message.png)
+   ![確認訊息](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
 ## <a name="use-azure-portal-to-move-a-recovery-services-vault-to-a-different-subscription"></a>使用 Azure 入口網站將復原服務保存庫移動到不同的訂用帳戶
@@ -116,16 +114,16 @@ ms.locfileid: "56007506"
 
 3. 在保存庫的 [概觀] 功能表中，按一下 [訂用帳戶] 旁的 [變更]，以開啟 [移動資源] 刀鋒視窗。
 
-  ![變更訂用帳戶](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
+   ![變更訂用帳戶](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
 4. 選取要移動的資源，建議您在這裡使用 [全選] 選項來選取所有列出的選擇性資源。
 
-  ![移動資源](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
+   ![移動資源](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. 從 [訂用帳戶] 下拉式清單選取您想要作為保存庫移動目的地的目標訂用帳戶。
 6. 若要新增目標資源群組，請在 [資源群組] 下拉式清單中選取現有資源群組，或按一下 [建立新群組] 選項。
 
-  ![新增訂用帳戶](./media/backup-azure-move-recovery-services/add-subscription.png)
+   ![新增訂用帳戶](./media/backup-azure-move-recovery-services/add-subscription.png)
 
 7. 按一下 [我了解我必須先更新移動之資源所關聯的工具與指令碼，這些工具與指令碼才能使用新的資源識別碼] 選項來進行確認，然後按一下 [確定]。
 

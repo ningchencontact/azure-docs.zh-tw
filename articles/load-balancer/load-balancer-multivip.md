@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3036bbc74b4ed8ee92e10f952252889c4c12f845
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: bf5721e206316a4ce576253743e9ac65de47094a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353935"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194039"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>為單一雲端服務設定多個 VIP
 
@@ -28,14 +28,14 @@ ms.locfileid: "54353935"
 
 不過，在某些情況下，您可能需要一個以上的 VIP 作為相同雲端服務的進入點。 比方說，您的雲端服務可以裝載多個需要使用預設連接埠 443 進行 SSL 連線的網站，因為每個網站是針對不同的客戶或租用戶進行裝載。 在此情況下，每個網站都需要有不同的公開 IP 位址。 下圖說明典型的多租用戶 Web 裝載，它在相同的公用連接埠上需要有多個 SSL 憑證。
 
-![多重 VIP SSL 案例](./media/load-balancer-multivip/Figure1.png)
+![多 VIP SSL 方案](./media/load-balancer-multivip/Figure1.png)
 
 在上面的範例中，所有 VIP 都使用相同的公用連接埠 (443)，而流量會重新導向至裝載所有網站之雲端服務的內部 IP 位址中唯一私人連接埠上的一或多個負載平衡 VM。
 
 > [!NOTE]
 > 需要使用多重 VIP 的另一個狀況，是在同一組虛擬機器上裝載多個 SQL AlwaysOn 可用性群組接聽程式。
 
-VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨著時間改變。 若要防止發生該狀況，您可以為您的服務保留 VIP。 若要深入了解保留的 VIP，請參閱 [保留的公用 IP](../virtual-network/virtual-networks-reserved-public-ip.md)。
+默认情况下，VIP 是动态的，这意味着，分配给云服务的实际 IP 地址会随着时间改变。 若要防止發生該狀況，您可以為您的服務保留 VIP。 若要深入了解保留的 VIP，請參閱 [保留的公用 IP](../virtual-network/virtual-networks-reserved-public-ip.md)。
 
 > [!NOTE]
 > 如需有關 VIP 和保留的 IP 的定價資訊，請參閱 [IP 位址定價](https://azure.microsoft.com/pricing/details/ip-addresses/) 。
@@ -49,7 +49,7 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 * **僅限 IaaS**。 您只能針對包含 VM 的雲端服務啟用多重 VIP。 您無法在具有角色執行個體的 PaaS 案例中使用多重 VIP。
 * **僅限 PowerShell**。 您只能使用 PowerShell 來管理多重 VIP。
 
-這些限制都是暫時的，隨時可能變更。 請務必再次瀏覽此頁面，以確認未來變更。
+这些限制都是暂时性的，以后随时可能更改。 請務必再次瀏覽此頁面，以確認未來變更。
 
 ## <a name="how-to-add-a-vip-to-a-cloud-service"></a>如何將 VIP 新增至雲端服務
 若要將 VIP 新增至您的服務，請執行下列 PowerShell 命令：
@@ -103,7 +103,7 @@ $deployment.VirtualIPs
     ReservedIPName  :
     ExtensionData   :
 
-在此範例中，雲端服務有 3 個 VIP：
+在此示例中，云服务有 3 个 VIP：
 
 * **Vip1** 是預設 VIP，您知道因為 IsDnsProgrammedName 的值已設定為 true。
 * **Vip2** 和 **Vip3** 因為沒有任何 IP 位址而不會予以使用。 唯有將端點關聯到 VIP，才會予以使用。
@@ -172,7 +172,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 
 ## <a name="next-steps"></a>後續步驟
 
-[Azure 負載平衡器的 Log Analytics](load-balancer-monitor-log.md)
+[Azure 負載平衡器的 azure 監視器記錄檔](load-balancer-monitor-log.md)
 
 [網際網路面向的負載平衡器概觀](load-balancer-internet-overview.md)
 
@@ -180,4 +180,4 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 
 [虛擬網路概觀](../virtual-network/virtual-networks-overview.md)
 
-[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+[保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)

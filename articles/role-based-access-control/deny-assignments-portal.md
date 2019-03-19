@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343233"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005797"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>使用 Azure 入口網站檢視 Azure 資源的拒絕指派
 
-[拒絕指派](deny-assignments.md)會封鎖使用者執行特定的 Azure 資源動作，即使角色指派授予他們存取權也一樣。 即使您無法建立自己的拒絕指派，還是需要能夠檢視拒絕指派，因為它們可能會影響您的整體權限。 若要取得拒絕指派的相關資訊，您必須擁有 `Microsoft.Authorization/denyAssignments/read` 權限，此權限包含於大部分的 [Azure 資源內建角色](built-in-roles.md)中。
-
-本文說明如何使用 Azure 入口網站檢視拒絕指派。
+[拒絕指派](deny-assignments.md)會封鎖使用者執行特定的 Azure 資源動作，即使角色指派授予他們存取權也一樣。 本文說明如何使用 Azure 入口網站檢視拒絕指派。
 
 > [!NOTE]
-> 目前，拒絕指派是唯讀的，而且只能由 Azure 設定。
+> 在此階段中，您也可以加入自己的唯一方式會拒絕指派是使用 Azure 藍圖。 如需詳細資訊，請參閱 <<c0> [ 保護新的資源，Azure 藍圖資源鎖定](../governance/blueprints/tutorials/protect-new-resources.md)。
+
+## <a name="prerequisites"></a>必要條件
+
+若要取得拒絕指派的相關資訊，您必須具備：
+
+- `Microsoft.Authorization/denyAssignments/read` 權限，隨附於多數[適用於 Azure 資源的內建角色](built-in-roles.md)。
 
 ## <a name="view-deny-assignments"></a>檢視拒絕指派
 
@@ -86,7 +90,7 @@ ms.locfileid: "56343233"
 
     ![拒絕指派：拒絕的權限](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
-    | 動作類型 | 說明 |
+    | 動作類型 | 描述 |
     | --- | --- |
     | **動作**  | 拒絕的管理作業。 |
     | **NotActions** | 從拒絕的管理作業中排除的管理作業。 |

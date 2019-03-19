@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: c378043a9e10a0aed5344ac3182af6163d217c7b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140463"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006575"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>設定效能流量路由方法
 
@@ -24,14 +24,14 @@ ms.locfileid: "50140463"
 
 ##  <a name="to-configure-performance-routing-method"></a>設定效能路由方法
 
-1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。 
+1. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。 
 2. 在入口網站的搜尋列中，搜尋「流量管理員設定檔」，然後按一下您想要設定路由方法的設定檔名稱。
 3. 在 [流量管理員設定檔] 刀鋒視窗中，確認您想要納入組態的雲端服務和網站皆存在。
 4. 在 [設定] 區段中，按一下 [組態]，並在 [組態] 刀鋒視窗中，完成下列設定：
     1. 在 [流量路由方法設定] 中，針對 [路由方法] 選取 [效能]。
     2. 將此設定檔中的所有端點都設定為如下所示的相同「端點監視設定」：
         1. 選取適當的 [通訊協定]，並指定 [連接埠] 號碼。 
-        2. 針對 [路徑]，輸入正斜線 */*。 若要監視端點，您必須指定路徑和檔案名稱。 正斜線 "/" 是相對路徑的有效項目，表示檔案位於根目錄 (預設值)。
+        2. 針對 [路徑]，輸入正斜線 */*。 若要監視端點，您必須指定路徑和檔案名稱。 正斜杠“/”是有效的相对路径条目，表示文件位于根目录（默认位置）中。
         3. 按一下頁面頂端的 [儲存]。
 5.  測試組態中的變更，如下所示：
     1.  在入口網站的搜尋列中，搜尋流量管理員設定檔名稱，並按一下於結果中顯示的流量管理員設定檔。

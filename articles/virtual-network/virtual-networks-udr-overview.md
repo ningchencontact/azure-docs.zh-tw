@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268833"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123567"
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -48,8 +48,8 @@ Azure 會自動建立系統路由，並將路由指派給虛擬網路中的每�
 - **網際網路**：將位址首碼所指定的流量路由到網際網路。 系統預設路由會指定 0.0.0.0/0 位址首碼。 如果您不覆寫 Azure 的預設路由，Azure 會將所有不是由虛擬網路內位址範圍指定的流量路由至網際網路，但有一個例外。 如果目的地位址適用於 Azure 的其中一個服務，Azure 會透過 Azure 的骨幹網路直接將流量路由至該服務，而不是將流量路由至網際網路。 不論虛擬網路存在哪一個 Azure 區域，或 Azure 服務執行個體部署在哪一個 Azure 區域，Azure 服務之間的流量都不會周遊網際網路。 您可以使用[自訂路由](#custom-routes)，來覆寫位址首碼為 0.0.0.0/0 的 Azure 預設系統路由。
 
 - **無**：路由至下一個躍點類型為 [無] 的流量會遭到捨棄，而不是路由至子網路以外的地方。 Azure 會為下列位址首碼自動建立預設路由：
-    - **10.0.0.0/8、172.16.0.0/12 和 192.168.0.0/16**：在 RFC 1918 中保留以作為私人用途。
-    - **100.64.0.0/10**：在 RFC 6598 中保留。
+  - **10.0.0.0/8、172.16.0.0/12 和 192.168.0.0/16**：在 RFC 1918 中保留以作為私人用途。
+  - **100.64.0.0/10**：在 RFC 6598 中保留。
 
     如果您在虛擬網路位址空間內指派上述任何位址範圍時，Azure 會自動將路由的下一個躍點類型從**無**變更至**虛擬網路**。 如果您對其指派位址範圍的虛擬網路位址空間中，包含四個保留位址首碼的其中一個 (但不是完全相同) 時，Azure 會移除該首碼的路由，並針對您新增的位址首碼來新增路由 (使用**虛擬網路**作為下一個躍點類型)。
 
@@ -82,16 +82,16 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 
 - **虛擬設備**：虛擬設備通常是執行網路應用程式 (例如防火牆) 的虛擬機器。 若要了解您可以在虛擬網路中部署之多種預先設定的網路虛擬設備，請參閱 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)。 當您使用**虛擬設備**躍點類型建立路由時，您也會指定下一個躍點 IP 位址。 IP 位址可以是：
 
-    - 連接至虛擬機器的網路介面[私人 IP 位址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)。 連接至虛擬機器，並將網路流量轉送至本身以外其他位址的任何網路介面，都必須啟用 Azure *啟用 IP 轉送*選項。 該設定會使 Azure 停止檢查網路介面的來源和目的地。 深入了解如何[啟用網路介面的 IP 轉送](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)。 雖然 [啟用 IP 轉送] 是 Azure 的設定，但您可能也需要啟用虛擬機器作業系統內的 IP 轉送，以便設備轉送已指派給 Azure 網路介面的私人 IP 位址間的流量。 如果設備必須將流量路由傳送至公用 IP 位址，則設備必須代理流量，或將來源的私人 IP 位址進行網路位址轉譯為其自有的私人 IP 位址，然後 Azure 會將該位址進行網路位址轉譯為公用 IP 位址，再將流量傳送到網際網路。 若要決定虛擬機器內的必要設定，請參閱您作業系統或網路應用程式的文件。 若要了解 Azure 中的輸出連線，請參閱[了解輸出連線](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+  - 連接至虛擬機器的網路介面[私人 IP 位址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)。 連接至虛擬機器，並將網路流量轉送至本身以外其他位址的任何網路介面，都必須啟用 Azure *啟用 IP 轉送*選項。 該設定會使 Azure 停止檢查網路介面的來源和目的地。 深入了解如何[啟用網路介面的 IP 轉送](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)。 雖然 [啟用 IP 轉送] 是 Azure 的設定，但您可能也需要啟用虛擬機器作業系統內的 IP 轉送，以便設備轉送已指派給 Azure 網路介面的私人 IP 位址間的流量。 如果設備必須將流量路由傳送至公用 IP 位址，則設備必須代理流量，或將來源的私人 IP 位址進行網路位址轉譯為其自有的私人 IP 位址，然後 Azure 會將該位址進行網路位址轉譯為公用 IP 位址，再將流量傳送到網際網路。 若要決定虛擬機器內的必要設定，請參閱您作業系統或網路應用程式的文件。 若要了解 Azure 中的輸出連線，請參閱[了解輸出連線](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
-      > [!NOTE]
-      > 將虛擬設備部署至不同子網路，則透過該虛擬設備路由的資源就會在其中部署。 如果將虛擬設備部署至相同子網路，然後將路由表套用至透過虛擬設備路由流量的子網路，就會造成路由迴圈，使得流量不會離開子網路。
+    > [!NOTE]
+    > 將虛擬設備部署至不同子網路，則透過該虛擬設備路由的資源就會在其中部署。 如果將虛擬設備部署至相同子網路，然後將路由表套用至透過虛擬設備路由流量的子網路，就會造成路由迴圈，使得流量不會離開子網路。
 
-    - Azure [內部負載平衡器](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的私人 IP 位址。 負載平衡器通常作為[網路虛擬設備高可用性策略](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)的一部分使用。
+  - Azure [內部負載平衡器](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的私人 IP 位址。 負載平衡器通常作為[網路虛擬設備高可用性策略](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)的一部分使用。
 
     您可以定義位址首碼為 0.0.0.0/0 的路由和虛擬設備的下一個躍點類型，讓設備檢查流量並判斷是否要轉送或捨棄流量。 如果您想要建立包含 0.0.0.0/0 位址首碼的使用者定義路由，請先了解 [0.0.0.0/0 位址首碼](#default-route)。
 
-- **虛擬網路閘道**：當您要將特定位址首碼指定的流量路由至虛擬網路閘道時指定。 虛擬網路閘道必須使用 **VPN** 類型建立。 您無法在使用者定義路由中指定建立為 **ExpressRoute** 類型的虛擬網路閘道，因為若使用 ExpressRoute，您必須使用適用於自訂路由的 BGP。 您可以將路由定義為將 0.0.0.0/0 位址首碼指定流量導向[路由式](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype)虛擬網路閘道。 在內部部署上，您可能有裝置可檢查流量並決定是否要轉送或捨棄流量。 如果您想要建立 0.0.0.0/0 位址首碼的使用者定義路由，請先了解 [0.0.0.0/0 位址首碼](#default-route)。 您不需要設定 0.0.0.0/0 位址首碼的使用者定義路由，如果您已[啟用 VPN 虛擬網路閘道的 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，則可以透過 BGP 公佈具有 0.0.0.0/0 首碼的路由。
+- **虛擬網路閘道**：當您要將特定位址首碼指定的流量路由至虛擬網路閘道時指定。 虛擬網路閘道必須使用 **VPN** 類型建立。 您無法在使用者定義路由中指定建立為 **ExpressRoute** 類型的虛擬網路閘道，因為若使用 ExpressRoute，您必須使用適用於自訂路由的 BGP。 您可以將路由定義為將 0.0.0.0/0 位址首碼指定流量導向[路由式](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype)虛擬網路閘道。 在內部部署上，您可能有裝置可檢查流量並決定是否要轉送或捨棄流量。 如果您想要建立 0.0.0.0/0 位址首碼的使用者定義路由，請先了解 [0.0.0.0/0 位址首碼](#default-route)。 您不需要設定 0.0.0.0/0 位址首碼的使用者定義路由，如果您已[啟用 VPN 虛擬網路閘道的 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，則可以透過 BGP 公佈具有 0.0.0.0/0 首碼的路由。
 - **無**：當您要捨棄位址首碼的流量，而不是將流量轉送至目的地時指定。 如果有功能尚未設定完畢，Azure 可能會針對某些選擇性系統路徑列出「無」。 例如，如果您看到**下一個躍點類型**為「虛擬網路閘道」或「虛擬設備」的**下一個躍點 IP 位址**列為「無」，這可能是因為裝置未執行或未完整設定。 Azure 會針對下一個躍點類型為**無**的保留位址首碼，建立系統[預設路由](#default)。
 - **虛擬網路**：當您想要覆寫虛擬網路中的預設路由時指定。 請參閱[路由範例](#routing-example)，以針對您想以**虛擬網路**躍點類型建立路由的原因取得範例。
 - **網際網路**：當您想要明確地將位址首碼指定的流量路由至網際網路時指定，或您想要 Azure 服務所用的流量 (具有公用 IP 位址) 保留在 Azure 骨幹網路中時指定。
@@ -217,7 +217,7 @@ ER 與 VPN 閘道路由傳播，可以透過使用路由表上的屬性來在子
 |8   |預設值|無效|10.10.0.0/16        |虛擬網路閘道|[X.X.X.X]          |              |
 |9   |使用者   |Active |10.10.0.0/16        |虛擬設備      |10.0.100.4         |To-On-Prem    |
 |10  |預設值|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |預設值|無效|0.0.0.0/0           |Internet|              |                   |              |
+|11  |預設值|無效|0.0.0.0/0           |Internet               |                   |              |
 |12  |使用者   |Active |0.0.0.0/0           |虛擬設備      |10.0.100.4         |Default-NVA   |
 
 每個路由 ID 的說明如下：

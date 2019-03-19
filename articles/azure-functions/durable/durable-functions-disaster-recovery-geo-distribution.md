@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0fb2103b982d5b2fc1a04455b451459ede12166e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108200"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>災難復原和異地複寫
 
@@ -24,7 +24,7 @@ ms.locfileid: "53336930"
 在 Durable Functions 中，所有狀態會保存於 Azure 儲存體中。 [工作中樞](durable-functions-task-hubs.md)是協調流程所使用之 Azure 儲存體資源的邏輯容器。 協調器和活動函式必須屬於相同的工作中樞，才能彼此互動。
 所述的案例會提議部署選項，以在災難復原活動期間提升可用性和將停機時間降至最低。
 
-請務必注意，這些案例是由 Azure 儲存體的使用量所支配，因此是以主動-被動組態為基礎。 此模式包含將備份 (被動) 函式應用程式部署至不同的區域。 流量管理員會監視主要 (主動) 函式應用程式的可用性。 它會在主要函式應用程式失敗時，容錯移轉至備份函式應用程式。 如需詳細資訊，請參閱[流量管理員](https://azure.microsoft.com/services/traffic-manager/)的[優先順序流量路由方法](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)。
+請務必注意，這些案例是由 Azure 儲存體的使用量所支配，因此是以主動-被動組態為基礎。 此模式包含將備份 (被動) 函式應用程式部署至不同的區域。 流量管理員會監視主要 (主動) 函式應用程式的可用性。 它會在主要函式應用程式失敗時，容錯移轉至備份函式應用程式。 如需詳細資訊，請參閱[流量管理員](https://azure.microsoft.com/services/traffic-manager/)的[優先順序流量路由方法](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)。
 
 >[!NOTE]
 >

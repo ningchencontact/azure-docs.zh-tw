@@ -3,17 +3,17 @@ title: 將一般 Node.js 用戶端應用程式連線至 Azure IoT Central | Micr
 description: 如何以裝置開發人員身分將一般 Node.js 裝置連線到 Azure IoT 中心應用程式。
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410484"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097969"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>將一般用戶端應用程式連線到 Azure IoT 中心應用程式 (Node.js)
 
@@ -41,7 +41,7 @@ ms.locfileid: "54410484"
 | 壓力     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  遙測量測的資料類型為浮點數。
+>   遙測量測的資料類型為浮點數。
 
 在裝置範本中輸入完全如上表所示的欄位名稱。 如果欄位名稱不符合對應裝置程式碼中的屬性名稱，則無法在應用程式中顯示遙測。
 
@@ -54,7 +54,7 @@ ms.locfileid: "54410484"
 | 風扇模式     | fanmode     | 1       | 執行中      | 0       | 已停止      |
 
 > [!NOTE]
-  狀態量測的資料類型為字串。
+>   狀態量測的資料類型為字串。
 
 在裝置範本中輸入完全如上表所示的欄位名稱。 如果欄位名稱不符合對應裝置程式碼中的屬性名稱，則無法在應用程式中顯示狀態。
 
@@ -67,7 +67,7 @@ ms.locfileid: "54410484"
 | 過熱  | overheat    | Error    |
 
 > [!NOTE]
-  事件量測的資料類型為字串。
+>   事件量測的資料類型為字串。
 
 ### <a name="device-properties"></a>裝置屬性
 
@@ -93,7 +93,7 @@ ms.locfileid: "54410484"
 
 ## <a name="add-a-real-device"></a>新增真實裝置
 
-在 Azure IoT 中心應用程式中，從您建立的裝置範本新增真實裝置，並記下裝置連接字串。 如需如何將 Node.js 應用程式連線至 IoT Central 的逐步指示，請參閱 [教學課程] > [新增裝置] 中的[從應用程式產生實際裝置的連接字串](tutorial-add-device.md#generate-connection-string-for-real-device-from-application)和[準備用戶端程式碼](tutorial-add-device.md#prepare-the-client-code)。
+在 Azure IoT 中心應用程式中，從您建立的裝置範本新增真實裝置，並記下裝置連接字串。 如需如何將 Node.js 應用程式連線至 IoT Central 的逐步指示，請參閱 [教學課程] > [新增裝置] 中的[從應用程式產生實際裝置的連接字串](tutorial-add-device.md#generate-connection-string)和[準備用戶端程式碼](tutorial-add-device.md#prepare-the-client-code)。
 
 ### <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 
@@ -129,11 +129,10 @@ ms.locfileid: "54410484"
     var client = clientFromConnectionString(connectionString);
     ```
 
-  > [!NOTE]
-  > Azure IoT Central 已轉換為使用 Azure 物聯網中心裝置佈建服務 (DPS) 進行所有裝置連線，請遵循這些指示以[取得裝置連線字串](concepts-connectivity.md#getting-device-connection-string)，並繼續進行本教學課程的其餘部分。 若要獲得更多協助，您也可以在 [教學課程] > [新增裝置] 的[準備用戶端程式碼](tutorial-add-device.md#prepare-the-client-code)中找到一組詳細的指示。
+    > [!NOTE]
+    > Azure IoT Central 時，已轉換為使用 Azure IoT 中樞裝置佈建服務 」 (DPS) 上，所有的裝置連線，請遵循這些指示[取得裝置連接字串](concepts-connectivity.md#get-a-connection-string)並繼續進行本教學課程的其餘部分。 若要獲得更多協助，您也可以在 [教學課程] > [新增裝置] 的[準備用戶端程式碼](tutorial-add-device.md#prepare-the-client-code)中找到一組詳細的指示。
 
-
-  以裝置連接字串更新預留位置 `{your device connection string}`。 此範例中，我們將 `targetTemperature` 初始化為零，您可以選擇性地採用裝置的目前讀數或裝置對應項的值。 
+    以裝置連接字串更新預留位置 `{your device connection string}`。 此範例中，我們將 `targetTemperature` 初始化為零，您可以選擇性地採用裝置的目前讀數或裝置對應項的值。 
 
 1. 若要將遙測、狀態和事件量值傳送至 Azure IoT 中心應用程式，請將下列函式新增至檔案：
 
@@ -269,11 +268,11 @@ node connectedAirConditionerAdv.js
 
     ![檢視遙測](media/howto-connect-nodejs/viewtelemetry.png)
 
-* 在 [屬性] 頁面上檢視從裝置傳送的裝置屬性值。 如果連線成功，裝置屬性圖格將會更新。 
+* 在 [屬性] 頁面上檢視從裝置傳送的裝置屬性值。 裝置屬性磚更新連線是否成功。
 
     ![檢視裝置屬性](media/howto-connect-nodejs/viewproperties.png)
 
-* 從 [設定] 頁面設定風扇速度和目標溫度。 如果連線成功，設定值將會同步。 
+* 從 [設定] 頁面設定風扇速度和目標溫度。 如果連線成功，則同步處理的設定值。
 
     ![設定風扇速度](media/howto-connect-nodejs/setfanspeed.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 0bb464d1d49438213d2b9a4e937170a075a206f5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 9f5948887262ae190547c96aa09318a19f64812e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192380"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306624"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>針對 Log Analytics 的事件，使用 IIS 和 Azure 表格儲存體的 Azure blob 儲存體
 
@@ -146,7 +146,10 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 >
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>在虛擬機器中使用 PowerShell 來啟用 Azure 診斷以收集事件記錄檔和 IIS 記錄檔
-使用[設定 Log Analytics 來為 Azure 診斷編製索引](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) 中的步驟，以使用 PowerShell 從寫入表格儲存體的 Azure 診斷讀取資料。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+使用[設定 Log Analytics 來為 Azure 診斷編製索引](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-collect-azure-diagnostics-from-storage) 中的步驟，以使用 PowerShell 從寫入表格儲存體的 Azure 診斷讀取資料。
 
 您可以使用 Azure PowerShell，更精確地指定寫入至 Azure 儲存體的事件。
 如需詳細資訊，請參閱[在 Azure 虛擬機器中啟用診斷](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
@@ -177,7 +180,7 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 
     #Construct Azure diagnostics private config
 
-    $wad_storage_account_key = (Get-AzureStorageKey $wad_storage_account_name).Primary
+    $wad_storage_account_key = (Get-AzStorageKey $wad_storage_account_name).Primary
     $wad_private_config = [string]::Format("{{""storageAccountName"":""{0}"",""storageAccountKey"":""{1}""}}",$wad_storage_account_name,$wad_storage_account_key)
 
     #Enable Diagnostics Extension for Virtual Machine

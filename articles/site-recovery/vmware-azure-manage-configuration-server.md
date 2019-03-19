@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086950"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>管理 VMware VM 災害復原的設定伺服器
 
@@ -93,25 +93,25 @@ ms.locfileid: "56109158"
 如果需要，您可以在同一個保存庫中註冊設定伺服器。 如果您除了在設定伺服器電腦上執行的預設處理伺服器之外，還有其他處理伺服器電腦，則請註冊這兩部電腦。
 
 
-  1. 在保存庫中，開啟 [管理] > [Site Recovery 基礎結構] > [設定伺服器]。
-  2. 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
-  3. 登入設定伺服器電腦。
-  4. 在 **%ProgramData%\ASR\home\svsystems\bin** 中，開啟 **cspsconfigtool.exe**。
-  5. 在 [保存庫註冊] 索引標籤上，選取 [瀏覽] 並找出您下載的保存庫認證檔。
-  6. 如果需要，請提供 Proxy 伺服器詳細資料。 接著，選取 [註冊]。
-  7. 開啟系統管理 PowerShell 命令視窗並執行下列命令：
+1. 在保存庫中，開啟 [管理] > [Site Recovery 基礎結構] > [設定伺服器]。
+2. 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
+3. 登入設定伺服器電腦。
+4. 在 **%ProgramData%\ASR\home\svsystems\bin** 中，開啟 **cspsconfigtool.exe**。
+5. 在 [保存庫註冊] 索引標籤上，選取 [瀏覽] 並找出您下載的保存庫認證檔。
+6. 如果需要，請提供 Proxy 伺服器詳細資料。 接著，選取 [註冊]。
+7. 開啟系統管理 PowerShell 命令視窗並執行下列命令：
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >若要從設定伺服器**提取最新憑證**以相應放大伺服器，請執行命令 *“<安裝磁碟機\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >[!NOTE]
+    >若要從設定伺服器**提取最新憑證**以相應放大伺服器，請執行命令 *“<安裝磁碟機\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
-  8. 最後，執行下列命令以重新啟動 obengine。
-  ```
-          net stop obengine
-          net start obengine
+8. 最後，執行下列命令以重新啟動 obengine。
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 
@@ -180,21 +180,21 @@ ms.locfileid: "56109158"
 
 ### <a name="parameters"></a>參數
 
-|參數名稱| 類型 | 說明| 值|
+|參數名稱| 類型 | 描述| 值|
 |-|-|-|-|
-| /ServerMode|必要|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
-|/InstallLocation|必要|安裝元件的資料夾| 電腦上的任何資料夾|
-|/MySQLCredsFilePath|必要|儲存 MySQL 伺服器認證的檔案路徑|此檔案應該具備如下所指定的格式|
-|/VaultCredsFilePath|必要|保存庫認證檔的路徑|有效的檔案路徑|
-|/EnvType|必要|您想要保護的環境類型 |VMware<br>NonVMware|
-|/PSIP|必要|要用於複寫資料傳輸的 NIC IP 位址| 任何有效的 IP 位址|
-|/CSIP|必要|接聽組態伺服器的 NIC IP 位址| 任何有效的 IP 位址|
-|/PassphraseFilePath|必要|複雜密碼檔案的位置完整路徑|有效的檔案路徑|
+| /ServerMode|必要項|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
+|/InstallLocation|必要項|安裝元件的資料夾| 電腦上的任何資料夾|
+|/MySQLCredsFilePath|必要項|儲存 MySQL 伺服器認證的檔案路徑|此檔案應該具備如下所指定的格式|
+|/VaultCredsFilePath|必要項|保存庫認證檔的路徑|有效的檔案路徑|
+|/EnvType|必要項|您想要保護的環境類型 |VMware<br>NonVMware|
+|/PSIP|必要項|要用於複寫資料傳輸的 NIC IP 位址| 任何有效的 IP 位址|
+|/CSIP|必要項|接聽組態伺服器的 NIC IP 位址| 任何有效的 IP 位址|
+|/PassphraseFilePath|必要項|複雜密碼檔案的位置完整路徑|有效的檔案路徑|
 |/BypassProxy|選用|指定組態伺服器不使用 Proxy 連接至 Azure|若要這樣做，請從 Venu 取得此值|
 |/ProxySettingsFilePath|選用|Proxy 設定 (預設的 Proxy 需要驗證或自訂的 Proxy)|此檔案應該具備如下所指定的格式|
 |DataTransferSecurePort|選用|要用於複寫資料的 PSIP 上的連接埠號碼| 有效的連接埠號碼 (預設值是 9433)|
 |/SkipSpaceCheck|選用|略過快取磁碟的空間檢查| |
-|/AcceptThirdpartyEULA|必要|旗標表示接受協力廠商使用者授權合約| |
+|/AcceptThirdpartyEULA|必要項|旗標表示接受協力廠商使用者授權合約| |
 |/ShowThirdpartyEULA|選用|顯示協力廠商使用者授權合約。 如果提供作為輸入，則會忽略所有其他參數| |
 
 

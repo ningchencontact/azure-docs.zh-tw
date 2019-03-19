@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 68c04ef893e5e0826f03bffa93fb7c79b4959fdc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114612"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>從 Azure 入口網站安裝更新
 
@@ -35,7 +35,7 @@ ms.locfileid: "55888589"
    * **硬體元件健康狀況檢查** ：確認您的 StorSimple 裝置上的所有硬體元件的狀況良好。
    * **DATA 0 檢查** ：確認您的裝置已啟用 DATA 0。 如果未啟用此介面，您必須啟用它，然後重試。
 
-    只在所有檢查都成功都完成時，才會下載並安裝更新。 當檢查進行時，您會收到通知。 如果前置檢查失敗，系統將會提供您失敗的原因。 處理這些問題，然後重試作業。 如果您不能自行解決這些問題，您可能需要連絡 Microsoft 支援服務。
+     只在所有檢查都成功都完成時，才會下載並安裝更新。 當檢查進行時，您會收到通知。 如果前置檢查失敗，系統將會提供您失敗的原因。 處理這些問題，然後重試作業。 如果您不能自行解決這些問題，您可能需要連絡 Microsoft 支援服務。
 
 7. 前置檢查成功完成後，將會建立更新作業。 成功建立更新作業時，系統將會通知您。
    

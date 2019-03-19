@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: 813ec8f74371b6ae76ac306aea2c462f0beea1fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991921"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>使用成本警示監視使用量和支出
 
@@ -23,7 +23,7 @@ ms.locfileid: "55772099"
 
 ## <a name="budget-alerts"></a>預算警示
 
-預算警示會在支出 (根據使用量或成本) 到達或超過[預算的警示條件](tutorial-acm-create-budgets.md)中所定義的數量時通知您。 成本管理預算會使用 Azure 入口網站或 [Azure 使用量](https://docs.microsoft.com/rest/api/consumption) \(英文\) API 來建立。 
+預算警示會在支出 (根據使用量或成本) 到達或超過[預算的警示條件](tutorial-acm-create-budgets.md)中所定義的數量時通知您。 成本管理預算會使用 Azure 入口網站或 [Azure 使用量](https://docs.microsoft.com/rest/api/consumption) \(英文\) API 來建立。
 
 在 Azure 入口網站中，預算會依成本來定義。 使用 Azure 使用量 API，預算會依成本或使用量來定義。 預算警示支援以成本為基礎和以使用量為基礎的預算。 每當預算警示條件相符時，即會自動產生預算警示。 您可以在 Azure 入口網站中檢視所有成本警示。 每當警示產生時，就會顯示於成本警示中。 系統也會傳送警示電子郵件給預算警示收件者清單中的人員。
 
@@ -35,9 +35,21 @@ ms.locfileid: "55772099"
 
 當部門支出到達固定的配額臨界值時，部門支出配額警示就會通知您。 支出配額會設定於 EA 入口網站中。 每當符合臨界值時，它就會產生一封電子郵件給部門擁有者，並顯示於成本警示中。 例如，配額的 50% 或 75%。
 
+## <a name="supported-alert-features-by-offer-categories"></a>支援依供應項目類別的警示功能
+
+警示類型的支援取決於您所 (提供的 Microsoft) 的 Azure 帳戶的類型。 下表顯示支援的警示功能的各種 Microsoft 供應項目。 您可以檢視在由 Microsoft 所提供的完整清單[了解成本管理資料](understand-cost-mgt-data.md)。
+
+| 警示類型 | Enterprise 合約 | Microsoft 客戶合約 | Web direct/付 As-You-執行 |
+|---|---|---|---|
+| 預算 | ✔ | ✔ | ✔ |
+| 功勞 | ✔ |✘ | ✘ |
+| 部門支出配額 | ✔ | ✘ | ✘ |
+
+
+
 ## <a name="view-cost-alerts"></a>檢視成本警示
 
-在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。 然後，在 [成本管理] 下方的清單中，選取 [成本警示]。
+若要檢視成本警示，請開啟 在 Azure 入口網站，然後選取 所需的範圍內**預算**功能表中。 使用**範圍**丸切換到不同的範圍。 選取 **成本警示**功能表中。 如需有關範圍的詳細資訊，請參閱 <<c0> [ 了解及使用範圍](understand-work-scopes.md)。
 
 ![在成本管理中顯示的警示範例影像](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -55,6 +67,6 @@ ms.locfileid: "55772099"
 
 ![顯示關閉並重新啟動選項的範例影像](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - 如果您尚未建立預算或設定預算的警示條件，請完成[建立和管理預算](tutorial-acm-create-budgets.md)教學課程。

@@ -1,24 +1,24 @@
 ---
 title: 「停機期間啟動/停止 VM」解決方案
-description: 此虛擬機器管理解決方案會依照排程啟動和停止 Azure Resource Manager 虛擬機器，並從 Log Analytics 主動監視。
+description: 此 VM 管理解決方案會啟動和停止 Azure Resource Manager 虛擬機器上的排程和主動監視來自 Azure 監視器記錄檔。
 services: automation
 ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979644"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902241"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
-「停機期間啟動/停止 VM」解決方案可根據使用者定義的排程來啟動和停止 Azure 虛擬機器、透過 Azure Log Analytics 提供深入解析，以及使用[動作群組](../azure-monitor/platform/action-groups.md)來傳送選擇性的電子郵件。 針對大多數的案例，它皆能同時支援 Azure Resource Manager 和傳統 VM。
+方案開始和停止 Azure 虛擬機器，根據使用者定義的排程，透過 Azure 監視器記錄檔，提供深入解析並傳送選擇性的電子郵件使用停機期間啟動/停止 Vm[動作群組](../azure-monitor/platform/action-groups.md)。 針對大多數的案例，它皆能同時支援 Azure Resource Manager 和傳統 VM。
 
 此解決方案可針對想要將 VM 成本最佳化的使用者，提供非集中式的低成本自動化選項。 使用此解決方案，您可以：
 
@@ -36,9 +36,13 @@ ms.locfileid: "55979644"
 >
 > 「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶僅支援 Azure Resource Manager 模型，因此本方案未提供非 Azure Resource Manager 服務。 執行「啟動/停止」解決方案時，您可能會收到錯誤，因為它具有可管理傳統資源的 Cmdlet。 若要深入了解 CSP，請參閱 [CSP 訂用帳戶中可用的服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)。 如果您使用 CSP 訂用帳戶，應該在部署之後，將 [**External_EnableClassicVMs**](#variables) 變數修改為 **False**。
 
-## <a name="prerequisites"></a>先決條件
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="prerequisites"></a>必要條件
 
 此解決方案的 Runbook 會使用 [Azure 執行身分帳戶](automation-create-runas-account.md)。 執行身分帳戶是慣用的驗證方法，因為它使用憑證驗證，而不是會過期或經常變更的密碼。
+
+建議使用不同的自動化帳戶的啟動/停止 VM 」 解決方案。 這是因為經常升級 Azure 模組版本，而且可能會變更其參數。 啟動/停止 VM 」 解決方案不會升級於相同的步調，因此它可能無法運作的 cmdlet，它會使用較新版本。 建議您測試在測試的自動化帳戶中的模組更新，再匯入使用者，在您的生產環境的自動化帳戶中。
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
@@ -58,18 +62,18 @@ ms.locfileid: "55979644"
 
    ![VM 管理的新增解決方案頁面](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-4. 在 [新增解決方案] 頁面中，選取 [工作區]。 選取連結到自動化帳戶所在之同一 Azure 訂用帳戶的 Log Analytics 工作區。 如果您沒有工作區，請選取 [建立新工作區]。 在 [Log Analytics 工作區] 頁面上，執行下列步驟：
-   - 為新的 **Log Analytics 工作區**指定名稱，例如 "ContosoLAWorkspace"。
+4. 在 [新增解決方案] 頁面中，選取 [工作區]。 選取連結到自動化帳戶所在之同一 Azure 訂用帳戶的 Log Analytics 工作區。 如果您沒有工作區，請選取 [建立新工作區]。 在  **Log Analytics 工作區**頁面上，執行下列步驟：
+   - 指定新名稱**Log Analytics 工作區**，例如"ContosoLAWorkspace 」。
    - 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
    - 對於 [資源群組]，您可以建立新的資源群組，或選取現有的資源群組。
    - 選取 [位置] 。 目前可用的位置只有**澳大利亞東南部**、**加拿大中部**、**印度中部**、**美國東部**、**日本東部**、**東南亞**、**英國南部**、**西歐**和**美國西部 2**。
-   - 選取 **定價層**。 選擇 [每 GB (獨立)] 選項。 Log Analytics 已更新[價格](https://azure.microsoft.com/pricing/details/log-analytics/)，「每 GB」層是唯一選項。
+   - 選取 **定價層**。 選擇 [每 GB (獨立)] 選項。 Azure 監視器記錄檔已更新[定價](https://azure.microsoft.com/pricing/details/log-analytics/)和 每 GB 層是唯一的選項。
 
 5. 在 [Log Analytics 工作區] 頁面上提供必要資訊之後，按一下 [建立]。 您可以在功能表的 [通知] 下追蹤其進度，這會在完成時帶您返回 [新增解決方案] 頁面。
 6. 在 [新增解決方案] 頁面中，選取 [自動化帳戶]。 如果要建立新的 Log Analytics 工作區，您可以建立要與其相關聯的新自動化帳戶，或選取尚未連結至 Log Analytics 工作區的現有自動化帳戶。 選取現有自動化帳戶或按一下 [建立自動化帳戶]，然後在 [新增自動化帳戶] 頁面上提供下列資訊︰
    - 在 [名稱] 欄位中輸入自動化帳戶的名稱。
 
-    系統會根據所選的 Log Analytics 工作區自動填入所有其他選項。 這些選項無法修改。 Azure 執行身分帳戶是此方案內含 Runbook 的預設驗證方法。 按下 [確定] 後，就會驗證設定選項並建立自動化帳戶。 您可以在功能表的 [通知] 底下追蹤其進度。
+     系統會根據所選的 Log Analytics 工作區自動填入所有其他選項。 這些選項無法修改。 Azure 執行身分帳戶是此方案內含 Runbook 的預設驗證方法。 按下 [確定] 後，就會驗證設定選項並建立自動化帳戶。 您可以在功能表的 [通知] 底下追蹤其進度。
 
 7. 最後，在 [新增解決方案] 頁面中，選取 [設定]。 [參數] 頁面隨即出現。
 
@@ -91,7 +95,7 @@ ms.locfileid: "55979644"
 8. 設定好解決方案所需的初始設定後，按一下 [確定] 以關閉 [參數] 頁面，然後選取 [建立]。 驗證過所有設定之後，解決方案即會部署到您的訂用帳戶。 此程序需要幾秒鐘才能完成，您可以在功能表的 [通知] 底下追蹤其進度。
 
 > [!NOTE]
-> 如果您有「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶，請在部署完成之後，在您的「自動化帳戶」中，前往**共用資源**下的**變數**，並將 [**External_EnableClassicVMs**](#variables) 變數設定為 **False**。 這會讓解決方案停止尋找傳統虛擬機器資源。
+> 如果您有 Azure 雲端解決方案提供者 (Azure CSP) 訂用帳戶中，部署完成時，在您的自動化帳戶後，移至**變數**下方**共用資源**並設定[**External_EnableClassicVMs** ](#variables)變數加入**False**。 這會讓解決方案停止尋找傳統虛擬機器資源。
 
 ## <a name="scenarios"></a>案例
 
@@ -174,7 +178,7 @@ ms.locfileid: "55979644"
 
 ## <a name="solution-components"></a>方案元件
 
-此解決方案包括預先設定的 Runbook、排程，以及與 Log Analytics 的整合，可讓您針對業務需求量身打造虛擬機器的啟動和關機時間。
+此解決方案包括預先設定的 runbook、 排程和與 Azure 監視器記錄檔整合，因此您可以量身訂做的啟動和關機的虛擬機器以符合您商務需求。
 
 ### <a name="runbooks"></a>Runbook
 
@@ -185,7 +189,7 @@ ms.locfileid: "55979644"
 
 所有父代 Runbook 皆包含 _WhatIf_ 參數。 將 _WhatIf_ 設為 **True** 時，即可支援詳述在不使用 _WhatIf_ 參數執行的情況下，該 Runbook 會採取的確切行為，並驗證是否已將正確的虛擬機器作為目標。 _WhatIf_ 參數設為 **False** 時，Runbook 只會執行其定義的動作。
 
-|Runbook | 參數 | 說明|
+|Runbook | 參數 | 描述|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 從父系 Runbook 呼叫。 此 Runbook 會針對 AutoStop 案例以每個資源為基礎建立警示。|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf：True 或 False  | 在目標訂用帳戶或資源群組中的 VM 上建立或更新 Azure 警示規則。 <br> VMList：以逗號分隔的 VM 清單。 例如，vm1、vm2、vm3。<br> WhatIf 會驗證 Runbook 邏輯而不會執行。|
@@ -200,7 +204,7 @@ ms.locfileid: "55979644"
 
 下表列出在您自動化帳戶中建立的變數。 僅修改前面加上 **External** 的變數。 修改前面加上 **Internal** 的變數會造成非預期的結果。
 
-|變數 | 說明|
+|變數 | 描述|
 |---------|------------|
 |External_AutoStop_Condition | 設定觸發警示之條件所需的條件運算子。 可接受的值為 **GreaterThan**、**GreaterThanOrEqual**、**LessThan** 和 **LessThanOrEqual**。|
 |External_AutoStop_Description | 在 CPU 百分比超出閾值的情況下停止虛擬機器的警示。|
@@ -209,7 +213,7 @@ ms.locfileid: "55979644"
 |External_AutoStop_TimeAggregationOperator | 會套用至選取的視窗大小以評估條件的時間彙總運算子。 可接受的值為 **Average**、**Minimum**、**Maximum**、**Total** 和 **Last**。|
 |External_AutoStop_TimeWindow | Azure 分析選取之計量以觸發警示的視窗大小。 此參數接受時間範圍格式的輸入。 可能的值為 5 分鐘到 6 小時。|
 |External_EnableClassicVMs| 指定傳統虛擬機器是否為解決方案設定的目標。 預設值為 true。 對於 CSP 訂用帳戶，應該設為 False。|
-|External_ExcludeVMNames | 輸入要排除的虛擬機器名稱，請使用不含空格的逗號來分隔名稱。 此上限為 140 個 VM。 如果您新增的 VM 超過 140 個，則可能會不小心啟動或關閉要排除的 VM|
+|External_ExcludeVMNames | 輸入要排除的虛擬機器名稱，請使用不含空格的逗號來分隔名稱。 此上限為 140 個 VM。 如果您新增至此逗號分隔清單中的 VM 超過 140 個，則可能會不小心將設定為要排除的 VM 啟動或停止。|
 |External_Start_ResourceGroupNames | 使用逗號分隔值指定一或多個作為啟動動作目標的資源群組。|
 |External_Stop_ResourceGroupNames | 使用逗號分隔值指定一或多個作為停止動作目標的資源群組。|
 |Internal_AutomationAccountName | 指定自動化帳戶的名稱。|
@@ -225,7 +229,7 @@ ms.locfileid: "55979644"
 
 您不應啟用所有排程，因為這樣可能會產生重疊的排程動作。 最好能先判斷要執行哪些最佳化，並據以做出相對應的修改。 如需進一步說明，請參閱＜概觀＞一節中的範例案例。
 
-|排程名稱 | 頻率 | 說明|
+|排程名稱 | 頻率 | 描述|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 每 8 小時 | 每隔 8 小時會執行 AutoStop_CreateAlert_Parent Runbook，這會停止在 Azure 自動化變數中 External_Start_ResourceGroupNames、External_Stop_ResourceGroupNames 和 External_ExcludeVMNames 中的虛擬機器基底值。 或者，您可以使用 VMList 參數指定以逗號分隔的虛擬機器清單。|
 |Scheduled_StopVM | 使用者定義，每日 | 每天會在指定時間搭配 _Stop_ 參數執行 Scheduled_Parent Runbook。 會自動停止符合由資產變數所定義之規則的所有虛擬機器。 啟用相關排程 **Scheduled-StartVM**。|
@@ -233,20 +237,20 @@ ms.locfileid: "55979644"
 |Sequenced-StopVM | 上午 1:00 (UTC)，每星期五 | 每星期五會在指定時間搭配參數 _Stop_ 執行 Sequenced_Parent Runbook。 會以循序方式 (遞增) 停止具有由適當變數定義之 **SequenceStop** 標記的所有虛擬機器。 如需標記值和資產變數的詳細資訊，請參閱 Runbook 一節。 啟用相關排程 **Sequenced-StartVM**。|
 |Sequenced-StartVM | 下午 1:00 (UTC)，每星期一 | 每星期一會在指定時間搭配參數 _Start_ 執行 Sequenced_Parent Runbook。 會以循序方式 (遞減) 啟動具有由適當變數定義之 **SequenceStart** 標記的所有虛擬機器。 如需標記值和資產變數的詳細資訊，請參閱 Runbook 一節。 啟用相關排程 **Sequenced-StopVM**。|
 
-## <a name="log-analytics-records"></a>Log Analytics 記錄
+## <a name="azure-monitor-logs-records"></a>Azure 監視器記錄檔記錄
 
 自動化會在 Log Analytics 工作區中建立兩種類型的記錄：作業記錄和作業串流。
 
 ### <a name="job-logs"></a>作業記錄檔
 
-|屬性 | 說明|
+|屬性 | 描述|
 |----------|----------|
-|呼叫者 |  起始作業的人員。 可能的值為電子郵件地址或排程作業的系統。|
-|類別 | 資料類型的分類。 對自動化來說，該值是 JobLogs。|
+|调用方 |  谁启动了该操作。 可能的值为电子邮件地址或计划作业的系统。|
+|類別 | 数据类型的分类。 對自動化來說，該值是 JobLogs。|
 |CorrelationId | Runbook 作業之相互關聯識別碼的 GUID。|
 |JobId | Runbook 作業之識別碼的 GUID。|
 |operationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。|
-|ResourceId | 指定 Azure 中的資源類型。 對自動化來說，該值是與 Runbook 相關聯的自動化帳戶。|
+|ResourceId | 指定 Azure 中的資源類型。 对于自动化，该值是与 Runbook 关联的自动化帐户。|
 |ResourceGroup | 指定 Runbook 作業的資源群組名稱。|
 |ResourceProvider | 指定 Azure 服務，以提供您可部署及管理的資源。 對自動化來說，此值是 Azure 自動化。|
 |ResourceType | 指定 Azure 中的資源類型。 對自動化來說，該值是與 Runbook 相關聯的自動化帳戶。|
@@ -256,14 +260,14 @@ ms.locfileid: "55979644"
 |SourceSystem | 指定所提交資料的來源系統。 對自動化來說，該值是 OpsManager|
 |StreamType | 指定事件的類型。 可能的值包括：<br>- Verbose<br>- Output<br>- Error<br>- Warning|
 |SubscriptionId | 指定作業的訂用帳戶 ID。
-|時間 | Runbook 作業的執行日期和時間。|
+|時間 | 执行 Runbook 作业的日期和时间。|
 
 ### <a name="job-streams"></a>作業串流
 
-|屬性 | 說明|
+|屬性 | 描述|
 |----------|----------|
-|呼叫者 |  起始作業的人員。 可能的值為電子郵件地址或排程作業的系統。|
-|類別 | 資料類型的分類。 對自動化來說，該值是 JobStreams。|
+|调用方 |  谁启动了该操作。 可能的值为电子邮件地址或计划作业的系统。|
+|類別 | 資料類型的分類。 对于自动化，该值为 JobStreams。|
 |JobId | Runbook 作業之識別碼的 GUID。|
 |operationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。|
 |ResourceGroup | 指定 Runbook 作業的資源群組名稱。|
@@ -272,7 +276,7 @@ ms.locfileid: "55979644"
 |ResourceType | 指定 Azure 中的資源類型。 對自動化來說，該值是與 Runbook 相關聯的自動化帳戶。|
 |resultType | Runbook 作業在產生事件時的結果。 可能的值為：<br>- InProgres|
 |resultDescription | 包含來自 Runbook 的輸出串流。|
-|RunbookName | Runbook 的名稱。|
+|RunbookName | Runbook 的名称。|
 |SourceSystem | 指定所提交資料的來源系統。 對自動化來說，該值是 OpsManager。|
 |StreamType | 作業串流的類型。 可能的值包括：<br>- Progress (進度)<br>- Output (輸出)<br>- Warning (警告)<br>- Error (錯誤)<br>- Debug (偵錯)<br>- Verbose|
 |時間 | Runbook 作業的執行日期和時間。|
@@ -283,20 +287,20 @@ ms.locfileid: "55979644"
 
 下表提供此方案所收集之作業記錄的記錄檔搜尋範例。
 
-|查詢 | 說明|
+|查詢 | 描述|
 |----------|----------|
-|尋找 ScheduledStartStop_Parent Runbook 已順利完成的作業 | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|尋找 SequencedStartStop_Parent Runbook 已順利完成的作業 | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|尋找 ScheduledStartStop_Parent Runbook 已順利完成的作業 | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|尋找 SequencedStartStop_Parent Runbook 已順利完成的作業 | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>檢視解決方案
 
-若要存取解決方案，請巡覽至自動化帳戶，在 [相關資源] 之下，選取 [工作區]。 在 [Log Analytics] 頁面上，選取 [一般] 下的 [解決方案]。 在 [解決方案] 頁面上，從清單中選取 [Start-Stop-VM[工作區]] 解決方案。
+若要存取解決方案，請巡覽至自動化帳戶，在 [相關資源] 之下，選取 [工作區]。 在 [log analytics] 頁面中，選取**解決方案**下方**一般**。 在 [解決方案] 頁面上，從清單中選取 [Start-Stop-VM[工作區]] 解決方案。
 
 選取該解決方案會顯示 [Start-Stop-VM[工作區]] 解決方案頁面。 在這裡您可以檢閱重要的詳細資料，如 [StartStopVM] 圖格。 如同在 Log Analytics 工作區中，此圖格會顯示解決方案中已啟動並已順利完成的 Runbook 作業計數和圖形表示。
 
 ![自動化更新管理解決方案頁面](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-您可以從這裡按一下環圈圖格，執行進一步的作業記錄分析。 解決方案儀表板會顯示作業記錄和預先定義的記錄搜尋查詢。 切換到 Log Analytics 進階入口網站，根據您的搜尋查詢進行搜尋。
+您可以從這裡按一下環圈圖格，執行進一步的作業記錄分析。 解決方案儀表板會顯示作業記錄和預先定義的記錄搜尋查詢。 切換至 log analytics 進階入口網站搜尋會根據您的搜尋查詢。
 
 ## <a name="configure-email-notifications"></a>設定電子郵件通知
 
@@ -364,14 +368,14 @@ ms.locfileid: "55979644"
 
 此程序並不會刪除自動化帳戶和 Log Analytics 工作區。 如果不想保留 Log Analytics 工作區，則必須手動刪除它。 此作業可以從 Azure 入口網站完成：
 
-1. 在 Azure 入口網站主畫面中，選取 [Log Analytics]。
-1. 在 [Log Analytics] 頁面中，選取工作區。
+1. 從 Azure 入口網站的主畫面，選取**Log Analytics 工作區**。
+1. 在  **Log Analytics 工作區**頁面上，選取工作區。
 1. 在工作區 [設定] 頁面的功能表中選取 [刪除]。
 
 如果您不想保留 Azure 自動化帳戶元件，您可以手動加以刪除。 如需解決方案所建立的 Runbook、變數和排程清單，請參閱[解決方案元件](#solution-components)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解如何使用 Log Analytics 來建構不同的搜尋查詢及 檢閱「自動化」作業記錄，請參閱 [Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)。
+- 若要深入了解如何建構不同的搜尋查詢，以及檢閱使用 Azure 監視器記錄檔的自動化作業記錄檔，請參閱[Azure 監視器記錄檔中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)。
 - 若要深入了解 Runbook 執行方式、如何監視 Runbook 作業，以及其他技術性詳細資料，請參閱[追蹤 Runbook 作業](automation-runbook-execution.md)。
-- 若要深入了解 Log Analytics 和資料收集來源，請參閱[在 Log Analytics 中收集 Azure 儲存體資料概觀](../azure-monitor/platform/collect-azure-metrics-logs.md)。
+- 若要深入了解 Azure 監視器記錄檔和資料收集來源，請參閱[在 Azure 監視器中收集 Azure 儲存體的資料記錄檔概觀](../azure-monitor/platform/collect-azure-metrics-logs.md)。

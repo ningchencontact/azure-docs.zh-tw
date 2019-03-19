@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842742"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090741"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>在容錯轉移期間保留 IP 位址
 
@@ -62,10 +62,10 @@ ms.locfileid: "52842742"
 
 - 如果在容錯移轉之前已有目標 IP 位址，則公司 A 可以協調容錯移轉，並在**復原 VNet** 和 **Azure VNet** 之間進行容錯移轉之後自動建立連線。 下圖提供相關說明..
 - 根據應用程式需求，可在容錯移轉之前、期間 (作為中繼步驟) 或之後於目標區域上建立兩個 VNet 之間 (**復原 VNet** 和 **Azure VNet**) 的連線。
-    - 公司可以使用[復原計劃](site-recovery-create-recovery-plans.md)來指定何時建立連線。
-    - 他們可以使用 VNet 對等互連或站對站 VPN 在 VNet 之間進行連線。
-        - VNet 對等互連不會使用 VPN 閘道，且具有不同的條件約束。
-        - VNet 對等互連[價格](https://azure.microsoft.com/pricing/details/virtual-network)與 VNet 對 VNet VPN 閘道[價格](https://azure.microsoft.com/pricing/details/vpn-gateway)的計算方式不同。 針對容錯移轉，我們通常建議使用與來源網路相同的連線能力方法 (包括連線類型) 以最小化無法預期的網路事件。
+  - 公司可以使用[復原計劃](site-recovery-create-recovery-plans.md)來指定何時建立連線。
+  - 他們可以使用 VNet 對等互連或站對站 VPN 在 VNet 之間進行連線。
+      - VNet 對等互連不會使用 VPN 閘道，且具有不同的條件約束。
+      - VNet 對等互連[價格](https://azure.microsoft.com/pricing/details/virtual-network)與 VNet 對 VNet VPN 閘道[價格](https://azure.microsoft.com/pricing/details/vpn-gateway)的計算方式不同。 針對容錯移轉，我們通常建議使用與來源網路相同的連線能力方法 (包括連線類型) 以最小化無法預期的網路事件。
 
     ![Azure 中的資源：完整的容錯移轉](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ ms.locfileid: "52842742"
 以下是網路架構在容錯移轉前的外觀。
 
 - 應用程式 VM 裝載於 Azure 東亞。
--  東亞有一個 VNet (**來源 VNet**)，位址空間為 10.1.0.0/16。
-    - 東亞的工作負載分為**來源 VNet** 中的三個子網路：
-        - **子網路 1**：10.1.1.0/24
-        - **子網路 2**：10.1.2.0/24，
-        - **子網路 3**：10.1.3.0/24 使用位址空間為 10.1.0.0/16 的 Azure 虛擬網路。 此虛擬網路稱為**來源 VNet**
- - 次要 (目標) 區域是 Azure 東南亞：
-    - 東南亞有一個復原 VNet (**復原 VNet**) 與**來源 VNet** 相同。
+- 東亞有一個 VNet (**來源 VNet**)，位址空間為 10.1.0.0/16。
+  - 東亞的工作負載分為**來源 VNet** 中的三個子網路：
+    - **子網路 1**：10.1.1.0/24
+    - **子網路 2**：10.1.2.0/24，
+    - **子網路 3**：10.1.3.0/24 使用位址空間為 10.1.0.0/16 的 Azure 虛擬網路。 此虛擬網路稱為**來源 VNet**
+      - 次要 (目標) 區域是 Azure 東南亞：
+  - 東南亞有一個復原 VNet (**復原 VNet**) 與**來源 VNet** 相同。
 - 位於東亞的 VM 會透過 Azure ExpressRoute 或站對站 VPN 連線到內部部署資料中心。
 - 為了降低 RTO，公司 B 在容錯移轉之前於 Azure 東南亞的復原 VNet 上佈建閘道。
 - 公司 B 會針對已複寫的 VM 指派/驗證目標 IP 位址。 每個 VM 的目標 IP 皆等同於來源 IP 位址。

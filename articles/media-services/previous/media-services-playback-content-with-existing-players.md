@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ae057feb70d9ddb2c2dae10bae20eca1b613f76f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2083390c3d228e57151db8b165b876054d6c12cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996923"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876556"
 ---
 # <a name="playing-your-content-with-existing-players"></a>使用現有播放器來播放您的內容
-Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、HTTP 即時資料流和 MPEG-Dash。 本主題會指引您可用來測試串流的現有播放程式。
+Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、HTTP 即時資料流和 MPEG-Dash。 本主题列出了可用于测试流的现有播放器。
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Azure 入口網站媒體服務內容播放程式
 **Azure** 入口網站提供內容播放程式，您可用來測試您的視訊。
@@ -31,12 +31,12 @@ Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、
 
 適用一些考量事項：
 
-* **媒體服務內容播放程式** 會從預設串流端點播放。 如果您想要從非預設串流端點播放，請使用其他播放程式。 例如， [Azure 媒體播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
+* **媒體服務內容播放程式** 會從預設串流端點播放。 如果您想要從非預設串流端點播放，請使用其他播放程式。 例如， [Azure 媒體播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)。
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure 媒體播放器
-使用 [Azure 媒體播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html) 播放以下任一格式的內容 (清除或受保護)：
+使用 [Azure 媒體播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html) 播放以下任一格式的內容 (清除或受保護)：
 
 * Smooth Streaming
 * MPEG DASH
@@ -45,17 +45,17 @@ Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、
 
 ### <a name="flash-player"></a>Flash Player
 #### <a name="aes-encrypted-with-token"></a>AES 加密與權杖
-[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
+[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 ### <a name="silverlight-players"></a>Silverlight 播放程式
 
 #### <a name="playready-with-token"></a>PlayReady 與權杖
-[http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
+[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### <a name="dash-players"></a>DASH 播放程式
-[http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
+[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
-[http://dashif.org](http://dashif.org)
+[https://dashif.org](https://dashif.org)
 
 ### <a name="other"></a>其他
 若要測試 HLS URL，您也可以使用：

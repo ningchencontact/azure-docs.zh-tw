@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 0df548d6b3639ce2ce3c7c72695bb96cc6d0dc3d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 0c37ad6de867c4abe4ebf0e6c7a40b5cf27c4541
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581023"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079634"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker，透過 HDInsight 上的 Kafka 來複寫 Apache Kafka 主題
 
@@ -35,7 +35,7 @@ ms.locfileid: "53581023"
 
 ![鏡像程序圖表](./media/apache-kafka-mirroring/kafka-mirroring.png)
 
-Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務。 Kafka 產生者和取用者必須與 Kafka 叢集中之節點位於相同的 Azure 虛擬網路。 例如，Kafka 來源和目的地叢集均位於 Azure 虛擬網路中。 下圖顯示叢集之間的通訊流動方式︰
+Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務。 Kafka 產生者和取用者必須與 Kafka 叢集中之節點位於相同的 Azure 虛擬網路。 例如，Kafka 來源和目的地叢集均位於 Azure 虛擬網路中。 下图显示了这两个群集之间的通信流：
 
 ![Azure 虛擬網路中的來源和目的地 Kafka 叢集圖表](./media/apache-kafka-mirroring/spark-kafka-vnet.png)
 
@@ -102,7 +102,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
     ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
     ```
 
-    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 將 **BASENAME** 替換為建立叢集時使用的基底名稱。
+    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 将 **BASENAME** 替换为创建群集时使用的基名称。
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -143,7 +143,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     請儲存此資訊。 此資訊使用於下一節。
 
-## <a name="configure-mirroring"></a>設定鏡像功能
+## <a name="configure-mirroring"></a>配置镜像
 
 1. 使用不同的 SSH 工作階段連接到**目的地**叢集：
 
@@ -151,7 +151,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
     ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
     ```
 
-    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 將 **BASENAME** 替換為建立叢集時使用的基底名稱。
+    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 将 **BASENAME** 替换为创建群集时使用的基名称。
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -201,7 +201,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
     compression.type=none
     ```
 
-    以上一個步驟中的訊息代理程式資訊取代 **DEST_BROKERS**。
+    将 **DEST_BROKERS** 替换为在上一步骤中获取的中转站信息。
 
     如需產生者組態詳細資訊，請參閱 kafka.apache.org 上的[者組態](https://kafka.apache.org/documentation#producerconfigs)。
 
@@ -258,7 +258,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     * **--num.streams**：要建立的取用者執行緒數目。
 
- 啟動時，MirrorMaker 會傳回類似以下文字的資訊：
+   啟動時，MirrorMaker 會傳回類似以下文字的資訊：
 
     ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}

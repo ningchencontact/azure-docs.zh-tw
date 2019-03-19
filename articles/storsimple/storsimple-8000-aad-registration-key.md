@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079907"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>針對您的 StorSimple 使用新驗證
 
@@ -59,7 +59,7 @@ AAD 驗證會在執行 Update 5 或更新版本的 StorSimple 8000 系列裝置�
 如果使用的是 StorSimple 8000 系列裝置，請使用下表以根據您正在執行的裝置軟體版本來判斷應採取的動作。
 
 | 如果您的裝置正在執行| 請採取下列動作                                    |
-|--------------------------|------------------------|--------------------|--------------------------------------------------------------|
+|--------------------------|------------------------|
 | Update 5 或更新版本，且裝置已離線。 <br> 您會看到表示 URL 未列入允許清單的警示。|1.修改防火牆規則以包含驗證 URL。 請參閱[驗證 URL](#url-changes-for-aad-authentication)。<br>2.[從服務取得 AAD 註冊金鑰](#aad-based-registration-keys)。<br>3.[連線至 StorSimple 8000 系列裝置的 Windows PowerShell 介面](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)。<br>4.使用 `Redo-DeviceRegistration` Cmdlet 以透過 Windows PowerShell 註冊裝置。 提供您在上一個步驟中取得的金鑰。|
 | Update 5 或更新版本，且裝置已上線。| 不需採取任何動作。                                       |
 | Update 4 或更早版本，且裝置已離線。 |1.修改防火牆規則以包含驗證 URL。<br>2.[透過目錄伺服器下載 Update 5](storsimple-8000-install-update-5.md#download-updates-for-your-device)。<br>3.[透過 Hotfix 方法套用 Update 5](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix)。<br>4.[從服務取得 AAD 註冊金鑰](#aad-based-registration-keys)。<br>5.[連線至 StorSimple 8000 系列裝置的 Windows PowerShell 介面](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)。 <br>6.使用 `Redo-DeviceRegistration` Cmdlet 以透過 Windows PowerShell 註冊裝置。 提供您在上一個步驟中取得的金鑰。|

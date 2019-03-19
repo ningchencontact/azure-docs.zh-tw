@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094672"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>在 Data Box Edge (預覽) 上開發 C# IoT Edge 模組來移動檔案
 
@@ -71,14 +71,14 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 2. 選取 [建立資源] > [容器] > [Container Registry]。 按一下頁面底部的 [新增] 。
 3. 提供：
 
-    1. Azure 內唯一的**登錄名稱**，其中包含 5 到 50 個英數字元。
-    2. 選擇 [訂用帳戶] 。
-    3. 建立新的，或選擇現有的**資源群組**。
-    4. 選取 [位置] 。 我們建議此位置應該和與 Data Box Edge 資源相關聯的位置一樣。
-    5. 將 [管理使用者] 切換為 [啟用]。
-    6. 將 SKU 設定為 [基本]。
+   1. Azure 內唯一的**登錄名稱**，其中包含 5 到 50 個英數字元。
+   2. 選擇 [訂用帳戶] 。
+   3. 建立新的，或選擇現有的**資源群組**。
+   4. 選取 [位置] 。 我們建議此位置應該和與 Data Box Edge 資源相關聯的位置一樣。
+   5. 將 [管理使用者] 切換為 [啟用]。
+   6. 將 SKU 設定為 [基本]。
 
-    ![建立容器登錄](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![建立容器登錄](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. 選取 [建立] 。
 5. 建立容器登錄之後，請加以瀏覽，並選取 [存取金鑰]。

@@ -1,27 +1,27 @@
 ---
 title: Azure Key Vault - 如何以 CLI 使用虛刪除
 description: 以 CLI 程式碼片段進行虛刪除的使用案例範例
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: bryanla
-ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116718"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097605"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>如何以 CLI 使用金鑰保存庫虛刪除
 
-Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物件。 具體而言，虛刪除解決下列案例：
+Azure Key Vault 的软删除功能可以恢复已删除的保管库和保管库对象。 具體而言，虛刪除解決下列案例：
 
 - 可復原的 Key Vault 刪除支援
 - 支援可復原的金鑰保存庫物件刪除；金鑰、密碼和憑證
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure CLI - 如果您沒有為環境進行此設定，請參閱[使用 Azure CLI 管理 Key Vault](key-vault-manage-with-cli2.md)。
 
@@ -31,7 +31,7 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 
 Key Vault 作業透過角色型存取控制 (RBAC) 權限來分別管理，如下所示：
 
-| 作業 | 說明 | 使用者權限 |
+| 作業 | 描述 | 使用者權限 |
 |:--|:--|:--|
 |列出|列出已刪除的金鑰保存庫。|Microsoft.KeyVault/deletedVaults/read|
 |復原|還原已刪除的金鑰保存庫。|Microsoft.KeyVault/vaults/write|
@@ -62,7 +62,7 @@ az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{pr
 az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
 ```
 
-### <a name="verify-soft-delete-enablement"></a>驗證啟用虛刪除
+### <a name="verify-soft-delete-enablement"></a>验证软删除支持
 
 若要驗證金鑰保存庫已啟用虛刪除，請執行 *show* 命令，並尋找「虛刪除已啟用?」 屬性：
 
@@ -167,19 +167,19 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 就像金鑰，祕密會以其自己的命令進行管理：
 
 - 刪除名為 SQLPassword 的密碼： 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - 列出金鑰保存庫中的所有已刪除密碼： 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - 復原已刪除狀態的密碼： 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - 清除已刪除狀態的密碼： 
 
@@ -195,7 +195,7 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 > [!IMPORTANT]
 > 清除金鑰保存庫或其內含的物件之一，就會永久刪除它，這表示無法復原！
 
-清除函式用來永久刪除金鑰保存庫物件或整個金鑰保存庫，也就是先前虛刪除的項目。 如上一節所示範，儲存在已啟用虛刪除功能的金鑰保存庫中的物件可能經歷多個狀態：
+清除函式用來永久刪除 key vault 物件或整個金鑰保存庫，是先前虛刪除。 如上一節所示範，儲存在已啟用虛刪除功能的金鑰保存庫中的物件可能經歷多個狀態：
 
 - **作用中**：刪除之前。
 - **虛刪除**：刪除之後，能夠列出並復原回到作用中狀態。

@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890877"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>地區人工智慧資料科學虛擬機器的簡介
 
@@ -44,7 +44,7 @@ Windows 2016 資料科學虛擬機器支援 Geo-DSVM。 Geo-DSVM 上也預先設
 
 Microsoft 的[資料科學虛擬機器 (DSVM)](overview.md) 是在 Azure 上常用的實驗和定型環境，可作為 AI、機器學習和資料科學工具的裝載主機。 這些平台和工具都方便地預先設定，幫助您立即具備生產力。 
 
-結合資料科學 VM 的預測功能、Azure 雲端的延展性以及 [ESRI](http://www.esri.com) 的地理空間分析軟體，資料科學家和地理空間分析師現在擁有了具生產力的平台，可從中汲取新的智慧並找出新的機會。 
+結合資料科學 VM 的預測功能、Azure 雲端的延展性以及 [ESRI](https://www.esri.com) 的地理空間分析軟體，資料科學家和地理空間分析師現在擁有了具生產力的平台，可從中汲取新的智慧並找出新的機會。 
 
 
 ## <a name="next-steps"></a>後續步驟

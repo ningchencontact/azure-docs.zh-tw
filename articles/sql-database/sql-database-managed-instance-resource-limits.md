@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: c2cc1b5829f3bb530c01e2bfc3538006bb8663cb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/27/2019
+ms.openlocfilehash: 7a4158987f606d2b96baac365fce4b6e09cf8a65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339306"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888616"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控執行個體資源限制概觀
 
@@ -56,7 +56,7 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 | 每個執行個體的資料庫數目上限 | 100 | 100 |
 | 每個執行個體的資料庫檔案數上限 | 最多 280 個 | 每個資料庫 32,767 個檔案 |
 | 資料/記錄 IOPS (大約) | 每個檔案 500 - 7,500<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (每個虛擬核心 1,375) |
-|記錄輸送量 | 每個執行個體 22 MB/秒 | 每個虛擬核心 3 MB/秒<br/>最大 48 MB/秒 |
+|記錄輸送量 | 每個執行個體 22 MB/秒 | 每個虛擬核心 3 MB/秒<br/>最大 48 MB/s 每個執行個體|
 | 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 每個虛擬核心 24 - 48 MB/秒 |
 | IO 延遲 (大約) | 5-10 毫秒 | 1-2 毫秒 |
 | 最大 tempDB 大小 | 192 - 1920 GB (每個虛擬核心 24 GB) | 沒有限制 - 受到執行個體儲存體大小上限的限制 |
@@ -90,6 +90,9 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 - **子網路限制**：在單一區域中部署受控執行個體的子網路數目上限。
 - **執行個體數目限制**：可在單一區域中部署的執行個體數目上限。
 
+> [!Note]
+> 這些限制是預設設定和非技術的限制。 限制可以藉由建立特殊是隨增加[在 Azure 入口網站中的支援要求](#obtaining-a-larger-quota-for-sql-managed-instance)如果您需要更多的 Managed 執行個體，目前的區域中。 或者，您可以在另一個 Azure 區域中建立新的受控執行個體，而不需要傳送支援要求。
+
 下表顯示支援的訂用帳戶所適用的預設區域限制：
 
 |訂用帳戶類型| 受控執行個體子網路的數目上限 | 執行個體的數目上限 |GP 受控執行個體的數目上限*|BC 受控執行個體的數目上限*|
@@ -102,12 +105,12 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 
 \* 您可以在一個子網路中部署 1 個 BC 或 4 個 GP 執行個體，使子網路中的「執行個體單位」總數絕不會超過 4 個。
 
-** 如果另一個服務層中沒有任何執行個體，就會套用一個服務層中的執行個體數目上限。 如果您打算在相同的子網路內混用 GP 和 BC 執行個體，請參考下一節以了解允許的組合方式。 簡單的規則是，子網路總數不可超過 3 個，且執行個體單位的總數不可超過 12 個。
+** 如果另一個服務層中沒有任何執行個體，就會套用一個服務層中的執行個體數目上限。 如果您打算在相同的子網路內混用 GP 和 BC 執行個體，請參考下一節以了解允許的組合方式。 简单的规则是，子网总数不能超过 3 个，且实例单元的总数不能超过 12 个。
 
-如果您在目前的區域中需要更多受控執行個體，您可以[在 Azure 入口網站中建立特殊支援要求](#obtaining-a-larger-quota-for-sql-managed-instance)，以提高這些限制。 或者，您可以在另一個 Azure 區域中建立新的受控執行個體，而不需要傳送支援要求。
+
 
 > [!IMPORTANT]
-> 在規劃您的部署時，請考量到商務關鍵 (BC) 執行個體 (由於增加了備援性) 通常都會使用比一般用途 (GP) 執行個體多 4 倍的容量。 因此，在您的計算中，1 個 GP 執行個體 = 1 個執行個體單位，而 1 個 BC 執行個體 = 4 個執行個體單位。 若要簡化以預設限制為準的耗用量分析，請對區域中所有部署了受控執行個體的子網路摘錄執行個體單位，並將其結果與您訂用帳戶類型的執行個體單位限制相比較。
+> 规划部署时，请考虑到业务关键 (BC) 实例（由于增加了冗余性）通常使用比常规用途 (GP) 实例多 4 倍的容量。 因此，在您的計算中，1 個 GP 執行個體 = 1 個執行個體單位，而 1 個 BC 執行個體 = 4 個執行個體單位。 若要簡化以預設限制為準的耗用量分析，請對區域中所有部署了受控執行個體的子網路摘錄執行個體單位，並將其結果與您訂用帳戶類型的執行個體單位限制相比較。
 
 ## <a name="strategies-for-deploying-mixed-general-purpose-and-business-critical-instances"></a>部署混合的一般用途和商務關鍵執行個體的策略
 
@@ -143,7 +146,7 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 
      ![問題類型配額](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. 按 [下一步] 。
+3. 单击“下一步”。
 4. 在新支援要求的 [問題] 索引標籤上：
    - 針對 [嚴重性]，選取問題的嚴重性層級。
    - 針對 [詳細資料]，提供關於問題的其他資訊，包括錯誤訊息在內。
@@ -157,7 +160,7 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
      > - 每個服務層在配額增加後在現有的子網路中所需的執行個體數目 (如果有任何現有的子網路需要擴充)
      > - 所需的新子網路數目，以及每個服務層在新子網路內的執行個體總數 (如果您要在新的子網路中部署受控執行個體)。
 
-5. 按 [下一步] 。
+5. 单击“下一步”。
 6. 在新支援要求的 [連絡資訊] 索引標籤上，輸入慣用的連絡方法 (電子郵件或電話) 和連絡人詳細資料。
 7. 按一下頁面底部的 [新增] 。
 

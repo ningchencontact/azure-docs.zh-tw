@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002963"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Azure 儲存體服務的跨原始資源共用 (CORS) 支援
-從 2013-08-15 版本開始，Azure 儲存體服務就針對 Blob、資料表、佇列及檔案服務提供跨原始資源共用 (CORS) 的支援。 CORS 是一項 HTTP 功能，可讓 Web 應用程式在某個網域下執行，以存取其他網域中的資源。 網頁瀏覽器會實作稱為 [相同原始原則](http://www.w3.org/Security/wiki/Same_Origin_Policy) 的安全性限制，它可防止網頁呼叫不同網域中的 API；CORS 則提供了一個安全的方式，可讓一個網域 (原始網域) 能夠呼叫其他網域中的 API。 如需 CORS 的詳細資訊，請參閱 [CORS 規格](http://www.w3.org/TR/cors/) 。
+從 2013-08-15 版本開始，Azure 儲存體服務就針對 Blob、資料表、佇列及檔案服務提供跨原始資源共用 (CORS) 的支援。 CORS 是一項 HTTP 功能，可讓 Web 應用程式在某個網域下執行，以存取其他網域中的資源。 網頁瀏覽器會實作稱為 [相同原始原則](https://www.w3.org/Security/wiki/Same_Origin_Policy) 的安全性限制，它可防止網頁呼叫不同網域中的 API；CORS 則提供了一個安全的方式，可讓一個網域 (原始網域) 能夠呼叫其他網域中的 API。 如需 CORS 的詳細資訊，請參閱 [CORS 規格](https://www.w3.org/TR/cors/) 。
 
 您可以透過呼叫[設定 Blob 服務屬性](https://msdn.microsoft.com/library/hh452235.aspx)、[設定佇列服務屬性](https://msdn.microsoft.com/library/hh452232.aspx)和[設定表格服務屬性](https://msdn.microsoft.com/library/hh452240.aspx)，個別為每個儲存體服務設定 CORS 規則。 一旦設定服務的 CORS 規則之後，將評估從不同網域對服務所提出的適當授權要求，以判斷是否可根據您指定的規則來允許它。
 
@@ -29,7 +29,7 @@ ms.locfileid: "55473760"
 ## <a name="understanding-cors-requests"></a>了解 CORS 要求
 來自原始網域的 CORS 要求可能包含兩個不同要求：
 
-* 預檢要求，其會查詢服務所加諸的 CORS 限制。 除非要求方法是 [簡單的方法](http://www.w3.org/TR/cors/)(意即 GET、HEAD 或 POST)，否則必須執行預檢要求。
+* 預檢要求，其會查詢服務所加諸的 CORS 限制。 除非要求方法是 [簡單的方法](https://www.w3.org/TR/cors/)(意即 GET、HEAD 或 POST)，否則必須執行預檢要求。
 * 對所需資源提出的實際要求。
 
 ### <a name="preflight-request"></a>預檢要求
@@ -129,7 +129,7 @@ CORS 規則的評估，如下所示：
 
 | 要求 |  |  | Response |  |
 | --- | --- | --- | --- | --- |
-| **方法** |**原始** |**要求標頭** |**規則相符** |**結果** |
+| **方法** |**原始** |**请求标头** |**規則相符** |**結果** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |第一個規則 |成功 |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |第二個規則 |成功 |
 | **GET** |http://www.contoso.com |x-ms-client-request-id |第二個規則 |失敗 |
@@ -146,7 +146,7 @@ CORS 規則的評估，如下所示：
 > 
 
 ## <a name="understanding-how-the-vary-header-is-set"></a>了解如何設定 Vary 標頭
-*Vary* 標頭是標準的 HTTP/1.1 標頭，其中包含一組要求標頭欄位，可通知瀏覽器或使用者代理程式有關由伺服器選取用來處理要求的準則。 *Vary* 標頭主要是在 Proxy、瀏覽器及 CDN 進行快取時所使用，它們會用此標頭來判斷快取回應的方式。 如需詳細資訊，請參閱 [Vary 標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)的規格。
+*Vary* 標頭是標準的 HTTP/1.1 標頭，其中包含一組要求標頭欄位，可通知瀏覽器或使用者代理程式有關由伺服器選取用來處理要求的準則。 *Vary* 標頭主要是在 Proxy、瀏覽器及 CDN 進行快取時所使用，它們會用此標頭來判斷快取回應的方式。 如需詳細資訊，請參閱 [Vary 標頭](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)的規格。
 
 當瀏覽器或其他使用者代理程式快取來自 CORS 要求的回應時，會將原始網域快取為允許的原始網域。 當第二個網域在快取作用中時發出相同的儲存體資源要求，使用者代理程式便會擷取快取的原始網域。 第二個網域不符合快取的網域，因此要求失敗 (它本來可以成功)。 在某些情況下，Azure 儲存體會將 Vary 標頭設定為 **Origin** ，在要求網域與快取的原始網域不同時，指示使用者代理程式將後續的 CORS 要求傳送至服務。
 
@@ -162,7 +162,7 @@ CORS 規則的評估，如下所示：
 下表指出 Azure 儲存體如何根據先前所述的案例來回應 GET/HEAD 要求：
 
 | 要求 | 帳戶設定和規則評估的結果 |  |  | Response |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **要求上存在的 Origin 標頭** |**針對此服務指定的 CORS 規則** |**有允許所有原始網域的比對規則存在 (*)** |**有完全符合原始網域的比對規則存在** |**回應包含已設為 Origin 的 Vary 標頭** |**回應包含 Access-Control-Allowed-Origin："*"** |**回應包含 Access-Control-Exposed-Headers** |
 | 否 |否 |否 |否 |否 |否 |否 |
 | 否 |是 |否 |否 |是 |否 |否 |
@@ -184,5 +184,5 @@ CORS 規則的評估，如下所示：
 
 [設定資料表服務屬性](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[W3C 跨原始資源共用規格](http://www.w3.org/TR/cors/)
+[W3C 跨原始資源共用規格](https://www.w3.org/TR/cors/)
 

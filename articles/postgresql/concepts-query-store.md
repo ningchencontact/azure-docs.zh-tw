@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
-ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660719"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005905"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查詢存放區監視效能
 
@@ -32,12 +32,18 @@ ms.locfileid: "55660719"
 ### <a name="enable-query-store-using-the-azure-portal"></a>使用 Azure 入口網站啟用查詢存放區
 1. 登入 Azure 入口網站，然後選取適用於 PostgreSQL 的 Azure 資料庫伺服器。
 2. 在功能表的 [設定] 區段中，選取 [伺服器參數]。
-3. 搜尋 **pg_qs.query_capture_mode** 參數。
-4. 更新從 NONE 到 TOP 的值並儲存。
+3. 搜尋 `pg_qs.query_capture_mode` 參數。
+4. 將值設為`TOP`並**儲存**。
 
-或者，您可以使用 Azure CLI 設定此參數。
+若要啟用查詢存放區中的等候統計資料： 
+1. 搜尋 `pgms_wait_sampling.query_capture_mode` 參數。
+1. 將值設為`ALL`並**儲存**。
+
+
+或者，您可以設定這些參數，使用 Azure CLI。
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 請等候 20 分鐘，以讓第一批資料保存在 azure_sys 資料庫中。
@@ -81,6 +87,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 啟用查詢存放區時，會以每 15 分鐘的彙總時間範圍儲存資料一次，每個範圍內最多可有 500 個相異的查詢。 
 
 下列選項可用於設定查詢存放區參數。
+
 | **參數** | **說明** | **預設值** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | 設定追蹤哪些陳述式。 | None | none、top、all |
@@ -89,6 +96,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 | pg_qs.track_utility | 設定是否要追蹤公用程式命令 | on | on、off |
 
 下列選項特別適用於等候統計資料。
+
 | **參數** | **說明** | **預設值** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | 設定追蹤等候統計資料的哪些陳述式。 | None | none、all|

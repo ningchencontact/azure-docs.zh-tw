@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 9c4af55a5ddb05335f8acfdd23711df2290e217b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543832"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085689"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>在 Service Fabric 中設定並使用服務同質性
 同質性是一個控制項，主要提供來協助簡化將較大型的單體式應用程式轉換到雲端和微服務世界的程序。 同質性也可作為最佳化手段來提升服務的效能，不過，這麼做會帶來一些副作用。
@@ -56,10 +56,11 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 >
 
 ## <a name="different-affinity-options"></a>各種同質性選項
-同質性是透過數種相互關聯的結構描述之一來表示，而且有兩種不同的模式。 同質性的最常見模式是我們稱為 NonAlignedAffinity 的模式。 在 NonAlignedAffinity 中，不同服務的複本或執行個體會放在同一個節點上。 另一個模式是 AlignedAffinity。 對齊的同質性只有在與具狀態服務搭配使用時才有用。 設定兩個具狀態服務來具備對齊的同質性，可以確保那些服務的主要複本都位於和彼此相同的節點上。 它也會讓那些服務的每一對次要複本位於相同的節點上。 它也可能 (但較不常見) 針對具狀態服務設定 NonAlignedAffinity。 對於 NonAlignedAffinity，兩個具狀態服務的不同複本會在相同節點上執行，但它們的主要複本可以在不同節點上結束。
+同質性是透過數種相互關聯的結構描述之一來表示，而且有兩種不同的模式。 同質性的最常見模式是我們稱為 NonAlignedAffinity 的模式。 在 NonAlignedAffinity 中，不同服務的複本或執行個體會放在同一個節點上。 另一种模式是 AlignedAffinity。 對齊的同質性只有在與具狀態服務搭配使用時才有用。 設定兩個具狀態服務來具備對齊的同質性，可以確保那些服務的主要複本都位於和彼此相同的節點上。 它也會讓那些服務的每一對次要複本位於相同的節點上。 它也可能 (但較不常見) 針對具狀態服務設定 NonAlignedAffinity。 對於 NonAlignedAffinity，兩個具狀態服務的不同複本會在相同節點上執行，但它們的主要複本可以在不同節點上結束。
 
 <center>
-![同質性模式及其效果][Image1]
+
+![同質性模式和其效果][Image1]
 </center>
 
 ### <a name="best-effort-desired-state"></a>盡力而為的期望狀態
@@ -69,7 +70,8 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 目前，叢集資源管理員無法模擬同質關聯性的鏈結。 這表示是，如果有一個服務是某一個同質關聯性中的子系，則該服務不能是另一個同質關聯性中的父系。 如果您想要建立此類型的關聯性模型，您實際上必須將它建立為星形模型，而不是鏈結模型。 為了從鏈結轉變為星形，最下面的子系會變成第一個子系的父系。 根據服務的排列方式而定，您可能必須這樣做許多次。 如果沒有自然父系服務，您可能必須建立一個作為預留位置。 根據您的需求而定，您也可能考慮[應用程式群組](service-fabric-cluster-resource-manager-application-groups.md)。
 
 <center>
-![同質關聯性內容中的鏈結與星形的比較][Image2]
+
+![鏈結與星形的比較][Image2]
 </center>
 
 目前關於同質關聯性的另一個注意事項是它們預設是雙向的。 這表示同質性規則只會強制讓子系跟隨父系來放置。 它無法確保父系會與子系位於相同位置。 因此，如果有同質性違規發生，且基於某種原因要修正違規，將子系移至父系節點是不可行的，即使將父系移至子系節點會修正違規，父系節點也不會移至子系節點。 將 [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) 設為 True 會移除方向。 也請務必注意，同質關聯性不可能完美無缺或立即強制執行，因為不同的服務會有不同的生命週期，因此可以單獨地失敗和移動。 例如，假設父系因為當機而突然容錯移轉至另一個節點。 叢集資源管理員和容錯移轉管理員會先處理容錯移轉，因為其首要任務就是讓服務保持運作、一致性和可用性。 在容錯移轉完成之後，同質關聯性已中斷，但叢集資源管理員會認為一切正常，直到它發現子系並未與父系放在一起。 系統會定期執行這類檢查。 您可以在[這篇文章](service-fabric-cluster-resource-manager-management-integration.md#constraint-types)中找到更多關於叢集資源管理員如何評估條件約束的資訊，[這篇文章](service-fabric-cluster-resource-manager-balancing.md)則會深入說明如何設定這些條件約束的評估頻率。   

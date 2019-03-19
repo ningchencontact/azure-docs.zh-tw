@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 332382282c2b55b52bb23f278a25868c09360619
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d8640881e83084dac7f4725115f48dcf7d29e787
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729348"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007600"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>建立 OpenBSD 磁碟映像並上傳至 Azure
 本文說明如何建立及上傳包含 OpenBSD 作業系統的虛擬硬碟 (VHD)。 上傳之後，您可以使用它作為您自己的映像，在 Azure 中透過 Azure CLI 建立虛擬機器 (VM)。
@@ -56,7 +56,7 @@ ms.locfileid: "55729348"
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. 在 Azure 中的虛擬機器上，依預設會停用 `root` 使用者。 使用者可以在 OpenBSD VM 上使用 `doas` 命令，以提高的權限來執行命令。 Doas 預設為啟用狀態。 如需詳細資訊，請參閱 [doas.conf](http://man.openbsd.org/doas.conf.5)。 
+4. 在 Azure 中的虛擬機器上，依預設會停用 `root` 使用者。 使用者可以在 OpenBSD VM 上使用 `doas` 命令，以提高的權限來執行命令。 Doas 預設為啟用狀態。 如需詳細資訊，請參閱 [doas.conf](https://man.openbsd.org/doas.conf.5)。 
 
 5. 安裝和設定 Azure 代理程式的必要條件，如下所示：
 
@@ -86,7 +86,7 @@ ms.locfileid: "55729348"
     > cat /var/log/waagent.log
     > ```
 
-7. 取消佈建系統以清理系統，使之適合重新佈建。 下列命令也會刪除最後佈建的使用者帳戶和相關聯的資料：
+7. 取消设置系统可清除系统并使其适用于重新设置。 下列命令也會刪除最後佈建的使用者帳戶和相關聯的資料：
 
     ```sh
     waagent -deprovision+user -force
@@ -175,6 +175,6 @@ ssh azureuser@<ip address>
 
 
 ## <a name="next-steps"></a>後續步驟
-如果您想要深入了解 OpenBSD6.1 上的 Hyper-V 支援，請參閱 [OpenBSD 6.1](https://www.openbsd.org/61.html) 和 [hyperv.4](http://man.openbsd.org/hyperv.4)。
+如果您想要深入了解 OpenBSD6.1 上的 Hyper-V 支援，請參閱 [OpenBSD 6.1](https://www.openbsd.org/61.html) 和 [hyperv.4](https://man.openbsd.org/hyperv.4)。
 
 如果您想要從受控磁碟建立 VM，請參閱 [az 磁碟](/cli/azure/disk)。 

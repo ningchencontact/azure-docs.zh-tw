@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d6a6d9b352db61d98e85c840a3ebc5cb6a832a3f
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121956"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP ECC 複製資料
 
@@ -51,7 +51,7 @@ ms.locfileid: "54352456"
 
 以下是 SAP ECC 連結服務的支援屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapEcc** | 是 |
 | url | SAP ECC OData 服務的 URL。 | 是 |
@@ -88,7 +88,7 @@ ms.locfileid: "54352456"
 
 若要從 SAP ECC 複製資料，請將資料集的類型屬性設為 **SapEccResource**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | path | SAP ECC OData 實體的路徑。 | 是 |
 
@@ -118,10 +118,10 @@ ms.locfileid: "54352456"
 
 若要從 SAP ECC 複製資料，請將複製活動中的來源類型設為 **SapEccSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**SapEccSource** | 是 |
-| query | 用來篩選資料的 OData 查詢選項。 Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 連接器會從合併的 URL 複製資料：(連結服務中指定的 URL)/(資料集中指定的路徑)?(複製活動來源中指定的查詢)。 請參考 [OData URL 元件](http://www.odata.org/documentation/odata-version-3-0/url-conventions/) \(英文\)。 | 否 |
+| query | 用來篩選資料的 OData 查詢選項。 Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 連接器會從合併的 URL 複製資料：(連結服務中指定的 URL)/(資料集中指定的路徑)?(複製活動來源中指定的查詢)。 請參考 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) \(英文\)。 | 否 |
 
 **範例：**
 
@@ -160,21 +160,21 @@ ms.locfileid: "54352456"
 從 SAP ECC 複製資料時，會使用下列從 SAP ECC 資料的 OData 資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收器。
 
 | OData 資料類型 | Data Factory 過渡期資料類型 |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | 字串 |
 | Edm.Boolean | Bool |
 | Edm.Byte | 字串 |
-| Edm.DateTime | Datetime |
-| Edm.Decimal | 十進位 |
-| Edm.Double | 兩倍 |
-| Edm.Single | 單一 |
+| Edm.DateTime | DateTime |
+| Edm.Decimal | Decimal |
+| Edm.Double | Double |
+| Edm.Single | Single |
 | Edm.Guid | 字串 |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | 字串 |
-| Edm.Time | 時間範圍 |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]

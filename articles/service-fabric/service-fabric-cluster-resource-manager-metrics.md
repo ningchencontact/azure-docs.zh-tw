@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053307"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093344"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用度量管理資源耗用量和負載
 *計量*是您的服務所關切的資源，且是由叢集中的節點提供。 計量就是任何您想要管理，以便改善或監視服務效能的項目。 例如，您可能會監看記憶體耗用量以得知您的服務是否為多載。 另一個用法是，了解服務是否能夠移至記憶體限制較小的其他位置，以取得更佳的效能。
@@ -37,7 +37,7 @@ ms.locfileid: "44053307"
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |高 |
 | ReplicaCount |0 |1 |1 |中 |
-| Count |1 |1 |1 |低 |
+| 計數 |1 |1 |1 |低 |
 
 
 針對基本工作負載，預設計量會提供叢集中工作的適當分配。 在下列範例中，讓我們看看建立兩個服務以及依賴預設計量以進行平衡時會發生什麼情況。 第一個服務是帶有三個資料分割且目標複本集大小為三的具狀態服務。 第二個服務是帶有一個資料分割且執行個體計數為三的無狀態服務。
@@ -45,6 +45,7 @@ ms.locfileid: "44053307"
 以下是您將看到的情況：
 
 <center>
+
 ![使用預設計量的叢集配置][Image1]
 </center>
 
@@ -56,7 +57,7 @@ ms.locfileid: "44053307"
 
 很好！
 
-預設計量是個很好的起點。 不過，預設計量只能做到這個程度。 例如︰您選擇的資料分割配置導致所有資料分割完全平均使用的可能性為何？ 所指定服務的負載在一段時間內保持不變或只是現在跨多個資料分割相同的機率為何？
+預設計量是個很好的起點。 不過，預設計量只能做到這個程度。 例如︰所选择的分区方案实现所有分区完全平均使用的可能性有多大？ 所指定服務的負載在一段時間內保持不變或只是現在跨多個資料分割相同的機率為何？
 
 您可以僅使用預設計量來執行。 不過，這樣通常表示叢集使用率較低，比您想要的更不平均。 這是因為預設計量不是調適性的，而是假設所有項目都相等。 例如，忙碌的主要複本和一個不忙碌的其他複本都會對 PrimaryCount 計量貢獻 "1"。 在最糟的情況下，使用預設計量也可能導致節點被過度排定，而造成效能問題。 如果您對充分利用叢集並避免效能問題感興趣，您必須使用自訂計量和動態負載報告。
 
@@ -65,13 +66,13 @@ ms.locfileid: "44053307"
 
 任何計量都有一些描述它的屬性：名稱、權數及預設負載。
 
-* 計量名稱：計量的名稱。 從「資源管理員」的觀點來看，計量名稱是叢集內計量的唯一識別碼。
-* Weight︰計量權數定義了就此服務而言，此計量相對於其他計量的重要程度。
-* 預設負載：預設負載會依據服務是無狀態或具狀態服務來以不同方式表示。
+* 指标名称：計量的名稱。 從「資源管理員」的觀點來看，計量名稱是叢集內計量的唯一識別碼。
+* 权重：指标权重定义指标对于此服务的重要程度（相对于其他指标）。
+* 默认负载：默认负载根据服务是无状态还是有状态服务以不同的方式表示。
   * 就無狀態服務而言，每個計量都有名為 DefaultLoad 的單一屬性
   * 針對具狀態服務，您需定義：
-    * PrimaryDefaultLoad：當此計量作為「主要」複本時，此服務將取用的預設量
-    * SecondaryDefaultLoad：當此計量作為「次要」複本時，此服務將取用的預設量
+    * PrimaryDefaultLoad：此服务充当主副本时消耗此指标的默认数量
+    * SecondaryDefaultLoad：此服务充当辅助副本时消耗此指标的默认数量
 
 > [!NOTE]
 > 如果您定義自訂計量並_同時_也想要使用預設計量，您必須_明確地_加回預設計量並且定義它們的權數和值。 這是因為您必須定義預設計量與自訂計量之間的關聯性。 例如，也許您會在意 ConnectionCount 或 WorkQueueDepth 更甚於主要分配。 根據預設，PrimaryCount 計量的權數是「高」，所以當您新增其他計量時想要將它降低為「中」，以確保它們優先。
@@ -215,7 +216,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 讓我們看看可能的叢集配置看起來如何︰
 
 <center>
-![使用預設和自訂計量平衡的叢集][Image2]
+
+![使用預設和自訂度量平衡的叢集][Image2]
 </center>
 
 有幾件事值得一提：
@@ -232,14 +234,15 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="metric-weights"></a>度量權數
 追蹤各個不同服務的相同計量相當重要。 該全域檢視可讓「叢集資源管理員」追蹤叢集中的耗用量、平衡各個節點之間的耗用量，以及確保節點不會超出容量。 不過，服務在相同計量的重要性方面可能有不同的檢視。 此外，在具有許多計量和許多服務的叢集中，可能並非所有計量都有完美平衡的解決方案。 「叢集資源管理員」應該如何處理這些情況？
 
-計量權數可讓「叢集資源管理員」在沒有完美解答時，決定如何平衡叢集。 計量權數也可讓「叢集資源管理員」以不同的方式平衡特定服務。 度量可以有四個不同的權數層級︰零、低、中和高。 在考量項目是否平衡時，權數為「零」的計量並沒有任何貢獻。 不過，其負載對容量管理仍有所貢獻。 具有「零」權數的計量仍然相當有用，並且經常作為服務行為和效能監視的一部分。 [這篇文章](service-fabric-diagnostics-event-generation-infra.md)提供有關使用計量進行監視，以及診斷服務的詳細資訊。 
+計量權數可讓「叢集資源管理員」在沒有完美解答時，決定如何平衡叢集。 計量權數也可讓「叢集資源管理員」以不同的方式平衡特定服務。 指标可以有四个不同的权重级别：零、低、中和高。 在考量項目是否平衡時，權數為「零」的計量並沒有任何貢獻。 不過，其負載對容量管理仍有所貢獻。 具有「零」權數的計量仍然相當有用，並且經常作為服務行為和效能監視的一部分。 [這篇文章](service-fabric-diagnostics-event-generation-infra.md)提供有關使用計量進行監視，以及診斷服務的詳細資訊。 
 
 叢集中不同計量權數的實際影響在於「叢集資源管理員」會產生不同的解決方案。 計量權數會告訴「叢集資源管理員」某些計量比其他計量重要。 當沒有完美的解決方案時，「叢集資源管理員」可以偏好選擇能更有效平衡較高權數計量的解決方案。 如果服務認為特定計量不重要，它可能會發現對該計量的使用不平衡。 這可讓另一項服務取得對其重要之某些計量的平均分配。
 
 讓我們看看一些負載報告的範例，以及不同的計量權數如何在叢集中造成不同的配置。 在此範例中，我們看到切換計量的相對權數會導致「叢集資源管理員」建立不同的服務佈局。
 
 <center>
-![計量權數範例及其對平衡解決方案的影響][Image3]
+
+![計量權數範例，及其對平衡解決方案的影響][Image3]
 </center>
 
 在此範例中，有四個不同的服務，它們都針對兩個不同計量 (MetricA 和 MetricB) 報告不同值。 在其中一個案例中，所有定義 MetricA 的服務是最重要的 (權數 = 高)，MetricB 則是較不重要的 (權數 = 低)。 因此，我們看到「叢集資源管理員」是以讓 MetricA 比 MetricB 更加平衡的方式來設置服務。 「更加平衡」表示 MetricA 具有比 MetricB 較低的標準差。 在第二個案例中，我們將計量權數反轉。 結果就是「叢集資源管理員」會交換服務 A 與 B，以便產生 MetricB 比 MetricA 更加平衡的配置。
@@ -256,6 +259,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 如果「叢集資源管理員」既不在意全域平衡也不在意區域平衡，會發生什麼狀況？ 建構全域平衡的解決方案雖然簡單，但是會導致個別服務的資源平衡不佳。 在以下範例中，讓我們看看僅使用預設計量設定的服務，並了解如果只考量全域平衡，會發生什麼狀況：
 
 <center>
+
 ![全域唯一解決方案的影響][Image4]
 </center>
 
@@ -265,10 +269,10 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 ## <a name="next-steps"></a>後續步驟
 - 如需有關設定服務的詳細資訊，請參閱[深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
-- 定義重組度量是合併 (而不是擴增) 節點上負載的一種方式。若要了解如何設定重組，請參閱 [這篇文章](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- 若要了解叢集資源管理員如何管理並平衡叢集中的負載，請查看關於 [平衡負載](service-fabric-cluster-resource-manager-balancing.md)
+- 定義重組度量是合併 (而不是擴增) 節點上負載的一種方式。若要了解如何配置碎片整理，请参阅[此文](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- 若要了解群集 Resource Manager 如何管理和均衡群集中的负载，请查看有关 [均衡负载](service-fabric-cluster-resource-manager-balancing.md)
 - 從頭開始，並 [取得 Service Fabric 叢集資源管理員的簡介](service-fabric-cluster-resource-manager-introduction.md)
-- 移動成本是向叢集資源管理員發出訊號，表示移動某些服務會比較貴的其中一種方式。 若要深入了解移動成本，請參閱 [這篇文章](service-fabric-cluster-resource-manager-movement-cost.md)
+- 移动成本是向群集 Resource Manager 发出信号，表示移动某些服务比移动其他服务会产生更高成本的方式之一。 若要了解有关移动成本的详细信息，请参阅[此文](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png

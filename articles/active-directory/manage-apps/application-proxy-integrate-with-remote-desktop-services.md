@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e433eded9ffccde0eccb3b807c8eb8e3219771f5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111101"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -86,7 +86,7 @@ ms.locfileid: "56162097"
 6. 在 [RD 閘道] 索引標籤中，將 [伺服器名稱] 變更為您在應用程式 Proxy 中所設定之 RD 主機端點的外部 URL。
 7. 將 [登入方法] 欄位變更為 [密碼驗證]。
 
-  ![在 RDS 上部署內容畫面](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![在 RDS 上部署內容畫面](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. 對於每個集合執行此命令。 使用您自己的資訊來取代 *\<yourcollectionname\>* 和 *\<proxyfrontendurl\>*。 此命令會啟用 RD Web 和 RD 閘道之間的單一登入，並將效能最佳化︰
 
@@ -98,8 +98,8 @@ ms.locfileid: "56162097"
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->上述命令會在 "`nrequire" 中使用倒引號。
+   >[!NOTE]
+   >上述命令會在 "`nrequire" 中使用倒引號。
 
 9. 若要確認自訂 RDP 屬性的修改，以及檢視將會針對此集合從 RDWeb 下載的 RDP 檔案內容，請執行下列命令：
     ```
@@ -129,8 +129,8 @@ ms.locfileid: "56162097"
 預先驗證流程的安全性優點多於通道流程。 使用預先驗證，您可以使用內部部署資源的 Azure AD 驗證功能，例如單一登入、條件式存取和雙步驟驗證。 您也可以確定只有驗證過的流量到達您的網路。
 
 若要使用通道驗證，只需要對本文中所列的步驟進行兩項修改：
-1. 在 [[Publish the RD host endpoint] \(發佈 RD 主機端點)](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 [通道]。
-2. 在 [[Direct RDS traffic to Application Proxy] \(將 RDS 流量導向應用程式 Proxy)](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
+1. 在 [Publish the RD host endpoint] [發佈 RD 主機端點](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 **通道**。
+2. 在 [Direct RDS traffic to Application Proxy](#direct-rds-traffic-to-application-proxy)(將 RDS 流量導向應用程式 Proxy) 中，完全略過步驟 8。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -16,14 +16,14 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576d3d4b9c793c564410335ce35ddd4c40697e4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 291b3d506993cfea89be072684835c0d4efe75f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095444"
 ---
-# <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>接下來的步驟，以及如何管理 Azure AD Connect
+# <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>后续步骤以及如何管理 Azure AD Connect
 使用本文中的操作程序來自訂 Azure Active Directory (Azure AD) Connect，以符合您組織的需要和需求。  
 
 ## <a name="add-additional-sync-admins"></a>新增額外的同步處理管理員
@@ -51,23 +51,27 @@ ms.locfileid: "56197397"
 4. 在 [目錄] 頁面的頂端，選取 [目錄整合] 。
 5. 請注意 [與本機 Active Directory 整合] 下方的上次同步處理時間。
 
-<center>![目錄同步處理時間](./media/how-to-connect-post-installation/verify.png)</center>
+<center>
+
+![目錄同步處理時間](./media/how-to-connect-post-installation/verify.png)</center>
 
 ## <a name="start-a-scheduled-synchronization-task"></a>啟動已排定的同步處理工作
 如果您需要執行同步處理工作，只要將 Azure AD Connect 精靈整個再執行一遍即可。  您需要提供 Azure AD 認證。  在精靈中，選取 [自訂同步處理選項] 工作，然後按 [下一步] 來繼續完成精靈步驟。 最後，確定已選取 [初始設定一完成，即開始同步處理程序]  方塊。
 
-<center>![開始同步處理](./media/how-to-connect-post-installation/startsynch.png)</center>
+<center>
+
+![啟動同步處理](./media/how-to-connect-post-installation/startsynch.png)</center>
 
 如需有關 Azure AD Connect 同步排程器的詳細資訊，請參閱 [Azure AD Connect 排程器](how-to-connect-sync-feature-scheduler.md)。
 
-## <a name="additional-tasks-available-in-azure-ad-connect"></a>Azure AD Connect 中可用的其他工作
+## <a name="additional-tasks-available-in-azure-ad-connect"></a>Azure AD Connect 中提供的其他任务
 在初始 Azure AD Connect 的安裝之後，您隨時可以從 Azure AD Connect 開始頁面或桌面捷徑啟動精靈。  您會發現將精靈整個再執行一遍時，會以其他工作的形式提供一些新的選項。  
 
 下表提供這些工作的摘要及個別工作的簡短描述。
 
 ![其他工作清單](./media/how-to-connect-post-installation/addtasks.png)
 
-| 其他工作 | 說明 |
+| 其他工作 | 描述 |
 | --- | --- |
 | **檢視所選取的案例** |檢視目前的 Azure AD Connect 解決方案。  這包括一般設定、同步處理的目錄，以及同步處理設定。 |
 | **自訂同步處理選項** |變更目前的組態，像是將其他 Active Directory 樹系新增到組態中或啟用同步處理選項 (例如使用者、群組、裝置或密碼回寫)。 |

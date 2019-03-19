@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b7ad21bd3185e5e6ba4774cdc5780b0594033f14
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903618"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>整合跨元件交易診斷
 
@@ -50,7 +50,7 @@ ms.locfileid: "54027156"
 * 選取任何資料列即可[在右側查看詳細資料](#details-of-the-selected-telemetry)。 
 
 > [!NOTE]
-其他元件的呼叫有兩個資料列：一個資料列代表來自呼叫端元件的輸出呼叫 (相依性)，另一個資料列則對應至被呼叫元件的輸入要求。 主要圖示和樣式分明的持續時間橫條有助於區分兩者。
+> 其他元件的呼叫有兩個資料列：一個資料列代表來自呼叫端元件的輸出呼叫 (相依性)，另一個資料列則對應至被呼叫元件的輸入要求。 主要圖示和樣式分明的持續時間橫條有助於區分兩者。
 
 ## <a name="all-telemetry-with-this-operation-id"></a>此作業識別碼的所有遙測
 
@@ -74,9 +74,9 @@ ms.locfileid: "54027156"
 
 [Application Insights 分析工具](../../azure-monitor/app/profiler.md)或[快照集偵錯工具](snapshot-debugger.md)能協助您從程式碼層級診斷效能和失敗問題。 透過這項體驗，只要按一下按鈕，您就可以查看任何元件的分析工具追蹤或快照集。
 
-如果無法使用分析工具，請連絡 **serviceprofilerhelp@microsoft.com**
+如果您無法取得 Profiler 工作，請連絡**serviceprofilerhelp\@microsoft.com**
 
-如果無法使用快照偵錯工具，請連絡 **snapshothelp@microsoft.com**
+如果您無法取得快照集偵錯工具工作，請連絡**snapshothelp\@microsoft.com**
 
 ![分析工具整合](media/transaction-diagnostics/profilerTraces.png)
 

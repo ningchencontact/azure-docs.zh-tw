@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56c992b1cc0e8f1d9743ff8226ab48852afc1168
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: d6e502ed1e0865aca167915493eca400ce026f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096141"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>如何為不在資源庫內的應用程式設定同盟單一登入
 
@@ -43,41 +43,41 @@ ms.locfileid: "56313121"
 
 若要為不在 Azure AD 資源庫中的應用程式設定單一登入，請依照下列步驟執行：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [企業應用程式] 窗格右上角的 [新增] 按鈕。
+5. 按一下 [企業應用程式] 窗格右上角的 [新增] 按鈕。
 
-6.  按一下 [Add your own app (新增您的應用程式)] 區段中的 [Non-gallery application (非資源庫應用程式)]
+6. 按一下 [Add your own app (新增您的應用程式)] 區段中的 [Non-gallery application (非資源庫應用程式)]
 
-7.  在 [名稱] 文字方塊中輸入應用程式的名稱。
+7. 在 [名稱] 文字方塊中輸入應用程式的名稱。
 
-8.  按一下 [新增] 按鈕新增應用程式。
+8. 按一下 [新增] 按鈕新增應用程式。
 
-9.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
+9. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 10. 在 [模式] 下拉式清單中選取 [SAML 登入]。
 
 11. 在 [網域及 URL] 中輸入必要值 這些值應從應用程式廠商處取得。
 
-   1. 若要將應用程式設定為 IdP 啟始的 SSO，請輸入回覆 URL 與識別碼。
+    1. 若要將應用程式設定為 IdP 啟始的 SSO，請輸入回覆 URL 與識別碼。
 
-   2. **選擇性：** 若要將應用程式設定為 SP 啟始的 SSO，則登入 URL 為必要值。
+    2. **選擇性：** 若要將應用程式設定為 SP 啟始的 SSO，則登入 URL 為必要值。
 
 12. 在 [使用者屬性] 中，從 [使用者識別碼] 下拉式清單選取使用者的唯一識別碼。
 
 13. **選擇性：** 按一下 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
 
-   若要新增屬性︰
+    若要新增屬性︰
 
-   1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
+    1. 按一下 [新增屬性]。 輸入 [名稱]，然後從下拉式清單中選取 [值]。
 
-   2. 按一下 [儲存]。 您會在資料表中看到新屬性。
+    2. 按一下 [儲存]。 您會在資料表中看到新屬性。
 
 14. 按一下 [設定 &lt;應用程式名稱&gt;]，以存取如何在應用程式中設定單一登入的文件。 此外，您有應用程式所需的 Azure AD URL 與憑證。
 
@@ -87,30 +87,30 @@ ms.locfileid: "56313121"
 
 若要選取使用者識別碼或新增使用者屬性，請依照下列步驟執行：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  選取您已設定單一登入的應用程式。
+6. 選取您已設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
+7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
-8.  在 [使用者屬性] 區段下，從 [使用者識別碼] 下拉式清單選取使用者的唯一識別碼。 所選的選項必須符合應用程式中預期的值，才能驗證使用者。
+8. 在 [使用者屬性] 區段下，從 [使用者識別碼] 下拉式清單選取使用者的唯一識別碼。 所選的選項必須符合應用程式中預期的值，才能驗證使用者。
 
- >[!NOTE]
- >Azure AD 會根據應用程式在 SAML AuthRequest 中選取的值或要求的格式，來選取 NameID 屬性 (使用者識別碼) 的格式。 如需詳細資訊，請參閱[單一登入 SAML 通訊協定](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest)文章中的＜NameIDPolicy＞一節。
- >
- >
+   >[!NOTE]
+   >Azure AD 會根據應用程式在 SAML AuthRequest 中選取的值或要求的格式，來選取 NameID 屬性 (使用者識別碼) 的格式。 如需詳細資訊，請參閱[單一登入 SAML 通訊協定](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest)文章中的＜NameIDPolicy＞一節。
+   >
+   >
 
-9.  若要新增使用者屬性，按一下 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
+9. 若要新增使用者屬性，按一下 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
 
    若要新增屬性︰
 
@@ -122,23 +122,23 @@ ms.locfileid: "56313121"
 
 若要從 Azure AD 下載應用程式中繼資料或憑證，請依照下列步驟執行：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
    * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  選取您已設定單一登入的應用程式。
+6. 選取您已設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
+7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
-8.  移至 [SAML 簽署憑證] 區段，然後按一下 [下載] 資料行值。 根據應用程式設定單一登入時所需的項目，您會看到下載中繼資料 XML 或憑證的選項。
+8. 移至 [SAML 簽署憑證] 區段，然後按一下 [下載] 資料行值。 根據應用程式設定單一登入時所需的項目，您會看到下載中繼資料 XML 或憑證的選項。
 
 Azure AD 也會提供用來取得中繼資料的 URL。 請遵循此模式來取得應用程式特有的中繼資料 URL： https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>。
 
@@ -146,25 +146,25 @@ Azure AD 也會提供用來取得中繼資料的 URL。 請遵循此模式來取
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行︰
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  從清單中選取您想要指派使用者的應用程式。
+6. 從清單中選取您想要指派使用者的應用程式。
 
-7.  應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
+7. 應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
 
-8.  按一下 [使用者和群組] 清單頂端的 [新增] 按鈕，以開啟 [新增指派] 窗格。
+8. 按一下 [使用者和群組] 清單頂端的 [新增] 按鈕，以開啟 [新增指派] 窗格。
 
-9.  按一下 [新增指派] 窗格中的 [使用者和群組] 選取器。
+9. 按一下 [新增指派] 窗格中的 [使用者和群組] 選取器。
 
 10. 在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入您有興趣指派之使用者的**全名**或**電子郵件地址**。
 

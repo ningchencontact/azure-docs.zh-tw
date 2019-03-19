@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: ec5ebfa29af13b5a34617be7f423fd7bc220636b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085332"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>透過範例了解 Data Factory 定價
 
@@ -33,7 +33,7 @@ ms.locfileid: "54017747"
 
 3. 每小時執行管線的排程觸發程序。
 
- ![案例 1](media/pricing-concepts/scenario1.png)
+   ![案例 1](media/pricing-concepts/scenario1.png)
 
 | **作業** | **類型與單位** |
 | --- | --- |

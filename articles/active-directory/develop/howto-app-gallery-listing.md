@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 02/15/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855b9db645721c63abae34422ae6461cea3daab2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4cda09a6b407621e595b0cb8ed9103b1fbbd5cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189815"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097952"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>作法：在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -47,6 +47,9 @@ ms.locfileid: "56189815"
 - 若為「密碼單一登入」，請確定您的應用程式支援表單驗證，讓密碼保存可以完成，以使單一登入能如預期般運作。
 
 - 若為「自動使用者佈建」要求，應用程式應列於資源庫中，並使用 SAML 2.0/WS-Fed 啟用單一登入功能。 您可以在入口網站上一起要求「單一登入」與「使用者佈建」(若未列出的話)。
+
+>[!NOTE]
+>我們以執行大量的 SCIM 連接器的要求，所以我們已停止在我們的入口網站上取得新的要求。 請保留您的要求直到進一步通知為止。 我們為這種延遲，這可能造成任何不便在此。
 
 ## <a name="submit-the-request-in-the-portal"></a>在入口網站中提交要求
 
@@ -80,12 +83,12 @@ ms.locfileid: "56189815"
     * 如果您想要使用 OpenID Connect 將應用程式新增至資源庫中的清單，請選取如上所述的 **OpenID Connect 和 OAuth 2.0**。
     * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
 
-*   **SAML 2.0** 或 **WS-Fed**：如果您的應用程式支援 SAML 2.0，便可以使用[新增自訂應用程式的指示](../active-directory-saas-custom-apps.md)直接將其與 Azure AD 租用戶整合。
+- **SAML 2.0** 或 **WS-Fed**：如果您的應用程式支援 SAML 2.0，便可以使用[新增自訂應用程式的指示](../active-directory-saas-custom-apps.md)直接將其與 Azure AD 租用戶整合。
 
-    ![在資源庫中列出 SAML 2.0 或 WS-Fed 應用程式的時間表](./media/howto-app-gallery-listing/saml.png)
+  ![在資源庫中列出 SAML 2.0 或 WS-Fed 應用程式的時間表](./media/howto-app-gallery-listing/saml.png)
 
-    * 如果您想要使用 **SAML 2.0** 或 **WS-Fed** 將應用程式新增至資源庫中的清單，請選取如上所述的 **SAMl 2.0/WS-Fed**。
-    * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。
+  * 如果您想要使用 **SAML 2.0** 或 **WS-Fed** 將應用程式新增至資源庫中的清單，請選取如上所述的 **SAMl 2.0/WS-Fed**。
+  * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。
 
 ## <a name="implementing-sso-using-password-sso"></a>使用密碼單一登入實作單一登入
 
@@ -108,6 +111,16 @@ ms.locfileid: "56189815"
     * 如果您想要從 Azure AD 資源庫中移除現有的應用程式，請選取 [移除現有的應用程式清單]。
     * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
 
+## <a name="listing-requests-by-customers"></a>列出客戶的要求
+
+客戶可以提交要求，即可列出應用程式**應用程式會要求客戶** -> **提交新要求**。
+
+![客戶要求的應用程式圖格](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+以下是客戶的流程要求的應用程式-
+
+![客戶要求的應用程式流程](./media/howto-app-gallery-listing/customer-request.png)
+
 ## <a name="timelines"></a>時間表
 
 在應用程式庫中列出 SAML 2.0 或 WS-Fed 應用程式的程序時間表為 7-10 個工作天。
@@ -117,10 +130,6 @@ ms.locfileid: "56189815"
 在應用程式庫中列出 OpenID Connect 應用程式的程序時間表為 2-5 個工作天。
 
    ![在資源庫中列出 SAML 應用程式的時間表](./media/howto-app-gallery-listing/timeline2.png)
-
-透過使用者佈建支援在資源庫中列出應用程式的程序時間表為 40-45 個工作天。
-
-   ![在資源庫中列出 SAML 應用程式的時間表](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>呈報
 

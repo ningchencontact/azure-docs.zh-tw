@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 842c0d5e3dff0c21545405624f0f536c80359b19
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809890"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112733"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>檢視 Azure 虛擬網路的拓撲
 
@@ -42,7 +42,7 @@ ms.locfileid: "55809890"
     - 位於與 *myVent* 虛擬網路相同的資源群組和區域中。 例如，存在於 *MyResourceGroup* 以外的資源群組中的網路安全性群組並不會顯示，即使該網路安全性群組與 *MyVnet* 虛擬網路中的子網路相關聯，仍是如此。
     - 位於 *myVnet* 虛擬網路內，或與該網路內的資源相關聯。 例如，未與 *MyVnet* 虛擬網路中的子網路或網路介面相關聯的網路安全性群組並不會顯示，即使該網路安全性群組位於 *MyResourceGroup* 資源群組中，仍是如此。
 
-  圖中顯示的拓撲屬於部署**透過網路虛擬設備路由流量的指令碼範例**後所建立的虛擬網路；您可以使用 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 或 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 部署該指令碼範例。
+   圖中顯示的拓撲屬於部署**透過網路虛擬設備路由流量的指令碼範例**後所建立的虛擬網路；您可以使用 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 或 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 部署該指令碼範例。
 
 6. 選取 [下載拓撲]，以下載 svg 格式的影像作為可編輯的檔案。
 
@@ -79,7 +79,7 @@ ms.locfileid: "55809890"
 
     只有與 *MyResourceGroup* 資源群組位於相同資源群組內的資源，以及與網路監看員位於相同區域的資源，才會傳回拓撲資訊。 例如，存在於 *MyResourceGroup* 以外的資源群組中的網路安全性群組並不會顯示，即使該網路安全性群組與 *MyVnet* 虛擬網路中的子網路相關聯，仍是如此。
 
-  深入了解傳回的輸出中的關聯性和[屬性](#properties)。 如果您沒有可檢視拓撲的現有虛擬網路，您可以使用[透過網路虛擬設備來路由傳送流量](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)指令碼範例建立一個。 若要檢視拓撲的圖表，並以可編輯檔案的形式加以下載，請使用[入口網站](#azure-portal)。
+   深入了解傳回的輸出中的關聯性和[屬性](#properties)。 如果您沒有可檢視拓撲的現有虛擬網路，您可以使用[透過網路虛擬設備來路由傳送流量](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)指令碼範例建立一個。 若要檢視拓撲的圖表，並以可編輯檔案的形式加以下載，請使用[入口網站](#azure-portal)。
 
 ## <a name = "powershell"></a>檢視拓撲 - PowerShell
 
@@ -123,7 +123,7 @@ ms.locfileid: "55809890"
 
    只有與 *MyResourceGroup* 資源群組位於相同資源群組內的資源，以及與網路監看員位於相同區域的資源，才會傳回拓撲資訊。 例如，存在於 *MyResourceGroup* 以外的資源群組中的網路安全性群組並不會顯示，即使該網路安全性群組與 *MyVnet* 虛擬網路中的子網路相關聯，仍是如此。
 
-  深入了解傳回的輸出中的關聯性和[屬性](#properties)。 如果您沒有可檢視拓撲的現有虛擬網路，您可以使用[透過網路虛擬設備來路由傳送流量](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)指令碼範例建立一個。 若要檢視拓撲的圖表，並以可編輯檔案的形式加以下載，請使用[入口網站](#azure-portal)。
+   深入了解傳回的輸出中的關聯性和[屬性](#properties)。 如果您沒有可檢視拓撲的現有虛擬網路，您可以使用[透過網路虛擬設備來路由傳送流量](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)指令碼範例建立一個。 若要檢視拓撲的圖表，並以可編輯檔案的形式加以下載，請使用[入口網站](#azure-portal)。
 
 ## <a name="relationships"></a>關聯性
 
