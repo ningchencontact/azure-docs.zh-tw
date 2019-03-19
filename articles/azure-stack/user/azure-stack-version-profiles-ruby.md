@@ -16,12 +16,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 73c770f45666ce76b770796ac9714d007c2870cb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c7031b0d0a08106473409233db0ad95ecb32525
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095359"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔搭配 Ruby
 
@@ -86,7 +86,7 @@ gem install 'azure_sdk'
 若要搭配 Azure Stack 使用 Ruby Azure SDK，您必須提供下列值，然後以環境變數設定值。 針對您的作業系統設定環境變數時，請參閱下表的指示。
 
 | 值 | 環境變數 | 說明 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | 租用戶識別碼 | AZURE_TENANT_ID | 您的 Azure Stack [租用戶識別碼](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)的值。 |
 | 用戶端識別碼 | AZURE_CLIENT_ID | 您在本文件上一節中建立服務主體時儲存的服務主體應用程式識別碼。  |
 | 訂用帳戶識別碼 | AZURE_SUBSCRIPTION_ID | [訂用帳戶識別碼](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions)是您存取 Azure Stack 中供應項目的方式。 |

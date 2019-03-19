@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492754"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445920"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>將下游裝置連線到 Azure IoT Edge 閘道
 
@@ -40,7 +40,10 @@ Azure IoT Edge 可實現透明閘道案例，其中一個或多個裝置可以�
 2. 擁有來自 IoT 中樞之裝置身分識別的下游裝置。 
     您無法使用 IoT Edge 裝置作為下游裝置。 但是可以使用在在 IoT 中樞註冊為一般 IoT 裝置的裝置。 在入口網站中，您可以在 [IoT 裝置] 區段內註冊新的裝置。 或者，您可以使用 Azure CLI [註冊裝置](../iot-hub/quickstart-send-telemetry-c.md#register-a-device)。 複製連接字串，並讓它能夠在稍後的章節中使用。 
 
-    目前，只有具有對稱金鑰驗證的下游裝置可以透過 IoT Edge 閘道連線。 目前不支援 X.509 憑證授權單位和 X.509 自我簽署的憑證。 
+    目前，只有具有對稱金鑰驗證的下游裝置可以透過 IoT Edge 閘道連線。 目前不支援 X.509 憑證授權單位和 X.509 自我簽署的憑證。
+    
+> [!NOTE]
+> 「 閘道名稱 」 用來建立此指令，憑證必須是相同名稱所用作為您的 IoT Edge config.yaml 檔案中的主機名稱和 GatewayHostName 下游裝置的連接字串中。 「 閘道名稱 」 必須解析成 IP 位址，使用 DNS 或 host 檔案項目。 根據使用的通訊協定的通訊 (MQTTS:8883 / AMQPS:5671 / HTTPS:433) 必須能夠下游裝置與 IoT Edge 變成透明。 如果防火牆之間時，個別連接埠必須開啟。
 
 ## <a name="prepare-a-downstream-device"></a>準備下游裝置
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275950"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536006"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser 和 Microsoft Azure 計費 API 整合
 本文描述從新的 Microsoft Azure 計費 API 所收集來的資訊如何用來在 Cloud Cruiser 中進行工作流程成本模擬與分析。
@@ -84,7 +84,7 @@ Cloud Cruiser 活頁簿提供自動化的方式收集和處理來自 RateCard AP
 
 ![圖 5- 驗證新的服務][5]
 
-在 [ *費率方案* ] 索引標籤上，您可以利用匯入自 RateCard API 的費率檢查名為 "AzureSimulation" 的費率方案。
+在“费率计划”选项卡上，可以查看名为“AzureSimulation”的新费率计划，其费率是从 RateCard API 导入的。
 
 ![圖 6- 驗證新的費率方案及相關費率][6]
 
@@ -137,7 +137,7 @@ Cloud Cruiser 可以數種方式使用和 Usage API 的整合。 可透過 API �
 在收費端，Cloud Cruiser 可自動化回報/退款程序，並且可以使用標記資訊將使用情況繫結至適當的取用者 (部門、事業處、專案等)。 這項自動化作業提供非常重大的改進，並且可以確保一致且可稽核的收費程序。
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>使用 Microsoft Azure 上的標記建立資源群組
-本教學課程的第一個步驟是在 Azure 入口網站上建立資源群組，然後建立新的標記以產生和資源之間的關聯。 為了這個範例，我們會建立下列標記：部門、環境、擁有者、專案。
+本教學課程的第一個步驟是在 Azure 入口網站上建立資源群組，然後建立新的標記以產生和資源之間的關聯。 此範例中，我們會建立下列標記：專案的部門、 環境、 擁有者。
 
 以下螢幕擷取畫面顯示具有相關聯標記的範例資源群組。
 
@@ -189,18 +189,18 @@ Cloud Cruiser 活頁簿提供自動化的方式收集和處理來自 Usage API �
 下一步是建立查閱資料表，將來自標記的資訊關聯至 *ResourceGroupName*。 下一個步驟會使用此查閱資料表，以利用標記資訊充實消耗量資料。
 
 ### <a name="adding-the-tag-information-to-the-consumption-data"></a>將標記資訊加入至消耗量資料
-現在我們可以跳至處理來自 Billing API 之耗用量資訊的 *PublishData* 工作表，並新增從標記擷取的欄位。 此程序的執行方式為查看上一個步驟中建立的查閱資料表，使用 *ResourceGroupName* 做為查閱的金鑰。
+現在我們可以跳至處理來自 Billing API 之耗用量資訊的 *PublishData* 工作表，並新增從標記擷取的欄位。 通过查看在上一步中创建的查找表（使用 *ResourceGroupName* 作为查找关键字），就可以执行该过程。
 
 ![圖 5 - 將來自查閱的資訊填入帳戶結構中][14]
 
-請注意，已套用「網路」服務的適當帳戶結構欄位，利用遺漏標記修正問題。 我們也在目標資源群組已外的帳戶結構欄位中填入「其他」以在報告中區別它們。
+请注意，已经对“网络”服务应用了相应的帐户结构字段，从而解决了缺少标记的问题。 我們也在目標資源群組已外的帳戶結構欄位中填入「其他」以在報告中區別它們。
 
 現在我們只需要加入發佈使用情況資料的步驟即可。 在這個步驟中，在費率方案上定義之每個服務的適當費率會套用至使用情況資訊，產生費用也會載入至資料庫。
 
 最棒的部分是您只需要完成此程序一次。 完成活頁簿之後，您只需要將它加入至排程器，它就會依照排程時間每小時或每日執行一次。 然後就只需建立新報告或自訂現有報告，進而藉由分析資料從雲端使用情況取得有意義的見解。
 
 ### <a name="next-steps"></a>後續步驟
-* 如需建立 Cloud Cruiser 活頁簿和報告的詳細指示，請參閱 Cloud Cruiser 的線上 [文件](http://docs.cloudcruiser.com/) (需要有效的登入)。  如需有關 Cloud Cruiser 的詳細資訊，請連絡 [info@cloudcruiser.com](mailto:info@cloudcruiser.com)。
+* 如需建立 Cloud Cruiser 活頁簿和報告的詳細指示，請參閱 Cloud Cruiser 的線上 [文件](https://docs.cloudcruiser.com/) (需要有效的登入)。  如需有關 Cloud Cruiser 的詳細資訊，請連絡 [info@cloudcruiser.com](mailto:info@cloudcruiser.com)。
 * 請參閱 [深入了解 Microsoft Azure 資源耗用量](billing-usage-rate-card-overview.md) 以取得 Azure 資源使用情況和 RateCard API 的概觀。
 * 查看 [Azure 計費 REST API 參考](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) 以取得屬於 Azure 資源管理員所提供之 API 集合的兩個 API 之詳細資訊。
 * 如果您想要探究範例程式碼，請查看 [Azure 程式碼範例](https://azure.microsoft.com/documentation/samples/?term=billing)上的＜Microsoft Azure 計費 API 程式碼範例＞。

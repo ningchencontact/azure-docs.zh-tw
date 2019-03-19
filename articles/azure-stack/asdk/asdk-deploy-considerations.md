@@ -16,12 +16,12 @@ ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: f874be6081a1ea01ecf616c9b97db878554d441c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f3fdfcc6a2fbb527582d4bf242c039a778b84ed1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877984"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署規劃考量
 在部署 Azure Stack 開發套件 (ASDK) 前，請確定您的開發套件主機電腦符合本文中所述的需求。
@@ -77,23 +77,23 @@ ms.locfileid: "55242411"
 
 如果您的環境未連線到網際網路，或您不想要使用 Azure AD，則可以使用「Active Directory 同盟服務」(AD FS) 來部署 Azure Stack。 開發套件包含自己的 AD FS 和 Active Directory Domain Services 執行個體。 如果使用這個選項來部署，就不需要事先設定帳戶。
 
->[!NOTE]
-如果您使用 AD FS 選項來部署，則必須重新部署 Azure Stack 以切換到 Azure AD。
+> [!NOTE]
+> 如果您使用 AD FS 選項來部署，則必須重新部署 Azure Stack 以切換到 Azure AD。
 
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory 帳戶
 若要使用 Azure AD 帳戶來部署 Azure Stack，您必須在執行部署 PowerShell 指令碼之前，先備妥 Azure AD 帳戶。 這個帳戶會成為 Azure AD 租用戶的「全域系統管理員」。 它可用來為與 Azure Active Directory 和「圖形 API」互動的所有 Azure Stack 服務佈建及委派應用程式和服務主體。 它也用來作為預設提供者訂用帳戶 (您可以稍後變更此訂用帳戶) 的擁有者。 您可以使用這個帳戶來登入 Azure Stack 系統的系統管理員入口網站。
 
-1. 建立至少是一個 Azure AD 之目錄系統管理員的 Azure AD 帳戶。 如果您已經有一個這樣的帳戶，則可以使用該帳戶。 否則，您可以在 [https://azure.microsoft.com/free/](https://azure.microsoft.com/pricing/free/) 免費建立一個帳戶 (若在中國，請改為造訪 <https://go.microsoft.com/fwlink/?LinkID=717821>)。 如果您打算稍後[向 Azure 註冊 Azure Stack](asdk-register.md)，則也必須在這個新建立的帳戶中有一個訂用帳戶。
+1. 建立至少是一個 Azure AD 之目錄系統管理員的 Azure AD 帳戶。 如果您已經有一個這樣的帳戶，則可以使用該帳戶。 否則，您可以在 [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) 免費建立一個帳戶 (若在中國，請改為造訪 <https://go.microsoft.com/fwlink/?LinkID=717821>)。 如果您打算稍後[向 Azure 註冊 Azure Stack](asdk-register.md)，則也必須在這個新建立的帳戶中有一個訂用帳戶。
    
     儲存這些認證以供作為服務管理員。 這個帳戶可以設定和管理資源雲端、使用者帳戶、租用戶方案、配額及價格。 在此入口網站中，這些管理員可以建立網站雲端、虛擬機器私人雲端、建立方案，以及管理使用者訂用帳戶。
 1. 在 Azure AD 中建立至少一個測試使用者帳戶，以便您能夠以租用戶身分登入開發套件。
    
    | **Azure Active Directory 帳戶** | **是否支援？** |
    | --- | --- |
-   | 具備有效公用 Azure 訂用帳戶的公司或學校帳戶 |是 |
-   | 具備有效的公用 Azure 訂用帳戶之 Microsoft 帳戶 |是 |
-   | 具備有效中國 Azure 訂用帳戶的公司或學校帳戶 |是 |
-   | 具備有效美國政府 Azure 訂用帳戶的公司或學校帳戶 |是 |
+   | 具備有效公用 Azure 訂用帳戶的公司或學校帳戶 |yes |
+   | 具備有效的公用 Azure 訂用帳戶之 Microsoft 帳戶 |yes |
+   | 具備有效中國 Azure 訂用帳戶的公司或學校帳戶 |yes |
+   | 具備有效美國政府 Azure 訂用帳戶的公司或學校帳戶 |yes |
 
 部署之後，就不需要 Azure Active Directory 全域管理員權限。 不過，某些作業可能需要全域管理員認證。 例如，需要獲派權限的資源提供者安裝程式指令碼或新功能。 您可以暫時恢復帳戶的全域管理員權限，或使用擁有「預設提供者訂用帳戶」的個別全域管理員帳戶。
 

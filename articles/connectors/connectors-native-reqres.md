@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27960556"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552175"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>開始使用要求和回應元件
 透過邏輯應用程式中的要求和回應元件，您可以即時回應事件。
@@ -38,7 +38,7 @@ ms.locfileid: "27960556"
 
 以下是如何在邏輯應用程式設計工具中設定 HTTP 要求的範例順序。
 
-1. 將 [要求 - 收到 HTTP 要求時]  觸發程序新增到您的邏輯應用程式。 您可以選擇性地提供 JSON 結構描述 (透過使用 [JSONSchema.net](http://jsonschema.net)之類的工具) 來做為要求本文。 這可讓設計工具在 HTTP 要求中產生屬性的權杖。
+1. 將 [要求 - 收到 HTTP 要求時]  觸發程序新增到您的邏輯應用程式。 您可以選擇性地提供 JSON 結構描述 (透過使用 [JSONSchema.net](https://jsonschema.net)之類的工具) 來做為要求本文。 這可讓設計工具在 HTTP 要求中產生屬性的權杖。
 2. 新增另一個動作以儲存邏輯應用程式。
 3. 在儲存邏輯應用程式之後，您可以從要求卡片取得 HTTP 要求 URL。
 4. 針對 URL 的 HTTP POST (您可以使用 [Postman](https://www.getpostman.com/)之類的工具) 會觸發邏輯應用程式。
@@ -68,14 +68,14 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 ## <a name="request-trigger"></a>要求觸發程序
 以下是此連接器所支援觸發程序的詳細資料。 只有一個要求觸發程序。
 
-| 觸發程序 | 說明 |
+| 觸發程序 | 描述 |
 | --- | --- |
 | 要求 |收到 HTTP 要求時發生 |
 
 ## <a name="response-action"></a>回應動作
 以下是此連接器所支援動作的詳細資料。 只有一個回應動作，此動作只能在伴隨要求觸發程序時使用。
 
-| 動作 | 說明 |
+|  動作 | 描述 |
 | --- | --- |
 | Response |傳回相互關聯的 HTTP 要求的回應 |
 
@@ -85,7 +85,7 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 #### <a name="request-trigger"></a>要求觸發程序
 以下是傳入 HTTP 要求之觸發程序的輸入欄位。
 
-| 顯示名稱 | 屬性名稱 | 說明 |
+| 顯示名稱 | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | JSON 結構描述 |結構描述 |HTTP 要求本文的 JSON 結構描述 |
 
@@ -95,7 +95,7 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 
 以下是要求的輸出詳細資料。
 
-| 屬性名稱 | 資料類型 | 說明 |
+| 屬性名稱 | 資料類型 | 描述 |
 | --- | --- | --- |
 | headers |物件 |要求標頭 |
 | body |物件 |要求物件 |
@@ -103,7 +103,7 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 #### <a name="response-action"></a>回應動作
 以下是 HTTP 回應動作的輸入欄位。 標示 * 代表必要欄位。
 
-| 顯示名稱 | 屬性名稱 | 說明 |
+| 顯示名稱 | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | 狀態碼 * |StatusCode |HTTP 狀態碼 |
 | headers |headers |要包含的任何回應標頭的 JSON 物件 |

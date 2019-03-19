@@ -11,24 +11,24 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: de78e70b30c4e0b03f87ad6b1bfe00356f897f43
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 270f400f78b971e022a59e5e9a04a76dfa929941
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698218"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761152"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>建立 Node.js 應用程式並部署到 Azure 雲端服務
 
-本教學課程示範如何建立在 Azure 雲端服務中執行的簡單 Node.js 應用程式。 雲端服務是 Azure 中可擴充雲端應用程式的建置組塊。 可以個別獨立管理和向外延展應用程式的前端和後端元件。  雲端服務提供穩定代管各個角色的強固專用虛擬機器。
+本教程演示如何创建在 Azure 云服务中运行的简单 Node.js 应用程序。 雲端服務是 Azure 中可擴充雲端應用程式的建置組塊。 可以個別獨立管理和向外延展應用程式的前端和後端元件。  雲端服務提供穩定代管各個角色的強固專用虛擬機器。
 
 如需雲端服務及其相較於 Azure 網站和虛擬機器的詳細資訊，請參閱 [Azure 網站、雲端服務與虛擬機器的比較]。
 
 > [!TIP]
-> 尋求建置簡單的網站？ 如果您只需要簡單的網站前端，請考慮[使用輕量型 Web 應用程式]。 隨著 Web 應用程式擴大以及需求改變，您可以輕易地升級到雲端服務。
+> 想要构建简单网站？ 如果您只需要簡單的網站前端，請考慮[使用輕量型 Web 應用程式]。 隨著 Web 應用程式擴大以及需求改變，您可以輕易地升級到雲端服務。
 
 按照本教學課程進行，您將建立在 Web 角色內代管的簡單 Web 應用程式。 您將使用計算模擬器在本機測試您的應用程式，然後使用 PowerShell 命令列工具部署應用程式。
 
@@ -87,7 +87,7 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 ## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure
 
 > [!NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。 您可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或是[註冊免費帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)。
+> 若要完成本教程，需要一个 Azure 帐户。 可以[激活 MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或[注册免费帐户](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)。
 
 ### <a name="download-the-azure-publishing-settings"></a>下載 Azure 發佈設定
 若要將應用程式部署到 Azure，您必須先下載您 Azure 訂閱的發佈設定。
@@ -157,21 +157,21 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
    ![Remove-AzureService 命令的狀態][The status of the Remove-AzureService command]
 
    > [!NOTE]
-   > 刪除服務不會刪除初次發佈服務時建立的儲存體帳戶，而且將持續對使用的儲存體計費。 如果沒有其他項目正在使用儲存體，您可以將它刪除。
+   > 删除服务不会删除最初发布服务时创建的存储帐户，用户仍需为使用的存储付费。 如果沒有其他項目正在使用儲存體，您可以將它刪除。
 
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱 [Node.js 開發人員中心]。
+如需詳細資訊，請參閱 [Node.js 开发人员中心]。
 
 <!-- URL List -->
 
 [Azure 網站、雲端服務與虛擬機器的比較]: ../app-service/overview-compare.md
 [使用輕量型 Web 應用程式]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
+[Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [連線 PowerShell]: /powershell/azureps-cmdlets-docs
-[nodejs.org]: http://nodejs.org/
+[nodejs.org]: https://nodejs.org/
 [雲端服務]: https://azure.microsoft.com/documentation/services/cloud-services/
-[Node.js 開發人員中心]: https://azure.microsoft.com/develop/nodejs/
+[Node.js 开发人员中心]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 

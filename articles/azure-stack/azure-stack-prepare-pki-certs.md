@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6e11df8bedb88d3e505b7fa3c55ade13282911a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106475"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>準備要在部署或輪替中使用的 Azure Stack PKI 憑證
 
@@ -32,23 +32,23 @@ ms.locfileid: "55656714"
 
 ### <a name="import-the-certificate"></a>匯入憑證
 
-1.  將[取自您所選 CA 的](azure-stack-get-pki-certs.md)原始憑證版本複製到部署主機的目錄中。 
-  > [!WARNING]
-  > 如果已透過任何方式匯入、匯出或修改從 CA 直接提供的檔案，則請勿複製該檔案。
+1. 將[取自您所選 CA 的](azure-stack-get-pki-certs.md)原始憑證版本複製到部署主機的目錄中。 
+   > [!WARNING]
+   > 如果已透過任何方式匯入、匯出或修改從 CA 直接提供的檔案，則請勿複製該檔案。
 
-1.  以滑鼠右鍵按一下憑證，然後根據從 CA 傳遞憑證的方式選取 [安裝憑證] 或 [安裝 PFX]。
+1. 以滑鼠右鍵按一下憑證，然後根據從 CA 傳遞憑證的方式選取 [安裝憑證] 或 [安裝 PFX]。
 
 1. 在 [憑證匯入精靈] 中，選取 [本機電腦] 作為匯入位置。 選取 [下一步] 。 在下列畫面上，再次按一下 [下一步]。
 
     ![本機電腦匯入位置](./media/prepare-pki-certs/1.png)
 
-1.  選擇 [將所有憑證放在下列存放區中]，然後選取 [企業信任] 作為位置。 按一下 [確定] 以關閉 [憑證存放區選取項目] 對話方塊，然後按 [下一步]。
+1. 選擇 [將所有憑證放在下列存放區中]，然後選取 [企業信任] 作為位置。 按一下 [確定] 以關閉 [憑證存放區選取項目] 對話方塊，然後按 [下一步]。
 
-    ![設定憑證存放區](./media/prepare-pki-certs/3.png)
+   ![設定憑證存放區](./media/prepare-pki-certs/3.png)
 
-    a. 如果您要匯入 PFX，將會看到一個額外的對話方塊。 在 [私密金鑰保護] 頁面上，輸入您憑證檔案的密碼，然後啟用 [將此索引鍵標示為可匯出。這可讓您在稍後備份或傳輸索引鍵] 選項。 選取 [下一步] 。
+   a. 如果您要匯入 PFX，將會看到一個額外的對話方塊。 在 [私密金鑰保護] 頁面上，輸入您憑證檔案的密碼，然後啟用 [將此索引鍵標示為可匯出。這可讓您在稍後備份或傳輸索引鍵] 選項。 選取 [下一步] 。
 
-    ![將索引鍵標示為可匯出](./media/prepare-pki-certs/2.png)
+   ![將索引鍵標示為可匯出](./media/prepare-pki-certs/2.png)
 
 1. 按一下 [完成] 完成匯入。
 
@@ -70,19 +70,19 @@ ms.locfileid: "55656714"
 
 1. 從 [憑證管理員] 主控台的工作列中，選取 [動作] > [所有工作] > [匯出]。 選取 [下一步] 。
 
-  > [!NOTE]
-  > 視您有多少個 Azure Stack 憑證而定，可能需要多次完成此處理序。
+   > [!NOTE]
+   > 視您有多少個 Azure Stack 憑證而定，可能需要多次完成此處理序。
 
 1. 選取 [是，匯出私密金鑰]，然後按 [下一步]。
 
 1. 在 [匯出檔案格式] 區段中：
     
-    - 選取 [如果可能的話，包含憑證路徑中所有的憑證]。  
-    - 選取 [匯出所有延伸屬性]。  
-    - 選取 [啟用憑證隱私權]。  
-    - 按 [下一步] 。  
+   - 選取 [如果可能的話，包含憑證路徑中所有的憑證]。  
+   - 選取 [匯出所有延伸屬性]。  
+   - 選取 [啟用憑證隱私權]。  
+   - 按 [下一步] 。  
     
-    ![選項已選取的憑證匯出精靈](./media/prepare-pki-certs\azure-stack-save-cert.png)
+     ![選項已選取的憑證匯出精靈](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
 1. 選取 [密碼] 並提供憑證的密碼。 建立符合下列密碼複雜性需求的密碼。 長度至少要有八個字元。 密碼包含至少下列其中三項：大寫字母、小寫字母、0 到 9 的數字、特殊字元，大寫和小寫字母以外的字母字元。 記下此密碼。 您會將其作為部署參數。
 

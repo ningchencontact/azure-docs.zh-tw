@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 4a9c7221fbb549494e3ed112e2ab4e66c4b7dadd
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cb5b64869a26133e1c08095a816c2d2854f85b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770630"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103497"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>管理 Azure Stack 的實際記憶體容量
 
@@ -39,11 +39,11 @@ ms.locfileid: "55770630"
 ## <a name="add-memory-to-an-existing-node"></a>將記憶體新增至現有的節點
 下列步驟提供新增記憶體程序的高階概觀。 
 
-> [!Warning]  
-請勿在未參考您 OEM 提供之文件的情況下依照這些步驟執行。
-
-> [!Warning]  
-因為不支援輪流記憶體升級，所以必須關閉整個縮放單位。
+> [!Warning]
+> 請勿在未參考您 OEM 提供之文件的情況下依照這些步驟執行。
+> 
+> [!Warning]
+> 因為不支援輪流記憶體升級，所以必須關閉整個縮放單位。
 
 1. 使用[啟動和停止 Azure Stack](azure-stack-start-and-stop.md) 一文中記載的步驟來停止 Azure Stack。
 2. 利用硬體製造商的文件來升級每部實體電腦上的記憶體。

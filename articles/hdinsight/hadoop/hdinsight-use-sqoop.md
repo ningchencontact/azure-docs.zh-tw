@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 0a03bfe61da6a1de073401fca9c61f3212b9d0bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652485"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440092"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>搭配使用 Apache Sqoop 與 HDInsight 中的 Hadoop
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -37,9 +37,9 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
-* 參考位於 /hive/warehouse/hivesampletable 之資料檔案的 Hive 資料表 hivesampletable。 此資料表包含某些行動裝置資料。 
+* 參考位於 /hive/warehouse/hivesampletable 之資料檔案的 Hive 資料表 hivesampletable。 该表包含一些移动设备数据。 
   
-  | 欄位 | 資料類型 |
+  | 欄位 | 数据类型 |
   | --- | --- |
   | clientid |字串 |
   | querytime |字串 |
@@ -82,20 +82,20 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
     - **叢集登入名稱和密碼**：預設登入名稱為 admin。
     - **SSH 使用者名稱和密碼**。
     - **SQL Database 伺服器登入名稱和密碼**。
-    - **_artifacts 位置**：除非您想要使用位於不同位置的自有 backpac 檔案，否則請使用預設值。
+    - **_artifacts 位置**：除非您想要使用您自己的 bacpac 檔案，在不同位置，請使用預設值。
     - **位置 SAS 權杖**：保留為空白。
-    - **Bacpac 檔案名稱**：除非您想要使用自有 backpac 檔案，否則請使用預設值。
+    - **Bacpac 檔案名稱**：除非您想要使用您自己的 bacpac 檔案，請使用預設值。
      
         變數區段中的下列值為硬式編碼︰
         
-        |Name|值|
+        |名稱|值|
         |----|-----|
         | 預設儲存體帳戶名稱 | &lt;ClusterName>store |
         | Azure SQL Database 伺服器名稱 | &lt;ClusterName>dbserver |
         | Azure SQL Database 名稱 | &lt;ClusterName>db |
      
 3. 選取 [我同意上方所述的條款及條件]。
-4. 按一下 [購買]。 您會看到新的圖格，標題為「提交範本部署的部署」。 大約需要 20 分鐘的時間來建立叢集和 SQL Database。
+4. 按一下 [購買]。 您會看到新的圖格，標題為「提交範本部署的部署」。 创建群集和 SQL 数据库大约需要 20 分钟时间。
 
 如果您選擇使用現有的 Azure SQL Database 或 Microsoft SQL Server
 
@@ -144,7 +144,7 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
 
 | **使用此方法**  | ...一個 **互動式** 殼層 | ...**批次** 處理 | ...搭配此 **叢集作業系統** | ...從此 **用戶端作業系統** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux |Linux、Unix、Mac OS X 或 Windows |
+| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? | Linux |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |? |Linux 或 Windows |Windows (目前) |
 | [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux 或 Windows | Windows |
 
@@ -163,8 +163,8 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
 這些 PowerShell 範例會執行下列步驟：
 
 1. 連接到 Azure。
-2. 建立 Azure 資源群組。 如需詳細資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](../../azure-resource-manager/powershell-azure-resource-manager.md)
-3. 建立 Azure SQL Database 伺服器、Azure SQL Database 和兩個資料表。 
+2. 建立 Azure 資源群組。 如需詳細資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](../../azure-resource-manager/manage-resource-groups-powershell.md)
+3. 创建一个 Azure SQL 数据库服务器、一个 Azure SQL 数据库和两个表。 
    
     如果您改為使用 SQL Server，請使用下列陳述式來建立資料表：
    
@@ -219,9 +219,9 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
 7. 將 Hive 資料表匯出至 Azure SQL Database。
 8. 將 mobiledata 資料表匯入 HDInsight 叢集。
    
-    若要檢查已修改的資料檔案，可以使用 Azure 入口網站、Azure 儲存體總管工具或 Azure PowerShell。  [開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
+    若要检查修改后的数据文件，可以使用 Azure 门户、Azure 存储资源管理器工具或 Azure PowerShell。  [開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
 
-### <a name="the-powershell-sample"></a>PowerShell 範例
+### <a name="the-powershell-sample"></a>PowerShell 示例
 
 ```powershell
 # Prepare an Azure SQL database to be used by the Sqoop tutorial

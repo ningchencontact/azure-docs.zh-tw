@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 07e598d6fd4ed2937d86f31593a220c0c28ba328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074653"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>設定站對站 VPN 連線的 IPsec/IKE 原則
 
@@ -76,7 +76,7 @@ IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各
 | IPsec 加密                                     | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、無 |
 | IPsec 完整性                                      | GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5                       |
 | PFS 群組                                            | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、無                         |
-| QM SA 存留期                                       | (選擇性：如果未指定，即會使用預設值)<br />                         秒 (整數；最小 300/預設值 27000 秒)<br />                         KB 數 (整數；最小 1024/預設值 102400000 KB 數) |                                                                          |
+| QM SA 存留期                                       | (選擇性：如果未指定，即會使用預設值)<br />                         秒 (整數；最小 300/預設值 27000 秒)<br />                         KB 數 (整數；最小 1024/預設值 102400000 KB 數) |
 | 流量選取器                                     | Azure Stack 不支援原則式流量選取器。         |
 
 - 內部部署 VPN 裝置組態必須符合或包含您在 Azure IPsec/IKE 原則中指定的下列演算法和參數︰

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e27ecc73c19b92f8dcf77849c2f91a5eb57ac8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168030"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442166"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>作法：使用 ADAL 在 Android 上啟用跨應用程式的 SSO
 
@@ -119,7 +119,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>步驟 2：利用 URL 配置建立新的重新導向 URI
 
-為了確保傳回的認證權杖一律會由正確的應用程式所接收，必須要確定 Android 作業系統可以確認回呼應用程式的方式。 Android 作業系統會使用 Google Play 商店中的憑證雜湊。 惡意應用程式無法假冒此憑證雜湊。 搭配訊息代理程式應用程式的 URI，Microsoft 可確保權杖會傳回給正確的應用程式。 唯一的重新導向 URI 必須註冊於應用程式上。
+若要確保正確的應用程式接收傳回認證權杖，那里需要請確定您的應用程式的呼叫 Android 作業系統可以確認的方式。 Android 作業系統會使用 Google Play 商店中的憑證雜湊。 惡意應用程式無法假冒此憑證雜湊。 搭配訊息代理程式應用程式的 URI，Microsoft 可確保權杖會傳回給正確的應用程式。 唯一的重新導向 URI 必須註冊於應用程式上。
 
 您的重新導向 URI 必須是適當的格式︰
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745957"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959454"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
 
@@ -61,11 +61,11 @@ ms.locfileid: "55745957"
 | 資源 | 用於 |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 根據下方的結構描述，記錄與您應用程式中使用者事件相互關聯的事件和查詢計量。 這是唯一會將使用者動作或信號列入考量的解決方案，其中會將來自使用者所起始搜尋的事件與應用程式碼所提交的篩選要求對應。 若要使用此方法，請複製檢測程式碼並貼到您的原始程式檔中，以將要求資訊路由傳送至 Application Insights。 如需詳細資訊，請參閱[搜尋流量分析](search-traffic-analytics.md)。 |
-| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 根據下方的結構描述，記錄事件和查詢計量。 事件會記錄至 Log Analytics 中的工作區。 您可以對工作區執行查詢，以從記錄傳回詳細的資訊。 如需詳細資訊，請參閱[開始使用 Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Azure 監視器記錄](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 根據下方的結構描述，記錄事件和查詢計量。 事件會記錄到 Log Analytics 工作區。 您可以對工作區執行查詢，以從記錄傳回詳細的資訊。 如需詳細資訊，請參閱[開始使用 Azure 監視器記錄檔](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 根據下方的結構描述，記錄事件和查詢計量。 事件會記錄至 Blob 容器並儲存在 JSON 檔案中。 請使用 JSON 編輯器來檢視檔案內容。|
 | [事件中樞](https://docs.microsoft.com/azure/event-hubs/) | 根據本文中記載的結構描述，記錄事件和查詢計量。 請選擇此選項作為非常大型記錄的替代資料收集服務。 |
 
-Log Analytics 和 Blob 儲存體都是以「免費」共用服務的形式提供，因此在您 Azure 訂用帳戶的存留期間，您都可以免費試用。 Application Insights 可供免費註冊和使用，只要應用程式資料大小在特定限制範圍內即可 (如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/monitor/))。
+Azure 監視器記錄檔和 Blob 儲存體是免費的共用服務的形式提供，以便您可以試用免費的 Azure 訂用帳戶的存留期。 Application Insights 可供免費註冊和使用，只要應用程式資料大小在特定限制範圍內即可 (如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/monitor/))。
 
 下一節將逐步解說啟用及使用 Azure Blob 儲存體來收集和存取「Azure 搜尋服務」作業所建立記錄資料的步驟。
 
@@ -81,7 +81,7 @@ Log Analytics 和 Blob 儲存體都是以「免費」共用服務的形式提供
 
    ![啟用監視](./media/search-monitor-usage/enable-monitoring.png "啟用監視")
 
-3. 選擇您想要匯出的資料：記錄、計量或兩者。 您可以將它複製到儲存體帳戶、將它傳送到事件中樞，或將它匯出成 Log Analytics。
+3. 選擇您想要匯出的資料：記錄、計量或兩者。 您可以將它複製到儲存體帳戶、 將它傳送到事件中樞，或將它匯出至 Azure 監視器記錄檔。
 
    若要封存至 Blob 儲存體，只有儲存體帳戶必須存在。 容器和 Blob 將在匯出記錄資料時建立。
 
@@ -109,7 +109,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>記錄檔結構描述
 包含您搜尋服務流量記錄的 Blob 會結構化，如本節所述。 每個 Blob 都有一個名為**記錄**的根物件，其中包含記錄物件的陣列。 每個 Blob 都包含在同一小時內發生之所有作業的記錄。
 
-| Name | 類型 | 範例 | 注意 |
+| 名稱 | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
 | 分析 |Datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
 | ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
@@ -123,9 +123,9 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 **屬性結構描述**
 
-| Name | 類型 | 範例 | 注意 |
+| 名稱 | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| 說明 |字串 |"GET /indexes('content')/docs" |作業的端點 |
+| 描述 |字串 |"GET /indexes('content')/docs" |作業的端點 |
 | 查詢 |字串 |"?search=AzureSearch&$count=true&api-version=2017-11-11" |查詢參數 |
 | 文件 |int |42 |處理的文件數目 |
 | IndexName |字串 |"testindex" |與作業相關聯的索引名稱 |
@@ -134,7 +134,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 針對查詢要求，會擷取計量。
 
-| Name | 類型 | 範例 | 注意 |
+| 名稱 | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
 | ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
 | metricName |字串 |"Latency" |度量的名稱 |

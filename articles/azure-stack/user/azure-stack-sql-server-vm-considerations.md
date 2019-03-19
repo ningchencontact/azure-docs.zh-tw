@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123397"
 ---
 # <a name="optimize-sql-server-performance"></a>將 SQL Server 效能最佳化
 
@@ -104,20 +104,20 @@ Azure Stack 虛擬機器上有三種主要的磁碟類型︰
 
 - **磁碟等量分割︰** 如需更多的輸送量，您可以新增其他資料磁碟，並使用磁碟等量分割。 若要判斷所需的資料磁碟數目，請分析記錄檔以及資料和 TempDB 檔案所需的 IOPS 數目和頻寬。 請注意，IOPS 的限制是以每個資料磁碟為基礎的 (根據虛擬機器系列)，而不是以虛擬機器大小基礎的。 不過，網路頻寬限制則是以虛擬機器大小為基礎的。 如需詳細資訊，請參閱 [Azure Stack 中的虛擬機器大小](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)上的資料表。 請使用下列指引：
 
-    - 若為 Windows Server 2012 或更新版本，請使用[儲存空間](https://technet.microsoft.com/library/hh831739.aspx)與下列指導方針：
+  - 若為 Windows Server 2012 或更新版本，請使用[儲存空間](https://technet.microsoft.com/library/hh831739.aspx)與下列指導方針：
 
-        1.  將線上交易處理 (OLTP) 工作負載的間隔 (等量磁碟區大小) 設為 64 KB (65,536 位元組)，資料倉儲的工作負載則設為 256 KB (262,144 位元組)，以避免分割對齊錯誤影響效能。 必須使用 PowerShell 來設定。
+    1. 將線上交易處理 (OLTP) 工作負載的間隔 (等量磁碟區大小) 設為 64 KB (65,536 位元組)，資料倉儲的工作負載則設為 256 KB (262,144 位元組)，以避免分割對齊錯誤影響效能。 必須使用 PowerShell 來設定。
 
-        2.  設定資料行數目 = 實體磁碟數量。 設定超過 8 個磁碟時請使用 PowerShell (而非伺服器管理員 UI)。
+    2. 設定資料行數目 = 實體磁碟數量。 設定超過 8 個磁碟時請使用 PowerShell (而非伺服器管理員 UI)。
 
-            例如，下列 PowerShell 會建立新的儲存體集區，其間隔大小設定為 64 KB，且資料行數目設定為 2︰
+       例如，下列 PowerShell 會建立新的儲存體集區，其間隔大小設定為 64 KB，且資料行數目設定為 2︰
 
-          ```PowerShell  
-          $PoolCount = Get-PhysicalDisk -CanPool $True
-          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+       ```PowerShell  
+       $PoolCount = Get-PhysicalDisk -CanPool $True
+       $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
-          ```
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       ```
 
 - 請根據您預期的負載量，決定與您的儲存體集區相關聯的磁碟數量。 請注意，各虛擬機器大小所允許連接的資料磁碟數量皆不同。 如需詳細資訊，請參閱 [Azure Stack 中支援的虛擬機器大小](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)。
 - 為了獲得資料磁碟所能實現的最大 IOPS，建議您新增[虛擬機器大小](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)所支援的最大資料磁碟數目，並使用磁碟等量分割。

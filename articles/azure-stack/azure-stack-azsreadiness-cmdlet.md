@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250634"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992323"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker Cmdlet 參考
 
@@ -299,6 +299,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -RegionName
 
 指定 Azure Stack 部署的區域名稱。
+
 |  |  |
 |----------------------------|--------------|
 |輸入：                       |字串        |
@@ -310,6 +311,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -FQDN
 
 指定 Azure Stack 部署的外部 FQDN，同時設定為 ExternalFQDN 和 ExternalDomainName 別名。
+
 |  |  |
 |----------------------------|--------------|
 |輸入：                       |字串        |
@@ -321,6 +323,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -IdentitySystem
 
 為 Azure Stack 部署分別指定 Azure Active Directory 和 Active Directory 同盟服務的身分識別系統有效值 AAD 或 ADFS。
+
 |  |  |
 |----------------------------|--------------|
 |輸入：                       |字串        |
@@ -333,6 +336,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -PfxPassword
 
 指定與 PFX 憑證檔案相關聯的密碼。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |SecureString |
@@ -344,6 +348,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -PaaSCertificates
 
 指定包含 PaaS 憑證之路徑和密碼的雜湊表。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |雜湊表 |
@@ -355,6 +360,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -DeploymentDataJSONPath
 
 指定 Azure Stack 部署的資料 JSON 組態檔。 此檔案是為部署產生的。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |字串   |
@@ -366,6 +372,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -PfxPath
 
 指定有問題而需要以匯入/匯出常式修正的憑證 (如此工具中的憑證驗證所指出) 的路徑。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |字串   |
@@ -377,6 +384,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -ExportPFXPath  
 
 指定匯入/匯出常式所產生之 PFX 檔案的目的地路徑。  
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |字串   |
@@ -388,6 +396,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -Subject
 
 指定用來產生憑證要求之主體已排序的字典。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |OrderedDictionary   |
@@ -415,6 +424,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -OutputRequestPath
 
 指定憑證要求檔案的目的地路徑，目錄必須已存在。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |字串   |
@@ -426,6 +436,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -AADServiceAdministrator
 
 指定要用於 Azure Stack 部署的 Azure Active Directory 服務管理員。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |PSCredential   |
@@ -437,6 +448,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -AADDirectoryTenantName
 
 指定要用於 Azure Stack 部署的 Azure Active Directory 名稱。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |字串   |
@@ -448,6 +460,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -AzureEnvironment
 
 指定要用於 Azure Stack 部署與註冊的帳戶、目錄和訂用帳戶所屬的 Azure 服務執行個體。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |字串   |
@@ -460,6 +473,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -RegistrationAccount
 
 指定要用於 Azure Stack 註冊的註冊帳戶。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |字串   |
@@ -471,6 +485,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -RegistrationSubscriptionID
 
 指定要用於 Azure Stack 註冊的註冊訂用帳戶識別碼。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |Guid     |
@@ -482,6 +497,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -ReportPath
 
 指定整備報告的路徑，預設值為目前的目錄和預設報告名稱。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |字串   |
@@ -527,6 +543,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -ReportSections
 
 指定是否僅顯示報告摘要，而省略詳細資料。
+
 |  |  |
 |----------------------------|---------|
 |輸入：                       |字串   |
@@ -539,6 +556,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -Summary
 
 指定是否僅顯示報告摘要，而省略詳細資料。
+
 |  |  |
 |----------------------------|------------------|
 |輸入：                       |SwitchParameter   |
@@ -550,6 +568,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -CleanReport
 
 移除先前的執行和驗證歷程記錄，並將驗證寫入至新報表。
+
 |  |  |
 |----------------------------|------------------|
 |輸入：                       |SwitchParameter   |
@@ -574,6 +593,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -Confirm
 
 在執行 Cmdlet 前提示您確認。
+
 |  |  |
 |----------------------------|------------------|
 |輸入：                       |SwitchParameter   |
@@ -586,6 +606,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -WhatIf
 
 顯示執行 Cmdlet 後會發生的情況。 Cmdlet 並不會執行。
+
 |  |  |
 |----------------------------|------------------|
 |輸入：                       |SwitchParameter   |
@@ -594,3 +615,4 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |預設值：              |False             |
 |接受管線輸入：      |False             |
 |接受萬用字元： |False             |
+

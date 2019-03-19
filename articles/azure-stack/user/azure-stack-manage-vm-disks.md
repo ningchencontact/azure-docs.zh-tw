@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 4edaf782b193e99dfe4002eedb6f3a046fb7dcd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081452"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中建立虛擬機器磁碟儲存體
 
@@ -68,56 +68,56 @@ ms.locfileid: "56326505"
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>使用入口網站建立並連結新的資料磁碟
 
-1.  在入口網站中，選擇 [所有服務] > [虛擬機器]。    
-    ![範例：VM 儀表板](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. 在入口網站中，選擇 [所有服務] > [虛擬機器]。    
+   ![範例：VM 儀表板](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2.  選取先前建立的虛擬機器。   
-    ![範例：在儀表板中選取 VM](media/azure-stack-manage-vm-disks/select-a-vm.png)
+2. 選取先前建立的虛擬機器。   
+   ![範例：在儀表板中選取 VM](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  為虛擬機器選取 [磁碟] > [新增資料磁碟]。       
-    ![範例：將新磁碟連結至 VM](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. 為虛擬機器選取 [磁碟] > [新增資料磁碟]。       
+   ![範例：將新磁碟連結至 VM](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  針對資料磁碟：
-    -  輸入 **LUN**。 LUN 必須是有效的數字。
-    -  選取 [建立磁碟]。
-    ![範例：將新磁碟連結至 VM](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+4. 針對資料磁碟：
+   -  輸入 **LUN**。 LUN 必須是有效的數字。
+   -  選取 [建立磁碟]。
+   ![範例：將新磁碟連結至 VM](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  在 [建立受控磁碟] 刀鋒視窗中：
-    -  輸入磁碟的 [名稱]。
-    -  選取現有的資源群組或建立新的 [資源群組]。
-    -  選取 [位置]。 根據預設，位置會設定為保存 OS 磁碟的同一個容器。
-    -  選取 [帳戶類型]。 
-        ![範例：將新磁碟連結至 VM](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+5. 在 [建立受控磁碟] 刀鋒視窗中：
+   - 輸入磁碟的 [名稱]。
+   - 選取現有的資源群組或建立新的 [資源群組]。
+   - 選取 [位置]。 根據預設，位置會設定為保存 OS 磁碟的同一個容器。
+   - 選取 [帳戶類型]。 
+      ![範例：將新磁碟連結至 VM](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-        **進階 SSD**  
-        進階磁碟 (SSD) 採用固態硬碟，可提供一致、低延遲的效能。 進階磁碟可讓您在價格和效能之間取得最佳的平衡，並且適用於 I/O 密集型應用程式和生產工作負載。
+      **進階 SSD**  
+      進階磁碟 (SSD) 採用固態硬碟，可提供一致、低延遲的效能。 進階磁碟可讓您在價格和效能之間取得最佳的平衡，並且適用於 I/O 密集型應用程式和生產工作負載。
        
-        **標準 HDD**  
-        標準磁碟 (HDD) 採用磁碟機，適用於不常存取資料的應用程式。 區域備援磁碟採用區域備援儲存體 (ZRS)，此儲存體可跨多個區域複寫資料，且即使在單一區域停止運作時也可供使用。 
+      **標準 HDD**  
+      標準磁碟 (HDD) 採用磁碟機，適用於不常存取資料的應用程式。 區域備援磁碟採用區域備援儲存體 (ZRS)，此儲存體可跨多個區域複寫資料，且即使在單一區域停止運作時也可供使用。 
 
-    -  選取 [來源類型]。
+   - 選取 [來源類型]。
 
-       從另一個磁碟的快照集、儲存體帳戶中的 Blob 建立磁碟，或建立空的磁碟。
+     從另一個磁碟的快照集、儲存體帳戶中的 Blob 建立磁碟，或建立空的磁碟。
 
-        **快照集**  
-        選取快照集 (如果有的話)。 快照集必須位於 VM 的訂用帳戶和位置中。
+      **快照集**  
+      選取快照集 (如果有的話)。 快照集必須位於 VM 的訂用帳戶和位置中。
 
-        **儲存體 Blob**  
-        - 新增包含磁碟映像的儲存體 Blob 的 URI。  
-        - 選取 [瀏覽] 以開啟 [儲存體帳戶] 刀鋒視窗。 如需指示，請參閱[從儲存體帳戶新增資料磁碟](#add-a-data-disk-from-a-storage-account)。
-        - 選取映像的 OS 類型，可以是**Windows**、**Linux** 或**無 (資料磁碟)**。
+      **儲存體 Blob**  
+     - 新增包含磁碟映像的儲存體 Blob 的 URI。  
+     - 選取 [瀏覽] 以開啟 [儲存體帳戶] 刀鋒視窗。 如需指示，請參閱[從儲存體帳戶新增資料磁碟](#add-a-data-disk-from-a-storage-account)。
+     - 選取映像的 OS 類型，可以是**Windows**、**Linux** 或**無 (資料磁碟)**。
 
-        **無 (空磁碟)**
+       **無 (空磁碟)**
 
-    -  選取 [大小 (GiB)]。
+   - 選取 [大小 (GiB)]。
 
-       標準磁碟的成本會隨著磁碟的大小而增加。 進階磁碟的成本和效能會隨著磁碟的大小而提高。 如需詳細資訊，請參閱[受控磁碟定價](https://go.microsoft.com/fwlink/?linkid=843142)。
+     標準磁碟的成本會隨著磁碟的大小而增加。 進階磁碟的成本和效能會隨著磁碟的大小而提高。 如需詳細資訊，請參閱[受控磁碟定價](https://go.microsoft.com/fwlink/?linkid=843142)。
 
-    -  選取 [建立] 。 Azure Stack 會建立並驗證受控磁碟。
+   - 選取 [建立] 。 Azure Stack 會建立並驗證受控磁碟。
 
-5.  在 Azure Stack 建立磁碟並將它連結至虛擬機器之後，新的磁碟會列在虛擬機器之磁碟設定的 [資料磁碟] 底下。   
+5. 在 Azure Stack 建立磁碟並將它連結至虛擬機器之後，新的磁碟會列在虛擬機器之磁碟設定的 [資料磁碟] 底下。   
 
-    ![範例：檢視磁碟](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   ![範例：檢視磁碟](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>從儲存體帳戶新增資料磁碟
 

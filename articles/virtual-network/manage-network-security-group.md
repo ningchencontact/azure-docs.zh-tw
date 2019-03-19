@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5eb5a24d6126e9609d1c653948c2db6b0a4feb55
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822437"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821929"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>建立、變更或刪除網路安全性群組
 
@@ -25,11 +25,13 @@ ms.locfileid: "55822437"
 
 ## <a name="before-you-begin"></a>開始之前
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 在完成本文任一節的步驟之前，請先完成下列工作︰
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.4.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組版本 1.0.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.28 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
@@ -49,7 +51,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)
-- PowerShell：[New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
+- PowerShell：[New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)
 
 ### <a name="view-all-network-security-groups"></a>檢視所有網路安全性群組
 
@@ -58,7 +60,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network nsg list](/cli/azure/network/nsg#az-network-nsg-list)
-- PowerShell：[Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
+- PowerShell：[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
 
 ### <a name="view-details-of-a-network-security-group"></a>檢視網路安全性群組的詳細資料
 
@@ -69,12 +71,12 @@ ms.locfileid: "55822437"
     *   [存取控制 (IAM)](../role-based-access-control/overview.md)
     *   [標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [自動化指令碼](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
+    *   [自动化脚本](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **命令**
 
 - Azure CLI：[az network nsg show](/cli/azure/network/nsg#az-network-nsg-show)
-- PowerShell：[Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
+- PowerShell：[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
 
 ### <a name="change-a-network-security-group"></a>變更網路安全性群組
 
@@ -84,7 +86,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network nsg update](/cli/azure/network/nsg#az-network-nsg-update)
-- PowerShell：[Set-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/set-azurermnetworksecuritygroup)
+- PowerShell：[Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)
 
 ### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>讓網路安全性群組與子網路或網路介面建立關聯或中斷關聯
 
@@ -101,7 +103,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete)
-- PowerShell：[Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
+- PowerShell：[Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup)
 
 ## <a name="work-with-security-rules"></a>使用安全性規則
 
@@ -125,13 +127,13 @@ ms.locfileid: "55822437"
     |通訊協定     | 選取 [任何]、[TCP] 或 [UDP]。        |         |
     | 動作     | 選取 [允許] 或 [拒絕]。        |         |
     |優先順序     | 輸入一個介於 100 到 4096 且對網路安全性群組內的所有安全性規則而言具唯一性的值。 |規則會依照優先順序進行處理。 編號愈低，優先順序愈高。 建議您在建立規則時，於優先順序編號之間保留間距，例如 100、200、300。 保留間距可方便您未來新增比現有規則優先順序更高或更低的規則。         |
-    |Name     | 網路安全性群組內規則的唯一名稱。        |  此名稱最多可有 80 個字元。 它必須以字母或數字為開頭、以字母、數字或底線為結尾，且只能包含字母、數字、底線、句點或連字號。       |
-    |說明     | 選擇性的描述。        |         |
+    |名稱     | 網路安全性群組內規則的唯一名稱。        |  此名稱最多可有 80 個字元。 它必須以字母或數字為開頭、以字母、數字或底線為結尾，且只能包含字母、數字、底線、句點或連字號。       |
+    |描述     | 選擇性的描述。        |         |
 
 **命令**
 
 - Azure CLI：[az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
-- PowerShell：[New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
+- PowerShell：[New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)
 
 ### <a name="view-all-security-rules"></a>檢視所有安全性規則
 
@@ -146,7 +148,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network nsg rule list](/cli/azure/network/nsg/rule#az-network-nsg-rule-list)
-- PowerShell：[Get-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
+- PowerShell：[Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
 
 ### <a name="view-details-of-a-security-rule"></a>檢視安全性規則的詳細資料
 
@@ -158,7 +160,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network nsg rule show](/cli/azure/network/nsg/rule#az-network-nsg-rule-show)
-- PowerShell：[Get-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
+- PowerShell：[Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
 
 ### <a name="change-a-security-rule"></a>變更安全性規則
 
@@ -168,7 +170,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
-- PowerShell：[Set-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
+- PowerShell：[Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig)
 
 ### <a name="delete-a-security-rule"></a>刪除安全性規則
 
@@ -178,7 +180,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
-- PowerShell：[Remove-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
+- PowerShell：[Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig)
 
 ## <a name="work-with-application-security-groups"></a>使用應用程式安全性群組
 
@@ -192,7 +194,7 @@ ms.locfileid: "55822437"
 
     | 設定        | 值                                                   |
     | ---            | ---                                                     |
-    | Name           | 名稱在資源群組內必須是唯一的。        |
+    | 名稱           | 名稱在資源群組內必須是唯一的。        |
     | 訂用帳戶   | 選取您的訂用帳戶。                               |
     | 資源群組 | 選取現有資源群組或建立新群組。 |
     | 位置       | 選取位置                                       |
@@ -200,7 +202,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network asg create](/cli/azure/network/asg#az-network-asg-create)
-- PowerShell：[New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
+- PowerShell：[New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup)
 
 ### <a name="view-all-application-security-groups"></a>檢視所有應用程式安全性群組
 
@@ -210,7 +212,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network asg list](/cli/azure/network/asg#az-network-asg-list)
-- PowerShell：[Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
+- PowerShell：[Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>檢視特定應用程式安全性群組的詳細資料
 
@@ -221,7 +223,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network asg show](/cli/azure/network/asg#az-network-asg-show)
-- PowerShell：[Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
+- PowerShell：[Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
 
 ### <a name="change-an-application-security-group"></a>變更應用程式安全性群組
 
@@ -244,7 +246,7 @@ ms.locfileid: "55822437"
 **命令**
 
 - Azure CLI：[az network asg delete](/cli/azure/network/asg#az-network-asg-delete)
-- PowerShell：[Remove-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/remove-azurermapplicationsecuritygroup)
+- PowerShell：[Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup)
 
 ## <a name="permissions"></a>權限
 
@@ -252,7 +254,7 @@ ms.locfileid: "55822437"
 
 ### <a name="network-security-group"></a>網路安全性群組
 
-|  動作                                                        |   Name                                                                |
+|  動作                                                        |   名稱                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   取得網路安全性群組                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   建立或更新網路安全性群組                             |
@@ -262,7 +264,7 @@ ms.locfileid: "55822437"
 
 ### <a name="network-security-group-rule"></a>網路安全性群組規則
 
-|  動作                                                        |   Name                                                                |
+|  動作                                                        |   名稱                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   取得規則                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   建立或更新規則                                               |
@@ -270,7 +272,7 @@ ms.locfileid: "55822437"
 
 ### <a name="application-security-group"></a>應用程式安全性群組
 
-|  動作                                                                     | Name                                                     |
+|  動作                                                                     | 名稱                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | 將 IP 設定加入至應用程式安全性群組|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 將安全性規則加入至應用程式安全性群組    |

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: b4d40f011b9a9e69953496fbdb0dc63ffc8a5027
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904364"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774552"
 ---
 # <a name="manage-and-configure-projects"></a>管理及設定專案
 
@@ -59,14 +59,25 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 若要建立新的 DSVM 執行個體，請依照[建立 Ubuntu 資料科學 VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) 中的指示執行。 如果您希望 DSVM 出現在 Azure Notebooks 的下拉式清單中，請使用**適用於 Linux (Ubuntu) 的資料科學虛擬機器**映像。  如果基於其他原因，您需要使用 Windows 或 CentOS 映像，您可以使用 [Direct Compute] \(直接計算\) 選項來手動連線至 DSVM。
 
+> [!IMPORTANT]
+> 使用直接計算或資料科學虛擬機器時，您在其執行的 notebook 必須是完全獨立的。 目前，Azure Notebooks 只複製 *.ipynb*至 VM 的檔案，但不複製任何其他檔案專案中。 如此一來，其他 Vm 上執行的 notebook 會找不到 其他專案檔案。
+>
+> 您可以解決這個問題有兩種：
+>
+> 1. 手動將專案檔複製到 VM。
+>
+> 2. 內嵌安裝 notebook 中的檔案，您先執行之前的主要的 notebook。 在安裝 notebook 中，建立每個檔案其中的資料格包含檔案內容的程式碼儲存格。 然後，在每個資料格的頂端插入命令`%%writefile <filename>`，其中`<filename>`是要接收內容的檔案名稱。 當您執行 notebook 時，它會建立在 VM 上的所有這些檔案。 如需範例，請參閱[setup.ipynb 檔案，在 Microsoft 寵物偵測器示範](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb)(GitHub)。
+>
+>     ![使用 %%writefile 命令的程式碼儲存格的開頭](media/setup-notebook-writefile-command.png)
+
 ## <a name="edit-project-metadata"></a>編輯專案中繼資料
 
 在專案儀表板中，選取 [專案設定]，然後選取 [資訊] 索引標籤，其中包含如下表所述的專案中繼資料。 您可以隨時變更專案中繼資料。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 | --- | --- |
 | 專案名稱 | Azure Notebooks 用於顯示用途的專案易記名稱。 例如，"Hello World in Python"。 |
-| 專案識別碼 | 自訂識別碼會成為您用來共用專案 URL 的一部分 (格式為 `https://notebooks.azure.com/<user_id>/projects/<project_id>`)。 此識別碼可以使用字母、數字和連字號，而且限制為 30 個字元。 如果您不確定要使用的項目，常見的慣例是使用專案名稱的小寫版本，讓空格轉變成連字號，例如 "My Project Name" 轉變成 "my-project-name"。 |
+| 專案識別碼 | 自訂識別碼會成為您用來共用專案 URL 的一部分。 此識別碼可以使用字母、 數字和連字號、 限制為 30 個字元，並不能[保留的專案 ID](create-clone-jupyter-notebooks.md#reserved-project-ids)。 如果您不確定要使用的項目，常見的慣例是使用專案名稱的小寫版本，讓空格轉變成連字號，例如 「 my-notebook-project 」 (必要時，可截斷以符合長度限制)。 |
 | 公用專案 | 如果設定，可讓任何人存取的專案連結。 建立私人專案時，請清除此選項。 |
 | 隱藏複製 | 如果設定，其他使用者無法看到為此專案所做的複製清單。 隱藏複製對於與並非屬於相同組織的許多人員共用的專案相當有用，例如在使用 Notebook 來教授課程時。 |
 
@@ -82,7 +93,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 [+ 新增] 命令 (鍵盤快速鍵：n) 會建立新的檔案或資料夾。 使用命令時，請先選取要建立的項目類型：
 
-| 項目類型 | 說明 | 命令行為 |
+| 項目類型 | 描述 | 命令行為 |
 | --- | --- | --- |
 | **Notebook** | Jupyter Notebook | 顯示快顯，您可以在其中指定 Notebook 的檔案名稱和語言。 |
 | **資料夾** | 子資料夾 | 在專案的檔案清單中建立及編輯欄位，在該欄位中輸入資料夾名稱。 |

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747317"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407617"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure 資料箱磁碟系統需求
 
@@ -52,7 +52,7 @@ ms.locfileid: "55747317"
 
 ## <a name="supported-connection"></a>支援的連線
 
-包含資料的用戶端電腦必須具有 USB 3.0 或更新版本的連接埠。 使用提供的纜線將磁碟連接到此用戶端。 
+包含資料的用戶端電腦必須具有 USB 3.0 或更新版本的連接埠。 使用提供的纜線將磁碟連接到此用戶端。
 
 ## <a name="supported-storage-accounts"></a>支援的儲存體帳戶
 
@@ -62,19 +62,22 @@ ms.locfileid: "55747317"
 | --- | --- |
 | 傳統 | 標準 |
 | 一般用途  |標準；同時支援 V1 和 V2。 同時支援經常性儲存層和非經常性儲存層。 |
+| Blob 儲存體帳戶 | |
 
 >[!NOTE]
 > 不支援 Azure Data Lake Storage Gen 2 帳戶。
 
 
-## <a name="supported-storage-types"></a>支援的儲存體類型
+## <a name="supported-storage-types-for-upload"></a>上傳的支援的存放裝置類型
 
-以下是資料箱磁碟所支援的儲存體類型清單。
+以下是上傳至 Azure 中使用資料箱磁碟支援的儲存體類型的清單。
 
 | **檔案格式** | **注意事項** |
 | --- | --- |
 | Azure 區塊 Blob | |
 | Azure 分頁 Blob  | |
+| Azure 檔案  | |
+| 受控磁碟 | |
 
 
 ## <a name="next-step"></a>後續步驟

@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247097"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009488"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 資料中心整合 - Syslog 轉送
 
@@ -72,6 +72,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 |*Remove*| 從用戶端中移除伺服器設定並停止 Syslog 轉送| 旗標 | no|
 
 *Set-SyslogClient* Cmdlet 的參數：
+
 | 參數 | 說明 | 類型 |
 |---------|---------| ---------|
 | *pfxBinary* | 包含憑證的 pfx 檔案，該憑證是用戶端要用來作為身分識別以向 Syslog 伺服器進行驗證的憑證  | Byte[] |
@@ -287,6 +288,7 @@ Prefix fields
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 REP 嚴重性表格：
+
 | 嚴重性 | Level | 數值 |
 |----------|-------| ----------------|
 |0|Undefined|值：0. 指出所有層級的記錄|
@@ -306,6 +308,7 @@ REP 嚴重性表格：
 ```
 
 Windows 事件的嚴重性表格：
+
 | CEF 嚴重性值 | Windows 事件層級 | 數值 |
 |--------------------|---------------------| ----------------|
 |0|Undefined|值：0. 指出所有層級的記錄|
@@ -316,6 +319,7 @@ Windows 事件的嚴重性表格：
 |0|詳細資訊|值：5. 指出所有層級的記錄|
 
 Azure Stack 中 Windows 事件的自訂延伸模組表格：
+
 | 自訂延伸模組名稱 | Windows 事件範例 | 
 |-----------------------|---------|
 |MasChannel | 系統|
@@ -352,6 +356,7 @@ Azure Stack 中 Windows 事件的自訂延伸模組表格：
 ```
 
 警示嚴重性表格：
+
 | 嚴重性 | Level |
 |----------|-------|
 |0|Undefined|
@@ -359,6 +364,7 @@ Azure Stack 中 Windows 事件的自訂延伸模組表格：
 |5|警告|
 
 Azure Stack 中已建立之警示的自訂延伸模組表格：
+
 | 自訂延伸模組名稱 | 範例 | 
 |-----------------------|---------|
 |MasEventDescription|描述：已為 \<TestDomain\> 建立使用者帳戶 \<TestUser\>。 這是一個潛在的安全性風險。 -- 補救：請連絡支援人員。 需要取得「客戶協助」來解決此問題。 請勿在沒有他們協助的情況下嘗試解決此問題。 在您開啟支援要求之前，請先參考 https://aka.ms/azurestacklogfiles 的指引來啟動記錄檔收集程序 |

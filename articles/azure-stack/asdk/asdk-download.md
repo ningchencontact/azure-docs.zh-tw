@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2018
-ms.openlocfilehash: 830a7ef1f25ea52959baf992274b5f7711b646b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f48c3c9691170df6d460bfe9a6da0e02e4be32c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077695"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>下載 Azure Stack 開發套件 (ASDK) 並解壓縮
 確認您的開發套件主機電腦符合安裝 ASDK 的基本需求後，下一個步驟是下載 ASDK 部署套件並解壓縮以取得 Cloudbuilder.vhdx。
@@ -29,15 +29,15 @@ ms.locfileid: "56165395"
 ## <a name="download-the-asdk"></a>下載 ASDK
 1. 開始下載之前，請確定您的電腦符合下列必要條件：
 
-  - 除了作業系統磁碟以外，電腦在四個個別相同的邏輯硬碟上必須有至少 60 GB 的可用磁碟空間。
-  - 必須安裝 [.NET framework 4.6 (或更新版本)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46)。
+   - 除了作業系統磁碟以外，電腦在四個個別相同的邏輯硬碟上必須有至少 60 GB 的可用磁碟空間。
+   - 必須安裝 [.NET framework 4.6 (或更新版本)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46)。
 
 2. [移至 [開始使用] 頁面](https://azure.microsoft.com/overview/azure-stack/try/?v=try)，下載 Azure Stack 開發套件，提供您的詳細資料，然後按一下 [提交]。
 3. 下載並執行 [Azure Stack 開發套件的部署檢查程式](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409)必要條件檢查程式指令碼。 此獨立指令碼會經歷 Azure Stack 開發套件設定期間所進行的先決條件檢查。 在下載較大型的 Azure Stack 開發套件之前，這可用來確認您符合硬體和軟體需求。
 4. 在 [下載軟體] 底下，按一下 [Azure Stack 開發套件]。
 
-  > [!NOTE]
-  > ASDK 下載 (AzureStackDevelopmentKit.exe) 約 10 GB。
+   > [!NOTE]
+   > ASDK 下載 (AzureStackDevelopmentKit.exe) 約 10 GB。
 
 ## <a name="extract-the-asdk"></a>將 ASDK 解壓縮
 1. 下載完成之後，按一下 [執行] 以啟動 ASDK 自我解壓縮程式 (AzureStackDevelopmentKit.exe)。

@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 53f9fbdf06958189a40f78b1b8d68b8fb02b7133
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176747"
 documentType: LandingData
 title: Azure Event Grid 文件
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
-  ms.openlocfilehash: 494cd1b862169998a15786b70a6c7d88f830613e
-  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-  ms.translationtype: HT
-  ms.contentlocale: zh-TW
-  ms.lasthandoff: 02/01/2018
-  ms.locfileid: "28921764"
 abstract:
   description: Azure Event Grid 是完全受控的智慧型事件路由服務，可讓統一事件耗用量使用發佈-訂閱模型。 使用 Azure Event Grid，以近即時的方式回應跨 Azure 和非 Azure 服務的相關事件。 了解如何透過我們的快速入門、教學課程和範例使用Azure Event Grid。
 sections:
@@ -64,6 +64,19 @@ sections:
     - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">監視 VM 與邏輯應用程式的變更</a>
     - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">調整上傳映像的大小</a>
     - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">整合 Azure 自動化與 vent Grid</a>
+- title: 透過 Microsoft Learn 增進您的技巧
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: 在 Azure 中選擇傳訊模型以鬆散連線您的服務
+      href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+      image:
+        src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
+        href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-event-grid">更多互動式學習...</a>
 - title: 參考
   items:
   - type: list
@@ -71,7 +84,7 @@ sections:
     className: cardsD
     items:
     - title: 命令列
-      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/az.eventgrid">PowerShell</a></p>
     - title: REST API
       html: <p><a href="/rest/api/eventgrid">REST</a></p>
     - title: 結構描述

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 81096eeb1edcd6681bdc887d267ee477d78a8578
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6a27f23b5a0eba04ea3fa73a2f59364f9101c069
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852161"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 10 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 10 月導入的新功能和變更。
@@ -57,7 +57,7 @@ Azure SQL 資料倉儲 (SQL DW) 現在已與 Azure Data Lake Storage Gen2 原生
 
 ## <a name="bug-fixes"></a>錯誤修正
 
-| 標題 | 說明 |
+| 標題 | 描述 |
 |:---|:---|
 | **在 DW2000 等等的資料倉儲上的小型資源類別中，CETAS to Parquet 失敗** | 此修正程式正確地識別出 Create External Table As to Parquet 程式碼路徑中的 null 參考。 |
 |**在某些 CTAS 作業中，識別資料行值可能會遺失** | 當 CTASed 到另一個資料表時，可能不會保留識別資料行的值。 在部落格中報告：[https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/)。 |
@@ -69,20 +69,20 @@ Azure SQL 資料倉儲 (SQL DW) 現在已與 Azure Data Lake Storage Gen2 原生
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
-* [部落格]
+* [博客]
 * [功能要求]
-* [影片]
+* [视频]
 * [客戶諮詢小組部落格]
 * [Stack Overflow 論壇]
 * [Twitter]
 
 
-[部落格]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [客戶諮詢小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [客戶成功案例]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [功能要求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow 論壇]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 論壇]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[视频]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

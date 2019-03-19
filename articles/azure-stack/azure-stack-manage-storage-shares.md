@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 5e6a44018cde84067a4c16c9d3d62227733f6658
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960559"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075573"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的儲存體容量 
 
@@ -93,8 +93,8 @@ VM 磁碟包含作業系統磁碟，並由租用戶新增至容器。 VM 也可�
 
     ![範例：儲存體檔案共用](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
-  - [總計] 是共用上可用的空間總計 (以位元組為單位)。 此空間用於儲存體服務所維護的資料和中繼資料。
-  - [已使用] 是存放租用戶資料和相關中繼資料的檔案所使用的資料數量 (以位元組為單位)。
+   - [總計] 是共用上可用的空間總計 (以位元組為單位)。 此空間用於儲存體服務所維護的資料和中繼資料。
+   - [已使用] 是存放租用戶資料和相關中繼資料的檔案所使用的資料數量 (以位元組為單位)。
 
 ### <a name="storage-space-alerts"></a>儲存體空間警示
 當您使用管理員入口網站時，您會收到有關共用空間不足的警示。
@@ -140,64 +140,64 @@ VM 磁碟包含作業系統磁碟，並由租用戶新增至容器。 VM 也可�
 
 #### <a name="to-migrate-containers-using-powershell"></a>使用 PowerShell 來移轉容器
 1. 確認您[已安裝並設定 Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)。 如需詳細資訊，請參閱 [將 Azure PowerShell 與 Azure 資源管理員搭配使用](https://go.microsoft.com/fwlink/?LinkId=394767)。
-2.  檢查容器以了解您打算移轉的共用上有哪些資料。 若要識別可在磁碟區中移轉的最佳候選容器，請使用 **Get-AzsStorageContainer** Cmdlet：
+2. 檢查容器以了解您打算移轉的共用上有哪些資料。 若要識別可在磁碟區中移轉的最佳候選容器，請使用 **Get-AzsStorageContainer** Cmdlet：
 
-    ```PowerShell  
-    $farm_name = (Get-AzsStorageFarm)[0].name
-    $shares = Get-AzsStorageShare -FarmName $farm_name
-    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
-    ```
-    接著，檢查 $containers：
+   ```PowerShell  
+   $farm_name = (Get-AzsStorageFarm)[0].name
+   $shares = Get-AzsStorageShare -FarmName $farm_name
+   $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
+   ```
+   接著，檢查 $containers：
 
-    ```PowerShell
-    $containers
-    ```
+   ```PowerShell
+   $containers
+   ```
 
-    ![範例：$Containers](media/azure-stack-manage-storage-shares/containers.png)
+   ![範例：$Containers](media/azure-stack-manage-storage-shares/containers.png)
 
-3.  找出最佳目的地共用以保存您移轉的容器：
+3. 找出最佳目的地共用以保存您移轉的容器：
 
-    ```PowerShell
-    $destinationshares = Get-AzsStorageShare -SourceShareName
-    $shares[0].ShareName -Intent ContainerMigration
-    ```
+   ```PowerShell
+   $destinationshares = Get-AzsStorageShare -SourceShareName
+   $shares[0].ShareName -Intent ContainerMigration
+   ```
 
-    接著，檢查 $destinationshares：
+   接著，檢查 $destinationshares：
 
-    ```PowerShell 
-    $destinationshares
-    ```
+   ```PowerShell 
+   $destinationshares
+   ```
 
-    ![範例：$destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+   ![範例：$destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
 4. 開始移轉容器。 移轉不是同步進行。 如果您在第一次移轉完成之前開始移轉其他容器，請使用作業識別碼來追蹤每個容器的狀態。
 
-  ```PowerShell
-  $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
-  ```
+   ```PowerShell
+   $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
+   ```
 
-  接著，檢查 $jobId。 在下列範例中，以您想要檢查的作業識別碼取代 d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0：
+   接著，檢查 $jobId。 在下列範例中，以您想要檢查的作業識別碼取代 d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0：
 
-  ```PowerShell
-  $jobId
-  d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
-  ```
+   ```PowerShell
+   $jobId
+   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
+   ```
 
 5. 使用作業識別碼來檢查移轉作業的狀態。 當容器移轉完成時，**MigrationStatus** 會設定為 **Complete**。
 
-  ```PowerShell 
-  Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
-  ```
+   ```PowerShell 
+   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
+   ```
 
-  ![範例：移轉狀態](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![範例：移轉狀態](media/azure-stack-manage-storage-shares/migration-status1.png)
 
-6.  您可以取消進行中的移轉工作。 已取消的移轉作業會以非同步方式處理。 您可以使用 $jobid 追蹤取消作業：
+6. 您可以取消進行中的移轉工作。 已取消的移轉作業會以非同步方式處理。 您可以使用 $jobid 追蹤取消作業：
 
-  ```PowerShell
-  Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
-  ```
+   ```PowerShell
+   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
+   ```
 
-  ![範例：復原狀態](media/azure-stack-manage-storage-shares/rollback.png)
+   ![範例：復原狀態](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. 您可以再次執行步驟 6 中的命令，直到狀態確認移轉作業為 **Canceled** 為止：  
 

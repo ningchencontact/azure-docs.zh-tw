@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 81f06e0f5d5201b902504d8275f356f9a1731065
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243635"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098894"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>建立及發行 Marketplace 項目
 
@@ -69,19 +69,19 @@ ms.locfileid: "55243635"
 
 10. 將 [我的 Marketplace 項目] 取代為您的 Marketplace 項目應出現位置的目錄清單：
 
-   ```json
-   "categories":[
-   "My Marketplace Items"
-   ],
-   ```
+    ```json
+    "categories":[
+    "My Marketplace Items"
+    ],
+    ```
 
 11. 若要對 Manifest.json 進行任何進一步的編輯，請參閱[參考：Marketplace 項目 manifest.json](#reference-marketplace-item-manifestjson)。
 
 12. 若要將資料夾封裝到 .azpkg 檔案中，請開啟命令提示字元，然後執行下列命令：
 
-   ```shell
-   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
-   ```
+    ```shell
+    AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+    ```
 
     > [!NOTE]
     > 輸出套件的完整路徑必須存在。 例如，如果輸出路徑是 C:\MarketPlaceItem\yourpackage.azpkg，資料夾 C:\MarketPlaceItem 必須存在。
@@ -192,8 +192,8 @@ Marketplace 會使用下列圖示：
 
 ### <a name="create-blade"></a>建立刀鋒視窗
 
-![建立刀鋒視窗](media/azure-stack-marketplace-item-ui-reference/image1.png)
+![建立刀鋒視窗](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Marketplace 項目詳細資料刀鋒視窗
 
-![Marketplace 項目詳細資料刀鋒視窗](media/azure-stack-marketplace-item-ui-reference/image3.png)
+![Marketplace 項目詳細資料刀鋒視窗](media/azure-stack-create-and-publish-marketplace-item/image3.png)

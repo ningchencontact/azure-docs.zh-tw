@@ -16,12 +16,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a58f5a3794d352fa8671321f5a30d74d2598df75
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 509dafb02d456e3f612e1de8a5bc1cf4b010a05a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977723"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113851"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安裝 Azure Stack 開發套件 (ASDK)
 [準備 ASDK 主機電腦](asdk-prepare-host.md)後，可以使用本文中的下列步驟將 ASDK 部署到 CloudBuilder.vhdx 映像。
@@ -38,14 +38,14 @@ ms.locfileid: "55977723"
 
     ![](media/asdk-install/1.PNG) 
 
-3. 在識別提供者的 [類型] 下拉式清單方塊中，選取 [Azure 中國雲端]、[Azure 美國政府雲端]、[AD FS] 或 [Azure 雲端]。 在 [本機系統管理員密碼] 底下的 [密碼] 方塊中，輸入本機系統管理員密碼 (必須符合目前設定的本機系統管理員密碼)，然後按一下 [下一步]。
+3. 在識別提供者的 [類型] 下拉式清單方塊中，選取 [Azure 中國雲端]、[Azure 美國政府雲端]、[AD FS] 或 [Azure 雲端]。 在 [本機系統管理員密碼] 底下的 [密碼] 方塊中，輸入本機系統管理員密碼 (必須符合目前設定的本機系統管理員密碼)，然後按 [下一步]。
 
     ![](media/asdk-install/2.PNG) 
   
    如果您選擇 Azure 訂用帳戶識別提供者，您需有網際網路連線、Azure AD 目錄租用戶的完整名稱 (採用 *domainname*.onmicrosoft.com 形式或 Azure AD 驗證的自訂網域名稱)，以及所指定目錄的全域管理員認證。<br><br>部署之後，就不需要 Azure Active Directory 全域管理員權限。 不過，某些作業可能需要全域管理員認證。 例如，需要獲派權限的資源提供者安裝程式指令碼或新功能。 您可以暫時恢復帳戶的全域管理員權限，或使用擁有「預設提供者訂用帳戶」的個別全域管理員帳戶。<br><br>使用 AD FS 作為識別提供者時，會使用預設的戳記目錄服務。 用於登入的預設帳戶是 azurestackadmin@azurestack.local，而要使用的密碼是您在設定過程中所提供的密碼。
 
-  > [!NOTE]
-  > 為獲得最佳結果，即使您想要使用以 AD FS 作為識別提供者且已中斷連線的 Azure Stack 環境，最好還是在已連線到網際網路時安裝 ASDK。 如此一來，就可以在部署期間啟動開發套件安裝隨附的 Windows Server 2016 評估版。
+   > [!NOTE]
+   > 為獲得最佳結果，即使您想要使用以 AD FS 作為識別提供者且已中斷連線的 Azure Stack 環境，最好還是在已連線到網際網路時安裝 ASDK。 如此一來，就可以在部署期間啟動開發套件安裝隨附的 Windows Server 2016 評估版。
 
 4. 選取要用於開發套件的網路介面卡，然後按一下 [下一步]。
 
@@ -60,7 +60,7 @@ ms.locfileid: "55977723"
 
     ![](media/asdk-install/4.PNG)
 
-6. 在 [驗證網路介面卡內容] 頁面上，您將會看到一個進度列。 驗證完成時，按一下 [下一步]。
+6. 在 [驗證網路介面卡內容] 頁面上，您將會看到一個進度列。 驗證完成時，按 [下一步]。
 
     ![](media/asdk-install/5.PNG)
 

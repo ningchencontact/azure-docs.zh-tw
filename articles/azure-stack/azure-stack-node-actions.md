@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 8073dff6dbd8bbceb16d7fdcf8d39012233c32d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090962"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的縮放單位節點動作
 
@@ -42,15 +42,15 @@ ms.locfileid: "55240449"
 3. 在結果中，選取縮放單位。
 4. 從左側的 [一般] 底下，選取 [節點]。
 
-  檢視下列資訊：
+   檢視下列資訊：
 
-  - 個別節點的清單
-  - 操作狀態 (請參閱下方清單)
-  - 電源狀態 (例如執行中或已停止)
-  - 伺服器模型
-  - 基礎板管理控制器 (BMC) 的 IP 位址
-  - 核心總數
-  - 記憶體量總計
+   - 個別節點的清單
+   - 操作狀態 (請參閱下方清單)
+   - 電源狀態 (例如執行中或已停止)
+   - 伺服器模型
+   - 基礎板管理控制器 (BMC) 的 IP 位址
+   - 核心總數
+   - 記憶體量總計
 
 ![縮放單位的狀態](media/azure-stack-node-actions/multinodeactions.png)
 

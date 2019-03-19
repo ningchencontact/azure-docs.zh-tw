@@ -1,14 +1,12 @@
 ---
-ms.openlocfilehash: 2690a01535365ba097e0c058858f24e8c9d80aac
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 2b1d75b4b32ebfffbddfaddf45b0c08fb1132995
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588732"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168548"
 ---
 # <a name="microsoft-azure-documentation"></a>Microsoft Azure 文件
-
-> 在 2019 年 3 月 5 日到 3 月 9 日之間， MicrosoftDocs/azure-docs 存放庫會進行一項移轉，從目前的 Markdown 引擎遷移到 [Markdig](https://github.com/lunet-io/markdig) Markdown 引擎。 在此期間，我們會暫時停止合併公用提取要求的功能，以完成移轉。
 
 歡迎使用 [Microsoft Azure](https://azure.microsoft.com) 的開放原始碼[文件](https://docs.microsoft.com/azure)。 請檢閱這份讀我檔案，以了解您可以如何為 Microsoft Azure 文件增色。
 

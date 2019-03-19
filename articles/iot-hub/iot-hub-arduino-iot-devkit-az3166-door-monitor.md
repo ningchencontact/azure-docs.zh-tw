@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: a620b592a33f9de11de53d623d257f203da2157b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156233"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547696"
 ---
 # <a name="door-monitor"></a>門戶監視          
 
@@ -66,7 +66,7 @@ MXChip IoT DevKit 包含內建的磁性感應器。 在此專案中，您會偵�
 
 完成註冊表單：
 
-   * **資源群組**：建立用以裝載 SendGrid 服務的資源群組，或使用現有資源群組。 請參閱[使用資源群組來管理您的 Azure 資源](../azure-resource-manager/resource-group-portal.md)。
+   * **資源群組**：建立用以裝載 SendGrid 服務的資源群組，或使用現有資源群組。 請參閱[使用資源群組來管理您的 Azure 資源](../azure-resource-manager/manage-resource-groups-portal.md)。
 
    * **名稱**：SendGrid 服務的名稱。 請選擇與您可能有的其他服務不同的唯一名稱。
 
@@ -106,7 +106,7 @@ MXChip IoT DevKit 包含內建的磁性感應器。 在此專案中，您會偵�
 
 填寫註冊表單上的欄位。
 
-   * **資源群組**：建立用以裝載 SendGrid 服務的資源群組，或使用現有資源群組。 請參閱[使用資源群組來管理您的 Azure 資源](../azure-resource-manager/resource-group-portal.md)。
+   * **資源群組**：建立用以裝載 SendGrid 服務的資源群組，或使用現有資源群組。 請參閱[使用資源群組來管理您的 Azure 資源](../azure-resource-manager/manage-resource-groups-portal.md)。
 
    * **IoT 中樞名稱**：IoT 中樞的名稱。 請選擇與您可能有的其他服務不同的唯一名稱。
 
@@ -177,7 +177,7 @@ VS Code 終端機中會有互動式命令列引導您佈建所需的 Azure 服�
 DevKit 會重新開機，然後開始執行程式碼。
 
 > [!NOTE]
-> 有時候，您可能會收到 [錯誤:AZ3166:不明的封裝] 錯誤訊息。 未正確重新整理面板套件索引時，就會發生此錯誤。 若要解決此錯誤，請參閱 [IoT DevKit 常見問題集的開發一節](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)。
+> 有時候，您可能會收到 錯誤:AZ3166:未知的套件」錯誤訊息。 未正確重新整理面板套件索引時，就會發生此錯誤。 若要解決此錯誤，請參閱 [IoT DevKit 常見問題集的開發一節](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)。
 
 ## <a name="test-the-project"></a>測試專案
 
@@ -193,7 +193,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 如果發生問題，請參閱 [IoT DevKit 常見問題集](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)，或使用下列管道與我們連絡：
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>後續步驟

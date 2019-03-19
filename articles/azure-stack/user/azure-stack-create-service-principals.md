@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 3a6fa631fdf3436dc3a76817d2c0043b0407b2ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121548"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>建立服務主體以將應用程式存取權提供給 Azure Stack 資源
 
@@ -56,8 +56,8 @@ ms.locfileid: "56312849"
 
 如果 Azure Stack 使用 Azure AD 作為身分識別存放區，您可以在 Azure 入口網站中使用與 Azure 中相同的步驟建立服務主體。
 
->[!NOTE]
-開始建立服務主體之前，請查看您有[必要的 Azure AD 權限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+> [!NOTE]
+> 開始建立服務主體之前，請查看您有[必要的 Azure AD 權限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
 ### <a name="create-service-principal"></a>建立服務主體
 
@@ -75,15 +75,15 @@ ms.locfileid: "56312849"
 
 2. 複製 [應用程式識別碼] 並儲存在您的應用程式碼中。 範例應用程式中的應用程式會在參考 [應用程式識別碼] 時使用**用戶端識別碼**。
 
-     ![應用程式的應用程式識別碼](./media/azure-stack-create-service-principal/image12.png)
+     ![應用程式的應用程式識別碼](./media/azure-stack-create-service-principals/image12.png)
 3. 若要產生驗證金鑰，請選取 [金鑰]。
 
 4. 提供金鑰的描述和金鑰的持續時間。 完成時，選取 [儲存]。
 
->[!IMPORTANT]
-儲存金鑰之後，就會顯示金鑰**值**。 請記下此值，因為您之後就無法擷取金鑰。 將金鑰值儲存在應用程式可擷取的地方。
+> [!IMPORTANT]
+> 儲存金鑰之後，就會顯示金鑰**值**。 請記下此值，因為您之後就無法擷取金鑰。 將金鑰值儲存在應用程式可擷取的地方。
 
-![已儲存金鑰的金鑰值警告。](./media/azure-stack-create-service-principal/image15.png)
+![已儲存金鑰的金鑰值警告。](./media/azure-stack-create-service-principals/image15.png)
 
 最後一個步驟是[將您的應用程式指派給角色](azure-stack-create-service-principals.md)。
 
@@ -101,8 +101,8 @@ ms.locfileid: "56312849"
 
 若要存取您的訂用帳戶中的資源，您必須將應用程式指派給角色。 決定哪個角色代表應用程式的正確權限。 若要深入了解可用的角色，請參閱 [RBAC：內建角色](../../role-based-access-control/built-in-roles.md)。
 
->[!NOTE]
-您可以在訂用帳戶、資源群組或資源的層級設定角色的範圍。 較低的範圍層級會繼承較高層級的權限。 例如，具有資源群組讀取者角色的應用程式，代表應用程式可以讀取資源群組中的任何資源。
+> [!NOTE]
+> 您可以在訂用帳戶、資源群組或資源的層級設定角色的範圍。 較低的範圍層級會繼承較高層級的權限。 例如，具有資源群組讀取者角色的應用程式，代表應用程式可以讀取資源群組中的任何資源。
 
 使用下列步驟作為指南，將角色指派給服務主體。
 
@@ -110,7 +110,7 @@ ms.locfileid: "56312849"
 
 2. 選取應用程式所要指派至的訂用帳戶。 在此範例中，訂用帳戶是 Visual Studio Enterprise。
 
-     ![選取 Visual Studio Enterprise 訂用帳戶以供指派](./media/azure-stack-create-service-principal/image16.png)
+     ![選取 Visual Studio Enterprise 訂用帳戶以供指派](./media/azure-stack-create-service-principals/image16.png)
 
 3. 針對訂用帳戶選取 [存取控制 (IAM)]。
 

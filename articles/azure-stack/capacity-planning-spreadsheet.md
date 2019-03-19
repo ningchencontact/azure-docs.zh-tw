@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 459398f5f40ae5fb28dfa4ac73b94aecca7304eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240981"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099411"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner 為用於 Azure Stack 資源容量規劃的試算表。 此容量規劃工具可讓您設計各種運算資源的配置，進而了解這些配置如何與選取之硬體供應項目相應。 以下提供使用 Azure Stack Calculator 的詳細指示。
@@ -61,8 +61,8 @@ Azure Stack 提供作為解決方案合作夥伴所安裝之軟體的整合系�
 2. 如果您想針對一個特定硬體組態建立各種 VM 資源配置，請找出頁面右上角之「目前的 SKU」標籤正下方的藍色下拉式清單方塊。 下拉此清單方塊，然後選取您需要的硬體 SKU。
 3. 您現在已準備好開始將各種大小的 VM 新增置模型。 若要包含特定的 VM 類型，請在該 VM 項目左側的藍色外框方塊內輸入數量值。
 
-  > [!NOTE]
-  > VM 儲存體總計是指 VM 資料磁碟的總容量 (支援的磁碟數量 * 單一磁碟的最大容量 (1 TB))。 根據我們已填入 [可用儲存體組態] 資料表中的組態指標，您可以選擇想要的每個 Azure Stack VM 儲存體資源層級。 不過，請注意，您可以視需要新增或變更「可用儲存體組態」資料表。<br><br>各 VM 會以初始指派的本機暫存儲存體啟動。 若要反映精簡佈建的暫存儲存體，您可針對下拉式選單的任何項目變更本機暫存數量 (包括允許之暫存儲存體數量的上限)。
+   > [!NOTE]
+   > VM 儲存體總計是指 VM 資料磁碟的總容量 (支援的磁碟數量 * 單一磁碟的最大容量 (1 TB))。 根據我們已填入 [可用儲存體組態] 資料表中的組態指標，您可以選擇想要的每個 Azure Stack VM 儲存體資源層級。 不過，請注意，您可以視需要新增或變更「可用儲存體組態」資料表。<br><br>各 VM 會以初始指派的本機暫存儲存體啟動。 若要反映精簡佈建的暫存儲存體，您可針對下拉式選單的任何項目變更本機暫存數量 (包括允許之暫存儲存體數量的上限)。
 
 4. 隨著新增 VM，您將會看到顯示變更之可用 SKU 資源的圖表。 如此可讓您了解模型化程序期間，新增各種 VM 大小和數量的影響。 另一個檢視變更之影響的方法為，查看列於可用 VM 清單正下方的「已耗用與仍可用」數字。 這些數字會根據目前選取的硬體 SKU 反映估計值。
 5. 建立 VM 集合後，按一下「目前的 SKU」標籤正下方之頁面右上角所顯示的「建議的 SKU」按鈕，即可找到建議的硬體 SKU。 使用此按鈕，您就可修改 VM 組態，並了解哪個硬體支援各組態。

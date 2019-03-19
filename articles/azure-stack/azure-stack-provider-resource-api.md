@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 47ba057091f0660bf1449f062edfacde710d2f1a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 34159d059b976043fac415470421970056320acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996485"
 ---
 # <a name="provider-resource-usage-api"></a>提供者資源使用狀況 API
+
 「提供者」一詞適用於服務管理員和任何委派的提供者。 Azure Stack 操作員和委派的提供者可使用提供者使用狀況 API，檢視其直接租用戶的使用狀況。 例如，如圖表所示，P0 可以呼叫提供者 API，以取得 P1 和 P2 直接使用的使用狀況資訊；而 P1 可呼叫以取得 P3 和 P4 的使用狀況資訊。
 
 ![提供者階層的概念模型](media/azure-stack-provider-resource-api/image1.png)
@@ -38,6 +39,7 @@ ms.locfileid: "56428172"
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>引數
+
 | **引數** | **說明** |
 | --- | --- |
 | *armendpoint* |您 Azure Stack 環境的 Azure Resource Manager 端點。 依 Azure Stack 慣例，Azure Resource Manager 端點名稱的格式是 `https://adminmanagement.{domain-name}`。 例如，如果是開發套件，則網域名稱會是 local.azurestack.external，而 Resource Manager 端點會是 `https://adminmanagement.local.azurestack.external`。 |
@@ -79,6 +81,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>回應詳細資料
+
 | **引數** | **說明** |
 | --- | --- |
 | *id* |使用情況彙總的唯一識別碼。 |
@@ -101,9 +104,10 @@ meterID1",
 1. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
 2. [設定 Azure Stack 使用者](user/azure-stack-powershell-configure-user.md)或 [Azure Stack 操作員](azure-stack-powershell-configure-admin.md) 的 PowerShell 環境 
 3. 若要擷取使用量資料，請使用 [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell Cmdlet：
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+
 ### <a name="rest-api"></a>REST API
 
 您可以藉由呼叫 Microsoft.Commerce.Admin 服務，來收集已刪除訂用帳戶的使用量資訊。 

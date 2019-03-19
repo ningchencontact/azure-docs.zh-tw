@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 75040cb8769b1d5d1dd6af758ed03be4a39d01e1
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c9846f78e05d598844d12819cef3e948caf2704d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731864"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889693"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>建立、變更或刪除路由表
 
@@ -25,11 +25,13 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 
 ## <a name="before-you-begin"></a>開始之前
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 在完成本文任一節的步驟之前，請先完成下列工作︰
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組版本 1.0.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
@@ -45,7 +47,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network route-table create](/cli/azure/network/route-table/route)
-- PowerShell：[New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
+- PowerShell：[New-AzRouteTable](/powershell/module/az.network/new-azroutetable)
 
 ## <a name="view-route-tables"></a>檢視路由表
 
@@ -54,7 +56,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network route-table list](/cli/azure/network/route-table/route)
-- PowerShell：[Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
+- PowerShell：[Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>檢視路由表的詳細資料
 
@@ -65,12 +67,12 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
     *   [存取控制 (IAM)](../role-based-access-control/overview.md)
     *   [標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [自動化指令碼](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
+    *   [自动化脚本](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **命令**
 
 - Azure CLI：[az network route-table show](/cli/azure/network/route-table/route)
-- PowerShell：[Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
+- PowerShell：[Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
 
 ## <a name="change-a-route-table"></a>變更路由表
 
@@ -80,7 +82,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network route-table update](/cli/azure/network/route-table/route)
-- PowerShell：[Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
+- PowerShell：[Set-AzRouteTable](/powershell/module/az.network/set-azroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>建立路由表與子網路的關聯
 
@@ -97,7 +99,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
-- PowerShell：[Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
+- PowerShell：[Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>從子網路中斷與路由表的關聯
 
@@ -112,7 +114,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
-- PowerShell：[Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
+- PowerShell：[Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## <a name="delete-a-route-table"></a>刪除路由表
 
@@ -125,7 +127,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network route-table delete](/cli/azure/network/route-table/route)
-- PowerShell：[Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
+- PowerShell：[Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable)
 
 ## <a name="create-a-route"></a>建立路由
 
@@ -144,7 +146,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell：[New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)
 
 ## <a name="view-routes"></a>檢視路由
 
@@ -157,7 +159,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
+- PowerShell：[Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>檢視路由的詳細資料
 
@@ -169,7 +171,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
+- PowerShell：[Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="change-a-route"></a>變更路由
 
@@ -182,7 +184,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
+- PowerShell：[Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig)
 
 ## <a name="delete-a-route"></a>刪除路由
 
@@ -195,7 +197,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
+- PowerShell：[Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig)
 
 ## <a name="view-effective-routes"></a>檢視有效的路由
 
@@ -210,7 +212,7 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)
-- PowerShell：[Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
+- PowerShell：[Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## <a name="validate-routing-between-two-endpoints"></a>驗證兩個端點之間的路由
 
@@ -227,13 +229,13 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 **命令**
 
 - Azure CLI：[az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)
-- PowerShell：[Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
+- PowerShell：[Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)
 
 ## <a name="permissions"></a>權限
 
 若要針對路由表與路由執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表中所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-|  動作                                                          |   Name                                                  |
+|  動作                                                          |   名稱                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   讀取路由表                                    |
 | Microsoft.Network/routeTables/write                             |   建立或更新路由表                        |

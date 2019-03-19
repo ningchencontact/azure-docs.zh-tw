@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183466"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833496"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>設定 Azure 裝載的虛擬機器
 
@@ -28,7 +28,8 @@ ms.locfileid: "53183466"
 
 ## <a name="sizing-the-vhds"></a>調整 VHD 大小
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> 如果您已經選取了預先以作業系統 (或其他服務) 設定的某個虛擬機器，等同已選擇了標準的 Azure 虛擬機器大小，如[虛擬機器 SKU 索引標籤](./cpp-skus-tab.md)中所述。建議使用預先設定的作業系統啟動您的解決方案。  不過，如果您要以手動方式安裝作業系統，則必須在 VM 映像中調整主要 VHD 的大小：
+<!--TD: Check if the following assertion is true. I didn't understand the original content. -->
+如果您選取其中一個預先設定的作業系統 （和其他服務） 的 Vm，則您已挑選了標準的 Azure VM 大小，如中所述[虛擬機器 Sku 索引標籤](./cpp-skus-tab.md)。建議使用預先設定的作業系統啟動您的解決方案。  不過，如果您要以手動方式安裝作業系統，則必須在 VM 映像中調整主要 VHD 的大小：
 
 - 若為 Windows，應將作業系統 VHD 建立為 127-128 GB 固定格式的 VHD。 
 - 入圍 Linux，應將此 VHD 建立為 30-50 GB 固定格式的 VHD。
@@ -44,7 +45,7 @@ ms.locfileid: "53183466"
 
 若為 Windows Server 2016，請執行 **Check for Updates** 命令。  或是若為舊版的 Windows，請查看[如何透過 Windows Update 取得更新](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update)。  Windows Update 會自動安裝最新的重大與重要安全性更新。
 
-若為 Linux 發行版本，通常會透過命令列工具或圖形化公用程式來下載和安裝更新。  例如，Ubuntu Linux 提供了 [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) 命令和[更新管理員](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html)工具，可用於更新作業系統。
+若為 Linux 發行版本，通常會透過命令列工具或圖形化公用程式來下載和安裝更新。  例如，Ubuntu Linux 提供了 [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) 命令和[更新管理員](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html)工具，可用於更新作業系統。
 
 
 ## <a name="perform-additional-security-checks"></a>執行額外的安全性檢查
@@ -72,9 +73,9 @@ Windoes 作業系統磁碟是使用 [sysprep 工具](https://docs.microsoft.com/
 > [!WARNING]
 >  由於系統可能會自動執行更新，因此一旦執行了 sysprep，請在執行部署前關閉虛擬機器。  關閉動作可避免後續的更新對 VHD 作業系統或是已安裝的服務進行執行個體特定的變更。
 
-如需執行 sysprep 的詳細資訊，請參閱 [將 VHD 一般化的步驟] (https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+如需執行 sysprep 的詳細資訊，請參閱[將一般化 VHD 的步驟](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 
 下列程序有兩個步驟，會將 Linux 虛擬機器一般化，並重新部署為個別的虛擬機器。  如需詳細資訊，請參閱[如何建立虛擬機器或 VHD 的映像](../../../virtual-machines/linux/capture-image.md)。 
 

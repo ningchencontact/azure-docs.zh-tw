@@ -10,23 +10,25 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: cae02627c539e543d27ea188d521605f187ea8a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 672bfee600f19661c6bc68535a68fff4a0ccc43f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475341"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835362"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 6 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 6 月導入的新功能和變更。 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="user-defined-restore-points"></a>使用者定義的還原點
 SQL 資料倉儲每 8 小時自動拍攝資料倉儲的快照集，保證八小時復原點目標 (RPO)。 雖然此自動快照集可以減輕執行資料倉儲的管理負擔，但仍需要根據業務需求，在關鍵時刻拍攝快照集。 例如，在重要資料載入之前拍攝快照集或將新指令碼部署到資料倉儲中，以在作業之前啟用還原點。 
 
-SQL 資料倉儲目前透過 [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) Cmdlet 支援[使用者定義的還原點](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)。
+SQL 資料倉儲現在支援[使用者定義的還原點](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)透過[新增 AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet。
 
 ```PowerShell
-New-AzureRmSqlDatabaseRestorePoint
+New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName
     -DatabaseName $DatabaseName
@@ -112,20 +114,20 @@ start_time                | end_time                | command
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
-* [部落格]
+* [博客]
 * [功能要求]
-* [影片]
+* [视频]
 * [客戶諮詢小組部落格]
 * [Stack Overflow 論壇]
 * [Twitter]
 
 
-[部落格]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [客戶諮詢小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [客戶成功案例]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [功能要求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow 論壇]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 論壇]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[视频]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

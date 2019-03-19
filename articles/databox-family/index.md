@@ -11,16 +11,10 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157100"
 ---
+<div id="main" class="v2">
 <h1>Azure 資料箱</h1>
 <p>Azure 資料箱系列會提供具有不同儲存容量的產品，協助您以快速、實惠和可靠的方式，將數 TB 的資料傳送至 Azure。 Microsoft 會寄送給您能夠離線或透過網路傳輸資料的專屬儲存裝置，以加速安全的資料轉送。</p>
-
 <h2>離線資料轉送</h2>
 <p>網路頻寬受限或沒有網路</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -79,7 +73,6 @@ ms.locfileid: "54157100"
         </a>
     </li>
 </ul>
-
 <h2>線上資料轉送</h2>
 <p>透過網路傳輸</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -120,3 +113,4 @@ ms.locfileid: "54157100"
         </a>
     </li>
 </ul>
+</div>

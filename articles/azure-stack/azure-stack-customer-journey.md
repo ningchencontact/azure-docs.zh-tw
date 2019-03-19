@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad58b8f1034a0e2818d3aca53c023736da9370cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189203"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119916"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Azure Stack 資料中心整合
 
@@ -32,8 +32,8 @@ ms.locfileid: "56189203"
 |     |規劃階段|訂購程序|前置部署|處理站程序|硬體寄送|現場部署|
 |-----|-----|-----|-----|-----|-----|-----|
 |**Microsoft**|與合作夥伴洽談以提供售前支援。|準備所需的軟體授權和合約。|提供客戶收集資料中心整合需求及文件的必要工具。|每月提供最新基準組建和工具鏈更新。|N/A|Microsoft 支援工程師會針對任何部署問題提供協助。|
-|**合作夥伴**|根據客戶需求建議解決方案選項。<br><br>如有必要，提出概念證明 (POC)。<br><br>建立商業關係。<br><br>決定支援層級。|準備給客戶的必要合約。<br><br>建立客戶的購買訂單。<br><br>決定遞送時間軸。<br><br>如有必要，透過 Microsoft 與客戶聯繫。|提供客戶所需的訓練，以確保客戶了解所有部署先決條件和資料中心整合選項。<br><br>協助客戶驗證所收集的資料，以確保完整性和正確性。|套用最後一個已驗證的基準組建。<br><br>套用必要的 Microsoft 部署工具組。|將硬體寄送到客戶端。|由現場工程師處理部署事宜。<br><br>機架安裝。<br><br>硬體生命週期主機 (HLH) 部署。<br><br>Azure Stack 部署。<br><br>遞交給客戶。|
-|**客戶**|描述預定的使用案例，並指定需求。|決定要使用的計費模型，並檢閱及核准合約。|完成部署工作表，並確定所有部署先決條件都符合且已準備好進行部署。|N/A|準備資料中心，確保具備所有必要的電源和冷卻系統、邊界連線能力，以及其他必要的資料中心整合需求。|可在部署期間提供訂用帳戶認證，並在所提供的資料有疑問時提供支援。|
+|**合作夥伴**|根據客戶需求建議解決方案選項。<br><br>如有必要，提出概念證明 (POC)。<br><br>建立商業關係。<br><br>決定支援層級。|準備給客戶的必要合約。<br><br>建立客戶的購買訂單。<br><br>決定遞送時間軸。<br><br>如有必要，透過 Microsoft 與客戶聯繫。|提供客戶所需的訓練，以確保客戶了解所有部署必要條件和資料中心整合選項。<br><br>協助客戶驗證所收集的資料，以確保完整性和正確性。|套用最後一個已驗證的基準組建。<br><br>套用必要的 Microsoft 部署工具組。|將硬體寄送到客戶端。|由現場工程師處理部署事宜。<br><br>機架安裝。<br><br>硬體生命週期主機 (HLH) 部署。<br><br>Azure Stack 部署。<br><br>遞交給客戶。|
+|**客戶**|描述預定的使用案例，並指定需求。|決定要使用的計費模型，並檢閱及核准合約。|完成部署工作表，並確定所有部署必要條件都符合且已準備好進行部署。|N/A|準備資料中心，確保具備所有必要的電源和冷卻系統、邊界連線能力，以及其他必要的資料中心整合需求。|可在部署期間提供訂用帳戶認證，並在所提供的資料有疑問時提供支援。|
 | | | | | | | |
 
 
@@ -95,7 +95,7 @@ ms.locfileid: "56189203"
 -   所有網路整合參數都已完成，且符合您與解決方案提供者共用的項目。
 
 > [!TIP]
-> 如果任何一個資訊發生變更，請務必在排定實際部署之前，將此變更告知解決方案提供者。
+> 如果任何一項資訊發生變更，請務必在排定實際部署之前，將此變更告知解決方案提供者。
 
 ## <a name="onsite-deployment-phase"></a>現場部署階段
 若要部署 Azure Stack，您硬體解決方案提供者的現場工程師必須在場，才能開始進行部署。 為確保部署能成功，請確定所有透過部署工作表提供的資訊皆未曾變更。 
@@ -116,32 +116,32 @@ ms.locfileid: "56189203"
 
 OEM 合作夥伴應採取的動作包括：
 
--   [執行 test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [執行 test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [向 Azure 註冊](azure-stack-registration.md)
+- [向 Azure 註冊](azure-stack-registration.md)
 
--   [Marketplace 摘要整合](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Marketplace 摘要整合](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   備份交換器設定和 HLH 設定檔案
+- 備份交換器設定和 HLH 設定檔案
 
--   移除 DVM
+- 移除 DVM
 
--   準備用於部署的客戶摘要
+- 準備用於部署的客戶摘要
 
--   [檢查更新以確定解決方案軟體已更新為最新版本](.\azure-stack-updates.md)
+- [檢查更新以確定解決方案軟體已更新為最新版本](./azure-stack-updates.md)
 
 有幾個步驟會根據安裝類型來決定是必要或是選用。
 
--   如果部署是使用 [AD FS](azure-stack-integrate-identity.md) 來完成的，則 Azure Stack 戳記將需要與客戶自己的 AD FS 整合。
+- 如果部署是使用 [AD FS](azure-stack-integrate-identity.md) 來完成的，則 Azure Stack 戳記將需要與客戶自己的 AD FS 整合。
 
   > [!NOTE]
   > 此步驟由客戶負責，但合作夥伴可選擇性地提供可完成此作業的服務。
 
--   與個別合作夥伴的現有監視系統整合。
+- 與個別合作夥伴的現有監視系統整合。
 
-    -   [System Center Operations Manager 整合](azure-stack-integrate-monitor.md)也支援車隊管理功能。
+  -   [System Center Operations Manager 整合](azure-stack-integrate-monitor.md)也支援車隊管理功能。
 
-    -   [Nagios 整合](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Nagios 整合](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>整體時間軸
 

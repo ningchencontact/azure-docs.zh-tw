@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 1ccbe8b268725cf3d0747486a20e0597d023662e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8080355bebf00c9f37c28ae8ed54bba092f8dc17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099928"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>將 Azure 認知服務部署至 Azure Stack
 
@@ -67,12 +67,12 @@ ms.locfileid: "55890598"
 
 在 Azure 上建立認知服務資源，以分別預覽臉部、LUIS 或辨識文字容器。 您需要使用來自資源的訂用帳戶金鑰和端點 URL 來將認知服務容器具現化。
 
-1.  在 Azure 入口網站中建立 Azure 資源。 如果您想要預覽臉部容器，便必須先在 Azure 入口網站中建立相對應的臉部資源。 如需詳細資訊，請參閱[快速入門：在 Azure 入口網站中建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。
+1. 在 Azure 入口網站中建立 Azure 資源。 如果您想要預覽臉部容器，便必須先在 Azure 入口網站中建立相對應的臉部資源。 如需詳細資訊，請參閱[快速入門：在 Azure 入口網站中建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。
 
-    >  [!Note]  
-    >  臉部或電腦視覺資源必須使用 F0 定價層。
+   > [!Note]
+   >  臉部或電腦視覺資源必須使用 F0 定價層。
 
-2.  取得 Azure 資源的端點 URL 和訂用帳戶金鑰。 Azure 資源建立之後，您必須使用來自該資源的訂用帳戶金鑰和端點 URL，將相對應的臉部、LUIS 或辨識文字容器預覽具現化。
+2. 取得 Azure 資源的端點 URL 和訂用帳戶金鑰。 Azure 資源建立之後，您必須使用來自該資源的訂用帳戶金鑰和端點 URL，將相對應的臉部、LUIS 或辨識文字容器預覽具現化。
 
 ## <a name="create-a-kubernetes-secret"></a>建立 Kubernetes 祕密 
 

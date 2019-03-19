@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 9eca22f5a594bf3d61b1d68882c4853f4bfc499d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099287"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100746"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中套用更新
 
@@ -30,7 +30,7 @@ ms.locfileid: "56099287"
 
 如果您使用的是整合系統版本 1807 或更早的版本，您必須下載更新套件、將套件檔案匯入至 Azure Stack，然後安裝該更新套件。 如需指示，請參閱[透過下載套件更新 Azure Stack](#update-azure-stack-by-downloading-the-package)
 
-這些升級指示適用於 Azure Stack 整合系統。 如果您使用的是 Azure Stack 開發系統，則必須下載最新版本的安裝套件。 如需指示，請參閱[安裝 Azure Stack 開發套件](.\asdk\asdk-install.md)
+這些升級指示適用於 Azure Stack 整合系統。 如果您使用的是 Azure Stack 開發系統，則必須下載最新版本的安裝套件。 如需指示，請參閱[安裝 Azure Stack 開發套件](./asdk/asdk-install.md)
 
 ## <a name="update-azure-stack"></a>更新 Azure Stack
 
@@ -48,7 +48,7 @@ ms.locfileid: "56099287"
 
 4. 在 [更新] 清單中選取下一個可用的版本。 如果要檢閱版本變更，可以選取版本資訊欄中的 [檢視] 以開啟版本的版本資訊主題。
 
-5. 選取 [立即更新]。 將會開始更新。
+5. 選取 [立即更新]。 更新將會啟動。
 
 ### <a name="review-update-history"></a>檢閱更新歷程記錄
 

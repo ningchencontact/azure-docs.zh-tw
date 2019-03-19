@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 0ffb9b9105ee455d35d080bb45063c158cadce1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852605"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 5 月 
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 5 月導入的新功能和變更。 
@@ -26,7 +26,7 @@ Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 5 月導入的新
 請參閱 Azure Data 公司副總裁 Rohan Kumar 所帶來的[使用 Azure SQL 資料倉儲大幅加速雲端分析](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/)部落格通知。
 
 ## <a name="auto-statistics"></a>自動統計資料
-在現代化的成本型最佳化工具 (例如 SQL 資料倉儲中的引擎) 中，統計資料對於將查詢計劃產生最佳化而言至關緊要。 若能事先知道所有的查詢，就能決定需要建立的統計資料物件。 不過，當系統面臨通常用於資料倉儲工作負載的臨機操作和隨機查詢時，系統管理員可能難以預測需要建立哪些統計資料，這可能會導致查詢執行計劃無法最佳化，且查詢回應時間變長。 減輕這個問題的其中一種方式，是在所有資料表的資料行上事先建立統計資料物件。 然而，該程序會帶來負面影響，因為統計資料物件在資料表載入程序期間需要進行維護，而導致載入時間變長。
+在現代化的成本型最佳化工具 (例如 SQL 資料倉儲中的引擎) 中，統計資料對於將查詢計劃產生最佳化而言至關緊要。 若能事先知道所有的查詢，就能決定需要建立的統計資料物件。 不過，當系統面臨臨機操作和系統管理員可能會遭遇通常用於資料倉儲工作負載的隨機查詢，來預測哪些統計資料需要建立導致權限可能次佳的查詢執行計畫和長度查詢回應時間。 減輕這個問題的其中一種方式，是在所有資料表的資料行上事先建立統計資料物件。 然而，該程序會帶來負面影響，因為統計資料物件在資料表載入程序期間需要進行維護，而導致載入時間變長。
 
 SQL 資料倉儲現在支援自動建立統計資料物件，以提供更大彈性、生產力，並讓系統管理員和開發人員更輕鬆使用，同時確保系統持續提供高品質的執行計劃和最佳的回應時間。
 
@@ -44,7 +44,7 @@ ALTER DATABASE { database_name } SET { AUTO_CREATE_STATISTICS { OFF | ON } } [;]
 如需其他詳細資料，請參閱 [ALTER DATABASE SET 選項](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options)文件。
 
 ## <a name="rejected-row-support"></a>拒絕的資料列支援
-客戶通常會因為資料載入的高效能、平行本質，而使用 [PolyBase (外部資料表) 將資料載入](design-elt-data-loading.md) SQL 資料倉儲。 透過 [Azure Data Factory](http://azure.com/adf) 載入資料時，PolyBase 也是預設的載入模型。 
+客戶通常會因為資料載入的高效能、平行本質，而使用 [PolyBase (外部資料表) 將資料載入](design-elt-data-loading.md) SQL 資料倉儲。 透過 [Azure Data Factory](https://azure.com/adf) 載入資料時，PolyBase 也是預設的載入模型。 
 
 SQL 資料倉儲新增了功能，可透過 `REJECTED_ROW_LOCATION` 參數搭配 [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) 陳述式，定義遭拒絕的資料列位置。 從外部資料表中執行 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 之後，任何無法載入的資料列都會儲存在來源附近的檔案中，以供進一步調查。 
 
@@ -132,20 +132,20 @@ The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, 
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
-* [部落格]
+* [博客]
 * [功能要求]
-* [影片]
+* [视频]
 * [客戶諮詢小組部落格]
 * [Stack Overflow 論壇]
 * [Twitter]
 
 
-[部落格]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [客戶諮詢小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [客戶成功案例]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [功能要求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow 論壇]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 論壇]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[视频]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

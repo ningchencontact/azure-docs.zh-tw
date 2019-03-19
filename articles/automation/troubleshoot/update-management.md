@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: a8be44201a2181ab252dfba501469719dd675ffa
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270261"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410157"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -44,7 +44,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 1. 請瀏覽[網路規劃](../automation-hybrid-runbook-worker.md#network-planning)，了解必須允許哪些位址和連接埠，才能進行更新管理。
 2. 若使用複製的映像：
-   1. 在您的 Log Analytics 工作區中，從 `MicrosoftDefaultScopeConfig-Updates` 「範圍設定」的已儲存搜尋中移除 VM。 您可以在工作區中的 [一般] 底下找到儲存的搜尋。
+   1. 在您的 Log Analytics 工作區，請從已儲存的搜尋範圍設定中移除 VM`MicrosoftDefaultScopeConfig-Updates`顯示時。 您可以在工作區中的 [一般] 底下找到儲存的搜尋。
    2. 執行 `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. 執行 `Restart-Service HealthService` 以重新啟動 `HealthService`。 這將會重建金鑰並產生新的 UUID。
    4. 如果這樣沒有用，請先對映像執行 sysprep，然後再安裝 MMA 代理程式。
@@ -78,11 +78,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>案例：機器的更新管理資料未顯示在 Log Analytics 中
+### <a name="nologs"></a>案例：更新不會顯示機器的 Azure 監視器記錄檔中的管理資料
 
 #### <a name="issue"></a>問題
 
-您有在 [合規性] 之下顯示為 [未評估] 的電腦，但您可以在 Log Analytics 中查看混合式 Runbook 背景工作角色 (而非更新管理) 的活動訊號資料。
+您的機器會顯示為**未評估**下方**合規性**，但您看到 Azure 監視器記錄檔中的活動訊號資料的混合式 Runbook 背景工作角色，但不是更新管理。
 
 #### <a name="cause"></a>原因
 

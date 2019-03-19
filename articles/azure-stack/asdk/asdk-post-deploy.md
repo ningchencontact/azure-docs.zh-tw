@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: eff27e296800f78303d085f471e4fda188b487ce
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102429"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 安裝後設定工作
 
@@ -172,7 +172,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 如需使用 Azure AD 來部署，您需要為 ASDK 安裝[啟用多租用戶](../azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
 
-> [!NOTE]  
+> [!NOTE]
 > 當登入 Azure Stack 入口網站的系統管理員或使用者帳戶不是來自用來註冊 Azure Stack 的網域名稱時，則必須將用來註冊 Azure Stack 的網域名稱附加到入口網站 URL。 例如，如果使用 fabrikam.onmicrosoft.com 註冊了 Azure Stack，且登入的使用者帳戶是 admin@contoso.com，則用來登入使用者入口網站的 url 會是： https://portal.local.azurestack.external/fabrikam.onmicrosoft.com。
 
 ## <a name="next-steps"></a>後續步驟
