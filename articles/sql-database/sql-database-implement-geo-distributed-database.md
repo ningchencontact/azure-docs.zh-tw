@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/10/2019
-ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750336"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844138"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教學課程：實作異地分散資料庫
 
@@ -31,6 +31,10 @@ ms.locfileid: "55750336"
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 若要完成本教學課程，請確定您已安裝下列項目：
 
@@ -72,14 +76,14 @@ ms.locfileid: "55750336"
     $myfailovergroupname = "<your globally unique failover group name>"
 
     # Create a backup server in the failover region
-    New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
+    New-AzSqlServer -ResourceGroupName $myresourcegroupname `
        -ServerName $mydrservername `
        -Location $mydrlocation `
        -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
           -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
     # Create a failover group between the servers
-    New-AzureRMSqlDatabaseFailoverGroup `
+    New-AzSqlDatabaseFailoverGroup `
        –ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -PartnerServerName $mydrservername  `
@@ -88,11 +92,11 @@ ms.locfileid: "55750336"
        -GracePeriodWithDataLossHours 2
 
     # Add the database to the failover group
-    Get-AzureRmSqlDatabase `
+    Get-AzSqlDatabase `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -DatabaseName $mydatabasename | `
-     Add-AzureRmSqlDatabaseToFailoverGroup `
+     Add-AzSqlDatabaseToFailoverGroup `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -FailoverGroupName $myfailovergroupname
@@ -300,7 +304,7 @@ ms.locfileid: "55750336"
 您也可以使用下列命令，在測試期間檢查災害復原伺服器的角色：
 
    ```powershell
-   (Get-AzureRMSqlDatabaseFailoverGroup `
+   (Get-AzSqlDatabaseFailoverGroup `
       -FailoverGroupName $myfailovergroupname `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername).ReplicationRole
@@ -311,7 +315,7 @@ ms.locfileid: "55750336"
 1. 啟動容錯移轉群組的手動容錯移轉：
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername `
       -FailoverGroupName $myfailovergroupname
@@ -320,7 +324,7 @@ ms.locfileid: "55750336"
 1. 將容錯移轉群組還原至主要伺服器：
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname

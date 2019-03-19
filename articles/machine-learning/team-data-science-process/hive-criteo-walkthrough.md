@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477211"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850038"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process 實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集
 
-本逐步解說示範如何在端對端案例中使用 Team Data Science Process 搭配 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)進行儲存、探索、特徵工程設計，並從其中一個公開可用的 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 資料集縮減取樣資料。 其使用 Azure Machine Learning 在此資料上建置二進位的分類模型。 也會顯示如何將其中一個模型發佈為 Web 服務。
+本逐步解說示範如何在端對端案例中使用 Team Data Science Process 搭配 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)進行儲存、探索、特徵工程設計，並從其中一個公開可用的 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) 資料集縮減取樣資料。 其使用 Azure Machine Learning 在此資料上建置二進位的分類模型。 也會顯示如何將其中一個模型發佈為 Web 服務。
 
 此外，也可以使用 IPython Notebook 來完成此逐步解說中說明的工作。 想要嘗試這種方法的使用者，應該查閱 [使用 Hive ODBC 連線的 Criteo 逐步解說](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) 主題。
 
 ## <a name="dataset"></a>Criteo 資料集說明
-Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 檔案 (~1.3 TB 未壓縮)，包含超過 43 億筆記錄。 它取自 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/)提供的 24 天點選資料。 為了方便資料科學家使用，我們已將可供試驗的資料解壓縮。
+Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 檔案 (~1.3 TB 未壓縮)，包含超過 43 億筆記錄。 它取自 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/)提供的 24 天點選資料。 為了方便資料科學家使用，我們已將可供試驗的資料解壓縮。
 
 在此資料集中的每一筆記錄包含 40 個資料行：
 
@@ -68,7 +68,7 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 3. [建立 Azure Machine Learning Studio 工作區](../studio/create-workspace.md)：這個 Azure Machine Learning 工作區會在 HDInsight 叢集上初始資料探索並縮減取樣之後，用來建置機器學習模型。
 
 ## <a name="getdata"></a>取得並從公用來源取用資料
-[Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 資料集可以透過按一下連結、接受使用條款並提供名稱來存取。 其外觀的快照如下所示：
+[Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) 資料集可以透過按一下連結、接受使用條款並提供名稱來存取。 其外觀的快照如下所示：
 
 ![接受 Criteo 條款](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
@@ -306,7 +306,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-請注意，Col15 有 1900 萬個唯一值！ 使用貝氏方法，像是「一個有效編碼」來編碼這類高維度類別變數不可行。 特別是，我們將說明並示範稱為[以計數學習](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)的強大、穩健技術，以有效率地解決此問題。
+請注意，Col15 有 1900 萬個唯一值！ 使用貝氏方法，像是「一個有效編碼」來編碼這類高維度類別變數不可行。 特別是，我們將說明並示範稱為[以計數學習](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)的強大、穩健技術，以有效率地解決此問題。
 
 最後來看一下一些其他類別資料行的唯一值數目。 [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) 的內容為：
 
@@ -405,10 +405,10 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 在繼續 Azure Machine Learning 之前，最後有一個重要元件是考量計數資料表。 在下一個子節中，將會討論計數資料表的一些細節。
 
 ## <a name="count"></a> 計數資料表的簡短討論
-如您所見，數個類別變數有極高的維度性。 逐步解說中會提供稱為[以計數學習](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)的強大技術，以便利用有效率且穩健的方式編碼這些變數。 提供的連結中說明此技術的詳細資訊。
+如您所見，數個類別變數有極高的維度性。 逐步解說中會提供稱為[以計數學習](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)的強大技術，以便利用有效率且穩健的方式編碼這些變數。 提供的連結中說明此技術的詳細資訊。
 
 [!NOTE]
->在本逐步解說中，重點在於使用計數資料表來產生高維度類別功能的精簡表示法。 這不是編碼類別功能的唯一方式；如需有關其他技術的詳細資訊，有興趣的使用者可以查看 [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) 和[特徵雜湊](http://en.wikipedia.org/wiki/Feature_hashing)。
+>在本逐步解說中，重點在於使用計數資料表來產生高維度類別功能的精簡表示法。 這不是編碼類別功能的唯一方式；如需有關其他技術的詳細資訊，有興趣的使用者可以查看 [one-hot-encoding](https://en.wikipedia.org/wiki/One-hot) 和[特徵雜湊](https://en.wikipedia.org/wiki/Feature_hashing)。
 >
 
 為了對計數資料建置計數資料表，請使用 raw/count 資料夾中的資料。 在模型建構區段中，指示使用者如何從頭建置類別功能的這些計數資料表，或者可以使用預先建置的計數資料表進行其探索。 在下面內容中，提到「預先建置的計數資料表」時，表示使用我們提供的計數資料表。 有關如何存取這些資料表的詳細指示會在下一節提供。
@@ -417,7 +417,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 在 Azure Machine Learning 建置模型的程序遵循下列步驟：
 
 1. [從 Hive 資料表取得資料到 Azure Machine Learning](#step1)
-2. [建立實驗︰清除資料，並使用計數資料表特性化](#step2)
+2. [建立實驗： 清除資料，並使它成為使用計數資料表的功能](#step2)
 3. [建立、訓練和評分模型](#step3)
 4. [評估模型](#step4)
 5. [將模型發佈為 Web 服務](#step5)
@@ -451,7 +451,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 若要選取已儲存的資料集，以用於機器學習實驗，請使用下圖所示的 [搜尋]  方塊找出資料集。 然後只要輸入您提供給資料集的部分名稱即可存取它，並拖曳至主面板中。 將它拖放到主面板中，選取它來用於機器學習模型建構。
 
-![將資料集拖曳到主要面板中](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![將資料集拖曳至 主面板](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > 為訓練和測試資料集執行這項操作。 此外，請記住要使用您為此目的提供的資料庫名稱和資料表名稱。 在圖中所使用的值僅供說明之用。\**

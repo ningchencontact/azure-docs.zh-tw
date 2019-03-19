@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310269"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961528"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>常見問題集 - Azure 備份
 
@@ -21,10 +21,8 @@ ms.locfileid: "56310269"
 
 ## <a name="general-questions"></a>一般問題
 
-
 ### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>您可以使用 Azure 備份來備份哪些 Azure VM？
 請[檢閱](backup-azure-arm-vms-prepare.md#before-you-start)支援的作業系統和限制。
-
 
 
 ## <a name="backup"></a>Backup 
@@ -41,17 +39,16 @@ ms.locfileid: "56310269"
 ### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>為什麼我在 [設定備份] 精靈中看不到我的 VM？
 此精靈只會列出與保存庫位於相同區域且尚未備份的 VM。
 
-
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>我的 VM 關閉了。 隨選或排程的備份工作會運作嗎？
 是。 備份會在機器關機時執行。 復原點會標示為「當機時保持一致」。
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>我是否可以取消進行中的備份作業？
 是。 您可以取消處於**正在建立快照**狀態的備份作業。 如果正在從快照集傳輸資料，則無法取消作業。
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>我已在備份的受控磁碟 VM 上啟用資源群組鎖定。 我的備份是否會繼續運作？
-如果您鎖定資源群組，Azure 備份服務就無法刪除較舊的還原點。
-- 因為有最多 18 個還原點的限制，所以新的備份將會開始失敗。
-- 如果備份在鎖定之後因內部錯誤而失敗，請[遵循這些步驟](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)來移除還原點集合。
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>我啟用了 Azure 備份服務 （也就是所建立的資源群組鎖定 ` AzureBackupRG_<geo>_<number>`)，將我的備份繼續運作？
+如果您鎖定 Azure 備份服務所建立的資源群組，備份將會開始失敗，因為沒有上限為 18 個還原點。
+
+使用者必須移除鎖定並清除 使未來的備份成功，還原點集合，從該資源群組[遵循下列步驟](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)移除還原點集合。
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>備份原則是否會考慮日光節約時間 (DST)？
 沒有。 您本機電腦上的日期與時間會在本機套用目前的日光節約時間。 針對排定備份所設定的時間可能會因為 DST 而與當地時間不同。

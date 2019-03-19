@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848944"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -84,7 +84,7 @@ ms.locfileid: "54039328"
 
 對於在實際執行函式應用程式中載入的項目，請務必小心。 記憶體會在應用程式中的每個函式間平均分配。
 
-如果您在多個 .Net 函式中參考某個共用組件，請將它置於通用的共用資料夾中。 如果使用 C# 指令碼 (.csx)，請使用類似下列的範例陳述式來參考組件︰ 
+如果您有多個.NET 函式中參考某個共用組件，請將它置於通用的共用資料夾中。 如果使用 C# 指令碼 (.csx)，請使用類似下列的範例陳述式來參考組件︰ 
 
     #r "..\Shared\MyAssembly.dll". 
 

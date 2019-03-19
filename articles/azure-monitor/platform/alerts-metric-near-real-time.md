@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 05812d3c1f1596cbc560d50ac37a058d9438581a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 1506911902940ebd6fa05a0d3534ce599c6d941a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101530"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961324"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure 監視器中計量警示所支援的資源
 
@@ -48,12 +48,13 @@ Azure 監視器現已可支援[新的計量警示類型](../../azure-monitor/pla
 |Microsoft.KeyVault/vaults| 否 | [保存庫](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [應用程式閘道](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkapplicationgateways) |
-|Microsoft.Network/expressRouteCircuits | N/A |  [快速路由線路](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/dnsZones | N/A| [DNS 區域](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
+|Microsoft.Network/expressRouteCircuits | N/A |  [快速路由線路](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/loadBalancers (僅適用於標準 SKU)| 是| [負載平衡器](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/A       |[公用 IP 位址](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.PowerBIDedicated/capacities | N/A | [容量](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Network/trafficManagerProfiles | 是 | [流量管理員設定檔](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.OperationalInsights/workspaces| 是|[Log Analytics 工作區](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft.PowerBIDedicated/capacities | N/A | [容量](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices     |   N/A      |[搜尋服務](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  是       |[服務匯流排](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    是     | [儲存體帳戶](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
@@ -62,7 +63,7 @@ Azure 監視器現已可支援[新的計量警示類型](../../azure-monitor/pla
 | Microsoft.Web/serverfarms | 是 | [App Service 方案](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)  |
 | Microsoft.Web/sites | 是 | [App Service](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) 與[函式](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
 | Microsoft.Web/sites/slots | 是 | [App Service 位置](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
-|Microsoft.OperationalInsights/workspaces| 是|[Log Analytics 工作區](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+
 
 ## <a name="payload-schema"></a>承載結構描述
 

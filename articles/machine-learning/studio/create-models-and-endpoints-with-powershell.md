@@ -1,21 +1,21 @@
 ---
-title: 從一個 Studio 實驗建立多個模型
+title: 建立模型的多個端點
 titleSuffix: Azure Machine Learning Studio
 description: 使用 PowerShell 以相同演算法但不同的訓練資料集，建立多個機器學習服務模型和 Web 服務端點。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455053"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848911"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>使用 PowerShell 從一個實驗建立 Studio 模型和 Web 服務端點
 
@@ -27,7 +27,7 @@ ms.locfileid: "56455053"
 
 這可能是最好的方法，但您並不會想在 Azure Machine Learning Studio 中建立 1,000 個訓練實驗來個別代表其中一個唯一地點。 除了工作繁重，看起來也很沒效率，因為除了訓練資料集外，每個實驗的元件都完全相同。
 
-幸運的是，您可以使用 [Azure Machine Learning Studio 重新訓練 API](retrain-models-programmatically.md)，利用 [Azure Machine Learning Studio PowerShell](powershell-module.md) 將工作自動化來達到此目的。
+幸運的是，您可以使用 [Azure Machine Learning Studio 重新訓練 API](/azure/machine-learning/studio/retrain-machine-learning-model)，利用 [Azure Machine Learning Studio PowerShell](powershell-module.md) 將工作自動化來達到此目的。
 
 > [!NOTE]
 > 為了加速執行範例，請將地點從 1,000 個減到 10 個。 但使用與 1,000 個地點相同的原理和程序。 不過，如果您想要從 1,000 個資料集來訓練，建議您以平行方式執行下列 PowerShell 指令碼。 相關做法已超出本文的範圍，但您可以在網際網路上找到 PowerShell 多執行緒的範例。  
@@ -35,7 +35,7 @@ ms.locfileid: "56455053"
 > 
 
 ## <a name="set-up-the-training-experiment"></a>設定訓練實驗
-請使用 [Cortana Intelligence Gallery](http://gallery.azure.ai) 中的[訓練實驗](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1)範例。 在 [Azure Machine Learning Studio](https://studio.azureml.net) 工作區開啟此實驗。
+請使用 [Cortana Intelligence Gallery](https://gallery.azure.ai) 中的[訓練實驗](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1)範例。 在 [Azure Machine Learning Studio](https://studio.azureml.net) 工作區開啟此實驗。
 
 > [!NOTE]
 > 為了依照此範例進行，建議您使用標準工作區，而不是免費工作區。 您將為每個客戶建立一個端點 (總共 10 個端點)，而這需要標準工作區，因為免費工作區只能有 3 個端點。 如果您只有免費工作區，請變更指令碼，而僅允許有三個地點。
@@ -44,7 +44,7 @@ ms.locfileid: "56455053"
 
 此實驗使用「匯入資料」  模組，從 Azure 儲存體帳戶匯入訓練資料集 *customer001.csv* 。 假設您已從所有自行車出租地點收集訓練資料集，並儲存在相同的 Blob 儲存體位置中，檔案名稱範圍從 *rentalloc001.csv* 至 *rentalloc10.csv*。
 
-![映像](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![從 Azure blob 讀取器模組匯入的資料](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 請注意，**Web 服務輸出**模組已新增至**訓練模型**模組。
 當此實驗部署為 Web 服務時，與該輸出相關聯的端點會傳回格式為 .ilearner 檔案的訓練模型。
@@ -52,7 +52,7 @@ ms.locfileid: "56455053"
 另請注意，您會設定 Web 服務參數，以定義**匯入資料**模組使用的 URL。 這可讓您使用參數來指定個別的訓練資料集，以訓練每個地點的模型。
 您也可以透過其他方式完成此作業。 您可以使用 SQL 查詢和 Web 服務參數，從 SQL Azure 資料庫取得資料。 或者，您可以使用 **Web 服務輸入**模組，將資料集傳入 Web 服務。
 
-![映像](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![輸出至 Web 服務輸出模組的定型模型模組](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 現在，讓我們使用預設值 *rental001.csv* 作為訓練資料集，執行此訓練實驗。 如果您檢視**評估**模組的輸出 (按一下輸出並選取 [視覺化])，您可以看到您取得適當的效能 *AUC* = 0.91。 此時，您已準備好根據此訓練實驗來部署 Web 服務。
 
@@ -89,7 +89,7 @@ ms.locfileid: "56455053"
 
 現在，您已建立 10 個端點，而且全部都包含經過 *customer001.csv* 訓練的相同訓練模型。 您可以在 Azure 入口網站中加以檢視。
 
-![映像](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![在入口網站中檢視定型的模型的清單](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>使用 PowerShell 更新端點來使用不同的訓練資料集
 下一步是使用經過每個客戶的個別資料所特別訓練的模型來更新端點。 但首先您必須從**自行車出租訓練** Web 服務來產生這些模型。 讓我們回到 **自行車出租訓練** Web 服務。 您必須以 10 個不同的訓練資料集呼叫其 BES 端點 10 次，以產生 10 個不同的模型。 請使用 **InovkeAmlWebServiceBESEndpoint** PowerShell Cmdlet 來執行這項操作。

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986afa1239ad0efd9ccb936252ead37c8379b447
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c9f410fa890df7aac3c3bf4d89468b92e69ba38
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192892"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>教學課程：Azure Active Directory 與 Tangoe Command Premium Mobile 整合
 
@@ -75,7 +75,7 @@ Tangoe 命令高階行動裝置與 Azure AD 整合提供下列優點：
 
 1. 在搜尋方塊中，輸入 **Tangoe 命令高階行動裝置**，從結果面板選取 [Tangoe 命令高階行動裝置]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![從資源庫新增 Tangoe 命令高階行動裝置 ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
+    ![從資源庫新增 Tangoe 命令高階行動裝置](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 在本節中，您會以名為 "Britta Simon" 的測試使用者身分，使用 Tangoe 命令高階行動裝置設定及測試 Azure AD 單一登入。

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 598af6bb945318f0a76ffe094dd5786abacccc3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543524"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872891"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則
 伺服器層級的防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，存取適用於 MySQL 的 Azure 資料庫伺服器。 
@@ -34,7 +34,7 @@ ms.locfileid: "53543524"
 
 4. 新增其他位址範圍。 在適用於 MySQL 的 Azure 資料庫的防火牆規則中，您可以指定單一 IP 位址或位址範圍。 如果您想要將規則限制到單一 IP 位址，請在 [起始 IP] 和 [結尾 IP] 欄位中輸入相同位址。 開放防火牆可讓系統管理員、使用者和應用程式存取他們在 MySQL 伺服器上具備有效認證的任何資料庫。
 
-   ![Azure 入口網站 - 防火牆規則 ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   ![Azure 入口網站 - 防火牆規則](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. 按一下工具列上的 [儲存]，儲存此伺服器等級防火牆規則。 等待確認已成功更新防火牆規則。
 

@@ -9,25 +9,24 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: e96abfbdbd9394d27fbffbcb64aa9cbfabbbcb69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835430"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure 事件中樞的程式設計指南
 本文會討論一些使用 Azure 事件中樞來撰寫程式碼的常見案例。 它假設使用者對事件中樞已有初步了解。 如需事件中樞的概念概觀，請參閱 [事件中樞概觀](event-hubs-what-is-event-hubs.md)。
 
-## <a name="event-publishers"></a>事件發佈者
+## <a name="event-publishers"></a>事件发布者
 
 您可以使用 HTTP POST 或透過 AMQP 1.0 連線，將事件傳送到事件中樞。 使用選擇取決於應用的特定案例。 AMQP 1.0 連線是以服務匯流排中的代理連線形式計量，其較適合經常出現大量訊息且需要低延遲的案例，因為它們可提供持續的傳訊通道。
 
 在使用 .NET 受控 API 時，用於將資料發佈到事件中樞的主要建構是 [EventHubClient][] 和 [EventData][] 類別。 [EventHubClient][] 提供將事件傳送到事件中樞時所透過的 AMQP 通訊通道。 [EventData][] 類別代表事件，可用來將訊息發佈到事件中樞。 這個類別包含主體、一些中繼資料，以及有關事件的標頭資訊。 當 [EventData][] 物件通過事件中樞時，系統會為它新增其他屬性。
 
 ## <a name="get-started"></a>開始使用
-
-[Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet 套件中會提供支援事件中樞的 .NET 類別。 您可以使用 Visual Studio 方案總管，或 Visual Studio 中的[套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)進行安裝。 若要這樣做，請在 [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 視窗中發出下列命令：
+[Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet 套件中會提供支援事件中樞的 .NET 類別。 您可以使用 Visual Studio 方案總管，或 Visual Studio 中的[套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)進行安裝。 若要這樣做，請在 [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 視窗中發出下列命令：
 
 ```shell
 Install-Package Microsoft.Azure.EventHubs
@@ -99,7 +98,6 @@ for (var i = 0; i < numMessagesToSend; i++)
 您可以用非同步方式將事件傳送到事件中樞。 以非同步方式傳送會增加用戶端傳送事件的速率。 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 會傳回 [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 物件。 您可以在用戶端上使用 [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) 類別來控制用戶端重試選項。
 
 ## <a name="event-consumers"></a>事件取用者
-
 [EventProcessorHost][] 類別能處理來自事件中樞的資料。 在 .NET 平台上建置事件讀取器時，您應該使用這項實作。 [EventProcessorHost][] 能為事件處理器實作提供安全執行緒、多處理序、安全的執行階段環境，進而提供檢查點和資料分割租用管理。
 
 若要使用 [EventProcessorHost][] 類別，您可以實作 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor)。 這個介面包含四個方法：
@@ -110,6 +108,9 @@ for (var i = 0; i < numMessagesToSend; i++)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
 若要啟動事件處理，請將 [EventProcessorHost][] 具現化，其中需為事件中樞提供適當的參數。 例如︰
+
+> [!NOTE]
+> EventProcessorHost 和其相關的類別中提供**Microsoft.Azure.EventHubs.Processor**封裝。 將套件新增至您的 Visual Studio 專案中，依照中的指示[這篇文章](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package)或藉由發出下列命令在[Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)視窗：`Install-Package Microsoft.Azure.EventHubs.Processor`。
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(
@@ -132,9 +133,9 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
 經過一段時間後，均衡的局面將會出現。 此動態功能可讓您將 CPU 架構自動調整套用至消費者，以便進行向上和向下調整。 由於事件中樞沒有直接的訊息計數概念，因此平均 CPU 使用率通常是測量後端或消費者規模最合適的機制。 如果發佈者發佈的事件數量開始超出消費者的處理能力，消費者上增加的 CPU 可用來引發背景工作執行個體計數自動調整。
 
-[EventProcessorHost][] 類別還能實作以 Azure 儲存體為基礎的檢查點機制。 這項機制能儲存每個磁碟分割的位移，方便各個消費者判斷前一個消費者的最後一個檢查點。 由於資料分割會透過租用在節點之間轉換，因此這是能促進負載移位的同步處理機制。
+[EventProcessorHost][] 類別還能實作以 Azure 儲存體為基礎的檢查點機制。 此机制按分区存储偏移量，每个使用者都能确定前一个使用者的最后一个检查点是什么。 由於資料分割會透過租用在節點之間轉換，因此這是能促進負載移位的同步處理機制。
 
-## <a name="publisher-revocation"></a>發佈者撤銷
+## <a name="publisher-revocation"></a>发布者吊销
 
 除了 [EventProcessorHost][]的進階執行階段功能之外，「事件中樞」還能讓您撤銷發佈者，以防止特定發佈者將事件傳送到到事件中樞。 當發行者權杖遭到洩露，或軟體更新造成發佈者出現不當行為時，這些功能很有用。 在這些情況下，您可以封鎖發佈者 SAS 權杖中的發佈者身分識別，避免它們發佈事件。
 
@@ -145,7 +146,7 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 若要深入了解事件中樞案例，請造訪下列連結：
 
 * [事件中樞 API 概觀](event-hubs-api-overview.md)
-* [何謂事件中樞](event-hubs-what-is-event-hubs.md)
+* [什么是事件中心](event-hubs-what-is-event-hubs.md)
 * [事件中樞的可用性和一致性](event-hubs-availability-and-consistency.md)
 * [事件處理器主機 API 參考](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 

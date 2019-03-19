@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fc32e9e306149052df37cc24bc54e2aad902c50
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d6ad683af5597be746524a360d438a06b2e429b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847249"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>使用範本在 Azure 虛擬機器擴展集上設定 Azure 資源受控識別
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>在 Azure 虛擬機器擴展使用範本上設定適用於 Azure 資源管理的身分識別
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -50,7 +50,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 如同 Azure 入口網站和指令碼，[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 範本可讓您部署由 Azure 資源群組所定義的最新或已修改資源。 範本編輯和部署有幾個選項可用 (在本機和入口網站)，包括：
 
    - 使用 [Azure Marketplace 所提供的自訂範本](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)，可讓您從頭開始建立範本，或根據現有的常用範本或[快速入門範本](https://azure.microsoft.com/documentation/templates/)來建立範本。
-   - 衍生自現有的資源群組，方法是從[原始部署](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history)，或從[部署的目前狀態](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group)匯出範本。
+   - 衍生自現有的資源群組，方法是從[原始部署](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)，或從[部署的目前狀態](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)匯出範本。
    - 使用本機 [JSON 編輯器 (例如 VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)，然後使用 PowerShell 或 CLI 上傳和部署。
    - 使用 Visual Studio 的 [Azure 資源群組專案](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)來建立和部署範本。  
 
@@ -63,7 +63,6 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 ### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>在虛擬機器擴展集建立期間，或現有的虛擬機器擴展集啟用系統指派的受控識別
 
 1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都請使用與包含虛擬機器擴展集的 Azure 訂用帳戶相關聯的帳戶。
-   
 2. 若要啟用系統指派的受控識別，請將範本載入到編輯器、在 resources 區段中找出感興趣的 `Microsoft.Compute/virtualMachinesScaleSets` 資源，然後在與 `"type": "Microsoft.Compute/virtualMachinesScaleSets"` 屬性相同的層級上新增 `identity`。 使用下列語法：
 
    ```JSON
@@ -321,7 +320,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
         }
     ]
    ```
-### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集移除使用者指派的受控識別
+   ### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集移除使用者指派的受控識別
 
 如果您的虛擬機器擴展集不再需要使用者指派的受控識別：
 

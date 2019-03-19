@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/10/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 3b6daa60e8c8945d49170a00da5bd3ffb57b48ac
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000109"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733294"
 ---
 # <a name="manage-multiple-tenants"></a>管理多個租用戶
 
@@ -56,7 +56,7 @@ ms.locfileid: "56000109"
 
 當[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)時，您可以為每個租用戶指定不同的資料分割屬性。 這將允許[搜尋 API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?) 中的隔離。 藉由在搜尋 API 中指定分割區屬性，您將只會取得指定分割區的結果。 
 
- ### <a name="considerations"></a>考量
+### <a name="considerations"></a>考量
 
 * 能夠在租用戶之間共用內容和自訂模型。
 * 一個租用戶會影響其他租用戶的效能。

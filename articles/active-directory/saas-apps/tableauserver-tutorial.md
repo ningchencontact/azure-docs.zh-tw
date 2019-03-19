@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0a8f6ce325dd087aec5e055e09e20e7de62a40
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b1b48d3bced2061dbe7e8ba26e2c6738e44ba4b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840421"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>教學課程：Azure Active Directory 與 Tableau Server 整合
 
@@ -171,7 +171,7 @@ Tableau Server 與 Azure AD 整合提供下列優點：
     
     b. 選取 [為伺服器啟用 SAML 驗證] 的核取方塊。
 
-    c. Tableau Server 傳回 URL — Tableau Server 使用者將存取的 URL，例如 http://tableau_server。 不建議使用 http://localhost。 不支援使用包含結尾斜線的 URL (例如， http://tableau_server/)。 複製 [Tableau Server 傳回 URL]，並將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [單一登入 URL] 文字方塊。
+    c. Tableau Server 傳回 URL — Tableau Server 使用者將存取的 URL，例如 <http://tableau_server>。 不建議使用 `http://localhost`。 使用包含結尾斜線的 URL (例如`http://tableau_server/`) 不支援。 複製 [Tableau Server 傳回 URL]，並將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [單一登入 URL] 文字方塊。
 
     d. SAML 實體識別碼—實體識別碼可唯一識別安裝至 IdP 的 Tableau Server。 您可以依意願再次在這裡輸入 Tableau Server URL，但是它不一定是您的 Tableau Server URL。 複製 [SAML 實體識別碼]，並將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [識別碼] 文字方塊。
 
@@ -205,7 +205,7 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中，輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

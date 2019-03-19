@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191412"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867094"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 
@@ -73,7 +73,7 @@ Azure AD Domain Services 可完整同步處理 Azure AD 中可用的所有使用
 
 佈建受控網域的程序可能需要一小時的時間。
 
-1. 部署進行時，您可以在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 刀鋒視窗會列出正在佈建的受控網域。
+1. 部署進行時，您可以在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 **Azure AD Domain Services**。 [Azure AD Domain Services] 刀鋒視窗會列出正在佈建的受控網域。
 
     ![找出正在佈建的受控網域](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
@@ -83,7 +83,7 @@ Azure AD Domain Services 可完整同步處理 Azure AD 中可用的所有使用
 
 3. [概觀] 索引標籤會顯示目前佈建的受控網域。 完整佈建之前，您無法設定受控網域。 完整佈建受控網域可能需要一小時的時間。
 
-    ![Domain Services - 佈建狀態期間的概觀索引標籤 ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Domain Services - 佈建狀態期間的概觀索引標籤](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. 當受控網域完整佈建時，[概觀] 索引標籤會將網域狀態顯示為 [執行中]。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: e41647140373fcf637cad55af62764bd87826a62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849341"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>將應用程式和服務視為 Azure Resource Manager 進行管理
 
@@ -28,8 +28,8 @@ ms.locfileid: "49386292"
 這是部署叢集所需之任何設定、治理或叢集管理應用程式的建議方法。 包括[修補程式協調流程應用程式](service-fabric-patch-orchestration-application.md)、監視程式，或是任何需要在叢集中執行其他應用程式或服務才能部署的應用程式。 
 
 當可行時，將應用程式視為 Resource Manager 資源來管理有助於改善：
-* 稽核記錄：Resource Manager 會稽核每一項作業並保留詳細的*活動記錄*，協助您追蹤這些應用程式和叢集的變更。
-* 角色型存取控制 (RBAC)：您可以透過同樣的 Resource Manager 範本來管理叢集和叢集上部署之應用程式的存取權限。
+* 审核线索：资源管理器审核所有操作，并记录详细的活动日志，有助于跟踪对这些应用程序和群集做出的任何更改。
+* 基于角色的访问控制 (RBAC)：可通过同一个资源管理器模板，管理对群集及其上部署的应用程序的访问。
 * Azure Resource Manager (透過 Azure 入口網站) 能一次滿足您管理叢集和重要應用程式部署的需求。
 
 下列程式碼片段展示可透過範本管理的各種資源：
@@ -69,9 +69,9 @@ ms.locfileid: "49386292"
 3. 一旦想好要利用這種方法部署哪些應用程式後，您必須封裝、壓縮應用程式，再將它們放在檔案共用上。 共用必須可透過 REST 端點存取，Azure Resource Manager 才能在部署期間取用。
 4. 在 Resource Manager 範本的叢集宣告下方，描述每個應用程式的屬性。 這些屬性包括複本或執行個體計數，以及資源 (其他應用程式或服務) 之間的任何相依性鏈結。 如需完整的屬性清單，請參閱 [REST API Swagger 規格](https://aka.ms/sfrpswaggerspec)。請注意，這不會取代應用程式或服務資訊清單，而是在叢集的 Resource Manager 範本中描述它們的一些功能。 以下是範例範本，其中包括部署 *Application1*無狀態服務 *Service1* 和具狀態服務 *Service2*：
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+   ```json
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       "clusterName": {
@@ -251,11 +251,11 @@ ms.locfileid: "49386292"
         }
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE] 
-  > *apiVersion* 必須設定為 `"2017-07-01-preview"`。 這個範本也能與叢集分開部署，只要叢集已部署完成即可。
+   > [!NOTE] 
+   > *apiVersion* 必須設定為 `"2017-07-01-preview"`。 這個範本也能與叢集分開部署，只要叢集已部署完成即可。
 
 5. 部署！ 
 
@@ -264,7 +264,7 @@ ms.locfileid: "49386292"
 如果您的叢集已啟動，而且您已經將幾個要視為 Resource Manager 資源管理的應用程式部署在叢集之上，與其移除應用程式再重新部署，不如透過使用相同 API 的 PUT 呼叫讓應用程式獲得 Resource Manager 資源的認可。 
 
 > [!NOTE]
-> 若要讓叢集升級忽略狀況不良的應用程式，客戶可以在 “upgradeDescription/healthPolicy” 區段指定 “maxPercentUnhealthyApplications: 100”；所有設定的詳細說明位於 [Service Fabric REST API 叢集升級原則文件](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)中。
+> 若要將叢集升級至忽略狀況不良的應用程式可讓客戶可以指定"maxpercentunhealthyapplications 加以評估：100 」 一節 「 upgradeDescription/healthPolicy";所有設定的詳細的說明位於[服務網狀架構 REST API 叢集升級的原則文件](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)。
 
 ## <a name="next-steps"></a>後續步驟
 

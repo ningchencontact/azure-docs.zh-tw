@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fdabc16e191fb265b15af4a6d4a57cb749adc9f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1abdfc377c40e37f01fbbbbd695e949671d40a51
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202548"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820122"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>使用範本在 Azure VM 上設定 Azure 資源的受控識別
 
@@ -40,7 +40,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 如同 Azure 入口網站和指令碼，[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 範本可讓您部署由 Azure 資源群組所定義的最新或已修改資源。 範本編輯和部署有幾個選項可用 (在本機和入口網站)，包括：
 
    - 使用 [Azure Marketplace 所提供的自訂範本](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)，可讓您從頭開始建立範本，或根據現有的常用範本或[快速入門範本](https://azure.microsoft.com/documentation/templates/)來建立範本。
-   - 衍生自現有的資源群組，方法是從[原始部署](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history)，或從[部署的目前狀態](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group)匯出範本。
+   - 衍生自現有的資源群組，方法是從[原始部署](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)，或從[部署的目前狀態](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)匯出範本。
    - 使用本機 [JSON 編輯器 (例如 VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)，然後使用 PowerShell 或 CLI 上傳和部署。
    - 使用 Visual Studio 的 [Azure 資源群組專案](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)來建立和部署範本。  
 
@@ -209,7 +209,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 > [!Note]
 > 若要使用 Azure Resource Manager 範本建立使用者指派的受控識別，請參閱[建立使用者指派的受控識別](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity)。
 
- ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>將使用者指派的受控識別指派給 Azure VM
+### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>將使用者指派的受控識別指派給 Azure VM
 
 若要將使用者指派的身分識別指派給 VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)和[受控識別操作者](/azure/role-based-access-control/built-in-roles#managed-identity-operator)角色指派。 不需要其他 Azure AD 目錄角色指派。
 

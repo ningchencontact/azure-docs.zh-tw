@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 45d828b32984363f611828ca3ea33e5fa96a5017
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745838"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961885"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>使用 Azure Data Lake Storage Gen1 的最佳做法
 
@@ -101,8 +101,8 @@ Azure Data Lake Storage Gen1 會移除位於 Blob 儲存體帳戶上的硬性 IO
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**調整限制**     | 由背景工作角色節點繫結        | 受限於雲端資料移動單位的上限        | 由分析單位繫結        |
-|**支援複製差異**     |   yes      | 否         | 否         |
-|**內建的協調流程**     |  否 (使用 Oozie、Airflow 或 Cron 作業)       | yes        | 否 (使用 Azure 自動化或 Windows 工作排程器)         |
+|**支援複製差異**     |   是      | 否         | 否         |
+|**內建的協調流程**     |  否 (使用 Oozie、Airflow 或 Cron 作業)       | 是        | 否 (使用 Azure 自動化或 Windows 工作排程器)         |
 |**支援的檔案系統**     | ADL、HDFS、WASB、S3、GS、CFS        |很多，請參閱[連接器](../data-factory/connector-azure-blob-storage.md)。         | ADL 至 ADL、WASB 至 ADL (僅限同一區域)        |
 |**OS 支援**     |任何執行 Hadoop 的 OS         | N/A          | Windows 10         |
 
@@ -140,7 +140,7 @@ Data Lake Storage Gen1 提供詳細的診斷記錄和稽核。 Data Lake Storage
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-設定好屬性並重新啟動節點後，Data Lake Storage Gen1 診斷資料就會寫入節點上的 YARN 記錄 (/tmp/\<user\>/yarn.log)，並可監視錯誤或節流 (HTTP 429 錯誤代碼) 等重要的詳細資訊。 此相同資訊也可以在 Log Analytics 中監視，或在記錄送達的任何位置上監視 (透過 Data Lake Storage Gen1 帳戶的 [[診斷](data-lake-store-diagnostic-logs.md)] 刀鋒視窗)。 建議您至少開啟用戶端記錄，或利用 Data Lake Storage Gen1 的記錄傳送選項，來提供作業可見性並且使偵錯更容易進行。
+設定好屬性並重新啟動節點後，Data Lake Storage Gen1 診斷資料就會寫入節點上的 YARN 記錄 (/tmp/\<user\>/yarn.log)，並可監視錯誤或節流 (HTTP 429 錯誤代碼) 等重要的詳細資訊。 此相同資訊也可以監視在 Azure 監視器記錄檔，或在記錄送達的任何地方[診斷](data-lake-store-diagnostic-logs.md)的 Data Lake 儲存體 Gen1 帳戶 刀鋒視窗。 建議您至少開啟用戶端記錄，或利用 Data Lake Storage Gen1 的記錄傳送選項，來提供作業可見性並且使偵錯更容易進行。
 
 ### <a name="run-synthetic-transactions"></a>執行綜合交易
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 中的代理程式健全狀況解決方案 | Microsoft Docs
+title: Azure 監視器中的代理程式健全狀況解決方案 |Microsoft Docs
 description: 本文旨在協助您了解如何使用這個解決方案，針對直接向 Log Analytics 或 System Center Operations Manager 回報的代理程式監視其健全狀況。
 services: operations-management-suite
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335945"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983369"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Azure 中的代理程式健全狀況解決方案
-對於直接向 Log Analytics 工作區或向連線到 Log Analytics 之 System Center Operations Manager 管理群組回報的所有代理程式，Azure 中的代理程式健全狀況解決方案可協助您了解哪些代理程式沒有回應且正在提交作業資料。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
+Azure 中的代理程式健全狀況解決方案可協助您了解，所有回報的代理程式直接至 Log Analytics 工作區或 System Center Operations Manager 管理群組連線到 Azure 監視器，也就是沒有回應，以及提交作業資料。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
 
 ## <a name="prerequisites"></a>必要條件
-部署這個解決方案之前，請確認您目前支援向 Log Analytics 工作區或向與工作區整合之 [Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)回報的 [Windows 代理程式](../../log-analytics/log-analytics-windows-agent.md)。    
+部署這個解決方案之前，請確認您目前支援向 Log Analytics 工作區或向與工作區整合之 [Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)回報的 [Windows 代理程式](../../log-analytics/log-analytics-windows-agent.md)。
 
 ## <a name="solution-components"></a>方案元件
 此解決方案包含下列已新增到您的工作區以及直接連線之代理程式或 Operations Manager 連線之管理群組的資源。
@@ -45,17 +45,17 @@ ms.locfileid: "53335945"
 ### <a name="supported-agents"></a>支援的代理程式
 下表描述此方案支援的連接來源。
 
-| 連接的來源 | 支援 | 說明 |
+| 連接的來源 | 支援 | 描述 |
 | --- | --- | --- |
 | Windows 代理程式 | 是 | 系統會從直接 Windows 代理程式收集活動訊號事件。|
-| System Center Operations Manager 管理群組 | 是 | 系統會每隔 60 秒從向管理群組回報之代理程式收集活動訊號事件，然後轉送到 Log Analytics。 不需要直接從 Operations Manager 代理程式連線到 Log Analytics。 活動訊號事件資料會從管理群組轉送至 Log Analytics 存放庫。|
+| System Center Operations Manager 管理群組 | 是 | 從管理群組回報每隔 60 秒的代理程式收集活動訊號事件，然後轉送到 Azure 監視器。 不需要從 Operations Manager 代理程式的直接連線至 Azure 監視器。 活動訊號事件資料會從管理群組轉送至 Log Analytics 工作區。|
 
 ## <a name="using-the-solution"></a>使用解決方案
 當您將解決方案新增至 Log Analytics 工作區時，[代理程式健全狀況] 磚會新增至您的儀表板。 此圖格會顯示過去 24 小時內的代理程式總數和沒有回應的代理程式數目。<br><br> ![儀表板上的代理程式健全狀況圖格](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 按一下 [代理程式健全狀況] 圖格，以開啟 [代理程式健全狀況] 儀表板。  此儀表板包含下表中的資料行。 每個資料行依計數列出前十個事件，這幾個事件符合該資料行中指定時間範圍的準則。 您可以選取每個資料行右下角的 [查看全部] ，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
-| 欄 | 說明 |
+| 欄 | 描述 |
 |--------|-------------|
 | 不同時間的代理程式計數 | Linux 和 Windows 代理程式為期七天的代理程式計數趨勢。|
 | 沒有回應的代理程式計數 | 在過去 24 小時內尚未傳送活動訊號的代理程式清單。|
@@ -68,13 +68,13 @@ ms.locfileid: "53335945"
 
 ![代理程式健全狀況儀表板範例](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
-## <a name="log-analytics-records"></a>Log Analytics 記錄
+## <a name="azure-monitor-log-records"></a>Azure 監視器記錄
 此解決方案會在 Log Analytics 工作區中建立一種類型的記錄。  
 
 ### <a name="heartbeat-records"></a>活動訊號記錄
 系統會建立類型為 [活動訊號] 的記錄。  這些記錄具有下表中的屬性。  
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | 類型 | *活動訊號*|
 | 類別 | 值為 [直接代理程式]、[SCOM 代理程式] 或 [SCOM 管理伺服器]。|
@@ -92,12 +92,12 @@ ms.locfileid: "53335945"
 | RemoteIPLongitude | 電腦的地理位置經度。|
 | RemoteIPLatitude | 電腦的地理位置緯度。|
 
-向 Operations Manager 管理伺服器回報的每個代理程式將會傳送兩個活動訊號，而 SCAgentChannel 屬性的值將同時包含 **Direct** 和 **SCManagementServer** (視您已在自己的訂用帳戶中啟用哪些 Log Analytics 資料來源和解決方案而定)。 請回想一下，解決方案中的資料會從 Operations Manager 管理伺服器直接傳送至 Log Analytics，或者因為代理程式上收集的資料量，而從代理程式直接傳送至 Log Analytics。 若為具有 **SCManagementServer** 值的活動訊號事件，ComputerIP 值為管理伺服器的 IP 位址，因為資料實際上由它上傳。  若為 SCAgentChannel 設為 [Direct] 的活動訊號，此值為代理程式的公用 IP 位址。  
+向 Operations Manager 管理伺服器報告每個代理程式將會傳送兩個活動訊號，而 SCAgentChannel 屬性的值將同時包含**直接**並**SCManagementServer**依據資料來源和您已啟用您的訂用帳戶中的監視解決方案。 如果您還記得，解決方案的資料會傳送直接從 Operations Manager 管理伺服器至 Azure 監視器，或者，因為代理程式上收集的資料量直接從代理程式傳送到 Azure 監視器。 若為具有 **SCManagementServer** 值的活動訊號事件，ComputerIP 值為管理伺服器的 IP 位址，因為資料實際上由它上傳。  若為 SCAgentChannel 設為 [Direct] 的活動訊號，此值為代理程式的公用 IP 位址。  
 
 ## <a name="sample-log-searches"></a>記錄搜尋範例
 下表提供此解決方案所收集之記錄的記錄搜尋範例。
 
-| 查詢 | 說明 |
+| 查詢 | 描述 |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |代理程式總數 |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |過去 24 小時內沒有回應的代理程式計數 |
@@ -117,4 +117,4 @@ ms.locfileid: "53335945"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需有關從 Log Analytics 產生的警示的詳細資料，請深入了解 [Log Analytics 中的警示](../../azure-monitor/platform/alerts-overview.md) 。 
+* 深入了解[在 Azure 監視器中的警示](../platform/alerts-overview.md)如需有關從 Log Analytics 中產生警示。 

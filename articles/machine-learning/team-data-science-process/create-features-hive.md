@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835011"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>針對使用 Hive 查詢之 Hadoop 叢集中的資料建立特徵
 本文件說明如何使用 Hive 查詢，針對儲存在 Azure HDInsight Hadoop 叢集中的資料建立特徵。 這些 Hive 查詢會使用針對其提供指令碼的內嵌 Hive 使用者定義函式 (UDF)。
 
 建立特徵所需的作業可能耗用大量記憶體。 在此情況下，Hive 查詢的效能會變得十分重要，可微調某些參數來改善。 最後一節討論如何微調這些參數。
 
-[GitHub 存放庫](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)中也會提供 [NYC 計程車車程資料](http://chriswhong.com/open-data/foil_nyc_taxi/)案例特定的查詢範例。 這些查詢已經具備指定的資料結構描述，且準備好進行提交來執行。 最後一節也會討論使用者可以微調的參數，以改善 Hive 查詢的效能。
+[GitHub 存放庫](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)中也會提供 [NYC 計程車車程資料](https://chriswhong.com/open-data/foil_nyc_taxi/)案例特定的查詢範例。 這些查詢已經具備指定的資料結構描述，且準備好進行提交來執行。 最後一節也會討論使用者可以微調的參數，以改善 Hive 查詢的效能。
 
 此工作是 [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)中的一個步驟。
 
@@ -130,7 +130,7 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。 在 Hive 
         and dropoff_latitude between 30 and 90
         limit 10;
 
-您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。 在此 JavaScript 中，函式 `toRad()` 只是 *lat_or_lon*pi/180*，可將角度轉換為弧度。 此處的 *lat_or_lon* 為緯度或經度。 由於 Hive 不提供函式 `atan2`，但提供函式 `atan`，因此 `atan2` 函式是由上述 Hive 查詢中的 `atan` 函式以 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
+您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。 在此 Javascript 中，此函式`toRad()`就*lat_or_lon*pi/180，然後將度轉換為弧度。 此處的 *lat_or_lon* 為緯度或經度。 由於 Hive 不提供函式 `atan2`，但提供函式 `atan`，因此 `atan2` 函式是由上述 Hive 查詢中的 `atan` 函式以 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
 
 ![建立工作區](./media/create-features-hive/atan2new.png)
 
@@ -161,11 +161,11 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
    
     一般而言，預設值如下：
     
-    - *mapred.min.split.size* 的預設值為 0
-    - *mapred.max.split.size* 的預設值為 **Long.MAX** 
-    - *dfs.block.size* 的預設值為 64 MB。
+   - *mapred.min.split.size* 的預設值為 0
+   - *mapred.max.split.size* 的預設值為 **Long.MAX** 
+   - *dfs.block.size* 的預設值為 64 MB。
 
-    誠如所見，若指定了資料大小，則藉由「設定」這些參數來微調它們，讓我們能夠微調所使用的對應程式數目。
+     誠如所見，若指定了資料大小，則藉由「設定」這些參數來微調它們，讓我們能夠微調所使用的對應程式數目。
 
 4. 以下是最佳化 Hive 效能的其他數個更**進階的選項**。 這些選項讓您能夠設定配置的記憶體來對應和縮減工作，而且在調整效能時非常實用。 請記住，*mapreduce.reduce.memory.mb* 不能大於 Hadoop 叢集中每個背景工作角色節點的實際記憶體大小。
    

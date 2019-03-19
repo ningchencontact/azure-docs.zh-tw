@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: d25fcbce99017ff19adebd61275b395c980a3cf5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: cc6c66ccb0bb08d709b2015d643544fb9dc30f52
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57846730"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -49,6 +49,10 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 * 新的物件模型，其最上層 CosmosClient 和方法分佈在相關 CosmosDatabases、CosmosContainers 與 CosmosItems 類別之間。
 * 支援資料流。
 * 更新來自伺服器的 CosmosResponseMessage 以傳回狀態碼，並只會在沒有傳回回應時擲回例外狀況。
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+
+* 診斷改良功能
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -203,7 +207,7 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 
-* 新增彙總查詢的 LINQ 支援 (COUNT、MIN、MAX、SUM 和 AVG)。
+* 添加了对聚合查询（COUNT、MIN、MAX、SUM 和 AVG）的 LINQ 支持。
 * 針對使用事件處理常式所造成的 ConnectionPolicy 物件，修正記憶體流失問題。
 * 修正使用 ETag 時 UpsertAttachmentAsync 無法運作的問題。
 * 修正根據字串欄位排序時交叉資料分割排序依據查詢接續無法運作的問題。
@@ -233,7 +237,8 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| [2.2.2](#2.2.2) |2019 年 2 月 6 日 |--- |
+| [2.2.3](#2.2.3) |2019 年 3 月 11日日 |--- |
+| [2.2.2](#2.2.2) |2019 年 2 月 6日日 |--- |
 | [2.2.1](#2.2.1) |2018 年 12 月 24 日 |--- |
 | [2.2.0](#2.2.0) |2018 年 12 月 7 日 |--- |
 | [2.1.3](#2.1.3) |2018 年 10 月 15 日 |--- |
@@ -263,6 +268,6 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 | [1.0.0](#1.0.0) |2016 年 12 月 21 日 |--- |
 | [0.1.0-preview](#0.1.0-preview) |2016 年 11 月 15 日 |2016 年 12 月 31 日 |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。
 

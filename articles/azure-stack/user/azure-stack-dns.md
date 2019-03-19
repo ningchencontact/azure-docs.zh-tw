@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 822fd40b2fc707efe34d4081c3c49e5f71621cdb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3a4efb6282a0aca8173403009fd58e9154a91b2b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245536"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728944"
 ---
 # <a name="using-dns-in-azure-stack"></a>在 Azure Stack 中使用 DNS
 
@@ -43,7 +43,7 @@ Azure Stack 支援下列網域名稱系統 (DNS) 功能：
 
 以下螢幕擷取畫面顯示 [建立公用 IP 位址] 對話方塊，以便使用入口網站建立公用 IP 位址：
 
-![建立公用 IP 位址](media/azure-stack-whats-new-dns/image01.png)
+![建立公用 IP 位址](media/azure-stack-dns/image01.png)
 
 ### <a name="example-scenario"></a>範例案例
 

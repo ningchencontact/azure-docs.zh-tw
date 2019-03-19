@@ -14,25 +14,25 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b8ca5fc5348818a7d0f1075557d4fe5c7e3bef44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805693"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834331"
 ---
 <a name="azure-marketplace-seo-publisher-guide"></a>Azure Marketplace SEO 發行者指南
 =======================================
 
 ### <a name="general-explanation-of-algorithm"></a>演算法的一般說明
 
-Marketplace 利用 Azure 搜尋服務來加強網站的搜尋功能。 演算法是以詞彙頻率–反向文件頻率 ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)) 為基礎。 將會使用標準 [Lucene 分析器](http://lucene.apache.org/core/)。
+Marketplace 利用 Azure 搜尋服務來加強網站的搜尋功能。 演算法是以詞彙頻率–反向文件頻率 ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)) 為基礎。 將會使用標準 [Lucene 分析器](https://lucene.apache.org/core/)。
 
 一般而言，所有文字欄位、類別與產業都會納入相關性的權重中。 應用程式不常使用但您的應用程式經常使用的特殊化詞彙將會產生較高的搜尋符合分數。 因此，納入 "VM" 之類的詞彙將提供一些助益，而納入 "Azure search" 則更為特殊化。
 下面是要考慮的最相關欄位。
 
  
-|  欄位                   | 重要性 | 指導方針                                                                                            |
+|  欄位                   | 重要性 | 指引                                                                                            |
 |  --------------------    | ----------                   | ---------------                                                                   |
 | 供應項目名稱               |  高      | 精確相符或近乎相符的搜尋查詢將會獲得高排名。                       |
 | 發行者名稱           |  高      | 精確相符或近乎相符的搜尋查詢將會獲得高排名。                       |

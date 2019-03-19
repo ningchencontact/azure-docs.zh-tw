@@ -2,20 +2,20 @@
 title: Azure 資料庫移轉服務概觀 | Microsoft Docs
 description: Azure 資料庫移轉服務的概觀，此服務能從許多資料庫來源提供無縫移轉到 Azure 資料平台。
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: 68fb6497141d79dc721af7dfa5a8f69102c7e239
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 65825cac0b47fd2afb605c4b585d6536cef70a31
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722195"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789279"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>什麼是 Azure 資料庫移轉服務？
 Azure 資料庫移轉服務是一個完全受控的服務，其設計目的是能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低 (線上移轉)。

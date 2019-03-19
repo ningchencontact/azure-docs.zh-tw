@@ -4,186 +4,200 @@ description: 了解如何設定 Azure Active Directory 與 Silverback 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 32cfc96f-2137-49ff-818b-67feadcd73b7
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/17/2018
+ms.topic: tutorial
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a104da9ecb28d2109e82056995ef7a8048eafe2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838743"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>教學課程：Azure Active Directory 與 Silverback 整合
 
 在本教學課程中，您會了解如何整合 Silverback 與 Azure Active Directory (Azure AD)。
-
 Silverback 與 Azure AD 整合提供下列優點：
 
-- 您可以在 Azure AD 中控制可存取 Silverback 的人員。
-- 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Silverback (單一登入)。
-- 您可以在 Azure 入口網站中集中管理您的帳戶。
+* 您可以在 Azure AD 中控制可存取 Silverback 的人員。
+* 您可以讓您自動登入 Silverback （單一登入） 來使用他們的 Azure AD 帳戶的使用者。
+* 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
+若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Silverback 整合，您需要下列項目：
 
-- Azure AD 訂用帳戶
-- 有效的 Silverback 訂用帳戶
-
-> [!NOTE]
-> 若要測試本教學課程中的步驟，我們不建議使用生產環境。
-
-若要測試本教學課程中的步驟，您應該遵循這些建議：
-
-- 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
+* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
+* 啟用 silverback 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
-1. 從資源庫新增 Silverback
-2. 設定並測試 Azure AD 單一登入
+在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+
+* 支援 silverback **SP**初始化的 SSO
 
 ## <a name="adding-silverback-from-the-gallery"></a>從資源庫新增 Silverback
+
 若要設定 Silverback 與 Azure AD 整合，您需要從資源庫將 Silverback 加入受控 SaaS 應用程式清單中。
 
 **若要從資源庫新增 Silverback，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
-    ![Azure Active Directory 按鈕][1]
+    ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
 
-    ![企業應用程式刀鋒視窗][2]
-    
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
+
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![新增應用程式按鈕][3]
+    ![新增應用程式按鈕](common/add-new-app.png)
 
 4. 在搜尋方塊中，輸入 **Silverback**，從結果面板中選取 [Silverback]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![結果清單中的 Silverback](./media/silverback-tutorial/tutorial_silverback_addfromgallery.png)
+     ![結果清單中的 Silverback](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 "Britta Simon" 的測試使用者身分，使用 Silverback 設定和測試 Azure AD 單一登入。
-
-若要讓單一登入運作，Azure AD 必須知道 Silverback 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者和 Silverback 中的相關使用者之間建立連結關聯性。
+在本節中，您使用設定及測試 Azure AD 單一登入的測試使用者為基礎的 Silverback**名為 Britta Simon**。
+讓單一登入運作，必須建立在 Azure AD 使用者與 Silverback 中的相關的使用者之間的連結關聯性。
 
 若要使用 Silverback 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Silverback 測試使用者](#create-a-silverback-test-user)** - 使 Silverback 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+2. **[設定 Silverback 單一登入](#configure-silverback-single-sign-on)** -若要在應用程式端設定單一登入設定。
+3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+5. **[建立 Silverback 測試使用者](#create-silverback-test-user)** -在 Silverback 連結到使用者與 Azure AD 中代表 Britta Simon 的對應。
+6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 Silverback 應用程式中設定單一登入。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-**若要使用 Silverback 設定 Azure AD 單一登入功能，請執行下列步驟：**
+若要使用 Silverback，以設定 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 Azure 入口網站的 [Silverback] 應用程式整合頁面上，按一下 [單一登入]。
+1. 在  [Azure 入口網站](https://portal.azure.com/)上**Silverback**應用程式整合頁面上，選取**單一登入**。
 
-    ![設定單一登入連結][4]
+    ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
-    ![單一登入對話方塊](./media/silverback-tutorial/tutorial_silverback_samlbase.png)
+2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
 
-3. 在 [Silverback 網域與 URL] 區段上，執行下列步驟：
+    ![單一登入選取模式](common/select-saml-option.png)
 
-    ![Silverback 網域與 URL 單一登入資訊](./media/silverback-tutorial/tutorial_silverback_url.png)
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<YOURSILVERBACKURL>.com/ssp`
+    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `<YOURSILVERBACKURL>.com`
+4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    c. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<YOURSILVERBACKURL>.com/sts/authorize/login`
+    ![Silverback 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Silverback 用戶端支援小組](mailto:helpdesk@matrix42.com)以取得這些值。 
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<YOURSILVERBACKURL>.com/ssp`
 
-4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`<YOURSILVERBACKURL>.com`
 
-    ![憑證下載連結](./media/silverback-tutorial/tutorial_silverback_certificate.png) 
+    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
-5. 按一下 [儲存]  按鈕。
+    > [!NOTE]
+    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Silverback 用戶端支援小組](mailto:helpdesk@matrix42.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-    ![設定單一登入儲存按鈕](./media/silverback-tutorial/tutorial_general_400.png)
+5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將其儲存在您的電腦上。
 
-6.  以系統管理員身分登入您的 Silverback Server，然後執行下列步驟：
+    ![憑證下載連結](common/copy-metadataurl.png)
 
-    a.  瀏覽至 [管理員]  >  [驗證提供者]。
+### <a name="configure-silverback-single-sign-on"></a>Silverback 單一登入設定
 
-    b. 在 [驗證提供者設定]  頁面上，執行下列步驟：
+1. 在不同的網頁瀏覽器中，按一下 到 Silverback 伺服器系統管理員身分登入。
 
-    ![系統管理員 ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+2. 瀏覽至 [管理員]  >  [驗證提供者]。
 
-    c.  按一下 [從 URL 匯入]。
-    
-    d.  貼上複製的中繼資料 URL，然後按一下 [確定]。
-    
-    e.  按一下 [確定] 進行確定，系統便會自動填入值。
-    
-    f.  啟用 [在登入頁面上顯示]。
-    
-    g.  如果您想要自動新增 Azure AD 授權的使用者，請啟用 [動態使用者建立] (選擇性)。
-    
-    h.  在自助入口網站上為該按鈕建立 [標題]。
+3. 在 [驗證提供者設定]  頁面上，執行下列步驟：
 
-    i.  按一下 [選擇檔案]，上傳 [圖示]。
-    
-    j.  為按鈕選取**彩色**背景。
-    
-    k.  按一下 [檔案] 。
+    ![系統管理員](./media/silverback-tutorial/tutorial_silverback_admin.png)
+
+    a.  按一下 [從 URL 匯入]。
+
+    b.  貼上複製的中繼資料 URL，然後按一下 [確定]。
+
+    c.  按一下 [確定] 進行確定，系統便會自動填入值。
+
+    d.  啟用 [在登入頁面上顯示]。
+
+    e.  如果您想要自動新增 Azure AD 授權的使用者，請啟用 [動態使用者建立] (選擇性)。
+
+    f.  在自助入口網站上為該按鈕建立 [標題]。
+
+    g.  按一下 [選擇檔案]，上傳 [圖示]。
+
+    h.  為按鈕選取**彩色**背景。
+
+    i.  按一下 [檔案] 。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-   ![建立 Azure AD 測試使用者][100]
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
-**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
+    ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory] 按鈕。
+2. 在畫面頂端選取 [新增使用者]。
 
-    ![Azure Active Directory 按鈕](./media/silverback-tutorial/create_aaduser_01.png)
+    ![[新增使用者] 按鈕](common/new-user.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+3. 在 [使用者] 屬性中，執行下列步驟。
 
-    ![[使用者和群組] 與 [所有使用者] 連結](./media/silverback-tutorial/create_aaduser_02.png)
+    ![[使用者] 對話方塊](common/user-properties.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
-
-    ![[新增] 按鈕](./media/silverback-tutorial/create_aaduser_03.png)
-
-4. 在 [使用者] 對話方塊中，執行下列步驟：
-
-    ![[使用者] 對話方塊](./media/silverback-tutorial/create_aaduser_04.png)
-
-    a. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
-
-    b. 在 [使用者名稱] 方塊中，輸入使用者 Britta Simon 的電子郵件地址。
+    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 按一下頁面底部的 [新增] 。
- 
-### <a name="create-a-silverback-test-user"></a>建立 Silverback 測試使用者
+
+### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
+
+在本節中，您會把 Silverback 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+
+1. 在 Azure 入口網站中，選取**企業應用程式**，選取**所有應用程式**，然後選取**Silverback**。
+
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
+
+2. 在應用程式清單中，選取 [Silverback] 。
+
+    ![應用程式清單中的 Silverback 連結](common/all-applications.png)
+
+3. 在左側功能表中，選取 [使用者和群組]。
+
+    ![[使用者和群組] 連結](common/users-groups-blade.png)
+
+4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+
+    ![[新增指派] 窗格](common/add-assign-user.png)
+
+5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+
+7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+
+### <a name="create-silverback-test-user"></a>建立 Silverback 測試使用者
 
 若要讓 Azure AD 使用者能夠登入 Silverback，必須將他們佈建到 Silverback。 在 Silverback 中，需以手動方式佈建。
 
@@ -195,7 +209,7 @@ Silverback 與 Azure AD 整合提供下列優點：
 
 3. 在 [基本]  頁面上，執行下列步驟：
 
-    ![使用者 ](./media/silverback-tutorial/tutorial_silverback_user.png)
+    ![使用者](./media/silverback-tutorial/tutorial_silverback_user.png)
 
     a. 在 [使用者名稱] 文字方塊中，輸入使用者的名稱，例如 **Britta**。
 
@@ -206,69 +220,25 @@ Silverback 與 Azure AD 整合提供下列優點：
     d. 在 [電子郵件地址] 文字方塊中，輸入使用者的電子郵件，例如 **Brittasimon@contoso.com**。
 
     e. 在 [密碼] 文字方塊中，輸入您的密碼。
-    
+
     f. 在 [確認密碼] 文字方塊中，再次輸入您的密碼並確認。
 
     g. 按一下 [檔案] 。
 
->[!NOTE]
->如果您不想要手動建立每個使用者，請到 [管理員]  >  [驗證提供者] 下方，啟用 [動態使用者建立] 核取方塊。
+> [!NOTE]
+> 如果您不想要手動建立每個使用者，請到 [管理員]  >  [驗證提供者] 下方，啟用 [動態使用者建立] 核取方塊。
 
-### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
-
-在本節中，您會把 Silverback 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
-
-![指派使用者角色][200] 
-
-**若要將 Britta Simon 指派到 Silverback，請執行以下步驟：**
-
-1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
-
-    ![指派使用者][201] 
-
-2. 在應用程式清單中，選取 [Silverback] 。
-
-    ![應用程式清單中的 Silverback 連結](./media/silverback-tutorial/tutorial_silverback_app.png)  
-
-3. 在左側功能表中，按一下 [使用者和群組]。
-
-    ![[使用者和群組] 連結][202]
-
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
-
-    ![[新增指派] 窗格][203]
-
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
-
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
-
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
-    
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 Silverback 圖格時，應該會自動登入您的 Silverback 應用程式。
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+當您按一下存取面板 」 中的 [Silverback] 圖格時，您應該會自動登入，您設定 SSO Silverback。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 
-* [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/silverback-tutorial/tutorial_general_01.png
-[2]: ./media/silverback-tutorial/tutorial_general_02.png
-[3]: ./media/silverback-tutorial/tutorial_general_03.png
-[4]: ./media/silverback-tutorial/tutorial_general_04.png
-
-[100]: ./media/silverback-tutorial/tutorial_general_100.png
-
-[200]: ./media/silverback-tutorial/tutorial_general_200.png
-[201]: ./media/silverback-tutorial/tutorial_general_201.png
-[202]: ./media/silverback-tutorial/tutorial_general_202.png
-[203]: ./media/silverback-tutorial/tutorial_general_203.png
+- [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835515"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -143,7 +143,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>如何為雲端服務啟用 WAD 記錄？
 您可以透過下列選項來啟用 Windows Azure 診斷 (WAD) 記錄：
 1. [從 Visual Studio 啟用](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [透過 .Net 程式碼啟用](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [啟用透過.NET 程式碼](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [透過 PowerShell 啟用](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 若要取得雲端服務的目前 WAD 設定，您可以使用 [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd 或您可以從入口網站的 [雲端服務] --> [延伸模組] 刀鋒視窗中檢視它。
@@ -233,7 +233,7 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 
 ## <a name="scaling"></a>調整大小
 
-### <a name="i-cannot-scale-beyond-x-instances"></a>我不能調整超過 X 個執行個體
+### <a name="i-cannot-scale-beyond-x-instances"></a>无法扩展到 X 个实例以上
 您的 Azure 訂用帳戶對於您可以使用的核心數目有限制。 如果您已使用所有可用的核心，調整將無法運作。 例如，如果您有 100 個核心的限制，這表示您的雲端服務可以有 100 個 A1 大小的虛擬機器執行個體，或 50 個 A2 大小的虛擬機器執行個體。
 
 ### <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>如何根據記憶體計量設定自動縮放？
@@ -267,7 +267,7 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 </configuration>
 ```
 
-您也可以在 IIS 中將此加入為設定。 請參考[常見的啟動工作](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe)一文來使用下列命令。
+您也可以在 IIS 中將此加入為設定。 使用[常见启动任务](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe)一文中的以下命令。
 
 ```cmd
 %windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']

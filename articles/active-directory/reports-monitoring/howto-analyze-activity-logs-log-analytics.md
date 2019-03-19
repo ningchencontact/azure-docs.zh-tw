@@ -17,18 +17,20 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: aca7f0dbe0906ea0e1572f4580d8937ebf3eee64
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454753"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823244"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>使用 Azure 監視器記錄來分析 Azure AD 活動記錄 (預覽)
 
 在您[整合 Azure AD 活動記錄與 Azure 監視器記錄](howto-integrate-activity-logs-with-log-analytics.md)之後，可以使用 Azure 監視器記錄的強大功能來深入了解環境。 您也可以安裝[適用於 Azure AD 活動記錄的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)，以存取您環境中稽核和登入事件的預建報表。
 
 在本文中，您將了解如何分析 Log Analytics 工作區中的 Azure AD 活動記錄。 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>必要條件 
 

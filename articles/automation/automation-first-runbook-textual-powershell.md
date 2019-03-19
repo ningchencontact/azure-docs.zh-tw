@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f083a5a9fe8027467eb95711a15725859f59e4fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846951"
 ---
 # <a name="my-first-powershell-runbook"></a>我的第一個 PowerShell Runbook
 
@@ -56,7 +56,7 @@ ms.locfileid: "54438043"
 
 2. 按一下 [儲存] 來儲存 Runbook。
 
-##<a name="a-namestep-3---test-the-runbook-test-the-runbook"></a><a name="step-3---test-the-runbook"> 測試 Runbook
+## <a name="step-3---test-the-runbook"> </a> 測試 runbook
 
 在您發佈 Runbook 之前，為了使其可用於生產環境，您想要測試以確定它可以正常運作。 測試 Runbook 時，您會執行其 **草稿** 版本，並以互動方式檢視其輸出。
 
@@ -107,6 +107,9 @@ ms.locfileid: "54438043"
 您已測試並發行您的 Runbook，但是到目前為止，它似乎並不實用。 您想要讓它管理 Azure 資源。 除非您使用執行身分連線 (其會在您建立自動化帳戶時自動建立) 進行驗證，否則它無法執行上述作業。 您可以透過 **Connect-AzureRmAccount** Cmdlet 來使用執行身分連線。 如果您要管理橫跨多個訂用帳戶的資源，您需要使用 **-AzureRmContext** 參數搭配 [Get-azurermcontext](/powershell/module/azurerm.profile/get-azurermcontext)。
 
    ```powershell
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+   
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -121,6 +124,9 @@ ms.locfileid: "54438043"
 1. 輸入或是複製並貼上下列程式碼，此程式碼會處理「自動化執行身分」帳戶的驗證︰
 
    ```powershell
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
    -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -141,6 +147,9 @@ ms.locfileid: "54438043"
 1. 在 *Connect-AzureRmAccount* 後面輸入 Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'，提供所要啟動虛擬機器的名稱和資源群組名稱。  
 
    ```powershell
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
    -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -161,6 +170,9 @@ ms.locfileid: "54438043"
     [string]$VMName,
     [string]$ResourceGroupName
    )
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
    -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -172,7 +184,7 @@ ms.locfileid: "54438043"
 1. 按一下 [發佈]  來發行新版本的 Runbook。
 1. 停止您在上一個步驟中啟動的虛擬機器。
 1. 按一下 [確定] 啟動 Runbook。 輸入您要啟動之虛擬機器的 [VMName] 和 [ResourceGroupName]。<br><br> ![傳遞參數](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>  
-1. Runbook 完成時，請檢查虛擬機器已啟動。
+1. 一旦 Runbook 完成后，检查已启动的虚拟机。
 
 ## <a name="differences-from-powershell-workflow"></a>與 PowerShell 工作流程的差異
 
@@ -186,6 +198,6 @@ PowerShell Runbook 的生命週期、功能和管理與 PowerShell 工作流程 
 ## <a name="next-steps"></a>後續步驟
 
 * 若要開始使用圖形化 Runbook，請參閱 [我的第一個圖形化 Runbook](automation-first-runbook-graphical.md)
-* 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
+* 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
 * 若要深入了解 Runbook 類型、其優點和限制，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
 * 如需 PowerShell 指令碼支援功能的詳細資訊，請參閱 [Azure 自動化中的原生 PowerShell 指令碼支援](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

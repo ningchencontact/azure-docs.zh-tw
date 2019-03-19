@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 3daa71c91d1e49a497a979b9b5b89df1fcb9418c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408318"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889676"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>在 Azure HDInsight 中使用外部中繼資料存放區
 
@@ -68,7 +68,7 @@ HDInsight 也支援自訂中繼存放區，這是針對生產叢集建議的中�
 - 如果您想要讓多個 HDInsight 叢集存取不同的資料，請針對每個叢集上的中繼存放區使用不同資料庫。 如果您在多個 HDInsight 叢集間共用中繼存放區，則表示這些叢集會使用相同的中繼資料和基礎使用者資料檔案。
 - 定期備份您的自訂中繼存放區。 Azure SQL Database 會自動產生備份，但備份保留時間範圍有所不同。 如需詳細資訊，請參閱[了解自動 SQL Database 備份](../sql-database/sql-database-automated-backups.md)。
 - 在同一個區域中找出您的中繼存放區和 HDInsight 叢集，以達到最高效能和最低網路出口流量費用。
-- 使用 Azure SQL Database 監視工具 (例如，Azure 入口網站或 Azure Log Analytics)，監視中繼存放區的效能和可用性。
+- 監視您的中繼存放區的效能和使用 Azure SQL Database 監視工具 中的，例如 Azure 入口網站或 Azure 監視器記錄檔的可用性。
 - 針對現有自訂中繼存放區資料庫建立 Azure HDInsight 的更高新版本時，系統會升級中繼存放區的結構描述，此動作需要從備份還原資料庫才能復原。
 - 如果您在多個叢集間共用中繼存放區，請確定所有叢集都是相同的 HDInsight 版本。 不同的 Hive 版本會使用不同的中繼存放區資料庫結構描述。 例如，您無法在 Hive 1.2 和 Hive 2.1 版本叢集間共用中繼存放區。 
 

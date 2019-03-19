@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: cfa9f6bcb81182f4e76e995d626b207f8e130a80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809975"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840914"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -28,10 +28,12 @@ ms.locfileid: "55809975"
 > 建議客戶建立新的伺服器，並根據連線架構，將具有連線類型的現有伺服器明確地設定為 [重新導向] (建議使用) 或 [Proxy]。
 >
 > 為了避免現有環境中通過服務端點的連線因變更而中斷，我們會使用遙測進行下列作業：
+>
 > - 對於在變更前偵測到透過服務端點存取的伺服器，會將連線類型切換成 `Proxy`。
 > - 對於所有其他伺服器，則會將即將切換的連線類型切換為 `Redirect`。
 >
 > 在下列情況下，服務端點使用者仍會受到影響：
+>
 > - 應用程式不常連線到現有伺服器，因此我們的遙測並未擷取這些應用程式的資訊
 > - 自動化部署邏輯會建立 SQL Database 伺服器，此伺服器假設服務端點連線的預設行為是 `Proxy`
 >
@@ -106,10 +108,7 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 | 北歐 | 191.235.193.75 | 40.113.93.91 |
 | 美國中南部 | 23.98.162.75 | 13.66.62.124 |
 | 東南亞 | 23.100.117.95 | 104.43.15.0 |
-| 英國北部 | 13.87.97.210 | |
-| 英國南部 1 | 51.140.184.11 | |
-| 英國南部 2 | 13.87.34.7 | |
-| 英國西部 | 51.141.8.11 | |
+| 英國南部 | 51.140.184.11 | |
 | 美國中西部 | 13.78.145.25 | |
 | 西歐 | 191.237.232.75 | 40.68.37.158 |
 | 美國西部 1 | 23.99.34.75 | 104.42.238.205 |
@@ -127,6 +126,10 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>透過 PowerShell 變更連線設定的指令碼
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+
 > [!IMPORTANT]
 > 此指令碼需要 [Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
@@ -134,22 +137,22 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 
 ```powershell
 # Get SQL Server ID
-$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
+$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
 # Set URI
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzureRmResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id).Properties.connectionType
 
 # Update connection policy
-Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
+Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>透過 Azure CLI 變更連線設定的指令碼
 
 > [!IMPORTANT]
-> 此指令碼需要 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+> 此指令碼需要 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 下列 CLI 指令碼會示範如何變更連線原則。
 

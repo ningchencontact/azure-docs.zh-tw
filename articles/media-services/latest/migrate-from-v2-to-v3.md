@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/04/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340343"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841118"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>從媒體服務 v2 移動至 v3 的移轉指導
 
@@ -72,6 +72,7 @@ ms.locfileid: "56340343"
     * 即時事件取代了通道。<br/>即時事件計費是以直播頻道計量為基礎。 如需詳細資訊，請參閱[計費](live-event-states-billing.md)和[定價](https://azure.microsoft.com/pricing/details/media-services/)。
     * 即時輸出取代了程式。
 * 即時輸出不需要明確地啟動，它們會在建立時啟動，並在刪除時停止。 程式在 v2 API 中是以不同的方式運作，因此它們必須在建立後啟動。
+*  若要取得工作的相關資訊，您需要知道在其建立作業轉換名稱。 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>與 v2 API 相關的功能差距
 
@@ -98,6 +99,7 @@ v3 API 與 v2 API 具有下列功能差距。 縮小差距是刻不容緩的工�
 |建立資產並上傳檔案 |[v2 .NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |提交作業|[v2 .NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>示範如何先建立 Transform，然後再提交 Job。|
 |使用 AES 加密發行資產 |1.建立 ContentKeyAuthorizationPolicyOption<br/>2.建立 ContentKeyAuthorizationPolicy<br/>3.建立 AssetDeliveryPolicy<br/>4.建立資產並上傳內容，或提交作業並使用輸出資產<br/>5.讓 AssetDeliveryPolicy 與資產產生關聯<br/>6.建立 ContentKey<br/>7.將 ContentKey 連結至資產<br/>8.建立 AccessPolicy<br/>9.建立定位器<br/><br/>[v2 .NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1.建立內容金鑰原則<br/>2.建立資產<br/>3.上傳內容或將資產作為 JobOutput<br/>4.建立串流定位器<br/><br/>[v3 .NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|取得工作詳細資料和管理工作 |[管理工作使用 v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[管理工作使用 v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>已知問題
 

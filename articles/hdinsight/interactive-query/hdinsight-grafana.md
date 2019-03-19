@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 7f33742fc5e765aa5ab0c66d13e844b3be2bab9e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 495c617f97b2a7f39182b7684c2c0e183c2002b1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599871"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867808"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>在 Azure HDInsight 中存取 Grafana
 
@@ -43,7 +43,7 @@ ms.locfileid: "53599871"
 
     輸入或選取下列值：
     
-    |屬性  |說明  |
+    |屬性  |描述  |
     |---------|---------|
     |**訂用帳戶**     |  選取 Azure 訂用帳戶。 |
     |**資源群組**     | 建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 |

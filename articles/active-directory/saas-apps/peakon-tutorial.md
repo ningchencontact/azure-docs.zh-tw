@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e32f0ac6fcc6839bad973c3d014436d08ae43896
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b841cbe838156cd00876a9a13c7a9cbe1790ea80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211303"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>教學課程：Azure Active Directory 與 Peakon 整合
 
@@ -190,7 +190,7 @@ Peakon 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中，輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -220,7 +220,7 @@ Peakon 需以手動方式佈建。
 
     a. 在 [Name] \(名稱\) 文字方塊中，輸入 **Britta** 作為名字，並輸入 **simon** 作為姓氏。
 
-    b. 在 [Email] \(電子郵件\) 文字方塊中，輸入電子郵件地址，例如 **Brittasimon@contoso.com**。
+    b. 在 **電子郵件**文字方塊中，輸入電子郵件地址，例如**Brittasimon\@contoso.com**。
 
     c. 按一下 [Create employee] \(建立員工\)。
 

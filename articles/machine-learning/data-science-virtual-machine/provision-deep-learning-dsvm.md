@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845183"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>在 Azure 上佈建深入學習虛擬機器 
 
@@ -49,10 +49,10 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
 > [!NOTE]
 > DLVM 支援所有 NC 和 ND 系列 GPU VM 執行個體。 佈建 DLVM 時，您必須在 Azure 中選擇其中一個具有 GPU 的位置。 請參閱[依區域的 Azure 產品頁面](https://azure.microsoft.com/regions/services/)以取得可用位置，並在 [計算] 下方尋找 [NC 系列]、[NCv2 系列]、[NCv3 系列] 或 [ND 系列]。 
 
-   2. **設定**：選取符合您功能性需求和成本限制的其中一個 NC 系列 (NC、NCv2、NCv3) 或 ND 系列 GPU 虛擬機器大小。 為您的 VM 建立儲存體帳戶。  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+1. **設定**：選取符合您功能性需求和成本限制的其中一個 NC 系列 (NC、NCv2、NCv3) 或 ND 系列 GPU 虛擬機器大小。 為您的 VM 建立儲存體帳戶。  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **摘要**：請確認您輸入的所有資訊都正確無誤。
-   5. ：按一下 [購買] 以開始佈建。 會提供一個交易條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
+1. **摘要**：請確認您輸入的所有資訊都正確無誤。
+1. ：按一下 [購買] 以開始佈建。 會提供一個交易條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
 
 > [!NOTE]
 > 佈建大約 10-20 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
@@ -66,7 +66,7 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
 
 ### <a name="linux-edition"></a>Linux 版本
 
-建立 VM 之後，您就可以使用 SSH 登入。 針對文字殼層介面，使用您在步驟 3 的 **基本** 區段中建立的帳戶認證。 在 Windows 用戶端上，您可以下載 SSH 用戶端工具，例如 [Putty](http://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。
+建立 VM 之後，您就可以使用 SSH 登入。 針對文字殼層介面，使用您在步驟 3 的 **基本** 區段中建立的帳戶認證。 在 Windows 用戶端上，您可以下載 SSH 用戶端工具，例如 [Putty](https://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。
 
 > [!NOTE]
 > 在測試中，X2Go 用戶端的效能優於 X11 轉寄。 我們建議您使用 X2Go 用戶端作為圖形化桌面介面。
@@ -76,7 +76,7 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
 #### <a name="installing-and-configuring-x2go-client"></a>安裝和設定 X2Go 用戶端
 Linux DLVM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若要連線到 Linux VM 圖形化桌面，請在用戶端上完成下列程序：
 
-1. 從 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
+1. 從 [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
 2. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
    * **[工作階段] 索引標籤**：
      * **主機**：「Linux 資料科學 VM」的主機名稱或 IP 位址。

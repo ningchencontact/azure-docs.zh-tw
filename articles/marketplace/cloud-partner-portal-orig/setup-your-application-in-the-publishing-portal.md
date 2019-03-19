@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847122"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>在發佈入口網站中設定您的應用程式
 
@@ -27,16 +27,16 @@ ms.locfileid: "54448478"
 
 ## <a name="login-and-create-a-new-offer"></a>登入並建立新的供應項目
 
-1. 登入 [Cloud Partner 入口網站](http://cloudpartner.azure.com/)。
+1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
 2. 從左側導覽列，按一下 [+ 新增供應項目] 並選取 [Dynamics 365 for Customer Engagement]。
 
 ![選取新的供應項目](./media/CRMScreenShot14.png)
 
-3. 隨即會開啟新供應項目的「編輯器」檢視，如此即已備妥可開始製作。
+1. 隨即會開啟新供應項目的「編輯器」檢視，如此即已備妥可開始製作。
 
 ![新增供應項目畫面](./media/CRMScreenShot15.png)
 
-4. 「編輯器」檢視左側中會出現需要填寫的「表單」。 每個「表單」都包含需要填寫的一組欄位。必要欄位會標有紅色星號 (\*)。
+1. 「編輯器」檢視左側中會出現需要填寫的「表單」。 每個「表單」都包含需要填寫的一組欄位。必要欄位會標有紅色星號 (\*)。
 
 製作 Dynamics 365 for Customer Engagement 供應項目，有四個主要的表單
 
@@ -59,7 +59,7 @@ ms.locfileid: "54448478"
 
 此下拉式表單，可讓您選擇您想要在什麼發行者設定檔之下發佈此供應項目。 供應項目上架後，此欄位便會鎖住。
 
-### <a name="name"></a>Name
+### <a name="name"></a>名稱
 
 您供應項目的顯示名稱。 此為會出現在 [AppSource](https://appsource.microsoft.com/) 中的名稱。 它最多不能超過 50 個字元。
 
@@ -88,7 +88,7 @@ ms.locfileid: "54448478"
 
 ### <a name="crm-package-availability"></a>CRM 套件可用性
 
-在本節中，請選取可使用您套件的 CRM 區域。 如需所在區域服務哪些國家/地區的詳細資訊，請參閱連結：[http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+在本節中，請選取可使用您套件的 CRM 區域。 如需所在區域服務哪些國家/地區的詳細資訊，請參閱連結：[https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 注意：部署至德國「主權與美國政府雲端」主權區域，需要特殊權限且認證期間需要進行驗證
 

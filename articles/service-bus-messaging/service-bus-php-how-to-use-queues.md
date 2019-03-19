@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: c320e06881c73feb228b9d5f49243d7e1d321f52
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847556"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842765"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何將服務匯流排佇列搭配 PHP 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -28,11 +28,13 @@ ms.locfileid: "54847556"
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## <a name="create-a-php-application"></a>建立 PHP 應用程式
 若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP](../php-download-sdk.md) 中的類別。 您可以使用任何開發工具來建立應用程式，或記事本。
 
 > [!NOTE]
-> 您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸模組](http://php.net/openssl)。
+> 在安装 PHP 的过程中，还必须安装并启用 [OpenSSL 扩展](https://php.net/openssl) 。
 > 
 > 
 
@@ -44,13 +46,13 @@ ms.locfileid: "54847556"
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 若要使用服務匯流排佇列 API，請執行下列動作：
 
-1. 使用 [require_once][require_once] 陳述式來參考自動換片器檔案。
+1. 使用 [require_once][require_once] 语句引用 autoloader 文件。
 2. 參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 `ServicesBuilder` 類別。
 
 > [!NOTE]
-> 此範例 (和本文中的其他範例) 假設您已透過編輯器安裝 PHP Client Libraries for Azure。 如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 **WindowsAzure.php** 自動換片器檔案。
+> 本示例（以及本文中的其他示例）假定你已通过 Composer 安装了用于 Azure 的 PHP 客户端库。 如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 **WindowsAzure.php** 自動換片器檔案。
 > 
 > 
 
@@ -126,7 +128,7 @@ catch(ServiceException $e){
 > 
 
 ## <a name="send-messages-to-a-queue"></a>傳送訊息至佇列
-若要將訊息傳送至服務匯流排佇列，應用程式會呼叫 `ServiceBusRestProxy->sendQueueMessage` 方法。 下列程式碼示範如何將訊息傳送至先前在 `MySBNamespace` 服務命名空間中建立的 `myqueue` 佇列。
+若要將訊息傳送至服務匯流排佇列，應用程式會呼叫 `ServiceBusRestProxy->sendQueueMessage` 方法。 下面的代码演示了如何将消息发送到先前在 `MySBNamespace` 服务命名空间内创建的 `myqueue` 队列。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -212,7 +214,7 @@ catch(ServiceException $e){
 
 服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。 如果接收者應用程式因為某些原因無法處理訊息，它可以在接收訊息上呼叫 `unlockMessage` 方法 (而不是 `deleteMessage` 方法)。 這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
-與在佇列內鎖定之訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
+还存在与队列中已锁定的消息相关联的超时，并且如果应用程序未能在锁定超时到期之前处理消息（例如，如果应用程序崩溃），服务总线则将自动解锁该消息，使它可以再次被接收。
 
 如果應用程式在處理訊息之後，但尚未發出 `deleteMessage` 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為「至少處理一次」，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，建議您在應用程式中新增其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 `getMessageId` 方法來達到此目的，該方法在各個傳遞嘗試中保持不變。
 
@@ -223,6 +225,6 @@ catch(ServiceException $e){
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[require_once]: http://php.net/require_once
+[require_once]: https://php.net/require_once
 
 

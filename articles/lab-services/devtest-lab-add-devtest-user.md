@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834123"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727956"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中新增擁有者和使用者
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -77,6 +77,9 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ro
 11. 當您返回 [使用者]  刀鋒視窗時，該使用者已新增。  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>使用 PowerShell 將外部使用者新增至實驗室
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 除了在 Azure 入口網站新增使用者，您還可以使用 PowerShell 指令碼將外部使用者新增至實驗室。 在下列範例中，修改 **Values to change** 註解底下的參數值。
 您可以從 Azure 入口網站中的 [實驗室] 刀鋒視窗擷取 `subscriptionId`、`labResourceGroup` 及 `labName`。
 
@@ -96,18 +99,18 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ro
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+    Select-AzSubscription -SubscriptionId $subscriptionId
 
     # Retrieve the user object
-    $adObject = Get-AzureRmADUser -SearchString $userDisplayName
+    $adObject = Get-AzADUser -SearchString $userDisplayName
 
     # Create the role assignment. 
     $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>在訂用帳戶層級新增擁有者或使用者
 在 Azure 中，Azure 權限會從父範圍傳播至子範圍。 因此，包含實驗室之 Azure 訂用帳戶的擁有者會自動成為這些實驗室的擁有者。 他們也擁有實驗室使用者和 Azure DevTest Labs 服務所建立的 VM 和其他資源。 

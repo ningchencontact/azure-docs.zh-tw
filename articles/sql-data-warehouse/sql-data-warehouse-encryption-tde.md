@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ca5ac013716db9712063e8efc0e2116570008a9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 477123ec6696ea44b1fea16689d7f1961bde4b61
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455604"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840574"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>開始使用 SQL 資料倉儲中的透明資料加密 (TDE)
 > [!div class="op_single_selector"]
@@ -26,15 +26,15 @@ ms.locfileid: "55455604"
 > 
 > 
 
-## <a name="required-permssions"></a>需要的權限
+## <a name="required-permissions"></a>必要權限
 您必須是系統管理員或 dbmanager 角色的成員，才能啟用透明資料加密 (TDE)。
 
-## <a name="enabling-encryption"></a>啟用加密
+## <a name="enabling-encryption"></a>启用加密
 若要啟用 SQL 資料倉儲的 TDE，請遵循下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)
 2. 在資料庫刀鋒視窗中，按一下 [設定]  按鈕
-3. 選取 [透明資料加密]  選項 ![][1]
+3. 选择“透明数据加密”选项 ![][1]
 4. 選取 [開啟] 設定 ![][2]
 5. 選取 [儲存]
    ![][3]  
@@ -57,7 +57,7 @@ ms.locfileid: "55455604"
 
 <!--MSDN references-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
+[sys.databases]: https://msdn.microsoft.com/library/ms178534.aspx
 [sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->

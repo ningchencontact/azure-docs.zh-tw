@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477843"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840642"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>建立 Hive 資料表，並從 Azure Blob 儲存體載入資料
 
@@ -36,7 +36,7 @@ ms.locfileid: "55477843"
 
 如果您想要使用 **NYC 計程車車程資料**進行練習，您需要︰
 
-* **下載** 24 個 [NYC 計程車車程資料](http://www.andresmh.com/nyctaxitrips) 檔案 (12 個車程檔案和 12 個費用檔案)，
+* **下載** 24 個 [NYC 計程車車程資料](https://www.andresmh.com/nyctaxitrips) 檔案 (12 個車程檔案和 12 個費用檔案)，
 * **解壓縮** 為 .csv 檔案，然後
 * **上傳**到 Azure 儲存體帳戶的預設或適當容器；這類帳戶的選項會出現於[使用 Azure 儲存體搭配 Azure HDInsight 叢集](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)主題。 請參閱此 [頁面](hive-walkthrough.md#upload)，以了解將 .csv 檔案上傳至儲存體帳戶上之預設容器的程序。
 

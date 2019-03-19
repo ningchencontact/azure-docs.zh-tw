@@ -9,18 +9,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2017
+ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: 685ce54f75b20879230163f216246746b4a36922
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834045"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動執行 Azure Application Insights 程序
 
-您是否發現自己在遙測資料上不斷重複地執行相同查詢，以檢查服務是否正常運作？ 想要將此類查詢自動化以尋找趨勢和異常，然後針對它們建立您自己的工作流程嗎？ 適用於 Microsoft Flow 的 Application Insights Connector (預覽) 正是符合這些用途的工具。
+您是否發現自己在遙測資料上不斷重複地執行相同查詢，以檢查服務是否正常運作？ 想要將此類查詢自動化以尋找趨勢和異常，然後針對它們建立您自己的工作流程嗎？ Azure Application Insights connector for Microsoft Flow 是正確的工具，針對這些用途。
 
 有了此整合，您就能立即自動執行許多流程，而不需撰寫任何一行程式碼。 在您使用 Application Insights 動作建立流程後，此流程會自動執行 Application Insights Analytics 查詢。 
 
@@ -34,38 +34,45 @@ ms.locfileid: "53755981"
 
 ### <a name="step-1-create-a-flow"></a>步驟 1：建立流程
 1. 登入 [Microsoft Flow](https://flow.microsoft.com)，然後選取 [我的流程]。
-2. 按一下 [從空白建立流程]。
+2. 按一下 **的新**再**從空白建立**。
+
+    ![從空白建立新的流程](./media/automate-with-flow/1createflow.png)
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>步驟 2：建立流程的觸發程序
-1. 依序選取 [排程] 和 [排程 - 重複]。
-1. 在 [頻率] 方塊中選取 [天]，然後在 [間隔] 方塊中輸入 **1**。
+1. 在組建中索引標籤上選取**排程**，然後選取**排程-週期**。
 
-    ![Microsoft Flow 觸發程序對話方塊](./media/automate-with-flow/flow1.png)
+    ![選取排程下建置它](./media/automate-with-flow/2schedule.png)
+
+1. 在 **間隔**方塊中，輸入**1**，然後在**頻率**方塊中，選取**天**。
+2. 按一下 **新增步驟**
+
+    ![設定輸入頻率和間隔排程週期](./media/automate-with-flow/3schedulerecurrence.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>步驟 3：新增 Application Insights 動作
-1. 按一下 [新增步驟]，然後按一下 [新增動作]。
 1. 搜尋 **Azure Application Insights**。
-1. 按一下 [Azure Application Insights - 視覺化 Analytics 查詢預覽]。
-
-    ![執行 Analytics 查詢視窗](./media/automate-with-flow/flow2.png)
+2. 按一下  **Azure Application Insights 視覺化 Analytics 查詢**。
+ 
+    ![選擇一個動作：Azure Application Insights 視覺化 Analytics 查詢](./media/automate-with-flow/4visualize.png)
 
 ### <a name="step-4-connect-to-an-application-insights-resource"></a>步驟 4：連線到 Application Insights 資源
 
 若要完成此步驟，您需要資源的應用程式識別碼和 API 金鑰。 您可以從 Azure 入口網站擷取這些資訊，如下圖所示：
 
-![Azure 入口網站中的應用程式識別碼](./media/automate-with-flow/appid.png) 
+![Azure 入口網站中的應用程式識別碼](./media/automate-with-flow/5apiaccess.png)
+
+![在 Azure 入口網站中的 API 金鑰](./media/automate-with-flow/6apikey.png)
 
 - 為您的連線提供名稱，以及應用程式識別碼和 API 金鑰。
 
-    ![Microsoft Flow 連線視窗](./media/automate-with-flow/flow3.png)
+    ![Microsoft Flow 連線視窗](./media/automate-with-flow/7connection.png)
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>步驟 5：指定 Analytics 查詢和圖表類型
 此範例查詢會選取最後一天內的失敗要求，並將它們與作業發生的例外狀況相互關聯。 Analytics 會根據 operation_Id 識別碼使其相互關聯。 查詢接著會使用自動叢集演算法將結果分段。 
 
 建立自己的查詢時，先確認它們可在 Analytics 中正常運作，再將其新增到您的流程中。
 
-- 新增下列 Analytics 查詢，然後選取 HTML 表格圖表類型。 
+- 新增下列 Analytics 查詢，然後選取 HTML 表格圖表類型。 然後選取**新增步驟**。
 
     ```
     requests
@@ -78,15 +85,14 @@ ms.locfileid: "53755981"
     | evaluate autocluster()
     ```
     
-    ![Analytics 查詢設定畫面](./media/automate-with-flow/flow4.png)
+    ![Analytics 查詢設定畫面](./media/automate-with-flow/8query.png)
 
 ### <a name="step-6-configure-the-flow-to-send-email"></a>步驟 6：設定傳送電子郵件的流程
 
-1. 按一下 [新增步驟]，然後按一下 [新增動作]。
 1. 搜尋 **Office 365 Outlook**。
-1. 按一下 [Office 365 Outlook - 傳送電子郵件]。
+2. 按一下 [Office 365 Outlook - 傳送電子郵件]。
 
-    ![Office 365 Outlook 選取視窗](./media/automate-with-flow/flow2b.png)
+    ![Office 365 Outlook 選取視窗](./media/automate-with-flow/9outlookaction.png)
 
 1. 在 [傳送電子郵件]  視窗中，執行下列動作：
 
@@ -98,7 +104,7 @@ ms.locfileid: "53755981"
 
    d. 按一下 [顯示進階選項]。
 
-    ![Office 365 Outlook 設定](./media/automate-with-flow/flow5.png)
+    ![Office 365 Outlook 設定](./media/automate-with-flow/10sendemailbody.png)
 
 1. 在動態內容功能表上執行下列動作：
 
@@ -108,12 +114,12 @@ ms.locfileid: "53755981"
     
     c. 在 [為 HTML] 方塊中選取 [是]。
 
-    ![Office 365 電子郵件設定畫面](./media/automate-with-flow/flow7.png)
+    ![Office 365 電子郵件設定畫面](./media/automate-with-flow/11emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-flow"></a>步驟 7：儲存並測試流程
-- 在 [流程名稱] 方塊中，新增您的流程名稱，然後按一下 [建立流程]。
+- 在 **流程名稱**方塊中，新增您的流程的名稱，然後按一下**儲存**。
 
-    ![流程建立視窗](./media/automate-with-flow/flow8.png)
+    ![命名流程並儲存](./media/automate-with-flow/12nameflow.png)
 
 您可以等候觸發程序執行此動作，或[視需要執行觸發程序](https://flow.microsoft.com/blog/run-now-and-six-more-services/)來立即執行流程。
 

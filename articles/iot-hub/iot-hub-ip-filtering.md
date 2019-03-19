@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
-ms.openlocfilehash: d549127b5cbdb3a94e435e753592f3227cb95f3a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 02059409000ee5b68fbcb8695f580980c95effe6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232209"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731702"
 ---
 # <a name="use-ip-filters"></a>使用 IP 篩選器
 
 安全性是任何以 Azure IoT 中樞為基礎之 IoT 解決方案的重要一環。 有時候您需要在執行安全性設定的程序中明確地指定可連線的裝置 IP 位址。 「IP 篩選器」功能可讓您設定規則，以拒絕或接受來自特定 IPv4 位址的流量。
 
-## <a name="when-to-use"></a>使用時機
+## <a name="when-to-use"></a>何时使用
 
 有兩個特定使用案例適合封鎖特定 IP 位址的 IoT 中樞端點︰
 
@@ -28,9 +28,9 @@ ms.locfileid: "56232209"
 
 ## <a name="how-filter-rules-are-applied"></a>篩選器規則的套用方式
 
-IP 篩選器規則會套用在 IoT 中樞服務層級。 因此，IP 篩選器規則會套用至來自裝置和後端應用程式的所有連接 (使用任何受支援的通訊協定)。
+在 IoT 中心服务级别应用 IP 筛选器规则。 因此，IP 篩選器規則會套用至來自裝置和後端應用程式的所有連接 (使用任何受支援的通訊協定)。
 
-嘗試建立連線的 IP 位址若符合 IoT 中樞內的拒絕 IP 規則，將會收到未授權 401 狀態碼和描述。 回應訊息則不涉及 IP 規則。
+与 IoT 中心的拒绝 IP 规则匹配的 IP 地址发出的任何连接尝试都会收到“未授权”401 状态代码和说明。 回應訊息則不涉及 IP 規則。
 
 ## <a name="default-setting"></a>預設設定
 
@@ -46,7 +46,7 @@ IP 篩選器規則會套用在 IoT 中樞服務層級。 因此，IP 篩選器�
 
 * 選取 [拒絕] 或 [接受] 做為 IP 篩選器規則的 [動作]。
 
-* 提供單一 IPv4 位址或以 CIDR 標記法表示的 IP 位址區塊。 例如，在 CIDR 表示法中，192.168.100.0/22 表示從 192.168.100.0 到 192.168.103.255 的 1024 個 IPv4 位址。
+* 提供單一 IPv4 位址或以 CIDR 標記法表示的 IP 位址區塊。 例如，在 CIDR 表示法中，192.168.100.0/22 表示从 192.168.100.0 到 192.168.103.255 的 1024 个 IPv4 地址。
 
 ![新增 IP 篩選器規則到 IoT 中樞](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
 
@@ -66,7 +66,7 @@ IP 篩選器規則會套用在 IoT 中樞服務層級。 因此，IP 篩選器�
 
 ## <a name="delete-an-ip-filter-rule"></a>刪除 IP 篩選器規則
 
-若要刪除 IP 篩選器規則，請選取方格中的一個或多個規則，然後按一下 [刪除]。
+如果要删除 IP 筛选器规则，请在网格中选择一个或多个规则，并单击“删除”。
 
 ![刪除 IoT 中樞 IP 篩選器規則](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
 
@@ -121,11 +121,13 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>使用 Azure PowerShell 擷取和更新 IP 篩選條件
 
-您可以透過 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) 擷取和設定 IoT 中樞的 IP 篩選條件。 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+您的 IoT 中樞 IP 篩選器就可以擷取和設定透過[Azure PowerShell](/powershell/azure/overview)。 
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
-$iothubResource = Get-AzureRmResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+$iothubResource = Get-AzResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
 
 # Access existing IP filter rules
 $iothubResource.Properties.ipFilterRules |% { Write-host $_ }
@@ -140,7 +142,7 @@ $iothubResource.Properties.ipFilterRules += $filter
 $iothubResource.Properties.ipFilterRules = @($iothubResource.Properties.ipFilterRules | Where 'filterName' -ne 'GoodIP')
 
 # Update your IoT Hub resource with your updated IP filters
-$iothubResource | Set-AzureRmResource -Force
+$iothubResource | Set-AzResource -Force
 ```
 
 ## <a name="update-ip-filter-rules-using-rest"></a>使用 REST 更新 IP 篩選規則
@@ -152,7 +154,7 @@ $iothubResource | Set-AzureRmResource -Force
 
 IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定接受或拒絕動作。
 
-例如，如果您想要接受 192.168.100.0/22 範圍中的位址，並拒絕其他所有位址，則方格中的第一個規則應接受位址範圍 192.168.100.0/22。 下一個規則應使用 0.0.0.0/0 範圍拒絕所有位址。
+例如，如果您想要接受 192.168.100.0/22 範圍中的位址，並拒絕其他所有位址，則方格中的第一個規則應接受位址範圍 192.168.100.0/22。 下一个规则应通过使用 0.0.0.0/0 范围拒绝所有地址。
 
 按一下資料列前端呈垂直方向的三個點並使用拖放功能，即可變更方格中的 IP 篩選器規則順序。
 

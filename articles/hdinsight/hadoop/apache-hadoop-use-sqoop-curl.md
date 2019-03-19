@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: ad716e2ef5e597424c860378e7a63d5c2de53f54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438348"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834552"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中以 Hadoop 執行 Apache Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,18 +27,18 @@ ms.locfileid: "53438348"
 若要完成本文中的步驟，您需要下列項目：
 
 
-* 完成[在 HDInsight 上將 Apache Sqoop 與 Hadoop 搭配使用](hdinsight-use-sqoop.md#create-cluster-and-sql-database)，以使用 HDInsight 叢集和 Azure SQL Database 設定環境。
+* 完整[在 HDInsight 中搭配 Hadoop 使用 Apache Sqoop](hdinsight-use-sqoop.md#create-cluster-and-sql-database)若要使用的 HDInsight 叢集與 Azure SQL database 設定環境。
 * [Curl](https://curl.haxx.se/)。 Curl 是將資料傳送至 HDInsight 叢集或從 HDInsight 叢集傳送資料的工具。
 * [jq](https://stedolan.github.io/jq/)。 jq 公用程式用來處理從 REST 要求傳回的 JSON 資料。
 
 
 ## <a name="submit-apache-sqoop-jobs-by-using-curl"></a>使用 Curl 提交 Apache Sqoop 作業
 > [!NOTE]  
-> 在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集系統管理員的使用者名稱和密碼來驗證要求。 您也必須在用來將要求傳送至伺服器的統一資源識別項 (URI) 中使用叢集名稱。
+> 在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集系統管理員的使用者名稱和密碼來驗證要求。 此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分。
 > 
 > 在本節的所有命令中，將 **USERNAME** 取代為用來驗證叢集的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。 將 **CLUSTERNAME** 取代為您叢集的名稱。
 > 
-> 透過 [基本驗證](https://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
+> 透過 [基本驗證](https://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 始终应该使用安全 HTTP (HTTPS) 来发出请求，以确保安全地将凭据发送到服务器。
 > 
 > 
 
@@ -54,7 +54,7 @@ ms.locfileid: "53438348"
     {"status":"ok","version":"v1"}
     ```
    
-    此命令中使用的參數如下：
+    此命令中使用的参数如下：
    
    * **-u** - 用來驗證要求的使用者名稱和密碼。
    * **-G** - 指出這是 GET 要求。
@@ -68,19 +68,19 @@ ms.locfileid: "53438348"
 
     此命令中使用的參數如下：
 
-    * **-d** - 因為未使用 `-G`，要求會依預設使用 POST 方法。 `-d` 可指定與要求一起傳送的資料值。
+   * **-d** - 因為未使用 `-G`，要求會依預設使用 POST 方法。 `-d` 可指定與要求一起傳送的資料值。
 
-        * **user.name** - 執行命令的使用者。
+       * **user.name** - 正在运行命令的用户。
 
-        * **命令** - 要執行的 Sqoop 命令。
+       * **命令** - 要執行的 Sqoop 命令。
 
-        * **statusdir** - 要寫入此工作狀態的目錄。
+       * **statusdir** - 要寫入此工作狀態的目錄。
 
-    此命令應該會傳回可用來檢查工作狀態的工作識別碼。
+     此命令應該會傳回可用來檢查工作狀態的工作識別碼。
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. 若要檢查工作的狀態，請使用下列命令。 將 **JOBID** 取代為上一個步驟中所傳回的值。 例如，如果傳回值為 `{"id":"job_1415651640909_0026"}`，則 **JOBID** 會是 `job_1415651640909_0026`。
 
@@ -91,7 +91,7 @@ ms.locfileid: "53438348"
     如果工作已完成，則狀態會是 [ **成功**]。
    
    > [!NOTE]  
-   > 此 Curl 要求會傳回含有工作資訊的 JavaScript Object Notation (JSON) 文件；jq 可用來僅擷取狀態值。
+   > 此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
 
 4. 工作狀態變更為 [成功] 之後，即可從 Azure Blob 儲存體擷取工作結果。 隨查詢一起傳送的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 **wasb:///example/data/sqoop/curl**。 此位址會將作業輸出儲存至 HDInsight 叢集所使用之預設儲存體容器的 **example/data/sqoop/curl** 目錄中。
    
@@ -99,7 +99,7 @@ ms.locfileid: "53438348"
 
 ## <a name="limitations"></a>限制
 * 大量匯出 - 使用 Linux 型 HDInsight，用來將資料匯出至 Microsoft SQL Server 或 Azure SQL Database 的 Sqoop 連接器目前不支援大量插入。
-* 批次處理 - 使用 Linux 型 HDInsight，執行插入時若使用 `-batch` 參數，Sqoop 將會執行多個插入，而不是批次處理插入作業。
+* 批处理 - 在基于 Linux 的 HDInsight 上，如果执行插入时使用 `-batch` 开关，Sqoop 会执行多次插入而不是批处理插入操作。
 
 ## <a name="summary"></a>總結
 如這份文件所示，您可以使用原始 HTTP 要求來執行、監視和檢視 HDInsight 叢集上的 Sqoop 作業結果。

@@ -3,30 +3,33 @@ title: 啟用適用於 Azure-SSIS Integration Runtime 的 Azure Active Directory
 description: 本文說明如何使用 Azure Data Factory 的受控識別啟用 Azure Active Directory 驗證，來建立 Azure-SSIS Integration Runtime。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 2/19/2019
-ms.author: douglasl
-ms.openlocfilehash: b672264e1cb3cd415532cf4bcfbbd268afffa70d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.date: 3/11/2019
+author: swinarko
+ms.author: sawinark
+manager: craigg
+ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848723"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS Integration Runtime 的 Azure Active Directory 驗證
 
-本文說明如何使用 Azure Data Factory (ADF) 的受控識別啟用 Azure Active Directory (Azure AD) 驗證，並使用它 (而非 SQL 驗證) 來建立 Azure-SSIS Integration Runtime (IR)，然後代表您在 Azure SQL Database 伺服器/受控執行個體中，建立 SSIS 目錄資料庫 (SSISDB)。
+這篇文章說明如何啟用 Azure Active Directory (Azure AD) 驗證的受管理的身分識別與您 Azure Data Factory (ADF)，並使用它來建立 Azure SSIS Integration Runtime (IR) 又會佈建，而不是 SQL 驗證SSIS 目錄資料庫 (SSISDB) 中 Azure SQL Database 伺服器/受控執行個體代表您。
 
-如需 ADF 受控識別的詳細資訊，請參閱 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)。
+如需受管理的身分識別，為您的 ADF 的詳細資訊，請參閱[Data factory 受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)。
 
 > [!NOTE]
-> 如果您已使用 SQL 驗證建立 Azure-SSIS IR，此時您無法將該整合執行階段重新設定為透過 PowerShell 使用 Azure AD 驗證，但是您可以在 Azure 入口網站/ADF 應用程式中執行此操作。 
+>-  在此案例中，受管理的身分識別與 Azure AD 驗證您的 ADF 只能用來建立和開啟佈建，會將 SSIS IR 的後續開始作業，並連線至 SSISDB。 SSIS 封裝執行，SSIS IR 仍然會連線至 SSISDB 佈建期間建立的完全受控帳戶以使用 SQL 驗證的 SSISDB。
+>-  如果您已經建立您的 SSIS 整合執行階段使用 SQL 驗證，您可以不重新設定為使用 Azure AD 驗證，透過 PowerShell 在此階段中，但則可以透過 Azure 入口網站/ADF 應用程式。 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-ad-on-azure-sql-database"></a>在 Azure SQL Database 上啟用 Azure AD
 
@@ -57,7 +60,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  將 ADF 的受控識別新增至群組。 您可以依照文章 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)，以取得主體服務識別的識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc，但是不要將服務識別應用程式識別碼用於此用途)。
+3.  將 ADF 的受控識別新增至群組。 您可以遵循本文[Data factory 受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)取得主體的服務識別識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc，但是不會針對此用途使用服務身分識別應用程式識別碼)。
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -73,37 +76,55 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 您可以使用下列步驟， [透過 SQL 設定及管理 Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)：
 
-1.  在 Azure 入口網站中，選取左側導覽中的 [所有服務] **** -> [SQL 伺服器] 。
+1.  在 Azure 入口網站中，從左側導覽中選取 [所有服務] -> [SQL 伺服器]。
 
 2.  選取要使用 Azure AD 驗證設定的 Azure SQL Database 伺服器。
 
-3.  在刀鋒視窗的 [設定] ****  區段中，選取 [Active Directory 管理員] ****。
+3.  在刀鋒視窗的 [設定] 區段中，選取 [Active Directory 管理員]。
 
-4.  在命令列中選取 [設定管理員] ****。
+4.  在命令列中選取 [設定管理員]。
 
-5.  選取要設為伺服器管理員的 Azure AD 使用者帳戶，然後選取 [選取] ****。
+5.  選取 Azure AD 使用者帳戶以成為系統管理員的伺服器，然後選取**選取。**
 
-6.  在命令列上選取 [儲存] ****。
+6.  在命令列中選取 [儲存]。
 
 ### <a name="create-a-contained-user-in-azure-sql-database-server-representing-the-azure-ad-group"></a>在 Azure SQL Database 伺服器中，建立一個代表 Azure AD 群組的內含使用者
 
 在此後續步驟中，您需要  [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)  (SSMS)。
 
-1.  啟動 SSMS。
+1. 啟動 SSMS。
 
-2.  在 [連線到伺服器] ****  對話方塊中，在 [伺服器名稱] ****  欄位中輸入您的 Azure SQL Database 伺服器名稱。
+2. 在 [**連接到伺服器**] 對話方塊中，輸入您的 Azure SQL Database 伺服器名稱，在**伺服器名稱**欄位。
 
-3.  在 [驗證] ****  欄位中，選取 [具 MFA 支援的 Active Directory - 通用] **** (您也可以使用另外兩種 Active Directory 驗證類型，請參閱[使用 SQL 設定及管理 Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure))。
+3. 在 **驗證**欄位中，選取**Active Directory-與 MFA 支援通用**(您也可以使用其他兩個 Active Directory 驗證類型，請參閱[設定和管理Azure AD 驗證搭配 SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure))。
 
-4.  在 [使用者名稱] ****  欄位中，輸入您設為伺服器管理員的 Azure AD 帳戶名稱，例如 testuser@xxxonline.com。
+4. 在 **使用者名**欄位中，輸入您設定伺服器系統管理員，例如 Azure AD 帳戶的名稱testuser@xxxonline.com。
 
-5.  選取 [連線] ****，並完成登入程序。
+5. 選取  **Connect**並完成登入程序。
 
-6.  在 [物件總管] **** 中，展開 [資料庫] **** -> [系統資料庫] 資料夾。
+6. 在 [物件總管] 中，展開 [資料庫][系統資料庫] ->  資料夾。
 
-7.  在 [master] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢] ****。
+7. 在 [master] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢]。
 
-8.  在查詢視窗中，輸入下列 T-SQL 命令，然後在工具列中選取 [執行] **** 。
+8. 在 [查詢] 視窗中，輸入下列 T-SQL 命令，並選取**Execute**工具列上。
+
+   ```sql
+   CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+   ```
+
+   命令應該會順利完成，建立代表群組的內含使用者。
+
+9. 清除查詢視窗，輸入下列 T-SQL 命令，然後在工具列中選取 [執行]。
+
+   ```sql
+   ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+   ```
+
+   命令應該會順利完成，將建立資料庫 (SSISDB) 的能力授與內含的使用者。
+
+10. 如果使用 SQL 驗證 」 來建立 「 您 SSISDB，而您想要切換至使用您的 Azure SSIS IR 的 Azure AD 驗證來存取它，以滑鼠右鍵按一下**SSISDB**資料庫，然後選取**新的查詢**。
+
+11. 在 [查詢] 視窗中，輸入下列 T-SQL 命令，並選取**Execute**工具列上。
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -111,25 +132,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
     命令應該會順利完成，建立代表群組的內含使用者。
 
-9.  清除查詢視窗，輸入下列 T-SQL 命令，然後在工具列中選取 [執行]。
-
-    ```sql
-    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
-    ```
-
-    命令應該會順利完成，將建立資料庫 (SSISDB) 的能力授與內含的使用者。
-
-10.  如果您的 SSISDB 是使用 SQL 驗證來建立的，而您想要切換成使用 Azure AD 驗證以便讓 Azure-SSIS IR 存取它，請在 [SSISDB] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢] ****。
-
-11.  在查詢視窗中，輸入下列 T-SQL 命令，然後在工具列中選取 [執行] **** 。
-
-    ```sql
-    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
-    ```
-
-    命令應該會順利完成，建立代表群組的內含使用者。
-
-12.  清除查詢視窗，輸入下列 T-SQL 命令，然後在工具列中選取 [執行]。
+12. 清除查詢視窗，輸入下列 T-SQL 命令，然後在工具列中選取 [執行]。
 
     ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
@@ -167,7 +170,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 4.  在 [master] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢]。
 
-5.  取得 ADF 的受控識別。 您可以依照文章 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)，以取得主體服務識別應用程式的識別碼 (但是不要將服務識別識別碼用於此用途)。
+5.  取得 ADF 的受控識別。 您可以遵循本文[Data factory 受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)來取得主體的服務身分識別應用程式識別碼 （但不是會針對此目的使用服務識別識別碼）。
 
 6.  在查詢視窗中，執行下列 T-SQL 指令碼，將 ADF 的受控識別轉換為二進位類型：
 
@@ -188,9 +191,9 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
     
     命令應該會順利完成，將建立資料庫 (SSISDB) 的能力授與 ADF 的受控識別。
 
-8.  如果您的 SSISDB 是使用 SQL 驗證來建立的，而您想要切換成使用 Azure AD 驗證以便讓 Azure-SSIS IR 存取它，請在 [SSISDB] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢] ****。
+8.  如果使用 SQL 驗證 」 來建立 「 您 SSISDB，而您想要切換至使用您的 Azure SSIS IR 的 Azure AD 驗證來存取它，以滑鼠右鍵按一下**SSISDB**資料庫，然後選取**新的查詢**。
 
-9.  在查詢視窗中，輸入下列 T-SQL 命令，然後在工具列中選取 [執行] **** 。
+9.  在 [查詢] 視窗中，輸入下列 T-SQL 命令，並選取**Execute**工具列上。
 
     ```sql
     CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo
@@ -216,7 +219,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 2.  在您的指令碼中，請勿設定 `CatalogAdminCredential` 參數。 例如︰
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -Description $AzureSSISDescription `
@@ -229,7 +232,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
                                                -CatalogServerEndpoint $SSISDBServerEndpoint `
                                                -CatalogPricingTier $SSISDBPricingTier
 
-    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                  -DataFactoryName $DataFactoryName `
                                                  -Name $AzureSSISName
    ```

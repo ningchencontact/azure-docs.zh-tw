@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600296"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823853"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙：Azure 平台上的雲端術語字典
 
@@ -44,7 +44,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 請參閱[管理 Windows 虛擬機器的可用性](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)和[管理 Linux 虛擬機器的可用性](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="classic-model"></a>Azure 傳統部署模型
-您可以使用兩個 [部署模型](resource-manager-deployment-model.md) 之一來部署 Azure 中的資源 (新模型是 Azure Resource Manager)。 有些 Azure 服務僅支援 Resource Manager 部署模型、有些僅支援傳統部署模型，而有些則可支援兩個模型。 每個 Azure 服務的文件指定其支援的模型。
+您可以使用兩個 [部署模型](resource-manager-deployment-model.md) 之一來部署 Azure 中的資源 (新模型是 Azure Resource Manager)。 有些 Azure 服务仅支持资源管理器部署模型，有些仅支持经典部署模型，而有些则两种模型都支持。 每個 Azure 服務的文件指定其支援的模型。
 
 ## <a name="cli"></a>Azure 命令列介面 (CLI)
 命令列介面，可用來從 Windows、macOS 和 Linux 電腦管理 Azure 服務。  某些服務或服務功能可以只透過 PowerShell 或 CLI 進行管理。 請參閱 [Azure CLI](/cli/azure)
@@ -95,7 +95,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 請參閱 [Azure 區域](best-practices-availability-paired-regions.md)
 
 ## <a name="resource"></a>resource
-Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型的資源，例如資料庫或虛擬機器。   
+Azure 方案一部分的項目。 每个 Azure 服务允许部署不同类型的资源，例如数据库或虚拟机。   
 請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md)
 
 ## <a name="resource-group"></a>資源群組
@@ -107,12 +107,12 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)
 
 ## <a name="resource-provider"></a>資源提供者
-提供資源的服務，讓您可透過資源管理員進行部署及管理。 每個資源提供者都會提供作業，以便能運用所部署的資源。 資源提供者可以透過 Azure 入口網站、Azure PowerShell 和數個程式設計的 SDK 來存取。  
+提供資源的服務，讓您可透過資源管理員進行部署及管理。 每个资源提供程序提供用于处理所部署资源的操作。 資源提供者可以透過 Azure 入口網站、Azure PowerShell 和數個程式設計的 SDK 來存取。  
 請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md)
 
 ## <a name="role"></a>角色
 用於控制可指派給使用者、群組和服務的存取權的方式。 角色能夠在 Azure 資源上執行建立、管理及讀取之類的動作。  
-請參閱 [RBAC：內建角色](role-based-access-control/built-in-roles.md)
+請參閱[RBAC:內建角色](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>服務等級協定 (SLA)
 此協定會描述 Microsoft 對執行時間與連線能力的承諾。 每個 Azure 服務都有特定的 SLA。  
@@ -147,13 +147,13 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 請參閱[關於虛擬機器擴充功能和功能 (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 或[關於虛擬機器擴充功能和功能 (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>虛擬網路
-一種網路，可提供與所有其他 Azure 租用戶隔離之 Azure 資源間的連線能力。 [Azure VPN 閘道](vpn-gateway/vpn-gateway-about-vpngateways.md)可讓您建立虛擬網路之間及[虛擬網路與內部部署網路之間](vpn-gateway/vpn-gateway-plan-design.md)的連線。 您可以完全控制虛擬網路內的 IP 位址區塊、DNS 設定、安全性原則和路由表。  
+一種網路，可提供與所有其他 Azure 租用戶隔離之 Azure 資源間的連線能力。 [Azure VPN 閘道](vpn-gateway/vpn-gateway-about-vpngateways.md)可讓您建立虛擬網路之間及虛擬網路與內部部署網路之間的連線。 您可以完全控制虛擬網路內的 IP 位址區塊、DNS 設定、安全性原則和路由表。  
 請參閱[虛擬網路概觀](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Web 應用程式
 [App Service 應用程式](#app-service-app)的另一個名稱。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [開始使用 Azure](https://azure.microsoft.com/get-started/)
 * [雲端資源中心](https://azure.microsoft.com/resources/)  

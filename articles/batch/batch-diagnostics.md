@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 368e1f6b9501c677eca1cf80d24a06c0a6533e86
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811455"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817349"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 
@@ -91,7 +91,7 @@ ms.locfileid: "55811455"
 
 * 將 Batch 診斷記錄事件串流至 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)。 事件中樞每秒可輸入數百萬個事件，您可以使用任何即時分析提供者來轉換和儲存。 
 
-* 將診斷記錄傳送至 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)，您可以在其中分析它們，或匯出它們以在 Power BI 或 Excel 中分析。
+* 傳送診斷記錄檔，以[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)，其中您可以分析它們或將它們匯出以在 Power BI 或 Excel。
 
 > [!NOTE]
 > 使用 Azure 服務儲存或處理診斷記錄資料可能會產生額外費用。 
@@ -101,7 +101,7 @@ ms.locfileid: "55811455"
 
 1. 在入口網站中，按一下 [所有服務] > [Batch 帳戶]，然後按一下您的 Batch 帳戶名稱。
 2. 在 [監視] 下方，按一下 [診斷記錄] > [開啟診斷]。
-3. 在 [診斷設定] 中輸入設定的名稱，然後選擇記錄目的地 (現有儲存體帳戶、事件中樞或 Log Analytics)。 選取 **ServiceLog** 或/和 **AllMetrics**。
+3. 在 **診斷設定**，輸入設定名稱，然後選擇記錄目的地 （現有的儲存體帳戶、 事件中樞或 Azure 監視器記錄檔）。 選取 **ServiceLog** 或/和 **AllMetrics**。
 
     當您選取儲存體帳戶時，可選擇性地設定保留原則。 如果您未指定保留天數，資料的保留期限會是儲存體帳戶的存留期間。
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure AD，為群組成員或可存取應用程式的使用者完成存取權檢閱 | Microsoft Docs
-description: 了解如何在 Azure Active Directory 中，完成可存取應用程式之群組成員或使用者的存取權檢閱。
+title: 完成群組或在 Azure AD 存取權檢閱的應用程式的存取權檢閱 |Microsoft Docs
+description: 了解如何完成存取權檢閱的群組成員或在 Azure AD 存取權檢閱的應用程式存取。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2da3b7f8b7ed60344978fb255696980ec620fd2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192263"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729605"
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>在 Azure AD 中，為群組成員或可存取應用程式的使用者完成存取權檢閱
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>完成群組或在 Azure AD 存取權檢閱的應用程式的存取權檢閱
 
-系統管理員可以使用 Azure Active Directory (Azure AD) 為群組成員或指派給應用程式的或使用者[建立存取權檢閱](create-access-review.md)。 Azure AD 會自動傳送電子郵件給檢閱者，提示其檢閱存取權。 如果使用者未收到電子郵件，您可以傳送[檢閱存取權](perform-access-review.md)的指示給他們。 (請注意，受指派為檢閱者但尚未接受邀請的來賓，將不會收到一封存取權檢閱所發出的電子郵件，因為他們在檢閱之前必須先接受邀請)。存取權檢閱期間結束後，或如果系統管理員停止存取權檢閱，請依照本文的步驟來查看並套用結果。
+系統管理員可以使用 Azure Active Directory (Azure AD) 為群組成員或指派給應用程式的或使用者[建立存取權檢閱](create-access-review.md)。 Azure AD 會自動傳送電子郵件給檢閱者，提示其檢閱存取權。 如果使用者未收到一封電子郵件，您可以傳送這些指示[檢閱存取權的群組或應用程式](perform-access-review.md)。 (請注意，受指派為檢閱者但尚未接受邀請的來賓，將不會收到一封存取權檢閱所發出的電子郵件，因為他們在檢閱之前必須先接受邀請)。存取權檢閱期間結束後，或如果系統管理員停止存取權檢閱，請依照本文的步驟來查看並套用結果。
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>在 Azure 入口網站中檢視存取權檢閱
 
@@ -62,5 +62,5 @@ ms.locfileid: "56192263"
 - [使用 Azure AD 存取權檢閱來管理使用者存取權](manage-user-access-with-access-reviews.md)
 - [使用 Azure AD 存取權檢閱來管理來賓存取權](manage-guest-access-with-access-reviews.md)
 - [管理 Azure AD 存取權檢閱的程式和控制項](manage-programs-controls.md)
-- [建立群組成員或應用程式存取的存取權檢閱](create-access-review.md)
+- [建立群組或應用程式的存取權檢閱](create-access-review.md)
 - [在 Azure AD 管理角色中建立使用者的存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md)

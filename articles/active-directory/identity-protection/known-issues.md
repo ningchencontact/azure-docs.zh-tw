@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339018"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807179"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Azure Active Directory 的常見問題集與 Identity Protection (已重新整理) 的已知問題
 
 
-## <a name="dismiss-user-risk"></a>解除使用者風險
+## <a name="dismiss-user-risk-known-issues"></a>關閉的已知問題的使用者風險
 
 傳統 Identity Protection 中的 [解除使用者風險]會將 Identity Protection (已重新整理) 中使用者風險歷程記錄內的執行者設定為 **Azure AD**。
 
@@ -37,7 +37,7 @@ Identity Protection 中的 [解除使用者風險] 會將 Identity Protection (�
 目前有已知問題會造成關閉使用者風險流程延遲。 如果您有「使用者風險原則」，按一下 [解除使用者風險] 的幾分鐘內，此原則將會停止將套用至已解除的使用者。 不過，已知解除使用者的 [風險狀態] 有 UX 重新整理延遲。 因應措施是在瀏覽器層級重新整理頁面，以查看最新的使用者 [風險狀態]。
 
 
-## <a name="risky-users-report"></a>具風險使用者報告
+## <a name="risky-users-report-known-issues"></a>有風險的使用者報告的已知的問題
 
 [使用者名稱] 欄位上的查詢區分大小寫，[名稱] 欄位上的查詢則為大小寫無從驗證。
 
@@ -45,14 +45,10 @@ Identity Protection 中的 [解除使用者風險] 會將 Identity Protection (�
 
 傳統 Identity Protection 中的 [解除所有事件] 會將風險事件的狀態設定為 [已關閉 (已解決)]。
 
-如果您透過按一下具風險性登入報告中登入記錄內的 [具風險使用者報告] 的方式，嘗試存取具風險使用者報告，有時可能會顯示 [發生錯誤。請再試一次]。 若要解決此問題，請按一下畫面頂端的 [套用] 或 [重設]，便會填入具風險的使用者資料。
 
-
-## <a name="risky-sign-ins-report"></a>有風險的登入報告
+## <a name="risky-sign-ins-report-known-issues"></a>有風險的登入報告的已知的問題
 
 風險事件上的 [解決] 會將狀態設為 [使用者已通過以風險為基礎原則驅動的 MFA]。
-
-[具風險登入] 報告中的 [重設] 不會清除 [風險事件類型] 的值。
 
 
 ## <a name="frequently-asked-questions"></a>常見問題集
