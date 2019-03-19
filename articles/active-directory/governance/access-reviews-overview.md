@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/19/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338ae760aae90131a7353f990e1014aa714faa0f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177898"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845149"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>什麼是 Azure AD 存取權檢閱？
 
@@ -42,12 +42,12 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 
 ## <a name="when-to-use-access-reviews"></a>何時要使用存取權檢閱？
 
-- **太多使用者具有特殊權限角色：** 您最好檢查有多少使用者擁有系統管理存取權、其中有多少人是全域管理員，以及是否有任何受邀來賓或合作夥伴未在受指派執行系統管理工作之後移除。 您可以針對 [Azure AD 目錄角色](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) (例如，全域管理員) 或 [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 體驗中的 [Azure 資源角色](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) (例如，使用者存取管理員)，重新認證其中的角色指派使用者。
+- **太多使用者具有特殊權限角色：** 它是個不錯的主意，若要檢查有多少使用者擁有系統管理存取權，其中有多少全域管理員，以及是否有任何受邀來賓或不指派給執行系統管理工作之後已經移除的合作夥伴。 您可以針對 [Azure AD 目錄角色](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) (例如，全域管理員) 或 [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 體驗中的 [Azure 資源角色](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) (例如，使用者存取管理員)，重新認證其中的角色指派使用者。
 - **無法自動化時：** 您可以在安全性群組或 Office 365 群組上建立動態成員資格的規則，但如果 HR 資料未放在 Azure AD 中，或如果使用者在離開群組之後依然需要存取權以便訓練其接替者呢？ 這時，您就可以在該群組上建立檢閱，以確保仍需要存取權的人員應該會具有持續存取權。
 - **當群組用於新的用途時：** 如果您有要同步處理至 Azure AD 的群組，或如果您計劃讓銷售小組群組中的每個人都能使用 Salesforce 應用程式，則要求群組擁有者先檢閱群組成員資格，再將群組用於不同風險內容中的做法會很有用。
 - **資料存取權：** 對於某些資源來說，您可能必須要求 IT 以外的人定期登出，並請他們提出需要存取權的理由，以便進行稽核。
 - **為了維護原則的例外狀況清單：** 在理想的世界中，所有使用者都會遵循存取原則來安全地存取您組織的資源。 不過，有時候會有需要您視為例外狀況的商務案例。 身為 IT 系統管理員，您可以管理這項工作、免於監督原則例外狀況，並向稽核人員證明您有定期檢閱這些例外狀況。
-- **要求群組擁有者確認他們的群組中仍然需要來賓：** 員工的存取權可透過某些內部部署 IAM 來自動指派，但受邀的來賓則不行。 如果有群組賦予來賓存取商務機密內容的權限，該群組的擁有者就有責任確認其來賓仍有合理獲得存取權的商務需求。
+- **要求群組擁有者確認他們的群組中仍然需要來賓：** 使用部分在內部部署環境 IAM，但不是受邀的來賓，可能會自動化員工存取。 如果有群組賦予來賓存取商務機密內容的權限，該群組的擁有者就有責任確認其來賓仍有合理獲得存取權的商務需求。
 - **反覆定期檢閱：** 您可以設定以一定的頻率 (例如，每週、每月、每季或每年) 週期性地檢閱使用者的存取權，每次檢閱開始時，檢閱者都會收到通知。 檢閱者可以透過容易使用的介面與智慧建議的協助，來核准或拒絕存取權。
 
 ## <a name="where-do-you-create-reviews"></a>在哪裡建立檢閱？
@@ -84,27 +84,29 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 
 若要啟用存取權檢閱，請遵循下列步驟。
 
-1. 請以全域管理員或使用者帳戶管理員的身分，登入要在其中使用存取權檢閱的 [Azure 入口網站](https://portal.azure.com)。
+1. 身為全域管理員或使用者系統管理員，登入[Azure 入口網站](https://portal.azure.com)您要使用的存取權檢閱。
 
 1. 按一下 [所有服務] 並尋找存取權檢閱服務。
 
-    ![所有服務 - 存取權檢閱](./media/access-reviews-overview/all-services-access-reviews.png)
-
 1. 按一下 [存取權檢閱]。
 
-    ![存取權檢閱上架](./media/access-reviews-overview/onboard-button.png)
+    ![所有服務 - 存取權檢閱](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. 在導覽清單中，按一下 [上架] 來開啟 [上架存取權檢閱] 頁面。
 
+    ![存取權檢閱上架](./media/access-reviews-overview/onboard-button.png)
+
+1. 按一下 [建立] 以在目前的目錄中啟用存取權檢閱。
+
     ![上架存取權檢閱](./media/access-reviews-overview/onboard-access-reviews.png)
 
-1. 按一下 [建立] 以在目前的目錄中啟用存取權檢閱。 下次您啟動存取權檢閱時，選項便會啟用。
+    下次您啟動存取權檢閱，將啟用的存取權檢閱的選項。
 
     ![存取權檢閱已啟用](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立群組成員或應用程式存取的存取權檢閱](create-access-review.md)
+- [建立群組或應用程式的存取權檢閱](create-access-review.md)
 - [在 Azure AD 管理角色中建立使用者的存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [使用 Azure AD 存取權檢閱執行存取權檢閱](perform-access-review.md)
-- [在 Azure AD 中，為群組成員或可存取應用程式的使用者完成存取權檢閱](complete-access-review.md)
+- [檢閱存取權的群組或應用程式](perform-access-review.md)
+- [完成群組或應用程式的存取權檢閱](complete-access-review.md)

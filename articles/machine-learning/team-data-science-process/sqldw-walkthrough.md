@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8d9e59a11957e8d108ae86ebba157a06129efa58
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838879"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
-在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
+在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](https://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
 
 此程序會遵循 [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 工作流程。 我們會示範如何設定資料科學環境、如何將資料載入 SQL DW，以及如何使用 SQL DW 或 IPython Notebook 來探索要模型化的資料和工程功能。 然後，我們會示範如何使用 Azure Machine Learning 建置和部署模型。
 
@@ -881,7 +881,7 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 此逐步解說範例及其隨附的指令碼和 IPython Notebook 是在 MIT 授權下由 Microsoft 所共用。 如需詳細資料，請查看 GitHub 上範例程式碼目錄中的 LICENSE.txt 檔案。
 
 ## <a name="references"></a>參考
-•    [Andrés Monroy 紐約市計程車行程下載頁面](http://www.andresmh.com/nyctaxitrips/) (英文) •    [FOILing 紐約市計程車行程資料 (作者 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (英文)•    [紐約市計程車和豪華轎車委員會研究與統計資料](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) (英文)
+•    [Andrés Monroy 紐約市計程車行程下載頁面](https://www.andresmh.com/nyctaxitrips/) (英文) •    [FOILing 紐約市計程車行程資料 (作者 Chris Whong)](https://chriswhong.com/open-data/foil_nyc_taxi/) (英文)•    [紐約市計程車和豪華轎車委員會研究與統計資料](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) (英文)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

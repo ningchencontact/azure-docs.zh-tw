@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25711bd09adf17fa82f9177f4badad723e590b12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6c8cd7a2cfc96af791e4b07ae4c6d35b645acba0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184188"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>教學課程：Azure Active Directory 與 iQualify LMS 整合
 
@@ -112,12 +112,14 @@ ms.locfileid: "56184188"
     ![iQualify LMS 網域與 URL 單一登入資訊](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： 
+
     | |
     |--|--|
     | 生產環境︰`https://<yourorg>.iqualify.com/`|
     | 測試環境：`https://<yourorg>.iqualify.io`|
     
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL： 
+
     | |
     |--|--|
     | 生產環境︰`https://<yourorg>.iqualify.com/auth/saml2/callback` |
@@ -128,6 +130,7 @@ ms.locfileid: "56184188"
     ![iQualify LMS 網域與 URL 單一登入資訊](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+    
     | |
     |--|--|
     | 生產環境︰`https://<yourorg>.iqualify.com/login` |

@@ -5,16 +5,17 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
+ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
-ms.openlocfilehash: 69a4e4c59038599a7375466c46878bdd017582fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 1d3c4039ae823d3797e768af5892333d4d925268
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231605"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789936"
 ---
 # <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>案例：使用 Azure Functions 和 Azure 服務匯流排觸發邏輯應用程式
 
@@ -34,9 +35,9 @@ ms.locfileid: "50231605"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後建立空白的邏輯應用程式。 
 
-   如果您還不熟悉邏輯應用程式，請檢閱[快速入門：如何建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+   如果您不熟悉 logic apps，請檢閱[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 在搜尋方塊中，輸入 "http request"。 在觸發程序清單下選取此觸發程序：**收到 HTTP 要求時**
+1. 在搜尋方塊中，輸入 "http request"。 在觸發程序清單底下，選取此觸發程序：**收到 HTTP 要求時**
 
    ![選取觸發程序](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -98,7 +99,7 @@ ms.locfileid: "50231605"
 
 1. 在 Azure 入口網站中，開啟並展開函式應用程式 (如果尚未開啟)。 
 
-1. 在函式應用程式名稱之下，展開 [Functions]。 在 [函式] 窗格上，選擇 [新增函式]。 選取此範本：**服務匯流排佇列觸發程序 - C#**
+1. 在函式應用程式名稱之下，展開 [Functions]。 在 [函式] 窗格上，選擇 [新增函式]。 選取此範本：**服務匯流排佇列觸發程序-C#**
    
    ![選取 Azure Functions 入口網站](./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png)
 
@@ -114,14 +115,14 @@ ms.locfileid: "50231605"
    
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
    
+   // Re-use instance of http clients if possible - https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections
+   private static HttpClient httpClient = new HttpClient();
+   
    public static void Run(string myQueueItem, TraceWriter log)
    {
        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 
-       using (var client = new HttpClient())
-       {
-           var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
-       }
+       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
    }
    ```
 

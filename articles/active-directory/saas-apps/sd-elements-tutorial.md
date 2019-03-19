@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c09947e6d34c5314e8ed4bc2744f07b199278a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f1d1667b580becad501fd029652ed011f190343
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188098"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>教學課程：Azure Active Directory 與 SD Elements 整合
 
@@ -231,7 +231,7 @@ SD Elements 與 Azure AD 整合提供下列優點：
    
     ![建立 SD Elements 測試使用者](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-    a. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
+    a. 在 **電子郵件**文字方塊中，輸入使用者電子郵件，例如**brittasimon\@contoso.com**。
    
     b. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
    

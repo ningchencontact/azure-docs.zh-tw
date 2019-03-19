@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835311"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -83,6 +83,7 @@ ms.locfileid: "54383009"
 - 印度中部
 - 印度南部
 - 日本東部
+- 美國政府維吉尼亞州
 
 Log Analytics 工作區必須存在於下列區域：
 - 加拿大中部
@@ -94,6 +95,7 @@ Log Analytics 工作區必須存在於下列區域：
 - 東南亞 
 - 印度中部
 - 日本東部
+- 美國政府維吉尼亞州
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>啟用了流量記錄的 NSG 是否可與我的工作區位於不同的區域中？
 
@@ -105,7 +107,7 @@ Log Analytics 工作區必須存在於下列區域：
 
 ## <a name="can-i-use-an-existing-workspace"></a>我可以使用現有的工作區嗎？
 
-是。 如果您選取現有的工作區，請確定該工作區已遷移至新的查詢語言。 如果您不想升級工作區，則需要建立新的工作區。 如需有關新查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。
+是。 如果您選取現有的工作區，請確定該工作區已遷移至新的查詢語言。 如果您不想升級工作區，則需要建立新的工作區。 如需有關新的查詢語言的詳細資訊，請參閱 < [Azure 監視器記錄升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>是否可以讓我的 Azure 儲存體帳戶位於某個訂用帳戶，而讓我的 Log Analytics 工作區位於不同的訂用帳戶中？
 
@@ -118,6 +120,12 @@ Log Analytics 工作區必須存在於下列區域：
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>因為發生「找不到」錯誤而無法設定 NSG 進行流量分析，該怎麼辦？
 
 請選取支援的地區。 如果您選取不受支援的區域，就會收到「找不到」錯誤。 本文稍早已列出支援的地區。
+
+## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>為什麼我會收到錯誤 「 無法更新流程記錄檔設定...InternalServerError..."當啟用 NSG 的美國維吉尼亞州政府中？
+
+這是因為 bug，其中 'Microsoft.Network' 資源提供者不是美國維吉尼亞州政府的訂用帳戶重新註冊。 小組正在努力修正。 因應措施，您必須[手動重新註冊 'Microsoft.Network' RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors)。 
+
+請如果問題持續發生，連絡支援服務。 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>NSG 流量記錄頁面下方顯示「無法載入」狀態，該怎麼辦？
 

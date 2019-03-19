@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 0f70bb91ccb0cb403d9292c2e3f069a8a9d2da41
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1f7e108b4410ba62060dd4411e4b28b896e93d58
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834416"
 ---
-# <a name="publish-content-in-the-azure-portal-legacy"></a>在 Azure 入口網站中發佈內容 (舊版)
+# <a name="publish-content-in-the-azure-portal"></a>在 Azure 入口網站中發佈內容  
 > [!div class="op_single_selector"]
 > * [入口網站](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -89,7 +89,7 @@ URL 便會加入 [已發佈的 URL] 清單中。
 適用一些考量事項：
 
 * 確定已發佈影片。
-* Azure 入口網站媒體播放器會從預設串流端點播放。 如果您需要從非預設串流端點播放，請選取並複製 URL，然後將它貼到其他播放器中。 例如，您可以在 [Azure 媒體播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)上測試影片。
+* Azure 入口網站媒體播放器會從預設串流端點播放。 如果您需要從非預設串流端點播放，請選取並複製 URL，然後將它貼到其他播放器中。 例如，您可以在 [Azure 媒體播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)上測試影片。
 * 您正在進行串流的串流端點必須正在執行。  
 
 ## <a name="provide-feedback"></a>提供意見反應
