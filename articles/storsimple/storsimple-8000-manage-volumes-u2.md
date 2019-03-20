@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093325"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>使用 StorSimple 裝置管理員服務來管理磁碟區 (Update 3 或更新版本)
 
@@ -173,7 +173,7 @@ StorSimple 磁碟區可以是：
    
    1. 移至 [電腦管理]  ->[磁碟管理]。
    2. 以滑鼠右鍵按一下 [磁碟管理]，並選取 [重新掃描磁碟]。
-   3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區] 。 [延伸磁碟區精靈] 隨即啟動。 按 [下一步] 。
+   3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區] 。 [延伸磁碟區精靈] 隨即啟動。 单击“下一步”。
    4. 使用預設值完成精靈。 完成精靈後，磁碟區應該會顯示增加的大小。
       
       > [!NOTE]
@@ -235,7 +235,7 @@ StorSimple 磁碟區可以是：
    * 如果您將類型變更為 [分層]，且此磁碟區將會用於封存資料，請選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊。
    * 如果您要將固定在本機的磁碟區設為分層，或_相反情況_，則會顯示下列訊息。
    
-    ![變更磁碟區類型訊息](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![變更磁碟區類型訊息](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
 7. 按一下 [儲存]  儲存變更。 當系統提示您確認時，按一下 [是] 以開始轉換程序。 
 

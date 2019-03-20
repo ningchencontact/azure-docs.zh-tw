@@ -5,16 +5,16 @@ services: storage
 author: RenaShahMSFT
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: db11b457fda75c780a6b02715b4aced4c9f38ac1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 9238b1dfc697f9efae723aba787982ae1493a608
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452595"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762257"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務
 
@@ -55,7 +55,7 @@ API | 使用時機 | 注意
 
 您可以在任何類型的 .NET 應用程式 (包括 Azure 雲端服務或 Web 應用程式和桌面與行動應用程式) 中使用 Azure Storage Client Library。 在本指南中，為求簡化，我們會使用主控台應用程式。
 
-## <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 來安裝必要的封裝
+## <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 安装所需包
 您必須在您的專案中參考下列兩個套件，才能完成本教學課程︰
 
 * [適用於 .NET 的 Microsoft Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)：此套件可讓您以程式設計方式存取儲存體帳戶中的資料資源。
@@ -64,7 +64,7 @@ API | 使用時機 | 注意
 您可以使用 NuGet 來取得這兩個封裝。 請遵循下列步驟：
 
 1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
-2. 在線上搜尋 "WindowsAzure.Storage"，然後按一下 [安裝]  以安裝 Storage Client Library 與其相依項目。
+2. 在线搜索“WindowsAzure.Storage”，并单击“安装”  以安装存储客户端库和依赖项。
 3. 在線上搜尋 "WindowsAzure.ConfigurationManager"，然後按一下 [安裝]  以安裝 Azure Configuration Manager。
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>將您的儲存體帳戶認證儲存到 app.config 檔案
@@ -232,7 +232,7 @@ if (share.Exists())
 > 
 > 
 
-**將檔案複製到另一個檔案** 下列範例會將檔案複製到相同共用中的另一個檔案。 由於此複製作業是在相同儲存體帳戶中的檔案間進行複製，所以您可以使用共用金鑰驗證執行複製。
+**將檔案複製到另一個檔案** 下列範例會將檔案複製到相同共用中的另一個檔案。 因为此操作在同一存储帐户中的文件之间进行复制，可以使用共享密钥身份验证来进行复制。
 
 ```csharp
 // Parse the connection string for the storage account.

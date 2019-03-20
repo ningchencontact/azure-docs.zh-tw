@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955162"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456341"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 資源群組部署專案在 Azure DevOps Services 中進行持續整合
-若要部署 Azure 範本，您需要執行各種階段的工作：組建、測試、複製到 Azure (也稱為「暫存」) 及部署範本。 有兩種不同的方式，可將範本部署到 Azure DevOps Services。 兩種方法所產生的結果都相同，因此請選擇最符合您工作流程的方法。
+若要部署 Azure 範本，您可以執行工作中各個階段：組建、 測試、 複製到 Azure （也稱為 「 暫存 」） 及部署範本。 有兩種不同的方式，可將範本部署到 Azure DevOps Services。 兩種方法所產生的結果都相同，因此請選擇最符合您工作流程的方法。
 
 1. 在執行 PowerShell 指令碼的組建管線 (包含在 Azure 資源群組部署專案，Deploy-AzureResourceGroup.ps1) 中新增一個步驟。 指令碼會複製構件，接著部署範本。
 2. 新增多個 Azure DevOps Services 組建步驟，每個都執行一個階段工作。
@@ -77,7 +77,7 @@ ms.locfileid: "49955162"
    5. 在 [新增 Azure 訂用帳戶]  對話方塊中新增 Azure 訂用帳戶資訊。 您必須先提供下列項目：
       
       * 訂用帳戶識別碼
-      * 訂用帳戶名稱
+      * 订阅名称
       * 服務主體識別碼
       * 服務主體金鑰
       * 租用戶識別碼
@@ -89,7 +89,7 @@ ms.locfileid: "49955162"
       
       `Get-AzureRmSubscription`
       
-      對於 Azure CLI，請使用：
+      对于 Azure CLI，请使用：
       
       `azure account show`
    8. 若要取得服務主體識別碼、服務主體金鑰及租用戶識別碼，請依照[使用入口網站建立 Active Directory 應用程式和服務主體](active-directory/develop/howto-create-service-principal-portal.md)或[以 Azure 資源管理員驗證服務主體](active-directory/develop/howto-authenticate-service-principal-powershell.md)中的程序。
@@ -107,7 +107,7 @@ ms.locfileid: "49955162"
     ![選取要編寫指令碼的路徑][10]
 8. 在 [指令碼引數]  方塊中，輸入下列參數 (請輸入在同一行)。 當您在 Visual Studio 中執行指令碼時，可以在 [輸出]  視窗中看到 VS 如何使用參數。 您可以從這裡開始，在建置步驟中設定參數值。
    
-   | 參數 | 說明 |
+   | 參數 | 描述 |
    | --- | --- |
    | -ResourceGroupLocation |資源群組所在的地理位置，例如 **eastus** 或**美國東部**。 (如果名稱中有空間，請加入單引號。)如需詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
    | -ResourceGroupName |此部署使用的資源群組名稱。 |
@@ -181,7 +181,7 @@ ms.locfileid: "49955162"
 7. 在新增所有必要的項目之後，儲存組建管線然後在頂端選擇 [將新組建排入佇列]。
 
 ## <a name="next-steps"></a>後續步驟
-如需 Azure 資源管理員和 Azure 資源群組的詳細資訊的詳細資訊，請參閱 [Azure 資源管理員概觀](azure-resource-manager/resource-group-overview.md) 。
+有关 Azure Resource Manager 和 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](azure-resource-manager/resource-group-overview.md)。
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
 [1]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough2.png

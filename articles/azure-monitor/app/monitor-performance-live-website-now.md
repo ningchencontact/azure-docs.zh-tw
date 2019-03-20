@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085808"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在執行階段使用 Application Insights 狀態監視器檢測 Web 應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "56301021"
 
 - 如果您的應用程式已部署到 Azure 應用程式服務中，請遵循[這些指示](azure-web-apps.md)。
 - 如果您的應用程式部署在 Azure VM 中，您可以從 Azure 控制台切換為 Application Insights 監視。
-- (我們還提供有關檢測[即時 Java EE Web 應用程式](java-live.md)和 [Azure 雲端服務](../../azure-monitor/app/cloudservices.md)的個別文章)。
+- (另外還有個別的文章有關檢測[Azure 雲端服務](../../azure-monitor/app/cloudservices.md)。)
 
 
 ![App Insights 概觀圖表的螢幕擷取畫面，包含失敗的要求、伺服器回應時間和伺服器要求的相關資訊](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -44,14 +44,14 @@ ms.locfileid: "56301021"
 
 |  | 建置階段 | 執行階段 |
 | --- | --- | --- |
-| 要求和例外狀況 |yes |yes |
-| [更詳細的例外狀況](../../azure-monitor/app/asp-net-exceptions.md) | |yes |
+| 要求和例外狀況 |是 |是 |
+| [更詳細的例外狀況](../../azure-monitor/app/asp-net-exceptions.md) | |是 |
 | [相依性診斷](../../azure-monitor/app/asp-net-dependencies.md) |在 .Net 4.6 + 上，但較少細節 |是，完整詳細資料︰結果碼、SQL 命令文字、HTTP 指令動詞|
-| [系統效能計數器](../../azure-monitor/app/performance-counters.md) |yes |yes |
-| [自訂遙測的 API][api] |yes |否 |
-| [追蹤記錄檔整合](../../azure-monitor/app/asp-net-trace-logs.md) |yes |否 |
-| [頁面檢視和使用者資料](../../azure-monitor/app/javascript.md) |yes |否 |
-| 需要重新建置程式碼 |yes | 否 |
+| [系統效能計數器](../../azure-monitor/app/performance-counters.md) |是 |是 |
+| [自訂遙測的 API][api] |是 |否 |
+| [追蹤記錄檔整合](../../azure-monitor/app/asp-net-trace-logs.md) |是 |否 |
+| [頁面檢視和使用者資料](../../azure-monitor/app/javascript.md) |是 |否 |
+| 需要重新建置程式碼 |是 | 否 |
 
 
 
@@ -98,14 +98,14 @@ ms.locfileid: "56301021"
 - 確認 applicationInsights.config 檔案在您的目標應用程式目錄中，並且包含您的 ikey。
 
 - 如果您懷疑資料會遺失，可以在 [Analytics](../log-query/get-started-portal.md) 中執行簡單查詢，列出目前正在傳送遙測的所有雲端角色。
-```Kusto
-union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-```
+  ```Kusto
+  union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+  ```
 
 - 如果您需要確認已成功附加 Application Insights，則可以在命令視窗中執行 [Sysinternals 控制代碼](https://docs.microsoft.com/sysinternals/downloads/handle)以確認 IIS 已載入 applicationinsights.dll。
-```cmd
-handle.exe /p w3wp.exe
-```
+  ```cmd
+  handle.exe /p w3wp.exe
+  ```
 
 
 ### <a name="cant-connect-no-telemetry"></a>無法連接？ 沒有遙測資料？
@@ -205,9 +205,9 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 * 顯示此 IIS 伺服器中每個 Web 應用程式 (或具名應用程式) 的 Application Insights 監視狀態。
 * 傳回每個應用程式的 `ApplicationInsightsApplication`︰
 
-  * `SdkState==EnabledAfterDeployment`：應用程式正受到監視，並已在執行階段透過「狀態監視器」工具或 `Start-ApplicationInsightsMonitoring` 進行檢測。
-  * `SdkState==Disabled`：不會針對 Application insights 檢測應用程式。 應用程式從未接受檢測，或「狀態監視器」工具或 `Stop-ApplicationInsightsMonitoring`已停用執行階段監視。
-  * `SdkState==EnabledByCodeInstrumentation`：已透過將 SDK 新增至原始程式碼來檢測應用程式。 其 SDK 無法更新或停止。
+  * `SdkState==EnabledAfterDeployment`:應用程式正受到監視，並已在執行階段透過「狀態監視器」工具或 `Start-ApplicationInsightsMonitoring` 進行檢測。
+  * `SdkState==Disabled`:不會針對 Application insights 檢測應用程式。 應用程式從未接受檢測，或「狀態監視器」工具或 `Stop-ApplicationInsightsMonitoring`已停用執行階段監視。
+  * `SdkState==EnabledByCodeInstrumentation`:已透過將 SDK 新增至原始程式碼來檢測應用程式。 其 SDK 無法更新或停止。
   * `SdkVersion` 會顯示正用來監視此應用程式的版本。
   * `LatestAvailableSdkVersion`會顯示 NuGet 資源庫上目前可用的版本。 若要將應用程式升級至此版本，請使用 `Update-ApplicationInsightsMonitoring`。
 
@@ -240,7 +240,7 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
-* `-Name`：Web 應用程式在 IIS 中的名稱。
+* `-Name`:Web 應用程式在 IIS 中的名稱。
 * `-InstrumentationKey` (選擇性)。使用此參數可變更應用程式的遙測所要傳送至的資源。
 * 此 Cmdlet：
   * 將具名應用程式升級至最近下載到這台電腦之 SDK 的版本。 (僅適用於 `SdkState==EnabledAfterDeployment`時)

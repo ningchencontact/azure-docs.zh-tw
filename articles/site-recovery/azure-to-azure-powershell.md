@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: a37cfb19ab63335f120383a20753bf2b8333bd96
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448920"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869406"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 來設定 Azure 虛擬機器的災害復原
 
@@ -591,4 +591,4 @@ Errors           : {}
 容錯移轉之後，當您準備好返回原始區域時，請使用 Update-AzureRmRecoveryServicesAsrProtectionDirection Cmdlet 啟動受保護複寫項目的反向複寫。
 
 ## <a name="next-steps"></a>後續步驟
-參閱 [Azure 網站復原 PowerShell 參考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)，了解如何執行其他工作，例如建立復原計劃，以及透過 PowerShell 測試復原計劃的容錯移轉。
+檢視[Azure Site Recovery PowerShell 參考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)若要了解如何執行其他工作，例如建立復原計劃及測試透過 PowerShell 的復原計劃的容錯移轉。

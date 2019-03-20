@@ -3,7 +3,7 @@ title: 透過 Azure CLI 使用 Linux 針對 VM 進行疑難排解 | Microsoft Do
 description: 了解如何使用 Azure CLI 將 OS 磁碟連接至復原 VM，以針對 Linux VM 問題進行疑難排解
 services: virtual-machines-linux
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 76a29ce05aab39d9460dcf068ec8a7f60d1e8fac
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: dfb85b0f9f1dda611c613cb296177cf28391adc0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753277"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776881"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>透過 Azure CLI 將 OS 磁碟連結到復原 VM，以對 Linux VM 進行疑難排解
 如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure CLI 將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。 
@@ -27,9 +27,9 @@ ms.locfileid: "55753277"
 ## <a name="recovery-process-overview"></a>復原程序概觀
 疑難排解程序如下所示︰
 
-1. 刪除遇到問題的 VM，保住虛擬硬碟。
+1. 删除遇到问题的 VM，保留虚拟硬盘。
 2. 將虛擬硬碟連結和掛接至另一個 Linux VM，以進行疑難排解。
-3. 連接至疑難排解 VM。 編輯檔案或執行任何工具來修正原始虛擬硬碟的問題。
+3. 连接到故障排除 VM。 編輯檔案或執行任何工具來修正原始虛擬硬碟的問題。
 4. 從疑難排解 VM 卸載並中斷連結虛擬硬碟。
 5. 使用原始虛擬硬碟建立 VM。
 
@@ -40,8 +40,8 @@ ms.locfileid: "55753277"
 在下列範例中，請以您自己的值取代參數名稱。 範例參數名稱包含 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
 
-## <a name="determine-boot-issues"></a>判斷開機問題
-檢查序列輸出來判斷 VM 為何無法正常開機。 常見的例子是 `/etc/fstab` 中的項目無效，或因為刪除或移動基礎虛擬硬碟。
+## <a name="determine-boot-issues"></a>确定启动问题
+檢查序列輸出來判斷 VM 為何無法正常開機。 一个常见示例是 `/etc/fstab`中存在无效条目，或底层虚拟硬盘已删除或移动。
 
 使用 [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics) 取得與開機記錄。 下列範例會從資源群組 `myResourceGroup` 中的 VM `myVM` 取得序列輸出：
 
@@ -65,11 +65,11 @@ az vm show --resource-group myResourceGroup --name myVM \
 URI 類似於 **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**。
 
 ## <a name="delete-existing-vm"></a>刪除現有的 VM
-虛擬硬碟和 VM 在 Azure 中是兩個不同的資源。 虛擬硬碟中儲存作業系統本身、應用程式和設定。 VM 本身只是定義大小或位置的中繼資料，還會參考資源，例如虛擬硬碟或虛擬網路介面卡 (NIC)。 每個虛擬硬碟連結至 VM 時會獲派租用。 雖然即使 VM 正在執行時也可以連結和中斷連結資料磁碟，但除非刪除 VM 資源，否則無法中斷連結 OS 磁碟。 即使 VM 處於已停止和解除配置的狀態，租用仍會持續讓 OS 磁碟與 VM 產生關聯。
+虚拟硬盘和 VM 在 Azure 中是两个不同的资源。 虛擬硬碟中儲存作業系統本身、應用程式和設定。 VM 本身只是定義大小或位置的中繼資料，還會參考資源，例如虛擬硬碟或虛擬網路介面卡 (NIC)。 每個虛擬硬碟連結至 VM 時會獲派租用。 雖然即使 VM 正在執行時也可以連結和中斷連結資料磁碟，但除非刪除 VM 資源，否則無法中斷連結 OS 磁碟。 即使 VM 處於已停止和解除配置的狀態，租用仍會持續讓 OS 磁碟與 VM 產生關聯。
 
 復原 VM 的第一個步驟是刪除 VM 資源本身。 刪除 VM 時，虛擬硬碟會留在儲存體帳戶中。 刪除 VM 之後，您需要將虛擬硬碟連結至另一個 VM，以進行疑難排解並解決錯誤。
 
-使用 [az vm delete](/cli/azure/vm) 刪除 VM。 下列範例會從資源群組 `myResourceGroup` 中刪除 VM `myVM`：
+使用 [az vm delete](/cli/azure/vm) 刪除 VM。 以下示例从名为 `myResourceGroup` 的资源组中删除名为 `myVM` 的 VM：
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 
@@ -129,7 +129,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 
 
 ## <a name="fix-issues-on-original-virtual-hard-disk"></a>修正原始虛擬硬碟的問題
-已掛接現有的虛擬硬碟掛，您現在可以視需要執行任何維護和疑難排解步驟。 解決問題之後，請繼續進行下列步驟。
+已掛接現有的虛擬硬碟掛，您現在可以視需要執行任何維護和疑難排解步驟。 解决问题后，请继续执行以下步骤。
 
 
 ## <a name="unmount-and-detach-original-virtual-hard-disk"></a>卸載並中斷連結原始虛擬硬碟
@@ -164,12 +164,12 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
     ```
 
 
-## <a name="create-vm-from-original-hard-disk"></a>從原始硬碟建立 VM
-若要從原始虛擬硬碟建立 VM，請使用[這個 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)。 實際的 JSON 範本位於下列連結︰
+## <a name="create-vm-from-original-hard-disk"></a>从原始硬盘创建 VM
+若要从原始虚拟硬盘创建 VM，请使用 [此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)。 实际的 JSON 模板位于以下链接中：
 
 - https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
-此範本會使用先前以命令取得的 VHD URI 來部署 VM。 使用 [az group deployment create](/cli/azure/group/deployment) 部署範本。 提供原始 VHD 的 URI，然後指定 OS 類型、VM 大小和 VM 名稱，如下所示︰
+该模板使用此前的命令中的 VHD URI 部署 VM。 使用 [az group deployment create](/cli/azure/group/deployment) 部署範本。 提供原始 VHD 的 URI，然後指定 OS 類型、VM 大小和 VM 名稱，如下所示︰
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \
@@ -180,7 +180,7 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 ```
 
-## <a name="re-enable-boot-diagnostics"></a>重新啟用開機診斷
+## <a name="re-enable-boot-diagnostics"></a>重新启用启动诊断
 當您從現有的虛擬硬碟建立 VM 時，可能不會自動啟用開機診斷。 使用 [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics) 啟用開機診斷。 下列範例會在資源群組 `myResourceGroup` 中的 VM `myDeployedVM` 上啟用診斷擴充：
 
 ```azurecli

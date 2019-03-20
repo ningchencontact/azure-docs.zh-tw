@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4ecc259d40cdcba93a484f27e27191e967f10ff1
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: e05813297707165d59d1b1ed969b54fb0f433277
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848085"
 ---
 # <a name="virtual-machine-skus-tab"></a>虛擬機器 SKU 索引標籤
 
@@ -62,8 +62,8 @@ ms.locfileid: "49638956"
 | **選取作業系統類型** | 特定廠商或指定的作業系統版本。 |
 | **作業系統易記名稱** | 要向客戶顯示的作業系統名稱。  |
 | **建議的虛擬機器大小** | 允許從標準化清單選取最多六種建議的虛擬機器大小。  雖然會對潛在客戶強調顯示這些建議的大小，但客戶也可以指定相容於解決方案映像的虛擬機器大小。 | 
-| **開啟連接埠**| 要對 SKU 開啟的連接埠，以及支援的通訊協定。  這些設定必須符合您幫解決方案虛擬機器網路所設定的虛擬網路。 這些設定會在虛擬機器部署期間生效。 不過，您可在發佈 SKU 後修改連接埠設定。 如需詳細資訊，請參閱[如何使用 Azure 入口網站開啟虛擬機器的連接埠](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)。 <br/>下列的預設網路對應會新增至所有虛擬機器。 &emsp; Windows：3389 -> 3389 TCP, 5986 -> 5986 TCP；&emsp; Linux：22 -> 22, TCP (SSH)。 |
-| **磁碟版本**  | 依磁碟版本號碼和磁碟 URL 指定的關聯解決方案虛擬機器。 磁碟版本必須採用[語意版本](http://semver.org/)格式：`<major>.<minor>.<patch>`。  URL 是針對作業系統 VHD 建立的共用存取簽章 URI。  雖然每個 SKU 最多可加入八個磁碟版本，但在 Azure Marketplace 中僅會顯示 SKU 的最高磁碟版本號碼。 僅可透過 API 查看其他版本。  <!--TD: Add more specific link to API --> <br/> 可至 [新的資料磁碟] Accordion 區段，在虛擬機器上附加最多 15 個資料磁碟。  一旦您發佈具有虛擬機器版本和關聯資料磁碟的 SKU，即無法修改此設定。  若新增更多虛擬機器版本至 SKU，則新增的版本所支援的資料磁碟數目必須相同。 <br/> 如果您尚未建立以 Azure 為基礎的 VM 映像，則可稍後再更新此欄位。  如需建立關聯虛擬機器資源的相關資訊，請參閱[建立虛擬機器技術資產](./cpp-create-technical-assets.md) (英文)。  
+| **開啟連接埠**| 要對 SKU 開啟的連接埠，以及支援的通訊協定。  這些設定必須符合您幫解決方案虛擬機器網路所設定的虛擬網路。 這些設定會在虛擬機器部署期間生效。 不過，您可在發佈 SKU 後修改連接埠設定。 如需詳細資訊，請參閱[如何使用 Azure 入口網站開啟虛擬機器的連接埠](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)。 <br/>下列的預設網路對應會新增至所有虛擬機器。 &emsp; Windows:3389]-> [3389 TCP、 5986]-> [5986 TCP;&emsp; Linux:22-&GT; 22，TCP (SSH)。 |
+| **磁碟版本**  | 依磁碟版本號碼和磁碟 URL 指定的關聯解決方案虛擬機器。 磁碟版本必須採用[語意版本](https://semver.org/)格式：`<major>.<minor>.<patch>`。  URL 是針對作業系統 VHD 建立的共用存取簽章 URI。  雖然每個 SKU 最多可加入八個磁碟版本，但在 Azure Marketplace 中僅會顯示 SKU 的最高磁碟版本號碼。 僅可透過 API 查看其他版本。  <!--TD: Add more specific link to API --> <br/> 可至 [新的資料磁碟] Accordion 區段，在虛擬機器上附加最多 15 個資料磁碟。  一旦您發佈具有虛擬機器版本和關聯資料磁碟的 SKU，即無法修改此設定。  若新增更多虛擬機器版本至 SKU，則新增的版本所支援的資料磁碟數目必須相同。 <br/> 如果您尚未建立以 Azure 為基礎的 VM 映像，則可稍後再更新此欄位。  如需建立關聯虛擬機器資源的相關資訊，請參閱[建立虛擬機器技術資產](./cpp-create-technical-assets.md) (英文)。  
 |  |  |
 
 <!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. --> 

@@ -9,11 +9,11 @@ ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
 ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193335"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58115162"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>符合成本效益的標準儲存體及非受控和受控 Azure VM 磁碟
 
@@ -58,18 +58,18 @@ ms.locfileid: "54193335"
 
 ### <a name="account-limits--does-not-apply-to-managed-disks"></a>帳戶限制 - 不會套用至受控磁碟
 
-| **Resource** | **預設限制** |
+| **Resource** | **默认限制** |
 |--------------|-------------------|
-| 每一儲存體帳戶的 TB  | 500 TB |
+| 每个存储帐户的 TB  | 500 TB |
 | 每一儲存體帳戶的輸入上限<sup>1</sup>  (美國區域) | 如果啟用 GRS/ZRS，則為 10 Gbps，LRS 為 20 Gbps |
 | 每一儲存體帳戶的輸出上限<sup>1</sup>  (美國區域) | 如果啟用 RA-GRS/GRS/ZRS，則為 20 Gbps，LRS 為 30 Gbps |
 | 每一儲存體帳戶的輸入上限<sup>1</sup>  (歐洲和亞洲區域) | 如果啟用 GRS/ZRS，則為 5 Gbps，LRS 為 10 Gbps |
 | 每一儲存體帳戶的輸出上限<sup>1</sup>  (歐洲和亞洲區域) | 如果啟用 RA-GRS/GRS/ZRS，則為 10 Gbps，LRS 為 15 Gbps |
-| 每一儲存體帳戶的總要求率 (假設 1KB 物件大小) | 每秒實體或每秒訊息最多 20,000 個 IOPS |
+| 每个存储帐户的总请求速率（假设对象大小为 1 KB） | 每秒實體或每秒訊息最多 20,000 個 IOPS |
 
 <sup>1</sup>輸入是指傳送至某個儲存體帳戶的所有資料 (要求)。 輸出是指從某個儲存體帳戶接收的所有資料 (回應)。
 
-如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../articles/storage/common/storage-scalability-targets.md)。
+有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](../articles/storage/common/storage-scalability-targets.md)。
 
 如果您的應用程式需求超出單一儲存體帳戶的延展性目標，請建置使用多個儲存體帳戶的應用程式，並將資料分散到那些儲存體帳戶中。 或者，您可以使用 Azure 受控磁碟，則 Azure 便會為您管理資料的分割和位置。
 
@@ -79,25 +79,25 @@ ms.locfileid: "54193335"
 
 如果您的工作負載需要高效能、低延遲磁碟支援，您應該考慮使用進階儲存體。 若要知道進階儲存體的其他優點，請參閱[高效能進階儲存體和 Azure VM 磁碟](../articles/virtual-machines/windows/premium-storage.md)。
 
-## <a name="snapshots-and-copy-blob"></a>快照集和複製 Blob
+## <a name="snapshots-and-copy-blob"></a>快照和复制 Blob
 
 對於儲存體服務而言，VHD 檔案是分頁 Blob。 您可以建立分頁 Blob 的快照集，然後複製到另一個位置，例如不同的儲存體帳戶。
 
 ### <a name="unmanaged-disks"></a>非受控磁碟
 
-就像對標準儲存體使用快照集一樣，您可以使用相同方式為非受控標準磁碟建立[增量快照集](../articles/virtual-machines/windows/incremental-snapshots.md)。 如果來源磁碟在本地備援儲存體帳戶中，我們建議您建立快照集，然後將那些快照集複製到異地備援標準儲存體帳戶。 如需詳細資訊，請參閱 [Azure 儲存體備援選項](../articles/storage/common/storage-redundancy.md)。
+就像對標準儲存體使用快照集一樣，您可以使用相同方式為非受控標準磁碟建立[增量快照集](../articles/virtual-machines/windows/incremental-snapshots.md)。 如果來源磁碟在本地備援儲存體帳戶中，我們建議您建立快照集，然後將那些快照集複製到異地備援標準儲存體帳戶。 有关详细信息，请参阅 [Azure 存储冗余选项](../articles/storage/common/storage-redundancy.md)。
 
-如果磁碟已附加至 VM，則磁碟上不允許某些 API 作業。 例如，只要磁碟連接至 VM，您就無法在該 Blob 上執行 [複製 Blob](/rest/api/storageservices/Copy-Blob) 作業。 您必須先使用[快照 Blob](/rest/api/storageservices/Snapshot-Blob) REST API 方法建立該 Blob 的快照，然後對該快照執行[複製 Blob](/rest/api/storageservices/Copy-Blob) 以複製連接的磁碟。 或者，您可以中斷連結磁碟，再執行任何必要的作業。
+如果磁碟已附加至 VM，則磁碟上不允許某些 API 作業。 例如，磁盘附加到 VM 后，无法在该 Blob 上执行 [Copy Blob](/rest/api/storageservices/Copy-Blob)（复制 Blob）操作。 此时，必须先使用 [Snapshot Blob](/rest/api/storageservices/Snapshot-Blob)（快照 Blob）REST API 方法创建该 Blob 的快照，然后对该快照执行 [Copy Blob](/rest/api/storageservices/Copy-Blob)（复制 Blob）以复制附加的磁盘。 或者，可以分离磁盘，并执行任何必要的操作。
 
-若要維護快照集的異地備援副本，您可以使用 AzCopy 或「複製 Blob」，將本地備援儲存體帳戶中的快照集，複製到異地備援標準儲存體帳戶。 如需詳細資訊，請參閱[使用 AzCopy 命令列公用程式傳輸資料](../articles/storage/common/storage-use-azcopy.md)和[複製 Blob](/rest/api/storageservices/Copy-Blob)。
+若要維護快照集的異地備援副本，您可以使用 AzCopy 或「複製 Blob」，將本地備援儲存體帳戶中的快照集，複製到異地備援標準儲存體帳戶。 有关详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](../articles/storage/common/storage-use-azcopy.md)和 [Copy Blob](/rest/api/storageservices/Copy-Blob)（复制 Blob）。
 
 如需對標準儲存體帳戶中的分頁 Blob 執行 REST 作業的詳細資訊，請參閱 [Azure 儲存體服務 REST API](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)。
 
-### <a name="managed-disks"></a>受控磁碟
+### <a name="managed-disks"></a>托管磁盘
 
 受控磁碟的快照集是受控磁碟的唯讀複本，儲存為標準受控磁碟。 受控磁碟目前不支援增量快照集，但未來會支援。
 
-如果受控磁碟已附加至 VM，則磁碟上不允許某些 API 作業。 例如，當磁碟已附加至 VM 時，您無法產生共用存取簽章 (SAS) 來執行複製作業。 請先建立磁碟的快照集，再複製快照集。 或者，您可以中斷連結磁碟，然後產生共用存取簽章 (SAS) 來執行複製作業。
+如果受控磁碟已附加至 VM，則磁碟上不允許某些 API 作業。 例如，磁盘附加到 VM 时，无法通过生成共享访问签名 (SAS) 来执行复制操作。 請先建立磁碟的快照集，再複製快照集。 或者，可以分离磁盘，然后通过生成共享访问签名 (SAS) 执行复制操作。
 
 ## <a name="pricing-and-billing"></a>價格和計費
 
@@ -128,7 +128,7 @@ ms.locfileid: "54193335"
 
 如需標準儲存體、虛擬機器和受控磁碟價格的詳細資訊，請參閱：
 
-* [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)
+* [Azure 存储定价](https://azure.microsoft.com/pricing/details/storage/)
 * [虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [受控磁碟價格](https://azure.microsoft.com/pricing/details/managed-disks)
 
@@ -144,7 +144,7 @@ ms.locfileid: "54193335"
 
 * [建立儲存體帳戶](../articles/storage/common/storage-quickstart-create-account.md)
 
-* [受控磁碟概觀](../articles/virtual-machines/linux/managed-disks-overview.md)
+* [托管磁盘概述](../articles/virtual-machines/linux/managed-disks-overview.md)
 
 * [使用 Resource Manager 和 PowerShell 建立 VM](../articles/virtual-machines/windows/quick-create-powershell.md)
 

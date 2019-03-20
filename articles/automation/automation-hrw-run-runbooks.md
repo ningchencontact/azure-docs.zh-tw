@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: fab886de55cc524390093f7e7913c79f7af3fe78
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858130"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
 
@@ -307,12 +307,8 @@ gpg –-clear-sign <runbook name>
 
 已簽署的 Runbook 可立即上傳至 Azure 自動化，而且可以像一般 Runbook 一樣執行。
 
-## <a name="troubleshoot"></a>疑難排解
-
-如果您的 Runbook 未順利完成，請檢閱 [Runbook 執行失敗](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)中的疑難排解指南。
-
 ## <a name="next-steps"></a>後續步驟
 
 * 若要深入了解可用來啟動 Runbook 的不同方法，請參閱[在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)。
 * 若要了解使用文字式編輯器在 Azure 自動化中處理 PowerShell Runbook 的不同方式，請參閱[在 Azure 自動化中編輯 Runbook](automation-edit-textual-runbook.md)
-
+* 如果您的 Runbook 未順利完成，請檢閱 [Runbook 執行失敗](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)中的疑難排解指南。

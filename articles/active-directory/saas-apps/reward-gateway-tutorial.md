@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a375b60acbb6636cdc651a41d65bc232b50946b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 34e0e9b83dabfb5b389030248f1787e1e8ef9dd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>教學課程：Azure Active Directory 與 Replicon Gateway 整合
 
@@ -114,6 +114,7 @@ ms.locfileid: "56198927"
     ![設定單一登入](./media/reward-gateway-tutorial/tutorial_rewardgateway_url.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+
     | |
     |--|
     | `https://<companyname>.rewardgateway.com` |
@@ -122,6 +123,7 @@ ms.locfileid: "56198927"
     | `https://<companyname>.rewardgateway.com.au/` |
 
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+    
     | |
     |--|
     |  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |
@@ -130,7 +132,7 @@ ms.locfileid: "56198927"
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 若要取得這些值，在 Reward Manager 入口網站上開始設定整合。 在 https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration 可以找到詳細資訊。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 若要取得這些值，在 Reward Manager 入口網站上開始設定整合。 在 https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication 可以找到詳細資訊。
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -140,7 +142,7 @@ ms.locfileid: "56198927"
 
     ![設定單一登入](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. 若要在 **Reward Gateway** 端設定單一登入，在 Reward Manager入口網站上開始設定整合。 使用下載的中繼資料取得簽署憑證，並在設定期間上傳。 在 https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration 可以找到詳細資訊。
+1. 若要在 **Reward Gateway** 端設定單一登入，在 Reward Manager入口網站上開始設定整合。 使用下載的中繼資料取得簽署憑證，並在設定期間上傳。 在 https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication 可以找到詳細資訊。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

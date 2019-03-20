@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4920d2a6c26da12effc2b44be8d3c6cbdb5e2a6f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199131"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856107"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 入口網站在多個 IP 組態上進行負載平衡
 
@@ -62,7 +62,7 @@ ms.locfileid: "54199131"
 
 為虛擬網路中的每部 VM，新增次要 NIC 的 IP 組態︰  
 
-1. 瀏覽至 Azure 入口網站： http://portal.azure.com。 使用您的 Azure 帳戶進行登入。
+1. 瀏覽至 Azure 入口網站： https://portal.azure.com。 使用您的 Azure 帳戶進行登入。
 
 2. 選取畫面左上方的 [資源群組] 圖示。 然後選取 VM 所在的資源群組 (例如，**contosofabrikam**)。 [資源群組] 窗格會顯示 VM 的所有資源和 NIC。
 
@@ -86,7 +86,7 @@ ms.locfileid: "54199131"
 
 建立組態的負載平衡器：
 
-1. 瀏覽至 Azure 入口網站： http://portal.azure.com。 使用您的 Azure 帳戶進行登入。
+1. 瀏覽至 Azure 入口網站： https://portal.azure.com。 使用您的 Azure 帳戶進行登入。
 
 2. 在畫面的左上方，選取 [建立資源] > [網路] > [負載平衡器]。 接下來，選取 [建立]。
 
@@ -106,15 +106,15 @@ ms.locfileid: "54199131"
 
 2. 為這兩個網站 (contoso.com 和 fabrikam.com) 設定兩個公用 IP 位址 (**PublicIP1** 和 **PublicIP2**)︰
 
-    1. 輸入前端 IP 位址的名稱。
+   1. 輸入前端 IP 位址的名稱。
 
-    2. 在 [資源群組] 中，選取 VM 的現有資源群組 (例如，**contosofabrikam**)。
+   2. 在 [資源群組] 中，選取 VM 的現有資源群組 (例如，**contosofabrikam**)。
 
-    3. 在 [位置] 中選取和 VM 相同的位置。
+   3. 在 [位置] 中選取和 VM 相同的位置。
 
-    4. 選取 [確定] 。
+   4. 選取 [確定] 。
 
-    建立公用 IP 位址之後，它們便會顯示在 [公用 IP] 位址之下。
+      建立公用 IP 位址之後，它們便會顯示在 [公用 IP] 位址之下。
 
 3. <a name="step3-3"></a>在入口網站中，選取 [更多服務]。 在篩選方塊中，輸入**負載平衡器**，然後選取 [負載平衡器]。 
 
@@ -194,4 +194,4 @@ ms.locfileid: "54199131"
 
 ## <a name="next-steps"></a>後續步驟
 - 若要深入了解如何在 Azure 中合併負載平衡服務，請參閱[在 Azure 中使用負載平衡服務](../traffic-manager/traffic-manager-load-balancing-azure.md)。
-- 若要深入了解如何使用不同類型的記錄檔來管理負載平衡器和針對其問題進行疑難排解，請參閱 [Azure Load Balancer 的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
+- 了解如何使用不同類型的記錄管理和疑難排解負載平衡器[Azure 監視器記錄的 Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md)。

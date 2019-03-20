@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111407"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 為 Azure 服務提供自訂網域設定
 
-Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有完整網域名稱 (FQDN) 的 Azure 資源。 例如，您有一個 Azure Web 應用程式，而且想要使用 contoso.com 或 www.contoso.com 作為 FQDN 讓使用者存取它。 本文章會引導您使用 Azure DNS 設定您的 Azure 服務，以便使用自訂網域。
+Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有完整網域名稱 (FQDN) 的 Azure 資源。 舉例來說，您有 Azure web 應用程式，而且您想存取它的使用者使用 contoso.com 或 www\.contoso.com 做為 FQDN。 本文章會引導您使用 Azure DNS 設定您的 Azure 服務，以便使用自訂網域。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,9 +38,9 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
-|屬性  |值  |說明  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | myFunctionApp        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|名稱     | myFunctionApp        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
@@ -54,7 +54,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 ## <a name="public-ip-address"></a>公用 IP 位址
 
-如果服務使用公用 IP 位址資源 (例如，應用程式閘道、負載平衡器、雲端服務、Resource Manager 的 VM、傳統 VM)，若要設定此種服務的自訂網域，則要使用 CNAME 記錄。
+若要为使用公共 IP 地址资源（例如应用程序网关、负载均衡器、云服务、资源管理器 VM 和经典 VM）的服务配置自定义域，请使用 A 记录。
 
 瀏覽至 [網路]  >  [公用 IP 位址]，選取公用 IP 資源，然後按一下 [設定]。 記下顯示的 IP 位址。
 
@@ -63,9 +63,9 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |值  |說明  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | 具有使用         | 使用 A 記錄，因為該資源是 IP 位址。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
@@ -90,9 +90,9 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |值  |說明  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。 如果資源使用 IP 位址，就會使用 A 記錄。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
@@ -124,9 +124,9 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |值  |說明  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | asverify.mystorageaccount        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|名稱     | asverify.mystorageaccount        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
@@ -152,9 +152,9 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
-|屬性  |值  |說明  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | cdnverify.mycdnendpoint        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|名稱     | cdnverify.mycdnendpoint        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |

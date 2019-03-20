@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5d724583dd4682fb6c0b01e8ec11196936289b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211898"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116260"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>使用代理者流程中委派使用者身分識別的服務對服務呼叫
 
@@ -63,12 +63,12 @@ OBO 流程會在使用者已在使用 [OAuth 2.0 授權碼授與流程](v1-proto
     1. 根據應用程式的類型，設定登入 URL 或是導向基底 URL 的重新導向 URL。
     1. 選取 [建立] 來建立應用程式。
 1. 在結束 Azure 入口網站之前產生用戶端祕密。
-    1. 在 Azure 入口網站中，選擇您的應用程式，然後選取 [設定]。
-    1. 選取 [設定] 功能表中的 [金鑰]，然後新增具有一年或兩年金鑰持續時間的金鑰。
-    1. 當您儲存此頁面時，Azure 入口網站將會顯示金鑰值。 請複製金鑰值並將它儲存到安全的位置。
+   1. 在 Azure 入口網站中，選擇您的應用程式，然後選取 [設定]。
+   1. 選取 [設定] 功能表中的 [金鑰]，然後新增具有一年或兩年金鑰持續時間的金鑰。
+   1. 當您儲存此頁面時，Azure 入口網站將會顯示金鑰值。 請複製金鑰值並將它儲存到安全的位置。
 
-    > [!IMPORTANT]
-    > 您需要金鑰來設定實作中的應用程式設定。 系統不會再次顯示此金鑰值，且您無法透過任何其他方式取得它。 在它顯示於 Azure 入口網站中時，請儘快將它記錄下來。
+      > [!IMPORTANT]
+      > 您需要金鑰來設定實作中的應用程式設定。 系統不會再次顯示此金鑰值，且您無法透過任何其他方式取得它。 在它顯示於 Azure 入口網站中時，請儘快將它記錄下來。
 
 ### <a name="register-the-client-application"></a>註冊用戶端應用程式
 
@@ -108,7 +108,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 使用共用密碼時，服務對服務存取權杖要求包含下列參數：
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
 | grant_type |必要 | 權杖要求的類型。 OBO 要求會使用 JSON Web 權杖 (JWT)，所以值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
 | assertion |必要 | 要求中使用的存取權杖值。 |
@@ -142,7 +142,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 使用憑證的服務對服務存取權杖要求包含下列參數：
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
 | grant_type |必要 | 權杖要求的類型。 OBO 要求會使用 JWT 存取權杖，所以值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
 | assertion |必要 | 要求中使用的權杖值。 |
@@ -180,12 +180,12 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 成功的回應是包含下列參數的 JSON OAuth 2.0 回應：
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
-| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人] 。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。 |
+| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人] 。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有者令牌用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。 |
 | scope |在權杖中授與的存取範圍。 |
 | expires_in |存取權杖的有效時間長度 (以秒為單位)。 |
-| expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
+| expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 此值用于确定缓存令牌的生存期。 |
 | resource |接收端服務 (受保護的資源) 的應用程式識別碼 URI。 |
 | access_token |所要求的存取權杖。 呼叫端服務可以使用此權杖來向接收端服務進行驗證。 |
 | id_token |所要求的識別碼權杖。 呼叫端服務可以使用此權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 |
@@ -252,7 +252,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 
 適用於 SAML 判斷提示的服務對服務要求包含下列參數：
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
 | grant_type |必要 | 權杖要求的類型。 針對使用 JWT 的要求，此值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
 | assertion |必要 | 要求中使用的存取權杖值。|
@@ -271,12 +271,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 
 ### <a name="response-with-saml-assertion"></a>使用 SAML 判斷提示進行回應
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
-| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人] 。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。 |
+| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人] 。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有者令牌用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。 |
 | scope |在權杖中授與的存取範圍。 |
 | expires_in |存取權杖的有效時間長度 (以秒為單位)。 |
-| expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
+| expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 此值用于确定缓存令牌的生存期。 |
 | resource |接收端服務 (受保護的資源) 的應用程式識別碼 URI。 |
 | access_token |傳回 SAML 判斷提示的參數。 |
 | refresh_token |重新整理權杖。 呼叫端服務可以使用這個權杖，在目前的 SAML 判斷提示過期之後，要求其他的存取權杖。 |

@@ -1,5 +1,5 @@
 ---
-title: Azure 監視器中的進階查詢 | Microsoft Docs
+title: 進階 Azure 監視器中的查詢 |Microsoft Docs
 description: 本文提供教學課程來說明如何使用 Analytics 入口網站在 Azure 監視器中撰寫查詢。
 services: log-analytics
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 401a8d527fc3a8d0430e7eff965b6f5e20db8dc0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268011"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451615"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>在 Azure 監視器中撰寫進階查詢
 
 > [!NOTE]
-> 您應該先完成[開始使用 Azure 監視器記錄分析](get-started-portal.md)與[開始使用查詢](get-started-queries.md)，再完成此課程。
+> 您應該先完成[開始使用 Azure 監視器 Log Analytics](get-started-portal.md)並[開始使用查詢](get-started-queries.md)之前完成這一課。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>列印
-`print` 將會傳回具有單欄與單列的表格，顯示計算的結果。 這通常用於需要簡單計算的案例。 例如，尋找太平洋標準時間 (PST) 的目前時間並加上美國東部標準時間 (EST) 欄：
+`print` 將會傳回具有單欄與單列的表格，顯示計算的結果。 這通常會在情況下，您需要簡單的計算。 例如，尋找太平洋標準時間 (PST) 的目前時間並加上美國東部標準時間 (EST) 欄：
 
 ```Kusto
 print nowPst = now()-8h

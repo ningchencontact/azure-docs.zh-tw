@@ -7,28 +7,30 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 70343c0d66eb2a00ff2245b7e4876c2e94a96855
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314477"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775589"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 入口網站中 Azure 搜尋服務的服務管理
 > [!div class="op_single_selector"]
-> * [入口網站](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [入口網站](search-manage.md)
 > * [Python (英文)](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure 搜尋服務是完全受控、以雲端為基礎的搜尋服務，用來在自訂應用程式內建置豐富的搜尋經驗。 本文章涵蓋服務管理工作，可供您在 [Azure 入口網站](https://portal.azure.com)中針對已佈建的搜尋服務執行。 服務管理原先的設計是輕量級的，限定於下列工作︰
 
-* 管理 API 金鑰  (用於讀取或寫入您的服務存取權) 的存取權。
-* 變更資料分割和複本的配置來調整服務容量。
-* 監視資源使用量，相對於服務層的最大限制。
+> [!div class="checklist"]
+> * 管理 API 金鑰  (用於讀取或寫入您的服務存取權) 的存取權。
+> * 變更資料分割和複本的配置來調整服務容量。
+> * 監視資源使用量，相對於服務層的最大限制。
 
 請注意，「升級」不是管理工作。 因為資源是在佈建服務時進行配置，所以移動到其他層需要新的服務。 如需詳細資料，請參閱[建立 Azure 搜尋服務](search-create-service-portal.md)。
 
@@ -58,7 +60,7 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>監視資源使用量
-在儀表板中，僅能針對服務儀表板中顯示的資訊，以及一些透過查詢服務取得的度量進行資源監視。 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。
+在儀表板中，僅能針對服務儀表板中顯示的資訊，以及一些透過查詢服務取得的度量進行資源監視。 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。 如果您想要擷取和保存記錄的事件，您可以佈建外部資源，例如 Azure 監視。 如需詳細資訊，請參閱 <<c0> [ 監視 Azure 搜尋服務](search-monitor-usage.md)。
 
 使用搜尋服務 REST API，可以程式設計的方式取得文件和索引的計數： 
 

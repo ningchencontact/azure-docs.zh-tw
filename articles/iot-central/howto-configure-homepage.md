@@ -1,45 +1,50 @@
 ---
-title: 設定 Azure IoT Central 應用程式的首頁 | Microsoft Docs
-description: 了解如何以建置者身分設定 Azure IoT Central 應用程式的首頁。
+title: 設定 Azure IoT Central 應用程式儀表板 |Microsoft Docs
+description: 產生器中，以了解如何設定預設 Azure IoT Central 應用程式儀表板。
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2018
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a03ac0ef66f4ffdce53d0bd2a35839bbe1615d0b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199080"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773141"
 ---
-# <a name="configuring-homepage"></a>設定首頁
+# <a name="configure-the-application-dashboard"></a>設定應用程式儀表板
 
-首頁是當可存取應用程式的使用者瀏覽至應用程式的 URL 時所載入的頁面。 如果您在建立應用程式時選取「範例 Contoso」或「範例 Devkits」應用程式範本，您的應用程式將會有預先定義的首頁。 如果您選取了「自訂應用程式」應用程式範本，您的首頁將會空白。
+**儀表板**頁面載入時，可存取應用程式的使用者瀏覽至應用程式的 URL。 如果您選取其中一個**範例 Contoso**或是**範例 Devkits**應用程式範本來建立您的應用程式，您的應用程式已預先定義的儀表板。 如果您選擇**自訂應用程式**應用程式範本，您的儀表板是空白。
 
-例如，以下是以「範例 Contoso」範本為基礎的應用程式首頁。 若要自訂應用程式的首頁，請先選取右上方的 [編輯]。 
+> [!NOTE]
+> 使用者也可以[建立自己專屬的儀表板](howto-personalize-dashboard.md)使用而不是預設應用程式儀表板。
 
-![以「範例 Contoso」範本為基礎的應用程式首頁](media/howto-configure-homepage/image1.png)
+## <a name="add-tiles"></a>新增圖格
 
-選取 [編輯] 會在左側面板中開啟儀表板程式庫。 可以新增許多類型的圖格和儀表板基元來自訂您的首頁。
+下列螢幕擷取畫面顯示從建立應用程式中的儀表板**範例 Contoso**範本。 若要自訂您的應用程式的預設儀表板，請選取**編輯**上方的頁面。
+
+![儀表板的 「 範例 Contoso"範本為基礎的應用程式](media/howto-configure-homepage/image1.png)
+
+選取**編輯**，開啟 [儀表板程式庫] 面板。 程式庫包含磚和儀表板基本類型，您可以使用來自訂儀表板。
 
 ![儀表板程式庫](media/howto-configure-homepage/image2.png)
 
-例如，您可以新增 [設定和屬性] 圖格，以顯示目前選取的設定和屬性值。 若要這麼做，請先選取 [裝置範本]，然後選取 [裝置執行個體]。 然後，提供圖格標題並選取要顯示的 [設定] 或 [屬性]。 在此情況下，我們已選取 [設定溫度]。 按一下 [完成] 會導致此圖格出現在首頁上。
+例如，您可以在其中加入**裝置設定與屬性**磚，以顯示選取的裝置目前的設定和屬性值。 若要這麼做，請先選取 [裝置範本]，然後選取 [裝置執行個體]。 然後，提供圖格標題並選取要顯示的 [設定] 或 [屬性]。 下列螢幕擷取畫面顯示設定，以及選取要新增到 [] 圖格的屬性。 選取 **完成**儀表板中儲存的變更。
 
 ![含設定和屬性詳細資料的 [設定裝置詳細資料] 表單](media/howto-configure-homepage/image3.png)
 
-現在，當操作員檢視首頁時，就會看到這個可顯示裝置屬性或設定的圖格：
+現在當運算子檢視預設應用程式儀表板，他們會看到包含新的磚**設定的溫度**裝置設定：
 
 ![含針對圖格顯示之設定和屬性的 [儀表板] 索引標籤](media/howto-configure-homepage/image4.png)
 
-試用程式庫中的各種其他圖格類型，探索如何進一步自訂您的應用程式首頁。
+您可以瀏覽其他 圖格類型程式庫中，以了解如何進一步自訂預設的應用程式儀表板。
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何設定 Azure IoT Central 首頁，您可以：
+既然您已了解如何設定 Azure IoT Central 預設應用程式儀表板，您可以：
 
 > [!div class="nextstepaction"]
 > [了解如何準備及上傳映像](howto-prepare-images.md)

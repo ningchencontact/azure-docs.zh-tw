@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447458"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993951"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
@@ -62,8 +62,9 @@ ms.locfileid: "56447458"
 | **支援方案** | Azure Government 專業指導支援 | MS-AZR-USGOV-0042P |
 | **支援方案** | Azure Government 開發人員支援 | MS-AZR-USGOV-0043P |
 
-使用預付型方案、MSDN 和 Visual Studio 供應項目類別的客戶，自 2018/10/02 起可在「成本管理」中取得資料。
+使用預付型方案、MSDN 和 Visual Studio 供應項目類別的客戶，自 2018/10/02 起可在「成本管理」中取得資料。 若要存取您的訂用帳戶在 2018 年 10 月 02 日之前的資料，您可以使用[Azure 帳戶中心](https://account.azure.com/subscriptions)若要下載您的使用量詳細資料的 CSV 檔案中，或者您可以使用[使用情況詳細資料 API](/rest/api/consumption/usagedetails)。
 
+## <a name="determine-your-offer-type"></a>判斷您的供應項目類型
 如果您未看到訂用帳戶的資料，而您想要確認訂用帳戶是否屬於支援的供應項目，您可以驗證您的訂用帳戶是否受支援。 若要驗證 Azure 訂用帳戶是否受支援，請登入 [Azure 入口網站](https://portal.azure.com)。 然後，在左側功能表窗格中選取 [所有服務]。 在服務清單中，選取 [訂用帳戶]。 在訂用帳戶清單功能表中，按一下您要確認的的訂用帳戶。 您的訂用帳戶會顯示在 [概觀] 索引標籤上，您會看到 [供應項目] 和 [供應項目識別碼]。 下圖說明一個範例。
 
 ![顯示供應項目和供應項目識別碼的訂用帳戶概觀範例](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -94,7 +95,7 @@ ms.locfileid: "56447458"
 
 ## <a name="rated-usage-data-refresh-schedule"></a>評比使用量資料重新整理排程
 
-成本與使用量資料可從 Azure 入口網站和[支援 API](https://aka.ms/costmgmt/docs) 的 [成本管理 + 計費] 中取得。 檢閱成本時，請記住以下幾點：
+成本與使用量資料可從 Azure 入口網站和[支援 API](index.yml) 的 [成本管理 + 計費] 中取得。 檢閱成本時，請記住以下幾點：
 
 - 目前計費期間的預估費用每天會更新 6 次。
 - 目前計費期間的預估費用可能隨著您產生更多使用量而變更。
@@ -120,6 +121,6 @@ Enterprise 合約 (EA) 訂用帳戶 – 如果計費月份在 3 月 31 日結束
 
 某些服務會比其他服務更頻繁地發出使用量資料。 因此，您在「成本管理」中可能會看到某些服務的資料比其他發出資料頻率較低的服務更快出現。 服務的使用量通常需要 8-24 小時才會出現在「成本管理」中。 請記住，在尚未結算的月份中，該資料會隨著您產生更多使用量而重新整理，因為更新會持續累積。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - 如果您尚未完成成本管理的第一個快速入門，請在[開始分析成本](quick-acm-cost-analysis.md)閱讀它。

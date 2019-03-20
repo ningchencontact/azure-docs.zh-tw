@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c32662b446df10649617570c63ce534071ed7d27
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540311"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957516"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>為 Azure 事件中樞設定診斷記錄
 
@@ -48,7 +48,7 @@ ms.locfileid: "53540311"
 
     ![變更診斷記錄檔的狀態](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  設定您想要的封存目標，例如儲存體帳戶、事件中樞或 Azure Log Analytics。
+5.  設定的封存目標，您想要的選項;例如，儲存體帳戶、 事件中樞或 Azure 監視器記錄。
 
 6.  儲存新的診斷設定。
 
@@ -71,7 +71,7 @@ ms.locfileid: "53540311"
 
 封存記錄檔 JSON 字串包括下表所列的元素：
 
-Name | 描述
+名稱 | 描述
 ------- | -------
 TaskName | 失敗工作的描述。
 ActivityId | 用於追蹤的內部識別碼。
@@ -109,7 +109,7 @@ category | ArchiveLogs
 
 作業記錄 JSON 字串包括下表所列的元素：
 
-Name | 說明
+名稱 | 描述
 ------- | -------
 ActivityId | 用於追蹤目的的內部識別碼。
 EventName | 作業名稱。  
@@ -141,4 +141,4 @@ Example:
 ## <a name="next-steps"></a>後續步驟
 * [事件中樞簡介](event-hubs-what-is-event-hubs.md)
 * [事件中樞 API 概觀](event-hubs-api-overview.md)
-* [開始使用事件中心](event-hubs-dotnet-standard-getstarted-send.md)
+* [事件中心入门](event-hubs-dotnet-standard-getstarted-send.md)

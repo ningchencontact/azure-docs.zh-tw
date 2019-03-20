@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: c475a9c820e577a321491b87d806ed08ddff8693
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: d2b06d044f68972ef72dd9b53401980e84ef779f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013872"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440925"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>佈建 Azure-SSIS 整合執行階段的企業版
 
@@ -44,19 +44,21 @@ Azure-SSIS 整合執行階段的企業版可讓您使用下列進階功能：
 
 ## <a name="instructions"></a>範例的指示
 
-1.  下載並安裝 [Azure PowerShell (5.4 版或更新版本)](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-2.  當您使用 PowerShell 佈建或重新設定 Azure-SSIS IR 時，在啟動 Azure-SSIS IR 之前，請使用 **Enterprise** 作為 **Edition** 參數的值來執行 `Set-AzureRmDataFactoryV2IntegrationRuntime`。 以下是範例指令碼：
+1.  下載並安裝 [Azure PowerShell](/powershell/azure/install-az-ps)。
+
+2.  當您使用 PowerShell 佈建或重新設定 Azure-SSIS IR 時，在啟動 Azure-SSIS IR 之前，請使用 **Enterprise** 作為 **Edition** 參數的值來執行 `Set-AzDataFactoryV2IntegrationRuntime`。 以下是範例指令碼：
 
     ```powershell
     $MyAzureSsisIrEdition = "Enterprise"
 
-    Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
+    Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
                                                -Name $MyAzureSsisIrName
                                                -ResourceGroupName $MyResourceGroupName
                                                -Edition $MyAzureSsisIrEdition
 
-    Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
+    Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
                                                  -Name $MyAzureSsisIrName
                                                  -ResourceGroupName $MyResourceGroupName
     ```

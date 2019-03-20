@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a3127cde66ce7de9a3920d238193a3a3b2225be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195782"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451481"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>預覽：Azure AD 密碼保護的監視和記錄
 
@@ -238,7 +238,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Paramete
 
 DC 代理程式服務軟體會安裝名為 **Azure AD 密碼保護**的效能計數器物件。 以下是目前可用的效能計數器：
 
-|效能計數器名稱 | 說明|
+|效能計數器名稱 | 描述|
 | --- | --- |
 |已處理的密碼 |此計數器會顯示自上次重新啟動後已處理 (已接受或拒絕) 的密碼總數。|
 |已接受的密碼 |此計數器會顯示自上次重新啟動後已接受的密碼總數。|
@@ -317,7 +317,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters
 
 導致狀態變更的 PowerShell Cmdlet (例如 Register-AzureADPasswordProtectionProxy) 通常會將結果事件記錄到作業記錄。
 
-此外，大部分的 Azure AD 密碼保護 PowerShell Cmdlet 都將寫入至位於以下位置的文字記錄：
+此外，大部分的 Azure AD 密碼保護的 PowerShell cmdlet 會寫入文字記錄檔位於：
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 

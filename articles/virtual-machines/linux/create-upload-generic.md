@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105517"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>非背書的發行版本相關資訊
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -144,10 +144,10 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
 下列修補程式必須隨附於核心中。 對於所有發行版本而言，此清單並不完整。
 
 * [ata_piix：依預設將磁碟委託給 Hyper-V 驅動程式](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc：負責 RESET 路徑中的在途封包](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc:負責 RESET 路徑中的在途封包](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc：避免使用 WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc：針對 RAID 和虛擬主機介面卡驅動程式停用 WRITE SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc：NULL 指標取值修正](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc:針對 RAID 和虛擬主機介面卡驅動程式停用 WRITE SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc:NULL 指標取值修正](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc：信號緩衝區失敗可能導致 I/O 凍結](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs︰防範 __scsi_remove_device 雙重執行](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
@@ -172,13 +172,13 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
     ```
     在雲端環境中，我們想要將所有記錄傳送到序列埠，因此不適合使用圖形化和無訊息開機。 您可以視需要保留 `crashkernel` 選項的設定，但請注意，此參數會減少 VM 中至少 128 MB 的可用記憶體數量，這在較小的 VM 大小中可能是個問題。
 
-2. 安裝 Azure Linux 代理程式。
+1. 安裝 Azure Linux 代理程式。
   
     如需在 Azure 上佈建 Linux 映像，您需要 Azure Linux 代理程式。  許多發行版本都會以 RPM 或 Deb 套件 (此套件通常稱為 WALinuxAgent 或 walinuxagent) 的形式提供代理程式。  您也可以遵循 [Linux 代理程式指南](../extensions/agent-linux.md)中的步驟來手動安裝代理程式。
 
-3. 確定 SSH 伺服器已安裝並設定為在開機時啟動。  此設定通常是預設值。
+1. 確定 SSH 伺服器已安裝並設定為在開機時啟動。  此設定通常是預設值。
 
-4. 請不要在 OS 磁碟上建立交換空間。
+1. 請不要在 OS 磁碟上建立交換空間。
   
     Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。 本機資源磁碟是「暫存」磁碟，可能會在 VM 取消佈建時清空。 安裝 Azure Linux 代理程式 (上述步驟 2) 之後，視需要在 /etc/waagent.conf 中修改下列參數。
     ```  
@@ -188,15 +188,15 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* 執行下列命令以取消佈建虛擬機器。
+1. 執行下列命令以取消佈建虛擬機器。
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > 在 Virtualbox 上，您可能會在執行 `waagent -force -deprovision` 之後看到下列錯誤，指出 `[Errno 5] Input/output error`。 此錯誤訊息並不重要，您可以忽略。
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > 在 Virtualbox 上，您可能會在執行 `waagent -force -deprovision` 之後看到下列錯誤，指出 `[Errno 5] Input/output error`。 此錯誤訊息並不重要，您可以忽略。
 
 * 關閉虛擬機器，並將 VHD 上傳至 Azure。
 

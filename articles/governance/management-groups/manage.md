@@ -2,28 +2,26 @@
 title: 如何在 Azure 中變更、刪除或管理您的管理群組 - Azure 治理
 description: 了解如何檢視、維護、更新及刪除您的管理群組階層。
 author: rthorn17
-manager: rithorn
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 51e9d44a95a3896767caf4b3f04d17c2933e8599
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342572"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990524"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
-管理群組是可協助您跨多個訂用帳戶管理容器存取、原則及合規性的容器。 您可以變更、刪除及管理這些容器，來取得可與 [Azure 原則](../policy/overview.md)和 [Azure 角色型存取控制](../../role-based-access-control/overview.md)搭配使用的階層。 若要深入了解管理群組，請參閱[使用 Azure 管理群組來組織資源](overview.md)。
+如果貴組織有多個訂用帳戶，您可能需要一個方法來有效率地管理這些訂用帳戶的存取、原則和相容性。 Azure 管理群組可以在訂用帳戶之上提供範圍層級。 您要將訂用帳戶整理到稱為「管理群組」的容器中，並將治理條件套用至管理群組。 管理群組內的所有訂用帳戶都會自動繼承套用到管理群組的條件。
 
-若要變更管理群組，您在管理群組上必須具有「擁有者」或「參與者」角色。 若要查看您有哪些權限，請選取管理群組，然後選取 **IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。
+無論具有何種類型的訂用帳戶，管理群組都可為您提供企業級的大規模管理功能。  若要深入了解管理群組，請參閱[使用 Azure 管理群組來組織資源](overview.md)。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>變更管理群組的名稱
 
@@ -49,10 +47,10 @@ ms.locfileid: "56342572"
 
 ### <a name="change-the-name-in-powershell"></a>在 PowerShell 中變更名稱
 
-若要更新顯示名稱，請使用 **Update-AzureRmManagementGroup**。 例如，若要將管理群組名稱從 "Contoso IT" 變更為 "Contoso Group"，您要執行下列命令：
+若要更新顯示名稱，請使用**更新 AzManagementGroup**。 比方說，若要變更的管理群組顯示名稱從"Contoso IT"為"Contoso Group"，執行下列命令：
 
 ```azurepowershell-interactive
-Update-AzureRmManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
+Update-AzManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
 ```
 
 ### <a name="change-the-name-in-azure-cli"></a>在 Azure CLI 中變更名稱
@@ -73,7 +71,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
    - 若要將管理群組移至另一個管理群組，請參閱[在階層中移動管理群組](#Move-management-groups-in-the-hierarchy)。
 
-1. 您具有管理群組上的寫入權限，以及管理群組上的「擁有者」或「參與者」角色。 若要查看您有哪些權限，請選取管理群組，然後選取 **IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。  
+1. 管理群組 （「 擁有者 」、 「 參與者 」 或 「 管理群組參與者 」） 中具有寫入權限。 若要查看您有哪些權限，請選取管理群組，然後選取 **IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。  
 
 ### <a name="delete-in-the-portal"></a>在入口網站中刪除
 
@@ -85,7 +83,8 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. 選取 [刪除]
 
-   - 如果無法使用圖示，將您的滑鼠選取器停留在圖示上會顯示原因。
+    > [!TIP]
+    > 如果無法使用圖示，將您的滑鼠選取器停留在圖示上會顯示原因。
 
    ![[刪除群組] 選項](./media/delete.png)
 
@@ -97,10 +96,10 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 ### <a name="delete-in-powershell"></a>在 PowerShell 中刪除
 
-使用 PowerShell 內的 **Remove-AzureRmManagementGroup** 命令可將管理群組刪除。
+使用**移除 AzManagementGroup**內刪除管理群組的 PowerShell 命令。
 
 ```azurepowershell-interactive
-Remove-AzureRmManagementGroup -GroupName 'Contoso'
+Remove-AzManagementGroup -GroupName 'Contoso'
 ```
 
 ### <a name="delete-in-azure-cli"></a>在 Azure CLI 中刪除
@@ -121,24 +120,59 @@ az account management-group delete --name 'Contoso'
 
 1. 選取 [所有服務] > [管理群組]。
 
-1. [管理群組階層] 頁面隨即會載入，供您探索所有可存取的管理群組和訂用帳戶。 選取群組名稱即可前往階層中的下一個層級。 瀏覽方式與檔案總管相同。
+1. [管理群組階層] 頁面會載入。 其中您可以瀏覽所有管理群組和訂用帳戶可以存取此頁面。 選取群組名稱即可前往階層中的下一個層級。 瀏覽方式與檔案總管相同。
+
+1. 若要查看管理群組的詳細資訊，請選取管理群組標題旁的 **(詳細資料)** 連結。 如果此連結無法使用，表示您沒有檢視該管理群組的權限。
 
    ![主要區段](./media/main.png)
 
-1. 若要查看管理群組的詳細資訊，請選取管理群組標題旁的 **(詳細資料)** 連結。 如果此連結無法使用，表示您沒有檢視該管理群組的權限。  
-
 ### <a name="view-in-powershell"></a>在 PowerShell 中檢視
 
-您可以使用 Get-AzureRmManagementGroup 命令來擷取所有群組。  
+您可以使用 Get AzManagementGroup 命令來擷取所有群組。  請參閱[Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup)模組的完整清單的管理群組取得 Powershell 命令。  
 
 ```azurepowershell-interactive
-Get-AzureRmManagementGroup
+Get-AzManagementGroup
 ```
 
 對於單一管理群組的資訊，請使用 -GroupName 參數
 
 ```azurepowershell-interactive
-Get-AzureRmManagementGroup -GroupName 'Contoso'
+Get-AzManagementGroup -GroupName 'Contoso'
+```
+
+若要傳回特定的管理群組和其下的階層的所有層級，請使用 **-依序展開**並 **-Recurse**參數。  
+
+```azurepowershell-interactive
+PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response
+
+Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
+Type              : /providers/Microsoft.Management/managementGroups
+Name              : TestGroupParent
+TenantId          : 00000000-0000-0000-0000-000000000000
+DisplayName       : TestGroupParent
+UpdatedTime       : 2/1/2018 11:15:46 AM
+UpdatedBy         : 00000000-0000-0000-0000-000000000000
+ParentId          : /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000
+ParentName        : 00000000-0000-0000-0000-000000000000
+ParentDisplayName : 00000000-0000-0000-0000-000000000000
+Children          : {TestGroup1DisplayName, TestGroup2DisplayName}
+
+PS C:\> $response.Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestGroup1
+Name        : TestGroup1
+DisplayName : TestGroup1DisplayName
+Children    : {TestRecurseChild}
+
+PS C:\> $response.Children[0].Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestRecurseChild
+Name        : TestRecurseChild
+DisplayName : TestRecurseChild
+Children    :
 ```
 
 ### <a name="view-in-azure-cli"></a>在 Azure CLI 中檢視
@@ -155,17 +189,25 @@ az account management-group list
 az account management-group show --name 'Contoso'
 ```
 
+若要傳回特定的管理群組和其下的階層的所有層級，請使用 **-依序展開**並 **-Recurse**參數。
+
+```azurecli-interactive
+az account management-group show --name 'Contoso' -e -r
+```
+
 ## <a name="move-subscriptions-in-the-hierarchy"></a>在階層中移動訂用帳戶
 
 建立管理群組的其中一個原因是要將訂用帳戶組合在一起。 只有管理群組和訂用帳戶才能設為另一個管理群組的子群組。 移至管理群組的訂用帳戶會繼承父管理群組中的所有使用者存取權和原則。
 
-若要移動訂用帳戶，您必須擁有一些權限：
+若要移動訂用帳戶，下列的 RBAC 權限的所有需要為 true:
 
 - 子訂用帳戶上的「擁有者」角色。
-- 新建父管理群組上的「擁有者」或「參與者」角色。
-- 舊有父管理群組上的「擁有者」或「參與者」角色。
+- 在 目標父管理 group.* 上的 「 擁有者 」、 「 參與者 」 或 「 管理群組參與者 」 角色
+- 在現有的父管理 group.* 上的 「 擁有者 」、 「 參與者 」 或 「 管理群組參與者 」 角色
 
-若要查看您有哪些權限，請選取管理群組，然後選取 **IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。
+*：除非目標或現有的父管理群組是根管理群組。 由於根管理群組的預設登陸找出所有新的管理群組和訂用帳戶，使用者不需要移動項目在其上的權限。
+
+若要查看哪些權限您在 Azure 入口網站中，選取管理群組，然後選取**IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。
 
 ### <a name="move-subscriptions-in-the-portal"></a>在入口網站中移動訂用帳戶
 
@@ -207,16 +249,16 @@ az account management-group show --name 'Contoso'
 
 ### <a name="move-subscriptions-in-powershell"></a>在 PowerShell 中移動訂用帳戶
 
-若要在 PowerShell 中移動訂用帳戶，您可以使用 New-AzureRmManagementGroupSubscription 命令。  
+若要在 PowerShell 中移動訂用帳戶，您可以使用新增 AzManagementGroupSubscription 命令。  
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-若要移除訂用帳戶與管理群組之間的連結，請使用 Remove-AzureRmManagementGroupSubscription 命令。
+若要移除之間的連結和訂用帳戶和管理群組使用移除 AzManagementGroupSubscription 命令。
 
 ```azurepowershell-interactive
-Remove-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
 ### <a name="move-subscriptions-in-azure-cli"></a>在 Azure CLI 中移動訂用帳戶
@@ -235,7 +277,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>移動階層中的管理群組  
 
-當您移動父管理群組時，所有包含管理群組、訂用帳戶、資源群組及資源的子資源都會與父資源一起移動。
+當您移動父管理群組時，該群組下的階層會隨之移動它。
 
 ### <a name="move-management-groups-in-the-portal"></a>在入口網站中移動管理群組
 
@@ -258,10 +300,10 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-management-groups-in-powershell"></a>在 PowerShell 中移動管理群組
 
-在 PowerShell 中使用 Update-AzureRmManagementGroup 命令，可移動不同群組下的管理群組。
+若要移動的不同群組下的管理群組，在 PowerShell 中使用 Update AzManagementGroup 命令。
 
 ```azurepowershell-interactive
-Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```  
 
 ### <a name="move-management-groups-in-azure-cli"></a>在 Azure CLI 中移動管理群組
@@ -269,22 +311,34 @@ Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
 您可以透過 Azure CLI 使用 update 命令來移動管理群組。
 
 ```azurecli-interactive
-az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
+az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```
 
 ## <a name="audit-management-groups-using-activity-logs"></a>使用活動記錄稽核管理群組
 
-若要透過此 API 追蹤管理群組，請使用[租用戶活動記錄 API](/rest/api/monitor/tenantactivitylogs)。 目前無法使用 PowerShell、CLI 或 Azure 入口網站來追蹤管理群組活動。
+[Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)中支援管理群組。 您可以查詢發生與其他 Azure 資源相同的中央位置中的管理群組的所有事件。  例如，您可以看到對特定的管理群組的所有角色指派或原則指派變更。
 
-1. 以 Azure AD 租用戶的租用戶管理員身分[提高存取權](../../role-based-access-control/elevate-access-global-admin.md)，然後將 `/providers/microsoft.insights/eventtypes/management`範圍的「讀者」角色指派給稽核使用者。
-1. 以稽核使用者身分呼叫[租用戶活動記錄 API](/rest/api/monitor/tenantactivitylogs)，以查看管理群組活動。 您可以依資源提供者 **Microsoft.Management** 篩選所有管理群組活動。  範例：
+![使用管理群組的活動記錄](media/al-mg.png)
 
-```xml
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+在 Azure 入口網站外部查詢管理群組時，管理群組的目標範圍像是 **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**。
+
+## <a name="referencing-management-groups-from-other-resource-providers"></a>參考來自其他資源提供者的管理群組
+
+當參考的管理群組的其他資源提供者的動作，請使用下列路徑做為範圍。 使用 PowerShell、 Azure CLI 和 REST Api 時，會使用此路徑。  
+
+>"/providers/Microsoft.Management/managementGroups/{yourMgID}"
+
+將新的角色指派指派給 PowerShell 中的管理群組時，使用此路徑的範例
+
+```powershell-interactive
+New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
-> [!NOTE]
-> 若要以便利的方式從命令列呼叫此 API，請嘗試 [ARMClient](https://github.com/projectkudu/ARMClient)。
+擷取管理群組的原則定義時，會使用相同的領域路徑。
+
+```http
+GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
+```
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -292,6 +346,6 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 
 - [建立管理群組以組織 Azure 資源](create.md)
 - [如何變更、刪除或管理您的管理群組](manage.md)
-- [檢閱 Azure PowerShell 資源模組中的管理群組](https://aka.ms/mgPSdocs)
-- [檢閱 REST API 中的管理群組](https://aka.ms/mgAPIdocs)
-- [檢閱 Azure CLI 中的管理群組](https://aka.ms/mgclidoc)
+- [檢閱 Azure PowerShell 資源模組中的管理群組](/powershell/module/az.resources#resources)
+- [檢閱 REST API 中的管理群組](/rest/api/resources/managementgroups)
+- [檢閱 Azure CLI 中的管理群組](/cli/azure/account/management-group)

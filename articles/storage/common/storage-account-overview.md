@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327845"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544234"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
 
@@ -38,7 +38,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 > [!NOTE]
 > Microsoft 建議，在大部分情況下使用一般用途 v2 儲存體帳戶。 您不需停機，也不必複製資料，即可輕鬆地將一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 帳戶。
 >
-> 如需有關如何升級至一般用途 v2 帳戶的詳細資訊，請參閱[升級至一般用途 v2 儲存體帳戶](storage-account-upgrade.md)。 
+> 如需有關如何升級至一般用途 v2 帳戶的詳細資訊，請參閱[升級至一般用途 v2 儲存體帳戶](storage-account-upgrade.md)。
 
 一般用途 v2 儲存體帳戶提供多個存取層，以便根據您的使用量模式來儲存資料。 如需詳細資訊，請參閱[區塊 blob 資料的存取層](#access-tiers-for-block-blob-data)。
 
@@ -60,11 +60,9 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 * 您使用早於 2014-02-14 的 [儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 版本，或版本低於 4.x 的用戶端程式庫，所以無法升級您的應用程式。
 
-### <a name="blob-storage-accounts"></a>Blob 儲存體帳戶
+### <a name="block-blob-storage-accounts"></a>區塊 blob 儲存體帳戶
 
-Blob 儲存體帳戶是特製化儲存體帳戶，可將非結構化物件資料儲存為區塊 Blob。 Blob 儲存體帳戶會提供與一般用途 v2 儲存體帳戶相同的持久性、可用性、延展性和效能功能。 Blob 儲存體帳戶支援儲存區塊 Blob 和附加 Blob，但不支援儲存分頁 Blob。
-
-Blob 儲存體帳戶提供多個存取層，以便根據您的使用量模式來儲存資料。 如需詳細資訊，請參閱[區塊 blob 資料的存取層](#access-tiers-for-block-blob-data)。
+區塊 blob 儲存體帳戶是專門的儲存體帳戶來將非結構化的物件資料儲存為區塊 blob 或附加 blob。 區塊 blob 儲存體帳戶提供多個存取層，來儲存您的使用量模式為基礎的資料。 如需詳細資訊，請參閱[區塊 blob 資料的存取層](#access-tiers-for-block-blob-data)。
 
 ## <a name="naming-storage-accounts"></a>儲存體帳戶命名
 
@@ -87,7 +85,7 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 可用的存取層如下：
 
 > [!NOTE]
-> [進階存取層](../blobs/storage-blob-storage-tiers.md#premium-access-tier)會在北歐、美國東部 2、美國中部和美國西部區域，以有限預覽狀態的本地備援儲存體 (LRS) 帳戶形式提供。 若要了解如何註冊預覽版，請參閱 [Azure 進階 Blob 儲存體簡介](https://aka.ms/premiumblob)。
+> [進階存取層 （預覽）](../blobs/storage-blob-storage-tiers.md#premium-access-tier)，這適用於效能敏感的應用程式，提供高輸送量和交易率較低且一致的延遲。 可以只使用區塊 Blob 儲存體帳戶 （預覽） 的進階存取層。 如需詳細資訊，請參閱 <<c0> [ 公開預覽版的 Azure 進階 Blob 儲存體](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/)。
 
 * **經常性**存取層，最適合用於儲存體帳戶中經常存取的物件。 存取經常性存取層中資料的成本效益最高，而儲存成本稍高。 預設會在經常性存取層中建立新的儲存體帳戶。
 * **非經常性**存取層，最適合用於儲存不常存取且至少儲存 30 天的大量資料。 在非經常性存取層中儲存資料更符合成本效益，但是存取該資料可能比存取經常性存取層中的資料更為昂貴。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244431"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886718"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的變更摘要 - 概觀
 
@@ -35,10 +35,10 @@ Azure Cosmos DB 中的變更摘要可讓您針對每一個模式建置有效率�
 
 | **用戶端驅動程式** | **Azure CLI** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API**|**資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | yes | 否 | 否 | yes | 否 |
-|Java|NA|yes|否|否|yes|否|
-|Python|NA|yes|否|否|yes|否|
-|節點/JS|NA|yes|否|否|yes|否|
+| .NET | NA | 是 | 否 | 否 | 是 | 否 |
+|Java|NA|是|否|否|是|否|
+|Python|NA|是|否|否|是|否|
+|節點/JS|NA|是|否|否|是|否|
 
 ## <a name="change-feed-and-different-operations"></a>變更摘要和不同的作業
 
@@ -118,7 +118,7 @@ _etag 格式是作為內部之用，因為該格式可以隨時變更，請別�
 
 * Azure Cosmos 容器所有邏輯分割區索引鍵的變更都是以平行方式提供使用。 這項功能可讓大型容器的變更由多個取用者平行處理。
 
-* 應用程式可以在同一個容器上同時要求多個變更摘要。 ChangeFeedOptions.StartTime 可用來提供初始的開始點。 例如，尋找與指定時鐘時間相對應的接續權杖。 ContinuationToken 如經指定，會優先於 StartTime 和 StartFromBeginning 值。 ChangeFeedOptions.StartTime 的精確度為 5 秒內。 
+* 应用程序可针对同一容器同时请求多个更改源。 ChangeFeedOptions.StartTime 可用來提供初始的開始點。 例如，尋找與指定時鐘時間相對應的接續權杖。 ContinuationToken 如經指定，會優先於 StartTime 和 StartFromBeginning 值。 ChangeFeedOptions.StartTime 的精確度為 5 秒內。 
 
 ## <a name="next-steps"></a>後續步驟
 

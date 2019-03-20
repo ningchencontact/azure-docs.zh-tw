@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490374"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440467"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 範本最佳做法
 
@@ -26,10 +26,28 @@ ms.locfileid: "55490374"
 
 如需相關建議以了解如何建置適用於所有 Azure 雲端環境的範本，請參閱[開發針對雲端一致性的 Azure Resource Manager 範本](templates-cloud-consistency.md)。
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>範本限制
+
+將範本大小限制為 1 MB，並將每個參數檔案限制為 64 KB。 1 MB 的限制適用於已增加反覆資源定義和變數和參數值之範本的最終狀態。 
+
+您也受限於：
+
+* 256 個參數
+* 256 個變數
+* 800 個資源 (包括複本計數)
+* 64 個輸出值
+* 範本運算式中的 24,576 個字元
+
+使用巢狀範本，即可超出一些範本限制。 如需詳細資訊，請參閱[在部署 Azure 資源時使用連結的範本](resource-group-linked-templates.md)。 若要減少參數、變數或輸出數目，您可以將數個值合併成一個物件。 如需詳細資訊，請參閱[物件作為參數](resource-manager-objects-as-parameters.md)。
+
+## <a name="resource-group"></a>資源群組
+
+當您將資源部署至資源群組時，資源群組會儲存有關之資源的中繼資料。 中繼資料會儲存在資源群組的位置。
+
+如果資源群組的區域是暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 在其他區域的資源將仍可運作如預期般運作，但無法更新它們。 若要風險降至最低，找出您的資源群組和資源位於相同的區域。
 
 ## <a name="parameters"></a>參數
-本節資訊對您在使用[參數](resource-manager-templates-parameters.md)時會有幫助。
+本節資訊對您在使用[參數](resource-group-authoring-templates.md#parameters)時會有幫助。
 
 ### <a name="general-recommendations-for-parameters"></a>參數的一般建議
 
@@ -131,7 +149,7 @@ ms.locfileid: "55490374"
 
 ## <a name="variables"></a>變數
 
-當您使用[變數](resource-manager-templates-variables.md)時，下列資訊可能會很有幫助︰
+當您使用[變數](resource-group-authoring-templates.md#variables)時，下列資訊可能會很有幫助︰
 
 * 您需要在範本中使用一次以上的值，才使用變數。 如果值只會使用一次，硬式編碼值會讓您的範本較容易看懂。
 
@@ -155,7 +173,7 @@ ms.locfileid: "55490374"
 
 * 設定子資源為相依於其父資源。
 
-* 設定為[false 的資源](resource-manager-templates-resources.md#condition)，會自動從相依性順序中移除。 請在假定一律會部署該資源的情況下設定相依性。
+* 設定為[false 的資源](resource-group-authoring-templates.md#condition)，會自動從相依性順序中移除。 請在假定一律會部署該資源的情況下設定相依性。
 
 * 讓相依性重疊顯示，而不需要明確設定它們。 例如，您的虛擬機器相依於虛擬網路介面，而虛擬網路介面相依於虛擬網路和公用 IP 位址。 因此，會在所有三個資源之後部署虛擬機器，但不會明確地將虛擬機器設定為相依於所有三個資源。 這種方法可釐清相依性順序，而且稍後可以比較容易變更範本。
 
@@ -163,7 +181,7 @@ ms.locfileid: "55490374"
 
 ## <a name="resources"></a>資源
 
-當您使用[資源](resource-manager-templates-resources.md)時，下列資訊可能會很有幫助︰
+當您使用[資源](resource-group-authoring-templates.md#resources)時，下列資訊可能會很有幫助︰
 
 * 針對範本中的每個資源指定 **comments**，協助其他參與者了解資源的用途：
    
@@ -277,7 +295,7 @@ ms.locfileid: "55490374"
 
 ## <a name="outputs"></a>輸出
 
-如果您使用範本來建立公用 IP 位址，請包含 [outputs 區段](resource-manager-templates-outputs.md)，以傳回 IP 位址和完整網域名稱 (FQDN) 的詳細資料。 您可以使用輸出值，輕鬆在部署後擷取公用 IP 位址和 FQDN 的相關詳細資料。
+如果您使用範本來建立公用 IP 位址，請包含 [outputs 區段](resource-group-authoring-templates.md#outputs)，以傳回 IP 位址和完整網域名稱 (FQDN) 的詳細資料。 您可以使用輸出值，輕鬆在部署後擷取公用 IP 位址和 FQDN 的相關詳細資料。
 
 ```json
 "outputs": {

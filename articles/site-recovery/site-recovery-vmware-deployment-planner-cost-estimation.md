@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093832"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>在 Site Recovery 部署規劃工具中檢閱針對 Azure 進行 VMware 災害復原的成本估計報告
 
 部署規劃工具報告在[建議](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)工作表中提供成本估計摘要，以及在成本估計工作表中提供詳細的成本分析。 其中包含每部 VM 的詳細成本分析。 
+
+>[!Note]
+>目前版本的部署規劃工具不提供成本估計適用於 Vm 複寫至受控磁碟。
+>* DR 演練成本估計值都相同的儲存體帳戶和受控的磁碟，當 使用受控磁碟 ' 參數設定為"Yes"在 計算與網路 刀鋒視窗上。
+>* 若要取得複寫大約每年的成本預估，對暫存 cadena siguiente**成本估計**工作表頁：
+>    * 在設定 「 成本持續時間 」 參數**設定**「 年 」 的資料表
+>    * 在 **詳細成本分析**資料表中的 「 一年中的 DR 演練次數 」 資料行設定為 12 和"每次 DR 演練持續時間 （天） 」 為 30 
+>    * 複寫成本將會類似於在每年中的資料行 'R' 也就是 DR 演練儲存體成本中填入的成本**DR 演練成本每年**子區段。
 
 ### <a name="cost-estimation-summary"></a>成本估計摘要 
 此圖形會就您所選的目標區域和您針對報告產生所指定的貨幣，顯示災害復原 (DR) 至 Azure 之估計總成本的摘要檢視。
@@ -106,9 +114,9 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 * 資料備援 
 * Azure Hybrid Benefit
 
-3.  針對 [一年中的 DR 演練次數]、[每次 DR 演練持續時間 (天)]、[資料備援] 及 [Azure Hybrid Use Benefit]，按一下 [套用到全部] 按鈕，即可將同一個值套用至表格中的所有 VM。
+1. 針對 [一年中的 DR 演練次數]、[每次 DR 演練持續時間 (天)]、[資料備援] 及 [Azure Hybrid Use Benefit]，按一下 [套用到全部] 按鈕，即可將同一個值套用至表格中的所有 VM。
 
-4.  按一下 [重新計算成本] 來更新成本。
+1. 按一下 [重新計算成本] 來更新成本。
 
 **虛擬機器名稱**：VM 的名稱。
 
@@ -148,7 +156,7 @@ eastus、eastus2、uswest、centralus、northcentralus、southcentralus、northe
 ## <a name="supported-currencies"></a>支援的貨幣
 Azure Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成本報告。
 
-|貨幣|Name||貨幣|Name||貨幣|Name|
+|貨幣|名稱||貨幣|名稱||貨幣|名稱|
 |---|---|---|---|---|---|---|---|
 |ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
 |加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||丹麥幣|丹麥克朗 (kr)|

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/16/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: a69a739f36854cacd6b361ca2bd17d904e9c4c96
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0cb3de7d893ccfe638468110b1b6f5fb61b2bc7c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38753650"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "58115048"
 ---
 資源鎖定可避免組織中的使用者不小心刪除或修改重要資源。 不同於角色型存取控制，資源鎖定會對所有使用者和角色套用限制。 
 
@@ -25,7 +25,7 @@ ms.locfileid: "38753650"
 > [!TIP]
 > 套用**唯讀**鎖定時，請小心謹慎。 某些看起來像是讀取作業的作業實際上需要額外動作。 例如，儲存體帳戶上的**唯讀**鎖定會防止所有使用者列出金鑰。 清單金鑰作業是透過 POST 要求進行處理，因為傳回的金鑰可用於寫入作業。 App Service 資源上的**唯讀**鎖定會防止 Visual Studio 伺服器總管顯示該資源的檔案，因為該互動需要寫入存取權。
 
-當您在父範圍套用鎖定時，該範圍內的所有資源都會都繼承相同的鎖定。 甚至您稍後新增的資源都會繼承父項的鎖定。 繼承中限制最嚴格的鎖定優先順序最高。
+當您在父範圍套用鎖定時，該範圍內的所有資源都會都繼承相同的鎖定。 即使是之后添加的资源也会从父作用域继承该锁。 繼承中限制最嚴格的鎖定優先順序最高。
 
 Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳送至 `https://management.azure.com` 的作業。 鎖定並不會限制資源處理自有函式的方式。 限制資源的變更，但沒有限制資源的作業。 例如，SQL Database 上的唯讀鎖定會防止您刪除或修改資料庫。 它不會防止您建立、更新或刪除資料庫中的資料。 允許資料交易，因為這些作業不會傳送到 `https://management.azure.com`。
 
