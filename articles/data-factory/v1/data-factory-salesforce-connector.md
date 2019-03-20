@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2364715bfeaea473db292baff2eb1e1cce3203b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 63fd8f75cb22a4dec888b7765c7515bfb68a4a6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999019"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 - 如果並行要求數目超過限制，便會進行節流，而且您會看到隨機失敗。
 - 如果要求總數超過限制，Salesforce 帳戶將會封鎖 24 小時。
 
-在上述兩種情況中，您也可能會收到「REQUEST_LIMIT_EXCEEDED」錯誤。 如需詳細資訊，請參閱 [Salesforce 開發人員限制](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf)文章的＜API 要求限制＞一節。
+在上述兩種情況中，您也可能會收到「REQUEST_LIMIT_EXCEEDED」錯誤。 如需詳細資訊，請參閱 [Salesforce 開發人員限制](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf)文章的＜API 要求限制＞一節。
 
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從 Salesforce 移動資料。
@@ -67,20 +67,20 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 Salesforce 連結服務專屬 JSON 元素的描述。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| type |類型屬性必須設定為：**Salesforce**。 |yes |
+| type |類型屬性必須設定為：**Salesforce**。 |是 |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為「 https://login.salesforce.com」。 <br> - 若要從沙箱複製資料，請指定「 https://test.salesforce.com」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
-| username |指定使用者帳戶的使用者名稱。 |yes |
-| password |指定使用者帳戶的密碼。 |yes |
-| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |yes |
+| username |指定使用者帳戶的使用者名稱。 |是 |
+| password |指定使用者帳戶的密碼。 |是 |
+| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱 [建立資料集](data-factory-create-datasets.md) 一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
 
 每個資料集類型的 **typeProperties** 區段都不同，可提供資料存放區中的資料位置資訊。 **RelationalTable** 類型資料集的 typeProperties 區段有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | tableName |Salesforce 中資料表的名稱。 |否 (如果已指定 **RelationalSource** 的 **query**) |
 
@@ -96,7 +96,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 在複製活動中，如果來源類型為 **RelationalSource** (包含 Salesforce)，則 typeProperties 區段可使用下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | query |使用自訂查詢來讀取資料。 |SQL-92 查詢或 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢。 例如： `select * from MyTable__c` 。 |否 (如果已指定 **dataset** 的 **tableName**) |
 
@@ -283,6 +283,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 
 ### <a name="type-mapping-for-salesforce"></a>Salesforce 的類型對應
+
 | Salesforce 類型 | 以 .NET 為基礎的類型 |
 | --- | --- |
 | 自動編號 |字串 |

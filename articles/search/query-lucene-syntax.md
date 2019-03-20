@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 59362b28390556f12cce8813635894c9f06b9a20
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007786"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107180"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure 搜尋服務中的 Lucene 查詢語法
 您可以基礎根據適用於特殊查詢形式的豐富 [Lucene 查詢剖析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)語法，為 Azure 搜尋服務撰寫查詢：萬用字元、模糊搜尋、鄰近搜尋、規則運算式只是其中一些範例。 大部分的 Lucene 查詢剖析器語法都可[完整移植到 Azure 搜尋服務中實作](search-lucene-query-architecture.md)，唯一的例外是*範圍搜尋*，這必須在 Azure 搜尋服務中透過 `$filter` 運算式來建構。 
@@ -37,24 +37,24 @@ ms.locfileid: "56007786"
 
 ## <a name="example-showing-full-syntax"></a>顯示完整語法的範例
 
-下列範例會使用 Lucene 查詢語法 (這可從 `queryType=full` 參數輕易看出) 尋找索引中的文件。。 此查詢會傳回類別欄位包含「預算」一詞以及所有可搜尋欄位包含「最近翻新」詞組的旅館。 包含「最近翻新」片語的文件會因為字詞提升值 (3) 而排在比較前面。  
+下列範例會使用 Lucene 查詢語法 (這可從 `queryType=full` 參數輕易看出) 尋找索引中的文件。 此查詢會傳回類別欄位包含「預算」一詞以及所有可搜尋欄位包含「最近翻新」詞組的旅館。 包含「最近翻新」片語的文件會因為字詞提升值 (3) 而排在比較前面。  
 
 `searchMode=all` 參數在此範例中具有相關性。 每當在查詢上使用運算子時，您通常都應設定 `searchMode=all`，以確保*所有*的準則均相符。
 
-```  
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full  
-```  
+```
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+```
 
  或者，可以使用 POST：  
 
-```  
-POST /indexes/hotels/docs/search?api-version=2015-02-28  
-{  
-  "search": "category:budget AND \"recently renovated\"^3",  
-  "queryType": "full",  
-  "searchMode": "all"  
-}  
-```  
+```
+POST /indexes/hotels/docs/search?api-version=2015-02-28
+{
+  "search": "category:budget AND \"recently renovated\"^3",
+  "queryType": "full",
+  "searchMode": "all"
+}
+```
 
 如需其他範例，請參閱[在 Azure 搜尋服務中建置查詢的 Lucene 查詢語法範例](search-query-lucene-examples.md)。 如需關於指定各種可用查詢參數的詳細資訊，請參閱[搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。
 
@@ -65,13 +65,13 @@ POST /indexes/hotels/docs/search?api-version=2015-02-28
 ##  <a name="bkmk_fields"></a>欄位範圍查詢  
  您可以指定 `fieldname:searchterm` 建構以定義特定欄位的查詢作業，其中的欄位是單字，搜尋字詞也是單字或片語，並選擇性使用布林運算子。 某些範例包括以下內容：  
 
--   genre:jazz NOT history  
+- genre:jazz NOT history  
 
--   artists:("Miles Davis" "John Coltrane")
+- artists:("Miles Davis" "John Coltrane")
 
- 如果您想要將字串視為單一實體評估，請務必將多個字串放在引號中，就此案例而言，即搜尋 `artists` 欄位中的兩個不同藝人。  
+  如果您想要將字串視為單一實體評估，請務必將多個字串放在引號中，就此案例而言，即搜尋 `artists` 欄位中的兩個不同藝人。  
 
- `fieldname:searchterm` 中指定的欄位必須是 `searchable` 欄位。  如需欄位定義中索引屬性使用方式的詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)。  
+  `fieldname:searchterm` 中指定的欄位必須是 `searchable` 欄位。  如需欄位定義中索引屬性使用方式的詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)。  
 
 ##  <a name="bkmk_fuzzy"></a>模糊搜尋  
  模糊搜尋會尋找具有類似建構的相符項目。 在每個 [Lucene 文件](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)中，模糊搜尋以 [Damerau-Levenshtein 距離](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)為基礎。  
@@ -165,7 +165,7 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a>萬用字元和 regex 查詢的評分
  Azure 搜尋服務對文字查詢會使用以頻率為基礎的評分 ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))。 不過，針對字詞範圍可能很廣泛的萬用字元和 regex 查詢，則會忽略頻率因素，以防止罕見字詞的相符項目誤獲較高的排名。 系統對於萬用字元和 regex 搜尋的所有相符項目，會同等視之。
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
 
 + [搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [篩選和排序的 OData 運算式語法](query-odata-filter-orderby-syntax.md)   

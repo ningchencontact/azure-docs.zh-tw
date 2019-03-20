@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: da24c437a1dbe8744579cd26ee1348f50c4815ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563978"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884739"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集
 
@@ -32,7 +32,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 
 建議對應是一個應用程式搭配一個命名空間。 在命名空間內，您可以有一個生產中樞來與生產應用程式搭配運作，以及一個測試中樞來與測試應用程式搭配運作，依此類推。
 
-### <a name="what-is-the-price-model-for-notification-hubs"></a>「通知中樞」的價格模式為何？
+### <a name="what-is-the-price-model-for-notification-hubs"></a>通知中心的价格模型有哪些？
 
 如需最新的價格詳細資訊，請參閱[通知中樞價格]頁面。 通知中樞會以命名空間層級計費。 (如需命名空間的定義，請參閱＜什麼是通知中樞的資源結構？＞) 通知中樞提供三個層級︰
 
@@ -74,7 +74,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 
 ## <a name="design-and-development"></a>設計與開發
 
-### <a name="which-server-side-platforms-do-you-support"></a>支援哪些伺服器端平台？
+### <a name="which-server-side-platforms-do-you-support"></a>支持哪些服务器端平台？
 
 伺服器 SDK 適用於 .NET、Java、Node.js、PHP 和 Python。 通知中樞 API 是以 REST 介面為根據，因此如果您要使用不同平台或不想要額外的相依性，則可以直接使用 REST API。 如需詳細資訊，請移至[通知中樞 REST API]頁面。
 
@@ -118,7 +118,7 @@ PNS 不保證任何傳送通知的 SLA。 不過，大部分的推播通知皆�
 > [!NOTE]
 > Azure 通知中樞有一個原則，可捨棄無法在 30 分鐘內傳送到 PNS 的任何推播通知。 發生此延遲的原因有數種，但最常見的原因是 PNS 正在為您的應用程式進行節流處理。
 
-### <a name="is-there-any-latency-guarantee"></a>是否有任何延遲保證？
+### <a name="is-there-any-latency-guarantee"></a>是否有任何延迟保证？
 
 因為推播通知的本質 (由外部平台特定 PNS 所傳送)，我們無法提供延遲保證。 一般而言，大部分的推播通知會在數分鐘內傳送到目標裝置。
 
@@ -129,7 +129,7 @@ PNS 不保證任何傳送通知的 SLA。 不過，大部分的推播通知皆�
 * 每個環境的每個行動裝置應用程式都使用一個通知中樞。
 * 在多租用戶案例中，每個租用戶都應該有個別的中樞。
 * 絕對不要在生產和測試環境中共用相同的通知中樞。 這種做法可能會在傳送通知時造成問題。 (Apple 提供「沙箱」與「生產推播」端點，而這兩者有個別的認證。)
-* 根據預設，您可以透過 Azure 入口網站或 Visual Studio 中的 Azure 整合式元件，傳送測試通知到已註冊的裝置。 臨界值會設定為從註冊集區中隨機選取的 10 個裝置。
+* 根據預設，您可以透過 Azure 入口網站或 Visual Studio 中的 Azure 整合式元件，傳送測試通知到已註冊的裝置。 阈值设置为从注册池中随机选取的 10 个设备。
 
 > [!NOTE]
 > 如果您的中樞原本是使用 Apple 沙箱憑證設定，然後重新設定為使用 Apple 生產憑證，則原本的裝置權杖會變得無效。 無效的權杖會造成推播失敗。 請將生產與測試環境分開，並針對不同的環境使用不同的中樞。
@@ -155,7 +155,7 @@ PNS 不保證任何傳送通知的 SLA。 不過，大部分的推播通知皆�
 
 如果您必須在建立註冊前進行驗證，則從應用程式後端註冊較為實用。 而且當您必須基於應用程式邏輯，讓應用程式後端建立或修改標籤時，這些註冊也十分實用。 如需詳細資訊，請移至[後端註冊指引]與[後端註冊指引 2] 頁面。
 
-### <a name="what-is-the-push-notification-delivery-security-model"></a>什麼是推播通知傳送資訊安全模型？
+### <a name="what-is-the-push-notification-delivery-security-model"></a>什么是推送通知传递安全模型？
 
 Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 型資訊安全模型。 您可以在根命名空間層級或更細微的通知中樞層級使用共用存取簽章權杖。 共用存取簽章權杖可設定為依循不同授權規則，例如傳送訊息權限或接聽通知權限。 如需詳細資訊，請參閱[通知中樞資訊安全模型]文件。
 
@@ -198,7 +198,7 @@ Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-sh
 
 ## <a name="monitoring-and-troubleshooting"></a>監視與疑難排解
 
-### <a name="what-troubleshooting-capabilities-are-available"></a>可用的疑難排解功能有哪些？
+### <a name="what-troubleshooting-capabilities-are-available"></a>故障排除功能有哪些？
 
 Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨棄通知的最常見案例中。 如需詳細資訊，請參閱[通知中樞疑難排解]技術白皮書。
 
@@ -206,30 +206,34 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 
 您可透過 Azure 通知中樞，在 [Azure 入口網站]中檢視遙測資料。 您可以在[通知中樞計量]頁面上取得計量的詳細資料。
 
+您可以也以程式設計方式存取計量。 如需詳細資訊，請參閱下列文章：
+
+- [擷取使用.NET 的 Azure 監視器計量](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)。 此範例會使用使用者名稱和密碼。 若要使用的憑證，方法多載 FromServicePrincipal 提供憑證，如中所示[本例](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)。 
+- [取得資源的計量和活動記錄檔](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Azure 監視 REST API 逐步解說](../azure-monitor/platform/rest-api-walkthrough.md)
+
+
 > [!NOTE]
 > 成功通知就是表示推播通知已傳送到外部 PNS (例如 Apple 的 APNS 或 Google 的 FCM)。 PNS 負責將通知傳送至目標裝置。 PNS 通常不會向第三方公開計量。  
 
-我們還提供以程式設計方式匯出遙測資料的功能 (在標準層中)。 如需詳細資訊，請參閱[通知中樞計量範例]。
-
 [Azure 入口網站]: https://portal.azure.com
-[通知中樞價格]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
+[通知中樞價格]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [案例研究：Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [案例研究：Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [案例研究：Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [案例研究：Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [案例研究：7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [通知中樞 REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[通知中樞入門教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Chrome 應用程式教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[通知中樞入門教學課程]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Chrome 應用程式教學課程]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [後端註冊指引]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [後端註冊指引 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [通知中樞資訊安全模型]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[通知中樞安全推播教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[通知中樞疑難排解]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[通知中樞安全推播教學課程]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[通知中樞疑難排解]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [通知中樞計量]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[通知中樞計量範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [註冊匯出/匯入]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure 入口網站]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

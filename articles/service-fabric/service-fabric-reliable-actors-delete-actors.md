@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: d6ac5ea79ed1eb47bc71a520761050889fe6edd8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ab6f8740ec1955078c6acbd9cb362a25a89e4bda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887386"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>刪除 Reliable Actors 及其狀態
 已停用動作項目的記憶體回收只會清除動作項目物件；但不會移除動作項目的狀態管理員中儲存的資料。 重新啟用動作項目後，會再次透過狀態管理員提供其資料。 在動作項目將資料儲存於狀態管理員後停用，而永遠不會重新啟用的情況下，可能需要清除其資料。
@@ -47,7 +47,7 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 
 * **作用中動作項目**
   * 動作項目會從作用中動作項目清單中移除並且停用。
-  * 其狀態會永久刪除。
+  * 该执行组件的状态会被永久删除。
 * **非作用中動作項目**
   * 其狀態會永久刪除。
 
@@ -57,10 +57,10 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 * [動作項目計時器和提醒](service-fabric-reliable-actors-timers-reminders.md)
 * [動作項目事件](service-fabric-reliable-actors-events.md)
 * [動作項目重新進入](service-fabric-reliable-actors-reentrancy.md)
-* [動作項目診斷與效能監視](service-fabric-reliable-actors-diagnostics.md)
+* [执行组件诊断和性能监视](service-fabric-reliable-actors-diagnostics.md)
 * [動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# 範例程式碼 (英文)](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java 範例程式碼 (英文)](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [C# 示例代码](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java 範例程式碼 (英文)](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

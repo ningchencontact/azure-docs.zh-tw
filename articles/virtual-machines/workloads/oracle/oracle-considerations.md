@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 50e5dfa21cf7a8f7203e7d96640e3cf5215130a6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 945ba9b2ba4dbc22941ca6b105417f591f2dd837
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012754"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure 上的 Oracle 解決方案及其部署
 本文涵蓋在 Microsoft Azure 上成功部署各種 Oracle 解決方案的必要資訊。 這些解決方案以 Oracle 在 Azure Marketplace 中發佈的虛擬機器映像為基礎。 若要取得目前可用的映像清單，請執行下列命令：
@@ -43,7 +43,7 @@ Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux
 Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2  12.1.2
 ```
 
-系統會將這些映像視為「自備授權」，因此您只會支付執行 VM 產生的計算成本、儲存成本和網路成本。  其假設您已取得使用 Oracle 軟體的適當授權，且與 Oracle 之間已擁有支援合約。 Oracle 已保證從內部部署至 Azure 的授權行動性。 如需有關授權行動性的詳細資訊，請參閱已發佈的 [Oracle 和 Microsoft](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) (英文) 附註。 
+系統會將這些映像視為「自備授權」，因此您只會支付執行 VM 產生的計算成本、儲存成本和網路成本。  其假設您已取得使用 Oracle 軟體的適當授權，且與 Oracle 之間已擁有支援合約。 Oracle 已保證從內部部署至 Azure 的授權行動性。 如需有關授權行動性的詳細資訊，請參閱已發佈的 [Oracle 和 Microsoft](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) (英文) 附註。 
 
 個人也可以選擇將其在 Azure 中從頭建立的自訂映像，或從內部部署環境上傳的自訂映像作為解決方案的基礎。
 
@@ -55,7 +55,7 @@ Oracle 支援在以 Oracle Linux 為基礎的虛擬機器映像上，在 Azure �
 
 ### <a name="attached-disk-configuration-options"></a>連接的磁碟組態選項
 
-連接的磁碟依賴 Azure Blob 儲存體服務。 理論上每個標準磁碟最多都能達約每秒 500 輸入/輸出作業 (IOPS)。 我們的進階磁碟供應項目十分適用於高效能資料庫工作附載，且可達到每部磁碟最多 5000 IOPS。 如果一個磁碟就能符合您的效能需求，則您可以僅使用單一磁碟，然而，透過使用多個連結的磁碟，並將資料庫資料分散至其間，然後使用 Oracle Automatic Storage Management (ASM)，通常就能改善有效的 IOPS 效能。 如需有關 Oracle ASM 的特定詳細資訊，請參閱 [Oracle Automatic Storage 概觀](http://www.oracle.com/technetwork/database/index-100339.html) (英文)。 如需如何在 Linux Azure VM 上安裝和設定 Oracle ASM 的範例，您可以嘗試[安裝和設定 Oracle Automatic Storage Management](configure-oracle-asm.md) 教學課程。
+附加磁盘依赖于 Azure Blob 存储服务。 理論上每個標準磁碟最多都能達約每秒 500 輸入/輸出作業 (IOPS)。 我們的進階磁碟供應項目十分適用於高效能資料庫工作附載，且可達到每部磁碟最多 5000 IOPS。 如果一個磁碟就能符合您的效能需求，則您可以僅使用單一磁碟，然而，透過使用多個連結的磁碟，並將資料庫資料分散至其間，然後使用 Oracle Automatic Storage Management (ASM)，通常就能改善有效的 IOPS 效能。 如需有關 Oracle ASM 的特定詳細資訊，請參閱 [Oracle Automatic Storage 概觀](https://www.oracle.com/technetwork/database/index-100339.html) (英文)。 如需如何在 Linux Azure VM 上安裝和設定 Oracle ASM 的範例，您可以嘗試[安裝和設定 Oracle Automatic Storage Management](configure-oracle-asm.md) 教學課程。
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
 Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單一節點錯誤的機率。 它依賴以下兩個內部部署技術，而這兩個技術並非大規模公用雲端環境的原生技術︰網路多點傳送和共用磁碟。 若您的資料庫解決方案需要位在 Azure 中的 Oracle RAC，則您會需要第三方軟體才能啟用這些技術。 如需 Oracle RAC 的詳細資訊，請參閱 [FlashGrid 解決方案頁面](https://www.flashgrid.io/oracle-rac-in-azure/)。
@@ -63,11 +63,11 @@ Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>高可用性和災害復原考量
 在 Azure 中使用 Oracle 資料庫時，您必須負責實作高可用性和災害復原解決方案，以避免任何停機。 
 
-在 Azure 上可以使用 [Data Guard、Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 或 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate) 來達成 Oracle Database Enterprise Edition 的高可用性和災害復原 (不需倚賴 Oracle RAC)，且兩個資料庫位於兩個不同的虛擬機器上。 這兩個虛擬機器應該位於相同的[虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續私人 IP 位址互相存取。  此外，建議您將虛擬機器放置於相同的可用性設定組，讓 Azure 將其放置於不同的容錯網域和升級網域。  如果您想要擁有異地備援，您可以讓這兩個資料庫在兩個不同的區域之間進行複寫，並透過 VPN 閘道連接兩個執行個體。
+在 Azure 上可以使用 [Data Guard、Active Data Guard](https://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 或 [Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate) 來達成 Oracle Database Enterprise Edition 的高可用性和災害復原 (不需倚賴 Oracle RAC)，且兩個資料庫位於兩個不同的虛擬機器上。 這兩個虛擬機器應該位於相同的[虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續私人 IP 位址互相存取。  此外，建議您將虛擬機器放置於相同的可用性設定組，讓 Azure 將其放置於不同的容錯網域和升級網域。  如果您想要擁有異地備援，您可以讓這兩個資料庫在兩個不同的區域之間進行複寫，並透過 VPN 閘道連接兩個執行個體。
 
 我們的教學課程「[在 Azure 上實作 Oracle DataGuard](configure-oracle-dataguard.md)」會引導您完成在 Azure 上試用此實作的基本安裝程序。  
 
-使用 Oracle Data Guard，可以藉由某個虛擬機器中的主要資料庫、另一個虛擬機器中的次要 (待命) 資料庫以及它們之間的單向複寫設定，達到高可用性。 這樣讀取作業存取的會是資料庫的複本。 使用 Oracle GoldenGate，您則可以設定兩個資料庫之間的雙向複寫。 若要了解如何使用這些工具為資料庫設定高可用性解決方案，請參閱 Oracle 網站上的 [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 和 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 文件 (英文)。 如需資料庫複本的讀取-寫入存取權，您可以使用 [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)。
+使用 Oracle Data Guard，可以藉由某個虛擬機器中的主要資料庫、另一個虛擬機器中的次要 (待命) 資料庫以及它們之間的單向複寫設定，達到高可用性。 這樣讀取作業存取的會是資料庫的複本。 使用 Oracle GoldenGate，您則可以設定兩個資料庫之間的雙向複寫。 若要了解如何使用這些工具為資料庫設定高可用性解決方案，請參閱 Oracle 網站上的 [Active Data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 和 [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) 文件 (英文)。 如需資料庫複本的讀取-寫入存取權，您可以使用 [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)。
 
 我們的教學課程「[在 Azure 上實作 Oracle GoldenGate](configure-oracle-golden-gate.md)」會引導您完成在 Azure 上試用此實作的基本安裝程序。
 
@@ -75,7 +75,7 @@ Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Oracle WebLogic Server 虛擬機器映像
 * **只有在 Enterprise Edition 上才支援叢集。**  只有當您使用的是 WebLogic Server Enterprise Edition 時，才會獲授權使用 WebLogic 叢集。 請勿在使用 WebLogic Server Standard Edition 時使用叢集。
-* **不支援 UDP 多點傳送。**  Azure 支援 UDP 單點傳播，但不支援多點傳送或廣播。 WebLogic Server 可以依賴 Azure 的 UDP 單點傳播功能。 若要依賴 UDP 單點傳播獲得最佳結果，建議 WebLogic 叢集大小保持靜態，或叢集中保持不超過 10 個受控伺服器。
+* **不支援 UDP 多點傳送。**  Azure 支援 UDP 單點傳播，但不支援多點傳送或廣播。 WebLogic Server 能够依赖于 Azure 的 UDP 单播功能。 若要依賴 UDP 單點傳播獲得最佳結果，建議 WebLogic 叢集大小保持靜態，或叢集中保持不超過 10 個受控伺服器。
 * **WebLogic Server 預期針對 T3 存取的公用和私人連接埠是相同的 (例如，使用 Enterprise JavaBeans 時)。** 請考慮使用多層式案例，其中服務層 (EJB) 應用程式會在 WebLogic Server 叢集上執行，而該叢集包含兩個或多個 VM，且都位於名為 **SLWLS** 的 vNet 中。 用戶端層位於相同 vNet 中的不同子網路，並執行簡單的 Java 程式，嘗試呼叫服務層中的 EJB。 由於負載平衡服務層是必要動作，所以必須先為 WebLogic Server 叢集中的虛擬機器建立公用負載平衡端點。 如果您指定的私人連接埠與公用連接埠不同 (例如，7006:7008)，則會發生下列錯誤：
 
        [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
@@ -91,7 +91,7 @@ Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單
 
          -Dweblogic.rjvm.enableprotocolswitch=true
 
-如需相關資訊，請參閱位於 <http://support.oracle.com> 的 KB 文章 **860340.1**。
+如需相關資訊，請參閱位於 <https://support.oracle.com> 的 KB 文章 **860340.1**。
 
 * **動態叢集和負載平衡限制。**  假設您想要在 WebLogic Server 中使用動態叢集，並透過 Azure 中的單一、公用負載平衡端點將它公開。 做法是只要您使用各個受控伺服器的固定連接埠號碼 (不是從範圍動態指派)，且不要啟動比系統管理員正在追蹤之機器的數量還多的受控伺服器 (也就是每台虛擬機器不超過一個受控伺服器)。 若您的設定會導致啟動的 WebLogic 伺服器多於可用的虛擬機器 (也就是多個 WebLogic Server 執行個體共用相同的虛擬機器)，則那些 WebLogic 伺服器執行個體中只有一個可以繫結到指定的連接埠號碼，該虛擬機器上的其他執行個體則會失敗。
 

@@ -4,17 +4,17 @@ description: 了解「Azure 原則」如何使用「來賓設定」來稽核 Azu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da29065485438b402dfb8b9a41f95f435a172a01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854478"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187654"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -64,7 +64,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ### <a name="validation-frequency"></a>驗證頻率
 
-「來賓設定」用戶端會每隔 5 分鐘檢查一次是否有新內容。 一旦收到來賓指派，系統便會每隔 15 分鐘檢查一次設定。 稽核完成後，系統會立即將結果傳送給來賓設定資源提供者。 發生原則[評估觸發程序](../how-to/get-compliance-data.md#evaluation-triggers)時，系統會將機器的狀態寫入到來賓設定資源提供者。 此事件會致使 Azure 原則來評估 Azure 資源管理員屬性。 隨選原則評估會從來賓設定資源提供者擷取最新的值。 不過，該評估不會對虛擬機器內的設定觸發新的稽核作業。
+「來賓設定」用戶端會每隔 5 分鐘檢查一次是否有新內容。 一旦收到來賓指派，系統便會每隔 15 分鐘檢查一次設定。 稽核完成後，系統會立即將結果傳送給來賓設定資源提供者。 發生原則[評估觸發程序](../how-to/get-compliance-data.md#evaluation-triggers)時，系統會將機器的狀態寫入到來賓設定資源提供者。 這會導致 Azure 原則評估 Azure Resource Manager 屬性。 隨選原則評估會從來賓設定資源提供者擷取最新的值。 不過，該評估不會對虛擬機器內的設定觸發新的稽核作業。
 
 ### <a name="supported-client-types"></a>支援的用戶端類型
 
@@ -74,22 +74,18 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 |-|-|-|
 |Canonical|Ubuntu Server|14.04、16.04、18.04|
 |Credativ|Debian|8、9|
-|Microsoft|Windows Server|2012 Datacenter、2012 R2 Datacenter、2016 Datacenter|
+|Microsoft|Windows Server|2012 Datacenter、 2012 R2 Datacenter、 2016年資料中心、 2019年資料中心|
+|Microsoft|Windows 用戶端|Windows 10|
 |OpenLogic|CentOS|7.3、7.4、7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4、7.5|
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Guest 設定可以稽核任何執行受支援的作業系統的伺服器。  如果您想要稽核伺服器使用自訂映像，您需要重複**DeployIfNotExists**定義及修改**如果**節，以加入您的映像屬性。
+> Guest 設定可以稽核執行受支援的作業系統的節點。  如果您想要稽核使用自訂映像的虛擬機器，您需要重複**DeployIfNotExists**定義及修改**如果**節，以加入您的映像屬性。
 
 ### <a name="unsupported-client-types"></a>不支援的用戶端類型
 
-下表列出不支援的作業系統：
-
-|作業系統|注意|
-|-|-|
-|Windows 用戶端 | 不支援用戶端作業系統 (例如 Windows 7 和 Windows 10)。
-|Windows Server 2016 Nano Server | 不支援。|
+Windows Server Nano Server 不支援任何版本。
 
 ### <a name="guest-configuration-extension-network-requirements"></a>Guest 設定的擴充功能的網路需求
 
@@ -123,8 +119,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 > [!NOTE]
 > 每個「來賓設定」定義都必須有 **DeployIfNotExists** 和 **Audit** 原則定義。
 
-「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 內建 *[預覽]:稽核在 Linux 和 Windows 虛擬機器內的密碼安全性設定*計劃包含 18 的原則。 有六個**DeployIfNotExists**並**稽核**Windows 和適用於 Linux 的三個組的原則定義組。
-分別**DeployIfNotExists** [原則定義規則](definition-structure.md#policy-rule)限制評估系統。
+「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 *[預覽] 的內建計劃：Linux 及 Windows 虛擬機器內的「稽核密碼」安全性設定*包含 18 項原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **Audit**，針對 Linux 則有 3 組。 在每個案例中，定義內的邏輯僅會驗證依據[原則規則](definition-structure.md#policy-rule)定義進行評估的目標作業系統。
 
 ## <a name="client-log-files"></a>用戶端記錄檔
 
@@ -134,12 +129,19 @@ Windows：`C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWind
 
 Linux：`/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
 
+## <a name="guest-configuration-samples"></a>Guest 設定範例
+
+針對原則 Guest 設定的範例可在下列位置：
+
+- [範例索引-來賓設定](../samples/index.md#guest-configuration)
+- [Azure 原則範例的 GitHub 存放庫](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)。
+
 ## <a name="next-steps"></a>後續步驟
 
-- 在 [Azure 原則範例](../samples/index.md)檢閱範例
-- 檢閱[原則定義結構](definition-structure.md)
-- 檢閱[了解原則效果](effects.md)
-- 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)
-- 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)
-- 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)
-- 檢閱[使用 Azure 管理群組來組織資源](../../management-groups/index.md)，以了解何謂管理群組
+- 檢閱範例[「 Azure 原則範例](../samples/index.md)。
+- 檢閱[原則定義結構](definition-structure.md)。
+- 檢閱[了解原則效果](effects.md)。
+- 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)。
+- 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
+- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/index.md)。
