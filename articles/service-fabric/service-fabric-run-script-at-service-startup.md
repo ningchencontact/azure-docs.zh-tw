@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: caca931806aed7e1868c126d4629073bcea4b900
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 3ae43f7427996f8be15b22fec4406bbdfe8aa4fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098607"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838437"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>以本機使用者或系統帳戶身分執行服務啟動指令碼
 在 Service Fabric 服務可執行檔啟動之前，可能需要執行一些設定或安裝工作。  例如，設定環境變數。 您可以在服務可執行檔於服務的服務資訊清單中啟動之前，指定要執行的指令碼。 藉由設定服務安裝程式進入點的 RunAs 原則，您可以變更安裝程式的可執行檔要在哪一個帳戶下執行。  個別的安裝程式進入點可讓您在短時間內執行高權限設定，因此，服務主機的可執行檔不需要長時間使用高權限來執行。
@@ -34,8 +34,8 @@ ms.locfileid: "55098607"
 <ServiceManifest Name="MyStatelessServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest.</Description>
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="MyStatelessServiceType" />
@@ -74,7 +74,7 @@ ms.locfileid: "55098607"
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -113,7 +113,7 @@ ms.locfileid: "55098607"
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -147,7 +147,7 @@ ms.locfileid: "55098607"
 
 在 Visual Studio 中，以滑鼠右鍵按一下服務專案，並新增名為 *MySetup.bat* 的新檔案。
 
-接下來，確定 *MySetup.bat* 檔案已包含於服務套件中。 預設不會包含該檔案。 選取該檔案、以滑鼠右鍵按一下操作功能表，然後選擇 [屬性] 。 在 [屬性] 對話方塊中，確定已將 [複製到輸出目錄] 設為 [有更新時才複製]。 請參閱下列螢幕擷取畫面。
+接下來，確定 *MySetup.bat* 檔案已包含於服務套件中。 預設不會包含該檔案。 選取該檔案、以滑鼠右鍵按一下操作功能表，然後選擇 [屬性] 。 在 [屬性] 對話方塊中，確定已將 [複製到輸出目錄] 設為 [有更新時才複製]。 请参阅下面的屏幕截图。
 
 ![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][image1]
 
@@ -185,7 +185,7 @@ MySetup.bat 可啟動 PowerShell 檔案：
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ```
 
-在 PowerShell 檔案中，加入以下項目來設定系統環境變數：
+在 PowerShell 文件中，添加以下内容来设置系统环境变量：
 
 ```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")

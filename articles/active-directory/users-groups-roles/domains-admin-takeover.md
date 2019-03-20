@@ -1,5 +1,5 @@
 ---
-title: 接管非受控目錄 - 系統管理員 - Azure Active Directory | Microsoft Docs
+title: 系統管理員身分接管非受控目錄-Azure Active Directory |Microsoft Docs
 description: 如何接管 Azure Active Directory 之非受控目錄 (影子租用戶) 中的 DNS 網域名稱。
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f166555e2f21ed38e78e659ec181c2d5d90d6bf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202481"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
+
 本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>決定要如何接管非受控目錄
@@ -42,7 +43,7 @@ ms.locfileid: "57886995"
 
 3. 在來自 Power BI 的確認電子郵件中，選取 [是，這是我]。
 
-4. 使用 Power BI 使用者帳戶來登入 [Office 365 系統管理中心](https://portal.office.com/admintakeover)。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
+4. 登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)與 Power BI 使用者帳戶。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
   
    ![[成為管理員] 的第一個螢幕擷取畫面](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -56,10 +57,10 @@ ms.locfileid: "57886995"
 
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>將網域名稱新增至 Azure AD 中的受控租用戶
 
-1. 開啟 [Office 365 系統管理中心](https://portal.office.com/admintakeover)。
+1. 開啟[Microsoft 365 系統管理中心](https://admin.microsoft.com)。
 2. 選取 **使用者**索引標籤，然後建立新的使用者帳戶的名稱，例如*使用者\@fourthcoffeexyz.onmicrosoft.com* ，不會使用自訂網域名稱。 
 3. 確定新使用者帳戶具有 Azure AD 租用戶的全域管理員權限。
-4. 在「Office 365 系統管理中心」中開啟 [網域] 索引標籤，選取網域名稱，然後選取 [移除]。 
+4. 開啟**網域**索引標籤上的 Microsoft 365 系統管理中心中，選取的網域名稱，然後選取**移除**。 
   
    ![從 Office 365 移除網域名稱](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
@@ -69,7 +70,7 @@ ms.locfileid: "57886995"
   
 7. 選取 [自訂網域名稱]，然後新增網域名稱。 您將必須輸入 DNS TXT 記錄來驗證網域名稱擁有權。 
   
-   ![新增至 Azure AD 的網域](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![驗證為已加入 Azure AD 網域](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
 > 如果將網域名稱移除，任何 Power BI 或 Azure Rights Management 服務使用者只要在 Office 365 租用戶中已獲指派授權，就必須儲存其儀表板。 他們必須登入使用者名稱，例如*使用者\@fourthcoffeexyz.onmicrosoft.com*而非*使用者\@fourthcoffee.xyz*。
@@ -132,7 +133,7 @@ Cmdlet | 使用量
 ### <a name="powershell-example"></a>PowerShell 範例
 
 1. 使用用來回應自助式供應項目的認證來連接至 Azure AD：
-   ```
+   ```powershell
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
@@ -140,11 +141,11 @@ Cmdlet | 使用量
    ```
 2. 取得網域清單：
   
-   ```
+   ```powershell
     Get-MsolDomain
    ```
 3. 執行 Get-MsolDomainVerificationDns Cmdlet 以建立挑戰：
-   ```
+   ```powershell
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
@@ -153,25 +154,26 @@ Cmdlet | 使用量
    ```
 
 4. 複製從此命令傳回的值 (挑戰)。 例如︰
-   ```
+   ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. 在公用 DNS 命名空間中，建立 DNS txt 記錄，其中包含您在上一個步驟中複製的值。 此記錄的名稱是父系網域的名稱，因此如果您使用 Windows Server 的 DNS 角色來建立此資源記錄，請將記錄名稱留白，而只要將此值貼到文字方塊中即可。
 6. 執行 onfirm-MsolDomain Cmdlet 來驗證挑戰：
   
-   ```
+   ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
    例如︰
   
-   ```
+   ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
    ```
 
 成功挑戰會讓您回到提示，但不會產生錯誤。
 
 ## <a name="next-steps"></a>後續步驟
+
 * [將自訂網域名稱新增到 Azure AD](../fundamentals/add-custom-domain.md)
 * [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)

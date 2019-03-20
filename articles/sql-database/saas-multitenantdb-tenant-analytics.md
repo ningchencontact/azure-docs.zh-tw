@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 5de707f3f2e6a82d880363eea91fb8ce644fb3aa
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: 340c08841b7bedc9f2453617aeff111beb810961
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888173"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>使用擷取的資料執行跨租用戶分析 - 多租用戶應用程式
  
@@ -94,7 +94,7 @@ ms.locfileid: "47055032"
     - 若要使用具有資料行存放區的 SQL 資料庫，請設定 **$DemoScenario** = **3**  
 3. 按 **F5** 以執行可建立租用戶分析存放區的示範指令碼 (它會呼叫 Deploy-TenantAnalytics<XX>.ps1 指令碼)。 
 
-您已經部署應用程式，並且使用感興趣的租用戶資料填入，請使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 來連線 **tenants1-mt-\<User\>** 和 **catalog-mt-\<User\>** 伺服器，使用登入 = developer，密碼 = P@ssword1。
+既然您已部署應用程式，並填入感興趣的租用戶資料，使用[SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)連接**tenants1-mt-\<使用者\>** 和**目錄-mt-\<使用者\>** 伺服器，使用登入 =*開發人員*，密碼 = *P\@ssword1*。
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -176,7 +176,7 @@ ms.locfileid: "47055032"
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. 在左窗格中選取 [資料庫]，然後輸入使用者名稱 = developer，輸入密碼 = P@ssword1。 按一下 [ **連接**]。  
+5. 選取 **資料庫**的左窗格中，然後輸入使用者名稱 =*開發人員*，然後輸入密碼 = *P\@ssword1*。 按一下 [ **連接**]。  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

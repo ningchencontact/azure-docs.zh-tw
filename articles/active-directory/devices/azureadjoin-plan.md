@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a299c5cf59a3c5b7a994303c9d85783ecfbb424
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b681915eb3ad9960f335d46508b857fa6ec2e20
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201885"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551767"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>作法：規劃 Azure AD 聯結實作
 
@@ -40,7 +40,7 @@ Azure AD Join 可讓您直接將裝置加入 Azure AD，而不需要加入內部
 
 ## <a name="plan-your-implementation"></a>計劃您的實作
 
-若要規劃您的混合式 Azure AD 實作，您應該熟悉：
+若要規劃您的 Azure AD 聯結實作，您應該熟悉：
 
 |   |   |
 |---|---|
@@ -237,11 +237,11 @@ Azure AD Join：
  
 ||自助式設定|Windows Autopilot|大量註冊|
 |---|---|---|---|
-|需要使用者手動設定|yes|是|否|
-|需要 IT 工作|否|yes|yes|
+|需要使用者手動設定|是|是|否|
+|需要 IT 工作|否|yes|是|
 |適用的流程|OOBE 和設定|僅限 OOBE|僅限 OOBE|
 |主要使用者的本機管理員權限|是，依照預設|可設定|否|
-|需要裝置 OEM 支援|否|yes|否|
+|需要裝置 OEM 支援|否|是|否|
 |支援的版本|1511+|1709+|1703+|
  
 請檢閱上表，並檢閱下列有關於採用任一方法的考量，選擇您的一或多個部署方法：  

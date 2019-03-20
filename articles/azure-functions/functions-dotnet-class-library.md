@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994544"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111475"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
 
@@ -50,7 +50,7 @@ Azure Functions 支援 C# 和 C# 指令碼程式設計語言。 如果您需要[
  | - host.json
 ```
 
-此目錄會部署至 Azure 中的函數應用程式。 Functions 執行階段[版本 2.x](functions-versions.md) 中所需之繫結延伸模組會[以 NuGet 封裝形式新增至專案](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017)。
+此目錄會部署至 Azure 中的函數應用程式。 Functions 執行階段[版本 2.x](functions-versions.md) 中所需之繫結延伸模組會[以 NuGet 封裝形式新增至專案](./functions-bindings-register.md#c-class-library-with-visual-studio-2017)。
 
 > [!IMPORTANT]
 > 建置流程會為每個函式都建立 function.json 檔案。 這個 function.json 檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 若要了解如何停用函式，請參閱[如何停用函式](disable-function.md#functions-2x---c-class-libraries)。
@@ -83,7 +83,7 @@ public static class SimpleExample
 * 以屬性修飾來加以標示的[輸入與輸出繫結](functions-triggers-bindings.md)。  
 * 適用於[記錄](#logging)的 `ILogger` 或 `TraceWriter` ([僅限 1.x 版](functions-versions.md#creating-1x-apps)) 參數。
 * 用於[正常關機](#cancellation-tokens)的 `CancellationToken` 參數。
-* 取得觸發程序中繼資料的[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)參數。
+* 取得觸發程序中繼資料的[繫結運算式](./functions-bindings-expressions-patterns.md)參數。
 
 函式簽章中的參數順序不重要。 例如，您可以將觸發程序參數放在其他繫結之前或之後，且可以將記錄器參數放在觸發程序或繫結參數之前或之後。
 
@@ -173,7 +173,7 @@ Functions 執行階段的 1.x 版和 2.x 版都是使用同一個套件。 1.x �
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netstandard2.0</TargetFramework>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
   <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
@@ -205,7 +205,7 @@ Visual Studio 會使用 [Azure Functions Core Tools](functions-run-local.md#inst
 
 ## <a name="binding-to-method-return-value"></a>繫結至方法傳回值
 
-您可以將方法傳回值用於輸出繫結，方法是將屬性套用至方法傳回值。 如需範例，請參閱[觸發程序和繫結](functions-triggers-bindings.md#using-the-function-return-value)。 
+您可以將方法傳回值用於輸出繫結，方法是將屬性套用至方法傳回值。 如需範例，請參閱[觸發程序和繫結](./functions-bindings-return-value.md)。 
 
 唯有成功的函式執行一律導致傳回值傳遞至輸出繫結時，才使用此傳回值。 否則，使用 `ICollector` 或 `IAsyncCollector`，如下一節所示。
 

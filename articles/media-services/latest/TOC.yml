@@ -74,7 +74,8 @@ items:
         href: filters-concept.md
     - name: 內容保護
       items:
-      - name: 概觀
+      - name: 串流通訊協定和加密類型
+        displayName: Dynamic encryption
         href: content-protection-overview.md
       - name: 多 DRM 系統與存取控制
         href: design-multi-drm-system-with-access-control.md
@@ -105,6 +106,7 @@ items:
     - name: 建議的即時編碼器
       href: recommended-on-premises-live-encoders.md
     - name: 使用雲端 DVR
+      displayName: archive
       href: live-event-cloud-dvr.md
     - name: 功能比較
       href: live-event-types-comparison.md
@@ -165,9 +167,14 @@ items:
     - name: 本機檔案即作業輸入 - .NET
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md
-    - name: 使用自訂轉換 - .NET
-      displayName: encode, encoding, tranform
-      href: customize-encoder-presets-how-to.md
+    - name: 使用自訂轉換進行編碼
+      items:
+      - name: 透過 .NET
+        href: customize-encoder-presets-how-to.md
+      - name: 透過 CLI
+        href: custom-preset-cli-howto.md
+      - name: 透過 REST
+        href: custom-preset-rest-howto.md
   - name: 使用事件方格
     items:
     - name: 監視事件 - 入口網站
@@ -250,9 +257,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure 雲端和區域
     href: azure-clouds-regions.md
-ms.openlocfilehash: 5a25312b9a66bcde3523735046ed1df6661f7c61
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f67429869b07eba8deafec29189b6784a0eae9db
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187705"

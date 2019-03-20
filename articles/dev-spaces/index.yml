@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4ad9de80a77d054ef723d9ed5bd53e410c653baa
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 5fc027e52d838a85e7b880e3dd0daf4438e850dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851986"
 documentType: LandingData
 title: Azure 開發人員空間
 metadata:
@@ -25,7 +25,7 @@ sections:
     text: >-
       > [!IMPORTANT]
 
-      > Azure Dev Spaces 目前處於預覽狀態，且僅有**美國東部**、**美國東部 2**、**美國中部****美國西部 2**、**西歐**、**東南亞**、**加拿大中部**和**加拿大東部**區域的 AKS 叢集提供支援。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+      > Azure Dev Spaces 目前處於預覽狀態，且僅有**美國東部**、**美國東部 2**、**美國中部**、**美國西部 2**、**歐洲北部**、**歐洲西部**、**東南亞**、**加拿大中部**和**加拿大東部**區域的 AKS 叢集提供支援。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 - title: 開始使用 Azure Dev Spaces
   items:
   - type: paragraph

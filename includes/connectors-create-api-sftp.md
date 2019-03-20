@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>先決條件
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: d249a205c64f4e067f2d81c7e1068c8ad9756958
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58114516"
+---
+### <a name="prerequisites"></a>必要條件
 * [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) 帳戶  
 
 您必須先授權邏輯應用程式連線到您的 SFTP 帳戶，才能在該邏輯應用程式中使用您的 SFTP 帳戶。 所幸，您可以使用 Azure 入口網站在邏輯應用程式內輕易達成這項作業。  

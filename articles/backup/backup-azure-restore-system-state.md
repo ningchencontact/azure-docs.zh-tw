@@ -8,20 +8,20 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 031b3096d919eb3faadf907f0d30e15d8d8fb5e5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310246"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122955"
 ---
 # <a name="restore-system-state-to-windows-server"></a>將系統狀態還原到 Windows Server
 
 本文說明如何從 Azure 復原服務保存庫來還原 Windows Server 系統狀態備份。 若要還原系統狀態，您必須有系統狀態備份 (使用[備份系統狀態](backup-azure-system-state.md#back-up-windows-server-system-state)中的指示所建立)，並確定您已安裝[最新版的 Microsoft Azure 復原服務 (MARS) 代理程式](https://aka.ms/azurebackup_agent)。 從 Azure 復原服務保存庫來復原 Windows Server 系統狀態資料的程序需要兩個步驟：
 
 1. 從 Azure 備份來還原檔案形式的系統狀態。 在從 Azure 備份來還原檔案形式的系統狀態時，您可以：
-  * 將系統狀態還原到進行備份時所在的相同伺服器，或
-  * 將系統狀態檔案還原到替代伺服器。
+   * 將系統狀態還原到進行備份時所在的相同伺服器，或
+   * 將系統狀態檔案還原到替代伺服器。
 
 2. 將還原的系統狀態檔案套用到 Windows Server。
 
@@ -47,7 +47,7 @@ ms.locfileid: "56310246"
 
 5. 在 [選取磁碟區和日期] 窗格的行事曆上，選取復原點。 
 
-    您可以從任何時間的復原點還原。 **粗體**的日期表示至少有一個復原點可用。 一旦您選取一個日期，如果有多個復原點可用，您可以從 [時間] 下拉式功能表選擇特定的復原點。
+    您可以從任何時間的復原點還原。 以 **粗体** 显示的日期表示至少有一个可用的恢复点。 一旦您選取一個日期，如果有多個復原點可用，您可以從 [時間] 下拉式功能表選擇特定的復原點。
 
     ![磁碟區和日期](./media/backup-azure-restore-system-state/select-date.png)
 

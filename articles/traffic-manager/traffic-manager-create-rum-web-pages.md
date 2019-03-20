@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: d6b669f5baae13f9fb57c5c58060e70a8f871e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117263"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>如何使用網頁將實際使用者度量傳送給 Azure 流量管理員
 
@@ -34,7 +34,7 @@ ms.locfileid: "54232000"
 3. 在流量管理員設定檔刀鋒視窗上，按一下 [設定] 底下的 [實際使用者度量]。
 4. 按一下 [產生金鑰] 以建立新的 RUM 金鑰。
  
-  ![產生實際使用者度量金鑰](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![產生實際使用者度量金鑰](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **圖 1：實際使用者度量金鑰產生**
 
@@ -44,7 +44,7 @@ ms.locfileid: "54232000"
 
     **圖 2：實際使用者度量金鑰和度量 JavaScript**
  
-6.  按一下 [複製] 按鈕以複製 JavaScript 程式碼。 
+6. 按一下 [複製] 按鈕以複製 JavaScript 程式碼。 
 
 >[!IMPORTANT]
 > 針對「實際使用者度量」功能使用產生的 JavaScript，讓功能正常運作。 對這個指令碼或實際使用者度量使用的指令碼所做的任何變更，都可能會導致無法預期的行為。

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: gregman
-ms.openlocfilehash: 7ff7671425e2a2a5dbebe2d09cadb8ef71bc7c97
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5b3dcb3abad071cb5d079d6c740cc09e2577a363
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116413"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虛擬機器上執行 Azure IoT Edge
 
@@ -22,7 +22,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 若要深入了解 IoT Edge 執行階段的運作方式，以及會包含哪些元件，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。
 
-本文會列出使用預先設定的 [Ubuntu Azure Marketplace 上的 Azure IoT Edge 供應項目](http://aka.ms/azure-iot-edge-ubuntuvm)，在 Ubuntu 16.04 虛擬機器上執行 Azure IoT Edge 執行階段的步驟。 
+本文會列出使用預先設定的 [Ubuntu Azure Marketplace 上的 Azure IoT Edge 供應項目](https://aka.ms/azure-iot-edge-ubuntuvm)，在 Ubuntu 16.04 虛擬機器上執行 Azure IoT Edge 執行階段的步驟。 
 
 在第一次開機時，Ubuntu VM 上的 Azure IoT Edge 會預先安裝最新版本的 Azure IoT Edge 執行階段。 它也包含指令碼，用以設定連接字串然後重新啟動執行階段，可以透過 Azure VM 入口網站或 Azure 命令列遠端觸發，讓您輕鬆地設定及連線 IoT Edge 裝置，不需要啟動 SSH 或遠端桌面工作階段。 此指令碼會等候 IoT Edge 用戶端完整安裝，然後才會設定連接字串，讓您不需要將其建置到您的自動化。
 
@@ -45,48 +45,48 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 從 Azure 入口網站搜尋 “Azure IoT Edge”，然後選取 **Ubuntu Server 16.04 LTS + Azure IoT Edge 執行階段**以開始 VM 建立工作流程。 從該處完成上述「從 Azure Marketplace 部署」指示的步驟 3 和 4。
 
 ## <a name="deploy-from-azure-cli"></a>從 Azure CLI 進行部署
-1.  如果這是您第一次從 CLI 部署虛擬機器，您必須為您的 Azure 訂用帳戶啟用程式設計部署：
-    1. 開啟 [Ubuntu 上的 Azure IoT Edge](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace 供應項目
-    1. 選取 [立即取得]，然後在後續對話方塊中選取 [繼續]
-    1. 選取 [想要以程式設計方式部署嗎？開始使用]，位於入口網站內對話方塊的底部
-    1. 按一下 [設定程式設計部署] 頁面中的 [啟用]，然後按一下 [儲存]
-1.  如果您在桌面上使用 Azure CLI，從登入下列位置開始：
+1. 如果這是您第一次從 CLI 部署虛擬機器，您必須為您的 Azure 訂用帳戶啟用程式設計部署：
+   1. 開啟 [Ubuntu 上的 Azure IoT Edge](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace 供應項目
+   1. 選取 [立即取得]，然後在後續對話方塊中選取 [繼續]
+   1. 選取 [想要以程式設計方式部署嗎？開始使用]，位於入口網站內對話方塊的底部
+   1. 按一下 [設定程式設計部署] 頁面中的 [啟用]，然後按一下 [儲存]
+1. 如果您在桌面上使用 Azure CLI，從登入下列位置開始：
 
-    ```azurecli-interactive
-    az login
-    ```
+   ```azurecli-interactive
+   az login
+   ```
     
-1.  如果您有多個訂用帳戶，請選取想要使用的訂用帳戶：
-    1.  列出您的訂用帳戶：
+1. 如果您有多個訂用帳戶，請選取想要使用的訂用帳戶：
+   1. 列出您的訂用帳戶：
     
-       ```azurecli-interactive
-       azure account list --output table
-       ```
+      ```azurecli-interactive
+      az account list --output table
+      ```
     
-    1.  複製想要使用的訂用帳戶 SubscriptionID 欄位
-    1.  使用您剛才複製的識別碼來執行此命令：
+   1. 複製想要使用的訂用帳戶 SubscriptionID 欄位
+   1. 使用您剛才複製的識別碼來執行此命令：
     
-       ```azurecli-interactive 
-       az account set -s {SubscriptionId}
-       ```
+      ```azurecli-interactive 
+      az account set -s {SubscriptionId}
+      ```
     
-1.  建立新的資源群組 (或在下一個步驟中指定現有的資源群組)：
+1. 建立新的資源群組 (或在下一個步驟中指定現有的資源群組)：
 
-    ```azurecli-interactive
-    az group create --name IoTEdgeResources --location westus2
-    ```
+   ```azurecli-interactive
+   az group create --name IoTEdgeResources --location westus2
+   ```
     
-1.  建立新的虛擬機器：
+1. 建立新的虛擬機器：
 
-    ```azurecli-interactive
-    az vm create --resource-group IoTEdgeResources --name EdgeVM –image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
-    ```
+   ```azurecli-interactive
+   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   ```
 
-1.  設定裝置連接字串 (如果您還未熟悉這個程序，可以遵循[使用 Azure CLI 註冊新的 Azure IoT Edge 裝置](how-to-register-device-cli.md)操作指南)：
+1. 設定裝置連接字串 (如果您還未熟悉這個程序，可以遵循[使用 Azure CLI 註冊新的 Azure IoT Edge 裝置](how-to-register-device-cli.md)操作指南)：
 
-    ```azurecli-interactive
-    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
-    ```
+   ```azurecli-interactive
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   ```
 
 如果您想要在設定之後使用 SSH 連線到這個 VM，請使用 publicIpAddress 與命令：`ssh azureuser@{publicIpAddress}`
 

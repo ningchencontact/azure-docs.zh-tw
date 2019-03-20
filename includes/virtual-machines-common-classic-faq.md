@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: bc3590e90cacfa4966f0d1f64aa1c8d49483cb1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264273"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "58114615"
 ---
 本文可解決以傳統部署模型建立之 Azure 虛擬機器的一些使用者常見問題。
 
@@ -19,14 +19,14 @@ ms.locfileid: "51264273"
 * [使用 Azure PowerShell 從傳統移轉至 Azure Resource Manager](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md)。
 * [使用 Azure CLI 從傳統移轉至 Azure Resource Manager](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)。
 
-## <a name="what-can-i-run-on-an-azure-vm"></a>我可以在 Azure VM 上執行什麼？
-所有的訂閱者都可以在 Azure 虛擬機器上執行伺服器軟體。 您可以執行最新版本的 Windows Server，以及各種 Linux 散發套件。 如需支援的詳細資料，請參閱：
+## <a name="what-can-i-run-on-an-azure-vm"></a>我可以在 Azure VM 上运行什么程序？
+所有订户都可以在 Azure 虚拟机上运行服务器软件。 您可以執行最新版本的 Windows Server，以及各種 Linux 散發套件。 如需支援的詳細資料，請參閱：
 
 • 針對 Windows VM -- [Azure 虛擬機器的 Microsoft 伺服器軟體支援](https://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • 針對 Linux VM -- [Azure 背書之散發套件上的 Linux](https://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-針對 Windows 用戶端映像，特定版本的 Windows 7 和 Windows 8.1 可供 MSDN Azure 權益訂閱者和 MSDN 開發與測試隨用隨付訂閱者 (針對開發與測試工作) 使用。 如需詳細資訊 (包括指示和限制)，請參閱 [MSDN 訂閱者的 Windows 用戶端映像](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)。
+針對 Windows 用戶端映像，特定版本的 Windows 7 和 Windows 8.1 可供 MSDN Azure 權益訂閱者和 MSDN 開發與測試隨用隨付訂閱者 (針對開發與測試工作) 使用。 有关详细信息（包括说明和限制），请参阅 [Windows Client images for MSDN subscribers（适用于 MSDN 订户的 Windows 客户端映像）](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)。
 
 ## <a name="why-are-affinity-groups-being-deprecated"></a>為何同質群組遭到取代？
 同質群組是舊的概念，可依地理位置將 Azure 內的客戶雲端服務部署和儲存體帳戶進行分組。 一開始提供它們的目的在於改善早期 Azure 網路設計中的 VM 到 VM 網路效能。 它們也支援初版的虛擬網路 (VNet)，而這只限於區域中的一小組硬體。
@@ -74,7 +74,7 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。 如果您想要在 Azure 中�
 如果您熟悉 Hyper-V，您可能正在尋找類似 VMConnect 的工具。 Azure 沒有提供類似的工具，因為並不支援主控台存取虛擬機器。
 
 ## <a name="can-i-use-the-temporary-disk-the-d-drive-for-windows-or-devsdb1-for-linux-to-store-data"></a>我可以使用 D: 磁碟機 (Windows) 或 /dev/sdb1 (Linux) 來儲存資料嗎？
-您不應使用 D: 磁碟機 (Windows) 或 /dev/sdb1 (Linux)。 它們僅提供暫存空間，因此您會有遺失資料且無法復原的風險。 當虛擬機器移動到不同的主機時就可能發生這種情況。 可能要移動虛擬機器的一些原因是調整虛擬機器的大小、更新主機，或主機上的硬體故障等等。
+您不應使用 D: 磁碟機 (Windows) 或 /dev/sdb1 (Linux)。 它們僅提供暫存空間，因此您會有遺失資料且無法復原的風險。 當虛擬機器移動到不同的主機時就可能發生這種情況。 调整虚拟机大小，更新主机和主机硬件故障都是需要迁移动虚拟机的原因。
 
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>如何變更暫存磁碟的磁碟機代號？
 在 Windows 虛擬機器上，您可以透過移動分頁檔並重新指派磁碟機代號來變更磁碟機代號，但您必須確定以特定的順序執行這些步驟。 如需相關指示，請參閱 [變更 Windows 暫存磁碟的磁碟機代號](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
@@ -136,5 +136,5 @@ Azure 有時會重新啟動您的 VM，這是 Azure 資料中心中定期、計�
 
 [使用 Azure CLI 來建立和管理 Linux VM](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[使用 Azure PowerShell 建立和管理 Windows VM](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[建立和管理使用 Azure PowerShell 的 Windows Vm](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

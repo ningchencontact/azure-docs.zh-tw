@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
-ms.openlocfilehash: 67aced11d885be949e7e7dc14ba7aa59e903716a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 22cab5f22eccabf9176d777b1e3a3356cbf37c4f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467844"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534230"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch Management 解決方案
 
@@ -34,7 +34,7 @@ Batch 管理 .NET 程式庫會公開使用 Batch 帳戶、帳戶金鑰、應用�
 
 ## <a name="register-your-application-with-azure-ad"></a>向 Azure AD 註冊您的應用程式
 
-Azure [Active Directory Authentication Library][aad_adal] (ADAL) 為 Azure AD 提供程式設計介面以供您的應用程式使用。 若要從您的應用程式呼叫 ADAL，您必須在 Azure AD 租用戶中註冊您的應用程式。 當您註冊應用程式時，要提供 Azure AD 有關您應用程式的資訊，包括 Azure AD 租用戶內的名稱。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的應用程式識別碼。 若要深入了解應用程式識別碼，請參閱[Azure Active Directory 中的應用程式物件和服務主體物件之間的關聯性討論](../active-directory/develop/app-objects-and-service-principals.md)。
+Azure [Active Directory Authentication Library][aad_adal] (ADAL) 為 Azure AD 提供程式設計介面以供您的應用程式使用。 若要從您的應用程式呼叫 ADAL，您必須在 Azure AD 租用戶中註冊您的應用程式。 當您註冊應用程式時，要提供 Azure AD 有關您應用程式的資訊，包括 Azure AD 租用戶內的名稱。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的應用程式識別碼。 若要详细信息应用程序 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。
 
 若要註冊 AccountManagement 範例應用程式，遵循[整合應用程式與 Azure Active Directory][aad_integrate] 之[新增應用程式](../active-directory/develop/quickstart-v1-add-azure-ad-app.md)一節中的步驟。 指定 [原生用戶端應用程式] 作為應用程式類型。 適用於**重新導向 URI** 的業界標準 OAuth 2.0 URI 是 `urn:ietf:wg:oauth:2.0:oob`。 不過，您可以針對**重新導向 URI** 指定任何有效的 URI (例如 `http://myaccountmanagementsample`)，因為它不需要是實際的端點：
 
@@ -127,7 +127,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 如需執行 [AccountManagement 範例應用程式][acct_mgmt_sample]的相關資訊，請參閱[使用適用於 .NET 的 Batch 管理用戶端程式庫來管理 Batch 帳戶和配額](batch-management-dotnet.md)。
 
-若要深入了解 Azure AD，請參閱 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory/)。 [Azure 程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)程式庫中有深入的範例示範如何使用 ADAL。
+有关 Azure AD 的详细信息，请阅读 [Azure Active Directory 文档](https://docs.microsoft.com/azure/active-directory/)。 [Azure 程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)程式庫中有深入的範例示範如何使用 ADAL。
 
 若要使用 Azure AD 驗證 Batch 服務應用程式，請參閱[使用 Active Directory 驗證 Batch 服務解決方案](batch-aad-auth.md)。 
 
@@ -137,5 +137,5 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD 的驗證案例"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "整合應用程式與 Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
-[azure_portal]: http://portal.azure.com
+[azure_portal]: https://portal.azure.com
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md

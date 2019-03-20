@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226700"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58115916"
 ---
 ## <a name="using-vm-extensions"></a>使用 VM 擴充功能
 Azure VM 延伸模組會實作行為或功能，以協助其他程式在 Azure VM 上運作 (例如， **WebDeployForVSDevTest** 延伸模組可讓 Visual Studio 在您的 Azure VM 上進行 Web 部署解決方案)，或是讓您能夠與 VM 互動以支援一些其他行為 (例如，您可以使用 PowerShell 的 VM 存取延伸模組、Azure CLI 和 REST 用戶端，來重設或修改 Azure VM 上的遠端存取值)。
@@ -19,14 +19,14 @@ Azure VM 延伸模組會實作行為或功能，以協助其他程式在 Azure V
 > 
 > 
 
-最常見的工作如下：
+最常见的任务是：
 
 1. 尋找可用的擴充功能
 2. 更新已載入的擴充功能
 3. 加入擴充功能
 4. 移除擴充功能
 
-## <a name="find-available-extensions"></a>尋找可用的擴充功能
+## <a name="find-available-extensions"></a>查找可用扩展
 您可以使用下列各項找到擴充功能和其他資訊：
 
 * PowerShell
@@ -36,7 +36,7 @@ Azure VM 延伸模組會實作行為或功能，以協助其他程式在 Azure V
 ### <a name="azure-powershell"></a>Azure PowerShell
 有些擴充功能有特有的 PowerShell Cmdlet，這可能會使其更容易從 PowerShell 進行設定。但下列 Cmdlet 適用於所有的 VM 擴充功能。
 
-您可以使用下列 Cmdlet 來取得可用擴充功能的相關資訊：
+可以使用以下 cmdlet 获取有关可用扩展的信息：
 
 * 針對 Web 角色或背景工作角色的執行個體，您可以使用 [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) Cmdlet。
 * 針對虛擬機器的執行個體，您可以使用 [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) Cmdlet。

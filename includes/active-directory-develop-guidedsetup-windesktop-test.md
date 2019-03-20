@@ -4,7 +4,7 @@ description: 包含檔案
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58214269"
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
 
@@ -41,11 +41,11 @@ ms.locfileid: "50035378"
 
 登入之後，您應該會看到 Microsoft Graph API 呼叫所傳回的使用者設定檔資訊。 結果即會顯示於 [API 呼叫結果] 方塊中。 在 [權杖資訊] 方塊中，應該顯示透過呼叫 `AcquireTokenAsync` 或 `AcquireTokenSilentAsync` 取得的權杖基本資訊。 結果包含下列屬性：
 
-|屬性  |格式  |說明 |
+|屬性  |格式  |描述 |
 |---------|---------|---------|
 |**名稱** |使用者的全名 |使用者的名字和姓氏。|
 |**使用者名稱** |<span>user@domain.com</span> |用來識別使用者的使用者名稱。|
-|**權杖到期** |Datetime |權杖的到期時間。 MSAL 會視需要更新權杖來延展到期日。|
+|**權杖到期** |DateTime |權杖的到期時間。 MSAL 會視需要更新權杖來延展到期日。|
 |**存取權杖** |字串 |傳送至 HTTP 要求的權杖字串需要授權標頭。|
 
 <!--start-collapse-->

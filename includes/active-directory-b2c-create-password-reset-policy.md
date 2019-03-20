@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742337"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58115371"
 ---
 若要在您的應用程式上啟用更細緻的密碼重設，您可使用**密碼重設**使用者流程。 請注意，[這裡](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md)包含租用戶密碼重設的所有選項。 此使用者流程描述客戶在密碼重設期間將經歷的體驗，以及成功完成時，應用程式將收到的權杖內容。
 

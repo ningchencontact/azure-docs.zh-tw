@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e773986d11a11c6cc84df367aa48ac1b01a9183e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157117"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121497"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>在 Azure 入口網站中管理 StorSimple 資料管理員服務
 
@@ -46,19 +46,19 @@ ms.locfileid: "54157117"
 
 3. 對於新的服務，請指定下列項目：
 
-    1. 為您的 StorSimple 資料管理員提供唯一的 [服務名稱]。 這是可以用來識別服務的易記名稱。 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 名稱必須以字母或數字為開頭或結尾。
+   1. 為您的 StorSimple 資料管理員提供唯一的 [服務名稱]。 這是可以用來識別服務的易記名稱。 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 名稱必須以字母或數字為開頭或結尾。
 
-    2. 從下拉式清單中選擇 [訂用帳戶]。 訂用帳戶會連結到您的帳單帳戶。 如果您只有一個訂用帳戶，此欄位會自動填入該訂用帳戶 (且無法供您選取)。
+   2. 從下拉式清單中選擇 [訂用帳戶]。 訂用帳戶會連結到您的帳單帳戶。 如果您只有一個訂用帳戶，此欄位會自動填入該訂用帳戶 (且無法供您選取)。
 
-    3. 選取現有資源群組或建立新的群組。 如需詳細資訊，請參閱 [Azure 資源群組](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)。
+   3. 選取現有資源群組或建立新的群組。 如需詳細資訊，請參閱 [Azure 資源群組](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)。
 
-    4. 為您的服務指定 [位置]，以供存放您的儲存體帳戶和 StorSimple 資料管理員服務。 StorSimple 裝置管理員服務、資料管理員服務和相關聯的儲存體帳戶應該全都位於支援的區域內。
+   4. 為您的服務指定 [位置]，以供存放您的儲存體帳戶和 StorSimple 資料管理員服務。 StorSimple 裝置管理員服務、資料管理員服務和相關聯的儲存體帳戶應該全都位於支援的區域內。
     
-    5. 若要在儀表板上取得此服務的連結，請選取 [釘選到儀表板]。
+   5. 若要在儀表板上取得此服務的連結，請選取 [釘選到儀表板]。
     
-    6. 按一下頁面底部的 [新增] 。
+   6. 按一下頁面底部的 [新增] 。
 
-    ![建立 StorSimple 資料管理員服務 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![建立 StorSimple 資料管理員服務 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
 服務建立需要幾分鐘的時間。 成功建立服務之後，您將會看到通知，且新的服務隨即顯示出來。
 
@@ -88,33 +88,33 @@ ms.locfileid: "54157117"
 
     ![新增資料存放庫](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-    1. 選擇 [StorSimple 8000 系列管理員] 作為資料存放庫類型。
+   1. 選擇 [StorSimple 8000 系列管理員] 作為資料存放庫類型。
     
-    2. 為來源資料存放庫輸入易記名稱。
+   2. 為來源資料存放庫輸入易記名稱。
     
-    3. 從下拉式清單中，選擇與 StorSimple 裝置管理員服務相關聯的訂用帳戶。
+   3. 從下拉式清單中，選擇與 StorSimple 裝置管理員服務相關聯的訂用帳戶。
     
-    4. 在 [資源] 中提供 StorSimple 裝置管理員的名稱。
+   4. 在 [資源] 中提供 StorSimple 裝置管理員的名稱。
 
-    5. 輸入 StorSimple 裝置管理員服務的 [服務資料加密金鑰]。 
+   5. 輸入 StorSimple 裝置管理員服務的 [服務資料加密金鑰]。 
 
-    ![設定來源資料存放庫 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![設定來源資料存放庫 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-    完成時按一下 [確定]。 這會儲存您的資料存放庫。 在其他作業定義中重複使用此 StorSimple 裝置管理員，而不需重新輸入這些參數。 按一下 [確定] 後，只要幾秒鐘的時間，新建立的來源資料存放庫就會出現在下拉式清單中。
+      完成時按一下 [確定]。 這會儲存您的資料存放庫。 在其他作業定義中重複使用此 StorSimple 裝置管理員，而不需重新輸入這些參數。 按一下 [確定] 後，只要幾秒鐘的時間，新建立的來源資料存放庫就會出現在下拉式清單中。
 
 7. 從 [資料存放庫] 的下拉式清單中，選取您建立的資料存放庫。 
 
-    1. 輸入包含感興趣資料的 StorSimple 8000 系列裝置名稱。
+   1. 輸入包含感興趣資料的 StorSimple 8000 系列裝置名稱。
 
-    2. 指定感興趣資料所在之 StorSimple 裝置上的磁碟區名稱。
+   2. 指定感興趣資料所在之 StorSimple 裝置上的磁碟區名稱。
 
-    3. 在 [篩選] 子區段中，以 \MyRootDirectory\Data 格式輸入感興趣資料所在的根目錄。 系統不支援 \C:\Data 之類的磁碟機代號。 您也可以在這裡新增任何檔案篩選。
+   3. 在 [篩選] 子區段中，以 \MyRootDirectory\Data 格式輸入感興趣資料所在的根目錄。 系統不支援 \C:\Data 之類的磁碟機代號。 您也可以在這裡新增任何檔案篩選。
 
-    4. 資料轉換服務會處理透過快照推送至 Azure 的資料。 執行此作業時，您可以選擇在每次執行此作業 (以處理最新資料) 時進行備份，或使用雲端中存在的最新備份 (如果您要處理一些封存資料)。
+   4. 資料轉換服務會處理透過快照推送至 Azure 的資料。 執行此作業時，您可以選擇在每次執行此作業 (以處理最新資料) 時進行備份，或使用雲端中存在的最新備份 (如果您要處理一些封存資料)。
 
-    5. 按一下 [確定]。
+   5. 按一下 [確定]。
 
-    ![設定來源資料存放庫 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![設定來源資料存放庫 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
 8. 接下來，必須設定目標資料存放庫。 選擇儲存體帳戶，將檔案放入該帳戶中的 blob。 在下拉式清單中，選取 [新增]，然後選取 [進行設定]。
 

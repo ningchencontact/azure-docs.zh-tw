@@ -7,14 +7,14 @@ manager: shivamg
 keywords: 項目層級復原；從 Azure VM 備份檔案復原；從 Azure VM 中還原檔案
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2018
-ms.author: pvrk
-ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.date: 3/01/2019
+ms.author: pullabhk
+ms.openlocfilehash: 25c78e4050f1f5fdb02500fa1f206f6cf05e7134
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488487"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111951"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -29,7 +29,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
 若要從復原點還原檔案或資料夾，請移至虛擬機器，然後選擇所需的復原點。
 
-1. 登入 [Azure 入口網站](http://portal.Azure.com)，按一下左窗格中的 [虛擬機器]。 從虛擬機器的清單中，選取虛擬機器以開啟該虛擬機器的儀表板。
+1. 登入 [Azure 入口網站](https://portal.Azure.com)，按一下左窗格中的 [虛擬機器]。 從虛擬機器的清單中，選取虛擬機器以開啟該虛擬機器的儀表板。
 
 2. 在虛擬機器的功能表中，按一下 [備份] 來開啟 [備份] 儀表板。
 
@@ -73,11 +73,17 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
         - <https://pod01-rec2.geo-name.backup.windowsazure.de> (適用於 Azure 德國)
     - 輸出連接埠 3260
 
-    若為 Linux，指令碼需要 'open-iscsi' 和 'lshw' 元件來連接到復原點。 如果元件不存在於執行指令碼的電腦上，則指令碼會要求安裝元件的權限。 同意安裝必要的元件。
+> [!Note]
+> 
+> * 將已下載的指令碼檔案名稱**地理名稱**要填入在 URL 中。 針對例如：下載的指令碼名稱開頭\'VMname\'\_\'geoname\'_\'GUID\'，例如 ContosoVM_wcus_12345678...<br><br>
+> * URL 會是"<https://pod01-rec2.wcus.backup.windowsazure.com>」
 
-    需有 download.microsoft.com 的存取權才能下載元件，並用這些元件在執行指令碼的機器及復原點中的資料之間建立安全通道。
 
-    您可以在任何具有與備份 VM 相的 (或相容) 作業系統的電腦上執行指令碼。 請參閱[相容作業系統資料表](backup-azure-restore-files-from-vm.md#system-requirements)以查看相容的作業系統。 如果受保護的 Azure 虛擬機器使用 Windows 儲存空間 (適用於 Windows Azure 虛擬機器) 或 LVM/RAID 陣列 (適用於 Linux 虛擬機器)，則您無法在同一部虛擬機器上執行可執行檔或指令碼。 請改為在其他具有相容作業系統的電腦上執行可執行或指令碼。
+   若為 Linux，指令碼需要 'open-iscsi' 和 'lshw' 元件來連接到復原點。 如果元件不存在於執行指令碼的電腦上，則指令碼會要求安裝元件的權限。 同意安裝必要的元件。
+
+   需有 download.microsoft.com 的存取權才能下載元件，並用這些元件在執行指令碼的機器及復原點中的資料之間建立安全通道。
+
+   您可以在任何具有與備份 VM 相的 (或相容) 作業系統的電腦上執行指令碼。 請參閱[相容作業系統資料表](backup-azure-restore-files-from-vm.md#system-requirements)以查看相容的作業系統。 如果受保護的 Azure 虛擬機器使用 Windows 儲存空間 (適用於 Windows Azure 虛擬機器) 或 LVM/RAID 陣列 (適用於 Linux 虛擬機器)，則您無法在同一部虛擬機器上執行可執行檔或指令碼。 請改為在其他具有相容作業系統的電腦上執行可執行或指令碼。
 
 ### <a name="identifying-volumes"></a>識別磁碟區
 
@@ -92,7 +98,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 在 Linux 中，復原點的磁碟區會掛接到執行指令碼的資料夾。 連結的磁碟、磁碟區和對應的掛接路徑會相應顯示。 具有根層級存取權的使用者都看得到這些掛接路徑。 在指令碼輸出中瀏覽所述的磁碟區。
 
   ![Linux [檔案復原] 功能表](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
-  
+
 ## <a name="closing-the-connection"></a>關閉連線
 
 在識別檔案並將它們複製到本機儲存體位置之後，移除 (或卸載) 其他磁碟機。 若要卸載磁碟機，請在 Azure 入口網站的 [檔案復原] 功能表中，按一下 [卸載磁碟]。
@@ -103,14 +109,14 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
 在 Linux 中，復原點的連線嚴重損毀之後，作業系統並不會自動移除對應的掛接路徑。 這些掛接路徑會以「孤立」磁碟區的形式存在。雖然您看得見，但是存取/寫入檔案時會擲回錯誤。 可以手動移除它們。 指令碼執行時，會從任何先前的復原點識別任何這類現有的磁碟區，並在同意下將它們清除。
 
-## <a name="special-configurations"></a>特殊的組態
+## <a name="special-configurations"></a>特殊配置
 
 ### <a name="dynamic-disks"></a>動態磁碟
 
 如果受保護 Azure VM 具有下列之一或兩者特性的磁碟區，則您無法在同一部 VM 上執行可執行的指令碼。
 
-    - 跨多個磁碟的磁碟區 (合併或等量磁碟區)
-    - 動態磁碟上的容錯磁碟區 (鏡像與 RAID-5 磁碟區)
+- 跨多個磁碟的磁碟區 (合併或等量磁碟區)
+- 動態磁碟上的容錯磁碟區 (鏡像與 RAID-5 磁碟區)
 
 請改為在其他具有相容作業系統的電腦上執行可執行的指令碼。
 
@@ -200,6 +206,11 @@ $ mount [RAID Disk Path] [/mountpath]
 | SLES | 12 以上 (含) |
 | openSUSE | 42.2 和更新版本 |
 
+> [!Note]
+> 我們在 SLES 12 SP4 os 的機器上執行檔案復原指令碼發現一些問題。 調查與 SLES 小組。
+> 目前，執行檔案復原指令碼正在使用 SLES 12 SP2 和 SP3 OS 版本的機器。
+>
+
 指令碼也需要 Python 和 Bash 元件，才能夠執行並安全地連線至復原點。
 
 |元件 | 版本  |
@@ -221,3 +232,41 @@ $ mount [RAID Disk Path] [/mountpath]
 | Exe 輸出：指令碼成功執行，但指令碼輸出上不會顯示「附加的新磁碟區」 |    這是暫時性的錯誤    | 磁碟區可能已經附加。 開啟檔案總管以瀏覽。 如果您每次都使用同一部電腦執行指令碼，請考慮重新啟動電腦，清單應該會顯示在後續的 exe 執行。 |
 | Linux 特定︰無法檢視所需的磁碟區 | 執行指令碼所在電腦的作業系統可能無法辨識受保護 VM 的底層檔案系統 | 檢查復原點是否損毀一致還是檔案一致。 如果檔案一致，請在作業系統可辨識受保護 VM 檔案系統的其他電腦上執行指令碼 |
 | Windows 特定︰無法檢視所需的磁碟區 | 已連接磁碟，但未設定磁碟區 | 從 [磁碟管理] 畫面上，找出與復原點相關的其他磁碟。 如果有任何這些磁碟處於離線狀態，請透過在磁碟上按一下滑鼠右鍵並按一下 [上線]，來嘗試使狀態成為上線|
+
+## <a name="security"></a>安全性
+
+本節討論從 Azure VM 備份復原檔案的實作所需的各種安全性措施，這類的使用者了解安全性方面的功能。
+
+### <a name="feature-flow"></a>功能流程
+
+這項功能已內建存取而不需要還原整個 VM 或 VM 的 VM 資料磁碟並在最小的步驟。 VM 資料的存取權提供的指令碼 （掛接復原磁碟區時執行，如下所示），因此它會構成所有安全性實作的基石
+
+  ![安全性功能的流程](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
+
+### <a name="security-implementations"></a>安全性實作
+
+#### <a name="select-recovery-point-who-can-generate-script"></a>選取復原點 （可以產生指令碼）
+
+指令碼會提供存取 VM 資料，務必要管理誰可以在第一時間產生。 其中一個需要登入 Azure 入口網站，而且應該[RBAC 授權](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)能夠產生的指令碼。
+
+檔案復原需要相同的層級，視需要授權的還原 VM 和磁碟還原。 換句話說，只有獲得授權的使用者可以檢視 VM 的資料可以產生指令碼。
+
+官方 Microsoft 憑證簽署產生的指令碼的 Azure 備份服務。 使用指令碼的任何竄改表示簽章會中斷，而且任何嘗試執行指令碼會反白顯示為潛在的風險由 OS。
+
+#### <a name="mount-recovery-volume-who-can-run-script"></a>掛接復原磁碟區 （可以執行指令碼）
+
+只有系統管理員可以執行指令碼，並應該在提高權限模式中執行它。 指令碼只會執行一組預先產生的步驟，並不接受來自任何外部來源的輸入。
+
+若要執行指令碼，其中一個需要只會顯示已獲授權的使用者產生的指令碼時在 Azure 入口網站或 PowerShell/CLI 的密碼。 這是為了確保授權下載指令碼的使用者也會負責執行指令碼。
+
+#### <a name="browse-files-and-folders"></a>瀏覽檔案和資料夾
+
+瀏覽檔案和資料夾，指令碼會在機器中使用的 iSCSI 啟動器，並連接到復原點設定為 iSCSI 目標。 這裡您可以假設的案例，其中會嘗試模擬/詐騙是/全部元件。
+
+我們會使用相互 CHAP 驗證機制，讓每個元件驗證其他。 這表示連線到 iSCSI 目標和假的目標，以便連線到機器指令碼執行所在的假啟動器極為困難。
+
+復原服務與電腦之間的資料流程會受到建置安全的 SSL 通道，透過 TCP ([應該支援 TLS 1.2](#system-requirements)機器執行指令碼中)
+
+存取控制清單 (ACL) 出現在父代/已備份 VM 的任何檔案也保留已掛接的檔案系統中。
+
+指令碼提供唯讀存取權的復原點，並只在 12 小時內無效。 如果使用者想要稍早移除存取權，然後登入 Azure 入口網站/PowerShell/CLI，並執行**取消掛接磁碟**為該特定復原點。 指令碼將會立即失效。

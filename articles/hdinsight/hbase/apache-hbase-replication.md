@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112529"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
@@ -136,7 +136,7 @@ ms.locfileid: "53653810"
     sudo apt-get install bind9 -y
     ```
 
-3. 將 Bind 設定為把名稱解析要求轉送到您的內部 DNS 伺服器。 若要這樣做，請使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
+3. 設定繫結，將名稱解析要求轉送到您內部部署 DNS 伺服器。 若要這樣做，請使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
 
     ```
     acl goodclients {
@@ -288,21 +288,21 @@ sudo service bind9 status
 4. 在頁面的頂端，選取 [提交新項目] 。
 5. 選取或輸入下列資訊︰
 
-  1. **名稱**：輸入**啟用複寫**。
-  2. **Bash 指令碼 URL**：輸入 https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**。
-  3.  **前端**：請務必選取此項目。 清除其他節點類型。
-  4. **參數**：下列範例參數會針對所有現有的資料表啟用複寫，然後將來源叢集的所有資料複製到目的地叢集：
+   1. **名稱**：輸入**啟用複寫**。
+   2. **Bash 指令碼 URL**：輸入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**。
+   3. **前端**：請務必選取此項目。 清除其他節點類型。
+   4. **參數**：下列範例參數會針對所有現有的資料表啟用複寫，然後將來源叢集的所有資料複製到目的地叢集：
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    > [!NOTE]
-    > 針對來源與目的地叢集 DNS 名稱，使用主機名稱而非 FQDN。
+      > [!NOTE]
+      > 針對來源與目的地叢集 DNS 名稱，使用主機名稱而非 FQDN。
 
 6. 選取 [建立] 。 指令碼執行需要花費一些時間，特別是在使用 **-copydata** 引數的情況下。
 
 必要的引數︰
 
-|Name|說明|
+|名稱|描述|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -311,7 +311,7 @@ sudo service bind9 status
 
 選擇性的引數︰
 
-|Name|說明|
+|名稱|描述|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |

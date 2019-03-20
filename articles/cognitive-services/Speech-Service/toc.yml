@@ -5,49 +5,56 @@ items:
   items:
   - name: 什麼是語音服務？
     href: overview.md
-  - name: 免費試用語音服務
-    href: get-started.md
+  - name: 語音轉文字
+    displayName: recognize speech, speech recognition, speech-to-text, stt
+    href: speech-to-text.md
+  - name: 文字轉換語音
+    displayName: synthesize speech, speech synthesis, text-to-speech, tts
+    href: text-to-speech.md
+  - name: 語音翻譯
+    displayName: translate speech, speech translation, translator, s2s, speech to speech
+    href: speech-translation.md
   expanded: true
 - name: 快速入門
   items:
-  - name: SDK
+  - name: 語音 SDK
     items:
-    - name: 辨識語音
+    - name: 語音轉文字
       items:
       - name: C# (.NET Framework Windows)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-csharp-dotnet-windows.md
       - name: C# (.NET Core Windows)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-csharp-dotnetcore-windows.md
       - name: C# (UWP)
-        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform
         href: quickstart-csharp-uwp.md
       - name: C# (Unity)
-        displayName: recognize speech, speech recognition, speech to text, stt, C#, unity 3d, windows, android, universal windows platform, uwp
+        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, unity 3d, windows, android, universal windows platform, uwp
         href: quickstart-csharp-unity.md
       - name: C++ (Windows)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-cpp-windows.md
       - name: C++ (Linux)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-cpp-linux.md
       - name: Java (Android)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-java-android.md
       - name: Java (Windows、Linux)
-        displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
+        displayName: recognize speech, speech recognition, speech-to-text, stt, jre, jvm
         href: quickstart-java-jre.md
       - name: JavaScript (瀏覽器)
         href: quickstart-js-browser.md
       - name: JavaScript (Node.js)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-js-node.md
       - name: Objective-C (iOS)
-        displayName: recognize speech, speech recognition, speech to text, stt, xcode
+        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
         href: quickstart-objectivec-ios.md
       - name: Python
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-python.md
     - name: 翻譯語音
       items:
@@ -56,7 +63,7 @@ items:
       - name: C# (.NET Framework Windows)
         href: quickstart-translate-speech-dotnetframework-windows.md
       - name: C# (UWP)
-        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform
         href: quickstart-translate-speech-uwp.md
       - name: C++ (Windows)
         href: quickstart-translate-speech-cpp-windows.md
@@ -64,7 +71,7 @@ items:
         href: quickstart-translate-speech-java-jre.md
   - name: REST API
     items:
-    - name: 將文字轉換成語音
+    - name: 文字轉換語音
       items:
       - name: C# (.NET Core)
         href: quickstart-dotnet-text-to-speech.md
@@ -77,67 +84,44 @@ items:
     href: speech-devices-sdk-qsg.md
 - name: 教學課程
   items:
-  - name: 辨識語音
-    displayName: recognize speech, speech recognition, speech to text, stt
-    items:
-    - name: C#
-      href: how-to-recognize-speech-csharp.md
-    - name: C++
-      href: how-to-recognize-speech-cpp.md
-    - name: Java
-      href: how-to-recognize-speech-java.md
-    - name: REST
-      href: how-to-recognize-speech-rest.md
-  - name: 從語音識別意圖
+  - name: 以 LUIS 辨識語音意圖 (C#)
     displayName: recognize intent, intent recognition, language understanding service, luis
-    items:
-    - name: C#
-      href: how-to-recognize-intents-from-speech-csharp.md
-    - name: C++
-      href: how-to-recognize-intents-from-speech-cpp.md
-    - name: Java
-      href: how-to-recognize-intents-from-speech-java.md
-  - name: 翻譯語音
-    displayName: translate speech, speech translation, translator, s2s, speech to speech
-    items:
-    - name: C#
-      href: how-to-translate-speech-csharp.md
-    - name: C++
-      href: how-to-translate-speech-cpp.md
-    - name: Java
-      href: how-to-translate-speech-java.md
+    href: how-to-recognize-intents-from-speech-csharp.md
 - name: 使用說明指南
   items:
+  - name: 註冊語音服務
+    href: get-started.md
   - name: 批次轉譯 (REST)
-    displayName: recognize speech, speech recognition, speech to text, stt
+    displayName: recognize speech, speech recognition, speech-to-text, stt
     href: batch-transcription.md
-  - name: 取得語音裝置 SDK
-    displayName: roobo, speech devices sdk, download
-    href: get-speech-devices-sdk.md
-  - name: 自訂
-    items:
-    - name: 自訂原音模型
-      href: how-to-customize-acoustic-models.md
-    - name: 自訂語言模型
-      href: how-to-customize-language-model.md
-    - name: 自訂發音
-      href: how-to-customize-pronunciation.md
-    - name: 建立自訂的語音轉文字端點
-      href: how-to-create-custom-endpoint.md
-    - name: 自訂語音字型 (Bot 品牌聲音)
-      href: how-to-customize-voice-font.md
-    - name: 自訂裝置喚醒字組 (Devices SDK)
-      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
-      href: speech-devices-sdk-create-kws.md
-  - name: 記錄語音範例
-    href: record-custom-voice-samples.md
-  - name: 準備文字記錄
-    href: prepare-transcription.md
-  - name: 使用自訂的音訊串流
+  - name: 使用音訊的輸入資料流 (SDK)
     href: how-to-use-audio-input-streams.md
-  - name: 選取音訊輸入裝置
+  - name: 選取音訊輸入裝置 (SDK)
     displayName: audio, microphone, input, device
     href: how-to-select-audio-input-devices.md
+  - name: 自訂
+    items:
+    - name: 語音轉文字
+      items:
+      - name: 準備用於自訂的文字記錄
+        href: prepare-transcription.md
+      - name: 自訂原音模型
+        href: how-to-customize-acoustic-models.md
+      - name: 自訂語言模型
+        href: how-to-customize-language-model.md
+      - name: 自訂發音
+        href: how-to-customize-pronunciation.md
+      - name: 建立自訂辨識端點
+        href: how-to-create-custom-endpoint.md
+    - name: 文字轉換語音
+      items:
+      - name: 建立語音字型 (Bot 品牌聲音)
+        href: how-to-customize-voice-font.md
+      - name: 記錄語音範例
+        href: record-custom-voice-samples.md
+    - name: 建立自訂喚醒字 (裝置 SDK)
+      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+      href: speech-devices-sdk-create-kws.md
   - name: 移轉
     items:
     - name: 從 Bing 語音
@@ -146,19 +130,56 @@ items:
       href: how-to-migrate-from-custom-speech-service.md
     - name: 從翻譯工具語音 API
       href: how-to-migrate-from-translator-speech-api.md
-- name: 概念
+- name: 範例
   items:
-  - name: 語音轉換文字
-    displayName: recognize speech, speech recognition, speech to text, stt
-    href: speech-to-text.md
-  - name: 文字轉語音
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-    href: text-to-speech.md
-  - name: 語音翻譯
-    displayName: translate speech, speech translation, translator, s2s, speech to speech
-    href: speech-translation.md
+  - name: 語音 SDK
+    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+  - name: 語音裝置 SDK
+    href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+  - name: 文字轉換語音 (REST)
+    href: https://github.com/Azure-Samples/Cognitive-Speech-TTS
+  - name: 批次轉譯 (REST)
+    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch
 - name: 參考
   items:
+  - name: 語音 SDK
+    items:
+    - name: 概觀
+      displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
+      href: speech-sdk.md
+    - name: 版本資訊
+      href: releasenotes.md
+    - name: C++
+      href: https://aka.ms/csspeech/cppref
+    - name: C#
+      href: https://aka.ms/csspeech/csharpref
+    - name: Java/Android
+      href: https://aka.ms/csspeech/javaref
+    - name: Javascript/Node.js
+      href: https://aka.ms/csspeech/javascriptref
+    - name: Objective-C
+      href: https://aka.ms/csspeech/objectivecref
+    - name: Python
+      href: https://aka.ms/csspeech/pythonref
+  - name: 語音裝置 SDK
+    items:
+    - name: 取得語音裝置 SDK
+      href: get-speech-devices-sdk.md#download-the-speech-devices-sdk
+    - name: 版本資訊
+      href: devices-sdk-release-notes.md
+  - name: REST API
+    items:
+    - name: 語音轉文字
+      displayName: speech-to-text, speech recognition
+      href: rest-speech-to-text.md
+    - name: 文字轉換語音
+      displayName: text-to-speech, speech synthesis
+      href: rest-text-to-speech.md
+    - name: 批次轉譯與自訂
+      displayName: Batch transcription, transcription, custom models, customization, model management
+      href: https://westus.cris.ai/swagger/ui/index
+  - name: 語音合成標記語言 (SSML)
+    href: speech-synthesis-markup.md
   - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
@@ -167,41 +188,22 @@ items:
     href: language-support.md
   - name: 區域
     href: regions.md
-  - name: REST API
-    href: rest-apis.md
-  - name: Swagger 參考
-    href: https://westus.cris.ai/swagger/ui/index
-  - name: 語音 SDK API
-    displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
-    href: speech-sdk-reference.md
-  - name: 語音合成標記
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-    href: speech-synthesis-markup.md
 - name: 資源
   items:
   - name: 常見問題集
     items:
-    - name: 語音轉換文字常見問題集
-      displayName: recognize speech, speech recognition, speech to text, stt
+    - name: 語音轉文字
+      displayName: recognize speech, speech recognition, speech-to-text, stt
       href: faq-stt.md
-    - name: 文字轉換語音常見問題集
-      displayName: synthesize speech, speech synthesis, text to speech, tts
+    - name: 文字轉換語音
+      displayName: synthesize speech, speech synthesis, text-to-speech, tts
       href: faq-text-to-speech.md
-    - name: 翻譯工具應用程式
+    - name: 語音翻譯
       displayName: translate speech, speech translation, translator, s2s, speech to speech
       href: https://www.microsoft.com/translator/faq.aspx
-  - name: 語音 SDK
+  - name: 語音 SDK 授權
     displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample
-    href: speech-sdk.md
     items:
-    - name: 下載
-      href: speech-sdk.md#get-the-sdk
-    - name: 範例
-      href: speech-sdk.md#get-the-samples
-    - name: 傳送您的應用程式
-      href: ship-application.md
-    - name: 版本資訊
-      href: releasenotes.md
     - name: 授權
       href: https://aka.ms/csspeech/license201809
     - name: 協力廠商通知
@@ -210,12 +212,6 @@ items:
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk.md
     items:
-    - name: 下載
-      href: get-speech-devices-sdk.md#download-the-speech-devices-sdk
-    - name: 範例
-      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-    - name: 版本資訊
-      href: devices-sdk-release-notes.md
     - name: 授權
       displayName: roobo, speech devices sdk
       href: speech-devices-sdk-license.md
@@ -232,9 +228,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: 隱私權與 Cookie
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 096aab6e2b59f8e6846be6ab1446a190df5e8434
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7ca4d35f9db9368af60971a5af66cc1d2c7faaf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961987"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875799"

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ba332bb0f77dc198abdd76ccf024336788a77a33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c863bc3b0ded0558e052ee3d98586ad815a0cfd
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202736"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Apache Hive 查詢最佳化
 
@@ -196,10 +196,8 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 在本文中，您學到幾種常見的 Hive 查詢最佳化方法。 若要深入了解，請參閱下列文章：
 
 * [在 HDInsight 中使用 Apache Hive](hadoop/hdinsight-use-hive.md)
-* [在 HDInsight 中使用 Apache Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)
-* [在 HDInsight 中使用 Apache Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data.md)
-* [在 HDInsight 的 Apache Hadoop 上使用 Apache Hive 查詢主控台分析感應器資料](hadoop/apache-hive-analyze-sensor-data.md)
-* [使用 HDInsight 上的 Apache Hive 分析網站的記錄](hadoop/apache-hive-analyze-website-log.md)
+* [在 HDInsight 中使用 Apache Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
+* [在 HDInsight 中使用 Apache Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

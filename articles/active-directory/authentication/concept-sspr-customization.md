@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25af451ac06a7d744e171754db6f4e54cb2156c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 78e15de18e57e949b2e7b7146269204469e61797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106945"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -68,8 +68,8 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 
 * 在使用者輸入其使用者名稱之後
 * 如果使用者存取自訂的 URL，則會透過下列方式：
-    * 藉由傳遞 `whr` 參數到密碼重設頁面，例如 "https://login.microsoftonline.com/?whr=contoso.com"
-    * 藉由傳遞 `username` 參數到密碼重設頁面，例如 "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * 藉由傳遞`whr`參數到密碼重設頁面，例如 `https://login.microsoftonline.com/?whr=contoso.com`
+    * 藉由傳遞`username`參數到密碼重設頁面，例如 `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 如需有關如何設定公司商標的詳細資料，請參閱[將公司商標新增至 Azure AD 中的登入頁面](../fundamentals/customize-branding.md)一文。
 

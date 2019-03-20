@@ -6,12 +6,12 @@ author: ekpgh
 ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: cc1d706ac1749c4655f15948f06b2ff1f360dde3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188115"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Avere vFXT for Azure 白皮書與其他資源 
 
@@ -25,7 +25,7 @@ ms.locfileid: "56246305"
 
 ## <a name="datasheet-avere-vfxt-for-azure"></a>資料表：Avere vFXT for Azure
 
-**連結：**[Avere vFXT for Azure 資料表](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/) \(英文\)
+**連結：**[Avere vFXT for Azure 資料表](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NIlv) \(英文\)
 
 這份兩頁簡介具有能說明如何在數種使用案例下使用 Avere vFXT for Azure 的基礎資訊和圖表。
 

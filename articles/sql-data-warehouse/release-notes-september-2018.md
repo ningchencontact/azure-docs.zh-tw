@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: bd6531bc950e006f15924bb9a0d6428f9e69d544
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863707"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 9 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 9 月導入的新功能和變更。
@@ -99,7 +99,7 @@ Commands completed successfully.
 
 ## <a name="bug-fixes"></a>錯誤修正
 
-| 標題 | 說明 |
+| 標題 | 描述 |
 |:---|:---|
 | **針對唯一條件約束的發行版本建立統計資料時的修正** | 此修正可解決使用者遇到的錯誤，若在只有指定資料表時執行 UPDATE STATISTICS，且資料表定義了唯一條件約束，使用者就會遇到此錯誤。 |
 | **針對外部資料表編譯查詢時的修正** | 此修正可解決會對涉及外部資料表的查詢影響其編譯時間的缺失。|
@@ -112,20 +112,20 @@ Commands completed successfully.
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
-* [部落格]
+* [博客]
 * [功能要求]
-* [影片]
+* [视频]
 * [客戶諮詢小組部落格]
 * [Stack Overflow 論壇]
 * [Twitter]
 
 
-[部落格]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [客戶諮詢小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [客戶成功案例]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [功能要求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow 論壇]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 論壇]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[视频]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

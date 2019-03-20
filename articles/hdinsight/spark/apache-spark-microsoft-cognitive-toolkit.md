@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 093685ff2fa48799f0a91ee25727f5124dec6292
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651822"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225785"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>使用 Microsoft 辨識工具組深入了解模型與 Azure HDInsight Spark 叢集
 
@@ -52,13 +52,13 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>安裝 Microsoft 辨識工具組
 
-您可以使用指令碼動作在 Spark 叢集上安裝 Microsoft 辨識工具組。 指令碼動作會使用自訂指令碼在叢集上安裝不是預設可用的元件。 您可以透過 Azure 入口網站使用自訂指令碼，使用 HDInsight .NET SDK 或 Azure PowerShell 都可以。 您也可以使用指令碼，在叢集建立期間安裝工具組，或在叢集已啟動並執行之後加以安裝。 
+您可以使用指令碼動作在 Spark 叢集上安裝 Microsoft 辨識工具組。 指令碼動作會使用自訂指令碼在叢集上安裝不是預設可用的元件。 使用 HDInsight.NET SDK，或使用 Azure PowerShell，您可以使用 Azure 入口網站中，從自訂的指令碼。 您也可以使用指令碼，在叢集建立期間安裝工具組，或在叢集已啟動並執行之後加以安裝。 
 
 在本文中，我們在建立叢集之後，使用入口網站來安裝工具組。 如需執行自訂指令碼的其他方式，請參閱[使用指令碼動作自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-linux.md)。
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
 
-如需有關如何使用 Azure 入口網站來執行指令碼動作的指示，請參閱[使用指令碼動作來自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)。 確定您提供下列輸入來安裝 Microsoft 辨識工具組。
+如需有關如何使用 Azure 入口網站執行指令碼動作的指示，請參閱 <<c0> [ 使用指令碼動作自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)。 確定您提供下列輸入來安裝 Microsoft 辨識工具組。
 
 * 提供指令碼動作名稱的值。
 
@@ -74,7 +74,7 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 
 1. 複製 GitHub 存放庫 [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)。 如需複製的指示，請參閱[複製存放庫](https://help.github.com/articles/cloning-a-repository/)。
 
-2. 從 Azure 入口網站開啟您已佈建的 Spark 叢集刀鋒視窗，按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook]。
+2. 從 Azure 入口網站中，開啟 Spark 叢集刀鋒視窗中，您已佈建，按一下**叢集儀表板**，然後按一下**Jupyter notebook**。
 
     您也可以移至 URL `https://<clustername>.azurehdinsight.net/jupyter/` 啟動 Jupyter Notebook。 將 \<clustername> 取代為 HDInsight 叢集的名稱。
 
@@ -86,7 +86,7 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 
 5. 將 Notebook 上傳之後，按一下 Notebook 名稱，然後遵循 Notebook 本身有關如何載入資料集的指示，並執行教學課程中。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>案例
@@ -109,7 +109,7 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md

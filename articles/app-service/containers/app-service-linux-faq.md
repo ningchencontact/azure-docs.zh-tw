@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729314"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871488"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -35,9 +35,17 @@ ms.locfileid: "55729314"
 
 您可以在 [GitHub](https://github.com/azure-app-service) 上找到所有 Docker 檔案。 您可以在 [Docker Hub](https://hub.docker.com/u/appsvc/) 上找到所有 Docker 容器。
 
+<a id="#startup-file"></a>
+
 **設定執行階段堆疊時，在 [啟動檔案] 區段應該使用哪些值？**
 
-針對 Node.js，您需指定 PM2 組態檔或指令碼檔案。 針對 .Net Core，請將已編譯的 DLL 名稱指定為 `dotnet <myapp>.dll`。 針對 Ruby，您可以指定要用來將應用程式初始化的 Ruby 指令碼。
+| 堆疊     | 需要的值                                                                |
+|-----------|-------------------------------------------------------------------------------|
+| Java SE   | 一個命令以啟動您`.jar`應用程式                                    |
+| Tomcat    | 若要為您的應用程式執行任何必要的 configruations 指令碼的位置 |
+| Node.js   | PM2 組態檔或指令碼檔案                                |          
+| .Net Core | 已編譯的 DLL 名稱 `dotnet <myapp>.dll`                                 |
+| Ruby      | 您想要初始化您的應用程式的 Ruby 指令碼                     
 
 ## <a name="management"></a>管理性
 
@@ -75,7 +83,7 @@ ms.locfileid: "55729314"
 
 如果您的 Linux Web 應用程式無法部署 Git，請選擇下列其中一個選項來部署應用程式程式碼：
 
-- 使用持續傳遞 (預覽) 功能：您可以將您的應用程式原始程式碼儲存在 Azure DevOps Git 存放庫或 GitHub 存放庫中，以使用「Azure 持續傳遞」。 如需詳細資訊，請參閱[如何設定 Linux Web 應用程式的持續傳遞](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)。
+- 使用持續傳遞 (預覽) 功能：您可以儲存您的應用程式原始程式碼中的 Azure DevOps Git 存放庫或 GitHub 存放庫，以使用 Azure 連續傳遞。 如需詳細資訊，請參閱[如何設定 Linux Web 應用程式的持續傳遞](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)。
 
 - 使用 [ZIP 部署 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)：若要使用此 API，請[透過 SSH 連線到您的 Web 應用程式](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support)，然後前往您要部署程式碼的資料夾。 執行下列程式碼：
 
@@ -92,7 +100,7 @@ ms.locfileid: "55729314"
 是，在您的伺服器端 Node.js 程式碼中停用 `perMessageDeflate`。 例如，如果您使用 socket.io，請使用下列程式碼：
 
 ```nodejs
-var io = require('socket.io')(server,{
+const io = require('socket.io')(server,{
   perMessageDeflate :false
 });
 ```

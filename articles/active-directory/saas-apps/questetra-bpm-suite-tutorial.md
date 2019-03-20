@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8438bfa567c207e543ed716a2940bce991cc19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 78b069e6534d8394de1f9a9fcdf51b871441c386
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838029"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>教學課程：Azure Active Directory 與 Questetra BPM Suite 整合
 
@@ -210,9 +210,9 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
    
     ![建立測試使用者][300] 
    
-    a. 在 [名稱] 文字方塊中，輸入使用者 **britta.simon@contoso.com** 的**名稱**。
+    a. 在 **名稱**文字方塊中，輸入**名稱**的使用者**britta.simon\@contoso.com**。
    
-    b. 在 [電子郵件] 文字方塊中，輸入使用者 **britta.simon@contoso.com** 的**電子郵件**
+    b. 在 **電子郵件**文字方塊中，輸入**電子郵件**的使用者**britta.simon\@contoso.com**
    
     c. 在 [密碼] 文字方塊中，輸入使用者的**密碼**。
     

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 36d169a4220cb1baacdaee072ed01101ef2e9437
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: b8e9ad31c2ce7b001297012bca2aa7dd526f732a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201274"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 上的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -43,7 +43,7 @@ Get-Module *azure*
 ## <a name="create-clusters"></a>建立叢集
 請參閱 [使用 Azure PowerShell 在 HDInsight 中建立以 Linux 為基礎的叢集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
-## <a name="list-clusters"></a>列出叢集
+## <a name="list-clusters"></a>列出群集
 使用下列命令列出目前訂用帳戶中的所有叢集：
 
 ```powershell
@@ -106,7 +106,7 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
     HDInsight 叢集上有提供 Storm Web UI：
 
-    ![hdinsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+    ![hdinsight storm scale rebalance](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
 
     以下是如何使用 CLI 命令重新平衡 Storm 拓撲的範例：
 
@@ -117,7 +117,7 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-若要使用 Azure PowerShell 變更 Hadoop 叢集大小，請從用戶端電腦執行下列命令：
+若要使用 Azure PowerShell 更改 Hadoop 群集大小，请从客户端计算机运行以下命令：
 
 ```powershell
 Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
@@ -125,7 +125,7 @@ Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount
 
 
 ## <a name="grantrevoke-access"></a>授與/撤銷存取權
-HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful 端點)：
+HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样式的终结点）：
 
 * ODBC
 * JDBC
@@ -159,7 +159,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 > [!NOTE]  
 > 透過授與/撤銷存取權，您將重設叢集使用者名稱和密碼。
 
-授與及撤銷存取權也可以透過入口網站完成。 請參閱[使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]。
+授與及撤銷存取權也可以透過入口網站完成。 請參閱[使用 Azure 入口網站在 HDInsight 中管理 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 使用者認證
 這是與授與/撤銷 HTTP 存取權相同的程序。 如果已將 HTTP 存取權授與叢集，您必須先將它撤銷。  然後再使用新的 HTTP 使用者認證授與存取權。
@@ -226,9 +226,9 @@ $resourceGroupName = $cluster.ResourceGroup
 ## <a name="upload-data-to-azure-blob-storage"></a>將資料上傳至 Azure Blob 儲存體
 請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [HDInsight Cmdlet 參考文件](https://msdn.microsoft.com/library/azure/dn479228.aspx)
-* [使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)
 * [使用命令列介面管理 HDInsight][hdinsight-admin-cli]
 * [建立 HDInsight 叢集][hdinsight-provision]
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
@@ -245,12 +245,10 @@ $resourceGroupName = $cluster.ResourceGroup
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 

@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: d168d543bc862e267f72bdf39cc44f9cc2a9fa13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "58116107"
+---
 <!--save a copy of this file to your local repo. It's important that you follow the naming conventions by starting with the service name, and use lowercase only for the file name. See "file-names-and-locations.md" under the "contributor-guide" folder in your repo.
 
 Info to help you use the template are enclosed in the Markdown comments using the caret, hyphen, dash syntax. Delete these from your file.
@@ -13,7 +21,7 @@ Pay attention to spacing and indents. They affect formatting.
 # <a name="use-azure-powershell-to-task"></a>使用 Azure PowerShell 進行 [工作]
 本文示範如何使用 Azure 模組和 Azure Resource Manager 模組的命令來進行 [工作]。 這旨在協助您了解新的命令，以及將現有的指令碼移轉至新的命令。
 
-## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>必要條件：安裝新版的 Azure PowerShell
+## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>必要條件：安裝最新版的 Azure PowerShell
 如果您尚未這樣做，請在本機電腦上安裝 [版本號碼] 版以上 (含) 的 Azure PowerShell。 如果您是使用較舊版本，將不會有本文中所述的 Azure Resource Manager Cmdlet。 如需詳細資訊，請參閱：
 
 * 如需設定 Azure PowerShell 的指示，請參閱[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)。
@@ -56,7 +64,7 @@ $FriendlyName"<Describe value>"
 * [short verb, uses, has, is, etc]
 * [next short verb] 
 
-<!--include this statement if it uses variables that weren't introduced earlier--> It includes the following variables:
+<!--include this statement if it uses variables that weren't introduced earlier--> 它包含下列變數：
 
 * [variable 1]
 * [variable 2]
@@ -94,7 +102,7 @@ $FriendlyName"<Describe value>"
 
 <!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 
-    [link text](http://azure.microsoft.com/pricing/details/virtual-machines/)-->
+    [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
 [虛擬機器文件](https://msdn.microsoft.com/library/azure/jj156003.aspx)

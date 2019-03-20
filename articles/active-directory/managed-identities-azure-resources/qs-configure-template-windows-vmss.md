@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ad683af5597be746524a360d438a06b2e429b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2bed701f8948b27d4a242c6bb0af8ecf939db409
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847249"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223473"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>在 Azure 虛擬機器擴展使用範本上設定適用於 Azure 資源管理的身分識別
 
@@ -49,7 +49,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 如同 Azure 入口網站和指令碼，[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 範本可讓您部署由 Azure 資源群組所定義的最新或已修改資源。 範本編輯和部署有幾個選項可用 (在本機和入口網站)，包括：
 
-   - 使用 [Azure Marketplace 所提供的自訂範本](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)，可讓您從頭開始建立範本，或根據現有的常用範本或[快速入門範本](https://azure.microsoft.com/documentation/templates/)來建立範本。
+   - 使用[從 Azure Marketplace 的自訂範本](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)，可讓您從從頭開始建立範本，或根據現有的一般或[快速入門範本](https://azure.microsoft.com/documentation/templates/)。
    - 衍生自現有的資源群組，方法是從[原始部署](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)，或從[部署的目前狀態](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)匯出範本。
    - 使用本機 [JSON 編輯器 (例如 VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)，然後使用 PowerShell 或 CLI 上傳和部署。
    - 使用 Visual Studio 的 [Azure 資源群組專案](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)來建立和部署範本。  
@@ -71,29 +71,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    }
    ```
 
-3. (選擇性) 將虛擬機器擴展集的 Azure 資源受控識別擴充功能新增為 `extensionsProfile` 元素。 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 身分識別以擷取權杖。  使用下列語法：
+> [!NOTE]
+> 您可能會選擇性地佈建受管理的身分識別 Azure 資源的虛擬機器擴展集延伸模組，藉由指定在`extensionProfile`範本的項目。 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。  如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure 進行驗證的 IMDS](howto-migrate-vm-extension.md)。
 
-   >[!NOTE] 
-   > 下列範例假設正在部署 Windows 虛擬機器擴展集擴充功能 (`ManagedIdentityExtensionForWindows`)。 您也可以改用 `ManagedIdentityExtensionForLinux`來為 Linux 設定 `"name"` 和 `"type"` 元素。
-   >
-
-   ```json
-   "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
-            }
-   ```
 
 4. 當您完成時，應該將下列區段新增至範本的資源區段，而且應該像下面這樣：
 
@@ -112,6 +92,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -214,26 +195,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    }
    ``` 
-
-2. (選擇性) 在 `extensionProfile` 元素下新增下列項目，以將 Azure 資源受控識別擴充功能指派至您的 VMSS。 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。 使用下列語法：
-   
-    ```JSON
-       "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "ManagedIdentityWindowsExtension",
-                    "properties": {
-                        "publisher": "Microsoft.ManagedIdentity",
-                        "type": "ManagedIdentityExtensionForWindows",
-                        "typeHandlerVersion": "1.0",
-                        "autoUpgradeMinorVersion": true,
-                        "settings": {
-                            "port": 50342
-                        },
-                        "protectedSettings": {}
-                    }
-                }
-    ```
+> [!NOTE]
+> 您可能會選擇性地佈建受管理的身分識別 Azure 資源的虛擬機器擴展集延伸模組，藉由指定在`extensionProfile`範本的項目。 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。  如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure 進行驗證的 IMDS](howto-migrate-vm-extension.md)。
 
 3. 完成之後，您的範本看起來應該如下所示：
    
@@ -257,6 +220,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -299,6 +263,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)    
                     "extensionProfile": {
                         "extensions": [
                             {

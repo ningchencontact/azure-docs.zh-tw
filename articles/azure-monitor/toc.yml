@@ -282,12 +282,24 @@ items:
             href: app/profiler-servicefabric.md
           - name: 針對 Azure VM 啟用 Profiler
             href: app/profiler-vm.md
+          - name: Linux 應用程式服務的分析工具 (預覽)
+            href: app/profiler-aspnetcore-linux.md
           - name: Profiler 設定
             href: app/profiler-settings.md
           - name: 追蹤要求以進行剖析
             href: app/profiler-trackrequests.md
           - name: Profiler 疑難排解
             href: app/profiler-troubleshooting.md
+        - name: 快照集偵錯工具
+          items:
+          - name: 概觀
+            href: app/snapshot-debugger.md
+          - name: 啟用 App Service 的快照偵錯工具
+            href: app/snapshot-debugger-appservice.md
+          - name: 啟用其他環境的快照偵錯工具
+            href: app/snapshot-debugger-vm.md
+          - name: 快照偵錯工具的疑難排解
+            href: app/snapshot-debugger-troubleshoot.md
         - name: 診斷
           href: ../application-insights/app-insights-azure-diagnostics.md
         - name: 預覽
@@ -305,7 +317,7 @@ items:
         - name: ASP.NET Core
           href: app/asp-net-core.md
           items:
-          - name: Linux 應用程式服務的分析工具
+          - name: Linux 應用程式服務的分析工具 (預覽)
             href: app/profiler-aspnetcore-linux.md
         - name: 主控台
           href: app/console.md
@@ -327,8 +339,6 @@ items:
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: 快照集偵錯工具
-          href: app/snapshot-debugger.md
       - name: Java 應用程式
         items:
         - name: Web 應用程式
@@ -1034,9 +1044,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 84cda925280e7497b2538d958a841bba3fc48d60
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 661ffa0c16b17186523c7b36e571a38785a2ea5c
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341301"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189864"

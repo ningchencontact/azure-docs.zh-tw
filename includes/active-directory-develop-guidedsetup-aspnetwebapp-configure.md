@@ -3,8 +3,8 @@ title: 包含檔案
 description: 包含檔案
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 15db2192703971a8056df34343c427db11c8411a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: cce0bb9d1a9317396d197d182a424a45c8448f1b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203582"
 ---
 ## <a name="register-your-application"></a>註冊您的應用程式
 
@@ -34,7 +34,7 @@ ms.locfileid: "49988496"
 3. 確定已選取 [引導式設定] 選項。
 4. 依照指示將「重新導向 URL」新增到您的應用程式。
 
-### <a name="option-2-advanced-mode"></a>選項 2：進階模式
+### <a name="option-2-advanced-mode"></a>選項 2：進階的模式
 
 若要註冊您的應用程式並將應用程式註冊資訊新增到您的解決方案，請執行下列作業：
 

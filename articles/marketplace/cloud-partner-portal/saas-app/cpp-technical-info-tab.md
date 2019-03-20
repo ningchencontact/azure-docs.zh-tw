@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120749"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS 應用程式技術資訊索引標籤
 
@@ -44,7 +44,7 @@ ms.locfileid: "55895392"
 - 將您的 SaaS 服務網站連線至 Microsoft 的 SaaS API。 [SaaS 透過 Azure 銷售 - API ](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) 一文會說明建立此連線的方法。
 - 在 Cloud Partner 入口網站的 [技術設定] 表單中啟用 [透過 Azure 銷售]，並提供必要資訊。 如需此計費模型及其實作方式的詳細資訊，請參閱 [SaaS - 透過 Azure 銷售](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions)。
 
- ![[透過 Microsoft 銷售] 表單](./media/saas-techinfo-sellthrough-ms.png)
+  ![[透過 Microsoft 銷售] 表單](./media/saas-techinfo-sellthrough-ms.png)
 
 下表描述 [透過 Microsoft 銷售] 的必要欄位。
 
@@ -73,6 +73,9 @@ ms.locfileid: "55895392"
 - 與我連絡
 
 如需 [召喚行動] 選項的詳細資訊，請參閱＜選擇發佈選項＞。
+
+>[!Note]
+>雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現已開放下載。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114084"
+---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>從遠端連線至 Kubernetes、DC/OS，或 Docker Swarm 叢集
 建立 Azure Container Service 叢集之後，您需要連接到叢集，才能部署和管理工作負載。 本文說明如何從遠端電腦連接到叢集的主要 VM。 
 
@@ -5,7 +18,7 @@ Kubernetes、DC/OS 和 Docker Swarm 叢集都會在本機提供 HTTP 端點。 �
 
 對於 DC/OS 和 Docker Swarm，建議您建立從本機電腦到叢集管理系統的安全殼層 (SSH) 通道。 建立通道後，您可以執行使用 HTTP 端點的命令，並從您的本機系統檢視 Orchestrator 的 web 介面 (如果可用)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [在 Azure Container Service 中部署](../articles/container-service/dcos-swarm/container-service-deployment.md)的 Kubernetes、DC/OS 或 Docker Swarm 叢集。
 * SSH RSA 私密金鑰檔案，其對應至在部署期間新增至叢集的公開金鑰。 這些命令假設 SSH 私密金鑰在您電腦上的 `$HOME/.ssh/id_rsa` 中。 如需詳細資訊，請參閱 [macOS 及 Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) 或 [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) 的相關指示。 如果 SSH 連線無法運作，您可能需要[重設 SSH 金鑰](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)。
@@ -19,7 +32,7 @@ Kubernetes、DC/OS 和 Docker Swarm 叢集都會在本機提供 HTTP 端點。 �
 > 
 
 ### <a name="install-kubectl"></a>安裝 kubectl
-安裝此工具的方法之一是使用 `az acs kubernetes install-cli` Azure CLI 2.0 命令。 若要執行此命令，請確定您[已安裝](/cli/azure/install-az-cli2)最新的 Azure CLI 2.0 並登入 Azure 帳戶 (`az login`)。
+若要安裝此工具的一個方式是使用`az acs kubernetes install-cli`Azure CLI 命令。 若要執行此命令，請確定您[安裝](/cli/azure/install-az-cli2)最新版的 Azure CLI 並登入 Azure 帳戶 (`az login`)。
 
 ```azurecli
 # Linux or macOS
@@ -100,11 +113,11 @@ Kubernetes UI 現在已可供使用：`http://localhost:8001/ui`。
     ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
   
-  > [!NOTE]
-  > SSH 連線連接埠是 2200，而非標準連接埠 22。 在具有一個以上主要 VM 的叢集中，這是第一個主要 VM 的連接通訊埠。
-  > 
+   > [!NOTE]
+   > SSH 連線連接埠是 2200，而非標準連接埠 22。 在具有一個以上主要 VM 的叢集中，這是第一個主要 VM 的連接通訊埠。
+   > 
 
-  此命令不會傳回任何輸出。
+   此命令不會傳回任何輸出。
 
 請參閱下列幾節中的 DC/OS 和 Swarm 範例。    
 
@@ -168,16 +181,16 @@ docker info
 
 5. 選取 [SSH] > [通道] 並設定下列已轉送的連接埠︰
 
-    * **來源連接埠：** DC/OS 使用 80 或 Swarm 使用 2375。
-    * **目的地：** DC/OS 使用 localhost:80 或 Swarm 使用 localhost:2375。
+   * **來源連接埠：** 使用 DC/OS 或 2375年 80，swarm。
+   * **目的地：** 請使用 DC/OS 或 localhost:2375 localhost:80 swarm。
 
-    下列範例是針對 DC/OS 而設定，但對於 Docker Swarm 而言也很類似。
+     下列範例是針對 DC/OS 而設定，但對於 Docker Swarm 而言也很類似。
 
-    > [!NOTE]
-    > 建立此通道時，連接埠 80 不得使用中。
-    > 
+     > [!NOTE]
+     > 建立此通道時，連接埠 80 不得使用中。
+     > 
 
-    ![PuTTY 組態 3](./media/container-service-connect/putty3.png)
+     ![PuTTY 組態 3](./media/container-service-connect/putty3.png)
 
 6. 完成時，按一下 [工作階段] > [儲存] 以儲存連線組態。
 

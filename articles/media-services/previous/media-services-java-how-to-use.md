@@ -11,17 +11,17 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: get-started-article
-ms.date: 02/08/2019
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7ef7216b2d3adf99b0c1fd9ace84991169106529
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a12d0e7d4382d1f8feac721c103d9231e54ad249
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189524"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services-legacy"></a>開始在 Azure 媒體服務上使用 Java 用戶端 SDK (舊版)
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>開始在 Azure 媒體服務上使用 Java 用戶端 SDK  
 
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "55976260"
 需要有下列項目，才能完成本教學課程：
 
 * 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* 媒體服務帳戶。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
+* 一个媒体服务帐户。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 目前的 [Azure 媒體服務 Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
 ## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>作法：匯入 Azure 媒體服務 Java 用戶端 SDK 套件
@@ -59,10 +59,10 @@ ms.locfileid: "55976260"
 使用此程式碼前，請先設定媒體服務帳戶。 如需設定帳戶的相關資訊，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 
 透過使用 Azure AD 服務主體驗證，程式碼會連線到 Azure 媒體服務 API。 建立 Azure AD 應用程式，並在程式碼中指定下列變數的值：
-* `tenant`：Azure AD 應用程式所在的 Azure AD 租用戶網域
-* `clientId`：Azure AD 應用程式的用戶端識別碼
-* `clientKey`：Azure AD 應用程式的用戶端金鑰
-* `restApiEndpoint`：Azure 媒體服務帳戶的 REST API 端點
+* `tenant`:Azure AD 應用程式所在的 Azure AD 租用戶網域
+* `clientId`:Azure AD 應用程式的用戶端識別碼
+* `clientKey`:Azure AD 應用程式的用戶端金鑰
+* `restApiEndpoint`:Azure 媒體服務帳戶的 REST API 端點
 
 您可以建立 Azure AD 應用程式，並從 Azure 入口網站取得上述設定值。 如需詳細資訊，請參閱[利用 Azure 入口網站開始使用 Azure AD 驗證](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)的**服務主體驗證**區段。
 
@@ -318,7 +318,7 @@ ms.locfileid: "55976260"
 <!-- URLs. -->
 
 [Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
-[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Azure for Java developers]: https://docs.microsoft.com/java/azure/
-[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Media Services Client Development]: https://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 

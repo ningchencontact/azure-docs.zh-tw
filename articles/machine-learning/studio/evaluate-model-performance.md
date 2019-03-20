@@ -5,17 +5,17 @@ description: 本文示範如何在 Azure Machine Learning Studio 中評估模型
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: e5c85451ca48aab8f980b89de41ebf40f1f97ff3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453948"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891581"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>如何在 Azure Machine Learning Studio 中評估模型效能
 
@@ -83,7 +83,7 @@ Azure Machine Learning Studio 支援透過兩個主要的機器學習模組來�
 圖 4. 迴歸模型的交叉驗證結果。
 
 ## <a name="evaluating-a-binary-classification-model"></a>評估二進位分類模型
-例如，在二元分類的情況下，目標變數只有兩個可能的結果：{0, 1} 或 {false, true}, {negative, positive}。 假設您有一個成人員工的資料集，其中包含一些人口統計和就業變數，而且您必須預測收入層級，也就是包含值 {“<=50 K”, “>50 K”} 的二元變數。 換句話說，負數類別表示年收入低於或等於 5 萬元的員工，而正數類別則表示其他所有員工。 如同在迴歸情況下，我們會訓練模型、為某些資料評分，並評估結果。 此處的主要差異在於 Azure Machine Learning Studio 計算和輸出的度量選擇。 為說明收入層級的預測情況，我們將使用 [成人](http://archive.ics.uci.edu/ml/datasets/Adult) 資料集來建立 Studio 實驗，並評估二元羅吉斯迴歸模型 (這是一種常用的二元分類器) 的效能。
+例如，在二元分類的情況下，目標變數只有兩個可能的結果：{0, 1} 或 {false, true}, {negative, positive}。 假設您有一個成人員工的資料集，其中包含一些人口統計和就業變數，而且您必須預測收入層級，也就是包含值 {“<=50 K”, “>50 K”} 的二元變數。 換句話說，負數類別表示年收入低於或等於 5 萬元的員工，而正數類別則表示其他所有員工。 如同在迴歸情況下，我們會訓練模型、為某些資料評分，並評估結果。 此處的主要差異在於 Azure Machine Learning Studio 計算和輸出的度量選擇。 為說明收入層級的預測情況，我們將使用 [成人](https://archive.ics.uci.edu/ml/datasets/Adult) 資料集來建立 Studio 實驗，並評估二元羅吉斯迴歸模型 (這是一種常用的二元分類器) 的效能。
 
 ### <a name="creating-the-experiment"></a>建立實驗
 將下列模組加入至您在 Azure Machine Learning Studio 中的工作區：
@@ -133,7 +133,7 @@ Azure Machine Learning Studio 支援透過兩個主要的機器學習模組來�
 圖 9. 二進位分類器的交叉驗證結果。
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>評估多元分類模型
-在這個實驗中，我們將使用熱門的[鳶尾](http://archive.ics.uci.edu/ml/datasets/Iris "鳶尾")資料集，其中包含 3 種不同類型 (類別) 鳶尾屬植物的案例。 每個案例有 4 個特性值 (萼片長度/寬度和花瓣長度/寬度)。 在上一個實驗中，我們使用相同的資料集訓練並測試模型。 在此，我們將使用[分割資料][split]模組建立 2 個資料子集，訓練第一個子集，然後計分和評估第二個子集。 [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) 上公開提供鳶尾資料集，可透過[匯入資料][import-data]模組來下載。
+在這個實驗中，我們將使用熱門的[鳶尾](https://archive.ics.uci.edu/ml/datasets/Iris "鳶尾")資料集，其中包含 3 種不同類型 (類別) 鳶尾屬植物的案例。 每個案例有 4 個特性值 (萼片長度/寬度和花瓣長度/寬度)。 在上一個實驗中，我們使用相同的資料集訓練並測試模型。 在此，我們將使用[分割資料][split]模組建立 2 個資料子集，訓練第一個子集，然後計分和評估第二個子集。 [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html) 上公開提供鳶尾資料集，可透過[匯入資料][import-data]模組來下載。
 
 ### <a name="creating-the-experiment"></a>建立實驗
 將下列模組加入至您在 Azure Machine Learning Studio 中的工作區：

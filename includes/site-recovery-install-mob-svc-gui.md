@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 2da5e4653c345464ef11a2ceac89fc6650c69e5d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165811"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "58114306"
 ---
 1. 將安裝複製到伺服器上，然後開啟安裝程式。
 2. 在 [安裝選項] 上，選取 [安裝行動服務]。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: ac3296937c02c3021c49dafc9a6ed7c249fe37af
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769313"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224782"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 管理 SDK 預覽
 
@@ -71,7 +71,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> 如果您尚未以其他函式註冊 HDInsight 資源提供者 (例如，透過 Azure 入口網站建立 HDInsight 叢集)，您必須立即執行此動作，才能進行驗證。 此動作也可以從 [Azure Cloud Shell](https://shell.azure.com/bash) 完成，只要執行下列命令即可：
+> 如果您沒有已註冊 HDInsight 資源提供者的另一個函式 (例如藉由建立在 Azure 入口網站 HDInsight 叢集)，您需要這樣做，一旦之前您可以進行驗證。 此動作也可以從 [Azure Cloud Shell](https://shell.azure.com/bash) 完成，只要執行下列命令即可：
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

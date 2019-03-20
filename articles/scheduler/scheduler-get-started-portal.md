@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949582"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887216"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>使用 Azure 排程器來建立及排定您的第一個工作 - Azure 入口網站
 
@@ -26,7 +26,7 @@ ms.locfileid: "46949582"
 
 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
-## <a name="create-job"></a>建立工作
+## <a name="create-job"></a>建立作業
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。  
 
@@ -34,11 +34,11 @@ ms.locfileid: "46949582"
 
    ![建立排程器資源](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
-   現在，建立一個將 GET 要求傳送至以下 URL 的工作：`http://www.microsoft.com/` 
+   現在，建立一個將 GET 要求傳送至以下 URL 的工作：`https://www.microsoft.com/` 
 
 1. 在 [排程器工作] 底下，輸入下列資訊：
 
-   | 屬性 | 範例值 | 說明 |
+   | 屬性 | 範例值 | 描述 |
    |----------|---------------|-------------| 
    | **名稱** | getMicrosoft | 工作的名稱 | 
    | **工作集合** | <*job-collection-name*> | 建立工作集合，或選取現有的集合。 | 
@@ -47,11 +47,11 @@ ms.locfileid: "46949582"
 
 1. 選取 [動作設定] - [設定]，提供下列資訊，然後在完成時選擇 [確定]：
 
-   | 屬性 | 範例值 | 說明 |
+   | 屬性 | 範例值 | 描述 |
    |----------|---------------|-------------| 
-   | **動作** | **Http** | 要執行的動作類型 | 
+   | **Action** | **Http** | 要執行的動作類型 | 
    | **方法** | **Get** | 要呼叫的方法 | 
-   | **URL** | **http://www.microsoft.com** | 目的地 URL | 
+   | **URL** | **https://www.microsoft.com** | 目的地 URL | 
    |||| 
    
    ![定義工作](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)
@@ -60,9 +60,9 @@ ms.locfileid: "46949582"
 
    雖然您可以建立一次性工作，但此範例會設定週期排程。
 
-   | 屬性 | 範例值 | 說明 |
+   | 屬性 | 範例值 | 描述 |
    |----------|---------------|-------------| 
-   | **週期** | **週期性** | 一次性或週期性工作 | 
+   | **週期性** | **週期性** | 一次性或週期性工作 | 
    | **開始時間** | <*今天的日期*> | 工作的開始日期 | 
    | **重複頻率** | **1 小時** | 週期間隔和頻率 | 
    | **結束** | **結束於**今天日期的兩天後 | 工作的結束日期 | 
@@ -93,7 +93,7 @@ ms.locfileid: "46949582"
 
 <a name="properties"></a>
 
-### <a name="properties"></a>屬性
+### <a name="properties"></a>properties
 
 若要檢視描述工作管理中繼資料的唯讀屬性，請選取 [屬性]。
 
@@ -107,7 +107,7 @@ ms.locfileid: "46949582"
 
 ![檢閱動作設定](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-| 動作類型 | 說明 | 
+| 動作類型 | 描述 | 
 |-------------|-------------| 
 | 所有類型 | 您可以變更 [重試原則] 和 [錯誤動作] 設定。 | 
 | HTTP 和 HTTPS | 您可以將 [方法] 變更為任何允許的方法。 您也可以新增、刪除或變更標頭和基本驗證資訊。 | 

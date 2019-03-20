@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0fec9173eb94aa60c3689089e4eacd2d9d47724a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819122"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200016"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>使用企業安全性套件管理 HDInsight 叢集
 了解 HDInsight 企業安全性套件 (ESP) 中的使用者與角色，以及如何管理 ESP 叢集。
@@ -143,7 +143,7 @@ ms.locfileid: "55819122"
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>有 ESP 的 HDInsight 叢集的使用者
 非 ESP 的 HDInsight 叢集有兩個使用者帳戶，是在叢集建立期間建立的︰
 
-* **Ambari 系統管理員**：此帳戶亦稱為「Hadoop 使用者」或「HTTP 使用者」。 此帳戶可以用來登入 Ambari，網址是 https://&lt;clustername>.azurehdinsight.net。 它也可以用來在 Ambari 檢視上執行查詢、透過外部工具 (例如 PowerShell、Templeton、Visual Studio) 執行作業、以及使用 Hive ODBC 驅動程式和 BI 工具 (例如 Excel、PowerBI、或 Tableau) 進行驗證。
+* **Ambari 系統管理員**：此帳戶亦稱為「Hadoop 使用者」或「HTTP 使用者」。 此帳戶可以用來登入 Ambari https://&lt;clustername >。 azurehdinsight.net。 它也可以用來在 Ambari 檢視上執行查詢、 執行作業透過外部工具 （例如 PowerShell、 Templeton、 Visual Studio），以及使用 Hive ODBC 驅動程式和 BI 工具 （例如 Excel、 Power BI 或 Tableau） 進行驗證。
 
 除了 Ambari 系統管理員之外，使用 ESP 的 HDInsight 叢集有三個新使用者。
 
@@ -164,7 +164,7 @@ HDInsight 企業安全性套件有下列角色：
 
 * 叢集系統管理員
 * 叢集操作員
-* 服務管理員
+* 服务管理员
 * 服務操作員
 * 叢集使用者
 
@@ -179,9 +179,9 @@ HDInsight 企業安全性套件有下列角色：
 ## <a name="open-the-ambari-management-ui"></a>開啟 Ambari 管理 UI
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 開啟您的 HDInsight 叢集。 請參閱[列出和顯示叢集](../hdinsight-administer-use-management-portal.md#list-and-show-clusters)。
+2. 開啟您的 HDInsight 叢集。
 3. 按一下頂端功能表中的 [儀表板]  開啟 Ambari。
-4. 使用叢集系統管理員網域使用者的名稱和密碼登入 Ambari：
+4. 登入 Ambari 使用叢集系統管理員網域使用者名稱和密碼。
 5. 按一下右上角的 [管理] 下拉式功能表，然後按一下 [管理 Ambari]。
 
     ![ESP HDInsight 管理 Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
@@ -203,7 +203,7 @@ HDInsight 企業安全性套件有下列角色：
     ![ESP HDInsight Ambari 管理 UI 清單群組](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
 ## <a name="configure-hive-views-permissions"></a>設定 Hive 檢視權限
-1. 開啟 Ambari 管理 UI。  請參閱[開啟 Ambari 管理 UI](#open-the-ambari-management-ui)。
+1. 打开 Ambari 管理 UI。  請參閱[開啟 Ambari 管理 UI](#open-the-ambari-management-ui)。
 2. 按一下左側功能表中的 [檢視]。
 3. 按一下 [HIVE] 以顯示詳細資料。
 

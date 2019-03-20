@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 15b7bae6116d05e7bf4cd76a1ba1b93bb127fef8
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313087"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994395"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何設定進階 Azure Cache for Redis 的虛擬網路支援
 Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集功能、持續性及虛擬網路支援等「進階」層功能。 VNet 是雲端中的私人網路。 當 Azure Cache for Redis 執行個體是以 VNet 設定時，它將無法公開定址，而只能從 VNet 中的虛擬機器和應用程式存取。 本文說明如何設定進階 Azure Cache for Redis 執行個體的虛擬網路支援。
@@ -55,7 +55,7 @@ Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快�
 ![虛擬網路][redis-cache-vnet-ip]
 
 > [!IMPORTANT]
-> Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使用。 子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外 3 個位址。 如需詳細資訊，請參閱 [在這些子網路內使用 IP 位址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+> Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使用。 子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外 3 個位址。 有关详细信息，请参阅[使用这些子网中的 IP 地址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 > 
 > 除了 Azure VNET 基礎結構使用的 IP 位址外，子網路中的每個 Redis 執行個體都會為每個分區使用兩個 IP 位址，為負載平衡器使用一個其他的 IP 位址。 非叢集快取會視為有一個分區。
 > 
@@ -106,7 +106,7 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 
 有七項輸出連接埠需求。
 
-- 如有需要，可透過用戶端的內部部署稽核裝置，對網際網路進行所有輸出連線。
+- 可透過用戶端進行所有輸出網際網路連線的內部部署稽核裝置。
 - 其中的三個連接埠會將流量路由至提供 Azure 儲存體與 Azure DNS 的 Azure 端點。
 - 剩餘的連接埠有數種範圍，且適用於內部 Redis 子網域通訊。 內部 Redis 子網域通訊不需要子網路 NSG 規則。
 
@@ -114,37 +114,37 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 | --- | --- | --- | --- | --- | --- |
 | 80、443 |輸出 |TCP |Azure 儲存體/PKI 上 Redis 的相依項目 (網際網路) | (Redis 子網路) |* |
 | 53 |輸出 |TCP/UDP |DNS 上 Redis 的相依項目 (網際網路/VNet) | (Redis 子網路) |* |
-| 8443 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) | (Redis 子網路) |
-| 10221-10231 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) | (Redis 子網路) |
-| 20226 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
-| 13000-13999 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
-| 15000-15999 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
-| 6379-6380 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
+| 8443 |輸出 |TCP |Redis 的内部通信 | (Redis 子網路) | (Redis 子網路) |
+| 10221-10231 |輸出 |TCP |Redis 的内部通信 | (Redis 子網路) | (Redis 子網路) |
+| 20226 |輸出 |TCP |Redis 的内部通信 | (Redis 子網路) |(Redis 子網路) |
+| 13000-13999 |輸出 |TCP |Redis 的内部通信 | (Redis 子網路) |(Redis 子網路) |
+| 15000-15999 |輸出 |TCP |Redis 的内部通信 | (Redis 子網路) |(Redis 子網路) |
+| 6379-6380 |輸出 |TCP |Redis 的内部通信 | (Redis 子網路) |(Redis 子網路) |
 
 
 #### <a name="inbound-port-requirements"></a>輸入連接埠需求
 
 有八項輸入連接埠範圍需求。 在這些範圍的輸入要求如下：從相同 VNET 中裝載的其他服務輸入，或是 Redis 子網路內部通訊。
 
-| 連接埠 | 方向 | 傳輸通訊協定 | 目的 | 本機 IP | 遠端 IP |
+| 端口 | 方向 | 傳輸通訊協定 | 目的 | 本機 IP | 遠端 IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |輸入 |TCP |對 Redis 進行的用戶端通訊，Azure 負載平衡 | (Redis 子網路) | (Redis 子網路)，虛擬網路，Azure Load Balancer |
-| 8443 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
+| 8443 |輸入 |TCP |Redis 的内部通信 | (Redis 子網路) |(Redis 子網路) |
 | 8500 |輸入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure Load Balancer |
-| 10221-10231 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路)，Azure Load Balancer |
+| 10221-10231 |輸入 |TCP |Redis 的内部通信 | (Redis 子網路) |(Redis 子網路)，Azure Load Balancer |
 | 13000-13999 |輸入 |TCP |對 Redis 叢集的用戶端通訊，Azure 負載平衡 | (Redis 子網路) |虛擬網路，Azure Load Balancer |
 | 15000-15999 |輸入 |TCP |對 Redis 叢集的用戶端通訊，Azure 負載平衡 | (Redis 子網路) |虛擬網路，Azure Load Balancer |
 | 16001 |輸入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure Load Balancer |
-| 20226 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
+| 20226 |輸入 |TCP |Redis 的内部通信 | (Redis 子網路) |(Redis 子網路) |
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>其他 VNET 網路連線需求
 
 在虛擬網路中，可能一開始就不符合 Azure Cache for Redis 的一些網路連線需求。 Azure Cache for Redis 需要下列所有項目，在虛擬網路內使用時才能正確運作。
 
 * 全球 Azure 儲存體端點的輸出網路連線。 這包括位於與 Azure Cache for Redis 執行個體相同區域中的端點，以及位於 **其他** Azure 區域的儲存體端點。 Azure 儲存體端點在下列 DNS 網域之下解析：table.core.windows.net、blob.core.windows.net、queue.core.windows.net 和 file.core.windows.net。 
-* *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 的輸出網路連線。 需要此連線才能支援 SSL 功能。
+* *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 的輸出網路連線。 需要此连接才能支持 SSL 功能。
 * 虛擬網路的 DNS 設定必須能夠解析前面幾點所提到的所有端點和網域。 確定已針對虛擬網路設定及維護有效的 DNS 基礎結構，即可符合 DNS 需求。
-* 在下列 DNS 網域下解析之下列 Azure 監視端點的輸出網路連線︰shoebox2-black.shoebox2.metrics.nsatc.net、north-prod2.prod2.metrics.nsatc.net、azglobal-black.azglobal.metrics.nsatc.net、shoebox2-red.shoebox2.metrics.nsatc.net、east-prod2.prod2.metrics.nsatc.net、azglobal-red.azglobal.metrics.nsatc.net。
+* 与以下 Azure 监视终结点（在下列 DNS 域下进行解析）的出站网络连接：shoebox2-black.shoebox2.metrics.nsatc.net、north-prod2.prod2.metrics.nsatc.net、azglobal-black.azglobal.metrics.nsatc.net、shoebox2-red.shoebox2.metrics.nsatc.net、east-prod2.prod2.metrics.nsatc.net、azglobal-red.azglobal.metrics.nsatc.net。
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>如何確認我的快取是在 VNET 中運作？
 
@@ -193,7 +193,7 @@ VNet 僅適用於進階快取。
 只要有足夠的可用 IP 位址，您就可以將多個類型的資源部署到傳統的 VNet。
 
 ### <a name="what-are-the-subnet-address-space-requirements"></a>子網路位址空間需求為何？
-Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使用。 子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外 3 個位址。 如需詳細資訊，請參閱 [在這些子網路內使用 IP 位址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使用。 子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外 3 個位址。 有关详细信息，请参阅[使用这些子网中的 IP 地址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
 除了 Azure VNET 基礎結構使用的 IP 位址外，子網路中的每個 Redis 執行個體都會為每個分區使用兩個 IP 位址，為負載平衡器使用一個其他的 IP 位址。 非叢集快取會視為有一個分區。
 

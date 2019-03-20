@@ -3,8 +3,8 @@ title: 包含檔案
 description: 包含檔案
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,21 +12,21 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 167fccd8e0546bc8f5ac1b24489cae68cc14191f
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 2b9d696ca896d0c8f0801f055000b9763d65d7ff
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203583"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>新增控制器以處理登入和登出要求
 
 這個步驟說明如何建立新的控制器來公開登入和登出方法。
 
 1.  以滑鼠右鍵按一下 `Controllers` 資料夾並選取 `Add` > `Controller`
-2.  選取 `MVC (.NET version) Controller – Empty`。
+2.  选择 `MVC (.NET version) Controller – Empty`。
 3.  按一下 [新增]
 4.  將它命名為 `HomeController`，然後按一下 [新增]
 5.  新增 *OWIN* 參考至類別：
@@ -121,7 +121,7 @@ ms.locfileid: "48843074"
 
 1.  以滑鼠右鍵按一下 `Controllers` 資料夾：`Add` > `Controller`
 2.  選取 `MVC {version} Controller – Empty`。
-3.  按一下 [新增]
+3.  单击“添加”
 4.  將它命名為 `ClaimsController`
 5.  以下面的程式碼取代您控制器類別的程式碼 ，這會將 `[Authorize]` 屬性新增至類別：
 

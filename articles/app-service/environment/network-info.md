@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191593"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124128"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
 
@@ -54,6 +54,7 @@ ms.locfileid: "54191593"
 |  HTTP/HTTPS  | 可由使用者設定 |  80、443 |
 |  FTP/FTPS    | 可由使用者設定 |  21、990、10001-10020 |
 |  Visual Studio 遠端偵錯  |  可由使用者設定 |  4020、4022、4024 |
+|  Web 部署服務 | 可由使用者設定 | 8172 |
 
 這適用於您位於外部 ASE 或 ILB ASE 上的情況。 如果您是在外部 ASE 中，就會叫用公用 VIP 上的那些連接埠。 如果您是在 ILB ASE 中，就會叫用 ILB 上的那些連接埠。 如果您鎖定連接埠 443，可能會影響在入口網站中公開的某些功能。 如需詳細資訊，請參閱[入口網站相依性](#portaldep)。
 

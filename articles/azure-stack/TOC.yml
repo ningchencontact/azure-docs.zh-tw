@@ -5,10 +5,12 @@ items:
   items:
   - name: 什麼是 Azure Stack？
     href: azure-stack-poc.md
+  - name: 重要功能與概念
+    href: azure-stack-key-features.md
   - name: 版本資訊
     items:
     - name: 最近更新
-      href: azure-stack-servicing-policy.md#update-package-release-cadence
+      href: azure-stack-servicing-policy.md
     - name: 1902 更新
       href: azure-stack-update-1902.md
     - name: 1901 更新
@@ -113,10 +115,6 @@ items:
         href: azure-stack-integrate-security.md
       - name: 裝置稽核
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: 服務原則
-    href: azure-stack-servicing-policy.md
-  - name: 重要功能與概念
-    href: azure-stack-key-features.md
   - name: 管理基本概念
     href: azure-stack-manage-basics.md
 - name: 使用說明指南
@@ -286,8 +284,10 @@ items:
       href: azure-stack-app-service-capacity-planning.md
     - name: 開始之前
       href: azure-stack-app-service-before-you-get-started.md
-    - name: 部署 App Service 資源提供者
+    - name: 部署 App Service
       href: azure-stack-app-service-deploy.md
+    - name: 部署 App Service，以獲得高可用性
+      href: app-service-deploy-ha.md
     - name: 離線部署 App Service
       href: azure-stack-app-service-deploy-offline.md
     - name: 更新 App Service
@@ -399,9 +399,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: 訓練與憑證
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: ed6de4a1839c8fe60248e79e5349d8077193d052
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4875ccf5b74151809788e024ae659756cf769e10
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774263"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223320"

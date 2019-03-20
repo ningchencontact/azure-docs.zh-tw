@@ -6,27 +6,41 @@ items:
     href: what-is-acoustics.md
 - name: 快速入門
   items:
-  - name: 開始使用
-    href: getting-started.md
-- name: 操作說明
+  - name: 使用 Unity 的快速入門
+    href: unity-quickstart.md
+  - name: 使用 Unreal 的快速入門
+    href: unreal-quickstart.md
+- name: 教學課程
+  items:
+  - name: Unity 設計工作流程
+    href: unity-workflow.md
+  - name: Unreal/Wwise 設計工作流程
+    href: unreal-workflow.md
+  - name: 使用 Unity 模擬聲場
+    href: unity-baking.md
+  - name: 使用 Unreal/Wwise 模擬聲場
+    href: unreal-baking.md
+- name: 概念
+  items:
+  - name: 聲場模擬的設計概念
+    href: design-process.md
+- name: 作法
   items:
   - name: 建立 Azure Batch 帳戶
     href: create-azure-account.md
-  - name: Bake Acoustics
-    href: bake-ui-walkthrough.md
-  - name: Design Acoustics
-    href: design-process.md
+  - name: 將聲場專案整合到 Unity
+    href: unity-integration.md
+  - name: 將聲場專案整合到 Unreal/Wwise
+    href: unreal-integration.md
 - name: 資源
   items:
-  - name: Acoustics Sample Scene
-    href: sample-walkthrough.md
   - name: 常見問題集
     href: faq.md
   - name: 已知問題
     href: known-issues.md
-ms.openlocfilehash: 225d620cddfd68f3d5fb6d6d841c8f33254f1309
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58138214"

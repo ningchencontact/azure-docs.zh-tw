@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
-ms.openlocfilehash: 4a2dee4ad90fb269268ec7d3e86def58f2444e3a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884723"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818573"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 入口網站中建立和共用儀表板
 您可以建立多個儀表板，並與可存取您 Azure 訂用帳戶的其他人共用。  本文說明建立/編輯、發佈和管理儀表板存取權的基本概念。
@@ -76,9 +76,9 @@ ms.locfileid: "54884723"
 
 ![共用儀表板](./media/azure-portal-dashboards/share-dashboard.png)
 
-系統會要求您選擇可將儀表板發佈至的訂用帳戶和資源群組。 為了將儀表板完美整合到生態系統，我們已將共用儀表板實作為 Azure 資源 (因此，您無法透過輸入電子郵件地址來共用)。  入口網站中大多數圖格所顯示資訊的存取權是由 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)所控管。 從存取控制觀點來看，共用儀表板與虛擬機器或儲存體帳戶並無不同。  
+系統會要求您選擇可將儀表板發佈至的訂用帳戶和資源群組。 為了將儀表板完美整合到生態系統，我們已將共用儀表板實作為 Azure 資源 (因此，您無法透過輸入電子郵件地址來共用)。  入口網站中大多數圖格所顯示資訊的存取權是由 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)所控管。 从访问控制角度来看，共享仪表板与虚拟机或存储帐户没有什么不同。  
 
-假設您有 Azure 訂用帳戶，而且已為小組成員指派訂用帳戶的**擁有者**、**參與者**或**讀取者**角色。  身為擁有者或參與者的使用者能夠列出、檢視、建立、修改或刪除該訂用帳戶內的儀表板。  身為讀取者的使用者能夠列出和檢視儀表板，但無法進行修改或刪除。  具有讀取者存取權的使用者能夠對共用的儀表板進行本機編輯，但無法將這些變更發佈回伺服器。  不過，他們可以製作儀表板的私人複本供自己使用。  一如往常，儀表板上的個別圖格會根據其對應的資源，強制執行自己的存取控制規則。  
+假設您有 Azure 訂用帳戶，而且已為小組成員指派訂用帳戶的**擁有者**、**參與者**或**讀取者**角色。  作为所有者或参与者的用户能够列出、查看、创建、修改或删除该订阅中的仪表板。  身為讀取者的使用者能夠列出和檢視儀表板，但無法進行修改或刪除。  具有讀取者存取權的使用者能夠對共用的儀表板進行本機編輯，但無法將這些變更發佈回伺服器。  不過，他們可以製作儀表板的私人複本供自己使用。  一如往常，儀表板上的個別圖格會根據其對應的資源，強制執行自己的存取控制規則。  
 
 為了方便起見，入口網站的發佈體驗會引導您朝向將儀表板放在稱為 **儀表板**的資源群組中的模式。  
 
@@ -93,6 +93,6 @@ ms.locfileid: "54884723"
 ![管理存取控制](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 若要管理資源，請參閱 [透過入口網站管理 Azure 資源](../azure-resource-manager/resource-group-portal.md)。
+* 若要管理資源，請參閱[使用 Azure 入口網站管理 Azure 資源](../azure-resource-manager/manage-resources-portal.md)。
 * 若要部署資源，請參閱 [使用 Resource Manager 範本與 Azure 入口網站來部署資源](../azure-resource-manager/resource-group-template-deploy-portal.md)。
 

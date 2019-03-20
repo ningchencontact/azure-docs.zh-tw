@@ -306,9 +306,6 @@ items:
     - name: 執行 Apache Hadoop MapReduce 範例
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: 使用叢集上的 Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: 使用 Apache Giraph 處理大規模圖形
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
@@ -321,26 +318,14 @@ items:
     - name: 使用 Apache Maven 建置 Java 應用程式
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: 使用指令碼動作來自訂
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: 存取 Apache Hadoop YARN 應用程式記錄
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: 使用 Apache Mahout 來產生電影推薦
       href: ../hdinsight-mahout.md
       maintainContext: true
-    - name: 分析班機延誤資料
-      href: ../hdinsight-analyze-flight-delay-data.md
-      maintainContext: true
     - name: 開發指令碼動作
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: 使用
-      href: ../hdinsight-analyze-twitter-data.md
-      maintainContext: true
-    - name: 使用 Azure 入口網站管理叢集
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: 使用 Apache Ambari API 監視叢集
       href: ../hdinsight-monitor-use-ambari-api.md
@@ -367,9 +352,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: cf1967a53e638f6415a9d7b77f0e9d2a4fe87db4
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2cc10c35e19f3f36c791fa391adaad846c61069e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889523"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201631"

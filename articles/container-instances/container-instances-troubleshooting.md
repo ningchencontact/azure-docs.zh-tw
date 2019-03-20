@@ -2,19 +2,19 @@
 title: 針對 Azure Container Instances 進行疑難排解
 description: 了解如何使用 Azure Container Instances 進行問題的疑難排解
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/08/2019
-ms.author: seanmck
+ms.date: 02/15/2019
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: c90041f54fc9b4b57885083ec94843b596f48b79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119045"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123261"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
@@ -25,7 +25,7 @@ ms.locfileid: "54119045"
 定義您的容器規格時，特定參數需要遵循命名限制。 以下資料表具有容器群組屬性的特定需求。 如需 Azure 命名慣例的詳細資訊，請參閱 Azure Architecture Center 中的[命名慣例][azure-name-restrictions]。
 
 | 影響範圍 | 長度 | 大小寫 | 有效字元 | 建議模式 | 範例 |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | 容器群組名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 容器名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 容器連接埠 | 介於 1 到 65535 之間 |整數  |介於 1 到 65535 之間的整數 |`<port-number>` |`443` |
@@ -66,7 +66,7 @@ Azure 容器執行個體目前僅支援以 **Windows Server 2016 長期維護通
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "message": "pulling image \"microsoft/aci-helloworld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -74,7 +74,7 @@ Azure 容器執行個體目前僅支援以 **Windows Server 2016 長期維護通
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -82,7 +82,7 @@ Azure 容器執行個體目前僅支援以 **Windows Server 2016 長期維護通
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -93,7 +93,7 @@ Azure 容器執行個體目前僅支援以 **Windows Server 2016 長期維護通
 
 容器群組的[重新啟動原則](container-instances-restart-policy.md)預設為 [一律]，因此容器群組中的群組在執行完成後一律會重新啟動。 如果您要執行以工作為基礎的容器，則可能需要將此設定變更為 [OnFailure] 或 [永不]。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
 
-如果執行的容器群組不含長時間執行的程序，您可能會看到 Ubuntu 或 Alpine 之類的映像重複地結束並重新啟動。 透過 [EXEC](container-instances-exec.md) 連線是不可行的，因為容器沒有任何程序可維持其存留狀態。 若要解決此問題，請依照下列方式加入啟動命令，使您的容器群組部署讓容器持續執行。
+如果執行的容器群組不含長時間執行的程序，您可能會看到 Ubuntu 或 Alpine 之類的映像重複地結束並重新啟動。 透過 [EXEC](container-instances-exec.md) 連線是不可行的，因為容器沒有任何程序可維持其存留狀態。 若要解決此問題，包括如下所示，您的容器群組部署使用 start 命令，將執行的容器。
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -178,11 +178,11 @@ microsoft/aci-helloworld    latest    7f78509b568e    13 days ago    68.1MB
 
 ### <a name="cached-windows-images"></a>快取的 Windows 映像
 
-針對以特定 Windows 映像為基礎的映像，Azure 容器執行個體使用的快取機制有助於加快容器啟動時間。
+Azure 容器執行個體使用的快取機制，來協助加快容器啟動時間，針對常見的 Windows 和 Linux 映像為基礎的映像。 如需快取的映像和標籤的詳細清單，請使用[列出快取映像][ list-cached-images] API。
 
 若要確保擁有最快速的 Windows 容器啟動時間，請在以下**兩個映像**的**最新三個**版本中選一個作為基礎映像：
 
-* [Windows Server 2016][docker-hub-windows-core] (僅限 LTS)
+* [Windows Server Core 2016] [ docker-hub-windows-core] (只有 LTSC)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows 容器會降低網路整備速度
@@ -197,7 +197,7 @@ Azure 中有各種不同的地區資源負載，因此您在嘗試部署容器�
 
 此錯誤訊息表示您嘗試執行部署產品的地區負載過重，因此當時無法配置您為容器指定的資源。 執行下列一或多個風險降低步驟有助於解決問題。
 
-* 確認容器部署設定是否位於 [Azure Container Instances 的配額與地區可用性](container-instances-quotas.md#region-availability)所定義的參數範圍內
+* 確認容器部署設定是否位於 [Azure Container Instances 地區可用性](container-instances-region-availability.md)所定義的參數範圍內
 * 為容器指定較低階的 CPU 和記憶體設定
 * 部署至其他 Azure 地區
 * 過一段時間再部署
@@ -207,10 +207,12 @@ Azure 中有各種不同的地區資源負載，因此您在嘗試部署容器�
 Azure 容器執行個體不會公開基礎結構 (其中裝載容器群組) 的直接存取。 這包括 Docker API 的存取權，Docker API 可在容器主機上執行，並且可執行具有特殊權限的容器。 如果您需要 Docker 互動，請查閱 [REST 參考文件](https://aka.ms/aci/rest)，以了解 ACI API 支援的內容。 如果有遺漏的項目，請在 [ACI 意見反應論壇](https://aka.ms/aci/feedback)上提交要求。
 
 ## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP 可能因為連接埠不相符而無法存取
+
 Azure 容器執行個體目前不支援連接埠對應 (像是一般 Docker 組態)，不過這項修正正在規劃中。 如果您發現 IP 無法存取 (但您認為應可存取)，請確定已將容器映像設定為接聽您在容器群組中使用 `ports` 屬性公開的相同連接埠。
 
 ## <a name="next-steps"></a>後續步驟
-深入了解如何[擷取容器記錄和事件](container-instances-get-logs.md)以協助針對您的容器進行偵錯。
+
+了解如何[擷取容器的記錄檔和事件](container-instances-get-logs.md)協助偵錯您的容器。
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
@@ -221,3 +223,4 @@ Azure 容器執行個體目前不支援連接埠對應 (像是一般 Docker 組�
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages

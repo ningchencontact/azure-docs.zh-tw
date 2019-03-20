@@ -88,6 +88,8 @@ items:
       href: security-center-adaptive-application.md
     - name: 檔案完整性監視
       href: security-center-file-integrity-monitoring.md
+    - name: 自適性網路強化
+      href: security-center-adaptive-network-hardening.md
   - name: 偵測威脅
     href: security-center-detection-capabilities.md
     items:
@@ -180,7 +182,7 @@ items:
   - name: 整備藍圖
     href: security-center-readiness-roadmap.md
   - name: Azure 安全性、隱私權和相容性部落格
-    href: http://blogs.msdn.com/b/azuresecurity/
+    href: https://blogs.msdn.com/b/azuresecurity/
   - name: 堆疊溢位
     href: https://stackoverflow.com/search?q=security-center
   - name: 影片
@@ -191,9 +193,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 疑難排解
     href: security-center-troubleshooting-guide.md
-ms.openlocfilehash: 4c68265d59ab40ed93ceb7b1961520866d89129f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: b0acd0948589e4045e7c9dbd9cc423bfd0ae1e3d
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201172"

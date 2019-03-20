@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002726"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>適用於 Windows 的 Azure 效能診斷 VM 擴充功能
 
@@ -89,7 +89,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 
 遵循下列指示以在 Windows 虛擬機器上安裝擴充功能：
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取您要安裝此擴充功能的虛擬機器。
 
     ![Azure 入口網站的螢幕擷取畫面 (已醒目提示 [虛擬機器])](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 ## <a name="remove-the-extension"></a>移除擴充功能
 若要從虛擬機器移除擴充功能，請遵循下列步驟：
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)，選取您要從中移除此擴充功能的虛擬機器，然後選取 [擴充功能] 刀鋒視窗。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)，選取您要從中移除此擴充功能的虛擬機器，然後選取 [擴充功能] 刀鋒視窗。 
 2. 從清單中選取效能診斷擴充功能項目的 (**...**)，然後選取 [解除安裝]。
 
     ![[擴充功能] 刀鋒視窗的螢幕擷取畫面 (已醒目提示 [解除安裝])](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -125,7 +125,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

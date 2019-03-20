@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 2f16ba3fde73705d431ba97d65059b178020bb62
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 265881ede035e8b854be1bd54a70fa8c7ef127ab
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340292"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200519"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Apache Hadoop on HDInsight 與 SQL Database 之間匯入及匯出資料
 
@@ -24,7 +24,7 @@ ms.locfileid: "56340292"
 了解如何使用 Apache Sqoop，在 Azure HDInsight 中的 Apache Hadoop 叢集與 Azure SQL Database 或 Microsoft SQL Server 資料庫之間進行匯入和匯出。 本文件中的步驟直接從 Hadoop 叢集的前端節點使用 `sqoop` 命令。 您可以使用 SSH 連接至前端節點，並執行本文件中的命令。
 
 > [!IMPORTANT]  
-> 本文件中的步驟只適用於使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文档中的步骤仅适用于使用 Linux 的 HDInsight 群集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 > [!WARNING]  
 > 本文件的步驟假設您已建立名為 `sqooptest` 的 Azure SQL Database。
@@ -125,7 +125,7 @@ GO
 
 * SQL Server 也必須設定為允許 SQL 驗證。 如需詳細資訊，請參閱[選擇驗證模式](https://msdn.microsoft.com/ms144284.aspx)文件。
 
-* 您可能必須設定 SQL Server 以接受遠端連線。 如需詳細資訊，請參閱[如何疑難排解 SQL Server Database Engine 連線](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)文件 (英文)。
+* 可能需要将 SQL Server 配置为接受远程连接。 如需詳細資訊，請參閱[如何疑難排解 SQL Server Database Engine 連線](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)文件 (英文)。
 
 * 使用下列 Transact-SQL 陳述式建立 **mobiledata** 資料表︰
 
@@ -144,7 +144,7 @@ GO
     [sessionpagevieworder] [bigint])
     ```
 
-* 從 HDInsight 連線到 SQL Server 時，您可能必須使用 SQL Server 的 IP 位址。 例如︰
+* 在从 HDInsight 连接到 SQL Server 时，可能需要使用 SQL Server 的 IP 地址。 例如︰
 
     ```bash
     sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
@@ -161,7 +161,7 @@ GO
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：
 
 * [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie.md)：在 Oozie 工作流程中使用 Sqoop 動作。
-* [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data.md)：使用 Apache Hive 來分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL 資料庫。
+* [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data-linux.md)：使用 Apache Hive 來分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL 資料庫。
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)：尋找其他方法將資料上傳至 HDInsight/Azure Blob 儲存體。
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md

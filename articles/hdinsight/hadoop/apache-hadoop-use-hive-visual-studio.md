@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ae2b06f266ef19d9558511284ba94c77cdca1955
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 5cc079a5e6d78269d2df9f13dc8ccf8d026163e4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409678"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202260"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Apache Hive 查詢
 
@@ -31,7 +31,7 @@ ms.locfileid: "53409678"
 
     * Visual Studio 2013 Community/Professional/Premium/Ultimate，含 Update 4
 
-    * Visual Studio 2015 (任何版本)
+    * Visual Studio 2015（任何版本）
 
     * Visual Studio 2017 (任何版本)
 
@@ -54,20 +54,20 @@ ms.locfileid: "53409678"
 
     這些陳述式會執行下列動作：
 
-   * `DROP TABLE`：如果資料表存在，此陳述式將刪除它。
+   * `DROP TABLE`:如果資料表存在，此陳述式將刪除它。
 
-   * `CREATE EXTERNAL TABLE`：在 Hive 中建立新的「外部」資料表。 外部資料表只會在 Hive 中儲存資料表定義 (資料會保留在原始位置)。
+   * `CREATE EXTERNAL TABLE`:在 Hive 中建立新的「外部」資料表。 外部資料表只會在 Hive 中儲存資料表定義 (資料會保留在原始位置)。
 
      > [!NOTE]  
      > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，MapReduce 工作或 Azure 服務。
      >
      > 捨棄外部資料表並 **不會** 刪除資料，只會刪除資料表定義。
 
-   * `ROW FORMAT`：告訴 Hive 如何設定資料格式。 在此情況下，每個記錄中的欄位會以空格隔開。
+   * `ROW FORMAT`:告訴 Hive 如何設定資料格式。 在此情況下，每個記錄中的欄位會以空格隔開。
 
-   * `STORED AS TEXTFILE LOCATION`：將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
+   * `STORED AS TEXTFILE LOCATION`:將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
 
-   * `SELECT`：選擇其資料欄 `t4` 包含值 `[ERROR]` 的所有資料列計數。 這個陳述式會傳回值 `3`，因為有三個資料列包含此值。
+   * `SELECT`:選擇其資料欄 `t4` 包含值 `[ERROR]` 的所有資料列計數。 這個陳述式會傳回值 `3`，因為有三個資料列包含此值。
 
    * `INPUT__FILE__NAME LIKE '%.log'` - 告訴 Hive 我們只應該從檔名以 log 結尾的檔案中傳回資料。 這個子句會將搜尋限制為包含資料的 sample.log 檔案。
 
@@ -75,13 +75,13 @@ ms.locfileid: "53409678"
 
    ![提交列](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
 
-4. [Hive 工作摘要] 將會出現並顯示執行中工作的相關資訊。 使用 [重新整理] 連結來重新整理工作資訊，直到 [工作狀態] 變更為 [已完成] 為止。
+4. [Hive 工作摘要] 將會出現並顯示執行中工作的相關資訊。 在“作业状态”更改为“已完成”之前，使用“刷新”链接刷新作业信息。
 
    ![顯示已完成作業的作業摘要](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
 
 5. 使用 [ **工作輸出** ] 連結檢視此工作的輸出。 它會顯示 `[ERROR] 3`，這是此查詢所傳回的值。
 
-6. 您也可以執行 Hive 查詢，而不需建立專案。 使用 [伺服器總管]，展開 [Azure] > [HDInsight]，在 HDInsight 伺服器上按一下滑鼠右鍵，然後選取 [撰寫 Hive 查詢]。
+6. 也可以运行 Hive 查询，而无需创建项目。 使用 [伺服器總管]，展開 [Azure] > [HDInsight]，在 HDInsight 伺服器上按一下滑鼠右鍵，然後選取 [撰寫 Hive 查詢]。
 
 7. 在出現的 **temp.hql** 文件，新增下列 HiveQL 陳述式：
 
@@ -93,18 +93,18 @@ ms.locfileid: "53409678"
 
     這些陳述式會執行下列動作：
 
-   * `CREATE TABLE IF NOT EXISTS`：建立資料表 (如果不存在)。 因為未使用 `EXTERNAL` 關鍵字，這個陳述式會建立內部資料表。 內部資料表儲存在 Hive 資料倉儲中，並受到 Hive 所管理。
+   * `CREATE TABLE IF NOT EXISTS`:建立資料表 (如果不存在)。 因為未使用 `EXTERNAL` 關鍵字，這個陳述式會建立內部資料表。 內部資料表儲存在 Hive 資料倉儲中，並受到 Hive 所管理。
 
      > [!NOTE]  
      > 與 `EXTERNAL` 資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
 
-   * `STORED AS ORC`：以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。 ORC 是高度最佳化且有效率的 Hive 資料儲存格式。
+   * `STORED AS ORC`:以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。 ORC 是高度最佳化且有效率的 Hive 資料儲存格式。
 
-   * `INSERT OVERWRITE ... SELECT`：從含有 `[ERROR]`的 `log4jLogs` 資料表選取資料列，然後將資料插入 `errorLogs` 資料表。
+   * `INSERT OVERWRITE ... SELECT`:從含有 `[ERROR]`的 `log4jLogs` 資料表選取資料列，然後將資料插入 `errorLogs` 資料表。
 
-8. 從工具列中，選取 [ **提交** ] 來執行工作。 使用 [ **工作狀態** ] 來判斷工作是否已順利完成。
+8. 從工具列中，選取 [ **提交** ] 來執行工作。 使用“作业状态”确定作业是否已成功完成。
 
-9. 若要確認作業已建立資料表，請使用 [伺服器總管] 並展開 [Azure] > [HDInsight] > 您的 HDInsight 叢集 > [Hive 資料庫] > [預設]。 會列出 **errorLogs** 資料表和 **log4jLogs** 資料表。
+9. 若要確認作業已建立資料表，請使用 [伺服器總管] 並展開 [Azure] > [HDInsight] > 您的 HDInsight 叢集 > [Hive 資料庫] > [預設]。 此时会列出 **errorLogs** 表和 **log4jLogs** 表。
 
 ## <a id="nextsteps"></a>接續步驟
 
@@ -122,7 +122,7 @@ ms.locfileid: "53409678"
 
 如需 HDInsight Tools for Visual Studio 的詳細資訊：
 
-* [開始使用 HDInsight Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
+* [用于 Visual Studio 的 HDInsight 工具入门](apache-hadoop-visual-studio-tools-get-started.md)
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
@@ -136,7 +136,6 @@ ms.locfileid: "53409678"
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 
 

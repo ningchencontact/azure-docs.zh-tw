@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 58fca4cfc4217c67be1a4e679d1a95f34ff5726f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108166"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>使用指令碼動作來自訂 Linux 型 HDInsight 叢集
 
@@ -152,7 +152,7 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 
 HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
-| Name | 指令碼 |
+| 名稱 | 指令碼 |
 | --- | --- |
 | 新增 Azure 儲存體帳戶 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh` 。 請參閱[將其他儲存體帳戶新增至 HDInsight](hdinsight-hadoop-add-storage.md)。 |
 | 安裝 Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh` 。 請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
@@ -185,7 +185,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 或是選取其中一個提供的指令碼。 |
-    | Name |指定指令碼動作的名稱。 |
+    | 名稱 |指定脚本操作的名称。 |
     | Bash 指令碼 URI |指定指令碼的 URI。 |
     | Head/Worker/Zookeeper |指定用來執行指令碼的節點：[前端]、[背景工作]或 [ZooKeeper]。 |
     | 參數 |如果指令碼要求，請指定參數。 |
@@ -265,7 +265,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 否則，請選取提供的指令碼。 |
-    | Name |指定指令碼動作的名稱。 |
+    | 名稱 |指定脚本操作的名称。 |
     | Bash 指令碼 URI |指定指令碼的 URI。 |
     | Head/Worker/Zookeeper |指定用來執行指令碼的節點：[前端]、[背景工作]或 [ZooKeeper]。 |
     | 參數 |如果指令碼要求，請指定參數。 |
@@ -410,9 +410,9 @@ HDInsight 服務中有兩種類型的開放原始碼元件可供使用：
 
 * **內建元件**。 這些元件會預先安裝在 HDInsight 叢集上，並且提供叢集的核心功能。 以下是屬於此類別的元件：
 
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager。
-    * Hive 查詢語言 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)。
-    * [Apache Mahout](https://mahout.apache.org/)。 
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager。
+  * Hive 查詢語言 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)。
+  * [Apache Mahout](https://mahout.apache.org/)。 
     
     如需完整的叢集元件清單，請參閱[可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？](hdinsight-component-versioning.md)
 
@@ -528,4 +528,4 @@ sudo pip install azure-storage==0.20.0
 * [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "群集创建过程中的阶段"

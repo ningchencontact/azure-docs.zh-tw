@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893045"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -51,7 +51,7 @@ Azure-SSIS | SSIS 套件執行 | SSIS 套件執行
 Azure 整合執行階段能夠：
 
 - 在雲端資料存放區之間執行複製活動
-- 在公用網路中分派下列轉換活動：HDInsight Hive 活動、HDInsight Pig 活動、HDInsight MapReduce 活動、HDInsight Spark 活動、HDInsight 串流活動、Machine Learning 批次執行活動、Machine Learning 更新資源活動、預存程序活動、Data Lake Analytics U-SQL 活動、.Net 自訂活動、網路活動、查閱活動，以及取得中繼資料活動。
+- 在公用網路中分派下列轉換活動：HDInsight Hive 活動、 HDInsight Pig 活動、 HDInsight MapReduce 活動、 HDInsight Spark 活動、 HDInsight 串流活動、 Machine Learning 批次執行活動、 Machine Learning 更新資源活動、 預存程序活動Data Lake Analytics U-SQL 活動、.NET 自訂活動、 Web 活動、 查閱活動，以及取得中繼資料活動。
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 網路環境
 在具有公開存取端點的公用網路中，Azure 整合執行階段支援連線至其中的資料存放區和計算服務。 在 Azure 虛擬網路環境中使用自我裝載整合執行階段。
@@ -69,7 +69,7 @@ Azure 整合執行階段提供原生計算，能夠以安全、可靠且高效�
 自我裝載 IR 能夠：
 
 - 在雲端資料存放區和私人網路中的資料存放區之間執行複製活動。
-- 在內部部署或 Azure 虛擬網路中，針對計算資源分派下列轉換活動：HDInsight Hive 活動 (BYOC-攜帶您自己的叢集)、HDInsight Pig 活動 (BYOC)、HDInsight MapReduce 活動 (BYOC)、HDInsight Spark 活動 (BYOC)、HDInsight 串流活動 (BYOC)、Machine Learning 批次執行活動、Machine Learning 更新資源活動、預存程序活動、Data Lake Analytics U-SQL 活動、.Net 自訂活動、查閱活動，以及取得中繼資料活動。
+- 在內部部署或 Azure 虛擬網路中，針對計算資源分派下列轉換活動：HDInsight Hive 活動 （BYOC 攜帶您自己的叢集）、 HDInsight Pig 活動 (BYOC)、 HDInsight MapReduce 活動 (BYOC)、 HDInsight Spark 活動 (BYOC)、 HDInsight 串流活動 (BYOC)、 Machine Learning 批次執行活動、 Machine Learning更新資源活動、 預存程序活動、 Data Lake Analytics U-SQL 活動、.NET 自訂活動、 查閱活動，以及取得中繼資料活動。
 
 > [!NOTE] 
 > 使用自我裝載整合執行階段來支援需要自備驅動程式 (例如 SAP Hana、MySQL 等) 的資料存放區。如需詳細資訊，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

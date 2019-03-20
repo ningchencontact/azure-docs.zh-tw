@@ -1,5 +1,5 @@
 ---
-title: 如何使用雙步驟驗證或安全性資訊登入 - Azure Active Directory | Microsoft Docs
+title: 使用雙步驟驗證或安全性資訊-Azure Active Directory 登入 |Microsoft Docs
 description: 了解如何使用安全性資訊中的各種身分識別驗證方法來登入。
 services: active-directory
 author: eross-msft
@@ -11,21 +11,22 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aca321ac0902d115f4fc7622992d29183c1d35c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 84c71430d05bf0755fd8a7c096a2afcb2f69d292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116719"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>使用雙步驟驗證或安全性資訊登入
 設定雙步驟驗證或安全性資訊之後，您將能夠使用您指定的驗證方法來登入帳戶。
 
->[!Note]
->如果您仍然使用雙步驟驗證體驗，您將必須遵循[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)一文中的指示來設定驗證方法。
-
->如果您的系統管理員已開啟安全性資訊體驗，您將需要使用下列逐步文章來設定驗證方法：<ul><li>[將安全性資訊設定為使用驗證應用程式](security-info-setup-auth-app.md)</li><li>[將安全性資訊設定為使用簡訊](security-info-setup-text-msg.md)</li><li>[將安全性資訊設定為使用電話](security-info-setup-phone-number.md)</li></ul>
+> [!Note]
+> 如果您仍然使用雙步驟驗證體驗，您將必須遵循[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)一文中的指示來設定驗證方法。
+> 
+> 如果您的系統管理員已開啟安全性資訊體驗，您將需要使用下列逐步文章來設定驗證方法：<ul><li>[將安全性資訊設定為使用驗證應用程式](security-info-setup-auth-app.md)</li><li>[將安全性資訊設定為使用簡訊](security-info-setup-text-msg.md)</li><li>[將安全性資訊設定為使用電話](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>在行動裝置上使用驗證器應用程式通知來登入
 

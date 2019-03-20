@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c782f003903fd8eeb33067ce1d85c6a8ecef6e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a1c495362ef38723c61eace25ebb13ec9ed3a6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883639"
 documentType: LandingData
 title: Azure Databricks 文件
 metadata:
-  title: Azure Databricks 文件 - 教學課程
+  title: Azure Databricks 文件
   description: 透過快速入門及此處提供的其他連結，了解如何使用 Azure Databricks。 Azure Databricks 是一個針對 Microsoft Azure 雲端服務平台進行最佳化的 Apache Spark 分析平台。
   services: azure-databricks
   author: mamccrea
@@ -17,7 +17,7 @@ metadata:
   ms.date: 03/19/2018
   ms.author: mamccrea
 abstract:
-  description: 透過快速入門及此處提供的其他連結，了解如何使用 Azure Databricks。 Azure Databricks 是一個針對 Microsoft Azure 雲端服務平台進行最佳化的 Apache Spark 分析平台。 Databricks 由 Apache Spark 的創立者所設計，可與 Azure 整合，提供一鍵式設定、順暢的工作流程以及互動式的工作區，可讓資料科學家、資料工程師及企業分析師共同作業。
+  description: 了解如何使用 Azure Databricks，此 Apache Spark 分析平台提供單鍵設定、簡化工作流程和互動式工作區，可讓資料科學家、資料工程師和商務分析人員共同作業。 快速入門和教學課程將說明如何開始使用 Azure Databricks，並與其他 Azure 服務整合。
   aside:
     image:
       alt: 

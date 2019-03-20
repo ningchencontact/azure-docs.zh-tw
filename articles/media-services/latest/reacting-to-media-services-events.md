@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377543"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850899"
 ---
 # <a name="handling-event-grid-events"></a>處理事件方格事件
 
@@ -24,26 +24,9 @@ ms.locfileid: "49377543"
 
 媒體服務事件的可用性會繫結至事件格線[可用性](../../event-grid/overview.md)，並且將在其他區域中變成可用狀態，就像事件格線所做的一樣。  
 
-## <a name="available-media-services-events"></a>可用的媒體服務事件
+## <a name="media-services-events-and-schemas"></a>媒體服務事件和結構描述
 
-Event Grid 使用[事件訂閱](../../event-grid/concepts.md#event-subscriptions)將事件訊息路由至訂閱者。  目前，媒體服務事件訂閱可以包含下列事件：  
-
-|活動名稱|說明|
-|----------|-----------|
-| Microsoft.Media.JobStateChange| 當工作的狀態變更時引發。 |
-| Microsoft.Media.LiveEventConnectionRejected | 編碼器的連線嘗試遭到拒絕。 |
-| Microsoft.Media.LiveEventEncoderConnected | 編碼器對即時事件建立連線。 |
-| Microsoft.Media.LiveEventEncoderDisconnected | 編碼器中斷連線。 |
-| Microsoft.Media.LiveEventIncomingDataChunkDropped | 媒體伺服器卸除資料區塊，原因是其來得太晚或有重疊的時間戳記 (新資料區塊的時間戳記小於先前資料區塊的結束時間)。 |
-| Microsoft.Media.LiveEventIncomingStreamReceived | 媒體伺服器收到資料流或連線中每個資料軌的第一個資料區塊。 |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 媒體伺服器偵測到音訊和視訊資料流未同步。可作為警告，原因是使用者體驗可能不受影響。 |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 媒體伺服器偵測到來自外部編碼器的兩個視訊資料流中，有任一個未同步。可作為警告，原因是使用者體驗可能不受影響。 |
-| Microsoft.Media.LiveEventIngestHeartbeat | 當即時事件執行時，會針對每個資料軌每 20 秒發佈一次。 提供內嵌健康情況摘要。 |
-| Microsoft.Media.LiveEventTrackDiscontinuityDetected | 媒體伺服器偵測到內送的資料軌發生中斷。 |
-
-## <a name="event-schema"></a>事件結構描述
-
-媒體事件包含了回應資料變更時所需的一切資訊。  因為 eventType 屬性開頭為 “Microsoft.Media”，所以您可以藉此識別出媒體服務事件。
+Event Grid 使用[事件訂閱](../../event-grid/concepts.md#event-subscriptions)將事件訊息路由至訂閱者。 媒體事件包含了回應資料變更時所需的一切資訊。 因為 eventType 屬性開頭為 “Microsoft.Media”，所以您可以藉此識別出媒體服務事件。
 
 如需詳細資訊，請參閱[媒體服務事件結構描述](media-services-event-schemas.md)。
 

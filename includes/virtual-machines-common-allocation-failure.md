@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 136c7e497b24db99b230884514d4a286bbeb64be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40210093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114204"
 ---
 建立虛擬機器 (VM)、重新啟動已停止 (已解除配置) 的 VM 或調整 VM 大小時，Microsoft Azure 會配置計算資源給您的訂用帳戶。 我們正持續投資額外的基礎結構和功能，以確保始終擁有所有 VM 類型可供支援客戶需求。 不過，您可能偶爾會遇到因特定區域中對 Azure 服務的空前需求成長，而導致資源配置失敗的情況。 當您嘗試在 VM 顯示下列錯誤碼和訊息的區域中建立或啟動 VM，便可能發生此問題：
 
@@ -41,7 +41,7 @@ ms.locfileid: "40210093"
 如果 VM 可以屬於不同的可用性設定組，請在不同的可用性設定組 (位於相同區域) 中建立 VM。 然後，這個新的 VM 就可以加入至相同的虛擬網路。
 
 停止 (解除配置) 相同可用性設定組中的所有 VM，然後重新啟動每一部 VM。
-若要停止，請按一下 [資源群組] > [您的資源群組] > [資源] > [您的可用性設定組] > [虛擬機器] > [您的虛擬機器] > [停止]。
+若要停止：按一下 [資源群組] > [您的資源群組] > [資源] > [您的可用性設定組] > [虛擬機器] > [您的虛擬機器] > [停止]。
 所有 VM 都停止之後，請選取第一個 VM，然後按一下 [啟動]。
 此步驟可確保執行新的配置嘗試，而且可以選取有足夠容量的新叢集。
 
@@ -54,7 +54,7 @@ ms.locfileid: "40210093"
 ### <a name="workaround"></a>因應措施
 
 停止 (解除配置) 相同可用性設定組中的所有 VM，然後重新啟動每一部 VM。
-若要停止，請按一下 [資源群組] > [您的資源群組] > [資源] > [您的可用性設定組] > [虛擬機器] > [您的虛擬機器] > [停止]。
+若要停止：按一下 [資源群組] > [您的資源群組] > [資源] > [您的可用性設定組] > [虛擬機器] > [您的虛擬機器] > [停止]。
 所有 VM 都停止之後，請選取第一個 VM，然後按一下 [啟動]。
 這可確保執行新的配置嘗試，而且可以選取有足夠容量的新叢集。
 
@@ -75,12 +75,12 @@ ms.locfileid: "40210093"
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>較舊版 VM 大小 (Av1、Dv1、DSv1、D15v2、DS15v2 等) 的配置失敗
 
-隨著我們擴充 Azure 基礎結構，我們會部署更新一代、專為支援最新虛擬機器類型而設計的硬體。 有些較舊系列的 VM 無法在我們最新一代的基礎結構上執行。 因此，客戶可能偶爾會遇到這些舊版 SKU 的配置失敗問題。 為了避免這個問題，我們鼓勵使用舊版系列虛擬機器的客戶考慮依據下列建議移轉至對等的較新版 VM：這些 VM 已針對最新硬體進行最佳化，將可讓您享有更好的定價和效能。 
+隨著我們擴充 Azure 基礎結構，我們會部署更新一代、專為支援最新虛擬機器類型而設計的硬體。 有些較舊系列的 VM 無法在我們最新一代的基礎結構上執行。 因此，客戶可能偶爾會遇到這些舊版 SKU 的配置失敗問題。 若要避免發生這個問題，我們會鼓勵使用舊系列虛擬機器的客戶考慮遷移到較新的對等 VM，建議方法如下：這些 VM 都針對最新硬體進行了最佳化，將可讓您享有更高的性價比。 
 
 |傳統 VM 系列/大小|建議的較新版 VM 系列/大小|詳細資訊|
 |----------------------|----------------------------|--------------------|
 |Av1 系列|[Av2 系列](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 或 DSv1 系列 (D1 到 D5)|[Dv3 或 DSv3 系列](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 或 DSv1 系列 (D1 到 D5)|[Dv3 或 DSv3 系列](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Dv1 或 DSv1 系列 (D11 到 D14)|[Ev3 或 ESv3 系列](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
 |D15v2 或 DS15v2|如果您使用 Resource Manager 部署模型來利用較大的 VM 大小，請考慮移轉至 E16v3/E16sv3 或 E32v3/E32sv3。 這些 VM 是專為在最新一代硬體上執行而設計。 如果您使用 Resource Manager 部署模型來確保 VM 執行個體與單一客戶專用的硬體隔離，請考慮移轉至新的隔離式 VM 大小 (E64i_v3 或 E64is_v3)，這些 VM 是專為在最新一代硬體上執行而設計。 |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
@@ -91,10 +91,10 @@ ms.locfileid: "40210093"
 
 ## <a name="background-information"></a>背景資訊
 ### <a name="how-allocation-works"></a>配置的運作方式
-Azure 資料中心的伺服器分割成叢集。 通常會嘗試向多個叢集提出配置要求，但配置要求可能帶有某些條件約束，而強制 Azure 平台只嘗試向一個叢集提出要求。 在本文中，這種情況稱為「釘選到叢集」。 下圖 1 說明於嘗試向多個叢集提出一般配置的情況。 圖 2 說明釘選到叢集 2 的配置案例，因為叢集 2 是現有雲端服務 CS_1 或可用性設定組的裝載位置。
+Azure 資料中心的伺服器分割成叢集。 通常會嘗試向多個叢集提出配置要求，但配置要求可能帶有某些條件約束，而強制 Azure 平台只嘗試向一個叢集提出要求。 在本文中，這種情況稱為「釘選到叢集」。 下图 1 演示了在多个群集中尝试进行一般分配的情况。 圖 2 說明釘選到叢集 2 的配置案例，因為叢集 2 是現有雲端服務 CS_1 或可用性設定組的裝載位置。
 ![配置圖表](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-### <a name="why-allocation-failures-happen"></a>配置失敗的原因
+### <a name="why-allocation-failures-happen"></a>发生分配失败的原因
 當配置要求已釘選到叢集時，由於可用的資源集區較小，很可能找不到可用的資源。 此外，如果配置要求已釘選到叢集，但該叢集不支援您所要求的資源類型，即使叢集有可用的資源，您的要求仍會失敗。 下面圖 3 說明因為唯一候選叢集沒有可用的資源，而導致已釘選的配置發生失敗的情況。 圖 4 說明因唯一候選叢集不支援所要求的 VM 大小 (雖然叢集有可用的資源)，而導致已釘選的配置失敗的情況。
 
 ![釘選配置失敗](./media/virtual-machines-common-allocation-failure/Allocation2.png)

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742498"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58115157"
 ---
 如果您要在您的應用程式中啟用設定檔編輯功能，您可使用**設定檔編輯**使用者流程。 此使用者流程描述客戶在設定檔編輯期間將會經歷的體驗，以及成功完成時，應用程式將收到的權杖內容。
 

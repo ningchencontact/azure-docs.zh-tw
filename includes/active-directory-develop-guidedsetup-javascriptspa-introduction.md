@@ -4,22 +4,22 @@ description: 包含檔案
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 2cb4895fc2f884d6da41b55faa91fbcb9e88f52f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: a6fcbc0e8adac75f17d7379ff512ba650d0bb118
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978730"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203288"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>從 JavaScript 單一頁面應用程式 (SPA) 呼叫 Microsoft Graph API
 
@@ -27,7 +27,7 @@ ms.locfileid: "52978730"
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>本指南產生之範例應用程式的運作方式
 
-![本指南產生之範例應用程式的運作方式](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
+![顯示範例應用程式如何產生此教學課程適用於](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro-updated.png)
 
 <!--start-collapse-->
 ### <a name="more-information"></a>相關資訊
@@ -41,7 +41,7 @@ ms.locfileid: "52978730"
 
 本指南使用下列程式庫：
 
-|程式庫|說明|
+|程式庫|描述|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript 預覽|
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115376"
 ---
 當不再需要某個連接至虛擬機器的資料磁碟時，卸離此資料磁碟很簡單。 將磁碟中斷連結會將它從虛擬機器中移除，但不會從 Azure 儲存體帳戶中刪除。
 
@@ -28,7 +28,7 @@ ms.locfileid: "52330812"
 
 3. 按一下沿著虛擬機器儀表板左側邊緣 [設定] 底下的 [磁碟]。
 
- 虛擬機器儀表板會列出所有已連結之磁碟的名稱和類型。 例如，此畫面會顯示虛擬機器及一個作業系統 (OS) 磁碟和一個資料磁碟：
+   虛擬機器儀表板會列出所有已連結之磁碟的名稱和類型。 例如，此屏幕显示带有一个操作系统 (OS) 磁盘和一个数据磁盘的虚拟机：
 
     ![尋找資料磁碟](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ ms.locfileid: "52330812"
 
 3. 按一下您想要中斷連結的磁碟。
 
-  ![識別要中斷連結的磁碟](./media/howto-detach-disk-windows-linux/disklist.png)
+   ![識別要中斷連結的磁碟](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. 從命令列中，按一下 [中斷連結]。
 
-  ![找出中斷連結命令](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+   ![找出中斷連結命令](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. 在確認對話方塊中，按一下 [是] 以將磁碟中斷連結。
 
-  ![確認將磁碟中斷連結](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+   ![確認將磁碟中斷連結](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 磁碟仍留在儲存體中，但不再連接至虛擬機器。

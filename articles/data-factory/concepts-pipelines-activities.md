@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 8ceae771f1a66f6d999dd0dc2b1f298d4aae8f86
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997929"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管道及活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Azure Data Factory 支援下列可個別或與其他活動鏈結而新增至管�
 ## <a name="control-activities"></a>控制活動
 支援下列的控制流程活動：
 
-控制活動 | 說明
+控制活動 | 描述
 ---------------- | -----------
 [執行管道活動](control-flow-execute-pipeline-activity.md) | 「執行管道」活動可讓 Data Factory 管道叫用另一個管道。
 [ForEachActivity](control-flow-for-each-activity.md) | ForEach 活動可定義管道中重複的控制流程。 此活動用來逐一查看整個集合，然後以迴圈執行指定的活動。 此活動的迴圈實作與程式設計語言中的 Foreach 迴圈結構相似。
@@ -94,7 +94,7 @@ Azure Data Factory 支援下列可個別或與其他活動鏈結而新增至管�
 }
 ```
 
-Tag | 說明 | 類型 | 必要
+Tag | 描述 | 類型 | 必要項
 --- | ----------- | ---- | --------
 name | 管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰140</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\”</li></ul> | 字串 | 是
 說明 | 指定說明管線用途的文字。 | 字串 | 否
@@ -127,7 +127,7 @@ parameters | **parameters** 區段可以在管道內定義一或多個參數，�
 
 下表說明活動 JSON 定義內的屬性：
 
-Tag | 說明 | 必要
+Tag | 描述 | 必要項
 --- | ----------- | ---------
 name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li></ul>
 說明 | 說明活動用途的文字 | 是
@@ -167,7 +167,8 @@ dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何�
     }
 }
 ```
-JSON 名稱 | 說明 | 允許的值 | 必要
+
+JSON 名稱 | 描述 | 允許的值 | 必要項
 --------- | ----------- | -------------- | --------
 timeout | 指定活動執行的逾時。 | Timespan | 沒有。 預設逾時為 7 天。
 retry | 重試次數上限 | 整數  | 沒有。 預設值為 0
@@ -191,7 +192,7 @@ secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不�
 }
 ```
 
-Tag | 說明 | 必要
+Tag | 描述 | 必要項
 --- | ----------- | --------
 name | 活動的名稱。 指定代表活動所執行之動作的名稱。<br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li><ul>
 說明 | 說明活動用途的文字 | 是

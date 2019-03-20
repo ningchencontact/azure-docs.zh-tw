@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db4c2fc0781225af6cc59df72467a69e0ba73e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0fc2aca2b785329b6faebd37c94493269d65c22b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189546"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182977"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>補救 Azure Active Directory 入口網站中標幟為有風險的使用者
 
@@ -46,7 +46,7 @@ Microsoft 致力於協助保護您的環境。 為此承諾，Microsoft 會持�
 
 您也可以使用 Office 365 認證來存取 **Azure 系統管理中心**。 在您啟動 Azure AD 存取後，您就會重新導向至 Azure AD 入口網站。 在基本訂閱等級，報告中提供的詳細資料數量有限。 其他資料和分析資料則適用於 Azure 進階訂閱者。
 
-若要在 Office 365 系統管理中心存取**標幟為有風險的使用者**報告：
+若要存取**標幟有風險的使用者**Microsoft 365 系統管理中心中的報表：
 
 1.  從左側的導覽功能表中，選取 [系統管理中心]。 
 2.  選取 [Azure AD]。

@@ -5,23 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/21/2019
+ms.date: 2/25/2019
 ms.author: victorh
-ms.openlocfilehash: 9ecc5d3779ac6632f4a5c05914cbb0e756c79e91
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 1d03d896de947fcc938619c52a3690962a0d2d6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458215"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805615"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure 防火牆服務標籤
 
 服務標籤表示一組 IP 位址前置詞，有助於降低建立安全性規則的複雜性。 您無法建立自己的服務標籤，或指定標籤中包含哪些 IP 位址。 Microsoft 會管理服務標籤包含的位址前置詞，並隨著位址變更自動更新服務標籤。
 
 防火牆服務標籤可以用於網路規則目的地的欄位。 可以使用這些標籤來取代特定的 IP 位址。
-
-> [!NOTE]
-> 服務標籤會逐步新增到各個區域，不久後所有區域均可使用。
 
 ## <a name="supported-service-tags"></a>支援的服務標籤
 
@@ -40,7 +37,7 @@ ms.locfileid: "56458215"
 * **AppService** (僅限 Resource Manager)：此標記代表 Azure AppService 服務的位址前置詞。 如果您指定 AppService 作為值，就會允許或拒絕 AppService 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AppService，您可以用 AppService.[region name] 的格式指定區域。 
 * **AppServiceManagement** (僅限 Resource Manager)：此標記代表 Azure AppService Management 服務的位址前置詞。 如果您指定 AppServiceManagement 作為值，就會允許或拒絕 AppServiceManagement 的流量。 
 * **ApiManagement** (僅限 Resource Manager)：此標記代表 Azure API Management 服務的位址前置詞。 如果您指定 ApiManagement 作為值，就會允許或拒絕 ApiManagement 的流量。  
-* **AzureConnectors** (僅限 Resource Manager)：此標記代表 Azure Connectors 服務的位址前置詞。 如果您指定 AzureConnectors 作為值，就會允許或拒絕 AzureConnectors 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureConnectors，您可以用 AzureConnectors.[region name] 的格式指定區域。
+* **AzureConnectors**（仅限资源管理器）：此標記代表 Azure Connectors 服務的位址前置詞。 如果您指定 AzureConnectors 作為值，就會允許或拒絕 AzureConnectors 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureConnectors，您可以用 AzureConnectors.[region name] 的格式指定區域。
 * **AzureDataLake** (僅限 Resource Manager)：此標記代表 Azure Data Lake 服務的位址前置詞。 如果您指定 AzureDataLake 作為值，就會允許或拒絕 AzureDataLake 的流量。
 * **AzureActiveDirectory** (僅限 Resource Manager)：此標記代表 AzureActiveDirectory 服務的位址前置詞。 如果您指定 AzureActiveDirectory 作為值，就會允許或拒絕 AzureActiveDirectory 的流量。
 * **AzureMonitor** (僅限 Resource Manager)：此標記代表 AzureMonitor 服務的位址前置詞。 如果您指定 AzureMonitor 作為值，就會允許或拒絕 AzureMonitor 的流量。
