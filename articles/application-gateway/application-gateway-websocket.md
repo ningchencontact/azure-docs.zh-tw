@@ -1,25 +1,18 @@
 ---
 title: Azure 應用程式閘道的 WebSocket 支援 | Microsoft Docs
 description: 本頁面提供應用程式閘道 WebSocket 支援的概觀。
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
+ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168114"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>應用程式閘道中的 WebSocket 支援概觀
 
@@ -29,9 +22,17 @@ ms.locfileid: "52993329"
 
 您可以在連接埠 80 或 443 上繼續使用標準 HTTP 接聽程式來接收 WebSocket 流量。 WebSocket 流量接著會使用應用程式閘道規則中指定的適當後端集區，來導向到已啟用 WebSocket 的後端伺服器。 後端伺服器必須回應應用程式閘道探查，[健康情況探查概觀](application-gateway-probe-overview.md)一節中會有所說明。 應用程式閘道健康情況探查僅限使用 HTTP/HTTPS。 每一部後端伺服器都必須回應 HTTP 探查，應用程式閘道才能將 WebSocket 流量路由傳送至伺服器。
 
-## <a name="listener-configuration-element"></a>接聽程式組態元素
+它用於受益於快速的即時通訊，例如聊天、 儀表板，遊戲的應用程式的應用程式。
 
-現有的 HTTP 接聽程式可用來支援 WebSocket 流量。 以下是來自範例範本檔案中 httpListeners 元素的程式碼片段。 您必須同時擁有 HTTP 和 HTTPS 接聽程式才能支援 WebSocket 和保護 WebSocket 流量。 同樣地，您可以使用[入口網站](application-gateway-create-gateway-portal.md)或 [PowerShell](application-gateway-create-gateway-arm.md) 在連接埠 80/443 上建立具有接聽程式的應用程式閘道，才能支援 WebSocket 流量。
+## <a name="how-does-websocket-work"></a>WebSocket 如何運作
+
+若要建立 WebSocket 連線，用戶端和伺服器之間交換特定 HTTP 為基礎的交握。 如果成功，應用程式層通訊協定是 「 」 從 HTTP 升級至 Websocket，使用先前建立的 TCP 連線。 一旦發生這種情況，HTTP 是完全運作;資料可以傳送或接收 both 端點所使用的 WebSocket 通訊協定，直到關閉 WebSocket 連接。 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>接聽程式組態元素
+
+現有的 HTTP 接聽程式可用來支援 WebSocket 流量。 以下是來自範例範本檔案中 httpListeners 元素的程式碼片段。 需要同时拥有 HTTP 和 HTTPS 侦听器才能支持 WebSocket 并保护 WebSocket 流量。 同樣地，您可以使用[入口網站](application-gateway-create-gateway-portal.md)或 [PowerShell](application-gateway-create-gateway-arm.md) 在連接埠 80/443 上建立具有接聽程式的應用程式閘道，才能支援 WebSocket 流量。
 
 ```json
 "httpListeners": [

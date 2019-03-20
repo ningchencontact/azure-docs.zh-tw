@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215081"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188334"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>疑難排解：無法在 Azure 資料總管中建立或刪除資料庫或資料表
 
@@ -37,7 +37,7 @@ ms.locfileid: "50215081"
 
     如需有關權限的詳細資訊，請參閱[管理資料庫權限](manage-database-permissions.md)。
 
-1. 確定具有相同名稱的資料表尚未存在。 如果存在，則您可以：建立具有不同名稱的資料表；將現有的資料表重新命名 (需要「資料表管理員」角色)；或卸除現有資料表 (需要「資料庫管理員」角色)。 使用下列命令。
+1. 確定具有相同名稱的資料表尚未存在。 如果它存在，則您可以：建立具有不同的名稱; 的資料表重新命名現有的資料表 (需要*資料表的系統管理員*角色)，或卸除現有的資料表 (需要*資料庫管理員*角色)。 使用下列命令。
 
     ```Kusto
     .drop table <TableName>
@@ -53,7 +53,7 @@ ms.locfileid: "50215081"
 
 ## <a name="general-guidance"></a>一般方針
 
-1. 查看 [Azure 服務健康情況儀表板](https://azure.microsoft.com/status/>)。 在您要嘗試使用資料庫或資料表的區域中尋找 Azure 資料總管的狀態。
+1. 查看 [Azure 服務健康情況儀表板](https://azure.microsoft.com/status/)。 在您要嘗試使用資料庫或資料表的區域中尋找 Azure 資料總管的狀態。
 
     如果狀態不是**良好** (綠色核取記號)，請在狀態改善之後再試一次。
 

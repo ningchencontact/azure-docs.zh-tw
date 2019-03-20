@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853166"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>新增 Azure AD 資源庫應用程式時遇到問題
 
@@ -38,7 +38,7 @@ ms.locfileid: "56237864"
 
 如果您按一下 [新增] 按鈕時發生錯誤，您會看到**錯誤**狀態的**通知**。 如果您想要取得更多關於此錯誤的詳細資料以進一步了解，或分享給支援工程師，則可以依照[如何查看入口網站通知的詳細資訊](#how-to-see-the-details-of-a-portal-notification)一節中的步驟，來查看此錯誤的詳細資訊。
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>我在新增應用程式之後不知道如何設定
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>我在新增應用程式之後不知道如何設定
 
 如果您需要了解應用程式，建議從[如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)一文開始。
 
@@ -59,7 +59,7 @@ ms.locfileid: "56237864"
 
 4.  使用 [通知詳細資料] 中的資訊，來了解更多關於此問題的詳細資料。
 
-5.  如果您仍然需要協助，您也可以將此資訊分享給支援工程師或產品群組，以取得協助來解決您的問題。
+5.  如果您仍然需要協助，您也可以將這項資訊分享給支援工程師或產品群組，以取得協助來解決您的問題。
 
 6.  按一下 [複製錯誤] 文字方塊右邊的**複製****圖示**，以複製所有通知詳細資料來分享給支援工程師或產品群組工程師。
 
@@ -73,41 +73,41 @@ ms.locfileid: "56237864"
 
 ### <a name="essential-notification-items"></a>必要通知項目
 
--   **標題** - 通知的描述性標題
+- **標題** - 通知的描述性標題
 
   * 範例 - **應用程式 Proxy 設定**
 
--   **描述** - 作業所產生之結果的描述
+- **描述** - 作業所產生之結果的描述
 
-    -   範例 - **輸入的內部 URL 正由另一個應用程式使用中**
+  -   範例 - **輸入的內部 URL 正由另一個應用程式使用中**
 
--   **通知識別碼** – 通知的唯一識別碼
+- **通知識別碼** – 通知的唯一識別碼
 
-    -   範例 - **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   範例 - **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **用戶端要求識別碼** – 瀏覽器所產生的特定要求識別碼
+- **用戶端要求識別碼** – 瀏覽器所產生的特定要求識別碼
 
-    -   範例 - **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   範例 - **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **時間戳記 UTC** - 發生通知期間的時間戳記 (UTC)
+- **時間戳記 UTC** - 發生通知期間的時間戳記 (UTC)
 
-    -   範例 - **2017-03-23T19:50:43.7583681Z**
+  -   範例 - **2017-03-23T19:50:43.7583681Z**
 
--   **內部交易識別碼** – 可用來在系統中查閱錯誤的內部識別碼
+- **內部交易識別碼** – 可用來在系統中查閱錯誤的內部識別碼
 
-    -   範例 - **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   範例 - **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** - 執行作業的使用者
+- **UPN** - 執行作業的使用者
 
-    -   範例 - **tperkins@f128.info**
+  -   範例 – **tperkins\@f128.info**
 
--   **租用戶識別碼** – 作業執行使用者所屬之租用戶的唯一識別碼
+- **租用戶識別碼** – 作業執行使用者所屬之租用戶的唯一識別碼
 
-    -   範例 - **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   範例 - **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **使用者物件識別碼** – 執行作業之使用者的唯一識別碼
+- **使用者物件識別碼** – 執行作業之使用者的唯一識別碼
 
-    -   範例 - **17f84be4-51f8-483a-b533-383791227a99**
+  -   範例 - **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>詳細通知項目
 
@@ -125,7 +125,7 @@ ms.locfileid: "56237864"
 
 -   **詳細資料** - 作業所產生之結果的詳細描述
 
-    -   範例 – **內部 url 'https://bing.com/' 無效，因為已在使用中**
+    -   範例 –**內部 url`https://bing.com/`無效，因為它已在使用**
 
 -   **複製錯誤** – 按一下 [複製錯誤] 文字方塊右邊的**複製圖示**，以複製所有通知詳細資料來分享給支援工程師或產品群組 
 -   工程師

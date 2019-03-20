@@ -1,6 +1,6 @@
 ---
-title: 將 Azure Automation State Configuration 報告資料轉送至 Log Analytics
-description: 這篇文章示範如何將 Desired State Configuration (DSC) 報告資料從 Azure Automation State Configuration 傳送到 Log Analytics，以提供額外的深入解析和管理。
+title: 將轉送到 Azure 監視器記錄檔中報告資料的 Azure 自動化狀態設定
+description: 這篇文章會示範如何傳送 Desired State Configuration (DSC) 報告從 Azure 自動化狀態設定 Azure 監視器記錄檔中的資料以提供額外的深入解析和管理。
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,16 +9,19 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2450ffcbd9fa7bebd5a1b862aa9c35baa5dbdc95
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425167"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097281"
 ---
-# <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>將 Azure Automation State Configuration 報告資料轉送至 Log Analytics
+# <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>將轉送到 Azure 監視器記錄檔中報告資料的 Azure 自動化狀態設定
 
-Azure Automation State Configuration 可以將 Desired State Configuration (DSC) 節點狀態資料傳送到 Log Analytics 工作區。 節點以及節點組態中個別 DSC 資源的合規性狀態會顯示在 Azure 入口網站中或使用 PowerShell 顯示。 透過 Log Analytics，您可以：
+Azure 自動化狀態設定將保留 30 天的節點狀態資料。
+如果您想要保留這項資料更長的時間，您可以將節點狀態資料傳送給您的 Log Analytics 工作區中。
+節點以及節點組態中個別 DSC 資源的合規性狀態會顯示在 Azure 入口網站中或使用 PowerShell 顯示。
+您可以使用 Azure 監視器記錄檔：
 
 - 取得受控節點與個別資源的合規性資訊
 - 根據合規性狀態觸發電子郵件或警示
@@ -26,41 +29,43 @@ Azure Automation State Configuration 可以將 Desired State Configuration (DSC)
 - 相互關聯自動化帳戶之間的合規性狀態
 - 以視覺化方式呈現一段時間的合規性歷程記錄
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
-若要開始將 Automation State Configuration 報告傳送到 Log Analytics，您需要：
+若要開始將您的自動化狀態設定報告傳送至 Azure 監視器記錄檔，您需要：
 
 - 2016 年 11 月或更新版本的 [Azure PowerShell](/powershell/azure/overview) (v2.3.0)。
 - Azure 自動化帳戶。 如需詳細資訊，請參閱[開始使用 Azure 自動化](automation-offering-get-started.md)。
-- 提供 [自動化與控制] 服務供應項目的 Log Analytics 工作區。 如需詳細資訊，請參閱[開始使用 Log Analytics](../log-analytics/log-analytics-get-started.md)。
+- 提供 [自動化與控制] 服務供應項目的 Log Analytics 工作區。 有关详细信息，请参阅 [Azure Monitor 日志入门](../log-analytics/log-analytics-get-started.md)。
 - 至少一個 Azure Automation State Configuration 節點。 如需詳細資訊，請參閱[將機器上架交由 Azure Automation State Configuration 管理](automation-dsc-onboarding.md)
 
-## <a name="set-up-integration-with-log-analytics"></a>設定與 Log Analytics 整合
+## <a name="set-up-integration-with-azure-monitor-logs"></a>设置与 Azure Monitor 日志的集成
 
-若要開始從 Azure Automation DSC 將資料匯入 Log Analytics，請完成下列步驟：
+若要開始從 Azure Automation DSC 將資料匯入至 Azure 監視器記錄檔，請完成下列步驟：
 
 1. 在 PowerShell 中登入您的 Azure 帳戶。 請參閱[使用 Azure PowerShell 登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. 執行下列 PowerShell 命令以取得自動化帳戶的 _ResourceId_：(如有多個自動化帳戶，請選擇您想要設定的帳戶 _ResourceID_)。
 
-  ```powershell
-  # Find the ResourceId for the Automation Account
-  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
-  ```
+   ```powershell
+   # Find the ResourceId for the Automation Account
+   Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   ```
 
 1. 執行下列 PowerShell 命令以取得 Log Analytics 工作區的 _ResourceId_：(如有多個工作區，請選擇您想要設定的工作區 _ResourceID_)。
 
-  ```powershell
-  # Find the ResourceId for the Log Analytics workspace
-  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
-  ```
+   ```powershell
+   # Find the ResourceId for the Log Analytics workspace
+   Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+   ```
 
 1. 執行下列 PowerShell 命令，以前述各步驟的 _ResourceId_ 值取代 `<AutomationResourceId>` 和 `<WorkspaceResourceId>`：
 
-  ```powershell
-  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
-  ```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
+   ```
 
-如果您想要停止從 Azure Automation State Configuration 將資料匯入 Log Analytics，請執行下列 PowerShell 命令：
+如果您想要停止將資料匯入 Azure 自動化狀態設定從 Azure 監視器記錄檔，請執行下列 PowerShell 命令：
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories 'DscNodeStatus'
@@ -68,7 +73,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 ## <a name="view-the-state-configuration-logs"></a>檢視 State Configuration 記錄
 
-設定 Automation State Configuration 資料與 Log Analytics 的整合後，自動化帳戶的 [DSC 節點] 刀鋒視窗中就會出現 [記錄搜尋] 按鈕。 按一下 [記錄搜尋] 按鈕以檢視 DSC 節點資料的記錄檔。
+設定與 Azure 監視器記錄檔整合為您的自動化狀態組態資料之後,**記錄檔搜尋** 按鈕會出現在**DSC 節點**刀鋒視窗中，您的自動化帳戶。 按一下 [記錄搜尋] 按鈕以檢視 DSC 節點資料的記錄檔。
 
 ![記錄搜尋按鈕](media/automation-dsc-diagnostics/log-search-button.png)
 
@@ -78,7 +83,8 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 按一下清單中的每項作業可查看該作業的資料。
 
-您也可以搜尋 Log Analytics 來檢視記錄檔。 請參閱[使用記錄搜尋尋找資料](../log-analytics/log-analytics-log-searches.md)。
+您也可以在 Azure 監視器記錄檔中搜尋，以檢視記錄檔。
+請參閱[使用記錄搜尋尋找資料](../log-analytics/log-analytics-log-searches.md)。
 鍵入下列查詢來尋找 State Configuration 記錄：`Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
 
 您也可以依作業名稱縮小查詢範圍。 例如：`Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
@@ -89,19 +95,19 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 若要建立警示規則，首先針對應叫用警示的 State Configuration 報告記錄，建立記錄檔搜尋。 按一下 [+ 新增警示規則] 按鈕，以建立並設定警示規則。
 
-1. 從 [Log Analytics 概觀] 頁面，按一下 [記錄搜尋]。
+1. 從 Log Analytics 工作區的 [概觀] 頁面中，按一下**記錄檔**。
 1. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`。
 
    如果您已將來自多個自動化帳戶或訂用帳戶的記錄設定到您的工作區，就能依訂用帳戶或自動化帳戶來將警示分組。  
    自動化帳戶名稱可以衍生自 DscNodeStatusData 搜尋的 [資源] 欄位。  
-1. 若要開啟 [建立規則] 畫面，按一下頁面頂端的 [+ 新增警示規則]。 如需設定警示選項的詳細資訊，請參閱[建立警示規則](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。
+1. 若要開啟 [建立規則] 畫面，按一下頁面頂端的 [+ 新增警示規則]。 如需有關設定警示選項的詳細資訊，請參閱[建立警示規則](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>在所有節點間尋找失敗的 DSC 資源
 
-使用 Log Analytics 的優點之一，是您可以在所有節點間搜尋失敗的檢查。
+使用 Azure 監視器記錄檔的優點之一是，您可以搜尋失敗的檢查節點之間。
 尋找所有失敗的 DSC 資源執行個體。
 
-1. 從 [Log Analytics 概觀] 頁面，按一下 [記錄搜尋]。
+1. 從 Log Analytics 工作區的 [概觀] 頁面中，按一下**記錄檔**。
 1. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`。
 
 ### <a name="view-historical-dsc-node-status"></a>檢視歷程記錄 DSC 節點狀態
@@ -113,13 +119,13 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 這會顯示一段時間的節點狀態圖表。
 
-## <a name="log-analytics-records"></a>Log Analytics 記錄
+## <a name="azure-monitor-logs-records"></a>Azure 監視器記錄檔記錄
 
-來自 Azure 自動化的診斷會在 Log Analytics 中建立兩種記錄類別。
+來自 Azure 自動化的診斷會在 Azure 監視器記錄檔中建立兩種記錄類別。
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | TimeGenerated |執行合規性檢查的日期和時間。 |
 | OperationName |DscNodeStatusData |
@@ -139,7 +145,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | ReportStartTime_t |報表開始的日期和時間。 |
 | ReportEndTime_t |報表完成的日期和時間。 |
 | NumberOfResources_d |在節點套用的設定中呼叫的 DSC 資源數目。 |
-| SourceSystem | Log Analytics 如何收集資料。 針對 Azure 診斷，一律為 Azure 。 |
+| SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure 。 |
 | ResourceId |指定 Azure 自動化帳戶。 |
 | ResultDescription | 此作業的描述。 |
 | SubscriptionId | 自動化帳戶的 Azure 訂用帳戶識別碼 (GUID)。 |
@@ -150,7 +156,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | TimeGenerated |執行合規性檢查的日期和時間。 |
 | OperationName |DscResourceStatusData|
@@ -170,7 +176,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | ErrorCode_s | 資源失敗時的錯誤代碼。 |
 | ErrorMessage_s |資源失敗時的錯誤訊息。 |
 | DscResourceDuration_d |DSC 資源執行的時間，以秒為單位。 |
-| SourceSystem | Log Analytics 如何收集資料。 針對 Azure 診斷，一律為 Azure 。 |
+| SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure 。 |
 | ResourceId |指定 Azure 自動化帳戶。 |
 | ResultDescription | 此作業的描述。 |
 | SubscriptionId | 自動化帳戶的 Azure 訂用帳戶識別碼 (GUID)。 |
@@ -181,12 +187,12 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 ## <a name="summary"></a>總結
 
-只要將 Automation State Configuration 資料傳送到 Log Analytics，您就可以透過下列方式，更深入了解 Automation State Configuration 節點的狀態：
+您可以將自動化狀態組態資料傳送至 Azure 監視器記錄檔，以取得進一步了解您的自動化狀態組態節點的狀態：
 
 - 設定警示，在發生問題時通知您
 - 使用自訂檢視和搜尋查詢，以視覺化方式檢視您的 Runbook 結果、Runbook 作業狀態，以及其他相關的關鍵指標或計量。  
 
-Log Analytics 可以為您的 Automation State Configuration 資料提供更高的操作可見性，有利於更快處理事件。
+Azure 監視器記錄檔會提供更高的操作可見性，您的自動化狀態設定資料，並可更快速地協助處理事件。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -195,6 +201,6 @@ Log Analytics 可以為您的 Automation State Configuration 資料提供更高�
 - 若要了解如何編譯 DSC 組態，以將它們指派給目標節點，請參閱[編譯 Azure Automation State Configuration 中的組態](automation-dsc-compile.md)
 - 如需 PowerShell Cmdlet 參考，請參閱 [Azure 自動化狀態設定 Cmdlet](/powershell/module/azurerm.automation/#automation)
 - 如需定價資訊，請參閱 [Azure 自動化狀態設定的定價](https://azure.microsoft.com/pricing/details/automation/)
-- 若要查看在持續部署管線中使用 Azure Automation State Configuration 的範例，請參閱[使用 Azure Automation State Configuration 和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)
-- 若要深入了解如何使用 Log Analytics 來建構不同的搜尋查詢及檢閱 Automation State Configuration 記錄，請參閱 [Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)
-- 若要深入了解 Log Analytics 和資料收集來源，請參閱[在 Log Analytics 中收集 Azure 儲存體資料概觀](../azure-monitor/platform/collect-azure-metrics-logs.md)
+- 若要查看在持續部署管線中使用 Azure 自動化狀態設定的範例，請參閱[使用 Azure 自動化狀態設定和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)
+- 若要深入了解如何建構不同的搜尋查詢，以及檢閱使用 Azure 監視器記錄檔的自動化狀態設定記錄檔，請參閱[Azure 監視器記錄檔中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)
+- 若要深入了解 Azure 監視器記錄檔和資料收集來源，請參閱[Azure 監視器中收集 Azure 儲存體的資料記錄檔概觀](../azure-monitor/platform/collect-azure-metrics-logs.md)

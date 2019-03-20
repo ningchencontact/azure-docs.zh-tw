@@ -12,31 +12,31 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44056ae1bca2595965abd3a47b4a2aa29d221623
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: cec8ab9d678ff559176580fa8eccc261f449f4c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255228"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012894"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>開始使用 Azure 資料表儲存體和 Visual Studio 已連接服務 (雲端服務專案)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>概觀
-本文說明如何在您使用 Visual Studio 的 [新增連接的服務]  對話方塊建立或參考雲端服務專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 中使用 Azure 表格儲存體。 [ **新增連接的服務** ] 作業會安裝適當的 NuGet 封裝，以存取專案中的 Azure 儲存體，並將儲存體帳戶的連接字串新增至您的專案組態檔。
+本文說明如何在您使用 Visual Studio 的 [新增連接的服務]  對話方塊建立或參考雲端服務專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 中使用 Azure 表格儲存體。 执行“添加连接服务”操作会安装相应的 NuGet 程序包，以访问项目中的 Azure 存储，并将存储帐户的连接字符串添加到项目配置文件中。
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。
 
 若要開始，首先您必須在儲存體帳戶中建立資料表。 我們將說明如何使用程式碼建立 Azure 資料表，以及如何執行基本的資料表和實體作業，例如新增、修改、讀取和讀取資料表實體。 這些範例均以 C\# 程式碼撰寫，並使用 [Microsoft Azure Storage client library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 
-**注意：** 有一些 API會以非同步方式對 Azure 儲存體執行呼叫。 如需詳細資訊，請參閱 [使用 Async 及 Await 進行非同步程式設計](https://msdn.microsoft.com/library/hh191443.aspx) 。 以下程式碼假設使用非同步程式設計方法。
+**注意：** 有些對外向 Azure 儲存體執行呼叫的 Api 是非同步的。 如需詳細資訊，請參閱 [使用 Async 和 Await 進行非同步程式設計](https://msdn.microsoft.com/library/hh191443.aspx) 。 以下程式碼假設使用非同步程式設計方法。
 
 * 如需以程式設計方式處理資料表的詳細資訊，請參閱 [以 .NET 開始使用 Azure 資料表儲存體](../storage/storage-dotnet-how-to-use-tables.md) 。
 * 如需 Azure 儲存體的一般資訊，請參閱 [儲存體文件](https://azure.microsoft.com/documentation/services/storage/) 。
 * 如需 Azure 雲端服務的一般資訊，請參閱 [雲端服務文件](https://azure.microsoft.com/documentation/services/cloud-services/) 。
-* 若需要如何編寫 ASP.NET 應用程式的詳細資訊，請參閱 [ASP.NET](http://www.asp.net) 。
+* 若需要如何編寫 ASP.NET 應用程式的詳細資訊，請參閱 [ASP.NET](https://www.asp.net) 。
 
-## <a name="access-tables-in-code"></a>在程式碼中存取資料表
+## <a name="access-tables-in-code"></a>使用代码访问表
 若要存取雲端服務專案中的資料表，您需要將下列項目併入至存取 Azure 資料表儲存體的任何 C# 原始程式檔。
 
 1. 請確定 C# 檔案頂端的命名空間宣告包含這些 **using** 陳述式。
@@ -71,7 +71,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服�
     await peopleTable.CreateIfNotExistsAsync();
 
 ## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
-若要將實體新增至資料表，請建立一個類別來定義實體的屬性。 下列程式碼會定義稱為 **CustomerEntity** 的實體類別，其使用客戶名字作為資料列索引鍵，並使用姓氏作為資料分割索引鍵。
+要将实体添加到表，请创建用于定义实体的属性的类。 下列程式碼會定義稱為 **CustomerEntity** 的實體類別，其使用客戶名字作為資料列索引鍵，並使用姓氏作為資料分割索引鍵。
 
     public class CustomerEntity : TableEntity
     {
@@ -126,7 +126,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服�
     await peopleTable.ExecuteBatchAsync(batchOperation);
 
 ## <a name="get-all-of-the-entities-in-a-partition"></a>取得資料分割中的所有實體
-若要向資料表查詢資料分割中的所有實體，請使用 **TableQuery** 物件。 下列程式碼範例會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。 此範例會將查詢結果中每個實體的欄位列印至主控台。
+若要向資料表查詢資料分割中的所有實體，請使用 **TableQuery** 物件。 以下代码示例指定了一个筛选器，以筛选分区键为“Smith”的实体。 此範例會將查詢結果中每個實體的欄位列印至主控台。
 
     // Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()

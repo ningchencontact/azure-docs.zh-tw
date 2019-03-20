@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 10/24/2018
+ms.author: cephalin
+ms.openlocfilehash: e4bc749047bbf0d55fc60a699ac956421775d5b0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "58114309"
+---
 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [資源群組] > **cloud-shell-storage-\<your_region>** > **\<storage_account_name>**。
 
 ![找出 Cloud Shell 儲存體帳戶](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)

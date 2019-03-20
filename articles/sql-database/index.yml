@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ba32f17ac596a21614c1e18a01f622defb069a8e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: dad3d16ad6d630bd57e6e5d196d16d45692935d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338411"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167961"
 documentType: LandingData
 title: Azure SQL Database 文件
 metadata:
@@ -65,7 +65,7 @@ sections:
         src: media/index/i_elasticpool.svg
       title: 彈性集區
     - href: /azure/sql-database/sql-database-managed-instance-index
-      html: <p>使用受控執行個體，輕鬆地將內部部署資料庫遷移至完全受控的 Azure PaaS 資料庫服務，而只需變更極少或不需變更資料庫程式碼。</p>
+      html: <p>使用受控執行個體來取得 Azure 雲端中裝載的完全受控 SQL Server 資料庫引擎執行個體，只需最低限度地變更或不用變更程式碼，就能從內部部署資料庫進行移轉。</p>
       image:
         src: media/index/i_mi.svg
       title: 受控執行個體

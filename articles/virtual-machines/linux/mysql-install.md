@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f9e0582a1338bcae7b330c7ece7c3d8cc8593cfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888425"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004508"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>如何在 Azure 上安裝 MySQL
 本文將示範如何在執行 Linux 的 Azure 虛擬機器上安裝和設定 MySQL
@@ -33,7 +33,7 @@ ms.locfileid: "54888425"
 > 
 > 
 
-在此情況下，請使用連接埠 3306 作為 MySQL 連接埠。  
+在此情况下，请使用 3306 端口作为 MySQL 端口。  
 
 連接到您透過 putty 建立的 Linux VM。 如果這是您第一次使用 Azure Linux VM，請在[這裡](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)看看如何使用 putty 連接到 Linux VM。
 
@@ -51,9 +51,9 @@ ms.locfileid: "54888425"
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    在安裝期間，會出現一個快顯對話方塊視窗，要求您設定下方的 MySQL 根密碼，請在這裡設定密碼。
+    在安裝期間，您會看到對話方塊視窗會出現要求您設定 MySQL 根密碼，而且您需要在這裡設定密碼。
   
-    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
+    ![映像](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
     再次輸入密碼以進行確認。
 
@@ -92,7 +92,7 @@ ms.locfileid: "54888425"
   
     下載並安裝 MySQL 發行套件：
   
-            #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+            #[root@mysqlnode ~]# wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
 * 步驟 2：編輯下方檔案，以允許 MySQL 儲存機制下載 MySQL5.6 套件檔案。
   
@@ -127,7 +127,7 @@ ms.locfileid: "54888425"
   
            #[root@mysqlnode ~]#netstat  –tunlp|grep 3306
 
-    (c) 啟動 MySQL 伺服器：
+    (c) 启动 MySQL Server：
 
            #[root@mysqlnode ~]#service mysqld start
 

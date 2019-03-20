@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097986"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>教學課程：設定 Zendesk 來自動佈建使用者
 
@@ -111,12 +111,12 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 5. 在 [管理員認證] 區段下，輸入 Zendesk 帳戶的 [管理員使用者名稱]、[祕密權杖] 和 [網域]。 這些值的範例如下：
 
-    *   在 [管理員使用者名稱] 欄位中，填入 Zendesk 租用戶中管理帳戶的使用者名稱。 範例： admin@contoso.com.
+   * 在 [管理員使用者名稱] 欄位中，填入 Zendesk 租用戶中管理帳戶的使用者名稱。 範例： admin@contoso.com.
 
-    *   在 [秘密權杖] 欄位中，填入秘密權杖，如同步驟 6 所述。
+   * 在 [秘密權杖] 欄位中，填入秘密權杖，如同步驟 6 所述。
 
-    *   在 [網域] 欄位中，填入您的 Zendesk 租用戶子網域。
-    範例：針對租用戶 URL 為 https://my-tenant.zendesk.com 的帳戶，您的子網域會是 **my-tenant**。
+   * 在 [網域] 欄位中，填入您的 Zendesk 租用戶子網域。
+     範例：針對租用戶 URL 為 https://my-tenant.zendesk.com 的帳戶，您的子網域會是 **my-tenant**。
 
 6. 您的 Zendesk 帳戶的 [秘密權杖] 位於 [網域 > API > 設定]。
    請確定 [權杖存取] 設為 [已啟用]。

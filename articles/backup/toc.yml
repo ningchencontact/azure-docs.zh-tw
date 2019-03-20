@@ -194,9 +194,11 @@ items:
       href: backup-azure-arm-userestapi-managejobs.md
   - name: 將 SQL Server 資料庫備份到 Azure VM
     items:
-    - name: 將 SQL Server 資料庫備份到 Azure VM
-      href: backup-azure-sql-database.md
-    - name: 還原 SQL Server 資料庫備份
+    - name: 關於 Azure VM 中的 SQL Server 備份
+      href: backup-sql-server-azure-vms.md
+    - name: 備份 Azure VM 中的 SQL Server 資料庫
+      href: backup-sql-server-database-azure-vms.md
+    - name: 還原 Azure VM 中的 SQL Server 資料庫
       href: restore-sql-database-azure-vm.md
     - name: 管理 SQL Server 資料庫備份
       href: manage-monitor-sql-database-backup.md
@@ -276,9 +278,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: c30132c7dcad3873daa39e7d8ecf112032183963
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 033235611271b00275a0ef759af80f2c8c9a2474
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014650"

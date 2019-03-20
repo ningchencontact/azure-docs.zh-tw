@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2401c74b55df78014a2f642b5166b4cf0017d87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882942"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076202"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>HDInsight 和 Azure Data Lake Storage Gen2 上的 Storm 效能微調方針
 
@@ -78,7 +78,7 @@ ms.locfileid: "55882942"
 
 - **Spout 暫止上限：topology.max.spout.pending**。 此設定會決定任何時候每個 Spout 執行緒可以有的傳輸中 (尚未在拓撲中的所有節點上受到認可) Tuple 數目。
 
- 良好的計算方式是估計每個 Tuple 的大小。 然後找出一個 Spout 執行緒有多少記憶體。 配置給執行緒的記憶體總數除以這個值，應該就能得出最大 Spout 暫止參數的上限。
+  良好的計算方式是估計每個 Tuple 的大小。 然後找出一個 Spout 執行緒有多少記憶體。 配置給執行緒的記憶體總數除以這個值，應該就能得出最大 Spout 暫止參數的上限。
 
 預設 Data Lake Storage Gen2 Storm Bolt 有一個大小同步處理原則參數 (fileBufferSize) 可用來調整此參數。
 

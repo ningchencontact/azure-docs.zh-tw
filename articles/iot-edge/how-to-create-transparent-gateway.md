@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096702"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>設定 IoT Edge 裝置作為透明閘道
 
@@ -45,7 +45,10 @@ ms.locfileid: "53556215"
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-您可以使用任何電腦產生憑證，然後再將其複製到您的 IoT Edge 裝置。 
+您可以使用任何電腦產生憑證，然後再將其複製到您的 IoT Edge 裝置。
+
+>[!NOTE]
+>「 閘道名稱 」 用來建立此指令，憑證必須是相同名稱所用作為您的 IoT Edge config.yaml 檔案中的主機名稱和 GatewayHostName 下游裝置的連接字串中。 「 閘道名稱 」 必須解析成 IP 位址，使用 DNS 或 host 檔案項目。 根據使用的通訊協定的通訊 (MQTTS:8883 / AMQPS:5671 / HTTPS:433) 必須能夠下游裝置與 IoT Edge 變成透明。 如果防火牆之間時，個別連接埠必須開啟。
 
 ## <a name="generate-certificates-with-windows"></a>使用 Windows 產生憑證
 
@@ -60,7 +63,7 @@ ms.locfileid: "53556215"
    >[!NOTE]
    >如果您已經在 Windows 裝置上安裝 OpenSSL，則可以略過此步驟，但請確定您的 PATH 環境變數中有 openssl.exe。
 
-* **較簡便：** 下載並安裝任何第三方 OpenSSL 二進位檔，例如，從 [SourceForge 上的這個專案](https://sourceforge.net/projects/openssl/)下載並安裝。 將 openssl.exe 的完整路徑加入至您的 PATH 環境變數。 
+* **較簡便：** 下載並安裝任何[第三方 OpenSSL 二進位檔](https://wiki.openssl.org/index.php/Binaries)，例如，從 [SourceForge 上的這個專案](https://sourceforge.net/projects/openssl/)下載並安裝。 將 openssl.exe 的完整路徑加入至您的 PATH 環境變數。 
    
 * **建議配備：** 自行下載 OpenSSL 原始程式碼並在您的電腦上組建二進位檔，或是透過 [vcpkg](https://github.com/Microsoft/vcpkg) 來執行。 下列指示會使用 vcpkg 下載原始程式碼，並在 Windows 電腦上編譯並安裝 OpenSSL，且各項作業都能以輕鬆的步驟完成。
 
@@ -178,7 +181,7 @@ ms.locfileid: "53556215"
 
 在本節中，您要建立三個憑證，然後將它們以鏈結方式連接。 將憑證放入鏈結檔案可讓您輕鬆地在您的 IoT Edge 閘道裝置和任何下游裝置上安裝它們。  
 
-1.  建立擁有者 CA 憑證和一個中繼憑證。 這些憑證放置在 *\<WRKDIR>* 中。
+1. 建立擁有者 CA 憑證和一個中繼憑證。 這些憑證放置在 *\<WRKDIR>* 中。
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -190,7 +193,7 @@ ms.locfileid: "53556215"
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  使用下列命令建立 Edge 裝置 CA 憑證和私密金鑰。 提供閘道裝置的名稱，這將在憑證產生期間，用於命名檔案。 
+2. 使用下列命令建立 Edge 裝置 CA 憑證和私密金鑰。 提供閘道裝置的名稱，這將在憑證產生期間，用於命名檔案。 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

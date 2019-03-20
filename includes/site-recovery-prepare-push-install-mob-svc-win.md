@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166082"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "58115573"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>準備在 Windows 電腦上推送安裝
 
@@ -17,7 +17,7 @@ ms.locfileid: "50166082"
 1. 建立可供處理序伺服器存取電腦的帳戶。 帳戶應該具有本機或網域系統管理員權限。 此帳戶僅適用於推送安裝和代理程式更新。
 
    > [!NOTE]
-   > 如果您未使用網域帳戶，請停用本機電腦上的遠端使用者存取控制。 若要停用遠端使用者存取控制，請在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 登錄機碼之下，新增 DWORD：**LocalAccountTokenFilterPolicy**。 將值設定為 **1**。 此工作的做法是在命令提示字元執行下列命令︰  
+   > 如果您未使用網域帳戶，請停用本機電腦上的遠端使用者存取控制。 若要停用遠端使用者存取控制，請在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 登錄機碼下的新增 DWORD:**LocalAccountTokenFilterPolicy**。 將值設定為 **1**。 此工作的做法是在命令提示字元執行下列命令︰  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >

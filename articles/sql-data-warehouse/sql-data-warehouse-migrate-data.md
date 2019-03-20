@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 77e4500b20be844dfad31db284a9c77ad7ec6bb7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6a2acf602252ee4319f9a5eccef53a25d8e2dd7f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118117"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014260"
 ---
 # <a name="migrate-your-data"></a>移轉資料
 資料可以藉由各種工具，從不同的來源移到您的「SQL 資料倉儲」中。  ADF 複製、SSIS 和 bcp 都可用來達成此目標。 不過，隨著資料量增加，您應該考慮將資料移轉程序細分成步驟。 這樣讓您有機會來最佳化每個步驟的效能和彈性，以確保順暢移轉資料。
@@ -27,7 +27,7 @@ ms.locfileid: "56118117"
 
 如果資料是從一般檔案開始，則在開始將資料載入 SQL 資料倉儲之前，您首先要將資料傳輸到 Azure 儲存體 blob。 一旦資料傳輸到 Azure Blob 儲存體，您可以選擇再次使用 [ADF 複製][ADF Copy]，將資料推送至 SQL 資料倉儲。
 
-PolyBase 還提供高效能選項來載入資料。 不過，這表示要使用兩種工具，而不止一種工具。 如果您需要達到最佳效能，請使用 PolyBase。 如果只想要使用單一工具 (且資料量不大)，則 ADF 就是答案。
+PolyBase 还提供高性能的选项来加载数据。 不過，這表示要使用兩種工具，而不止一種工具。 如果您需要達到最佳效能，請使用 PolyBase。 如果只想要使用單一工具 (且資料量不大)，則 ADF 就是答案。
 
 請遵循[本教學課程](../data-factory/load-azure-sql-data-warehouse.md)了解如何使用 ADF 將資料載入您的資料倉儲。
 
@@ -66,13 +66,13 @@ bcp 的優點包括：
 bcp 的限制包括：
 
 * bcp 只能使用列表式一般檔案。 無法使用 xml 或 JSON 之類的檔案
-* 資料轉換功能僅限於匯出階段且性質簡單
+* 数据转换功能仅限于导出阶段且性质简单
 * 當透過網際網路載入資料時，bcp 的設計尚不夠健全。 任何網路不穩定狀況都可能造成載入錯誤。
 * bcp 依賴載入之前存在於目標資料庫中的結構描述
 
 如需詳細資訊，請參閱[使用 bcp 將資料載入 SQL 資料倉儲][Use bcp to load data into SQL Data Warehouse]。
 
-## <a name="optimizing-data-migration"></a>最佳化資料移轉
+## <a name="optimizing-data-migration"></a>优化数据迁移
 SQLDW 資料移轉程序可以有效地分成三個獨立的步驟：
 
 1. 匯出來源資料
@@ -84,17 +84,17 @@ SQLDW 資料移轉程序可以有效地分成三個獨立的步驟：
 ## <a name="optimizing-data-load"></a>最佳化資料載入
 稍微反過來看。載入資料最快的方式是透過 PolyBase。 最佳化 PolyBase 載入程序對上述步驟設下必要條件，最好先了解這一點。 如下：
 
-1. 資料檔案的編碼
+1. 数据文件的编码
 2. 資料檔案的格式
 3. 資料檔案的位置
 
-### <a name="encoding"></a>編碼
+### <a name="encoding"></a>编码
 PolyBase 規定資料檔案必須為 UTF-8 或 UTF-16FE。 
 
 
 
 ### <a name="format-of-data-files"></a>資料檔案的格式
-PolyBase 規定要有固定的資料列結束字元 \n 或新行。 您的資料檔必須符合此標準。 字串或資料行結束字元沒有任何限制。
+PolyBase 規定要有固定的資料列結束字元 \n 或新行。 数据文件必须符合此标准。 字串或資料行結束字元沒有任何限制。
 
 在 PolyBase 中，您必須將檔案中的每個資料行定義為外部資料表的一部分。 請確定所有匯出的資料行都是必要，且型別符合必要的標準。
 
@@ -109,7 +109,7 @@ SQL 資料倉儲只使用 PolyBase 從 Azure Blob 儲存體載入資料。 因�
 所幸您有數個選項可以提升此程序的速度及恢復力：
 
 ### <a name="expressrouteexpressroute"></a>[ExpressRoute][ExpressRoute]
-您可以考慮使用 [ExpressRoute][ExpressRoute] 來加速傳輸。 [ExpressRoute][ExpressRoute] 會為您提供已建立的 Azure 私人連線，如此連線就不會經過公用網際網路。 這絕不是必要的步驟。 不過，從內部部署或共置設備推送資料到 Azure 時，將會改善輸送量。
+您可以考慮使用 [ExpressRoute][ExpressRoute] 來加速傳輸。 [ExpressRoute][ExpressRoute] 會為您提供已建立的 Azure 私人連線，如此連線就不會經過公用網際網路。 这不是一项强制措施。 不過，從內部部署或共置設備推送資料到 Azure 時，將會改善輸送量。
 
 使用 [ExpressRoute][ExpressRoute] 的優點包括：
 
@@ -120,9 +120,9 @@ SQL 資料倉儲只使用 PolyBase 從 Azure Blob 儲存體載入資料。 因�
 
 [ExpressRoute][ExpressRoute] 有利於許多情況，而不只是移轉。
 
-有興趣嗎？ 如需詳細資訊和價格，請瀏覽 [ExpressRoute 文件][ExpressRoute documentation]。
+感兴趣吗？ 如需詳細資訊和價格，請瀏覽 [ExpressRoute 文件][ExpressRoute documentation]。
 
-### <a name="azure-import-and-export-service"></a>Azure 匯入和匯出服務
+### <a name="azure-import-and-export-service"></a>Azure 导入和导出服务
 Azure 匯入和匯出服務是針對大量 (GB++) 到巨量 (TB++) 的資料傳輸至 Azure 而設計的資料傳輸程序。 它牽涉到將您的資料寫入磁碟及傳送至 Azure 資料中心。 然後會代替您將磁碟內容載入 Azure 儲存體 Blob。
 
 匯入匯出程序的高階觀點如下：
@@ -172,7 +172,7 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。 您可以�
 
 ## <a name="next-steps"></a>後續步驟
 如需有關移轉的詳細資訊，請參閱[將您的解決方案移轉至 SQL 資料倉儲][Migrate your solution to SQL Data Warehouse]。
-如需更多開發秘訣，請參閱[開發概觀][development overview]。
+有关更多开发技巧，请参阅 [开发概述][development overview]。
 
 <!--Image references-->
 
@@ -191,11 +191,11 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。 您可以�
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[ExpressRoute documentation]: http://azure.microsoft.com/documentation/services/expressroute/
+[Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
+[ExpressRoute documentation]: https://azure.microsoft.com/documentation/services/expressroute/
 
-[production version]: http://aka.ms/downloadazcopy/
-[preview version]: http://aka.ms/downloadazcopypr/
+[production version]: https://aka.ms/downloadazcopy/
+[preview version]: https://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx

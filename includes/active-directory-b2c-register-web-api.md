@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
 ms.openlocfilehash: fcd71f74e0b00934958828024094773e42496b66
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51017265"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "58115156"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -17,7 +17,7 @@ ms.locfileid: "51017265"
 
 ![新 Web API 的範例註冊設定](./media/active-directory-b2c-register-web-api/b2c-new-web-api-settings.png)
 
-| 設定      | 範例值  | 說明                                        |
+| 設定      | 範例值  | 描述                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **名稱** | Contoso B2C API | 輸入應用程式的 [名稱]，此名稱可為取用者說明您的 API。 | 
 | **包含 Web 應用程式 / Web API** | 是 | 針對 Web API 選取 [是]。 |

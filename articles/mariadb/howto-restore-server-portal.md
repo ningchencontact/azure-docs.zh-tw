@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 1dc7930649a4e90c3b1c69a4f109f545f74a79f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548746"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081112"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>如何使用 Azure 入口網站在適用於 MariaDB 的 Azure 資料庫中備份及還原伺服器
 
@@ -63,11 +63,11 @@ ms.locfileid: "53548746"
 
 3. 在 [還原] 表單中填入必要資訊︰
 
-   ![適用於 MariaDB 的 Azure 資料庫 - 還原資訊 ](./media/howto-restore-server-portal/3-restore.png)
-  - **還原點**：選取您想要還原到那時候的時間點。
-  - **目標伺服器**：提供新伺服器的名稱。
-  - **位置**：您無法選取區域。 它預設與來源伺服器相同。
-  - **定價層**：進行時間點還原時，您無法變更這些參數。 它與來源伺服器相同。 
+   ![適用於 MariaDB 的 Azure 資料庫 - 還原資訊](./media/howto-restore-server-portal/3-restore.png)
+   - **還原點**：選取您想要還原到那時候的時間點。
+   - **目標伺服器**：提供新伺服器的名稱。
+   - **位置**：您無法選取區域。 它預設與來源伺服器相同。
+   - **定價層**：進行時間點還原時，您無法變更這些參數。 它與來源伺服器相同。 
 
 4. 按一下 [確定] 將伺服器還原至某個時間點。 
 

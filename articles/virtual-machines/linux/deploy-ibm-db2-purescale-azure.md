@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 104730d94134d935f56fb95fd55d05b515e9f501
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245560"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014987"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>在 Azure 上部署 IBM DB2 pureScale
 
 本文說明如何部署企業客戶最近用來從其 IBM DB2 環境 (在 z/OS 上執行) 遷移到 Azure 上的 IBM DB2 pureScale 的[範例架構](ibm-db2-purescale-azure.md)。
 
-若要依照用於移轉的步驟執行，請參閱 GitHub 上 [DB2onAzure](http://aka.ms/db2onazure) 存放庫中的安裝指令碼。 這些指令碼是以用於一般、中型線上交易處理 (OLTP) 工作負載的架構為基礎。
+若要依照用於移轉的步驟執行，請參閱 GitHub 上 [DB2onAzure](https://aka.ms/db2onazure) 存放庫中的安裝指令碼。 這些指令碼是以用於一般、中型線上交易處理 (OLTP) 工作負載的架構為基礎。
 
 ## <a name="get-started"></a>開始使用
 
-若要部署此架構，請下載並執行可在 GitHub 上 [DB2onAzure](http://aka.ms/db2onazure) 存放庫中找到的 deploy.sh 指令碼。
+若要部署此架構，請下載並執行可在 GitHub 上 [DB2onAzure](https://aka.ms/db2onazure) 存放庫中找到的 deploy.sh 指令碼。
 
 存放庫也有可供設定 Grafana 儀表板的指令碼。 您可以使用此儀表板來查詢 Prometheus 這個開放原始碼監視與警示系統 (DB2 所隨附) 的指令碼。
 
@@ -76,7 +76,7 @@ deploy.sh 指令碼會建立並設定此架構的 Azure 資源。 該指令碼�
 GitHub 存放庫包括 DB2server.rsp 回應檔 (.rsp)，此檔案可讓您產生自動化指令碼以進行 DB2 pureScale 安裝。 下表列出回應檔用於安裝程式的 DB2 pureScale 選項。 您可以根據您的環境需求自訂回應檔。
 
 > [!NOTE]
-> GitHub 上的 [DB2onAzure](http://aka.ms/db2onazure) 存放庫中包含一個範例回應檔 DB2server.rsp。 若您使用此檔案，您必須先編輯它，才能在您的環境中使用。
+> GitHub 上的 [DB2onAzure](https://aka.ms/db2onazure) 存放庫中包含一個範例回應檔 DB2server.rsp。 若您使用此檔案，您必須先編輯它，才能在您的環境中使用。
 
 | 畫面名稱               | 欄位                                        | 值                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -138,7 +138,7 @@ GitHub 存放庫包括由作者維護的知識庫。 它會列出您可能有的
 
 -   您正在移除 DB2 pureScale 與 IBM Spectrum Scale。
 
-如需有關這些與其他已知問題的詳細資訊，請參閱 [DB2onAzure](http://aka.ms/DB2onAzure) 存放庫中的 kb.md 檔案。
+如需有關這些與其他已知問題的詳細資訊，請參閱 [DB2onAzure](https://aka.ms/DB2onAzure) 存放庫中的 kb.md 檔案。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -148,7 +148,7 @@ GitHub 存放庫包括由作者維護的知識庫。 它會列出您可能有的
 
 -   [DB2icrt - 建立執行個體命令](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 
--   [DB2 pureScale 叢集資料解決方案](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+-   [DB2 pureScale 叢集資料解決方案](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 

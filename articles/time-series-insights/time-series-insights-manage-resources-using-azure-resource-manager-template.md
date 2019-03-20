@@ -11,19 +11,20 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062650"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009382"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
 
 本文說明如何使用 Azure Resource Manager 範本、PowerShell 和「時間序列深入解析」資源提供者來建立和部署「時間序列深入解析」資源。
 
 「時間序列深入解析」支援下列資源：
-   | 資源 | 說明 |
+
+   | 資源 | 描述 |
    | --- | --- |
    | 環境 | 「時間序列深入解析」環境是事件的一個邏輯化群組，那些事件則是從事件訊息代理程式讀取、儲存並用於查詢。 如需詳細資訊，請參閱[規劃 Azure 時間序列深入解析環境](time-series-insights-environment-planning.md) |
    | 事件來源 | 事件來源是與事件訊息代理程式的連線，「時間序列深入解析」會從該訊息代理程式讀取事件，並將事件內嵌到環境中。 目前支援的事件來源為 IoT 中樞和事件中樞。 |
@@ -65,7 +66,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "eventHubNamespaceName": {
@@ -89,7 +90,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 #### <a name="required-parameters"></a>必要參數
 
-   | 參數 | 說明 |
+   | 參數 | 描述 |
    | --- | --- |
    | eventHubNamespaceName | 來源事件中樞的命名空間。 |
    | eventHubName | 來源事件中樞的名稱。 |
@@ -99,7 +100,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 #### <a name="optional-parameters"></a>選擇性參數
 
-   | 參數 | 說明 |
+   | 參數 | 描述 |
    | --- | --- |
    | existingEventHubResourceId | 現有事件中樞的選擇性資源識別碼，將透過事件來源連線至「時間序列深入解析」環境。 **注意：** 部署範本的使用者必須擁有在事件中樞中執行 listkey 作業的權限。 如果沒有傳遞任何值，將會由範本建立新的事件中樞。 |
    | environmentDisplayName | 要在工具或使用者介面中顯示的選擇性易記名稱，而不是環境名稱。 |
@@ -116,7 +117,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "eventHubNamespaceName": {
@@ -268,7 +269,7 @@ Outputs                 :
 GitHub 上快速入門範本的首頁也包括一個 [部署至 Azure] 按鈕。 按一下它即可在 Azure 入口網站中開啟一個 [自訂部署] 頁面。 您可以從這個頁面的[必要參數](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters)或[選擇性參數](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters)表格輸入或選擇 每個參數的值。 填好設定值之後，按一下 [購買] 按鈕就會起始範本部署。
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>後續步驟

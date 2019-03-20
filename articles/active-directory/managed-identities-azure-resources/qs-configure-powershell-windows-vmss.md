@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df6675c8ed9bc600da5fc054698e6445f31abb1a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2dee7759dccf3093e9ba9f66bffcceaf603a11d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203521"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226873"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>使用 PowerShell 在虛擬機器擴展集上設定 Azure 資源的受控識別
 
@@ -54,24 +54,16 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="enable-system-assigned-managed-identity-during-the-creation-of-an-azure-virtual-machine-scale-set"></a>在 Azure 虛擬機器擴展集建立期間啟用系統指派的受控識別
 
-若要建立已啟用系統指派受控識別的 VMSS：
+若要建立已啟用系統指派受控識別的虛擬機器擴展集：
 
-1. 請參閱 [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) Cmdlet 參考一文中的「範例 1」，以建立具有系統指派受控識別的 VMSS。  將參數 `-IdentityType SystemAssigned` 新增至 `New-AzVmssConfig` Cmdlet：
+1. 請參閱*範例 1*中[新增 AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet 參考文件，以建立虛擬機器擴展集的系統指派的受控身分識別。  將參數 `-IdentityType SystemAssigned` 新增至 `New-AzVmssConfig` Cmdlet：
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
+> [!NOTE]
+> Azure 資源的虛擬機器擴展集延伸模組，但很快就會被取代您可能會選擇性地佈建受管理的身分識別。 我們建議使用 Azure 執行個體中繼資料識別端點進行驗證。 如需詳細資訊，請參閱 <<c0> [ 停止使用 VM 擴充功能，並開始使用 Azure IMDS 端點進行驗證](howto-migrate-vm-extension.md)。
 
-2. (選擇性) 使用 [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) Cmdlet 上的 `-Name` 和 `-Type` 參數，新增 Azure 資源受控識別虛擬機器擴展集擴充。 您可以傳遞 "ManagedIdentityExtensionForWindows" 或 "ManagedIdentityExtensionForLinux" (取決於虛擬機器擴展集的類型)，並使用 `-Name` 參數為其命名。 `-Settings` 參數會指定 OAuth 權杖端點所使用的連接埠，以用來取得權杖：
-
-    > [!NOTE]
-    > 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>在現有 Azure 虛擬機器擴展集上啟用系統指派的受控識別
 
@@ -89,13 +81,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. 使用 [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) Cmdlet 上的 `-Name` 和 `-Type` 參數，新增 Azure 資源受控識別 VMSS 擴充。 您可以傳遞 "ManagedIdentityExtensionForWindows" 或 "ManagedIdentityExtensionForLinux" (取決於虛擬機器擴展集的類型)，並使用 `-Name` 參數為其命名。 `-Settings` 參數會指定 OAuth 權杖端點所使用的連接埠，以用來取得權杖：
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
+> [!NOTE]
+> Azure 資源的虛擬機器擴展集延伸模組，但很快就會被取代您可能會選擇性地佈建受管理的身分識別。 我們建議使用 Azure 執行個體中繼資料識別端點進行驗證。 如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure IMDS 端點進行驗證](howto-migrate-vm-extension.md)。
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集停用系統指派的受控識別
 
@@ -143,7 +130,7 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集移除使用者指派的受控識別
 
-如果您的虛擬機器擴展集具有多個使用者指派的受控識別，則您可以使用下列命令來移除所有識別，但請留下最後一個。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VMSS NAME>` 參數的值。 `<USER ASSIGNED IDENTITY NAME>` 是使用者指派受控識別的名稱屬性，它應該保留在虛擬機器擴展集上。 您可以使用 `az vmss show`，在虛擬機器擴展集的識別區段中找到此資訊：
+如果您的虛擬機器擴展集具有多個使用者指派的受控識別，則您可以使用下列命令來移除所有識別，但請留下最後一個。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VIRTUAL MACHINE SCALE SET NAME>` 參數的值。 `<USER ASSIGNED IDENTITY NAME>` 是使用者指派受控識別的名稱屬性，它應該保留在虛擬機器擴展集上。 您可以使用 `az vmss show`，在虛擬機器擴展集的識別區段中找到此資訊：
 
 ```powershell
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1f9d012754cdfa5b0f4c4e7a102d826080166484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892230"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864621"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 工作區集合的資料列層級安全性
 
@@ -94,7 +94,7 @@ RLS 是在 Power BI Desktop 中撰寫。 當開啟資料集和報告時，我們
 * **username** (選擇性) – 與 RLS 搭配使用，這是字串，可以在套用 RLS 規則時用來協助識別使用者。 請參閱「搭配使用資料列層級安全性和 Power BI Embedded」
 * **角色** – 字串，包含套用資料列層級安全性規則時要選取的角色。 如果傳遞多個角色，應該將它們傳遞為字串陣列。
 
-您可以使用 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法來建立權杖。 如果 username 屬性存在，則您也必須在角色中傳遞至少一個值。
+您可以使用 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法來建立權杖。 如果提供 username 属性，则也必须在角色中至少传递一个值。
 
 例如，您可以變更 EmbedSample。 DashboardController 第 55 行可以從
 
@@ -112,11 +112,11 @@ to
 
 ![在應用程式中顯示的報表](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [資料列層級安全性 (RLS) 與 Power](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [在 Power BI 工作區集合中驗證和授權](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-有其他疑問？ [試用 Power BI 社群](http://community.powerbi.com/)
+有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)

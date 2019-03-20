@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080162"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>使用 Azure 入口網站建立和設定應用程式閘道以裝載多個網站
 
@@ -44,20 +44,20 @@ ms.locfileid: "56454283"
 2. 在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
 3. 針對應用程式閘道輸入這些值：
 
-    - myAppGateway - 作為應用程式閘道的名稱。
-    - myResourceGroupAG - 作為新資源群組。
+   - myAppGateway - 作為應用程式閘道的名稱。
+   - myResourceGroupAG - 作為新資源群組。
 
-    ![建立新的應用程式閘道](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![建立新的應用程式閘道](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. 接受其他設定的預設值，然後按一下 [確定]。
 5. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
 
-    - myVNet - 作為虛擬網路的名稱。
-    - 10.0.0.0/16 - 作為虛擬網路位址空間。
-    - myAGSubnet - 作為子網路名稱。
-    - 10.0.0.0/24 - 作為子網路位址空間。
+   - myVNet - 作為虛擬網路的名稱。
+   - 10.0.0.0/16 - 作為虛擬網路位址空間。
+   - myAGSubnet - 作為子網路名稱。
+   - 10.0.0.0/24 - 作為子網路位址空間。
 
-    ![建立虛擬網路](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![建立虛擬網路](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. 按一下 [確定] 以建立虛擬網路和子網路。
 7. 依序按一下 [選擇公用 IP 位址]、[新建]，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress。 接受其他設定的預設值，然後按一下 [確定]。
@@ -94,6 +94,8 @@ ms.locfileid: "56454283"
 
 ### <a name="install-iis"></a>安裝 IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. 開啟互動式殼層，並確定它是設定為 **PowerShell**。
 
     ![安裝自訂延伸模組](./media/create-multiple-sites-portal/application-gateway-extension.png)
@@ -102,7 +104,7 @@ ms.locfileid: "56454283"
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -113,7 +115,7 @@ ms.locfileid: "56454283"
       -Settings $publicSettings
     ```
 
-3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 *fabrikamVM* 作為名稱，並作為 Set-AzureRmVMExtension 中的 VMName 值。
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入的名稱*fabrikamVM*的名稱，然後設定 AzVMExtension 中的 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 
@@ -132,8 +134,8 @@ ms.locfileid: "56454283"
 1. 按一下 [接聽程式]，然後按一下 [多站台]。
 2. 為接聽程式輸入這些值：
     
-    - contosoListener - 作為接聽程式的名稱。
-    - www.contoso.com - 以您的網域名稱取代此主機名稱範例。
+   - contosoListener - 作為接聽程式的名稱。
+   - www.contoso.com - 以您的網域名稱取代此主機名稱範例。
 
 3. 按一下 [確定]。
 4. 使用 fabrikamListener 的名稱建立第二個接聽程式，然後使用您的第二個網域名稱。 此範例中使用 www.fabrikam.com。

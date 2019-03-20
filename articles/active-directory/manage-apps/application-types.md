@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037d1de83e34aa8489498c65dbc5fd3423b081b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 075a50802a05a9b8254ff6ab1e0a38f43baca970
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162657"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105619"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>我的應用程式清單中有未預期的應用程式
 
@@ -48,7 +48,7 @@ ms.locfileid: "56162657"
 
 篩選為 [所有應用程式] 時，[所有應用程式清單] 會顯示租用戶中的每個服務主體物件。 服務主體物件可能以各種方式出現在此清單中︰
 
-1.  當您從應用程式庫新增任何應用程式時，包括︰
+1. 當您從應用程式庫新增任何應用程式時，包括︰
 
    1. **Azure AD 資源庫應用程式** – 與 Azure AD 預先整合以啟用單一登入的應用程式
 
@@ -58,21 +58,21 @@ ms.locfileid: "56162657"
 
    4. **不在資源庫內的應用程式** – 引進您自己的應用程式！ 您想要的任何網頁連結，或任何呈現使用者名稱和密碼欄位的應用程式，都支援 SAML 或 OpenID Connect 通訊協定，或支援您想要與 Azure AD 整合以啟用單一登入的 SCIM。
 
-2.  註冊或登入與 Azure Active Directory 整合的第三方<sup></sup>應用程式時。 其中一個範例是 [Smartsheet](https://app.smartsheet.com/b/home) 或 [DocuSign](https://www.docusign.net/member/MemberLogin.aspx)。
+2. 註冊或登入與 Azure Active Directory 整合的第三方<sup></sup>應用程式時。 其中一個範例是 [Smartsheet](https://app.smartsheet.com/b/home) 或 [DocuSign](https://www.docusign.net/member/MemberLogin.aspx)。
 
-3.  註冊或將使用者或群組的授權新增至第一方應用程式時，例如 [Microsoft Office 365](https://products.office.com/)
+3. 註冊或將使用者或群組的授權新增至第一方應用程式時，例如 [Microsoft Office 365](https://products.office.com/)
 
-4.  當您使用[應用程式登錄](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)建立自訂開發的應用程式來新增應用程式註冊時
+4. 當您使用[應用程式登錄](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)建立自訂開發的應用程式來新增應用程式註冊時
 
-5.  當您使用 [V2.0 應用程式註冊入口網站](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)建立自訂開發的應用程式來新增應用程式註冊時
+5. 當您使用 [V2.0 應用程式註冊入口網站](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)建立自訂開發的應用程式來新增應用程式註冊時
 
-6.  當您新增您使用 Visual Studio 的 [ASP.net 驗證方法](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)或[已連線服務](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)所開發的應用程式時
+6. 當您新增您使用 Visual Studio 的 [ASP.net 驗證方法](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)或[已連線服務](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)所開發的應用程式時
 
-7.  當您使用 [Azure AD PowerShell 模組](/powershell/azure/install-adv2?view=azureadps-2.0)建立服務主體物件時
+7. 當您使用 [Azure AD PowerShell 模組](/powershell/azure/install-adv2?view=azureadps-2.0)建立服務主體物件時
 
-8.  當您以系統管理員身分[同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)使用您租用戶中的資料時
+8. 當您以系統管理員身分[同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)使用您租用戶中的資料時
 
-9.  當[使用者同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)使用您租用戶中的資料時
+9. 當[使用者同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)使用您租用戶中的資料時
 
 10. 當您啟用的某些服務會在您的租用戶中儲存資料時。 其中一個範例是「密碼重設」，它會模擬成服務主體，安全地儲存您的密碼重設原則。
 
@@ -90,25 +90,25 @@ ms.locfileid: "56162657"
 
 若要**刪除應用程式**，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  選取您要刪除的應用程式。
+6. 選取您要刪除的應用程式。
 
-7.  應用程式載入後，在頂端應用程式的 [概觀] 窗格按一下 [刪除] 圖示。
+7. 應用程式載入後，在頂端應用程式的 [概觀] 窗格按一下 [刪除] 圖示。
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>我想要停用任何應用程式的所有未來使用者同意作業
 
-停用整個目錄的使用者同意會阻止使用者同意任何應用程式。 系統管理員仍然可以代表使用者行使同意。 若要進一步了解應用程式同意，以及您同意與否的可能原因，請參閱[了解使用者和系統管理員同意](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)。
+停用整個目錄的使用者同意會阻止使用者同意任何應用程式。 系統管理員仍然可以代表使用者同意。 若要進一步了解應用程式同意，以及您同意與否的可能原因，請參閱[了解使用者和系統管理員同意](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)。
 
 若要**停用整個目錄中的所有未來使用者同意作業**，請遵循下列步驟：
 

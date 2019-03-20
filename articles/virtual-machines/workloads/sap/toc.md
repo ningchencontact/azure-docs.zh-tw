@@ -78,6 +78,7 @@
 #### [HA on Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [HA on Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-high-availability-guide-wsfc-file-share.md)
 #### [適用於 (A)SCS 執行個體的 HA on SUSE Linux](high-availability-guide-suse.md)
+#### [適用於 (A)SCS 執行個體的 HA on SUSE Linux 搭配 Azure NetApp Files](high-availability-guide-suse-netapp-files.md)
 #### [適用於 (A)SCS 執行個體的 HA on Red Hat Enterprise Linux](high-availability-guide-rhel.md)
 ### Azure 基礎結構準備
 #### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-infrastructure-wsfc-shared-disk.md)
@@ -90,6 +91,7 @@
 #### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-high-availability-installation-wsfc-file-share.md)
 #### [SUSE Linux 和適用於 (A)SCS 執行個體](high-availability-guide-suse.md)
+#### [適用於 (A)SCS 執行個體的 SUSE Linux 和 NFS 搭配 Azure NetApp Files](high-availability-guide-suse-netapp-files.md)
 #### [適用於 SAP NetWeaver on Red Hat Enterprise Linux 的高可用性](high-availability-guide-rhel.md)
 ### SAP 多重安全性識別碼
 #### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)

@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c119869c47547fd5d91f6ee91fcd772ea5941f46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010946"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>IoT Edge 模組 Marketplace 索引標籤
 
 
-在 [新增供應項目] 頁面的 [Marketplace] 索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個長表單分成四個區段：**概觀**、**行銷成品**、**潛在客戶管理**和**法律聲明**。
+在 [新增供應項目] 頁面的 [Marketplace] 索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個完整的形式分為四個區段：**概觀**，**行銷構件**，**潛在客戶管理**，和**法律**。
 
 ## <a name="overview"></a>概觀
 
@@ -39,9 +39,9 @@ ms.locfileid: "49432306"
 | **標題**                 | 供應項目的標題。 此標題會在 Marketplace 中醒目顯示。  長度上限為 50 個字元。 <!--ADD PICTURE IN ACTION-->|
 | **總結**               | 供應項目的簡短摘要。 長度上限是 100 個字元。 <!--ADD PICTURE IN ACTION-->|
 | **完整摘要**          | 供應項目的完整摘要 (雖然可能與**摘要**相同)。  長度上限為 256 個字元。 <!--ADD PICTURE IN ACTION-->|
-| **說明**           | 供應項目的說明。  長度上限是 3000 個字元，支援簡單的 HTML 格式。<br/> 尾端必須提供*最低硬體需求*段落。 例如： <br/> <p><u>最低硬體需求：</u>Linux x64 和 arm32 OS，1 GB 的 RAM，500 Mb 的儲存空間</p>
+| **說明**           | 供應項目的說明。  長度上限是 3000 個字元，支援簡單的 HTML 格式。<br/> 尾端必須提供*最低硬體需求*段落。 例如： <br/> <p><u>最低硬體需求：</u>Linux x64 和 arm32 OS，1 GB 的 RAM，500 Mb 的儲存體</p>
 | **行銷識別碼**  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如︰ <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
-| **預覽訂用帳戶識別碼** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入白名單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
+| **預覽訂用帳戶識別碼** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入允許清單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
 | **實用連結**          | 可選擇多個適合與供應項目建立關聯的企業和技術類別，  上限為 10 個。 請務必從 [Azure IoT 裝置目錄](https://catalog.azureiotsolutions.com/)新增至少一個說明文件的連結和一個相容 IoT Edge 裝置的連結。 |
 | **建議的類別** | 可挑選最多五個類別， 會顯示在您的產品詳細資料頁面上。 在瀏覽頁面中，所有 IoT Edge 模組都會顯示在*物聯網\> IoT Edge 模組*類別下。|
 
@@ -78,7 +78,7 @@ ms.locfileid: "49432306"
 
 ## <a name="marketing-artifacts"></a>行銷成品
 
-此區段含有下列子區段：[標誌]、[螢幕擷取畫面] 以及 [影片]。 
+本節包含下列各小節：**標誌**，**螢幕擷取畫面**，以及**影片**。 
 
 >[!Note]
 >標誌是唯一必要的行銷成品，但強烈建議您填寫所有項目，以提升對客戶的吸引力。
@@ -104,7 +104,7 @@ ms.locfileid: "49432306"
 
 ### <a name="logo-guidelines"></a>標誌指導方針
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Cloud Partner 入口網站中所上傳的所有標誌都應該遵循指導方針︰
@@ -160,7 +160,7 @@ As an example, the following hero icon is for the Azure Container Service.
 
 ## <a name="legal"></a>法律
 
-可在此區段提供每個供應項目兩份必要的法律文件：隱私權原則和使用條款。
+這個區段可讓您提供兩個法律文件所需的每個供應項目：隱私權原則及使用規定。
 
 |  **欄位**                |     **說明**                                                          |
 |  ---------                |     ---------------                                                          |

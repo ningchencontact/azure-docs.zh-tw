@@ -1,18 +1,18 @@
 ---
 title: 在 VMware VM 和實體伺服器的災害復原期間將 VM 從 Azure 重新保護至內部部署網站 | Microsoft Docs
 description: 在 VMware VM 和實體伺服器的災害復原期間容錯移轉至 Azure 後，了解如何從 Azure 容錯回復至內部部署網站。
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
-ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.date: 3/12/2019
+ms.author: mayg
+ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791871"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771804"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>在容錯移轉至 Azure 之後將機器重新保護和容錯回復至內部部署網站
 
@@ -34,7 +34,7 @@ ms.locfileid: "53791871"
 - 如果 vCenter 伺服器管理您要容錯回復的目標虛擬機器，請確定您擁有在 vCenter 伺服器上探索 VM 的[必要權限](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)。
 - 在重新保護之前，請刪除主要目標伺服器上的快照集。 如果內部部署的主要目標或虛擬機器上有快照集，重新保護作業將會失敗。 虛擬機器上的快照集會在重新保護作業期間自動合併。
 - 複寫群組的所有虛擬機器必須屬於相同的作業系統類型 (全為 Windows 或全為 Linux)。 使用混合作業系統的複寫群組目前不支援重新保護以及容錯回復至內部部署環境。 這是因為主要目標必須屬於與虛擬機器相同的作業系統。 複寫群組的所有虛擬機器必須具有相同的主要目標。 
-- 執行容錯回復時，組態伺服器必須為內部部署。 在容錯回復期間，虛擬機器必須存在於組態伺服器資料庫中。 否則，將無法成功容錯回復。 請確實為組態伺服器建立定期排程的備份。 發生災害時，使用相同的 IP 位址還原伺服器，讓容錯回復運作。
+- 執行容錯回復時，組態伺服器必須為內部部署。 故障回复期间，虚拟机必须位于配置服务器数据库中。 否則，將無法成功容錯回復。 請確實為組態伺服器建立定期排程的備份。 發生災害時，使用相同的 IP 位址還原伺服器，讓容錯回復運作。
 - 重新保護和容錯回復都需要站對站 (S2S) VPN 才能複寫資料。 提供網路，讓 Azure 中已容錯移轉的虛擬機器可以觸達 (偵測) 內部部署組態伺服器。 您也可以在容錯移轉虛擬機器的 Azure 網路中部署處理序伺服器。 此處理序伺服器也必須能夠與內部部署組態伺服器進行通訊。
 - 請確實開啟下列連接埠以進行容錯移轉和容錯回復：
 
@@ -114,7 +114,6 @@ ms.locfileid: "53791871"
 
 ## <a name="common-issues"></a>常見問題
 
-- 目前，Site Recovery 僅支援容錯回復至 VMFS 或 vSAN 資料存放區。 不支援 NFS 資料存放區。 由於這項限制，重新保護畫面上有關於 NFS 資料存放區的資料存放區選取項目輸入將會是空的，或雖然會顯示 vSAN 資料存放區，但在作業期間卻不會顯示。 如果您想要容錯回復，可建立內部部署的 VMFS 資料存放區，也可容錯回復到 VMFS 資料存放區。 此容錯回復會導致 VMDK 的完整下載。
 - 如果您執行唯讀的使用者 vCenter 探索並保護虛擬機器，保護會成功且容錯回復可作用。 在重新保護期間，容錯回復會失敗，因為無法探索資料存放區。 重新保護期間未列出資料存放區是容錯失敗的徵兆。 若要解決此問題，您可以使用具有適當權限的帳戶更新 vCenter 認證，然後重試作業。 
 - 當您將 Linux 虛擬機器容錯回復並在內部部署執行它時，您會看到 Network Manager 封裝已從該機器解除安裝。 發生此解除安裝的原因是，在 Azure 中復原虛擬機器時，網路管理員套件已移除。
 - 當 Linux 虛擬機器已設定靜態 IP 位址且容錯移轉至 Azure 時，就會從 DHCP 取得 IP 位址。 當您容錯移轉至內部部署時，該虛擬機器會繼續使用 DHCP 取得 IP 位址。 視需要手動登入機器，然後將 IP 位址重新設定為靜態位址。 Windows 虛擬機器可以重新取得其靜態位址 IP。

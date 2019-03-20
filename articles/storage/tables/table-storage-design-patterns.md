@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f2f4fb04ac483f7716c0b7a0fb1f87843d8b817f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821351"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995310"
 ---
 # <a name="table-design-patterns"></a>資料表設計模式
 本文將說明一些適用於表格服務方案的模式。 此外，您會了解如何有效處理其他表格儲存體設計文章中討論的一些問題和取捨。 下圖摘要說明不同模式之間的關聯性：  
@@ -53,7 +53,7 @@ ms.locfileid: "55821351"
 ### <a name="issues-and-considerations"></a>問題和考量
 當您決定如何實作此模式時，請考慮下列幾點：  
 
-* 資料表儲存體的使用成本相對較低廉，因此儲存重複資料的成本負擔應該不是主要的考量。 不過，您一律應根據預期的儲存需求評估設計成本，並僅新增重複實體來支援用戶端應用程式將會執行的查詢。  
+* 使用表存储相对比较便宜，因此存储重复数据的成本开销不应是主要考虑因素。 不過，您一律應根據預期的儲存需求評估設計成本，並僅新增重複實體來支援用戶端應用程式將會執行的查詢。  
 * 因為次要索引實體儲存在與原始實體相同的磁碟分割中，因此您應該確定不會超過個別資料分割的延展性目標。  
 * 您可以將重複實體彼此保持一致，方法是使用 EGT 自動更新實體的兩個複本。 這表示您應該將實體的所有複本儲存在相同的資料分割中。 如需詳細資訊，請參閱 [使用實體群組交易](table-storage-design.md#entity-group-transactions)一節。  
 * 每個實體用於 **RowKey** 的值必須是唯一的。 請考慮使用複合索引鍵值。  
@@ -69,7 +69,7 @@ ms.locfileid: "55821351"
 當用戶端應用程式需要使用各種不同的索引鍵擷取實體時、當用戶端需要擷取不同排序次序的實體時，以及您可以使用不同的唯一值識別每個實體時，請使用此模式。 不過，您應確定在使用不同的 **RowKey** 值執行實體查閱時，您不會超出資料分割延展性限制。  
 
 ### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
-在實作此模式時，下列模式和指導方針也可能有所關聯：  
+实现此模式时，以下模式和指南也可能相关：  
 
 * [間分割次要索引模式](#inter-partition-secondary-index-pattern)
 * [複合索引鍵模式](#compound-key-pattern)
@@ -125,7 +125,7 @@ ms.locfileid: "55821351"
 ### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
-* [最終一致的交易模式](#eventually-consistent-transactions-pattern)  
+* [最终一致的事务模式](#eventually-consistent-transactions-pattern)  
 * [內部資料分割次要索引模式](#intra-partition-secondary-index-pattern)  
 * [複合索引鍵模式](#compound-key-pattern)  
 * 實體群組交易  
@@ -188,7 +188,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 ![員工實體](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
-如果您也想能夠根據其他非唯一屬性 (例如其姓氏) 的值擷取員工實體清單，您必須使用效率較低的資料分割掃描來尋找相符項目，而不要使用索引直接加以查閱。 這是因為資料表服務不會提供次要索引。  
+如果您也想能夠根據其他非唯一屬性 (例如其姓氏) 的值擷取員工實體清單，您必須使用效率較低的資料分割掃描來尋找相符項目，而不要使用索引直接加以查閱。 这是因为表服务不提供辅助索引。  
 
 ### <a name="solution"></a>解決方法
 若要透過如上所示的實體結構啟用依據姓氏的查閱，您必須維護員工識別碼清單。 如果您想要擷取具有特定姓氏 (例如 Jones) 的員工實體，您必須先針對姓氏為 Jones 的員工找出員工識別碼清單，然後擷取這些員工實體。 有三個主要的選項可儲存員工識別碼清單：  
@@ -197,11 +197,11 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 * 在與員工實體相同的磁碟分割中建立索引實體。  
 * 在個別的資料分割或資料表中建立索引實體。  
 
-<u>選項 #1：使用 Blob 儲存體</u>  
+<u>選項 #1：使用 blob 存储</u>  
 
 使用第一個選項時，您會為每個唯一的姓氏建立一個 Blob，並在每個 Blob 中，針對具有該姓氏的員工儲存 **PartitionKey** (部門) 和 **RowKey** (員工識別碼) 值的清單。 當您新增或刪除某位員工時，您應該確保相關的 Blob 內容與員工實體最終一致。  
 
-<u>選項 #2：</u>在相同的資料分割中建立索引實體  
+<u>选项 #2：</u>在相同的資料分割中建立索引實體  
 
 使用第二個選項時，您會使用儲存下列資料的索引實體：  
 
@@ -270,7 +270,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 部門實體連同這些屬性一起儲存後，您現在可以擷取與使用點查詢的部門有關的所有詳細資料。  
 
 ### <a name="issues-and-considerations"></a>問題和考量
-當您決定如何實作此模式時，請考慮下列幾點：  
+在决定如何实现此模式时，请考虑以下几点：  
 
 * 儲存資料兩次還有一些相關的成本負擔。 效能優勢 (因對儲存體服務的要求較少而產生) 通常會高於儲存體成本的邊際增值 (而且這項成本有部分會由擷取部門的詳細資料所需的交易量減少而抵銷)。  
 * 您必須讓儲存管理員相關資訊的兩個實體保有一致性。 您可以使用 EGT 在單一不可部分完成交易中更新多個實體，以處理一致性問題：在此情況下，部門實體和部門經理的員工實體會儲存在相同的資料分割中。  
@@ -477,7 +477,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="when-to-use-this-pattern"></a>使用此模式的時機
 如果需要在資料表服務中儲存大小超過個別實體限制的實體，請使用此模式。  
 
-### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
+### <a name="related-patterns-and-guidance"></a>相关模式和指南
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
 * [最終一致的交易模式](#eventually-consistent-transactions-pattern)  
@@ -574,7 +574,7 @@ if (retrieveResult.Result != null)
 請注意，此範例預期會擷取的實體屬於 **EmployeeEntity**類型。  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>使用 LINQ 擷取多個實體
-您可以搭配使用 LINQ 與儲存體用戶端程式庫，並指定具有 **where** 子句的查詢，以擷取多個實體。 若要避免資料表掃描，您應一律在 where 子句中加入 **PartitionKey** 值，並盡可能加入 **RowKey** 值，以防止資料表和資料分割掃描。 資料表服務支援在 where 子句中使用一組有限的比較運算子 (大於、大於或等於、小於、小於或等於、等於和不等於)。 下列 C# 程式碼片段會在業務部門 (假設 **PartitionKey** 儲存部門名稱) 中，尋找姓氏以 "B" 開頭的所有員工 (假設 **RowKey** 儲存姓氏)：  
+您可以搭配使用 LINQ 與儲存體用戶端程式庫，並指定具有 **where** 子句的查詢，以擷取多個實體。 若要避免資料表掃描，您應一律在 where 子句中加入 **PartitionKey** 值，並盡可能加入 **RowKey** 值，以防止資料表和資料分割掃描。 表服务支持一组有限的比较运算符（大于、大于等于、小于、小于等于、等于和不等于）可用于 where 子句。 下列 C# 程式碼片段會在業務部門 (假設 **PartitionKey** 儲存部門名稱) 中，尋找姓氏以 "B" 開頭的所有員工 (假設 **RowKey** 儲存姓氏)：  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
@@ -588,7 +588,7 @@ var employees = query.Execute();
 
 請注意查詢如何同時指定 **RowKey** 和 **PartitionKey** 以確保更好的效能。  
 
-下列程式碼範例說明使用 Fluent API 的對等功能 (如需 Fluent API 的詳細資訊，請參閱 [設計 Fluent API 的最佳做法](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx))：  
+下列程式碼範例說明使用 Fluent API 的對等功能 (如需 Fluent API 的詳細資訊，請參閱 [設計 Fluent API 的最佳做法](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx))：  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
@@ -712,7 +712,7 @@ foreach (var e in entities)
 > 
 > 
 
-## <a name="working-with-heterogeneous-entity-types"></a>使用異質性實體類型
+## <a name="working-with-heterogeneous-entity-types"></a>处理异类实体类型
 表格服務是 *無結構描述* 資料表存放區，這表示單一資料表可以儲存多種類型的實體，並在您的設計中提供絕佳的彈性。 下列範例說明用以儲存員工和部門實體的資料表：  
 
 <table>
@@ -729,7 +729,7 @@ foreach (var e in entities)
 <td>
 <table>
 <tr>
-<th>名字</th>
+<th>FirstName</th>
 <th>姓氏</th>
 <th>年齡</th>
 <th>電子郵件</th>
@@ -805,7 +805,7 @@ foreach (var e in entities)
 請注意，每個實體仍必須要有 **PartitionKey**、**RowKey** 和 **Timestamp** 值，但是可以有任何屬性集。 此外，除非您選擇將實體類型資訊儲存在某處，否則將沒有項目會指出此類型。 有兩個選項可用來識別實體類型：  
 
 * 在 **RowKey** (或可能是 **PartitionKey**) 前面加上實體類型。 例如 **EMPLOYEE_000123**，或以 **DEPARTMENT_SALES** 做為 **RowKey** 值。  
-* 使用個別屬性記錄實體類型，如下表所示。  
+* 使用一个单独的属性来记录实体类型，如下表中所示。  
 
 <table>
 <tr>
@@ -825,7 +825,7 @@ foreach (var e in entities)
 <th>名字</th>
 <th>姓氏</th>
 <th>年齡</th>
-<th>電子郵件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -847,7 +847,7 @@ foreach (var e in entities)
 <th>名字</th>
 <th>姓氏</th>
 <th>年齡</th>
-<th>電子郵件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -888,7 +888,7 @@ foreach (var e in entities)
 <th>名字</th>
 <th>姓氏</th>
 <th>年齡</th>
-<th>電子郵件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -953,7 +953,7 @@ if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
 
 請注意，您必須在 **DynamicTableEntity** 類別的 **Properties** 屬性上使用 **TryGetValue** 方法，才能擷取其他屬性。  
 
-第三個選項是使用 **DynamicTableEntity** 類型和 **EntityResolver** 執行個體進行結合。 這可讓您解析為相同查詢中的多個 POCO 類型。 在此範例中，**EntityResolver** 委派會使用 **EntityType** 屬性來區別查詢傳回的兩個實體類型。 **Resolve** 方法會使用 **resolver** 委派，將 **DynamicTableEntity** 執行個體解析為 **TableEntity** 執行個體。  
+第三個選項是使用 **DynamicTableEntity** 類型和 **EntityResolver** 執行個體進行結合。 使用此选项可以在同一查询中解析为多种 POCO 类型。 在此範例中，**EntityResolver** 委派會使用 **EntityType** 屬性來區別查詢傳回的兩個實體類型。 **Resolve** 方法會使用 **resolver** 委派，將 **DynamicTableEntity** 執行個體解析為 **TableEntity** 執行個體。  
 
 ```csharp
 EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
@@ -1027,7 +1027,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 
 不過，您仍必須產生SAS 權杖，讓用戶端應用程式有權使用資料表服務中的實體：您應在可安全存取儲存體帳戶金鑰的環境中執行這個動作。 一般而言，您可以使用 Web 或背景工作角色來產生 SAS 權杖，並將其傳送至需要存取您的實體的用戶端應用程式。 由於產生 SAS 權杖並將其傳遞至用戶端仍會產生額外負荷，因此您應考量怎樣最能降低此負荷，尤其是在大量的案例中。  
 
-您可以產生特定 SAS 權杖，使其授與對資料表中的實體子集進行存取的權限。 根據預設，您會建立適用於整個資料表的 SAS 權杖，但也可以指定 SAS 權杖僅授與存取特定範圍的 **PartitionKey** 值或特定範圍的 **PartitionKey** 和 **RowKey** 值的權限。 您可以選擇為系統的個別使用者產生 SAS 權杖，使每位使用者的 SAS 權杖只允許他們在資料表服務中存取自己的實體。  
+可以生成授权访问表中实体子集的 SAS 令牌。 根據預設，您會建立適用於整個資料表的 SAS 權杖，但也可以指定 SAS 權杖僅授與存取特定範圍的 **PartitionKey** 值或特定範圍的 **PartitionKey** 和 **RowKey** 值的權限。 您可以選擇為系統的個別使用者產生 SAS 權杖，使每位使用者的 SAS 權杖只允許他們在資料表服務中存取自己的實體。  
 
 ## <a name="asynchronous-and-parallel-operations"></a>非同步和平行作業
 假設您要跨多個資料分割分散您的要求，您可以使用非同步或平行查詢來改善輸送量和用戶端的回應性。
@@ -1091,7 +1091,7 @@ private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, strin
 
 請注意，**TableQuery** 類別中的 **Execute** 方法並沒有非同步版本，因為 **IEnumerable** 介面不支援非同步列舉。  
 
-您也可以透過非同步方式插入、更新和刪除實體。 下列 C# 範例說明如何以簡單的同步方法來插入或取代員工實體：  
+此外，还可以用异步方式插入、更新和删除实体。 下列 C# 範例說明如何以簡單的同步方法來插入或取代員工實體：  
 
 ```csharp
 private static void SimpleEmployeeUpsert(CloudTable employeeTable,

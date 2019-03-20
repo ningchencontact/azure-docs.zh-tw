@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 8b47d57d21043de97e17b256a39ef88d73fbb1c1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 64e3cbd082f2d18668dff87fbec098add73ffda6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197602"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010092"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>使用流量管理員設定地理流量路由方法
 
@@ -23,7 +23,7 @@ ms.locfileid: "54197602"
 
 ## <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 
-1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。
+1. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。
 2. 按一下 [建立資源] > [網路] > [流量管理員設定檔] > [建立]。
 4. 在 [建立流量管理員設定檔] 中：
     1. 提供設定檔的名稱。 此名稱必須是 trafficmanager.net 區域內的唯一名稱。 若要存取流量管理員設定檔，您可以使用 DNS 名稱 <profilename>.trafficmanager.net。
@@ -49,7 +49,7 @@ ms.locfileid: "54197602"
 7. 在 [地區對應] 區段中，使用下拉式清單新增區域，表示您想要將這些區域的流量傳送至此端點。 您必須新增至少一個區域，而且可以對應多個區域。
 8. 針對您想要在此設定檔下新增的所有端點，重複此步驟
 
-![新增流量管理員端點](./media/traffic-manager-geographic-routing-method/add-traffic-manager-endpoint.png)
+![添加流量管理器终结点](./media/traffic-manager-geographic-routing-method/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>使用流量管理員設定檔
 1.  在入口網站的搜尋列中，搜尋您在上一節建立的**流量管理員設定檔**名稱，然後在顯示的結果中按一下流量管理員設定檔。
@@ -59,4 +59,4 @@ ms.locfileid: "54197602"
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解[地理流量路由方法](traffic-manager-routing-methods.md#geographic)。
-- 深入了解如何[測試流量管理員設定](traffic-manager-testing-settings.md)。
+- 了解如何[测试流量管理器设置](traffic-manager-testing-settings.md)。

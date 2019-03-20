@@ -6,17 +6,17 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/07/2019
-ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.date: 02/27/2019
+ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895681"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078647"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
-安裝行動服務是啟用複寫期間的關鍵步驟。 此步驟的成功與否僅取決於是否符合先決條件，以及使用支援的設定。 您在行動服務安裝期間最常面臨的失敗是因為以下原因：
+安裝行動服務是啟用複寫期間的關鍵步驟。 此步驟的成功與否僅取決於是否符合必要條件，以及使用支援的設定。 您在行動服務安裝期間最常面臨的失敗是因為以下原因：
 
 * [認證/權限錯誤](#credentials-check-errorid-95107--95108)
 * [登入失敗](#login-failures-errorid-95519-95520-95521-95522)
@@ -58,7 +58,7 @@ ms.locfileid: "55895681"
 
 ## <a name="insufficient-privileges-failure-errorid-95518"></a>權限不足失敗 (錯誤識別碼：95518)
 
-在嘗試登入來源機器時，如果主要網域和工作站之間的網域信任關係建立失敗，行動代理程式安裝就會失敗，錯誤識別碼為 95518。 因此，請確定用來安裝行動代理程式的使用者帳戶具備系統管理權限，才能透過來源機器的主要網域登入。
+主要網域和工作站之間的網域信任關係建立失敗時嘗試登入來源機器時，行動代理程式安裝會失敗，錯誤識別碼 95518。 因此，請確定用來安裝行動代理程式的使用者帳戶具有系統管理權限才能透過來源電腦的主要網域登入。
 
 如果您想要修改所選使用者帳戶的認證，請遵循[此處](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)所提供的指示。
 
@@ -80,7 +80,7 @@ ms.locfileid: "55895681"
 
 ### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>來源電腦上的登入伺服器無法使用 (錯誤識別碼：95521)
 
-當來源機器上無法使用登入伺服器時，就會發生此錯誤。 無法使用登入伺服器會導致登入要求失敗，因此無法安裝行動代理程式。 若要成功登入，請確定來源機器上可以使用登入伺服器並啟動登入服務。 如需詳細指示，請按一下[此處](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available)。
+當來源機器上無法使用登入伺服器時，就會發生此錯誤。 無法使用登入伺服器會導致登入要求失敗，因此無法安裝行動代理程式。 若要成功登入，請確定來源機器上可以使用登入伺服器並啟動登入服務。 如需詳細指示，請參閱 KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available)錯誤訊息：有可用的目前沒有登入伺服器。
 
 ### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>登入服務未在來源電腦上執行 (錯誤識別碼：95522)
 
@@ -122,9 +122,9 @@ ms.locfileid: "55895681"
 * 若要透過群組原則啟用檔案共用，
   * 移至 [開始]，輸入 gpmc.msc 並搜尋。
   * 在瀏覽窗格中，開啟下列資料夾：本機電腦原則、使用者設定、系統管理範本、Windows 元件，以及網路共用。
-  * 在 [詳細資料] 窗格中，按兩下 [防止使用者共用其設定檔內的檔案]。 若要停用群組原則設定，並讓使用者能夠共用檔案，請按一下 [停用]。 按一下 [確定] 以儲存變更。 若要深入了解，請按一下[這裡](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))。
+  * 在 [詳細資料] 窗格中，按兩下 [防止使用者共用其設定檔內的檔案]。 若要停用群組原則設定，並讓使用者能夠共用檔案，請按一下 [停用]。 按一下 [確定] 以儲存變更。 若要進一步了解，請參閱[啟用或停用檔案共用使用群組原則](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))。
 
-針對**新版本**，請依照[這裡](vmware-azure-install-mobility-service.md)提供的指示來啟用檔案及印表機共用。
+針對**更新版本**，請遵循中提供的指示[安裝行動服務的 VMware Vm 和實體伺服器災害復原](vmware-azure-install-mobility-service.md)啟用檔案及印表機共用。
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Windows Management Instrumentation (WMI) 設定檢查 (錯誤識別碼：95103)
 
@@ -171,11 +171,11 @@ GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.
 
 
 - 下面這一行來自 GRUB 檔案 **/boot/grub2/grub.cfg**。 <br>
-*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
 - 下面這一行來自 GRUB 檔案 **/boot/grub/menu.lst**
-*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+  *kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 
 請觀察上述的粗體字串，其中 GRUB (而非 UUID) 具有 "root" 和 "resume" 參數的實際裝置名稱。
  
@@ -184,25 +184,25 @@ GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.
 
 
 1. 執行命令 "blkid <device name>" 來尋找裝置的 UUID。 例如︰<br>
-```
-blkid /dev/sda1
-/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
-blkid /dev/sda2 
-/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```
+   ```
+   blkid /dev/sda1
+   /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+   blkid /dev/sda2 
+   /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```
 
-2. 現在請以如 "root=UUID=<UUID>" 的格式，以裝置名稱的 UUID 取代裝置名稱。 例如，如果我們在 "/boot/grub2/grub.cfg"、"/boot/grub2/grub.cfg" 或 "/etc/default/grub" 等檔案中，將裝置名稱取代為適用於 root 和 resume 參數的 UUID (如上所述)，則檔案中的行將會如下所示： <br>
-*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+2. 現在請以如 "root=UUID=<UUID>" 的格式，以裝置名稱的 UUID 取代裝置名稱。 比方說，如果我們裝置名稱取代為根的 UUID，並繼續上述檔案中的參數"/ boot/grub2/grub.cfg"，"/ boot/grub2/grub.cfg"或"/ 等/預設/grub： 然後將檔案中的行看起來像。 <br>
+   *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. 重新啟動保護
 
 ## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>安裝行動服務已完成但有重新啟動警告 (錯誤識別碼：95265 與 95266)
 
 Site Recovery 行動服務具有許多元件，其中一個名叫篩選器驅動程式。 篩選器驅動程式只會在系統重新啟動時被載入系統記憶體。 這代表對篩選器驅動程式的修正只能在新篩選器驅動程式載入時生效，而那只會在系統重新啟動時發生。
 
-**請注意**，這只是警告，現有的複寫將繼續運作，即使在新代理程式更新之後也一樣。 您可以選擇在想要取得新篩選器驅動程式的優點時再重新啟動，但就算您不重新啟動，舊的篩選器驅動程式仍會繼續運作。 因此，在更新且不重新啟動的情況下，除了篩選器驅動程式之外，**行動服務中其他增強功能和修正的優點都會生效**。 因此，雖然在每次升級後皆重新啟動是建議的做法，但並非必要。 如需重新啟動之必要時機的相關資訊，請參閱[這裡](https://aka.ms/v2a_asr_reboot)。
+**請注意**，這只是警告，現有的複寫將繼續運作，即使在新代理程式更新之後也一樣。 您可以選擇重新啟動，每當您想要取得新的篩選器驅動程式，但如果您根本不必重新開機舊的篩選器驅動程式會保留在工作上的優勢。 因此，在更新且不重新啟動的情況下，除了篩選器驅動程式之外，**行動服務中其他增強功能和修正的優點都會生效**。 因此，建議使用，但不一定要在每次升級後重新開機。 如需重新開機時必要的資訊，請設定[重新啟動行動代理程式升級後的來源機器](https://aka.ms/v2a_asr_reboot)Azure Site Recovery 中的服務更新中的一節。
 
 > [!TIP]
->如需在維護時間範圍期間對升級進行排程的最佳做法，請參閱[這裡](https://aka.ms/v2a_asr_upgrade_practice)。
+>如需排程維護時段期間的升級最佳作法，請參閱 <<c0> [ 支援的最新的 OS/核心版本](https://aka.ms/v2a_asr_upgrade_practice)Azure Site Recovery 中的服務更新中。
 
 ## <a name="lvm-support-from-920-version"></a>從 9.20 版開始支援 LVM
 
@@ -220,7 +220,7 @@ VSS 安裝是行動代理程式安裝的一部分。 此服務是用於產生應
 
 ### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>VSS 錯誤 -2147023170 [0x800706BE] - 結束代碼 511
 
-此問題最常發生於防毒軟體封鎖 Azure Site Recovery 服務之作業的情況。 若要解決這個問題：
+大部分在防毒軟體封鎖了 Azure Site Recovery 服務的作業時，會看到這個問題。 若要解決此問題︰
 
 1. 排除[這裡](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)所提到的所有資料夾。
 2. 遵循您的防毒軟體提供者所發佈的指導方針，以解除 Windows 中對 DLL 註冊的封鎖。
@@ -250,6 +250,97 @@ VSS 安裝是行動代理程式安裝的一部分。 此服務是用於產生應
 請嘗試執行下列命令列來在來源電腦上手動安裝 VSS 提供者服務
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+
+
+## <a name="vss-error---0x8004e00f"></a>VSS 錯誤-0x8004E00F
+
+在安裝行動代理程式，因為在 DCOM 和 DCOM 處於重大狀態的問題通常發生此錯誤。
+
+您可以使用下列程序來判斷錯誤的原因。
+
+**檢查安裝記錄檔**
+
+1. 開啟安裝記錄檔位於 c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log。
+2. 下列的錯誤表示此問題：
+
+    取消註冊現有的應用程式...建立目錄物件取得的應用程式集合 
+
+    錯誤：
+
+    - 錯誤碼：-2147164145 [0x8004E00F]
+    - 結束代碼：802
+
+若要解決此問題：
+
+請連絡[Microsoft Windows 平台小組](https://aka.ms/Windows_Support)以取得協助解決 DCOM 問題。
+
+當 DCOM 問題解決時，請重新安裝 Azure Site Recovery VSS 提供者使用下列命令，以手動方式：
+ 
+**C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+  
+如果應用程式一致性不是很重要的災害復原需求，您可以略過安裝 VSS 提供者。 
+
+略過 Azure Site Recovery VSS 提供者安裝，並以手動方式安裝 Azure Site Recovery VSS 提供者後安裝：
+
+1. 安裝行動服務。 
+   > [!Note]
+   > 
+   > 將安裝失敗後安裝設定 的步驟。 
+2. 略過 VSS 安裝：
+   1. 開啟位於的 Azure Site Recovery 行動服務安裝目錄：
+   
+      C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   2. 修改 Azure Site Recovery VSS 提供者安裝指令碼**nMageVSSProvider_Install**並**InMageVSSProvider_Uninstall.cmd**永遠成功加入下列幾行：
+    
+      ```     
+      rem @echo off
+      setlocal
+      exit /B 0
+      ```
+
+3. 手動重新執行行動代理程式安裝。 
+4. 當安裝成功，並移至下一個步驟中，**設定**，移除您所新增的行。
+5. 若要安裝 VSS 提供者，請開啟以系統管理員命令提示字元並執行下列命令：
+   
+    **C:\Program 檔案 (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
+
+9. 確認 ASR VSS 提供者已安裝為 Windows 服務中的服務，然後開啟 元件服務 MMC，若要確認已列出 ASR VSS 提供者。
+10. 如果安裝 VSS 提供者持續失敗，使用 /CX，以解決在 CAPI2 中的權限錯誤。
+
+## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>VSS 提供者安裝失敗，因為非叢集電腦上啟用叢集服務
+
+此問題會導致 Azure Site Recovery 行動代理程式安裝因為 COM +，導致安裝 VSS 提供者發生問題的 ASAzure 站台復原 VSS 提供者安裝步驟期間失敗。
+ 
+### <a name="to-identify-the-issue"></a>若要找出問題
+
+在記錄檔位於 C:\ProgramData\ASRSetupLogs\UploadedLogs 在組態伺服器上\<日期時間 > UA_InstallLogFile.log，您會發現下列例外狀況：
+
+COM + 無法與 Microsoft 分散式交易協調器 (來自 HRESULT 的例外狀況：0x8004E00F)
+
+若要解決此問題：
+
+1.  請確認此機器的非叢集電腦，且，未使用叢集元件。
+3.  如果未使用的元件，請從機器移除叢集元件。
+
+## <a name="drivers-are-missing-on-the-source-server"></a>在來源伺服器上沒有的驅動程式
+
+如果行動代理程式安裝失敗，請檢查以判斷某些必要的驅動程式是否遺漏某些控制集中 C:\ProgramData\ASRSetupLogs 下的記錄檔。
+ 
+若要解決此問題：
+  
+1. 使用登錄編輯程式如 regedit.msc，開啟登錄。
+2. 開啟 HKEY_LOCAL_MACHINE\SYSTEM 節點。
+3. 在 [系統] 節點中，找出控制項集合。
+4. 開啟每個控制項集合，並確認下列的 Windows 驅動程式會出現：
+
+   - atapi
+   - vmbus
+   - storflt
+   - storvsc
+   - intelide
+ 
+重新安裝任何缺少的驅動程式。
 
 ## <a name="next-steps"></a>後續步驟
 

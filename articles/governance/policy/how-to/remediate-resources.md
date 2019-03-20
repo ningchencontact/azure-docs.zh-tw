@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 086ef9030451632ee4defa39a402e4d62c897f20
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342111"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816553"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
@@ -131,6 +131,8 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ## <a name="create-a-remediation-task"></a>建立補救工作
 
+### <a name="create-a-remediation-task-through-portal"></a>建立補救工作透過入口網站
+
 在評估期間，具有 **deployIfNotExists** 效果的原則指派會判斷是否有不符合規範的資源。 當找到不符合規範的資源時，會在 [補救] 頁面上提供詳細資料。 具有不符合規範之資源的原則清單會隨附一個可觸發**補救工作**的選項。 此選項會從 **deployIfNotExists** 範本建立部署。
 
 若要建立**補救工作**，請依照下列步驟進行操作：
@@ -163,6 +165,32 @@ if ($roleDefinitionIds.Count -gt 0)
    ![補救 - 資源工作操作功能表](../media/remediate-resources/resource-task-context-menu.png)
 
 透過**補救工作**部署的資源會新增至原則合規性頁面上的 [已部署資源] 索引標籤中。
+
+### <a name="create-a-remediation-task-through-azure-cli"></a>建立 Azure CLI 透過補救工作
+
+若要建立**補救工作**使用 Azure CLI 使用`az policy remediation`命令。 取代`{subscriptionId}`與您的訂用帳戶識別碼和`{myAssignmentId}`與您**deployIfNotExists**原則指派識別碼。
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+如需其他修復命令和範例，請參閱[az 原則補救](/cli/azure/policy/remediation)命令。
+
+### <a name="create-a-remediation-task-through-azure-powershell"></a>建立修復工作，透過 Azure PowerShell
+
+若要建立**補救工作**透過 Azure PowerShell，使用`Start-AzPolicyRemediation`命令。 取代`{subscriptionId}`與您的訂用帳戶識別碼和`{myAssignmentId}`與您**deployIfNotExists**原則指派識別碼。
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+如需其他補救 cmdlet 和範例，請參閱[Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)模組。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075709"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立用於儲存和管理值的變數
 
@@ -72,9 +72,9 @@ ms.locfileid: "54063211"
 
 4. 為您的變數提供下列資訊：
 
-   | 屬性 | 必要 | Value |  說明 |
+   | 屬性 | 必要項 | Value |  描述 |
    |----------|----------|-------|--------------|
-   | Name | 是 | <*variable-name*> | 要遞增的變數名稱 | 
+   | 名稱 | 是 | <*variable-name*> | 要遞增的變數名稱 | 
    | Type | 是 | <*variable-type*> | 變數的資料類型 | 
    | Value | 否 | <*start-value*> | 您的變數初始值 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道變數的開始值。 | 
    ||||| 
@@ -208,9 +208,9 @@ ms.locfileid: "54063211"
 
 3. 提供下列資訊來遞增您的變數：
 
-   | 屬性 | 必要 | Value |  說明 |
+   | 屬性 | 必要項 | Value |  描述 |
    |----------|----------|-------|--------------|
-   | Name | 是 | <*variable-name*> | 要遞增的變數名稱 | 
+   | 名稱 | 是 | <*variable-name*> | 要遞增的變數名稱 | 
    | Value | 否 | <*increment-value*> | 用來遞增變數的值。 預設值為一。 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 | 
    |||| 
 
@@ -328,9 +328,9 @@ ms.locfileid: "54063211"
 
 以下是 [遞減變數] 動作的屬性：
 
-| 屬性 | 必要 | Value |  說明 |
+| 屬性 | 必要項 | Value |  描述 |
 |----------|----------|-------|--------------|
-| Name | 是 | <*variable-name*> | 要遞減的變數名稱 | 
+| 名稱 | 是 | <*variable-name*> | 要遞減的變數名稱 | 
 | Value | 否 | <*increment-value*> | 用來遞減變數的值。 預設值為一。 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 | 
 ||||| 
 
@@ -363,9 +363,9 @@ ms.locfileid: "54063211"
 
 以下是 [設定變數] 動作的屬性：
 
-| 屬性 | 必要 | Value |  說明 | 
+| 屬性 | 必要項 | Value |  描述 | 
 |----------|----------|-------|--------------| 
-| Name | 是 | <*variable-name*> | 要變更的變數名稱 | 
+| 名稱 | 是 | <*variable-name*> | 要變更的變數名稱 | 
 | Value | 是 | <*new-value*> | 您想要指派給變數的值。 兩者必須具有相同的資料類型。 | 
 ||||| 
 
@@ -414,16 +414,17 @@ ms.locfileid: "54063211"
 
 1. 視您的變數是字串還是陣列而定，尋找並選取下列其中一個動作： 
 
-  * **變數 - 附加至字串變數**
-  * **變數 - 附加到陣列變數** 
+   * **變數 - 附加至字串變數**
+   * **變數 - 附加到陣列變數** 
 
-2. 提供要附加作為字串或陣列最後一個項目的值。 需要此值。 
+2. 提供要附加作為字串或陣列最後一個項目的值。 
+   需要此值。 
 
 以下是 [附加至...] 動作的屬性：
 
-| 屬性 | 必要 | Value |  說明 | 
+| 屬性 | 必要項 | Value |  描述 | 
 |----------|----------|-------|--------------| 
-| Name | 是 | <*variable-name*> | 要變更的變數名稱 | 
+| 名稱 | 是 | <*variable-name*> | 要變更的變數名稱 | 
 | Value | 是 | <*append-value*> | 您想要附加的值 (可以具有任何類型) | 
 |||||  
 

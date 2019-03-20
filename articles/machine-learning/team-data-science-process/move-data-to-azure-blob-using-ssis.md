@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844778"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>使用 SSIS 連接器從 Azure Blob 儲存體來回移動資料
 [SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) 中的元件可供連線至 Azure、在 Azure 與內部部署資源來源之間傳輸資料，以及處理儲存在 Azure 中的資料。
@@ -55,7 +55,7 @@ ms.locfileid: "55468507"
 如需如何使用 SISS 啟動與執行，以建置簡單擷取、轉換與載入 (ETL) 封裝的相關資訊，請參閱 [SSIS 教學課程：建立簡單的 ETL 封裝](https://msdn.microsoft.com/library/ms169917.aspx)。
 
 ## <a name="download-nyc-taxi-dataset"></a>下載紐約計程車資料集
-此處描述的範例使用供大眾使用的資料集 -- [紐約計程車路線](http://www.andresmh.com/nyctaxitrips/) 資料集。 此資料集收集了 2013 年紐約 1 億 7 千 3 百萬筆計程車行程資料。 資料有兩種：路線詳細資料及車費資料。 由於每個月都有一個檔案，因此總共有 24 個檔案，每個檔案未壓縮的大小約 2GB。
+此處描述的範例使用供大眾使用的資料集 -- [紐約計程車路線](https://www.andresmh.com/nyctaxitrips/) 資料集。 此資料集收集了 2013 年紐約 1 億 7 千 3 百萬筆計程車行程資料。 資料有兩種：路線詳細資料及車費資料。 由於每個月都有一個檔案，因此總共有 24 個檔案，每個檔案未壓縮的大小約 2GB。
 
 ## <a name="upload-data-to-azure-blob-storage"></a>將資料上傳至 Azure Blob 儲存體
 為了使用 SSIS 功能封裝將資料從內部部署移至 Azure Blob 儲存體，我們使用 [**Azure Blob 上傳工作**](https://msdn.microsoft.com/library/mt146776.aspx)執行個體，如這裡所示：
@@ -64,7 +64,7 @@ ms.locfileid: "55468507"
 
 此工作使用的參數如下所述：
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | --- | --- |
 | **AzureStorageConnection** |指定現有的或建立新的 Azure 儲存體連線管理員，以參照 Azure 儲存體帳戶；該帳戶指向託管 Blob 檔案的位置。 |
 | **BlobContainer** |指定會將上傳的檔案保存為 Blob 的 Blob 容器名稱。 |

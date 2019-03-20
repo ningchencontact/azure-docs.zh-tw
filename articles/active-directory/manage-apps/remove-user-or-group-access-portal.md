@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c622b95572a078d3f5a3e4791f959fd264eddc3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182165"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074279"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中從企業應用程式移除使用者或群組指派
 在 Azure Active Directory (Azure AD) 中，針對已獲指派其中一個企業應用程式存取權的使用者或群組，您可以輕鬆移除已指派的存取權。 您必須具備適當的權限，才能管理企業應用程式，而且必須是目錄的全域管理員。
@@ -51,7 +51,7 @@ ms.locfileid: "56182165"
     > 您必須安裝 AzureAD 模組 (使用命令 `Install-Module -Name AzureAD`)。 如果系統提示您安裝 NuGet 模組或新的 Azure Active Directory V2 PowerShell 模組，請輸入 Y 然後按 ENTER。
 
 2. 執行 `Connect-AzureAD` 並以全域管理員的使用者帳戶登入。
-3. 您可以使用下列指令碼，將使用者和角色指派給應用程式：
+3. 您可以使用下列指令碼來移除應用程式中的使用者和角色：
 
     ```powershell
     # Store the proper parameters
@@ -67,7 +67,7 @@ ms.locfileid: "56182165"
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## <a name="next-steps"></a>後續步驟
+   ## <a name="next-steps"></a>後續步驟
 
 - [查看我的所有群組](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [將使用者或群組指派給企業應用程式](assign-user-or-group-access-portal.md)

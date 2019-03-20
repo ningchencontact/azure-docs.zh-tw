@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 4346b347994f49774584caf31a96ff2f81fdc0e1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701211"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58016677"
 ---
 **組態/處理序伺服器需求**
 
@@ -48,7 +48,7 @@ https:\//management.azure.com | 用於複寫管理作業和協調
 *.services.visualstudio.com | 用於遙測目的 (此為選擇性項目)
 time.nist.gov | 用於檢查系統時間與通用時間之間的時間同步處理。
 time.windows.com | 用於檢查系統時間與通用時間之間的時間同步處理。
-- https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com | OVF 設定需要存取這些 URL。 其可供 Azure Active Directory 用於管理存取控制和身分識別
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF 設定需要存取這些 URL。 其可供 Azure Active Directory 用於管理存取控制和身分識別
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | 完成 MySQL 下載
 |
 **要安裝的軟體** | 

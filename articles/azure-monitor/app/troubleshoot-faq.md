@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429684"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905049"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -257,7 +257,7 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 
 允許您的 Web 伺服器將遙測資料傳送至我們的端點。 
 
-### <a name="proxy-redirect"></a>Proxy 重新導向
+### <a name="gateway-redirect"></a>閘道重新導向
 
 藉由在您的組態中覆寫「端點」，將流量從您的伺服器路由到內部網路上的閘道。
 如果您的設定中沒有這些「端點」屬性，這些類別將會使用下列 ApplicationInsights.config 範例中顯示的預設值。 
@@ -288,7 +288,19 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 
 請注意，ApplicationIdProvider 從 v2.6.0 才開始提供
 
+### <a name="proxy-passthrough"></a>Proxy 傳遞
 
+可藉由設定電腦層級或應用程式層級來 proxy 通過 proxy。
+如需詳細資訊請參閱 dotnet 的文件上[Defaultproxy>](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)。
+ 
+ 範例 Web.config:
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>我是否可以在內部網路伺服器上執行可用性 Web 測試？

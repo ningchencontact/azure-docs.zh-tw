@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9804dee56e9f099654359e7c336f706cedbd1f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d5d2e734ff9bd34a176d08e36019c826dac355bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204860"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>教學課程：Azure Active Directory 與 ZenQMS 整合
 
@@ -34,7 +34,7 @@ ZenQMS 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 ZenQMS 的 Azure AD 整合，您需要下列項目：
 
@@ -120,6 +120,7 @@ ZenQMS 與 Azure AD 整合提供下列優點：
     ![ZenQMS 網域及 URL 單一登入資訊](./media/zenqms-tutorial/tutorial_zenqms_url1.png)
 
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+    
     | |
     |-|-|
     | `https://<INSTANCE>.zenqms.com/<ID>`|

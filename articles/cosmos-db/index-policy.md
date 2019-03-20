@@ -4,14 +4,14 @@ description: 了解 Azure Cosmos DB 中編製索引的運作方式。 了解如�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0ba5cdd4f92390634d6d2bea8add8309cb1f4d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460228"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014480"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引原則
 
@@ -23,9 +23,9 @@ ms.locfileid: "55460228"
 
 * **設定索引模式**：藉由在容器上使用編製索引原則，您就能設定不同的編製索引模式，例如「一致」或「無」。
 
-## <a name="indexing-modes"></a>編製索引模式 
+## <a name="indexing-modes"></a>編製索引模式
 
-Azure Cosmos DB 支援兩種您可在 Azure Cosmos 容器上設定的編製索引模式。 您可以透過編製索引原則來設定下列兩個編製索引模式： 
+Azure Cosmos DB 支援兩種您可在 Azure Cosmos 容器上設定的編製索引模式。 您可以透過編製索引原則來設定下列兩個編製索引模式：
 
 * **一致**：如果將 Azure Cosmos 容器的原則設為「一致」，特定容器上的查詢就會遵循與針對讀數指定的相同一致性層級 (例如，強式、限定過期、工作階段或最終)。 
 

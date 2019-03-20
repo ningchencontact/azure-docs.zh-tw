@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: 1d7f11b7d9db87ebea5cb31b2918dba3fe8a56b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2a558f2cf91907e85bb8b14c7214a63afd1faca0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001388"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM 的計算基準測試分數
 下列 CoreMark 基準測試分數顯示執行 Ubuntu 的 Azure 高效能 VM 產品陣容的計算效能。 也有 [Windows VM](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)的計算基準測試分數。
@@ -369,7 +369,7 @@ ms.locfileid: "51262347"
 | Standard_M128s | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2.50GHz | 128 | 4 | 2,064.3 | 1,275,445 | 19,510 | 1.53% | 42 |
 
 ## <a name="about-coremark"></a>關於 CoreMark
-Linux 數字是藉由在 Ubuntu 上執行 [CoreMark](http://www.eembc.org/coremark/faq.php) 來計算出。 在 CoreMark 的設定中，執行緒的數目是設定為虛擬 CPU 的數目，而並行處理則是設定為 PThreads。 目標反覆運算次數已根據預期的效能進行調整，以提供一個至少 20 秒 (通常會更長) 的執行階段。 最終分數代表的是已完成的反覆運算次數除以執行測試所花費秒數後得出的值。 每個測試在每個 VM 上至少執行了七次。 測試執行日期如上方所示。 測試會於 VM 可支援的日期，在各 Azure 公用區域的多個 VM 上執行。 由於效能是變數，因此未顯示基本 A 和 B (Burstable) 數列。 N 數列不會顯示，因為他們以 GPU 為中心，且 Coremark 不會測量 GPU 效能。
+Linux 數字是藉由在 Ubuntu 上執行 [CoreMark](https://www.eembc.org/coremark/faq.php) 來計算出。 在 CoreMark 的設定中，執行緒的數目是設定為虛擬 CPU 的數目，而並行處理則是設定為 PThreads。 目標反覆運算次數已根據預期的效能進行調整，以提供一個至少 20 秒 (通常會更長) 的執行階段。 最終分數代表的是已完成的反覆運算次數除以執行測試所花費秒數後得出的值。 每個測試在每個 VM 上至少執行了七次。 測試執行日期如上方所示。 測試會於 VM 可支援的日期，在各 Azure 公用區域的多個 VM 上執行。 由於效能是變數，因此未顯示基本 A 和 B (Burstable) 數列。 N 數列不會顯示，因為他們以 GPU 為中心，且 Coremark 不會測量 GPU 效能。
 
 ## <a name="next-steps"></a>後續步驟
 * 如需了解儲存體容量、磁碟詳細資料及其他選擇 VM 大小的考量，請參閱 [虛擬機器的大小](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。

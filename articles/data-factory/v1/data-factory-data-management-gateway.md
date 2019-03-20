@@ -13,28 +13,30 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 101385b23d8ea683dc5762d491e6a4bef91bbed4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9008c98a086ed2d45b7339fa3f76b33240789db8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102446"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
 
 > [!NOTE]
-> 資料管理閘道現已更名為「自我裝載整合執行階段」。  
+> 資料管理閘道現已更名為「自我裝載整合執行階段」。
 
 資料管理閘道是一個用戶端代理程式，您必須在內部部署環境中部署此代理程式，才能在雲端與內部部署資料存放區之間複製資料。 如需 Data Factory 所支援的內部部署資料存放區，請參閱 [支援的資料來源](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 一節。
 
-本文是用來補充 [在內部部署和雲端資料存放區之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文中的逐步解說。 在該逐步解說中，您會建立一個使用閘道將資料從內部部署 SQL Server 資料庫移到 Azure Blob 的管線。 這篇文章提供有關資料管理閘道的詳細深入資訊。 
+本文是用來補充 [在內部部署和雲端資料存放區之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文中的逐步解說。 在該逐步解說中，您會建立一個使用閘道將資料從內部部署 SQL Server 資料庫移到 Azure Blob 的管線。 這篇文章提供有關資料管理閘道的詳細深入資訊。
 
 您可以將多個內部部署機器關聯到閘道以相應放大資料管理閘道。 您可以增加可在節點上同時執行的資料移動作業數目來進行相應增加。 這項功能也適用於具有單一節點的邏輯閘道。 如需得詳細資料，請參閱[在 Azure Data Factory 中調整資料管理閘道](data-factory-data-management-gateway-high-availability-scalability.md)一文。
 
 > [!NOTE]
-> 目前在 Data Factory 中，閘道器只支援複製活動和預存程序活動。 您不能使用自訂活動中的閘道器來存取內部部署資料來源。      
+> 目前在 Data Factory 中，閘道器只支援複製活動和預存程序活動。 您不能使用自訂活動中的閘道器來存取內部部署資料來源。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>概觀
 ### <a name="capabilities-of-data-management-gateway"></a>資料管理閘道功能
@@ -52,8 +54,8 @@ ms.locfileid: "55813753"
 
 以下是利用資料閘道進行複製步驟的高層級資料流和摘要：![使用閘道的資料流](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
-1. 資料開發人員會使用 [Azure 入口網站](https://portal.azure.com)或 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.datafactories/)，為 Azure Data Factory 建立閘道器。
-2. 資料開發人員會藉由指定閘道，建立內部部署資料存放區的連結服務。 在設定連結服務資料的過程中，開發人員會使用 [設定認證] 應用程式來指定驗證類型和認證。  [設定認證] 應用程式對話方塊將會與資料存放區進行通訊，以測試要儲存認證的連線與閘道。
+1. 資料開發人員會使用 [Azure 入口網站](https://portal.azure.com)或 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.datafactory/)，為 Azure Data Factory 建立閘道器。
+2. 資料開發人員會藉由指定閘道，建立內部部署資料存放區的連結服務。 在設定連結服務資料的過程中，開發人員會使用 [設定認證] 應用程式來指定驗證類型和認證。 [設定認證] 應用程式對話方塊將會與資料存放區進行通訊，以測試要儲存認證的連線與閘道。
 3. 在雲端中儲存認證之前，閘道會利用與閘道 (由資料開發人員提供) 相關聯的憑證加密認證。
 4. Data Factory 服務會和閘道進行通訊，以透過使用共用 Azure 服務匯流排佇列的控制通道，進行工作的排程和管理。 必須開始複製活動作業時，Data Factory 會將要求和認證資訊一起排入佇列。 輪詢佇列之後，閘道器隨即啟動。
 5. 閘道會利用相同的憑證解密認證，然後利用適當的驗證類型和認證連接到內部部署資料存放區。
@@ -82,8 +84,8 @@ ms.locfileid: "55813753"
 ### <a name="installation-options"></a>安裝選項
 可以用下列方式安裝資料管理閘道：
 
-* 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載 MSI 安裝套件。  MSI 也可用來將現有的資料管理閘道升級至最新的版本，並保留所有設定。
-* 按一下 [手動設定] 底下的 [下載並安裝資料閘道] 連結，或 [快速安裝] 之下的 [直接安裝在此電腦上]。 如需使用快速安裝的逐步指示，請參閱 [在內部部署與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。 手動步驟會帶您前往下載中心。  下一節會提供從下載中心下載並安裝閘道的指示。
+* 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載 MSI 安裝套件。 MSI 也可用來將現有的資料管理閘道升級至最新的版本，並保留所有設定。
+* 按一下 [手動設定] 底下的 [下載並安裝資料閘道] 連結，或 [快速安裝] 之下的 [直接安裝在此電腦上]。 如需使用快速安裝的逐步指示，請參閱 [在內部部署與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。 手動步驟會帶您前往下載中心。 下一節會提供從下載中心下載並安裝閘道的指示。
 
 ### <a name="installation-best-practices"></a>安裝最佳作法：
 1. 為閘道器設定主機電腦上的電源計劃，使電腦不休眠。 如果主機電腦休眠，閘道器不會回應資料要求。
@@ -91,7 +93,7 @@ ms.locfileid: "55813753"
 
 ### <a name="install-the-gateway-from-download-center"></a>從下載中心安裝閘道
 1. 瀏覽至 [Microsoft 資料管理閘道下載頁面](https://www.microsoft.com/download/details.aspx?id=39717)。
-2. 按一下 [下載]，選取適當的版本 (**32 位元**與**64 位元**)，然後按 [下一步]。
+2. 按一下 [**下載**，選取**64 位元**版本 （不再支援 32 位元），然後按一下**下一步]**。
 3. 直接執行 **MSI** 或將它儲存至您的硬碟並執行。
 4. 在 [歡迎] 頁面上，選取一個**語言**，然後按 [下一步]。
 5. **接受**使用者授權合約，然後按 [下一步]。
@@ -106,7 +108,7 @@ ms.locfileid: "55813753"
 
 ### <a name="register-gateway-using-key"></a>使用金鑰註冊閘道
 #### <a name="if-you-havent-already-created-a-logical-gateway-in-the-portal"></a>如果您尚未在入口網站中建立邏輯閘道
-若要在入口網站中建立閘道並從 [設定] 頁面取得金鑰，請依照[在內部部署和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的逐步解說步驟操作。    
+若要在入口網站中建立閘道並從 [設定] 頁面取得金鑰，請依照[在內部部署和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的逐步解說步驟操作。
 
 #### <a name="if-you-have-already-created-the-logical-gateway-in-the-portal"></a>如果您已經在入口網站中建立邏輯閘道
 1. 在 Azure 入口網站中，瀏覽至 [Data Factory] 頁面，然後按一下 [連結服務] 圖格。
@@ -114,10 +116,10 @@ ms.locfileid: "55813753"
     ![Data Factory 頁面](media/data-factory-data-management-gateway/data-factory-blade.png)
 2. 在 [已連結的服務] 頁面中，選取您在入口網站中建立的邏輯**閘道**。
 
-    ![邏輯閘道](media/data-factory-data-management-gateway/data-factory-select-gateway.png)  
+    ![邏輯閘道](media/data-factory-data-management-gateway/data-factory-select-gateway.png)
 3. 在 [資料閘道] 頁面中，按一下 [下載並安裝資料閘道]。
 
-    ![入口網站中的下載連結](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)   
+    ![入口網站中的下載連結](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 4. 在 [設定] 頁面中，按一下 [重新建立金鑰]。 在仔細閱讀警告訊息後，請按一下 [是]。
 
     ![重新建立索引鍵](media/data-factory-data-management-gateway/recreate-key-button.png)
@@ -133,19 +135,18 @@ ms.locfileid: "55813753"
 如果您將游標放在系統匣圖示/通知訊息上，您會在快顯視窗中看到閘道/更新作業的狀態詳細資料。
 
 ### <a name="ports-and-firewall"></a>連接埠和防火牆
-有兩個您需要考量的防火牆：在組織的中央路由器上執行的**公司防火牆**，以及在已安裝閘道的本機電腦上設定為精靈的 **Windows 防火牆**。  
+有兩個您需要考量的防火牆：在組織的中央路由器上執行的**公司防火牆**，以及在已安裝閘道的本機電腦上設定為精靈的 **Windows 防火牆**。
 
 ![防火牆](./media/data-factory-data-management-gateway/firewalls2.png)
 
 在公司防火牆層級，您需要設定下列網域和輸出連接埠：
 
-| 網域名稱 | 連接埠 | 說明 |
+| 網域名稱 | 連接埠 | 描述 |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |用於與「資料移動服務」後端進行通訊 |
 | *.core.windows.net |443 |用於使用 Azure Blob 的分段複製 (如果已設定)|
 | *.frontend.clouddatahub.net |443 |用於與「資料移動服務」後端進行通訊 |
 | *.servicebus.windows.net |9350-9354, 5671 |透過 TCP 的選擇性服務匯流排轉送，由複製精靈所使用 |
-
 
 Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，您可以在閘道電腦上相應地設定網域和連接埠。
 
@@ -154,7 +155,6 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 > 2. 對於某些「雲端資料庫」(例如：[Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings)、[Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) 等)，您可能需要將閘道電腦的 IP 位址加到其防火牆組態的白名單中。
 >
 >
-
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>將資料從來源資料存放區複製到接收資料存放區
 請確定在公司防火牆、閘道機器上的 Windows 防火牆及資料存放區本身都已正確啟用防火牆規則。 啟用這些規則可讓閘道成功連接到來源和接收器。 請為複製作業所涉及的每個資料存放區啟用規則。
@@ -169,7 +169,6 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 >
 >
 
-
 ### <a name="proxy-server-considerations"></a>Proxy 伺服器考量
 如果您的公司網路環境使用 Proxy 伺服器來存取網際網路，請將資料管理閘道設定為使用適當的 Proxy 設定。 您可以在初始註冊階段期間設定 Proxy。
 
@@ -183,7 +182,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
 * **不使用 Proxy**︰閘道不會明確地使用任何 Proxy 來連線到雲端服務。
 * **使用系統 Proxy**：閘道會使用 diahost.exe.config 和 diawp.exe.config 中設定的 Proxy 設定。如果 diahost.exe.config 和 diawp.exe.config 中未設定任何 Proxy，閘道就會直接連線到雲端服務而不經由 Proxy。
-* **使用自訂 Proxy**：設定要用於閘道的 HTTP Proxy 設定，而不使用 diahost.exe.config 和 diawp.exe.config 中的組態。必須指定「IP 位址」和「連接埠」。  「使用者名稱」和「密碼」則為選擇性，需視您的 Proxy 驗證設定而定。  所有設定都會由閘道的認證憑證予以加密，並儲存在閘道主機機器的本機。
+* **使用自訂 Proxy**：設定要用於閘道的 HTTP Proxy 設定，而不使用 diahost.exe.config 和 diawp.exe.config 中的組態。必須指定「IP 位址」和「連接埠」。 「使用者名稱」和「密碼」則為選擇性，需視您的 Proxy 驗證設定而定。 所有設定都會由閘道的認證憑證予以加密，並儲存在閘道主機機器的本機。
 
 在您儲存已更新的 Proxy 設定之後，資料管理閘道主機服務會自動重新啟動。
 
@@ -191,7 +190,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
 1. 啟動 **資料管理閘道器組態管理員**。
 2. 切換到 [設定]  索引標籤。
-3. 按一下 [HTTP Proxy] 區段中的 [變更] 連結，以啟動 [設定 HTTP Proxy] 對話方塊。  
+3. 按一下 [HTTP Proxy] 區段中的 [變更] 連結，以啟動 [設定 HTTP Proxy] 對話方塊。
 4. 按 [下一步]  按鈕之後，您會看到一個警告對話方塊，此對話方塊會向您請求權限來儲存 Proxy 設定及重新啟動「閘道主機服務」。
 
 您可以使用「組態管理員」工具來更新 HTTP Proxy。
@@ -204,31 +203,36 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 >
 
 ### <a name="configure-proxy-server-settings"></a>設定 Proxy 伺服器設定
-如果您為 HTTP Proxy 選取 [使用系統 Proxy] 設定，閘道就會使用 diahost.exe.config 和 diawp.exe.config 中的 Proxy 設定。如果 diahost.exe.config 和 diawp.exe.config 中未指定任何 Proxy，閘道就會直接連線到雲端服務而不經由 Proxy。 下列程序說明如何更新 diahost.exe.config 檔案。  
+如果您為 HTTP Proxy 選取 [使用系統 Proxy] 設定，閘道就會使用 diahost.exe.config 和 diawp.exe.config 中的 Proxy 設定。如果 diahost.exe.config 和 diawp.exe.config 中未指定任何 Proxy，閘道就會直接連線到雲端服務而不經由 Proxy。 下列程序說明如何更新 diahost.exe.config 檔案。
 
 1. 在「檔案總管」中，建立一份 C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config 的安全複本來備份原始檔案。
 2. 以系統管理員身分啟動 Notepad.exe，並開啟文字檔 C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config。您會在以下程式碼中看見 system.net 的預設標籤：
 
-         <system.net>
-             <defaultProxy useDefaultCredentials="true" />
-         </system.net>    
+    ```
+    <system.net>
+        <defaultProxy useDefaultCredentials="true" />
+    </system.net>
+    ```
 
-   接著，您可以新增 Proxy 伺服器詳細資料，如以下範例所示：
+    接著，您可以新增 Proxy 伺服器詳細資料，如以下範例所示：
 
-         <system.net>
-               <defaultProxy enabled="true">
-                     <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
-               </defaultProxy>
-         </system.net>
+    ```
+    <system.net>
+        <defaultProxy enabled="true">
+            <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
+        </defaultProxy>
+    </system.net>
+    ```
 
-   在 Proxy 標記內可以有其他屬性，用以指定必要的設定，例如 scriptLocation。 請參閱 [Proxy 項目 (網路設定)](https://msdn.microsoft.com/library/sa91de1e.aspx) 以了解語法。
+    在 Proxy 標記內可以有其他屬性，用以指定必要的設定，例如 scriptLocation。 請參閱 [Proxy 項目 (網路設定)](https://msdn.microsoft.com/library/sa91de1e.aspx) 以了解語法。
 
-         <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+    ```
+    <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+    ```
 3. 將組態檔儲存到原始位置中，然後重新啟動「資料管理閘道主機服務」以套用變更。 重新啟動服務：使用 [控制台] 中的 [服務] 小程式，或是從 [資料管理閘道組態管理員] > 按一下 [停止服務] 按鈕，然後按一下 [啟動服務]。 如果服務未啟動，可能因為在已編輯的應用程式組態檔中加入了不正確的 XML 標記語法。
 
 > [!IMPORTANT]
-> 別忘了「同時」更新 diahost.exe.config 和 diawp.exe.config。  
-
+> 別忘了「同時」更新 diahost.exe.config 和 diawp.exe.config。
 
 除了這幾點以外，您也必須確定 Microsoft Azure 包含在公司的允許清單中。 如需有效的 Microsoft Azure IP 位址清單，可從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=41653)下載。
 
@@ -246,7 +250,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-如果您選擇不開啟閘道機器上的連接埠 8050，則請使用「設定認證」  應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell Cmdlet。 若要了解如何設定資料存放區認證，請參閱＜設定認證和安全性＞一節。
+如果您選擇不開啟閘道機器上的連接埠 8050，則請使用「設定認證」  應用程式以外的機制來設定資料存放區認證。 例如，您可以使用[新增 AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet。 若要了解如何設定資料存放區認證，請參閱＜設定認證和安全性＞一節。
 
 ## <a name="update"></a>更新
 根據預設，資料管理閘道會在有更新版本的閘道時自動進行更新。 在所有排定的工作完成前，閘道不會進行更新。 更新作業完成後，閘道才會處理後續的工作。 如果更新失敗，閘道會回復為舊版本。
@@ -277,29 +281,29 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 [適用於單一節點閘道]
 1. 在閘道電腦上啟動 Windows PowerShell。
 2. 切換至 C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 資料夾。
-3. 執行下列命令，將自動更新功能關閉 (停用)。   
+3. 執行下列命令，將自動更新功能關閉 (停用)。
 
     ```PowerShell
-    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
 4. 若要將它重新開啟：
 
     ```PowerShell
-    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-[適用於多節點高度可用且可調整的閘道](data-factory-data-management-gateway-high-availability-scalability.md)
+   [適用於多節點高度可用且可調整的閘道](data-factory-data-management-gateway-high-availability-scalability.md)
 1. 在閘道電腦上啟動 Windows PowerShell。
 2. 切換至 C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 資料夾。
-3. 執行下列命令，將自動更新功能關閉 (停用)。   
+3. 執行下列命令，將自動更新功能關閉 (停用)。
 
     對於具備高可用性功能的閘道，需要額外的 AuthKey 參數。
     ```PowerShell
-    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
 4. 若要將它重新開啟：
 
     ```PowerShell
-    .\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
 ## <a name="configuration-manager"></a>組態管理員
@@ -323,84 +327,82 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 * 檢視、變更及匯出閘道所使用的 **憑證** 。 此憑證用來加密資料來源認證。
 * 變更端點的 **HTTPS 連接埠** 。 閘道會開啟一個連接埠，以便設定資料來源認證。
 * **狀態** 
-* 檢視 [SSL 憑證]  用於入口網站與閘道之間的 SSL 通訊，以設定資料來源的認證。  
+* 檢視 [SSL 憑證]  用於入口網站與閘道之間的 SSL 通訊，以設定資料來源的認證。
 
-### <a name="remote-access-from-intranet"></a>來自內部網路的遠端存取  
-未來將會啟用此功能。 在即將推出的更新 (v3.4 或更新版本) 中，我們將讓您啟用/停用任何目前使用連接埠 8050 來進行的遠端連線 (請參閱上一節)，同時使用 PowerShell 或「認證管理員」應用程式來加密認證。 
+### <a name="remote-access-from-intranet"></a>來自內部網路的遠端存取
+未來將會啟用此功能。 在即將推出的更新 (v3.4 或更新版本) 中，我們將讓您啟用/停用任何目前使用連接埠 8050 來進行的遠端連線 (請參閱上一節)，同時使用 PowerShell 或「認證管理員」應用程式來加密認證。
 
 ### <a name="diagnostics-page"></a>診斷頁面
 [診斷] 頁面可讓您執行下列動作︰
 
 * 啟用詳細資訊 **記錄**、在事件檢視器中檢視記錄檔，以及有失敗時將記錄檔傳送給 Microsoft。
-* **測試連線** (對資料來源的連線)。  
+* **測試連線** (對資料來源的連線)。
 
 ### <a name="help-page"></a>Help page
-[說明] 頁面會顯示以下資訊：  
+[說明] 頁面會顯示以下資訊：
 
 * 閘道的簡短說明。
 * 版本號碼
-* 線上說明、隱私權聲明及授權合約的連結。  
+* 線上說明、隱私權聲明及授權合約的連結。
 
 ## <a name="monitor-gateway-in-the-portal"></a>在入口網站中監視閘道
-在 Azure 入口網站中，您可以檢視閘道機器近乎即時的資源使用率 (CPU、記憶體、網路 (輸入/輸出) 等) 快照集。  
+在 Azure 入口網站中，您可以檢視閘道機器近乎即時的資源使用率 (CPU、記憶體、網路 (輸入/輸出) 等) 快照集。
 
-1. 在 Azure 入口網站中，瀏覽至您資料處理站的首頁，然後按一下 [已連結的服務] 圖格。 
+1. 在 Azure 入口網站中，瀏覽至您資料處理站的首頁，然後按一下 [已連結的服務] 圖格。
 
-    ![Data Factory 首頁](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
+    ![Data Factory 首頁](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png)
 2. 在 [已連結的服務] 頁面中選取**閘道**。
 
     ![[已連結的服務] 頁面](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
 3. 在 [閘道] 頁面中，您可以看到閘道的記憶體和 CPU 使用量。
 
-    ![閘道的 CPU 和記憶體使用量](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
+    ![閘道的 CPU 和記憶體使用量](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png)
 4. 啟用 [進階設定] 可查看更多詳細資料，例如網路使用量。
     
     ![閘道的進階監視](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
 
-下表說明 [閘道節點] 清單中的資料行：  
+下表說明 [閘道節點] 清單中的資料行：
 
-監視屬性 | 說明
-:------------------ | :---------- 
-Name | 邏輯閘道和閘道相關聯節點的名稱。 節點是安裝了閘道的內部部署 Windows 機器。 若要了解如何在單一邏輯閘道中擁有一個以上的節點 (最多四個節點)，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。    
-狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/受限制/等等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。 
-版本 | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。 
-可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。 
-CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快照集。 
-網路功能 (輸入/輸出) | 閘道節點的網路使用率。 這個值是近乎即時的快照集。 
-並行作業 (執行中/限制) | 每個節點上執行的作業或工作數目。 這個值是近乎即時的快照集。 限制表示每個節點的最大並行作業數。 這個值會根據機器大小來定義。 您可以提高限制以在進階案例 (CPU/記憶體/網路並未充分使用，但活動會逾時的案例) 中相應增加並行作業執行能力。單一節點的閘道也能擁有這樣的能力 (即使該閘道尚未啟用延展性和可用性功能)。  
+監視屬性 | 描述
+:------------------ | :----------
+名稱 | 邏輯閘道和閘道相關聯節點的名稱。 節點是安裝了閘道的內部部署 Windows 機器。 若要了解如何在單一邏輯閘道中擁有一個以上的節點 (最多四個節點)，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。
+狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/受限制/等等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。
+版本 | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。
+可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。
+CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快照集。
+網路功能 (輸入/輸出) | 閘道節點的網路使用率。 這個值是近乎即時的快照集。
+並行作業 (執行中/限制) | 每個節點上執行的作業或工作數目。 這個值是近乎即時的快照集。 限制表示每個節點的最大並行作業數。 這個值會根據機器大小來定義。 您可以提高限制以在進階案例 (CPU/記憶體/網路並未充分使用，但活動會逾時的案例) 中相應增加並行作業執行能力。單一節點的閘道也能擁有這樣的能力 (即使該閘道尚未啟用延展性和可用性功能)。
 角色 | 多節點閘道中的角色有兩種 - 發送器和背景工作角色。 所有節點都是背景工作角色，這表示它們全都能用來執行作業。 發送器節點只有一個，可用來提取雲端服務中的工作/作業，並發送到不同的背景工作節點 (包括發送器節點本身)。
 
 當閘道中有兩個以上的節點 (相應放大案例) 時，您會在此頁面中看到某些更合理的設定。 如需設定多節點閘道的詳細資料，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。
 
 ### <a name="gateway-status"></a>閘道狀態
-下表提供**閘道節點**的可能狀態： 
+下表提供**閘道節點**的可能狀態：
 
 狀態  | 註解/案例
 :------- | :------------------
 線上 | 節點已連線至 Data Factory 服務。
 離線 | 節點已離線。
 升級中 | 節點正在自動更新。
-限制 | 由於連線問題。 可能是因為 HTTP 連接埠 8050 問題、服務匯流排連線問題或認證同步問題。 
-非使用中 | 節點所在的組態不同於其他大多數節點的組態。<br/><br/> 節點無法連線至其他節點時，便會處於非使用中狀態。 
+限制 | 由於連線問題。 可能是因為 HTTP 連接埠 8050 問題、服務匯流排連線問題或認證同步問題。
+非使用中 | 節點所在的組態不同於其他大多數節點的組態。<br/><br/> 節點無法連線至其他節點時，便會處於非使用中狀態。
 
-
-下表提供**邏輯閘道**的可能狀態。 閘道的狀態取決於閘道節點的狀態。 
+下表提供**邏輯閘道**的可能狀態。 閘道的狀態取決於閘道節點的狀態。
 
 狀態 | 註解
 :----- | :-------
 需要註冊 | 此邏輯閘道還沒有已註冊的節點
 線上 | 閘道節點已連線
 離線 | 沒有處於線上狀態的節點。
-限制 | 此閘道中的節點並非全都處於健康情況良好的狀態。 這個狀態是某些節點可能會關閉的警告！ <br/><br/>可能是因為發送器/背景工作節點有認證同步問題。 
+限制 | 此閘道中的節點並非全都處於健康情況良好的狀態。 這個狀態是某些節點可能會關閉的警告！ <br/><br/>可能是因為發送器/背景工作節點有認證同步問題。
 
 ## <a name="scale-up-gateway"></a>相應增加閘道
-您可以設定節點中可以執行的**並行資料移動作業**數目，以相應增加在內部部署機器與雲端資料存放區之間移動資料的能力。 
+您可以設定節點中可以執行的**並行資料移動作業**數目，以相應增加在內部部署機器與雲端資料存放區之間移動資料的能力。
 
-當可用的記憶體和 CPU 並未充分使用，但閒置容量已為 0，就應該增加節點上可執行的並行作業數目來進行相應增加。 當閘道超載而導致活動逾時，您也可以相應增加。 在閘道節點的進階設定中，您可以提高節點的容量上限。 
-  
+當可用的記憶體和 CPU 並未充分使用，但閒置容量已為 0，就應該增加節點上可執行的並行作業數目來進行相應增加。 當閘道超載而導致活動逾時，您也可以相應增加。 在閘道節點的進階設定中，您可以提高節點的容量上限。
 
 ## <a name="troubleshooting-gateway-issues"></a>閘道問題疑難排解
-如需對使用資料管理閘道的問題進行疑難排解的資訊/提示，請參閱[閘道問題疑難排解](data-factory-troubleshoot-gateway-issues.md)一文。  
+如需對使用資料管理閘道的問題進行疑難排解的資訊/提示，請參閱[閘道問題疑難排解](data-factory-troubleshoot-gateway-issues.md)一文。
 
 ## <a name="move-gateway-from-one-machine-to-another"></a>在機器之間移動閘道
 本節提供將閘道器用戶端從一台電腦移至另一台電腦的步驟。
@@ -419,8 +421,8 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
     ![[設定] 頁面](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. 讓 [Microsoft 資料管理閘道組態管理員]  保持開啟。
 
-    ![組態管理員](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
-6. 在入口網站的 [設定] 頁面中，按一下命令列上的 [重新建立金鑰]，然後按一下警告訊息中的 [是]。 按一下金鑰文字旁的 [複製]  按鈕，以將金鑰複製到剪貼簿。 一旦重新建立索引鍵，舊電腦上的閘道器便會停止運作。  
+    ![組態管理員](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+6. 在入口網站的 [設定] 頁面中，按一下命令列上的 [重新建立金鑰]，然後按一下警告訊息中的 [是]。 按一下金鑰文字旁的 [複製]  按鈕，以將金鑰複製到剪貼簿。 一旦重新建立索引鍵，舊電腦上的閘道器便會停止運作。
 
     ![重新建立索引鍵](./media/data-factory-data-management-gateway/RecreateKey.png)
 7. 在您的電腦上，將**索引鍵**貼入**資料管理閘道組態管理員**之 [註冊閘道器] 頁面上的文字方塊。 (選擇性) 按一下 [顯示閘道器金鑰]  核取方塊以查看金鑰文字。
@@ -437,18 +439,18 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 ## <a name="encrypting-credentials"></a>加密認證
 若要在 Data Factory 編輯器中加密認證，請執行下列步驟︰
 
-1. 在「閘道機器」 上啟動網頁瀏覽器，瀏覽至 [Azure 入口網站](http://portal.azure.com)。 視需要搜尋您的 Data Factory，在 [DATA FACTORY] 頁面中開啟 Data Factory，然後按一下 [編寫及部署] 來啟動 Data Factory 編輯器。   
+1. 在「閘道機器」 上啟動網頁瀏覽器，瀏覽至 [Azure 入口網站](https://portal.azure.com)。 視需要搜尋您的 Data Factory，在 [DATA FACTORY] 頁面中開啟 Data Factory，然後按一下 [編寫及部署] 來啟動 Data Factory 編輯器。
 2. 在樹狀檢視中按一下現有的**連結服務**，以查看其 JSON 定義或建立需要資料管理閘道 (例如︰SQL Server 或 Oracle) 的連結服務。
 3. 在 JSON 編輯器中，為 **gatewayName** 屬性輸入閘道的名稱。
 4. 在 **connectionString** 中輸入**資料來源**屬性的伺服器名稱。
-5. 在 **connectionString** 中輸入**初始目錄**屬性的資料庫名稱。    
+5. 在 **connectionString** 中輸入**初始目錄**屬性的資料庫名稱。
 6. 在命令列上按一下 [加密] 按鈕，以啟動 Click Once **認證管理員**應用程式。 您應該會看見 [設定認證]  對話方塊。
 
     ![[設定認證] 對話方塊](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
 7. 在 [設定認證]  對話方塊中，執行下列步驟：
    1. 選取您要 Data Factory 服務用來連接到資料庫的 **驗證** 。
    2. 在 [使用者名稱]  設定中輸入可存取資料庫的使用者名稱。
-   3. 在 [密碼]  設定中輸入使用者的密碼。  
+   3. 在 [密碼]  設定中輸入使用者的密碼。
    4. 按一下 [確定]  以加密認證並關閉對話方塊。
 8. 您現在應該會在 **connectionString** 中看到 **encryptedCredential** 屬性。
 
@@ -465,11 +467,11 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
         }
     }
     ```
-如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。 如果應用程式無法連接閘道器電腦，它不會允許您設定資料來源的認證，以及測試資料來源的連接。  
+   如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。 如果應用程式無法連接閘道器電腦，它不會允許您設定資料來源的認證，以及測試資料來源的連接。
 
 當您使用**設定認證**應用程式時，入口網站會使用在閘道機器上**閘道組態管理員**的 [憑證] 索引標籤中指定的憑證來加密認證。
 
-如果您要尋找以 API 為基礎的方法來加密認證，可以使用 [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell Cmdlet 來加密認證。 此 cmdlet 會使用閘道器設定用來加密認證的憑證。 您需將加密認證新增到 JSON 中 **connectionString** 的 **EncryptedCredential** 元素中。 您需搭配 [New-AzureRmDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) Cmdlet 或在「Data Factory 編輯器」中使用 JSON。
+如果您要尋找 API 為基礎的方法來加密認證，您可以使用[新增 AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet 來加密認證。 此 cmdlet 會使用閘道器設定用來加密認證的憑證。 您需將加密認證新增到 JSON 中 **connectionString** 的 **EncryptedCredential** 元素中。 使用 JSON 與補充[新增 AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet 或在 Data Factory 編輯器中。
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -484,17 +486,17 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 2. 請執行下列命令並輸入您的 Azure 認證，登入您的 Azure 帳戶。
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
-3. 使用 **New-AzureRmDataFactoryGateway** Cmdlet 來建立邏輯閘道器，如下所示：
+3. 使用**新增 AzDataFactoryGateway** cmdlet 來建立邏輯閘道，如下所示：
 
     ```PowerShell
-    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **範例命令和輸出**：
 
     ```
-    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
     Name              : MyGateway
     Description       : gateway for walkthrough
@@ -522,25 +524,24 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
     ```PowerShell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
-2. 您可以使用 **Get-AzureRmDataFactoryGateway** Cmdlet 取得 Data Factory 中的閘道器器清單。 當 [狀態] 顯示為 [線上] 時，表示您的閘道器已就緒可供使用。
+2. 您可以使用**Get AzDataFactoryGateway** cmdlet 來取得您的 data factory 中的閘道清單。 當 [狀態] 顯示為 [線上] 時，表示您的閘道器已就緒可供使用。
 
     ```PowerShell        
-    Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+    Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-您可以使用 **Remove-AzureRmDataFactoryGateway** Cmdlet 移除閘道器，並使用 **Set-AzureRmDataFactoryGateway** Cmdlet 更新閘道器的說明。 如需這些 Cmdlet 的語法及其他詳細資訊，請參閱 Data Factory Cmdlet 參考文件。  
+   您可以移除閘道，使用**移除 AzDataFactoryGateway**閘道使用的 cmdlet，並更新描述**組 AzDataFactoryGateway** cmdlet。 如需這些 Cmdlet 的語法及其他詳細資訊，請參閱 Data Factory Cmdlet 參考文件。  
 
 ### <a name="list-gateways-using-powershell"></a>使用 PowerShell 列出閘道器
 
 ```PowerShell
-Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### <a name="remove-gateway-using-powershell"></a>使用 PowerShell 移除閘道器
 
 ```PowerShell
-Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
+Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 
-
 ## <a name="next-steps"></a>後續步驟
-* 請參閱 [在內部部署和雲端資料存放區之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。 在該逐步解說中，您會建立一個使用閘道將資料從內部部署 SQL Server 資料庫移到 Azure Blob 的管線。  
+* 請參閱 [在內部部署和雲端資料存放區之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。 在該逐步解說中，您會建立一個使用閘道將資料從內部部署 SQL Server 資料庫移到 Azure Blob 的管線。

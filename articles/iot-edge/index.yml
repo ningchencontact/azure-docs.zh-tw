@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 82ba644f844c59b59f449e137c64b767d5dffbff
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f0d4a689e783f8c460ee54b3613ac0fe432b59ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862782"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
@@ -15,7 +15,7 @@ metadata:
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page
-  ms.date: 01/30/2019
+  ms.date: 03/13/2019
   ms.author: kgremban
 abstract:
   description: Azure IoT Edge 是一個物聯網 (IoT) 服務，建置在 IoT 中樞之外。 這項服務提供客戶在裝置上分析資料的服務，也稱為 「在 Edge 上分析」，而不是在雲端進行分析。 將部份工作負載移至 Edge，您的裝置就能以較少的時間將訊息傳送至雲端，並更快速地變更狀態。
@@ -32,17 +32,17 @@ sections:
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: 在模擬裝置上部署第一個 IoT Edge 模組並處理資料：
+    text: 建立 Azure 虛擬機器、將其設定為以 IoT Edge 裝置的形式執行，並對其部署程式碼：
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/logos/logo_Windows.svg
-      text: " Windows"
+      text: Windows
       href: /azure/iot-edge/quickstart
     - image:
         src: https://docs.microsoft.com/media/logos/logo_linux-color.svg
-      text: " Linux"
+      text: Linux
       href: /azure/iot-edge/quickstart-linux
 - title: 逐步教學課程
   items:

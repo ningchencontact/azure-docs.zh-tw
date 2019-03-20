@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: fe653d36b2c527391a2f6d4ce33b89ba8dd648ac
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878256"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202787"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自訂 HDInsight 叢集
 
@@ -86,7 +86,7 @@ New-AzureRmHDInsightCluster `
 5. 按一下左側功能表中的 [Hive]  。
 6. 按一下 [Summary (摘要)] 中的 [HiveServer2]。
 7. 按一下 [Configs (設定)]  索引標籤。
-8. 按一下左側功能表中的 [Hive]  。
+8. 在左侧菜单中，单击“Hive”。
 9. 按一下 [Advanced (進階)]  索引標籤。
 10. 向下捲動，然後展開 [Advanced hive-site (進階 Hive 網站)] 。
 11. 在此區段中尋找 **hive.metastore.client.socket.timeout** 。
@@ -127,11 +127,10 @@ Resource Manager 範本中，您可以使用啟動程序︰
 
 ![HDInsight Hadoop 自訂叢集 Bootstrap Azure Resource Manager 範本](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [在 HDInsight 中建立 Apache Hadoop 叢集][hdinsight-provision-cluster]提供如何使用其他自訂選項建立 HDInsight 叢集的指示。
 * [開發 HDInsight 的指令碼動作指令碼][hdinsight-write-script]
 * [在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]
-* [在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install.md)。
 * [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md

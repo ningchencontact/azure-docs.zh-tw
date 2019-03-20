@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d1ff4b44ff352742ee91b61c0c774cfe7c3f9d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 28f9c17e21db5a46ad01fd1b318c52a3a721f8b9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181349"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226958"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>使用 PowerShell 在 Azure VM 上設定 Azure 資源受控識別
 
@@ -46,7 +46,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 若要建立已啟用系統指派受控識別的 Azure VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。  不需要其他 Azure AD 目錄角色指派。
 
-1. 請參閱下列 Azure VM 快速入門，完成必要的章節 (「登入 Azure」、「建立資源群組」、「建立網路群組」、「建立VM」)。
+1. 請參閱下列 Azure VM 快速入門，完成必要的章節 （「 登入至 Azure 」，「 建立資源群組 」，「 建立網路群組 」，「 建立 VM 」） 的其中一個。
     
     當您參閱「建立VM」一節時，請稍微修改一下 [New-AzVMConfig](/powershell/module/az.compute/new-azvm) Cmdlet 語法。 請務必新增 `-AssignIdentity:$SystemAssigned` 參數，以佈建已啟用系統所指派身分識別的 VM，例如：
       
@@ -57,14 +57,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    - [使用 PowerShell 建立 Windows 虛擬機器](../../virtual-machines/windows/quick-create-powershell.md)
    - [使用 PowerShell 建立 Linux 虛擬機器](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (選擇性) 在 [SSet-AzVMExtension](/powershell/module/az.compute/set-azvmextension) Cmdlet 上使用 `-Type` 參數來新增 Azure 資源受控識別 VM 擴充功能 (已計劃在 2019 年 1 月淘汰)。 您可以傳遞「ManagedIdentityExtensionForWindows」或「ManagedIdentityExtensionForLinux」(取決於 VM 的類型)，並使用 `-Name` 參數為其命名。 `-Settings` 參數會指定 OAuth 權杖端點所使用的連接埠，以用來取得權杖：
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。 Azure 資源受控識別 VM 擴充功能已計劃在 2019 年 1 月淘汰。 
+> [!NOTE]
+> 您可能會選擇性地佈建 Azure 資源的 VM 擴充功能，管理的身分識別，但很快就會被取代。 我們建議使用 Azure 執行個體中繼資料識別端點進行驗證。 如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure IMDS 端點進行驗證](howto-migrate-vm-extension.md)。
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>在現有 Azure VM 上啟用系統指派的受控識別
 
@@ -83,14 +77,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (選擇性) 在 [SSet-AzVMExtension](/powershell/module/az.compute/set-azvmextension) Cmdlet 上使用 `-Type` 參數來新增 Azure 資源受控識別 VM 擴充功能 (已計劃在 2019 年 1 月淘汰)。 您可以傳遞「ManagedIdentityExtensionForWindows」或「ManagedIdentityExtensionForLinux」(取決於 VM 的類型)，並使用 `-Name` 參數為其命名。 `-Settings` 參數會指定 OAuth 權杖端點所使用的連接埠，以用來取得權杖。 請比對現有 VM 位置，確認指定正確的 `-Location` 參數：
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。
+> [!NOTE]
+> 您可能會選擇性地佈建 Azure 資源的 VM 擴充功能，管理的身分識別，但很快就會被取代。 我們建議使用 Azure 執行個體中繼資料識別端點進行驗證。 如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure IMDS 端點進行驗證](howto-migrate-vm-extension.md)。
 
 ### <a name="add-vm-system-assigned-identity-to-a-group"></a>將 VM 系統指派的身分識別新增至群組
 
@@ -146,11 +134,8 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-若要移除 Azure 資源受控識別 VM 擴充功能，請使用 -Name 參數搭配 [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) Cmdlet，並指定新增擴充功能時所使用的相同名稱：
-
-   ```powershell
-   Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
-   ```
+> [!NOTE]
+> 如果您已佈建 Azure 資源 （要被取代） 的 VM 延伸模組的受管理身分識別，您需要先使用 [移除 AzVMExtension](/powershell/module/az.compute/remove-azvmextension)。 如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure 進行驗證的 IMDS](howto-migrate-vm-extension.md)。
 
 ## <a name="user-assigned-managed-identity"></a>使用者指派的受控識別
 
@@ -160,7 +145,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 
 若要將使用者指派的身分識別指派給 VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)和[受控識別操作者](/azure/role-based-access-control/built-in-roles#managed-identity-operator)角色指派。 不需要其他 Azure AD 目錄角色指派。
 
-1. 請參閱下列 Azure VM 快速入門，完成必要的章節 (「登入 Azure」、「建立資源群組」、「建立網路群組」、「建立VM」)。 
+1. 請參閱下列 Azure VM 快速入門，完成必要的章節 （「 登入至 Azure 」，「 建立資源群組 」，「 建立網路群組 」，「 建立 VM 」） 的其中一個。 
   
     當您參閱「建立 VM」一節時，請稍微修改一下 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm)Cmdlet 語法。 新增 `-IdentityType UserAssigned` 和 `-IdentityID ` 參數，以佈建具有使用者所指派身分識別的 VM。  以您自己的值取代 `<VM NAME>`、`<SUBSCRIPTION ID>`、`<RESROURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>`。  例如︰
     
@@ -171,14 +156,8 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
     - [使用 PowerShell 建立 Windows 虛擬機器](../../virtual-machines/windows/quick-create-powershell.md)
     - [使用 PowerShell 建立 Linux 虛擬機器](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (選擇性) 在 [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) Cmdlet 上使用 `-Type` 參數來新增 Azure 資源受控識別 VM 擴充功能。 您可以傳遞「ManagedIdentityExtensionForWindows」或「ManagedIdentityExtensionForLinux」(取決於 VM 的類型)，並使用 `-Name` 參數為其命名。 `-Settings` 參數會指定 OAuth 權杖端點所使用的連接埠，以用來取得權杖。 請比對現有 VM 位置，確認指定正確的 `-Location` 參數：
-      > [!NOTE]
-    > 此步驟是選擇性的，因為您也可以使用 Azure Instance Metadata Service (IMDS) 識別端點以擷取權杖。 Azure 資源受控識別 VM 擴充功能已計劃在 2019 年 1 月淘汰。
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> 您可能會選擇性地佈建 Azure 資源的 VM 擴充功能，管理的身分識別，但很快就會被取代。 我們建議使用 Azure 執行個體中繼資料識別端點進行驗證。 如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure IMDS 端點進行驗證](howto-migrate-vm-extension.md)。
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>將使用者指派的受控識別指派至現有 Azure VM
 
@@ -193,7 +172,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 2. 請使用 [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) Cmdlet 來建立使用者指派的受控識別。  請記下輸出中的 `Id`，因為下一個步驟 會需要此項目。
 
    > [!IMPORTANT]
-   > 建立使用者指派的受控識別時，僅支援使用英數字元和連字號 (0-9 或 a-z 或 A-Z 或 -) 字元。 此外，指派至 VM/VMSS 的名稱應該限制為 24 個字元長度，才能正常運作。 請隨時回來查看是否有更新內容。 如需詳細資訊，請參閱[常見問題集和已知問題](known-issues.md)
+   > 建立使用者指派給受控身分識別只支援英數字元、 底線和連字號 (0-9、a-z 或 A-Z、0-9\_或-) 字元。 此外，名稱應該是 3 指派給 VM/VMSS 才能正常運作的 128 字元長度限制。 如需詳細資訊，請參閱[常見問題集和已知問題](known-issues.md)
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
@@ -208,12 +187,8 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. 在 [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) Cmdlet 上使用 `-Type` 參數來新增 Azure 資源受控識別 VM 擴充功能 (已計劃在 2019 年 1 月淘汰)。 您可以傳遞「ManagedIdentityExtensionForWindows」或「ManagedIdentityExtensionForLinux」(取決於 VM 的類型)，並使用 `-Name` 參數為其命名。 `-Settings` 參數會指定 OAuth 權杖端點所使用的連接埠，以用來取得權杖。 請比對現有 VM 位置，指定正確的 `-Location` 參數。
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> 您可能會選擇性地佈建 Azure 資源的 VM 擴充功能，管理的身分識別，但很快就會被取代。 我們建議使用 Azure 執行個體中繼資料識別端點進行驗證。 如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure IMDS 端點進行驗證](howto-migrate-vm-extension.md)。
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>從 Azure VM 移除使用者指派的受控識別
 

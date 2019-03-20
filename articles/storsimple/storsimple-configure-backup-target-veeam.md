@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-ms.openlocfilehash: f06b74493bad546997f82ed6eef0a89cffb7c75b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012004"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>使用 StorSimple 做為 Veeam 的備份目標
 
@@ -186,7 +186,7 @@ StorSimple 提供下列優點︰
 
 | StorSimple 部署工作  | 其他註解 |
 |---|---|
-| 部署您的內部部署 StorSimple 裝置。 | 支援的版本：Update 3 及更新版本。 |
+| 部署您的內部部署 StorSimple 裝置。 | 支援的版本：Update 3 和更新版本。 |
 | 開啟備份目標。 | 使用下列命令來開啟或關閉備份目標模式，以及取得狀態。 如需詳細資訊，請參閱[從遠端連接至 StorSimple 裝置](storsimple-remote-connect.md)。</br> 若要開啟備份模式︰`Set-HCSBackupApplianceMode -enable`。 </br> 若要關閉備份模式︰`Set-HCSBackupApplianceMode -disable`。 </br> 若要取得備份模式設定的目前狀態：`Get-HCSBackupApplianceMode`。 |
 | 為儲存備份資料的磁碟區建立一般的磁碟區容器。 磁碟區容器中的所有資料都已刪除重複資料。 | StorSimple 磁碟區容器定義重複資料刪除網域。  |
 | 建立 StorSimple 磁碟區。 | 建立大小盡可能接近預期使用量的磁碟區，因為磁碟區大小會影響雲端快照集的持續時間。 如需有關如何調整磁碟區大小的資訊，請參閱[保留原則](#retention-policies)。</br> </br> 使用 StorSimple 分層磁碟區，並選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊。 </br> 不支援只使用固定在本機的磁碟區。 |
@@ -209,16 +209,16 @@ StorSimple 提供下列優點︰
 
 ### <a name="operating-system-best-practices"></a>作業系統最佳作法
 
--   停用 NTFS 檔案系統的 Windows Server 加密和重複資料刪除。
--   停用 StorSimple 磁碟區的 Windows Server 磁碟重組。
--   停用 StorSimple 磁碟區的 Windows Server 索引。
--   在來源主機 (不是針對 StorSimple 磁碟區) 執行防毒軟體掃描。
--   在工作管理員中關閉預設 [Windows Server 維護](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)。 利用下列其中一種方式來執行此作業：
-    - 在 Windows 工作排程器中關閉維護設定程式。
-    - 從 Windows Sysinternals 下載 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)。 下載 PsExec 之後，請以系統管理員身分執行 Windows PowerShell 並輸入：
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- 停用 NTFS 檔案系統的 Windows Server 加密和重複資料刪除。
+- 停用 StorSimple 磁碟區的 Windows Server 磁碟重組。
+- 停用 StorSimple 磁碟區的 Windows Server 索引。
+- 在來源主機 (不是針對 StorSimple 磁碟區) 執行防毒軟體掃描。
+- 在工作管理員中關閉預設 [Windows Server 維護](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)。 利用下列其中一種方式來執行此作業：
+  - 在 Windows 工作排程器中關閉維護設定程式。
+  - 從 Windows Sysinternals 下載 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)。 下載 PsExec 之後，請以系統管理員身分執行 Windows PowerShell 並輸入：
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>StorSimple 最佳作法
 
@@ -265,6 +265,7 @@ StorSimple 提供下列優點︰
 | 每年完整 | 1  | 10 | 10 |
 | GFS 需求 |   | 38 |   |
 | 其他配額  | 4  |   | 42 (總計 GFS 需求)  |
+
 \*GFS 乘數是您為了符合備份原則需求所需保護和保留的複本數目。
 
 ## <a name="set-up-veeam-storage"></a>設定 Veeam 儲存體
@@ -319,7 +320,7 @@ StorSimple 提供下列優點︰
 |---|---|---|
 | 每週 (第 1 - 4 週) | 星期六 | 星期一至星期五 |
 | 每月  | 星期六  |   |
-| 每年 | 星期六  |   |   |
+| 每年 | 星期六  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>將 StorSimple 磁碟區指派給 Veeam 備份作業
@@ -384,6 +385,7 @@ StorSimple 提供下列優點︰
 | 每月完整 |StorSimple 磁碟 (長期) | 1 | 12 | 12 |
 | 每年完整 |StorSimple 磁碟 (長期) | 1 | 1 | 1 |
 |GFS 磁碟區大小需求 |  |  |  | 18*|
+
 \* 總容量包含 17 TiB 的 StorSimple 磁碟和 1 TiB 的本機 RAID 磁碟區。
 
 
@@ -398,7 +400,7 @@ StorSimple 提供下列優點︰
 | 第 3 週 | StorSimple 第 2-4 週 |   |   |   |   |   |
 | 第 4 週 | StorSimple 第 2-4 週 |   |   |   |   |   |
 | 每月 | StorSimple 每月 |   |   |   |   |   |
-| 每年 | StorSimple 每年  |   |   |   |   |   |   |
+| 每年 | StorSimple 每年  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>將 StorSimple 磁碟區指派給 Veeam 複製作業
 
@@ -469,9 +471,9 @@ StorSimple 雲端快照集可保護位於 StorSimple 裝置中的資料。 建�
 1. [安裝 Azure PowerShell](/powershell/azure/overview)。
 2. 下載及安裝 [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell 指令碼。
 3. 在執行指令碼的伺服器上，以系統管理員身分執行 PowerShell。 請確定您搭配 `-WhatIf $true` 執行指令碼，以查看指令碼會執行哪些變更。 完成驗證之後，傳遞 `-WhatIf $false`。 執行下列命令：
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
 4. 若要將指令碼新增至您的備份作業，請編輯 Veeam 作業進階選項。
 
     ![Veeam 備份進階設定指令碼索引標籤](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
@@ -510,7 +512,7 @@ StorSimple 雲端快照集可保護位於 StorSimple 裝置中的資料。 建�
 本文中參考下列文件︰
 
 - [StorSimple 多重路徑 I/O 設定](storsimple-configure-mpio-windows-server.md)
-- [儲存體案例︰精簡佈建 (英文)](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [儲存體案例：精簡佈建](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [使用 GPT 磁碟機 (英文)](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [設定共用資料夾的陰影複製](https://technet.microsoft.com/library/cc771893.aspx)
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761843aad24dc89131079eb59954bd17883e595d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996533"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>如何使用 Azure VM 的 Azure 資源受控識別進行登入 
 
@@ -87,7 +87,7 @@ Azure 資源的受控識別提供[服務主體物件](../develop/developer-gloss
 以下所示的回應可能代表虛擬機器的 Azure 資源受控識別未正確設定：
 
 - PowerShell：*Invoke-WebRequest︰無法連線到遠端伺服器*
-- CLI：*MSI：無法從 'http://localhost:50342/oauth2/token' 擷取權杖，包含 HTTPConnectionPool(主機='localhost'，連接埠=50342) 錯誤* 
+- CLI：*MSI：無法擷取權杖，以從`http://localhost:50342/oauth2/token`錯誤 ' 包含 HTTPConnectionPool (主機 = 'localhost'，連接埠 = 50342)* 
 
 如果您收到這些錯誤的其中一個，請返回 [Azure 入口網站](https://portal.azure.com)中的 Azure 虛擬機器，並且：
 
