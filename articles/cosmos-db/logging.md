@@ -7,20 +7,22 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4ba91bec752b16be0c172c65ff58241c852a61b9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811642"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992085"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
-在您開始使用一或多個 Azure Cosmos DB 資料庫後，建議您監視資料庫的存取情形和時間。 本文提供可在 Azure 平台中使用之記錄的概觀。 您將了解如何啟用供監視使用的診斷記錄，以傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，以及如何將記錄串流處理至 [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)，和如何將記錄匯出至 [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/)。
+在您開始使用一或多個 Azure Cosmos DB 資料庫後，建議您監視資料庫的存取情形和時間。 本文提供可在 Azure 平台中使用之記錄的概觀。 其中介绍了如何启用监视用的诊断日志记录，以便将日志发送到 [Azure 存储](https://azure.microsoft.com/services/storage/)，将日志流式传输到 [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)，以及如何将日志导出到 [Azure Monitor 日志](https://azure.microsoft.com/services/log-analytics/)。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="logs-available-in-azure"></a>Azure 中可用的記錄
 
-在討論如何監視您的 Azure Cosmos DB 帳戶之前，讓我們釐清關於記錄和監視的一些事項。 Azure 平台上有不同類型的記錄。 我們有 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)、[Azure 診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)、[Azure 計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)、事件、活動訊號監視、作業記錄等。 記錄十分繁多。 您可以在 Azure 入口網站的 [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) 中查看完整記錄清單。 
+在討論如何監視您的 Azure Cosmos DB 帳戶之前，讓我們釐清關於記錄和監視的一些事項。 Azure 平台上有不同類型的記錄。 我們有 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)、[Azure 診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)、[Azure 計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)、事件、活動訊號監視、作業記錄等。 記錄十分繁多。 可以在 Azure 门户的 [Azure Monitor 日志](https://azure.microsoft.com/services/log-analytics/)中看到日志的完整列表。 
 
 下圖顯示不同種類的可用 Azure 記錄：
 
@@ -51,7 +53,7 @@ ms.locfileid: "55811642"
 
 Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐富、經常性資料。 這些記錄的內容會依資源類型而有所不同。 資源層級診斷記錄也與客體 OS 層級診斷記錄不同。 客體 OS 診斷記錄是由虛擬機器內執行的代理程式或其他支援的資源類型所收集的記錄。 資源層級的診斷記錄不需要代理程式，而會從 Azure 平台本身擷取特定資源資料。 客體 OS 層級的診斷記錄會從虛擬機器所執行的作業系統和應用程式擷取資料。
 
-![儲存體、事件中樞或 Log Analytics 的診斷記錄](./media/logging/azure-cosmos-db-logging-overview.png)
+![針對儲存體、事件中樞或 Azure 監視器記錄的診斷記錄](./media/logging/azure-cosmos-db-logging-overview.png)
 
 ### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Azure 診斷記錄記錄哪些項目？
 
@@ -79,7 +81,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 
     * **封存至儲存體帳戶**：若要使用此選項，您需要可以連接的現有儲存體帳戶。 若要在入口網站中建立新的儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)，依指示建立一個 Azure Resource Manager (一般用途帳戶)。 然後，返回入口網站的此頁面選取您的儲存體帳戶。 新建立的儲存體帳戶可能在數分鐘後才會出現於下拉式功能表中。
     * **串流至事件中樞**：若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若要建立事件中樞命名空間，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後，返回入口網站的此頁面，選取事件中樞命名空間和原則名稱。
-    * **傳送至 Log Analytics**：若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需關於如何檢視 Log Analytics 記錄的詳細資訊，請參閱「檢視 Log Analytics 中的記錄」。
+    * **傳送至 Log Analytics**：若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需有關如何在 Azure 監視器記錄檔中檢視記錄的詳細資訊，請參閱檢視 Azure 監視器記錄檔中的記錄。
     * **記錄 DataPlaneRequests**：選取此選項，可從適用於 SQL、Graph、MongoDB、Cassandra 和資料表 API 帳戶的基礎 Azure Cosmos DB 分散式平台記錄後端要求。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **記錄 MongoRequests**：選取此選項，可記錄為了處理 Cosmos 帳戶 (已設定適用於 MongoDB 的 Azure Cosmos DB API) 事宜而從 Azure Cosmos DB 前端提出的使用者起始要求。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **計量要求**：選取此選項可儲存 [Azure 計量](../azure-monitor/platform/metrics-supported.md)中的詳細資料。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
@@ -349,22 +351,22 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 
 <a id="#view-in-loganalytics"></a>
-## <a name="view-logs-in-log-analytics"></a>檢視 Log Analytics 中的記錄
+## <a name="view-logs-in-azure-monitor-logs"></a>檢視 Azure 監視器記錄中的記錄
 
-如果您開啟診斷記錄時選取 [傳送至 Log Analytics] 選項，容器中的診斷資料會在兩個小時內轉送到 Log Analytics。 如果您在開啟記錄功能後立即查看 Log Analytics，將不會看到任何資料。 只需等待兩個小時，然後再試一次。 
+如果在启用诊断日志记录时选择了“发送到 Log Analytics”选项，则容器中的诊断数据会在两个小时内转发到 Azure Monitor 日志。 如果在启用日志记录之后立即查看 Azure Monitor 日志，将看不到任何数据。 只需等待兩個小時，然後再試一次。 
 
-檢視記錄前，請確認您的 Log Analytics 工作區是否已升級為使用新的 Log Analytics 查詢語言。 若要進行此確認，請開啟 [Azure 入口網站](https://portal.azure.com)，選取靠左側的 [Log Analytics]，然後選取工作區名稱，如下圖所示。 [Log Analytics 工作區] 頁面隨即顯示：
+在查看日志之前，请检查并确定 Log Analytics 工作区是否已升级为使用新的 Kusto 查询语言。 若要检查，请打开 [Azure 门户](https://portal.azure.com)，在最左侧选择“Log Analytics 工作区”，然后选择工作区名称，如下图所示。 [Log Analytics 工作區] 頁面隨即顯示：
 
-![Azure 入口網站中的 Log Analytics](./media/logging/azure-portal.png)
+![Azure 门户中的 Azure Monitor 日志](./media/logging/azure-portal.png)
 
 >[!NOTE]
 >OMS 工作區現在稱為 Log Analytics 工作區。  
 
 如果您在 [Log Analytics 工作區] 頁面上看到下列訊息，表示您的工作區尚未升級為使用新語言。 如需關於如何升級至新查詢語言的詳細資訊，請參閱[將 Azure Log Analytics 工作區升級至新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。 
 
-![Log Analytics 升級訊息](./media/logging/upgrade-notification.png)
+![Azure Monitor 日志升级消息](./media/logging/upgrade-notification.png)
 
-若要檢視 Log Analytics 中的診斷資料，請從左側功能表或此頁面的 [管理] 區域開啟 [記錄搜尋] 頁面，如下圖所示：
+若要查看 Azure Monitor 日志中的诊断数据，请打开左侧菜单中的“日志搜索”页或该页的“管理”区域，如下图所示：
 
 ![Azure 入口網站中的記錄搜尋選項](./media/logging/log-analytics-open-log-search.png)
 
@@ -429,15 +431,15 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
     AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
     ```
 
-如需關於如何使用新記錄搜尋語言的詳細資訊，請參閱[了解 Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-search-new.md)。 
+如需如何使用新的記錄搜尋語言的詳細資訊，請參閱[了解 Azure 監視器記錄檔中的記錄檔搜尋](../log-analytics/log-analytics-log-search-new.md)。 
 
 ## <a id="interpret"></a>解讀記錄
 
-儲存在 Azure 儲存體和 Log Analytics 中的診斷資料會使用類似的結構描述。 
+存储在 Azure 存储和 Azure Monitor 日志中的诊断数据使用相似的架构。 
 
 下表說明每個記錄項目的內容。
 
-| Azure 儲存體欄位或屬性 | Log Analytics 屬性 | 說明 |
+| Azure 儲存體欄位或屬性 | Azure Monitor 日志属性 | 描述 |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 作業發生的日期和時間 (UTC)。 |
 | **resourceId** | **Resource** | 啟用記錄的 Azure Cosmos DB 帳戶。|
@@ -446,7 +448,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 | **properties** | n/a | 此欄位的內容說明於下列資料列中。 |
 | **activityId** | **activityId_g** | 所記錄作業的唯一 GUID。 |
 | **userAgent** | **userAgent_s** | 此字串指定執行要求的用戶端使用者代理程式。 格式為 {使用者代理程式名稱}/{版本}。|
-| **resourceType** | **ResourceType** | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Container、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |
+| **requestResourceType** | **requestResourceType_s** | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Container、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |
 | **statusCode** | **statusCode_s** | 作業的回應狀態。 |
 | **requestResourceId** | **ResourceId** | 關於要求的 resourceId。 根據執行的作業，此值可能表示 databaseRid、collectionRid 或 documentRid。|
 | **clientIpAddress** | **clientIpAddress_s** | 用戶端的 IP 位址。 |
@@ -464,4 +466,4 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
    - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - 閱讀[從 Azure 儲存體下載計量和診斷記錄](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs)。
-- 閱讀[了解 Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-search-new.md)。
+- 讀取[了解 Azure 監視器記錄檔中的記錄檔搜尋](../log-analytics/log-analytics-log-search-new.md)。

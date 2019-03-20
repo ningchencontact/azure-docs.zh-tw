@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 84e0d02f2608a6ee94ee409345e530357d394671
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096566"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>建立與 Azure 相容的 VHD
 
@@ -48,25 +48,25 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 在 Microsoft [Azure 入口網站](https://ms.portal.azure.com/)中，依照下列步驟建立基礎映像。
 
 1. 利用您想用於發佈 VM 供應方案的 Azure 訂用帳戶之 Microsoft 帳戶和密碼登入入口網站。
-2. 建立新的資源群組，並提供您的**資源群組名稱**、**訂用帳戶**以及**資源群組位置**。  如需詳細指引，請參閱[管理資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups)。
+2. 建立新的資源群組，並提供您的**資源群組名稱**、**訂用帳戶**以及**資源群組位置**。  如需詳細指引，請參閱[管理資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
 3. 按一下左側功能表中的 [虛擬機器]，以開啟虛擬機器詳細資料頁面。 
 4. 在此新頁面中，按一下 [+ 新增] 以開啟 [計算] 刀鋒視窗。  如果您在初始畫面上看不到 VM 型別，可以搜尋基底 VM 的名稱，例如：
 
     ![新 VM 的計算刀鋒視窗](./media/publishvm_014.png)
 
 5. 選取適當的虛擬映像之後，請提供下列值：
-  * 在 [基本概念] 刀鋒視窗中，輸入虛擬機器的 [名稱]，長度須介於 1 到 15 個英數字元間。 (此範例使用 `DemoVm009`。)
-  * 輸入要用於在 VM 上建立本機帳戶的 [使用者名稱]和強度高的 [密碼]。  (此處使用 `adminUser`。)密碼長度必須是 8-123 個字元，且符合下列四個複雜性需求的其中三項：1 個小寫字元、1 個大寫字元、1 個數字和 1 個特殊字元。 如需詳細資訊，請參閱[使用者名稱和密碼需求](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm)。
-  * 選取您先前建立的資源群組 (此處為 `DemoResourceGroup`)。
-  * 選取 Azure 資料中心**位置** (此處為 `West US`)。
-  * 按一下 [確定] 儲存這些值。 
+   * 在 [基本概念] 刀鋒視窗中，輸入虛擬機器的 [名稱]，長度須介於 1 到 15 個英數字元間。 (此範例使用 `DemoVm009`。)
+   * 輸入要用於在 VM 上建立本機帳戶的 [使用者名稱]和強度高的 [密碼]。  (此處使用 `adminUser`。)密碼長度必須是 8-123 個字元，且符合下列四個複雜性需求的其中三項：1 個小寫字元、1 個大寫字元、1 個數字和 1 個特殊字元。 如需詳細資訊，請參閱[使用者名稱和密碼需求](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm)。
+   * 選取您先前建立的資源群組 (此處為 `DemoResourceGroup`)。
+   * 選取 Azure 資料中心**位置** (此處為 `West US`)。
+   * 按一下 [確定] 儲存這些值。 
 
-6.  選取要使用下列建議部署的 VM 大小：
-  * 如果您打算開發 VHD 內部部署，大小不會造成影響。 請考慮使用其中一個較小的 VM。
-  * 如果您打算在 Azure 中開發映像，請考慮使用其中一個建議的 VM 大小做為選取的映像。
-  * 關於價格資訊，請參閱入口網站上所顯示的**建議定價層**選取器。 將顯示三個由發行者提供的建議大小。 (在這個案例中，發行者為 Microsoft。)
+6. 選取要使用下列建議部署的 VM 大小：
+   * 如果您打算開發 VHD 內部部署，大小不會造成影響。 請考慮使用其中一個較小的 VM。
+   * 如果您打算在 Azure 中開發映像，請考慮使用其中一個建議的 VM 大小做為選取的映像。
+   * 關於價格資訊，請參閱入口網站上所顯示的**建議定價層**選取器。 將顯示三個由發行者提供的建議大小。 (在這個案例中，發行者為 Microsoft。)
 
-    ![新 VM 的大小刀鋒視窗](./media/publishvm_015.png)
+   ![新 VM 的大小刀鋒視窗](./media/publishvm_015.png)
 
 7. 在 [設定]刀鋒視窗中，將 [使用受控資料箱磁碟] 選項設定為 [否]。  這可讓您以手動方式管理新的 VHD。 ([設定] 刀鋒視窗也可讓您變更其他儲存空間和網路選項，例如：在 [磁碟類型] 中選取 [進階 (SSD)]。)按一下 [確定]  以繼續。
 

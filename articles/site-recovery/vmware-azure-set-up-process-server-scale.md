@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106537"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>進行調整以使用額外處理序伺服器進行容錯回復
 
@@ -24,8 +24,8 @@ ms.locfileid: "53253675"
 
 請確定您已執行 VMware 複寫的[容量規劃](site-recovery-plan-capacity-vmware.md)。 這有助於您識別如何及何時應該部署額外的處理序伺服器。
 
->[!NOTE]
-不支援使用複製的處理序伺服器元件。 請遵循本文中的步驟進行每個 PS 相應放大作業。
+> [!NOTE]
+> 不支援使用複製的處理序伺服器元件。 請遵循本文中的步驟進行每個 PS 相應放大作業。
 
 ### <a name="sizing-requirements"></a>調整大小需求 
 
@@ -56,11 +56,11 @@ ms.locfileid: "53253675"
 3. 選取設定伺服器以切入伺服器的詳細資料。 接著按一下 **[+ 處理序伺服器]**。
 4. 在 **[新增處理序伺服器]** >  **[選擇您要部署處理序伺服器的位置]**，選擇 **[於內部部署部署相應放大處理序伺服器]**。
 
-  ![新增伺服器頁面](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![新增伺服器頁面](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. 按一下 **[下載 Microsoft Azure Site Recovery 整合安裝]**。 這會下載最新版本的安裝檔案。
 
-  > [!WARNING]
-  處理序伺服器安裝的版本應該與您執行的設定伺服器版本相同或為較舊版本。 一個確保版本相容性的簡單方式，便是使用和您最近用來安裝或更新設定伺服器的安裝程式相同的安裝程式。
+   > [!WARNING]
+   > 處理序伺服器安裝的版本應該與您執行的設定伺服器版本相同或為較舊版本。 一個確保版本相容性的簡單方式，便是使用和您最近用來安裝或更新設定伺服器的安裝程式相同的安裝程式。
 
 ## <a name="install-from-the-ui"></a>從 UI 安裝
 

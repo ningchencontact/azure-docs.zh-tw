@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8254766568c54748ee3646dd627a102ffc86e743
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9011a7b49aa4085c7ea05e0b320eba834b8da73d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004194"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>使用現有的 ADSync 資料庫安裝 Azure AD Connect
 Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 Azure AD Connect 安裝的預設 SQL Server 2012 Express LocalDB 或使用您自己的完整版 SQL。 在先前，當您安裝 Azure AD Connect 時，一律會建立名為 ADSync 的新資料庫。 使用 Azure AD Connect 1.1.613.0 版 (或更新版本)，您可以選擇指向現有的 ADSync 資料庫來安裝 Azure AD Connect。
@@ -42,11 +42,11 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 A
 - 您所擁有的現有 Azure AD Connect 部署是使用 LocalDB。 由於 LocalDB 所加諸的 10 GB 限制，您需要移轉至完整的 SQL。 您可以從 LocalDB 備份 ADSync 資料庫，然後將它還原到 SQL Server。 在那之後，您可以重新安裝新的 Azure AD Connect 伺服器，並加以指向還原的 ADSync 資料庫。
 - 您正嘗試安裝暫存伺服器，而想要確定其設定與目前作用中伺服器的設定相符。 您可以備份 ADSync 資料庫，並將它還原到另一個 SQL Server。 在那之後，您可以重新安裝新的 Azure AD Connect 伺服器，並加以指向還原的 ADSync 資料庫。
 
-## <a name="prerequisite-information"></a>先決條件資訊
+## <a name="prerequisite-information"></a>必要條件資訊
 
 在繼續之前，需要記下的重要注意事項：
 
-- 請務必檢閱在硬體安裝 Azure AD Connect 的先決條件和先決條件，以及安裝 Azure AD Connect 所需的帳戶和權限。 透過「使用現有資料庫」模式安裝 Azure AD Connect 所需的權限與「自訂」安裝的權限相同。
+- 請務必檢閱在硬體安裝 Azure AD Connect 的必要條件和必要條件，以及安裝 Azure AD Connect 所需的帳戶和權限。 透過「使用現有資料庫」模式安裝 Azure AD Connect 所需的權限與「自訂」安裝的權限相同。
 - 只有使用完整 SQL 時才支援在現有的 ADSync 資料庫部署 Azure AD Connect。 使用 SQL Express LocalDB 時並不支援。 如果您在 LocalDB 中有想要使用的現有 ADSync 資料庫，就必須先備份該 ADSync 資料庫 (LocalDB)，然後將它還原到完整 SQL。 之後，您就可以使用此方法，在還原的資料庫部署 Azure AD Connect。
 - 用於安裝 Azure AD Connect 的版本必須滿足下列條件：
     - 1.1.613.0 或以上版本，以及
@@ -62,34 +62,34 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 A
 3.  啟動新的命令提示字元或 PowerShell 工作階段。 瀏覽至 <drive>\program files\Microsoft Azure AD Connect 資料夾。 執行 .\AzureADConnect.exe /useexistingdatabase 命令，可在「使用現有資料庫」安裝模式中啟動 Azure AD Connect 精靈。
 
 > [!NOTE]
-> 請只有在資料庫已經包含來自先前之 Azure AD Connect 安裝的資料時，才使用 **/UseExistingDatabase** 參數。 例如，當您要從本機資料庫移至完整 SQL Server 資料庫時，或當 Azure AD Connect 伺服器已重建，且您已從先前的 Azure AD Connect 安裝還原 ADSync 資料庫的 SQL 備份時。 如果您已建立空白資料庫並使用它來進行安裝，則請略過此步驟。
+> 請只有在資料庫已經包含來自先前之 Azure AD Connect 安裝的資料時，才使用 **/UseExistingDatabase** 參數。 例如，當您要從本機資料庫移至完整 SQL Server 資料庫時，或當 Azure AD Connect 伺服器已重建，且您已從先前的 Azure AD Connect 安裝還原 ADSync 資料庫的 SQL 備份時。 如果資料庫是空的也就是它不包含先前的 Azure AD Connect 安裝的任何資料，略過此步驟。
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
-4.  [歡迎使用 Azure AD Connect] 畫面隨即迎接您。 一旦您同意授權條款及隱私權注意事項後，請按一下 [繼續]。
-![歡迎使用](./media/how-to-connect-install-existing-database/db3.png)
-5.  在 [安裝必要元件] 畫面上，會啟用 [使用現有的 SQL Server] 選項。 指定裝載 ADSync 資料庫的 SQL Server 名稱。 如果用來主控 ADSync 資料庫的 SQL 引擎執行個體不是 SQL Server 上的預設執行個體，您就必須指定 SQL 引擎執行個體名稱。 此外，如果未啟用 SQL 瀏覽，就必須指定 SQL 引擎執行個體的連接埠號碼。 例如︰         
-![歡迎使用](./media/how-to-connect-install-existing-database/db4.png)           
+1. [歡迎使用 Azure AD Connect] 畫面隨即迎接您。 一旦您同意授權條款及隱私權注意事項後，請按一下 [繼續]。
+   ![歡迎使用](./media/how-to-connect-install-existing-database/db3.png)
+1. 在 [安裝必要元件] 畫面上，會啟用 [使用現有的 SQL Server] 選項。 指定裝載 ADSync 資料庫的 SQL Server 名稱。 如果用來主控 ADSync 資料庫的 SQL 引擎執行個體不是 SQL Server 上的預設執行個體，您就必須指定 SQL 引擎執行個體名稱。 此外，如果未啟用 SQL 瀏覽，就必須指定 SQL 引擎執行個體的連接埠號碼。 例如︰         
+   ![歡迎使用](./media/how-to-connect-install-existing-database/db4.png)           
 
-6.  在 [連線到 Azure AD] 畫面上，您必須提供 Azure AD 目錄的全域管理員認證。 建議使用預設 onmicrosoft.com 網域中的帳戶。 此帳戶只會用來在 Azure AD 中建立服務帳戶，而且在精靈完成後便不會使用。
-![連線](./media/how-to-connect-install-existing-database/db5.png)
+1. 在 [連線到 Azure AD] 畫面上，您必須提供 Azure AD 目錄的全域管理員認證。 建議使用預設 onmicrosoft.com 網域中的帳戶。 此帳戶只會用來在 Azure AD 中建立服務帳戶，而且在精靈完成後便不會使用。
+   ![連線](./media/how-to-connect-install-existing-database/db5.png)
  
-7.  在 [連線您的目錄] 畫面上，會列出針對目錄同步作業設定的現有 AD 樹系，旁邊會有紅色十字圖示。 若要同步處理內部部署 AD 樹系的變更，需要 AD DS 帳戶。 Azure AD Connect 精靈無法擷取儲存在 ADSync 資料庫的 AD DS 帳戶認證，因為認證會予以加密，且只能由先前的 Azure AD Connect 伺服器進行解密。 按一下 [變更認證] 可指定 AD 樹系的 AD DS 帳戶。
-![Directories](./media/how-to-connect-install-existing-database/db6.png)
- 
- 
-8.  在快顯對話方塊中，您可以 (i) 提供企業管理員認證，並且讓 Azure AD Connect 為您建立 AD DS 帳戶，或 (ii) 自行建立 AD DS 帳戶，並且為 Azure AD Connect 提供其認證。 一旦您選取選項並提供必要的認證後，請按一下 [確定] 以關閉快顯對話方塊。
-![歡迎使用](./media/how-to-connect-install-existing-database/db7.png)
+1. 在 [連線您的目錄] 畫面上，會列出針對目錄同步作業設定的現有 AD 樹系，旁邊會有紅色十字圖示。 若要同步處理內部部署 AD 樹系的變更，需要 AD DS 帳戶。 Azure AD Connect 精靈無法擷取儲存在 ADSync 資料庫的 AD DS 帳戶認證，因為認證會予以加密，且只能由先前的 Azure AD Connect 伺服器進行解密。 按一下 [變更認證] 可指定 AD 樹系的 AD DS 帳戶。
+   ![Directories](./media/how-to-connect-install-existing-database/db6.png)
  
  
-9.  一旦提供認證後，紅色十字圖示會取代為綠色勾號圖示。 按一下 [下一步]。
-![歡迎使用](./media/how-to-connect-install-existing-database/db8.png)
+1. 在快顯對話方塊中，您可以 (i) 提供企業管理員認證，並且讓 Azure AD Connect 為您建立 AD DS 帳戶，或 (ii) 自行建立 AD DS 帳戶，並且為 Azure AD Connect 提供其認證。 一旦您選取選項並提供必要的認證後，請按一下 [確定] 以關閉快顯對話方塊。
+   ![歡迎使用](./media/how-to-connect-install-existing-database/db7.png)
  
  
-10. 在 [準備好設定] 畫面中，按一下 [安裝]。
-![歡迎使用](./media/how-to-connect-install-existing-database/db9.png)
+1. 一旦提供認證後，紅色十字圖示會取代為綠色勾號圖示。 单击“下一步”。
+   ![歡迎使用](./media/how-to-connect-install-existing-database/db8.png)
  
  
-11. 安裝完成之後，Azure AD Connect 伺服器會自動啟用暫存模式。 建議您先檢閱伺服器組態和擱置的未預期變更匯出，然後再停用暫存模式。 
+1. 在 [準備好設定] 畫面中，按一下 [安裝]。
+   ![歡迎使用](./media/how-to-connect-install-existing-database/db9.png)
+ 
+ 
+1. 安裝完成之後，Azure AD Connect 伺服器會自動啟用暫存模式。 建議您先檢閱伺服器組態和擱置的未預期變更匯出，然後再停用暫存模式。 
 
 ## <a name="post-installation-tasks"></a>後續安裝工作
 還原 1.2.65.0 版之前的 Azure AD Connect 所建立的資料庫備份時，預備伺服器會自動選取 [請勿設定] 的登入方法。 雖然會還原密碼雜湊同步處理和密碼回寫喜好設定，但您必須隨後變更登入方法，以符合作用中同步處理伺服器的其他生效原則。  無法完成這些步驟，當此伺服器變為作用中時，使用者可能會無法登入。  
@@ -102,6 +102,7 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 A
 |與 AD FS 同盟|Azure 驗證會繼續使用為作用中的同步處理伺服器所設定的 AD FS 原則。  如果您使用 Azure AD Connect 來管理 AD FS 伺服器陣列，準備將待命伺服器變成作用中的同步處理執行個體時，可選擇性地將登入方法變更為 AD FS 同盟。   如果作用中的同步處理伺服器上已啟用裝置選項，請執行 [設定裝置選項] 工作，設定此伺服器上的這些選項。|
 |傳遞驗證和傳統型單一登入|更新登入方法，以符合作用中同步處理伺服器上的設定。  如果您未在升階為主要伺服器之前這樣做，就會停用傳遞驗證和無縫單一登入，並在備份登入選項並非密碼雜湊同步處理時鎖定您的租用戶。 另請注意，當您在預備模式啟用傳遞驗證時，隨即會安裝、註冊新的驗證代理程式，並會執行為接受登入要求的高可用性代理程式。|
 |與 PingFederate 同盟|Azure 驗證會繼續使用為作用中的同步處理伺服器所設定的 PingFederate 原則。  您準備將待命伺服器變成作用中的同步處理執行個體時，可選擇性地將登入方法變更為 PingFederate。  您可以延後此步驟，直到您要使用 PingFederate 和其他網域建立同盟為止。|
+
 ## <a name="next-steps"></a>後續步驟
 
 - 安裝了 Azure AD Connect 之後，您可以 [驗證安裝和指派授權](how-to-connect-post-installation.md)。

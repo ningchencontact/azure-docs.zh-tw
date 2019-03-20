@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892450"
 ---
-# <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派使用者註冊和產品訂閱
+# <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 委派可讓您使用現有的網站來處理開發人員登入/註冊和產品訂閱，而非使用開發人員入口網站中的內建功能。 這樣可讓您的網站擁有使用者資料，並以自訂方式來執行這些步驟的驗證。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "52445390"
 
 1. 接收下列形式的要求：
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL：來源網頁}&salt={字串}&sig={字串}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn & returnUrl = {URL 來源網頁} & s = {字串} & s i g = {string}*
    > 
    > 
    
@@ -64,7 +64,7 @@ ms.locfileid: "52445390"
      > HMAC(**salt** + '\n' + **returnUrl**)
      > 
      > 
-   * 比較以上計算的雜湊和 **sig** 查詢參數的值。 如果兩個雜湊相符，則繼續下一步，否則拒絕要求。
+   * 将上面计算的哈希与 **sig** 查询参数的值进行比较。 如果兩個雜湊相符，則繼續下一步，否則拒絕要求。
 3. 確認您收到的是登入/註冊要求：**operation** 查詢參數會設為 "**SignIn**"。
 4. 顯示 UI 讓使用者登入或註冊
 5. 如果使用者要註冊，您必須在 API 管理中為他們建立對應的帳戶。 使用 API Management REST API [建立使用者]。 這樣做時，請確定您所設定的使用者識別碼與使用者存放區中的識別碼相同，或與您可追蹤的識別碼相同。
@@ -96,15 +96,15 @@ ms.locfileid: "52445390"
 
 1. 開發人員在 API 管理開發人員入口網站中選取產品，然後按一下 [訂閱] 按鈕
 2. 瀏覽器重新導向至委派端點
-3. 委派端點執行必要的產品訂閱步驟 - 這由您決定，可能需要重新導向至另一個頁面來要求帳單資訊、詢問其他問題，或只是儲存資訊而不要求任何使用者動作
+3. 委派终结点执行所需的产品订阅步骤 - 这取决于用户，可能需要重定向到其他请求计费信息的页面，需要提问更多问题，或者只需存储信息而不需任何用户操作
 
 若要啟用此功能，請在 [委派] 頁面按一下 [委派產品訂用帳戶]。
 
-然後，確定委派端點會執行下列動作：
+然后，确保委派终结点执行下列操作：
 
 1. 接收下列形式的要求：
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product：要訂閱的產品}&userId={提出要求的使用者}&salt={字串}&sig={字串}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation= {operation} & productId = {來訂閱產品} & userId = {提出要求的使用者} & s = {string} & s i g = {string}*
    > 
    > 
    
@@ -120,7 +120,7 @@ ms.locfileid: "52445390"
    * **sig**：已經過計算的安全性雜湊，用於和您已計算的雜湊進行比較
 2. 確認要求來自 Azure API 管理 (選擇性，但基於安全性理由，強烈建議這麼做)
    
-   * 根據 **productId**、**userId 和 **salt** 查詢字串，計算字串的 HMAC-SHA512：
+   * 計算基礎字串的 HMAC-SHA512 **productId**， **userId**，並**salt**查詢參數：
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 0f500ec776d90755d6738af80c34866105d354f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ff7bb6fa087ab7fa362c13ca03d6f3100a505ce3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999397"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858952"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒體服務實體  
 
@@ -29,7 +29,7 @@ ms.locfileid: "55999397"
 > 
 > 
 
-Microsoft Azure 媒體服務是以 REST 為基礎的服務，內建在 OData v3 上。 您可以使用與任何其他 OData 服務上的相同方式，新增、查詢、更新和刪除實體。 在適用時會呼叫例外狀況。 如需 OData 的詳細資訊，請參閱 [開放式資料通訊協定文件](http://www.odata.org/documentation/)。
+Microsoft Azure 媒體服務是以 REST 為基礎的服務，內建在 OData v3 上。 您可以使用與任何其他 OData 服務上的相同方式，新增、查詢、更新和刪除實體。 在適用時會呼叫例外狀況。 有关 OData 的详细信息，请参阅 [开放数据协议文档](https://www.odata.org/documentation/)。
 
 本主題說明如何使用 REST 管理 Azure 媒體服務實體。
 
@@ -62,7 +62,7 @@ Microsoft Azure 媒體服務是以 REST 為基礎的服務，內建在 OData v3 
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-## <a name="querying-entities"></a>查詢實體
+## <a name="querying-entities"></a>查询实体
 查詢及列出實體很簡單，只牽涉到 GET HTTP 要求與選用 OData 作業。
 下列範例會擷取所有 MediaProcessor 實體的清單。
 
@@ -136,7 +136,7 @@ Microsoft Azure 媒體服務是以 REST 為基礎的服務，內建在 OData v3 
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
 
-## <a name="updating-entities"></a>更新實體
+## <a name="updating-entities"></a>更新实体
 根據實體類型及其所處狀態，您可以透過 PATCH、PUT 或 MERGE HTTP 要求，更新該實體的屬性。 如需這些作業的詳細資訊，請參閱 [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx)。
 
 下列程式碼範例示範如何更新資產實體上的 [名稱] 屬性。

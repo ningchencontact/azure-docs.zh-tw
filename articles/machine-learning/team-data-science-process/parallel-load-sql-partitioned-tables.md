@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f1a5f54e520cdabd49e1ca69626e1c693bc1ee19
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853030"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>建置和最佳化資料表，以便快速地將資料平行匯入至 Azure VM 上的 SQL Server
 
@@ -95,7 +95,7 @@ ms.locfileid: "55470020"
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>大量匯入每個個別資料分割資料表的資料
 
-* 您可以使用 BCP、BULK INSERT 或其他方法，例如 [SQL Server 移轉精靈](http://sqlazuremw.codeplex.com/)。 所提供的範例會使用 BCP 方法。
+* 您可以使用 BCP、BULK INSERT 或其他方法，例如 [SQL Server 移轉精靈](https://sqlazuremw.codeplex.com/)。 所提供的範例會使用 BCP 方法。
 * [修改資料庫](https://msdn.microsoft.com/library/bb522682.aspx)，將交易記錄配置變更為 BULK_LOGGED，以便將記錄額外負荷降到最低，例如：
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED

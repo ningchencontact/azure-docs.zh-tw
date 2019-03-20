@@ -5,17 +5,17 @@ description: 可列印的機器學習演算法小密技可協助您在 Azure Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
-ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: 51a743e7578ea5bbc2acb9094bbf704a09f3cd6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858784"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的機器學習演算法小祕技
 
@@ -36,9 +36,9 @@ ms.locfileid: "56453931"
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Machine Learning Studio 演算法小祕技的注意事項與詞彙定義
 
-* 這份演算法小祕技中提供的建議是近似經驗法則。 您可以屈從有些建議，也可以公然違反有些建議。 其主要目的是建議起點。 別擔心您的資料上會出現數種演算法間勢均力敵的競爭。 唯有了解每個演算法的原則，以及了解產生您的資料的系統。
+* 這份演算法小祕技中提供的建議是近似經驗法則。 您可以屈從有些建議，也可以公然違反有些建議。 其主要目的是建議起點。 別擔心您的資料上會出現數種演算法間勢均力敵的競爭。 沒有唯有了解每個演算法，以及產生您的資料系統的原則。
 
-* 每個機器學習服務演算法都有自己的風格或*歸納偏差*。 對於特定問題，適合的演算法可能有數個，但其中一個演算法可能會比其他演算法更適合。 但不一定能夠事先知道哪一種最適合。 在這類情況下，小祕技中會一起列出數個演算法。 適當策略就是嘗試一個演算法，而如果結果還不滿意，就嘗試其他演算法。 以下是 [Azure AI 資源庫](http://gallery.azure.ai/) \(英文\) 中的實驗範例，該實驗會對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92) \(英文\)。
+* 每個機器學習服務演算法都有自己的風格或*歸納偏差*。 對於特定問題，適合的演算法可能有數個，但其中一個演算法可能會比其他演算法更適合。 但不一定能夠事先知道哪一種最適合。 在這類情況下，小祕技中會一起列出數個演算法。 適當策略就是嘗試一個演算法，而如果結果還不滿意，就嘗試其他演算法。 以下是 [Azure AI 資源庫](https://gallery.azure.ai/) \(英文\) 中的實驗範例，該實驗會對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92) \(英文\)。
 
 * 機器學習有三個主要類別：**經過指導的學習**、**未經指導的學習**和**增強式學習**。
 
@@ -52,7 +52,7 @@ ms.locfileid: "56453931"
 
 * **促進式決策樹迴歸**會利用特徵重疊或特徵間的互動。 這表示，在任何給定的資料點中，一項特徵的值有點能夠預測另一項特徵的值。 例如，在每日高/低溫資料中，得知當天的低溫可讓您合理猜測高溫。 兩個特徵中包含的資訊有點冗餘。
 
-* 使用原本就是多類別的分類器，或將一組雙類別的分類器合併成一個**整體** (Ensemble)，即可將資料分類成兩個以上的類別。 在整體方法中，每個類別有個別的雙類別分類器 - 每個分類器會將資料分為兩類：「這一類」和「非這一類」。 然後這些分類器會表決資料點的正確指派。 這是[一對多的多類別][one-vs-all-multiclass]背後的運作原則。
+* 可以進行分類的資料分成兩個以上的類別，使用原本就是多類別分類器，或結合一組雙類別分類器，到**集團**。 在整體方法中，每個類別有個別的雙類別分類器 - 每個分類器會將資料分為兩類：「這一類」和「非這一類」。 然後這些分類器會表決資料點的正確指派。 這是[一對多的多類別][one-vs-all-multiclass]背後的運作原則。
 
 * 數種方法 (包括羅吉斯迴歸和貝氏點機器) 採用**線性類別界限**。 也就是說，它們會假設類別之間的界限大約是直線 (或者，更一般的情況下為超平面)。 通常這是您嘗試劃分之後才會知道的資料特性，但通常可以透過事先視覺化來學習。 如果類別界限看起來非常不規則，請堅守決策樹、決策叢林、支援向量機器或類神經網路。
 
@@ -69,7 +69,7 @@ ms.locfileid: "56453931"
 
 
 <!-- Module References -->
-[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
-[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
-[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
-[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

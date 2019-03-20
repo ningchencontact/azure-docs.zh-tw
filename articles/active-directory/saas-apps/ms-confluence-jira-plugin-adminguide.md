@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109132"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>適用於 Azure Active Directory 的 Atlassian Jira 和 Confluence 管理員指南
 
@@ -110,33 +110,33 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 ![外掛程式設定畫面](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **中繼資料 URL**：用來從 Azure AD 取得同盟中繼資料的 URL。
+* **中繼資料 URL**：用來從 Azure AD 取得同盟中繼資料的 URL。
 
-*   ：Azure AD 用來驗證要求來源的 URL。 此識別碼對應至 Azure AD 中的 **Identifier** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/。
+* ：Azure AD 用來驗證要求來源的 URL。 此識別碼對應至 Azure AD 中的 **Identifier** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/。
 
-*   **回覆 URL**：識別提供者 (IdP) 中的回覆 URL，用於起始 SAML 登入。 此回覆 URL 對應至 Azure AD 中的 **Reply URL** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/plugins/servlet/saml/auth。
+* **回覆 URL**：識別提供者 (IdP) 中的回覆 URL，用於起始 SAML 登入。 此回覆 URL 對應至 Azure AD 中的 **Reply URL** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/plugins/servlet/saml/auth。
 
-*   **登入 URL**：IdP 中的登入 URL，用於起始 SAML 登入。 此登入 URL 對應至 Azure AD 中的 **Sign On** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/plugins/servlet/saml/auth。
+* **登入 URL**：IdP 中的登入 URL，用於起始 SAML 登入。 此登入 URL 對應至 Azure AD 中的 **Sign On** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/plugins/servlet/saml/auth。
 
-*   **IdP 實體識別碼**：IdP 所使用的實體識別碼。 系統解析中繼資料 URL 時就會填入這個方塊。
+* **IdP 實體識別碼**：IdP 所使用的實體識別碼。 系統解析中繼資料 URL 時就會填入這個方塊。
 
-*   **登入 URL**：來自 IdP 的登入 URL。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
+* **登入 URL**：來自 IdP 的登入 URL。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
 
-*   **登出 URL**：來自 IdP 的登出 URL。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
+* **登出 URL**：來自 IdP 的登出 URL。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
 
-*   **X.509 憑證**：IdP 的 X.509 憑證。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
+* **X.509 憑證**：IdP 的 X.509 憑證。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
 
-*   **登入按鈕名稱**：輸入您組織要讓使用者在登入頁面上看到的登入按鈕名稱。
+* **登入按鈕名稱**：輸入您組織要讓使用者在登入頁面上看到的登入按鈕名稱。
 
-*   **SAML 使用者識別碼位置**：SAML 回應中預期的 Jira 或 Confluence 使用者識別碼位置。 可能是在 **NameID** 或自訂屬性名稱中。
+* **SAML 使用者識別碼位置**：SAML 回應中預期的 Jira 或 Confluence 使用者識別碼位置。 可能是在 **NameID** 或自訂屬性名稱中。
 
-*   **屬性名稱**：預期要有使用者識別碼的屬性名稱。
+* **屬性名稱**：預期要有使用者識別碼的屬性名稱。
 
-*   **啟用主領域探索**：如果公司使用「Active Directory 同盟服務」(AD FS) 式登入，請選擇此選項。
+* **啟用主領域探索**：如果公司使用「Active Directory 同盟服務」(AD FS) 式登入，請選擇此選項。
 
-*   **網域名稱**：採用 AD FS 式登入時的網域名稱。
+* **網域名稱**：採用 AD FS 式登入時的網域名稱。
 
-*   **啟用單一登出**：如果您想要在使用者登出 Jira 或 Confluence 時登出 Azure AD，請選擇此選項。
+* **啟用單一登出**：如果您想要在使用者登出 Jira 或 Confluence 時登出 Azure AD，請選擇此選項。
 
 ## <a name="troubleshooting"></a>疑難排解
 

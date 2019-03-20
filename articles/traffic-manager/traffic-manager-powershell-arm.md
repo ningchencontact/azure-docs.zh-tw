@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: efaa9101fbe46e0db2f582fe5a208dd8b16f095f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003579"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442098"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理員
 
-Azure Resource Manager 是 Azure 中慣用的服務管理介面。 您可以使用以 Azure Resource Manager 為基礎的 API 和工具來管理 Azure 流量管理員設定檔。
+Azure Resource Manager 是 Azure 中的首选服务管理接口。 您可以使用以 Azure Resource Manager 為基礎的 API 和工具來管理 Azure 流量管理員設定檔。
 
 ## <a name="resource-model"></a>資源模型
 
@@ -47,7 +47,7 @@ New-AzResourceGroup -Name MyRG -Location "West US"
 > [!NOTE]
 > Azure Resource Manager 規定所有資源群組都要有位置。 此位置作為該資源群組中建立之資源的預設位置。 然而，因為流量管理員設定檔的資源是全域而非區域，資源群組位置的選擇不會影響 Azure 流量管理員。
 
-## <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
+## <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
 若要建立流量管理員設定檔，請使用 `New-AzTrafficManagerProfile`Cmdlet：
 
@@ -57,10 +57,10 @@ $profile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -
 
 下表描述參數：
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
-| Name |流量管理員設定檔資源的資源名稱。 相同資源群組中的設定檔必須有唯一的名稱。 這個名稱是從用於 DNS 查詢的 DNS 名稱分割而來。 |
-| resourceGroupName |包含設定檔資源的資源群組名稱。 |
+| 名稱 |流量管理員設定檔資源的資源名稱。 同一资源组中的配置文件必须具有唯一的名称。 這個名稱是從用於 DNS 查詢的 DNS 名稱分割而來。 |
+| ResourceGroupName |包含設定檔資源的資源群組名稱。 |
 | TrafficRoutingMethod |指定流量路由方法，用來決定回應 DNS 查詢時傳回哪一個端點。 可能的值為 'Performance'、'Weighted' 或 'Priority'。 |
 | RelativeDnsName |指定此流量管理員設定檔所提供之 DNS 名稱的主機名稱部分。 這個值會與由 Azure 流量管理員使用的 DNS 網域名稱結合，形成設定檔的完整網域名稱 (FQDN)。 例如，值設為 'contoso' 會變成 'contoso.trafficmanager.net'。 |
 | TTL |指定 DNS 存留時間 (TTL)，以秒為單位。 此 TTL 會通知本機 DNS 解析程式和 DNS 用戶端，以多長時間來快取此流量管理員設定檔的 DNS 回應。 |
@@ -104,12 +104,12 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 2. **外部端點**是 Azure 外部託管的服務。
 3. **巢狀端點**用來建構流量管理員設定檔的巢狀階層。 巢狀端點可讓複雜的應用程式使用進階的流量路由設定。
 
-不論是這三種端點中的哪一種，您都可以透過兩種方式來新增端點：
+在所有三种情况下，都可以通过两种方式添加终结点：
 
-1. 使用先前所述的 3 步驟程序。 這個方法的優點是更新一次就可以完成多個端點變更。
+1. 使用先前所述的 3 步驟程序。 這個方法的優點是更新一次就可以完成多項端點變更。
 2. 使用 New-AzTrafficManagerEndpoint Cmdlet。 此 Cmdlet 會在單一作業中將端點新增至現有的流量管理員設定檔。
 
-## <a name="adding-azure-endpoints"></a>新增 Azure 端點
+## <a name="adding-azure-endpoints"></a>添加 Azure 终结点
 
 Azure 端點會參考 Azure 中託管的服務。 支援兩種 Azure 端點：
 
@@ -120,8 +120,8 @@ Azure 端點會參考 Azure 中託管的服務。 支援兩種 Azure 端點：
 
 * 使用 `Add-AzTrafficManagerEndpointConfig` 或 `New-AzTrafficManagerEndpoint` 的 'targetResourceId' 參數指定服務。
 * TargetResourceId 隱含 'Target' 和 'EndpointLocation'。
-* 您可以選擇是否指定 'Weight'。 只有在設定檔已設定為使用「加權」流量路由方法時，才會使用加權， 否則會予以忽略。 如果指定，則值必須是 1 到 1000 之間的數字。 預設值為 '1'。
-* 您可以選擇是否指定 'Priority'。 只有在設定檔已設定為使用「優先順序」流量路由方法時，才會使用優先順序， 否則會予以忽略。 有效值從 1 到 1000，值越小代表優先順序越高。 如果對某個端點指定值，則所有端點也都必須進行指定。 如果省略，則會依端點列出順序，從 '1' 開始套用預設值。
+* 您可以選擇是否指定 'Weight'。 只有在設定檔已設定為使用「加權」流量路由方法時，才會使用加權， 否则会忽略该参数。 如果指定，則值必須是 1 到 1000 之間的數字。 預設值為 '1'。
+* 指定“Priority”是可选操作。 只有在設定檔已設定為使用「優先順序」流量路由方法時，才會使用優先順序， 否則會予以忽略。 有效值從 1 到 1000，值越小代表優先順序越高。 如果为一个终结点指定了该值，则必须为所有终结点指定该值。 如果省略，則會依端點列出順序，從 '1' 開始套用預設值。
 
 ### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>範例 1：使用 `Add-AzTrafficManagerEndpointConfig` 新增 App Service 端點
 
@@ -151,7 +151,7 @@ New-AzTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -Resource
 指定外部端點時：
 
 * 必須使用 'Target' 參數指定端點網域名稱
-* 如果使用「效能」流量路由方法，則需要 'EndpointLocation'， 否則為選擇性。 值必須是[有效的 Azure 區域名稱](https://azure.microsoft.com/regions/)。
+* 如果使用“性能”流量路由方法，则需要“EndpointLocation”。 否則為選擇性。 值必須是[有效的 Azure 區域名稱](https://azure.microsoft.com/regions/)。
 * 'Weight' 和 'Priority' 是選擇性。
 
 ### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>範例 1：使用 `Add-AzTrafficManagerEndpointConfig` 和 `Set-AzTrafficManagerProfile` 新增外部端點
@@ -173,16 +173,16 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 New-AzTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
 ```
 
-## <a name="adding-nested-endpoints"></a>新增「巢狀」端點
+## <a name="adding-nested-endpoints"></a>添加“嵌套式”终结点
 
-每個「流量管理員」設定檔皆指定一個流量路由方法。 不過，有些情況需要的流量路由，比單一流量管理員設定檔所提供的路由更複雜。 您可以將流量管理員設定檔巢狀化，以結合多個流量路由方法的優點。 巢狀設定檔可讓您覆寫預設流量管理員行為，以支援更大和更複雜的應用程式部署。 如需詳細範例，請參閱[巢狀流量管理員設定檔](traffic-manager-nested-profiles.md)。
+每个流量管理器配置文件都会指定一个流量路由方法。 不過，有些情況需要的流量路由，比單一流量管理員設定檔所提供的路由更複雜。 您可以將流量管理員設定檔巢狀化，以結合多個流量路由方法的優點。 巢狀設定檔可讓您覆寫預設流量管理員行為，以支援更大和更複雜的應用程式部署。 如需詳細範例，請參閱[巢狀流量管理員設定檔](traffic-manager-nested-profiles.md)。
 
 巢狀端點是在父設定檔中使用特定的端點類型 ('NestedEndpoints') 來設定。 指定巢狀端點時︰
 
 * 必須使用 'targetResourceId' 參數指定端點
 * 如果使用「效能」流量路由方法，則需要 'EndpointLocation'， 否則為選擇性。 值必須是[有效的 Azure 區域名稱](https://azure.microsoft.com/regions/)。
 * 如同 Azure 端點一樣，'Weight' 和 'Priority' 是選擇性。
-* 'MinChildEndpoints' 參數是選擇性。 預設值為 '1'。 如果可用的端點數目低於此臨界值，父設定檔會將子設定檔視為「已降級」，並將流量導向父設定檔中的其他端點。
+* 'MinChildEndpoints' 參數是選擇性。 默认值为“1”。 如果可用的端點數目低於此臨界值，父設定檔會將子設定檔視為「已降級」，並將流量導向父設定檔中的其他端點。
 
 ### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>範例 1：使用 `Add-AzTrafficManagerEndpointConfig` 和 `Set-AzTrafficManagerProfile` 新增巢狀端點
 
@@ -208,7 +208,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>從另一個訂用帳戶新增端點
 
-流量管理員可以處理不同訂用帳戶的端點。 利用您想要新增的端點來切換至訂用帳戶，以擷取流量管理員所需的輸入。 然後，您需要透過流量管理員 設定檔切換至訂用帳戶，接下來將端點新增至這個帳戶。 下列範例會示範如何透過一個公用 IP 位址來完成此操作。
+流量管理員可以處理不同訂用帳戶的端點。 利用您想要新增的端點來切換至訂用帳戶，以擷取流量管理員所需的輸入。 然後，您需要切換到流量管理員設定檔中，訂用帳戶，並將端點新增至它。 下列範例會示範如何透過一個公用 IP 位址來完成此操作。
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription
@@ -246,7 +246,7 @@ $endpoint.Weight = 20
 Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 ```
 
-## <a name="enabling-and-disabling-endpoints-and-profiles"></a>啟用和停用端點和設定檔
+## <a name="enabling-and-disabling-endpoints-and-profiles"></a>启用和禁用终结点和配置文件
 
 流量管理員可允許啟用和停用個別端點，以及允許啟用和停用全部設定檔。
 透過取得/更新/設定端點或設定檔資源，即可進行這些變更。 為了簡化這些常見作業，系統也支援透過專用 Cmdlet 來執行這些作業。
@@ -284,7 +284,7 @@ Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -Prof
 Disable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
 ```
 
-如同 `Disable-AzTrafficManagerProfile`，`Disable-AzTrafficManagerEndpoint` Cmdlet 會提示您確認。 使用 '-Force' 參數可以抑制此提示。
+如同 `Disable-AzTrafficManagerProfile`，`Disable-AzTrafficManagerEndpoint` Cmdlet 會提示您確認。 可以使用“-Force”参数取消该提示。
 
 ## <a name="delete-a-traffic-manager-endpoint"></a>停用流量管理員端點
 
@@ -306,7 +306,7 @@ Remove-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
 
 這個 Cmdlet 會提示您確認。 使用 '-Force' 參數可以抑制此提示。
 
-要刪除的設定檔也可以使用設定檔物件來指定：
+也可以使用配置文件对象指定要删除的配置文件：
 
 ```powershell
 $profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
@@ -323,4 +323,4 @@ Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzT
 
 [流量管理員監視](traffic-manager-monitoring.md)
 
-[流量管理員的效能考量](traffic-manager-performance-considerations.md)
+[流量管理器性能注意事项](traffic-manager-performance-considerations.md)

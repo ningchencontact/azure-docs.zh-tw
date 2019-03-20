@@ -5,17 +5,17 @@ description: 「適用於初學者的資料科學」會運用 5 支短片教導�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 93af2e283a1dd1ec11541087b33b3303c13364cc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 4483fc82ad4bf935153c76922fbece84c6ca2ea8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491989"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816893"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>適用於初學者的資料科學影片 1：資料科學可以回答的 5 個問題
 從頂尖資料科學家所提供之「適用於初學者的資料科學」的五個簡短影片中快速認識資料科學。 無論您是對從事資料科學有興趣，或您是和資料科學家一起工作，這些影片都能為您提供基本但很有用的知識。
@@ -136,4 +136,4 @@ ms.locfileid: "55491989"
 
 ## <a name="next-steps"></a>後續步驟
 * [嘗試使用 Machine Learning Studio 進行您的第一個資料科學實驗](create-experiment.md)
-* [在 Microsoft Azure 上取得 Machine Learning 簡介](what-is-machine-learning.md)
+* [在 Microsoft Azure 上取得 Machine Learning 簡介](/azure/machine-learning/preview/overview-what-is-azure-ml)

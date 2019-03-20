@@ -1,5 +1,5 @@
 ---
-title: 適用於 Windows 的 Azure Log Analytics 虛擬機器擴充功能 | Microsoft Docs
+title: 針對 Windows 的 azure 監視虛擬機器擴充功能 |Microsoft Docs
 description: 使用虛擬機器擴充功能在 Windows 虛擬機器上部署 Log Analytics 代理程式。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 6a128f8fbfd39c364d63ff03a156788e44f37119
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981285"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533692"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-windows"></a>適用於 Windows 的 Log Analytics 虛擬機器擴充功能
+# <a name="azure-monitor-virtual-machine-extension-for-windows"></a>針對 Windows 的 azure 監視虛擬機器擴充功能
 
-Log Analytics 可提供雲端和內部部署資產的監視功能。 Microsoft 已發佈和支援適用於 Windows 的 Log Analytics 代理程式虛擬機器擴充功能。 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Log Analytics 工作區中註冊虛擬機器。 本文件詳述適用於 Windows 的 Log Analytics 虛擬機器擴充功能所支援的平台、組態和部署選項。
+Azure 監視器記錄檔會提供跨雲端和內部部署資產的監視功能。 Microsoft 已發佈和支援適用於 Windows 的 Log Analytics 代理程式虛擬機器擴充功能。 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Log Analytics 工作區中註冊虛擬機器。 本文件詳述支援的平台、 組態和 Windows 的 Azure 監視虛擬機器擴充功能部署選項。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,7 +36,7 @@ Log Analytics 可提供雲端和內部部署資產的監視功能。 Microsoft �
 
 ### <a name="azure-security-center"></a>Azure 資訊安全中心
 
-Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作區，自動佈建 Log Analytics 代理程式並與它連線。 如果您使用的是 Azure 資訊安全中心，請不要執行此文件中的步驟。 這樣做會覆寫已設定的工作區，並中斷與 Azure 資訊安全中心的連線。
+Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並將它連線的 Azure 訂用帳戶的預設 Log Analytics 工作區。 如果您使用的是 Azure 資訊安全中心，請不要執行此文件中的步驟。 這樣做會覆寫已設定的工作區，並中斷與 Azure 資訊安全中心的連線。
 
 ### <a name="internet-connectivity"></a>網際網路連線
 適用於 Windows 的 Log Analytics 代理程式擴充功能會要求目標虛擬機器連線到網際網路。 
@@ -68,7 +70,7 @@ Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作�
 ```
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 |
+| 名稱 | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
@@ -83,9 +85,9 @@ Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作�
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 上一節中詳述的 JSON 結構描述可在部署 Azure Resource Manager 範本期間，在 Azure Resource Manager 範本中用來執行 Log Analytics 代理程式擴充功能。 在 [Azure 快速入門資源庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm) \(英文\) 上可以找到包含 Log Analytics 代理程式 VM 擴充功能的範例範本。 
 
-虛擬機器擴充功能的 JSON 可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources)。 
+虛擬機器擴充功能的 JSON 可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)。 
 
-下列範例假設 Log Analytics 擴充功能以巢狀方式置於虛擬機器資源內部。 在巢狀處理擴充資源時，JSON 會放在虛擬機器的 `"resources": []` 物件中。
+下列範例假設虛擬機器資源內部巢狀的 Azure 監視擴充功能。 在巢狀處理擴充資源時，JSON 會放在虛擬機器的 `"resources": []` 物件中。
 
 
 ```json
@@ -157,7 +159,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
     -Location WestUS 
 ```
 
-## <a name="troubleshoot-and-support"></a>疑難排解與支援
+## <a name="troubleshoot-and-support"></a>故障排除和支持
 
 ### <a name="troubleshoot"></a>疑難排解
 

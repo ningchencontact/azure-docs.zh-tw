@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ff0589b87ae031db5bda96dc238359bf9cfb3b11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751594"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835413"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>在 Azure 中選擇適當的 SQL Server 選項
 
@@ -75,15 +75,15 @@ ms.locfileid: "55751594"
 | | SQL Database 單一資料庫和彈性集區 | SQL Database 受控執行個體 |使用 SQL Server 的 Azure 虛擬機器 |
 | --- | --- | --- |---|
 | **最適合：** |想要使用最新穩定 SQL Server 功能，而且開發與行銷階段有時間限制的新雲端式設計應用程式。 | 想要在最少變更的情況下使用最新穩定 SQL Server 功能，而且會移轉到雲端的新應用程式或現有內部部署應用程式。  | 需要幾乎無需進行任何變更即可快速移轉至雲端的現有應用程式。 當您不想購買內部部署 SQL Server 非生產硬體時的快速開發和測試案例。 |
-|  | 需要內建高可用性、災害復原及資料庫升級的團隊。 | 與 SQL Database 單一資料庫與集區資料庫相同。 | 可以設定、微調、自訂及管理高可用性、災害復原及修補 SQL Server 的團隊。 某些所提供的自動化功能大幅簡化了這部分。 | |
-|  | 不想要管理基礎作業系統和組態設定的團隊。 | 與 SQL Database 單一資料庫與集區資料庫相同。 | 您需要包含完整系統管理權限的自訂環境。 | |
+|  | 需要內建高可用性、災害復原及資料庫升級的團隊。 | 與 SQL Database 單一資料庫與集區資料庫相同。 | 可以設定、微調、自訂及管理高可用性、災害復原及修補 SQL Server 的團隊。 某些所提供的自動化功能大幅簡化了這部分。 |
+|  | 不想要管理基礎作業系統和組態設定的團隊。 | 與 SQL Database 單一資料庫與集區資料庫相同。 | 您需要包含完整系統管理權限的自訂環境。 |
 |  | 最多 100 TB 的資料庫。 | 最多 8 TB。 | 具有高達 64 TB 儲存空間的 SQL Server 執行個體。 執行個體可以支援所需數量的資料庫。 |
 | **相容性** | 支援大多數的內部部署資料庫層級功能。 | 支援幾乎所有的內部部署執行個體層級和資料庫層級功能。 | 支援所有內部部署功能。 |
 | **資源：** | 您不想要運用 IT 資源來設定和管理基礎結構，但想要專注於應用程式層級。 | 與 SQL Database 單一資料庫與集區資料庫相同。 | 您有一些設定和管理的 IT 資源。 某些所提供的自動化功能大幅簡化了這部分。 |
 | **擁有權的總成本：** | 排除硬體成本，並降低管理成本。 | 與 SQL Database 單一資料庫與集區資料庫相同。 | 排除硬體成本。 |
 | **業務持續性︰** |除了[內建的容錯基礎結構功能](sql-database-high-availability.md)以外，Azure SQL Database 還提供可增加業務持續性的功能，例如[自動備份](sql-database-automated-backups.md)、[時間點還原](sql-database-recovery-using-backups.md#point-in-time-restore)、[異地還原](sql-database-recovery-using-backups.md#geo-restore)、[主動式異地複寫](sql-database-active-geo-replication.md)和[自動容錯移轉群組](sql-database-auto-failover-group.md)。 如需詳細資訊，請參閱 [SQL Database 業務持續性概觀](sql-database-business-continuity.md)。 | 與 SQL Database 單一資料庫和集區資料庫相同，加上可以使用使用者起始、僅限複製的備份。 | Azure VM 上的 SQL Server 可讓您設定高可用性和災害復原解決方案，以滿足您資料庫的特定需求。 因此，您可以有已針對您的應用程式進行高度最佳化的系統。 您可以視需要自我測試並執行容錯移轉。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)。 |
 | **混合式雲端：** |您的內部部署應用程式可以存取 Azure SQL Database 中的資料。 | [實作原生虛擬網路](sql-database-managed-instance-vnet-configuration.md)和使用 Azure Express Route 或 VPN 閘道與內部部署環境連線。 | 有了 Azure VN 上的 SQL Server，您的應用程式可以部分在雲端中執行和部分在內部部署中執行。 例如，您可以透過 [ [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)] 將內部部署網路和 Active Directory 網域延伸到雲端。 如需有關混合式雲端解決方案的詳細資訊，請參閱[將內部部署資料解決方案擴充至雲端](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)。 |
-|  | 支援 [SQL Server 交易式複寫](https://msdn.microsoft.com/library/mt589530.aspx) 為訂閱者以複寫資料。 | 受控執行個體以預覽功能的方式支援複寫。 | 完全支援 [SQL Server 交易式複寫](https://msdn.microsoft.com/library/mt589530.aspx)、[Always On 可用性群組](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)、整合服務和記錄傳送以複寫資料。 此外也完全支援傳統的 SQL Server 備份 | |
+|  | 支援 [SQL Server 交易式複寫](https://msdn.microsoft.com/library/mt589530.aspx) 為訂閱者以複寫資料。 | 受控執行個體以預覽功能的方式支援複寫。 | 完全支援 [SQL Server 交易式複寫](https://msdn.microsoft.com/library/mt589530.aspx)、[Always On 可用性群組](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)、整合服務和記錄傳送以複寫資料。 此外也完全支援傳統的 SQL Server 備份 |
 |  | | |
 
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>選擇 Azure VM 上的 Azure SQL Database 或 SQL Server 時的商業動機
@@ -91,7 +91,7 @@ ms.locfileid: "55751594"
 有幾個因素會影響您選擇 PaaS 或 IaaS 裝載 SQL 資料庫的決定：
 
 - [成本](#cost) - PaaS 和 IaaS 選項都包括基底價格，其中涵蓋基礎結構和授權。 但是，使用 IaaS 選項，您需要投入更多時間和資源來管理資料庫，而在 PaaS 中，您會收到價格中包含的這些管理功能。 IaaS 選項可讓您在不使用資源時關閉資源以降低成本，而 PaaS 版本始終在執行，除非您在需要時卸除並重新建立資源。
-- [管理](#administration) - PaaS 選項會降低您管理資料庫所需投入的時間量。 不過，它也會阻止您執行一些可以提高工作負載效能的自訂管理工作。
+- [管理](#administration) - PaaS 選項會降低您管理資料庫所需投入的時間量。 不過，它也會限制自訂的管理工作和指令碼，您可以執行或執行的範圍。 比方說，CLR 不支援使用單一或集區的資料庫，但支援的 managed 執行個體。 此外，任何在 PaaS 中的部署選項不支援使用追蹤旗標。
 - [服務等級協定](#service-level-agreement-sla) - IaaS 和 PaaS 都提供最高業界標準的 SLA。 針對基礎架構，PaaS 選項可保證 99.99 % 的 SLA，而 IaaS 保證 99.95% 的 SLA，這表示您需要實作其他的機制來確保資料庫的可用性。 在最極端的情況下，如果要實作與 PaaS 符合的高可用性解決方案，則可能需要在 VM 中建立其他 SQL Server 並設定 AlwaysOn 可用性群組，這可能會使資料庫的成本加倍。
 - [移至 Azure 的時間](#market) - Azure VM 中的 SQL Server 與您的環境完全相符，因此從內部部署移轉至 Azure SQL VM 與將資料庫從一個內部部署伺服器移動到另一個伺服器沒有什麼不同。 受控執行個體還可以實現極其輕鬆的移轉；但是，在移轉至受控執行個體之前，可能需要套用一些變更。
 

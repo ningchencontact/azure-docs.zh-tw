@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: ryanwi
-ms.openlocfilehash: 787a25a822e4ee7e13a2f1429bacd8d5cd2139ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fda6af0f253457aaf3aef1e8444850592255b318
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113668"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 術語概觀
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  您可以[隨處裝載 Service Fabric 叢集](service-fabric-deploy-anywhere.md)：在 Azure 中、在內部部署資料中心中，或是在任何雲端提供者上。  Service Fabric 是支援 [Azure Service Fabric Mesh](/azure/service-fabric-mesh) 的協調器。 您可以使用任何架構來撰寫服務，並從多種環境中選擇要執行應用程式的位置。 本文詳細說明 Service Fabric 中所使用的術語，以利您了解文件中使用的詞彙。
@@ -151,7 +151,7 @@ Service Fabric 資源是可個別部署至 Service Fabric 的任何項目，包�
 
 ## <a name="environments"></a>環境
 
-Service Fabric 是一個開放原始碼平台技術，有數個不同的服務和產品會以此技術為基礎。 Microsoft 提供下列選項：
+Service Fabric 是一項開放原始碼平台技術，有數個不同的服務和產品會以此技術為基礎。 Microsoft 提供下列選項：
 
  - **Azure Service Fabric Mesh**：一個受到完整管理的服務，可用來在 Microsoft Azure 中執行 Service Fabric 應用程式。
  - **Azure Service Fabric**：Azure 裝載的 Service Fabric 叢集供應項目。 它提供 Service Fabric 和 Azure 基礎結構之間的整合，以及 Service Fabric 叢集的升級和設定管理。
@@ -162,14 +162,14 @@ Service Fabric 是一個開放原始碼平台技術，有數個不同的服務�
 不同的環境對於架構和部署模型會有不同層級的支援。 下表說明支援的架構和部署模型組合。
 
 | 應用程式類型 | 描述依據 | Azure Service Fabric Mesh | Azure Service Fabric 叢集 (任何 OS)| 本機叢集 | 獨立叢集 |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Service Fabric Mesh 應用程式 | 資源模型 (YAML & JSON) | 支援 |不支援 | Windows - 支援，Linux 和 Mac - 不支援 | Windows - 不支援 |
 |Service Fabric 原生應用程式 | 原生應用程式模型 (XML) | 不支援| 支援|支援|Windows - 支援|
 
 下表針對 Service Fabric 描述不同的應用程式模型以及對應存在的工具。
 
 | 應用程式類型 | 描述依據 | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Service Fabric Mesh 應用程式 | 資源模型 (YAML & JSON) | VS 2017 |不支援 |不支援 | 支援 - 僅限 Mesh 環境 | 不支援|
 |Service Fabric 原生應用程式 | 原生應用程式模型 (XML) | VS 2017 和 VS 2015| 支援|支援|支援|支援|
 
@@ -178,7 +178,7 @@ Service Fabric 是一個開放原始碼平台技術，有數個不同的服務�
 若要深入了解 Service Fabric：
 
 * [Service Fabric 概觀](service-fabric-overview.md)
-* [為何要用微服務方式建置應用程式？](service-fabric-overview-microservices.md)
+* [为什么要使用微服务方法构建应用程序？](service-fabric-overview-microservices.md)
 * [應用程式案例](service-fabric-application-scenarios.md)
 
 若要深入了解 Service Fabric Mesh：

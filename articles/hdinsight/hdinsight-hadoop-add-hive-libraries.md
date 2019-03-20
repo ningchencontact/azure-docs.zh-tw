@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 6001d291581dc317da89cadbf3891e334362062b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897583"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>建立 HDInsight 叢集時新增自訂 Apache Hive 程式庫
 
@@ -43,15 +43,15 @@ ms.locfileid: "53715336"
 > [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-**需求**
+**要求**
 
 * 指令碼必須同時套用至**前端節點**和**背景工作節點**。
 
 * 您想要安裝的 jar 必須儲存在**單一容器**中的 Azure Blob 儲存體。
 
-* 包含 jar 檔案程式庫的儲存體帳戶**必須**在建立期間連結至 HDInsight 叢集。 它必須是預設的儲存體帳戶，或是透過__選擇性組態__新增的帳戶。
+* 在创建期间，包含 jar 文件的库的存储帐户 **必须** 链接到 HDInsight 群集。 它必須是預設的儲存體帳戶，或是透過__選擇性組態__新增的帳戶。
 
-* 必須指定容器的 WASB 路徑做為指令碼動作的參數。 例如，如果 jar 儲存在名為 **mystorage** 的儲存體帳戶上稱為 **libs** 的容器中，則這個參數會是 **wasb://libs@mystorage.blob.core.windows.net/**。
+* 必須指定容器的 WASB 路徑做為指令碼動作的參數。 例如，如果 jar 儲存在名為容器**libs**儲存體帳戶上名為**mystorage**，這個參數便是**wasb://libs\@mystorage.blob.core.windows.net/**。
 
   > [!NOTE]  
   > 本文件假設您已建立儲存體帳戶、blob 容器，也已將檔案上傳給它。
@@ -63,7 +63,7 @@ ms.locfileid: "53715336"
 > [!NOTE]  
 > 下列步驟會建立以 Linux 為基礎的 HDInsight 叢集。 若要建立以 Windows 為基礎的叢集，請在建立叢集時選取 **Windows** 作為叢集作業系統，並使用 Windows (PowerShell) 指令碼，而不是 bash 指令碼。
 >
-> 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。 如需使用這些方法的詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> 也可以使用 Azure PowerShell 或 HDInsight .NET SDK 来使用此脚本创建群集。 如需使用這些方法的詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 1. 使用[在 Linux 上佈建 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)中的步驟開始佈建叢集，但是不完成佈建。
 
@@ -79,7 +79,7 @@ ms.locfileid: "53715336"
 
    * **ZOOKEEPER**：將此項保留空白。
 
-   * **參數**：輸入包含 jar 之容器和儲存體帳戶的 WASB 位址。 例如：**wasb://libs@mystorage.blob.core.windows.net/**。
+   * **參數**：輸入包含 jar 之容器和儲存體帳戶的 WASB 位址。 例如， **wasb://libs\@mystorage.blob.core.windows.net/**。
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。
 

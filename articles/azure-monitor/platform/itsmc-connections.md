@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104993"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081282"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>將 ITSM 產品/服務與 IT Service Management Connector 連線
 本文提供如何設定 ITSM 產品/服務與 Log Analytics 中 IT Service Management Connector (ITSMC) 之間的連線，以集中管理工作項目的相關資訊。 如需 ITSMC 的詳細資訊，請參閱[概觀](../../azure-monitor/platform/itsmc-overview.md)。
@@ -30,7 +30,7 @@ ms.locfileid: "54104993"
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
-
+> 
 > ITSM Connector 只能連線到雲端式 ServiceNow 執行個體。 目前不支援內部部署 ServiceNow 執行個體。
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>將 System Center Service Manager 連線到 Azure 中的 IT Service Management Connector
@@ -62,7 +62,7 @@ ms.locfileid: "54104993"
 4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
 
 > [!NOTE]
-
+> 
 > 這些全部都是必要參數。
 
 | **欄位** | **說明** |
@@ -137,14 +137,14 @@ ms.locfileid: "54104993"
 
 6. 輸入下列值：
 
-    - **端點名稱**：指定新混合式連線的名稱。
-    -  **端點主機**︰Service Manager 管理伺服器的 FQDN。
-    - **端點連接埠**：輸入 5724
-    - **服務匯流排命名空間**：使用現有的或建立一個新的服務匯流排命名空間。
-    - **位置**：選取位置。
-    -  **名稱**：如果您要建立服務匯流排，請為它指定名稱。
+   - **端點名稱**：指定新混合式連線的名稱。
+   - **端點主機**︰Service Manager 管理伺服器的 FQDN。
+   - **端點連接埠**：輸入 5724
+   - **服務匯流排命名空間**：使用現有的或建立一個新的服務匯流排命名空間。
+   - **位置**：選取位置。
+   - **名稱**：如果您要建立服務匯流排，請為它指定名稱。
 
-    ![混合式連線值](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+     ![混合式連線值](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. 按一下 [確定] 將 [建立混合式連線] 刀鋒視窗關閉，然後開始建立混合式連線。
 
     建立混合式連線之後，它會顯示在刀鋒視窗下。
@@ -171,7 +171,7 @@ ms.locfileid: "54104993"
 
 ![混合式連線成功](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
-
+> 
 > 建立混合式連線之後，可瀏覽已部署的 Service Manager Web 應用程式來驗證及測試連線。 嘗試連線到 Azure 中的 ITSMC 之前，請確定連線成功。
 
 以下範例影像顯示連線成功的詳細資料︰
@@ -244,20 +244,20 @@ ms.locfileid: "54104993"
 
 請使用下列程序：
 
-1.  請瀏覽 [ServiceNow 存放區](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1)，並將 **ServiceNow 和 Microsoft OMS 整合的使用者應用程式**安裝到 ServiceNow 執行個體。
+1. 請瀏覽 [ServiceNow 存放區](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1)，並將 **ServiceNow 和 Microsoft OMS 整合的使用者應用程式**安裝到 ServiceNow 執行個體。
    
    >[!NOTE]
    >因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 現在稱為 Log Analytics。     
-2.  安裝完成後，請瀏覽左側導覽列中的 [ServiceNow 執行個體]、[搜尋] 並選取 [Microsoft OMS 整合器]。  
-3.  按一下 [安裝檢查清單]。
+2. 安裝完成後，請瀏覽左側導覽列中的 [ServiceNow 執行個體]、[搜尋] 並選取 [Microsoft OMS 整合器]。  
+3. 按一下 [安裝檢查清單]。
 
-    如果尚未建立使用者角色，則狀態會顯示為 [未完成]。
+   如果尚未建立使用者角色，則狀態會顯示為 [未完成]。
 
-4.  在 [建立整合使用者] 旁邊的文字方塊中，輸入可連線到 Azure 中 ITSMC 之使用者的使用者名稱。
-5.  輸入這個使用者的密碼，然後按一下 [確定]。  
+4. 在 [建立整合使用者] 旁邊的文字方塊中，輸入可連線到 Azure 中 ITSMC 之使用者的使用者名稱。
+5. 輸入這個使用者的密碼，然後按一下 [確定]。  
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > 您可以使用這些認證，在 Azure 中進行 ServiceNow 連線。
 
 會使用預設的角色指派來顯示新建立的使用者。
@@ -273,9 +273,9 @@ ms.locfileid: "54104993"
 成功建立使用者之後，[檢查安裝檢查清單] 狀態會改變為 [已完成]，並列出針對應用程式所建立的使用者角色詳細資料。
 
 > [!NOTE]
-
+> 
 > ITSM 連接器可以將事件傳送給 ServiceNow，完全不需要在您的 ServiceNow 執行個體上安裝其他任何模組。 如果您在 ServiceNow 執行個體中使用 EventManagement 模組，而且想要使用連接器在 ServiceNow 中建立事件或警示，請將下列角色加入至整合使用者：
-
+> 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
@@ -309,7 +309,7 @@ ms.locfileid: "54104993"
 4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
 
 > [!NOTE]
-
+> 
 > 這些全部都是必要參數。
 
 | **欄位** | **說明** |
@@ -360,7 +360,7 @@ ms.locfileid: "54104993"
 4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
 
 > [!NOTE]
-
+> 
 > 這些全部都是必要參數。
 
 | **欄位** | **說明** |

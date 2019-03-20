@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 2c317bbdef2511728d23b33d8eef1c4a41a87d97
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310201"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201512"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>如何管理 Azure 搜尋服務中的並行
 
@@ -170,7 +170,7 @@ ms.locfileid: "53310201"
 
 實作開放式同步存取的設計模式應包含重複嘗試存取條件檢查、測試存取條件，並選擇性擷取更新資源，然後再嘗試重新套用變更的迴圈。
 
-此程式碼片段說明如何將 synonymMap 新增至已存在的索引。 此程式碼來自 [Azure 搜尋服務的同義字 (預覽) C# 教學課程](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk)。
+此程式碼片段說明如何將 synonymMap 新增至已存在的索引。 此程式碼取自[同義字 （預覽） C# Azure 搜尋服務的範例](https://docs.microsoft.com/azure/search/search-synonyms-example-sdk)。
 
 該程式碼片段會取得 "hotels" 索引，檢查更新作業的物件版本，在條件失敗的情況下擲回例外狀況，然後重試該作業 (最多三次)，並從自伺服器擷取索引以取得最新版本開始。
 
@@ -215,7 +215,7 @@ ms.locfileid: "53310201"
 + [GitHub 上的 REST API 範例](https://github.com/Azure-Samples/search-rest-api-getting-started) (英文)
 + [GitHub 上的 .NET SDK 範例](https://github.com/Azure-Samples/search-dotnet-getting-started) (英文)。 此解決方案包括「DotNetEtagsExplainer」專案，其中包含本文所提供的程式碼。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [常見 HTTP 要求和回應標頭 (英文)](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [HTTP 狀態碼 (英文)](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

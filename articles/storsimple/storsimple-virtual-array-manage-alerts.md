@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cd3f506205a3ee4f4435b16fd2185eeb20aef3c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895459"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的警示
 
@@ -39,7 +39,7 @@ StorSimple 裝置管理員服務中的警示功能可讓您即時檢閱並清除
 > [!NOTE]
 > 您可以對每一個虛擬陣列輸入最多 20 個電子郵件地址。
 
-啟用虛擬陣列的電子郵件通知之後，每當發生重大警示時，通知清單的成員將會收到電子郵件訊息。 訊息將會從 *storsimple-alerts-noreply@mail.windowsazure.com* 送出，並說明警示狀況。 收件者可以按一下 [取消訂閱]，將自己從電子郵件通知清單中移除。
+啟用虛擬陣列的電子郵件通知之後，每當發生重大警示時，通知清單的成員將會收到電子郵件訊息。 會將訊息傳送*storsimple-警示-noreply\@mail.windowsazure.com* ，並將說明警示的條件。 收件者可以按一下 [取消訂閱]，將自己從電子郵件通知清單中移除。
 
 #### <a name="to-enable-email-notification-for-alerts"></a>若要啟用警示的電子郵件通知
 
@@ -53,7 +53,7 @@ StorSimple 裝置管理員服務中的警示功能可讓您即時檢閱並清除
    
    1. 在 [啟用電子郵件通知] 欄位中，選取 [是]。
    2. 如果您想要讓服務管理員和所有共同管理員收到警示通知，請在 [電子郵件服務管理員] 欄位中選取 [是]。
-   3. 在 [其他電子郵件收件者] 欄位中，輸入應該收到警示通知的其他所有收件者的電子郵件地址。 以 *someone@somewhere.com* 格式輸入名稱。 使用分號來分隔電子郵件地址。 您可以對每一個虛擬裝置設定最多 20 個電子郵件地址。
+   3. 在 [其他電子郵件收件者] 欄位中，輸入應該收到警示通知的其他所有收件者的電子郵件地址。 輸入名稱，格式*有人\@somewhere.com*。 使用分號來分隔電子郵件地址。 您可以對每一個虛擬裝置設定最多 20 個電子郵件地址。
       
        ![警示通知組態](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. 若要傳送測試電子郵件通知，請按一下 [傳送測試電子郵件]。 StorSimple 裝置管理員服務在轉寄測試通知時會顯示狀態訊息。
@@ -147,6 +147,7 @@ StorSimple 裝置管理員服務的摘要刀鋒視窗中，可讓您快速概覽
 | 無法完成 <裝置名稱\> 的複製。 |複製作業失敗。 |無法建立複製。 請考慮採用下列其中一項︰<ul><li>您的備份清單可能無效。 重新整理清單，以便確認它仍然有效。</li><li>連線問題可能導致複製作業無法順利完成。 確定沒有連線問題。</li><li>您已達到可用的儲存體限制。 若要釋放空間，請考慮刪除任何不再需要的備份。</li></ul>解決問題、清除警示，然後重試作業。 |
 
 ### <a name="networking-alerts"></a>網路警示
+
 | 警示文字 | Event | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 無法連線到驗證服務。 |資料路徑錯誤 |無法連線到用來驗證的 URL。 請確定您的防火牆規則有包含為 StorSimple 裝置指定的 URL 模式。 如需有關 Azure 入口網站之 URL 模式的詳細資訊，請參閱 [StorSimple Virtual Array 網路需求](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules)。|

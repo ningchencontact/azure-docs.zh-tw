@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure AD 存取權檢閱來管理使用者存取權 | Microsoft Docs
-description: 了解如何透過 Azure Active Directory 存取權檢閱，以群組成員資格或指派給應用程式的方式管理使用者存取權
+title: 管理使用者存取使用 Azure AD 存取權檢閱 |Microsoft Docs
+description: 了解如何為群組成員資格或指派給應用程式與 Azure Active Directory 存取權檢閱管理使用者的存取權
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b53fd8b53b85525a3105cfee3594cd284e3838a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 656a1d387a345d9ffcc549c19a131de758e18c35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57879985"
 ---
-# <a name="manage-user-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理使用者存取權
+# <a name="manage-user-access-with-azure-ad-access-reviews"></a>管理使用者存取使用 Azure AD 存取權檢閱
 
 透過 Azure Active Directory (Azure AD)，您可以輕易地確認使用者是否有適當的存取權。 您可藉由要求使用者本身或決策者參與存取權檢閱，並重新證實 (或「證明」) 使用者的存取權。 檢閱者可以根據 Azure AD 的建議，對每位使用者的持續存取需求給予其意見。 存取權檢閱完成時，您可接著進行變更並為使用者移除不再需要的存取權。
 
@@ -45,20 +45,20 @@ ms.locfileid: "56182148"
 
 2. 決定是否要讓每個使用者檢閱自己的存取權，或讓一個或多個使用者檢閱每個人的存取權。
 
-3. 以全域管理員或使用者帳戶管理員身分，移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
+3. 身為全域管理員或使用者系統管理員，請移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
 
-4. 建立存取權檢閱。 如需詳細資訊，請參閱[建立存取權檢閱](create-access-review.md)。
+4. 建立存取權檢閱。 如需詳細資訊，請參閱 <<c0> [ 建立群組或應用程式的存取權檢閱](create-access-review.md)。
 
-5. 存取權檢閱開始時，要求檢閱者提供輸入。 根據預設，他們會各自收到來自 Azure AD 的電子郵件，其中的連結可連至存取面板以[執行其存取權檢閱](perform-access-review.md)。
+5. 存取權檢閱開始時，要求檢閱者提供輸入。 根據預設，他們都收到一封電子郵件從連結的 Azure AD 存取面板中，其中它們[檢閱存取權的群組或應用程式](perform-access-review.md)。
 
 6. 如果檢閱者有沒有指定的輸入，則您可以要求 Azure AD 將提醒傳送給他們。 依預設，Azure AD 會在結束日期過半時自動將提醒傳送給尚未回應的檢閱者。
 
-7. 檢閱者提供輸入後，便停止存取權檢閱並套用變更。 如需詳細資訊，請參閱[完成存取權檢閱](complete-access-review.md)。
+7. 在檢閱者提供輸入後，停止存取權檢閱並套用變更。 如需詳細資訊，請參閱 <<c0> [ 完成群組或應用程式的存取權檢閱](complete-access-review.md)。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-[建立群組成員或應用程式存取的存取權檢閱](create-access-review.md)
+[建立群組或應用程式的存取權檢閱](create-access-review.md)
 
 
 

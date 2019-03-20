@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 9158e6bfe07fc5d06b0685d77eff26644b594a8b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264204"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58116002"
 ---
 VM 擴充功能可協助您：
 
@@ -20,15 +20,15 @@ VM 擴充功能可協助您：
 
 也有許多其他功能。 會定期發行新的 VM 擴充功能。 這篇文章描述 Windows 和 Linux 的 Azure VM 代理程式，以及它們如何支援 VM 擴充功能。 如需依功能分類的 VM 延伸模組清單，請參閱 [Azure VM 延伸模組與功能](../articles/virtual-machines/extensions/features-windows.md)。
 
-## <a name="azure-vm-agents-for-windows-and-linux"></a>適用於 Windows 和 Linux 的 Azure VM 代理程式
-Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全、輕量級程序，它會安裝、設定和移除 Azure 虛擬機器執行個體上的 VM 擴充功能。 VM 代理程式會做為 Azure VM 的安全本機控制服務。 代理程式載入的擴充功能提供特定功能，以提升使用執行個體時的產能。
+## <a name="azure-vm-agents-for-windows-and-linux"></a>适用于 Windows 和 Linux 的 Azure VM 代理
+Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全、輕量級程序，它會安裝、設定和移除 Azure 虛擬機器執行個體上的 VM 擴充功能。 VM 代理充当 Azure VM 的安全本地控制服务。 该代理加载的扩展提供特定功能，以在使用实例时提高工作效率。
 
 有兩個 Azure VM 代理程式存在，一個適用於 Windows VM，一個適用於 Linux VM。
 
 如果您想要讓虛擬機器執行個體使用一或多個 VM 擴充功能，執行個體必須安裝 VM 代理程式。 藉由使用 Azure 入口網站和來自 **Marketplace** 之映像所建立的虛擬機器映像，會在建立程序中自動安裝 VM 代理程式。 如果虛擬機器執行個體沒有 VM 代理程式，您可以在建立虛擬機器執行個體之後安裝 VM 代理程式。 或者，您可以在您稍後上傳的自訂 VM 映像中安裝代理程式。
 
 > [!IMPORTANT]
-> 這些 VM 代理程式非常精簡的服務，能夠進行虛擬機器執行個體的安全管理。 有些情況下您可能不想使用 VM 代理程式。 若是如此，請務必建立不會使用 Azure CLI 或 PowerShell 安裝 VM 代理程式的 VM。 雖然可以實際移除 VM 代理程式，但是執行個體上的 VM 擴充功能的行為並未定義。 因此，不支援移除已安裝的 VM 代理程式。
+> 这些 VM 代理是非常轻量级的，可启用虚拟机实例的安全管理的服务。 有些情況下您可能不想使用 VM 代理程式。 若是如此，請務必建立不會使用 Azure CLI 或 PowerShell 安裝 VM 代理程式的 VM。 雖然可以實際移除 VM 代理程式，但是執行個體上的 VM 擴充功能的行為並未定義。 因此，不支援移除已安裝的 VM 代理程式。
 >
 
 在下列情況下會啟用 VM 代理程式：

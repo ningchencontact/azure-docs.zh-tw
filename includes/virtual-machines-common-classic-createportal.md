@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 127ade3b37380c50461c5b648265b431a2f4467e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 361d0ce5091d80198d47e4ad164f7cba8e21a55d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226625"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114935"
 ---
 「自訂」虛擬機器單指您使用從 **Marketplace** 取得的**熱門應用程式**所建立的虛擬機器，因為它為您做了大部分的工作。 但是，您仍然可以在組態選項中包括下列項目：
 
@@ -28,11 +28,9 @@ ms.locfileid: "50226625"
 
 > [!IMPORTANT]
 > 如果您想要讓虛擬機器使用虛擬網路，請務必在建立虛擬機器時指定虛擬網路。
-
+> 
 > * 使用虛擬網路的兩個優點是直接連接到虛擬機器，以及設定跨單位連線。
-
+> 
 > * 只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。 如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](../articles/virtual-network/virtual-networks-overview.md)。
->
->
 
 ## <a name="to-create-the-virtual-machine"></a>建立虛擬機器

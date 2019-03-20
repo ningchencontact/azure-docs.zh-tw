@@ -1,17 +1,17 @@
 ---
 title: 適用於 Azure Cosmos DB 的 SQL 查詢
-description: 了解 Azure Cosmos DB 的 SQL 語法、資料庫概念及 SQL 查詢。 SQL 可作為 Azure Cosmos DB 中的 JSON 查詢語言。
+description: 了解 Azure Cosmos DB 的 SQL 語法、資料庫概念及 SQL 查詢。 SQL 可以用作 Azure Cosmos DB 中的 JSON 查詢語言。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013889"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查詢範例
 
@@ -158,9 +158,9 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 
 * 因為 SQL API 的處理對象是 JSON 值，所以它處理的是樹狀形式的實體，而不是資料列和資料行。 因此，此語言可讓您參考樹狀目錄中任意深度的節點 (例如 `Node1.Node2.Node3…..Nodem`)，該節點與參考 `<table>.<column>` 之兩個部分參考的關聯式 SQL 類似。
 
-* 結構化查詢語言可處理無結構描述資料。 因此，需要動態繫結類型系統。 相同的運算式可能會對不同的項目產生不同的類型。 查詢的結果會是有效的 JSON 值，但不保證會是固定的結構描述。  
+* 结构化查询语言适用于无架构的数据。 因此，需要動態繫結類型系統。 相同的運算式可能會對不同的項目產生不同的類型。 查詢的結果會是有效的 JSON 值，但不保證會是固定的結構描述。  
 
-* Azure Cosmos DB 只支援嚴謹的 JSON 項目。 這表示類型系統和運算式只能處理 JSON 類型。 如需詳細資料，請參閱 [JSON 規格](http://www.json.org/) \(英文\)。  
+* Azure Cosmos DB 只支援嚴謹的 JSON 項目。 這表示類型系統和運算式只能處理 JSON 類型。 如需詳細資料，請參閱 [JSON 規格](https://www.json.org/) \(英文\)。  
 
 * Cosmos DB 容器是 JSON 項目的無結構描述集合。 容器中項目內及跨項目之資料實體中的關係，會透過內含項目以隱含方式擷取，而不是透過主索引鍵和外部索引鍵關係來擷取。 這是本文稍後討論之項目內聯結中值得指出的重要部分。
 
@@ -267,7 +267,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 
 * 進行別名處理之後，就無法繫結原始來源。 例如， `SELECT Families.id FROM Families f` 在語句構造上無效，因為無法再解析識別碼 "Families"。  
 
-* 所有需要參照的屬性都必須是完整的。 如果未遵循嚴謹的結構描述，則會強制執行以避免任何模糊的繫結。 因此，`SELECT id FROM Families f` 在語句構造上無效，因為不會繫結屬性 `id`。
+* 所有需要參照的屬性都必須是完整的。 在没有遵循严格架构的情况下，会强制性地执行这一点以避免任何不确定的绑定。 因此，`SELECT id FROM Families f` 在語句構造上無效，因為不會繫結屬性 `id`。
 
 ### <a name="get-subitems-using-from-clause"></a>使用 FROM 子句取得子項目
 
@@ -538,7 +538,7 @@ IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。 例�
     WHERE f.id = "AndersenFamily"
 ```
 
-**結果**
+**结果**
 
 ```json
     [{
@@ -735,7 +735,7 @@ SQL API 的另一個重要功能是建立陣列/物件。 在前一個範例中�
 
 ## <a id="TopKeyword"></a>TOP 運算子
 
-TOP 關鍵字可以用來限制來自查詢的值數目。 當 TOP 與 ORDER BY 子句一起使用時，結果集會限制於前 N 個已排序的值。否則，它會以未定義的順序傳回前 N 個結果。 最佳做法是在 SELECT 陳述式中，一律搭配 TOP 子句來使用 ORDER BY 子句。 結合這兩個子句是唯一能如預期般指出哪些資料列會受到 TOP 影響的方式。 
+TOP 关键字可用于限制来自查询中的值的数量。 當 TOP 與 ORDER BY 子句一起使用時，結果集會限制於前 N 個已排序的值。否則，它會以未定義的順序傳回前 N 個結果。 最佳做法是在 SELECT 陳述式中，一律搭配 TOP 子句來使用 ORDER BY 子句。 結合這兩個子句是唯一能如預期般指出哪些資料列會受到 TOP 影響的方式。 
 
 **查詢**
 
@@ -766,7 +766,7 @@ TOP 關鍵字可以用來限制來自查詢的值數目。 當 TOP 與 ORDER BY 
     }]
 ```
 
-TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配使用 。 如需詳細資訊，請參閱下方的參數化查詢。
+TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配使用 。 有关更多详细信息，请参阅下面的参数化查询。
 
 ## <a id="Aggregates"></a>彙總函式
 
@@ -820,13 +820,13 @@ TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配
 
 下表顯示 SQL API 中支援的彙總函式清單。 `SUM` 和 `AVG` 是對數值執行，而 `COUNT`、`MIN`和 `MAX` 則可對數字、字串、布林值和 null 執行。
 
-| 使用量 | 說明 |
+| 使用量 | 描述 |
 |-------|-------------|
 | COUNT | 以運算式傳回項目的數目。 |
 | SUM   | 以運算式傳回所有值的總和。 |
 | 最小值   | 以運算式傳回最小值。 |
-| 最大值   | 以運算式傳回最大值。 |
-| 平均   | 以運算式傳回值的平均。 |
+| MAX   | 以運算式傳回最大值。 |
+| 平均值   | 以運算式傳回值的平均。 |
 
 彙總也可以對陣列反覆運算的結果執行。 如需詳細資訊，請參閱[查詢中的陣列反覆運算](#Iteration)。
 
@@ -838,7 +838,7 @@ TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配
 
 ## <a id="OrderByClause"></a>ORDER BY 子句
 
-像是在 ANSI SQL 中，您可以在查詢時包含選擇性的 Order By 子句。 子句可以包含選擇性 ASC/DESC 引數，利用它來指定擷取結果時必須依循的順序。
+如同在 ANSI-SQL 中一样，在查询时可以包含可选的 Order By 子句。 子句可以包含選擇性 ASC/DESC 引數，利用它來指定擷取結果時必須依循的順序。
 
 例如，以下是依據居住城市名稱的順序擷取家族的查詢。
 
@@ -867,7 +867,7 @@ TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配
 
 以下是依據建立日期擷取家族的查詢，儲存為代表 epoch 時間的數字，也就是，自 1970 年 1 月 1 日之後經過的時間 (以秒為單位)。
 
-**查詢**
+**查询**
 
 ```sql
     SELECT f.id, f.creationDate
@@ -1300,7 +1300,7 @@ UDF 也可以用於篩選內 (如下面範例所示)，同樣是以 "udf." 前�
 
 簡言之，UDF 是在進行查詢時執行複雜商務邏輯的不錯工具。
 
-### <a name="operator-evaluation"></a>運算子評估
+### <a name="operator-evaluation"></a>运算符评估
 
 Cosmos DB 藉由作為 JSON 資料庫，可將 JavaScript 運算子與其評估語意做比較。 雖然 Cosmos DB 嘗試以 JSON 支援的形式保留 JavaScript 語意，但是在部分執行個體中，作業評估還是會偏離。
 
@@ -1363,7 +1363,7 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 每個數學函式都會執行計算，通常以提供來作為引數的輸入值為基礎，並傳回數值。 以下是支援的內建數學函數資料表。
 
-| 使用量 | 說明 |
+| 使用量 | 描述 |
 |----------|--------|
 | [ABS (num_expr) | 傳回指定之數值運算式的絕對 (正) 值。 |
 | CEILING (num_expr) | 傳回大於或等於指定之數值運算式的最小整數值。 |
@@ -1412,12 +1412,12 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 | **使用量** | **說明** |
 |-----------|------------|
 | [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | 傳回布林值，表示值的類型是否為陣列。 |
-| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | 傳回布林值，表示值的類型是否為布林值。 |
-| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | 傳回布林值，表示值的類型是否為 null。 |
-| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | 傳回布林值，表示值的類型是否為數字。 |
-| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | 傳回布林值，表示值的類型是否為 JSON 物件。 |
-| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | 傳回布林值，表示值的類型是否為字串。 |
-| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | 傳回布林值，表示屬性是否已經指派值。 |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | 返回一个布尔值，它指示值的类型是否为布尔。 |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | 返回一个布尔值，它指示值的类型是否为 null。 |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | 返回一个布尔值，它指示值的类型是否为数字。 |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | 返回一个布尔值，它指示值的类型是否为 JSON 对象。 |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | 返回一个布尔值，它指示值的类型是否为字符串。 |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | 返回一个布尔，它指示属性是否已经分配了值。 |
 | [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | 傳回布林值，表示值的類型是字串、數字、布林值或 Null。 |
 
 藉由使用這些函數，您現在可以執行如下列範例所示的查詢：
@@ -1438,22 +1438,22 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 下列純量函數會對字串輸入值執行作業，並傳回字串、數值或布林值。 以下是內建字串函數的資料表：
 
-| 使用量 | 說明 |
+| 使用量 | 描述 |
 | --- | --- |
-| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 傳回指定字串運算式的字元數目 |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 返回指定字符串的字符数 |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 傳回字串，該字串是串連兩個或多個字串值的結果。 |
-| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 傳回字串運算式的一部分。 |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 返回部分字符串表达式。 |
 | [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | 傳回布林值，表示第一個字串運算式是否以第二個字串運算式開頭 |
 | [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | 傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束 |
 | [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | 傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。 |
 | [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | 傳回第一個指定的字串運算式中，第二個字串運算式第一次出現的開始位置，或者如果找不到字串，則為 -1。 |
-| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | 傳回具有指定字元數目的字串左側部分。 |
-| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | 傳回具有指定字元數目的字串右側部分。 |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | 返回具有指定字符数的字符串的左侧部分。 |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | 返回具有指定字符数的字符串的右侧部分。 |
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | 傳回移除開頭空白之後的字串運算式。 |
 | [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | 傳回截斷所有結尾空白之後的字串運算式。 |
 | [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | 傳回將大寫字元資料轉換成小寫之後的字串運算式。 |
 | [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | 傳回將小寫字元資料轉換成大寫之後的字串運算式。 |
-| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 使用其他字串值取代指定的字串值的所有項目。 |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 将出现的所有指定字符串值替换为另一个字符串值。 |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | 將字串值重複指定的次數。 |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | 傳回反向順序的字串值。 |
 
@@ -1520,7 +1520,7 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 下列純量值函式會對陣列輸入值執行作業，並傳回數值、布林值或陣列值。 以下是內建陣列函數的資料表：
 
-| 使用量 | 說明 |
+| 使用量 | 描述 |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |傳回指定陣列運算式的元素數目。 |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |傳回串連兩個或多個陣列值之結果的陣列。 |
@@ -1589,7 +1589,7 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 Cosmos DB 支援下列「開放地理空間協會」(OGC) 內建地理空間查詢函數。 
 
-| 使用量 | 說明 |
+| 使用量 | 描述 |
 | --- | --- |
 | ST_DISTANCE (point_expr、point_expr) | 傳回兩個 GeoJSON Point、Polygon 或 LineString 運算式之間的距離。 |
 | T_WITHIN (point_expr, polygon_expr) | 傳回布林運算式，指出第一個 GeoJSON 物件 (Point、Polygon 或 LineString) 是否位在第二個 GeoJSON 物件 (Point、Polygon 或 LineString) 內。 |
@@ -1720,7 +1720,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 * 屬性/陣列索引運算式：這些運算式參照物件或陣列項目的屬性。
   
      family.Id;    family.children[0].familyName;    family.children[0].grade;    family.children[n].grade; //n is an int variable
-* 算術運算式：這些包括數值和布林值的一般算術運算式。 如需完整清單，請參閱 SQL 規格。
+* 算术表达式 - 这些表达式包含数值和布尔值上的常用算术表达式。 有关完整列表，请参阅 SQL 规范。
   
      2 * family.children[0].grade;    x + y;
 * 字串比較運算式：這些包括比較字串值與某個常數字串值。  
@@ -1922,7 +1922,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     WHERE p.familyName = "Smith"
 ```
 
-#### <a name="nesting"></a>巢狀
+#### <a name="nesting"></a>嵌套
 
 語法為 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 運算子。
 
@@ -2113,9 +2113,9 @@ Cosmos DB 提供透過 HTTP 的開放 RESTful 程式設計模型。 可以使用
 
 如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過 `x-ms-continuation-token` 傳回接續 Token。 用戶端可以透過在後續結果中包括標頭，以將結果分頁。 每頁的結果數目也可以透過 `x-ms-max-item-count` 數字標頭來控制。 如果指定的查詢有一個彙總函數 (如 `COUNT`)，則查詢頁面可對結果頁面傳回部分彙總的值。 用戶端必須對這些結果執行第二層彙總以產生最終結果，例如，對個別頁面中傳回的計數執行加總以傳回總計數。
 
-若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如，所有 REST API 要求)。 針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。 所查詢容器的編製索引原則也會影響查詢結果的一致性。 運用預設的編製索引原則設定，容器的索引一律具有最新的項目內容，而查詢結果會符合針對資料所選擇的一致性。 如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。 如需詳細資訊，請參閱 [Azure Cosmos DB 的一致性層級][consistency-levels]。
+若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如，所有 REST API 要求)。 針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。 所查詢容器的編製索引原則也會影響查詢結果的一致性。 運用預設的編製索引原則設定，容器的索引一律具有最新的項目內容，而查詢結果會符合針對資料所選擇的一致性。 如需詳細資訊，請參閱 [Azure Cosmos DB 的一致性層級][consistency-levels]。
 
-如果容器上所設定的編製索引原則無法支援指定的查詢，Azure Cosmos DB 伺服器就會傳回 400「錯誤的要求」。 針對範圍查詢 (針對雜湊 (相等) 查閱所設定的路徑) 以及明確地排除不進行編製索引的路徑，會傳回此錯誤訊息。 `x-ms-documentdb-query-enable-scan` 標頭可以指定成允許查詢在無法使用索引時執行掃描。
+如果容器上所設定的編製索引原則無法支援指定的查詢，Azure Cosmos DB 伺服器就會傳回 400「錯誤的要求」。 查詢會傳回此錯誤訊息，以明確地排除編製索引的路徑。 `x-ms-documentdb-query-enable-scan` 標頭可以指定成允許查詢在無法使用索引時執行掃描。
 
 您也可以藉由將 `x-ms-documentdb-populatequerymetrics` 標頭設為 `True`，在查詢執行期間取得詳細的計量。 如需詳細資訊，請參閱[適用於 Azure Cosmos DB 的 SQL 查詢計量](sql-api-query-metrics.md)。
 

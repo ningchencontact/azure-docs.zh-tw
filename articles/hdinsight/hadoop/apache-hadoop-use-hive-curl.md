@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: c5bf69a2ac6a70410339a5696da53169ca87170f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 89bb5aa1ccfb65b91581e943554806e3363390f4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407213"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201839"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>搭配 HDInsight 中的 Apache Hadoop 使用 REST 來執行 Apache Hive 查詢
 
@@ -100,7 +100,7 @@ ms.locfileid: "53407213"
     $resp.Content
     ```
 
-    此要求會傳回類似以下文字的回應：
+    此请求返回的响应类似于以下文本：
 
     ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
@@ -182,7 +182,7 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
-* [搭配 HDInsight 上的 Apache Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
 如果您搭配使用 Tez 和 Hive，請參閱下列文件所提供的偵錯資訊：
 
@@ -202,7 +202,6 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 
 

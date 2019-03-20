@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0bcc49df6540b73b8feb5bb1ec4312e680572797
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617806"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243324"
 ---
 # <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>將安全性和核心更新套用至 Azure Kubernetes Service (AKS) 中的節點
 
@@ -27,7 +27,7 @@ ms.locfileid: "51617806"
 
 此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
-您也必須安裝並設定 Azure CLI 版本 2.0.49 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="understand-the-aks-node-update-experience"></a>了解 AKS 節點更新體驗
 
@@ -78,15 +78,15 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 ```
 NAME                       STATUS                     ROLES     AGE       VERSION
-aks-nodepool1-79590246-2   Ready,SchedulingDisabled   agent     1h        v1.9.11
+aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-當更新程序完成之後，您就可以使用 [kubectl get nodes][kubectl-get-nodes] 命令搭配 `--output wide` 參數來檢視節點狀態。 這個額外的輸出可讓您查看 *KERNEL-VERSION* 基礎節點中的差異，如下列範例輸出所示。 *aks-nodepool1-79590246-2* 已在上一個步驟更新，並顯示核心版本 *4.15.0-1025-azure*。 尚未更新的節點 *aks-nodepool1-79590246-1* 會顯示核心版本 *4.15.0-1023-azure*。
+當更新程序完成之後，您就可以使用 [kubectl get nodes][kubectl-get-nodes] 命令搭配 `--output wide` 參數來檢視節點狀態。 這個額外的輸出可讓您查看 *KERNEL-VERSION* 基礎節點中的差異，如下列範例輸出所示。 *Aks nodepool1 28993262-0*已在上一個步驟和顯示的核心版本中更新*4.15.0-1039-azure*。 節點*aks nodepool1 28993262-1* ，尚未更新的顯示的核心版本*4.15.0-1037-azure*。
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.11   10.240.0.6    <none>        Ubuntu 16.04.5 LTS   4.15.0-1023-azure   docker://1.13.1
-aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.11   10.240.0.4    <none>        Ubuntu 16.04.5 LTS   4.15.0-1025-azure   docker://1.13.1
+aks-nodepool1-28993262-0   Ready     agent     1h        v1.11.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS   4.15.0-1039-azure   docker://3.0.4
+aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5    <none>        Ubuntu 16.04.6 LTS   4.15.0-1037-azure   docker://3.0.4
 ```
 
 ## <a name="next-steps"></a>後續步驟

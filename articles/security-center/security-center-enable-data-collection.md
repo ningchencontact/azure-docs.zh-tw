@@ -3,7 +3,7 @@ title: Azure 資訊安全中心的資料收集 | Microsoft Docs
 description: " 了解如何在 Azure 資訊安全中心啟用資料收集。 "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
-ms.author: rkarlin
-ms.openlocfilehash: a11a72bf2121bb36203002b69f06c74ca3e8a2d0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 03/19/2018
+ms.author: monhaber
+ms.openlocfilehash: 7be86ae7b425c8497b017672ae2e828ccbf65049
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107850"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223694"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
-資訊安全中心會從您的 Azure 虛擬機器 (VM) 和非 Azure 電腦收集資料，以監視安全性漏洞與威脅。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區。
+資訊安全中心會從您的 Azure 虛擬機器 (Vm)、 虛擬機器擴展集 (VMSS)、 IaaS 容器和監視安全性漏洞與威脅 （包括內部部署） 的非 Azure 電腦收集資料。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Microsoft Monitoring Agent 代理程式也會將損毀傾印檔案複製到您的工作區中。
 
 必須收集資料，才能掌握遺漏的更新、設定錯誤的 OS 安全性設定、端點保護啟用，以及健康情況和威脅偵測。 
 
 本文提供的指引有關於如何安裝 Microsoft Monitoring Agent，以及設定用於儲存所收集資料的 Log Analytics 工作區。 需要執行這兩項作業，才能啟用資料收集。 
 
 > [!NOTE]
-> - 計算資源 (VM 和非 Azure 電腦) 才需要收集資料。 即使您未佈建代理程式，也可受惠於 Azure 資訊安全中心；不過，您的安全性有限，而且不支援以上所列的功能。  
+
+> - 計算資源 （Vm、 虛擬機器擴展集、 IaaS 容器和非 Azure 電腦） 才需要資料收集。 即使您未佈建代理程式，也可受惠於 Azure 資訊安全中心；不過，您的安全性有限，而且不支援以上所列的功能。  
 > - 如需支援的平台清單，請參閱 [Azure 資訊安全中心支援的平台](security-center-os-coverage.md)。
 > - 目前不支援虛擬機器擴展集的資料收集。
 
@@ -42,7 +43,7 @@ ms.locfileid: "56107850"
 > 預設會關閉自動佈建。 若要將資訊安全中心設定為預設安裝自動佈建，請將它設定為 [開啟]。
 >
 
-開啟自動佈建時，資訊安全中心會在所有支援的 Azure VM 和任何新建立的 VM 上佈建 Microsoft Monitoring Agent。 強烈建議使用自動佈建，但是手動代理程式安裝也可行。 [深入了解如何安裝 Microsoft Monitoring Agent 擴充功能](#manualagent)。
+自動佈建開啟時，資訊安全中心會佈建 Microsoft Monitoring agent，在所有支援的 Azure Vm 及建立任何新的。 強烈建議使用自動佈建，但是手動代理程式安裝也可行。 [深入了解如何安裝 Microsoft Monitoring Agent 擴充功能](#manualagent)。
 
 
 
@@ -50,13 +51,13 @@ ms.locfileid: "56107850"
 1. 在 [資訊安全中心] 主功能表下，選取 [安全性原則]。
 2. 在清單中所需訂用帳戶的 [設定] 資料行中，按一下 [編輯設定]。
 
-  ![選取訂用帳戶][7]
+   ![選取訂用帳戶][7]
 
 3. 在 [安全性原則] 下，選取 [資料收集]。
 4. 在 [自動佈建] 下，選取 [開啟] 啟用自動佈建。
 5. 選取 [ **儲存**]。
 
-  ![啟用自動佈建][1]
+   ![啟用自動佈建][1]
 
 >[!NOTE]
 > - 如需佈建預先存在的安裝的相關指示，請參閱[在預先存在的代理程式安裝情況下自動佈建](#preexisting)。
@@ -76,22 +77,22 @@ ms.locfileid: "56107850"
 
 若要選取資訊安全中心所建立的工作區：
 
-1.  在 [預設工作區組態] 下，選取 [使用資訊安全中心建立的工作區]。
+1. 在 [預設工作區組態] 下，選取 [使用資訊安全中心建立的工作區]。
    ![選取定價層][10] 
 
-2. 按一下 [檔案] 。<br>
+1. 按一下 [檔案] 。<br>
     資訊安全中心會在此地理位置建立新的資源群組和預設工作區，並將代理程式連線到該工作區。 工作區和資源群組的命名慣例如下：<br>
-**工作區：DefaultWorkspace-[subscription-ID]-[geo]<br> 資源群組：DefaultResourceGroup-[geo]**
+   **工作區：DefaultWorkspace-[subscription-ID]-[geo]<br> 資源群組：DefaultResourceGroup-[geo]**
 
    如果訂用帳戶中包含多個地理位置上的虛擬機器，則資訊安全中心會建立多個工作區。 建立多個工作區是為了遵守資料隱私權規則。
--   資訊安全中心會依據為訂用帳戶設定的定價層，在工作區上自動啟用資訊安全中心解決方案。 
+1. 資訊安全中心會依據為訂用帳戶設定的定價層，在工作區上自動啟用資訊安全中心解決方案。 
 
 > [!NOTE]
-> 資訊安全中心所建立工作區的 Log Analytics 定價層不會影響資訊安全中心的收費。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案。 針對免費層，資訊安全中心在預設工作區啟用 SecurityCenterFree 解決方案。 對於標準層，資訊安全中心在預設工作區啟用 Security 解決方案。
+> Log analytics 定價層的資訊安全中心所建立的工作區不會影響資訊安全中心計費。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案。 針對免費層，資訊安全中心在預設工作區啟用 SecurityCenterFree 解決方案。 對於標準層，資訊安全中心在預設工作區啟用 Security 解決方案。
 
 如需詳細資訊，請參閱[資訊安全中心價格](https://azure.microsoft.com/pricing/details/security-center/)。
 
-如需現有 Log Analytics 帳戶的詳細資訊，請參閱[現有的 Log Analytics 客戶](security-center-faq.md#existingloganalyticscust)。
+如需有關現有的 log analytics 帳戶的詳細資訊，請參閱[現有 log analytics 客戶](security-center-faq.md#existingloganalyticscust)。
 
 ### <a name="using-an-existing-workspace"></a>使用現有工作區
 
@@ -111,10 +112,10 @@ ms.locfileid: "56107850"
 
 2. 從下拉式功能表中，選取要儲存收集資料的工作區。
 
-  > [!NOTE]
-  > 在下拉式功能表中，所有訂用帳戶的所有工作區均可供使用。 如需詳細資訊，請參閱[跨訂用帳戶工作區選取](security-center-enable-data-collection.md#cross-subscription-workspace-selection)。 您必須具有此工作區的存取權。
-  >
-  >
+   > [!NOTE]
+   > 在下拉式功能表中，所有訂用帳戶的所有工作區均可供使用。 如需詳細資訊，請參閱[跨訂用帳戶工作區選取](security-center-enable-data-collection.md#cross-subscription-workspace-selection)。 您必須具有此工作區的存取權。
+   >
+   >
 
 3. 選取 [ **儲存**]。
 4. 選取 [儲存] 之後，系統會詢問您是否要重新設定先前連線到預設工作區的受監控虛擬機器。
@@ -147,11 +148,11 @@ ms.locfileid: "56107850"
 
 
 ## <a name="data-collection-tier"></a>資料收集層
-在 Azure 資訊安全中心中選取 [資料收集層]，只會影響 Log Analytics 工作區中安全性事件的儲存空間。 無論您選擇在 Log Analytics 工作區中儲存哪一層的安全性事件 (如果有的話)，Microsoft Monitoring Agent 仍會收集並分析 Azure 資訊安全中心威脅偵測所需的安全性事件。 選擇在工作區中儲存安全性事件，將允許在工作區中調查、搜尋和稽核這些事件。 
+在 Azure 資訊安全中心中選取 [資料收集層]，只會影響 Log Analytics 工作區中安全性事件的儲存空間。 Log Analytics 代理程式仍會收集並分析 Azure 資訊安全中心的威脅偵測，您選擇不論哪一層的安全性事件 （如果有的話），將儲存在您的 Log Analytics 工作區所需的安全性事件。 選擇在工作區中儲存安全性事件，將允許在工作區中調查、搜尋和稽核這些事件。 
 > [!NOTE]
-> 將資料儲存在 Log Analytics 中，可能會產生額外的資料儲存空間費用，如需詳細資訊，請參閱定價頁面。
->
-對於訂用帳戶和工作區，您可以從儲存在您工作區的四組事件中選擇合適的篩選原則： 
+> 將資料儲存在 log analytics 中，可能會產生額外費用，來儲存資料，請參閱定價頁面以取得詳細資料。
+> 
+> 對於訂用帳戶和工作區，您可以從儲存在您工作區的四組事件中選擇合適的篩選原則： 
 
 - **無** – 停用安全性事件的儲存空間。 這是預設設定。
 - **最小** – 適合想要將事件數量最小化的客戶，是較小的一組事件。
@@ -202,18 +203,22 @@ ms.locfileid: "56107850"
 
 下列使用案例會指定在已經安裝代理程式或擴充功能的情況下，自動佈建的運作方式。 
 
-- Microsoft Monitoring Agent 已安裝在機器上，但不是擴充功能<br>
-如果 Microsoft Monitoring Agent 已經直接安裝在虛擬機器上 (而非作為 Azure 擴充功能)，資訊安全中心不會再安裝 Microsoft Monitoring Agent。 您可以開啟自動佈建，並在資訊安全中心的自動佈建組態中選取相關的使用者工作區。 如果您選擇 VM 已經連線到的相同工作區，則會利用 Microsoft Monitoring Agent 擴充功能包裝現有的代理程式。 
+- Microsoft Monitoring Agent 已安裝的電腦上，但不是能作為擴充功能 （直接代理程式）<br>
+如果直接在 （而非作為 Azure 擴充功能） 的 VM 上安裝 Microsoft Monitoring Agent，資訊安全中心將會安裝 Microsoft Monitoring Agent 擴充功能，並可以升級為最新版本的 Microsoft Monitoring agent。
+安裝的代理程式會繼續回報其已設定的工作區，而此外會在資訊安全中心中設定的工作區回報 （支援多路連接）。
+如果設定的工作區的使用者工作區 （不資訊安全中心的預設工作區），則您必須安裝 「 安全性 /"securityFree 」 解決方案，它從虛擬機器和電腦啟動處理事件的資訊安全中心會回報給該工作區。<br>
+<br>
+現有的機器上的訂用帳戶上架到資訊安全中心之前 2019年-03-17，當將偵測到現有的代理程式，將不會安裝 Microsoft Monitoring Agent 擴充功能，以及機器不會受到影響。 這些機器，請參閱解決代理程式安裝問題，在這些電腦上的監視您的機器上的代理程式健全狀況問題的 「 解決 」 建議。
 
-> [!NOTE]
-> 如果已安裝 SCOM 代理程式版本 2012，請**勿**開啟自動佈建。 
+  
+- 在電腦上安裝 SCOM 代理程式<br>
+資訊安全中心將會安裝至現有的 SCOM 的 Microsoft Monitoring Agent 擴充功能-並存。 現有的 SCOM 代理程式會繼續正常報表與 SCOM 伺服器。 請注意，SCOM 代理程式和 Microsoft Monitoring Agent 共用通用執行階段程式庫，此處理序將會更新為最新版本。
+請注意，如果安裝 SCOM 代理程式版本 2012年，則**沒有**自動佈建。<br>
 
-如需詳細資訊，請參閱[如果虛擬機器上已安裝 SCOM 或 OMS 直接代理程式，會發生什麼狀況？](security-center-faq.md#scomomsinstalled)
-
--   預先存在的 VM 擴充功能已存在<br>
-    - 資訊安全中心支援現有的擴充功能安裝，而且不會覆寫現有的連線。 資訊安全中心會將虛擬機器送出的資料儲存到已經連線的工作區，並根據工作區上啟用的解決方案來提供保護。   
-    - 若要查看現有擴充功能將資料傳送到哪個工作區，請執行測試以[驗證與 Azure 資訊安全中心的連線](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)。 或者，您可以開啟 Log Analytics、選取工作區、選取 VM，以及查看 Microsoft Monitoring Agent 連線。 
-    - 如果您環境中的用戶端工作站上已安裝 Microsoft Monitoring Agent 並會向現有的 Log Analytics 工作區報告，請檢閱 [Azure 資訊安全中心支援的作業系統](security-center-os-coverage.md)清單，確保您的作業系統受支援，並請參閱[現有的 Log Analytics 客戶](security-center-faq.md#existingloganalyticscust)以取得詳細資訊。
+- 預先存在的 VM 擴充功能已存在<br>
+    - 安裝監視代理程式時做為擴充，可讓擴充功能組態報告至一個工作區。 資訊安全中心不會覆寫既存的使用者工作區連線。 資訊安全中心會在工作區中已連線，請儲存 VM 的安全性資料，前提是已在其上安裝的 「 安全性 」 或 「 securityFree 」 方案。 資訊安全中心可以升級擴充功能版本，在此程序為最新版本。  
+    - 若要查看現有擴充功能將資料傳送到哪個工作區，請執行測試以[驗證與 Azure 資訊安全中心的連線](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)。 或者，您可以開啟 Log Analytics 工作區，選取工作區，選取 VM，並查看 Log Analytics 代理程式的連接。 
+    - 如果您有環境其中用戶端工作站上安裝 Log Analytics 代理程式和現有的 Log Analytics 工作區報告，檢閱清單[作業系統支援 Azure 資訊安全中心](security-center-os-coverage.md)藉此確定您的作業系統支援，並查看[現有 log analytics 客戶](security-center-faq.md#existingloganalyticscust)如需詳細資訊。
  
 ### 關閉自動佈建 <a name="offprovisioning"></a>
 您可以在安全性原則中關閉從資源自動佈建，隨時關閉這項設定。 
@@ -224,7 +229,7 @@ ms.locfileid: "56107850"
 3. 在 [安全性原則 - 資料收集] 刀鋒視窗的 [自動佈建] 下，選取 [關閉]。
 4. 選取 [ **儲存**]。
 
-  ![停用自動佈建][6]
+   ![停用自動佈建][6]
 
 自動佈建停用 (關閉) 後，就不會顯示預設的工作區組態區段。
 
@@ -243,56 +248,57 @@ ms.locfileid: "56107850"
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Operations Management Suite VM 擴充功能部署 
 
 您可以手動安裝 Microsoft Monitoring Agent，讓資訊安全中心可以收集您虛擬機器所傳來的安全性資料，並提供建議和警示。
-1.  選取自動佈建 – 關閉。
-2.  針對您要設定 Microsoft Monitoring agent 的工作區，建立工作區及設定定價層：
+1. 選取自動佈建 – 關閉。
+2. 針對您要設定 Microsoft Monitoring agent 的工作區，建立工作區及設定定價層：
 
-    a.  在 [資訊安全中心] 主功能表中，選取 [安全性原則]。
+   a.  在 [資訊安全中心] 主功能表中，選取 [安全性原則]。
      
-    b.  選取您要在其中連線代理程式的工作區。 請確定工作區位於您在資訊安全中心使用的相同訂用帳戶中，而且您具備工作區的讀取/寫入權限。
-        ![選取工作區][8]
+   b.  選取您要在其中連線代理程式的工作區。 請確定工作區位於您在資訊安全中心使用的相同訂用帳戶中，而且您具備工作區的讀取/寫入權限。
+       ![選取工作區][8]
 3. 設定定價層。
    ![選取定價層][9] 
    >[!NOTE]
    >如果工作區已經啟用 **Security** 或 **SecurityCenterFree** 解決方案，將會自動設定定價。 
    > 
 
-4.  如果您想要使用 Resource Manager 範本在新的 VM 上部署代理程式，請安裝 OMS 虛擬機器擴充功能：
+4. 如果您想要使用 Resource Manager 範本在新的 VM 上部署代理程式，請安裝 OMS 虛擬機器擴充功能：
 
-    a.  [安裝適用於 Windows 的 OMS 虛擬機器擴充功能](../virtual-machines/extensions/oms-windows.md)
+   a.  [安裝適用於 Windows 的 OMS 虛擬機器擴充功能](../virtual-machines/extensions/oms-windows.md)
     
-    b.  [安裝適用於 Linux 的 OMS 虛擬機器擴充功能](../virtual-machines/extensions/oms-linux.md)
-5.  若要在現有的 VM 上部署擴充功能，請遵循[收集有關 Azure 虛擬機器的資料](../azure-monitor/learn/quick-collect-azurevm.md)中的指示。
+   b.  [安裝適用於 Linux 的 OMS 虛擬機器擴充功能](../virtual-machines/extensions/oms-linux.md)
+5. 若要在現有的 VM 上部署擴充功能，請遵循[收集有關 Azure 虛擬機器的資料](../azure-monitor/learn/quick-collect-azurevm.md)中的指示。
 
-  > [!NOTE]
-  > **收集事件和效能資料**一節是選擇性的。
-  >
-6. 若要使用 PowerShell 來部署擴充功能，請使用下列 PowerShell 範例︰
-    1.  移至 **Log Analytics** ，然後按一下 [進階設定]。
+   > [!NOTE]
+   > **收集事件和效能資料**一節是選擇性的。
+   >
+6. 若要使用 PowerShell 來部署擴充功能，使用下列 PowerShell 範例：  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+   
+   1. 移至 **Log Analytics** ，然後按一下 [進階設定]。
     
-        ![設定 Log Analytics][11]
+      ![設定 Log Analytics][11]
 
-    2. 複製 [工作區識別碼] 和 [主索引鍵] 的值。
+   2. 複製 [工作區識別碼] 和 [主索引鍵] 的值。
   
-       ![複製值][12]
+      ![複製值][12]
 
-    3. 在公用組態和私用組態中填入下列值：
+   3. 在公用組態和私用組態中填入下列值：
      
-            $PublicConf = '{
-                "workspaceId": "WorkspaceID value",
-                "MultipleConnections": true
-            }' 
+           $PublicConf = '{
+               "workspaceId": "WorkspaceID value",
+               "MultipleConnections": true
+           }' 
  
-            $PrivateConf = '{
-                "workspaceKey": "<Primary key value>”
-            }' 
+           $PrivateConf = '{
+               "workspaceKey": "<Primary key value>”
+           }' 
 
       - 在 Windows VM 上安裝時：
         
-             Set-AzureRmVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
+            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
     
-       - 在 Linux VM 上安裝時：
+      - 在 Linux VM 上安裝時：
         
-             Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
 > [!NOTE]
 > 如需有關如何使用 PowerShell 上架資訊安全中心的說明，請參閱[使用 PowerShell 自動化上架 Azure 資訊安全中心](security-center-powershell-onboarding.md)。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: de730004b55f72cb645c6a31c02fd1fe28a52ecd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013174"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541701"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>在 Azure Databricks 中執行 Python 活動來轉換資料
 
@@ -62,7 +62,7 @@ ms.locfileid: "54013174"
 
 下表說明 JSON 定義中使用的 JSON 屬性：
 
-|屬性|說明|必要|
+|屬性|描述|必要項|
 |---|---|---|
 |name|管線中的活動名稱。|是|
 |說明|說明活動用途的文字。|否|
@@ -100,7 +100,7 @@ ms.locfileid: "54013174"
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

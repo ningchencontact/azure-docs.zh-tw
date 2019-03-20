@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c846460d8791c15022b10ecf4517ba01699a64cd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 4d11dfcb66a545cbecc80b6bdad558ca6d328ed2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999686"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>將您的 OMS 更新部署遷移至 Azure
 
@@ -33,7 +33,7 @@ Operations Management Suite (OMS) 入口網站已被[取代](../azure-monitor/pl
 
 在 Azure 入口網站中，按一下 [自動化帳戶]。
 
-![Log Analytics](media/migrate-oms-update-deployments/log-analytics.png)
+![Azure 監視器記錄](media/migrate-oms-update-deployments/log-analytics.png)
 
 在您的自動化帳戶中，選取 [更新管理] 以開啟更新管理。
 
@@ -57,15 +57,15 @@ Operations Management Suite (OMS) 入口網站已被[取代](../azure-monitor/pl
 
 針對要更新的電腦，選取現有 OMS 部署所使用的已儲存搜尋。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
-|Name |用以識別更新部署的唯一名稱。 |
+|名稱 |用以識別更新部署的唯一名稱。 |
 |作業系統| 選取 [Linux] 或 [Windows]。|
-|要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../azure-monitor/platform/computer-groups.md) |
+|要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md) |
 |更新分類|選取您需要的所有更新分類。 CentOS 預設不支援這種更新分類。|
 |要排除的更新|輸入要排除的更新。 針對 Windows，輸入不含 **KB** 前置詞的 KB 文章。 針對 Linux，輸入套件名稱或使用萬用字元。  |
-|排程設定|選取開始時間，然後選取 [一次] 或 [週期性] 以定期執行。|| 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時。 |
-| 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時 |
+|排程設定|選取開始時間，然後選取 [一次] 或 [週期性] 以定期執行。 | 
+| 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時。 |
 | 重新開機控制| 決定應該如何處理重新開機。</br>可用選項包括：</br>在必要時重新開機 (預設值)</br>一律重新開機</br>永不重新開機</br>僅重新開機 - 將不會安裝更新|
 
 按一下 [排程的更新部署]，以檢視新建立的更新部署狀態。

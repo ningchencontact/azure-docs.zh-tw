@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96ceeec3acd77af7174f1394677f6a52b18dec67
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9067f8521d9794dccc0b745d54eff474d94eedc8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835209"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wrike"></a>教學課程：Azure Active Directory 與 Wrike 整合
 
@@ -145,7 +145,7 @@ Wrike 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中，輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

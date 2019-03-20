@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 231c6bbdb3ab1766cfccf19806e64c5dbe4d7b5d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 737c72e6225cdfc9fdeec59810ffd9100c48d1ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339925"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181753"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟
 
@@ -141,7 +141,7 @@ ms.locfileid: "57339925"
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. 若要確認 OS 磁碟已調整大小，請使用 `df -h`。 下列範例輸出顯示資料磁碟機 */dev/sdc1* 現在是 200 GB：
+1. 若要確認已調整大小的資料磁碟，請使用`df -h`。 下列範例輸出顯示資料磁碟機 */dev/sdc1* 現在是 200 GB：
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

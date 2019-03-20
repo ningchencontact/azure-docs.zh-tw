@@ -1,8 +1,7 @@
 ---
 title: 連線到 MQ 伺服器 - Azure Logic Apps | Microsoft Docs
 description: 使用 Azure 或內部部署 MQ 伺服器和 Azure Logic Apps 來傳送及取出訊息
-author: valthom
-manager: jeconnoc
+author: valrobb
 ms.author: valthom
 ms.date: 06/01/2017
 ms.topic: article
@@ -11,52 +10,52 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 6b34bd7b286ca3b206c611343217c90e0d57fbfb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167876"
 ---
-# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>使用 MQ 連接器從 Logic Apps 連線到 IBM MQ Server 
+# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>使用 MQ 連接器從 Logic Apps 連線到 IBM MQ Server
 
-Microsoft Connector for MQ 會傳送並取出儲存在 MQ Server 內部部署或在 Azure 中的訊息。 此連接器包含透過 TCP/IP 網路與遠端 IBM MQ Server 通訊的 Microsoft MQ 用戶端。 本文件是使用 MQ 連接器的入門指南。 建議您從瀏覽佇列上的單一訊息開始，然後再嘗試其他動作。    
+Microsoft Connector for MQ 會傳送並取出儲存在 MQ Server 內部部署或在 Azure 中的訊息。 此連接器包含透過 TCP/IP 網路與遠端 IBM MQ Server 通訊的 Microsoft MQ 用戶端。 本文件是使用 MQ 連接器的入門指南。 建議您從瀏覽佇列上的單一訊息開始，然後再嘗試其他動作。
 
 MQ 連接器包含下列動作。 但不包含觸發程序。
 
--   瀏覽單一訊息，而不從 IBM MQ Server 刪除訊息
--   瀏覽批次訊息，而不從 IBM MQ Server 刪除訊息
--   接收單一訊息，並從 IBM MQ Server 刪除訊息
--   接收批次訊息，並從 IBM MQ Server 刪除訊息
--   將單一訊息傳送至 IBM MQ Server 
+- 瀏覽單一訊息，而不從 IBM MQ Server 刪除訊息
+- 瀏覽批次訊息，而不從 IBM MQ Server 刪除訊息
+- 接收單一訊息，並從 IBM MQ Server 刪除訊息
+- 接收批次訊息，並從 IBM MQ Server 刪除訊息
+- 將單一訊息傳送至 IBM MQ Server
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果是使用內部部署 MQ Server，請在網路內之伺服器上[安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。 如果 MQ Server 可公開使用或可在 Azure 內使用，就是沒有使用資料閘道或不需要資料閘道。
 
     > [!NOTE]
-    > 安裝內部部署資料閘道的伺服器也必須安裝適用於 MQ 連接器的 .Net Framework 4.6 才能運作。
+    > 為內部部署資料閘道安裝所在的伺服器也必須擁有函式的 MQ 連接器安裝的.NET Framework 4.6。
 
 * 建立內部部署資料閘道的 Azure 資源 - [設定資料閘道連線](../logic-apps/logic-apps-gateway-connection.md)。
 
 * 正式支援的 IBM WebSphere MQ 版本：
-   * MQ 7.5
-   * MQ 8.0
+    * MQ 7.5
+    * MQ 8.0
 
 ## <a name="create-a-logic-app"></a>建立邏輯應用程式
 
-1. 在 **Azure 開始面板**中，依序選取 **+** (加號)、[Web + 行動] 和 [邏輯應用程式]。 
+1. 在 **Azure 開始面板**中，依序選取 **+** (加號)、[Web + 行動] 和 [邏輯應用程式]。
 2. 輸入 [名稱]，例如 MQTestApp、[訂用帳戶]、[資源群組]，和 [位置](使用已設定內部部署資料閘道連線的位置)。 選取 [釘選到儀表板]，然後選取 [建立]。  
 ![建立邏輯應用程式](media/connectors-create-api-mq/Create_Logic_App.png)
 
 ## <a name="add-a-trigger"></a>新增觸發程序
 
 > [!NOTE]
-> MQ 連接器並沒有任何觸發程序。 因此，使用另一個觸發程序來啟動邏輯應用程式，例如 [定期] 觸發程序。 
+> MQ 連接器並沒有任何觸發程序。 因此，使用另一個觸發程序來啟動邏輯應用程式，例如 [定期] 觸發程序。
 
 1. **Logic Apps Designer** 隨即開啟，在一般觸發程序的清單中選取 [定期]。
-2. 在定期觸發程序內選取 [編輯]。 
-3. 將 [頻率] 設定為 [天]，將 [間隔] 設定為 **7**。 
+2. 在定期觸發程序內選取 [編輯]。
+3. 將 [頻率] 設定為 [天]，將 [間隔] 設定為 **7**。
 
 ## <a name="browse-a-single-message"></a>瀏覽單一訊息
 1. 選取 [+ 新增步驟]，再選取 [新增動作]。
@@ -66,9 +65,9 @@ MQ 連接器包含下列動作。 但不包含觸發程序。
 3. 如果沒有現有的 MQ 連線，就建立連線：  
 
     1. 選取 [透過內部部署資料閘道連線]，並輸入 MQ Server 的屬性。  
-    針對 [伺服器]，您可以輸入 MQ Server 的名稱，或輸入 IP 位址，後面接著冒號和連接埠號碼。 
+    針對 [伺服器]，您可以輸入 MQ Server 的名稱，或輸入 IP 位址，後面接著冒號和連接埠號碼。
     2. [閘道] 下拉式清單中會列出已設定的任何現有閘道連線。 選取您的閘道。
-    3. 完成後，請選取 [建立]。 連線看起來如下所示：   
+    3. 完成後，請選取 [建立]。 連線看起來如下所示：  
     ![連線屬性](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. 在動作屬性中，您可以：  

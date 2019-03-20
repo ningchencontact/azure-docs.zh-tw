@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 10/24/2018
+ms.date: 1/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: aaca3f346fafdc6ecde069676dbe0f089a26fca8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 716de6d491be753c5c32c0a2774404140010f72c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242989"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823309"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>什麼是 FPGA 和 Project Brainwave？
 
@@ -30,7 +30,7 @@ FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階
 
 ![Azure Machine Learning 服務 FPGA 比較圖](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|處理器||說明|
+|處理器||描述|
 |---|:-------:|------|
 |應用程式特定的積體電路|ASIC|自訂電路 (例如，Google 的 TensorFlow 處理器 (TPU)) 可提供最高效率。 它們無法隨著您需求的變更加以重新設定。|
 |現場可程式化閘陣列|FPGA|FPGA (例如 Azure 上所提供的那些陣列) 可提供接近 ASIC 的效能。 它們也會隨著時間而具有彈性且可重新設定，以實作新邏輯。|

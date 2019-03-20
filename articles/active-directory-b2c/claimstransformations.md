@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 403e126795a877be018cf4f4eb42581dee080e9c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 59524a9a08b16100598b7713cb0507646245d90b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163155"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445818"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -33,9 +33,9 @@ ms.locfileid: "55163155"
 </ClaimsTransformations>
 ```
 
-**ClaimsTransformation** 元素包含下列屬性：
+**ClaimsTransformation**項目包含下列屬性：
 
-| 屬性 |必要 | 說明 |
+| 屬性 |必要項 | 描述 |
 | --------- |-------- | ----------- |
 | id |是 | 用來唯一識別宣告轉換的識別碼。 此識別碼會從原則中的其他 XML 元素參考。 |
 | TransformationMethod | 是 | 要在宣告轉換中使用的轉換方法。 每個宣告轉換都有自己的值。 如需可用值的完整清單，請參閱[宣告轉換參考](#Claims-transformations-reference)。 |
@@ -59,7 +59,7 @@ ms.locfileid: "55163155"
 ```
 
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | **InputClaim** 元素的清單，會指定要取得以作為宣告轉換輸入的宣告類型。 這些元素中的每一個都會參考已經定義於原則 ClaimsSchema 區段中的 ClaimType。 |
 | InputParameters | 0:1 | **InputParameter** 元素的清單，可提供來作為宣告轉換的輸入。  
@@ -69,7 +69,7 @@ ms.locfileid: "55163155"
 
 **InputClaims** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 預期的輸入宣告類型。 |
 
@@ -77,7 +77,7 @@ ms.locfileid: "55163155"
 
 **InputClaim** 元素包含下列屬性：
 
-| 屬性 |必要 | 說明 |
+| 屬性 |必要項 | 描述 |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |是 | 對已經定義於原則 ClaimsSchema 區段中之 ClaimType 的參考。 |
 | TransformationClaimType |是 | 要參考轉換宣告類型的識別碼。 每個宣告轉換都有自己的值。 如需可用值的完整清單，請參閱[宣告轉換參考](#Claims-transformations-reference)。 |
@@ -86,13 +86,13 @@ ms.locfileid: "55163155"
 
 **InputParameters** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | InputParameter | 1:n | 預期的輸入參數。 |
 
 #### <a name="inputparameter"></a>InputParameter
 
-| 屬性 | 必要 |說明 |
+| 屬性 | 必要項 |描述 |
 | --------- | ----------- |----------- |
 | id | 是 | 識別碼，其為對宣告轉換方法之參數的參考。 每個宣告轉換方法都有自己的值。 如需可用值的完整清單，請參閱宣告轉換表。 |
 | DataType | 是 | 參數的資料類型，例如字串、布林值、整數或日期時間，其會以自訂原則 XML 結構描述中的每個 DataType 列舉為依據。 此類型可用來正確地執行算術運算。 每個宣告轉換都有自己的值。 如需可用值的完整清單，請參閱[宣告轉換參考](#Claims-transformations-reference)。 |
@@ -102,7 +102,7 @@ ms.locfileid: "55163155"
 
 **OutputClaims** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 預期的輸出宣告類型。 |
 
@@ -110,7 +110,7 @@ ms.locfileid: "55163155"
 
 **OutputClaim** 元素包含下列屬性：
 
-| 屬性 |必要 | 說明 |
+| 屬性 |必要項 | 描述 |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | 是 | 對已經定義於原則 ClaimsSchema 區段中之 ClaimType 的參考。
 | TransformationClaimType | 是 | 要參考轉換宣告類型的識別碼。 每個宣告轉換都有自己的值。 如需可用值的完整清單，請參閱[宣告轉換參考](#Claims-transformations-reference)。 |

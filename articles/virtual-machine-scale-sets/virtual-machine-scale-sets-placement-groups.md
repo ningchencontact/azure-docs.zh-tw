@@ -12,15 +12,15 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 2a1c78a4cec595b672604c90e103ae3b9e40273f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 98032291d9b9d1b0885e7442b882a7f62f9ccd59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693678"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123431"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>使用大型的虛擬機器擴展集
 您現在可以建立容量多達 1,000 個 VM 的 Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)。 本文件將_大型虛擬機器擴展集_定義為能夠調整到 100 個 VM 以上的擴展集。 此容量是由擴展集屬性 (_singlePlacementGroup=False_) 所設定。 
@@ -83,7 +83,7 @@ az vmss create --help
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>將現有擴展集轉換為橫跨多個放置群組
 若要讓現有虛擬機器擴展集能夠調整為 100 個以上的 VM，您必須將擴展集模型中的 _singlePlacementGroup_ 屬性變更為 _false_。 您可以使用 [Azure 資源總管](https://resources.azure.com/)測試此屬性的變更。 找到現有擴展集，選取 [編輯]，然後變更 [singlePlacementGroup] 屬性。 如果未看到此屬性，您可能是以舊版 Microsoft.Compute API 在檢視擴展集。
 
->[!NOTE] 
-您只能將擴展集從支援單一放置群組 (預設行為) 變更為支援多個放置群組，而無法進行相反方向的轉換。 因此在轉換之前，請確定您已了解大型擴展集的屬性。
+> [!NOTE]
+> 您只能將擴展集從支援單一放置群組 (預設行為) 變更為支援多個放置群組，而無法進行相反方向的轉換。 因此在轉換之前，請確定您已了解大型擴展集的屬性。
 
 

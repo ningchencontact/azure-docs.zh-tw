@@ -3,7 +3,7 @@ title: 關於 Azure Key Vault 的金鑰、祕密與憑證 - Azure Key Vault
 description: 概述 Azure Key Vault REST 介面和開發人員在金鑰、祕密和憑證方面的詳細資料。
 services: key-vault
 documentationcenter: ''
-author: BryanLa
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 49879d36937a0f0d7ccf1a82cf8b6ca09453894d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842561"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 
@@ -39,10 +39,10 @@ Azure Key Vault 可讓 Microsoft Azure 應用程式和使用者儲存及使用�
 
 JavaScript 物件標記法 (JSON) 和 JavaScript 物件簽章與加密 (JOSE) 規格是重要的背景資訊。  
 
--   [JSON Web 金鑰 (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JSON Web 金鑰 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web 加密 (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web 演算法 (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web 簽章 (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web 簽章 (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>資料類型
 
@@ -112,7 +112,7 @@ Key Vault 使用的密碼編譯模組 (HSM 或軟體) 皆經過 FIPS (聯邦資�
 #### <a name="curve-types"></a>曲線類型
 
 -   **P-256** - NIST 曲線 P-256，定義於 [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf)。
--   **P-256K** - SEC 曲線 SECP256K1，其定義在 [SEC 2：建議使用的橢圓曲線網域參數](http://www.secg.org/sec2-v2.pdf)。
+-   **P-256K** - SEC 曲線 SECP256K1，其定義在 [SEC 2：建議使用的橢圓曲線網域參數](https://www.secg.org/sec2-v2.pdf)。
 -   **P-384** - NIST 曲線 P-384，定義於 [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf)。
 -   **P-521** - NIST 曲線 P-521，定義於 [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf)。
 
@@ -166,7 +166,7 @@ Key Vault 不支援匯出作業。 在系統中佈建金鑰後，即無法加以
 
 使用者可以使用 JWK 物件的 key_ops 屬性，來對 Key Vault 支援的密碼編譯作業 (以每個金鑰為基礎) 設定限制。  
 
-如需 JWK 物件的詳細資訊，請參閱 [JSON Web 金鑰 (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)。  
+如需 JWK 物件的詳細資訊，請參閱 [JSON Web 金鑰 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)。  
 
 ###  <a name="key-attributes"></a>金鑰屬性
 
@@ -189,7 +189,7 @@ nbf / exp 範圍外尚未生效和過期的金鑰，將會用於**解密**、**�
 
 如需資料類型的詳細資訊，請參閱[資料類型](#data-types)。
 
-如需其他可能屬性的詳細資訊，請參閱 [JSON Web 金鑰 (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)。
+如需其他可能屬性的詳細資訊，請參閱 [JSON Web 金鑰 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)。
 
 ### <a name="key-tags"></a>金鑰標記
 
@@ -409,10 +409,10 @@ Key Vault 可讓您以不同簽發者的提供者組態，來建立多個簽發�
 
 如果將憑證的原則設定為自動更新，則發生下列事件時會傳送通知。  
 
--   憑證更新之前
--   在憑證更新之後，指出是否已成功更新憑證，或是如果發生錯誤，需要手動更新憑證。  
+- 憑證更新之前
+- 在憑證更新之後，指出是否已成功更新憑證，或是如果發生錯誤，需要手動更新憑證。  
 
- 如果憑證的原則設定為以手動方式更新 (僅限電子郵件)，則會在需更新憑證時傳送通知。  
+  如果憑證的原則設定為以手動方式更新 (僅限電子郵件)，則會在需更新憑證時傳送通知。  
 
 ### <a name="certificate-access-control"></a>憑證存取控制
 
@@ -477,7 +477,7 @@ Key Vault 可管理 Azure 儲存體帳戶金鑰：
 
 如需詳細資訊，請參閱 [Key Vault REST API 參考中的儲存體帳戶作業](/rest/api/keyvault)。 如需建立權限的相關資訊，請參閱[保存庫 - 建立或更新](/rest/api/keyvault/vaults/createorupdate)和[保存庫 - 更新存取原則](/rest/api/keyvault/vaults/updateaccesspolicy)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 
 - [驗證、要求和回應](authentication-requests-and-responses.md)
 - [Key Vault 版本](key-vault-versions.md)

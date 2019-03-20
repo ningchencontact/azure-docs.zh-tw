@@ -1,6 +1,6 @@
 ---
-title: 使用媒體服務保護您的內容 - Azure | Microsoft Docs
-description: 本文提供使用媒體服務內容保護的概觀。
+title: 保護您的內容使用 Media Services 動態加密-Azure |Microsoft Docs
+description: 本文提供內容保護與動態加密的概觀。 它也會討論資料流通訊協定和加密類型。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: cc32338a69953c49efad4a206a974ac4523923e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189762"
 ---
-# <a name="content-protection-overview"></a>內容保護概觀
+# <a name="content-protection-with-dynamic-encryption"></a>內容保護與動態加密
 
 您可以使用 Azure 媒體服務來保護媒體從離開電腦到進行儲存、處理和傳遞時的安全。 使用媒體服務，您就能傳遞利用進階加密標準 (AES-128) 或下列三個主要數位版權管理 (DRM) 系統中任一個所動態加密的即時與隨選內容：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。 
 
@@ -96,17 +96,54 @@ ms.locfileid: "57894133"
 
 您可以使用媒體服務，來傳遞藉由使用 PlayReady、Widevine 或 FairPlay 並透過 AES 未加密金鑰或 DRM 加密所動態加密的內容。 您目前可以加密 HTTP 即時串流 (HLS)、MPEG DASH 和 Smooth Streaming 格式。 每個通訊協定支援下列加密方法：
 
+### <a name="hls"></a>HLS
+
+HLS 通訊協定支援下列容器格式和加密配置。
+
+|容器格式|加密配置|URL 範例|
+|---|---|---|
+|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|MPG2-TS |CBCS (FairPlay) ||
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC (PlayReady) ||
+|CMAF(fmp4) |CENC (PlayReady) ||
+
+HLS/CMAF + FairPlay (包括 HEVC / H.265) 支援下列裝置：
+
+* iOS v11 或更高版本 
+* iPhone 8 或更新版本
+* Intel 的 MacOS high Sierra 7 Gen CPU
+
+### <a name="mpeg-dash"></a>MPEG-DASH
+
+MPEG DASH 通訊協定支援下列容器格式和加密配置。
+
+|容器格式|加密配置|URL 範例
+|---|---|---|
+|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)||
+
+### <a name="smooth-streaming"></a>Smooth Streaming
+
+Smooth Streaming 通訊協定支援下列容器格式和加密配置。
+
 |通訊協定|容器格式|加密配置|
 |---|---|---|
-|MPEG-DASH|全部|AES|
-||CSF(fmp4) |CENC (Widevine + PlayReady) |
-||CMAF(fmp4)|CENC (Widevine + PlayReady)|
-|HLS|全部|AES|
-||MPG2-TS |CBCS (Fairplay) |
-||MPG2-TS |CENC (PlayReady) |
-||CMAF(fmp4) |CENC (PlayReady) |
-|Smooth Streaming|fMP4|AES|
-||fMP4 | CENC (PlayReady) |
+|fMP4|AES||
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
+
+### <a name="browsers"></a>瀏覽器
+
+常見的瀏覽器都支援下列的 DRM 用戶端：
+
+|[瀏覽器]|加密|
+|---|---|
+|Chrome|Widevine|
+|Edge, IE 11|PlayReady|
+|Firefox|Widevine|
+|Opera|Widevine|
+|Safari|FairPlay|
 
 ## <a name="aes-128-clear-key-vs-drm"></a>AES-128 未加密金鑰與DRM
 
@@ -167,6 +204,6 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 * [使用 AES 加密保護](protect-with-aes128.md)
 * [使用 DRM 保護](protect-with-drm.md)
-* [設計多重 drm 內容保護系統存取控制](design-multi-drm-system-with-access-control.md)
+* [設計多重 DRM 內容保護系統存取控制](design-multi-drm-system-with-access-control.md)
 * [常見問題集](frequently-asked-questions.md)
 

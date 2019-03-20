@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>先決條件
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: c2e311a85430abdad4736e8c88d96b18d182ecf9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58116104"
+---
+### <a name="prerequisites"></a>必要條件
 * Twitter 帳戶 
 
 您必須先授權邏輯應用程式連線到您的 Twitter 帳戶，才能在該邏輯應用程式中使用您的 Twitter 帳戶。 所幸，您可以使用 Azure 入口網站在邏輯應用程式內輕易達成這項作業。 

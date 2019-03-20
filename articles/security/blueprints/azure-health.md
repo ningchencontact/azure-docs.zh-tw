@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544557"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225360"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
@@ -359,7 +359,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 - [Application Insights](/azure/application-insights/app-insights-overview) 是多個平台上的 Web 開發人員所適用的可延伸應用程式效能管理 (APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它會偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。 它是設計來協助您持續改善效能和可用性。
 
 ### <a name="azure-alerts"></a>Azure 警示
-- [警示會提供監視 Azure 服務的方法，並可讓您針對資料設定條件。 當警示條件符合監視資料時，警示也會提供通知。
+- [警示](/azure/azure-monitor/platform/alerts-metric)提供監視 Azure 服務的方法，可讓您對資料設定條件。 當警示條件符合監視資料時，警示也會提供通知。
 
 ### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 [Azure 監視器記錄](/azure/operations-management-suite/operations-management-suite-overview)是管理服務的集合。

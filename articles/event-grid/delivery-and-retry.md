@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465508"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991201"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試
 
@@ -24,17 +24,20 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 
 ## <a name="retry-schedule-and-duration"></a>重試排程和持續時間
 
-Event Grid 針對事件傳遞使用指數輪詢重試原則。 如果您的端點沒有回應或傳回失敗碼，事件方格會以下列排程重試傳遞：
+Event Grid 針對事件傳遞使用指數輪詢重試原則。 如果端點未回應，或是傳回失敗碼，Event Grid 會重試上盡力在下列排程傳遞：
 
 1. 10 秒
-2. 30 秒
-3. 1 分鐘
-4. 5 分鐘
-5. 10 分鐘
-6. 30 分鐘
-7. 1 小時
+1. 30 秒
+1. 1 分鐘
+1. 5 分鐘
+1. 10 分鐘
+1. 30 分鐘
+1. 1 小時
+1. 每小時，最多 24 小時
 
-事件方格會在所有重試步驟中加入些許隨機性。 一個小時之後，事件傳遞會每小時重試一次。
+Event Grid 會將小型隨機加入所有重試步驟，並可能都伺機如果略過特定重試一致狀況不良下, 一長段時間，或端點似乎是難以應付。
+
+具決定性的行為，將即時事件的時間和最大傳遞嘗試中[訂用帳戶重試原則](manage-event-delivery.md)。
 
 根據預設，事件格線會讓所有未在 24 小時內傳遞的事件變成過期事件。 您可以在建立事件訂用帳戶時[自訂重試原則](manage-event-delivery.md)。 您可以提供傳遞嘗試次數上限 (預設為 30 次) 和事件存留時間 (預設為 1440 分鐘)。
 

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8abc6129e1179378ac90278fd2032737b2b828b2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114518"
 ---
 #### <a name="to-download-hotfixes"></a>下載 Hofix
 
@@ -100,12 +100,12 @@ ms.locfileid: "55888430"
     您應該會看見下列版本：
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17845`
+   * `HcsSoftwareVersion: 6.3.9600.17845`
    
-    如果在套用更新後版本號碼並未變更，則表示此 Hotfix 未成功套用。 若您看到這種情況，請連絡 [Microsoft 支援](../articles/storsimple/storsimple-8000-contact-microsoft-support.md)以取得進一步的協助。
+     如果在套用更新後版本號碼並未變更，則表示此 Hotfix 未成功套用。 若您看到這種情況，請連絡 [Microsoft 支援](../articles/storsimple/storsimple-8000-contact-microsoft-support.md)以取得進一步的協助。
      
-    > [!IMPORTANT]
-    > 您必須先透過 `Restart-HcsController` Cmdlet 重新啟動主動控制器，再套用下一個更新。
+     > [!IMPORTANT]
+     > 您必須先透過 `Restart-HcsController` Cmdlet 重新啟動主動控制器，再套用下一個更新。
      
 8. 重複步驟 3-6，以安裝下載到 _FirstOrderUpdate_ 資料夾的 _CisMDSAgentupdate.exe_ 代理程式。
 8. 重複步驟 3-6 來安裝第二級更新。 

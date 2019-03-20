@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cb0822380fd375c111f8acb8b28132727a7c048
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8ee74c5caed04d2626fea27d3419d0b0d685d675
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>教學課程：Azure Active Directory 與 Insignia SAML SSO 整合
 
@@ -112,6 +112,7 @@ Insignia SAML SSO 與 Azure AD 整合提供下列優點：
     ![Insignia SAML SSO 網域與 URL 單一登入資訊](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+    
     | |
     |--|
     | `https://<customername>.insigniails.com/ils` |

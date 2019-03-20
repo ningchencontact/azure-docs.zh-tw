@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 38070c3073febbdbea896c177ae68d4b9519314d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: be36f9ab881f2375b14ba0ea36038f9e840d199f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997500"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>使用 Azure Data Factory 從 SQL Server 內部部署或 IaaS (Azure VM) 上來回移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,6 +29,8 @@ ms.locfileid: "55813376"
 > 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 SQL Server 連接器](../connector-sql-server.md)。
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，將資料移進/移出內部部署 SQL Server 資料庫。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>支援的案例
 您可以**從 SQL Server 資料庫**將資料複製到下列資料存放區：
@@ -72,15 +74,15 @@ ms.locfileid: "55813376"
 
 下表提供 SQL Server 連結服務專屬 JSON 元素的描述。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| type |type 屬性應設為：**OnPremisesSqlServer**。 |yes |
-| connectionString |指定使用 SQL 驗證或 Windows 驗證連接至內部部署 SQL Server 資料庫所需的 connectionString 資訊。 |yes |
-| gatewayName |Data Factory 服務應該用來連接到內部部署 SQL Server 資料庫的閘道器名稱。 |yes |
+| type |type 屬性應設為：**OnPremisesSqlServer**。 |是 |
+| connectionString |指定使用 SQL 驗證或 Windows 驗證連接至內部部署 SQL Server 資料庫所需的 connectionString 資訊。 |是 |
+| gatewayName |Data Factory 服務應該用來連接到內部部署 SQL Server 資料庫的閘道器名稱。 |是 |
 | username |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 
-您可以使用 **New-AzureRmDataFactoryEncryptValue** Cmdlet 加密認證，並在連接字串中使用這些認證，如下列範例所示 (**EncryptedCredential** 屬性)：
+您可以加密使用的認證**新增 AzDataFactoryEncryptValue** cmdlet 並將其用於連接字串，如下列範例所示 (**EncryptedCredential**屬性):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -129,9 +131,9 @@ ms.locfileid: "55813376"
 
 每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。 **SqlServerTable** 類型資料集的 **typeProperties** 區段有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| tableName |SQL Server Database 執行個體中連結服務所參照的資料表或檢視名稱。 |yes |
+| tableName |SQL Server Database 執行個體中連結服務所參照的資料表或檢視名稱。 |是 |
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 如果您要將資料從 SQL Server 資料庫移出，請將複製活動中的來源類型設定為 **SqlSource**。 同樣的，如果您要將資料移進 SQL Server 資料庫，請將複製活動中的接收器類型設定為 **SqlSink**。 本節提供 SqlSource 和 SqlSink 支援的屬性清單。
@@ -146,7 +148,7 @@ ms.locfileid: "55813376"
 ### <a name="sqlsource"></a>SqlSource
 當複製活動中的來源類型為 **SqlSource** 時，**typeProperties** 區段會有下列可用屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | SqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 可以參考輸入資料集所參考資料庫中的多個資料表。 如果未指定，執行的 SQL 陳述式：select from MyTable。 |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 |預存程序的名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
@@ -164,7 +166,7 @@ ms.locfileid: "55813376"
 ### <a name="sqlsink"></a>管線
 **SqlSink** 支援下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。 |時間範圍<br/><br/> 範例：“00:30:00” (30 分鐘)。 |否 |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中 |整數 (資料列數目) |否 (預設值：10000) |
@@ -551,17 +553,15 @@ ms.locfileid: "55813376"
 
     如需啟用 TCP/IP 通訊協定的詳細資料及替代方式，請參閱 [啟用或停用伺服器網路通訊協定](https://msdn.microsoft.com/library/ms191294.aspx) 。
 3. 在相同的視窗中，按兩下 [TCP/IP] 來啟動 [TCP/IP 屬性] 視窗。
-4. 切換到 [IP 位址] 索引標籤。向下捲動到 [IPAll] 區段。 記下 **TCP 通訊埠** (預設值是 **1433**)。
+4. 切換到 [IP 位址] 索引標籤。向下捲動到 [IPAll] 區段。 請記下**TCP 連接埠**(預設值是**1433年**)。
 5. 在電腦上建立 **Windows 防火牆規則** ，來允許透過此連接埠的連入流量。
 6. **驗證連線**：若要使用完整名稱來連線到 SQL Server，請使用來自不同機器的 SQL Server Management Studio。 例如："\<machine\>.\<domain\>.corp.\<company\>.com,1433"。
 
    > [!IMPORTANT]
-
+   > 
    > 如需詳細資訊，請參閱[利用資料管理閘道在內部部署來源和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)。
-   >
+   > 
    > 如需連接/閘道器相關問題的疑難排解秘訣，請參閱 [針對閘道問題進行疑難排解](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 。
-   >
-   >
 
 
 ## <a name="identity-columns-in-the-target-database"></a>目標資料庫中的身分識別資料行

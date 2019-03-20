@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 86404f4eb2eb2de4243c6bb725f4292e7b560d18
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271017"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569887"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Azure Data Factory 對應資料流程樞紐轉換
 
@@ -42,7 +42,7 @@ ms.locfileid: "56271017"
 
 (選擇性) 您可以設定對於每個新資料行名稱從資料列新增前置詞、中置詞及後置詞的命名模式。
 
-例如，依「區域」樞紐處理「銷售」會從每個銷售值產生新的資料行值，也就是"25"、"50"、"1000" 等等。不過，如果您設定「銷售」的前置詞值。 
+例如，依「區域」樞紐處理「銷售」會從每個銷售值產生新的資料行值，也就是"25"、"50"、"1000" 等等。不過，如果您設定的 「 銷售-"前置詞值，每個資料行值會新增"Sales-"開頭的值。
 
 ![樞紐選項](media/data-flow/pivot5.png "樞紐 5")
 
@@ -56,4 +56,8 @@ ms.locfileid: "56271017"
 
 ### <a name="how-to-rejoin-original-fields"></a>如何重新加入原始欄位
 > [!NOTE]
-> 樞紐轉換只會投出使用在彙總、分組和中樞動作中的資料行。 如果您想要納入流程上一個步驟的其他資料行，請從上一個步驟使用「新增分支」，並使用自我聯結模式來連接該流程和原始中繼資料
+> 樞紐轉換只會投出使用在彙總、分組和中樞動作中的資料行。 如果您想要納入您的流程中的上一個步驟中的其他資料行，使用新的分支，從上一個步驟，並使用自我聯結模式來連接使用原始的中繼資料的流程。
+
+## <a name="next-steps"></a>後續步驟
+
+請嘗試[取消樞紐轉換](data-flow-unpivot.md)來將資料行值轉換成資料列的值。 

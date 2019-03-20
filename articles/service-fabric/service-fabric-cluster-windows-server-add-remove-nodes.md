@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e9b87c19977fe35132d80729810c3a0547c486fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251014"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446107"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>在執行於 Windows Server 上的獨立 Service Fabric 叢集中新增或移除節點
 [在 Windows Server 機器上建立獨立 Service Fabric 叢集](service-fabric-cluster-creation-for-windows-server.md)之後，您的業務需求可能會改變，因此您將需要在叢集中新增或移除節點。 本文提供可達成此目的的詳細步驟。 請注意，在本機開發叢集中，不支援新增/移除節點功能。
@@ -38,7 +38,7 @@ ms.locfileid: "51251014"
     ```
     指令碼執行完成之後，您可以執行 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) Cmdlet，來檢查是否已新增新節點。
 
-7. 為了確保叢集中不同節點間的一致性，您必須起始組態升級。 請執行 [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) 來取得最新的組態檔，然後將剛新增的節點新增到 "Nodes" 區段。 此外，建議您一律備妥最新的叢集組態，以因應您需要以相同組態重新部署叢集的情況。
+7. 為了確保叢集中不同節點間的一致性，您必須起始組態升級。 請執行 [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) 來取得最新的組態檔，然後將剛新增的節點新增到 "Nodes" 區段。 也建議您永遠有最新可用的情況下，您需要重新部署叢集，以相同的組態中的叢集組態。
 
     ```
         {
@@ -113,7 +113,7 @@ ms.locfileid: "51251014"
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    您可以在 Service Fabric Explorer 中監視升級進度。 或者，您也可以執行 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    您可以在 Service Fabric Explorer 中監視升級進度。 或者，也可运行 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 > [!NOTE]
 > 移除節點可能會起始多個升級作業。 有些節點帶有 `IsSeedNode=”true”` 標記標示，透過使用 `Get-ServiceFabricClusterManifest` 來查詢叢集資訊清單即可識別這些節點。 移除這類節點所需的時間可能比移除其他節點長，因為在這類案例中，需要將種子節點四處移動。 叢集必須至少維持 3 個主要節點類型節點。
@@ -124,7 +124,7 @@ ms.locfileid: "51251014"
 移除節點之前，請仔細檢查是否有任何節點參考該節點類型。 請先移除這些節點，然後才移除對應的節點類型。 移除所有對應的節點之後，您便可以將該 NodeType 自叢集組態中移除，然後使用 [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) 來開始組態升級。
 
 
-### <a name="replace-primary-nodes-of-your-cluster"></a>取代您叢集的主要節點
+### <a name="replace-primary-nodes-of-your-cluster"></a>替换群集的主节点
 應以逐一取代主要節點的方式來執行，而不是以批次方式移除後再加入。
 
 

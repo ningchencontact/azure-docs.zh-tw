@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855932"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>在 Azure 上使用 Scala 與 Spark 的資料科學
 本文章說明如何使用 Scala 搭配 Spark 可調整 MLlib 和 Azure HDInsight Spark 叢集上的 SparkML 封裝，處理受監督的機器學習工作。 它會引導您進行構成 [資料科學程序](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)的各項工作︰資料擷取和探索、視覺化、特徵設計、模型化和模型取用。 本文中的模型除了兩個常見受監督的機器學習工作之外，還包括羅吉斯和線性迴歸、隨機樹系和梯度推進樹 (GBT)︰
@@ -26,9 +26,9 @@ ms.locfileid: "55470309"
 
 模型化程序需要訓練和評估測試資料集和相關精確度計量。 在本文中，您會了解如何在 Azure Blob 儲存體中儲存這些模型，以及如何評分及評估模型的預測效能。 本文也涵蓋如何使用交叉驗證和超參數掃掠來最佳化模型等更進階的主題。 所使用的資料是 GitHub 上 2013 年紐約市計程車車程和費用資料集的抽樣樣本。
 
-[Scala](http://www.scala-lang.org/)是一種以 Java 虛擬機器為基礎的語言，整合物件導向與函式型語言的概念。 這是一種可調整的語言，非常適合用於雲端中的分散式處理以及在 Azure Spark 叢集上執行。
+[Scala](https://www.scala-lang.org/)是一種以 Java 虛擬機器為基礎的語言，整合物件導向與函式型語言的概念。 這是一種可調整的語言，非常適合用於雲端中的分散式處理以及在 Azure Spark 叢集上執行。
 
-[Spark](http://spark.apache.org/) 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇。 [Spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) 封裝提供一組以資料框架為基礎的統一高階 API，可協助您建立及微調實際的機器學習管線。 [MLlib](http://spark.apache.org/mllib/) 是 Spark 的可調整機器學習程式庫，將模型化功能引進此分散式環境。
+[Spark](https://spark.apache.org/) 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇。 [Spark.ml](https://spark.apache.org/docs/latest/ml-guide.html) 封裝提供一組以資料框架為基礎的統一高階 API，可協助您建立及微調實際的機器學習管線。 [MLlib](https://spark.apache.org/mllib/) 是 Spark 的可調整機器學習程式庫，將模型化功能引進此分散式環境。
 
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) 是開放原始碼 Spark 的 Azure 託管供應項目。 它也支援 Spark 叢集上的 Jupyter Scala Notebook，可執行 Spark SQL 互動式查詢以轉換、篩選和視覺化 Azure Blob 儲存體中儲存的資料。 本文中的 Scala 程式碼片段提供解決方案，並且顯示相關的繪圖，將安裝在 Spark 叢集上的 Jupyter Notebook 資料加以視覺化。 這些主題中的模型化步驟有程式碼向您示範如何訓練、評估、儲存和使用各類模型。
 
@@ -368,7 +368,7 @@ Spark 可以讀取和寫入 Azure Blob 儲存體。 您可以使用 Spark 來處
 ### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>索引和 one-hot 編碼分類功能
 MLlib 的模型化和預測函式需要先執行功能來分類要索引或編碼的分類輸入資料，才能使用這些資料。 本節示範如何索引或編碼分類特徵，以輸入模型化函式。
 
-根據模型，您需要以不同方式索引或編碼它們。 例如，羅吉斯和線性迴歸模型需要 one-hot 編碼。 例如，有三個類別的特徵可展開成三個特徵資料行。 根據觀察值的分類，每個資料行包含 0 或 1。 MLlib 為 one-hot 編碼提供 [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 函式。 此編碼器會將標籤索引資料行對應到二進位向量資料行，最多有一個單一值。 使用這種編碼方式，可將預期數值特徵的演算法 (例如羅吉斯迴歸) 套用至分類特徵。
+根據模型，您需要以不同方式索引或編碼它們。 例如，羅吉斯和線性迴歸模型需要 one-hot 編碼。 例如，有三個類別的特徵可展開成三個特徵資料行。 根據觀察值的分類，每個資料行包含 0 或 1。 MLlib 為 one-hot 編碼提供 [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 函式。 此編碼器會將標籤索引資料行對應到二進位向量資料行，最多有一個單一值。 使用這種編碼方式，可將預期數值特徵的演算法 (例如羅吉斯迴歸) 套用至分類特徵。
 
 您在此只會轉換四個變數 (其為字元字串) 來顯示範例。 您也可以將其他以數值表示的變數 (例如工作日) 編製索引為類別變數。
 
@@ -853,7 +853,7 @@ ROC 曲線下的區域：0.9846895479241554
 ### <a name="create-a-gbt-regression-model"></a>建立 GBT 迴歸模型
 使用 SparkML `GBTRegressor()` 函式建立 GBT 迴歸模型，然後對測試資料評估模型。
 
-[梯度推進樹](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) 集合了所有決策樹。 GBT 反覆地訓練決策樹以盡可能降低遺失函式。 您可以使用 GBT 進行迴歸和分類。 GBT 可以處理分類特徵、不需要調整特徵，而且可以擷取非線性和特徵互動。 您也可以在多類別分類設定中使用 GBT。
+[梯度推進樹](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) 集合了所有決策樹。 GBT 反覆地訓練決策樹以盡可能降低遺失函式。 您可以使用 GBT 進行迴歸和分類。 GBT 可以處理分類特徵、不需要調整特徵，而且可以擷取非線性和特徵互動。 您也可以在多類別分類設定中使用 GBT。
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

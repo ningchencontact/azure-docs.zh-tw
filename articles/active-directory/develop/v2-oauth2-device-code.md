@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1f34796a98acb3ed4241edff57e506990479d1a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170189"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443261"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 裝置代碼流程
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170189"
 Azure AD 支援[裝置代碼授與](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12)會允許使用者登入具有輸入限制的裝置，例如智慧型電視、物聯網裝置或印表機。  若要啟用此流程，裝置會讓使用者在其他裝置的瀏覽器中瀏覽網頁，以執行登入程序。  使用者登入後，裝置可取得所需的存取權杖和重新整理權杖。  
 
 > [!Important] 
-> 目前 v2.0 端點僅支援 Azure AD 租用戶的裝置流程，但不包括個人帳戶，  因此您必須使用租用戶端點或組織端點。  
+> 目前 v2.0 端點僅支援 Azure AD 租用戶的裝置流程，但不包括個人帳戶，  這表示，您必須使用為租用戶中，設定端點或組織端點。  
 >
 > 獲邀使用 Azure AD 租用戶的個人帳戶將能使用裝置代碼授與，但僅限在租用戶相關背景中使用。
 
@@ -61,17 +61,17 @@ scope=user.read%20openid%20profile
 
 ```
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | --- | --- | --- |
-| tenant |必要 |您想要要求權限的目錄租用戶。 這可以採用 GUID 或易記名稱格式。  |
-| client_id |必要 |[應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)指派給您應用程式的「應用程式識別碼」。 |
+| tenant |必要項 |您想要要求權限的目錄租用戶。 這可以採用 GUID 或易記名稱格式。  |
+| client_id |必要項 |[应用程序注册门户](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 为应用分配的应用程序 ID。 |
 | scope | 建議 | 您要使用者同意的 [範圍](v2-permissions-and-consent.md) 空格分隔清單。  |
 
 ### <a name="device-authorization-response"></a>裝置授權回應
 
 成功的回應會是一個 JSON 物件，其中包含允許使用者登入的所需資訊。  
 
-| 參數 | 格式 | 說明 |
+| 參數 | 格式 | 描述 |
 | ---              | --- | --- |
 |`device_code`     |字串| 長字串，可用於驗證用戶端與授權伺服器之間的工作階段。  用戶端可用於向授權伺服器要求存取權杖。 |
 |`user_code`       |字串| 向使用者顯示的短字串，用於識別輔助裝置上的工作階段。|
@@ -96,17 +96,17 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-|參數 | 必要 | 說明|
+|參數 | 必要項 | 描述|
 | -------- | -------- | ---------- |
-|`grant_type` | 必要| 必須是 `urn:ietf:params:oauth:grant-type:device_code`|
-|`client_id`  | 必要| 必須符合初始要求中使用的 `client_id`。 |
-|`device_code`| 必要| 裝置授權要求傳回的 `device_code`。  |
+|`grant_type` | 必要項| 必須是 `urn:ietf:params:oauth:grant-type:device_code`|
+|`client_id`  | 必要項| 必須符合初始要求中使用的 `client_id`。 |
+|`device_code`| 必要項| 裝置授權要求傳回的 `device_code`。  |
 
 ### <a name="expected-errors"></a>預期的錯誤
 
 由於裝置代碼流程是輪詢通訊協定，因此用戶端應在使用者完成驗證之前收到錯誤。  
 
-| Error | 說明 | 用戶端動作 |
+| Error | 描述 | 用戶端動作 |
 |------ | ----------- | -------------|
 | `authorization_pending` |  用戶尚未完成驗證，但也未取消流程。 | 經過至少 `interval` 秒後，重複要求流程。 |
 | `authorization_declined`|  終端使用者拒絕了授權要求。| 停止輪詢，並還原到未驗證的狀態。  |
@@ -129,7 +129,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 }
 ```
 
-| 參數 | 格式 | 說明 |
+| 參數 | 格式 | 描述 |
 | --------- | ------ | ----------- |
 |`token_type` | 字串| 一律是「Bearer」。 |
 |`scope` | 空格分隔的字串 | 如果傳回了存取權杖，則會列出存取權杖的有效範圍。 |

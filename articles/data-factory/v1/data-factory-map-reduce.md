@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 309ddcf68d03f34ca3309d76d15cc3928037c667
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017441"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110523"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>從 Data Factory 叫用 MapReduce 程式
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -110,7 +110,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
         }
     }
     ```
-您可以使用「HDInsight MapReduce 活動」，在 HDInsight 叢集上執行任何 MapReduce Jar 檔案。 在下列管線的範例 JSON 定義中，已設定讓「HDInsight 活動」執行 Mahout JAR 檔案。
+   您可以使用「HDInsight MapReduce 活動」，在 HDInsight 叢集上執行任何 MapReduce Jar 檔案。 在下列管線的範例 JSON 定義中，已設定讓「HDInsight 活動」執行 Mahout JAR 檔案。
 
 ## <a name="sample-on-github"></a>GitHub 上的範例
 您可以從以下位置下載使用 HDInsight MapReduce 活動的範例：[GitHub 上的 Data Factory 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample)。  
@@ -236,17 +236,17 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 ## <a name="run-spark-programs"></a>執行 Spark 程式
 您可以使用 MapReduce 活動，在 HDInsight Spark 叢集上執行 Spark 程式。 如需詳細資訊，請參閱 [從 Azure Data Factory 叫用 Spark 程式](data-factory-spark.md) 。  
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Portal]: http://portal.azure.com
+[Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[Azure Portal]: https://portal.azure.com
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [Hive 活動](data-factory-hive-activity.md)
 * [Pig 活動](data-factory-pig-activity.md)
 * [Hadoop 串流活動](data-factory-hadoop-streaming-activity.md)

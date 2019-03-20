@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316289"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961839"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>對認知搜尋進行疑難排解的秘訣
 
@@ -103,7 +103,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 對於[平行索引編製](search-howto-large-index.md)，請將您的資料放入多個容器中，或是相同容器內的多個虛擬資料夾中。 接著，請建立多個資料來源和索引子配對。 所有索引子將可使用相同的技能集，並寫入至相同的目標搜尋索引，而讓您的搜尋應用程式無須辨識此分割。
 如需詳細資訊，請參閱[為大型資料集編製索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 + [快速入門：在入口網站中建立認知搜尋管線](cognitive-search-quickstart-blob.md)
 + [教學課程：了解認知搜尋 REST API](cognitive-search-tutorial-blob.md)
 + [指定資料來源認證](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

@@ -4,12 +4,12 @@ ms.service: azure-powershell
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: sewhee
-ms.openlocfilehash: b93722147959881dfbffbb47b7a3e4b140044525
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: c5440555c11d98fb89f8594eec1d4b7e74ea8667
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246762"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115264"
 ---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>設定資源管理員範本的 PowerShell
 您必須擁有正確的 Windows PowerShell 和 Azure PowerShell 版本，才能搭配使用 Azure PowerShell 與資源管理員。
@@ -32,7 +32,7 @@ ms.locfileid: "56246762"
     PSRemotingProtocolVersion      2.2
 
 
-確認 **PSVersion** 的值是 3.0 或 4.0。 如果為否，請參閱 [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。
+确保 PSVersion 的值为 3.0 或 4.0。 如果為否，請參閱 [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。
 
 ### <a name="set-your-azure-account-and-subscription"></a>設定 Azure 帳戶和訂用帳戶
 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -58,10 +58,9 @@ ms.locfileid: "56246762"
     CurrentStorageAccountName :
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-您可以在 Azure PowerShell 命令提示字元下執行這些命令，設定目前 Azure 訂用帳戶。 以正確的名稱取代括號中 (包括 < 和 > 字元) 的所有內容。
+可通过在 Azure PowerShell 命令提示符下运行以下命令设置当前的 Azure 订阅。 以正確的名稱取代括號中 (包括 < 和 > 字元) 的所有內容。
 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-如需 Azure 訂用帳戶和帳戶的詳細資訊，請參閱[操作說明：連線至訂用帳戶](/powershell/azureps-cmdlets-docs)。
-
+如需 Azure 訂用帳戶和帳戶的詳細資訊，請參閱[操作說明：連線至訂用帳戶](/powershell/azureps-cmdlets-docs#step-3-connect)。

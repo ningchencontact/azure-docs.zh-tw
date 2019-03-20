@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 94d49edb93e4c7b2daff3c58c02b349612f1ee92
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463299"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998291"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>使用自動調整動作在 Azure 監視器中傳送電子郵件和 Webhook 警示通知
 本文將告訴您如何設定觸發程序，讓您可以根據 Azure 中的自動調整動作呼叫特定的 Web URl 或傳送電子郵件。  
@@ -59,7 +59,8 @@ Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或�
       }
     ]
 ```
-| 欄位 | 是否為強制？ | 說明 |
+
+| 欄位 | 是否為強制？ | 描述 |
 | --- | --- | --- |
 | operation |是 |值必須是 [調整] |
 | sendToSubscriptionAdministrator |是 |值必須是 "true" 或 "false" |
@@ -102,7 +103,7 @@ Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI
 ```
 
 
-| 欄位 | 是否為強制？ | 說明 |
+| 欄位 | 是否為強制？ | 描述 |
 | --- | --- | --- |
 | status |是 |此狀態表示產生了自動調整動作 |
 | operation |是 |若執行個體增加，它會「相應放大」，若執行個體減少，它會「相應縮小」。 |

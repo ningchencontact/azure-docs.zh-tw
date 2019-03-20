@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako;
-ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004888"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188249"
 ---
-# <a name="redact-faces-with-azure-media-analytics-legacy"></a>使用 Azure 媒體分析修訂臉部 (舊版)
+# <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒體分析修訂臉部 
 ## <a name="overview"></a>概觀
 **Azure 媒體修訂器** 是 [Azure 媒體分析](media-services-analytics-overview.md) 媒體處理器 (MP)，可在雲端提供可調整的臉部修訂。 臉部修訂可讓您修改視訊，以模糊所選人物的臉部。 在公共安全和新聞媒體案例中，您可能會想要使用臉部修訂服務。 若要手動修訂包含多個臉部的幾分鐘影片，可能要花上數小時的時間，若使用此服務，則只需要幾個簡單的步驟就能完成臉部修訂程序。 如需詳細資訊，請參閱[此](https://azure.microsoft.com/blog/azure-media-redactor/)部落格。
 
@@ -38,13 +38,13 @@ ms.locfileid: "56004888"
 | --- | --- | --- |
 | 輸入資產 |foo.bar |WMV、MOV 或 MP4 格式的視訊 |
 | 輸入組態 |作業組態預設值 |{'version':'1.0', 'options': {'mode':'combined'}} |
-| 輸出資產 |foo_redacted.mp4 |已套用模糊處理的視訊 |
+| 輸出資產 |foo_redacted.mp4 |进行了模糊处理的视频 |
 
 #### <a name="input-example"></a>輸入範例︰
-[請觀看這個影片](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[观看此视频](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
-#### <a name="output-example"></a>輸出範例：
-[請觀看這個影片](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+#### <a name="output-example"></a>输出示例：
+[請觀看這個影片](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>分析模式
 兩段式工作流程的 **分析** 階段會接受視訊輸入，並產生臉部位置的 JSON 檔案和每個偵測到之臉部的 jpg 影像。
@@ -117,15 +117,15 @@ ms.locfileid: "56004888"
 | 階段 | 檔案名稱 | 注意 |
 | --- | --- | --- |
 | 輸入資產 |foo.bar |WMV、MPV 或 MP4 格式的視訊。 和步驟 1 相同的視訊。 |
-| 輸入資產 |foo_annotations.json |來自第一個階段的註解中繼資料檔案，並帶有選擇性的修改。 |
-| 輸入資產 |foo_IDList.txt (選擇性) |要修訂之臉部 ID 的選擇性換行分隔清單。 如果保持空白，則會模糊所有臉部。 |
-| 輸入組態 |作業組態預設值 |{'version':'1.0', 'options': {'mode':'redact'}} |
-| 輸出資產 |foo_redacted.mp4 |已根據註解套用模糊處理的視訊 |
+| 輸入資產 |foo_annotations.json |第一阶段中的批注元数据文件，包含可选的修改。 |
+| 输入资产 |foo_IDList.txt (選擇性) |要修訂之臉部 ID 的選擇性換行分隔清單。 如果保持空白，則會模糊所有臉部。 |
+| 输入配置 |作業組態預設值 |{'version':'1.0', 'options': {'mode':'redact'}} |
+| 输出资产 |foo_redacted.mp4 |已根據註解套用模糊處理的視訊 |
 
 #### <a name="example-output"></a>範例輸出
 這是選取了一個識別碼的 IDList 輸出。
 
-[請觀看這個影片](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[請觀看這個影片](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
 Example foo_IDList.txt
  
@@ -371,7 +371,7 @@ namespace FaceRedaction
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>相關連結
-[Azure 媒體服務分析概觀](media-services-analytics-overview.md)
+[Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

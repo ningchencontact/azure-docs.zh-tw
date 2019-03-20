@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 29c2e53c4fb496e0f12e04f08b0add4273db25a7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492924"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790151"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 應用程式防火牆要求大小限制與排除清單
 
@@ -58,19 +59,21 @@ WAF 排除清單可讓您略過 WAF 評估的特定要求屬性。 常見範例�
 
 ### <a name="examples"></a>範例
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 下列 Azure PowerShell 程式碼片段示範排除項目的使用：
 
 ```azurepowershell
 // exclusion 1: exclude request head start with xyz
 // exclusion 2: exclude request args equals a
 
-$exclusion1 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
 
-$exclusion2 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
 
 // add exclusion lists to the firewall config
 
-$firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
 ```
 
 下列 json 程式碼片段示範排除項目的使用：

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122887"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>使用 Azure DevOps Projects 建立適用於 IoT Edge 的 CI/CD 管線 (預覽)
 
@@ -127,7 +127,7 @@ DevOps Projects 會在 Azure Repos 中為您的專案建立 Git 存放庫。 在
 
 12. 在您發行管線的功能表中，選取 [工作] 然後從下拉式清單中選擇 [開發] 階段。 DevOps Projects 已為您建立發行階段，其會建立 IoT 中樞，於該中樞中建立 IoT Edge 裝置，從建置管線部署範例模組，然後佈建虛擬機器以作為您的 IoT Edge 裝置執行。 若要深入了解適用於 CD 的 Azure IoT Edge 工作，請參閱[針對持續部署設定 Azure Pipelines](how-to-ci-cd.md#configure-continuous-deployment)。
 
-   ![檢視持續部署工作](media/how-to-devops-project/dev-release.png)
+    ![檢視持續部署工作](media/how-to-devops-project/dev-release.png)
 
 13. 從右側選取 [檢視版本]。 此檢視會顯示版本的歷程記錄。
 

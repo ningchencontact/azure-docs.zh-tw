@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory 對應資料流程資料集
-description: Azure Data Factory 對應資料流程具有特定的資料集相容性
+description: Azure Data Factory 對應資料流程 」 有 sepecific 資料集的相容性
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 36ca5e07adf79de77ac4ab4149ff8e96a1dece8d
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408743"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726918"
 ---
 # <a name="mapping-data-flow-datasets"></a>對應資料流程資料集
 
@@ -20,7 +20,7 @@ ms.locfileid: "56408743"
 
 資料集是一種 Data Factory 建構，可定義您在管線中使用的資料形狀。 在「資料流程」中，資料列和資料行層級資料會需要細微的資料集定義。 在控制流程管線中使用的資料集不需要相同程度的資料了解。
 
-「資料流程來源與接收」轉換中的資料集用於定義基本資料結構描述。 如果您的資料中沒有結構描述，您可以將來源與接收的「結構描述漂移」設為開啟。 透過從資料集定義的結構描述，您將會具有來自相關聯「已連結的服務」的相關資料類型、資料格式、檔案位置和連接資訊。
+來源和接收器的轉換中使用資料流程中的資料集。 它們用來定義的基本資料結構描述。 如果您的資料中沒有結構描述，您可以將來源與接收的「結構描述漂移」設為開啟。 透過從資料集定義的結構描述，您將會具有來自相關聯「已連結的服務」的相關資料類型、資料格式、檔案位置和連接資訊。 做為來源 「 投射 」，從資料集的中繼資料會出現在 來源轉換。 中的資料集的結構描述代表的實體資料類型和形狀，而投影來源轉換中的表示資料流程表示法，以定義的名稱和類型的資料。
 
 ## <a name="dataset-types"></a>資料集類型
 
@@ -28,10 +28,10 @@ ms.locfileid: "56408743"
 
 * Azure SQL DB
 * Azure SQL DW
-* Parquet
-* 分隔符號文字
+* Parquet （從 ADLS 和 Blob）
+* （從 ADLS 和 Blob） 分隔的文字
 
-資料流程資料集會將來源*類型*從「已連結的服務」連接類型中分開。 通常在 Data Factory，您可以選擇連接類型 (Blob、ADLS 等)，然後在資料集中定義檔案類型。 在「資料流程」內部，您將挑選來源類型，這會與不同的「已連結的服務」連接類型相關聯。
+個別的資料流資料集*來源類型*從*連結的服務連線類型*。 通常在 Data Factory，您可以選擇連接類型 (Blob、ADLS 等)，然後在資料集中定義檔案類型。 在「資料流程」內部，您將挑選來源類型，這會與不同的「已連結的服務」連接類型相關聯。
 
 ![來源轉換選項](media/data-flow/dataset1.png "來源")
 
@@ -42,4 +42,14 @@ ms.locfileid: "56408743"
 ## <a name="import-schemas"></a>匯入結構描述
 
 當匯入「資料流程」資料集的結構描述時，您會看到的 [匯入結構描述] 按鈕。 按一下按鈕將顯示兩個選項：從來源匯入或從本機檔案匯入。 在大部分情況下，您會直接從來源匯入結構描述。 不過，如果您有現有的結構描述檔案 (含標頭的 Parquet 檔案或 CSV)，您可以指向該本機檔案，Data Factory 將會根據該結構描述檔案定義結構描述。
+
+## <a name="delimited-text-dataset"></a>分隔的文字資料集
+
+分隔的文字資料集，在中，您將設定的分隔符號來處理任一單一分隔符號 ('\t' TSV'，' 的 CSV，' |'...)，或使用多個字元的分隔符號。 將標頭資料列切換設定，然後進入 「 來源 」 轉換，來自動偵測資料類型。
+
+## <a name="next-steps"></a>後續步驟
+
+著手[建立新的 Data Flow](data-flow-create.md)和加入來源轉換。 然後設定您的來源資料集。
+
+使用[複製活動](copy-activity-overview.md)才能匯入資料，從任何 ADF 資料來源，並存取資料流程的該屬性暫存 ADLS 或 Blob 中。
 

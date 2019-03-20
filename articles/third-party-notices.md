@@ -1,10 +1,21 @@
+---
+ms.service: azure
+ms.topic: conceptual
+ms.date: 03/08/2019
+ms.openlocfilehash: 2b1fc99fe179187c6431d9a999628db76885e553
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789668"
+---
 # <a name="legal-notices"></a>法律聲明
 
 Microsoft 和任何參與者可根據 [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode)，授與您此存放庫中 Microsoft 文件和其他內容的授權，以及根據 [MIT License](https://opensource.org/licenses/MIT)，授與您存放庫中任何程式碼的授權。
 
 Microsoft、Windows、Microsoft Azure 以及 (或) 文件中所參考的其他 Microsoft 產品和服務可能是 Microsoft 在美國及 (或) 其他國家/地區的商標或註冊商標。
 本專案的授權並未授與您使用任何 Microsoft 名稱、標誌或商標的權利。
-如需 Microsoft 的一般商標指導方針，請參閱 [https://go.microsoft.com/fwlink/?LinkID=254653](httpss://go.microsoft.com/fwlink/?LinkID=254653) \(英文\)。
+如需 Microsoft 的一般商標指導方針，請參閱 [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653) \(英文\)。
 
 如需隱私權資訊，請參閱 [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 

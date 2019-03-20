@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: c8a852e4e69ccfed0e8210bf6872c891b017a046
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 06fd659df1ec12bd6d5a7b8fb2ee94ca27d6a87c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496630"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834365"
 ---
 # <a name="threat-modeling-tool-releases"></a>Threat Modeling Tool 版本
 
@@ -30,7 +30,7 @@ Microsoft Threat Modeling Tool 目前以 Windows 免費應用程式的形式發�
 - 支援的作業系統
   - Microsoft Windows 10 年度更新版或更新版本
 - 必要的 .NET 版本
-  - .Net 4.7.1 或更新版本
+  - .NET 4.7.1 或更新版本
 - 其他需求
   - 必須有網際網路連線可接收工具和範本的更新。
 

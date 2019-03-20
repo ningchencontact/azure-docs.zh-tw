@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 94baa1235388ce99d013f8267f8410dcc206a51d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998343"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894354"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>使用 Azure 媒體服務設計具有存取控制的內容保護系統 
 
@@ -28,7 +28,7 @@ ms.locfileid: "55998343"
 
 這份文件的目標讀者是使用 OTT 或線上串流/多重螢幕解決方案的 DRM 子系統工程師，或是對於 DRM 子系統有興趣的任何讀者。 假設讀者都熟悉市場上至少一個 DRM 技術，例如 PlayReady、Widevine、FairPlay 或 Adobe Access。
 
-在本 DRM 討論中，我們也會包含使用多重 DRM 的一般加密 (CENC)。 線上串流和 OTT 產業中的主要趨勢，是在各種用戶端平台上使用 CENC 搭配多重原生 DRM。 這個趨勢是從先前趨勢轉移而來，先前的趨勢是將單一 DRM 及其用戶端 SDK 用於各種用戶端平台。 使用 CENC 搭配多重原生 DRM 時，PlayReady 和 Widevine 會依照 [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 規格加密。
+在本 DRM 討論中，我們也會包含使用多重 DRM 的一般加密 (CENC)。 線上串流和 OTT 產業中的主要趨勢，是在各種用戶端平台上使用 CENC 搭配多重原生 DRM。 這個趨勢是從先前趨勢轉移而來，先前的趨勢是將單一 DRM 及其用戶端 SDK 用於各種用戶端平台。 使用 CENC 搭配多重原生 DRM 時，PlayReady 和 Widevine 會依照 [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 規格加密。
 
 使用 CENC 搭配多重 DRM 的優點在於：
 
@@ -88,7 +88,7 @@ DRM 子系統可能包含下列元件：
 * DRM 封裝
 * DRM 授權傳遞
 * 權利檢查
-* 驗證/授權
+* 身份验证/授权
 * 播放器
 * 來源/內容傳遞網路 (CDN)
 
@@ -156,7 +156,7 @@ DRM 子系統可能包含下列元件：
 | **金鑰管理** |不需要參考實作 |
 | **內容管理** |C# 主控台應用程式 |
 
-換言之，IDP 和 STS 都會搭配 Azure AD 使用。 [Azure 媒體播放器 API](http://amp.azure.net/libs/amp/latest/docs/) 用於播放器。 媒體服務和媒體播放器都支援具有多重 DRM 的 DASH 和 CENC。
+換言之，IDP 和 STS 都會搭配 Azure AD 使用。 [Azure 媒體播放器 API](https://amp.azure.net/libs/amp/latest/docs/) 用於播放器。 媒體服務和媒體播放器都支援具有多重 DRM 的 DASH 和 CENC。
 
 下圖顯示上述技術對應的整體結構與流程：
 
@@ -208,13 +208,13 @@ DRM 子系統可能包含下列元件：
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. 使用 [Azure 媒體播放器 API](http://amp.azure.net/libs/amp/latest/docs/) 來建立播放器。 使用 [Azure 媒體播放器的 ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) 來指定要在不同的 DRM 平台上使用哪個 DRM 技術。
+8. 使用 [Azure 媒體播放器 API](https://amp.azure.net/libs/amp/latest/docs/) 來建立播放器。 使用 [Azure 媒體播放器的 ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) 來指定要在不同的 DRM 平台上使用哪個 DRM 技術。
 
 9. 下表會顯示測試矩陣。
 
     | **DRM** | **[瀏覽器]** | **有權限使用者的結果** | **無權限使用者的結果** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Windows 10 的 Microsoft Edge 或 Internet Explorer 11 |成功 |不合格 |
+    | **PlayReady** |Windows 10 的 Microsoft Edge 或 Internet Explorer 11 |成功 |失败 |
     | **Widevine** |Chrome、Firefox、Opera |成功 |不合格 |
     | **FairPlay** |macOS 上的 Safari      |成功 |不合格 |
     | **AES-128** |大部分的新式瀏覽器  |成功 |不合格 |

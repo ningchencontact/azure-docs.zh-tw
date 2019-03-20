@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: db13064c93381f87f82959ed3386abfc0a8e4593
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238657"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434754"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 資料倉儲中的暫存資料表
 本文包含使用暫存資料表的基本指引，並強調說明工作階段層級暫存資料表的原則。 使用這份文件中的資訊可協助您將程式碼模組化，以提高程式碼的重複使用性，維護起來更簡單。
@@ -193,7 +193,7 @@ FROM    t1
 GO
 ```
 
-在這個階段中，唯一進行的動作是建立預存程序，以 DDL 陳述式產生暫存資料表 #stats_ddl。  如果 #stats_ddl 已經存在，這個預存程序會卸除它，以確保在工作階段中執行一次以上時不會失敗。  不過，因為預存程序結尾沒有任何 `DROP TABLE`，當預存程序完成時，它會保留建立的資料表，以便能夠從預存程序之外讀取。  不同於其他 SQL Server 資料庫，在 SQL 資料倉儲中，從建立暫存資料表的程序之外能夠使用此暫存資料表。  工作階段內的 **任何位置** 都可以使用 SQL 資料倉儲暫存資料表。 這可以產生更具模組化和更易於管理的程式碼，如下列範例所示：
+在這個階段中，唯一發生的動作是預存程序產生暫存資料表 #stats_ddl，DDL 陳述式的建立。  如果 #stats_ddl 已經存在，這個預存程序會卸除它，以確保在工作階段中執行一次以上時不會失敗。  不過，因為預存程序結尾沒有任何 `DROP TABLE`，當預存程序完成時，它會保留建立的資料表，以便能夠從預存程序之外讀取。  不同於其他 SQL Server 資料庫，在 SQL 資料倉儲中，從建立暫存資料表的程序之外能夠使用此暫存資料表。  工作階段內的 **任何位置** 都可以使用 SQL 資料倉儲暫存資料表。 這可以產生更具模組化和更易於管理的程式碼，如下列範例所示：
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;

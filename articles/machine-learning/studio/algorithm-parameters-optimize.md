@@ -5,17 +5,17 @@ description: 說明如何為 Azure Machine Learning Studio中的演算法選擇�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 870345148b55bc6026202fbd433d8575e421faba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 6dc9476f603d5664b7ea23489042b69f86647cf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123278"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>選擇參數來最佳化 Azure Machine Learning Studio 中的演算法
 

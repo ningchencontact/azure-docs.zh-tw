@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461588"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438602"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>在 Azure SQL Database 中手動微調查詢效能
 
@@ -38,7 +38,7 @@ ms.locfileid: "55461588"
 
 - **因為「多對話」行為而使效能變差的應用程式**
 
-  多對話應用程式會產生過多對網路延遲敏感的資料存取作業。 您可能需要修改這類應用程式以減少 SQL Database 的資料存取作業數目。 比方說，您可以藉由使用某些技術來改善應用程式效能，例如批次處理特定查詢或將查詢移至預存程序。 如需詳細資訊，請參閱 [批次查詢](#batch-queries)。
+  多對話應用程式會產生過多對網路延遲敏感的資料存取作業。 您可能需要修改這類應用程式以減少 SQL Database 的資料存取作業數目。 比方說，您可能會使用批次處理臨機操作查詢，或將查詢移至預存程序之類的技術來改善應用程式效能。 如需詳細資訊，請參閱 [批次查詢](#batch-queries)。
 
 - **無法由整部單一電腦支援之具有大量工作負載的資料庫**
 
@@ -50,7 +50,7 @@ ms.locfileid: "55461588"
 
 - **具有次佳資料存取設計的應用程式**
 
-   具有內在資料存取並行問題的應用程式，例如死結，可能無法受益於較高的計算大小。 請考慮藉由使用 Azure 快取服務或其他快取技術來快取用戶端的資料，以減少對 Azure SQL Database 的往返作業。 請參閱 [應用程式層快取](#application-tier-caching)。
+   具有內在資料存取並行問題的應用程式，例如死結，可能無法受益於較高的計算大小。 請考慮藉由使用 Azure 快取服務或其他快取技術來快取用戶端的資料，以減少對 Azure SQL Database 的往返作業。 请参阅 [应用程序层缓存](#application-tier-caching)。
 
 ## <a name="tune-your-database"></a>微調資料庫
 
@@ -213,7 +213,7 @@ DECLARE @i int = 0;
 
 此範例的第二個部分使用查詢提示告訴最佳化工具，在編譯處理程序期間使用特定值。 在此情況下，它會強制查詢處理器忽略傳遞做為參數的值，並改為假設 `UNKNOWN`。 這表示資料表中具有平均頻率的值 (忽略扭曲)。 產生的計劃是以搜尋為基礎的計劃，平均而言會比此範例第 1 部分的計劃更快速並使用較少資源：
 
-![使用查詢提示微調查詢](./media/sql-database-performance-guidance/query_tuning_3.png)
+![通过使用查询提示优化查询](./media/sql-database-performance-guidance/query_tuning_3.png)
 
 您可以在 **sys.resource_stats** 資料表中看到這個影響 (從您執行測試的時間到資料填入資料表的時間會發生延遲)。 在此範例中，第 1 部分會在 22:25:00 時間範圍期間執行，而第 2 部分會在 22:35:00 執行。 較早的時間範圍在該時間範圍內使用的資源比較晚的時間範圍還多 (因為計劃效率改善)。
 

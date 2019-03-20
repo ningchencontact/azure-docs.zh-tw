@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086712"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟
 若要準備匯入工作的一個或多個硬碟，請依照下列步驟執行︰
 
--   指定要匯入至 Blob 服務的資料
+- 指定要匯入至 Blob 服務的資料
 
--   指定目標虛擬目錄和 Blob 服務中的 Blob
+- 指定目標虛擬目錄和 Blob 服務中的 Blob
 
--   判斷需要多少個磁碟機
+- 判斷需要多少個磁碟機
 
--   將資料複製到每個硬碟
+- 將資料複製到每個硬碟
 
- 如需範例工作流程，請參閱[準備匯入工作的硬碟的範例工作流程](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)。
+  如需範例工作流程，請參閱[準備匯入工作的硬碟的範例工作流程](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)。
 
 ## <a name="identify-the-data-to-be-imported"></a>識別要匯入的資料
  建立匯入工作的第一步是判斷您要匯入哪些目錄和檔案。 可以是目錄清單、唯一檔案的清單或兩者的組合。 包含目錄時，目錄及其子目錄中的所有檔案都是匯入工作的一部分。
@@ -51,11 +51,11 @@ ms.locfileid: "55454669"
 ## <a name="determine-how-many-drives-are-needed"></a>判斷需要多少個磁碟機
  接著，您必須判斷︰
 
--   儲存資料所需的硬碟數目。
+- 儲存資料所需的硬碟數目。
 
--   將複製到每個硬碟的目錄和/或獨立檔案。
+- 將複製到每個硬碟的目錄和/或獨立檔案。
 
- 確定您具有儲存傳輸的資料所需的硬碟數目。
+  確定您具有儲存傳輸的資料所需的硬碟數目。
 
 ## <a name="copy-data-to-your-hard-drive"></a>將資料複製到硬碟
  本節描述如何呼叫 Azure 匯入/匯出工具，以將資料複製到一或多個硬碟。 每次呼叫 Azure 匯入/匯出工具時，會建立新的「複製工作階段」。 您要為每個用於複製資料的磁碟機建立至少一個複製工作階段；在某些情況下，您可能需要多個複製工作階段才能將所有資料複製到單一磁碟機。 以下是一些您可能需要多個複製工作階段的原因︰
@@ -95,54 +95,54 @@ ms.locfileid: "55454669"
  `WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
 ### <a name="parameters-for-the-first-copy-session-for-a-hard-drive"></a>適用於硬碟的第一個複製工作階段的參數
- 每次執行 Azure 匯入/匯出工具以將檔案複製到硬碟時，工具會建立一個複製工作階段。 每個複製工作階段會將單一目錄或單一檔案複製到硬碟。 複製工作階段的狀態會寫入日誌檔案。 如果複製工作階段中斷 (例如，因為系統電源斷電)，可以再次執行工具並在命令列指定日誌檔案以繼續。
+ 每次執行 Azure 匯入/匯出工具以將檔案複製到硬碟時，工具會建立一個複製工作階段。 每個複製工作階段會將單一目錄或單一檔案複製到硬碟。 複製工作階段的狀態會寫入日誌檔案。 如果某个复制会话中断（例如，由于系统电源中断），可以通过重新运行该工具并在命令行上指定日记文件来恢复该复制会话。
 
 > [!WARNING]
 >  如果您為第一個複製工作階段指定 **/format** 參數，將會格式化磁碟機並清除磁碟機上的所有資料。 建議您僅使用空白的磁碟機進行複製工作階段。
 
  每個磁碟機的第一個複製工作階段所用的命令需要的參數不同於後續複製工作階段的命令。 下表列出第一個複製工作階段可用的其他參數︰
 
-|命令列參數|說明|
+|命令列參數|描述|
 |-----------------------------|-----------------|
 |**/sk:**<StorageAccountKey\>|`Optional.`將匯入資料的儲存體帳戶的儲存體帳戶金鑰。 您必須在命令中包含 **/sk:**<StorageAccountKey\> 或 **/csas:**<ContainerSas\>。|
-|**/csas:**<ContainerSas\>|`Optional` 。 用於將資料匯入儲存體帳戶的容器 SAS。 您必須在命令中包含 **/sk:**<StorageAccountKey\> 或 **/csas:**<ContainerSas\>。<br /><br /> 這個參數的值開頭必須是容器名稱，後面加上問號 (?) 和 SAS Token。 例如︰<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> 權限 (無論是在 URL 或預存存取原則中指定) 必須包含讀取、寫入和刪除匯入工作，以及讀取、寫入和列出匯出工作。<br /><br /> 指定這個參數時，要匯入或匯出的所有 Blob 必須位於共用存取簽章中指定的容器內。|
+|/csas:<ContainerSas\>|`Optional` 。 用於將資料匯入儲存體帳戶的容器 SAS。 必须在命令中包含 /sk:<StorageAccountKey\> 或 /csas:<ContainerSas\>。<br /><br /> 這個參數的值開頭必須是容器名稱，後面加上問號 (?) 和 SAS Token。 例如︰<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> 權限 (無論是在 URL 或預存存取原則中指定) 必須包含讀取、寫入和刪除匯入工作，以及讀取、寫入和列出匯出工作。<br /><br /> 指定這個參數時，要匯入或匯出的所有 Blob 必須位於共用存取簽章中指定的容器內。|
 |**/t:**<TargetDriveLetter\>|`Required.`目前複製工作階段中目標硬碟的磁碟機代號，不包含結尾的冒號。|
-|**/format**|`Optional.`當磁碟機需要進行格式化時請指定此參數；否則請省略。 此工具格式化磁碟機之前，會提示您從主控台進行確認。 若要隱藏確認，請指定 /silentmode 參數。|
-|**/silentmode**|`Optional.`指定此參數可隱藏格式化目標磁碟機的確認。|
+|**/format**|`Optional.`當磁碟機需要進行格式化時請指定此參數；否則請省略。 此工具格式化磁碟機之前，會提示您從主控台進行確認。 若不希望显示该确认，请指定 /silentmode 参数。|
+|**/silentmode**|`Optional.` 指定此參數可隱藏格式化目標磁碟機的確認。|
 |**/encrypt**|`Optional.`當磁碟機尚未使用 BitLocker 加密，且需要透過工具加密時，請指定此參數。 若已使用 BitLocker 加密磁碟機，則省略此參數並指定 `/bk`參數，以提供現有的 BitLocker 金鑰。<br /><br /> 若您指定 `/format` 參數，則您也必須指定 `/encrypt` 參數。|
 |**/bk:**<BitLockerKey\>|`Optional.`若指定 `/encrypt`，請省略這個參數。 若省略 `/encrypt`，您必須已使用 BitLocker 加密磁碟機。 使用此參數可指定 BitLocker 金鑰。 匯入工作的所有硬碟都需要 BitLocker 加密。|
-|**/logdir:**<LogDirectory\>|`Optional.`記錄檔目錄指定要用來儲存詳細資訊記錄檔和暫存資訊清單檔案的目錄。 如未指定，將使用目前的目錄做為記錄檔目錄。|
+|/logdir:<LogDirectory\>|`Optional.`記錄檔目錄指定要用來儲存詳細資訊記錄檔和暫存資訊清單檔案的目錄。 如未指定，將使用目前的目錄做為記錄檔目錄。|
 
 ### <a name="parameters-required-for-all-copy-sessions"></a>所有複製工作階段需要的參數
  日誌檔案包含硬碟的所有複製工作階段的狀態。 它也包含建立匯入工作所需的資訊。 執行 Azure 匯入/匯出工具時，一律必須指定日誌檔案及複製工作階段識別碼：
 
 |||
 |-|-|
-|命令列參數|說明|
+|命令列參數|描述|
 |**/j:**<JournalFile\>|`Required.`日誌檔案的路徑。 每個磁碟機必須只有一個日誌檔案。 請注意，日誌檔案不得位於目標磁碟機上。 日誌檔案的副檔名是 `.jrn`。|
-|**/id:**<SessionId\>|`Required.`工作階段識別碼會識別複製工作階段。 其用來確保正確復原中斷的複製工作階段。 在複製工作階段中複製的檔案會儲存在以目標磁碟機上工作階段識別碼命名的目錄。|
+|**/id:**<SessionId\>|`Required.`工作階段識別碼會識別複製工作階段。 它用于确保准确恢复中断的复制会话。 在複製工作階段中複製的檔案會儲存在以目標磁碟機上工作階段識別碼命名的目錄。|
 
 ### <a name="parameters-for-copying-a-single-directory"></a>用以複製單一目錄的參數
  複製單一目錄時，適用下列必要和選用參數︰
 
-|命令列參數|說明|
+|命令列參數|描述|
 |----------------------------|-----------------|
 |**/srcdir:**<SourceDirectory\>|`Required.`包含要複製到目標磁碟機的檔案的來源目錄。 目錄路徑必須是絕對路徑 (而非相對路徑)。|
-|**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.`Microsoft Azure 儲存體帳戶中的目的地虛擬目錄路徑。 虛擬目錄可能已存在或可能不存在。<br /><br /> 您可以指定容器或 Blob 前置詞，如 `music/70s/`。 目的地目錄必須以容器名稱開頭，後面接著正斜線 "/"，並可選擇性地包含結尾是 "/" 的虛擬 Blob 目錄。<br /><br /> 目的地容器為根容器時，您必須明確指定根容器 (包括正斜線)，例如 `$root/`。 由於根容器下的 Blob 名稱中不能包含 "/"，當目的地目錄是根容器時，將不會複製來源目錄中的任何子目錄。<br /><br /> 指定目的地虛擬目錄或 blob 時，請確定使用有效的容器名稱。 請記住容器名稱必須是小寫。 關於容器命名規則，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。|
+|**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.`Microsoft Azure 儲存體帳戶中的目的地虛擬目錄路徑。 虛擬目錄可能已存在或可能不存在。<br /><br /> 您可以指定容器或 Blob 前置詞，如 `music/70s/`。 目的地目錄必須以容器名稱開頭，後面接著正斜線 "/"，並可選擇性地包含結尾是 "/" 的虛擬 Blob 目錄。<br /><br /> 目的地容器為根容器時，您必須明確指定根容器 (包括正斜線)，例如 `$root/`。 由於根容器下的 Blob 名稱中不能包含 "/"，當目的地目錄是根容器時，將不會複製來源目錄中的任何子目錄。<br /><br /> 在指定目标虚拟目录或 blob 时，请确保使用有效的容器名称。 請記住容器名稱必須是小寫。 關於容器命名規則，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。|
 |**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.`指定具有指定位址的 Blob 已存在時的行為。 這個參數的有效值為︰`rename`、`no-overwrite`及 `overwrite`。 請注意，這些值區分大小寫。 如果未指定任何值，預設值為 `rename`。<br /><br /> 為此參數指定的值會影響 `/srcdir` 參數指定的目錄中的所有檔案。|
-|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.`指定目的地 Blob 的 Blob 類型。 有效值為：`BlockBlob`和 `PageBlob`。 請注意，這些值區分大小寫。 如果未指定任何值，預設值為 `BlockBlob`。<br /><br /> 在大部分情況下，建議使用 `BlockBlob`。 如果您指定 `PageBlob`，目錄中每個檔案的長度必須是 512 (分頁 Blob 的分頁大小) 的倍數。|
+|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.`指定目的地 Blob 的 Blob 類型。 有效值為：`BlockBlob`和 `PageBlob`。 请注意，这些值区分大小写。 如果未指定任何值，預設值為 `BlockBlob`。<br /><br /> 在大部分情況下，建議使用 `BlockBlob`。 如果您指定 `PageBlob`，目錄中每個檔案的長度必須是 512 (分頁 Blob 的分頁大小) 的倍數。|
 |**/PropertyFile:**<PropertyFile\>|`Optional.`目的地 Blob 的屬性檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。|
 |**/MetadataFile:**<MetadataFile\>|`Optional.`目的地 Blob 的中繼資料檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。|
 
 ### <a name="parameters-for-copying-a-single-file"></a>用以複製單一檔案的參數
  複製單一檔案時，適用下列必要和選用參數︰
 
-|命令列參數|說明|
+|命令列參數|描述|
 |----------------------------|-----------------|
 |**/srcfile:**<SourceFile\>|`Required.`要複製的檔案的完整路徑。 目錄路徑必須是絕對路徑 (而非相對路徑)。|
 |**/dstblob:**<DestinationBlobPath\>|`Required.`Microsoft Azure 儲存體帳戶中目的地 Blob 的路徑。 Blob 可能已存在或可能不存在。<br /><br /> 指定開頭為容器名稱的 Blob 名稱。 Blob 名稱不得以 "/" 或儲存體帳戶名稱開頭。 關於 Blob 命名規則，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。<br /><br /> 目的地容器為根容器時，您必須明確指定 `$root` 做為容器，例如 `$root/sample.txt`。 請注意，根容器下的 Blob 名稱不能包含 "/"。|
 |**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.`指定具有指定位址的 Blob 已存在時的行為。 這個參數的有效值為︰`rename`、`no-overwrite`及 `overwrite`。 請注意，這些值區分大小寫。 如果未指定任何值，預設值為 `rename`。|
-|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.`指定目的地 Blob 的 Blob 類型。 有效值為：`BlockBlob`和 `PageBlob`。 請注意，這些值區分大小寫。 如果未指定任何值，預設值為 `BlockBlob`。<br /><br /> 在大部分情況下，建議使用 `BlockBlob`。 如果您指定 `PageBlob`，目錄中每個檔案的長度必須是 512 (分頁 Blob 的分頁大小) 的倍數。|
+|/BlobType:<BlockBlob&#124;PageBlob>|`Optional.`指定目的地 Blob 的 Blob 類型。 有效值為：`BlockBlob`和 `PageBlob`。 请注意，这些值区分大小写。 如果未指定任何值，預設值為 `BlockBlob`。<br /><br /> 在大部分情況下，建議使用 `BlockBlob`。 如果您指定 `PageBlob`，目錄中每個檔案的長度必須是 512 (分頁 Blob 的分頁大小) 的倍數。|
 |**/PropertyFile:**<PropertyFile\>|`Optional.`目的地 Blob 的屬性檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。|
 |**/MetadataFile:**<MetadataFile\>|`Optional.`目的地 Blob 的中繼資料檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。|
 
@@ -169,11 +169,11 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 
 ## <a name="next-steps"></a>後續步驟
 
-* [設定 Azure 匯入/匯出工具](storage-import-export-tool-setup-v1.md)
+* [设置 Azure 导入/导出工具](storage-import-export-tool-setup-v1.md)
 * [在匯入程序期間設定屬性和中繼資料](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [針對匯入作業準備硬碟的簡單工作流程](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
 * [常用命令快速參考](storage-import-export-tool-quick-reference-v1.md) 
-* [利用複製記錄檔檢閱作業狀態](storage-import-export-tool-reviewing-job-status-v1.md)
+* [使用复制日志文件查看作业状态](storage-import-export-tool-reviewing-job-status-v1.md)
 * [修復匯入作業](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修復匯出作業](storage-import-export-tool-repairing-an-export-job-v1.md)
 * [針對 Azure 匯入/匯出工具進行疑難排解](storage-import-export-tool-troubleshooting-v1.md)

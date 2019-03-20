@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766311"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089891"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>使用 Jenkins 建置和部署您的 Linux 應用程式
 Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 Jenkins 建置和部署 Azure Service Fabric 應用程式的方式。
@@ -253,24 +253,24 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
       ```
    
    * **對於在叢集外執行的 Jenkins：** 請依照這些步驟將叢集憑證複製到您的容器：
-      1. 憑證必須是 PEM 格式。 如果您沒有 PEM 檔案，可以從憑證 PFX 檔案中建立一個。 如果您的 PFX 檔案未受密碼保護，請從您的主機執行以下命令：
+     1. 憑證必須是 PEM 格式。 如果您沒有 PEM 檔案，可以從憑證 PFX 檔案中建立一個。 如果您的 PFX 檔案未受密碼保護，請從您的主機執行以下命令：
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
+        ``` 
 
-      如果 PFX 檔案受密碼保護，請在 `-passin` 參數中包括密碼。 例如︰
+        如果 PFX 檔案受密碼保護，請在 `-passin` 參數中包括密碼。 例如︰
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+        ``` 
 
-      1. 若要為 Jenkins 容器取得容器 ID，請從主機執行 `docker ps`。
-      1. 使用以下 Docker 命令將 PEM 檔案複製到您的容器：
+     1. 若要為 Jenkins 容器取得容器 ID，請從主機執行 `docker ps`。
+     1. 使用以下 Docker 命令將 PEM 檔案複製到您的容器：
     
-         ```sh
-         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
-         ``` 
+        ```sh
+        docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
+        ``` 
 
 就快要完成了！ 讓 Jenkins 作業維持開啟。 最後一項工作是，設定建置後步驟，將應用程式部署到您的 Service Fabric 叢集：
 

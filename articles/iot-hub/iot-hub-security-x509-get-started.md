@@ -1,19 +1,19 @@
 ---
 title: Azure IoT 中樞中的 X.509 安全性教學課程 | Microsoft Docs
 description: 開始在模擬環境中使用您 Azure IoT 中樞中以 X.509 作為基礎的安全性。
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: dobett
-ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 80d3d3cf5f386c5f21e1e8fed1071a12c10235cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091608"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在您的 Azure IoT 中樞中設定 X.509 安全性
 
@@ -65,7 +65,7 @@ ms.locfileid: "54452018"
 
 10. 一旦憑證上傳成功後，按一下 [確認]。 憑證的 [狀態]在 [憑證]刀鋒視窗中會變更為**_已驗證_**。 如果無法自動更新，請按一下 [重新整理]。
 
-   ![上傳憑證驗證](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![上傳憑證驗證](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>
@@ -166,7 +166,7 @@ ms.locfileid: "54452018"
 7. 此應用程式會存取 .pfx 檔案，因此您可能必須在 Admin 模式中加以執行。 建置 Visual Studio 解決方案。 以**管理員**身分開啟新的命令視窗，並瀏覽至包含此解決方案的資料夾。 瀏覽至 bin/Debug 解決方案資料夾內的路徑。 從 _Admin_ 命令視窗執行應用程式 **SimulateX509Device.exe**。 您應該會看到裝置成功連線至中樞並傳送事件。 
    ![執行裝置應用程式](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解如何保護您的 IoT 解決方案，請參閱︰
 
 * [IoT 安全性最佳做法][lnk-security-best-practices]

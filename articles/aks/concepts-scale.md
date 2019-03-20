@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7cd6af1dc6b947abd91c9d25a4b102e52da9d24d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 20f9655e1c3e7cce652802957f5eef1f333870e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456719"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176492"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中調整應用程式的選項
 
@@ -51,7 +51,7 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 
 ## <a name="cluster-autoscaler"></a>叢集自動調整程式
 
-若要回應變更 Pod 的需求，Kubernetes 具備叢集自動調整程式，可根據節點集區中所要求的計算資源來調整節點數目。 根據預設，叢集自動調整程式每隔 10 秒會檢查 API 伺服器，找出節點計數中任何必要的變更。 如果叢集自動調整判斷需要變更，則您 AKS 叢集中的節點數目會據以增加或減少。 叢集自動調整程式會使用已啟用 RBAC 功能且執行 Kubernetes 1.10.x 或更高版本的 AKS 叢集。
+若要回應變更 pod 的需求，Kubernetes 會有叢集中自動調整程式 （目前在 AKS 中的預覽） 會根據要求的計算節點集區中資源的節點數目進行調整。 根據預設，叢集自動調整程式每隔 10 秒會檢查 API 伺服器，找出節點計數中任何必要的變更。 如果叢集自動調整判斷需要變更，則您 AKS 叢集中的節點數目會據以增加或減少。 叢集自動調整程式會使用已啟用 RBAC 功能且執行 Kubernetes 1.10.x 或更高版本的 AKS 叢集。
 
 ![Kubernetes 叢集自動調整程式](media/concepts-scale/cluster-autoscaler.png)
 
@@ -81,7 +81,7 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 
 ![Kubernetes 高載調整至 ACI](media/concepts-scale/burst-scaling.png)
 
-ACI 可讓您快速部署容器執行個體，不需要額外的基礎結構成本。 當您與 AKS 連線時，ACI 會變成您 AKS 叢集的安全邏輯擴充功能。 Virtual Kubelet 元件會安裝在您的 AKS 叢集，使 ACI 作為虛擬的 Kubernetes 節點。 接著，Kubernetes 可以排程透過虛擬節點以 ACI 執行個體身分執行的 Pod，而非直接在 AKS 叢集中，以 VM 節點上的 Pod 身分執行。
+ACI 可讓您快速部署容器執行個體，不需要額外的基礎結構成本。 當您與 AKS 連線時，ACI 會變成您 AKS 叢集的安全邏輯擴充功能。 Virtual Kubelet 元件會安裝在您的 AKS 叢集，使 ACI 作為虛擬的 Kubernetes 節點。 接著，Kubernetes 可以排程透過虛擬節點以 ACI 執行個體身分執行的 Pod，而非直接在 AKS 叢集中，以 VM 節點上的 Pod 身分執行。 虛擬節點目前處於預覽狀態，在 AKS 中。
 
 您的應用程式不需要進行任何修改即可使用虛擬節點。 部署可以跨 AKS 和 ACI 調整，且當叢集自動調整程式在 AKS 叢集中部署新的節點時沒有延遲。
 

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: bff1e8c111a8a50e15b6d316e422a641a778c73c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775164"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225037"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -233,14 +233,46 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 ## <a name="linux-dependencies"></a>Linux 相依項目
 
-針對 Ubuntu 16.04 以外的 Linux 散發套件，您可能需要手動安裝某些相依性。 一般而言，必要的套件如下：
+一般情況下，需要下列封裝在 Linux 上執行儲存體總管：
 
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* `libsecret`
+* [.NET core 2.0 執行階段](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* `libgnome-keyring-common`和`libgnome-keyring-dev`
 * `libgconf-2-4`
-* 最新的 GCC
 
-根據您的散發套件，可能是您需要安裝其他套件。 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些散發套件的特定步驟。
+根據您的散發套件而定，可能會有不同，或您需要安裝其他套件。
+
+第 18.04 Ubuntu 16.04 和 14.04 正式支援儲存體總管。 安裝全新的機器的步驟如下所示：
+
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+
+1. 下載儲存體總管
+2. 安裝.NET Core 執行階段、 已驗證的最新版本是：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) （如果您已安裝較新版本，您可能需要修補儲存體總管，請見下文）
+3. 執行 `sudo apt-get install libgconf-2-4`
+4. 執行 `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+
+# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
+
+1. 下載儲存體總管
+2. 安裝.NET Core 執行階段、 已驗證的最新版本是：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) （如果您已安裝較新版本，您可能需要修補儲存體總管，請見下文）
+3. 執行 `sudo apt install libgnome-keyring-dev`
+
+# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
+
+1. 下載儲存體總管
+2. 安裝.NET Core 執行階段、 已驗證的最新版本是：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) （如果您已安裝較新版本，您可能需要修補儲存體總管，請見下文）
+3. 執行 `sudo apt install libgnome-keyring-dev`
+
+---
+
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>較新版本的.NET Core 的修補，儲存體總管 
+如果您有大於安裝並執行儲存體總管版本 1.7.0 2.0 或更舊版本的.NET Core 的版本，您很可能要修補儲存體總管，藉由完成下列步驟：
+1. 下載新版 1.5.43 StreamJsonRpc[從 nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)。 尋找頁面的右手邊的 [下載套件] 連結。
+2. 下載封裝之後, 變更其副檔名從`.nupkg`至 `.zip`
+3. 將封裝解壓縮
+4. 移至 `streamjsonrpc.1.5.43/lib/netstandard1.1/`。
+5. 複製`StreamJsonRpc.dll`到儲存體總管資料夾內的下列位置：
+    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>開啟在 檔案總管從 Azure 入口網站無法運作
 

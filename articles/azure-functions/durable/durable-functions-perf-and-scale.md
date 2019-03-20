@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138111"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的效能和級別
 
@@ -48,6 +48,15 @@ ms.locfileid: "53341163"
 在 Durable Functions 中，每個工作中樞都有多個「控制佇列」。 「控制佇列」比簡單的工作項目佇列更複雜。 控制佇列可用來觸發具狀態協調器函式。 因為協調器函式執行個體是具狀態單次個體，所以無法使用競爭取用者模型在虛擬機器之間分散負載。 相反地，協調器訊息會分散至多個控制佇列來平衡負載。 後續各節對此行為有更詳細的說明。
 
 控制佇列包含各種不同的協調流程生命週期訊息類型。 例如，[協調器控制訊息](durable-functions-instance-management.md)、活動函式「回應」訊息，以及計時器訊息。 將有 32 則訊息會在單一輪詢中從控制佇列中清除。 這些訊息包含承載資料以及中繼資料，包括適用於哪個協調流程執行個體。 如果有多則已從佇列中清除的訊息適用於相同的協調流程執行個體，系統會將這些訊息當作一個批次處理。
+
+### <a name="queue-polling"></a>佇列輪詢
+
+長期工作延伸模組會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲存體交易成本的影響。 執行階段找到訊息時，立即檢查另一個訊息;當不找到任何訊息時，它會等候一段時間後再試。 後續嘗試失敗後取得的佇列訊息，等候時間會持續增加，直到它到達等待時間上限，預設為 30 秒。
+
+最大輪詢延遲是可透過設定`maxQueuePollingInterval`中的屬性[host.json 檔案](../functions-host-json.md#durabletask)。 設定為較高的值，可能會導致較高的訊息處理延遲。 只有在沒有活動的期間之後必須在更高的延遲。 設定為較低的值，可能會導致較高的儲存體成本，因為增加的儲存體交易而產生。
+
+> [!NOTE]
+> Azure Functions 取用和進階方案，在執行時[Azure Functions 縮放控制器](../functions-scale.md#how-the-consumption-plan-works)輪詢每個控制項和工作項目佇列一次每隔 10 秒。 這個額外的輪詢，才能判斷何時啟用函式應用程式執行個體，並決定規模。 在撰寫本文時，此 10 的第二個間隔時間內保持不變，且無法設定。
 
 ## <a name="storage-account-selection"></a>儲存體帳戶選取
 

@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109566"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121973"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>備份 StorSimple Virtual Array 上的共用或磁碟區
 
@@ -32,7 +32,7 @@ StorSimple Virtual Array 是混合式雲端儲存體內部部署虛擬裝置，�
 
 ## <a name="back-up-shares-and-volumes"></a>備份共用和磁碟區
 
-備份可提供共用和磁碟區的時間點保護、改善復原能力，同時讓還原時間降至最低。 您有兩種方法可以備份 StorSimple 裝置上的共用或磁碟區：「排程」或「手動」。 下列各節討論上述每一種方法。
+備份可提供共用和磁碟區的時間點保護、改善復原能力，同時讓還原時間降至最低。 您可以備份的共用或磁碟區上您的 StorSimple 裝置有兩種：**排定**或是**手動**。 下列各節討論上述每一種方法。
 
 ## <a name="change-the-backup-start-time"></a>變更備份開始時間
 
@@ -100,13 +100,13 @@ StorSimple Virtual Array 有預設的備份原則會在每日特定時間 (22:30
     ![瀏覽至備份目錄](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. 指定下列準則以用於篩選︰
    
-    - **時間範圍** – 可以是 [過去 1 小時]、[過去 24 小時]、[過去 7 天]、[過去 30 天]、[過去一年] 和 [自訂日期]。
+   - **時間範圍** – 可以是 [過去 1 小時]、[過去 24 小時]、[過去 7 天]、[過去 30 天]、[過去一年] 和 [自訂日期]。
     
-    - **裝置** – 從已向 StorSimple 裝置管理員服務註冊的檔案伺服器或 iSCSI 伺服器清單中選擇。
+   - **裝置** – 從已向 StorSimple 裝置管理員服務註冊的檔案伺服器或 iSCSI 伺服器清單中選擇。
    
-    - **已起始** – 可以自動地 [已排程] \(依備份原則) 或 [手動] 起始 (由您執行)。
+   - **已起始** – 可以自動地 [已排程] \(依備份原則) 或 [手動] 起始 (由您執行)。
    
-    ![篩選備份](./media/storsimple-virtual-array-backup/viewbackups2.png)
+     ![篩選備份](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
 3. 按一下 [套用]。 已篩選的備份清單會顯示在 [備份目錄] 刀鋒視窗中。 請注意，永遠只會顯示 100 個備份項目。
    

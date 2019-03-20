@@ -3,22 +3,21 @@ title: 在 Azure Data Factory 中建立輪轉視窗觸發程序相依性 | Micro
 description: 了解如何在 Azure Data Factory 中的輪轉視窗觸發程序上建立相依性。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: douglasl
-ms.openlocfilehash: c51c1056869cbd7741fae2ed1a554a7c794d1a39
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: f3a547f5b953262d7263d1be0897161cf4091a1d
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966417"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574384"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>建立輪轉視窗觸發程序相依性
 
@@ -77,7 +76,7 @@ ms.locfileid: "55966417"
 
 | **屬性名稱** | **說明**  | **類型** | **必要** |
 |---|---|---|---|
-| 觸發程序  | 所有現有的輪轉視窗觸發程序都會顯示在此下拉式清單中。 選擇要採取相依性的觸發程序。  | TumblingWindowTrigger | yes |
+| 觸發程序  | 所有現有的輪轉視窗觸發程序都會顯示在此下拉式清單中。 選擇要採取相依性的觸發程序。  | TumblingWindowTrigger | 是 |
 | Offset | 相依性觸發程序的偏移。 提供時間範圍格式的值，同時允許負值和正值。 如果觸發程序相依於自己，此參數便是必要參數；針對所有其他情況，此參數則為選擇性參數。 自我相依性應一律為負值偏移。 | Timespan | 自我相依性：是 其他：否 |
 | 視窗大小 | 相依性輪轉視窗的大小。 以時間範圍格式提供值。 這是選擇性參數。 | Timespan | 否  |
 |||||

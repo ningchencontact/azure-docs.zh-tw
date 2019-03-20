@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ca2523a1101a21740a318a304f9bec491d4de2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106231"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>使用序列主控台來存取 GRUB 與單一使用者模式
 GRUB 是 GRand Unified Bootloader 的縮寫，這可能是您在啟動 VM 時首先會見到的項目。 由於它會在作業系統啟動之前顯示，因此無法透過 SSH 存取它。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。
@@ -187,7 +187,7 @@ SLES 中的 GRUB 存取要求必須透過 YaST 設定開機載入程式。 若�
 1. 尋找核心行，它的開頭是 `linux`
 1. 將 `systemd.unit=emergency.target` 附加到行尾
 1. 按 Ctrl + X 以使用者些設定重新開機並進入緊急殼層
-> 請注意，您會進入緊急殼層，而且檔案系統是_唯讀_的。 若要對任何檔案進行任何變更，您將必須使用讀取/寫入權限重新掛載檔案系統。 若要這樣做，請輸入 `mount -o remount,rw /` 到殼層
+   > 請注意，您會進入緊急殼層，而且檔案系統是_唯讀_的。 若要對任何檔案進行任何變更，您將必須使用讀取/寫入權限重新掛載檔案系統。 若要這樣做，請輸入 `mount -o remount,rw /` 到殼層
 
 ## <a name="access-for-oracle-linux"></a>Oracle Linux 的存取
 與 Red Hat Enterprise Linux 非常像，Oracle Linux 中的單一使用者模式也要求必須啟用 GRUB 與 root 使用者。

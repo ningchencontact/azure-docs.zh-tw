@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002496"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437309"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso 移轉：在 Azure 中重建內部部署應用程式
 
@@ -154,7 +154,7 @@ Contoso 管理員會執行部署指令碼，使用 AKS 和 Azure Container Regis
 
 ### <a name="prerequisites"></a>必要條件
 
-1. 在開始之前，Contoso 管理員會確保在他們要用於部署的開發機器上已安裝所有先決條件軟體。
+1. 他們開始之前，請確定 Contoso 系統管理員中的所有必要軟體安裝在他們部署所使用的開發電腦上。
 2. 他們會使用 Git 將本機存放庫複製到開發機器：**git clone https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 

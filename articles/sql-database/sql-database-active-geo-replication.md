@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 21b036763a1e8a7480d11fef4c36599f92fc3657
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853183"
 ---
-# <a name="create-readable-secondary-databases-using-active-geo-replication"></a>使用作用中異地複寫建立可讀取的次要資料庫
+# <a name="creating-and-using-active-geo-replication"></a>建立和使用主動式異地複寫
 
 作用中異地複寫是 Azure SQL Database 的功能，可讓您在相同或不同資料中心 (區域) 中的 SQL Database 伺服器上建立個別資料庫的可讀取次要資料庫。
 
@@ -52,9 +52,6 @@ ms.locfileid: "55995046"
 > [!IMPORTANT]
 > 若要保證主要資料庫上的重大變更在容錯移轉之前會複寫至次要資料庫，您可以強制同步處理，以確保複寫重大變更 (例如，密碼更新)。 強制進行同步處理會對效能產生影響，因為它會封鎖呼叫執行緒，直到所有認可的交易都完成複寫為止。 如需詳細資訊，請參閱 [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync)。 若要監視主要資料庫和地區資料庫之間的複寫延遲，請參閱 [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)。
 
-
-
-
 下圖顯示以美國中北部區域的主要資料庫和美國中南部區域的次要資料庫所設定的作用中異地複寫範例。
 
 ![異地複寫關聯性](./media/sql-database-active-geo-replication/geo-replication-relationship.png)
@@ -72,7 +69,7 @@ ms.locfileid: "55995046"
 
 - **自動非同步複寫**
 
- 您只能藉由新增至現有資料庫來建立次要資料庫。 您可以在任何 Azure SQL Database 伺服器建立次要資料庫。 一旦建立之後，次要資料庫就要填入從主要資料庫複製的資料。 這個程序稱為植入。 建立並植入次要資料庫之後，主要資料庫的更新會以非同步方式自動複製到次要資料庫。 非同步複寫表示交易會先在主要資料庫上受到認可，才會複製到次要資料庫。
+  您只能藉由新增至現有資料庫來建立次要資料庫。 您可以在任何 Azure SQL Database 伺服器建立次要資料庫。 创建完成之后，使用从主数据库复制的数据填充辅助数据库。 這個程序稱為植入。 建立並植入次要資料庫之後，主要資料庫的更新會以非同步方式自動複製到次要資料庫。 非同步複寫表示交易會先在主要資料庫上受到認可，才會複製到次要資料庫。
 
 - **可讀取的次要資料庫**
 
@@ -110,7 +107,7 @@ ms.locfileid: "55995046"
 
 - **保持認證和防火牆規則同步**
 
-  我們建議針對異地複寫資料庫使用[資料庫防火牆規則](sql-database-firewall-configure.md)，這樣一來，這些規則可以使用資料庫複寫，以確保所有次要資料庫具有與主要資料庫相同的防火牆規則。 此方法不需要客戶手動設定及維護同時裝載主要和次要資料庫之伺服器上的防火牆規則。 同樣地，針對資料存取使用 [自主資料庫使用者](sql-database-manage-logins.md) ，確保主要與次要資料庫永遠具有相同的使用者認證，在容錯移轉時不會因為登入和密碼不相符而有任何中斷。 使用額外的 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，客戶可以管理主要和次要資料庫的使用者存取，並且排除在資料庫中管理認證的需求。
+我們建議您使用[資料庫層級 IP 防火牆規則](sql-database-firewall-configure.md)異地複寫資料庫，所以這些規則可以使用資料庫，以確保所有的次要資料庫都有相同的 IP 防火牆規則，與主要資料庫複寫。 此方法不需要客戶手動設定及維護同時裝載主要和次要資料庫之伺服器上的防火牆規則。 同樣地，針對資料存取使用 [自主資料庫使用者](sql-database-manage-logins.md) ，確保主要與次要資料庫永遠具有相同的使用者認證，在容錯移轉時不會因為登入和密碼不相符而有任何中斷。 使用額外的 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，客戶可以管理主要和次要資料庫的使用者存取，並且排除在資料庫中管理認證的需求。
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升級或降級主要資料庫
 
@@ -121,10 +118,20 @@ ms.locfileid: "55995046"
 
 ## <a name="preventing-the-loss-of-critical-data"></a>防止重要資料遺失
 
-由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 不過，有些應用程式可能會要求資料不能遺失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 **sp_wait_for_database_copy_sync** 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 **sp_wait_for_database_copy_sync** 以特定的連續複製連結為範圍。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
+由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 但是，某些应用程序可能要求不能有数据丢失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 **sp_wait_for_database_copy_sync** 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 **sp_wait_for_database_copy_sync** 以特定的連續複製連結為範圍。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** 可避免在容錯移轉之後資料遺失，但是不保證讀取權限會完整同步。 **sp_wait_for_database_copy_sync** 程序呼叫所造成的延遲可能會相當明顯，且取決於呼叫時的交易記錄大小。
+
+## <a name="monitoring-geo-replication-lag"></a>監視異地複寫延遲
+
+若要監視延隔時間方面的 RPO，請使用*replication_lag_sec*資料行[sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)主要資料庫上。 它會在主要複本上認可並保存在次要複本上的交易之間的秒數顯示延隔時間。 例如 如果延隔時間的值為 1 秒，這表示如果主要受中斷影響目前和容錯移轉會起始，將不會儲存的最新的 transtions 1 秒。 
+
+若要測量延隔時間相對於主要資料庫上的變更已套用在次要複本，也就是可讀取次要複本時，從比較*last_commit*次要資料庫上以在主要伺服器上相同的值時間資料庫。
+
+> [!NOTE]
+> 有時候*replication_lag_sec*主要資料庫上具有 NULL 值，這表示，主要不目前知道伸展多遠的次要資料庫。   這通常發生之後重新啟動處理程序，且應該是暫時性的狀況。 如果警示應用程式，請考慮*replication_lag_sec*長的時間，則傳回 NULL。 它會指出次要資料庫不能與永久性連線失敗的主要通訊。 另外還有狀況可能導致之間的差異*last_commit*時間變得很大的主要資料庫和次要資料庫上。 例如 如果認可在主要伺服器上很長一段任何變更之後，差異會快速地傳回至 0 之前跳最大值。 將它視為錯誤狀況這兩個值之間的差異很長的時間保持大型。
+
 
 ## <a name="programmatically-managing-active-geo-replication"></a>以程式設計方式管理主動式異地複寫
 
@@ -135,7 +142,7 @@ ms.locfileid: "55995046"
 > [!IMPORTANT]
 > 這些 Transact-SQL 命令僅適用於作用中異地複寫，不適用於容錯移轉群組。 因此它們也不適用於受控執行個體，因為受控執行個體僅支援容錯移轉群組。
 
-| 命令 | 說明 |
+| 命令 | 描述 |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |使用 ADD SECONDARY ON SERVER 引數，針對現有資料庫建立次要資料庫並開始資料複寫 |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |使用 FAILOVER 或 FORCE_FAILOVER_ALLOW_DATA_LOSS，將次要資料庫切換為主要資料庫以便開始容錯移轉 |
@@ -148,13 +155,17 @@ ms.locfileid: "55995046"
 
 ### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell：管理單一和集區資料庫的容錯移轉
 
-| Cmdlet | 說明 |
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+
+| Cmdlet | 描述 |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) |取得一或多個資料庫。 |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |針對現有資料庫建立次要資料庫並開始資料複寫。 |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |將次要資料庫切換為主要資料庫以開始容錯移轉。 |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |終止 SQL Database 和指定次要資料庫間的資料複寫。 |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |取得 Azure SQL Database 和資源群組或 SQL Server 之間的異地複寫連結。 |
+| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |取得一或多個資料庫。 |
+| [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |針對現有資料庫建立次要資料庫並開始資料複寫。 |
+| [Set-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |將次要資料庫切換為主要資料庫以開始容錯移轉。 |
+| [Remove-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |終止 SQL Database 和指定次要資料庫間的資料複寫。 |
+| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |取得 Azure SQL Database 和資源群組或 SQL Server 之間的異地複寫連結。 |
 |  | |
 
 > [!IMPORTANT]
@@ -162,10 +173,10 @@ ms.locfileid: "55995046"
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API：管理單一和集區資料庫的容錯移轉
 
-| API | 說明 |
+| API | 描述 |
 | --- | --- |
 | [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |建立、更新或還原主要或次要資料庫。 |
-| [取得建立或更新資料庫狀態](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |在建立作業期間傳回狀態。 |
+| [获取创建或更新数据库状态](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |在建立作業期間傳回狀態。 |
 | [將次要資料庫設定為主要資料庫 (計劃性容錯移轉)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |從目前主要資料庫進行容錯移轉，以設定主要的次要資料庫。 **此選項不支援受控執行個體。**|
 | [將次要資料庫設定為主要資料庫 (非計劃的容錯移轉)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |從目前主要資料庫進行容錯移轉，以設定主要的次要資料庫。 這項作業可能會導致資料遺失。 **此選項不支援受控執行個體。**|
 | [取得複寫連結](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |取得異地複寫關聯性中指定 SQL Database 的特定複寫連結。 它會擷取 sys.geo_replication_links 目錄檢視中顯示的資訊。 **此選項不支援受控執行個體。**|
@@ -181,5 +192,5 @@ ms.locfileid: "55995046"
 - SQL Database 也支援自動容錯移轉群組。 如需詳細資訊，請參閱使用[自動容錯移轉群組](sql-database-auto-failover-group.md)。
 - 如需商務持續性概觀和案例，請參閱 [商務持續性概觀](sql-database-business-continuity.md)
 - 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
-- 若要了解如何使用自動備份進行復原，請參閱 [從服務起始的備份還原資料庫](sql-database-recovery-using-backups.md)。
-- 若要深入了解新的主要伺服器和資料庫的驗證需求，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)。
+- 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)。
+- 若要了解新主服务器和数据库的身份验证要求，请参阅[灾难恢复后的 SQL 数据库安全性](sql-database-geo-replication-security-config.md)。

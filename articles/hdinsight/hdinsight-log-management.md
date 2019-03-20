@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434880"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225311"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 叢集的記錄
 
@@ -77,7 +77,7 @@ HDInsight 叢集會產生各式各樣的記錄檔。 例如 Apache Hadoop 及相
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>使用 Ambari UI 來檢視叢集組態設定
 
-Apache Ambari 提供 Web UI 和 REST API，可簡化 HDInsight 叢集的管理、組態及監視作業。 以 Linux 為基礎的 HDInsight 叢集會隨附 Ambari。 請在 Azure 入口網站 HDInsight 頁面上，選取 [叢集儀表板] 窗格以開啟 [叢集儀表板] 連結頁面。  接著，選取 [HDInsight 叢集儀表板] 窗格以開啟 Ambari UI。  系統會提示您輸入叢集登入認證。
+Apache Ambari 提供 Web UI 和 REST API，可簡化 HDInsight 叢集的管理、組態及監視作業。 以 Linux 為基礎的 HDInsight 叢集會隨附 Ambari。 選取 **叢集儀表板**以開啟 Azure 入口網站 HDInsight 頁面上的窗格**叢集儀表板**連結頁面。  接著，選取 [HDInsight 叢集儀表板] 窗格以開啟 Ambari UI。  系統會提示您輸入叢集登入認證。
 
 若要開啟服務檢視清單，請在 Azure 入口網站的 HDInsight 頁面上選取 [Ambari 檢視]。  此清單會依您已安裝的程式庫而有所不同。  例如，您可能會看到 [YARN 佇列管理員]、[Hive 檢視] 及 [Tez 檢視]。  請選取任何服務連結來查看組態和服務資訊。  Ambari UI [Stack and Version] \(堆疊與版本\) 頁面會提供有關叢集服務組態與服務版本歷程記錄的資訊。 若要瀏覽至 Ambari UI 的這個區段，請選取 [Admin] \(系統管理\) 功能表，然後選取 [Stack and Version] \(堆疊與版本\)。  選取 [Versions] \(版本\) 索引標籤以查看服務版本資訊。
 
@@ -177,5 +177,5 @@ YARN ResourceManager UI 會在叢集前端節點上執行，您可以透過 Amba
 ## <a name="next-steps"></a>後續步驟
 
 * [HDInsight 的監視和記錄做法](https://msdn.microsoft.com/library/dn749790.aspx) \(英文\)
-* [在以 Linux 為基礎的 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [在以 Linux 為基礎的 HDInsight 中 Apache Hadoop YARN 應用程式標誌](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [如何控制各種 Apache Hadoop 元件的記錄檔大小](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) \(英文\)

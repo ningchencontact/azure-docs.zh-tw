@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: eb227b4b4cbdc40a4e708726bbe0f5d0c7eacb74
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: f791b17f2729af3efd2dff5d7884a168f8377154
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364660"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999765"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>在 Azure 中使用 Windows 用戶端進行開發/測試案例
 假設您有適當的 Visual Studio (先前稱為 MSDN) 訂閱，您可以在 Azure 中使用 Windows 7、Windows 8 或 Windows 10 企業版(x64) 進行開發/測試案例。 這篇文章概述在 Azure 中執行 Windows 7、Windows 8.1、Windows 10 企業版和使用下列「Azure 資源庫」映像的資格需求。
@@ -59,7 +59,7 @@ ms.locfileid: "49364660"
 
 - 或者，按一下 [計費]，然後按一下訂用帳戶識別碼。 供應項目識別碼隨即會出現在 [計費] 視窗中。
 
-您也可以從 Azure 帳戶入口網站的 [[訂用帳戶] 索引標籤](http://account.windowsazure.com/Subscriptions) 檢視供應項目識別碼︰
+您也可以從 Azure 帳戶入口網站的 [[訂用帳戶] 索引標籤](https://account.windowsazure.com/Subscriptions) 檢視供應項目識別碼︰
 
 ![Azure 帳戶入口網站中的供應項目識別碼詳細資料](./media/client-images/offer-id-azure-account-portal.png) 
 

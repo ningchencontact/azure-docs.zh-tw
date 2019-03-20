@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 6e27d00e4b12ade82cfde6b3a4927edc7d69798a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435186"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075811"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>在 HDInsight 中搭配使用 Apache Mahout 和以 Linux 為基礎的 Apache Hadoop 來產生電影推薦 (SSH)
 
@@ -22,7 +22,7 @@ ms.locfileid: "53435186"
 
 了解如何使用搭配 Azure HDInsight 的 [Apache Mahout](https://mahout.apache.org) 機器學習庫產生電影推薦。
 
-Mahout 是 Apache Hadoop 的[機器學習服務][ml]程式庫。 Mahout 包含可處理資料的演算法，例如篩選、分類和叢集化。 在本文中，您會使用推薦引擎，以根據朋友看過的電影來產生電影推薦。
+Mahout 是适用于 Apache Hadoop 的 [计算机学习][ml] 库。 Mahout 包含用于处理数据的算法，例如筛选、分类和群集。 在本文中，您會使用推薦引擎，以根據朋友看過的電影來產生電影推薦。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -51,7 +51,7 @@ Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`
 
 ### <a name="understanding-the-data"></a>了解資料
 
-[GroupLens 研究][movielens]提供 Mahout 相容格式的電影評價資料，相當方便。 您可在位於 `/HdiSamples/HdiSamples/MahoutMovieData`的叢集預設儲存體取得這份資料。
+[GroupLens 研究][movielens]提供 Mahout 相容格式的電影評價資料，相當方便。 此数据在 `/HdiSamples/HdiSamples/MahoutMovieData` 中群集的默认存储中可用。
 
 有兩個檔案 `moviedb.txt` 和 `user-ratings.txt`。 `user-ratings.txt` 檔案是用於分析期間。 檢視結果時，`moviedb.txt` 用來提供使用者易記的文字資訊。
 
@@ -63,7 +63,7 @@ user-ratings.txt 內包含的資料具有 `userID`、`movieID`、`userRating` �
     244    51     2    880606923
     166    346    1    886397596
 
-## <a name="run-the-analysis"></a>執行分析
+## <a name="run-the-analysis"></a>运行分析
 
 經由叢集的 SSH 連線，使用下列命令來執行推薦工作：
 
@@ -76,7 +76,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
 ## <a name="view-the-output"></a>檢視輸出
 
-1. 工作完成後，使用以下命令來檢視所產生的輸出：
+1. 作业完成后，使用以下命令查看生成的输出：
 
     ```bash
     hdfs dfs -text /example/data/mahoutout/part-r-00000
@@ -106,7 +106,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     nano show_recommendations.py
     ```
 
-    開啟編輯器時，請使用下列文字做為檔案的內容：
+    编辑器打开后，使用以下文本作为该文件的内容：
 
    ```python
    #!/usr/bin/env python
@@ -168,17 +168,17 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
-    此命令會查看為使用者 ID 4 所產生的建議。
+    此命令查看为用户 ID 4 生成的建议。
 
-    * **user-ratings.txt** 檔案可用來擷取已評分的影片。
+   * **user-ratings.txt** 檔案可用來擷取已評分的影片。
 
-    * **moviedb.txt** 檔案用來擷取影片名稱。
+   * **moviedb.txt** 文件用于检索电影的名称。
 
-    * **recommendations.txt** 用來擷取這位使用者的電影建議。
+   * **recommendations.txt** 用來擷取這位使用者的電影建議。
 
      此命令的輸出類似下列文字︰
 
-        Seven Years in Tibet (1997), score=5.0   Indiana Jones and the Last Crusade (1989), score=5.0   Jaws (1975), score=5.0   Sense and Sensibility (1995), score=5.0   Independence Day (ID4) (1996), score=5.0   My Best Friend's Wedding (1997), score=5.0   Jerry Maguire (1996), score=5.0   Scream 2 (1997), score=5.0   Time to Kill, A (1996), score=5.0
+       Seven Years in Tibet (1997), score=5.0   Indiana Jones and the Last Crusade (1989), score=5.0   Jaws (1975), score=5.0   Sense and Sensibility (1995), score=5.0   Independence Day (ID4) (1996), score=5.0   My Best Friend's Wedding (1997), score=5.0   Jerry Maguire (1996), score=5.0   Scream 2 (1997), score=5.0   Time to Kill, A (1996), score=5.0
 
 ## <a name="delete-temporary-data"></a>刪除暫存資料
 

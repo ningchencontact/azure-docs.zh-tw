@@ -3,16 +3,15 @@ title: Azure Data Factory 對應資料流程接收轉換
 description: Azure Data Factory 對應資料流程接收轉換
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 381dc2f9f6d3a074af00ba047472719c086f5811
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852435"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>對應資料流程接收轉換
 
@@ -35,27 +34,17 @@ ms.locfileid: "56408403"
 
 ![接收選項](media/data-flow/opt001.png "接收選項")
 
-### <a name="output-settings"></a>輸出設定
-
-覆寫將會截斷資料表 (若有的話)，然後加以重建並載入資料。 附加會插入新的資料列。 如果「資料集」資料表名稱中的資料表不存在於目標 ADW 中，則資料流程會建立資料表，然後載入資料。
-
-如果您取消選取 [自動對應]，即可手動將欄位對應至目的地資料表。
-
-![接收 ADW 選項](media/data-flow/adw2.png "adw 接收")
-
-#### <a name="field-mapping"></a>欄位對應
+## <a name="field-mapping"></a>欄位對應
 
 在接收轉換的 [對應] 索引標籤上，您可以將傳入 (左側) 資料行對應到目的地 (右側)。 當您將資料流程接收到檔案時，ADF 一律會將新檔案寫入資料夾。 當您對應到資料庫資料集時，您可以選擇利用此結構描述產生新的資料表 (將「儲存原則」設定為 [覆寫])，或將新資料列插入現有資料表中，並將欄位對應到現有的結構描述。
 
-您可以在對應資料表中使用多選功能，按一下即可連結多個資料行、取消連結多個資料行，或將多個資料列對應到相同的資料行名稱。
+您可以使用對應資料表中的複選來連結多個資料行，只要按一下、 delink 多個資料行或將多個資料列對應至相同的資料行名稱。
+
+當您想要一律採用傳入一組欄位，並將它們對應到目標集，請將 「 允許結構描述漂移 」 設定。
 
 ![欄位對應](media/data-flow/multi1.png "多個選項")
 
 如果您想要重設您的資料行對應，請按 [重新對應] 按鈕來重設對應。
-
-![連線](media/data-flow/maxcon.png "連線")
-
-### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>ADF V2 GA 版本的接收轉換更新
 
 ![接收選項](media/data-flow/sink1.png "接收一")
 
@@ -65,7 +54,7 @@ ms.locfileid: "56408403"
 
 * 清除資料夾。 ADF 會在目標資料夾中寫入目的地檔案之前，先截斷接收資料夾內容。
 
-* 檔案名稱選項
+## <a name="file-name-options"></a>檔案名稱選項
 
    * 預設值：可讓 Spark 根據 PART 預設值來命名檔案
    * 模式：輸入輸出檔案的名稱
@@ -75,14 +64,19 @@ ms.locfileid: "56408403"
 > [!NOTE]
 > 檔案作業只會在您執行「執行資料流程」活動時執行，而不是在「資料流程偵錯」模式中執行
 
-使用 SQL 接收類型，您可以設定：
+## <a name="database-options"></a>資料庫選項
 
-* 截斷資料表
-* 重新建立資料表 (執行卸除/建立)
-* 大型資料載入的批次大小。 輸入一個數字，以將寫入填入多個區塊。
+* 允許插入、 更新、 刪除、 更新插入。 預設值是允許插入。 如果您想要更新、 更新插入或插入資料列，您必須先將 alter 資料列轉換加入標記資料列，這些特定的動作。
+* 截斷的資料表 （移除所有資料列目標資料表中完成的資料流程之前）
+* 重新建立的資料表 （不會執行卸除/建立目標資料表的資料流程在完成之前）
+* 大型資料載入的批次大小。 貯體寫入輸入的數字分成多個區塊
+* 啟用預備環境：這將指示 ADF 載入 Azure 為您的接收資料集的資料倉儲時使用 Polybase
 
-![欄位對應](media/data-flow/sql001.png "SQL 選項")
+![SQL 接收選項](media/data-flow/alter-row2.png "SQL 選項")
+
+> [!NOTE]
+> 當更新或刪除資料庫接收中的資料列時，您必須設定索引鍵資料行。 如此一來，就能夠判斷唯一的資料列中的 DML Alter 資料列。
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已建立資料流程，請將[執行資料流程活動新增到您的管線](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview)。
+既然您已建立資料流程，請將[執行資料流程活動新增到您的管線](concepts-data-flow-overview.md)。

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 1dd6be61aab91bb15cc42939689e3c7399bee3db
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e9b240a17614593cd04280a13e006c4d06e832fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904267"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>使用 Power BI 工作區集合驗證和授權
 
@@ -38,7 +38,7 @@ Power BI 工作區集合服務會使用**金鑰**和**應用程式權杖**進行
 
 您的應用程式權杖可包含下列宣告：
 
-| 宣告 | 說明 |    
+| 宣告 | 描述 |    
 | --- | --- |
 | **ver** |應用程式權杖的版本。 目前版本為 0.2.0。 |
 | **aud** |權杖的預定接收者。 對於 Power BI 工作區集合，使用：https:\//analysis.windows.net/powerbi/api。 |
@@ -48,7 +48,7 @@ Power BI 工作區集合服務會使用**金鑰**和**應用程式權杖**進行
 | **wid** |為其發出權杖的工作區識別碼。 |
 | **rid** |為其發出權杖的報告識別碼。 |
 | **username** (選擇性) |與 RLS 搭配使用，使用者名稱是字串，可以在套用 RLS 規則時協助識別使用者。 |
-| **角色** (選擇性) |字串，包含套用資料列層級安全性規則時要選取的角色。 如果傳遞多個角色，應該將它們傳遞為字串陣列。 |
+| **角色** (選擇性) |字串，包含套用資料列層級安全性規則時要選取的角色。 如果传递多个角色，则应当以字符串数组形式传递它们。 |
 | **scp** (選擇性) |字串，包含權限範圍。 如果傳遞多個角色，應該將它們傳遞為字串陣列。 |
 | **exp** (選擇性) |指出權杖到期的時間。 值應該傳遞為 Unix 時間戳記。 |
 | **nbf** (選擇性) |指出權杖開始生效的時間。 值應該傳遞為 Unix 時間戳記。 |
@@ -88,13 +88,13 @@ SDK 中有方法可簡化應用程式權杖的建立。 例如，對於 .NET，�
 
 對於 .NET SDK，您可以參考[範圍](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes)。
 
-## <a name="scopes"></a>範圍
+## <a name="scopes"></a>作用域
 
 在使用內嵌權杖時，您可能會想限制您授與了存取權之資源的使用量。 為此，您可以產生具有範圍權限的權杖。
 
 以下是 Power BI 工作區集合的可用範圍。
 
-|影響範圍|說明|
+|影響範圍|描述|
 |---|---|
 |Dataset.Read|提供讀取指定資料集的權限。|
 |Dataset.Write|提供寫入指定資料集的權限。|
@@ -145,8 +145,8 @@ Body
 |作業|目標資源|權杖權限|
 |---|---|---|
 |根據資料集建立新的報告 (在記憶體內部)。|Dataset|Dataset.Read|
-|根據資料集建立新的報告並儲存報告 (在記憶體內部)。|Dataset|* Dataset.Read<br>* Workspace.Report.Create|
-|檢視和瀏覽/編輯現有報告 (在記憶體內部)。 Report.Read 暗指 Dataset.Read。 Report.Read 不允許儲存編輯。|報告|Report.Read|
+|根據資料集建立新的報告並儲存報告 (在記憶體內部)。|数据集|* Dataset.Read<br>* Workspace.Report.Create|
+|查看和浏览/编辑（在内存中）现有报表。 Report.Read 暗指 Dataset.Read。 Report.Read 不允許儲存編輯。|報告|Report.Read|
 |編輯並儲存現有報告。|報告|Report.ReadWrite|
 |儲存報告複本 (另存新檔)。|報告|* Report.Read<br>* Workspace.Report.Copy|
 
@@ -174,7 +174,7 @@ Body
 
 ![應用程式內嵌的報告範例](media/get-started-sample/sample-web-app.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [開始使用 Microsoft Power BI 工作區集合範例](get-started-sample.md)  
@@ -182,4 +182,4 @@ Body
 [開始使用 Microsoft Power BI 工作區集合](get-started.md)  
 [PowerBI-CSharp Git 存放庫](https://github.com/Microsoft/PowerBI-CSharp)
 
-有其他疑問？ [試用 Power BI 社群](http://community.powerbi.com/)
+有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)

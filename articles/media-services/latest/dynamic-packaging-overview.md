@@ -11,43 +11,160 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: juliako
-ms.openlocfilehash: d1d07402bca5f01cf63d0b039c085e46bb0f0d62
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: d9c59bdb2e8a7b115761554f70ebedeecaf5d04e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901713"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
 
-Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 和 XBOX) 提供許多媒體來源檔案格式、媒體串流格式和內容保護格式。 這些用戶端各自使用不同的通訊協定，例如 iOS 需要 HTTP 即時串流 (HLS) 格式，而 Silverlight 與 Xbox 需要 Smooth Streaming。 如果您有一組自動調整位元速率 (多位元速率) MP4 (ISO Base Media 14496-12) 檔案或一組自動調整位元速率 Smooth Streaming 檔案，想要傳遞給了解 HLS、MPEG DASH 或 Smooth Streaming 的用戶端，應該利用媒體服務動態封裝。
+Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 和 XBOX) 提供許多媒體來源檔案格式、媒體串流格式和內容保護格式。 這些用戶端各自使用不同的通訊協定，例如 iOS 需要 HTTP 即時串流 (HLS) 格式，而 Silverlight 與 Xbox 需要 Smooth Streaming。 如果您有一組調適性位元速率 （多位元速率） MP4 (ISO Base Media 14496-12) 檔案或一組調適性位元速率 Smooth Streaming 檔案，您想要提供給 HLS、 MPEG DASH 或 Smooth Streaming 的用戶端，您可以利用動態封裝。 封裝是無從驗證的視訊解析度、 支援 SD/HD/UHD-4 個。
 
-使用動態封裝，您只需建立包含一組自適性位元速率 MP4 檔案的資產。 然後隨選資料流處理伺服器會根據資訊清單或片段要求中的指定格式，確保您以自己選擇的通訊協定接收串流。 因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。
+[串流端點](streaming-endpoint-concept.md)是用來傳遞媒體內容給用戶端播放程式媒體服務中的動態封裝服務。 動態封裝是一項功能在所有的標準**串流端點**（Standard 或 Premium）。 沒有任何額外的媒體服務 v3 中的這項功能與相關聯的成本。 
 
-下圖顯示傳統編碼和靜態封裝工作流程。
+善用**動態封裝**，您必須能夠**資產**與一組調適性位元速率 MP4 檔案和串流處理媒體服務動態封裝所需的組態檔。 取得檔案的一個方法是將您的夾層 （來源） 檔案使用媒體服務編碼。 若要讓影片中編碼的資產可供用戶端播放，您必須建立**串流定位器**並建置串流 Url。 然後，根據串流用戶端資訊清單 （HLS、 DASH 或 Smooth） 中指定的格式，您收到資料流中您所選擇的通訊協定。
 
-![靜態編碼](./media/dynamic-packaging-overview/media-services-static-packaging.png)
+因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。 
 
-下圖顯示動態封裝工作流程。
+在 Media Services 會使用動態封裝，是否您串流處理實況或點播。 下圖顯示使用動態封裝工作流程上隨選資料流。
 
-![動態編碼](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![動態封裝](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-## <a name="dynamic-packaging-workflow"></a>動態封裝工作流程
+## <a name="common-video-on-demand-workflow"></a>常見的視訊隨工作流程
+
+以下是常見的媒體服務，串流工作流程使用動態封裝的位置。
 
 1. 上傳輸入檔案 (稱為夾層檔)。 例如，H.264、MP4 或 WMV (如需支援格式清單，請參閱 [媒體編碼器標準所支援的格式](media-encoder-standard-formats.md))。
 2. 將夾層檔編碼為 H.264 MP4 自動調整位元速率集。
-3. 發佈包含自適性位元速率 MP4 集的資產。
-4. 建置串流 URL 來存取和串流您的內容。
+3. 發佈包含自適性位元速率 MP4 集的資產。 建立您發佈**串流定位器**。
+4. 建立以不同格式 （HLS、 Dash 和 Smooth Streaming） 為目標的 Url。 **串流端點**會負責正確的資訊清單和這些不同的格式的要求提供服務。
+
+## <a name="encode-to-adaptive-bitrate-mp4s"></a>編碼為調適性位元速率 mp4
+
+如需[如何使用媒體服務將視訊編碼](encoding-concept.md)，請參閱下列範例：
+
+* [從使用內建的預先設定的 HTTPS URL 編碼](job-input-from-http-how-to.md)
+* [將本機檔案，使用內建的預設編碼](job-input-from-local-file-how-to.md)
+* [建置自訂預設值為目標的特定案例或裝置需求](customize-encoder-presets-how-to.md)
+
+如需媒體編碼器標準格式和轉碼器的清單，請參閱[格式和轉碼器](media-encoder-standard-formats.md)
+
+## <a name="delivery-protocols"></a>傳遞通訊協定
+
+|通訊協定|範例|
+|---|---|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
+|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
+
+## <a name="video-codecs-supported-by-dynamic-packaging"></a>支援的動態封裝的視訊轉碼器
+
+動態封裝支援 MP4 檔案，其中包含以編碼的視訊[H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) （mpeg-4 AVC 或 AVC1） [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC，hev1 或 hvc1)。
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>動態封裝支援的音訊轉碼器
 
-動態封裝支援 MP4 檔案，其中包含使用 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC、HE-AAC v1、HE-AAC v2)、[Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (增強式 AC-3 或 E-AC3)，或 [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express、DTS LBR、DTS HD、DTS HD 不失真)。
+動態封裝支援 MP4 檔案，其中包含以編碼的音訊[AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC、 HE-AAC v1、 HE-AAC v2)， [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) （增強式 AC-3 或 E-AC3），或[DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTSExpress、 DTS LBR，DTS HD，DTS HD 不失真)。
 
 > [!NOTE]
 > 動態封裝不支援包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音訊的檔案 (它是舊版的轉碼器)。
 
+## <a name="manifests"></a>資訊清單 
+ 
+媒體服務支援 HLS、 MPEG DASH、 Smooth Streaming 通訊協定。 做為一部分**動態封裝**，串流用戶端資訊清單 （HLS 主要播放清單、 DASH Media Presentation Description (MPD)，和 Smooth Streaming） 動態產生的 URL 中的格式選取器為基礎。 請參閱中的傳遞通訊協定[本節](#delivery-protocols)。 
+
+資訊清單檔案包含資料流中繼資料，例如： 追蹤類型 （音訊、 視訊或文字），追蹤名稱、 開始和結束時間、 位元速率 （品質）、 軌語言、 簡報視窗 （持續時間固定的滑動視窗） 中，視訊轉碼器 (FourCC)。 此檔案也會透過提供下一個可播放視訊片段及其位置的相關資訊，來指示播放程式擷取下一個片段。 片段 (或區段) 實際上是視訊內容的「區塊」。
+
+### <a name="hls-master-playlist"></a>HLS 主要播放清單
+
+以下是 HLS 資訊清單檔案的範例： 
+
+```
+#EXTM3U
+#EXT-X-VERSION:4
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="aac_eng_2_128041_2_1",LANGUAGE="eng",DEFAULT=YES,AUTOSELECT=YES,URI="QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)"
+#EXT-X-STREAM-INF:BANDWIDTH=536608,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
+QualityLevels(381048)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=536608,RESOLUTION=320x180,CODECS="avc1.64000d",URI="QualityLevels(381048)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=884544,RESOLUTION=480x270,CODECS="avc1.640015,mp4a.40.2",AUDIO="audio"
+QualityLevels(721495)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=884544,RESOLUTION=480x270,CODECS="avc1.640015",URI="QualityLevels(721495)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=1327398,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2",AUDIO="audio"
+QualityLevels(1154816)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=1327398,RESOLUTION=640x360,CODECS="avc1.64001e",URI="QualityLevels(1154816)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=2413312,RESOLUTION=960x540,CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"
+QualityLevels(2217354)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=2413312,RESOLUTION=960x540,CODECS="avc1.64001f",URI="QualityLevels(2217354)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=3805760,RESOLUTION=1280x720,CODECS="avc1.640020,mp4a.40.2",AUDIO="audio"
+QualityLevels(3579827)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=3805760,RESOLUTION=1280x720,CODECS="avc1.640020",URI="QualityLevels(3579827)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=139017,CODECS="mp4a.40.2",AUDIO="audio"
+QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
+```
+
+### <a name="dash-media-presentation-description-mpd"></a>DASH 媒體呈現描述 (MPD)
+
+DASH 資訊清單的範例如下：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT1M10.315S" minBufferTime="PT7S">
+   <Period>
+      <AdaptationSet id="1" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.2" lang="en">
+         <SegmentTemplate timescale="10000000" media="QualityLevels($Bandwidth$)/Fragments(aac_eng_2_128041_2_1=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(aac_eng_2_128041_2_1=i,format=mpd-time-csf)">
+            <SegmentTimeline>
+               <S d="60160000" r="10" />
+               <S d="41386666" />
+            </SegmentTimeline>
+         </SegmentTemplate>
+         <Representation id="5_A_aac_eng_2_128041_2_1_1" bandwidth="128041" audioSamplingRate="48000" />
+      </AdaptationSet>
+      <AdaptationSet id="2" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.640020" maxWidth="1280" maxHeight="720" startWithSAP="1">
+         <SegmentTemplate timescale="10000000" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+            <SegmentTimeline>
+               <S d="60060000" r="10" />
+               <S d="42375666" />
+            </SegmentTimeline>
+         </SegmentTemplate>
+         <Representation id="1_V_video_1" bandwidth="3579827" width="1280" height="720" />
+         <Representation id="1_V_video_2" bandwidth="2217354" codecs="avc1.64001F" width="960" height="540" />
+         <Representation id="1_V_video_3" bandwidth="1154816" codecs="avc1.64001E" width="640" height="360" />
+         <Representation id="1_V_video_4" bandwidth="721495" codecs="avc1.640015" width="480" height="270" />
+         <Representation id="1_V_video_5" bandwidth="381048" codecs="avc1.64000D" width="320" height="180" />
+      </AdaptationSet>
+   </Period>
+</MPD>
+```
+### <a name="smooth-streaming"></a>Smooth Streaming
+
+Smooth Streaming 資訊清單的範例如下：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="703146666" TimeScale="10000000">
+   <StreamIndex Chunks="12" Type="audio" Url="QualityLevels({bitrate})/Fragments(aac_eng_2_128041_2_1={start time})" QualityLevels="1" Language="eng" Name="aac_eng_2_128041_2_1">
+      <QualityLevel AudioTag="255" Index="0" BitsPerSample="16" Bitrate="128041" FourCC="AACL" CodecPrivateData="1190" Channels="2" PacketSize="4" SamplingRate="48000" />
+      <c t="0" d="60160000" r="11" />
+      <c d="41386666" />
+   </StreamIndex>
+   <StreamIndex Chunks="12" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="5">
+      <QualityLevel Index="0" Bitrate="3579827" FourCC="H264" MaxWidth="1280" MaxHeight="720" CodecPrivateData="0000000167640020ACD9405005BB011000003E90000EA600F18319600000000168EBECB22C" />
+      <QualityLevel Index="1" Bitrate="2217354" FourCC="H264" MaxWidth="960" MaxHeight="540" CodecPrivateData="000000016764001FACD940F0117EF01100000303E90000EA600F1831960000000168EBECB22C" />
+      <QualityLevel Index="2" Bitrate="1154816" FourCC="H264" MaxWidth="640" MaxHeight="360" CodecPrivateData="000000016764001EACD940A02FF9701100000303E90000EA600F162D960000000168EBECB22C" />
+      <QualityLevel Index="3" Bitrate="721495" FourCC="H264" MaxWidth="480" MaxHeight="270" CodecPrivateData="0000000167640015ACD941E08FEB011000003E90000EA600F162D9600000000168EBECB22C" />
+      <QualityLevel Index="4" Bitrate="381048" FourCC="H264" MaxWidth="320" MaxHeight="180" CodecPrivateData="000000016764000DACD941419F9F011000003E90000EA600F14299600000000168EBECB22C" />
+      <c t="0" d="60060000" r="11" />
+      <c d="42375666" />
+   </StreamIndex>
+</SmoothStreamingMedia>
+```
 ## <a name="next-steps"></a>後續步驟
 
 [上傳、編碼、串流影片](stream-files-tutorial-with-api.md)
+

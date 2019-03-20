@@ -7,18 +7,18 @@ author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: ''
-ms.service: ''
+ms.service: key-vault
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 79b1c740bca56982243ddc130d8747fdc955247f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662277"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124111"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地儲存 Web 應用程式的祕密應用程式設定
 
@@ -143,9 +143,9 @@ ms.locfileid: "55662277"
 依照 ASP.NET Core 區段中的指示，為您的專案設定金鑰保存庫。
 
 1. 將下列 NuGet 套件安裝到您的專案
-```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets
-```
+   ```
+   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   ```
 
 2. 在 Web.config 中定義金鑰保存庫組態產生器。請將以下區段放在 *appSettings* 區段前面。 如果您的金鑰保存庫是公用 Azure，請將 *vaultName* 取代為金鑰保存庫名稱；如果您使用 Sovereign 雲端，則取代為 URI。
 
@@ -159,16 +159,16 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets
         </builders>
     </configBuilders>
     ```
-3.  指定 appSettings 區段會使用金鑰保存庫組態產生器。 請確定秘密設定的任何項目皆使用虛擬值。
+3. 指定 appSettings 區段會使用金鑰保存庫組態產生器。 請確定秘密設定的任何項目皆使用虛擬值。
 
-    ```xml
-    <appSettings configBuilders="AzureKeyVault">
-        <add key="webpages:Version" value="3.0.0.0" />
-        <add key="webpages:Enabled" value="false" />
-        <add key="ClientValidationEnabled" value="true" />
-        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-        <add key="secret" value="" />
-    </appSettings>
-    ```
+   ```xml
+   <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="secret" value="" />
+   </appSettings>
+   ```
 
 4. 開始進行專案偵錯。 此作業應可順利執行。

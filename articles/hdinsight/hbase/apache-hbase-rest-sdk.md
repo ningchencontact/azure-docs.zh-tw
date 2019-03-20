@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
-ms.translationtype: HT
+ms.openlocfilehash: 27a013bee98447de591d373917c2cbaae7ca08b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857652"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>使用 .Net SDK for Apache HBase
+# <a name="use-the-net-sdk-for-apache-hbase"></a>使用 Apache HBase.NET SDK
 
-[Apache HBase](apache-hbase-overview.md) 提供兩大資料處理選擇：[Apache Hive 查詢，以及呼叫 HBase 的 RESTful API](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
+[Apache HBase](apache-hbase-overview.md) 提供了两个用于处理数据的主要选项：[Apache Hive 查询和调用 HBase 的 RESTful API](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
 
 對於 C# 和 .NET 應用程式，[Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) 還提供了 HBase REST API 以外的用戶端程式庫。
 

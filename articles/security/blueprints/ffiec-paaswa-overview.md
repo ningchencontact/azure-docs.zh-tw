@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 3ef8afb554b00c3d261ec8d0093a0c5831a43a7f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 63ad692e1050f900310f8195b79f26dd99704b93
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652588"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245910"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Azure 安全性與合規性藍圖：適用於 FFIEC 金融服務的 PaaS Web 應用程式
 
@@ -43,7 +43,7 @@ ms.locfileid: "53652588"
 
 Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而執行 SSMS 的本機電腦會設定為透過安全的 VPN 或 ExpressRoute 連線來存取 Azure SQL Database。
 
-此外，Application Insights 會透過 Log Analytics 提供即時應用程式效能管理與分析。 **Microsoft 建議您設定 VPN 或 ExpressRoute 連線，以便管理和將資料匯入參考架構子網路。**
+此外，Application Insights 會提供即時應用程式效能管理和透過 Azure 監視器記錄檔的分析。 **Microsoft 建議您設定 VPN 或 ExpressRoute 連線，以便管理和將資料匯入參考架構子網路。**
 
 ![適用於 FFIEC 的 PaaS Web 應用程式參考架構圖表](images/ffiec-paaswa-architecture.png "適用於 FFIEC 的 PaaS Web 應用程式參考架構圖表")
 
@@ -61,12 +61,11 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 - Azure DNS
 - Azure 金鑰保存庫
 - Azure Load Balancer
-- Azure 監視器
+- Azure 監視器 （記錄檔）
 - Azure Resource Manager
 - Azure 資訊安全中心
 - 連接字串
 - Azure 儲存體
-- Azure Log Analytics
 - Azure 虛擬網路
     - (1) /16 網路
     - (4) /24 網路
@@ -88,7 +87,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 -   [自動關閉原則](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) \(英文\)，可減少不使用虛擬機器資源時的耗用量。
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) 已啟用，因此認證和其他祕密都會在受保護的環境中執行，且該環境會與正在執行的作業系統隔離
 
-**App Service Environment v2**：Azure App Service Environment 是 App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。 需要此隔離功能，才能符合 FFIEC 合規性要求。
+**App Service 環境 v2**：Azure App Service Environment 是 App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。 需要此隔離功能，才能符合 FFIEC 合規性要求。
 
 App Service 環境已經過隔離，可執行只有單一客戶的應用程式，且一律會部署到虛擬網路。 此隔離功能可讓參考架構具有完整的租用戶隔離，將它從 Azure 的多租用戶環境中移除，禁止這些多租用戶列舉已部署的 App Service 環境資源。 客戶對於輸入和輸出的應用程式網路流量都有更細微的控制，且應用程式可以透過虛擬網路建立與內部部署公司資源的高速安全連線。 客戶可以根據負載計量、可用預算或定義的排程，「自動調整」App Service 環境。
 
@@ -119,7 +118,7 @@ App Service 環境已經過隔離，可執行只有單一客戶的應用程式�
 每個網路安全性群組都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，下列組態會針對每個網路安全性群組啟用：
 
 - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶
-- Log Analytics 會連線至[網路安全性群組的診斷記錄](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Azure 監視器記錄檔連接到[網路安全性群組&#39;s 診斷記錄](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **子網路**：確認每個子網路都與對應的網路安全性群組建立關聯。
 
@@ -194,9 +193,9 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
 - **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
 
-**Log Analytics**：這些記錄會合併到 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) 以進行處理、儲存，並從儀表板顯示報告。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心會與 Log Analytics 整合，讓客戶使用 Log Analytics 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
+**Azure 監視器記錄**：這些記錄檔會在合併[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)處理、 儲存和儀表板報表。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心與 Azure 監視器記錄檔，讓客戶能使用 Kusto 查詢來存取其安全性事件資料，並結合資料與其他服務整合。
 
-此架構包含下列 Log Analytics [管理解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)：
+下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)會包含此架構的一部分：
 -   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
 - [SQL 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment)：SQL 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器架構，提供優先的建議清單給客戶。
 - [代理程式健全狀況](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數目。

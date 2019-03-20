@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968442"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437338"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure 地圖服務支援的類別
 
@@ -45,7 +45,7 @@ ms.locfileid: "38968442"
 | COLLEGE\_UNIVERSITY | 專科學校/社區大學、學院/大學、學院、大學先修班、大學 |
 | COMMERCIAL\_BUILDING | 辦公大樓、公園管理處、商業建築 |
 | COMMUNITY\_CENTER | 社區中心 |
-| COMPANY | 電子、製造業、電腦資料服務、公共衛生技術、多元化金融、動物收容所、航空公司、設備租賃、服務、郵件/包裹/貨運、共汽車線路、家電維修、清潔服務、OEM、稅務服務、石油天然氣、法律服務、建築、遠端通訊、交通運輸、汽車製造、化工、殯葬服務、橋隧工程、汽車、機械工程、服務、投資顧問、廣告/市場行銷、行動儲存、儲蓄機構、保險、電腦軟體、藥品、餐飲、婚慶服務、農業技術、房地產、計程車、豪華轎車接送服務、巴士租賃、採礦、出版技術、有線電話、進出口分銷、公司、庇護、煤礦、房地產、釀酒廠、金礦 |
+| COMPANY | 稅務電子業、 製造業、 電腦資料服務、 公共衛生技術、 多樣化的財務、 動物的保護、 航空公司、 設備預約租車、 服務、 郵件/封裝/freight 傳遞、 匯流排線條、 家用設備修復、 清除服務，oem服務、 菜籽天然氣、 法律服務、 建構、 電信、 傳輸、 汽車的製造、 化學藥品、 千年服務太平間，橋接器通道作業、 汽車、 機械工程、 服務、 投資顧問，連結廣告/行銷，移動儲存體、 節省機構、 保險、 電腦軟體 pharmaceuticals，根據婚禮服務、 農業技術、 不動產、 計程車、 禮車接駁車服務匯流排規章出租採礦、 發行技術、 纜線電話、 匯入/匯出散發、 公司、 asylum、 煤力 mine(s)、 estate(s)、 brewery、 gold mine(s) |
 | COURTHOUSE | 法院大樓 |
 | CULTURAL\_CENTER | 文化中心 |
 | DENTIST | 牙醫 |

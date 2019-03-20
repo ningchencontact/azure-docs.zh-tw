@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884722"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析 
 
@@ -126,7 +126,7 @@ Azure 內容仲裁可讓您針對影片使用機器輔助仲裁。 例如，您�
     }
 
 ## <a name="demos"></a>示範
-請參閱 [Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)。
+請參閱 [Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)。
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

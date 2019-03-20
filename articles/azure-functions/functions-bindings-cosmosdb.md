@@ -6,16 +6,16 @@ author: craigshoemaker
 ms.author: cshoe
 manager: jeconnoc
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 112442c280ee4b1b263a30c8976ea6d51f04e036
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 0421ec62d25bbfaba2909d16498cac5afd038a53
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359726"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776320"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 Azure Cosmos DB 繫結
 
@@ -33,7 +33,7 @@ ms.locfileid: "54359726"
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> 目前僅支援將 Azure Cosmos DB 繫結用於 SQL API。 對於其他所有的 Azure Cosmos DB API，您應使用 API 的靜態用戶端，以從函式存取資料庫，包括 [適用於 MongoDB 的 Azure Cosmos DB API](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md)、[Cassandra API](../cosmos-db/cassandra-introduction.md)、[Gremlin API](../cosmos-db/graph-introduction.md) 和[資料表 API](../cosmos-db/table-introduction.md)。
+> 目前僅支援將 Azure Cosmos DB 繫結用於 SQL API。 對於其他所有的 Azure Cosmos DB API，您均應對您的 API 使用靜態用戶端，以從函式存取資料庫，包括 [Azure Cosmos DB 的 MongoDB 版 API](../cosmos-db/mongodb-introduction.md)、[Cassandra API](../cosmos-db/cassandra-introduction.md)、[Gremlin API](../cosmos-db/graph-introduction.md) 和[資料表 API](../cosmos-db/table-introduction.md)。
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
@@ -180,7 +180,7 @@ namespace CosmosDBSamplesV1
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDBTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** || 必須設為 `cosmosDBTrigger`。 |
 |**direction** || 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此參數。 |
@@ -1159,14 +1159,14 @@ module.exports = function (context, req, toDoItem) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `DocumentDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `documentdb`。        |
 |**direction**     || 必須設為 `in`。         |
 |**name**     || 代表函式中之文件的繫結參數名稱。  |
 |**databaseName** |**DatabaseName** |包含文件的資料庫。        |
 |**collectionName** |**CollectionName** | 包含文件的集合名稱。 |
-|**id**    | **Id** | 要擷取之文件的識別碼。 此屬性支援[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)。 請勿同時設定 **id** 和 **sqlQuery** 屬性。 如果您未設定其中一個，就會擷取整個集合。 |
+|**id**    | **Id** | 要擷取之文件的識別碼。 此屬性支援[繫結運算式](./functions-bindings-expressions-patterns.md)。 請勿同時設定 **id** 和 **sqlQuery** 屬性。 如果您未設定其中一個，就會擷取整個集合。 |
 |**sqlQuery**  |**SqlQuery**  | 用來擷取多份文件的 Azure Cosmos DB SQL 查詢。 屬性會支援執行階段繫結，如此範例所示：`SELECT * FROM c where c.departmentId = {departmentId}`。 請勿同時設定 **id** 和 **sqlQuery** 屬性。 如果您未設定其中一個，就會擷取整個集合。|
 |**連接**     |**ConnectionStringSetting**|包含 Azure Cosmos DB 連接字串的應用程式設定名稱。        |
 |**partitionKey**|**PartitionKey**|指定分割區索引鍵值進行查閱。 可能包含繫結參數。|
@@ -1577,7 +1577,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `DocumentDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `documentdb`。        |
 |**direction**     || 必須設為 `out`。         |

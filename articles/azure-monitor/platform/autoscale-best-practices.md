@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467347"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454097"
 ---
 # <a name="best-practices-for-autoscale"></a>自動調整規模的最佳做法
 Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[雲端服務](https://azure.microsoft.com/services/cloud-services/)、[App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 與 [API 管理服務](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。
@@ -31,14 +31,14 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 ## <a name="autoscale-best-practices"></a>自動調整最佳做法
 使用自動調整時，請使用下列最佳做法。
 
-### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>確定最大值與最小值不同，而且兩者之間有差距適當。
+### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>确保最大和最小值不同，并且它们之间具有足够的余量
 若設定的最小值等於 2，而最大值也等於 2，且目前執行個體計數為 2，將不會有任何調整動作。 在執行個體計數的最大值與最小值之間 (含這兩個值)，需保留適當的差距。 在這些限制之間，一定律會自動調整。
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>自動調整的最小值與最大值會重設手動調整
 如果您手動將執行個體計數的值更新為高於最大值或低於最小值，自動調整引擎會自動調整回最小值 (如果低於) 或最大值 (如果高於)。 例如，您設定的範圍是 3 到 6。 如果您有一個執行執行個體正在執行，自動調整引擎會在它下次執行時調整為三個執行個體。 同樣地，如果您以手動方式將規模設定為八個執行個體，在下次執行時，自動調整規模會在它下次執行時將它調整回六個執行個體。  手動調整是暫時的，除非您也同時重設自動調整規則。
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>請一律使用相應放大和相應縮小規則的組合來執行增加與減少。
-如果您只使用組合的一個部分，則自動調整規模將只對單一方向採取動作 (放大或縮小) 直到它達到設定檔中定義的最大或最小執行個體計數。 這不是最佳作法，理想的狀態是讓資源在高使用量時擴展以確保可用性。 同樣地，您在低使用量時需要資源縮減，因此可實現成本節約。
+如果您使用組合的冰山一角，自動調整規模將只採取動作以單一方向 （相應放大或縮小） 直到達到最大值，或最小執行個體計數的設定檔中定義。 這不是最佳作法，理想的狀態是讓資源在高使用量時擴展以確保可用性。 同樣地，您在低使用量時需要資源縮減，因此可實現成本節約。
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>為您的診斷度量選擇適當的統計資料
 針對診斷度量，您可以選擇 [平均值]、[最小值]、[最大值] 和 [總計] 作為據以調整的度量。 最常用的統計資料是 [平均值] 。

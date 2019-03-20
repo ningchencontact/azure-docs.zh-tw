@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 8fc85f82e5b6290a0f7401581e57b77473a495ae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 770a494e93a51fc018b2bfe803ac15ba543f35d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011340"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>啟用 Azure 儲存體計量和檢視計量資料
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "55454006"
 1. 選取 [功能表] 窗格上的 [診斷]。
 1. 確定 [狀態] 設為 [開啟]。
 1. 選取您要監視之服務的計量。
-1. 指定保留原則，以表示要保留計量與記錄資料的時間。
+1. 指定用来指示保留度量值和日志数据的时间长度的保留期策略。
 1. 選取 [ **儲存**]。
 
 [Azure 入口網站](https://portal.azure.com)目前無法讓您在儲存體帳戶中設定每分鐘計量功能，您必須使用 PowerShell 或以程式設計方式啟用每分鐘計量功能。
@@ -95,7 +95,7 @@ properties.DefaultServiceVersion = "2015-04-05";
 blobClient.SetServiceProperties(properties);
 ```
 
-## <a name="viewing-storage-metrics"></a>檢視儲存體度量
+## <a name="viewing-storage-metrics"></a>查看存储指标
 在您設定儲存體分析計量監視您的儲存體帳戶後，儲存體分析會將計量記錄在您儲存體帳戶中一組已知資料表中。 您可以在 [Azure 入口網站](https://portal.azure.com)中將圖表設定為檢視每小時計量：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的儲存體帳戶。
@@ -113,13 +113,13 @@ blobClient.SetServiceProperties(properties);
 如需可用工具的清單，請參閱 [Azure 儲存體用戶端工具](storage-explorers.md)。
 
 > [!NOTE]
-> 從 [Microsoft Azure 儲存體總管](http://storageexplorer.com/) 0.8.0 版開始，您便可以檢視和下載分析計量資料表。
+> 從 [Microsoft Azure 儲存體總管](https://storageexplorer.com/) 0.8.0 版開始，您便可以檢視和下載分析計量資料表。
 >
 >
 
 為了能編寫程式來存取分析資料表，請注意，如果您在儲存體帳戶中列出所有資料表，則分析資料表就不會出現。 您可以直接依名稱存取它們，或在 .NET 用戶端程式庫中使用 [CloudAnalyticsClient API](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) 查詢資料表名稱。
 
-### <a name="hourly-metrics"></a>每小時度量
+### <a name="hourly-metrics"></a>小时指标
 * $MetricsHourPrimaryTransactionsBlob
 * $MetricsHourPrimaryTransactionsTable
 * $MetricsHourPrimaryTransactionsQueue
@@ -129,7 +129,7 @@ blobClient.SetServiceProperties(properties);
 * $MetricsMinutePrimaryTransactionsTable
 * $MetricsMinutePrimaryTransactionsQueue
 
-### <a name="capacity"></a>Capacity
+### <a name="capacity"></a>容量
 * $MetricsCapacityBlob
 
 您可以在 [儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/azure/hh343264.aspx)上找到這些資料表之結構描述的完整詳細資料。 下列資料列範例只會顯示可用的資料行子集，但可說明儲存體度量儲存這些度量資訊之方式的一些重要功能：
@@ -157,7 +157,7 @@ blobClient.SetServiceProperties(properties);
 > 發生儲存體事件與記錄對應的每小時或分鐘計量資料之間可能會有延遲。 記錄分鐘計量時，可能會一次寫入數分鐘的資料。 幾分鐘前的交易可能會彙總至目前分鐘的交易。 當發生這種情況時，警示服務可能不會擁有所設定警示間隔的所有可用計量資料，這可能導致非預期地觸發警示。
 >
 
-## <a name="accessing-metrics-data-programmatically"></a>以程式設計方式存取度量資料
+## <a name="accessing-metrics-data-programmatically"></a>以编程方式访问度量值数据
 下列清單顯示 C# 程式碼範例，其會針對某個分鐘範圍存取每分鐘度量，並將結果顯示在主控台視窗中。 它會使用 Azure 儲存體程式庫第 4 版，其中包含可簡化存取儲存體中之度量資料表的 CloudAnalyticsClient 類別。
 
 ```csharp
@@ -214,4 +214,4 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 * 適用於 Blob 的容量資料表每天都會新增兩個資料列 (前提是使用者已選擇記錄檔)：也就是說，這個資料表的大小每天最多大約會增加 300 個位元組。
 
 ## <a name="next-steps"></a>後續步驟
-[啟用儲存體記錄和存取記錄檔資料](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
+[启用存储日志记录和访问日志数据](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)

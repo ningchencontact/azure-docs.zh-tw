@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650098"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226822"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>將 Apache HBase 叢集移轉至新的版本
 
@@ -199,15 +199,21 @@ ms.locfileid: "53650098"
 
     ![在 Ambari 中，變更容器名稱](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. 儲存您的變更。
-9. 如 Ambari 所示，重新啟動所有必要的服務。
-10. 將您的應用程式指向新的叢集。
+8. **如果您不會使用 HBase 叢集使用增強式寫入功能，請略過此步驟。它只需用於 HBase 叢集使用增強式寫入功能。**
+   
+   變更 hbase.rootdir 路徑以指向原始叢集的容器。
+
+    ![在 Ambari 中，變更 hbase rootdir 的容器名稱](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+9. 儲存您的變更。
+10. 如 Ambari 所示，重新啟動所有必要的服務。
+11. 將您的應用程式指向新的叢集。
 
     > [!NOTE]  
     > 您應用程式的靜態 DNS 會在升級時變更。 您不必將此 DNS 寫入程式碼，而是可以在網域名稱的 DNS 設定中設定 CNAME，以指向叢集的名稱。 另一個選項是使用您應用程式的組態檔，以便您無須重新部署即可進行更新。
 
-11. 開始擷取，以查看一切是否皆如預期運作。
-12. 如果新的叢集令人滿意，請將原始叢集刪除。
+12. 開始擷取，以查看一切是否皆如預期運作。
+13. 如果新的叢集令人滿意，請將原始叢集刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

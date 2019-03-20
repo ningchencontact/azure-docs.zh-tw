@@ -6,16 +6,16 @@ documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
-ms.topic: mirror-maker
+ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 83f51d2980e5cb5bc2e2a415bb3ee96778667ed7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a0f22e7940a2be442bdf836c0e76e29bad2e9b36
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095030"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769917"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>使用 Kafka MirrorMaker 搭配適用於 Apache Kafka 的事件中樞
 
@@ -49,7 +49,7 @@ Azure 事件中樞 Kafka 端點可讓您使用 Kafka 通訊協定 (亦即 Kafka 
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * 在 Ubuntu 上，執行 `apt-get install default-jdk` 來安裝 JDK。
     * 務必設定 JAVA_HOME 環境變數，以指向 JDK 安裝所在的資料夾。
-* [下載](http://maven.apache.org/download.cgi)並[安裝 ](http://maven.apache.org/install.html) Maven 二進位封存檔
+* [下載](https://maven.apache.org/download.cgi)並[安裝 ](https://maven.apache.org/install.html) Maven 二進位封存檔
     * 在 Ubuntu 上，您可以執行 `apt-get install maven` 來安裝 Maven。
 * [Git](https://www.git-scm.com/downloads)
     * 在 Ubuntu 上，您可以執行 `sudo apt-get install git` 來安裝 Git。

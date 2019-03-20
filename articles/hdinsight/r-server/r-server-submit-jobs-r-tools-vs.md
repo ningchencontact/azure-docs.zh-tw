@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 3165adf09281f4ad35b77c2e0fbb89e40c04c631
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604526"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120953"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>從 Visual Studio R 工具提交作業
 
@@ -31,21 +31,21 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 2. 選取*資料科學和分析應用程式*工作負載，然後選取 **R 語言支援**、**R 開發的執行階段支援**和 **Microsoft R 用戶端**選項。
 
 3. 您需要有公開和私密金鑰以進行 SSH 驗證。
-<!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
+   <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
 4. 在您的電腦上安裝 [Machine Learning Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows)。 Machine Learning Server 提供 [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) 和 `RxSpark` 函式。
 
 5. 安裝 [PuTTY](https://www.putty.org/) 以提供計算內容，從您的本機用戶端將 `RevoScaleR` 函式執行至 HDInsight 叢集。
 
 6. 您可以選擇將資料科學設定套用至 Visual Studio 環境，它為您的 R 工具工作區提供新的版面配置。
-    1. 若要儲存目前的 Visual Studio 設定，使用 [工具] > [匯入和匯出設定] 命令，然後選取 [匯出選取的環境設定] 並且指定檔案名稱。 若要還原這些設定，請使用相同的命令並選取 [匯入選取的環境設定]。
+   1. 若要儲存目前的 Visual Studio 設定，使用 [工具] > [匯入和匯出設定] 命令，然後選取 [匯出選取的環境設定] 並且指定檔案名稱。 若要還原這些設定，請使用相同的命令並選取 [匯入選取的環境設定]。
 
-    2. 移至 [R 工具] 功能表項目，然後選取 [資料科學設定...].
+   2. 移至 [R 工具] 功能表項目，然後選取 [資料科學設定...].
 
-        ![資料科學設定...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![資料科學設定...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]  
-    > 使用步驟 1 中的方法，您也可以儲存和還原您的個人化資料科學家版面配置，而不用重複 [資料科學設定] 命令。
+      > [!NOTE]  
+      > 使用步驟 1 中的方法，您也可以儲存和還原您的個人化資料科學家版面配置，而不用重複 [資料科學設定] 命令。
 
 ## <a name="execute-local-r-methods"></a>執行本機 R 方法
 

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417086"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081248"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -39,7 +39,7 @@ ms.locfileid: "56417086"
 
 您可以透過本文顯示的自助式作業，移動大部分資源。 使用自助式作業︰
 
-* 移動 Resource Manager 資源。
+* 移动 Resource Manager 资源。
 * 根據[傳統部署限制](#classic-deployment-limitations)移動傳統資源。
 
 當您需要進行下列作業時，請連絡[支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)︰
@@ -57,6 +57,7 @@ ms.locfileid: "56417086"
 * App Service 憑證 - 請參閱 [App Service 憑證限制](#app-service-certificate-limitations)
 * 自動化 - Runbook 必須存在於和自動化帳戶相同的資源群組中。
 * Azure Active Directory B2C
+* Azure Cache for Redis - 如果 Azure Cache for Redis 執行個體已設定虛擬網路，該執行個體便無法移至不同的訂用帳戶。 請參閱[虛擬網路限制](#virtual-networks-limitations)。
 * Azure Cosmos DB
 * Azure 資料總管
 * 適用於 MariaDB 的 Azure 資料庫
@@ -64,6 +65,7 @@ ms.locfileid: "56417086"
 * 適用於 PostgreSQL 的 Azure 資料庫
 * Azure DevOps - 購買非 Microsoft 延伸模組的 Azure DevOps 組織必須先[取消其購買](https://go.microsoft.com/fwlink/?linkid=871160)，才能在訂用帳戶之間移動帳戶。
 * Azure 地圖服務
+* Azure 監視器記錄
 * Azure 轉送
 * Azure Stack - 註冊
 * Batch
@@ -89,10 +91,9 @@ ms.locfileid: "56417086"
 * IoT 中樞
 * Key Vault - 用於磁碟加密的 Key Vault 無法移至相同訂用帳戶中或跨訂用帳戶的資源群組。
 * 負載平衡器 - 可以移動基本 SKU 負載平衡器。 不能移動標準 SKU Load Balancer。
-* Log Analytics
 * Logic Apps
 * Machine Learning：Machine Learning Studio Web 服務可以移至相同訂用帳戶 (而非不同的訂用帳戶) 中的資源群組。 其他 Machine Learning 資源可以在訂用帳戶之間移動。
-* 受控磁碟 - 請參閱[虛擬機器的條件約束限制](#virtual-machines-limitations)
+* 受控磁碟-受控磁碟，在可用性區域中的無法移到不同的訂用帳戶
 * 受控識別 - 使用者指派
 * 媒體服務
 * 監視 - 確定移至新的訂用帳戶不會超過[訂用帳戶配額](../azure-subscription-service-limits.md#monitor-limits)
@@ -103,7 +104,6 @@ ms.locfileid: "56417086"
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 可以移動基本 SKU 公用 IP。 不能移動標準 SKU 公用 IP。
 * 復原服務保存庫 - 註冊[預覽版](#recovery-services-limitations)。
-* Azure Cache for Redis - 如果 Azure Cache for Redis 執行個體已設定虛擬網路，該執行個體便無法移至不同的訂用帳戶。 請參閱[虛擬網路限制](#virtual-networks-limitations)。
 * 排程器
 * 搜尋 - 您無法在一個作業中移動不同區域中的數個搜尋資源， 而是要在不同作業中移動它們。
 * 服務匯流排
@@ -116,7 +116,7 @@ ms.locfileid: "56417086"
 * SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。
 * 時間序列深入解析
 * 流量管理員
-* 虛擬機器 - 針對具有受控磁碟的 VM，請參閱[虛擬機器限制](#virtual-machines-limitations)
+* 虛擬機器-請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬機器 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 虛擬機器擴展集 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬網路 - 請參閱[虛擬網路限制](#virtual-networks-limitations)
@@ -133,6 +133,7 @@ ms.locfileid: "56417086"
 * Azure Databricks
 * Azure 防火牆
 * Azure Migrate
+* Azure NetApp Files
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
 * 傳統應用程式
 * Container Instances
@@ -145,7 +146,6 @@ ms.locfileid: "56417086"
 * 實驗室服務 - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * 受控應用程式
 * Microsoft Genomics
-* NetApp
 * SAP HANA on Azure
 * 安全性
 * Site Recovery
@@ -166,13 +166,12 @@ ms.locfileid: "56417086"
 
 ### <a name="virtual-machines-limitations"></a>虛擬機器限制
 
-從 2018 年 9 月 24 日，您就能移動受控磁碟。 此支援表示您可以移動具有受控磁碟的虛擬機器、受控映像、受控快照集，以及具有使用受控磁碟之虛擬機器的可用性設定組。
+您可以繼續搭配使用受控的磁碟的虛擬機器的虛擬機器使用受控的磁碟、 受管理的映像、 受控快照集和可用性設定組。 受控的磁碟位於可用性區域中無法移到不同的訂用帳戶中。
 
 尚未支援下列案例：
 
 * 憑證儲存在 Key Vault 中的虛擬機器可以移動至相同訂用帳戶中的新資源群組，但是無法跨訂用帳戶移動。
-* 位於可用性區域中的受控磁碟無法移至不同的訂用帳戶
-* 具有標準 SKU Load Balancer 或標準 SKU 公用 IP 的虛擬機器擴展集無法移動
+* 不能移動標準 SKU 負載平衡器或標準 SKU 公用 IP 的虛擬機器擴展集。
 * 從 Marketplace 資源建立且附加方案的虛擬機器無法在資源群組或訂用帳戶之間移動。 在目前的訂用帳戶中取消佈建虛擬機器，然後於新訂用帳戶中再次部署。
 
 若要移動使用 Azure 備份設定的虛擬機器，請使用下列因應措施：
@@ -190,6 +189,8 @@ ms.locfileid: "56417086"
 ### <a name="virtual-networks-limitations"></a>虛擬網路限制
 
 當您移動虛擬網路時，也必須移動其相依資源。 針對 VPN 閘道，您必須移動 IP 位址、虛擬網路閘道和所有相關聯的連線資源。 區域網路閘道可位於不同的資源群組。
+
+若要移動虛擬機器網路介面卡，您必須移動所有的相依資源。 您必須移動網路介面卡的虛擬網路中，所有其他網路介面卡的虛擬網路和 VPN 閘道。
 
 若要移動對等虛擬網路，您必須先停用虛擬網路對等互連。 停用之後，您可以移動虛擬網路。 移動之後，重新啟用虛擬網路對等互連。
 
@@ -252,60 +253,60 @@ ms.locfileid: "56417086"
 
 若要將傳統資源移到新的訂用帳戶，請使用傳統資源特定的 REST 作業。 若要使用 REST，請執行下列步驟：
 
-1. 請檢查來源訂用帳戶是否可以參與跨訂用帳戶移動。 請使用下列作業：
+1. 检查源订阅是否可以参与跨订阅移动。 使用以下操作：
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
-     在要求本文中包含：
+     在请求正文中包括：
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      驗證作業的回應格式如下︰
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. 請檢查目的地訂用帳戶是否可以參與跨訂用帳戶移動。 請使用下列作業：
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      在要求本文中包含：
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      回應的格式與來源訂用帳戶驗證的格式相同。
 3. 如果兩個訂用帳戶都通過驗證，使用下列作業將所有傳統資源從某個訂用帳戶移到另一個訂用帳戶︰
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     在要求本文中包含：
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 這項作業可能需要幾分鐘的時間執行。
 
@@ -344,52 +345,52 @@ ms.locfileid: "56417086"
 
 1. 來源和目的地的訂用帳戶必須存在於相同的 [Azure Active Directory 租用戶](../active-directory/develop/quickstart-create-new-tenant.md)內。 若要檢查這兩個訂用帳戶都有相同的租用戶識別碼，請使用 Azure PowerShell 或 Azure CLI。
 
-  如果是 Azure PowerShell，請使用：
+   如果是 Azure PowerShell，請使用：
 
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```azurepowershell-interactive
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  對於 Azure CLI，請使用：
+   對於 Azure CLI，請使用：
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  如果來源和目的地訂用帳戶的租用戶識別碼不相同，請使用下列方法來協調租用戶識別碼：
+   如果來源和目的地訂用帳戶的租用戶識別碼不相同，請使用下列方法來協調租用戶識別碼：
 
-  * [將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)
-  * [如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)
+   * [如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. 必須針對要移動之資源的資源提供者註冊其目的地訂用帳戶。 否則，您會收到錯誤，指出 **未針對資源類型註冊訂用帳戶**。 將資源移至新的訂用帳戶時，可能會因為不曾以指定的資源類型使用過該訂用帳戶，因而出現此錯誤。
 
-  針對 PowerShell，使用下列命令來取得註冊狀態：
+   針對 PowerShell，使用下列命令來取得註冊狀態：
 
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <destination-subscription-name-or-id>
+   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  若要註冊資源提供者，請使用：
+   若要註冊資源提供者，請使用：
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  針對 Azure CLI，使用下列命令來取得註冊狀態：
+   針對 Azure CLI，使用下列命令來取得註冊狀態：
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  若要註冊資源提供者，請使用：
+   若要註冊資源提供者，請使用：
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 1. 移動資源的帳戶至少必須有下列權限：
 
@@ -513,7 +514,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要了解用於管理訂用帳戶的 PowerShell Cmdlet，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](powershell-azure-resource-manager.md)。
-* 若要了解用於管理訂用帳戶的 Azure CLI 命令，請參閱 [搭配使用 Azure CLI 與 Azure Resource Manager](xplat-cli-azure-resource-manager.md)。
+* 若要深入了解用於管理資源的 PowerShell cmdlet，請參閱[使用 Azure PowerShell 與 Resource Manager](manage-resources-powershell.md)。
+* 若要深入了解 Azure CLI 命令來管理資源，請參閱[使用 Azure CLI 搭配 Resource Manager](manage-resources-cli.md)。
 * 若要了解用於管理訂用帳戶的入口網站功能，請參閱 [使用 Azure 入口網站來管理資源](resource-group-portal.md)。
 * 若要了解如何將邏輯組織套用到您的資源，請參閱 [使用標記來組織您的資源](resource-group-using-tags.md)。

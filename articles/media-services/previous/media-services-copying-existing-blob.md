@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f34f7fe4fcdb79c6c01422f3248144fb000c2575
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 36bfd1787e9f35ac4eaa8b8418df1e592386e8f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998292"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182025"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>將現有的 blob 複製到媒體服務資產
 本文章說明如何使用 [Azure 媒體服務 .NET SDK 延伸模組](https://github.com/Azure/azure-sdk-for-media-services-extensions/)將 Blob 從儲存體帳戶複製到新的 Azure 媒體服務 (AMS) 資產。
@@ -45,7 +45,7 @@ ms.locfileid: "55998292"
 兩個媒體服務帳戶。 請參閱文章[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 
 ### <a name="download-sample"></a>下載範例
-您可以遵循本文中的步驟，或者您可以從[這裡](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)下載包含本文所述的程式碼範例。
+用户可以执行本文中的步骤，也可以单击 [此处](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)下载包含本文所述代码的示例。
 
 ### <a name="set-up-your-project"></a>設定專案
 
@@ -375,7 +375,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以將上傳的資產編碼。 如需詳細資訊，請參閱 [為資產編碼](media-services-portal-encode.md)。
+您現在可以將上傳的資產編碼。 有关详细信息，请参阅[对资产进行编码](media-services-portal-encode.md)。
 
 您也可以使用 Azure Functions，以根據在所設定容器到達的檔案來觸發編碼作業。 如需詳細資訊，請參閱[此範例](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )。
 
