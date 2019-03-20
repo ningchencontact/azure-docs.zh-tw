@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003133"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>使用 Windows PowerShell for StorSimple 管理您的裝置
 
@@ -47,7 +47,7 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>透過裝置序列主控台連線至 Windows PowerShell for StorSimple
 
-您可以 [下載 PuTTY](http://www.putty.org/) 或類似的終端機模擬軟體，以連線至 Windows PowerShell for StorSimple。 您需要將 PuTTY 設定為專門存取 Microsoft Azure StorSimple 裝置。 下列主題包含有關如何設定 PuTTy 並連接至裝置的詳細步驟。 並且說明序列主控台中的各種功能表選項。
+您可以 [下載 PuTTY](https://www.putty.org/) 或類似的終端機模擬軟體，以連線至 Windows PowerShell for StorSimple。 您需要將 PuTTY 設定為專門存取 Microsoft Azure StorSimple 裝置。 下列主題包含有關如何設定 PuTTy 並連接至裝置的詳細步驟。 並且說明序列主控台中的各種功能表選項。
 
 ### <a name="putty-settings"></a>PuTTY 設定
 
@@ -110,8 +110,8 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
    * 套用更新
    * 安裝 Hotfix
 
-    > [!NOTE]
-    > 如果您忘記裝置管理員密碼並透過選項 1 或 2無法連線，這是慣用的選項。
+     > [!NOTE]
+     > 如果您忘記裝置管理員密碼並透過選項 1 或 2無法連線，這是慣用的選項。
 
 4. **變更語言** 此選項可讓您變更 Windows PowerShell 介面上的顯示語言。 支援的語言有英文、日文、俄文、法文、南韓文、西班牙文、義大利文、德文、中文和巴西葡萄牙文。
 
@@ -151,15 +151,15 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 | 修改裝置上的 DATA 0 網路介面設定 |[修改 StorSimple 裝置上的 DATA 0 網路介面](storsimple-8000-modify-data-0.md) |
 | 停止控制器  </br> 重新啟動或關閉控制器 </br> 關閉裝置</br>將裝置重設為出廠預設設定。 |[管理裝置控制器](storsimple-8000-manage-device-controller.md) |
 | 安裝維護模式更新和 Hotfixe |[更新您的裝置](storsimple-update-device.md) |
-| 進入維護模式  </br>結束維護模式 |[StorSimple 裝置模式](storsimple-8000-device-modes.md) |
-| 建立支援封裝 </br>解密並編輯支援封裝 |[建立及管理支援封裝](storsimple-8000-create-manage-support-package.md) |
+| 進入維護模式  </br> 結束維護模式 |[StorSimple 裝置模式](storsimple-8000-device-modes.md) |
+| 建立支援封裝 </br> 解密並編輯支援封裝 |[建立及管理支援封裝](storsimple-8000-create-manage-support-package.md) |
 | 啟動支援工作階段</br> |[在 Windows PowerShell for StorSimple 中啟動支援工作階段](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
 
 ## <a name="get-help-in-windows-powershell-for-storsimple"></a>在 Windows PowerShell for StorSimple 中取得說明
 
 在 Windows PowerShell for StorSimple 中也有 Cmdlet 的說明。 此說明的最新版本也會線上提供，供您更新您系統上的說明。
 
-在此介面中取得說明和在 Windows PowerShell 中類似，而且大部分與說明相關的 Cmdlet 都能用。 您可以在 TechNet Library 中找到 Windows PowerShell 的線上說明： [Windows PowerShell 的指令碼撰寫](https://go.microsoft.com/fwlink/?LinkID=108518)。
+在此介面中取得說明和在 Windows PowerShell 中類似，而且大部分與說明相關的 Cmdlet 都能用。 您可以找到協助適用於 Windows PowerShell 的線上 TechNet Library 中：[使用 Windows PowerShell 撰寫指令碼](https://go.microsoft.com/fwlink/?LinkID=108518)。
 
 以下是此 Windows PowerShell 介面中各種說明類型的簡短描述，包括如何更新說明。
 

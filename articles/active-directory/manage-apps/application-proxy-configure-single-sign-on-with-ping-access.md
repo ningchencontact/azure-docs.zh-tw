@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16763827c043d56ea9a3d461873dc78456cf678d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164919"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084076"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -76,8 +76,8 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 5. 使用新應用程式的相關資訊填寫必要的欄位。 使用下列指導方針設定︰
    - **內部 URL**：當您在公司網路上時，通常會提供此 URL 以帶您前往應用程式登入頁面。 針對此情節，連接器需要將 PingAccess Proxy 視為應用程式的首頁。 使用此格式︰`https://<host name of your PA server>:<port>`。 連接埠預設為 3000，但您可以在 PingAccess 中設定它。
 
-    > [!WARNING]
-    > 針對此類型的 SSO，內部 URL 必須使用 https，而無法使用 http。
+     > [!WARNING]
+     > 針對此類型的 SSO，內部 URL 必須使用 https，而無法使用 http。
 
    - **預先驗證方法**：Azure Active Directory
    - **標頭中的轉譯 URL**：否
@@ -91,49 +91,49 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 9. 在 [應用程式管理] 刀鋒視窗中，選取 [單一登入]。
 10. 從下拉式選單選擇 [標頭型登入]。 選取 [ **儲存**]。
 
-   >[!TIP]
-   >如果這是您第一次使用標頭式單一登入，您需要安裝 PingAccess。 若要確定您的 Azure 訂用帳戶會與 PingAccess 安裝自動產生關聯，請使用此單一登入頁面上的連結來下載 PingAccess。 您現在可以開啟下載網站，或稍後返回此頁面。 
+    >[!TIP]
+    >如果這是您第一次使用標頭式單一登入，您需要安裝 PingAccess。 若要確定您的 Azure 訂用帳戶會與 PingAccess 安裝自動產生關聯，請使用此單一登入頁面上的連結來下載 PingAccess。 您現在可以開啟下載網站，或稍後返回此頁面。 
 
-   ![選取標頭形式的登入](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
+    ![選取標頭形式的登入](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
 
 11. 關閉企業應用程式刀鋒視窗或捲動到最左邊，回到 Azure Active Directory 功能表。
 12. 選取 [應用程式註冊]。
 
-   ![選取 [應用程式註冊]](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+    ![選取 [應用程式註冊]](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 
 13. 選取您剛才新增的應用程式，然後**回覆 URL**。
 
-   ![選取 [回覆 URL]](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
+    ![選取 [回覆 URL]](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
 
 14. 請檢查外部 URL，看看您在步驟 5 中所指派的應用程式是否在回覆 URL 清單。 如果不存在，請立即新增。
 15. 在應用程式設定刀鋒視窗中，選取 [必要權限]。
 
-  ![選取 [必要權限]](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+    ![選取 [必要權限]](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 16. 選取 [新增] 。 針對 API，依序選擇 [Windows Azure Active Directory]、[選取]。 針對權限，依序選擇 [讀取及寫入所有應用程式]、[登入及讀取使用者個人檔案]、[選取] 和 [完成]。  
 
-  ![選取權限](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![選取權限](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. 請先授與權限，再關閉授權畫面。 
-![授與權限](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+    ![授與權限](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### <a name="collect-information-for-the-pingaccess-steps"></a>收集 PingAccess 步驟的資訊
 
 1. 在應用程式設定刀鋒視窗中，選取 [屬性]。 
 
-  ![選取 [屬性]](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
+   ![選取 [屬性]](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
 
 2. 儲存 [應用程式識別碼] 值。 當您設定 PingAccess 時，這會用於用戶端識別碼。
 3. 在應用程式設定刀鋒視窗中，選取 [金鑰]。
 
-  ![選取 [金鑰]](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
+   ![選取 [金鑰]](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
 
 4. 輸入金鑰描述，然後從下拉式選單中選擇到期日來建立金鑰。
 5. 選取 [ **儲存**]。 GUID 會出現在 [值] 欄位中。
 
-  立即儲存此值，因為您關閉此視窗之後將無法再次看見它。
+   立即儲存此值，因為您關閉此視窗之後將無法再次看見它。
 
-  ![建立新的金鑰](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
+   ![建立新的金鑰](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
 
 6. 關閉應用程式註冊刀鋒視窗或捲動到最左邊，回到 Azure Active Directory 功能表。
 7. 選取 [屬性] 。

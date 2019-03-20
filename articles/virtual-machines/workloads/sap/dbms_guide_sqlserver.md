@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ae26a2daf2a65eaf56672c9e75147bd71e489a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330727"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992484"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 SQL Server Azure 虛擬機器 DBMS 部署
 
@@ -158,7 +158,7 @@ ms.locfileid: "56330727"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56330727"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -343,7 +343,7 @@ ms.locfileid: "56330727"
 這些組態讓 tempdb 所耗用的空間比系統磁碟機能夠提供的還多。 非持續性 D:\ 磁碟機也會提供更好的 I/O 延遲和輸送量 (但 A 系列 VM 除外)。 若要判斷正確的 tempdb 大小，您可以在現有的系統上檢查 tempdb 大小。 
 
 >[!NOTE]
-> 如果您將 tempdb 資料檔案和記錄檔儲存至您在 D:\ 磁碟機上建立的資料夾，您必須確定 VM 重新啟動後，這個資料夾依然存在。 因為 VM 重新開機之後，D:\ 磁碟機會重新初始化，所有的檔案和目錄結構都會被會抹除。至於什麼情況下必須在 SQL Server 服務啟動前，先在 D:\ 磁碟機上重新建立目錄結構，請參閱[這篇文章](http://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)。
+> 如果您將 tempdb 資料檔案和記錄檔儲存至您在 D:\ 磁碟機上建立的資料夾，您必須確定 VM 重新啟動後，這個資料夾依然存在。 因為 VM 重新開機之後，D:\ 磁碟機會重新初始化，所有的檔案和目錄結構都會被會抹除。至於什麼情況下必須在 SQL Server 服務啟動前，先在 D:\ 磁碟機上重新建立目錄結構，請參閱[這篇文章](https://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)。
 
 執行含有 SAP 資料庫的 SQL Server 且 tempdb 資料和 tempdb 記錄檔放置於 D:\ 磁碟機的 VM 組態應該像這樣︰
 
@@ -383,7 +383,7 @@ SQL Server 2014 及更新版本可以直接在 Azure Blob Store上儲存資料�
 * 稍早列出有關將 VHD 分散到不同 Azure 儲存體帳戶的考量，也適用於這種部署方法。 表示對 Azure 儲存體帳戶限制的 I/O 作業計數。
 * 不要針對 VM 的儲存體 I/O 配額來結算，那些針對儲存體 blob (代表 SQL Server 資料和記錄檔) 所產生的流量，都將計入特定 VM 類型的 VM 網路頻寬。 針對特定的 VM 類型的網路和儲存頻寬，請參閱 [Azure 中 Windows 虛擬機器的大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)一文。
 * 由於透過網路配額推送檔案 I/O 的關係，您大部分的儲存體配額都已耗損，因此 VM 的整體頻寬僅部分使用。
-* Azure 進階儲存體針對不同磁碟大小所設定的 IOPS 和 I/O 輸送量效能目標，不會再套用。 即便您建立的 blob 是位於「Azure 進階儲存體」也是如此。 [VM 高效能進階儲存體與受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets) \(機器翻譯\) 文章有相關目標的記載。 由於將 SQL Server 資料檔案和記錄檔直接放在 Azure 進階儲存體所儲存的 blob 上，因此相較於 Azure 進階儲存體上的 VHD，效能特性會不一樣。
+* Azure 進階儲存體針對不同磁碟大小所設定的 IOPS 和 I/O 輸送量效能目標，不會再套用。 即便您建立的 blob 是位於「Azure 進階儲存體」也是如此。 [VM 高效能進階儲存體與受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) \(機器翻譯\) 文章有相關目標的記載。 由於將 SQL Server 資料檔案和記錄檔直接放在 Azure 進階儲存體所儲存的 blob 上，因此相較於 Azure 進階儲存體上的 VHD，效能特性會不一樣。
 * 將 SQL Server 資料檔案直接放置在 Azure Blob 上時，適用於 Azure 進階儲存體磁碟的主機型快取將無法使用。
 * 在 M 系列 VM 上，無法使用 Azure Write Accelerator 來支援 SQL Server 交易記錄檔的子毫秒寫入。 
 
@@ -559,7 +559,7 @@ Azure 提供的 [Key Vault](https://azure.microsoft.com/services/key-vault/) 服
 3. 永遠不要在 D:\ 磁碟機上安裝軟體或放置任何需要永久保留的檔案，因為它不是永久性的，此磁碟機上的一切會在 Windows 重新開機時遺失。
 4. 不要針對 Azure 標準儲存體使用磁碟快取。
 5. 不要使用 Azure 異地複寫的 Azure 標準儲存體帳戶。  針對 DBMS 工作負載使用本機備援。
-6. 使用 DBMS 廠商的 HA/DR 解決方案來複寫資料庫資料。
+6. 使用 DBMS 供应商的 HA/DR 解决方案来复制数据库数据。
 7. 一律使用名稱解析，不要依賴 IP 位址。
 8. 使用 SQL Server TDE，套用最新的 SQL Server 修補程式。
 9. 盡可能使用最高度的資料庫壓縮。 這是 SQL Server 的頁面壓縮。

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: b006a4fbb8d1059f5096f5c1585853953b69042f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339544"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082138"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>使用 Azure Active Directory 來建立具彈性的存取控制管理策略
 
@@ -94,18 +94,18 @@ ms.locfileid: "56339544"
 了解您在中斷情況發生期間的暴露情形，不僅有助於降低您的風險，也是您規劃程序中不可或缺的一部分。 若要建立您的應變計劃，請先判斷您組織的下列業務需求：
 
 1. 事先判斷您的任務關鍵性應用程式：哪些是即使風險/安全性狀態較低，您也必須授與存取權的應用程式？ 請為這些應用程式建立一份清單，並確定您的其他專案關係人 (業務、安全性、法務、領導階層) 都同意如果所有存取控制措施都消失，這些應用程式仍然必須繼續執行。 您可能最後會產生下列類別：
-  * **類別 1 任務關鍵性應用程式**：無法使用的時間不能超過幾分鐘的應用程式，例如直接影響組織營收的應用程式。
-  * **類別 2 重要應用程式**：企業需要在幾小時內可供存取的應用程式。
-  * **類別 3 低優先順序的應用程式**：可以承受發生幾天中斷情況的應用程式。
+   * **類別 1 任務關鍵性應用程式**：無法使用的時間不能超過幾分鐘的應用程式，例如直接影響組織營收的應用程式。
+   * **類別 2 重要應用程式**：企業需要在幾小時內可供存取的應用程式。
+   * **類別 3 低優先順序的應用程式**：可以承受發生幾天中斷情況的應用程式。
 2. 針對類別 1 和 2 中的應用程式，Microsoft 建議您與先規劃要允許的存取層級類型：
-  * 您想要允許完整存取，還是受限的工作階段 (例如限制下載)？
-  * 您是否想要允許存取應用程式的部分而非整個應用程式？
-  * 您是否想要允許資訊工作者存取而封鎖系統管理員存取，直到存取控制措施還原為止？
+   * 您想要允許完整存取，還是受限的工作階段 (例如限制下載)？
+   * 您是否想要允許存取應用程式的部分而非整個應用程式？
+   * 您是否想要允許資訊工作者存取而封鎖系統管理員存取，直到存取控制措施還原為止？
 3. 針對這些應用程式，Microsoft 同樣建議您規劃將刻意開放及關閉的存取途徑：
-  * 您是否想要只允許透過瀏覽器存取，而封鎖可儲存離線資料的豐富型用戶端？
-  * 您是否想要只允許公司網路內的使用者存取，而將外部使用者封鎖？
-  * 您是否想要只在中斷情況發生期間，才允許來自特定國家/地區或區域的存取？
-  * 您想要讓應變原則 (尤其是適用於任務關鍵性應用程式的原則) 在替代存取控制措施無法供使用時失敗還是成功？
+   * 您是否想要只允許透過瀏覽器存取，而封鎖可儲存離線資料的豐富型用戶端？
+   * 您是否想要只允許公司網路內的使用者存取，而將外部使用者封鎖？
+   * 您是否想要只在中斷情況發生期間，才允許來自特定國家/地區或區域的存取？
+   * 您想要讓應變原則 (尤其是適用於任務關鍵性應用程式的原則) 在替代存取控制措施無法供使用時失敗還是成功？
 
 #### <a name="microsoft-recommendations"></a>Microsoft 建議
 
@@ -251,7 +251,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 如果組織使用個別使用者 MFA 舊版原則，則您可以考慮使用下列替代方案：
 
 1. 如果您有公司網路連出 IP 位址，您可以將它們新增為受信任的 IP，以只針對公司網路啟用驗證。
- 2. 如果您沒有輸出 IP 位址的目錄，或是必須啟用公司網路內部及外部的存取權，您可以透過指定 0.0.0.0/1 與 128.0.0.0/1，將整個 IPv4 位址空間新增為受信任的 IP。
+   1. 如果您沒有輸出 IP 位址的目錄，或是必須啟用公司網路內部及外部的存取權，您可以透過指定 0.0.0.0/1 與 128.0.0.0/1，將整個 IPv4 位址空間新增為受信任的 IP。
 
 >[!IMPORTANT]
  > 如果您擴大受信任的 IP 位址範圍以將存取解除封鎖，系統就不會產生與 IP 位址關聯的風險事件 (例如，不可能的移動或不熟悉的位置)。
@@ -264,9 +264,9 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 * [Azure AD 驗證文件](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [在 Azure AD 中管理緊急存取系統管理帳戶](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [在 Azure Active Directory 中設定具名位置](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [如何設定混合式 Azure Active Directory 已聯結裝置](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Windows Hello 企業版部署指南](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
- * [密碼指引 - Microsoft 研究](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf) \(英文\)
+  * [密碼指引 - Microsoft 研究](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf) \(英文\)
 * [什麼是 Azure Active Directory 條件式存取中的條件？](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [什麼是 Azure Active Directory 條件式存取中的存取控制？](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 572dc0710cd67b59a9ff8861a0cc73aad512c155
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 5cf4ac0e0950e7b6ab6345476501931a9cb46b27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461469"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996945"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>將 Contoso 零售資料載入 Azure SQL 資料倉儲
 
@@ -28,12 +28,12 @@ ms.locfileid: "55461469"
 3. 在完成載入後執行最佳化。
 
 ## <a name="before-you-begin"></a>開始之前
-若要執行本教學課程，您需要已經擁有 SQL 資料倉儲資料庫的 Azure 帳戶。 如果您尚未擁有此資料庫，請參閱[建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
+若要运行本教程，需要一个已包含 SQL 数据仓库数据库的 Azure 帐户。 如果您尚未擁有此資料庫，請參閱[建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
 
-## <a name="1-configure-the-data-source"></a>1.設定資料來源
-PolyBase 使用 T-SQL 外部物件以定義外部資料的位置和屬性。 外部物件定義會儲存在 SQL 資料倉儲中。 資料本身則會儲存在外部。
+## <a name="1-configure-the-data-source"></a>1.配置数据源
+PolyBase 使用 T-SQL 外部物件以定義外部資料的位置和屬性。 外部物件定義會儲存在 SQL 資料倉儲中。 数据本身存储在外部。
 
-### <a name="11-create-a-credential"></a>1.1. 建立認證
+### <a name="11-create-a-credential"></a>1.1. 创建凭据
 **略過此步驟** 。 您並不需要安全地存取公用資料，因為該資料已經可供所有人存取。
 
 **不要略過此步驟** 。 若要透過認證存取資料，請使用下列指令碼來建立資料庫範圍的認證，然後在定義資料來源的位置時使用它。
@@ -71,9 +71,9 @@ WITH (
 );
 ```
 
-跳到步驟 2。
+跳到步骤 2。
 
-### <a name="12-create-the-external-data-source"></a>1.2. 建立外部資料來源
+### <a name="12-create-the-external-data-source"></a>1.2. 创建外部数据源
 使用此 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 命令以儲存資料的位置及類型。 
 
 ```sql
@@ -117,7 +117,7 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. 建立外部資料表。
-執行此指令碼來建立 DimProduct 和 FactOnlineSales 外部資料表。 我們在這邊只需要定義資料行名稱和資料類型，並將它們繫結至 Azure Blob 儲存體檔案的位置及格式。 定義會儲存在 SQL 資料倉儲中，而資料則仍然儲存在 Azure 儲存體 Blob 中。
+執行此指令碼來建立 DimProduct 和 FactOnlineSales 外部資料表。 我們在這邊只需要定義資料行名稱和資料類型，並將它們繫結至 Azure Blob 儲存體檔案的位置及格式。 定义存储在 SQL 数据仓库中，数据仍位于 Azure 存储 Blob 中。
 
 **LOCATION** 參數為 Azure 儲存體 Blob 中根目錄下方的資料夾。 每個資料表都位於不同的資料夾中。
 
@@ -208,7 +208,7 @@ WITH
 存取外部資料有很多不同的方式。  您可以直接從外部資料表查詢資料、將資料載入新的資料庫資料表，或將外部資料新增到現有資料庫資料表。  
 
 ### <a name="41-create-a-new-schema"></a>4.1. 建立新的結構描述
-CTAS 會建立包含資料的新資料表。  首先，請建立 Contoso 資料的結構描述。
+CTAS 會建立包含資料的新資料表。  首先，请创建 Contoso 数据的架构。
 
 ```sql
 CREATE SCHEMA [cso]
@@ -267,7 +267,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5.最佳化資料行存放區壓縮
-根據預設，SQL 資料倉儲會將資料表儲存為叢集資料行存放區索引。 載入完成後，某些資料列可能不會被壓縮為資料行存放區。  有許多原因會導致發生此情況。 若要深入了解，請參閱[管理資料行存放區索引][manage columnstore indexes]。
+根據預設，SQL 資料倉儲會將資料表儲存為叢集資料行存放區索引。 載入完成後，某些資料列可能不會被壓縮為資料行存放區。  发生这种情况的原因多种多样。 若要深入了解，請參閱[管理資料行存放區索引][manage columnstore indexes]。
 
 若要最佳化載入後的查詢效能和資料行存放區壓縮，請重建資料表以強制資料行存放區索引對所有資料列進行壓縮。 
 
@@ -279,7 +279,7 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-如需維護資料行存放區索引的詳細資訊，請參閱[管理資料行存放區索引][manage columnstore indexes]一文。
+有关维护列存储索引的详细信息，请参阅 [管理列存储索引][manage columnstore indexes] 一文。
 
 ## <a name="6-optimize-statistics"></a>6.最佳化統計資料
 您最好在載入後立刻建立單一資料行統計資料。 針對統計資料，您將會有一些選項。 例如，如果您在每個資料行上建立單一資料行統計資料，可能會需要很長的時間才能重建所有統計資料。 如果您知道某些資料行不會被包含在查詢述詞中，您可以略過為那些資料行建立統計資料。
@@ -365,5 +365,5 @@ GROUP BY p.[BrandName]
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
-[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

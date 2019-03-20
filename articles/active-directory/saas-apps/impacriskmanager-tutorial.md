@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec119c9e11b21828b1b056fb97598ca7434cfc68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9f987c6803f6ca538f4ae7470caaff597c9596c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197704"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>教學課程：Azure Active Directory 與 IMPAC Risk Manager 整合
 
@@ -114,6 +114,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
     a. 在 [識別碼] 文字方塊中，輸入 IMPAC 提供的值
 
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+
     | 環境 | URL 模式 |
     | ---------------|--------------- |    
     | 針對生產環境 |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -127,6 +128,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
     ![IMPAC Risk Manager 網域及 URL 單一登入資訊](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+    
     | 環境 | URL 模式 |
     | ---------------|--------------- |    
     | 針對生產環境 |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469561"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103327"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>搭配 Batch 集區使用 Azure 檔案共用
 
@@ -66,16 +66,16 @@ net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\
 
 1. 使用集區設定中的啟動工作來執行 `cmdkey` 命令列公用程式。 這麼做可保存每個 Windows 節點上的認證。 啟動工作命令列會類似於：
 
-  ```
-  cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
+   ```
+   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
-  ```
+   ```
 
 2. 使用 `net use` 在每個節點上裝載共用做為每個工作的一部分。 例如，下列工作命令列裝載檔案共用做為 *S:* 磁碟機。 參考此共用的命令或指令碼會隨後執行。 呼叫 `net use` 時使用快取的認證。 這個步驟假設您使用的工作使用者身分識別與您在集區啟動工作中所使用的相同，而此步驟並不適用於所有情況。
 
-  ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
-  ```
+   ```
+   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
+   ```
 
 ### <a name="c-example"></a>C# 範例
 下列 C# 範例會顯示如何使用啟動工作在 Windows 集區保存認證。 儲存體檔案服務名稱和儲存體認證會以定義的常數傳遞。 在這裡，啟動工作會在具有集區範圍的標準 (非管理員) 自動使用者帳戶下執行。

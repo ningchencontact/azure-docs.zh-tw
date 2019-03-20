@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512239"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225819"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
 
@@ -65,7 +65,7 @@ ms.locfileid: "55512239"
 
 這最終取決於應用程式的複雜性。 在您偵測到主要區域中發生任何儲存體服務的問題時，您可能會決定不要處理服務所造成的失敗，而是改為將所有儲存體服務的讀取要求重新導向到次要區域，並在唯讀模式中執行應用程式。
 
-### <a name="other-considerations"></a>其他考量
+### <a name="other-considerations"></a>其他注意事项
 
 以下是我們將在本文其餘內容中討論的其他考量。
 
@@ -123,7 +123,7 @@ ms.locfileid: "55512239"
 
     在此案例中，會對效能產生負面影響，因為您的所有讀取要求都會先嘗試主要端點、等候逾時到期，然後切換到次要端點。
 
-針對這些情況，您應該確認主要端點會持續發生問題，並藉由將 **LocationMode** 屬性設為 **SecondaryOnly**，直接將所有讀取要求傳送到次要端點。 此時，您也應該將應用程式變更為在唯讀模式中執行。 這種方法稱為[斷路器模式 (英文)](https://msdn.microsoft.com/library/dn589784.aspx)。
+針對這些情況，您應該確認主要端點會持續發生問題，並藉由將 **LocationMode** 屬性設為 **SecondaryOnly**，直接將所有讀取要求傳送到次要端點。 此時，您也應該將應用程式變更為在唯讀模式中執行。 這種方法稱為[斷路器模式 (英文)](/azure/architecture/patterns/circuit-breaker)。
 
 ### <a name="update-requests"></a>更新要求
 
@@ -198,12 +198,12 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 
 下表所示的範例是，當您更新員工的詳細資料，使她成為「系統管理員」角色的成員時，可能會發生什麼情況。 基於此範例，這會要求您更新**員工**實體，並利用系統管理員總數的計數來更新**系統管理員角色**實體。 請注意，如何在次要區域中不按順序套用更新。
 
-| <bpt id="p1">**</bpt>Time<ept id="p1">**</ept> | **交易**                                            | **複寫**                       | **上次同步處理時間** | **結果** |
+| **时间** | **交易**                                            | **复制**                       | **上次同步處理時間** | **結果** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
-| T0       | 交易 A： <br> 會在主要區域中 <br> 插入員工實體 |                                   |                    | 交易 A 已插入至主要區域，<br> 但尚未複寫。 |
+| T0       | 交易 A： <br> 會在主要區域中 <br> 插入員工實體 |                                   |                    | 交易 A 已插入至主要區域，<br> 但尚未复制。 |
 | T1       |                                                            | 交易 A <br> 已複寫到<br> 次要區域 | T1 | 交易 A 已複寫到次要區域。 <br>已更新上次同步處理時間。    |
 | T2       | 交易 B：<br>更新<br> 主要區域中的<br> 員工實體  |                                | T1                 | 交易 B 已寫入主要區域，<br> 但尚未複寫。  |
-| T3       | 交易 C：<br> 更新 <br>administrator<br>角色實體，位於<br>primary |                    | T1                 | 交易 C 已寫入主要區域，<br> 但尚未複寫。  |
+| T3       | 交易 C：<br> 更新 <br>主要区域中的<br>角色實體，位於<br>primary |                    | T1                 | 交易 C 已寫入主要區域，<br> 但尚未複寫。  |
 | *T4*     |                                                       | 交易 C <br>已複寫到<br> 次要區域 | T1         | 交易 C 已複寫到次要區域。<br>無法更新 LastSyncTime，因為 <br>尚未複寫交易 B。|
 | *T5*     | 從次要區域 <br>讀取實體                           |                                  | T1                 | 您取得員工實體的過時值， <br> 因為交易 B 尚未 <br> 複寫。 您取得系統管理員角色實體<br> 的新值，因為 C<br> 已複寫。 上次同步處理時間仍然尚未<br> 更新，因為交易 B<br> 尚未複寫。 您可以說<br>系統管理員角色實體不一致， <br>因為實體日期/時間是在 <br>上次同步處理時間之後。 |
 | *T6*     |                                                      | 交易 B<br> 已複寫到<br> 次要區域 | T6                 | *T6* - 透過 C 的所有交易都 <br>已複寫，上次同步處理時間<br> 已更新。 |
@@ -216,7 +216,7 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 
 請務必測試應用程式在發生可重試的錯誤時會如預期般運作。 例如，您需要測試應用程式會在偵測到問題時切換到次要區域並進入唯讀模式，然後在主要區域再度變成可供使用時切換回來。 若要這樣做，您需要想辦法模擬可重試的錯誤，並控制其發生頻率。
 
-您可以使用 [Fiddler (英文)](http://www.telerik.com/fiddler)，來攔截與修改指令碼中的 HTTP 回應。 此指令碼可以識別來自您主要端點的回應，並將 HTTP 狀態碼變更為儲存體用戶端程式庫可辨識為可重試錯誤的狀態碼。 此程式碼片段示範一個簡單的 Fiddler 指令碼範例，來攔截對 **employeedata** 資料表之讀取要求的回應，以傳回 502 狀態：
+您可以使用 [Fiddler (英文)](https://www.telerik.com/fiddler)，來攔截與修改指令碼中的 HTTP 回應。 此指令碼可以識別來自您主要端點的回應，並將 HTTP 狀態碼變更為儲存體用戶端程式庫可辨識為可重試錯誤的狀態碼。 此程式碼片段示範一個簡單的 Fiddler 指令碼範例，來攔截對 **employeedata** 資料表之讀取要求的回應，以傳回 502 狀態：
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -228,7 +228,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-您可以擴充此範例，以攔截範圍較大的要求，而且只需變更其中的 **responseCode**，就能進一步模擬真實世界的案例。 如需自訂 Fiddler 指令碼的詳細資訊，請參閱 Fiddler 文件中的[修改要求或回應 (英文)](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse)。
+您可以擴充此範例，以攔截範圍較大的要求，而且只需變更其中的 **responseCode**，就能進一步模擬真實世界的案例。 如需自訂 Fiddler 指令碼的詳細資訊，請參閱 Fiddler 文件中的[修改要求或回應 (英文)](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse)。
 
 如果您已讓可用來將應用程式切換到唯讀模式的臨界值變成可設定的，就能更輕易地使用非實際執行的交易量來測試此行為。
 

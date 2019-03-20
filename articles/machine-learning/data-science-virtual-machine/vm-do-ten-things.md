@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: e08b38fcea152489455eb4b4f66e56bc609a09db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 81646c979748b7a23762a25538ced447e382f72a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251719"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878426"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
 
@@ -233,7 +233,7 @@ New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Lo
 # Set your current working storage account
 Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
-# Create a Azure File Service Share
+# Create an Azure File Service Share
 $s = New-AzureStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
 New-AzureStorageDirectory -Share $s -Path <directory name>
@@ -262,7 +262,7 @@ DSVM 已在命令列和 GUI 上載入用戶端工具，以便存取 GitHub 存�
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-您可以在 Visual Studio 中執行相同的複製作業。 下列螢幕擷取畫面示範如何在 Visual Studio 中存取 Git 和 GitHub 工具。
+您可以在 Visual Studio 中執行相同的複製作業。 下列螢幕擷取畫面示範如何存取 Visual Studio 中的 Git 和 GitHub 工具。
 
 ![顯示 GitHub 連線的 Visual Studio 螢幕擷取畫面](./media/vm-do-ten-things/VSGit.PNG)
 
@@ -279,7 +279,7 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 ![Azure 入口網站中的儲存體帳戶建立程序的螢幕擷取畫面](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * 確認預先安裝的命令列 AzCopy 工具位於 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```。 包含 azcopy.exe 的目錄已經您的 PATH 環境變數上，如此便無須在執行此工具時輸入完整的命令路徑。 如需有關 AzCopy 工具的詳細資訊，請參閱 [AzCopy 文件](../../storage/common/storage-use-azcopy.md)
-* 啟動 Azure 儲存體總管工具。 您可以從 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)下載此工具。 
+* 啟動 Azure 儲存體總管工具。 您可以從 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)下載此工具。 
 
 ![存取儲存體帳戶的 Azure 儲存體總管的螢幕擷取畫面](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
@@ -296,7 +296,7 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 在 PowerShell 或從命令提示字元執行 AzCopy 命令。 以下是使用 AzCopy 命令的一些範例：
 
 ```powershell
-# Copy *.sql from local machine to a Azure Blob
+# Copy *.sql from local machine to an Azure Blob
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
 
 # Copy back all files from Azure Blob container to Local machine

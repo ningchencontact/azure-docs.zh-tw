@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 26b560434e6305689781b8c39c7cf814af9bf8aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112291"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>教學課程：連線、設定、啟用 Azure 資料箱閘道 (預覽) 
 
@@ -43,7 +43,6 @@ ms.locfileid: "54450399"
 * 您已根據[在 Hyper-V 中佈建資料箱閘道](data-box-gateway-deploy-provision-hyperv.md)或[在 VMware 中佈建資料箱閘道](data-box-gateway-deploy-provision-vmware.md)中的詳細說明，佈建虛擬裝置並取得其連線的 URL。
 * 您具有先前建立用以管理資料箱閘道裝置的資料箱閘道服務適用的啟用金鑰。 如需詳細資訊，請移至[準備部署 Azure 資料箱閘道](data-box-gateway-deploy-prep.md)。
 
-<!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>連線至本機 Web UI 設定 
 
@@ -53,15 +52,15 @@ ms.locfileid: "54450399"
    
    請使用您在上一個教學課程中記下的連線 URL。 您會看到錯誤指出網站的安全性憑證有問題。 請按一下 [繼續瀏覽此網頁] 。 (這些步驟可能會隨著使用的瀏覽器而不同。)
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+    ![連接期間發生錯誤](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
 2. 登入虛擬裝置的 Web UI。 預設密碼為 *Password1*。 
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
+    ![登入本機 web UI](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
 3. 系統會提示您變更裝置系統管理員密碼。 請輸入包含 8 到 16 個字元的新密碼。 此密碼必須包含下列幾項中的 3 項：大寫、小寫、數字和特殊字元。
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![變更裝置系統管理員密碼](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
 您現在位於裝置的**儀表板**上。
 
@@ -69,28 +68,28 @@ ms.locfileid: "54450399"
  
 1. 在儀表板中，您可以移至對資料箱閘道服務設定和註冊虛擬裝置所需的各種設定。 [網路設定]、[Web Proxy 設定] 及 [時間設定] 是可省略的。 只有 [裝置名稱] 和 [雲端設定] 是必要的設定。
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+    ![本機 web UI 」 儀表板 頁面](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
 2. 在 [裝置名稱] 頁面中，為您的裝置設定易記名稱。 易記名稱的長度可以是 1 至 15 個字元，並且可包含字母、數字和連字號。
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![本機 web UI 的 [裝置名稱] 頁面](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
 3. (選擇性) 設定您的 [網路設定]。 您會看到 1 或多個網路介面，視您在基礎虛擬機器中設定的數量而定。 以下是已啟用一個網路介面的虛擬裝置所顯示的 [網路設定] 頁面。
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
+    ![本機 web UI 的 [網路設定] 頁面](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
     設定網路設定時，請留意下列事項：
 
-    - 如果您的環境中啟用了 DHCP，則會自動設定網路介面。 因此，系統會自動指派 IP 位址、子網路、閘道 和 DNS。
-    - 如果未啟用 DHCP，您可以視需要指派靜態 IP。
-    - 您可以將網路介面設定為 IPv4。
+   - 如果您的環境中啟用了 DHCP，則會自動設定網路介面。 因此，系統會自動指派 IP 位址、子網路、閘道 和 DNS。
+   - 如果未啟用 DHCP，您可以視需要指派靜態 IP。
+   - 您可以將網路介面設定為 IPv4。
 
-    >[!NOTE] 
-    > 我們建議您不要將網路介面的本機 IP 位址從靜態切換成 DHCP，除非您有另一個連接到裝置的 IP 位址。 如果使用一個網路介面並切換至 DHCP，就無法判斷 DHCP 位址。 如果您想要變更為 DHCP 位址，請等到裝置已向服務註冊之後再變更。 然後，您就可以在您服務的 Azure 入口網站中於 [裝置屬性] 中檢視所有介面卡的 IP。
+     >[!NOTE] 
+     > 我們建議您不要將網路介面的本機 IP 位址從靜態切換成 DHCP，除非您有另一個連接到裝置的 IP 位址。 如果使用一個網路介面並切換至 DHCP，就無法判斷 DHCP 位址。 如果您想要變更為 DHCP 位址，請等到裝置已向服務註冊之後再變更。 然後，您就可以在您服務的 Azure 入口網站中於 [裝置屬性] 中檢視所有介面卡的 IP。
 
 4. (可省略) 設定 Web Proxy 伺服器。 雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。
    
-   ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
+   ![本機 web UI 的 [Web proxy 設定] 頁面](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
    在 [Web Proxy]  頁面中：
    
@@ -101,7 +100,7 @@ ms.locfileid: "54450399"
 
 5. (可省略) 設定裝置的時間設定，例如時區，以及主要和次要 NTP 伺服器。 NTP 伺服器是必要的，因為您的裝置必須讓時間同步，才能與您的雲端服務提供者進行驗證。
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
+    ![本機 web UI 的 [時間設定] 頁面](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
     在 [時間設定]  頁面中：
     
@@ -116,10 +115,17 @@ ms.locfileid: "54450399"
 
     2. 按一下 [啟用]。 
        
-         ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
+         ![本機 web UI 的 [雲端設定] 頁面](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. 您可能需要等待一分鐘，裝置才會成功啟動。 啟用之後，此頁面會更新，並指出裝置已成功啟動。
+    3. 第一次啟用該裝置。 裝置接著會掃描任何重大更新，如果有的話，會自動套用更新。 您會看到該項影響的通知。 
 
+        對話方塊也有修復金鑰，您應該用來複製，並將它儲存在安全的位置。 此金鑰用來復原資料，萬一裝置無法開機。
+
+        ![本機 web UI 的 [雲端設定] 頁面](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)    
+
+    4. 您可能需要等候幾分鐘後已成功完成更新。 此頁面會更新以指出裝置已成功啟動。
+
+        ![本機 web UI 的 [雲端設定] 頁面更新](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
 ## <a name="next-steps"></a>後續步驟
 

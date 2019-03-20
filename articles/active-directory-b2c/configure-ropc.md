@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ce65f71349ae6d7e86ebae1ee2067653a63b89b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161053"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089330"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
@@ -37,15 +37,15 @@ Azure Active Directory (Azure AD) B2C 支援下列選項：
 
 ##  <a name="create-a-resource-owner-user-flow"></a>建立資源擁有者使用者流程
 
-1.  以 Azure AD B2C 租用戶的全域管理員身分登入 Azure 入口網站。
-2.  若要切換為您的 Azure AD B2C 租用戶，請選取入口網站右上角的 B2C 租用戶。
-3.  按一下 [使用者流程]，然後選取 [新增使用者流程]。
-4.  按一下 [所有] 索引標籤，然後選取 [資源擁有者]。
-5.  提供使用者流程的名稱，例如 *ROPC_Auth*。
-6.  在 [應用程式宣告] 底下，按一下 [顯示更多]。
-7.  選取您的應用程式所需的應用程式宣告，例如 [顯示名稱]、[電子郵件地址] 和 [身分識別提供者]。
-8.  選取 [確定]，然後選取 [建立]。
-9.  按一下 [執行使用者流程]。
+1. 以 Azure AD B2C 租用戶的全域管理員身分登入 Azure 入口網站。
+2. 若要切換為您的 Azure AD B2C 租用戶，請選取入口網站右上角的 B2C 租用戶。
+3. 按一下 [使用者流程]，然後選取 [新增使用者流程]。
+4. 按一下 **所有**索引標籤，然後選取**登入使用 ROPC**。
+5. 提供使用者流程的名稱，例如 *ROPC_Auth*。
+6. 在 [應用程式宣告] 底下，按一下 [顯示更多]。
+7. 選取您的應用程式所需的應用程式宣告，例如 [顯示名稱]、[電子郵件地址] 和 [身分識別提供者]。
+8. 選取 [確定]，然後選取 [建立]。
+9. 按一下 [執行使用者流程]。
 
    然後，您會看到類似於下列範例的端點：
 
@@ -83,7 +83,7 @@ Azure Active Directory (Azure AD) B2C 支援下列選項：
 實際的 POST 要求如下所示：
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

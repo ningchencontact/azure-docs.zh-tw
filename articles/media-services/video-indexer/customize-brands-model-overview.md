@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 15f4b8b6d4a27e721dfcaed8b9dd700e87e3a257
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872874"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>在影片索引器中自訂品牌模型
 
@@ -28,7 +28,7 @@ ms.locfileid: "56237360"
 
 ![品牌概觀](./media/content-model-customization/brands-overview.png)
 
-根據知道如何從上下文釐清的進階機器學習演算法，談論建築方面的 windows (窗戶) 時，不會將 "Windows" 這個字偵測為品牌，這同樣適用於 Box、Apple、Fox 等等。 品牌偵測適用於所有我們支援的語言。 按一下這裡可取得[完整的 Microsoft Build 2017 Day 2 重點演說視訊和索引](http://www.videoindexer.ai/media/ed6ede78ad/)。
+根據知道如何從上下文釐清的進階機器學習演算法，談論建築方面的 windows (窗戶) 時，不會將 "Windows" 這個字偵測為品牌，這同樣適用於 Box、Apple、Fox 等等。 品牌偵測適用於所有我們支援的語言。 按一下這裡可取得[完整的 Microsoft Build 2017 Day 2 重點演說視訊和索引](https://www.videoindexer.ai/media/ed6ede78ad/)。
 
 若要產生您自己的品牌，請參閱「後續步驟」。
 

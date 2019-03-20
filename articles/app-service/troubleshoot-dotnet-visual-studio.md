@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e9c1c35236ce6449a9c9bf06ba291f46db472
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730100"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996785"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 針對 Azure App Service 中的應用程式進行疑難排解
 ## <a name="overview"></a>概觀
@@ -79,7 +79,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwli
 
 **'/' 應用程式中有伺服器錯誤：**
 
-![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
+![无用的错误页](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
 **發生錯誤：**
 
@@ -134,19 +134,19 @@ public ActionResult About()
 }
 ```
 
-4. [在 `ViewBag.Message`這行設定中斷點](https://docs.microsoft.com/visualstudio/debugger/)。
+1. [在 `ViewBag.Message`這行設定中斷點](https://docs.microsoft.com/visualstudio/debugger/)。
 
-5. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
+1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
 
-6. 在 [設定檔] 下拉式清單中，選取您在[在 Azure App Service 中建立 ASP.NET 應用程式](app-service-web-get-started-dotnet-framework.md)中所使用的同一設定檔。 然後，按一下 [設定]。
+1. 在 [設定檔] 下拉式清單中，選取您在[在 Azure App Service 中建立 ASP.NET 應用程式](app-service-web-get-started-dotnet-framework.md)中所使用的同一設定檔。 然後，按一下 [設定]。
 
-7. 在 [發佈] 對話方塊中，按一下 [設定] 索引標籤，然後將 [設定] 變更為 [偵錯]，接著按一下 [儲存]。
+1. 在 [發佈] 對話方塊中，按一下 [設定] 索引標籤，然後將 [設定] 變更為 [偵錯]，接著按一下 [儲存]。
 
     ![於偵錯模式中發行](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. 按一下 [發佈] 。 當部署完成且您的瀏覽器開啟至應用程式的 Azure URL 之後，請關閉瀏覽器。
+1. 按一下 [發佈] 。 當部署完成且您的瀏覽器開啟至應用程式的 Azure URL 之後，請關閉瀏覽器。
 
-9. 在 [伺服器總管] 中，以滑鼠右鍵按一下您的應用程式，接著按一下 [連結偵錯工具]。
+1. 在 [伺服器總管] 中，以滑鼠右鍵按一下您的應用程式，接著按一下 [連結偵錯工具]。
 
     ![連結偵錯工具](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
@@ -156,19 +156,19 @@ public ActionResult About()
     > 如果您有任何啟動偵錯工具的問題，請嘗試使用 **Cloud Explorer** 執行，而不是**伺服器總管**。
     >
 
-10. 按一下功能表中的 [關於]  。
+1. 按一下功能表中的 [關於]  。
 
-     Visual Studio 會在中斷點處停止，而程式碼是在 Azure 中執行，而不是在您的本機電腦上執行。
+    Visual Studio 會在中斷點處停止，而程式碼是在 Azure 中執行，而不是在您的本機電腦上執行。
 
-11. 將滑鼠移至 `currentTime` 變數上，以查看時間值。
+1. 將滑鼠移至 `currentTime` 變數上，以查看時間值。
 
-     ![檢視 Azure 偵錯模式中執行的變數](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![檢視 Azure 偵錯模式中執行的變數](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     您在 Azure 伺服器時間上看到的時間，可能與您的本機電腦所在的時區不同。
+    您在 Azure 伺服器時間上看到的時間，可能與您的本機電腦所在的時區不同。
 
-12. 為 `currentTime` 變數輸入新的值，例如「現在於 Azure 中執行」。
+1. 為 `currentTime` 變數輸入新的值，例如「現在於 Azure 中執行」。
 
-13. 按 F5 繼續執行。
+1. 按 F5 繼續執行。
 
      Azure 中執行的 [關於] 頁面會顯示您輸入到 currentTime 變數中的新值。
 
@@ -179,7 +179,7 @@ public ActionResult About()
 
 本節顯示的功能僅適用於 Visual Studio 2013 含 Update 4 或更新版本。
 
-遠端偵錯僅適用於連續的 WebJobs。 排程與隨選 WebJobs 不支援偵錯。
+遠端偵錯僅適用於連續的 WebJobs。 计划的和按需 Web 作业不支持调试。
 
 1. 開啟您在[開始使用 Azure WebJobs SDK][GetStartedWJ] 中建立的 Web 專案。
 
@@ -187,7 +187,7 @@ public ActionResult About()
 
 3. 在 `GnerateThumbnail` 方法的第一個陳述式上[設定中斷點](https://docs.microsoft.com/visualstudio/debugger/)。
 
-    ![設定中斷點](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
+    ![设置断点](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
 4. 在 [方案總管] 中，以滑鼠右鍵按一下 Web 專案 (不是 WebJob 專案)，然後按一下 [發佈]。
 
@@ -233,14 +233,14 @@ public ActionResult About()
 
 16. 按一下函數名稱可查看執行函數的詳細資料。
 
-     ![函數詳細資料](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
+     ![函数详细信息](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
 如果函數會[撰寫記錄](https://github.com/Azure/azure-webjobs-sdk/wiki)，您可以按一下 [ToggleOutput] 查看這些記錄。
 
 ## <a name="notes-about-remote-debugging"></a>遠端偵錯注意事項
 
 * 不建議在生產環境中執行偵錯模式。 如果您的生產應用程式並未調升規模到多個伺服器執行個體，偵錯就會防止 Web 伺服器回應其他要求。 如果您確實有多個 Web 伺服器執行個體，當您連結至偵錯工具時，會取得一個隨機執行個體，而且您無法確保後續瀏覽器要求會傳送到相同的執行個體。 此外，通常我們不會將偵錯組建部署到生產環境中，而且版本組建的編譯器最佳化作業將會使系統無法逐行顯示您的來源程式碼中所發生的事情。 針對生產環境問題的疑難排解，您的最佳資源將是應用程式追蹤與 Web 伺服器記錄。
-* 進行遠端偵錯時，避免長時間在中斷點停止運作。 Azure 會將停止超過幾分鐘的處理序視為無回應的處理序，並將其關閉。
+* 远程调试时避免长时间停止在断点处。 Azure 會將停止超過幾分鐘的處理序視為無回應的處理序，並將其關閉。
 * 在偵錯期間，伺服器會將資料傳送至 Visual Studio，進而影響頻寬付費情況。 如需關於頻寬費率的詳細資訊，請參閱 [Azure 定價](https://azure.microsoft.com/pricing/calculator/)。
 * 確保 *Web.config* 檔案裡 `compilation` 元素中的 `debug` 屬性設為 true。 在發行偵錯組建組態時，該值預設會設為 true。
 
@@ -311,7 +311,7 @@ public ActionResult Contact()
 }        
 ```
 
-2. 將 `using System.Diagnostics;` 陳述式新增至檔案頂端。
+1. 將 `using System.Diagnostics;` 陳述式新增至檔案頂端。
 
 ### <a name="view-the-tracing-output-locally"></a>在本機檢視追蹤輸出
 1. 按 F5 以在偵錯模式中執行應用程式。
@@ -320,7 +320,7 @@ public ActionResult Contact()
 
     ![偵錯視窗中的追蹤](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
-    以下步驟說明如何在網頁中檢視追蹤輸出，而不需在偵錯模式中編譯。
+    以下步骤介绍如何在网页中查看跟踪输出而无需在调试模式下进行编译。
 2. 開啟應用程式 Web.config 檔 (專案資料夾中的那個) 並將 `<system.diagnostics>` 元素新增至檔案結尾 `</configuration>` 元素關閉處前：
 
 ``` xml
@@ -339,15 +339,15 @@ public ActionResult Contact()
 ```
 
 `WebPageTraceListener` 可讓您藉由瀏覽至 `/trace.axd` 來檢視追蹤輸出。
-3. 在 Web.config 檔案的 `<system.web>` 下方，加入<a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">追蹤元素</a>，如以下範例所示：
+1. 在 Web.config 檔案的 `<system.web>` 下方，加入<a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">追蹤元素</a>，如以下範例所示：
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
-4. 按 CTRL+F5 執行應用程式。
-5. 在瀏覽器視窗的網址列中，將 *trace.axd* 新增至 URL，然後按 Enter (URL 類似於 http://localhost:53370/trace.axd))。
-6. 在 [應用程式追蹤] 頁面上，按一下第一行 (不是 BrowserLink 行) 上的 [檢視詳細資料]。
+1. 按 CTRL+F5 執行應用程式。
+1. 在瀏覽器視窗的網址列中加入*trace.axd*至 URL，然後按 Enter (URL 會類似於`http://localhost:53370/trace.axd`)。
+1. 在 [應用程式追蹤] 頁面上，按一下第一行 (不是 BrowserLink 行) 上的 [檢視詳細資料]。
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -468,7 +468,7 @@ Web 伺服器記錄會記下應用程式的所有 HTTP 活動。 為了在 [輸�
 
     [檔案總管] 會開啟至您的 *Downloads* 資料夾，並選取下載的檔案。
 
-    ![下載的檔案](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
+    ![下载的文件](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
 2. 將 *.zip* 檔案解壓縮後，您會看到下列資料夾結構：
 
     ![下載的檔案](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
@@ -477,7 +477,7 @@ Web 伺服器記錄會記下應用程式的所有 HTTP 活動。 為了在 [輸�
    * Web 伺服器記錄位於 LogFiles\http\RawLogs 資料夾的 .log 檔案中。 您可以使用 [記錄檔剖析器](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
    * 詳細的錯誤訊息記錄位於 LogFiles\DetailedErrors 資料夾的 .html 檔案中。
 
-    (deployments 資料夾用於存放來源控制發行功能所建立的檔案，它與 Visual Studio 發行功能沒有任何關聯。 Git 資料夾則用於存放與來源控制發行功能相關的追蹤記錄，以及記錄檔案串流服務。)  
+     (deployments 資料夾用於存放來源控制發行功能所建立的檔案，它與 Visual Studio 發行功能沒有任何關聯。 Git 資料夾則用於存放與來源控制發行功能相關的追蹤記錄，以及記錄檔案串流服務。)  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
@@ -614,9 +614,9 @@ App Service 應用程式會使用 IIS 7.0 及更新版本所提供的相同失�
 * App Service 疑難排解
 * Visual Studio 偵錯
 * 在 Azure 中遠端偵錯
-* 在 ASP.NET 應用程式中追蹤
+* 在 ASP.NET 应用程序中进行跟踪
 * 分析 Web 伺服器記錄
-* 分析失敗要求追蹤記錄
+* 分析失败请求跟踪日志
 * 偵錯雲端服務
 
 ### <a name="app-service-troubleshooting"></a>App Service 疑難排解
@@ -681,7 +681,7 @@ catch (Exception ex)
 此外，您不需要使用 ASP.NET 或 `System.Diagnostics` 追蹤從 Azure 取得串流記錄。 App Service 應用程式串流記錄服務會串流它在 [LogFiles] 資料夾所找到的任何 *.txt*、*.html* 或 *.log* 檔案。 因此，您可以建立自己的記錄系統以寫入應用程式的檔案系統，而您的檔案會自動進行串流與下載。 您只需撰寫會在 d:\home\logfiles 資料夾中建立相關檔案的應用程式碼。
 
 ### <a name="analyzing-web-server-logs"></a>分析 Web 伺服器記錄
-如需分析 Web 伺服器記錄的詳細資訊，請參閱下列資源：
+有关分析 Web 服务器日志的详细信息，请参阅以下资源：
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   用於檢視 Web 伺服器記錄 (*.log* 檔案) 中資料的工具。

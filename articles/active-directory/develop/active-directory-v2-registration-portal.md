@@ -18,15 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 109ababa78292bf8b172144174af3216f3844941
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203653"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095869"
 ---
 # <a name="app-registration-reference"></a>App 註冊參考
 本文件提供可在[應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/)中找到的各種功能內容和說明。
+
+> [!NOTE]
+> 我們將不再支援註冊和管理中的聚合式與 Azure AD 應用程式[應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/)啟動 2019 年。 我們建議您管理您現有的應用程式，並使用註冊新的應用程式[應用程式註冊 （預覽）](https://aka.ms/appregistrations)體驗在 Azure 入口網站中。
 
 ## <a name="my-applications-or-converged-applications"></a>我的應用程式或交集的應用程式
 此清單包含所有已註冊且可與 Azure AD v2.0 端點搭配使用的應用程式。 這些應用程式能夠讓使用者使用個人的 Microsoft 帳戶登入，也可使用工作/學校帳戶從 Azure Active Directory 登入。 若要深入了解 Azure AD v2.0 端點，請參閱 [v2.0 概觀](active-directory-appmodel-v2-overview.md)。 這些應用程式也可以用來與 Microsoft 帳戶驗證端點 `https://login.live.com`整合。

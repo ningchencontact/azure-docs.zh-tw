@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 78d85239e1e82c290b210d33d3ca7000d6a05a1f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 5d8b3b91771fda3a714112979b8bf9df39c4a9b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088684"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>適用於 Azure SQL Data Sync 的 Data Sync Agent
 
@@ -48,7 +48,7 @@ msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\
 
 若要設定 Data Sync Agent 以便與一或多個內部部署 SQL Server 資料庫同步資料，請參閱[新增內部部署 SQL Server 資料庫](sql-database-get-started-sql-data-sync.md#add-on-prem)。
 
-## <a name="agent-faq"></a> 資料同步代理程式常見問題集
+## <a name="agent-faq"></a> Data Sync Agent 常見問題集
 
 ### <a name="why-do-i-need-a-client-agent"></a>我為何需要用戶端代理程式？
 
@@ -80,7 +80,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 4. 請等待用戶端代理程式下載先前所註冊內部部署資料庫的清單。
 5. 提供資料庫認證給顯示為無法連線的所有資料庫。 這些資料庫必須要能從安裝該代理程式的新電腦連線。
 
-## <a name="agent-tshoot"></a> 資料同步代理程式問題疑難排解
+## <a name="agent-tshoot"></a> Data Sync Agent 問題疑難排解
 
 - [用戶端代理程式安裝、解除安裝或修復失敗](#agent-install)
 
@@ -102,8 +102,8 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 
 - **解決方案**。 若要尋找失敗的特定原因，請產生並查看 Windows Installer 記錄。 您可以在命令提示字元開啟記錄。 例如，如果下載的安裝檔案為 `SQLDataSyncAgent-2.0-x86-ENU.msi`，請使用下列命令列來產生並檢查記錄：
 
-    -   安裝：`msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
-    -   解除安裝：`msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - 安裝：`msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - 解除安裝：`msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     您也可以為 Windows Installer 所執行的所有安裝開啟記錄。 Microsoft 知識庫文章[如何啟用 Windows Installer 記錄](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging)提供開啟 Windows Installer 記錄的單鍵解決方案。 它也提供記錄檔的位置。
 
@@ -326,7 +326,7 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
         -  [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   最佳做法 - [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
--   監視 - [使用 Log Analytics 監視 SQL 資料同步](sql-database-sync-monitor-oms.md)
+-   監視-[使用 Azure 監視器監視 SQL 資料同步記錄](sql-database-sync-monitor-oms.md)
 -   疑難排解 - [為 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 -   更新同步結構描述
     -   使用 Transact-SQL - [在 Azure SQL 資料同步中自動執行結構描述變更複寫](sql-database-update-sync-schema.md)

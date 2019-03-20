@@ -5,17 +5,17 @@ description: 本主題描述如何在 Azure Machine Learning Studio 中撰寫及
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120375"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>定義自訂 R 模組以用於 Azure Machine Learning Studio
 
@@ -123,7 +123,7 @@ Module 元素中的字元限制規則：
 * **Description** 元素的內容長度不能超過 128 個字元。
 * **Owner** 元素的內容長度不能超過 32 個字元。
 
-模組的結果可能具決定性或不具決定性。** 依預設，所有模組都視為具決定性。 也就是說，如果提供一組不變的參數和資料，每次 RAND 或函式執行時模組都應該傳回相同的結果。 在這個行為下，只有當參數或輸入資料有所變更，Azure Machine Learning Studio 才會重新執行標示為具決定性的模組。 傳回快取的結果也會讓實驗的執行速度加快許多。
+模組的結果可能具決定性或不具決定性。** 依預設，所有模組都視為具決定性。 也就是給定的輸入的參數和資料組不變，此模組應該傳回相同的結果 Rand 或函式執行時。 在這個行為下，只有當參數或輸入資料有所變更，Azure Machine Learning Studio 才會重新執行標示為具決定性的模組。 傳回快取的結果也會讓實驗的執行速度加快許多。
 
 也有不具決定性的函式，例如 RAND 或傳回目前日期或時間的函式。 如果您的模組使用不具決定性的函式，您可以將選擇性屬性 **isDeterministic** 設為 **FALSE**，藉此方式指定模組是不具決定性。 這可確保每次執行實驗時，都會重新執行模組，即使模組輸入和參數未變更亦然。 
 

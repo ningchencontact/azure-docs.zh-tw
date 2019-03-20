@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9f82ed280d18be304129bf8b7807213a75110df2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082726"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>使用 Azure CLI 以建立具有內部重新導向的應用程式閘道
 
-您可以使用 Azure CLI，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [Web 流量重新導向](application-gateway-multi-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集來建立後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，以確保網路流量會抵達適當的集區。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.contoso.org* 的範例。
+您可以使用 Azure CLI，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [Web 流量重新導向](application-gateway-multi-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集來建立後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，以確保網路流量會抵達適當的集區。 本教學課程假設您擁有的多個網域，並使用範例*www\.contoso.com*並*www\.contoso.org*。
 
 在本文中，您將了解：
 
@@ -101,7 +101,7 @@ az network application-gateway create \
 
 ## <a name="add-listeners-and-rules"></a>新增接聽程式和規則 
 
-需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您會為兩個網域建立兩個接聽程式。 在此範例中，會為 *www.contoso.com* 和 *www.contoso.org* 網域建立接聽程式。
+需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您會為兩個網域建立兩個接聽程式。 在此範例中的網域建立接聽程式*www\.contoso.com*並*www\.contoso.org*。
 
 使用 [az network application-gateway http-listener create](/cli/azure/network/application-gateway)，以新增路由流量時所需的後端接聽程式。
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>新增重新導向設定
 
-使用 [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config) 來新增重新導向設定，以在應用程式閘道中將流量從 *www.consoto.org* 傳送至 *www.contoso.com*。
+新增重新導向設定，會將流量從傳送*www\.consoto.org*的接聽程式*www\.contoso.com*使用應用程式閘道中[az 網路應用程式閘道 application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config)。
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -213,7 +213,7 @@ az network public-ip show \
 
 ![在應用程式閘道中測試 contoso 網站](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-將位址變更為您其他的網域 (例如 http://www.contoso.org )，就應該會看到流量已重新導向回 www.contoso.com 的接聽程式。
+將位址變更為您其他的網域，例如 http://www.contoso.org，您應該會看到流量已重新導向回到 www 的接聽程式\.contoso.com。
 
 ## <a name="next-steps"></a>後續步驟
 

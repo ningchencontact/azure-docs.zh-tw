@@ -12,19 +12,28 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341618"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998401"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>使用 REST API 列出 Azure 資源的拒絕指派
 
-目前，拒絕指派是**唯讀的**，而且只能由 Azure 設定。 即使您無法建立自己的拒絕指派，還是可以列出拒絕指派，因為它們可能會影響您的有效權限。 本文說明如何使用 RBAC 和 REST API 來列出拒絕指派。
+[拒絕指派](deny-assignments.md)會封鎖使用者執行特定的 Azure 資源動作，即使角色指派授予他們存取權也一樣。 這篇文章說明如何使用 REST API，以清單拒絕指派。
+
+> [!NOTE]
+> 在此階段中，您也可以加入自己的唯一方式會拒絕指派是使用 Azure 藍圖。 如需詳細資訊，請參閱 <<c0> [ 保護新的資源，Azure 藍圖資源鎖定](../governance/blueprints/tutorials/protect-new-resources.md)。
+
+## <a name="prerequisites"></a>必要條件
+
+若要取得拒絕指派的相關資訊，您必須具備：
+
+- `Microsoft.Authorization/denyAssignments/read` 權限，隨附於多數[適用於 Azure 資源的內建角色](built-in-roles.md)。
 
 ## <a name="list-a-single-deny-assignment"></a>列出單一拒絕指派
 
@@ -68,7 +77,7 @@ ms.locfileid: "56341618"
 
 1. 將 *{filter}* 取代為您想要套用來篩選拒絕指派清單的條件。
 
-    | Filter | 說明 |
+    | Filter | 描述 |
     | --- | --- |
     | (無篩選條件) | 列出在指定範圍內、之上或之下的所有拒絕指派。 |
     | `$filter=atScope()` | 僅列出在指定範圍內和之上的拒絕指派。 不包含子範圍內的拒絕指派。 |
@@ -86,7 +95,7 @@ ms.locfileid: "56341618"
 
 1. 將 *{filter}* 取代為您想要套用來篩選拒絕指派清單的條件。 需要篩選條件。
 
-    | Filter | 說明 |
+    | Filter | 描述 |
     | --- | --- |
     | `$filter=atScope()` | 僅列出根範圍的拒絕指派。 不包含子範圍內的拒絕指派。 |
     | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | 列出具有指定名稱的拒絕指派。 |

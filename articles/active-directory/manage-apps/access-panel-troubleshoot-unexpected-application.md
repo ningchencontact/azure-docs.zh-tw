@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a488c30f5b9438a91d2eae429cf65689af992dcb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122194"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>應用程式如何出現在存取面板上
 
@@ -46,41 +46,41 @@ ms.locfileid: "56167077"
 
 若要檢查是否已將使用者指派給應用程式，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-6.  **搜尋**相關應用程式的名稱。
+6. **搜尋**相關應用程式的名稱。
 
-7.  按一下 [使用者和群組]。
+7. 按一下 [使用者和群組]。
 
-8.  檢查使用者是否已指派至應用程式。
+8. 檢查使用者是否已指派至應用程式。
 
-  * 如果您想要從應用程式移除使用者，請**按一下使用者的資料列**，然後選取 [刪除]。
+   * 如果您想要從應用程式移除使用者，請**按一下使用者的資料列**，然後選取 [刪除]。
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>檢查使用者是否已獲應用程式相關的授權
 
 若要檢查使用者獲指派的授權，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  按一下瀏覽功能表中的 [使用者和群組]。
+4. 按一下瀏覽功能表中的 [使用者和群組]。
 
-5.  按一下 [所有使用者]。
+5. 按一下 [所有使用者]。
 
-6.  **搜尋**您感興趣的使用者，**按一下資料列**選取該使用者。
+6. **搜尋**您感興趣的使用者，**按一下資料列**選取該使用者。
 
-7.  按一下 [授權]，查看使用者目前已指派的授權。
+7. 按一下 [授權]，查看使用者目前已指派的授權。
 
    * 如果已為使用者指派 Office 授權，這會讓第一方 Office 應用程式出現在使用者的存取面板上。
 
@@ -96,45 +96,45 @@ ms.locfileid: "56167077"
 
 若要檢查群組的成員資格，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  按一下瀏覽功能表中的 [使用者和群組]。
+4. 按一下瀏覽功能表中的 [使用者和群組]。
 
-5.  按一下 [所有使用者]。
+5. 按一下 [所有使用者]。
 
-6.  **搜尋**您感興趣的使用者，**按一下資料列**選取該使用者。
+6. **搜尋**您感興趣的使用者，**按一下資料列**選取該使用者。
 
-7.  按一下 [群組]。
+7. 按一下 [群組]。
 
-8.  檢查使用者是否屬於已指派至應用程式的群組。
+8. 檢查使用者是否屬於已指派至應用程式的群組。
 
    * 如果您想要從群組移除使用者，請**按一下群組的資料列**，然後選取 [刪除]。
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>檢查使用者是否屬於指派至授權的群組
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  按一下瀏覽功能表中的 [使用者和群組]。
+4. 按一下瀏覽功能表中的 [使用者和群組]。
 
-5.  按一下 [所有使用者]。
+5. 按一下 [所有使用者]。
 
-6.  **搜尋**您感興趣的使用者，**按一下資料列**選取該使用者。
+6. **搜尋**您感興趣的使用者，**按一下資料列**選取該使用者。
 
-7.  按一下 [群組]。
+7. 按一下 [群組]。
 
-8.  按一下特定群組的資料列。
+8. 按一下特定群組的資料列。
 
-9.  按一下 [授權]，以查看已指派給群組的授權。
+9. 按一下 [授權]，以查看已指派給群組的授權。
 
-  * 如果已將群組指派給 Office 授權，這可能會讓某些第一方 Office 應用程式出現在使用者的存取面板上。
+   * 如果已將群組指派給 Office 授權，這可能會讓某些第一方 Office 應用程式出現在使用者的存取面板上。
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>如果這些疑難排解步驟無法解決問題

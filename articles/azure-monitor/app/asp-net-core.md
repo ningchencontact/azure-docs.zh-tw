@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054838"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011793"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core 的 Application Insights
 
@@ -88,15 +88,15 @@ Application Insights 為低負荷。 若要檢視新增 Application Insights 遙
 
 - 已建立一個新檔案：
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
@@ -180,6 +180,10 @@ Application Insights 為低負荷。 若要檢視新增 Application Insights 遙
           }
       }
       ```
+
+## <a name="send-ilogger-logs-to-application-insights"></a>將 ILogger 記錄傳送至 Application Insights
+
+Application Insights 支援擷取透過 ILogger 傳送的記錄檔。 若要設定記錄簽出的程式碼範例[此處](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)。
 
 ## <a name="synthetic-transactions-with-powershell"></a>使用 PowerShell 的綜合交易
 
@@ -338,7 +342,7 @@ Application Insights Telemetry (unconfigured): {"name":"Microsoft.ApplicationIns
 
 ![Microsoft.AspNETCore.all 的 NuGet 相依性關係圖螢幕擷取畫面](./media/asp-net-core/013-dependency.png)
 
-Visual Studio 之外，如果您在 VSCode 或其他編輯器中編輯 ASP.NET Core 專案，如果您尚未將 Application Insights 明確加入您的專案，則這些組件不會在偵錯期間自動載入。
+外部 Visual Studio 中，如果您已編輯的 ASP.NET Core 專案中 VSCode 或另一個編輯器中，這些組件不會自動載入於偵錯期間如果您還沒有明確地將 Application Insights 新增至您的專案。
 
 不過在 Visual Studio 中，使用 [IHostingStartup 介面](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1)，可以從外部組件強化本機 Application Insights 功能。 介面會在偵錯期間以動態方式新增 Application Insights。
 

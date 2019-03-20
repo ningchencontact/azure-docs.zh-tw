@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103395"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>將 Excel 連線至 Azure SQL Database 中的單一資料庫和建立報表
 
@@ -43,10 +43,10 @@ ms.locfileid: "56237005"
 
 4. 在 [SQL Server Database] 對話方塊中，選取左側的 [資料庫]，然後針對您要連線的 SQL Database 伺服器，輸入您的**使用者名稱**和**密碼**。 選取 [連線] 以開啟 [導覽器]。 
 
-  ![輸入伺服器名稱和登入認證](./media/sql-database-connect-excel/connect-to-server.png)
+   ![輸入伺服器名稱和登入認證](./media/sql-database-connect-excel/connect-to-server.png)
 
-  > [!TIP]
-  > 根據您的網路環境，您可能無法連接，而如果 SQL Database 伺服器不允許來自您的用戶端 IP 位址的流量，您可能會失去連接。 移至 [Azure 入口網站](https://portal.azure.com/)，按一下 SQL Server，按一下您的伺服器中，按一下設定下的防火牆並新增您的用戶端 IP 位址。 如需詳細資訊，請參閱 [如何設定防火牆設定](sql-database-configure-firewall-settings.md) 。
+   > [!TIP]
+   > 根據您的網路環境，您可能無法連接，而如果 SQL Database 伺服器不允許來自您的用戶端 IP 位址的流量，您可能會失去連接。 移至 [Azure 入口網站](https://portal.azure.com/)，按一下 SQL Server，按一下您的伺服器中，按一下設定下的防火牆並新增您的用戶端 IP 位址。 如需詳細資訊，請參閱 [如何設定防火牆設定](sql-database-configure-firewall-settings.md) 。
 
 5. 在 [導覽器] 中，從清單選取所要使用的資料庫，選取所要使用的資料表或檢視 (我們選擇 **vGetAllCategories**)，然後選取 [載入] 以將資料從您的資料庫移至 Excel 試算表。
 
@@ -75,17 +75,17 @@ ms.locfileid: "56237005"
 若要永久儲存連線詳細資料，您可以建立 .odc 檔案，並且讓此連線在 [現有連線] 對話方塊中成為可選取的選項。 
 
 1. 在頁面頂端的功能表列中，選取 [資料] 索引標籤，然後選取 [現有連線] 以啟動 [現有連線] 對話方塊。 
-    1. 選取 [瀏覽其他] 以開啟 [選取資料來源] 對話方塊。   
-    2. 選取 [+NewSqlServerConnection.odc] 檔案，然後選取 [開啟] 以開啟 [資料連線精靈]。
+   1. 選取 [瀏覽其他] 以開啟 [選取資料來源] 對話方塊。   
+   2. 選取 [+NewSqlServerConnection.odc] 檔案，然後選取 [開啟] 以開啟 [資料連線精靈]。
 
-    ![新增連線](media/sql-database-connect-excel/new-connection.png)
+      ![新增連線](media/sql-database-connect-excel/new-connection.png)
 
 2. 在 [資料連線精靈] 中，輸入您的伺服器名稱和 SQL Database 認證。 選取 [下一步] 。 
-    1. 從下拉式清單中選取包含您資料的資料庫。 
-    2. 選取您感興趣的資料表或檢視。 我們選擇 vGetAllCategories。
-    3. 選取 [下一步] 。 
+   1. 從下拉式清單中選取包含您資料的資料庫。 
+   2. 選取您感興趣的資料表或檢視。 我們選擇 vGetAllCategories。
+   3. 選取 [下一步] 。 
 
-    ![資料連線精靈](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![資料連線精靈](media/sql-database-connect-excel/data-connection-wizard.png) 
 
 3. 在資料連線精靈的下一個畫面中，選取您的檔案位置、[檔案名稱] 和 [易記名稱]。 您也可以選擇在檔案中儲存密碼，但這可能會使您的資料公開給不必要的存取。 準備好時，選取 [完成]。 
 

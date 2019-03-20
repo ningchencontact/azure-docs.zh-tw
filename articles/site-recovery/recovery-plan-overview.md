@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975656"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996378"
 ---
 # <a name="about-recovery-plans"></a>關於復原方案
 
@@ -29,7 +29,7 @@ ms.locfileid: "53975656"
 
 * 根據應用程式的相依性建立模型。
 * 將復原工作自動化以縮短 RTO。
-- 請確認您的應用程式屬於復原方案，以準備好進行移轉或災害復原。
+* 請確認您的應用程式屬於復原方案，以準備好進行移轉或災害復原。
 * 請在復原方案上執行測試容錯移轉，以確保災害復原或移轉如預期般運作。
 
 
@@ -42,10 +42,10 @@ ms.locfileid: "53975656"
     - 此順序可確保當中介軟體啟動並嘗試連線到 SQL Server 層時，SQL Server 層已經在執行。 
     - 此順序還可確保前端伺服器最後啟動，以便在所有元件都已啟動並執行，且應用程式已準備好接受要求之前，使用者不會連線到應用程式 URL。
 
-若要建立此順序，請將群組新增至復原群組，並將機器新增至群組。 
-    - 在指定順序之處，就會使用排序。 應用程式在適用時會以平行方式執行，以改善應用程式復原 RTO。
-    - 單一群組中的機器會以平行方式容錯移轉。
-    - 不同群組中的機器會依順序群組進行容錯移轉，因此只有在群組 1 中所有機器容錯移轉並啟動之後，群組 2 的機器才會開始其容錯移轉。
+若要建立此順序，請將群組新增至復原群組，並將機器新增至群組。
+- 在指定順序之處，就會使用排序。 應用程式在適用時會以平行方式執行，以改善應用程式復原 RTO。
+- 單一群組中的機器會以平行方式容錯移轉。
+- 不同群組中的機器會依順序群組進行容錯移轉，因此只有在群組 1 中所有機器容錯移轉並啟動之後，群組 2 的機器才會開始其容錯移轉。
 
     ![範例復原方案](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ ms.locfileid: "53975656"
 ## <a name="next-steps"></a>後續步驟
 
 - [建立](site-recovery-create-recovery-plans.md)復原方案。
-* 深入了解[執行容錯移轉](site-recovery-failover.md)。  
+- 深入了解[執行容錯移轉](site-recovery-failover.md)。  

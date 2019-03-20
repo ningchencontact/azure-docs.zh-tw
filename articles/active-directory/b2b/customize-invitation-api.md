@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 共同作業 API 和自訂 | Microsoft Docs
+title: B2B 共同作業 API 和自訂-Azure Active Directory |Microsoft Docs
 description: Azure Active Directory B2B 共同作業讓企業合作夥伴選擇性地存取您的公司應用程式，以支援公司間的關係
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a475c9032d2c4062b506c1e6ebcadd1901c946b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111305"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 共同作業 API 和自訂
 
@@ -44,7 +44,7 @@ API 提供下列功能：
     "sendInvitationMessage": true
     ```
 
-  使用您可以自訂的訊息傳送給收件者
+   使用您可以自訂的訊息傳送給收件者
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -58,7 +58,7 @@ API 提供下列功能：
     "sendInvitationMessage": false
     ```
 
-  在此案例中，您會從 API 取得兌換 URL，您可以將它內嵌在電子郵件範本、IM 或其他發佈方法。
+   在此案例中，您會從 API 取得兌換 URL，您可以將它內嵌在電子郵件範本、IM 或其他發佈方法。
 
 6. 最後，若您是系統管理員，您可以選擇邀請使用者做為成員。
 
@@ -109,7 +109,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > 請確定您有最新版的 AzureAD PowerShell 模組或 AzureADPreview PowerShell 模組。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 請查看 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) 中的邀請 API 參考。
 

@@ -3,17 +3,17 @@ title: 在 Azure IoT Central 應用程式中建立和管理遙測規則 | Micros
 description: Azure IoT Central 遙測規則可讓您近乎即時地監視裝置，以及在觸發規則時自動叫用動作，例如傳送電子郵件。
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 11/02/2018
+ms.date: 02/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081554"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立遙測規則並設定通知
 
@@ -27,20 +27,15 @@ ms.locfileid: "52964810"
 
 若要建立遙測規則，裝置範本必須至少定義一個遙測量測。 此範例使用會傳送溫度和濕度遙測的冷藏自動販賣機裝置。 此規則會監視裝置所報告的遙測，並在裝置溫度超過 80 度時傳送電子郵件。
 
-1. 使用 Device Explorer，瀏覽至您要對其新增規則的裝置範本。
+1. 使用**裝置範本**頁面上，瀏覽至您新增的規則的裝置範本。
 
-1. 在選取的範本下，按一下現有裝置。 
-
-    >[!TIP] 
-    >如果範本沒有任何裝置，則先新增裝置。
-
-1. 如果您尚未建立任何規則，您將會看到下列畫面：
+1. 如果您尚未建立任何規則，您會看到下列畫面：
 
     ![還沒有規則](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. 在 [規則] 索引標籤上，依序按一下 [編輯範本] 和 [+ 新增規則]，以查看您可以建立的規則類型。
+1. 在 **規則**索引標籤上，選取 **+ 新規則**若要查看您可以建立的規則的類型。
 
-1. 按一下 [遙測]，以建立規則來監視裝置遙測。
+1. 選取 **遙測**建立規則來監視裝置的遙測。
 
     ![規則類型](media/howto-create-telemetry-rules/Rule_Types.png)
 
@@ -49,28 +44,25 @@ ms.locfileid: "52964810"
 1. 若要立即為針對此範本建立的所有裝置啟用規則，請切換 [為此範本的所有裝置啟用規則]。
 
    ![規則詳細資訊](media/howto-create-telemetry-rules/Rule_Detail.png)
-    
+
     此規則會自動套用到裝置範本下的所有裝置。
-    
 
 ### <a name="configure-the-rule-conditions"></a>設定規則條件
 
 條件會定義規則所監視的準則。
 
-1. 按一下 [條件] 旁的 [+] 來新增條件。
+1. 選取  **+** 旁**條件**加入一個新的條件。
 
 1. 從 [量測] 下拉式清單中選取想要監視的遙測。
 
-   ![條件](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
-
 1. 接下來，選擇 [彙總]、[操作員]，並提供**閾值**。
-    - 彙總為選擇性的。 如果沒有彙總，規則就會在每個遙測資料點符合條件時觸發。 例如，如果將規則設定為在溫度超過 80 時觸發，則此規則將幾乎會在裝置報告溫度 > 80 時立即觸發。
-    - 如果選擇了像是 Average、Min、Max、Count 的彙總函式，則使用者必須提供需要評估條件的**彙總時間範圍**。 例如，如果您將期間設定為「5 分鐘」，而且您的規則會尋找超過 80 的平均溫度，則此規則會在平均溫度超過 80 至少 5 分鐘時觸發。 規則評估頻率與**彙總時間範圍**相同，這表示，在此範例中，此規則每隔 5 分鐘就會評估一次。
+   - 彙總為選擇性的。 如果沒有彙總，規則就會在每個遙測資料點符合條件時觸發。 比方說，如果規則幾乎可立即設定溫度高於 80 時觸發程序，然後此規則會觸發當裝置報告溫度 > 80。
+   - 如果選擇了像是 Average、Min、Max、Count 的彙總函式，則使用者必須提供需要評估條件的**彙總時間範圍**。 例如，如果您將期間設定為「5 分鐘」，而且您的規則會尋找超過 80 的平均溫度，則此規則會在平均溫度超過 80 至少 5 分鐘時觸發。 規則評估頻率與**彙總時間範圍**相同，這表示，在此範例中，此規則每隔 5 分鐘就會評估一次。
 
-    >[!NOTE]
-    >您可以在**條件**下新增多個遙測量測。 若指定多個條件，就必須符合所有條件才會觸發規則。 每個條件都會透過 'AND' 子句隱含地加入。 使用彙總時，必須彙總每個量測。
-    
-    
+     ![條件](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+
+     >[!NOTE]
+     >您可以在**條件**下新增多個遙測量測。 若指定多個條件，就必須符合所有條件才會觸發規則。 每個條件都會透過 'AND' 子句隱含地加入。 使用彙總時，必須彙總每個量測。
 
 ### <a name="configure-actions"></a>設定動作
 
@@ -88,8 +80,6 @@ ms.locfileid: "52964810"
    ![設定動作](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. 若要儲存規則，請選擇 [儲存]。 幾分鐘內，規則就會生效，並開始監視傳送至應用程式的遙測。 符合規則中指定的條件時，規則就會觸發所設定的電子郵件動作。
-
-1. 選擇 [完成] 以結束 [編輯範本] 模式。
 
 您可以將其他動作新增至規則，例如 Microsoft Flow 和 Webhook。 您可以針對每個規則最多新增 5 個動作。
 

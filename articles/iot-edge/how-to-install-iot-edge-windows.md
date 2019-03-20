@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 5f421c8949efae5a2488d5bf156a5d3571401bcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902800"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996440"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安裝 Azure IoT Edge 執行階段
 
@@ -25,8 +25,8 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 本文列出在 Windows x64 (AMD/Intel) 系統上安裝 Azure IoT Edge 執行階段的步驟。 Windows 支援目前為預覽版。
 
->[!NOTE]
-就 Azure IoT Edge 而言，在 Windows 系統上使用 Linux 容器不是建議或支援的生產環境設定。 不過，這很適合用於開發與測試用途。
+> [!NOTE]
+> 就 Azure IoT Edge 而言，在 Windows 系統上使用 Linux 容器不是建議或支援的生產環境設定。 不過，這很適合用於開發與測試用途。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -52,6 +52,8 @@ Azure IoT Edge 支援不同版本的 Windows，取決於您執行 Windows 容器
 
 Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器引擎。 對於生產案例，請使用安裝指令碼中包含的 Moby 引擎，在 Windows 裝置上執行 Windows 容器。 對於開發和測試，您可以在您的 Windows 裝置上執行 Linux 容器，但您需要先安裝及設定容器引擎，然後再安裝 IoT Edge。 對於上述任一案例，請參閱下列各節，了解準備您的裝置的必要條件。 
 
+如果您想要在虛擬機器上安裝 IoT Edge，啟用巢狀虛擬化，並配置至少 2 GB 的記憶體。 啟用巢狀虛擬化的方式不一樣在 hypervisor 上，視您使用就行了。 Hyper-v，第 2 代虛擬機器具有巢狀虛擬化預設啟用。 對於 VMWare，沒有可啟用此功能在您的虛擬機器上的切換符號。 
+
 #### <a name="moby-engine-for-windows-containers"></a>適用於 Windows 容器的 Moby 引擎
 
 對於在生產案例中執行 IoT Edge 的 Windows 裝置，Moby 是唯一正式支援的容器引擎。 安裝指令碼會先在您的裝置上自動安裝 Moby 引擎，然後再安裝 IoT Edge。 藉由開啟容器功能，以準備您的裝置。 
@@ -64,7 +66,7 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
 
 如果您使用 Windows 以開發並測試 Linux 裝置的容器，您可以使用[適用於 Windows 的 Docker 用戶端](https://www.docker.com/docker-windows)作為您的容器引擎。 Docker 可設定為[使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)。 您需要先安裝 Docker，並加以設定，然後再安裝 IoT Edge。 在生產環境中的 Windows 裝置上不支援 Linux 容器。 
 
-如果您的 IoT Edge 裝置是 Windows 電腦，請檢查其是否符合 Hyper-V 的[系統需求](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)。 如果是虛擬機器，請啟用[巢狀虛擬化](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)，並配置至少 2GB 的記憶體。
+如果您的 IoT Edge 裝置是 Windows 電腦，請檢查其是否符合 Hyper-V 的[系統需求](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)。
 
 ## <a name="install-iot-edge-on-a-new-device"></a>在新的裝置上安裝 IoT Edge
 
@@ -213,6 +215,34 @@ Get-WinEvent -ea SilentlyContinue `
 ```powershell
 iotedge list
 ```
+
+完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 [部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，将会看到其他模块。 
+
+## <a name="manage-module-containers"></a>管理模块容器
+
+IoT Edge 服务要求在设备上运行容器引擎。 将模块部署到设备时，IoT Edge 运行时将使用容器引擎从云中的注册表提取容器映像。 IoT Edge 服务允许与模块交互和检索日志，但有时，你可能想要使用容器引擎来与容器本身交互。 
+
+有关模块概念的详细信息，请参阅[了解 Azure IoT Edge 模块](iot-edge-modules.md)。 
+
+如果在 Windows IoT Edge 设备上运行 Windows 容器，则 IoT Edge 安装中已包含 Moby 容器引擎。 如果你在 Windows 开发计算机上开发 Linux 容器，可能会使用 Docker Desktop。 Moby 引擎所基于的标准与 Docker 相同，可在 Docker Desktop 所在的同一台计算机上同时运行。 因此，若要以 Moby 引擎管理的容器为目标，则必须专门将该引擎指定为目标，而不要以 Docker 为目标。 
+
+例如，若要列出所有 Docker 映像，可使用以下命令：
+
+```powershell
+docker images
+```
+
+若要列出所有 Moby 映像，可以使用指向 Moby 引擎的指针修改上述命令： 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+引擎 URI 将在安装脚本的输出中列出，也可以在 config.yaml 文件的容器运行时设置节中找到它。 
+
+![config.yaml 中的 moby_runtime uri](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+若要详细了解可以使用哪些命令来与设备上运行的容器和映像交互，请参阅 [Docker 命令行接口](https://docs.docker.com/engine/reference/commandline/docker/)。
 
 ## <a name="uninstall-iot-edge"></a>解除安裝 IoT Edge
 

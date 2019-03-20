@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72a666db6157300942b966b88d9c3369495b9fd4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116193"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure SQL 資料倉儲來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +69,7 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 Azure SQL 資料倉儲連結服務專屬 JSON 元素的描述。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**AzureSqlDW** |是 |
 | connectionString |針對 connectionString 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 僅支援基本驗證。 |是 |
@@ -82,7 +82,7 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 
 每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。 **AzureSqlDWTable** 類型資料集的 **typeProperties** 區段具有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | tableName |Azure SQL 資料倉儲資料庫中連結服務所參照的資料表名稱或檢視名稱。 |是 |
 
@@ -97,7 +97,7 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 ### <a name="sqldwsource"></a>SqlDWSource
 如果來源類型為 **SqlDWSource**，則 **typeProperties** 區段可使用下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | SqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 |預存程序的名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
@@ -143,7 +143,7 @@ GO
 ### <a name="sqldwsink"></a>管線
 **SqlDWSink** 支援下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |指定要讓「複製活動」執行的查詢，以便清除特定分割的資料。 如需詳細資訊，請參閱 [可重複性](#repeatability-during-copy)一節。 |查詢陳述式。 |否 |
 | allowPolyBase |指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 一節中的條件約束和詳細資料。 |True <br/>FALSE (預設值) |否 |
@@ -197,28 +197,28 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store (使
 1. **來源連結服務**的類型為：**AzureStorage** 或**具備服務主題驗證的 AzureDataLakeStore**。
 2. **輸入資料集**的類型為：**AzureBlob** 或 **AzureDataLakeStore**，而 `type` 屬性底下的格式類型為 **OrcFormat**、**ParquetFormat** 或具備下列設定的 **TextFormat**：
 
-    1. `rowDelimiter` 必須為 **\n**。
-    2. `nullValue` 設定為「空字串」 ("") 或將 `treatEmptyAsNull` 設定為 **true**。
-    3. `encodingName` 設定為 **utf-8**，也就是「預設」值。
-    4. 未指定 `escapeChar`、`quoteChar`、`firstRowAsHeader` 和 `skipLineCount`。
-    5. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
+   1. `rowDelimiter` 必須為 **\n**。
+   2. `nullValue` 設定為「空字串」 ("") 或將 `treatEmptyAsNull` 設定為 **true**。
+   3. `encodingName` 設定為 **utf-8**，也就是「預設」值。
+   4. 未指定 `escapeChar`、`quoteChar`、`firstRowAsHeader` 和 `skipLineCount`。
+   5. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
 
-    ```JSON
-    "typeProperties": {
-        "folderPath": "<blobpath>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8"
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
-        }
-    },
-    ```
+      ```JSON
+      "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",
+           "nullValue": "",
+           "encodingName": "utf-8"
+       },
+       "compression": {
+           "type": "GZip",
+           "level": "Optimal"
+       }
+      },
+      ```
 
 3. 管線中複製活動的 **BlobSource** 或 **AzureDataLakeStore** 之下沒有 `skipHeaderLineCount` 設定。
 4. 管線中複製活動的 **SqlDWSink** 之下沒有 `sliceIdentifierColumnName` 設定。 (PolyBase 保證所有資料都已更新，或在單一執行未更新任何項目。 若要達到「重複性」，您可以使用 `sqlWriterCleanupScript`)。
@@ -228,7 +228,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store (使
 當來源資料不符合上一節介紹的準則時，您可以啟用透過過渡暫存 Azure Blob 儲存體 (不能是進階儲存體) 複製資料。 在此情況下，Azure Data Factory 會自動執行資料轉換，以符合 PolyBase 的資料格式需求，然後使用 PolyBase 將資料載入到 SQL 資料倉儲，最後從 Blob 儲存體清空您的暫存資料。 如需透過暫存 Azure Blob 複製資料通常如何運作的詳細資訊，請參閱 [分段複製](data-factory-copy-activity-performance.md#staged-copy) 。
 
 > [!NOTE]
-> 當您使用 PolyBase 和分段，將資料從內部部署資料存放區複製到 Azure SQL 資料倉儲時，如果您的「資料管理閘道」版本低於 2.4，就必須在閘道電腦上安裝 JRE (Java Runtime Environment)，以便用來將來源資料轉換為適當格式。 建議您將閘道升級為最新的版本，以避免這類相依性。
+> 當資料複製在內部部署資料存放區到 Azure SQL 資料倉儲使用 PolyBase 和分段處理，如果您的資料管理閘道版本低於 2.4，JRE (Java Runtime Environment) 就必須在閘道電腦，用來轉換您的來源為適當格式的資料。 建議您將閘道升級為最新的版本，以避免這類相依性。
 >
 
 若要使用此功能，請建立 [Azure 儲存體連結服務](data-factory-azure-blob-connector.md#azure-storage-linked-service)，這是指具有過渡 Blob 儲存體的 Azure 儲存體帳戶，然後針對複製活動指定 `enableStaging` 和 `stagingSettings` 屬性，如下列程式碼所示：
@@ -302,13 +302,13 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 
 | 來源 SQL Database 資料行類型 | 目的地 SQL DW 資料行類型 (大小限制) |
 | --- | --- |
-| int | int |
+| Int | Int |
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
 | Bit | Bit |
-| 十進位 | 十進位 |
-| 數值 | 十進位 |
+| Decimal | Decimal |
+| 數值 | Decimal |
 | Float | Float |
 | Money | Money |
 | Real | Real |
@@ -316,7 +316,7 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | Binary | Binary |
 | Varbinary | Varbinary (最多 8000) |
 | 日期 | 日期 |
-| Datetime | Datetime |
+| DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | 時間 | 時間 |
 | DateTimeOffset | DateTimeOffset |
@@ -349,28 +349,28 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | binary |Byte[] |
 | bit |BOOLEAN |
 | char |String、Char[] |
-| 日期 |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| 日期 |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| 十進位 |十進位 |
+| Decimal |Decimal |
 | FILESTREAM 屬性 (varbinary(max)) |Byte[] |
-| Float |兩倍 |
+| Float |Double |
 | 映像 |Byte[] |
 | int |Int32 |
-| money |十進位 |
+| money |Decimal |
 | nchar |String、Char[] |
 | ntext |String、Char[] |
-| numeric |十進位 |
+| numeric |Decimal |
 | nvarchar |String、Char[] |
-| real |單一 |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |十進位 |
+| smallmoney |Decimal |
 | sql_variant |物件 * |
 | text |String、Char[] |
-| 分析 |時間範圍 |
+| 分析 |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |

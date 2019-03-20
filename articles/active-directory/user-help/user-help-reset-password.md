@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208465"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106470"
 ---
 # <a name="reset-your-work-or-school-password"></a>重設您的工作密碼或學校密碼
 
@@ -93,15 +93,15 @@ ms.locfileid: "56208465"
 
 - **從驗證器應用程式使用驗證碼來重設密碼。** 接受驗證應用程式所提供的隨機驗證碼。 如果您的系統管理員已開啟安全性資訊體驗，您就能在[將安全性資訊設定為使用驗證器應用程式 (預覽)](security-info-setup-auth-app.md) 一文中，找到設定驗證器應用程式以提供驗證碼的詳細資訊。 如果您尚未使用安全性資訊，您可以在[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)一文中找到設定驗證器應用程式以提供驗證碼的詳細資訊。
 
-    1. 選取 [從驗證器應用程式輸入驗證碼]，然後選取 [傳送通知]。
+  1. 選取 [從驗證器應用程式輸入驗證碼]，然後選取 [傳送通知]。
 
-    2. 開啟驗證器應用程式、在方塊中輸入帳戶的驗證碼，然後選取 [下一步]。
+  2. 開啟驗證器應用程式、在方塊中輸入帳戶的驗證碼，然後選取 [下一步]。
 
-    3. 輸入並確認您的新密碼，然後選取 [完成]。
+  3. 輸入並確認您的新密碼，然後選取 [完成]。
 
-    4. 在您收到訊息指出密碼已重設之後，就可以使用新密碼來登入帳戶。
+  4. 在您收到訊息指出密碼已重設之後，就可以使用新密碼來登入帳戶。
         
-    如果您仍無法存取帳戶，您應該連絡貴組織的系統管理員以獲得更多協助。
+     如果您仍無法存取帳戶，您應該連絡貴組織的系統管理員以獲得更多協助。
 
 重設密碼之後，您可能會收到確認電子郵件，其來源是「Microsoft 代表 \<*your_organization*>」之類的帳戶。 如果您收到類似的電子郵件，但您最近並未重設密碼，則您必須立即連絡貴組織的系統管理員。
 
@@ -113,7 +113,7 @@ ms.locfileid: "56208465"
 
 如果您通常會透過 Office 入口網站來存取應用程式，請使用此方法：
 
-1. 使用現有的密碼登入 [Office 365 帳戶](https://www.office.com)。
+1. 使用現有的密碼登入 [Office 365 帳戶](https://portal.office.com)。
 
 2. 選取您位於右上方的設定檔，然後選取 [檢視帳戶]。
 
@@ -155,7 +155,7 @@ ms.locfileid: "56208465"
 
 以下提供一些常見的錯誤案例及其解決方案：
 
-|問題|說明|解決方法|
+|問題|描述|解決方法|
 | --- | --- | --- |
 |當我嘗試變更密碼時，收到一個錯誤。 |您的密碼包含使密碼容易猜到的字組、片語或模式。| 請使用強度更高的密碼重試。|
 |在輸入我的使用者識別碼之後，會移至一個畫面指出「請連絡您的系統管理員」。|Microsoft 已判定您的使用者帳戶密碼會由您內部部署環境中的系統管理員所管理。 因此，您無法從 [無法存取您的帳戶] 連結重設密碼。 |請連絡您的系統管理員以獲得更多協助。|
@@ -163,9 +163,6 @@ ms.locfileid: "56208465"
 |在輸入我的使用者識別碼之後，出現了「我們無法驗證您的帳戶」錯誤。|登入程序無法驗證您的帳戶資訊。|有兩個原因會讓您看到此訊息。<br><br>1.您的系統管理員已為組織開啟密碼重設，但您尚未註冊使用此服務。 若要註冊密碼重設，請根據您的驗證方法，參閱下列其中一篇文章：[將安全性資訊設定為使用驗證器應用程式 (預覽)](security-info-setup-auth-app.md)、[將安全性資訊設定為使用電話 (預覽)](security-info-setup-phone-number.md)、[將安全性資訊設定為使用簡訊 (預覽)](security-info-setup-text-msg.md)、[將安全性資訊設定為使用電子郵件 (預覽)](security-info-setup-email.md) 或[將安全性資訊設定為使用安全性問題 (預覽)](security-info-setup-questions.md)。<br><br>2.您的系統管理員尚未為組織開啟密碼重設。 在此情況下，您必須選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的系統管理員，要求重設您的密碼。|
 
 ## <a name="next-steps"></a>後續步驟
-
-- 在[管理您的安全性資訊 (預覽)](security-info-manage-settings.md) 一文中，編輯您的安全性資訊以新增或變更您的驗證方法。 
-
 - 了解[安全性資訊 (預覽) 概觀](user-help-security-info-overview.md)一文中的安全性資訊。
 
 - 了解[雙步驟驗證概觀](user-help-two-step-verification-overview.md)一文中的雙步驟驗證。 

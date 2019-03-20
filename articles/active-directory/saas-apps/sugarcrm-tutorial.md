@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a00c9cb0ce1bd8a6f36070e81df1185ef23a307
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 450fcbcdfab8e90728fbbbd0068123768f3cef4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201760"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>教學課程：Azure Active Directory 與 Sugar CRM 整合
 
@@ -114,6 +114,7 @@ Sugar CRM 與 Azure AD 整合提供下列優點：
     ![設定單一登入](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+    
     | |
     |--|
     | `https://<companyname>.sugarondemand.com` |

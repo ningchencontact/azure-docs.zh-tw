@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: d5a8fa61307c278a77b33868a711970850a06f3e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: c860066608f1b78d9a4c45b03fb3948b3c888e25
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894201"
 ---
 #   <a name="text-split-cognitive-skill"></a>文字分割認知技能
 
@@ -32,7 +32,7 @@ Microsoft.Skills.Text.SplitSkill
 
 這些參數會區分大小寫。
 
-| 參數名稱     | 說明 |
+| 參數名稱     | 描述 |
 |--------------------|-------------|
 | textSplitMode      | 「頁面」或「句子」 | 
 | maximumPageLength | 如果 textSplitMode 設為「頁面」，這是指由 `String.Length` 測量的最大頁面長度。 最小值為 100。  如果 textSplitMode 設定為 "pages"，演算法會嘗試將文字分割為大小和 "maximumPageLength" 差不多的區塊。 在這種情況下，演算法會盡量在例句邊界斷句，以讓區塊大小稍微小於 "maximumPageLength"。 | 
@@ -41,14 +41,14 @@ Microsoft.Skills.Text.SplitSkill
 
 ## <a name="skill-inputs"></a>技能輸入
 
-| 參數名稱       | 說明      |
+| 參數名稱       | 描述      |
 |----------------------|------------------|
 | text  | 要分割成子字串的文字。 |
 | languageCode  | (選用) 文件的語言代碼。  |
 
 ## <a name="skill-outputs"></a>技能輸出 
 
-| 參數名稱     | 說明 |
+| 參數名稱     | 描述 |
 |--------------------|-------------|
 | textItems | 已擷取的子字串陣列。 |
 
@@ -133,7 +133,7 @@ Microsoft.Skills.Text.SplitSkill
 ## <a name="error-cases"></a>錯誤案例
 如果不支援某語言，則會產生警告，而且會在字元界限分割文字。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

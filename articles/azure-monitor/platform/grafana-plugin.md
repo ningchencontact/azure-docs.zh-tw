@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002269"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中監視 Azure 服務
 您現在可以從使用 [Azure 監視器資料來源外掛程式](https://grafana.com/plugins/grafana-azure-monitor-datasource)的 [Grafana](https://grafana.com/)，監視 Azure 服務和應用程式。 外掛程式會蒐集 Azure 監視器所收集的應用程式效能資料，包括各種記錄檔和計量。 然後，您就可以在 Grafana 儀表板上顯示此資料。
@@ -26,7 +26,8 @@ ms.locfileid: "55730895"
 ## <a name="set-up-a-grafana-server"></a>設定 Grafana 伺服器
 
 ### <a name="set-up-grafana-locally"></a>在本機設定 Grafana
-若要設定本機的 Grafana 伺服器，請[在您的本機環境中下載並安裝 Grafana](https://grafana.com/grafana/download)。 若要使用外掛程式的 Log Analytics 整合，請安裝 Grafana 5.3 版或更高版本。
+若要設定本機的 Grafana 伺服器，請[在您的本機環境中下載並安裝 Grafana](https://grafana.com/grafana/download)。 若要使用外掛程式的 Azure 監視器整合，安裝 Grafana 5.3 版或更高版本。
+
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>透過 Azure Marketplace 在 Azure 上設定 Grafana
 1. 移至 Azure Marketplace，並依 Grafana 實驗室挑選 Grafana。
 
@@ -70,15 +71,15 @@ ms.locfileid: "55730895"
     Log Analytics API需要 [Log Analytics 讀者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)，其中包含「讀者」角色的權限並加入到其中。
 
 4. 提供您想要使用的 API 的連線詳細資料。 您可以連接到所有或其中一部分。 
-    * 如果您同時連線到 Azure 監視器 (以收集度量) 和 Azure Log Analytics (用於記錄檔資料)，則可以透過選取**與 Azure 監視器 API相同的詳細資訊**來重複使用相同的認證。
+    * 如果您連接計量和 Azure 監視器中的記錄檔中，您可以選取重複使用相同的認證**相同的詳細資訊，為 Azure 監視器 API**。
     * 設定外掛程式時，您可以指示外掛程式要監視哪個 Azure 雲端 (公用、Azure 美國政府、Azure 德國或 Azure 中國)。
     * 如果您使用 Application Insights，您也可以包含 Application Insights API 和應用程式識別碼，收集 Application Insights 的基礎計量。 如需詳細資訊，請參閱 [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (取得 API 金鑰和應用程式識別碼)。
 
         > [!NOTE]
         > 某些資料來源欄位的命名方式，與其相互關聯的 Azure 設定不同：
-        >     * 租用戶識別碼是 Azure 目錄識別碼
-        >     * 用戶端識別碼是 Azure Active Directory 應用程式識別碼
-        >     * 用戶端密碼是 Azure Active Directory 應用程式機碼值
+        > * 租用戶識別碼是 Azure 目錄識別碼
+        > * 用戶端識別碼是 Azure Active Directory 應用程式識別碼
+        > * 用戶端密碼是 Azure Active Directory 應用程式機碼值
 
 5. 如果您使用 Application Insights，您也可以包含 Application Insights API 和應用程式識別碼，收集 Application Insights 的基礎計量。 如需詳細資訊，請參閱 [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (取得 API 金鑰和應用程式識別碼)。
 
@@ -95,16 +96,16 @@ ms.locfileid: "55730895"
     ![Grafana 新增圖表](./media/grafana-plugin/grafana-new-graph-dark.png)
 
 4. 選取已設定的 Azure 監視器資料來源。
-    * 收集 Azure 監視器計量 - 在服務下拉式清單中選取 [Azure 監視器]。 這會顯示一個選取器清單，您可以在其中選取要在此圖表中監視的資源和計量。 若要從 VM 收集計量，請使用命名空間 **Microsoft.Compute/VirtualMachines**。 一旦您選取 VM 和計量後，您就可以開始在儀表板中檢視其資料。
-    ![Azure 監視器的 Grafana 圖表設定](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * 收集 Azure Log Analytics 資料 - 在服務下拉式清單中選取 [Azure Log Analytics]。 選取您想要查詢的工作區並設定查詢文字。 您可以在此複製已有的任何 Log Analytics 查詢，或建立一個新的 Log Analytics 查詢。 當您輸入查詢時，IntelliSense 將顯示並建議自動完成選項。 選取視覺效果類型 **時間序列** **資料表**，然後執行查詢。
+   * 收集 Azure 監視器計量 - 在服務下拉式清單中選取 [Azure 監視器]。 這會顯示一個選取器清單，您可以在其中選取要在此圖表中監視的資源和計量。 若要從 VM 收集計量，請使用命名空間 **Microsoft.Compute/VirtualMachines**。 一旦您選取 VM 和計量後，您就可以開始在儀表板中檢視其資料。
+     ![Azure 監視器的 Grafana 圖表設定](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+   * 收集 Azure 監視器記錄資料-選取**Azure Log Analytics**服務下拉式清單中。 選取您想要查詢的工作區並設定查詢文字。 您可以在此複製任何記錄檔查詢，您已有，或建立新的。 當您輸入查詢時，IntelliSense 將顯示並建議自動完成選項。 選取視覺效果類型 **時間序列** **資料表**，然後執行查詢。
     
-    > [!NOTE]
-    >
-    > 外掛程式所提供的預設查詢會使用兩個巨集："$__timeFilter() 和 $__interval。 
-    > 當您放大圖表的一部分時，這些巨集允許 Grafana 動態計算時間範圍和時間資料粒度。 您可以移除這些巨集並使用標準時間篩選條件，例如 *TimeGenerated > ago(1h)*，但這表示圖形不支援縮放功能。
+     > [!NOTE]
+     >
+     > 外掛程式所提供的預設查詢會使用兩個巨集："$__timeFilter() 和 $__interval。 
+     > 當您放大圖表的一部分時，這些巨集允許 Grafana 動態計算時間範圍和時間資料粒度。 您可以移除這些巨集並使用標準時間篩選條件，例如 *TimeGenerated > ago(1h)*，但這表示圖形不支援縮放功能。
     
-    ![Azure Log Analytics 的 Grafana 圖表設定](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+     ![Azure Log Analytics 的 Grafana 圖表設定](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. 以下是有兩份圖表的簡單儀表板。 左邊的這份顯示兩個 VM 的 CPU 百分比。 右側的圖表依交易 API 類型細分，顯示 Azure 儲存體帳戶中的交易。
     ![Grafana 雙圖表範例](media/grafana-plugin/grafana6.png)

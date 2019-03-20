@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2006b025c4bcf54ee2ab131e0d6a105f9f4e9f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fa740a558015b28e6d3fa7245c9041dc4167f832
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110353"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>教學課程：設定 BlueJeans 來自動佈建使用者
 
@@ -107,9 +107,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 5. 在 [管理員認證] 區段下，輸入 BlueJeans 帳戶的 [管理員使用者名稱] 和 [管理員密碼]。 這些值的範例如下：
 
-    *   在 [管理員使用者名稱] 欄位中，填入 BlueJeans 租用戶中管理帳戶的使用者名稱。 範例： admin@contoso.com.
+   * 在 [管理員使用者名稱] 欄位中，填入 BlueJeans 租用戶中管理帳戶的使用者名稱。 範例： admin@contoso.com.
 
-    *   在 [管理員密碼] 欄位中，填入與管理員使用者名稱相對應的密碼。
+   * 在 [管理員密碼] 欄位中，填入與管理員使用者名稱相對應的密碼。
 
 6. 如步驟 5 所示填寫欄位後，按一下 [測試連線] 以確認 Azure AD 可以連線到 BlueJeans。 如果連線失敗，請確定您的 BlueJeans 帳戶具有系統管理員權限並再試一次。
 

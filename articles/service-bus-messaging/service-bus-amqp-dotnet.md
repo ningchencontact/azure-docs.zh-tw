@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 96d84b2328ffb83d5c1ea7218b17314a537fa45b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904553"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>搭配使用 .NET 的服務匯流排與 AMQP 1.0
 
@@ -53,7 +53,7 @@ ms.locfileid: "54853199"
 
 使用 AMQP 時，在連接字串中附加 `;TransportType=Amqp`。 此標記法會指示用戶端程式庫使用 AMQP 1.0 來連線到「服務匯流排」。
 
-## <a name="message-serialization"></a>訊息序列化
+## <a name="message-serialization"></a>消息序列化
 
 使用預設通訊協定時，.NET 用戶端程式庫的預設序列化行為是使用 [DataContractSerializer][DataContractSerializer] 類型將 [BrokeredMessage][BrokeredMessage] 執行個體序列化，以用於用戶端程式庫與「服務匯流排服務」之間的傳輸。 使用 AMQP 傳輸模式時，用戶端程式庫會使用 AMQP 類型系統，將[代理訊息][BrokeredMessage]序列化為 AMQP 訊息。 此序列化作業讓可能在不同平台上執行的接收應用程式 (例如使用 JMS API 來存取服務匯流排的 Java 應用程式) 能夠接收和解譯此訊息。
 
@@ -68,7 +68,7 @@ ms.locfileid: "54853199"
 | ushort |ushort |AMQP 值 |
 | uint |uint |AMQP 值 |
 | ulong |ulong |AMQP 值 |
-| sbyte |byte |AMQP 值 |
+| sbyte |字节 |AMQP 值 |
 | short |short |AMQP 值 |
 | int |int |AMQP 值 |
 | long |long |AMQP 值 |
@@ -76,12 +76,12 @@ ms.locfileid: "54853199"
 | double |double |AMQP 值 |
 | decimal |decimal128 |AMQP 值 |
 | char |char |AMQP 值 |
-| Datetime |timestamp |AMQP 值 |
+| DateTime |timestamp |AMQP 值 |
 | Guid |uuid |AMQP 值 |
 | byte[] |binary |AMQP 值 |
 | 字串 |字串 |AMQP 值 |
 | System.Collections.IList |list |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。 |
-| System.Array |array |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。 |
+| System.Array |数组 |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。 |
 | System.Collections.IDictionary |map |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。注意︰僅支援 String 索引鍵。 |
 | Uri |描述的 string (請參閱下表) |AMQP 值 |
 | DateTimeOffset |描述的 long (請參閱下表) |AMQP 值 |
@@ -89,18 +89,18 @@ ms.locfileid: "54853199"
 | Stream |binary |AMQP 資料 (可能有多個)。 Data 區段包含從 Stream 物件讀取的原始位元組。 |
 | 其他物件 |binary |AMQP 資料 (可能有多個)。 包含使用 DataContractSerializer 或應用程式所提供序列化程式之物件的序列化二進位資料。 |
 
-| .NET 類型 | 對應的 AMQP 描述類型 | 注意 |
+| .NET 类型 | 對應的 AMQP 描述類型 | 注意 |
 | --- | --- | --- |
 | Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
-| 時間範圍 |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
+| TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
 ## <a name="behavioral-differences"></a>行為差異
 
 相較於預設通訊協定，使用 AMQP 時，服務匯流排 .NET API 有一些細微的行為差異：
 
 * [OperationTimeout][OperationTimeout] 屬性會被忽略。
-* `MessageReceiver.Receive(TimeSpan.Zero)` 會實作為 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`。
+* `MessageReceiver.Receive(TimeSpan.Zero)` 是以 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` 的形式实现的。
 * 只有最初收到訊息的訊息接收者能夠以鎖定權杖完成訊息。
 
 ## <a name="control-amqp-protocol-settings"></a>控制 AMQP 通訊協定設定
@@ -114,7 +114,7 @@ ms.locfileid: "54853199"
 
 ## <a name="next-steps"></a>後續步驟
 
-準備好進行深入了解嗎？ 請造訪下列連結：
+準備好進行深入了解嗎？ 请访问以下链接：
 
 * [服務匯流排 AMQP 概觀]
 * [AMQP 1.0 通訊協定指南]
@@ -124,7 +124,7 @@ ms.locfileid: "54853199"
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
+[NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [AMQP 1.0 通訊協定指南]: service-bus-amqp-protocol-guide.md

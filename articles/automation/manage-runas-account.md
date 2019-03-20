@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e5949016281b5f8ba5d8770403a146e52d279c73
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: b3c9f2f8671d5a7aa313a9f49e07230a4f9b6220
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109336"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自動化執行身分帳戶
 
@@ -197,6 +197,12 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias 
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
@@ -320,13 +326,13 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
 3. 在 [執行身分帳戶] 屬性頁面中，選取您想要刪除的執行身分帳戶或傳統執行身分帳戶。 然後，在所選帳戶的 [屬性] 窗格上，按一下 [刪除]。
 
- ![刪除執行身分帳戶](media/manage-runas-account/automation-account-delete-runas.png)
+   ![刪除執行身分帳戶](media/manage-runas-account/automation-account-delete-runas.png)
 
 1. 刪除帳戶時，您可以在功能表的 [通知] 底下追蹤進度。
 
 1. 帳戶刪除之後，您可以在 [執行身分帳戶] 屬性頁面中，選取建立選項 [Azure 執行身分帳戶]來重新建立它。
 
- ![重新建立自動化執行身分帳戶](media/manage-runas-account/automation-account-create-runas.png)
+   ![重新建立自動化執行身分帳戶](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>自我簽署憑證更新
 

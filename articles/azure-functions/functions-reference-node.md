@@ -10,22 +10,24 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 10/26/2018
+ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: a91778f1646807a092a3c8cda66bd3bd104ff8b5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301878"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226533"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
 本指南包含使用 JavaScript 撰寫 Azure Functions 的複雜性相關資訊。
 
-JavaScript 函式是匯出的 `function`，會在觸發時執行 ([觸發程序是在 function.json 中設定](functions-triggers-bindings.md))。 每個函式傳遞的第一個引數都是 `context` 物件，可用來接收和傳送資料繫結、記錄，以及與執行階段進行的通訊。
+JavaScript 函式是匯出的 `function`，會在觸發時執行 ([觸發程序是在 function.json 中設定](functions-triggers-bindings.md))。 傳遞至每個函式的第一個引數是`context`物件，用於接收和傳送繫結資料，記錄，以及與執行階段通訊。
 
-本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 您也應完成 Functions 快速入門，以使用 [Visual Studio Code](functions-create-first-function-vs-code.md) 或[入口網站](functions-create-first-azure-function.md)建立您的第一個函式。
+本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 完成 Functions 快速入門，來建立您的第一個函式，使用[Visual Studio Code](functions-create-first-function-vs-code.md)或是[入口網站中](functions-create-first-azure-function.md)。
+
+這篇文章也支援[TypeScript 應用程式開發](#typescript)。
 
 ## <a name="folder-structure"></a>資料夾結構
 
@@ -51,7 +53,7 @@ FunctionsProject
 
 在專案根目錄中，有共用的 [host.json](functions-host-json.md) 檔案可用來設定函式應用程式。 每個函式都有本身程式碼檔案 (.js) 和繫結設定檔 (function.json) 的資料夾。 `function.json` 的父目錄名稱一律是函式的名稱。
 
-在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須[註冊繫結擴充功能](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
+在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#local-development-azure-functions-core-tools)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
 ## <a name="exporting-a-function"></a>匯出函數
 
@@ -109,7 +111,7 @@ module.exports = async function (context, req) {
 
 ### <a name="inputs"></a>輸入
 在 Azure Functions 中輸入會分成兩個類別：一個是觸發程序輸入，另一個是額外的輸入。 函式可透過三種方式讀取觸發程序和其他輸入繫結 (`direction === "in"` 的繫結)：
- - **_[建議]_ 作為參數傳至您的函式。** 這些繫結會按照在 *function.json* 中定義的順序傳遞至函式。 請注意，*function.json* 中定義的 `name` 屬性不需要符合您的參數名稱，但最好應符合。
+ - **_[建議]_ 作為參數傳至您的函式。** 這些繫結會按照在 *function.json* 中定義的順序傳遞至函式。 `name`中所定義的屬性*function.json*不需要符合您的參數名稱，雖然它。
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -138,7 +140,8 @@ module.exports = async function (context, req) {
 ### <a name="outputs"></a>輸出
 函式可透過數種方式寫入輸出 (`direction === "out"` 的繫結)。 在所有情況下，在 *function.json* 中為繫結定義的 `name` 屬性都會對應至在您的函式中寫入的物件成員名稱。 
 
-您可以透過下列方式之一將資料指派給輸出繫結。 您不應混用這些方法。
+您可以指派給輸出繫結的資料 （不結合這些方法） 以下列方式之一：
+
 - **_[建議用於多個輸出]_ 傳回物件。** 如果您使用非同步/Promise 傳回函式，您可以傳回已指派輸出資料的物件。 在下列範例中，輸出繫結在 *function.json* 中會命名為 "httpResponse" 和 "queueOutput"。
 
   ```javascript
@@ -152,7 +155,7 @@ module.exports = async function (context, req) {
       };
   };
   ```
-  
+
   如果您使用同步函式，則可以使用 [`context.done`](#contextdone-method) 傳回此物件 (請參閱範例)。
 - **_[建議用於單一輸出]_ 直接傳回值並使用 $return 繫結名稱。** 這僅適用於非同步/Promise 傳回函式。 請參閱[匯出非同步函式](#exporting-an-async-function)中的範例。 
 - **將值指派給 `context.bindings`** 您可以直接將值指派給 context.bindings。
@@ -167,7 +170,7 @@ module.exports = async function (context, req) {
       return;
   };
   ```
- 
+
 ### <a name="bindings-data-type"></a>繫結資料類型
 
 若要定義輸入繫結的資料類型，請使用繫結定義中的 `dataType` 屬性。 例如，若要以二進位格式讀取 HTTP 要求的內容，請使用類型 `binary`：
@@ -269,7 +272,7 @@ context.log(message)
 可讓您寫入預設追蹤層級的資料流函式記錄。 `context.log` 上有其他可用的記錄方法，可讓您在其他追蹤層級寫入函式記錄︰
 
 
-| 方法                 | 說明                                |
+| 方法                 | 描述                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | 寫入錯誤層級或更低層級的記錄。   |
 | **warn(_message_)**    | 寫入警告層級或更低層級的記錄。 |
@@ -346,7 +349,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 `context.req` (要求) 物件具有下列屬性：
 
-| 屬性      | 說明                                                    |
+| 屬性      | 描述                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 包含要求本文的物件。               |
 | _headers_     | 包含要求標頭的物件。                   |
@@ -361,7 +364,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 `context.res` (回應) 物件具有下列屬性：
 
-| 屬性  | 說明                                               |
+| 屬性  | 描述                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 包含回應本文的物件。         |
 | _headers_ | 包含回應標頭的物件。             |
@@ -550,7 +553,57 @@ const myObj = new MyObj();
 module.exports = myObj;
 ```
 
-在此範例中必須注意，雖然正在匯出物件，但不保證在執行之間保留狀態。
+在此範例中，請務必請注意，雖然匯出物件時，不保證保留的執行之間的狀態。
+
+## <a name="local-debugging"></a>本機偵錯
+
+開始使用時`--inspect`參數，Node.js 程序會接聽指定的連接埠上的偵錯用戶端。 在 Azure Functions 2.x 中，您可以指定要傳遞到 Node.js 處理序執行您的程式碼新增環境變數或應用程式設定引數`languageWorkers:node:arguments = <args>`。 
+
+若要在本機偵錯，請新增`"languageWorkers:node:arguments": "--inspect=5858"`底下`Values`中您[local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file)檔案，並將偵錯工具附加至連接埠 5858。
+
+當使用 VS Code 偵錯`--inspect`參數會自動加入使用`port`專案的 launch.json 檔案中的值。
+
+版本 1.x 中，設定`languageWorkers:node:arguments`將無法運作。 可以使用選取的偵錯連接埠[ `--nodeDebugPort` ](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start)參數在 Azure Functions Core Tools。
+
+## <a name="typescript"></a>TypeScript
+
+當您對目標版本 2.x 的 Functions 執行階段中，同時[適用於 Visual Studio Code 的 Azure Functions](functions-create-first-function-vs-code.md)和[Azure Functions Core Tools](functions-run-local.md)可讓您建立函式應用程式使用的範本支援TypeScript 函式應用程式專案。 範本會產生`package.json`和`tsconfig.json`專案檔案，能讓您更輕鬆地轉換，執行及發行從 TypeScript 程式碼使用這些工具的 JavaScript 函式。
+
+產生`.funcignore`檔案用來指出專案發行至 Azure 時，會排除哪些檔案。  
+
+TypeScript 檔案 (.ts) 中會轉換成 JavaScript 檔案 (.js)`dist`輸出目錄。 使用 TypeScript 範本[`scriptFile`參數](#using-scriptfile)中`function.json`來表示對應中的.js 檔案的位置`dist`資料夾。 使用範本所設定的輸出位置`outDir`中的參數`tsconfig.json`檔案。 如果您變更此設定或資料夾的名稱，則執行階段不能夠找到執行的程式碼。
+
+> [!NOTE]
+> 實驗性 TypeScript 支援存在於版本 1.x 的 Functions 執行階段。 實驗性版本 transpiles TypeScript 檔案時叫用函式的 JavaScript 檔案中。 版本 2.x 中，這項實驗性支援已被取代，由主應用程式初始化之前，會轉譯工具導向方法並在部署程序。
+
+您在本機開發及部署從 TypeScript 專案的方式取決於您的開發工具。
+
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+[適用於 Visual Studio Code 的 Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)延伸模組可讓您開發使用 TypeScript 函式。 Core Tools 是 Azure Functions 擴充功能的需求。
+
+若要建立 Visual Studio Code 中的 TypeScript 函式應用程式，您只需選擇`TypeScript`當您建立函式應用程式，並要求您選擇的語言。
+
+當您按下**F5**執行應用程式在本機的轉譯完成初始化主應用程式 (func.exe) 之前。 
+
+當您將函式應用程式部署到 Azure 使用**部署至函式應用程式...** TypeScript 原始程式檔從 Azure 函式延伸模組 按鈕，第一次產生的 JavaScript 檔案的生產環境就緒組建。
+
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
+
+若要建立使用 Core Tools 的 TypeScript 函式應用程式專案，您必須指定 typescript 語言選項，當您建立函式應用程式。 您可以透過下列方式之一來這麼做：
+
+- 執行`func init`命令，並選取`node`作為您的語言堆疊，然後選取`typescript`。
+
+- 執行 `func init --worker-runtime typescript` 命令。
+
+若要執行函式應用程式程式碼使用在本機的核心工具，使用`npm start`命令，而不是`func host start`。 `npm start`命令等同於下列命令：
+
+- `npm run build`
+- `func extensions install`
+- `tsc`
+- `func start`
+
+在您使用之前[ `func azure functionapp publish` ]命令來部署至 Azure，您必須先執行`npm run build:production`命令。 此命令會從您可以使用部署 TypeScript 原始程式檔中建立 JavaScript 檔案的生產環境就緒組建[ `func azure functionapp publish` ]。
 
 ## <a name="considerations-for-javascript-functions"></a>JavaScript 函式的考量
 
@@ -558,11 +611,7 @@ module.exports = myObj;
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>選擇單一 vCPU App Service 方案
 
-當您建立使用 App Service 方案的函數應用程式時，建議您選取單一 vCPU 方案，而非具有多個 vCPU 的方案。 目前 Functions 在單一 vCPU VM 上執行 JavaScript 函式會較有效率，而使用較大的 VM 並不會產生預期的效能改進。 如有必要，您可以新增更多單一 vCPU VM 執行個體來手動進行相應放大，或者您可以啟用自動規模調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)。    
-
-### <a name="typescript-and-coffeescript-support"></a>TypeScript 和 CoffeeScript 支援
-
-由於目前仍沒有針對透過執行階段自動編譯 TypeScript 或 CoffeeScript 的直接支援，因此需要在部署時期於執行階段之外處理這些支援。 
+當您建立使用 App Service 方案的函數應用程式時，建議您選取單一 vCPU 方案，而非具有多個 vCPU 的方案。 目前 Functions 在單一 vCPU VM 上執行 JavaScript 函式會較有效率，而使用較大的 VM 並不會產生預期的效能改進。 如有必要，您可以手動相應放大，藉由新增更多單一 vCPU VM 執行個體，或您可以啟用自動調整規模。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)。
 
 ### <a name="cold-start"></a>冷啟動
 
@@ -575,3 +624,5 @@ module.exports = myObj;
 + [Azure Functions 的最佳做法](functions-best-practices.md)
 + [Azure Functions 開發人員參考](functions-reference.md)
 + [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
+
+[' func azure functionapp publish']: functions-run-local.md#project-file-deployment

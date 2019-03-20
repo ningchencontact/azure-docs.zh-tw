@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 395aff83c8983c4f61ca0b1fd1da276de17ec98b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 02c09e5a2ad0c3e23fe641bf445a646477f7db2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993976"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>將應用程式升級以使用最新的彈性資料庫用戶端程式庫
 
@@ -37,7 +37,7 @@ ms.locfileid: "54190042"
 * (Visual Studio 2013) 在左邊面板中，選取 [更新]，然後在視窗中顯示的 [Azure SQL Database Elastic Scale 用戶端程式庫]套件上選取 [更新]按鈕。
 * (Visual Studio 2015) 設定篩選方塊為 [可升級] 。 選取要更新的套件，然後按一下 [更新]  按鈕。
 * (Visual Studio 2017) 在對話方塊頂端，選取 [更新]。 選取要更新的套件，然後按一下 [更新]  按鈕。
-* 建置並部署。
+* 生成并部署。
 
 **2.升級您的指令碼。** 如果您是使用 **PowerShell** 指令碼來管理分區，請[下載新的程式庫版本](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)並將它複製到您從中執行指令碼的目錄。
 
@@ -47,7 +47,7 @@ ms.locfileid: "54190042"
 
 ***選項 1：使用 PowerShell 升級中繼資料***
 
-1. 請從 [這裡](http://nuget.org/nuget.exe) 下載 NuGet 的最新命令列公用程式並儲存至資料夾。
+1. 請從 [這裡](https://nuget.org/nuget.exe) 下載 NuGet 的最新命令列公用程式並儲存至資料夾。
 2. 開啟命令提示字元，瀏覽至相同的資料夾，然後下達命令： `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
 3. 瀏覽至包含您剛剛下載的新用戶端 DLL 版本的子資料夾，例如： `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. 從[指令碼中心](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)下載彈性資料庫用戶端升級指令碼，然後將它儲存到包含 DLL 的相同資料夾。
@@ -74,7 +74,7 @@ ms.locfileid: "54190042"
 
 ## <a name="elastic-database-client-version-history"></a>彈性資料庫用戶端版本歷程記錄
 
-如需版本歷程記錄，請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)
+有关版本历史记录，请转到 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

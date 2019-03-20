@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 6c57dff2e0f0c1edb887ddd8f0e5ca206ba8b912
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584389"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110387"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>在 HDInsight 上管理 ML 服務叢集
 
-在本文中，您將了解如何在 Azure HDInsight 上管理現有的 ML 服務叢集，以執行像是新增多個並行使用者、遠端連線至 ML 服務叢集、變更計算內容等工作。
+在本文中，您了解如何管理現有的 ML 服務叢集來執行工作，例如新增多個並行使用者，從遠端連線到 ML 服務叢集中變更計算內容等的 Azure HDInsight 上的內容。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -310,7 +310,7 @@ HDInsight ML 服務可讓您在 Hive 和 Parquet 中直接存取資料，以供 
 
    * 針對**名稱**，提供指令碼動作的名稱。
 
-    * 針對 **Bash 指令碼 URI**，輸入 `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`。 這是在背景工作節點上安裝其他 R 封裝的指令碼
+     * 針對 **Bash 指令碼 URI**，輸入 `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`。 這是在背景工作節點上安裝其他 R 封裝的指令碼
 
    * 只選取**背景工作**的核取方塊。
 

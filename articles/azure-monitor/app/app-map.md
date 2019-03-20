@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 777bf38fbc8a90335af79bbd0fb2ce74310bd991
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755884"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006807"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：將分散式應用程式分級
 
@@ -42,13 +42,13 @@ ms.locfileid: "55755884"
 
 如果所有元件都是單一 Application Insights 資源內的角色，則不需要進行此探索步驟。 這類應用程式一開始會載入所有元件。
 
-![應用程式對應螢幕擷取畫面](media/app-map/001.png)
+![應用程式對應螢幕擷取畫面](media/app-map/app-map-001.png)
 
 這項新體驗的重要目標之一，是要能夠以視覺化方式顯示含有數百個元件的複雜拓撲。
 
 按一下任何元件，即可查看相關深入資訊，並前往該元件的效能和失敗分級體驗。
 
-![飛出視窗](media/app-map/application-map-001.png)
+![飛出視窗](media/app-map/application-map-002.png)
 
 ### <a name="investigate-failures"></a>調查失敗
 

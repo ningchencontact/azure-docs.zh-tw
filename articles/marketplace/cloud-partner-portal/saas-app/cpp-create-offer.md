@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 03920bc3ed17eac9d76cea78877f1f008e83f4dd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195576"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880274"
 ---
 # <a name="create-a-new-saas-application-offer"></a>建立新的 SaaS 應用程式供應項目
 
@@ -34,6 +34,7 @@ ms.locfileid: "53195576"
 ## <a name="offer-components"></a>供應項目元件
 
 SaaS 應用程式供應項目有五個區段組成，如下表所述：
+
 |  **資產群組**   |  **說明**  |
 |  ---------------   |  ---------------  |
 |    供應項目設定  |  用來設定 SaaS 應用程式的唯一身分識別。                 |
@@ -45,7 +46,7 @@ SaaS 應用程式供應項目有五個區段組成，如下表所述：
 
 ## <a name="new-offer-form"></a>新增供應項目表單
 
-登入 [Cloud Partner 入口網站](http://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表上，選取 [SaaS 應用程式] 以顯示 [新增供應項目] 表單，然後開始定義新 SaaS 應用程式供應項目的資產程序。
+登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表上，選取 [SaaS 應用程式] 以顯示 [新增供應項目] 表單，然後開始定義新 SaaS 應用程式供應項目的資產程序。
 
 ![SaaS 應用程式的新增供應項目功能表](./media/azure-new-saas-offer.png)
 

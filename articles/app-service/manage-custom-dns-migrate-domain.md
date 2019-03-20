@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e7449b5c36d9a1c3df3692f80aed8ccc05a98ade
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 6215230a52bcb5c44f54747b447dc5f64e6af650
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999097"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>將作用中的 DNS 名稱移轉至 Azure App Service
 
@@ -41,7 +41,7 @@ ms.locfileid: "53730192"
 
 當您事先繫結自訂網域時，要完成下列兩項之後才能對 DNS 記錄進行任何變更︰
 
-- 確認網域擁有權
+- 验证域所有权
 - 為您的應用程式啟用網域名稱
 
 當您最後將自訂 DNS 名稱從舊網站移轉至 App Service 應用程式時，DNS 解析不會發生停機。
@@ -121,10 +121,10 @@ ms.locfileid: "53730192"
 
 在 `contoso.com` 根網域範例中，重新對應 A 或 CNAME 記錄，如下表中的範例所示： 
 
-| FQDN 範例 | 記錄類型 | Host | 值 |
+| FQDN 範例 | 記錄類型 | 主机 | 值 |
 | - | - | - | - |
 | contoso.com (根網域) | 具有使用  | `@` | 來自[複製應用程式的 IP 位址](#info)的 IP 位址 |
-| www.contoso.com (子網域) | CNAME | `www` | _&lt;應用程式名稱>.azurewebsites.net_ |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;應用程式名稱>.azurewebsites.net_ |
 | \*.contoso.com (萬用字元) | CNAME | _\*_ | _&lt;應用程式名稱>.azurewebsites.net_ |
 
 儲存您的設定。

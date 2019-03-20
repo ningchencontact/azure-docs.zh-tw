@@ -7,23 +7,17 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748318"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188096"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 叢集的區域性災害復原
 
 本文說明適用於 Azure Databricks 叢集的災害復原架構，以及可完成該設計的步驟。
-
-## <a name="azure-databricks-overview"></a>Azure Databricks 概觀
-
-Azure Databricks 是快速、簡單且共同作業的 Apache Spark 架構分析服務。 對於巨量資料管線，資料 (原始或結構化) 會透過 Azure Data Factory 分批內嵌到 Azure 中，或使用 Kafka、事件中樞或 IoT 中樞以近乎即時的方式進行串流處理。 此資料會放置在 Data Lake 中長期持續儲存、在 Azure Blob 儲存體或 Azure Data Lake 儲存體中。 在您的分析工作流程中，使用 Azure Databricks 從多個資料來源 (例如 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)、[Azure Data Lake Storage](../data-lake-store/index.md)、[Azure Cosmos DB](../cosmos-db/index.yml) 或 [Azure SQL 資料倉儲](../sql-data-warehouse/index.md)) 讀取資料，並使用 Spark 將它轉換成突破性見解。
-
-![Databricks 管線](media/howto-regional-disaster-recovery/databricks-pipeline.png)
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks 架構
 
@@ -37,7 +31,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>如何建立區域性災害復原拓撲
 
-如您在先前的架構描述中所見，有許多元件使用於採用 Azure Databricks 的巨量資料管線：Azure 儲存體、Azure 資料庫和其他資料來源。 Azure Databricks 是適用於巨量資料管線的「計算」。 其具有「暫時」性質，也就是說，當您的資料仍可在 Azure 儲存體中取得時，可以終止「計算」 (Azure Databricks 叢集)，您就不必支付不需要的計算費用。 「計算」(Azure Databricks) 和儲存體來源必須位於相同的區域中，作業才不會發生高延遲。  
+您會注意到上述的結構描述中，有許多用來與 Azure Databricks 巨量資料管線的元件：Azure 儲存體、 Azure 資料庫和其他資料來源。 Azure Databricks 是適用於巨量資料管線的「計算」。 其具有「暫時」性質，也就是說，當您的資料仍可在 Azure 儲存體中取得時，可以終止「計算」 (Azure Databricks 叢集)，您就不必支付不需要的計算費用。 「計算」(Azure Databricks) 和儲存體來源必須位於相同的區域中，作業才不會發生高延遲。  
 
 若要建立您自己的區域性災害復原拓撲，請遵循下列需求：
 
@@ -269,9 +263,14 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
 10. **手動重新設定並重新套用存取控制。**
 
-   如果現有的主要工作區已設定為使用進階層 (SKU)，您可能也會使用[存取控制功能](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control)。
+    如果現有的主要工作區已設定為使用進階層 (SKU)，您可能也會使用[存取控制功能](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control)。
 
-   如果您使用存取控制功能，請將存取控制手動重新套用到資源 (Notebook、叢集、作業、資料表)。
+    如果您使用存取控制功能，請將存取控制手動重新套用到資源 (Notebook、叢集、作業、資料表)。
+
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>您的 Azure 生態系統的災害復原
+
+如果您使用其他 Azure 服務，請務必也實作這些服務的嚴重損壞修復最佳實務。 例如，如果您選擇使用外部 Hive 中繼存放區執行個體，您應該考慮的災害復原[Azure SQL Server](../sql-database/sql-database-disaster-recovery.md)， [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)，和/或[適用於 MySQL 的 Azure 資料庫](../mysql/concepts-business-continuity.md). 如需災害復原的一般資訊，請參閱[的 Azure 應用程式的災害復原](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)。
 
 ## <a name="next-steps"></a>後續步驟
+
 如需詳細資訊，請參閱 [Azure Databricks 文件](https://docs.azuredatabricks.net/user-guide/index.html)。

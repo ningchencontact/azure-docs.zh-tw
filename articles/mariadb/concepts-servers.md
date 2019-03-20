@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c2497fef359d4a519c6d4927dfc0c38ee3d80d88
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: f61f8740c9514f6276afb2ee84bcdccdc54c0710
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544561"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997904"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中的伺服器概念
 此文章提供使用適用於 MariaDB 的 Azure 資料庫伺服器的考量與指導方針。
@@ -36,6 +36,7 @@ ms.locfileid: "53544561"
 ## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>如何保護適用於 MariaDB 的 Azure 資料庫伺服器？
 
 下列項目有助於確保對資料庫的安全存取。
+
 |||
 | :--| :--|
 | **驗證和授權** | 適用於 MariaDB 的 Azure 資料庫支援原生 MySQL 驗證。 您可以利用伺服器的管理員登入來連接和驗證伺服器。 |

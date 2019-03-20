@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446659"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993399"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -93,7 +93,7 @@ ms.locfileid: "56446659"
 ### <a name="what-operating-systems-are-supported-for-backup"></a>支援使用哪些作業系統來進行備份？
 「Azure 備份」支援使用下列作業系統來備份檔案和資料夾，以及受「Azure 備份伺服器」和 DPM 保護的應用程式。
 
-**作業系統**| **SKU** |**詳細資料**
+**作業系統** | **SKU** | **詳細資料**
 --- | --- | ---
 Workstation | |
 Windows 10 64 位元 | 企業版、專業版、家用版 | 機器應該執行最新的服務套件和更新。
@@ -101,6 +101,7 @@ Windows 8.1 64 位元 | Enterprise、Pro | 機器應該執行最新的服務套�
 Windows 8 64 位元 | Enterprise、Pro | 機器應該執行最新的服務套件和更新。
 Windows 7 64 位元 | Ultimate、Enterprise、Professional、Home Premium、Home Basic、Starter | 機器應該執行最新的服務套件和更新。
 伺服器 | |
+Windows Server 2019 64 bit | Standard、Datacenter、Essentials | 含最新的服務套件/更新。
 Windows Server 2016 64 位元 | Standard、Datacenter、Essentials | 含最新的服務套件/更新。
 Windows Server 2012 R2 64 位元 | Standard、Datacenter、Foundation | 含最新的服務套件/更新。
 Windows Server 2012 64 位元 | Datacenter、Foundation、Standard | 含最新的服務套件/更新。
@@ -117,7 +118,7 @@ Windows Server 2008 64 位元 | Standard、Enterprise、Datacenter | 含最新�
 大小限制如下：
 
 OS/機器 | 資料來源的大小限制
---- | --- | ---
+--- | --- 
 Windows 8 或更新版本 | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 或更新版本 | 54,400 GB
@@ -168,7 +169,7 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>如果備份保留了很長一段時間，是否需要較多時間才能復原較舊的資料點？ <br/>
-否。 復原最舊或最新時間點所需的時間都相同。 每個復原點的功能就像一個完整的復原點。
+沒有。 復原最舊或最新時間點所需的時間都相同。 每個復原點的功能就像一個完整的復原點。
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>若每個復原點就像一個完整的復原點，則其是否會影響可計費的備份儲存體總數？
 典型的長期保留復原點產品會將備份資料儲存為完整的復原點。

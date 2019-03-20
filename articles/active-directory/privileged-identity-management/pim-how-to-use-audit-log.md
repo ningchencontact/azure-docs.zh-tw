@@ -14,12 +14,12 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008916"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>在 PIM 中檢視 Azure AD 目錄角色的稽核記錄
 您可以使用 Privileged Identity Management (PIM) 稽核記錄，來查看指定期間內所有特殊權限角色的所有使用者指派與啟用。 如果您想要查看租用戶活動 (包括系統管理員、使用者和同步處理活動) 的完整稽核歷程記錄，您可以使用 [Azure Active Directory 存取和使用情況報告](../reports-monitoring/overview-reports.md)
@@ -27,10 +27,10 @@ ms.locfileid: "56200542"
 ## <a name="navigate-to-audit-history"></a>瀏覽至稽核記錄
 從 [Azure 入口網站](https://portal.azure.com)儀表板選取 [Azure AD Privileged Identity Management] 應用程式。 從該處，按一下 PIM 儀表板中的 [管理特殊權限角色] > [稽核記錄] 來存取稽核記錄。
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+![稽核歷程記錄](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-您可以依 [動作] 排序資料，並尋找「已核准啟用」
+> [!NOTE]
+> 您可以依 [動作] 排序資料，並尋找「已核准啟用」
 
 
 ## <a name="audit-history-graph"></a>稽核記錄圖表

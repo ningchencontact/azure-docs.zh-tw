@@ -1,6 +1,6 @@
 ---
 services: virtual-machines
-title: 設定 PowerShell
+title: 设置 PowerShell
 author: JoeDavies-MSFT
 solutions: ''
 manager: timlt
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: HT
+ms.openlocfilehash: b96e8e6e31817f6d261f41dbf3b3047dd49c29ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "26730519"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "58114940"
 ---
 ## <a name="setting-up-powershell"></a>設定 PowerShell
 請先遵循下列步驟，您才可以使用 Azure PowerShell。
 
 ### <a name="verify-powershell-versions"></a>確認 PowerShell 版本
-您必須具備 Windows PowerShell 3.0 版或 4.0 版，才可以使用 Windows PowerShell。 若要尋找 Windows PowerShell 版本，請在 Windows PowerShell 命令提示字元中輸入這個命令。
+您必須具備 Windows PowerShell 3.0 版或 4.0 版，才可以使用 Windows PowerShell。 若要查找 Windows PowerShell 版本，请在 Windows PowerShell 命令提示符下键入以下命令。
 
     $PSVersionTable
 
@@ -39,9 +39,9 @@ ms.locfileid: "26730519"
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-確認 **PSVersion** 的值是 3.0 或 4.0。 若要安裝相容版本，請參閱 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)。
+確認 **PSVersion** 的值是 3.0 或 4.0。 若要安裝相容版本，請參閱 [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。
 
-您應該也有 Azure PowerShell 0.8.0 版或更新版本。 您可以在 Azure PowerShell 命令提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
+还应安装 Azure PowerShell 0.8.0 或更高版本。 可以使用此命令在 Azure PowerShell 命令提示符下查看已安装的 Azure PowerShell 版本。
 
     Get-Module azure | format-table version
 
@@ -56,7 +56,7 @@ ms.locfileid: "26730519"
 ### <a name="set-your-azure-account-and-subscription"></a>設定 Azure 帳戶和訂用帳戶
 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-使用這個命令，開啟 Azure PowerShell 命令提示字元，並登入 Azure。
+開啟 Azure PowerShell 命令提示字元，然後使用這個命令登入 Azure。
 
     Add-AzureAccount
 
@@ -77,10 +77,10 @@ ms.locfileid: "26730519"
     CurrentStorageAccountName : 
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-您可以在 Azure PowerShell 命令提示字元下執行這些命令，設定目前 Azure 訂用帳戶。 以正確的名稱取代括號中 (包括 < 和 > 字元) 的所有內容。
+可通过在 Azure PowerShell 命令提示符下运行以下命令设置当前的 Azure 订阅。 以正確的名稱取代括號中 (包括 < 和 > 字元) 的所有內容。
 
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
-如需 Azure 訂用帳戶和帳戶的詳細資訊，請參閱[如何：連線至訂用帳戶](/powershell/azureps-cmdlets-docs#Connect)。
+如需 Azure 訂用帳戶和帳戶的詳細資訊，請參閱[操作說明：連線至訂用帳戶](/powershell/azureps-cmdlets-docs#Connect)。
 

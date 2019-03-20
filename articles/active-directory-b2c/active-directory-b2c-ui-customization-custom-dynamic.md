@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 54d98c02ee9e5202c09e333843f8c16955f4e2d4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: bf7391ea83adf852be0f989a82e89d7f316f2f85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090537"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則設定具有動態內容的 UI
 
@@ -39,7 +39,7 @@ ms.locfileid: "55819242"
 
 `ContentDefinitions` 區段包含一系列的 `ContentDefinition` XML 元素。 `ContentDefinition` 元素的識別碼屬性會指定與內容定義相關的頁面類型。 也就是，此元素會定義自訂 HTML5/CSS 範本即將套用的內容。 下表說明 IEF 引擎所能辨識之內容定義識別碼的集合，以及這些識別碼的相關頁面類型。
 
-| 內容定義識別碼 | 預設 HTML5 範本| 說明 | 
+| 內容定義識別碼 | 預設 HTML5 範本| 描述 | 
 |-----------------------|--------|-------------|
 | api.error | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **錯誤頁面**。 在發生例外狀況或錯誤時，系統會顯示此頁面。 |
 | api.idpselections | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **識別提供者選取頁面**。 此頁面列出使用者可以在登入期間選擇的識別提供者清單。 這些選項通常是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |
@@ -196,7 +196,7 @@ ms.locfileid: "55819242"
     >若要確認您裝載內容的網站已啟用 CORS 並可測試 CORS 要求，請移至 [test-cors.org](https://test-cors.org/) 網站。 
 
 * 您提供的內容是透過 **HTTPS** 保護。
-* 您會對所有連結、CSS 內容與影像使用「絕對 URL」，例如 https://yourdomain/content。
+* 您使用*絕對 URL*，例如`https://yourdomain/content`，對所有連結、 CSS 內容和映像。
 
 ## <a name="step-5-configure-your-content-definition"></a>步驟 5：設定您的內容定義
 若要設定 `ContentDefinition`，請執行下列動作：

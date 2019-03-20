@@ -17,12 +17,12 @@ ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68593087c1fbb912cafb9c886f43f947744c5651
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 07466e40834b8bfaf4a452cf728bae517b8c7b00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189373"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122704"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA 
 
@@ -99,7 +99,7 @@ ms.locfileid: "56189373"
 
 5. 在 [新增] 頁面的 [名稱] 文字方塊中，鍵入「必須使用 MFA 才能存取 Azure 入口網站」。
 
-    ![Name](./media/app-based-mfa/05.png)
+    ![名稱](./media/app-based-mfa/05.png)
 
 6. 在 [指派] 區段中，按一下 [使用者和群組]。
 
@@ -164,7 +164,7 @@ ms.locfileid: "56189373"
 - 將 **Isabella Simonsen** 設為使用者 
 - 將 [Microsoft Azure 管理] 設為雲端應用程式
 
- 按一下 [What If] 建立模擬報表，即會顯示：
+  按一下 [What If] 建立模擬報表，即會顯示：
 
 - [會套用的原則] 下方顯示 [Require MFA for Azure portal access] \(必須使用 MFA 才能存取 Azure 入口網站\) 
 - [需要多重要素驗證] 顯示為 [授與控制]。

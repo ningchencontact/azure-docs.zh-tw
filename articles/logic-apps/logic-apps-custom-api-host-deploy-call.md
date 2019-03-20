@@ -10,18 +10,18 @@ ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: e95b20a12fafa9d1dbcbd641ce1c9f2674314489
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880059"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>在 Azure Logic Apps 中從工作流程部署和呼叫自訂 API
 
 在您[建立可在 Logic Apps 工作流程中所使用的自訂 API](./logic-apps-create-api-app.md) 之後，您在呼叫之前必須先部署您的 API。 您可以將 API 部署為 [web 應用程式](../app-service/overview.md)，但請考慮將您的 API 部署為 [API 應用程式](../app-service/app-service-web-tutorial-rest-api.md)，如此一來，當您在雲端中及內部部署建置、裝載並自訂 API 時，可讓您的作業更容易。 您不需要在 API 中變更任何程式碼 - 只需將您的程式碼部署至 API 應用程式。 您可以將 API 裝載在 [Azure App Service](../app-service/overview.md) 上，這是一個平台即服務 (PaaS) 供應項目，提供擴充性高且簡便的 API 裝載服務。
 
-且雖然您可以從邏輯應用程式呼叫任何 API，但請新增描述您 API 之作業和參數的 [OpenAPI (先前為 Swagger) 中繼資料](http://swagger.io/specification/)以獲得最佳體驗。 OpenAPI 檔案可協助您更輕鬆地整合 API 工作，並改善 Logic Apps。
+且雖然您可以從邏輯應用程式呼叫任何 API，但請新增描述您 API 之作業和參數的 [OpenAPI (先前為 Swagger) 中繼資料](https://swagger.io/specification/)以獲得最佳體驗。 OpenAPI 檔案可協助您更輕鬆地整合 API 工作，並改善 Logic Apps。
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>將您的 API 部署為 web 應用程式或 API 應用程式
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079089"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(已淘汰) 使用 Azure DevOps 的完整 CI/CD 管線，搭配 ACS 引擎和 Docker Swarm 模式在 Azure Container Service 上部署多容器應用程式
 
@@ -163,21 +163,21 @@ ms.locfileid: "55980545"
 
    ![Azure DevOps - 新增命令列工作](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. 命令列工作會使用 bash 指令碼以 RegistryURL 變數取代 docker-compose.yml 檔案中的 *RegistryURL*。 
+   1. 命令列工作會使用 bash 指令碼以 RegistryURL 變數取代 docker-compose.yml 檔案中的 *RegistryURL*。 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Azure DevOps - 使用登錄 URL 更新 Compose 檔案](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure DevOps - 使用登錄 URL 更新 Compose 檔案](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. 命令列工作會使用 bash 指令碼以 AgentURL 變數取代 docker-compose.yml 檔案中的 *AgentURL*。
+   2. 命令列工作會使用 bash 指令碼以 AgentURL 變數取代 docker-compose.yml 檔案中的 *AgentURL*。
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. 一個工作，會將更新的 Compose 檔案卸除成組建構件，讓它能夠在版本中使用。 請參閱以下畫面了解詳細資料。
+      1. 一個工作，會將更新的 Compose 檔案卸除成組建構件，讓它能夠在版本中使用。 請參閱以下畫面了解詳細資料。
 
-         ![Azure DevOps - 發佈成品](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure DevOps - 發佈成品](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Azure DevOps - 發佈 Compose 檔案](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Azure DevOps - 發佈 Compose 檔案](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. 按一下 [儲存並排入佇列] 以測試組建管線。
 
@@ -187,7 +187,7 @@ ms.locfileid: "55980545"
 
 6. 如果**建置**正確，您會看見這個畫面：
 
-  ![Azure DevOps - 建置成功](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![Azure DevOps - 建置成功](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## <a name="step-3-create-the-release-pipeline"></a>步驟 3：建立發行管線
 
@@ -235,14 +235,14 @@ Azure DevOps 可讓您[跨環境管理發行](https://www.visualstudio.com/team-
 
     在主要節點上執行的命令會使用 Docker CLI 和 Docker-Compose CLI 執行下列工作：
 
-    - 登入 Azure Container Registry (它使用 [變數] 索引標籤中定義的三個組建變數)
-    - 定義 **DOCKER_HOST** 變數來與 Swarm 端點 (:2375) 搭配使用
-    - 瀏覽到先前安全複製工作建立的 [deploy] 資料夾，其中包含 docker-compose.yml 檔案 
-    - 執行提取新映像的 `docker stack deploy` 命令，然後建立容器。
+   - 登入 Azure Container Registry (它使用 [變數] 索引標籤中定義的三個組建變數)
+   - 定義 **DOCKER_HOST** 變數來與 Swarm 端點 (:2375) 搭配使用
+   - 瀏覽到先前安全複製工作建立的 [deploy] 資料夾，其中包含 docker-compose.yml 檔案 
+   - 執行提取新映像的 `docker stack deploy` 命令，然後建立容器。
 
-    >[!IMPORTANT]
-    > 如先前畫面所示，讓 [在 STDERR 上失敗] 核取方塊保持未選取。 這個設定能讓我們完成發行程序，因為 `docker-compose` 會在標準錯誤輸出上印出數個診斷訊息 (例如容器已停止或已刪除)。 如果您選取該核取方塊，即使一切正常運作，Azure DevOps 仍會報告發行期間出現錯誤。
-    >
+     >[!IMPORTANT]
+     > 如先前畫面所示，讓 [在 STDERR 上失敗] 核取方塊保持未選取。 這個設定能讓我們完成發行程序，因為 `docker-compose` 會在標準錯誤輸出上印出數個診斷訊息 (例如容器已停止或已刪除)。 如果您選取該核取方塊，即使一切正常運作，Azure DevOps 仍會報告發行期間出現錯誤。
+     >
 3. 儲存這個新的發行管線。
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>步驟 4：測試 CI/CD 管線

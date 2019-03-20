@@ -9,12 +9,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 29c6dc0f7e71508e7b4ecb4e0f1d5c849df7a68c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54905011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110778"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>在 Azure 儀表板上使用 Markdown 磚以顯示自訂內容
 
@@ -24,17 +24,17 @@ ms.locfileid: "54905011"
 
 1. 從 Azure 入口網站資訊看板選取 [儀表板]。 如果您已建立任何自訂儀表板，請在儀表板檢視中，使用下拉式清單來選取應該出現自訂 Markdown 磚的儀表板。 選取 [編輯] 圖示以開啟 [磚庫]。
 
-  ![顯示儀表板編輯檢視的螢幕擷取畫面](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![顯示儀表板編輯檢視的螢幕擷取畫面](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
 2. 在 [磚庫] 中，尋找名為 **Markdown** 的磚，然後按一下 [新增]。 磚會新增至儀表板，且 [編輯 Markdown] 窗格隨即開啟。
 
 1. 編輯 [標題]、[子標題] 及 [內容] 欄位來自訂磚。 在此處顯示的範例中，Markdown 檔案已編輯成顯示自訂技術支援中心資訊。
 
-  ![顯示 Markdown 磚編輯檢視的螢幕擷取畫面](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![顯示 Markdown 磚編輯檢視的螢幕擷取畫面](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 
 4. 選取 [完成] 以關閉 [編輯 Markdown] 窗格。 您的內容將會出現在 Markdown 磚上，透過拖曳右下角的控點即可調整大小。
 
-  ![顯示自訂 Markdown 磚的螢幕擷取畫面](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![顯示自訂 Markdown 磚的螢幕擷取畫面](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
 ## <a name="markdown-content-capabilities-and-limitations"></a>Markdown 內容功能和限制
 

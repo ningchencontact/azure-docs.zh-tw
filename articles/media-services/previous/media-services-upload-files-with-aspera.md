@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 179be5df8013d4e79eca473036d1a09875cbcc61
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 28b6732745947043847ce944243bc87398e159fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865904"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892142"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>使用 Azure 上的 Aspera Server On Demand 服務，將檔案上傳至媒體服務帳戶 
 
@@ -89,44 +89,44 @@ ms.locfileid: "56865904"
 
     以下螢幕擷取畫面顯示的是存取建立情況。 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
     下列螢幕擷取畫面顯示使用方式報告入口網站中的介面。 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>透過 Aspera 上傳檔案
 
 1. 下載並安裝 Aspera 用戶端軟體︰
     
-    * [瀏覽器外掛程式](http://downloads.asperasoft.com/connect2/)
-    * [豐富型用戶端](http://downloads.asperasoft.com/en/downloads/2)
+    * [瀏覽器外掛程式](https://downloads.asperasoft.com/connect2/)
+    * [豐富型用戶端](https://downloads.asperasoft.com/en/downloads/2)
 
 2. 進行第一次傳送。 若要使用 Aspera 用戶端來透過 Aspera 傳輸服務進行傳輸，您需要完成下列動作︰ 
 
-    1. 使用 Aspera 入口網站來建立存取金鑰。  
-    2. 下載、安裝及讓 Aspera 用戶端獲得授權 (可在 Aspera 入口網站中找到軟)。  
+   1. 使用 Aspera 入口網站來建立存取金鑰。  
+   2. 下載、安裝及讓 Aspera 用戶端獲得授權 (可在 Aspera 入口網站中找到軟)。  
 
-    >[!NOTE]
-    >請閱讀 Aspera 用戶端指南以取得設定資訊。
+      >[!NOTE]
+      >請閱讀 Aspera 用戶端指南以取得設定資訊。
     
-    3. 透過 [Azure 入口網站](https://portal.azure.com/)，擷取與 Azure 媒體帳戶相關聯的儲存體帳戶部分資訊。 具體而言，即您要將內容置於其中的名稱索引鍵和儲存體 blob 容器名稱。 
+   3. 透過 [Azure 入口網站](https://portal.azure.com/)，擷取與 Azure 媒體帳戶相關聯的儲存體帳戶部分資訊。 具體而言，即您要將內容置於其中的名稱索引鍵和儲存體 blob 容器名稱。 
 
-        * 若要從入口網站取得儲存體資訊︰尋找儲存體帳戶、按一下 [存取金鑰] 並複製帳戶名稱和金鑰。
-        * 若要取得容器名稱︰尋找儲存體帳戶，選取 [Blob]，接著選取您想將內容上傳至其中的內容名稱。 
+       * 若要從入口網站取得儲存體資訊︰尋找儲存體帳戶、按一下 [存取金鑰] 並複製帳戶名稱和金鑰。
+       * 若要取得容器名稱︰尋找儲存體帳戶，選取 [Blob]，接著選取您想將內容上傳至其中的內容名稱。 
 
-    以下是 Aspera 用戶端**連接管理員**的螢幕擷取畫面，您必須在其中指定 'Azure' 儲存體類型和認證以及 blob 容器。
+      以下是 Aspera 用戶端**連接管理員**的螢幕擷取畫面，您必須在其中指定 'Azure' 儲存體類型和認證以及 blob 容器。
 
-    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+      ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>資源
 
 下列是本文提到的資源。 
 
-* [Connect 瀏覽器外掛程式](http://downloads.asperasoft.com/connect2/)
-* [Connect 指南](http://downloads.asperasoft.com/en/documentation/8)
-* [Aspera 用戶端](http://downloads.asperasoft.com/en/downloads/2)
-* [用戶端指南](http://downloads.asperasoft.com/en/documentation/2)
+* [Connect 瀏覽器外掛程式](https://downloads.asperasoft.com/connect2/)
+* [Connect 指南](https://downloads.asperasoft.com/en/documentation/8)
+* [Aspera 用戶端](https://downloads.asperasoft.com/en/downloads/2)
+* [用戶端指南](https://downloads.asperasoft.com/en/documentation/2)
 
 ## <a name="next-steps"></a>後續步驟
 

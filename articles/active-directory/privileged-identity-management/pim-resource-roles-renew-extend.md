@@ -16,12 +16,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cec018eec6e298e27329c03964dccf5809c1791
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190631"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004238"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>在 PIM 中延長或更新 Azure 資源角色指派
 
@@ -49,7 +49,7 @@ PIM 會在 14 天內和到期的前一天，將電子郵件通知傳送給角色
 
 如果指派結束日期/時間在 14 天內，則 [延長] 按鈕會變成使用者介面中的有效連結。 在下列範例中，假設目前日期為 3 月 27 日。
 
-![[延長] 按鈕](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![延伸按鈕](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
 若要要求延長此角色指派，請選取 [延長] 來開啟要求表單。
 
@@ -64,11 +64,11 @@ PIM 會在 14 天內和到期的前一天，將電子郵件通知傳送給角色
 
 過了一會兒，資源管理員會收到電子郵件通知，要求他們檢閱延長要求。 如果已經提交延長要求，則 Azure 入口網站的頂端會出現快顯通知來說明錯誤。
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
+![說明錯誤的通知](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
 請移至左側窗格中的 [擱置要求] 索引標籤，以檢視要求狀態或取消要求。
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
+![擱置的要求](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>管理員核准
 
@@ -80,7 +80,7 @@ PIM 會在 14 天內和到期的前一天，將電子郵件通知傳送給角色
 
 當管理員選取 [核准] 或 [拒絕] 時，要求的詳細資料會顯示，連同一個可提供理由作為稽核記錄的欄位。
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![核准角色指派要求](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
 資源管理員在核准延長角色指派的要求時，可以選擇新的開始日期、結束日期和指派類型。 如果管理員想要提供有限的存取權來完成特定工作 (例如一天)，則可能需要變更指派類型。 在此範例中，管理員可將指派從 [合格] 變更為 [有效]。 這表示他們可以提供存取權給要求者，而不用要求他們啟用。
 
@@ -100,7 +100,7 @@ PIM 會在 14 天內和到期的前一天，將電子郵件通知傳送給角色
 
 無法再存取資源的成員可以存取到期的指派歷程記錄達 30 天。 若要這樣做，請瀏覽至左側窗格中的 [我的角色]，然後選取 Azure 資源角色區段中的 [到期的角色]。
 
-![[到期的角色] 索引標籤](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![已過期的角色 索引標籤](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 顯示的角色清單會預設為 [合格角色]。 使用下拉式功能表來切換 [合格] 與 [有效] 指派的角色。
 

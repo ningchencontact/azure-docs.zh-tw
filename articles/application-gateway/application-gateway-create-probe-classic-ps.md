@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004976"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>使用 PowerShell 建立 Azure 應用程式閘道 (傳統) 的自訂探查
 
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
-> * [Azure 傳統 PowerShell](application-gateway-create-probe-classic-ps.md)
+> * [Azure 经典 PowerShell](application-gateway-create-probe-classic-ps.md)
 
 在本文中，您會使用 PowerShell 將自訂探查新增到現有的應用程式閘道。 對於具有特定健康狀態檢查頁面的應用程式，或是在預設 Web 應用程式上不提供成功回應的應用程式，自訂探查非常實用。
 
@@ -46,9 +46,9 @@ ms.locfileid: "52997278"
 
 ### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>使用自訂探查建立應用程式閘道資源
 
-若要建立閘道，請使用 `New-AzureApplicationGateway` Cmdlet，並以您自己的值來取代這些值。 此時還不會開始對閘道計費。 會在稍後的步驟中於成功啟動閘道之後開始計費。
+若要建立閘道，請使用 `New-AzureApplicationGateway` Cmdlet，並以您自己的值來取代這些值。 此時還不會開始對閘道計費。 计费会在后面已成功启动网关时开始。
 
-下列範例會使用名為 "testvnet1" 的虛擬網路和名為 "subnet-1" 的子網路來建立應用程式閘道。
+以下示例使用名为“testvnet1”的虚拟网络和名为“subnet-1”的子网创建应用程序网关。
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -65,7 +65,7 @@ Get-AzureApplicationGateway AppGwTest
 > 
 > 
 
-因為尚未啟動閘道，所以 VirtualIPs 和 DnsName 會顯示為空白。 閘道處於執行中狀態之後，就會建立這些值。
+*VirtualIPs* 和 *DnsName* 显示为空白，因为网关尚未启动。 这些值在网关进入运行状态后立即创建。
 
 ### <a name="configure-an-application-gateway-by-using-xml"></a>使用 XML 設定應用程式閘道
 
@@ -148,16 +148,16 @@ Get-AzureApplicationGateway AppGwTest
 
 組態參數如下：
 
-|參數|說明|
+|參數|描述|
 |---|---|
 |**名稱** |自訂探查的參考名稱。 |
-* **Protocol** | 使用的通訊協定 (可能的值是 HTTP 或 HTTPS)。|
+| **通訊協定** | 使用的通訊協定 (可能的值是 HTTP 或 HTTPS)。|
 | **Host** 和 **Path** | 應用程式閘道所叫用的完整 URL 路徑，可藉以判斷執行個體健康狀態。 例如，若您擁有網站 http://contoso.com/，則可以為 "http://contoso.com/path/custompath.htm" 設定自訂探查，以便讓探查檢查是否有成功的 HTTP 回應。|
 | **間隔** | 以秒為單位設定探查間隔檢查。|
-| **逾時** | 定義 HTTP 回應檢查的探查逾時。|
+| **超时** | 定義 HTTP 回應檢查的探查逾時。|
 | **UnhealthyThreshold** | 要將後端執行個體標記為「狀況不良」所需的失敗 HTTP 回應次數。|
 
-\<BackendHttpSettings\> 組態中會參考探查名稱，以指派哪個後端集區會使用自訂探查設定。
+\<BackendHttpSettings\> 配置中会引用探测名称，以分配使用自定义探测设置的后端池。
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>將自訂探查新增至現有應用程式閘道
 
@@ -165,14 +165,14 @@ Get-AzureApplicationGateway AppGwTest
 
 1. 使用 `Get-AzureApplicationGatewayConfig` 取得 XML 檔案。 此 cmdlet 會匯出要修改的組態 XML 以新增探查設定。
 
-  ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-  ```
+   ```powershell
+   Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+   ```
 
-1. 在文字編輯器中開啟 XML 檔案。 在 `<frontendport>` 之後新增 `<probe>` 區段。
+1. 在文本编辑器中打开 XML 文件。 在 `<frontendport>` 之後新增 `<probe>` 區段。
 
-  ```xml
-<Probes>
+   ```xml
+   <Probes>
     <Probe>
         <Name>Probe01</Name>
         <Protocol>Http</Protocol>
@@ -182,12 +182,12 @@ Get-AzureApplicationGateway AppGwTest
         <Timeout>15</Timeout>
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
-</Probes>
-  ```
+   </Probes>
+   ```
 
-  在 XML 的 backendHttpSettings 區段中，如下列範例所示，新增探查名稱：
+   在 XML 的 backendHttpSettings 區段中，如下列範例所示，新增探查名稱：
 
-  ```xml
+   ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -196,9 +196,9 @@ Get-AzureApplicationGateway AppGwTest
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-  ```
+   ```
 
-  儲存 XML 檔案。
+   儲存 XML 檔案。
 
 1. 使用 `Set-AzureApplicationGatewayConfig` 以新的 XML 檔案更新應用程式閘道組態。 此 cmdlet 會以新組態更新您的應用程式閘道。
 

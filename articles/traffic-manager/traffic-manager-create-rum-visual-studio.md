@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: eec13db8bdbe1f40a51df14077adb8740e977f5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079704"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>如何使用 Visual Studio Mobile Center 將實際使用者度量傳送給流量管理員
 
@@ -33,24 +33,24 @@ ms.locfileid: "50138407"
 您從用戶端應用程式取得並且傳送至流量管理員的度量，是由使用獨特字串的服務來識別，該字串稱為實際使用者度量 (RUM) 金鑰。 您可以使用 Azure 入口網站、REST API 或使用 PowerShell/CLI 介面，來取得 RUM 金鑰。
 
 若要使用 Azure 入口網站取得 RUM 金鑰，請使用下列程序：
-   1. 從瀏覽器登入 Azure 入口網站。 如果您沒有帳戶，可以註冊免費試用一個月。
-   2. 在入口網站的搜尋列中，搜尋您想要修改的流量管理員設定檔名稱，然後按一下結果中顯示的流量管理員設定檔。
-   3. 在流量管理員設定檔分頁上，按一下 [設定] 底下的 [實際使用者度量]。
-   4. 按一下 [產生金鑰] 以建立新的 RUM 金鑰。
+1. 從瀏覽器登入 Azure 入口網站。 如果您沒有帳戶，可以註冊免費試用一個月。
+2. 在入口網站的搜尋列中，搜尋您想要修改的流量管理員設定檔名稱，然後按一下結果中顯示的流量管理員設定檔。
+3. 在流量管理員設定檔分頁上，按一下 [設定] 底下的 [實際使用者度量]。
+4. 按一下 [產生金鑰] 以建立新的 RUM 金鑰。
         
    ![產生實際使用者度量金鑰](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **圖 1：實際使用者度量金鑰產生**
 
-   5.   分頁會顯示產生的 RUM 金鑰，以及必須內嵌至 HTML 分頁的 JavaScript 程式碼片段。
+5. 分頁會顯示產生的 RUM 金鑰，以及必須內嵌至 HTML 分頁的 JavaScript 程式碼片段。
  
    ![實際使用者度量金鑰的 Javascript 程式碼](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
    **圖 2：實際使用者度量金鑰和度量 JavaScript**
  
-   6. 按一下 [複製] 按鈕以複製 RUM 金鑰。 
+6. 按一下 [複製] 按鈕以複製 RUM 金鑰。 
 
-## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>步驟 2：使用 Mobile Center SDK 的 RUM 套件檢測應用程式
+## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>步驟 2：檢測您的應用程式，使用 Mobile Center SDK 的 RUM 套件
 
 如果您還不熟悉 Visual Studio Mobile Center，請造訪其[網站](https://mobile.azure.com)。 如需 SDK 整合的詳細指示，請參閱[開始使用 Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android)。
 
@@ -72,7 +72,7 @@ ms.locfileid: "50138407"
     在您的 **app/build.gradle** 檔案中新增下列行：
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

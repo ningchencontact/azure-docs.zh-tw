@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 31909d007727ca5b440343e3c5a035984399b77a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201733"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 處理並分析 JSON 文件
 
@@ -57,9 +57,9 @@ ms.locfileid: "53652690"
 }
 ```
 
-檔案位於 **wasb://processjson@hditutorialdata.blob.core.windows.net/**。 如需關於搭配 HDInsight 使用 Azure Blob 儲存體的詳細資訊，請參閱[在 HDInsight 中使用 HDFS 相容的 Azure Blob 儲存體搭配 Apache Hadoop](../hdinsight-hadoop-use-blob-storage.md)。 您可以將檔案複製到叢集的預設容器。
+檔案位於**wasb://processjson\@hditutorialdata.blob.core.windows.net/**。 如需關於搭配 HDInsight 使用 Azure Blob 儲存體的詳細資訊，請參閱[在 HDInsight 中使用 HDFS 相容的 Azure Blob 儲存體搭配 Apache Hadoop](../hdinsight-hadoop-use-blob-storage.md)。 您可以將檔案複製到叢集的預設容器。
 
-在本教學課程中，您會使用 Apache Hive 主控台。 如需開啟 Hive 主控台的指示，請參閱 [利用遠端桌面在 HDInsight 上使用 Apache Hive 搭配 Apache Hadoop](apache-hadoop-use-hive-remote-desktop.md)。
+在本教學課程中，您會使用 Apache Hive 主控台。 如需有關如何開啟 Hive 主控台的指示，請參閱 <<c0> [ 使用 Apache Ambari Hive 檢視與 HDInsight 中的 Apache Hadoop](apache-hadoop-use-hive-ambari-view.md)。
 
 ## <a name="flatten-json-documents"></a>簡維 JSON 文件
 下一節所列的方法需要於單一資料列中撰寫 JSON 文件。 因此，您必須將 JSON 文件壓平合併成一個字串。 如果已壓平合併 JSON 文件，您就可以略過此步驟，直接進入與分析 JSON 資料相關的下一節。 若要壓平合併 JSON 文件，執行下列指令碼：
@@ -83,7 +83,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-原始 JSON 檔案位於 **wasb://processjson@hditutorialdata.blob.core.windows.net/**。 **StudentsRaw** Hive 資料表指向原始未簡維的 JSON 文件。
+未經處理的 JSON 檔案位於 \microsoft **wasb://processjson\@hditutorialdata.blob.core.windows.net/**。 **StudentsRaw** Hive 資料表指向原始未簡維的 JSON 文件。
 
 StudentsOneLine Hive 資料表會將資料儲存在 HDInsight 預設檔案系統的 /json/students/ 路徑下。
 
@@ -146,15 +146,15 @@ json_tuple UDF 會使用 Hive 中的[橫向檢視](https://cwiki.apache.org/conf
 SerDe 是剖析巢狀 JSON 文件的最佳選擇。 它可讓您定義的 JSON 結構描述，然後您可以使用結構來剖析文件。 如需指示，請參閱[如何搭配 Microsoft Azure HDInsight 來使用自訂 JSON SerDe](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)。
 
 ## <a name="summary"></a>總結
-總而言之，您在 Hive 中選擇的 JSON 運算子類型取決於您的案例。 如果您有一個簡單的 JSON 文件，且您只需要查閱一個欄位 – 您就可以選擇使用 Hive UDF get_json_object。 如果您有多個金鑰需要查閱，可以使用 json_tuple。 如果您有巢狀文件，您應該使用 JSON SerDe。
+總而言之，您在 Hive 中選擇的 JSON 運算子類型取決於您的案例。 如果您有一個簡單的 JSON 文件，且您只需要查閱一個欄位 – 您就可以選擇使用 Hive UDF get_json_object。 如果您有多個金鑰需要查閱，可以使用 json_tuple。 如果拥有嵌套文档，应该使用 JSON SerDe。
 
 ## <a name="next-steps"></a>後續步驟
 
 如需其他相關文章，請參閱：
 
 * [在 HDInsight 中使用 Apache Hive 和 HiveQL 搭配 Apache Hadoop 來分析範例 Apache log4j 檔案](../hdinsight-use-hive.md)
-* [在 HDInsight 中使用 Apache Hive 分析航班延誤資料](../hdinsight-analyze-flight-delay-data.md)
-* [在 HDInsight 中使用 Apache Hive 分析 Twitter 資料](../hdinsight-analyze-twitter-data.md)
+* [在 HDInsight 中使用 Apache Hive 分析航班延誤資料](../hdinsight-analyze-flight-delay-data-linux.md)
+* [在 HDInsight 中使用 Apache Hive 分析 Twitter 資料](../hdinsight-analyze-twitter-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

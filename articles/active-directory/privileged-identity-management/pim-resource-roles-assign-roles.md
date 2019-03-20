@@ -15,12 +15,12 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c92387c14cd0b82ec26acb411609c794c2601e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086185"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>在 PIM 中指派 Azure 資源角色
 
@@ -32,8 +32,8 @@ Azure AD PIM 可以管理內建 Azure 資源角色及自訂角色，包括 (但�
 - 安全性系統管理員
 - 安全性管理員以及其他
 
->[!NOTE]
-指派至擁有者或使用者存取管理員角色的使用者或群組成員，以及在 Azure AD 中啟用訂閱管理的全域管理員，為資源管理員。 這些系統管理員可指派角色、設定角色設定，並使用適用於 Azure 資源的 PIM 進行檢閱存取。 請檢視[Azure 資源的內建角色](../../role-based-access-control/built-in-roles.md)清單。
+> [!NOTE]
+> 指派至擁有者或使用者存取管理員角色的使用者或群組成員，以及在 Azure AD 中啟用訂閱管理的全域管理員，為資源管理員。 這些系統管理員可指派角色、設定角色設定，並使用適用於 Azure 資源的 PIM 進行檢閱存取。 請檢視[Azure 資源的內建角色](../../role-based-access-control/built-in-roles.md)清單。
 
 ## <a name="assign-a-role"></a>指派角色
 

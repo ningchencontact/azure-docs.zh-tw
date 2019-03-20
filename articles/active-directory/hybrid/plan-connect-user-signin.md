@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b503c7f0693a90d438fcec3ecae335fd349b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996333"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 使用者登入選項
 Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的密碼來登入雲端和內部部署資源。 本文說明每個身分識別模型的主要概念，以協助您選擇要用於登入 Azure AD 的身分識別。
@@ -69,25 +69,27 @@ Azure AD 支援下列驗證方法：
 ![傳遞驗證](./media/plan-connect-user-signin/pta.png)
 
 如需詳細資訊，請參閱
-- [傳遞驗證](how-to-connect-pta.md)
+- [直通身份验证](how-to-connect-pta.md)
 - [單一登入](how-to-connect-sso.md)
 
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>使用新的或現有伺服器陣列搭配 Windows Server 2012 R2 中的 AD FS 建立的同盟
 使用同盟登入時，使用者可以使用其內部部署密碼來登入 Azure AD 型服務。 當他們在公司網路上時，甚至不需要輸入他們的密碼。 透過使用搭配 AD FS 的同盟選項，您可以部署與 Windows Server 2012 R2 中 AD FS 搭配的新的或現有伺服器陣列。 如果您選擇指定現有的伺服器陣列，Azure AD Connect 就會設定伺服器陣列與 Azure AD 之間的信任，以便讓使用者登入。
 
-<center>![與 Windows Server 2012 R2 中的 AD FS 搭配的同盟](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![與 Windows Server 2012 R2 中的 AD FS 同盟](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>部署與 Windows Server 2012 R2 中 AD FS 搭配的同盟
 
 如果要部署新的伺服器陣列，您需要：
 
 * 同盟伺服器的 Windows Server 2012 R2 伺服器。
-* Web 應用程式 Proxy 的 Windows Server 2012 R2 伺服器。
+* 用于 Web 应用程序代理的 Windows Server 2012 R2 服务器。
 * 一個 .pfx 檔案，內含一個 SSL 憑證，用於預期使用的同盟服務名稱。 例如：fs.contoso.com。
 
 如果要部署新的伺服器陣列或使用現有的伺服器陣列，您需要：
 
-* 同盟伺服器上的本機系統管理員認證。
+* 联合服务器上的本地管理员凭据。
 * 您想要部署「Web 應用程式 Proxy」角色之任何工作群組伺服器 (未加入網域) 上的本機系統管理員認證。
 * 您執行精靈的電腦能夠透過「Windows 遠端管理」，連線到您要安裝 AD FS 或「Web 應用程式 Proxy」的任何其他電腦。
 
@@ -112,7 +114,7 @@ Azure AD 支援下列驗證方法：
 
 使用者的 UPN 格式是 username@domain。 例如，就名為 "contoso.com" 的 Active Directory 網域而言，名為 John 的使用者可能會有 UPN "john@contoso.com"。 使用者的 UPN 是以 RFC 822 為基礎。 雖然 UPN 與電子郵件共用相同的格式，但使用者的 UPN 值不一定與使用者的電子郵件地址相同。
 
-### <a name="user-principal-name-in-azure-ad"></a>Azure AD 中的使用者主體名稱
+### <a name="user-principal-name-in-azure-ad"></a>Azure AD 中的用户主体名
 Azure AD Connect 精靈會使用 userPrincipalName 屬性，或讓您指定內部部署環境中要用來作為 Azure AD 中使用者主體名稱的屬性。 這是用於登入 Azure AD 的值。 如果 userPrincipalName 屬性的值未與 Azure AD 中已驗證的網域對應，Azure AD 就會以預設的 .onmicrosoft.com 值取代它。
 
 Azure Active Directory 中的每個目錄都隨附一個內建的網域名稱，格式為 contoso.onmicrosoft.com，可讓您開始使用 Azure 或其他 Microsoft 服務。 您可以使用自訂網域來改善及簡化登入體驗。 如需有關 Azure AD 中的自訂網域名稱及如何驗證網域的資訊，請參閱[在 Azure Active Directory 中新增自訂網域名稱](../fundamentals/add-custom-domain.md)。
@@ -124,11 +126,11 @@ Azure AD 登入體驗取決於 Azure AD 是否能夠將要同步處理之使用�
 Azure AD Connect 會列出為網域定義的 UPN 尾碼，並嘗試將它們與 Azure AD 中的自訂網域對應。 接著，它會協助您進行需要採取的適當動作。
 Azure AD 登入頁面會列出為內部部署 Active directory 定義的 UPN 尾碼，並顯示每個尾碼相對應的狀態。 狀態值可以是下列其中一個︰
 
-| State | 說明 | 需要採取的動作 |
+| State | 描述 | 需要採取的動作 |
 |:--- |:--- |:--- |
-| Verified |Azure AD Connect 在 Azure AD 中找到一個已驗證的相符網域。 此網域的所有使用者均可使用其內部部署認證來進行登入。 |不需要採取任何動作。 |
+| Verified |Azure AD Connect 在 Azure AD 中找到一個已驗證的相符網域。 此網域的所有使用者均可使用其內部部署認證來進行登入。 |无需采取任何措施。 |
 | 未驗證 |Azure AD Connect 在 Azure AD 中找到對應的自訂網域，但該網域未經驗證。 如果未驗證網域，此網域的使用者 UPN 尾碼將會在同步處理後變更為預設的 .onmicrosoft.com 尾碼。 | [驗證 Azure AD 中的自訂網域。](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
-| 未新增 |Azure AD Connect 找不到與 UPN 尾碼對應的自訂網域。 如果未在 Azure 中新增並驗證網域，此網域的使用者 UPN 尾碼將會變更為預設的 .onmicrosoft.com 尾碼。 | [新增並驗證與 UPN 尾碼對應的自訂網域。](../fundamentals/add-custom-domain.md) |
+| 未添加 |Azure AD Connect 找不到與 UPN 尾碼對應的自訂網域。 如果未在 Azure 中新增並驗證網域，此網域的使用者 UPN 尾碼將會變更為預設的 .onmicrosoft.com 尾碼。 | [新增並驗證與 UPN 尾碼對應的自訂網域。](../fundamentals/add-custom-domain.md) |
 
 Azure AD 登入頁面會列出為內部部署 Active Directory 定義的 UPN 尾碼，以及 Azure AD 中對應的自訂網域與目前的驗證狀態。 在自訂安裝中，您現在可以在 [Azure AD 登入] 頁面上選取使用者主體名稱的屬性。
 
@@ -152,6 +154,7 @@ userPrincipalName 屬性是使用者登入 Azure AD 和 Office 365 時會使用�
 針對以下資訊，讓我們假設所關注的是 UPN 尾碼 contoso.com，這會在內部部署目錄中作為 UPN 的一部分，例如 user@contoso.com。
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>快速設定/密碼雜湊同步處理
+
 | State | 對使用者的 Azure 登入體驗的影響 |
 |:---:|:--- |
 | 未新增 |在此案例中，Azure AD 目錄內並未針對 contoso.com 新增任何自訂網域。 內部部署 UPN 尾碼為 @contoso.com 的使用者將無法使用其內部部署 UPN 來登入 Azure。 他們必須改為使用 Azure AD 透過為預設 Azure AD 目錄新增尾碼來提供給他們的新 UPN。 例如，如果您要將使用者同步至 Azure AD 目錄 azurecontoso.onmicrosoft.com，則內部部署使用者 user@contoso.com 將得到的 UPN 會是 user@azurecontoso.onmicrosoft.com。 |

@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 93a4595ce0b36c8d0f447177bda69d2d8cab12c8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 244b2d1764f30f790c3e51e23cd2fa0af6375960
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894371"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>使用 Azure 診斷記錄和 Windows 事件轉送進行 Azure 記錄整合
 
@@ -113,37 +113,37 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
 1. 以系統管理員身分啟動 PowerShell。 然後移至 C:\Program Files\Microsoft Azure Log Integration。
 2. 匯入 Azure 記錄整合 Cmdlet。 若要匯入 Cmdlet，請執行 `LoadAzlogModule.ps1` 指令碼。 輸入 `.\LoadAzlogModule.ps1`，然後按 Enter 鍵 (請注意此命令中使用 **.\\**)。 您應該會看到類似下圖的內容：
 
-  ![LoadAzlogModule.ps1 命令之輸出的螢幕擷取畫面](./media/security-azure-log-integration-get-started/loaded-modules.png)
+   ![LoadAzlogModule.ps1 命令之輸出的螢幕擷取畫面](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. 接下來，設定 Azure 記錄整合以使用特定的 Azure 環境。 「Azure 環境」是您想要使用的 Azure 雲端資料中心的類型。 雖然現在有數個 Azure 環境，目前相關的選項是 **AzureCloud** 或 **AzureUSGovernment**。 以系統管理員的身分執行 PowerShell，請確定您是在 C:\Program Files\Microsoft Azure Log Integration\ 中。 然後執行這個命令：
 
-  `Set-AzlogAzureEnvironment -Name AzureCloud` (針對 **AzureCloud**)
+   `Set-AzlogAzureEnvironment -Name AzureCloud` (針對 **AzureCloud**)
   
-  如果您想要使用美國政府 Azure 雲端，請在 **-Name** 變數使用 **AzureUSGovernment**。 目前不支援其他 Azure 雲端。  
+   如果您想要使用美國政府 Azure 雲端，請在 **-Name** 變數使用 **AzureUSGovernment**。 目前不支援其他 Azure 雲端。  
 
-  > [!NOTE]
-  > 命令成功時，您不會收到任何回應。 
+   > [!NOTE]
+   > 命令成功時，您不會收到任何回應。 
 
 4. 您需要擁有用於 Azure 診斷的儲存體帳戶名稱，才能監視系統。 在 Azure 入口網站中，移至 [虛擬機器]。 尋找您要監視的 Windows 虛擬機器。 在 [屬性] 區段中，選取 [診斷設定]。  然後選取 [代理程式]。 記下指定的儲存體帳戶名稱。 您需要此帳戶的名稱以進行後續步驟。
 
-  ![Azure 診斷設定窗格的螢幕擷取畫面](./media/security-azure-log-integration-get-started/storage-account-large.png) 
+   ![Azure 診斷設定窗格的螢幕擷取畫面](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
-  ![啟用來賓層級監視按鈕的螢幕擷取畫面](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+   ![啟用來賓層級監視按鈕的螢幕擷取畫面](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
 
-  > [!NOTE]
-  > 如果建立虛擬機器時沒有啟用監視，您可以如上圖中所示啟用它。
+   > [!NOTE]
+   > 如果建立虛擬機器時沒有啟用監視，您可以如上圖中所示啟用它。
 
 5. 現在，回到 Azure 記錄整合的機器。 確認您已從 Azure 記錄整合安裝所在的系統連線至儲存體帳戶。 執行 Azure 記錄整合服務的電腦需要存取儲存體帳戶，以擷取 Azure 診斷在每個受監視系統上記錄的資訊。 若要確認連線能力： 
-  1. [下載 Azure 儲存體總管](http://storageexplorer.com/)。
-  2. 完成安裝。
-  3. 安裝完成時選取 [下一步]。 讓 [啟動 Microsoft Azure 儲存體總管] 核取方塊保持選取狀態。  
-  4. 登入 Azure。
-  5. 確認您可以看到您設定用於 Azure 診斷的儲存體帳戶： 
+   1. [下載 Azure 儲存體總管](https://storageexplorer.com/)。
+   2. 完成安裝。
+   3. 安裝完成時選取 [下一步]。 讓 [啟動 Microsoft Azure 儲存體總管] 核取方塊保持選取狀態。  
+   4. 登入 Azure。
+   5. 確認您可以看到您設定用於 Azure 診斷的儲存體帳戶： 
 
    ![儲存體總管中儲存體帳戶的螢幕擷取畫面](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
-  6. 儲存體帳戶之下會出現幾個選項。 在 [資料表] 下，您應該會看到 **WADWindowsEventLogsTable** 資料表。
+   1. 儲存體帳戶之下會出現幾個選項。 在 [資料表] 下，您應該會看到 **WADWindowsEventLogsTable** 資料表。
 
-  如果建立虛擬機器時沒有啟用監視，您可以如稍早所述的方式啟用它。
+   如果建立虛擬機器時沒有啟用監視，您可以如稍早所述的方式啟用它。
 
 
 ## <a name="integrate-windows-vm-logs"></a>整合 Windows VM 記錄
@@ -156,36 +156,36 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
 * **StorageKey**：為此虛擬機器儲存 Azure 診斷資訊之儲存體帳戶的儲存體金鑰。  
 
 若要取得儲存體金鑰，請完成下列步驟︰
-1. 移至 [Azure 入口網站](http://portal.azure.com)。
+1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 選取導覽窗格中的 [所有服務]。
 3. 在 [篩選] 方塊中輸入**儲存體**。 然後選取 [儲存體帳戶]。
 
-  ![顯示所有服務中儲存體帳戶的螢幕擷取畫面](./media/security-azure-log-integration-get-started/filter.png)
+   ![顯示所有服務中儲存體帳戶的螢幕擷取畫面](./media/security-azure-log-integration-get-started/filter.png)
 
 4. 儲存體帳戶清單隨即出現。 按兩下您指派給記錄儲存體的帳戶。
 
-  ![顯示了儲存體帳戶清單的螢幕擷取畫面](./media/security-azure-log-integration-get-started/storage-accounts.png)
+   ![顯示了儲存體帳戶清單的螢幕擷取畫面](./media/security-azure-log-integration-get-started/storage-accounts.png)
 
 5. 在 [設定] 底下，選取 [存取金鑰]。
 
-  ![顯示功能表中存取金鑰選項的螢幕擷取畫面](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
+   ![顯示功能表中存取金鑰選項的螢幕擷取畫面](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
 
 6. 複製 **key1**，然後將其儲存在安全的位置，以供進行下一個步驟時存取。
 7. 在您安裝Azure 記錄整合的伺服器上，以系統管理員身分開啟命令提示字元視窗  (請務必以系統管理員身分開啟命令提示字元視窗，而不是開啟 PowerShell)。
 8. 移至 C:\Program Files\Microsoft Azure Log Integration。
 9. 執行這個命令：`Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`。
  
-  範例：
+   範例：
   
-  `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
-  如果您想要讓訂用帳戶識別碼顯示在事件 XML 中，請將訂用帳戶識別碼加在易記名稱之後︰
+   如果您想要讓訂用帳戶識別碼顯示在事件 XML 中，請將訂用帳戶識別碼加在易記名稱之後︰
 
-  `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
+   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  範例：
+   範例：
   
-  `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
 > [!NOTE]
 > 最多等待 60 分鐘，然後檢視從儲存體帳戶提取的事件。 若要在Azure 記錄整合中檢視事件，請選取 [事件檢視器] > [Windows 記錄] > [轉送的事件]。
@@ -200,11 +200,11 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
 
 1. 檢查執行 Azure 記錄整合服務的機器。 確認它可以存取 Azure。 若要測試連線，請嘗試從瀏覽器前往 [Azure 入口網站](https://portal.azure.com)。
 2. 確定使用者帳戶 Azlog 具有 users\Azlog 資料夾的寫入權限。
-  1. 開啟檔案總管。
-  2. 移至 C:\users。
-  3. 以滑鼠右鍵按一下 C:\users\Azlog。
-  4. 選取 [安全性]。
-  5. 選取 [NT 服務\Azlog]。 檢查此帳戶的權限。 如果帳戶不在此索引標籤中，或是沒有顯示適當的權限，您可以在此索引標籤中授與帳戶權限。
+   1. 開啟檔案總管。
+   2. 移至 C:\users。
+   3. 以滑鼠右鍵按一下 C:\users\Azlog。
+   4. 選取 [安全性]。
+   5. 選取 [NT 服務\Azlog]。 檢查此帳戶的權限。 如果帳戶不在此索引標籤中，或是沒有顯示適當的權限，您可以在此索引標籤中授與帳戶權限。
 3. 在執行 `Azlog source list` 命令時，請確定輸出裡有列出您在 `Azlog source add` 命令中新增的儲存體帳戶。
 4. 若要查看 Azure 記錄整合服務是否有報告任何錯誤，請移至 [事件檢視器] > [Windows 記錄] > [應用程式]。
 
@@ -224,15 +224,15 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
 2. 執行這個命令：```azlog createazureid```
 
     此命令會提示您登入 Azure。 此命令接著會建立託管 Azure 訂用帳戶 (其中登入的使用者是系統管理員、共同管理員或擁有者) 的 Azure AD 租用戶中的 Azure Active Directory 服務主體。 若登入的使用者只是 Azure AD 租用戶中的來賓使用者，則此命令將會失敗。 對 Azure 的驗證會透過 Azure AD 來進行。 建立 Azure 記錄整合的服務主體會建立 Azure AD 身分識別，以獲得 Azure 訂用帳戶的讀取權限。
-3.  執行下列命令，授權上一個步驟中所建立的 Azure 記錄整合服務主體讀取訂用帳戶之活動記錄的權限。 您必須是訂用帳戶的擁有者才能執行命令。
+3. 執行下列命令，授權上一個步驟中所建立的 Azure 記錄整合服務主體讀取訂用帳戶之活動記錄的權限。 您必須是訂用帳戶的擁有者才能執行命令。
 
-    ```Azlog.exe authorize subscriptionId``` 範例：
+   ```Azlog.exe authorize subscriptionId``` 範例：
 
-```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+   ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
 
-4.  檢查下列資料夾以確認其中是否建立了 Azure Active Directory 稽核記錄 JSON 檔案：
-    - C:\Users\azlog\AzureResourceManagerJson
-    - C:\Users\azlog\AzureResourceManagerJsonLD
+4. 檢查下列資料夾以確認其中是否建立了 Azure Active Directory 稽核記錄 JSON 檔案：
+   - C:\Users\azlog\AzureResourceManagerJson
+   - C:\Users\azlog\AzureResourceManagerJsonLD
 
 > [!NOTE]
 > 如需有關將 JSON 檔案中的資訊帶入到安全性資訊和事件管理 (SIEM) 系統的特定指示，請連絡您的 SIEM 廠商。
@@ -248,5 +248,5 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
 * [Azure 記錄整合簡介](security-azure-log-integration-overview.md)。 本文為您介紹 Azure 記錄整合、其主要功能以及運作方式。
 * [合作夥伴設定步驟](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/)。 此部落格文章說明如何設定 Azure 記錄整合，以搭配使用合作夥伴解決方案 Splunk、HP ArcSight 和 IBM QRadar。 描述我們目前有關如何設定 SIEM 元件的指引。 如需其他詳細資料，請洽詢您的 SIEM 廠商。
 * [Azure 記錄整合常見問題集 (FAQ)](security-azure-log-integration-faq.md)。 此常見問題集會回答 Azure 記錄整合的相關常見問題。
-* [整合 Azure 資訊安全中心警示與 Azure 記錄整合](../security-center/security-center-integrating-alerts-with-log-integration.md)。 本文說明如何同步處理 Azure 診斷和 Azure 活動記錄所收集的資訊安全中心警示和虛擬機器安全性事件。 您可以使用 Azure Log Analytics 或 SIEM 解決方案來同步處理記錄。
+* [整合 Azure 資訊安全中心警示與 Azure 記錄整合](../security-center/security-center-integrating-alerts-with-log-integration.md)。 本文說明如何同步處理 Azure 診斷和 Azure 活動記錄所收集的資訊安全中心警示和虛擬機器安全性事件。 您同步處理記錄，使用您的 Azure 監視器記錄檔或 SIEM 方案。
 * [Azure 診斷和 Azure 稽核記錄的新功能](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/)。 此部落格文章為您介紹 Azure 稽核記錄和其他功能，協助您深入了解您的 Azure 資源的作業。

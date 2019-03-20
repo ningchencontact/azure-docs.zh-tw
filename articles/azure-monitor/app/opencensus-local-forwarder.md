@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights OpenCensus 分散式追蹤本機轉送工具 | Microsoft docs
+title: Azure Application Insights OpenCensus 分散式追蹤本機轉寄站 （預覽） |Microsoft docs
 description: 將 OpenCensus 分散式追蹤 (trace) 和跨度 (span) 從 Python 和 Go 等語言轉送給 Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002814"
 ---
-# <a name="local-forwarder"></a>本機轉送工具
+# <a name="local-forwarder-preview"></a>本機的轉寄站 （預覽）
 
 本機轉送工具是會從各種 SDK 收集 Application Insights 或 [OpenCensus](https://opencensus.io/) 遙測資料的代理程式，並且會將這些資料路由至 Application Insights。 此工具能夠在 Windows 和 Linux 下執行。 您也可以在 macOS 下執行，但目前尚未正式支援。
 
@@ -79,16 +79,16 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 針對特定使用案例，將本機轉送工具當作主控台應用程式來執行可能會有些助益。 該版本隨附下列主控台主機的可執行檔版本：
 * 架構相依的 .NET Core 二進位檔：/ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll。 執行此二進位檔需要安裝 .NET Core 執行階段；請參閱此下載[網頁](https://www.microsoft.com/net/download/dotnet-core/2.1)，以取得詳細資訊。
-```batchfile
-E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
+  ```
 * 適用於 x86 和 x64 平台的一組獨立式 .NET Core 二進位檔。 這些不需要執行 .NET Core 執行階段。 /ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe、/ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe。
-```batchfile
-E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  ```
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 
 如同 Windows，該版本隨附下列主控台主機的可執行檔版本：
 * 架構相依的 .NET Core 二進位檔：/ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll。 執行此二進位檔需要安裝 .NET Core 執行階段；請參閱此下載[網頁](https://www.microsoft.com/net/download/dotnet-core/2.1)，以取得詳細資訊。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856939"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091999"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory 中的 ForEach 活動
 ForEach 活動定義管線中重複的控制流程。 這個活動用來反覆查詢集合，並在迴圈中執行指定的活動。 此活動的迴圈實作與程式設計語言中的 Foreach 迴圈結構相似。
@@ -69,7 +69,7 @@ ForEach 活動定義管線中重複的控制流程。 這個活動用來反覆�
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
 name | for-each 活動的名稱。 | 字串 | 是
 type | 必須設定為 **ForEach** | 字串 | 是
@@ -474,7 +474,7 @@ batchCount | 批次計數，用於控制平行執行的數目 (當 isSequential 
 
 ## <a name="aggregating-outputs"></a>彙總輸出
 
-若要彙總 __foreach__ 活動的輸出，請利用 _Variable_s 與 _Append Variable_ 活動。
+到彙總的輸出__foreach__活動，請利用_變數_並_附加變數_活動。
 
 首先，在管線中宣告 `array` _variable_。 然後在每個 __foreach__ 迴圈內叫用 _Append Variable_ 活動。 接著，也可以從您的陣列中擷取彙總。
 

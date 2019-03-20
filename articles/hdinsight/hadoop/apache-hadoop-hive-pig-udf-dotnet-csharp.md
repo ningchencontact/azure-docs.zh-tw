@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 139fe946b013b1c86404bdef6ed06314af349c89
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: df8196389ecb92229ff9495002c4bce394d7c048
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343131"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202702"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 的 Apache Hadoop 上搭配使用 C# 使用者定義函數與 Apache Hive 和 Apache Pig 串流處理
 
@@ -47,7 +47,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
     如需 Mono 與 .NET Framework 版本之相容性的詳細資訊，請參閱 [Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/) \(英文\)。
 
-    若要使用特定版本的 Mono，請參閱[安裝或更新 Mono](../hdinsight-hadoop-install-mono.md) 文件。
+    若要使用 Mono 的特定版本，请参阅[安装或更新 Mono](../hdinsight-hadoop-install-mono.md) 文档。
 
 * __以 Windows 為基礎的 HDInsight__ 叢集使用 Microsoft.NET CLR 來執行.NET 應用程式。
 
@@ -172,13 +172,13 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
 6. 若要上傳 .exe 檔案，請使用下列其中一種方法：
 
-    * 如果使用 __Azure 儲存體帳戶__，請按一下上傳圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\debug** 資料夾。 最後，選取 **HiveCSharp.exe** 檔案並按一下 [確定]。
+   * 如果使用 __Azure 儲存體帳戶__，請按一下上傳圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\debug** 資料夾。 最后，选择 **HiveCSharp.exe** 文件并单击“确定”。
 
-        ![上傳圖示](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![上傳圖示](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]。 最後，選取 **HiveCSharp.exe** 檔案並按一下 [開啟]。
+   * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]。 最後，選取 **HiveCSharp.exe** 檔案並按一下 [開啟]。
 
-    __HiveCSharp.exe__ 上傳完成後，請針對 __PigUDF.exe__ 檔案重複上傳程序。
+     __HiveCSharp.exe__ 上傳完成後，請針對 __PigUDF.exe__ 檔案重複上傳程序。
 
 ## <a name="run-an-apache-hive-query"></a>執行 Apache Hive 查詢
 
@@ -208,7 +208,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
     > [!IMPORTANT]
     > 將和使用於您叢集之預設儲存體類型相符的 `add file` 陳述式取消註解。
 
-    此查詢會從 `hivesampletable` 中選取 `clientid`、`devicemake` 和 `devicemodel` 欄位，然後將這些欄位傳遞給 HiveCSharp.exe 應用程式。 此查詢預期應用程式會傳回儲存為 `clientid`、`phoneLabel` 和 `phoneHash` 的三個欄位。 此查詢也預期會在預設儲存體容器的根目錄中找到 HiveCSharp.exe。
+    此查詢會從 `hivesampletable` 中選取 `clientid`、`devicemake` 和 `devicemodel` 欄位，然後將這些欄位傳遞給 HiveCSharp.exe 應用程式。 该查询预期应用程序返回三个字段，它们存储为 `clientid`、`phoneLabel` 和 `phoneHash`。 此查詢也預期會在預設儲存體容器的根目錄中找到 HiveCSharp.exe。
 
 5. 按一下 [提交]，將工作提交至 HDInsight 叢集。 [Hive 作業摘要] 視窗隨即開啟。
 
@@ -216,11 +216,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
 ## <a name="run-an-apache-pig-job"></a>執行 Apache Pig 工作
 
-1. 使用下列其中一種方法來連線到您的 HDInsight 叢集︰
-
-    * 如果您使用__以 Linux 為基礎的__ HDInsight 叢集，請使用 SSH。 例如，`ssh sshuser@mycluster-ssh.azurehdinsight.net`。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * 如果您使用__以 Windows 為基礎的__ HDInsight 叢集，請[使用遠端桌面連線到叢集](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+1. 使用 SSH 連線到 HDInsight 叢集。 例如： `ssh sshuser@mycluster-ssh.azurehdinsight.net`。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. 使用下列其中一個命令來啟動 Pig 命令列：
 

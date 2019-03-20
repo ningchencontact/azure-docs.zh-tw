@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648639"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457904"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -29,7 +29,7 @@ ms.locfileid: "55648639"
 
 從 80 GB VHD 建立的標準受控磁碟會被視為下一個可用的標準磁碟大小 (S10 磁碟)。 將根據 S10 磁碟定價向您收費。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/storage)。
 
-**標準受控磁碟有任何交易成本嗎？**
+**标准托管磁盘是否产生任何事务成本？**
 
 是。 我們會根據每一筆交易向您收費。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/storage)。
 
@@ -77,7 +77,7 @@ ms.locfileid: "55648639"
 
 根據使用受控磁碟的可用性設定組所在區域，支援的容錯網域計數為 2 或 3。
 
-**如何設定診斷的標準儲存體帳戶？**
+**如何设置用于诊断的标准存储帐户？**
 
 您需要為 VM 診斷設定私人儲存體帳戶。
 
@@ -223,7 +223,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
 
-yes
+是
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>受控磁碟和儲存體服務加密
 
@@ -260,7 +260,7 @@ Microsoft 負責管理加密金鑰。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 轉換為受控磁碟？**
 
-yes
+是
 
 **從受控磁碟或快照集匯出的 VHD 是否也會加密？**
 
@@ -347,7 +347,7 @@ Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB�
 
 **有哪些區域支援超過 4 TiB 的受控磁碟大小？**
 
-現階段在預覽版中，美國中西部、北歐、西歐、美國西部 2、美國東部 2、美國東部可支援受控磁碟大小。
+政府機構、 中國和德國以外的所有 Azure 生產區域中支援受控的磁碟大小超過 4 TiB 的預覽。 
 
 **是否支援在較新的磁碟大小上啟用主機快取？**
 
@@ -355,6 +355,6 @@ Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB�
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果這裡沒有解答我的問題該怎麼辦？
 
-如果這裡未列出您的問題，請告訴我們，我們將協助您找到答案。 您可以在此文章結尾處將問題張貼在註解中。 若要就此文章與 Azure 儲存體小組和其他社群成員互動，請使用 MSDN [Azure 儲存體論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)。
+如果未在此处找到相关问题，请联系我们获取帮助。 您可以在此文章結尾處將問題張貼在註解中。 若要就此文章與 Azure 儲存體小組和其他社群成員互動，請使用 MSDN [Azure 儲存體論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)。
 
 若要提出功能要求，請將要求和想法提交到 [Azure 儲存體意見反應論壇](https://feedback.azure.com/forums/217298-storage)。

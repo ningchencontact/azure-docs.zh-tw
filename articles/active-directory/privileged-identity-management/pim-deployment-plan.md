@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54fa8d09d930069191fb48e0ab015d436496b725
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166397"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227026"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>部署 Azure AD Privileged Identity Management (PIM)
 
@@ -27,9 +27,9 @@ ms.locfileid: "56166397"
 
 > [!TIP]
 > 在本文件各處，您會看到有下列標示的項目：
->
+> 
 > :heavy_check_mark:**Microsoft 建議**
->
+> 
 > 這些項目屬於一般性建議，請在其適用於貴企業的特定需求時才加以實作。
 
 ## <a name="step-1-learn-about-pim"></a>步驟 1. 了解 PIM
@@ -58,7 +58,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 ### <a name="key-pim-terminology"></a>PIM 的重要術語
 
-| 詞彙或概念 | 說明 |
+| 詞彙或概念 | 描述 |
 | --- | --- |
 | 合格 | 需要使用者執行一或多個動作才能使用角色的角色指派。 如果使用者已有資格使用角色，即表示他們可以在需要執行特殊權限工作時啟用該角色。 使用者不論是具有永久角色指派還是合格角色指派，獲得的存取權並無差異。 唯一的差異在於有些使用者並不一直需要該存取權。 |
 | 啟用 | 此程序會執行一或多個動作，讓使用者使用有資格使用的角色。 動作可能包含執行多重要素驗證 (MFA) 檢查、提供業務理由，或是向指定的核准者要求核准。 |
@@ -99,7 +99,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>專案關係人：適用於 Azure AD 角色的 PIM
 
-| Name | 角色 |  動作 |
+| 名稱 | 角色 |  動作 |
 | --- | --- | --- |
 | 名稱和電子郵件 | **身分識別架構設計師或 Azure 全域系統管理員**<br/>身分識別管理小組所推派的代表人員，負責定義這項變更要如何與組織的核心身分識別管理基礎結構相配合。 | SO/R/I |
 | 名稱和電子郵件 | **服務擁有者/部門經理**<br/>單一或一組服務的 IT 擁有者所推派的代表人員。 這些人員是為其團隊做出決策並協助推廣 PIM 的關鍵人物。 | SO/R/I |
@@ -109,7 +109,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>專案關係人：Azure 資源角色的 PIM
 
-| Name | 角色 |  動作 |
+| 名稱 | 角色 |  動作 |
 | --- | --- | --- |
 | 名稱和電子郵件 | **訂用帳戶/資源擁有者**<br/>要為其部署 PIM 的每個訂用帳戶或資源，其 IT 擁有者所推派的代表人員 | SO/R/I |
 | 名稱和電子郵件 | **安全性擁有者**<br/>安全性團隊所推派的代表人員，可簽字同意該規劃符合組織的安全性需求。 | SO/R |
@@ -120,7 +120,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 在規劃時，您必須先藉由遵循[開始使用 PIM](pim-getting-started.md) 文件的指示，來同意並啟用 PIM。 啟用 PIM 後，您就可以存取某些特別設計來協助您完成部署的功能。
 
-如果您的目標是要為 Azure 資源部署 PIM，請遵循[在 PIM 中探索要管理的 Azure 資源](pim-resource-roles-discover-resources.md)文件的指示。 只有資源、資源群組和訂用帳戶的擁有者才能夠在 PIM 內探索這些項目。 如果您是全域系統管理員且嘗試要為 Azure 資源部署 PIM，則可以[提高存取權以管理所有 Azure 訂用帳戶](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)，以便獲得存取探索目錄中所有 Azure 資源的能力。 不過，我們的建議是，先尋求每個訂用帳戶擁有者的同意，再使用 PIM 管理其資源。
+如果您的目標是要為 Azure 資源部署 PIM，請遵循[在 PIM 中探索要管理的 Azure 資源](pim-resource-roles-discover-resources.md)文件的指示。 只有資源、資源群組和訂用帳戶的擁有者才能夠在 PIM 內探索這些項目。 如果您是全域系統管理員想要部署您的 Azure 資源的 PIM，您可以[提高管理所有 Azure 訂用帳戶的存取權限](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)，讓您有存取目錄中的所有 Azure 資源進行探索。 不過，我們的建議是，先尋求每個訂用帳戶擁有者的同意，再使用 PIM 管理其資源。
 
 ### <a name="enforce-principle-of-least-privilege"></a>強制執行最低權限原則
 
@@ -161,7 +161,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 針對 Azure 訂用帳戶和資源，您可以設定類似的存取權檢閱程序來檢閱每個訂用帳戶或資源中的角色。 此程序的目標是要讓連結至每個訂用帳戶或資源的擁有者和使用者存取系統管理員指派減到最少，以及要移除不必要的指派。 不過，組織通常會將這類工作委派給每個訂用帳戶或資源的擁有者，因為其對特定角色的了解更深 (特別是自訂角色)。
 
-如果您是具有全域系統管理員角色的 IT 系統管理員，且嘗試要為組織中的 Azure 資源部署 PIM，則可以[提高存取權以管理所有 Azure 訂用帳戶](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)，以獲得每個訂用帳戶的存取權。 然後，您可以尋找每個訂用帳戶的擁有者，然後與其合作來移除不必要的指派，並將擁有者角色的指派數量減到最少。
+如果您是具有全域管理員角色的 IT 系統管理員嘗試將部署適用於您組織中的 Azure 資源的 PIM，您可以[提高管理所有 Azure 訂用帳戶的存取權限](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)來取得每個訂用帳戶的存取。 然後，您可以尋找每個訂用帳戶的擁有者，然後與其合作來移除不必要的指派，並將擁有者角色的指派數量減到最少。
 
 具有 Azure 訂用帳戶擁有者角色的使用者也可利用 [Azure 資源的存取權檢閱](pim-resource-roles-start-access-review.md)，來稽核和移除不必要的角色指派，方法類似稍早針對 Azure AD 角色所述的程序。
 
@@ -179,10 +179,10 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 1. 全域管理員
 1. 安全性系統管理員
-1. 使用者帳戶管理員
+1. 使用者管理員
 1. Exchange 系統管理員
 1. SharePoint 管理員
-1. Intune 服務管理員
+1. Intune 系統管理員
 1. 安全性讀取者
 1. 服務管理員
 1. 計費管理員
@@ -256,16 +256,16 @@ Azure 資源的 PIM 可支援有時間限制的服務帳戶。 在對待服務�
 
 下表說明每個設定。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 | --- | --- |
 | 角色 | 要為其定義設定的角色名稱。 |
-| 需要 MFA | 符合資格的使用者是否必須先執行 MFA 才能啟動該角色。<br/><br/>:heavy_check_mark:**Microsoft 建議**您對所有系統管理員角色 (尤其是如果該角色有來賓使用者) 強制執行 MFA。 |
+| 需要 MFA | 符合資格的使用者是否必須先執行 MFA 才能啟動該角色。<br/><br/> :heavy_check_mark:**Microsoft 建議**您對所有系統管理員角色 (尤其是如果該角色有來賓使用者) 強制執行 MFA。 |
 | 通知 | 如果設定為 true，則組織中的全域系統管理員、特殊權限角色系統管理員和安全性系統管理員會在符合資格的使用者啟動該角色時收到電子郵件通知。<br/><br/>**附註：** 某些組織並未將電子郵件地址繫結至其系統管理員帳戶，若要取得這些電子郵件通知，請設定替代的電子郵件地址，以便讓系統管理員能夠收到這些電子郵件。 |
-| 事件票證 | 符合資格的使用者是否必須在啟動其角色時記錄下事件票證號碼。 此設定可協助組織透過內部事件號碼來識別每個啟動，以減少不必要的啟動。<br/><br/>:heavy_check_mark:**Microsoft 建議**您利用事件票證號碼，以讓 PIM 與內部系統繫結在一起。 這特別適用於需要知道啟動情境的核准者。 |
-| 需要核准 | 符合資格的使用者是否必須先獲得核准才能啟動該角色。<br/><br/>:heavy_check_mark:**Microsoft 建議**您為具有最多權限的角色設定核准機制。 根據所有 PIM 客戶的使用模式，全域系統管理員、使用者系統管理員、Exchange 系統管理員、安全性系統管理員和密碼系統管理員是會設定核准機制的最常見角色。 |
-| 核准者 | 如果需要核准才能啟動符合資格的角色，請列出應該核准要求的人員。 根據預設，PIM 會將核准者設定為所有屬於特殊權限角色系統管理員 (無論其為永久性或符合資格的系統管理員) 的使用者。<br/><br/>**附註：** 如果使用者同時有資格成為 Azure AD 角色和該角色的核准者，則無法核准其自身。<br/><br/>:heavy_check_mark:**Microsoft 建議**您在選擇核准者時，要找最了解特定角色和其經常性使用者的人員，而不是找全域系統管理員。 |
+| 事件票證 | 符合資格的使用者是否必須在啟動其角色時記錄下事件票證號碼。 此設定可協助組織透過內部事件號碼來識別每個啟動，以減少不必要的啟動。<br/><br/> :heavy_check_mark:**Microsoft 建議**您利用事件票證號碼，以讓 PIM 與內部系統繫結在一起。 這特別適用於需要知道啟動情境的核准者。 |
+| 需要核准 | 符合資格的使用者是否必須先獲得核准才能啟動該角色。<br/><br/> :heavy_check_mark:**Microsoft 建議**您為具有最多權限的角色設定核准機制。 根據所有 PIM 客戶的使用模式，全域系統管理員、使用者系統管理員、Exchange 系統管理員、安全性系統管理員和密碼系統管理員是會設定核准機制的最常見角色。 |
+| 核准者 | 如果需要核准才能啟動符合資格的角色，請列出應該核准要求的人員。 根據預設，PIM 會將核准者設定為所有屬於特殊權限角色系統管理員 (無論其為永久性或符合資格的系統管理員) 的使用者。<br/><br/>**附註：** 如果使用者同時有資格成為 Azure AD 角色和該角色的核准者，則無法核准其自身。<br/><br/> :heavy_check_mark:**Microsoft 建議**您在選擇核准者時，要找最了解特定角色和其經常性使用者的人員，而不是找全域系統管理員。 |
 | 啟動持續時間 | 使用者可以在到期前以該角色啟動的時間長度。 |
-| 永久性系統管理員 | 將成為該角色永久性 (永遠不必啟動) 系統管理員的使用者清單。<br/><br/>:heavy_check_mark:**Microsoft 建議**您除了全域系統管理員外，所有角色都不要有永久性的系統管理員。 請於本規劃的應該讓誰符合資格以及應該讓誰永久有效的章節中深入了解這方面的資訊。 |
+| 永久性系統管理員 | 將成為該角色永久性 (永遠不必啟動) 系統管理員的使用者清單。<br/><br/> :heavy_check_mark:**Microsoft 建議**您除了全域系統管理員外，所有角色都不要有永久性的系統管理員。 請於本規劃的應該讓誰符合資格以及應該讓誰永久有效的章節中深入了解這方面的資訊。 |
 | 有效系統管理員 | 針對 Azure 資源，有效的系統管理員是永遠不需要啟動就能使用該角色的使用者清單。 這並不是像 Azure AD 角色中的永久性系統管理員，因為您可以設定到期時間來讓使用者到時候失去此角色。 |
 | 有效到期日 | 在這個設定好的期間過後，Azure 資源角色的有效角色指派就會過期。 您可以選擇 15 天、1 個月、3 個月、6 個月、1 年或永久有效。 |
 | 合格到期日 | 在這個設定好的期間過後，Azure 資源角色的合格角色指派就會過期。 您可以選擇 15 天、1 個月、3 個月、6 個月、1 年或永久合格。 |

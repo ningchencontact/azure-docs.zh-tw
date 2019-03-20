@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340105"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897617"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程：設定 Workday 來自動佈建使用者
 
@@ -257,13 +257,13 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
     ![建立安全性群組](./media/workday-inbound-tutorial/wd_isu_03.png "建立安全性群組")
 2. 完成**建立安全性群組**工作。 
 
-  * Workday 中有兩種類型的安全性群組：
-    * **不受限制：** 此安全性群組的所有成員都可以存取此安全性群組所保護的所有資料執行個體。
-    * **受限制：** 所有安全性群組成員都只能對此安全性群組所能存取的一小部分資料執行個體 (資料列) 進行內容相關的存取。
-  * 請洽詢您的 Workday 整合合作夥伴，以選取適用於整合的安全性群組類型。
-  * 知道群組類型之後，請從 [Type of Tenanted Security Group] \(租用安全性群組類型\) 下拉式清單中選取 [Integration System Security Group (Unconstrained)] \(整合系統安全性群組 (不受限制)\) 或 [Integration System Security Group (Constrained)] \(整合系統安全性群組 (受限制)\)。
+   * Workday 中有兩種類型的安全性群組：
+     * **不受限制：** 此安全性群組的所有成員都可以存取此安全性群組所保護的所有資料執行個體。
+     * **受限制：** 所有安全性群組成員都只能對此安全性群組所能存取的一小部分資料執行個體 (資料列) 進行內容相關的存取。
+   * 請洽詢您的 Workday 整合合作夥伴，以選取適用於整合的安全性群組類型。
+   * 知道群組類型之後，請從 [Type of Tenanted Security Group] \(租用安全性群組類型\) 下拉式清單中選取 [Integration System Security Group (Unconstrained)] \(整合系統安全性群組 (不受限制)\) 或 [Integration System Security Group (Constrained)] \(整合系統安全性群組 (受限制)\)。
 
-    ![建立安全性群組](./media/workday-inbound-tutorial/wd_isu_04.png "建立安全性群組")
+     ![建立安全性群組](./media/workday-inbound-tutorial/wd_isu_04.png "建立安全性群組")
 
 3. 安全性群組成功建立之後，您會看到可用來將成員指派到安全性群組的頁面。 請將在上個步驟中建立的新整合系統使用者新增到此安全性群組。 如果您使用「受限制」安全性群組，則也需要選取適當的組織範圍。
 
@@ -286,11 +286,11 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
    * *人員資料：目前人員配置資訊*
    * *人員資料：人員個人檔案的職稱*
 
-    ![網域安全性原則](./media/workday-inbound-tutorial/wd_isu_07.png "網域安全性原則")  
+     ![網域安全性原則](./media/workday-inbound-tutorial/wd_isu_07.png "網域安全性原則")  
 
-    ![網域安全性原則](./media/workday-inbound-tutorial/wd_isu_08.png "網域安全性原則") 
+     ![網域安全性原則](./media/workday-inbound-tutorial/wd_isu_08.png "網域安全性原則") 
 
-    按一下 [確定]。
+     按一下 [確定]。
 
 3. 在顯示的報表中，選取顯示在 [外部帳戶佈建] 旁邊的省略號 (...)，然後按一下功能表選項 [網域] -> [編輯安全性原則權限]
 
@@ -428,7 +428,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 8. 完成 [系統管理員認證] 區段，如下所示：
 
-   * **管理員使用者名稱** – 輸入 Workday 整合系統帳戶的使用者名稱，需附加租用戶網域名稱。 這應該看起來像這樣：**username@tenant_name**
+   * **管理員使用者名稱** – 輸入 Workday 整合系統帳戶的使用者名稱，需附加租用戶網域名稱。 它應該看起來像： **username\@n**
 
    * **管理員密碼** – 輸入 Workday 整合系統帳戶的密碼
 
@@ -438,8 +438,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
    * **Active Directory 容器 -** 輸入容器 DN，其中是代理程式預設應建立使用者帳戶的位置。
         範例：*OU=Standard Users,OU=Users,DC=contoso,DC=test*
-> [!NOTE]
-> 如果並未在屬性對應中設定 *parentDistinguishedName* 屬性，此設定僅適用於使用者帳戶建立。 此設定不適用於使用者搜尋或更新作業。 整個網域的子樹狀會落在搜尋作業的範圍中。
+     > [!NOTE]
+     > 如果並未在屬性對應中設定 *parentDistinguishedName* 屬性，此設定僅適用於使用者帳戶建立。 此設定不適用於使用者搜尋或更新作業。 整個網域的子樹狀會落在搜尋作業的範圍中。
 
    * **通知電子郵件** – 輸入您的電子郵件地址，然後勾選 [發生失敗時傳送電子郵件] 核取方塊。
 
@@ -477,11 +477,11 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 > [!TIP]
 > 第一次設定佈建應用程式時，您將需要測試及確認屬性對應和運算式，以確保它提供您所需的結果。 Microsoft 建議您使用 [來源物件範圍] 底下的範圍篩選，利用幾個來自 Workday 的測試使用者來測試您的對應。 確認對應能夠運作之後，您便可以移除篩選，或逐漸擴大篩選來包含更多使用者。
 
-3. 在 [目標物件動作] 欄位中，您可以全域篩選在 Active Directory 上執行的動作。 最常見的動作是 [建立] 和 [更新]。
+1. 在 [目標物件動作] 欄位中，您可以全域篩選在 Active Directory 上執行的動作。 最常見的動作是 [建立] 和 [更新]。
 
-4. 在 [屬性對應] 區段中，您可以定義個別 Workday 屬性如何對應至 Active Directory 屬性。
+1. 在 [屬性對應] 區段中，您可以定義個別 Workday 屬性如何對應至 Active Directory 屬性。
 
-5. 按一下現有的屬性對應以進行更新，或按一下畫面底端的 [新增新對應] 以新增新對應。 個別屬性對應支援下列屬性：
+1. 按一下現有的屬性對應以進行更新，或按一下畫面底端的 [新增新對應] 以新增新對應。 個別屬性對應支援下列屬性：
 
       * **對應類型**
 
@@ -508,7 +508,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
          * **僅限建立期間** - 僅將此對應套用於使用者建立動作
 
-6. 若要儲存您的對應，請按一下 [屬性對應] 區段頂端的 [儲存]。
+1. 若要儲存您的對應，請按一下 [屬性對應] 區段頂端的 [儲存]。
 
    ![Azure 入口網站](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -524,8 +524,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **是** | 僅於建立時寫入 |
 | **PreferredNameData**    |  cn    |   |   僅於建立時寫入 |
-| **SelectUniqueValue( Join("@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | 僅於建立時寫入 
-| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         僅於建立時寫入 |
+| **SelectUniqueValue (加入 ("\@"，加入 ("。"， \[FirstName\]， \[LastName\])，"contoso.com")，加入 (「\@"，加入 ("。"、 Mid (\[FirstName\]，1，1(）， \[LastName\])，"contoso.com")，加入 (「\@"，加入 (」。 「、 Mid (\[FirstName\]、 1、 2)， \[LastName\])，"contoso.com"))**   | userPrincipalName     |     | 僅於建立時寫入 
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         僅於建立時寫入 |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | 建立 + 更新 |
 | **名字**   | givenName       |     |    建立 + 更新 |
 | **姓氏**   |   sn   |     |  建立 + 更新 |
@@ -677,7 +677,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 8. 完成 [系統管理員認證] 區段，如下所示：
 
-   * **系統管理員使用者名稱** – 輸入 Workday 整合系統帳戶的使用者名稱，並附加租用戶網域名稱。 這應該看起來像這樣：*username@contoso4*
+   * **系統管理員使用者名稱** – 輸入 Workday 整合系統帳戶的使用者名稱，並附加租用戶網域名稱。 看起來應該類似： *username\@contoso4*
 
    * **管理員密碼** – 輸入 Workday 整合系統帳戶的密碼
 
@@ -853,12 +853,12 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>如何確保佈建代理程式能夠與 Azure AD 租用戶進行通訊，而沒有任何防火牆封鎖代理程式所需的連接埠？
 
-您也可以藉由從內部部署網路開啟[連接器連接埠測試工具 (英文)](https://aadap-portcheck.connectorporttest.msappproxy.net/) 來檢查是否已開啟所有必要的連接埠。 越多的綠色勾選記號，表示越佳的復原功能。
+您也可以檢查您是否擁有所有必要的連接埠開啟 %installationdirectory[連接器連接埠測試工具](https://aadap-portcheck.connectorporttest.msappproxy.net/)從您內部部署網路。 越多的綠色勾選記號，表示越佳的復原功能。
 
 為了確定工具可提供您正確的結果，請務必：
 
 * 從您已安裝「佈建代理程式」之伺服器的瀏覽器上開啟工具。
-* 確定所有適用於您「佈建代理程式」的 Proxy 或防火牆也已套用至這個頁面。 您可以在 Internet Explorer 中移至 [設定] -> [網際網路選項] -> [連線] -> [LAN 設定] 來完成此動作。 在此頁面上，您會看到 [為您的 LAN 使用 Proxy 伺服器] 欄位。 請選取此方塊，然後在 [位址] 欄位中輸入 Proxy 位址。
+* 確定所有適用於您「佈建代理程式」的 Proxy 或防火牆也已套用至這個頁面。 做法是在 Internet Explorer 中移至**設定]-> [網際網路選項]-> [連線]-> [LAN 設定**。 在此頁面上，您會看到 [為您的 LAN 使用 Proxy 伺服器] 欄位。 請選取此方塊，然後在 [位址] 欄位中輸入 Proxy 位址。
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>是否可以設定讓一個佈建代理程式佈建多個 AD 網域？
 
@@ -1064,7 +1064,7 @@ SelectUniqueValue(
 
 當偵測到 Workday 中的新雇用人員 (假設「員工識別碼」為 *21023*) 時，Azure AD 佈建服務會嘗試為該人員建立新的 AD 使用者帳戶，然後在該程序中建立 4 個稽核記錄，如下所述：
 
-  [ ![稽核記錄建立作業](media/workday-inbound-tutorial/wd_audit_logs_02.png) ](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![稽核記錄檔建立作業](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 當您按一下任何稽核記錄時，[活動詳細資料] 頁面隨即開啟。 以下是 [活動詳細資料] 頁面針對每個記錄類型顯示的內容。
 
@@ -1132,7 +1132,7 @@ SelectUniqueValue(
 
 manager 屬性是 AD 中的參考屬性。 佈建服務不會在進行使用者建立作業的過程中設定 manager 屬性。 而是在為使用者建立 AD 帳戶之後，於進行「更新」作業的過程中，才會設定 manager 屬性。 擴充上述案例，假設在 Workday 中已啟用「員工識別碼」為 "21451" 的新雇用人員，而該新雇用人員的管理員 (*21023*) 已經有 AD 帳戶。 在此案例中，於稽核記錄中搜尋使用者 21451 會顯示 5 個項目。
 
-  [ ![管理員更新](media/workday-inbound-tutorial/wd_audit_logs_03.png) ](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![管理員更新](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 前 4 個記錄與我們在使用者建立作業中探索的記錄類似。 第 5 個記錄是與 manager 屬性更新相關的匯出。 此記錄會顯示 AD 帳戶管理員更新作業 的結果，這是使用管理員的 *objectGuid* 屬性來執行的作業。
 
@@ -1226,7 +1226,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 7. 將 [作業] 設定為 [Get_Workers]
 
-8.  按一下 [要求]/[回應] 窗格下方的小型**設定**連結，以設定您的 Workday 認證。 勾選 [驗證]，然後輸入 Workday 整合系統帳戶的使用者名稱和密碼。 請務必將使用者名稱的格式設為 name@tenant，並讓 [WS-Security 使用者名稱權杖] 選項繼續保持已選取狀態。
+8.  按一下 [要求]/[回應] 窗格下方的小型**設定**連結，以設定您的 Workday 認證。 勾選 [驗證]，然後輸入 Workday 整合系統帳戶的使用者名稱和密碼。 請務必將做為名稱的使用者名稱的格式\@租用戶，並保留**WEB 服務安全性 UsernameToken**選取的選項。
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

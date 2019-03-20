@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: cbb144cc8aac6dc8e90d196147b0c154471b7239
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994811"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102055"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>使自訂資料來源與 Application Insights 資料相互關聯
 
@@ -44,7 +44,7 @@ Application Insights 會收集數個不同的資料類型：例外狀況、追�
 
 - 若要使用同步機制，您可以直接呼叫[資料收集器 API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)，或使用我們的邏輯應用程式連接器 – 只要尋找 [Azure Log Analytics]，然後選擇 [傳送資料] 選項即可：
 
- ![選擇和動作的螢幕擷取畫面](./media/custom-data-correlation/01-logic-app-connector.png)  
+  ![選擇和動作的螢幕擷取畫面](./media/custom-data-correlation/01-logic-app-connector.png)  
 
 - 若要使用非同步選項，請使用「資料收集器 API」來建置處理管線。 如需詳細資訊，請參閱[本文](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api)。
 

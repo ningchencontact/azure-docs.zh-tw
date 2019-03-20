@@ -16,17 +16,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 413e449f005d288f66da0257f5b800733e58eb94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194193"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011267"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>在 Azure 上部署適用於 SAP ERP 6.0 的 SAP IDES EHP7 SP3
 本文說明如何透過 SAP Cloud Appliance Library (SAP CAL) 3.0 在 Azure 上部署與 SQL Server 和 Windows 作業系統搭配執行的 SAP IDES 系統。 螢幕擷取畫面會顯示逐步程序。 若要部署不同的解決方案，請遵循相同的步驟。
 
-若要開始使用 SAP CAL，請前往 [SAP Cloud Appliance Library](https://cal.sap.com/) 網站。 SAP 也有關於全新 [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience) 的部落格。 
+若要開始使用 SAP CAL，請前往 [SAP Cloud Appliance Library](https://cal.sap.com/) 網站。 SAP 也有關於全新 [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience) 的部落格。 
 
 > [!NOTE]
 > 自 2017 年 5 月 29 日起，除了較不建議使用的傳統部署模型外，您還可以使用 Azure Resource Manager 部署模型來部署 SAP CAL。 我們建議您使用新的 Resource Manager 部署模型，而不要使用傳統部署模型。
@@ -46,8 +46,8 @@ ms.locfileid: "53194193"
     
     c. 賦予 SAP CAL 部署到 Azure 訂用帳戶的權限。
 
-    > [!NOTE]
-    接下來的步驟會示範如何針對 Resource Manager 部署建立 SAP CAL 帳戶。 如果您已有連結至傳統部署模型的 SAP CAL 帳戶，則您「必須」遵循下列步驟來建立新的 SAP CAL 帳戶。 新的 SAP CAL 帳戶必須以 Resource Manager 模式部署。
+   > [!NOTE]
+   >  接下來的步驟會示範如何針對 Resource Manager 部署建立 SAP CAL 帳戶。 如果您已有連結至傳統部署模型的 SAP CAL 帳戶，則您「必須」遵循下列步驟來建立新的 SAP CAL 帳戶。 新的 SAP CAL 帳戶必須以 Resource Manager 模式部署。
 
 1. 若要建立新的 SAP CAL 帳戶，[帳戶] 頁面會顯示兩個適用於 Azure 的選項： 
 
@@ -91,7 +91,7 @@ ms.locfileid: "53194193"
 - 將 SAP 系統部署到您的 Azure 訂用帳戶。
 
 > [!NOTE]
-您可能需要先註冊 SAP CAL 訂用帳戶，才可以部署以 Windows 和 SQL Server 為基礎的 SAP IDES 解決方案。 否則在概觀頁面上，解決方案可能會顯示為 [已鎖定]。
+> 您可能需要先註冊 SAP CAL 訂用帳戶，才可以部署以 Windows 和 SQL Server 為基礎的 SAP IDES 解決方案。 否則在概觀頁面上，解決方案可能會顯示為 [已鎖定]。
 
 ### <a name="deploy-a-solution"></a>部署解決方案
 1. 在設定 SAP CAL 帳戶之後，請選取 [Windows 和 SQL Server 上的 SAP IDES 解決方案] 解決方案。 按一下 [建立執行個體]，並確認使用條款和條件。 

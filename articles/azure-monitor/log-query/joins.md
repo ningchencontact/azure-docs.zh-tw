@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004630"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079106"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的聯結
 
 > [!NOTE]
-> 您應該先完成[開始使用 Azure 監視器記錄分析](get-started-portal.md)與 [Azure 監視器記錄查詢](get-started-queries.md)，再完成此課程。
+> 您應該先完成[開始使用 Azure 監視器 Log Analytics](get-started-portal.md)並[Azure 監視器的記錄檔查詢](get-started-queries.md)之前完成這一課。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -86,7 +86,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>聯結類型
 使用 _kind_ 引數指定聯結類型。 每種類型都會在給定資料表的記錄之間執行不同的比對，如下表所示。
 
-| 聯結類型 | 說明 |
+| 聯結類型 | 描述 |
 |:---|:---|
 | innerunique | 這是預設聯結模式。 首先，系統會找到左側資料表上的相符資料行，然後移除重複值。  接著，會和右側資料表比對唯一值集合。 |
 | inner | 只有兩個資料表中都有的相符記錄才會包含在結果中。 |
@@ -101,7 +101,7 @@ SecurityEvent
 
 - 在每個資料表上使用時間篩選以減少必須針對聯結評估的記錄數目。
 - 在聯結之前，使用 `where` 與 `project` 來減少輸入資料表中的資料列與資料行數目。
-* 如果某個資料表永遠都比另一個資料表還小，請將它做為聯結的左側。
+- 如果某個資料表永遠都比另一個資料表還小，請將它做為聯結的左側。
 
 
 ## <a name="next-steps"></a>後續步驟

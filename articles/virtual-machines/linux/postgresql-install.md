@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: e851f6f5433a832aa30a0d87a917b64d1bc721f2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888272"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998980"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>安裝和設定 Azure 上的 PostgreSQL
 PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它包含企業用功能，例如完整的 ACID 的相容性、可靠的交易式程序，以及多版本的並行控制。 它也支援標準，例如 ANSI SQL 和 SQL/MED (包括 Oracle、MySQL、MongoDB 和許多其他項目的外部資料包裝函式)。 其高度可擴充性支援超過 12 種程序性語言、GIN 和 GiST 索引、空間資料支援和多個類似 NoSQL 的功能，適用於 JSON 或以索引鍵-值為基礎的應用程式。
@@ -69,7 +69,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
    
         # gmake install-world
    
-    您會收到下列確認訊息：
+    你应该会收到以下确认消息：
    
         PostgreSQL, contrib, and documentation successfully made. Ready to install.
 
@@ -89,7 +89,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
         # su - postgres
    
    > [!NOTE]
-   > 基於安全性理由，PostgreSQL 會使用非根使用者初始化、啟動或關閉資料庫。
+   > 出于安全原因，PostgreSQL 将使用非根用户来初始化、启动或关闭数据库。
    > 
    > 
 4. 輸入下列命令以編輯 bash_profile 檔。 這幾行將會加入至 bash_profile 檔案的結尾：
@@ -109,7 +109,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 5. 執行 bash_profile 檔案：
    
         $ source .bash_profile
-6. 利用下列命令驗證安裝：
+6. 使用以下命令验证你的安装：
    
         $ which psql
    
@@ -157,7 +157,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
     # netstat -tunlp|grep 1999
 
-您應該會看見下列輸出：
+你应该会看到以下输出：
 
 ![映像](./media/postgresql-install/no3.png)
 
@@ -203,7 +203,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 您應該會看見此輸出：
 
-![映像](./media/postgresql-install/no6.png)
+![图像](./media/postgresql-install/no6.png)
 
 您也可以將更多人員新增至資料表。 以下是一些選項，或者您可以建立自己的選項：
 
@@ -238,5 +238,5 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 
 ## <a name="get-more-information-about-postgresql"></a>取得 PostgreSQL 的詳細資訊
-既然您已完成在 Azure Linux VM 中的 PostgreSQL 安裝，您可以在 Azure 中享用它。 若要深入了解 PostgreSQL，請造訪 [PostgreSQL 網站](http://www.postgresql.org/)。
+既然您已完成在 Azure Linux VM 中的 PostgreSQL 安裝，您可以在 Azure 中享用它。 若要深入了解 PostgreSQL，請造訪 [PostgreSQL 網站](https://www.postgresql.org/)。
 

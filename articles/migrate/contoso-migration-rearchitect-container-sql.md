@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: cb984bcbe79b69c0614579d66a3b853cd38a7e12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892179"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099081"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso 移轉：將內部部署應用程式重新建構至 Azure 容器和 Azure SQL Database
 
@@ -402,10 +402,10 @@ Contoso 管理員會使用 Visual Studio 和 SDK Tools 將應用程式轉換成�
 4. 其會針對 SmartHotel.Registration.WCF 應用程式重複此程序。
 5. 現在，其會檢查此解決方案有什麼改變。
 
-    - 新的應用程式是 **SmartHotel.RegistrationApplication/**
-    - 它包含兩個服務：**SmartHotel.Registration.WCF** 和 **SmartHotel.Registration.Web**。
+   - 新的應用程式是 **SmartHotel.RegistrationApplication/**
+   - 它包含兩個服務：**SmartHotel.Registration.WCF** 和 **SmartHotel.Registration.Web**。
 
-    ![容器](./media/contoso-migration-rearchitect-container-sql/container4.png)
+     ![容器](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 6. Visual Studio 已建立 Docker 檔案，並將所需的映像從本機提取到開發人員機器。
 
@@ -488,7 +488,7 @@ Contoso 管理員現在會設定 Azure DevOps Services 來執行建置和發行�
 
 16. 此外，也請注意，持續部署觸發程序已啟用。
 
-   ![持續部署已啟用](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+    ![持續部署已啟用](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
 17. 其會按一下 [儲存] > [建立發行]。
 

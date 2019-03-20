@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: a24448507fa16a48ab3522c3307261d989d773ee
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 9c507bf1526bbee78d519362fc51453803820d57
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108387"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒體編碼器高階工作流程格式和轉碼器
 
@@ -26,8 +26,6 @@ ms.locfileid: "55895012"
 > 如有進階編碼器的問題，請傳送電子郵件到 mepd@microsoft.com。
 > 
 > 本主題中討論的媒體編碼器高階工作流程媒體處理器無法在中國使用。 
-> 
-> 
 
 本文包含 **Media Encoder Premium Workflow** 編碼器公開預覽版本支援的輸入與輸出檔案格式以及轉碼器清單。
 
@@ -47,7 +45,7 @@ ms.locfileid: "55895012"
 * MXF/SMPTE 377M
 * GXF
 * MPEG-2 傳輸資料流
-* MPEG-2 程式資料流
+* MPEG-2 节目流
 * MPEG-4/MP4
 * Windows Media/ASF
 * AVI (未壓縮 8 位元/10 位元)
@@ -78,7 +76,7 @@ ms.locfileid: "55895012"
 
 下節列出此媒體處理器支援做為輸出的轉碼器和檔案格式。
 
-### <a name="output-containerfile-formats"></a>輸出容器/檔案格式
+### <a name="output-containerfile-formats"></a>输出容器/文件格式
 
 * Adobe® Flash® F4V
 * MXF (OP1a、XDCAM 和 AS02)
@@ -97,7 +95,7 @@ ms.locfileid: "55895012"
 * DVCPro/DVCProHD (使用 MXF)
 * MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)
 * MPEG-1
-* Windows Media 視訊/VC-1
+* Windows Media 视频/VC-1
 * JPEG 縮圖建立
 * HEVC (H.265、8 位元和 10 位元、主要和主要 10 設定檔)
 

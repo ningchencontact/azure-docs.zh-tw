@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: fe3727c90819a96b7e1785362e557edd5cbbdf02
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910908"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199319"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>在 Hadoop 型 HDInsight 叢集上安裝和使用 Presto
 
@@ -42,11 +42,11 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
 
 1. 採取[使用 Azure 入口網站在 HDInsight 中建立 Linux 型叢集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步驟來開始佈建叢集。 請務必使用**自訂**叢集建立流程來建立叢集。 叢集必須符合下列需求：
 
-    * 必須為隨附 HDInsight 3.6 版的 Hadoop 叢集。
+   * 必須為隨附 HDInsight 3.6 版的 Hadoop 叢集。
 
-    * 它必須使用 Azure 儲存體作為資料存放區。 目前尚無法選擇在使用 Azure Data Lake Storage 作為儲存體選項的叢集上使用 Presto。
+   * 它必須使用 Azure 儲存體作為資料存放區。 目前尚無法選擇在使用 Azure Data Lake Storage 作為儲存體選項的叢集上使用 Presto。
 
-    ![HDInsight - 自訂 (大小、設定、應用程式)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight - 自訂 (大小、設定、應用程式)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. 在 [進階設定] 區域中，選取 [指令碼動作]。 請提供下列資訊。 您也可以針對指令碼類型選擇 [安裝 Presto] 選項：
    
@@ -163,7 +163,6 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
 
 5. 等候新執行個體準備就緒。 記下 Presto 協調者位址：
 
-
     `sudo slider registry --name presto1 --getexp presto`
 
 ## <a name="generate-benchmark-data-for-hdinsight-clusters-that-run-presto"></a>產生執行 Presto 之 HDInsight 叢集的基準測試資料
@@ -176,8 +175,6 @@ TPC-DS 是業界標準，可用於測量許多決策支援系統 (包括巨量�
 * [在 HDInsight Hadoop 叢集上安裝和使用 Hue](hdinsight-hadoop-hue-linux.md)。 Hue 是一個 Web UI，可讓您輕鬆地建立、執行及儲存 Apache Pig 和 Hive 作業。
 
 * [在 HDInsight Hadoop 叢集上安裝 Apache Giraph 並使用 Giraph 來處理大規模圖形](hdinsight-hadoop-giraph-install-linux.md)。 使用叢集自訂在 Hadoop 型 HDInsight 叢集上安裝 Giraph。 透過 Giraph，您可以使用 Hadoop 來執行圖形處理。 它也可以與 Azure HDInsight 搭配使用。
-
-* [在 HDInsight Hadoop 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install-linux.md)。 使用叢集自訂在 Hadoop 型 HDInsight 叢集上安裝 Solr。 藉由使用 Solr，您可以對儲存的資料執行功能強大的搜尋作業。
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

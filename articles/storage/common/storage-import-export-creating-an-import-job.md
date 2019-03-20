@@ -8,52 +8,52 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102174"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>建立 Azure 匯入/匯出服務的匯入作業
 
 使用 REST API 建立 Microsoft Azure 匯入/匯出服務的匯入作業包含下列步驟︰
 
--   利用 Azure 匯入/匯出工具來準備磁碟機。
+- 利用 Azure 匯入/匯出工具來準備磁碟機。
 
--   取得要寄送磁碟機的位置。
+- 取得要寄送磁碟機的位置。
 
--   建立匯入作業。
+- 建立匯入作業。
 
--   透過支援的貨運服務將磁碟機寄送給 Microsoft。
+- 透過支援的貨運服務將磁碟機寄送給 Microsoft。
 
--   使用出貨詳細資料更新匯入工作。
+- 使用出貨詳細資料更新匯入工作。
 
- 請參閱[使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體](storage-import-export-service.md)以取得匯入/匯出服務概觀及示範如何使用 [Azure 入口網站](https://portal.azure.com/)建立和管理匯入與匯出作業的教學課程。
+  請參閱[使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體](storage-import-export-service.md)以取得匯入/匯出服務概觀及示範如何使用 [Azure 入口網站](https://portal.azure.com/)建立和管理匯入與匯出作業的教學課程。
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>準備具有 Azure 匯入/匯出工具的磁碟機
 
-無論您是透過入口網站或透過 REST API 建立作業，準備匯入作業的磁碟機步驟都相同。
+不論您是建立透過入口網站或透過 REST API 作業，若要準備匯入作業的磁碟機的步驟都相同。
 
 以下是磁碟機準備的簡要概觀。 請參閱 [Azure 匯入匯出工具參考](storage-import-export-tool-how-to-v1.md)以取得完整指示。 您可以在[這裡](https://go.microsoft.com/fwlink/?LinkID=301900)下載 Azure 匯入/匯出工具。
 
 準備您的磁碟機包含︰
 
--   識別要匯入的資料。
+- 識別要匯入的資料。
 
--   在 Windows Azure 儲存體中識別目的地 blob。
+- 在 Windows Azure 儲存體中識別目的地 blob。
 
--   使用 Azure 匯入/匯出工具，將資料複製到一或多個硬碟。
+- 使用 Azure 匯入/匯出工具，將資料複製到一或多個硬碟。
 
- Azure 匯入/匯出工具也會在備妥時，針對每個磁碟機產生資訊清單檔案。 資訊清單檔案包含︰
+  Azure 匯入/匯出工具也會在備妥時，針對每個磁碟機產生資訊清單檔案。 資訊清單檔案包含︰
 
--   適用於上傳和從這些檔案對應至 blob 的所有檔案之列舉型別。
+- 適用於上傳和從這些檔案對應至 blob 的所有檔案之列舉型別。
 
--   每個檔案區段的總和檢查碼。
+- 每個檔案區段的總和檢查碼。
 
--   與每個 blob 相關聯的中繼資料及內容的相關資訊。
+- 與每個 blob 相關聯的中繼資料及內容的相關資訊。
 
--   如果要上傳的 blob 與容器中現有的 blob 具有相同名稱時，要採取的動作清單。 可能的選項包括︰a) 以 blob 覆寫檔案、b) 保留現有的 blob 並略過上傳檔案、c) 在名稱後面附加尾碼，使它不會與其他檔案衝突。
+- 如果要上傳的 blob 與容器中現有的 blob 具有相同名稱時，要採取的動作清單。 可能的選項包括︰a) 以 blob 覆寫檔案、b) 保留現有的 blob 並略過上傳檔案、c) 在名稱後面附加尾碼，使它不會與其他檔案衝突。
 
 ## <a name="obtaining-your-shipping-location"></a>取得寄送位置
 
@@ -72,7 +72,7 @@ ms.locfileid: "55729399"
 
 -   作業的名稱。
 
--   儲存體帳戶名稱。
+-   存储帐户名称。
 
 -   從上一個步驟中取得的寄送位置名稱。
 

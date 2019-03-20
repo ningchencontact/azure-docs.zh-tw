@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104568"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>將資料從 StorSimple 5000-7000 系列移轉至 Azure 檔案同步
 
@@ -57,7 +57,7 @@ StorSimple 5000 和 7000 系列儲存體裝置將在 2019 年 7 月終止服務�
 - 主機有足夠的本機儲存體可容納您在本機快取的資料。
 - 可對將用來部署 Azure 檔案同步的 Azure 訂用帳戶進行擁有者層級存取。如果您沒有擁有者或管理員層級權限，您在建立同步群組的雲端端點時可能會發生問題。
 - 可存取[一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-overview) (具有要作為同步目標的 Azure 檔案共用)。 如需詳細資訊，請參閱[建立儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。
- - 如何[建立 Azure 檔案共用](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)。
+  - 如何[建立 Azure 檔案共用](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)。
 
 ## <a name="migration-process"></a>移轉程序
 
@@ -87,7 +87,7 @@ StorSimple 5000 和 7000 系列儲存體裝置將在 2019 年 7 月終止服務�
     如果您使用不同的 Windows Server 主機，請略過此步驟並移至下一個步驟。 如果您將相同的 Windows 檔案伺服器用於 AFS，此時將會出現幾分鐘的停機時間。 
     - **停機時間開始** - 刪除您在*步驟 1F* 中建立的伺服器端點。 
     - 使用您後續要用來存放資料的路徑，建立新的伺服器端點。
-    - 當伺服器端點呈現為「狀況良好」時 (這可能需要幾分鐘的時間)，您會在這個新的位置中看到資料。 現在，您可以設定 Windows Server 主機以從這個新位置提供檔案。 - **停機時間結束**。
+    - 當伺服器端點呈現為「狀況良好」時 (這可能需要幾分鐘的時間)，您會在這個新的位置中看到資料。 現在，您可以設定 Windows Server 主機以從這個新位置提供檔案。 -**停機時間結束**。
 5.  如果您將其他 Windows 檔案伺服器用於 Azure 檔案同步，則不會出現任何停機時間。 
     - 使用您準備要替代 StorSimple 裝置作為快取的本機儲存體所使用的路徑，新增另一個伺服器端點。 
     - 幾分鐘後您即可在新的伺服器中看到檔案。 您可以隨時從 StorSimple 裝置切換到主機上的這個新位置。

@@ -11,22 +11,26 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855379"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096719"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+Azure Functions 執行階段支援[Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)。
+
+本指南包含撰寫 Java 的 Azure Functions 的錯綜複雜的相關資訊。
+
+Java 函式是`public`方法以註釋裝飾`@FunctionName`。 這個方法會定義 java 函式的項目，而且必須是唯一指定的封裝中。 
+
+本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 您也應該完成 Functions 快速入門，來建立您的第一個函式，使用[Visual Studio Code](functions-create-first-function-vs-code.md)或是[使用 maven](functions-create-first-java-maven.md)。
 
 ## <a name="programming-model"></a>程式設計模型 
 
 [觸發程序和繫結](functions-triggers-bindings.md)的概念是 Azure Functions 的基礎。 觸發程序會開始執行您的程式碼。 繫結可讓您將資料傳至函式以及從函式傳回資料，而不需要撰寫自訂的資料存取程式碼。
-
-函式應該是無狀態方法，用來處理輸入及產生輸出。 您的函式不應相依於類別的任何執行個體欄位。 所有函式方法均應為 `public`，且附有註釋 @FunctionName 的方法必須是唯一的，因為方法名稱會定義函式的項目。
 
 ## <a name="folder-structure"></a>資料夾結構
 
@@ -387,6 +391,6 @@ public class Function {
 * [Azure Functions 的最佳做法](functions-best-practices.md)
 * [Azure Functions 開發人員參考](functions-reference.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
-- 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 進行本機開發與偵錯。 
+* 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 進行本機開發與偵錯。 
 * [使用 Visual Studio Code 針對 Java Azure Functions 進行遠端偵錯](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Azure Functions 適用的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) (英文) - 透過 `azure-functions:add` 目標建立串流函式，並針對 [ZIP 檔案開發](deployment-zip-push.md)準備暫存目錄。

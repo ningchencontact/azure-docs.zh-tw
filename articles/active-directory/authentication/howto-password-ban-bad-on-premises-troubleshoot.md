@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5727965373752d40e3ce508c1bc79046c2b3b70b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177746"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006946"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>預覽：Azure AD 密碼保護的疑難排解
 
@@ -27,27 +27,65 @@ ms.locfileid: "56177746"
 
 部署 Azure AD 密碼保護之後，可能需要進行疑難排解。 本文將深入說明以協助您了解一些常見的疑難排解步驟。
 
-## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>弱式密碼並未如預期般遭到拒絕
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>DC 代理程式在目錄中找不到 proxy
 
-這可能有數個可能的原因：
+這個問題的主要的徵兆是 30017 DC 代理程式管理的事件記錄檔中的事件。
 
-1. 您的 DC 代理程式尚未下載原則。 此問題的徵兆是 DC 代理程式系統管理事件記錄檔中的 30001 事件。
+此問題的常見的原因是尚未註冊 proxy。 如果尚未註冊 proxy，可能有一些延遲，因為 AD 複寫延遲直到特定的 DC 代理程式可以看到該 proxy。
 
-    對於此問題的可能原因包括：
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>DC 代理程式不能與 proxy 通訊
 
-    1. 尚未註冊樹系
-    2. 尚未註冊 Proxy
-    3. 網路連線問題會導致 Proxy 服務無法與 Azure 通訊 (請檢查 HTTP Proxy 需求)
+這個問題的主要的徵兆是 30018 DC 代理程式管理的事件記錄檔中的事件。 這可能有數個可能的原因：
 
-2. 密碼原則強制模式仍會設為 [稽核]。 如果發生這種情況，請使用 Azure AD 密碼保護入口網站，將它重新設定為 [強制]。 請參閱[啟用密碼保護](howto-password-ban-bad-on-premises-operations.md#enable-password-protection)。
+1. DC 代理程式位於隔離網路的一部分，不允許已註冊的 proxy(s) 的網路連線。 這個問題可能因此是 expected\benign，只要與 proxy(s) 通訊其他 DC 代理程式，可以將它以便密碼原則從 Azure 下載，然後將會取得由透過複寫的 sysvol 共用中的原則檔案隔離網域控制站。
 
-3. 密碼原則已停用。 如果發生這種情況，請使用 Azure AD 密碼保護入口網站，將它重新設定為 [啟用]。 請參閱[啟用密碼保護](howto-password-ban-bad-on-premises-operations.md#enable-password-protection)。
+1. Proxy 主機電腦封鎖對 RPC 端點對應程式端點 （連接埠 135） 的存取
 
-4. 密碼驗證演算法可能會如預期般運作。 請參閱[如何評估密碼](concept-password-ban-bad.md#how-are-passwords-evaluated)。
+   Azure AD 密碼保護 Proxy 安裝程式會自動建立的 Windows 防火牆輸入的規則允許存取連接埠 135。 如果這項規則之後遭到刪除或停用，DC 代理程式將無法與 Proxy 服務通訊。 如果已停用 Windows 防火牆為內建代替其他防火牆產品，您必須設定防火牆以允許存取連接埠 135。
+
+1. Proxy 主機電腦正在封鎖 RPC 端點 （動態或靜態） 的存取權的 Proxy 服務所接聽
+
+   Azure AD 密碼保護 Proxy 安裝程式會自動建立的 Windows 防火牆輸入的規則，允許任何輸入連接埠存取的 Azure AD 密碼保護 Proxy 服務所接聽。 如果這項規則之後遭到刪除或停用，DC 代理程式將無法與 Proxy 服務通訊。 如果已停用 Windows 防火牆為內建代替其他防火牆產品，您必須設定防火牆以允許任何輸入連接埠來存取 Azure AD 密碼保護 Proxy 服務所接聽。 這項設定可能會進行更特定，如果已設定為接聽特定的靜態 RPC 連接埠的 Proxy 服務 (使用`Set-AzureADPasswordProtectionProxyConfiguration`cmdlet)。
+
+## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Proxy 服務可以接收來自網域中的 DC 代理程式的呼叫，但無法與 Azure 通訊
+
+請確定 proxy 機器能夠連線到中列出的端點[部署需求](howto-password-ban-bad-on-premises-deploy.md)。
+
+## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>DC 代理程式 」 無法加密或解密的密碼原則檔和其他狀態
+
+這個問題可以使用各種不同的徵狀資訊清單，但通常有常見的根本原因。
+
+Azure AD 密碼保護對加密和解密所提供的功能 Microsoft 金鑰發佈服務，這是可在網域控制站執行 Windows Server 2012 及更新版本的重要相依性。 KDS 服務必須啟用並在所有 Windows Server 2012 和更新版本的網域控制站在網域上運作。
+
+根據預設 KDS 服務的服務啟動模式設定為手動 （觸發程序啟動）。 此設定表示，第一次用戶端嘗試使用服務，它會依需求啟動。 這個預設服務啟動模式為可接受的運作的 Azure AD 密碼保護。
+
+如果 KDS 服務啟動模式已設定為 停用，此設定必須修正後將會正常運作的 Azure AD 密碼保護。
+
+此問題的簡單測試是以手動方式啟動 KDS 服務，透過服務管理 MMC 主控台中，或使用其他服務管理工具 （例如，執行"net start kdssvc"從命令提示字元主控台）。 KDS 服務必須已成功啟動，並維持運作狀態。
+
+KDS 服務無法啟動的最常見根本原因是 Active Directory 網域控制站物件位於預設網域控制站 OU 之外。 此設定不支援 KDS 服務，並不是 Azure AD 密碼保護所加諸的限制。 此條件的修正方法是將網域控制站物件移至 預設網域控制站 OU 下的位置。
+
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>弱式密碼會被接受，但不是應該
+
+這個問題可能會有幾個原因。
+
+1. 您的 DC 代理程式無法下載原則，或無法解密現有的原則。 請檢查上述主題中可能的原因。
+
+1. 密碼原則強制模式仍會設為 [稽核]。 如果這項設定作用中時，請將加以重新設定來強制執行使用 Azure AD 密碼保護入口網站。 請參閱[啟用密碼保護](howto-password-ban-bad-on-premises-operations.md#enable-password-protection)。
+
+1. 密碼原則已停用。 如果此設定作用中時，重新設定為使用 Azure AD 密碼保護入口網站啟用。 請參閱[啟用密碼保護](howto-password-ban-bad-on-premises-operations.md#enable-password-protection)。
+
+1. 您尚未在網域中的所有網域控制站上安裝 DC 代理程式軟體。 在此情況下，很難確保遠端的 Windows 用戶端目標特定網域控制站，在密碼變更作業期間。 如果您認為您已成功的目標 DC 代理程式軟體安裝所在的特定 DC 時，您可以確認仔細檢查 DC 代理程式管理的事件記錄檔： 無論結果，會有至少一個事件來記錄密碼的結果驗證。 如果沒有任何使用者變更其密碼時出現的事件，然後變更密碼可能處理由不同的網域控制站。
+
+   做為替代的測試，請嘗試 setting\changing 密碼而直接登入 DC 代理程式軟體安裝所在的 DC。 這項技術不建議用於生產環境的 Active Directory 網域。
+
+   雖然受限於這些限制，都支援累加部署 DC 代理程式軟體，Microsoft 強烈建議 DC 代理程式軟體儘速安裝在網域中的所有網域控制站上。
+
+1. 密碼驗證演算法可能實際上會如預期運作。 請參閱[如何評估密碼](concept-password-ban-bad.md#how-are-passwords-evaluated)。
 
 ## <a name="directory-services-repair-mode"></a>目錄服務修復模式
 
-如果網域控制站在開機後進入目錄服務修復模式，則 DC 代理程式服務會偵測到此狀況，並將導致所有密碼驗證或強制活動停用，而不論目前作用中的原則設定為何。
+如果網域控制站會開機進入目錄服務修復模式，DC 代理程式服務會偵測這種情況，且會導致所有密碼驗證或強制執行的活動，以停用，不論目前作用中的原則組態。
 
 ## <a name="emergency-remediation"></a>緊急補救
 
@@ -80,7 +118,7 @@ ms.locfileid: "56177746"
 
    請勿省略 $keywords 變數值結尾處的星號 ("*")。
 
-   透過 `Get-ADObject` 命令找到的產生物件隨後可使用管線傳送到 `Remove-ADObject`，或以手動方式刪除。 
+   透過 `Get-ADObject` 命令找到的產生物件隨後可使用管線傳送到 `Remove-ADObject`，或以手動方式刪除。
 
 4. 手動移除在每個網域命名內容中所有的 DC 代理程式連接點。 樹系中的每個網域控制站可能各有一個此類物件，視先前部署公用預覽版軟體的範圍而定。 您可以使用下列 Active Directory PowerShell 命令來找出該物件的位置：
 

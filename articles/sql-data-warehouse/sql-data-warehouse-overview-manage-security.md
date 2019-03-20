@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: security
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c3844d378b44d292b9a7eb631fa896d5f6e61dbe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472179"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175712"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>保護 SQL 資料倉儲中的資料庫
 > [!div class="op_single_selector"]
@@ -37,12 +37,12 @@ SQL 資料倉儲會使用伺服器層級的防火牆規則。 它不支援資料
 
 預設會加密與 SQL 資料倉儲的連線。  停用加密的修改連線設定會被忽略。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 「驗證」是指連線到資料庫時如何證明身分識別。 SQL 資料倉儲目前支援採用使用者名稱和密碼，以及 Azure Active Directory 的 SQL Server 驗證。 
 
 當您為資料庫建立邏輯伺服器時，採取使用者名稱和密碼指定了「伺服器管理員」登入。 使用這些認證，您就可以透過 SQL Server 驗證，使用資料庫擁有者或 "dbo" 的身分驗證該伺服器上的任何資料庫。
 
-不過，最佳作法是，貴組織的使用者應該使用不同的帳戶來驗證。 因為萬一應用程式的程式碼容易受到 SQL 插入式攻擊，您就可以限制授與應用程式的權限，並降低惡意活動的風險。 
+不過，最佳作法是，貴組織的使用者應該使用不同的帳戶來驗證。 这样，便可以限制授予应用程序的权限，并在应用程序代码容易受到 SQL 注入攻击的情况下降低恶意活动的风险。 
 
 若要建立 SQL Server 驗證使用者，請使用伺服器管理員登入連接到您伺服器上的 **master** 資料庫，並建立新的伺服器登入。  此外，在主要資料庫中建立一個使用者做為 Azure SQL 資料倉儲使用者是不錯的主意。 在主要資料庫中建立使用者，可讓使用者使用類似 SSMS 的工具登入，而不用指定資料庫名稱。  它也可讓使用者使用物件總管來檢視 SQL Server 上的所有資料庫。
 
@@ -88,7 +88,7 @@ GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ## <a name="encryption"></a>加密
 Azure SQL 資料倉儲透明資料加密 (TDE) 可以對待用資料加密和解密，協助防止惡意活動的威脅。  當您加密資料庫時，相關聯的備份和交易記錄檔就會加密，完全不需要變更您的應用程式。 TDE 會使用稱為資料庫加密金鑰的對稱金鑰來加密整個資料庫的儲存體。 
 
-在 SQL Database 中，資料庫加密金鑰是由內建伺服器憑證保護。 內建伺服器憑證對每個 SQL Database 伺服器都是唯一的。 Microsoft 至少每 90 天會自動替換這些憑證。 「SQL 資料倉儲」使用的加密演算法是 AES-256。 如需 TDE 的一般描述，請參閱[透明資料加密][Transparent Data Encryption]。
+在 SQL Database 中，資料庫加密金鑰是由內建伺服器憑證保護。 內建伺服器憑證對每個 SQL Database 伺服器都是唯一的。 Microsoft 至少每 90 天會自動替換這些憑證。 SQL 数据仓库使用的加密算法为 AES-256。 如需 TDE 的一般描述，請參閱[透明資料加密][Transparent Data Encryption]。
 
 您可以使用 [Azure 入口網站][Encryption with Portal]或 [T-SQL][Encryption with TSQL] 將資料庫加密。
 

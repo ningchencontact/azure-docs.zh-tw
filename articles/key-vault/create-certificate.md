@@ -3,7 +3,7 @@ title: 憑證建立方式
 description: 在 Key Vault 中建立憑證的方式。
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 3258683b950b537dd106323fe95105289034f727
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995530"
 ---
 # <a name="certificate-creation-methods"></a>憑證建立方式
 
@@ -35,7 +35,7 @@ ms.locfileid: "56114853"
 1. 在上圖中，您的應用程式即將建立憑證，內部程序首先會在金鑰保存庫中建立金鑰。
 2. Key Vault 將憑證簽署要求 (CSR) 傳回應用程式
 3. 您的應用程式將 CSR 傳遞給您選擇的 CA。
-4. 您選擇的 CA 回覆 X509 憑證。
+4. 您選擇的 CA 以 X509 憑證。
 5. 您的應用程式合併 CA 回覆的 X509 憑證，完成新憑證的建立。
 
 -   **利用已知簽發者提供者建立憑證：** 若要使用這個方法，您必須完成一次性的簽發者物件建立工作。 在您的金鑰保存庫中建立簽發者物件後，您就可以在 KV 憑證的原則中參考其名稱。 建立這類 KV 憑證的要求會在保存庫中建立金鑰組，並使用所參考簽發者物件中的資訊與簽發者提供者服務通訊，以取得 x509 憑證。 x509 憑證是從簽發者服務所擷取，並與金鑰組合併以完成 KV 憑證建立工作。  
@@ -94,6 +94,6 @@ KV 憑證的建立是非同步流程。 此作業會建立 KV 憑證要求，並
 
  授權：須有憑證/建立權限。
 
- ## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
  - [關於金鑰、祕密與憑證](about-keys-secrets-and-certificates.md)
  - [監視和管理憑證建立](create-certificate-scenarios.md)

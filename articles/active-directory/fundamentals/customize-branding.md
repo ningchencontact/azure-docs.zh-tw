@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 807643146c4f2821cecf60499ea1985f56e9d251
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168590"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103055"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>將商標新增至組織的 Azure Active Directory 登入頁面
 使用您組織的標誌和自訂色彩配置，在 Azure Active Directory (Azure AD) 登入頁面上展現一致的外觀與風格。 當使用者登入貴組織的 Web 應用程式 (如 Office 365)，且該應用程式使用 Azure AD 做為識別提供者時，即會顯示您的登入頁面。
@@ -29,7 +29,7 @@ ms.locfileid: "56168590"
 ## <a name="customize-your-azure-ad-sign-in-page"></a>自訂 Azure AD 登入頁面
 您可以自訂 Azure AD 登入頁面，該頁面會在使用者登入您組織的租用戶特定應用程式 (例如 [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com)) 時或傳遞網域變數 (例如 [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com)) 時出現。
 
-當使用者移至 www.office.com 這類網站時，您的自訂商標不會立即出現。 使用者必須先登入，您的自訂商標才會出現。
+當您的使用者移至網站，例如 www 自訂商標不會立即出現\.office.com。 使用者必須先登入，您的自訂商標才會出現。
 
 > [!NOTE]
 > 所有商標元素均為選擇性使用。 舉例而言，如果您指定的橫幅標誌沒有背景影像，登入頁面會顯示您的標誌和目的地網站 (例如，Office 365) 的預設背景影像。<br><br>此外，登入頁面商標不會沿用至個人 Microsoft 帳戶。 如果使用者或商務來賓使用個人 Microsoft 帳戶登入，其登入頁面將不會出現貴組織的商標。
@@ -103,7 +103,7 @@ ms.locfileid: "56168590"
 
 4. 選取 [ **儲存**]。
 
-  您對登入頁面商標所做的任何變更可能最多需要一個小時才會顯示。
+   您對登入頁面商標所做的任何變更可能最多需要一個小時才會顯示。
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>將特定語言公司商標新增到您的目錄
 無法將原本設定的語言更改為預設語言以外的語言。 不過如果需要不同語言的設定，可以建立新的設定。

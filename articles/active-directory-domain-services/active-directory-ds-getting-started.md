@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4c533921b0c88a4f61cd96896b72306adb9a23cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 637ad62744affa37630df9c841f3c7529674e788
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175701"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122904"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 本文說明如何使用 Azure 入口網站啟用 Azure Active Directory Domain Services (Azure AD DS)。
@@ -62,14 +62,13 @@ ms.locfileid: "55175701"
    > [!NOTE]
    > **用於選取 DNS 網域名稱的指導方針**
    > * **內建網域名稱：** 根據預設，精靈會為您指定目錄的預設/內建網域名稱 (使用 **.onmicrosoft.com** 尾碼)。 如果您選擇透過網際網路啟用受控之網域的安全 LDAP 存取，則在從這個網域名稱的公用 CA 建立公用 DNS 記錄或取得安全 LDAP 憑證時應該會發生問題。 Microsoft 擁有 .onmicrosoft.com 網域，因此 CA 不會為這個網域發行憑證保證。
-   * **自訂網域名稱：** 您也可以輸入自訂網域名稱。 在此範例中，自訂網域名稱是 contoso100.com。
-   * **非路由式網域尾碼：** 我們通常會建議您避免使用非路由式網域名稱尾碼。 例如，最好避免使用 DNS 網域名稱 'contoso.local' 來建立網域。 '.local' DNS 尾碼是不可路由的，因此會導致 DNS 解析發生問題。
-   * **網域前置詞限制：** 指定網域名稱的前置詞 (例如，contoso100.com 網域名稱中的 contoso100) 必須包含 15 個以內的字元。 您無法使用超過 15 個字元的前置詞來建立受控網域。
-   * **網路名稱衝突：** 確定虛擬網路中還沒有您為受控網域選擇的 DNS 網域名稱。 具體來說，請檢查是否有下列情況︰
-       * 您在虛擬網路上已有包含相同 DNS 網域名稱的 Active Directory 網域。
-       * 您打算啟用受控網域的虛擬網路具有與內部部署網路的 VPN 連線。 在此案例中，確定您在內部部署網路上沒有使用相同 DNS 網域名稱的網域。
-       * 您在虛擬網路上已有具有該名稱的雲端服務。
-    >
+   > * **自訂網域名稱：** 您也可以輸入自訂網域名稱。 在此範例中，自訂網域名稱是 contoso100.com。
+   > * **非路由式網域尾碼：** 我們通常會建議您避免使用非路由式網域名稱尾碼。 例如，最好避免使用 DNS 網域名稱 'contoso.local' 來建立網域。 '.local' DNS 尾碼是不可路由的，因此會導致 DNS 解析發生問題。
+   > * **網域前置詞限制：** 指定網域名稱的前置詞 (例如，contoso100.com 網域名稱中的 contoso100) 必須包含 15 個以內的字元。 您無法使用超過 15 個字元的前置詞來建立受控網域。
+   > * **網路名稱衝突：** 確定虛擬網路中還沒有您為受控網域選擇的 DNS 網域名稱。 具體來說，請檢查是否有下列情況︰
+   >     * 您在虛擬網路上已有包含相同 DNS 網域名稱的 Active Directory 網域。
+   >     * 您打算啟用受控網域的虛擬網路具有與內部部署網路的 VPN 連線。 在此案例中，確定您在內部部署網路上沒有使用相同 DNS 網域名稱的網域。
+   >     * 您在虛擬網路上已有具有該名稱的雲端服務。
 
 2. 選取您要在其中建立受控網域的 Azure **訂用帳戶**。
 

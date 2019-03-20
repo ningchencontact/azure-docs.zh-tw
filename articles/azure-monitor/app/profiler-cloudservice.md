@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e050122984c19e46f3782c8364331323b403caad
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895476"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>使用 Application Insights 來分析即時 Azure 雲端服務
 
@@ -32,6 +32,8 @@ Application Insights Profiler 會與 Azure 診斷擴充功能一起安裝。 您
 1. 確認您所使用的是 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更新版本。 確認 ServiceConfiguration.\*.cscfg 檔案的 `osFamily` 值為 "5" 以上即可。
 
 1. [將 Application Insights SDK 新增至 Azure 雲端服務](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json)。
+
+   >**分析工具中隨附的 WAD 的最新版本的雲端服務中沒有錯誤。** 若要使用的雲端服務中的程式碼剖析工具，它只支援 AI SDK 升級到版本 2.7.2。 如果您使用較新版的 AI SDK，您必須返回 2.7.2 若要使用分析工具。 如果您使用 Visual Studio 的應用程式的 application Insights SDK 的版本降級時，您可能會在執行階段的繫結重新導向錯誤。 這是因為 「 newVersion"Microsoft.ApplicationInsights 的 web.config 檔案中應該設定為"2.7.2.0 」 之後降級 AI SDK，但它不會自動更新。
 
 1. 使用 Application Insights 來追蹤要求：
 

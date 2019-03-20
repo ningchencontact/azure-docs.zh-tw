@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313529"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997960"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -127,7 +127,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 }
 ```
 
-Name | 值
+名稱 | 值
 ---- | -----
 storageAccountName | 擴充功能寫入資料的儲存體帳戶名稱。
 storageAccountEndPoint | (選擇性) 可識別儲存體帳戶所在雲端的端點。 如果沒有此設定，LAD 會預設為 Azure 公用雲端，`https://core.windows.net`。 若要使用 Azure 德國、Azure Government 或 Azure 中國中的儲存體帳戶，請相應地設定此值。
@@ -254,7 +254,7 @@ mdsdHttpProxy | (選擇性) 與[受保護的設定](#protected-settings)相同�
 
 元素 | 值
 ------- | -----
-eventVolume | (選擇性) 控制在儲存體資料表中建立的分割區數目。 必須是 `"Large"`、`"Medium"` 或 `"Small"` 的其中之一。 若未指定，則預設值為 `"Medium"`。
+eventVolume | (選擇性) 控制在儲存體資料表中建立的分割區數目。 必須是 `"Large"`、`"Medium"` 或 `"Small"` 的其中之一。 如果未指定，默认值为 `"Medium"`。
 sampleRateInSeconds | (選擇性) 原始 (未彙總) 計量集合之間的預設間隔。 支援的最小採樣速率為 15 秒。 若未指定，則預設值為 `15`。
 
 #### <a name="metrics"></a>metrics
@@ -361,12 +361,12 @@ sinks | 系統會將個別記錄事件發佈至的接收名稱清單，以逗號
 facilityName | Syslog 設備名稱 (例如 "LOG\_USER" 或 "LOG\_LOCAL0")。 請參閱 [Syslog 手冊頁](http://man7.org/linux/man-pages/man3/syslog.3.html)中的「設備」(英文) 一節，以取得完整清單。
 minSeverity | Syslog 嚴重性層級 (例如 "LOG\_ERR" 或 "LOG\_INFO")。 請參閱 [Syslog 手冊頁](http://man7.org/linux/man-pages/man3/syslog.3.html)中的「層級」(英文) 一節，以取得完整清單。 擴充功能會擷取傳送到在指定層級或以上的設備。
 
-當您指定 `syslogEvents` 時，LAD 一律將資料寫入 Azure 儲存體中的資料表。 您可以將相同的資料寫入 JSON Blob 和/或事件中樞，但您無法禁止將資料儲存至資料表。 此資料表的分割行為如同所述的 `performanceCounters`。 資料表名稱是這些字串的串連：
+當您指定 `syslogEvents` 時，LAD 一律將資料寫入 Azure 儲存體中的資料表。 可将相同的数据写入 JSON blob 和/或事件中心，但不能禁止将数据存储到表中。 此資料表的分割行為如同所述的 `performanceCounters`。 資料表名稱是這些字串的串連：
 
 * `LinuxSyslog`
 * 格式為 "YYYYMMDD" 的日期，每 10 天變更一次
 
-例如 `LinuxSyslog20170410` 與 `LinuxSyslog20170609`。
+示例包括 `LinuxSyslog20170410` 和 `LinuxSyslog20170609`。
 
 ### <a name="perfcfg"></a>perfCfg
 
@@ -386,7 +386,7 @@ minSeverity | Syslog 嚴重性層級 (例如 "LOG\_ERR" 或 "LOG\_INFO")。 請�
 
 元素 | 值
 ------- | -----
-namespace | (選擇性) 應執行查詢的 OMI 命名空間。 如果未指定，則預設值為 "root/scx"，此值由[系統中心跨平台提供者](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation) (英文) 實作。
+namespace | (選擇性) 應執行查詢的 OMI 命名空間。 如果未指定，則預設值為 "root/scx"，此值由[系統中心跨平台提供者](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation) (英文) 實作。
 query | 欲執行的 OMI 查詢。
 資料表 | (選擇性) 所指定儲存體帳戶中的 Azure 儲存體資料表 (請參閱[受保護的設定](#protected-settings))。
 frequency | (選擇性) 執行查詢之間的秒數。 預設值為 300 秒 (5 分鐘)；最小值為 15 秒。

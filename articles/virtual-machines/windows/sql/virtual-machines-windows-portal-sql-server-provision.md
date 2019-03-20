@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fd01fdd3f7f8803dc7221bd0bd6c993120a83d44
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: ee6c05b2da4347ed034ae6e7318d6f5d90ea7884
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099639"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 入口網站中佈建 Windows SQL Server 虛擬機器
 
@@ -74,9 +74,9 @@ ms.locfileid: "54330886"
 ## <a id="configure"></a> 設定選項
 有五個視窗可用來設定 SQL Server 虛擬機器。
 
-| 步驟 | 說明 |
+| 步驟 | 描述 |
 | --- | --- |
-| **基本概念** |[設定基本設定](#1-configure-basic-settings) |
+| **基础知识** |[設定基本設定](#1-configure-basic-settings) |
 | **大小** |[選擇虛擬機器大小](#2-choose-virtual-machine-size) |
 | **設定** |[設定選用功能](#3-configure-optional-features) |
 | **SQL Server 設定** |[進行 SQL Server 設定](#4-configure-sql-server-settings) |
@@ -96,7 +96,7 @@ ms.locfileid: "54330886"
 
 * 如果您有多個訂用帳戶，請確認訂用帳戶適用於新的 VM。
 
-* 在 [資源群組]  方塊中，輸入新資源群組的名稱。 或者，若要使用現有的資源群組，請按一下 [使用現有項目]。 資源群組是 Azure (虛擬機器、儲存體帳戶、虛擬網路等) 中相關資源的集合。
+* 在“资源组”框中，键入新资源组的名称。 或者，若要使用現有的資源群組，請按一下 [使用現有項目]。 資源群組是 Azure (虛擬機器、儲存體帳戶、虛擬網路等) 中相關資源的集合。
 
   > [!NOTE]
   > 如果您只是測試或了解 Azure 中的 SQL Server 部署，使用新的資源群組很有幫助。 完成測試之後，請刪除資源群組以自動刪除此 VM 以及與該資源群組相關聯的所有資源。 如需有關資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../../azure-resource-manager/resource-group-overview.md)。
@@ -178,7 +178,7 @@ ms.locfileid: "54330886"
 
 一般情況下，選擇您的案例允許的最嚴格連線能力，即可改善安全性。 但所有透過網路安全性群組規則和 SQL/Windows 驗證的選項都是安全的。 建立 VM 後，您可以編輯網路安全性群組。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 安全性考量](virtual-machines-windows-sql-security.md)。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
 如果您需要「SQL Server 驗證」，請按一下 [SQL 驗證]  under 。
 
@@ -187,7 +187,7 @@ ms.locfileid: "54330886"
 > [!NOTE]
 > 如果您打算透過網際網路 ([公用] 連線選項) 存取 SQL Server，則您必須在這裡啟用 SQL 驗證。 對 SQL Server 進行公用存取需要使用「SQL 驗證」。
 
-如果您啟用 [SQL Server 驗證]，請指定 [登入名稱] 和 [密碼]。 這個使用者名稱會設定為 SQL Server 驗證登入以及 **sysadmin** 固定伺服器角色的成員。 如需驗證模式的詳細資訊，請參閱[選擇驗證模式](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)。
+如果您啟用 [SQL Server 驗證]，請指定 [登入名稱] 和 [密碼]。 此用户名已配置为 SQL Server 身份验证登录名和 **sysadmin** 固定服务器角色的成员。 如需驗證模式的詳細資訊，請參閱[選擇驗證模式](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)。
 
 如果您未啟用 SQL Server 驗證，您可以在 VM 上使用本機系統管理員帳戶連接到 SQL Server 執行個體。
 
@@ -231,13 +231,13 @@ ms.locfileid: "54330886"
 * 備份系統資料庫
 * 設定備份排程
 
-若要加密備份，請按一下 [啟用] 。 然後指定 [密碼] 。 Azure 會建立憑證來加密備份，並使用指定的密碼來保護該憑證。
+若要加密备份，请单击“ **启用**”。 然後指定 [密碼] 。 Azure 创建一个证书来加密备份，并使用指定的密码来保护该证书。
 
 ![SQL 自動備份](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
  如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的自動化備份](virtual-machines-windows-sql-automated-backup.md)。
 
-### <a name="azure-key-vault-integration"></a>Azure 金鑰保存庫整合
+### <a name="azure-key-vault-integration"></a>Azure Key Vault 集成
 
 若要在 Azure 中儲存用於加密的安全性密碼，請按一下 [Azure 金鑰保存庫整合]，然後按一下 [啟用]。
 
@@ -247,10 +247,10 @@ ms.locfileid: "54330886"
 
 | 參數 | 描述 | 範例 |
 | --- | --- | --- |
-| **金鑰保存庫 URL** |金鑰保存庫的位置。 |https://contosokeyvault.vault.azure.net/ |
-| **主體名稱** |Azure Active Directory 服務主體名稱。 此名稱也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |
+| **金鑰保存庫 URL** |金鑰保存庫的位置。 |<https://contosokeyvault.vault.azure.net/> |
+| **主體名稱** |Azure Active Directory 服务主体名称。 此名稱也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **主體密碼** |Azure Active Directory 服務主體密碼。 此密碼也稱為「用戶端密碼」。 |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **認證名稱** |**認證名稱**：「AKV 整合」會在 SQL Server 內建立認證，以便讓 VM 能夠存取金鑰保存庫。 選擇此認證的名稱。 |mycred1 |
+| **認證名稱** |**認證名稱**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 選擇此認證的名稱。 |mycred1 |
 
 如需詳細資訊，請參閱 [在 Azure VM 上設定 SQL Server 的 Azure 金鑰保存庫整合](virtual-machines-windows-ps-sql-keyvault.md)。
 
@@ -279,7 +279,7 @@ ms.locfileid: "54330886"
 
 連線到 SQL Server 虛擬機器之後，您可以啟動 SQL Server Management Studio，然後使用您的本機系統管理員認證透過「Windows 驗證」進行連線。 如果您已啟用 SQL Server 驗證，您也可以使用您在佈建期間所設定的 SQL 登入和密碼以 SQL 驗證連線。
 
-存取電腦可讓您根據您的需求直接變更電腦和 SQL Server 設定。 例如，您可以設定防火牆設定或變更 SQL Server 組態設定。
+存取電腦可讓您根據您的需求直接變更電腦和 SQL Server 設定。 例如，可以配置防火墙设置或更改 SQL Server 配置设置。
 
 ## <a id="connect"></a>遠端連線到 SQL Server
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077015"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>使用 Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲
 > [!NOTE]
@@ -109,7 +109,7 @@ ms.locfileid: "54020144"
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-完成必要的步驟之後，即準備好使用複製精靈設定複製活動。
+  完成必要的步驟之後，即準備好使用複製精靈設定複製活動。
 
 ## <a name="launch-copy-wizard"></a>啟動複製精靈
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -142,7 +142,7 @@ ms.locfileid: "54020144"
 
 1. 輸入 **CopyFromBlobToAzureSqlDataWarehouse** 作為 [工作名稱]
 2. 選取 [立即執行一次] 選項。   
-3. 按 [下一步] 。  
+3. 单击“下一步”。  
 
     ![複製精靈 - 屬性頁面](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -184,7 +184,7 @@ ms.locfileid: "54020144"
 
 ## <a name="step-4-performance-settings"></a>步驟 4：效能設定
 
-預設會核取 [允許 Polybase]。  按 [下一步] 。
+預設會核取 [允許 Polybase]。  单击“下一步”。
 
 ![複製精靈 - 結構描述對應頁面](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
@@ -199,7 +199,7 @@ ms.locfileid: "54020144"
 
     您可以在右窗格的 [活動時段總管] 中檢視複製執行詳細資料，包括從來源讀取及寫入至目的地的資料量、期間，以及執行的平均輸送量。
 
-    如您在下列螢幕擷取畫面中所見，將 1 TB 從 Azure Blob 儲存體複製至 SQL 資料倉儲用了 14 分鐘，有效地達成 1.22 GBps 輸送量！
+    您可以看到下列螢幕擷取畫面中，將 1 TB 從 Azure Blob 儲存體複製到 SQL 資料倉儲需要 14 分鐘，有效地達成 1.22 GBps 輸送量 ！
 
     ![複製精靈 - 成功對話方塊](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

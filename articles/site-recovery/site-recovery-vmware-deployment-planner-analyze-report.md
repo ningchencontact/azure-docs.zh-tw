@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: 7504d23cbaf8a497e6ea86b5a383413474c0d034
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329962"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109622"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告
 
@@ -41,6 +41,9 @@ ms.locfileid: "56329962"
 **每日觀察到的典型資料變換 (GB)**：在所有分析天數中觀察到的平均資料變換。 此數字可做為其中一個輸入值，以決定部署中所要使用的組態伺服器與額外處理序伺服器數目。
 
 ## <a name="recommendations"></a>建議
+
+>[!Note]
+>當複寫直接至受控磁碟時，忽略的儲存體帳戶數目的建議。
 
 根據選取的所需 RPO，VMware 到 Azure 報告的建議工作表包含下列詳細資料：
 
@@ -148,13 +151,16 @@ ms.locfileid: "56329962"
 
 ## <a name="recommendations-with-available-bandwidth-as-input"></a>以可用頻寬做為輸入的建議
 
-![以可用頻寬做為輸入的建議](media/site-recovery-vmware-deployment-planner-analyze-report/profiling-overview-bandwidth-input-v2a.png)
+![有关用作输入的可用带宽建议](media/site-recovery-vmware-deployment-planner-analyze-report/profiling-overview-bandwidth-input-v2a.png)
 
 您可能會遇到一下情況：您知道無法針對 Site Recovery 複寫設定超過 x Mbps 的頻寬。 此工具可讓您輸入可用的頻寬 (在報告產生期間使用 -Bandwidth 參數)，並取得可達成的 RPO (以分鐘為單位)。 使用此可達成的 RPO 值，您可以決定是否需要設定額外的頻寬，或可接受具有此 RPO 的災害復原解決方案。
 
 ![500 Mbps 頻寬可達成的 RPO](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## <a name="vm-storage-placement"></a>VM 儲存體放置
+
+>[!Note]
+>當複寫直接至受控磁碟時，您不需要擔心儲存體帳戶數目。 儲存體，使用僅建議中的儲存體 （標準或進階） 的型別上的內容。 適用於受控磁碟相同的類型。
 
 ![VM 儲存體放置](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 

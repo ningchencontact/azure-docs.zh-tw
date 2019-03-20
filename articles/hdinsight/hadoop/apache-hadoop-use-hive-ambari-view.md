@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407842"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091302"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive 檢視
 
@@ -70,19 +70,19 @@ ms.locfileid: "53407842"
 
     這些陳述式會執行下列動作：
 
-   * `DROP TABLE`：刪除資料表和資料檔 (如果資料表已經存在)。
+   * `DROP TABLE`:刪除資料表和資料檔 (如果資料表已經存在)。
 
-   * `CREATE EXTERNAL TABLE`：在 Hive 中建立新的「外部」資料表。
-   外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
+   * `CREATE EXTERNAL TABLE`:在 Hive 中建立新的「外部」資料表。
+     外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
 
-   * `ROW FORMAT`：顯示設定資料格式的方式。 在此情況下，每個記錄中的欄位會以空格隔開。
+   * `ROW FORMAT`:顯示設定資料格式的方式。 在此情況下，每個記錄中的欄位會以空格隔開。
 
-   * `STORED AS TEXTFILE LOCATION`：顯示資料的儲存位置，以及資料是儲存為文字。
+   * `STORED AS TEXTFILE LOCATION`:顯示資料的儲存位置，以及資料是儲存為文字。
 
-   * `SELECT`：選取 t4 資料行包含 [ERROR] 值之所有資料列的計數。
+   * `SELECT`:選取 t4 資料行包含 [ERROR] 值之所有資料列的計數。
 
-    > [!IMPORTANT]  
-    > 將 [資料庫] 選取項目保留為 [預設]。 本文件中的範例使用 HDInsight 隨附的預設資料庫。
+     > [!IMPORTANT]  
+     > 將 [資料庫] 選取項目保留為 [預設]。 本文件中的範例使用 HDInsight 隨附的預設資料庫。
 
 5. 若要啟動查詢，請使用工作表下方的 [執行] 按鈕。 按鈕會變成橘色，而且文字會變更為 [停止]。
 
@@ -144,13 +144,13 @@ ms.locfileid: "53407842"
 
 在將 UDF 新增至 [Hive 檢視] 後，[插入 udf] 按鈕隨即會出現在 [查詢編輯器] 底端。 選取這個項目會顯示 [Hive 檢視] 中定義之 UDF 的下拉式清單。 選取 UDF 會將 HiveQL 陳述式新增至查詢以啟用 UDF。
 
-例如，如果您使用下列屬性定義 UDF：
+例如，如果定义了一个具有以下属性的 UDF：
 
 * 資源名稱：myudfs
 
 * 資源路徑︰/myudfs.jar
 
-* UDF 名稱：myawesomeudf
+* UDF 名称：myawesomeudf
 
 * UDF 類別名稱：com.myudfs.Awesome
 
@@ -181,4 +181,4 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
-* [搭配 HDInsight 上的 Apache Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)

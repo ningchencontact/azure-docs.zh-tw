@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199318"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112750"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>使用者隱私權與 Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Azure AD Connect Health 可讓您停止針對每個個別監視的伺服器或�
 Azure AD Connect Health 也提供選項來停止租用戶中**所有**已註冊服務的資料收集。 我們建議您仔細考慮，並且在所有全域管理員完全認可後，再採取動作。 程序一旦開始，Connect Health 服務會停止接收、處理和報告所有服務的任何資料。 Connect Health 服務中的現有資料不能保留超過 30 天。
 如果您想要停止特定伺服器的資料收集，請依照刪除特定伺服器上的步驟。 若要停止租用戶方面的資料收集，請遵循下列步驟來停止資料收集和刪除租用戶的所有服務。
 
-1.  在主要刀鋒視窗的組態下，按一下 [一般設定]。 
-2.  在刀鋒視窗頂端，按一下 [停止資料收集] 按鈕。 在程序啟動之後，租用戶組態設定的其他選項將會停用。  
+1. 在主要刀鋒視窗的組態下，按一下 [一般設定]。 
+2. 在刀鋒視窗頂端，按一下 [停止資料收集] 按鈕。 在程序啟動之後，租用戶組態設定的其他選項將會停用。  
  
- ![停止資料收集](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![停止資料收集](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  確認會受到停止資料收集影響的上架服務清單。 
-4.  輸入確切的租用戶名稱，以啟用 [刪除] 動作按鈕
-5.  按一下 [刪除] 以觸發所有服務的刪除作業。 Connect Health 將會停止接收、處理、報告從已上架服務傳出的任何資料。 整個程序可能需要多達 24 小時的時間。 請注意，此步驟無法復原。 
-6.  此程序完成之後，您將不會在 Connect Health 中看到任何已註冊的服務。 
+3. 確認會受到停止資料收集影響的上架服務清單。 
+4. 輸入確切的租用戶名稱，以啟用 [刪除] 動作按鈕
+5. 按一下 [刪除] 以觸發所有服務的刪除作業。 Connect Health 將會停止接收、處理、報告從已上架服務傳出的任何資料。 整個程序可能需要多達 24 小時的時間。 請注意，此步驟無法復原。 
+6. 此程序完成之後，您將不會在 Connect Health 中看到任何已註冊的服務。 
 
- ![資料收集停止之後](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![資料收集停止之後](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>在 Azure AD Connect Health 中重新啟用資料收集和監視
 若要在 Azure AD Connect Health 中對先前刪除的所監視服務重新啟用監視，您必須在所有伺服器上先解除安裝再[重新安裝 Health 代理程式](how-to-connect-health-agent-install.md)。
@@ -85,14 +85,14 @@ Azure AD Connect Health 也提供選項來停止租用戶中**所有**已註冊�
 > 下列步驟必須在執行停用後的 24 小時以後才能進行。
 > 啟用資料收集之後，Connect Health 中顯示的見解和監視資料將不包括以前收集的舊資料。 
 
-1.  在主要刀鋒視窗的組態下，按一下 [一般設定]。 
-2.  在刀鋒視窗頂端，按一下 [啟用資料收集] 按鈕。 
+1. 在主要刀鋒視窗的組態下，按一下 [一般設定]。 
+2. 在刀鋒視窗頂端，按一下 [啟用資料收集] 按鈕。 
  
- ![啟用資料收集](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![啟用資料收集](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  輸入確切的租用戶名稱，以啟動 [啟用] 按鈕。
-4.  按一下 [啟用] 按鈕，以授與 Connect Health 服務中的資料收集權限。 變更會在短時間內套用。 
-5.  請遵循[安裝程序](how-to-connect-health-agent-install.md)，在伺服器中重新安裝要監視的代理程式，服務將會出現在入口網站中。  
+3. 輸入確切的租用戶名稱，以啟動 [啟用] 按鈕。
+4. 按一下 [啟用] 按鈕，以授與 Connect Health 服務中的資料收集權限。 變更會在短時間內套用。 
+5. 請遵循[安裝程序](how-to-connect-health-agent-install.md)，在伺服器中重新安裝要監視的代理程式，服務將會出現在入口網站中。  
 
 
 ## <a name="next-steps"></a>後續步驟

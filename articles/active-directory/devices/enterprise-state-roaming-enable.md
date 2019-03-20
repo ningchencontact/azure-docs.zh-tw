@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce6dc4cf98f2886eb4eed7049048d67599ac42e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: adad43f337d4cf026ca8f48976a9fc713fd52200
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077406"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>在 Azure Active Directory 中啟用企業狀態漫遊
 任何具有 Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權的組織都可以使用企業狀態漫遊。 如需有關如何取得 Azure AD 訂用帳戶的詳細資訊，請參閱 [Azure AD 產品頁面](https://azure.microsoft.com/services/active-directory)。
@@ -37,7 +37,7 @@ ms.locfileid: "56207478"
 
 1. 選取 [使用者可以在裝置間同步設定及應用程式資料]。 如需詳細資訊，請參閱[如何進行裝置設定](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)。
   
-  ![標示為 [使用者可以在裝置間同步設定及應用程式資料] 的裝置設定影像](./media/enterprise-state-roaming-enable/device-settings.png)
+   ![標示為 [使用者可以在裝置間同步設定及應用程式資料] 的裝置設定影像](./media/enterprise-state-roaming-enable/device-settings.png)
   
 若要讓 Windows 10 裝置使用企業狀態漫遊服務，裝置必須使用 Azure AD 身分識別進行驗證。 對於已加入 Azure AD 的裝置，使用者的主要登入身分識別就是其 Azure AD 身分識別，不需要額外設定。 對於使用內部部署 Active Directory 的裝置，IT 管理員必須[設定已加入混合式 Azure Active Directory 的裝置](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps)。 
 
@@ -64,11 +64,11 @@ EMEA 國家/地區，例如，法國或尚比亞 | 歐洲內的一個或多個 A
 
 1. 在 [顯示] 底下，選取 [裝置同步設定和應用程式資料]，以顯示同步處理狀態。
   
-  ![裝置同步處理資料設定的影像](./media/enterprise-state-roaming-enable/sync-status.png)
+   ![裝置同步處理資料設定的影像](./media/enterprise-state-roaming-enable/sync-status.png)
   
 1. 如果此使用者有裝置在同步處理，您會看到裝置，如下所示。
   
-  ![裝置同步處理單欄式資料的影像](./media/enterprise-state-roaming-enable/device-status-row.png)
+   ![裝置同步處理單欄式資料的影像](./media/enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>資料保留
 使用企業狀態漫遊而同步處理至 Microsoft 雲端的資料會保留下來，直到手動刪除或確定該資料已過時為止。 

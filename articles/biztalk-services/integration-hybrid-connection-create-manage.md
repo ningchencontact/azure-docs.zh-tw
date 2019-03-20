@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232975"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105085"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>建立和管理混合式連線
 
 > [!IMPORTANT]
 > BizTalk 混合式連線已停用，並以 App Service 混合式連線取代。 如需詳細資訊，包括如何管理您現有的 BizTalk 混合式連線，請參閱 [Azure App Service 混合式連線](../app-service/app-service-hybrid-connections.md)。
-
->[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+> 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>步驟概觀
 1. 輸入私人網路中內部部署資源的 **host name** 或 **FQDN** of the on-premises resource in your private netw或k.
@@ -42,7 +42,7 @@ ms.locfileid: "51232975"
 > 例如 (虛擬程式碼)，您會定義 **10.4.5.6** 做為內部部署主機︰
 > 
 > **下列案例可運作︰**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **下列案例無法運作︰**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -55,8 +55,8 @@ ms.locfileid: "51232975"
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>其他
-* 可建立多個混合式連線。 請參閱「 [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md) 」(英文) 瞭解允許的連接數量。 
-* 每個「混合式連線」都是由一對連接字串建立而成：分別是負責「傳送」的應用程式金鑰，以及負責「接聽」的內部部署金鑰。 每一對都有「主要」和「次要」金鑰。 
+* 可建立多個混合式連線。 請參閱[BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)允許的連線數。 
+* 每個混合式連線會建立一組的連接字串：應用程式金鑰，以便傳送和內部部署接聽的索引鍵。 每一對都有「主要」和「次要」金鑰。 
 
 ## <a name="LinkWebSite"></a>連結 Azure App Service Web 應用程式或行動應用程式
 若要將 Azure App Service 中的 Web 應用程式或行動應用程式連結至現有的「混合式連線」，請在 [混合式連線] 刀鋒視窗中選取 [使用現有的混合式連線]。 
@@ -117,11 +117,11 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 ## <a name="next"></a>下一頁
 [混合式連線概觀](integration-hybrid-connection-overview.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)  
 [建立 BizTalk 服務](biztalk-provision-services.md)  
-[BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)
+[BizTalk 服務：儀表板、 監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png

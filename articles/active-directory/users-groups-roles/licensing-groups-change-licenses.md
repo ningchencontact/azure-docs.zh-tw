@@ -11,43 +11,44 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c81ab72be58cd223eb9b3fe9ec53d56574a94e8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 4b65eb38b6c8102295f40b5e169ae7c32a2342a2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430296"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201359"
 ---
-# <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>如何使用群組型授權安全地在產品授權之間移轉使用者
+# <a name="change-the-license-for-a-single-user-in-a-licensed-group-in-azure-active-directory"></a>變更 Azure Active Directory 中的授權群組中的單一使用者的授權
 
 本文說明使用群組型授權時，在產品授權之間移動使用者的建議方法。 此方法的目標是要確保在移轉期間不會遺失任何服務或資料：使用者應該在產品之間順暢切換。 其中涵蓋兩種移轉程序變化形式：
 
--   未含有衝突服務方案之產品授權間的簡單移轉，例如在「Office 365 企業版 E3」與「Office 365 企業版 E5」之間移轉。
+- 未含有衝突服務方案之產品授權間的簡單移轉，例如在「Office 365 企業版 E3」與「Office 365 企業版 E5」之間移轉。
 
--   含有部分衝突服務方案之產品間的較複雜移轉，例如在「Office 365 企業版 E1」與「Office 365 企業版 E3」之間移轉。 如需有關衝突的詳細資訊，請參閱[衝突的服務方案](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)和[無法同時指派的服務方案](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time)。
+- 含有部分衝突服務方案之產品間的較複雜移轉，例如在「Office 365 企業版 E1」與「Office 365 企業版 E3」之間移轉。 如需有關衝突的詳細資訊，請參閱[衝突的服務方案](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)和[無法同時指派的服務方案](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time)。
 
 本文包括範例 PowerShell 程式碼，可用來執行移轉和驗證步驟。 此程式碼對於無法手動執行步驟的大規模作業特別有用。
 
 ## <a name="before-you-begin"></a>開始之前
 開始進行移轉之前，請務必確認針對所有要移轉之使用者的假設都成立。 如果這些假設不是對所有使用者都成立，部分使用者的移轉可能會失敗。 因此，部分使用者可能就會無法存取服務或資料。 以下是應該確認的假設：
 
--   使用者擁有以群組型授權指派的「來源授權」。 要作為移轉來源的產品授權是繼承自單一來源群組，而非以直接方式指派。
+- 使用者擁有以群組型授權指派的「來源授權」。 要作為移轉來源的產品授權是繼承自單一來源群組，而非以直接方式指派。
 
     >[!NOTE]
     >如果授權也是直接指派的，它們可能會導致無法套用「目標授權」。 深入了解[直接和群組授權指派](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses)。 您可以使用 [PowerShell 指令碼](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)來檢查使用者是否擁有直接授權。
 
--   您擁有目標產品的足夠可用授權。 如果您沒有足夠的授權，部分使用者可能會無法取得「目標授權」。 您可以[查看可用授權的數目](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)。
+- 您擁有目標產品的足夠可用授權。 如果您沒有足夠的授權，部分使用者可能會無法取得「目標授權」。 您可以[查看可用授權的數目](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)。
 
--   使用者沒有其他會與「目標授權」衝突或防止移除「來源授權」的已指派產品授權。 例如，與其他產品相依的附加元件產品 (例如「工作場所分析」或 Project Online) 授權。
+- 使用者沒有其他會與「目標授權」衝突或防止移除「來源授權」的已指派產品授權。 例如，與其他產品相依的附加元件產品 (例如「工作場所分析」或 Project Online) 授權。
 
--   了解您環境中管理群組的方式。 例如，如果您在內部部署環境中管理群組，然後透過 Azure AD Connect 將它們同步至 Azure Active Directory (Azure AD)，則您會使用內部部署系統來新增/移除使用者。 將變更同步至 Azure AD 並被群組型授權套用需要一些時間。 如果您使用 Azure AD 動態群組成員資格，則會改為透過修改使用者的屬性來新增/移除使用者。 不過，整體移轉程序保持不變。 唯一的差異是您為群組成員資格新增/移除使用者的方式。
+- 了解您環境中管理群組的方式。 例如，如果您在內部部署環境中管理群組，然後透過 Azure AD Connect 將它們同步至 Azure Active Directory (Azure AD)，則您會使用內部部署系統來新增/移除使用者。 將變更同步至 Azure AD 並被群組型授權套用需要一些時間。 如果您使用 Azure AD 動態群組成員資格，則會改為透過修改使用者的屬性來新增/移除使用者。 不過，整體移轉程序保持不變。 唯一的差異是您為群組成員資格新增/移除使用者的方式。
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>在未含有衝突服務方案的產品之間移轉使用者
+
 移轉目標是要使用群組型授權，將使用者授權從「來源授權」(在此範例中：Office 365 企業版 E3) 變更為「目標授權」(在此範例中：Office 365 企業版 E5)。 此案例中的這兩個產品並未含有衝突的服務方案，因此可以同時完全指派兩者，而不會發生衝突。 在移轉期間中的任何時間點，使用者都不會無法存取服務或資料。 移轉會以小「批次」的方式執行。 您可以驗證每個批次的結果，並將此程序中可能發生之任何問題的範圍縮減到最小。 整體而言，此程序如下：
 
 1.  使用者是來源群組的成員，並從該群組繼承「來源授權」。
@@ -65,6 +66,7 @@ ms.locfileid: "56430296"
 7.  針對後續的使用者批次重複此程序。
 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>使用 Azure 入口網站來移轉單一使用者
+
 這是一個說明如何移轉單一使用者的簡單逐步解說。
 
 **步驟 1**：使用者擁有繼承自群組的「來源授權」。 該授權沒有任何直接的指派：

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2187d0e986a173e1b8dc37fd0abdfa3bfd9e9505
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 64aebaedd9221b2570b66bdb8550bff36b54492c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168982"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>教學課程：Azure Active Directory 與 SpringCM 整合
 
@@ -212,9 +212,9 @@ SpringCM 與 Azure AD 整合提供下列優點：
 
 1. 按一下 [檔案] 。
 
-  >[!NOTE]
-  >您可以使用任何其他的 SpringCM 使用者帳戶建立工具或 SpringCM 提供的 API 來佈建 AAD 使用者帳戶。  
-  > 
+   >[!NOTE]
+   >您可以使用任何其他的 SpringCM 使用者帳戶建立工具或 SpringCM 提供的 API 來佈建 AAD 使用者帳戶。  
+   > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -249,7 +249,7 @@ SpringCM 與 Azure AD 整合提供下列優點：
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
- 
+ 
 當您在「存取面板」中按一下 [SpringCM] 圖格時，應該會自動登入您的 SpringCM 應用程式。
 
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997941"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 for Customer Engagement 店面詳細資料索引標籤
 
@@ -56,7 +56,7 @@ ms.locfileid: "54445057"
 |  應用程式類型             | 選取在 AppSource 上為應用程式提供的試用類型。 **免費**表示您的應用程式可免費使用；**試用版**表示客戶可以在短期間內免費試用您的應用程式；**與我連絡**表示客戶可以在 AppSource 上要求應用程式的試用版。  |
 | 應用程式的說明連結 | 應用程式的線上文件或其他說明資源的 URL。  |
 | 支援的國家/區域 | 快顯對話方塊可供選取有提供應用程式的地理區域。  預設值為全球發佈。 |
-| 支援的語言   | 選取您應用程式支援的語言。 目前僅支援少數幾個語言選項。  (如果您的應用程式支援此清單中未列出的其他語言，請繼續發佈您的供應項目，並將電子郵件寄送至 appsource@microsoft.com 以告知這項資訊)。  |
+| 支援的語言   | 選取您應用程式支援的語言。 目前僅支援少數幾個語言選項。  (如果您的應用程式支援不在此清單的其他語言，繼續發佈您的供應項目，並以電子郵件傳送此資訊來： appsource\@microsoft.com。)  |
 | 應用程式版本           | 應用程式的版本號碼    |
 | 應用程式發佈日期      | 應用程式的發行/發佈日期 |
 | 與您的應用程式一起運作的產品 | 與您的應用程式交互操作的產品或服務。 最多可列出三個產品。 若要列出產品，請按一下 [+ 新增]，然後在顯示的文字方塊中輸入產品名稱。  |
@@ -73,7 +73,7 @@ ms.locfileid: "54445057"
 
 下表說明此索引標籤中的欄位： 
 
-|      欄位            |    說明                 |
+|      欄位            |    描述                 |
 |  ---------------      |  ---------------               |
 | 供應項目標誌 (png 格式，48x48) | 上傳將在您應用程式的搜尋頁面上顯示的影像。 格式為 PNG，大小必須是 48 x 48 像素。 |
 | 供應項目標誌 (png 格式，216x216) | 上傳將在您應用程式詳細資料頁面上顯示的影像。 格式為 PNG，大小必須是 216 x 216 像素。 |
@@ -91,7 +91,7 @@ ms.locfileid: "54445057"
 
 下表說明此索引標籤中的欄位： 
 
-|      欄位            |    說明                 |
+|      欄位            |    描述                 |
 |  ---------------      |  ---------------               |
 | 隱私權原則 URL    | 應用程式線上隱私權原則的 URL。  |
 | 使用規定          | 純文字格式的應用程式使用規定。  AppSource 客戶必須先接受這些條款，才能試用您的應用程式。 |

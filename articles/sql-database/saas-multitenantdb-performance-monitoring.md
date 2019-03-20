@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002369"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083176"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能
 
@@ -28,7 +28,7 @@ Wingtip Tickets SaaS 多租用戶資料庫應用程式會使用分區化多租�
 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-
+> 
 > * 透過執行提供的負載產生器，來模擬分區化多租用戶資料庫上的使用量
 > * 在資料庫回應負載增加時加以監視
 > * 相應增加資料庫，以回應增加的資料庫負載
@@ -52,7 +52,7 @@ Wingtip Tickets SaaS 多租用戶資料庫應用程式會使用分區化多租�
 
 [Azure 入口網站](https://portal.azure.com)提供大部分資源的內建監視與警示功能。 針對 SQL Database，可使用資料庫監視與警示功能。 這個內建的監視與警示功能是資源特定，因此針對少數資源使用很方便，但是搭配許多資源使用時則不方便。
 
-在您處理許多資源的大量案例中，可以使用 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)。 這是個別的 Azure 服務，可針對發出的診斷記錄和記錄分析工作區中收集的遙測提供分析。 Log Analytics 可以收集來自許多服務的遙測並用來查詢及設定警示。
+對於高容量的情況，在您處理許多資源， [Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)可用。 這是個別的 Azure 服務，可針對發出的診斷紀錄和 Log Analytics 工作區中收集的遙測提供分析。 Azure 監視器記錄檔可以收集來自許多服務的遙測並用來查詢及設定警示。
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>取得 Wingtip Tickets SaaS 多租用戶資料庫應用程式原始碼和指令碼
 
@@ -78,10 +78,10 @@ New-TenantBatch 指令碼會使用分區化多租用戶資料庫內的唯一租�
 
 | 示範 | 案例 |
 |:--|:--|
-| 2 | 產生一般強度負載 (大約 30 個 DTU) |
+| 2 | 產生一般強度負載 (大約 30 DTU) |
 | 3 | 每個租用戶產生具有更長高載的負載|
-| 4 | 每個租用戶產生具有更高 DTU 高載的負載 (大約 70 個 DTU)|
-| 5 | 在單一租用戶上產生高強度 (大約 90 個 DTU)，並在所有其他租用戶上產生標準強度的載入 |
+| 4 | 產生具有每個租用戶 (大約 70 個 DTU) 的更高 DTU 高載的負載|
+| 5 | 產生高強度 (大約 90 個 DTU) 在單一租用戶，再加上所有其他租用戶的一般強度負載 |
 
 負載產生器會將僅限「綜合」 CPU 的負載套用到每一個租用戶資料庫。 產生器會針對每個租用戶資料庫啟動作業，這會定期呼叫產生負載的預存程序。 負載層級 (單位為 DTU)、持續時間和間隔會跨所有的資料庫而變動，以模擬無法預測的租用戶活動。
 
@@ -168,7 +168,7 @@ Wingtip Tickets SaaS 多租用戶資料庫是 SaaS 應用程式，而實際 SaaS
 本練習會模擬在銷售熱門事件的票券時，Salix Salsa 發生高負載的效果。
 
 1. 開啟 …\\*Demo-PerformanceMonitoringAndManagement.ps1* 指令碼。
-1. 設定 **$DemoScenario = 5**，_在單一租用戶上產生一般負載加上高負載 (大約 90 個 DTU)。_
+1. 設定 **$DemoScenario = 5**，_產生一般負載加上高負載 (大約 90 個 DTU) 在單一租用戶上的。_
 1. 設定 **$SingleTenantName = Salix Salsa**
 1. 使用 **F5** 執行指令碼。
 

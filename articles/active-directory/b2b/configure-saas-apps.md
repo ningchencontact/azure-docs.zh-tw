@@ -1,5 +1,5 @@
 ---
-title: 為 Azure Active Directory 中的 B2B 共同作業設定 SaaS 應用程式 | Microsoft Docs
+title: 設定 SaaS 應用程式 B2B 共同作業-Azure Active Directory |Microsoft Docs
 description: Azure Active Directory B2B 共同作業的程式碼與 PowerShell 範例
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a2f4ecbe8a183636bfc4e463e4c074ab94e2d01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 03652329acaeb737cb7cb4010ef48938caa17acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182811"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096906"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>為 B2B 共同作業設定 SaaS 應用程式
 
@@ -37,37 +37,37 @@ Azure Active Directory (Azure AD) B2B 共同作業可搭配與 Azure AD 整合�
 
 1. 若要將 Dropbox Business 應用程式新增至 Azure AD，請選取左的窗格中的 [企業應用程式]，然後按一下 [新增]。
 
-  ![企業應用程式頁面上的 [新增] 按鈕](media/configure-saas-apps/add-dropbox.png)
+   ![企業應用程式頁面上的 [新增] 按鈕](media/configure-saas-apps/add-dropbox.png)
 
 2. 在 [加入應用程式] 視窗的搜尋方塊中輸入 **dropbox**，然後選取結果清單中的 [商務用 Dropbox]。
 
-  ![在 [加入應用程式] 頁面上搜尋 "dropbox"](media/configure-saas-apps/add-app-dialog.png)
+   ![在 [加入應用程式] 頁面上搜尋 "dropbox"](media/configure-saas-apps/add-app-dialog.png)
 
 3. 在 [單一登入] 頁面上，選取左窗格中的 [單一登入]，然後在 [使用者識別碼] 方塊中輸入 **user.mail**。 (其預設為 UPN。)
 
-  ![為應用程式設定單一登入](media/configure-saas-apps/configure-app-sso.png)
+   ![為應用程式設定單一登入](media/configure-saas-apps/configure-app-sso.png)
 
 4. 若要下載憑證以用於 Dropbox 設定，請選取 [設定 DropBox]，然後選取清單中的 [SAML 單一登入服務 URL]。
 
-  ![下載可用於 Dropbox 設定的憑證](media/configure-saas-apps/download-certificate.png)
+   ![下載可用於 Dropbox 設定的憑證](media/configure-saas-apps/download-certificate.png)
 
 5. 從 [單一登入] 頁面，使用登入 URL 登入 Dropbox。
 
-  ![Dropbox 登入頁面](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Dropbox 登入頁面](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. 在功能表上，選取 [系統管理員主控台]。
 
-  ![Dropbox 功能表上的 [系統管理員主控台] 連結](media/configure-saas-apps/dropbox-menu.png)
+   ![Dropbox 功能表上的 [系統管理員主控台] 連結](media/configure-saas-apps/dropbox-menu.png)
 
 7. 在 [驗證] 對話方塊中，選取 [更多]上傳憑證，然後在 [登入 URL] 方塊中，輸入 SAML 單一登入 URL。
 
-  ![摺疊的 [驗證] 對話方塊中的 [更多] 連結](media/configure-saas-apps/dropbox-auth-01.png)
+   ![摺疊的 [驗證] 對話方塊中的 [更多] 連結](media/configure-saas-apps/dropbox-auth-01.png)
 
-  ![展開的 [驗證] 對話方塊中的 [登入 URL]](media/configure-saas-apps/paste-single-sign-on-URL.png)
+   ![展開的 [驗證] 對話方塊中的 [登入 URL]](media/configure-saas-apps/paste-single-sign-on-URL.png)
 
 8. 若要在 Azure 入口網站中設定自動使用者設定，請選取左窗格中的 [佈建]、選取 [佈建模式] 方塊中的 [自動]，然後選取 [授權]。
 
-  ![在 Azure 入口網站中設定自動使用者佈建](media/configure-saas-apps/set-up-automatic-provisioning.png)
+   ![在 Azure 入口網站中設定自動使用者佈建](media/configure-saas-apps/set-up-automatic-provisioning.png)
 
 在 Dropbox 應用程式中設定來賓或成員使用者之後，他們就會收到來自 Dropbox 的個別邀請。 若要使用 Dropbox 單一登入，受邀者必須藉由按一下邀請中的連結來接受邀請。
 
@@ -78,22 +78,22 @@ Azure Active Directory (Azure AD) B2B 共同作業可搭配與 Azure AD 整合�
 
 2. 請依下列順序設定單一登入：
 
-  ![設定 Box 單一登入](media/configure-saas-apps/configure-box-sso.png)
+   ![設定 Box 單一登入](media/configure-saas-apps/configure-box-sso.png)
 
- a. 在 [登入 URL] 方塊中，確定已在 Azure 入口網站中針對 Box 適當設定登入 URL。 此 URL 是 Box.com 租用戶的 URL。 它應該遵循命名慣例 *https://.box.com*。  
- [識別碼] 不適用於此應用程式，但它仍會顯示為必要欄位。
+   a. 在 [登入 URL] 方塊中，確定已在 Azure 入口網站中針對 Box 適當設定登入 URL。 此 URL 是 Box.com 租用戶的 URL。 它應該遵循命名慣例 *https://.box.com*。  
+   [識別碼] 不適用於此應用程式，但它仍會顯示為必要欄位。
 
- b. 在 [使用者識別碼] 方塊中，輸入 **user.mail** (適用於來賓帳戶的 SSO)。
+   b. 在 [使用者識別碼] 方塊中，輸入 **user.mail** (適用於來賓帳戶的 SSO)。
 
- c. 在 [SAML 簽署憑證] 之下，按一下 [建立新憑證]。
+   c. 在 [SAML 簽署憑證] 之下，按一下 [建立新憑證]。
 
- d. 若要開始將 Box.com 租用戶設定成使用 Azure AD 做為識別提供者，請下載中繼資料檔案，然後將它儲存到本機磁碟機。
+   d. 若要開始將 Box.com 租用戶設定成使用 Azure AD 做為識別提供者，請下載中繼資料檔案，然後將它儲存到本機磁碟機。
 
- e. 將設定單一登入的中繼資料檔案轉寄給 Box 支援小組。
+   e. 將設定單一登入的中繼資料檔案轉寄給 Box 支援小組。
 
 3. 若要進行 Azure AD 自動使用者設定，請在左窗格中選取 [佈建]，然後選取 [授權]。
 
-  ![授權 Azure AD 以連線到 Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
+   ![授權 Azure AD 以連線到 Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
 如同 Dropbox 受邀者，Box 受邀者也必須從 Box 應用程式兌換其邀請。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: cfd0e4dbb6a4f24df5ba42cd45f9c16fbe5b493c
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 93c77b5f678c4e6b3170d2c7612bef3f104f0b6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
-ms.locfileid: "23493128"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002605"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>使用 Azure 自動化 Runbook 管理 StorSimple 裝置
 
@@ -30,7 +30,7 @@ ms.locfileid: "23493128"
 
 本節採用 StorSimple 的範例 Windows PowerShell 指令碼，並詳細說明各種必要步驟將指令碼匯入 Runbook，然後發佈及執行 Runbook。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您有︰
 
@@ -50,7 +50,7 @@ ms.locfileid: "23493128"
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. 在上一個步驟中建立的資料夾底下，[下載 NuGet CLI](http://www.nuget.org/downloads)。 有各種版本的 _nuget.exe_。 選擇對應至您 SDK 的版本。 每個下載連結都會直接指向一個 _.exe_ 檔案。 請務必按一下滑鼠右鍵，並將檔案儲存到您的電腦，而不是直接從瀏覽器中執行該檔案。
+2. 在上一個步驟中建立的資料夾底下，[下載 NuGet CLI](https://www.nuget.org/downloads)。 有各種版本的 _nuget.exe_。 選擇對應至您 SDK 的版本。 每個下載連結都會直接指向一個 _.exe_ 檔案。 請務必按一下滑鼠右鍵，並將檔案儲存到您的電腦，而不是直接從瀏覽器中執行該檔案。
 
     您也可以執行下列命令來下載指令碼，並將其儲存在您稍早建立的相同資料夾中。
     
@@ -187,16 +187,16 @@ ms.locfileid: "23493128"
 
 2. 在 [新增自動化帳戶] 刀鋒視窗中：
 
-    1. 提供自動化帳戶的**名稱**。
-    2. 選取連結至您 StorSimple 裝置管理員服務的**訂用帳戶**。
-    3. 建立新的資源群組，或從現有的資源群組中選取。
-    4. 選取 [位置] \(如果可能，請選取服務執行所在位置)。
-    5. 保持選取預設值 [建立執行身分帳戶] 選項。
-    5. 或者勾選 [釘選到儀表板]。 按一下頁面底部的 [新增] 。
+   1. 提供自動化帳戶的**名稱**。
+   2. 選取連結至您 StorSimple 裝置管理員服務的**訂用帳戶**。
+   3. 建立新的資源群組，或從現有的資源群組中選取。
+   4. 選取 [位置] (如果可能，請選取服務執行所在位置)。
+   5. 保持選取預設值 [建立執行身分帳戶] 選項。
+   5. 或者勾選 [釘選到儀表板]。 按一下頁面底部的 [新增] 。
 
-        ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-    成功建立自動化帳戶之後會通知您。 如需如何建立自動化帳戶的詳細資訊，請移至[建立 [執行身分] 帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)。
+      成功建立自動化帳戶之後會通知您。 如需如何建立自動化帳戶的詳細資訊，請移至[建立 [執行身分] 帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)。
 
 3. 為確保建立的自動化帳戶可以存取 StorSimple 裝置管理員服務，您需要指派適當的權限給自動化帳戶。 請移至 StorSimple 裝置管理員服務中的 [存取控制]。 按一下 [+ 新增] 並提供您的 Azure 自動化帳戶名稱。 **儲存**設定。
 
@@ -204,7 +204,7 @@ ms.locfileid: "23493128"
 
 4. 在新建立的帳戶中，移至 [共用資源] > [模組] 並按一下 [+ 新增模組]。
 
-5. 在 [新增模組] 刀鋒視窗中，瀏覽至 ZIP 壓縮模組的位置，然後選取並開啟模組。 按一下 [SERVICEPRINCIPAL] 。
+5. 在 [新增模組] 刀鋒視窗中，瀏覽至 ZIP 壓縮模組的位置，然後選取並開啟模組。 按一下 [確定]。
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 

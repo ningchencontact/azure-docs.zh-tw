@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: d0008c19ed96f731f7b57c5d8aa41cd9f128bc20
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165895"
 ---
 # <a name="get-started-with-the-informix-connector"></a>開始使用 Informix 連接器
 Microsoft Connector for Informix 可將 Logic Apps 連接至 IBM Informix 資料庫中儲存的資源。 Informix 連接器包含透過 TCP/IP 網路與遠端 Informix 伺服器電腦通訊的 Microsoft 用戶端。 其中包括雲端資料庫 (例如在 Azure 虛擬化中執行的 IBM Informix for Windows)，以及使用內部部署資料閘道的內部部署資料庫。 請參閱支援的 IBM Informix 平台和版本 [清單](connectors-create-api-informix.md#supported-informix-platforms-and-versions) (本主題結尾處)。
@@ -47,7 +47,7 @@ Microsoft Connector for Informix 可將 Logic Apps 連接至 IBM Informix 資料
 ## <a name="list-tables"></a>列出資料表
 針對由透過 Microsoft Azure 入口網站執行之許多步驟所組成的任何作業，建立邏輯應用程式。
 
-在邏輯應用程式中，您可以新增動作以列出 Informix 資料庫中的資料表。 此動作會指示連接器來處理 Informix 結構描述陳述式，如 `CALL SYSIBM.SQLTABLES`。
+在邏輯應用程式中，您可以新增動作以列出 Informix 資料庫中的資料表。 此動作會指示連接器來處理 Informix 結構描述陳述式中，如`CALL SYSIBM.SQLTABLES`。
 
 ### <a name="create-a-logic-app"></a>建立邏輯應用程式
 1. 在 **Azure 開始面板**中，依序選取 **+** (加號)、[Web + 行動] 和 [邏輯應用程式]。
@@ -80,7 +80,7 @@ Microsoft Connector for Informix 可將 Logic Apps 連接至 IBM Informix 資料
 ## <a name="create-the-connections"></a>建立連線
 此連接器支援使用下列連接屬性來連接內部部署和雲端中的資料庫。 
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | 伺服器 |必要。 接受代表 TCP/IP 位址或別名的字串值，其採用 IPv4 或 IPv6 格式，後面接著 (以冒號分隔) TCP/IP 連接埠編號。 |
 | 資料庫 |必要。 接受代表 DRDA 關聯式資料庫名稱 (RDBNAM) 的字串值。 Informix 會接受 128 位元組的字串 (資料庫稱為 IBM Informix 資料庫的名稱 (dbname))。 |
@@ -154,7 +154,7 @@ Microsoft Connector for Informix 可將 Logic Apps 連接至 IBM Informix 資料
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
 ## <a name="add-one-row-using-insert"></a>使用 INSERT 加入一個資料列
-您可以建立邏輯應用程式動作，在 Informix 資料表中新增資料列。 此動作會指示連接器來處理 Informix INSERT 陳述式，如 `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`。
+您可以建立邏輯應用程式動作，在 Informix 資料表中加入一個資料列。 此動作會指示連接器來處理 Informix INSERT 陳述式，例如`INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`。
 
 ### <a name="create-a-logic-app"></a>建立邏輯應用程式
 1. 在 **Azure 開始面板**中，依序選取 **+** (加號)、[Web + 行動] 和 [邏輯應用程式]。
@@ -181,7 +181,7 @@ Microsoft Connector for Informix 可將 Logic Apps 連接至 IBM Informix 資料
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## <a name="fetch-one-row-using-select"></a>使用 SELECT 擷取一個資料列
-您可以建立邏輯應用程式動作，擷取 Informix 資料表中的資料列。 此動作會指示連接器來處理 Informix SELECT WHERE 陳述式，如 `SELECT FROM AREA WHERE AREAID = '99999'`。
+您可以建立邏輯應用程式動作，擷取 Informix 資料表中的資料列。 此動作會指示連接器來處理 Informix SELECT WHERE 陳述式，例如`SELECT FROM AREA WHERE AREAID = '99999'`。
 
 ### <a name="create-a-logic-app"></a>建立邏輯應用程式
 1. 在 **Azure 開始面板**中，依序選取 **+** (加號)、[Web + 行動] 和 [邏輯應用程式]。
@@ -209,7 +209,7 @@ Microsoft Connector for Informix 可將 Logic Apps 連接至 IBM Informix 資料
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## <a name="change-one-row-using-update"></a>使用 UPDATE 變更資料列
-您可以建立邏輯應用程式動作，變更 Informix 資料表中的資料列。 此動作會指示連接器來處理 Informix UPDATE 陳述式，如 `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`。
+您可以建立邏輯應用程式動作，以變更 Informix 資料表中的資料列。 此動作會指示連接器來處理 Informix UPDATE 陳述式，例如`UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`。
 
 ### <a name="create-a-logic-app"></a>建立邏輯應用程式
 1. 在 **Azure 開始面板**中，依序選取 **+** (加號)、[Web + 行動] 和 [邏輯應用程式]。
@@ -236,7 +236,7 @@ Microsoft Connector for Informix 可將 Logic Apps 連接至 IBM Informix 資料
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
 ## <a name="remove-one-row-using-delete"></a>使用 DELETE 移除一個資料列
-您可以建立邏輯應用程式動作，移除 Informix 資料表中的資料列。 此動作會指示連接器來處理 Informix DELETE 陳述式，如 `DELETE FROM AREA WHERE AREAID = '99999'`。
+您可以建立邏輯應用程式動作，移除 Informix 資料表中的資料列。 此動作會指示連接器來處理 Informix DELETE 陳述式，例如`DELETE FROM AREA WHERE AREAID = '99999'`。
 
 ### <a name="create-a-logic-app"></a>建立邏輯應用程式
 1. 在 **Azure 開始面板**中，依序選取 **+** (加號)、[Web + 行動] 和 [邏輯應用程式]。

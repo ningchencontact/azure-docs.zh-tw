@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 4784ca08366d833d02372393e0e12f0fefe8c5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247539"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112444"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>使用雲端中的自動化機器學習來將模型定型
 
@@ -80,8 +80,8 @@ DSVM 名稱限制包括：
 
 > [!NOTE]
 >
-> 下列程式碼會使用 `RemoteCompute` 目標類別來附加現有的 VM 作為計算目標。
-> `DsvmCompute` 類別將在未來版本中被取代，以支援此設計模式。
+> 下列程式碼會使用[RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py)目標附加現有的 VM 作為計算目標的類別。
+> [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py)類別將在未來的版本，而這種設計模式中已被取代。
 
 執行下列程式碼，從既有的 Linux DSVM 中建立計算目標。
 
@@ -107,7 +107,7 @@ compute_target.wait_for_completion(show_output=True)
 
 若要提供存取，您必須：
 + 建立包含 `get_data()` 函式的 get_data.py 檔案 
-* 將該檔案放在可當成絕對路徑存取的目錄中 
++ 將該檔案放在可當成絕對路徑存取的目錄中 
 
 您可以在 get_data.py 檔案中封裝用來從 Blob 儲存體或本機磁碟讀取資料的程式碼。 在下列程式碼範例中，資料來自 sklearn 套件。
 

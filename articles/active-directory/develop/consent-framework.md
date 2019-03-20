@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbac6fe421864f9479c9a4ee7eecde97c13f6052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200525"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124171"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 同意架構
 
@@ -58,14 +58,14 @@ Azure Active Directory (Azure AD) 同意架構可讓您輕鬆地開發多租用�
 
     **同意應用程式的委派權限**
 
-    1. 前往您應用程式的 [設定] 頁面
-    1. 選取 [必要權限]。
-    1. 按一下 [授與權限] 按鈕。
+   1. 前往您應用程式的 [設定] 頁面
+   1. 選取 [必要權限]。
+   1. 按一下 [授與權限] 按鈕。
 
-    ![授與明確的系統管理員同意權限](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![授與明確的系統管理員同意權限](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > 使用 ADAL.js 的單頁應用程式 (SPA) 目前必須使用 [授與權限] 按鈕來授與明確的同意。 否則，應用程式會在要求存取權杖時失敗。
+   > [!IMPORTANT]
+   > 使用 ADAL.js 的單頁應用程式 (SPA) 目前必須使用 [授與權限] 按鈕來授與明確的同意。 否則，應用程式會在要求存取權杖時失敗。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7fa76a2c5b01e623e490edd0091f7fb372b7085f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093233"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992012"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 Verizon 專屬 HTTP 標頭
 
@@ -27,13 +27,13 @@ ms.locfileid: "49093233"
 
 如果您想要避免其中一個保留標頭新增於原始伺服器的 Azure CDN (內容傳遞網路) POP 要求中，您必須使用規則引擎中的 [Proxy 特殊標頭功能](cdn-rules-engine-reference-features.md#proxy-special-headers)建立規則。 在此規則中，排除您想要從標頭欄位中預設標頭清單移除的標頭。 如果您已啟用[偵錯快取回應標頭功能](cdn-rules-engine-reference-features.md#debug-cache-response-headers)，務必新增必要的 `X-EC-Debug` 標頭。 
 
-例如，若要移除 `Via` 標頭，規則的標頭欄位應該包含下列標頭清單：X-Forwarded-For、X-Forwarded-Proto、X-Host、X-Midgress、X-Gateway-List、X-EC-Name、Host。 
+例如，若要移除`Via`標頭，此規則的標頭欄位應該包含下列標頭清單：*X 轉送如，X-轉送-Proto，主控件的 X、 X-Midgress X 閘道清單中，X-EC-名稱裝載*。 
 
 ![Proxy 特殊標頭規則](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
 下表說明可由 Verizon CDN POP 在要求中新增的標頭：
 
-要求標頭 | 說明 | 範例
+要求標頭 | 描述 | 範例
 ---------------|-------------|--------
 [Via](#via-request-header) | 識別已將要求透過 Proxy 處理至原始伺服器的 POP 伺服器。 | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | 表示要求者的 IP 位址。| 10.10.10.10
@@ -41,7 +41,7 @@ X-Forwarded-Proto | 表示要求的通訊協定。 | http
 X-Host | 表示要求的主機名稱。 | cdn.mydomain.com
 X-Midgress | 表示要求是否已透過其他 CDN 伺服器進行 Proxy 處理。 例如，POP server-to-origin 防護伺服器或 POP server-to-ADN 閘道伺服器。 <br />只有發生 Midgress 流量時，才會將此標頭新增至要求。 在此情況下，標頭設定為 1，表示要求已透過其他 CDN 伺服器進行 Proxy 處理。| 1
 [Host](#host-request-header) | 識別可以找到所要求內容的主機和連接埠。 | marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN：識別指派給客戶原始伺服器的 ADN 閘道伺服器容錯移轉清單。 <br />原始防護：表示指派給客戶原始伺服器的一組原始防護伺服器。 | `icn1,hhp1,hnd1`
+[X-Gateway-List](#x-gateway-list-request-header) | ADN:識別指派給客戶原始伺服器的 ADN 閘道伺服器容錯移轉清單。 <br />原始防護：表示原始保護盾伺服器指派給客戶原始伺服器的集合。 | `icn1,hhp1,hnd1`
 X-EC-_&lt;name&gt;_ | 開頭為 X-EC 的要求標頭 (例如，X-EC-Tag、[X-EC-Debug](cdn-http-debug-headers.md)) 已保留供 CDN 使用。| waf-production
 
 ## <a name="via-request-header"></a>Via 要求標頭
@@ -50,18 +50,19 @@ X-EC-_&lt;name&gt;_ | 開頭為 X-EC 的要求標頭 (例如，X-EC-Tag、[X-EC-
 `Via: Protocol from Platform (POP/ID)` 
 
 語法中使用的詞彙定義如下：
-- 通訊協定：表示用來以 Proxy 處理要求的通訊協定版本 (例如，HTTP/1.1)。 
+- 通訊協定：表示用來 proxy 要求的通訊協定 (例如，HTTP/1.1) 版本。 
 
-- 平台：表示在其上要求內容的平台。 下列程式碼適用於此欄位： 
+- 平台：表示要求內容的平台。 下列程式碼適用於此欄位： 
+
     代碼 | 平台
     -----|---------
     ECAcc | HTTP Large
     ECS   | HTTP Small
     ECD   | 應用程式傳遞網路 (ADN)
 
-- POP：表示處理要求的 [POP](cdn-pop-abbreviations.md)。 
+- POP:指出[POP](cdn-pop-abbreviations.md)處理要求。 
 
-- ID：僅供內部使用。
+- 識別碼：僅供內部使用。
 
 ### <a name="example-via-request-header"></a>範例 Via 要求標頭
 

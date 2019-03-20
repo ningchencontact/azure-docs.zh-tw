@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: cdaa151f0603cddc9ca1bf17b0ff304f646cfdde
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000235"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -29,7 +29,7 @@ ms.locfileid: "55462829"
     - 如需有關儲存體容器的資訊，請移至[建立儲存體容器](../blobs/storage-quickstart-blobs-portal.md#create-a-container)。
 - 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。 
 - 具有執行[受支援 OS 版本](storage-import-export-requirements.md#supported-operating-systems) 的 Windows 系統。 
-- 在 Windows 系統上啟用 BitLocker。 請參閱[如何啟用 BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
+- 在 Windows 系統上啟用 BitLocker。 請參閱[如何啟用 BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
 - 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://aka.ms/waiev1)。 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1`。
 - 擁有 FedEx/DHL 帳戶。  
     - 帳戶必須是有效的、需要有餘額，且必須有退貨運送功能。
@@ -47,7 +47,7 @@ ms.locfileid: "55462829"
 
 1.  透過 SATA 連接器將磁碟機連線到 Windows 系統。
 1.  在每個磁碟機上建立單一 NTFS 磁碟區。 指派磁碟機代號給磁碟區。 請勿使用掛接點。
-2.  在 NTFS 磁碟區上啟用 BitLocker 加密。 如果使用 Windows Server 系統，請使用[如何在 Windows Server 2012 R2 上啟用 BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) 中的指示。
+2.  在 NTFS 磁碟區上啟用 BitLocker 加密。 如果使用 Windows Server 系統，請使用[如何在 Windows Server 2012 R2 上啟用 BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) 中的指示。
 3.  將資料複製到加密磁碟區。 使用拖放或 Robocopy，或是任何這類的複製工具。
 4.  以系統管理權限開啟 PowerShell 或命令列視窗。 若要將目錄變更為解壓縮的資料夾，請執行下列命令：
     
@@ -64,7 +64,7 @@ ms.locfileid: "55462829"
     
     下表會說明使用的參數：
 
-    |選項  |說明  |
+    |選項  |描述  |
     |---------|---------|
     |/j:     |日誌檔案的名稱 (具有 .jrn 副檔名)。 每個磁碟機都會產生日誌檔案。 我們建議您使用磁碟序號作為日誌檔案名稱。         |
     |/id:     |工作階段識別碼。 針對命令的每個執行個體使用唯一的工作階段號碼。      |
@@ -94,14 +94,14 @@ ms.locfileid: "55462829"
 
 4. 在 [基本] 中：
 
-    - 選取 [匯入至 Azure]。
-    - 輸入匯入作業的描述性名稱。 使用此名稱來追蹤作業進度。
-        - 名稱只可包含小寫字母、數字和連字號。
-        - 名稱必須以字母開頭，並且不能包含空格。
-    - 選取一個訂用帳戶。
-    - 輸入或選取資源群組。  
+   - 選取 [匯入至 Azure]。
+   - 輸入匯入作業的描述性名稱。 使用此名稱來追蹤作業進度。
+       - 名稱只可包含小寫字母、數字和連字號。
+       - 名稱必須以字母開頭，並且不能包含空格。
+   - 選取一個訂用帳戶。
+   - 輸入或選取資源群組。  
 
-    ![建立匯入作業 - 步驟 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![建立匯入作業 - 步驟 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. 在 [作業詳細資料] 中：
 
@@ -113,21 +113,21 @@ ms.locfileid: "55462829"
 
 4. 在 [寄返資訊] 中：
 
-    - 從下拉式清單中選取貨運公司。
-    - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 如果您沒有帳戶號碼，請建立 [FedEx](http://www.fedex.com/us/oadr/) 或 [DHL](http://www.dhl.com/) 貨運帳戶。
-    - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。 
+   - 從下拉式清單中選取貨運公司。
+   - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 如果您沒有帳戶號碼，請建立 [FedEx](https://www.fedex.com/us/oadr/) 或 [DHL](http://www.dhl.com/) 貨運帳戶。
+   - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。 
         
-        > [!TIP] 
-        > 請提供群組電子郵件，而不是指定單一使用者的電子郵件地址。 這樣可以確保即使當系統管理員不在時，您也可以收到通知。
+       > [!TIP] 
+       > 請提供群組電子郵件，而不是指定單一使用者的電子郵件地址。 這樣可以確保即使當系統管理員不在時，您也可以收到通知。
 
-    ![建立匯入工作 - 步驟 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![建立匯入工作 - 步驟 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. 在 [摘要] 中：
 
-    - 檢閱摘要中提供的作業資訊。 記下作業名稱和 Azure 資料中心寄送地址，以將磁碟寄回 Azure。 這項資訊稍後會用在出貨標籤上。
-    - 按一下 [確定] 以完成建立匯入作業。
+   - 檢閱摘要中提供的作業資訊。 記下作業名稱和 Azure 資料中心寄送地址，以將磁碟寄回 Azure。 這項資訊稍後會用在出貨標籤上。
+   - 按一下 [確定] 以完成建立匯入作業。
 
-    ![建立匯入作業 - 步驟 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![建立匯入作業 - 步驟 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>步驟 3：寄送磁碟機 
 

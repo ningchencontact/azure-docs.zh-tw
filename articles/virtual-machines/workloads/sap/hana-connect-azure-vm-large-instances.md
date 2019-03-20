@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 2628cafada47b2602b195c44d4b6f2e6b16012ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754555"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092764"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>將 Azure VM 連接到 HANA 大型執行個體
 
@@ -85,7 +85,7 @@ ms.locfileid: "53754555"
 
 - **虛擬網路位址空間**：**虛擬網路位址空間**是您為 Azure 虛擬網路中的位址空間參數指派的 IP 位址範圍。 這些網路連接到 SAP HANA 大型執行個體環境。
 
- 我們建議此位址空間參數是多行值。 它應該包含 Azure VM 的子網路範圍和 Azure 閘道的子網路範圍。 此子網路範圍顯示在上一個圖形中。 它「不得」與您的內部部署、伺服器 IP 集區或 ER-P2P 位址範圍重疊。 
+  我們建議此位址空間參數是多行值。 它應該包含 Azure VM 的子網路範圍和 Azure 閘道的子網路範圍。 此子網路範圍顯示在上一個圖形中。 它「不得」與您的內部部署、伺服器 IP 集區或 ER-P2P 位址範圍重疊。 
  
 如何取得這些 IP 位址範圍？ 
 
@@ -108,7 +108,7 @@ ms.locfileid: "53754555"
   
 - **伺服器 IP 集區位址範圍︰** 此 IP 位址範圍可用來將個別 IP 位址指派給 HANA 大型執行個體伺服器。 建議的子網路大小為 /24 CIDR 區塊。 如有需要，可使用只有 64 個 IP 位址的較小子網路。 在這個範圍中，前 30 個 IP 位址要保留供 Microsoft 使用。 選擇範圍大小時請確實考量這項事實。 此範圍「不得」與您的內部部署或其他 Azure IP 位址重疊。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應提供您的網路內目前未使用的 IP 位址範圍。 
 
- **此範圍是要求初始部署時必須提交給 Microsoft 的 IP 位址範圍**。
+  **此範圍是要求初始部署時必須提交給 Microsoft 的 IP 位址範圍**。
  
 您需要定義和規劃先前所述的 IP 位址範圍。 不過，您不需要將這些全部傳輸到 Microsoft。 您必須列舉給 Microsoft 的 IP 位址範圍包括：
 

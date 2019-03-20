@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea80824588980fdd6c580b6d77c2a5566159547
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211082"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224143"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程：設定 G Suite 來自動佈建使用者
 
@@ -53,7 +53,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 > [!IMPORTANT]
 > 建議先將單一 Azure AD 使用者指派給 G Suite 以測試佈建設定。 可以稍後再指派額外的使用者和群組。
-
+> 
 > 將使用者指派給 G Suite 時，請在指派對話方塊中選取 [使用者] 或 [群組] 角色。 「**預設存取**」角色不適用於佈建。
 
 ## <a name="enable-automated-user-provisioning"></a>啟用自動使用者佈建
@@ -80,8 +80,8 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
    
     ![選取 API 參考。][16]
 
-    > [!IMPORTANT]
-    > 針對您想要佈建至 G Suite 的每個使用者，其使用者名稱在 Azure Active Directory 中*必須*繫結至自訂網域。 例如，G Suite 不會接受類似 bob@contoso.onmicrosoft.com 的使用者名稱。 另一方面，則接受 bob@contoso.com。 您可以在 Azure AD 中編輯現有使用者的內容，來變更其網域。 下列步驟包含如何為 Azure Active Directory 與 G Suite 設定自訂網域的指示。
+   > [!IMPORTANT]
+   > 針對您想要佈建至 G Suite 的每個使用者，其使用者名稱在 Azure Active Directory 中*必須*繫結至自訂網域。 例如，G Suite 不會接受類似 bob@contoso.onmicrosoft.com 的使用者名稱。 另一方面，則接受 bob@contoso.com。 您可以在 Azure AD 中編輯現有使用者的內容，來變更其網域。 下列步驟包含如何為 Azure Active Directory 與 G Suite 設定自訂網域的指示。
       
 1. 如果您尚未將自訂網域名稱新增至 Azure Active Directory，請按照下列步驟執行：
   
@@ -105,8 +105,8 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     e. 對於所有您想要新增至目錄的網域，重複上述步驟。
 
-    > [!NOTE]
-    針對使用者佈建，自訂網域必須符合來源 Azure AD 的網域名稱。 如果不相符，您可以藉由實作屬性對應的自訂來解決問題。
+   > [!NOTE]
+   >  針對使用者佈建，自訂網域必須符合來源 Azure AD 的網域名稱。 如果不相符，您可以藉由實作屬性對應的自訂來解決問題。
 
 
 1. 您已經向 Azure AD 驗證所有網域，但是您還必須向 Google Apps 再驗證一次。 對於尚未向 Google 註冊的每個網域，請採取下列步驟：
@@ -149,13 +149,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 1. 將 [佈建模式] 設定為 [自動]。 
 
-     ![佈建](./media/google-apps-provisioning-tutorial/provisioning.png)
+       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. 在 [系統管理員認證] 區段下，選取 [授權]。 這會在新的瀏覽器視窗中開啟 Google 授權對話方塊。
 
 1. 確認您想要授與 Azure Active Directory 權限來變更您的 G Suite 租用戶。 選取 [接受]。
     
-     ![確認權限。][28]
+       ![Confirm permissions.][28]
 
 1. 在 Azure 入口網站中，選取 [測試連線] 以確保 Azure AD 可以連線至您的應用程式。 如果連線失敗，請確定您的 G Suite 帳戶具有小組系統管理員權限。 然後再試一次**授權**步驟。
 

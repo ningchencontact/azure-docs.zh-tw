@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119338"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>使用資料管理閘道針對問題進行疑難排解
 本文提供使用資料管理閘道進行疑難問題排解的相關資訊。
@@ -169,8 +169,8 @@ ms.locfileid: "55813835"
 請依照下列步驟操作，讓閘道回到線上：
 
 1. 允許在閘道電腦和公司防火牆上執行 IP 位址輸出規則。 您可以從 Windows 事件記錄 (識別碼 = 401) 找到 IP 位址：嘗試存取通訊端被拒絕，因為存取權限不足 XX.XX.XX.XX:9350。
-* 設定閘道上的 Proxy 設定。 如需詳細資料，請參閱「Proxy 伺服器考量」一節。
-* 在閘道電腦的 Windows 防火牆上與公司防火牆上啟用輸出連接埠 5671 和 9350-9354。 如需詳細資料，請參閱「連接埠和防火牆」一節。 此步驟為選用步驟，但基於效能考量，還是建議執行。
+1. 設定閘道上的 Proxy 設定。 如需詳細資料，請參閱「Proxy 伺服器考量」一節。
+1. 在閘道電腦的 Windows 防火牆上與公司防火牆上啟用輸出連接埠 5671 和 9350-9354。 如需詳細資料，請參閱「連接埠和防火牆」一節。 此步驟為選用步驟，但基於效能考量，還是建議執行。
 
 ### <a name="3-problem"></a>3.問題
 您看到下列錯誤。
@@ -184,7 +184,7 @@ ms.locfileid: "55813835"
 請依照下列步驟操作，讓閘道回到線上：
 
 1. 等候數分鐘，錯誤消失時，就會自動恢復連線。
-* 如果錯誤持續發生，請重新啟動閘道服務。
+1. 如果錯誤持續發生，請重新啟動閘道服務。
 
 ## <a name="failed-to-author-linked-service"></a>無法編寫連結的服務
 ### <a name="problem"></a>問題
@@ -282,6 +282,6 @@ ms.locfileid: "55813835"
 1. 啟動 Windows **事件檢視器**。
 2. 找出 [應用程式及服務記錄檔]  >  [資料管理閘道] 資料夾中的記錄檔。
 
- 針對閘道相關問題進行疑難排解時，請在事件檢視器中尋找錯誤層級的事件。
+   針對閘道相關問題進行疑難排解時，請在事件檢視器中尋找錯誤層級的事件。
 
 ![資料管理閘道事件檢視器中的記錄檔](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

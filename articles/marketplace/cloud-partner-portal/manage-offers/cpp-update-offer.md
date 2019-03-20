@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 690ce08aa15a9677b04931ed1965ef819614ee84
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102140"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>更新 Azure Marketplace 和 AppSource 的供應項目
 
@@ -68,19 +68,19 @@ ms.locfileid: "54355001"
 
 針對 Azure Marketplace 供應項目：
 
-2. 選取 [SKU] 索引標籤。選取要修改的 SKU。
-3. 按一下 [國家/區域可用性] 欄位之下的 [選取國家 (地區)] 按鈕。
-4. 在 [區域可用性] 對話方塊中，新增或移除此 SKU 的區域。
+1. 選取 [SKU] 索引標籤。選取要修改的 SKU。
+1. 按一下 [國家/區域可用性] 欄位之下的 [選取國家 (地區)] 按鈕。
+1. 在 [區域可用性] 對話方塊中，新增或移除此 SKU 的區域。
 
 針對 AppSource 供應項目：
 
-2. 選取 [電子店面詳細資料] 索引標籤。
-3. 在 [支援的國家/地區] 標籤旁邊，按一下 [支援的國家/地區]。 
-4. 在 [支援的國家/地區] 對話方塊中，新增或移除此供應項目的區域。
+1. 選取 [電子店面詳細資料] 索引標籤。
+1. 在 [支援的國家/地區] 標籤旁邊，按一下 [支援的國家/地區]。 
+1. 在 [支援的國家/地區] 對話方塊中，新增或移除此供應項目的區域。
 
 針對任何一個市集：
 
-5. 按一下 [發佈] 即可啟動發佈程序。 
+1. 按一下 [發佈] 即可啟動發佈程序。 
 
 如果在新的區域中提供 SKU，您可透過 [匯出價格資料] 功能來指定該特定地區的價格。 如果您加回之前曾經可用的區域，會無法更新其價格，因為不允許變更價格。
 

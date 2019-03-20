@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a72a4244e3cae081fe9a962bbb80d3ce19822d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000301"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,7 +39,7 @@ ms.locfileid: "39113217"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [ha-guide]:sap-high-availability-guide.md
@@ -185,7 +185,7 @@ ms.locfileid: "39113217"
 
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>在 Azure 中使用叢集共用磁碟於 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 Windows Server 容錯移轉叢集是 Windows 中高可用性 SAP ASCS/SCS 安裝和 DBMS 的基礎。
@@ -210,9 +210,9 @@ Azure Load Balancer 服務可為 Azure 提供「內部負載平衡器」。 使�
 
 在包含叢集節點的資源群組中部署內部負載平衡器。 接著，使用內部負載平衡器的探查連接埠來設定所有必要的連接埠轉送規則。 用戶端可以透過虛擬主機名稱進行連線。 DNS 伺服器會解析叢集 IP 位址，而內部負載平衡器則會處理對作用中叢集節點的轉送。
 
-![圖 1：Azure 中不含共用磁碟的 Windows 容錯移轉叢集設定][sap-ha-guide-figure-1001]
+![圖 1：Windows 容錯移轉叢集在 Azure 中沒有共用磁碟的組態][sap-ha-guide-figure-1001]
 
-_**圖 1**：Azure 中不含共用磁碟的 Windows Server 容錯移轉叢集設定_
+_**圖 1：** Azure 中不含共用磁碟的 Windows Server 容錯移轉叢集設定_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>含叢集共用磁碟的 SAP ASCS/SCS HA
 在 Windows 中，SAP ASCS/SCS 執行個體包含 SAP 中央服務、SAP 訊息伺服器、加入佇列伺服器處理序和 SAP 全域主機檔案。 SAP 全域主機檔案會儲存整個 SAP 系統的中央檔案。
@@ -221,25 +221,25 @@ SAP ASCS/SCS 執行個體包含下列元件：
 
 * SAP 中央服務：
     * 兩個處理序 (訊息和加入佇列伺服器)，以及用來存取這兩個處理序的 <ASCS/SCS 虛擬主機名稱>。
-    * 檔案結構：S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<執行個體號碼\>
+    * 檔案結構：S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
 
 
 * SAP 全域主機檔案：
-    * 檔案結構：S:\usr\sap\\&lt;SID&gt;\SYS\..
-    * sapmnt 檔案共用，可利用下列 UNC 路徑，供存取這些全域 S:\usr\sap\\&lt;SID&gt;\SYS\... 檔案：
+  * 檔案結構：S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * sapmnt 檔案共用，可利用下列 UNC 路徑，供存取這些全域 S:\usr\sap\\&lt;SID&gt;\SYS\... 檔案：
 
-     \\\\&lt;ASCS/SCS 虛擬主機名稱&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+    \\\\&lt;ASCS/SCS 虛擬主機名稱&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 
 
-![圖 2：SAP ASCS/SCS 執行個體的處理序、檔案結構和全域主機 sapmnt 檔案共用][sap-ha-guide-figure-8001]
+![圖 2：處理程序、 檔案結構和 global 主機 sapmnt 檔案共用的 SAP ASCS/SCS 執行個體][sap-ha-guide-figure-8001]
 
-_**圖 2：** SAP ASCS/SCS 執行個體的處理序、檔案結構和全域主機 sapmnt 檔案共用_
+_**圖 2：** 處理程序、 檔案結構和 global 主機 sapmnt 檔案共用的 SAP ASCS/SCS 執行個體_
 
 在高可用性設定中，您要將 SAP ASCS/SCS 執行個體進行叢集處理。 我們會使用*叢集共用磁碟* (在我們的範例為 S 磁碟機) 來放置 SAP ASCS/SCS 和 SAP 全域主機檔案。
 
-![圖 3：含共用磁碟的 SAP ASCS/SCS HA 架構][sap-ha-guide-figure-8002]
+![圖 3：SAP ASCS/SCS HA 架構與共用磁碟][sap-ha-guide-figure-8002]
 
-_**圖 3：** 含共用磁碟的 SAP ASCS/SCS HA 架構_
+_**圖 3：** SAP ASCS/SCS HA 架構與共用磁碟_
 
 > [!IMPORTANT]
 > 這兩個元件會在相同的 SAP ASCS/SCS 執行個體底下執行：
@@ -248,9 +248,9 @@ _**圖 3：** 含共用磁碟的 SAP ASCS/SCS HA 架構_
 >
 
 
-![圖 4：含共用磁碟的 SAP ASCS/SCS HA 架構][sap-ha-guide-figure-8003]
+![圖 4：SAP ASCS/SCS HA 架構與共用磁碟][sap-ha-guide-figure-8003]
 
-_**圖 4：** 含共用磁碟的 SAP ASCS/SCS HA 架構_
+_**圖 4：** SAP ASCS/SCS HA 架構與共用磁碟_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>使用 SIOS DataKeeper 在 Azure 中共用磁碟
 
@@ -266,9 +266,9 @@ _**圖 4：** 含共用磁碟的 SAP ASCS/SCS HA 架構_
 
 取得 [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/)的詳細資訊。
 
-![圖 5：Azure 中含 SIOS DataKeeper 的 Windows Server 容錯移轉叢集組態][sap-ha-guide-figure-1002]
+![圖 5：Windows Server 容錯移轉叢集使用 SIOS DataKeeper 在 Azure 中的組態][sap-ha-guide-figure-1002]
 
-_**圖 5：** Azure 中含 SIOS DataKeeper 的 Windows 容錯移轉叢集組態_
+_**圖 5：** Windows 容錯移轉叢集使用 SIOS DataKeeper 在 Azure 中的組態_
 
 > [!NOTE]
 > 您不需要與某些 DBMS 產品 (例如 SQL Server) 共用提供高可用性的磁碟。 SQL Server AlwaysOn 會將 DBMS 資料及記錄檔，從一個叢集節點的本機磁碟複寫到另一個叢集節點的本機磁碟。 在此情況下，Windows 叢集組態不需要共用磁碟。

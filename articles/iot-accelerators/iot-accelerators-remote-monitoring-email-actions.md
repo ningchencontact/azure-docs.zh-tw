@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 08e80a9baa4c6841b6d88d1c5f2ba69992ffa7ef
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108098"
 ---
 # <a name="add-an-email-action"></a>新增電子郵件動作
 
@@ -31,7 +31,7 @@ ms.locfileid: "51977050"
 
 1. 從 [儀表板]，瀏覽至 [規則] 頁面：
 
-    ![規則頁面](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![規則頁面](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. 按一下要修改的現有規則旁的核取方塊，然後按一下頂端的 [編輯]。 可編輯的 [規則] 面板隨即出現。
 
@@ -41,7 +41,7 @@ ms.locfileid: "51977050"
 
 1. 在收件者方塊中輸入電子郵件地址，然後針對要新增的每個電子郵件地址按 **Enter** 鍵：
 
-    ![地址項目](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![地址項目](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. 輸入電子郵件的主旨。
 
@@ -59,7 +59,7 @@ ms.locfileid: "51977050"
 
 1. 從 [儀表板]，瀏覽至 [規則] 頁面：
 
-    ![規則頁面](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![規則頁面](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. 請遵循[建立規則](iot-accelerators-remote-monitoring-automate.md#create-a-rule)一節中的步驟。 請遵循[建立進階規則](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule)一節中的步驟，直到您設定**嚴重性層級**的那一點。 還不要按 [套用]。
 
@@ -69,7 +69,7 @@ ms.locfileid: "51977050"
 
 1. 在收件者方塊中輸入電子郵件地址，然後針對要新增的每個電子郵件地址按 **Enter** 鍵：
 
-    ![地址項目](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![地址項目](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. 輸入電子郵件的主旨。
 
@@ -128,7 +128,7 @@ ms.locfileid: "51977050"
 
 1. 按一下即可登入 Outlook。 您會前往 Azure 入口網站：
 
-  ![登入 Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+   ![登入 Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. 按一下 [授權]。 系統會提示您登入。 您用來登入的帳戶應該是應用程式用來傳送電子郵件通知的電子郵件地址：
 
@@ -136,7 +136,7 @@ ms.locfileid: "51977050"
 
 1. 如果您已成功設定電子郵件通知，您會看到此訊息：
 
-  ![成功的 Outlook 登入](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+   ![成功的 Outlook 登入](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## 自訂電子郵件 HTML <a name="htmledit"></a>
 
@@ -168,7 +168,7 @@ ms.locfileid: "51977050"
 
 遠端監視解決方案加速器會使用 Outlook 來傳送電子郵件通知。 Outlook 會將傳送的電子郵件數目限制為[每 1 分鐘 30 封電子郵件](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits)。 接收電子郵件的電子郵件用戶端也可能會節流處理每分鐘收到的電子郵件數目。 請向您的特定電子郵件用戶端洽詢相關限制。 當您設定規則的電子郵件通知時，此規則應會計算一段時間 (至少一分鐘) 的平均值，而不會使用即時值：
 
-![平均計算](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
+![平均計算](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## <a name="next-steps"></a>後續步驟
 

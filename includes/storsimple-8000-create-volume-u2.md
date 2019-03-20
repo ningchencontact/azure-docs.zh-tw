@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888809"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125226"
 ---
 #### <a name="to-create-a-volume"></a>建立磁碟區
 1. 從 [裝置] 刀鋒視窗的表格式裝置清單中，選取您的裝置。 按一下 [+ 新增磁碟區]。
@@ -22,7 +22,7 @@ ms.locfileid: "55888809"
 
    2. 從下拉式清單中，選取您需要新增磁碟區的磁碟區容器。 
 
-   3.  輸入磁碟區的 [名稱]  。 一旦建立磁碟區，您就無法將它重新命名。
+   3. 輸入磁碟區的 [名稱]  。 一旦建立磁碟區，您就無法將它重新命名。
 
    4. 在下拉式清單中，為磁碟區選取 [類型]。 需要本機保證、低延遲，以及高效能的工作負載，請選取 [固定在本機]  磁碟區。 針對所有其他資料，請選取 [分層]  磁碟區。 如果您將此磁碟區用於封存資料，請核取 [將此磁碟區用於較不常存取的封存資料] 核取方塊。
       
@@ -36,19 +36,19 @@ ms.locfileid: "55888809"
       
        如果您在 8100 裝置上佈建 8.5 TB (允許的大小上限) 且固定在本機的磁碟區，則您會用盡裝置上所有可用的本機空間。 從那時起，您就無法建立任何分層磁碟區，因為裝置上已沒有任何本機空間，可用來裝載分層磁碟區的工作集。 現有的分層磁碟區也會影響可用的空間。 例如，如果您的 8100 裝置已經有大約 106 TB 的分層磁碟區，則固定在本機的磁碟區僅只有 4 TB 的可用空間。
 
-    6. 在 [已連線的主機] 欄位中，按一下箭號。 
+      1. 在 [已連線的主機] 欄位中，按一下箭號。 
 
-        ![已連線的主機](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![已連線的主機](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. 在 [已連線的主機] 刀鋒視窗中，選擇現有的 ACR，或執行下列步驟來新增 ACR︰
+      1. 在 [已連線的主機] 刀鋒視窗中，選擇現有的 ACR，或執行下列步驟來新增 ACR︰
 
-       1. 提供 ACR 的 [名稱]  。
-       2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。 如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN](#get-the-iqn-of-a-windows-server-host)。
+         1. 提供 ACR 的 [名稱]  。
+         2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。 如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN](#get-the-iqn-of-a-windows-server-host)。
 
-    9. 按一下頁面底部的 [新增] 。 使用指定的設定來建立磁碟區。
+      1. 按一下頁面底部的 [新增] 。 使用指定的設定來建立磁碟區。
 
-        ![按一下 [建立專案]。](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![按一下 [建立專案]。](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > 請注意，您在此建立的磁碟區未受保護。 您必須建立備份原則並使此磁碟區與之關聯以採取排定的備份。 
+         > [!NOTE]
+         > 請注意，您在此建立的磁碟區未受保護。 您必須建立備份原則並使此磁碟區與之關聯以採取排定的備份。 
 

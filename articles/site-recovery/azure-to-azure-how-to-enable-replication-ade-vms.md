@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117450"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>將已啟用 Azure 磁碟加密 (ADE) 的虛擬機器複寫到另一個 Azure 區域
 
@@ -123,8 +123,8 @@ Azure Site Recovery 要求使用者有權限在目標區域建立金鑰保存庫
 
 
 2. 按一下 [加密設定] 旁的 [自訂:] 來修改下列預設設定：
-    - 在 [目標磁碟加密金鑰保存庫] 中，從訂用帳戶目標位置中所有金鑰保存庫的清單中，選取目標磁碟加密金鑰保存庫。
-  - 在 [目標金鑰加密金鑰保存庫] 中，從訂用帳戶目標位置中所有金鑰保存庫的清單中，選取目標金鑰加密金鑰保存庫。
+   - 在 [目標磁碟加密金鑰保存庫] 中，從訂用帳戶目標位置中所有金鑰保存庫的清單中，選取目標磁碟加密金鑰保存庫。
+     - 在 [目標金鑰加密金鑰保存庫] 中，從訂用帳戶目標位置中所有金鑰保存庫的清單中，選取目標金鑰加密金鑰保存庫。
 
 3. 按一下 [建立目標資源] > [啟用複寫]。
 4. 啟用 VM 以進行複寫之後，您就可以在 [複寫的項目] 下方檢查 VM 健康情況的狀態。

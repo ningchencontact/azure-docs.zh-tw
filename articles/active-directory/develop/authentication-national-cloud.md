@@ -17,12 +17,12 @@ ms.author: negoe
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a487c233e7bb71f05c6f2181d9c822ca508a583c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192943"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113898"
 ---
 # <a name="national-clouds"></a>國家雲端
 
@@ -44,10 +44,10 @@ ms.locfileid: "56192943"
 
 | 國家雲端 | Azure AD 入口網站端點
 | --- | --- |
-| 適用於美國政府的 Azure AD |https://portal.azure.us
-|Azure AD Germany |https://portal.microsoftazure.de
-|由 21Vianet 營運的 Azure AD China |https://portal.azure.cn
-|Azure AD (全球服務)|https://portal.azure.com 
+| 適用於美國政府的 Azure AD |`https://portal.azure.us`
+|Azure AD Germany |`https://portal.microsoftazure.de`
+|由 21Vianet 營運的 Azure AD China |`https://portal.azure.cn`
+|Azure AD (全球服務)|`https://portal.azure.com` 
 
 ## <a name="azure-ad-authentication-endpoints"></a>Azure AD 驗證端點
 
@@ -78,8 +78,8 @@ ms.locfileid: "56192943"
 
 
 
->[!IMPORTANT]
-某些在「全域服務」特定區域中的服務和功能可能無法在全部國家雲端中提供。 若要了解提供的服務有哪些，請移至[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)。
+> [!IMPORTANT]
+> 某些在「全域服務」特定區域中的服務和功能可能無法在全部國家雲端中提供。 若要了解提供的服務有哪些，請移至[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)。
 
 ## <a name="next-steps"></a>後續步驟
 

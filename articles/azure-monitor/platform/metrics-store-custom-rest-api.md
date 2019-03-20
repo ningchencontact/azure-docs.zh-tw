@@ -4,16 +4,16 @@ description: 使用 REST API 將 Azure 資源的自訂計量傳送至 Azure 監�
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c7ec3ba960929250f2d23d09b9a5ab06e3f6cd38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095410"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>使用 REST API 將 Azure 資源的自訂計量傳送至 Azure 監視器計量的存放區
 
@@ -78,13 +78,13 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
     ``` 
 
 1. 在命令提示字元視窗中，發佈計量資料： 
-    - **azureRegion**。 必須符合您要發出其計量的資源的部署資源。 
-    - **resourceID**。  您要針對其追蹤計量的 Azure 資源的資源識別碼。  
-    - **AccessToken**。 貼上您先前取得的權杖。
+   - **azureRegion**。 必須符合您要發出其計量的資源的部署資源。 
+   - **resourceID**。  您要針對其追蹤計量的 Azure 資源的資源識別碼。  
+   - **AccessToken**。 貼上您先前取得的權杖。
 
-    ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. 變更 JSON 檔案中的時間戳記和值。 
 1. 重複前兩個步驟執行數次，讓您擁有數分鐘的資料。
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: c11d8ddcd9a1c1f051ab779a66710ab3d968acab
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 77a5fbab6ecda910750ab2b8bae987e77607223a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200576"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903485"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>將公司網際網路網域指向 Azure 流量管理員網域
 
@@ -25,7 +25,7 @@ ms.locfileid: "54200576"
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-進入 www.contoso.com 的所有流量要求會被導向至 contoso.trafficmanager.net。
+所有流量都要求*www\.contoso.com*導向*contoso.trafficmanager.net*。
 
 > [!IMPORTANT]
 > 您無法將第二層網域 (例如 *contoso.com*) 指向流量管理員網域。 DNS 通訊協定標準不允許第二層網域名稱的 CNAME 記錄。
@@ -33,5 +33,5 @@ ms.locfileid: "54200576"
 ## <a name="next-steps"></a>後續步驟
 
 * [流量管理員路由方法](traffic-manager-routing-methods.md)
-* [流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
+* [流量管理器 - 禁用、启用或删除配置文件](disable-enable-or-delete-a-profile.md)
 * [流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)

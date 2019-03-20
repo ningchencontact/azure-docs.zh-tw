@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 60f02f0ae92f471718c0c35f8ac833b9ca6c1da4
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863928"
 ---
 # <a name="offer-listing-best-practices"></a>陳列供應項目的最佳做法
 
@@ -56,7 +56,7 @@ ms.locfileid: "54355167"
 
 下列範例 URL 包含前兩個查詢範例：`https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-透過在您的 AppSource URL 加入這些參數，您可以在 [Cloud Partner 入口網站](http://cloudpartner.azure.com/#insights)的分析儀表板中檢閱行銷活動有效性。
+透過在您的 AppSource URL 加入這些參數，您可以在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)的分析儀表板中檢閱行銷活動有效性。
 
 ## <a name="next-steps"></a>後續步驟
 

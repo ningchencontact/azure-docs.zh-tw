@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190954"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897550"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure 媒體服務 v3 配額和限制
 
@@ -37,10 +37,11 @@ ms.locfileid: "56190954"
 | 單一訂用帳戶的媒體服務帳戶 | 25 (固定) |
 | 每個 LiveEvent 的執行中狀態即時輸出 |3|
 | 儲存體帳戶 | 100<sup>(4)</sup> (固定) |
-| 每個媒體服務帳戶的串流端點 (已停止或執行中)|2|
+| 每個媒體服務帳戶的串流端點 (已停止或執行中)|2 （固定）|
 | 串流原則 | 100 <sup>(3)</sup> |
 | 每個媒體服務帳戶的轉換 | 100 (固定)|
 | 一次與資產相關聯的唯一串流定位器 | 100<sup>(5)</sup> (固定) |
+| 內容金鑰的原則 |30 | 
 
 <sup>1</sup> 單一 blob 支援的大小上限目前在 Azure Blob 儲存體是最多 5 TB。 不過，其他的限制會以服務所使用的 VM 大小作為基礎套用在 Azure 媒體服務中。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 如果您的 4K 內容超過 260 GB 限制，請來函寄到 amshelp@microsoft.com，我們將針對您的情況，提供解決的方法。
 

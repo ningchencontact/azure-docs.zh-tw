@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: b94d6bd9cc129d80f3ece82c13df375abecafd26
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075607"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "55493403"
 >
 >
 
-Azure VM 中部署的 MABS 可以在 Azure 中備份 VM，但是應在相同的網域中才能啟用備份作業。 備份 Azure VM 與備份內部部署 VM 的程序相同，不過在 Azure 中部署 MABS 有一些限制。 如需限制詳細資訊，請參閱 [DPM 作為 Azure 虛擬機器](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+Azure VM 中部署的 MABS 可以在 Azure 中備份 VM，但是應在相同的網域中才能啟用備份作業。 備份 Azure VM 的程序會保留與在內部部署備份 Vm 相同，不過部署在 Azure 中的 MABS 有一些限制。 如需限制詳細資訊，請參閱 [DPM 作為 Azure 虛擬機器](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure 有兩種用來建立和使用資源的部署模型：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。
@@ -39,7 +39,7 @@ Azure VM 中部署的 MABS 可以在 Azure 中備份 VM，但是應在相同的�
 Azure 備份伺服器承襲了 Data Protection Manager (DPM) 的大部分工作負載備份功能。 本文會連結至 DPM 文件，以說明其中的部分共用功能。 雖然 Azure 備份伺服器共用與 DPM 相同的大部分功能，但 Azure 備份伺服器並不會備份到磁帶，也無法與 System Center 整合。
 
 ## <a name="choose-an-installation-platform"></a>選擇安裝平台
-要啟動並執行 Azure 備份伺服器，第一個步驟是設定 Windows Server。 伺服器可以位於 Azure 或內部部署中。
+若要启动并运行 Azure 备份服务器，首先要设置 Windows Server。 伺服器可以位於 Azure 或內部部署中。
 
 ### <a name="using-a-server-in-azure"></a>使用 Azure 中的伺服器
 選擇用來執行 Azure 備份伺服器的伺服器時，建議您從 Windows Server 2012 R2 Datacenter、Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的資源庫映像開始。 即使您之前從未使用過 Azure， [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文會提供教學課程讓您在 Azure 中開始使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求應該是︰A2 標準，具備 2 個核心及 3.5 GB 的 RAM。
@@ -75,7 +75,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="set-storage-replication"></a>設定儲存體複寫
-儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，復原服務保存庫會使用異地備援儲存體。 如果這個保存庫是您的主要保存庫，儲存體選項請保持設定為異地備援儲存體。 如果您想要更便宜但不持久的選項，請選擇本地備援儲存體。 在 [Azure 儲存體複寫概觀](../storage/common/storage-redundancy.md)中，深入了解[異地備援](../storage/common/storage-redundancy-grs.md)和[本地備援](../storage/common/storage-redundancy-lrs.md)儲存體選項。
+儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，復原服務保存庫會使用異地備援儲存體。 如果這個保存庫是您的主要保存庫，儲存體選項請保持設定為異地備援儲存體。 如果您想要更便宜但不持久的選項，請選擇本地備援儲存體。 请参阅 [Azure 存储复制概述](../storage/common/storage-redundancy.md)部分，深入了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)存储选项。
 
 若要編輯儲存體複寫設定︰
 
@@ -87,7 +87,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
     選擇好保存庫的儲存體選項後，就可以開始建立 VM 與保存庫的關聯。 若要開始關聯，請探索及註冊 Azure 虛擬機器。
 
 ## <a name="software-package"></a>軟體封裝
-### <a name="downloading-the-software-package"></a>下載軟體封裝
+### <a name="downloading-the-software-package"></a>下载软件包
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 如果您已開啟復原服務保存庫，請繼續步驟 3。 如果您並未開啟復原服務保存庫，但位於 Azure 入口網站中，請在主功能表上按一下 [瀏覽]。
 
@@ -136,7 +136,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
     ![下載中心 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    因為所有檔案的下載大小合計 > 3G，在 10Mbps 下載連結上可能需要 60 分鐘才能完成下載。
+    由于所有文件的下载大小合计超过了 3G，在 10Mbps 下载链路上可能需要 60 分钟才能完成下载。
 
 ### <a name="extracting-the-software-package"></a>將軟體封裝解壓縮
 下載所有檔案之後，按一下 [MicrosoftAzureBackupInstaller.exe] 。 這會啟動 [Microsoft Azure 備份安裝精靈]  ，並將安裝程式檔案解壓縮至您所指定的位置。 繼續執行精靈，然後按一下 [解壓縮]  按鈕，以開始解壓縮程序。
@@ -204,7 +204,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
     ![Microsoft Azure 備份必要條件 2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. 安裝分階段執行。 在第一個階段中，會將 Microsoft Azure 復原服務代理程式安裝在伺服器上。 精靈也會檢查網際網路連線。 如果可連線至網際網路，您可以繼續安裝，否則必須提供 Proxy 詳細資料來連線到網際網路。
 
-    下一個步驟是設定 Microsoft Azure 復原服務代理程式。 在設定的過程中，您將必須提供保存庫認證，以向復原服務保存庫註冊機器。 您也須提供複雜密碼來加密/解密 Azure 與您的內部部署之間所傳送的資料。 您可以自動產生複雜密碼，或提供您自己的複雜密碼，最少 16 個字元。 繼續執行精靈，直到代理程式完成設定。
+    下一個步驟是設定 Microsoft Azure 復原服務代理程式。 在設定的過程中，您將必須提供保存庫認證，以向復原服務保存庫註冊機器。 还需要提供通行短语来加密/解密 Azure 与本地之间发送的数据。 您可以自動產生複雜密碼，或提供您自己的複雜密碼，最少 16 個字元。 繼續執行精靈，直到代理程式完成設定。
 
     ![Azure 備份伺服器必要條件 2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Microsoft Azure 備份伺服器順利完成註冊後，整體安裝精靈會繼續安裝及設定 SQL Server 和 Azure 備份伺服器的元件。 SQL Server 元件安裝完成後，會安裝 Azure 備份伺服器元件。
@@ -231,16 +231,16 @@ MABS 會使用 System Center Data Protection Manager 保護代理程式。 [這�
 
 2. 在顯示窗格中，選取您要更新保護代理程式的用戶端電腦。
 
-  > [!NOTE]
-  > [代理程式更新] 資料行會在各個受保護的電腦可以進行保護代理程式更新時予以指出。 在 [動作] 窗格中，只有當您已選取受保護的電腦且其可供更新時，才可使用 [更新] 動作。
-  >
-  >
+   > [!NOTE]
+   > [代理程式更新] 資料行會在各個受保護的電腦可以進行保護代理程式更新時予以指出。 在 [動作] 窗格中，只有當您已選取受保護的電腦且其可供更新時，才可使用 [更新] 動作。
+   >
+   >
 
 3. 若要在選取的電腦上安裝已更新的保護代理程式，請在 [動作] 窗格中選取 [更新]。
 
 4. 對於未連線到網路的用戶端電腦，除非該電腦連線到網路，否則 [代理程式狀態] 資料行會顯示 [更新擱置中] 的狀態。
 
-  在用戶端電腦連線到網路之後，用戶端電腦的 [代理程式更新] 資料行會顯示 [更新中] 狀態。
+   在用戶端電腦連線到網路之後，用戶端電腦的 [代理程式更新] 資料行會顯示 [更新中] 狀態。
 
 ## <a name="move-mabs-to-a-new-server"></a>將 MABS 移至新的伺服器
 
@@ -262,26 +262,27 @@ MABS 會使用 System Center Data Protection Manager 保護代理程式。 [這�
 9. 從 SQL 還原 DPMDB
 10. 從新伺服器上的系統管理員命令列，切換至 Microsoft Azure 備份安裝位置和 bin 資料夾
 
-路徑範例：C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-至 Azure 備份 執行 DPMSYNC -SYNC
+    路徑範例：C:\windows\system32 > cd"c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
 
-10) 執行 DPMSYNC -SYNC 注意 如果您已將「新」磁碟新增至 DPM 儲存集區，而非移動就磁碟，則執行 DPMSYNC -Reallocatereplica
+11. Azure 備份，執行 DPMSYNC-SYNC
+
+    如果您已新增新的磁碟到 DPM 存放集區，而不需要移動舊的然後執行 DPMSYNC-Reallocatereplica
 
 ## <a name="network-connectivity"></a>網路連線
-Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運作。 若要驗證機器是否連接至 Azure，請在Azure 備份伺服器 PowerShell 主控台中使用 ```Get-DPMCloudConnection``` Cmdlet。 如果 Cmdlet 的輸出為 TRUE，表示連線存在，否則沒有連線。
+Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若要驗證機器是否連接至 Azure，請在Azure 備份伺服器 PowerShell 主控台中使用 ```Get-DPMCloudConnection``` Cmdlet。 如果 Cmdlet 的輸出為 TRUE，表示連線存在，否則沒有連線。
 
-同時，Azure 訂用帳戶也必須處於狀況良好狀態。 若您想了解訂用帳戶狀態並加以管理，請登入 [訂用帳戶入口網站](https://account.windowsazure.com/Subscriptions)。
+同时，Azure 订阅必须处于正常运行状态。 若您想了解訂用帳戶狀態並加以管理，請登入 [訂用帳戶入口網站](https://account.windowsazure.com/Subscriptions)。
 
 在您了解 Azure 連線和 Azure 訂用帳戶的狀態後，您可以使用下表來確認提供的備份/還原功能會受到哪些影響。
 
 | 連線狀態 | Azure 訂閱 | 備份至 Azure | 備份到磁碟 | 從 Azure 還原 | 從磁碟還原 |
 | --- | --- | --- | --- | --- | --- |
-| 連線 |Active |允許 |允許 |允許 |允許 |
+| 連線 |Active |允许 |允許 |允許 |允許 |
 | 連線 |已過期 |已停止 |已停止 |允許 |允許 |
 | 連線 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
 | 連線中斷 > 15 天 |Active |已停止 |已停止 |允許 |允許 |
-| 連線中斷 > 15 天 |已過期 |已停止 |已停止 |允許 |允許 |
-| 連線中斷 > 15 天 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
+| 連線中斷 > 15 天 |Expired |已停止 |已停止 |允許 |允許 |
+| 连接断开超过 15 天 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>從連線中斷的情況復原
 如果您有防火牆或 Proxy 以致無法存取 Azure，您必須將防火牆/Proxy 設定檔中的下列網域位址列入允許清單中：
@@ -294,7 +295,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 在 Azure 的連線已還原至 Azure 備份伺服器機器之後，可執行的作業將取決於 Azure 訂用帳戶狀態。 上表詳細列出機器「已連接」之後所允許之作業的相關資訊。
 
-### <a name="handling-subscription-states"></a>處理訂用帳戶狀態
+### <a name="handling-subscription-states"></a>处理订阅状态
 您可以將 Azure 訂用帳戶從「已過期」或「已取消佈建」狀態變更為「作用中」狀態。 不過，當狀態不是「作用中」 時，此動作會對產品的行為造成某些影響：
 
 * 「已取消佈建」  的訂用帳戶在取消佈建的這段期間會失去功能。 切換為「作用中」 時，就會恢復產品的備份/還原功能。 此外，只要以夠大的保留期間來保存，也可以擷取本機磁碟上的備份資料。 不過，一旦訂用帳戶進入「已取消佈建」  狀態，Azure 中的備份資料便會遺失而無法復原。
@@ -306,33 +307,33 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>從 MABS V2 升級至 V3
 
 > [!NOTE]
-
+> 
 > MABS V2 不是安裝 MABS V3 的必要條件。 不過，您只能從 MABS V2 升級到 MABS V3。
 
 使用下列步驟來升級 MABS：
 
 1. 若要從 MABS V2 升級到 MABS V3，請視需要將作業系統升級到 Windows Server 2016 或 Windows Server 2019。
 
-2.  升級您的伺服器。 步驟類似於[安裝](#install-and-upgrade-azure-backup-server)。 不過，針對 SQL 設定，您會取得一個選項來將 SQL 執行個體升級到 SQL 2017，或使用自己的 SQL Server 2017 執行個體。
+2. 升級您的伺服器。 步驟類似於[安裝](#install-and-upgrade-azure-backup-server)。 不過，針對 SQL 設定，您會取得一個選項來將 SQL 執行個體升級到 SQL 2017，或使用自己的 SQL Server 2017 執行個體。
 
-  > [!NOTE]
+   > [!NOTE]
+   > 
+   > 請勿在升級 SQL 執行個體時結束，結束會將 SQL 報告執行個體解除安裝，因而使重新升級 MABS 的嘗試失敗。
 
-  > 請勿在升級 SQL 執行個體時結束，結束會將 SQL 報告執行個體解除安裝，因而使重新升級 MABS 的嘗試失敗。
+   需要注意的重要事項︰
 
-  需要注意的重要事項︰
-
-  > [!IMPORTANT]
-
-  >  在 SQL 2017 升級過程中，我們會備份 SQL 加密金鑰並將報告服務解除安裝。 升級 SQL Server 之後，便會安裝報告服務 (14.0.6827.4788) 並還原加密金鑰。
-
- > 手動設定 SQL 2017 時，請參閱安裝指示之下的「SQL 2017 的 SSRS 設定」。
+   > [!IMPORTANT]
+   > 
+   >  在 SQL 2017 升級過程中，我們會備份 SQL 加密金鑰並將報告服務解除安裝。 升級 SQL Server 之後，便會安裝報告服務 (14.0.6827.4788) 並還原加密金鑰。
+   > 
+   > 手動設定 SQL 2017 時，請參閱安裝指示之下的「SQL 2017 的 SSRS 設定」。
 
 3. 在受保護的伺服器上更新保護代理程式。
 4. 備份應會繼續，而不需重新啟動您的生產伺服器。
 5. 您現在可以開始保護您的資料。 如果您要升級到新式備份儲存體，同時提供保護，您也可選擇您要儲存備份的磁碟區，以及檢查佈建不足的空間。 [深入了解](backup-mabs-add-storage.md)。
 
 > [!NOTE]
-
+> 
 > 如果您要從 MABS V1 升級為 V2，請確定您的作業系統是 Windows Server 2016 或 Windows Server 2012 R2。 若要利用新功能 (例如 System Center 2016 Data Protection Manager 的新式備份儲存體)，您必須在 Windows Server 2016 上安裝備份伺服器 V2。 在安裝或升級為備份伺服器 v2 之前，請先閱讀 MABS 適用的[安裝必要條件](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)。
 
 ## <a name="troubleshooting"></a>疑難排解

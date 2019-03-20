@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: bc7a183220219b14cb793f8115284d38d544b0e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 883e1c11e3485c0bf3441a67a3a191563ea3aed4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990791"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上所支援的語言 
 
@@ -222,7 +222,7 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 開啟終端機並執行 `julia`。 
 * 在 IDE 中使用
 
-使用 `Juno`，這是安裝在 DSVM 上並可透過應用程式功能表捷徑使用的 Julia IDE。
+使用`Juno`安裝在 DSVM 上並可應用程式功能表捷徑的 Julia IDE。
 
 * 在 Jupyter 中使用
 

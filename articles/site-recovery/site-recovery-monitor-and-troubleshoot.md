@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098469"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>進行 Site Recovery 的監視和疑難排解
 
@@ -84,7 +84,7 @@ Healthy | 正常複寫中。 未偵測到任何錯誤或警告症狀。
 [基礎結構檢視] 會顯示複寫時所涉及的基礎結構元件，以及伺服器與 Azure 服務之間的連線健康情況。
 
 - 綠線表示連線狀況良好。
-- 覆蓋有錯誤圖示的紅線表示存在一或多個會影響連線的錯誤症狀。
+- 紅線上有錯誤圖示即代表存在一個或多個錯誤症狀，影響連線。
 -  將滑鼠指標停留在錯誤圖示上，就會顯示錯誤以及受影響的實體數目。 按一下圖示即可取得受影響實體的篩選清單。
 
     ![Site Recovery 基礎結構檢視 (保存庫)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -149,19 +149,19 @@ Healthy | 正常複寫中。 未偵測到任何錯誤或警告症狀。
     ![Site Recovery 複寫項目清單檢視](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. 在 [複寫的項目] 頁面上，您可以檢視和篩選資訊。 在頂端的 [動作] 功能表中，您可以對特定機器執行動作，包括執行測試容錯移轉，或檢視特定錯誤。
-3.  按一下 [資料行] 以顯示其他資料行，例如，以便顯示 RPO、目標設定問題和複寫錯誤。
+3. 按一下 [資料行] 以顯示其他資料行，例如，以便顯示 RPO、目標設定問題和複寫錯誤。
 4. 按一下 [篩選] 以根據特定參數 (例如，複寫健康情況或特定複寫原則) 檢視資訊。
 5. 以滑鼠右鍵按一下機器，即可為機器起始作業 (例如，測試容錯移轉)，也可檢視與機器相關聯的特定錯誤詳細資料。
 6. 按一下機器即可更加深入地了解機器。 詳細資料包括：
-      - **複寫資訊**：機器目前的狀態和健康情況。
-      - **RPO** (復原點目標)：虛擬機器的目前 RPO 與上次計算 RPO 的時間。
-      - **復原點**：機器的最新可用復原點。
-      - **容錯移轉整備程度**：指出是否已為機器執行測試容錯移轉、機器上所執行的代理程式版本 (針對執行行動服務的機器)，以及任何設定問題。
-      - **錯誤**：目前在機器上觀察到的複寫錯誤症狀清單，以及可能的原因/動作。
-      - **事件**：依時間列出影響機器的最近事件。 錯誤詳細資料會顯示目前可觀察到的錯誤症狀，事件則是已影響機器的問題歷史記錄。
-      - **基礎結構檢視**：顯示機器在複寫至 Azure 時，案例的基礎結構狀態。
+   - **複寫資訊**：機器目前的狀態和健康情況。
+   - **RPO** (復原點目標)：虛擬機器的目前 RPO 與上次計算 RPO 的時間。
+   - **復原點**：機器的最新可用復原點。
+   - **容錯移轉整備程度**：指出是否已為機器執行測試容錯移轉、機器上所執行的代理程式版本 (針對執行行動服務的機器)，以及任何設定問題。
+   - **錯誤**：目前在機器上觀察到的複寫錯誤症狀清單，以及可能的原因/動作。
+   - **事件**：依時間列出影響機器的最近事件。 錯誤詳細資料會顯示目前可觀察到的錯誤症狀，事件則是已影響機器的問題歷史記錄。
+   - **基礎結構檢視**：顯示機器在複寫至 Azure 時，案例的基礎結構狀態。
 
-    ![Site Recovery 複寫項目詳細資料/概觀](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Site Recovery 複寫項目詳細資料/概觀](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### <a name="common-questions"></a>常見問題
@@ -191,7 +191,7 @@ Healthy | 正常複寫中。 未偵測到任何錯誤或警告症狀。
 訂閱方式如下：
 
 在保存庫 > [監視和報告] 區段中，按一下 [Site Recovery 事件]。
-2. 按一下 [電子郵件通知]。
-3. 在 [電子郵件通知] 中開啟通知，並指定傳送對象。 您可以傳送給要傳送通知的所有訂用帳戶管理員，也可以選擇傳送給特定電子郵件地址。
+1. 按一下 [電子郵件通知]。
+1. 在 [電子郵件通知] 中開啟通知，並指定傳送對象。 您可以傳送給要傳送通知的所有訂用帳戶管理員，也可以選擇傳送給特定電子郵件地址。
 
     ![電子郵件通知](./media/site-recovery-monitor-and-troubleshoot/email.png)

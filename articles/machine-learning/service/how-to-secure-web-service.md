@@ -1,7 +1,7 @@
 ---
 title: 使用 SSL 保護 Web 服務
 titleSuffix: Azure Machine Learning service
-description: 了解如何保護使用 Azure Machine Learning services 部署的 Web 服務。 您可以限制對 Web 服務的存取，以及使用安全通訊端層 (SSL) 和金鑰型驗證來保護用戶端所提交的資料。
+description: 了解如何保護部署與 Azure Machine Learning 服務藉由啟用 HTTPS 的 web 服務。 HTTPS 會保護使用傳輸層安全性 (TLS) 安全通訊端層 (SSL) 來取代用戶端所提交的資料。 它也會使用用戶端驗證的 web 服務的身分識別。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,27 +11,34 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1a6aa75f3d25cd88cd1edb9b2cdcfabc3b4ec8f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103888"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>使用 SSL 來保護具有 Azure Machine Learning 服務的 Web 服務
 
-在此文章中，您將了解如何保護使用 Azure Machine Learning services 部署的 Web 服務。 您可以限制對 Web 服務的存取，以及使用安全通訊端層 (SSL) 和金鑰型驗證來保護用戶端所提交的資料。
+在此文章中，您將了解如何保護使用 Azure Machine Learning services 部署的 Web 服務。 您可以限制存取 web 服務，並確保使用的用戶端所提交的資料安全[都會使用超文字傳輸通訊協定安全 (HTTPS)](https://en.wikipedia.org/wiki/HTTPS)。
+
+使用 HTTPS 來保護用戶端與您的 web 服務之間的通訊加密兩者之間的通訊。 加密會使用處理[傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security)。 這會還是有時為 Secure Sockets Layer (SSL)，也就是 TLS 的前身。
+
+> [!TIP]
+> Azure 機器學習服務 SDK 會使用的詞彙 'SSL' 屬性與啟用的通訊安全。 這不表示 TLS 不是由您的 web 服務，只要該 SSL 是許多讀者更容易辨識的詞彙。
+
+TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗證。 如需有關憑證的數位運作的詳細資訊，請參閱維基百科項目上[公開金鑰基礎結構 (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure)。
 
 > [!Warning]
-> 如果您未啟用 SSL，則網際網路上的任何使用者都將能夠呼叫 Web 服務。
+> 如果您未進行啟用，並針對您的 web 服務使用 HTTPS，從服務傳送的資料可能會顯示給其他人在網際網路上。
+>
+> HTTPS 也可讓用戶端確認它連接到伺服器的真確性。 這可避免針對的用戶端[攔截](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)攻擊。
 
-SSL 會加密在用戶端與 Web 服務之間傳送的資料。 用戶端也會使用 SSL 來驗證伺服器的身分識別。 系統只會針對已經提供 SSL 憑證和金鑰的服務來啟用驗證。  如果您啟用 SSL，則會在存取 Web 服務時要求驗證金鑰。
-
-無論您要部署使用 SSL 啟用的 Web 服務，或者要針對現有已部署的 Web 服務啟用 SSL，步驟都一樣：
+保護新的 web 服務或現有的程序如下所示：
 
 1. 取得網域名稱。
 
-2. 取得 SSL 憑證。
+2. 取得數位憑證。
 
 3. 部署或更新已啟用 SSL 設定的 Web 服務。
 
@@ -41,16 +48,16 @@ SSL 會加密在用戶端與 Web 服務之間傳送的資料。 用戶端也會�
 
 ## <a name="get-a-domain-name"></a>取得網域名稱
 
-如果您還未擁有網域名稱，可以向__網域名稱註冊機構__購買。 不同的註冊機構有不同的流程，而且費用也不同。 註冊機構也會為您提供管理網域名稱所使用的工具。 這類工具可用來將完整網域名稱 (例如 www.contoso.com) 對應到裝載您 Web 服務的 IP 位址。
+如果您還未擁有網域名稱，可以向__網域名稱註冊機構__購買。 不同的註冊機構有不同的流程，而且費用也不同。 註冊機構也會為您提供管理網域名稱所使用的工具。 這些工具用來對應的完整的網域名稱 (例如 www\.contoso.com) 來裝載您的 web 服務的 IP 位址。
 
 ## <a name="get-an-ssl-certificate"></a>取得 SSL 憑證
 
-有很多種方法可以取得 SSL 憑證。 最常見的作法是向__憑證授權單位__ (CA) 購買。 不論您在哪裡取得憑證，都需要下列檔案：
+有許多方法可取得的 SSL 憑證 （數位憑證）。 最常見的作法是向__憑證授權單位__ (CA) 購買。 不論您在哪裡取得憑證，都需要下列檔案：
 
 * __憑證__。 憑證必須包含完整的憑證鏈結，而且必須以 PEM 編碼。
 * __金鑰__。 此金鑰必須以 PEM 編碼。
 
-要求憑證時，您必須提供打算用於 Web 服務的位址完整網域名稱 (FQDN)。 例如，www.contoso.com。 驗證 Web 服務的身分識別時，會比較在憑證上加上戳記的位址和用戶端所使用的位址。 如果位址不相符，用戶端就會收到錯誤。
+要求憑證時，您必須提供打算用於 Web 服務的位址完整網域名稱 (FQDN)。 例如，www\.contoso.com。 驗證 Web 服務的身分識別時，會比較在憑證上加上戳記的位址和用戶端所使用的位址。 如果位址不相符，用戶端就會收到錯誤。
 
 > [!TIP]
 > 如果憑證授權單位無法以 PEM 編碼的檔案來提供憑證和金鑰，您可以使用 [OpenSSL](https://www.openssl.org/) 之類的公用程式來變更格式。

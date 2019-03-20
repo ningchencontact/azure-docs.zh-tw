@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7a83a56a63fbd8a74e6a7e6d6f5158e3b5a8c2a4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: ecf73b08755f548c5506888a8113ad53fd8987ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877967"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中內嵌報表
 
@@ -94,7 +94,7 @@ Power BI 工作區集合會使用內嵌權杖，其為 HMAC 簽署的 JSON Web �
 Install-Package Microsoft.PowerBI.Core
 ```
 
-**C# 程式碼**
+**C# 代码**
 
 ```csharp
 using Microsoft.PowerBI.Security;
@@ -122,7 +122,7 @@ var token = embedToken.Generate("{access key}");
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
-**JavaScript 程式碼**
+**JavaScript 代码**
 
 ```html
 <script src="/scripts/powerbi.js"></script>
@@ -145,16 +145,16 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 報告會根據其容器的大小自動內嵌。 若要覆寫內嵌項目的預設大小，只需新增適用於寬度和高度的 CSS 類別屬性或內嵌樣式即可。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [開始使用範例](get-started-sample.md)  
 [在 Power BI 工作區集合中驗證和授權](app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [JavaScript 內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-[Power BI JavaScript 套件](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
+[Power BI JavaScript 包](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 [Power BI API NuGet 套件](https://www.nuget.org/profiles/powerbi)
 [Power BI 核心 NuGut 套件](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [PowerBI-CSharp Git 存放庫](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git存放庫](https://github.com/Microsoft/PowerBI-Node)  
 
-有其他疑問？ [試用 Power BI 社群](http://community.powerbi.com/)
+有更多问题？ [試用 Power BI 社群](https://community.powerbi.com/)

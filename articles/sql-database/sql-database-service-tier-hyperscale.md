@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903788"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>最多 100 TB 的超大規模服務層級 (預覽)
 
@@ -112,7 +112,7 @@ Azure 儲存體節點是來自頁面伺服器之資料的最終目的地。 此�
 
 ## <a name="create-a-hyperscale-database"></a>建立超大規模資料庫
 
-可以使用 [Azure 入口網站](https://portal.azure.com)、[T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)、[Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 或是 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) 來建立超大規模資料庫。 超大規模資料庫僅在使用 [V 核心形式購買模型](sql-database-service-tiers-vcore.md)時才提供。
+可以使用會建立一個超大規模資料庫[Azure 入口網站](https://portal.azure.com)， [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)， [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)或是[CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)。 超大規模資料庫僅在使用 [V 核心形式購買模型](sql-database-service-tiers-vcore.md)時才提供。
 
 下列 T-SQL 命令會建立超大規模資料庫。 您必須在 `CREATE DATABASE` 陳述式中指定版本和服務目標。
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>將現有的 Azure SQL Database 遷移至超大規模服務層級
 
-您可以使用 [Azure 入口網站](https://portal.azure.com)、[T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current)、[Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) 或是 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)，將現有的 Azure SQL 資料庫移至超大規模服務層。 在公開預覽中，這是單向的移轉。 您無法將資料庫從超大規模移到另一個服務層級中。 建議您建立一份生產資料庫副本，並遷移至超大規模移轉以進行概念證明 (POC)。
+您可以將您現有的 Azure SQL database 移至使用超大規模[Azure 入口網站](https://portal.azure.com)， [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current)， [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)或是[CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)。 在公開預覽中，這是單向的移轉。 您無法將資料庫從超大規模移到另一個服務層級中。 建議您建立一份生產資料庫副本，並遷移至超大規模移轉以進行概念證明 (POC)。
 
 下列 T-SQL 命令會將資料庫移至超大規模服務層級。 您必須在 `ALTER DATABASE` 陳述式中指定版本和服務目標。
 
@@ -145,11 +145,11 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>可用區域
 
-超大規模服務層級目前為公開預覽，並可在下列 Azure 區域中提供：EastUS1、EastUS2、WestUS2、CentralUS、NorthCentralUS、WestEurope、NorthEurope、UKWest、AustraliaEast、AustraliaSouthEast、SouthEastAsia、JapanEast、KoreaCentral
+超大規模服務層級目前為公開預覽，並可在下列 Azure 區域中提供：1 美國東部、 美國東部 2、 美國西部 2、 美國中部、 北歐 CentralU S、 西歐、 北歐、 澳洲東部、 澳大利亞東南部、 東南亞、 日本東部、 和韓國中部
 
 ## <a name="known-limitations"></a>已知限制
 
-| 問題 | 說明 |
+| 問題 | 描述 |
 | :---- | :--------- |
 | SQL Database 伺服器的 [管理備份] 窗格不會顯示 [將會從 SQL 伺服器篩選超大規模資料庫 ->]  | 超大規模有不同的管理備份方法，且這類的長期保留和時間點備份保留設定不會套用 / 都會失效。 據此，超大規模資料庫不會出現在 [管理備份] 窗格中。 |
 | 還原時間點 | 一旦資料庫遷移至超大規模服務層級後，不支援在移轉之前還原至時間點。|

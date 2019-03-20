@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cebbc8b61a806663e7cb58e0bf7fbdd589f46cca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3621ca198ec2bac24791a2515ade51b990194bf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003864"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
 
@@ -24,11 +24,11 @@ ms.locfileid: "56343301"
 
 許多錯誤都是將藍圖指派給某個範圍而產生的結果。 當指派失敗時，藍圖會提供有關失敗部署的詳細資料。 此資訊會指出問題，以便能夠進行修正，而使下一次部署能成功。
 
-1. 在左窗格中按一下 [所有服務]，然後搜尋並選取 [原則]。 在 [原則] 頁面上，按一下 [藍圖]。
+1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 從頁面左邊選取 [指派的藍圖]，然後使用搜尋方塊來篩選藍圖指派以尋找失敗的指派。 您也可以依 [佈建狀態] 欄排序指派表格，以查看所有已群組在一起的失敗指派。
+1. 選取 **指派藍圖**從頁面左邊及使用的搜尋方塊來篩選以尋找失敗的指派的藍圖指派。 您也可以依 [佈建狀態] 欄排序指派表格，以查看所有已群組在一起的失敗指派。
 
-1. 以滑鼠左鍵按一下具有「失敗」狀態的藍圖，或以滑鼠右鍵按一下並選取 [檢視指派詳細資料]。
+1. 按一下滑鼠左鍵與藍圖_失敗_狀態或以滑鼠右鍵按一下，然後選取**檢視指派詳細資料**。
 
 1. 代表指派失敗的紅色橫幅警告位於藍圖指派頁面的最上方。 按一下該橫幅上的任一處，以取得更多詳細資料。
 
@@ -65,12 +65,12 @@ ms.locfileid: "56343301"
 
 #### <a name="resolution"></a>解決方案
 
-若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。
+若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 如需詳細資訊，請參閱 <<c0> [ 範本檔案結構語法](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax)。
 
 ## <a name="next-steps"></a>後續步驟
 
 如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
 
-- 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
+- 透過 Azure 專家取得解答[Azure 論壇](https://azure.microsoft.com/support/forums/)。
 - 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
 - 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

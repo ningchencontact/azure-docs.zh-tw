@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rimman
-ms.openlocfilehash: 3d05da5f62a076dc168bef029cd0babc3946ee6b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: d37f373e98835846c2d29130781706c400086c0e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077236"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 的安全性 - 概觀
 
@@ -19,7 +19,7 @@ ms.locfileid: "56243139"
  
 ## <a name="whats-new-in-azure-cosmos-db-security"></a>Azure Cosmos DB 安全性有哪些新功能？
 
-儲存在所有 Azure 區域之 Azure Cosmos DB 中的文件和備份現在可以使用待用加密。 這些區域內的新舊客戶都會自動套用加密靜止功能。 無須設定任何項目；您即可獲得跟之前相同的出色延遲、輸送量、可用性及功能，並擁有以下好處：知道資料在加密靜止下仍舊安全無虞。
+儲存在所有 Azure 區域之 Azure Cosmos DB 中的文件和備份現在可以使用待用加密。 這些區域內的新舊客戶都會自動套用加密靜止功能。 无需进行任何配置；可获得与以前（即知道使用静态加密可确保数据安全之前）一样的出色延迟、吞吐量、可用性和功能。
 
 ## <a name="how-do-i-secure-my-database"></a>如何保護我的資料庫？ 
 
@@ -48,7 +48,7 @@ ms.locfileid: "56243139"
 雖然看似明顯，但最新的[大規模資料庫缺口](https://thehackernews.com/2017/01/mongodb-database-security.html)提醒我們注意以下這些簡單但很重要的需求︰
 - 修補伺服器以保持最新狀態
 - 預設為 HTTPS/SSL 加密
-- 使用強式密碼的系統管理帳戶
+- 使用强密码的管理帐户
 
 ## <a name="how-does-azure-cosmos-db-secure-my-database"></a>Azure Cosmos DB 如何保護我的資料庫？
 
@@ -57,7 +57,7 @@ ms.locfileid: "56243139"
 讓我們詳細探究每一個。
 
 |安全性需求|Azure Cosmos DB 的安全性方法|
-|---|---|---|
+|---|---|
 |網路安全性|使用 IP 防火牆是保護資料庫的第一道防線。 Azure Cosmos DB 支援原則驅動的 IP 型存取控制，以提供輸入防火牆支援。 IP 型存取控制類似於傳統資料庫系統所使用的防火牆規則，但是功能更詳細，使得 Azure Cosmos DB 資料庫帳戶只能從一組核准的機器或雲端服務存取。 <br><br>Azure Cosmos DB 可讓您啟用特定的 IP 位址 (168.61.48.0)、IP 範圍 (168.61.48.0/8)，以及 IP 和範圍的組合。 <br><br>Azure Cosmos DB 會封鎖此允許清單之外的機器發出的所有要求。 因此，核准的機器和雲端服務發出的要求必須完成驗證程序，才能獲得資源的存取控制。<br><br>深入了解 [Azure Cosmos DB 防火牆支援](firewall-support.md)。|
 |Authorization|Azure Cosmos DB 使用雜湊式訊息驗證碼 (HMAC) 來進行授權。 <br><br>每個要求都經過祕密帳戶金鑰的雜湊處理，而後續的 base 64 編碼雜湊會隨著每次呼叫 Azure Cosmos DB 一起傳送。 為了驗證要求，Azure Cosmos DB 服務會使用正確的祕密金鑰和屬性產生雜湊，然後比較此值與要求中的值。 如果兩個值相符，則會成功授權作業，並處理要求，否則授權會失敗，也會拒絕要求。<br><br>您可以使用[主要金鑰](secure-access-to-data.md#master-keys)或[資源權杖](secure-access-to-data.md#resource-tokens)，更細微地控制資源的存取，例如文件。<br><br>請參閱[保護 Azure Cosmos DB 資源的存取](secure-access-to-data.md)以深入了解。|
 |使用者和權限|您可以使用帳戶的主要金鑰，建立每個資料庫的使用者資源和權限資源。 資源權杖與資料庫中的權限相關聯，將決定使用者是否能夠存取 (讀寫、唯讀或無法存取) 資料庫中的應用程式資源。 應用程式資源包括容器、文件、附件、預存程序、觸發程序和 UDF。 然後，驗證期間會使用資源權杖來允許或拒絕存取資源。<br><br>請參閱[保護 Azure Cosmos DB 資源的存取](secure-access-to-data.md)以深入了解。|
@@ -74,8 +74,8 @@ ms.locfileid: "56243139"
 |受保護的設施|Azure Cosmos DB 中的資料儲存在 Azure 受保護資料中心內的 SSD 上。<br><br>請參閱 [Microsoft 全球資料中心](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)以深入了解|
 |HTTPS/SSL/TLS 加密|用戶端對服務的所有 Azure Cosmos DB 互動都支援 SSL/TLS 1.2。 此外，資料中心內和跨資料中心的所有複寫也都強制使用 SSL/TLS 1.2。|
 |待用加密|所有儲存至 Azure Cosmos DB 的資料都會進行待用加密。 若要深入了解，請參閱 [Azure Cosmos DB 待用加密](./database-encryption-at-rest.md)|
-|修補的伺服器|Azure Cosmos DB 是受控資料庫，會自動替您管理和修補伺服器。|
-|使用強式密碼的系統管理帳戶|很難相信我們需要提到這個需求，但是與一些競爭者不同，Azure Cosmos DB 中的系統管理帳戶一定會有密碼。<br><br> 依預設已內建透過 SSL 和 HMAC 密碼型驗證的安全性。|
+|修补的服务器|Azure Cosmos DB 是受控資料庫，會自動替您管理和修補伺服器。|
+|使用強式密碼的系統管理帳戶|很難相信我們需要提到這個需求，但是與一些競爭者不同，Azure Cosmos DB 中的系統管理帳戶一定會有密碼。<br><br> DocumentDB 中默认融入了基于 SSL 和 HMAC 机密的身份验证安全性。|
 |安全性和資料保護認證|如需最新的認證清單，請參閱整體 [Azure 合規性網站](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)以及最新的 [Azure 合規性文件](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)，內含所有認證 (請搜尋 Cosmos)。 如需更深入的資訊，請閱讀 2018 年 4 月 25 日的貼文 [Azure #CosmosDB：安全、私密、符合規範](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) \(英文\)，其中包含 SOCS 1/2 Type 2、HITRUST, PCI DSS Level 1、ISO 27001、HIPAA、FedRAMP High 和其他許多資訊。
 
 以下螢幕擷取畫面顯示在 Azure 入口網站中使用存取控制 (IAM) 的 Active directory 整合 (RBAC)：![Azure 入口網站中的存取控制 (IAM) - 示範資料庫安全性](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)

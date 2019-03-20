@@ -16,12 +16,12 @@ ms.date: 09/20/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b683abbba2013fef47f648c11a52d7767d7cdf08
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5a68a4caf3d32aa88a61a8e1639bdd08d67599d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206322"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083295"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>一組錯誤的使用者佈建至 Azure AD 資源庫應用程式
 
@@ -33,25 +33,25 @@ ms.locfileid: "56206322"
 
 若要直接將一或多個使用者指派給應用程式，請遵循下列步驟︰
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  從清單中選取您想要指派使用者的應用程式。
+6. 從清單中選取您想要指派使用者的應用程式。
 
-7.  應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
+7. 應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
 
-8.  若要開啟 [新增指派] 窗格，請按一下 [使用者和群組] 清單頂端的 [新增] 按鈕。
+8. 若要開啟 [新增指派] 窗格，請按一下 [使用者和群組] 清單頂端的 [新增] 按鈕。
 
-9.  按一下 [新增指派] 窗格中的 [使用者和群組] 選取器。
+9. 按一下 [新增指派] 窗格中的 [使用者和群組] 選取器。
 
 10. 在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入您有興趣指派之使用者的**全名**或**電子郵件地址**。
 
@@ -71,25 +71,25 @@ ms.locfileid: "56206322"
 
 若要將一或多個群組直接指派給應用程式，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  從清單中選取您想要指派使用者的應用程式。
+6. 從清單中選取您想要指派使用者的應用程式。
 
-7.  應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
+7. 應用程式載入之後，按一下應用程式左側導覽功能表中的 [使用者和群組]。
 
-8.  若要開啟 [新增指派] 窗格，請按一下 [使用者和群組] 清單頂端的 [新增] 按鈕。
+8. 若要開啟 [新增指派] 窗格，請按一下 [使用者和群組] 清單頂端的 [新增] 按鈕。
 
-9.  按一下 [新增指派] 窗格中的 [使用者和群組] 選取器。
+9. 按一下 [新增指派] 窗格中的 [使用者和群組] 選取器。
 
 10. 在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入您有興趣指派之群組的**完整群組名稱**。
 

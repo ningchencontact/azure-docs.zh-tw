@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512342"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013308"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器提出警示及監視 Data Factory
-雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
+雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 监视还有助于避免潜在问题，或者解决过去的问题。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
 
 Azure 監視器可針對 Microsoft Azure 中的大多數服務提供基本等級的基礎結構計量與記錄。 如需詳細資訊，請參閱[監視概觀](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)。 Azure 診斷記錄是資源所發出的記錄，會經常提供有關該資源之作業的豐富資料。 Data Factory 會在 Azure 監視器中輸出診斷記錄。
 
@@ -40,11 +40,11 @@ Data Factory 只會儲存管線執行資料 45 天。 如果您想要保存管�
 ### <a name="diagnostic-settings"></a>診斷設定
 非計算資源的診斷記錄檔要使用診斷設定來設定。 資源的診斷設定會控制：
 
-* 診斷記錄傳送至何處 (儲存體帳戶、事件中樞或 Log Analytics)。
+* 診斷記錄傳送至何處 （儲存體帳戶、 事件中樞或 Azure 監視器記錄檔）。
 * 傳送何種類別的記錄。
 * 每個記錄類別應該在儲存體帳戶中保留多久。
 * 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
-* 如果有設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
+* 如果有設定保留原則，但將儲存體帳戶的儲存記錄檔已停用 （例如，只有事件中樞或 Azure 監視器選取記錄檔選項），保留原則會有任何作用。
 * 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>透過 REST API 啟用診斷記錄
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **標頭**
 * 將 `{api-version}` 取代為 `2016-09-01`。
-* 將 `{resource-id}` 取代為您要編輯診斷設定之資源的資源識別碼。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-portal.md)。
+* 將 `{resource-id}` 取代為您要編輯診斷設定之資源的資源識別碼。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/manage-resource-groups-portal.md)。
 * 將 `Content-Type` 標頭設定為 `application/json`。
 * 將授權標頭設定為您從 Azure Active Directory 取得的 JSON Web 權杖。 如需詳細資訊，請參閱[驗證要求](../active-directory/develop/authentication-scenarios.md)。
 
@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | storageAccountId |字串 | 要作為診斷記錄傳送目的地之儲存體帳戶的資源識別碼 |
 | serviceBusRuleId |字串 | 您為了串流診斷記錄而想要在其中建立事件中樞之服務匯流排命名空間的服務匯流排規則識別碼。 規則識別碼的格式為："{服務匯流排資源識別碼}/authorizationrules/{金鑰名稱}"。|
@@ -273,11 +273,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 屬性 | 類型 | 說明 | 範例 |
+| 屬性 | 類型 | 描述 | 範例 |
 | --- | --- | --- | --- |
 | Level |字串 | 診斷記錄的層級。 層級 4 一律是活動執行記錄的情況。 | `4`  |
 | correlationId |字串 | 用來完整追蹤特定要求的唯一識別碼 | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| 分析 | 字串 | 時間範圍內所發生之事件的時間 (UTC 格式) | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| 分析 | 字串 | 在 時間範圍，UTC 格式中事件的時間 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| 字串| 活動執行的識別碼 | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| 字串| 管線執行的識別碼 | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| 字串 | 資料處理站資源的相關聯資源識別碼 | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -288,7 +288,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |activityName| 字串 | 活動的名稱 | `MyActivity` |
 |start| 字串 | 時間範圍內之活動執行的開始時間 (UTC 格式) | `2017-06-26T20:55:29.5007959Z`|
 |end| 字串 | 時間範圍內之活動執行的結束時間 (UTC 格式) 如果活動尚未結束 (活動開始的診斷記錄)，則會設定預設值 `1601-01-01T00:00:00Z`。  | `2017-06-26T20:55:29.5007959Z` |
-
 
 ### <a name="pipeline-run-logs-attributes"></a>管線執行記錄屬性
 
@@ -320,11 +319,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 屬性 | 類型 | 說明 | 範例 |
+| 屬性 | 類型 | 描述 | 範例 |
 | --- | --- | --- | --- |
 | Level |字串 | 診斷記錄的層級。 層級 4 是活動執行記錄的情況。 | `4`  |
 | correlationId |字串 | 用來完整追蹤特定要求的唯一識別碼 | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| 分析 | 字串 | 時間範圍內所發生之事件的時間 (UTC 格式) | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| 分析 | 字串 | 在 時間範圍，UTC 格式中事件的時間 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| 字串| 管線執行的識別碼 | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| 字串 | 資料處理站資源的相關聯資源識別碼 | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| 字串 | 診斷記錄的類別。 請將此屬性設定為 "PipelineRuns" | `PipelineRuns` |
@@ -334,7 +333,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| 字串 | 時間範圍內之活動執行的開始時間 (UTC 格式) | `2017-06-26T20:55:29.5007959Z`|
 |end| 字串 | 時間範圍內之活動執行的結束時間 (UTC 格式) 如果活動尚未結束 (活動開始的診斷記錄)，則會設定預設值 `1601-01-01T00:00:00Z`。  | `2017-06-26T20:55:29.5007959Z` |
 |status| 字串 | 管線執行的最終狀態 (成功或失敗) | `Succeeded`|
-
 
 ### <a name="trigger-run-logs-attributes"></a>觸發程序執行記錄屬性
 
@@ -365,11 +363,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| 屬性 | 類型 | 說明 | 範例 |
+| 屬性 | 類型 | 描述 | 範例 |
 | --- | --- | --- | --- |
 | Level |字串 | 診斷記錄的層級。 若為活動執行記錄，則設定為層級 4。 | `4`  |
 | correlationId |字串 | 用來完整追蹤特定要求的唯一識別碼 | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| 分析 | 字串 | 時間範圍內所發生之事件的時間 (UTC 格式) | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| 分析 | 字串 | 在 時間範圍，UTC 格式中事件的時間 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| 字串| 觸發程序執行的識別碼 | `08587023010602533858661257311` |
 |ResourceId| 字串 | 資料處理站資源的相關聯資源識別碼 | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| 字串 | 診斷記錄的類別。 請將此屬性設定為 "PipelineRuns" | `PipelineRuns` |
@@ -389,12 +387,12 @@ ADFV2 會發出下列計量
 
 | **度量**           | **計量顯示名稱**         | **單位** | **彙總類型** | **說明**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | 成功的管線執行計量 | Count    | 總計                | 為期一分鐘的時間內成功的管線執行總計 |
-| PipelineFailedRuns   | 失敗的管線執行計量    | Count    | 總計                | 為期一分鐘的時間內失敗的管線執行總計    |
-| ActivitySucceededRuns | 成功的活動執行計量 | Count    | 總計                | 為期一分鐘的時間內成功的活動執行總計  |
-| ActivityFailedRuns   | 失敗的活動執行計量    | Count    | 總計                | 為期一分鐘的時間內失敗的活動執行總計     |
-| TriggerSucceededRuns | 成功的觸發程序執行計量  | Count    | 總計                | 為期一分鐘的時間內成功的觸發程序執行總計   |
-| TriggerFailedRuns    | 失敗的觸發程序執行計量     | Count    | 總計                | 為期一分鐘的時間內失敗的觸發程序執行總計      |
+| PipelineSucceededRun | 成功的管線執行計量 | 計數    | 總計                | 為期一分鐘的時間內成功的管線執行總計 |
+| PipelineFailedRuns   | 失敗的管線執行計量    | 計數    | 總計                | 為期一分鐘的時間內失敗的管線執行總計    |
+| ActivitySucceededRuns | 成功的活動執行計量 | 計數    | 總計                | 為期一分鐘的時間內成功的活動執行總計  |
+| ActivityFailedRuns   | 失敗的活動執行計量    | 計數    | 總計                | 為期一分鐘的時間內失敗的活動執行總計     |
+| TriggerSucceededRuns | 成功的觸發程序執行計量  | 計數    | 總計                | 為期一分鐘的時間內成功的觸發程序執行總計   |
+| TriggerFailedRuns    | 失敗的觸發程序執行計量     | 計數    | 總計                | 為期一分鐘的時間內失敗的觸發程序執行總計      |
 
 若要存取計量，請遵循文章中的指示操作 - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 

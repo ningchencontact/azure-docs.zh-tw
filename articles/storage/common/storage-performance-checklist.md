@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821656"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012323"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure 儲存體效能與延展性檢查清單
 ## <a name="overview"></a>概觀
@@ -21,7 +21,7 @@ ms.locfileid: "55821656"
 
 每位使用 Azure 儲存體的應用程式開發人員都應該花一點時間閱讀本文，並檢查他或她的應用程式是否遵循以下所列的每個已經實證做法。  
 
-## <a name="checklist"></a>檢查清單
+## <a name="checklist"></a>清单
 本文將已經實證做法分成下列幾類。 已經實證做法的適用對象：  
 
 * 所有 Azure 儲存體服務 (Blob、資料表、佇列和檔案)
@@ -29,7 +29,7 @@ ms.locfileid: "55821656"
 * 資料表
 * 佇列  
 
-| 完成 | 領域 | 類別 | 問題 |
+| 完成 | 領域 | 類別 | 问题 |
 | --- | --- | --- | --- |
 | &nbsp; | 所有服務 |延展性目標 |[您的應用程式是否旨在避免達到延展性目標？](#subheading1) |
 | &nbsp; | 所有服務 |延展性目標 |[您的命名慣例設計能因應更好的負載平衡嗎？](#subheading47) |
@@ -41,19 +41,19 @@ ms.locfileid: "55821656"
 | &nbsp; | 所有服務 |快取 |[您的應用程式是否會針對重複使用和極少變更的資料進行快取？](#subheading7) |
 | &nbsp; | 所有服務 |快取 |[您的應用程式是否會批次執行更新 (在用戶端快取更新，然後以大型集合的方式上傳)？](#subheading8) |
 | &nbsp; | 所有服務 |.NET 組態 |[您是否已設定用戶端使用足夠數量的並行連線？](#subheading9) |
-| &nbsp; | 所有服務 |.NET 組態 |[您是否已設定 .NET 使用足夠數量的執行緒？](#subheading10) |
-| &nbsp; | 所有服務 |.NET 組態 |[您使用的是已改善記憶體回收的 .NET 4.5 或更新版本嗎？](#subheading11) |
+| &nbsp; | 所有服务 |.NET 組態 |[您是否已設定 .NET 使用足夠數量的執行緒？](#subheading10) |
+| &nbsp; | 所有服務 |.NET 配置 |[您使用的是已改善記憶體回收的 .NET 4.5 或更新版本嗎？](#subheading11) |
 | &nbsp; | 所有服務 |平行處理原則 |[您是否已確保平行處理原則已適當地受到限制，因此您的用戶端功能或延展性目標不會超載？](#subheading12) |
 | &nbsp; | 所有服務 |工具 |[您是否使用 Microsoft 所提供的最新用戶端程式庫和工具版本？](#subheading13) |
 | &nbsp; | 所有服務 |重試 |[您是否針對節流錯誤和逾時使用指數輪詢重試原則？](#subheading14) |
 | &nbsp; | 所有服務 |重試 |[您的應用程式是否避免重試不能再嘗試的錯誤？](#subheading15) |
 | &nbsp; | Blob |延展性目標 |[您是嘔有大量的用戶端並行存取單一物件？](#subheading46) |
 | &nbsp; | Blob |延展性目標 |[您的應用程式是否不超過單一 Blob 的頻寬或操作延展性目標？](#subheading16) |
-| &nbsp; | Blob |複製 Blob |[您是否以有效的方式複製 Blob？](#subheading17) |
+| &nbsp; | Blob |复制 Blob |[您是否以有效的方式複製 Blob？](#subheading17) |
 | &nbsp; | Blob |複製 Blob |[您是否使用 AzCopy 進行 Blob 的大量複製？](#subheading18) |
 | &nbsp; | Blob |複製 Blob |[您是否使用 Azure 匯入/匯出來傳輸大量的資料？](#subheading19) |
 | &nbsp; | Blob |使用中繼資料 |[您是否將 Blob 相關的常用中繼資料儲存在它的中繼資料內？](#subheading20) |
-| &nbsp; | Blob |快速上傳 |[嘗試快速上傳一個 Blob 時，您是否平行上傳區塊？](#subheading21) |
+| &nbsp; | Blob |快速上传 |[嘗試快速上傳一個 Blob 時，您是否平行上傳區塊？](#subheading21) |
 | &nbsp; | Blob |快速上傳 |[嘗試快速上傳多個 Blob 時，您是否平行上傳 Blob？](#subheading22) |
 | &nbsp; | Blob |正確的 Blob 類型 |[您是否在適當的時機使用分頁 Blob 或區塊 Blob？](#subheading23) |
 | &nbsp; | 資料表 |延展性目標 |[您的每秒實體數是否逐漸達到延展性目標？](#subheading24) |
@@ -71,12 +71,12 @@ ms.locfileid: "55821656"
 | &nbsp; | 資料表 |插入/更新/刪除 |[您是否避免擷取實體，以避免判斷是要呼叫插入或更新？](#subheading36) |
 | &nbsp; | 資料表 |插入/更新/刪除 |[您是否考慮將經常會被一起擷取的一系列資料，以屬性的方式儲存在單一實體中 (而非儲存在多個實體中)？](#subheading37) |
 | &nbsp; | 資料表 |插入/更新/刪除 |[針對總是會被一起擷取並可以批次執行方式寫入的實體 (例如時間序列資料)，您是否考慮使用 Blob (而非資料表)？](#subheading38) |
-| &nbsp; | 佇列 |延展性目標 |[您的每秒訊息數是否逐漸達到延展性目標？](#subheading39) |
-| &nbsp; | 佇列 |組態 |[您是否已關閉 Nagle 以提高小型要求的效能？](#subheading40) |
+| &nbsp; | 佇列 |可伸缩性目标 |[您的每秒訊息數是否逐漸達到延展性目標？](#subheading39) |
+| &nbsp; | 佇列 |配置 |[您是否已關閉 Nagle 以提高小型要求的效能？](#subheading40) |
 | &nbsp; | 佇列 |訊息大小 |[您的訊息是否精簡以提高佇列效能？](#subheading41) |
 | &nbsp; | 佇列 |大量擷取 |[您是否在單一 "Get" 操作中擷取多則訊息？](#subheading42) |
 | &nbsp; | 佇列 |輪詢頻率 |[您是否夠常輪詢以降低可察覺的應用程式延遲？](#subheading43) |
-| &nbsp; | 佇列 |更新訊息 |[您是否使用 UpdateMessage 來儲存處理訊息時的進度，避免在出現錯誤時需要重新處理整個訊息？](#subheading44) |
+| &nbsp; | 佇列 |更新消息 |[您是否使用 UpdateMessage 來儲存處理訊息時的進度，避免在出現錯誤時需要重新處理整個訊息？](#subheading44) |
 | &nbsp; | 佇列 |架構 |[您是否透過將長時間執行的工作負載排除在重要路徑外，然後再個別進行調整的方式，使用佇列來讓您的整個應用程式更有彈性？](#subheading45) |
 
 ## <a name="allservices"></a>所有服務
@@ -122,7 +122,7 @@ Azure 儲存體使用範圍型的資料分割配置，調整和負載平衡系�
 
 * 詳細檢查帳戶、容器、Blob、資料表和佇列所使用的命名慣例。 請考慮使用最符合您需求的雜湊函數，在帳戶名稱前加上 3 位數的雜湊。  
 * 如果使用時間戳記或數字識別碼組織資料，您必須確定您使用的不是僅附加在後 (或僅在前面加上) 的流量模式。 這些模式並不適合範圍型的分割區系統，而且可能導致所有流量進入單一分割區並限制系統進行有效的負載平衡。 例如，如果日常作業使用有時間戳記的 Blob 物件，如 yyyymmdd，則該日常作業的所有流量都會導向至由單一分割區伺服器服務的單一物件。 請查看每個 Blob 的限制和每個分割區的限制是否符合您的需求，考慮是否需要將這項作業拆分成多個 Blob。 同樣地，如果在資料表中儲存時間序列資料，則所有流量都可能導向到索引鍵命名空間的最後部分。 如果必須使用時間戳記或數值識別碼，識別碼前面請加上 3 位數雜湊，或在時間戳記前加上時間的秒數部分，如 ssyyyymmdd。 如果定期執行列出和查詢作業，請選擇會限制查詢次數的雜湊函數。 其他情況，隨機的前置詞即足以應付。  
-* 如需 Azure 儲存體所用之分割區配置的其他資訊，請參閱 [這裡](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)的 SOSP 文件。
+* 如需 Azure 儲存體所用之分割區配置的其他資訊，請參閱 [這裡](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)的 SOSP 文件。
 
 ### <a name="networking"></a>網路功能
 雖然 API 呼叫非常重要，但應用程式的實體網路限制經常會對效能產生重大影響。 下列說明了使用者可能會遇到的部分限制。  
@@ -412,4 +412,4 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用
 * 您可以使用佇列來脫離應用程式的零件，以便您可以個別進行調整。 例如，Web 前端可以將使用者的調查結果放到佇列中，以供日後分析與儲存。 您可以加入更多的背景工作角色執行個體，以視需要處理佇列資料。  
 
 ## <a name="conclusion"></a>結論
-本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。 我們鼓勵每位應用程式開發人員根據上述的每個做法來評估他們的應用程式，並考慮照著建議去做，為其使用 Azure 儲存體的應用程式取得最佳效能。
+本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。 我们建议每一位应用程序开发人员对照以上每条做法，对自己的应用程序进行评估，并考虑按照建议要求进行操作，以便优化使用 Azure 存储的应用程序的性能。
