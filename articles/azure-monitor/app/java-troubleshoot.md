@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 01/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4e9e9b76469554f5519626eed37a5b64586f5eb4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265391"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995601"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Application Insights for Java 的疑難排解和問答集
 [Java 中的 Azure Application Insights][java] 疑問或問題？ 以下是一些秘訣。
@@ -105,18 +105,39 @@ ms.locfileid: "54265391"
 
 若要取得有關 API 中所進行作業的詳細資訊，請在 ApplicationInsights.xml 組態檔的根節點底下新增 `<SDKLogger/>`。
 
+### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
+
 您也可以指示記錄器輸出至檔案：
 
 ```XML
-
-    <SDKLogger type="FILE">
-      <enabled>True</enabled>
-      <UniquePrefix>JavaSDKLog</UniquePrefix>
-    </SDKLogger>
+  <SDKLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
+</SDKLogger>
 ```
 
-如果是 Tomcat 伺服器，檔案可以在 `%temp%\javasdklogs` 或 `java.io.tmpdir` 底下找到。
+### <a name="spring-boot-starter"></a>Spring Boot Starter
 
+若要啟用 SDK 記錄具有使用 Application Insights Spring Boot Starter 的 Spring Boot 應用程式，將下列內容加入`application.properties`檔案。:
+
+```yaml
+azure.application-insights.logger.type=file
+azure.application-insights.logger.base-folder-path=C:/agent/AISDK
+azure.application-insights.logger.level=trace
+```
+
+### <a name="java-agent"></a>Java 代理程式
+
+若要啟用 JVM 代理程式記錄的更新[Ai-agent.xml 檔案](java-agent.md)。
+
+```xml
+<AgentLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
+</AgentLogger>
+```
 
 ## <a name="the-azure-start-screen"></a>Azure 開始畫面
 **我正在查看 [Azure 入口網站](https://portal.azure.com)。地圖是否告知有關我的應用程式的相關資訊？**

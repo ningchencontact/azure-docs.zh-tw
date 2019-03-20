@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122785"
 ---
 # <a name="remove-servers-and-disable-protection"></a>移除伺服器並停用保護
 
@@ -55,18 +55,18 @@ ms.locfileid: "55810315"
         pushd .
         try
         {
-             $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
-             $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
-             $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
-             $isAdmin=$principal.IsInRole($administrators)
-             if (!$isAdmin)
-             {
+            $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
+            $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
+            $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
+            $isAdmin=$principal.IsInRole($administrators)
+            if (!$isAdmin)
+            {
                 "Please run the script as an administrator in elevated mode."
                 $choice = Read-Host
-                return;       
-             }
+                return;
+            }
 
-            $error.Clear()    
+            $error.Clear()
             "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
             $choice =  Read-Host
 
@@ -95,24 +95,24 @@ ms.locfileid: "55810315"
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."    
+                    "Removing registration related registry keys."
                     Remove-Item -Recurse -Path $registrationPath
                 }
 
                 if (Test-Path $proxySettingsPath)
-            {
+                {
                     "Removing proxy settings"
                     Remove-Item -Recurse -Path $proxySettingsPath
                 }
 
                 $regNode = Get-ItemProperty -Path $asrHivePath
                 if($regNode.DraID -ne $null)
-                {            
+                {
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
                 }
                 if($regNode.IdMgmtCloudContainerId -ne $null)
-                {            
+                {
                     "Removing IdMgmtCloudContainerId"
                     Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
                 }
@@ -131,7 +131,7 @@ ms.locfileid: "55810315"
                 $store.Remove($cert)
             }
         }catch
-        {    
+        {
             [system.exception]
             Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
@@ -158,11 +158,11 @@ ms.locfileid: "55810315"
 
 1. 在 [受保護的項目] > [已複寫的項目] 中，以滑鼠右鍵按一下機器 > [停用複寫]。
 2. 在 [停用複寫] 中，您可以選取下列選項：
-     - **停用複寫並移除 (建議)** - 此選項會將複寫的項目從 Azure Site Recovery 移除，且機器的複寫會遭到停止。 系統將會清除內部部署虛擬機器上的複寫設定，並停止此受保護伺服器的 Site Recovery 計費。
-    - **移除** - 只有在來源環境遭到刪除或無法存取 (未連線) 時，才使用此選項。 這會將複寫的項目從 Azure Site Recovery 移除 (停止計費)。 內部部署虛擬機器上的複寫設定**將不會**遭到清除。 
+   - **停用複寫並移除 (建議)** - 此選項會將複寫的項目從 Azure Site Recovery 移除，且機器的複寫會遭到停止。 系統將會清除內部部署虛擬機器上的複寫設定，並停止此受保護伺服器的 Site Recovery 計費。
+   - **移除** - 只有在來源環境遭到刪除或無法存取 (未連線) 時，才使用此選項。 這會將複寫的項目從 Azure Site Recovery 移除 (停止計費)。 內部部署虛擬機器上的複寫設定**將不會**遭到清除。 
 
-    > [!NOTE]
-    > 如果您選擇 [移除] 選項，則執行下列一組指令碼來清除內部部署 Hyper-V 伺服器上的複寫設定。
+     > [!NOTE]
+     > 如果您選擇 [移除] 選項，則執行下列一組指令碼來清除內部部署 Hyper-V 伺服器上的複寫設定。
 1. 在來源 Hyper-V 主機伺服器上，移除虛擬機器的複寫。 將 SQLVM1 取代為您虛擬機器的名稱，並從系統管理 PowerShell 執行指令碼
 
 ```powershell
@@ -177,11 +177,11 @@ ms.locfileid: "55810315"
 1. 在 [受保護的項目] > [已複寫的項目] 中，以滑鼠右鍵按一下機器 > [停用複寫]。
 2. 在 [停用複寫] 中，選取下列其中一個選項：
 
-    - **停用複寫並移除 (建議)** - 此選項會將複寫的項目從 Azure Site Recovery 移除，且機器的複寫會遭到停止。 系統會清除內部部署虛擬機器上的複寫設定，並停止此受保護伺服器的 Site Recovery 計費。
-    - **移除** - 只有在來源環境遭到刪除或無法存取 (未連線) 時，才使用此選項。 這會將複寫的項目從 Azure Site Recovery 移除 (停止計費)。 內部部署虛擬機器上的複寫設定**將不會**遭到清除。 
+   - **停用複寫並移除 (建議)** - 此選項會將複寫的項目從 Azure Site Recovery 移除，且機器的複寫會遭到停止。 系統會清除內部部署虛擬機器上的複寫設定，並停止此受保護伺服器的 Site Recovery 計費。
+   - **移除** - 只有在來源環境遭到刪除或無法存取 (未連線) 時，才使用此選項。 這會將複寫的項目從 Azure Site Recovery 移除 (停止計費)。 內部部署虛擬機器上的複寫設定**將不會**遭到清除。 
 
-    > [!NOTE]
-    > 如果您選擇 [移除] 選項，則執行下列指令碼來清除內部部署 VMM 伺服器上的複寫設定。
+     > [!NOTE]
+     > 如果您選擇 [移除] 選項，則執行下列指令碼來清除內部部署 VMM 伺服器上的複寫設定。
 3. 在來源 VMM 伺服器上，使用 VMM 主控台中的 PowerShell (需要系統管理員權限) 執行這個指令碼。 將預留位置 **SQLVM1** 取代為您虛擬機器的名稱。
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
@@ -201,15 +201,15 @@ ms.locfileid: "55810315"
 1. 在 [受保護的項目] > [已複寫的項目] 中，以滑鼠右鍵按一下機器 > [停用複寫]。
 2. 在 [停用複寫] 中，選取下列其中一個選項：
 
-    - **停用複寫並移除 (建議)** - 此選項會將複寫的項目從 Azure Site Recovery 移除，且機器的複寫會遭到停止。 系統會清除內部部署虛擬機器上的複寫設定，並停止此受保護伺服器的 Site Recovery 計費。
-    - **移除** - 只有在來源環境遭到刪除或無法存取 (未連線) 時，才使用此選項。 這會將複寫的項目從 Azure Site Recovery 移除 (停止計費)。 內部部署虛擬機器上的複寫設定**將不會**遭到清除。 執行下列一組指令碼，以清除內部部署虛擬機器上的複寫設定。
-> [!NOTE]
-> 如果您選擇 [移除] 選項，則執行下列指令碼來清除內部部署 VMM 伺服器上的複寫設定。
+   - **停用複寫並移除 (建議)** - 此選項會將複寫的項目從 Azure Site Recovery 移除，且機器的複寫會遭到停止。 系統會清除內部部署虛擬機器上的複寫設定，並停止此受保護伺服器的 Site Recovery 計費。
+   - **移除** - 只有在來源環境遭到刪除或無法存取 (未連線) 時，才使用此選項。 這會將複寫的項目從 Azure Site Recovery 移除 (停止計費)。 內部部署虛擬機器上的複寫設定**將不會**遭到清除。 執行下列一組指令碼，以清除內部部署虛擬機器上的複寫設定。
+     > [!NOTE]
+     > 如果您選擇 [移除] 選項，則執行下列指令碼來清除內部部署 VMM 伺服器上的複寫設定。
 
 3. 在來源 VMM 伺服器上，使用 VMM 主控台中的 PowerShell (需要系統管理員權限) 執行這個指令碼。 將預留位置 **SQLVM1** 取代為您虛擬機器的名稱。
 
-         $vm = get-scvirtualmachine -Name "SQLVM1"
-         Set-SCVirtualMachine -VM $vm -ClearDRProtection
+        $vm = get-scvirtualmachine -Name "SQLVM1"
+        Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. 在次要 VMM 伺服器上，執行此指令碼來清除次要虛擬機器的設定：
 
         $vm = get-scvirtualmachine -Name "SQLVM1"

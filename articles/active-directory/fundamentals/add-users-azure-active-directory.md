@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3881026c1877059639b550f3d0342674b2f8b29
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8770648a3683c4f612536c9a04921682a01bcd0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089806"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 新增或刪除使用者
 從您的 Azure Active Directory (Azure AD) 租用戶新增使用者或刪除現有的使用者。
@@ -37,17 +37,17 @@ ms.locfileid: "56187197"
 
     ![新增使用者，包含使用者資訊的 [使用者] 頁面](media/add-users-azure-active-directory/new-user-user-blade.png)
 
-    - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
+   - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
 
-    - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。 
+   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。 
     
-        使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](add-custom-domain.md)。
+       使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](add-custom-domain.md)。
 
-    - **設定檔。** (選擇性) 您可以新增更多有關使用者的資訊。 您也可以稍後新增使用者資訊。 如需新增使用者資訊的詳細資訊，請參閱[如何新增或變更使用者設定檔資訊](active-directory-users-profile-azure-portal.md)。
+   - **設定檔。** (選擇性) 您可以新增更多有關使用者的資訊。 您也可以稍後新增使用者資訊。 如需新增使用者資訊的詳細資訊，請參閱[如何新增或變更使用者設定檔資訊](active-directory-users-profile-azure-portal.md)。
 
-    - **群組。** (選擇性) 您可以將使用者新增到一或多個現有的群組。 您也可以稍後再將使用者新增到群組。 如需有關將使用者新增到群組的詳細資訊，請參閱[如何建立基本的群組及新增成員](active-directory-groups-create-azure-portal.md)。
+   - **群組。** (選擇性) 您可以將使用者新增到一或多個現有的群組。 您也可以稍後再將使用者新增到群組。 如需有關將使用者新增到群組的詳細資訊，請參閱[如何建立基本的群組及新增成員](active-directory-groups-create-azure-portal.md)。
 
-    - **目錄角色。** (選擇性) 您可以將使用者新增到目錄角色。 您可以將使用者指派為 Azure AD 中的全域系統管理員，或指派給一或多個其他系統管理員角色。 如需有關指派角色的詳細資訊，請參閱[如何將角色指派給使用者](active-directory-users-assign-role-azure-portal.md)。
+   - **目錄角色。** (選擇性) 您可以將使用者新增到目錄角色。 您可以將使用者指派為 Azure AD 中的全域系統管理員，或指派給一或多個其他系統管理員角色。 如需有關指派角色的詳細資訊，請參閱[如何將角色指派給使用者](active-directory-users-assign-role-azure-portal.md)。
 
 4. 複製在 [密碼] 方塊中提供的自動產生密碼。 您必須將此密碼提供給使用者，讓其進行初始登入程序。
 

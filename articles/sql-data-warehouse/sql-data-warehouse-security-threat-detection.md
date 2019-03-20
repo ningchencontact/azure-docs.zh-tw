@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: security
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f07699b49b7791894d1f183b0686161375ea17a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: a3204c2705ba7b83c4fe22ab6bdd15c11eeeeda5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295412"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182433"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的威脅偵測
 設定威脅偵測，並探索 Azure SQL 資料倉儲中的可疑事件。
@@ -46,7 +46,7 @@ ms.locfileid: "55295412"
 1. 偵測到異常資料庫活動時，您將收到電子郵件通知。 <br/>
    電子郵件將提供可疑安全性事件的相關資訊，包括異常活動的性質、資料庫名稱、伺服器名稱和事件時間。 此外，還會提供可能原因和建議動作的相關資訊，以協助您調查和減輕資料庫的潛在威脅。<br/>
    
-    ![瀏覽窗格](media/sql-data-warehouse-security-threat-detection/4_td_email.png)
+    ![导航窗格](media/sql-data-warehouse-security-threat-detection/4_td_email.png)
 2. 在電子郵件中，按一下 [Azure SQL 稽核記錄檔]  連結會啟動 Azure 入口網站，並顯示可疑事件前後的相關稽核記錄。
    
     ![瀏覽窗格](media/sql-data-warehouse-security-threat-detection/5_td_audit_records.png)
@@ -57,7 +57,7 @@ ms.locfileid: "55295412"
    **附註：** 在 Excel 2010 或更新版本中，必須要有 Power Query 和 [快速合併] 設定
    
     ![瀏覽窗格](media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png)
-5. 若要設定 [快速合併] 設定 - 在 [POWER QUERY] 功能區索引標籤中，選取 [選項] 以顯示 [選項] 對話方塊。 選取 [隱私權] 區段，選擇第二個選項 - [忽略隱私權等級並可能改善效能]：
+5. 若要設定 [快速合併] 設定 - 在 [POWER QUERY] 功能區索引標籤中，選取 [選項] 以顯示 [選項] 對話方塊。 选择“隐私”部分，然后选择第二个选项 -“忽略隐私级别并潜在地改善性能”：
    
     ![瀏覽窗格](media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png)
 6. 若要載入 SQL 稽核記錄檔，請確定 [設定] 索引標籤中的參數已正確設定，然後選取 [資料] 功能區，並按一下 [全部重新整理] 按鈕。

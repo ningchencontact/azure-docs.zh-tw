@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 8c0e47f5bed0799b8536cecb38a85ed76185d0cd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243105"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194923"
 ---
 # <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>概觀：搭配 Enterprise Integration Pack 之 Azure Logic Apps 中的 B2B 企業整合案例
 
@@ -70,5 +70,5 @@ ms.locfileid: "56243105"
 * [企業整合連接器](../connectors/apis-list.md "了解企業整合套件連接器")
 * [整合帳戶中繼資料](../logic-apps/logic-apps-enterprise-integration-metadata.md "深入了解整合帳戶中繼資料")
 * [監視 B2B 訊息](logic-apps-monitor-b2b-message.md "深入了解監視 B2B 訊息")
-* [使用 Azure Log Analytics 追蹤 B2B 訊息](logic-apps-track-b2b-messages-omsportal.md "深入瞭解如何使用 Azure Log Analytics 追蹤 B2B 訊息")
+* [追蹤 Azure 監視器記錄檔中的 B2B 訊息](logic-apps-track-b2b-messages-omsportal.md "深入了解如何追蹤 Azure 監視器記錄檔中的 B2B 訊息")
 

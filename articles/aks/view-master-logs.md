@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455988"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537757"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中啟用並檢閱 Kubernetes 主要節點記錄
 
@@ -88,7 +88,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>檢視收集的記錄
 
-診斷記錄可能需要幾分鐘的時間才會啟用並出現在 Log Analytics 工作區中。 在 Azure 入口網站中，選取適用於您 Log Analytics 工作區的資源群組 (例如 *myResourceGroup*)，然後選擇您的 Log Analytics 資源 (例如 *myAKSLogs*)。
+診斷記錄可能需要幾分鐘的時間才會啟用並出現在 Log Analytics 工作區中。 在 Azure 入口網站中，選取您的 Log Analytics 工作區的資源群組這類*myResourceGroup*，然後選擇您的 log analytics 資源，例如*myAKSLogs*。
 
 ![選擇適用於 AKS 叢集的 Log Analytics 工作區](media/view-master-logs/select-log-analytics-workspace.png)
 
@@ -121,7 +121,7 @@ AzureDiagnostics
 
 為了協助分析記錄資料，下表會詳細說明適用於每個事件的結構描述：
 
-| 欄位名稱               | 說明 |
+| 欄位名稱               | 描述 |
 |--------------------------|-------------|
 | *resourceId*             | 產生記錄的 Azure 資源 |
 | *time*                   | 上傳記錄的時間戳記 |

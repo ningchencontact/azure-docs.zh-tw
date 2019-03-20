@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 237294c1bc603402c349f7a56f20c34ed8d210fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999756"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>開始使用佇列儲存體和 Visual Studio 已連接服務 (ASP.NET Core)
 
@@ -27,7 +27,7 @@ ms.locfileid: "42145754"
 
 Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。 如需以程式設計方式處理佇列的詳細資料，另請參閱[以 .NET 開始使用 Azure 佇列儲存體](../storage/queues/storage-dotnet-how-to-use-queues.md)。
 
-若要開始，請先在儲存體帳戶中建立 Azure 佇列。 本文章將接著示範如何以 C# 建立佇列，以及如何執行基本的佇列作業，例如新增、修改、讀取和移除佇列訊息。  程式碼使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 如需 ASP.NET 的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
+若要開始，請先在儲存體帳戶中建立 Azure 佇列。 本文章將接著示範如何以 C# 建立佇列，以及如何執行基本的佇列作業，例如新增、修改、讀取和移除佇列訊息。  程式碼使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 如需 ASP.NET 的詳細資訊，請參閱 [ASP.NET](https://www.asp.net)。
 
 某些 Azure 儲存體 API 是非同步的，本文章中的程式碼假設我們正在使用非同步方法。 如需詳細資訊，請參閱[非同步程式設計](https://docs.microsoft.com/dotnet/csharp/async)。
 
@@ -66,7 +66,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 ### <a name="create-a-queue-in-code"></a>在程式碼中建立佇列
 
-若要在程式碼中建立 Azure 佇列，請呼叫 ``CreateIfNotExistsAsync`：
+若要在程式碼中建立 Azure 佇列，請呼叫`CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

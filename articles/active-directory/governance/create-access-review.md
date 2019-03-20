@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure AD，為可存取應用程式的群組成員或使用者建立存取權檢閱 | Microsoft Docs
-description: 了解如何為可存取應用程式的群組成員或使用者建立存取權檢閱。
+title: 在 Azure AD 存取權檢閱中建立群組或應用程式的存取權檢閱 |Microsoft Docs
+description: 了解如何在 Azure AD 存取權檢閱中建立群組成員或應用程式存取的存取權檢閱。
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,29 +11,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/15/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1616230e3cad765246bcf03d59fb517c99d9b044
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847377"
 ---
-# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>使用 Azure AD 建立群組成員或應用程式存取的存取權檢閱
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>在 Azure AD 存取權檢閱中建立群組或應用程式的存取權檢閱
 
 員工和來賓對於群組和應用程式的存取權會隨著時間而變更。 為了降低過時存取權指派的相關風險，系統管理員可以使用 Azure Active Directory (Azure AD)，建立群組成員或應用程式存取的存取權檢閱。 如果您需要定期檢閱存取權，您也可以建立週期性存取權檢閱。 如需關於這些案例的詳細資訊，請參閱[管理使用者存取權](manage-user-access-with-access-reviews.md)和[管理來賓存取權](manage-guest-access-with-access-reviews.md)。
 
-本文說明如何建立群組成員或應用程式存取的存取權檢閱。
+本文說明如何建立一或多個存取權檢閱群組成員或應用程式存取。
 
 ## <a name="prerequisites"></a>必要條件
 
 - [存取權檢閱已啟用](access-reviews-overview.md)
-- 全域管理員或帳戶管理員
+- 全域管理員或使用者管理員
 
-## <a name="create-an-access-review"></a>建立存取權檢閱
+## <a name="create-one-or-more-access-reviews"></a>建立一或多個存取權檢閱
 
 1. 登入 Azure 入口網站，並開啟 [存取權檢閱](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) 頁面。
 
@@ -53,11 +53,25 @@ ms.locfileid: "56176912"
 
 1. 若要讓存取權檢閱定期發生，請將 [頻率] 設定從 [一次] 變更為 [每週]、[每月]、[每季] 或 [每年]，並使用 [持續時間] 滑桿或文字方塊來定義每個週期性檢閱系列會開啟多少天，以便檢閱者輸入資料。 例如，您可以為每月檢閱設定的最長持續期間為 27 天，以避免重疊的檢閱。
 
-1. 使用 [結束] 設定來指定如何結束週期性存取權檢閱系列。 此系列的結束方式有三種：它會持續執行而無限期地啟動檢閱、直到特定日期為止，或是在完成所定義的發生次數之後。 您、其他使用者帳戶管理員或其他全域管理員皆可以變更 [設定] 中的日期，以在系列建立之後予以停止，讓它於該日期結束。
+1. 使用 [結束] 設定來指定如何結束週期性存取權檢閱系列。 此系列的結束方式有三種：它會持續執行而無限期地啟動檢閱、直到特定日期為止，或是在完成所定義的發生次數之後。 您、 其他使用者的系統管理員或其他全域系統管理員可以停止數列建立之後變更的日期**設定**，如此一來，在該日期結束。
 
 1. 在 [使用者] 區段中，指定存取權檢閱所適用的使用者。 存取權檢閱可針對群組成員或指派給應用程式的使用者執行。 您可以進一步將存取權檢閱限縮成僅檢閱身為成員 (或指派給應用程式) 的來賓使用者，而非檢閱身為成員或可存取應用程式的所有使用者。
 
     ![建立存取權檢閱 - 使用者](./media/create-access-review/users.png)
+
+1. 在 **群組**區段中，選取您想要檢閱的成員資格的一或多個群組。
+
+    > [!NOTE]
+    > 選取一個以上的群組，將會建立多個存取權檢閱。 例如，選取五個群組會建立五個不同的存取權檢閱。
+    
+    ![建立存取權檢閱-選取的群組](./media/create-access-review/select-group.png)
+
+1. 在 **應用程式**一節 (如果您選取**指派給應用程式**在步驟 8)，選取您想要檢閱存取權的應用程式。
+
+    > [!NOTE]
+    > 選取多個應用程式會建立多個存取權檢閱。 例如，選取五個應用程式會建立五個不同的存取權檢閱。
+    
+    ![建立存取權檢閱-選取應用程式](./media/create-access-review/select-application.png)
 
 1. 在 [檢閱者] 區段中，選取一或多個人員來檢閱範圍內的所有使用者。 或者，您可以選擇讓成員檢閱自己的存取權。 如果資源是群組，您可以要求群組擁有者檢閱。 您也可以要求檢閱者在核准存取權時提供原因。
 
@@ -100,7 +114,7 @@ ms.locfileid: "56176912"
 
 在指定存取權檢閱的設定後，請按一下 [啟動]。
 
-依預設，Azure AD 會在檢閱開始不久後傳送電子郵件給檢閱者。 如果您選擇不讓 Azure AD 傳送電子郵件，請務必通知檢閱者有存取權檢閱等待他們完成。 您可以提供他們如何[檢閱存取權](perform-access-review.md)的指示。 如果您允許來賓檢閱他們自己的存取權，請提供他們如何[檢閱自己的存取權](perform-access-review.md)的指示。
+依預設，Azure AD 會在檢閱開始不久後傳送電子郵件給檢閱者。 如果您選擇不讓 Azure AD 傳送電子郵件，請務必通知檢閱者有存取權檢閱等待他們完成。 您可以提供他們如何指示[檢閱存取權的群組或應用程式](perform-access-review.md)。 如果您允許來賓檢閱自己的存取權的可顯示它們如何指示[自行檢閱存取權，來群組或應用程式](review-your-access.md)。
 
 若有部分檢閱者是來賓，則只會透過電子郵件通知已接受邀請的來賓。
 
@@ -108,7 +122,7 @@ ms.locfileid: "56176912"
 
 當檢閱者完成其檢閱時，您可以在 [存取權檢閱] 區段的 Azure AD 儀表板中追蹤進度。 在[完成檢閱](complete-access-review.md)之前，不會變更目錄中的任何存取權限。
 
-如果這是一次性檢閱，則請在存取權檢閱期間結束或系統管理員停止存取權檢閱之後，依照[完成存取權檢閱](complete-access-review.md)的步驟來查看並套用結果。  
+如果這是一次性的檢閱，然後存取權檢閱期間結束後或系統管理員停止存取權檢閱之後, 請依照下列中的步驟[完成群組或應用程式的存取權檢閱](complete-access-review.md)來查看並套用結果。  
 
 若要管理一系列的存取權檢閱，請從 [控制項] 巡覽至存取權檢閱，而您會在 [已排程的檢閱] 中發現即將發生的項目，請據此編輯結束日期或新增/移除檢閱者。 
 
@@ -120,5 +134,6 @@ ms.locfileid: "56176912"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 Azure AD 存取權檢閱開始存取權檢閱](perform-access-review.md)
-- [在 Azure AD 中，為群組成員或可存取應用程式的使用者完成存取權檢閱](complete-access-review.md)
+- [檢閱存取權的群組或應用程式](perform-access-review.md)
+- [檢閱您自己的存取權，來群組或應用程式](review-your-access.md)
+- [完成群組或應用程式的存取權檢閱](complete-access-review.md)

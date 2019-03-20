@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 8b46839d26130f37f4f4ba5559f5699498b0e60f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013279"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>疑難排解 Azure 流量管理員上的已降級狀態
 
@@ -28,7 +28,7 @@ ms.locfileid: "53599394"
 
 ![非使用中流量管理員狀態](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
-## <a name="understanding-traffic-manager-probes"></a>了解流量管理員探查
+## <a name="understanding-traffic-manager-probes"></a>了解流量管理器探测
 
 * 只有當探查收到探查路徑傳回 HTTP 200 回應時，流量管理員才會將端點視為在「線上」。 其他任何非 200 的回應都是失敗。
 * 即使重新導向的 URL 傳回 200，30x 重新導向也會失敗。
@@ -41,7 +41,7 @@ ms.locfileid: "53599394"
 
 若要針對探查失敗進行疑難排解，您需要工具來顯示從探查 URL 傳回的 HTTP 狀態碼。 有許多工具可顯示原始 HTTP 回應。
 
-* [Fiddler](http://www.telerik.com/fiddler)
+* [Fiddler](https://www.telerik.com/fiddler)
 * [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 

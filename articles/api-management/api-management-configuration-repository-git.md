@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851341"
 ---
-# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 儲存和設定 API 管理服務組態
+# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 
 每個 API 管理服務執行個體會維護組態資料庫，包含服務執行個體的組態和中繼資料的相關資訊。 可以對服務執行個體進行變更，方法是使用PowerShell Cmdlet 或進行 REST API 呼叫，變更 Azure 入口網站中的設定。 除了這些方法，您也可以使用 Git 管理服務執行個體組態，啟用下列服務管理案例︰
 
@@ -37,12 +37,12 @@ ms.locfileid: "52961004"
 下列步驟提供使用 Git 管理 API 管理服務執行個體的概觀。
 
 1. 存取服務中的 Git 組態
-2. 將您的服務組態資料庫儲存至您的 Git 儲存機制
+2. 将服务配置数据库保存到 Git 存储库
 3. 將 Git 儲存機制複製到本機電腦
 4. 將最新的儲存機制提取至您的本機電腦，認可並且將變更推送回您的儲存機制
 5. 從您的儲存機制將變更部署至您的服務組態資料庫
 
-本文說明如何啟用及使用 Git 來管理您的服務組態，並提供 Git 儲存機制中檔案和資料夾的參考。
+本文介绍如何启用和使用 Git 管理服务配置，并提供 Git 存储库中的文件和文件夹的参考。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -53,9 +53,9 @@ ms.locfileid: "52961004"
 ![啟用 GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> 未定義為屬性的任何密碼會儲存在儲存機制，並且仍然保留其歷程記錄，直到您停用然後重新啟用 Git 存取。 屬性會提供一個安全的地方以管理跨所有的 API 組態和原則的常數字串值，包括密碼，因此您不必將它們直接儲存在您的原則陳述式。 如需詳細資訊，請參閱 [如何使用 Azure API 管理原則中的屬性](api-management-howto-properties.md)。
-> 
-> 
+> 未定義名為的值為任何機密資料會儲存在存放庫，並將保留在其歷程記錄中，直到您停用並重新啟用 Git 存取。 具名的值提供安全的地方，以管理所有 API 組態和原則，都包括密碼，因此您不必將它們儲存在您的原則陳述式直接的常數字串值。 如需詳細資訊，請參閱 <<c0> [ 如何在 Azure API 管理原則中使用名為值](api-management-howto-properties.md)。
+>
+>
 
 如需使用 REST API 啟用或停用 Git 存取的詳細資訊，請參閱 [使用 REST API 啟用或停用 Git 存取](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit)。
 
@@ -73,13 +73,13 @@ ms.locfileid: "52961004"
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>將儲存機制複製到本機電腦
 
-若要複製儲存機制，您需要儲存機制的 URL、使用者名稱和密碼。 若要取得使用者名稱和其他認證，按一下靠近頁面頂端的 [存取認證]。  
- 
+若要複製儲存機制，您需要儲存機制的 URL、使用者名稱和密碼。 若要取得使用者名稱和其他認證，按一下靠近頁面頂端的 [存取認證]。
+
 若要產生密碼，請先確定已將 [到期] 設為所需的到期日期和時間，然後按一下 [產生]。
 
 > [!IMPORTANT]
 > 記下此密碼。 一旦您離開此頁面，就不會再次顯示密碼。
-> 
+>
 
 下列範例會使用來自 [Git for Windows](https://www.git-scm.com/downloads) 的 Git Bash 工具，但是您可以使用任何您已熟悉的 Git 工具。
 
@@ -141,21 +141,21 @@ git push
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>將服務組態變更部署至 API 管理服務執行個體
 
-一旦您的本機變更被認可並且推送至伺服器儲存機制，您可以將它們部署到您的 API 管理服務執行個體。
+将本地更改提交并推送到服务器存储库后，可将它们部署到 API 管理服务实例。
 
-如需使用 REST API 執行此作業的詳細資訊，請參閱 [使用 REST API 將 Git 變更部署至組態資料庫](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration)。
+有关使用 REST API 执行此操作的信息，请参阅[使用 REST API 将 Git 更改部署到配置数据库](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration)。
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>本機 Git 儲存機制的檔案和資料夾結構參考
 
 本機 git 儲存機制中的檔案和資料夾包含服務執行個體的相關組態資訊。
 
-| Item | 說明 |
+| Item | 描述 |
 | --- | --- |
 | 根 api 管理資料夾 |包含服務執行個體的最上層組態 |
-| apis 資料夾 |包含服務執行個體中 apis 的組態 |
+| apis 文件夹 |包含服務執行個體中 apis 的組態 |
 | 群組資料夾 |包含服務執行個體中群組的組態 |
-| 原則資料夾 |包含服務執行個體中的原則 |
-| portalStyles 資料夾 |包含服務執行個體中開發人員入口網站自訂的組態 |
+| policies 文件夹 |包含服務執行個體中的原則 |
+| portalStyles 文件夹 |包含服務執行個體中開發人員入口網站自訂的組態 |
 | 產品資料夾 |包含服務執行個體中產品的組態 |
 | 範本資料夾 |包含服務執行個體中電子郵件範本的組態 |
 
@@ -172,12 +172,12 @@ git push
 
 > [!NOTE]
 > 下列實體不包含在 Git 儲存機制，因此無法使用 Git 來設定。
-> 
-> * 使用者
-> * 訂用帳戶
-> * properties
+>
+> * [使用者](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
+> * [訂用帳戶](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
+> * [具名的值](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * 樣式以外的開發人員入口網站實體
-> 
+>
 
 ### <a name="root-api-management-folder"></a>根 api 管理資料夾
 根 `api-management` 資料夾包含 `configuration.json` 檔案，其中包含服務執行個體的最上層資訊，格式如下。
@@ -201,7 +201,7 @@ git push
 
 前四個設定 (`RegistrationEnabled`、`UserRegistrationTerms`、`UserRegistrationTermsEnabled` 和 `UserRegistrationTermsConsentRequired`) 對應至 [安全性] 區段的 [身分識別] 索引標籤中的下列設定。
 
-| 身分識別設定 | 對應至 |
+| 标识设置 | 對應至 |
 | --- | --- |
 | RegistrationEnabled |出現**使用者名稱和密碼**的身分識別提供者 |
 | UserRegistrationTerms | 文字方塊 |
@@ -223,7 +223,7 @@ git push
 ### <a name="apis-folder"></a>apis 資料夾
 `apis` 資料夾包含服務執行個體中每個 API 的資料夾，其中包含下列項目。
 
-* `apis\<api name>\configuration.json` - 這是 API 的組態，而且包含後端服務 URL 和作業的相關資訊。 此資訊與當您以 `application/json` 格式的 `export=true` 呼叫[取得特定 API](https://docs.microsoft.com/rest/api/apimanagement/api/get) 時傳回的資訊相同。
+* `apis\<api name>\configuration.json` - 這是 API 的組態，而且包含後端服務 URL 和作業的相關資訊。 此資訊與當您以 `application/json` 格式的 `export=true` 呼叫[取得特定 API](https://docs.microsoft.com/rest/api/apimanagement/apis/get) 時傳回的資訊相同。
 * `apis\<api name>\api.description.html` - 這是 API 的說明，並會對應至 [API 實體](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property)的 `description` 屬性。
 * `apis\<api name>\operations\` - 此資料夾包含 `<operation name>.description.html` 檔案，該檔案對應至 API 中的作業。 每個檔案包含 API 中單一作業的說明，其會對應至 REST API 中[作業實體](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties)的 `description` 屬性。
 
@@ -247,13 +247,13 @@ git push
 * `portalStyles\configuration.json` - 包含開發人員入口網站所使用的樣式表名稱
 * `portalStyles\<style name>.css` - 每個 `<style name>.css` 檔案包含開發人員入口網站的樣式 (預設為 `Preview.css` 和 `Production.css`)。
 
-### <a name="products-folder"></a>產品資料夾
+### <a name="products-folder"></a>products 文件夹
 `products` 資料夾包含服務執行個體中定義的每個產品的資料夾。
 
 * `products\<product name>\configuration.json` - 這是產品的組態。 此資訊與當您呼叫 [取得特定產品](https://docs.microsoft.com/rest/api/apimanagement/product/get) 作業時傳回的資訊相同。
 * `products\<product name>\product.description.html` - 這是產品的說明，並會對應至 REST API 中[產品實體](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity)的 `description` 屬性。
 
-### <a name="templates"></a>範本
+### <a name="templates"></a>模板
 `templates` 資料夾包含服務執行個體的 [電子郵件範本](api-management-howto-configure-notifications.md) 的組態。
 
 * `<template name>\configuration.json` - 這是電子郵件範本的組態。
@@ -263,10 +263,10 @@ git push
 如需管理您的服務執行個體的其他方法的詳細資訊，請參閱︰
 
 * 使用下列 PowerShell Cmdlet 管理您的服務執行個體
-  * [服務部署 PowerShell Cmdlet 參考](https://docs.microsoft.com/powershell/module/wds)
+  * [服务部署 PowerShell cmdlet 参考](https://docs.microsoft.com/powershell/module/wds)
   * [服務管理 PowerShell Cmdlet 參考](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * 使用 REST API 管理您的服務執行個體
-  * [API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API 管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

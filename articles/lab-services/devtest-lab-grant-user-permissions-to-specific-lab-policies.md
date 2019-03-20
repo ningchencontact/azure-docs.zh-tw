@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b81c23b5cf9ea5d4bfc47d36ae251f762ffad11
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539685"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735096"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>將特定實驗室原則的權限授與使用者
 ## <a name="overview"></a>概觀
@@ -30,12 +30,12 @@ ms.locfileid: "38539685"
 
 在研發/測試實驗室中，原則是一種可啟用 RBAC 動作 **Microsoft.DevTestLab/labs/policySets/policies/** 的資源類型。 每個實驗室原則都是「原則」資源類型中的資源，並且可被指派成某個 RBAC 角色的範圍。
 
-例如，為了將**允許的 VM 大小**原則的讀取/寫入權限授與使用者，您會建立一個處理 **Microsoft.DevTestLab/labs/policySets/policies/** \* 動作的自訂角色，然後在 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** 範圍中將適當的使用者指派給這個自訂角色。
+例如，若要授與使用者讀取/寫入權限**允許的 VM 大小**原則，您會建立自訂角色來搭配**Microsoft.DevTestLab/labs/policySets/policies/** 動作然後將適當的使用者指派給範圍內的這個自訂角色**Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**。
 
 若要深入了解 RBAC 中的自訂角色，請參閱[自訂角色存取控制](../role-based-access-control/custom-roles.md)。
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>使用 PowerShell 建立實驗室自訂角色
-為了開始進行，您將需要閱讀下列文章，此文章將說明如何安裝和設定 Azure PowerShell Cmdlet：[https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre)。
+若要開始，您必須[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。 
 
 設定完 Azure PowerShell Cmdlet 之後，您便可執行下列工作：
 
@@ -46,35 +46,35 @@ ms.locfileid: "38539685"
 下列 PowerShell 指令碼提供範例來說明如何執行這些工作：
 
     ‘List all the operations/actions for a resource provider.
-    Get-AzureRmProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
+    Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
 
     ‘List actions in a particular role.
-    (Get-AzureRmRoleDefinition "DevTest Labs User").Actions
+    (Get-AzRoleDefinition "DevTest Labs User").Actions
 
     ‘Create custom role.
-    $policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User")
+    $policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
     $policyRoleDef.Id = $null
     $policyRoleDef.Name = "Policy Contributor"
     $policyRoleDef.IsCustom = $true
     $policyRoleDef.AssignableScopes.Clear()
     $policyRoleDef.AssignableScopes.Add("/subscriptions/<SubscriptionID> ")
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
-    $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
+    $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>使用自訂角色將特定原則的權限指派給使用者
-定義自訂角色之後，您便可以將它們指派給使用者。 為了將自訂角色指派給使用者，您必須先取得代表該使用者的 **ObjectId** 。 若要這樣做，請使用 **Get-AzureRmADUser** Cmdlet。
+定義自訂角色之後，您便可以將它們指派給使用者。 為了將自訂角色指派給使用者，您必須先取得代表該使用者的 **ObjectId** 。 若要這樣做，請使用**Get AzADUser** cmdlet。
 
 在下列範例中， **SomeUser** 使用者的 *ObjectId* 是 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3。
 
-    PS C:\>Get-AzureRmADUser -SearchString "SomeUser"
+    PS C:\>Get-AzADUser -SearchString "SomeUser"
 
     DisplayName                    Type                           ObjectId
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-有了使用者的 **ObjectId** 和自訂角色名稱之後，您便可以使用 **New-AzureRmRoleAssignment** Cmdlet 將該角色指派給使用者：
+一旦**ObjectId**使用者和自訂的角色名稱，可以將該角色指派給使用者利用**新增 AzRoleAssignment** cmdlet:
 
-    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
+    PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 
 在先前的範例中，使用的是 **AllowedVmSizesInLab** 原則。 您也可以使用下列任何原則：
 

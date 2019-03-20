@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822743"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124145"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 來處理大型資料集
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822743"
 
 本文說明範例解決方案的架構，此解決方案能以自動且排程的方式移動和處理大型資料集。 本文也提供如何使用 Data Factory 和 Azure Batch 來實作解決方案的端對端逐步解說。
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 這篇文章比一般文章還長，因為它包含整個範例解決方案的逐步解說。 如果您不熟悉 Batch 和 Data Factory，您可以了解這兩項服務以及它們如何搭配運作。 如果您有這些服務的一些相關知識，而要設計解決方案或建立解決方案架構，您可以將焦點放在本文的架構一節。 如果您要開發原型或解決方案，則可以試著依照逐步解說中的逐步指示進行操作。 歡迎您對此內容以及您如何使用它提出看法。
 
 讓我們先看看 Data Factory 和 Batch 服務如何協助您處理雲端中的大型資料集。     
+
 
 ## <a name="why-azure-batch"></a>為何使用 Azure Batch？
  您可以使用 Batch 在雲端有效率地執行大規模的平行和高效能運算 (HPC) 應用程式。 這是一項平台服務，可將計算密集型工作排定在一組受控虛擬機器 (VM) 上執行。 它可以自動調整計算資源來符合作業的需求。
@@ -40,7 +43,7 @@ ms.locfileid: "55822743"
 * [Batch 的基本概念](../../batch/batch-technical-overview.md)
 * [Batch 功能概觀](../../batch/batch-api-basics.md)
 
-(選擇性) 若要深入了解 Batch，請參閱 [Batch 文件](https://docs.microsoft.com/azure/batch/)。
+（選擇性） 若要深入了解 Batch，請參閱[Batch 文件](https://docs.microsoft.com/azure/batch/)。
 
 ## <a name="why-azure-data-factory"></a>為何使用 Azure Data Factory？
 Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。 您可以使用 Data Factory 來建立受控資料管線，以將資料從內部部署和雲端資料存放區移至集中式資料存放區。 Azure Blob 儲存體便是一個例子。 您可以使用 Data Factory 透過 Azure HDInsight 和 Azure Machine Learning 之類的服務來處理/轉換資料。 您也可以排定讓資料管線以排程方式執行 (例如每小時、每天及每週)。 您一眼就能監視及管理管線來找出問題點並採取行動。
@@ -93,7 +96,7 @@ Data Factory 包含內建的活動。 例如，使用「複製」活動可將資
 在本教學課程中，您會使用儲存體帳戶來儲存資料。 如果您沒有儲存體帳戶，請參閱[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)。 範例解決方案會使用 Blob 儲存體。
 
 #### <a name="azure-batch-account"></a>Azure Batch 帳戶
-使用 [Azure 入口網站](http://portal.azure.com/)來建立儲存體帳戶。 如需詳細資訊，請參閱[建立及管理 Batch 帳戶](../../batch/batch-account-create-portal.md)。 請記下 Batch 帳戶名稱和帳戶金鑰。 您也可以使用 [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) Cmdlet 來建立 Batch 帳戶。 如需有關如何使用此 Cmdlet 的指示，請參閱 [開始使用 Batch PowerShell Cmdlet](../../batch/batch-powershell-cmdlets-get-started.md)。
+使用 [Azure 入口網站](https://portal.azure.com/)來建立儲存體帳戶。 如需詳細資訊，請參閱[建立及管理 Batch 帳戶](../../batch/batch-account-create-portal.md)。 請記下 Batch 帳戶名稱和帳戶金鑰。 您也可以使用[新增 AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet 來建立 Batch 帳戶。 如需有關如何使用此 Cmdlet 的指示，請參閱 [開始使用 Batch PowerShell Cmdlet](../../batch/batch-powershell-cmdlets-get-started.md)。
 
 此範例解決方案會使用 Batch (透過資料處理站管線間接使用)，以平行方式在計算節點集區 (受控 VM 集合) 上處理資料。
 
@@ -201,7 +204,7 @@ public IDictionary<string, string> Execute(
 1. 將 **Azure 儲存體** NuGet 套件匯入到專案中。 您會需要此套件，因為您會在此範例中使用「Blob 儲存體」API：
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. 將下列 using 指示詞新增至專案中的原始程式檔：
 
@@ -799,8 +802,8 @@ test custom activity Microsoft test custom activity Microsoft
    * 自訂活動的 **linkedServiceName** 屬性會指向 **AzureBatchLinkedService**，這可讓 Data Factory 知道自訂活動必須在 Batch 上執行。
    * **並行** 設定很重要。 如果您使用預設值 1，則即使 Batch 集區中有兩個以上的計算節點，系統仍會逐一處理配量。 因此，您將無法利用 Batch 的平行處理功能。 如果您將 **concurrency** 設定為更大的值 (例如 2)，即表示可以同時處理兩個配量 (對應至 Batch 中的兩個工作)。 在此情況下，會同時運用 Batch 集區中的兩個 VM。 請適當地設定 concurrency 屬性。
    * 根據預設，無論何時，一個工作 (配量) 都只會在一個 VM 上執行。 Batch 集區的 [每個 VM 的工作數上限] 預設是設定為 1。 為了符合先決條件，您在建立集區時已將此屬性設定為 2。 因此，可以在 VM 上同時執行兩個資料處理站配量。
-    - **isPaused** 屬性預設是設定為 false。 在此範例中，管線會立即執行，因為配量已在過去開始。 您可以將此屬性設定為 **true** 以暫停管線，然後將其設定回 **false** 以重新啟動。
-    -   **start** 和 **end** 時間相差 5 小時。 配量的產生頻率是每小時一次，因此管線會產生 5 個配量。
+     - **isPaused** 屬性預設是設定為 false。 在此範例中，管線會立即執行，因為配量已在過去開始。 您可以將此屬性設定為 **true** 以暫停管線，然後將其設定回 **false** 以重新啟動。
+     -   **start** 和 **end** 時間相差 5 小時。 配量的產生頻率是每小時一次，因此管線會產生 5 個配量。
 
 1. 選取命令列上的 [部署] 以部署管線。
 
@@ -977,4 +980,4 @@ Data Factory 服務會在 Batch 中建立一個名為 `adf-poolname:job-xxx` 的
   * [開始使用適用於 .NET 的 Batch 用戶端程式庫](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

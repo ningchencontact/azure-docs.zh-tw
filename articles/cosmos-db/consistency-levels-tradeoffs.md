@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: cf3dc71e96dac96a6406c97a433398b31a370869
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309194"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571162"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性與效能權衡取捨 
 
@@ -30,11 +30,11 @@ Azure Cosmos DB 會針對資料一致性提供選項頻譜。 這個方法所包
 
 ## <a name="consistency-levels-and-latency"></a>一致性層級和延遲
 
-- 一律保證適用於所有一致性層級的讀取延遲都會在第 99 個百分位數小於 10 毫秒。 這個讀取延遲由 SLA 所支援。 平均讀取延遲 (在第 50 個百分位數) 通常是 2 毫秒或更少。 橫跨數個區域且設定了強式一致性的 Azure Cosmos 帳戶是此保證的例外狀況。
+一律保證適用於所有一致性層級的讀取延遲都會在第 99 個百分位數小於 10 毫秒。 這個讀取延遲由 SLA 所支援。 平均讀取延遲 (在第 50 個百分位數) 通常是 2 毫秒或更少。 橫跨數個區域且設定了強式一致性的 Azure Cosmos 帳戶是此保證的例外狀況。
 
-- 一律保證適用於剩餘一致性層級的寫入延遲都會在第 99 個百分位數小於 10 毫秒。 這個寫入延遲由 SLA 所支援。 平均寫入延遲 (在第 50 個百分位數) 通常是 5 毫秒或更少。
+所有一致性级别的写入延迟始终保证在第 99 百分位小于 10 毫秒。 這個寫入延遲由 SLA 所支援。 平均寫入延遲 (在第 50 個百分位數) 通常是 5 毫秒或更少。
 
-某些 Azure Cosmos 帳戶可能有數個設定了強式一致性的區域。 在此情況下，寫入延遲保證會在第 99 個百分位數小於兩次來回時間 (RTT) 再加上 10 毫秒。 這兩個最遠區域中任一個區域間的 RTT 會與您的 Azure Cosmos 帳戶相關聯。 這等於任何兩個與 Azure Cosmos 帳戶相關聯的最遠區域之間的 RTT。 這個選項目前為預覽狀態。
+对于配置了强一致性（与多个区域一致）的 Azure Cosmos 帐户，两个最远区域之间的写入延迟保证在第 99 百分位小于往返时间 (RTT) 的两倍加上 10 毫秒。 這個選項目前為預覽狀態。
 
 確切的 RTT 延遲是一個光速距離的函式和 Azure 網路拓撲。 Azure 網路不會針對任兩個 Azure 區域之間的 RTT 提供任何延遲 SLA。 您 Azure Cosmos 帳戶的複寫延遲會顯示在 Azure 入口網站中。 您可以使用 Azure 入口網站來監視與您帳戶相關聯的各個區域之間的複寫延遲。
 
@@ -48,7 +48,7 @@ Azure Cosmos DB 會針對資料一致性提供選項頻譜。 這個方法所包
 
 在全域分散式資料庫環境內，當發生全區域中斷情況時，一致性層級與資料持久性之間具有直接關聯性。 當您開發商務持續性計劃時，您必須了解應用程式在干擾性事件之後完全復原所需的最大可接受時間。 完全復原應用程式所需的時間，也稱為復原時間目標 (RTO)。 您也必須了解在干擾性事件之後復原時，應用程式可忍受遺失的最近資料更新最大期間。 您可能經得起遺失的更新時間週期，也稱為復原點目標 (RPO)。
 
-下表定義發生全區域中斷情況時，一致性模型與資料持久性之間的關聯性。 請務必注意，因為 CAP 定理的緣故，在分散式系統中，即使是使用強式一致性，也無法讓分散式資料庫的 RPO 和 RTO 為零。 若要深入了解原因，請參閱  [Azure Cosmos DB 中的一致性層級](consistency-levels.md)。
+此表定义了当发生区域范围的服务中断时，一致性模型与数据持续性之间的关系。 請務必注意，因為 CAP 定理的緣故，在分散式系統中，即使是使用強式一致性，也無法讓分散式資料庫的 RPO 和 RTO 為零。 若要深入了解原因，請參閱  [Azure Cosmos DB 中的一致性層級](consistency-levels.md)。
 
 |**區域**|**複寫模式**|**一致性層級**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
@@ -66,6 +66,6 @@ T = 自上次更新後的時間 "T" 時間間隔。
 
 深入了解分散式系統中的全域散發和一般一致性權衡取捨。 請參閱下列文章：
 
-- [新式分散式資料庫系統設計的一致性權衡取捨](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html) \(英文\)
+- [新式分散式資料庫系統設計的一致性權衡取捨](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) \(英文\)
 - [高可用性](high-availability.md)
 - [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

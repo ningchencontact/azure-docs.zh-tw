@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 28630a1d1b2ce212fe1054496814a9084f8cfc98
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116298"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904247"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>概觀
@@ -59,7 +59,7 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 | [安全的平台](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [隱私權與控制](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[合規性](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [透明度](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [安全性開發週期 (英文)](https://www.microsoft.com/en-us/sdl/)、內建稽核 | [隨時管理您的資料 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [信任中心](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Microsoft 如何保護 Azure 服務中的客戶資料 (英文)](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [必要的安全性訓練、背景檢查](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [資料位置控制 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub (英文)](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Microsoft 如何管理 Azure 服務中的資料位置 (英文)](http://azuredatacentermap.azurewebsites.net/)|
+| [必要的安全性訓練、背景檢查](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [資料位置控制 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub (英文)](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Microsoft 如何管理 Azure 服務中的資料位置 (英文)](https://azuredatacentermap.azurewebsites.net/)|
 | [滲透測試 (英文)](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)、[入侵偵測、DDoS (英文)](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement)、[稽核和記錄(英文)](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [根據您的條款提供資料存取 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [雲端服務審查評鑑檢查表 (英文)](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Microsoft 內部的哪些人員可根據哪些條款存取您的資料 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [技術資料中心的狀態 ](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)、實體安全性、[安全網路](https://docs.microsoft.com/azure/security/security-network-overview) | [回應執法機關 (英文)](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [依服務、位置和產業的合規性 (英文)](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Microsoft 如何保護 Azure 服務中的客戶資料 (英文)](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [安全性事件回應 (英文)](https://aka.ms/SecurityResponsepaper)[共同責任 (英文)](https://aka.ms/sharedresponsibility) |[嚴格的隱私權標準 (英文)](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [檢閱 Azure 服務的憑證、透明度中樞 (英文)](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
@@ -75,12 +75,12 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 本節提供關於安全性作業中主要功能的其他資訊，以及這些功能的摘要資訊。
 
 ### <a name="security-and-audit-dashboard"></a>安全性和稽核儀表板
-[安全性和稽核解決方案](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)針對值得您注意的問題，使用[內建的搜尋查詢](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/)，為您組織的 IT 安全性狀況提供全面性檢視。 [安全性和稽核](https://technet.microsoft.com/library/mt484091.aspx) 儀表板是 Log Analytics 中所有安全性相關項目的主畫面。 它可讓您深入了解電腦的安全性狀態。 它還能夠檢視過去 24 小時、7 天或任何其他自訂時間範圍內的所有事件。
+[安全性和稽核解決方案](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)針對值得您注意的問題，使用[內建的搜尋查詢](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/)，為您組織的 IT 安全性狀況提供全面性檢視。 [安全性和稽核](https://technet.microsoft.com/library/mt484091.aspx)儀表板是主畫面，如需所有項目相關的 Azure 監視器記錄檔中的安全性。 它可讓您深入了解電腦的安全性狀態。 它還能夠檢視過去 24 小時、7 天或任何其他自訂時間範圍內的所有事件。
 
 此外，您還能設定安全性與合規性，以便在偵測到特定事件時[自動執行特定動作](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/)。
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) 可讓您以群組方式使用解決方案中的資源。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用 [Azure Resource Manager 範本 (英文)](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) 部署，該範本可用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) 可讓您將方案中的資源做為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用 [Azure Resource Manager 範本 (英文)](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) 部署，該範本可用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
 
 以 Azure Resource Manager 範本為基礎的部署，有助於提升部署於 Azure 中之解決方案的安全性 (因為標準的安全性控制設定)，並且可整合至以標準化範本為基礎的部署中。 這會降低可能需要在手動部署期間執行的安全性設定錯誤風險。
 
@@ -94,10 +94,10 @@ Application Insights 會建立圖表和資料表為您顯示多種資訊，例�
 ### <a name="azure-monitor"></a>Azure 監視器
 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)針對來自 Azure 基礎結構 ([活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) 及每個個別的 Azure 資源 ([診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)) 的資料，提供視覺效果、查詢、路由、警示、自動調整及自動化功能。 您可以使用 Azure 監視器，在 Azure 記錄中產生安全性相關事件時接收警示通知。
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) – 為內部部署和協力廠商雲端式基礎結構 (如 AWS) 提供 Azure 資源之外的 IT 管理解決方案。 Azure 監視器中的資料可以直接路由至 Log Analytics，以便您可以在同一個地方看到整個環境的度量與記錄。
+### <a name="azure-monitor-logs"></a>Azure 監視器記錄
+[Azure 監視器記錄](https://azure.microsoft.com/documentation/services/log-analytics/)– 內部部署和協力廠商雲端式基礎結構 （如 AWS) Azure 資源之外，提供 IT 管理解決方案。 Azure 監視器中的資料可以直接路由至 Azure 監視器記錄檔以便您可以看到在同一個地方您整個環境計量和記錄。
 
-Log Analytics 在鑑識和其他安全性分析方面是一個非常實用的工具，因為此工具可讓您利用彈性查詢方法快速搜尋大量的安全性相關項目。 此外，內部部署的[防火牆和 Proxy 記錄可匯出到 Azure，並使用 Log Analytics 來分析它們。](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
+Azure 監視器記錄檔可以是一個有用的工具，在鑑識和其他安全性分析工具可讓您快速搜尋大量的安全性相關的項目與彈性查詢方法。 此外，在內部[可以匯出到 Azure 防火牆和 proxy 記錄檔，並且可供分析使用 Azure 監視器記錄檔。](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/) 是個人化雲端顧問，可協助您將 Azure 部署最佳化。 它會分析您的資源及用量遙測， 接著會建議解決方案，以協助改善資源的[效能](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations)、[安全性](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations)及[高可用性](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations)，同時尋找[降低整體 Azure 費用](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations)的機會。 Azure Advisor 提供安全性建議，讓您能夠大幅改善您部署於 Azure 中之解決方案的整體安全性狀態。 這些建議均取自 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)所執行的安全性分析。
@@ -116,7 +116,7 @@ Log Analytics 在鑑識和其他安全性分析方面是一個非常實用的工
 如果您想要執行專屬的滲透測試，或想要使用另一個掃描器套件或提供者，您必須依照 [Azure 滲透測試核准程序](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) 並取得先前核准，才能執行所需的滲透測試。
 
 ### <a name="web-application-firewall"></a>Web 應用程式防火牆
-[Azure 應用程式閘道](https://azure.microsoft.com/services/application-gateway/)中的 Web 應用程式防火牆 (WAF) 可協助保護 Web 應用程式，以免於常見的 Web 型攻擊，例如 SQL 插入式攻擊、跨網站指令碼攻擊和工作階段攔截。 其已預先設定 [Open Web Application Security Project (OWASP) 認定為前 10 大常見漏洞](https://msdn.microsoft.com/library/)的威脅防護。
+[Azure 應用程式閘道](https://azure.microsoft.com/services/application-gateway/)中的 Web 應用程式防火牆 (WAF) 可協助保護 Web 應用程式，以免於常見的 Web 型攻擊，例如 SQL 插入式攻擊、跨網站指令碼攻擊和工作階段攔截。 其已預先設定 [Open Web Application Security Project (OWASP) 認定為前 10 大常見漏洞](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)的威脅防護。
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 [App Service 驗證/授權](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)是可讓應用程式接受使用者登入的一種功能，而不需要您在應用程式後端變更程式碼。 它提供簡單的方法來保護您的應用程式，以及使用每位使用者的資料。
@@ -261,7 +261,7 @@ Web 應用程式防火牆是 [Azure 應用程式閘道](https://docs.microsoft.c
 
 -   防範 HTTP 通訊協定違規
 
--   防範 HTTP 通訊協定異常行為，例如遺漏主機使用者代理程式和接受標頭
+-   防止 HTTP 协议异常行为，例如缺少主机用户代理和接受标头
 
 -   防範 Bot、編目程式和掃描器
 
@@ -276,7 +276,7 @@ Microsoft [Azure 流量管理員](https://docs.microsoft.com/azure/traffic-manag
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 可為您的應用程式提供高可用性和網路效能。 這是 Layer 4 (TCP、UDP) 負載平衡器，可將連入流量分配到負載平衡集中所定義服務的狀況良好執行個體。 Azure Load Balancer 可以設定為：
 
--   對虛擬機器的連入網際網路流量進行負載平衡。 這個組態稱為 [網際網路面向的負載平衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)。
+-   对传入到虚拟机的 Internet 流量进行负载均衡。 這個組態稱為 [網際網路面向的負載平衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)。
 
 -   平衡虛擬網路中的虛擬機器之間、雲端服務中的虛擬機器之間，或內部部署電腦與跨單位部署虛擬網路中的虛擬機器之間的流量負載。 這個組態稱為 [內部負載平衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)。 
 
@@ -287,7 +287,7 @@ Microsoft [Azure 流量管理員](https://docs.microsoft.com/azure/traffic-manag
 
 ### <a name="azure-dns"></a>Azure DNS
 [網域名稱系統](https://technet.microsoft.com/library/bb629410.aspx) (或 DNS) 負責將網站或服務名稱轉譯 (或解析) 為其 IP 位址。 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構提供名稱解析。 只要將您的網域裝載於 Azure，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具和計費方式來管理 DNS 記錄。 DNS 支援 “CIA” 安全性三部曲的可用性層面。
-### <a name="log-analytics-nsgs"></a>Log Analytics NSG
+### <a name="azure-monitor-logs-nsgs"></a>Azure 監視器記錄的 Nsg
 您可以啟用下列 NSG 的診斷記錄類別︰
 -   事件︰包含 NSG 規則會套用到以 MAC 位址為基礎的 VM 和執行個體角色的項目。 每隔 60 秒會收集一次這些規則的狀態。
 
@@ -334,7 +334,7 @@ Azure 金鑰保存庫 (AKV) 服務是設計來改善這些金鑰在安全且高�
 [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)是一項新功能，可協助您加密 Windows 和 Linux IaaS 虛擬機器磁碟。 它運用 Windows 的業界標準 BitLocker 功能和 Linux 的 DM-Crypt 功能，為 OS 和資料磁碟提供磁碟區加密。 此解決方案會與 Azure Key Vault 整合，以協助您控制及管理 Key Vault 訂用帳戶中的磁碟加密金鑰與密碼。 此解決方案也可確保虛擬機器磁碟上的所有待用資料都會在您的 Azure 儲存體中加密。
 
 ### <a name="virtual-networking"></a>虛擬網路
-虛擬機器需要遠端連線。 為了支援該需求，Azure 需要虛擬機器連接到 Azure 虛擬網路。 Azure 虛擬網路是以實體 Azure 網路網狀架構為基礎所建置的邏輯建構。 每個邏輯 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)都會與其他所有 Azure 虛擬網路隔離。 此隔離可協助確保其他 Microsoft Azure 客戶無法存取您部署中的網路流量。
+虚拟机需要网络连接。 為了支援該需求，Azure 需要虛擬機器連接到 Azure 虛擬網路。 Azure 虛擬網路是以實體 Azure 網路網狀架構為基礎所建置的邏輯建構。 每個邏輯 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)都會與其他所有 Azure 虛擬網路隔離。 此隔離可協助確保其他 Microsoft Azure 客戶無法存取您部署中的網路流量。
 
 ### <a name="patch-updates"></a>修補程式更新
 修補程式更新提供尋找及修正潛在問題的基礎並簡化軟體更新管理程序，方法是減少您必須在企業中部署的軟體更新數目，以及增強您監視合規性的能力。

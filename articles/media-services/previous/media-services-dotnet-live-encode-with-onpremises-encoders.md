@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/18/2019
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 3f4641f6a97d265bf2c2ad9dadb548ff754ad434
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 6bec12893591fb36298e9c2f1664646a4d598073
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828106"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839775"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>如何使用 .NET 透過內部部署編碼器執行即時視訊串流
 > [!div class="op_single_selector"]
@@ -34,9 +34,9 @@ ms.locfileid: "54828106"
 需要有下列項目，才能完成教學課程：
 
 * 一個 Azure 帳戶。
-* 媒體服務帳戶。    若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
+* 媒體服務帳戶。    若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 設定開發環境。 如需詳細資訊，請參閱 [設定環境](media-services-set-up-computer.md)。
-* 網路攝影機。 例如， [Telestream Wirecast 編碼器](http://www.telestream.net/wirecast/overview.htm)。
+* 網路攝影機。 例如， [Telestream Wirecast 编码器](https://www.telestream.net/wirecast/overview.htm)。
 
 建議您先檢閱下列文章：
 

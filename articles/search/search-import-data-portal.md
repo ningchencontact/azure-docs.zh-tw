@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229752"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960748"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure 搜尋服務的匯入資料精靈
 
@@ -77,15 +77,17 @@ Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈
 * [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 * [Azure 表格儲存體](search-howto-indexing-azure-tables.md) (不支援[認知搜尋](cognitive-search-concept-intro.md)管線)
 
-必須輸入扁平化資料集。 您可以只從單一資料表、資料庫檢視或對等的資料結構匯入。 您應在執行精靈之前建立此資料結構。
+必須輸入扁平化資料集。 您可以只從單一資料表、資料庫檢視或對等的資料結構匯入。 
 
-|  選取項目 | 說明 |
+您應該建立此資料結構，然後再執行精靈，且必須包含的內容。 無法執行**匯入資料**空的資料來源上的精靈。
+
+|  選取項目 | 描述 |
 | ---------- | ----------- |
 | **現有的資料來源** |如果您的搜尋服務中已經定義索引子，您可以針對另一次匯入選取現有的資料來源定義。 在 Azure 搜尋服務中，只有索引子會使用資料來源物件。 您可以利用程式設計方式或透過**匯入資料**精靈建立資料來源物件。|
 | **範例**| Azure 搜尋服務會裝載免費的公用 Azure SQL 資料庫，供您用來了解 Azure 搜尋服務中的匯入和查詢要求。 請參閱[快速入門：使用入口網站工具進行匯入、編製索引和查詢](search-get-started-portal.md)，來取得逐步解說。 |
 | **Azure SQL Database** |您可以在頁面上或透過 ADO.NET 連接字串指定服務名稱、具有讀取權限的資料庫使用者認證以及資料庫名稱。 選擇連接字串選項以檢視或自訂屬性。 <br/><br/>提供資料列集的資料表或檢視必須在頁面上指定。 連線成功後會出現此選項，並透過下拉式清單供您選取。 |
 | **在 Azure VM 上的 SQL Server** |指定完整服務名稱、使用者識別碼與密碼以及資料庫作為連接字串。 若要使用此資料來源，您必須先前就已在本機存放區中安裝用來加密連線的憑證。 如需指示，請參閱 [SQL VM 到 Azure 搜尋服務的連線](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。 <br/><br/>提供資料列集的資料表或檢視必須在頁面上指定。 連線成功後會出現此選項，並透過下拉式清單供您選取。 |
-| **Azure Cosmos DB** |需求包括帳戶、資料庫和集合。 集合中的所有文件將會包含在索引中。 您可以定義查詢以壓平合併或篩選資料列集，或者偵測已變更的文件以用於後續資料重新整理作業。 |
+| **Cosmos DB** |需求包括帳戶、資料庫和集合。 集合中的所有文件將會包含在索引中。 您可以定義查詢來壓平合併或篩選資料列集，或將此查詢保留空白。 在此精靈中不需要查詢。|
 | **Azure Blob 儲存體** |需求包括儲存體帳戶和容器。 如果 Blob 名稱為了分組而遵循虛擬命名慣例，您可以指定名稱的虛擬目錄部分做為容器下的資料夾 (選擇性)。 如需詳細資訊，請參閱[為 Blob 儲存體編製索引](search-howto-indexing-azure-blob-storage.md)。 |
 | **Azure 資料表儲存體** |需求包括儲存體帳戶和資料表名稱。 您可以指定要擷取資料表子集的查詢 (選擇性)。 如需詳細資訊，請參閱[為表格儲存體編製索引](search-howto-indexing-azure-tables.md)。 |
 

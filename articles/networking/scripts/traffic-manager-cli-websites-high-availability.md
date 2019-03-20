@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: kumud
-ms.openlocfilehash: 02a00f2ad1c8f13df834d35e68b98e2a7751b9ae
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 3922eb76fa0954b9c02cc86f98acb142cc1d1fee
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895562"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225241"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>路由傳送流量以達到應用程式的高可用性
 
@@ -53,7 +53,7 @@ az group delete --name myResourceGroup2 --yes
 | [az group create](https://docs.microsoft.com/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | 建立 App Service 方案。 這就像是 Azure Web 應用程式的伺服器陣列。 |
 | [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | 在 App Service 方案內建立 Azure Web 應用程式。 |
-| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | 建立 Azure 流量管理員設定檔。 |
+| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | 创建 Azure 流量管理器配置文件。 |
 | [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | 新增端點至 Azure 流量管理員設定檔。 |
 
 ## <a name="next-steps"></a>後續步驟

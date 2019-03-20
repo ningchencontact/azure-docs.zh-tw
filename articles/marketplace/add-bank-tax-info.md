@@ -6,6 +6,7 @@ documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
 editor: ''
+ms.service: marketplace
 ms.assetid: ''
 ms.workload: ''
 ms.tgt_pltfrm: ''
@@ -13,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2ff5b9e5bbae15b37726ea066474120d9417feba
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: f194b02e5b92ca2de5b58a033c38d4f2e35f93f6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825872"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790911"
 ---
 # <a name="add-bank-and-tax-information"></a>新增銀行和稅務資訊  
 所有使用交易清單類型的商業供應項目都必須有銀行和稅務資訊。  
@@ -42,7 +43,7 @@ ms.locfileid: "34825872"
 
 4.  按 [下一步] 按鈕。 
 
----   
+---
 
 ## <a name="add-tax-information"></a>新增稅務資訊  
 1.  使用您的 Microsoft ID 來登入「開發人員中心」。  
@@ -57,6 +58,6 @@ ms.locfileid: "34825872"
 5.  按 [下一步] 按鈕。  
 
 ## <a name="next-steps"></a>後續步驟
-*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)頁面。  
+*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
  
----  
+---

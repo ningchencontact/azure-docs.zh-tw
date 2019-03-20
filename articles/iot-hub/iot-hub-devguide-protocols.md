@@ -1,27 +1,27 @@
 ---
 title: Azure IoT 中樞通訊協定和連接埠 | Microsoft Docs
 description: 開發人員指南 - 說明裝置到雲端和雲端到裝置通訊所支援的通訊協定，以及必須開啟的連接埠號碼。
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: 3079b2414c44fc97bc8aff4b207e0943e94c7457
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: f6c39765c9133c9bf295d4225c332fda1140a13b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584331"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532677"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>參考 - 選擇通訊協定
 
 「IoT 中樞」可讓裝置使用下列通訊協定來進行裝置端通訊：
 
-* [MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf)
+* [MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf)
 * 透過 WebSocket 的 MQTT
-* [AMQP](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
+* [AMQP](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 * 透過 WebSocket 的 AMQP
 * HTTPS
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6b02714c3a62e8d11512c1cc2dfc7a75a422441d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: e81f2b42e725e50473c09622a486586fb6721ad5
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076377"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214838"
 ---
 # <a name="containers-offer-publishing-guide"></a>容器供應項目發佈指南
 
@@ -42,7 +42,6 @@ Microsoft 目前支援免費和自備授權 (BYOL) 授權模型。
 | 從 Dockerfile 建置的映像 | 容器映像必須以 Docker 映像規格為基礎，而必須從 Dockerfile 建置。<ul> <li>如需建置 Docker 映像的詳細資訊，請瀏覽＜使用方式＞一節 (網址為 [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage))。</li> </ul> |  
 | 裝載於 ACR 中 | 容器映像必須裝載於 Azure Container Registry (ACR) 存放庫中。<ul> <li>如需使用 ACR 的詳細資訊，請瀏覽＜快速入門：使用 Azure 入口網站建立容器登錄＞頁面 (網址為 [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal))。</li> </ul> |  
 | 映像標記 | 容器映像必須包含至少 1 個標籤 (最多可容納標籤：16 個)。<ul> <li>如需標記映像的詳細資訊，請瀏覽＜Docker 標籤＞頁面 (網址為 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag))。</li> </ul> |  
-
 
 ## <a name="next-steps"></a>後續步驟
 

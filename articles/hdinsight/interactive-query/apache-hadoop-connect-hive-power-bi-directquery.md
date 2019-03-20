@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 5f4053888cc8402ab0196e40c33f1acc3e7eef44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.date: 02/25/2018
+ms.openlocfilehash: d9639a4a116e06e17005ebddbb26379882491b33
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651126"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867825"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>在 Azure HDInsight 中使用直接查詢藉由 Microsoft Power BI 將互動式查詢 Apache Hive 資料視覺化
 
-本文說明如何將 Microsoft Power BI 連線至 Azure HDInsight 互動式查詢叢集，然後使用直接查詢將 Apache Hive 資料視覺化。 提供的範例會將資料從 hivesampletable Hive 資料表載入至 Power BI。 hivesampletable Hive 資料表包含某些行動電話使用量資料。 然後您可在世界地圖上繪製使用量資料：
+本文說明如何將 Microsoft Power BI 連線至 Azure HDInsight 互動式查詢叢集，然後使用直接查詢將 Apache Hive 資料視覺化。 提供的範例將資料從`hivesampletable`至 Power BI 的 Hive 資料表。 `hivesampletable` Hive 資料表包含某些行動電話使用方式資料。 然後您可在世界地圖上繪製使用量資料：
 
 ![HDInsight Power BI 地圖報告](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -32,35 +32,35 @@ ms.locfileid: "53651126"
 
 ## <a name="load-data-from-hdinsight"></a>從 HDInsight 載入資料
 
-所有 HDInsight 叢集都隨附 hivesampletable Hive 資料表。
+`hivesampletable`隨附所有 HDInsight 叢集的 Hive 資料表。
 
-1. 登入 Power BI Desktop。
+1. 啟動 Power BI Desktop。
 
-2. 按一下 [首頁] 索引標籤，從 [外部資料] 功能區按一下 [取得資料]，然後選取 [更多...]。
+2. 從功能表列中，瀏覽至**首頁** > **取得資料** > **更多...**.
 
     ![HDInsight Power BI 開放式資料](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
-    
-3. 從 [取得資料] 窗格中，於搜尋方塊中輸入 **hdinsight**。 如果您沒有看到 **HDInsight 互動式查詢搶鮮版 (Beta)**，則需要將 Power BI Desktop 更新為最新版本。
 
-4. 選取 [HDInsight 互動式查詢搶鮮版 (Beta)]，然後選取 [連線]。
+3. 從**取得資料** 視窗中，輸入**hdinsight**在搜尋方塊中。  
 
-5. 選取 [繼續] 以關閉 [預覽版連接器] 警告對話方塊。
+4. 從搜尋結果中，選取**HDInsight 互動式查詢**，然後選取**Connect**。  如果您沒有看到**HDInsight 互動式查詢**，您需要將 Power BI Desktop 更新為最新版本。
 
-6. 從 [HDInsight 互動式查詢] 選取或輸入下列資訊：
+5. 選取 **繼續**以關閉**連接到第三方服務**對話方塊。
 
-    - **伺服器**：輸入互動式查詢叢集名稱，例如 *myiqcluster.azurehdinsight.net*。
+6. 在 [ **HDInsight 互動式查詢**] 視窗中，輸入下列資訊，然後選取**確定**:
 
-    - **資料庫：** 針對本教學課程，請輸入**預設**。
-    
-    - **資料連線模式**：針對本教學課程，請選取 [DirectQuery]。
+    |屬性 | 值 |
+    |---|---|
+    |伺服器 |輸入叢集名稱，例如*myiqcluster.azurehdinsight.net*。|
+    |資料庫 |請輸入**預設**這篇文章。|
+    |資料連線模式 |選取  **DirectQuery**這篇文章。|
 
     ![HDInsight 互動式查詢 Power BI DirectQuery 連線](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
 
-7. 按一下 [確定]。
+7. 輸入 HTTP 的認證，然後按**Connect**。 預設的使用者名稱為 **admin**。
 
-8. 輸入 HTTP 使用者認證，然後按一下 [確定]。 預設的使用者名稱為 **admin**
+8. 從**Navigator**視窗的左窗格中，選取**hivesampletale**。
 
-9. 從左窗格中選取 [hivesampletale]，然後按一下 [載入]。
+9. 選取 **負載**從主視窗。
 
     ![HDInsight 互動式查詢 Power BI hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
 
@@ -68,11 +68,11 @@ ms.locfileid: "53651126"
 
 從上一個程序繼續進行。
 
-1. 從 [視覺效果] 窗格中選取 [地圖]。  它是地球圖示。
+1. 從 [視覺效果] 窗格中，選取**地圖**，地球圖示。 泛型的對應，則會出現在主視窗。
 
     ![HDInsight Power BI 自訂報告](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-customize.png)
-    
-2. 從 [欄位] 窗格選取 **country** 和 **devicemake**。 您可以看到地圖上繪製的資料。
+
+2. 從 [欄位] 窗格選取 **country** 和 **devicemake**。 世界地圖與資料點在一段時間後就會出現在主視窗。
 
 3. 展開地圖。
 

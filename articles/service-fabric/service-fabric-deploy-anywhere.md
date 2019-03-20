@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: cf16a01ef1003b73740c05ff45f703a65aaf0acc
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 8c344999839b3dcde98536b3d8d196a434f4cde8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961174"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244905"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>比較 Windows Server 和 Linux 上的 Azure 和獨立 Service Fabric 叢集
 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 隸屬於叢集的機器或 VM 稱為叢集模式。 叢集可擴充至數千個節點。 若您新增節點至叢集，則 Service Fabric 會重新平衡全體增加節點數的服務資料分割複本和執行個體。 整體應用程式效能會有所改善，改善，並減少爭用記憶體的存取權。 若未有效率地使用叢集中的節點，您可減少叢集中的節點數目。 Service Fabric 會再次重新平衡全體減少節點數的資料分割複本和執行個體，以善加使用每個節點上的硬體。
@@ -33,7 +33,7 @@ Service Fabric 可讓您在執行 Windows Server 或 Linux 的任何 VM 或電�
 * **Azure Resource Manager：** 使用 Azure Resource Manager 可輕鬆管理叢集作為單位使用的所有資源，並簡化成本追蹤與付費作業。
 * **Service Fabric 叢集做為 Azure 資源** Service Fabric 叢集是 Azure 資源，因此可以像 Azure 中的其他資源進行模型化。
 * **與 Azure 基礎結構整合** Service Fabric 會協調作業系統的 Azure 基礎結構、網路和其他升級，以改善應用程式的可用性和可靠性。  
-* **診斷：** 在 Azure 上，我們提供與 Azure 診斷及 Log Analytics 的整合。
+* **診斷：** 在 Azure 中，我們提供與 Azure 診斷整合部署與 Azure 監視器記錄。
 * **自動調整：** 對於 Azure 上的叢集，我們會提供虛擬機器調整集產生的內建自動調整功能。 在內部部署與其他雲端環境中，您必須建置您自己的自動調整規模功能，或使用 Service Fabric 針對調整叢集規模顯示的 API 來手動調整規模。
 
 ## <a name="benefits-of-standalone-clusters"></a>獨立叢集具備的優點

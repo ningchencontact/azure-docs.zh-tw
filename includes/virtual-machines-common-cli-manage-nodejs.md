@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113995"
 ---
 您必須具有 Azure 的帳戶，才能搭配使用 Azure CLI 與 Resource Manager 命令和範本，使用資源群組來部署 Azure 資源和工作負載。 如果您沒有帳戶，可以取得 [此處免費試用的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
@@ -31,7 +31,7 @@ ms.locfileid: "55736274"
 > 
 
 | Task | Resource Manager |
-| --- | --- | --- |
+| --- | --- |
 | 建立最基本的 VM |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(從 `azure vm image list` 命令取得 `image-urn`。 如需範例，請參閱[這篇文章](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。) |
 | 建立 Linux VM |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | 建立 Windows VM |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
@@ -39,7 +39,7 @@ ms.locfileid: "55736274"
 | 取得 VM 的相關資訊 |`azure  vm show [options] <resource_group> <name>` |
 | 啟動 VM |`azure vm start [options] <resource_group> <name>` |
 | 停止 VM |`azure vm stop [options] <resource_group> <name>` |
-| 解除配置 VM |`azure vm deallocate [options] <resource-group> <name>` |
+| 释放 VM |`azure vm deallocate [options] <resource-group> <name>` |
 | 重新啟動 VM |`azure vm restart [options] <resource_group> <name>` |
 | 刪除 VM |`azure vm delete [options] <resource_group> <name>` |
 | 擷取 VM |`azure vm capture [options] <resource_group> <name>` |
@@ -52,7 +52,7 @@ ms.locfileid: "55736274"
 | 將 Docker 延伸模組新增至 VM |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
 | 移除 VM 延伸模組 |`azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>` |
 | 取得 VM 資源的使用量 |`azure vm list-usage [options] <location>` |
-| 取得所有可用的 VM 大小 |`azure vm sizes [options]` |
+| 获取所有可用 VM 大小 |`azure vm sizes [options]` |
 
 ## <a name="next-steps"></a>後續步驟
 * 如需超越基本 VM 管理的其他 CLI 命令範例，請參閱 [Azure CLI 與 Azure Resource Manager 搭配使用](../articles/virtual-machines/azure-cli-arm-commands.md)。

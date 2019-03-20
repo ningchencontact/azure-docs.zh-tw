@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Service Fabric Mesh 應用程式中使用高可用性的 Service Fabric 可靠磁碟區 | Microsoft Docs
+title: 使用 Azure Service Fabric 的 Mesh 應用程式中的高可用性 Service Fabric 可靠的磁碟區 |Microsoft Docs
 description: 了解如何使用 Azure CLI 在容器內裝載以 Service Fabric 可靠磁碟為基礎的磁碟區，以在 Azure Service Fabric Mesh 應用程式中儲存狀態。
 services: service-fabric-mesh
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2ed64bbf0da252285184e2ca6fef0555a85ce149
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850848"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>在 Service Fabric Mesh 應用程式中裝載以 Service Fabric 可靠磁碟為基礎的高可用性磁碟區 
 保存容器應用程式狀態的常見方法是使用遠端儲存體 (例如 Azure 檔案儲存體) 或資料庫 (例如 Azure Cosmos DB)。 這會對遠端存放區產生大量的讀取和寫入網路延遲。

@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>先決條件
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 70ca28fbcd6feea75788cd58677ca44080e47ae5
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58114305"
+---
+### <a name="prerequisites"></a>必要條件
 * [Salesforce](https://salesforce.com) 帳戶  
 
 您必須先授權邏輯應用程式連線到您的 Salesforce 帳戶，才能在該邏輯應用程式中使用您的 Salesforce 帳戶。幸運的是，您可以在「Azure 入口網站」上，從邏輯應用程式內輕鬆完成此操作。  

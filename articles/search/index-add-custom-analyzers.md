@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 8eb762e8a18ea5de25413681894f692628493a2f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302075"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842850"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>將自訂分析器新增至 Azure 搜尋服務索引
 
@@ -42,17 +42,17 @@ ms.locfileid: "56302075"
 
  自訂分析器啟用的常見案例包括：  
 
--   語音搜尋。 新增語音篩選器，以根據文字聽起來如何 (而不是根據拼法) 來啟用搜尋。  
+- 語音搜尋。 新增語音篩選器，以根據文字聽起來如何 (而不是根據拼法) 來啟用搜尋。  
 
--   停用語彙分析。 使用關鍵字分析器以建立未分析的可搜尋欄位。  
+- 停用語彙分析。 使用關鍵字分析器以建立未分析的可搜尋欄位。  
 
--   快速前置詞/後置詞搜尋。 將邊緣 n-gram 語彙基元篩選器新增至文字的索引前置詞以啟用快速前置詞比對。 您可以將其與反向權杖篩選器結合以進行後置詞比對。  
+- 快速前置詞/後置詞搜尋。 將邊緣 n-gram 語彙基元篩選器新增至文字的索引前置詞以啟用快速前置詞比對。 您可以將其與反向權杖篩選器結合以進行後置詞比對。  
 
--   自訂 Token 化。 例如，使用 Whitespace Token 化工具將句子分成使用空白字元作為分隔符號的語彙基元  
+- 自訂 Token 化。 例如，使用 Whitespace Token 化工具將句子分成使用空白字元作為分隔符號的語彙基元  
 
--   ASCII 摺疊。 新增標準 ASCII 折疊篩選器，將搜尋字詞中的 ö 或 ê 等變音符號標準化。  
+- ASCII 摺疊。 新增標準 ASCII 折疊篩選器，將搜尋字詞中的 ö 或 ê 等變音符號標準化。  
 
- 此頁面提供支援的分析器、Token 化工具、語彙基元篩選器和字元篩選器清單。 您也可以找到索引定義的變更描述和相關使用範例。 如需基礎技術運用在 Azure 搜尋服務實作的詳細背景，請參閱 [分析封裝摘要 (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)。 如需分析器設定的範例，請參閱[在 Azure 搜尋服務中新增分析器](search-analyzers.md#examples)。
+  此頁面提供支援的分析器、Token 化工具、語彙基元篩選器和字元篩選器清單。 您也可以找到索引定義的變更描述和相關使用範例。 如需基礎技術運用在 Azure 搜尋服務實作的詳細背景，請參閱 [分析封裝摘要 (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)。 如需分析器設定的範例，請參閱[在 Azure 搜尋服務中新增分析器](search-analyzers.md#examples)。
 
 ## <a name="validation-rules"></a>驗證規則  
  分析器、Token 化工具、語彙基元篩選器和字元篩選器的名稱必須是唯一的，而且不能與任何預先定義的分析器、Token 化工具、語彙基元篩選器或字元篩選器相同。 請參閱使用中名稱的[屬性參考](#PropertyReference)。
@@ -62,81 +62,81 @@ ms.locfileid: "56302075"
 
  分析器定義包括名稱、類型、一個或多個字元篩選器、最多一個 Token 化工具，以及一個或多個用於 Token 化後置作業的語彙基元篩選器。 字元篩選器會在 Token 化之前套用。 語彙基元篩選器和字元篩選器會以由左到右的順序套用。
 
- `tokenizer_name` 是 Token 化工具 的名稱，`token_filter_name_1` 和 `token_filter_name_2` 是語彙基元篩選器的名稱，而 `char_filter_name_1` 和 `char_filter_name_2` 是字元篩選器的名稱 (請參閱 [tokenizer](#Tokenizers)、[語彙基元篩選器](#TokenFilters)和[字元篩選器](#CharFilters)表格以取得有效值)。
+ `tokenizer_name`的 tokenizer，名稱`token_filter_name_1`和`token_filter_name_2`權杖篩選器，名稱就是和`char_filter_name_1`並`char_filter_name_2`是字元的名稱篩選器 (請參閱[Tokenizer](#Tokenizers)， [權杖篩選器](#TokenFilters)和 Char 篩選資料表的有效的值)。
 
 分析器定義屬於更大的索引。 如需有關其他索引的資訊，請參閱[建立索引 API](https://docs.microsoft.com/rest/api/searchservice/create-index)。
 
-```  
-"analyzers":(optional)[  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",  
-      "charFilters":[  
-         "char_filter_name_1",  
-         "char_filter_name_2"  
-      ],  
-      "tokenizer":"tokenizer_name",  
-      "tokenFilters":[  
-         "token_filter_name_1",  
-         "token_filter_name_2"  
-      ]  
-   },  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#analyzer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"charFilters":(optional)[  
-   {  
-      "name":"char_filter_name",  
-      "@odata.type":"#char_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenizers":(optional)[  
-   {  
-      "name":"tokenizer_name",  
-      "@odata.type":"#tokenizer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenFilters":(optional)[  
-   {  
-      "name":"token_filter_name",  
-      "@odata.type":"#token_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-]  
-```  
+```
+"analyzers":(optional)[
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+      "charFilters":[
+         "char_filter_name_1",
+         "char_filter_name_2"
+      ],
+      "tokenizer":"tokenizer_name",
+      "tokenFilters":[
+         "token_filter_name_1",
+         "token_filter_name_2"
+      ]
+   },
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#analyzer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"charFilters":(optional)[
+   {
+      "name":"char_filter_name",
+      "@odata.type":"#char_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenizers":(optional)[
+   {
+      "name":"tokenizer_name",
+      "@odata.type":"#tokenizer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenFilters":(optional)[
+   {
+      "name":"token_filter_name",
+      "@odata.type":"#token_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+]
+```
 
 > [!NOTE]  
 >  您所建立的自訂分析器不會顯示在 Azure 入口網站。 新增自訂分析器的唯一方法是透過程式碼，程式碼會在定義索引時呼叫 API。  
 
  在索引定義中，您可以將此區段放在建立索引要求本文中的任意位置，但通常會放在結尾：  
 
-```  
-{  
-  "name": "name_of_index",  
-  "fields": [ ],  
-  "suggesters": [ ],  
-  "scoringProfiles": [ ],  
-  "defaultScoringProfile": (optional) "...",  
-  "corsOptions": (optional) { },  
-  "analyzers":(optional)[ ],  
-  "charFilters":(optional)[ ],  
-  "tokenizers":(optional)[ ],  
-  "tokenFilters":(optional)[ ]  
-}  
-```  
+```
+{
+  "name": "name_of_index",
+  "fields": [ ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
+  "defaultScoringProfile": (optional) "...",
+  "corsOptions": (optional) { },
+  "analyzers":(optional)[ ],
+  "charFilters":(optional)[ ],
+  "tokenizers":(optional)[ ],
+  "tokenFilters":(optional)[ ]
+}
+```
 
 只有在您設定自訂選項時，才需要將字元篩選器、Token 化工具和語彙基元篩選器的定義新增至索引中。 若要使用現有的篩選器或 Token 化工具 (不做任何變更)，則以分析器定義中的名稱來加以指定。
 
@@ -189,7 +189,7 @@ ms.locfileid: "56302075"
   }
 ```
 
- ## <a name="update-custom-analyzers"></a>上傳自訂分析器
+## <a name="update-custom-analyzers"></a>上傳自訂分析器
 
 定義分析器、Token 化工具、語彙基元篩選或字元篩選之後，即無法進行修改。 只有當索引更新要求中的 `allowIndexDowntime` 旗標設定為 true 時，才能將新分析器新增到現有的索引中：
 
@@ -205,7 +205,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 下表會針對索引定義的分析器、Token 化工具、語彙基元篩選器和字元篩選器區段，列出組態屬性。 您索引中的分析器、Token 化工具或篩選器結構會由這些屬性組成。 如需有關指派值的資訊，請參閱[屬性參考](#PropertyReference)。
 
- ### <a name="analyzers"></a>分析器
+### <a name="analyzers"></a>分析器
 
 對於分析器而言，索引屬性會因為使用預先定義的分析器或自訂分析器而有所不同。
 
@@ -213,7 +213,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|Name|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
+|名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
 |類型|可支援分析器清單中的分析器類型。 請參閱下方[分析器](#AnalyzerTable)表格中的 **analyzer_type** 資料行。|  
 |選項|必須是下方[分析器](#AnalyzerTable)表格中有效的預先定義分析器選項。|  
 
@@ -221,7 +221,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|Name|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
+|名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
 |類型|必須是 "#Microsoft.Azure.Search.CustomAnalyzer"。|  
 |CharFilters|設定為[字元篩選器](#CharFilter)表格內其中一個預先定義的字元篩選器，或設定為索引定義中指定的自訂字元篩選器。|  
 |權杖化工具|必要。 設定為下方 [Token 化工具](#Tokenizers) 表格內其中一個預先定義的 Token 化工具或設定為索引定義中指定的自訂 Token 化工具。|  
@@ -229,17 +229,17 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 <a name="CharFilter"></a>
 
- ### <a name="char-filters"></a>字元篩選器
+### <a name="char-filters"></a>字元篩選器
 
  字元篩選器的用途是將輸入文字準備好，然後再交由 Token 化工具處理。 例如，字元篩選器可能會取代特定字元或符號。 您可以在自訂分析器中具有多個字元篩選器。 字元篩選器會以所列的順序執行。  
 
 |||  
 |-|-|  
-|Name|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
+|名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
 |類型|可支援字元篩選器清單中的字元篩選器類型。 請參閱下方[字元篩選器](#CharFilter)表格中的 **char_filter_type** 資料行。|  
 |選項|必須是指定[字元篩選器](#CharFilter)類型的有效選項。|  
 
- ### <a name="tokenizers"></a>Tokenizers
+### <a name="tokenizers"></a>Tokenizers
 
  tokenizer 會將連續文字分割成權杖的序列，例如將句子分成多個文字。  
 
@@ -248,18 +248,18 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|Name|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
+|名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
 |類型|可支援 Token 化工具清單中的 Token 化工具名稱。 請參閱下方 [Token 化工具](#Tokenizers) 表格中的 **tokenizer_type** 資料行。|  
 |選項|必須是下方 [Token 化工具](#Tokenizers) 表格中指定 Token 化工具類型的有效選項。|  
 
- ### <a name="token-filters"></a>權杖篩選器
+### <a name="token-filters"></a>權杖篩選器
 
  權杖篩選器是用來篩選出或修改 tokenizer 所產生的權杖。 例如，您可以指定小寫篩選器，將所有字元轉換成小寫。   
 您可以在自訂分析器中具有多個權杖篩選器。 權杖篩選器會以所列的順序執行。  
 
 |||  
 |-|-|  
-|Name|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
+|名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
 |類型|可支援語彙基元篩選器清單中的語彙基元篩選器名稱。 請參閱下方[語彙基元篩選器](#TokenFilters)表格中的 **token_filter_type** 資料行。|  
 |選項|必須是指定語彙基元篩選器類型的[語彙基元篩選器](#TokenFilters)。|  
 
@@ -344,7 +344,7 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 |[dictionary_decompounder](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/compound/DictionaryCompoundWordTokenFilter.html)|DictionaryDecompounderTokenFilter|分解在許多日耳曼語系中找到的複合字。<br /><br /> **選項**<br /><br /> wordList (類型：字串陣列) - 要作為比對依據的字組清單。 預設值是空白清單。 必要。<br /><br /> minWordSize (類型：int) - 只處理超過此長度的字組。 預設值為 5。<br /><br /> minSubwordSize (類型：int) - 只輸出超過此長度的部分字組 (subword)。 預設值為 2。<br /><br /> maxSubwordSize (類型：int) - 只輸出少於此長度的部分字組 (subword)。 預設值為 15。<br /><br /> onlyLongestMatch (類型：bool) - 只將最長的相符部分字組 (subword) 新增到輸出。 預設值為 false。|  
 |[edgeNGram_v2](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenFilter.html)|EdgeNGramTokenFilterV2|從輸入語彙基元的前端或後端作為起點，以產生指定大小的 n-gram。<br /><br /> **選項**<br /><br /> minGram (類型：int) - 預設值：1，最大值：300。<br /><br /> maxGram (類型：int) - 預設值：2，最大值為 300。 必須大於 minGram。<br /><br /> side (類型：字串) - 指定 n-gram 應從輸入的哪一側產生。 允許的值："front"、"back" |  
 |[elision](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/util/ElisionFilter.html)|ElisionTokenFilter|移除元音省略。 例如，"l'avion" (the plane) 會轉換成 "avion" (plane)。<br /><br /> **選項**<br /><br /> articles (類型：字串陣列) - 要移除的一組冠詞。 預設值是空白清單。 如果沒有冠詞清單，預設會移除所有法文的冠詞。|  
-|[german_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/de/GermanNormalizationFilter.html)|(有選項時才需套用類型)  |根據 [German2 雪球演算法](https://snowball.tartarus.org/algorithms/german2/stemmer.html)的啟發式學習法標準化德文字元。|  
+|[german_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/de/GermanNormalizationFilter.html)|(有選項時才需套用類型)  |根據 [German2 雪球演算法](https://snowballstem.org/algorithms/german2/stemmer.html)的啟發式學習法標準化德文字元。|  
 |[hindi_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/hi/HindiNormalizationFilter.html)|(有選項時才需套用類型)  |標準化印度文字，以移除拼字變化的一些差異。 |  
 |[indic_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/in/IndicNormalizationFilter.html)|IndicNormalizationTokenFilter|標準化印度語文字的 Unicode 表示法。
 |[keep](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/KeepWordFilter.html)|KeepTokenFilter|此語彙基元篩選器只保留文字包含在指定字組清單的語彙基元。<br /><br /> **選項**<br /><br /> keepWords (類型：字串陣列) - 要保留的字組清單。 預設值是空白清單。 必要。<br /><br /> keepWordsCase (類型：bool) - 如果為 true，則會先將所有字組改為小寫。 預設值為 false。|  
@@ -366,7 +366,7 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 |[shingle](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/shingle/ShingleFilter.html)|ShingleTokenFilter|將語彙基元的組合建立為單一語彙基元。<br /><br /> **選項**<br /><br /> maxShingleSize (類型：int) - 預設值為 2。<br /><br /> minShingleSize (類型：int) - 預設值為 2。<br /><br /> outputUnigrams (類型：bool) - 如果為 true，輸出資料流會包含輸入語彙基元 (單字母組) 及 shingle。 預設值是 true。<br /><br /> outputUnigramsIfNoShingles (類型：bool) - 如果為 true，則覆寫 outputUnigrams 行為==而 false 用於沒有可用 shingle 的狀況。 預設值為 false。<br /><br /> tokenSeparator (類型：字串) - 加入相鄰語彙基元來形成 shingle 時要用的字串。 預設值是 " "。<br /><br /> filterToken (類型：字串) - 在每個沒有語彙基元的位置插入字串。 預設值為 "_"。|  
 |[snowball](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/snowball/SnowballFilter.html)|SnowballTokenFilter|Snowball 語彙基元篩選器。<br /><br /> **選項**<br /><br /> language (類型：字串) - 允許的值包括："armenian"、"basque"、"catalan"、"danish"、"dutch"、"english"、"finnish"、"french"、"german"、"german2"、"hungarian"、"italian"、"kp"、"lovins"、"norwegian"、"porter"、"portuguese"、"romanian"、"russian"、"spanish"、"swedish"、"turkish"|  
 |[sorani_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ckb/SoraniNormalizationFilter.html)|SoraniNormalizationTokenFilter|標準化索拉尼 (Sorani) 文字的 Unicode 表示法。<br /><br /> **選項**<br /><br /> 無。|  
-|詞幹分析器|StemmerTokenFilter|特定語言的詞幹分析篩選器。<br /><br /> **選項**<br /><br /> language (類型：字串) - 允許的值包括： <br /> -   ["arabic"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   ["armenian"](https://snowball.tartarus.org/algorithms/armenian/stemmer.html)<br />-   ["basque"](https://snowball.tartarus.org/algorithms/basque/stemmer.html)<br />-   ["brazilian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-   ["bulgarian"](https://members.unine.ch/jacques.savoy/Papers/BUIR.pdf)<br />-   ["catalan"](https://snowball.tartarus.org/algorithms/catalan/stemmer.html)<br />-   ["czech"](https://portal.acm.org/citation.cfm?id=1598600)<br />-   ["danish"](https://snowball.tartarus.org/algorithms/danish/stemmer.html)<br />-   ["dutch"](https://snowball.tartarus.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](https://snowball.tartarus.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   ["english"](https://snowball.tartarus.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](https://snowball.tartarus.org/algorithms/english/stemmer.html)<br />-   ["lovins"](https://snowball.tartarus.org/algorithms/lovins/stemmer.html)<br />-   ["finnish"](https://snowball.tartarus.org/algorithms/finnish/stemmer.htm)<br />-   ["lightFinnish"](https://clef.isti.cnr.it/2003/WN_web/22.pdf)<br />-   ["french"](https://snowball.tartarus.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-   ["galician"](https://bvg.udc.es/recursos_lingua/stemming.jsp)<br />-   ["minimalGalician"](https://bvg.udc.es/recursos_lingua/stemming.jsp)<br />-   ["german"](https://snowball.tartarus.org/algorithms/german/stemmer.html)<br />-   ["german2"](https://snowball.tartarus.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalGerman"](https://members.unine.ch/jacques.savoy/clef/morpho.pdf)<br />-   ["greek"](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-   ["hindi"](https://computing.open.ac.uk/Sites/EACLSouthAsia/Papers/p6-Ramanathan.pdf)<br />-   ["hungarian"](https://snowball.tartarus.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["indonesian"](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   ["irish"](https://snowball.tartarus.org/otherapps/oregan/intro.html)<br />-   ["italian"](https://snowball.tartarus.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   ["latvian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   ["norwegian"](https://snowball.tartarus.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["portuguese"](https://snowball.tartarus.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   ["romanian"](https://snowball.tartarus.org/algorithms/romanian/stemmer.html)<br />-   ["russian"](https://snowball.tartarus.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   ["spanish"](https://snowball.tartarus.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["swedish"](https://snowball.tartarus.org/algorithms/swedish/stemmer.html)<br />-   ["lightSwedish"](https://clef.isti.cnr.it/2003/WN_web/22.pdf)<br />-   ["turkish"](https://snowball.tartarus.org/algorithms/turkish/stemmer.html)|  
+|詞幹分析器|StemmerTokenFilter|特定語言的詞幹分析篩選器。<br /><br /> **選項**<br /><br /> language (類型：字串) - 允許的值包括： <br /> -   ["arabic"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   ["armenian"](https://snowballstem.org/algorithms/armenian/stemmer.html)<br />-   ["basque"](https://snowballstem.org/algorithms/basque/stemmer.html)<br />-   ["brazilian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-   "bulgarian"<br />-   ["catalan"](https://snowballstem.org/algorithms/catalan/stemmer.html)<br />-   ["czech"](https://portal.acm.org/citation.cfm?id=1598600)<br />-   ["danish"](https://snowballstem.org/algorithms/danish/stemmer.html)<br />-   ["dutch"](https://snowballstem.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](https://snowballstem.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   ["english"](https://snowballstem.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](https://snowballstem.org/algorithms/english/stemmer.html)<br />-   ["lovins"](https://snowballstem.org/algorithms/lovins/stemmer.html)<br />-   ["finnish"](https://snowballstem.org/algorithms/finnish/stemmer.html)<br />-   "lightFinnish"<br />-   ["french"](https://snowballstem.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-   "galician"<br />-   "minimalGalician"<br />-   ["german"](https://snowballstem.org/algorithms/german/stemmer.html)<br />-   ["german2"](https://snowballstem.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   "minimalGerman"<br />-   ["greek"](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-   "hindi"<br />-   ["hungarian"](https://snowballstem.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["indonesian"](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   ["irish"](https://snowballstem.org/otherapps/oregan/)<br />-   ["italian"](https://snowballstem.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   ["latvian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   ["norwegian"](https://snowballstem.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["portuguese"](https://snowballstem.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   ["romanian"](https://snowballstem.org/otherapps/romanian/)<br />-   ["russian"](https://snowballstem.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   ["spanish"](https://snowballstem.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["swedish"](https://snowballstem.org/algorithms/swedish/stemmer.html)<br />-   "lightSwedish"<br />-   ["turkish"](https://snowballstem.org/algorithms/turkish/stemmer.html)|  
 |[stemmer_override](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/StemmerOverrideFilter.html)|StemmerOverrideTokenFilter|任何可透過字典進行詞幹分析的字詞都會標示為關鍵字，這樣可避免鏈結底部的詞幹分析。 必須放在任何詞幹分析篩選器之前。<br /><br /> **選項**<br /><br /> rules (類型：字串陣列) - 使用下列格式的詞幹分析規則："字組 = > 詞幹"，例如 "ran => run"。 預設值是空白清單。  必要。|  
 |[stopwords](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopFilter.html)|StopwordsTokenFilter|從語彙基元資料流移除停用字詞。 根據預設，篩選器會使用預先定義的停用字詞清單 (適用於英文)。<br /><br /> **選項**<br /><br /> stopwords (類型：字串陣列) - 停用字詞清單。 如果指定 stopwordsList，則無法指定此項目。<br /><br /> stopwordsList (類型：字串) - 停用字詞的預先定義清單。 如果指定 stopwords，則無法指定此項目。 允許的值包括："arabic"、"armenian"、"basque"、"brazilian", "bulgarian"、"catalan"、"czech"、"danish"、"dutch"、"english"、"finnish"、"french"、"galician"、"german"、"greek"、"hindi"、"hungarian"、"indonesian"、"irish"、"italian"、"latvian"、"norwegian"、"persian"、"portuguese"、"romanian"、"russian"、"sorani"、"spanish"、"swedish"、"thai"、"turkish"，預設值："english"。 如果指定 stopwords，則無法指定此項目。 <br /><br /> ignoreCase (類型：bool) - 如果為 true，則會先將所有字組改為小寫。 預設值為 false。<br /><br /> removeTrailing (類型：bool) - 如果為 true，若最後一個搜尋字詞是停用字詞，則會略過。 預設值是 true。
 |[synonym](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/synonym/SynonymFilter.html)|SynonymTokenFilter|比對語彙基元資料流中的單一或多個同義字。<br /><br /> **選項**<br /><br /> synonyms (類型：字串陣列) - 必要。 下列兩種格式之一的同義字清單：<br /><br /> -incredible, unbelievable, fabulous => amazing - 在 => 符號左邊的所有字詞都可由該符號右邊的所有字詞取代。<br /><br /> -incredible, unbelievable, fabulous, amazing - 以逗號分隔的對等字組清單。 設定 expand 選項來變更此清單的解譯方式。<br /><br /> ignoreCase (類型：bool) - 將輸入的大小寫摺疊以用於比對。 預設值為 false。<br /><br /> expand (類型：bool) - 如果為 true，則同義字清單中的所有字組 (如果不使用 => 標記) 都可互相對應。 <br />下列清單：incredible, unbelievable, fabulous, amazing 同等於：incredible, unbelievable, fabulous, amazing => incredible, unbelievable, fabulous, amazing<br /><br />如果為 false，下列清單：incredible, unbelievable, fabulous, amazing 同等於：incredible, unbelievable, fabulous, amazing => incredible。|  
@@ -382,7 +382,7 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 > 必須將您的自訂分析器設定為不會產生超過 300 個字元的語彙基元。 使用這類語彙基元的文件會使編製索引失敗。 若要縮短或略過這些語彙基元，請分別使用 **TruncateTokenFilter** 和 **LengthTokenFilter**。
 
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
  [Azure 搜尋服務 REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [Azure 搜尋服務中的分析器 > 範例](search-analyzers.md#examples)    
  [建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)  

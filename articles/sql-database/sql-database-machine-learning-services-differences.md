@@ -1,9 +1,8 @@
 ---
-title: Azure SQL Database (預覽) 中機器學習服務 (搭配 R) 的主要差異概觀
+title: Azure SQL Database Machine Learning 服務 （預覽） 的主要差異
 description: 本主題說明 Azure SQL Database 機器學習服務 (搭配 R) 和 SQL Server 機器學習服務的主要差異。
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,17 +10,22 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237479"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771845"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Azure SQL Database 和 SQL Server 機器學習服務的主要差異
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Azure SQL Database （預覽） 中的機器學習服務和 SQL Server 的主要差異
 
-Azure SQL Database 中的機器學習服務 (搭配 R) 功能類似於 [SQL Server Machine Learning 服務](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)。 以下是兩者的一些主要差異。
+Azure SQL Database Machine Learning 服務 （使用 R) （預覽） 中的功能大致[SQL Server Machine Learning 服務](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)。 以下是一些主要差異。
+
+> [!IMPORTANT]
+> Azure SQL 資料庫機器學習服務目前處於公開預覽狀態。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
+> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="language-support"></a>語言支援
 
@@ -36,16 +40,24 @@ SQL Server 透過[擴充性架構](https://docs.microsoft.com/sql/advanced-analy
 SQL Database 和 SQL Server 對於 R 套件的管理和安裝方式有所不同。 這些差異包括：
 
 - R 套件是透過 [sqlmlutils](https://github.com/Microsoft/sqlmlutils) 或 [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 安裝。
-- 套件無法執行輸出網路呼叫。 此限制類似 SQL Server 中的 [機器學習服務預設防火牆規則](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration)，但無法在 SQL Database 中變更。
+- 套件無法執行輸出網路呼叫。 這項限制是類似[Machine Learning 服務的預設防火牆規則](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration)在 SQL Server，但無法變更 SQL Database 中。
 - 對於依賴外部執行階段 (如 Java) 或需要 OS API 安裝或使用存取權的套件並不支援。
 
 ## <a name="resource-governance"></a>資源管理
 
-無法透過 [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) 和外部資源集區限制 R 資源。 R 的資源是特定百分比的 SQL Database 資源，取決於您所選擇的服務層。 如需詳細資訊，請參閱 [Azure SQL Database 購買模型](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)。
+無法透過 [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) 和外部資源集區限制 R 資源。
 
-## <a name="security-isolation"></a>安全性隔離：
+公開預覽期間，R 資源設定為最多 20%的 SQL Database 資源，且取決在您選擇哪個服務層上。 如需詳細資訊，請參閱 [Azure SQL Database 購買模型](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)。
 
-在 Azure SQL Database 中，SQL 平台抽象層 (SQLPAL) 提供外部處理程序的隔離。 此隔離會提供多一層的安全性來執行 R 指令碼。
+### <a name="insufficient-memory-error"></a>記憶體不足的錯誤
+
+如果沒有適用於 R 的記憶體不足，就會出現錯誤訊息。 常見的錯誤訊息如下：
+
+- 無法要求識別碼的 'R' 指令碼的執行階段與通訊: * * *。 請檢查 'R' 執行階段需求
+- 執行 'sp_execute_external_script' hresult 0x80004004 時發生 'R' 指令碼錯誤。 ...發生外部指令碼錯誤: 「...無法配置 C 函式 'R_AllocStringBuffer' 中的記憶體 (也就是 0 Mb) 」
+- 發生外部指令碼錯誤：錯誤： 無法配置大小的向量。
+
+使用方式取決於多少記憶體可在 R 指令碼和正在執行的平行查詢的數目。 如果您收到上述錯誤，您可以調整您的資料庫以較高的服務層，以解決此問題。
 
 ## <a name="next-steps"></a>後續步驟
 

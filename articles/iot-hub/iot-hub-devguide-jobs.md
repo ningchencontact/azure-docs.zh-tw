@@ -1,19 +1,19 @@
 ---
 title: 了解 Azure IoT 中樞作業 | Microsoft Docs
 description: 開發人員指南 - 排定在連接至 IoT 中樞的多個裝置上執行作業。 作業可以在多個裝置上更新標籤和所需的屬性，並叫用直接方法。
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: dobett
-ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884219"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011359"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>排程多個裝置上的作業
 
@@ -113,28 +113,28 @@ ContinuationToken 會從回應來提供。
 
 以下清單顯示屬性和對應的描述，可在查詢作業或作業結果時使用。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | **jobId** |應用程式所提供的作業識別碼。 |
 | **startTime** |應用程式所提供的作業開始時間 (ISO-8601)。 |
 | **endTime** |IoT 中樞所提供的作業完成日期 (ISO-8601)。 在作業到達「已完成」狀態後才有效。 |
 | **type** |作業類型： |
-| | **scheduledUpdateTwin**︰用來更新一組所需屬性或標籤的作業。 |
-| | **scheduledDeviceMethod**︰用來在一組裝置對應項上叫用裝置方法的作業。 |
-| **狀態** |作業的目前狀態。 狀態的可能值︰ |
-| | **pending**︰已排定並等候作業服務執行。 |
-| | **scheduled**︰已排定未來時間。 |
-| | **running**︰目前作用中的作業。 |
-| | **canceled**：作業已被取消。 |
-| | **failed**：作業失敗。 |
-| | **completed**作業完成。 |
+| | **scheduledUpdateTwin**:用來更新一組所需的屬性或標記的作業。 |
+| | **scheduledDeviceMethod**:用來叫用裝置方法，在一組裝置對應項上的作業。 |
+| **status** |作業的目前狀態。 狀態的可能值︰ |
+| | **暫止**:已排定並等候作業服務挑選。 |
+| | **排程**:已排定未來時間。 |
+| | **執行**:目前作用中的作業。 |
+| | **取消**:已取消作業。 |
+| | **無法**:作業失敗。 |
+| | **完成**:工作已完成。 |
 | **deviceJobStatistics** |作業執行的相關統計資料。 |
 | | **deviceJobStatistics** 屬性： |
-| | **deviceJobStatistics.deviceCount**：作業中的裝置數目。 |
-| | **deviceJobStatistics.failedCount**：作業失敗的裝置數目。 |
-| | **deviceJobStatistics.succeededCount**：作業成功的裝置數目。 |
-| | **deviceJobStatistics.runningCount**目前正在執行作業的裝置數目。 |
-| | **deviceJobStatistics.pendingCount**：等待執行作業的裝置數目。 |
+| | **deviceJobStatistics.deviceCount**:作業中的裝置數目。 |
+| | **deviceJobStatistics.failedCount**:作業失敗的裝置數目。 |
+| | **deviceJobStatistics.succeededCount**:作業成功的裝置數目。 |
+| | **deviceJobStatistics.runningCount**:目前正在執行作業的裝置數目。 |
+| | **deviceJobStatistics.pendingCount**:等待執行作業的裝置數目。 |
 
 ### <a name="additional-reference-material"></a>其他參考資料
 

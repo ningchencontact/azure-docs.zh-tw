@@ -3,20 +3,20 @@ title: 在 Azure Data Factory 中建立自我裝載整合執行階段 | Microsof
 description: 了解如何在 Azure Data Factory 中建立自我裝載整合執行階段，它可讓資料處理站存取私人網路中的資料存放區。
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+manager: craigg
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493580"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838794"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -25,11 +25,13 @@ ms.locfileid: "55493580"
 
 本文件會說明了如何建立和設定自我裝載 IR。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>安裝自我裝載 IR 的概略步驟
 1. 建立自我裝載整合執行階段。 您可以使用 Azure Data Factory UI 來執行這項工作。 以下是 PowerShell 範例︰
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. [下載](https://www.microsoft.com/download/details.aspx?id=39717)並在本機電腦上安裝自我裝載整合執行階段。
@@ -37,7 +39,7 @@ ms.locfileid: "55493580"
 3. 擷取驗證金鑰，並使用該金鑰註冊自我裝載整合執行階段。 以下是 PowerShell 範例︰
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>使用 Azure Resource Manager 範本 (自動化) 在 Azure VM 上設定自我裝載 IR
@@ -59,7 +61,7 @@ ms.locfileid: "55493580"
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>使用自我裝載 IR 的考量
 
 - 單一的自我裝載整合執行階段可用於多個內部部署資料來源。 單一的自我裝載整合執行階段可以與同一個 Azure Active Directory 租用戶內的另一個 資料處理站共用。 如需詳細資訊，請參閱[共用自我裝載整合執行階段](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)。
-- 單一電腦上只能安裝一個自我裝載整合執行階段執行個體。 假設您有兩個需要存取內部部署資料來源的資料處理站，就必須在兩部內部部署電腦上安裝自我裝載整合執行階段。 換句話說，自我裝載整合執行階段會繫結至特定的資料處理站。
+- 單一電腦上只能安裝一個自我裝載整合執行階段執行個體。 如果您有兩個需要存取內部部署資料來源的資料處理站時，您需要安裝兩個內部部署的電腦上每個資料處理站的自我裝載的整合執行階段，或使用[自我裝載 IR 共用功能](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)與另一個 Data Factory 共用自我裝載的整合執行階段。  
 - 自我裝載整合執行階段不一定要在與資料來源相同的電腦上。 不過，讓自我裝載整合執行階段更靠近資料來源，可以減少自我裝載整合執行階段連線到資料來源花費的時間。 建議您將自我裝載整合執行階段安裝在與裝載內部部署資料來源不同的電腦上。 當自我裝載整合執行階段和資料來源位於不同的電腦上時，自我裝載整合執行階段才不會與資料來源爭奪資源。
 - 您可以在不同電腦上有多個自我裝載整合執行階段，但它們皆連接至相同的內部部署資料來源。 例如，您可能有兩個用於為兩個資料處理站提供服務的自我裝載整合執行階段，但相同的內部部署資料來源都會向這兩個資料處理站註冊。
 - 若您已在電腦上安裝用於 Power BI 案例的閘道，請在另一部電腦上安裝另一個用於 Azure Data Factory 的自我裝載整合執行階段。
@@ -96,7 +98,7 @@ ms.locfileid: "55493580"
 9. 使用 Azure PowerShell 取得驗證金鑰。 擷取驗證金鑰的 PowerShell 範例：
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. 在您電腦上執行的 Microsoft Integration Runtime 管理員 [Microsoft Integration Runtime (自我裝載)] 頁面上，執行下列步驟：
 
@@ -112,7 +114,7 @@ ms.locfileid: "55493580"
 * 自我裝載整合執行階段最高可與四個節點建立關聯，提供高可用性並確保持續性，如此一來它就不再是您的巨量資料解決方案或 Azure Data Factory 雲端資料整合的單一失敗點。
 * 提升在內部部署和雲端資料存放區之間移動資料時的效能和輸送量。 如需詳細資訊，請參閱[效能比較](copy-activity-performance.md)。
 
-您可以從[下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載自我裝載整合執行階段軟體，以針對多個節點建立關聯。 然後使用從 **New-AzureRmDataFactoryV2IntegrationRuntimeKey** Cmdlet 取得的其中一個驗證金鑰進行註冊，如[教學課程](tutorial-hybrid-copy-powershell.md)中所示。
+您可以從[下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載自我裝載整合執行階段軟體，以針對多個節點建立關聯。 接著，註冊它使用其中一種驗證金鑰取自**新增 AzDataFactoryV2IntegrationRuntimeKey** cmdlet，如中所述[教學課程](tutorial-hybrid-copy-powershell.md)。
 
 > [!NOTE]
 > 您不需要建立新的自我裝載整合執行階段來關聯每個節點。 您可以將自我裝載整合執行階段安裝在另一部電腦上，並使用相同的驗證金鑰進行註冊。 
@@ -143,7 +145,7 @@ ms.locfileid: "55493580"
 - 不支援使用 CNG 金鑰的憑證。  
 
 > [!NOTE]
-> 此憑證用來加密自我裝載 IR 節點上的連接埠、可用於**節點對節點通訊** (適用於狀態同步處理)，以及從區域網路內**使用 PowerShell Cmdlet 進行連結服務認證設定**。 如果您的私人網路環境不安全，或者您也想要保護您私人網路內節點之間的通訊，我們建議使用此憑證。 不論是否設定此憑證，從自我裝載 IR 移到其他資料存放區的傳輸中資料移動一律會使用已加密的通道進行。 
+> 此憑證用來加密自我裝載 IR 在節點上，使用的連接埠**節點對節點通訊**（適用於狀態同步處理，其中包含連結的服務認證同步處理，跨節點） 和 while **使用 PowerShell cmdlet，針對已連結服務認證設定**從區域網路內。 如果您的私人網路環境不安全，或者您也想要保護您私人網路內節點之間的通訊，我們建議使用此憑證。 不論是否設定此憑證，從自我裝載 IR 移到其他資料存放區的傳輸中資料移動一律會使用已加密的通道進行。 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>與多個資料處理站共用自我裝載整合執行階段
 
@@ -198,8 +200,6 @@ ms.locfileid: "55493580"
 
 * Azure Data Factory .NET SDK 1.1.0 版或更新版本支援這項功能。
 
-* Azure PowerShell 6.6.0 版或更新版本 (AzureRM.DataFactoryV2、0.5.7 版或更新版本) 支援這項功能。
-
 * 為了授與權限，使用者需要在已共用 IR 所在的資料處理站中具備「擁有者」角色或繼承「擁有者」角色。
 
 * 共用功能只適用於相同 Azure Active Directory 租用戶內的 Data Factory。
@@ -222,7 +222,7 @@ ms.locfileid: "55493580"
 
 在*公司防火牆*層級，您需要設定下列網域和輸出連接埠：
 
-網域名稱 | 連接埠 | 說明
+網域名稱 | 連接埠 | 描述
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443 | 用於與後端資料移動服務進行通訊
 *.core.windows.net | 443 | 用於透過 Azure Blob 儲存體進行的分段複製 (若已設定)
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > 認證管理員應用程式尚無法為 Azure Data Factory V2 中的認證加密。  
 
-如果您選擇不開啟自我裝載整合執行階段電腦上的連接埠 8060，則請使用設定認證應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell Cmdlet。
+如果您選擇不開啟自我裝載整合執行階段電腦上的連接埠 8060，則請使用設定認證應用程式以外的機制來設定資料存放區認證。 例如，您可以使用**新增 AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet。
 
 
 ## <a name="next-steps"></a>後續步驟

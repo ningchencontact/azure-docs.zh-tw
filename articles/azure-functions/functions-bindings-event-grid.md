@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 3d0c72f0178cddd668c0ac029c803ff339a1f6f4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094155"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -30,17 +30,17 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>套件 - Functions 1.x
-
-[Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 套件 1.x 版中提供 Event Grid 觸發程序。 套件的原始程式碼位於 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub 存放庫中。
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## <a name="packages---functions-2x"></a>套件 - Functions 2.x
 
 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 套件 2.x 版中提供 Event Grid 觸發程序。 套件的原始程式碼位於 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="packages---functions-1x"></a>套件 - Functions 1.x
+
+[Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 套件 1.x 版中提供 Event Grid 觸發程序。 套件的原始程式碼位於 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub 存放庫中。
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>範例
 
@@ -53,31 +53,6 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 * [Python](#python-example)
 
 如需 HTTP 觸發程序範例，請參閱本文稍後的[如何使用 HTTP 觸發程序](#use-an-http-trigger-as-an-event-grid-trigger)。
-
-### <a name="c-version-1x"></a>C# (1.x 版)
-
-下列範例顯示繫結至 `JObject` 的 Functions 1.x [C# 函式](functions-dotnet-class-library.md)：
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
 
 ### <a name="c-2x"></a>C# (2.x)
 
@@ -105,6 +80,31 @@ namespace Company.Function
 
 如需詳細資訊，請參閱套件、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
 
+### <a name="c-version-1x"></a>C# (1.x 版)
+
+下列範例顯示繫結至 `JObject` 的 Functions 1.x [C# 函式](functions-dotnet-class-library.md)：
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
+}
+```
+
 ### <a name="c-script-example"></a>C# 指令碼範例
 
 下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。
@@ -124,22 +124,6 @@ namespace Company.Function
 }
 ```
 
-#### <a name="c-script-version-1x"></a>C# 指令碼 (1.x 版)
-
-以下是繫結至 `JObject` 的 Functions 1.x C# 指令碼：
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### <a name="c-script-version-2x"></a>C# 指令碼 (2.x 版)
 
 以下是繫結至 `EventGridEvent` 的 Functions 2.x C# 指令碼：
@@ -156,6 +140,22 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 ```
 
 如需詳細資訊，請參閱套件、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
+
+#### <a name="c-script-version-1x"></a>C# 指令碼 (1.x 版)
+
+以下是繫結至 `JObject` 的 Functions 1.x C# 指令碼：
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### <a name="javascript-example"></a>JavaScript 範例
 
@@ -320,8 +320,8 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 下表說明您在 function.json 檔案中設定的繫結設定屬性。 沒有要在 `EventGridTrigger` 屬性中設定的建構函式參數或屬性。
 
-|function.json 屬性 |說明|
-|---------|---------|----------------------|
+|function.json 屬性 |描述|
+|---------|---------|
 | **type** | 必要項目 - 必須設定為 `eventGridTrigger`。 |
 | **direction** | 必要項目 - 必須設定為 `in`。 |
 | **name** | 必要項目 - 函式程式碼中用於接收事件資料之參數的變數名稱。 |
@@ -484,10 +484,10 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 若要在本機測試 Event Grid 觸發程序，您必須取得從雲端中的原有位置傳遞到本機電腦的 Event Grid HTTP 要求。 其中一種方式是在線上擷取要求，然後手動將其重新傳送至您的本機電腦：
 
-2. [建立檢視器 Web 應用程式](#create-a-viewer-web-app)，以擷取事件訊息。
-3. [建立事件格線訂用帳戶](#create-an-event-grid-subscription)，以將事件傳送至檢視器應用程式。
-4. [產生要求](#generate-a-request)，並從檢視器應用程式複製要求本文。
-5. [手動將要求發佈至](#manually-post-the-request) Event Grid 觸發程序函式的 localhost URL。
+1. [建立檢視器 Web 應用程式](#create-a-viewer-web-app)，以擷取事件訊息。
+1. [建立事件格線訂用帳戶](#create-an-event-grid-subscription)，以將事件傳送至檢視器應用程式。
+1. [產生要求](#generate-a-request)，並從檢視器應用程式複製要求本文。
+1. [手動將要求發佈至](#manually-post-the-request) Event Grid 觸發程序函式的 localhost URL。
 
 完成測試後，您可以藉由更新端點，在生產環境使用相同的訂用帳戶。 使用 [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 命令。
 
@@ -528,11 +528,18 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 * 設定 `Content-Type: application/json` 標頭。
 * 設定 `aeg-event-type: Notification` 標頭。
 * 將 RequestBin 資料貼到要求本文中。
-* 使用下列模式，發佈到 Event Grid 觸發程序函式的 URL：
+* 張貼到您的 Event Grid 觸發程序函式的 URL。
+  * 2.x 中，使用下列模式：
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * 用於 1.x:
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 `functionName` 參數必須是 `FunctionName` 屬性中指定的名稱。
 
@@ -550,10 +557,10 @@ Event Grid 觸發程序函式會執行並顯示類似於下列範例的記錄：
 
 在本機測試 Event Grid 觸發程序的另一種方式，是自動建立網際網路與您開發電腦之間的 HTTP 連線。 您可以使用名為 [ngrok](https://ngrok.com/) 的開放原始碼工具執行此作業：
 
-3. [建立 ngrok 端點](#create-an-ngrok-endpoint)。
-4. [執行 Event Grid 觸發程序函式](#run-the-event-grid-trigger-function)。
-5. [建立會將事件傳送至 ngrok 端點的 Event Grid 訂用帳戶](#create-a-subscription)。
-6. [觸發事件](#trigger-an-event)。
+1. [建立 ngrok 端點](#create-an-ngrok-endpoint)。
+1. [執行 Event Grid 觸發程序函式](#run-the-event-grid-trigger-function)。
+1. [建立會將事件傳送至 ngrok 端點的 Event Grid 訂用帳戶](#create-a-subscription)。
+1. [觸發事件](#trigger-an-event)。
 
 完成測試後，您可以藉由更新端點，在生產環境使用相同的訂用帳戶。 使用 [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 命令。
 
@@ -591,19 +598,19 @@ Event Grid 不會以特殊方式處理 ngrok URL，因此，在訂用帳戶建�
 
 建立您想要測試的 Event Grid 訂用帳戶類型，並為其提供您的 ngrok 端點。
 
-將此端點模式使用於 Functions 1.x：
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 將此端點模式使用於 Functions 2.x：
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-`functionName` 參數必須是 `FunctionName` 屬性中指定的名稱。
+將此端點模式使用於 Functions 1.x：
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+`{FUNCTION_NAME}` 參數必須是 `FunctionName` 屬性中指定的名稱。
 
 以下是使用 Azure CLI 的範例：
 

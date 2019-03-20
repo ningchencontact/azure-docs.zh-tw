@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743352"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202668"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 
@@ -29,7 +29,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 ## <a name="requirements"></a>需求
 
 * Azure 訂用帳戶
-* C# 或 Python。 提供 C# 範例程式碼做為 Visual Studio 解決方案。
+* C# 或 Python。 已提供 C# 示例代码作为 Visual Studio 解决方案。
 
   * Visual Studio 的版本必須是 2013、2015 或 2017
   * Python 的版本必須是 2.7 或更新版本
@@ -126,7 +126,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>建立使用 SAS 的叢集
 
-建立使用 SAS 的 HDInsight 叢集的範例包含在儲存機制的 `CreateCluster` 目錄。 若要使用它，請使用下列步驟：
+存储库的 `CreateCluster` 目录中包含创建使用 SAS 的 HDInsight 群集的示例。 若要使用它，請使用下列步驟：
 
 1. 在文字編輯器中開啟 `CreateCluster\HDInsightSAS.ps1` 檔案，並在文件開頭修改下列值。
 
@@ -155,7 +155,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
     一旦您變更值，請儲存檔案。
 
-2. 開啟新的 Azure PowerShell 提示字元。 如果您不熟悉或尚未安裝 Azure PowerShell，請參閱[安裝和設定 Azure PowerShell][powershell]。
+2. 打开新的 Azure PowerShell 提示符。 如果不熟悉或尚未安装 Azure PowerShell，请参阅[安装和配置 Azure PowerShell][powershell]。
 
 1. 從提示字元使用下列命令來驗證您的 Azure 訂用帳戶：
 
@@ -163,7 +163,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
     Connect-AzureRmAccount
     ```
 
-    出現提示時，請以適用於您 Azure 訂用帳戶的帳戶登入。
+    出現提示時，使用帳戶登入您的 Azure 訂用帳戶。
 
     如果您的帳戶會與多個 Azure 訂用帳戶相關聯，您可能需要使用 `Select-AzureRmSubscription` 來選取您想要使用的訂用帳戶。
 
@@ -175,7 +175,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
     當指令碼執行時，它會在建立資源群組和儲存體帳戶時，將輸出記錄到 PowerShell 命令提示字元。 系統會提示您輸入 HDInsight 叢集的 HTTP 使用者。 這是用來保護叢集的 HTTP/s 存取的帳戶。
 
-    如果您是建立以 Linux 為基礎的叢集，系統會提示您輸入 SSH 使用者帳戶名稱和密碼。 此帳戶是用來從遠端登入到叢集。
+    如果您是建立以 Linux 為基礎的叢集，系統會提示您輸入 SSH 使用者帳戶名稱和密碼。 此帳戶用來從遠端登入叢集。
 
    > [!IMPORTANT]  
    > 出現 HTTP/s 或 SSH 使用者名稱和密碼提示時，您必須提供符合下列準則的密碼：
@@ -206,7 +206,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 5. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]。
 
-    變更都完成時按一下 [確定]  。
+    完成更改后，单击“确定”。
 
    > [!IMPORTANT]  
    > 您必須重新啟動數個服務，變更才會生效。
@@ -219,13 +219,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 ## <a name="test-restricted-access"></a>測試限制的存取
 
-若要確認您已限制存取，請使用下列方法：
-
-* 對於 **以 Windows 為基礎** 的 HDInsight 叢集，使用遠端桌面連接到叢集。 如需詳細資訊，請參閱[使用 RDP 連線至 HDInsight](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)。
-
-    連線之後，請使用桌面上的 [Hadoop 命令列] 圖示來開啟命令提示字元。
-
-* 對於 **以 Linux 為基礎** 的 HDInsight 叢集，使用 SSH 連接到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+若要確認您已限制存取，請使用 SSH 連線到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 連接到叢集後，使用下列步驟確認您在 SAS 儲存體帳戶僅能讀取和列出項目：
 
@@ -239,7 +233,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
     此清單包含容器與 SAS 建立時上傳的檔案。
 
-2. 使用下列命令以確認您可以讀取檔案的內容。 如同前一個步驟取代 **SASCONTAINER** 和 **SASACCOUNTNAME**。 將 **FILENAME** 取代為前一個命令中顯示的名稱：
+2. 使用下列命令以確認您可以讀取檔案的內容。 如上一步中所述，替换 **SASCONTAINER** 和 **SASACCOUNTNAME**。 將 **FILENAME** 取代為前一個命令中顯示的名稱：
 
     ```bash
     hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
@@ -265,13 +259,13 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
         put: java.io.IOException
 
-    因為儲存體位置僅限讀取+列出，所以會發生此錯誤。 使用下列命令將資料放在叢集的預設儲存體，它是可寫入的：
+    发生此错误的原因是存储位置仅支持读取和列出。 使用下列命令將資料放在叢集的預設儲存體，它是可寫入的：
 
     ```bash
     hdfs dfs -put testfile.txt wasb:///testupload.txt
     ```
 
-    此時，作業應該已順利完成。
+    这一次操作应该会成功完成。
 
 ## <a name="troubleshooting"></a>疑難排解
 

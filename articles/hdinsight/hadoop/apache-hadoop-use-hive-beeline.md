@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ba9746566f0f69ea2131b8f77a14939ea561638a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200476"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
 
@@ -39,7 +39,7 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 >
 > 連線至「企業安全性套件」(ESP) 叢集時，請以叢集所加入的 Azure Active Directory (AAD) 名稱取代 `<AAD-Domain>`。 以網域上具備叢集存取權限的帳戶名稱取代 `<username>`。
 
-## <a id="prereq"></a>先決條件
+## <a id="prereq"></a>必要條件
 
 * HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Hadoop。
 
@@ -80,7 +80,7 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 
 2. Beeline 命令以 `!` 字元開頭，例如 `!help` 顯示說明。 不過，一些命令可以省略 `!`。 例如，`help` 也能運作。
 
-    會有一個 `!sql`，用來執行 HiveQL 陳述式。 不過，HiveQL 如此常用，因此您可以省略前面的 `!sql`。 下列兩個陳述式是相等的：
+    會有一個 `!sql`，用來執行 HiveQL 陳述式。 但是，由于 HiveQL 非常流行，因此可以省略前面的 `!sql`。 下列兩個陳述式是相等的：
 
     ```hiveql
     !sql show tables;
@@ -140,7 +140,7 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 
     * `CREATE EXTERNAL TABLE` - 在 Hive 中建立**外部**資料表。 外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
 
-    * `ROW FORMAT` - 設定資料格式的方式。 在此情況下，每個記錄中的欄位會以空格隔開。
+    * `ROW FORMAT` - 設定資料格式的方式。 在此情况下，每个日志中的字段以空格分隔。
 
     * `STORED AS TEXTFILE LOCATION` - 儲存資料的所在位置以及以何種檔案格式儲存。
 
@@ -148,10 +148,10 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 
     * `INPUT__FILE__NAME LIKE '%.log'` - Hive 嘗試將結構描述套用至目錄中的所有檔案。 在此情況下，目錄包含不符合結構描述的檔案。 若要防止結果中出現亂碼資料，此陳述式會告訴 Hive 只應該從檔名以 .log 結尾的檔案傳回資料。
 
-  > [!NOTE]  
-  > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，自動化的資料上傳程序，或透過其他 MapReduce 作業。
-  >
-  > 捨棄外部資料表並 **不會** 刪除資料，只會刪除資料表定義。
+   > [!NOTE]  
+   > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，自動化的資料上傳程序，或透過其他 MapReduce 作業。
+   >
+   > 删除外部表**不会**删除数据，只会删除表定义。
 
     此命令的輸出類似下列文字：
 
@@ -177,7 +177,7 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
         +----------+--------+--+
         1 row selected (47.351 seconds)
 
-5. 若要結束 Beeline，請使用 `!exit`。
+5. 若要退出 Beeline，请使用 `!exit`。
 
 ### <a id="file"></a>使用 Beeline 執行 HiveQL 檔案
 
@@ -198,12 +198,12 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 
     這些陳述式會執行下列動作：
 
-    * **CREATE TABLE IF NOT EXISTS** - 如果資料表尚不存在，則會建立它。 因為未使用 **EXTERNAL** 關鍵字，這個陳述式會建立內部資料表。 內部資料表儲存在 Hive 資料倉儲中，並完全由 Hive 管理。
-    * **STORED AS ORC** - 以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。 ORC 格式是高度最佳化且有效率的 Hive 資料儲存格式。
-    * **INSERT OVERWRITE ...SELECT**- 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
+   * **CREATE TABLE IF NOT EXISTS** - 如果資料表尚不存在，則會建立它。 因為未使用 **EXTERNAL** 關鍵字，這個陳述式會建立內部資料表。 內部資料表儲存在 Hive 資料倉儲中，並完全由 Hive 管理。
+   * **STORED AS ORC**：以优化行纵栏表 (ORC) 格式存储数据。 ORC 格式是高度最佳化且有效率的 Hive 資料儲存格式。
+   * **INSERT OVERWRITE ...SELECT**- 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
 
-    > [!NOTE]  
-    > 與外部資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
+     > [!NOTE]  
+     > 與外部資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
 
 3. 若要儲存檔案，請使用 **Ctrl**+**_X**，然後輸入 **Y**，最後按 **Enter**。
 
@@ -216,7 +216,7 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
     > [!NOTE]  
     > `-i` 參數會啟動 Beeline 並執行 `query.hql` 檔案中的陳述式。 當查詢完成時，您會看到 `jdbc:hive2://headnodehost:10001/>` 提示字元。 您也可以使用 `-f` 參數執行檔案，它會在查詢完成後結束 Beeline。
 
-5. 若要確認 **errorLogs** 資料表已建立，請使用下列陳述式傳回 **errorLogs** 的所有資料列：
+5. 若要验证是否已创建 **errorLogs** 表，请使用以下语句从 **errorLogs** 返回所有行：
 
     ```hiveql
     SELECT * from errorLogs;
@@ -294,7 +294,6 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 

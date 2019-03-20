@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001267"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure 上的 Cloud Foundry
 
@@ -29,9 +29,9 @@ Cloud Foundry 是開放原始碼的平台即服務 (PaaS)，可用於建置、�
 
 ## <a name="cloud-foundry-offerings"></a>Cloud Foundry 供應項目
 
-有兩種形式的 Cloud Foundry 可在 Azure 上執行：開放原始碼的 Cloud Foundry (OSS CF) 和 Pivotal Cloud Foundry (PCF)。 OSS CF 是完全[開放原始碼](https://github.com/cloudfoundry)的 Cloud Foundry 版本，可透過 Cloud Foundry Foundation 來管理。 Pivotal Cloud Foundry 是由 Pivotal Software Inc. 所提供的 Cloud Foundry 企業散發版本。我們將查看這兩個供應項目之間的差異。
+有兩種形式的 Cloud Foundry 可在 Azure 上執行：開放原始碼的 Cloud Foundry (OSS CF) 和 Pivotal Cloud Foundry (PCF)。 OSS CF 是完全[开源](https://github.com/cloudfoundry)版的 Cloud Foundry，由 Cloud Foundry Foundation 管理。 Pivotal Cloud Foundry 是 Pivotal Software Inc. 开发的 Cloud Foundry 的企业分发版我们来看一下这两个产品之间的一些差异。
 
-### <a name="open-source-cloud-foundry"></a>開放原始碼的 Cloud Foundry
+### <a name="open-source-cloud-foundry"></a>开源 Cloud Foundry
 
 您可以在 Azure 上部署 OSS Cloud Foundry，方法是使用 [GitHub 上提供的指示](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)，先部署 BOSH 導向器，然後再部署 Cloud Foundry。 若要深入了解如何使用 OSS CF，請參閱 Cloud Foundry Foundation 所提供的[文件](https://docs.cloudfoundry.org/)。
 
@@ -48,7 +48,7 @@ Microsoft 透過下列社群管道提供 OSS CF 的最佳支援：
 
 Pivotal Cloud Foundry 包含與 OSS 散發版本相同的核心平台，以及一組專屬的管理工具和企業支援。 若要在 Azure 上執行 PCF，您必須取得 Pivotal 的授權。 Azure Marketplace 提供的 PCF 供應項目包括 90 天試用版授權。
 
-這些工具包括 [Pivotal Operations Manager (英文)](http://docs.pivotal.io/pivotalcf/customizing/)、可簡化部署和管理 Cloud Foundry Foundation 的 Web 應用程式，以及 [Pivotal Apps Manager (英文)](https://docs.pivotal.io/pivotalcf/console/)，此為可用來管理使用者和應用程式的 Web 應用程式。
+這些工具包括 [Pivotal Operations Manager (英文)](https://docs.pivotal.io/pivotalcf/customizing/)、可簡化部署和管理 Cloud Foundry Foundation 的 Web 應用程式，以及 [Pivotal Apps Manager (英文)](https://docs.pivotal.io/pivotalcf/console/)，此為可用來管理使用者和應用程式的 Web 應用程式。
 
 除了以上針對 OSS CF 列出的支援管道，PCF 授權還會賦與您連絡 Pivotal 以取得支援的權利。 Microsoft 和 Pivotal 也已經啟用支援工作流程，可讓您連絡其中一方以取得協助，並讓您根據問題的所在位置適當地路由傳送查詢。
 

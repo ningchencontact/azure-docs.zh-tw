@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: abfc7ce78e8676e9560621be1ec9a81717d958e5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994278"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403510"
 ---
 # <a name="create-azure-resource-manager-template"></a>建立 Azure Resource Manager 範本
 
@@ -38,15 +38,15 @@ Resource Manager 範本是 JSON 檔案。 您需要良好的撰寫工具來編�
 
 我們將藉由檢閱範本的各部分，來了解範本的運作方式。 您的範本可能沒有每一個區段。 您應著重的區段為：
 
-* [參數](resource-manager-templates-parameters.md)區段，顯示在部署期間用來自訂所部署基礎結構的可指定值。 
+* [參數](resource-group-authoring-templates.md#parameters)區段，顯示在部署期間用來自訂所部署基礎結構的可指定值。 
 
-* [變數](resource-manager-templates-variables.md)區段，顯示用在整個範本上的值。
+* [變數](resource-group-authoring-templates.md#variables)區段，顯示用在整個範本上的值。
 
 * [函式](resource-group-authoring-templates.md#functions)區段，顯示範本中使用的自訂範本運算式。
 
-* [資源](resource-manager-templates-resources.md)區段，顯示部署到您訂用帳戶的 Azure 資源。
+* [資源](resource-group-authoring-templates.md#resources)區段，顯示部署到您訂用帳戶的 Azure 資源。
 
-* [輸出](resource-manager-templates-outputs.md)區段，顯示完成部署之後所傳回的值。
+* [輸出](resource-group-authoring-templates.md#outputs)區段，顯示完成部署之後所傳回的值。
 
 ## <a name="look-for-similar-templates"></a>尋找相似的範本
 
@@ -98,7 +98,7 @@ Resource Manager 範本是 JSON 檔案。 您需要良好的撰寫工具來編�
 }
 ```
 
-您也可以從參數中動態地套用標記。 如需詳細資訊，請參閱[範本中的標記](resource-manager-templates-resources.md#tags)。
+您也可以從參數中動態地套用標記。 如需詳細資訊，請參閱[範本中的標記](resource-group-using-tags.md#templates)。
 
 ## <a name="review-template-functions"></a>檢閱範本函式
 
@@ -176,7 +176,7 @@ Resource Manager 範本是 JSON 檔案。 您需要良好的撰寫工具來編�
 }
 ```
 
-如需詳細資訊，請參閱 [condition 元素](resource-manager-templates-resources.md#condition)。
+如需詳細資訊，請參閱 [condition 元素](resource-group-authoring-templates.md#condition)。
 
 ## <a name="review-dependencies"></a>檢閱相依性
 

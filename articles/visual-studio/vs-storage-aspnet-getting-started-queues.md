@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105755"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 
@@ -32,7 +32,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 ## <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)
+* [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -62,7 +62,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
     ```
-## <a name="create-a-queue"></a>建立佇列
+   ## <a name="create-a-queue"></a>建立佇列
 
 下列步驟說明如何建立佇列：
 
@@ -83,7 +83,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
 
-1. 在 **CreateQueue** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
+1. 在 **CreateQueue** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -95,13 +95,13 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
-1. 取得代表所需佇列名稱參考的 **CloudQueue** 物件。 **CloudQueueClient.GetQueueReference** 方法不會進行對佇列儲存體的要求。 無論佇列是否存在都會傳回參考。 
+1. 获取表示所需队列名称引用的 **CloudQueue** 对象。 **CloudQueueClient.GetQueueReference** 方法不會進行對佇列儲存體的要求。 無論佇列是否存在都會傳回參考。 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. 呼叫 **CloudQueue.CreateIfNotExists** 方法來建立佇列 (如果尚不存在)。 如果容器不存在且已成功建立，則 **CloudQueue.CreateIfNotExists** 方法會傳回 **true**。 否則，會傳回 **false**。    
+1. 如果队列不存在，则调用 **CloudQueue.CreateIfNotExists** 方法来创建队列。 如果容器不存在且已成功建立，則 **CloudQueue.CreateIfNotExists** 方法會傳回 **true**。 否则返回 **false** 。    
 
     ```csharp
     ViewBag.Success = queue.CreateIfNotExists();
@@ -137,7 +137,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. 執行應用程式，並選取 **Create queue** 來查看類似下列螢幕擷取畫面的結果︰
+1. 執行應用程式，並選取**Create queue**來查看類似下列螢幕擷取畫面的結果：
   
     ![建立佇列](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
@@ -164,7 +164,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **AddMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
+1. 在 **AddMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -177,7 +177,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. 取得 **CloudQueueContainer** 物件，代表佇列的參考。 
+1. 获取表示队列引用的 **CloudQueueContainer** 对象。 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
@@ -226,13 +226,13 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. 執行應用程式，並選取 **Add message** 來查看類似下列螢幕擷取畫面的結果︰
+1. 執行應用程式，並選取**新增訊息**來查看類似下列螢幕擷取畫面的結果：
   
     ![新增訊息](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
 兩個區段 - [讀取佇列中的訊息，但不移除它](#read-a-message-from-a-queue-without-removing-it)和[讀取並移除佇列中的訊息](#read-and-remove-a-message-from-a-queue) - 說明如何從佇列讀取訊息。    
 
-## <a name="read-a-message-from-a-queue-without-removing-it"></a>讀取佇列中的訊息，但不移除它
+## <a name="read-a-message-from-a-queue-without-removing-it"></a>从队列中读取一条消息，不删除它
 
 本章節說明如何檢視已排入佇列的訊息 (讀取第一則訊息，但不移除它)。  
 
@@ -253,7 +253,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **PeekMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
+1. 在 **PeekMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -278,7 +278,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. 以下列兩個值更新 **ViewBag**︰佇列名稱和已讀取的訊息。 **CloudQueueMessage** 物件會公開取得物件值的兩個屬性：**CloudQueueMessage.AsBytes** 和 **CloudQueueMessage.AsString**。 **AsString** (在此範例中使用) 會傳回字串，而 **AsBytes** 會傳回位元組陣列。
+1. 以下列兩個值更新 **ViewBag**︰佇列名稱和已讀取的訊息。 **CloudQueueMessage**物件會公開兩個屬性來取得物件的值：**CloudQueueMessage.AsBytes**並**CloudQueueMessage.AsString**。 **AsString** (在此範例中使用) 會傳回字串，而 **AsBytes** 會傳回位元組陣列。
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
@@ -312,11 +312,11 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. 執行應用程式，並選取 **Peek message** 來查看類似下列螢幕擷取畫面的結果︰
+1. 執行應用程式，並選取**Peek message**來查看類似下列螢幕擷取畫面的結果：
   
     ![查看訊息](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
-## <a name="read-and-remove-a-message-from-a-queue"></a>讀取並移除佇列中的訊息
+## <a name="read-and-remove-a-message-from-a-queue"></a>读取和删除队列中的消息
 
 在本節中，您會了解如何從佇列讀取並移除訊息。   
 
@@ -337,7 +337,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **ReadMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
+1. 在 **ReadMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -356,14 +356,14 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. 呼叫 **CloudQueue.AddMessage** 方法，以讀取佇列中的第一則訊息。 **CloudQueue.GetMessage** 方法可讓讀取訊息的任何其他程式碼看不見此訊息 30 秒 (預設值)，其他程式碼便無法在您處理此訊息時進行修改或刪除。 若要變更看不見訊息的時間量，請修改傳遞至 **CloudQueue.GetMessage** 方法的 **visibilityTimeout** 參數。
+1. 调用 **CloudQueue.GetMessage** 方法读取队列中的第一条消息。 **CloudQueue.GetMessage** 方法可讓讀取訊息的任何其他程式碼看不見此訊息 30 秒 (預設值)，其他程式碼便無法在您處理此訊息時進行修改或刪除。 若要變更看不見訊息的時間量，請修改傳遞至 **CloudQueue.GetMessage** 方法的 **visibilityTimeout** 參數。
 
     ```csharp
     // This message will be invisible to other code for 30 seconds.
     CloudQueueMessage message = queue.GetMessage();     
     ```
 
-1. 呼叫 **CloudQueueMessage.Delete** 方法，以刪除佇列中的訊息。
+1. 调用从队列中删除消息的 **CloudQueueMessage.Delete** 方法。
 
     ```csharp
     queue.DeleteMessage(message);
@@ -380,7 +380,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **ReadMessage**，然後選取 [新增]。
 
-1. 開啟 `ReadMessage.cshtml` 並加以修改，以便其如下列程式碼片段所示：
+1. 打开 `ReadMessage.cshtml`并对其进行修改，使其看起来如以下代码片段所示：
 
     ```csharp
     @{
@@ -403,7 +403,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. 執行應用程式，並選取 **Read/Delete message** 來查看類似下列螢幕擷取畫面的結果︰
+1. 執行應用程式，並選取**Read/Delete message**來查看類似下列螢幕擷取畫面的結果：
   
     ![讀取和刪除訊息](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -428,7 +428,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **ReadMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
+1. 在 **ReadMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -453,7 +453,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     queue.FetchAttributes();
     ```
 
-1. 存取 **CloudQueue.ApproximateMessageCount** 屬性，以取得佇列的長度。
+1. 访问 **CloudQueue.ApproximateMessageCount** 属性以获取队列的长度。
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;
@@ -466,7 +466,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     ViewBag.Length = nMessages;
     ```
  
-1. 在 [方案總管] 中，展開 [檢視] 資料夾、用滑鼠右鍵按一下 [佇列]，然後從內容功能表中選取 [新增] > [已連接的服務]。
+1. 在“解决方案资源管理器”中展开“Views”文件夹，右键单击“队列”，然后从上下文菜单中选择“添加”->“视图”。
 
 1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **GetQueueLength**，然後選取 [新增]。
 
@@ -490,7 +490,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. 執行應用程式，並選取 **Get queue length** 來查看類似下列螢幕擷取畫面的結果︰
+1. 執行應用程式，並選取**取得佇列長度**來查看類似下列螢幕擷取畫面的結果：
   
     ![取得佇列長度](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -515,7 +515,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **DeleteQueue**方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
+1. 在 **DeleteQueue**方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -570,7 +570,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. 執行應用程式，並選取 **Get queue length** 來查看類似下列螢幕擷取畫面的結果︰
+1. 執行應用程式，並選取**取得佇列長度**來查看類似下列螢幕擷取畫面的結果：
   
     ![刪除佇列](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

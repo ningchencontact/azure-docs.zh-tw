@@ -1,15 +1,15 @@
 ---
-author: dominicbetts
+author: robinsh
+ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: b24ecd12965cece46ca6a58f10a25ddef723f8f6
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 0eb92928b20481865015105892b93a96905a14b7
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54415013"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57016428"
 ---
 > [!NOTE]
-> 開始本教學課程之前，請[設定裝置](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)。 在本文中，您會設定 Azure IoT 裝置和 IoT 中樞，並部署要在裝置上執行的範例應用程式。 應用程式會將所收集的感應器資料傳送到您的 IoT 中樞。
+> 開始本教學課程之前，請[設定裝置](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)。 在本文中，您會設定 Azure IoT 裝置和 IoT 中樞，並部署要在裝置上執行的範例應用程式。 该应用程序会将收集的传感器数据发送到 IoT 中心。

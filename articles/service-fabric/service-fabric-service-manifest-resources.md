@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3a796733f5987f4cc550a606e06166395d1595cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fb16e87a889c409fa6f1f5a9e12b7571ebb14d52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857567"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服務資訊清單中指定資源
 ## <a name="overview"></a>概觀
 服務資訊清單可宣告/變更服務使用的資源，且不需變更已編譯的程式碼。 Azure Service Fabric 支援針對服務的端點資源組態。 透過應用程式資訊清單中的 SecurityGroup，即可控制存取服務資訊清單中的指定資源。 資源宣告可讓您在部署階段變更這些資源，也就是服務不需要導入新的組態機制。 ServiceManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 及工具一起安裝在 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*。
 
-## <a name="endpoints"></a>端點
+## <a name="endpoints"></a>终结点
 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 例如，請看本段落之後提供的資訊清單片段中所指定的端點 *ServiceEndpoint1* 。 此外，服務也可以在資源中要求特定連接埠。 不同的連接埠號碼可以指派給在不同叢集節點上執行的服務複本，而在同一節點上執行的服務複本可以共用連接埠。 然後服務複本就可以在需要時使用這些連接埠進行複寫和接聽用戶端要求。
 
 ```xml
@@ -51,7 +51,7 @@ ms.locfileid: "55156646"
 
 請參閱 [設定具狀態的 Reliable Services](service-fabric-reliable-services-configuration.md) ，從設定封裝設定檔 (settings.xml) 深入了解參考端點。
 
-## <a name="example-specifying-an-http-endpoint-for-your-service"></a>範例：指定服務的 HTTP 端點
+## <a name="example-specifying-an-http-endpoint-for-your-service"></a>示例：为服务指定 HTTP 终结点
 以下服務資訊清單在 &lt;Resources&gt; 項目中定義了一個 TCP 端點資源和兩個 HTTP 端點資源。
 
 Service Fabric 會自動將 HTTP 端點處理為 ACL。
@@ -61,8 +61,8 @@ Service Fabric 會自動將 HTTP 端點處理為 ACL。
 <ServiceManifest Name="Stateful1Pkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          This name must match the string used in the RegisterServiceType call in Program.cs. -->
@@ -118,8 +118,8 @@ HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器�
 <ApplicationManifest ApplicationTypeName="Application1Type"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />

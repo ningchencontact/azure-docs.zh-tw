@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 1d20308bb7fcfa2636f10e3990d98dcd6ab05a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238199"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529788"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Dynamics AX 複製資料 (預覽)
 
@@ -54,7 +54,7 @@ ms.locfileid: "55238199"
 
 以下是針對 Dynamics AX 已連結服務所支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | [type] 屬性必須設定為 [DynamicsAX]。 |是 |
 | url | Dynamics AX (或 Dynamics 365 Finance and Operations) 執行個體 OData 端點。 |是 |
@@ -98,7 +98,7 @@ ms.locfileid: "55238199"
 
 若要從 Dynamics AX 複製資料，請將資料集的 [type] 屬性設定為 [DynamicsAXResource]。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的 [type] 屬性必須設定為 [DynamicsAXResource]。 | 是 |
 | path | Dynamics AX OData 實體的路徑。 | 是 |
@@ -131,10 +131,10 @@ ms.locfileid: "55238199"
 
 若要從 Dynamics AX 複製資料，請將複製活動中的 [source] 類型設定為 [DynamicsAXSource]。 複製活動的 [來源] 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 [type] 屬性必須設定為 [DynamicsAXSource]。 | 是 |
-| query | 用來篩選資料的 OData 查詢選項。 範例： `"?$select=Name,Description&$top=5"`.<br/><br/>**注意**：連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](http://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
+| query | 用來篩選資料的 OData 查詢選項。 範例： `"?$select=Name,Description&$top=5"`.<br/><br/>**注意**：連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
 
 **範例**
 

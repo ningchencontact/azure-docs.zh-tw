@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693984"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001091"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
 
@@ -101,7 +101,8 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
    法國南部 | 52.136.139.227 |52.136.136.62
    澳大利亞中部| 20.36.34.70 | 20.36.46.142
    澳大利亞中部 2| 20.36.69.62 | 20.36.74.130
-
+   南非西部 | 102.133.72.51 | 102.133.26.128
+   南非北部 | 102.133.160.44 | 102.133.154.128
 ## <a name="example-nsg-configuration"></a>範例 NSG 設定
 
 這個範例示範如何針對要複寫的 VM 設定 NSG 規則。
@@ -163,4 +164,4 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 ## <a name="next-steps"></a>後續步驟
 - [複寫 Azure 虛擬機器](site-recovery-azure-to-azure.md)來開始保護您的工作負載。
 - 深入了解如何針對 Azure 虛擬機器容錯移轉[保留 IP 位址](site-recovery-retain-ip-azure-vm-failover.md)。
-- 深入了解 [Azure 虛擬機器與 ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md) 的災害復原。
+- 深入了解災害復原[透過 ExpressRoute 的 Azure 虛擬機器](azure-vm-disaster-recovery-with-expressroute.md)。

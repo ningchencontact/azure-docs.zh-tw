@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5117d426ac9595dfe25828013c1bd8c7fa81f92c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812356"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765365"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 
@@ -141,7 +141,7 @@ az batch pool create my_batch_pool.json
 
 ## <a name="efficient-queries-for-batch-resources"></a>有效率的 Batch 資源查詢
 
-每個 Batch 資源類型都支援 `list` 命令，已查詢 Batch 帳戶並列出該類型的資源。 例如，您可以列出您帳戶中的集區和作業中的工作︰
+每個 Batch 資源類型都支援 `list` 命令，已查詢 Batch 帳戶並列出該類型的資源。 例如，可以列出帐户中的池以及作业中的任务：
 
 ```azurecli
 az batch pool list
@@ -152,7 +152,7 @@ az batch task list --job-id job001
 
 下表描述 Batch 服務所支援的 OData 子句︰
 
-| 子句 | 說明 |
+| 子句 | 描述 |
 |---|---|
 | `--select-clause [select-clause]` | 傳回每個實體的屬性子集。 |
 | `--filter-clause [filter-clause]` | 傳回符合指定之 OData 運算式的實體。 |
@@ -167,7 +167,7 @@ az batch task list --job-id job001
 當您針對 Azure CLI 問題進行疑難排解時，下列秘訣可能有所幫助︰
 
 * 使用 `-h` 取得任何 CLI 命令的 **說明文字**
-* 使用 `-v` 和 `-vv` 來顯示 **verbose** 命令輸出。 包含 `-vv` 旗標後，Azure CLI 會顯示實際的 REST 要求和回應。 這些參數方便用於顯示完整的錯誤輸出。
+* 使用 `-v` 和 `-vv` 來顯示 **verbose** 命令輸出。 包含 `-vv` 旗標後，Azure CLI 會顯示實際的 REST 要求和回應。 使用这些开关可以方便地显示完整的错误输出。
 * 您可以使用 `--json` 選項檢視 **JSON 格式的命令輸出**。 例如， `az batch pool show pool001 --json` 會以 JSON 格式顯示 pool001 的屬性。 您可以接著複製並修改此輸出，以便用於 `--json-file` (請參閱本文前面的 JSON 檔案)。
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 

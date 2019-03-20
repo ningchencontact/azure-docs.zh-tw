@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/09/2018
+ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4d9f05ad1913646e7ca09690af965042817ef7ec
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: f446ec6bce138a072a214a9e9cd7880ad215ad3b
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193336"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410616"
 ---
-本文使用 PowerShell Cmdlet。 若要執行 Cmdlet，您可以使用 Azure Cloud Shell (免費的互動式殼層)。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 只要按一下 [複製] 即可複製程式碼，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。 以下有幾種啟動 Cloud Shell 的方式：
+本文使用 PowerShell Cmdlet。 若要執行 cmdlet，您可以使用 Azure Cloud Shell。 Azure Cloud Shell 是免費的互動式 shell 具有預先安裝常用的 Azure 工具，並已設定為使用與您的帳戶。 只要按一下 [複製] 即可複製程式碼，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。 以下有幾種啟動 Cloud Shell 的方式：
 
 |  |   |
 |-----------------------------------------------|---|
@@ -24,6 +24,6 @@ ms.locfileid: "54193336"
 | 按一下 Azure 入口網站右上方功能表上的 [Cloud Shell] 按鈕。 | [![入口網站中的 Cloud Shell](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
-如果您不想使用 Azure Cloud Shell，您可改為在本機安裝 PowerShell。 如果您選擇在本機安裝及使用 PowerShell，請務必安裝最新版的 Azure Resource Manager PowerShell Cmdlet。 PowerShell Cmdlet 會經常更新，您通常需要更新您的 PowerShell Cmdlet 才能取得最新的功能。 如果您未更新 PowerShell Cmdlet，指定的值可能會失敗。 
+**在本機執行 PowerShell**
 
-若要尋找您在本機執行的 PowerShell 版本，請使用 'Get-Module -ListAvailable AzureRM' Cmdlet。 若要更新，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/azurerm/overview)。
+您也可以安裝，並在本機執行 Azure PowerShell cmdlet，在您的電腦上。 PowerShell cmdlet 會經常更新。 如果您不會執行最新版本，指示中所指定的值可能會失敗。 若要尋找您在本機執行的 PowerShell 版本，請使用`Get-Module -ListAvailable Az`cmdlet。 若要安裝或更新，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。

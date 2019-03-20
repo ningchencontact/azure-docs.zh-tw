@@ -3,20 +3,20 @@ title: 線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限�
 description: 深入了解線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制。
 services: database-migration
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 5cca15e609a723870be7a564bf61fcd0d88e5706
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: f52eb1699b980e84195ec34eb543c4523328c893
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790538"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181991"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>線上移轉到適用於 PostgreSQL 的 Azure DB 的已知問題/移轉限制
 

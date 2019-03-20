@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9396fbc470f25e3cf6fad883ab525af1f96e96a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 23ce02bd35d9cd4afd881ec276fabb0720b61c09
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188744"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444033"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
@@ -59,7 +59,7 @@ ms.locfileid: "56188744"
 
 選取 `NameIdentifier` (或 NameID) 宣告的所需來源。 您可以從下列選項選取。
 
-| Name | 說明 |
+| 名稱 | 描述 |
 |------|-------------|
 | 電子郵件 | 使用者的電子郵件地址 |
 | userprincipalName | 使用者的使用者主體名稱 (UPN) |
@@ -73,7 +73,7 @@ ms.locfileid: "56188744"
 
 您也可以使用特殊的宣告轉換函式。
 
-| 函式 | 說明 |
+| 函式 | 描述 |
 |----------|-------------|
 | **ExtractMailPrefix()** | 從電子郵件地址、SAM 帳戶名稱或使用者主體名稱移除網域尾碼。 這只會擷取使用者名稱的第一個部分 (例如，"joe_smith" 而不是 joe_smith@contoso.com)。 |
 | **join()** | 加入具有已驗證網域的屬性。 如果選取的使用者識別碼值具有網域，它會擷取使用者名稱以附加所選的已驗證網域。 例如，如果您選取電子郵件 (joe_smith@contoso.com) 作為使用者識別碼值，並選取 contoso.onmicrosoft.com 作為已驗證的網域，這樣會產生 joe_smith@contoso.onmicrosoft.com。 |
@@ -82,7 +82,7 @@ ms.locfileid: "56188744"
 
 ## <a name="adding-claims"></a>新增宣告
 
-新增宣告時，您可以指定屬性名稱 (不必根據 SAML 規格嚴格遵循 URI 模式)。 將此值設為目錄中儲存的任何使用者屬性，或使用常數值作為貴組織中所有使用者的靜態項目。
+新增宣告時，您可以指定屬性名稱 (不必根據 SAML 規格嚴格遵循 URI 模式)。 將值設為儲存在目錄中任何使用者屬性，或作為靜態項目中的常數值，您的組織中的所有使用者。
 
 ![新增使用者屬性][7]
 

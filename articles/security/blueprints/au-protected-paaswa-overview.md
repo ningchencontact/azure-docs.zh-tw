@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055178"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440976"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 安全性與合規性藍圖 - 適用於 Australia PROTECTED 的 PaaS Web 應用程式
 
@@ -59,7 +59,7 @@ ms.locfileid: "54055178"
 - Azure 資訊安全中心
 - 連接字串
 - Azure 儲存體
-- Azure Log Analytics
+- Azure 監視器記錄
 - Azure 虛擬網路
     - (1) /16 網路
     - (4) /24 網路
@@ -114,7 +114,7 @@ App Service 環境已經過隔離，可執行只有單一客戶的應用程式�
 每個網路安全性群組都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，下列組態會針對每個網路安全性群組啟用：
 
   - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶
-  - Azure Log Analytics 會連線至[網路安全性群組的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Azure 監視器記錄檔已連線到[網路安全性群組的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **子網路**：確認每個子網路都與對應的網路安全性群組建立關聯。
 
@@ -127,7 +127,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。
 
 針對客戶自有網路中的傳輸中受保護資料，架構會使用網際網路或 ExpressRoute 搭配已使用 IPSEC 設定的 VPN 閘道。
 
-此外，透過 Azure 管理入口網站與 Azure 進行的所有交易都會透過 HTTPS 使用 TLS v1.2 發生。
+此外，透過 Azure 管理入口網站至 Azure 的所有交易透過利用 TLS v1.2 的 HTTPS 都發生。
 
 ### <a name="data-at-rest"></a>待用資料
 架構會透過加密、資料庫稽核及其他量值來保護待用資料。
@@ -189,9 +189,9 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
 - **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
 
-**Log Analytics**：這些記錄會合併到 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) 以進行處理、儲存，並從儀表板顯示報告。 所收集的資料會針對每種資料類型組織成個別的資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心會與 Log Analytics 整合，讓客戶使用 Log Analytics 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
+**Azure 監視器記錄**：這些記錄檔會在合併[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)處理、 儲存和儀表板報表。 所收集的資料會針對每種資料類型組織成個別的資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心與 Azure 監視器記錄檔，讓客戶能使用 Kusto 查詢來存取其安全性事件資料，並結合資料與其他服務整合。
 
-此架構包含下列 Log Analytics [管理解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)：
+下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)會包含此架構的一部分：
 -   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
 - [SQL 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment)：SQL 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器架構，提供優先的建議清單給客戶。
 - [代理程式健全狀況](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數目。

@@ -3,7 +3,7 @@ title: Web 服務參數 - Azure Machine Learning Studio | Microsoft Docs
 description: 如何使用 Azure Machine Learning Web 服務參數來修改模型在 Web 服務受到存取時的行為。
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -13,14 +13,14 @@ ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 5b216242b5c1c093c5f508adce04ef7b4bec4d1e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a236043d5622e5a2e1ffd572c887fb5ffac2174a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837995"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>使用 Azure Machine Learning Studio Web 服務參數
 藉由發行包含可設定參數模組的試驗，來建立 Azure Machine Learning Web 服務。 在某些情況下，您可能想要在執行 Web 服務時之際，變更模組的行為。 「Web 服務參數」可讓您執行這項工作。 
@@ -75,7 +75,7 @@ Web 服務的 API 文件會包含 Web 服務使用者在存取 Web 服務時，�
 Web 服務的使用者現在即可在存取 Web 服務時，為[匯出資料][writer]模組指定新的目的地。
 
 ## <a name="more-information"></a>詳細資訊
-如需更詳細的範例，請參閱 [Machine Learning Blog](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) 中的 [Web 服務參數](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx)項目。
+如需更詳細的範例，請參閱 [Machine Learning Blog](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) 中的 [Web 服務參數](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx)項目。
 
 有關存取 Machine Learning Web 服務的詳細資訊，請參閱[如何使用 Azure Machine Learning Web 服務](consume-web-services.md)。
 

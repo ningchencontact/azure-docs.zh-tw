@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 25fdce2381cc6dd65559a2450a42de5389589863
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 7c4bd326c597b8e989dfc7aac5239ddb2d38376a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195560"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884758"
 ---
 # <a name="saas-application-storefront-details-tab"></a>SaaS 應用程式電子店面詳細資料索引標籤
 
@@ -37,7 +37,7 @@ ms.locfileid: "53195560"
 |  **供應項目欄位**   |  **說明**  |
 |  ---------------   |  ---------------  |
 |      供應項目摘要              |        供應項目的價值主張摘要。 它將會出現在您供應項目的搜尋頁面上。 且上限不可超過 100 個字元。           |
-|      供應項目描述              |      將出現在您應用程式詳細資料頁面上的描述。 上限為 1300 個字元。 您可以使用基本 HTML 標記型態的標記來設定內容格式。 例如，&lt;p&gt;、&lt;h1&gt;、&lt;h2&gt; 及 &lt;li&gt;。 若要查看已設定格式之描述的外觀，請使用線上即時 HTML 工具，例如 [http://htmledit.squarefree.com](http://htmledit.squarefree.com)             |
+|      供應項目描述              |      將出現在您應用程式詳細資料頁面上的描述。 上限為 1300 個字元。 您可以使用基本 HTML 標記型態的標記來設定內容格式。 例如，&lt;p&gt;、&lt;h1&gt;、&lt;h2&gt; 及 &lt;li&gt;。 若要查看已設定格式之描述的外觀，請使用線上即時 HTML 工具，例如 [http://htmledit.squarefree.com](https://htmledit.squarefree.com)             |
 |          產業          |        選取您供應項目的目標產業。 若您的應用程式與多個產業相關，您最多可以選取兩個產業。           |
 |          建議的類別 (最多 3 個)         |        選取您供應項目的目標類別。 您最多可以選取三個類別。           |
 |           應用程式版本         |        輸入您應用程式的版本號碼。           |

@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: de2cfbf2b4119daf965c95d8973b8528799c9502
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454620"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439253"
 ---
-# <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟的範例工作流程
+# <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 
 本文章會引導您完成為匯入作業準備硬碟的完整程序。
 
@@ -23,10 +23,10 @@ ms.locfileid: "55454620"
 
 此範例會將下列資料匯入名為 `mystorageaccount` 的 Azure 儲存體帳戶：
 
-|位置|說明|資料大小|
+|位置|描述|数据大小|
 |--------------|-----------------|-----|
-|H:\Video\ |視訊集合|12 TB|
-|H:\Photo\ |相片集合|30 GB|
+|H:\Video\ |视频集合|12 TB|
+|H:\Photo\ |照片集合|30 GB|
 |K:\Temp\FavoriteMovie.ISO|藍光 (Blu-Ray™) 磁碟映像|25 GB|
 |\\\bigshare\john\music\ |網路共用上的音樂檔案集合|10 GB|
 
@@ -58,7 +58,7 @@ Y,Format,SilentMode,Encrypt,
 ```
 該工具將會把資料以最佳化的方式分散到兩個硬碟。
 
-## <a name="attach-drives-and-configure-the-job"></a>附加磁碟並設定作業
+## <a name="attach-drives-and-configure-the-job"></a>附加驱动器并配置作业
 您將兩個磁碟連接到機器，並建立磁碟區。 然後撰寫 **dataset.csv** 檔案：
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
@@ -91,7 +91,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 * **Content-MD5：** Q2hlY2sgSW50ZWdyaXR5IQ==
 * **Cache-Control:** no-cache
 
-若要設定這些屬性，請建立文字檔 (`c:\WAImportExport\SampleProperties.txt`)：
+若要设置这些属性，请创建文本文件 `c:\WAImportExport\SampleProperties.txt`：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -112,7 +112,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-如果需要新增額外的資料，請建立另一個資料集檔案 (和初始資料集相同格式)。
+如果需要加入更多資料，請建立另一個資料集檔案 （做為初始資料集相同格式）。
 
 **第二個工作階段︰**
 

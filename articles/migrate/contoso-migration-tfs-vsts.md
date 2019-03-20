@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818892"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100235"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso 移轉：將 Team Foundation Server 部署重構到 Azure DevOps Services
 
@@ -225,11 +225,11 @@ Contoso 管理員會對 ContosoDev 集合資料庫執行 TFS 移轉工具而加�
 
 6. 他們檢閱身分識別記錄對應檔，其中顯示將在匯入期間移至 Azure DevOps Services 的帳戶。 
 
-    - 作用中的身分識別是指在匯入後會在 Azure DevOps Services 中成為使用者的身分識別。
-    - 在移轉之後，這些身分識別將在 Azure DevOps Services 上獲得授權，並且顯示為組織中的使用者。
-    - 這些身分識別檔案的 [預期的匯入狀態] 資料行中會標示 [作用中]。
+   - 作用中的身分識別是指在匯入後會在 Azure DevOps Services 中成為使用者的身分識別。
+   - 在移轉之後，這些身分識別將在 Azure DevOps Services 上獲得授權，並且顯示為組織中的使用者。
+   - 這些身分識別檔案的 [預期的匯入狀態] 資料行中會標示 [作用中]。
 
-    ![準備](./media/contoso-migration-tfs-vsts/prep6.png)
+     ![準備](./media/contoso-migration-tfs-vsts/prep6.png)
 
 
 

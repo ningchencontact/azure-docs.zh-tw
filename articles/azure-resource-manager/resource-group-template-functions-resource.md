@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61225a63b1f26012325ea97ac9f812e06a0dbc33
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 87ce2019f85a2c1be742d3abf6c2fc61c5dcec10
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756677"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866924"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
@@ -47,10 +47,10 @@ ms.locfileid: "55756677"
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |yes |字串 |資源的唯一識別碼。 |
-| apiVersion |yes |字串 |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
+| resourceName 或 resourceIdentifier |是 |字串 |資源的唯一識別碼。 |
+| apiVersion |是 |字串 |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
 | functionValues |否 |物件 | 具有函式值的物件。 只針對以下函式提供此物件：可支援在儲存體帳戶上接收具有參數值的物件，例如 **listAccountSas**。 本文會顯示傳遞函式值的範例。 | 
 
 ### <a name="implementations"></a>實作
@@ -269,9 +269,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |yes |字串 |提供者的命名空間 |
+| providerNamespace |是 |字串 |提供者的命名空間 |
 | resourceType |否 |字串 |所指定命名空間內的資源類型。 |
 
 ### <a name="return-value"></a>傳回值
@@ -357,9 +357,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |yes |字串 |資源的名稱或唯一識別碼。 |
+| resourceName 或 resourceIdentifier |是 |字串 |資源的名稱或唯一識別碼。 |
 | apiVersion |否 |字串 |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 |
 | 'Full' |否 |字串 |值，指定是否要傳回完整資源物件。 如果您未指定 `'Full'`，則只會傳回資源的屬性物件。 完整物件包括例如資源識別碼和位置的值。 |
 
@@ -656,13 +656,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字串 (GUID 格式) |預設值為目前的訂用帳戶。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
 | resourceGroupName |否 |字串 |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |yes |字串 |資源的名稱。 |
-| resourceName2 |否 |字串 |如果是巢狀資源，則為下一個資源名稱區段。 |
+| resourceType |是 |字串 |资源类型，包括资源提供程序命名空间。 |
+| resourceName1 |是 |字串 |資源的名稱。 |
+| resourceName2 |否 |字串 |下一个资源名称段（如果资源是嵌套的）。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -727,8 +727,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
       }
   },
   "variables": {
-      "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-      "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+      "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
   },
   "resources": [
   {
@@ -783,7 +782,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | sameRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

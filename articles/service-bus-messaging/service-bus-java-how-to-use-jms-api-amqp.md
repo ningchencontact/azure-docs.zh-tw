@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 23a0c731eea22a772d7423bc3047af1183d55b7f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 2cba3744180a257638aca202d44fa433a5e1a2bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312884"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453400"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
 進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。
@@ -29,10 +29,10 @@ ms.locfileid: "56312884"
 本文說明如何利用常用的 Java 訊息服務 (JMS) API 標準，從 Java 應用程式使用服務匯流排傳訊功能 (佇列和發佈/訂閱主題)。 這是說明如何使用服務匯流排 .NET API 達到相同效用的[附屬文章](service-bus-amqp-dotnet.md)。 您可以同時使用這兩個指南了解使用 AMQP 1.0 的跨平台訊息。
 
 ## <a name="get-started-with-service-bus"></a>開始使用服務匯流排
-本指南假設您已經有服務匯流排命名空間，其中包含名稱為 **basicqueue** 的佇列。 如果沒有，您可以使用 [Azure 入口網站](service-bus-create-namespace-portal.md)建立[命名空間和佇列](https://portal.azure.com)。 如需有關如何建立服務匯流排命名空間和佇列的相關詳細資訊，請參閱[開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)。
+本指南假設您已經有服務匯流排命名空間，其中包含名稱為 **basicqueue** 的佇列。 如果沒有，您可以使用 [Azure 入口網站](service-bus-create-namespace-portal.md)建立[命名空間和佇列](https://portal.azure.com)。 有关如何创建服务总线命名空间和队列的详细信息，请参阅[服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)。
 
 > [!NOTE]
-> 分割的佇列和主題也支援 AMQP。 如需詳細資訊，請參閱[分割傳訊實體](service-bus-partitioning.md)及[服務匯流排分割佇列和主題的 AMQP 1.0 支援](service-bus-partitioned-queues-and-topics-amqp-overview.md)。
+> 分区队列和主题也支持 AMQP。 如需詳細資訊，請參閱[分割傳訊實體](service-bus-partitioning.md)及[服務匯流排分割佇列和主題的 AMQP 1.0 支援](service-bus-partitioned-queues-and-topics-amqp-overview.md)。
 > 
 > 
 
@@ -341,13 +341,23 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
+## <a name="jms-topics-vs-service-bus-topics"></a>JMS 主題 vs。服務匯流排主題
+使用 Azure 服務匯流排主題和訂用帳戶透過 Java 訊息服務 (JMS) API 提供基本的傳送和接收功能。 將移植從 JMS 相容的 Api，與其他訊息代理程式的應用程式，即使服務匯流排主題與 JMS 主題不同，而且需要一些調整時，它就會是方便的選擇。 
+
+Azure 服務匯流排主題會將訊息路由至具名、 共用、 持久的訂用帳戶管理透過 Azure 資源管理介面、 Azure 命令列工具，或透過 Azure 入口網站中。 每個訂用帳戶允許最多 2000年的選取範圍規則，每個可能具有篩選條件，和 SQL 的篩選，也是中繼資料的轉換動作。 每個篩選條件相符項目中選取要複製到 tehj 訂用帳戶輸入的訊息。  
+
+從訂用帳戶接收訊息等同從佇列接收訊息。 每個訂用帳戶有相關聯的寄不出信件佇列，以及能夠自動將訊息轉送到另一個佇列或主題。 
+
+JMS 主題可讓用戶端，以動態方式建立非持久且持久的訂閱者可選擇性地篩選訊息與訊息選取器。 服務匯流排不支援這些非共用的實體。 不過，服務匯流排的 SQL 篩選規則語法是支援的 JMS 訊息選取器語法非常類似。 
+
+JMS 主題 「 發行者 」 端適用於服務匯流排，在此範例中所示，但不是動態的訂閱者。 服務匯流排不支援下列拓撲相關 JMS Api。 
 
 ## <a name="unsupported-features-and-restrictions"></a>不支援的功能和限制
 對於服務匯流排使用 JMS 而不使用 AMQP 1.0 會有下列限制：
 
 * 對於各個**工作階段**僅允許一個 **MessageProducer** 或 **MessageConsumer**。 如果您需要在應用程式中建立多個 **MessageProducers** 或 **MessageConsumers**，請分別建立專用的**工作階段**。
 * 目前不支援可變更的主題訂閱。
-* 目前不支援 **MessageSelectors**。
+* **MessageSelectors** 。
 * 不支援交易式工作階段和分散式交易。
 
 此外，Azure 服務匯流排會分割控制層與資料層，並因此不支援數個 JMS 的動態拓撲函式：
@@ -372,7 +382,7 @@ MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure 服務匯流排中的 AMQP 1.0 支援](service-bus-amqp-overview.md)
-* [如何透過服務匯流排 .NET API 使用 AMQP 1.0](service-bus-dotnet-advanced-message-queuing.md)
+* [如何将 AMQP 1.0 与服务总线 .NET API 配合使用](service-bus-dotnet-advanced-message-queuing.md)
 * [服務匯流排 AMQP 1.0 開發人員指南](service-bus-amqp-dotnet.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [Java 開發人員中心](https://azure.microsoft.com/develop/java/)

@@ -1,5 +1,5 @@
 ---
-title: 註冊您的組織以使用 Azure Active Directory | Microsoft Docs
+title: 您的組織-Azure Active Directory 註冊 |Microsoft Docs
 description: 如何註冊您的組織以使用 Azure 和 Azure Active Directory 的相關指示。
 services: active-directory
 author: eross-msft
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91fe15cfbf855f18894ef602c86f780b97d62974
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101358"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>註冊您的組織以使用 Azure Active Directory
 請使用下列其中一種選擇，註冊 Azure Active Directory (Azure AD) 或新的 Microsoft Azure 訂用帳戶：
@@ -27,8 +27,8 @@ ms.locfileid: "56205183"
 
 - **公司或學校帳戶。** 使用您公司或學校帳戶存取 Microsoft 所有的小型、中型和企業雲端服務，例如 Azure、Microsoft Intune 或 Office 365。 當您以組織身分註冊其中一個服務時，會在 Azure AD 中自動佈建雲端式的目錄，以代表您的組織。 如需詳細資訊，請參閱[管理 Azure Active Directory 租用戶](active-directory-administer.md)。
 
-    >[!Note]
-    如果您擁有 Azure AD 的存取權，建議您使用您的公司或學校帳戶。 總之請使用任一種與您 Azure 訂用帳戶相關聯的帳戶。
+  > [!Note]
+  >   如果您擁有 Azure AD 的存取權，建議您使用您的公司或學校帳戶。 總之請使用任一種與您 Azure 訂用帳戶相關聯的帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 
