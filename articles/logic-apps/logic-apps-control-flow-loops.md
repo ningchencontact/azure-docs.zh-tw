@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: b2e8d629f4007729ad0538aee9bdb8e67747b026
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015118"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225003"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 
@@ -217,33 +217,33 @@ ms.locfileid: "58015118"
 
 1. 針對 [名稱]，選取**限制**變數。 針對 [值]，輸入 "1"。 
 
-    ![以 1 遞增 [限制]](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![以 1 遞增 [限制]](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. 在迴圈外部底下，選擇 [新增步驟]。 
 
 1. 在搜尋方塊下方，選擇 [全部]。 
-    尋找並新增會傳送電子郵件的動作，例如： 
+     尋找並新增會傳送電子郵件的動作，例如： 
 
-    ![新增傳送電子郵件的動作](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![新增傳送電子郵件的動作](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. 如果出現提示，請登入您的電子郵件帳戶。
 
 1. 設定電子郵件動作的屬性。 在主旨上新增**限制**變數。 這樣一來，您可以確認變數的目前值符合您指定的條件，例如：
 
-     ![設定電子郵件內容](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![設定電子郵件內容](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-     | 屬性 | 值 | 描述 |
-     | -------- | ----- | ----------- | 
-     | **To** | *<email-address\@domain>* | 收件者的電子郵件地址。 若要進行測試，請使用自己的電子郵件地址。 | 
-     | **主旨** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 
-     | **內文** | <*email-content*> | 指定您想要傳送的電子郵件訊息內容。 針對此範例，輸入任何您喜歡的文字。 | 
-     |||| 
+      | 屬性 | 值 | 描述 |
+      | -------- | ----- | ----------- | 
+      | **To** | *<email-address\@domain>* | 收件者的電子郵件地址。 若要進行測試，請使用自己的電子郵件地址。 | 
+      | **主旨** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 
+      | **內文** | <*email-content*> | 指定您想要傳送的電子郵件訊息內容。 針對此範例，輸入任何您喜歡的文字。 | 
+      |||| 
 
 1. 儲存您的邏輯應用程式。 若要手動測試邏輯應用程式，在設計工具的工具列上，選擇 [執行]。
 
-     當您的邏輯開始執行之後，您會收到電子郵件及您指定的內容：
+      當您的邏輯開始執行之後，您會收到電子郵件及您指定的內容：
 
-     ![收到的電子郵件](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![收到的電子郵件](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>避免無止盡的迴圈
 

@@ -3,7 +3,7 @@ title: 針對 Azure VM 上的 BitLocker 開機錯誤進行疑難排解 | Microso
 description: 了解如何針對 Azure VM 中的 BitLocker 開機錯誤進行疑難排解
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993196"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM 上的 BitLocker 開機錯誤
 
@@ -26,13 +26,13 @@ ms.locfileid: "55984761"
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
- ## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵狀
 
  Windows 虛擬機器未啟動。 當您檢查[開機診斷](../windows/boot-diagnostics.md)視窗中的螢幕擷取畫面時，您看到下列其中一個錯誤訊息：
 
 - 插入的 USB 驅動程式具有 BitLocker 金鑰
 
-- 您已遭到鎖定！ 請輸入復原金鑰以便重新繼續 (鍵盤配置：美國)。輸入錯誤登入資訊太多次，因此已將電腦鎖定來保護隱私權。 若要擷取復原金鑰，請從其他電腦或行動裝置前往 http://windows.microsoft.com/recoverykeyfaq。 如有需要，金鑰識別碼為 XXXXXXX。 或者，您也可以重設電腦。
+- 您已遭到鎖定！ 請輸入復原金鑰以便重新繼續 (鍵盤配置：美國)。輸入錯誤登入資訊太多次，因此已將電腦鎖定來保護隱私權。 若要擷取復原金鑰，請從其他電腦或行動裝置前往 https://windows.microsoft.com/recoverykeyfaq。 如有需要，金鑰識別碼為 XXXXXXX。 或者，您也可以重設電腦。
 
 - 輸入密碼以將此磁碟機 [] 解除鎖定。按 Insert 鍵可看到輸入的密碼。
 - 輸入復原金鑰。從 USB 裝置載入復原金鑰。

@@ -1,10 +1,10 @@
 ---
 title: 授權的產品名稱和服務方案識別碼 - Azure AD | Microsoft Docs
-description: 識別項對應來管理 Azure 入口網站、Office 365 入口網站、PowerShell 或 Microsoft Graph 中的 Azure Active Directory 授權
+description: 識別項對應來管理 Azure Active Directory 授權的 Azure 入口網站、 Microsoft 365 系統管理中心、 PowerShell 或 Microsoft Graph
 services: active-directory
 keywords: Azure Active Directory 授權服務方案
 documentationcenter: ''
-author: curtand
+author: ajayanti1
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,19 +13,19 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 01/28/2019
 ms.author: curtand
-ms.reviewer: sumitp
+ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f12a300afbf56d5f6149dcc71f2fc4efedbc44f8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: fc4580b4f600b06fc89e3fc8760679028765e03e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430161"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176414"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用於授權的產品名稱和服務方案識別碼
 
-管理 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)或 Office 365 入口網站中的授權時，您會看到看起來像是 Office 365 Enterprise E3 的產品名稱。 當您使用 PowerShell v1.0 Cmdlet 時，會使用特定但是較不好記的名稱來識別相同的產品：*ENTERPRISEPACK*。 使用 PowerShell 2.0 版 Cmdlet 或 Microsoft Graph 時，會使用 GUID 值來識別相同的產品：*6fd2c87f-b296-42f0-b197-1e91e994b900*。 下表列出最常使用的 Microsoft 線上服務產品，並提供其各種識別碼值。 這些表格僅供參考，而準確性僅截至本篇文章最後更新之日。 Microsoft 並不打算針對最新加入的服務定期更新它們。
+管理授權時[Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)或[Microsoft 365 系統管理中心](https://admin.microsoft.com)，您會看到類似的產品名稱*Office 365 企業版 E3*。 當您使用 PowerShell v1.0 Cmdlet 時，會使用特定但是較不好記的名稱來識別相同的產品：*ENTERPRISEPACK*。 使用 PowerShell 2.0 版 Cmdlet 或 Microsoft Graph 時，會使用 GUID 值來識別相同的產品：*6fd2c87f-b296-42f0-b197-1e91e994b900*。 下表列出最常使用的 Microsoft 線上服務產品，並提供其各種識別碼值。 這些表格僅供參考，而準確性僅截至本篇文章最後更新之日。 Microsoft 並不打算針對最新加入的服務定期更新它們。
 
 - **產品名稱**：在管理入口網站中使用
 - **字串識別碼**：PowerShell v1.0 Cmdlet 會在執行授權作業時使用這些識別碼

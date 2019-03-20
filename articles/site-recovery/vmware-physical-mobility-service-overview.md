@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.author: ramamill
-ms.openlocfilehash: 6319ef908b5b040bf61285451448c08bb3960fe2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: d8b009d47a7fd0057c71ff3fc120a4443fc262d7
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215005"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593653"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
 
@@ -50,7 +50,7 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent)。 這可確保複寫運作正常。
 
-## <a name="update-the-mobility-service"></a>更新行動服務
+## <a name="update-mobility-service-from-azure-portal"></a>从 Azure 门户更新移动服务
 
 1. 在開始之前，請先確定已更新設定伺服器、向外延展處理伺服器，以及要一起部署的所有主要目標伺服器，然後才更新受保護機器上的行動服務。
 2. 在入口網站中，開啟保存庫 > [複寫的項目]。
@@ -58,11 +58,19 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
      ![[複寫的項目] 視窗](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. 按一下通知，然後在 [代理程式更新] 中，選取您想要升級行動服務的機器。 然後按一下 [確定]。
+4. 按一下通知，然後在 [代理程式更新] 中，選取您想要升級行動服務的機器。 然後按一下 [確定] 。
 
      ![複寫的項目 VM 清單](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. 「更新行動服務」作業會針對每個選取的機器啟動。
+
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>在 Windows 服务器上通过 powershell 脚本更新移动服务
+
+使用以下脚本通过 power shell cmdlet 更新服务器上的移动服务
+
+```azurepowershell
+Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+```
 
 ## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>更新用於行動服務推送安裝的帳戶
 

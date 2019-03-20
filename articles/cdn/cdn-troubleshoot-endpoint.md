@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 1cffef5bbda475032ee7ff07188ab0d9d52846ea
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 8c1e463378cc2c1ba3fdc0bcf91f800f634cc5f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077117"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>針對傳回 404 狀態碼的 Azure CDN 端點進行疑難排解
 本文可讓您針對傳回 404 HTTP 回應狀態碼的 Azure 內容傳遞網路 (CDN) 端點問題進行疑難排解。
@@ -73,7 +73,7 @@ ms.locfileid: "33766099"
 #### <a name="http-and-https-ports"></a>HTTP 和 HTTPS 連接埠
 檢查您的 **HTTP** 和 **HTTPS 連接埠**。 在大部分情況下，80 和 443 皆正確，而且您不需要進行任何變更。  不過，如果原始伺服器是透過不同連接埠連接，那麼就必須在這裡表示。 如果您不確定，請檢視來源檔案的 URL。 HTTP 和 HTTPS 規格使用連接埠 80 和 443 作為預設值。 在範例 URL (https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt) 中，未指定連接埠，因此會假設預設值為 443 且設定正確無誤。  
 
-不過，假如您在稍早測試的來源檔案 URL 為 http:\//www.contoso.com:8080/file.txt。 請注意，主機名稱區段結尾的 :8080。 該數字會指示瀏覽器使用連接埠 8080 來連線到位於 www.contoso.com 的 Web 伺服器，因此您必須在 [HTTP 連接埠] 欄位中輸入 8080。 請務必注意，這些連接埠設定只會影響端點用來從來源擷取資訊的連接埠。
+不過，假如您在稍早測試的來源檔案 URL 為 http:\//www.contoso.com:8080/file.txt。 請注意，主機名稱區段結尾的 :8080。 數字會指示瀏覽器來連線到 www 的 web 伺服器使用連接埠 8080\.contoso.com，因此您必須輸入*8080*中**HTTP 連接埠**欄位。 請務必注意，這些連接埠設定只會影響端點用來從來源擷取資訊的連接埠。
 
 > [!NOTE]
 > **來自 Akamai 的標準 Azure CDN** 端點不允許來源的完整 TCP 連接埠範圍。  如需不允許的原始連接埠清單，請參閱 [來自 Akamai 的 Azure CDN 允許的原始連接埠](https://msdn.microsoft.com/library/mt757337.aspx)。  

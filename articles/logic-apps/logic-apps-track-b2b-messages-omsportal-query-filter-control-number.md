@@ -1,5 +1,5 @@
 ---
-title: 在 Log Analytics 中建立 B2B 訊息的追蹤查詢 - Azure Logic Apps | Microsoft Docs
+title: 在 Azure 監視器記錄檔-Azure Logic Apps 中建立 B2B 訊息的追蹤查詢 |Microsoft Docs
 description: 建立查詢，以在適用於 Azure Logic Apps 的 Azure Log Analytics 中追蹤 AS2、X12 和 EDIFACT 訊息
 services: logic-apps
 ms.service: logic-apps
@@ -9,19 +9,21 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 5cfab07e19e543b7a46fcce8f449a46395c144d6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995327"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194906"
 ---
-# <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>在適用於 Azure Logic Apps 的 Azure Log Analytics 中建立 B2B 訊息的追蹤查詢
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Azure 監視器記錄檔中建立 Azure Logic Apps B2B 訊息的追蹤查詢
 
-若要尋找您使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 追蹤的 AS2、X12 或 EDIFACT 訊息，您可以建立查詢，以根據特定準則來篩選動作。 例如，您可以找到根據特定交換控制編號的訊息。
+若要尋找 AS2、 X12 或 EDIFACT 訊息追蹤，搭配[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)，您可以建立篩選器動作，根據特定準則的查詢。 例如，您可以找到根據特定交換控制編號的訊息。
 
 > [!NOTE]
 > 以前，本頁面所描述的是如何使用 Microsoft Operations Management Suite (OMS) 來執行這些工作的步驟，但 OMS 將於 [2019 年 1 月淘汰](../azure-monitor/platform/oms-portal-transition.md)，請改為使用 Azure Log Analytics 來取代這些步驟。 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,7 +31,7 @@ ms.locfileid: "52995327"
 
 * 已設定監視和記錄的整合帳戶。 了解[如何建立整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)和[如何設定該帳戶的監視和記錄](../logic-apps/logic-apps-monitor-b2b-message.md)。
 
-* 如果您還沒有這麼做，請[將診斷資料發佈至 Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)，並[在 Log Analytics 中設定訊息追蹤](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
+* 如果您還[將診斷資料發佈至 Azure 監視器記錄檔](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)並[設定 Azure 監視器記錄檔中追蹤的訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
 
 ## <a name="create-queries-with-filters"></a>建立具有篩選的查詢
 
@@ -53,7 +55,7 @@ ms.locfileid: "52995327"
 1. 在查詢的編輯方塊中，開始輸入您想要尋找的欄位名稱。 當您開始輸入時，查詢編輯器會顯示可能的相符項目以及您可以使用的作業。 在建立查詢後，請選擇 [執行] 或按 Enter 鍵。
 
    此範例會搜尋 **LogicAppB2B** 的相符項目。 
-   深入了解[如何在 Log Analytics 中尋找資料](../log-analytics/log-analytics-log-searches.md)。
+   深入了解[如何在 Azure 監視器記錄檔中尋找資料](../log-analytics/log-analytics-log-searches.md)。
 
    ![開始鍵入查詢字串](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 

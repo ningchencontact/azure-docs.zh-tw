@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 85cb23d865133f2ee769874aa5150ab13e04cd69
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122768"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>使用串流分析工具持續進行整合及開發
 本文說明如何使用適用於 Visual Studio 的 Azure 串流分析工具來設定持續整合及部署程序。
@@ -21,8 +21,8 @@ ms.locfileid: "54410546"
 使用 2.3.0000.0 版或更新版本的[適用於 Visual Studio 的串流分析工具](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)來取得 MSBuild 支援。
 
 提供 NuGet 套件：[Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/)。 它提供的本機執行與部署工具 MSBuild，可針對串流分析 Visual Studio 專案，支援連續整合及部署程序。 
-> [!NOTE] 
-NuGet 套件僅能搭配 2.3.0000.0 或更新版本之適用於 Visual Studio 的串流分析工具使用。 如果您有使用舊版 Visual Studio 工具建立的專案，請直接使用 2.3.0000.0 或更新版本加以開啟並儲存。 接著啟用新功能。 
+> [!NOTE]
+> NuGet 套件僅能搭配 2.3.0000.0 或更新版本之適用於 Visual Studio 的串流分析工具使用。 如果您有使用舊版 Visual Studio 工具建立的專案，請直接使用 2.3.0000.0 或更新版本加以開啟並儲存。 接著啟用新功能。 
 
 如需詳細資訊，請參閱[適用於 Visual Studio 的串流分析工具](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)。
 
@@ -45,8 +45,8 @@ NuGet 套件僅能搭配 2.3.0000.0 或更新版本之適用於 Visual Studio �
 
 parameters.json 檔案中的預設參數來自 Visual Studio 專案中的設定。 如果您想要部署到其他環境，請據以取代參數。
 
-> [!NOTE] 
-對於所有認證，預設值都會設為 null。 部署至雲端之前，「必須」設定這些值。
+> [!NOTE]
+> 對於所有認證，預設值都會設為 null。 部署至雲端之前，「必須」設定這些值。
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {

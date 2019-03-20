@@ -7,22 +7,26 @@ documentationcenter: ''
 author: willzhan
 manager: steveng
 editor: ''
-ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/12/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 710ec72e9867ad180afcae8273a093f48933112a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 290e3aba89cf4add46debc399c06cc136a13771b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852962"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>適用於 iOS 的離線 FairPlay 串流 
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [第 3 版](../latest/offline-fairplay-for-ios.md)
+> * [第 2 版](media-services-protect-hls-with-offline-fairplay.md)
+
  Azure 媒體服務提供一組設計良好的[內容保護服務](https://azure.microsoft.com/services/media-services/content-protection/)，其中涵蓋：
 
 - Microsoft PlayReady (英文)
@@ -116,7 +120,7 @@ if (objDRMSettings.EnableOfflineMode)
 FPS 離線模式支援僅適用於 iOS 10 和更新版本。 FPS Server SDK (3.0 版或更新版本) 包含有關於 FPS 離線模式的文件和範例。 具體來說，FPS Server SDK (3.0 版或更新版本) 包含下列兩個與離線模式相關的項目：
 
 * 文件：《Offline Playback with FairPlay Streaming and HTTP Live Streaming》(使用 FairPlay 串流和 HTTP 即時串流進行離線播放)。 Apple，2016 年 9 月 14 日發行。 在 FPS Server SDK 4.0 版中，這份文件會合併到主要 FPS 文件中。
-* 程式碼範例：FPS 離線模式的 HLSCatalog 範例，位於 \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\。 HLSCatalog 應用程式範例會使用下列程式碼檔案來實作離線模式功能：
+* 示例代码：FPS 離線模式的 HLSCatalog 範例，位於 \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\。 HLSCatalog 應用程式範例會使用下列程式碼檔案來實作離線模式功能：
 
     - AssetPersistenceManager.swift 程式碼檔案：AssetPersistenceManager 是此範例中的主類別，會示範如何進行下列操作：
 
@@ -211,7 +215,7 @@ func requestApplicationCertificate() throws -> Data {
 範例 boot.xml 檔案：
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<HLSMoviePackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
+<HLSMoviePackage xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
   <Version>1.0</Version>
   <HLSMoviePackageType>PersistedStore</HLSMoviePackageType>
   <Streams>

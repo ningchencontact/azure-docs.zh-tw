@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 5ef84f6dbabbfed802a61306eeae09e0b0ccf36f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456160"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848689"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -49,7 +49,7 @@ ms.locfileid: "56456160"
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6、RHEL 7 | 
-| SUSE Linux Enteprise Server | SLES 12 |
+| SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS、Ubuntu Server 16.04 和 Ubuntu Server 18.04 |
 
 
@@ -186,7 +186,7 @@ Access denied
 
 如果您已在網頁瀏覽器中成功完成驗證步驟，系統可能會立即提示您再次登入以全新的使用碼登入。 之所以發生此錯誤，通常是因為您在 SSH 提示字元中指定的登入名稱與您用來登入 Azure AD 的帳戶不相符。 若要更正此問題：
 
-- 確認在 SSH 提示字元中指定的登入名稱正確無誤。 登入名稱若有拼字錯誤，即可能導致您在 SSH 提示字元中指定的登入名稱與您用來登入 Azure AD 的帳戶不相符。 例如，如果您輸入 *azuresuer@contoso.onmicrosoft.com*，而不是 *azureuser@contoso.onmicrosoft.com*。
+- 確認在 SSH 提示字元中指定的登入名稱正確無誤。 登入名稱若有拼字錯誤，即可能導致您在 SSH 提示字元中指定的登入名稱與您用來登入 Azure AD 的帳戶不相符。 例如，您的型別*azuresuer\@contoso.onmicrosoft.com*而非*azureuser\@contoso.onmicrosoft.com*。
 - 如果您有多個使用者帳戶，請確定您在登入 Azure AD 時，並未在瀏覽器視窗中提供不同的使用者帳戶。
 - Linux 是區分大小寫的作業系統。 'Azureuser@contoso.onmicrosoft.com' 和 'azureuser@contoso.onmicrosoft.com' 之間的差異可能會導致不相符。 請確定您在 SSH 提示字元中指定 UPN 時使用的是正確的大小寫設定。
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 4bef785a08d7482468630bc690d6c19b05bdf770
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202957"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
@@ -25,11 +25,11 @@ ms.locfileid: "56338864"
 
 ## <a name="what-are-script-actions"></a>什麼是指令碼動作
 
-指令碼動作是 Azure 在叢集節點上執行以進行組態變更或安裝軟體的 Bash 指令碼。 指令碼動作是依據根權限來執行，並具有叢集節點的完整存取權限。
+脚本操作是 Azure 在群集节点上运行的以进行配置更改或安装软件的 Bash 脚本。 指令碼動作是依據根權限來執行，並具有叢集節點的完整存取權限。
 
-您可以透過下列方法套用指令碼動作︰
+可通过以下方法应用脚本操作：
 
-| 使用此方法來套用指令碼... | 在叢集建立期間... | 在執行中的叢集上... |
+| 使用此方法來套用指令碼... | 在叢集建立期間... | 在运行中的群集上... |
 | --- |:---:|:---:|
 | Azure 入口網站 |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
@@ -225,7 +225,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 下列協助程式可用於您的指令碼：
 
-| 協助程式使用方式 | 說明 |
+| 協助程式使用方式 | 描述 |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |從來源 URI 將檔案下載到指定的檔案路徑中。 根據預設，不會覆寫現有的檔案。 |
 | `untar_file TARFILE DESTDIR` |將 tar 檔案解壓縮 (使用 `-xf`) 至目的地目錄。 |
@@ -233,7 +233,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 | `test_is_datanode` |如果目前節點是資料 (背景工作角色) 節點，則會傳回 1，否則傳回 0。 |
 | `test_is_first_datanode` |如果目前節點是第一個資料 (背景工作角色) 節點 (名為 workernode0)，則會傳回 1，否則傳回 0。 |
 | `get_headnodes` |傳回叢集中前端節點的完整網域名稱。 名稱會以逗號分隔。 發生錯誤時會傳回空字串。 |
-| `get_primary_headnode` |取得主要前端節點的完整網域名稱。 發生錯誤時會傳回空字串。 |
+| `get_primary_headnode` |取得主要前端節點的完整網域名稱。 出错时返回空字符串。 |
 | `get_secondary_headnode` |取得次要前端節點的完整網域名稱。 發生錯誤時會傳回空字串。 |
 | `get_primary_headnode_number` |取得主要前端節點的數字尾碼。 發生錯誤時會傳回空字串。 |
 | `get_secondary_headnode_number` |取得次要前端節點的數字尾碼。 發生錯誤時會傳回空字串。 |
@@ -246,7 +246,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 在某些情況下，您的指令碼可能需要參數。 例如，使用 Ambari REST API 時，您可能需要叢集的系統管理員密碼。
 
-傳遞至指令碼的參數稱為「位置參數」，並且指派至 `$1` 作為第一個參數，指派至 `$2` 作為第二個參數，依此類推。 `$0` 包含指令碼本身的名稱。
+传递给脚本的参数称为“位置参数”，将分配到 `$1` 作为第一个参数，分配到 `$2` 作为第二个参数，依此类推。 `$0` 包含指令碼本身的名稱。
 
 當作參數傳遞給指令碼的值必須以單引號 (') 括住。 這麼做可確保傳遞的值會被視為常值。
 
@@ -260,7 +260,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
     PASSWORD=$1
 
-後續的資訊存取則可以使用 `$PASSWORD`。
+对信息进行后续访问时可以使用 `$PASSWORD`。
 
 在指令碼中設定的環境變數只會存在於指令碼的範圍內。 在某些情況下，您可能需要新增全系統環境變數，這些變數在指令碼完成之後持續存在。 若要新增全系統環境變數，請將變數新增至 `/etc/environment`。 例如，下列陳述式會新增 `HADOOP_CONF_DIR`：
 
@@ -270,7 +270,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>存取自訂指令碼儲存所在位置
 
-用來自訂叢集的指令碼必須儲存在下列其中一個位置︰
+用于自定义群集的脚本需要存储在以下位置之一：
 
 * 與叢集相關聯的 __Azure 儲存體帳戶__。
 
@@ -294,7 +294,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 不同 HDInsight 版本各仰賴特定的 Ubuntu 版本。 您在指令碼中必須檢查的 OS 版本之間可能會有差異。 例如，您可能必須安裝繫結至 Ubuntu 版本的二進位檔。
 
-若要檢查 OS 版本，請使用 `lsb_release`。 例如，下列指令碼示範如何根據 OS 版本來參考特定的 tar 檔案︰
+若要检查 OS 版本，请使用 `lsb_release`。 例如，下列指令碼示範如何根據 OS 版本來參考特定的 tar 檔案︰
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -332,7 +332,6 @@ fi
 Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 請參閱下列連結以取得更多的範例指令碼動作。
 
 * [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)
-* [在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 * [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [在 HDInsight 叢集上安裝或升級 Mono](hdinsight-hadoop-install-mono.md)
 
@@ -340,7 +339,7 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 請�
 
 使用您所開發的指令碼時可能會遇到下列錯誤：
 
-**錯誤**：`$'\r': command not found`。 有時候後面接續 `syntax error: unexpected end of file`。
+错误：`$'\r': command not found`。 有時候後面接續 `syntax error: unexpected end of file`。
 
 *原因*：當指令碼中以 CRLF 作為行尾結束符號時，就會造成此錯誤。 Unix 系統預期只有 LF 當做行尾結束符號。
 

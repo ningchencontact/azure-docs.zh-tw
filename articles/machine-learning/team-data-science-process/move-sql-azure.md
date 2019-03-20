@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 291872ca25b8674528b47e695c0d5135296e3451
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d1634552522a3d1056f9af29386b6ae32754cae0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472740"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834081"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>移動資料至 Azure 機器學習的 Azure SQL Database
 
@@ -39,7 +39,7 @@ ms.locfileid: "55472740"
 * 存取 **Azure SQL Database**。 如果您必須設定 Azure SQL Database， [開始使用 Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) 一文中提供如何佈建 Azure SQL Database 之新執行個體的相關資訊。
 * 已在本機上安裝和設定 **Azure PowerShell** 。 如需指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
-**資料**：移轉程序會使用 [NYC 計程車資料集](http://chriswhong.com/open-data/foil_nyc_taxi/) \(英文\) 進行示範。 在 Azure Blob 儲存體上，NYC 計程車資料集包含且提供有關車程資料與費用的相關資訊：[NYC 計程車資料](http://www.andresmh.com/nyctaxitrips/) \(英文\)。 這些檔案的範例和說明都會在 [NYC 計程車車程資料集說明](sql-walkthrough.md#dataset)中提供。
+**資料**：移轉程序會使用 [NYC 計程車資料集](https://chriswhong.com/open-data/foil_nyc_taxi/) \(英文\) 進行示範。 在 Azure Blob 儲存體上，NYC 計程車資料集包含且提供有關車程資料與費用的相關資訊：[NYC 計程車資料](https://www.andresmh.com/nyctaxitrips/) \(英文\)。 這些檔案的範例和說明都會在 [NYC 計程車車程資料集說明](sql-walkthrough.md#dataset)中提供。
 
 您可以將上述程序調整為自己的資料集，或者遵循上述步驟使用 NYC 計程車資料集。 若要將 NYC 計程車資料集上傳至您的內部部署 SQL Server 資料庫，請遵循[大量匯入資料至 SQL Server 資料庫](sql-walkthrough.md#dbload)中概述的程序進行。 這些指示適用於 Azure 虛擬機器上的 SQL Server，但將資料上傳至內部部署 SQL Server 的程序是相同的。
 

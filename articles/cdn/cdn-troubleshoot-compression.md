@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2a41316eadb43145628d6c625935c751bfbc6ad6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765519"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531519"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 檔案壓縮疑難排解
 這篇文章可協助您針對 [CDN 檔案壓縮](cdn-improve-performance.md)的問題進行疑難排解。
@@ -30,7 +30,7 @@ ms.locfileid: "33765519"
 已為您的端點啟用壓縮，但會傳回未壓縮的檔案。
 
 > [!TIP]
-> 若要檢查傳回的檔案是否會壓縮，您需要使用 [Fiddler](http://www.telerik.com/fiddler) 之類的工具或您瀏覽器的[開發人員工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)。  檢查隨快取的 CDN 內容傳回的 HTTP 回應標頭。  如果名為 `Content-Encoding` 的標頭有 **gzip**、**bzip2** 或 **deflate** 值，內容會進行壓縮。
+> 若要檢查傳回的檔案是否會壓縮，您需要使用 [Fiddler](https://www.telerik.com/fiddler) 之類的工具或您瀏覽器的[開發人員工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)。  檢查隨快取的 CDN 內容傳回的 HTTP 回應標頭。  如果名為 `Content-Encoding` 的標頭有 **gzip**、**bzip2** 或 **deflate** 值，內容會進行壓縮。
 > 
 > ![Content-Encoding 標頭](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -116,6 +116,6 @@ ms.locfileid: "33765519"
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>在原始伺服器中檢查要求的 **Via** 標頭
 **Via** HTTP 標頭會向 Web 伺服器指出正在由 Proxy 伺服器傳遞要求。  Microsoft IIS Web 伺服器預設不會在要求包含 **Via** 標頭時壓縮回應。  若要覆寫這個行為，請執行下列作業︰
 
-* **IIS 6**： [在 IIS Metabase 屬性中設定 HcNoCompressionForProxies="FALSE"](https://msdn.microsoft.com/library/ms525390.aspx)
-* **IIS 7 和更新版本**：[在伺服器組態中將 **noCompressionForHttp10** 和 **noCompressionForProxies** 設定為 False](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**:[設定 HcNoCompressionForProxies ="FALSE"，在 IIS Metabase 屬性](https://msdn.microsoft.com/library/ms525390.aspx)
+* **IIS 7 和最多**:[同時設定**noCompressionForHttp10**並**noCompressionForProxies**設為 False，在 伺服器組態](http://www.iis.net/configreference/system.webserver/httpcompression)
 

@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085145"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>整合 Azure 時間序列深入解析與遠端監視
 
@@ -96,7 +96,8 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
     | IoT 中樞原則名稱 | **iothubowner** 確定所使用的原則是擁有者原則。 |
     | IoT 中樞原則金鑰 | 系統會自動填入此欄位。 |
     | IoT 中樞取用者群組 | **timeseriesinsights** |
-    | 事件序列化格式 | **JSON**     | 時間戳記屬性名稱 | 保留空白 |
+    | 事件序列化格式 | **JSON**     | 
+    | 時間戳記屬性名稱 | 保留空白 |
 
     ![建立事件來源](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 

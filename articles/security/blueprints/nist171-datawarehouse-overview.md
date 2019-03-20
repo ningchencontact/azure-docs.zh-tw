@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: ec608964190c65d8d064582920e53545b9ee62a6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: a1850ecfbb21eb9495bb0e6de362dc8dee3026a2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403997"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242355"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-warehouse-for-nist-sp-800-171"></a>Azure 安全性與合規性藍圖 - 適用於 NIST SP 800-171 的資料倉儲
 
@@ -51,11 +51,10 @@ VM 可作為管理防禦主機使用。 提供可讓系統管理員存取部署�
 - Azure Active Directory
 - Azure 資料目錄
 - Azure 金鑰保存庫
-- Azure 監視器
+- Azure 監視器 （記錄檔）
 - Azure 資訊安全中心
 - Azure Load Balancer
 - Azure 儲存體
-- Azure Log Analytics
 - Azure 虛擬機器
     - (1) 防禦主機
     - (2) Active Directory 網域控制站
@@ -72,13 +71,13 @@ VM 可作為管理防禦主機使用。 提供可讓系統管理員存取部署�
 ## <a name="deployment-architecture"></a>部署架構
 下一節會詳細說明部署和實作元素。
 
-**Azure SQL 資料倉儲**：[SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)是企業資料倉儲，其利用大量平行處理，快速地在數以 PB 計的資料中執行複雜的查詢。 使用者可以使用簡單的 PolyBase T-SQL 查詢將巨量資料匯入 SQL 資料倉儲，然後使用大量平行處理功能來執行高效能分析。
+**Azure SQL 資料倉儲**:[SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)是利用大量平行處理，快速跨多 pb 的資料執行複雜查詢的企業資料倉儲。 使用者可以使用簡單的 PolyBase T-SQL 查詢將巨量資料匯入 SQL 資料倉儲，然後使用大量平行處理功能來執行高效能分析。
 
-**SQL Server Reporting Services**：[SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) 可快速地以資料表、圖表、地圖、量測計、矩陣等形式，為 SQL 資料倉儲建立報表。
+**SQL Server Reporting Services**:[SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs)提供快速建立報表，使用資料表、 圖表、 地圖、 量測計、 矩陣和更高，SQL 資料倉儲。
 
 **Azure 資料目錄**：[資料目錄](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog)能讓管理資料的使用者輕鬆地探索和了解資料來源。 您可以註冊、標記常用資料來源，並在其中搜尋資料。 資料會保留在現有的位置，但其中繼資料的複本會新增至資料目錄。 資料來源位置的參考也包含在內。 此中繼資料會編製索引，透過搜尋輕鬆找到每個資料來源。 編製索引也讓探索資料來源的使用者了解每個資料來源。
 
-**防禦主機**：防禦主機是單一進入點，使用者可用以存取此環境中已部署的資源。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面流量，必須在網路安全性群組中定義該流量的來源。
+**防禦主機**：防禦主機是進入的單一使用者可用來存取已部署的資源，在此環境中點。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面流量，必須在網路安全性群組中定義該流量的來源。
 
 此解決方案會建立 VM，作為具有下列設定之加入網域的防禦主機：
 -   [反惡意程式碼軟體擴充功能](https://docs.microsoft.com/azure/security/azure-security-antimalware)。
@@ -90,7 +89,7 @@ VM 可作為管理防禦主機使用。 提供可讓系統管理員存取部署�
 ### <a name="virtual-network"></a>虛擬網路
 此參考架構會定義位址空間為 10.0.0.0/16 的私人虛擬網路。
 
-**網路安全性群組**：[網路安全性群組 (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 包含能允許或拒絕虛擬網路內流量的存取控制清單。 NSG 可以用來保護子網路或個別 VM 層級的流量。 下列 NSG 已經存在:
+**網路安全性群組**：[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) 包含能允許或拒絕虛擬網路內流量的存取控制清單。 NSG 可以用來保護子網路或個別 VM 層級的流量。 下列 NSG 已經存在:
   - 適用於資料層的 NSG (SQL Server 叢集、SQL Server 見證和 SQL Load Balancer)
   - 適用於管理防禦主機的 NSG
   - 適用於 Active Directory 的 NSG
@@ -98,9 +97,9 @@ VM 可作為管理防禦主機使用。 提供可讓系統管理員存取部署�
 
 每個 NSG 都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，以下設定會針對每個 NSG 啟用：
   - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶。
-  - Log Analytics 會連線至 [NSG 的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)。
+  - Azure 監視器記錄檔連接到[NSG 的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)。
 
-**子網路**：確認每個子網路都與對應的 NSG 建立關聯。
+**子網路**：每個子網路都與其相對應的 NSG 關聯。
 
 ### <a name="data-at-rest"></a>待用資料
 架構會透過多個量值來保護待用資料。 這些量值包括加密和資料庫稽核。
@@ -129,7 +128,7 @@ VM 可作為管理防禦主機使用。 提供可讓系統管理員存取部署�
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 會偵測可能影響您組織身分識別的潛在弱點。 其會為偵測到的組織身分識別相關可疑活動設定自動回應。 連接埠還會調查可疑事件以採取適當動作來解決它們。
 
 ### <a name="security"></a>安全性
-**祕密管理**：解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和祕密。 Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 下列 Key Vault 功能可協助客戶保護資料：
+**祕密管理**：此解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和秘密。 Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 下列 Key Vault 功能可協助客戶保護資料：
 - 進階存取原則是視需要設定的。
 - Key Vault 存取原則是使用金鑰和祕密的最低必要權限所定義的。
 - Key Vault 中的所有金鑰和祕密都有到期日。
@@ -138,9 +137,9 @@ VM 可作為管理防禦主機使用。 提供可讓系統管理員存取部署�
 - 金鑰保存庫的診斷記錄的保留期至少 365 天。
 - 允許的金鑰密碼編譯作業僅限於需要的密碼編譯項目。
 
-**修補程式管理**：根據預設，部署為此參考架構一部分的 Windows VM 會設定為從 Windows Update 服務接收自動更新。 此解決方案也包括 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)服務，您可以透過此服務建立更新的部署，以在有所需要時修補 VM。
+**修補程式管理**：根據預設，從 Windows Update 服務接收自動更新已部署此參考架構的一部分的 Windows Vm。 此解決方案也包括 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)服務，您可以透過此服務建立更新的部署，以在有所需要時修補 VM。
 
-**惡意程式碼防護**：適用於VM 的 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) 提供即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 客戶可以設定警示，在已知的惡意或垃圾軟體嘗試安裝或在受保護的 VM 上執行時產生。
+**惡意程式碼防護**：[Microsoft 反惡意程式碼](https://docs.microsoft.com/azure/security/azure-security-antimalware)vm 提供即時保護功能，能夠協助識別並移除病毒、 間諜軟體及其他惡意軟體。 客戶可以設定警示，在已知的惡意或垃圾軟體嘗試安裝或在受保護的 VM 上執行時產生。
 
 **Azure 資訊安全中心**：客戶可以使用[資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)，在工作負載之間集中套用及管理安全性原則、限制暴露於威脅的程度，以及偵測和回應攻擊。 資訊安全中心也會存取 Azure 服務的現有組態，以提供設定和服務建議，協助改善安全性狀態並保護資料。
 
@@ -151,23 +150,23 @@ VM 可作為管理防禦主機使用。 提供可讓系統管理員存取部署�
 此參考架構也會使用資訊安全中心中的[漏洞評量](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)功能。 設定之後，夥伴代理程式 (例如 Qualys) 會向夥伴的管理平台回報弱點資料。 接著，夥伴的管理平台會提供弱點和健康情況監視資料給資訊安全中心。 客戶可以使用此資訊，快速識別易受攻擊的 VM。
 
 ### <a name="business-continuity"></a>業務持續性
-**高可用性**：伺服器工作負載會組成[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，以協助確保 Azure 中 VM 的高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部 VM 可使用，進而符合 99.95% 的 Azure SLA。
+**高可用性**：伺服器工作負載會分組放入[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)以協助確保 Azure 中 Vm 的高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部 VM 可使用，進而符合 99.95% 的 Azure SLA。
 
-**復原服務保存庫**：[復原服務保存庫](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)可裝載備份資料，並保護此架構中所有 VM 的組態。 客戶可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM。 此流程可加速還原時間。
+**復原服務保存庫**:[復原服務保存庫](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)存放備份資料，並保護的 Vm，在此架構中的所有設定。 客戶可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM。 此流程可加速還原時間。
 
 ### <a name="logging-and-auditing"></a>記錄與稽核
 
 Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
-- **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動器、出現時間和狀態。
+- **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
 - **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、儲存體記錄、Key Vault 稽核記錄，以及 Azure 應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 使用者可設定最多 730 天的保留期限，以符合其特定需求。
 
-**Log Analytics**：這些記錄會合併到 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) 以進行處理、儲存，並從儀表板顯示報告。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別的資料表。 如此一來，所有的資料都能一起分析 (不論其原始來源為何)。 資訊安全中心會與 Log Analytics 整合。 客戶可以使用 Log Analytics 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
+**Azure 監視器記錄**：這些記錄檔會在合併[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)處理、 儲存和儀表板報表。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別的資料表。 如此一來，所有的資料都能一起分析 (不論其原始來源為何)。 資訊安全中心整合了 Azure 監視器記錄檔。 客戶可以使用 Kusto 查詢存取其安全性事件資料，並結合資料與其他服務。
 
-此架構包含下列 Log Analytics [管理解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)：
--   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查方案可定期評估伺服器環境的風險和健全狀況。 其能針對已部署的伺服器基礎結構提供依照優先順序排列的具體建議清單。
+下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)會包含此架構的一部分：
+-   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供依照優先順序排列的具體建議清單。
 - [SQL 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment)：SQL 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供客戶依照優先順序排列的具體建議清單。
 - [代理程式健全狀況](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈。 還會報告沒有回應的代理程式數目和提交作業資料的代理程式數目。
--   [活動記錄分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)：「活動記錄分析」解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
+-   [活動記錄分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)：活動記錄分析解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
 
 **Azure 自動化**：[自動化](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)會儲存、執行和管理 Runbook。 在此解決方案中，Runbook 會協助從 SQL Database 中收集記錄。 客戶可以使用自動化[變更追蹤](https://docs.microsoft.com/azure/automation/automation-change-tracking)解決方案輕鬆地識別環境中的變更。
 

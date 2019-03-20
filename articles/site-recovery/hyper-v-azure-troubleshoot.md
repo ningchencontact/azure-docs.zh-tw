@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 14d763126cccadf8042da79b20d15e5c93a8ce62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094172"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>對 Hyper-V 至 Azure 的複寫和容錯移轉進行疑難排解
 
@@ -28,9 +28,9 @@ ms.locfileid: "55756660"
 3. 確認已在 Hyper-V 主機上執行 Hyper-V 虛擬機器管理服務。
 4. 檢查 Hyper-V-VMMS\Admin 登入虛擬機器時出現的問題。 此記錄檔位於 [應用程式及服務記錄檔] > [Microsoft] > [Windows] 中。
 5. 在客體 VM 上，確認 WMI 已啟用並可供存取。
-  - [了解](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)基本 WMI 測試。
-  - 對 WMI 進行[疑難排解](https://aka.ms/WMiTshooting)。
-  - 對 WMI 指令碼和服務的問題進行[疑難排解](https://technet.microsoft.com/library/ff406382.aspx#H22)。
+   - [了解](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)基本 WMI 測試。
+   - 對 WMI 進行[疑難排解](https://aka.ms/WMiTshooting)。
+   - [疑難排解](https://technet.microsoft.com/library/ff406382.aspx#H22)WMI 指令碼和服務的問題。
 6. 在客體 VM 上，確定所執行的是最新版的 Integration Services。
     - [確認](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)您擁有最新版本。
     - 將 Integration Services [保持](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)為最新狀態。
@@ -41,9 +41,9 @@ ms.locfileid: "55756660"
 
 1. 確定您執行的是[最新版本](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)的 Site Recovery 服務。
 2. 確認複寫是否已暫停：
-  - 在 Hyper-V 管理員主控台中查看 VM 健康狀態。
-  - 如果處於重大狀態，請以滑鼠右鍵按一下 VM > [複寫] > [檢視複寫健康情況]。
-  - 如果複寫已暫停，請按一下 [繼續複寫]。
+   - 在 Hyper-V 管理員主控台中查看 VM 健康狀態。
+   - 如果處於重大狀態，請以滑鼠右鍵按一下 VM > [複寫] > [檢視複寫健康情況]。
+   - 如果複寫已暫停，請按一下 [繼續複寫]。
 3. 確認必要服務都在執行中。 若非如此，請加以重新啟動。
     - 如果您要在不使用 VMM 的情況下複寫 Hyper-V，請確認 Hyper-V 主機正在執行下列服務：
         - 虛擬機器管理服務
@@ -65,10 +65,10 @@ ms.locfileid: "55756660"
 2. 執行[部署規劃分析工具](hyper-v-deployment-planner-run.md)。
 3. 執行分析工具後，請依照[頻寬](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)和[儲存體](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)的建議操作。
 4. 檢查[資料變換限制](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)。 如果您發現某個 VM 的資料變換偏高，請執行下列作業：
-  - 檢查您的 VM 是否要標示為要進行重新同步處理。
-  - 依照[這些步驟](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/)調查變換的來源。
-  - 當 HRL 記錄檔超過可用磁碟空間的 50% 時，即可能發生變換。 如果是這個問題，請為發生此問題的所有 VM 佈建更多儲存空間。
-  - 確認複寫並未暫停。 如果已暫停，則會繼續將變更寫入 HRL 檔案，而導致檔案大小增加。
+   - 檢查您的 VM 是否要標示為要進行重新同步處理。
+   - 依照[這些步驟](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/)調查變換的來源。
+   - 當 HRL 記錄檔超過可用磁碟空間的 50% 時，即可能發生變換。 如果是這個問題，請為發生此問題的所有 VM 佈建更多儲存空間。
+   - 確認複寫並未暫停。 如果已暫停，則會繼續將變更寫入 HRL 檔案，而導致檔案大小增加。
  
 
 ## <a name="critical-replication-state-issues"></a>重大複寫狀態問題
@@ -91,17 +91,17 @@ ms.locfileid: "55756660"
 
 1. 確認已安裝並執行最新版的 Integration Services。  在 Hyper-V 主機上透過提升權限的 PowerShell 提示字元執行下列命令，以檢查是否有可用更新：**get-vm  | select Name, State, IntegrationServicesState**。
 2. 確認 VSS 服務正在執行，且狀態良好：
-    - 若要檢查服務，請登入來賓虛擬機器。 然後，開啟管理員命令提示字元中，並執行下列命令，以檢查是否所有 VSS 寫入器都處於良好的狀態。
-        - **Vssadmin list writers**
-        - **Vssadmin list shadows**
-        - **Vssadmin list providers**
-    - 查看輸出。 如果寫入器處於失敗狀態，執行下列作業：
-        - 在 VM 的應用程式事件記錄中檢查是否有 VSS 作業錯誤。
-    - 嘗試重新啟動下列與失敗的寫入器相關聯的服務：
-        - 磁碟區陰影複製
-         - Azure Site Recovery VSS 提供者
-    - 執行這項操作後，請等待幾個小時，以確認應用程式一致快照集是否已成功產生。
-    - 如果仍無法解決問題，請嘗試重新啟動 VM。 這或許可解決服務處於無回應狀態的問題。
+   - 若要檢查服務，請登入來賓虛擬機器。 然後，開啟管理員命令提示字元中，並執行下列命令，以檢查是否所有 VSS 寫入器都處於良好的狀態。
+       - **Vssadmin list writers**
+       - **Vssadmin list shadows**
+       - **Vssadmin list providers**
+   - 查看輸出。 如果寫入器處於失敗狀態，執行下列作業：
+       - 在 VM 的應用程式事件記錄中檢查是否有 VSS 作業錯誤。
+   - 嘗試重新啟動下列與失敗的寫入器相關聯的服務：
+     - 磁碟區陰影複製
+       - Azure Site Recovery VSS 提供者
+   - 執行這項操作後，請等待幾個小時，以確認應用程式一致快照集是否已成功產生。
+   - 如果仍無法解決問題，請嘗試重新啟動 VM。 這或許可解決服務處於無回應狀態的問題。
 3. 確認您的 VM 中沒有動態磁碟。 應用程式一致快照集不支援此做法。 您可以在「磁碟管理」(diskmgmt.msc) 中進行此檢查。
 
     ![動態磁碟](media/hyper-v-azure-troubleshoot/dynamic-disk.png)

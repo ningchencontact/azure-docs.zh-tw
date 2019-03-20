@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a60f95bc8a98ea15c174f48bc3c3e63eae534d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 88fc78a1263ac4587a98288dc71df26385bc81ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164052"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453638"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 稽核活動參考
 
@@ -66,10 +66,10 @@ Azure AD 中的報告架構包含下列元件：
 |存取權檢閱|更新存取權檢閱|
 |存取權檢閱|更新 Azure AD 存取權檢閱登入狀態|
 |存取權檢閱|更新存取權檢閱郵件通知設定|
-|存取權檢閱|更新存取權檢閱週期計數設定|
-|存取權檢閱|更新存取權檢閱週期持續時間 (以天為單位) 設定|
-|存取權檢閱|更新存取權檢閱週期結束類型設定|
-|存取權檢閱|更新存取權檢閱週期類型設定|
+|存取權檢閱|更新存取權檢閱週期性計數設定|
+|存取權檢閱|更新存取權檢閱週期性持續時間 (天) 設定|
+|存取權檢閱|更新存取權檢閱週期性結束類型設定|
+|存取權檢閱|更新存取權檢閱週期性類型設定|
 |存取權檢閱|更新存取權檢閱提醒設定|
 |存取權檢閱|更新程式|
 |存取權檢閱|更新要求核准|
