@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: 1494ccea1580d7415c6c86f14682ca59ad7124d5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459891"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120358"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>針對匯入/匯出作業開啟支援票證
 
@@ -40,7 +40,7 @@ ms.locfileid: "55459891"
         - 如果您選擇 [Blob]，請選取 [資源]、[容器名稱] (選擇性) 及 [支援方案]。
             ![選擇 [Blob]](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
         - 如果您選擇 [檔案]，請選取 [資源]、[檔案共用名稱] (選擇性) 及[ 支援方案]。![選擇 [檔案]](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
-    4. 按 [下一步] 。
+    4. 单击“下一步”。
 
 3. 在 [新增支援要求] 中，選取 [步驟 2 問題]。 在 [問題] 中，執行下列步驟：
     
@@ -51,20 +51,20 @@ ms.locfileid: "55459891"
     5. 提供問題開始日期與時間。
     6. 在 [檔案上傳] 中，按一下資料夾圖示以瀏覽至任何其他您想要上傳的檔案。
     7. 勾選 [共用診斷資訊]。
-    8. 按 [下一步] 。
+    8. 单击“下一步”。
 
        ![問題](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
 4. 在 [新增支援要求] 中，按一下 [步驟 3 連絡人資訊]。 在 [連絡人資訊] 中，執行下列步驟：
 
-    1. 在 [連絡人選項] 中，提供您偏好的連絡方法 (電話或電子郵件) 以及語言。 會根據您的訂用帳戶方案自動選擇回應時間。
-    2. 在 [連絡人資訊] 中，提供您的姓名、電子郵件、選用連絡方法、國家/地區。 選取 [儲存連絡人變更，以供後續支援要求使用] 核取方塊。
-    3. 按一下頁面底部的 [新增] 。
+   1. 在 [連絡人選項] 中，提供您偏好的連絡方法 (電話或電子郵件) 以及語言。 會根據您的訂用帳戶方案自動選擇回應時間。
+   2. 在 [連絡人資訊] 中，提供您的姓名、電子郵件、選用連絡方法、國家/地區。 選取 [儲存連絡人變更，以供後續支援要求使用] 核取方塊。
+   3. 按一下頁面底部的 [新增] 。
    
-        ![連絡人資訊](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![連絡人資訊](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
-    Microsoft 支援服務會利用此資訊來連絡您，以取得進一步資訊、進行診斷及解決。
-提交您的要求之後，支援工程師會儘速連絡您來處理您的要求。
+      Microsoft 支援服務會利用此資訊來連絡您，以取得進一步資訊、進行診斷及解決。
+      提交您的要求之後，支援工程師會儘速連絡您來處理您的要求。
 
 ## <a name="manage-a-support-request"></a>管理支援要求
 

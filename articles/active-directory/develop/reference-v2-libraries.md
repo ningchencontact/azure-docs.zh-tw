@@ -18,12 +18,12 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 208ef1267571002a90433f0b3febebbb0ea7089a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cf1e7c4acca147020612e6d33d0e72afb4be0865
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173278"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869949"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 驗證程式庫
 
@@ -46,7 +46,7 @@ Azure AD v2.0 端點適用於兩種程式庫類型︰
 程式庫的支援類型有兩種︰
 
 * **Microsoft 支援**：Microsoft 可提供這些程式庫的修正程式，並已完成這些程式庫的 SDL 審查評鑑。
-* **相容**：Microsoft 已在基本案例中測試這些程式庫並確認其使用 v2.0 端點。 Microsoft 不提供這些程式庫的修正程式，且尚未審查這些程式庫。 問題和功能要求應重新導向至程式庫的開放原始碼專案。
+* **相容**：Microsoft 已在基本案例中測試這些程式庫並確認其使用 v2.0 端點。 Microsoft 不提供这些库的修复程序，且尚未审查这些库。 問題和功能要求應重新導向至程式庫的開放原始碼專案。
 
 如需使用 V2.0 端點的程式庫清單，請參閱本文的後面幾節。
 
@@ -54,7 +54,7 @@ Azure AD v2.0 端點適用於兩種程式庫類型︰
 
 用戶端驗證程式庫可用來取得權杖以呼叫受保護的 Web API
 
-| 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考 | 概念文件 | 藍圖 |
+| 平台 | 程式庫 | 下載 | 源代码 | 範例 | 參考 | 概念文件 | 藍圖 |
 | --- | --- | --- | --- | --- | --- | --- | ---|
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js (預覽) | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [單一頁面應用程式](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  | [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)|
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
@@ -73,7 +73,7 @@ Azure AD v2.0 端點適用於兩種程式庫類型︰
 | ![.NET](media/sample-v2-code/logo_NET.png)| 適用於 .NET 的身分識別模型延伸模組| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [MVC 應用程式 (英文)](quickstart-v2-aspnet-webapp.md) |[參考](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
 | ![Node.js](media/sample-v2-code/logo_nodejs.png) | Azure AD Passport |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web 應用程式](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
 
-## <a name="compatible-client-libraries"></a>相容的用戶端程式庫
+## <a name="compatible-client-libraries"></a>兼容的客户端库
 
 | 平台 | 程式庫名稱 | 測試的版本 | 原始程式碼 | 範例 |
 |:---:|:---:|:---:|:---:|:---:|

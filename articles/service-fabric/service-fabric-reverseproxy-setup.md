@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/27/201
+ms.date: 11/13/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 522e9209da5d2df796700dea764270382b1170f5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 8c405941417ad1a4e877cfd8fd0bdb53e186f6d0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102760"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452295"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>安裝及設定 Azure Service Fabric 中的反向 Proxy
 反向 Proxy 是選用的 Azure Service Fabric 服務，可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 HTTP 端點的服務通訊。 如需詳細資訊，請參閱 [Azure Service Fabric 中的反向 Proxy](service-fabric-reverseproxy.md)。 這篇文章會示範如何在叢集中安裝及設定反向 Proxy。 
@@ -47,7 +47,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 您可以在 GitHub 上的[安全反向 Proxy 範例範本](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) \(英文\) 中，找到可幫助您為 Azure 叢集設定安全反向 Proxy 的範例 Resource Manager 範本。 請參閱 README 檔案中的[在安全的叢集中設定 HTTPS 反向 Proxy](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) \(英文\)，以取得使用憑證設定安全反向 Proxy 和處理憑證變換的指示。
 
-針對現有的叢集，您可以使用 [Azure 入口網站](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group)、[PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template) 或 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template) 匯出叢集之資源群組的 Resource Manager 範本。
+針對現有的叢集，您可以使用 [Azure 入口網站](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)、[PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) 或 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) 匯出叢集之資源群組的 Resource Manager 範本。
 
 擁有 Resource Manager 範本後，您可以使用下列步驟來啟用反向 Proxy：
 
@@ -334,7 +334,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 如需更新 Azure 叢集之網狀架構設定的相關詳細資訊，請參閱[使用 Resource Manager 範本自訂叢集設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，請參閱[自訂獨立叢集的叢集設定](service-fabric-cluster-config-upgrade-windows-server.md)。 
 
-多個網狀架構設定用來協助建立反向 Proxy 與服務之間的安全通訊。 如需這些設定的詳細資訊，請參閱[連線到安全服務與反向 Proxy](service-fabric-reverseproxy-configure-secure-communication.md)。
+多個網狀架構設定用來協助建立反向 Proxy 與服務之間的安全通訊。 如需這些設定的詳細資訊，請參閱[連線到安全服務與反向 proxy](service-fabric-reverseproxy-configure-secure-communication.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * [設定透過反向 Proxy 轉送到安全的 HTTP 服務](service-fabric-reverseproxy-configure-secure-communication.md)

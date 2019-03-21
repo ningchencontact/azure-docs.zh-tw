@@ -1,7 +1,7 @@
 ---
 title: 與 Azure SQL Database 連線並使用索引子為內容編製索引 - Azure 搜尋服務
 description: 了解如何為 Azure 搜尋服務中的全文檢索搜尋使用索引子，在 Azure SQL Database 中搜耙資料。 本文涵蓋連線、索引子設定以及資料擷取。
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752887"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315209"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>連線至 Azure SQL Database 並使用 Azure 搜尋服務索引子為內容編製索引
 

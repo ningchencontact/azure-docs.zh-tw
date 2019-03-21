@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 34056b3a562d3110569e05c5c50ae4d9dae2375a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428789"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868131"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>從 HDInsight 上的 Apache Storm 寫入 Apache Hadoop HDFS
 
@@ -39,7 +39,7 @@ ms.locfileid: "56428789"
 * `PATH` - 應該包含下列路徑：
   
     * `JAVA_HOME` (或對等的路徑)。
-    * `JAVA_HOME\bin` (或對等的路徑)。
+    * `JAVA_HOME\bin`（或等效路径）。
     * 已安裝 Maven 的目錄。
 
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>如何搭配 HDInsight 使用 HdfsBolt
@@ -49,9 +49,9 @@ ms.locfileid: "56428789"
 
 HdfsBolt 會使用您提供的檔案配置來了解如何寫入 HDFS。 利用 HDInsight 時，請使用下列其中一項配置：
 
-* `wasb://`：搭配使用 Azure 儲存體帳戶。
-* `abfs://`：搭配 Azure Data Lake Storage Gen2 使用。
-* `adl://`：搭配 Azure Data Lake Storage Gen1 使用。
+* `wasb://`:搭配使用 Azure 儲存體帳戶。
+* `abfs://`:搭配 Azure Data Lake Storage Gen2 使用。
+* `adl://`:搭配 Azure Data Lake Storage Gen1 使用。
 
 下表提供針對不同案例使用檔案配置的範例：
 
@@ -126,11 +126,11 @@ bolts:
 
 此 YAML 會定義下列項目：
 
-* `syncPolicy`：定義檔案何時同步處理/排清到檔案系統。 在此範例中，為每 1000 個 Tuple。
-* `fileNameFormat`：定義寫入檔案時要使用的路徑和檔案名稱模式。 在此範例中，會使用篩選條件在執行階段提供路徑，而檔案的副檔名為 `.txt`。
-* `recordFormat`：定義所寫入檔案的內部格式。 在此範例中，會以 `|` 字元分隔欄位。
-* `rotationPolicy`：定義何時輪替檔案。 在此範例中，不會執行輪替。
-* `hdfs-bolt`：使用舊版元件作為 `HdfsBolt` 類別的設定參數。
+* `syncPolicy`:定義檔案何時同步處理/排清到檔案系統。 在此範例中，為每 1000 個 Tuple。
+* `fileNameFormat`:定義寫入檔案時要使用的路徑和檔案名稱模式。 在此範例中，會使用篩選條件在執行階段提供路徑，而檔案的副檔名為 `.txt`。
+* `recordFormat`:定義所寫入檔案的內部格式。 在此範例中，會以 `|` 字元分隔欄位。
+* `rotationPolicy`:定義何時輪替檔案。 在此範例中，不會執行輪替。
+* `hdfs-bolt`:使用舊版元件作為 `HdfsBolt` 類別的設定參數。
 
 如需有關 Flux 架構的詳細資訊，請參閱 [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)。
 
@@ -146,7 +146,7 @@ bolts:
 
 ## <a name="build-and-package-the-topology"></a>建置和封裝拓撲
 
-1. 從 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 下載範例專案到您的部署環境。
+1. 下載範例專案[ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)至開發環境。
 
 2. 從命令提示字元、終端機或 Shell 工作階段，將目錄變更為所下載專案的根目錄。 若要建置和封裝拓撲，請使用下列命令：
    
@@ -224,5 +224,5 @@ Storm 拓撲會一直執行，直到其停止或叢集遭到刪除為止。 若�
 
 現在，您已了解如何使用 Apache Storm 來寫入 Azure 儲存體和 Azure Data Lake Storage，接下來請探索其他[適用於 HDInsight 的 Apache Storm 範例](apache-storm-example-topology.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

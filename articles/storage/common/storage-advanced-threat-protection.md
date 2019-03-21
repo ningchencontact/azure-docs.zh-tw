@@ -1,32 +1,36 @@
 ---
-title: 監視 Azure 儲存體中的威脅
+title: Azure 儲存體的進階的威脅防護
 description: 設定 Azure 儲存體進階威脅防護來偵測帳戶活動中的異常狀況，並在對您帳戶所進行的嘗試存取可能有害時通知您。
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: ronmat
+ms.date: 03/14/2019
+ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 8b2ca2d5d6418d68cab847df80fc437e468249ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133224"
 ---
-# <a name="azure-storage-advanced-threat-protection"></a>Azure 儲存體進階威脅防護
+# <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階的威脅防護
 
-Azure 儲存體進階威脅防護會偵測帳戶活動中的異常狀況，並在對您帳戶所進行的嘗試存取可能有害時通知您。 這個防護層讓您不需是安全性專家或管理安全性監視系統，就能解決威脅。
+Azure 儲存體的進階的威脅防護提供一層額外的安全智慧，偵測到不尋常且有危害意圖存取或惡意探索儲存體帳戶。 這個防護層讓您不需是安全性專家或管理安全性監視系統，就能解決威脅。 
 
-威脅會經由定義在活動中發生異常狀況時所觸發的安全性警示而浮現出來。 這些警示會與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合，其中包括可疑活動的詳細資料，以及如何調查威脅並進行補救的建議。 
+在活動中的異常狀況發生時，便會觸發安全性警示。  這些安全性警示整合在一起[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)，並也會透過電子郵件傳送給訂用帳戶系統管理員，具有可疑活動和有關如何調查和修復威脅的建議事項的詳細資料。
 
 > [!NOTE]
-> Azure 儲存體進階威脅防護目前僅適用於 Blob 服務。 安全性警示會與 Azure 資訊安全中心整合，並透過電子郵件傳送給訂用帳戶管理員。
+> * Azure 儲存體的進階的威脅防護，目前僅適用於 Blob 儲存體。 
+> * 有關新的定價詳細資料位於[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-pricing)定價頁面上，包括第一次的 30 天免費試用期內的選項。 
+> * Azure 儲存體功能的 ATP 目前不是適用於 Azure government 和主權雲端區域。
 
-Azure 儲存體進階威脅防護會將讀取、寫入和刪除要求的診斷記錄內嵌至 Blob 服務，以用來進行威脅偵測。 若要從進階威脅防護調查警示，您需要[設定診斷記錄](storage-monitor-storage-account.md#configure-logging)來啟用適用於 Blob 服務的所有記錄層級。
+Azure 儲存體的進階的威脅防護內嵌讀取、 寫入和刪除要求，威脅偵測的 Blob 儲存體的診斷記錄的檔。 若要調查的警示，從進階威脅防護，您可以檢視相關的儲存體活動使用儲存體分析記錄。 如需詳細資訊，請參閱如何[設定儲存體分析記錄](storage-monitor-storage-account.md#configure-logging)。
 
-## <a name="set-up-advanced-threat-protection-in-the-portal"></a>在入口網站上設定進階威脅防護
+## <a name="set-up-advanced-threat-protection"></a>設定進階威脅防護 
+
+### <a name="using-the-portal"></a>使用入口網站
 
 1. 在 [https://portal.azure.com](https://portal.azure.com/) 上啟動 Azure 入口網站。
 
@@ -34,18 +38,46 @@ Azure 儲存體進階威脅防護會將讀取、寫入和刪除要求的診斷�
 
 3. 在 [進階威脅防護] 設定刀鋒視窗中
     * **開啟**進階「威脅防護」
-    * 按一下 [儲存]，以儲存新的或更新的進階威脅防護原則。
+    * 按一下 [儲存]，以儲存新的或更新的進階威脅防護原則。 （在映像的價格，例如是僅限用途）。
 
 ![開啟 Azure 儲存體進階威脅防護](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-## <a name="explore-anomalies"></a>探索異常狀況
+### <a name="using-azure-security-center"></a>使用 Azure 資訊安全中心
+當您訂閱的標準層中 Azure 資訊安全中心，進階威脅防護上已設定您的儲存體帳戶。 如需詳細資訊，請參閱[升級至資訊安全中心標準層以增強安全性](https://docs.microsoft.com/azure/security-center/security-center-pricing)。 （在映像的價格，例如是僅限用途）。
+
+![在 ASC 的標準層](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing.png)
+
+### <a name="using-azure-resource-manager-templates"></a>使用 Azure 資源管理員範本
+
+使用 Azure Resource Manager 範本來部署進階威脅防護的 Azure 儲存體帳戶已啟用。
+如需詳細資訊，請參閱 <<c0> [ 儲存體帳戶與進階威脅防護](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/)。
+
+### <a name="using-rest-api"></a>使用 REST API
+使用 Rest API 命令來建立、 更新或取得特定的儲存體帳戶的進階威脅防護設定。
+
+* [進階威脅防護-建立](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
+* [進階威脅防護-取得](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+
+### <a name="using-azure-powershell"></a>使用 Azure PowerShell
+
+使用下列 PowerShell cmdlet:
+
+  * [啟用進階的威脅防護](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [取得進階威脅防護](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+  * [停用進階的威脅防護](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+
+## <a name="explore-security-anomalies"></a>探索安全性異常情況
 
 發生儲存體活動異常狀況時，您會收到電子郵件通知，其中包含可疑安全性事件的相關資訊。 事件的詳細資料包括：
 
-* 異常狀況的性質
+* 異常的本質
 * 儲存體帳戶名稱
-* 儲存體類型
 * 事件時間
+* 儲存體類型
+* 可能的原因 
+* 調查步驟
+* 補救步驟
+
 
 該電子郵件還會提供關於可能原因和建議動作的詳細資料，以協助您調查並減輕潛在威脅。
 
@@ -59,18 +91,54 @@ Azure 儲存體進階威脅防護會將讀取、寫入和刪除要求的診斷�
 
 警示是因為以不尋常且有危害意圖的方式嘗試存取或惡意探索儲存體帳戶而產生的。 這些事件會觸發下列警示：
 
-* **從不尋常的位置存取**：當儲存體帳戶的存取模式變更時，就會觸發此警示。 例如，有人從不尋常的地理位置存取了儲存體帳戶時。 在某些情況下，警示會偵測到合法的動作 (新的應用程式或開發人員維護作業)。 在其他情況下，警示則會偵測惡意動作 (離職員工、外部攻擊者等)。
+### <a name="anomalous-access-pattern-alerts"></a>異常存取模式的警示
 
-* **不尋常的資料擷取**：當儲存體帳戶的資料擷取模式變更時，就會觸發此警示。 例如，如果有人在儲存體帳戶中存取了不尋常的資料數量。 在某些情況下，警示會偵測合法的動作 (維護活動)。 在其他情況下，警示則會偵測惡意動作 (資料外洩/缺口、未經授權的資料傳輸)。
-
-* **不尋常的匿名存取**：當儲存體帳戶的存取模式變更時，就會觸發此警示。 例如，假設有人以匿名方式存取了儲存體帳戶。 在某些情況下，警示會偵測使用公用讀取權限的合法存取。 在其他情況下，警示則會偵測未經授權的存取，該存取會惡意探索對容器及其 Blob 的公用讀取權限。
-
-* **未預期的刪除**：根據儲存體帳戶的歷程記錄分析，當儲存體帳戶中發生一或多個未預期的刪除作業時，就會觸發此警示。 例如，假設有人使用新的應用程式並從新的 IP 位址執行了 *DeleteBlob* 作業。 在某些情況下，警示會偵測合法的動作 (系統管理員在商務旅行時會使用不同的瀏覽器)。 在其他情況下，警示則會偵測惡意動作 (攻擊者刪除資料)。 
+* **從不尋常的位置存取**:儲存體帳戶的存取模式變更時，會觸發此警示。 例如，有人從不尋常的地理位置存取了儲存體帳戶時。
+可能的原因：
+   * 攻擊者存取您的儲存體帳戶
+   * 合法使用者存取您的儲存體帳戶從新的位置
  
-* **存取權限變更**：當儲存體帳戶的存取權限發生未預期的變更時，就會觸發此警示。 例如，假設有人使用新的應用程式並從新的 IP 位址變更了儲存體帳戶的存取權限。 在某些情況下，警示會偵測合法的動作 (系統管理員在商務旅行時會使用不同的瀏覽器)。 在其他情況下，警示則會偵測惡意動作 (例如，攻擊者提高他們已獲存取權之帳戶的權限)。 
+* **應用程式異常**:此警示表示異常的應用程式具有存取此儲存體帳戶。 可能的原因：
+   * 攻擊者存取您使用新的應用程式的儲存體帳戶。
+   * 合法的使用者用新的應用程式/瀏覽器來存取儲存體帳戶。
 
-* **上傳 Azure 雲端服務封裝**：若以非預期方式將 Azure 雲端服務封裝 (*.cspkg* 檔案) 上傳到儲存體帳戶，就會觸發此警示。 例如，假設 *.cspkg* 檔案是從新的 IP 位址上傳的。 在某些情況下，警示會偵測合法的動作。 在其他情況下，警示則會偵測惡意動作 (例如，已上傳雲端服務封裝來準備部署惡意服務)。    
-   
+* **匿名存取**:此警示表示儲存體帳戶的存取模式中的變更。 例如，此帳戶已以匿名方式存取 （也就是說，沒有任何驗證），這是未預期的最新的存取模式，此帳戶上比較。
+可能的原因：
+   * 攻擊者程式碼利用到容器的公用讀取權限。
+   * 合法的使用者或應用程式已使用容器的公用讀取權限。
+
+### <a name="anomalous-extractupload-alerts"></a>異常的擷取/上傳的警示
+
+* **資料外洩**:此警示表示已擷取相較於此儲存體容器上的最近活動的異常大量的資料。 可能的原因：
+   * 攻擊者已從容器擷取大量資料。 (例如： 資料外洩/缺口、 未經授權的資料傳輸)
+   * 合法的使用者或應用程式已從容器擷取不尋常的資料量。 (例如： 維護活動)
+
+* **意外的刪除**:此警示表示一或多個未預期的刪除作業發生在儲存體帳戶中，相較於最近的活動，此帳戶。 可能的原因：
+   * 攻擊者已刪除的資料，從儲存體帳戶。
+   * 合法的使用者執行不尋常的刪除。
+
+* **Azure 雲端服務套件上傳**:此警示表示，Azure 雲端服務封裝 （.cspkg 檔） 已上傳至儲存體帳戶以不尋常的方式，相較於最近的活動，此帳戶。 可能的原因： 
+   * 攻擊者正在部署至 Azure 雲端服務在從儲存體帳戶的惡意程式碼的準備。
+   * 合法的使用者有尚未準備適用於合法的服務部署。
+
+### <a name="suspicious-storage-activities-alerts"></a>儲存體可疑活動警示
+
+* **存取權限變更**:此警示表示此儲存體容器的存取權限，以不尋常的方式有所變更。 可能的原因： 
+   * 攻擊者已變更容器權限以降低其安全性。
+   * 合法使用者已變更容器的權限。
+
+* **存取檢查**:此警示表示儲存體帳戶的存取權限都已經檢查過不尋常的方式，相較於最近的活動，此帳戶。 可能的原因： 
+   * 未來的攻擊，攻擊者已執行探查。
+   * 合法使用者已在儲存體帳戶上執行維護。
+
+* **資料瀏覽**:此警示表示 blob 或容器儲存體帳戶中的都已列舉不尋常的方式，相較於最近的活動，此帳戶。 可能的原因： 
+   * 未來的攻擊，攻擊者已執行探查。
+   * 合法的使用者或應用程式邏輯探索了儲存體帳戶內的資料。
+
+
+
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

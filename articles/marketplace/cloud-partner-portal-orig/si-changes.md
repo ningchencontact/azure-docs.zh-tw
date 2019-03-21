@@ -12,24 +12,36 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 3/3/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ec3784a91f8aeb7f0fedd13c9ab86a844832a578
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 7df96d53b02e80283f263901dc7e26ed4edb947d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805482"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342372"
 ---
-<a name="seller-insights-release-notes"></a>Seller Insights 版本資訊 
-===============================
-(發行日期：2018 年 7 月 28 日)
+# <a name="seller-insights-release-notes"></a>Seller Insights 版本資訊 
+
+(發行日期：2019 年 3 月 1 日)
 
 此文章提供 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)中 Seller Insights 功能變更的相關資訊。
 
+## <a name="release-highlights-for-march-1-2019"></a>發行會反白顯示的 於 2019 年 3 月 1 日
 
-<a name="release-highlights"></a>版本要點
-------------------
+* *客戶趨勢*加入至摘要
+* *前五個客戶*摘要上反映所有的 Azure 訂用帳戶客戶有
+* *正規化使用率趨勢與使用中的 「 訂單 」 趨勢*摘要帳戶移入*一眼的每月訂單*
+* *支出對帳報告*更新
+* *前五個客戶*支出上反映所有的 Azure 訂用帳戶客戶有
+* *使用量報告*更新客戶識別碼
+* *客戶任職*上訂單和使用量會反映所有的 Azure 訂用帳戶客戶有
+
+
+(發行日期：2018 年 7 月 28 日)
+
+## <a name="release-highlights-for-july-28-2018"></a>針對 2018 年 7 月 28 日版本焦點內容
+
 
 -   *預估價格*提供含有貨幣轉換影響的客戶收費檢視。
 -   *預測支出*提供潛在支出的預先檢視。
@@ -37,8 +49,7 @@ ms.locfileid: "48805482"
 -   *每日使用量*提供針對客戶使用量更細微且更佳的見解。
 
 
-<a name="changes-to-data-structure-and-taxonomy"></a>變更資料結構和分類法
---------------------------------------
+### <a name="changes-to-data-structure-and-taxonomy"></a>變更資料結構和分類法
 
 下表列出此版本已新增或大幅變更的計量資訊。 
 

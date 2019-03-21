@@ -1,6 +1,6 @@
 ---
-title: 將 Azure 中的行動服務自動更新至 Azure 災害復原 | Microsoft Docs
-description: 在使用 Azure Site Recovery 複寫 Azure 虛擬機器時，提供自動更新行動服務的概觀。
+title: 在 Azure 至 Azure 災害復原的行動服務的自動更新 |Microsoft Docs
+description: 行動服務使用 Azure Site Recovery 複寫 Azure Vm 時自動更新的概觀。
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,61 +8,61 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 3f0f28ca22321b537ab7e8911c5cbb513a1ade81
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f2467314a4f131b88fc1baf2233ca8ce74d488cb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818918"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548944"
 ---
-# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>將 Azure 中的行動服務自動更新至 Azure 複寫
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>在 Azure 至 Azure 複寫的行動服務的自動更新
 
-Azure Site Recovery 每個月都會發行，可以增強現有功能或者新增新功能，並且會修正任何已知問題。 這表示為了要將服務保持在最新狀態，您必須規劃以每月的頻率部署這些修補程式。 為了避免與升級相關聯的額外負荷，使用者可以改為選擇允許 Site Recovery 來管理元件的更新。 如[架構參考](azure-to-azure-architecture.md)中針對 Azure 到 Azure 災害復原的詳細說明，行動服務會安裝在從一個 Azure 區域將虛擬機器複寫到其他區域時，在上面啟用複寫的所有 Azure 虛擬機器。 一旦您啟用自動更新，行動服務擴充會隨著每個新的版本更新。 這份文件會詳細說明下列事項：
+Azure Site Recovery 會使用每月的發行頻率愈來愈快，修正任何問題，並增強現有的功能或加入新的。 若要保持最新的服務狀態，您必須規劃修補部署每個月。 若要避免每次升級相關聯的額外負荷，您可以改為允許 Site Recovery 管理元件更新。
 
-- 自動更新的運作方式為何？
-- 啟用自動更新
-- 常見問題和疑難排解
+中所述[Azure 至 Azure 災害復原架構](azure-to-azure-architecture.md)，在所有 Azure 虛擬機器 (Vm) 為其啟用複寫時，同時將 Vm 從一個 Azure 區域複寫到另一個安裝行動服務。 當您使用自動更新時，每個新的版本會更新行動服務擴充功能。
  
-## <a name="how-does-automatic-update-work"></a>自動更新的運作方式為何
+## <a name="how-automatic-updates-work"></a>自動更新如何運作
 
-一旦您允許 Site Recovery 管理更新，就會透過自動化帳戶 (建立在與保存庫相同的訂用帳戶中) 部署全域 Runbook (由 Azure 服務使用)。 會將一個自動化帳戶用於特定保存庫。 Runbook 會檢查保存庫中已開啟自動更新的每部虛擬機器，並且在有較新版本可用時，起始行動服務擴充功能升級。 Runbook 的預設排程是在各個複寫虛擬機器地區時區的上午 12:00 點。 Runbook 排程也可以由使用者視需要透過自動化帳戶進行修改。 
+當您使用 Site Recovery 來管理更新時，它會部署透過自動化帳戶，在保存庫位於相同訂用帳戶中建立的全域 runbook （由 Azure 服務）。 每個保存庫會使用一個自動化帳戶。 Runbook 會檢查有作用中的自動更新保存庫中的每個 VM，並升級行動服務擴充功能，如果有可用的較新版本。
+
+預設 runbook 排程重複執行每日上午 12:00 時區的異地複寫的 VM。 您也可以變更 runbook 排程，透過 「 自動化 」 帳戶。
 
 > [!NOTE]
-> 啟用自動更新不需要重新啟動您的 Azure 虛擬機器，也不會影響進行中的複寫。
+> 開啟自動更新，不需要重新啟動您的 Azure Vm，或會影響進行中的複寫。
 
 > [!NOTE]
-> 自動化帳戶所使用作業的計費根據該月所使用的作業執行時間分鐘數，而且 500 分鐘預設包含為自動化帳戶的免費單位。 作業每日執行數量的範圍從**數秒到一分鐘**，並且**涵蓋在免費信用額度中**。
+> 作業中的自動化帳戶的計費根據一個月中使用的作業執行階段分鐘數。 根據預設，500 分鐘的時間是作為內容的自動化帳戶的免費單位。 執行作業需要幾秒鐘的時間約一分鐘每一天，並涵蓋為免費單位。
 
-FREE UNITS INCLUDED (PER MONTH)**   PRICE Job run time    500 minutes ₹0.14/minute
+| 包含免費單位 （每個月） | 價格 |
+|---|---|
+| 500 分鐘作業執行階段 | ₹0.14 / 分鐘
 
 ## <a name="enable-automatic-updates"></a>啟用自動更新
 
-您可以選擇允許 Site Recovery 透過下列方式管理更新：
+您可以允許 Site Recovery，以下列方式管理更新。
 
-- [在啟用複寫步驟的過程](#as-part-of-the-enable-replication-step)
-- [切換保存庫內的擴充功能更新設定](#toggle-the-extension-update-settings-inside-the-vault)
+### <a name="manage-as-part-of-the-enable-replication-step"></a>[啟用複寫] 步驟的一部分管理
 
-### <a name="as-part-of-the-enable-replication-step"></a>在啟用複寫步驟的過程：
+當您啟用 VM 的複寫可能從[從 VM 檢視](azure-to-azure-quickstart.md)或是[從復原服務保存庫](azure-to-azure-how-to-enable-replication.md)，您就可以允許 Site Recovery，以管理 Site Recovery 延伸模組的更新或管理它以手動的方式。
 
-當您從[虛擬機器檢視](azure-to-azure-quickstart.md)或[復原服務保存庫](azure-to-azure-how-to-enable-replication.md)開始為虛擬機器啟用複寫時，您可以選擇允許 Site Recovery 管理 Site Recovery 擴充功能的更新，或者選擇手動管理更新。
-
-![enable-replication-auto-update](./media/azure-to-azure-autoupdate/enable-rep.png)
+![延伸模組設定](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>切換保存庫內的擴充功能更新設定
 
-1. 在保存庫內，瀏覽至 [管理] ->  [Site Recovery 基礎結構]
-2. 在 [針對 Azure 虛擬機器] ->  [擴充功能更新設定] 底下，按一下切換以選擇您要允許「ASR 管理更新」或「手動管理」。 按一下 [檔案] 。
+1. 在保存庫，請移至**管理** > **Site Recovery 基礎結構**。
+2. 底下**適用於 Azure 虛擬機器** > **延伸模組更新設定**，開啟**允許 Site Recovery 管理**切換。 若要手動管理，將它關閉。 
+3. 選取 [ **儲存**]。
 
-![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![延伸模組更新設定](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
-> [!Important] 
-> 當您選擇「允許 ASR 管理」時，會將設定套用到對應保存庫中的所有虛擬機器。
+> [!Important]
+> 當您選擇**允許 Site Recovery 管理**，設定會套用到對應的保存庫中的所有 Vm。
 
 
-> [!Note] 
-> 這兩個選項都會通知您管理更新所用的自動化帳戶。 如果您是第一次在保存庫中啟用這個功能，則將會建立新的自動化帳戶。 相同保存庫中所有後續啟用複寫將會使用先前建立的帳戶。
+> [!Note]
+> 其中一個選項會通知您用來管理更新的自動化帳戶。 如果您使用這項功能在保存庫中第一次，則會建立新的自動化帳戶。 在相同的保存庫中的所有後續的啟用複寫會使用先前建立的一個。
 
-**若想使用自訂自動化帳戶，請使用下方指令碼：-**
+對於自訂的自動化帳戶，使用下列指令碼：
 
 ```azurepowershell
 param(
@@ -452,7 +452,7 @@ try
                 $JobsInProgressListInternal += $JobAsyncUrl
             }
 
-            # Rate controlling the get calls to maximum 120 calls per minute.
+            # Rate controlling the get calls to maximum 120 calls each minute.
             # ASR throttling for get calls is 10000 in 60 minutes.
             Start-Sleep -Milliseconds 500
         }
@@ -499,38 +499,35 @@ elseif($JobsCompletedSuccessList.Count -ne $ContainerMappingList.Count)
 Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -DisplayMessageToUser
 ```
 
-### <a name="manage-manually"></a>手動管理
+### <a name="manage-updates-manually"></a>手動管理更新
 
-1. 如果有新的更新可用於 Azure VM 上安裝的行動服務，您會看到一則通知上寫著「有新的 Site Recovery 複寫代理程式更新可用。 按一下以安裝」的通知。
+1. 如果有新的更新，在您的 Vm 上安裝行動服務，您會看到下列通知：「 新的 Site recovery 複寫代理程式更新可用。 按一下以安裝 」
 
      ![[複寫的項目] 視窗](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
-3. 選取該通知以開啟虛擬機器選取頁面。
-4. 選取要升級行動服務的虛擬機器，然後選取 [確定]。
+2. 選取通知以開啟 VM 的 [選取] 頁面。
+3. 選擇您想要升級，然後選取的 Vm**確定**。 更新行動服務會開始針對每個選取的 VM。
 
      ![複寫的項目 VM 清單](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-「更新行動服務」會針對每個選取的虛擬機器啟動作業。
 
+## <a name="common-issues-and-troubleshooting"></a>常見的問題與疑難排解
 
-## <a name="common-issues--troubleshooting"></a>常見問題和疑難排解
+如果沒有自動更新發生問題，您會看到錯誤通知下的**組態問題**保存庫儀表板中。
 
-如果自動更新有問題，您會在保存庫儀表板中的 [組態問題] 底下收到相同的通知。 
+如果您無法啟用自動更新，請參閱下列的常見錯誤及建議的動作：
 
-如果您嘗試啟用自動更新而失敗，請參閱下方項目以進行疑難排解。
+- **錯誤**：您無權建立 Azure 執行身分帳戶 (服務主體)，也無權將參與者角色授與服務主體。
 
-**錯誤**：您無權建立 Azure 執行身分帳戶 (服務主體)，也無權將參與者角色授與服務主體。 
-- 建議的動作：確定登入的帳戶獲得指派「參與者」，然後再次嘗試作業。 如需指派正確權限的進一步資訊，請參閱[本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)文件。
+   **建議的動作**:請確定登入的帳戶，則會指派為參與者，並再試一次。 中的必要權限 」 一節所指[使用入口網站建立 Azure AD 應用程式和服務主體可存取資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)如需有關指派權限。
  
-一旦開啟自動更新，只需要按一下 [修復] 按鈕，大部分的問題都可以由 Site Recovery 服務修復。
+   若要啟用自動更新之後，請修正大部分的問題，請選取**修復**。 如果 [修復] 按鈕無法使用，請參閱 [延伸模組更新設定] 窗格中顯示的錯誤訊息。
 
-![repair-button](./media/azure-to-azure-autoupdate/repair.png)
+   ![站台復原服務修復] 按鈕，在 [延伸模組更新設定](./media/azure-to-azure-autoupdate/repair.png)
 
-萬一 [修復] 按鈕無法使用，請參閱擴充功能設定窗格底下顯示的錯誤訊息。
+- **錯誤**：執行身分帳戶沒有存取復原服務資源的權限。
 
- - **錯誤**：執行身分帳戶沒有存取復原服務資源的權限。
-
-    **建議的動作：** 刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)，或確定自動化執行身分帳戶的 Azure Active Directory 應用程式具有復原服務資源的存取權。
+    **建議的動作**:刪除，然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)。 或者，請確定自動化執行身分帳戶的 Azure Active Directory 應用程式具有復原服務資源的存取權。
 
 - **錯誤**：找不到執行身分帳戶。 下列其中一個項目已刪除或未建立：Azure Active Directory 應用程式、服務主體、角色、自動化憑證資產、自動化連線資產，或憑證與連線之間的指紋不相同。 
 
-    **建議的動作：** 刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)。
+    **建議的動作**:刪除，然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)。

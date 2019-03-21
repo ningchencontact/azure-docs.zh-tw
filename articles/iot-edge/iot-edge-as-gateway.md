@@ -4,17 +4,17 @@ description: 使用 Azure IoT Edge 來建立透明、不透明或 Proxy 閘道�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e0aafc6e5a6926ad70aa5df335f45b841955cab9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092276"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877584"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>如何使用 IoT Edge 裝置作為閘道
 
@@ -54,4 +54,4 @@ IoT 解決方案中的閘道會針對 IoT 裝置提供裝置連線能力和邊�
 使用不透明的閘道 (通訊協定轉譯) 模式時，所有透過該閘道連線的裝置會共用相同的雲端到裝置佇列，其中可以包含最多 50 則訊息。 因此，不透明閘道模式應僅在少數裝置透過每個現場閘道連線，及其雲端到裝置流量較低時使用。
 
 ## <a name="next-steps"></a>後續步驟
-了解如何設定 IoT Edge 裝置作為[透明閘道](how-to-create-transparent-gateway-linux.md)。
+了解如何設定 IoT Edge 裝置作為[透明閘道](how-to-create-transparent-gateway.md)。

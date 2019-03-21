@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 8b5b56e39e1b9830d5b998ace2a384d6878cd510
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 6ed968b1613a96a2f4ab449c7b52488e066a38ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041810"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991813"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中進行線上備份及隨選資料還原
 
@@ -20,11 +20,18 @@ Azure Cosmos DB 會自動地定期備份您的資料。 自動備份的進行不
 
 ## <a name="automatic-and-online-backups"></a>自動的線上備份
 
-有了 Azure Cosmos DB，不只您的資料，還有資料的備份都一併具有高度備援性，可針對區域性災害進行復原。 系統目前會每四個小時進行一次自動化備份，並隨時儲存最新的兩個備份。 如果您不小心刪除或損毀資料，請在八小時內連絡 [Azure 支援](https://azure.microsoft.com/support/options/)，這樣 Azure Cosmos DB 小組才能協助您從備份還原資料。
+有了 Azure Cosmos DB，不只您的資料，還有資料的備份都一併具有高度備援性，可針對區域性災害進行復原。 以下步骤演示 Azure Cosmos DB 如何执行数据备份：
 
-備份的進行不會影響應用程式的效能或可用性。 Azure Cosmos DB 會在背景中執行資料備份，既不會取用任何另外佈建的輸送量 (RU)，也不會影響資料庫的效能和可用性。
+* Azure Cosmos DB 每 4 小时自动备份数据库一次，在任何时间点都只存储最新的 2 个备份。 不過，如果容器或資料庫已刪除，Azure Cosmos DB 只會將指定容器或資料庫的現有快照集保留 30 天。
 
-Azure Cosmos DB 會將自動備份儲存在 Azure Blob 儲存體中，實際的資料則位於 Azure Cosmos DB 本機內。 為了保證低延遲，系統會將備份的快照集儲存在 Azure Blob 儲存體中，此儲存體的所在區域和 Cosmos DB 資料庫帳戶目前的寫入區域 (如果您有多重主機組態，則為其中一個寫入區域) 相同。 為了從區域性災害中復原，系統會再透過異地備援儲存體 (GRS)，將 Azure Blob 儲存體中的每個備份資料快照集複寫到另一個區域。 至於會將備份複寫到哪個區域，則取決於來源區域以及與來源區域相關聯的區域配對。 若要深入了解，請參閱 [Azure 區域的異地備援配對清單](../best-practices-availability-paired-regions.md)一文。 您無法直接存取此備份。 只有在起始了備份還原時，Azure Cosmos DB 才會使用此備份。
+* Azure Cosmos DB 将这些备份存储在 Azure Blob 存储中，而实际数据以本地形式驻留在 Azure Cosmos DB 中。
+
+*  为了保证低延迟，备份的快照存储在 Azure Blob 存储中，且所在区域与 Azure Cosmos 数据库帐户的当前写入区域（如果有多主数据库配置，则为其中一个写入区域）相同。 為了從區域性災害中復原，系統會再透過異地備援儲存體 (GRS)，將 Azure Blob 儲存體中的每個備份資料快照集複寫到另一個區域。 至於會將備份複寫到哪個區域，則取決於來源區域以及與來源區域相關聯的區域配對。 若要深入了解，請參閱 [Azure 區域的異地備援配對清單](../best-practices-availability-paired-regions.md)一文。 您無法直接存取此備份。 只有在起始了備份還原時，Azure Cosmos DB 才會使用此備份。
+
+* 備份的進行不會影響應用程式的效能或可用性。 Azure Cosmos DB 會在背景中執行資料備份，既不會取用任何另外佈建的輸送量 (RU)，也不會影響資料庫的效能和可用性。
+
+* 如果意外删除或损坏了数据，则应在 8 小时内联系 [Azure 支持](https://azure.microsoft.com/support/options/)，以便 Azure Cosmos DB 团队帮助你从备份中还原数据。
+
 下圖顯示三個主要實體分割區都在美國西部的 Azure Cosmos 容器，會備份到美國西部的遠端 Azure Blob 儲存體帳戶，然後再複寫到美國東部：
 
 ![GRS Azure 儲存體中所有 Cosmos DB 實體的定期完整備份](./media/online-backup-and-restore/automatic-backup.png)

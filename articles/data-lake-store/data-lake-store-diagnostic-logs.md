@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966070"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959573"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>存取 Azure Data Lake Storage Gen1 的診斷記錄
 了解如何啟用 Azure Data Lake Storage Gen1 帳戶的診斷記錄，以及如何檢視針對您帳戶收集的記錄。
@@ -46,7 +46,7 @@ ms.locfileid: "52966070"
         
         * 選取 [串流至事件中樞] 選項可將記錄資料串流到 Azure 事件中樞。 如果您有即時分析內送記錄的下游處理管線，很可能會使用這個選項。 如果您選取此選項，必須提供要使用的 Azure 事件中樞詳細資料。
 
-        * 選取 [傳送至 Log Analytics] 選項可使用 Azure Log Analytics 服務來分析產生的記錄資料。 如果您選取此選項，必須提供要用來執行記錄分析的 Log Analytics 工作區詳細資料。 如需使用 Log Analytics 的詳細資料，請參閱[檢視或分析以 Log Analytics 記錄搜尋所收集的資料](../azure-monitor/learn/tutorial-viewdata.md)。
+        * 選取的選項**傳送至 Log Analytics**若要使用 Azure 監視器服務分析產生的記錄資料。 如果您選取此選項，必須提供要用來執行記錄分析的 Log Analytics 工作區詳細資料。 請參閱[檢視或分析以 Azure 監視器的記錄搜尋所收集的資料](../azure-monitor/learn/tutorial-viewdata.md)如需有關使用 Azure 監視器記錄檔。
      
    * 指定要取得稽核記錄、要求記錄或兩者。
    * 指定的資料的保留天數。 只有在您使用 Azure 儲存體帳戶來封存記錄資料時，才適用保留期。
@@ -113,7 +113,7 @@ ms.locfileid: "52966070"
     }
 
 #### <a name="request-log-schema"></a>要求記錄的結構描述
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | 分析 |字串 |記錄的時間戳記 (UTC 時間) |
 | ResourceId |字串 |作業發生之資源的識別碼 |
@@ -126,7 +126,7 @@ ms.locfileid: "52966070"
 | properties |JSON |如需詳細資料，請參閱下文 |
 
 #### <a name="request-log-properties-schema"></a>要求記錄屬性結構描述
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | HttpMethod |字串 |作業使用的 HTTP 方法。 例如，GET。 |
 | Path |字串 |執行作業的所在路徑 |
@@ -160,7 +160,7 @@ ms.locfileid: "52966070"
     }
 
 #### <a name="audit-log-schema"></a>稽核記錄的結構描述
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | 分析 |字串 |記錄的時間戳記 (UTC 時間) |
 | ResourceId |字串 |作業發生之資源的識別碼 |
@@ -173,12 +173,12 @@ ms.locfileid: "52966070"
 | properties |JSON |如需詳細資料，請參閱下文 |
 
 #### <a name="audit-log-properties-schema"></a>稽核記錄屬性結構描述
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | StreamName |字串 |執行作業的所在路徑 |
 
 ## <a name="samples-to-process-the-log-data"></a>處理記錄資料的範例
-將記錄從 Azure Data Lake Storage Gen1 傳送至 Azure Log Analytics 時 (如需使用 Log Analytics 的詳細資料，請參閱[檢視或分析以 Log Analytics 記錄搜尋所收集的資料](../azure-monitor/learn/tutorial-viewdata.md))，下列查詢將會傳回資料表，其中包含使用者顯示名稱清單、事件時間，以及事件時間與視覺化圖表的事件計數。 您可以輕鬆地進行修改，以顯示使用者 GUID 或其他屬性：
+當從 Azure Data Lake 儲存體 Gen1 傳送記錄到 Azure 監視器記錄檔 (請參閱[檢視或分析以 Azure 監視器的記錄搜尋所收集的資料](../azure-monitor/learn/tutorial-viewdata.md)如需有關使用 Azure 監視器記錄)，下列查詢會傳回一個資料表，其中包含清單中的使用者顯示名稱、 事件的時間與事件的計數與視覺化圖表事件的時間。 您可以輕鬆地進行修改，以顯示使用者 GUID 或其他屬性：
 
 ```
 search *
@@ -189,7 +189,7 @@ search *
 
 Azure Data Lake Storage Gen1 會提供有關如何處理和分析記錄資料的範例。 您可以在 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) 找到範例。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
 * [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
 

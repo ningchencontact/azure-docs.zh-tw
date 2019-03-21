@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 739780bedc701cc63747db6100242d0d6cad6085
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340043"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542670"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自訂配置原則
 
@@ -90,7 +90,7 @@ ms.locfileid: "53340043"
 
 在本節中，您將建立使用自訂配置原則的新註冊群組。 為了簡單起見，本文將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
 
 2. 選取 [管理註冊] 索引標籤，然後按一下頁面頂端的 [新增註冊群組] 按鈕。 
 
@@ -555,7 +555,7 @@ ms.locfileid: "53340043"
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入了解如何重新佈建，請參閱 [IoT 中樞裝置重新佈建的概念](concepts-device-reprovision.md) 
-- 若要深入了解如何取消佈建，請參閱[如何取消佈建先前自動佈建的裝置](how-to-unprovision-devices.md) 
+- 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md) 
 
 
 

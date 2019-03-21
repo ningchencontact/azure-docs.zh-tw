@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108792"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 監視、計量和警示
 
@@ -43,18 +43,18 @@ ms.locfileid: "53091759"
 
 1. 若要設定警示，請瀏覽至 [Azure 監視器]，然後按一下 [警示]。
 
-  ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. 按一下 [+ 選取目標]，然後選取 ExpressRoute 閘道連線資源。
 
-  ![目標]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![目標]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. 定義警示詳細資料。
 
-  ![動作群組](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![動作群組](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. 定義和新增動作群組。
 
-  ![新增動作群組](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![新增動作群組](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>以每個對等互連為基礎的警示
 

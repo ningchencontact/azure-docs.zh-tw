@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7e218cea543b48371647531cf6d62d8c10a07978
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230745"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544628"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>將資料從 Azure 儲存體 Blob 複製到 Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 * **Azure 儲存體 Blob** 容器 (其中含有一些資料)。
 * **Azure Data Lake Storage Gen1 帳戶**。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure Data Lake Analytics 帳戶 (選用)** - 如需如何建立 Data Lake Analytics 帳戶的指示，請參閱[開始使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)。
-* **AdlCopy 工具**。 從 [http://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy) 安裝 AdlCopy 工具。
+* **AdlCopy 工具**。 從 [https://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy) 安裝 AdlCopy 工具。
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>AdlCopy 工具的語法
 利用下列語法來使用 AdlCopy 工具
@@ -52,7 +52,7 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 
 以下將說明語法中的參數：
 
-| 選項 | 說明 |
+| 選項 | 描述 |
 | --- | --- |
 | 來源 |指定來源資料在 Azure 儲存體 Blob 中的位置。 來源可以是 Blob 容器、Blob 或其他 Data Lake Storage Gen1 帳戶。 |
 | Dest |指定要複製的 Data Lake Storage Gen1 目的地。 |

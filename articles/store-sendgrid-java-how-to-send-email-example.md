@@ -14,19 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421942"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442456"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件
-下列範例將說明如何從 Azure 代管的網頁上使用 SendGrid 傳送電子郵件。 產生的應用程式會提示使用者提供電子郵件值，如下列螢幕擷取畫面所示。
+下列範例將說明如何從 Azure 代管的網頁上使用 SendGrid 傳送電子郵件。 產生的應用程式會提示使用者輸入電子郵件值，如下列螢幕擷取畫面所示。
 
 ![Email form][emailform]
 
-產生的電子郵件將會類似下列螢幕擷取畫面。
+產生的電子郵件會看起來會類似下列螢幕擷取畫面。
 
 ![Email message][emailsent]
 
@@ -204,7 +204,7 @@ ms.locfileid: "52421942"
     </body>
     </html>
 
-除了傳送電子郵件以外，emailform.jsp 也會將結果提供給使用者，如下列螢幕擷取畫面所示：
+除了傳送電子郵件，emailform.jsp，請提供使用者; 的結果舉例來說，下列螢幕擷取畫面：
 
 ![Send mail result][emailresult]
 

@@ -3,7 +3,7 @@ title: 設定 TLS 相互驗證 - Azure App Service
 description: 了解如何設定應用程式在 TLS 上使用用戶端憑證驗證。
 services: app-service
 documentationcenter: ''
-author: naziml
+author: cephalin
 manager: erikre
 editor: jimbe
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
@@ -12,54 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
-ms.author: naziml
+ms.date: 02/22/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650392"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671959"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>如何為 Azure App Service 設定 TLS 相互驗證
-## <a name="overview"></a>概觀
-為 Azure App Service 應用程式啟用不同類型的驗證，即可限制其存取。 這樣做的其中一種方法是要求透過 TLS/SSL 時使用用戶端憑證進行驗證。 這項機制稱為 TLS 相互驗證或用戶端憑證驗證，本文將詳細說明如何設定應用程式使用用戶端憑證驗證。
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>为 Azure 应用服务配置 TLS 相互身份验证
 
-> **附註：** 如果您透過 HTTP 存取您的網站，而非 HTTPS，將不會收到任何用戶端憑證。 因此如果您的應用程式需要用戶端憑證，請勿允許透過 HTTP 傳入您應用程式的要求。
-> 
-> 
+為 Azure App Service 應用程式啟用不同類型的驗證，即可限制其存取。 若要实现此目的，一种方法是通过 TLS/SSL 发送客户端请求时请求客户端证书，然后验证该证书。 此机制称为 TLS 相互身份验证或客户端证书身份验证。 本文介绍如何将应用设置为使用客户端证书身份验证。
 
-## <a name="configure-app-service-for-client-certificate-authentication"></a>設定 App Service 進行用戶端憑證驗證
-若要設定應用程式要求用戶端憑證，則您需要為應用程式新增 clientCertEnabled 網站設定，並將它設定為 true。 此設定也可以設定於 Azure 入口網站的 [SSL 憑證] 刀鋒視窗中。
+> [!NOTE]
+> 如果您透過 HTTP 存取您的網站，而非 HTTPS，將不會收到任何用戶端憑證。 因此，如果应用程序需要客户端证书，则你不应允许通过 HTTP 对应用程序发出请求。
+>
 
-您可以使用 [ARMClient 工具](https://github.com/projectkudu/ARMClient) ，輕鬆地製作 REST API 呼叫。 使用此工具登入之後，需要發出下列命令：
+## <a name="enable-client-certificates"></a>启用客户端证书
 
-    ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
+若要将应用设置为要求提供客户端证书，需要将应用的 `clientCertEnabled` 设置指定为 `true`。 若要設定的設定，請執行下列命令[Cloud Shell](https://shell.azure.com)。
 
-將 {} 中的所有內容取代為您 應用程式的資訊，並使用下列 JSON 內容建立稱為 enableclientcert.json 的檔案：
+```azurecli-interactive
+az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+```
 
-    {
-        "location": "My App Location",
-        "properties": {
-            "clientCertEnabled": true
-        }
-    }
+## <a name="access-client-certificate"></a>访问客户端证书
 
-請務必將 "location" 的值變更為您 應用程式所在的位置 (例如美國中北部或美國西部等)。
+在应用服务中，请求的 SSL 终端是在前端负载均衡器上发生的。 在[已启用客户端证书](#enable-client-certificates)的情况下将请求转发到应用代码时，应用服务会注入包含客户端证书的 `X-ARR-ClientCert` 请求标头。 应用服务不会对此客户端证书执行任何操作，而只会将它转发到你的应用。 应用代码负责验证客户端证书。
 
-您也可以使用 https://resources.azure.com，將 `clientCertEnabled` 屬性翻轉為 `true`。
+对于 ASP.NET，可以通过 **HttpRequest.ClientCertificate** 属性提供客户端证书。
 
-> **附註：** 如果您從 Powershell 執行 ARMClient，您必須使用重音符 ` 為 JSON 檔案逸出 \@ 符號。
-> 
-> 
+对于其他应用程序堆栈（Node.js、PHP 等），可以通过 `X-ARR-ClientCert` 请求标头中的 base64 编码值在应用中提供客户端证书。
 
-## <a name="accessing-the-client-certificate-from-app-service"></a>從 App Service 存取用戶端憑證
-如果您使用 ASP.NET，並將您的應用程式設定為使用用戶端憑證，便可透過 **HttpRequest.ClientCertificate** 屬性取得憑證。 若為其他應用程式堆疊，您則可透過「X-ARR-ClientCert」要求標頭中的 base64 編碼值取得用戶端憑證。 您的應用程式可以從這個值建立憑證，然後將它用於您應用程式中的驗證和授權用途。
+## <a name="aspnet-sample"></a>ASP.NET 示例
 
-## <a name="special-considerations-for-certificate-validation"></a>憑證驗證的特殊考量
-Azure App Service 平台不會對傳送給應用程式的用戶端憑證進行任何驗證。 驗證此憑證是應用程式的責任。 以下是基於驗證而驗證憑證內容的範例 ASP.NET 程式碼。
-
+```csharp
     using System;
     using System.Collections.Specialized;
     using System.Security.Cryptography.X509Certificates;
@@ -175,22 +164,53 @@ Azure App Service 平台不會對傳送給應用程式的用戶端憑證進行�
                 // 4. Check thumprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
-                // If you also want to test if the certificate chains to a Trusted Root Authority you can uncomment the code below
-                //
-                //X509Chain certChain = new X509Chain();
-                //certChain.Build(certificate);
-                //bool isValidCertChain = true;
-                //foreach (X509ChainElement chElement in certChain.ChainElements)
-                //{
-                //    if (!chElement.Certificate.Verify())
-                //    {
-                //        isValidCertChain = false;
-                //        break;
-                //    }
-                //}
-                //if (!isValidCertChain) return false;
-
                 return true;
             }
         }
     }
+```
+
+## <a name="nodejs-sample"></a>Node.js 示例
+
+以下 Node.js 示例代码获取 `X-ARR-ClientCert` 标头，并使用 [node-forge](https://github.com/digitalbazaar/forge) 将 base64 编码的 PEM 字符串转换为证书对象，然后验证该对象：
+
+```javascript
+import { NextFunction, Request, Response } from 'express';
+import { pki, md, asn1 } from 'node-forge';
+
+export class AuthorizationHandler {
+    public static authorizeClientCertificate(req: Request, res: Response, next: NextFunction): void {
+        try {
+            // Get header
+            const header = req.get('X-ARR-ClientCert');
+            if (!header) throw new Error('UNAUTHORIZED');
+
+            // Convert from PEM to pki.CERT
+            const pem = `-----BEGIN CERTIFICATE-----${header}-----END CERTIFICATE-----`;
+            const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
+
+            // Validate certificate thumbprint
+            const fingerPrint = md.sha1.create().update(asn1.toDer((pki as any).certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
+            if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate time validity
+            const currentDate = new Date();
+            if (currentDate < incomingCert.validity.notBefore || currentDate > incomingCert.validity.notAfter) throw new Error('UNAUTHORIZED');
+
+            // Validate issuer
+            if (incomingCert.issuer.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate subject
+            if (incomingCert.subject.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            next();
+        } catch (e) {
+            if (e instanceof Error && e.message === 'UNAUTHORIZED') {
+                res.status(401).send();
+            } else {
+                next(e);
+            }
+        }
+    }
+}
+```

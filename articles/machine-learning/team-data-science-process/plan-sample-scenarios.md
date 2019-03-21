@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468813"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454937"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>在 Azure 機器學習中的進階分析案例
 本文概述可以運用 [Team Data Science Process (TDSP)](overview.md)來處理的各種範例資料來源和目標案例。 TDSP 提供系統化的方法，可讓小組共同建置智慧型應用程式。 此處呈現的案例將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明資料處理工作流程中可用的選項。
@@ -146,7 +146,7 @@ ms.locfileid: "55468813"
 1. 使用[匯入資料][import-data]模組直接從 SQL Server 讀取資料。 視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
 1. 從上傳的資料集開始的簡單 Azure Machine Learning 實驗流程
 
-## <a name="largedbtodb"></a>案例 \#6：SQL Server 資料庫內部部署中的大型資料集，以 Azure 虛擬機器中的 SQL Server 為目標
+## <a name="largedbtodb"></a>案例 \#6：在目標 Azure 虛擬機器中的 SQL Server 內部部署、 SQL Server 資料庫中的大型資料集
 ![大型 SQL DB 內部部署至 Azure 中的 SQL DB][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>其他 Azure 資源：Azure 虛擬機器 (SQL Server / IPython Notebook 伺服器)
@@ -154,7 +154,7 @@ ms.locfileid: "55468813"
 1. 使用其中一個資料匯出方法來將資料從 SQL Server 匯出成傾印檔案。
    
    > [!NOTE]
-   > 如果您決定從內部部署資料庫移動所有資料，一個替代 (較快速) 方法是將整個資料庫移到 Azure 中的 SQL Server 執行個體。 略過匯出資料、建立資料庫，和將資料載入/匯入目標資料庫等步驟，並依照替代方法進行。
+   > 如果您決定要移動所有資料從內部部署資料庫，將完整的資料庫都移至 SQL Server 執行個體，在 Azure 中的替代 （較快） 方法。 略過匯出資料、建立資料庫，和將資料載入/匯入目標資料庫等步驟，並依照替代方法進行。
    > 
    > 
 1. 將傾印檔案上傳至 Azure 儲存體容器。

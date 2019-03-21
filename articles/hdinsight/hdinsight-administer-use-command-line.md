@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tyfox
-ms.openlocfilehash: 3e53a8cc1816ae4128fdfb34b7425ac95de29a57
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 61be4088034d8cc557c67c5b6de4972766654a39
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202379"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 來管理 HDInsight 中的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "53016039"
     azure config mode arm
     ```
 
-若要取得說明，請使用 **-h** 參數。  例如︰
+若要获得帮助，请使用 **-h** 开关。  例如︰
 
 ```cli
 azure hdinsight cluster create -h
@@ -51,7 +51,7 @@ azure hdinsight cluster create -h
 請參閱[使用 Azure 傳統 CLI 建立 HDInsight 中的叢集](hdinsight-hadoop-create-linux-clusters-azure-cli.md)。
 
 ## <a name="list-and-show-cluster-details"></a>列出和顯示叢集詳細資料
-使用下列命令，以列出並顯示叢集詳細資料：
+使用以下命令列出并显示群集详细信息：
 
 ```cli
 azure hdinsight cluster list
@@ -61,7 +61,7 @@ azure hdinsight cluster show <Cluster Name>
 ![叢集清單的命令列檢視][image-cli-clusterlisting]
 
 ## <a name="delete-clusters"></a>刪除叢集
-使用下列命令來刪除叢集：
+使用以下命令来删除群集：
 
 ```cli
 azure hdinsight cluster delete <Cluster Name>
@@ -91,7 +91,7 @@ azure hdinsight cluster disable-http-access [options] <Cluster Name>
 ## <a name="next-steps"></a>後續步驟
 本文中，您學到如何執行不同的 HDInsight 叢集管理工作。 若要深入了解，請參閱下列文章：
 
-* [使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)
 * [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 * [如何使用 Azure 傳統 CLI][azure-command-line-tools]
@@ -102,8 +102,6 @@ azure hdinsight cluster disable-http-access [options] <Cluster Name>
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

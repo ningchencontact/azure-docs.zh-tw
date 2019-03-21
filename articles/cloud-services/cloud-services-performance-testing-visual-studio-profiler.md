@@ -15,23 +15,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ea46039583681bd89e254d153997e3a300041d4e
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-ms.translationtype: HT
+ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341349"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546243"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
-各種工具和技術可用於測試雲端服務的效能。
+可通过各种工具和技术来测试云服务的性能。
 當您將雲端服務發佈至 Azure 時，可以讓 Visual Studio 收集分析資料，然後在本機分析它 (如[分析雲端服務][11] 中所述)。
 您也可以使用診斷來追蹤各種效能計數器 (如[在 Azure 中使用效能計數器][2]中所述)。
 您也可能想要先在計算模擬器中本機分析應用程式，再將之部署至雲端。
 
 本文涵蓋進行分析的「CPU 取樣」方法，這可以在模擬器上本機完成。 CPU 取樣不是非常侵入式的分析方法。 分析工具會按指定的取樣間隔取得呼叫堆疊的快照集。 會收集一段時間的資料，而且資料會顯示在報告中。 此分析方法傾向指出在計算密集應用程式中的哪個位置完成大部分的 CPU 工作。  這可讓您有機會聚焦在應用程式耗用最多時間的「最忙碌路徑」。
 
-## <a name="1-configure-visual-studio-for-profiling"></a>1：設定 Visual Studio 進行分析
-首先，有些 Visual Studio 組態選項可能在進行分析時很實用。 若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。 您會希望確定參考可用的符號伺服器。 若要這樣做，請在 Visual Studio 的 [工具] 功能表上，依序選擇 [選項]、[偵錯] 和 [符號]。 請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置] 下方。  您也可以參考 http://referencesource.microsoft.com/symbols，這裡可能有其他符號檔。
+## <a name="1-configure-visual-studio-for-profiling"></a>1:設定 Visual Studio 的程式碼剖析
+首先，有些 Visual Studio 組態選項可能在進行分析時很實用。 若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。 需确保引用可用的符号服务器。 若要這樣做，請在 Visual Studio 的 [工具] 功能表上，依序選擇 [選項]、[偵錯] 和 [符號]。 請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置] 下方。  您也可以參考 https://referencesource.microsoft.com/symbols，這裡可能有其他符號檔。
 
 ![符號選項][4]
 
@@ -77,7 +77,7 @@ private async Task RunAsync(CancellationToken cancellationToken)
 
 在方案組態設定為 [發行] 的情況下，在本機建置和執行雲端服務，而不要進行偵錯 (Ctrl+F5)。 這確保建立在本機執行應用程式的所有檔案和資料夾，並確保已啟動所有模擬器。 從工作列啟動 Compute Emulator UI，以驗證您的背景工作角色執行中。
 
-## <a name="2-attach-to-a-process"></a>2：連結至程序
+## <a name="2-attach-to-a-process"></a>2：附加至處理序
 您必須將分析工具連結至執行中程序，而不是從 Visual Studio 2010 IDE 啟動應用程式來分析應用程式。 
 
 若要將分析工具連結至程序，請在 [分析] 功能表上選擇 [分析工具] 和 [連結/中斷連結]。
@@ -130,7 +130,7 @@ Trace.WriteLine(message, "Information");
 
 ![效能警告][14]
 
-## <a name="4-make-changes-and-compare-performance"></a>4：進行變更與比較效能
+## <a name="4-make-changes-and-compare-performance"></a>4：進行變更，並比較效能
 您也可以在變更程式碼之前和之後比較效能。  請停止執行中流程並編輯程式碼，以使用 StringBuilder 取代字串串連作業：
 
 ```csharp
@@ -162,14 +162,14 @@ public static string Concatenate(int number)
 * 使用計算模擬器 UI 檢視您應用程式的狀態。 
 * 如果您在模擬器中啟動應用程式或是連結分析工具時發生問題，請關閉並重新啟動計算模擬器。 如果這樣未解決問題，請嘗試重新開機。 如果您使用計算模擬器來暫停和移除執行中部署，則可能會發生此問題。
 * 如果您已從命令列使用任何分析命令 (尤其是全域設定)，請確定已呼叫 VSPerfClrEnv /globaloff，並已關閉 VsPerfMon.exe。
-* 取樣時，如果您看到訊息 [PRF0025: No data was collected]，請確認您所連結的程序具有 CPU 活動。 未執行任何計算工作的應用程式可能不會產生任何取樣資料。  在執行任何取樣之前，也可能已結束程序。 請確認所分析角色的 Run 方法未終止。
+* 如果當取樣時，您會看到訊息 「 PRF0025:未收集任何資料，「 檢查附加至處理序具有 CPU 活動。 未執行任何計算工作的應用程式可能不會產生任何取樣資料。  在執行任何取樣之前，也可能已結束程序。 請確認所分析角色的 Run 方法未終止。
 
 ## <a name="next-steps"></a>後續步驟
-在 Visual Studio 分析工具中，不支援在模擬器中檢測 Azure 二進位，但是，如果您想要測試記憶體配置，則可以在分析時選擇該選項。 您也可以選擇並行分析來協助您判斷執行緒是否浪費時間來競爭鎖定，或選擇階層互動分析來協助您追蹤在應用程式階層之間互動時的效能問題 (最常發生在資料層與背景工作角色之間)。  您可以檢視應用程式所產生的資料庫查詢，以及使用分析資料來提高資料庫的使用。 如需階層互動分析的詳細資訊，請參閱部落格文章[逐步介紹：在 Visual Studio Team System 2010 中使用階層互動分析][3]。
+在 Visual Studio 分析工具中，不支援在模擬器中檢測 Azure 二進位，但是，如果您想要測試記憶體配置，則可以在分析時選擇該選項。 您也可以選擇並行分析來協助您判斷執行緒是否浪費時間來競爭鎖定，或選擇階層互動分析來協助您追蹤在應用程式階層之間互動時的效能問題 (最常發生在資料層與背景工作角色之間)。  您可以檢視應用程式所產生的資料庫查詢，以及使用分析資料來提高資料庫的使用。 如需階層互動分析的資訊，請參閱部落格文章[逐步解說：使用 Visual Studio 中的層互動 Profiler Team System 2010][3]。
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
-[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
+[3]: https://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

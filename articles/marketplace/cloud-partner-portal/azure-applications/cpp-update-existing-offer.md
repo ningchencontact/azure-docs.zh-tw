@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3fbbf688f6de7c3fceb6695a6b085f917dbec242
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195487"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216884"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>更新現有的 Azure 應用程式供應項目
 
@@ -75,6 +75,9 @@ ms.locfileid: "53195487"
 2. 在 [所有供應項目] 下，尋找您要更新的供應項目。
 3. 移至 [Marketplace ] 索引標籤。使用[發佈 Azure 應用程式供應項目](./cpp-publish-offer.md)中的指示來變更中繼資料。
 4. 選取 [發佈] 啟動工作流程，以發佈變更。
+ 
+>[!Note]
+>雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
 
 ## <a name="deleting-an-existing-offer"></a>刪除現有的供應項目
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320277"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870885"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>針對內容傳遞類型將 Azure CDN 最佳化
 
@@ -66,7 +66,7 @@ Microsoft 建議您測試不同提供者之間的效能變化，以選取最佳�
 
 1. 在**來自 Akamai 的 Azure CDN 標準**設定檔中，選取端點。
 
-    ![端點選取範圍 ](./media/cdn-optimization-overview/01_Akamai.png)
+    ![端點選取範圍](./media/cdn-optimization-overview/01_Akamai.png)
 
 2. 在 [設定] 下選取 [最佳化]。 然後，從 [最佳化對象] 下拉式清單選取類型。
 

@@ -3,7 +3,7 @@ title: Azure Cloud Shell 功能 | Microsoft Docs
 description: Azure Cloud Shell 中 Bash 的功能概觀
 services: Azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: juluk
-ms.openlocfilehash: 4ee36aaaeeda02025da6b01f4dd6c84afd72970f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: 7e2ead6d5fc13b0d7517258d75148d50a3f1bc62
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233348"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246350"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell 的功能和工具
 
@@ -57,7 +57,7 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 
 ## <a name="tools"></a>工具
 
-|類別   |Name   |
+|類別   |名稱   |
 |---|---|
 |Linux 工具            |Bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Azure 工具            |[Azure CLI](https://github.com/Azure/azure-cli) 和 [Azure 傳統 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|

@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/06/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ec024f8f1cd411455a6cbb2a0b12e7b4751af5fe
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251889"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405329"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體：進階 (預覽)、經常性儲存層、非經常性儲存層和封存儲存層
 
@@ -57,15 +57,7 @@ Blob 儲存體和 GPv2 帳戶會在帳戶層級公開**存取層**屬性，這�
 
 這一層適用於需要快速且一致之回應時間的工作負載。 涉及使用者的資料 (例如互動式影片編輯、靜態 Web 內容、線上交易等) 是進階存取層的良好候選項目。 此層專為執行許多小型交易的工作負載而設計，例如擷取遙測資料、傳訊，以及資料轉換。
 
-若要使用此層，請使用 [Blob 服務 REST API](/rest/api/storageservices/blob-service-rest-api)、[AzCopy](/azure/storage/common/storage-use-azcopy) 或 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)佈建新的區塊 Blob 儲存體帳戶，並開始建立容器和 Blob。
-
-在預覽期間，進階存取層：
-
-- 可用來作為本地備援儲存體 (LRS)
-- 只會在以下地區上市：美國東部 2、美國中部和美國西部
-- 資料生命週期管理不支援物件層級分層或自動分層
-
-若要了解如何註冊進階存取層預覽版，請參閱 [Azure 進階 Blob 儲存體簡介](https://aka.ms/premiumblob)。
+如需預覽的詳細資訊，請參閱[公開預覽版的 Azure 進階 Blob 儲存體](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/)。
 
 ## <a name="hot-access-tier"></a>經常性存取層
 

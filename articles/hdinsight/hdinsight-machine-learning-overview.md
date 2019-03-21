@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: fc7c957b766c1c95ea247ccb63cad5bedec6feec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077721"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668989"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 
@@ -50,7 +50,7 @@ Azure Machine Learning 提供可建立預測性分析模型的工具，也提供
 
 為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft 辨識工具組](https://www.microsoft.com/en-us/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，皆使用此工具組。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 ### <a name="scenarios"></a>案例
 
@@ -63,5 +63,6 @@ Azure Machine Learning 提供可建立預測性分析模型的工具，也提供
 
 ### <a name="deep-learning-resources"></a>深度學習資源
 
-* [適用於 Apache Spark 的深度學習工具組](https://blogs.technet.microsoft.com/machinelearning/2017/04/25/using-microsofts-deep-learning-toolkit-with-spark-on-azure-hdinsight-clusters/) (英文)
-* [在 Apache Spark 上使用辨識工具組和 Tensorflow 以困窘的方式進行平行影像分類](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/) (英文)
+* [使用 Microsoft Cognitive Toolkit 深度學習模型與 Azure HDInsight Spark 叢集](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習](spark/apache-spark-deep-learning-caffe.md)
+* [深度學習和 AI 架構資料科學虛擬機器 (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks)

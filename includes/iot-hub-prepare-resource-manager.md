@@ -1,17 +1,17 @@
 ---
-author: dominicbetts
+author: robinsh
+ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: e6ba2a9c27567ccbd3b744a9bfdc0603758c7068
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 163b479fdf2d6a4885604c52f36f707e558dc3a0
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56212966"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011762"
 ---
-## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>準備驗證 Azure Resource Manager 要求
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>准备对 Azure Resource Manager 请求进行身份验证
 您必須使用 [Azure Resource Manager][lnk-authenticate-arm]搭配 Azure Active Directory (AD) 來驗證所有針對資源執行的作業。 最簡單的設定方式是使用 PowerShell 或 Azure CLI。
 
 請先安裝 [Azure PowerShell Cmdlet][lnk-powershell-install] 再繼續。
@@ -37,8 +37,8 @@ ms.locfileid: "56212966"
         -SubscriptionName "{your subscription name}"
     ```
 
-2. 請記下您的 **TenantId** 和 **SubscriptionId**。 您稍後需要這些資訊。
-3. 使用下列命令並取代預留位置，以建立新的 Azure Active Directory 應用程式：
+2. 记下 **TenantId** 和 **SubscriptionId**。 您稍後需要這些資訊。
+3. 使用以下命令并替换占位符，以创建新的 Azure Active Directory 应用程序：
    
    * **{Display name}：** 應用程式的顯示名稱，如 **MySampleApp**
    * **{Home page URL}：** 應用程式首頁的 URL，如 **http://mysampleapp/home**。 此 URL 不需要指向實際的應用程式。

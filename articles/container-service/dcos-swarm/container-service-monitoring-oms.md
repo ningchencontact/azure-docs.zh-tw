@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 1278c788c0d36b2cadf860e379791ecd823a510b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113836"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110965"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(已淘汰) 使用 Log Analytics 監視 Azure Container Service DC/OS 叢集
 
@@ -34,25 +34,25 @@ Log Analytics 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管
 ### <a name="pre-requisite"></a>必要條件
 - [Microsoft Azure 訂用帳戶](https://azure.microsoft.com/free/)：您可以免費取得訂用帳戶。  
 - Log Analytics 工作區設定 - 請參閱下方的「步驟 3」
-- 已安裝 [DC/OS CLI](http://docs.mesosphere.com/1.12/cli)。
+- 已安裝 [DC/OS CLI](https://docs.mesosphere.com/1.12/cli)。
 
 1. 在 DC/OS 儀表板中，按一下 [Universe] 並搜尋 'OMS'，如下所示。
 
    >[!NOTE]
    >OMS 現在稱為「Log Analytics」。
 
- ![](media/container-service-monitoring-oms/image2.png)
+   ![](media/container-service-monitoring-oms/image2.png)
 
 2. 按一下 [Install] 。 您將會看到含有版本資訊和一個 [安裝套件] 或 [進階安裝] 按鈕的快顯。 按一下 [Advanced Installation]\(進階安裝)，就會跳轉至 [OMS specific configuration properties]\(OMS 特定組態屬性) 頁面。
 
- ![](media/container-service-monitoring-oms/image3.png)
+   ![](media/container-service-monitoring-oms/image3.png)
 
- ![](media/container-service-monitoring-oms/image4.png)
+   ![](media/container-service-monitoring-oms/image4.png)
 
 3. 這裡將要求您輸入 `wsid` (Log Analytics 工作區識別碼) 和 `wskey` (工作區識別碼的主索引鍵)。 若要取得 `wsid` 和 `wskey`，您需要在 <https://mms.microsoft.com> 建立帳戶。
-請遵循步驟來建立帳戶。 建立帳戶之後，您必須依序按一下 [Settings]\(設定)、[Connected Sources]\(連接的來源)、[Linux Servers]\(Linux 伺服器)，以取得您的 `wsid` 和 `wskey`，如下所示。
+   請遵循步驟來建立帳戶。 建立帳戶之後，您必須依序按一下 [Settings]\(設定)、[Connected Sources]\(連接的來源)、[Linux Servers]\(Linux 伺服器)，以取得您的 `wsid` 和 `wskey`，如下所示。
 
- ![](media/container-service-monitoring-oms/image5.png)
+   ![](media/container-service-monitoring-oms/image5.png)
 
 4. 選取您想要的執行個體數目，然後按一下 [Review and Install]\(檢閱並安裝) 按鈕。 一般而言，執行個體數目應等於您代理程式叢集中的 VM 數目。 適用於 Linux 的 Log Analytics 代理程式會在其想要收集資訊的個別 VM 上安裝為獨立容器，以監視和記錄資訊。
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107724"
 ---
 # <a name="backup-and-restore"></a>備份與還原
 
@@ -47,7 +47,7 @@ SAP HANA on Azure (大型執行個體) 提供兩個備份和還原選項：
 
 - 基礎結構備份和還原功能。 您也可以使用 SAP HANA on Azure (大型執行個體) 的底層基礎結構所提供的備份和還原功能。 此選項可滿足備份和快速還原的需要。 本節的其餘部分討論 HANA (大型執行個體) 隨附的備份和還原功能。 本節也涵蓋備份和還原對於 HANA 大型執行個體所提供之災害復原功能的關聯性。
 
->   [!NOTE]
+> [!NOTE]
 >   HANA 大型執行個體的底層基礎結構所使用的快照集技術相依於 SAP HANA 快照集。 此時，SAP HANA 快照集還無法搭配 SAP HANA 多租用戶資料庫容器的多個租用戶一起使用。 如果只部署一個租用戶，則可使用 SAP HANA 快照集並利用此方法。
 
 ## <a name="using-storage-snapshots-of-sap-hana-on-azure-large-instances"></a>使用 SAP HANA on Azure (大型執行個體) 的儲存體快照
@@ -531,9 +531,9 @@ Command completed successfully.
 
 在特定的存放磁碟區上，您可以監視快照集的數目和這些快照集的儲存體耗用量。 `ls` 命令不會顯示快照集目錄或檔案。 不過，Linux 作業系統命令 `du` 會顯示這些儲存體快照集的詳細資料，因為它們儲存在相同的磁碟區上。 此命令可與下列選項搭配使用：
 
-- `du –sh .snapshot`：此選項提供快照集目錄內所有快照集的總計。
-- `du –sh --max-depth=1`：此選項會列出所有儲存在 **.snapshot** 資料夾中的快照集及每個快照集的大小。
-- `du –hc`：此選項會提供所有快照集使用的總大小。
+- `du –sh .snapshot`:此選項提供快照集目錄內所有快照集的總計。
+- `du –sh --max-depth=1`:此選項會列出所有儲存在 **.snapshot** 資料夾中的快照集及每個快照集的大小。
+- `du –hc`:此選項會提供所有快照集使用的總大小。
 
 您可以使用這些命令來確定所建立和儲存的快照集並未耗用磁碟區上的所有儲存體。
 
@@ -641,44 +641,44 @@ HANA Backup ID:
 
 1. 關閉 HANA 執行個體。
 
- ![關閉 HANA 執行個體](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
+   ![關閉 HANA 執行個體](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
 1. 將每個 HANA 資料庫節點上的資料磁碟區卸載。 如果資料磁碟區仍掛接至作業系統，快照集還原會失敗。
- ![將每個 HANA 資料庫節點上的資料磁碟區卸載](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
+   ![將每個 HANA 資料庫節點上的資料磁碟區卸載](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
 1. 提出 Azure 支援要求，以及包含還原特定快照集的指示。
 
- - 還原期間︰「SAP HANA on Azure 服務管理」可能會要求您參加電話會議，確保您會協調、驗證和確認所還原的儲存體快照集是正確的。 
+   - 還原期間︰「SAP HANA on Azure 服務管理」可能會要求您參加電話會議，確保您會協調、驗證和確認所還原的儲存體快照集是正確的。 
 
- - 還原之後：還原儲存體快照集之後，「SAP HANA on Azure 服務管理」會通知您。
+   - 還原之後：還原儲存體快照集之後，「SAP HANA on Azure 服務管理」會通知您。
 
 1. 在還原程序完成後，重新掛接所有資料磁碟區。
 
- ![重新掛接所有資料磁碟區](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
+   ![重新掛接所有資料磁碟區](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
 1. 當您透過 SAP HANA Studio 重新連接到 HANA DB 時，如果沒有自動出現復原選項，請選取 SAP HANA Studio 內的復原選項。 以下範例顯示還原到最後一個 HANA 快照集。 儲存體快照集會內嵌一個 HANA 快照集。 如果您要復原到最近的儲存體快照集，它應該是最近的 HANA 快照集。 (如果您要復原到較舊的儲存體快照，您就必須根據儲存體快照的建立時間找出 HANA 快照)。
 
- ![選取 SAP HANA Studio 內的復原選項](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
+   ![選取 SAP HANA Studio 內的復原選項](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
 1. 選取 [將資料庫復原到特定資料備份或儲存體快照集]。
 
- ![[指定復原類型] 視窗](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
+   ![[指定復原類型] 視窗](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
 1. 選取 [指定不含目錄的備份]。
 
- ![[指定備份位置] 視窗](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
+   ![[指定備份位置] 視窗](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
 1. 在 [目的地類型] 清單中，選取 [快照集]。
 
- ![[指定要復原的備份] 視窗](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
+   ![[指定要復原的備份] 視窗](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
 1. 選取 [完成] 以開始復原程序。
 
- ![選取 [完成] 以開始復原程序。](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
+    ![選取 [完成] 以開始復原程序。](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
 1. HANA 資料庫會還原並復原到儲存體快照集所包含的 HANA 快照集。
 
- ![HANA 資料庫會還原並復原到 HANA 快照集](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
+    ![HANA 資料庫會還原並復原到 HANA 快照集](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
 ### <a name="recover-to-the-most-recent-state"></a>復原到最近狀態
 
@@ -691,23 +691,23 @@ HANA Backup ID:
 
 1. 選取 [將資料庫復原到最近狀態]。
 
- ![選取 [將資料庫復原到最近狀態]。](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
+   ![選取 [將資料庫復原到最近狀態]。](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
 1. 指定最近 HANA 記錄備份的位置。 此位置必須包含從 HANA 快照集到最近狀態的所有 HANA 交易記錄備份。
 
- ![指定最近 HANA 記錄備份的位置](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
+   ![指定最近 HANA 記錄備份的位置](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
 1. 選取一個備份作為基礎來從中復原資料庫。 在此範例中，螢幕擷取畫面中的 HANA 快照集是儲存體快照集所包含的 HANA 快照集。 
 
- ![選取一個備份作為基礎來從中復原資料庫](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
+   ![選取一個備份作為基礎來從中復原資料庫](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
 1. 如果 HANA 快照集快時間與最近狀態之間沒有差異，請清除 [使用差異備份] 核取方塊。
 
- ![如果沒有差異，請清除 [使用差異備份] 核取方塊](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
+   ![如果沒有差異，請清除 [使用差異備份] 核取方塊](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
 1. 在摘要畫面上，選取 [完成] 以開始還原程序。
 
- ![在摘要頁面上按一下 [完成]](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
+   ![在摘要頁面上按一下 [完成]](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
 ### <a name="recover-to-another-point-in-time"></a>復原到另一個時間點
 若要復原到介於 HANA 快照集 (包含在儲存體快照集中) 與晚於 HANA 快照集時間點復原的快照集之間的時間點，請執行下列步驟：

@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045476"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959118"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>存取 Azure Data Lake Analytics 的診斷記錄
 
@@ -41,7 +41,7 @@ ms.locfileid: "43045476"
 
      * 選取 [串流至事件中樞] 可將記錄資料串流到 Azure 事件中樞。 如果您有即時分析內送記錄的下游處理管線，請使用此選項。 如果您選取此選項，必須提供要使用的 Azure 事件中樞詳細資料。
 
-     * 選取 [傳送至 Log Analytics] 可將資料傳送至 Log Analytics 服務。 如果您想要使用 Log Analytics 來收集和分析記錄，請使用此選項。
+     * 選取 __傳送至 Log Analytics__將資料傳送至 Azure 監視器服務。 如果您想要使用 Azure 監視器記錄檔來收集和分析記錄，請使用此選項。
    * 指定要取得稽核記錄、要求記錄或兩者。  要求記錄會擷取每個應用程式開發介面 (API) 的要求。 稽核記錄則會記錄該 API 要求觸發的所有作業。
 
    * 針對 [封存至儲存體帳戶]，請指定要保留資料的天數。
@@ -125,7 +125,7 @@ ms.locfileid: "43045476"
 
 #### <a name="request-log-schema"></a>要求記錄的結構描述
 
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | 分析 |字串 |記錄的時間戳記 (UTC 時間) |
 | ResourceId |字串 |執行作業所在資源的識別碼 |
@@ -139,7 +139,7 @@ ms.locfileid: "43045476"
 
 #### <a name="request-log-properties-schema"></a>要求記錄屬性結構描述
 
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | HttpMethod |字串 |作業使用的 HTTP 方法。 例如，GET。 |
 | Path |字串 |執行作業的所在路徑 |
@@ -177,7 +177,7 @@ ms.locfileid: "43045476"
 
 #### <a name="audit-log-schema"></a>稽核記錄的結構描述
 
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | 分析 |字串 |記錄的時間戳記 (UTC 時間) |
 | ResourceId |字串 |執行作業所在資源的識別碼 |
@@ -195,7 +195,7 @@ ms.locfileid: "43045476"
 
 #### <a name="audit-log-properties-schema"></a>稽核記錄屬性結構描述
 
-| 名稱 | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | --- | --- | --- |
 | JobId |字串 |指派給作業的識別碼 |
 | JobName |字串 |為作業提供的名稱 |

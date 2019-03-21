@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465236"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445478"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您擁有專門從事監視 (技術支援工程師、devops 工程師) 的團隊成員，或如果您使用受控服務提供者，則您可能只要授與他們監視資料的存取權，同時限制他們建立、修改或刪除資源的能力。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
 
 ## <a name="built-in-monitoring-roles"></a>內建的監視角色
@@ -45,12 +48,12 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 > 
 > 
 
-### <a name="monitoring-contributor"></a>監視參與者
+### <a name="monitoring-contributor"></a>监视参与者
 受指派監視參與者角色的人員可以檢視訂用帳戶中所有的監視資料，並建立或修改監視設定，但無法修改任何其他資源。 此角色是監視讀取者角色的超集，且適用於組織的監視團隊成員或受控服務提供者，這些服務提供者除了上述的權限之外，也必須能夠︰
 
 * 將監視儀表板發佈為共用儀表板。
-* 設定用於資源的[診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。*
-* 設定用於訂用帳戶的[記錄檔設定檔](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。*
+* 設定[診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)資源。\*
+* 設定[記錄檔設定檔](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)訂用帳戶。\*
 * 透過 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)設定警示規則活動和設定。
 * 建立 Application Insights web 測試和元件。
 * 列出 Log Analytics 工作區共用金鑰。
@@ -58,7 +61,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 * 建立和刪除及執行 Log Analytics 已儲存的搜尋。
 * 建立和刪除 Log Analytics 儲存體組態。
 
-*使用者也必須在目標資源上個別授與 ListKeys 權限 (儲存體帳戶或事件中樞命名空間)，以設定記錄檔設定檔或診斷設定。
+\*使用者必須也分別授與 ListKeys 權限在目標資源 （儲存體帳戶或事件中樞命名空間） 上的設定記錄設定檔或診斷設定。
 
 > [!NOTE]
 > 此角色不會對已串流至事件中樞或儲存在儲存體帳戶中的記錄檔資料授予讀取權限。 [請參閱下方](#security-considerations-for-monitoring-data) 以取得設定存取這些資源的相關資訊。
@@ -68,7 +71,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>監視權限和自訂的 RBAC 角色
 如果上述的內建角色不符合您團隊的確切需求，您可以使用更精確的權限 [建立自訂的 RBAC 角色](../../role-based-access-control/custom-roles.md) 。 以下是一般 Azure 監視器 RBAC 作業及其說明。
 
-| 作業 | 說明 |
+| 作業 | 描述 |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |讀取/寫入/刪除動作群組。 |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |讀取/寫入/刪除活動記錄警示。 |
@@ -98,7 +101,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 例如，您可以使用上述資料表針對「活動記錄檔讀取器」建立如下的自訂 RBAC 角色︰
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Activity Log Reader"
 $role.Description = "Can view activity logs."
@@ -106,7 +109,7 @@ $role.Actions.Clear()
 $role.Actions.Add("Microsoft.Insights/eventtypes/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 ## <a name="security-considerations-for-monitoring-data"></a>監視資料的安全性考量
@@ -127,8 +130,8 @@ New-AzureRmRoleDefinition -Role $role
 當使用者或應用程式需要存取儲存體帳戶中的監視資料時，您應該在包含具有 Blob 儲存體服務層級唯讀存取權的監視資料儲存體帳戶上 [產生帳戶 SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx) 。 在 PowerShell 中，它看起來應該如下所示：
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
-$token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
+$context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
 接著，您可將權杖提供給需要從該儲存體帳戶進行讀取的實體，且它可以從該儲存體帳戶中的所有 blob 進行列出並讀取。
@@ -136,7 +139,7 @@ $token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Pe
 或者，如果您需要使用 RBAC 控制此權限，可以在該特定儲存體帳戶上對該實體授與 Microsoft.Storage/storageAccounts/listkeys/action 權限。 對於需要設定診斷設定或記錄檔設定檔以封存至儲存體帳戶的使用者而言，這是必要的。 例如，針對只需要從一個儲存體帳戶進行讀取的使用者或應用程式，您可以建立下列自訂 RBAC 角色︰
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Monitoring Storage Account Reader"
 $role.Description = "Can get the storage account keys for a monitoring storage account."
@@ -145,7 +148,7 @@ $role.Actions.Add("Microsoft.Storage/storageAccounts/listkeys/action")
 $role.Actions.Add("Microsoft.Storage/storageAccounts/Read")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myMonitoringStorageAccount")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 > [!WARNING]
@@ -157,10 +160,10 @@ New-AzureRmRoleDefinition -Role $role
 可以使用事件中樞採用類似的模式，但您必須先建立專用的接聽授權規則。 如果您要對僅需要接聽監視相關事件中樞的應用程式授與存取權，請執行下列作業︰
 
 1. 在針對只有接聽宣告的串流監視資料所建立的事件中樞上建立共用存取原則。 這可以在入口網站中完成。 例如，您可能會將它稱為 “monitoringReadOnly”。 可能的話，您會直接將該金鑰提供給取用者，並略過下一個步驟。
-2. 如果取用者必須能夠取得金鑰臨機操作，則對使用者授與該事件中樞的 ListKeys 動作。 對於需要設定診斷設定或記錄檔設定檔以串流至事件中樞的使用者而言，這也是必要的。 例如，您可能會建立 RBAC 規則︰
+2. 如果取用者需要能夠取得金鑰臨機操作，將使用者授與該事件中樞的 ListKeys 動作。 對於需要設定診斷設定或記錄檔設定檔以串流至事件中樞的使用者而言，這也是必要的。 例如，您可能會建立 RBAC 規則︰
    
    ```powershell
-   $role = Get-AzureRmRoleDefinition "Reader"
+   $role = Get-AzRoleDefinition "Reader"
    $role.Id = $null
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
@@ -169,7 +172,7 @@ New-AzureRmRoleDefinition -Role $role
    $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
-   New-AzureRmRoleDefinition -Role $role 
+   New-AzRoleDefinition -Role $role 
    ```
 
 ## <a name="monitoring-within-a-secured-virtual-network"></a>在受保護虛擬網路內監視

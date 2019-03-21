@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 容器執行個體中部署多個容器群組
-description: 了解如何在 Azure 容器執行個體中使用多個容器來部署容器群組。
+description: 了解如何部署 Azure Container Instances，使用 Azure Resource Manager 範本中的多個容器的容器群組。
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856463"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729511"
 ---
-# <a name="deploy-a-container-group"></a>部署容器群組
+# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>部署多容器群組中的，使用 Resource Manager 範本
 
 Azure 容器執行個體支援使用[容器群組](container-instances-container-groups.md)將多個容器部署至單一主機。 在建置應用程式 Sidecar 以便記錄、監視或進行服務需要第二個附加程序的任何其他設定時，這非常有用。
 
@@ -28,6 +28,8 @@ Azure 容器執行個體支援使用[容器群組](container-instances-container
 
 > [!NOTE]
 > 多容器群組目前僅限於 Linux 容器。 雖然我們致力於將所有功能帶入 Windows 容器，但是您可以在 [Azure 容器執行個體配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
+
+如需其他範本範例，請參閱[Azure Container Instances 的 Azure Resource Manager 範本](container-instances-samples-rm.md)。 
 
 ## <a name="configure-the-template"></a>設定範本
 

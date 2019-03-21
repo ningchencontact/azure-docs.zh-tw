@@ -1,28 +1,30 @@
 ---
-title: Azure 防火牆 Log Analytics 範例
-description: Azure 防火牆 Log Analytics 範例
+title: Azure 防火牆記錄檔分析範例
+description: Azure 防火牆記錄檔分析範例
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233390"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533998"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Azure 防火牆 Log Analytics 範例
+# <a name="azure-firewall-log-analytics-samples"></a>Azure 防火牆記錄檔分析範例
 
-下列 Log Analytics 範例可用來分析您的 Azure 防火牆記錄。 範例檔案為內建的 Log Analytics 檢視設計工具；[Log Analytics 檢視設計工具](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer)一文提供檢視設計概念的詳細資訊。
+下列 Azure 監視器記錄檔範例可用來分析您的 Azure 防火牆記錄檔。 Azure 監視器中的檢視表設計工具內建的範例檔案[在 Azure 監視器中的檢視表設計工具](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer)發行項的檢視設計概念的詳細資訊。
 
-## <a name="log-analytics-view"></a>Log Analytics 檢視
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-以下是設定範例 Log Analytics 視覺效果的方法。 您可以從 [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) \(英文\) 存放庫下載該範例視覺效果。 最簡單的方法是以滑鼠右鍵按一下本頁面上的超連結，然後選擇 [另存新檔]，並提供如 **AzureFirewall.omsview** 的名稱。 
+## <a name="azure-monitor-logs-view"></a>Azure 監視器記錄檢視
 
-執行下列步驟，以將檢視新增至您的 Log Analytics 工作區：
+以下是如何設定 Azure 監視器記錄視覺效果的範例。 您可以從 [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) \(英文\) 存放庫下載該範例視覺效果。 最簡單的方法是以滑鼠右鍵按一下本頁面上的超連結，然後選擇 [另存新檔]，並提供如 **AzureFirewall.omsview** 的名稱。 
+
+執行下列步驟來將檢視新增至您的 Log Analytics 工作區：
 
 1. 在 Azure 入口網站中開啟 Log Analytics 工作區。
 2. 開啟位於 [一般] 底下的 [檢視設計工具]。
@@ -98,7 +100,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## <a name="network-rules-log-data-query"></a>網路規則記錄資料查詢
 
-下列查詢會剖析網路規則記錄資料。 各個不同的註解行中提供有建置查詢之方式的指導：
+下列查詢會剖析網路規則記錄檔資料。 各個不同的註解行中提供有建置查詢之方式的指導：
 
 ```Kusto
 AzureDiagnostics
@@ -149,6 +151,21 @@ AzureDiagnostics
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
+## <a name="threat-intelligence-log-data-query"></a>威脅情報記錄資料查詢
+
+下列查詢會剖析威脅情報規則記錄檔資料：
+
+```Kusto
+AzureDiagnostics
+| where OperationName  == "AzureFirewallThreatIntelLog"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action "." Message
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort)
+| sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
+```
+
 ## <a name="next-steps"></a>後續步驟
 
-若要了解 Azure 防火牆監視與診斷，請參閱[教學課程：監視 Azure 防火牆記錄和計量](tutorial-diagnostics.md)。
+若要深入了解 Azure 防火牆監視和診斷，請參閱[教學課程：監視 Azure 防火牆記錄檔和度量](tutorial-diagnostics.md)。

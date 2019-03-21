@@ -1,6 +1,6 @@
 ---
-title: 群組型授權的 PowerShell 和 Graph 範例 - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory 群組型授權的 PowerShell 案例
+title: 授權群組-Azure Active Directory PowerShell 和 Graph 範例 |Microsoft Docs
+description: PowerShell + 圖形範例和案例的 Azure Active Directory 群組型授權
 services: active-directory
 keywords: Azure AD 授權
 documentationcenter: ''
@@ -14,25 +14,27 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fccf025e222448bde7705c548dac33403be33247
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 9da6f85f194d9aebab22584f8cba8b227ed38a72
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183861"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223303"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 群組型授權的 PowerShell 範例
 
 透過 [Azure 入口網站](https://portal.azure.com)即可使用群組型授權的完整功能，在這方面 PowerShell 和 Microsoft Graph 目前只能提供有限的支援。 不過，還是有一些工作可以使用現有的 [MSOnline PowerShell Cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 和 Microsoft Graph 來執行。 本文件會提供可行功能的範例。
 
 > [!NOTE]
-> 在開始執行這些 Cmdlet 之前，請先確定您已藉由執行 `Connect-MsolService` Cmdlet 來連線到租用戶。
+> 在開始執行這些 cmdlet 之前，請確定您連接到您的組織第一次，執行`Connect-MsolService`  cmdlet。
 
 > [!WARNING]
 > 此程式碼是基於示範目的而提供的範例。 如果您需要在環境中使用它，請考量先進行小規模測試，或在個別的測試租用戶中進行測試。 您可能需要調整程式碼以符合您環境的特定需求。
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>檢視指派給群組的產品授權
+
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) Cmdlet 可用來擷取群組物件並檢查「授權」屬性︰它會列出目前指派給群組的所有產品授權。
+
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
@@ -48,7 +50,7 @@ EMSPREMIUM
 > [!NOTE]
 > 此資料只會列出產品 (SKU) 資訊。 您無法列出授權中已停用的服務方案。
 
-使用下列命令從 Microsoft Graph 取得相同的資料
+使用下列範例從 Microsoft Graph 取得相同的資料。
 
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses

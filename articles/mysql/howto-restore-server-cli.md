@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 801f6dddfb3aaea850d76c80d43de93181c3d41c
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913473"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532317"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -69,7 +69,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 `az mysql server restore` 命令需要下列參數：
 
-| 設定 | 建議的值 | 說明  |
+| 設定 | 建議的值 | 描述  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  來源伺服器所在的資源群組。  |
 | name | mydemoserver-restored | 還原命令所建立之新伺服器的名稱。 |
@@ -94,26 +94,26 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 若要異地還原伺服器，請在 Azure CLI 命令提示字元中輸入下列命令：
 
 ```azurecli-interactive
-az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-此命令會在美國東部建立一個名為 *mydemoserver-georestored*、將屬於 *myresourcegroup* 的新伺服器。 這是一部一般用途、具有 8 個 vCore 的第 4 代伺服器。 此伺服器是從 *mydemoserver* (同樣位於 *myresourcegroup* 資源群組) 的異地備援備份建立的
+此命令會在美國東部建立一個名為 *mydemoserver-georestored*、將屬於 *myresourcegroup* 的新伺服器。 這是一般用途、具有 8 個 vCore 的第 5 代伺服器。 此伺服器是從 *mydemoserver* (同樣位於 *myresourcegroup* 資源群組) 的異地備援備份建立的
 
 如果您想要在與現有伺服器不同的來源群組中建立新伺服器，則在 `--source-server` 參數中，您將限定伺服器名稱，如以下範例所示：
 
 ```azurecli-interactive
-az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
 `az mysql server georestore` 命令需要下列參數：
 
-| 設定 | 建議的值 | 說明  |
+| 設定 | 建議的值 | 描述  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 新伺服器將所屬的資源群組名稱。|
 |name | mydemoserver-georestored | 新伺服器的名稱。 |
 |source-server | mydemoserver | 所使用之異地備援備份所屬的現有伺服器名稱。 |
 |location | eastus | 新伺服器的位置。 |
-|sku-name| GP_Gen4_8 | 此參數會設定新伺服器的定價層、計算世代及 vCore 數目。 GP_Gen4_8 所對應的是一般用途、具有 8 個 vCore 的第 4 代伺服器。|
+|sku-name| GP_Gen5_8 | 此參數會設定新伺服器的定價層、計算世代及 vCore 數目。 GP_Gen5_8 所對應的是一般用途、具有 8 個 vCore 的第 5 代伺服器。|
 
 
 >[!Important]

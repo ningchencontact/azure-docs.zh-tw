@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116668"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
 
@@ -38,7 +38,7 @@ Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評
 
 如果是在租用戶環境中部署，可透過以下方式進行設定：
 
-1.  為每個租用戶建立一個使用者，並使用 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)，將唯讀權限指派給屬於特定租用戶的所有 VM。 然後，使用這些認證進行探索。 RBAC 會確保對應的 vCenter 使用者只能存取租用戶特定 VM。
+1. 為每個租用戶建立一個使用者，並使用 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)，將唯讀權限指派給屬於特定租用戶的所有 VM。 然後，使用這些認證進行探索。 RBAC 會確保對應的 vCenter 使用者只能存取租用戶特定 VM。
 2. 您要為不同的租用戶使用者設定 RBAC，如以下使用者 1 和使用者 2 的範例所述：
 
     - 在 [使用者名稱] 和 [密碼] 中，指定收集器要用來探索虛擬機器的唯讀帳戶認證

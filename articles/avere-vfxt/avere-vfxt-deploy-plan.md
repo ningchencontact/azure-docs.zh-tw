@@ -4,18 +4,18 @@ description: 說明在部署Avere vFXT for Azure 之前的規劃事項
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744651"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990980"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>規劃您的 Avere vFXT 系統
 
-本文說明如何規劃新的 Avere vFXT for Azure 叢集，以確保您所建立的叢集位置正確且大小適當，符合您的需求。 
+這篇文章說明如何規劃新的 Avere vFXT 定位，並針對您的需求的適當調整大小的 Azure 叢集。 
 
 前往 Azure Marketplace 或建立任何 VM 之前，請考慮叢集與 Azure 中其他元素互動的方式。 規劃叢集資源在私人網路和子網路中的位置，並決定您後端儲存體的位置。 請確定您所建立的叢集節點足夠強大，可支援您的工作流程。 
 
@@ -32,16 +32,22 @@ ms.locfileid: "55744651"
 * 所有元素都應該使用針對 Avere vFXT 部署建立的新訂用帳戶管理。 優點包括： 
   * 追蹤成本更簡單 - 在一個訂用帳戶中檢視和稽核所有資源、基礎結構及計算循環的成本。
   * 清除更容易 - 您可以在完成專案後移除整個訂用帳戶。
-  * 分割資源配額更便利 - 當有大量用戶端用於高效能計算流程時，藉由在單一訂用帳戶中隔離 Avere vFXT 用戶端和叢集，以避免可能的資源節流影響其他重要工作流程。
+  * 方便資料分割資源的配額-其他重要的工作負載防範可能節流藉由隔離 Avere vFXT 用戶端與單一訂用帳戶中的叢集的資源。 將大量的高效能運算工作流程的用戶端時，這可避免衝突。
 
 * 找出接近 vFXT 叢集的用戶端計算系統。 後端儲存體可能更加遙遠。  
 
-* 為了簡單起見，請在相同的虛擬網路 (Vnet) 和相同的資源群組中，找出 vFXT 叢集與叢集控制器 VM。 它們也應該使用相同的儲存體帳戶。 (叢集控制器會建立叢集，還可用於管理命令列叢集。)  
-
-  > [!NOTE] 
-  > 叢集建立範本可以建立新的資源群組和叢集的新儲存體帳戶。 您可以指定現有的資源群組，但是該資源群組必須是空的。
+* VFXT 叢集和叢集控制站 VM 應該位於相同的虛擬網路 (vnet)，在相同的資源群組，並使用相同的儲存體帳戶。 自動的叢集建立範本會為處理大部分的情況。
 
 * 此叢集必須位於自己的子網路中，以避免 IP 位址與用戶端或計算資源發生衝突。 
+
+* 叢集建立範本可以建立大部分的叢集，包括資源群組、 虛擬網路、 子網路和儲存體帳戶的所需的基礎結構資源。 如果您想要使用已經存在的資源，請確定它們符合此表中的需求。 
+
+  | 資源 | 使用現有的嗎？ | 需求 |
+  |----------|-----------|----------|
+  | 資源群組 | 是，如果是空的 | 必須是空的| 
+  | 儲存體帳戶 | 如果連接的現有 Blob 容器，在叢集建立之後 <br/>  否，如果在叢集建立期間建立新的 Blob 容器 | 必須是空的現有 Blob 容器 <br/> &nbsp; |
+  | 虛擬網路 | 是 | 如果建立新的 Azure Blob 容器必須包含儲存體服務端點 | 
+  | 子網路 | 是 |   |
 
 ## <a name="ip-address-requirements"></a>IP 位址需求 
 
@@ -62,22 +68,20 @@ Avere vFXT 叢集會使用下列 IP 位址：
 
 您可以選擇在叢集的不同資源群組中，找出網路資源和 Blob 儲存體 (如果使用的話)。
 
-## <a name="vfxt-node-sizes"></a>vFXT 節點大小 
+## <a name="vfxt-node-size"></a>vFXT 節點大小
 
-當作叢集節點的 VM 可決定您快取的要求輸送量和儲存體容量。 您可以從記憶體、處理器和本機儲存體特性都不同的兩個執行個體類型中選擇。 
+當作叢集節點的 VM 可決定您快取的要求輸送量和儲存體容量。 <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
 每個 vFXT 節點都將相同。 也就是說，如果您建立一個三節點的叢集，您將會有三個相同類型和大小的 VM。 
 
 | 執行個體類型 | vCPU | 記憶體  | 本機 SSD 儲存體  | 最大資料磁碟 | 取消快取的磁碟輸送量 | NIC (計數) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D16s_v3 | 16  | 64 GiB  | 128 GB  | 32 | 25,600 IOPS <br/> 384 MBps | 8,000 MBps (8) |
 | Standard_E32s_v3 | 32  | 256 GiB | 512 GB  | 32 | 51,200 IOPS <br/> 768 MBps | 16,000 MBps (8)  |
 
-每個節點的磁碟快取都可以設定，而且範圍可以從 1000 GB 到 8000 GB。 每個節點 1 TB 是建議的 Standard_D16s_v3 節點快取大小，且每個節點 4 TB 建議用於 Standard_E32s_v3 節點。
+每個節點的磁碟快取都可以設定，而且範圍可以從 1000 GB 到 8000 GB。 每個節點的 4 TB 是建議的快取大小 Standard_E32s_v3 節點。
 
-如需有關這些 VM 的其他資訊，請閱讀下列 Microsoft Azure 文件：
+如需有關這些 Vm 的詳細資訊，閱讀 Microsoft Azure 文件：
 
-* [一般用途的虛擬機器大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general)
 * [記憶體最佳化的虛擬機器大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>帳戶配額
@@ -120,7 +124,7 @@ Avere vFXT for Azure 位於私人子網路，叢集並沒有公用 IP 位址。 
 
 如果您在叢集控制器上設定公用 IP 位址，您可以將其作為跳板主機，從私人子網路外連絡 Avere vFXT 叢集。 不過，由於控制器有修改叢集節點的存取權限，因此會產生輕微的安全性風險。  
 
-為了提升公用 IP 位址的安全性，請使用網路安全性群組來允許只透過連接埠 22 進行輸入存取。 或者，若要進一步保護系統，您也可以鎖定 IP 來源位址範圍的存取，也就是只允許從要用來存取叢集的機器進行連線。
+若要改善具有公用 IP 位址的控制站的安全性，部署指令碼會自動建立網路安全性群組，將輸入的存取限制為只有連接埠 22。 若要進一步保護系統，您可以鎖定 IP 來源位址範圍的存取，也就是只允許從要用來存取叢集的機器進行連線。
 
 建立叢集時，您可以選擇是否要在叢集控制器上建立公用 IP 位址。 
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9399f9d47d89215080b1f633423843f501fefb7b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850426"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670871"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>設定多層式 SAP NetWeaver 應用程式部署的災害復原
 
@@ -80,7 +80,7 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 
 處理叢集的另一種方式，是實作檔案共用叢集。 [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) 最近修改了中央服務部署模式，來透過 UNC 路徑存取 /sapmnt 全域目錄。 不過，仍然建議確保 /sapmnt UNC 共用具有高可用性。 您可以藉由使用 Windows Server 容錯移轉叢集與相應放大檔案伺服器 (SOFS) 和 Windows Server 2016 中的儲存空間直接存取 (S2D) 功能，在中央服務執行個體上完成這項操作。 
  > [!NOTE]
- > 目前，Azure Site Recovery 僅支援使用「儲存空間直接存取」對虛擬機器進行「當機時保持一致復原點」複寫 
+ > 目前 Azure Site Recovery 支援僅當機一致復原點複寫的虛擬機器使用儲存空間直接存取和被動節點 SIOS Datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>災害復原考量
@@ -166,5 +166,5 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 如需詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解如何使用 Site Recovery 為 SAP NetWeaver 部署建置災害復原解決方案，請參閱可下載的白皮書＜[SAP NetWeaver：使用 Azure Site Recovery 建置災害復原方案](https://aka.ms/asr-sap)＞。 本白皮書會討論各種 SAP 架構的建議，列出支援 Azure 上的 SAP 的應用程式和 VM 類型，並說明災害復原解決方案的測試計劃選項。
+* 若要详细了解如何使用 Site Recovery 为 SAP NetWeaver 部署构建灾难恢复解决方案，请参阅可下载的白皮书 [SAP NetWeaver：使用 Azure Site Recovery 构建灾难恢复解决方案](https://aka.ms/asr-sap)。 本白皮書會討論各種 SAP 架構的建議，列出支援 Azure 上的 SAP 的應用程式和 VM 類型，並說明災害復原解決方案的測試計劃選項。
 * 深入了解如何使用 Site Recovery [複寫其他工作負載](site-recovery-workload.md)。

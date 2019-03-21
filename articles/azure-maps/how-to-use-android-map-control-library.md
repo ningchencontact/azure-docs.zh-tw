@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure 地圖服務中使用 Android 地圖控制項 | Microsoft Docs
-description: 在 Azure 地圖服務中使用 Android 地圖控制項。
+title: 如何使用 Azure 地圖服務中的 Android 的地圖控制項 |Microsoft Docs
+description: Android 中的地圖控制項 Azure 地圖服務。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -9,53 +9,53 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 57cc585d621c71872a4b7658c74f581c8998b245
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341074"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010662"
 ---
-# <a name="how-to-use-azure-maps-android-sdk"></a>如何使用 Azure 地圖服務 Android SDK
+# <a name="how-to-use-the-azure-maps-android-sdk"></a>如何使用 Azure 地圖服務的 Android SDK
 
-Azure 地圖服務 Android SDK 是適用於 Android 的向量地圖庫。 本文會引導您完成安裝 Azure 地圖服務 Android SDK、載入地圖並於其上放置釘選圖示的程序。
+Azure 地圖服務的 Android SDK 是適用於 Android 的向量地圖庫。 這篇文章會引導您完成安裝 Azure 地圖服務的 Android SDK、 載入對應，以及將 pin 放在地圖上的處理程序。
 
-## <a name="prerequisites-to-get-started"></a>開始使用的必要條件
+## <a name="prerequisites"></a>必要條件
 
-### <a name="create-an-azure-maps-account"></a>建立 Azure 地圖服務帳戶 
+### <a name="create-an-azure-maps-account"></a>建立 Azure 地圖服務帳戶
 
-若要遵循本指南中的步驟，您必須先查看[管理帳戶和金鑰](how-to-manage-account-keys.md)來建立及管理具有 S1 定價層的訂用帳戶。
+若要完成這篇文章中的程序，您必須先[建立 Azure 地圖服務帳戶](how-to-manage-account-keys.md)S1 定價層中。
 
 ### <a name="download-android-studio"></a>下載 Android Studio
 
-您可以從 Google 免費下載 [Android Studio](https://developer.android.com/studio/)。 若要安裝 Azure 地圖服務 Android SDK，您必須先下載 Android Studio，並建立具有空白活動的專案。
+您需要下載 Android Studio，並建立專案，而空的活動，才能安裝 Azure 地圖服務的 Android SDK。 您可以[下載 Android Studio](https://developer.android.com/studio/)從 Google 免費。 
 
 ## <a name="create-a-project-in-android-studio"></a>在 Android Studio 中建立專案
 
-您必須建立具有空白活動的新專案。 請遵循下列步驟來建立新的 Azure Container 專案：
+首先，您必須使用空的活動建立新的專案。 完成這些步驟來建立 Android Studio 專案：
 
-1. 在 [選擇專案] 底下，核取 [電話和平板電腦] 作為應用程式會執行所在的板型規格。
-2. 按一下板型規格底下的 [空白活動]，然後按 [下一步]。
-3. 在 [設定專案] 底下，選取 `API 21: Android 5.0.0 (Lollipop)` 作為最低版本的 SDK。 這是 Azure 地圖服務 Android SDK 所支援的最低版本。
-4. 接受預設值 `Activity Name` 和 `Layout Name`，然後按一下 [完成]。
+1. 底下**選擇您的專案**，選取**手機和平板電腦**。 您的應用程式將執行此表單係數。
+2. 在 [**手機和平板電腦**索引標籤上，選取**空的活動**，然後選取**下一步]**。
+3. 在 [設定專案] 底下，選取 `API 21: Android 5.0.0 (Lollipop)` 作為最低版本的 SDK。 這是支援 Azure 地圖服務的 Android SDK 的最早版本。
+4. 接受預設值`Activity Name`並`Layout Name`，然後選取**完成**。
 
-請參閱 [Android Studio 文件](https://developer.android.com/studio/intro/)，以取得更多如何安裝 Android Studio 並建立新專案的說明。
+請參閱[Android Studio 文件](https://developer.android.com/studio/intro/)取得更多協助安裝 Android Studio，並建立新的專案。
 
-![建立新專案](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![建立專案](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>設定虛擬裝置
 
-Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助您在開發時測試您的應用程式。 若要設定虛擬裝置，請按一下專案畫面右上方的 [Android 虛擬裝置 (AVD) 管理員] 圖示。 然後按一下 [建立虛擬裝置] 按鈕。 您也可以在工具列中透過 [工具] > [Android] > [AVD 管理員] 來移至管理員。 從 [電話] 目錄中選取 [Nexus 5X]，然後按 [下一步]。
+Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 如此一來，可協助您測試您的應用程式，在開發期間。 若要設定虛擬裝置，您專案的畫面，右上角選取 [Android 虛擬裝置 (AVD) 管理員] 圖示，然後按**建立虛擬裝置**。 您也可以藉由選取來取得 AVD Manager**工具** > **Android** > **AVD Manager**從工具列。 在 [**手機**類別目錄中，選取**Nexus 5 X**，然後選取**下一步]**。
 
-請至 [Android Studio 文件](https://developer.android.com/studio/run/managing-avds) 深入了解如何設定 AVD。
+您可以深入了解設定在 AVD [Android Studio 文件](https://developer.android.com/studio/run/managing-avds)。
 
 ![Android Emulator](./media/how-to-use-android-map-control-library/android-emulator.png)
 
-## <a name="install-azure-maps-android-sdk"></a>安裝 Azure 地圖服務 Android SDK
+## <a name="install-the-azure-maps-android-sdk"></a>Azure 地圖服務的 Android SDK 安裝
 
-在開始建置應用程式之前，請先遵循下列步驟來安裝 Azure 地圖服務 Android SDK。 
+建置您的應用程式的下一個步驟是安裝 Azure 地圖服務的 Android SDK。 完成這些步驟來安裝 SDK:
 
-1. 將下列內容新增至 [所有專案] (**build.gradle** 檔案中的存放庫區塊)。
+1. 將下列程式碼加入**所有專案**，**存放庫**封鎖您**build.gradle**檔案。
 
     ```
     maven {
@@ -63,9 +63,9 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助�
     }
     ```
 
-2. 更新 **app/build.gradle**，並於其中新增下列內容：
+2. 更新您**app/build.gradle**並加入下列程式碼：
 
-    1. 將下列內容新增至 Android 區塊：
+    1. Android 的區塊中加入下列程式碼：
 
         ```
         compileOptions {
@@ -73,13 +73,13 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助�
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. 更新相依性區塊，並於其中新增下列內容：
+    2. 更新您的相依性的區塊，並加入下列程式碼：
 
         ```
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. 將下列內容新增至 **AndroidManifest.xml** 來設定權限
+3. 藉由新增下列 XML 來設定權限您**AndroidManifest.xml**檔案：
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助�
     </manifest>
     ```
 
-4. 編輯 **res > layout > activity_main.xml**，讓它看起來像下面的 XML：
+4. 編輯**res** > **版面配置** > **activity_main.xml**讓它看起來像這個 XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -113,7 +113,7 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助�
     </FrameLayout>
     ```
 
-5. 編輯 **MainActivity.java** 以建立地圖檢視活動類別。 在編輯過後，其看起來應該會像下列類別：
+5. 編輯 **MainActivity.java** 以建立地圖檢視活動類別。 您在編輯之後，它看起來應該像此類別：
 
     ```java
     package com.example.myapplication;
@@ -187,21 +187,21 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 這可協助�
 
 ## <a name="import-classes"></a>匯入類別
 
-完成上述步驟之後，您非常有可能會從 Android Studio 收到警告，內容是關於程式碼中的一些文字。 若要解決這些警告，請匯入 `MainActivity.java` 中所參考的類別。
+完成上述步驟之後，您可能將一些程式碼的相關取得 Android Studio 的警告。 若要解決這些警告，匯入中所參考的類別`MainActivity.java`。
 
-您可以藉由按下 `Alt`+`Enter` (Mac 上則為 `Option`+`Return`) 來自動匯入這些類別。 
+您自動選取 Alt + Enter （選項 + 在 Mac 上的返回） 匯入這些類別。
 
-按一下 [執行「應用程式」] 按鈕 (Mac 上則為 `Control`+`R`) 來建置您的應用程式。
+下列圖形 （或按下控制項 + R，在 Mac 上），來建置您的應用程式中所示，請選取 [執行] 按鈕。
 
 ![按一下 [執行]](./media/how-to-use-android-map-control-library/run-app.png)
 
-Android Studio 需要幾秒鐘的時間來建置應用程式。 建置完成後，您就可以在模擬的 Android 裝置中測試您的應用程式。 您會看到類似以下的地圖。
+Android Studio 中將會需要幾秒鐘的時間來建置應用程式。 建置完成之後，您可以在模擬的 Android 裝置來測試您的應用程式。 您應該會看到與下列類似的對應：
 
 ![Android 地圖](./media/how-to-use-android-map-control-library/android-map.png)
 
 ## <a name="add-a-marker-to-the-map"></a>在地圖上新增標記
 
-若要在地圖上新增標記，請將 `mapView.getMapAsync()` 函式新增至 `MainActivity.java`。 最終的 `MainActivity.java` 看起來應該會像下面這樣：
+若要將標記加入至您的地圖，新增`mapView.getMapAsync()`函式以`MainActivity.java`。 最終`MainActivity.java`程式碼應該看起來像這樣：
 
 ```java
 package com.example.myapplication;
@@ -288,6 +288,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-重新執行您的應用程式，您應該就會在地圖上看到類似下圖的標記。
+執行您的應用程式一次。 您應該在地圖上，看到標記，如下所示：
 
 ![Android 地圖釘選圖示](./media/how-to-use-android-map-control-library/android-map-pin.png)

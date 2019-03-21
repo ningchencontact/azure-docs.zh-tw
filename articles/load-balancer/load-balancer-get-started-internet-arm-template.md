@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5f6a0ce0c9d863b5ab4922e7228a873ed5398600
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: af72eb0214f46c1e001f9e93934d38cb934503e4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033276"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592480"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>使用範本建立公用負載平衡器
 
@@ -28,7 +28,7 @@ ms.locfileid: "54033276"
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [範本](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -36,24 +36,24 @@ ms.locfileid: "54033276"
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>使用按一下即部署來部署範本
 
-公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。 若要使用「按一下即部署」來部署此範本，請依循[此連結](https://go.microsoft.com/fwlink/?LinkId=544801)，按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
+公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。 如果要通过单击部署的方式来部署此模板，请访问[此链接](https://go.microsoft.com/fwlink/?LinkId=544801)，单击“部署至 Azure”，如有必要，请替换默认参数值，并按照门户中的说明进行操作。
 
 ## <a name="deploy-the-template-by-using-powershell"></a>使用 PowerShell 部署範本
 
 若要使用 PowerShell 部署您下載的範本，請依照下列步驟執行。
 
 1. 如果您從未用過 Azure PowerShell，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) ，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
-2. 執行 **New-AzureRmResourceGroupDeployment** Cmdlet 以使用範本建立資源群組。
+2. 运行 **New-AzResourceGroupDeployment** cmdlet 以使用模板创建资源组。
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
+    New-AzResourceGroupDeployment -Name TestRG -Location uswest `
         -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
         -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
     ```
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>使用 Azure CLI 部署範本
 
-若要使用 Azure CLI 部署範本，請依照下列步驟執行。
+若要使用 Azure CLI 部署模板，请执行以下步骤。
 
 1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
 2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
@@ -77,7 +77,7 @@ ms.locfileid: "54033276"
 
 [開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 
-[設定負載平衡器分配模式](load-balancer-distribution-mode.md)
+[配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 

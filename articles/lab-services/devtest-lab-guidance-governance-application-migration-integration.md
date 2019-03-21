@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: c57385bc398544e786aec77dae9886784e3a0b3c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 75ce5d6a88b5398bd010cc363b4241bc90068f55
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243615"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436566"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>治理 Azure DevTest Labs 基礎結構 - 應用程式移轉和整合
 一旦建立您的開發/測試實驗室環境之後，您需要思考下列問題：
@@ -117,7 +117,7 @@ ms.locfileid: "56243615"
 考慮每位使用者或每個實驗室的虛擬機器數目時，有三個主要考量：
 
 - 小組可在實驗室中花費於資源上的**整體成本**。 很容易就能將許多機器向上微調。 若要控制成本，有一種機制是限制每位使用者和/或每個實驗室的 VM 數目
-- 實驗室中的虛擬機器總數會受到可用的[訂用帳戶層級配額](../azure-subscription-service-limits.md)所影響。 其中一個上限是每個訂用帳戶 800 個資源群組。 DevTest Labs 目前會針對每部 VM 建立一個新的資源群組 (除非使用共用的公用 IP)。 如果訂用帳戶中有 10 個實驗室，實驗室大約能在每個實驗室中納入 79 部虛擬機器 (800 個上限 – 10 個實驗室本身的 10 個資源群組) = 每個實驗室 79 部虛擬機器。
+- 實驗室中的虛擬機器總數會受到可用的[訂用帳戶層級配額](../azure-subscription-service-limits.md)所影響。 其中一個上限是每個訂用帳戶 800 個資源群組。 DevTest Labs 目前會針對每部 VM 建立一個新的資源群組 (除非使用共用的公用 IP)。 如果訂用帳戶中有 10 個實驗室，實驗室無法容納大約 79 虛擬機器中每個實驗室 （800 上限 – 10 個實驗室本身的 10 個資源群組） = 79 每個實驗室的虛擬機器。
 - 舉例來說，如果實驗室會透過 Express Route 連線到內部部署，則會針對 VNet/子網路**定義可用的 IP 位址空間**。 若要確保實驗室中的 VM 不會建立失敗 (錯誤：無法取得 IP 位址)，實驗室擁有者可以針對每個已配置可用 IP 位址空間的實驗室指定 VM 的最大數目。
 
 ## <a name="use-resource-manager-templates"></a>使用 Resource Manager 範本

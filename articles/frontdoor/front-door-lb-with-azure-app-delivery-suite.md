@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820813"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439021"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>使用 Azure 的應用程式傳遞套件進行負載平衡
 
@@ -59,7 +59,7 @@ Front Door 會於 Microsoft 網路的邊緣終止 HTTP 要求，並主動探查�
 | 流量管理員 | Azure Front Door Service |
 | --------------- | ------------------------ |
 |**任何通訊協定**：由於流量管理員是在 DNS 層運作，因此您可以路由傳送任何類型的網路流量 (HTTP、TCP、UDP 等)。 | **HTTP 加速**：Front Door 的流量是在 Microsoft 網路的邊緣進行 Proxy 處理。  這能改善 HTTP(S) 要求的延遲與輸送量，進而降低 SSL 交涉的延遲，以及使用從 AFD 到您應用程式的經常性連線。|
-|**內部部署路由傳送**：由於路由傳送是在 DNS 層進行，流量一律會以點對點的方式流動。  透過流量管理員，從您的分公司針對內部部署資料中心進行路由傳送時將可以採取直接的路徑，即使是在您自己的網路上也相同。 | **獨立的可調整性**：由於 Front Door 能搭配 HTTP 要求運作，因此可以根據規則及每個應用程式微服務的健康情況，將針對不同 URL 路徑的要求路由傳送到不同的後端/區域服務集區 (微服務)。|
+|**內部部署路由傳送**：由於路由傳送是在 DNS 層進行，流量一律會以點對點的方式流動。  從分公司到您在內部部署資料中心的路由可以採取直接的路徑;即使在您自己的網路上使用 「 流量管理員。 | **獨立的可調整性**：由於 Front Door 能搭配 HTTP 要求運作，因此可以根據規則及每個應用程式微服務的健康情況，將針對不同 URL 路徑的要求路由傳送到不同的後端/區域服務集區 (微服務)。|
 |**計費格式**：以 DNS 為基礎的計費會根據您的使用者進行調整，而針對具有較多使用者的服務，能在較高使用量的情況下透過平穩狀態來減少成本。 |**內嵌的安全性**：Front Door 可提供如速率限制與 IP ACL 處理等規則，使您能在流量抵達應用程式之前保護您的後端。 
 
 </br>基於 Front Door 針對 HTTP 工作負載所提供的效能、可操作性與安全性的優點，我們建議客戶針對其 HTTP 工作負載使用 Front Door。    流量管理員與 Front Door 可以同時用來處理應用程式的所有流量。 

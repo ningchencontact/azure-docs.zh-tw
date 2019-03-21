@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c4fcdc43e8c88bf307e4de5727df0641616d7b78
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540736"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448130"
 ---
 # <a name="best-practices-for-query-store"></a>查詢存放區的最佳做法
 
@@ -28,7 +28,7 @@ ms.locfileid: "53540736"
 
 |**pg_qs.query_capture_mode** | **案例**|
 |---|---|
-|_所有_  |根據您的所有查詢與其執行頻率與其他統計資料徹底分析您的工作負載。 識別您工作負載中的新查詢。 偵測是否使用臨機操作查詢來識別使用者或自動參數化的機會。 _全都_有增加的資源耗用成本。 |
+|_所有_  |根據您的所有查詢與其執行頻率與其他統計資料徹底分析您的工作負載。 識別您工作負載中的新查詢。 检测是否使用即席查询来识别用户或自动参数化的机会。 _全都_有增加的資源耗用成本。 |
 |_前幾個_  |專注在前幾個查詢 - 那些由客戶發出的查詢。
 |_None_ |您已擷取查詢集與一段時間，您想要在這段時間內調查並減少其他查詢可能會產生之令人困惑之事。 _無_適用於測試及效能評定環境。 _無_應該謹慎使用，因為您可能可能會錯過追蹤及最佳化重要新查詢的機會。 我們無法復原過去時段內的資料。 |
 

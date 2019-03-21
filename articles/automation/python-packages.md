@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: de0998dffeac54db5311bbcde1c9499488b23556
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 81ce9cb2667ce9f21d7c18a92e417e47768d7efb
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434965"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407928"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>管理 Azure 自動化中的 Python 2 封裝
 
@@ -30,13 +30,42 @@ Azure 自動化可讓您在 Azure 和 Linux 混合式 Runbook 背景工作角色
 
 ![新增 Python 封裝](media/python-packages/upload-package.png)
 
-匯入封裝後，該封裝會列於自動化帳戶中的 [Python 2 封裝] 頁面。 如果您需要移除封裝，請在封裝頁面上選取封裝，然後選擇 [刪除]。
+导入包之后，该包将在自动化帐户中的“Python 2 包”页中列出。 如果您需要移除封裝，請在封裝頁面上選取封裝，然後選擇 [刪除]。
 
 ![封裝清單](media/python-packages/package-list.png)
 
+## <a name="import-packages-with-dependencies"></a>导入带依赖项的包
+
+Azure 自动化不在导入过程中解析 Python 包的依赖项。 可以通过两种方式导入包及其所有依赖项。 只需使用下述步骤之一将包导入自动化帐户中。
+
+### <a name="manually-download"></a>手动下载
+
+在安装了 [python2.7](https://www.python.org/downloads/release/latest/python2) 和 [pip](https://pip.pypa.io/en/stable/) 的 Windows 64 位计算机上运行以下命令，以便下载包及其所有依赖项：
+
+```
+C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
+```
+
+等到这些包下载以后，即可将其导入自动化帐户中。
+
+### <a name="runbook"></a>Runbook
+
+匯入 python runbook [pypi 到 Azure 自動化帳戶中的匯入 Python 2 套件](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509)從資源庫到您的自動化帳戶。 請確定執行的設定會設定為**Azure**和啟動 runbook 的參數。 Runbook 需要執行身分帳戶來工作的自動化帳戶。 基於每個參數，請確定您啟動它以參數中的下列清單和映像所示：
+
+* -s \<subscriptionId\>
+* -g \<resourceGroup\>
+* -a \<automationAccount\>
+* -m \<modulePackage\>
+
+![封裝清單](media/python-packages/import-python-runbook.png)
+
+Runbook 可讓您指定哪些封裝要下載，比方說， `Azure` （第四個參數） 會下載所有的 Azure 模組和其所有相依性，這是即將 105。
+
+Runbook 完成之後您可以檢查**Python 2 封裝**下方的頁面上**共用資源**在您的自動化帳戶，以確認它們封裝已正確匯入。
+
 ## <a name="use-a-package-in-a-runbook"></a>在 Runbook 中使用封裝
 
-匯入封裝後，您現在可以在 Runbook 中使用。 下列範例會使用 [Azure 自動化公用程式封裝](https://github.com/azureautomation/azure_automation_utility)。 此封裝可讓您更輕鬆配合使用 Python 與 Azure 自動化。 若要使用此封裝，請遵循 GitHub 存放庫中的指示，並透過使用 `from azure_automation_utility import get_automation_runas_credential` 將其新增至 Runbook (例如，匯入函式以擷取 RunAs 帳戶)。
+导入包之后，即可在 Runbook 中使用它。 下列範例會使用 [Azure 自動化公用程式封裝](https://github.com/azureautomation/azure_automation_utility)。 此封裝可讓您更輕鬆配合使用 Python 與 Azure 自動化。 若要使用此封裝，請遵循 GitHub 存放庫中的指示，並透過使用 `from azure_automation_utility import get_automation_runas_credential` 將其新增至 Runbook (例如，匯入函式以擷取 RunAs 帳戶)。
 
 ```python
 import azure.mgmt.resource

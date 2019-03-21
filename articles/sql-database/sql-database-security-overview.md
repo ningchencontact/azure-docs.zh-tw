@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235983"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213920"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -84,7 +84,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
 
 SQL Database 可藉由提供稽核和威脅偵測功能來保護客戶資料。
 
-### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Log Analytics 和事件中樞的 SQL 稽核
+### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>Azure 監視器記錄和事件中樞中的 SQL 稽核
 
 SQL Database 稽核會將資料庫事件記錄到客戶自有 Azure 儲存體帳戶中的稽核記錄，藉此追蹤資料庫活動並協助維護安全性標準的合規性。 稽核可讓使用者監視進行中的資料庫活動，以及分析和調查歷史活動，以找出潛在威脅或可疑的濫用和安全性違規。 如需詳細資訊，請參閱[開始使用 Azure Database 稽核](sql-database-auditing.md)。  
 

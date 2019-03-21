@@ -1,19 +1,19 @@
 ---
 title: 封存 Azure 活動記錄檔
 description: 封存 Azure 活動記錄檔以在儲存體帳戶中長期保存。
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 02/22/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: d9abfe90296b27918594c41a207befe2b59027b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461589"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310892"
 ---
 # <a name="archive-the-azure-activity-log"></a>封存 Azure 活動記錄檔
 在本文中，我們示範如何使用 Azure 入口網站、PowerShell Cmdlet 或跨平台 CLI 封存儲存體帳戶中的 [**Azure 活動記錄檔**](../../azure-monitor/platform/activity-logs-overview.md)。 如果您想要保留活動記錄檔超過 90 天 (而且對保留原則有完全的控制)，以便稽核、靜態分析或備份，這個選項非常有用。 如果您只需要保留事件 90 天或更短，則不需要設定封存至儲存體帳戶，因為在不啟用封存的情況下，活動記錄檔就會在 Azure 平台保留 90 天。
@@ -26,11 +26,8 @@ ms.locfileid: "54461589"
 ## <a name="prerequisites"></a>必要條件
 在開始之前，您需要 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) ，以便將活動記錄檔封存至此。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存診斷記錄檔和度量至儲存體帳戶，則將同一儲存體帳戶用於活動記錄檔合情合理，因為可以將所有監視資料集中在一個位置。 儲存體帳戶不一定要和訂用帳戶發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
-> [!NOTE]
->  您目前無法將資料封存到在安全虛擬網路後面建立的儲存體帳戶。
-
 ## <a name="log-profile"></a>記錄檔設定檔
-若要使用下列任一方法封存活動記錄檔，請設定訂用帳戶的 **記錄檔設定檔** 。 記錄檔的設定檔定義了要儲存或串流的事件類型以及輸出 — 儲存體帳戶和/或事件中樞。 它也定義事件儲存在儲存體帳戶中的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地儲存事件。 否則，這可以設為介於 1 到 2147483647 之間的任何值。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。 [您可以至此處閱讀記錄檔設定檔的相關資訊](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 
+若要使用下列任一方法封存活動記錄檔，請設定訂用帳戶的 **記錄檔設定檔** 。 記錄檔的設定檔定義了要儲存或串流的事件類型以及輸出 — 儲存體帳戶和/或事件中樞。 它也定義事件儲存在儲存體帳戶中的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地儲存事件。 否則，這可以設定為 1 到 365 之間的任何值。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。 [您可以至此處閱讀記錄檔設定檔的相關資訊](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>使用入口網站封存活動記錄檔
 1. 在入口網站中，按一下左側導覽中的 [活動記錄檔]  連結。 如果您沒有看到活動記錄的連結，先按一下 [所有服務] 連結。
@@ -47,10 +44,12 @@ ms.locfileid: "54461589"
 
 ## <a name="archive-the-activity-log-via-powershell"></a>透過 PowerShell 封存活動記錄檔
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your storage account belongs to>"
@@ -59,13 +58,13 @@ ms.locfileid: "54461589"
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
    ```
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --- | --- | --- |
 | StorageAccountId |是 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
-| 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 您可以使用 `(Get-AzureRmLocation).Location` 來檢視您訂用帳戶的所有區域清單。 |
+| 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 您可以使用 `(Get-AzLocation).Location` 來檢視您訂用帳戶的所有區域清單。 |
 | RetentionInDays |否 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
 | 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。  如果未提供，則會採用所有可能的值 |
 
@@ -75,7 +74,7 @@ ms.locfileid: "54461589"
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
    ```
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --- | --- | --- |
 | name |是 |記錄檔設定檔的名稱。 |
 | storage-account-id |是 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
@@ -158,18 +157,18 @@ insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0
 ```
 
 
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
-| 分析 |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
+| 分析 |处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
 | ResourceId |受影響資源的資源識別碼。 |
-| operationName |作業名稱。 |
+| operationName |操作的名称。 |
 | category |事件的類別，例如 寫入、讀取、動作。 |
 | resultType |結果的類型，例如 成功、失敗、開始 |
 | resultSignature |取決於資源類型。 |
 | durationMs |作業的持續時間 (以毫秒為單位) |
 | callerIpAddress |已執行作業的使用者的 IP 地址，根據可用性的 UPN 宣告或 SPN 宣告。 |
 | correlationId |通常是字串格式的 GUID。 具有相同 correlationId、屬於同一 uber 動作的事件。 |
-| 身分識別 |描述授權和宣告的 JSON blob。 |
+| identity |描述授權和宣告的 JSON blob。 |
 | 授權 |事件的 RBAC 屬性的 blob。 通常包括 action、role 和 scope 屬性。 |
 | 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」、「告知性」與「詳細資訊」 |
 | location |在 location 發生 (或全球) 的區域。 |

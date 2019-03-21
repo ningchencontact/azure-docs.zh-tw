@@ -2,19 +2,19 @@
 title: 使用 Spark 以讀取及寫入 HBase 資料 - Azure HDInsight
 description: 使用 Spark HBase Connector 將資料從 Spark 叢集讀取及寫入至 HBase 叢集。
 services: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 547cc30bdf3dedff30c28165a7a76093a6512b83
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 03/12/2019
+ms.openlocfilehash: 0ba61dc266add48577c3a382465ecb2cec9d2a05
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188028"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>使用 Apache Spark 來讀取和寫入 Apache HBase 資料
 
@@ -22,10 +22,11 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
 
 ## <a name="prerequisites"></a>必要條件
 
-* 兩個個別 HDInsight 叢集，一個 HBase，以及一個已安裝 Spark 2.1 (HDInsight 3.6) 的 Spark。
+* 兩個不同的 HDInsight 叢集、 一個 HBase 和一個 Spark，和至少已安裝的 Spark 2.1 (HDInsight 3.6)。
 * Spark 叢集必須以最少的延遲直接與 HBase 叢集通訊，因此建議的設定是在相同的虛擬網路中同時部署兩個叢集。 如需詳細資訊，請參閱[使用 Azure 入口網站在 HDInsight 中建立以 Linux 為基礎的叢集](hdinsight-hadoop-create-linux-clusters-portal.md)。
-* 對於每個叢集的 SSH 存取。
-* 對於每個叢集預設儲存體的存取。
+* SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* [URI 配置](/hdinsight-hadoop-linux-information#URI-and-scheme.md)您叢集的主要儲存體。 這會是 wasb: / / Azure Blob 儲存體，abfs: / / Azure Data Lake 儲存體 Gen2 或 adl: / / Azure Data Lake 儲存體 Gen1。 如果 Blob 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是 wasbs: / / 或 abfss: / / 分別另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
+
 
 ## <a name="overall-process"></a>整體程序
 
@@ -42,16 +43,21 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
 
 在此步驟中，您會在 Apache HBase 中建立並填入簡單的資料表，然後您可以使用 Spark 查詢。
 
-1. 使用 SSH 連線到 HBase 叢集的前端節點。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)。
-2. 執行 HBase Shell：
+1. 使用 SSH 連線到 HBase 叢集的前端節點。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)。  編輯下列命令，來取代`HBASECLUSTER`HBase 叢集的名稱與`sshuser`與 ssh 使用者帳戶名稱，然後輸入命令。
+
+    ```
+    ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
+    ```
+
+2. 輸入下列命令來啟動 HBase shell:
 
         hbase shell
 
-3. 建立具有資料行系列 `Personal` 和 `Office` 的 `Contacts` 資料表：
+3. 輸入下列命令來建立`Contacts`資料表的資料行系列`Personal`和`Office`:
 
         create 'Contacts', 'Personal', 'Office'
 
-4. 載入資料的一些範例資料列：
+4. 輸入下列命令，以載入資料的一些範例資料列：
 
         put 'Contacts', '1000', 'Personal:Name', 'John Dole'
         put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
@@ -62,119 +68,99 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
         put 'Contacts', '8396', 'Office:Phone', '230-555-0191'
         put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
 
-## <a name="acquire-hbase-sitexml-from-your-hbase-cluster"></a>從您的 HBase 叢集取得 hbase-site.xml
+5. 輸入下列命令來結束 HBase 殼層：
 
-1. 使用 SSH 連線到 HBase 叢集的前端節點。
-2. 將 hbase-site.xml 從本機儲存體複製到 HBase 叢集預設儲存體的根目錄：
+        exit 
 
-        hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml /
+## <a name="copy-hbase-sitexml-to-spark-cluster"></a>將 hbase-site.xml 複製到 Spark 叢集
+將 hbase-site.xml 從本機儲存體複製到您的 Spark 叢集預設儲存體的根目錄。  編輯下列命令來反映您的設定。  然後，從開啟 SSH 工作階段到 HBase 叢集，請輸入命令：
 
-3. 使用 [Azure 入口網站](https://portal.azure.com)瀏覽至 HBase 叢集。
-4. 選取儲存體帳戶。 
+| 語法值 | 新增值|
+|---|---|
+|[URI 配置](hdinsight-hadoop-linux-information.md#URI-and-scheme) | 修改以反映您的儲存體。  下列語法會為已啟用安全傳輸的 blob 儲存體。|
+|`SPARK_STORAGE_CONTAINER`|取代為用於 Spark 叢集的預設儲存體容器名稱。|
+|`SPARK_STORAGE_ACCOUNT`|取代為用於 Spark 叢集的預設儲存體帳戶名稱。|
 
-    ![儲存體帳戶](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
-
-5. 在清單中選取 [預設] 資料行底下具有核取記號的儲存體帳戶。
-
-    ![預設儲存體帳戶](./media/hdinsight-using-spark-query-hbase/default-storage.png)
-
-6. 在 [儲存體帳戶] 窗格中，選取 [Blob] 圖格。
-
-    ![Blob 圖格](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
-
-7. 在容器清單中，選取您 HBase 叢集所使用的容器。
-8. 在檔案清單中，選取 `hbase-site.xml`。
-
-    ![HBase-site.xml](./media/hdinsight-using-spark-query-hbase/hbase-site-xml.png)
-
-9. 在 Blob 內容面板中，選取 [下載] 並且將 `hbase-site.xml` 儲存到本機電腦上的位置。
-
-    ![下載](./media/hdinsight-using-spark-query-hbase/download.png)
+```
+hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
+```
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>將 hbase-site.xml 放置在您的 Spark 叢集
 
-1. 使用 [Azure 入口網站](https://portal.azure.com)瀏覽至 Spark 叢集。
-2. 選取儲存體帳戶。
+1. 使用 SSH 連線到 Spark 叢集的前端節點。
 
-    ![儲存體帳戶](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
-
-3. 在清單中選取 [預設] 資料行底下具有核取記號的儲存體帳戶。
-
-    ![預設儲存體帳戶](./media/hdinsight-using-spark-query-hbase/default-storage.png)
-
-4. 在 [儲存體帳戶] 窗格中，選取 [Blob] 圖格。
-
-    ![Blob 圖格](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
-
-5. 在容器清單中，選取您 Spark 叢集所使用的容器。
-6. 選取上傳。
-
-    ![上傳](./media/hdinsight-using-spark-query-hbase/upload.png)
-
-7. 選取您先前下載到本機電腦的 `hbase-site.xml` 檔案。
-
-    ![上傳 hbase-site.xml](./media/hdinsight-using-spark-query-hbase/upload-selection.png)
-
-8. 選取上傳。
-9. 使用 SSH 連線到 Spark 叢集的前端節點。
-10. 將 `hbase-site.xml` 從您的 Spark 叢集預設儲存體複製到叢集本機儲存體上的 Spark 2 設定資料夾：
+2. 輸入下列命令來複製`hbase-site.xml`從 Spark 叢集的 Spark 2 設定資料夾，在叢集的本機儲存體的預設儲存體：
 
         sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>執行參照 Spark HBase Connector 的 Spark Shell
 
-1. 使用 SSH 連線到 Spark 叢集的前端節點。
-2. 啟動 Spark Shell，指定 Spark HBase Connector 套件：
+1. 從 Spark 叢集您開啟 SSH 工作階段，請輸入下列命令來啟動 spark 殼層：
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
+    ```
+    spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
+    ```  
 
-3. 讓此 Spark Shell 執行個體保持開啟，並且繼續進行下一個步驟。
+2. 讓此 Spark Shell 執行個體保持開啟，並且繼續進行下一個步驟。
 
 ## <a name="define-a-catalog-and-query"></a>定義目錄和查詢
 
-在這個步驟中，您會定義目錄物件，該目錄物件將結構描述從 Apache Spark 對應至 Apache HBase。 
+在這個步驟中，您會定義目錄物件，該目錄物件將結構描述從 Apache Spark 對應至 Apache HBase。  
 
-1. 在開啟的 Spark Shell 中，執行下列 `import` 陳述式：
+1. 在您開啟的 Spark Shell 中，輸入下列`import`陳述式：
 
-        import org.apache.spark.sql.{SQLContext, _}
-        import org.apache.spark.sql.execution.datasources.hbase._
-        import org.apache.spark.{SparkConf, SparkContext}
-        import spark.sqlContext.implicits._
+    ```scala
+    import org.apache.spark.sql.{SQLContext, _}
+    import org.apache.spark.sql.execution.datasources.hbase._
+    import org.apache.spark.{SparkConf, SparkContext}
+    import spark.sqlContext.implicits._
+    ```  
 
-2. 針對您在 HBase 中建立的 [連絡人] 資料表定義目錄：
-    1. 針對名為 `Contacts` 的 HBase 資料表定義目錄結構描述。
-    2. 將 rowkey 識別為 `key`，並且將 Spark 中使用的資料行名稱對應至 HBase 中使用的資料行系列、資料行名稱以及資料行類型。
-    3. rowkey 也必須詳細定義為具名資料行 (`rowkey`)，其具有 `rowkey` 的特定資料行系列 `cf`。
+2. 輸入下列命令來定義類別目錄的 [連絡人] 資料表在 HBase 中所建立：
 
-            def catalog = s"""{
-                |"table":{"namespace":"default", "name":"Contacts"},
-                |"rowkey":"key",
-                |"columns":{
-                |"rowkey":{"cf":"rowkey", "col":"key", "type":"string"},
-                |"officeAddress":{"cf":"Office", "col":"Address", "type":"string"},
-                |"officePhone":{"cf":"Office", "col":"Phone", "type":"string"},
-                |"personalName":{"cf":"Personal", "col":"Name", "type":"string"},
-                |"personalPhone":{"cf":"Personal", "col":"Phone", "type":"string"}
-                |}
-            |}""".stripMargin
+    ```scala
+    def catalog = s"""{
+        |"table":{"namespace":"default", "name":"Contacts"},
+        |"rowkey":"key",
+        |"columns":{
+        |"rowkey":{"cf":"rowkey", "col":"key", "type":"string"},
+        |"officeAddress":{"cf":"Office", "col":"Address", "type":"string"},
+        |"officePhone":{"cf":"Office", "col":"Phone", "type":"string"},
+        |"personalName":{"cf":"Personal", "col":"Name", "type":"string"},
+        |"personalPhone":{"cf":"Personal", "col":"Phone", "type":"string"}
+        |}
+    |}""".stripMargin
+    ```
 
-3. 定義方法，該方法提供 HBase 中 `Contacts` 資料表周圍的 DataFrame：
+    程式碼會執行下列作業：  
 
-            def withCatalog(cat: String): DataFrame = {
-                spark.sqlContext
-                .read
-                .options(Map(HBaseTableCatalog.tableCatalog->cat))
-                .format("org.apache.spark.sql.execution.datasources.hbase")
-                .load()
-            }
+     a. 針對名為 `Contacts` 的 HBase 資料表定義目錄結構描述。  
+     b. 將 rowkey 識別為 `key`，並且將 Spark 中使用的資料行名稱對應至 HBase 中使用的資料行系列、資料行名稱以及資料行類型。  
+     c. rowkey 也必須詳細定義為具名資料行 (`rowkey`)，其具有 `rowkey` 的特定資料行系列 `cf`。  
+
+3. 輸入下列命令來定義方法，以提供周圍的 DataFrame 您`Contacts`在 HBase 資料表：
+
+    ```scala
+    def withCatalog(cat: String): DataFrame = {
+        spark.sqlContext
+        .read
+        .options(Map(HBaseTableCatalog.tableCatalog->cat))
+        .format("org.apache.spark.sql.execution.datasources.hbase")
+        .load()
+     }
+    ```
 
 4. 建立 DataFrame 的執行個體：
 
-        val df = withCatalog(catalog)
+    ```scala
+    val df = withCatalog(catalog)
+    ```  
 
 5. 查詢 DataFrame：
 
-        df.show()
+    ```scala
+    df.show()
+    ```
 
 6. 您應該會看到兩個資料列的資料：
 
@@ -187,12 +173,16 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
 
 7. 註冊暫存資料表，以便使用 Spark SQL 查詢 HBase 資料表：
 
-        df.registerTempTable("contacts")
+    ```scala
+    df.createTempView("contacts")
+    ```
 
 8. 根據 `contacts` 資料表發出 SQL 查詢：
 
-        val query = spark.sqlContext.sql("select personalName, officeAddress from contacts")
-        query.show()
+    ```scala
+    val query = spark.sqlContext.sql("select personalName, officeAddress from contacts")
+    query.show()
+    ```
 
 9. 您應該會看到如下的結果：
 
@@ -207,30 +197,36 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
 
 1. 若要插入新的連絡人記錄，請定義 `ContactRecord` 類別：
 
-        case class ContactRecord(
-            rowkey: String,
-            officeAddress: String,
-            officePhone: String,
-            personalName: String,
-            personalPhone: String
-            )
+    ```scala
+    case class ContactRecord(
+        rowkey: String,
+        officeAddress: String,
+        officePhone: String,
+        personalName: String,
+        personalPhone: String
+        )
+    ```
 
 2. 建立 `ContactRecord` 的執行個體並將其放置在陣列中：
 
-        val newContact = ContactRecord("16891", "40 Ellis St.", "674-555-0110", "John Jackson","230-555-0194")
+    ```scala
+    val newContact = ContactRecord("16891", "40 Ellis St.", "674-555-0110", "John Jackson","230-555-0194")
 
-        var newData = new Array[ContactRecord](1)
-        newData(0) = newContact
+    var newData = new Array[ContactRecord](1)
+    newData(0) = newContact
+    ```
 
 3. 將新資料的陣列儲存至 HBase：
 
-        sc.parallelize(newData).toDF.write
-        .options(Map(HBaseTableCatalog.tableCatalog -> catalog))
-        .format("org.apache.spark.sql.execution.datasources.hbase").save()
+    ```scala
+    sc.parallelize(newData).toDF.write.options(Map(HBaseTableCatalog.tableCatalog -> catalog, HBaseTableCatalog.newTable -> "5")).format("org.apache.spark.sql.execution.datasources.hbase").save()
+    ```
 
 4. 檢查結果︰
-    
-        df.show()
+
+    ```scala  
+    df.show()
+    ```
 
 5. 您應該會看到如下的輸出：
 

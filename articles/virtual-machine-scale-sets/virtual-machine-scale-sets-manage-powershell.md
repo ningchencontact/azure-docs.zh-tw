@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 5746d8b1f4c12a9b39f1599da753db8109790a55
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c4684dd27aeed4fab4335a93ea5a458b4a9f5d80
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984123"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821178"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 管理虛擬機器擴展集
 
@@ -92,7 +92,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>重新啟動擴展集中的 VM
-若要重新啟動擴展集中的一或多個 VM，請使用 [Retart-AzVmss](/powershell/module/az.compute/restart-azvmss)。 `-InstanceId` 參數可讓您指定重新啟動一或多個 VM。 如果您未指定執行個體識別碼，則會重新啟動擴展集中的所有 VM。 若要重新啟動多個 VM，請以逗號分隔每個執行個體識別碼。
+若要重新啟動擴展集中的一個或多個 Vm，使用[重新啟動 AzVmss](/powershell/module/az.compute/restart-azvmss)。 `-InstanceId` 參數可讓您指定重新啟動一或多個 VM。 如果您未指定執行個體識別碼，則會重新啟動擴展集中的所有 VM。 若要重新啟動多個 VM，請以逗號分隔每個執行個體識別碼。
 
 下列範例重新啟動 myScaleSet 擴展集和 myResourceGroup 資源群組中的執行個體 *0*。 提供您自己的值，如下所示︰
 

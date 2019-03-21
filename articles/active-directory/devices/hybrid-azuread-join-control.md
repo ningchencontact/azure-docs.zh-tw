@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b1e1c103c37874365f7e8d0b893985c9a6469c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171072"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408525"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>控制裝置的混合式 Azure AD 聯結
 
@@ -82,7 +82,7 @@ ms.locfileid: "56171072"
 8.  以滑鼠右鍵按一下 [將已加入網域的電腦註冊為裝置]，然後選取 [編輯]。
 
     > [!NOTE] 
-    > 此「群組原則」範本已從舊版 [群組原則管理] 主控台重新命名。 如果您使用舊版的主控台，請移至 [電腦設定]  >  [原則]  >  [系統管理範本]  >  [Windows 元件]  >  [工作場所聯結]  >  [自動將用戶端電腦聯結工作場所]。 
+    > 此「群組原則」範本已從舊版 [群組原則管理] 主控台重新命名。 如果您使用舊版主控台，請移至**電腦組態** > **原則** > **系統管理範本** > **Windows 元件** > **裝置註冊** > **註冊加入網域的裝置與電腦**。 
 
 9.  選取下列其中一個設定，然後選取 [套用]：
 
@@ -99,16 +99,16 @@ ms.locfileid: "56171072"
 
 若要設定用戶端設定：
 
-1.  開啟 [組態管理員]，然後移至 [雲端服務]。
+1.  開啟**Configuration Manager**，選取**管理**，然後移至**用戶端設定**。
 
-2.  在 [裝置設定] 下方，針對 [自動向 Azure Active Directory 註冊已加入網域的新 Windows 10 裝置] 選取下列其中一個設定：
+2.  開啟的內容**預設用戶端設定**，然後選取**雲端服務**。
+
+3.  在 [裝置設定] 下方，針對 [自動向 Azure Active Directory 註冊已加入網域的新 Windows 10 裝置] 選取下列其中一個設定：
 
     - **否**：可防止自動註冊裝置。
     - **是**：可啟用自動註冊裝置。
 
-
-3.  選取 [確定] 。
-    
+4.  選取 [確定] 。
 
 您必須將此用戶端設定連結至您選擇的位置。 例如，若要為組織中所有的現行 Windows 裝置設定此用戶端設定，請將用戶端設定連結至網域。 若要執行受控制的部署，您可以為屬於組織單位或安全性群組、且已加入網域的現行 Windows 裝置設定此用戶端設定。
 

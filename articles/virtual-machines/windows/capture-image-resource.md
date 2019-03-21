@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中建立受控映像 | Microsoft Docs
-description: 在 Azure 中建立一般化 VM 或 VHD 的受控映像。 映像可用來建立多部使用受控磁碟的 VM。
+description: 在 Azure 中建立一般化 VM 或 VHD 的受控映像。 映像可用于创建多个使用托管磁盘的 VM。
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 48aa634ad28236564223c1a78a2e190cd2a0e668
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: b0dc587035509606059e3620201b2061bbe4d6a0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107459"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341760"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
@@ -143,7 +143,6 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "EastUS"
-    $snapshotName = "mySnapshot"
     $imageName = "myImage"
     ```
 

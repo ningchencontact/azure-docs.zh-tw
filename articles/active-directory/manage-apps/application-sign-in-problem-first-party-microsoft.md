@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bc5143803c7d031071cccbb9c6c3842bbdacd9c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104143"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登入 Microsoft 應用程式的問題
 
@@ -33,7 +33,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 -   對於 Microsoft 或第三方免費發佈給任何人使用的應用程式，會透過**使用者同意**將存取權授與使用者。 這表示使用者透過其 Azure AD 工作或學校帳戶登入應用程式，並允許應用程式能夠存取其帳戶的某些受限制資料集。
 
--   對於 Microsoft 或第三方免費發佈給任何人使用的應用程式，也可透過**系統管理員同意**將存取權授與使用者。 這表示系統管理員已決定組織中的每個人都能使用該應用程式，因此系統管理員使用全域管理員帳戶身分登入應用程式，並將存取權授與組織中的每個人。
+-   應用程式的 Microsoft 或第 3 方發佈免費供任何人使用，使用者可能也會授與存取透過**系統管理員的同意**。 這表示系統管理員已決定組織中的每個人都能使用該應用程式，因此系統管理員使用全域管理員帳戶身分登入應用程式，並將存取權授與組織中的每個人。
 
 若要為您的問題進行疑難排解，請先從[一般應用程式存取問題考量事項](#general-problem-areas-with-application-access-to-consider)開始，然後參閱逐步解說：Microsoft 應用程式存取的疑難排解步驟，以了解詳細資料。
 
@@ -53,7 +53,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 以下是一些使用者無法登入 Microsoft 應用程式的常見問題。
 
--   首先檢查的一般問題
+- 首先檢查的一般問題
 
   * 確定使用者登入的是**正確的 URL**，不是本機應用程式 URL。
 
@@ -65,31 +65,31 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
   * 確定使用者的**密碼未過期或忘記**。 [重設使用者密碼](#reset-a-users-password)或[啟用自助式密碼重設](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
-   * 確定 **Multi-Factor Authentication** 未封鎖使用者存取。 [檢查使用者的多重要素驗證狀態](#check-a-users-multi-factor-authentication-status)或[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)
+  * 確定 **Multi-Factor Authentication** 未封鎖使用者存取。 [檢查使用者的多重要素驗證狀態](#check-a-users-multi-factor-authentication-status)或[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)
 
-   * 確定**條件式存取原則**或**身分識別保護**原則未封鎖使用者存取。 [檢查特定條件式存取原則](#problems-with-conditional-access-policies)、[檢查特定應用程式條件式存取原則](#check-a-specific-applications-conditional-access-policy)或[停用特定條件式存取原則](#disable-a-specific-conditional-access-policy)
+  * 確定**條件式存取原則**或**身分識別保護**原則未封鎖使用者存取。 [檢查特定條件式存取原則](#problems-with-conditional-access-policies)、[檢查特定應用程式條件式存取原則](#check-a-specific-applications-conditional-access-policy)或[停用特定條件式存取原則](#disable-a-specific-conditional-access-policy)
 
-   * 確定使用者的**驗證連絡資訊**為最新版本，而可強制執行 Multi-Factor Authentication 或條件式存取原則。 [檢查使用者的多重要素驗證狀態](#check-a-users-multi-factor-authentication-status)或[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)
+  * 確定使用者的**驗證連絡資訊**為最新版本，而可強制執行 Multi-Factor Authentication 或條件式存取原則。 [檢查使用者的多重要素驗證狀態](#check-a-users-multi-factor-authentication-status)或[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)
 
--   對於需要授權的 **Microsoft** **應用程式** (如 Office365)，以下是一些當您排除上述一般問題後要檢查的特定問題：
+- 對於需要授權的 **Microsoft** **應用程式** (如 Office365)，以下是一些當您排除上述一般問題後要檢查的特定問題：
 
-   * 確定使用者已獲**授權指派**。 [檢查使用者獲指派的授權](#check-a-users-assigned-licenses)或[檢查群組獲指派的授權](#check-a-groups-assigned-licenses)
+  * 確定使用者已獲**授權指派**。 [檢查使用者獲指派的授權](#check-a-users-assigned-licenses)或[檢查群組獲指派的授權](#check-a-groups-assigned-licenses)
 
-   * 如果將授權**指派至** **靜態群組**，請確定**使用者屬於**該群組。 [檢查使用者的群組成員資格](#check-a-users-group-memberships)
+  * 如果將授權**指派至** **靜態群組**，請確定**使用者屬於**該群組。 [檢查使用者的群組成員資格](#check-a-users-group-memberships)
 
-   * 如果授權**指派至** **動態群組**，請確定**動態群組規則設定正確**。 [檢查動態群組成員資格準則](#check-a-dynamic-groups-membership-criteria)
+  * 如果授權**指派至** **動態群組**，請確定**動態群組規則設定正確**。 [檢查動態群組成員資格準則](#check-a-dynamic-groups-membership-criteria)
 
-   * 如果授權**指派至** **動態群組**，請確定動態群組已**完成處理**其成員資格，且**使用者為成員** (這可能需要一些時間)。 [檢查使用者的群組成員資格](#check-a-users-group-memberships)
+  * 如果授權**指派至** **動態群組**，請確定動態群組已**完成處理**其成員資格，且**使用者為成員** (這可能需要一些時間)。 [檢查使用者的群組成員資格](#check-a-users-group-memberships)
 
-   *  一旦您確定授權已指派，請確定授權**尚未過期**。
+  *  一旦您確定授權已指派，請確定授權**尚未過期**。
 
-   *  確定授權適用於目前正在存取的**應用程式**。
+  *  確定授權適用於目前正在存取的**應用程式**。
 
--   對於不需要授權的 **Microsoft** **應用程式**，以下為其他的檢查事項：
+- 對於不需要授權的 **Microsoft** **應用程式**，以下為其他的檢查事項：
 
-   * 如果應用程式要求的是**使用者層級權限** (例如「存取此使用者的信箱」)，請確定使用者已登入該應用程式，並已執行**使用者層級同意作業**，讓應用程式可存取其資料。
+  * 如果應用程式要求的是**使用者層級權限** (例如「存取此使用者的信箱」)，請確定使用者已登入該應用程式，並已執行**使用者層級同意作業**，讓應用程式可存取其資料。
 
-   * 如果應用程式要求的是**系統管理員層級權限** (例如「存取所有使用者的信箱」)，請確定全域管理員已**代表組織中所有使用者執行系統管理員層級同意作業**。
+  * 如果應用程式要求的是**系統管理員層級權限** (例如「存取所有使用者的信箱」)，請確定全域管理員已**代表組織中所有使用者執行系統管理員層級同意作業**。
 
 ## <a name="problems-with-the-users-account"></a>使用者帳戶的問題
 
@@ -187,25 +187,25 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 若要檢查使用者的多重要素驗證狀態，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  按一下瀏覽功能表中的 [使用者和群組]。
+4. 按一下瀏覽功能表中的 [使用者和群組]。
 
-5.  按一下 [所有使用者]。
+5. 按一下 [所有使用者]。
 
-6.  按一下窗格頂端的 [Multi-Factor Authentication] 按鈕。
+6. 按一下窗格頂端的 [Multi-Factor Authentication] 按鈕。
 
-7.  當 **Multi-Factor Authentication 管理網站**載入後，請確定您位於 [使用者] 索引標籤上。
+7. 當 **Multi-Factor Authentication 管理網站**載入後，請確定您位於 [使用者] 索引標籤上。
 
-8.  在使用者清單中搜尋、篩選或排序來尋找使用者。
+8. 在使用者清單中搜尋、篩選或排序來尋找使用者。
 
-9.  從使用者清單中選取使用者，然後視需要 [啟用]、[停用] 或 [強制執行] 多重要素驗證。
+9. 從使用者清單中選取使用者，然後視需要 [啟用]、[停用] 或 [強制執行] 多重要素驗證。
 
-  * **注意**：如果使用者處於 [已強制] 狀態，您可以暫時將他們設為 [已停用]，讓他們回到各自的帳戶。 退回之後，您可以再次將其狀態變更為 [已啟用]，以要求他們在下次登入時重新註冊連絡資訊。 或者，您可以依照[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)中的步驟，為他們確認或設定此資料。
+   * **注意**：如果用户处于**已强制实施**状态，可暂时将其设置为**已禁用**以允许用户重新登录到其帐户。 退回之後，您可以再次將其狀態變更為 [已啟用]，以要求他們在下次登入時重新註冊連絡資訊。 或者，您可以依照[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)中的步驟，為他們確認或設定此資料。
 
 ### <a name="check-a-users-authentication-contact-info"></a>檢查使用者的驗證連絡資訊
 
@@ -365,21 +365,21 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 若要重新處理群組獲指派的授權，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  按一下瀏覽功能表中的 [使用者和群組]。
+4. 按一下瀏覽功能表中的 [使用者和群組]。
 
-5.  按一下 [所有群組]。
+5. 按一下 [所有群組]。
 
-6.  **搜尋**您感興趣的群組，然後**按一下資料列**加以選取。
+6. **搜尋**您感興趣的群組，然後**按一下資料列**加以選取。
 
-7.  按一下 [授權]，以查看目前已指派至群組的授權。
+7. 按一下 [授權]，以查看目前已指派至群組的授權。
 
-8.  按一下 [重新處理] 按鈕，以確定指派至此群組成員的授權是最新的。 根據群組的大小和複雜度，這可能需要很長的時間。
+8. 按一下 [重新處理] 按鈕，以確定指派至此群組成員的授權是最新的。 根據群組的大小和複雜度，這可能需要很長的時間。
 
    >[!NOTE]
    >若要更快速執行此作業，請考慮暫時將授權直接指派至使用者。 [指派授權至使用者](#problems-with-application-consent)。
@@ -390,32 +390,32 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 若要將授權指派給群組，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  按一下瀏覽功能表中的 [使用者和群組]。
+4. 按一下瀏覽功能表中的 [使用者和群組]。
 
-5.  按一下 [所有群組]。
+5. 按一下 [所有群組]。
 
-6.  **搜尋**您感興趣的群組，然後**按一下資料列**加以選取。
+6. **搜尋**您感興趣的群組，然後**按一下資料列**加以選取。
 
-7.  按一下 [授權]，以查看目前已指派至群組的授權。
+7. 按一下 [授權]，以查看目前已指派至群組的授權。
 
-8.  按一下 [指派] 按鈕。
+8. 按一下 [指派] 按鈕。
 
-9.  從可用產品清單中選取**一或多個產品**。
+9. 從可用產品清單中選取**一或多個產品**。
 
 10. (**選擇性**) 按一下 [指派選項] 項目，更細微地指派產品。 完成時按一下 [確定]。
 
 11. 按一下 [指派] 按鈕，將這些授權指派至這個群組。 根據群組的大小和複雜度，這可能需要很長的時間。
 
-   >[!NOTE]
-   >若要更快速執行此作業，請考慮暫時將授權直接指派至使用者。 [指派授權至使用者](#problems-with-application-consent)。
-   > 
-   >
+    >[!NOTE]
+    >若要更快速執行此作業，請考慮暫時將授權直接指派至使用者。 [指派授權至使用者](#problems-with-application-consent)。
+    > 
+    >
 
 ## <a name="problems-with-conditional-access-policies"></a>條件式存取原則的問題
 
@@ -423,19 +423,19 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 若要檢查或驗證單一條件式存取原則︰
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  按一下瀏覽功能表中的 [企業應用程式]。
+4. 按一下瀏覽功能表中的 [企業應用程式]。
 
-5.  按一下 [條件式存取] 瀏覽項目。
+5. 按一下 [條件式存取] 瀏覽項目。
 
-6.  按一下您想要檢查的原則。
+6. 按一下您想要檢查的原則。
 
-7.  檢查有無特定的條件、指派，或其他可能會封鎖使用者存取的設定。
+7. 檢查有無特定的條件、指派，或其他可能會封鎖使用者存取的設定。
 
    >[!NOTE]
    >您可能會想要暫時停用此原則，以確保不會影響登入。若要這麼做，請設定 [啟用原則] 切換至 [否]，然後按一下 [儲存] 按鈕。

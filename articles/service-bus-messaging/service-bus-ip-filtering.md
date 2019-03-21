@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a8d29e7cae20c37adfeccaef01e1625b6ab3e0d0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852672"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136288"
 ---
 # <a name="use-firewall-rules"></a>使用防火牆規則
 
@@ -60,7 +60,7 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>利用 Azure Resource Manager 範本來建立虛擬網路和防火牆規則
 
 > [!IMPORTANT]
-> 只有在「服務匯流排」的**進階**層中才支援「虛擬網路」。
+> 只有在支援防火牆與虛擬網路**premium**層服務匯流排。
 
 下列 Resource Manager 範本可讓您將虛擬網路規則新增至現有的服務匯流排命名空間。
 

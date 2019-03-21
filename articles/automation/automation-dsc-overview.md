@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427061"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822816"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概觀
 
@@ -37,13 +37,45 @@ Azure Automation State Configuration 為 [PowerShell Desired State Configuration
 
 ![Azure 自動化頁面的螢幕擷取畫面](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-log-analytics"></a>將報告資料匯入至 Log Analytics
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>将报表数据导入到 Azure Monitor 日志中
 
-使用 Azure Automation State Configuration 所管理的節點會將詳細報告狀態資料傳送至內建提取伺服器。 您可以設定 Azure Automation State Configuration，將此資料傳送至 Log Analytics 工作區。 若要了解如何將 State Configuration 狀態資料傳送至 Log Analytics 工作區，請參閱[將 Azure Automation State Configuration 報告資料轉送到 Log Analytics](automation-dsc-diagnostics.md)。
+使用 Azure Automation State Configuration 所管理的節點會將詳細報告狀態資料傳送至內建提取伺服器。 您可以設定 Azure Automation State Configuration，將此資料傳送至 Log Analytics 工作區。 若要了解如何将 State Configuration 状态数据发送到 Log Analytics 工作区，请参阅[将 Azure Automation State Configuration 报表数据转发到 Azure Monitor 日志](automation-dsc-diagnostics.md)。
 
-## <a name="network-planning"></a>設定您的網路
+## <a name="prerequisites"></a>必要條件
 
-若要讓狀態組態 (DSC) 與自動化進行通訊，需要下列連接埠和 URL：
+在使用 Azure Automation State Configuration (DSC) 时，请考虑以下要求。
+
+### <a name="operating-system-requirements"></a>操作系统要求
+
+运行 Windows 的节点支持以下版本：
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+运行 Linux 的节点支持以下发行版/版本：
+
+DSC Linux 扩展支持所有[在 Azure 上认可的](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) Linux 发行版，除了以下这些：
+
+配送映像 | 版本
+-|-
+Debian  | 所有版本
+Ubuntu  | 18.04
+
+### <a name="dsc-requirements"></a>DSC 要求
+
+对于在 Azure 中运行的所有 Windows 节点，[WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) 将在载入时安装。  对于运行 Windows Server 2012 和 Windows 7 的节点，[将会启用 WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)。
+
+对于在 Azure 中运行的所有 Linux 节点，[PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 将在载入时安装。
+
+### <a name="network-planning"></a>設定私人網路
+
+如果您的節點位於私人網路內，下列連接埠和 Url 是必要的狀態組態 (DSC) 與自動化進行通訊：
 
 * 連接埠︰只需要 TCP 443 以便進行傳出網際網路存取。
 * 全域 URL：*.azure-automation.net
@@ -85,7 +117,7 @@ Azure Automation State Configuration 為 [PowerShell Desired State Configuration
 > [!NOTE]
 > 雖然這段影片中所討論的概念和週期都是正確的，但是自從錄製這段影片之後，Azure Automation State Configuration 已有長足進步。 它現在已正式發行，在 Azure 入口網站中具有更豐富的 UI，並支援額外的功能。
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="next-steps"></a>後續步驟
 

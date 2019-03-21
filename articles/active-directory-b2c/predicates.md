@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9bd015076cdbd70768b1359fac0cfc893d871513
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149589"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737020"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 與 PredicateValidations
 
@@ -33,33 +33,33 @@ ms.locfileid: "55149589"
 
 **Predicates** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | Predicate | 1:n | 述詞清單。 | 
 
 **Predicate** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | id | 是 | 要用於述詞的識別碼。 其他元素可以在原則中使用這個識別碼。 |
 | 方法 | 是 | 要用於驗證的方法類型。 可能的值：**IsLengthRange**、**MatchesRegex**、**IncludesCharacters** 或 **IsDateRange**。 **IsLengthRange** 值可讓您檢查字串宣告值的長度是否位於所指定 Minimum 和 Maximum 參數的範圍內。 **MatchesRegex** 值會檢查字串宣告值是否符合規則運算式。 **IncludesCharacters** 值會檢查字串宣告值是否包含字元集。 **IsDateRange** 值會檢查日期宣告值是否介於所指定 Minimum 和 Maximum 參數的範圍之間。 |
 
 **Predicate** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | 檢查失敗時提供給使用者的錯誤訊息。 此字串可以使用[語言自訂](localization.md)進行當地語系化。 |
 | 參數 | 1:1 | 適用於字串驗證方法類型的參數。 | 
 
 **Parameters** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | 參數 | 1:n | 適用於字串驗證方法類型的參數。 | 
 
 **Parameter** 元素包含下列屬性：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | id | 1:1 | 參數的識別碼。 |
 
@@ -132,56 +132,56 @@ ms.locfileid: "55149589"
 
 **PredicateValidations** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | 述詞驗證清單。 | 
 
 **PredicateValidation** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | id | 是 | 要用於述詞驗證的識別碼。 **ClaimType** 元素可以在原則中使用這個識別碼。 |
 
 **PredicateValidation** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | 述詞群組清單。 | 
 
 **PredicateGroups** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | 述詞清單。 | 
 
 **PredicateGroup** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | id | 是 | 要用於述詞群組的識別碼。  |
 
 **PredicateGroup** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  述詞的說明，有助於使用者了解他們應輸入的值。 | 
 | PredicateReferences | 1:n | 述詞參考清單。 | 
 
 **PredicateReferences** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | MatchAtLeast | 否 | 指定值至少必須符合許多述詞定義，以用於要接受的輸入。 |
 
 **PredicateReferences** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | 對述詞的參考。 | 
 
 **PredicateReference** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | id | 是 | 要用於述詞驗證的識別碼。  |
 
@@ -350,7 +350,7 @@ ms.locfileid: "55149589"
 
 ![述詞處理程序](./media/predicates/predicates-pass.png)
 
- ## <a name="configure-a-date-range"></a>設定日期範圍
+## <a name="configure-a-date-range"></a>設定日期範圍
 
 利用 **Predicates** 和 **PredicateValidations** 元素，您可以使用 `DateTimeDropdown` 來控制 **UserInputType** 的最小和最大日期值。 若要這樣做，請使用 `IsDateRange` 方法來建立 **Predicate**，並提供 Minimum 和 Maximum 參數。
 

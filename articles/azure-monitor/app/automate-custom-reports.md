@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 74fdfed23d30dbf88b2faa6028039159010d9afc
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755966"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113073"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>將含有 Azure Application Insights 資料的自訂報表自動化
 
@@ -110,12 +110,12 @@ availabilityResults
     
     (針對要提出報告的「Application Insights 資源」，可以在 [API 存取權] 底下找到 AI_ 值。 如果您沒有「Application Insights API 金鑰」，可以選擇 [建立 API 金鑰])。
     
-    * AI_APP_ID = 應用程式識別碼
-    * AI_APP_KEY = API 金鑰
-    * SendGridAPI = SendGrid API 金鑰
+   * AI_APP_ID = 應用程式識別碼
+   * AI_APP_KEY = API 金鑰
+   * SendGridAPI = SendGrid API 金鑰
 
-    > [!NOTE]
-    > 如果您沒有 SendGrid 帳戶，便可以加以建立。 如需適用於 Azure Functions 的 SendGrid 文件，請參閱[這裡](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid)。 如果您只需有關如何設定 SendGrid 及產生 API 金鑰的最基本說明，可在本文結尾找到該說明。 
+     > [!NOTE]
+     > 如果您沒有 SendGrid 帳戶，便可以加以建立。 如需適用於 Azure Functions 的 SendGrid 文件，請參閱[這裡](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid)。 如果您只需有關如何設定 SendGrid 及產生 API 金鑰的最基本說明，可在本文結尾找到該說明。 
 
 9. 選取 [整合]，然後在 [輸出] 底下，按一下 [SendGrid ($return)]。
 

@@ -1,5 +1,5 @@
 ---
-title: 新增 Azure Active Directory B2B 共同作業使用者到角色 | Microsoft Docs
+title: 將 B2B 共同作業使用者新增至角色-Azure Active Directory |Microsoft Docs
 description: 將來賓使用者新增至 Azure Active Directory 中的角色
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df328228dea53f338c0b2c54422e6b343f96e43e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c51a0f1f8eb1999ced02bf3cf14ee81e4fca08e8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172228"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675189"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>從 Azure Active Directory 租用戶中的合作夥伴組織授與權限給使用者
 

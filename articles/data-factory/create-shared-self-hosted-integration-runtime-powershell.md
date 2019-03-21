@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 76b0d1728b46834270e9a5b53709de62b4a8b3fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: cc1a0905c97e76c481283363f095087b5fdcba3f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429373"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455848"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>使用 PowerShell 在 Azure Data Factory 中建立共用的自我裝載整合執行階段
 
@@ -30,9 +30,11 @@ ms.locfileid: "54429373"
 
 ## <a name="prerequisites"></a>必要條件 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。 
 
-- **Azure PowerShell**(英文)。 請依照[使用 PowerShellGet 在 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.11.0) 中的指示操作。 您會使用 PowerShell 來執行指令碼，以建立可與其他資料處理站共用的自我裝載整合執行階段。 
+- **Azure PowerShell**(英文)。 請依照[使用 PowerShellGet 在 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 中的指示操作。 您會使用 PowerShell 來執行指令碼，以建立可與其他資料處理站共用的自我裝載整合執行階段。 
 
 > [!NOTE]  
 > 如需目前可取得 Data Factory 的 Azure 區域，請在 [依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory) 上選取您感興趣的區域。
@@ -65,8 +67,8 @@ ms.locfileid: "54429373"
 1. 登入並選取訂用帳戶。 將下列程式碼新增至指令碼，以登入並選取 Azure 訂用帳戶：
 
     ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
 1. 建立資源群組和資料處理站。
@@ -74,16 +76,16 @@ ms.locfileid: "54429373"
     > [!NOTE]  
     > 此為選用步驟。 如果您已經有資料處理站，請略過此步驟。 
 
-    使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) 命令建立 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)。 資源群組是在其中以群組方式部署與管理 Azure 資源的邏輯容器。 下列範例會在 WestEurope 位置建立名為 `myResourceGroup` 的資源群組： 
+    建立[Azure 資源群組](../azure-resource-manager/resource-group-overview.md)利用[新增 AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azurermps-6.11.0)命令。 資源群組是在其中以群組方式部署與管理 Azure 資源的邏輯容器。 下列範例會在 WestEurope 位置建立名為 `myResourceGroup` 的資源群組： 
 
     ```powershell
-    New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
+    New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
     ```
 
     執行下列命令來建立資料處理站： 
 
     ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                              -Location $DataFactoryLocation `
                              -Name $SharedDataFactoryName
     ```
@@ -96,7 +98,7 @@ ms.locfileid: "54429373"
 執行下列命令來建立自我裝載整合執行階段：
 
 ```powershell
-$SharedIR = Set-AzureRmDataFactoryV2IntegrationRuntime `
+$SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `
@@ -109,7 +111,7 @@ $SharedIR = Set-AzureRmDataFactoryV2IntegrationRuntime `
 執行下列命令，以取得自我裝載整合執行階段的驗證金鑰：
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeKey `
+Get-AzDataFactoryV2IntegrationRuntimeKey `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName
@@ -133,7 +135,7 @@ Get-AzureRmDataFactoryV2IntegrationRuntimeKey `
 > 此為選用步驟。 如果您已有要共用的資料處理站，請略過此步驟。
 
 ```powershell
-$factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+$factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
@@ -145,7 +147,7 @@ $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 > 請勿略過此步驟！
 
 ```powershell
-New-AzureRMRoleAssignment `
+New-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId ` #MSI of the Data Factory with which it needs to be shared
     -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' ` #This is the Contributor role
     -Scope $SharedIR.Id
@@ -156,7 +158,7 @@ New-AzureRMRoleAssignment `
 執行下列命令來建立連結的自我裝載整合執行階段：
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime `
+Set-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $LinkedDataFactoryName `
     -Name $LinkedIntegrationRuntimeName `
@@ -172,7 +174,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime `
 若要撤銷資料處理站對共用整合執行階段的存取權，請執行下列命令：
 
 ```powershell
-Remove-AzureRMRoleAssignment `
+Remove-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId `
     -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' `
     -Scope $SharedIR.Id
@@ -181,7 +183,7 @@ Remove-AzureRMRoleAssignment `
 若要移除現有連結的整合執行階段，請對共用整合執行階段執行下列命令：
 
 ```powershell
-Remove-AzureRmDataFactoryV2IntegrationRuntime `
+Remove-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `

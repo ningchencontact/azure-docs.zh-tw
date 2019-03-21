@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dfd7d2a0363a95acb76a5dc214dbd4036de11d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: ee5faedd4f59aa791424a1f178f0462922f21d28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115375"
 ---
 每個端點都有一個公用連接埠和一個私人連接埠：
 
@@ -37,7 +37,7 @@ ms.locfileid: "50973713"
 3. 選取 [設定] 群組中的 [端點]。 [端點] 頁面隨即出現，其中列出虛擬機器目前的所有端點。 (此範例適用於 Windows VM。 )
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![端點](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
 
 4. 在端點項目上方的命令列中，選取 [新增]。 [新增端點] 頁面隨即出現。
@@ -72,11 +72,11 @@ ms.locfileid: "50973713"
 
 3. 選取 [端點]。 從 [端點] 清單中，選取適當的端點。 ACL 清單位於頁面底部。
 
-   ![指定 ACL 詳細資料](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
+   ![指定 ACL 详细信息](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
 
 4. 使用清單中的資料列來新增、刪除或編輯 ACL 的規則並變更奇順序。 [遠端子網路] 值是網際網路連入流量的 IP 位址範圍，Azure 負載平衡器會根據流量的來源 IP 位址允許或拒絕流量。 請務必使用「無類別網域間路由選擇」(CIDR) 格式來指定 IP 位址範圍，該格式又稱為「位址首碼」格式。 例如： `10.1.0.0/8`。
 
- ![新增 ACL 項目](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+   ![新增 ACL 項目](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
 您可以使用規則僅允許網際網路上的特定電腦對應至您電腦的流量，或拒絕特定已知位址範圍的流量。

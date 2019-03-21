@@ -4,7 +4,7 @@ description: " 將工作負載移轉至 Azure IaaS 可帶來重新評估設計�
 services: security
 documentationcenter: na
 author: barclayn
-manager: barbkess
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341211"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409741"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
@@ -39,7 +39,7 @@ ms.locfileid: "56341211"
 保護 VM 的第一個步驟是確保只有已獲授權的使用者能設定新的 VM 和存取 VM。
 
 **最佳做法**：控制 VM 存取。   
-**詳細資料**：使用 [Azure 原則](../governance/policy/overview.md)為組織資源制定慣例及建立自訂原則。 將這些原則套用到資源，例如[資源群組](../azure-resource-manager/resource-group-overview.md)。 屬於某資源群組的 VM 會繼承其原則。
+**詳細資料**：使用 [Azure 原則](../azure-policy/azure-policy-introduction.md)為組織資源制定慣例及建立自訂原則。 將這些原則套用到資源，例如[資源群組](../azure-resource-manager/resource-group-overview.md)。 屬於某資源群組的 VM 會繼承其原則。
 
 如果貴組織有多個訂用帳戶，您可能需要一個方法來有效率地管理這些訂用帳戶的存取、原則和相容性。 [Azure 管理群組](../azure-resource-manager/management-groups-overview.md)可以提供訂用帳戶之上的範圍層級。 您可將訂用帳戶整理到管理群組 (容器) 中，並將治理條件套用至這些群組。 管理群組內的所有訂用帳戶都會自動繼承套用到該群組的條件。 無論具有何種類型的訂用帳戶，管理群組都可為您提供企業級的大規模管理功能。
 
@@ -128,7 +128,7 @@ Azure VM 就跟所有內部部署 VM 一樣，受控於使用者。 Azure 不會
 
 資訊安全中心可以主動監視威脅，並將可能的威脅公開於安全性警示之下。 相互關聯的威脅將彙總於稱為安全性事件的單一檢視畫面中。
 
-資訊安全中心會將資料儲存在 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 中。 Log Analytics 提供查詢語言和分析引擎，可讓您深入解析應用程式和資源的作業。 也會從 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)、管理解決方案，以及安裝在雲端或內部部署環境中虛擬機器上的代理程式收集資料。 此共用功能可協助您完全了解整個環境。
+資訊安全中心將資料儲存在[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 Azure 監視器記錄檔提供查詢語言和分析引擎，可讓您深入了解您的應用程式和資源的作業。 也會從 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)、管理解決方案，以及安裝在雲端或內部部署環境中虛擬機器上的代理程式收集資料。 此共用功能可協助您完全了解整個環境。
 
 組織若未針對其 VM 強制執行強式安全性，將一概無法得知未經授權的使用者可能嘗試規避安全性控制項。
 
@@ -153,10 +153,10 @@ Azure VM 就跟所有內部部署 VM 一樣，受控於使用者。 Azure 不會
 **詳細資料**：Azure 磁碟加密會產生加密金鑰並將其寫入金鑰保存庫。 在金鑰保存庫中管理加密金鑰需要 Azure AD 驗證。 基於此目的，請建立 Azure AD 應用程式。 針對驗證目的，您可以使用用戶端密碼式驗證或[用戶端憑證式 Azure AD 驗證](../active-directory/active-directory-certificate-based-authentication-get-started.md)。
 
 **最佳做法**：使用金鑰加密金鑰 (KEK) 來為加密金鑰額外添加一層安全性。 將 KEK 新增至金鑰保存庫。   
-**詳細資料**：使用 [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) Cmdlet 在金鑰保存庫中建立金鑰加密金鑰。 您也可以從內部部署硬體安全性模組 (HSM) 匯入 KEK 以管理金鑰。 如需詳細資訊，請參閱 [Key Vault 文件](../key-vault/key-vault-hsm-protected-keys.md)。 若指定了金鑰加密金鑰，Azure 磁碟加密會先使用該金鑰包裝加密祕密，再寫入 Key Vault。 將此金鑰的委付複本保存在內部部署金鑰管理 HSM，可提供額外保護，以防意外刪除金鑰。
+**詳細資料**：使用[新增 AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet 來建立金鑰保存庫中的金鑰加密金鑰。 您也可以從內部部署硬體安全性模組 (HSM) 匯入 KEK 以管理金鑰。 如需詳細資訊，請參閱 [Key Vault 文件](../key-vault/key-vault-hsm-protected-keys.md)。 若指定了金鑰加密金鑰，Azure 磁碟加密會先使用該金鑰包裝加密祕密，再寫入 Key Vault。 將此金鑰的委付複本保存在內部部署金鑰管理 HSM，可提供額外保護，以防意外刪除金鑰。
 
 **最佳做法**：在將磁碟加密前製作[快照集](../virtual-machines/windows/snapshot-copy-managed-disk.md)和/或進行備份。 如果在加密期間發生非預期的失敗，備份可提供復原選項。   
-**詳細資料**：具有受控磁碟的 VM 需要有備份，才能進行加密。 在建立備份後，您可以使用 **Set-AzureRmVMDiskEncryptionExtension** Cmdlet 並指定 *-skipVmBackup* 參數來加密受控磁碟。 如需如何備份和還原已加密 VM 的詳細資訊，請參閱 [Azure 備份](../backup/backup-azure-vms-encryption.md)一文。
+**詳細資料**：具有受控磁碟的 VM 需要有備份，才能進行加密。 會建立備份之後，您可以使用**組 AzVMDiskEncryptionExtension** cmdlet 來加密受控的磁碟，藉由指定 *-skipVmBackup*參數。 如需如何備份和還原已加密 VM 的詳細資訊，請參閱 [Azure 備份](../backup/backup-azure-vms-encryption.md)一文。
 
 **最佳做法**：為了確保加密密碼不會跨出區域界限，Azure 磁碟加密需要將金鑰保存庫和 VM 置於相同區域。   
 **詳細資料**：請在與所要加密 VM 相同的區域中建立並使用 Key Vault。
