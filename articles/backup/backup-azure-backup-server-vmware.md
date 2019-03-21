@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: c0b317019d69d5d66e5a85304f739c92b761217c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: b323836ff804d9e4af3765a2d4ea713a34bcf284
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087647"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226516"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份 VMware VM
 
@@ -327,31 +327,31 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
      ![選擇複本的建立方式](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
 1. 在 [一致性檢查選項] 中，選取如何及何時自動執行一致性檢查。 然後按 [下一步] 。
-     - 當複本資料變得不一致時，或依據設定的排程，您可以執行一致性檢查。
-     - 如果您不想設定自動一致性檢查，可以執行手動檢查。 若要這樣做，以滑鼠右鍵按一下保護群組 > [執行一致性檢查]。
+      - 當複本資料變得不一致時，或依據設定的排程，您可以執行一致性檢查。
+      - 如果您不想設定自動一致性檢查，可以執行手動檢查。 若要這樣做，以滑鼠右鍵按一下保護群組 > [執行一致性檢查]。
 
 1. 在 [指定線上保護資料] 頁面中，選取要備份的 VM 或 VM 資料夾。 您可以個別地選取成員，或按一下 [全選] 來選擇所有成員。 然後按 [下一步] 。
 
-     ![指定線上保護資料](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+      ![指定線上保護資料](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. 在 [指定線上備份排程] 頁面上，指定要從本機儲存體將資料備份至 Azure 的頻率。
 
     - 資料的雲端復原點將會根據排程來產生。 然後按 [下一步] 。
     - 復原點在產生後會傳輸至 Azure 中的復原服務保存庫。
 
-    ![指定線上備份排程](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+      ![指定線上備份排程](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
 1. 在 [指定線上保留原則] 頁面上，指定從每日/每週/每月/每年備份至 Azure 所建立的資料復原點要保留的時間長度。 然後按一下 [下一步]。
 
     - 您可以在 Azure 中保留資料的時間長度沒有限制。
     - 唯一的限制是每個受保護的執行個體不能有超過 9999 個復原點。 在此範例中，受保護的執行個體是 VMware 伺服器。
 
-    ![指定線上保留期原則](./media/backup-azure-backup-server-vmware/retention-policy.png)
+      ![指定線上保留期原則](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 
 1. 在 [摘要] 頁面上檢閱設定，然後按一下 [建立群組]。
 
-    ![保護群組成員和設定的摘要](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+     ![保護群組成員和設定的摘要](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 

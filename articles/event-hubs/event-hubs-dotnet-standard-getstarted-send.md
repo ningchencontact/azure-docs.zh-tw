@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: b645b444d62ae0f1834006a41190c417cee35963
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2bf5825d3f13044d1c9bde2b05d1c93ecd967a0f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081688"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782032"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-core"></a>開始在 .NET Core 中傳送訊息至 Azure 事件中樞
 「事件中樞」是一種服務，可處理來自連接裝置和應用程式的大量事件資料 (遙測)。 收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。 此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網 (IoT)) 的重要元件。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
@@ -41,9 +41,9 @@ ms.locfileid: "53081688"
 
 ## <a name="create-a-console-application"></a>建立主控台應用程式
 
-啟動 Visual Studio。 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。 建立 .NET Core 主控台應用程式。
+啟動 Visual Studio。 在“文件”菜单中，单击“新建”，并单击“项目”。 建立 .NET Core 主控台應用程式。
 
-![新增專案][1]
+![新建项目][1]
 
 ## <a name="add-the-event-hubs-nuget-package"></a>新增事件中樞 NuGet 封裝
 

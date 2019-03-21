@@ -1,28 +1,26 @@
 ---
 title: 什麼是 Microsoft Genomics？ | Microsoft Docs
 titleSuffix: Azure
-description: 了解 Microsoft Genomics 如何強化基因組定序，其目前提供 BWA-GATK 的雲端實作以進行次級分析。
-services: microsoft-genomics
+description: 了解 Microsoft Genomics 如何強化基因組定組，其目前提供 Burrows-Wheeler Aligner (BWA) 和 Genome Analysis Toolkit (GATK) 的雲端實作以進行次級分析。 它經過 ISO 認證並符合 HIPAA 規範。
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 8743905d6e415049a563bcd6b4736d6569f59b7f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: 1b52f47d692cf2fb2925ebb2a9882b9c79c29a87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333252"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452635"
 ---
 # <a name="what-is-microsoft-genomics"></a>什麼是 Microsoft Genomics？
 Microsoft Genomics 提供 Burrows-Wheeler Aligner (BWA) 和 Genome Analysis Toolkit (GATK) 的雲端實作，以進行次級分析。 此服務已通過 ISO 認證並符合 HIPAA 法規，可針對您的基因組定序需求提供價格預測能力。 藉由閱讀我們的快速入門、教學課程和說明文件，了解如何使用 Microsoft Genomics 服務並與我們的 API 整合。
 
 ## <a name="support-your-most-demanding-sequencing-needs"></a>支援您最嚴格的定序需求
-利用 Microsoft 的規模和經驗來執行 EB 規模的工作負載，而不用管理您自己的資料中心。 BWA-GATK 的雲端實作與 Broad Institute 的最佳做法管線極為一致。
+利用 Microsoft 的規模和經驗來執行 EB 規模的工作負載，而不用管理您自己的資料中心。 BWA-GATK 的雲端實作是與 Broad Institute 的最佳做法管線極為一致。
 
 
 ## <a name="keep-your-business-running"></a>讓您的業務持續運作

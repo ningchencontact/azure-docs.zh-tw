@@ -1,5 +1,5 @@
 ---
-title: 模擬 Raspberry Pi 至 cloud (Node.js) - 將 Raspberry Pi Web 模擬器連線至 Azure IoT 中樞 | Microsoft Docs
+title: 连接到云的模拟 Raspberry Pi (Node.js) - 将 Raspberry Pi Web 模拟器连接到 Azure IoT 中心 | Microsoft Docs
 description: 將 Raspberry Pi Web 模擬器連線至 Azure IoT Hub，以便 Raspberry Pi 將資料傳送至 Azure 雲端。
 author: rangv
 manager: ''
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 6844fb9b6e85e77ad9c7a869a989214fffd05ece
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 0167665684bc4fc8b29dce70c53033dcbb007555
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114721"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 線上模擬器連線至 Azure IoT Hub (Node.js)
 
@@ -36,7 +36,7 @@ ms.locfileid: "53438739"
 <img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5_button_click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6_button_default.png';">
 </div>
 
-## <a name="what-you-do"></a>您要做什麼
+## <a name="what-you-do"></a>准备工作
 
 * 了解 Raspberry Pi 線上模擬器的基本知識。
 * 建立 IoT 中樞。
@@ -45,18 +45,18 @@ ms.locfileid: "53438739"
 
 將模擬 Raspberry Pi 連線至您建立的 IoT 中樞。 然後使用模擬器執行範例應用程式，以產生感應器資料。 最後，將感應器資料傳送至 IoT 中樞。
 
-## <a name="what-you-learn"></a>您學到什麼
+## <a name="what-you-learn"></a>学习内容
 
 * 如何建立 Azure IoT 中樞，並取得新的裝置連接字串。 如果您沒有 Azure 帳戶，請花幾分鐘的時間[建立免費的 Azure 試用帳戶](https://azure.microsoft.com/free/)。
 * 如何使用 Raspberry Pi 線上模擬器。
-* 如何將感應器資料傳送至 IoT 中樞。
+* 如何将传感器数据发送到 IoT 中心。
 
 ## <a name="overview-of-raspberry-pi-web-simulator"></a>Raspberry Pi Web 模擬器概觀
 
 按一下按鈕以啟動 Raspberry Pi 線上模擬器。
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">啟動 Raspberry Pi 模擬器</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">啟動 Raspberry Pi 模擬器</a>
 
 Web 模擬器中有三個區域。
 
@@ -70,8 +70,8 @@ Web 模擬器中有三個區域。
    * **重設** - 將編碼區域重設為預設範例應用程式。
    * **摺疊/展開** - 右邊有一個可供您摺疊/展開主控台視窗的按鈕。
 
-> [!NOTE] 
-預覽版本現在提供 Raspberry Pi Web 模擬器。 我們想要在 [Gitter 聊天室](https://gitter.im/Microsoft/raspberry-pi-web-simulator)中傾聽您的心聲。 原始程式碼公開於 [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator)。
+> [!NOTE]
+> 預覽版本現在提供 Raspberry Pi Web 模擬器。 我們想要在 [Gitter 聊天室](https://gitter.im/Microsoft/raspberry-pi-web-simulator)中傾聽您的心聲。 原始程式碼公開於 [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator)。
 
 ![Pi 線上模擬器概觀](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
@@ -99,6 +99,6 @@ Web 模擬器中有三個區域。
 
 ## <a name="next-steps"></a>後續步驟
 
-您已執行範例應用程式收集感應器資料並傳送至 IoT 中樞。
+此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

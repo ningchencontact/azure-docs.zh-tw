@@ -5,28 +5,53 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 01/04/2019
+ms.date: 03/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9faed53540d449f8658655ff7285b38aa20bee6c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901814"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881379"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>在 IoT Edge (預覽) 使用 Azure Blob 儲存體，以便在邊緣儲存資料
 
 IoT Edge 上的 Azure Blob 儲存體提供邊緣的[區塊 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 儲存體解決方案。 IoT Edge 裝置上的 Blob 儲存體模組如同 Azure 區塊 Blob 服務般運作，但是區塊 Blob 會在本機 IoT Edge 裝置上儲存。 您可以使用平常使用的相同 Azure 儲存體 SDK 方法或區塊 Blob API 呼叫存取您的 Blob。 
 
-資料 (例如影片、影像、財務資料、醫療資料或任何資料) 必須存放在本機並稍後在本機處理或傳輸到雲端的案例，就是使用此課程模組的絕佳範例。
+此模块附带**自动分层**和**自动过期**功能。
+
+> [!NOTE]
+> 目前，自动分层和自动过期功能仅在 Linux AMD64 和 Linux ARM32 中可用。
+
+**自动分层**是可配置的功能，可用于将本地 Blob 存储中的数据自动上传到 Azure，并提供间歇性的 Internet 连接支持。 该功能允许：
+- 启用/禁用分层功能
+- 选择将数据复制到 Azure 的顺序，例如，选择 NewestFirst 或 OldestFirst
+- 指定要将数据上传到的 Azure 存储帐户。
+- 指定要上传到 Azure 的容器。 此模块允许指定源和目标容器名称。
+- 执行完整 Blob 分层（使用 `Put Blob` 操作）和块级分层（使用 `Put Block` 和 `Put Block List` 操作）。
+
+如果 Blob 由块构成，则此模块使用块级分层。 下面是一些常见场景：
+- 应用程序需要更新以前上传的 Blob 的某些块；此模块只上传更新的块，而不会上传整个 Blob。
+- 当模块正在上传 Blob 时，Internet 连接断开；连接恢复后，该模块只上传剩余的块，而不会上传整个 Blob。
+
+如果在 Blob 上传期间发生意外的进程终止（例如电源故障），当模块重新联机时，将再次上传需要上传的所有块。
+
+**自动过期**是可配置的功能，当本地存储中的 Blob 达到生存时间 (TTL) 时，此模块会使用此功能自动删除这些 Blob。 生存时间以分钟为单位。 该功能允许：
+- 启用/禁用自动过期功能
+- 以分钟为单位指定 TTL
+
+对于需要在本地存储视频、图像、金融数据、医院数据或其他任何数据，以后在本地处理数据或将其传输到云的场合，都很适合使用此模块。
 
 本文提供在對於 IoT Edge 裝置執行 Blob 服務的 IoT Edge 容器上部署 Azure Blob 儲存體的指示。 
 
 >[!NOTE]
 >IoT Edge 上的 Azure Blob 儲存體屬於[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
+
+觀看快速簡介影片
+> [!VIDEO https://www.youtube.com/embed/wkprcfVidyM]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -118,7 +143,9 @@ Azure Marketplace 提供可以直接部署至您 IoT Edge 裝置 (包括 IoT Edg
 
       ![更新模組容器建立選項 - 入口網站](./media/how-to-store-data-blob/edit-module.png)
 
-   4. 選取 [ **儲存**]。
+   4. 在所需属性中设置[自动分层和自动过期](#configure-auto-tiering-and-auto-expiration-via-azure-portal)。 [自动分层](#auto-tiering-properties)和[自动过期](#auto-expiration-properties)属性及其可能值的列表。 
+
+   5. 選取 [ **儲存**]。 
 
 4. 選取 [下一步]，繼續進行精靈的下一個步驟。
 5. 在精靈的 [指定路由] 步驟中，選取 [下一步]。
@@ -174,26 +201,153 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
    > [!IMPORTANT]
    > 請勿變更儲存體目錄繫結的後半段 (指向模組中的特定位置)。 儲存體目錄繫結的結尾對於 Linux 容器應一律為 **:/blobroot**，對於 Windows 容器應一律為 **:C:/BlobRoot**。
 
-5. 儲存 **deployment.template.json** 檔案。
+5. 配置[自动分层和自动过期](#configure-auto-tiering-and-auto-expiration-via-vscode)。 [自动分层](#auto-tiering-properties)和[自动过期](#auto-expiration-properties)属性的列表
 
-6. 開啟方案工作區中的 **.env** 檔案。 
+6. 儲存 **deployment.template.json** 檔案。
 
-7. .env 檔案是設定成接收登錄認證，但是 Blob 儲存體可公開取得，所以您不需要此設定。 相反地，使用兩個新環境變數來取代檔案： 
+7. 開啟方案工作區中的 **.env** 檔案。 
+
+8. .env 檔案是設定成接收登錄認證，但是 Blob 儲存體可公開取得，所以您不需要此設定。 相反地，使用兩個新環境變數來取代檔案： 
 
    ```env
    STORAGE_ACCOUNT_NAME=
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. 為 `STORAGE_ACCOUNT_NAME` 提供值，帳戶名稱應該有 3 到 24 個字元，且必須包含小寫字母與數字。 為 `STORAGE_ACCOUNT_KEY` 提供 64 位元組 base64 金鑰。 您可以 [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) 之類的工具產生金鑰。 您將使用這些認證，從其他模組存取 Blob 儲存體。 
+9. 為 `STORAGE_ACCOUNT_NAME` 提供值，帳戶名稱應該有 3 到 24 個字元，且必須包含小寫字母與數字。 為 `STORAGE_ACCOUNT_KEY` 提供 64 位元組 base64 金鑰。 您可以 [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) 之類的工具產生金鑰。 您將使用這些認證，從其他模組存取 Blob 儲存體。 
 
    請勿使用空格引號括住您提供的值。 
 
-9. 儲存 **.env** 檔案。 
+10. 儲存 **.env** 檔案。 
 
-10. 以滑鼠右鍵按一下 **deployment.template.json**，然後選取 [產生 IoT Edge 部署資訊清單]。 
+11. 以滑鼠右鍵按一下 **deployment.template.json**，然後選取 [產生 IoT Edge 部署資訊清單]。 
 
-11. Visual Studio Code 會採用您在 deployment.template.json 和 .env 中提供的資訊，並使用這些資訊建立新的部署資訊清單檔。 隨即在解決方案工作區新 **config** 資料夾中建立部署資訊清單。 您有該檔案時，就可以依照[從 Visual Studio Code 部署 Azure IoT Edge 模組](how-to-deploy-modules-vscode.md)或[使用 Azure CLI 2.0 部署 Azure IoT Edge 模組](how-to-deploy-modules-cli.md)中的步驟進行。
+12. Visual Studio Code 會採用您在 deployment.template.json 和 .env 中提供的資訊，並使用這些資訊建立新的部署資訊清單檔。 隨即在解決方案工作區新 **config** 資料夾中建立部署資訊清單。 您有該檔案時，就可以依照[從 Visual Studio Code 部署 Azure IoT Edge 模組](how-to-deploy-modules-vscode.md)或[使用 Azure CLI 2.0 部署 Azure IoT Edge 模組](how-to-deploy-modules-cli.md)中的步驟進行。
+
+## <a name="auto-tiering-and-auto-expiration-properties-and-configuration"></a>自动分层和自动过期属性与配置
+
+使用所需属性设置自动分层和自动过期属性。 可以在部署期间设置这些属性，或者，以后可以通过编辑模块孪生来更改这些属性，而无需重新部署。 我们建议检查“模块孪生”中的 `reported configuration` 和 `configurationValidation`，以确保正确传播值。
+
+### <a name="auto-tiering-properties"></a>自动分层属性 
+此设置的名称为 `tieringSettings`
+
+| 欄位 | 可能的值 | 說明 |
+| ----- | ----- | ---- |
+| tieringOn | true、false | 默认设置为 `false`，若要启用它，可将它设置为 `true`|
+| backlogPolicy | NewestFirst、OldestFirst | 用于选择将数据复制到 Azure 的顺序。 默认设置为 `OldestFirst`。 顺序由 Blob 的上次修改时间确定 |
+| remoteStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` 是一个连接字符串，用于指定要将数据上传到的 Azure 存储帐户。 指定 `Azure Storage Account Name`、`Azure Storage Account Key` 或 `End point suffix`。 新增適當 EndpointSuffix 的 Azure 位置將上傳資料，而不同的全域 Azure Government Azure，Microsoft Azure Stack。 |
+| tieredContainers | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | 用于指定要上传到 Azure 的容器名称。 此模块允许指定源和目标容器名称。 如果未指定目标容器名称，系统会自动分配 `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>` 作为容器名称。 可以创建目标容器名称的模板字符串，具体请查看“可能的值”列。 <br>* %h -> IoT 中心名称（3 到 50 个字符）。 <br>* %d -> IoT 设备 ID（1 到 129 个字符）。 <br>* %m -> 模块名称（1 到 64 个字符）。 <br>* %c -> 源容器名称（3 到 63 个字符）。 <br><br>容器名称的最大大小为 63 个字符。尽管系统会自动分配目标容器名称，但如果容器大小超过 63 个字符，系统会将每个部分（IoTHubName、IotEdgeDeviceName、ModuleName、ContainerName）修剪为 15 个字符。 |
+
+### <a name="auto-expiration-properties"></a>自动过期属性
+此设置的名称为 `ttlSettings`
+
+| 欄位 | 可能的值 | 說明 |
+| ----- | ----- | ---- |
+| ttlOn | true、false | 默认设置为 `false`，若要启用它，可将它设置为 `true`|
+| timeToLiveInMinutes | `<minutes>` | 以分钟为单位指定 TTL。 当本地存储中的 Blob 达到 TTL 时，模块会自动删除这些 Blob |
+
+### <a name="configure-auto-tiering-and-auto-expiration-via-azure-portal"></a>通过 Azure 门户配置自动分层和自动过期
+
+若要通过设置所需属性来启用自动分层和自动过期，可以设置以下值：
+
+- **在初始部署期间**：复制“设置模块孪生的所需属性”框中的 JSON。 为每个属性配置适当的值，保存属性，然后继续部署。
+
+   ```json
+   {
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>, 
+         "timeToLiveInMinutes": <timeToLiveInMinutes> 
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+         }
+       }
+     }
+   }
+
+   ```
+
+  ![设置自动分层和自动过期属性](./media/how-to-store-data-blob/iotedge_custom_module.png)
+
+- **通过“模块标识孪生”功能部署模块后**：转到此模块的“模块标识孪生”，复制所需属性下的 JSON，为每个属性配置适当的值，然后保存属性。 在“模块标识孪生”JSON 中，确保每次添加或更新任何所需属性时，`reported configuration` 部分都会反映所做的更改，并且 `configurationValidation` 部分针对每个属性显示成功消息。
+
+   ```json 
+    "ttlSettings": {
+        "ttlOn": <true, false>, 
+        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+    },
+    "tieringSettings": {
+        "tieringOn": <true, false>,
+        "backlogPolicy": "<NewestFirst, OldestFirst>",
+        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+        "tieredContainers": {
+            "<source container name1>": {
+                "target": "<target container name1>"
+            }
+        }
+    }
+
+   ```
+
+![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
+
+### <a name="configure-auto-tiering-and-auto-expiration-via-vscode"></a>通过 VSCode 配置自动分层和自动过期
+
+- **在初始部署期间**：在 deployment.template.json 中添加以下 JSON，以定义此模块的所需属性。 为每个属性配置适当的值并保存。
+
+   ```json
+   "<your azureblobstorageoniotedge module name>":{
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>, 
+         "timeToLiveInMinutes": <timeToLiveInMinutes> 
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+         }
+       }
+     }
+   }
+
+   ```
+
+下面是此模块的所需属性示例：![设置 azureblobstorageoniotedge 的所需属性 - VS Code](./media/how-to-store-data-blob/tiering_ttl.png)
+
+- **通过“模块孪生”部署模块后**：[编辑此模块的模块孪生](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)，复制所需属性下的 JSON，为每个属性配置适当的值，然后保存属性。 在“模块孪生”JSON 中，确保每次添加或更新任何所需属性时，`reported configuration` 部分都会反映所做的更改，并且 `configurationValidation` 部分针对每个属性显示成功消息。
+
+   ```json 
+    "ttlSettings": {
+        "ttlOn": <true, false>, 
+        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+    },
+    "tieringSettings": {
+        "tieringOn": <true, false>,
+        "backlogPolicy": "<NewestFirst, OldestFirst>",
+        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+        "tieredContainers": {
+            "<source container name1>": {
+                "target": "<target container name1>"
+            }
+        }
+    }
+
+   ```
+  ## <a name="logs"></a>記錄檔
+
+請遵循指示以[設定您的 IoT Edge 模組的 docker 記錄](production-checklist.md#set-up-logs-and-diagnostics)
 
 ## <a name="connect-to-your-blob-storage-module"></a>連接到您的 Blob 儲存體模組
 
@@ -201,17 +355,12 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 
 指定 IoT Edge 裝置作為您提出的任何儲存體要求所用的 Blob 端點。 您可以使用 IoT Edge 裝置資訊和您設定的帳戶名稱，[建立明確儲存體端點的連接字串](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint)。 
 
-1. 針對部署在相同 Edge 裝置 (「IoT Edge 上的 Azure Blob 儲存體」執行所在) 上的模組，Blob 端點是：`http://<module name>:11002/<account name>`。 
-2. 針對部署在不同 Edge 裝置 (與「IoT Edge 上的 Azure Blob 儲存體」執行所在 Edge 裝置不同的 Edge 裝置) 上的模組，則取決於您的 Blob 端點設定方式，可能為：`http://<device IP >:11002/<account name>` 或 `http://<IoT Edge device hostname>:11002/<account name>` 或 `http://<FQDN>:11002/<account name>`
-
-## <a name="logs"></a>記錄檔
-
-您可以在容器內的下列位置下找到記錄： 
-* 針對 Linux：/blobroot/logs/platformblob.log
+1. 对于部署在运行“IoT Edge 上的 Azure Blob 存储”的同一边缘设备上的模块，Blob 终结点为：`http://<module name>:11002/<account name>`。 
+2. 对于部署在不同边缘设备，而非运行“IoT Edge 上的 Azure Blob 存储”的边缘设备上的模块，Blob 终结点为：`http://<device IP >:11002/<account name>`、`http://<IoT Edge device hostname>:11002/<account name>` 或 `http://<FQDN>:11002/<account name>`，具体取决于设置
 
 ## <a name="deploy-multiple-instances"></a>部署多個執行個體
 
-如果您想要部署 IoT Edge 上的多個 Azure Blob 儲存體執行個體，您只需要變更模組所繫結的 HostPort。 Blob 儲存體模組一律會公開容器的 11002 連接埠，但是您可以宣告哪個連接埠繫結至主機。 
+若要在 IoT Edge 上部署 Azure Blob 存储的多个实例，需要提供不同的存储路径，并更改模块绑定到的 HostPort。 Blob 儲存體模組一律會公開容器的 11002 連接埠，但是您可以宣告哪個連接埠繫結至主機。 
 
 編輯模組建立選項，以變更 HostPort 值：
 
@@ -221,22 +370,39 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 
 您連接到其他 Blob 儲存體模組時，請變更端點來指向已更新的主機連接埠。 
 
-### <a name="try-it-out"></a>試做
+## <a name="try-it-out"></a>試做
 
-Azure Blob 儲存體文件集包括有數種語言的範例程式碼的快速入門。 您可以執行這些範例變更 Blob 端點指向 Blob 儲存體模組，以便在 IoT Edge 上測試 Azure Blob 儲存體。
+### <a name="azure-blob-storage-quickstart-samples"></a>Azure Blob 存储快速入门示例
+Azure Blob 儲存體文件集包括有數種語言的範例程式碼的快速入門。 您可以執行這些範例變更 Blob 端點指向 Blob 儲存體模組，以便在 IoT Edge 上測試 Azure Blob 儲存體。 遵循相应的步骤[连接到 Blob 存储模块](#connect-to-your-blob-storage-module)
 
 下列快速入門使用 IoT Edge 也支援的語言，因此您可以連同 Blob 儲存體模組將這些語言部署為 IoT Edge 模組：
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Java](../storage/blobs/storage-quickstart-blobs-java.md)
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
+
+### <a name="azure-storage-explorer"></a>Azure 儲存體總管
+您也可以嘗試[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)連接到您的本機儲存體帳戶。 我們試著使用[舊版 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0)的 Azure 檔案總管。
+> [!NOTE]
+> 您可能會執行下列步驟時遇到錯誤，略過並重新整理。 
+
+1. 下載並安裝 Azure 儲存體總管
+2. 連接到 Azure 儲存體使用的連接字串
+3. 提供連接字串： `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+4. 瀏覽至連線的步驟。
+5. 建立您的本機儲存體帳戶內的容器
+6. 開始上傳為區塊 blob 的檔案。
+   > [!NOTE]
+   > 取消選取核取方塊，以將它上傳做為分頁 blob。 此模組不支援分頁 blob。 您會看到此提示在上傳檔案，如.iso、.vhd、.vhdx 或任何大型檔案時。
+
+7. 您可以選擇連接您的 Azure 儲存體帳戶，您要上傳資料。 它可讓您單一檢視您的本機儲存體帳戶與 Azure 儲存體帳戶
 
 ## <a name="supported-storage-operations"></a>支援的儲存體作業
 
-IoT Edge 上的 Blob 儲存體模組使用相同的 Azure 儲存體 SDK，而且與區塊 Blob 端點的 Azure 儲存體 API 2018-03-28 版本一致。 日後的版本端視客戶的需求而定。 
+IoT Edge 上的 Blob 存储模块使用相同的 Azure 存储 SDK，并与适用于块 Blob 终结点的 2017-04-17 版 Azure 存储 API 保持一致。 日後的版本端視客戶的需求而定。
 
-IoT Edge 上的 Azure Blob 儲存體並未完全支援所有的 Azure Blob 儲存體作業。 下列各節詳細說明如何不支援的作業。 
+IoT Edge 上的 Azure Blob 儲存體並未完全支援所有的 Azure Blob 儲存體作業。 以下部分列出了支持和不支持的操作。
 
 ### <a name="account"></a>帳戶
 
@@ -255,11 +421,11 @@ IoT Edge 上的 Azure Blob 儲存體並未完全支援所有的 Azure Blob 儲�
 * 建立和刪除容器
 * 取得容器屬性和中繼資料
 * 列出 Blob
-
-不支援： 
 * 取得和設定容器 ACL
-* 租用容器
 * 設定容器中繼資料
+
+不支援：
+* 租用容器
 
 ### <a name="blobs"></a>Blob
 
@@ -278,11 +444,16 @@ IoT Edge 上的 Azure Blob 儲存體並未完全支援所有的 Azure Blob 儲�
 ### <a name="block-blobs"></a>區塊 Blob
 
 支援： 
-* 放置區塊：區塊大小必須小於或等於 4 MB
+* 放置區塊
 * 放置和取得區塊清單
 
 不支援：
 * 從 URL 放置區塊
+
+## <a name="feedback"></a>意見反應:
+您的意見反應是對我們有用且易於使用，讓此模組和其功能非常重要。 請分享您的意見反應，讓我們知道我們如何改進。
+
+您可以連絡我們 absiotfeedback@microsoft.com 
 
 ## <a name="next-steps"></a>後續步驟
 

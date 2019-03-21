@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 3a4304301b99369426aa985508d6cabd26ba2c9f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992033"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉到進階儲存體
 
@@ -43,7 +43,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
   2. 運用快取、壓縮和加密將該資料最佳化。
   3. 將資料傳送至儲存體帳戶。 
 
-  它還會處理對來源 VM 進行的行動服務推送安裝作業，並執行來源 VM 的自動探索。 組態伺服器上會安裝預設的處理序伺服器。 您可以部署額外的獨立處理序伺服器來調整您的部署。 請參閱[處理序伺服器部署的最佳作法](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/)和[部署額外的處理序伺服器](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers)。 您只需設定處理序伺服器一次，即可用於所有移轉到相同區域的作業。
+  它還會處理對來源 VM 進行的行動服務推送安裝作業，並執行來源 VM 的自動探索。 默认的进程服务器安装在配置服务器上。 您可以部署額外的獨立處理序伺服器來調整您的部署。 請參閱[處理序伺服器部署的最佳作法](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/)和[部署額外的處理序伺服器](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers)。 您只需設定處理序伺服器一次，即可用於所有移轉到相同區域的作業。
 
 * **行動服務**是部署在每個您想要複寫之標準 VM 上的元件。 它會擷取在標準 VM 上寫入的資料，並將它們轉送到處理序伺服器。 請參閱[複寫之機器的必要條件](../../site-recovery/vmware-walkthrough-overview.md)。
 
@@ -83,7 +83,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 ### <a name="step-2-choose-your-protection-goals"></a>步驟 2：選擇您的保護目標 
 
 1. 在您要安裝組態伺服器的 VM 上，開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 移至 [復原服務保存庫] > [設定] > [Site Recovery] > [步驟 1：準備基礎結構]**[保護目標] > **。
+2. 移至 [復原服務保存庫] > [設定] > [Site Recovery] > [步驟 1：準備基礎結構] > [保護目標]。
 
    ![瀏覽至 [保護目標] 窗格][2]
 
@@ -119,7 +119,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 
 4. 安裝完成後，請在 [Microsoft Azure Site Recovery 組態伺服器] 視窗中執行下列動作：
  
-   1. 使用 [管理帳戶] 索引標籤來建立可供 Site Recovery 用於自動探索的帳戶  (在有關保護實體機器的案例中，設定帳戶並非我們的討論範圍，但您至少需要一個帳戶才能啟用下列其中一個步驟。 在此案例中，您可以任意命名帳戶和密碼)。 
+   1. 使用 [管理帳戶] 索引標籤來建立可供 Site Recovery 用於自動探索的帳戶  (在有關保護實體機器的案例中，設定帳戶並非我們的討論範圍，但您至少需要一個帳戶才能啟用下列其中一個步驟。 在此情况下，可以指定任意帐户和密码。） 
    2. 使用 [保存庫註冊] 索引標籤上傳保存庫認證檔。
 
       ![[保存庫註冊] 索引標籤][9]
@@ -214,11 +214,11 @@ Site Recovery 會建立類型與可支援進階儲存體之 VM 相同或類似�
 
 * [在儲存體帳戶之間移轉 Azure 虛擬機器](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [上傳 Linux 虛擬硬碟](upload-vhd.md)
-* [將虛擬機器從 Amazon AWS 移轉至 Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [將虛擬機器從 Amazon AWS 移轉至 Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 若要深入了解 Azure 儲存體和 Azure 虛擬機器，也請參閱下列資源：
 
-* [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure 存储](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure 虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [選取適用於 IaaS VM 的磁碟類型](disks-types.md)
 

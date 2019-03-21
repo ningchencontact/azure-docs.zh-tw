@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093883"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 伺服器的 SQL Database 資源限制
 
@@ -36,7 +36,7 @@ ms.locfileid: "55990099"
 | 每一伺服器的 DTU/eDTU 配額 | 54,000 |  
 | 每一伺服器/執行個體的 vCore 配額 | 540 |
 | 每一伺服器的集區數目上限 | 受限於 DTU 或 vCore 數目。 例如，如果每個集區是 1000 DTU，則伺服器可以支援 54 集區。|
-||||
+|||
 
 > [!NOTE]
 > 若要獲得大於預設數量的 DTU/eDTU 配額、vCore 配額或伺服器，可以在 Azure 入口網站中，針對訂用帳戶使用問題類型「配額」提交新的支援要求。 每一伺服器的 DTU/eDTU 配額和資料庫限制會限制每一部伺服器的彈性集區數目。
@@ -73,6 +73,34 @@ ms.locfileid: "55990099"
 
 - 提高資料庫或彈性集區的服務層或計算大小。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
 - 如果背景工作角色的使用率增加是爭用計算資源所造成，則可將查詢最佳化，以減少每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢微調/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
+
+## <a name="transaction-log-rate-governance"></a>交易記錄檔的速率控管 
+用來限制這類大量工作負載高的擷取速率的 Azure SQL Database 中的程序插入，SELECT INTO 和索引建立交易記錄檔的速率控管。 追蹤和記錄檔記錄產生率的子第二個層級強制執行這些限制，可能會對資料檔案發出限制的輸送量，不論多少 IOs。  交易記錄檔產生速率目前以線性方式調整最多有硬體相依的點，最大記錄檔與速率會允許正在 48 MB/秒的購買模型的 vCore。 
+
+> [!NOTE]
+> 交易記錄檔的實際實體 Io 不會控管或限制。 
+
+設定記錄檔的速率的方式，可以達成並持續以各種不同的案例中，而整體系統可以維護其功能，且使用者負載的影響降到最低。 記錄檔的速率控管會確保備份維持在已發行的復原能力 Sla 內，交易記錄檔。  此控管也可避免在次要複本上的過多待處理項目。
+
+產生記錄檔記錄時，每個作業評估，並評估是否它應該會延遲，以維持所需的記錄檔最大速率 （MB/秒的秒）。 延遲不會加入記錄檔記錄已排清至儲存體，而不是在記錄檔的速率產生本身時套用記錄速率控管。
+
+實際的記錄檔產生在執行階段加諸的速率可能也會受到意見反應機制，讓系統可以穩定，暫時降低允許的記錄檔的速率。 記錄檔空間管理，避免用盡到記錄檔空間的情況與可用性群組的複寫機制可能暫時降低整體系統限制。 
+
+記錄速率管理員的流量成形透過下列等候類型的方式來呈現 (中公開[sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+
+| 等候類型 | 注意 |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | 資料庫限制 |
+| POOL_LOG_RATE_GOVERNOR | 集區限制 |
+| INSTANCE_LOG_RATE_GOVERNOR | 執行個體層級限制 |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | 意見反應控制項，Premium/業務關鍵 」 中無法配合可用性群組實體複寫 |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | 意見反應控制項，限制以避免記錄空間條件的費率 |
+|||
+
+當遇到會阻礙所需的延展性記錄速率限制，請考慮下列選項：
+- 若要取得最大的 48 MB/秒記錄速率相應增加較大的層。 
+- 如果正在載入的資料是暫時性的也就接移資料在 ETL 程序，它可以載入 tempdb （這最低限度記錄）。 
+- 分析的情況下，載入至涵蓋叢集資料行存放區資料表。 這會減少必要的記錄速率，因為壓縮的關係。 這項技術會增加 CPU 使用量，而且也只適用於受益於叢集資料行存放區索引的資料集。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6b8587313a4e98bfefa6489d9698052d312a6d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 274675c3b9f04877f5665efbcbf7951a5bbb0e27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194541"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833175"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>關於 Azure Active Directory 報告的常見問題集
 
@@ -29,17 +29,17 @@ ms.locfileid: "56194541"
 
 ## <a name="getting-started"></a>開始使用 
 
-**問：我目前使用 https://graph.windows.net/&lt租用戶名稱&gt;/reports/ 端點 API，並以程式設計方式將 Azure AD 稽核和整合的應用程式使用方式報告提取到我們的報告系統中。我該切換至什麼項目？**
+**問：我目前使用`https://graph.windows.net/<tenant-name>/reports/`提取 Azure AD 稽核及整合式應用程式使用情況 Api 以程式設計的方式報告到我們的報告系統的端點。我該切換至什麼項目？**
 
 **答：** 請查閱 [API 參考](https://developer.microsoft.com/graph/)，查看您可以如何使用 API 來存取[活動報告](concept-reporting-api.md)。 此端點有兩個報告 (**稽核**和**登入**)，提供您在舊有 API 端點中取得的所有資料。 這個新端點也有 Azure AD Premium 授權的登入報告，您可以用它來取得應用程式使用方式、裝置使用方式，以及使用者登入資訊。
 
---- 
+---
 
-**問：我目前使用 https://graph.windows.net/&lt租用戶名稱&gt;/reports/ 端點 API，並以程式設計方式將 Azure AD 安全性報告 (如認證洩漏或從匿名 IP 位址登入等特定類型的偵測) 提取至我們的報告系統中。我該切換至什麼項目？**
+**問：我目前使用`https://graph.windows.net/<tenant-name>/reports/`端點 Api 以程式設計方式提取至我們的報告系統的 Azure AD 安全性報告 （特定類型的偵測，例如認證外洩或從匿名 IP 位址登入）。我該切換至什麼項目？**
 
 **答：** 您可以使用  [Identity Protection 風險事件 API](../identity-protection/graph-get-started.md)  來透過 Microsoft Graph 存取安全性偵測。 這個新的格式包含進階篩選和欄位選取等功能，讓您可以更靈活地查詢資料，並且將風險事件標準化為一種類型，以便更輕易地整合至 SIEM 和其他資料收集工具。 由於資料的格式不同，您無法以新查詢替換舊查詢。 不過，[新 API 會使用 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)，這是 O365 或 Azure AD 這類 API 的 Microsoft 標準格式。 因此該要求工作可以擴充您目前的 MS Graph 投資，或協助您開始轉換至新的標準平台。
 
---- 
+---
 
 **問：我要如何取得進階授權？**
 
@@ -79,7 +79,7 @@ ms.locfileid: "56194541"
 | 登入               | N/A           | 30 天             | 30 天             |
 | Azure MFA 使用        | 30 天       | 30 天             | 30 天             |
 
---- 
+---
 
 **問：在我完成工作之後，要多久的時間才能看見活動資料？**
 
@@ -89,7 +89,7 @@ ms.locfileid: "56194541"
 
 **問：我是否可以透過 Azure 入口網站取得 Office 365 活動記錄資訊？**
 
-**答：** 雖然 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源，但如果您想要完整檢視 Office 365 活動記錄，應該前往「Office 365 系統管理中心」以取得 Office 365 活動記錄資訊。
+**答：** 即使 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源，如果您想要完整檢視 Office 365 活動記錄檔中，您應該移至[Microsoft 365 系統管理中心](https://admin.microsoft.com)取得 Office 365 活動記錄資訊。
 
 ---
 
@@ -140,24 +140,27 @@ ms.locfileid: "56194541"
 **問：如何開始使用？**
 
 **答：** 開始進行之前：
-    * 巡覽至 [Azure 入口網站](https://portal.azure.com)中的登入報告。 
-    * 按一下您想要進行疑難排解的登入。
-    * 巡覽至 [條件式存取] 索引標籤。您可以在此處檢視所有原則，這些原則會影響每個原則的登入和結果。 
+
+* 巡覽至 [Azure 入口網站](https://portal.azure.com)中的登入報告。
+* 按一下您想要進行疑難排解的登入。
+* 巡覽至 [條件式存取] 索引標籤。您可以在此處檢視所有原則，這些原則會影響每個原則的登入和結果。 
     
 **問：條件式存取狀態所有可能的值為何？**
 
 **答：** 條件式存取狀態可能會包含下列值：
-    * **不適用**：這表示沒有任何 CA 原則包含範圍中的使用者和應用程式。 
-    * **成功**：這表示有一個 CA 原則包含範圍中的使用者和應用程式，且成功地符合 CA 原則。 
-    * **失敗**：這表示有一個 CA 原則包含範圍中的使用者和應用程式，且不符合 CA 原則。 
+
+* **不適用**：這表示沒有任何 CA 原則包含範圍中的使用者和應用程式。 
+* **成功**：這表示有一個 CA 原則包含範圍中的使用者和應用程式，且成功地符合 CA 原則。 
+* **失敗**：這表示有一個 CA 原則包含範圍中的使用者和應用程式，且不符合 CA 原則。 
     
 **問：條件式存取原則結果所有可能的值為何？**
 
 **答：** 條件式存取原則可能會包含下列結果：
-    * **成功**：已成功地符合原則。
-    * **失敗**：不符合原則。
-    * **不適用**：這可能是因為不符合原則條件。
-    * **未啟用**：這是因為原則處於停用狀態。 
+
+* **成功**：已成功地符合原則。
+* **失敗**：不符合原則。
+* **不適用**：這可能是因為不符合原則條件。
+* **未啟用**：這是因為原則處於停用狀態。 
     
 **問：所有登入報告中的原則名稱與 CA 中的原則名稱不符。原因為何？**
 

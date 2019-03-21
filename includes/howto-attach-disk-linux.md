@@ -4,14 +4,14 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: de7d5ab73eb95e79cfca150f0692d5e793b16b76
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: da2605e7d6dc8d46aa5c5cb89ec3e6f46076ffd1
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330805"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58115575"
 ---
-如需有關磁碟的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+如需有關磁碟的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](../articles/virtual-machines/linux/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 <a id="attachempty"></a>
 
@@ -46,7 +46,7 @@ ms.locfileid: "52330805"
 
 <a id="attachexisting"></a>
 
-## <a name="attach-an-existing-disk"></a>連接現有磁碟
+## <a name="attach-an-existing-disk"></a>附加现有磁盘
 連接現有磁碟要求您在儲存體帳戶中需要有可用的 .vhd。
 
 1. 開啟 Azure 傳統 CLI 並 [連接至您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。 確定處於 Azure 服務管理模式 (`azure config mode asm`)。

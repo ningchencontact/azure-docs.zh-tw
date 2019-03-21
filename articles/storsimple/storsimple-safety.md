@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 1be635826edbb60d50b06cc7c529e32b6280390b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9d0c8c01ae0d87c944922dece74e13f00879b02f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010258"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>安全地安裝和操作您的 StorSimple 裝置
 ![警告圖示](./media/storsimple-safety/IC740879.png)
@@ -30,7 +30,7 @@ ms.locfileid: "51249382"
 ## <a name="safety-icon-conventions"></a>安全性圖示慣例
 以下是您在檢閱安全性預防措施時會發現的圖示，這些措施可在設定與執行 Microsoft Azure StorSimple 裝置時觀查到。
 
-| 圖示 | 說明 |
+| 圖示 | 描述 |
 |:--- |:--- |
 | ![危險圖示](./media/storsimple-safety/IC740879.png) **危險！** |指出危險的情況，如果無法避免，將會導致死亡或嚴重傷害。 此訊號文字僅限用於最極端的情況。 |
 | ![警告圖示](./media/storsimple-safety/IC740879.png) **警告！** |指出危險的情況，如果無法避免，可能會導致死亡或嚴重傷害。 |
@@ -145,7 +145,7 @@ ms.locfileid: "51249382"
 
 ![注意事項圖示](./media/storsimple-safety/IC740881.png) **注意事項：**
 
-以空運運送或搬運電池時，請遵循 IATA 鋰電池指南文件，網址為 [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx) \(英文\)
+以空運運送或搬運電池時，請遵循 IATA 鋰電池指南文件，網址為 [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx) \(英文\)
 
 在您檢閱這些安全性注意事項之後，接下來的步驟是為裝置解除封裝、安裝機架和纜線。
 

@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765376"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441384"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>使用清查收集來管理 Azure 虛擬機器
 
@@ -36,7 +36,7 @@ ms.locfileid: "55765376"
 1. 在 Azure 入口網站的左側窗格中，選取 [虛擬機器]。
 2. 在虛擬機器清單中，選取虛擬機器。
 3. 在 [資源] 功能表上，於 [作業] 下選取 [清查]。
-4. 選取 Log Analytics 工作區來儲存資料記錄。
+4. 選取的 Log Analytics 工作區，來儲存資料記錄。
     如果該區域沒有工作區可供您使用，系統會提示您建立預設工作區和自動化帳戶。
 5. 若要開始將您的電腦上架，請按一下 [啟用]。
 
@@ -60,7 +60,7 @@ ms.locfileid: "55765376"
 
 ### <a name="windows-registry"></a>Windows 登錄
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |已啟用     | 判斷是否已套用設定        |
 |項目名稱     | 所要追蹤檔案的易記名稱        |
@@ -69,7 +69,7 @@ ms.locfileid: "55765376"
 
 ### <a name="windows-files"></a>Windows 檔案
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |已啟用     | 判斷是否已套用設定        |
 |項目名稱     | 所要追蹤檔案的易記名稱        |
@@ -78,7 +78,7 @@ ms.locfileid: "55765376"
 
 ### <a name="linux-files"></a>Linux 檔案
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |已啟用     | 判斷是否已套用設定        |
 |項目名稱     | 所要追蹤檔案的易記名稱        |
@@ -91,7 +91,9 @@ ms.locfileid: "55765376"
 
 ## <a name="manage-machine-groups"></a>管理電腦群組
 
-清查可讓您在 Log Analytics 中建立和檢視電腦群組。 電腦群組是由 Log Analytics 中的查詢所定義的電腦集合。
+清查可讓您建立與 Azure 監視器記錄檔中檢視電腦群組。 電腦群組是由查詢 Azure 監視器記錄檔中定義的機器的集合。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 若要檢視您的電腦群組，請選取 [清查] 頁面上的 [電腦群組] 索引標籤。
 
@@ -103,7 +105,7 @@ ms.locfileid: "55765376"
 
 按一下 [+ 複製] 按鈕以複製電腦群組。 您必須在此提供群組的新名稱和別名。 在這個階段可以改變定義。 變更查詢之後，按下 [驗證查詢] 可預覽所要選取的電腦。 當您滿意群組時，請按一下 [建立] 以建立電腦群組。
 
-如果您想建立新的資源群組，請選取 [+ 建立電腦群組]。 這個按鈕會開啟 [建立電腦群組] 頁面，您可在其中定義新的群組。 按一下 [建立]  以建立群組。
+如果您想要建立新的電腦群組，請選取 **+ 建立電腦群組**。 這個按鈕會開啟 [建立電腦群組] 頁面，您可在其中定義新的群組。 按一下 [建立]  以建立群組。
 
 ![建立新的電腦群組](./media/automation-vm-inventory/create-new-group.png)
 
@@ -116,7 +118,7 @@ ms.locfileid: "55765376"
 3. 在清單中，選取您要中斷連線的虛擬機器。 虛擬機器在 [OMS 連線] 資料行中，**這個工作區**文字旁邊會出現綠色核取記號。
 
    >[!NOTE]
-   >OMS 現在稱為「Log Analytics」。
+   >OMS 現在稱為 「 Azure 監視器記錄檔。
    
 4. 在下一個頁面的頂端，選取 [中斷連線]。
 5. 在確認視窗中，選取 [是]。
