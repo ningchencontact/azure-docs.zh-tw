@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3c9c8eab0ce13aee5dbe7bdb732d45555e547fb
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 31e759baa4f5e7b220eabf2bb9ffcc5cc011a354
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407162"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200458"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 執行 Apache Hive 查詢
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -128,7 +128,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
             }
         }
     ```
-4. 按 **F5** 鍵執行應用程式。
+4. 按 **F5** 运行应用程序。
 
 應用程式的輸出應該類似這樣：
 
@@ -139,7 +139,6 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 * [開始使用 Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
-* [使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](../hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK 參考](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [搭配 HDInsight 使用 Apache Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md)

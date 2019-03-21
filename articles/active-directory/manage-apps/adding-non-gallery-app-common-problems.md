@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a07ca553aee2a6267af5a33836e85b2a12d8ae3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842452"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>新增不在資源庫內的應用程式時遇到問題
 
@@ -46,20 +46,20 @@ ms.locfileid: "56182284"
 
 您可以依照下列步驟來查看任何入口網站通知的詳細資料：
 
-1.  按一下 Azure 入口網站右上方的 [通知] 圖示 (鐘)。
+1. 按一下 Azure 入口網站右上方的 [通知] 圖示 (鐘)。
 
-2.  選取處於**錯誤**狀態的任何通知 (旁邊有紅色 (!))。
+2. 選取處於**錯誤**狀態的任何通知 (旁邊有紅色 (!))。
 
    >[!NOTE]
    >您無法按一下**成功**或**進行中**狀態的通知。
    >
    >
 
-4.  使用 [通知詳細資料] 中的資訊，來了解更多關於此問題的詳細資料。
+4. 使用 [通知詳細資料] 中的資訊，來了解更多關於此問題的詳細資料。
 
-5.  如果您仍然需要協助，您也可以將這項資訊分享給支援工程師或產品群組，以取得協助來解決您的問題。
+5. 如果您仍然需要協助，您也可以將這項資訊分享給支援工程師或產品群組，以取得協助來解決您的問題。
 
-6.  按一下 [複製錯誤] 文字方塊右邊的**複製圖示**，以複製所有通知詳細資料來分享給支援工程師或產品群組工程師。
+6. 按一下 [複製錯誤] 文字方塊右邊的**複製圖示**，以複製所有通知詳細資料來分享給支援工程師或產品群組工程師。
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>如何將通知詳細資料傳送給支援工程師以取得協助
 
@@ -71,63 +71,63 @@ ms.locfileid: "56182284"
 
 ### <a name="essential-notification-items"></a>必要通知項目
 
--   **標題** - 通知的描述性標題
-   *  範例 - **應用程式 Proxy 設定**
+- **標題** - 通知的描述性標題
+  *  範例 - **應用程式 Proxy 設定**
 
--   **描述** - 作業所產生之結果的描述
+- **描述** - 作業所產生之結果的描述
 
-   *  範例 - **輸入的內部 URL 正由另一個應用程式使用中**
+  *  範例 - **輸入的內部 URL 正由另一個應用程式使用中**
 
--   **通知識別碼** – 通知的唯一識別碼
+- **通知識別碼** – 通知的唯一識別碼
 
-   *  範例 - **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  *  範例 - **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **用戶端要求識別碼** – 瀏覽器所產生的特定要求識別碼
+- **用戶端要求識別碼** – 瀏覽器所產生的特定要求識別碼
 
-   *  範例 - **302fd775-3329-4670-a9f3-bea37004f0bc**
+  *  範例 - **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **時間戳記 UTC** - 發生通知期間的時間戳記 (UTC)
+- **時間戳記 UTC** - 發生通知期間的時間戳記 (UTC)
 
-   *  範例 - **2017-03-23T19:50:43.7583681Z**
+  *  範例 - **2017-03-23T19:50:43.7583681Z**
 
--   **內部交易識別碼** – 可用來在系統中查閱錯誤的內部識別碼
+- **內部交易識別碼** – 可用來在系統中查閱錯誤的內部識別碼
 
-   *  範例 - **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  *  範例 - **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** - 執行作業的使用者
+- **UPN** - 執行作業的使用者
 
-   *  範例 - **tperkins@f128.info**
+  *  範例 – **tperkins\@f128.info**
 
--   **租用戶識別碼** – 作業執行使用者所屬之租用戶的唯一識別碼
+- **租用戶識別碼** – 作業執行使用者所屬之租用戶的唯一識別碼
 
-   *  範例 - **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  *  範例 - **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **使用者物件識別碼** – 執行作業之使用者的唯一識別碼
+- **使用者物件識別碼** – 執行作業之使用者的唯一識別碼
 
- *  範例 - **17f84be4-51f8-483a-b533-383791227a99**
+  *  範例 - **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>詳細通知項目
 
--   **顯示名稱** – **(可以是空白)** 錯誤的詳細顯示名稱
+- **顯示名稱** – **(可以是空白)** 錯誤的詳細顯示名稱
 
   *  範例 - **應用程式 Proxy 設定**
 
--   **狀態** – 通知的特定狀態
+- **狀態** – 通知的特定狀態
 
-   *  範例 – **失敗**
+  *  範例 – **失敗**
 
--   **物件識別碼** – **(可以是空白)** 據以執行作業的物件識別碼
+- **物件識別碼** – **(可以是空白)** 據以執行作業的物件識別碼
 
-   *  範例 - **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+  *  範例 - **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **詳細資料** - 作業所產生之結果的詳細描述
+- **詳細資料** - 作業所產生之結果的詳細描述
 
-   *  範例 – **內部 url 'https://bing.com/' 無效，因為已在使用中**
+  *  範例 –**內部 url`https://bing.com/`無效，因為它已在使用**
 
--   **複製錯誤** – 按一下 [複製錯誤] 文字方塊右邊的**複製圖示**，以複製所有通知詳細資料來分享給支援工程師或產品群組 
--   工程師
+- **複製錯誤** – 按一下 [複製錯誤] 文字方塊右邊的**複製圖示**，以複製所有通知詳細資料來分享給支援工程師或產品群組 
+- 工程師
 
-   *  範例 ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+  *  範例 ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
 

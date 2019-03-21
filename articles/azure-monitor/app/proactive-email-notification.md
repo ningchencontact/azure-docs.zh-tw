@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 ms.author: harelbr
-ms.openlocfilehash: 4bcbed82a78caff62a9459ecb44c6513f367f6b7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: f984a34be1c5d5fdd18a00812107318df8f5d9bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889279"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>智慧偵測電子郵件通知變更
 
@@ -34,7 +34,7 @@ ms.locfileid: "56458195"
 
 ## <a name="how-to-prepare-for-this-change"></a>如何針對這項變更做準備？
 
-若要確保智慧偵測的電子郵件通知會傳送給相關的使用者，必須將這些使用者指派為[監視讀者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)和[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)角色。 請以訂用帳戶層級 (會影響訂用帳戶中的所有 Application Insights 資源)，或以 Application Insights 資源層級 (僅會影響特定資源) 來進行指派。
+若要確保，從 智慧型偵測電子郵件通知傳送給相關的使用者，這些使用者必須指派給[監視讀取器](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)或是[監視參與者 」](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)訂用帳戶的角色。
 
 若要透過 Azure 入口網站指派使用者為監視讀者或監視參與者，請按照[新增角色指派](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment)文章所述的步驟進行。 請務必選取監視讀者或監視參與者做為使用者指派的角色。
 

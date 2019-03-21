@@ -7,22 +7,22 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834582"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120528"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>描述 Service Fabric 叢集
-Service Fabric 叢集資源管理員提供數種機制，來描述叢集。 在執行階段，叢集資源管理員會使用此資訊，以確保叢集中執行之服務的高可用性。 在強制執行這些重要規則時，它也會嘗試將叢集的資源消耗量最佳化。
+Service Fabric 群集 Resource Manager 提供多种用于描述群集的的机制。 在執行階段，叢集資源管理員會使用此資訊，以確保叢集中執行之服務的高可用性。 在強制執行這些重要規則時，它也會嘗試將叢集的資源消耗量最佳化。
 
 ## <a name="key-concepts"></a>重要概念
 叢集資源管理員支援數個描述叢集的功能︰
@@ -47,6 +47,7 @@ Service Fabric 叢集資源管理員提供數種機制，來描述叢集。 在�
 下圖中，我們將所有參與容錯網域的實體塗上顏色，並列出形成的所有不同容錯網域。 在此範例中，我們有資料中心 ("DC")、機架 ("R") 和刀鋒伺服器 ("B")。 如果每個刀鋒伺服器包含一個以上的虛擬機器，可以預料，容錯網域階層中還會有另一層。
 
 <center>
+
 ![透過容錯網域組織的節點][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Service Fabric 的叢集資源管理員不在乎容錯網域階層中有多少�
 不平衡網域外觀為何？ 下圖中，我們顯示兩個不同的叢集配置。 在第一個範例中，節點平均分散至容錯網域。 在第二個範例中，一個容錯網域比其他容錯網域具有更多節點。 
 
 <center>
+
 ![兩個不同的叢集配置][Image2]
 </center>
 
@@ -72,6 +74,7 @@ Service Fabric 的叢集資源管理員不在乎容錯網域階層中有多少�
 下圖顯示三個升級網域等量分佈在三個容錯網域上。 其中也顯示不具狀態服務的三個不同複本有一個可能的位置，而每一個最後都在不同的容錯網域和升級網域。 在服務升級期間，即使遺失容錯網域，這個位置可讓我們仍然保有一份程式碼和資料。  
 
 <center>
+
 ![容錯網域和升級網域的位置][Image3]
 </center>
 
@@ -88,6 +91,7 @@ Service Fabric 的叢集資源管理員不在乎容錯網域階層中有多少�
 - 「等量」或「矩陣」模型，其中的容錯網域和升級網域形成一個矩陣，而電腦通常沿著對角線排列。
 
 <center>
+
 ![容錯網域和升級網域配置][Image4]
 </center>
 
@@ -190,9 +194,9 @@ Service Fabric 的叢集資源管理員不在乎容錯網域階層中有多少�
 由於這兩種方法都有優缺點，因此我們引進一個結合這兩種策略的調適型方法。
 
 > [!NOTE]
->從 Service Fabric 6.2 版開始，這將會是預設行為。 
->
-調適型方法預設會使用「差異上限」邏輯，而只有在必要時，才會切換至「仲裁防護」邏輯。 「叢集資源管理員」會查看叢集和服務的設定方式，來自動查明哪個策略是必要策略。 針對特定的服務：如果 TargetReplicaSetSize 可被「容錯網域」數目和「升級網域」數目整除，**並且**節點數目小於或等於 (容錯網域數目) * (升級網域數目)，「叢集資源管理員」應該就會針對該服務使用「仲裁型」邏輯。 請記住，儘管仲裁遺失與無狀態服務並不相關，但「叢集資源管理員」針對無狀態服務和具狀態服務都會使用此方法。
+> 從 Service Fabric 6.2 版開始，這將會是預設行為。 
+> 
+> 調適型方法預設會使用「差異上限」邏輯，而只有在必要時，才會切換至「仲裁防護」邏輯。 「叢集資源管理員」會查看叢集和服務的設定方式，來自動查明哪個策略是必要策略。 針對特定的服務：如果 TargetReplicaSetSize 可被「容錯網域」數目和「升級網域」數目整除，**並且**節點數目小於或等於 (容錯網域數目) * (升級網域數目)，「叢集資源管理員」應該就會針對該服務使用「仲裁型」邏輯。 請記住，儘管仲裁遺失與無狀態服務並不相關，但「叢集資源管理員」針對無狀態服務和具狀態服務都會使用此方法。
 
 讓我們回到先前的範例並假設叢集現在有 8 個節點 (叢集仍然是設定為有 5 個「容錯網域」和 5 個「升級網域」，且該叢集上所裝載服務的 TargetReplicaSetSize 仍然是 5)。 
 
@@ -338,12 +342,13 @@ ClusterManifest.xml
 有時候 (事實上是大部分的情況下) 您會想要確保工作負載只在叢集中的特定節點類型上執行。 例如，某些工作負載可能需要 GPU 或 SSD，而有些則不用。 將硬體專用於特定工作負載的最佳例子幾乎都是多層式架構。 特定電腦作為應用程式的前端或 API 供應端，並且公開至用戶端或網際網路。 其他電腦 (通常有不同的硬體資源) 處理計算層或儲存層的工作。 它們通常_不會_直接公開至用戶端或網際網路。 Service Fabric 認為特定的工作負載有時需要在特定硬體設定上執行。 例如︰
 
 * 現有的多層式架構應用程式已「提升並移轉」到 Service Fabric 環境
-* 針對效能、級別或安全性隔離原因而想要在特定硬體上執行的工作負載
+* 出于性能、规模或安全性隔离原因，某个工作负荷需要在特定硬件上运行
 * 基於原則或資源耗用量的理由，工作負載應該彼此隔離
 
 為了支援這種設定，Service Fabric 有一流的標籤概念可運用在節點上。 這些標記稱為**節點屬性**。 **條件約束**是陳述式，會附加至針對一或多個節點屬性選取的個別服務。 放置條件約束會定義應該執行服務的位置。 條件約束集可延伸 - 任何索引鍵/值組都沒問題。 
 
 <center>
+
 ![叢集配置不同工作負載][Image5]
 </center>
 
@@ -351,11 +356,12 @@ ClusterManifest.xml
 Service Fabric 定義一些預設節點屬性，可自動使用，而不需要由使用者定義。 每個節點上定義的預設屬性是 **NodeType** 和 **NodeName**。 例如，您可以將放置條件約束撰寫成 `"(NodeType == NodeType03)"`。 我們大致上發現 NodeType 是其中一個最常用的屬性。 因為它與機器類型的對應是 1:1，所以很有用。 每個機器類型都對應至傳統多層式架構應用程式中的工作負載類型。
 
 <center>
+
 ![放置條件約束和節點屬性][Image6]
 </center>
 
 ## <a name="placement-constraint-and-node-property-syntax"></a>放置條件約束和節點屬性語法 
-節點屬性中指定的值可以是字串、bool，或帶正負號長值。 服務的陳述式稱為放置「條件約束」，因為它會限制服務在叢集中可執行的位置。 條件約束可以是任何在叢集中於不同節點上運作的布林值陳述式。 這些布林值陳述式中的有效選取器如下：
+節點屬性中指定的值可以是字串、bool，或帶正負號長值。 服務的陳述式稱為放置「條件約束」，因為它會限制服務在叢集中可執行的位置。 约束可以是针对群集中的不同节点属性运行的任何布尔值语句。 這些布林值陳述式中的有效選取器如下：
 
 1) 建立特定陳述式的條件式檢查
 
@@ -474,6 +480,7 @@ Service Fabric 以 `Metrics` 表示資源。 度量是您想要向 Service Fabri
 在執行階段期間，叢集資源管理員會追蹤叢集中和節點上的剩餘容量。 為了追蹤容量，叢集資源管理員會從服務執行所在的節點容量減去每個服務的使用量。 利用此資訊，Service Fabric 叢集資源管理員即可決定將複本放置或移至何處，不會讓節點超出容量。
 
 <center>
+
 ![叢集節點和容量][Image7]
 </center>
 
@@ -496,7 +503,7 @@ PowerShell：
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
 
-您可以看到叢集資訊清單中定義的容量︰
+可以在群集清单中看到定义的容量：
 
 ClusterManifest.xml
 
@@ -603,7 +610,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* 如需叢集資源管理員內的架構和資訊流程的相關資訊，請參閱[這篇文章](service-fabric-cluster-resource-manager-architecture.md)
+* 如需架構和資訊流程中，叢集資源管理員 」 中的資訊，請參閱[這篇文章](service-fabric-cluster-resource-manager-architecture.md)
 * 定義重組度量是合併 (而不是擴增) 節點上負載的一種方式。若要了解如何設定重組，請參閱 [這篇文章](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * 從頭開始，並 [取得 Service Fabric 叢集資源管理員的簡介](service-fabric-cluster-resource-manager-introduction.md)
 * 若要了解叢集資源管理員如何管理並平衡叢集中的負載，請查看關於 [平衡負載](service-fabric-cluster-resource-manager-balancing.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1347012971d53728d978f378e30684311c88828b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022270"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998386"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>使用 Azure Data Factory 從 Cassandra 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ ms.locfileid: "54022270"
 
 以下是針對 Cassandra 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type |類型屬性必須設定為：**Cassandra** |是 |
 | host |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
@@ -95,7 +95,7 @@ ms.locfileid: "54022270"
 
 若要從 Cassandra 複製資料，請將資料集的類型屬性設定為 **CassandraTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**CassandraTable** | 是 |
 | keyspace |Cassandra 資料庫中的 Keyspace 或結構描述名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
@@ -129,10 +129,10 @@ ms.locfileid: "54022270"
 
 若要從 Cassandra 複製資料，請將複製活動中的來源類型設定為 **CassandraSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**CassandraSource** | 是 |
-| query |使用自訂查詢來讀取資料。 |SQL-92 查詢或 CQL 查詢。 請參閱 [CQL 參考資料](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)。 <br/><br/>在使用 SQL 查詢時，指定 **keyspace name.table 名稱** 來代表您想要查詢的資料表。 |否 (如果已指定資料集中的「tableName」和「keyspace」)。 |
+| query |使用自訂查詢來讀取資料。 SQL-92 查詢或 CQL 查詢。 請參閱 [CQL 參考資料](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)。 <br/><br/>在使用 SQL 查詢時，指定 **keyspace name.table 名稱** 來代表您想要查詢的資料表。 |否 (如果已指定資料集中的「tableName」和「keyspace」)。 |
 | consistencyLevel |一致性層級可指定必須先有多少複本回應讀取要求，才會將資料傳回用戶端應用程式。 Cassandra 會檢查要讓資料滿足讀取要求的指定複本數目。 如需詳細資訊，請參閱 [設定資料一致性](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 。<br/><br/>允許的值包括：**ONE**、**TWO**、**THREE**、**QUORUM**、**ALL**、**LOCAL_QUORUM**、**EACH_QUORUM** 和 **LOCAL_ONE**。 |否 (預設值為 `ONE`) |
 
 **範例：**
@@ -177,13 +177,13 @@ ms.locfileid: "54022270"
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
-| DECIMAL |十進位 |
+| DECIMAL |Decimal |
 | DOUBLE |DOUBLE |
-| FLOAT |單一 |
+| FLOAT |Single |
 | INET |字串 |
 | INT |Int32 |
 | TEXT |字串 |
-| 時間戳記 |Datetime |
+| 時間戳記 |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |字串 |

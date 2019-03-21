@@ -1,5 +1,5 @@
 ---
-title: 將使用者遷移至群組型授權 - Azure Active Directory | Microsoft Docs
+title: 將個別授權的使用者移轉至以群組為基礎的授權-Azure Active Directory |Microsoft Docs
 description: 如何使用 Azure Active Directory 從個別使用者授權切換至以群組為基礎的授權
 services: active-directory
 keywords: Azure AD 授權
@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199967"
 ---
-# <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>如何將已授權的使用者新增至群組以便在 Azure Active Directory 中授權
+# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>如何新增授權時，將個別授權的使用者移轉至群組
 
-您可能會透過「直接指派」將現有授權部署給組織中的使用者，也就是，使用 PowerShell 指令碼或其他工具來指派個別使用者授權。 如果您想要開始使用以群組為基礎的授權來管理您組織中的授權，您需要移轉方案，以順暢地將現有的解決方案取代為以群組為基礎的授權。
+您可能會透過「直接指派」將現有授權部署給組織中的使用者，也就是，使用 PowerShell 指令碼或其他工具來指派個別使用者授權。 在您開始使用群組型授權來管理組織中的授權之前，您可以使用此移轉計劃要使用群組型授權中順暢地取代現有的解決方案。
 
 要謹記在心最重要的事情是，您應該避免移轉到以群組為基礎的授權會導致使用者暫時遺失其目前獲得指派授權的情況。 應避免可能造成授權移除的任何處理，以便移除使用者失去服務及其資料存取權的風險。
 
@@ -69,18 +69,17 @@ ms.locfileid: "58107741"
 
    - 這是移轉期間預期的使用者狀態︰
 
-      ![預期的使用者狀態](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![在移轉期間預期的使用者狀態](./media/licensing-groups-migrate-users/expected-user-state.png)
 
    這可確認使用者同時具有直接和繼承的授權。 我們看到同時指派 **EMS** 和 **E3**。
 
    - 選取每個授權，以顯示已啟用服務的相關詳細資料。 這可以用來檢查直接和群組授權是否針對使用者啟用完全相同的服務方案。
 
-      ![檢查服務方案](./media/licensing-groups-migrate-users/check-service-plans.png)
+      ![檢查使用者的服務方案](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. 在確認直接和群組授權是對等的之後，您可以開始從使用者移除直接授權。 您可以藉由在入口網站中移除個別使用者的直接授權來進行測試，然後再執行自動化指令碼，將它們大量移除。 以下是透過入口網站移除直接授權的相同使用者範例。 請注意，授權狀態會維持不變，但是我們不會再看見直接指派。
 
-   ![直接授權已移除](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
-
+   ![確認會移除直接授權](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>後續步驟
 

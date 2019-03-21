@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: 05dfece2a2e69c5cdb3f08b51424720a1c2898db
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561926"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849868"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>使用 Azure 自動化來管理 Azure SQL 資料庫
 
@@ -33,11 +33,11 @@ Azure 自動化提供高可靠性且高可用性的工作流程執行引擎，�
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Azure 自動化為何有助於管理 Azure SQL 資料庫？
 
-Azure SQL 資料庫可透過 [Azure PowerShell 工具](/powershell/azure/overview)中提供的 [Azure SQL Database PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql)，在 Azure 自動化中受到管理。 Azure 自動化的這些 Azure SQL 資料庫 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有的 SQL 資料庫管理工作。 您也可以在 Azure 自動化中將這些 Cmdlet 與其他 Azure 服務的 Cmdlet 配對，將跨 Azure 服務和協力廠商系統的複雜工作自動化。
+Azure SQL 資料庫可透過 [Azure PowerShell 工具](/powershell/azure/overview)中提供的 [Azure SQL Database PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql)，在 Azure 自動化中受到管理。 Azure 自動化的這些 Azure SQL 資料庫 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有的 SQL 資料庫管理工作。 您也可以在 Azure 自動化中將這些 Cmdlet 與其他 Azure 服務的 Cmdlet 配對，將跨 Azure 服務和協力廠商系統的複雜工作自動化。
 
 Azure 自動化也可直接與 SQL 伺服器通訊，只要使用 PowerShell 發出 SQL 命令即可。
 
-[Azure 自動化 Runbook 資源庫](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/)含有多種產品團隊與社群 Runbook，可供您開始針對 Azure SQL Database、其他 Azure 服務與協力廠商系統進行自動化管理。 資源庫 Runbook 包括：
+[Azure 自動化 Runbook 資源庫](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/)含有多種產品團隊與社群 Runbook，可供您開始針對 Azure SQL Database、其他 Azure 服務與協力廠商系統進行自動化管理。 資源庫 Runbook 包括：
 
 - [針對 SQL Server 資料庫執行 SQL 查詢 (英文)](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 - [依排程垂直調整 (向上或向下) Azure SQL Database (英文)](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -48,6 +48,6 @@ Azure 自動化也可直接與 SQL 伺服器通訊，只要使用 PowerShell 發
 
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure SQL 資料庫之後，請參考下列連結，以深入了解 Azure 自動化。
 
-- [Azure 自動化概觀](../automation/automation-intro.md)
+- [Azure 自动化概述](../automation/automation-intro.md)
 - [我的第一個 Runbook](../automation/automation-first-runbook-graphical.md)
-- [Azure Automation:Your SQL Agent in the Cloud](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) (Azure 自動化：雲端中的 SQL Agent) 
+- [Azure Automation:Your SQL Agent in the Cloud](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) (Azure 自動化：雲端中的 SQL Agent) 

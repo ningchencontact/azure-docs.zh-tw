@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002148"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>建立 Azure 自動化監看員工作，以追蹤本機電腦上的檔案變更
 
@@ -89,8 +89,8 @@ Azure 自動化會使用監看員工作搭配 PowerShell Runbook 來監看事件
 1. 選取 [設定動作]，然後選取 [Process-NewFile] Runbook。
 1. 針對參數輸入下列值︰
 
-   ***EVENTDATA** - 保留為空白。 資料會從監看員 Runbook 傳入。  
-   ***回合設定** - 保留為 [Azure]，因為此 Runbook 是在自動化服務中執行。
+   * **EVENTDATA** - 保留為空白。 資料會從監看員 Runbook 傳入。  
+   * **回合設定** - 保留為 [Azure]，因為此 Runbook 是在自動化服務中執行。
 
 1. 按一下 [確定]，然後按一下 [選取] 以返回監看員頁面。
 1. 按一下 [確定] 以建立監看員工作。
