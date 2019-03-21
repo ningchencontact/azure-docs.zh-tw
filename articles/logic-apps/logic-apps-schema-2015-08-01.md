@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904536"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps 的結構描述更新 - 2015 年 8 月 1 日預覽
 
@@ -290,7 +290,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 
 逐一解說這些屬性：
 
-| 動作屬性 | 說明 |
+| 動作屬性 | 描述 |
 | --- | --- |
 | `type` | `Http` 而不是 `APIapp` |
 | `metadata.apiDefinitionUrl` | 若要在邏輯應用程式設計工具中使用此動作，請包含中繼資料端點，它的建構來源是：`{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
@@ -352,7 +352,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
    },
    "outputs": {
       "headers": { },
-      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
    },
    "status": "Succeeded"
 } ]
@@ -369,7 +369,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
       },
       "outputs": {
          "headers": { },
-         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
       },
       "status": "Succeeded"
 } ]
@@ -384,7 +384,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
       "repeat": "@outputs('pingBing').repeatItems",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@repeatItem().outputs.body"
       }
    }
@@ -400,7 +400,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
       "foreach": "@outputs('pingBing')",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@item().outputs.body"
       }
    }
@@ -461,4 +461,4 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 
 ## <a name="enterprise-integration-apis"></a>企業整合 API
 
-此結構描述尚不支援企業整合 API 的受控版本，例如 AS2。 不過，您可以透過 HTTP 動作使用現有的已部署 BizTalk API。 如需詳細資訊，請參閱[整合藍圖](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)中的「使用已部署的 API 應用程式」。 
+此結構描述尚不支援企業整合 API 的受控版本，例如 AS2。 不過，您可以透過 HTTP 動作使用現有的已部署 BizTalk API。 如需詳細資訊，請參閱[整合藍圖](https://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)中的「使用已部署的 API 應用程式」。 

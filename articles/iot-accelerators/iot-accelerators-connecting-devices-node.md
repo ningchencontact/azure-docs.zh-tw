@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: e7a9659a7796777cabb6dc73a41e3a361fd1733c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: fdb2bed76a8e23a6034a57b3a5f1358c26e9e990
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567956"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093434"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>將裝置連線到遠端監視解決方案加速器 (Node.js)
 
@@ -107,158 +107,158 @@ ms.locfileid: "55567956"
 
 1. 新增下列協助程式函式，用來將排遙測值隨機化︰
 
-    ```javascript
-    function generateRandomIncrement() {
-        return ((Math.random() * 2) - 1);
-    }
-    ```
+     ```javascript
+     function generateRandomIncrement() {
+         return ((Math.random() * 2) - 1);
+     }
+     ```
 
 1. 新增下列泛型函式以處理解決方案的直接方法呼叫。 此函式會顯示已叫用之直接方法的相關資訊，但在此範例中不會以任何方式修改裝置。 解決方案會使用直接方法在裝置上執行：
 
-    ```javascript
-    function onDirectMethod(request, response) {
-      // Implement logic asynchronously here.
-      console.log('Simulated ' + request.methodName);
+     ```javascript
+     function onDirectMethod(request, response) {
+       // Implement logic asynchronously here.
+       console.log('Simulated ' + request.methodName);
 
-      // Complete the response
-      response.send(200, request.methodName + ' was called on the device', function (err) {
-        if (err) console.error('Error sending method response :\n' + err.toString());
-        else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
-      });
-    }
-    ```
+       // Complete the response
+       response.send(200, request.methodName + ' was called on the device', function (err) {
+         if (err) console.error('Error sending method response :\n' + err.toString());
+         else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       });
+     }
+     ```
 
 1. 新增下列函式以處理解決方案的 **FirmwareUpdate** 直接方法呼叫。 此函式會驗證傳入直接方法酬載中的參數，然後以非同步方式執行韌體更新模擬：
 
-    ```javascript
-    function onFirmwareUpdate(request, response) {
-      // Get the requested firmware version from the JSON request body
-      var firmwareVersion = request.payload.Firmware;
-      var firmwareUri = request.payload.FirmwareUri;
+     ```javascript
+     function onFirmwareUpdate(request, response) {
+       // Get the requested firmware version from the JSON request body
+       var firmwareVersion = request.payload.Firmware;
+       var firmwareUri = request.payload.FirmwareUri;
       
-      // Ensure we got a firmware values
-      if (!firmwareVersion || !firmwareUri) {
-        response.send(400, 'Missing firmware value', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
-        });
-      } else {
-        // Respond the cloud app for the device method
-        response.send(200, 'Firmware update started.', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else {
-            console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       // Ensure we got a firmware values
+       if (!firmwareVersion || !firmwareUri) {
+         response.send(400, 'Missing firmware value', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
+         });
+       } else {
+         // Respond the cloud app for the device method
+         response.send(200, 'Firmware update started.', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else {
+             console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
 
-            // Run the simulated firmware update flow
-            runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
-          }
-        });
-      }
-    }
-    ```
+             // Run the simulated firmware update flow
+             runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
+           }
+         });
+       }
+     }
+     ```
 
 1. 新增下列函式以模擬長時間執行的韌體更新流程，此流程會將進度回報至解決方案：
 
-    ```javascript
-    // Simulated firmwareUpdate flow
-    function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
-      console.log('Simulating firmware update flow...');
-      console.log('> Firmware version passed: ' + firmwareVersion);
-      console.log('> Firmware URI passed: ' + firmwareUri);
-      async.waterfall([
-        function (callback) {
-          console.log("Image downloading from " + firmwareUri);
-          var patch = {
-            FirmwareUpdateStatus: 'Downloading image..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Downloaded, applying firmware " + firmwareVersion);
-          deviceOnline = false;
-          var patch = {
-            FirmwareUpdateStatus: 'Applying firmware..',
-            Online: false
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(8000, callback);
-        },
-        function (callback) {
-          console.log("Rebooting");
-          var patch = {
-            FirmwareUpdateStatus: 'Rebooting..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Firmware updated to " + firmwareVersion);
-          deviceOnline = true;
-          var patch = {
-            FirmwareUpdateStatus: 'Firmware updated',
-            Online: true,
-            Firmware: firmwareVersion
-          };
-          reportUpdateThroughTwin(patch, callback);
-          callback(null);
-        }
-      ], function(err) {
-        if (err) {
-          console.error('Error in simulated firmware update flow: ' + err.message);
-        } else {
-          console.log("Completed simulated firmware update flow");
-        }
-      });
+     ```javascript
+     // Simulated firmwareUpdate flow
+     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
+       console.log('Simulating firmware update flow...');
+       console.log('> Firmware version passed: ' + firmwareVersion);
+       console.log('> Firmware URI passed: ' + firmwareUri);
+       async.waterfall([
+         function (callback) {
+           console.log("Image downloading from " + firmwareUri);
+           var patch = {
+             FirmwareUpdateStatus: 'Downloading image..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Downloaded, applying firmware " + firmwareVersion);
+           deviceOnline = false;
+           var patch = {
+             FirmwareUpdateStatus: 'Applying firmware..',
+             Online: false
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(8000, callback);
+         },
+         function (callback) {
+           console.log("Rebooting");
+           var patch = {
+             FirmwareUpdateStatus: 'Rebooting..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Firmware updated to " + firmwareVersion);
+           deviceOnline = true;
+           var patch = {
+             FirmwareUpdateStatus: 'Firmware updated',
+             Online: true,
+             Firmware: firmwareVersion
+           };
+           reportUpdateThroughTwin(patch, callback);
+           callback(null);
+         }
+       ], function(err) {
+         if (err) {
+           console.error('Error in simulated firmware update flow: ' + err.message);
+         } else {
+           console.log("Completed simulated firmware update flow");
+         }
+       });
 
-      // Helper function to update the twin reported properties.
-      function reportUpdateThroughTwin(patch, callback) {
-        console.log("Sending...");
-        console.log(JSON.stringify(patch, null, 2));
-        client.getTwin(function(err, twin) {
-          if (!err) {
-            twin.properties.reported.update(patch, function(err) {
-              if (err) callback(err);
-            });      
-          } else {
-            if (err) callback(err);
-          }
-        });
-      }
+       // Helper function to update the twin reported properties.
+       function reportUpdateThroughTwin(patch, callback) {
+         console.log("Sending...");
+         console.log(JSON.stringify(patch, null, 2));
+         client.getTwin(function(err, twin) {
+           if (!err) {
+             twin.properties.reported.update(patch, function(err) {
+               if (err) callback(err);
+             });      
+           } else {
+             if (err) callback(err);
+           }
+         });
+       }
 
-      function sleep(milliseconds, callback) {
-        console.log("Simulate a delay (milleseconds): " + milliseconds);
-        setTimeout(function () {
-          callback(null);
-        }, milliseconds);
-      }
-    }
-    ```
+       function sleep(milliseconds, callback) {
+         console.log("Simulate a delay (milleseconds): " + milliseconds);
+         setTimeout(function () {
+           callback(null);
+         }, milliseconds);
+       }
+     }
+     ```
 
 1. 新增下列程式碼將遙測資料傳送至解決方案。 用戶端應用程式會將屬性新增至訊息，以找出訊息結構描述：
 
-    ```javascript
-    function sendTelemetry(data, schema) {
-      if (deviceOnline) {
-        var d = new Date();
-        var payload = JSON.stringify(data);
-        var message = new Message(payload);
-        message.properties.add('iothub-creation-time-utc', d.toISOString());
-        message.properties.add('iothub-message-schema', schema);
+     ```javascript
+     function sendTelemetry(data, schema) {
+       if (deviceOnline) {
+         var d = new Date();
+         var payload = JSON.stringify(data);
+         var message = new Message(payload);
+         message.properties.add('iothub-creation-time-utc', d.toISOString());
+         message.properties.add('iothub-message-schema', schema);
 
-        console.log('Sending device message data:\n' + payload);
-        client.sendEvent(message, printErrorFor('send event'));
-      } else {
-        console.log('Offline, not sending telemetry');
-      }
-    }
-    ```
+         console.log('Sending device message data:\n' + payload);
+         client.sendEvent(message, printErrorFor('send event'));
+       } else {
+         console.log('Offline, not sending telemetry');
+       }
+     }
+     ```
 
 1. 新增下列程式碼，以建立用戶端執行個體︰
 
-    ```javascript
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
+     ```javascript
+     var client = Client.fromConnectionString(connectionString, Protocol);
+     ```
 
 1. 新增下列程式碼，以便：
 
@@ -268,8 +268,8 @@ ms.locfileid: "55567956"
     * 登錄直接方法的處理常式。 此範例會針對韌體更新直接方法，使用個別的處理常式。
     * 開始傳送遙測。
 
-    ```javascript
-    client.open(function (err) {
+      ```javascript
+      client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);
       } else {
@@ -325,15 +325,15 @@ ms.locfileid: "55567956"
           client.close(printErrorFor('client.close'));
         });
       }
-    });
-    ```
+      });
+      ```
 
 1. 將變更儲存至 **remote_monitoring.js** 檔案。
 
 1. 若要啟動範例應用程式，請在命令提示字元中執行下列命令：
 
-    ```cmd/sh
-    node remote_monitoring.js
-    ```
+     ```cmd/sh
+     node remote_monitoring.js
+     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0d67571024c9ace3618f7ae6172122ac48b57faa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843618"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
@@ -28,11 +28,11 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 瀏覽至您的自動化帳戶，然後選取 [組態管理] 下的 [清查] 或 [變更追蹤]。
 
-選擇 Log Analytics 工作區與自動化帳戶，然後按一下 [啟用] 來啟用解決方案。 啟用解決方案最多需要 15 分鐘。
+選擇 Log Analytics 工作區和自動化帳戶，然後按一下**啟用**啟用此解決方案。 啟用解決方案最多需要 15 分鐘。
 
 ![讓清查解決方案上線](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
+當啟用解決方案，只有特定區域支援連結的 Log Analytics 工作區和自動化帳戶。
 
 下表顯示支援的對應：
 
@@ -41,14 +41,19 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP 和 EastUS 對應至自動化帳戶的 Log Analytics 工作區不是確切的區域對應，但是是正確的對應。
+
+> [!NOTE]
+> 由於需要，在區域可能無法建立您的自動化帳戶或 Log Analytics 工作區時。  如果這種情況，請確定您使用在上表中，您可以建立資源的區域。
 
 變更追蹤和清查解決方案可讓您在虛擬機器上[追蹤變更](automation-vm-change-tracking.md)和[進行清查](automation-vm-inventory.md)。 在此步驟中，您會在虛擬機器上啟用解決方案。
 
@@ -56,7 +61,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 更新管理解決方案可讓您管理 Azure Windows 虛擬機器的更新和修補程式。 您可以評估可用更新的狀態、排定何時安裝必要的更新，並檢閱部署結果來確認更新已成功套用至虛擬機器。 此動作已針對您的 VM 啟用解決方案。
 
-選取 [更新管理] 下的 [更新管理]。 選取的記錄分析工作區與上一個步驟中使用的工作區相同。 按一下 [啟用]，讓更新管理解決方案上線。 啟用解決方案最多需要 15 分鐘。
+選取 [更新管理] 下的 [更新管理]。 選取 Log Analytics 工作區是在上一個步驟中使用相同的工作區。 按一下 [啟用]，讓更新管理解決方案上線。 啟用解決方案最多需要 15 分鐘。
 
 ![讓更新解決方案上線](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -78,7 +83,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 瀏覽至您的自動化帳戶，然後選取 [一般] 下的 [已儲存搜尋]。 下表顯示這些解決方案所使用的兩個已儲存搜尋：
 
-|Name     |類別  |Alias  |
+|名稱     |類別  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 更新        | Updates__MicrosoftDefaultComputerGroup         |
@@ -91,7 +96,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
 
-按一下 [+ 加入 Azure VM]，從清單中選取一或多個 VM。 無法啟用的虛擬機器會呈現灰色且無法選取。 在 [啟用更新管理] 頁面上，按一下 [啟用]。 此動作會為解決方案將選取的 VM 新增至電腦群組儲存的搜尋。
+按一下 [+ 加入 Azure VM]，從清單中選取一或多個 VM。 無法啟用的虛擬機器會呈現灰色且無法選取。 Azure Vm 可以位於任何區域，無論您的自動化帳戶的位置。 在 [啟用更新管理] 頁面上，按一下 [啟用]。 此動作會為解決方案將選取的 VM 新增至電腦群組儲存的搜尋。
 
 ![啟用 Azure VM](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -126,10 +131,10 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 下列解決方案相依於 Log Analytics 工作區：
 
 * [更新管理](automation-update-management.md)
-* [變更追蹤](automation-change-tracking.md)
+* [更改跟踪](automation-change-tracking.md)
 * [於下班時間啟動/停止 VM](automation-solution-vm-management.md)
 
-若決定不想再讓自動化帳戶與 Log Analytics 整合，您可以直接從 Azure 入口網站將您的帳戶取消連結。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
+如果您決定您不再想要整合您的自動化帳戶與 Log Analytics 工作區，您可以取消連結您的帳戶，直接從 Azure 入口網站。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
 
 移除這些解決方案之後，您可以完成下列步驟以將您的自動化帳戶取消連結。
 

@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69645c4aa9034b9a3459c7ee5fb0378c790a6e18
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086814"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -74,8 +74,9 @@ ms.locfileid: "56178085"
 ![Azure AD Connect：變更使用者登入](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 繼續執行精靈，直到抵達 [啟用單一登入] 頁面。 為下列情況的每個 Active Directory 樹系提供網域管理員認證：
-    * 透過 Azure AD Connect 同步至 Azure AD。
-    * 包含您要啟用無縫 SSO 的使用者。
+
+* 透過 Azure AD Connect 同步至 Azure AD。
+* 包含您要啟用無縫 SSO 的使用者。
 
 完成精靈之後，無縫 SSO 就會在您的租用戶上啟用。
 
@@ -120,17 +121,17 @@ ms.locfileid: "56178085"
 
 1. 開啟群組原則管理編輯器工具。
 2. 編輯套用至部分或所有使用者的群組原則。 此範例使用**預設網域原則**。
-3. 瀏覽至 [使用者設定] > [系統管理範本] > [Windows 元件] > [Internet Explorer] > [網際網路控制台] > [安全性頁面]。 然後選取 [指派網站到區域清單]。
+3. 瀏覽至**使用者設定** > **原則** > **系統管理範本** > **Windows元件** > **Internet Explorer** > **網際網路控制項台中** > **安全性頁面**. 然後選取 [指派網站到區域清單]。
     ![單一登入](./media/how-to-connect-sso-quick-start/sso6.png)
 4. 啟用原則，然後在對話方塊中輸入下列值：
    - **值名稱**：轉送 Kerberos 票證的 Azure AD URL。
    - **值** (資料)：**1** 表示內部網路區域。
 
-    結果如下所示：
+     結果如下所示：
 
-    值名稱：`https://autologon.microsoftazuread-sso.com`
+     值名稱：`https://autologon.microsoftazuread-sso.com`
   
-    值 (資料)：1
+     值 (資料)：1
 
    >[!NOTE]
    > 如果您想要禁止部分使用者使用無縫 SSO (例如，如果這些使用者在共用 Kiosk 上登入)，請將先前的值設定為 **4**。 此動作會將 Azure AD URL 新增至限制區域，而且隨時讓無縫 SSO 失敗。
@@ -140,7 +141,7 @@ ms.locfileid: "56178085"
 
     ![單一登入](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. 瀏覽至 [使用者設定] > [系統管理範本] > [Windows 元件] > [Internet Explorer] > [網際網路控制台] > [安全性頁面] > [內部網路區域]。 然後選取 [允許透過指令碼更新狀態列]。
+6. 瀏覽至**使用者設定** > **系統管理範本****原則**> * * > **Windows 元件** > **Internet Explorer** > **網際網路控制項台中** > **安全性頁面** >  **內部網路區域**。 然後選取 [允許透過指令碼更新狀態列]。
 
     ![單一登入](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -162,9 +163,9 @@ ms.locfileid: "56178085"
    - **值類型**：***REG_DWORD***。
    - **值資料**：***00000001***。
  
-    ![單一登入](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![單一登入](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![單一登入](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![單一登入](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>瀏覽器考量
 

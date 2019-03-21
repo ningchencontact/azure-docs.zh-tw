@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342536"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095988"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 應用程式 SKU 索引標籤
 
 本文說明如何使用 SKU 索引標籤來建立 Azure 應用程式。 
 
->[!IMPORTANT] 
-設定 SKU 的步驟與受控應用程式供應項目和解決方案範本供應項目的步驟不同。 如需了解這些差異，請參閱這篇文章。 
+> [!IMPORTANT]
+> 設定 SKU 的步驟與受控應用程式供應項目和解決方案範本供應項目的步驟不同。 如需了解這些差異，請參閱這篇文章。 
 
 ## <a name="configure-azure-application-skus"></a>設定 Azure 應用程式 SKU
 

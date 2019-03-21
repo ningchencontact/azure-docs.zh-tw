@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896699"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>什麼是 Power BI 工作區集合？
 
@@ -46,7 +46,7 @@ Power BI 工作區集合是一個 **Azure 服務**，可讓 ISV 和應用程式�
 * **使用者** – 具有管理權現，可透過 Azure 入口網站或 Azure Resource Manager API 管理 Power BI 工作區集合的 Azure Active Directory (AAD) 使用者。
 * **區域** – 佈建**工作區集合**時，您可以選取要佈建的區域。 如需詳細資訊，請參閱 [Azure 地區](https://azure.microsoft.com/regions/)。
 
-## <a name="workspace"></a>工作區
+## <a name="workspace"></a>工作区
 
 **工作區**是 Power BI 內容的容器，可包括資料集和報告。 **工作區** 在第一次建立時是空白的。 您將會使用 Power BI Desktop 編寫內容，且您會使用 [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx) 將 PBIX 自動部署至您的工作區中。 您也可以透過程式設計方式建立資料集，然後在應用程式內建立報告，而不是使用 Power BI Desktop 來建立。
 
@@ -76,7 +76,7 @@ Power BI 工作區集合是一個 **Azure 服務**，可讓 ISV 和應用程式�
 
 您現在可以直接在應用程式中編輯現有報表或建立新報表，而不必使用 Power BI Desktop。 這需要工作區內已存在資料集。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [常見的 Microsoft Power BI 工作區集合案例](scenarios.md)  
 [開始使用 Microsoft Power BI 工作區集合](get-started.md)  
@@ -87,4 +87,4 @@ Power BI 工作區集合是一個 **Azure 服務**，可讓 ISV 和應用程式�
 [PowerBI-CSharp Git 存放庫](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git存放庫](https://github.com/Microsoft/PowerBI-Node)  
 
-有其他疑問？ [試用 Power BI 社群](http://community.powerbi.com/)
+有更多问题？ [試用 Power BI 社群](https://community.powerbi.com/)

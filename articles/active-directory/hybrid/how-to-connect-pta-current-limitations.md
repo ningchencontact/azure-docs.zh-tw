@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de42312c580b6bd5b4a5148fd877d55aa00e8804
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011964"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 傳遞驗證：目前的限制
 
@@ -34,7 +34,7 @@ ms.locfileid: "56204588"
 
 - 使用者登入網頁瀏覽器型應用程式。
 - 使用者使用傳統通訊協定 (例如 Exchange ActiveSync、EAS、SMTP、POP 及 IMAP) 來登入 Outlook 用戶端。
-- 使用者登入舊版 Office 用戶端應用程式和支援[新式驗證](https://aka.ms/modernauthga)的 Office 應用程式：Office 2010、2013 及 2016 版本。
+- 使用者登入舊版 Office 用戶端應用程式和支援[新式驗證](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview)的 Office 應用程式：Office 2013 和 2016年版本。
 - 使用者登入舊版通訊協定應用程式，例如 PowerShell 1.0 版和其他應用程式。
 - 適用於 Windows 10 裝置的 Azure AD 聯結。
 - 用於多重要素驗證的應用程式密碼。
@@ -47,11 +47,11 @@ ms.locfileid: "56204588"
 - Azure AD 網域服務必須在租用戶上啟用 [密碼雜湊同步處理]。 因此，使用傳遞驗證的租用戶「只有」在需要 Azure AD 網域服務的情況下無法運作。
 - 傳遞驗證未與 [Azure AD Connect Health](whatis-hybrid-identity-health.md) 整合。
 
->[!IMPORTANT]
->「僅」針對不支援的案例 (Azure AD Connect Health 整合除外)，在 Azure AD Connect 精靈的[選用功能](how-to-connect-install-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。
-
->[!NOTE]
-啟用密碼雜湊同步處理可讓您選擇在內部部署基礎結構中斷時，將驗證容錯移轉。 這個從傳遞驗證到密碼雜湊同步處理的容錯移轉不會自動進行。 您必須使用 Azure AD Connect，以手動方式切換登入方法。 如果執行 Azure AD Connect 的伺服器關閉，您將需要 Microsoft 支援服務的協助，以關閉傳遞驗證。
+> [!IMPORTANT]
+> 「僅」針對不支援的案例 (Azure AD Connect Health 整合除外)，在 Azure AD Connect 精靈的[選用功能](how-to-connect-install-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。
+> 
+> [!NOTE]
+> 啟用密碼雜湊同步處理可讓您選擇在內部部署基礎結構中斷時，將驗證容錯移轉。 這個從傳遞驗證到密碼雜湊同步處理的容錯移轉不會自動進行。 您必須使用 Azure AD Connect，以手動方式切換登入方法。 如果執行 Azure AD Connect 的伺服器關閉，您將需要 Microsoft 支援服務的協助，以關閉傳遞驗證。
 
 ## <a name="next-steps"></a>後續步驟
 - [快速入門](how-to-connect-pta-quick-start.md)：啟動並執行「Azure AD 傳遞驗證」。

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245723"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107588"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>針對組態伺服器問題進行疑難排解
 
@@ -25,9 +25,9 @@ ms.locfileid: "56245723"
 1. 開啟 C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log 檔案。 (ProgramData 資料夾可能是隱藏的資料夾。 如果您沒有看見 ProgramData 資料夾，請在檔案總管中的 [檢視] 索引標籤上，[顯示/隱藏] 區段中，選取 [隱藏項目] 核取方塊。)失敗可能是由多個問題所造成。
 
 2. 搜尋字串 **No Valid IP Address found**。 如果找到該字串：
-    1. 請驗證要求的主機識別碼與來源電腦的主機識別碼相同。
-    2. 確認來源電腦具有至少一個指派給實體 NIC 的 IP。 為了使來源電腦成功向設定伺服器進行代理程式註冊，來源電腦必須具有至少一個指派給實體 NIC 的有效 IP v4 位址。
-    3. 在來源電腦上執行下列其中一個命令，以取得來源電腦的所有 IP 位址：
+   1. 請驗證要求的主機識別碼與來源電腦的主機識別碼相同。
+   2. 確認來源電腦具有至少一個指派給實體 NIC 的 IP。 為了使來源電腦成功向設定伺服器進行代理程式註冊，來源電腦必須具有至少一個指派給實體 NIC 的有效 IP v4 位址。
+   3. 在來源電腦上執行下列其中一個命令，以取得來源電腦的所有 IP 位址：
       - 對於 Windows：`> ipconfig /all`
       - 對於 Linux：`# ifconfig -a`
 
@@ -82,7 +82,7 @@ ms.locfileid: "56245723"
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>無法啟用從 Server Standard 評估版到 Server Standard 的 Windows 授權
 
-1. 透過 OVF 的組態伺服器部署過程中，會使用評估授權，其有效期為 180 天。 您必須在此授權過期前啟用此授權。 否則，這會導致組態伺服器頻繁關機，因而阻礙複寫活動。
+1. 透過 OVF 組態伺服器部署的一部分，會使用 evaluation 授權，其有效期限為 180 天。 您必須在此授權過期前啟用此授權。 否則，這會導致組態伺服器頻繁關機，因而阻礙複寫活動。
 2. 如果您無法啟用 Windows 的授權，請連絡 [Windows 支援小組](https://aka.ms/Windows_Support)來解決此問題。
 
 ## <a name="register-source-machine-with-configuration-server"></a>向設定伺服器註冊來源電腦

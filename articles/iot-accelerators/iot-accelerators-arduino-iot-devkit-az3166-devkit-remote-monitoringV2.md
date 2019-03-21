@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105245"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>將 IoT DevKit 裝置連線到遠端監視解決方案加速器
 
@@ -40,7 +40,7 @@ ms.locfileid: "54156777"
 
 1. 找出 [遠端監視]，並按一下 [開啟範例]。 新的 VS Code 視窗隨即開啟，其中顯示專案資料夾：
 
-  ![IoT Workbench，選取遠端監視範例](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
+   ![IoT Workbench，選取遠端監視範例](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
 ## <a name="configure-the-device"></a>設定裝置
 
@@ -79,7 +79,7 @@ ms.locfileid: "54156777"
 
 當範例應用程式執行時，DevKit 裝置會透過 Wi-Fi 將來自其感應器的遙測資料傳送至您的解決方案加速器。 若要查看遙測資料：
 
-1. 移至解決方案儀表板，然後按一下 [裝置]。
+1. 移至解決方案儀表板，然後按一下**Device Explorer**。
 
 1. 按一下 DevKit 裝置的裝置名稱。 在右邊索引標籤上，您可以即時看到來自 DevKit 的遙測資料：
 
@@ -87,7 +87,7 @@ ms.locfileid: "54156777"
 
 ### <a name="control-the-devkit-device"></a>控制 DevKit 裝置
 
-遠端監視解決方案加速器可讓您從遠端控制裝置。 當您在 [裝置] 頁面上選取裝置時，可以在 [方法] 區段中看到範例程式碼實作的三種方法：
+遠端監視解決方案加速器可讓您從遠端控制裝置。 範例程式碼會實作三種方法，您可以看到**方法**當您選取的裝置上一節**Device Explorer**頁面：
 
 ![IoT DevKit 方法](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -99,11 +99,11 @@ ms.locfileid: "54156777"
 
 1. 使用下列值設定作業，然後按一下 [套用]：
 
-    * 選取作業：**執行方法**
-    * 方法名稱：**LedColor**
-    * 作業名稱：**ChangeLedColor**
+   * 選取作業：**執行方法**
+   * 方法名稱：**LedColor**
+   * 作業名稱：**ChangeLedColor**
 
-    ![工作設定](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+     ![工作設定](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
 1. 在幾秒鐘內，您 DevKit 上的 RGB LED 色彩 (A 按鈕下方) 會變更：
 

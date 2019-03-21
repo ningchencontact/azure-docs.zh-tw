@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099686"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102521"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>使用 Active Directory 身分識別進行安全性篩選以調整 Azure 搜尋服務結果
 
@@ -22,13 +22,13 @@ ms.locfileid: "56099686"
 
 本文涵蓋下列工作：
 > [!div class="checklist"]
-- 建立 AAD 群組和使用者
-- 將使用者與您建立的群組相關聯
-- 快取新的群組
-- 使用相關聯的群組索引文件
-- 使用群組識別碼篩選條件發出搜尋要求
-
->[!NOTE]
+> - 建立 AAD 群組和使用者
+> - 將使用者與您建立的群組相關聯
+> - 快取新的群組
+> - 使用相關聯的群組索引文件
+> - 使用群組識別碼篩選條件發出搜尋要求
+> 
+> [!NOTE]
 > 本文中的範例程式碼片段是以 C# 撰寫。 您可以 [在 GitHub](https://aka.ms/search-dotnet-howto)找到完整的原始程式碼。 
 
 ## <a name="prerequisites"></a>必要條件
@@ -187,7 +187,7 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 在本逐步解說中，您已了解使用 AAD 登入來篩選 Azure 搜尋服務結果中文件的技術，從而調整文件不符合要求中提供之篩選條件的結果。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [使用 Azure 搜尋服務篩選來進行身分識別型存取控制](search-security-trimming-for-azure-search.md)
 + [Azure 搜尋服務中的篩選條件](search-filters.md)

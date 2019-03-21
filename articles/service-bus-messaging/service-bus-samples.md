@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/13/2019
 ms.author: aschhab
-ms.openlocfilehash: eefe624462609a69296ec6d6e409d72745da0846
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7b34233e10c5d622b598d35c6eb136b88daf8eb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856684"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880155"
 ---
-# <a name="service-bus-messaging-samples"></a>服務匯流排傳訊範例
+# <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
+服務匯流排傳訊範例在[服務匯流排傳訊](https://azure.microsoft.com/services/service-bus/)中示範主要功能。 目前，您也可以在下列位置找到範例：
 
-服務匯流排傳訊範例在[服務匯流排傳訊](https://azure.microsoft.com/services/service-bus/)中示範主要功能。 目前，您可以在兩個地方找到這些範例︰
-
-- [.Net 和 Java](https://github.com/Azure/azure-service-bus/tree/master/samples)。 請參閱存放庫中 [.NET 讀我檔案](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md)中有關 .NET 範例的描述，以及 [Java 讀我檔案](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)中有關 Java 範例的描述。
-- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+| 程式設計語言 | SDK 或範例的位置 |
+| -------------------- | ----------------------- |
+| .NET、 Java 和管理 | https://github.com/Azure/azure-service-bus/ |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane/examples |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>服務匯流排總管
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301820"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839095"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 
@@ -75,7 +75,7 @@ Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
 - 透過 Azure AD 應用程式 Proxy 佈建對內部部署 Web 應用程式的安全遠端存取。
 
-[Azure Active Directory 入口網站](http://aad.portal.azure.com/)可作為 Azure 入口網站的一部分。 透過這個儀表板，您可以概略了解您組織的狀態，並輕鬆地開始管理目錄、使用者或應用程式存取。
+[Azure Active Directory 入口網站](https://aad.portal.azure.com/)可作為 Azure 入口網站的一部分。 透過這個儀表板，您可以概略了解您組織的狀態，並輕鬆地開始管理目錄、使用者或應用程式存取。
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -113,7 +113,7 @@ Azure 身分識別管理核心功能如下：
 
 安全性監視和警示以及機器學習式報告，會識別不一致的存取模式，可以協助您保護企業安全。 您可以使用 Azure Active Directory 的存取和使用情況報告來了解貴組織的目錄完整性和安全性。 利用此資訊，目錄管理員更能夠判斷可能發生安全性風險的位置，以便適當地規劃來減輕這些風險。
 
-在 Azure 入口網站或透過 [Azure Active Directory 入口網站](http://aad.portal.azure.com/)，以下列方式分類[報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)：
+在 Azure 入口網站或透過 [Azure Active Directory 入口網站](https://aad.portal.azure.com/)，以下列方式分類[報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)：
 
 - 異常報告 – 包含我們發現異常的登入事件。 我們的目標在於使您注意這類活動，並讓您能夠決定事件是否可疑。
 
@@ -151,7 +151,7 @@ Azure AD Privileged Identity Management 可讓您：
 
 - 視需要啟用 Office 365 和 Intune 等 Microsoft Online Services 的 "just-in-time" 系統管理存取權限
 
-- 取得有關系統管理員存取記錄與系統管理員指派變更的報告
+- 获取有关管理员访问历史记录以及管理员分配更改的报告
 
 - 取得有關特殊權限角色存取的警示
 
@@ -169,7 +169,7 @@ Azure AD Privileged Identity Management 可讓您：
 
 安全性導向公司應該將焦點放在提供員工所需的確切權限。 權限太多可能會讓帳戶暴露在攻擊者的威脅下。 權限太少則會讓員工無法有效率地完成工作。 [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 可以為 Azure 提供更細緻的存取管理來協助解決這個問題。
 
-![受保護的資源存取 ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
+![受保護的資源存取](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需的存取權。 您可以不授與每個人 Azure 訂用帳戶或資源中無限制的權限，而是只允許執行特定的動作。 例如，使用 RBAC 讓一位員工管理某個訂用帳戶中的虛擬機器，而讓另一位員工管理相同訂用帳戶中的 SQL 資料庫。
 
@@ -192,8 +192,8 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 | 加密模型 |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | 伺服器加密 | 伺服器加密 | 伺服器加密 | 用戶端加密
-| 使用服務管理的金鑰的伺服器端加密 | 在 Azure Key Vault 中使用客戶管理的金鑰的伺服器端加密 | 使用內部部署客戶管理的金鑰的伺服器端加密 |
-| • Azure 資源提供者執行加密和解密作業 <br> • Microsoft 管理金鑰 <br>• 完整的雲端功能 | • Azure 資源提供者執行加密和解密作業<br>• 客戶透過 Azure Key Vault 控制金鑰<br>• 完整的雲端功能 | • Azure 資源提供者執行加密和解密作業 <br>• 客戶在內部部署環境控制金鑰 <br> • 完整的雲端功能| • Azure 服務無法查看解密的資料 <br>• 客戶將金鑰保留在內部部署環境 (或其他安全的存放區中)。 金鑰無法供 Azure 服務使用 <br>• 縮減的雲端功能|
+| 使用服務管理的金鑰的伺服器端加密 | 在 Azure Key Vault 中使用客戶管理的金鑰的伺服器端加密 | 伺服器端使用內部部署客戶管理金鑰加密 |
+| • Azure 資源提供者執行加密和解密作業 <br> • Microsoft 管理金鑰 <br>• 完整的雲端功能 | • Azure 資源提供者執行加密和解密作業<br>• 客戶透過 Azure Key Vault 控制金鑰<br>• 完整的雲端功能 | • Azure 資源提供者執行加密和解密作業 <br>• 客戶控制金鑰在內部部署 <br> • 完整的雲端功能| • Azure 服務無法查看解密的資料 <br>• 客戶將金鑰保留在內部部署環境 (或其他安全的存放區中)。 金鑰無法供 Azure 服務使用 <br>• 縮減的雲端功能|
 
 ### <a name="enabling-encryption-at-rest"></a>啟用待用加密
 
@@ -258,7 +258,7 @@ PaaS v1 目前不支援 Azure 磁碟加密。 因此，您必須使用應用程�
 
 對於在內部部署基礎結構與 Azure 之間移動的資料，您應該考慮適當的防護措施，例如 HTTPS 或 VPN。
 
-對於需要從位於內部部署的多個工作站安全存取 Azure 的組織而言，請使用 [Azure 站對站 VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create)。
+对于需要从位于本地的多个工作站安全访问 Azure 的组织而言，请使用 [Azure 站点到站点 VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create)。
 
 對於需要從位於內部部署的一個工作站安全存取 Azure 的組織而言，請使用[點對站 VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create)。
 
@@ -274,7 +274,7 @@ PaaS v1 目前不支援 Azure 磁碟加密。 因此，您必須使用應用程�
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) 會使用加密、身分識別和授權原則，協助您保護檔案和電子郵件。 Azure RMS 可跨多個裝置運作 — 手機、平板電腦和 PC。保護您的組織內部和外部 因為 Azure RMS 新增資料所屬的保護層級，所以即使資料脫離您組織的範圍，這項功能仍然可行。
 
-當您使用 Azure RMS 來保護檔案時，您要使用業界標準的密碼編譯搭配 [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html) 的完整支援。 當您利用 Azure RMS 進行資料保護時，即使檔案被複製到不受 IT 控制的儲存體 (例如雲端儲存體服務)，也保證該檔案持續受到保護。 同樣的情況會出現在透過電子郵件共用的檔案，檔案會以電子郵件的附件形式受到保護，並提供如何開啟受保護附件的指示。
+當您使用 Azure RMS 來保護檔案時，您要使用業界標準的密碼編譯搭配 [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html) 的完整支援。 當您利用 Azure RMS 進行資料保護時，即使檔案被複製到不受 IT 控制的儲存體 (例如雲端儲存體服務)，也保證該檔案持續受到保護。 同樣的情況會出現在透過電子郵件共用的檔案，檔案會以電子郵件的附件形式受到保護，並提供如何開啟受保護附件的指示。
 規劃 Azure RMS 採用時，建議執行下列作業︰
 
 - 安裝 [RMS 共用應用程式](https://technet.microsoft.com/library/dn339006.aspx)。 此應用程式會藉由安裝 Office 增益集來與 Office 應用程式整合，讓使用者可以輕鬆地直接保護檔案。
@@ -294,7 +294,7 @@ Azure 負責保護您的應用程式執行所在的基礎結構和平台，而�
 ### <a name="web-application-firewall-waf"></a>Web 應用程式防火牆 (WAF)
 [Web 應用程式防火牆 (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 是一項[應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)功能，可提供 Web 應用程式的集中式保護，免於遭遇常見的攻擊和弱點。
 
-Web 應用程式防火牆會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 或 2.2.9 中的規則提供保護。 Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
+Web 應用程式防火牆會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 或 2.2.9 中的規則提供保護。 Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
 
 Web 應用程式防火牆防禦的一些常見 Web 弱點包括︰
 
@@ -302,11 +302,11 @@ Web 應用程式防火牆防禦的一些常見 Web 弱點包括︰
 
 - 跨網站指令碼保護
 
-- 常見 Web 攻擊保護，例如命令插入式攻擊、HTTP 要求走私、HTTP 回應分割和遠端檔案包含攻擊
+- 常见 Web 攻击保护，例如命令注入、HTTP 请求走私、HTTP 响应拆分和远程文件包含攻击
 
 - 防範 HTTP 通訊協定違規
 
-- 防範 HTTP 通訊協定異常行為，例如遺漏主機使用者代理程式和接受標頭
+- 防止 HTTP 协议异常行为，例如缺少主机用户代理和接受标头
 
 - 防範 Bot、編目程式和掃描器
 
@@ -398,19 +398,19 @@ Microsoft 開發了[雲端服務審查評鑑檢查表](https://aka.ms/cloudcheck
 
 Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 方案，以及對網路安全性威脅型態的深層認知。
 
-### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure 監視器
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 是適用於混合式雲端的 IT 管理解決方案。 透過單獨使用或擴充現有的 System Center 部署，Log Analytics 可為您基礎結構的雲端式管理提供最大的彈性和控制。
+[Azure 監視器](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)是混合式雲端 IT 管理解決方案。 單獨使用或擴充您現有的 System Center 部署、 Azure 監視器記錄檔提供您的最大的彈性和控制雲端為基礎的管理基礎結構。
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Azure 監視器](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-透過 Log Analytics，您就能以低於競爭解決方案的成本來管理任何雲端中的任何執行個體，包括內部部署、Azure、AWS、Windows Server、Linux、VMware 和 OpenStack。 由於 Log Analytics 是針對雲端優先的世界建置的，因此，可提供一種新方法來管理您的企業，此為最快速且最符合成本效益的方式，可符合新的商業挑戰並適應新的工作負載、應用程式及雲端環境。
+使用 Azure 監視器中，您可以管理任何執行個體，在任何雲端中，包括內部部署、 Azure、 AWS、 Windows Server、 Linux、 VMware 和 OpenStack 比競爭解決方案低的成本。 建置的雲端優先的世界，Azure 監視器提供了新的方法來管理您的企業，是為了滿足新的商業挑戰並適應新的工作負載，應用程式和雲端環境的最快、 最具成本效益的方式。
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) 藉由將受控資源中的資料收集到中央存放庫，來提供監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
+[Azure 監視器記錄](https://azure.microsoft.com/documentation/services/log-analytics)受控資源中的資料收集到中央存放庫中提供的監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Azure 監視器記錄](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 這個方法可讓您合併各種來源的資料，以便結合來自 Azure 服務與現有內部部署環境的資料。 它也可清楚劃分資料的收集與對該資料採取的動作，而讓所有類型的資料可以使用所有的動作。
 
@@ -488,7 +488,7 @@ Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能
 
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 可讓您將方案中的資源做為群組使用。
 
-您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
+您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
 
 **使用 Resource Manager 的優點**
 

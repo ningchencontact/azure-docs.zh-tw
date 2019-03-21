@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: a55e77853a1c9466892f686f34d17a5e84b11ba7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 240895f4e8567426fec8e270b96b9e6528392a46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103072"
 ---
-# <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 將 Azure IoT 中樞的即時感應器資料視覺化
+# <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 可视化 Azure IoT 中心的实时传感器数据
 
 ![端對端圖表](./media/iot-hub-live-data-visualization-in-power-bi/1_end-to-end-diagram.png)
 
@@ -37,11 +37,11 @@ ms.locfileid: "54411280"
 
 ## <a name="what-you-need"></a>您需要什麼
 
- * 完成涵蓋下列需求的[設定裝置](iot-hub-raspberry-pi-kit-node-get-started.md)教學課程︰
-
-   * 有效的 Azure 訂用帳戶。
-   * 位於您訂用帳戶中的 Azure IoT 中樞。
-   * 將訊息傳送到您 Azure IoT 中樞的用戶端應用程式。
+* 完成涵蓋下列需求的[設定裝置](iot-hub-raspberry-pi-kit-node-get-started.md)教學課程︰
+  
+  * 有效的 Azure 訂用帳戶。
+  * 已在订阅中创建一个 Azure IoT 中心。
+  * 將訊息傳送到您 Azure IoT 中樞的用戶端應用程式。
 
 * Power BI 帳戶。 ([免費試用 Power BI](https://powerbi.microsoft.com/))
 
@@ -59,7 +59,7 @@ ms.locfileid: "54411280"
 
    **作業名稱**：作業的名稱。 此名稱必須是全域唯一的。
 
-   **資源群組**：使用 IoT 中樞所用的相同資源群組。
+   **资源组**：使用 IoT 中樞所用的相同資源群組。
 
    **位置**：使用與資源群組相同的位置。
 
@@ -67,7 +67,7 @@ ms.locfileid: "54411280"
 
    ![在 Azure 中建立串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
-3. 按一下頁面底部的 [新增] 。
+3. 单击“创建”。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
@@ -89,7 +89,7 @@ ms.locfileid: "54411280"
 
    ![在 Azure 中將輸入新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
+### <a name="add-an-output-to-the-stream-analytics-job"></a>向流分析作业添加输出
 
 1. 在 [作業拓撲] 之下，按一下 [輸出]。
 
@@ -109,11 +109,11 @@ ms.locfileid: "54411280"
 
    ![在 Azure 中將輸出新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>設定串流分析作業的查詢
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>配置流分析作业的查询
 
 1. 在 [作業拓撲] 之下，按一下 [查詢]。
 
-2. 使用作業的輸入別名取代 `[YourInputAlias]`。
+2. 将 `[YourInputAlias]` 替换为作业的输入别名。
 
 3. 使用作業的輸出別名取代 `[YourOutputAlias]`。
 
@@ -121,7 +121,7 @@ ms.locfileid: "54411280"
 
    ![在 Azure 中將查詢新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
-### <a name="run-the-stream-analytics-job"></a>執行串流分析作業
+### <a name="run-the-stream-analytics-job"></a>运行流分析作业
 
 在串流分析作業中，按一下 [啟動] > [立即] > [啟動]。 成功啟動作業後，作業狀態會從 [已停止] 變更為 [執行中]。
 
@@ -179,6 +179,6 @@ Microsoft 也會提供 [Power BI 行動應用程式](https://powerbi.microsoft.c
 
 您已成功使用 Power BI 將 Azure IoT 中樞的即時感應器資料視覺化。
 
-有替代方法可將 Azure IoT 中樞的資料視覺化。 請參閱[使用 Azure Web Apps 將來自 Azure IoT 中樞的即時感應器資料視覺化](iot-hub-live-data-visualization-in-web-apps.md)。
+有替代方法可將 Azure IoT 中樞的資料視覺化。 请参阅[使用 Azure Web 应用可视化 Azure IoT 中心的实时传感器数据](iot-hub-live-data-visualization-in-web-apps.md)。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2f646df3cab0320b574023cd543015921c640cab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c8f9b17bf5b572128348b22de62566ba06d5d766
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992413"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault 金鑰保存庫
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,10 +48,10 @@ ms.locfileid: "55478316"
 4. 然後，使用內容加密金鑰 (CEK) 解密已加密的使用者資料。
 
 ## <a name="encryption-mechanism"></a>加密機制
-儲存體用戶端程式庫會使用 [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 來加密使用者資料。 具體來說，就是 [加密區塊鏈結 (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式搭配 AES。 每個服務的運作方式稍有不同，我們將在這裡討論每個服務。
+儲存體用戶端程式庫會使用 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 來加密使用者資料。 具體來說，就是 [加密區塊鏈結 (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式搭配 AES。 每個服務的運作方式稍有不同，我們將在這裡討論每個服務。
 
 ### <a name="blobs"></a>Blob
-用戶端程式庫目前僅支援整個 Blob 的加密。 更明確地說，會在使用者使用 **UploadFrom*** 方法或 **OpenWrite** 方法時支援加密。 針對下載，則皆支援完整與範圍下載。
+用戶端程式庫目前僅支援整個 Blob 的加密。 當使用者使用時，特別是，支援加密**UploadFrom**方法或**OpenWrite**方法。 針對下載，則皆支援完整與範圍下載。
 
 在加密期間，用戶端程式庫會產生 16 位元組的隨機初始化向量 (IV)，以及 32 位元組的隨機內容加密金鑰 (CEK)，並使用這項資訊執行 blob 資料的信封加密。 然後，已包裝的 CEK 和一些其他加密中繼資料會儲存為 blob 中繼資料，並連同加密的 blob 一起儲存在服務上。
 
@@ -60,9 +60,9 @@ ms.locfileid: "55478316"
 > 
 > 
 
-下載已加密的 Blob 牽涉到使用 **DownloadTo** **/BlobReadStream**\* 便利方法擷取整個 Blob 的內容。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
+下載已加密的 blob 牽涉到擷取整個 blob 使用的內容**DownloadTo**/**BlobReadStream**便利的方法。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
 
-在加密的 Blob 中下載任意範圍 (**DownloadRange*** 方法)，包含調整使用者所提供的範圍，藉此取得少量額外的資料以便用來成功解密所要求的範圍。
+下載任意範圍 (**DownloadRange**方法) 在加密的 blob 牽涉到調整使用者所提供取得少量額外的資料可以用來成功解密所要求的範圍範圍。
 
 所有 Blob 類型 (區塊 Blob、頁面 Blob 和附加 Blob) 都可以使用此機制進行加密/解密。
 
@@ -92,20 +92,20 @@ ms.locfileid: "55478316"
 
 請注意，只有字串屬性可以加密。 如果有其他類型的屬性需要加密，則必須轉換成字串。 加密的字串儲存在服務上作為二進位屬性，且解密後會轉換回字串。
 
-針對資料表，除了加密原則之外，使用者必須指定要加密的屬性。 作法是指定 [EncryptProperty] 屬性 (針對衍生自 TableEntity 的 POCO 實體)，或在要求選項中指定加密解析程式。 加密解析程式是委派，接受資料分割索引鍵、資料列索引鍵和屬性名稱，然後傳回布林值，指出是否應該加密該屬性。 在加密期間，用戶端程式庫會使用此資訊，決定將屬性在寫到網路時是否應該加密。 委派也提供關於屬性如何加密的可能邏輯。 (例如，如果 X，則加密屬性 A，否則加密屬性 A 和 B。)請注意，讀取或查詢實體時不需要提供這項資訊。
+針對資料表，除了加密原則之外，使用者必須指定要加密的屬性。 作法是指定 [EncryptProperty] 屬性 (針對衍生自 TableEntity 的 POCO 實體)，或在要求選項中指定加密解析程式。 加密解析程式是委派，接受資料分割索引鍵、資料列索引鍵和屬性名稱，然後傳回布林值，指出是否應該加密該屬性。 在加密期間，用戶端程式庫會使用此資訊，決定將屬性在寫到網路時是否應該加密。 该委托还可以围绕如何加密属性实现逻辑的可能性。 (例如，如果 X，則加密屬性 A，否則加密屬性 A 和 B。)请注意，在读取或查询实体时，不需要提供此信息。
 
 ### <a name="batch-operations"></a>批次作業
-在批次作業中，批次作業中的所有資料列上會使用相同的 KEK，因為用戶端程式庫只允許每個批次作業有一個選項物件 (也就是一個原則/KEK)。 不過，用戶端程式庫會在內部為批次中的每個資料列產生新的隨機 IV 和隨機 CEK。 使用者也可以選擇為批次中的每個作業加密不同的屬性，作法是在加密解析程式中定義此行為。
+在批次作業中，批次作業中的所有資料列上會使用相同的 KEK，因為用戶端程式庫只允許每個批次作業有一個選項物件 (也就是一個原則/KEK)。 不過，用戶端程式庫會在內部為批次中的每個資料列產生新的隨機 IV 和隨機 CEK。 用户还可以选择通过在加密解析程序中定义此行为来加密批处理中的每个操作的不同属性。
 
 ### <a name="queries"></a>查詢
 > [!NOTE]
 > 因為實體已加密，所以無法執行依加密屬性篩選的查詢。  如果您嘗試這麼做，結果會不正確，因為服務會嘗試比較加密資料與未加密資料。
 > 
 > 
-若要執行查詢作業，您必須指定一個能夠解析結果集中的所有金鑰的金鑰解析程式。 如果查詢結果中包含的實體無法解析成提供者，用戶端程式庫會擲回錯誤。 針對執行伺服器端投影的任何查詢，用戶端程式庫會依預設將特殊加密中繼資料屬性 (_ClientEncryptionMetadata1 和 _ClientEncryptionMetadata2) 加入選取的資料行。
+> 若要執行查詢作業，您必須指定一個能夠解析結果集中的所有金鑰的金鑰解析程式。 如果查詢結果中包含的實體無法解析成提供者，用戶端程式庫會擲回錯誤。 針對執行伺服器端投影的任何查詢，用戶端程式庫會依預設將特殊加密中繼資料屬性 (_ClientEncryptionMetadata1 和 _ClientEncryptionMetadata2) 加入選取的資料行。
 
 ## <a name="azure-key-vault"></a>Azure 金鑰保存庫
-Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 使用 Azure 金鑰保存庫時，使用者可以使用受硬體安全模組 (HSM) 保護的金鑰來加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)。 如需詳細資訊，請參閱 [什麼是 Azure 金鑰保存庫？](../../key-vault/key-vault-whatis.md)。
+Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密钥和机密。 使用 Azure 金鑰保存庫時，使用者可以使用受硬體安全模組 (HSM) 保護的金鑰來加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)。 如需詳細資訊，請參閱 [什麼是 Azure 金鑰保存庫？](../../key-vault/key-vault-whatis.md)。
 
 儲存體用戶端程式庫會使用金鑰保存庫核心程式庫，以提供整個 Azure 的通用架構來管理金鑰。 使用者也享有使用金鑰保存庫延伸模組程式庫的額外好處。 延伸模組程式庫提供實用的功能，包括簡單又完善的對稱/RSA 本機和雲端金鑰提供者，以及彙總和快取。
 
@@ -131,13 +131,13 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 > 使用用戶端加密時，請留意以下重點：
 > 
 > * 讀取或寫入加密的 Blob 時，使用整個 Blob 上傳命令及範圍/整個 Blob 下載命令。 避免寫入使用通訊協定作業的加密 Blob，例如：放置區塊、放置區塊清單、寫入頁面、清除頁面或附加區塊；否則您可能會破壞加密 Blob 並使它無法讀取。
-> * 對於資料表，存在類似的條件約束。 請小心在未更新加密中繼資料時即更新加密的內容。
-> * 如果您在加密 Blob 上設定中繼資料，您可能會覆寫加密所需的加密相關中繼資料，因為設定中繼資料不是加總解密。 快照集也是如此。在為加密的 Blob 建立快照集時，請避免指定中繼資料。 如果必須設定中繼資料，請務必先呼叫 **FetchAttributes** 方法，以取得目前的加密中繼資料，並避免在設定中繼資料時並行寫入。
+> * 对于表，存在类似的约束。 请注意，不要在未更新加密元数据的情况下更新已加密的属性。
+> * 如果您在加密 Blob 上設定中繼資料，您可能會覆寫加密所需的加密相關中繼資料，因為設定中繼資料不是加總解密。 这也适用于快照；避免在创建已加密的 Blob 的快照时指定元数据。 如果必須設定中繼資料，請務必先呼叫 **FetchAttributes** 方法，以取得目前的加密中繼資料，並避免在設定中繼資料時並行寫入。
 > * 在預設的要求選項中啟用 **RequireEncryption** 屬性，使用者就應該只能使用加密的資料。 如需詳細資訊請參閱下方內容。
 > 
 > 
 
-## <a name="client-api--interface"></a>用戶端 API / 介面
+## <a name="client-api--interface"></a>客户端 API/接口
 使用者在建立 EncryptionPolicy 物件時，可以只提供金鑰 (實作 IKey)、只提供者解析程式 (實作 IKeyResolver)，或兩者都提供。 IKey 是以金鑰識別碼來識別的基本金鑰類型，且提供包裝/解除包裝的邏輯。 IKeyResolver 在解密程序期間用來解析金鑰。 它定義 ResolveKey 方法，可根據金鑰識別碼傳回 IKey。 這可讓使用者從多個位置中管理的多個金鑰之中選擇。
 
 * 加密時一律使用金鑰，缺少金鑰將會導致錯誤。
@@ -173,7 +173,7 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 ```
 
 ### <a name="queue-service-encryption"></a>佇列服務加密
-建立 **QueueEncryptionPolicy** 物件，並在要求選項中加以設定 (透過 API 或在用戶端層級使用 **DefaultRequestOptions**)。 其他一切由用戶端程式庫在內部處理。
+建立 **QueueEncryptionPolicy** 物件，並在要求選項中加以設定 (透過 API 或在用戶端層級使用 **DefaultRequestOptions**)。 其他所有事项均由客户端库在内部处理。
 
 ```csharp
 // Create the IKey used for encryption.
@@ -229,7 +229,7 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
  TableResult result = currentTable.Execute(operation, retrieveOptions, null);
 ```
 
-#### <a name="using-attributes"></a>使用屬性
+#### <a name="using-attributes"></a>使用特性
 如上所述，如果實體實作 TableEntity，則屬性可以使用 [EncryptProperty] 屬性裝飾，不需指定 **EncryptionResolver**。
 
 ```csharp
@@ -243,5 +243,5 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 ## <a name="next-steps"></a>後續步驟
 * [教學課程：在 Microsoft Azure 儲存體中使用 Azure Key Vault 加密和解密 Blob](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * 下載 [適用於 .NET NuGet 封裝的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage)
-* 下載 Azure 金鑰保存庫 NuGet 的 [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 封裝  
-* 請瀏覽 [Azure 金鑰保存庫文件](../../key-vault/key-vault-whatis.md)
+* 下載 Azure 金鑰保存庫 NuGet 的 [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[Client](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [Extensions](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 封裝  
+* 访问 [Azure 密钥保管库文档](../../key-vault/key-vault-whatis.md)

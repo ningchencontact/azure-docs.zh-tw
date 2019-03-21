@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: e787d946aa62f0bcb6615d89192e7d9e4d91ffe4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 867d061e46494e5ef65340ce325a71638acc8dfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099622"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure Active Directory Domain Services 受控網域上部署 Azure AD 應用程式
 Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部部署應用程式，協助您支援遠端背景工作角色。 使用 Azure AD 網域服務，您現在可以提升執行內部部署的舊版應用程式並隨即轉移至 Azure 基礎結構服務。 然後，您可以使用 Azure AD 應用程式 Proxy 發佈這些應用程式，為您組織中的使用者提供安全遠端存取。
@@ -75,12 +75,12 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 
     ![接受安裝的條款](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. 在安裝期間，系統將提示您使用 Azure AD 目錄的應用程式 Proxy 註冊連接器。
-    * 提供您的 **Azure AD 全域管理員認證**。 您的全域管理員租用戶可能與您的 Microsoft Azure 認證不同。
-    * 用於註冊連接器的系統管理員帳戶必須屬於與您啟用應用程式 Proxy 服務的位置相同的目錄。 例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或該網域上的其他有效別名。
-    * 如果 [IE 增強式安全性設定] 在您要安裝連接器的伺服器上開啟，可能會封鎖註冊畫面。 若要允許存取，請依照錯誤訊息中的指示。 請確定已停用 [Internet Explorer 增強式安全性]。
-    * 如果連接器註冊不成功，請參閱 [針對應用程式 Proxy 進行疑難排解](../active-directory/manage-apps/application-proxy-troubleshoot.md)。
+   * 提供您的 **Azure AD 全域管理員認證**。 您的全域管理員租用戶可能與您的 Microsoft Azure 認證不同。
+   * 用於註冊連接器的系統管理員帳戶必須屬於與您啟用應用程式 Proxy 服務的位置相同的目錄。 例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或該網域上的其他有效別名。
+   * 如果 [IE 增強式安全性設定] 在您要安裝連接器的伺服器上開啟，可能會封鎖註冊畫面。 若要允許存取，請依照錯誤訊息中的指示。 請確定已停用 [Internet Explorer 增強式安全性]。
+   * 如果連接器註冊不成功，請參閱 [針對應用程式 Proxy 進行疑難排解](../active-directory/manage-apps/application-proxy-troubleshoot.md)。
 
-    ![安裝的連接器](./media/app-proxy/app-proxy-connector-installed.png)
+     ![安裝的連接器](./media/app-proxy/app-proxy-connector-installed.png)
 4. 若要確保連接器正確運作，請執行 Azure AD 應用程式 Proxy 連接器疑難排解。 執行疑難排解程式之後，您應該看到成功的報告。
 
     ![疑難排解程式成功](./media/app-proxy/app-proxy-connector-troubleshooter.png)

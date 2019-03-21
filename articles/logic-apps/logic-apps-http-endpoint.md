@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904366"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程
 
@@ -71,7 +71,7 @@ ms.locfileid: "50230483"
 
     > [!TIP]
     > 
-    > 您可以從 [jsonschema.net](http://jsonschema.net/) 這類工具產生範例 JSON 承載的結構描述，或在 [要求] 觸發程序中選擇 [請使用範例承載產生結構描述] 來產生範例 JSON 承載的結構描述。 
+    > 您可以從 [jsonschema.net](https://jsonschema.net/) 這類工具產生範例 JSON 承載的結構描述，或在 [要求] 觸發程序中選擇 [請使用範例承載產生結構描述] 來產生範例 JSON 承載的結構描述。 
     > 輸入您的範例承載，然後選擇 [完成]。
 
     例如，此範例裝載︰
@@ -245,7 +245,7 @@ ms.locfileid: "50230483"
 
 回應具有下列屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | StatusCode |指定用於回應傳入要求的 HTTP 狀態碼。 此代碼可以是任何以 2xx、4xx 或 5xx 開頭的有效狀態碼。 但是，不允許 3xx 狀態碼。 |
 | headers |定義要包含於回應中的標頭，且數目不限。 |
@@ -275,9 +275,9 @@ ms.locfileid: "50230483"
 
 ## <a name="q--a"></a>問答集
 
-#### <a name="q-what-about-url-security"></a>問︰URL 安全性如何？
+#### <a name="q-what-about-url-security"></a>問：URL 安全性如何呢？
 
-答：Azure 會使用共用存取簽章 (SAS)，安全地產生邏輯應用程式回呼 URL。 這個簽章是以查詢參數的形式傳遞，且必須在引發您的邏輯應用程式之前先驗證。 Azure 會使用每個邏輯應用程式、觸發程序名稱以及要執行作業之秘密金鑰的唯一組合來產生簽章。 因此，除非某人具有邏輯應用程式秘密金鑰的存取權，否則他們無法產生有效的簽章。
+答：Azure 會安全地產生邏輯應用程式回呼 Url，使用共用存取簽章 (SAS)。 這個簽章是以查詢參數的形式傳遞，且必須在引發您的邏輯應用程式之前先驗證。 Azure 會使用每個邏輯應用程式、觸發程序名稱以及要執行作業之秘密金鑰的唯一組合來產生簽章。 因此，除非某人具有邏輯應用程式秘密金鑰的存取權，否則他們無法產生有效的簽章。
 
    > [!IMPORTANT]
    > 對於生產和安全系統，強烈建議直接從瀏覽器呼叫邏輯應用程式，因為：
@@ -285,18 +285,18 @@ ms.locfileid: "50230483"
    > * URL 中出現共用存取金鑰。
    > * 您由於邏輯應用程式客戶之間共用網域，而無法管理安全內容原則。
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>問︰我可以進一步設定 HTTP 端點嗎？
+#### <a name="q-can-i-configure-http-endpoints-further"></a>問：可以設定 HTTP 端點進一步嗎？
 
-答︰可以，HTTP 端點透過 [**API 管理**](../api-management/api-management-key-concepts.md)來支援更進階的設定。 此服務也可讓您透過一致的方式管理所有 API，包括邏輯應用程式、設定自訂網域名稱、使用其他驗證方法等等，例如︰
+答：HTTP 端點是，支援更進階的組態，經由[ **API 管理**](../api-management/api-management-key-concepts.md)。 此服務也可讓您透過一致的方式管理所有 API，包括邏輯應用程式、設定自訂網域名稱、使用其他驗證方法等等，例如︰
 
 * [變更要求方法](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [變更要求的 URL 區段](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * 在 [Azure 入口網站](https://portal.azure.com/ "Azure 入口網站")中設定 API 管理網域
 * 設定檢查基本驗證的原則
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>問︰從 2014 年 12 月 1 日預覽版升級結構描述時的變更內容為何？
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>問：從 2014 年 12 月 1 日預覽版升級結構描述時變更什麼？
 
-答︰以下是這些變更的摘要︰
+答：以下是有關這些變更的摘要：
 
 | 2014 年 12 月 1 日預覽版 | 2016 年 6 月 1 日 |
 | --- | --- |

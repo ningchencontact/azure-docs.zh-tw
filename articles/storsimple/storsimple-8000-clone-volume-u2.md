@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26333197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097230"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>在 Azure 入口網站中，使用 StorSimple 裝置管理員服務來複製磁碟區
 
@@ -66,9 +66,9 @@ StorSimple 裝置管理員服務 [備份類別目錄]  刀鋒視窗會顯示在�
    3. 指定時間範圍。
    4. 按一下 [套用] 以執行此查詢。
 
-    與選取的磁碟區或備份原則相關聯的備份應該會出現在備份組清單中。
+      與選取的磁碟區或備份原則相關聯的備份應該會出現在備份組清單中。
    
-    ![備份組清單](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![備份組清單](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. 展開備份組以檢視相關聯的磁碟區，並選取備份組中的磁碟區。 以滑鼠右鍵按一下，然後從操作功能表中選取 [複製]。
 
@@ -76,21 +76,21 @@ StorSimple 裝置管理員服務 [備份類別目錄]  刀鋒視窗會顯示在�
 
 3. 在 [複製] 刀鋒視窗中，執行下列步驟︰
    
-    1. 識別目標裝置。 這是即將建立複製的位置。 您可以選擇相同的裝置，或指定另一個裝置。
+   1. 識別目標裝置。 這是即將建立複製的位置。 您可以選擇相同的裝置，或指定另一個裝置。
 
       > [!NOTE]
       > 確定要複製的容量小於目標裝置中可用的容量。
        
-    2. 為複製指定唯一的磁碟區名稱。 此名稱必須包含 3 到 127 個字元。
+   2. 為複製指定唯一的磁碟區名稱。 此名稱必須包含 3 到 127 個字元。
       
-        > [!NOTE]
-        > 即使您複製了本機釘選磁碟區，[將磁碟區複製為] 欄位仍然會**分層**。 您無法變更此設定，但如果您需要在本機釘選複製的磁碟區，您可以在成功建立複製之後，將複製轉換到本機釘選的磁碟區。 如需將分層磁碟區轉換為固定在本機的磁碟區的詳細資訊，請移至 [變更磁碟區類型](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)。
+       > [!NOTE]
+       > 即使您複製了本機釘選磁碟區，[將磁碟區複製為] 欄位仍然會**分層**。 您無法變更此設定，但如果您需要在本機釘選複製的磁碟區，您可以在成功建立複製之後，將複製轉換到本機釘選的磁碟區。 如需將分層磁碟區轉換為固定在本機的磁碟區的詳細資訊，請移至 [變更磁碟區類型](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)。
           
-    3. 在 [已連線的主機] 下，指定該複製的存取控制記錄 (ACR)。 您可以加入新的 ACR，或從現有清單中選擇。 ACR 會決定可存取此複製的主機。
+   3. 在 [已連線的主機] 下，指定該複製的存取控制記錄 (ACR)。 您可以加入新的 ACR，或從現有清單中選擇。 ACR 會決定可存取此複製的主機。
       
-        ![備份組清單](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![備份組清單](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
-    4. 按一下 [複製]，以完成作業。
+   4. 按一下 [複製]，以完成作業。
 
 4. 複製作業隨即起始，並在成功建立複製時通知您。 按一下作業通知，或移至 [作業] 刀鋒視窗以監控複製作業。
 

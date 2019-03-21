@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b538e1b2d37c92e1712da517ab5f3c46f5e2c3a3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855294"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>管理多個儲存體帳戶間的媒體服務資產  
 
@@ -27,7 +27,9 @@ ms.locfileid: "55992174"
 * 在多個儲存體帳戶之間平衡您資產的負載。
 * 調整媒體服務進行大量的內容處理 (因為目前單一儲存體帳戶的最大上限為 500 TB)。 
 
-本文章示範如何使用 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 和 [Powershell](/powershell/module/azurerm.media)，將多個儲存體帳戶附加到媒體服務帳戶。 同時也會示範如何在使用媒體服務 SDK 建立資產時，指定不同的儲存體帳戶。 
+本文章示範如何使用 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 和 [Powershell](/powershell/module/az.media)，將多個儲存體帳戶附加到媒體服務帳戶。 同時也會示範如何在使用媒體服務 SDK 建立資產時，指定不同的儲存體帳戶。 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="considerations"></a>考量
 
@@ -40,11 +42,11 @@ ms.locfileid: "55992174"
 
 其他考量：
 
-建置串流內容的 URL (例如， http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 **IAssetFile.Name** 屬性的值。基於這個理由，不允許 percent-encoding。 Name 屬性的值不能有[下列任何百分比編碼保留字元：](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，只能有一個 ‘.’ 在檔案名稱的副檔名。
+建置串流內容的 URL (例如， http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 **IAssetFile.Name** 屬性的值。基於這個理由，不允許 percent-encoding。 Name 屬性的值不能有[下列任何百分比編碼保留字元：](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，只能有一個 ‘.’ 在檔案名稱的副檔名。
 
 ## <a name="to-attach-storage-accounts"></a>附加儲存體帳戶  
 
-若要將儲存體帳戶附加到 AMS 帳戶，請使用 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 和 [Powershell](/powershell/module/azurerm.media)，如下列範例所示：
+若要將儲存體帳戶附加到 AMS 帳戶，請使用 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 和 [Powershell](/powershell/module/az.media)，如下列範例所示：
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -54,17 +56,17 @@ ms.locfileid: "55992174"
     $storageAccount2Name = "skystorage2"
     $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
     $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+    $storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+    $storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
     $storageAccounts = @($storageAccount1, $storageAccount2)
     
-    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+    Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
 ### <a name="support-for-cool-storage"></a>非經常性儲存空間的支援
 
 目前，如果您要新增非經常性儲存體帳戶到 AMS 帳戶，儲存體帳戶必須是 Blob 類型，並且設定為非主要。
 
-## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>管理跨多個儲存體帳戶的媒體服務資產
+## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>跨多个存储帐户管理媒体服务资产
 下列程式碼會使用最新的媒體服務 SDK，執行下列工作：
 
 1. 顯示所有與指定媒體服務帳戶相關聯的儲存體帳戶。

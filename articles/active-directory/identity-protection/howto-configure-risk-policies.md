@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1b578c0187f7b804b6261fec9d299f83d7dc1832
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015150"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>作法：在 Azure Active Directory Identity Protection (已重新整理) 中設定風險原則
 
@@ -31,6 +31,8 @@ Azure AD detects 風險事件為身分可能遭盜用的指標。 透過設定�
 
 - 使用登入風險原則，您可以設定對在使用者登入時偵測到的即時風險事件的回應。 
 - 使用使用者風險原則，您可以設定對在一段時間內為使用者偵測到的所有作用中使用者風險的回應。  
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>什麼是登入風險原則？

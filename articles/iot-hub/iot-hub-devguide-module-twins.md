@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 789657e53f8575b4e001fd3ec2629aaefe1a2d8b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082002"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>了解和使用 IoT 中樞的模組對應項
 
@@ -115,7 +115,7 @@ ms.locfileid: "52284300"
 
 在上述範例中，解決方案後端和模組應用程式會使用 `telemetryConfig` 模組對應項的所需屬性和報告屬性，以同步處理此模組的遙測設定。 例如︰
 
-1. 解決方案後端會以所需組態值來設定所需屬性。 以下是含有所需屬性集的文件部分︰
+1. 解决方案后端使用所需配置值设置所需属性。 以下是含有所需屬性集的文件部分︰
 
     ```json
     ...
@@ -168,13 +168,13 @@ ms.locfileid: "52284300"
     }
     ```
 
-* **取代所需屬性**。 此作業可讓解決方案後端完全覆寫所有現有的所需屬性，並以新的 JSON 文件取代 `properties/desired`。
+* **替换所需属性**。 此作業可讓解決方案後端完全覆寫所有現有的所需屬性，並以新的 JSON 文件取代 `properties/desired`。
 
 * **取代標籤**。 此作業可讓解決方案後端完全覆寫所有現有的標籤，並以新的 JSON 文件取代 `tags`。
 
 * **接收對應項通知**。 這項作業可以在對應項修改時通知方案後端。 若要這樣做，您的 IoT 解決方案必須建立路由，並將資料來源設為等於 *twinChangeEvents*。 根據預設，不會傳送任何對應項通知，亦即預先不存在這類路由。 如果變更率太高，或基於其他原因，例如內部失敗，IoT 中樞可能只會傳送一個包含所有變更的通知。 因此，如果您的應用程式需要可靠地稽核和記錄所有中間狀態，您應該使用裝置到雲端的訊息。 對應項通知訊息包含屬性和內文。
 
-    - properties
+  - properties
 
     | 名稱 | 值 |
     | --- | --- |
@@ -191,26 +191,26 @@ ms.locfileid: "52284300"
 
     訊息系統屬性前面會加上 `$` 符號。
 
-    - body
+  - body
         
     本節包含所有對應項變更 (JSON 格式)。 它使用的格式與修補程式的格式相同，差別在於它可以包含所有對應項區段︰tags、properties.reported、properties.desired，而且包含 “$metadata” 項目。 例如，
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 

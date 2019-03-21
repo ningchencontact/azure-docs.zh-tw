@@ -1,6 +1,6 @@
 ---
 title: SQL Database 的 XEvent 事件檔案程式碼 | Microsoft Docs
-description: 提供 PowerShell 和 Transact-SQL 的兩階段程式碼範例，示範 Azure SQL Database 上擴充事件中的事件檔案目標。 此案例必須要有 Azure 儲存體。
+description: 提供 PowerShell 和 Transact-SQL 的兩階段程式碼範例，示範 Azure SQL Database 上擴充事件中的事件檔案目標。 此方案的一部分要求使用 Azure 存储。
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: 035d2731a78ad6216f56255fb87e32444366ea97
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 0a9472dec9b76dfbde1690e11f13836746b0dfaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862891"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database 中擴充事件的事件檔案目標程式碼
 
@@ -37,6 +37,10 @@ ms.locfileid: "55563486"
 
 ## <a name="prerequisites"></a>必要條件
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。
   
@@ -45,10 +49,10 @@ ms.locfileid: "55563486"
   您可以從下列位置下載最新的 ssms.exe：
   
   * 名稱為 [下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)的主題。
-  * [下載的直接連結。](https://go.microsoft.com/fwlink/?linkid=616025)
+  * [直接指向下载位置的链接。](https://go.microsoft.com/fwlink/?linkid=616025)
 * 您必須安裝 [Azure PowerShell 模組](https://go.microsoft.com/?linkid=9811175) 。
   
-  * 模組提供 **New-AzureStorageAccount**這類的命令。
+  * 模組提供命令，這類**新增 AzStorageAccount**。
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>第 1 階段：Azure 儲存體容器的 PowerShell 程式碼
 
@@ -68,7 +72,7 @@ ms.locfileid: "55563486"
 
 ### <a name="powershell-code"></a>PowerShell 程式碼
 
-這個 PowerShell 指令碼假設您已經執行 AzureRm 模組的 Cmdlet Import-Module。 如需參考文件，請參閱 [PowerShell 模組瀏覽器](https://docs.microsoft.com/powershell/module/)。
+此 PowerShell 指令碼假設您已安裝 Az 模組。 如需資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -78,8 +82,8 @@ cls;
 #--------------- 1 -----------------------
 
 'Script assumes you have already logged your PowerShell session into Azure.
-But if not, run  Connect-AzureRmAccount (or  Connect-AzureRmAccount), just one time.';
-#Connect-AzureRmAccount;   # Same as  Connect-AzureRmAccount.
+But if not, run  Connect-AzAccount (or  Connect-AzAccount), just one time.';
+#Connect-AzAccount;   # Same as  Connect-AzAccount.
 
 #-------------- 2 ------------------------
 
@@ -112,7 +116,7 @@ $policySasPermission = 'rwl';  # Leave this value alone, as 'rwl'.
 
 'Choose an existing subscription for the current PowerShell environment.';
 
-Select-AzureRmSubscription -Subscription $subscriptionName;
+Select-AzSubscription -Subscription $subscriptionName;
 
 #-------------- 4 ------------------------
 
@@ -122,7 +126,7 @@ before continuing this new run.';
 
 If ($storageAccountName)
 {
-    Remove-AzureRmStorageAccount `
+    Remove-AzStorageAccount `
         -Name              $storageAccountName `
         -ResourceGroupName $resourceGroupName;
 }
@@ -136,7 +140,7 @@ Create a storage account.
 This might take several minutes, will beep when ready.
   ...PLEASE WAIT...';
 
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
     -Name              $storageAccountName `
     -Location          $storageAccountLocation `
     -ResourceGroupName $resourceGroupName `
@@ -150,7 +154,7 @@ Get the access key for your storage account.
 ';
 
 $accessKey_ForStorageAccount = `
-    (Get-AzureRmStorageAccountKey `
+    (Get-AzStorageAccountKey `
         -Name              $storageAccountName `
         -ResourceGroupName $resourceGroupName
         ).Value[0];
@@ -168,21 +172,21 @@ Remainder of PowerShell .ps1 script continues.
 'Create a context object from the storage account and its primary access key.
 ';
 
-$context = New-AzureStorageContext `
+$context = New-AzStorageContext `
     -StorageAccountName $storageAccountName `
     -StorageAccountKey  $accessKey_ForStorageAccount;
 
 'Create a container within the storage account.
 ';
 
-$containerObjectInStorageAccount = New-AzureStorageContainer `
+$containerObjectInStorageAccount = New-AzStorageContainer `
     -Name    $containerName `
     -Context $context;
 
 'Create a security policy to be applied to the SAS token.
 ';
 
-New-AzureStorageContainerStoredAccessPolicy `
+New-AzStorageContainerStoredAccessPolicy `
     -Container  $containerName `
     -Context    $context `
     -Policy     $policySasToken `
@@ -195,7 +199,7 @@ Generate a SAS token for the container.
 ';
 Try
 {
-    $sasTokenWithPolicy = New-AzureStorageContainerSASToken `
+    $sasTokenWithPolicy = New-AzStorageContainerSASToken `
         -Name    $containerName `
         -Context $context `
         -Policy  $policySasToken;
@@ -219,7 +223,7 @@ REMINDER: sasTokenWithPolicy here might start with "?" character, which you must
 ';
 
 '
-(Later, return here to delete your Azure Storage account. See the preceding  Remove-AzureRmStorageAccount -Name $storageAccountName)';
+(Later, return here to delete your Azure Storage account. See the preceding  Remove-AzStorageAccount -Name $storageAccountName)';
 
 '
 Now shift to the Transact-SQL portion of the two-part code sample!';
@@ -235,7 +239,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 * 在此程式碼範例的第 1 階段中，您執行了 PowerShell 指令碼來建立「Azure 儲存體」容器。
 * 接下來在第 2 階段中，下列 Transact-SQL 指令碼必須使用該容器。
 
-此指令碼是以可清除先前可能之執行結果的命令為開頭，並且可重複執行。
+脚本以用于在可能的上次运行后进行清理的命令开头，且可重复运行。
 
 PowerShell 指令碼在結束時列印出幾個具名的值。 您必須編輯 Transact-SQL 指令碼以使用這些值。 在 Transact-SQL 指令碼中尋找 **TODO** 找出編輯點。
 
@@ -442,12 +446,12 @@ GO
 DROP TABLE gmTabEmployee;
 GO
 
-PRINT 'Use PowerShell Remove-AzureStorageAccount to delete your Azure Storage account!';
+PRINT 'Use PowerShell Remove-AzStorageAccount to delete your Azure Storage account!';
 GO
 ```
 
 
-如果目標在執行時無法附加，您就必須停止事件工作階段並重新啟動：
+如果运行脚本时无法附加目标，必须停止再重新启动事件会话：
 
 ```sql
 ALTER EVENT SESSION ... STATE = STOP;
@@ -457,7 +461,7 @@ GO
 ```
 
 
-## <a name="output"></a>輸出
+## <a name="output"></a>输出
 
 Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 此時會顯示一個 **<event>** 元素，此元素會顯示一個 UPDATE 陳述式。
 
@@ -527,7 +531,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 如需 Azure 儲存體服務中帳戶和容器的詳細資訊，請參閱：
 
-* [如何使用 .NET 的 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [如何通过 .NET 使用 Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [命名和參考容器、Blob 及中繼資料](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [使用根容器](https://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [第 1 課：在 Azure 容器上建立預存的存取原則和共用存取簽章](https://msdn.microsoft.com/library/dn466430.aspx)

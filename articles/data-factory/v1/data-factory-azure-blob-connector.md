@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 733ae4451988651df2a62a22aa6eb1b6fae44309
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331719"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004309"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>使用 Azure Data Factory 在 Azure Blob 儲存體來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,7 +80,7 @@ ms.locfileid: "54331719"
 
 每個資料集類型的 **TypeProperties** 區段都不同，可提供資料存放區中資料的位置、格式等相關資訊。 **AzureBlob** 類型資料集的 typeProperties 區段具有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | folderPath |Blob 儲存體中容器和資料夾的路徑。 範例：myblobcontainer\myblobfolder\ |是 |
 | fileName |Blob 的名稱。 fileName 是選擇性的，而且區分大小寫。<br/><br/>如果您指定檔案名稱，活動 (包括複製) 適用於特定的 Blob。<br/><br/>如果您未指定 fileName，複製會包含 folderPath 中的所有 Blob 以做為輸入資料集。<br/><br/>若未指定輸出資料集的 fileName，而且未在活動接收中指定 preserveHierarchy，則所產生檔案的名稱格式如下：Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
@@ -126,13 +126,13 @@ ms.locfileid: "54331719"
 
 **BlobSource** 在 **typeProperties** 區段中支援下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | 遞迴 |表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 |True (預設值)、False |否 |
 
 **BlobSink** 在 **typeProperties** 區段中支援下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | copyBehavior |當來源為 BlobSource 或 FileSystem 時，定義複製行為。 |<b>PreserveHierarchy</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><br/><b>FlattenHierarchy</b>：來自來源資料夾的所有檔案都在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><br/><b>MergeFiles</b>：將來源資料夾的所有檔案合併為一個檔案。 如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。 |否 |
 
@@ -181,6 +181,7 @@ ms.locfileid: "54331719"
     John, Doe
     Jane, Doe
     ```
+
 ### <a name="create-the-data-factory"></a>建立 Data Factory
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下左上角的 [建立資源]，按一下 [智慧 + 分析]，然後按一下 [Data Factory]。
@@ -205,7 +206,7 @@ ms.locfileid: "54331719"
     4. 保留 [週期性模式] 的設定。 此工作會在您於下一個步驟中指定的開始和結束時間之間每天執行。
     5. 將 [開始日期時間] 變更為 [2017 年 4 月 21 日]。
     6. 將 [結束日期時間] 變更為 [2017 年 4 月 25 日]。 您可以輸入日期，而不瀏覽行事曆。
-    8. 按 [下一步] 。
+    8. 单击“下一步”。
         ![複製工具 - 屬性頁面](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
 3. 在 [來源資料存放區] 頁面上，按一下 [Azure Blob 儲存體] 圖格。 您可以使用此頁面來指定複製工作的來源資料存放區。 您可以使用現有的資料存放區連結服務或指定新的資料存放區。 若要使用現有的已連結服務，您需選取 [從現有的連結服務]，然後選取正確的已連結服務。
     ![複製工具 - 來源資料存放區頁面](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
@@ -214,7 +215,7 @@ ms.locfileid: "54331719"
     2. 確認已針對 [帳戶選取方法] 選取 [從 Azure 訂用帳戶] 選項。
     3. 針對 [Azure 訂用帳戶]，選取您的 Azure 訂用帳戶或保留 [全選]。
     4. 從所選訂用帳戶中可用的 Azure 儲存體帳戶清單中，選取 [Azure 儲存體帳戶]。 您也可以選擇手動輸入儲存體帳戶設定，方法是針對 [帳戶選取方法] 選取 [手動輸入] 選項。
-    5. 按 [下一步] 。  
+    5. 单击“下一步”。  
         ![複製工具 - 指定 Azure Blob 儲存體帳戶](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. 在 [選擇輸入檔案或資料夾]  頁面︰
     1. 按兩下 [adfblobcontainer]。
@@ -225,7 +226,7 @@ ms.locfileid: "54331719"
     2. 請勿設定 [以遞迴方式複製檔案]。 選取此選項可以用遞迴方式周遊資料夾來尋找要複製到目的地的檔案。
     3. 請勿設定 [二進位複製] 選項。 選取此選項可以執行將來源檔案複製到目的地的二進位複製。 請勿為此逐步解說選取這個選項，以便您可以在後續頁面中看到更多選項。
     4. 確認 [壓縮類型] 已設定為 [無]。 如果您的來源檔案是以其中一種支援的格式壓縮的，則請為此選項選取一個值。
-    5. 按 [下一步] 。
+    5. 单击“下一步”。
     ![複製工具 - 選擇輸入檔案或資料夾](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. 在 [檔案格式設定] 頁面上，您會看到分隔符號以及精靈藉由剖析檔案自動偵測到的結構描述。
     1. 確認下列選項：  
@@ -247,16 +248,16 @@ ms.locfileid: "54331719"
     2. 確認已針對 [帳戶選取方法] 選取 [從 Azure 訂用帳戶] 選項。
     3. 選取您的 Azure **訂用帳戶**。
     4. 選取您的 Azure 儲存體帳戶。
-    5. 按 [下一步] 。
+    5. 单击“下一步”。
 10. 在 [選擇輸出檔案或資料夾] 頁面上︰  
-    6. 將 [資料夾路徑] 指定為 **adfblobconnector/output/{year}/{month}/{day}**。 輸入 **TAB**。
-    7. 針對 [年]，選取 [yyyy]。
-    8. 針對 [月]，確定它已設定為 [MM]。
-    9. 針對 [日]，確定它已設定為 [dd]。
-    10. 確認 [壓縮類型] 已設定為 [無]。
-    11. 確認 [複製行為] 已設定為 [合併檔案]。 如果已經有同名的輸出檔案存在，則新內容會新增到該相同檔案的結尾。
-    12. 按 [下一步] 。
-    ![複製工具 - 選擇輸出檔案或資料夾](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+    1. 將 [資料夾路徑] 指定為 **adfblobconnector/output/{year}/{month}/{day}**。 輸入 **TAB**。
+    1. 針對 [年]，選取 [yyyy]。
+    1. 針對 [月]，確定它已設定為 [MM]。
+    1. 針對 [日]，確定它已設定為 [dd]。
+    1. 確認 [壓縮類型] 已設定為 [無]。
+    1. 確認 [複製行為] 已設定為 [合併檔案]。 如果已經有同名的輸出檔案存在，則新內容會新增到該相同檔案的結尾。
+    1. 单击“下一步”。
+       ![複製工具 - 選擇輸出檔案或資料夾](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. 在 [檔案格式設定] 頁面上，檢閱設定，然後按 [下一步]。 這裡的其中一額外選項是為輸出檔案新增標頭。 如果您選取該選項，就會新增標頭資料列，其中會含有來自來源結構描述的資料行名稱。 您可以在檢視來源的結構描述時，重新命名預設的資料行名稱。 例如，您可以將第一個資料行變更為「名字」，而將第二個資料行變更為「姓氏」。 接著，系統就會產生含有以這些名稱作為資料行名稱之標頭的輸出檔案。
     ![複製工具 - 目的地的檔案格式設定](media/data-factory-azure-blob-connector/file-format-destination.png)
 12. 在 [效能設定] 頁面上，確認 [雲端單位] 和 [平行複製] 已設定為 [自動]，然後按 [下一步]。 如需有關這些設定的詳細資料，請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md#parallel-copy)。
@@ -281,7 +282,7 @@ ms.locfileid: "54331719"
     2017/04/24
     2017/04/25
     ```
-如需有關監視及管理 Data Factory 的詳細資訊，請參閱[監視和管理 Data Factory 管線](data-factory-monitor-manage-app.md)一文。
+   如需有關監視及管理 Data Factory 的詳細資訊，請參閱[監視和管理 Data Factory 管線](data-factory-monitor-manage-app.md)一文。
 
 ### <a name="data-factory-entities"></a>Data Factory 實體
 現在，切換回含有 Data Factory 首頁的索引標籤。 請注意，您的 Data Factory 現在有兩個已連結的服務、兩個資料集，以及一條管線。

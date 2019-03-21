@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 372275740b7d4fd757e97a3966e4e87c9d2de940
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 807a6b38b9f2cbe2a3c8787fe09c2ea14106a942
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105384"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864893"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 REST 端點複製資料
 
@@ -53,7 +53,7 @@ ms.locfileid: "54105384"
 
 以下是針對 REST 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設定為 **HttpServer**。 | 是 |
 | url | REST 服務的基底 URL。 | 是 |
@@ -65,7 +65,7 @@ ms.locfileid: "54105384"
 
 將 **authenticationType** 屬性設定為 [Basic]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | userName | 用來存取 REST 端點的使用者名稱。 | 是 |
 | password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 是 |
@@ -98,7 +98,7 @@ ms.locfileid: "54105384"
 
 將 **authenticationType** 屬性設定為 [AadServicePrincipal]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 指定 Azure Active Directory 應用程式的用戶端識別碼。 | 是 |
 | servicePrincipalKey | 指定 Azure Active Directory 應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -135,7 +135,7 @@ ms.locfileid: "54105384"
 
 將 **authenticationType** 屬性設定為 [ManagedServiceIdentity]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | aadResourceId | 指定您要求授權的 AAD 資源，例如 `https://management.core.windows.net`。| 是 |
 
@@ -167,7 +167,7 @@ ms.locfileid: "54105384"
 
 若要從 REST 複製資料，以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的 **type** 屬性必須設定為 [RestResource]。 | 是 |
 | relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 否 |
@@ -230,7 +230,7 @@ ms.locfileid: "54105384"
 
 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 **type** 屬性必須設定為 [RestSource]。 | 是 |
 | httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 否 |
@@ -274,8 +274,8 @@ ms.locfileid: "54105384"
 
 此泛型 REST 連接器支援下列分頁模式： 
 
-* 下一個要求的絕對 URL = 目前回應本文中的屬性值
-* 下一個要求的絕對 URL = 目前回應標頭中的標頭值
+* 下一個要求的絕對或相對 URL = 目前的回應主體中的屬性值
+* 下一個要求的絕對或相對 URL = 目前的回應標頭中的標頭值
 * 下一個要求的查詢參數 = 目前回應本文中的屬性值
 * 下一個要求的查詢參數 = 目前回應標頭中的標頭值
 * 下一個要求的標頭 = 目前回應本文中的屬性值
@@ -285,15 +285,15 @@ ms.locfileid: "54105384"
 
 分頁規則中的**支援金鑰**：
 
-| Key | 說明 |
+| Key | 描述 |
 |:--- |:--- |
-| AbsoluteUrl | 指示 URL 發出下一個要求。 |
+| AbsoluteUrl | 指示 URL 發出下一個要求。 它可以是**絕對 URL 或相對 URL**。 |
 | QueryParameters.*request_query_parameter* 或 QueryParameters['request_query_parameter'] | 使用者定義的 "request_query_parameter" 會參考下一個 HTTP 要求 URL 中的一個查詢參數名稱。 |
 | Headers.*request_header* 或 Headers['request_header'] | 使用者定義的 "request_header" 會參考下一個 HTTP 要求中的一個標頭名稱。 |
 
 分頁規則中的**支援值**：
 
-| 值 | 說明 |
+| 值 | 描述 |
 |:--- |:--- |
 | Headers.*response_header* 或 Headers['response_header'] | 使用者定義的 "response_header" 會參考目前 HTTP 回應中的一個標頭名稱，其值會用來發出下一個要求。 |
 | JSONPath 運算式會以 "$" 開頭 (代表回應本文的根) | 回應本文應只包含一個 JSON 物件。 JSONPath 運算式應會傳回單一基本值，而這會用來發出下一個要求。 |

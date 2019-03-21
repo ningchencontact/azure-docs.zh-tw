@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003463"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉到 Azure HDInsight - 資料移轉最佳做法
 
@@ -34,9 +34,9 @@ ms.locfileid: "53433418"
 
 下表根據資料磁碟區和網路頻寬提供粗略的資料傳輸持續時間。 若資料移轉預計要花費超過三週的時間，請使用資料箱。
 
-|**資料數量**|**網路頻寬**|||
-|---|---|---|---|
-|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**
+|**資料數量**|**網路頻寬**||||
+|---|---|---|---|---|
+|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
 |1 TB|2 天|1 天| 2 小時|14 分鐘|
 |10 TB|22 天|10 天|1 天|2 小時|
 |35 TB|76 天|34 天|3 天|8 小時|
@@ -94,7 +94,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 #### <a name="hive-metastore-migration-using-scripts"></a>使用指令碼移轉 Hive 中繼存放區
 
-1. 從內部部署 Hive 中繼存放區產生 Hive DDL。 此步驟可使用[包裝函式 Bash 指令碼](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md) \(英文\) 來完成。
+1. 產生 Hive Ddl 從內部部署 Hive 中繼存放區上。 此步驟可使用[包裝函式 Bash 指令碼](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md) \(英文\) 來完成。
 1. 編輯產生的 DDL，使用 WASB/ADLS/ABFS URL 來取代 HDFS URL。
 1. 從 HDInsight 叢集的中繼存放區上執行更新的 DDL。
 1. 確定 Hive 中繼存放區版本在內部部署和雲端之間都相容。
@@ -111,7 +111,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - 將內部部署 Ranger 原則匯出至 XML 檔案。
-- 使用如 XSLT 的工具，將內部部署專用的 HDFS 型路徑轉換為 WASB/ADLS。
+- 轉換在內部部署 HDFS 為基礎的特定路徑，至 WASB/ADLS 使用 XSLT 之類的工具。
 - 將原則匯入在 HDInsight 上執行的 Ranger。
 
 ## <a name="next-steps"></a>後續步驟

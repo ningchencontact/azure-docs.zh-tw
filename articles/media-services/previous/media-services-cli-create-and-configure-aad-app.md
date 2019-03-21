@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 31a42e316dab3d751fffa3353200c0185c56ee9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 93a77c64e82c39f8f967a3549fafecfae59b194b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997116"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993539"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>使用 Azure CLI 來建立 Azure AD 應用程式，並設定它以存取媒體服務 API 
 
 此主題說明如何使用 Azure CLI 來建立 Azure Active Directory (Azure AD) 應用程式和服務主體，以存取「Azure 媒體服務」資源。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
 - 媒體服務帳戶。 如需詳細資訊，請參閱[使用 Azure 入口網站建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)。

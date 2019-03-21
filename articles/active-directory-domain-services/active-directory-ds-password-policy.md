@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5fc50aeeb2764f90a111c2466ff5a9deefe1e65c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167983"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085998"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>受控網域上的密碼和帳戶鎖定原則
 此文章說明受控網域上的預設密碼原則。 它也涵蓋如何設定這些原則。
@@ -89,28 +89,28 @@ ms.locfileid: "55167983"
 7. 在右側的 [工作] 面板上，按一下 [新增]，然後按一下 [密碼設定]。
 8. 在 [建立密碼設定] 對話方塊中，指定自訂密碼設定以套用成自訂 FGPP 的一部分。 請務必適當地設定優先順序以覆寫預設的 FGPP。
 
-  ![建立自訂 FGPP](./media/how-to/custom-fgpp.png)
+   ![建立自訂 FGPP](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **請務必從意外刪除選項中取消選取 [保護]。** 如果選取此選項，便無法儲存 FGPP。
-  >
-  >
+   > [!TIP]
+   > **請務必從意外刪除選項中取消選取 [保護]。** 如果選取此選項，便無法儲存 FGPP。
+   >
+   >
 
 9. 在 [直接套用至] 中，按一下 [新增] 按鈕。 在 [選取使用者或群組] 對話方塊中，按一下 [位置] 按鈕。
 
-  ![選取使用者和群組](./media/how-to/fgpp-applies-to.png)
+   ![選取使用者和群組](./media/how-to/fgpp-applies-to.png)
 
 10. 在 [位置] 對話方塊中，展開網域名稱，然後按一下 [AADDC 使用者]。 您現在可以從內建的使用者 OU 中選取要套用 FGPP 的群組。
 
-  ![選取群組所屬的 OU](./media/how-to/fgpp-container.png)
+    ![選取群組所屬的 OU](./media/how-to/fgpp-container.png)
 
 11. 輸入群組的名稱，然後按一下 [檢查名稱] 按鈕以驗證群組是否存在。
 
-  ![選取要套用 FGPP 的群組](./media/how-to/fgpp-apply-group.png)
+    ![選取要套用 FGPP 的群組](./media/how-to/fgpp-apply-group.png)
 
 12. 群組的名稱會顯示在 [直接套用至] 區段中。 按一下 [確定] 按鈕以儲存這些變更。
 
-  ![套用 FGPP](./media/how-to/fgpp-applied.png)
+    ![套用 FGPP](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **針對自訂 OU 中的使用者帳戶套用自訂密碼原則：** 已微調的密碼原則只能套用到群組。 若要只針對來自自訂 OU 的使用者設定自訂密碼原則，請建立一個包含該 OU 中使用者的群組。

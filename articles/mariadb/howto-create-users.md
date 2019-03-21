@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 019c4eca564c503913a488a1d1ee5e4046ff320a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542122"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089874"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>在適用於 MariaDB 的 Azure 資料庫中建立使用者 
 本文描述如何在適用於 MariaDB 的 Azure 資料庫中建立使用者。
@@ -80,7 +80,7 @@ ms.locfileid: "53542122"
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-如需使用者帳戶管理的詳細資訊，請參閱 MariaDB 文件中的[使用者帳戶管理](https://mariadb.com/kb/en/library/user-account-management/)、[GRANT 語法](https://mariadb.com/kb/en/library/grant/)和[權限](https://mariadb.com/kb/en/library/grant/#privilege-levels)。
+   如需使用者帳戶管理的詳細資訊，請參閱 MariaDB 文件中的[使用者帳戶管理](https://mariadb.com/kb/en/library/user-account-management/)、[GRANT 語法](https://mariadb.com/kb/en/library/grant/)和[權限](https://mariadb.com/kb/en/library/grant/#privilege-levels)。
 
 ## <a name="next-steps"></a>後續步驟
 針對新使用者電腦的 IP 位址開啟防火牆，讓使用者能夠連線：[使用 Azure 入口網站建立和管理適用於 MariaDB 的 Azure 資料庫防火牆規則](howto-manage-firewall-portal.md)  

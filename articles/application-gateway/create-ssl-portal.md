@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159412"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091829"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>使用 Azure 入口網站設定包含 SSL 終止的應用程式閘道
 
@@ -29,6 +29,8 @@ ms.locfileid: "54159412"
 > * 建立用來作為後端伺服器的虛擬機器
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -76,12 +78,12 @@ Export-PfxCertificate \
 4. 接受其他設定的預設值，然後按一下 [確定]。
 5. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
 
-    - myVNet - 作為虛擬網路的名稱。
-    - 10.0.0.0/16 - 作為虛擬網路位址空間。
-    - myAGSubnet - 作為子網路名稱。
-    - 10.0.0.0/24 - 作為子網路位址空間。
+   - myVNet - 作為虛擬網路的名稱。
+   - 10.0.0.0/16 - 作為虛擬網路位址空間。
+   - myAGSubnet - 作為子網路名稱。
+   - 10.0.0.0/24 - 作為子網路位址空間。
 
-    ![建立虛擬網路](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![建立虛擬網路](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. 按一下 [確定] 以建立虛擬網路和子網路。
 7. 依序按一下 [選擇公用 IP 位址]、[新建]，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress。 接受其他設定的預設值，然後按一下 [確定]。
@@ -132,7 +134,7 @@ Export-PfxCertificate \
 2. 執行下列命令以在虛擬機器上安裝 IIS： 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -143,17 +145,17 @@ Export-PfxCertificate \
       -Location EastUS
     ```
 
-3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 myVM2 作為其名稱，及作為 Set-AzureRmVMExtension 中的 VMName。
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 输入 *myVM2* 作为其名称，并将其用于 Set-AzVMExtension 中的 VMName。
 
 ### <a name="add-backend-servers"></a>新增後端伺服器
 
-3. 按一下 [所有資源]，然後按一下 [myAppGateway]。
-4. 按一下 [後端集區]。 已自動建立具有應用程式閘道的預設集區。 按一下 [appGatewayBackendPool]。
-5. 按一下 [新增目標]，將您所建立的每個虛擬機器新增至後端集區。
+1. 按一下 [所有資源]，然後按一下 [myAppGateway]。
+1. 按一下 [後端集區]。 已自動建立具有應用程式閘道的預設集區。 按一下 [appGatewayBackendPool]。
+1. 按一下 [新增目標]，將您所建立的每個虛擬機器新增至後端集區。
 
     ![新增後端伺服器](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. 按一下 [檔案] 。
+1. 按一下 [檔案] 。
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 

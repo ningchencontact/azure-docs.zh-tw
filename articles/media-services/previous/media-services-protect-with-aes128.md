@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 357cf832f8878364965c8d8a85d7af8c5a2bc21c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a0ec87f2afb8e2a18727fe6dd62547e6ad6ecfac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841050"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 動態加密和金鑰傳遞服務
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ ms.locfileid: "55992072"
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-您可以使用 [Azure 媒體服務播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)來測試您的串流。
+您可以使用 [Azure 媒體服務播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)來測試您的串流。
 
 ## <a id="client_request"></a>您的用戶端如何從金鑰傳遞服務要求金鑰？
 在上一個步驟中，您可以建構指向資訊清單檔案的 URL。 您的用戶端必須從串流資訊清單檔案擷取所需的資訊，才能向金鑰傳遞服務提出要求。

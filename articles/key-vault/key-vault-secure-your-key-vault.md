@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 320a23e425ecb11e36af3efe988b25e598948132
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118508"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862857"
 ---
 # <a name="secure-access-to-a-key-vault"></a>針對金鑰保存庫的存取進行保護
 
@@ -62,12 +62,12 @@ Azure Key Vault 是用來保護加密金鑰和祕密 (例如憑證、連接字�
 
 ## <a name="management-plane-and-rbac"></a>管理平面和 RBAC
 
-在管理平面中，您可以使用 RBAC 來對呼叫者可以執行的作業進行授權。 在 RBAC 模型中，每個 Azure 訂用帳戶都會有一個 Azure AD 執行個體。 您可以對來自該目錄的使用者、群組和應用程式授與存取權。 授與存取權即可在 Azure 訂用帳戶中管理使用 Azure Resource Manager 部署模型的資源。 若要授與存取權，請使用 [Azure 入口網站](https://portal.azure.com/)、[Azure CLI](../cli-install-nodejs.md)、[Azure PowerShell](/powershell/azureps-cmdlets-docs) 或 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)。
+管理平面，在中，您可以使用 RBAC （角色型存取控制） 來授權呼叫者可以執行的作業。 在 RBAC 模型中，每個 Azure 訂用帳戶都會有一個 Azure AD 執行個體。 您可以對來自該目錄的使用者、群組和應用程式授與存取權。 授與存取權即可在 Azure 訂用帳戶中管理使用 Azure Resource Manager 部署模型的資源。 若要授與存取權，請使用 [Azure 入口網站](https://portal.azure.com/)、[Azure CLI](../cli-install-nodejs.md)、[Azure PowerShell](/powershell/azureps-cmdlets-docs) 或 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)。
 
 您可以使用 Azure AD 在資源群組中建立金鑰保存庫和管理存取權。 您可以對使用者或群組授與在資源群組中管理金鑰保存庫的能力。 您可以藉由指派適當的 RBAC 角色，來授與特定範圍層級的存取權。 若要對使用者授與管理金鑰保存庫的權限，您可以在特定範圍對使用者指派預先定義的 `key vault Contributor` 角色。 您可以對 RBAC 角色指派下列範圍層級：
 
 - 訂用帳戶：在訂用帳戶層級指派的 RBAC 角色，會套用至該訂用帳戶內的所有資源群組和資源。
-- **資源群組**：在資源群組層級指派的 RBAC 角色，會套用至該資源群組內的所有資源。
+- **资源组**：在資源群組層級指派的 RBAC 角色，會套用至該資源群組內的所有資源。
 - **特定資源**：針對特定資源指派的 RBAC 角色，則會套用至該資源。 在此情況下，資源會是特定的金鑰保存庫。
 
 有數個預先定義的角色。 如果預先定義的角色不符合您的需求，您可以定義您自己的角色。 如需詳細資訊，請參閱[RBAC：內建角色](../role-based-access-control/built-in-roles.md)。

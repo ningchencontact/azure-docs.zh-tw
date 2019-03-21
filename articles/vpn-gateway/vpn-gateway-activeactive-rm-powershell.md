@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: d1c5ea0ae60894e810d2f4eb0edff2126171a220
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 4c5a7a138a2b491867c5c4ba7234415036c8ba0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417103"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100831"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>設定 Azure VPN 閘道的主動-主動 S2S VPN 連線
 
@@ -36,10 +36,8 @@ ms.locfileid: "56417103"
 
 > [!IMPORTANT]
 > 主動-主動模式僅使用下列 SKU： 
-  * VpnGw1、VpnGw2、VpnGw3
-  * HighPerformance (對於舊版 SKU)
-> 
-> 
+>   * VpnGw1、VpnGw2、VpnGw3
+>   * HighPerformance (對於舊版 SKU)
 
 ## <a name ="aagateway"></a>第 1 部分 - 建立並設定主動-主動 VPN 閘道
 以下步驟會將您的 Azure VPN 閘道設定為主動-主動模式。 主動-主動和作用中-待命閘道之間的重要差異：
@@ -86,7 +84,7 @@ $Connection152 = "VNet1toSite5_2"
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2.連接至您的訂用帳戶並建立新的資源群組
 請確定您切換為 PowerShell 模式以使用資源管理員 Cmdlet。 如需詳細資訊，請參閱 [搭配使用 Windows PowerShell 與 Resource Manager](../powershell-azure-resource-manager.md)。
 
-開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
+開啟 PowerShell 主控台並連接到您的帳戶。 使用下面的示例来帮助连接：
 
 ```powershell
 Connect-AzAccount
@@ -222,7 +220,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $R
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-幾分鐘後應會建立連線，而一旦建立 IPsec 連線，BGP 對等工作階段就會啟動。 此範例中到目前為止只有設定一個內部部署 VPN 裝置，結果如下面圖表所示︰
+连接应在几分钟后建立，BGP 对等会话会在建立 IPsec 连接后启动。 此範例中到目前為止只有設定一個內部部署 VPN 裝置，結果如下面圖表所示︰
 
 ![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
@@ -255,7 +253,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $R
 ```
 
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3.第二個內部部署 VPN 裝置的 VPN 和 BGP 參數
-同樣地，以下列出您將輸入到第二個 VPN 裝置的參數︰
+下面列出了要输入到第二个 VPN 设备的参数：
 
 ```
 - Site5 ASN            : 65050
@@ -269,7 +267,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $R
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-一旦建立連線 (通道)，您就會有連線到您內部部署網路和 Azure 的雙重備援 VPN 裝置和通道：
+建立连接（隧道）后，便已获得了连接到本地网络和 Azure 的双重冗余 VPN 设备和隧道：
 
 ![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
@@ -281,10 +279,10 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $R
 ### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>步驟 1 - 建立 TestVNet2 和 VPN 閘道
 請務必確定新虛擬網路的 IP 位址空間 TestVNet2 不會與任何 VNet 範圍重疊。
 
-在此範例中，虛擬網路屬於相同的訂用帳戶。 您可以在不同訂用帳戶之間設定 VNet 對 VNet 連線，若要深入了解詳細資料，請參閱 [設定 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md) 。 請務必在建立連線時新增 "-EnableBgp $True"，才能啟用 BGP。
+在本示例中，虚拟网络属于同一订阅。 您可以在不同訂用帳戶之間設定 VNet 對 VNet 連線，若要深入了解詳細資料，請參閱 [設定 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md) 。 請務必在建立連線時新增 "-EnableBgp $True"，才能啟用 BGP。
 
 #### <a name="1-declare-your-variables"></a>1.宣告變數
-請務必使用您想用於設定的值來取代該值。
+请务必将值替换为要用于配置的值。
 
 ```powershell
 $RG2 = "TestAARG2"
