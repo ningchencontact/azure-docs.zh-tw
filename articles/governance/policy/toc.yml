@@ -117,6 +117,11 @@ items:
     - name: 強制使用 Data Lake Store 加密
       displayName: deny
       href: samples/enforce-data-lake-store-encryption.md
+  - name: 來賓組態
+    items:
+    - name: 稽核 Linux 上已安裝的應用程式
+      displayName: audit, vm
+      href: samples/guest-configuration-applications-installed-linux.md
   - name: 金鑰保存庫
     items:
     - name: 稽核無虛擬網路端點的保存庫
@@ -286,9 +291,9 @@ items:
       href: /powershell/module/az.resources/#policies
     - name: Policy Insights
       href: /powershell/module/az.policyinsights#policy_insights
-    - name: 來賓設定 (預覽)
-      href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
-  - name: REST API
+    - name: 來賓組態
+      href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
+  - name: REST
     items:
     - name: 活動
       href: /rest/api/policy-insights/policyevents
@@ -304,7 +309,7 @@ items:
       href: /rest/api/policy-insights/policytrackedresources
     - name: 補救
       href: /rest/api/policy-insights/remediations
-    - name: 來賓設定 (預覽)
+    - name: 來賓組態
       href: /rest/api/guestconfiguration/
   - name: Resource Manager 範本
     items:
@@ -338,9 +343,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: c80c593f025511679cf0739f8f9f40a1097795b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 730222484658019c78fb2dfef94c474f3031769b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900687"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226125"
