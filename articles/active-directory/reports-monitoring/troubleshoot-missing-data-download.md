@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ba5f803f59263f9bfebfd4ec8635d5cdd6d90a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cfb56ea81abeeba83bee73356c682b3e9fae866f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171769"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292904"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>我在下載的 Azure Active Directory 活動記錄中無法找到所有資料
 
@@ -34,11 +34,11 @@ ms.locfileid: "56171769"
  
 ## <a name="cause"></a>原因
 
-當您在 Azure 入口網站中下載活動記錄時，我們會將級別限制為 5000 筆記錄，依最新記錄先排序。 
+當您下載活動記錄檔，在 Azure 入口網站中的時，我們將級別限制為 250,000 記錄，依最新的第一個排序。 
 
 ## <a name="resolution"></a>解決方案
 
-您可以利用 [Azure AD 報告 API](concept-reporting-api.md) 在任何指定時間點擷取最多一萬筆記錄。 我們建議的方法是[定期執行指令碼](tutorial-signin-logs-download-script.md)，呼叫報告 API 以增量方式來擷取一段時間的記錄 (例如，每天或每週)。 
+您可以利用 [Azure AD 報告 API](concept-reporting-api.md) 在任何指定時間點擷取最多一萬筆記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

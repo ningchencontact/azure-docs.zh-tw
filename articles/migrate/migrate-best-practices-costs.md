@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700633"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110270"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>針對移轉到 Azure 之工作負載評估成本及調整大小的最佳做法
 
@@ -40,17 +40,18 @@ ms.locfileid: "55700633"
 
 - **Azure 定價計算機**：您可以選取要預估的產品，例如 VM 與儲存體。 您可以將成本輸入到定價計算機，以建議成本預估。
 
- ![Azure 定價計算機](./media/migrate-best-practices-costs/pricing.png) *Azure 定價計算機*
+  ![Azure 定價計算機](./media/migrate-best-practices-costs/pricing.png) *Azure 定價計算機*
 
 - **Azure Migrate**：若要預估成本，您必須檢閱並考慮在 Azure 中執行您的工作負載所需的所有資源。 若要取得此資料，您可以建立您的資產清查，包括伺服器、VM、資料庫與儲存體。 您可以使用 Azure Migrate 來收集此資訊。
 
- - Azure Migrate 會探索並評量您的內部部署環境以提供清查。
- - Azure Migrate 可以對應 VM 之間的相依性並顯示此資訊，以便您可以對其有完整了解。
- - Azure Migrate 評量包含預估的成本。
+  - Azure Migrate 會探索並評量您的內部部署環境以提供清查。
+  - Azure Migrate 可以對應 VM 之間的相依性並顯示此資訊，以便您可以對其有完整了解。
+  - Azure Migrate 評量包含預估的成本。
     - 計算成本：當您建立評量時，請使用建議的 Azure VM 大小，Azure Migrate 會使用計費 API 來計算預估的每月 VM 成本。 預估程序考慮了作業系統、軟體保證、保留執行個體、VM 運作時間、位置與貨幣設定。 它會在評量中彙總所有 VM 的成本，並計算每月總計算成本。
     - 儲存體成本：Azure Migrate 會透過在評量中彙總 VM 的儲存體成本，以計算每月總儲存體成本。 您可以透過彙總連結到特定機器之所有磁碟的每月成本，以計算該機器的每月儲存體成本。 
 
-    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png) *Azure Migrate 評量*
+    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png)
+    *Azure Migrate 評估*
 
 **深入了解：**
 - [使用](https://azure.microsoft.com/pricing/calculator/) Azure 定價計算機。
@@ -92,13 +93,13 @@ ms.locfileid: "55700633"
 
 Azure 提供數種儲存體資料類型。
 
-**資料類型** | **詳細資料** | **使用量** 
---- | --- |  ---
-**Blobs (英文)** | 經最佳化以儲存大量非結構化物件，例如文字或二進位資料<br/><br/> | 透過 HTTP/HTTPS 從任意位置存取資料。 | 針對串流與隨機存取案例使用。 例如，直接將影像與文件提供給瀏覽器、串流視訊與音訊，以及存放備份與災害復原資料。
-**檔案** | 透過 SMB 3.0 存取受控檔案共用 | 當移轉內部部署檔案共用時使用，並提供檔案資料的多個存取/連線。
-**磁碟** | 以分頁 Blob 為基礎。<br/><br/> 磁碟類型 (速度)：標準 (HDD 或 SSD) 或進階 (SSD)。<br/><br/>磁碟管理：非受控 (您負責管理磁碟設定與儲存體) 或受控 (您選取磁碟類型而 Azure 負責為您管理磁碟)。 | 為 VM 使用進階磁碟。 使用受控磁碟來獲得簡單的管理與規模調整。
-**佇列** | 存放及擷取大量訊息 (透過已驗 (HTTP 或 HTTPS) 存取) | 使用非同步訊息佇列連結應用程式元件。
-**資料表 (英文)** | 存放資料表。 | 現在是 Azure Cosmos DB 資料表 API 的一部分。
+| **資料類型** | **詳細資料** | **使用量** |
+|--- | --- |  --- |
+|**Blobs (英文)** | 經最佳化以儲存大量非結構化物件，例如文字或二進位資料<br/>透過 HTTP/HTTPS 從任意位置存取資料。 | 針對串流與隨機存取案例使用。 例如，直接將影像與文件提供給瀏覽器、串流視訊與音訊，以及存放備份與災害復原資料。|
+|**檔案** | 透過 SMB 3.0 存取受控檔案共用 | 當移轉內部部署檔案共用時使用，並提供檔案資料的多個存取/連線。|
+|**磁碟** | 以分頁 Blob 為基礎。<br/><br/> 磁碟類型 (速度)：標準 (HDD 或 SSD) 或進階 (SSD)。<br/><br/>磁碟管理：非受控 (您負責管理磁碟設定與儲存體) 或受控 (您選取磁碟類型而 Azure 負責為您管理磁碟)。 | 為 VM 使用進階磁碟。 使用受控磁碟來獲得簡單的管理與規模調整。|
+|**佇列** | 存放及擷取大量訊息 (透過已驗 (HTTP 或 HTTPS) 存取) | 使用非同步訊息佇列連結應用程式元件。|
+|**資料表 (英文)** | 存放資料表。 | 現在是 Azure Cosmos DB 資料表 API 的一部分。|
 
 
 
@@ -211,19 +212,21 @@ Microsoft 提供 Azure 成本管理來協助您追蹤費用，如下所示：
 
 
 - **建立預算**：建立財務責任的預算。
-    - 您可以納入您使用或訂閱的服務一段時間 (每月、每季、每年) 與範圍 (訂用帳戶/資源群組)。 例如，您可以針對每月、每季或每年期間建立 Azure 訂用帳戶預算。
-    - 建立預算之後，即會在成本分析中顯示它。 根據目前的費用檢視您的預算是分析成本與費用時必須執行的前幾個步驟之一。
-    - 達到預算閾值時，可以傳送電子郵件通知。
-    - 您可以將成本管理資料匯出到 Azure 儲存體進行分析。
+  - 您可以納入您使用或訂閱的服務一段時間 (每月、每季、每年) 與範圍 (訂用帳戶/資源群組)。 例如，您可以針對每月、每季或每年期間建立 Azure 訂用帳戶預算。
+  - 建立預算之後，即會在成本分析中顯示它。 根據目前的費用檢視您的預算是分析成本與費用時必須執行的前幾個步驟之一。
+  - 達到預算閾值時，可以傳送電子郵件通知。
+  - 您可以將成本管理資料匯出到 Azure 儲存體進行分析。
 
-    ![成本管理預算](./media/migrate-best-practices-costs/budget.png) *Azure 成本管理預算*
+    ![成本的管理預算](./media/migrate-best-practices-costs/budget.png)
+    *Azure 成本管理預算*
 
 - **執行成本分析**：取得成本分析以探索並分析您的組織成本，以協助您了解成本如何產生，並指出費用趨勢。
-    - EA 使用者可以使用成本分析功能。
-    - 您可以檢視一些範圍的成本分析資料，包括依部門、帳戶、訂用帳戶或資源群組來檢視。
-    - 您可以取得顯示當月份總成本的成本分析，以及累計每日成本。 
+  - EA 使用者可以使用成本分析功能。
+  - 您可以檢視一些範圍的成本分析資料，包括依部門、帳戶、訂用帳戶或資源群組來檢視。
+  - 您可以取得顯示當月份總成本的成本分析，以及累計每日成本。 
 
-    ![成本管理分析](./media/migrate-best-practices-costs/analysis.png) *Azure 成本管理分析*
+    ![成本管理分析](./media/migrate-best-practices-costs/analysis.png)
+    *Azure 成本管理分析*
 - **取得建議**：取得 Advisor 建議，其中顯示如何最佳化及改進效率。
 
 

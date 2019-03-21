@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ea76f28995dfa7f7dd5a6f280f8319f5b4ca26
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180755"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286579"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>可供使用應用程式 Proxy 單一登入應用程式的 Kerberos 限制委派
 
@@ -30,15 +30,15 @@ ms.locfileid: "56180755"
 您可以在 Active Directory 中提供應用程式 Proxy 連接器權限來模擬使用者，以使用「整合式 Windows 驗證」(IWA) 啟用應用程式的單一登入。 連接器會使用此權限來代表其傳送和接收權杖。
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>使用 KCD 單一登入的運作方式
-此圖表說明使用者嘗試存取採用 IWA 之內部部署應用程式時的流程。
+當使用者嘗試存取採用 IWA 之在內部部署應用程式時，此圖表會說明流程。
 
 ![Microsoft AAD 驗證流程圖](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. 使用者輸入 URL，以透過「應用程式 Proxy」存取內部部署應用程式。
+1. 使用者輸入 URL，以透過應用程式 Proxy 來存取在內部部署應用程式。
 2. 「應用程式 Proxy」將要求重新導向至 Azure AD 驗證服務，以進行預先驗證。 此時，Azure AD 會套用任何適用的驗證和授權原則，例如多重要素驗證。 若使用者通過驗證，Azure AD 會建立權杖並將它傳送給使用者。
 3. 使用者將權杖傳遞給「應用程式 Proxy」。
-4. 「應用程式 Proxy」會驗證權杖並從中擷取「使用者主體名稱」(UPN)，然後再透過雙重驗證安全通道，將要求、UPN 和「服務主體名稱」(SPN) 傳送至「連接器」。
-5. 「連接器」會與內部部署 AD 執行「Kerberos 限制委派」(KCD) 交涉，以模擬使用者將 Kerberos 權杖傳送至應用程式。
+4. 應用程式 Proxy 會驗證權杖，並擷取使用者主體名稱 (UPN)，並接著連接器 UPN 和服務主體名稱 (SPN) 透過雙重驗證安全通道。
+5. 連接器會執行與內部部署 AD 中，模擬使用者取得 Kerberos 權杖給應用程式的 Kerberos 限制委派 (KCD) 交涉。
 6. Active Directory 會將應用程式的 Kerberos 權杖傳送至「連接器」。
 7. 「連接器」會使用從 AD 接收的 Kerberos 權杖，將原始要求傳送至應用程式伺服器。
 8. 應用程式會傳送回應至「連接器」，然後再傳回至「應用程式 Proxy」服務，最後再傳回給使用者。
@@ -118,7 +118,7 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
 * 在內部有多個網域 (joe@us.contoso.com、joe@eu.contoso.com)，並且在雲端有單一網域 (joe@contoso.com)。
 * 在內部有無法路由傳送的網域名稱 (joe@contoso.usa)，並且在雲端有合法網域名稱。
 * 請勿在內部使用網域名稱 (joe)
-* 在內部部署和雲端中使用不同別名。 例如：joe-johns@contoso.com 對上 joej@contoso.com  
+* 在內部部署和雲端中，請使用不同的別名。 例如：joe-johns@contoso.com 對上 joej@contoso.com  
 
 使用應用程式 Proxy，您就可以選取要用來取得 Kerberos 票證的身分識別。 這項設定會因應用程式而異。 其中的一些選項適合不接受電子郵件地址格式的系統，另外的選項則設計用於替代登入。
 

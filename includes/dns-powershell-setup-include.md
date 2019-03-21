@@ -8,12 +8,12 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 9c0874199a21f7357ae387e7ac4a26267c6635fc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6f042b9bc971498310ec51d07a1eba7193b21b00
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56078502"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554671"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>針對 Azure DNS 設定 Azure PowerShell SDK
 
@@ -52,7 +52,7 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>登入您的 Azure 帳戶
 
-開啟 PowerShell 主控台並連接到您的帳戶。 如需詳細資訊，請參閱[搭配使用 PowerShell 與 Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md)。
+開啟 PowerShell 主控台並連接到您的帳戶。 如需詳細資訊，請參閱 <<c0> [ 登入](/powershell/azure/install-az-ps?view=azps-1.4.0#sign-in)。
 
 ```powershell
 Connect-AzureRmAccount

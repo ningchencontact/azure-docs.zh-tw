@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192637"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856255"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -30,7 +30,7 @@ ms.locfileid: "56192637"
 
 其中某些設定適用於 MFA 伺服器、Azure MFA 或兩者。
 
-| 功能 | 說明 |
+| 功能 | 描述 |
 | ------- | ----------- |
 | 帳戶鎖定 | 如果連續太多次驗證嘗試都遭到拒絕，就會在 Multi-Factor Authentication 服務中暫時鎖定帳戶。 這項功能僅適用於輸入 PIN 以進行驗證的使用者。 (MFA 伺服器) |
 | [封鎖/解除封鎖使用者](#block-and-unblock-users) | 用於封鎖 MSA 伺服器 (內部部署) 上的特定使用者，使其無法接收 Multi-Factor Authentication 要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 使用者自封鎖的時刻起，將持續封鎖 90 天。 |
@@ -44,7 +44,7 @@ ms.locfileid: "56192637"
 
 本節中的設定僅適用於 MFA 伺服器。
 
-| 功能 | 說明 |
+| 功能 | 描述 |
 | ------- | ----------- |
 | 伺服器設定 | 下載 MFA 伺服器並產生啟用認證，以初始化您的環境 |
 | [一次性略過](#one-time-bypass) | 允許使用者在有限時間內不需要執行雙步驟驗證即可驗證。 |
@@ -64,7 +64,7 @@ ms.locfileid: "56192637"
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至 [Azure Active Directory] > [MFA] > [封鎖/解除封鎖使用者]。
 3. 選取 [新增] 以封鎖使用者。
-4. 選取 [複寫群組]。 輸入 **username@domain.com** 作為已封鎖使用者的使用者名稱。 在 [原因] 欄位中輸入註解。
+4. 選取 [複寫群組]。 封鎖的使用者做為輸入的使用者名稱**使用者名稱\@domain.com**。 在 [原因] 欄位中輸入註解。
 5. 選取 [新增] 以完成封鎖使用者。
 
 ### <a name="unblock-a-user"></a>解除封鎖使用者
@@ -154,7 +154,7 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 2. 瀏覽至 [Azure Active Directory] > [MFA] > [單次許可]。
 3. 選取 [新增] 。
 4. 如有必要，請選取此許可的複寫群組。
-5. 輸入 **username@domain.com** 作為使用者名稱。 輸入許可需持續的秒數。 輸入許可的原因。
+5. 輸入使用者名稱**使用者名稱\@domain.com**。 輸入許可需持續的秒數。 輸入許可的原因。
 6. 選取 [新增] 。 時間限制會立即生效。 使用者必須在單次許可到期之前登入。
 
 ### <a name="view-the-one-time-bypass-report"></a>檢視單次許可報告
@@ -252,7 +252,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 使用者可以在一開始的註冊期間建立應用程式密碼。 使用者可選擇在註冊程序結束時建立應用程式密碼。
 
-使用者也可以在註冊後建立應用程式密碼。 可以透過 Azure 入口網站或 Office 365 入口網站中的設定來建立應用程式密碼。 如需使用者的詳細資訊和詳細步驟，請參閱[什麼是 Azure Multi-Factor Authentication 中的應用程式密碼？](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+使用者也可以在註冊後建立應用程式密碼。 如需使用者的詳細資訊和詳細步驟，請參閱[什麼是 Azure Multi-Factor Authentication 中的應用程式密碼？](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="trusted-ips"></a>信任的 IP
 
@@ -333,9 +333,9 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 使用者將其帳戶註冊進行 Azure Multi-Factor Authentication 時，會在您已啟用的選項中選擇慣用驗證方法。 [對我的帳戶進行雙步驟驗證設定](../user-help/multi-factor-authentication-end-user-first-time.md)中會提供使用者註冊程序的指引。
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 |:--- |:--- |
-| 電話通話 |撥打自動語音電話。 使用者可接聽電話並按電話鍵盤上的 # 進行驗證。 此電話號碼不會同步到內部部署 Active Directory。 |
+| 拨打电话 |撥打自動語音電話。 使用者可接聽電話並按電話鍵盤上的 # 進行驗證。 此電話號碼不會同步到內部部署 Active Directory。 |
 | 電話簡訊 |傳送包含驗證碼的簡訊。 系統會提示使用者在登入介面中輸入這個驗證碼。 此程序稱為「單向 SMS」。 雙向 SMS 表示使用者必須以簡訊回傳特定驗證碼。 雙向 SMS 已淘汰，且在 2018 年 11 月 14 之後不支援。 屆時，已設定雙向 SMS 的使用者將自動切換成_電話通話_驗證。|
 | 行動應用程式的通知 |將推播通知傳送至您的電話或已註冊的裝置。 使用者會看到通知，然後選取 [驗證] 來完成驗證。 Microsoft Authenticator 應用程式適用於 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)、[Android](https://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)。 |
 | 來自行動應用程式或硬體 Token 的驗證碼 |Microsoft Authenticator 應用程式每隔 30 秒會產生新的 OATH 驗證碼。 使用者會在登入介面中輸入此驗證碼。 Microsoft Authenticator 應用程式適用於 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)、[Android](https://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)。 |

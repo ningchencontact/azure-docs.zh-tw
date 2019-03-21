@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 7f162412a099078302bb348dab9ad3171f9e2913
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794493"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199489"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>開始使用 HDInsight 中的 Apache HBase 範例
 
@@ -33,7 +33,7 @@ ms.locfileid: "53794493"
 ## <a name="create-apache-hbase-cluster"></a>建立 Apache HBase 叢集
 下列程序會使用 Azure Resource Manager 範本建立 HBase 叢集和相依的預設 Azure 儲存體帳戶。 若要了解此程序與其他叢集建立方法中使用的參數，請參閱 [在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
-1. 按一下以下影像，在 Azure 入口網站中開啟範本。 範本位在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)。
+1. 按一下以下影像，在 Azure 入口網站中開啟範本。 範本位於[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)。
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. 從 [自訂部署] 刀鋒視窗，輸入下列值：
@@ -47,7 +47,7 @@ ms.locfileid: "53794493"
      
      其他參數都是選擇性的。  
      
-     每個叢集都具備 Azure 儲存體帳戶相依性。 刪除叢集之後，資料會保留在儲存體帳戶中。 叢集預設儲存體帳戶名稱是附加 "store" 的叢集名稱。 它會硬式編碼在範本變數區段中。
+     每个群集都有一个 Azure 存储帐户依赖项。 刪除叢集之後，資料會保留在儲存體帳戶中。 叢集預設儲存體帳戶名稱是附加 "store" 的叢集名稱。 它會硬式編碼在範本變數區段中。
 3. 選取 [我同意上方所述的條款及條件]，然後按一下 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
 > [!NOTE]  
@@ -81,7 +81,7 @@ ms.locfileid: "53794493"
     create 'Contacts', 'Personal', 'Office'
     list
     ```
-3. 插入一些資料：
+3. 插入一些数据：
     
     ```hbaseshell   
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -111,7 +111,7 @@ ms.locfileid: "53794493"
 
 HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請參閱 [大量載入](https://hbase.apache.org/book.html#arch.bulk.load)。
 
-您可以在公用 Blob 容器中找到資料檔案範例 (*wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*)。  資料檔案的內容：
+範例資料檔案可在公用 blob 容器中， *wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt*。  資料檔案的內容：
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -171,18 +171,18 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
     SELECT count(rowkey) FROM hbasecontacts;
     ```
 
-## <a name="use-hbase-rest-apis-using-curl"></a>使用 Curl 來使用 HBase REST API
+## <a name="use-hbase-rest-apis-using-curl"></a>通过 Curl 使用 HBase REST API
 
-透過 [基本驗證](https://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
+REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
 
-2. 使用下列命令列出現有的 HBase 資料表：
+1. 使用下列命令列出現有的 HBase 資料表：
 
     ```bash
     curl -u <UserName>:<Password> \
     -G https://<ClusterName>.azurehdinsight.net/hbaserest/
     ```
 
-3. 使用下列命令建立含兩個資料欄系列的新 HBase 資料表：
+1. 使用下列命令建立含兩個資料欄系列的新 HBase 資料表：
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -194,7 +194,7 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
     ```
 
     結構描述是以 JSON 格式提供。
-4. 使用下列命令插入一些資料：
+1. 使用下列命令插入一些資料：
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -212,7 +212,7 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
    * Sm9obiBEb2xl:John Dole
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) 可讓您插入多個 (批次) 值。
-5. 使用下列命令取得資料列：
+1. 使用下列命令取得資料列：
    
     ```bash 
     curl -u <UserName>:<Password> \
@@ -238,8 +238,8 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
    
 
 
-## <a name="check-cluster-status"></a>檢查叢集狀態
-HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，您可要求關於區域的統計資料或資訊。
+## <a name="check-cluster-status"></a>检查群集状态
+HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用该 Web UI 可以请求有关区域的统计或信息。
 
 **存取 HBase 主要 UI**
 
@@ -247,15 +247,15 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 2. 按一下左側功能表的 [HBase]。
 3. 按一下頁面頂端的 [快速連結]，指向使用中的 Zookeeper 節點連結，然後按一下 [HBase 主要 UI]。  UI 會在另一個瀏覽器索引標籤中開啟：
 
-  ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  HBase 主要 UI 包含下列區段：
+   HBase 主要 UI 包含下列區段：
 
-  - 區域伺服器
-  - 備份主機
-  - tables
-  - 工作
-  - 軟體屬性
+   - 區域伺服器
+   - 備份主機
+   - tables
+   - 工作
+   - 軟體屬性
 
 ## <a name="delete-the-cluster"></a>刪除叢集
 為了避免不一致，建議您在刪除叢集之前，先停用 HBase 資料表。
@@ -272,8 +272,6 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 若要深入了解，請參閱：
 
 * [HDInsight HBase 概觀][hdinsight-hbase-overview]：Apache HBase 是建置於 Apache Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大的一致性。
-
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: https://hbase.apache.org/book.html#importtsv

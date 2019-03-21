@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7d643f0c7885e64636a107d22ce332b1ba9371c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805492"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594673"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -35,7 +35,7 @@ ms.locfileid: "48805492"
 |  --------      |   ---------------                                                           | ------------- |
 | publisherId    | 要擷取之供應項目的發行者識別碼，例如 `contoso`       |  字串       |
 | offerId        | 要擷取之供應項目的供應項目識別碼                                   |  字串       |
-| api-version    | 最新版的 API                                                   |  日期         |
+| api-version    | API 的最新版本                                                   |  日期         |
 |  |  |  |
 
 
@@ -67,9 +67,9 @@ ms.locfileid: "48805492"
 
 ### <a name="response-status-codes"></a>回應狀態碼
 
-| **程式碼** |  ** 描述**                                                                        |
+| **代碼** |  **說明**                                                                        |
 | -------- |  ----------------                                                                        |
-|  202     | `Accepted` - 已順利接受要求。 回應會包含用來追蹤作業狀態的位置。 |
+|  202     | `Accepted`：已順利接受要求。 回應會包含用來追蹤作業狀態的位置。 |
 |  400     | `Bad/Malformed request` - 在回應本文中找到其他錯誤資訊。 |
 |  404     |  `Not found` - 指定的實體不存在。                                       |
 |  |  |

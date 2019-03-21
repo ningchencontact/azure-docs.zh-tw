@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d963cdd484727ac46aed1915643dd92462e2c643
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857801"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101460"
 ---
 # <a name="create-reviews-from-the-api-console"></a>從 API 主控台建立審查
 
@@ -33,35 +33,35 @@ ms.locfileid: "55857801"
 
 存取測試主控台的最簡單方式就是經由 [認證] 視窗。
 
-1.  在 [認證] 視窗中，選取[審查 API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)。
+1. 在 [認證] 視窗中，選取[審查 API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)。
 
-  [審查 - 建立] 頁面隨即開啟。
+   [審查 - 建立] 頁面隨即開啟。
 
-2.  針對 [開啟 API 測試主控台] 中，選取最能描述您位置的區域。
+2. 針對 [開啟 API 測試主控台] 中，選取最能描述您位置的區域。
 
-  ![[審查 - 建立] 頁面區域選取項目](images/test-drive-region.png)
+   ![[審查 - 建立] 頁面區域選取項目](images/test-drive-region.png)
 
-  [審查 - 建立] API 主控台隨即開啟。
+   [審查 - 建立] API 主控台隨即開啟。
   
-3.  針對必要的查詢參數、內容類型和您的訂用帳戶金鑰，輸入一些值。 在 [要求本文] 方塊中，指定內容 (例如，影像位置)、中繼資料及其他與內容相關聯的資訊。
+3. 針對必要的查詢參數、內容類型和您的訂用帳戶金鑰，輸入一些值。 在 [要求本文] 方塊中，指定內容 (例如，影像位置)、中繼資料及其他與內容相關聯的資訊。
 
-  ![[檢閱 - 建立] 主控台查詢參數、標頭和要求本文方塊](images/test-drive-review-1.PNG)
+   ![[檢閱 - 建立] 主控台查詢參數、標頭和要求本文方塊](images/test-drive-review-1.PNG)
   
-4.  選取 [傳送]。 隨即建立審查識別碼。 複製此識別碼以在下列步驟中使用。
+4. 選取 [傳送]。 隨即建立審查識別碼。 複製此識別碼以在下列步驟中使用。
 
-  ![[審查 - 建立] 主控台的 [回應內容] 方塊會顯示審查識別碼](images/test-drive-review-2.PNG)
+   ![[審查 - 建立] 主控台的 [回應內容] 方塊會顯示審查識別碼](images/test-drive-review-2.PNG)
   
-5.  選取 [取得]，然後藉由選取符合您區域的按鈕來開啟 API。 在結果頁面上，輸入 [teamName]、[ReviewID] 和 [訂閱金鑰] 的值。 選取頁面上的 [傳送] 按鈕。 
+5. 選取 [取得]，然後藉由選取符合您區域的按鈕來開啟 API。 在結果頁面上，輸入 [teamName]、[ReviewID] 和 [訂閱金鑰] 的值。 選取頁面上的 [傳送] 按鈕。 
 
-  ![審查 - 建立主控台的取得結果](images/test-drive-review-3.PNG)
+   ![審查 - 建立主控台的取得結果](images/test-drive-review-3.PNG)
   
-6.  您將會看到掃描的結果。
+6. 您將會看到掃描的結果。
 
-  ![[審查 - 建立] 主控台的 [回應內容] 方塊](images/test-drive-review-4.PNG)
+   ![[審查 - 建立] 主控台的 [回應內容] 方塊](images/test-drive-review-4.PNG)
   
-7.  在 Content Moderator 儀表板上，選取 [審查] > [影像]。 您已掃描的影像隨即出現，準備進行人力審查。
+7. 在 Content Moderator 儀表板上，選取 [審查] > [影像]。 您已掃描的影像隨即出現，準備進行人力審查。
 
-  ![足球的審查工具影像](images/test-drive-review-5.PNG)
+   ![足球的審查工具影像](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>後續步驟
 

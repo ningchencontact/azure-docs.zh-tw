@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138111"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286375"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的效能和級別
 
@@ -60,7 +60,7 @@ ms.locfileid: "58138111"
 
 ## <a name="storage-account-selection"></a>儲存體帳戶選取
 
-Durable Functions 所用的佇列、資料表和 blob 是由已設定的 Azure 儲存體帳戶所建立。 使用 **host.json** 檔案中的 `durableTask/azureStorageConnectionStringName` 設定，可以指定要使用的帳戶。
+設定 Azure 儲存體帳戶中建立佇列、 資料表和 Durable Functions 所使用的 blob。 使用 **host.json** 檔案中的 `durableTask/azureStorageConnectionStringName` 設定，可以指定要使用的帳戶。
 
 ### <a name="functions-1x"></a>Functions 1.x
 

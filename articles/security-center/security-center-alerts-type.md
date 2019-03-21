@@ -3,7 +3,7 @@ title: Azure 資訊安全中心不同類型的安全性警示 | Microsoft Docs
 description: 本文討論 Azure 資訊安全中心各種可用的安全性警示。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,22 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 3/20/2018
+ms.author: monhaber
+ms.openlocfilehash: 407d0610f919b1145a91e8678f57f8d344c9c187
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439678"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286358"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>了解 Azure 資訊安全中心的安全性警示
 本文可協助您了解 Azure 資訊安全中心各種可用的安全性警示和相關深入資訊的類型。 如需如何管理警示和事件的詳細資訊，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。
 
 若要設定進階偵測，請升級至 Azure 資訊安全中心標準版。 有免費試用版可用。 若要升級，請選取[安全性原則](tutorial-security-policy.md) 中的 [定價層]。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
-
-> [!NOTE]
-> 資訊安全中心已向有限預覽發行一組新的偵測，可運用通用稽核架構的 auditd 記錄來偵測 Linux 電腦上的惡意行為。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_linuxdetections@microsoft.com)，以加入預覽。
 
 ## <a name="what-type-of-alerts-are-available"></a>可以使用何種類型的警示？
 Azure 資訊安全中心會使用不同的[偵測功能](security-center-detection-capabilities.md)，向客戶警示以其環境為目標的潛在攻擊。 這些警示包含觸發警示的項目、鎖定為目標的資源，以及攻擊來源等重要資訊。 警示中包含的資訊會以用來偵測威脅的分析類型作為基礎而有所不同。 事件可能還會包含其他內容相關的資訊，在調查威脅時很有用。  本文提供下列警示類型的相關資訊：

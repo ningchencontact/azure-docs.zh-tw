@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d7943119ed29e03afb6b089a913d4ba2baddc166
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 69ee0c0add2895b30a60db577cc11c83a0e00bb8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854767"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>使用 Cloud Partner 入口網站建立新 IoT Edge 模組供應項目
 
@@ -34,7 +34,7 @@ ms.locfileid: "49432261"
 
 ## <a name="new-offer-form"></a>新增供應項目表單 
 
-登入 [Cloud Partner 入口網站](http://cloudpartner.azure.com/)後，選取左側的選單列上的 [+ 新增供應項目]。 在 [新增供應項目] 選單中，選取 [IoT Edge 模組] 以顯示 [新增供應項目] 表單，並開始定義新 IoT Edge 模組供應項目資產。 
+登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，選取左側的選單列上的 [+ 新增供應項目]。 在 [新增供應項目] 選單中，選取 [IoT Edge 模組] 以顯示 [新增供應項目] 表單，並開始定義新 IoT Edge 模組供應項目資產。 
 
 ![選擇新 IoT Edge 模組供應項目使用者介面](./media/new-iot-edge-module-offer.png)
 

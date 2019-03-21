@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 3aa3b29ef44d3efb21237dc0d82a1ee6e99e729b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 03501ea774cf58a4be88ed9155e5cfdfb99f0379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007185"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>在 Azure 中開始使用 Docker 和 Compose 定義並執行多容器應用程式
-藉由 [Compose](http://github.com/docker/compose)，您將可以使用簡單的文字檔來定義由多個 Docker 容器所組成的應用程式。 接著，您可以透過單一命令來啟動應用程式，此命令會執行所需的一切準備工作，以部署您的已定義環境。 舉例來說，本文將說明如何藉由 Ubuntu VM 上的後端 MariaDB SQL 資料庫來快速設定 WordPress 部落格。 您也可以使用 Compose 來設定更複雜的應用程式。
+借助 [Compose](https://github.com/docker/compose)，可以使用简单的文本文件定义由多个 Docker 容器组成的应用程序。 接著，您可以透過單一命令來啟動應用程式，此命令會執行所需的一切準備工作，以部署您的已定義環境。 作为示例，本文说明如何在 Ubuntu VM 上使用后端 MariaDB SQL 数据库快速设置 WordPress 博客。 您也可以使用 Compose 來設定更複雜的應用程式。
 
 本文最後一次測試是在 2019 年 2 月 14 日，使用 [Azure Cloud Shell](https://shell.azure.com/bash) 和 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 2.0.58 版進行的。
 
@@ -42,7 +42,7 @@ az group create --name myDockerGroup --location eastus
 #include https://get.docker.com
 ```
 
-現在，使用 [az vm create](/cli/azure/vm#az-vm-create) 建立 VM。 使用 `--custom-data` 參數以傳入 cloud-init 組態檔。 如果您將檔案儲存於目前工作目錄之外的位置，請提供 cloud-init.txt 組態的完整路徑。 下列範例會建立名為 *myDockerVM* 的 VM，並針對 Web 流量開啟連接埠 80。
+現在，使用 [az vm create](/cli/azure/vm#az-vm-create) 建立 VM。 使用 `--custom-data` 参数传入 cloud-init 配置文件。 如果您將檔案儲存於目前工作目錄之外的位置，請提供 cloud-init.txt 組態的完整路徑。 下列範例會建立名為 *myDockerVM* 的 VM，並針對 Web 流量開啟連接埠 80。
 
 ```azurecli-interactive
 az vm create \
@@ -118,7 +118,7 @@ Creating wordpress_wordpress_1...
 ```
 
 
-若要確認容器是否已啟動，請輸入 `sudo docker-compose ps`。 您應該會看到如下的內容：
+若要確認容器是否已啟動，請輸入 `sudo docker-compose ps`。 应看到类似如下的内容：
 
 ```
         Name                       Command               State         Ports
@@ -132,7 +132,7 @@ azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/
 ![WordPress 起始畫面](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 如需更多建置和部署多容器應用程式的範例，請參閱 [Compose command-line reference (Compose 命令列參考)](http://docs.docker.com/compose/reference/) 和[使用者指南](http://docs.docker.com/compose/)。
+* 如需更多建置和部署多容器應用程式的範例，請參閱 [Compose command-line reference (Compose 命令列參考)](https://docs.docker.com/compose/reference/) 和[使用者指南](https://docs.docker.com/compose/)。
 * 使用 Azure 資源管理員範本 (您自己的範本或 [社群](https://azure.microsoft.com/documentation/templates/)提供的範本) 部署包含 Docker 的 Azure VM，以及使用 Compose 設定的應用程式。 例如， [以 Docker 部署 WordPress 部落格](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) 範本使用 Docker 和 Compose，藉由 Ubuntu VM 上的 MySQL 後端快速部署 WordPress。
 * 嘗試整合 Docker Compose 與 Docker Swarm 叢集。 如需案例，請參閱[搭配使用 Compose 與 Swarm (英文)](https://docs.docker.com/compose/swarm/)。
 

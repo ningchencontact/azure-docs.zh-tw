@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 7b85faf2e1803b40f3f2f0e49c5672b96e7961f5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 0f96ee13e6020bc69508f8ced45741fe7dec396a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224338"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732874"
 ---
 # <a name="use-the-anomaly-finder-api-with-java"></a>搭配 Java 使用異常搜尋工具 API
 

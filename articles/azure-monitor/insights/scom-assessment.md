@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082835"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 
@@ -40,15 +40,15 @@ ms.locfileid: "55819853"
 
 ## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
 
-此解決方案適用於 Microsoft System Operations Manager 2012 Service Pack (SP) 1 和 2012 R2。
+此解決方案適用於 Microsoft System Center 2012 Operations Manager Service Pack 1、 Microsoft System Center 2012 R2 Operations Manager、 Microsoft System Center 2016 Operations Manager、 Microsoft System Center 2016 Operations Manager 和 Microsoft SystemCenter Operations Manager 1807
 
 請使用下列資訊來安裝和設定方案。
 
- - 在使用 Log Analytics 中的健康情況檢查解決方案之前，您必須先安裝解決方案。 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) 安裝解決方案。
+- 在使用 Log Analytics 中的健康情況檢查解決方案之前，您必須先安裝解決方案。 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) 安裝解決方案。
 
- - 將解決方案新增至工作區之後，儀表板上的 [System Center Operations Manager 健康情況檢查] 圖格會顯示額外設定必要的訊息。 按一下圖格，然後遵循頁面中所述的設定步驟
+- 將解決方案新增至工作區之後，儀表板上的 [System Center Operations Manager 健康情況檢查] 圖格會顯示額外設定必要的訊息。 按一下圖格，然後遵循頁面中所述的設定步驟
 
- ![System Center Operations Manager 儀表板圖格](./media/scom-assessment/scom-configrequired-tile.png)
+  ![System Center Operations Manager 儀表板圖格](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > System Center Operations Manager 的組態可以使用指令碼完成，方法為遵循 Log Analytics 中解決方案組態頁面中所述的步驟。
@@ -57,9 +57,9 @@ ms.locfileid: "55819853"
 1. [設定 System Center Operations Manager 健康情況檢查的執行身分帳戶](#operations-manager-run-as-accounts-for-log-analytics)  
 2. 設定 System Center Operations Manager 健全狀況檢查規則
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>收集 System Center Operations Manager 評定資料的詳細資料
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>System Center Operations Manager 健康情況檢查資料收集詳細資料
 
-System Center Operations Manager 評定會從下列來源收集資料：
+System Center Operations Manager 健康情況檢查方案會從下列來源收集資料：
 
 * 登錄
 * Windows Management Instrumentation (WMI)
@@ -97,7 +97,7 @@ Log Analytics 會建立工作負載的管理套件以提供加值服務。 每�
 2. 在 [散發] 索引標籤上，按一下 [選取的電腦] 方塊的 [新增]，並新增要做為帳戶散發目標的管理伺服器。  按 [確定] 兩次以儲存變更。
 3. 在 [執行身分設定] 下，按一下 [設定檔]。
 4. 搜尋「SCOM 評定設定檔」。
-5. 設定檔名稱應該是：Microsoft System Center Advisor SCOM 評定執行身分設定檔。
+5. 設定檔名稱應該是：*Microsoft System Center Operations Manager 健全狀況檢查執行身分設定檔*。
 6. 以滑鼠右鍵按一下其屬性並更新，然後新增您稍早建立的執行身分帳戶。
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>授與細微權限給執行身分帳戶的 SQL 指令碼
@@ -152,13 +152,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>設定健康情況檢查規則
 
-System Center Operations Manager 健康情況檢查解決方案的管理套件包含名為「Microsoft System Center Advisor SCOM 評定執行評定規則」的規則。 此規則負責執行健康情況檢查。 若要啟用規則和設定頻率，請使用下列程序。
+System Center Operations Manager 健康情況檢查解決方案的管理組件包含名為的規則*Microsoft System Center Operations Manager 執行健康情況檢查規則*。 此規則負責執行健康情況檢查。 若要啟用規則和設定頻率，請使用下列程序。
 
-根據預設，Microsoft System Center Advisor SCOM 評定執行評定規則已停用。 若要執行健康情況檢查，您必須在管理伺服器上啟用此規則。 使用下列步驟。
+根據預設，Microsoft System Center Operations Manager 執行健康情況檢查規則已停用。 若要執行健康情況檢查，您必須在管理伺服器上啟用此規則。 使用下列步驟。
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>針對特定的管理伺服器啟用此規則
 
-1. 在 Operations Manager Operations 主控台的 [撰寫] 工作區中，在 [規則] 窗格中搜尋規則「Microsoft System Center Advisor SCOM 評定執行評定規則」。
+1. 在  **Authoring**工作區的 Operations Manager Operations 主控台中，搜尋規則*Microsoft System Center Operations Manager 執行健康情況檢查規則*在**規則**  窗格。
 2. 在搜尋結果中，選取包含下列文字的規則：類型: 管理伺服器。
 3. 以滑鼠右鍵按一下規則，然後按一下 [覆寫] > [針對以下類別的特定物件: 管理伺服器]。
 4.  在可用的管理伺服器清單中，選取應該執行此規則的管理伺服器。  這應該是您先前所設定，要將執行身分帳戶與其產生關聯的同一個管理伺服器。
@@ -170,7 +170,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 
 依預設，評定會設為每 10,080 分鐘 (或 7 天) 執行一次。 您可以將值覆寫為最小值 1440 分鐘 (或一天)。 此值代表連續執行評定之間所需的最短時間間隔。 若要覆寫間隔，請使用下列步驟。
 
-1. 在 Operations Manager 主控台的 [撰寫] 工作區中，在 [規則] 區段中搜尋規則「Microsoft System Center Advisor SCOM 評定執行評定規則」。
+1. 在  **Authoring**工作區的 Operations Manager 主控台中，搜尋規則*Microsoft System Center Operations Manager 執行健康情況檢查規則*中**規則**一節。
 2. 在搜尋結果中，選取包含下列文字的規則：類型: 管理伺服器。
 3. 以滑鼠右鍵按一下規則，然後按一下 [覆寫規則] > [針對以下類別的所有物件: 管理伺服器]。
 4. 將 [間隔] 參數值變更為您想要的間隔值。 在下列範例中，此值設為 1440 分鐘 (一天)。<br><br> ![interval parameter](./media/scom-assessment/interval.png)<br>  
@@ -240,7 +240,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    以下是顯示記錄檔搜尋查詢的螢幕擷取畫面︰<br><br> ![log search](./media/scom-assessment/scom-log-search.png)<br>
+    以下是顯示記錄搜尋查詢的螢幕擷取畫面：<br><br> ![log search](./media/scom-assessment/scom-log-search.png)<br>
 
 3. 選擇您想要忽略的建議。 在下一個程序中，您將使用 RecommendationId 的值。
 
@@ -277,7 +277,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 
 是否有設定檢查執行頻率的方法？ 是。 請參閱[設定執行頻率](#configure-the-run-frequency)。
 
-如果我在新增 System Center Operations Manager 評定解決方案之後探索了另一部伺服器，該伺服器也會受到檢查嗎？ 是，在探索之後，便會從那一刻起對它進行檢查，預設是每隔 7 天一次。
+*如果我新增 System Center Operations Manager 健康情況檢查方案後探索到另一部伺服器，則它會檢查嗎？* 是，在探索之後，便會從那一刻起對它進行檢查，預設是每隔 7 天一次。
 
 *負責收集資料之處理序的名稱為何？* AdvisorAssessment.exe
 

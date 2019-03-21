@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4494996ed54b25be71367dd3e3043023d0958074
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168137"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>教學課程：將 Azure Active Directory 與 StatusPage 整合
 
@@ -114,23 +114,25 @@ StatusPage 與 Azure AD 整合提供下列優點：
     ![設定單一登入](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
     | `https://<subdomain>.statuspage.io/` |
 
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL： 
+    
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-    > [!NOTE]
-    > 請透過 [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)連絡 StatusPage 支援小組，要求設定單一登入所需的中繼資料。 
-    >
-    >a. 從中繼資料複製簽發者值，然後貼至 [識別碼] 文字方塊中。
-    >
-    >b. 從中繼資料複製回覆 URL，然後貼至 [回覆 URL] 文字方塊中。
+   > [!NOTE]
+   > 請透過 [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)連絡 StatusPage 支援小組，要求設定單一登入所需的中繼資料。 
+   > 
+   > a. 從中繼資料複製簽發者值，然後貼至 [識別碼] 文字方塊中。
+   > 
+   > b. 從中繼資料複製回覆 URL，然後貼至 [回覆 URL] 文字方塊中。
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -156,15 +158,15 @@ StatusPage 與 Azure AD 整合提供下列優點：
 
 1. 在 [SSO 設定] 頁面上，執行下列步驟：
    
-    ![設定單一登入](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![設定單一登入](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-    ![設定單一登入](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![設定單一登入](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-    a. 在 [SSO 目標 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
+      a. 在 [SSO 目標 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
-    b. 在記事本中開啟下載的憑證，複製其內容，然後貼到 [憑證] 文字方塊中。 
+      b. 在記事本中開啟下載的憑證，複製其內容，然後貼到 [憑證] 文字方塊中。 
 
-    c. 按一下 [儲存組態]。
+      c. 按一下 [儲存組態]。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

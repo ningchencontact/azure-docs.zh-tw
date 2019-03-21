@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096260"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(已淘汰) 使用 Azure DevOps Services 搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式的完整 CI/CD 管線
 
@@ -204,14 +204,14 @@ Azure DevOps Services 可讓您[跨環境管理發行](https://www.visualstudio.
 
     在主要節點上執行的命令會使用 Docker CLI 和 Docker-Compose CLI 執行下列工作：
 
-    - 登入 Azure 容器登錄 (它使用 [變數] 索引標籤中定義的三個組建變數)
-    - 定義 **DOCKER_HOST** 變數來與 Swarm 端點 (:2375) 搭配使用
-    - 瀏覽到先前安全複製工作建立的 [deploy] 資料夾，其中包含 docker-compose.yml 檔案 
-    - 執行提取新映像的 `docker-compose` 命令，停止服務並移除服務，然後建立容器。
+   - 登入 Azure 容器登錄 (它使用 [變數] 索引標籤中定義的三個組建變數)
+   - 定義 **DOCKER_HOST** 變數來與 Swarm 端點 (:2375) 搭配使用
+   - 瀏覽到先前安全複製工作建立的 [deploy] 資料夾，其中包含 docker-compose.yml 檔案 
+   - 執行提取新映像的 `docker-compose` 命令，停止服務並移除服務，然後建立容器。
 
-    >[!IMPORTANT]
-    > 如先前畫面所示，讓 [在 STDERR 上失敗] 核取方塊保持未選取。 這個設定很種要，因為 `docker-compose` 會在標準錯誤輸出上印出數個診斷訊息 (例如容器已停止或已刪除)。 如果您選取該核取方塊，即使一切正常運作，Azure DevOps Services 仍會報告發行期間出現錯誤。
-    >
+     >[!IMPORTANT]
+     > 如先前畫面所示，讓 [在 STDERR 上失敗] 核取方塊保持未選取。 這個設定很種要，因為 `docker-compose` 會在標準錯誤輸出上印出數個診斷訊息 (例如容器已停止或已刪除)。 如果您選取該核取方塊，即使一切正常運作，Azure DevOps Services 仍會報告發行期間出現錯誤。
+     >
 1. 儲存這個新的發行管線。
 
 

@@ -1,6 +1,6 @@
 ---
 title: 調整媒體處理概觀 | Microsoft Docs
-description: 本主題為透過 Azure 媒體服務調整媒體處理的概觀。
+description: 本主题概述了如何使用 Azure 媒体服务调整媒体处理的规模。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a6549c68ec248720c81531d137d45909a4de55e9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 3a88c29739faca33794ce10de895c0439f007532
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998394"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294224"
 ---
 # <a name="scaling-media-processing-overview"></a>調整媒體處理概觀 
 此頁面提供調整媒體處理的方式及原因的概觀。 
@@ -26,7 +26,7 @@ ms.locfileid: "55998394"
 ## <a name="overview"></a>概觀
 媒體服務帳戶是與保留單元類型相關聯，後者決定媒體處理工作的速度。 您可以選擇下列的保留單元類型：**S1**、**S2** 或 **S3**。 例如，在執行相同編碼作業的前提下，使用 **S2** 保留單元類型的速度會比 **S1** 類型快。 如需詳細資訊，請參閱 [保留單元類型](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/)。
 
-除了指定保留單元類型之外，您還可以指定使用保留單元來佈建帳戶。 佈建的保留單元數目可決定指定帳戶中可同時處理的媒體工作數目。 例如，如果帳戶有五個保留單元，則只要有工作需要處理，就會同時執行五個媒體工作。 剩餘的工作會在佇列中等待，當執行中的工作完成時，就循序地挑選來處理。 如果帳戶未佈建任何保留單元，則會循序地挑選工作。 在此情況下，一件工作完成與下一件工作開始之間的等待時間，視系統中的資源可用性而定。
+除了指定保留單元類型之外，您還可以指定使用保留單元來佈建帳戶。 设置的预留单位数决定了给定帐户中可并发处理的媒体任务数。 例如，如果帳戶有五個保留單元，則只要有工作需要處理，就會同時執行五個媒體工作。 其余任务将排队等待，运行的任务完成后才选择它们以按顺序进行处理。 如果帳戶未佈建任何保留單元，則會循序地挑選工作。 在此情況下，一件工作完成與下一件工作開始之間的等待時間，視系統中的資源可用性而定。
 
 ## <a name="choosing-between-different-reserved-unit-types"></a>選擇不同的保留單元類型
 下表可協助您在不同編碼速度之間進行選擇時做出決定。 它也針對[可供您下載的影片](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)提供幾個基準測試案例來執行您自己的測試：

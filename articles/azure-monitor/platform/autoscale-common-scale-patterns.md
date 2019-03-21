@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 46d7520cce89d3f4204b9bf8f5da66506b1437fd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475249"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997251"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>常見的自動調整規模模式概觀
 本文說明一些在 Azure 中調整資源規模的常見模式。
@@ -54,7 +54,7 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 
 ## <a name="scale-based-on-custom-metric"></a>根據自訂計量調整規模
 
-您具有一個 Web 前端以及可與後端通訊的 API 層。
+您有 web 前端和後端進行通訊的 API 層。
 
 - 您想要根據前端的自訂事件來調整 API 層的規模 (例如：您想要根據購物車中的項目數來調整結帳程序)
 

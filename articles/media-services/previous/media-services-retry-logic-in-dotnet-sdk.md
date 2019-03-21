@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 909a68ff0fd78fbdd4870506d1ad579392036dbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999193"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294479"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Media Services SDK for .NET 中的重試邏輯  
 
@@ -37,49 +37,49 @@ ms.locfileid: "55999193"
 ## <a name="exception-types"></a>例外狀況類型
 下表描述 Media Services SDK for .NET 處理或未處理可能導致暫時性失敗的某些作業。  
 
-| 例外狀況 | Web 要求 | 儲存體 | 查詢 | SaveChanges |
+| 异常 | Web 要求 | 儲存體 | 查詢 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>如需詳細資訊，請參閱 [WebException 狀態碼](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus)一節。 |yes |是 |是 |yes |
-| DataServiceClientException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |yes |是 |yes |
-| DataServiceQueryException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |yes |是 |yes |
-| DataServiceRequestException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |yes |是 |yes |
-| DataServiceTransportException |否 |否 |yes |yes |
-| TimeoutException |yes |是 |是 |否 |
-| SocketException |yes |是 |是 |yes |
-| StorageException |否 |yes |否 |否 |
-| IOException |否 |yes |否 |否 |
+| WebException<br/>如需詳細資訊，請參閱 [WebException 狀態碼](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus)一節。 |是 |是 |是 |是 |
+| DataServiceClientException<br/> 有关详细信息，请参阅 [HTTP 错误和状态代码](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |yes |是 |是 |
+| DataServiceQueryException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |yes |是 |是 |
+| DataServiceRequestException<br/> 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |yes |是 |是 |
+| DataServiceTransportException |否 |否 |yes |是 |
+| TimeoutException |是 |是 |是 |否 |
+| SocketException |是 |是 |是 |是 |
+| StorageException |否 |是 |否 |否 |
+| IOException |否 |是 |否 |否 |
 
 ### <a name="WebExceptionStatus"></a> WebException 狀態碼
 下表顯示重試邏輯實作的 WebException 錯誤碼。 [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) 列舉定義狀態碼。  
 
-| 狀態 | Web 要求 | 儲存體 | 查詢 | SaveChanges |
+| 狀態 | Web 请求 | 儲存體 | 查詢 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| ConnectFailure |yes |是 |是 |yes |
-| NameResolutionFailure |yes |是 |是 |yes |
-| ProxyNameResolutionFailure |yes |是 |是 |yes |
-| SendFailure |yes |是 |是 |yes |
-| PipelineFailure |yes |是 |是 |否 |
-| ConnectionClosed |yes |是 |是 |否 |
-| KeepAliveFailure |yes |是 |是 |否 |
-| UnknownError |yes |是 |是 |否 |
-| ReceiveFailure |yes |是 |是 |否 |
-| RequestCanceled |yes |是 |是 |否 |
-| 逾時 |yes |是 |是 |否 |
-| ProtocolError <br/>ProtocolError 重試是由 HTTP 狀態碼處理所控制。 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |yes |是 |是 |yes |
+| ConnectFailure |是 |是 |是 |是 |
+| NameResolutionFailure |是 |是 |是 |是 |
+| ProxyNameResolutionFailure |是 |是 |是 |是 |
+| SendFailure |是 |是 |是 |是 |
+| PipelineFailure |是 |是 |是 |否 |
+| ConnectionClosed |是 |是 |是 |否 |
+| KeepAliveFailure |是 |是 |是 |否 |
+| UnknownError |是 |是 |是 |否 |
+| ReceiveFailure |是 |是 |是 |否 |
+| RequestCanceled |是 |是 |是 |否 |
+| 超时 |是 |是 |是 |否 |
+| ProtocolError <br/>ProtocolError 重試是由 HTTP 狀態碼處理所控制。 如需詳細資訊，請參閱 [HTTP 錯誤狀態碼](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |是 |是 |是 |是 |
 
 ### <a name="HTTPStatusCode"></a> HTTP 錯誤狀態碼
 當查詢和 SaveChanges 作業擲回 DataServiceClientException、DataServiceQueryException 或 DataServiceQueryException 時，StatusCode 屬性中會傳回 HTTP 錯誤狀態碼。  下表顯示重試邏輯實作的錯誤碼。  
 
-| 狀態 | Web 要求 | 儲存體 | 查詢 | SaveChanges |
+| 狀態 | Web 请求 | 儲存體 | 查詢 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| 401 |否 |yes |否 |否 |
-| 403 |否 |yes<br/>處理重試等待較久。 |否 |否 |
-| 408 |yes |是 |是 |yes |
-| 429 |yes |是 |是 |yes |
-| 500 |yes |是 |是 |否 |
-| 502 |yes |是 |是 |否 |
-| 503 |yes |是 |是 |yes |
-| 504 |yes |是 |是 |否 |
+| 401 |否 |是 |否 |否 |
+| 403 |否 |是<br/>處理重試等待較久。 |否 |否 |
+| 408 |是 |是 |是 |是 |
+| 429 |是 |是 |是 |是 |
+| 500 |是 |是 |是 |否 |
+| 502 |是 |是 |是 |否 |
+| 503 |是 |是 |是 |是 |
+| 504 |是 |是 |是 |否 |
 
 如果您想要看一下 Media Services SDK for .NET 重試邏輯的實際實作，請參閱 [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling)。
 

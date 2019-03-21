@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54122797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114620"
 ---
 Azure 虛擬機器 (VM) 會經歷不同狀態，這些狀態可以分成「佈建」和「電源」狀態。 本文的目的是要說明這些狀態，並具體指出何時會向客戶收取執行個體使用量費用。 
 
@@ -32,7 +32,7 @@ Azure 虛擬機器 (VM) 會經歷不同狀態，這些狀態可以分成「佈�
 State
 </th>
 <th>
-說明
+描述
 </th>
 <th>
 執行個體使用量計費
@@ -178,7 +178,7 @@ State
 <p><b>狀態</b></p>
 </td>
 <td width="366">
-<p>說明</p>
+<p>描述</p>
 </td>
 </tr>
 <tr>
@@ -255,14 +255,14 @@ State
 - **成功** – 使用者起始的動作已完成。
 
     ```
- "statuses": [ 
- {
+  "statuses": [ 
+  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
- }
- ]
+  }
+  ]
     ```
 
  
@@ -270,7 +270,7 @@ State
 - **失敗** – 代表失敗的作業。 請參閱錯誤碼，以取得詳細資訊和可能的解決方案。
 
     ```
- "statuses": [
+  "statuses": [
     {
       "code": "ProvisioningState/failed/InternalOperationError",
       "level": "Error",

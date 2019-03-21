@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d770e091c8786972e3f15a03fc5af9ec9445002
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 36534388b02a283db744c6ef362878f6232c5ecb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327794"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990697"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM 上的 SAP MaxDB、liveCache 與內容伺服器部署
 
@@ -158,7 +158,7 @@ ms.locfileid: "56327794"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56327794"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -334,7 +334,7 @@ SAP 目前支援 SAP MaxDB 7.9 版或更新版本，以便與 Azure 中 SAP NetW
 適用於 SAP MaxDB 的 Azure 儲存體最佳做法是依照[適用於 RDBMS 部署的 VM 儲存體結構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)一章中所提到的一般建議。
 
 > [!IMPORTANT]
-> 如同其他資料庫，SAP MaxDB 也有資料和記錄檔。 不過，在 SAP MaxDB 術語中，正確的詞彙是「磁碟區」(不是「檔案」)。 例如，有 SAP MaxDB 資料磁碟區和記錄磁碟區。 請勿與作業系統磁碟區混淆。 
+> 如同其他資料庫，SAP MaxDB 也有資料和記錄檔。 不过，在 SAP MaxDB 术语中，正确的词汇是“卷”（不是“文件”）。 例如，有 SAP MaxDB 数据卷和日志卷。 請勿與作業系統磁碟區混淆。 
 > 
 > 
 
@@ -431,7 +431,7 @@ SAP 目前支援：
 
 請從 [SAP 產品可用性對照表 (PAM)][sap-pam] 中，查看支援的 SAP Content Server 與 Microsoft IIS 最新版本。
 
-### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>針對 SAP 內容伺服器支援的 Microsoft Windows 和 Azure VM 類型
+### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>SAP 内容服务器支持的 Microsoft Windows 和 Azure VM 类型
 若要找出在 Azure 上支援 SAP 內容伺服器的 Windows 版本，請參閱︰
 
 * [SAP 產品可用性對照表 (PAM)][sap-pam]
@@ -440,7 +440,7 @@ SAP 目前支援：
 強烈建議使用最新版本的 Microsoft Windows Server。
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安裝 SAP 的 SAP 內容伺服器組態指導方針
-#### <a name="storage-configuration-foir-content-server-in-azure"></a>Azure 中適用於內容伺服器的儲存體設定
+#### <a name="storage-configuration-for-content-server-in-azure"></a>在 Azure 中的內容伺服器的儲存體設定
 如果您將 SAP 內容伺服器設定成將檔案儲存在 SAP MaxDB 資料庫中，則本文件中針對 SAP MaxDB 所描述的所有 Azure 儲存體最佳做法建議，也適用於 SAP 內容伺服器案例。 
 
 如果您設定 SAP 內容伺服器來將檔案儲存於檔案系統中，建議使用專用的邏輯磁碟機。 使用 Windows 儲存體空間也可讓您增加邏輯磁碟大小和 IOPS 輸送量，如[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所述。 
@@ -457,7 +457,7 @@ SAP 快取伺服器是一個額外的伺服器架構元件，可提供在本機�
 您有兩個選擇：
 
 1. **用戶端是後端 SAP 系統** - 如果已設定後端 SAP 系統來存取「SAP 內容伺服器」，則該 SAP 系統就是用戶端。 由於 SAP 系統和 SAP 內容伺服器都會部署於同一個 Azure 區域 (在相同的 Azure 資料中心)，所以它們實際上是彼此接近的。 因此，不需要有專用的 SAP 快取伺服器。 SAP UI 用戶端 (SAP GUI 或 Web 瀏覽器) 可直接存取 SAP 系統，而 SAP 系統會從 SAP 內容伺服器擷取文件。
-2. **用戶端是內部部署的 Web 瀏覽器** - 可以將「SAP 內容伺服器」設定成供 Web 瀏覽器直接存取。 在此情況下，在內部部署執行的 Web 瀏覽器就是 SAP 內容伺服器的用戶端。 內部部署的資料中心與 Azure 資料中心位於不同的實體位置 (最好彼此接近)。 您的內部部署資料中心是透過 Azure 站對站 VPN 或 ExpressRoute 連接到 Azure。 雖然這兩個選項提供安全的 VPN 網路連線至 Azure，但站對站網路連接不會在內部部署的資料中心與 Azure 資料中心之間提供網路頻寬和延遲 SLA。 若要加快文件的存取，您可以執行下列其中一項︰
+2. **客户端是本地 Web 浏览器** ：SAP 内容服务器可配置为由 Web 浏览器直接访问。 在此情況下，在內部部署執行的 Web 瀏覽器就是 SAP 內容伺服器的用戶端。 本地数据中心与 Azure 数据中心位于不同的物理位置（理想情况下相邻）。 您的內部部署資料中心是透過 Azure 站對站 VPN 或 ExpressRoute 連接到 Azure。 雖然這兩個選項提供安全的 VPN 網路連線至 Azure，但站對站網路連接不會在內部部署的資料中心與 Azure 資料中心之間提供網路頻寬和延遲 SLA。 若要加快文件的存取，您可以執行下列其中一項︰
    1. 安裝內部部署的「SAP 快取伺服器」，使其靠近內部部署的 Web 瀏覽器 (下圖中的選項)
    2. 設定 Azure ExpressRoute，提供內部部署的資料中心與 Azure 資料中心之間高速且低延遲的專用網路連接。
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: eb1c302bf1954492ba2a7a78d16fc697fdf4b687
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080432"
 ---
 # <a name="diagnose-and-troubleshoot"></a>診斷和疑難排解
 
@@ -43,16 +43,16 @@ ms.locfileid: "53556827"
 
 - 事件來源索引鍵遺漏必要的權限。
 
-    * 針對 IoT 中樞，您必須提供具有「服務連接」權限的索引鍵。
+  * 針對 IoT 中樞，您必須提供具有「服務連接」權限的索引鍵。
 
     ![組態][3]
 
-    * 如上圖所示，**iothubowner** 與 **service** 原則都會運作，因為兩者皆有**服務連接**權限。
-    * 針對事件中樞，您必須提供具有「接聽」權限的索引鍵。
+  * 如上圖所示，**iothubowner** 與 **service** 原則都會運作，因為兩者皆有**服務連接**權限。
+  * 針對事件中樞，您必須提供具有「接聽」權限的索引鍵。
   
     ![權限][4]
 
-    * 如上圖所示，**read**與 **manage** 原則都會運作，因為兩者皆有**接聽**權限。
+  * 如上圖所示，**read**與 **manage** 原則都會運作，因為兩者皆有**接聽**權限。
 
 - 您提供的取用者群組不是時間序列深入解析專用的。
 

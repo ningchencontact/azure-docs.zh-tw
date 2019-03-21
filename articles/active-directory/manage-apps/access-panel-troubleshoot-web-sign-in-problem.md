@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10a1f38b2c793bffb6061c6eefdccef7ac5c57b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7f7418c16d5d5312d2a9a7913da49941ef0a7870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204520"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090452"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>登入存取面板網站時遇到問題
 
@@ -168,23 +168,23 @@ ms.locfileid: "56204520"
 
 若要檢查使用者的多重要素驗證狀態，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  按一下瀏覽功能表中的 [使用者和群組]。
+4. 按一下瀏覽功能表中的 [使用者和群組]。
 
-5.  按一下 [所有使用者]。
+5. 按一下 [所有使用者]。
 
-6.  按一下窗格頂端的 [Multi-Factor Authentication] 按鈕。
+6. 按一下窗格頂端的 [Multi-Factor Authentication] 按鈕。
 
-7.  當 **Multi-Factor Authentication 管理網站**載入後，請確定您位於 [使用者] 索引標籤上。
+7. 當 **Multi-Factor Authentication 管理網站**載入後，請確定您位於 [使用者] 索引標籤上。
 
-8.  在使用者清單中搜尋、篩選或排序來尋找使用者。
+8. 在使用者清單中搜尋、篩選或排序來尋找使用者。
 
-9.  從使用者清單中選取使用者，然後視需要 [啟用]、[停用] 或 [強制執行] 多重要素驗證。
+9. 從使用者清單中選取使用者，然後視需要 [啟用]、[停用] 或 [強制執行] 多重要素驗證。
 
    >[!NOTE]
    >如果使用者處於 [已強制] 狀態，您可以暫時將他們設為 [已停用]，讓他們回到各自的帳戶。 使用者退回之後，您可以再次將他們的狀態變更為 [已啟用]，以要求他們在下次登入時重新註冊連絡資訊。 或者，您可以依照[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)中的步驟，為他們確認或設定此資料。

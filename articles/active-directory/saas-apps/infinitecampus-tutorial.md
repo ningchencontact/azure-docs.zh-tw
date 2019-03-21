@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53eb0c4ad5c0a21f46985062ef8202a87dc0d5e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>教學課程：Azure Active Directory 與 Infinite Campus 整合
 
@@ -40,7 +40,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 若要設定 Azure AD 與 Infinite Campus 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 已啟用 Infinite Campus 單一登入的訂用帳戶
+- 無限的校園單一登入啟用訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -49,7 +49,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
 - 除非必要，否則請勿使用生產環境。
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
-- 您至少需成為 Azure Active Directory 系統管理員才能完成設定。
+- 最小值，您需要為 Azure Active Directory 系統管理員，並有自己的校園產品安全性角色的 「 學生資訊系統 (SIS) 」 以完成設定。
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -90,7 +90,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Infinite Campus 測試使用者](#creating-a-infinite-campus-test-user)** - 使 Infinite Campus 中 Britta Simon 的對應使用者連結到該使用者在 Azure AD 中的代表身分。
+3. **[建立無限的校園測試使用者](#creating-a-infinite-campus-test-user)** -在無限的校園連結到使用者與 Azure AD 中代表 Britta Simon 的對應。
 4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
@@ -112,7 +112,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](common/editconfigure.png)
 
-4. 如果您有**服務提供者中繼資料檔案**，請在 [基本 SAML 設定] 區段上完成 4.a 到 4.d 的步驟，然後跳至步驟 11.c。 如果您沒有服務提供者中繼資料檔案，請跳至步驟 5。
+4. 在上**基本 SAML 組態**區段中，如果您有**服務提供者中繼資料檔案**匯出從無限的校園，完成步驟 4.a 透過 4.d，，然後跳至步驟 11.c。 如果您沒有服務提供者中繼資料檔案，請跳至步驟 5。
 
     a. 按一下 [上傳中繼資料檔案]。
 
@@ -168,13 +168,15 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     a. 選取 [啟用 SAML 單一登入]。
     
-    b. 在 [選取選項以擷取識別提供者 (IDP) 伺服器資料] 區段中，選取 [中繼資料 URL] 並在方塊中貼上**應用程式同盟中繼資料 Url**，然後按一下 [同步]。
+    b. 編輯**選用的屬性名稱**包含**名稱**
+    
+    c. 在 **選取一個選項來擷取身分識別提供者 (IDP) 伺服器資料**區段中，選取**中繼資料 URL**，貼上**應用程式同盟中繼資料 Url** （來自上述的步驟 6) 中方塊中，然後再按一下**同步**。
 
-    c. 按一下 [服務提供者中繼資料] 連結將**服務提供者中繼資料檔案**儲存至您的電腦，然後在 [基本 SAML 設定] 區段中上傳該檔案，以在 Azure 入口網站中自動填入 [識別碼] 和 [回覆 URL] 值 (請參閱步驟 4 以了解上傳及自動填入值，或者參閱步驟 5 以了解手動輸入)。
+    d. 按一下 [服務提供者中繼資料] 連結將**服務提供者中繼資料檔案**儲存至您的電腦，然後在 [基本 SAML 設定] 區段中上傳該檔案，以在 Azure 入口網站中自動填入 [識別碼] 和 [回覆 URL] 值 (請參閱步驟 4 以了解上傳及自動填入值，或者參閱步驟 5 以了解手動輸入)。
 
-    d. 按一下 [同步] 後，取得的值會自動填入 [SSO 服務提供者組態] 頁面中。
+    e. 按一下 [同步] 後，取得的值會自動填入 [SSO 服務提供者組態] 頁面中。
 
-    e. 按一下 [檔案] 。
+    f. 按一下 [檔案] 。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -194,14 +196,14 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中，輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
 
-### <a name="creating-a-infinite-campus-test-user"></a>建立 Infinite Campus 測試使用者
+### <a name="creating-an-infinite-campus-test-user"></a>建立無限的校園測試使用者
 
 Infinite Campus 具備以人口統計為中心的架構。 請連絡 [Infinite Campus 支援小組](mailto:sales@infinitecampus.com) 以在 Infinite Campus 平台中新增使用者。
 
@@ -233,7 +235,7 @@ Infinite Campus 具備以人口統計為中心的架構。 請連絡 [Infinite C
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 Infinite Campus 圖格時，應該會自動登入您的 Infinite Campus 應用程式。 如果您在管理 Azure AD 的同一個瀏覽器中登入 Infinite Camnpus 應用程式，請務必以測試使用者身分登入 Azure AD。 如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+當您在「存取面板」中按一下 Infinite Campus 圖格時，應該會自動登入您的 Infinite Campus 應用程式。 如果您登入無限的校園中的應用程式會管理 Azure AD 的相同瀏覽器，請確定您已登入 Azure AD 測試使用者身分。 如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

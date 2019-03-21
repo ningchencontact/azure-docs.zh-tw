@@ -11,22 +11,22 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 03/20/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236102"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295669"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>管理 Log Analytics 的使用量和成本
 
 > [!NOTE]
 > 本文說明如何藉由設定資料保留期間來控制 Log Analytics 的成本。  請參閱下列文章以了解相關資訊。
 > - [分析 Log Analytics 中的資料使用量](manage-cost-storage.md)說明如何分析資料使用量及提出警示。
-> - [監視使用量和估計成本](usage-estimated-costs.md)說明如何針對不同的定價模型，檢視多個 Azure 監視功能的使用量和估計成本。 其中也會說明如何變更定價模型。
+> - [監視使用量和估計成本](usage-estimated-costs.md)說明如何針對不同的定價模型，檢視多項 Azure 監視功能的使用量和估計成本。 其中也會說明如何變更定價模型。
 
 Log Analytics 是為縮放及支援每日大量資料的收集、索引編製和儲存而設計，這些資料來源可能位於您企業內部或部署於 Azure 中。  雖然這可能是您組織的主要推動力，但成本效率終究是最基本的推動力。 為此，務必了解 Log Analytics 工作區的成本不只是以收集的資料量為基礎，也取決於選取的方案，以及您為連線來源所產生的資料選擇了多長的儲存時間。  
 
@@ -112,13 +112,13 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 3. 在 [定價層] 下方選取定價層，然後按一下 [選取]。  
     ![選取的定價方案](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-如果您想要將工作區移至目前的定價層，則需要[在 Azure 監視器中變更訂用帳戶的監視定價模型](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model)，這將變更該訂用帳戶中所有工作區的定價層。
+如果您想要將工作區移至目前的定價層，則需要[在 Azure 監視器中變更訂用帳戶的監視定價模型](usage-estimated-costs.md#moving-to-the-new-pricing-model)，這將變更該訂用帳戶中所有工作區的定價層。
 
 > [!NOTE]
 > 如果您的工作區連結到自動化帳戶，必須先刪除任何**自動化和控制**解決方案以及取消連結自動化帳戶，才可以選取 [獨立 (每 GB)] 定價層。 在 [工作區] 刀鋒視窗的 [一般] 之下，按一下 [解決方案] 以查看和刪除解決方案。 若要取消連結自動化帳戶，請按一下 [定價層] 刀鋒視窗上的自動化帳戶名稱。
 
 > [!NOTE]
-> 您可以深入了解 (透過 ARM 設定定價層)[https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace]，以及如何確保不論訂用帳戶採用舊版定價模型還是新定價模型，ARM 部署都會成功。 
+> 您可以深入了解[設定定價層透過 ARM](template-workspace-configuration.md#create-a-log-analytics-workspace)以及如何確保您的 ARM 部署將會成功不論是否在訂用帳戶在傳統或新的定價模型。 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>針對 Log Analytics 為什麼不再收集資料的問題進行疑難排解
@@ -138,24 +138,12 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>針對使用量高於預期的原因進行疑難排解
 較高的使用量是由下列一個或兩個原因所造成：
-- 傳送到 Log Analytics 的資料比預期更多
 - 比預期更多的節點將資料傳送到 Log Analytics
+- 傳送到 Log Analytics 的資料比預期更多
 
-### <a name="data-volume"></a>資料量 
-在 [使用量和估計成本] 頁面上，[每個解決方案的資料擷取] 圖表會顯示所傳送的資料總量，以及每個解決方案所傳送的資料量。 這可讓您判斷各種趨勢，例如整體資料使用量 (或特定解決方案的使用量) 是否正在增長、穩定不變或正在減少。 用來產生此內容的查詢為：
+下一步 的區段總管
 
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-請注意，子句 "where IsBillable = true" 會篩選掉來自無擷取成本之特定解決方案的資料類型。 
-
-您可以進一步向下鑽研，以查看特定資料類型的資料趨勢，例如假設您想研究基於 IIS 記錄的資料：
-
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-### <a name="nodes-sending-data"></a>傳送資料的節點
+## <a name="understanding-nodes-sending-data"></a>了解節點傳送資料
 
 若要了解在上個月每一天回報資料的電腦 (節點) 數目，請使用
 
@@ -163,7 +151,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-若要取得傳送**計費資料類型**的電腦清單 (某些資料類型是免費的)，請使用 [_IsBillable](log-standard-properties.md#isbillable) 屬性：
+若要取得傳送**計費資料類型**的電腦清單 (某些資料類型是免費的)，請使用 [_IsBillable](log-standard-properties.md#_isbillable) 屬性：
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -171,9 +159,9 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-請謹慎使用這些 `union withsource = tt *` 查詢，因為執行跨資料類型掃描的費用相當高昂。 
+請謹慎使用這些 `union withsource = tt *` 查詢，因為執行跨資料類型掃描的費用相當高昂。 此查詢會取代舊有的查詢使用資料類型的每個電腦資訊的方式。  
 
-加以延伸，即可傳回每小時傳送計費資料類型的電腦計數：
+這可以延伸到傳回的每小時傳送的電腦計數計費資料類型 （這是 Log Analytics 如何計算可計費的節點舊版每節點定價層）：
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -181,13 +169,30 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-若要查看每部電腦擷取的可計費事件的**大小**，請使用大小以位元組計算的 `_BilledSize` 屬性：
+## <a name="understanding-ingested-data-volume"></a>了解內嵌的資料量 
+
+在 [使用量和估計成本] 頁面上，[每個解決方案的資料擷取] 圖表會顯示所傳送的資料總量，以及每個解決方案所傳送的資料量。 這可讓您判斷各種趨勢，例如整體資料使用量 (或特定解決方案的使用量) 是否正在增長、穩定不變或正在減少。 用來產生此內容的查詢為：
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+請注意，子句 "where IsBillable = true" 會篩選掉來自無擷取成本之特定解決方案的資料類型。 
+
+您可以進一步向下鑽研，以查看特定資料類型的資料趨勢，例如假設您想研究基於 IIS 記錄的資料：
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="data-volume-by-computer"></a>資料量 (依電腦)
+
+若要查看**大小**的可計費的事件，擷取每一部電腦，使用`_BilledSize`屬性 ([記錄檔-標準-屬性 #_billedsize.md](learn more)) 提供以位元組為單位的大小：
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-此查詢會取代使用「使用量」資料類型進行查詢的舊方法。 
+`_IsBillable`屬性會指定是否將內嵌的資料將會產生費用 ([記錄檔-標準-properties.md #_isbillable](Learn more)。)
 
 若要查看每部電腦所擷取的事件**計數**，請使用：
 
@@ -207,8 +212,29 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last `
 
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 資源、 資源群組或訂用帳戶的資料量
+
+對於裝載在 Azure 中的節點中的資料，您可以取得**大小**內嵌的可計費事件的__每部電腦__，使用`_ResourceId`屬性可提供資源的完整路徑 ([記錄檔-標準-properties.md #_resourceid](learn more)):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+
+對於裝載在 Azure 中的節點中的資料，您可以取得**大小**的可計費的事件內嵌__每個 Azure 訂用帳戶__，剖析`_ResourceId`屬性設為：
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+
+變更`subscriptionId`至`resourceGroup`會顯示依 Azure resouurce 群組的可計費的內嵌的資料磁碟區。 
+
+
 > [!NOTE]
 > [使用量] 資料類型的部分欄位雖然仍位於結構描述中，但皆已過時，且系統將不再填入其值。 這包括 [Computer]，以及其他與擷取相關的欄位 ([TotalBatches]、[BatchesWithinSla]、[BatchesOutsideSla]、[BatchesCapped]，以及 [AverageProcessingTimeMs])。
+
+### <a name="querying-for-common-data-types"></a>常見的資料類型的查詢
 
 若要更深入挖掘特定資料類型的資料來源，以下是一些實用的範例查詢：
 
@@ -241,7 +267,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 | AzureDiagnostics           | 變更資源記錄集合： <br> - 減少會將記錄傳送至 Log Analytics 的資源數目 <br> - 只收集必要的記錄 |
 | 電腦中不需要解決方案的方案資料 | 使用[方案目標](../insights/solution-targeting.md)，只從必要的電腦群組收集資料。 |
 
-### <a name="getting-node-counts"></a>取得節點計數 
+### <a name="getting-security-and-automation-node-counts"></a>取得安全性和自動化的節點計數 
 
 如果您是處於「每節點 (OMS)」定價層，則系統會根據您使用的節點和解決方案數目來向您收取費用，您需支付費用的見解與分析節點數目將會顯示在 [使用量和估計成本] 頁面上的資料表中。  
 
@@ -282,6 +308,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>當資料收集高於預期時建立警示
+
 本節說明在下列情況下如何建立警示：
 - 資料量超出指定的數量。
 - 資料量預計會超出指定的數量。

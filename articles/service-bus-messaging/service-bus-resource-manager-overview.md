@@ -14,14 +14,14 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: e23173b006fcc83f0e4b30b59a65e772b68a612d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 4fa9026405789a6a90bbb9213cc54346aa8374c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845397"
 ---
-# <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立服務匯流排資源
+# <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板创建服务总线资源
 
 本文說明如何使用 Azure Resource Manager 範本、PowerShell 和服務匯流排資源提供者來建立和部署服務匯流排資源。
 
@@ -39,8 +39,8 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
 * [建立服務匯流排命名空間](service-bus-resource-manager-namespace.md)
 * [建立服務匯流排命名空間與佇列](service-bus-resource-manager-namespace-queue.md)
 * [建立服務匯流排命名空間與主題和訂用帳戶](service-bus-resource-manager-namespace-topic.md)
-* [建立服務匯流排命名空間與佇列和授權規則](service-bus-resource-manager-namespace-auth-rule.md)
-* [建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
+* [创建包含队列和授权规则的服务总线命名空间](service-bus-resource-manager-namespace-auth-rule.md)
+* [创建包含主题、订阅和规则的服务总线命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 
@@ -56,7 +56,7 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
 
 如需部署 Azure Resource Manager 範本的完整資訊，請參閱[使用 Azure Resource Manager 範本部署資源][Deploy resources with Azure Resource Manager templates]。
 
-### <a name="install-powershell"></a>安裝 PowerShell
+### <a name="install-powershell"></a>安装 PowerShell
 
 依照下列指示安裝 Azure PowerShell：[開始使用 Azure PowerShell](/powershell/azure/get-started-azureps)。
 
@@ -66,7 +66,7 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "serviceBusNamespaceName": {
@@ -141,7 +141,7 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "serviceBusNamespaceName": {
@@ -181,7 +181,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>設定資源群組
 
-如果沒有現成的資源群組，請使用 **New-AzureRmResourceGroup ** 命令建立新的資源群組。 提供您要使用的資源群組名稱和位置。 例如︰
+如果沒有現有的資源群組，請使用 **New-AzureRmResourceGroup** 命令建立新的資源群組。 提供您要使用的資源群組名稱和位置。 例如︰
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
@@ -253,7 +253,7 @@ Parameters        :
 ```
 
 ## <a name="next-steps"></a>後續步驟
-您現在已了解部署 Azure Resource Manager 範本的基本工作流程和命令。 如需更多的詳細資訊，請瀏覽下列連結內容：
+您現在已了解部署 Azure Resource Manager 範本的基本工作流程和命令。 有关更多详细信息，请访问以下链接：
 
 * [Azure Resource Manager 概觀][Azure Resource Manager overview]
 * [使用 Resource Manager 範本與 Azure PowerShell 來部署資源][Deploy resources with Azure Resource Manager templates]

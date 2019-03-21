@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121939"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>使用 Azure 入口網站來設定適用於 PostgreSQL 之 Azure 資料庫的計量警示 
 
@@ -60,21 +60,21 @@ ms.locfileid: "54243962"
 
 10. 設定 [電子郵件/簡訊/推播/語音] 動作類型。
     
-   選擇 [電子郵件 Azure 資源管理員角色] 來選取訂用帳戶擁有者、參與者和讀者，以接收通知。
+    選擇 [電子郵件 Azure 資源管理員角色] 來選取訂用帳戶擁有者、參與者和讀者，以接收通知。
    
-   如果您想要在警示引發時呼叫 Webhook，可選擇在 [Webhook] 欄位中提供有效的 URI。
+    如果您想要在警示引發時呼叫 Webhook，可選擇在 [Webhook] 欄位中提供有效的 URI。
 
-   完成時選取 [確定]。
+    完成時選取 [確定]。
 
-   ![動作群組](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![動作群組](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. 指定 [警示規則名稱]、[描述] 與 [嚴重性]。
 
-   ![動作群組](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![動作群組](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. 選取 [建立警示規則] 以建立警示。
 
-   在幾分鐘之內，警示會開始作用，且先前所述觸發。
+    在幾分鐘之內，警示會開始作用，且先前所述觸發。
 
 ## <a name="manage-your-alerts"></a>管理警示
 建立警示之後，您可以選取它，然後進行下列動作：
@@ -85,4 +85,4 @@ ms.locfileid: "54243962"
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [在警示中設定 webhook](../azure-monitor/platform/alerts-webhooks.md)。
-* 依照 [計量集合概觀](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 中的做法，確保您的服務可使用且有回應。
+* [大致了解指标收集](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

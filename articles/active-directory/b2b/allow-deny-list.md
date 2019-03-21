@@ -1,5 +1,5 @@
 ---
-title: 允許或封鎖對特定組織的 B2B 使用者的邀請 - Azure Active Directory |Microsoft Docs
+title: 允許或封鎖邀請到特定組織-Azure Active Directory |Microsoft Docs
 description: 說明系統管理員如何使用 Azure 入口網站或 PowerShell 設定存取或拒絕清單，以允許或封鎖來自特定網域的 B2B 使用者。
 services: active-directory
 ms.service: active-directory
@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1921def9f09df899a884aa402c5e0f4e9fc16824
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f1121b72bf631cbcee4c8d9502fd8a439c26fbf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181315"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440109"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>允許或封鎖對特定組織的 B2B 使用者的邀請
 

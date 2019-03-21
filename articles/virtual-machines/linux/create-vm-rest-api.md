@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412184"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447841"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>透過 REST API 建立使用 SSH 驗證的 Linux 虛擬機器
 
@@ -52,7 +52,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 以下是必要標頭：
 
-| 要求標頭   | 說明 |
+| 要求標頭   | 描述 |
 |------------------|-----------------|
 | *Content-Type:*  | 必要。 設定為 `application/json`。 |
 | *Authorization:* | 必要。 設定為無效的 `Bearer` [存取權杖](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)。 |
@@ -63,7 +63,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 以下是用來建立要求本文的常用定義：
 
-| Name                       | 必要 | 類型                                                                                | 說明  |
+| 名稱                       | 必要項 | 類型                                                                                | 描述  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | 字串                                                                              | 資源位置。 |
 | name                       |          | 字串                                                                              | 虛擬機器的名稱。 |
@@ -127,7 +127,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 }
 ```
 
-如需要求主文中可用定義的完整清單，請參閱[虛擬機器建立或更新要求本文定義](/rest/api/compute/virtualmachines/createorupdate#definitions)。
+如需要求主體中可用的定義的完整清單，請參閱[虛擬機器建立或更新要求主體定義](/rest/api/compute/virtualmachines/createorupdate#definitions)。
 
 ## <a name="sending-the-request"></a>傳送要求
 
@@ -137,7 +137,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 建立或更新虛擬機器的作業會有兩個成功的回應：
 
-| Name        | 類型                                                                              | 說明 |
+| 名稱        | 類型                                                                              | 描述 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 確定      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Created | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 建立時間     |

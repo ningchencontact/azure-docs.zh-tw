@@ -4,18 +4,20 @@ description: 使用 Windows 虛擬機器擴展集的 Resource Manager 範本將�
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895936"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760217"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>使用 Windows 虛擬機器擴展集的 Azure Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 您可以使用 Azure 監視器的 [Windows Azure 診斷 (WAD) 擴充功能](diagnostics-extension-overview.md)，從當作虛擬機器、雲端服務或 Azure Service Fabric 叢集一部分執行的客體作業系統 (客體 OS) 收集計量與記錄。 擴充功能可以將遙測資料傳送到先前連結的文章中所列的許多不同位置。  
 
@@ -27,7 +29,7 @@ ms.locfileid: "55895936"
 
 - 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 註冊您的訂用帳戶。 
 
-- 您需要安裝 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)，或可以使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。 
+- 您需要安裝 [Azure PowerShell](/powershell/azure)，或可以使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>設定 Azure 監視器作為資料接收器 
@@ -236,17 +238,17 @@ MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作�
 請使用 Azure PowerShell 來部署 Resource Manager 範本：  
 
 1. 啟動 PowerShell。 
-1. 使用 `Login-AzureRmAccount` 登入 Azure。
-1. 使用 `Get-AzureRmSubscription` 取得訂用帳戶清單。
+1. 使用 `Login-AzAccount` 登入 Azure。
+1. 使用 `Get-AzSubscription` 取得訂用帳戶清單。
 1. 設定您要建立的訂用帳戶，或更新虛擬機器： 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. 為要部署的 VM 建立新的資源群組。 執行以下命令： 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -258,7 +260,7 @@ MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作�
    > 如果您想要更新現有擴展集，請將 **-Mode Incremental** 新增至命令的結尾。 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. 部署成功之後，您應該會在 Azure 入口網站中發現虛擬機器擴展集。 它應該會對 Azure 監視器發出計量。 

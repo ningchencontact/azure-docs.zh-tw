@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000395"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>使用網路監看員和 Grafana 來管理和分析網路安全性群組流量記錄
 
@@ -182,7 +182,7 @@ sudo dpkg -i grafana_4.5.1_amd64.deb
 sudo service grafana-server start
 ```
 
-如需其他安裝資訊，請參閱[在 Debian/Ubuntu 上安裝](http://docs.grafana.org/installation/debian/)。
+如需其他安裝資訊，請參閱[在 Debian/Ubuntu 上安裝](https://docs.grafana.org/installation/debian/)。
 
 #### <a name="add-the-elasticsearch-server-as-a-data-source"></a>將 ElasticSearch 伺服器新增為資料來源
 

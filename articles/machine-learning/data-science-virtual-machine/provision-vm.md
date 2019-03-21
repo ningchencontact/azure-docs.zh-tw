@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 8ee424412c9c54dadef7391084e3ab976da9ad7f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417443"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896257"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 
@@ -44,7 +44,7 @@ DSVM 中包含下列工具：
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) - 快速的機器學習系統，支援線上雜湊，allreduce、簡化、learning2search、主動式和互動式學習等技巧
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) - 此工具可提供快速且正確的推進式決策樹實作
   * [Rattle](https://togaware.com/rattle/) - R 分析工具可讓您輕鬆地使用 R 架構開始進行資料分析與機器學習。其中包含 GUI 型資料探索，以及自動產生 R 程式碼來建立模型。
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) - Java 中的視覺化資料採礦和機器學習服務軟體
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/) - Java 中的視覺化資料採礦和機器學習服務軟體
   * [Apache Drill](https://drill.apache.org/) - 適用於 Apache Hadoop、NoSQL 和雲端儲存體的無結構描述 SQL 查詢引擎。 可支援 ODBC 和 JDBC 介面，以便從 PowerBI、Microsoft Excel 和 Tableau 等標準 BI 工具查詢 NoSQL 和檔案。
 * R 和 Python 語言的程式庫，可用於 Azure Machine Learning 和其他 Azure 服務
 * 包括 Git Bash 的 Git，可搭配原始程式碼存放庫 (包括 GitHub 和 Azure DevOps) 運作。 Git 會提供數個可在 Git Bash 和命令提示字元上存取的熱門 Linux 命令列公用程式。 範例包括 awk、sed、perl、grep、find、wget 和 curl。
@@ -71,7 +71,7 @@ DSVM 可快速啟動分析專案。 您可以用各種語言處理工作，包�
 
 ## <a name="prerequisite"></a>必要條件
 
-若要建立 Microsoft 資料科學虛擬機器，您必須具有 Azrue 訂用帳戶。 請參閱[取得 Azure 免費試用](http://azure.com/free)。
+若要建立 Microsoft 資料科學虛擬機器，您必須具有 Azrue 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.com/free)。
 
 ## <a name="create-your-dsvm"></a>建立您的 DSVM
 
@@ -229,4 +229,4 @@ Python SDK 會預先安裝在「Microsoft 資料科學虛擬機器」上。
 * 在檔案總管中，瀏覽至 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**，以取得在 R 中使用 RevoScaleR 程式庫的範例，其支援企業規模的資料分析。  
 * 閱讀文章：[您可以在 Data Science Virtual Machine 上做的十件事](https://aka.ms/dsvmtenthings)。
 * 了解如何使用 [Team Data Science Process](../team-data-science-process/index.yml)，以系統化方式建置端對端分析方案。
-* 瀏覽 [Azure AI 資源庫](http://gallery.cortanaintelligence.com)，可取得在 Azure 上使用 Azure Machine Learning 和相關資料服務的機器學習和資料分析範例。 我們也已經在虛擬機器的 [開始] 功能表與桌面上提供此資源庫的圖示。
+* 瀏覽 [Azure AI 資源庫](https://gallery.cortanaintelligence.com)，可取得在 Azure 上使用 Azure Machine Learning 和相關資料服務的機器學習和資料分析範例。 我們也已經在虛擬機器的 [開始] 功能表與桌面上提供此資源庫的圖示。

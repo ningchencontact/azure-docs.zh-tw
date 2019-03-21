@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888514"
 ---
 # <a name="work-with-databases-containers-and-items"></a>使用資料庫、容器和項目
 
@@ -92,7 +92,7 @@ Azure Cosmos 容器都有一組系統定義的屬性。 根據選擇的 API 不�
 Azure Cosmos 容器支援下列使用任一 Azure Cosmos API 的作業。
 
 | **作業** | **Azure CLI** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | 列舉資料庫中的容器 | 是* | 是 | 是 | 是 | NA | NA |
 | 讀取容器 | 是 | 是 | 是 | 是 | NA | NA |
 | 建立新容器 | 是 | 是 | 是 | 是 | NA | NA |
@@ -125,15 +125,15 @@ Azure Cosmos 項目可以根據選擇的 API，分別代表集合中的文件、
 Azure Cosmos 項目支援下列可使用任一 Azure Cosmos API 執行的作業。
 
 | **作業** | **Azure CLI** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | 插入、取代、刪除、更新插入、讀取 | 否 | yes | 是 | 是 | 是 | 是 |
 
 ## <a name="next-steps"></a>後續步驟
 
 您現在可以繼續了解如何在 Azure Cosmos 帳戶上佈建輸送量，或查看其他概念：
 
-* [如何在 Azure Cosmos 資料庫上設定佈建輸送量](how-to-provision-database-throughput.md)
-* [如何在 Azure Cosmos 容器上設定佈建輸送量](how-to-provision-container-throughput.md)
+* [如何設定 Azure Cosmos 資料庫上的佈建的輸送量](how-to-provision-database-throughput.md)
+* [如何在 Azure Cosmos 容器上設定佈建的輸送量](how-to-provision-container-throughput.md)
 * [邏輯分割區](partition-data.md)
 * [如何在 Azure Cosmos 容器上設定 TTL](how-to-time-to-live.md)
 * [如何使用變更摘要建置回應式應用程式](change-feed.md)

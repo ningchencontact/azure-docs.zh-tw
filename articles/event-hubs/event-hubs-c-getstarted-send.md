@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8c134ae9944517d6ae66fcd22e06bbfc599912b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6cb1f788f41fe07516d759b177e1d76405dd2bf8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076387"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529698"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 將事件傳送至 Azure 事件中樞
 
@@ -43,7 +43,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 現在，請繼續進行本教學課程中的下列步驟。
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>撰寫程式碼以便將訊息傳送到事件中樞
-本節示範如何撰寫 C 應用程式，以將事件傳送至事件中樞。 此程式碼會使用 [Apache Qpid 專案](http://qpid.apache.org/)中的 Proton AMQP 程式庫。 這與搭配使用服務匯流排佇列與主題與透過 C 的 AMQP 類似 (如[此範例中](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示)。 如需詳細資訊，請參閱 [Qpid Proton 文件](http://qpid.apache.org/proton/index.html) \(英文\)。
+本節示範如何撰寫 C 應用程式，以將事件傳送至事件中樞。 此程式碼會使用 [Apache Qpid 專案](https://qpid.apache.org/)中的 Proton AMQP 程式庫。 這與搭配使用服務匯流排佇列與主題與透過 C 的 AMQP 類似 (如[此範例中](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示)。 如需詳細資訊，請參閱 [Qpid Proton 文件](https://qpid.apache.org/proton/index.html) \(英文\)。
 
 1. 從 [Qpid AMQP Messenger 頁面](https://qpid.apache.org/proton/messenger.html)，遵循指示以安裝 Qpid Proton (視您的環境而定)。
 2. 若要編譯 Proton 程式庫，請安裝下列封裝：
@@ -51,10 +51,10 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
     ```shell
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. 下載 [Qpid Proton 程式庫](http://qpid.apache.org/proton/index.html)，並將它解壓縮，例如：
+3. 下載 [Qpid Proton 程式庫](https://qpid.apache.org/proton/index.html)，並將它解壓縮，例如：
    
     ```shell
-    wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
+    wget https://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
 4. 建立組建目錄、編譯並安裝：
@@ -66,7 +66,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. 在工作目錄中，使用下列程式碼建立一個稱為 **sender.c** 的新檔案。 請記得取代 SAS 索引鍵/名稱、事件中樞名稱和命名空間的值。 您也必須替代先前針對 **SendRule** 建立之金鑰的 URL 編碼版本。 您可以在 [這裡](http://www.w3schools.com/tags/ref_urlencode.asp)對其進行 URL 編碼。
+5. 在工作目錄中，使用下列程式碼建立一個稱為 **sender.c** 的新檔案。 請記得取代 SAS 索引鍵/名稱、事件中樞名稱和命名空間的值。 您也必須替代先前針對 **SendRule** 建立之金鑰的 URL 編碼版本。 您可以在 [這裡](https://www.w3schools.com/tags/ref_urlencode.asp)對其進行 URL 編碼。
    
     ```c
     #include "proton/message.h"

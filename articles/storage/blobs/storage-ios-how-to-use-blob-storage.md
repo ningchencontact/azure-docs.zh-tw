@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007273"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何使用 iOS 的 Blob 儲存體
 
@@ -48,7 +48,7 @@ ms.locfileid: "55811659"
     end
     ```
 
-3. 在終端機視窗中，巡覽至專案目錄並執行下列命令
+3. 在终端窗口中，导航到项目目录并运行以下命令
 
     ```shell    
     pod install
@@ -59,14 +59,14 @@ ms.locfileid: "55811659"
 ## <a name="framework"></a>Framework
 程式庫的另一個用法，是手動建立架構︰
 
-1. 首先，請下載或複製 [azure-storage-ios repo](https://github.com/azure/azure-storage-ios)。
+1. 首先，下载或克隆 [azure-storage-ios repo](https://github.com/azure/azure-storage-ios)。
 2. 移至 *azure-storage-ios* -> *Lib* -> *Azure 儲存體用戶端程式庫*，然後在 Xcode 中開啟 `AZSClient.xcodeproj`。
 3. 在 Xcode 左上方，將作用中配置從「Azure 儲存體用戶端程式庫」變更為「架構」。
-4. 建置專案 (⌘ + B)。 這會在您的桌面上建立 `AZSClient.framework` 檔案。
+4. 生成项目 (⌘+B)。 這會在您的桌面上建立 `AZSClient.framework` 檔案。
 
 您可以透過下列方式，將 Framework 檔案匯入至您的應用程式：
 
-1. 建立新的專案，或在 Xcode 中開啟現有的專案。
+1. 在 Xcode 中创建一个新项目或打开现有项目。
 2. 將 `AZSClient.framework` 拖曳到您的 Xcode 專案導覽器。
 3. 選取 [必要時複製項目]，然後按一下 [完成]。
 4. 按一下左側導覽列中的專案，然後按一下專案編輯器頂端的 [一般]  索引標籤。
@@ -124,7 +124,7 @@ ms.locfileid: "55811659"
 }
 ```
 
-您可以查看 [Microsoft Azure 儲存體總管](http://storageexplorer.com) ，並驗證 *newcontainer* 位於儲存體帳戶的容器清單中，以確認運作正常。
+您可以查看 [Microsoft Azure 儲存體總管](https://storageexplorer.com) ，並驗證 *newcontainer* 位於儲存體帳戶的容器清單中，以確認運作正常。
 
 ## <a name="set-container-permissions"></a>設定容器權限
 依預設會針對 [私人]  存取設定容器的權限。 不過，容器會提供幾個不同的容器存取選項：
@@ -162,7 +162,7 @@ ms.locfileid: "55811659"
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>將 Blob 上傳至容器
-如「Blob 服務概念」一節中所述，Blob 儲存體提供三種不同類型的 Blob：區塊 Blob、附加 Blob 和分頁 Blob。 Azure 儲存體 iOS 程式庫支援三種類型的 Blob。 在大部分情況下，建議使用區塊 Blob 的類型。
+如「Blob 服務概念」一節中所述，Blob 儲存體提供三種不同類型的 Blob：區塊 Blob、附加 Blob 和分頁 Blob。 Azure 儲存體 iOS 程式庫支援三種類型的 Blob。 大多数情况下，推荐使用块 Blob 类型。
 
 下列範例說明如何從 NSString 上傳區塊 Blob。 如果此容器中有相同名稱的 Blob 存在，此 Blob 的內容將會被覆寫。
 
@@ -203,7 +203,7 @@ ms.locfileid: "55811659"
 }
 ```
 
-您可以查看 [Microsoft Azure 儲存體總管](http://storageexplorer.com)，並驗證容器 *containerpublic* 包含 Blob *sampleblob*，以確認運作正常。 在此範例中我們使用公用容器，所以您也可以移至 Blob URI 來確認應用程式運作是否正常：
+您可以查看 [Microsoft Azure 儲存體總管](https://storageexplorer.com)，並驗證容器 *containerpublic* 包含 Blob *sampleblob*，以確認運作正常。 在此範例中我們使用公用容器，所以您也可以移至 Blob URI 來確認應用程式運作是否正常：
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -214,7 +214,7 @@ ms.locfileid: "55811659"
 
 * **continuationToken** - 接續權杖表示列出作業應從哪裡開始。 如果未提供權杖，則會從頭列出 Blob。 可以列出任何數目的 Blob，從零到設定的最大值皆可。 即使此方法傳回零個結果，如果 `results.continuationToken` 不是 nil，則可能會有服務上的更多 Blob 未列出。
 * **prefix** -您可以指定要用於 Blob 列出作業的前置詞。 只有開頭為此前置詞的 Blob 才會列出。
-* **useFlatBlobListing** - 如 [命名與參考容器和 Blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 一節中所述，雖然 Blob 服務是一般儲存體配置，雖然您可以路徑資訊為 Blob 命名，以建立虛擬階層。 不過目前不支援非一般列出。 不久後將有此功能。 目前，此值應為 **YES**。
+* **useFlatBlobListing** - 如 [命名與參考容器和 Blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 一節中所述，雖然 Blob 服務是一般儲存體配置，雖然您可以路徑資訊為 Blob 命名，以建立虛擬階層。 不過目前不支援非一般列出。 不久後將有此功能。 目前，此值应为 **YES**。
 * **blobListingDetails** - 您可以指定列出 Blob 時所要包含的項目
   * _AZSBlobListingDetailsNone_：僅列出已認可的 Blob，且不傳回 Blob 中繼資料。
   * _AZSBlobListingDetailsSnapshots_：列出已認可的 Blob 和 Blob 快照。
@@ -378,10 +378,10 @@ ms.locfileid: "55811659"
 您現在已經了解如何從 iOS 中使用 Blob 儲存體，請參考下列連結以深入了解 iOS 程式庫和儲存體服務。
 
 * [Azure Storage Client Library for iOS](https://github.com/azure/azure-storage-ios)
-* [Azure 儲存體 iOS 參考文件](http://azure.github.io/azure-storage-ios/)
-* [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure 儲存體 iOS 參考文件](https://azure.github.io/azure-storage-ios/)
+* [Azure 存储服务 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure 儲存體團隊部落格](https://blogs.msdn.com/b/windowsazurestorage)
 
-如果您有關於此程式庫的問題，歡迎您貼文到我們的 [MSDN Azure 論壇](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata)或 [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)。
+如果您有關於此程式庫的問題，歡迎您貼文到我們的 [MSDN Azure 論壇](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata)或 [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)。
 如果您有 Azure 儲存體功能方面的建議，請貼文到 [Azure 儲存體意見反應](https://feedback.azure.com/forums/217298-storage/)。
 

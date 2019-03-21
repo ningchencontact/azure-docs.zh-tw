@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 512417a228ed99a2f5b516f14084a5785bc0c1dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245162"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096736"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>如何對於文字分析認知服務尋找端點和存取金鑰
 
@@ -33,9 +33,9 @@ ms.locfileid: "56245162"
 
 4. 按一下連結來開啟服務刀鋒視窗。 您現在即可從 [資源] > [金鑰] 中取得金鑰，也可以按一下基本資訊窗格中的 [顯示存取金鑰]。 端點也會出現在基本資訊窗格中。
 
- ![有端點和金鑰的入口網站頁面](../media/portal-keys-endpoint.png)
+   ![有端點和金鑰的入口網站頁面](../media/portal-keys-endpoint.png)
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>請參閱 
 
  [文字分析概觀](../overview.md)  
  [常見問題集 (FAQ)](../text-analytics-resource-faq.md)

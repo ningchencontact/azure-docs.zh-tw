@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1d01755ae62843ad1f2f1728df046b767fe123ca
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: ae4e4487b3d9df4b2cf756174f0a56e721af91c4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886572"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406895"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>收集 Azure 服務的記錄和計量以便使用於 Log Analytics
 
@@ -79,16 +79,19 @@ ms.locfileid: "54886572"
 * 如需可用記錄檔的詳細資訊，請參閱[支援的服務以及診斷記錄檔的結構描述](../../azure-monitor/platform/diagnostic-logs-schema.md)。
 
 ### <a name="enable-diagnostics-with-powershell"></a>啟用 PowerShell 的診斷功能
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 您需要 2016 年 11 月 (v2.3.0) 或更新版本的 [Azure PowerShell](/powershell/azure/overview)。
 
-下列 PowerShell 範例示範如何使用 [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) 在網路安全性群組上啟用診斷。 同樣的方法適用於所有支援的資源 - 只要將 `$resourceId` 設定為您想要啟用診斷之資源的資源識別碼即可。
+下列 PowerShell 範例示範如何使用[組 AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting)上的網路安全性群組啟用診斷。 同樣的方法適用於所有支援的資源 - 只要將 `$resourceId` 設定為您想要啟用診斷之資源的資源識別碼即可。
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
 
-Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 ### <a name="enable-diagnostics-with-resource-manager-templates"></a>使用 Resource Manager 範本啟用診斷

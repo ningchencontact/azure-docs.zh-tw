@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
 manager: nitinme
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: 6feb521aa47ca813b3067451c8c77111deb60e73
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874000"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537893"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>使用主動學習來改善知識庫
 
@@ -32,17 +32,19 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 這兩種方法提供的順位排定程式都具有叢集化的類似查詢。
 
-類似的查詢叢集化時，QnA Maker 會建議知識庫設計者接受或拒絕使用者的問題。
-
 ## <a name="how-active-learning-works"></a>主動式學習的運作方式
 
 系統會根據 QnA Maker 針對任何給定查詢而傳回的幾個最高排名答案的分數，來觸發主動式學習。 如果分數差異落在很小的範圍內，則會將查詢視為每個可能的答案適用的可能_建議_。 
 
 所有建議會依相似度叢集化在一起，並根據使用者發出特定查詢的頻率顯示替代問題的最高排名建議。 當端點取得合理數量和足夠類型的使用查詢時，主動式學習可提供最佳的可能建議。
 
+5 個或更多類似的查詢已叢集化時，每隔 30 分鐘，QnA Maker 會建議使用者為基礎的問題，以接受或拒絕的知識庫設計工具。
+
+一旦 QnA Maker 入口網站中，所建議的問題，您需要檢閱並接受或拒絕這些建議。 
+
 ## <a name="upgrade-version-to-use-active-learning"></a>升級版本以使用主動式學習
 
-執行階段 4.4.0 版和更新版本可支援主動式學習。 如果您的知識庫是在舊版中建立的，請[升級執行階段](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates)以使用此功能。 
+執行階段 4.4.0 版和更新版本可支援主動式學習。 如果您的知識庫是在舊版中建立的，請[升級執行階段](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates)以使用這項功能。 
 
 ## <a name="best-practices"></a>最佳作法
 
@@ -57,6 +59,8 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 ## <a name="turn-on-active-learning"></a>開啟主動式學習
 
 依預設會關閉主動式學習。 開啟它以查看建議的問題。 
+
+1. 選取 **發佈**來發行知識庫。 主動學習查詢會從 GenerateAnswer API 預測端點只收集。 Qna Maker 入口網站中測試 窗格的查詢不會影響主動式學習。
 
 1. 若要開啟主動式學習，請在 QnA Maker 入口網站中，按一下您的 [名稱]，然後移至右上角的 [服務設定][](https://www.qnamaker.ai/UserSettings)。  
 
@@ -75,7 +79,7 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
     [![在 [服務設定] 頁面上，切換 [顯示建議] 按鈕](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. 選取 [依建議篩選]，將包含問答組的知識庫篩選成僅顯示建議。
+1. 篩選問題和答案組，以顯示所選取的只有建議知識庫**篩選-依建議**。
 
     [![在 [服務設定] 頁面上依建議篩選，而僅查看這些問答組](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -87,6 +91,9 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 1. 選取 [儲存並訓練]，以儲存對知識庫所做的變更。
 
+1. 選取 **發佈**以便可從 GenerateAnswer API 的變更。
+
+    5 個或更多類似的查詢已叢集化時，每隔 30 分鐘，QnA Maker 會建議使用者為基礎的問題，以接受或拒絕的知識庫設計工具。
 
 ## <a name="determine-best-choice-when-several-questions-have-similar-scores"></a>在數個問題的分數類似時判斷最佳選擇
 
@@ -147,7 +154,7 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 用戶端應用程式會顯示所有問題，並且讓使用者能夠選取最能代表其意圖的問題。 
 
-使用者選取其中一個現有的問題後， 使用者意見反應將會傳送至 QnA Maker 的[訓練](http://www.aka.ms/activelearningsamplebot) API，以繼續進行主動式學習的意見反應循環。 
+使用者選取其中一個現有的問題後， 使用者意見反應將會傳送至 QnA Maker 的[訓練](https://www.aka.ms/activelearningsamplebot) API，以繼續進行主動式學習的意見反應循環。 
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -157,6 +164,31 @@ Content-Type: application/json
 ```
 
 透過 [Azure Bot C# 範例](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)深入了解如何使用主動式學習
+
+## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>主動學習會儲存在匯出應用程式的 tsv 檔案
+
+當您的應用程式已啟用，主動式學習，並匯出應用程式， `SuggestedQuestions` tsv 檔案中的資料行，保留使用中的學習資料。 
+
+`SuggestedQuestions`資料行是隱含的資訊的 JSON 物件 (`autosuggested`) 和明確 (`usersuggested`)[意見反應](#active-learning)。 此 JSON 物件的單一使用者提交問題範例`help`是：
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+當您重新匯入此應用程式時，主動式學習會繼續收集資訊並建議您的知識庫的建議。 
 
 ## <a name="next-steps"></a>後續步驟
  

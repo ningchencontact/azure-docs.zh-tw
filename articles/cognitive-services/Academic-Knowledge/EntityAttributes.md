@@ -10,25 +10,25 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: accc2803895f3892075cdd9877ca98344ab88bd1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 485775660ecfdf2291365ab98c9188295ea2cbde
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183487"
 ---
 # <a name="entity-attributes"></a>實體屬性
 
-學術圖表是由 7 個實體類型組成。 所有實體都有實體識別碼和實體類型。
+學術圖表是由 7 個實體類型組成。 所有的實體會將實體識別碼 」 及 「 實體類型。
 
 ## <a name="common-entity-attributes"></a>常見實體屬性
-Name    |說明                |類型       | 作業
+名稱    |描述                |類型       | 作業
 ------- | ------------------------- | --------- | ----------------------------
 id      |實體識別碼                  |Int64      |Equals
 Ty      |實體類型                |列舉   |Equals
 
 ## <a name="entity-type-enum"></a>實體類型列舉
-Name                                                            |value
+名稱                                                            |value
 ----------------------------------------------------------------|-----
 [文件](PaperEntityAttributes.md)                               |0
 [作者](AuthorEntityAttributes.md)                             |1

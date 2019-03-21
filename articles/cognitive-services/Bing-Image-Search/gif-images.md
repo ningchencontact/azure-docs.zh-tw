@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
 ms.custom: seodec2018
-ms.openlocfilehash: a18aaceb4840ffc7e3e3dca4eeb8f5fd8e88049c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e7b2c43e06c8fbc1f561defebf29fdd37bc8bfab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100899"
 ---
 # <a name="search-for-gif-images"></a>搜尋 GIF 影像 
 
@@ -47,6 +47,7 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 - *AnimatedGifHttps* 只會傳回來自 Https 位址的動畫 GIF 影像。 基於安全性，許多應用程式需要透過 Https 連線至外部網頁連結。 例如，Apple App Store 需要透過 HTTPS 連線至 Web 服務，這會在傳輸過程中加密使用者資料以維護安全。
 
 <a name="gifExample" />
+
 ## <a name="example-search-for-animated-gif-using-java"></a>使用 Java 搜尋動畫 GIF 的範例
 
 下列 URL 會搜尋動畫 .gif 影像：`q=interesting`

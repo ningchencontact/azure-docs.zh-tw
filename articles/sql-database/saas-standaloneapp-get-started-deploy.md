@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7609f3b0c04bdf74c87123f1125973219e6dda17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567208"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012691"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的獨立單一租用戶應用程式
 
@@ -76,11 +76,11 @@ ms.locfileid: "55567208"
 
 1. 在不同的瀏覽器索引標籤中開啟三個租用戶的 [事件] 頁面：
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
-    (在每個 URL 中，將 &lt;user&gt; 取代為部署時用的使用者值)。
+     (在每個 URL 中，將 &lt;user&gt; 取代為部署時用的使用者值)。
 
    ![活動](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
@@ -96,7 +96,7 @@ ms.locfileid: "55567208"
 
 讓我們看看一些已部署的資源：
 
-1. 在 [Azure 入口網站](http://portal.azure.com)中，瀏覽至資源群組的清單。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至資源群組的清單。
 2. 您應該會看到三個租用戶資源群組。
 3. 開啟 **wingtip-sa-fabrikam-&lt;user&gt;** 資源群組，其中包含給 Fabrikam Jazz Club 部署的資源。  **fabrikamjazzclub-&lt;user&gt;** 伺服器內含 **fabrikamjazzclub** 資料庫。
 

@@ -5,20 +5,20 @@ description: 在定型成功後，請檢閱系統測試以分析您的定型結�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215241"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997711"
 ---
 # <a name="view-system-test-results"></a>檢視系統測試結果
 
-在定型成功後，請檢閱系統測試以分析您的定型結果。 如果您滿意定型結果，請為定型的模型提出部署要求。 
+在定型成功後，請檢閱系統測試以分析您的定型結果。 如果您滿意定型結果，請為定型的模型提出部署要求。
 
 ## <a name="system-test-results-page"></a>系統測試結果頁面
 
@@ -26,7 +26,7 @@ ms.locfileid: "55215241"
 
 測試索引標籤會顯示：
 
-1.  **系統測試結果：** 定型中的測試程序所產生的結果。 測試程序會產生 BLEU 分數。
+1.  **系統測試結果：** 您可以在測試程序的結果。 測試程序會產生 BLEU 分數。
 
     **句子計數：** 在測試集中使用了多少個平行句子。
 

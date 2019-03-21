@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891081"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。
@@ -36,7 +36,7 @@ ms.locfileid: "55245828"
 
 * **Azure 訂用帳戶**。 如果您還沒有訂用帳戶，請參閱 [立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 * [**Linux 資料科學 VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm)。 如需佈建此 VM 的相關資訊，請參閱 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md)。
-* [X2Go](http://wiki.x2go.org/doku.php) 已安裝在電腦上並已開啟 XFCE 工作階段。 如需安裝和設定 **X2Go 用戶端**的相關資訊，請參閱[安裝和設定 X2Go 用戶端](linux-dsvm-intro.md#installing-and-configuring-x2go-client)。
+* [X2Go](https://wiki.x2go.org/doku.php) 已安裝在電腦上並已開啟 XFCE 工作階段。 如需安裝和設定 **X2Go 用戶端**的相關資訊，請參閱[安裝和設定 X2Go 用戶端](linux-dsvm-intro.md#installing-and-configuring-x2go-client)。
 * 若要享受更平滑的捲動體驗，請切換 VM FireFox 瀏覽器的 about:config 中的 gfx.xrender.enabled 旗標。 [請參閱這裡深入了解](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/)。 另請考慮將 *mousewheel.enable_pixel_scrolling* 切換為 False。 [請參閱這裡的指示。](https://support.mozilla.org/en-US/questions/981140)
 * **AzureML 帳戶**。 如果您還沒有帳戶，請在 [AzureML 首頁](https://studio.azureml.net/)註冊新帳戶。 裡面有免費的使用量層級可幫助您開始使用。
 
@@ -52,7 +52,7 @@ ms.locfileid: "55245828"
 
 若要下載資料，請開啟終端機視窗並執行此命令︰
 
-    wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 下載的檔案沒有標題列，因此，讓我們建立另一個有標題的檔案。 執行此命令來建立具有適當標題的檔案︰
 
@@ -263,7 +263,7 @@ XGBoost 也可以從 Python 或命令列進行呼叫。
 為了能夠使用 Python 進行開發，Anaconda Python 散發套件 2.7 與 3.5 已安裝在 DSVM 中。
 
 > [!NOTE]
-> Anaconda 散發套件包含 [Conda](http://conda.pydata.org/docs/index.html)，可用來為 Python 建立已安裝不同版本和 (或) 封裝的自訂環境。
+> Anaconda 散發套件包含 [Conda](https://conda.pydata.org/docs/index.html)，可用來為 Python 建立已安裝不同版本和 (或) 封裝的自訂環境。
 >
 >
 
@@ -318,21 +318,19 @@ DSVM 中的 Anaconda 散發套件隨附 Jupyter Notebook，此跨平台環境可
 
 > [!NOTE]
 > 若要從目前核心中的 Jupyter 筆記本使用 Python 套件管理員 (透過 `pip` 命令)，則可在程式碼單元中使用下列命令，例如：
-  ```python
-   import sys
-   ! {sys.executable} -m pip install numpy -y
-  ```
->
->
-
+>   ```python
+>    import sys
+>    ! {sys.executable} -m pip install numpy -y
+>   ```
+> 
+> 
+> 
 > [!NOTE]
 > 若要從目前核心中的 Jupyter 筆記本使用 Conda 安裝程式 (透過 `conda` 命令)，則可在程式碼單元中使用下列命令，例如：
-  ```python
-   import sys
-   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-  ```
->
->
+>   ```python
+>    import sys
+>    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+>   ```
 
 VM 上已安裝數個 Notebook 範例︰
 
@@ -515,7 +513,7 @@ DSVM 隨附安裝 PostgreSQL。 PostgreSQL 是複雜的開放原始碼關聯式�
 
 大部分頻繁出現「3d」  的電子郵件顯然是垃圾郵件，因此是很適合用來建置預測性模型以分類電子郵件的特徵。
 
-如果您想要對 PostgreSQL 資料庫中儲存的資料執行機器學習服務，請考慮使用 [MADlib](http://madlib.incubator.apache.org/)。
+如果您想要對 PostgreSQL 資料庫中儲存的資料執行機器學習服務，請考慮使用 [MADlib](https://madlib.incubator.apache.org/)。
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server 資料倉儲
 Azure SQL 資料倉儲是一種雲端架構、相應放大的資料庫，可處理大量的關聯式與非關聯式資料。 如需詳細資訊，請參閱 [什麼是 Azure SQL 資料倉儲？](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

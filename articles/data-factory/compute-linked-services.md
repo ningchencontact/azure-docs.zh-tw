@@ -3,20 +3,20 @@ title: Azure Data Factory 支援的計算環境 | Microsoft Docs
 description: 了解您可以在 Azure Data Factory 管線中 (如 Azure HDInsight) 用來轉換/處理資料的計算環境。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: douglasl
-ms.openlocfilehash: 5e620b03f5588369fc73a62f2019d857766596fd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321937"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576883"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -91,12 +91,12 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 > [!IMPORTANT]
 > HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (**linkedServiceName**) 建立**預設容器**。 HDInsight 不會在刪除叢集時刪除此容器。 這是設計的行為。 在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (**timeToLive**)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。 
 >
-> 隨著執行的活動越來越多，您會在 Azure Blob 儲存體中看到許多容器。 如果在疑難排解作業時不需要這些容器，建議您加以刪除以降低儲存成本。 這些容器的名稱會遵循模式︰`adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`。 請使用 [Microsoft 儲存體總管](http://storageexplorer.com/) 之類的工具刪除 Azure Blob 儲存體中的容器。
+> 隨著執行的活動越來越多，您會在 Azure Blob 儲存體中看到許多容器。 如果在疑難排解作業時不需要這些容器，建議您加以刪除以降低儲存成本。 這些容器的名稱會遵循模式︰`adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`。 請使用 [Microsoft 儲存體總管](https://storageexplorer.com/) 之類的工具刪除 Azure Blob 儲存體中的容器。
 >
 > 
 
 ### <a name="properties"></a>properties
-| 屬性                     | 說明                              | 必要 |
+| 屬性                     | 描述                              | 必要項 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | type 屬性應設為 **HDInsightOnDemand**。 | 是      |
 | clusterSize                  | 叢集中的背景工作/資料節點數。 HDInsight 叢集會利用您為此屬性指定的 2 個前端節點以及背景工作節點數目來建立。 節點大小為具有 4 個核心的 Standard_D3，因此 4 個背景工作節點的叢集需要 24 個核心 (4\*4 = 16 個核心用於背景工作節點，加上 2\*4 = 8 個核心用於前端節點)。 如需詳細資料，請參閱[使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)。 | 是      |
@@ -146,7 +146,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 指定下列屬性以使用服務主體驗證：
 
-| 屬性                | 說明                              | 必要 |
+| 屬性                | 描述                              | 必要項 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 指定應用程式的用戶端識別碼。     | 是      |
 | **servicePrincipalKey** | 指定應用程式的金鑰。           | 是      |
@@ -156,7 +156,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 您也可以針對隨選 HDInsight 叢集的細微組態指定下列屬性。
 
-| 屬性               | 說明                              | 必要 |
+| 屬性               | 描述                              | 必要項 |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | 指定要建立之 HDInsight 叢集的核心組態參數 (如 core-site.xml 所示)。 | 否       |
 | hBaseConfiguration     | 指定 HDInsight 叢集的 HBase 組態參數 (hbase-site.xml)。 | 否       |
@@ -224,7 +224,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 ### <a name="node-sizes"></a>節點大小
 您可使用下列屬性指定前端、資料和的 zookeeper 節點的大小： 
 
-| 屬性          | 說明                              | 必要 |
+| 屬性          | 描述                              | 必要項 |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | 指定前端節點的大小。 預設值為：Standard_D3。 如需詳細資料，請參閱**指定節點大小**一節。 | 否       |
 | dataNodeSize      | 指定資料節點的大小。 預設值為：Standard_D3。 | 否       |
@@ -284,7 +284,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 ```
 
 ### <a name="properties"></a>properties
-| 屬性          | 說明                                                  | 必要 |
+| 屬性          | 描述                                                  | 必要項 |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | type 屬性應設為 **HDInsight**。            | 是      |
 | clusterUri        | HDInsight 叢集的 URI。                            | 是      |
@@ -304,13 +304,15 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 已連結的服務
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 您可以建立 Azure Batch 連結服務，以向 Data Factory 註冊虛擬機器 (VM) 的 Batch 集區。 您可以使用 Azure Batch 執行自訂活動。
 
 如果您不熟悉 Azure Batch 服務，請參閱下列主題：
 
 * [Azure Batch 基本知識](../batch/batch-technical-overview.md) ，以取得 Azure Batch 服務的概觀。
-* [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 入口網站](../batch/batch-account-create-portal.md)，以使用 Azure 入口網站建立 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱 [使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 主題。
-* [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) Cmdlet 可建立 Azure Batch 集區。
+* [新 AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet 來建立 Azure Batch 帳戶 （或） [Azure 入口網站](../batch/batch-account-create-portal.md)來建立使用 Azure 入口網站的 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱 [使用 PowerShell 管理 Azure Batch 帳戶](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 主題。
+* [新 AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet 來建立 Azure Batch 集區。
 
 ### <a name="example"></a>範例
 
@@ -342,7 +344,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 
 ### <a name="properties"></a>properties
-| 屬性          | 說明                              | 必要 |
+| 屬性          | 描述                              | 必要項 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | type 屬性應設為 **AzureBatch**。 | 是      |
 | accountName       | 建立 Azure Batch 帳戶。         | 是      |
@@ -378,7 +380,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 ```
 
 ### <a name="properties"></a>properties
-| 屬性               | 說明                              | 必要                                 |
+| 屬性               | 描述                              | 必要項                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | 類型                   | type 屬性應設為：**AzureML**。 | 是                                      |
 | mlEndpoint             | 批次評分 URL。                   | 是                                      |
@@ -421,7 +423,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 ### <a name="properties"></a>properties
 
-| 屬性             | 說明                              | 必要                                 |
+| 屬性             | 描述                              | 必要項                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                 | type 屬性應設為：**AzureDataLakeAnalytics**。 | 是                                      |
 | accountName          | Azure Data Lake Analytics 帳戶名稱。  | 是                                      |
@@ -481,7 +483,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 ### <a name="properties"></a>properties
 
-| 屬性             | 說明                              | 必要                                 |
+| 屬性             | 描述                              | 必要項                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | 連結服務的名稱               | 是   |
 | type                 | type 屬性應設為：**AzureDatabricks**。 | 是                                      |

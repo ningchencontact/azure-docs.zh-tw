@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 1cf2276ca1995df19cc7068764a31916e4981100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452689"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088650"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure 檔案服務
 
@@ -50,60 +50,60 @@ ms.locfileid: "55452689"
 2. 在每個磁碟機上建立單一 NTFS 磁碟區。 指派磁碟機代號給磁碟區。 請勿使用掛接點。
 3. 在工具所在的根資料夾中，修改 dataset.csv 檔案。 根據您要匯入的是檔案、資料夾或兩者，將項目加入 dataset.csv 檔案，類似下列範例。  
 
-    - **若要匯入檔案**：在下列範例中，要複製的資料會位於 C: 磁碟機。 您的檔案 MyFile1.txt 會複製到 MyAzureFileshare1 的根目錄。 如果 MyAzureFileshare1 不存在，則會建立在 Azure 儲存體帳戶中。 資料夾結構會保留。
+   - **若要匯入檔案**：在下列範例中，要複製的資料會位於 C: 磁碟機。 您的檔案 MyFile1.txt 會複製到 MyAzureFileshare1 的根目錄。 如果 MyAzureFileshare1 不存在，則會建立在 Azure 儲存體帳戶中。 資料夾結構會保留。
 
-        ```
-            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+       ```
+           BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
-        ```
-    - **若要匯入資料夾**：「MyFolder2」底下的所有檔案和資料夾會以遞迴方式複製到檔案共用。 資料夾結構會保留。
+       ```
+   - **若要匯入資料夾**：「MyFolder2」底下的所有檔案和資料夾會以遞迴方式複製到檔案共用。 資料夾結構會保留。
 
-        ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
-        ```
-    您可以在對應至所匯入資料夾或檔案的相同檔案中製造多個項目。 
+       ```
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
+       ```
+     您可以在對應至所匯入資料夾或檔案的相同檔案中製造多個項目。 
 
-        ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
-        ```
-    深入了解[準備資料集 CSV 檔案](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
+       ```
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+                        
+       ```
+     深入了解[準備資料集 CSV 檔案](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
     
 
 4. 在工具所在的根資料夾中，修改 driveset.csv 檔案。 將項目新增至 driveset.csv 檔案，類似下列範例。 磁碟機集檔案有磁碟機清單和對應的磁碟機代號，因此工具可以正確地挑選要準備的磁碟清單。
 
     此範例假設已連結兩個磁碟，並已建立基本 NTFS 磁碟區 G:\ 和 H:\。 當 G: 已加密時，H:\ 就不會加密。 此工具只會格式化和加密裝載 H:\ (不是 G:\)) 的磁碟。
 
-    - **針對未加密的磁碟**：指定「Encrypt」，以在磁碟上啟用 BitLocker 加密。
+   - **針對未加密的磁碟**：指定「Encrypt」，以在磁碟上啟用 BitLocker 加密。
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        H,Format,SilentMode,Encrypt,
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       H,Format,SilentMode,Encrypt,
+       ```
     
-    - **針對已加密的磁碟**：指定「AlreadyEncrypted」，並提供 BitLocker 金鑰。
+   - **針對已加密的磁碟**：指定「AlreadyEncrypted」，並提供 BitLocker 金鑰。
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
+       ```
 
-    您可以在對應至多個磁碟機的相同檔案中製造多個項目。 深入了解[準備磁碟機集 CSV 檔案](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file)。 
+     您可以在對應至多個磁碟機的相同檔案中製造多個項目。 深入了解[準備磁碟機集 CSV 檔案](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file)。 
 
-5.  使用 `PrepImport` 選項可將資料複製到磁碟機並準備這些資料。 針對以新複製工作階段來複製目錄和/或檔案的第一複製工作階段，請執行下列命令：
+5. 使用 `PrepImport` 選項可將資料複製到磁碟機並準備這些資料。 針對以新複製工作階段來複製目錄和/或檔案的第一複製工作階段，請執行下列命令：
 
-        ```
-        .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+       ```
 
-    匯入範例如下所示。
+   匯入範例如下所示。
   
-        ```
-        .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+       ```
  
 6. 每次執行命令列時，都會使用您以 `/j:` 參數提供的名稱來建立日誌檔案。 您準備的每個磁碟機有日誌檔案，您必須在建立匯入作業時將其上傳。 沒有日誌檔案的磁碟機將無法處理。
 

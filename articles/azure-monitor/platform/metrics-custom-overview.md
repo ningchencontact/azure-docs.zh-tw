@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: cb1d08bb7b4c64d8dbcf39a667cb037ff30c38e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467888"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287259"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure 監視器中的自訂計量
 
@@ -29,7 +29,7 @@ ms.locfileid: "54467888"
 
 當您將自訂計量傳送至 Azure 監視器時，報告的每個資料點或值都必須包含下列資訊。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 若要將自訂計量提交至 Azure 監視器，提交計量的實體在要求的 **Bearer** 標頭中需要有效的 Azure Active Directory (Azure AD) 權杖。 支援取得有效持有人權杖的方式有好幾種：
 1. [Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 對 Azure 資源本身 (例如 VM) 提供身分識別。 受控服務識別 (MSI) 的設計訴求是要提供資源執行特定作業的權限。 例如，允許資源發出本身相關的計量。 也可以在其他資源上授與資源 (或其 MSI) 的「監視計量發行者」權限。 透過此權限，MSI 也可以發出其他資源的計量。
 2. [Azure AD 服務主體](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)。 在此案例中，可以將權限指派給 Azure AD 應用程式或服務，以發出 Azure 資源的相關計量。
@@ -55,17 +55,17 @@ ms.locfileid: "54467888"
 >
 
 ### <a name="timestamp"></a>Timestamp
-傳送至 Azure 監視器每個資料點都必須以時間戳記標記。 此時間戳記會擷取該計量值的測量或收集日期時間。 Azure 監視器接受時間戳記為過去 20 分鐘內和未來 5 分鐘內的計量資料。
+傳送至 Azure 監視器每個資料點都必須以時間戳記標記。 此時間戳記會擷取該計量值的測量或收集日期時間。 Azure 監視器接受時間戳記為過去 20 分鐘內和未來 5 分鐘內的計量資料。 時間戳記必須是 ISO 8601 格式。
 
 ### <a name="namespace"></a>命名空間
 命名空間是將類似計量分類或分組的方法。 您可以使用命名空間，將收集不同見解或效能指標的計量群組隔離。 比方說，您可能有稱為 **ContosoMemoryMetrics** 的命名空間，可追蹤用來分析應用程式的記憶體使用計量。 另一個稱為 **ContosoAppTransaction** 的命名空間可能會追蹤應用程式中有關使用者交易的所有計量。
 
-### <a name="name"></a>Name
+### <a name="name"></a>名稱
 **名稱**是要報告的計量名稱。 通常名稱的描述就足以協助識別所測量的項目。 舉例來說，可測量指定 VM 上所用記憶體位元組數目的計量。 其計量名稱可能為「使用中的記憶體位元組」。
 
 ### <a name="dimension-keys"></a>維度索引鍵
 維度是索引鍵或值組，可協助描述所收集計量的其他相關特性。 您可以使用其他特性，收集更多關於計量的資訊，以取得更深入的見解。 例如，「使用中的記憶體位元組」計量的維度索引鍵可能稱為「處理序」，可擷取 VM 上每個處理序使用的記憶體位元組數目。 您可以使用此索引鍵來篩選計量，以查看使用多少個記憶體特定處理序，或識別記憶體使用量的前 5 名處理序。
-每個自訂計量最多可以有 10 個維度。
+維度是選擇性，並非所有的度量資訊可能會有維度。 自訂計量可以有最多 10 個維度。
 
 ### <a name="dimension-values"></a>維度值
 當報告計量資料點時，要報告計量上的每個維度索引鍵都會有一個對應的維度值。 例如，您可能想要報告 VM 上由 ContosoApp 使用的記憶體：
@@ -75,6 +75,7 @@ ms.locfileid: "54467888"
 * 維度值會是 **ContosoApp.exe**。
 
 當發佈計量值時，每個維度索引鍵只能指定單一維度值。 如果您會對 VM 上的多個處理序收集同一個記憶體使用量，您可以報告該時間戳記的多個計量值。 每個計量值都會為**處理序**維度索引鍵指定不同的維度值。
+維度是選擇性，並非所有的度量資訊可能會有維度。 計量的 post 方法，定義維度索引鍵，如果對應的維度值是必要項目。
 
 ### <a name="metric-values"></a>計量值
 Azure 監視器會儲存一分鐘資料粒度間隔內的所有計量。 我們了解在指定的分鐘內，計量可能需要取樣數次。 例如，CPU 使用率。 或者可能需要針對許多不連續的事件進行測量。 例如，登入交易延遲。 若要限制您在 Azure 監視器中必須發出和支付未經處理的值數目，您可以在本機預先彙總，然後再將值發出：
@@ -169,13 +170,13 @@ Azure 監視器會儲存一分鐘資料粒度間隔內的所有計量。 我們�
 
 |Azure 區域|區域端點前置詞|
 |---|---|
-|美國東部|https://eastus.monitoring.azure.com/|
-|美國中南部|https://southcentralus.monitoring.azure.com/|
-|美國中西部|https://westcentralus.monitoring.azure.com/|
-|美國西部 2|https://westus2.monitoring.azure.com/|
-|東南亞|https://southeastasia.monitoring.azure.com/|
-|北歐|https://northeurope.monitoring.azure.com/|
-|西歐|https://westeurope.monitoring.azure.com/|
+|美國東部| https:\//eastus.monitoring.azure.com/ |
+|美國中南部| https:\//southcentralus.monitoring.azure.com/ |
+|美國中西部| https:\//westcentralus.monitoring.azure.com/ |
+|美國西部 2| https:\//westus2.monitoring.azure.com/ |
+|東南亞| https:\//southeastasia.monitoring.azure.com/ |
+|北歐| https:\//northeurope.monitoring.azure.com/ |
+|西歐| https:\//westeurope.monitoring.azure.com/ |
 
 ## <a name="quotas-and-limits"></a>配額和限制
 Azure 監視器會對自訂計量加諸下列使用量限制：
@@ -185,6 +186,7 @@ Azure 監視器會對自訂計量加諸下列使用量限制：
 |使用中的時間序列/訂用帳戶/區域|50,000|
 |每個計量的維度索引鍵|10|
 |計量命名空間、計量名稱、維度索引鍵與維度值的字串長度|256 個字元|
+
 使用中的時間序列定義為計量、維度索引鍵或維度值 (含有過去 12 小時內所發佈計量值) 的任意獨特組合。
 
 ## <a name="next-steps"></a>後續步驟

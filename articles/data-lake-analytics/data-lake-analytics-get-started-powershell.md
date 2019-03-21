@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: 2d1f5cc4883ce17da76eea815b42833b84031549
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f74ebb4e36f9648b2f78e968877a9ef861888af8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56231819"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58133436"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>使用 Azure PowerShell 開始使用 Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -97,7 +97,7 @@ OUTPUT @a
 使用 `Submit-AdlJob` Cmdlet 和 `-Script` 參數提交指令碼文字。
 
 ```
-$job = Submit-AdlJob -Account $adla -Name "My Job" �Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" -Script $script
 ```
 
 或者，您也可以使用 `-ScriptPath` 參數提交指令檔：
@@ -105,7 +105,7 @@ $job = Submit-AdlJob -Account $adla -Name "My Job" �Script $script
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -Account $adla -Name "My Job" �ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
 ```
 
 使用 `Get-AdlJob` 取得作業狀態。 
@@ -126,7 +126,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * 若要使用其他工具檢視同一個教學課程，請按一下頁面最上方的索引標籤選取器。
 * 若要了解 U-SQL，請參閱 [開始使用 Azure Data Lake Analytics U-SQL 語言](data-lake-analytics-u-sql-get-started.md)。
 * 針對管理工作，請參閱 [使用 Azure 入口網站管理 Azure Data Lake Analytics](data-lake-analytics-manage-use-portal.md)。

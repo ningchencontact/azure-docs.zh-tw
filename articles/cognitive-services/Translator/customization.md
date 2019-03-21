@@ -7,15 +7,15 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: c2ff97c61cee1f2f773710103ac422fc6f1d8714
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876057"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124009"
 ---
 # <a name="customize-your-text-translations"></a>自訂文字翻譯
 
@@ -42,7 +42,8 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
-舊版的 Microsoft Translator Hub 可用來翻譯統計機器翻譯。 [深入了解](https://www.microsoft.com/en-us/translator/hub.aspx)
+> [!NOTE]
+> 將於 2019 年 4 月 30 日淘汰舊版的 Microsoft Translator 中樞。 [檢視重要的移轉資訊和日期](https://www.microsoft.com/translator/business/hub/)。  
 
 ## <a name="custom-translator-versus-hub"></a>自訂翻譯工具與中樞
 
@@ -50,17 +51,17 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 |:-----|:----:|:----:|
 |自訂功能狀態   | 正式運作  | 正式運作 |
 | 文字 API 版本  | 僅限第 2 版   | 僅限第 3 版 |
-| SMT 自訂 | yes   | 否 |
-| NMT 自訂 | 否    | yes |
-| 新的統一語音服務自訂 | 否    | yes |
-| [不追蹤](https://www.aka.ms/notrace) | yes  | yes |
+| SMT 自訂 | 是   | 否 |
+| NMT 自訂 | 否    | 是 |
+| 新的統一語音服務自訂 | 否    | 是 |
+| [不追蹤](https://www.aka.ms/notrace) | 是  | 是 |
 
 ## <a name="collaborative-translations-framework"></a>共同作業翻譯架構
 
 > [!NOTE]
 > 自 2018 年 2 月 1 起，AddTranslation() 和 AddTranslationArray() 不再適用於翻譯工具文字 API 2.0 版。 這些方法將會失敗，不會寫入任何內容。 翻譯工具文字 API 3.0 版不支援這些方法。
-
->Translator Hub API 中提供類似功能。 請參閱 [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger)。
+> 
+> Translator Hub API 中提供類似功能。 請參閱 [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2f47a145f00748a3366ea5bd1aa961f4b556a08f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474661"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835223"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>使用 Azure Data Lake 的可調式資料科學：完整的逐步解說
 本逐步解說示範如何使用 Azure Data Lake，在 NYC 計程車車程和車費資料集上執行資料探索和二元分類，以預測車費是否會支付小費。 其中，從取得資料開始，經過模型訓練，然後部署 Web 服務來發佈模型，從頭到尾逐步引導您完成 [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)。
@@ -72,17 +72,17 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 ### <a name="create-an-azure-data-lake-store"></a>建立 Azure Data Lake Store
 
 
-從 [Azure 入口網站](http://portal.azure.com)建立 ADLS。 如需詳細資訊，請參閱 [使用 Azure 入口網站建立 HDInsight 叢集與 Data Lake Store](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。 請務必依該文件所述，在 [選擇性組態] 刀鋒視窗的 [資料來源] 刀鋒視窗中設定 [叢集 AAD 身分識別]。
+從 [Azure 入口網站](https://portal.azure.com)建立 ADLS。 如需詳細資訊，請參閱 [使用 Azure 入口網站建立 HDInsight 叢集與 Data Lake Store](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。 請務必依該文件所述，在 [選擇性組態] 刀鋒視窗的 [資料來源] 刀鋒視窗中設定 [叢集 AAD 身分識別]。
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
 ### <a name="create-an-azure-data-lake-analytics-account"></a>建立 Azure Data Lake Analytics 帳戶
-從 [Azure 入口網站](http://portal.azure.com)建立 ADLA 帳戶。 如需詳細資訊，請參閱 [教學課程：使用 Azure 入口網站開始使用 Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-get-started-portal.md)。
+從 [Azure 入口網站](https://portal.azure.com)建立 ADLA 帳戶。 如需詳細資訊，請參閱 [教學課程：使用 Azure 入口網站開始使用 Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-get-started-portal.md)。
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>建立 Azure Blob 儲存體帳戶
-從 [Azure 入口網站](http://portal.azure.com)建立 Azure Blob 儲存體帳戶。 如需詳細資訊，請參閱 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中的＜建立儲存體帳戶＞一節。
+從 [Azure 入口網站](https://portal.azure.com)建立 Azure Blob 儲存體帳戶。 如需詳細資訊，請參閱 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中的＜建立儲存體帳戶＞一節。
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -99,7 +99,7 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
 ## <a name="the-nyc-taxi-trips-dataset"></a>NYC 計程車車程資料集
-此處使用的資源集是公開可用的資料集 -- [NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集。 「NYC 計程車車程」資料是由約 20GB 的 CSV 壓縮檔 (未壓縮時可達 48GB) 所組成，裡面記錄了超過 1 億 7300 萬筆個別車程及針對每趟車程所支付的費用。 每趟車程記錄均包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及計程車牌照 (計程車的唯一識別碼) 號碼。 資料涵蓋 2013 年的所有車程，並且每月會在下列兩個資料集中加以提供：
+此處使用的資源集是公開可用的資料集 -- [NYC Taxi Trips (NYC 計程車車程)](https://www.andresmh.com/nyctaxitrips/) 資料集。 「NYC 計程車車程」資料是由約 20GB 的 CSV 壓縮檔 (未壓縮時可達 48GB) 所組成，裡面記錄了超過 1 億 7300 萬筆個別車程及針對每趟車程所支付的費用。 每趟車程記錄均包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及計程車牌照 (計程車的唯一識別碼) 號碼。 資料涵蓋 2013 年的所有車程，並且每月會在下列兩個資料集中加以提供：
 
 「trip_data」CSV 檔案包含車程的詳細資訊，例如，乘客數、上車和下車地點、車程持續時間，以及車程長度。 以下是一些範例記錄：
 
@@ -147,7 +147,8 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。 這是使�
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>資料擷取：從公用 Blob 讀取資料
-Azure Blob 中的資料位置是以 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** 來參考，可透過 **Extractors.Csv()** 來擷取。 在下列指令碼中，以您自己的容器名稱和儲存體帳戶名稱來替換 wasb 位址中的 container_name@blob_storage_account_name。 由於檔案名稱的格式相同，所以有可能使用 **trip\_data_{\*\}.csv** 來讀取全部 12 個車程檔案。
+
+在 Azure blob 資料的位置參考為**wasb://container\_名稱\@blob\_儲存體\_帳戶\_name.blob.core.windows.net/blob_name**，可以使用擷取**extractors.csv （)**。 替換成您自己的容器名稱和儲存體帳戶名稱，在下列指令碼中的容器\_名稱\@blob\_儲存體\_帳戶\_wasb 位址中的名稱。 由於檔案名稱的格式相同，就可以使用**車程\_資料\_\{\*\}.csv**來讀取全部 12 個車程檔案。
 
     ///Read in Trip data
     @trip0 =
@@ -170,7 +171,7 @@ Azure Blob 中的資料位置是以 **wasb://container_name@blob_storage_account
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-由於第一列有標頭，您必須移除標頭，並將資料行類型變更為適當的類型。 您可以使用 **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_，將已處理的資料儲存至 Azure Data Lake 儲存體，或使用 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**，儲存至 Azure Blob 儲存體帳戶。
+由於第一列有標頭，您必須移除標頭，並將資料行類型變更為適當的類型。 您可以將處理過的資料，以使用 Azure Data Lake 儲存體儲存**swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ 或 Azure Blob 儲存體帳戶使用**wasb: / /container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**。
 
     // change data types
     @trip =
@@ -596,7 +597,7 @@ Azure Blob 中的資料位置是以 **wasb://container_name@blob_storage_account
 Azure Machine Learning Studio 可以直接從 Azure Data Lake Store 讀取資料，然後用來建立和部署模型。 這個方法會使用指向 Azure Data Lake Store 的 Hive 資料表。 這必須佈建不同的 Azure HDInsight 叢集，而 Hive 資料表將建立於其中。 下列各節將示範如何執行這項操作。
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>建立 HDInsight Linux 叢集
-從 [Azure 入口網站](http://portal.azure.com)建立 HDInsight 叢集 (Linux)。 如需詳細資訊，請參閱[使用 Azure 入口網站建立 HDInsight 叢集與 Data Lake Store](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 中的**建立可存取 Azure Data Lake Store 的 HDInsight 叢集**一節。
+從 [Azure 入口網站](https://portal.azure.com)建立 HDInsight 叢集 (Linux)。 如需詳細資訊，請參閱[使用 Azure 入口網站建立 HDInsight 叢集與 Data Lake Store](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 中的**建立可存取 Azure Data Lake Store 的 HDInsight 叢集**一節。
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 

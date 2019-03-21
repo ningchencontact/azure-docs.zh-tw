@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189762"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294071"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>內容保護與動態加密
 
@@ -199,6 +199,13 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 |[儲存體用戶端加密](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure 儲存體提供的用戶端加密，由客戶管理 Key Vault 中的金鑰|不支援|
 
 <sup>1</sup> 在媒體服務 v3 中，如果您的資產是以媒體服務 v2 建立，則儲存體加密 (AES-256 加密) 只對回溯相容性有所支援。 這表示 v3 可用於現有的儲存體加密資產，但不允許建立新的。
+
+## <a name="troubleshoot"></a>疑難排解
+
+如果您收到`MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`錯誤，請確定您指定的資料流的適當原則。
+
+如果您收到錯誤訊息結尾`_NOT_SPECIFIED_IN_URL`，請確定您在 URL 中指定的加密格式。 比方說，.../manifest (格式 = format=m3u8-cmaf 加密 cbcs-aapl)。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption types)。
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
-ms.date: 05/18/18
+ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 12f989137c3aea57bdcde0d50315ad157898cd28
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862746"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435757"
 ---
 # <a name="translator-speech-api-languages"></a>翻譯工具語音 API：Languages
 
@@ -27,7 +28,7 @@ ms.locfileid: "55862746"
 
 ## <a name="implementation-notes"></a>實作附註
 
-### <a name="get-languages"></a>GET /languages 
+### <a name="get-languages"></a>GET /languages
 
 廣泛的語言集合可供繕寫語音、翻譯繕寫的文字，以及產生翻譯的合成語音。
 
@@ -63,8 +64,8 @@ ms.locfileid: "55862746"
 
 與語音轉換文字屬性 (`speech`) 相關聯的值是 (索引鍵，值) 組字典。 每個索引鍵都識別語音轉換文字支援的語言。 索引鍵是用戶端傳遞至 API 的識別碼。 與索引鍵相關聯的值是具有以下屬性的物件：
 
-* `name`：語言的顯示名稱。
-* `language`：相關書寫語言的語言標籤。 請參閱下面的＜文字翻譯＞。
+* `name`:語言的顯示名稱。
+* `language`:相關書寫語言的語言標籤。 下面，請參閱 「 文字交易 」。
 範例如下：
 
 ```
@@ -79,8 +80,8 @@ ms.locfileid: "55862746"
 
 與 `text` 屬性相關聯的值也是字典，其中每個索引鍵都識別文字翻譯支援的語言。 與索引鍵相關聯的值描述該語言：
 
-* `name`：語言的顯示名稱。
-* `dir`：文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
+* `name`:語言的顯示名稱。
+* `dir`:文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
 
 範例如下：
 
@@ -96,12 +97,12 @@ ms.locfileid: "55862746"
 
 與文字轉換語音屬性 (tts) 相關聯的值也是字典，其中每個索引鍵都識別支援的語音。 語音物件的屬性如下：
 
-* `displayName`：語音的顯示名稱。
-* `gender`：語音的性別 (男性或女性)。
-* `locale`：語音的語言標籤，包含主要語言子標籤和區域子標籤。
-* `language`：相關書寫語言的語言標籤。
-* `languageName`：語言的顯示名稱。
-* `regionName`：此語言之區域的顯示名稱。
+* `displayName`:語音的顯示名稱。
+* `gender`:語音的性別 (男性或女性)。
+* `locale`:語音的語言標籤，包含主要語言子標籤和區域子標籤。
+* `language`:相關書寫語言的語言標籤。
+* `languageName`:語言的顯示名稱。
+* `regionName`:此語言之區域的顯示名稱。
 
 範例如下：
 
@@ -125,25 +126,25 @@ ms.locfileid: "55862746"
 ### <a name="response-class-status-200"></a>回應類別 (狀態 200)
 描述支援之語言集合的物件。
 
-ModelExample 值： 
+ModelExample 值：
 
 Langagues { speech (object, optional), text (object, optional), tts (object, optional) }
 
 ### <a name="headers"></a>headers
 
-|頁首|說明|類型|
+|頁首|描述|類型|
 :--|:--|:--|
 X-RequestId|伺服器產生用來識別要求的值，並作為疑難排解之用。|字串|
 
 ### <a name="parameters"></a>參數
 
-|參數|說明|參數類型|資料類型|
+|參數|描述|參數類型|資料類型|
 |:--|:--|:--|:--|
 |api-version    |用戶端要求的 API 版本。 允許的值包括：`1.0`。|query|字串|
-|scope  |要傳回至用戶端的支援語言或語音集合。 此參數是以關鍵字的逗號分隔清單來指定。 可使用以下關鍵字：<ul><li>`speech`：提供支援繕寫語音的語言集合。</li><li>`tts`：提供支援文字語音轉換的語音集合。</li><li>`text`：提供支援翻譯文字的語言集合。</li></ul>如果沒有指定值，則 `scope` 的值預設為 `text`。|query|字串|
+|scope  |要傳回至用戶端的支援語言或語音集合。 此參數是以關鍵字的逗號分隔清單來指定。 可使用以下關鍵字：<ul><li>`speech`:提供支援繕寫語音的語言集合。</li><li>`tts`:提供支援文字語音轉換的語音集合。</li><li>`text`:提供支援翻譯文字的語言集合。</li></ul>如果沒有指定值，則 `scope` 的值預設為 `text`。|query|字串|
 |X-ClientTraceId    |用來追蹤要求的用戶端產生 GUID。 為了協助對問題進行疑難排解，用戶端應該隨著每個要求提供新的值並予以記錄。|頁首|字串|
 |Accept-Language    |回應中的某些欄位是語言或區域名稱。 使用此參數來定義傳回這些名稱的語言。 語言是透過提供語式正確的 BCP 47 語言標記來指定的。 從使用 `text` 範圍傳回的語言識別碼清單選取標籤。 對於不支援的語言，會以英文提供其名稱。<br/>舉例而言，值 `fr` 可要求傳回法文名稱，使用值 `zh-Hant` 則可要求繁體中文的名稱。|頁首|字串|
-    
+
 ### <a name="response-messages"></a>回應訊息
 
 |HTTP 狀態碼|原因|

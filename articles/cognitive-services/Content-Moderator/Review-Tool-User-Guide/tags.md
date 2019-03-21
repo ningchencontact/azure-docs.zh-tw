@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 942b30ab9949a28c42949913d90e7448c22b658f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: fa3b7be6ac7cc398685bf5ad7d21173bcb072b69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118403"
 ---
 # <a name="create-and-use-moderation-tags"></a>建立及使用仲裁標記
 
@@ -23,15 +23,15 @@ ms.locfileid: "55206268"
 
 ## <a name="create-tags"></a>建立標記
 
-1.  從 [設定] 索引標籤中選取 [標記]。
+1. 從 [設定] 索引標籤中選取 [標記]。
 
-  ![內容審核標記](images/tags-1.png)
+   ![內容審核標記](images/tags-1.png)
 
-2.  輸入標記的兩個字母簡短代碼。
-3.  輸入標記的名稱。 名稱應簡短且具有描述性。 例如，**isbullying**。
-4.  輸入 [描述]。
-5.  按一下 [加入]。
-6.  建立標記完成時，請按一下 [儲存]。
+2. 輸入標記的兩個字母簡短代碼。
+3. 輸入標記的名稱。 名稱應簡短且具有描述性。 例如，**isbullying**。
+4. 輸入 [描述]。
+5. 按一下 [加入]。
+6. 建立標記完成時，請按一下 [儲存]。
 
 ![定義內容審核標記](images/tags-2-define.png)
 

@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: security
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 50b6077687da2ed24a3a90b227d129c43f70bfc9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7908e6e0927357446ea45e16b7c44adb83ec1fd3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892433"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>開始使用透明資料加密 (TDE)
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "55465804"
 > 
 > 
 
-## <a name="required-permssions"></a>需要的權限
+## <a name="required-permissions"></a>必要權限
 您必須是系統管理員或 dbmanager 角色的成員，才能啟用透明資料加密 (TDE)。
 
 ## <a name="enabling-encryption"></a>啟用加密
@@ -76,7 +76,7 @@ FROM
 
 <!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx  
+[sys.databases]: https://msdn.microsoft.com/library/ms178534.aspx  
 [sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx  
 
 <!--Image references-->

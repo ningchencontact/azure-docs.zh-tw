@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301786"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891098"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -57,9 +57,8 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 - API 應用程式
 - Azure DNS
 - Key Vault
-- Azure 監視器
+- Azure 監視器 （記錄檔）
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Azure 資訊安全中心
 - 連接字串
@@ -169,11 +168,11 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 ### <a name="monitoring-logging-and-audit"></a>監視、記錄和稽核
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) 是 Azure 中的一項服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。
+[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)是可協助您收集和分析雲端中的資源所產生的資料的 Azure 中的服務和內部部署環境。
 
-#### <a name="log-analytics-in-this-blueprint"></a>此藍圖中的 Log Analytics
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>此藍圖中的 azure 監視器記錄檔
 
 - SQL 評估
 - Key Vault 診斷
@@ -220,7 +219,7 @@ Crown Commercial Service (一所致力於改善政府相關商業和採購活動
 
 此藍圖會經由英國國家網路安 全中心 (National Cyber Security Centre，NCSC) 審閱並符合 NCSC 的 14 個雲端安全性準則
 
-自動化範本已經由英國 Customer Success Unit Azure Cloud Solution Architect 小組和 Microsoft 合作夥伴 [Ampliphae](http://www.ampliphae.com/) 測試。
+自動化範本已經由英國 Customer Success Unit Azure Cloud Solution Architect 小組和 Microsoft 合作夥伴 [Ampliphae](https://www.ampliphae.com/) 測試。
 
 
 ## <a name="deploy-the-solution"></a>部署解決方案

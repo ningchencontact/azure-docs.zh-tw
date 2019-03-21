@@ -10,11 +10,11 @@ ms.topic: include
 ms.custom: include file
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7ba217f483e9b57f60bd836011c8887994b36ea6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: fe376db04847cacf075f5fbbd35b6cf1f2ebd889
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757523"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740912"
 ---
 如果您不熟悉認知服務或 Azure，請建立[暫時金鑰](https://azure.microsoft.com/try/cognitive-services/)。 如果您有 Azure 帳戶，請在入口網站中建立新的資源。 Language Understanding 端點查詢支援兩種 Azure 資源類型：**Language Understanding** 或**認知服務**資源。 在將金鑰[指派](../articles/cognitive-services/luis/luis-how-to-azure-subscription.md)給應用程式時，會需要資源的名稱。

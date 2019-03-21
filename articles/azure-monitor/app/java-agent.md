@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004040"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>監視 Java Web 應用程式中的相依性、擷取到的例外狀況和方法執行時間
 
@@ -73,7 +73,6 @@ ms.locfileid: "54412387"
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
-
            <!-- Report on the particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
@@ -90,12 +89,26 @@ ms.locfileid: "54412387"
 
 根據預設，`reportExecutionTime` 為 true，而 `reportCaughtExceptions` 為 false。
 
-### <a name="spring-boot-agent-additional-config"></a>Spring Boot 代理程式的其他設定
+## <a name="additional-config-spring-boot"></a>其他的組態 (Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
+針對 Azure App Service 中下列工作：
+
+* 選取 [設定] > [應用程式設定]
+* 在 [應用程式設定] 之下，新增索引鍵值組︰
+
+機碼：`JAVA_OPTS` 值： `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+
+最新版本的 Java 代理程式檢查 版本[此處](https://github.com/Microsoft/ApplicationInsights-Java/releases
+)。 
+
+代理程式必須封裝為您的專案中的資源，使得它最終會在 d: / home/site/wwwroot/目錄。 您可以確認您的代理程式是否在正確的應用程式服務目錄移至**開發工具** > **進階工具** > **偵錯主控台**並檢查網站目錄的內容。    
+
+* 儲存設定，然後重新啟動您的應用程式。 （這些步驟只適用於在 Windows 上執行的應用程式服務。）
+
 > [!NOTE]
-> AI-Agent.xml 與代理程式 jar 檔案應在同一個資料夾中。 它們通常一起放在專案的 `/resources` 資料夾中。 
+> AI-Agent.xml 與代理程式 jar 檔案應在同一個資料夾中。 它們通常一起放在專案的 `/resources` 資料夾中。  
 
 ### <a name="spring-rest-template"></a>Spring Rest 範本
 

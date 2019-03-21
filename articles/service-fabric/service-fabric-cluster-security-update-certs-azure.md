@@ -4,7 +4,7 @@ description: 說明如何在 Service Fabric 叢集新增新的憑證、變換憑
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo-microsoft
-ms.openlocfilehash: aa5096b84f9bfe97784d6f80e4c203a1d8384404
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687413"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315262"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。
 
-Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期日最久的已定義憑證；而不管其主要或次要設定定義為何。 退回使用傳統行為是進階動作 (不建議您這麼做)，而且需要將 Fabric.Code 設定內的 "UseSecondaryIfNever" 設定參數值設為 false。
+Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期日最久的已定義憑證；而不管其主要或次要設定定義為何。 切換回傳統行為非，建議使用進階的動作，而且需要將 「 UseSecondaryIfNewer"設定參數值設為 false Fabric.Code 設定中。
 
 當您在叢集建立期間設定憑證安全性時，除了用戶端憑證之外，Service Fabric 還可讓您指定兩個叢集憑證：主要與次要。 請參閱[透過入口網站建立 Azure 叢集](service-fabric-cluster-creation-via-portal.md)或[透過 Azure Resource Manager 建立 Azure 叢集](service-fabric-cluster-creation-via-arm.md)，以詳細了解如何在建立這些叢集時進行叢集設定。 如果您在建立時僅指定一個叢集憑證，該憑證就會作為主要憑證。 在叢集建立完成後，您可新增憑證做為次要憑證。
 
@@ -114,7 +114,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
          }
     ``` 
 
-4. 對**所有** **Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 捲動到 "virtualMachineProfile" 底下的 "publisher": "Microsoft.Azure.ServiceFabric"。
+4. 對**所有** **Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 在“virtualMachineProfile”下，滚动到“publisher”：“Microsoft.Azure.ServiceFabric”。
 
     在 Service Fabric 發行者設定中，您應該會看到像這樣的畫面。
     
@@ -259,7 +259,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>將應用程式憑證部署到叢集。
+## <a name="deploying-client-certificates-to-the-cluster"></a>用戶端憑證部署至叢集。
 
 您可以使用與上述步驟 5 中所述的相同步驟，將憑證從金鑰保存庫部署到節點。 您只需定義和使用不同的參數即可。
 
@@ -286,10 +286,10 @@ Get-ServiceFabricClusterHealth
 若要移除次要憑證，使其不用於叢集安全性，請瀏覽至 [安全性] 區段，然後從特定憑證上的操作功能表中選取 [刪除] 選項。
 
 ## <a name="next-steps"></a>後續步驟
-如需有關叢集管理的詳細資訊，請參閱下列文件︰
+有关群集管理的详细信息，请阅读以下文章：
 
-* [Service Fabric 叢集升級程序與您的期望](service-fabric-cluster-upgrade.md)
-* [設定用戶端的角色型存取](service-fabric-cluster-security-roles.md)
+* [Service Fabric 群集升级过程和用户预期](service-fabric-cluster-upgrade.md)
+* [为客户端设置基于角色的访问](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

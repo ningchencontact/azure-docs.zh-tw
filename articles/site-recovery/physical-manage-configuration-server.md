@@ -2,17 +2,17 @@
 title: 使用 Azure Site Recovery 為組態伺服器管理內部部署實體伺服器至 Azure 的災害復原 | Microsoft Docs
 description: 本文說明如何針對實體伺服器至 Azure 的災害復原管理 Azure Site Recovery 組態伺服器。
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: d5ce80e44ee1a3a48443b190ea9259fe2dea0dcb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088905"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
@@ -46,11 +46,11 @@ Site Recovery 入口網站中提供最新版本的組態伺服器安裝檔案。
 
 1. 登入 Azure 入口網站並瀏覽至您的復原服務保存庫。
 2. 瀏覽至 **Site Recovery 基礎結構** > **設定伺服器** \(位於 [適用於 VMware 和實體機器] 底下)。
-3. 按一下 [+伺服器] 按鈕。
+3. 单击“+服务器”按钮。
 4. 在 [新增伺服器] 頁面上，按一下 [下載] 按鈕，下載註冊金鑰。 在組態伺服器安裝期間，您需要使用此金鑰向 Azure Site Recovery 服務註冊它。
 5. 按一下 [下載 Microsoft Azure Site Recovery 整合安裝] 連結，以下載最新版本的組態伺服器。
 
-  ![下載頁面](./media/physical-manage-configuration-server/downloadcs.png)
+   ![下載頁面](./media/physical-manage-configuration-server/downloadcs.png)
 
 
 ## <a name="install-and-register-the-server"></a>安裝和註冊伺服器
@@ -74,15 +74,15 @@ Site Recovery 入口網站中提供最新版本的組態伺服器安裝檔案。
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
 8. 在 [環境詳細資料] 中，選取您是否要複寫 VMware VM。 如果是的話，安裝程式就會檢查是否已安裝 PowerCLI 6.0。
-9. 在 [安裝位置] 中，選取您要安裝二進位檔及儲存快取的位置。 您選取的磁碟機至少必須有 5 GB 的可用磁碟空間，但我們建議快取磁碟機至少有 600 GB 的可用空間。
+9. 在 [安裝位置] 中，選取您要安裝二進位檔及儲存快取的位置。 所选驱动器必须至少有 5 GB 的可用磁盘空间，但建议选择至少有 600 GB 可用空间的缓存驱动器。
 
     ![安裝位置](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. 在 [網路選取] 中，指定設定伺服器用來傳送和接收複寫資料的接聽程式 (網路介面卡和 SSL 連接埠)。 連接埠 9443 是用來傳送及接收複寫流量的預設連接埠，但您可以修改此連接埠號碼，以符合您的環境需求。 除了連接埠 9443 之外，我們也會開啟網頁伺服器用來協調複寫作業的連接埠 443。 請勿使用連接埠 443 來傳送或接收複寫流量。
+10. 在 **網路選取項目**，先選取 內建處理序伺服器使用的探索與推入安裝行動服務，在來源機器上的 NIC，然後選取 設定伺服器連線時使用的 NIC使用 Azure。 連接埠 9443 是用來傳送及接收複寫流量的預設連接埠，但您可以修改此連接埠號碼，以符合您的環境需求。 除了連接埠 9443 之外，我們也會開啟網頁伺服器用來協調複寫作業的連接埠 443。 請勿使用連接埠 443 來傳送或接收複寫流量。
 
     ![網路選擇](./media/physical-manage-configuration-server/combined-wiz9.png)
 
 
-11. 在 [摘要] 中檢閱資訊，然後按一下 [安裝]。 安裝完成時，會產生複雜密碼。 在您啟用複寫時會需要它，所以請將它複製並保存在安全的位置。
+11. 在 [摘要] 中檢閱資訊，然後按一下 [安裝]。 安装完成后，将生成密码。 在您啟用複寫時會需要它，所以請將它複製並保存在安全的位置。
 
 
 註冊完成後，伺服器會顯示在保存庫的 [設定]  >  刀鋒視窗上。
@@ -106,21 +106,21 @@ Site Recovery 入口網站中提供最新版本的組態伺服器安裝檔案。
 
 ### <a name="parameters"></a>參數
 
-|參數名稱| 類型 | 說明| 值|
+|參數名稱| 類型 | 描述| 值|
 |-|-|-|-|
-| /ServerMode|必要|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
-|/InstallLocation|必要|安裝元件的資料夾| 電腦上的任何資料夾|
-|/MySQLCredsFilePath|必要|儲存 MySQL 伺服器認證的檔案路徑|此檔案應該具備如下所指定的格式|
-|/VaultCredsFilePath|必要|保存庫認證檔的路徑|有效的檔案路徑|
-|/EnvType|必要|您想要保護的環境類型 |VMware<br>NonVMware|
-|/PSIP|必要|要用於複寫資料傳輸的 NIC IP 位址| 任何有效的 IP 位址|
-|/CSIP|必要|接聽組態伺服器的 NIC IP 位址| 任何有效的 IP 位址|
-|/PassphraseFilePath|必要|複雜密碼檔案的位置完整路徑|有效的檔案路徑|
+| /ServerMode|必要項|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
+|/InstallLocation|必要項|安裝元件的資料夾| 電腦上的任何資料夾|
+|/MySQLCredsFilePath|必要項|儲存 MySQL 伺服器認證的檔案路徑|此檔案應該具備如下所指定的格式|
+|/VaultCredsFilePath|必要項|保存庫認證檔的路徑|有效的檔案路徑|
+|/EnvType|必要項|您想要保護的環境類型 |VMware<br>NonVMware|
+|/PSIP|必要項|要用於複寫資料傳輸的 NIC IP 位址| 任何有效的 IP 位址|
+|/CSIP|必要項|接聽組態伺服器的 NIC IP 位址| 任何有效的 IP 位址|
+|/PassphraseFilePath|必要項|複雜密碼檔案的位置完整路徑|有效的檔案路徑|
 |/BypassProxy|選用|指定組態伺服器不使用 Proxy 連接至 Azure|若要這樣做，請從 Venu 取得此值|
 |/ProxySettingsFilePath|選用|Proxy 設定 (預設的 Proxy 需要驗證或自訂的 Proxy)|此檔案應該具備如下所指定的格式|
 |DataTransferSecurePort|選用|要用於複寫資料的 PSIP 上的連接埠號碼| 有效的連接埠號碼 (預設值是 9433)|
 |/SkipSpaceCheck|選用|略過快取磁碟的空間檢查| |
-|/AcceptThirdpartyEULA|必要|旗標表示接受協力廠商使用者授權合約| |
+|/AcceptThirdpartyEULA|必要項|旗標表示接受協力廠商使用者授權合約| |
 |/ShowThirdpartyEULA|選用|顯示協力廠商使用者授權合約。 如果提供作為輸入，則會忽略所有其他參數| |
 
 
@@ -153,40 +153,40 @@ ProxyPassword="Password"
 3. 按一下 [保存庫註冊] 索引標籤。
 4. 從入口網站下載新的保存庫註冊檔案，並提供給工具作為輸入。
 
-  ![註冊組態伺服器](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![註冊組態伺服器](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. 提供新的 Proxy 詳細資料，然後按一下 [註冊] 按鈕。
 6. 開啟系統管理 PowerShell 命令視窗。
 7. 執行以下命令：
 
-  ```PowerShell
-  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```PowerShell
+   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+   net stop obengine
+   net start obengine
+   ```
 
-  >[!WARNING]
-  如果您有連結至此組態伺服器的其他處理序伺服器，必須在部署中[修正所有相應放大處理序伺服器上的 Proxy 設定](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server)。
+   > [!WARNING]
+   > 如果您有連結至此組態伺服器的其他處理序伺服器，必須在部署中[修正所有相應放大處理序伺服器上的 Proxy 設定](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server)。
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>使用相同保存庫註冊組態伺服器
-  1. 登入您的組態伺服器。
-  2. 使用桌面上的捷徑啟動 cspsconfigtool.exe。
-  3. 按一下 [保存庫註冊] 索引標籤。
-  4. 從入口網站下載新的註冊檔案，並提供給工具作為輸入。
-        ![註冊組態伺服器](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。  
-  6. 開啟系統管理 PowerShell 命令視窗。
-  7. 執行下列命令
+1. 登入您的組態伺服器。
+2. 使用桌面上的捷徑啟動 cspsconfigtool.exe。
+3. 按一下 [保存庫註冊] 索引標籤。
+4. 從入口網站下載新的註冊檔案，並提供給工具作為輸入。
+      ![註冊組態伺服器](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。  
+6. 開啟系統管理 PowerShell 命令視窗。
+7. 執行下列命令
 
-      ```PowerShell
-      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```PowerShell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
-  >[!WARNING]
-  如果您有多個處理序伺服器，必須[將它們重新註冊](vmware-azure-manage-process-server.md#reregister-a-process-server)。
+   > [!WARNING]
+   > 如果您有多個處理序伺服器，必須[將它們重新註冊](vmware-azure-manage-process-server.md#reregister-a-process-server)。
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>向不同保存庫註冊組態伺服器
 
@@ -246,22 +246,22 @@ ProxyPassword="Password"
 4. 按一下 [是] 以確認刪除伺服器。
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>將組態伺服器軟體和其相依性解除安裝
-  > [!TIP]
-  如果您打算再次搭配 Azure Site Recovery 來重複使用組態伺服器，您可以直接跳至步驟 4
+> [!TIP]
+>   如果您打算再次搭配 Azure Site Recovery 來重複使用組態伺服器，您可以直接跳至步驟 4
 
 1. 以系統管理員身分登入組態伺服器。
 2. 開啟 [控制台] > [程式集] > [解除安裝程式]
 3. 依下列順序將程式解除安裝：
-  * Microsoft Azure 復原服務代理程式
-  * Microsoft Azure Site Recovery Mobility Service/主要目標伺服器
-  * Microsoft Azure Site Recovery Provider
-  * Microsoft Azure Site Recovery 設定伺服器/處理序伺服器
-  * Microsoft Azure Site Recovery 組態伺服器相依性
-  * MySQL Server 5.5
+   * Microsoft Azure 復原服務代理程式
+   * Microsoft Azure Site Recovery Mobility Service/主要目標伺服器
+   * Microsoft Azure Site Recovery Provider
+   * Microsoft Azure Site Recovery 設定伺服器/處理序伺服器
+   * Microsoft Azure Site Recovery 組態伺服器相依性
+   * MySQL Server 5.5
 4. 從系統管理命令提示字元中，執行下列命令。
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+   ```
+   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+   ```
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>將組態伺服器刪除或取消註冊 (PowerShell)
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: d687467e6bd64363c78f60064c6a17adbc5e0d1f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846117"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538794"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 連線到 Azure Kubernetes Service (AKS) 叢集節點以進行維護或疑難排解
 
@@ -20,21 +20,27 @@ ms.locfileid: "52846117"
 
 本文會示範如何使用私人 IP 位址以 AKS 節點建立 SSH 連線。
 
+## <a name="before-you-begin"></a>開始之前
+
+此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
+
+您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+
 ## <a name="add-your-public-ssh-key"></a>新增公開 SSH 金鑰
 
-根據預設，建立 AKS 叢集時，會產生 SSH 金鑰。 如果在建立 AKS 叢集時您未指定自己的 SSH 金鑰，請新增公用 SSH 金鑰至 AKS 節點。 
+根據預設，建立 AKS 叢集時，會產生 SSH 金鑰。 如果在建立 AKS 叢集時您未指定自己的 SSH 金鑰，請新增公用 SSH 金鑰至 AKS 節點。
 
 若要新增 SSH 金鑰至 AKS 節點，請完成下列步驟：
 
 1. 使用 [az aks show][az-aks-show] 取得 AKS 叢集資源的資源群組名稱。 提供您自己的核心資源群組和 AKS 叢集名稱：
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. 使用 [az vm list][az-vm-list] 命令列出 AKS 叢集資源群組中的虛擬機器。 這些虛擬機器是您的 AKS 節點：
 
-    ```azurecli
+    ```azurecli-interactive
     az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
     ```
 
@@ -48,7 +54,7 @@ ms.locfileid: "52846117"
 
 1. 若要將 SSH 金鑰新增至節點，請使用 [az vm user update][az-vm-user-update] 命令。 提供資源群組名稱，以及上一個步驟中取得的其中一個 AKS 節點。 根據預設，AKS 節點的使用者名稱是 *azureuser*。 提供您自己的 SSH 公開金鑰位置，例如 *~/.ssh/id_rsa.pub*，或貼上 SSH 公開金鑰的內容：
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update \
       --resource-group MC_myResourceGroup_myAKSCluster_eastus \
       --name aks-nodepool1-79590246-0 \
@@ -58,11 +64,11 @@ ms.locfileid: "52846117"
 
 ## <a name="get-the-aks-node-address"></a>取得 AKS 節點位址
 
-AKS 節點不會公開至網際網路。 對於 SSH 至 AKS 節點，您可以使用私人 IP 位址。
+AKS 節點不會公開至網際網路。 對於 SSH 至 AKS 節點，您可以使用私人 IP 位址。 在下一個步驟中，您的協助程式 pod 中建立 AKS 叢集，可讓您 SSH 到節點的此私人 IP 位址。
 
 使用 [az vm list-ip-addresses][az-vm-list-ip-addresses] 命令檢視 AKS 叢集節點的私人 IP 位址。 提供您自己的 AKS 叢集資源群組名稱，此名稱會在前一個 [az-aks-show][az-aks-show] 步驟中取得：
 
-```azurecli
+```azurecli-interactive
 az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 ```
 
@@ -154,3 +160,6 @@ aks-nodepool1-79590246-0  10.240.0.4
 [az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

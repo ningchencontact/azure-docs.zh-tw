@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: c456f8f7f08fdbd0020bfc49ceeec262fa0ac773
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 14c9a453913a9a8080c840df3f23751487b86c34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006165"
 ---
 # <a name="ilogger"></a>ILogger
 
@@ -219,6 +219,26 @@ services.AddApplicationInsightsTelemetry("ikeyhere");
 在此範例中，`ApplicationInsightsLoggerProvider` 使用的設定與一般應用程式監視所用的相同。 因此，`ILogger` 追蹤和其他遙測 (要求、相依性等) 會執行同一組 `TelemetryInitializers`、`TelemetryProcessors` 和 `TelemetryChannel`， 會以相同的方式相互關聯並取樣/不取樣。
 
 不過，這種行為有個例外狀況。 記錄 `Program.cs` 或 `Startup.cs` 本身的內容時，並未完整設定預設的 `TelemetryConfiguration`，因此那些記錄不具有預設設定。 不過，每個其他每個記錄 (例如，控制器、模型等記錄) 會共用設定。
+
+## <a name="control-logging-level"></a>控制記錄層級
+
+除了篩選記錄檔，如上述範例所示的程式碼，它也可的控制擷取的 Application Insights 的記錄層級，藉由修改`appsettings.json`。 [記錄基本概念文件的 ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering)示範如何達成此目的。 針對 Application Insights 提供者別名的名稱是`ApplicationInsights`中所示，下列範例中也就是設定`ApplicationInsights`要擷取的記錄檔`Warning`和更新版本所有類別的。
+
+```json
+{
+  "Logging": {
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 

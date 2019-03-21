@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7abf7601dda8680ac439b94bfd2a6b9f995f0f7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 23eb51428dcf4961febfb592bf957bb8beeeda57
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000774"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257202"
 ---
-# <a name="scale-streaming-endpoints-with-the-azure-portal"></a>透過 Azure 入口網站調整串流端點
+# <a name="scale-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户缩放流式处理终结点
 ## <a name="overview"></a>概觀
 
 > [!NOTE]
@@ -29,13 +29,13 @@ ms.locfileid: "56000774"
 > 
 > 
 
-**進階**串流端點適合進階工作，提供專用並能靈活調整的頻寬容量。 擁有**進階**串流端點的客戶預設會取得一個串流單位 (SU)。 藉由新增 SU 可以調整串流端點。 每個 SU 可為應用程式提供額外的頻寬容量。 如需有關串流端點類型和 CDN 組態的詳細資訊，請參閱[串流端點概觀](media-services-streaming-endpoints-overview.md)主題。
+**進階**串流端點適合進階工作，提供專用並能靈活調整的頻寬容量。 擁有**進階**串流端點的客戶預設會取得一個串流單位 (SU)。 藉由新增 SU 可以調整串流端點。 每個 SU 可為應用程式提供額外的頻寬容量。 有关流式处理终结点类型和 CDN 配置的详细信息，请参阅[流式处理终结点概述](media-services-streaming-endpoints-overview.md)主题。
  
 本主題說明如何調整串流端點。
 
 如需定價詳細資料的相關資訊，請參閱＜ [媒體服務定價詳細資料](https://go.microsoft.com/fwlink/?LinkId=275107)＞。
 
-## <a name="scale-streaming-endpoints"></a>調整串流端點
+## <a name="scale-streaming-endpoints"></a>缩放流式处理终结点
 
 若要變更串流端點的數目，請執行下列操作：
 

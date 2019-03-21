@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed0912e8d4705b6cbefa9eb8f7a712a37d8b0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8d2001e221ef9c02ee2ab80b647a9bafe6490432
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183171"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>教學課程：Azure Active Directory 與 TINFOIL SECURITY 整合
 
@@ -186,7 +186,7 @@ ms.locfileid: "56183171"
 
 1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
-    ![[使用者和群組] -> [所有使用者] ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
+    ![[使用者和群組] -> [所有使用者]](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
 1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 9b53a26f5163eae17198302fc26c079185cb7bd8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: af9b34d90098409135020fa8a45ecd0253f25b22
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354994"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454539"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>建立 Azure Marketplace 和 AppSource 的供應項目
 
@@ -55,7 +55,7 @@ Cloud Partner 入口網站的一個基本目的是使發行者能夠建立 (並�
 |      --------       |   -------                                                            |
 | **供應項目設定**  | 收集供應項目和發行者身分識別資訊。                    |
 | **SKU**            | 定義供應項目的每個庫存單位 (SKU) 版本的技術和商務特性 |
-| **試用產品**      | 針對支援此選擇性功能的類型，請為您的供應項目定義示範。  如需詳細資訊，請參閱[什麼是試用產品？](../../cloud-partner-portal-orig/what-is-test-drive.md)  |
+| **試用產品**      | 針對支援此選擇性功能的類型，請為您的供應項目定義示範。  如需詳細資訊，請參閱[什麼是試用產品？](../test-drive/what-is-test-drive.md)  |
 | **市集**或**店面** | 收集用來列出市集中的供應項目的文字字串、文件和影像 |
 | **支援**         | 收集客戶、工程和線上支援的連絡資訊  |
 |  |  |

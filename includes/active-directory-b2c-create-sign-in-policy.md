@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742258"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58114933"
 ---
 如果您只想在您的應用程式中啟用登入功能，您可以使用**登入**使用者流程。 此使用者流程描述客戶在登入期間將經歷的體驗，以及成功登入時，應用程式將收到的權杖內容。
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: fd2614c258aff146397e24e688eae18d84d3cfa6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002190"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201155"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight 中的大規模串流
 
@@ -45,7 +45,7 @@ Spark Streamin 是 Spark 的延伸，可讓您重複使用用於執行批次處�
 
 ## <a name="scaling-a-cluster"></a>調整叢集規模
 
-雖然您可以在建立叢集時指定叢集中的節點數，但您可以擴大或縮小叢集來配合工作負載。 所有 HDInsight 叢集都允許您[變更叢集中的節點數目](hdinsight-administer-use-management-portal.md#scale-clusters)。 因為所有資料都儲存在 Azure 儲存體或 Data Lake Storage 中，所以您可以在不遺失資料的情況下卸除 Spark 叢集。
+雖然您可以在建立叢集時指定叢集中的節點數，但您可以擴大或縮小叢集來配合工作負載。 所有 HDInsight 叢集都允許您[變更叢集中的節點數目](hdinsight-administer-use-portal-linux.md#scale-clusters)。 因為所有資料都儲存在 Azure 儲存體或 Data Lake Storage 中，所以您可以在不遺失資料的情況下卸除 Spark 叢集。
 
 脫鉤技術有一些優點。 例如，Kafka 是一項事件緩衝處理技術，因此需要非常大量的 IO，但不需要太多處理能力。 相較之下，串流處理器 (例如 Spark Streaming) 則需要大量計算，因此需要較強大的 VM。 藉由讓這些技術脫鉤，分別置於不同的叢集中，您既可以個別調整它們，同時也可以將 VM 做最佳運用。
 

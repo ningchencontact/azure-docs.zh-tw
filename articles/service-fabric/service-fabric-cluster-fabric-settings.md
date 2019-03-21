@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: a919d10bbb7def8f81e68d95c03d95309483df59
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210373"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57836958"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -33,11 +33,12 @@ ms.locfileid: "55210373"
 下列是您可自訂的網狀架構設定清單，並依區段分組。
 
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ApplicationCertificateValidationPolicy|字串，預設值為 "None"|靜態| 這不會驗證伺服器憑證；成功的要求。 請參閱 ServiceCertificateThumbprints 組態，以取得反向 Proxy 可以信任的逗號分隔遠端憑證指紋清單。 請參閱 ServiceCommonNameAndIssuer 組態，以取得反向 Proxy 可以信任的遠端憑證主體名稱和簽發者指紋。 若要深入了解，請參閱[反向 Proxy 安全連線](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)。 |
 |BodyChunkSize |單位，預設值為 16384 |動態| 提供用來讀取主體的區塊大小 (位元組)。 |
-|CrlCheckingFlag|單位，預設值為 0x40000000 |動態| 應用程式/服務信任鏈結驗證旗標，例如 CRL 檢查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單： http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
+|CrlCheckingFlag|單位，預設值為 0x40000000 |動態| 應用程式/服務信任鏈結驗證旗標，例如 CRL 檢查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單： https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |以秒為單位的時間。 預設值為 120 |動態|以秒為單位指定時間範圍。  針對在 http 應用程式閘道中所處理的 http 要求提供預設要求逾時。 |
 |ForwardClientCertificate|布林值，預設值為 FALSE|動態|當設為 false 時，反向 Proxy 將不會要求用戶端憑證。當設為 true 時，則反向 Proxy 將會在 SSL 交換期間要求用戶端憑證，並將採用 Base 64 編碼的 PEM 格式字串轉送至名為 X-Client-Certificate 標頭中的服務。這個服務在檢查憑證資料之後，可能會讓要求失敗，並包含適當的狀態碼。 如果為 true 且用戶端未出示憑證，反向 Proxy 會轉送空白標頭，以讓服務處理這種情況。 反向 Proxy 將作為透明圖層。 若要深入了解，請參閱[設定用戶端憑證驗證](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)。 |
 |GatewayAuthCredentialType |字串，預設值為 "None" |靜態| 表示要在 http 應用程式閘道端點使用的安全性認證類型。有效值為 "None/X509。 |
@@ -55,11 +56,13 @@ ms.locfileid: "55210373"
 |ServiceCertificateThumbprints|字串，預設值為 ""|動態|反向 Proxy 可以信任的逗號分隔遠端憑證指紋清單。 若要深入了解，請參閱[反向 Proxy 安全連線](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)。 |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap，預設值為 None|動態| 反向 Proxy 可以信任的遠端憑證主體名稱和簽發者指紋。 若要深入了解，請參閱[反向 Proxy 安全連線](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)。 |
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int，預設值為 0|靜態|BackupRestoreService 的 MinReplicaSetSize |
@@ -69,6 +72,7 @@ ms.locfileid: "55210373"
 |TargetReplicaSetSize|int，預設值為 0|靜態| BackupRestoreService 的 TargetReplicaSetSize |
 
 ## <a name="clustermanager"></a>ClusterManager
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |EnableDefaultServicesUpgrade | 布林值，預設值為 false |動態|在應用程式升級期間啟用預設服務升級作業。 在升級之後，將會覆寫預設的服務描述。 |
@@ -97,6 +101,7 @@ ms.locfileid: "55210373"
 |UpgradeStatusPollInterval |時間 (秒)，預設值為 60 |動態|輪詢應用程式升級狀態的頻率。 此值決定任何 GetApplicationUpgradeProgress 呼叫的更新速率 |
 
 ## <a name="common"></a>一般
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PerfMonitorInterval |時間 (秒)，預設值為 1 |動態|以秒為單位指定時間範圍。 效能監視間隔。 設為 0 或負值會停用監視。 |
@@ -117,6 +122,7 @@ ms.locfileid: "55210373"
 |PropertyGroup|KeyDoubleValueMap，預設值為 None|動態|藉由指定一個範圍的百分比 [0.0-1.0) 或將空節點的數目指定為 >= 1.0 的數字，來決定要將叢集視為已重組所需具有的可用節點數目 |
 
 ## <a name="diagnostics"></a>診斷
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |AppDiagnosticStoreAccessRequiresImpersonation |布林值，預設值為 true | 動態 |在代表應用程式存取診斷存放區時是否需要模擬。 |
@@ -140,6 +146,7 @@ ms.locfileid: "55210373"
 |PartitionSuffix|字串，預設值為 ""|靜態|控制分割服務 DNS 查詢中的分割後置詞字串值。值： <ul><li>應該要符合 RFC 規範，因為它會包含在 DNS 查詢中。</li><li>不應包含點 '.'，因為點會干擾 DNS 後置詞的行為。</li><li>不得超過 5 個字元。</li><li>如果覆寫 PartitionPrefix 設定，則必須覆寫 PartitionSuffix，反之亦然。</li></ul>如需詳細資訊，請參閱 [Service Fabric DNS 服務](service-fabric-dnsservice.md)。 |
 
 ## <a name="eventstore"></a>EventStore
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int，預設值為 0|靜態|EventStore 服務的 MinReplicaSetSize |
@@ -147,6 +154,7 @@ ms.locfileid: "55210373"
 |TargetReplicaSetSize|int，預設值為 0|靜態| EventStore 服務的 TargetReplicaSetSize |
 
 ## <a name="fabricclient"></a>FabricClient
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |時間 (秒)，預設值為 2 |動態|以秒為單位指定時間範圍。 用戶端每次嘗試開啟閘道連線的連線逾時間隔。|
@@ -161,6 +169,7 @@ ms.locfileid: "55210373"
 |ServiceChangePollInterval |時間 (秒)，預設值為 120 |動態|以秒為單位指定時間範圍。 針對已登錄服務之變更通知回呼，輪詢從用戶端變為閘道之服務變更時，連續兩次輪詢之間所應有的間隔時間。 |
 
 ## <a name="fabrichost"></a>FabricHost
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |整數，預設值為 10 |動態|這是系統在放棄之前會重試失敗之啟用的計數上限。 |
@@ -173,6 +182,7 @@ ms.locfileid: "55210373"
 |StopTimeout |時間 (秒)，預設值為 300 |動態|以秒為單位指定時間範圍。 託管服務的啟用、停用和升級逾時。 |
 
 ## <a name="fabricnode"></a>FabricNode
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ClientAuthX509FindType |字串，預設值為 "FindByThumbprint" |動態|指出如何搜尋以下列 ClientAuthX509StoreName 支援值指定之存放區中的憑證︰FindByThumbprint、FindBySubjectName。 |
@@ -196,6 +206,7 @@ ms.locfileid: "55210373"
 |UserRoleClientX509StoreName |字串，預設值為 "My" |動態|包含預設使用者角色 FabricClient 之憑證的 X.509 憑證存放區名稱。 |
 
 ## <a name="failovermanager"></a>FailoverManager
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |BuildReplicaTimeLimit|時間範圍，預設值為 Common::TimeSpan::FromSeconds(3600)|動態|以秒為單位指定時間範圍。 用來建置具狀態複本的時間限制，此時間過後，便會起始警告健康情況報告 |
@@ -219,6 +230,7 @@ ms.locfileid: "55210373"
 |UserStandByReplicaKeepDuration |時間 (秒)，預設值為 3600.0 * 24 * 7 |動態|以秒為單位指定時間範圍。 當保存的複本從停止運作狀態恢復過來，它可能已被取代。 此計時器會決定 FM 會將待命複本保留多久才予以捨棄。 |
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |CompletedActionKeepDurationInSeconds | 整數，預設值為 604800 |靜態| 這大約是處於終止狀態之動作的保留時間長度。 此值也取決於 StoredActionCleanupIntervalInSeconds，因為要清除的工作只會在該間隔內完成。 604800 為 7 天。 |
@@ -235,12 +247,14 @@ ms.locfileid: "55210373"
 |TargetReplicaSetSize |整數，預設值為 0 |靜態|NOT_PLATFORM_UNIX_START。FaultAnalysisService 的 TargetReplicaSetSize。 |
 
 ## <a name="federation"></a>同盟
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |LeaseDuration |時間 (秒)，預設值為 30 |動態|節點與其相鄰節點之間的租用持續時間。 |
 |LeaseDurationAcrossFaultDomain |時間 (秒)，預設值為 30 |動態|所有容錯網域的節點與其相鄰節點之間的租用持續時間。 |
 
 ## <a name="filestoreservice"></a>FileStoreService
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |AcceptChunkUpload|布林值，預設值為 TRUE|動態|設定以決定在複製應用程式套件期間，檔案存放區服務是否接受區塊型檔案上傳。 |
@@ -278,11 +292,14 @@ ms.locfileid: "55210373"
 |UseChunkContentInTransportMessage|布林值，預設值為 TRUE|動態|使用 v6.4 中引入的新版上傳通訊協定的旗標。 此通訊協定版本使用 Service Fabric Transport，將檔案上傳至映像存放區，比起舊版中使用的 SMB 通訊協定，此通訊協定提供更好的效能。 |
 
 ## <a name="healthmanager"></a>HealthManager
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-| EnableApplicationTypeHealthEvaluation |布林值，預設值為 false |靜態|叢集健康狀態評估原則︰啟用每一應用程式類型的健康狀態評估。 |
+|EnableApplicationTypeHealthEvaluation |布林值，預設值為 false |靜態|叢集健康狀態評估原則︰啟用每一應用程式類型的健康狀態評估。 |
+|MaxSuggestedNumberOfEntityHealthReports|Int，默认值为 500 |動態|在对监视器的运行状况报告逻辑提出担忧之前，实体可以拥有的最大健康报告数。 每个运行状况实体应具有相对较少的运行状况报告。 如果报告计数高于此数字，则监视器的实现可能存在问题。 如果某个实体具有过多的报告，则评估该实体时，将通过警告运行状况报告来标记该实体。 |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ConsiderWarningAsError |布林值，預設值為 false |靜態|叢集健康狀態評估原則︰將警告視為錯誤處理。 |
@@ -290,12 +307,14 @@ ms.locfileid: "55210373"
 |MaxPercentUnhealthyNodes | 整數，預設值為 0 |靜態|叢集健康狀態評估原則︰要讓叢集被評估為狀況良好所允許的狀況不良節點百分比上限。 |
 
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|整數，預設值為 10|靜態|叢集升級健康狀態評估原則︰要讓叢集被評估為狀況良好所允許的差異狀況不良節點百分比上限 |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|整數，預設值為 15|靜態|叢集升級健康狀態評估原則︰要讓叢集被評估為狀況良好所允許的升級網域中狀況不良節點差異百分比上限 |
 
 ## <a name="hosting"></a>裝載
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |整數，預設值為 10 |動態|系統在放棄之前重試失敗啟用的次數 |
@@ -326,7 +345,7 @@ ms.locfileid: "55210373"
 |EndpointProviderEnabled| 布林值，預設值為 FALSE|靜態| 能夠由網狀架構管理端點資源。 必須在 FabricNode 中指定開始和結束的應用程式連接埠範圍。 |
 |FabricContainerAppsEnabled| 布林值，預設值為 FALSE|靜態| |
 |FirewallPolicyEnabled|布林值，預設值為 FALSE|靜態| 能夠為端點資源開啟防火牆連接埠，並於 ServiceManifest 中明確指定連接埠 |
-|GetCodePackageActivationContextTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 CodePackageActivationContext 呼叫的逾時值。 這不適用於特定服務。 |
+|GetCodePackageActivationContextTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 CodePackageActivationContext 呼叫的逾時值。 這不是適用於臨機操作的服務。 |
 |GovernOnlyMainMemoryForProcesses|布林值，預設值為 FALSE|靜態|資源管理的預設行為是將 MemoryInMB 中指定的限制，放置在處理序使用的記憶體總計數量 (RAM +交換) 上。 如果超過限制；此處理序將收到 OutOfMemory 例外狀況。 如果此參數設為 true，限制將僅套用到處理序將使用的 RAM 記憶體數量。 如果超過此限制；而且如果此設定為 true；作業系統會將主記憶體交換至磁碟。 |
 |IPProviderEnabled|布林值，預設值為 FALSE|靜態|能夠管理 IP 位址。 |
 |IsDefaultContainerRepositoryPasswordEncrypted|布林值，預設值為 FALSE|靜態|DefaultContainerRepositoryPassword 是否已加密。|
@@ -346,6 +365,7 @@ ms.locfileid: "55210373"
 |UseContainerServiceArguments|布林值，預設值為 TRUE|靜態|此組態會告知主機略過將引數 (在 ContainerServiceArguments 組態中指定) 傳遞至 Docker 精靈。|
 
 ## <a name="httpgateway"></a>HttpGateway
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ActiveListeners |單位，預設值為 50 |靜態| 要張貼到 http 伺服器佇列的讀取數。 這會控制 HttpGateway 滿意的並行要求數目。 |
@@ -355,6 +375,7 @@ ms.locfileid: "55210373"
 |MaxEntityBodySize |單位，預設值為 4194304 |動態|提供 http 要求預期會有的主體大小上限。 預設值為 4 MB。 若要求的主體大小大於此值，Httpgateway 會將要求判為失敗。 讀取區塊大小下限為 4096 個位元組。 因此，此值必須 >= 4096。 |
 
 ## <a name="imagestoreservice"></a>ImageStoreService
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |已啟用 |布林值，預設值為 false |靜態|ImageStoreService 的「啟用」旗標。 預設值：false |
@@ -366,6 +387,7 @@ ms.locfileid: "55210373"
 |TargetReplicaSetSize | 整數，預設值為 7 |靜態|ImageStoreService 的 TargetReplicaSetSize。 |
 
 ## <a name="ktllogger"></a>KtlLogger
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |AutomaticMemoryConfiguration |整數，預設值為 1 |動態|表示是否應自動動態設定記憶體設定的旗標。 若為零，則會直接使用記憶體組態設定，而不會根據系統條件加以變更。 若為一，則會自動設定記憶體設定，而且可能會根據系統條件加以變更。 |
@@ -373,11 +395,12 @@ ms.locfileid: "55210373"
 |SharedLogId |字串，預設值為 "" |靜態|共用記錄容器的唯一 GUID。 若使用位於網狀架構資料根目錄下的預設路徑，則使用 ""。 |
 |SharedLogPath |字串，預設值為 "" |靜態|用以放置共用記錄容器之位置的路徑和檔案名稱。 使用 "" 可使用位於網狀架構資料根目錄下的預設路徑。 |
 |SharedLogSizeInMB |整數，預設值為 8192 |靜態|要在共用記錄容器中配置的 MB 數。 |
-|SharedLogThrottleLimitInPercentUsed|int，預設值為 0 | 靜態 | 將引發節流的共用記錄使用量百分比。 值應介於 0 到 100。 值為 0 時，表示使用預設百分比值。 值為 100 時，表示完全不節流。 值介於 1 到 99 時，表示指定超出時將進行節流的記錄使用量百分比；例如，如果共用記錄為 10 GB，而此值為 90，則當使用達 9 GB 時，就會進行節流。 建議使用預設值。|
+|SharedLogThrottleLimitInPercentUsed|int，預設值為 0 | 靜態 | 將引發節流的共用記錄使用量百分比。 值應介於 0 到 100。 值為 0 時，表示使用預設百分比值。 值為 100 時，表示完全不節流。 介於 1 到 99 之間的值指定記錄檔使用量高於就會發生節流; 的百分比如範例共用記錄檔是否 10 GB 且值是 90 則會進行節流之後有 9 GB 正在使用中。 建議使用預設值。|
 |WriteBufferMemoryPoolMaximumInKB | 整數，預設值為 0 |動態|允許寫入緩衝區記憶體集區成長達到的 KB 數目。 使用 0 表示無限制。 |
 |WriteBufferMemoryPoolMinimumInKB |整數，預設值為 8388608 |動態|一開始要為寫入緩衝區記憶體集區配置的 KB 數目。 使用 0 表示無限制。預設值應與下面的 SharedLogSizeInMB 一致。 |
 
 ## <a name="management"></a>管理性
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |AzureStorageMaxConnections | 整數，預設值為 5000 |動態|Azure 儲存體的並行連線數目上限。 |
@@ -401,22 +424,23 @@ ms.locfileid: "55210373"
 |PropertyGroup|KeyDoubleValueMap，預設值為 None|動態|決定叢集計量的一組 MetricBalancingThresholds。 如果 maxNodeLoad/minNodeLoad 大於 MetricBalancingThresholds，則會執行平衡作業。 如果至少一個 FD 或 UD 中的 maxNodeLoad/minNodeLoad 小於 MetricBalancingThresholds，則會執行重組作業。 |
 
 ## <a name="namingservice"></a>NamingService
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |GatewayServiceDescriptionCacheLimit |整數，預設值為 0 |靜態|命名閘道之 LRU 服務說明快取中保有的項目數上限 (設為 0 表示沒有限制)。 |
 |MaxClientConnections |整數，預設值為 1000 |動態|每個閘道所允許的用戶端連線數目上限。 |
-|MaxFileOperationTimeout |時間 (秒)，預設值為 30 |動態|以秒為單位指定時間範圍。 檔案存放區服務作業所允許的逾時值上限。 指定較大逾時值的要求會遭到拒絕。 |
-|MaxIndexedEmptyPartitions |整數，預設值為 1000 |動態|通知快取中會保持已編製索引狀態以便同步處理重新連線用戶端的空白資料分割數上限。 任何超過此數目的空白資料分割，都將會以遞增查閱版本順序從索引中移除。 重新連線用戶端仍可同步處理和接收遺失的空白資料分割更新，但同步處理通訊協定會變得更耗費資源。 |
+|MaxFileOperationTimeout |時間 (秒)，預設值為 30 |動態|以秒為單位指定時間範圍。 文件存储服务操作的最大超时时间。 指定較大逾時值的要求會遭到拒絕。 |
+|MaxIndexedEmptyPartitions |整數，預設值為 1000 |動態|通知快取中會保持已編製索引狀態以便同步處理重新連線用戶端的空白資料分割數上限。 会按查找版本的升序顺序，从索引中删除超出此数目的所有空分区。 重新連線用戶端仍可同步處理和接收遺失的空白資料分割更新，但同步處理通訊協定會變得更耗費資源。 |
 |MaxMessageSize |整數，預設值為 4\*1024\*1024 |靜態|用戶端節點通訊在使用命名時的訊息大小上限。 DOS 攻擊減輕，預設值為 4MB。 |
 |MaxNamingServiceHealthReports | 整數，預設值為 10 |動態|命名存放區服務會一次報告為狀況不良之緩慢作業的數目上限。 若為 0，則會傳送所有緩慢作業。 |
 |MaxOperationTimeout |時間 (秒)，預設值為 600 |動態|以秒為單位指定時間範圍。 用戶端作業所允許的逾時值上限。 指定較大逾時值的要求會遭到拒絕。 |
 |MaxOutstandingNotificationsPerClient |整數，預設值為 1000 |動態|閘道在強制關閉用戶端註冊前可處於待處理狀態的通知數目上限。 |
-|MinReplicaSetSize | 整數，預設值為 3 |不允許| 要完成更新所需寫入到之命名服務複本的數目下限。 如果系統中的作用中複本少於此數目，可靠性系統便會拒絕更新命名服務存放區，直到複本還原為止。 此值不應超過 TargetReplicaSetSize。 |
+|MinReplicaSetSize | 整數，預設值為 3 |不允許| 要完成更新所需寫入到之命名服務複本的數目下限。 如果系统中的活动副本数少于此数量，则可靠性系统会拒绝对命名服务存储执行的更新操作，直到副本还原为止。 此值不應超過 TargetReplicaSetSize。 |
 |PartitionCount |整數，預設值為 3 |不允許|要建立之命名服務存放區的資料分割數目。 每個資料分割都擁有一個與其索引對應的資料分割索引鍵，因此存在資料分割索引鍵 [0; PartitionCount)。 增加命名服務資料分割數目會增加命名服務可執行的級別，其方法是減少任何備用複本集所保有的平均資料量，代價則是資源的使用率會增加 (因為必須維持 PartitionCount*ReplicaSetSize 個服務複本)。|
 |PlacementConstraints | 字串，預設值為 "" |不允許| 命名服務的放置條件約束。 |
-|QuorumLossWaitDuration | 時間 (秒)，預設值為 MaxValue |不允許| 以秒為單位指定時間範圍。 當命名服務進入仲裁遺失狀態時，此計時器就會啟動。 當計時器到期時，FM 會將停止運作的複本視為遺失，並嘗試復原仲裁。 請注意，這可能會導致資料遺失。 |
+|QuorumLossWaitDuration | 時間 (秒)，預設值為 MaxValue |不允許| 以秒為單位指定時間範圍。 命名服务进入仲裁丢失状态时，此计时器会启动。 當計時器到期時，FM 會將停止運作的複本視為遺失，並嘗試復原仲裁。 請注意，這可能會導致資料遺失。 |
 |RepairInterval | 時間 (秒)，預設值為 5 |靜態| 以秒為單位指定時間範圍。 會開始修復授權單位擁有者和名稱擁有者間命名不一致問題的間隔時間。 |
-|ReplicaRestartWaitDuration | 時間 (秒)，預設值為 (60.0 * 30)|不允許| 以秒為單位指定時間範圍。 當命名服務複本停止運作時，此計時器就會啟動。 當它到期時，FM 就會開始取代停止運作的複本 (還不會將它們視為遺失)。 |
+|ReplicaRestartWaitDuration | 時間 (秒)，預設值為 (60.0 * 30)|不允許| 以秒為單位指定時間範圍。 命名服务副本不可用时，此计时器会启动。 當它到期時，FM 就會開始取代停止運作的複本 (還不會將它們視為遺失)。 |
 |ServiceDescriptionCacheLimit | 整數，預設值為 0 |靜態| 命名存放區服務之 LRU 服務說明快取中保有的項目數上限 (設為 0 表示沒有限制)。 |
 |ServiceNotificationTimeout |時間 (秒)，預設值為 30 |動態|以秒為單位指定時間範圍。 將服務通知傳遞給用戶端時所使用的逾時值。 |
 |StandByReplicaKeepDuration | 時間 (秒)，預設值為 3600.0 * 2 |不允許| 以秒為單位指定時間範圍。 當命名服務複本從停止運作狀態恢復過來，它可能已被取代。 此計時器會決定 FM 會將待命複本保留多久才予以捨棄。 |
@@ -428,27 +452,32 @@ ms.locfileid: "55210373"
 |PropertyGroup|KeyDoubleValueMap，預設值為 None|動態|每一計量名稱的節點容量百分比，作為緩衝區以便在容錯移轉案例中，於節點上保留一些可用位置。 |
 
 ## <a name="nodecapacities"></a>NodeCapacities
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeCapacityCollectionMap |靜態|不同計量的節點容量集合。 |
 
 ## <a name="nodedomainids"></a>NodeDomainIds
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeFaultDomainIdCollection |靜態|說明節點所屬的容錯網域。 容錯網域會透過可描述節點在資料中心內之位置的 URI 來定義。  容錯網域 URI 的格式為 fd:/fd/ 再後接 URI 路徑區段。|
 |UpgradeDomainId |字串，預設值為 "" |靜態|說明節點所屬的升級網域。 |
 
 ## <a name="nodeproperties"></a>NodeProperties
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodePropertyCollectionMap |靜態|節點屬性的字串索引鍵/值組集合。 |
 
 ## <a name="paas"></a>Paas
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ClusterId |字串，預設值為 "" |不允許|網狀架構用來保護組態的 X509 憑證存放區。 |
 
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |Counters |字串 | 動態 |要收集之效能計數器的逗號分隔清單。 |
@@ -458,6 +487,7 @@ ms.locfileid: "55210373"
 |SamplingIntervalInSeconds |整數，預設值為 60 | 動態 |所要收集之效能計數器的取樣間隔。 |
 
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |AffinityConstraintPriority | 整數，預設值為 0 | 動態|決定同質性條件約束的優先順序︰0︰硬式、1︰軟式、負數︰忽略。 |
@@ -485,7 +515,7 @@ ms.locfileid: "55210373"
 |InBuildThrottlingAssociatedMetric | 字串，預設值為 "" |靜態| 此節流的相關度量名稱。 |
 |InBuildThrottlingEnabled | 布林值，預設值為 false |動態| 決定是否啟用內建的節流。 |
 |InBuildThrottlingGlobalMaxValue | 整數，預設值為 0 |動態|在全域中允許的內建複本數目上限。 |
-|InterruptBalancingForAllFailoverUnitUpdates | 布林值，預設值為 false | 動態|決定任何類型的容錯移轉單元更新是否應中斷快速或緩慢的平衡執行。 若指定 "false"，當 FailoverUnit 符合下列條件時，平衡執行將會中斷︰已建立/已刪除、有遺漏的複本、變更了主要複本位置或變更了複本數目。 若為 FailoverUnit 符合下列條件的其他情況下，平衡執行則不會中斷︰有額外的複本、變更了任何複本旗標、只變更了資料分割版本或任何其他情況。 |
+|InterruptBalancingForAllFailoverUnitUpdates | 布林值，預設值為 false | 動態|決定任何類型的容錯移轉單元更新是否應中斷快速或緩慢的平衡執行。 如果指定为“false”，则在 FailoverUnit 出现以下情况时中断均衡运行：被创建/删除、缺少副本、更改了主副本位置或更改了副本数量。 若為 FailoverUnit 符合下列條件的其他情況下，平衡執行則不會中斷︰有額外的複本、變更了任何複本旗標、只變更了資料分割版本或任何其他情況。 |
 |MinConstraintCheckInterval | 時間 (秒)，預設值為 1 |動態| 以秒為單位指定時間範圍。 定義在連續兩回條件約束檢查之前，必須經過的時間量下限。 |
 |MinLoadBalancingInterval | 時間 (秒)，預設值為 5 |動態| 以秒為單位指定時間範圍。 定義在連續兩回平衡之前，必須經過的時間量下限。 |
 |MinPlacementInterval | 時間 (秒)，預設值為 1 |動態| 以秒為單位指定時間範圍。 定義在連續兩回放置之前，必須經過的時間量下限。 |
@@ -514,6 +544,7 @@ ms.locfileid: "55210373"
 |VerboseHealthReportLimit | 整數，預設值為 20 | 動態|定義在針對複本報告健康狀態警告之前，複本必須未放置的次數 (如果已啟用詳細健康狀態報告)。 |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ApplicationUpgradeMaxReplicaCloseDuration | 時間 (秒)，預設值為 900 |動態|以秒為單位指定時間範圍。 應用程式升級期間，系統在終止有複本卡在關閉作業的服務主機之前會等候的持續時間。|
@@ -549,30 +580,34 @@ ms.locfileid: "55210373"
 |IsEnabled|布林值，預設值為 FALSE |靜態|控制服務是否在叢集中啟用。 |
 
 ## <a name="runas"></a>RunAs
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|RunAsAccountName |字串，預設值為 "" |動態|指出 RunAs 帳戶名稱。 "DomainUser" 或 "ManagedServiceAccount" 帳戶類型才需要此參數。 有效值為 "domain\user" 或 "user@domain"。 |
+|RunAsAccountName |字串，預設值為 "" |動態|指出 RunAs 帳戶名稱。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值為 "domain\user" 或 "user@domain"。 |
 |RunAsAccountType|字串，預設值為 "" |動態|指出 RunAs 帳戶類型。 任何 RunAs 區段皆需要此參數。有效值為 "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"。|
 |RunAsPassword|字串，預設值為 "" |動態|指出 RunAs 帳戶密碼。 "DomainUser" 帳戶類型才需要此參數。 |
 
 ## <a name="runasdca"></a>RunAs_DCA
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|RunAsAccountName |字串，預設值為 "" |動態|指出 RunAs 帳戶名稱。 "DomainUser" 或 "ManagedServiceAccount" 帳戶類型才需要此參數。 有效值為 "domain\user" 或 "user@domain"。 |
+|RunAsAccountName |字串，預設值為 "" |動態|指出 RunAs 帳戶名稱。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值為 "domain\user" 或 "user@domain"。 |
 |RunAsAccountType|字串，預設值為 "" |動態|指出 RunAs 帳戶類型。 任何 RunAs 區段皆需要此參數。有效值為 "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"。 |
 |RunAsPassword|字串，預設值為 "" |動態|指出 RunAs 帳戶密碼。 "DomainUser" 帳戶類型才需要此參數。 |
 
 ## <a name="runasfabric"></a>RunAs_Fabric
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|RunAsAccountName |字串，預設值為 "" |動態|指出 RunAs 帳戶名稱。 "DomainUser" 或 "ManagedServiceAccount" 帳戶類型才需要此參數。 有效值為 "domain\user" 或 "user@domain"。 |
+|RunAsAccountName |字串，預設值為 "" |動態|指出 RunAs 帳戶名稱。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值為 "domain\user" 或 "user@domain"。 |
 |RunAsAccountType|字串，預設值為 "" |動態|指出 RunAs 帳戶類型。 任何 RunAs 區段皆需要此參數。有效值為 "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"。 |
 |RunAsPassword|字串，預設值為 "" |動態|指出 RunAs 帳戶密碼。 "DomainUser" 帳戶類型才需要此參數。 |
 
 ## <a name="runashttpgateway"></a>RunAs_HttpGateway
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|RunAsAccountName |字串，預設值為 "" |動態|指出 RunAs 帳戶名稱。 "DomainUser" 或 "ManagedServiceAccount" 帳戶類型才需要此參數。 有效值為 "domain\user" 或 "user@domain"。 |
+|RunAsAccountName |字串，預設值為 "" |動態|指出 RunAs 帳戶名稱。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值為 "domain\user" 或 "user@domain"。 |
 |RunAsAccountType|字串，預設值為 "" |動態|指出 RunAs 帳戶類型。 任何 RunAs 區段皆需要此參數。有效值為 "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"。 |
 |RunAsPassword|字串，預設值為 "" |動態|指出 RunAs 帳戶密碼。 "DomainUser" 帳戶類型才需要此參數。 |
 
@@ -600,7 +635,7 @@ ms.locfileid: "55210373"
 |ClusterCredentialType|字串，預設值為 "None"|不允許|指出為了保護叢集而要使用的安全性認證類型。 有效值為"None/X509/Windows" |
 |ClusterIdentities|字串，預設值為 ""|動態|用於叢集成員資格授權的叢集節點 Windows 身分識別。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱 |
 |ClusterSpn|字串，預設值為 ""|不允許|當網狀架構以單一網域使用者 (gMSA/網域使用者帳戶) 的身分執行時，叢集的服務主體名稱。 它是租用接聽程式和 fabric.exe 中的接聽程式的 SPN：同盟接聽程式、內部複寫接聽程式、執行階段服務接聽程式和命名閘道接聽程式。 當網狀架構以機器帳戶的身分執行時，此參數應該保持空白，在此情況下，來自接聽程式傳輸位址的連線端計算接聽程式 SPN。 |
-|CrlCheckingFlag|單位，預設值為 0x40000000|動態|預設信任鏈結驗證旗標，可能會由元件專用的旗標加以覆寫，例如，同盟/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單： http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
+|CrlCheckingFlag|單位，預設值為 0x40000000|動態|預設信任鏈結驗證旗標，可能會由元件專用的旗標加以覆寫，例如，同盟/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單： https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|時間範圍，預設值為 Common::TimeSpan::FromMinutes(15)|動態|以秒為單位指定時間範圍。 如果 CRL 離線錯誤是可忽略的，則在遇到離線錯誤之後，要將給定憑證的 CRL 檢查停用多久。 |
 |CrlOfflineHealthReportTtl|時間範圍，預設值為 Common::TimeSpan::FromMinutes(1440)|動態|以秒為單位指定時間範圍。 |
 |DisableFirewallRuleForDomainProfile| 布林值，預設值為 TRUE |靜態| 指出是否不應該對網域設定檔啟用防火牆規則 |
@@ -616,11 +651,13 @@ ms.locfileid: "55210373"
 |X509Folder|字串，預設值為 /var/lib/waagent|靜態|X509 憑證和私密金鑰的所在資料夾 |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap，預設值為 None|動態|這是「名稱」與「值」組清單。 每個「名稱」都是主體一般名稱或針對系統管理用戶端作業授權之 X509 憑證的 DnsName。 針對給定的「名稱」，「值」是用於簽發者釘選的逗號分隔憑證指紋清單，若不是空的，系統管理用戶端憑證的直接簽發者必須位於此清單中。 |
 
 ## <a name="securityclientaccess"></a>Security/ClientAccess
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ActivateNode |字串，預設值為 "Admin" |動態| 用於啟用節點的安全性組態。 |
@@ -670,7 +707,7 @@ ms.locfileid: "55210373"
 |InvokeInfrastructureCommand |字串，預設值為 "Admin" |動態| 基礎結構工作管理命令的安全性組態。 |
 |InvokeInfrastructureQuery |字串，預設值為 "Admin\|\|User" | 動態|用於查詢基礎結構工作的安全性組態。 |
 |列出 |字串，預設值為 "Admin\|\|User" | 動態|映像存放區用戶端檔案列出作業的安全性組態。 |
-|MoveNextFabricUpgradeDomain |字串，預設值為 "Admin" |動態| 用於以明確的「升級網域」繼續進行叢集升級的安全性組態。 |
+|MoveNextFabricUpgradeDomain |字串，預設值為 "Admin" |動態| 繼續進行與明確的升級網域的叢集升級的安全性組態。 |
 |MoveNextUpgradeDomain |字串，預設值為 "Admin" |動態| 用於以明確的「升級網域」繼續進行應用程式升級的安全性組態。 |
 |MoveReplicaControl |字串，預設值為 "Admin" | 動態|移動複本。 |
 |NameExists |字串，預設值為 "Admin\|\|User" | 動態|命名 URI 存在檢查的安全性組態。 |
@@ -722,36 +759,43 @@ ms.locfileid: "55210373"
 |上傳 |字串，預設值為 "Admin" | 動態|映像存放區用戶端上傳作業的安全性組態。 |
 
 ## <a name="securityclientcertificateissuerstores"></a>Security/ClientCertificateIssuerStores
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap，預設值為 [無] |動態|用戶端憑證的 X509 簽發者憑證存放區；名稱 = clientIssuerCN；值 = 存放區的以逗號分隔清單 |
 
 ## <a name="securityclientx509names"></a>Security/ClientX509Names
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap，預設值為 None|動態|這是「名稱」與「值」組清單。 每個「名稱」都是主體一般名稱或針對用戶端作業授權之 X509 憑證的 DnsName。 針對給定的「名稱」，「值」是用於簽發者釘選的逗號分隔憑證指紋清單，若不是空的，用戶端憑證的直接簽發者必須位於此清單中。|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap，預設值為 [無] |動態|叢集憑證的 X509 簽發者憑證存放區；名稱 = clusterIssuerCN；值 = 存放區的以逗號分隔清單 |
 
 ## <a name="securityclusterx509names"></a>Security/ClusterX509Names
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap，預設值為 None|動態|這是「名稱」與「值」組清單。 每個「名稱」都是主體一般名稱或針對叢集作業授權之 X509 憑證的 DnsName。 針對給定的「名稱」，「值」是用於簽發者釘選的逗號分隔憑證指紋清單，若不是空的，叢集憑證的直接簽發者必須位於此清單中。|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap，預設值為 [無] |動態|伺服器憑證的 X509 簽發者憑證存放區；名稱 = serverIssuerCN；值 = 存放區的以逗號分隔清單 |
 
 ## <a name="securityserverx509names"></a>Security/ServerX509Names
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap，預設值為 None|動態|這是「名稱」與「值」組清單。 每個「名稱」都是主體一般名稱或針對伺服器作業授權之 X509 憑證的 DnsName。 針對給定的「名稱」，「值」是用於簽發者釘選的逗號分隔憑證指紋清單，若不是空的，伺服器憑證的直接簽發者必須位於此清單中。|
 
 ## <a name="setup"></a>設定
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|字串，預設值為 ""| 靜態 |要在設定容器網路時使用的網路名稱。|
@@ -764,16 +808,19 @@ ms.locfileid: "55210373"
 |SkipFirewallConfiguration |布林值，預設值為 false | 不允許 |指定是否需要由系統設定防火牆設定。 這只有當您使用 Windows 防火牆時才適用。 如果您使用協力廠商防火牆，則您必須開啟要供系統和應用程式使用的連接埠 |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |提供者 |字串，預設值為 "DSTS" |靜態|要啟用之權杖驗證提供者的逗號分隔清單 (有效提供者為︰DSTS、AAD)。 目前只能隨時啟用單一提供者。 |
 
 ## <a name="traceetw"></a>Trace/Etw
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |Level |整數，預設值為 4 | 動態 |追蹤 etw 層級可以接受值 1、2、3、4。 您必須保持在追蹤層級 4，才可以支援 |
 
 ## <a name="transactionalreplicator"></a>TransactionalReplicator
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | 時間 (秒)，預設值為 0.015 | 靜態 | 以秒為單位指定時間範圍。 決定複寫器在收到作業後，要等待多久才回傳通知。 在此期間所收到的其他作業會透過同一則訊息回傳其通知，以降低網路流量，但可能也會降低複寫器的輸送量。 |
@@ -795,6 +842,7 @@ ms.locfileid: "55210373"
 |SendTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(300)|動態|以秒為單位指定時間範圍。 偵測停滯連線時傳送逾時。 TCP 失敗報告在某些環境中並不可靠。 這可能必須根據可用的網路頻寬和輸出資料的大小進行調整 (MaxMessageSize\/\*\*SendQueueSizeLimit)。 |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | 布林值，預設值為 true |靜態| 以目標狀態檔案為基礎的自動輪詢和升級動作。 |
@@ -809,6 +857,7 @@ ms.locfileid: "55210373"
 |UpgradeApprovalRequired | 布林值，預設值為 false | 靜態|讓程式碼升級作業需要系統管理員核准後才能繼續的設定。 |
 
 ## <a name="upgradeservice"></a>UpgradeService
+
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |BaseUrl | 字串，預設值為 "" |靜態|UpgradeService 的 BaseUrl。 |

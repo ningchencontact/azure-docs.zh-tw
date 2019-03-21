@@ -4,17 +4,17 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 01/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 24810e67610a0c0855d5efb1f141a3324b7c75ca
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 6efcd46b174d34670a01bb7d5c440559bf0f116a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54457067"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553464"
 ---
-| 層：              | 可用         | 基本      | 標準   |
+| 層              | 免費         | 基本    | 標準   |
 | ------------------ | ------------ | ---------- | ---------- |
-| 已包括的推送    | 100 萬    | 1000 萬 | 1000 萬 |
-| 使用中裝置     | 500          | 200,000    | 1000 萬 |
-| 每一個安裝/註冊的標籤配額 | 60  | 60 |  60 |
+| 包含的推播    | 100 萬    | 1000 萬 | 1000 萬 |
+| 使用中的裝置     | 500          | 200,000    | 1000 萬 |
+| 每個安裝或註冊的標籤配額 | 60  | 60 |  60 |
 
-如需這些限制的其他詳細資料和價格的相關資訊，請參閱 [通知中樞價格](https://azure.microsoft.com/pricing/details/notification-hubs/)。
+如需有關限制和定價的詳細資訊，請參閱 <<c0> [ 通知中樞定價](https://azure.microsoft.com/pricing/details/notification-hubs/)。

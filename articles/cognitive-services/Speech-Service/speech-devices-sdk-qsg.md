@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4c01cf93fe3bb66f9bce73acb3c2f100764d1f46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 114e0b951b2bfe83e8b989646bd07a5fd75b3ee6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872538"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894405"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>開始使用 Speech Devices SDK
 
@@ -37,20 +37,20 @@ ms.locfileid: "55872538"
 
 * 從[語音裝置 SDK 下載網站](https://shares.datatransfer.microsoft.com/)取得最新版「語音裝置 SDK」，其中包括 Android 範例應用程式。 將 .zip 檔案解壓縮至本機資料夾 (例如 C:\SDSDK)。
 
-* 在您的電腦上安裝 [Android Studio](https://developer.android.com/studio/) 和 [Vysor](http://vysor.io/download/)。
+* 在您的電腦上安裝 [Android Studio](https://developer.android.com/studio/) 和 [Vysor](https://vysor.io/download/)。
 
 * 取得[語音服務訂用帳戶金鑰](get-started.md)。 您可以從 Azure 儀表板取得 30 天免費試用版或取得金鑰。
 
-* 如果您希望使用語音服務的意圖辨識，請訂閱 [Language Understanding 服務](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) 並[取得訂用帳戶金鑰](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription)。
+* 如果您想要使用語音服務的意圖辨識，訂閱[Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) 和[取得訂用帳戶金鑰](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription)。
 
     您可以[建立簡單 LUIS 模型](https://docs.microsoft.com/azure/cognitive-services/luis/)，或使用簡單 LUIS 模型 LUIS-example.json。 您可以從[語音裝置 SDK 下載網站](https://shares.datatransfer.microsoft.com/)取得範例 LUIS 模型。 若要將您模型的 JSON 檔案上傳到 [LUIS 入口網站](https://www.luis.ai/home)，請選取 [Import new app] \(匯入新應用程式\)，然後選取 JSON 檔案。
 
 ## <a name="set-up-the-development-kit"></a>設定開發套件
-    
+
 1. 開發套件有兩個 micro USB 連接器。 左側的連接器用來對開發套件供電，在下圖中會以 Power 來醒目提示。 右邊的連接器則用來控制開發套件，在圖中會標示為 Debug。
 
     ![連接開發套件](media/speech-devices-sdk/qsg-1.png)
-       
+
 1. 使用 micro USB 纜線將電源連接埠連接至電腦或電源配接器，以對開發套件供電。 上方面板底下會亮起綠色電源指示燈。
 
 1. 為了控制開發套件，請使用第二條 micro USB 纜線將偵錯連接埠連接至電腦。 請務必使用高品質的纜線，以確保可靠的通訊。
@@ -114,92 +114,68 @@ ms.locfileid: "55872538"
 
 若要執行 ROOBO 測試並驗證您的開發套件設定，請建置並安裝範例應用程式：
 
-1.  啟動 Android Studio。
+1. 啟動 Android Studio。
 
-1.  選取 [開啟現有 Android Studio 專案]。
+1. 選取 [開啟現有 Android Studio 專案]。
 
-    ![Android Studio - 開啟現有專案](media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio - 開啟現有專案](media/speech-devices-sdk/qsg-5.png)
 
-1.  前往 C:\SDSDK\Android-Sample-Release\example。 選取 [OK] \(確定\) 以開啟範例專案。
+1. 前往 C:\SDSDK\Android-Sample-Release\example。 選取 [OK] \(確定\) 以開啟範例專案。
 
-1.  將您的語音訂用帳戶金鑰加入至原始程式碼中。 如果您想要試用意圖辨識，請一併新增您的 [Language Understanding 服務](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)訂用帳戶金鑰和應用程式識別碼。
+1. 將您的語音訂用帳戶金鑰加入至原始程式碼中。 如果您想要試用意圖辨識，請一併新增您的 [Language Understanding 服務](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)訂用帳戶金鑰和應用程式識別碼。
 
-    您的金鑰和應用程式資訊會在 MainActivity.java 原始程式檔的下列幾行中：
+   您的金鑰和應用程式資訊會在 MainActivity.java 原始程式檔的下列幾行中：
 
-    ```java
-    // Subscription
-    private static final String SpeechSubscriptionKey = "[your speech key]";
-    private static final String SpeechRegion = "westus";
-    private static final String LuisSubscriptionKey = "[your LUIS key]";
-    private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-    private static final String LuisAppId = "[your LUIS app ID]"
-    ```
+   ```java
+   // Subscription
+   private static final String SpeechSubscriptionKey = "[your speech key]";
+   private static final String SpeechRegion = "westus";
+   private static final String LuisSubscriptionKey = "[your LUIS key]";
+   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
+   private static final String LuisAppId = "[your LUIS app ID]"
+   ```
 
 1. 預設喚醒字 (關鍵字) 是 "Computer"。 您也可以嘗試其中一個其他提供的喚醒字，例如 "Machine" 或 "Assistant"。 這些替代喚醒字的資源檔在「語音裝置 SDK」的 [keyword] 資料夾中。 例如 C:\SDSDK\Android-Sample-Release\keyword\Computer 便包含用於 "Computer" 喚醒字的檔案。
 
     您也可以[建立自訂的喚醒字](speech-devices-sdk-create-kws.md)。
 
-    安裝您想要使用的喚醒字：
+    若要使用新的線上醒機字，更新下列兩行 MainActivity.java，並喚醒 word 套件複製到您的應用程式。 例如若要使用網路喚醒，請從 網路喚醒 word 封裝 kws word 'Machine'-machine.zip:
 
-    * 藉由在命令提示字元視窗中執行下列命令，在裝置上的 [data] 資料夾中建立 [keyword] 資料夾：
+   * 網路喚醒 word 將套件複製到資料夾"C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\ 」。
+   * 更新 MainActivity.java 關鍵字和封裝名稱： 
+    
+     ```java
+     private static final String Keyword = "Machine";
+     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
+     ```
 
-        ```
-        adb shell
-        cd /data
-        mkdir keyword
-        exit
-        ```
+1. 更新包含麥克風陣列幾何設定的下列各行：
 
-    * 將 kws.table、kws_k.fst 及 words_kw.txt 檔案複製到裝置的 \data\keyword\ 資料夾。 在命令提示字元視窗中執行下列命令。 如果您已建立[自訂喚醒字](speech-devices-sdk-create-kws.md)，則從 Web 產生的 kws.table 檔案會位於與 kws.table、kws_k.fst 及 words_kw.txt 檔案相同的目錄中。 針對自訂喚醒字，請使用 `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` 命令將 kws.table 檔案推送到開發套件：
+   ```java
+   private static final String DeviceGeometry = "Circular6+1";
+   private static final String SelectedGeometry = "Circular6+1";
+   ```
+   下表說明可用的值：
 
-        ```
-        adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
-        ```
-
-    * 在範例應用程式中參考這些檔案。 在 MainActivity.java 中尋找下列幾行。 確定指定的關鍵字是您正在使用的關鍵字，且路徑指向您推送至裝置的 `kws.table` 檔案。
-
-        ```java
-        private static final String Keyword = "Computer";
-        private static final String KeywordModel = "/data/keyword/kws.table";
-        ```
-
-        > [!NOTE]
-        > 在您自己的程式碼中，您可以使用 kws.table 檔案來建立關鍵字模型執行個體並啟動辨識：
-        >
-        > ```java
-        > KeywordRecognitionModel km = KeywordRecognitionModel.fromFile(KeywordModel);
-        > final Task<?> task = reco.startKeywordRecognitionAsync(km);
-        > ```
-
-1.  更新包含麥克風陣列幾何設定的下列各行：
-
-    ```java
-    private static final String DeviceGeometry = "Circular6+1";
-    private static final String SelectedGeometry = "Circular6+1";
-    ```
-    下表說明可用的值：
-
-    |變數|意義|可用值|
-    |--------|-------|----------------|
-    |`DeviceGeometry`|實體麥克風設定|針對圓形裝置套件：`Circular6+1` |
-    |||針對線性裝置套件：`Linear4`|
-    |`SelectedGeometry`|軟體麥克風設定|針對使用所有麥克風的圓形開發套件：`Circular6+1`|
-    |||針對使用四個麥克風的圓形開發套件：`Circular3+1`|
-    |||針對使用所有麥克風的線性開發套件：`Linear4`|
-    |||針對使用兩個麥克風的線性開發套件：`Linear2`|
+   |變數|意義|可用值|
+   |--------|-------|----------------|
+   |`DeviceGeometry`|實體麥克風設定|針對圓形裝置套件：`Circular6+1` |
+   |||針對線性裝置套件：`Linear4`|
+   |`SelectedGeometry`|軟體麥克風設定|針對使用所有麥克風的圓形開發套件：`Circular6+1`|
+   |||針對使用四個麥克風的圓形開發套件：`Circular3+1`|
+   |||針對使用所有麥克風的線性開發套件：`Linear4`|
+   |||針對使用兩個麥克風的線性開發套件：`Linear2`|
 
 
-1.  若要建置應用程式，請在 [Run] \(執行\) 功能表上選擇 [Run 'app'] \(執行「應用程式」\)。 隨即會顯示 [Select Deployment Target] \(選取部署目標\) 對話方塊。
+1. 若要建置應用程式，請在 [Run] \(執行\) 功能表上選擇 [Run 'app'] \(執行「應用程式」\)。 隨即會顯示 [Select Deployment Target] \(選取部署目標\) 對話方塊。
 
 1. 選取您的裝置，然後選取 [OK] \(確定\)，以將應用程式部署到裝置。
 
     ![[Select Deployment Target] \(選取部署目標\) 對話方塊](media/speech-devices-sdk/qsg-7.png)
 
-1.  「語音裝置 SDK」範例應用程式會啟動，並顯示下列選項：
+1. 「語音裝置 SDK」範例應用程式會啟動，並顯示下列選項：
 
-    ![「語音裝置 SDK」範例應用程式和選項](media/speech-devices-sdk/qsg-8.png)
+   ![「語音裝置 SDK」範例應用程式和選項](media/speech-devices-sdk/qsg-8.png)
 
 1. 進行實驗！
 
@@ -207,7 +183,7 @@ ms.locfileid: "55872538"
 
 ### <a name="certificate-failures"></a>憑證失敗
 
-如果您在使用語音服務時發生憑證失敗，請確定裝置的日期與時間正確：
+如果使用語音服務時，您會收到憑證失敗，，請確定您的裝置有正確的日期和時間：
 
 1. 移至 [設定] 。 在 [System] \(系統\) 底下，選取 [Date & time] \(日期與時間\)。
 

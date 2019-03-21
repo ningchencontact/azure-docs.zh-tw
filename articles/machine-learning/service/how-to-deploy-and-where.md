@@ -11,28 +11,26 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f2d2ded849af5054935b6bec8f74e021078b7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878607"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860412"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
-Azure Machine Learning 服務會使用 SDK 來提供數種可部署已定型模型的方式。 在本文中，了解如何將模型部署為 Azure 雲端的 Web 服務，或部署到 IoT Edge 裝置。
-
-> [!IMPORTANT]
-> 將模型部署為 Web 服務時，目前不支援跨原始來源資源共用 (CORS)。
+Azure 機器學習服務 SDK 會提供數種方式，您可以部署您的定型的模型。 在本文中，了解如何將模型部署為 Azure 雲端的 Web 服務，或部署到 IoT Edge 裝置。
 
 您可以將模型部署到下列計算目標：
 
-| 計算目標 | 部署類型 | 說明 |
+| 計算目標 | 部署類型 | 描述 |
 | ----- | ----- | ----- |
-| [Azure 容器執行個體 (ACI)](#aci) | Web 服務 | 快速部署。 適合用於開發或測試。 |
-| [Azure Kubernetes Service (AKS)](#aks) | Web 服務 | 適用於大規模生產環境部署。 提供自動調整和快速的回應時間。 |
-| [Azure IoT Edge](#iotedge) | IoT 模組 | 在 IoT 裝置上部署模型。 裝置上會發生推斷。 |
-| [可現場程式化閘道陣列 (FPGA)](#fpga) | Web 服務 | 即時推斷的超低延遲。 |
+| [Azure Kubernetes Service (AKS)](#aks) | 即時推斷 | 適用於大規模生產環境部署。 提供自動調整和快速的回應時間。 |
+| [Azure ML 計算](#azuremlcompute) | 批次推斷 | 執行無伺服器計算的批次預測。 支援一般 vm 和低優先順序 Vm。 |
+| [Azure 容器執行個體 (ACI)](#aci) | 測試 | 適合用於開發或測試。 **不適合用於生產工作負載。** |
+| [Azure IoT Edge](#iotedge) | （預覽）IoT 模組 | 在 IoT 裝置上部署模型。 裝置上會發生推斷。 |
+| [可現場程式化閘道陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
 
 部署模型的程序與所有計算目標類似：
 
@@ -41,39 +39,43 @@ Azure Machine Learning 服務會使用 SDK 來提供數種可部署已定型模�
 1. 將映像部署到計算目標。
 1. 測試部署
 
+下列影片會示範部署至 Azure 容器執行個體：
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 
 如需部署工作流程中相關概念的詳細資訊，請參閱[使用 Azure Machine Learning 服務來管理、部署及監視模型](concept-model-management-and-deployment.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 使用[開始使用 Azure Machine Learning 快速入門](quickstart-get-started.md)了解如何取得這些先決條件。
+- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 使用[開始使用 Azure Machine Learning 快速入門](quickstart-get-started.md)了解如何取得這些必要條件。
 
 - 已定型的模型。 如果您沒有已定型的模型，請使用[將模型定型](tutorial-train-models-with-aml.md)教學課程中的步驟，利用 Azure Machine Learning 服務來定型並註冊一個模型。
 
     > [!NOTE]
-    > 雖然 Azure Machine Learning 服務可搭配任何能夠在 Python 3 中載入的一般模型運作，但本文件中的範例示範使用以 Pickle 格式儲存的模型。
+    > 雖然 Azure Machine Learning 服務可以使用任何可載入 Python 3 中的一般模型，則這份文件中的範例示範如何使用 Python pickle 格式儲存的模型。
     > 
     > 如需使用 ONNX 模型的詳細資訊，請參閱 [ONNX 和 Azure Machine Learning](how-to-build-deploy-onnx.md) 文件。
 
 ## <a id="registermodel"></a> 註冊已定型的模型
 
-模型註冊是在 Azure 雲端中儲存和組織已定型模型的方法。 模型是註冊在您的 Azure Machine Learning 服務工作區中。 您可以使用 Azure Machine Learning 或另一個服務來將模型定型。 若要從檔案註冊模型，請使用下列程式碼：
+模型註冊是在 Azure 雲端中儲存和組織已定型模型的方法。 模型是註冊在您的 Azure Machine Learning 服務工作區中。 您可以使用 Azure Machine Learning 或另一個服務來將模型定型。 下列程式碼示範如何註冊模型，以從檔案、 設定名稱、 標記和描述：
 
 ```python
 from azureml.core.model import Model
 
-model = Model.register(model_path = "model.pkl",
-                       model_name = "Mymodel",
+model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
+                       model_name = "sklearn_mnist",
                        tags = {"key": "0.1"},
                        description = "test",
                        workspace = ws)
 ```
 
 **估計時間**：大約 10 秒。
+
+如需註冊模型的範例，請參閱 <<c0> [ 定型的影像分類器](tutorial-train-models-with-aml.md)。
 
 如需詳細資訊，請參閱 [Model 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py) \(英文\) 的參考文件。
 
@@ -91,9 +93,7 @@ from azureml.core.image import ContainerImage
 # Image configuration
 image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  runtime = "python",
-                                                 conda_file = "myenv.yml",
-                                                 description = "Image with ridge regression model",
-                                                 tags = {"data": "diabetes", "type": "regression"}
+                                                 conda_file = "myenv.yml"}
                                                  )
 ```
 
@@ -101,21 +101,25 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 
 下表說明此範例中的重要參數：
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | ----- | ----- |
 | `execution_script` | 指定用來接收提交給服務之要求的 Python 指令碼。 在此範例中，指令碼包含在 `score.py` 檔案中。 如需詳細資訊，請參閱[執行指令碼](#script)一節。 |
 | `runtime` | 指出映像使用 Python。 其他選項是 `spark-py`，其使用 Python 搭配 Apache Spark。 |
 | `conda_file` | 用來提供 Conda 環境檔。 此檔案會為已部署的模型定義 conda 環境。 如需建立此檔案的詳細資訊，請參閱[建立環境檔案 (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file)。 |
 
+如需建立映像組態的範例，請參閱 <<c0> [ 部署的影像分類器](tutorial-deploy-models-with-aml.md)。
+
 如需詳細資訊，請參閱 [ContainerImage 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) \(英文\) 的參考文件。
 
 ### <a id="script"></a> 執行指令碼
 
-執行指令碼會接收提交給已部署映像的資料，並將它傳遞給模型。 然後，它會採用模型傳回的回應，並將該回應傳回至用戶端。 指令碼是模型專用的，其必須了解模型所預期和傳回的資料。 指令碼通常包含載入和執行模型的兩個函式：
+執行指令碼會接收提交給已部署映像的資料，並將它傳遞給模型。 然後，它會採用模型傳回的回應，並將該回應傳回至用戶端。 **指令碼是您的模型特有**; 它必須了解模型所預期，並傳回的資料。 適用於影像分類模型的範例指令碼，請參閱 <<c0> [ 部署的影像分類器](tutorial-deploy-models-with-aml.md)。
 
-* `init()`：此函式通常會將模型載入到全域物件。 此函式只會在 Docker 容器啟動時執行一次。 
+指令碼包含兩個函式，載入及執行模型：
 
-* `run(input_data)`：此函式會使用模型，依據輸入資料來預測值。 執行的輸入和輸出通常使用 JSON 進行序列化和還原序列化。 您也可以使用原始的二進位資料。 您可以先轉換資料，再將資料傳送給模型或傳回用戶端。 
+* `init()`:此函式通常會將模型載入到全域物件。 此函式只會在 Docker 容器啟動時執行一次。
+
+* `run(input_data)`:此函式會使用模型，依據輸入資料來預測值。 執行的輸入和輸出通常使用 JSON 進行序列化和還原序列化。 您也可以使用原始的二進位資料。 您可以先轉換資料，再將資料傳送給模型或傳回用戶端。
 
 #### <a name="working-with-json-data"></a>使用 JSON 資料
 
@@ -209,23 +213,20 @@ image = ContainerImage.create(name = "myimage",
 
 當您進行部署時，此程序會根據您部署到其中的計算目標而略微不同。 使用後續各節的資訊來了解如何部署到：
 
-* [Azure 容器執行個體](#aci)
-* [Azure Kubernetes Service](#aks)
-* [Project Brainwave (可現場程式化閘道陣列)](#fpga)
-* [Azure IoT Edge 裝置](#iotedge)
+| 計算目標 | 部署類型 | 描述 |
+| ----- | ----- | ----- |
+| [Azure Kubernetes Service (AKS)](#aks) | Web 服務 （即時推斷）| 適用於大規模生產環境部署。 提供自動調整和快速的回應時間。 |
+| [Azure ML 計算](#azuremlcompute) | Web 服務 （批次推斷）| 執行無伺服器計算的批次預測。 支援一般 vm 和低優先順序 Vm。 |
+| [Azure 容器執行個體 (ACI)](#aci) | Web 服務 （開發/測試）| 適合用於開發或測試。 **不適合用於生產工作負載。** |
+| [Azure IoT Edge](#iotedge) | （預覽）IoT 模組 | 在 IoT 裝置上部署模型。 裝置上會發生推斷。 |
+| [可現場程式化閘道陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
 
-> [!NOTE]
-> 當**部署為 Web 服務**時，有三個部署方法可以使用：
->
-> | 方法 | 注意 |
-> | ----- | ----- |
-> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | 您必須先註冊模型並建立映像，然後才能使用此方法。 |
-> | [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | 使用此方法時，您不需要註冊模型或建立映像。 不過，您無法控制模型或映像的名稱，或相關聯的標記和描述。 |
-> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | 使用此方法時，您不需要建立映像。 但您無法控制所建立的映像名稱。 |
->
-> 本文件中的範例會使用 `deploy_from_image`。
+> [!IMPORTANT]
+> 將模型部署為 Web 服務時，目前不支援跨原始來源資源共用 (CORS)。
 
-### <a id="aci"></a> 部署到 Azure 容器執行個體
+本節的範例中使用[deploy_from_image](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-)，而這需要您註冊的模型和映像之前進行部署。 如需有關其他部署方法的詳細資訊，請參閱 <<c0> [ 部署](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-)並[deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-)。
+
+### <a id="aci"></a> 部署至 Azure Container Instances （研發/測試）
 
 如果符合下列一或多個條件，請使用 Azure 容器執行個體來將您的模型部署為 Web 服務：
 
@@ -234,7 +235,7 @@ image = ContainerImage.create(name = "myimage",
 
 若要部署到 Azure 容器執行個體，請使用下列步驟：
 
-1. 定義部署設定。 下列範例會定義一個設定來使用一個 CPU 核心和 1 GB 的記憶體：
+1. 定義部署設定。 此設定取決於您模型的需求。 下列範例會定義一個設定來使用一個 CPU 核心和 1 GB 的記憶體：
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configAci)]
 
@@ -242,15 +243,18 @@ image = ContainerImage.create(name = "myimage",
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
 
-    **估計時間**：約 3 分鐘。
+    **估計時間**：大約需要 5 分鐘。
 
 如需詳細資訊，請參閱 [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) \(英文\) 和 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) \(英文\) 類別的參考文件。
 
-### <a id="aks"></a> 部署到 Azure Kubernetes 服務
+### <a id="aks"></a> 部署到 Azure Kubernetes Service （生產）
 
 若要將模型部署為大規模生產 Web 服務，請使用 Azure Kubernetes Service (AKS)。 您可以使用現有的 AKS 叢集，或使用 Azure Machine Learning SDK、CLI 或 Azure 入口網站建立新的叢集。
 
-建立 AKS 叢集是工作區的一次性程序。 您可以重複使用此叢集進行多個部署。 如果刪除叢集，就必須在下次需要部署時建立新的叢集。
+建立 AKS 叢集是工作區的一次性程序。 您可以重複使用此叢集進行多個部署。 
+
+> [!IMPORTANT]
+> 如果刪除叢集，就必須在下次需要部署時建立新的叢集。
 
 Azure Kubernetes Service 提供以下功能：
 
@@ -258,6 +262,44 @@ Azure Kubernetes Service 提供以下功能：
 * 記錄
 * 模型資料收集
 * 快速的 Web 服務回應時間
+* TLS 終止
+* Authentication
+
+#### <a name="autoscaling"></a>自動調整
+
+可以藉由設定控制自動調整`autoscale_target_utilization`， `autoscale_min_replicas`，和`autoscale_max_replicas`供 AKS 使用 web 服務。 下列範例示範如何啟用自動調整：
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+若要相應增加/減少的決策為基礎從目前的容器複本的使用率。 忙碌中 （處理要求） 的複本數目除以總目前的複本數目是目前的使用率。 如果這個數字超過目標使用率，則會建立多個複本。 如果是較低，複本會縮減。 根據預設，目標使用率為 70%。
+
+決策，以新增複本會進行，並快速實作 （大約 1 秒）。 若要移除複本決策需要較長 （大約 1 分鐘）。 此行為在萬一新要求到達它們能夠處理，會保留一分鐘的周圍的閒置複本。
+
+您可以使用下列程式碼，以計算所需的複本：
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+如需設定的詳細資訊`autoscale_target_utilization`， `autoscale_max_replicas`，並`autoscale_min_replicas`，請參閱[AksWebservice.deploy_configuration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-)參考。
 
 #### <a name="create-a-new-cluster"></a>建立新叢集
 
@@ -289,7 +331,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>使用現有的叢集
 
-如果您在 Azure 訂用帳戶中已經有 AKS 叢集，而且它的版本為 1.11.*，則您可以使用它來部署映像。 下列程式碼示範如何將現有叢集附加至您的工作區：
+如果您已經有 Azure 訂用帳戶，AKS 叢集，而且它是 1.11 版。 # # 已至少 12 個虛擬 Cpu，您可以使用它來部署您的映像。 下列程式碼示範如何附加現有的 AKS 1.11。 # # 您的工作區的叢集：
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -307,6 +349,11 @@ aks_target.wait_for_completion(True)
 ```
 
 **估計時間**：約 3 分鐘。
+
+如需有關如何建立 AKS 叢集外部 Azure 機器學習服務 SDK 的詳細資訊，請參閱下列文章：
+
+* [建立 AKS 叢集](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [建立 AKS 叢集 （入口網站）](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>部署映像
 
@@ -333,6 +380,13 @@ print(service.state)
 
 如需詳細資訊，請參閱 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) \(英文\) 和 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) \(英文\) 類別的參考文件。
 
+### <a id="azuremlcompute"></a> 使用 Azure ML 計算的推斷
+
+建立和管理 Azure Machine Learning 服務的 azure ML 計算目標。 它們可用於從 Azure ML 管線的批次預測。
+
+使用 Azure ML 計算的批次推斷的逐步解說，請閱讀[如何執行批次預測](how-to-run-batch-predictions.md)文件。
+
+
 ### <a id="fpga"></a> 部署到可現場程式化閘道陣列 (FPGA)
 
 Project Brainwave 使其對於即時推斷要求能達到超低延遲。 Project Brainwave 加速了 Azure 雲端中部署在現場可程式化閘陣列上的深度類神經網路 (DNN)。 常用的 DNN 可供取得的形式有轉送學習的特徵化對象，或從您自己的資料定型所得之權重的可自訂項目。
@@ -341,9 +395,14 @@ Project Brainwave 使其對於即時推斷要求能達到超低延遲。 Project
 
 ### <a id="iotedge"></a> 部署到 Azure IoT Edge
 
-Azure IoT Edge 裝置是以 Linux 或 Windows 為基礎並執行 Azure IoT Edge 執行階段的裝置。 機器學習模型可以部署到這些裝置作為 IoT Edge 模組。 將模型部署到 IoT Edge 裝置可讓裝置直接使用模型，而不需要將資料傳送到雲端進行處理。 您可以獲得更快的回應時間並傳輸較少的資料。
+Azure IoT Edge 裝置是以 Linux 或 Windows 為基礎並執行 Azure IoT Edge 執行階段的裝置。 使用 Azure IoT 中樞，您可以將機器學習服務模型到這些裝置部署為 IoT Edge 模組。 將模型部署到 IoT Edge 裝置可讓裝置直接使用模型，而不需要將資料傳送到雲端進行處理。 您可以獲得更快的回應時間並傳輸較少的資料。
 
 Azure IoT Edge 模組會從容器登錄部署到您的裝置。 當您從模型建立映像時，它會儲存於您工作區的容器登錄中。
+
+> [!IMPORTANT]
+> 在本節中的資訊假設您已熟悉使用 Azure IoT 中樞和 Azure IoT Edge 模組。 雖然部分的這一節的資訊旨在說明 Azure Machine Learning 服務，部署到 edge 裝置的程序大多會在 Azure IoT 服務執行。
+>
+> 如果您不熟悉 Azure IoT，請參閱[Azure IoT 基礎](https://docs.microsoft.com/azure/iot-fundamentals/)並[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)的基本資訊。 然後使用本節中的其他連結，深入了解特定作業。
 
 #### <a name="set-up-your-environment"></a>設定環境
 
@@ -353,36 +412,11 @@ Azure IoT Edge 模組會從容器登錄部署到您的裝置。 當您從模型�
 
 * 已定型的模型。 如需模型定型方式範例，請參閱[使用 Azure Machine Learning 將映像分類模型定型](tutorial-train-models-with-aml.md)文件。 在[適用於 Azure IoT Edge 的 AI 工具組 GitHub 存放庫](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)中可取得預先定型的模型。
 
-#### <a name="prepare-the-iot-device"></a>準備 IoT 裝置
-您必須建立 IoT 中樞並註冊裝置，或利用[這段指令碼](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister)來重複使用您所擁有的裝置。
+#### <a id="getcontainer"></a> 取得容器登錄認證
 
-``` bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
-sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
-```
-
-儲存 "cs":"{複製這個字串}" 之後所產生的連接字串。
-
-將[這段指令碼](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge)下載到 UbuntuX64 IoT Edge 節點或 DSVM，並執行下列命令，藉以將裝置初始化：
-
-```bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
-sudo chmod +x installIoTEdge
-sudo ./installIoTEdge
-```
-
-IoT Edge 節點已準備好接收您 IoT 中樞的連接字串。 尋找包含 ```device_connection_string:``` 的程式碼行，並將上述連接字串貼入引號之間。
-
-您也可以遵循[快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置](../../iot-edge/quickstart-linux.md)文件，以逐步了解如何註冊裝置並安裝 IoT 執行階段。
-
-
-#### <a name="get-the-container-registry-credentials"></a>取得容器登錄認證
 若要將 IoT Edge 模組部署到裝置，Azure IoT 需要 Azure Machine Learning 服務儲存 Docker 映像所在之容器登錄的認證。
 
-您可以利用下列兩種方式，輕鬆地擷取必要的容器登錄認證：
+您可以使用兩種方法來取得認證：
 
 + **在 Azure 入口網站中**：
 
@@ -423,24 +457,21 @@ IoT Edge 節點已準備好接收您 IoT 中樞的連接字串。 尋找包含 `
 
      必須透過這些認證提供存取權，IoT Edge 裝置才能存取您私人容器登錄中的映像。
 
+#### <a name="prepare-the-iot-device"></a>準備 IoT 裝置
+
+使用 Azure IoT 中樞，註冊您的裝置，然後在裝置上安裝 IoT Edge 執行階段。 如果您不熟悉此程序，請參閱[快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置](../../iot-edge/quickstart-linux.md)。
+
+註冊裝置的其他方法包括：
+
+* [Azure 入口網站](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
 #### <a name="deploy-the-model-to-the-device"></a>將模型部署到裝置
 
-您可以藉由執行[這段指令碼](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel)並提供從上述步驟中取得的下列資訊，輕鬆地部署模型：容器登錄名稱、使用者名稱、密碼、映像位置 url、所需的部署名稱、IoT 中樞名稱，以及您所建立的裝置識別碼。 您可以遵循這些步驟，在 VM 中執行此動作： 
+若要將模型部署至裝置，使用 中收集的登錄資訊[取得容器登錄認證](#getcontainer)區段模組部署步驟的 IoT Edge 模組。 例如，當[從 Azure 入口網站部署 Azure IoT Edge 模組](../../iot-edge/how-to-deploy-modules-portal.md)，您必須設定__登錄設定__裝置。 使用__登入伺服器__， __username__，並__密碼__工作區中容器登錄。
 
-```bash 
-wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
-sudo chmod +x deploymodel
-sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
-```
-
-或者，您可以遵循[從 Azure 入口網站部署 Azure IoT Edge 模組](../../iot-edge/how-to-deploy-modules-portal.md)文件中的步驟，將映像部署到您的裝置。 設定裝置的__登錄設定__時，請使用適用於您工作區容器登錄的__登入伺服器__、__使用者名稱__及__密碼__。
-
-> [!NOTE]
-> 如果您不熟悉 Azure IoT，請參閱下列文件以取得開始使用服務的相關資訊：
->
-> * [快速入門：將您的第一個 IoT Edge 模組部署至 Linux 裝置](../../iot-edge/quickstart-linux.md)
-> * [快速入門：將您的第一個 IoT Edge 模組部署至 Windows 裝置](../../iot-edge/quickstart.md)
-
+您也可以部署使用[Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli)並[Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode)。
 
 ## <a name="testing-web-service-deployments"></a>測試 Web 服務部署
 

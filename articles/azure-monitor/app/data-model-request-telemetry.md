@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117141"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884115"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>要求遙測：Application Insights 資料模型
 
@@ -25,11 +25,11 @@ ms.locfileid: "54117141"
 
 要求遙測會使用自訂 `properties` 和 `measurements`支援標準的擴充性模型。
 
-## <a name="name"></a>Name
+## <a name="name"></a>名稱
 
 要求的名稱代表處理要求所採用的程式碼路徑。 較低的基數值可使群組要求更妥善。 針對 HTTP 要求，它代表 HTTP 方法和 URL 路徑範本，例如無實際 `id` 值的 `GET /values/{id}`。
 
-Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字母大小寫)。 UI 上的群組會區分大小寫，因此 `GET /Home/Index` 會與 `GET /home/INDEX` 分開計算，即使它們通常會產生相同的控制器和動作執行。 原因是 URL 通常會[區分大小寫](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)。 您可能要查看 URL 出現的所有 `404` 是否都以大寫輸入。 您可以在[部落格文章](https://apmtips.com/blog/2015/02/23/request-name-and-url/)閱讀更多由 ASP.Net Web SDK 要求名稱集合的相關資訊。
+Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字母大小寫)。 UI 上的群組會區分大小寫，因此 `GET /Home/Index` 會與 `GET /home/INDEX` 分開計算，即使它們通常會產生相同的控制器和動作執行。 原因是 URL 通常會[區分大小寫](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)。 您可能要查看 URL 出現的所有 `404` 是否都以大寫輸入。 您可以閱讀更多要求名稱集合中的 ASP.NET Web sdk[部落格文章](https://apmtips.com/blog/2015/02/23/request-name-and-url/)。
 
 最大長度：1024 個字元
 

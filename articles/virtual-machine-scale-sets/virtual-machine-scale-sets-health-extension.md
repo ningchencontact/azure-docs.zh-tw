@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084390"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>搭配虛擬機器擴展集使用應用程式健康狀態延伸模組
 監視應用程式健康狀態是用於管理及升級部署的重要訊號。 Azure 虛擬機器擴展集支援包括[自動 OS 映像升級](virtual-machine-scale-sets-automatic-upgrade.md)的[輪流升級](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)，這些升級仰賴個別執行個體的健康狀態監視來升級您的部署。
@@ -63,8 +63,8 @@ ms.locfileid: "55565967"
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型
-| ---- | ---- | ---- | ----
+| 名稱 | 值 / 範例 | 資料類型
+| ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | 日期 |
 | publisher | `Microsoft.ManagedServices` | 字串 |
 | type | `ApplicationHealthLinux` (Linux)，`ApplicationHealthWindows` (Windows) | 字串 |
@@ -72,7 +72,7 @@ ms.locfileid: "55565967"
 
 ### <a name="settings"></a>設定
 
-| Name | 值 / 範例 | 資料類型
+| 名稱 | 值 / 範例 | 資料類型
 | ---- | ---- | ----
 | protocol | `http` 或 `tcp` | 字串 |
 | 連接埠 | 通訊協定是 `http` 時為選擇性項目；通訊協定是 `tcp` 時則為必要項目 | int |

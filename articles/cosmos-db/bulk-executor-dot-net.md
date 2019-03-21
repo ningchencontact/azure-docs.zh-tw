@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845115"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258457"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業
 
@@ -30,7 +30,7 @@ ms.locfileid: "57845115"
 
 * 您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。 或者，您也可以搭配使用 [Azure Cosmos DB 模擬器](https://docs.microsoft.com/azure/cosmos-db/local-emulator)與 `https://localhost:8081` 端點。 [驗證要求](local-emulator.md#authenticating-requests)中會提供主索引鍵。
 
-* 使用 .NET 快速入門文章中＜[建立資料庫帳戶](create-sql-api-dotnet.md#create-a-database-account)＞一節所述的步驟，建立 Azure Cosmos DB SQL API 帳戶。 
+* 使用 .NET 快速入門文章中＜[建立資料庫帳戶](create-sql-api-dotnet.md#create-account)＞一節所述的步驟，建立 Azure Cosmos DB SQL API 帳戶。 
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
@@ -72,7 +72,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    connectionPolicy)
    ```
 
-4. 針對等候時間和節流的要求，BulkExecutor 物件會使用高 retry 值進行初始化。 接著，這些值會設定為 0，如此會將壅塞控制傳遞給 BulkExecutor 以決定其存留期。  
+4. BulkExecutor 物件值進行初始化高的重試等候時間和節流要求。 接著，這些值會設定為 0，如此會將壅塞控制傳遞給 BulkExecutor 以決定其存留期。  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    
    |**參數**  |**說明** |
    |---------|---------|
-   |enableUpsert    |   啟用文件更新插入的旗標。 如果具有指定識別碼的文件已經存在，文件會進行更新。 預設會設定為 false。      |
+   |enableUpsert    |   若要啟用更新插入文件的旗標。 如果具有指定識別碼的文件已經存在，文件會進行更新。 預設會設定為 false。      |
    |disableAutomaticIdGeneration    |    停用自動產生識別碼的旗標。 預設會設定為 true。     |
    |maxConcurrencyPerPartitionKeyRange    | 每個資料分割索引鍵範圍的最大並行程度，若設定為 Null，程式庫會使用預設值 20。 |
    |maxInMemorySortingBatchSize     |  從文件列舉程式提取的最大文件數，也就是在每個階段中傳遞至 API 呼叫的最大文件數。  針對大量匯入之前的記憶體內前置處理排序階段，若設定為 Null，程式庫將會使用預設值 min(documents.count, 1000000)。       |
@@ -173,7 +173,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 * 在對應到特定 Cosmos DB 容器的單一虛擬機器中，建議您為整個應用程式具現化單一 BulkExecutor 物件。  
 
-* 單一大量作業 API 執行會取用大量用戶端機器的 CPU 和網路 IO。 這是因為由內部繁衍出多個工作，因此請避免在每次執行大量作業 API 呼叫時，您的應用程式處理程序內繁衍出多個並行工作。 如果在單一虛擬機器上執行的單一大量作業 API 呼叫無法取用整個容器的輸送量 (如果容器的輸送量 > 1 百萬 RU/s)，建議您建立個別虛擬機器來並行執行大量作業 API 呼叫。  
+* 單一大量作業 API 執行會取用大量用戶端機器的 CPU 和網路 IO。 這是因為由內部繁衍出多個工作，因此請避免在每次執行大量作業 API 呼叫時，您的應用程式處理程序內繁衍出多個並行工作。 如果單一的虛擬機器執行的單一大量作業 API 呼叫會取用整個容器的輸送量 (如果您的容器輸送量 > 1 百萬個 RU/秒)，建議您最好建立個別的虛擬機器，以同時執行大量作業 API 呼叫。  
 
 * 請確定 InitializeAsync() 是在具現化 BulkExecutor 物件之後叫用，以便提取目標 Cosmos DB 容器資料分割對應。  
 

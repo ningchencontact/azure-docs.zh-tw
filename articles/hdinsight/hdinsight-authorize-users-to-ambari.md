@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: f82ce7cbc060d7bb97e2ee90d872fbf2abd1983b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cf001d86356f4dd5fd3735803f0e329aa1e0940d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117773"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224017"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 
 [啟用企業安全性套件 (ESP) 的 HDInsight 叢集](./domain-joined/apache-domain-joined-introduction.md)可提供企業級功能，包括以 Azure Active Directory 為基礎的驗證。 您可以將已新增至已獲得存取權之 Azure AD 群組的[新使用者同步](hdinsight-sync-aad-users-to-cluster.md)至叢集，讓這些特定使用者能夠執行特定動作。 ESP HDInsight 叢集和標準 HDInsight 叢集都支援在 [Apache Ambari](https://ambari.apache.org/) 中運用使用者、群組及權限。
 
-Active Directory 使用者可以使用其網域認證來登入叢集節點。 他們也可以使用其網域認證來驗證叢集與其他已核准之端點 (例如 [Hue](https://gethue.com/)、Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 的互動。
+Active Directory 使用者可以登入叢集節點使用其網域認證。 他們也可以使用其網域認證來驗證叢集與其他已核准之端點 (例如 [Hue](https://gethue.com/)、Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 的互動。
 
 > [!WARNING]  
 > 請勿變更以 Linux 為基礎之 HDInsight 叢集上的 Ambari 看門狗 (hdinsightwatchdog) 密碼。 變更密碼會破壞在叢集上使用指令碼動作或執行調整作業的能力。

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: fc8283d85cf7d516edd78f20c9a47d806fbb827b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ca4cd1aa074353914f5187e353c233f8b45140eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091676"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>C# 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 
@@ -46,16 +46,16 @@ ms.locfileid: "56328957"
 3. 在 [Web 應用程式 Bot] 視窗中，按一下 [建立]。
 
 4. 在 [Bot 服務] 中提供必要資訊，然後按一下 [建立]。 這會建立 Bot 服務和 LUIS 應用程式，並將其部署到 Azure。 如果您想要使用[語音促發](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，請先檢閱[區域需求](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)，再建立您的 Bot。 
-    * 將 [應用程式名稱] 設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * 選取訂用帳戶、[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)、App Service 方案，以及[位置](https://azure.microsoft.com/regions/)。
-    * 針對 [Bot 範本]，請選取：
-        * **SDK v3**
-        * **C#**
-        * **語言理解**
-    * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域](luis-reference-regions.md)。
-    * 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
+   * 將 [應用程式名稱] 設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * 選取訂用帳戶、[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)、App Service 方案，以及[位置](https://azure.microsoft.com/regions/)。
+   * 針對 [Bot 範本]，請選取：
+       * **SDK v3**
+       * **C#**
+       * **語言理解**
+   * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域](luis-reference-regions.md)。
+   * 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
 
-    ![Bot 服務](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
+     ![Bot 服務](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
 
 5. 確認已部署 Bot 服務。
@@ -86,9 +86,9 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 > 1. 按一下 [My apps] \(我的應用程式\)。 
 > 2. 尋找您先前建立並包含來自 HomeAutomation 定義域之意圖和實體的 LUIS 應用程式。
 > 3. 在 LUIS 應用程式的 [Settings] \(設定\) 頁面中，尋找並複製應用程式識別碼。 確定該應用程式已[定型](luis-interactive-test.md)並[發佈](luis-how-to-publish-app.md)。 
-
-    > [!WARNING]
-    > If you delete your app ID or LUIS key, the bot will stop working.
+> 
+> [!WARNING]
+> 如果您刪除您的應用程式識別碼或稱 LUIS 金鑰，機器人就會停止運作。
 
 ## <a name="modify-the-bot-code"></a>修改 Bot 程式碼
 
@@ -130,7 +130,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 ## <a name="build-the-bot"></a>建置 Bot
 在程式碼編輯器中，於 `build.cmd` 上按一下滑鼠右鍵，然後選取 [從主控台執行]。
 
-![建置 Web Bot ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+![建置 Web Bot](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
 程式碼檢視畫面會改換成顯示建置進度和結果的終端機視窗。
 

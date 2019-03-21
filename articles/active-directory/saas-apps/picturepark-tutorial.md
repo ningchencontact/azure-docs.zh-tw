@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b458632ddb6e23ab1ddf642752aa0cbfc11f1ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183440"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>教學課程：Azure Active Directory 與 Picturepark 整合
 
@@ -224,7 +224,7 @@ Picturepark 與 Azure AD 整合提供下列優點：
    
     ![建立使用者](./media/picturepark-tutorial/ic795069.png "建立使用者")
    
-    a. 在 [電子郵件地址] 文字方塊中，輸入使用者的**電子郵件地址**：**BrittaSimon@contoso.com**。  
+    a. 在 **電子郵件地址**文字方塊中，輸入**電子郵件地址**的使用者**BrittaSimon\@contoso.com**。  
    
     b. 在 [密碼] 和 [確認密碼] 文字方塊中，輸入 BrittaSimon 的**密碼**。 
    

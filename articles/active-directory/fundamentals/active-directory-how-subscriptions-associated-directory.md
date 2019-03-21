@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 262f46b3d0b61923352f3ff98b08cb5e4f6d5e75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993906"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285001"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>將 Azure 訂用帳戶關聯或新增至您的 Azure Active Directory 租用戶
 
@@ -62,11 +62,10 @@ Azure 訂用帳戶已與 Azure Active Directory (Azure AD)，這表示訂用帳�
 
     訂用帳戶的目錄會變更， 而且您會看到成功訊息。
 
-    ![成功訊息](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![關於目錄變更的成功訊息](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+4. 使用**目錄切換器**移至您的新目錄。 最多可能需要 10 分鐘的時間才能正確顯示所有項目。
 
-4. 使用目錄切換器來移至您的新目錄。 最多可能需要 10 分鐘的時間才能正確顯示所有項目。
-
-    ![目錄切換器頁面](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![「 範例資訊的目錄切換器頁面](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 變更訂用帳戶目錄是服務層級作業，因此不會影響訂用帳戶帳單擁有權。 帳戶系統管理員仍然可以從[帳戶中心](https://account.azure.com/subscriptions)變更服務系統管理員。 若要刪除原始目錄，您必須將訂用帳戶訂單擁有權傳輸到新的帳戶系統管理員。若要深入了解如何移轉帳單擁有權，請參閱[將 Azure 訂用帳戶的擁有權轉移轉至另一個帳戶](../../billing/billing-subscription-transfer.md)。 
 

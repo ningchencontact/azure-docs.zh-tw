@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 61752ad9feda7ad6b8d91f1b996b68f27f24b2c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ea2d51487999be2e7412e102b3381d8994e1e4c4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821978"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295312"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -160,7 +160,6 @@ module.exports = async function (context, message) {
     context.log('Node.js queue trigger function processed work item', message);
     // OR access using context.bindings.<name>
     // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
-    context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
     context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
@@ -176,7 +175,7 @@ module.exports = async function (context, message) {
 ### <a name="trigger---java-example"></a>觸發程序 - Java 範例
 
 下列 Java 範例所示範的儲存體佇列觸發程序函式會記錄放入 `myqueuename` 佇列的已觸發訊息。
- 
+
  ```java
  @FunctionName("queueprocessor")
  public void run(
@@ -190,7 +189,7 @@ module.exports = async function (context, message) {
  ```
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
- 
+
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用下列屬性以設定佇列觸發程序：
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
@@ -218,7 +217,7 @@ module.exports = async function (context, message) {
       ....
   }
   ```
- 
+
   如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
@@ -249,18 +248,18 @@ module.exports = async function (context, message) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `QueueTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a| 必須設為 `queueTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction**| n/a | 僅限在 *function.json* 檔案中。 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
-|**name** | n/a |在函式程式碼中包含佇列項目承載的變數名稱。  | 
-|**queueName** | **QueueName**| 要輪詢的佇列名稱。 | 
+|**name** | n/a |在函式程式碼中包含佇列項目承載的變數名稱。  |
+|**queueName** | **QueueName**| 要輪詢的佇列名稱。 |
 |**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
- 
+
 在 C# 和 C# 指令碼中，使用方法參數 (例如 `string paramName`) 來存取訊息資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
 
 * 物件：Functions 執行階段會將 JSON 裝載還原序列化為程式碼中所定義之任意類別的執行個體。 
@@ -274,9 +273,9 @@ module.exports = async function (context, message) {
 
 ## <a name="trigger---message-metadata"></a>觸發程序 - 訊息中繼資料
 
-佇列觸發程序提供數個[中繼資料屬性](functions-triggers-bindings.md#binding-expressions---trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 類別的屬性。
+佇列觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 類別的屬性。
 
-|屬性|類型|說明|
+|屬性|類型|描述|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|佇列承載 (如果為有效字串)。 如果佇列承載為字串，`QueueTrigger` 具有相同於 *function.json* 中由 `name` 屬性命名之變數的值。|
 |`DequeueCount`|`int`|此訊息已從佇列清除的次數。|
@@ -306,9 +305,7 @@ module.exports = async function (context, message) {
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
-[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。
-
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 請參閱[host.json 設定](#hostjson-settings)一節以取得有關可用設定的詳細資訊。
 
 ## <a name="output"></a>輸出
 
@@ -370,7 +367,7 @@ public static class QueueFunctions
     }
   ]
 }
-``` 
+```
 
 [設定](#output---configuration)章節會說明這些屬性。
 
@@ -431,7 +428,7 @@ public static void Run(
     }
   ]
 }
-``` 
+```
 
 [設定](#output---configuration)章節會說明這些屬性。
 
@@ -466,13 +463,13 @@ module.exports = function(context) {
        result.setValue(message + " has been added.");
        return message;
  }
- ```
+```
 
 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至佇列儲存體的參數使用 `@QueueOutput` 註釋。  參數類型應為 `OutputBinding<T>`，其中 T 是任何原生 Java 類型的 POJO。
 
 
 ## <a name="output---attributes"></a>輸出 - 屬性
- 
+
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs)。
 
 該屬性會套用至 `out` 參數或函式的傳回值。 該屬性的建構函式會採用佇列名稱，如下列範例所示：
@@ -505,18 +502,18 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Queue` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `queue`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `out`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
-|**name** | n/a | 代表函式程式碼中佇列的變數名稱。 設為 `$return` 以參考函式傳回值。| 
-|**queueName** |**QueueName** | 佇列的名稱。 | 
+|**name** | n/a | 代表函式程式碼中佇列的變數名稱。 設為 `$return` 以參考函式傳回值。|
+|**queueName** |**QueueName** | 佇列的名稱。 |
 |**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>輸出 - 使用方式
- 
+
 在 C# 和 C# 指令碼中，藉由使用方法參數 (例如 `out T paramName`) 寫入單一佇列訊息。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以使用方法傳回類型，而不是 `out` 參數，而且 `T` 可以是下列類型之一：
 
 * 可序列化為 JSON 的物件
@@ -564,16 +561,16 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
         }
     }
 }
-```  
+```
 
 
-|屬性  |預設值 | 說明 |
-|---------|---------|---------| 
-|maxPollingInterval|00:00:02|佇列輪詢之間的間隔上限。 最小為 00:00:00.100 (100 毫秒)。 | 
-|visibilityTimeout|00:00:00|處理訊息失敗時，重試之間的時間間隔。 | 
-|batchSize|16|Functions 執行階段會同時擷取，並以平行方式處理的佇列訊息數目。 當要處理的數目減少到 `newBatchThreshold` 時，執行階段就會取得另一個批次，並開始處理那些訊息。 因此，每個函式並行處理之訊息的上限為 `batchSize` 加上 `newBatchThreshold`。 這項限制個別套用至每個佇列觸發的函式。 <br><br>如果您需要避免平行執行在單一佇列上收到的訊息，可以將 `batchSize` 設定為 1。 不過，只要您的函式應用程式在單一虛擬機器 (VM) 上執行，這項設定就只會將並行排除。 如果函式應用程式相應放大為多個 VM，則每個 VM 可以執行每個佇列觸發之函式的一個執行個體。<br><br>最大值 `batchSize` 為 32。 | 
-|maxDequeueCount|5|將訊息移至有害佇列之前，嘗試處理訊息的次數。| 
-|newBatchThreshold|batchSize/2|每當要同時處理的訊息數目下降至這個數字時，執行階段就會擷取另一個批次。| 
+|屬性  |預設值 | 描述 |
+|---------|---------|---------|
+|maxPollingInterval|00:00:02|佇列輪詢之間的間隔上限。 最小為 00:00:00.100 (100 毫秒)。 |
+|visibilityTimeout|00:00:00|處理訊息失敗時，重試之間的時間間隔。 |
+|batchSize|16|Functions 執行階段會同時擷取，並以平行方式處理的佇列訊息數目。 當要處理的數目減少到 `newBatchThreshold` 時，執行階段就會取得另一個批次，並開始處理那些訊息。 因此，每個函式並行處理之訊息的上限為 `batchSize` 加上 `newBatchThreshold`。 這項限制個別套用至每個佇列觸發的函式。 <br><br>如果您需要避免平行執行在單一佇列上收到的訊息，可以將 `batchSize` 設定為 1。 不過，只要您的函式應用程式在單一虛擬機器 (VM) 上執行，這項設定就只會將並行排除。 如果函式應用程式相應放大為多個 VM，則每個 VM 可以執行每個佇列觸發之函式的一個執行個體。<br><br>最大值 `batchSize` 為 32。 |
+|maxDequeueCount|5|將訊息移至有害佇列之前，嘗試處理訊息的次數。|
+|newBatchThreshold|batchSize/2|每當要同時處理的訊息數目下降至這個數字時，執行階段就會擷取另一個批次。|
 
 ## <a name="next-steps"></a>後續步驟
 

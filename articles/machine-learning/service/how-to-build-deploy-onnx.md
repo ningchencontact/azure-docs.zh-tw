@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 09/24/2018
+ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6deeabfe57f946a9c31548791c00ee70ecd9f2d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 97464115b87ca5facdc055e0031bc5fc4e962a22
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251243"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295652"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 與 Azure Machine Learning：建立與部署互通的 AI 模型
 
@@ -36,7 +36,7 @@ Microsoft 會讓其產品 (包括 Azure 和 Windows) 支援 ONNX，以協助您�
 
 您可以使用 Azure Machine Learning 和 ONNX Runtime 將 [ONNX 模型可以部署](#deploy)到雲端。 也可以使用 [Windows ML](https://docs.microsoft.com/windows/ai/)，將其部署到 Windows 10 裝置。 甚至可以使用從 ONNX 社群取得的轉換器，將其部署到其他平台。 
 
-[ ![顯示定型、轉換和部署的 ONNX 流程圖](media/concept-onnx/onnx.png) ] (./media/concept-onnx/onnx.png#lightbox)
+[![顯示訓練、 轉換和部署的 ONNX 流程圖](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>取得 ONNX 模型
 
@@ -69,7 +69,7 @@ Microsoft 會讓其產品 (包括 Azure 和 Windows) 支援 ONNX，以協助您�
 
 ### <a name="install-and-configure-onnx-runtime"></a>安裝和設定 ONNX Runtime
 
-ONNX Runtime 是適用於 ONNX 模型的開放原始碼高效能推斷引擎。 其可提升 CPU 與 GPU 硬體速度，具有可供 Python、C# 和 C. ONNX Runtime 使用的 API，且支援 ONNX 1.2+ 模型，並能在 Linux、Windows 和 Mac 上執行。 Python 套件位於 [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime)[GPU](https://pypi.org/project/onnxruntime-gpu))，[C# 套件](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/)位於 [Nuget.org](https://www.nuget.org)。請至 [GitHub](https://github.com/Microsoft/onnxruntime) 參閱專案的詳細資訊。 
+ONNX Runtime 是適用於 ONNX 模型的開放原始碼高效能推斷引擎。 其可提升 CPU 與 GPU 硬體速度，具有可供 Python、C# 和 C. ONNX Runtime 使用的 API，且支援 ONNX 1.2+ 模型，並能在 Linux、Windows 和 Mac 上執行。 Python 套件位於 [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime)[GPU](https://pypi.org/project/onnxruntime-gpu))，[C# 套件](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/)位於 [Nuget.org](https://www.nuget.org)。請至 [GitHub](https://github.com/Microsoft/onnxruntime) 參閱專案的詳細資訊。 請閱讀[系統需求](https://github.com/Microsoft/onnxruntime#system-requirements)才能進行安裝。
 
 若要安裝 Python 適用的 ONNX Runtime，請使用：
 ```python
@@ -127,7 +127,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
    ```python
    from azureml.core.image import ContainerImage
-   
+
    image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                      runtime = "python",
                                                      conda_file = "myenv.yml",
@@ -154,21 +154,29 @@ results = session.run([], {"input1": indata1, "input2": indata2})
    from azureml.core.model import Model
 
    def init():
-       global model_path
-       model_path = Model.get_model_path(model_name = 'MyONNXmodel')
+       global session
+       model = Model.get_model_path(model_name = 'MyONNXModel')
+       session = onnxruntime.InferenceSession(model)
 
-   def run(raw_data):
+   def preprocess(input_data_json):
+       # convert the JSON data into the tensor input
+       return np.array(json.loads(input_data_json)['data']).astype('float32')
+
+   def postprocess(result):
+       return np.array(result).tolist()
+
+   def run(input_data_json):
        try:
-           data = json.loads(raw_data)['data']
-           data = np.array(data)
-        
-           sess = onnxruntime.InferenceSession(model_path)
-           result = sess.run(["outY"], {"inX": data})
-        
-           return json.dumps({"result": result.tolist()})
+           start = time.time()   # start timer
+           input_data = preprocess(input_data_json)
+           input_name = session.get_inputs()[0].name  # get the id of the first input of the model   
+           result = session.run([], {input_name: input_data})
+           end = time.time()     # stop timer
+           return {"result": postprocess(result),
+                   "time": end - start}
        except Exception as e:
            result = str(e)
-           return json.dumps({"error": result})
+           return {"error": result}
    ```
 
    `myenv.yml` 檔案說明映像所需的相依性。 請參閱本[教學課程](tutorial-deploy-models-with-aml.md#create-environment-file)，以取得如何建立環境檔案的指示，例如此範例檔案：
@@ -176,10 +184,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
    ```python
    from azureml.core.conda_dependencies import CondaDependencies 
 
-   myenv = CondaDependencies()
-   myenv.add_pip_package("numpy")
-   myenv.add_pip_package("azureml-core")
-   myenv.add_pip_package("onnxruntime")
+   myenv = CondaDependencies.create(pip_packages=["numpy","onnxruntime","azureml-core"])
 
    with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
@@ -189,9 +194,9 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 
 ## <a name="examples"></a>範例
- 
+
 請參閱 [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx)，以取得建立與部署 ONNX 模型的範例筆記本。
- 
+
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="more-info"></a>其他資訊

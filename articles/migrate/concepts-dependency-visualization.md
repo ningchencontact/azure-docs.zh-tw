@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257961"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004089"
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
@@ -26,7 +26,7 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估且值得高度
 
 ## <a name="how-does-it-work"></a>運作方式
 
-為提供相依性的視覺效果，Azure Migrate 採用了 [Log Analytics](../log-analytics/log-analytics-overview.md) 的[服務對應](../operations-management-suite/operations-management-suite-service-map.md)解決方案。
+Azure Migrate 採用[服務對應](../operations-management-suite/operations-management-suite-service-map.md)中的解決方案[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)的相依性視覺效果。
 - 若要利用相依性視覺效果，您需要將新的或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。
 - 您只能在建立移轉專案的相同訂用帳戶中，建立或連結工作區。
 - 若要將 Log Analytics 工作區連結至專案，請移至專案 [概觀] 頁面的 [基本資訊] 區段，按一下 [需要設定]
@@ -34,8 +34,8 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估且值得高度
     ![與 Log Analytics 工作區建立關聯](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - 與工作區建立關聯時，您可以選擇建立新的工作區，或連結現有的工作區：
-      - 建立新工作區時，您必須指定工作區的名稱。 然後會在和移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中建立工作區。
-      - 當您連結現有的工作區時，您可以如同移轉專案般，在相同訂用帳戶的所有可用工作區中挑選。 請注意，系統只會列出在[支援服務對應](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)所在區域中建立的工作區。 若要能夠連結工作區，請確定您有工作區的「讀取者」存取權。
+  - 建立新工作區時，您必須指定工作區的名稱。 然後會在和移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中建立工作區。
+  - 當您連結現有的工作區時，您能以和移轉專案相同的方式，從相同訂用帳戶中所有的可用工作區中挑選。 請注意，系統只會列出那些在[支援服務對應](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)的區域中建立的工作區。 若要能夠連結工作區，請確定您有工作區的「讀取者」存取權。
 
   > [!NOTE]
   > 一旦您將工作區連結到專案，您之後便無法變更它。

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082699"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理原則中使用具名值
 API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定來變更 API 的行為。 原則是陳述式的集合，會因 API 的要求或回應循序執行。 原則陳述式可以使用常值文字值、原則運算式和具名值來建構。 
 
 每個 API 管理服務執行個體都有服務執行個體全域適用的的鍵/值組 (稱為具名值) 的屬性集合。 這個具名值可用來管理所有 API 組態及原則的常數字串值。 每個屬性可能都有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | 顯示名稱 |字串 |用於參考原則中屬性的英數字元字串。 |
 | 值 |字串 |屬性的值。 不能是空白或只由空白字元組成。 |
@@ -36,7 +36,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 屬性值可以包含常值字串及 [原則運算式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。 例如，`ExpressionProperty` 的值是原則運算式，會傳回包含目前日期與時間的字串。 `ContosoHeaderValue` 屬性已標記為密碼，所以未顯示其值。
 
-| Name | 值 | Secret | 標記 |
+| 名稱 | 值 | Secret | 標記 |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
@@ -50,7 +50,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 2. 選取 [具名值]。
 3. 按 [+新增]。
 
-  [名稱] 和 [值] 都是必要值。 如果此屬性值是祕密，請勾選 [這是祕密] 核取方塊。 輸入一或多個選擇性標籤來協助組織您的具名值，然後按一下 [儲存]。
+   [名稱] 和 [值] 都是必要值。 如果此屬性值是祕密，請勾選 [這是祕密] 核取方塊。 輸入一或多個選擇性標籤來協助組織您的具名值，然後按一下 [儲存]。
 4. 按一下頁面底部的 [新增] 。
 
 屬性建立之後，您可以按一下屬性來加以編輯。 如果您變更屬性名稱，任何參照該屬性的原則會自動更新以使用新的名稱。

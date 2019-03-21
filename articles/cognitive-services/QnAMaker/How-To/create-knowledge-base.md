@@ -1,26 +1,26 @@
 ---
 title: 建立知識庫
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: 使用 QnA Maker 入口網站，透過閒聊建立知識庫。 這可讓您的應用程式更吸引人。 將閒聊內容預先匯入知識庫中，作為聊天機器人閒聊起始點，節省您從頭開始編寫它們的時間和成本。
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: 使用 QnA Maker API 服務入口網站中，將會建立知識庫，且 chit 聊天。 這可讓您的應用程式更吸引人。 將閒聊內容預先匯入知識庫中，作為聊天機器人閒聊起始點，節省您從頭開始編寫它們的時間和成本。
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4ba744c3d8cc3a785c04bbbb1b476a857859e244
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876844"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116227"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>快速入門：使用 QnA Maker 入口網站建立知識庫
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>快速入門：建立使用 QnA Maker API 服務入口網站的知識庫
 
-透過 QnA Maker，您可在建立知識庫時輕鬆地新增現有的資料來源。 您可以從下列文件類型建立新的 QnA Maker 知識庫：
+QnA Maker API 服務入口網站可以輕鬆將現有資料來源，當建立知識庫。 您可以從下列文件類型建立新的 QnA Maker 知識庫：
 
 <!-- added for scanability -->
 * 常見問題集頁面
@@ -52,7 +52,7 @@ ms.locfileid: "55876844"
 
 1. 將**閒聊**新增至您的 KB。 從 3 個特質中選擇一個，以選擇為您的聊天機器人新增閒聊支援。 
 
-    ![將閒聊新增至知識庫 ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![將閒聊新增至知識庫](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. 選取 [建立您的 KB]。
 

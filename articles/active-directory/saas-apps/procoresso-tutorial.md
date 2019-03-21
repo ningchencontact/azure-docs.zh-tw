@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d72f4ac39ac992d0386b3971cd4d3bc6616f0a28
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 36e1c8d6cae79147c5cd4b5a46f5e1c330811ab8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186449"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877644"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>教學課程：Azure Active Directory 與 Procore SSO 整合
 
@@ -179,7 +179,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中，輸入**brittasimon\@yourcompanydomain.extension**  
        例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -204,7 +204,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
     b. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
 
-    c. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件地址，例如 **BrittaSimon@contoso.com**。
+    c. 在 **電子郵件地址**文字方塊中，輸入使用者的電子郵件地址，例如**BrittaSimon\@contoso.com**。
 
     d. 將 [權限範本] 選取為 [稍後套用權限範本]。
 
@@ -214,7 +214,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
     ![設定單一登入](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. 按一下 [儲存並傳送邀請] \(如果透過郵件邀請是必要的)，或者按一下 [儲存] \(直接儲存) 以完成使用者註冊。
+5. 按一下 **儲存並傳送邀請**（如果透過郵件邀請是必要的） 或**儲存**（直接儲存） 以完成註冊的使用者。
     
     ![設定單一登入](./media/procoresso-tutorial/Procore_user_save.png)
 

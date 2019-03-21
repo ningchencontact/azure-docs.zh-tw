@@ -4,29 +4,27 @@ description: 在 Azure 中部署 Avere vFXT 叢集的步驟
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745430"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409681"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
-此程序會引導您使用 Azure Marketplace 中提供的部署精靈。 精靈會自動使用 Azure Resource Manager 範本來部署叢集。 在表單中輸入參數並按一下 [建立] 後，Azure 會自動完成下列步驟： 
+此程序會引導您使用 Azure Marketplace 中提供的部署精靈。 精靈會自動使用 Azure Resource Manager 範本來部署叢集。 在表單中輸入參數並按一下 [建立] 後，Azure 會自動完成下列步驟：
 
-* 建立叢集控制器，也就是包含部署和管理叢集所需軟體的基本 VM。
-* 設定資源群組和虛擬網路基礎結構，以及在需要時建立新的項目。
-* 建立叢集節點 VM，並將其設定為 Avere 叢集。
-* 依據需求建立新的 Azure Blob 容器，並將其設定為叢集核心檔案。
+* 建立叢集的控制站，也就是基本的 VM，其中包含部署和管理叢集所需的軟體。
+* 設定資源群組和虛擬網路基礎結構，包括建立新的項目。
+* 建立叢集節點 Vm，並將它們設定為 Avere 叢集。
+* 如果要求，會建立新的 Azure Blob 容器，並將其設定為叢集核心篩選。
 
-依照本文件中的指示進行操作之後，您將會擁有一個虛擬網路、一個子網路、一個控制器，以及一個 vFXT 叢集，如下圖所示：
+遵循這份文件中的指示之後, 您必須在虛擬網路、 子網路、 控制器和 vFXT 叢集，如下圖所示。 下圖顯示選擇性的 Azure Blob core 篩選，其中包括新的 Blob 儲存體容器 （在新儲存體帳戶，不會顯示） 和子網路內的 Microsoft 儲存體的服務端點。 
 
-![顯示 VNet 和一個子網路的圖表，其中 VNet 包含選擇性的 Blob 儲存體，子網路則包含三個標示為 vFXT 節點/vFXT 叢集的已群組 VM 及一個標示為叢集控制器的 VM](media/avere-vfxt-deployment.png)
-
-如果使用 Blob 儲存體，在建立叢集之後，您應該在虛擬網路中[建立儲存體端點](#create-a-storage-endpoint-if-using-azure-blob)。 
+![以圖表顯示三個同心圓的矩形與 Avere 叢集元件。 外部矩形會標示為 [資源群組]，並包含六邊形，標示為 'Blob 儲存體 （選擇性）'。 在下一步 的矩形會標示為 ' 虛擬網路：10.0.0.0/16'，而且不包含任何唯一的元件。 最內層的矩形會標示為 'Subnet:10.0.0.0/24'，且包含標示為 '叢集 controller'、 堆疊的三個 Vm 標示為 'vFXT 節點 （vFXT 叢集）' 和 「 六邊形 」 標示為 '服務端點' 的 VM。 沒有連接的服務端點 （這是子網路內） 和 blob 儲存體 （這是外部的子網路和 vnet、 資源群組中的） 的箭號。 箭號會通過子網路和虛擬網路界限。](media/avere-vfxt-deployment.png)  
 
 使用建立範本之前，請確定您已滿足下列先決條件：  
 
@@ -34,6 +32,7 @@ ms.locfileid: "55745430"
 1. [訂用帳戶擁有者權限](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [vFXT 叢集配額](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [自訂存取角色](avere-vfxt-prereqs.md#create-access-roles) - 您必須建立要指派給叢集節點的角色型存取控制角色。 您也可以選擇為叢集控制器建立自訂存取角色，但大部分使用者會採用預設的「擁有者」角色，此角色會提供資源群組擁有者的對應權限給控制器。 如需詳細資訊，請參閱 [Azure 資源的內建角色](../role-based-access-control/built-in-roles.md#owner)。
+1. [儲存體服務端點 （如有需要）](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -必要的部署使用現有的虛擬網路，並建立 blob 儲存體
 
 如需有關叢集部署步驟和規劃的詳細資訊，請參閱[規劃您的 Avere vFXT 系統](avere-vfxt-deploy-plan.md)和[部署概觀](avere-vfxt-deploy-overview.md)。
 
@@ -105,13 +104,13 @@ ms.locfileid: "55745430"
 
 * **Avere vFXT 叢集名稱** - 為叢集提供唯一名稱。 
 
-* **大小** - 指定建立叢集節點時要使用的 VM 類型。 
+* **大小**-此區段會顯示將用於叢集節點的 VM 類型。 雖然只有一個建議的選項，但是**變更大小**連結會開啟與此執行個體類型和通往的定價計算機的詳細資料的資料表。  
 
 * **每個節點的快取大小** - 叢集快取會散佈在叢集節點上，因此，Avere vFXT 叢集上的快取大小總計會是節點數目乘上每個節點的快取大小。 
 
-  如果使用 Standard_D16s_v3 叢集節點，建議設定為每個節點 1 TB，如果使用 Standard_E32s_v3 節點，則建議每個節點的 4 TB。
+  建議的設定是使用每個節點的 4 TB，Standard_E32s_v3 節點。
 
-* **虛擬網路** - 選取現有的 Vnet 來裝載叢集，或定義要建立的新 Vnet。 
+* **虛擬網路**-定義新的 vnet，以存放叢集，或選取現有的 vnet，以符合必要條件中所述[計劃 Avere vFXT 系統](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure)。 
 
   > [!NOTE]
   > 如果您建立新的 Vnet，叢集控制器將會有公用 IP 位址，以便您存取新的私人網路。 如果您選擇現有的 Vnet，則不會對叢集控制器設定公用 IP 位址。 
@@ -121,17 +120,21 @@ ms.locfileid: "55745430"
   >  * 如果您沒有在控制器上設定公用 IP 位址，就必須使用另一個跳躍點主機、VPN 連線或 ExpressRoute 來存取叢集。 例如，在已設定 VPN 連線的虛擬網路內建立控制器。
   >  * 如果您建立具有公用 IP 位址的控制器，您應該使用網路安全性群組來保護該控制器 VM。 根據預設，Avere vFXT for Azure 部署會建立網路安全性群組，並限制只能透過連接埠 22，對使用公用 IP 位址的控制器進行輸入存取。 若要進一步保護系統，您可以鎖定 IP 來源位址範圍的存取，也就是只允許從要用來存取叢集的機器進行連線。
 
+  使用 Azure Blob 儲存體的儲存體服務端點與鎖定只 ip 從叢集子網路的網路存取控制，部署範本也會設定新的 vnet。 
+
 * **子網路** - 選擇現有虛擬網路中的子網路，或建立新的子網路。 
 
-* **使用 Blob 儲存體** - 選擇 [是] 建立新的 Azure Blob 容器，並將其設定為新 Avere vFXT 叢集的後端儲存體。 此選項也會在叢集所在的同一個資源群組內，建立新的儲存體帳戶。 
+* **建立和使用 blob 儲存體**-選擇 **，則為 true**建立新的 Azure Blob 容器，然後將它設定為新的 Avere vFXT 叢集的後端儲存體。 此選項也會建立新的儲存體帳戶內相同的資源群組，做為叢集的叢集子網路內的 Microsoft 儲存體服務端點。 
+  
+  如果您提供現有的虛擬網路，您必須為儲存體服務端點之前建立叢集。 (如需詳細資訊，請參閱[計劃 Avere vFXT 系統](avere-vfxt-deploy-plan.md)。)
 
   如果您不想建立新的容器，請將此欄位設為 [false]。 在此情況下，建立叢集之後，您必須連接並設定儲存體。 參閱[設定儲存體](avere-vfxt-add-storage.md)的指示。 
 
-* **儲存體帳戶** - 如果是建立新的 Azure Blob 容器，請輸入新儲存體帳戶的名稱。 
+* **（新）儲存體帳戶**-如果建立新的 Azure Blob 容器中，輸入新的儲存體帳戶的名稱。 
 
 ## <a name="validation-and-purchase"></a>驗證及購買
 
-第三頁會提供設定總結並驗證參數。 驗證成功之後，請按一下 [確定] 按鈕繼續作業。 
+第三頁會摘要說明設定，並驗證參數。 驗證成功之後，請按一下 [確定] 按鈕繼續作業。 
 
 ![部署範本的第三頁 - 驗證](media/avere-vfxt-deploy-3.png)
 
@@ -159,20 +162,6 @@ Avere vFXT 範本在完成叢集的建立後，會輸出有關新叢集的一些
 1. 在左側按一下 [輸出]。 複製每個欄位中的值。 
 
    ![輸出頁面的標籤右側欄位中顯示 SSHSTRING、RESOURCE_GROUP、LOCATION、NETWORK_RESOURCE_GROUP、NETWORK、SUBNET、SUBNET_ID、VSERVER_IPs 和 MGMT_IP 值](media/avere-vfxt-outputs-values.png)
-
-
-## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>建立儲存體端點 (如果使用 Azure Blob)
-
-如果您使用 Azure Blob 儲存體作為後端資料儲存體，您應該在虛擬網路中建立儲存體服務端點。 此[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)會讓 Azure Blob 流量保留在本機，而不會在虛擬網路外部進行路由傳送。
-
-1. 從入口網站中，按一下左側的 [虛擬網路]。
-1. 選取您控制器的 VNet。 
-1. 按一下左側的 [服務端點]。
-1. 按一下頂端的 [新增]。
-1. 將服務保留為 ``Microsoft.Storage``，然後選擇控制器的子網路。
-1. 在底部按一下 [新增]。
-
-  ![含有建立服務端點之註解的 Azure 入口網站螢幕擷取畫面](media/avere-vfxt-service-endpoint.png)
 
 ## <a name="next-step"></a>後續步驟
 

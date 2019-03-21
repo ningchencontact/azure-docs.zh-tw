@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893249"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +62,7 @@ ms.locfileid: "54019872"
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 SAP Business Warehouse (BW) 連結服務專屬 JSON 元素的描述。
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
 伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 字串 | 是
 systemNumber | SAP BW 系統的系統編號。 | 以字串表示的二位數十進位數字。 | 是
@@ -85,7 +85,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 當複製活動中的來源類型為 **RelationalSource** 時 (包括 SAP BW)，typeProperties 區段中會有下列屬性可用：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | MDX 查詢。 | 是 |
 
@@ -289,29 +289,29 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 從 SAP BW 移動資料時，SAP BW 類型至 .NET 類型會使用下列對應。
 
-ABAP 字典中的資料類型 | .Net 資料類型
+ABAP 字典中的資料類型 | .NET 資料類型
 -------------------------------- | --------------
-ACCP |  int
-CHAR | 字串
-CLNT | 字串
-CURR | 十進位
-CUKY | 字串
-DEC | 十進位
-FLTP | 兩倍
+ACCP |  Int
+CHAR | String
+CLNT | String
+CURR | Decimal
+CUKY | String
+DEC | Decimal
+FLTP | Double
 INT1 | Byte
 INT2 | Int16
-INT4 | int
-LANG | 字串
-LCHR | 字串
+INT4 | Int
+LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
-QUAN | 十進位
+QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | 字串
-單位 | 字串
-DATS | 字串
-NUMC | 字串
+STRING | String
+單位 | String
+DATS | String
+NUMC | String
 TIMS | 字串
 
 > [!NOTE]

@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014909"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295618"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 共同作業邀請電子郵件的元素 - Azure Active Directory
 
 邀請電子郵件是一個可讓合作夥伴在 Azure AD 中以 B2B 共同作業使用者身分上線的重要元件。 您可以用它們提高收件者的信任度。 您可以為電子郵件增添合法性和社交證明，以確保收件者在選取 [開始使用] 按鈕來接受邀請時沒有疑慮。 此信任是減少共用摩擦的重要手段。 而且您也希望電子郵件看起來很讚！
 
-![Azure AD B2b 邀請電子郵件](media/invitation-email-elements/invitation-email.png)
+![顯示 B2B 邀請電子郵件的螢幕擷取畫面](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>說明電子郵件
 讓我們看看一些電子郵件項目，以便了解如何充分利用這些功能。
@@ -51,12 +51,12 @@ ms.locfileid: "58014909"
 
 如果您尚未設定自己的個人檔案圖片，圖片位置就會顯示邀請者的姓名縮寫圖示：
 
-  ![顯示邀請者的姓名縮寫](media/invitation-email-elements/inviters-initials.png)
+  ![顯示邀請者的邀請簡稱顯示螢幕擷取畫面](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>body
 內文包含[邀請來賓使用者到目錄、群組或應用程式](add-users-administrator.md) 或[使用邀請 API](customize-invitation-api.md) 時，邀請者所撰寫的訊息。 因為它是文字區域，所以不會基於安全考量處理 HTML 標記。
 
-  ![電子郵件內文的圖片](media/invitation-email-elements/invitation-email-body.png)
+  ![顯示邀請電子郵件的本文螢幕擷取畫面](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>頁尾區段
 頁尾包含 Microsoft 公司品牌，並讓收件者知道電子郵件是否是由未受監視的別名所傳送。 
@@ -65,12 +65,12 @@ ms.locfileid: "58014909"
 
 - 邀請者在邀請方租用中沒有電子郵件地址
 
-  ![在邀請方租用中沒有電子郵件地址的邀請者圖片](media/invitation-email-elements/inviter-no-email.png)
+  ![當邀請者沒有電子郵件邀請方租用戶中的螢幕擷取畫面](media/invitation-email-elements/inviter-no-email.png)
 
 
 - 收件者不需要兌換邀請函
 
-  ![當收件者不需要兌換邀請函時](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![當收件者不需要兌換邀請的螢幕擷取畫面](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>如何決定語言
 在邀請電子郵件中向來賓使用者顯示的語言取決於下列設定。 這些設定是依優先順序列出的。 如果未設定某個設定，就會由清單中的下一個設定決定語言。 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608744"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009677"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 解決方案加速器的常見問題集
 
@@ -71,9 +71,9 @@ ms.locfileid: "53608744"
 
 是，可在相同的地理區域中使用新的遠端監視。
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>在 Azure 入口網站中刪除資源群組，以及在 azureiotsuite.com 中對解決方案加速器按一下 [刪除]，兩者間有何差異？
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>刪除 Azure 入口網站中的資源群組，然後按一下 刪除解決方案加速器中 azureiotsolutions.com 之間的差異為何？
 
-* 如果您在 [azureiotsuite.com](https://www.azureiotsolutions.com/) 中刪除解決方案加速器，就會刪除您在建立該解決方案加速器時部署的所有資源。 將額外資源新增到資源群組時，也會一併刪除這些資源。
+* 如果您刪除在 solution accelerator [azureiotsolutions.com](https://www.azureiotsolutions.com/)，刪除當您建立的解決方案加速器已部署的所有資源。 將額外資源新增到資源群組時，也會一併刪除這些資源。
 * 如果您在 [Azure 入口網站](https://portal.azure.com)中刪除資源群組，則只會刪除該資源群組中的資源。 您還必須刪除與解決方案加速器相關聯的 Azure Active Directory 應用程式。
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>可以繼續利用我在 Azure IoT 解決方案加速器中的現有投資嗎？

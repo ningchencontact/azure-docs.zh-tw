@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2a2c2667ae3180fd4f7b114ce6cef05ac7a1080c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859720"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850270"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>使用 Application Insights 來分析 Azure 中的生產應用程式
 ## <a name="enable-application-insights-profiler-for-your-application"></a>為您的應用程式啟用 Application Insights Profiler
@@ -30,6 +30,7 @@ Profiler 可與部署於下列 Azure 服務的 .NET 應用程式搭配運作。 
 * [Azure 雲端服務](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure 虛擬機器和虛擬機器擴展集](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [**預覽**ASP.NET Core Azure Linux Web 應用程式](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 如果您已啟用 Profiler 卻未看到追蹤，請參閱[疑難排解指南](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)。
 
@@ -93,6 +94,10 @@ Microsoft 服務分析工具會合併使用取樣方法和檢測功能，來分�
 ### <a id="block"></a>封鎖時間
 
 **BLOCKED_TIME** 表示程式碼正在等候另一個資源可供使用。 例如，它可能正在等候同步處理物件、等候執行緒可供使用，或等候要求完成。
+
+### <a name="unmanaged-async"></a>非受控的非同步
+
+.NET framework 會發出 ETW 事件，並將活動識別碼傳遞執行緒之間，以便可以跨執行緒追蹤非同步呼叫。 Unmanaged 程式碼 （機器碼） 和非同步程式碼的一些較舊樣式缺少這些事件和活動識別碼，讓分析工具無法分辨哪些執行緒，而且函式正在執行的執行緒上。 這會標示 ' Unmanaged Async' 呼叫堆疊中。 如果您下載的 ETW 檔案時，您可以使用[PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)若要深入了更多的事情。
 
 ### <a id="cpu"></a>CPU 時間
 

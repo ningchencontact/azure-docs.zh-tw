@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3f08e2b2fab03ed7f2cccfe251e125033d55b30a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096685"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>將實體新增至範例語句 
 
@@ -35,21 +35,17 @@ ms.locfileid: "55860621"
 在下列程序中，您會在意圖頁面上建立並標記下列語句內的自訂實體：
 
 ```text
-Does John Smith work in Seattle?
+Are there any SQL server jobs?
 ```
 
-1. 在語句中選取 `Seattle`，來將它標示為簡單實體。
+1. 在語句中選取 `SQL server`，來將它標示為簡單實體。 在出現的實體下拉式清單方塊中，您可以選取現有實體，或新增實體。 若要新增新的實體，請輸入其名稱`Job`文字方塊中，然後選取**建立新的實體**。
 
-    [![在語句中將文字選取為簡單實體的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
+    ![輸入實體名稱的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > 選取單字以將其標記為實體時：
     > * 對於單一字組，只需要選取它。 
     > * 對於兩個或多個字組的集合，請選取集合開頭與集合結尾。
-
-1. 在出現的實體下拉式清單方塊中，您可以選取現有實體，或新增實體。 若要新增實體，請在文字方塊中輸入其名稱，然後選取 [建立新的實體]。 
-
-    ![輸入實體名稱的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
 1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中驗證實體名稱，並選取 [Simple] \(簡單\) 實體類型，然後選取 [Done] \(完成\)。
 
@@ -57,14 +53,11 @@ Does John Smith work in Seattle?
 
 ## <a name="add-a-list-entity"></a>新增清單實體
 
-清單實體代表系統中的一組固定封閉 (確切文字相符項目) 相關字組。 
+清單實體代表一組的相關單字的確切文字相符項目，您的系統中。 
 
 針對公司的部門清單，您可能會有標準化的值：`Accounting` 和 `Human Resources`。 每個標準化名稱都會有同義字。 針對部門，這些同義字可能包含任何部門首字母縮略字、數字或俚語。 當您建立實體時，不需要知道所有值。 檢閱包含同義字的實際使用者語句之後，即可新增其他語句。
 
-1. 在範例的語句清單中，針對某個特定語句，選取您要加入新清單中的單字或片語。 然後在頂端文字方塊中輸入該清單的名稱，然後選取 [Create new entity] \(建立新實體\)。   
-
-    ![輸入清單實體名稱的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
-
+1. 在範例 [utterance] 上**意圖**頁面上，選取的單字或片語，您想要在新的清單。 [實體] 下拉式清單出現時，請在頂端的文字方塊中，輸入新的清單中實體的名稱，然後選取**建立新的實體**。   
 
 1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中為實體命名，並選取 [List] \(清單\) 作為類型。 新增此清單項目的同義字，然後選取 [Done] \(完成\)。 
 
@@ -76,21 +69,15 @@ Does John Smith work in Seattle?
 
 複合實體是將現有**實體**建立為父實體。 
 
-假設 `Does John Smith work in Seattle?` 這個複合語句能以單一父物件的形式傳回員工姓名及位置的實體資訊。 
+假設 utterance 中， `Does John Smith work in Seattle?`，複合 utterance 可傳回的員工名稱的實體資訊`John Smith`，以及位置`Seattle`複合實體中。 子實體必須存在於應用程式，並標示在範例 utterance，然後再建立複合的實體。
 
-員工姓名 John Smith 是預先建置的 [personName](luis-reference-prebuilt-person.md) 實體。 Seattle 這個位置則是簡單實體。 在建立那兩個實體並將其標記在範例語句中之後，那些實體便可以被包裝在複合實體中。 
+1. 若要將子實體包裝成複合實體中，選取**第一個**標示實體 （最左邊的） 在 [utterance] 複合的實體。 下拉式清單會出現並顯示此選項的選擇。
 
-1. 若要將個別實體包裝到複合中，請選取複合實體語句中的**第一個**已標示實體 (最左邊)。 下拉式清單即會出現，顯示此選項的選擇。
+1. 選取 **包裝在複合實體**從下拉式清單。 
 
-1. 從下拉式清單中選取 [Wrap composite entity] \(包裝複合實體\)。 
-
-    ![選取 [Wrap in composite entity] \(包裝於複合實體中\) 的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
-
-1. 選取複合實體的最後一個單字 (最右邊)。 注意到有一條綠色線條會跟隨複合實體。
+1. 選取複合實體的最後一個單字 (最右邊)。 注意到有一條綠色線條會跟隨複合實體。 這是複合實體的視覺指標，而且應該在最右邊子系實體的複合實體從最左邊子系實體中的所有文字。
 
 1. 在下拉式清單中輸入複合實體名稱。
-
-    ![在下拉式清單中，輸入複合實體名稱的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     當您正確地包裝實體時，整個片語下方會有綠色線條。
 
@@ -110,15 +97,11 @@ Does John Smith work in Seattle?
 
 1. 在 [Intent] \(意圖\) 頁面上，於語句中選取 `Seattle`，並輸入實體名稱 `Location`，然後選取鍵盤上的 Enter。
 
-    ![[Create Hierarchical Entity Labeling] \(建立階層式實體標籤\) 對話方塊的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
-
 1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中，針對 [Entity type] \(實體類型\) 選取 [hierarchical] \(階層式\)，並新增 `Origin` 和 `Destination` 作為子系，然後選取 [Done] \(完成\)。
 
     ![意圖詳細資料頁面的螢幕擷取畫面 (已醒目提示 ToLocation 實體)](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
-1. 語句中的字組已標上父階層式實體。 您需要將字組指派給子實體。 返回至意圖詳細資料頁面上的語句。 選取字組，並從下拉式清單中選擇您所建立的實體名稱，然後遵循右側的功能表來選擇正確的子實體。
-
-    ![您要將文字指派給子實體的意圖詳細資料頁面螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+1. 語句中的字組已標上父階層式實體。 您需要將字組指派給子實體。 返回 [utterance] 意圖的詳細資料頁面上。 選取字組，並從下拉式清單中選擇您所建立的實體名稱，然後遵循右側的功能表來選擇正確的子實體。
 
     >[!CAUTION]
     >在單一應用程式的所有實體中，子實體名稱必須是唯一的。 兩個不同的階層式實體不能包含同名的子實體。 
@@ -135,7 +118,7 @@ Does John Smith work in Seattle?
 
 如果有預測差異，實體方塊會顯示具有紅色驚嘆號的 [實體狀態]。 若要查看實體狀態和有關標示實體和預測實體之間的差異資訊，請選取 [實體狀態]，然後選取右邊的項目。
 
-![選取正確項目，以修正預測差異的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/entity-status.png)
+![螢幕擷取畫面的實體狀態選項](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 可能出現紅線的時機如下：
 
@@ -153,6 +136,9 @@ Does John Smith work in Seattle?
 |已正確標示的文字|以藍色醒目提示實體，有紅色底線|不正確的預測|以各種位置和用法提供更多實體標示正確的語句。 目前語句不足以教導 LUIS 此實體是 (或類似) 相同內容中出現的實體。 類似的實體應該合併成單一實體，才不會讓 LUIS 混淆。 另一個解決方案是新增片語清單，以大幅提升字組的精確度。 |
 |未正確標示的文字|以藍色醒目提示實體，有紅色底線|正確的預測| 以各種位置和用法提供更多實體標示正確的語句。 
 
+> [!Note]
+> 範例 [utterance] 的資料列中加上標籤的意圖周圍的紅色方塊時[意圖的預測誤差](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors)發生。 您需要修正它。 
+
 ## <a name="other-actions"></a>其他動作
 
 您能以選取群組或個別項目的形式對範例語句執行動作。 選取範例語句群組會變更清單上的內容功能表。 單一項目可以使用清單上的內容功能表，也可以使用位於每個語句列末端的個別內容相關省略符號。 
@@ -162,8 +148,6 @@ Does John Smith work in Seattle?
 您可以在 [意圖] 頁面上從語句移除機器學習實體標籤。 若實體不是機器學習實體，則無法從語句中予以移除。 若您需要從語句中移除非機器學習實體，則需要刪除整個應用程式中的實體。 
 
 若要從語句中移除機器學習實體標籤，請選取語句中的實體。 然後選取所出現實體下拉式方塊中的 [移除標籤]。
-
-![意圖詳細資料頁面的螢幕擷取畫面 (已醒目提示 [移除標籤])](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
 ### <a name="add-prebuilt-entity-label"></a>新增預先建置的實體標籤
 
@@ -181,7 +165,7 @@ Does John Smith work in Seattle?
 
 ### <a name="add-patternany-entity"></a>新增 pattern.any 實體
 
-若您將 pattern.any 實體新增至 LUIS 應用程式，則無法標示具有這些實體的語句。 它們只有在模式中有效。 若要深入了解 pattern.any 實體和其新增方式，請參閱[新增實體](luis-how-to-add-entities.md#add-patternany-entities)。
+若您將 pattern.any 實體新增至 LUIS 應用程式，則無法標示具有這些實體的語句。 它們只有在模式中有效。 若要深入了解 pattern.any 實體和其新增方式，請參閱[新增實體](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities)。
 
 ## <a name="train-your-app-after-changing-model-with-utterances"></a>在利用語句變更模型後訓練您的應用程式
 

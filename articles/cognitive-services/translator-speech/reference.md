@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874731"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675104"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -90,19 +91,19 @@ GET /speech/translate 建立語音翻譯的工作階段
 傳送 WAV (RIFF) 標頭之後，用戶端會傳送數個區塊的音訊資料。 用戶端通常會串流處理代表固定期間的固定大小區塊 (例如一次串流處理 100 毫秒的音訊)。
 
 ### <a name="signal-the-end-of-the-utterance"></a>表示語句結束
-翻譯工具語音 API 會在您傳送音訊時，傳回音訊資料流的文字記錄和翻譯。 最終文字記錄、最終翻譯及翻譯的音訊只會在語句結束之後傳回給您。 在某些情況下，您可能想要強制結束語句。 請傳送 2.5 秒的靜音以強制結束語句。 
+翻譯工具語音 API 會在您傳送音訊時，傳回音訊資料流的文字記錄和翻譯。 最終文字記錄、最終翻譯及翻譯的音訊只會在語句結束之後傳回給您。 在某些情況下，您可能想要強制結束語句。 請傳送 2.5 秒的靜音以強制結束語句。
 
 ### <a name="final-result"></a>最終結果
 在語句結尾會產生最終語音辨識結果。 結果會使用文字類型的 WebSocket 訊息從服務傳輸至用戶端。 訊息內容是具有下列屬性之物件的 JSON 序列化：
 
-* `type`：識別結果類型的字串常數。 值是最終結果的最終值。
-* `id`：指派給辨識結果的字串識別碼。
-* `recognition`：來源語言中的已辨識文字。 若為 false 辨識，則文字可能是空字串。
-* `translation`：以目標語言翻譯的已辨識文字。
-* `audioTimeOffset`：辨識開始的時間位移 (刻度) (1 刻度 = 100 奈秒)。 此位移相對於串流處理的開始。
-* `audioTimeSize`：辨識的期間 (刻度) (100 奈秒)。
-* `audioStreamPosition`：辨識開始的位元組位移。 此位移相對於資料流的開始。
-* `audioSizeBytes`：辨識的大小 (位元組)。
+* `type`:識別結果類型的字串常數。 值是最終結果的最終值。
+* `id`:指派給辨識結果的字串識別碼。
+* `recognition`:來源語言中的已辨識文字。 若為 false 辨識，則文字可能是空字串。
+* `translation`:以目標語言翻譯的已辨識文字。
+* `audioTimeOffset`:辨識開始的時間位移 (刻度) (1 刻度 = 100 奈秒)。 此位移相對於串流處理的開始。
+* `audioTimeSize`:辨識的期間 (刻度) (100 奈秒)。
+* `audioStreamPosition`:辨識開始的位元組位移。 此位移相對於資料流的開始。
+* `audioSizeBytes`:辨識的大小 (位元組)。
 
 請注意，結果中預設不包含在音訊資料流中定位辨識。 用戶端必須選取 `TimingInfo` 功能 (請參閱 `features` 參數)。
 
@@ -112,7 +113,7 @@ GET /speech/translate 建立語音翻譯的工作階段
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -126,14 +127,14 @@ GET /speech/translate 建立語音翻譯的工作階段
 
 局部結果會使用文字類型的 WebSocket 訊息從服務傳輸至用戶端。 訊息內容是具有下列屬性之物件的 JSON 序列化：
 
-* `type`：識別結果類型的字串常數。 值是局部結果的一部分。
-* `id`：指派給辨識結果的字串識別碼。
-* `recognition`：來源語言中的已辨識文字。
-* `translation`：以目標語言翻譯的已辨識文字。
-* `audioTimeOffset`：辨識開始的時間位移 (刻度) (1 刻度 = 100 奈秒)。 此位移相對於串流處理的開始。
-* `audioTimeSize`：辨識的期間 (刻度) (100 奈秒)。
-* `audioStreamPosition`：辨識開始的位元組位移。 此位移相對於資料流的開始。
-* `audioSizeBytes`：辨識的大小 (位元組)。
+* `type`:識別結果類型的字串常數。 值是局部結果的一部分。
+* `id`:指派給辨識結果的字串識別碼。
+* `recognition`:來源語言中的已辨識文字。
+* `translation`:以目標語言翻譯的已辨識文字。
+* `audioTimeOffset`:辨識開始的時間位移 (刻度) (1 刻度 = 100 奈秒)。 此位移相對於串流處理的開始。
+* `audioTimeSize`:辨識的期間 (刻度) (100 奈秒)。
+* `audioStreamPosition`:辨識開始的位元組位移。 此位移相對於資料流的開始。
+* `audioSizeBytes`:辨識的大小 (位元組)。
 
 請注意，結果中預設不包含在音訊資料流中定位辨識。 用戶端必須選取 TimingInfo 功能 (請參閱 features 參數)。
 
@@ -143,7 +144,7 @@ GET /speech/translate 建立語音翻譯的工作階段
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -158,23 +159,23 @@ GET /speech/translate 建立語音翻譯的工作階段
 ### <a name="closing-the-connection"></a>關閉連線
 用戶端應用程式完成串流處理音訊並收到最後一個最終結果時，應該會起始 WebSocket 關閉交握來關閉連線。 有些情況會造成伺服器終止連線。 用戶端可能會收到下列 WebSocket「已關閉」程式碼：
 
-* `1003 - Invalid Message Type`：伺服器正在終止連線，因為它無法接受所接收的資料類型。 這通常發生於內送音訊的開頭不是正確標頭時。
-* `1000 - Normal closure`：已在完成要求之後關閉連線。 伺服器將關閉連線：很長一段時間未收到來自用戶端的音訊時；很長一段時間串流處理無回應資料時；工作階段達到允許的最長期間 (大約 90 分鐘)。
-* `1001 - Endpoint Unavailable`：表示伺服器會變成無法使用。 用戶端應用程式可能會在重試次數限制內嘗試重新連線。
-* `1011 - Internal Server Error`：因為伺服器發生錯誤，所以伺服器將關閉連線。
+* `1003 - Invalid Message Type`:伺服器正在終止連線，因為它無法接受所接收的資料類型。 這通常發生於內送音訊的開頭不是正確標頭時。
+* `1000 - Normal closure`:已在完成要求之後關閉連線。 伺服器將關閉連線：很長一段時間未收到來自用戶端的音訊時；很長一段時間串流處理無回應資料時；工作階段達到允許的最長期間 (大約 90 分鐘)。
+* `1001 - Endpoint Unavailable`:表示伺服器會變成無法使用。 用戶端應用程式可能會在重試次數限制內嘗試重新連線。
+* `1011 - Internal Server Error`:因為伺服器發生錯誤，所以伺服器將關閉連線。
 
 ### <a name="parameters"></a>參數
 
-|參數|值|說明|參數類型|資料類型|
+|參數|值|描述|參數類型|資料類型|
 |:---|:---|:---|:---|:---|
 |api-version|1.0|用戶端要求的 API 版本。 允許的值包括：`1.0`。|query   |字串|
 |from|(空白)   |指定內送語音的語言。 此值是 Languages API 回應中來自 `speech` 範圍 的其中一個語言識別碼。|query|字串|
 |to|(空白)|指定用來翻譯已轉譯文字的目標語言。 此值是 Languages API 回應中來自 `text` 範圍 的其中一個語言識別碼。|query|字串|
 |特性|(空白)   |用戶端選取的逗號分隔功能集。 可用功能包括：<ul><li>`TextToSpeech`：指定服務必須傳回最終翻譯句子的翻譯音訊。</li><li>`Partial`：指定服務必須傳回中繼辨識結果，而音訊會串流處理至服務。</li><li>`TimingInfo`：指定服務必須傳回與每個辨識建立關聯的計時資訊。</li></ul>例如，用戶端指定 `features=partial,texttospeech` 收到局部結果和文字轉換語音，但沒有計時資訊。 請注意，最終結果一律會串流處理至用戶端。|query|字串|
 |voice|(空白)|識別要用於翻譯文字之文字轉換語音轉譯的聲音。 此值是 Languages API 回應中來自 tts 範圍 的其中一個語音識別碼。 若未指定語音，則系統會在啟用文字轉換語音功能時自動選擇語音。|query|字串|
-|format|(空白)|指定服務所傳回的文字轉換語音音訊資料流格式。 可用選項包括：<ul><li>`audio/wav`：Waveform 音訊資料流。 用戶端應該會使用 WAV 標頭，適當地解譯音訊格式。 文字轉換語音的 WAV 音訊是取樣率為 24kHz 或 16 kHz 的 16 位元單一通道 PCM。</li><li>`audio/mp3`：MP3 音訊資料流。</li></ul>預設值為 `audio/wav`。|query|字串|
-|ProfanityAction    |(空白)    |指定服務應該如何處理語音中所辨識的粗話。 有效的動作包括︰<ul><li>`NoAction`：粗話會保持原狀。</li><li>`Marked`：粗話會取代為標記。 請參閱 `ProfanityMarker` 參數。</li><li>`Deleted`：刪除粗話。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a .".`</li></ul>預設值是 Marked。|query|字串|
-|ProfanityMarker|(空白)    |指定 `ProfanityAction` 設定為 `Marked` 時如何處理偵測到的粗話。 有效的選項包括：<ul><li>`Asterisk`：粗話會以字串 `***` 取代。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a ***.".`</li><li>`Tag`：粗話會括上 profanity XML 標籤。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a <profanity>jackass</profanity>."`。</li></ul>預設值為 `Asterisk`。|query|字串|
+|format|(空白)|指定服務所傳回的文字轉換語音音訊資料流格式。 可用選項包括：<ul><li>`audio/wav`:Waveform 音訊資料流。 用戶端應該會使用 WAV 標頭，適當地解譯音訊格式。 文字轉換語音的 WAV 音訊是取樣率為 24kHz 或 16 kHz 的 16 位元單一通道 PCM。</li><li>`audio/mp3`:MP3 音訊資料流。</li></ul>預設值為 `audio/wav`。|query|字串|
+|ProfanityAction    |(空白)    |指定服務應該如何處理語音中所辨識的粗話。 有效的動作包括︰<ul><li>`NoAction`:粗話會保持原狀。</li><li>`Marked`:粗話會取代為標記。 請參閱 `ProfanityMarker` 參數。</li><li>`Deleted`:刪除粗話。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a .".`</li></ul>預設值是 Marked。|query|字串|
+|ProfanityMarker|(空白)    |指定 `ProfanityAction` 設定為 `Marked` 時如何處理偵測到的粗話。 有效的選項包括：<ul><li>`Asterisk`:粗話會以字串 `***` 取代。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a ***.".`</li><li>`Tag`:粗話會括上 profanity XML 標籤。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a <profanity>jackass</profanity>."`。</li></ul>預設值為 `Asterisk`。|query|字串|
 |Authorization|(空白)  |指定用戶端持有人權杖的值。 使用 `Bearer` 字首，後面接著驗證權杖服務所傳回 `access_token` 值的值。|頁首   |字串|
 |Ocp-Apim-Subscription-Key|(空白)|若未指定 `Authorization` 標頭，則為必要項目。|頁首|字串|
 |access_token|(空白)   |傳遞有效 OAuth 存取權杖的替代方式。 持有人權杖通常會與 `Authorization` 標頭一起提供。 部分 WebSocket 程式庫不允許用戶端程式碼設定標頭。 在這種情況下，用戶端可以使用 `access_token` 查詢參數來傳遞有效的權杖。 使用存取權杖驗證時，若未設定 `Authorization` 標頭，則必須設定 `access_token`。 若同時設定標頭和查詢參數，則會忽略查詢參數。 用戶端應該只使用一種方法來傳遞權杖。|query|字串|
@@ -193,46 +194,3 @@ GET /speech/translate 建立語音翻譯的工作階段
 |401    |未經授權。 確定已設定認證、認證有效，而且您的 Azure Data Market 訂用帳戶具有可用餘額。|||
 |500    |發生錯誤。 若錯誤仍然存在，請使用用戶端追蹤識別碼 (X-ClientTraceId) 或要求識別碼 (X-RequestId) 予以回報。|||
 |503    |暫時無法使用伺服器。 請重試要求。 若錯誤仍然存在，請使用用戶端追蹤識別碼 (X-ClientTraceId) 或要求識別碼 (X-RequestId) 予以回報。|||
-
-    
-
-
-    
-
-
-
-
-
-    
-    
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-    
-
-            
-
-
-
-
-        
-
-
-
-
-
-
-
-
-

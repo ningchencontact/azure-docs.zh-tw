@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 21b036763a1e8a7480d11fef4c36599f92fc3657
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853183"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295244"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>建立和使用主動式異地複寫
 
@@ -115,6 +115,12 @@ ms.locfileid: "57853183"
 
 > [!NOTE]
 > 如果您已在容錯移轉群組設定中建立次要資料庫，則不建議降級次要資料庫。 這是為了確保您的資料層在容錯移轉啟動之後有足夠的容量來處理一般工作負載。
+
+> [!IMPORTANT]
+> 容錯移轉群組中的主要資料庫無法調整到較高層級，除非次要資料庫第一次調整為較高的層。 如果您嘗試調整主要資料庫，次要資料庫會調整之前，您可能會收到下列錯誤：
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
 
 ## <a name="preventing-the-loss-of-critical-data"></a>防止重要資料遺失
 

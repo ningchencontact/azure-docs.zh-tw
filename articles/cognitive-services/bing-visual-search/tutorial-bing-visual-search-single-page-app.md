@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: cf8525d4cc829805532210bf09e9ea9da240405d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857744"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338649"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>建立圖像式搜尋單頁 Web 應用程式 
 
-Bing 圖像式搜尋 API 可提供與 Bing.com/images 上顯示的影像詳細資料類似的體驗。 使用圖像式搜尋可以指定影像並取得影像的相關深入解析，例如外觀上類似的影像、購物來源、包含影像的網頁等。 
+Bing 圖像式搜尋 API 提供類似於 Bing.com/images 上顯示的映像詳細資料的經驗。 使用圖像式搜尋可以指定影像並取得影像的相關深入解析，例如外觀上類似的影像、購物來源、包含影像的網頁等。 
 
 本文說明如何擴充 Bing 影像搜尋 API 的單頁 Web 應用程式。 若要檢視該教學課程或取得此處所用的原始程式碼，請參閱[教學課程：建立 Bing 影像搜尋 API 的單頁應用程式](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)。 
 

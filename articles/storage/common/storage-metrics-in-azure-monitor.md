@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899021"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -23,7 +23,7 @@ Azure 監視器提供了統一的使用者介面供您監視不同的 Azure 服�
 
 ## <a name="access-metrics"></a>存取計量
 
-Azure 監視器提供了多種方法供您存取計量。 您可以從 [Azure 入口網站](https://portal.azure.com)、Azure 監視器 API (REST 和 .Net) 和分析解決方案 (例如事件中樞) 存取這些計量。 如需詳細資訊，請參閱 [Azure 監視器計量](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+Azure 監視器提供了多種方法供您存取計量。 您可以從[Azure 入口網站](https://portal.azure.com)，Azure 監視器 Api （REST 和.NET） 和分析解決方案，例如事件中樞。 如需詳細資訊，請參閱 [Azure 監視器計量](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
 計量是預設啟用的功能，您可以存取過去 93 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md)中進行設定。
 
@@ -134,13 +134,13 @@ Azure 監視器提供了 [REST API](/rest/api/monitor/) 來讀取計量定義和
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>使用 .Net SDK 存取計量
+### <a name="access-metrics-with-the-net-sdk"></a>使用.NET SDK 存取計量
 
-Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) 來讀取計量定義和值。 [範例程式碼](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)示範如何使用 SDK 搭配不同的參數。 您必須使用 `0.18.0-preview` 或更新版本的儲存體計量。 .Net SDK 使用資源識別碼。 如需詳細資訊，請參閱「了解儲存體所含服務的資源識別碼」。
+Azure 監視器提供[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)來讀取計量定義和值。 [範例程式碼](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)示範如何使用 SDK 搭配不同的參數。 您必須使用 `0.18.0-preview` 或更新版本的儲存體計量。 .NET SDK 中使用資源識別碼。 如需詳細資訊，請參閱「了解儲存體所含服務的資源識別碼」。
 
-下列範例示範如何使用 Azure 監視器 .Net SDK 讀取儲存體計量。
+下列範例示範如何使用 Azure 監視器.NET SDK 讀取儲存體度量。
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>使用 .Net SDK 列出帳戶層級的計量定義
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>列出帳戶層級計量的定義使用.NET SDK
 
 下列範例說明如何列出帳戶層級的計量定義：
 
@@ -177,7 +177,7 @@ Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.
 
 如果您想要列出 Blob、資料表、檔案或佇列的計量定義，就必須使用 API 為每項服務指定不同的資源識別碼。
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>使用 .Net SDK 讀取計量值
+#### <a name="read-metric-values-with-the-net-sdk"></a>使用.NET SDK 讀取計量值
 
 下列範例說明如何讀取帳戶層級的 `UsedCapacity` 資料：
 
@@ -227,7 +227,7 @@ Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.
 
 在上述範例中，如果您想要讀取 Blob、資料表、檔案或佇列的計量值，就必須使用 API 為每項服務指定不同的資源識別碼。
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>使用 .Net SDK 讀取多維度的計量值
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>使用.NET SDK 讀取多維度的計量值
 
 對於多維度的計量，如果您想要讀取特定維度值的計量資料，就必須定義中繼資料篩選條件。
 
@@ -330,42 +330,42 @@ Azure 儲存體會提供下列 Azure 監視器容量計量。
 
 ### <a name="account-level"></a>帳戶層級
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
 | UsedCapacity | 儲存體帳戶所使用的儲存體數量。 若為標準儲存體帳戶，則為 Blob、資料表、檔案和佇列所使用的容量總和。 若為進階儲存體帳戶和 Blob 儲存體帳戶，此數量和 BlobCapacity 相同。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="blob-storage"></a>Blob 儲存體
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
 | BlobCapacity | 儲存體帳戶中所使用的 Blob 儲存體總計。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
-| BlobCount    | 儲存體帳戶中所儲存的 Blob 物件數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
-| ContainerCount    | 儲存體帳戶中的容器數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| BlobCount    | 儲存體帳戶中所儲存的 Blob 物件數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
+| ContainerCount    | 儲存體帳戶中的容器數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 | IndexCapacity     | ADLS Gen2 階層式索引使用的儲存體容量 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="table-storage"></a>表格儲存體
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
 | TableCapacity | 儲存體帳戶所使用的表格儲存體數量。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
-| TableCount   | 儲存體帳戶中的表格數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
-| TableEntityCount | 儲存體帳戶中的表格實體數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| TableCount   | 儲存體帳戶中的表格數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| TableEntityCount | 儲存體帳戶中的表格實體數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="queue-storage"></a>佇列儲存體
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
 | QueueCapacity | 儲存體帳戶所使用的佇列儲存體數量。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
-| QueueCount   | 儲存體帳戶中的佇列數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
-| QueueMessageCount | 儲存體帳戶中未到期的佇列訊息數目。 <br/><br/>單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| QueueCount   | 儲存體帳戶中的佇列數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| QueueMessageCount | 儲存體帳戶中未到期的佇列訊息數目。 <br/><br/>單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="file-storage"></a>檔案儲存體
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
 | FileCapacity | 儲存體帳戶所使用的檔案儲存體數量。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
-| FileCount   | 儲存體帳戶中的檔案數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
-| FileShareCount | 儲存體帳戶中的檔案共用數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| FileCount   | 儲存體帳戶中的檔案數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| FileShareCount | 儲存體帳戶中的檔案共用數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ## <a name="transaction-metrics"></a>交易度量
 
@@ -373,9 +373,9 @@ Azure 儲存體會提供下列 Azure 監視器容量計量。
 
 Azure 儲存體會提供下列 Azure 監視器交易計量。
 
-| 度量名稱 | 說明 |
+| 度量名稱 | 描述 |
 | ------------------- | ----------------- |
-| 交易 | 向儲存體服務或所指定 API 作業傳送的要求數。 此數目包括成功與失敗的要求，以及產生錯誤的要求。 <br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 適用維度：ResponseType、GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions))<br/> 值範例：1024 |
+| 交易 | 向儲存體服務或所指定 API 作業傳送的要求數。 此數目包括成功與失敗的要求，以及產生錯誤的要求。 <br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 適用維度：ResponseType、GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions))<br/> 值範例：1024 |
 | 輸入 | 輸入資料量。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。 <br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
 | 輸出 | 輸出資料量。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。 <br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
 | SuccessServerLatency | Azure 儲存體用來處理成功要求的平均時間。 此值不包括在 SuccessE2ELatency 中指定的網路延遲。 <br/><br/> 單位：毫秒 <br/> 彙總類型：平均值 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
@@ -386,13 +386,13 @@ Azure 儲存體會提供下列 Azure 監視器交易計量。
 
 Azure 儲存體支援下列 Azure 監視器計量維度。
 
-| 維度名稱 | 說明 |
+| 維度名稱 | 描述 |
 | ------------------- | ----------------- |
 | BlobType | 只適用於 Blob 計量的 Blob 類型。 支援的值有 **BlockBlob** 和 **PageBlob**。 附加 Blob 隨附於 BlockBlob。 |
 | ResponseType | 交易回應類型。 可用的值包括： <br/><br/> <li>ServerOtherError：描述項目之外的其他所有伺服器端錯誤 </li> <li> ServerBusyError：傳回 HTTP 503 狀態碼的已驗證要求。 </li> <li> ServerTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 逾時是因為伺服器錯誤而發生。 </li> <li> AuthorizationError：由於未經授權存取資料或授權失敗，從而發生失敗的已驗證要求。 </li> <li> NetworkError：由於網路錯誤而失敗的已驗證要求。 當用戶端在逾時到期前就過早關閉連線時，最常會發生這個情況。 </li> <li>    ClientThrottlingError：用戶端節流錯誤。 </li> <li> ClientTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 如果用戶端的網路逾時或要求逾時設定為比儲存體服務預期的值還低，則此值是符合預期的逾時。 否則，它會回報為 ServerTimeoutError。 </li> <li> ClientOtherError：描述項目之外的其他所有用戶端錯誤。 </li> <li> 成功：成功的要求|
 | GeoType | 來自主要或次要叢集的交易。 可用的值包括 Primary 和 Secondary。 在從次要租用戶讀取物件時，此維度會套用到讀取權限異地備援儲存體 (RA-GRS)。 |
 | ApiName | 作業的名稱。 例如︰ <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 如需所有的作業名稱，請參閱[文件](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)。 |
-| 驗證 | 交易中所使用的驗證類型。 可用的值包括： <br/> <li>AccountKey：交易會使用儲存體帳戶金鑰進行驗證。</li> <li>SAS：交易會使用共用存取簽章進行驗證。</li> <li>OAuth：交易會使用 OAuth 存取權杖進行驗證。</li> <li>Anonymous：以匿名方式要求交易。 不包括預檢要求。</li> <li>AnonymousPreflight：交易是預檢要求。</li> |
+| Authentication | 交易中所使用的驗證類型。 可用的值包括： <br/> <li>AccountKey：交易會使用儲存體帳戶金鑰進行驗證。</li> <li>SAS：交易會使用共用存取簽章進行驗證。</li> <li>OAuth：交易會使用 OAuth 存取權杖進行驗證。</li> <li>Anonymous：以匿名方式要求交易。 不包括預檢要求。</li> <li>AnonymousPreflight：交易是預檢要求。</li> |
 
 對於計量支援維度，您必須指定維度值才能查看對應的計量值。 例如，如果您要查看成功回應的 **Transactions** 值，則需要篩選具有 **Success** 值的 **ResponseType** 維度。 或者，如果您要查看區塊 Blob 的 **BlobCount** 值，就需要篩選具有 **BlockBlob** 值的 **BlobType** 維度。
 

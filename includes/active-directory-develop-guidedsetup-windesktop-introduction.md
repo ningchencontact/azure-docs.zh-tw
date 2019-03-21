@@ -4,22 +4,22 @@ description: 包含檔案
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d7f268618888eb1f3fcd98b13b67635d9e2d056d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: bb28862ad6452eab3130eeb2dc0b4c269839d306
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203169"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>從 Windows 傳統型應用程式呼叫 Microsoft 圖形 API
 
@@ -32,7 +32,7 @@ ms.locfileid: "49988178"
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>本指南產生之範例應用程式的運作方式
 
-![本指南使用方式](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
+![顯示範例應用程式如何產生此教學課程適用於](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks-updated.png)
 
 使用本指南建立的範例應用程式可讓 Windows 傳統型應用程式查詢 Microsoft Graph API，或查詢可接受來自 Azure Active Directory v2.0 端點之權杖的 Web API。 針對這個案例，您會透過授權標頭將一個權杖新增到 HTTP 要求。 Microsoft Authentication Library (MSAL) 會處理權杖取得和更新作業。
 
@@ -48,6 +48,6 @@ MSAL 會為您管理快取和重新整理存取權杖，因此您的應用程式
 
 本指南會使用以下 NuGet 套件：
 
-|程式庫|說明|
+|程式庫|描述|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL)|

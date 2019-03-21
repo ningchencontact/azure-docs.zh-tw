@@ -4,15 +4,15 @@ description: 了解各種記錄與監視儲存在 Azure Cosmos DB 中資料的�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: HT
+ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992085"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259766"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -24,7 +24,7 @@ ms.locfileid: "56992085"
 
 在討論如何監視您的 Azure Cosmos DB 帳戶之前，讓我們釐清關於記錄和監視的一些事項。 Azure 平台上有不同類型的記錄。 我們有 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)、[Azure 診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)、[Azure 計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)、事件、活動訊號監視、作業記錄等。 記錄十分繁多。 可以在 Azure 门户的 [Azure Monitor 日志](https://azure.microsoft.com/services/log-analytics/)中看到日志的完整列表。 
 
-下圖顯示不同種類的可用 Azure 記錄：
+下圖顯示另一種可用的 Azure 記錄：
 
 ![不同種類的 Azure 記錄](./media/logging/azurelogging.png)
 
@@ -67,7 +67,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 
 若要啟用診斷記錄，您必須擁有下列資源：
 
-* 現有的 Azure Cosmos DB 帳戶、資料庫和容器。 如需建立這些資源的指示，請參閱[使用 Azure 入口網站建立資料庫帳戶](create-sql-api-dotnet.md#create-a-database-account)、[Azure CLI 範例](cli-samples.md)或 [PowerShell 範例](powershell-samples.md)。
+* 現有的 Azure Cosmos DB 帳戶、資料庫和容器。 如需建立這些資源的指示，請參閱[使用 Azure 入口網站建立資料庫帳戶](create-sql-api-dotnet.md#create-account)、[Azure CLI 範例](cli-samples.md)或 [PowerShell 範例](powershell-samples.md)。
 
 若要在 Azure 入口網站中啟用診斷記錄，請執行下列步驟：
 
@@ -99,27 +99,23 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 - 若要在儲存體帳戶中啟用診斷記錄的儲存，請使用下列命令：
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resourceId` 是 Azure Cosmos DB 帳戶的名稱。 `storageId` 是您要傳送記錄的目的地儲存體帳戶名稱。
+   `resource` 是 Azure Cosmos DB 帳戶的名稱。 資源是格式"/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name >"`storage-account`是儲存體帳戶名稱您要傳送記錄檔。 您可以藉由更新類別目錄參數值"MongoRequests 」 或 「 DataPlaneRequests"記錄其他記錄檔。 
 
 - 若要啟用將診斷記錄檔串流至事件中樞，使用下列命令︰
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resourceId` 是 Azure Cosmos DB 帳戶的名稱。 `serviceBusRuleId` 將會是此格式的字串︰
-
-   ```azurecli-interactive
-   {service bus resource ID}/authorizationrules/{key name}
-   ```
+   `resource` 是 Azure Cosmos DB 帳戶的名稱。 `event-hub-rule`是事件中樞規則識別碼。 
 
 - 若要啟用將診斷記錄傳送至 Log Analytics 工作區的功能，請使用下列命令：
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
 您可以結合這些參數讓多個輸出選項。

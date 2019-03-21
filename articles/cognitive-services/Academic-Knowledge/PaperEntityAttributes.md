@@ -10,19 +10,19 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 240541dd76221ee19c96b162da02ced90fb0ad90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873082"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437457"
 ---
 # <a name="paper-entity"></a>論文實體
 
 <sub> *下列屬性專屬於論文實體。(Ty = '0') </sub>
 
 
-Name    |說明                                        |類型       | 作業
+名稱    |描述                                        |類型       | 作業
 ------- | ------------------------------------------------- | --------- | ----------------------------
 id      |實體識別碼                                          |Int64      |Equals
 Ti      |論文標題                                        |字串     |Equals,<br/>StartsWith
@@ -50,7 +50,7 @@ E       |擴充中繼資料 (請參閱下表)                |字串     |None
 
 ## <a name="extended-metadata-attributes"></a>擴充中繼資料屬性 ##
 
-Name    | 說明               
+名稱    | 描述               
 --------|---------------------------    
 DN      | 論文的顯示名稱 
 S       | 來源 - 論文的 Web 來源清單，依靜態順位排序
@@ -61,7 +61,7 @@ VSN     | 場地簡短名稱 - 期刊或會議的簡短名稱
 V       | 合訂本 - 期刊合訂本
 BV      | 期刊名稱
 BT      | 
-PB      | 期刊縮寫
+PB      | 日誌縮寫
 I       | 期號 - 期刊期號
 FP      | FirstPage - 論文第一頁
 LP      | LastPage - 論文最後一頁

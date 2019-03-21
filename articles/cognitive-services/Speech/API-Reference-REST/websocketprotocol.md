@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217283"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076185"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing 語音 WebSocket 通訊協定
 
@@ -77,7 +78,7 @@ Content-Length: 0
 
 權杖存取需要有下列標頭資訊。
 
-| Name | 格式 | 說明 |
+| 名稱 | 格式 | 描述 |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | 您的訂用帳戶金鑰 |
 
@@ -91,7 +92,7 @@ Content-Length: 0
 
 ### <a name="http-redirection"></a>HTTP 重新導向
 
-用戶端*必須*支援 [HTTP 通訊協定規格](http://www.w3.org/Protocols/rfc2616/rfc2616.html)所指定的標準重新導向機制。
+用戶端*必須*支援 [HTTP 通訊協定規格](https://www.w3.org/Protocols/rfc2616/rfc2616.html)所指定的標準重新導向機制。
 
 ### <a name="speech-endpoints"></a>語音端點
 
@@ -99,9 +100,9 @@ Content-Length: 0
 
 | Mode | Path | 服務 URI |
 | -----|-----|-----|
-| 互動式 | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| 交談 | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| 聽寫 | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| 互動式 | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| 交談 | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| 聽寫 | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 如需詳細資訊，請參閱[服務 URI](../GetStarted/GetStartedREST.md#service-uri) 頁面。
 
@@ -131,13 +132,13 @@ WebSocket 簡訊必須在標頭 *Path* 中指定訊息路徑。 此標頭的值�
 
 ### <a name="binary-websocket-messages"></a>二進位 WebSocket 訊息
 
-二進位 WebSocket 訊息隨附二進位承載。 在語音服務通訊協定中，使用二進位 WebSocket 訊息可將音訊傳送至服務，以及從服務接收音訊。 其他所有訊息是 WebSocket 簡訊。 
+二進位 WebSocket 訊息隨附二進位承載。 在語音服務通訊協定中，使用二進位 WebSocket 訊息可將音訊傳送至服務，以及從服務接收音訊。 其他所有訊息是 WebSocket 簡訊。
 
 二進位 WebSocket 訊息如同 WebSocket 簡訊，都包含標頭和本文區段。 二進位 WebSocket 訊息的前兩個位元組會以 [big-endian](https://en.wikipedia.org/wiki/Endianness) 順序，指定標頭區段的 16 位元整數大小。 最小標頭區段大小為 0 個位元組。 大小上限為 8,192 個位元組。 二進位 WebSocket 訊息標頭中的文字*必須*使用 [US-ASCII](https://tools.ietf.org/html/rfc20) 編碼。
 
 二進位 WebSocket 訊息中的標頭會以相同的格式編碼，如同 WebSocket 簡訊。 *name:value* 格式會以單一歸位字元換行對分隔。 二進位 WebSocket 訊息必須在標頭 *Path* 中指定訊息路徑。 此標頭的值必須是本文件稍後定義的其中一種語音通訊協定訊息類型。
 
-WebSocket 簡訊和二進位 WebSocket 訊息均用於語音服務通訊協定。 
+WebSocket 簡訊和二進位 WebSocket 訊息均用於語音服務通訊協定。
 
 ## <a name="client-originated-messages"></a>用戶端產生的訊息
 
@@ -171,7 +172,7 @@ WebSocket 簡訊和二進位 WebSocket 訊息均用於語音服務通訊協定�
 
 用戶端*必須*在建立與語音服務的連線之後，以及在傳送任何 `audio` 訊息之前，立即傳送 `speech.config` 訊息。 每個連線僅需要傳送 `speech.config` 訊息一次。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 |----|----|
 | WebSocket 訊息編碼 | 文字 |
 | body | JSON 結構的承載 |
@@ -187,7 +188,7 @@ WebSocket 簡訊和二進位 WebSocket 訊息均用於語音服務通訊協定�
 如同語音服務通訊協定中所有用戶端產生的訊息，`speech.config` 訊息*必須*包含 *X-Timestamp* 標頭，此標頭可在訊息傳送至服務時，記錄用戶端 UTC 時鐘的時間。 `speech.config` 訊息*不*需要有 *X-RequestId* 標頭，因為此訊息與特定的語音要求沒有關聯。
 
 #### <a name="message-payload"></a>訊息承載
-`speech.config` 訊息的承載是 JSON 結構，其中包含應用程式的相關資訊。 下列範例顯示這項資訊。 用戶端和裝置內容資訊都包含在 JSON 結構的 *context* 元素中。 
+`speech.config` 訊息的承載是 JSON 結構，其中包含應用程式的相關資訊。 下列範例顯示這項資訊。 用戶端和裝置內容資訊都包含在 JSON 結構的 *context* 元素中。
 
 ```JSON
 {
@@ -216,19 +217,19 @@ WebSocket 簡訊和二進位 WebSocket 訊息均用於語音服務通訊協定�
 
 ##### <a name="os-element"></a>作業系統元素
 
-| 欄位 | 說明 | 使用量 |
+| 欄位 | 描述 | 使用量 |
 |-|-|-|
-| os.platform | 裝載應用程式的作業系統平台，例如，Windows、Android、iOS 或 Linux |必要 |
-| os.name | 作業系統產品名稱，例如，Debian 或 Windows 10 | 必要 |
-| os.version | 採用 *major.minor.build.branch* 格式的作用系統版本 | 必要 |
+| os.platform | 裝載應用程式的作業系統平台，例如，Windows、Android、iOS 或 Linux |必要項 |
+| os.name | 作業系統產品名稱，例如，Debian 或 Windows 10 | 必要項 |
+| os.version | 採用 *major.minor.build.branch* 格式的作用系統版本 | 必要項 |
 
 ##### <a name="device-element"></a>裝置元素
 
-| 欄位 | 說明 | 使用量 |
+| 欄位 | 描述 | 使用量 |
 |-|-|-|
-| device.manufacturer | 裝置硬體製造商 | 必要 |
-| device.model | 裝置機型 | 必要 |
-| device.version | 裝置製造商提供的裝置軟體版本。 此值會指定可由製造商追蹤之裝置的版本。 | 必要 |
+| device.manufacturer | 裝置硬體製造商 | 必要項 |
+| device.model | 裝置機型 | 必要項 |
+| device.version | 裝置製造商提供的裝置軟體版本。 此值會指定可由製造商追蹤之裝置的版本。 | 必要項 |
 
 ### <a name="message-audio"></a>訊息 `audio`
 
@@ -240,7 +241,7 @@ WebSocket 簡訊和二進位 WebSocket 訊息均用於語音服務通訊協定�
 
 語音服務會使用包含唯一要求識別碼的第一個 `audio` 訊息，對開始新的要求/回應週期或*回合*發出訊號。 在服務接收具有新要求識別碼的 `audio` 訊息之後，就會捨棄與先前回合相關聯的任何佇列或未傳送的訊息。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 |-------------|----------------|
 | WebSocket 訊息編碼 | Binary |
 | body | 音訊區塊的二進位資料。 大小上限為 8,192 個位元組。 |
@@ -304,7 +305,7 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 
 用戶端必須在收到 `turn.end` 訊息之後立即傳送 `telemetry` 訊息，藉此確認回合結束。 用戶端應該嘗試儘速確認 `turn.end`。 如果用戶端應用程式無法確認回合結束，語音服務可能會終止連線，並發生錯誤。 用戶端必須針對以 *X-RequestId* 值識別的每個要求和回應，僅傳送一個 `telemetry` 訊息。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | ------------- | ---------------- |
 | WebSocket 訊息編碼 | 文字 |
 | Path | `telemetry` |
@@ -326,7 +327,7 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 
 `speech.startDetected` 訊息會指出語音服務在音訊串流中偵測到語音。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | ------------- | ---------------- |
 | WebSocket 訊息編碼 | 文字 |
 | Path | `speech.startDetected` |
@@ -351,7 +352,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
  `speech.hypothesis` 訊息適用的這些用戶端具備特定的文字轉譯功能，而且想要將進行中辨識接近即時的意見反應提供給正在說話的人員。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | ------------- | ---------------- |
 | WebSocket 訊息編碼 | 文字 |
 | Path | `speech.hypothesis` |
@@ -383,7 +384,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 當語音服務判定它有足夠的資訊來產生將不會變更的辨識結果時，服務會產生 `speech.phrase` 訊息。 語音服務會在偵測到使用者已經完成一個句子或片語之後，產生這些結果。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | ------------- | ---------------- |
 | WebSocket 訊息編碼 | 文字 |
 | Path | `speech.phrase` |
@@ -411,7 +412,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 `speech.endDetected` 訊息會指定用戶端應用程式應該停止將音訊串流處理至服務。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | ------------- | ---------------- |
 | WebSocket 訊息編碼 | 文字 |
 | Path | `speech.endDetected` |
@@ -436,7 +437,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 從服務的觀點來看，`turn.start` 會對回合的起點發出訊號。 `turn.start` 訊息永遠是您針對任何要求而收到的第一個回應訊息。 如果您沒有收到 `turn.start` 訊息，請假設服務連線的狀態無效。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | ------------- | ---------------- |
 | WebSocket 訊息編碼 | 文字 |
 | Path | `turn.start` |
@@ -463,7 +464,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 從服務的觀點來看，`turn.end` 會對回合的結尾發出訊號。 `turn.end` 訊息永遠是您針對任何要求而收到的最後一個回應訊息。 用戶端可以使用此訊息的回條作為清理活動和轉換為閒置狀態的訊號。 如果您沒有收到 `turn.end` 訊息，請假設服務連線的狀態無效。 在這些情況下，請關閉與服務的現有連線，然後重新連線。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | ------------- | ---------------- |
 | WebSocket 訊息編碼 | 文字 |
 | Path | `turn.end` |
@@ -505,12 +506,12 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 `Connection` 計量會指定用戶端嘗試連線的詳細資料。 計量必須包含開始和完成 WebSocket 連線時的時間戳記。 *只有連線的第一個回合*需要有 `Connection` 計量。 後續回合不需要包含這項資訊。 如果用戶端在建立連線之前進行多個連線嘗試，則應該包含*所有*連線嘗試的相關資訊。 如需詳細資訊，請參閱[連線失敗遙測](#connection-failure-telemetry)。
 
-| 欄位 | 說明 | 使用量 |
+| 欄位 | 描述 | 使用量 |
 | ----- | ----------- | ----- |
-| Name | `Connection` | 必要 |
-| id | 此連線要求的 *X-ConnectionId* 標頭中所使用的連線識別碼值 | 必要 |
-| Start | 用戶端傳送連線要求的時間 | 必要 |
-| End | 用戶端收到成功建立連線通知的時間，如果發生錯誤，則是收到拒絕連線或連線失敗通知的時間 | 必要 |
+| 名稱 | `Connection` | 必要項 |
+| id | 此連線要求的 *X-ConnectionId* 標頭中所使用的連線識別碼值 | 必要項 |
+| Start | 用戶端傳送連線要求的時間 | 必要項 |
+| End | 用戶端收到成功建立連線通知的時間，如果發生錯誤，則是收到拒絕連線或連線失敗通知的時間 | 必要項 |
 | Error | 發生之錯誤的描述 (如果有的話)。 如果連線成功，用戶端應該省略此欄位。 此欄位的長度上限為 50 個字元。 | 如果發生錯誤，則必填，否則省略 |
 
 錯誤描述應該最多 50 個字元，理想上應該是下表中所列的其中一個值。 如果錯誤情況與其中一個值不符，用戶端可以透過 [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) (無空格) 的方式，使用簡潔的錯誤情況描述。 若要傳送*遙測*訊息，需要連線至服務，因此只能在*遙測*訊息中報告暫時性的錯誤情況。 使用戶端*永久*無法與服務連線的錯誤狀況會防止用戶端將任何訊息傳送至服務，包括*遙測*訊息。
@@ -527,7 +528,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | ServerUnavailable | 用戶端無法連線至服務，因為服務在 WebSocket 升級要求上傳回 HTTP `503 Server Unavailable` 狀態碼。 |
 | ServerError | 用戶端無法連線至服務，因為服務在 WebSocket 升級要求上傳回 `HTTP 500` 內部錯誤狀態碼。 |
 | 逾時 | 用戶端的連線要求逾時，未收到來自服務的回應。 [結束] 欄位包含用戶端逾時並停止等待連線的時間。 |
-| ClientError | 用戶端因為特定的用戶端內部錯誤而終止連線。 | 
+| ClientError | 用戶端因為特定的用戶端內部錯誤而終止連線。 |
 
 ### <a name="metric-microphone"></a>計量 `Microphone`
 
@@ -545,11 +546,11 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 `Microphone` 計量的 [結束] 時間值會記錄用戶端應用程式停止串流處理音訊輸入的時間。 在大部分的情況下，此事件會在用戶端收到來自服務的 `speech.endDetected` 訊息後立即發生。 用戶端應用程式可以確認 `Microphone` 計量的 [結束] 時間值發生在收到 `speech.endDetected` 訊息的時間值之後，藉此驗證它們正確地符合通訊協定。 此外，通常在一個回合結束與另一個回合開始之間會有延遲，因此用戶端可以確認任何後續回合之 `Microphone` 計量的 [開始] 時間會正確地記錄用戶端*開始*使用麥克風將音訊輸入串流處理至服務，藉此驗證是否符合通訊協定。
 
-| 欄位 | 說明 | 使用量 |
+| 欄位 | 描述 | 使用量 |
 | ----- | ----------- | ----- |
-| Name | 麥克風 | 必要 |
-| Start | 用戶端開始使用來自麥克風或其他音訊串流的音訊輸入，或從關鍵字偵察器收到觸發程序的時間 | 必要 |
-| End | 用戶端停止使用麥克風或音訊串流的時間 | 必要 |
+| 名稱 | 麥克風 | 必要項 |
+| Start | 用戶端開始使用來自麥克風或其他音訊串流的音訊輸入，或從關鍵字偵察器收到觸發程序的時間 | 必要項 |
+| End | 用戶端停止使用麥克風或音訊串流的時間 | 必要項 |
 | Error | 發生之錯誤的描述 (如果有的話)。 如果麥克風操作成功，用戶端應該省略此欄位。 此欄位的長度上限為 50 個字元。 | 如果發生錯誤，則必填，否則省略 |
 
 ### <a name="metric-listeningtrigger"></a>計量 `ListeningTrigger`
@@ -565,11 +566,11 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 * 用戶端應用程式正在處理多回合要求的第二個回合，而且正在透過服務回應訊息通知開啟麥克風，以收集第二個回合的輸入。 用戶端應用程式*不應*包含此回合的 `ListeningTrigger` 計量。
 
-| 欄位 | 說明 | 使用量 |
+| 欄位 | 描述 | 使用量 |
 | ----- | ----------- | ----- |
-| Name | ListeningTrigger | 選用 |
-| Start | 啟動用戶端接聽觸發程序的時間 | 必要 |
-| End | 完成用戶端接聽觸發程序的時間 | 必要 |
+| 名稱 | ListeningTrigger | 選用 |
+| Start | 啟動用戶端接聽觸發程序的時間 | 必要項 |
+| End | 完成用戶端接聽觸發程序的時間 | 必要項 |
 | Error | 發生之錯誤的描述 (如果有的話)。 如果觸發操作成功，用戶端應該省略此欄位。 此欄位的長度上限為 50 個字元。 | 如果發生錯誤，則必填，否則省略 |
 
 #### <a name="sample-message"></a>範例訊息
@@ -636,7 +637,7 @@ WebSocket 升級要求期間，語音服務可能會傳回任何標準 HTTP 狀�
 
 #### <a name="incorrect-message-format"></a>訊息格式不正確
 
-如果用戶端將簡訊或二進位訊息傳送至未使用此規格中指定之正確格式編碼的服務，服務便會結束連線，並出現 *1007 承載資料無效*狀態碼。 
+如果用戶端將簡訊或二進位訊息傳送至未使用此規格中指定之正確格式編碼的服務，服務便會結束連線，並出現 *1007 承載資料無效*狀態碼。
 
 此服務會因為多種原因而傳回此狀態碼，如下列範例所示：
 
@@ -686,7 +687,7 @@ WebSocket 升級要求期間，語音服務可能會傳回任何標準 HTTP 狀�
 
 ### <a name="http-status-codes"></a>HTTP 狀態碼
 
-| HTTP 狀態碼 | 說明 | 疑難排解 |
+| HTTP 狀態碼 | 描述 | 疑難排解 |
 | - | - | - |
 | 400 不正確的要求 | 用戶端傳送不正確的 WebSocket 連線要求。 | 請確認您提供所有必要的參數和 HTTP 標頭，而且這些值正確無誤。 |
 | 401 未經授權 | 用戶端不包含所需的授權資訊。 | 請確認您將在 WebSocket 連線中傳送 *Authorization* 標頭。 |
@@ -697,7 +698,7 @@ WebSocket 升級要求期間，語音服務可能會傳回任何標準 HTTP 狀�
 
 ### <a name="websocket-error-codes"></a>WebSocket 錯誤碼
 
-| WebSocketsStatus 程式碼 | 說明 | 疑難排解 |
+| WebSocketsStatus 程式碼 | 描述 | 疑難排解 |
 | - | - | - |
 | 1000 正常終止 | 服務結束 WebSocket 連線，而沒有產生錯誤。 | 如果是非預期的 WebSocket 終止，請重新閱讀文件以確定您了解服務可以終止 WebSocket 連線的方式和時機。 |
 | 1002 通訊協定錯誤 | 用戶端無法遵守通訊協定需求。 | 請確定您了解通訊協定文件，而且清楚了解需求。 閱讀先前有關錯誤原因的文件，以了解您是否違反通訊協定需求。 |

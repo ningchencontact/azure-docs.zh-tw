@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 87f608163e20d98179eb6c666158386a99858eeb
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096665"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188374"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>適用於 Eclipse Java 應用程式開發的 Service Fabric 外掛程式
 Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) 之一。 在本文中，我們將說明如何設定 Eclipse 開發環境來使用 Azure Service Fabric。 了解如何安裝 Service Fabric 外掛程式、建立 Service Fabric 應用程式，以及將 Service Fabric 應用程式部署到 Eclipse 中的本機或遠端 Service Fabric 叢集。 
@@ -41,7 +41,7 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 -   若要檢查並安裝 Eclipse 的更新，請移至 [說明] > [檢查更新]。
 
 若要安裝 Service Fabric 外掛程式，請在 Eclipse 中移至 [說明] > [安裝新軟體]。
-1. 在 [使用] 方塊中，輸入 **http://dl.microsoft.com/eclipse**。
+1. 在 **搭配**方塊中，輸入 https:\//dl.microsoft.com/eclipse。
 2. 按一下 [新增] 。
 
    ![適用於 Eclipse 的 Service Fabric 外掛程式][sf-eclipse-plugin-install]
@@ -54,7 +54,7 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 3. 更新 Service Fabric 外掛程式後，請同時重新整理 Gradle 專案。  以滑鼠右鍵按一下 [build.gradle]，然後選取 [重新整理]。
 
 > [!NOTE]
-> 如果安裝或更新 Service Fabric 外掛程式時很緩慢，可能是因為 Eclipse 設定。 Eclipse 會收集所有變更的中繼資料，以更新使用您 Eclipse 執行個體註冊的網站。 若要加速檢查及安裝 Service Fabric 外掛程式更新的程序，前往 [可用的軟體站台]。 清除所有網站的核取方塊，但指向 Service Fabric 外掛程式位置 (http://dl.microsoft.com/eclipse/azure/servicefabric)) 的網站除外。
+> 如果安裝或更新 Service Fabric 外掛程式時很緩慢，可能是因為 Eclipse 設定。 Eclipse 會收集所有變更的中繼資料，以更新使用您 Eclipse 執行個體註冊的網站。 若要加速檢查及安裝 Service Fabric 外掛程式更新的程序，前往 [可用的軟體站台]。 清除所有網站的核取方塊，但指向 Service Fabric 外掛程式位置 (https://dl.microsoft.com/eclipse/azure/servicefabric)) 的網站除外。
 
 > [!NOTE]
 >如果 Eclipse 在 Mac 上未如預期一般運作，或需要您以進階使用者身分執行，請移至 **ECLIPSE_INSTALLATION_PATH** 資料夾，並瀏覽至子資料夾 **Eclipse.app/Contents/MacOS**。 執行 `./eclipse` 來啟動 Eclipse。
@@ -141,8 +141,8 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
    - `ClientKey` 欄位應該指向您本機電腦上包含您的用戶端或叢集憑證之私密金鑰的 PEM 格式 .pem 或 .key 檔案。
    - `ClientCert` 欄位應該指向您本機電腦上包含您的用戶端或叢集 憑證之憑證資料的 PEM 格式 .pem 或 .crt 檔案。 
 
-    ```bash
-    {
+     ```bash
+     {
          "ClusterConnectionParameters":
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
@@ -150,8 +150,8 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
             "ClientKey": "[path_to_your_pem_file_on_local_machine]",
             "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
-    }
-    ```
+     }
+     ```
 
 2. 以滑鼠右鍵按一下您的 Service Fabric 應用程式，然後選取 [Service Fabric]。
 3. 從快顯功能表中，按一下 [發佈應用程式]。
@@ -159,8 +159,8 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
     ![雲端發佈對話方塊](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
-4.  您可以在 [主控台] 視窗中查看發佈作業的進度。
-5.  若要檢查您的應用程式是否執行中，請在瀏覽器視窗中在您的 Azure 叢集開啟 Service Fabric Explorer。 針對上面的案例，這應該是：`https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`。 展開 [應用程式] 節點，並確認您的應用程式執行中。 
+4. 您可以在 [主控台] 視窗中查看發佈作業的進度。
+5. 若要檢查您的應用程式是否執行中，請在瀏覽器視窗中在您的 Azure 叢集開啟 Service Fabric Explorer。 針對上面的案例，這應該是：`https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`。 展開 [應用程式] 節點，並確認您的應用程式執行中。 
 
 
 在安全的 Linux 叢集上，若您的應用程式包含 Reliable Services 服務，您將必須設定可供您的服務用來呼叫 Service Fabric runtime API 的憑證。 若要深入了解，請參閱[將 Reliable Services 應用程式設定為在 Linux 叢集上執行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。
@@ -188,7 +188,7 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
 1.  以滑鼠右鍵按一下您要新增服務的專案，然後按一下 [Service Fabric]。
 
-    ![Service Fabric 新增服務第 1 頁][add-service/p1]
+    ![Service Fabric 添加服务第 1 页][add-service/p1]
 
 2.  按一下 [新增 Service Fabric 服務]，並完成步驟集合以將服務新增至專案。
 3.  選取要新增至專案的服務範本，然後按 [下一步]。
@@ -197,7 +197,7 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
 4.  輸入服務名稱 (以及視需要其他詳細資料)，然後按一下 [新增服務] 按鈕。  
 
-    ![Service Fabric 新增服務第 3 頁][add-service/p3]
+    ![Service Fabric 添加服务第 3 页][add-service/p3]
 
 5.  新增服務之後，您的整體專案結構看起來類似下列專案︰
 
@@ -209,7 +209,7 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
 如果您勾選 [自動更新應用程式和服務版本] 選項，然後更新版本，則會自動更新資訊清單版本。 若要提供範例，您先選取核取方塊，然後將 **Code** 的版本從 0.0.0 更新為 0.0.1 並按一下 [完成]，然後服務資訊清單版本和應用程式資訊清單版本將會自動更新為 0.0.1。
 
-## <a name="upgrade-your-service-fabric-java-application"></a>升級 Service Fabric Java 應用程式
+## <a name="upgrade-your-service-fabric-java-application"></a>升级 Service Fabric Java 应用程序
 
 在升級案例中，假設您在 Eclipse 中使用 Service Fabric 外掛程式建立 **App1** 專案。 您使用外掛程式部署它，建立名為 **fabric:/App1Application** 的應用程式。 應用程式類型是 **App1ApplicationType**，應用程式版本為 1.0。 現在您想要升級應用程式，但不要中斷可用性。
 

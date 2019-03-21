@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ff73982b706fa2d353be818f5022de8fbfec42fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58167434"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259851"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>設定裝置範本 (新 UI 設計)
 
@@ -78,6 +78,8 @@ ms.locfileid: "58167434"
 ![含溫度量測詳細資料的 [建立遙測] 表單](./media/howto-set-up-template/measurementsform.png)
 
 選取 [儲存] 之後，[溫度] 量測就會出現在量測清單中。 一小段時間之後，您會看到來自模擬裝置的溫度資料視覺效果。
+
+當顯示遙測，您可以選擇下列彙總選項：平均值、 最小值、 最大值、 Sum 和 Count。 **平均**當做圖表上的預設彙總。 
 
 > [!NOTE]
 > 遙測量測的資料類型為浮點數。

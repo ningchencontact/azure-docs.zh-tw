@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaec8fd245c507e83967aa76f3e2f9d72b052cb1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849731"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435519"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服務匯流排佇列的 .NET 多層應用程式
 
@@ -33,12 +33,12 @@ ms.locfileid: "54849731"
 
 在本教學課程中，您將在 Azure 雲端服務中建置和執行多層式應用程式。 前端為 ASP.NET MVC Web 角色，而後端為使用服務匯流排佇列的背景工作角色。 您可以建立相同的多層應用程式，並使其前端作為部署至 Azure 網站而非雲端服務的 Web 專案。 您也可以試試 [.NET 內部部署/雲端混合式應用程式](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md)教學課程。
 
-下列螢幕擷取畫面顯示完成的應用程式：
+下列螢幕擷取畫面顯示完成的應用程式。
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>案例概觀：內部角色通訊
-為了提交訂單進行處理，Web 角色中執行的前端 UI 元件必須與背景工作角色中執行的中間層互動。 此範例使用服務匯流排傳訊在各層之間進行通訊。
+若要提交处理命令，以 Web 角色运行的前端 UI 组件必须与以辅助角色运行的中间层逻辑进行交互。 此範例使用服務匯流排傳訊在各層之間進行通訊。
 
 在 Web 層與中間層之間使用服務匯流排傳訊，可使這兩個元件彼此脫鉤。 相較於直接傳訊 (亦即，TCP 或 HTTP)，Web 層不會直接連線至中間層，而是透過訊息的形式，將工作單位推播至服務匯流排，而後者會可靠地保管工作單位，直到中間層準備好取用並處理這些工作單位為止。
 

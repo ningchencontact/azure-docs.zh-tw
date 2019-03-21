@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990167"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315090"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>將來自 Azure 監視器的資料視覺化
 本文會概要介紹用以將儲存在 Azure 監視器中的記錄和計量資料視覺化的可用方法。
@@ -32,9 +32,9 @@ ms.locfileid: "55990167"
 ![儀表板](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>優點
-- 深入整合至 Azure。 可將各種視覺效果釘選到多個 Azure 頁面的儀表板，包括計量瀏覽器、Log Analytics 和 Application Insights。
+- 深入整合至 Azure。 視覺效果可釘選到儀表板包括計量瀏覽器、 Log Analytics 和 Application Insights 的多個 Azure 頁面。
 - 支援計量和記錄。
-- 可結合來自多個來源的資料，包括來自[計量瀏覽器](platform/metrics-charts.md)、[記錄查詢](log-query/log-query-overview.md)以及 Application Insights 中[對應](app/app-map.md)和[可用性]()的輸出結果。
+- 結合多個來源資料包括來自輸出[計量瀏覽器](platform/metrics-charts.md)，[記錄查詢](log-query/log-query-overview.md)，並[對應](app/app-map.md)和 Application Insights 中的可用性。
 - 個人或共用儀表板的選項。 與 Azure [角色型驗證 (RBAC)](../role-based-access-control/overview.md) 整合。
 - 自動重新整理。 計量的重新整理端看時間範圍而定，最少五分鐘。 記錄每一分鐘就會重新整理一次。
 - 使用時間戳記和自訂參數以參數化計量儀表板。
@@ -71,9 +71,8 @@ ms.locfileid: "55990167"
 - 查詢的回應大小限制為 8MB，查詢執行時間為 110 秒。
 
 
-
-## <a name="application-insights-workbooks"></a>Application Insights 活頁簿
-[活頁簿](../application-insights/app-insights-usage-workbooks.md)是互動式的文件，可以提供對團隊內部的資料、調查和共同作業的深入解析。 顯見活頁簿實用性的具體範例，在於疑難排解指南和事件事後分析。
+## <a name="workbooks"></a>活頁簿
+[活頁簿](../azure-monitor/app/usage-workbooks.md)是互動式的文件，可以提供對團隊內部的資料、調查和共同作業的深入解析。 顯見活頁簿實用性的具體範例，在於疑難排解指南和事件事後分析。
 
 ![活頁簿](media/visualizations/workbook.png)
 
@@ -122,7 +121,6 @@ ms.locfileid: "55990167"
 - 支援參數。
 
 ### <a name="limitations"></a>限制
-- 支援計量，但未支援記錄。
 - 沒有 Azure 整合。 無法透過 Azure Resource Manager 管理儀表板和模型。
 - 需付費支援額外的 Grafana 基礎結構，或 Grafana 雲端需要額外費用。
 
@@ -142,6 +140,7 @@ ms.locfileid: "55990167"
 - 了解 [ Azure 監視器收集的資料](platform/data-collection.md)。
 - 了解 [Azure 儀表板](../azure-portal/azure-portal-dashboards.md)。
 - 了解 [Azure 監視器中的檢視](platform/view-designer.md)。
-- 了解 [Application Insights 中的活頁簿](app/usage-workbooks.md)。
-- 了解[將記錄資料匯入 Power BI](platform/powerbi.md)。
-- 了解 [Grafana Azure 監視器資料來源外掛程式](platform/grafana-plugin.md)。
+- 深入了解[活頁簿](../azure-monitor/app/usage-workbooks.md)。
+- 了解[將記錄資料匯入 Power BI](../azure-monitor/platform/powerbi.md)。
+- 了解 [Grafana Azure 監視器資料來源外掛程式](../azure-monitor/platform/grafana-plugin.md)。
+

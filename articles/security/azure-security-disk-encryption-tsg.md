@@ -1,23 +1,24 @@
 ---
 title: 疑難排解 - IaaS VM 適用的 Azure 磁碟加密 | Microsoft Docs
 description: 本文提供的疑難排解秘訣適用於 Windows 及 Linux IaaS VM 適用的 Microsoft Azure 磁碟加密。
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 02/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838267"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
 
 本指南適用於組織採用 Azure 磁碟加密的 IT 專業人員、資訊安全性分析師和雲端系統管理員。 本文旨在協助磁碟加密相關問題的疑難排解。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>針對 Linux OS 磁碟加密進行疑難排解
 
@@ -55,17 +56,17 @@ uname -a
 
 Linux OS 磁碟加密順序會暫時取消掛接 OS 磁碟機。 然後會對整個 OS 磁碟執行逐區塊加密，再於它處於已加密狀態時重新掛接。 不同於 Windows 上的 Azure 磁碟加密，Linux 磁碟加密不允許加密進行時，同時使用 VM。 VM 的效能特性在完成加密所需的時間上有顯著差異。 這些特性包括磁碟的大小以及儲存體帳戶是標準或進階 (SSD) 儲存體。
 
-若要檢查加密狀態，可輪詢 [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) 命令所傳回的 **ProgressMessage** 欄位。 加密 OS 磁碟機時，VM 會進入服務狀態且會停用 SSH，從而避免中斷進行中的流程。 **EncryptionInProgress** 訊息報告加密正在進行時的大部分時間。 數個小時之後，**VMRestartPending** 訊息會提示您重新啟動 VM。 例如︰
+若要檢查加密狀態，輪詢**ProgressMessage**從傳回的欄位[Get AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus)命令。 加密 OS 磁碟機時，VM 會進入服務狀態且會停用 SSH，從而避免中斷進行中的流程。 **EncryptionInProgress** 訊息報告加密正在進行時的大部分時間。 數個小時之後，**VMRestartPending** 訊息會提示您重新啟動 VM。 例如︰
 
 
-```
-PS > Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+```azurepowershell
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
 
-PS > Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
 OsVolumeEncrypted          : VMRestartPending
 DataVolumesEncrypted       : Encrypted
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
@@ -91,7 +92,7 @@ ProgressMessage            : OS disk successfully encrypted, please reboot the V
 使用 [Azure AD 認證](azure-security-disk-encryption-prerequisites-aad.md)啟用加密時，目標 VM 必須允許連線到 Azure Active Directory 端點和金鑰保存庫端點。 目前的 Azure Active Directory 驗證端點列在 [Office 365 URL 與 IP 位址範圍](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges)文件的第 56 和 59 節。 如需金鑰保存庫的指示，請參閱文件中的如何[在防火牆後存取 Azure 金鑰保存庫](../key-vault/key-vault-access-behind-firewall.md)。
 
 ### <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務 
-VM 必須能夠存取 [Azure 執行個體中繼資料服務](../virtual-machines/windows/instance-metadata-service.md)端點；此端點會使用只能從 VM 內存取且無法路由的已知 IP 位址 (`169.254.169.254`)。
+VM 必須能夠存取 [Azure 執行個體中繼資料服務](../virtual-machines/windows/instance-metadata-service.md)端點；此端點會使用只能從 VM 內存取且無法路由的已知 IP 位址 (`169.254.169.254`)。  不支援 alter 到這個地址 （例如，新增 X 轉送的標頭） 的本機 HTTP 流量的 proxy 組態。
 
 ### <a name="linux-package-management-behind-a-firewall"></a>防火牆後方的 Linux 套件管理
 
@@ -111,15 +112,15 @@ VM 必須能夠存取 [Azure 執行個體中繼資料服務](../virtual-machines
    \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
-   2. 輸入下列命令：
+1. 輸入下列命令：
 
    ```
    bdehdcfg.exe -target default
    ```
 
-   3. 此命令會建立一個 550MB 系統磁碟分割。 重新啟動系統。
+1. 此命令會建立一個 550MB 系統磁碟分割。 重新啟動系統。
 
-   4. 使用 DiskPart 來檢查磁碟區，然後再繼續作業。  
+1. 使用 DiskPart 來檢查磁碟區，然後再繼續作業。  
 
 例如︰
 
@@ -136,6 +137,12 @@ DISKPART> list vol
 
 If the expected encryption state does not match what is being reported in the portal, see the following support article:
 [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
+
+## <a name="troubleshooting-encryption-status"></a>針對加密狀態進行疑難排解 
+
+在入口網站可能會顯示磁碟加密即使已在 VM 內未加密。  原因有可能是因為低層級的命令可用來直接解密從磁碟中的 VM，而不是使用較高的層級的 Azure 磁碟加密管理命令。  較高的層級的命令解密磁碟的 VM 內，不僅 VM 之外，他們也更新重要的平台層級加密設定並與 VM 相關聯的延伸模組設定。  如果這些不會保持一致，平台將無法報告加密狀態，或正確佈建 VM。   
+
+若要正確停用 Azure 磁碟加密，啟動從已知的良好狀態，將啟用加密，然後使用[停用 AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption)並[移除 AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell命令，或[az vm 加密停用](/cli/azure/vm/encryption)CLI 命令。 
 
 ## <a name="next-steps"></a>後續步驟
 

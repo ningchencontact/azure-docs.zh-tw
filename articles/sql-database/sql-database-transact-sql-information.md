@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: b6d821f8c4f2fa66e24e6a2409f58406820ef6d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 4d3f27d48819a4bd997cbb62177f5aae4afc85eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100766"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993146"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解決移轉至 SQL Database 期間的 Transact-SQL 差異
 
@@ -29,7 +29,7 @@ Microsoft SQL Server 和 Azure SQL Database 都支援應用程式使用的大部
 
 此外，還有一些功能和語法完全不受支援，因為 Azure SQL Database 的設計目的是要將功能隔離，讓它們不與 master 資料庫和作業系統相依。 因此，大多數伺服器層級活動都不適用於 SQL Database。 如果它們設定伺服器層級選項、作業系統元件或指定檔案系統組態，便無法使用 T-SQL 陳述式和選項。 當需要這類功能時，通常會從 SQL Database 或從另一個 Azure 功能或服務以其他方式提供適合的替代方案。
 
-例如，高可用性會使用類似 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)的技術來建置到 Azure SQL Database 中。 SQL Database 不支援與可用性群組相關的 T-SQL 陳述式，也不支援與「Always On 可用性群組」相關的動態管理檢視。
+例如，高可用性會使用類似 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)的技術來建置到 Azure SQL Database 中。 SQL 数据库不支持与可用性组相关的 T-SQL 语句，也不支持与 Always On 可用性组相关的动态管理视图。
 
 如需 SQL Database 所支援和不支援的功能清單，請參閱 [Azure SQL Database 功能比較](sql-database-features.md)。 此頁面上的清單可補充該指引和功能文章，並將焦點放在 Transact-SQL 陳述式。
 
@@ -49,7 +49,7 @@ Microsoft SQL Server 和 Azure SQL Database 都支援應用程式使用的大部
 - 相關的連線：端點狀態。 SQL Database 不支援 Windows 驗證，但支援類似的 Azure Active Directory 驗證。 某些驗證類型需要最新的 SSMS 版本。 如需詳細資訊，請參閱 [使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)。
 - 使用三個或四個組件名稱跨資料庫查詢。 (使用[彈性資料庫查詢](sql-database-elastic-query-overview.md)支援跨資料庫唯讀查詢。)
 - 跨資料庫擁有權鏈結，`TRUSTWORTHY` 設定
-- `EXECUTE AS LOGIN` 請改用 'EXECUTE AS USER'。
+- `EXECUTE AS LOGIN` 改用“EXECUTE AS USER”。
 - 除了可延伸金鑰管理之外還支援加密
 - 事件服務：事件、事件通知、查詢通知
 - 檔案位置：與資料庫檔案位置、大小和資料庫檔案 (由 Microsoft Azure 自動管理) 相關的語法。
@@ -85,7 +85,7 @@ Microsoft SQL Server 和 Azure SQL Database 都支援應用程式使用的大部
 
 Transact-SQL 參考包括從 SQL Server 版本 2008 到目前版本的相關文章。 文章標題下方是圖示列，列出四個 SQL Server 平台並指出適用性。 例如，可用性群組是在 SQL Server 2012 中導入。   [建立可用性群組](https://msdn.microsoft.com/library/ff878399.aspx) 一文指出陳述式會套用至 **SQL Server (從 2012 年開始)**。 陳述式不適用於 SQL Server 2008、SQL Server 2008 R2、Azure SQL Database、Azure SQL 資料倉儲或平行資料倉儲。
 
-在某些情況下，文章的一般主旨可用於產品中，但產品之間會有些微的差異。 依適當情況會在文章的中間點指出差異。 在某些情況下，文章的一般主旨可用於產品中，但產品之間會有些微的差異。 依適當情況會在文章的中間點指出差異。 例如，SQL Database 中有提供 CREATE TRIGGER 文章。 但伺服器層級觸發程序的 **ALL SERVER** 選項指出無法在 SQL Database 中使用伺服器層級的觸發程序。 請改用資料庫層級的觸發程序。
+在某些情況下，文件的一般主旨可用於產品，但有產品稍有差異。 依適當情況會在文章的中間點指出差異。 在某些情況下，文件的一般主旨可用於產品，但有產品稍有差異。 依適當情況會在文章的中間點指出差異。 例如，SQL Database 中有提供 CREATE TRIGGER 文章。 但伺服器層級觸發程序的 **ALL SERVER** 選項指出無法在 SQL Database 中使用伺服器層級的觸發程序。 請改用資料庫層級的觸發程序。
 
 ## <a name="next-steps"></a>後續步驟
 

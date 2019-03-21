@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191107"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>教學課程：Azure Active Directory 與 EverBridge 整合
 
@@ -127,22 +127,22 @@ EverBridge 與 Azure AD 整合提供下列優點：
 
 5. 若要將 **EverBridge** 應用程式設為 **EverBridge 成員入口網站**，請在 [基本 SAML 設定] 區段執行下列步驟：
 
-    * 若您想要在 **IDP** 起始模式中設定應用程式：
+   * 若您想要在 **IDP** 起始模式中設定應用程式：
 
-        ![EverBridge 網域及 URL 單一登入資訊](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![EverBridge 網域及 URL 單一登入資訊](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-        * 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
+   * 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-        ![EverBridge 網域及 URL 單一登入資訊](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![EverBridge 網域及 URL 單一登入資訊](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-    > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」和「登入 URL」更新這些值。 請連絡 [EverBridge 支援小組](mailto:support@everbridge.com)以取得這些值。
+     > [!NOTE]
+     > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」和「登入 URL」更新這些值。 請連絡 [EverBridge 支援小組](mailto:support@everbridge.com)以取得這些值。
 
 6. 在 [SAML 簽署憑證] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載 [同盟中繼資料 XML]，然後將中繼資料檔案儲存在電腦上。
 
@@ -164,21 +164,21 @@ EverBridge 與 Azure AD 整合提供下列優點：
 
 9. 在頂端的功能表中，按一下 [設定] 索引標籤，然後選取 [安全性] 之下的 [單一登入]。
    
-    ![設定單一登入](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![設定單一登入](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. 在 [名稱] 文字方塊中，輸入識別碼提供者的名稱 (例如：您的公司名稱)。
+     a. 在 [名稱] 文字方塊中，輸入識別碼提供者的名稱 (例如：您的公司名稱)。
    
-    b. 在 [API 名稱] 文字方塊中，輸入 API 的名稱。
+     b. 在 [API 名稱] 文字方塊中，輸入 API 的名稱。
    
-    c. 按一下 [選擇檔案] 按鈕，上傳您從 Azure 入口網站下載的中繼資料檔案。
+     c. 按一下 [選擇檔案] 按鈕，上傳您從 Azure 入口網站下載的中繼資料檔案。
    
-    d. 在 [SAML 身分識別位置] 中，選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]。
+     d. 在 [SAML 身分識別位置] 中，選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]。
    
-    e. 在 [識別提供者登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
+     e. 在 [識別提供者登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
    
-    f. 在 [服務提供者起始的要求繫結] 中，選取 [HTTP 重新導向]。
+     f. 在 [服務提供者起始的要求繫結] 中，選取 [HTTP 重新導向]。
 
-    g. 按一下 [儲存] 
+     g. 按一下 [儲存] 
 
 10. 若要在 **EverBridge** 上將單一登入設為 **EverBridge 成員入口網站**，您需要將所下載的**同盟中繼資料 XML** 傳送至 [EverBridge 支援小組](mailto:support@everbridge.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
@@ -200,7 +200,7 @@ EverBridge 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中，輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

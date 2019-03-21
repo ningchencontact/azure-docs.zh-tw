@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1f2b717043394634f437caf7dd57411260fd7be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191090"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098054"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>使用者隱私權與 Azure Active Directory 傳遞驗證
 
@@ -107,4 +107,4 @@ Foreach ($file in $files) {
 
 ## <a name="next-steps"></a>後續步驟
 * [在信任中心檢閱 Microsoft 隱私權原則](https://www.microsoft.com/trustcenter)
-- [**疑難排解**](tshoot-connect-pass-through-authentication.md) - 了解如何解決此功能的常見問題。
+* [**疑難排解**](tshoot-connect-pass-through-authentication.md) - 了解如何解決此功能的常見問題。

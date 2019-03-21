@@ -1,5 +1,5 @@
 ---
-title: 在 gMSA 帳戶之下執行 Azure Service Fabric 服務 | Microsoft Docs
+title: 執行在 gMSA 帳戶下的 Azure Service Fabric 服務 |Microsoft Docs
 description: 了解如何以 gMSA 身分在 Service Fabric Windows 標準叢集上執行 Service Fabric。
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 56a7478ab7221a1ccb4394a245540d3181e4ad8e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8d14d9191e74cb59c6696568ead425fca61d6f7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873898"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>以群組受控服務帳戶身分執行服務
 在 Windows Server 獨立叢集上，您可以使用 RunAs 原則，以群組受控服務帳戶 (gMSA) 身分執行服務。  根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。 即使在共用主控環境中，以不同帳戶執行應用程式能避免彼此干擾。 請注意，這會使用網域內部部署的 Active Directory，不是 Azure Active Directory (Azure AD)。 使用 gMSA，就不需將密碼或加密的密碼儲存於應用程式資訊清單中。  您也可以利用 [Active Directory 使用者或群組](service-fabric-run-service-as-ad-user-or-group.md)身分執行服務。
@@ -48,7 +48,7 @@ ms.locfileid: "55155573"
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <ServiceManifestImport>
           <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
           <ConfigOverrides />
@@ -68,7 +68,8 @@ ms.locfileid: "55155573"
 > 如果您將 RunAs 原則套用到服務，而服務資訊清單宣告具有 HTTP 通訊協定的端點資源，您就必須指定 **SecurityAccessPolicy**。  如需詳細資訊，請參閱[為 HTTP 和 HTTPS 端點指派安全性存取原則](service-fabric-assign-policy-to-endpoint.md)。 
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->若要了解下一個步驟，請閱讀下列文章：
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+若要了解下一個步驟，請閱讀下列文章：
 * [了解應用程式模型](service-fabric-application-model.md)
 * [在服務資訊清單中指定資源](service-fabric-service-manifest-resources.md)
 * [部署應用程式](service-fabric-deploy-remove-applications.md)

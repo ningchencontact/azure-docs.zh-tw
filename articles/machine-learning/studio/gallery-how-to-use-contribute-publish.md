@@ -5,21 +5,21 @@ description: 共用及探索 Azure AI 資源庫中的分析資源等內容。 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 48bb9b24901cd07891f3d52bcd916f95bc2801f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885414"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>共用及探索 Azure AI 資源庫中的資源
 
-**[Azure AI 資源庫](http://gallery.azure.ai)** 是一個由社群驅動的網站，可用於探索及共用透過 Azure AI 建置的解決方案。
+**[Azure AI 資源庫](https://gallery.azure.ai)** 是一個由社群驅動的網站，可用於探索及共用透過 Azure AI 建置的解決方案。
 資源庫具有各種資源，可供您開發自己的分析解決方案。
 
 ## <a name="what-can-i-find-in-the-gallery"></a>我可以在資源庫中找到什麼？
@@ -201,4 +201,4 @@ Azure AI 資源庫包含一些由 Microsoft 和資料科學社群成員所發表
 
 ![意見反應](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[前往資源庫 >>](http://gallery.azure.ai)**
+**[前往資源庫 >>](https://gallery.azure.ai)**

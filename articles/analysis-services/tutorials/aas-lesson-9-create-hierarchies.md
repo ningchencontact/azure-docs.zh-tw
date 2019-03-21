@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f34b2fd2ba5f6e3e1433fb8dac04d931a36920d0
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 5eb80051052138924cdb30655609215974435839
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188958"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729911"
 ---
 # <a name="create-hierarchies"></a>建立階層
 
@@ -51,7 +51,7 @@ ms.locfileid: "54188958"
   
 1.  在 **DimDate** 資料表中，建立名為 **Calendar** 的階層。  
   
-3.  依序新增下列資料行︰
+3.  按顺序添加以下列：
 
     *  CalendarYear
     *  CalendarSemester
@@ -72,7 +72,7 @@ ms.locfileid: "54188958"
     *  WeekNumberOfYear
     *  DayNumberOfWeek
   
- ## <a name="whats-next"></a>後續步驟
+## <a name="whats-next"></a>後續步驟
 [第 10 課：建立分割區](../tutorials/aas-lesson-10-create-partitions.md)。 
   
   

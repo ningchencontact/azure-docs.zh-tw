@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 75e85ae15ded81faf372ba018829a185e8badd60
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224612"
+ms.locfileid: "58285066"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -31,9 +31,9 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 備份 SQL Server 資料庫之前，請先檢查下列條件：
 
-1. 識別或[建立](backup-azure-sql-database.md#create-a-recovery-services-vault)相同的區域或地區設定為裝載 SQL Server 執行個體的 VM 的復原服務保存庫。
-2. 檢查備份 SQL 資料庫所需的 [VM 權限](#fix-sql-sysadmin-permissions)。
-3. 確認 VM 具有[網路連線](backup-azure-sql-database.md#establish-network-connectivity)。
+1. 識別或[建立](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault)相同的區域或地區設定為裝載 SQL Server 執行個體的 VM 的復原服務保存庫。
+2. 檢查備份 SQL 資料庫所需的 [VM 權限](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)。
+3. 確認 VM 具有[網路連線](backup-sql-server-database-azure-vms.md#establish-network-connectivity)。
 4. 確認 SQL Server 資料庫的命名符合 Azure 備份的[命名方針](#verify-database-naming-guidelines-for-azure-backup)。
 5. 確認您未針對資料庫啟用任何其他備份解決方案。 在設定此案例前，請停用所有其他的 SQL Server 備份。 您可以同時為 Azure VM 以及在該 VM 上執行的 SQL Server 資料庫啟用 Azure 備份，而不會發生任何衝突。
 
@@ -60,7 +60,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 - 為了探索虛擬機器上的資料庫，Azure 備份會建立帳戶 **NT SERVICE\AzureWLBackupPluginSvc**。 此帳戶用於備份和還原，且必須具有 SQL 系統管理員權限。
 - Azure 備份會利用 **NT AUTHORITY\SYSTEM** 帳戶進行資料庫探索/查詢，因此該帳戶必須在 SQL 上公開登入。
 
-如果您尚未從 Azure Marketplace 建立 SQL Server VM，您可能會收到 **UserErrorSQLNoSysadminMembership** 錯誤。 若發生此狀況，請[依照下列指示操作](#fix-sql-sysadmin-permissions)。
+如果您尚未從 Azure Marketplace 建立 SQL Server VM，您可能會收到 **UserErrorSQLNoSysadminMembership** 錯誤。 若發生此狀況，請[依照下列指示操作](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)。
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>確認 Azure 備份的資料庫命名方針
 

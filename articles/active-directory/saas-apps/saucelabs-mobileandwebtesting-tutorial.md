@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e99f794c4eb9db78f50f63f14ccfad08c65ddb07
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207002"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>教學課程：Azure Active Directory 與 Sauce Labs - Mobile and Web Testing 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "56207002"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Sauce Labs - 行動和 Web 測試整合，您需要下列項目：
 
@@ -138,7 +138,7 @@ ms.locfileid: "56207002"
 
     b. 勾選 [允許 JUST-IN-TIME 佈建] 核取方塊。
 
-    c. 按一下 [儲存]。
+    c. 按一下 [檔案] 。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

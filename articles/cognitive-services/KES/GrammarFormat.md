@@ -10,16 +10,16 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 72dec3effe5e350818c01cf65c9140e778effd17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860281"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544319"
 ---
 # <a name="grammar-format"></a>文法格式
 
-文法是一個 XML 檔案，其會指定服務可以解譯的一組加權自然語言查詢，以及將這些自然語言查詢轉譯為語意查詢運算式的方式。  文法的語法是以 [SRGS](http://www.w3.org/TR/speech-grammar/) 為基礎，也就是語音辨識文法的 W3C 標準，其包含支援資料索引整合和語意函式的擴充功能。
+文法是一個 XML 檔案，其會指定服務可以解譯的一組加權自然語言查詢，以及將這些自然語言查詢轉譯為語意查詢運算式的方式。  文法的語法是以 [SRGS](https://www.w3.org/TR/speech-grammar/) 為基礎，也就是語音辨識文法的 W3C 標準，其包含支援資料索引整合和語意函式的擴充功能。
 
 下列將描述文法中可用的每個語法元素。  請參閱[此範例](#example)以了解在內容中決定這些元素用法的完整文法。
 
@@ -126,7 +126,7 @@ before <attrref uri="academic#Year" op="lt" name="year"/
 
 下表列出每個屬性類型支援的 `op` 值。  其用法需要將對應的索引作業包含在結構描述屬性定義中。
 
-| 屬性類型 | Op 值 | 說明 | 索引作業
+| 屬性類型 | Op 值 | 描述 | 索引作業
 |----|----|----|----|
 | 字串 | eq | 字串完全相符的比對 | equals |
 | 字串 | starts_with | 字串前置詞的比對 | starts_with |

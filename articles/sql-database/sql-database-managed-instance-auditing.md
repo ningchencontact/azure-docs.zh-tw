@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894389"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086049"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
@@ -50,7 +50,7 @@ ms.locfileid: "55894389"
 
    1. 提供一個容器 [名稱]，將公用存取層級設定為 [私人]，然後按一下 [確定]。
 
-     ![建立 Blob 容器設定](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![建立 Blob 容器設定](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. 在為稽核記錄建立容器之後，有兩個方法可將該容器設定為稽核記錄的目標：[使用 T-SQL](#blobtsql) 或[使用 SQL Server Management Studio (SSMS) UI](#blobssms)：
 
@@ -113,7 +113,7 @@ ms.locfileid: "55894389"
         GO
         ```
 
-      1. 藉由[建立伺服器稽核規格或資料庫稽核規格](#createspec)來繼續
+        1. 藉由[建立伺服器稽核規格或資料庫稽核規格](#createspec)來繼續
 
    - <a id="blobssms"></a>使用 SQL Server Management Studio (SSMS) 18 (預覽) 來設定稽核記錄的 Blob 儲存體：
 
@@ -135,7 +135,7 @@ ms.locfileid: "55894389"
 
      1. 從下拉式清單中選取訂用帳戶、儲存體帳戶和 Blob 容器，或者，藉由按一下 [建立] 來建立您自己的容器。 當您完成後，請按一下 [確定]：
 
-        ![選取 Azure 訂用帳戶、儲存體帳戶和 Blob 容器](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![選取 Azure 訂用帳戶、 儲存體帳戶和 blob 容器](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. 在 [建立稽核] 對話方塊中按一下 [確定]。
 
@@ -158,9 +158,9 @@ ms.locfileid: "55894389"
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>設定將伺服器的稽核儲存至事件中樞或 Log Analytics
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>設定您的伺服器事件中樞或 Azure 監視器的記錄檔的稽核
 
-您可以使用 Azure 監視器將來自受控執行個體的稽核記錄傳送至事件中樞或 Log Analytics。 本節說明如何進行此設定：
+從受管理的執行個體的稽核記錄可以傳送至事件中樞或 Azure 監視器記錄檔中。 本節說明如何進行此設定：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中瀏覽至受控執行個體。
 
@@ -170,7 +170,7 @@ ms.locfileid: "55894389"
 
 4. 從記錄清單中選取 [SQLSecurityAuditEvents]。
 
-5. 選取稽核事件的目的地 - 事件中樞、Log Analytics 或同時選取兩者。 為每個目標設定必要的參數 (例如 Log Analytics 工作區)。
+5. 選取的稽核事件-事件中樞、 Azure 監視器記錄檔，或兩者的目的地。 為每個目標設定必要的參數 (例如 Log Analytics 工作區)。
 
 6. 按一下 [檔案] 。
 
@@ -190,7 +190,7 @@ ms.locfileid: "55894389"
    - [建立伺服器稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [建立資料庫稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. 啟用在步驟 7 中建立的伺服器稽核：
+10. 啟用在步驟 8 中建立伺服器稽核：
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
@@ -213,11 +213,13 @@ ms.locfileid: "55894389"
 
 若要取用來自事件中樞的稽核記錄資料，您必須設定資料流取用事件並將其寫入至目標。 如需詳細資訊，請參閱＜Azure 事件中樞文件＞。
 
-### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>取用及分析儲存在 Log Analytics 中的記錄
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>取用及分析儲存在 Azure 監視器記錄檔中的記錄檔
 
-如果將稽核記錄寫入至 Log Analytics，便可在 Log Analytics 工作區中使用這些記錄，您可以在此工作區對稽核資料執行進階搜尋。 一開始請瀏覽至 [Log Analytics]，然後在 [一般] 區段底下，按一下 [記錄] 並輸入簡單的查詢 (例如：`search "SQLSecurityAuditEvents"`)，以檢視稽核記錄。  
+Azure 監視器記錄檔寫入稽核記錄檔，它們可以使用 Log Analytics 工作區，您可以在其中執行的稽核資料的進階搜尋。 做為起點，瀏覽至 Log Analytics 工作區底下*一般*區段中，按一下*記錄檔*輸入簡單的查詢，例如：`search "SQLSecurityAuditEvents"`若要檢視稽核記錄。  
 
-Log Analytics 可讓您在所有工作負載和伺服器之間，使用整合式搜尋和自訂儀表板輕易地分析數百萬筆記錄，提供您即時的深入操作資訊。 如需 Log Analytics 搜尋語言和命令的其他實用資訊，請參閱 [Log Analytics 搜尋參考](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)。
+Azure 監視器記錄檔可讓您輕易地分析數百萬筆記錄，跨所有工作負載和伺服器使用整合式的搜尋和自訂儀表板的即時操作深入資訊。 如需 Azure 監視器的記錄搜尋語言和命令的其他有用資訊，請參閱[Azure 監視器記錄檔搜尋參考](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的稽核差異
 
@@ -232,7 +234,7 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 向 Azure Blob 儲存體進行稽核的 `CREATE AUDIT` 語法有一個主要差異：
 
 - 已提供新的 `TO URL` 語法，可讓您指定放置 `.xel` 檔案的 Azure Blob 儲存體容器 URL。
-- 已提供新的 `TO EXTERNAL MONITOR` 語法，可讓您啟用「事件中樞」和 Log Analytics 目標。
+- 一種新語法`TO EXTERNAL MONITOR`提供，讓即使中樞和 Azure 監視器的記錄目標。
 - `TO FILE` 語法**不受支援**，因為 SQL Database 無法存取 Windows 檔案共用。
 - **不支援**關機選項。
 - **不支援**使用 0 的 `queue_delay`。

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56b3bffc7aca1ace4dfae78cdcd4394daae9360e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0a13d86afe3d395cb34f592b03c1eb9daa18076b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872789"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454846"
 ---
 # <a name="automate-moderation-reviews-with-workflows"></a>自動化工作流程的仲裁審核
 
@@ -243,4 +243,4 @@ Content Moderator 的工作流程功能可讓您定義及使用自訂工作流�
 
 試用[工作流程 API 主控台](try-review-api-job.md)，並使用 REST API 程式碼範例。 
 
-最後，將自訂工作流程與「工作」作業搭配使用，如[工作 API 主控台](try-review-api-job.md)和 [工作 .NET 快速入門](moderation-jobs-quickstart-dotnet.md)所示。
+最後，使用您自訂工作流程**作業**作業中所示[作業 API 主控台](try-review-api-job.md)並[工作.NET 快速入門](moderation-jobs-quickstart-dotnet.md)。

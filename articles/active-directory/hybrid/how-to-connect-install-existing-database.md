@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9011a7b49aa4085c7ea05e0b320eba834b8da73d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004194"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286086"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>使用現有的 ADSync 資料庫安裝 Azure AD Connect
 Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 Azure AD Connect 安裝的預設 SQL Server 2012 Express LocalDB 或使用您自己的完整版 SQL。 在先前，當您安裝 Azure AD Connect 時，一律會建立名為 ADSync 的新資料庫。 使用 Azure AD Connect 1.1.613.0 版 (或更新版本)，您可以選擇指向現有的 ADSync 資料庫來安裝 Azure AD Connect。
@@ -59,7 +59,7 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 A
 1.  將 Azure AD Connect 安裝程式 (AzureADConnect.MSI) 下載到 Windows Server。 按兩下 Azure AD Connect 安裝程式可開始安裝 Azure AD Connect。
 2.  一旦 MSI 安裝完成後，Azure AD Connect 精靈就會開始使用快速模式安裝。 按一下 [結束] 圖示將畫面關閉。
 ![歡迎使用](./media/how-to-connect-install-existing-database/db1.png)
-3.  啟動新的命令提示字元或 PowerShell 工作階段。 瀏覽至 <drive>\program files\Microsoft Azure AD Connect 資料夾。 執行 .\AzureADConnect.exe /useexistingdatabase 命令，可在「使用現有資料庫」安裝模式中啟動 Azure AD Connect 精靈。
+3.  啟動新的命令提示字元或 PowerShell 工作階段。 瀏覽至"C:\Program Files\Microsoft Azure Active Directory Connect"的資料夾。 執行 .\AzureADConnect.exe /useexistingdatabase 命令，可在「使用現有資料庫」安裝模式中啟動 Azure AD Connect 精靈。
 
 > [!NOTE]
 > 請只有在資料庫已經包含來自先前之 Azure AD Connect 安裝的資料時，才使用 **/UseExistingDatabase** 參數。 例如，當您要從本機資料庫移至完整 SQL Server 資料庫時，或當 Azure AD Connect 伺服器已重建，且您已從先前的 Azure AD Connect 安裝還原 ADSync 資料庫的 SQL 備份時。 如果資料庫是空的也就是它不包含先前的 Azure AD Connect 安裝的任何資料，略過此步驟。

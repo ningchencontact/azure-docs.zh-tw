@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: d6677733339babf45e7351e10d6de1c002a6ea93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437211"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436496"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自動化中排程 Runbook
 
@@ -27,7 +27,7 @@ ms.locfileid: "54437211"
 
 下表中的 Cmdlet 是用來在 Azure 自動化中透過 Windows PowerShell 建立和管理排程。 它們是隨著 [Azure PowerShell 模組](/powershell/azure/overview)的一部分推出。
 
-| Cmdlet | 說明 |
+| Cmdlet | 描述 |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |擷取排程。 |
 | [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |建立新排程。 |
@@ -52,7 +52,7 @@ ms.locfileid: "54437211"
 1. 在 [新增排程] 窗格中，為新排程輸入 [名稱] 並選擇性地輸入 [描述]。
 1. 透過選取 [一次] 或 [定期]，以決定排程僅執行一次或定期執行。 如果選取 [一次]，請指定 [開始時間]，然後按一下 [建立]。 如果您選取 [定期]，請指定 [開始時間]，並針對 [重複頻率] 選取所需的 Runbook 重複頻率：按 [小時]、[天]、[週] 或 [月] 執行。
     1. 如果您選取 [週]，系統會提供該週的日期清單供您選擇。 選取您需要的天數。 首次執行排程的時間將會是開始時間後所選的第一天。
-    2. 如果您選取 [月]，系統會提供您不同選項。 若是 [每月發生次數] 選項，請選取 [日期] 或 [星期]。 如果您選取 [日期]，系統會顯示行事曆以便您選擇所需的天數。 如果您選擇的某個日期 (例如 31 日) 未出現在目前月份，則排程不會執行。 如果您希望在最後一天執行排程，請在 [在每月最後一天執行] 下選取 [是]。 如果您選擇 [星期]，系統會顯示 [重複頻率] 選項。 選擇 [第一週]、[第二週]、[第三週]、[第四週] 或 [最後一週]。 最後，請選擇重複執行的日期。
+    2. 如果您選取 [月]，系統會提供您不同選項。 对于“每月进行次数”选项，请选择“每月天数”或“每周天数”。 如果您選取 [日期]，系統會顯示行事曆以便您選擇所需的天數。 如果您選擇的某個日期 (例如 31 日) 未出現在目前月份，則排程不會執行。 如果您希望在最後一天執行排程，請在 [在每月最後一天執行] 下選取 [是]。 如果您選擇 [星期]，系統會顯示 [重複頻率] 選項。 選擇 [第一週]、[第二週]、[第三週]、[第四週] 或 [最後一週]。 最後，請選擇重複執行的日期。
 1. 完成後，按一下 [建立]。
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>使用 Windows PowerShell 建立新排程
@@ -128,5 +128,5 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要在 Azure 自動化中開始使用 Runbook，請參閱 [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
+* 若要在 Azure 自动化中开始使用 Runbook，请参阅 [在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)
 

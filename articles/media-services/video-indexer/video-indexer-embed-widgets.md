@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cfefa8a1bfee03959d0f3b077d9915a6badb1ffd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988080"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075061"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>將影片索引子小工具內嵌到應用程式中
 
@@ -31,7 +31,7 @@ ms.locfileid: "55988080"
 
 **認知深入解析**小工具包含從您的影片索引編製程序中擷取的所有視覺化深入解析。 深入解析小工具支援下列選擇性 URL 參數：
 
-|Name|定義|說明|
+|名稱|定義|描述|
 |---|---|---|
 |widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**附註：** 如果使用 **version=2**，則不支援 **widgets** URL 參數。 |
 |version|**認知深入解析**小工具的版本|若要取得最新的深入解析小工具更新，請在內嵌 URL 中新增 `?version=2` 查詢參數。 例如， `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 若要取得較舊的版本，只要從 URL 中移除 `version=2` 即可。
@@ -40,12 +40,12 @@ ms.locfileid: "55988080"
 
 **播放器**小工具可讓您使用調適性位元速率來串流影片。 播放器小工具支援下列選擇性 URL 參數：
 
-|Name|定義|說明|
+|名稱|定義|描述|
 |---|---|---|
 |t|開始後的秒數|可讓播放器從指定的時間點開始播放。<br/>範例：t=60|
 |captions|語言代碼|在可於標題功能表中載入小工具期間，擷取指定語言的標題。<br/>範例：captions=en-US|
 |showCaptions|布林值|可讓播放器載入已啟用的標題。<br/>範例：showCaptions=true|
-|type||啟動音訊播放器面板 (移除影片部分)。<br/>範例：type=audio|"
+|type||啟動音訊播放器面板 (移除影片部分)。<br/>範例：type=audio|
 |autoplay|布林值|指出播放器是否應在影片載入後開始播放 (預設值為 true)。<br/>範例：autoplay=false|
 |語言|語言代碼|控制播放器語言 (預設值為 en-US)<br/>範例：language=de-DE|
 

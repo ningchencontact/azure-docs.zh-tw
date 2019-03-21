@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 8115065afcbd81da1527e09c07ca89ce89100d7d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2fe2e972d16bdb27c5d2fbd2d552dac825235b6d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236986"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286460"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -48,7 +48,7 @@ RAM | 16 GB
 磁碟可用空間 | 保留磁碟機需要 600 GB 的空間。
 作業系統  | Windows Server 2012 R2 或 Windows Server 2016 |
 作業系統地區設定 | 英文 (en-us)
-PowerCLI | 應該安裝 [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")。
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")不需要設定伺服器版本[9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)。
 Windows Server 角色 | 未啟用： <br/> - Active Directory Domain Services <br/>- 網際網路資訊服務 <br/> - Hyper-V |
 群組原則| 未啟用： <br/> - 防止存取命令提示字元。 <br/> - 防止存取登錄編輯工具。 <br/> - 檔案附件的信任邏輯。 <br/> - 開啟指令碼執行。 <br/> [深入了解](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | 請確定您已執行下列動作：<br/><br/> - 沒有預先存在的預設網站 <br/> - 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定  <br/> - 沒有預先存在的網站/應用程式接聽連接埠 443<br/>
@@ -64,8 +64,10 @@ Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 --- | ---
 機器設定 | 複寫到 Azure 的電腦必須符合 [Azure 需求](#azure-vm-requirements)。
 機器工作負載 | Site Recovery 支援複寫任何執行於所支援機器上的工作負載 (如 Active Directory、SQL server 等)。 若要深入了解，請按一下[這裡](https://aka.ms/asr_workload)
-Windows 作業系統 | 64 位元 Windows Server 2019、64 位元 Windows Server 2016 (Server Core，使用桌面體驗的伺服器)、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少含 SP1)。 </br></br>  [至少含 SP2 的 Windows Server 2008 -32 位元和 64 位元](migrate-tutorial-windows-server-2008.md) (僅限移轉)。 </br></br> 不支援 Windows 2016 Nano Server。
+Windows 作業系統 | 64 位元 Windows Server 2016 (Server Core，使用桌面體驗的伺服器)、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少加裝 SP1)。 </br></br>  [至少含 SP2 的 Windows Server 2008 -32 位元和 64 位元](migrate-tutorial-windows-server-2008.md) (僅限移轉)。 </br></br> 不支援 Windows 2016 Nano Server。
+Linux 作業系統架構 | 只有 64 位元系統則支援。 不支援 32 位元系統
 Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.6 <br/><br/>CentOS：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.6 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (支援的核心版本)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [ (支援的核心版本)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>、SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4、6.5、6.6、6.7、6.8、6.9、6.10、7.0、7.1、7.2、7.3、7.4、7.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/></br>- 不支援將所複寫的機器從 SUSE Linux Enterprise Server 11 SP3 升級至 SP4。 若要升級，請停用複寫，然後在升級之後再次加以啟用。</br></br> - [深入了解](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)Azure 中對 Linux 及開放原始碼技術的支援。 Site Recovery 會協調容錯移轉以在 Azure 中執行 Linux 伺服器。 不過，Linux 廠商可能會將支援僅限於生命週期尚未結束的發行版本。<br/><br/> - 在 Linux 發行版本上，僅支援屬於發行版本之次要版本發行/更新的原生核心。<br/><br/> - 不支援跨主要 Linux 發行版本升級受保護的機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。<br/><br/> - 執行 Red Hat Enterprise Linux 5.2-5.11 或 CentOS 5.2-5.11 的伺服器應該安裝 [Linux Integration Services (LIS) 元件](https://www.microsoft.com/download/details.aspx?id=55106)，如此機器才能在 Azure 中啟動。
+
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu 核心版本
 
@@ -144,15 +146,15 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.19][9.19 UR] | SP1 3.12.4
 
 **元件** | **支援**
 --- | ---
-Azure ExpressRoute | yes
-ILB | yes
-ELB | yes
-Azure 流量管理員 | yes
-多個 NIC | yes
-保留的 IP 位址 | yes
-IPv4 | yes
-保留來源 IP 位址 | yes
-Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | yes
+Azure ExpressRoute | 是
+ILB | 是
+ELB | 是
+Azure 流量管理員 | 是
+多 NIC | 是
+保留的 IP 位址 | 是
+IPv4 | 是
+保留來源 IP 位址 | 是
+Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是
 加速網路 | 否
 
 ## <a name="storage"></a>儲存體
@@ -161,29 +163,29 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | yes
 動態磁碟 | 作業系統磁碟必須是基本磁碟。 <br/><br/>資料磁碟可以是動態磁碟
 Docker 磁碟設定 | 否
 主機 NFS | VMware 為是<br/><br/> 實體伺服器為否
-主機 SAN (iSCSI/FC) | yes
+主機 SAN (iSCSI/FC) | 是
 主機 vSAN | VMware 為是<br/><br/> 實體伺服器為 N/A
 主機多重路徑 (MPIO) | 是，通過 Microsoft DSM、EMC PowerPath 5.7 SP4、EMC PowerPath DSM for CLARiiON 測試
 主機虛擬磁碟區 (VVol) | VMware 為是<br/><br/> 實體伺服器為 N/A
-客體/伺服器 VMDK | yes
+客體/伺服器 VMDK | 是
 客體/伺服器 EFI/UEFI| 部分 (適用於 Windows Server 2012 和更新版本移轉到 Azure) <br/><br/> 請參閱表格結尾處的附註
 客體/伺服器共用叢集磁碟 | 否
 客體/伺服器加密磁碟 | 否
 客體/伺服器 NFS | 否
 客體/伺服器 SMB 3.0 | 否
-客體/伺服器 RDM | yes<br/><br/> 實體伺服器為 N/A
-客體/伺服器磁碟 > 1 TB | yes<br/><br/>最多 4,095 GB<br/><br/> 磁碟必須大於 1024 MB。
-客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | yes
-客體/伺服器磁碟使用 4K 邏輯與 512 位元組實體磁區大小 | yes
-客體/伺服器磁碟區使用等量磁碟 > 4 TB <br/><br/>邏輯磁碟區管理 (LVM)| yes
+客體/伺服器 RDM | 是<br/><br/> 實體伺服器為 N/A
+客體/伺服器磁碟 > 1 TB | 是<br/><br/>最多 4,095 GB<br/><br/> 磁碟必須大於 1024 MB。
+客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | 是
+客體/伺服器磁碟使用 4K 邏輯與 512 位元組實體磁區大小 | 是
+客體/伺服器磁碟區使用等量磁碟 > 4 TB <br/><br/>邏輯磁碟區管理 (LVM)| 是
 客體/伺服器 - 儲存體空間 | 否
 客體/伺服器 熱新增/移除磁碟 | 否
-客體/伺服器 - 排除磁碟 | yes
+客體/伺服器 - 排除磁碟 | 是
 客體/伺服器多重路徑 (MPIO) | 否
 
 > [!NOTE]
 > 將執行 Windows Server 2012 或更新版本的 VMware 虛擬機器進行 UEFI 開機，可移轉到 Azure。 適用以下限制：
-
+> 
 > - 僅支援移轉到 Azure。 不支援容錯回復至內部部署 VMware 網站。
 > - 伺服器的 OS 磁碟上不應有超過 4 個磁碟分割。
 > - 需要行動服務 9.13 版或更新版本。
@@ -192,14 +194,14 @@ Docker 磁碟設定 | 否
 
 **元件** | **支援**
 --- | ---
-本地備援儲存體 | yes
-異地備援儲存體 | yes
-讀取權限異地備援儲存體 | yes
+本地備援儲存體 | 是
+異地備援儲存體 | 是
+讀取權限異地備援儲存體 | 是
 非經常性儲存體 | 否
 經常性存取儲存體| 否
 區塊 Blob | 否
-待用資料加密 (儲存體服務加密)| yes
-進階儲存體 | yes
+待用資料加密 (儲存體服務加密)| 是
+進階儲存體 | 是
 匯入/匯出服務 | 否
 設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 否
 一般用途 v2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否
@@ -208,13 +210,14 @@ Docker 磁碟設定 | 否
 
 **功能** | **支援**
 --- | ---
-可用性設定組 | yes
-中樞 | yes
-受控磁碟 | yes
+可用性設定組 | 是
+可用性區域 | 否
+中樞 | 是
+受控磁碟 | 是
 
 ## <a name="azure-vm-requirements"></a>Azure VM 需求
 
-您複寫到 Azure 的內部部署 VM 必須符合此表中摘要說明的 VM 需求。 Site Recovery 在執行先決條件檢查時，會於有一些需求不符合時失敗。
+您複寫到 Azure 的內部部署 VM 必須符合此表中摘要說明的 VM 需求。 Site Recovery 在執行必要條件檢查時，會於有一些需求不符合時失敗。
 
 **元件** | **需求** | **詳細資料**
 --- | --- | ---
@@ -230,22 +233,42 @@ FC 磁碟 | 不支援。 | 若不支援，則檢查會失敗。
 BitLocker | 不支援。 | 為電腦啟用複寫之前必須先停用 BitLocker。 |
 VM 名稱 | 從 1 到 63 個字元。<br/><br/> 只能使用字母、數字和連字號。<br/><br/> 電腦名稱必須以字母或數字為開頭或結尾。 |  更新 Site Recovery 中電腦屬性的值。
 
+## <a name="azure-site-recovery-churn-limits"></a>Azure Site Recovery 的變換限制
+
+下表提供 Azure Site Recovery 限制。 上述限制是以我們的測試為基礎，但無法涵蓋所有可能的應用程式 I/O 組合。 實際的結果會隨著您的應用程式 I/O 混合而有所不同。 為了獲得最佳結果，我們強烈建議[執行部署規劃工具](site-recovery-deployment-planner.md)和執行廣泛的應用程式藉由發出測試容錯移轉來測試以取得應用程式的真正的效能情況。
+
+**複寫儲存體目標** | **平均來源磁碟 I/O 大小** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
+---|---|---|---
+標準儲存體 | 8 KB | 2 MB/秒 | 每個磁碟 168 GB
+進階 P10 或 P15 磁碟 | 8 KB  | 2 MB/秒 | 每個磁碟 168 GB
+進階 P10 或 P15 磁碟 | 16 KB | 4 MB/秒 |  每個磁碟 336 GB
+進階 P10 或 P15 磁碟 | 32 KB 或更大 | 8 MB/秒 | 每個磁碟 672 GB
+進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MB/秒 | 每個磁碟 421 GB
+進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |20 MB/秒 | 每個磁碟的 1684 GB
+
+**來源資料變換** | **上限**
+---|---
+每個 VM 的平均資料變換| 25 MB/秒
+VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
+處理序伺服器支援的每日資料變換上限 | 2 TB
+
+以上是採用 30% I/O 重疊時的平均數字。 Site Recovery 能夠處理更高的輸送量 (以重疊比為基礎)、較大的寫入大小和實際工作負載 I/O 行為。 先前數字採用大約五分鐘的典型積壓。 也就是說，資料上傳之後，便會進行處理並在五分鐘內建立復原點。
 
 ## <a name="vault-tasks"></a>保存庫工作
 
 **Action** | **支援**
 --- | ---
-在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否
+在資源群組間移動保存庫<br/><br/> 订阅内和跨订阅移动 | 否
 跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否
 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>下載最新的 Azure Site Recovery 元件
 
 **名稱** | **說明** | **最新版本下載指示**
---- | --- | --- | --- | ---
+--- | --- | --- 
 組態伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊  <br/><br/> 安裝在內部部署 VMware 伺服器上 | 若為全新安裝，請按一下[這裡](vmware-azure-deploy-configuration-server.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
 處理序伺服器|預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。| 若為全新安裝，請按一下[這裡](vmware-azure-set-up-process-server-scale.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-manage-process-server.md#upgrade-a-process-server)。
-行動服務 | 協調內部部署 VMware 伺服器/實體伺服器和 Azure/次要站台間複寫<br/><br/> 安裝於 VMware VM 上或您想要複寫的實體伺服器上 | 若為全新安裝，請按一下[這裡](vmware-azure-install-mobility-service.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-physical-mobility-service-overview.md#update-the-mobility-service)。
+行動服務 | 協調內部部署 VMware 伺服器/實體伺服器和 Azure/次要站台間複寫<br/><br/> 安裝於 VMware VM 上或您想要複寫的實體伺服器上 | 若為全新安裝，請按一下[這裡](vmware-azure-install-mobility-service.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal)。
 
 若要深入了解最新功能和修正程式，請按一下[這裡](https://aka.ms/ASR_latest_release_notes)。
 

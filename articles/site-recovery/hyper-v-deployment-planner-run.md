@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006340"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>針對 Hyper-V 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
 
@@ -34,7 +34,8 @@ ms.locfileid: "55815062"
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
-| 參數名稱 | 說明 |
+
+| 參數名稱 | 描述 |
 |---|---|
 | -Operation | GetVMList |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
@@ -83,7 +84,8 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
-| 參數名稱 | 說明 |
+
+| 參數名稱 | 描述 |
 |---|---|
 | -Operation | StartProfiling |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
@@ -164,7 +166,8 @@ Azure Site Recovery 不支援具有 iSCSI 和傳遞磁碟的 VM。 此工具也�
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
-| 參數名稱 | 說明 |
+
+| 參數名稱 | 描述 |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | 包含已分析虛擬機器清單 (將為其產生報告) 的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**範例：** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
@@ -271,7 +274,8 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
- 參數名稱 | 說明 |
+
+ 參數名稱 | 描述 |
 |---|---|
 | -Operation | GetThroughput |
 |-Virtualization|虛擬化類型 (VMware 或 Hyper-V)。|

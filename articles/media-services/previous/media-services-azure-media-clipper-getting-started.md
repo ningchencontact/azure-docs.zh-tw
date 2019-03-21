@@ -6,15 +6,15 @@ keywords: clip;subclip;encoding;media;剪輯;子剪輯;編碼;媒體
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 772865f42dfef8734fb23022039f02910958af61
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992461"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842357"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>使用 Azure Media Clipper 建立剪輯
 本節說明開始使用 Azure Media Clipper 的基本步驟。 以下章節提供有關如何設定 Azure Media Clipper 的細節。
@@ -100,7 +100,7 @@ var subclipper = new subclipper({
 - `height` {選擇性，數字} 小工具高度總計 (不含資產窗格的高度下限為 600 px，含有資產窗格的高度下限為 850 px)。
 - `subclippingMode` (選擇性，{'all', 'render', 'filter'})：允許的子剪輯模式。 預設值為全部。
 - `filterAssetsTypes` (選擇性，布林值)：filterAssetsTypes 可讓您從資產窗格顯示/隱藏篩選下拉式清單。 預設值為 true。
-- `speedLevels` (選擇性，陣列)：speedLevels 允許為影片播放器設定不同的速度等級，請參閱 [Azure Media Player 文件](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions)以取得詳細資訊。
+- `speedLevels` (選擇性，陣列)：speedLevels 允許為影片播放器設定不同的速度等級，請參閱 [Azure Media Player 文件](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions)以取得詳細資訊。
 - `resetOnJobDone` (選擇性，布林值)：resetOnJobDone 允許當成功提交作業時 Clipper 將子剪輯器重設為初始狀態。
 - `autoplayVideo` (選擇性，布林值)：autoplayVideo 允許 Clipper 在載入時自動播放影片。 預設值為 true。
 - `language` {選擇性，字串}：語言會設定小工具的語言。 如果未指定，小工具會嘗試根據瀏覽器語言將訊息當地語系化。 如果在瀏覽器中偵測不到任何語言，小工具預設為英文。 如需詳細資訊，請參閱[設定當地語系化](media-services-azure-media-clipper-localization.md)一節。
@@ -108,7 +108,7 @@ var subclipper = new subclipper({
 - `extraLanguages` (選擇性，JSON)：extraLanguages 參數會將新語言新增至預設字典。 如需詳細資訊，請參閱[設定當地語系化](media-services-azure-media-clipper-localization.md)一節。
 
 ## <a name="typescript-definition"></a>TypeScript 定義
-Clipper 的 [TypeScript](https://www.typescriptlang.org/) 定義檔案可以在[這裡](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts)找到。
+Clipper 的 [TypeScript](https://www.typescriptlang.org/) 定義檔案可以在[這裡](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts)找到。
 
 ## <a name="azure-media-clipper-api"></a>Azure Media Clipper API
 本節記載 Clipper 提供的 API 介面。

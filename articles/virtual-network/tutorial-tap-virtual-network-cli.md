@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 48ccbedd6e3a7da0ec487f27709a47f9364f7da3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100052"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188555"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>使用 Azure CLI 來處理虛擬網路 TAP
 
@@ -28,7 +28,7 @@ Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將您的虛擬機器
 
 ## <a name="create-a-virtual-network-tap-resource"></a>建立虛擬網路 TAP 資源
 
-建立虛擬網路 TAP 資源之前，請先閱讀[必要條件](virtual-network-tap-overview.md#prerequisites)。 您可以執行 [Azure Cloud Shell](https://shell.azure.com/bash) 中採用的命令，或從您的電腦執行 Azure 命令列介面 (CLI)。 Azure Cloud Shell 是免費的互動式殼層，而且不會要求您必須在電腦上安裝 Azure CLI。 您必須使用具有適當[權限](virtual-network-tap-overview.md#permissions)的帳戶登入 Azure。 此文章需要 Azure CLI 2.0.46 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
+建立虛擬網路 TAP 資源之前，請先閱讀[必要條件](virtual-network-tap-overview.md#prerequisites)。 您可以執行 [Azure Cloud Shell](https://shell.azure.com/bash) 中採用的命令，或從您的電腦執行 Azure 命令列介面 (CLI)。 Azure Cloud Shell 是免費的互動式殼層，而且不會要求您必須在電腦上安裝 Azure CLI。 您必須使用具有適當[權限](virtual-network-tap-overview.md#permissions)的帳戶登入 Azure。 此文章需要 Azure CLI 2.0.46 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 擴充功能目前可供虛擬網路 TAP。 若要安裝延伸模組，您需要執行`az extension add -n virtual-network-tap`。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 1. 將您訂用帳戶的識別碼擷取到在稍後步驟使用的變數中：
 

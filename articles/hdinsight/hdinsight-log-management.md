@@ -2,19 +2,19 @@
 title: 管理 HDInsight 叢集的記錄 - Azure HDInsight
 description: 判斷 HDInsight 活動記錄檔的類型、大小及保留原則。
 services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 03/19/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225311"
+ms.locfileid: "58294904"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 叢集的記錄
 
@@ -43,13 +43,12 @@ HDInsight 叢集會產生各式各樣的記錄檔。 例如 Apache Hadoop 及相
 * 叢集狀態，包括上次狀態變更的詳細資料
 * 為主要、核心及工作節點指定的 HDInsight 執行個體類型和數目
 
-您可以使用 Azure 入口網站來取得此最上層資訊的大部分。  或者，您也可以使用 Azure 傳統 CLI 來取得有關 HDInsight 叢集的資訊：
+您可以使用 Azure 入口網站來取得此最上層資訊的大部分。  或者，您可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)來取得您的 HDInsight 叢集的相關資訊：
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 您還可以使用 PowerShell 來檢視此資訊。  如需詳細資訊，請參閱 [Apache 使用 Azure PowerShell 來管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-powershell.md)。
 
@@ -99,7 +98,7 @@ HDInsight [指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)會以�
 
 ### <a name="access-the-hadoop-log-files"></a>存取 Hadoop 記錄檔
 
-HDInsight 會將其記錄檔同時儲存在叢集檔案系統和 Azure 儲存體中。 您可以開啟與叢集的 SSH 連線並瀏覽檔案系統，或是使用遠端前端節點伺服器上的 Hadoop YARN 狀態入口網站，來檢查叢集中的記錄檔。 您可以使用任何能夠存取和下載 Azure 儲存體中資料的工具，來檢查 Azure 儲存體中的記錄檔。 範例包括 AZCopy、CloudXplorer 及「Visual Studio 伺服器總管」。 您也可以使用 PowerShell 和「Azure 儲存體用戶端」程式庫或 Azure .NET SDK，來存取 Azure Blob 儲存體中的資料。
+HDInsight 會將其記錄檔同時儲存在叢集檔案系統和 Azure 儲存體中。 您可以檢查在叢集中的記錄檔 %installationdirectory [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md)連線到叢集，並瀏覽檔案系統中，或使用遠端前端節點伺服器上的 Hadoop YARN 狀態入口網站。 您可以使用任何能夠存取和下載 Azure 儲存體中資料的工具，來檢查 Azure 儲存體中的記錄檔。 範例包括[AzCopy](../storage/common/storage-use-azcopy.md)， [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)，和 Visual Studio 伺服器總管。 您也可以使用 PowerShell 和「Azure 儲存體用戶端」程式庫或 Azure .NET SDK，來存取 Azure Blob 儲存體中的資料。
 
 Hadoop 會將作業的工作以「工作嘗試」的形式在叢集中的各種節點上執行。 HDInsight 可以起始理論式工作嘗試，其中會先終止所有其他未完成的工作嘗試。 這會產生將即時記錄至控制器、stderr 及 syslog 記錄檔的重要活動。 此外，多個工作嘗試會同時執行，但記錄檔只能以線性方式顯示結果。
 
@@ -168,9 +167,9 @@ YARN ResourceManager UI 會在叢集前端節點上執行，您可以透過 Amba
 
 ### <a name="other-log-management-techniques"></a>其他記錄管理技術
 
-若要避免磁碟空間用完，您可以使用一 OS 工具 (例如 `logrotate`) 來管理記錄檔的處理。 您可以設定讓 `logrotate` 每天執行，以壓縮記錄檔並移除舊記錄檔。 您的方法取決於您的需求，例如要在本機節點上保留記錄檔多久。 
+若要避免磁碟空間不足，您可以使用一 OS 工具例如[logrotate](https://linux.die.net/man/8/logrotate)來管理記錄檔的處理。 您可以設定讓 `logrotate` 每天執行，以壓縮記錄檔並移除舊記錄檔。 您的方法取決於您的需求，例如要在本機節點上保留記錄檔多久。  
 
-您也可以檢查是否已針對一或多個服務啟用 DEBUG 記錄功能，此功能會大幅增加輸出記錄大小。 
+您也可以檢查是否已針對一或多個服務啟用 DEBUG 記錄功能，此功能會大幅增加輸出記錄大小。  
 
 若要將記錄從所有節點收集到一個集中位置，您可以建立資料流程，例如將所有記錄項目擷取至 Solr。
 

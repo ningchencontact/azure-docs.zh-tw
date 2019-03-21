@@ -1,6 +1,6 @@
 ---
 title: Azure 資訊安全中心搜尋 | Microsoft Docs
-description: 了解 Azure 資訊安全中心如何使用 Log Analytics 搜尋來擷取和分析您的安全性資料。
+description: 了解 Azure 資訊安全中心如何使用 Azure 監視器記錄檔搜尋來擷取及分析安全性資料。
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: c02a9f61a4a8b88f8b6c4d861f1a6cbe904ad70d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074500"
 ---
 # <a name="azure-security-center-search"></a>Azure 資訊安全中心搜尋
-Azure 資訊安全中心使用 [Log Analytics 搜尋](../log-analytics/log-analytics-log-searches.md)來擷取和分析您的安全性資料。 Log Analytics 包含可快速擷取及彙總資料的查詢語言。 您可以從安全性中心利用 Log Analytics 搜尋來建構查詢，並分析收集的資料。
+Azure 資訊安全中心會使用[Azure 監視器記錄檔搜尋](../log-analytics/log-analytics-log-searches.md)來擷取和分析安全性資料。 Azure 監視器記錄檔包含可快速擷取及彙總資料的查詢語言。 從資訊安全中心，您可以利用 Azure 監視器記錄檔搜尋來建構查詢及分析所收集的資料。
 
 資訊安全中心的免費層和標準層皆可使用搜尋。  記錄搜尋中的可用資料取決於套用至您工作區的層級。  如需詳細資訊，請參閱資訊安全中心[價格頁面](../security-center/security-center-pricing.md)。
 
@@ -35,29 +35,29 @@ Azure 資訊安全中心使用 [Log Analytics 搜尋](../log-analytics/log-analy
 ## <a name="access-search"></a>存取搜尋
 1. 在資訊安全中心主功能表下，選取 [搜尋]。
 
-  ![選取記錄搜尋][1]
+   ![選取記錄搜尋][1]
 
 2. 資訊安全中心會列出您 Azure 訂用帳戶下的所有工作區。 選取工作區。 (如果您只有一個工作區，這個工作區選取器不會出現。)
 
-  ![選取工作區][2]
+   ![選取工作區][2]
 
 3. [記錄搜尋] 隨即開啟。 若要查詢所選取工作區下的詳細資料，請輸入此範例查詢：
 
-  SecurityEvent | 其中 EventID = = 4625 | summarize count() by TargetAccount
+   SecurityEvent | 其中 EventID = = 4625 | summarize count() by TargetAccount
 
-  結果會顯示無法登入的所有帳戶 (事件 4625)。
+   結果會顯示無法登入的所有帳戶 (事件 4625)。
 
-  ![搜尋結果][3]
+   ![搜尋結果][3]
 
-如需進一步了解如何查詢所選取工作區下的，請參閱 [Log Analytics 查詢語言](../log-analytics/log-analytics-search-reference.md)。
+請參閱[Kusto 查詢語言](../log-analytics/log-analytics-search-reference.md)如需有關如何查詢所選工作區下的資料。
 
 ## <a name="next-steps"></a>後續步驟
-您會在本文中了解如何存取資訊安全中心的搜尋。 資訊安全中心使用 Log Analytics 搜尋。 若要深入了解 Log Analytics 搜尋，請參閱：
+您會在本文中了解如何存取資訊安全中心的搜尋。 資訊安全中心會使用 Azure 監視器記錄檔搜尋。 若要深入了解 Azure 監視器記錄檔搜尋，請參閱：
 
-- [什麼是 Log Analytics？](../log-analytics/log-analytics-overview.md) – Log Analytics 概觀
-- [了解 Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-search-new.md) - 說明記錄搜尋在 Log Analytics 中的使用方式，並且提供在建立記錄搜尋之前應該了解的概念
-- [在 Log Analytics 中使用記錄搜尋以尋找資料](../log-analytics/log-analytics-log-searches.md) – 使用記錄搜尋的教學課程
-- [Log Analytics 搜尋參考](../log-analytics/log-analytics-search-reference.md) – 說明 Log Analytics 中的查詢語言
+- [什麼是 Azure 監視器記錄檔？](../log-analytics/log-analytics-overview.md) -Azure 監視器記錄檔概觀
+- [了解記錄搜尋中 Azure 監視器記錄](../log-analytics/log-analytics-log-search-new.md)-說明如何在 Azure 監視器記錄檔中使用記錄搜尋，並提供建立記錄搜尋之前應該了解的概念
+- [使用 Azure 監視器記錄檔中的記錄搜尋尋找資料](../log-analytics/log-analytics-log-searches.md)– 使用記錄搜尋的教學課程
+- [Kusto 搜尋參考](../log-analytics/log-analytics-search-reference.md)– 說明 Azure 監視器記錄檔中的查詢語言
 
 若要深入了解資訊安全中心，請參閱：
 

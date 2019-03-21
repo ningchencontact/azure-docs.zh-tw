@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696790"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009939"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -24,7 +24,7 @@ ms.locfileid: "55696790"
 
 ### <a name="what-ip-address-does-traffic-manager-use"></a>「流量管理員」使用什麼 IP 位址？
 
-如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 它會傳送 DNS 回應，將用戶端導向適當的服務端點。 用戶端會接著直接連線到服務端點，而不會透過「流量管理員」。
+如[流量管理器工作原理](../traffic-manager/traffic-manager-how-it-works.md)中所述，流量管理器在 DNS 级别工作。 它會傳送 DNS 回應，將用戶端導向適當的服務端點。 用戶端會接著直接連線到服務端點，而不會透過「流量管理員」。
 
 因此，「流量管理員」並不提供端點或 IP 位址來供用戶端連線。 如果您的服務需要靜態 IP 位址，就必須在服務上設定，而不是在「流量管理員」中設定。
 
@@ -42,7 +42,7 @@ ms.locfileid: "55696790"
 
 如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 它會使用 DNS 回應將用戶端導向到適當的服務端點。 用戶端會接著直接連線到服務端點，而不會透過「流量管理員」。 流量管理員看不到用戶端與伺服器之間的 HTTP 流量。 因此，您看到的任何 HTTP 錯誤必定來自您的應用程式。 為了讓用戶端連接至應用程式，所有 DNS 解析步驟都已完成。 這包括流量管理員在應用程式流量流程上的任何互動。
 
-因此，進一步的調查應該將焦點放在應用程式上。
+因此，进一步的调查应着重于应用程序。
 
 從用戶端的瀏覽器傳送的 HTTP 主機標頭是最常見的問題來源。 請確定應用程式已設定為接受您使用之網域名稱的正確主機標頭。 關於使用 Azure App Service 的端點，請參閱[在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱](../app-service/web-sites-traffic-manager-custom-domain-name.md)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "55696790"
 
 如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 由於用戶端會直接連線到服務端點，因此在連線建立之後，使用「流量管理員」時並不會造成任何效能影響。
 
-因為流量管理員會在 DNS 層級與應用程式整合，所以它確實需要在 DNS 解析鏈結中插入額外的 DNS 查閱。 「流量管理員」對 DNS 解析時間的影響極小。 流量管理員使用全球網路上的名稱伺服器，並使用[任一傳播](https://en.wikipedia.org/wiki/Anycast)網路功能，以確保一律將 DNS 查詢路由傳送至最靠近的可用名稱伺服器。 此外，快取 DNS 回應意謂著因使用「流量管理員」而造成的額外 DNS 延遲僅適用於一小部分工作階段。
+因為流量管理員會在 DNS 層級與應用程式整合，所以它確實需要在 DNS 解析鏈結中插入額外的 DNS 查閱。 流量管理器对 DNS 解析时间的影响微乎其微。 流量管理員使用全球網路上的名稱伺服器，並使用[任一傳播](https://en.wikipedia.org/wiki/Anycast)網路功能，以確保一律將 DNS 查詢路由傳送至最靠近的可用名稱伺服器。 此外，快取 DNS 回應意謂著因使用「流量管理員」而造成的額外 DNS 延遲僅適用於一小部分工作階段。
 
 「效能」方法會將流量路由傳送至最靠近的可用端點。 最後結果就是這個方法引起的整體效能影響會降到最低。 增加的任何 DNS 延遲都被端點更短的網路延遲所抵銷。
 
@@ -59,14 +59,7 @@ ms.locfileid: "55696790"
 如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 完成 DNS 查閱之後，用戶端就會直接連線到應用程式端點，而不會透過「流量管理員」。 因此，連線可以使用任何應用程式通訊協定。 如果您選取 TCP 作為監視通訊協定，流量管理員的端點健康情況監視可以在不使用任何應用程式通訊協定的情況下完成。 如果您選擇使用應用程式通訊協定來驗證健康情況，端點必須能夠回應 HTTP 或 HTTPS GET 要求。
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>我是否可以在流量管理員中使用「裸」網域名稱？
-
-沒有。 DNS 標準不允許 CNAME 與同名的其他 DNS 記錄並存。 DNS 區域的頂點 (或根) 永遠包含兩筆預先存在的 DNS 記錄：SOA 和授權 NS 記錄。 這表示在區域頂點建立 CNAME 記錄就違反 DNS 標準。
-
-流量管理員需要 DNS CNAME 記錄來對應虛名 DNS 名稱。 例如，您將 `www.contoso.com` 對應至流量管理員設定檔 DNS 名稱 `contoso.trafficmanager.net`。 此外，流量管理員設定檔會傳回第二筆 DNS CNAME，以指出用戶端應該連接至哪一個端點。
-
-為了解決此問題，我們建議使用 HTTP 重新導向，將流量從裸網域名稱導向不同的 URL，這樣就可以使用流量管理員。 例如，裸網域 'contoso.com' 可以將使用者重新導向 CNAME 'www.contoso.com'，後者指向流量管理員 DNS 名稱。
-
-我們的功能待處理項目中追蹤了對「流量管理員」中裸網域的完整支援。 您可以[在我們的社群意見反應站投票](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)，以表達您支持這項功能要求。
+是。 若要了解如何建立您要參考的 Azure 流量管理員設定檔的網域名稱頂點的別名記錄，請參閱[設定為支援頂點網域名稱使用流量管理員別名記錄](../dns/tutorial-alias-tm.md)。
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>處理 DNS 查詢時，流量管理員會考量用戶端子網路位址嗎？ 
 是，除了所收到 DNS 查詢的來源 IP 位址 (通常是 DNS 解析程式的 IP 位址) 之外，在執行「地理」、「效能」和「子網路」路由方法的查閱時，如果代表使用者發出要求的解析程式在查詢中包含用戶端子網路位址，則流量管理員也會考量該位址。  
@@ -97,7 +90,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 >在某些情況下，您可能需要效能路由和地理路由功能兩者，對於這些情況，巢狀設定檔可能是最佳選擇。 例如，您可以設定使用地理路由的父設定檔，將所有來自北美洲的流量，傳送到所含端點在美國的巢狀設定檔，並使用效能路由將那些流量傳送到該集合中的最佳端點。 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>流量管理員的地理路由支援哪些區域？ 
-[這裡](traffic-manager-geographic-regions.md)可以找到流量管理員所使用的國家/區域階層。 雖然此頁面一有變動就會隨時更新，但您也可以透過程式設計方式，利用 [Azure 流量管理員 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 擷取相同的資訊。 
+可在[此处](traffic-manager-geographic-regions.md)查找流量管理器使用的国家/地区层次结构。 雖然此頁面一有變動就會隨時更新，但您也可以透過程式設計方式，利用 [Azure 流量管理員 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 擷取相同的資訊。 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>流量管理員如何判斷使用者從何處執行查詢？ 
 流量管理員會查看查詢的來源 IP (這很可能是代表使用者執行查詢的本機 DNS 解析程式)，並使用內部 IP 至區域的對應來判斷位置。 此對應會融合網際網路上的變動而不斷更新。 
@@ -129,7 +122,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>支援此路由類型的 API 版本有任何限制嗎？
 
-是，只有 2017 年 3 月 1 日的 API 版本和更新版本支援地理路由類型。 任何舊版 API 都無法用來建立地理路由類型的設定檔，或將地理區域指派給端點。 如果使用舊版 API 從 Azure 訂用帳戶擷取設定檔，將不會傳回地理路由類型的任何設定檔。 此外，使用舊版 API 時，傳回的任何設定檔如果有已指派地理區域的端點，則不會顯示其地理區域指派。
+是，只有 2017 年 3 月 1 日的 API 版本和更新版本支援地理路由類型。 不能使用旧的 API 版本创建地理路由类型的配置文件或向终结点分配地理区域。 如果使用舊版 API 從 Azure 訂用帳戶擷取設定檔，將不會傳回地理路由類型的任何設定檔。 此外，使用舊版 API 時，傳回的任何設定檔如果有已指派地理區域的端點，則不會顯示其地理區域指派。
 
 ## <a name="traffic-manager-subnet-traffic-routing-method"></a>流量管理員子網路流量路由方法
 
@@ -276,12 +269,12 @@ MultiValue 路由方法的另一種用法是，如果端點同時「雙重裝載
 
 來自多個訂用帳戶的端點不能與 Azure Web 應用程式搭配使用。 Azure Web Apps 規定 Web Apps 使用的任何自訂網域名稱只能在單一訂用帳戶內使用。 無法使用具有相同網域名稱的多個訂用帳戶中的 Web Apps。
 
-針對其他端點類型，則可以將「流量管理員」與來自多個訂用帳戶的端點搭配使用。 在 Resource Manager 中，來自任何訂用帳戶的端點都可以新增至流量管理員，只要設定流量管理員設定檔的人員具有端點的讀取權限即可。 使用 [Azure Resource Manager 角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)可以授與這些權限。
+对于其他终结点类型，可在多个订阅中结合使用流量管理器和终结点。 在 Resource Manager 中，來自任何訂用帳戶的端點都可以新增至流量管理員，只要設定流量管理員設定檔的人員具有端點的讀取權限即可。 可使用 [Azure Resource Manager 基于角色的访问控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 授予这些权限。
 
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>我可以使用流量管理員來設定雲端服務「預備」位置嗎？
 
-是。 雲端服務「預備」位置可在流量管理員中設定為外部端點。 健康情況檢查仍然以 Azure 端點費率計費。 因為外部端點類型正在使用中，所以不會自動挑選基礎服務的變更。 使用外部端點時，流量管理員無法偵測雲端服務何時停止或刪除。 因此，流量管理員會持續計費健康情況檢查，直到停用或刪除端點為止。
+是。 雲端服務「預備」位置可在流量管理員中設定為外部端點。 健康情況檢查仍然以 Azure 端點費率計費。 由于使用的是“外部”终结点类型，系统不会自动拾取对基础服务所做的更改。 使用外部端點時，流量管理員無法偵測雲端服務何時停止或刪除。 因此，流量管理員會持續計費健康情況檢查，直到停用或刪除端點為止。
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>流量管理員是否支援 IPv6 端點？
 
@@ -304,7 +297,7 @@ MultiValue 路由方法的另一種用法是，如果端點同時「雙重裝載
 流量管理員在 Azure 中是提供高可用性應用程式的一個重要元件。
 若要提供高可用性，流量管理員必須擁有極高的可用性，並且可從區域失敗中恢復。
 
-根據設計，流量管理員元件可從任何 Azure 區域的全面失敗中恢復。 此恢復功能適用於所有流量管理員元件︰DNS 名稱伺服器、API、儲存層及端點監視服務。
+根據設計，流量管理員元件可從任何 Azure 區域的全面失敗中恢復。 这样的应对能力见于所有流量管理器组件：DNS 名称服务器、API、存储层、终结点监视服务。
 
 萬一整個 Azure 區域停機，也能預期流量管理員會持續正常運作。 在多個 Azure 區域中部署的應用程式可依賴流量管理員，將流量導向其應用程式的可用執行個體。
 
@@ -322,12 +315,12 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="can-i-monitor-https-endpoints"></a>我可以監視 HTTPS 端點嗎？
 
-是。 流量管理員支援透過 HTTPS 探查。 在監視組態中將 **HTTPS** 設定為通訊協定。
+是。 流量管理器支持通过 HTTPS 进行探测。 在監視組態中將 **HTTPS** 設定為通訊協定。
 
 流量管理員無法提供任何憑證驗證，包括：
 
 * 不會驗證伺服器端憑證
-* 不支援 SNI 伺服器端憑證
+* 不支持 SNI 服务器端证书
 * 不支援用戶端憑證
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>新增端點時，使用 IP 位址還是 DNS 名稱？
@@ -347,6 +340,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 收到設定檔的查詢時，流量管理員會先尋找需要根據指定路由方法和端點健康狀態所傳回的端點。 它接著會在根據下表傳回回應之前，查看傳入查詢中所要求的記錄類型以及與端點建立關聯的記錄類型。
 
 針對任何具有 MultiValue 以外之路由方法的設定檔：
+
 |傳入查詢要求|    端點類型|  提供的回應|
 |--|--|--|
 |ANY |  A/AAAA/CNAME |  目標端點| 
@@ -357,6 +351,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 |CNAME |    CNAME | 目標端點|
 |CNAME  |A/AAAA | NODATA |
 |
+
 針對路由方法設定為 MultiValue 的設定檔：
 
 |傳入查詢要求|    端點類型 | 提供的回應|
@@ -425,7 +420,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>流量管理員支援幾層巢狀結構？
 
-設定檔的巢狀結構深度最多可達 10 層。 不允許使用「迴圈」。
+配置文件的嵌套最深可达 10 层。 不允許使用「迴圈」。
 
 ### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>在同一個「流量管理員」設定檔中，是否可以將其他端點類型與巢狀子設定檔混合使用？
 
@@ -454,13 +449,13 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 下表描述流量管理員檢查巢狀端點健康狀態時的行為。
 
-| 子設定檔監視狀態 | 父端點監視狀態 | 注意 |
+| 子配置文件监视器状态 | 父端點監視狀態 | 注意 |
 | --- | --- | --- |
 | 已停用。 已停用子設定檔。 |已停止 |父端點狀態為「已停止」，不是「已停用」。 「已停用」狀態會保留，表示您已停用父設定檔中的端點。 |
 | 已降級。 至少有一個子設定檔端點的狀態為「已降級」。 |線上︰子設定檔中「線上」端點的數目至少等於 MinChildEndpoints 的值。<BR>CheckingEndpoint︰子設定檔中「線上」加 CheckingEndpoint 端點的數目至少等於 MinChildEndpoints 的值。<BR>已降級︰其他情況。 |系統會將流量傳遞給狀態為 CheckingEndpoint 的端點。 如果 MinChildEndpoints 設定太高，則端點一律會降級。 |
-| 線上。 至少有一個子設定檔端點處於「線上」狀態。 沒有端點處於「已降級」狀態。 |請參閱上方。 | |
+| 联机。 至少有一個子設定檔端點處於「線上」狀態。 沒有端點處於「已降級」狀態。 |见上。 | |
 | CheckingEndpoints。 至少有一個子設定檔端點是 'CheckingEndpoint'。 沒有端點是「線上」或「已降級」。 |同上。 | |
-| 非使用中。 所有子設定檔端點不是「已停用」就是「已停止」，或者此設定檔沒有任何端點 |已停止 | |
+| 非活动。 所有子設定檔端點不是「已停用」就是「已停止」，或者此設定檔沒有任何端點 |已停止 | |
 
 ## <a name="next-steps"></a>後續步驟：
 - 深入了解「流量管理員」的 [端點監視和自動容錯移轉](../traffic-manager/traffic-manager-monitoring.md)。

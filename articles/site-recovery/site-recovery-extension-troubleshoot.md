@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 7a4ff22bbb4c7c13d8c2feae3638ce8e33a8f7ad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103531"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>對 Azure Site Recovery 代理程式的問題進行疑難排解
 
@@ -77,15 +77,15 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 
 1. 請遵循[更新 Linux VM 代理程式](../virtual-machines/linux/update-agent.md)的指示。
 
- > [!NOTE]
- > 我們強烈建議您只透過散發套件存放庫更新代理程式。 我們不建議直接從 GitHub 下載代理程式程式碼，並加以更新。 如果最新的代理程式不適用於您的散發套件，請連絡散發套件支援以取得如何進行安裝的指示。 若要檢查最新的代理程式，請移至 GitHub 儲存機制中的 [Microsoft Azure Linux 代理程式 (英文)](https://github.com/Azure/WALinuxAgent/releases) 頁面。
+   > [!NOTE]
+   > 我們強烈建議您只透過散發套件存放庫更新代理程式。 我們不建議直接從 GitHub 下載代理程式程式碼，並加以更新。 如果最新的代理程式不適用於您的散發套件，請連絡散發套件支援以取得如何進行安裝的指示。 若要檢查最新的代理程式，請移至 GitHub 儲存機制中的 [Microsoft Azure Linux 代理程式 (英文)](https://github.com/Azure/WALinuxAgent/releases) 頁面。
 
 2. 執行下列命令，確定 Azure 代理程式正在 VM 上執行：`ps -e`
 
- 如果此程序不在執行中，請使用下列命令來重新啟動它：
+   如果此程序不在執行中，請使用下列命令來重新啟動它：
 
- * 針對 Ubuntu：`service walinuxagent start`
- * 針對其他散發套件︰`service waagent start`
+   * 針對 Ubuntu：`service walinuxagent start`
+   * 針對其他散發套件︰`service waagent start`
 
 3. [設定自動重新啟動代理程式](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash)。
 4. 啟用虛擬機器的保護。

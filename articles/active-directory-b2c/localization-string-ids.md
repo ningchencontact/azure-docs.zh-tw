@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3f72480aaa05c0f50179d4d330525b12525282bc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5f937a86e4e063ad1e8346dc629a917ae7ce8b65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077202"
 ---
 # <a name="localization-string-ids"></a>當地語系化字串識別碼
 
@@ -33,7 +33,7 @@ ms.locfileid: "55161863"
 | **logonIdentifier_email** | 電子郵件地址 |
 | **requiredField_email** | 請輸入您的電子郵件 |
 | **invalid_email** | 請輸入有效的電子郵件地址 |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^ [a-A-za-a-za-z0-9。 ！#$%（& s) '*+ =？ ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ (？:\\。 [-zA-a-za-z0 9-] +)*$ |
 | **local_intro_username** | 使用您的使用者名稱登入 |
 | **logonIdentifier_username** | 使用者名稱 |
 | **requiredField_username** | 請輸入您的使用者名稱 |

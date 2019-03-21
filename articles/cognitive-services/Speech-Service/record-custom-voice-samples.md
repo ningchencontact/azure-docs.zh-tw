@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864939"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530734"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>錄製語音樣本來建立自訂語音
 
@@ -105,7 +105,7 @@ ms.locfileid: "55864939"
 
 還好您可以完全避免這些問題。 有許多您可以使用的文字來源，而不需要權限或授權。
 
-|文字來源|說明|
+|文字來源|描述|
 |-|-|
 |[CMU Arctic 語料庫](http://festvox.org/cmu_arctic/) \(英文\)|大約有 1100 個都是從已不受著作權保護的作品中選出，且特別適合用於語音合成專案的句子。 絕佳的起點。|
 |作品不再<br>受著作權保護|作品通常是在 1923 年之前出版。 [Project Gutenberg](https://www.gutenberg.org/) \(英文\) 提供成千上萬個英文版的這類作品。 您可能希望專注在較新的作品上，因為語言將更接近現代英文。|
@@ -150,7 +150,7 @@ ms.locfileid: "55864939"
 
 這裡使用了大部分的範圍 (高度)，但訊號的最高峰未達到視窗的最上方或最下方。 您也可以看到錄音中的靜音近似於細長的水平線，表示背景噪音低。 此錄音具有可接受的動態範圍和信噪比。
 
-根據您所使用的麥克風，可以透過高品質的音訊介面或 USB 連接埠，直接錄製到電腦中。 若是類比式麥克風，則保持音訊鏈簡單：麥克風、前置放大器、音訊介面、電腦。 您可以在合理成本的條件下，取得 [Avid Pro Tools](http://www.avid.com/en/pro-tools) 和 [Adobe Audition](https://www.adobe.com/products/audition.html) 的每月授權。 如果您的預算緊迫，請嘗試免費的 [Audacity](https://www.audacityteam.org/) \(英文\)。
+根據您所使用的麥克風，可以透過高品質的音訊介面或 USB 連接埠，直接錄製到電腦中。 若是類比式麥克風，則保持音訊鏈簡單：麥克風、前置放大器、音訊介面、電腦。 您可以在合理成本的條件下，取得 [Avid Pro Tools](https://www.avid.com/en/pro-tools) 和 [Adobe Audition](https://www.adobe.com/products/audition.html) 的每月授權。 如果您的預算緊迫，請嘗試免費的 [Audacity](https://www.audacityteam.org/) \(英文\)。
 
 以 44.1 kHz 16 位元單聲道 (CD 品質) 或更好效果錄音。 如果您的設備支援，目前最先進的是 48 kHz 24 位元。 將音訊提交到自訂語音入口網站之前，您可以將音訊降低取樣至 16 kHz 16 位元。 儘管如此，如果需要編輯，還可以獲得高品質的原始錄音。
 
@@ -204,7 +204,7 @@ ms.locfileid: "55864939"
 
 自訂語音入口網站要求每個提供的語句都在自己的檔案中。 錄音室提供的每個音訊檔都包含多個語句。 因此，主要的後製工作是拆分錄音並準備提交。 錄音工程師可能已經在檔案中放入標記 (或提供不同的提示表) 來表示每個語句的開始位置。
 
-使用您的筆記尋找所需的確切錄音段落，然後使用音效編輯公用程式 (例如 [Avid Pro Tools](http://www.avid.com/en/pro-tools) \(英文\)、[Adobe Audition](https://www.adobe.com/products/audition.html) 或免費的 [Audacity](https://www.audacityteam.org/) \(英文\))，將每個語句複製到一個新檔案。
+使用您的筆記尋找所需的確切錄音段落，然後使用音效編輯公用程式 (例如 [Avid Pro Tools](https://www.avid.com/en/pro-tools) \(英文\)、[Adobe Audition](https://www.adobe.com/products/audition.html) 或免費的 [Audacity](https://www.audacityteam.org/) \(英文\))，將每個語句複製到一個新檔案。
 
 除了第一個剪輯之外，每個剪輯的開頭和結尾只留下約 0.2 秒的靜音。 該檔案的開頭應該是完整的五秒鐘靜音。 請不要使用音訊編輯器「清除」檔案的靜音部分。 加入「室內環境音」將有助於自訂語音演算法彌補任何殘留的背景噪音。
 

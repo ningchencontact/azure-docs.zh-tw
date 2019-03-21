@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116215"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241386"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 安全性概觀
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 可解決開發與管理雲端應用程式時遭遇的挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，全心實作可調整、可信賴的關鍵性高需求工作負載。
@@ -87,7 +87,7 @@ Service Fabric 叢集提供其管理功能的數個進入點，包括 Web 架構
 
 2.  **事件彙總**：產生的事件必須經過收集與彙總後，才能夠顯示。 我們通常建議使用 [Azure 診斷](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (類似代理程式型記錄收集) 或 [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (同處理序記錄收集)。
 
-3.  **分析**：事件必須經過視覺化並可藉由某種格式來存取，才能進行分析及顯示。 有數個平台可用於監視和診斷資料的分析和視覺效果。 我們建議使用 [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) 和 [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights)，因為它們能夠與 Service Fabric 妥善整合。
+3.  **分析**：事件必須經過視覺化並可藉由某種格式來存取，才能進行分析及顯示。 有數個平台可用於監視和診斷資料的分析和視覺效果。 我們建議[Azure 監視器記錄](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms)並[Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights)因為它們與 Service Fabric 整合。
 
 您也可以使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)，監視構成 Service Fabric 叢集的許多 Azure 資源。
 
@@ -102,7 +102,7 @@ X509 數位憑證通常用來驗證用戶端與伺服器。 它們也可用於�
 
 下表列出您在設定叢集時所需的憑證：
 
-|憑證資訊設定 |說明|
+|憑證資訊設定 |描述|
 |-------------------------------|-----------|
 |ClusterCertificate|    需有此憑證，才能保護叢集上節點之間的通訊。 您可以使用兩個叢集憑證：主要憑證和用於升級的次要憑證。|
 |ServerCertificate| 用戶端嘗試連線到此叢集時，會向用戶端此憑證顯示此憑證。 您可以使用兩個伺服器憑證：主要憑證和用於升級的次要憑證。|

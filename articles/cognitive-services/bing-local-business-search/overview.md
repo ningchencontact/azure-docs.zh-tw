@@ -6,22 +6,21 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: fd57c344c640974e9c73156902848fb1685861f2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fb3b375a66ac9b05ad26287b7c39ce8e748ad699
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163138"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780315"
 ---
 # <a name="what-is-bing-local-business-search"></a>什麼是 Bing 當地商家搜尋？
 Bing 當地商家搜尋 API 是一套 RESTful 服務，可讓您的應用程式依搜尋查詢項目，尋找當地商家資訊。 例如，`q=<business-name> in Redmond, Washington` 或 `q=Italian restaurants near me`。 
 
 ## <a name="features"></a>特性
-| 功能 | 說明 |  
+| 功能 | 描述 |  
 | -- | -- | 
 | [尋找當地商家和位置](quickstarts/local-quickstart.md) | Bing 當地商家搜尋 API 會從查詢中取得本地化的結果。 結果包括商家網站的 URL 和顯示文字、電話號碼，以及地理位置，包括：GPS 座標、城市、街道地址 |  
 | [篩選地理界限的當地結果](specify-geographic-search.md) | 加入座標作為搜尋參數，以將結果限制為特定的地理區域，由圓形區域或方形週框方塊指定。 | 

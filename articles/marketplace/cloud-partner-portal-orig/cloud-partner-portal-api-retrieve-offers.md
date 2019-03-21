@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3429917fcee520ae932253f1fdfead4ffb6535e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805474"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591545"
 ---
 <a name="retrieve-offers"></a>擷取供應項目
 ===============
@@ -32,7 +32,7 @@ ms.locfileid: "48805474"
 <a name="uri-parameters"></a>URI 參數
 --------------
 
-| **名稱**        |  **說明**                         |  **資料類型** |
+| **名稱**         |  **說明**                         |  **資料類型** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | 發行者識別碼，例如 `contoso` |   字串    |
 |  api-version     | API 的最新版本                    |    日期        |
@@ -49,7 +49,7 @@ ms.locfileid: "48805474"
 |  |  |
 
 
-<a name="body-example"></a>主體範例
+<a name="body-example"></a>本文範例
 ------------
 
 ### <a name="response"></a>Response
@@ -80,7 +80,7 @@ ms.locfileid: "48805474"
 |  status         | 供應項目的狀態。 如需可能值清單，請參閱下面的[供應項目狀態](#offer-status)。                         |
 |  id             | 可在發行者命名空間中唯一識別供應項目的 GUID。                                                    |
 |  version        | 供應項目的目前版本。 用戶端無法修改版本屬性。 每次發行時，它都會累加。 |
-|  定義     | 包含工作負載實際定義的摘述檢視。 若要取得詳細定義，請使用[擷取特定供應項目] (./cloud-partner-portal-api-retrieve-specific-offer.md) API。 |
+|  定義     | 包含工作負載實際定義的摘述檢視。 若要取得詳細定義，請使用[擷取特定供應項目](./cloud-partner-portal-api-retrieve-specific-offer.md) API。 |
 |  changedTime    | 供應項目上次修改時間 (UTC 日期時間)                                                                              |
 |  |  |
 
@@ -90,7 +90,7 @@ ms.locfileid: "48805474"
 | **代碼**  |  **說明**                                                                                                   |
 | -------   |  ----------------------------------------------------------------------------------------------------------------- |
 |  200      | `OK` - 已成功處理要求，且發行者下的所有供應項目已傳回給用戶端。  |
-|  400      | `Bad/Malformed request` - 錯誤回應主體可能包含更多資訊。                                    |
+|  400      | `Bad/Malformed request` - 錯誤回應本文可能包含更多資訊。                                    |
 |  403      | `Forbidden` - 用戶端沒有所指定命名空間的存取權。                                          |
 |  404      | `Not found` - 指定的實體不存在。                                                                 |
 |  |  |

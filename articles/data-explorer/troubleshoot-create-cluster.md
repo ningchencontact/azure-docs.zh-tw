@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0edf9ebcde2df7e639666f8fe7472baacdeb8640
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 9b8bfe2a4b9b7a8432f14fb53b3e7a4cae49a3b4
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212177"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189966"
 ---
 # <a name="troubleshoot-failure-to-create-a-cluster-in-azure-data-explorer"></a>疑難排解：無法在 Azure 資料總管中建立叢集
 
@@ -23,7 +23,7 @@ ms.locfileid: "50212177"
 
 1. 確定沒有任何與叢集名稱 (您在 Azure 入口網站中的 [建立叢集] 底下輸入的名稱) 相關的驗證錯誤。
 
-1. 查看 [Azure 服務健康狀態儀表板](https://azure.microsoft.com/status/>)。 請在您要嘗試建立叢集的區域中尋找 Azure 資料總管的狀態。
+1. 查看 [Azure 服務健康狀態儀表板](https://azure.microsoft.com/status/)。 請在您要嘗試建立叢集的區域中尋找 Azure 資料總管的狀態。
 
     如果狀態不是**良好** (綠色核取記號)，請在狀態改善之後嘗試建立叢集。
 

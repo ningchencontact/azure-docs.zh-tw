@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840194"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226330"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>使用 PowerShell 設定 VMware VM 至 Azure 的災害復原
 
@@ -26,7 +26,7 @@ ms.locfileid: "52840194"
 > - 設定複寫，包括複寫原則。 新增 vCenter 伺服器並探索 VM。 
 > - 新增 vCenter 伺服器並探索 
 > - 建立用來保存複寫資料的儲存體帳戶，並複寫 VM。
-> - 執行容錯移轉。 設定容錯移轉設定，並執行複寫虛擬機器的設定。
+> - 執行容錯移轉。 設定容錯移轉設定中，執行複寫虛擬機器的設定。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -61,7 +61,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ProvisioningState : Succeeded
    Tags              :
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
-```
+   ```
    
 2. 建立復原服務保存庫。 在下列範例中，復原服務保存庫名為 VMwareDRToAzurePs，而且是在東亞地區建立，存在於上一個步驟中建立的資源群組。
 
@@ -487,4 +487,4 @@ Errors           : {}
 2. 成功容錯移轉後，您可以認可容錯移轉作業，並設定從 Azure 複寫回內部部署 VMware 網站的反向複寫。
 
 ## <a name="next-steps"></a>後續步驟
-了解如何使用 [Azure Site Recovery PowerShell 參考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)將更多工作自動化。
+了解如何使用多個工作自動化[Azure Site Recovery PowerShell 參考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)。

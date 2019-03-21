@@ -11,21 +11,31 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856085"
 ---
 # <a name="release-notes"></a>版本資訊
+
+## <a name="speech-sdk-131-2019-february-refresh"></a>語音 SDK 1.3.1:2019 年 2 月重新整理
+
+這是修正程式的版本，只會影響原生 SDK。 它不會影響 JavaScript 版本的 sdk。
+
+**Bug 修正**
+
+* 使用麥克風的輸入時，已修正記憶體流失。 不會影響基礎 Stream 或輸入的檔案。
 
 ## <a name="speech-sdk-130-2019-february-release"></a>語音 SDK 1.3.0：2019 年 2 月版本
 
 **新功能**
 
-* 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓音訊資料從非預設麥克風串流到語音服務。 如需詳細資訊，請參閱說明[音訊輸入裝置選取](how-to-select-audio-input-devices.md)的文件。 此功能還無法在 JavaScript 中使用。
+* 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓您將音訊資料串流到語音服務從非預設麥克風。 如需詳細資訊，請參閱文件描述[音訊輸入裝置選取](how-to-select-audio-input-devices.md)。 此功能還無法在 JavaScript 中使用。
 * 語音 SDK 現在支援搶鮮版 (Beta) Unity。 請透過 [GitHub 範例存放庫](https://aka.ms/csspeech/samples)中的問題一節提供意見反應。 此版本可在 Windows x86 和 x64 (桌面或通用 Windows 平台應用程式) 以及 Android (ARM32/64、x86) 上支援 Unity。 詳情請參閱 [Unity 快速入門](quickstart-csharp-unity.md)。
+* 檔案`Microsoft.CognitiveServices.Speech.csharp.bindings.dll`（隨附於之前的版本），則不需要再。 功能現在已整合至核心 SDK。
+
 
 **範例**
 
@@ -54,6 +64,7 @@ ms.locfileid: "56446829"
   * 初次支援和實作片語提示。
   * 傳回含有服務 JSON 的屬性集合以供辨識
 * Windows DLL 現在會包含版本資源。
+* 如果您建立的辨識器`FromEndpoint`您可以將參數，直接加入的端點 URL。 使用`FromEndpoint`您無法設定辨識器，透過標準的組態屬性。
 
 **錯誤修正**
 
@@ -78,13 +89,13 @@ ms.locfileid: "56446829"
 **新功能**
 
 * Python
-  * 這一版提供 Python 支援的搶鮮版 (Beta) (3.5 和更新版本)。 如需詳細資料，請參閱[這裡](quickstart-python.md)。
+  * 這一版提供 Python 支援的搶鮮版 (Beta) (3.5 和更新版本)。 如需詳細資訊，請參閱 here](quickstart-python.md)。
 * JavaScript
   * 適用於 JavaScript 的語音 SDK 已開放原始碼。 原始程式碼位於 [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js)。
   * 我們現在支援 Node.js，您可以在[這裡](quickstart-js-node.md)找到更多資訊。
   * 音訊工作階段的長度限制已移除，重新連線會自動發生。
 * 連線物件
-  * 您可以從辨識器存取連線物件。 此物件可讓您明確地起始服務連線，並訂閱連線和中斷連線事件。
+  * 從辨識器，您可以存取連接物件。 此物件可讓您明確地起始服務連線，並訂閱連線和中斷連線事件。
     (此物件還無法在 JavaScript 和 Python 中使用。)
 * Ubuntu 18.04 支援。
 * Android
@@ -102,7 +113,7 @@ ms.locfileid: "56446829"
 * 在某些情況下，例外狀況正在流失。
 * 已修正翻譯事件引數的記憶體流失。
 * 已修正在長時間執行的工作階段中重新連線的鎖定問題。
-* 已修正因為翻譯失敗而可能導致遺漏最終結果的問題。
+* 修正遺漏失敗翻譯的最終結果可能會導致的問題。
 * C#：如果非同步作業未在主執行緒中等候，則在非同步工作完成之前，就可能處置了辨識器。
 * Java：已修正導致 Java VM 損毀的問題。
 * Objective-C：已修正列舉對應；傳回了 RecognizedIntent 而不是 RecognizingIntent。
@@ -111,7 +122,7 @@ ms.locfileid: "56446829"
 
 **範例**
 
-* 已更新和修正數個範例 (例如可供翻譯的輸出語音等)。
+* 更新和已修正數個範例 （例如輸出語音翻譯等。）。
 * 已在[範例存放庫](https://aka.ms/csspeech/samples)中新增 Node.js 範例。
 
 ## <a name="speech-sdk-110"></a>語音 SDK 1.1.0
@@ -119,7 +130,7 @@ ms.locfileid: "56446829"
 **新功能**
 
 * 支援 Android x86/x64。
-* Proxy 支援：您現在可以在 SpeechConfig 物件中呼叫函式來設定 Proxy 資訊 (主機名稱、連接埠、使用者名稱和密碼)。 此功能尚無法在 iOS 上取得。
+* Proxy 支援：在 SpeechConfig 物件中，您現在可以呼叫的函式來設定 proxy 資訊 （主機名稱、 連接埠、 使用者名稱和密碼）。 此功能尚無法在 iOS 上取得。
 * 改善的錯誤碼和訊息。 如果辨識傳回錯誤，系統現在會將 `Reason` (在取消的事件中) 或 `CancellationDetails` (在辨識結果中) 設為 `Error`。 取消的事件現在包含兩個額外的成員，`ErrorCode` 和 `ErrorDetails`。 如果伺服器隨報告的錯誤傳回其他錯誤資訊，現在將可以透過新成員取得這些資訊。
 
 **改進**
@@ -130,7 +141,7 @@ ms.locfileid: "56446829"
 
 **錯誤修正**
 
-* 已修正在辨識器中找到的幾個例外狀況。 此外，系統會攔截例外狀況，並轉換成已取消事件。
+* 已修正在辨識器中找到的幾個例外狀況。 此外，例外狀況會攔截到和轉換成已取消事件。
 * 修正屬性管理中的記憶體流失。
 * 已修正音訊輸入可能會損毀辨識器的錯誤。
 * 已修正工作階段將事件停止之後，仍然可收到事件的錯誤。
@@ -168,7 +179,7 @@ ms.locfileid: "56446829"
 
 **重大變更**
 
-* 此版本引進了幾個重大變更。
+* 此版本中，導入了一些重大變更。
   如需詳細資訊，請參閱[此頁面](https://aka.ms/csspeech/breakingchanges_1_0_0)。
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>認知服務語音 SDK 0.6.0：2018 年 8 月版本

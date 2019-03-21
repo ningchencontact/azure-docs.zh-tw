@@ -1,5 +1,5 @@
 ---
-title: 複合實體
+title: 複合實體教學課程
 titleSuffix: Azure Cognitive Services
 description: 新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c49090a5563a6d63c90b29cc7442c1e4ed9886e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883299"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091574"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>教學課程：擷取將相關的資料組成群組並加以擷取
 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
@@ -85,18 +85,19 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 1. 從意圖清單中選取 [TransferEmployeeToDepartment]。
 
-1. 在第一個語句中選取 personName 實體 `John Jackson`，然後在下列語句的快顯功能表清單中選取 [開始包裝複合實體]：
+1. 在 [utterance] `place John Jackson in engineering`，選取 personName 實體`John Jackson`，然後選取**複合實體中包裝**下列 [utterance] 快顯功能表清單中。 
 
-    `place John Jackson in engineering`
+    ![下拉式清單] 對話方塊中選取 [自動換行複合螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. 接著，立即選取語句中的最後一個實體 `engineering`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `TransferEmployeeInfo`，然後選取 Enter。 
 
-1. 在 [您想要建立何種類型的實體?] 中，所有所需的欄位都會位於清單中：`personName` 和 `Department`。 選取 [完成] 。 
+    ![下拉式清單 對話方塊中輸入複合名稱的螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    請注意，預先建置的實體 personName 會新增至複合實體。 如果您讓預先建置的實體出現在複合實體的開頭與結尾語彙基元之間，則複合實體必須包含這些預先建置的實體。 如果未包含預先建置的實體，則無法正確預測複合實體，但可正確預測每個個別的元素。
+1. 在 [您想要建立何種類型的實體?] 中，所有所需的欄位都會位於清單中：`personName` 和 `Department`。 選取 [完成] 。 請注意，預先建置的實體 personName 會新增至複合實體。 如果您讓預先建置的實體出現在複合實體的開頭與結尾語彙基元之間，則複合實體必須包含這些預先建置的實體。 如果未包含預先建置的實體，則無法正確預測複合實體，但可正確預測每個個別的元素。
+
+    ![下拉式清單 對話方塊中輸入複合名稱的螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>使用複合實體來標示範例語句
-
 
 1. 在每個範例語句中，選取應該出現在複合中的最左邊實體。 接著，選取 [包裝於複合實體中]。
 
@@ -182,7 +183,7 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
     }
     ```
 
-  這個語句會傳回複合實體陣列。 系統會為每個實體指定類型和值。 若要針對每個子實體獲取更高的精確度，請使用來自複合陣列項目的類型和值組合，來尋找實體陣列中的對應項目。  
+   這個語句會傳回複合實體陣列。 系統會為每個實體指定類型和值。 若要針對每個子實體獲取更高的精確度，請使用來自複合陣列項目的類型和值組合，來尋找實體陣列中的對應項目。  
 
 ## <a name="clean-up-resources"></a>清除資源
 

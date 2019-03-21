@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902870"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 串流分析預覽功能
 
@@ -22,6 +22,10 @@ ms.locfileid: "55768557"
 ## <a name="public-previews"></a>公開預覽
 
 下列功能目前處於公開預覽狀態。 您目前可以利用這些功能，但請勿將其用於生產環境。
+
+### <a name="anomaly-detection"></a>異常偵測
+
+Azure 串流分析導入了新的機器學習模型，其可支援「尖峰」和「下降」偵測，以及雙向、緩慢正向趨勢和緩慢負向趨勢偵測。 如需詳細資訊，請瀏覽[在 Azure Stream Analytics 中的異常偵測](stream-analytics-machine-learning-anomaly-detection.md)。
 
 ### <a name="sql-database-reference-data"></a>SQL Database 參考資料
 
@@ -47,10 +51,6 @@ Azure 串流分析的 Visual Studio 工具加強了本機測試功能，讓您�
 
 下列功能目前處於個人預覽狀態。
 
-### <a name="anomaly-detection"></a>異常偵測
-
-Azure 串流分析導入了新的機器學習模型，其可支援「尖峰」和「下降」偵測，以及雙向、緩慢正向趨勢和緩慢負向趨勢偵測。
-
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 串流分析的 C# 自訂 Deserializer
 
 開發人員現在可以在 C# 實作自訂 Deserializer，以將 Azure 串流分析所收到的事件還原序列化。 可以還原序列化的格式範例包括 Parquet、Protobuf、XML 或任何二進位格式。
@@ -61,7 +61,7 @@ Azure 串流分析導入了新的機器學習模型，其可支援「尖峰」�
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>適用於 Azure 串流分析的 Visual Studio Code
 
-Azure 串流分析作業可以在 Visual Studio Code 中撰寫。
+Azure 串流分析作業可以在 Visual Studio Code 中撰寫。 工具私人預覽功能的存取，請連絡*ASAToolsfeedback\@microsoft.com*。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 6a6f8b47044d36d767721e2d3503d11518dbf5a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: aed32db257ddbc8cb5b8f4af5f27024c23583798
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036115"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892399"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化儲存體成本
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 能提供無限制的儲存體和輸送量。 不同於輸送量
 
 ## <a name="check-storage-consumed"></a>檢查已耗用的儲存體
 
-若要檢查 Azure Cosmos 容器的儲存體耗用量，您可以在容器上執行 HEAD 或 GET 要求，然後檢查 `x-ms-request-quota` 和 `x-ms-request-usage` 標頭。 或者，在使用 .Net SDK 時，您可以使用 [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)) \(英文\) 和 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) \(英文\) 屬性來取得已耗用的儲存體。
+若要檢查 Azure Cosmos 容器的儲存體耗用量，您可以在容器上執行 HEAD 或 GET 要求，然後檢查 `x-ms-request-quota` 和 `x-ms-request-usage` 標頭。 或者，當使用.NET SDK，您可以使用[Resourceresponse<t](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))，並[Documentsizequota](https://msdn.microsoft.com/library/azure/dn850324.aspx)屬性，以取得使用的儲存體。
 
 ## <a name="using-sdk"></a>使用 SDK
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9967893e855770b693f0d581a07fe2910df4a3cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003594"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -26,14 +26,15 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>稽核記錄 B2C 類別中可取得活動的概觀
 稽核記錄中的 **B2C** 類別包含以下類型的活動：
-|活動類型 |說明  |
+
+|活動類型 |描述  |
 |---------|---------|
 |Authorization |有關授權使用者存取 B2C 資源的活動 (例如，系統管理員存取 B2C 原則清單)         |
 |目錄 |當系統管理員使用 Azure 入口網站登入時，所擷取目錄屬性的相關活動 |
 |Application | B2C 應用程式上的 CRUD 作業 |
 |Key |B2C 金鑰容器所儲存金鑰上的 CRUD 作業 |
 |資源 |B2C 資源 (例如，原則和身分識別提供者) 上的 CRUD 作業
-|驗證 |使用者認證和權杖發行的驗證|
+|Authentication |使用者認證和權杖發行的驗證|
 
 > [!NOTE]
 > 如需使用者物件 CRUD 活動，請參閱**核心目錄**類別。

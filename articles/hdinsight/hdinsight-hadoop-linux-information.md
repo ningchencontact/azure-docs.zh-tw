@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: fd1c130e9228f334889668f66927dece2425b39f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090673"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202447"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
@@ -57,7 +57,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-    使用叢集系統管理員使用者和密碼進行驗證，然後登入 Ambari 。
+    使用叢集系統管理員使用者名稱和密碼，來進行驗證，然後登入 Ambari。
 
     驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
@@ -121,25 +121,25 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 使用 __Azure 儲存體__時，可使用下列其中一種 UI 配置︰
 
-* `wasb:///`：使用未加密通訊存取預設儲存體。
+* `wasb:///`:使用未加密通訊存取預設儲存體。
 
-* `wasbs:///`：使用加密通訊存取預設儲存體。  HDInsight 3.6 版和更新版本才會支援 wasbs 配置。
+* `wasbs:///`:使用加密通訊存取預設儲存體。  HDInsight 3.6 版和更新版本才會支援 wasbs 配置。
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net/`：與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`:與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
 
 使用 __Azure Data Lake Storage Gen2__ 時，可使用下列其中一種 URI 配置︰
 
-* `abfs:///`：使用未加密通訊存取預設儲存體。
+* `abfs:///`:使用未加密通訊存取預設儲存體。
 
-* `abfss:///`：使用加密通訊存取預設儲存體。  HDInsight 3.6 版和更新版本才支援 abfss 配置。
+* `abfss:///`:使用加密通訊存取預設儲存體。  HDInsight 3.6 版和更新版本才支援 abfss 配置。
 
-* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`：與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
+* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`:與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
 
 使用 __Azure Data Lake Storage Gen1__ 時，可使用下列其中一種 URI 配置︰
 
-* `adl:///`：存取叢集的預設 Data Lake Storage。
+* `adl:///`:存取叢集的預設 Data Lake Storage。
 
-* `adl://<storage-name>.azuredatalakestore.net/`：與非預設 Data Lake Storage 進行通訊時使用。 也用來存取 HDInsight 叢集根目錄之外的資料。
+* `adl://<storage-name>.azuredatalakestore.net/`:與非預設 Data Lake Storage 進行通訊時使用。 也用來存取 HDInsight 叢集根目錄之外的資料。
 
 > [!IMPORTANT]  
 > 使用 Data Lake Storage 做為 HDInsight 的預設存放區時，您必須在存放區內指定要做為 HDInsight 儲存體根目錄的路徑。 預設路徑為 `/clusters/<cluster-name>/`。
@@ -249,7 +249,7 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>如何安裝 Hue (或其他 Hadoop 元件)？
 
-HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會刪除失敗節點並建立要取代它的節點。 如果您以手動方式在叢集上安裝項目，此作業發生時，不會保存這些項目。 請改用 [HDInsight 指令碼動作](hdinsight-hadoop-customize-cluster.md)。 指令碼動作可用來進行下列變更︰
+HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會刪除失敗節點並建立要取代它的節點。 如果您以手動方式在叢集上安裝項目，此作業發生時，不會保存這些項目。 請改用 [HDInsight 指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)。 指令碼動作可用來進行下列變更︰
 
 * 安裝及設定服務或網站。
 * 安裝及設定需要在叢集中的多個節點上進行組態變更的元件。
@@ -257,7 +257,6 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 指令碼動作是 Bash 指令碼。 指令碼會在叢集建立期間執行，而且可用來安裝及設定其他元件。 範例指令碼可供安裝下列元件：
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 如需開發您自己的指令碼動作相關資訊，請參閱 [使用 HDInsight 開發指令碼動作](hdinsight-hadoop-script-actions-linux.md)。
 

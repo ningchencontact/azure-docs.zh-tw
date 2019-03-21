@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103922"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -42,9 +42,9 @@ DNS 分析可協助您︰
 
 | **連線的來源** | **支援** | **說明** |
 | --- | --- | --- |
-| [Windows 代理程式](../platform/agent-windows.md) | yes | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
+| [Windows 代理程式](../platform/agent-windows.md) | 是 | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
 | [Linux 代理程式](../learn/quick-collect-linux-computer.md) | 否 | 此解決方案不會收集來自直接 Linux 代理程式的 DNS 資訊。 |
-| [System Center Operations Manager 管理群組](../platform/om-agents.md) | yes | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Azure 監視器。 資料會從管理群組轉送至 Log Analytics 工作區。 |
+| [System Center Operations Manager 管理群組](../platform/om-agents.md) | 是 | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Azure 監視器。 資料會從管理群組轉送至 Log Analytics 工作區。 |
 | [Azure 儲存體帳戶](../platform/collect-azure-metrics-logs.md) | 否 | 此解決方案沒有使用 Azure 儲存體。 |
 
 ### <a name="data-collection-details"></a>資料收集詳細資料
@@ -66,7 +66,7 @@ DNS 分析可協助您︰
 
 - **列入允許清單的網域名稱**。 該解決方案不會處理所有查閱查詢。 它會維護一份網域名稱尾碼的允許清單。 若查閱查詢解析為符合此允許清單中之網域名稱尾碼的網域名稱，此解決方案就不會處理它們。 不處理列入允許清單的網域名稱，有助於最佳化傳送至 Azure 監視器的資料。 預設允許清單包含熱門的公用網域名稱，例如 www.google.com 和 www.facebook.com。 您可以捲動來檢視完整的預設清單。
 
- 您可以修改清單，將您想要檢視查閱深入解析的任何網域名稱尾碼加以新增。 您也可以將您不想要檢視查閱深入解析的任何網域名稱尾碼加以移除。
+  您可以修改清單，將您想要檢視查閱深入解析的任何網域名稱尾碼加以新增。 您也可以將您不想要檢視查閱深入解析的任何網域名稱尾碼加以移除。
 
 - **Talkative 用戶端閾值**。 超過查閱要求數目閾值的 DNS 用戶端，在 [DNS 用戶端] 刀鋒視窗中會反白顯示。 預設閾值為 1,000。 您可以編輯閾值。
 
@@ -142,7 +142,7 @@ DNS 圖格包含收集到的資料所在的 DNS 伺服器之數目。 它也包�
 
 **名稱註冊要求**。 上方的圖格會顯示成功和失敗之 DNS 動態更新要求的趨勢線。 下方的圖格所列出的前 10 個用戶端，是將失敗的 DNS 更新要求傳送給 DNS 伺服器 (依失敗數目排序)。
 
-![[名稱註冊要求] 刀鋒視窗 ](./media/dns-analytics/name-reg-req-blade.png)
+![[名稱註冊要求] 刀鋒視窗](./media/dns-analytics/name-reg-req-blade.png)
 
 **範例 DDI 分析查詢**。 包含最常見的搜尋查詢清單，會直接擷取未經處理的分析資料。
 

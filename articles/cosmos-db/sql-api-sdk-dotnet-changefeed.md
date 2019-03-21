@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090333"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -44,8 +44,8 @@ ms.locfileid: "55300603"
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * 改善觀察者例外狀況的處理。
 * 更豐富的觀察者錯誤資訊：
- * 觀察者因為觀察者的 ProcessChangesAsync 所擲回的例外狀況而關閉時，CloseAsync 現在會收到設為 ChangeFeedObserverCloseReason.ObserverError 的原因參數。
- * 新增的追蹤資訊，以識別觀察者中使用者程式碼內的錯誤。
+  * 觀察者因為觀察者的 ProcessChangesAsync 所擲回的例外狀況而關閉時，CloseAsync 現在會收到設為 ChangeFeedObserverCloseReason.ObserverError 的原因參數。
+  * 新增的追蹤資訊，以識別觀察者中使用者程式碼內的錯誤。
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * 新增處理使用共用資料庫輸送量之分割集合的支援。
@@ -130,7 +130,7 @@ ms.locfileid: "55300603"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * 穩定性改進。
-  * 修正處理取消工作的問題，此問題可能會導致某些分割區上的觀察者停止運作。
+  * 修正處理已取消的工作的問題可能會導致某些資料分割上，停止觀察者。
 * 支援手動檢查點。
 * 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 版和更新版本相容。
 
@@ -181,6 +181,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。 
 
