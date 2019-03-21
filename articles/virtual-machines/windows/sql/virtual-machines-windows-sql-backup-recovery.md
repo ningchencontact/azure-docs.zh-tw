@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 164ec0898e2f7ad461ab63ce0fcaf47a87998797
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e291072f7eb075adeff9efb37f1f7dffc72d714c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997836"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093519"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 備份和還原
 
@@ -32,8 +32,8 @@ ms.locfileid: "52997836"
 
 下表提供在 Azure VM 上所執行 SQL Server 的各種備份與還原選項資訊：
 
-| 策略 | SQL 版本 | 說明 |
-|---|---|---|---|
+| 策略 | SQL 版本 | 描述 |
+|---|---|---|
 | [自動備份](#automated) | 2014<br/> 2016<br/> 2017 | 自動備份可讓您為 SQL Server VM 上的所有資料庫排定定期備份。 備份會儲存在 Azure 儲存體長達 30 天的時間。 從 SQL Server 2016 開始，自動備份 v2 會提供其他選項，例如設定手動排程及完整和記錄備份的頻率。 |
 | [SQL VM 的 Azure 備份](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure 備份可為在 Azure VM 上執行的 SQL Server 提供企業級備份功能。 您可以透過此服務，集中管理多部伺服器和數千個資料庫的備份。 資料庫可在入口網站中還原至特定時間點。 它能提供可自訂的保留原則，並能維護備份長達數年的時間。 此功能目前為公開預覽狀態。 |
 | [手動備份](#manual) | 全部 | 依據 SQL Server 版本的不同，有各種技術可手動備份和還原在 Azure VM 上執行的 SQL Server。 在此案例中，您必須負責處理資料庫的備份方式與儲存位置，並管理這些備份。 |
@@ -144,7 +144,7 @@ SQL Server 2016 和更新版本的 VM，會透過自動備份 v2 提供更多自
 | 備份至 VM 上的已連接磁碟 |   |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | 可集中自訂的備份報告 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | 彙總的失敗電子郵件警示 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 根據 Log Analytics 自訂監視 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 自訂監視 Azure 監視器記錄為基礎 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | 使用 SSMS 或 Transact-SQL 指令碼監視備份作業 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | 使用 SSMS 或 Transact-SQL 指令碼還原資料庫 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 

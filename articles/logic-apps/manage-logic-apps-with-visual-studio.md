@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 9f626e2a5c277cdce78c6e90046a1d40dac2d588
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158140"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078664"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
@@ -79,7 +79,7 @@ ms.locfileid: "54158140"
 
    這個範例會顯示依資源類型所搜尋到的邏輯應用程式，因此您的邏輯應用程式會出現在 [邏輯應用程式] 區段下。
 
-  ![從 Azure 入口網站開啟已部署的邏輯應用程式](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![從 Azure 入口網站開啟已部署的邏輯應用程式](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    邏輯應用程式在 Logic Apps 設計工具中開啟之後，您可以在設計工具的底部選擇 [程式碼檢視]，以便檢閱基礎邏輯應用程式定義結構。 
    如果您想要為邏輯應用程式建立部署範本，請了解針對該邏輯應用程式要[如何下載 Azure Resource Manager 範本](#download-logic-app)。 深入了解 [Resource Manager 範本](../azure-resource-manager/resource-group-overview.md#template-deployment)。

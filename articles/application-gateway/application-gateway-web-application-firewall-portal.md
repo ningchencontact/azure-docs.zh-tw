@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 510a243b9133fe0ef0fe33b4dccce97f9d65e301
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074957"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 Web 應用程式防火牆的應用程式閘道
 
@@ -31,6 +31,8 @@ ms.locfileid: "56453251"
 
 ![Web 應用程式防火牆範例](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>登入 Azure
 
 在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站
@@ -43,21 +45,21 @@ ms.locfileid: "56453251"
 2. 在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
 3. 針對應用程式閘道輸入這些值：
 
-    - myAppGateway - 作為應用程式閘道的名稱。
-    - myResourceGroupAG - 作為新的資源群組。
-    - 選取 [WAF] 作為應用程式閘道層。
+   - myAppGateway - 作為應用程式閘道的名稱。
+   - myResourceGroupAG - 作為新的資源群組。
+   - 選取 [WAF] 作為應用程式閘道層。
 
-    ![建立新的應用程式閘道](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![建立新的應用程式閘道](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. 接受其他設定的預設值，然後按一下 [確定]。
 5. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
 
-    - myVNet - 作為虛擬網路的名稱。
-    - 10.0.0.0/16 - 作為虛擬網路位址空間。
-    - myAGSubnet - 作為子網路名稱。
-    - 10.0.0.0/24 - 作為子網路位址空間。
+   - myVNet - 作為虛擬網路的名稱。
+   - 10.0.0.0/16 - 作為虛擬網路位址空間。
+   - myAGSubnet - 作為子網路名稱。
+   - 10.0.0.0/24 - 作為子網路位址空間。
 
-    ![建立虛擬網路](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![建立虛擬網路](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. 按一下 [確定] 以建立虛擬網路和子網路。
 7. 依序按一下 [選擇公用 IP 位址]、[新建]，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress。 接受其他設定的預設值，然後按一下 [確定]。
@@ -103,7 +105,7 @@ ms.locfileid: "56453251"
 2. 執行下列命令以在虛擬機器上安裝 IIS： 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -114,7 +116,7 @@ ms.locfileid: "56453251"
       -Location EastUS
     ```
 
-3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 myVM2 作為其名稱，及作為 Set-AzureRmVMExtension 中的 VMName。
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 输入 *myVM2* 作为其名称，并将其用于 Set-AzVMExtension 中的 VMName。
 
 ### <a name="add-backend-servers"></a>新增後端伺服器
 

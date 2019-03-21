@@ -11,18 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 073ce3075f6c14230ad76f70feb8d01d17b4e2e0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 055daebb28131268e517845a47d4c39aba90f201
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871206"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>使用 Azure PowerShell 建立 Log Analytics 工作區
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和管理 Azure 資源。 本快速入門示範如何使用 Azure PowerShell 模組來部署「Azure 監視器」中的 Log Analytics 工作區。 Log Analytics 工作區是用於「Azure 監視器」記錄資料的獨特環境。 每個工作區都有自己的資料存放庫與設定，而且資料來源和解決方案會設定為將其資料儲存在特定的工作區中。 如果您想從下列來源收集資料，就必須要有 Log Analytics 工作區：
+
 
 * 訂用帳戶中的 Azure 資源  
 * System Center Operations Manager 監視的內部部署電腦  
@@ -39,10 +42,12 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇要安裝在本機使用 PowerShell，本教學課程需要 Azure PowerShell 模組 5.7.0，版 AzureRM 或 Az 模組版本 1.0.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-workspace"></a>建立工作區
-使用 [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) 建立工作區。 下列範例會在 *eastus* 位置的資源群組 *Lab* 中，使用 Resource Manager 範本從您的本機電腦建立名為 *TestWorkspace* 的工作區。 JSON 範本會設定為只提示您輸入工作區的名稱，並針對您環境中可能作為標準組態使用的其他參數，指定預設值。 
+建立工作區[新增 AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)。 下列範例會在 *eastus* 位置的資源群組 *Lab* 中，使用 Resource Manager 範本從您的本機電腦建立名為 *TestWorkspace* 的工作區。 JSON 範本會設定為只提示您輸入工作區的名稱，並針對您環境中可能作為標準組態使用的其他參數，指定預設值。 
+
+如需支援的區域資訊，請參閱 < [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)，並從 Azure 監視器的搜尋**搜尋產品**欄位。 
 
 下列參數會設定預設值：
 
@@ -96,7 +101,7 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -111,12 +116,12 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
     }
     ```
 
-2. 編輯範本以符合您的需求。  檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
+2. 編輯範本以符合您的需求。 檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
 3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json。   
 4. 您已準備好部署此範本。 從包含範本的資料夾使用下列命令：
 
     ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
     ```
 
 部署需要幾分鐘的時間才能完成。 完成後，您會看到類似下列包含結果的訊息：

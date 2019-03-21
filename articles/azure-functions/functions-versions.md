@@ -9,19 +9,19 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088412"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 執行階段版本概觀
 
- Azure Functions 執行階段有兩個主要版本：1.x 和 2.x。 兩個版本都支援生產案例，但可用的新功能和改進功能都在目前的版本 2.x 推出。  下面詳述兩個版本間的差異、如何建立每個版本，以及如何從 1.x 升級到 2.x。
+ Azure Functions 运行时有两个主版本：1.x 和 2.x。 兩個版本都支援生產案例，但可用的新功能和改進功能都在目前的版本 2.x 推出。  下面詳述兩個版本間的差異、如何建立每個版本，以及如何從 1.x 升級到 2.x。
 
 > [!NOTE]
-> 此文章所介紹的是雲端服務 Azure Functions。 如需可讓您執行 Azure Functions 內部部署之預覽產品的詳細資訊，請參閱 [Azure Functions 執行階段概觀](functions-runtime-overview.md)。
+> 本文所介紹的是雲端服務 Azure Functions。 如需可讓您執行 Azure Functions 內部部署之預覽產品的詳細資訊，請參閱 [Azure Functions 執行階段概觀](functions-runtime-overview.md)。
 
 ## <a name="cross-platform-development"></a>跨平台開發
 
@@ -29,7 +29,7 @@ ms.locfileid: "48885182"
 
 相較之下，1.x 版執行階段則僅支援在 Azure 入口網站或 Windows 電腦上進行開發和裝載。
 
-## <a name="languages"></a>語言
+## <a name="languages"></a>Languages
 
 2. x 版執行階段使用新的語言擴充性模型。 在 2.x 版中，函數應用程式中的所有函式都必須共用相同語言。 函數應用程式中的函式語言是在建立應用程式時所選擇的。
 
@@ -49,7 +49,7 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 ### <a name="changes-in-triggers-and-bindings"></a>觸發程序與繫結中的變更
 
-2.x 版需要您針對應用程式中函式所使用的特定觸發程序和繫結安裝延伸模組。 唯一的例外是 HTTP 和計時器觸發程序，這兩者不需要延伸模組。  如需詳細資訊，請參閱[註冊及安裝繫結延伸模組](./functions-triggers-bindings.md#register-binding-extensions)。
+2.x 版需要您針對應用程式中函式所使用的特定觸發程序和繫結安裝延伸模組。 唯一的例外是 HTTP 和計時器觸發程序，這兩者不需要延伸模組。  如需詳細資訊，請參閱[註冊及安裝繫結延伸模組](./functions-bindings-register.md)。
 
 `function.json` 或函式的屬性在版本之間也有一些變更。 例如，「事件中樞」的 `path` 屬性現在是 `eventHubName`。 如需每個繫結的文件連結，請參閱[現有的繫結表格](#bindings)。
 
@@ -65,9 +65,9 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 * 主機設定檔 (host.json) 應該空白或含有 `"version": "2.0"` 字串。
 
-* 為了改進監視功能，已將入口網站中使用 [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) 設定的 WebJobs 儀表板，取代成使用 [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsightsinstrumentationkey) 設定的 Azure Application Insights。 如需詳細資訊，請參閱[監視 Azure Functions](functions-monitoring.md)。
+* 為了改進監視功能，已將入口網站中使用 [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) 設定的 WebJobs 儀表板，取代成使用 [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) 設定的 Azure Application Insights。 如需詳細資訊，請參閱[監視 Azure Functions](functions-monitoring.md)。
 
-* 函數應用程式中的所有函式都必須共用相同語言。 當您建立函數應用程式時，必須為應用程式選擇執行階段堆疊。 執行階段堆疊會由應用程式設定中的 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) 值指定。 新增此需求是為了改善使用量和啟動時間。 在本機進行開發時，您必須在 [local.settings.json 檔案](functions-run-local.md#local-settings-file)中也包含此設定。
+* 函數應用程式中的所有函式都必須共用相同語言。 當您建立函數應用程式時，必須為應用程式選擇執行階段堆疊。 執行階段堆疊會由應用程式設定中的 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 值指定。 新增此需求是為了改善使用量和啟動時間。 在本機進行開發時，您必須在 [local.settings.json 檔案](functions-run-local.md#local-settings-file)中也包含此設定。
 
 * App Service 方案中函式的預設逾時已變更為 30 分鐘。 您可以藉由在 host.json 中使用 [functionTimeout](functions-host-json.md#functiontimeout) 設定，將逾時手動變更回無限制。
 
@@ -95,7 +95,7 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 ##### <a name="version-2x"></a>2.x 版
 
 ```xml
-<TargetFramework>netstandard2.0</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
@@ -109,7 +109,7 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 ### <a name="changing-version-of-apps-in-azure"></a>在 Azure 中變更應用程式版本
 
-[`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion) 應用程式設定會控制 Azure 中所發佈應用程式所使用的 Functions 執行階段版本。 值為 `~2` 時，會以 2.x 版執行階段為目標，值為 `~1` 時，會以 1.x 版執行階段為目標。 請勿任意變更此設定，因為可能會需要變更您函式中的其他應用程式設定和程式碼。 若要了解將函數應用程式移轉至不同執行階段版本的建議方式，請參閱[如何設定 Azure Functions 執行階段目標版本](set-runtime-version.md)。
+[`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) 應用程式設定會控制 Azure 中所發佈應用程式所使用的 Functions 執行階段版本。 值為 `~2` 時，會以 2.x 版執行階段為目標，值為 `~1` 時，會以 1.x 版執行階段為目標。 請勿任意變更此設定，因為可能會需要變更您函式中的其他應用程式設定和程式碼。 若要了解將函數應用程式移轉至不同執行階段版本的建議方式，請參閱[如何設定 Azure Functions 執行階段目標版本](set-runtime-version.md)。
 
 ## <a name="bindings"></a>繫結
 
@@ -121,11 +121,13 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 * 較輕便的執行環境，執行階段只會知道及載入使用中的繫結。
 
-除了 HTTP 和計時器觸發程序之後，所有繫結都必須以明確方式新增至函數應用程式專案，或在入口網站中註冊。 如需詳細資訊，請參閱[註冊繫結延伸模組](functions-triggers-bindings.md#register-binding-extensions)。
+除了 HTTP 和計時器觸發程序之後，所有繫結都必須以明確方式新增至函數應用程式專案，或在入口網站中註冊。 如需詳細資訊，請參閱[註冊繫結延伸模組](./functions-bindings-expressions-patterns.md)。
 
 下表顯示每個執行階段版本所支援的繫結。
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

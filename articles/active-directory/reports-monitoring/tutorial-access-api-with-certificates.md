@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b6fcdb117033e69db82d8f9bb083891794ed72
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8706414b27969efd6aa26085370f8a0b1f891d69
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095189"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>教學課程：使用 Azure Active Directory 報告 API 搭配憑證來取得資料
 
@@ -87,15 +87,15 @@ ms.locfileid: "56187078"
   
 7. 現在，您可以使用此憑證來取得 MS 圖形 API 的存取權杖。 使用 MSCloudIdUtils PowerShell 模組中的 **Get-MSCloudIdMSGraphAccessTokenFromCert** Cmdlet，然後傳入您從上一個步驟中所取得的應用程式識別碼和指紋。 
 
- ![Azure 入口網站](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Azure 入口網站](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. 使用 Powershell 指令碼中的存取權杖來查詢圖形 API。 使用 MSCloudIDUtils 中的 **Invoke-MSCloudIdMSGraphQuery** 指令程式來列舉 signins 和 directoryAudits 端點。 此指令程式可處理多個分頁結果，並將這些結果傳送至 PowerShell 管道。
 
 9. 查詢 directoryAudits 端點以擷取稽核記錄。 
- ![Azure 入口網站](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Azure 入口網站](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. 查詢 signins 端點以擷取登入記錄。
- ![Azure 入口網站](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Azure 入口網站](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. 您現在可以選擇將此資料匯出為 CSV，並儲存至 SIEM 系統。 您也可以在排定的工作中包裝您的指令碼，以便定期從租用戶取得 Azure AD 資料，而不必將應用程式金鑰儲存在原始程式碼中。 
 

@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e5528cdfc2efa2d5c257732c8b6b6df117421839
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004069"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務將 PyTorch 模型定型
 
-為了能使用 PyTorch 深度訓練類神經網路 (DNN)，Azure Machine Learning 提供了 `Estimator` 的自訂 `PyTorch` 類別。 Azure SDK 的 `PyTorch` 估算器可讓您輕鬆提交在 Azure 計算上執行的單一節點和分散式 PyTorch 定型工作。
+對於使用 PyTorch 深度類神經網路 (DNN) 訓練，Azure Machine Learning 提供可自訂[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)類別的`Estimator`。 Azure SDK 的 `PyTorch` 估算器可讓您輕鬆提交在 Azure 計算上執行的單一節點和分散式 PyTorch 定型工作。
 
 ## <a name="single-node-training"></a>單一節點定型
 使用 `PyTorch` 估算器來定型，類似於使用[基礎 `Estimator`](how-to-train-ml-models.md)，因此請先詳讀操作說明文章，並確定已了解文章中說明的概念。
@@ -42,7 +42,8 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 我們在這裡會為 PyTorch 建構函式指定下列參數：
-參數 | 說明
+
+參數 | 描述
 --|--
 `source_directory` |  包含定型作業所需之所有程式碼的本機目錄。 此資料夾是從您的本機電腦複製到遠端計算
 `script_params` |  用於指定您的定型指令碼 `entry_script` 命令列引數的字典，格式為 <命令列引數, 值> 組
@@ -82,7 +83,8 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 此程式碼公開下列新參數給 PyTorch 建構函式：
-參數 | 說明 | 預設值
+
+參數 | 描述 | 預設值
 --|--|--
 `node_count` |  用於定型作業的節點數目。 | `1`
 `process_count_per_node` |  要在每個節點上執行的處理序 (或「背景工作角色」) 數目。 | `1`

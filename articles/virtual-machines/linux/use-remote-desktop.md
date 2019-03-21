@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 44b0f8b3d11b737ad88f7d33b036b52d24b70e33
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: dec0b8bcd5a0e0d20ead5b149405e3716589ba53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960322"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995720"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>在 Azure 中安裝和設定遠端桌面，以連接至 Linux VM
 在 Azure 中的 Linux 虛擬機器 (VM) 通常是使用安全殼層 (SSH) 連接從命令列管理。 如果是 Linux 的新手，或者是快速疑難排解的案例，使用遠端桌面可能會比較容易。 本文將詳細說明如何使用 Resource Manager 部署模型為您的 Linux VM 安裝和設定桌面環境 ([xfce](https://www.xfce.org)) 和遠端桌面 ([xrdp](http://www.xrdp.org))。
@@ -103,11 +103,11 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 ![透過 xrdp 的 xfce 桌面環境](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-如果您的本機 RDP 用戶端使用網路層級驗證 (NLA)，您會必須停用該連線設定。 XRDP 目前不支援 NLA。 您也可以尋找支援 NLA 的替代 RDP 解決方案，例如 [FreeRDP](http://www.freerdp.com)。
+如果您的本機 RDP 用戶端使用網路層級驗證 (NLA)，您會必須停用該連線設定。 XRDP 目前不支援 NLA。 您也可以尋找支援 NLA 的替代 RDP 解決方案，例如 [FreeRDP](https://www.freerdp.com)。
 
 
 ## <a name="troubleshoot"></a>疑難排解
-如果無法使用遠端桌面用戶端連線至 Linux VM，請在 Linux VM 上使用 `netstat`，以檢查您的 VM 是否正在接聽 RDP 連線，如下所示︰
+如果无法使用远程桌面客户端连接到 Linux VM，请在 Linux VM上使用 `netstat` 验证 VM 是否正在侦听 RDP 连接，如下所示：
 
 ```bash
 sudo netstat -plnt | grep rdp

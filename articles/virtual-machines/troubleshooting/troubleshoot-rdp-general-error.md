@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821509"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100406"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>在 Azure VM 中對 RDP 一般錯誤進行疑難排解
 
@@ -164,17 +164,17 @@ RDP 接聽程式的設定不正確。
 
 如果仍然發生問題，請移至步驟 2。
 
-#### <a name="step-2-enable-remote-desktop-services"></a>步驟 2：啟用遠端桌面服務
+#### <a name="step-2-enable-remote-desktop-services"></a>步骤 2：启用远程桌面服务
 
 如需詳細資訊，請參閱[無法在 Azure VM 上啟動遠端桌面服務](troubleshoot-remote-desktop-services-issues.md)。
 
-#### <a name="step-3-reset-rdp-listener"></a>步驟 3：重設 RDP 接聽程式
+#### <a name="step-3-reset-rdp-listener"></a>步骤 3：重置 RDP 侦听器
 
 如需詳細資訊，請參閱 [Azure VM 中的遠端桌面時常斷線](troubleshoot-rdp-intermittent-connectivity.md)。
 
 ### <a name="offline-repair"></a>離線修復
 
-#### <a name="step-1-turn-on-remote-desktop"></a>步驟 1：開啟遠端桌面
+#### <a name="step-1-turn-on-remote-desktop"></a>步骤 1：启用远程桌面
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 2. 啟動復原 VM 的遠端桌面連線。
@@ -229,19 +229,19 @@ RDP 接聽程式的設定不正確。
 
       Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
   
-7. 將磁碟從救援 VM 中斷連結。
-8. [從磁碟建立新的 VM](../windows/create-vm-specialized.md)。
+1. 將磁碟從救援 VM 中斷連結。
+1. [從磁碟建立新的 VM](../windows/create-vm-specialized.md)。
 
 如果仍然發生問題，請移至步驟 2。
 
-#### <a name="step-2-enable-remote-desktop-services"></a>步驟 2：啟用遠端桌面服務
+#### <a name="step-2-enable-remote-desktop-services"></a>步骤 2：启用远程桌面服务
 
 如需詳細資訊，請參閱[無法在 Azure VM 上啟動遠端桌面服務](troubleshoot-remote-desktop-services-issues.md)。
 
-#### <a name="step-3-reset-rdp-listener"></a>步驟 3：重設 RDP 接聽程式
+#### <a name="step-3-reset-rdp-listener"></a>步骤 3：重置 RDP 侦听器
 
 如需詳細資訊，請參閱 [Azure VM 中的遠端桌面時常斷線](troubleshoot-rdp-intermittent-connectivity.md)。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-support"></a>需要協助嗎？ 联系支持人员
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

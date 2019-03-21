@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074738"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>檢視正在使用 [變更追蹤] 追蹤的檔案內容
 
@@ -62,11 +62,11 @@ ms.locfileid: "54437996"
 
 1. 在 [變更詳細資料] 頁面上，您會看到檔案資訊前後的標準，按一下左上方的 [View File Content Changes] \(檢視檔案內容變更\) 可查看檔案的內容。
 
-  ![變更詳細資料](./media/change-tracking-file-contents/change-details.png)
+   ![變更詳細資料](./media/change-tracking-file-contents/change-details.png)
 
 1. 新的頁面會以並排顯示檢視向您顯示檔案內容。 您也可以選取 [內嵌] 查看變更的內嵌檢視。
 
-  ![檢視檔案變更](./media/change-tracking-file-contents/view-file-changes.png)
+   ![檢視檔案變更](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -75,5 +75,5 @@ ms.locfileid: "54437996"
 > [!div class="nextstepaction"]
 > [對您環境中的變更進行疑難排解](automation-tutorial-troubleshoot-changes.md)
 
-* 使用 [Log Analytics 中的記錄檔搜尋](../log-analytics/log-analytics-log-searches.md) ，檢視詳細的變更追蹤資料。
+* 使用[Azure 監視器記錄檔中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)以檢視詳細的變更追蹤資料。
 

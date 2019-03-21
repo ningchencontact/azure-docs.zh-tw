@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 0d6d8af9456f5f943eb70b5a63b69e2f7f16a4cb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5bf6f5662e20b003bd387a6826ab87117be3f113
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104232"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075777"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 線路 (傳統)
 
@@ -48,25 +48,25 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 1. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 2. 檢查帳戶的訂用帳戶。
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. 如果您有多個訂用帳戶，請選取您要使用的訂用帳戶。
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. 接下來，使用下列 Cmdlet，將您的 Azure 訂用帳戶新增到 PowerShell，以供傳統部署模型使用。
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="get-the-status-of-a-circuit"></a>取得線路狀態
 
@@ -180,10 +180,10 @@ Status                           : Enabled
 
 ### <a name="update-the-expressroute-circuit-bandwidth"></a>更新 ExpressRoute 線路頻寬
 
-請查閱 [ExpressRoute 常見問題集](expressroute-faqs.md) ，以取得提供者支援的頻寬選項。 只要實體連接埠 (您的線路在此建立) 允許，您可以選擇大於現有線路的任何大小。
+請查閱 [ExpressRoute 常見問題集](expressroute-faqs.md) ，以取得提供者支援的頻寬選項。 只要在其上创建线路的物理端口允许，即可选取大于现有线路大小的任何大小。
 
 > [!IMPORTANT]
-> 如果現有的連接埠上沒有足夠的容量，您可能必須重新建立 ExpressRoute 線路。 如果該位置已無額外的容量，您無法升級線路。
+> 如果現有的連接埠上沒有足夠的容量，您可能必須重新建立 ExpressRoute 線路。 如果该位置没有额外的可用容量，则不能升级线路。
 >
 > 降低 ExpressRoute 線路的頻寬時必須中斷運作。 頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
 > 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f1be314db7bfc4cbdfcc809eb3b1d985583739a4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470139"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093257"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 中的合規性 
 
@@ -35,7 +35,7 @@ ms.locfileid: "55470139"
 Azure Cosmos DB 會持續擴展其認證涵蓋範圍。 目前，Azure Cosmos DB 已通過下列認證：
 
 | **全球適用** | **美國政府** | **業界專屬** | **區域或國家/地區專屬** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | CSA STAR Certification<br/><br/>CSA STAR Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG Level 2<br/><br/>FedRAMP Moderate<br/><br/>GxP (FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germany C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spain ENS High|
 
 若要深入了解上述每個合規性供應項目以及它們對您帶來的好處，請參閱 [Microsoft Azure 合規性概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)頁面。

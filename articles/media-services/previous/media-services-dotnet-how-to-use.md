@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7da57c01b6717b505ea09fa9e6197bab4d4976fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177439"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873820"
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 進行媒體服務開發 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -35,17 +35,17 @@ ms.locfileid: "56177439"
 * Visual Studio。
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
-本節說明如何在 Visual Studio 中建立專案並設定來進行媒體服務開發。  在此案例中，專案是 C# Windows 主控台應用程式，但這裡顯示的設定步驟也適用於可以為媒體服務應用程式建立的其他專案類型 (例如，Windows Forms 應用程式或 ASP.NET Web 應用程式)。
+本部分演示如何在 Visual Studio 中创建项目，以及如何为媒体服务开发设置该项目。  在此案例中，專案是 C# Windows 主控台應用程式，但這裡顯示的設定步驟也適用於可以為媒體服務應用程式建立的其他專案類型 (例如，Windows Forms 應用程式或 ASP.NET Web 應用程式)。
 
 本節顯示如何使用 **NuGet** 新增 Media Services .NET SDK 延伸模組和其他相依程式庫。
 
-或者，您可以從 GitHub 取得最新 Media Services .NET SDK 位元 ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 或 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions))、建置方案，並新增至用戶端專案的參考。 所有必要相依性皆會自動下載並解壓縮。
+此外，可以从 GitHub（[github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 或 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)）获取最新的媒体服务 .NET SDK 资料、生成解决方案并添加对客户端项目的引用。 所有必要相依性皆會自動下載並解壓縮。
 
-1. 在 Visual Studio 中，建立新的 C# 主控台應用程式。 輸入 [名稱]、[位置] 和 [方案名稱]，然後按一下 [確定]。
+1. 在 Visual Studio 中，建立新的 C# 主控台應用程式。 输入“名称”、“位置”和“解决方案名称”，并单击“确定”。
 2. 建置方案。
 3. 使用 **NuGet** 來安裝和新增 **Azure 媒體服務 .NET SDK 延伸模組** (**windowsazure.mediaservices.extensions**)。 安裝這個封裝，也會安裝 **Media Services .NET SDK** ，並新增所有其他必要相依性。
    
-    確定您已安裝 NuGet 的最新版本。 如需詳細資訊和安裝指示，請參閱 [NuGet](http://nuget.codeplex.com/)。
+    確定您已安裝 NuGet 的最新版本。 如需詳細資訊和安裝指示，請參閱 [NuGet](https://nuget.codeplex.com/)。
 
     1. 在 [方案總管] 中，於專案名稱上按一下滑鼠右鍵，然後選擇 [管理 NuGet 套件]。
 
@@ -54,8 +54,8 @@ ms.locfileid: "56177439"
     3. 在線上資源庫中，搜尋「Azure MediaServices 擴充功能」，選擇 [Azure Media Services .NET SDK 擴充功能] \(**windowsazure.mediaservices.extensions**)，然後按一下 [安裝] 按鈕。
    
     4. 會修改專案，並新增 Media Services .NET SDK 延伸模組、Media Services .NET SDK 和其他相依組件的參考。
-4. 若要提升更乾淨的開發環境，請考慮啟用 [NuGet 封裝還原]。 如需詳細資訊，請參閱 [NuGet 封裝還原](http://docs.nuget.org/consume/package-restore)。
-5. 加入 **System.Configuration** 組件的參考。 此組件包含用來存取組態檔 (例如 App.config) 的 System.Configuration.**ConfigurationManager** 類別。
+4. 若要提升更乾淨的開發環境，請考慮啟用 [NuGet 封裝還原]。 如需詳細資訊，請參閱 [NuGet 封裝還原](https://docs.nuget.org/consume/package-restore)。
+5. 加入 **System.Configuration** 組件的參考。 此程序集包含用于访问配置文件（例如，App.config）的 System.Configuration.**ConfigurationManager** 类。
    
     1. 若要使用 [管理參考] 對話方塊新增參考，請以滑鼠右鍵按一下 [方案總管] 中的專案名稱。 接著，按一下 [新增]，然後按一下 [參考]。
    

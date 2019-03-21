@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: e265a46533264bbb1d437edbfe1bbfb3306614ad
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088752"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>使用 Azure 命令列介面 (CLI) 管理 Azure Data Lake Analytics
 
@@ -180,9 +180,9 @@ Data Lake Analytics 目前支援以下兩個資料來源：
 > [!NOTE]
 > 工作的預設優先順序為 1000，工作的平行處理原則預設程度是 1。
 > 
-   ```azurecli
-   az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
-   ```
+>    ```azurecli
+>    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
+>    ```
 
 ### <a name="cancel-jobs"></a>取消工作
 使用 list 命令來尋找工作識別碼，然後使用 cancel 來取消工作。
@@ -211,7 +211,7 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)
 * [透過 Azure 入口網站開始使用 Data Lake Analytics](data-lake-analytics-get-started-portal.md)
 * [使用 Azure 入口網站管理 Azure Data Lake Analytics](data-lake-analytics-manage-use-portal.md)

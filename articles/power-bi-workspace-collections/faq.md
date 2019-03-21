@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 83f4ebd9c3f5ad05173b045b3fa15804ddc88df6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 08d0a446fc29bf58da2583cbee8576831914ac09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157559"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862705"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 工作區集合常見問題集
 
@@ -77,17 +77,17 @@ Power BI 工作區集合服務會使用應用程式權杖進行驗證和授權�
 建置應用程式的開發人員/員工需要有 AAD 使用者帳戶，才能透過 Azure 入口網站管理您的 Azure 訂用帳戶和工作區集合。 可讓開發人員匯入報告、修改連接字串，以及讓內嵌 URL 改為使用應用程式權杖進行驗證，因此不需要 AAD 的程式設計 API。
 
 ## <a name="where-can-i-learn-more"></a>哪裡可以深入了解？
-您可以造訪 [Power BI 工作區集合文件頁面](get-started.md)。 您可以透過造訪 [Power BI 部落格](https://powerbi.microsoft.com/blog/) \(英文\) 或造訪 Power BI 開發人員中心 (dev.powerbi.com)，來取得此服務的相關最新資訊。 您也可以在 [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi) 提出問題。
+您可以造訪 [Power BI 工作區集合文件頁面](get-started.md)。 您可以透過造訪 [Power BI 部落格](https://powerbi.microsoft.com/blog/) \(英文\) 或造訪 Power BI 開發人員中心 (dev.powerbi.com)，來取得此服務的相關最新資訊。 您也可以在 [Stack Overflow](https://stackoverflow.com/questions/tagged/powerbi) 提出問題。
 
 ## <a name="how-do-i-get-started"></a>如何開始使用？
 您現在就可以免費開始使用！ 如果您有 Azure 訂用帳戶，現在就可以直接從 Azure 入口網站佈建 Power BI 工作區集合。 您也可以建立[免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 在您佈建 Power BI 工作區集合服務之後，就能輕鬆地直接使用 Power BI REST API，或使用 [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472) \(英文\) 上提供的開發人員 SDK。 也有提供範例說明如何使用開發人員 SDK。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [什麼是 Microsoft Power BI 工作區集合](what-are-power-bi-workspace-collections.md)
 [開始使用 Microsoft Power BI 工作區集合](get-started.md)
 [以範例作為起始](get-started-sample.md)   
 [JavaScript 內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-有其他疑問？ [試用 Power BI 社群](http://community.powerbi.com/)
+有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)
 

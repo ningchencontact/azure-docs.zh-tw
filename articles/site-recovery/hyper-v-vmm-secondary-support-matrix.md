@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103089"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>將 Hyper-V 虛擬機器災害復原至次要網站的支援矩陣
 
@@ -75,7 +75,7 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上 [Hyper-V 所支援的](https
 NFS | N/A
 SMB 3.0 |  是
 SAN (ISCSI) | 是
-多重路徑 (MPIO) | 是
+多路径 (MPIO) | 是
 
 ### <a name="guest-or-physical-server-storage"></a>客體或實體伺服器儲存體
 
@@ -93,9 +93,9 @@ RDM | N/A
 磁碟 > 1 TB | 是
 使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | 是
 儲存空間 | 是
-熱新增/移除磁碟 | 否
+热添加/移除磁盘 | 否
 排除磁碟 | 是
-多重路徑 (MPIO) | 是
+多路径 (MPIO) | 是
 
 ## <a name="vaults"></a>保存庫
 
@@ -109,12 +109,12 @@ RDM | N/A
 提供者會協調 VMM 伺服器之間的通訊。 
 
 **最新** | **更新**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 ([可從入口網站取得](https://aka.ms/downloaddra) | [最新功能和修正](https://support.microsoft.com/kb/3155002)
 
 
 
 ## <a name="next-steps"></a>後續步驟
 
-[將 VMM 雲端中的 Hyper-V VM 複寫至次要網站](tutorial-vmm-to-vmm.md)
+[将 VMM 云中的 Hyper-V VM 复制到辅助站点](tutorial-vmm-to-vmm.md)
 

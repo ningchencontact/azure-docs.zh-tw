@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860613"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>在 Azure 排程器中建置作業的進階排程和週期
 
@@ -63,15 +63,15 @@ ms.locfileid: "55701007"
 
 此表格提供您在設定作業的週期和排程時可使用之主要 JSON 元素的高階概觀。 
 
-| 元素 | 必要 | 說明 | 
+| 元素 | 必要項 | 描述 | 
 |---------|----------|-------------|
-| **startTime** | 否 | [ISO 8601 格式](http://en.wikipedia.org/wiki/ISO_8601) \(英文\) 的日期時間字串值，會在基本排程中指定作業第一次啟動的時機。 <p>針對複雜的排程，作業一到 **startTime** 就會啟動。 | 
+| **startTime** | 否 | [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601) \(英文\) 的日期時間字串值，會在基本排程中指定作業第一次啟動的時機。 <p>針對複雜的排程，作業一到 **startTime** 就會啟動。 | 
 | **recurrence** | 否 | 適用於作業執行時機的週期規則。 **recurrence** 物件支援下列元素：**frequency**、**interval**、**schedule**、**count** 及 **endTime**。 <p>如果您使用 **recurrence** 元素，也必須使用 **frequency** 元素，而其他 **recurrence** 元素均為選擇性的。 |
 | **frequency** | 是，當您使用 **recurrence** 時 | 發生次數之間的時間單位，並支援下列值："Minute"、"Hour"、"Day"、"Week"、"Month" 及 "Year" | 
 | **interval** | 否 | 正整數，根據 **frequency** 來決定發生次數之間的時間單位數。 <p>例如，如果 **interval** 為 10 且 **frequency** 為 "Week"，則作業每隔 10 週就會重複執行一次。 <p>以下是適用於每個頻率的最大間隔數目： <p>- 18 個月 <br>- 78 週 <br>- 548 天 <br>- 若為小時和分鐘，則範圍是 1 <= <*interval*> <= 1000。 | 
 | **schedule** | 否 | 根據分鐘標記、小時標記、星期幾和每月執行日來定義週期的變更 | 
 | **count** | 否 | 正整數，指定作業完成之前執行的次數。 <p>例如，若將每日作業的 **count** 設為 7，而且開始日期為星期一，作業就會在星期日完成執行。 如果開始日期已經過去，則會從建立時間計算第一次執行時間。 <p>如果沒有 **endTime** 或 **count**，作業就會無限期執行。 您無法在同一個作業中同時使用**count** 和 **endTime**，但會接受先完成的規則。 | 
-| **endTime** | 否 | [ISO 8601 格式](http://en.wikipedia.org/wiki/ISO_8601) \(英文\) 的日期或日期時間字串值，會指定作業停止執行的時機。 您可以將 **endTime** 的值設定為過去的時間。 <p>如果沒有 **endTime** 或 **count**，作業就會無限期執行。 您無法在同一個作業中同時使用**count** 和 **endTime**，但會接受先完成的規則。 |
+| **endTime** | 否 | [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601) \(英文\) 的日期或日期時間字串值，會指定作業停止執行的時機。 您可以將 **endTime** 的值設定為過去的時間。 <p>如果沒有 **endTime** 或 **count**，作業就會無限期執行。 您無法在同一個作業中同時使用**count** 和 **endTime**，但會接受先完成的規則。 |
 |||| 
 
 例如，此 JSON 結構描述說明作業的基本排程和週期： 
@@ -94,9 +94,9 @@ ms.locfileid: "55701007"
 
 日期和日期時間值
 
-* 排程器作業中的日期只包含日期並遵循 [ISO 8601 規格](http://en.wikipedia.org/wiki/ISO_8601) \(英文\)。
+* 排程器作業中的日期只包含日期並遵循 [ISO 8601 規格](https://en.wikipedia.org/wiki/ISO_8601) \(英文\)。
 
-* 排程器作業中的日期時間包含日期和時間、遵循 [ISO 8601 規格](http://en.wikipedia.org/wiki/ISO_8601) \(英文\)，並在未指定任何 UTC 時差時假設為 UTC。 
+* 排程器作業中的日期時間包含日期和時間、遵循 [ISO 8601 規格](https://en.wikipedia.org/wiki/ISO_8601) \(英文\)，並在未指定任何 UTC 時差時假設為 UTC。 
 
 如需詳細資訊，請參閱[概念、術語及實體](../scheduler/scheduler-concepts-terms.md)。
 
@@ -159,7 +159,7 @@ ms.locfileid: "55701007"
 
 下表詳細說明 schedule 元素：
 
-| JSON 名稱 | 說明 | 有效值 |
+| JSON 名稱 | 描述 | 有效值 |
 |:--- |:--- |:--- |
 | **minutes** |作業在該小時的第幾分鐘執行。 |整數陣列。 |
 | **hours** |作業在該日的第幾小時執行。 |整數陣列。 |
@@ -173,7 +173,7 @@ ms.locfileid: "55701007"
 
 排程假設 **interval** 設定為 1\. 此範例也會假設 **schedule** 中值的 **frequency** 值是正確的。 例如，在 **schedule** 中具有 **monthDays** 修改的情況下，您無法將 **frequency** 設為 "day" 。 我們稍早在文章中已描述這些限制。
 
-| 範例 | 說明 |
+| 範例 | 描述 |
 |:--- |:--- |
 | `{"hours":[5]}` |在每天的上午 5 點執行。<br /><br />排程器會將 "hours" 中的每個值與 "minutes" 中的每個值逐一比對，以建立一個清單，列出將執行工作的所有時間。 |
 | `{"minutes":[15], "hours":[5]}` |在每天的上午 5:15 執行。 |
@@ -207,7 +207,7 @@ ms.locfileid: "55701007"
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |在月份中最後一個星期五每隔 15 分鐘執行一次。 |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |在每個月第三個星期三的上午 5:15、上午 5:45、下午 5:15 及下午 5:45 執行。 |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)

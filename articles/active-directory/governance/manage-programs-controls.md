@@ -1,6 +1,6 @@
 ---
-title: 管理 Azure AD 存取權檢閱的程式和控制項 | Microsoft Docs
-description: 您可以為組織中的每個治理、風險管理和合規性方案建立其他程式，以收集 Azure Active Directory 存取權檢閱並將其組織為控制項。
+title: 管理程式控制項的 Azure AD 存取權檢閱 |Microsoft Docs
+description: 了解如何建立您的組織收集及編排，Azure Active Directory 存取權檢閱控制項中的其他程式，讓每個治理、 風險管理和合規性方案。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,27 +16,27 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f4c978a04a7589e71ba39676e06ca5cc37f579
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3056976ada6c0a0287eec608dbad230e8dbb2625
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170664"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895165"
 ---
-# <a name="manage-programs-and-their-controls"></a>管理程式及其控制項 
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Azure AD 存取權檢閱管理程式和控制項
 
 Azure Active Directory (Azure AD) 包含群組成員和應用程式存取權的存取權檢閱。 這些控制項的範例可確實監督誰可以使用您組織的群組成員資格和應用程式。 組織可使用這些控制項有效地處理其治理、風險管理和合規性需求。
 
 ## <a name="create-and-manage-programs-and-their-controls"></a>建立和管理程式及其控制項
-您可以將追蹤和收集不同用途的存取權檢閱簡化，方法是將它們組織到程式中。 每個存取權檢閱可連結至一個程式。 然後當您為稽核員準備報告時，您可以著重於特定方案範圍內的存取權檢閱。  具有全域管理員、使用者帳戶管理員、安全性系統管理員或安全性讀取者角色的使用者，可以看見程式和存取權檢閱結果。
+您可以將追蹤和收集不同用途的存取權檢閱簡化，方法是將它們組織到程式中。 每個存取權檢閱可連結至一個程式。 然後當您為稽核員準備報告時，您可以著重於特定方案範圍內的存取權檢閱。  程式和存取權檢閱結果會顯示給全域管理員、 使用者管理員、 安全性系統管理員或安全性讀取者角色中的使用者。
 
 若要查看程式清單，請移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)，並選取 [程式集]。
 
-一律會出現一個「預設程式」。 如果您具有全域管理員或使用者帳戶管理員角色，則可建立其他程式。 比方說，您可以針對每個合規性方案或業務目標建立一個程式。
+一律會出現一個「預設程式」。 如果您是全域管理員或使用者系統管理員角色中，您可以建立其他程式。 比方說，您可以針對每個合規性方案或業務目標建立一個程式。
 
 如果您不再需要某個程式，且該程式未連結任何控制項，就可以將程式刪除。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立群組成員或應用程式存取的存取權檢閱](create-access-review.md)
-- [擷取存取權檢閱的結果](retrieve-access-review.md)
+- [建立群組或應用程式的存取權檢閱](create-access-review.md)
+- [擷取群組或應用程式的存取權檢閱的結果](retrieve-access-review.md)

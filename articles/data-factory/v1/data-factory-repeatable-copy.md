@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa08e6da6b87de5878f099709563fb90e8669e77
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b15dcd9ae5f2f1668db3925b659625497eca491f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237598"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079753"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory 中的可重複複製
 
@@ -133,7 +133,7 @@ Azure Data Factory 會基於可重複性目的使用此資料行，且在過程�
     )
     ```
 
-2. 在複製活動中使用它，如下所示：
+1. 在複製活動中使用它，如下所示：
    
     ```json
     "sink":  

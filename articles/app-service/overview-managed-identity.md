@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: bc5c4648a5efe53e3aa645bf1d6b121008eb86dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300579"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854920"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
@@ -285,7 +285,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 **MSI_ENDPOINT** 是應用程式要求權杖的來源本機 URL。 若要取得資源的權杖，請向該端點提出包含以下參數的 HTTP GET 要求：
 
-> |參數名稱|在|說明|
+> |參數名稱|在|描述|
 > |-----|-----|-----|
 > |resource|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
 > |api-version|查詢|要使用的權杖 API 版本。 目前唯一支援的版本為 "2017-09-01"。|
@@ -294,10 +294,10 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 成功的 200 OK 回應包括含以下屬性的 JSON 本文：
 
-> |屬性名稱|說明|
+> |屬性名稱|描述|
 > |-------------|----------|
-> |access_token|所要求的存取權杖。 呼叫端 Web 服務可以使用此權杖來向接收端 Web 服務進行驗證。|
-> |expires_on|存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。|
+> |access_token|请求的访问令牌。 呼叫端 Web 服務可以使用此權杖來向接收端 Web 服務進行驗證。|
+> |expires_on|存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 此值用于确定缓存令牌的生存期。|
 > |resource|接收端 Web 服務的應用程式識別碼 URI。|
 > |token_type|表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。|
 
@@ -350,7 +350,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
-    var options = {
+    let options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
         headers: {
             'Secret': process.env["MSI_SECRET"]

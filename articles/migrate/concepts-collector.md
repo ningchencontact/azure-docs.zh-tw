@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 中收集器設備的相關資訊。
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813325"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080060"
 ---
 # <a name="about-the-collector-appliance"></a>關於收集器設備
 
@@ -85,22 +85,22 @@ ms.locfileid: "55813325"
 - Proxy 伺服器的 IP 位址/FQDN 應該以 *http://IPaddress* 或 *http://FQDN* 的形式指定。
 - 僅支援 HTTP Proxy。 收集器不支援 HTTPS 型 Proxy 伺服器。
 - 如果 Proxy 伺服器是攔截 Proxy，您就必須將 Proxy 憑證匯入至收集器 VM。
-    1. 在收集器 VM 中，移至 [開始] 功能表 > [管理電腦憑證]。
-    2. 在 [憑證] 工具中的 [憑證 - 本機電腦] 底下，尋找 [受信任的發行者] > [憑證]。
+  1. 在收集器 VM 中，移至 [開始] 功能表 > [管理電腦憑證]。
+  2. 在 [憑證] 工具中的 [憑證 - 本機電腦] 底下，尋找 [受信任的發行者] > [憑證]。
 
-        ![憑證工具](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![憑證工具](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. 將 Proxy 憑證複製到收集器 VM。 您可能需要向網路管理員取得該憑證。
-    4. 按兩下來開啟憑證，然後按一下 [安裝憑證]。
-    5. 在 [憑證匯入精靈] > [儲存位置] 中，選擇 [本機電腦]。
+  3. 將 Proxy 憑證複製到收集器 VM。 您可能需要向網路管理員取得該憑證。
+  4. 按兩下來開啟憑證，然後按一下 [安裝憑證]。
+  5. 在 [憑證匯入精靈] > [儲存位置] 中，選擇 [本機電腦]。
 
-    ![憑證存放區位置](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![憑證存放區位置](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. 選取 [將所有憑證放入以下的存放區] > [瀏覽] > [受信任的發行者]。 按一下 [完成]  以匯入憑證。
+  6. 選取 [將所有憑證放入以下的存放區] > [瀏覽] > [受信任的發行者]。 按一下 [完成]  以匯入憑證。
 
-    ![憑證存放區](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![憑證存放區](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. 確認憑證是否已如預期般匯入，並確認網際網路連線能力先決條件檢查是否如預期般運作。
+  7. 確認憑證是否已如預期般匯入，並確認網際網路連線能力先決條件檢查是否如預期般運作。
 
 
 ### <a name="urls-for-connectivity"></a>進行連線的 URL
@@ -111,7 +111,7 @@ ms.locfileid: "55813325"
 --- | --- | ---
 *.portal.azure.com | 適用於 Azure 全球。 檢查是否能夠與 Azure 服務連線及時間是否同步。 | 必須具備 URL 存取權。<br/><br/> 如果無法連線，先決條件檢查就會失敗。
 *.portal.azure.us | 僅適用於 Azure Government。 檢查是否能夠與 Azure 服務連線及時間是否同步。 | 必須具備 URL 存取權。<br/><br/> 如果無法連線，先決條件檢查就會失敗。
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| 用來下載 PowerShell vCenter PowerCLI 模組。 | 不一定要具備 URL 存取權。<br/><br/> 先決條件檢查不會失敗。<br/><br/> 收集器 VM 上的自動模組安裝將會失敗。 您將必須手動安裝模組。
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| 用來下載 PowerShell vCenter PowerCLI 模組。 | 需要存取 Url。<br/><br/> 先決條件檢查不會失敗。<br/><br/> 收集器 VM 上的自動模組安裝將會失敗。 您必須在具有網際網路連線的電腦，以手動方式安裝模組，然後將模組複製到該設備。 [進一步了解這份疑難排解指南中移至步驟 4](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception)。
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>手動安裝 VMware PowerCLI 模組
@@ -211,7 +211,7 @@ net.transmitted.average | 計算 VM 大小
 網路介面卡詳細資料 (每一 NIC) | IPv6 位址 | vm.Guest.Net
 網路介面卡詳細資料 (每一 NIC) | 讀取輸送量的每秒 MB 數 | net.received.average
 網路介面卡詳細資料 (每一 NIC) | 寫入輸送量的每秒 MB 數 | net.transmitted.average
-清查路徑詳細資料 | Name | container.GetType().Name
+清查路徑詳細資料 | 名稱 | container.GetType().Name
 清查路徑詳細資料 | 子物件的類型 | container.ChildType
 清查路徑詳細資料 | 參考詳細資料 | container.MoRef
 清查路徑詳細資料 | 完整的清查路徑 | container.Name (具有完整路徑)

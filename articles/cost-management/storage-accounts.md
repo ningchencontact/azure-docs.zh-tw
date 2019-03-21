@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104296"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>為 Cloudyn 設定儲存體帳戶
 
@@ -39,13 +39,13 @@ ms.locfileid: "53100849"
 2. 按一下 [所有服務]，選取 [儲存體帳戶]，捲動至您想要使用的儲存體帳戶，然後選取該帳戶。
 3. 在儲存體帳戶頁面上的 [設定] 底下，按一下 [存取金鑰]。
 4. 複製您的 [儲存體帳戶名稱] 和 key1 底下的 [連接字串]。  
-![複製儲存體帳戶名稱與連接字串](./media/storage-accounts/azure-storage-access-keys.png)  
+   ![複製儲存體帳戶名稱與連接字串](./media/storage-accounts/azure-storage-access-keys.png)  
 5. 從 Azure 入口網站中開啟 Cloudyn 入口網站，或瀏覽至 https://azure.cloudyn.com 並登入。
 6. 按一下齒輪符號，然後選取 [Reports Storage Management] \(報表儲存體管理\)。
 7. 按一下 [Add new +] \(新增 +\)，然後確認已選取 [Microsoft Azure]。 將您的 Azure 儲存體帳戶名稱貼到 [Name] \(名稱\) 區域中。 將您的**連接字串**貼到對應的區域中。 輸入容器名稱，然後按一下 [Save] \(儲存\)。  
-![在 [Add a new report storage] \(新增報表儲存體\)方塊中貼上 Azure 儲存體帳戶名稱與連接字串](./media/storage-accounts/azure-cloudyn-storage.png)
+   ![在 [Add a new report storage] \(新增報表儲存體\)方塊中貼上 Azure 儲存體帳戶名稱與連接字串](./media/storage-accounts/azure-cloudyn-storage.png)
 
-  您的新 Azure 報表儲存體項目會出現在儲存體帳戶清單中。  
+   您的新 Azure 報表儲存體項目會出現在儲存體帳戶清單中。  
     ![清單中的新 Azure 報表儲存體項目](./media/storage-accounts/azure-storage-entry.png)
 
 
@@ -67,8 +67,8 @@ Cloudyn 會使用現有的 AWS 認證：使用者或角色，以將報表儲存�
 4. 按一下 [JSON] 索引標籤。
 5. 下列原則可讓您將報表儲存至 S3 貯體。 複製下列原則範例並貼到 [JSON] 索引標籤中。將 &lt;bucketname&gt; 取代成您的貯體名稱。
 
-  ```json
-{
+   ```json
+   {
     "Version": "2012-10-17",
     "Statement": [
       {
@@ -82,8 +82,8 @@ Cloudyn 會使用現有的 AWS 認證：使用者或角色，以將報表儲存�
         ]
       }
     ]
-}
-```
+   }
+   ```
 
 6. 按一下 [Review policy] \(檢閱原則\)。  
     ![顯示範例資訊的 AWS JSON 原則](./media/storage-accounts/aws-policy.png)  
@@ -122,11 +122,11 @@ Cloudyn 會使用現有的 AWS 認證：使用者或角色，以將報表儲存�
 2. 選取 [Permissions] \(權限\) 索引標籤，然後按一下 [Bucket policy] \(貯體原則\)。
 3. 複製並貼上下列原則範例。 將 &lt;bucket\_name&gt; 和 &lt;Cloudyn\_principle&gt; 取代成您貯體的 ARN。 取代 Cloudyn 所使用角色或使用者的 ARN。
 
-  ```
-{
-  "Id": "Policy1485775646248",
-  "Version": "2012-10-17",
-  "Statement": [
+   ```
+   {
+   "Id": "Policy1485775646248",
+   "Version": "2012-10-17",
+   "Statement": [
     {
       "Sid": "SaveReport2S3",
       "Action": [
@@ -140,9 +140,9 @@ Cloudyn 會使用現有的 AWS 認證：使用者或角色，以將報表儲存�
         ]
       }
     }
-  ]
-}
-```
+   ]
+   }
+   ```
 
 4. 在貯體原則編輯器中，按一下 [Save] \(儲存\)。
 

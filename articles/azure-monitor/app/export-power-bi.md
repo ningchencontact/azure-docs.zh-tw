@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312986"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086389"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>從 Application Insights 提供 Power BI
 [Power BI](https://www.powerbi.com/) 是一套商務工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的「分析」查詢。
@@ -96,7 +96,7 @@ ms.locfileid: "56312986"
 1. 登入 Azure 入口網站，並確定您可以存取資源。
 2. 嘗試重新整理儀表板的認證。
 
- 如果您沒有存取權且重新整理認證沒有作用，請開啟支援票證。
+   如果您沒有存取權且重新整理認證沒有作用，請開啟支援票證。
 
 ### <a name="bad-gateway-502"></a>錯誤的閘道 (502)
 這通常是傳回太多資料的分析查詢所導致。 請嘗試使用較小的時間範圍來查詢。 

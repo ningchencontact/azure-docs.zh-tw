@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010988"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>適用於 Linux 的虛擬機器序列主控台
 
@@ -82,6 +82,7 @@ Oracle Linux        | 預設啟用的序列主控台存取。
 > 如果您在序列主控台中沒有看到任何項目，請確定您的 VM 上已啟用開機診斷。
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>存取序列主控台的常見案例
+
 案例          | 序列主控台中的動作
 :------------------|:-----------------------------------------
 損毀的 *FSTAB* 檔案 | 按下 **Enter** 鍵以繼續，並使用文字編輯器來修正 *FSTAB* 檔案。 您可能必須在單一使用者模式下，才能進行此操作。 如需詳細資訊，請參閱[如何修正 FSTAB 問題](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) \(機器翻譯\) 和[使用序列主控台來存取 GRUB 和單一使用者模式](serial-console-grub-single-user-mode.md)來開始著手。
@@ -143,14 +144,14 @@ SSH/RDP 設定問題 | 存取序列主控台，然後變更設定。
 ### <a name="audit-logs"></a>稽核記錄
 目前對序列主控台進行的所有存取都會記錄在虛擬機器的[開機診斷](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics)記錄中。 這些記錄的存取權均由 Azure 虛擬機器系統管理員所擁有和控制。
 
->[!CAUTION]
-不會記錄主控台的存取密碼。 但是，如果在主控台內執行的命令包含或輸出密碼、祕密、使用者名稱，或任何其他形式的個人識別資訊 (PII)，則這些命令將會寫入至 VM 開機診斷記錄檔。 它們將與所有其他可見文字一起寫入，作為序列主控台回滾函式實作的一部分。 這些記錄是循環的，只有具有診斷儲存體帳戶讀取權限的個人才能存取它們。 但是，我們建議遵循使用遠端桌面的最佳作法，以取得可能涉及祕密和/或 PII 的任何項目。
+> [!CAUTION]
+> 不會記錄主控台的存取密碼。 但是，如果在主控台內執行的命令包含或輸出密碼、祕密、使用者名稱，或任何其他形式的個人識別資訊 (PII)，則這些命令將會寫入至 VM 開機診斷記錄檔。 它們將與所有其他可見文字一起寫入，作為序列主控台回滾函式實作的一部分。 這些記錄是循環的，只有具有診斷儲存體帳戶讀取權限的個人才能存取它們。 但是，我們建議遵循使用遠端桌面的最佳作法，以取得可能涉及祕密和/或 PII 的任何項目。
 
 ### <a name="concurrent-usage"></a>並行使用方式
 如果在某位使用者已連線至序列主控台的情況下，另一位使用者成功取得該相同虛擬機器的存取權，系統就會將第一位使用者中斷連線，而讓第二位使用者連線至相同的工作階段。
 
->[!CAUTION]
-這表示中斷連線的使用者將不會被登出。強制在中斷連線時登出的功能 (透過使用 SIGHUP 或類似的機制) 仍在規劃中。 就 Windows 而言，在特殊系統管理主控台 (SAC) 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。 為此，請在您用以登入主控台之使用者的 *.bash_profile* 或 *.profile* 檔案中新增 `export TMOUT=600`。 此設定將在 10 分鐘後逾時。
+> [!CAUTION]
+> 這表示中斷連線的使用者將不會被登出。強制在中斷連線時登出的功能 (透過使用 SIGHUP 或類似的機制) 仍在規劃中。 就 Windows 而言，在特殊系統管理主控台 (SAC) 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。 為此，請在您用以登入主控台之使用者的 *.bash_profile* 或 *.profile* 檔案中新增 `export TMOUT=600`。 此設定將在 10 分鐘後逾時。
 
 ## <a name="accessibility"></a>協助工具
 協助工具是 Azure 序列主控台的按鍵焦點。 為此，我們已確認序列主控台完全可供存取。
@@ -188,7 +189,7 @@ Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.c
 
 **問：如何傳送意見反應？**
 
-A. 在 https://aka.ms/serialconsolefeedback 建立 GitHub 問題來提供意見反應。 或者，您也可以透過 azserialhelp@microsoft.com 或在 http://feedback.azure.com 的虛擬機器類別中傳送意見反應 (較不建議)。
+A. 在 https://aka.ms/serialconsolefeedback 建立 GitHub 問題來提供意見反應。 或者，您也可以透過 azserialhelp@microsoft.com 或在 https://feedback.azure.com 的虛擬機器類別中傳送意見反應 (較不建議)。
 
 **問：序列主控台是否支援複製/貼上？**
 

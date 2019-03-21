@@ -11,24 +11,24 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004990"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004597"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>什麼是適用於 VM 的 Azure 監視器 (預覽)？
 
-適用於 VM 的 Azure 監視器會大規模監視您的 Azure 虛擬機器 (VM) 和虛擬機器擴展集。 此服務會分析您 Windows 和 Linux VM 的效能與健康情況，在其他資源和外部處理序上監視其處理序及其相依性。 
+適用於 VM 的 Azure 監視器會大規模監視您的 Azure 虛擬機器 (VM) 和虛擬機器擴展集。 它會分析您的 Windows 和 Linux Vm 的健全狀況與效能，並監視其處理程序和其他資源和外部處理序的相依性。 
 
 作為解決方案，適用於 VM 的 Azure 監視器包含針對在內部部署或其他雲端提供者中裝載的 VM，監視效能和應用程式相依性的支援。 有三個主要功能可提供深入解析：
 
 * **執行 Windows 和 Linux 之 Azure VM 的邏輯元件**：已根據預先設定的健全準則進行衡量，而它們會在符合所評估的條件時警示您。  
 
-* **預先定義的趨勢效能圖**：顯示客體 VM 作業系統的核心效能計量。
+* **預先定義的效能趨勢圖表**:顯示客體 VM 作業系統的核心效能計量。
 
 * **相依性對應**：從各種不同的資源群組和訂用帳戶，顯示與 VM 互連的元件。  
 
@@ -39,7 +39,7 @@ ms.locfileid: "56004990"
 * 對應
 
 >[!NOTE]
->目前，僅針對 Azure 虛擬機器和虛擬機器擴展集提供健康情況功能。 效能與對應功能可支援您的環境或其他雲端提供者中裝載的 Azure VM 和虛擬機器。
+>目前，僅針對 Azure 虛擬機器和虛擬機器擴展集提供健康情況功能。 效能和地圖功能支援 Azure Vm 和虛擬機器裝載在您的環境或其他雲端提供者。
 
 與 Azure 監視器記錄整合，可提供強大的彙總與篩選，而且它可以隨著時間執行趨勢分析。 單獨使用 Azure 監視器或服務對應，無法達到這類全面性工作負載監視。  
 
@@ -54,13 +54,14 @@ ms.locfileid: "56004990"
 
 ## <a name="data-usage"></a>資料使用量 
 
-當您部署適用於 VM 的 Azure 監視器時，您 VM 所收集的資料會內嵌並儲存於 Azure 監視器中。 根據 [Azure 監視器價格頁面](https://azure.microsoft.com/pricing/details/monitor/)上所發佈的價格，適用於 VM 的 Azure 監視器會針對下列項目進行計費：
+當您部署適用於 VM 的 Azure 監視器時，您 VM 所收集的資料會內嵌並儲存於 Azure 監視器中。 健全狀況準則度量時，會儲存在 Azure 監視器上，在時間序列資料庫、 效能和相依性所收集的資料會儲存在 Log Analytics 工作區。 根據 [Azure 監視器價格頁面](https://azure.microsoft.com/pricing/details/monitor/)上所發佈的價格，適用於 VM 的 Azure 監視器會針對下列項目進行計費：
+
 * 擷取並儲存的資料。
 * 受監視的健全準則計量時間序列數目。
 * 已建立的警示規則。
 * 已傳送的通知。 
 
-記錄大小會隨著計數器的字串長度而異，而它可以增加邏輯磁碟和網路介面卡數目。 如果您已經擁有工作區，並且正在收集這些計數器，則不會收取任何重複費用。 如果您已經使用服務對應，您將看到的唯一變更會是傳送到 Azure 監視器的額外連線資料。
+記錄檔大小而異的字串長度的效能計數器，且它會增加邏輯磁碟和配置給 VM 的網路介面卡數目。 如果您已經擁有工作區，並且正在收集這些計數器，則不會收取任何重複費用。 如果您已經使用服務對應，您將看到的唯一變更會是傳送到 Azure 監視器的額外連線資料。
 
 ## <a name="next-steps"></a>後續步驟
 若要了解有助於您監視虛擬機器的需求和方法，請檢閱[部署適用於 VM 的 Azure 監視器](vminsights-onboard.md)。

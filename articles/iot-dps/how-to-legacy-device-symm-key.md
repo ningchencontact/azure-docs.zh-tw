@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341230"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074891"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>如何使用對稱金鑰佈建繼承裝置
 
@@ -114,23 +114,23 @@ SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>建立對稱金鑰註冊群組
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
 
 2. 選取 [管理註冊] 索引標籤，然後按一下頁面頂端的 [新增註冊群組] 按鈕。 
 
 3. 在 [新增註冊群組] 上輸入下列資訊，然後按一下 [儲存] 按鈕。
 
-    - **群組名稱**：輸入 **mylegacydevices**。
+   - **群組名稱**：輸入 **mylegacydevices**。
 
-    - **證明類型**：選取 [對稱金鑰]。
+   - **證明類型**：選取 [對稱金鑰]。
 
-    - **自動產生金鑰**：核取此方塊。
+   - **自動產生金鑰**：核取此方塊。
 
-    - **選取將裝置指派給中樞的方式**：選取 [靜態設定]，以便指派給特定的中樞。
+   - **選取將裝置指派給中樞的方式**：選取 [靜態設定]，以便指派給特定的中樞。
 
-    - **選取可作為此群組之指派對象的 IoT 中樞**：選取您的其中一個中樞。
+   - **選取可作為此群組之指派對象的 IoT 中樞**：選取您的其中一個中樞。
 
-    ![為對稱金鑰證明新增註冊群組](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![為對稱金鑰證明新增註冊群組](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. 一旦儲存您的註冊，將會產生 [主要金鑰] 與 [次要金鑰] 並新增到註冊項目。 您的對稱金鑰註冊群組會在 [註冊群組] 索引標籤的 [群組名稱] 資料行之下，顯示為 **mylegacydevices**。 
 
@@ -294,7 +294,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 * 若要深入了解如何重新佈建，請參閱 [IoT 中樞裝置重新佈建的概念](concepts-device-reprovision.md) 
 * [快速入門：使用對稱金鑰佈建模擬的裝置](quick-create-simulated-device-symm-key.md)
-* 若要深入了解如何取消佈建，請參閱[如何取消佈建先前自動佈建的裝置](how-to-unprovision-devices.md) 
+* 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md) 
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: B2B 共同作業邀請電子郵件的元素 - Azure Active Directory | Microsoft Docs
+title: B2B 邀請電子郵件的元素-Azure Active Directory |Microsoft Docs
 description: Azure Active Directory B2B 共同作業邀請電子郵件範本
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162997"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014909"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 共同作業邀請電子郵件的元素 - Azure Active Directory
 
@@ -31,7 +32,7 @@ ms.locfileid: "56162997"
 電子郵件的主旨依循以下模式：誠摯地邀請您加入 &lt;tenantname&gt; 組織
 
 ### <a name="from-address"></a>寄件者地址
-針對「寄件者地址」，我們使用類似 LinkedIn 的模式。  您應該清楚邀請者是誰及來自哪個公司，並且表明電子郵件是來自 Microsoft 電子郵件帳戶。 其格式為：來自 &lt;tenantname&gt; 的&lt;邀請者的顯示名稱&gt; (透過 Microsoft) <invites@microsoft.com>
+針對「寄件者地址」，我們使用類似 LinkedIn 的模式。  您應該清楚邀請者是誰及來自哪個公司，並且表明電子郵件是來自 Microsoft 電子郵件帳戶。 其格式為：Microsoft 邀請<invites@microsoft.com>或是&lt;邀請者的顯示名稱&gt;從&lt;tenantname&gt; （透過 Microsoft) <invites@microsoft.com>。
 
 ### <a name="reply-to"></a>回覆地址
 回覆電子郵件會設定為邀請者的電子郵件 (如果可用)，以便在回覆電子郵件時會將電子郵件傳回給邀請者。
@@ -55,8 +56,12 @@ ms.locfileid: "56162997"
 ### <a name="body"></a>body
 內文包含[邀請來賓使用者到目錄、群組或應用程式](add-users-administrator.md) 或[使用邀請 API](customize-invitation-api.md) 時，邀請者所撰寫的訊息。 因為它是文字區域，所以不會基於安全考量處理 HTML 標記。
 
+  ![電子郵件內文的圖片](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>頁尾區段
-頁尾包含 Microsoft 公司品牌，並讓收件者知道電子郵件是否是由未受監視的別名所傳送。 特殊案例：
+頁尾包含 Microsoft 公司品牌，並讓收件者知道電子郵件是否是由未受監視的別名所傳送。 
+
+特殊案例：
 
 - 邀請者在邀請方租用中沒有電子郵件地址
 

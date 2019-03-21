@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8db11759ce501929e5cfd7b721c5e9dc80f9e01a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843703"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>在 Azure 上使用 Hive 的 HDInsight Hadoop 資料科學逐步解說 
 
@@ -36,7 +36,7 @@ ms.locfileid: "55473182"
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>使用 Hive 搭配 HDInsight Hadoop 來預測廣告點擊數
 
-[在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集](hive-criteo-walkthrough.md)逐步解說會使用公開使用的 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 點擊資料集，來預測是否給予小費及預期的金額範圍。 此案例是透過 Hive 搭配 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)來實作，以對資料進行儲存、探索、特性工程設計及縮減取樣。 它使用 Azure Machine Learning 來建立、定型二元分類模型並對其進行評分，以預測使用者是否點擊廣告。 此逐步解說最後會示範如何將其中一個模型發佈為 Web 服務。
+[在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集](hive-criteo-walkthrough.md)逐步解說會使用公開使用的 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) 點擊資料集，來預測是否給予小費及預期的金額範圍。 此案例是透過 Hive 搭配 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)來實作，以對資料進行儲存、探索、特性工程設計及縮減取樣。 它使用 Azure Machine Learning 來建立、定型二元分類模型並對其進行評分，以預測使用者是否點擊廣告。 此逐步解說最後會示範如何將其中一個模型發佈為 Web 服務。
 
 
 ## <a name="next-steps"></a>後續步驟

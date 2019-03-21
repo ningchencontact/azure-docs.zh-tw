@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0f9e889a15933953af275460ba12906db6f3adec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9c4ddb1375154fef3290008a7b981a4e9069ae94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075197"
 ---
 # <a name="set-up-and-run-analytics-jobs-using-azure-stream-analytics-api-for-net"></a>透過適用於 .NET 的 Azure 串流分析 API 來設定及執行分析作業
 了解如何使用管理 .NET SDK，透過適用於 .NET 的串流分析 API 來設定及執行分析作業。 設定專案，建立輸入與輸出來源、轉換，以及開始和停止工作。 對於您的分析工作，您可以從 Blob 儲存體或從事件中樞串流資料。
@@ -38,8 +38,8 @@ Azure 資料流分析是完全受控的服務，可用來對雲端中的串流�
    Add-AzureAccount
    # Select the Azure subscription you want to use to create the resource group
    Select-AzureSubscription -SubscriptionName <subscription name>
-       # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the    Register-AzureRMProvider cmdlet to register the provider namespace
-       #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+       # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the    Register-AzProvider cmdlet to register the provider namespace
+       #Register-AzProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
    # Create an Azure resource group
    New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
    ```
@@ -57,7 +57,7 @@ Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 ```
 
-3. 將下列 **appSettings** 區段加入 App.config 檔案：
+1. 將下列 **appSettings** 區段加入 App.config 檔案：
 
    ```csharp
    <appSettings>
@@ -76,7 +76,7 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 
         Get-AzureAccount
 
-4. 在您的 .csproj 檔案中新增下列參考：
+1. 在您的 .csproj 檔案中新增下列參考：
 
    ```csharp
    <Reference Include="System.Configuration" />
@@ -95,7 +95,7 @@ using Microsoft.Azure.Management.StreamAnalytics.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-2. 新增驗證協助程式方法：
+1. 新增驗證協助程式方法：
 
    ```csharp
    private static async Task<string> GetAuthorizationHeader()
@@ -117,7 +117,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
    }
    ```  
 
-## <a name="create-a-stream-analytics-management-client"></a>建立資料流分析管理用戶端
+## <a name="create-a-stream-analytics-management-client"></a>创建流分析管理客户端
 **StreamAnalyticsManagementClient** 物件可讓您管理工作和工作元件，例如輸入、輸出和轉換。
 
 在 **Main** 方法的開頭加入下列程式碼：
@@ -167,7 +167,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
 
 ## <a name="create-a-stream-analytics-input-source"></a>建立資料流分析輸入來源
-下列程式碼會使用 Blob 輸入來源類型和 CSV 序列化，來建立資料流分析輸入來源。 若要建立事件中心輸入來源，請使用 **EventHubStreamInputDataSource**，而不是 **BlobStreamInputDataSource**。 同樣地，您可以自訂輸入來源的序列化類型。
+下列程式碼會使用 Blob 輸入來源類型和 CSV 序列化，來建立資料流分析輸入來源。 若要建立事件中心輸入來源，請使用 **EventHubStreamInputDataSource**，而不是 **BlobStreamInputDataSource**。 同样，可以自定义输入源的序列化类型。
 
    ```csharp
    // Create a Stream Analytics input source
@@ -326,7 +326,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure 串流分析管理 .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx)。
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

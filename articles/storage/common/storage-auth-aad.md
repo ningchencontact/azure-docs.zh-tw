@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/13/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1a9283ad688c63642df880a74cca9189c7c59042
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: dcf7d237c8cfbf52a804e428d84fff0bb328c7c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012097"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>使用 Azure Active Directory 來驗證 Azure Blob 和佇列的存取權 (預覽)
 
@@ -35,19 +35,42 @@ Azure 儲存體支援使用 Azure Active Directory (Azure AD) 對 Blob 和佇列
 - Azure 儲存體支援內建與自訂 RBAC 角色。 您可以指定訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的角色。
 - 目前支援 Azure AD 整合的 Azure 儲存體用戶端程式庫包括：
     - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
+    - [Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
     - Python
         - [Blob、佇列及檔案](https://github.com/Azure/azure-storage-python) \(英文\)
     - [Node.js](https://www.npmjs.com/package/azure-storage)
     - [JavaScript](https://aka.ms/downloadazurestoragejs)
 
-## <a name="get-started-with-azure-ad-for-storage"></a>開始使用 Azure AD 於儲存體
+## <a name="overview-of-azure-ad-for-storage"></a>儲存體的 Azure AD 的概觀
 
-使用 Azure AD 與 Azure 儲存體的整合，第一個步驟就是將適用於儲存體資料的 RBAC 角色指派給服務主體 (使用者、群組或應用程式服務主體) 或 Azure 資源的受控識別。 RBAC 角色包含容器和佇列的一般權限集合。 若要深入了解 Azure 儲存體的 RBAC 角色，請參閱[使用 RBAC 管理儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。
+使用 Azure AD 與 Azure 儲存體的整合，第一個步驟就是將適用於儲存體資料的 RBAC 角色指派給服務主體 (使用者、群組或應用程式服務主體) 或 Azure 資源的受控識別。 RBAC 角色包含容器和佇列的一般權限集合。 若要深入了解 Azure 儲存體指派 RBAC 角色，請參閱[管理儲存體的資料，使用 RBAC （預覽） 的存取權限](storage-auth-aad-rbac.md)。
 
 若要使用 Azure AD 授與應用程式中的儲存體資源存取權，您需要從程式碼中要求 OAuth 2.0 存取權杖。 若要了解如何要求存取權杖，並用來授權對 Azure 儲存體的要求，請參閱[從 Azure 儲存體應用程式中使用 Azure AD 進行驗證 (預覽)](storage-auth-aad-app.md)。 如果您使用受控識別，請參閱[使用 Azure 資源的 Azure 受控識別來驗證 Blob 和佇列的存取權 (預覽)](storage-auth-aad-msi.md)。
 
 Azure CLI 和 PowerShell 現在支援以 Azure AD 身分識別登入。 以 Azure AD 身分識別登入之後，工作階段便會在該身分識別下執行。 若要進一步了解，請參閱[使用 Azure AD 身分識別以使用 CLI 或 PowerShell 存取 Azure 儲存體 (預覽)](storage-auth-aad-script.md)。
+
+## <a name="rbac-roles-for-blobs-and-queues"></a>適用於 Blob 和佇列的 RBAC 角色
+
+Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)，來授與存取受保護資源的權限。 Azure 儲存體會定義一組內建的 RBAC 角色，其中包含一般用來存取容器或佇列的權限集合。 
+
+RBAC 角色指派給 Azure AD 安全性主體時，Azure 授與存取這些資源的安全性主體。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 Azure AD 安全性主體，可能是使用者、 群組、 應用程式的服務主體，或[受管理的 Azure 資源的識別](../../active-directory/managed-identities-azure-resources/overview.md)。 
+
+[!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
+
+若要了解如何在 Azure 入口網站中的內建角色指派，請參閱[授與存取權的 Azure 容器，使用 RBAC 在 Azure 入口網站 （預覽） 中的佇列](storage-auth-aad-rbac.md)。
+
+### <a name="access-permissions-granted-by-rbac-roles"></a>授與 RBAC 角色的存取權限 
+
+下表摘要說明不同的範圍層級的內建角色授與的存取權限：
+
+|影響範圍|Blob 資料擁有者|Blob 資料參與者|Blob 資料讀者|佇列資料參與者|佇列資料讀者|
+|---|---|---|---|---|---|
+|訂用帳戶層級|訂用帳戶中所有容器和 Blob 的讀取/寫入存取和 POSIX 存取控制管理|訂用帳戶中所有容器和 Blob 的讀取/寫入存取| 訂用帳戶中所有容器和 Blob 的讀取存取|訂用帳戶中所有佇列的讀取/寫入存取|訂用帳戶中所有佇列的讀取存取|
+|資源群組層級|資源群組中所有容器和 Blob 的讀取/寫入存取和 POSIX 存取控制管理|資源群組中所有容器和 Blob 的讀取/寫入存取|資源群組中所有容器和 Blob 的讀取存取|資源群組中所有佇列的讀取/寫入存取|資源群組中所有佇列的讀取存取|
+|儲存體帳戶層級|儲存體帳戶中所有容器和 Blob 的讀取/寫入存取和 POSIX 存取控制管理|儲存體帳戶中所有容器和 Blob 的讀取/寫入存取|儲存體帳戶中所有容器和 Blob 的讀取存取|儲存體帳戶中所有佇列的讀取/寫入存取|儲存體帳戶中所有佇列的讀取存取|
+|容器/佇列層級|指定的容器及其 Blob 的讀取/寫入存取和 POSIX 存取控制管理。|指定容器和其 Blob 的讀取/寫入存取|指定容器和其 Blob 的讀取存取|指定佇列的讀取/寫入存取|指定佇列的讀取存取|
+
+如需呼叫 Azure 儲存體作業所需權限的詳細資訊，請參閱[呼叫 REST 作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。
 
 ## <a name="next-steps"></a>後續步驟
 

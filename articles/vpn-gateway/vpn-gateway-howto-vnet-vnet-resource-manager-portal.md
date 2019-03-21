@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090095"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>使用 Azure 入口網站設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -35,7 +35,7 @@ ms.locfileid: "55821660"
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure 入口網站 (傳統)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [連線不同的部署模型 - Azure 入口網站](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [连接不同的部署模型 - Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [連線不同的部署模型 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
@@ -133,7 +133,7 @@ ms.locfileid: "55821660"
        - **共用金鑰**：輸入 abc123。 您可以自行建立共用金鑰。 當您建立 VNet 之間的連線時，值必須相符。
 
 ## <a name="create-and-configure-testvnet1"></a>建立及設定 TestVNet1
-如果您已經有 VNet，請驗證設定是否與您的 VPN 閘道設計相容。 請特別注意任何可能與其他網路重疊的子網路。 如果有重疊的子網路，您的連線便無法正常運作。 您的 VNet 已設定為正確的設定後，即可開始執行「指定 DNS 伺服器」一節中的步驟。
+如果已有一个 VNet，请检查其设置是否与 VPN 网关设计兼容。 請特別注意任何可能與其他網路重疊的子網路。 如果有重疊的子網路，您的連線便無法正常運作。 您的 VNet 已設定為正確的設定後，即可開始執行「指定 DNS 伺服器」一節中的步驟。
 
 ### <a name="to-create-a-virtual-network"></a>建立虛擬網路
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -172,10 +172,10 @@ VNet 對 VNet 連線不需要 DNS。 不過，如果您想要對部署至虛擬�
 
 1. 在 Azure 入口網站中，選取 [所有資源]，在搜尋方塊中輸入「虛擬網路閘道」，然後瀏覽至您 VNet 的虛擬網路閘道。 例如，**TestVNet1GW**。 選取它來開啟 [虛擬網路閘道] 頁面。
 
-  ![連線頁面](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "連線頁面")
+   ![連線頁面](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "連線頁面")
 2. 在 [設定] 之下，選取 [連線]，然後選取 [新增] 以開啟 [新增連線] 頁面。
 
-  ![新增連接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "新增連接")
+   ![新增連接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "新增連接")
 3. 在 [新增連線] 頁面上，填入您的連線值：
 
    - **名稱**：輸入您的連線名稱。 例如，*TestVNet1toTestVNet4*。
@@ -186,11 +186,11 @@ VNet 對 VNet 連線不需要 DNS。 不過，如果您想要對部署至虛擬�
 
    - **第二個虛擬網路閘道**：這個欄位是您想要建立連線的 VNet 的虛擬網路閘道。 選取 [選擇另一個虛擬網路閘道]，以開啟 [選擇虛擬網路閘道] 頁面。
 
-    - 檢視此頁面上列出的虛擬網路閘道。 請注意，只會列出您的訂用帳戶中的虛擬網路閘道。 如果想要連線的虛擬網路閘道不在您的訂用帳戶中，請使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)。
+     - 檢視此頁面上列出的虛擬網路閘道。 請注意，只會列出您的訂用帳戶中的虛擬網路閘道。 如果想要連線的虛擬網路閘道不在您的訂用帳戶中，請使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)。
 
-    - 選取您想要連線的虛擬網路閘道。
+     - 選取您想要連線的虛擬網路閘道。
 
-    - **共用金鑰 (PSK)**：在此欄位中，輸入您連線的共用金鑰。 您可以產生此金鑰，或自行建立此金鑰。 在站對站連線中，您用於內部部署裝置與虛擬網路閘道連線的金鑰完全相同。 此處的概念類似，差別在於是連線到另一個虛擬網路閘道，而不是連線到 VPN 裝置。
+     - **共用金鑰 (PSK)**：在此欄位中，輸入您連線的共用金鑰。 您可以產生此金鑰，或自行建立此金鑰。 在站對站連線中，您用於內部部署裝置與虛擬網路閘道連線的金鑰完全相同。 此處的概念類似，差別在於是連線到另一個虛擬網路閘道，而不是連線到 VPN 裝置。
     
 4. 選取 [ **確定** ] 以儲存變更。
 

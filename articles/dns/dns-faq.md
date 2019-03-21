@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/16/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098088"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常見問題集
 
@@ -42,7 +42,7 @@ Azure 保證有效的 DNS 要求 100% 的時間都至少會從一部 Azure DNS �
 
 網域是網域名稱系統中的唯一名稱。 例如 contoso.com。
 
-DNS 區域用來裝載特定網域的 DNS 記錄。 例如，contoso.com 網域可能包含數筆 DNS 記錄。 這些記錄可能包含 mail.contoso.com (用於郵件伺服器) 和 www.contoso.com (用於網站)。 這些記錄會裝載在 contoso.com DNS 區域中。
+DNS 區域用來裝載特定網域的 DNS 記錄。 例如，contoso.com 網域可能包含數筆 DNS 記錄。 記錄可能包含 mail.contoso.com 的郵件伺服器與 www\.contoso.com 的網站。 這些記錄會裝載在 contoso.com DNS 區域中。
 
 網域名稱「只是一個名稱」。 DNS 區域則是包含網域名稱 DNS 記錄的資料資源。 您可以使用 Azure DNS 來裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記錄。 它也提供 DNS 名稱伺服器以回應來自網際網路的 DNS 查詢。
 
@@ -239,7 +239,7 @@ Azure DNS 的管理是使用 Azure Resource Manager 來進行的。 Azure DNS �
 
 是。 當您在沒有先解除註冊或解析虛擬網路與私人區域間連結的情況下便刪除該虛擬網路時，刪除作業會成功。 但系統將不會自動解除虛擬網路與任何私人區域之間的連結。 您必須手動解除虛擬網路與私人區域之間的連結。 基於這個原因，在刪除虛擬網路之前，請先解除它和您私人區域之間的連結。
 
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>在私人區域 (例如 contoso.local) 已連結至虛擬網路的情況下，使用預設 FQDN (internal.cloudapp.net) 的 DNS 解析是否能持續運作？
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>使用預設 FQDN (internal.cloudapp.net) 的 DNS 解析仍然可以運作即使在私人區域 (例如 private.contoso.com) 連結到虛擬網路嗎？
 
 是。 私人區域並不會取代使用由 Azure 所提供之 internal.cloudapp.net 區域的預設 DNS 解析。 其會作為額外的性能或增強功能供您使用。 無論是仰賴由 Azure 所提供的 internal.cloudapp.net 或您自己的私人區域，都請使用您想要解析之目標區域的 FQDN。 
 
@@ -262,7 +262,7 @@ Azure DNS 的管理是使用 Azure Resource Manager 來進行的。 Azure DNS �
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>針對私人區域的區域或記錄，是否有任何配額或限制？
 
-針對私人區域，並沒有針對每個訂用帳戶所允許的區域數目限制。 針對私人區域，並沒有針對每個區域的記錄集數目限制。 公用與私人區域都會計入整體的 DNS 限制。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制](../azure-subscription-service-limits.md#dns-limits)
+針對私人區域，並沒有針對每個訂用帳戶所允許的區域數目限制。 針對私人區域，並沒有針對每個區域的記錄集數目限制。 公用與私人區域都會計入整體的 DNS 限制。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制](../azure-subscription-service-limits.md#azure-dns-limits)
 
 ### <a name="is-there-portal-support-for-private-zones"></a>私人區域是否有入口網站支援？
 

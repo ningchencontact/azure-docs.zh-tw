@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 4ff3f129838a43bd7684dc10e1653dab969e9c1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087001"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso 移轉：將 Contoso Linux 服務傳統應用程式重構至具有 Azure App Service、流量管理員和 Azure MySQL 的多重區域
 
@@ -109,7 +109,7 @@ Contoso 會按照下列方式完成移轉程序：
 **服務** | **說明** | **成本**
 --- | --- | ---
 [Azure App Service](https://azure.microsoft.com/services/app-service/) | 服務會使用適用於網站的 Azure PaaS 服務，執行和調整應用程式。  | 定價是以執行個體的大小和所需的功能為基礎。 [深入了解](https://azure.microsoft.com/pricing/details/app-service/windows/)。
-[流量管理員](https://azure.microsoft.com/services/traffic-manager/) | 使用 DNS 將使用者導向 Azure 或外部網站和服務的負載平衡器。 | 定價是以收到的 DNS 查詢數目和已監視的端點數目為基礎。 | [深入了解](https://azure.microsoft.com/pricing/details/traffic-manager/)。
+[流量管理員](https://azure.microsoft.com/services/traffic-manager/) | 使用 DNS 將使用者導向 Azure 或外部網站和服務的負載平衡器。 | 定價是以收到的 DNS 查詢數目和已監視的端點數目為基礎。 [深入了解](https://azure.microsoft.com/pricing/details/traffic-manager/)。
 [適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/) | 此資料庫是以開放原始碼 MySQL 伺服器引擎為基礎。 它可為應用程式的開發與部署，提供完全受控、符合企業需求的社群 MySQL 資料庫即服務。 | 定價是以計算、儲存和備份需求為基礎。 [深入了解](https://azure.microsoft.com/pricing/details/mysql/)。
 
  

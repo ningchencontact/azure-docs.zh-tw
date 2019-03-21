@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 3ca3222f47b6a728905f895007269e3c22acd66d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789937"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009962"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>準備「Hyper-V VM 災害復原至 Azure」的網路對應
 
@@ -24,8 +24,8 @@ ms.locfileid: "53789937"
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>準備複寫至 Azure 所需的網路對應
 
 在複寫至 Azure 時，網路對應會對應來源 VMM 伺服器上的 VM 網路與目標 Azure 虛擬網路。 對應具有下列功能：
-    -  **網路連線**—確定複寫的 Azure VM 連線到對應的網路。 即使相同網路上容錯移轉的所有機器在不同的復原計畫中容錯移轉，這些機器也都可以彼此連接。
-    - **網路閘道**— 如果目標 Azure 網路上已設定網路閘道，則 VM 可以連線到其他內部部署虛擬機器。
+-  **網路連線**—確定複寫的 Azure VM 連線到對應的網路。 即使相同網路上容錯移轉的所有機器在不同的復原計畫中容錯移轉，這些機器也都可以彼此連接。
+- **網路閘道**— 如果目標 Azure 網路上已設定網路閘道，則 VM 可以連線到其他內部部署虛擬機器。
 
 網路對應的運作方式如下：
 
@@ -93,7 +93,7 @@ SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | 可用
  | GoldCloud1 | GoldCloud2 | 可用
-VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | 尚未提供
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | 不可用
  | GoldCloud1 | GoldCloud2 | 可用
 
 
@@ -112,7 +112,7 @@ VM2 (VM1 的複本) | VMNetwork1-Chicago
 
 讓我們使用這些設定，檢閱幾個可能的案例中發生的情況。
 
-**案例** | **結果**
+**方案** | **結果**
 ---|---
 在容錯移轉之後，VM-2 的網路屬性沒有變更。 | VM 1 仍然連線至來源網路。
 在容錯移轉並中斷連線之後，VM-2 的網路屬性有所變更。 | VM-1 已中斷連線。

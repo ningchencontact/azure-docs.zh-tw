@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ec5949438ef179ecef17c65e91138ed4dcde9906
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e75cd873b780f514b24ee254dd491b6aa779c420
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101919"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 儲存體中要求使用安全傳輸
 
@@ -35,7 +35,7 @@ ms.locfileid: "55467079"
 1. 在 Azure 入口網站中開啟 [建立儲存體帳戶] 窗格。
 1. 在 [需要安全傳輸] 下，選取 [已啟用]。
 
-  ![[建立儲存體帳戶] 刀鋒視窗](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![[建立儲存體帳戶] 刀鋒視窗](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>針對現有儲存體帳戶要求使用安全傳輸
 
@@ -43,7 +43,7 @@ ms.locfileid: "55467079"
 1. 在 [儲存體帳戶] 功能表窗格中，選取 [設定] 底下的 [組態]。
 1. 在 [需要安全傳輸] 下，選取 [已啟用]。
 
-  ![[儲存體帳戶] 功能表窗格](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![[儲存體帳戶] 功能表窗格](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>以程式設計方式啟用 [需要安全傳輸]
 

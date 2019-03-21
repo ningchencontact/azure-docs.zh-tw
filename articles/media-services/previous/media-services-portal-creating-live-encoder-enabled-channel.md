@@ -11,17 +11,17 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 28210c06892097abb831f3f6f27b8c68652a8957
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b09c80e08689768ab3e9646b7d6f60f72c33f764
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077780"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal-legacy"></a>如何使用媒體服務執行即時串流，以使用 Azure 入口網站建立多位元速率串流 (舊版)
+# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>如何使用媒體服務來使用 Azure 入口網站建立多位元速率串流執行即時串流  
 > [!div class="op_single_selector"]
 > * [入口網站](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -37,32 +37,30 @@ ms.locfileid: "56003988"
 > 
 
 ## <a name="common-live-streaming-scenario"></a>常見即時串流案例
-下列是建立常見即時串流應用程式所含的一般步驟。
+以下是创建常见的实时流应用程序时涉及的常规步骤。
 
 > [!NOTE]
 > 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。
-> 
-> 
 
 1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](https://go.microsoft.com/fwlink/?LinkId=532824)。
-   
+
     此步驟也可以在您建立通道之後執行。
 2. 建立並啟動通道。 
-3. 擷取通道內嵌 URL。 
-   
+3. 检索通道引入 URL。 
+
     內嵌 URL 可供即時編碼器用來傳送串流到通道。
 4. 擷取通道預覽 URL。 
-   
+
     使用此 URL 來確認您的通道會正確接收即時串流。
 5. 建立事件/程式，此程式也會建立資產。 
-6. 發佈事件，以建立相關聯資產的 OnDemand 定位器。    
-7. 當您準備好開始串流和封存時，請啟動事件。
+6. 发布事件（这将为关联的资产创建点播定位符）。    
+7. 在准备好开始流式传输和存档时，启动事件。
 8. 即時編碼器會收到啟動公告的信號 (選擇性)。 公告會插入輸出串流中。
 9. 每當您想要停止串流處理和封存事件時，請停止事件。
 10. 刪除事件 (並選擇性地刪除資產)。   
 
 ## <a name="in-this-tutorial"></a>本教學課程內容
-在本教學課程中，Azure 入口網站用來完成下列工作： 
+本教程使用 Azure 门户完成以下任务： 
 
 1. 建立啟用即可執行即時編碼的通道。
 2. 取得內嵌 URL，以將其提供給即時編碼器。 即時編碼器將使用此 URL 將串流內嵌到通道。
@@ -77,37 +75,37 @@ ms.locfileid: "56003988"
 * 若要完成此教學課程，您需要 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 
   如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 媒體服務帳戶。 若要建立媒體服務帳戶，請參閱 [建立帳戶](media-services-portal-create-account.md)。
-* 網路攝影機以及可以傳送單一位元速率即時串流的編碼器。
+* 可以发送单比特率实时流的摄像头和编码器。
 
-## <a name="create-a-channel"></a>建立通道
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [媒體服務]，然後按一下媒體服務帳戶名稱。
+## <a name="create-a-channel"></a>创建通道
+1. 在 [Azure 门户](https://portal.azure.com/)中，选择“媒体服务”，并单击媒体服务帐户名。
 2. 選取 [即時串流] 。
 3. 選取 [自訂建立] 。 此選項可讓您建立通道，而啟用通道即可進行即時編碼。
-   
+
     ![建立通道](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. 按一下 [設定] 。
-   
+
    1. 選擇 [即時編碼]  通道類型。 此類型指定您想要建立通道，而啟用通道即可進行即時編碼。 這表示內送單一位元速率串流會傳送至通道，並編碼為使用所指定即時編碼器設定的多位元速率串流。 如需詳細資訊，請參閱 [使用 Azure 媒體服務的即時串流，以建立多位元速率串流](media-services-manage-live-encoder-enabled-channels.md)。 按一下 [確定]。
    2. 指定通道的名稱。
    3. 按一下畫面底部的 [確定]。
 5. 選取 [內嵌]  索引標籤。
-   
+
    1. 在這個頁面上，您可以選取串流通訊協定。 適用於 [即時編碼]  通道類型的有效通訊協定選項如下：
-      
-      * 單一位元速率的分散 MP4 (Smooth Streaming)
+
+      * 单比特率分片 MP4（平滑流式处理）
       * 單一位元速率 RTMP
-        
-        如需每個通訊協定的詳細說明，請參閱 [使用 Azure 媒體服務的即時串流，以建立多位元速率串流](media-services-manage-live-encoder-enabled-channels.md)。
-        
+
+        有关每个协议的详细说明，请参阅 [使用 Azure 媒体服务执行实时流式处理以创建多比特率流](media-services-manage-live-encoder-enabled-channels.md)。
+
         通道或其相關聯事件/程式正在執行時，您無法變更通訊協定選項。 如果您需要不同的通訊協定，則應該為每個串流通訊協定建立個別的通道。  
    2. 您可以在內嵌上套用 IP 限制。 
-      
-       您可以定義允許將視訊內嵌到這個通道的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如'10.0.0.1')、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如'10.0.0.1/22’)，或使用 IP 位址和以點分隔十進位子網路遮罩的 IP 範圍 (例如'10.0.0.1(255.255.252.0)')。
-      
+
+       可定义允许向此通道引入视频的 IP 地址。 允許的 IP 位址可以指定為單一 IP 位址 (例如“10.0.0.1”）、使用一个 IP 地址和 CIDR 子网掩码的 IP 范围（例如'10.0.0.1/22’)，或使用 IP 位址和以點分隔十進位子網路遮罩的 IP 範圍 (例如'10.0.0.1(255.255.252.0)').
+
        如果未指定 IP 位址，而且沒有任何規則定義，則不允許任何 IP 位址。 若要允許任何 IP 位址，請建立規則，並設定 0.0.0.0/0。
 6. 在 [預覽]  索引標籤上，套用預覽上的 IP 限制。
 7. 在 [編碼]  索引標籤上，指定編碼預設值。 
-   
+
     目前，您唯一可選取的系統預設是 [ **預設 720p**]。 若要指定自訂預設值，請開啟 Microsoft 支援票證。 接著，輸入為您建立的預設值名稱。 
 
 > [!NOTE]
@@ -117,16 +115,16 @@ ms.locfileid: "56003988"
 
 建立通道後，您可按一下通道並選取 [設定]  ，以在其中檢視您的通道組態。 
 
-如需詳細資訊，請參閱 [使用 Azure 媒體服務的即時串流，以建立多位元速率串流](media-services-manage-live-encoder-enabled-channels.md)。
+有关详细信息，请参阅 [使用 Azure 媒体服务实时传送视频流以创建多比特率流](media-services-manage-live-encoder-enabled-channels.md)。
 
-## <a name="get-ingest-urls"></a>取得內嵌 URL
+## <a name="get-ingest-urls"></a>获取引入 URL
 建立通道之後，即可取得您提供給即時編碼器的內嵌 URL。 編碼器會使用這些 URL 來輸入即時串流。
 
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>建立和管理事件
 ### <a name="overview"></a>概觀
-通道是與事件/程式相關聯，而程式可讓您控制即時串流中區段的發佈和儲存。 通道會管理事件/程式。 通道和程式的關聯性非常類似於傳統媒體，此處的通道有常數內容資料流，而程式的範圍是該通道上的某些計時事件。
+通道与事件/节目相关联，使用事件/节目，可控制实时流中的段的发布和存储。 通道會管理事件/程式。 通道和节目的关系非常类似于传统媒体，通道具有恒定的内容流，而节目的范围限定为该通道上的一些定时事件。
 
 設定 [封存時間範圍]  長度，即可指定您想要保留事件之錄製內容的時數。 此值可以設為最少 5 分鐘到最多 25 個小時。 封存時間範圍長度也會指出用戶端可以從目前即時位置及時往回搜尋的最大時間量。 事件在超過指定的時間量後還是可以執行，但是會持續捨棄落後時間範圍長度的內容。 此屬性的這個值也會決定用戶端資訊清單可以成長為多長的時間。
 
@@ -153,25 +151,25 @@ ms.locfileid: "56003988"
 有兩種方式可以啟動事件： 
 
 1. 從 [通道] 頁面，按 [即時事件] 以新增事件。
-   
+
     指定：事件名稱、資產名稱、封存時間範圍和加密選項。
-   
+
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-   
+
     如果您保留 [立即發佈此即時事件]  的核取狀態，則事件會建立發佈 URL。
-   
+
     只要準備好串流處理事件，即可按 [啟動] 。
-   
+
     啟動事件後，即可按 [監看]  來開始播放內容。
 2. 或者，您可以使用捷徑並按 [通道] 頁面上的 [啟用] 按鈕。 這樣會建立預設「資產」、「程式」和「串流定位器」。
-   
+
     事件的名稱為 **default** ，而封存時間範圍設定為 8 小時。
 
 您可以從 [即時事件]  頁面監看已發佈的事件。 
 
 如果您按一下 [停止播放] ，則會停止所有的即時事件。 
 
-## <a name="watch-the-event"></a>監看事件
+## <a name="watch-the-event"></a>观看事件
 若要監看事件，請按一下 Azure 入口網站中的 [監看]  ，或複製串流 URL 並使用您選擇的播放程式。 
 
 ![建立時間](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
@@ -181,7 +179,7 @@ ms.locfileid: "56003988"
 ## <a name="clean-up"></a>清除
 如果您完成串流處理事件，而且想要清除先前佈建的資源，請遵循下列程序。
 
-* 停止從編碼器發送串流。
+* 停止从编码器推送流。
 * 停止通道。 停止通道之後，就不會產生任何費用。 當您需要重新啟動它時，它會具有相同的內嵌 URL，因此您不需要重新設定編碼器。
 * 除非您想要繼續將即時事件封存為隨選串流，否則您可以停止「串流端點」。 如果通道處於已停止狀態，就不會產生任何費用。
 
@@ -190,7 +188,7 @@ ms.locfileid: "56003988"
 
 若要管理您的資產，請選取 [設定]，然後按一下 [資產]。
 
-![Assets](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
+![资产](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>考量
 * 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: 23d30d3b881fbe5aab4e537073b2582eb01bfe7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183419"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084992"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 受控網域中的同步處理
 下圖說明同步處理在 Azure AD Domain Services 受控網域中的運作方式。
@@ -70,8 +70,6 @@ ms.locfileid: "55183419"
 
 > [!NOTE]
 > **使用 UPN 格式來登入受控網域：** 系統可能會針對受控網域中的某些使用者帳戶自動產生 SAMAccountName 屬性。 如果有多個使用者具有相同的 mailNickname 屬性，或使用者的 UPN 前置詞太長，可能就會自動為這些使用者產生 SAMAccountName。 因此，SAMAccountName 格式 (例如 'CONTOSO100\joeuser') 並不一定是登入網域的可靠方法。 使用者的自動產生 SAMAccountName 可能會與其 UPN 前置詞不同。 請使用 UPN 格式 (例如 'joeuser@contoso100.com') 可靠地登入受控網域。
->
->
 
 ### <a name="attribute-mapping-for-user-accounts"></a>使用者帳戶的屬性對應
 下表說明如何將您 Azure AD 租用戶中使用者物件的特定屬性同步到受控網域中對應的屬性。

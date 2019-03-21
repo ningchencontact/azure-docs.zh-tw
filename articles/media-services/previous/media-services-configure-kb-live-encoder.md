@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: 1672eb2ef0db36c9b30ca444fa4224eb1afbe828
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 058a1f964eb14d89628c92cbadd80511b7a27bae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014943"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 即時編碼器來傳送單一位元速率即時串流  
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "55998479"
 
 此主題說明如何設定 [Havision KB 即時編碼器](https://www.haivision.com/products/kb-series/)來傳送單一位元速率串流到已啟用即時編碼的 AMS 通道。 如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
-本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果您是用 Mac 或 Linux，請使用 Azure 入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel.md)。
+本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果使用的是 Mac 或 Linux，则可使用 Azure 门户创建[频道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[节目](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
 ## <a name="prerequisites"></a>必要條件
 *   存取執行 SW v5.01 或更新版本的 Haivision KB 編碼器。
@@ -39,7 +39,7 @@ ms.locfileid: "55998479"
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 啟動工具並連接到您的 AMS 帳戶。
 
-## <a name="tips"></a>祕訣
+## <a name="tips"></a>提示
 * 請盡可能使用實體的有線網際網路連線。
 * 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
 * 使用軟體型編碼器時，請關閉任何不必要的程式。

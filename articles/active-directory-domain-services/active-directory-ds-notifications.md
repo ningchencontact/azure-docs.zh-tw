@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
-ms.subservice: domains
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: d2cdff4b0b961083d8f8ac6e2eb8b1b46d30c06b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 85fcd28b5964cbe0246a7c79fa6d24d756f7bd35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086559"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Azure AD Domain Services 中的通知設定
 
@@ -47,7 +47,6 @@ Azure AD Domain Services 的通知可讓您在系統於您的受控網域上偵�
 
 > [!WARNING]
 > 請務必確定電子郵件是來自已驗證的 Microsoft 寄件者，然後再按一下您電子郵件中的連結。 電子郵件一律來自電子郵件：azure-noreply@microsoft.com
->
 
 
 ## <a name="why-would-i-receive-email-notifications"></a>為什麼我會收到電子郵件通知？

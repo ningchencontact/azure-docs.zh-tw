@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770783"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076270"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT 中樞裝置串流 (預覽)
 
@@ -117,16 +117,16 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>透過裝置串流活動記錄進行疑難排解
 
-您可以設定讓 Azure Log Analytics 收集「IoT 中樞」中的裝置資料流活動記錄。 這對於針對案例進行疑難排解來說很有幫助。
+您可以設定 Azure 監視器記錄檔，以在 IoT 中樞收集活動記錄檔的裝置資料流。 這對於針對案例進行疑難排解來說很有幫助。
 
-請遵循以下步驟來針對您 IoT 中樞的裝置串流活動設定 Azure Log Analytics：
+請遵循下列步驟來設定您的 IoT 中樞裝置資料流活動的 Azure 監視器記錄檔：
 
 1. 瀏覽至您 IoT 中樞中的 [診斷設定] 索引標籤，然後按一下 [開啟診斷] 連結。
 
-  ![替代文字](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "啟用診斷記錄")
+   ![替代文字](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "啟用診斷記錄")
 
 
-2. 提供診斷設定的名稱，然後選擇 [傳送至 Log Analytics] 選項。 系統會引導您選擇現有 Log Analytics 資源或建立新資源。 此外，請核取清單中的 [DeviceStreams]。
+2. 提供診斷設定的名稱，然後選擇 [傳送至 Log Analytics] 選項。 將會引導您選擇現有的 Log Analytics 工作區資源，或建立新的。 此外，請核取清單中的 [DeviceStreams]。
 
     ![替代文字](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "啟用裝置串流記錄")
 
@@ -153,7 +153,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ## <a name="iot-hub-device-stream-samples"></a>IoT 中樞裝置串流範例
 
 我們已發佈兩個[快速入門範例](/azure/iot-hub)，依應用程式示範裝置資料流的使用方式。
-* 「回應」範例示範裝置資料流的程式設計使用方式 (藉由直接呼叫 SDK API)。
+* *Echo*範例會示範以程式設計方式使用的裝置資料流 （藉由直接呼叫 SDK API）。
 * 「本機 Proxy」範例示範透過裝置資料流建立現成的用戶端/伺服器應用程式流量通道 (例如 SSH、RDP 或 Web)。
 
 下面會更詳細說明這些範例。

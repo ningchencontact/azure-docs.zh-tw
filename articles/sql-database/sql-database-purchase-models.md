@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010502"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 購買模型
 
@@ -104,7 +104,7 @@ DTU 最適合用於了解處於不同計算大小與服務層之各 Azure SQL Da
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>判斷工作負載所需的 DTU 數目
 
-如果您希望將現有的內部部署或 SQL Server 虛擬機器工作負載遷移到 Azure SQL Database，您可以使用 [DTU 計算機](http://dtucalculator.azurewebsites.net/) \(英文\) 來估計所需的 DTU 數目。 對於現有的 Azure SQL Database 工作負載，您可以使用[查詢效能深入解析](sql-database-query-performance.md)來了解您的資料庫資源使用量 (DTU)，以深入了解如何將工作負載最佳化。 您也可以使用 [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV，來檢視最近一小時的資源耗用量。 或者，目錄檢視 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 會顯示最近 14 天的資源耗用量，不過會以五分鐘的平均值來表示，其精確度較低。
+如果您希望將現有的內部部署或 SQL Server 虛擬機器工作負載遷移到 Azure SQL Database，您可以使用 [DTU 計算機](https://dtucalculator.azurewebsites.net/) \(英文\) 來估計所需的 DTU 數目。 對於現有的 Azure SQL Database 工作負載，您可以使用[查詢效能深入解析](sql-database-query-performance.md)來了解您的資料庫資源使用量 (DTU)，以深入了解如何將工作負載最佳化。 您也可以使用 [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV，來檢視最近一小時的資源耗用量。 或者，目錄檢視 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 會顯示最近 14 天的資源耗用量，不過會以五分鐘的平均值來表示，其精確度較低。
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>能受益於彈性資源集區的工作負載
 

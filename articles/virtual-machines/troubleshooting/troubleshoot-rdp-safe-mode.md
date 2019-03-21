@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316966"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095036"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>因為 VM 開機到安全模式而無法連線到 VM
 
@@ -47,7 +47,7 @@ ms.locfileid: "53316966"
 ### <a name="use-serial-control"></a>使用序列主控台
 
 1. 連線至[序列主控台並開啟 CMD 執行個體](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-)。 如果 VM 上未啟用序列主控台，請參閱[修復離線的 VM](#repair-the-vm-offline)一節。
+   )。 如果 VM 上未啟用序列主控台，請參閱[修復離線的 VM](#repair-the-vm-offline)一節。
 2. 檢查開機設定資料：
 
         bcdedit /enum
@@ -55,12 +55,12 @@ ms.locfileid: "53316966"
     若 VM 已設定為開機到安全模式，您將會在 [Windows 開機載入器] 區段下看到稱為 [安全開機] 的額外旗標。 若您沒有看到 [安全開機] 旗標，表示 VM 並非處於安全模式。 此文章不適用於您的案例。
 
     [安全開機] 旗標會隨著下列值出現：
-    - 有限
-    - 網路
+   - 有限
+   - 網路
 
-    在這兩個模式中的任一個模式中，RDP 將不會啟動。 因此，修正方式仍然相同。
+     在這兩個模式中的任一個模式中，RDP 將不會啟動。 因此，修正方式仍然相同。
 
-    ![有關安全模式旗標的影像](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![有關安全模式旗標的影像](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. 刪除 [安全開機] 旗標，這樣 VM 就會開機到標準模式：
 

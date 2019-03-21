@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: eaaad0d7351c398c9b2cc013f40d62461a2dd3f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269054"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845525"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -36,7 +36,7 @@ ms.locfileid: "56269054"
 - 所有非 Windows 10 或 Windows Server 2016 裝置。
 - 所有非 Windows 裝置。 
 
---- 
+---
 
 **問：我要如何知道用戶端的裝置註冊狀態為何？**
 
@@ -86,6 +86,12 @@ ms.locfileid: "56269054"
 -   針對已加入內部部署 Active Directory 網域的舊版 Windows OS 版本，自動註冊會為每個登入裝置的網域使用者，以相同的裝置名稱建立一個新裝置記錄。 
 
 -   已加入 Azure AD 的機器如果經過抹除、重新安裝，然後再以相同名稱重新加入，就會顯示成另一個具有相同裝置名稱的記錄。
+
+---
+
+**問：在 Azure AD 中的 Windows 10 裝置註冊並在 FIPS 模式下支援 Tpm？**
+
+**答：** 否，目前在 Windows 10 上所有的裝置狀態-混合式 Azure AD join、 加入 Azure AD 和 Azure AD 註冊-裝置註冊不支援 Tpm 在 FIPS 模式中。 已成功加入，或註冊至 Azure AD，FIPS 模式需要在這些裝置上的 tpm 已關閉
 
 ---
 
@@ -231,7 +237,13 @@ ms.locfileid: "56269054"
 
 **問：Windows 10 混合式 Azure AD 聯結裝置是否需要網域控制站的視線，才能取得雲端資源的存取權？**
 
-**答：** 沒有。 Windows 10 混合式 Azure AD 聯結完成而且使用者至少登入一次後，裝置不需要網域控制站的視線，即可存取雲端資源。 除了密碼變更時，Windows 10 可以透過網際網路連線在任何地方取得 Azure AD 應用程式的單一登入。 如果在公司網路外部變更密碼 (例如，藉由使用 Azure AD SSPR)，使用者需要有網域控制站的視線，才能使用新密碼登入裝置。 否則，使用者只能使用舊密碼登入，而舊密碼已由 Azure AD 撤銷而無法進行單一登入。 不過，您使用 Windows Hello 企業版時，不會發生此問題。 即使沒有網域控制站的視線，使用 Windows hello 企業版登入的使用者仍然可以在密碼變更後繼續進行 Azure AD 應用程式的單一登入。 
+**答：** 通常不會，但使用者的密碼變更時。 Windows 10 混合式 Azure AD 聯結完成而且使用者至少登入一次後，裝置不需要網域控制站的視線，即可存取雲端資源。 除了密碼變更時，Windows 10 可以透過網際網路連線在任何地方取得 Azure AD 應用程式的單一登入。 使用 Windows hello 企業版登入繼續取得單一使用者登入 Azure AD 應用程式即使在密碼變更，即使他們沒有其網域控制站的視野。 
+
+---
+
+**問：如果使用者變更其密碼，並嘗試登入其 Windows 10 的混合式 Azure AD 已加入公司網路外部的裝置？**
+
+**答：** 如果公司網路外部變更密碼 （例如，藉由使用 Azure AD SSPR），然後以新密碼的使用者登入將會失敗。 對於混合式 Azure AD 已加入裝置，在內部部署 Active Directory 會是主要的授權單位。 當裝置不需要直視網域控制站時，就無法驗證新的密碼。 因此，使用者就必須建立與網域控制站 （無論是透過 VPN 或公司網路中） 連線他們能夠登入的裝置有新密碼之前。 否則，他們用來登入舊密碼因為 Windows 中的快取登入功能。 不過，舊的密碼都無效的權杖要求期間的 Azure AD 和因此，防止單一登入和任何裝置型條件式存取原則就會失敗。 如果您使用 Windows Hello 企業版，則不會發生此問題。 
 
 ---
 
