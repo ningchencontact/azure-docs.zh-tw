@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116821"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>為 DevTest Labs 虛擬機器建立自訂構件
 
@@ -53,7 +53,7 @@ ms.locfileid: "55098556"
       }
     }
 
-| 元素名稱 | 必要？ | 說明 |
+| 元素名稱 | 必要？ | 描述 |
 | --- | --- | --- |
 | $schema |否 |JSON 結構描述檔案的位置。 JSON 結構描述檔案可協助您測試定義檔是否有效。 |
 | title |是 |實驗室中顯示的構件名稱。 |
@@ -76,10 +76,10 @@ ms.locfileid: "55098556"
       }
     }
 
-| 元素名稱 | 必要？ | 說明 |
+| 元素名稱 | 必要？ | 描述 |
 | --- | --- | --- |
 | type |是 |參數值類型。 請參閱下列清單以了解允許的類型。 |
-| displayName |是 |為實驗室中的使用者顯示的參數名稱。 | |
+| displayName |是 |為實驗室中的使用者顯示的參數名稱。 |
 | 說明 |是 |在實驗室中顯示的參數說明。 |
 
 允許的類型為：
@@ -126,7 +126,7 @@ ms.locfileid: "55098556"
 
 ## <a name="related-articles"></a>相關文章
 * [如何診斷 DevTest Labs 中的構件失敗](devtest-lab-troubleshoot-artifact-failure.md)
-* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (在 DevTest Labs 中使用 Resource Manager 範本將 VM 加入至現有 Active Directory 網域)
+* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (在 DevTest Labs 中使用 Resource Manager 範本將 VM 加入至現有 Active Directory 網域)
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [將 Git 構件儲存機制加入實驗室](devtest-lab-add-artifact-repo.md)。

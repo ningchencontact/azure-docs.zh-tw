@@ -8,15 +8,15 @@ ms.author: hshapiro
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a0d20d6cdb719f34a50052ff2eb693071c7ece96
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122364"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型
 
@@ -46,6 +46,7 @@ Azure Machine Learning 服務在不同計算目標上提供不同的支援。 �
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **所有計算目標皆可用於多個定型作業**。 例如，將遠端 VM 連結至您的工作區之後，您可以將它重複用於多個作業。
 
@@ -138,16 +139,16 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
     * **vm_size**：Azure Machine Learning Compute 建立的節點虛擬機器系列。
     * **max_nodes**：在 Azure Machine Learning Compute 上執行作業時，自動向上調整的最大節點數。
     
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-  建立 Azure Machine Learning Compute 時，您也可以設定多個進階屬性。 這些屬性可讓您建立固定大小的持續性叢集，也可以在您訂用帳戶中現有的 Azure 虛擬網路內建立。  如需詳細資料，請參閱 [AmlCompute 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
+   建立 Azure Machine Learning Compute 時，您也可以設定多個進階屬性。 這些屬性可讓您建立固定大小的持續性叢集，也可以在您訂用帳戶中現有的 Azure 虛擬網路內建立。  如需詳細資料，請參閱 [AmlCompute 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     )。
     
- 或者，您可以[在 Azure 入口網站中](#portal-create)建立並連結持續性 Azure Machine Learning Compute 資源。
+   或者，您可以[在 Azure 入口網站中](#portal-create)建立並連結持續性 Azure Machine Learning Compute 資源。
 
 1. **設定**：為持續性計算目標建立回合組態。
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 現在您已連結計算並設定執行，下一步是[提交定型回合](#submit)。
 
@@ -167,34 +168,34 @@ Azure Machine Learning 也支援提供您自己的計算資源，並將其附加
 
 1. **連結**：若要附加現有的虛擬機器作為計算目標，您必須提供虛擬機器的完整網域名稱 (FQDN)、使用者名稱與密碼。 在範例中，請以 VM 的公用 FQDN 或公用 IP 位址取代 \<fqdn>。 將 \<username> 和 \<password> 取代為 VM 的 SSH 使用者名稱和密碼。
 
- ```python
- from azureml.core.compute import RemoteCompute, ComputeTarget
+   ```python
+   from azureml.core.compute import RemoteCompute, ComputeTarget
 
- # Create the compute config 
- compute_target_name = "attach-dsvm"
- attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   # Create the compute config 
+   compute_target_name = "attach-dsvm"
+   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
 
- # If you authenticate with SSH keys instead, use this code:
- #                                                  ssh_port=22,
- #                                                  username='<username>',
- #                                                  password=None,
- #                                                  private_key_file="<path-to-file>",
- #                                                  private_key_passphrase="<passphrase>")
+   # If you authenticate with SSH keys instead, use this code:
+   #                                                  ssh_port=22,
+   #                                                  username='<username>',
+   #                                                  password=None,
+   #                                                  private_key_file="<path-to-file>",
+   #                                                  private_key_passphrase="<passphrase>")
 
- # Attach the compute
- compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
+   # Attach the compute
+   compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
- compute.wait_for_completion(show_output=True)
- ```
+   compute.wait_for_completion(show_output=True)
+   ```
 
- 或者，您可以[使用 Azure 入口網站](#portal-reuse)，將 DSVM 連結到工作區。
+   或者，您可以[使用 Azure 入口網站](#portal-reuse)，將 DSVM 連結到工作區。
 
 1. **設定**：為 DSVM 計算目標建立回合組態。 Docker 和 Conda 用來建立和設定 DSVM 上的定型環境。
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
 現在您已連結計算並設定執行，下一步是[提交定型回合](#submit)。
@@ -211,11 +212,11 @@ Azure HDInsight 是巨量資料分析的常用平台。 此平台會提供 Apach
 
 1. **連結**：若要連結 HDInsight 叢集作為計算目標，必須提供 HDInsight 叢集的主機名稱、使用者名稱與密碼。 下列範例會使用 SDK 將叢集附加到您的工作區。 在此範例中，將 \<clustername> 取代為叢集的名稱。 將 \<username> 和 \<password> 取代為叢集的 SSH 使用者名稱和密碼。
 
-  ```python
- from azureml.core.compute import ComputeTarget, HDInsightCompute
- from azureml.exceptions import ComputeTargetException
+   ```python
+   from azureml.core.compute import ComputeTarget, HDInsightCompute
+   from azureml.exceptions import ComputeTargetException
 
- try:
+   try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
     attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
                                                           ssh_port=22, 
@@ -225,21 +226,57 @@ Azure HDInsight 是巨量資料分析的常用平台。 此平台會提供 Apach
                                        name='myhdi', 
                                        attach_configuration=attach_config)
 
- except ComputeTargetException as e:
+   except ComputeTargetException as e:
     print("Caught = {}".format(e.message))
 
- hdi_compute.wait_for_completion(show_output=True)
-  ```
+   hdi_compute.wait_for_completion(show_output=True)
+   ```
 
-  或者，您可以[使用 Azure 入口網站](#portal-reuse)，將 HDInsight 叢集連結到工作區。
+   或者，您可以[使用 Azure 入口網站](#portal-reuse)，將 HDInsight 叢集連結到工作區。
 
 1. **設定**：為 HDI 計算目標建立回合組態。 
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
 現在您已連結計算並設定執行，下一步是[提交定型回合](#submit)。
 
+
+### <a id="azbatch"></a>Azure Batch 
+
+Azure 批次用來在雲端有效地執行大規模平行和高效能運算 (HPC) 應用程式。 AzureBatchStep 可以使用 Azure 機器學習服務管線中，將作業提交至機器的 Azure Batch 集區。
+
+若要附加做為計算目標的 Azure Batch，您必須使用 Azure 機器學習服務 SDK，並提供下列資訊：
+
+-   **Azure Batch 計算名稱**:好記的名稱，用於在工作區中計算
+-   **Azure Batch 帳戶名稱**:Azure Batch 帳戶的名稱
+-   **資源群組**：包含 Azure Batch 帳戶的資源群組。
+
+下列程式碼示範如何附加做為計算目標的 Azure Batch:
+
+```python
+from azureml.core.compute import ComputeTarget, BatchCompute
+from azureml.exceptions import ComputeTargetException
+
+batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+
+# Batch account details needed to attach as compute to workspace
+batch_account_name = "<batch_account_name>" # Name of the Batch account
+batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+
+try:
+    # check if the compute is already attached
+    batch_compute = BatchCompute(ws, batch_compute_name)
+except ComputeTargetException:
+    print('Attaching Batch compute...')
+    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    batch_compute.wait_for_completion()
+    print("Provisioning state:{}".format(batch_compute.provisioning_state))
+    print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
+
+print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
+```
 
 ## <a name="set-up-compute-in-the-azure-portal"></a>在 Azure 入口網站中設定計算
 

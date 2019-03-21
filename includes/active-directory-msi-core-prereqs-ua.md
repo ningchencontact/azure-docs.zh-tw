@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 106c4796bde838e28b91771454e971f9999194e1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: HT
+ms.openlocfilehash: dc8f9797b7b4c04da27a54dfddc79bd96d6df88d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753773"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "58113999"
 ---
-如果您不熟悉 MSI，請參閱[受控服務識別概觀](~/articles/active-directory/managed-service-identity/overview.md)，且**務必檢閱[系統指派與使用者指派之 MSI 之間的差異](~/articles/active-directory/managed-service-identity/overview.md#how-does-it-work)**。 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
+如果您不熟悉適用於 Azure 資源管理的身分識別，請參閱[管理 Azure 資源概觀的身分識別](~/articles/active-directory/managed-identities-azure-resources/overview.md)，並**務必檢閱[指派的使用者和系統之間的差異受控身分識別](~/articles/active-directory/managed-identities-azure-resources/overview.md#how-does-it-work)**。 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。

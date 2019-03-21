@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165734"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181787"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>尋求 Azure Active Directory 方面的協助及開立支援票證
 Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售前、帳單和訂用帳戶支援。 Microsoft Azure 付費訂用帳戶與試用訂用帳戶則提供線上和電話支援 。 電話支援和線上帳單支援已推出其他語言版本。 
@@ -41,7 +41,7 @@ Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售�
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>如何在 Azure 入口網站中開啟 Azure AD 的支援票證
 
 > [!NOTE]
-> 若是帳單或訂用帳戶問題，您必須使用 [Office 365 系統管理中心](https://portal.office.com)。
+> 如需帳單或訂用帳戶的問題，您必須使用[Microsoft 365 系統管理中心](https://admin.microsoft.com)。
 > 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟 **Azure Active Directory**。
@@ -61,22 +61,21 @@ Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售�
 8. 提供您的連絡資訊，然後選取 [建立]。
   ![問題類別自助螢幕擷取畫面](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-office-365-portal"></a>如何在 Office 365 入口網站中開啟 Azure AD 的支援票證
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>如何在 Microsoft 365 系統管理中心中，開啟 Azure ad 的支援票證
 
 > [!NOTE]
-> Office 365 系統管理中心的 Azure AD 支援僅針對系統管理員提供。
+> Azure ad 中的支援[Microsoft 365 系統管理中心](https://admin.microsoft.com)提供僅限系統管理員。
 > 
 
-1. 使用具有 Enterprise Mobility + Security (EMS) 授權的帳戶，登入 [Office 365 系統管理中心](https://portal.office.com)。
+1. 登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)有 Enterprise Mobility + Security (EMS) 授權的帳戶。
 
-2. 在 [支援] 圖格中，選取 [新增服務要求]：![Office 365 入口網站的螢幕擷取畫面](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. 在 [支援] 圖格中，選取 [新增服務要求]：
 
-3. 在 [支援概觀] 頁面上，選取 [身分識別管理] 或 [使用者和網域管理]：![Azure AD 支援類別的螢幕擷取畫面](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. 在 [支援概觀] 頁面上，選取 [身分識別管理] 或 [使用者和網域管理]：
 
 4. 對於 [功能]，選取您要支援的 Azure AD 功能。
 
 5. 對於 [徵兆]，選取適當的徵兆、摘要說明您的問題並提供相關的詳細資料，然後選取 [下一步]。
-  ![功能和徵兆自助螢幕擷取畫面](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
 
 6. 選取其中一個提供的自助資源，或者選取 [是，繼續] 或 [否，取消要求]。
 

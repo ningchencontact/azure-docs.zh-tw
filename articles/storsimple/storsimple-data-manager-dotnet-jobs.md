@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: HT
+ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27928231"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885045"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>使用 .Net SDK 起始資料轉換
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>使用.NET SDK 起始資料轉換
 
 ## <a name="overview"></a>概觀
 
@@ -29,12 +29,12 @@ ms.locfileid: "27928231"
 
 您可以使用下列兩種方式啟動資料轉換作業：
 
- - 使用 .NET SDK
- - 使用 Azure 自動化 Runbook
+- 使用 .NET SDK
+- 使用 Azure 自動化 Runbook
  
- 本文詳細說明如何建立範例 .NET 主控台應用程式來起始資料轉換作業，然後追蹤直到完成為止。 若要深入了解如何透過自動化起始資料轉換，請前往[使用 Azure 自動化 Runbook 來觸發資料轉換作業](storsimple-data-manager-job-using-automation.md)。
+  本文詳細說明如何建立範例 .NET 主控台應用程式來起始資料轉換作業，然後追蹤直到完成為止。 若要深入了解如何透過自動化起始資料轉換，請前往[使用 Azure 自動化 Runbook 來觸發資料轉換作業](storsimple-data-manager-job-using-automation.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您有︰
 *   執行以下軟體的電腦：
@@ -80,16 +80,16 @@ ms.locfileid: "27928231"
 
         ![建立專案 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  現在，在您建立的專案中，將 [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) 資料夾中出現的所有 dll 新增為 [參考]。 若要新增 dll 檔，請執行下列作業：
+4. 現在，在您建立的專案中，將 [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) 資料夾中出現的所有 dll 新增為 [參考]。 若要新增 dll 檔，請執行下列作業：
 
-    1. 在 Visual Studio 中，移至 [檢視] > [方案總管]。
-    2. 按一下資料轉換應用程式專案左邊的箭號。 按一下 [參考]，然後按一下滑鼠右鍵以 [新增參考]。
+   1. 在 Visual Studio 中，移至 [檢視] > [方案總管]。
+   2. 按一下資料轉換應用程式專案左邊的箭號。 按一下 [參考]，然後按一下滑鼠右鍵以 [新增參考]。
     
-        ![新增 dll 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+       ![新增 dll 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-    3. 瀏覽至套件資料夾的位置，選取所有 dll，按一下 [新增]，然後按一下 [確定]。
+   3. 瀏覽至套件資料夾的位置，選取所有 dll，按一下 [新增]，然後按一下 [確定]。
 
-        ![新增 dll 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
+       ![新增 dll 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. 將下列 **using** 陳述式加入專案的原始程式檔 (Program.cs) 中。
 
@@ -196,9 +196,9 @@ ms.locfileid: "27928231"
     Console.Read();
 
     ```
- 以下是用來觸發使用 .NET 之作業的完整程式碼範例螢幕擷取畫面。
+    以下是用來觸發使用 .NET 之作業的完整程式碼範例螢幕擷取畫面。
 
- ![用來觸發 .NET 作業的完整程式碼片段](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
+    ![用來觸發 .NET 作業的完整程式碼片段](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
 ## <a name="next-steps"></a>後續步驟
 

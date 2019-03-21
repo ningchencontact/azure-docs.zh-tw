@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424314"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544975"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 
@@ -47,7 +47,7 @@ ms.locfileid: "54424314"
 
 「擁有者」可以管理所有項目，包括存取權。 下表說明針對此角色授與的權限：
 
-|動作|說明|
+|動作|描述|
 |---|---|
 |Microsoft.Automation/automationAccounts/|建立和管理所有類型的資源。|
 
@@ -142,7 +142,7 @@ ms.locfileid: "54424314"
 |Microsoft.Compute/virtualMachines/extensions/*|建立和管理傳統虛擬機器延伸模組。|
 |Microsoft.Insights/alertRules/*|讀取/寫入/刪除警示規則。|
 |Microsoft.Insights/diagnosticSettings/*|讀取/寫入/刪除診斷設定。|
-|Microsoft.OperationalInsights/*|管理 Log Analytics。|
+|Microsoft.OperationalInsights/*|管理 Azure Monitor 日志。|
 |Microsoft.OperationsManagement/*|管理工作區中的解決方案。|
 |Microsoft.Resources/deployments/*|建立和管理資源群組部署。|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|建立和管理資源群組部署。|
@@ -156,8 +156,8 @@ ms.locfileid: "54424314"
 |**動作**  |**說明**  |
 |---------|---------|
 |*/read|讀取密碼以外的所有類型的資源。|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|管理 Log Analytics 中的查詢。|
-|Microsoft.OperationalInsights/workspaces/search/action|搜尋 Log Analytics 資料。|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|管理 Azure Monitor 日志中的查询。|
+|Microsoft.OperationalInsights/workspaces/search/action|搜索 Azure Monitor 日志数据。|
 |Microsoft.Support/*|建立和管理支援票證。|
 |**無法執行的動作**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|無法讀取共用存取金鑰。|
@@ -175,16 +175,16 @@ ms.locfileid: "54424314"
 |Microsoft.Insights/components/*|管理 Application Insights 元件。|
 |Microsoft.Insights/DiagnosticSettings/*|管理診斷設定。|
 |Microsoft.Insights/eventtypes/*|列出訂用帳戶中的活動記錄檔事件 (管理事件)。 此權限適用於以程式設計方式存取和入口網站存取活動記錄檔。|
-|Microsoft.Insights/LogDefinitions/*|此為使用者需要透過入口網站存取活動記錄檔時所需的權限。 列出活動記錄檔中的記錄檔分類。|
+|Microsoft.Insights/LogDefinitions/*|需要通过门户访问活动日志的用户必须拥有此权限。 列出活動記錄檔中的記錄檔分類。|
 |Microsoft.Insights/MetricDefinitions/*|讀取度量定義 (可用資源的度量類型清單)。|
-|Microsoft.Insights/Metrics/*|讀取資源的度量。|
+|Microsoft.Insights/Metrics/*|读取资源的指标。|
 |Microsoft.Insights/Register/Action|註冊 Microsoft Insights 提供者。|
 |Microsoft.Insights/webtests/*|管理 Application Insights Web 測試。|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|管理 Log Analytics 解決方案套件。|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|管理 Log Analytics 已儲存的搜尋。|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|管理 Azure Monitor 日志解决方案包。|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|管理 Azure Monitor 日志保存的搜索。|
 |Microsoft.OperationalInsights/workspaces/search/action|搜尋 Log Analytics 工作區。|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|列出 Log Analytics 工作區的金鑰。|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|管理 Log Analytics 儲存體深入解析設定。|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|管理 Azure Monitor 日志存储见解配置。|
 |Microsoft.Support/*|建立和管理支援票證。|
 |Microsoft.WorkloadMonitor/workloads/*|管理「工作負載」。|
 

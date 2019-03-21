@@ -3,7 +3,7 @@ title: 在 Azure Service Fabric 中檢視容器記錄 | Microsoft Docs
 description: 說明如何使用 Service Fabric Explorer，對執行中的 Service Fabric 容器服務檢視其容器記錄。
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: twhitney
-ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 801d96dc154c1d7144217fe0f70c179c086690f0
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391242"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804496"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>檢視 Service Fabric 容器服務的記錄
 Azure Service Fabric 是一種容器協調器，可支援 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文說明如何檢視執行中容器服務或無作用容器的容器記錄，以便您診斷問題並進行疑難排解。

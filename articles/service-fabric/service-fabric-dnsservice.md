@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: b49df76bc5b9c4d5f469e702b65ffd5762e49a39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035901"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455831"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服務
 「DNS 服務」是一個選用的系統服務，您可以在叢集中啟用以使用 DNS 通訊協定來探索其他服務。 
@@ -53,7 +53,7 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
 如果您不使用入口網站來建立叢集，或是要更新現有叢集，則需要在範本中啟用 DNS 服務：
 
 - 若要部署新叢集，您可以使用[範例範本](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)或建立自己的 Resource Manager 範本。 
-- 若要更新現有叢集，您可以在入口網站上瀏覽至叢集的資源群組，然後按一下 [自動化指令碼] 以使用可反映叢集目前狀態和群組中其他資源的範本。 若要深入了解，請參閱[從資源群組匯出範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group)。
+- 若要更新現有叢集，您可以在入口網站上瀏覽至叢集的資源群組，然後按一下 [自動化指令碼] 以使用可反映叢集目前狀態和群組中其他資源的範本。 若要深入了解，請參閱[從資源群組匯出範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)。
 
 擁有範本後，您可以使用下列步驟來啟用 DNS 服務：
 

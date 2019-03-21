@@ -1,19 +1,19 @@
 ---
-title: 在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程 | Microsoft Docs
+title: 在 Microsoft Flow 中使用 Azure IoT Central 連接器建置工作流程 | Microsoft Docs
 description: 在 Microsoft Flow 中使用 IoT Central 連接器觸發工作流程，以及在工作流程中建立、更新和刪除裝置。
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/18/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: c06939ccb920954c08ef02f38e6d12471ac267db
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 555fe54174c9e13319af676cab3a5d3dcfaf2fe5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959285"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770244"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程
 
@@ -26,28 +26,28 @@ ms.locfileid: "50959285"
 - 預付型方案應用程式
 - 可登入 Flow 的 Microsoft 的個人、公司或學校帳戶 ([深入了解 Microsoft Flow 計劃](https://aka.ms/microsoftflowplans))
 
-## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>在觸發規則時觸發工作流程
+## <a name="trigger-a-workflow"></a>觸發程序工作流程
 
-本節說明如何在於 IoT Central 中觸發規則時，觸發 Flow 行動應用程式中的行動通知。
+本節將說明如何在 Flow 行動應用程式時 IoT Central 中的規則觸發程序中的行動裝置通知觸發程序。
 
-1. 首先，[在 IoT Central 中建立規則](howto-create-telemetry-rules.md)。 在儲存規則條件之後，請按一下 [Microsoft Flow 動作] 來作為新動作。 您的瀏覽器中應會開啟新的索引標籤或視窗，將您導向至 Microsoft Flow。
+1. 首先，[在 IoT Central 中建立規則](howto-create-telemetry-rules.md)。 儲存規則條件之後，請選取**Microsoft Flow 動作**做為新的動作。 您的瀏覽器中應會開啟新的索引標籤或視窗，將您導向至 Microsoft Flow。
 
-    ![建立新的 Microsoft Flow 動作](media/howto-add-microsoft-flow/createflowaction.PNG)
+    ![建立新的 Microsoft Flow 動作](media/howto-add-microsoft-flow/createflowaction.png)
 
 1. 登入 Microsoft Flow。 此帳戶不一定要與您在 IoT Central 中使用的帳戶相同。 您會進入 [概觀] 頁面，其中顯示連線至自訂動作的 IoT Central 連接器。
 
-1. 登入 IoT Central 連接器，然後按一下 [繼續]。 您會前往 Microsoft Flow 設計工具，以建置工作流程。 工作流程具有已填入您的應用程式和規則的 IoT Central 觸發程序。
+1. 登入 IoT Central 連接器並選取**繼續**。 您會前往 Microsoft Flow 設計工具，以建置工作流程。 工作流程具有已填入您的應用程式和規則的 IoT Central 觸發程序。
 
 1. 選擇 [+ 新增步驟] 和 [新增動作]。 此時，您可以將任何您想要的動作新增至工作流程。 在範例中，我們將傳送行動通知。 請搜尋**通知**，然後選擇 [通知 - 傳送行動通知給我]。
 
 1. 在動作中，將您的通知所要傳達的內容填入 [文字] 欄位中。 您可以納入 IoT Central 規則中的「動態內容」，將裝置名稱和時間戳記等重要資訊傳至您的通知。
 
     > [!NOTE]
-    > 按一下 [動態內容] 視窗中的「更多資訊」文字，可取得觸發規則的測量和屬性值。
+    > 選取 **查看更多**動態內容視窗以取得觸發此規則的度量和屬性值中的文字。
 
-    ![動態窗格開啟時的流程編輯動作](./media/howto-add-microsoft-flow/flowdynamicpane.PNG)
+    ![動態窗格開啟時的流程編輯動作](./media/howto-add-microsoft-flow/flowdynamicpane.png)
 
-1. 在您的動作編輯完成後，請按一下 [儲存]。 您將被導向至工作流程的概觀頁面。 在此處您可以看到執行歷程記錄，並將其與其他同事共用。
+1. 當您完成編輯您的動作，請選取**儲存**。 您將被導向至工作流程的概觀頁面。 在此處您可以看到執行歷程記錄，並將其與其他同事共用。
 
     > [!NOTE]
     > 如果您想讓 IoT Central 應用程式中的其他使用者編輯此規則，您必須在 Microsoft Flow 中與他們共用規則。 請在工作流程中新增他們的 Microsoft Flow 帳戶，作為擁有者。
@@ -70,9 +70,10 @@ ms.locfileid: "50959285"
 
 1. 選擇您的應用程式，並從下拉式清單中選擇用來建立裝置的裝置範本。 您會看到展開以顯示所有裝置屬性和設定的動作。
 
-1. 選取 [裝置名稱] 欄位。 在動態內容窗格中，選擇 [裝置名稱]。 此值會從使用者透過行動應用程式輸入的內容傳入，且將會是您的新裝置在 IoT Central 中的名稱。 在此範例中，唯一的必要欄位是裝置名稱，會以紅色星號指出。 另一個裝置範本可能會有多個必須填入才能建立新裝置的必要欄位。
+1. 選取 [裝置名稱] 欄位。 在動態內容窗格中，選擇 [裝置名稱]。 這個值會從輸入的使用者透過行動裝置應用程式中，輸入，並為您 IoT Central 中的新裝置的名稱。 在此範例中，唯一的必要欄位是裝置名稱，會以紅色星號指出。 另一個裝置範本可能會有多個必須填入才能建立新裝置的必要欄位。
 
-    ![流程建立裝置動作動態窗格](./media/howto-add-microsoft-flow/flowcreatedevice.PNG)
+    ![流程建立裝置動作動態窗格](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+
 1. (選擇性) 根據您建立新裝置時的需要，填寫其他欄位。
 
 1. 最後，儲存您的工作流程。
@@ -93,13 +94,13 @@ ms.locfileid: "50959285"
 
 1. 新增動作。 搜尋 [Azure IoT Central - 更新裝置] 動作。
 
-1. 從下拉式清單中選擇您的應用程式。 現在您將需要所要更新之現有裝置的識別碼。 您可以在瀏覽器 URL 中取得 IoT Central 裝置的識別碼。
+1. 從下拉式清單中選擇您的應用程式。 現在您將需要所要更新之現有裝置的識別碼。 您可以從**裝置總管**取得 IoT Central 裝置的識別碼。
 
-    ![IoT Central Device Explorer 裝置識別碼](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
+    ![IoT Central Device Explorer 裝置識別碼](./media/howto-add-microsoft-flow/iotcdeviceid.png)
 
 1. 您可以更新裝置名稱。 若要更新裝置的任何屬性和設定，您必須在 [裝置範本] 下拉式清單中針對您要更新的裝置選取裝置範本。 動作圖格會展開以顯示您可以更新的所有屬性和設定。
 
-    ![流程更新裝置工作流程](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
+    ![流程更新裝置工作流程](./media/howto-add-microsoft-flow/flowupdatedevice.png)
 
 1. 選取您要更新的每個屬性和設定。 在動態內容窗格中，從觸發程序中選擇對應的輸入。 在此範例中，[位置] 值會向下傳播，以更新裝置的 [位置] 屬性。
 
@@ -111,23 +112,25 @@ ms.locfileid: "50959285"
 
 您可以使用 [Azure IoT Central - 刪除裝置] 動作，以依據裝置識別碼刪除裝置。 以下是在 Microsoft Flow 行動應用程式中按下按鈕以刪除裝置的範例工作流程。
 
-   ![流程刪除裝置工作流程](./media/howto-add-microsoft-flow/flowdeletedevice.PNG)
-    
+   ![流程刪除裝置工作流程](./media/howto-add-microsoft-flow/flowdeletedevice.png)
+
 ## <a name="troubleshooting"></a>疑難排解
 
 如果您無法建立對 Azure IoT Central 連接器的連線，以下提供一些秘訣供您參考。
 
-1. 目前並不支援 Microsoft 個人帳戶 (例如 @hotmail.com、@live.com、@outlook.com 網域)。 您必須使用 AAD 公司或學校帳戶。
+1. 目前並不支援 Microsoft 個人帳戶 (例如 @hotmail.com、@live.com、@outlook.com 網域)。 您必須使用 Azure Active Directory (AD) 的工作或學校帳戶。
 
 2. 若要在 Microsoft Flow 中使用 IoT Central 連接器，您必須至少已登入 IoT Central 應用程式一次。 否則，該應用程式不會出現在 [應用程式] 下拉式清單中。
 
-3. 如果您在使用 AAD 帳戶時發生錯誤，請嘗試開啟 Windows PowerShell，並以系統管理員身分執行下列 commandlet。
+3. 如果您使用 Azure AD 帳戶時收到錯誤，請開啟 Windows PowerShell 和系統管理員身分執行下列 commandlet。
+
     ``` PowerShell
     Install-Module AzureAD
     Connect-AzureAD
     New-AzureADServicePrincipal -AppId 9edfcdd9-0bc5-4bd4-b287-c3afc716aac7 -DisplayName "Azure IoT Central"
     ```
-    
+
 ## <a name="next-steps"></a>後續步驟
-您現在已了解如何使用 Microsoft Flow 建置工作流程，建議的後續步驟為[管理裝置](howto-manage-devices.md)。
+
+既然您已了解如何使用 Microsoft Flow 建立工作流程，建議的下一個步驟是[管理裝置](howto-manage-devices.md)。
 

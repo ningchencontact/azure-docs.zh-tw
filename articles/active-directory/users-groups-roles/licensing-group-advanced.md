@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3a0143b2fd536332cdae8ea0bb50cc0a93e6e9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 1d2faefd8443383e7afff8e3729bf6f1cf25c3a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430417"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887014"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>使用群組來管理 Azure Active Directory 授權的案例、限制及已知問題
 
@@ -63,7 +63,7 @@ ms.locfileid: "56430417"
 
 > [!WARNING]
 > 修改現有群組的成員資格規則時請小心。 變更規則時，將會重新評估群組的成員資格，並移除不再符合新規則的使用者 (在此程序期間不會影響仍符合新規則的使用者)。 這些使用者的授權會在程序期間移除，而導致服務遺失，或在某些情況下導致資料遺失。
-
+> 
 > 如果需要授權指派的動態群組很大，請考慮在較小的測試群組上驗證任何重大變更，再將這些變更套用至主要群組。
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>多個群組和多個授權
@@ -90,23 +90,23 @@ ms.locfileid: "56430417"
 
 1. 一開始，使用者只從「E3 基本服務」群組繼承授權，以啟用四個服務方案，如下所示：
 
-  ![E3 群組啟用的服務的螢幕擷取畫面](./media/licensing-group-advanced/e3-group-enabled-services.png)
+   ![E3 群組啟用的服務的螢幕擷取畫面](./media/licensing-group-advanced/e3-group-enabled-services.png)
 
 2. 您可以選取 [指派]，直接將 E3 授權指派給使用者。 在此案例中，您準備停用 Yammer Enterprise 以外的所有服務方案：
 
-  ![如何直接將授權指派給使用者的螢幕擷取畫面](./media/licensing-group-advanced/assign-license-to-user.png)
+   ![如何直接將授權指派給使用者的螢幕擷取畫面](./media/licensing-group-advanced/assign-license-to-user.png)
 
 3. 因此，使用者仍然只使用 E3 產品的一個授權。 但是，直接指派只會針對該使用者啟用 Yammer Enterprise 服務。 您可以看到群組成員資格所啟用的服務與直接指派：
 
-  ![繼承和直接指派的螢幕擷取畫面](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
+   ![繼承和直接指派的螢幕擷取畫面](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
 
 4. 使用直接指派時允許下列作業︰
 
-  - 可以直接在使用者物件上關閉 Yammer Enterprise。 在圖中，這項服務已啟用 [開啟/關閉] 切換，不同於其他服務切換。 因為此服務直接在使用者上啟用，所以可以修改。
-  - 其他服務也可啟用，做為直接指派授權的一部分。
-  - [移除] 按鈕可用來移除使用者的直接授權。 您可以看到使用者現在只有繼承的群組授權，且只有原始服務保持啟用：
+   - 可以直接在使用者物件上關閉 Yammer Enterprise。 在圖中，這項服務已啟用 [開啟/關閉] 切換，不同於其他服務切換。 因為此服務直接在使用者上啟用，所以可以修改。
+   - 其他服務也可啟用，做為直接指派授權的一部分。
+   - [移除] 按鈕可用來移除使用者的直接授權。 您可以看到使用者現在只有繼承的群組授權，且只有原始服務保持啟用：
 
-    ![顯示如何移除直接指派的螢幕擷取畫面](./media/licensing-group-advanced/remove-direct-license.png)
+     ![顯示如何移除直接指派的螢幕擷取畫面](./media/licensing-group-advanced/remove-direct-license.png)
 
 ## <a name="managing-new-services-added-to-products"></a>管理新增至產品的新服務
 當 Microsoft 新增服務至某項產品時，預設會在您指派產品授權的所有群組中啟用這項服務。 您租用戶中訂閱產品變更相關通知的使用者會事先收到電子郵件，通知他們即將新增服務。
@@ -122,15 +122,15 @@ ms.locfileid: "56430417"
 3. 移至 [[Azure Active Directory] > [授權] > [所有產品]](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 刀鋒視窗並選取 [Office 365 企業版 E5]，然後選取 [經過授權的群組] 以檢視該產品的所有群組清單。
 
 4. 按一下您要檢閱的群組 (在本例中為「O365 E5 - 僅 Exchange」)。 這會開啟 [授權] 索引標籤。按一下 E5 授權會開啟刀鋒視窗，其中列出所有已啟用的服務。
-> [!NOTE]
-> 在此群組中，除了 *Exchange Online* 服務，還會自動新增並啟用 *Microsoft Stream* 服務：
+   > [!NOTE]
+   > 在此群組中，除了 *Exchange Online* 服務，還會自動新增並啟用 *Microsoft Stream* 服務：
 
-  ![新增至群組授權的新服務螢幕擷取畫面](./media/licensing-group-advanced/manage-new-services.png)
+   ![新增至群組授權的新服務螢幕擷取畫面](./media/licensing-group-advanced/manage-new-services.png)
 
 5. 如果您想要停用此群組中的新服務，請按一下服務旁的 [開啟/關閉] 切換，然後按一下 [儲存] 按鈕以確認變更。 Azure AD 現在會處理群組中的所有使用者以套用變更；新增至群組的任何新使用者都不會啟用*Microsoft Stream*服務。
 
-  > [!NOTE]
-  > 使用者仍然可以透過其他授權指派 (使用者所屬的另一個群組或直接授權指派) 啟用服務。
+   > [!NOTE]
+   > 使用者仍然可以透過其他授權指派 (使用者所屬的另一個群組或直接授權指派) 啟用服務。
 
 6. 如有需要，請對指派此產品的其他群組執行相同步驟。
 
@@ -141,7 +141,7 @@ ms.locfileid: "56430417"
 
 2. `Get-MsolAccountSku` 可用於探索租用戶中佈建的所有產品授權。
 
-  ![Get-Msolaccountsku Cmdlet 的螢幕擷取畫面](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Get-Msolaccountsku Cmdlet 的螢幕擷取畫面](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. 透過[此 PowerShell 指令碼](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)對您感興趣的授權使用 *AccountSkuId* 值。 這會產生具有此授權的使用者清單，並提供授權指派方式的相關資訊。
 
@@ -159,8 +159,8 @@ ms.locfileid: "56430417"
 
 1. 將 [活動] 篩選設定為 [設定群組授權]，然後按一下 [套用]。
 2. 結果會包含在群組上設定或修改的所有授權案例。
->[!TIP]
-> 您也可以在 [目標] 篩選中鍵入群組名稱來限定結果範圍。
+   >[!TIP]
+   > 您也可以在 [目標] 篩選中鍵入群組名稱來限定結果範圍。
 
 3. 按一下清單檢視中的項目來查看已變更內容的詳細資料。 在 [已修改的屬性] 下會同時列出授權指派的新舊值。
 
@@ -173,23 +173,23 @@ ms.locfileid: "56430417"
 當群組變更授權時，Azure AD 會開始將變更套用至所有使用者。
 
 1. 若要查看群組何時開始處理，請將 [活動] 篩選設定為 [開始將群組型授權套用至使用者]。 請注意，此作業的動作項目是「Microsoft Azure AD 群組型授權」，這是用來執行所有群組授權變更的系統帳戶。
->[!TIP]
-> 按一下清單中的項目可查看 [已修改的屬性] 欄位，該欄位會顯示為處理所選取的授權變更。 如果您對群組進行多項變更，而且不確定哪項變更已經過處理，這會很有用。
+   >[!TIP]
+   > 按一下清單中的項目可查看 [已修改的屬性] 欄位，該欄位會顯示為處理所選取的授權變更。 如果您對群組進行多項變更，而且不確定哪項變更已經過處理，這會很有用。
 
 2. 同樣地，若要查看群組何時完成處理，請使用篩選值 [完成將群組型授權套用至使用者]。
->[!TIP]
-> 在此情況下，[已修改的屬性] 欄位會包含結果的摘要，這項資訊有助於快速檢查處理是否導致任何錯誤。 範例輸出：
-> ```
-Modified Properties
-...
-Name : Result
-Old Value : []
-New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
-> ```
+   > [!TIP]
+   > 在此情況下，[已修改的屬性] 欄位會包含結果的摘要，這項資訊有助於快速檢查處理是否導致任何錯誤。 範例輸出：
+   > ```
+   > Modified Properties
+   > ...
+   > Name : Result
+   > Old Value : []
+   > New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
+   > ```
 
 3. 若要查看群組處理方式的完整記錄 (包括所有使用者變更)，請設定下列篩選：
-  - **啟動者 (執行者)**：「Microsoft Azure AD 群組型授權」
-  - **日期範圍** (選用)：特定群組開始和完成處理時間的自訂範圍
+   - **啟動者 (執行者)**：「Microsoft Azure AD 群組型授權」
+   - **日期範圍** (選用)：特定群組開始和完成處理時間的自訂範圍
 
 此範例輸出會顯示開始處理的時間、所有產生的使用者變更，以及完成處理的時間。
 
@@ -220,7 +220,7 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 
 - 當指派或修改大型群組 (例如 100,000 個使用者) 的授權時，可能會影響效能。 具體來說，Azure AD 自動化所產生的大量變更，可能會降低 Azure AD 和內部部署系統之間目錄同步作業的效能。
 
-- 如果您使用動態群組來管理使用者的成員資格，請確認使用者是群組的一部分，如此才能指派授權。 否則，請對動態群組[檢查成員資格規則的處理狀態](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule)。 
+- 如果您使用動態群組來管理使用者的成員資格，請確認使用者是群組的一部分，如此才能指派授權。 否則，請對動態群組[檢查成員資格規則的處理狀態](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)。 
 
 - 在某些高負載情況下，處理群組的授權變更，或現有授權的群組成員資格變更，可能需要很長的時間。 如果您發現變更需要 24 小時以上才能將使用者數為 60K 或以下的群組大小處理完畢，請[開啟支援票證](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest)讓我們調查。 
 

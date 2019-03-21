@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001736"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 
@@ -73,7 +73,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
-**輸出**：
+**输出**：
 
 | 請確定 | LicensePlate | 時間 |
 | --- | --- | --- |
@@ -108,7 +108,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 **輸出**：
 
 | CarsPassed | 時間 |
-| --- | --- | --- |
+| --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
 
@@ -156,7 +156,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **Output2**：
 
-| 請確定 | 時間 | Count |
+| 請確定 | 時間 | 計數 |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -254,7 +254,7 @@ GROUP BY
 
 **輸出**：
 
-| 請確定 | 時間 |
+| 請確定 | 时间 |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -418,12 +418,12 @@ GROUP BY
 
 **輸入**：  
 
-| 使用者 | 功能 | Event | 時間 |
+| 使用者 | 功能 | 事件 | 時間 |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |结束 |2015-01-01T00:00:08.0000000Z |
 
-**輸出**：  
+**输出**：  
 
 | 使用者 | 功能 | Duration |
 | --- | --- | --- |
@@ -609,6 +609,7 @@ WHERE
 
 
 **輸入**：
+
 | LicensePlate | 請確定 | 時間 | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
@@ -621,7 +622,8 @@ WHERE
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
 
 **輸出**：
-| TollID | Count |
+
+| TollID | 計數 |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -690,12 +692,12 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 **說明**：[COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) 會傳回時間範圍內 Time 資料行中的相異值數目。 您可以接著使用此步驟的輸出，透過捨棄重複項目來計算每個裝置的平均值。
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

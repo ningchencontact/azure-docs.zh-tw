@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4c933145c54c47b5af083edd593ecb66b089f9c9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106306"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769143"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>快速入門：登入並設定使用者識別碼
 
@@ -51,6 +51,9 @@ ms.locfileid: "53106306"
 1. 成功登入之後，Azure Notebooks 會將您導覽至公用設定檔頁面，您可以在其中選取 [編輯設定檔資訊] 以填入其餘資訊 (如需詳細資訊，請參閱[您的設定檔和使用者識別碼](azure-notebooks-user-profile.md))：
 
     ![Azure Notebooks 設定檔頁面的初始檢視](media/accounts/profile-page-new.png)
+
+> [!NOTE]
+> 如果您看到訊息: 「 使用者識別碼 」 已在使用中，請嘗試不同的識別碼。 使用者識別碼會隨著的所有 Azure Notebooks 帳戶，而 Azure Notebook 也會保留特定的使用者識別碼，例如 Microsoft 品牌名稱。
 
 ## <a name="sign-out"></a>登出
 

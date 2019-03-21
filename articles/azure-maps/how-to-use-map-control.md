@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 877393de20788b0aa1c76084b121a82f12715cd3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 57850f67b56113036cb6cc37e9f1f2694ba9eb8f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118066"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672724"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務的地圖控制項
 
@@ -68,7 +68,7 @@ ms.locfileid: "56118066"
     </body>
     ```
 
-5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 [語言] 選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
+5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 [語言] 選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
 
     ```html
     <script type='text/javascript'>
@@ -95,13 +95,14 @@ ms.locfileid: "56118066"
             authOptions: {
                 authType: 'aad',
                 clientId: '<Your AAD Client Id>',
-                aadAppId: '<Your AAD App Id',
+                aadAppId: '<Your AAD App Id>',
                 aadTenant: 'msft.ccsctp.net'
             }
         });
     </script>
     ```
 
+    請參閱[使用 Azure 地圖服務進行驗證](azure-maps-authentication.md)如需詳細資訊。
 6. 除此之外，將下列中繼標籤元素新增到頁面的標頭可能會對您很有幫助：
 
     ```html

@@ -2,18 +2,17 @@
 title: Azure Container Registry 中的映像儲存體
 description: 有關您的 Docker 容器映像如何儲存在 Azure Container Registry 中的詳細資料，包括安全性、備援和容量。
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: marsma
-ms.openlocfilehash: 65ff60be992440c69e50a084b467a8efbb19574e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307144"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551019"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure Container Registry 中的容器映像儲存體
 
@@ -57,6 +56,6 @@ Azure 使用異地備援儲存體配置來避免您的容器映像遺失。 Azur
 
 <!-- LINKS - External -->
 [portal]: https://portal.azure.com
-[pricing]: http://aka.ms/acr/pricing
+[pricing]: https://aka.ms/acr/pricing
 
 <!-- LINKS - Internal -->

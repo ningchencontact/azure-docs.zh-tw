@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: eca1379c4f721a0201b01f149b581859c49c6540
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234368"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835447"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 可程式性指南
 
-U-SQL 是為巨量資料類型的工作負載所設計的查詢語言。 U-SQL 的其中一個獨特功能是，可將類 SQL 的宣告式語言與 C# 所提供的擴充性和可程式性結合在一起。 在本指南中，我們將著重於介紹由 C# 所實現的 U-SQL 語言之擴充性和可程式性。
+U-SQL 是為巨量資料類型的工作負載所設計的查詢語言。 U-SQL 的其中一項獨特功能是，可將類 SQL 的宣告式語言與 C# 所提供的擴充性和可程式性結合在一起。 在本指南中，我們將著重於介紹由 C# 所實現的 U-SQL 語言之擴充性和可程式性。
 
 ## <a name="requirements"></a>需求
 
@@ -133,7 +133,7 @@ U-SQL 目前使用 .Net Framework 4.5 版。 因此，請確定您自己的組�
 
 每個上傳的組件 DLL 和資源檔，例如不同的執行階段、原生組件或組態檔中，最多可達 400 MB。 已部署資源的大小總計 (透過 DEPLOY RESOURCE 或透過參考組件及其他檔案) 不能超過 3 GB。
 
-最後請注意，每一個 U-SQL 資料庫所包含的任何指定組件只能有一個版本。 例如，如果您同時需要第 7 版和第 8 版的 NewtonSoft Json.Net 程式庫，您需要將它們註冊到兩個不同的資料庫。 此外，每個指令碼所參考的指定組件 DLL 只能有一個版本。 在這方面，U-SQL 會遵循 C# 組件的管理和版本設定語意。
+最後請注意，每一個 U-SQL 資料庫所包含的任何指定組件只能有一個版本。 例如，如果您需要第 7 版和第 8 版的 NewtonSoft Json.NET 程式庫，您需要在兩個不同資料庫中註冊它們。 此外，每個指令碼所參考的指定組件 DLL 只能有一個版本。 在這方面，U-SQL 會遵循 C# 組件的管理和版本設定語意。
 
 ## <a name="use-user-defined-functions-udf"></a>使用使用者定義的函式：UDF
 U-SQL 使用者定義函數 (簡稱 UDF) 會編寫常式，以接受參數、執行動作 (例如複雜計算)，以及傳回該動作結果的值。 UDF 的傳回值只能是單一純量。 U-SQL UDF 可以和任何其他 C# 純量函式一樣，在 U-SQL 基底指令碼中進行呼叫。
@@ -299,7 +299,7 @@ U-SQL C# 可程式性物件可以透過程式碼後置全域變數，更加複�
 
 為了達成此目標，我們必須確定工作階段識別碼，以及最後發生之工作階段間的延遲時間。
 
-我們必須找到上一次登入，然後對所有將為相同應用程式產生的工作階段指派此登入。 第一個挑戰是 U-SQL 基底指令碼無法讓我們使用 LAG 函數，對所有已經過計算的資料行套用計算。 第二項挑戰在於，我們必須讓相同時間週期內的所有工作階段保持在特定工作階段。
+我們必須找到上一次登入，然後對所有將為相同應用程式產生的工作階段指派此登入。 第一項挑戰是 U-SQL 基底指令碼無法讓我們使用 LAG 函數，對所有已經過計算的資料行套用計算。 第二項挑戰在於，我們必須讓相同時間週期內的所有工作階段保持在特定工作階段。
 
 為了解決這個問題，我們將在程式碼後置區段內使用全域變數：`static public string globalSession;`。
 

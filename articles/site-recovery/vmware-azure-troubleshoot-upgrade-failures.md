@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 9423fc844e766129ad81a8a286cb5bbdc722e2ca
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fc50be2a960784895947f3f154a0251f41716fc7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117297"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>對 Microsoft Azure Site Recovery Provider 升級失敗進行疑難排解
 
@@ -42,27 +42,27 @@ ms.locfileid: "55989304"
 
 1. 返回您下載整合安裝的資料夾，然後執行 MicrosoftAzureSiteRecoveryUnifiedSetup.exe 以完成升級。 
 
-## <a name="upgrade-failure-due-to-the-thirdparty-folder-being-renamed"></a>因為協力廠商資料夾重新命名而升級失敗
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>升級失敗，因為要重新命名的第 3 方資料夾
 
-為了成功升級，請勿將協力廠商資料夾重新命名。
+若要成功升級，第 3 方資料夾必須重新命名。
 
 解決此問題。
 
-2. 啟動登錄編輯程式 (regedit.exe)，並開啟 HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 分支。
-3. 檢查 `Build_Version` 機碼值。 如果機碼是設定為最新版本，請減少版本號碼。 例如，如果最新版本為 9.22.\*，且 `Build_Version` 機碼設定為該值，則將它減少為 9.21.\*。
-4. 下載最新的 Microsoft Azure Site Recovery 整合安裝：
+1. 啟動登錄編輯程式 (regedit.exe)，並開啟 HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 分支。
+1. 檢查 `Build_Version` 機碼值。 如果機碼是設定為最新版本，請減少版本號碼。 例如，如果最新版本為 9.22.\*，且 `Build_Version` 機碼設定為該值，則將它減少為 9.21.\*。
+1. 下載最新的 Microsoft Azure Site Recovery 整合安裝：
    1. 在 [Azure Site Recovery 中的服務更新](service-updates-how-to.md##links-to-currently-supported-update-rollups)一文的＜目前支援的更新彙總套件連結＞小節中，選取您要升級的提供者。
    2. 在 [彙總] 頁面上，找出 [更新資訊] 區段，並下載適用於 Microsoft Azure Site Recovery 整合安裝更新彙總套件。
-5. 開啟命令提示字元並瀏覽至您下載整合安裝檔案的資料夾，並使用下列命令將安裝檔從下載項目中解壓縮：MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;已解壓縮檔案的資料夾路徑&gt;。
+1. 開啟命令提示字元並瀏覽至您下載整合安裝檔案的資料夾，並使用下列命令將安裝檔從下載項目中解壓縮：MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;已解壓縮檔案的資料夾路徑&gt;。
 
     範例命令：
 
     MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 
-4. 在命令提示字元中，瀏覽至您解壓縮檔案的資料夾並執行下列安裝命令：
+1. 在命令提示字元中，瀏覽至您解壓縮檔案的資料夾並執行下列安裝命令：
    
     CX_THIRDPARTY_SETUP.EXE /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
 
-5. 使用 [工作管理員] 來監視安裝進度。 當 CX_THIRDPARTY_SETUP.EXE 的處理序已不再顯示在 [工作管理員] 中時，請繼續進行下一個步驟。
-6. 確認 C:\thirdparty 存在且該資料夾包含 RRD 程式庫。
+1. 使用 [工作管理員] 來監視安裝進度。 當 CX_THIRDPARTY_SETUP.EXE 的處理序已不再顯示在 [工作管理員] 中時，請繼續進行下一個步驟。
+1. 確認 C:\thirdparty 存在且該資料夾包含 RRD 程式庫。
 1. 返回您下載整合安裝的資料夾，然後執行 MicrosoftAzureSiteRecoveryUnifiedSetup.exe 以完成升級。 

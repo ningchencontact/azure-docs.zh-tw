@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6551eab45fdfb5070b29de4152cf2b3e3d008f69
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 0138ea8dcbd780ca8aa87178dad41bdca1a72267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081791"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900653"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>建立 Dynamics 365 for Customer Engagement 應用程式供應項目
 
@@ -28,7 +28,7 @@ ms.locfileid: "54081791"
 
 ## <a name="new-offer-form"></a>新增供應項目表單
 
-登入 [Cloud Partner 入口網站](http://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表上，選取 [Dynamics 365 for Customer Engagement]：
+登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表上，選取 [Dynamics 365 for Customer Engagement]：
 
 ![Dynamics 365 for Customer Engagement 應用程式的新增供應項目功能表項目](./media/new-dyn365ce-menu-item.png)
 

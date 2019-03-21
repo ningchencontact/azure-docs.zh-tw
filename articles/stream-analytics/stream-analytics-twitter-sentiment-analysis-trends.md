@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994935"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
 
@@ -58,9 +58,9 @@ ms.locfileid: "54231133"
 
 5. 按一下新的命名空間，然後在命名空間刀鋒視窗中，按一下 [+&nbsp;事件中樞]。 
 
-    ![建立新事件中樞的 [新增事件中樞] 按鈕 ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![建立新事件中樞的 [新增事件中樞] 按鈕](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
-6. 將新的事件中樞命名為 `socialtwitter-eh`。 您可以使用不同的名稱。 如果這樣做，請記下來，因為稍後需要用到此名稱。 您不需要為事件中樞設定其他任何選項。
+6. 將新的事件中樞命名為 `socialtwitter-eh`。 可以使用其他名称。 如果這樣做，請記下來，因為稍後需要用到此名稱。 您不需要為事件中樞設定其他任何選項。
 
     ![建立新事件中樞的刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
@@ -119,10 +119,10 @@ ms.locfileid: "54231133"
 
 2. 建立新的應用程式。 
 
-    * 在網站 URL 中，指定有效的 URL。 不必是即時網站。 (您不能只指定 `localhost`。)
-    * 將回呼欄位保留空白。 您用於本教學課程的用戶端應用程式不需要回呼。
+   * 在網站 URL 中，指定有效的 URL。 不必是即時網站。 (您不能只指定 `localhost`。)
+   * 將回呼欄位保留空白。 您用於本教學課程的用戶端應用程式不需要回呼。
 
-    ![在 Twitter 中建立應用程式](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![在 Twitter 中建立應用程式](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. (選擇性) 將應用程式的權限變更為唯讀。
 
@@ -167,19 +167,19 @@ ms.locfileid: "54231133"
 
 3. 若要持續設定值，請使用文字編輯器開啟 TwitterWpfClient.exe.config 檔案。 然後在 `<appSettings>` 元素中，執行下列動作：
 
-    * 將 `oauth_consumer_key` 設為 Twitter 取用者金鑰 (API 金鑰)。 
-    * 將 `oauth_consumer_secret` 設為 Twitter 取用者祕密 (API 祕密)。
-    * 將 `oauth_token` 設為 Twitter 存取權杖。
-    * 將 `oauth_token_secret` 設為 Twitter 存取權杖祕密。
+   * 將 `oauth_consumer_key` 設為 Twitter 取用者金鑰 (API 金鑰)。 
+   * 將 `oauth_consumer_secret` 設為 Twitter 取用者祕密 (API 祕密)。
+   * 將 `oauth_token` 設為 Twitter 存取權杖。
+   * 將 `oauth_token_secret` 設為 Twitter 存取權杖祕密。
 
-    稍後在 `<appSettings>` 元素中，進行下列變更：
+     稍後在 `<appSettings>` 元素中，進行下列變更：
 
-    * 將 `EventHubName` 設為事件中樞名稱 (也就是實體路徑的值)。
-    * 將 `EventHubNameConnectionString` 設為連接字串。 請確定您使用已移除 `EntityPath` 機碼值組的的連接字串。
+   * 將 `EventHubName` 設為事件中樞名稱 (也就是實體路徑的值)。
+   * 將 `EventHubNameConnectionString` 設為連接字串。 請確定您使用已移除 `EntityPath` 機碼值組的的連接字串。
 
-    `<appSettings>` 區段如下列範例所示。 (為了清楚起見和基於安全考量，我們已遮蔽幾行並移除某些字元。)
+     `<appSettings>` 區段如下列範例所示。 (為了清楚起見和基於安全考量，我們已遮蔽幾行並移除某些字元。)
 
-    ![文字編輯器中的 TwitterWpfClient 應用程式組態檔，顯示 Twitter 金鑰和祕密，以及事件中樞連接字串資訊](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![文字編輯器中的 TwitterWpfClient 應用程式組態檔，顯示 Twitter 金鑰和祕密，以及事件中樞連接字串資訊](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. 如果您尚未啟動此應用程式，現在就執行 TwitterWpfClient.exe。 
 
@@ -214,15 +214,15 @@ ms.locfileid: "54231133"
 
 2. 在 [輸入] 刀鋒視窗中，按一下 [+&nbsp;新增]，然後在刀鋒視窗中填入這些值：
 
-    * **輸入別名**：使用名稱 `TwitterStream`。 如果使用不同的名稱，請記下來，因為稍後需要用到。
-    * **來源類型**：選取 [資料流]。
-    * **來源**：選取 [事件中樞]。
-    * **匯入選項**：選取 [使用目前訂用帳戶的事件中樞]。 
-    * **服務匯流排命名空間**：選取您稍早建立的事件中樞命名空間 (`<yourname>-socialtwitter-eh-ns`)。
-    * **事件中樞**：選取您稍早建立的事件中樞 (`socialtwitter-eh`)。
-    * **事件中樞原則名稱**：選取您稍早建立的存取原則 (`socialtwitter-access`)。
+   * **輸入別名**：使用名稱 `TwitterStream`。 如果使用不同的名稱，請記下來，因為稍後需要用到。
+   * **來源類型**：選取 [資料流]。
+   * **來源**：選取 [事件中樞]。
+   * **匯入選項**：選取 [使用目前訂用帳戶的事件中樞]。 
+   * **服務匯流排命名空間**：選取您稍早建立的事件中樞命名空間 (`<yourname>-socialtwitter-eh-ns`)。
+   * **事件中樞**：選取您稍早建立的事件中樞 (`socialtwitter-eh`)。
+   * **事件中樞原則名稱**：選取您稍早建立的存取原則 (`socialtwitter-access`)。
 
-    ![建立串流分析作業的新輸入](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![建立串流分析作業的新輸入](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. 按一下頁面底部的 [新增] 。
 
@@ -297,17 +297,17 @@ ms.locfileid: "54231133"
 
 2. 在 [輸出] 刀鋒視窗中，按一下 [+&nbsp;新增]，然後在刀鋒視窗中填入這些值：
 
-    * **輸出別名**：使用名稱 `TwitterStream-Output`。 
-    * **接收**：選取 [Blob 儲存體]。
-    * **匯入選項**：選取 [從目前的訂用帳戶使用 Blob 儲存體]。
-    * **儲存體帳戶**。 選取 [建立新儲存體帳戶]。
-    * **儲存體帳戶** (第二個方塊)。 輸入 `YOURNAMEsa`，其中 `YOURNAME` 是您的名稱或另一個唯一字串。 名稱只能使用小寫字母和數字，而且在整個 Azure 中必須是唯一的。 
-    * **容器**。 輸入 `socialtwitter` 。
-    儲存體帳戶名稱和容器名稱一起用來提供 blob 儲存體的 URI，例如： 
+   * **輸出別名**：使用名稱 `TwitterStream-Output`。 
+   * **接收**：選取 [Blob 儲存體]。
+   * **匯入選項**：選取 [從目前的訂用帳戶使用 Blob 儲存體]。
+   * **儲存體帳戶**。 選取 [建立新儲存體帳戶]。
+   * **儲存體帳戶** (第二個方塊)。 輸入 `YOURNAMEsa`，其中 `YOURNAME` 是您的名稱或另一個唯一字串。 名稱只能使用小寫字母和數字，而且在整個 Azure 中必須是唯一的。 
+   * **容器**。 输入 `socialtwitter`。
+     儲存體帳戶名稱和容器名稱一起用來提供 blob 儲存體的 URI，例如： 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    ![串流分析作業的 [新輸出] 刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     ![串流分析作業的 [新輸出] 刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
 4. 按一下頁面底部的 [新增] 。 
 
@@ -338,7 +338,7 @@ ms.locfileid: "54231133"
 
 在您的作業已開始執行並處理即時 Twitter 串流之後，您就可以檢視情感分析的輸出。
 
-您可以使用 [Azure 儲存體總管](https://storageexplorer.com/)或 [Azure 總管](http://www.cerebrata.com/products/azure-explorer/introduction)之類的工具，即時檢視您的作業輸出。 從這裡，您可以使用 [Power BI](https://powerbi.com/) 擴充您的應用程式來包含自訂儀表板，如下列螢幕擷取畫面所示：
+您可以使用 [Azure 儲存體總管](https://storageexplorer.com/)或 [Azure 總管](https://www.cerebrata.com/products/azure-explorer/introduction)之類的工具，即時檢視您的作業輸出。 從這裡，您可以使用 [Power BI](https://powerbi.com/) 擴充您的應用程式來包含自訂儀表板，如下列螢幕擷取畫面所示：
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
@@ -376,5 +376,5 @@ ms.locfileid: "54231133"
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

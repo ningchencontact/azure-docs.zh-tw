@@ -10,15 +10,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117246"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -43,9 +43,6 @@ Azure Functions 在兩種不同的模式中執行：取用方案或 Azure App Se
 
 當使用取用方案時，會根據傳入事件的數目，動態新增和移除 Azure Functions 主機。 此無伺服器方案會自動調整，您只需支付函式執行時使用的計算資源。 在取用方案中，函式執行會在一段可設定的時間之後逾時。
 
-> [!NOTE]
-> 在取用方案中，函式的預設逾時為 5 分鐘。 變更 [host.json](functions-host-json.md#functiontimeout) 專案檔中的 `functionTimeout` 屬性，最多可將函數應用程式的值增加為 10 分鐘。
-
 帳單是根據執行數目、執行時間以及使用的記憶體。 帳單會跨函式應用程式內的所有函式進行彙總。 如需詳細資訊，請參閱 [Azure Functions 價格頁面]。
 
 取用方案是預設主控方案，具有下列優點︰
@@ -62,7 +59,7 @@ Azure Functions 在兩種不同的模式中執行：取用方案或 Azure App Se
 * 您有現有的、使用量過低的 VM 已在執行其他 App Service 執行個體。
 * 您的函式應用程式會連續執行或接近連續執行。 在此情況下，App Service 方案可以更符合成本效益。
 * 您需要的 CPU 或記憶體選項比取用方案所提供的更多。
-* 您的程式碼執行時間超過取用方案允許的執行時間上限 (最多 10 分鐘)。
+* 您的程式碼必須執行時間超過[允許的最大執行時間](#timeout)取用方案上。
 * 您需要 App Service 方案才有提供的功能，例如 App Service 環境、VNET/VPN 連線和較大 VM 大小的支援。
 * 您想要在 Linux 上執行函數應用程式，或想要在其上提供自訂映像以執行函數。
 
@@ -70,13 +67,15 @@ VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如�
 
 使用 App Service 方案時，您可以透過手動新增更多 VM 執行個體來相應放大，或者您可以啟用自動規模調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)。 您也可以透過選擇不同的 App Service 方案來相應增加。 如需詳細資訊，請參閱[在 Azure 中為應用程式進行相應增加](../app-service/web-sites-scale.md)。 
 
-在 App Service 方案上執行 JavaScript 函式時，您應該選擇 vCPU 數目較少的方案。 如需詳細資訊，請參閱[選擇單一核心 Azure Service 方案](functions-reference-node.md#considerations-for-javascript-functions)。  
+在 App Service 方案上執行 JavaScript 函式時，您應該選擇 vCPU 數目較少的方案。 如需詳細資訊，請參閱 <<c0> [ 選擇單一核心 App Service 方案](functions-reference-node.md#choose-single-vcpu-app-service-plans)。  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>永遠開啟
+
+### <a name="always-on"></a> Always On
 
 如果您執行 App Service 方案，應該啟用 [永遠開啟] 設定，以讓您的函數應用程式能夠正確執行。 在 App Service 方案中，函式的執行階段會在無作用幾分鐘後進入閒置狀態，因此只有 HTTP 觸發程序會「喚醒」您的函式。 只有 App Service 方案具備「永遠開啟」選項。 在取用方案中，平台會自動啟動函數應用程式。
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>我的主控方案是什麼
 
@@ -125,7 +124,8 @@ Azure Functions 使用名為「縮放控制器」的元件來監視事件的速�
 縮放比例會因為許多因素而有所不同，也會因為選取的觸發程序和語言不同，而進行不同的規模調整。 不過，現在系統中存在數個面向的縮放行為：
 
 * 單一函式應用程式只能相應增加至最多 200 個執行個體。 單一執行個體可能會一次處理一個以上的訊息或要求，因此沒有設定平行執行的數目上限。
-* 最多每 10 秒配置一個新的執行個體。
+* HTTP 觸發程序，新的執行個體將只會配置最多一次每 1 秒。
+* 非 HTTP 觸發程序，新的執行個體將只會配置最多一次每隔 30 秒。
 
 不同的觸發程序可能也會有不同的縮放限制，包含下方文件中所述的限制：
 

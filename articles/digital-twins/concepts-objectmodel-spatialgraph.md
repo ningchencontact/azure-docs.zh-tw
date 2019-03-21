@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436920"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542942"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>了解 Digital Twins 物件模型和空間智慧圖形
 
@@ -82,7 +82,7 @@ Digital Twins 物件模型支援下列主要物件類別：
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Name | 更換為 |
+| 名稱 | 更換為 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 執行個體的名稱 |
 | YOUR_LOCATION | 裝載您執行個體的伺服器區域 |
@@ -99,7 +99,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 深入了解[如何使用 Swagger](how-to-use-swagger.md)。
 
-所有 API 呼叫都必須使用 [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code) 進行驗證。 API 會遵循 [Microsoft REST API 指導方針慣例](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md)。 大部分傳回集合的 API 都支援 [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) 系統查詢選項。
+所有 API 呼叫都必須使用 [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code) 進行驗證。 API 會遵循 [Microsoft REST API 指導方針慣例](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md)。 大部分傳回集合的 API 都支援 [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) 系統查詢選項。
 
 ## <a name="next-steps"></a>後續步驟
 

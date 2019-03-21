@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402297"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119491"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 在 Azure Data Lake Storage Gen1 上進行檔案系統作業
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "54402297"
    | --- | --- |
    | 類別 |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
-   | Name |CreateADLApplication |
+   | 名稱 |CreateADLApplication |
 
 4. 按一下 [確定]  以建立專案。
 
@@ -62,7 +62,7 @@ ms.locfileid: "54402297"
       * `Microsoft.Azure.DataLake.Store` - 本教學課程使用 v1.0.0。
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.3.1。
     
-    關閉 [NuGet 套件管理員]。
+      關閉 [NuGet 套件管理員]。
 
 6. 開啟 **Program.cs**，刪除現有的程式碼，然後納入下列陳述式以新增命名空間的參考。
 
@@ -90,7 +90,7 @@ ms.locfileid: "54402297"
 
 在本文的其餘章節中，您可以了解如何使用可用的 .NET 方法來執行一些作業，例如驗證、檔案上載等。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 * 如需讓應用程式進行使用者驗證，請參閱[使用 .NET SDK 向 Data Lake Storage Gen1 進行使用者驗證](data-lake-store-end-user-authenticate-net-sdk.md)。
 * 如需讓應用程式進行服務對服務驗證，請參閱[使用 .NET SDK 向 Data Lake Storage Gen1 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-net-sdk.md)。
@@ -177,7 +177,7 @@ ms.locfileid: "54402297"
 * [GitHub 上的基本範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [GitHub 上的進階範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [使用.NET SDK 在 Data Lake Storage Gen1 上進行帳戶管理作業](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 

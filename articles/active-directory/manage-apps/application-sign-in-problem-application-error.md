@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78c9d31d9a9b5a878b0e0d5c61dc0fd79ee0c55e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 438f4f60c80cb798c3c40f57e22c9194a9fd5f86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206594"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110846"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>登入後應用程式頁面的錯誤
 
@@ -39,23 +39,23 @@ ms.locfileid: "56206594"
 
 若要在 Azure AD 設定中新增要以 Azure AD 回應傳送的屬性，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
    * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  選取您要設定單一登入的應用程式。
+6. 選取您要設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
+7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
-8.  按一下 [使用者屬性] 區段下方的 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
+8. 按一下 [使用者屬性] 區段下方的 [檢視和編輯所有其他使用者屬性]，以編輯當使用者登入時要以 SAML 權杖傳送至應用程式的屬性。
 
    若要新增屬性︰
 
@@ -63,7 +63,7 @@ ms.locfileid: "56206594"
 
    * 按一下 [儲存]。 您會在資料表中看到新屬性。
 
-9.  儲存組態。
+9. 儲存組態。
 
 下次使用者登入應用程式，Azure AD 會以 SAML 回應傳送新的屬性。
 
@@ -75,23 +75,23 @@ ms.locfileid: "56206594"
 
 若要變更使用者識別碼的值，請遵循下列步驟︰
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
    * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  選取您要設定單一登入的應用程式。
+6. 選取您要設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
+7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
-8.  在 [使用者屬性] 下方，從 [使用者識別碼] 下拉式清單選取使用者的唯一識別碼。
+8. 在 [使用者屬性] 下方，從 [使用者識別碼] 下拉式清單選取使用者的唯一識別碼。
 
 ## <a name="change-entityid-user-identifier-format"></a>變更 EntityID (使用者識別碼) 格式
 
@@ -103,31 +103,31 @@ Azure AD 會根據由應用程式以 SAML AuthRequest 選取的值或要求的�
 
 若要變更 Azure Active Directory 數位簽署 SAML 權杖的部分， 請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  選取您要設定單一登入的應用程式。
+6. 選取您要設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
+7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
-8.  按一下 [SAML 簽署憑證] 區段下方的 [Show advanced certificate signing settings (顯示進階憑證設定)]。
+8. 按一下 [SAML 簽署憑證] 區段下方的 [Show advanced certificate signing settings (顯示進階憑證設定)]。
 
-9.  選取應用程式所預期的適當**簽署選項**：
+9. 選取應用程式所預期的適當**簽署選項**：
 
-  * 簽署 SAML 回應
+   * 簽署 SAML 回應
 
-  * 簽署 SAML 回應及判斷提示
+   * 簽署 SAML 回應及判斷提示
 
-  * 簽署 SAML 判斷提示
+   * 簽署 SAML 判斷提示
 
 下次使用者登入應用程式，Azure AD 會簽署所選的 SAML 回應部分。
 
@@ -137,25 +137,25 @@ Azure AD 會根據由應用程式以 SAML AuthRequest 選取的值或要求的�
 
 若要變更簽署演算法，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
    * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  選取您要設定單一登入的應用程式。
+6. 選取您要設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
+7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
-8.  按一下 [SAML 簽署憑證] 區段下方的 [Show advanced certificate signing settings (顯示進階憑證設定)]。
+8. 按一下 [SAML 簽署憑證] 區段下方的 [Show advanced certificate signing settings (顯示進階憑證設定)]。
 
-9.  在 [簽署演算法] 中選取 [SHA-1]。
+9. 在 [簽署演算法] 中選取 [SHA-1]。
 
 下次使用者登入應用程式，Azure AD 會使用 SHA-1 演算法簽署 SAML 權杖。
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273342"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112614"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本文件說明 Azure App Service 虛擬網路整合功能，以及示範如何使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式來設定此功能。 [Azure 虛擬網路][VNETOverview] (VNet) 可讓您將許多 Azure 資源，放在非網際網路可路由網路中。 然後，可以使用 VPN 技術，將這些網路連線到您的內部部署網路。 
@@ -82,7 +82,7 @@ VNet 整合功能的新版本處於預覽狀態。 它不會相依於點對站 V
 * 172.16.0.0/12 - 這表示 IP 位址範圍從 172.16.0.0 到 172.31.255.255 
 * 192.168.0.0/16 - 這表示 IP 位址範圍從 192.168.0.0 到 192.168.255.255
 
-如果您只是建立用於 App Service VNet 整合的閘道，則不需要將憑證上傳。 建立閘道可能需要 30 分鐘。 在佈建閘道之前，您將無法將應用程式與 VNet 整合。 
+如果您只是建立虛擬網路閘道使用與應用程式服務的 VNet 整合，則您不需要上傳憑證。 建立閘道可能需要 30 分鐘。 在佈建閘道之前，您將無法將應用程式與 VNet 整合。 
 
 ### <a name="configure-vnet-integration-with-your-app"></a>設定您的應用程式與 VNet 整合 ###
 
@@ -132,9 +132,9 @@ VNet 整合功能是建置在點對站 VPN 技術之上。 Azure App Service 中
 ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet。 您的 App Service 方案中的任意數目的應用程式，最多可以連線到 5 個 VNet。 每個應用程式只能設定一個整合。 若要查看每個 VNet 的詳細資料，按一下您感興趣的 VNet 即可。 您可以在此處執行兩項動作。
 
 * **同步網路**。 同步網路作業可確保您的憑證和網路資訊會保持同步。如果您新增或變更 VNet 的 DNS，則需要執行**同步網路**作業。 這項作業將重新啟動任何使用此 VNet 的應用程式。
-* **新增路由** 新增路由將驅動連出流量進入 VNet。
+* **新增路由** 新增路由將驅動輸出流量進入 VNet。
 
-**路由** VNet 中所定義的路由用於將應用程式中的流量導向至 VNet。 如果需要將額外的連出流量傳送到 VNet，則可以在此處新增這些位址區塊。   
+**路由** VNet 中所定義的路由用於將應用程式中的流量導向至 VNet。 如果需要將額外的輸出流量傳送到 VNet，則可以在此處新增這些位址區塊。   
 
 **憑證** 啟用 [VNet 整合] 時，需要交換憑證以確保連線的安全性。 除了憑證以外，還有 DNS 組態、路由，以及其他描述網路的類似項目。
 如果憑證或網路資訊已變更，您需要按一下 [同步網路]。 按一下 [同步處理網路] 時，會導致應用程式與 VNet 之間的連線短暫中斷。 如果應用程式未重新啟動，失去連線會導致您的網站無法正常運作。 
@@ -277,19 +277,20 @@ App Service 環境功能可讓您在 VNet 中執行 Azure App Service 的單一�
 * 新的 VNet 整合功能不適用於 App Service 環境中的應用程式。
 * 您無法刪除具有整合式應用程式的 VNet。  
 * 新的 VNet 整合尚未提供路由表和全域對等互連。  
-* 一個位址用於一個 App Service 方案執行個體。 因為子網路大小在指派之後就無法變更，所以請使用超過最大規模大小的子網路。 建議的大小為具有 32 個位址的 /27，因為這會容納擴充為 20 個執行個體的 App Service 方案。  您可以使用新的 VNet 整合功能來取用服務端點受保護資源。 若要這樣做，請在用於 VNet 整合的子網路上啟用服務端點。
+* 一個位址用於一個 App Service 方案執行個體。 因為子網路大小在指派之後就無法變更，所以請使用超過最大規模大小的子網路。 建議的大小為具有 32 個位址的 /27，因為這會容納擴充為 20 個執行個體的 App Service 方案。
+* 您可以使用新的 VNet 整合功能來取用服務端點受保護資源。 若要這樣做，請在用於 VNet 整合的子網路上啟用服務端點。
 
 若要使用新功能：
 
 1. 移至入口網站中的 [網路 UI]。 如果您的應用程式能夠使用新的功能，那麼您將看到可使用新預覽功能的功能。  
 
- ![選取新的預覽 VNet 整合][6]
+   ![選取新的預覽 VNet 整合][6]
 
 1. 選取 [新增 VNet (預覽)]。  
 
 1. 選取您想要與其整合的 Resource Manager VNet，然後建立新的子網路，或選擇一個空白的現有子網路。 整合只需不到一分鐘即可完成。 整合期間，會重新啟動您的應用程式。  完成整合之後，您將在整合的 VNet 上看到詳細資料，頂端有一個橫幅，告訴您此功能處於預覽狀態。
 
- ![選取 [VNet 和子網路]][7]
+   ![選取 [VNet 和子網路]][7]
 
 若要使您的應用程式能夠使用您的 VNet 已設定的 DNS 伺服器，請為您的應用程式建立應用程式設定，其中名稱為 WEBSITE_DNS_SERVER，而值是伺服器的 IP 位址。  如果您有次要 DNS 伺服器，則建立另一個應用程式設定，其中名稱為 WEBSITE_DNS_ALT_SERVER，而值是伺服器的 IP 位址。 
 

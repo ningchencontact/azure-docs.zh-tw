@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f7eaa91faabfea7bb951eb9863ffecd2f5499
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182369"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183147"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的群組型授權？
 
@@ -49,7 +49,7 @@ Microsoft 付費的雲端服務 (例如 Office 365、Enterprise Mobility + Secur
 
 - 支援所有需要使用者層級授權的 Microsoft 雲端服務。 這項支援包括所有 Office 365 產品、Enterprise Mobility + Security 和 Dynamics 365。
 
-- 群組型授權目前僅透過 [Azure 入口網站](https://portal.azure.com)提供。 如果您原本就使用其他管理入口網站來管理使用者和群組，例如 Office 365 入口網站，您可以繼續這樣做。 但是，若要在群組等級管理授權，您應該使用 Azure 入口網站。
+- 群組型授權因此目前僅透過[Azure 入口網站](https://portal.azure.com)。 如果您主要是使用其他管理入口網站的使用者和群組管理，例如[Microsoft 365 系統管理中心](https://admin.microsoft.com)，若要這樣做，您可以繼續。 但是，若要在群組等級管理授權，您應該使用 Azure 入口網站。
 
 - Azure AD 會自動管理因群組成員資格變更而產生的授權修改。 一般而言，在成員資格變更後的幾分鐘內，授權修改就會生效。
 

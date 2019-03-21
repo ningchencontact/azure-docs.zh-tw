@@ -1,6 +1,6 @@
 ---
 title: 使用 HDInsight 開發指令碼動作 - Azure
-description: 了解如何使用指令碼動作來自訂 Hadoop 叢集。 指令碼動作可用來安裝其他在 Hadoop 叢集上執行的軟體，或變更叢集上所安裝應用程式的組態。
+description: 了解如何使用指令碼動作來自訂 Hadoop 叢集。 脚本操作可用于安装运行在 Hadoop 群集上的其他软件，或更改安装在群集上的应用程序的配置。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720181"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201308"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>開發 HDInsight Windows 型叢集指令碼動作指令碼
-了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
+了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
 
 
 > [!IMPORTANT]  
@@ -91,16 +91,15 @@ ms.locfileid: "53720181"
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
-| Name | 指令碼 |
+| 名稱 | 指令碼 |
 | --- | --- |
 | **安裝 Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]。 |
 | **安裝 R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1` 。 請參閱 [在 HDInsight 叢集上安裝及使用 R](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster)。 |
-| **安裝 Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install.md)。 |
 | **安裝 Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。 |
 | **預先載入 Hive 程式庫** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1` 。 請參閱[在 HDInsight 叢集上新增 Apache Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md) |
 
 
-您可以從 Azure 入口網站、Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。  如需詳細資訊，請參閱[使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize]。
+您可以從 Azure 入口網站、Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。  如需詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集] [hdinsight 叢集-自訂]。
 
 > [!NOTE]  
 > 範例指令碼只能與 HDInsight 叢集版本 3.1 或更高版本搭配使用。 如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
@@ -129,7 +128,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 以下是這個指令碼提供的協助程式方法：
 
-| 協助程式方法 | 說明 |
+| 協助程式方法 | 描述 |
 | --- | --- |
 | **Save-HDIFile** |從指定的統一資源識別項 (URI) 將檔案下載到與指派給叢集的 Azure VM 節點相關聯的本機磁碟位置。 |
 | **Expand-HDIZippedFile** |將壓縮檔解壓縮。 |
@@ -235,7 +234,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 6. 如果作業系統層級設定或 Hadoop 服務組態檔已變更，您可能會想要重新啟動 HDInsight 服務，讓它們可以載入任何作業系統層級設定，例如指令碼中設定的環境變數。
 
 ## <a name="debug-custom-scripts"></a>偵錯自訂指令碼
-指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。 記錄檔是以 *u<\cluster-name-fragment><\time-stamp>setuplog* 的名稱儲存在資料表中。 這些是彙總的記錄檔，包含來自指令碼執行所在之所有叢集節點 (前端節點和背景工作節點) 的記錄。
+指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。 記錄檔是以 *u<\cluster-name-fragment><\time-stamp>setuplog* 的名稱儲存在資料表中。 这些是包含所有节点（头节点和辅助节点）中的记录的聚合日志，脚本在群集中的这些节点上运行。
 
 檢查記錄檔的簡單方法是使用 HDInsight Tools for Visual Studio。 如需安裝工具，請參閱 [開始使用 Visual Studio Hadoop tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-or-update-data-lake-tools-for-visual-studio)
 
@@ -290,14 +289,12 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 如果發生執行失敗的情況，描述它的輸出也會包含在這個記錄檔中。 對可能發生的指令碼問題進行偵錯時，這些記錄檔中提供的資訊應該很有幫助。
 
-## <a name="see-also"></a>另請參閱
-* [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize]
+## <a name="see-also"></a>請參閱
+* [來自訂 HDInsight 叢集使用指令碼動作][hdinsight 叢集-自訂]
 * [在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]
-* [在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install.md)。
 * [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [powershell-install-configure]: install-configure-powershell.md
 

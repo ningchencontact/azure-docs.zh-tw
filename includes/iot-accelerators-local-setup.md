@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: 1f31189a83b6659371fcd0b34423f2fb681526c2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: ec382217bfa32da19c0b98e656f3782739b26cc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55147986"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114005"
 ---
 ## <a name="download-the-source-code"></a>下載原始程式碼
 
@@ -53,16 +53,16 @@ git submodule foreach git pull origin master
     ```
 
 1. 執行 **start.cmd** 指令碼。 指令碼會提示您輸入下列資訊：
-    * 解決方案名稱。
-    * 要使用的 Azure 訂用帳戶。
-    * 要使用之 Azure 資料中心的位置。
+   * 解決方案名稱。
+   * 要使用的 Azure 訂用帳戶。
+   * 要使用之 Azure 資料中心的位置。
 
-    指令碼會使用您的解決方案名稱在 Azure 中建立資源群組。 此資源群組包含解決方案加速器使用的 Azure 資源。 一旦您不再需要對應的資源，您可以刪除此資源群組。
+     指令碼會使用您的解決方案名稱在 Azure 中建立資源群組。 此資源群組包含解決方案加速器使用的 Azure 資源。 一旦您不再需要對應的資源，您可以刪除此資源群組。
 
-    此指令碼也會將一組有前置詞 **PCS** 的環境變數新增到您的本機電腦。 當您在本機上啟動 Docker 容器或微服務專案時，它們會從這些環境變數讀取其設定值。
+     此指令碼也會將一組有前置詞 **PCS** 的環境變數新增到您的本機電腦。 當您在本機上啟動 Docker 容器或微服務專案時，它們會從這些環境變數讀取其設定值。
 
-    > [!TIP]
-    > 指令碼完成時，它也會將環境變數儲存到下列檔案中，檔名為 **\<您的主資料夾\>\\.pcs\\\<解決方案名稱\>.env**。 您可以將這些環境變數用於未來的解決方案加速器部署。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的任何環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
+     > [!TIP]
+     > 指令碼完成時，它也會將環境變數儲存到下列檔案中，檔名為 **\<您的主資料夾\>\\.pcs\\\<解決方案名稱\>.env**。 您可以將這些環境變數用於未來的解決方案加速器部署。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的任何環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
 
 1. 退出命令列環境。
 

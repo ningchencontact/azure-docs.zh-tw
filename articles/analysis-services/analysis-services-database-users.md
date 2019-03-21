@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189791"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993181"
 ---
 # <a name="manage-database-roles-and-users"></a>管理資料庫角色和使用者
 
@@ -43,12 +43,12 @@ ms.locfileid: "54189791"
   
 4.  選取下列其中一個權限：  
   
-    |權限|說明|  
+    |權限|描述|  
     |----------------|-----------------|  
     |**None**|成員無法修改模型結構描述，也無法查詢資料。|  
     |**讀取**|成員可以查詢資料 (根據資料列篩選條件)，但無法修改模型結構描述。|  
     |**讀取和處理**|成員可以查詢資料 (根據資料列層級的篩選條件)，並執行「處理」和「全部處理」作業，但無法修改模型結構描述。|  
-    |**處理程序**|成員可以執行「處理」和「全部處理」作業。 無法修改模型結構描述，也無法查詢資料。|  
+    |**处理**|成員可以執行「處理」和「全部處理」作業。 無法修改模型結構描述，也無法查詢資料。|  
     |**系統管理員**|成員可以修改模型結構描述及查詢所有資料。|   
   
 5.  如果您建立的角色具有「讀取」或「讀取和處理」權限，您可以使用 DAX 公式來新增資料列篩選條件。 按一下 [資料列篩選條件] 索引標籤，然後選取資料表，再按一下 [DAX 篩選條件] 欄位，然後輸入 DAX 公式。
@@ -71,10 +71,11 @@ ms.locfileid: "54189791"
 2. 在 [建立角色] 中，輸入角色名稱和描述。
 
 3. 選取權限。
-   |權限|說明|  
+
+   |權限|描述|  
    |----------------|-----------------|  
    |**完全控制 (系統管理員)**|成員可以修改模型結構描述、程序，以及查詢所有資料。| 
-   |**處理資料庫**|成員可以執行「處理」和「全部處理」作業。 無法修改模型結構描述，也無法查詢資料。|  
+   |**處理資料庫**|成員可以執行「處理」和「全部處理」作業。 无法修改模型架构，也无法查询数据。|  
    |**讀取**|成員可以查詢資料 (根據資料列篩選條件)，但無法修改模型結構描述。|  
   
 4. 按一下 [成員資格]，然後依照電子郵件地址輸入 Azure AD 租用戶中的使用者或群組。
@@ -121,9 +122,9 @@ ms.locfileid: "54189791"
 
 [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) 模組提供特定工作的資料庫管理 Cmdlet，以及可接受表格式模型指令碼語言 (TMSL) 查詢或指令碼的一般用途 Invoke-ASCmd Cmdlet。 下列 Cmdlet 用來管理資料庫角色和使用者。
   
-|Cmdlet|說明|
+|Cmdlet|描述|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|將成員新增到資料庫角色。| 
+|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|向数据库角色添加成员。| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|從資料庫角色移除成員。|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|執行 TMSL 指令碼。|
 
@@ -141,7 +142,7 @@ ms.locfileid: "54189791"
 |-----------|--------------------|  
 |區域|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
-|交易|=Transactions[Year]=2016|  
+|事务|=Transactions[Year]=2016|  
   
  淨效應是成員可以查詢客戶位於美國、產品類別為自行車且 2016 年之資料的資料列。 使用者無法查詢美國以外的交易、非自行車的交易或不在 2016 年的交易，除非他們是授與這些權限之另一個角色的成員。
   

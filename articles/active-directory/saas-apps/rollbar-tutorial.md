@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a850b42f23a94366ec73949556b4af9a90f5015e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4ebedddf5e62e41bd0ef2d4c426df448a81a1e2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837213"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>教學課程：Azure Active Directory 與 Rollbar 整合
 
@@ -218,7 +218,7 @@ ms.locfileid: "56195221"
 
     ![邀請人員](./media/rollbar-tutorial/user2.png)
 
-1. 在文字方塊中，輸入使用者的名稱，例如 **brittasimon@contoso.com**，然後按一下 [Add/Invite] \(新增/邀請\)。
+1. 在文字方塊中，輸入使用者名稱，例如**brittasimon\@contoso.com** ，然後按一下**新增/邀請**。
 
     ![邀請人員](./media/rollbar-tutorial/user3.png)
 

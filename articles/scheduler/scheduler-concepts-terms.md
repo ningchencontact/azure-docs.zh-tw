@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334222"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887046"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure 排程器中的概念、術語及實體
 
@@ -26,7 +26,7 @@ ms.locfileid: "52334222"
 
 Azure 排程器 REST API 會公開並使用這些主要實體或資源：
 
-| 實體 | 說明 |
+| 實體 | 描述 |
 |--------|-------------|
 | **作業** | 定義單一週期性動作，以及簡單或複雜的執行策略。 動作可能包括 HTTP、儲存體佇列、服務匯流排佇列或服務匯流排主題要求。 | 
 | **工作集合** | 包含作業群組，並維護集合中作業所共用的設定、配額及節流。 身為 Azure 訂用帳戶擁有者，您可以建立作業集合，並根據作業的使用方式或應用程式界限將作業群組在一起。 作業集合具有下列屬性： <p>- 受限於一個區域。 <br>- 可讓您強制執行配額，以限制集合中所有作業的使用方式。 <br>- 配額包含 MaxJobs 和 MaxRecurrence。 | 
@@ -69,15 +69,15 @@ Azure 排程器支援多個作業類型：
 概括來說，排程器作業包含下列基本部分：
 
 * 要在工作計時器啟動時執行的動作
-* 選用：執行作業的時間
-* 選用：重複作業的時機和頻率
-* 選用：主要動作失敗時要執行的錯誤動作
+* 選用：运行作业的时间
+* 選用：重复作业的时间和频率
+* 選用：主操作失败时运行的错误操作
 
 作業也包含系統提供的資料，例如已排定的下一次作業執行時間。 作業的程式碼定義是採用 JavaScript 物件標記法 (JSON) 格式的物件，其中包含以下元素：
 
-| 元素 | 必要 | 說明 | 
+| 元素 | 必要項 | 描述 | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | 否 | 包含時區位移的作業開始時間，格式為 [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | 否 | 包含時區位移的作業開始時間，格式為 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | 是 | 主要動作的詳細資料，其中可包括 **errorAction** 物件 | 
 | [**errorAction**](#error-action) | 否 | 次要動作 (在主要動作失敗時執行) 的詳細資料 |
 | [**recurrence**](#recurrence) | 否 | 週期性作業的詳細資料，例如頻率和間隔 | 
@@ -137,7 +137,7 @@ Azure 排程器支援多個作業類型：
 
 ## <a name="starttime"></a>startTime
 
-在 **startTime** 物件中，您可以指定 [ISO 8601 格式](http://en.wikipedia.org/wiki/ISO_8601)的開始時間和時區位移。
+在 **startTime** 物件中，您可以指定 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601)的開始時間和時區位移。
 
 <a name="action"></a>
 
@@ -239,7 +239,7 @@ Azure 排程器支援多個作業類型：
 },
 ```
 
-| 屬性 | 必要 | 值 | 說明 | 
+| 屬性 | 必要項 | Value | 描述 | 
 |----------|----------|-------|-------------| 
 | **frequency** | 在使用 **recurrence** 時是必要的 | "Minute"、"Hour"、"Day"、"Week"、"Month"、"Year" | 發生次數之間的時間單位 | 
 | **interval** | 否 | 1 到 1000 (含) | 正整數，根據 **frequency** 來決定每次發生作業的間隔時間單位數 | 
@@ -269,7 +269,7 @@ Azure 排程器支援多個作業類型：
 },
 ```
 
-| 屬性 | 必要 | 值 | 說明 | 
+| 屬性 | 必要項 | Value | 描述 | 
 |----------|----------|-------|-------------| 
 | **retryType** | 是 | **固定**、**無** | 決定要指定重試原則 (**固定**) 或不要指定重試原則 (**無**)。 | 
 | **retryInterval** | 否 | PT30S | 指定重試嘗試之間的間隔和頻率，格式為 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)。 最小值為 15 秒，而最大值為 18 個月。 | 
@@ -313,7 +313,7 @@ Azure 排程器支援多個作業類型：
 }
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [概念、術語及實體階層](scheduler-concepts-terms.md)

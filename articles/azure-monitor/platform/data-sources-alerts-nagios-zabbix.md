@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: ac8e214df6b6990e2b27b5897350c85e0a944e0c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997952"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540040"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>從 Log Analytics Linux 代理程式在 Azure 監視器中收集來自 Nagios 和 Zabbix 的警示 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) 和 [Zabbix](http://www.zabbix.com/) 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Azure 監視器，以搭配其他來源的記錄資料一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
+[Nagios](https://www.nagios.org/) 和 [Zabbix](https://www.zabbix.com/) 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Azure 監視器，以搭配其他來源的記錄資料一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
 
 
 > [!NOTE]
@@ -90,7 +90,7 @@ Log Analytics Linux 代理程式支援從 Nagios 收集的警示最高為 4.2.x 
 
 Nagios 所收集之警示記錄的 **Type** 為 **Alert**，而 **SourceSystem** 為 **Nagios**。  其屬性如下表所示。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 類型 |*警示* |
 | SourceSystem |*Nagios* |
@@ -106,7 +106,7 @@ Nagios 所收集之警示記錄的 **Type** 為 **Alert**，而 **SourceSystem**
 ### <a name="zabbix-alert-records"></a>Zabbix 警示記錄
 Zabbix 所收集之警示記錄的 **Type** 為 **Alert**，而 **SourceSystem** 為 **Zabbix**。  其屬性如下表所示。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 類型 |*警示* |
 | SourceSystem |*Zabbix* |

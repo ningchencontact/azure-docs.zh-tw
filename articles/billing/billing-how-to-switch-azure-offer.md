@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 6e0339808d65cd5b4acd7b77284ccedf7cdf1989
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902120"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835261"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>將您的 Azure 預付型方案訂閱變更為其他供應項目
 
@@ -51,17 +51,17 @@ ms.locfileid: "54902120"
 >
 
 1. 登入 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)。
-1. 選取隨用隨付訂用帳戶。
+1. 选择即用即付订阅。
 1. 按一下 [切換到其他供應項目] 。 如果您使用隨用隨付方案並已支付第一期帳單，才能使用此按鈕。
 
    ![請注意頁面右側的 [切換供應項目] 按鈕](./media/billing-how-to-switch-azure-offer/switchbutton.png)
 1. 從您的訂用帳戶可切換的供應項目清單中**選取所需的供應項目**。 這份清單會根據您帳戶相關聯的會員資格而有所不同。 如果沒有清單，請檢查[您可切換的可用供應項目清單](#whats-supported)，並確定您有正確的會員資格。 
 
    ![選取您要切換的目標供應項目](./media/billing-how-to-switch-azure-offer/selectoffer.png)
-1. 根據您所切換的供應項目，您可能會看到有關切換所造成之影響的附註。 在您繼續進行之前，請先仔細瀏覽這份清單並依照指示操作。
+1. 根據您所切換的供應項目，您可能會看到有關切換所造成之影響的附註。 继续操作之前，请仔细查看此列表并遵循相关说明。
 
    ![檢閱注意事項](./media/billing-how-to-switch-azure-offer/thingstonote.png)
-1. 您可以重新命名訂用帳戶。 根據預設，我們會將它設定為新的供應項目名稱。 按一下 [切換供應項目]  以完成程序。
+1. 可以重命名订阅。 根據預設，我們會將它設定為新的供應項目名稱。 按一下 [切換供應項目]  以完成程序。
 
    ![按一下綠色按鈕](./media/billing-how-to-switch-azure-offer/confirmpage.png)
 1. 成功！ 您的訂用帳戶現在已經切換到新的供應項目。
@@ -102,7 +102,7 @@ Azure 供應項目是您擁有之 Azure 訂用帳戶的「類型」。 例如，
 
 #### <a name="billing"></a>計費
 
-在您切換當天，系統會為所有未付費用產生發票。 接下來，您的訂用帳戶將以新的供應項目價格條款計費。 您的訂用帳戶計費週年會變更為您變更供應項目的日期。 供應項目變更之前的使用量與計費資料將不會保留，因此我們建議您在切換之前先行下載這些資料。
+在您切換當天，系統會為所有未付費用產生發票。 接下來，您的訂用帳戶將以新的供應項目價格條款計費。 订阅计费周年会变为更改套餐的日期。 供應項目變更之前的使用量與計費資料將不會保留，因此我們建議您在切換之前先行下載這些資料。
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>我可以從隨用隨付移轉為[雲端解決方案提供者](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) 或 [Enterprise 合約](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA) 嗎？
 
@@ -116,4 +116,4 @@ Azure 供應項目是您擁有之 Azure 訂用帳戶的「類型」。 例如，
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
+如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

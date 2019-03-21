@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ef55f25657d1decb09e438d443e7c289823f7d9d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904742"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>連線處理站解決方案加速器的常見問題集
 
@@ -148,7 +148,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
 您也可以在部署之後將 Azure 地圖服務帳戶金鑰新增至解決方案加速器。 瀏覽至 Azure 入口網站，並存取連線處理站部署中的 App Service 資源。 瀏覽至 [應用程式設定]，您可以在此找到 [應用程式設定] 區段。 將 **MapApiQueryKey** 設定為 [Azure 地圖服務帳戶的金鑰](../azure-maps/how-to-manage-account-keys.md)。 儲存設定，然後瀏覽至 [概觀]，並重新啟動 App Service。
 
-### <a name="how-do-i-create-a-azure-maps-account"></a>如何建立 Azure 地圖服務帳戶？
+### <a name="how-do-i-create-an-azure-maps-account"></a>如何建立 Azure 地圖服務帳戶？
 
 請參閱[如何管理 Azure 地圖服務帳戶和金鑰](../azure-maps/how-to-manage-account-keys.md)。
 
@@ -174,15 +174,15 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

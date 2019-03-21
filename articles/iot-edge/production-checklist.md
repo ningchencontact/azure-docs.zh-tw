@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652595"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433445"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
-當你準備將 IoT Edge 解決方案從開發層面轉移到生產環境時，請確保其設定可以提供持續性效能。
+當您準備將 IoT Edge 解決方案從開發層面轉移到生產環境時，請確保其設定可以提供持續性效能。
 
 本文提供的資訊並非完全相同。 為了協助您設定優先權，每個區段都會以清單開始，並將工作分成兩個部分：生產前需完成的**重要**事項，或是您需要知道的**實用**事項。
 
@@ -186,7 +186,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 ### <a name="set-up-logs-and-diagnostics"></a>設定記錄檔與診斷
 
-在 Linux 中，IoT Edge 精靈會使用 journald 作為預設的記錄驅動程式。 您可以使用命令列工具 `journalctl` 查詢精靈記錄檔。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-WinEvent` 查詢精靈記錄檔。 IoT Edge 模組會使用 JSON 驅動程式進行記錄，此為 Docker 預設值。  
+在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 您可以使用命令列工具 `journalctl` 查詢精靈記錄檔。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-WinEvent` 查詢精靈記錄檔。 IoT Edge 模組會使用 JSON 驅動程式進行記錄，此為 Docker 預設值。  
 
 正在測試 IoT Edge 部署時，通常可以存取您的裝置來擷取記錄檔並進行疑難排解。 在部署情節中，可能不提供該選項。 請考慮要如何收集生產環境中的裝置相關資訊。 其中一個選項是使用能夠收集其他模組資訊，並將資訊傳送至雲端的記錄模組。 其中一個記錄模組範例是 [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics)，您也可以設計自己的專用模組。 
 
@@ -194,7 +194,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 * 您可以特別限制 Docker 精靈本身中所有 Docker 記錄檔的 大小。 若是 Linux，可以在 `/etc/docker/daemon.json` 設定精靈。 若是 Windows，則是 `C:\ProgramData\docker\confige\daemon.json`。 
 * 如果您想要調整每個容器的記錄檔大小，可以在每個模組的 CreateOptions 中進行。 
-* 將 journald 設為 Docker 預設的記錄驅動程式，便可讓 Docker 自動管理記錄檔。 
+* 通过将日志设置为 Docker 的默认日志记录驱动程序，将 Docker 配置为自动管理日志。 
 * 安裝 Docker 適用的 logrotate 工具，即可定期移除舊的裝置記錄檔。 使用下列檔案規格： 
 
    ```

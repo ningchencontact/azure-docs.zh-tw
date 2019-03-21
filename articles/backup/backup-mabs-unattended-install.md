@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: raynew
-ms.openlocfilehash: dd66710a24ca28b78c6b3e0a8197a078f17524db
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109843"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>執行 Azure 備份伺服器 2018 年 9 月2 的自動安裝
 
@@ -27,43 +27,43 @@ ms.locfileid: "52868135"
 
 2. 在 MABSSetup.ini 檔案中貼上下列程式碼。 以您的環境值取代括號內的文字 (\< \>)。 範例如下列文字：
 
-  ```
-  [OPTIONS]
-  UserName=administrator
-  CompanyName=<Microsoft Corporation>
-  SQLMachineName=localhost
-  SQLInstanceName=<SQL instance name>
-  SQLMachineUserName=administrator
-  SQLMachinePassword=<admin password>
-  SQLMachineDomainName=<machine domain>
-  ReportingMachineName=localhost
-  ReportingInstanceName=<reporting instance name>
-  SqlAccountPassword=<admin password>
-  ReportingMachineUserName=<username>
-  ReportingMachinePassword=<reporting admin password>
-  ReportingMachineDomainName=<domain>
-  VaultCredentialFilePath=<vault credential full path and complete name>
-  SecurityPassphrase=<passphrase>
-  PassphraseSaveLocation=<passphrase save location>
-  UseExistingSQL=<1/0 use or do not use existing SQL>
-  ```
+   ```
+   [OPTIONS]
+   UserName=administrator
+   CompanyName=<Microsoft Corporation>
+   SQLMachineName=localhost
+   SQLInstanceName=<SQL instance name>
+   SQLMachineUserName=administrator
+   SQLMachinePassword=<admin password>
+   SQLMachineDomainName=<machine domain>
+   ReportingMachineName=localhost
+   ReportingInstanceName=<reporting instance name>
+   SqlAccountPassword=<admin password>
+   ReportingMachineUserName=<username>
+   ReportingMachinePassword=<reporting admin password>
+   ReportingMachineDomainName=<domain>
+   VaultCredentialFilePath=<vault credential full path and complete name>
+   SecurityPassphrase=<passphrase>
+   PassphraseSaveLocation=<passphrase save location>
+   UseExistingSQL=<1/0 use or do not use existing SQL>
+   ```
 
 3. 儲存檔案。 然後，在安裝伺服器之提升權限的命令提示字元中輸入下列命令：
 
-  ```
-  start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
-  ```
+   ```
+   start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
+   ```
 
 您可以使用下列旗標來進行安裝：</br>
 **/f**：.ini 檔案路徑</br>
-**/l**：記錄路徑</br>
-**/i**：安裝路徑</br>
-**/x**：解除安裝路徑</br>
+**/l**:記錄檔路徑</br>
+**/i**:安裝路徑</br>
+**/x**:解除安裝路徑</br>
 
 ## <a name="next-steps"></a>後續步驟
 在安裝備份伺服器之後，請了解如何準備您的伺服器或開始保護工作負載。
 
 - [準備備份伺服器工作負載](backup-azure-microsoft-azure-backup.md)
 - [使用備份伺服器來備份 VMware 伺服器](backup-azure-backup-server-vmware.md)
-- [使用備份伺服器來備份 SQL Server](backup-azure-sql-mabs.md)
+- [使用备份服务器备份 SQL Server](backup-azure-sql-mabs.md)
 - [在備份伺服器中新增新式備份儲存體](backup-mabs-add-storage.md)
