@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 5161a35fd52b2f3d8374c76bdab60281e33dacf6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444681"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730642"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>如何在 Azure API 管理中新增自訂 CA 憑證
 
 Azure API 管理可允許在信任根存放區和中繼憑證存放區內的機器上，安裝 CA 憑證。 如果您的服務需要自訂 CA 憑證，則應該使用這項功能。
 
 本文說明如何在 Azure 入口網站中，管理 Azure API 管理服務執行個體的 CA 憑證。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -51,7 +53,7 @@ Azure API 管理可允許在信任根存放區和中繼憑證存放區內的機�
     ![新增 CA 憑證](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> 您可以使用 `New-AzureRmApiManagementSystemCertificate` Powershell 命令來上傳 CA 憑證。
+> 您可以使用 `New-AzApiManagementSystemCertificate` Powershell 命令來上傳 CA 憑證。
 
 ## <a name="step1a"> </a>刪除用戶端憑證
 

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d2ae1d1846506424aa14cca0f597c8888eb903d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341023"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649164"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>鎖定資源以防止非預期的變更 
 
@@ -32,21 +32,34 @@ ms.locfileid: "56341023"
 
 ## <a name="how-locks-are-applied"></a>如何套用鎖定
 
-當您在父範圍套用鎖定時，該範圍內的所有資源都會都繼承相同的鎖定。 甚至您稍後新增的資源都會繼承父項的鎖定。 繼承中限制最嚴格的鎖定優先順序最高。
+當您在父範圍套用鎖定時，該範圍內的所有資源都會都繼承相同的鎖定。 即使是之后添加的资源也会从父作用域继承该锁。 继承中限制性最强的锁优先执行。
 
-不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制。 如要了解使用者和角色的設定權限，請參閱 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
+不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制。 若要了解如何为用户和角色设置权限，请参阅 [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
 
-Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳送至 `https://management.azure.com` 的作業。 鎖定並不會限制資源執行自己函式的方式。 限制資源的變更，但沒有限制資源的作業。 例如，SQL 資料庫的 ReadOnly 鎖定會防止您刪除或修改資料庫，但它不會阻止您建立、更新或刪除資料庫中的資料。 允許資料的交易，因為這些作業不會傳送到 `https://management.azure.com`。
+Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳送至 `https://management.azure.com` 的作業。 鎖定並不會限制資源執行自己函式的方式。 限制資源的變更，但沒有限制資源的作業。 比方說，在 SQL Database 上的 ReadOnly 鎖定會防止您刪除或修改資料庫，但它不會阻止您建立、 更新或刪除資料庫中的資料。 已允許資料交易，因為這些作業不傳送至`https://management.azure.com`。
 
 套用 **ReadOnly** 會導致無法預期的結果，因為有些看似讀取作業的作業實際上需要其他動作。 例如，將 **ReadOnly** 鎖定放置在儲存體帳戶上，會防止所有使用者列出金鑰。 清單金鑰作業是透過 POST 要求進行處理，因為傳回的金鑰可用於寫入作業。 至於其他範例，將 **ReadOnly** 鎖定放置在 App Service 資源，會防止 Visual Studio 伺服器總管顯示資源的檔案，因為該互動需要寫入存取權。
 
 ## <a name="who-can-create-or-delete-locks-in-your-organization"></a>誰可以建立或刪除您的組織中的鎖定
-若要建立或刪除管理鎖定，您必須擁有 `Microsoft.Authorization/*` 或 `Microsoft.Authorization/locks/*` 動作的存取權。 在內建角色中，只有 **擁有者** 和 **使用者存取管理員** 被授與這些動作的存取權。
+若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/*` 或 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。
 
 ## <a name="portal"></a>入口網站
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>範本
+
+當使用 Resource Manager 範本部署鎖定，您可以使用不同的值名稱和鎖定類型視範圍而定。
+
+套用鎖定時**資源**，使用下列格式：
+
+* name - `{resourceName}/Microsoft.Authorization/{lockName}`
+* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+
+套用鎖定時**資源群組**或是**訂用帳戶**，使用下列格式：
+
+* name - `{lockName}`
+* type - `Microsoft.Authorization/locks`
+
 下列範例示範建立應用程式服務方案的範本、網站和網站上的鎖定。 鎖定的資源類型為要鎖定之資源的資源類型和 **/providers/locks**。 鎖定名稱的建立方式是串連資源名稱與 **/Microsoft.Authorization/** 和鎖定的名稱。
 
 ```json
@@ -104,19 +117,7 @@ Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳
 }
 ```
 
-若要使用 PowerShell 部署此範例範本，請使用：
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name sitegroup -Location southcentralus
-New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
-```
-
-若要使用 Azure CLI 部署此範例範本，請使用：
-
-```azurecli
-az group create --name sitegroup --location southcentralus
-az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
-```
+資源群組上設定鎖定的範例，請參閱 <<c0> [ 建立資源群組，並將其鎖定](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)。
 
 ## <a name="powershell"></a>PowerShell
 您可以使用 Azure PowerShell 以 [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) 命令鎖定已部署的資源。
@@ -127,7 +128,7 @@ az group deployment create --resource-group sitegroup --template-uri https://raw
 New-AzResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
-若要鎖定資源群組，請提供資源群組的名稱。
+若要锁定某个资源组，请提供该资源组的名称。
 
 ```azurepowershell-interactive
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
@@ -174,7 +175,7 @@ az lock create --name LockSite --lock-type CanNotDelete --resource-group example
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-若要取得鎖定的相關資訊，請使用 [az lock list](/cli/azure/lock#az-lock-list)。 若要取得訂用帳戶中的所有鎖定，請使用︰
+若要取得鎖定的相關資訊，請使用 [az lock list](/cli/azure/lock#az-lock-list)。 若要获取订阅中的所有锁，请使用：
 
 ```azurecli
 az lock list
@@ -206,7 +207,7 @@ az lock delete --ids $lockid
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-範圍可以是訂用帳戶、資源群組或資源。 lock-name 是您想要命名鎖定的任何名稱。 對於 api-version，請使用 **2015-01-01**。
+範圍可以是訂用帳戶、資源群組或資源。 lock-name 是您想要命名鎖定的任何名稱。 對於 api-version，請使用**2016年-09-01**。
 
 在要求中，包含指定鎖定屬性的 JSON 物件。
 
@@ -219,7 +220,6 @@ az lock delete --ids $lockid
 
 ## <a name="next-steps"></a>後續步驟
 * 若要了解如何邏輯地組織您的資源，請參閱 [使用標記來組織您的資源](resource-group-using-tags.md)
-* 若要變更資源所在的資源群組，請參閱 [將資源移動到新的資源群組](resource-group-move-resources.md)
 * 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。 如需詳細資訊，請參閱[何謂 Azure 原則？](../governance/policy/overview.md)。
 * 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。
 

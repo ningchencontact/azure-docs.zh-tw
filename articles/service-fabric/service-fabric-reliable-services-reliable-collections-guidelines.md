@@ -3,7 +3,7 @@ title: Azure Service Fabric 中 Reliable Collection 的指導方針與建議 | M
 description: 使用 Service Fabric Reliable Collection 的指導方針與建議
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: twhitney
-ms.openlocfilehash: d50fee06a291e11898de19fd49bd657d2e1a6d00
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: ddccb1c8a881cd15ef1c76b755c3bb74b7f3b49d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184928"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805751"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collection 的指導方針與建議
 本節提供使用 Reliable State Manager 和 Reliable Collection 的指導方針。 目標是要協助使用者避開常見的陷阱。
@@ -44,7 +44,7 @@ ms.locfileid: "53184928"
 
 * 所有可靠的集合 API 的預設逾時都是四秒。 大部分使用者應該使用的預設逾時。
 * 在所有可靠的集合 API 中，預設的取消權杖為 `CancellationToken.None` 。
-* 可靠字典的索引鍵類型參數 (*TKey*) 必須正確實作 `GetHashCode()` 和 `Equals()`。 索引鍵必須是不可變的。
+* 可靠字典的索引鍵類型參數 (*TKey*) 必須正確實作 `GetHashCode()` 和 `Equals()`。 键必须不可变。
 * 若要讓可靠的集合達到高度可用性，每個服務應至少有一個目標和大小為 3 的最小複本集。
 * 次要複本上的讀取作業可能會讀取未認可的仲裁版本。
   這表示從單一次要複本讀取的資料版本進度可能有誤。
@@ -61,4 +61,4 @@ ms.locfileid: "53184928"
   * [Reliable State Manager 組態](service-fabric-reliable-services-configuration.md)
 * 其他
   * [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
-  * [可靠的集合的開發人員參考資料](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

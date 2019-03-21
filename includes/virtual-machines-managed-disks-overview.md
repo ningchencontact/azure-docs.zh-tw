@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10afad7f782d1a98dfde5f7d708477375af54597
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 287ae3b8122dd2a1e43c31055ac0ea5b04dddb07
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330961"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190666"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -53,7 +53,7 @@ ms.locfileid: "56330961"
 
 ### <a name="temporary-disk"></a>暫存磁碟
 
-每個虛擬機器皆包含一個暫存磁碟，此非受控磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會在[維護事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期間或當您重新佈署虛擬機器時遺失。 在 VM 的標準重新開機期間，暫存磁碟上的資料會保留。 不過，有時候可能不會保存資料，例如移至新主機時。 因此，請勿將系統的關鍵資料放在暫存磁碟機上。
+每個虛擬機器皆包含一個暫存磁碟，此非受控磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會遺失期間[維護事件發生期間](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)事件或當您[重新部署 VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)。 在 VM 的成功標準重新開機期間，暫存磁碟上的資料將保留。 
 
 ## <a name="managed-disk-snapshots"></a>受控磁碟快照集
 

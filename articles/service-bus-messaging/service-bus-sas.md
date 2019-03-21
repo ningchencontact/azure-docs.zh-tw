@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895851"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308851"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共用存取簽章的服務匯流排存取控制
 
@@ -84,7 +84,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-權杖會包含非雜湊值，因此接收者可以用相同的參數重新計算雜湊，驗證簽發者擁有有效的簽署金鑰。 
+權杖會包含非雜湊值，因此接收者可以用相同的參數重新計算雜湊，驗證簽發者擁有有效的簽署金鑰。
 
 資源 URI 是宣告其存取權之服務匯流排資源的完整 URI。 例如，`http://<namespace>.servicebus.windows.net/<entityPath>` 或 `sb://<namespace>.servicebus.windows.net/<entityPath>`；也就是 `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`。 URI 必須是[百分比編碼](https://msdn.microsoft.com/library/4fkewx0t.aspx)。
 
@@ -156,7 +156,7 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-您也可以直接使用權杖提供者發行權杖，並傳至其他用戶端。 
+您也可以直接使用權杖提供者發行權杖，並傳至其他用戶端。
 
 連接字串可包含規則名稱 (*SharedAccessKeyName*) 和規則金鑰 (*SharedAccessKey*) 或先前發行的權杖 (*SharedAccessSignature*)。 當這些名稱出現在傳至任何建構函式的連接字串中，或是接受連接字串的 Factory 方法中時，系統會自動建立 SAS 權杖提供者並填入。
 
@@ -171,7 +171,7 @@ POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
 Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
-``` 
+```
 
 請記住，這適用於所有項目。 您可以為佇列、主題或訂用帳戶建立 SAS。
 
@@ -179,11 +179,11 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>使用共用存取簽章 (於 AMQP 層級)
 
-在前一節中，說明了如何使用 SAS 權杖搭配 HTTP POST 要求傳送資料到服務匯流排。 如您所了解，您可以使用進階訊息佇列通訊協定 (AMQP) 來存取服務匯流排，此通訊協定在許多案例中，都是基於效能考量而做為慣用的通訊協定。 如需使用 SAS 權杖搭配 AMQP 的用法，請參閱 [AMQP 宣告型安全性 1.0 版](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) 文件中的說明，該文件是自 2013 年開始的工作草稿，不過現在 Azure 已經提供良好的支援。
+在前一部分中，已介绍如何使用 SAS 令牌配合 HTTP POST 请求将数据发送到服务总线。 如您所了解，您可以使用進階訊息佇列通訊協定 (AMQP) 來存取服務匯流排，此通訊協定在許多案例中，都是基於效能考量而做為慣用的通訊協定。 如需使用 SAS 權杖搭配 AMQP 的用法，請參閱 [AMQP 宣告型安全性 1.0 版](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) 文件中的說明，該文件是自 2013 年開始的工作草稿，不過現在 Azure 已經提供良好的支援。
 
 開始將資料傳送到服務匯流排之前，發行者必須在 AMQP 訊息內部將 SAS 權杖傳送至正確定義且名為 **$cbs** 的 AMQP 節點 (您可以將它視為一個由服務所使用的「特別」佇列，用來取得並驗證所有的 SAS 權杖)。 發行者必須在 AMQP 訊息中指定 **ReplyTo** 欄位；這是服務將以權杖驗證結果 (發行者與服務之間的簡單要求/回覆模式) 回覆發行者的節點所在。 此回覆節點是「動態」建立，如 AMQP 1.0 規格中所述的「動態建立遠端節點」。 檢查 SAS 權杖有效之後，發行者可以繼續並開始將資料傳送至服務。
 
-下列步驟示範如何使用 [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) 程式庫，搭配 AMQP 通訊協定來傳送 SAS 權杖。 如果您不能使用以 C\# 開發的官方服務匯流排 SDK (例如，在 WinRT、.Net Compact Framework、.Net Micro Framework 和 Mono 上)，這就非常有用。 當然，此程式庫對於了解宣告型安全性如何在 AMQP 層級運作非常有用，如同您了解其如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。 如果您不需要深入了解 AMQP，您可以搭配 .Net Framework 應用程式使用正式服務匯流排 SDK，其將為您做到這點。
+下列步驟示範如何使用 AMQP 通訊協定使用 SAS 權杖傳送[AMQP.NET Lite](https://github.com/Azure/amqpnetlite)程式庫。 這是很有用，如果您無法使用官方 （例如在 WinRT、.NET Compact Framework、.NET Micro Framework 和 Mono） 的服務匯流排 SDK 開發 c\#。 當然，此程式庫對於了解宣告型安全性如何在 AMQP 層級運作非常有用，如同您了解其如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。 如果您不需要深入了解 AMQP，您可以使用.NET Framework 應用程式，將會替您的官方服務匯流排 SDK。
 
 ### <a name="c35"></a>C&#35;
 
@@ -236,12 +236,12 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-上述 `PutCbsToken()` 方法會接收代表服務之 TCP 連線的 *connection* ([AMQP .NET Lite 程式庫](https://github.com/Azure/amqpnetlite)所提供的 AMQP 連接類別執行個體) 以及要做為 SAS 權杖傳送的 sasToken 參數。 
+上述 `PutCbsToken()` 方法會接收代表服務之 TCP 連線的 *connection* ([AMQP .NET Lite 程式庫](https://github.com/Azure/amqpnetlite)所提供的 AMQP 連接類別執行個體) 以及要做為 SAS 權杖傳送的 sasToken 參數。
 
 > [!NOTE]
 > 請務必以**設為 ANONYMOUS 的 SASL 驗證機制** (而非當您不需要傳送 SAS 權杖時所使用且包含使用者名稱與密碼的預設 PLAIN) 建立連線。
-> 
-> 
+>
+>
 
 接下來，發行者會建立兩個 AMQP 連結來傳送 SAS 權杖，並接受來自服務的回覆 (權杖驗證結果)。
 
@@ -262,17 +262,17 @@ AMQP 訊息包含眾多屬性，以及比簡單訊息更多的資訊。 SAS 權�
 | 開始在命名空間上接聽 |接聽 |任何命名空間位址 |
 | 將訊息傳送至命名空間上的接聽程式 |傳送 |任何命名空間位址 |
 | **佇列** | | |
-| 建立佇列 |管理 |任何命名空間位址 |
+| 创建队列 |管理 |任何命名空間位址 |
 | 刪除佇列 |管理 |任何有效的佇列位址 |
 | 列舉佇列 |管理 |/$Resources/Queues |
-| 取得佇列描述 |管理 |任何有效的佇列位址 |
+| 获取队列说明 |管理 |任何有效的佇列位址 |
 | 設定佇列的授權規則 |管理 |任何有效的佇列位址 |
 | 傳送到佇列中 |傳送 |任何有效的佇列位址 |
 | 從佇列接收訊息 |接聽 |任何有效的佇列位址 |
 | 在 peek-lock 模式中接收訊息後放棄或完成訊息 |接聽 |任何有效的佇列位址 |
-| 延遲訊息以便稍後擷取 |接聽 |任何有效的佇列位址 |
+| 延遲訊息以便稍後擷取 |侦听 |任何有效的佇列位址 |
 | 讓訊息寄不出去 |接聽 |任何有效的佇列位址 |
-| 取得與訊息佇列工作階段相關聯的狀態 |接聽 |任何有效的佇列位址 |
+| 取得與訊息佇列工作階段相關聯的狀態 |接聽 |任何有效队列地址 |
 | 設定與訊息佇列工作階段相關聯的狀態 |接聽 |任何有效的佇列位址 |
 | 排程訊息以供日後傳遞，例如，[ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |接聽 | 任何有效的佇列位址
 | **主題** | | |
@@ -280,14 +280,14 @@ AMQP 訊息包含眾多屬性，以及比簡單訊息更多的資訊。 SAS 權�
 | 刪除主題 |管理 |任何有效的主題位址 |
 | 列舉主題 |管理 |/$Resources/Topics |
 | 取得主題描述 |管理 |任何有效的主題位址 |
-| 設定主題的授權規則 |管理 |任何有效的主題位址 |
+| 設定主題的授權規則 |管理 |任何有效主题地址 |
 | 傳送至主題 |傳送 |任何有效的主題位址 |
 | **訂用帳戶** | | |
-| 建立訂用帳戶 |管理 |任何命名空間位址 |
+| 建立訂用帳戶 |管理 |任何命名空间地址 |
 | 刪除訂用帳戶 |管理 |../myTopic/Subscriptions/mySubscription |
 | 列舉訂用帳戶 |管理 |../myTopic/Subscriptions |
 | 取得訂用帳戶描述 |管理 |../myTopic/Subscriptions/mySubscription |
-| 在 peek-lock 模式中接收訊息後放棄或完成訊息 |接聽 |../myTopic/Subscriptions/mySubscription |
+| 在速览-锁定模式下接收消息后放弃或完成消息 |接聽 |../myTopic/Subscriptions/mySubscription |
 | 延遲訊息以便稍後擷取 |接聽 |../myTopic/Subscriptions/mySubscription |
 | 讓訊息寄不出去 |接聽 |../myTopic/Subscriptions/mySubscription |
 | 取得與主題工作階段相關聯的狀態 |接聽 |../myTopic/Subscriptions/mySubscription |
@@ -295,14 +295,14 @@ AMQP 訊息包含眾多屬性，以及比簡單訊息更多的資訊。 SAS 權�
 | **規則** | | |
 | 建立規則 |管理 |../myTopic/Subscriptions/mySubscription |
 | 刪除規則 |管理 |../myTopic/Subscriptions/mySubscription |
-| 列舉規則 |管理或接聽 |../myTopic/Subscriptions/mySubscription/Rules 
+| 列舉規則 |管理或接聽 |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解服務匯流排訊息，請參閱下列主題。
 
 * [服務匯流排佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)
-* [如何使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
+* [如何使用服务总线队列](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服務匯流排主題和訂用帳戶](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Azure portal]: https://portal.azure.com

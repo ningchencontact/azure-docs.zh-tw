@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818926"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247149"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
 
@@ -29,7 +29,9 @@ ms.locfileid: "54818926"
 * [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (可設定) 可讓您更深入地了所有與作業相關的發生事件。 診斷記錄會在作業建立時開始執行，並在作業刪除時結束。 這些記錄涵蓋作業更新時與作業執行時的情形。
 
 > [!NOTE]
-> 您可以使用 Azure 儲存體、Azure 事件中樞和 Azure Log Analytics 等服務來分析不一致的資料。 這些服務將會依據各自的計價模式向您收取費用。
+> 您可以使用服務，例如 Azure 儲存體、 Azure 事件中樞和 Azure 監視器記錄來分析不一致的資料。 這些服務將會依據各自的計價模式向您收取費用。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>使用活動記錄進行偵錯
 
@@ -51,11 +53,11 @@ ms.locfileid: "54818926"
 
 5. 您可以根據 JSON 中的錯誤訊息採取修正動作。 在此範例中，需要檢查以確保緯度值是介於 -90 度和 90 度之間。
 
-6. 如果活動記錄中的錯誤訊息無法幫助識別根本原因，請啟用診斷記錄，並使用 Log Analytics。
+6. 如果活動記錄檔中的錯誤訊息不是很有幫助識別根本原因，請啟用診斷記錄檔，並使用 Azure 監視器記錄檔。
 
-## <a name="send-diagnostics-to-log-analytics"></a>將診斷傳送至 Log Analytics
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>將診斷傳送至 Azure 監視器記錄檔
 
-強烈建議您啟用診斷記錄，並將其傳送至 Log Analytics。 診斷記錄預設為 [關閉]。 若要開啟診斷記錄，請完成下列步驟︰
+強烈建議您開啟診斷記錄檔，並將它們傳送到 Azure 監視器記錄檔。 診斷記錄預設為 [關閉]。 若要開啟診斷記錄，請完成下列步驟︰
 
 1.  登入 Azure 入口網站，然後瀏覽至您的 Stream Analytics 作業。 在 [監視] 下，選取 [診斷記錄]。 然後選取 [開啟診斷]。
 
@@ -67,7 +69,7 @@ ms.locfileid: "54818926"
 
 3. 當您的 Stream Analytics 作業啟動時，診斷記錄會路由傳送至 Log Analytics 工作區。 瀏覽至 Log Analytics 工作區，然後選擇 [一般] 區段下的 [記錄]。
 
-   ![[一般] 區段下的 Log Analytics 記錄](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![在 [一般] 區段下的 azure 監視器記錄檔](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. 您可以[撰寫自己的查詢](../azure-monitor/log-query/get-started-portal.md)來搜尋字詞、識別趨勢、分析模式，以及提供以資料為基礎的深入解析。 例如，您可以撰寫查詢以篩選僅具有訊息「串流處理工作失敗」的診斷記錄。 Azure Stream Analytics 的診斷記錄會儲存在 **AzureDiagnostics** 資料表中。
 
@@ -96,7 +98,7 @@ ms.locfileid: "54818926"
 
 所有記錄會儲存為 JSON 格式。 每個項目皆包含下列常見的字串欄位︰
 
-Name | 說明
+名稱 | 描述
 ------- | -------
 分析 | 記錄的時間戳記 (UTC 時間)。
 ResourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如，**/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
@@ -114,7 +116,7 @@ properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需
 
 作業處理資料時發生的任何錯誤皆包含於此類記錄中。 這些記錄最常於資料讀取、序列化和寫入作業時建立。 這些記錄不包含連線錯誤。 連線錯誤視為一般事件。
 
-Name | 說明
+名稱 | 描述
 ------- | -------
 來源 | 發生錯誤的作業輸入或輸出名稱。
 訊息 | 與錯誤相關的訊息。
@@ -131,7 +133,7 @@ Name | 說明
 
 一般事件涵蓋所有其他事件。
 
-Name | 說明
+名稱 | 描述
 -------- | --------
 Error | (選用) 錯誤資訊。 這通常是例外狀況資訊 (如果有的話)。
 訊息| 記錄訊息。

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106948"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882683"
 ---
 # <a name="handling-review-feedback"></a>處理檢閱意見反應
 
@@ -58,14 +58,14 @@ ms.locfileid: "56106948"
 
 1. 在 [發佈步驟] 表單的 [Microsoft 檢閱] 區段中，按一下 PR 連結以啟動您的瀏覽器並瀏覽至此 PR 的 [概觀 (首頁)] 頁面。  下圖說明 Contoso 範例應用程式供應項目的範例嚴重問題首頁。  此頁面包含有關在 Azure 應用程式中找到的檢閱問題的實用摘要資訊。  
 
-    [ ![提取要求首頁](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![提取要求首頁](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *按一下以展開映像。*
     
 2. (選擇性) 在視窗右側的 [原則] 區段中，按一下問題訊息 (在此範例中：**原則驗證失敗**) 調查問題的低層級詳細資料，包括相關的記錄檔。  錯誤通常會顯示在記錄檔的底部。
 
 3. 在首頁左側的功能表中，選取 [檔案] 以顯示包含此供應項目之技術資產的清單檔案。  Microsoft 檢閱者應該加上描述發現的重大問題的註解。  在下列範例中，已發現兩個問題。 
 
-    [ ![提取要求首頁](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![提取要求首頁](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *按一下以展開映像。*
 
 4. 按一下左側樹狀目錄中的每個註解節點，以瀏覽至周圍程式碼內容中的註解。  修正小組專案中的原始程式碼，以更正註解中所述的問題。

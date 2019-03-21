@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: HT
+ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021620"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731186"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>在 Azure 串流分析中處理可設定閾值型規則
 本文說明如何使用參考資料在 Azure 串流分析中達成使用可設定閾值型規則的警示解決方案。
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>案例：根據可調整的規則閾值發出警示
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>案例：可調整規則的臨界值警示依據
 當傳入的串流事件達到特定的值，或根據傳入串流事件的彙總值超出特定閾值時，您可能需要產生警示作為輸出。 設定串流分析查詢，來比較值與靜態閾值 (這是固定且預先決定的) 非常簡單。 您可以將固定的閾值以硬式編碼寫在使用簡單數值比較 (大於、小於和等於) 的串流查詢語法中。
 
 在某些情況下，閾值需要能更輕鬆地進行設定，而不需在每次閾值變更時都要編輯查詢語法。 而在其他情況中，您可能需要利用相同的查詢來處理多個裝置或使用者 (每個使用者在每種裝置種類上都有不同的閾值)。 

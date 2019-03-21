@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311200"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225088"
 ---
 # <a name="get-started-with-storage-explorer"></a>開始使用儲存體總管
 
@@ -55,18 +55,13 @@ Azure 儲存體總管是一個獨立應用程式，可讓您在 Windows、macOS 
 
 下列 Linux 發行版本支援 Azure 儲存體總管：
 
-* Ubuntu 16.04 x64 (建議採用)
-* Ubuntu 17.10 x64
+* Ubuntu 18.04 x64
+* Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
 Azure 儲存體總管或許可以在其他發行版本上執行，但官方僅支援上面列出的發行版本。
 
-您也必須安裝下列相依項/程式庫，才能在 Linux 上執行 Azure 儲存體總管：
-
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* ibsecret (注意：您的電腦上一定要有 libsecret 1.so.0。 如果您安裝不同版本的 libsecret，則可以嘗試將它的 libsecret .so 檔案軟式連結至 libsecret-1.so.0)
-* libgconf-2-4
-* 最新的 GCC
+在 Linux 上安裝儲存體總管的詳細說明，請參閱[疑難排解指南](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies)。
 
 Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些發行版本的特定步驟。
 
@@ -174,7 +169,7 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
 
 ### <a name="attach-to-an-external-storage-account"></a>附加至外部儲存體帳戶
 
-若要附加至外部儲存體帳戶，您需要帳戶的名稱和金鑰。 「取得儲存體帳戶認證」一節說明如何從 Azure 入口網站取得這些值。 不過，在入口網站中，帳戶金鑰稱為 [金鑰1]。 因此，當儲存體總管要求帳戶金鑰時，您可輸入 [金鑰 1] 值。
+若要附加到某个外部存储帐户，需要该帐户的名称和密钥。 「取得儲存體帳戶認證」一節說明如何從 Azure 入口網站取得這些值。 不過，在入口網站中，帳戶金鑰稱為 [金鑰1]。 因此，當儲存體總管要求帳戶金鑰時，您可輸入 [金鑰 1] 值。
 
 1. 在儲存體總管中，開啟 [連線對話方塊]。
 
@@ -205,7 +200,7 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
 
 1. 以滑鼠右鍵按一下您要卸離的外部儲存體帳戶，然後選取 [卸離]。
 
-    ![中斷與儲存體選項的連結][13]
+    ![“从存储分离”选项][13]
 
 2. 在確認訊息中，選取 [是] 以確認從外部儲存體帳戶卸離。
 

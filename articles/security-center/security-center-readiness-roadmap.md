@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 56d18b7ec44e979bee48c3598286a461199e1005
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958196"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244636"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure 資訊安全中心整備藍圖
 本文件提供的整備藍圖將協助您開始使用 Azure 資訊安全中心。
@@ -118,7 +118,7 @@ Azure VM 可以利用資訊安全中心的進階雲端防禦功能。 這些功�
 * [網路安全性的最佳做法](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS 建議](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [合規性](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [Log Analytics 客戶現在可以使用 Azure 資訊安全中心保護其混合式雲端工作負載](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Log analytics 客戶現在可以使用 Azure 資訊安全中心來保護其混合式雲端工作負載](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>社群資源
 

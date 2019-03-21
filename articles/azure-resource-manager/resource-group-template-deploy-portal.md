@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: b8a6d58ad79b591548542d69e69b71ec61af79af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220120"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816892"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 範本與 Azure 入口網站來部署資源
 
-此文章示範如何使用 [Azure 入口網站](https://portal.azure.com)搭配 [Azure Resource Manager](resource-group-overview.md) 來部署您的 Azure 資源。 若要了解如何管理您的資源，請參閱 [透過入口網站管理 Azure 資源](resource-group-portal.md)。
+本文示範如何使用 [Azure 入口網站](https://portal.azure.com)搭配 [Azure Resource Manager](resource-group-overview.md) 來部署您的 Azure 資源。 若要了解如何管理您的資源，請參閱[使用 Azure 入口網站管理 Azure 資源](manage-resources-portal.md)。
 
 ## <a name="create-resource-group"></a>建立資源群組
 
@@ -97,7 +97,7 @@ ms.locfileid: "47220120"
 
    ![建立範本](./media/resource-group-template-deploy-portal/blank-template.png)
 
-1. 您可以手動編輯 JSON 語法，也可以從[快速入門範本資源庫](https://azure.microsoft.com/resources/templates/)選取預先建立的範本。 不過，此文章會使用 [新增資源] 選項。
+1. 您可以手動編輯 JSON 語法，也可以從[快速入門範本資源庫](https://azure.microsoft.com/resources/templates/)選取預先建立的範本。 不過，本文會使用 [新增資源] 選項。
 
    ![編輯範本](./media/resource-group-template-deploy-portal/select-add-resource.png)
 
@@ -134,7 +134,7 @@ ms.locfileid: "47220120"
    ![部署已儲存的範本](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 若要檢視稽核記錄檔，請參閱 [使用 Resource Manager 來稽核作業](resource-group-audit.md)。
-* 若要針對部署錯誤進行疑難排解，請參閱[檢視部署作業](resource-manager-deployment-operations.md)。
-* 若要從部署或資源群組擷取範本，請參閱 [從現有資源匯出 Azure Resource Manager 範本](resource-manager-export-template.md)。
-* 若要安全地在多個區域推出您的服務，請參閱 [Azure 部署管理員](deployment-manager-overview.md)。
+* 若要檢視稽核記錄檔，請參閱 [使用 Resource Manager 來稽核作業](./resource-group-audit.md)。
+* 若要針對部署錯誤進行疑難排解，請參閱[檢視部署作業](./resource-manager-deployment-operations.md)。
+* 若要從部署或資源群組匯出範本，請參閱[匯出 Azure Resource Manager 範本](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
+* 若要安全地在多個區域推出您的服務，請參閱 [Azure 部署管理員](./deployment-manager-overview.md)。

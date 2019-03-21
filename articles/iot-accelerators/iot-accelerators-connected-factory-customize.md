@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: e91f36c9d6f0cb3195e6903d55cd676f1e9ccf5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626545"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010067"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>自訂連線處理站解決方案顯示 OPC UA 伺服器資料的方式
 
@@ -32,7 +32,7 @@ ms.locfileid: "34626545"
 
 ![使用 Time Series Insights 探索資料][img-tsi]
 
-本文章說明：
+本文介绍：
 
 - 解決方案中各種檢視的資料是如何取得的。
 - 如何自訂解決方案顯示資料的方式。
@@ -81,7 +81,7 @@ ms.locfileid: "34626545"
 
 * [連線的處理站解決方案加速器逐步解說][lnk-rm-walkthrough]
 * [為連線的處理站部署閘道][lnk-connect-cf]
-* [azureiotsuite.com 網站的權限][lnk-permissions]
+* [Azureiotsolutions.com 網站的權限][lnk-permissions]
 * [連線的處理站常見問題集](iot-accelerators-faq-cf.md)
 * [常見問題集][lnk-faq]
 

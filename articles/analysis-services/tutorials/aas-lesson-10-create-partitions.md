@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 91d34065753ae29b14aad8580bf922b8213a7988
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191831"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738618"
 ---
 # <a name="create-partitions"></a>建立分割區
 
@@ -46,7 +46,7 @@ ms.locfileid: "54191831"
     
     請注意，在查詢編輯器的 APPLIED STEPS 中，您會看到另一個名為 Filtered Rows 步驟。 此篩選條件只會選取 2010 年中的訂單日期。
 
-8.  按一下 [匯入] 。
+8.  单击“导入”。
 
     在 [分割區管理員] 中，您可以看到查詢運算式現在有額外的 Filtered Rows 子句。
 
@@ -108,5 +108,5 @@ ms.locfileid: "54191831"
   
     ![aas 第 10 課處理完成](../tutorials/media/aas-lesson10-process-complete.png)
   
- ## <a name="whats-next"></a>後續步驟
+## <a name="whats-next"></a>後續步驟
 移至下一個課程︰[第 11 課：建立角色](../tutorials/aas-lesson-11-create-roles.md)。 

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 2687a64bfd952888086862d929a3e5869aee5a4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478181"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003431"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>使用 Azure 容器執行個體作為 Jenkins 建置代理程式
 
@@ -30,7 +30,7 @@ Azure 容器執行個體 (ACI) 可提供隨選且高載的隔離環境，以便�
    - **使用者名稱**：輸入 Jenkins 虛擬機器管理員使用者的名稱。
    - **驗證類型**：我們建議使用 SSH 公開金鑰進行驗證。 如果您選取此選項，請貼上用來登入 Jenkins 虛擬機器的 SSH 公開金鑰。
    - 訂用帳戶：選取 Azure 訂用帳戶。
-   - **資源群組**：建立資源群組，或選取現有的資源群組。
+   - **资源组**：建立資源群組，或選取現有的資源群組。
    - **位置**：選取 Jenkins 伺服器的位置。
 
    ![Jenkins 入口網站部署的基本設定](./media/container-instances-jenkins/jenkins-portal-01.png)
@@ -73,7 +73,7 @@ Azure 容器執行個體 (ACI) 可提供隨選且高載的隔離環境，以便�
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. 讓 SSH 工作階段和通道保持執行狀態，並且在瀏覽器中移至 http://localhost:8080。 將初始管理密碼貼到方塊中，然後選取 [繼續]。
+5. 讓 SSH 工作階段和通道保持執行狀態，並且在瀏覽器中移至 `http://localhost:8080`。 將初始管理密碼貼到方塊中，然後選取 [繼續]。
 
    ![「解除鎖定 Jenkins」畫面與系統管理員密碼方塊](./media/container-instances-jenkins/jenkins-portal-05.png)
 

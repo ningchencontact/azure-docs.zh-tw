@@ -1,6 +1,6 @@
 ---
 title: Power BI 應用程式供應項目的供應項目設定 - Azure Marketplace | Microsoft Docs
-description: 為 Microsoft AppSource Marketplace 的 Power BI 應用程式供應項目設定供應項目設定。
+description: 設定 Power BI 應用程式發行到 Microsoft AppSource marketplace 的供應項目設定。
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter: ''
 author: v-miclar
@@ -14,32 +14,32 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fef2455129d94913c5b51a08c04403834861bb48
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 49bbe5dcf17a9aa20cb47f477c59e7115d29dacc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665809"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819594"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Power BI 應用程式供應項目設定索引標籤
 
-服務應用程式的 [新增供應項目] 頁面會在名為 [供應項目設定] 的第一個索引標籤中開啟。  您將在此索引標籤中提供您供應項目的主要識別碼和名稱。欄位名稱上附加星號 (*) 表示為必填欄位。
+當您開啟**新增供應項目**頁面上的服務應用程式，您第一次看到**供應項目設定** 索引標籤。此索引標籤上，才提供的主要識別碼，而且您的供應項目名稱。星號 （*） 表示必要的欄位。
 
 ![供應項目設定索引標籤](./media/offer-settings-tab.png)
 
 
 ## <a name="offer-settings-fields"></a>供應項目設定欄位 
 
-在**供應項目設定**索引標籤中，您必須提供以下必要欄位資訊。
+在 **供應項目設定**索引標籤上，您需要下列的必要欄位中輸入資訊：
 
-|  欄位        |  說明                                                               |
+|  欄位        |  描述                                                               |
 |---------------|----------------------------------------------------------------------------|
-| **供應項目識別碼**  | 供應項目的唯一識別碼 (位於發行設定檔中)。 此識別碼會顯示在產品 URL、Resource Manager 範本和計費報告中。 識別碼長度上限為 50 個字元，只能包含小寫英數字元和連字號 (-)，但不能以連字號結尾。 供應項目上線之後即無法變更此欄位。 例如，若 Contoso 發佈了供應項目識別碼為 `sample-SvcApp` 的供應項目，則會收到指派的 AppSource URL `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`。      |
-| **發行者** | 您的組織在 [AppSource](https://appsource.microsoft.com) 中的唯一識別碼。 您的所有供應項目都需要連結到您的發行者識別碼。 供應項目儲存後，不可再修改此欄位內容。                         |
-| **名稱**      | 您的供應項目顯示名稱。 此名稱會顯示在 AppSource 和 Cloud Partner 入口網站中。 它最多不能超過 50 個字元。 建議在產品中包含明顯的品牌名稱。 請勿在此包含您的組織名稱，除非這是您應用程式的行銷方式。 如果您要透過其他網站和出版物行銷此供應項目，請確保名稱在所有出版物上都相同。    <br/>如果您在 Power BI 應用程式的預覽期間以預覽模式發行供應項目，請將字串 `(Preview)` 附加至應用程式名稱，例如 `Sample Scv App (Preview)`。 |
+| **供應項目識別碼**  | 供應項目的唯一識別碼 (位於發行設定檔中)。 此識別碼會顯示在產品 URL、Azure Resource Manager 範本和計費報告中。 長度上限是 50 個字元。 它只能包含小寫英數字元和連字號 （-）。 它的結尾不能以連字號。 供應項目上線之後，就無法變更此識別項。 如果 Contoso 發佈供應項目與供應項目 ID `sample-SvcApp`，供應項目指派的 AppSource URL `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`。      |
+| **發行者** | 您的組織在 [AppSource](https://appsource.microsoft.com) 中的唯一識別碼。 您的所有供應項目都需要連結到您的發行者識別碼。 儲存供應項目後，就無法再變更此值。                         |
+| **名稱**      | 供應項目的顯示名稱。 此名稱會出現在 AppSource 上和 Cloud Partner 入口網站。 長度上限是 50 個字元。 使用可辨識為您的產品品牌名稱。 請勿包含您的組織名稱，除非應用程式具有該名稱您的行銷。 如果您在其他網站和發行集上提供這項優惠，請在所有發行集使用相同的名稱。    <br/>如果您的 Power BI 應用程式發行供應項目在預覽期間，將字串加入`(Preview)`結尾的應用程式的名稱，像這樣： `Sample Scv App (Preview)`。 |
 |     |     |
 
 
 ## <a name="next-steps"></a>後續步驟
 
-在下一個索引標籤中，您將為供應項目指定[技術資訊](./cpp-technical-info-tab.md)。
+在下一步 索引標籤中，您會指定[技術的資訊](./cpp-technical-info-tab.md)為您的供應項目。

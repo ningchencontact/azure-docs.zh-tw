@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: ab637ef7dc39fcd2fd32cec2be52a18aaf6706a9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875232"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -52,10 +52,10 @@ ms.locfileid: "55663022"
 
 以下是支援 Azure SQL Database 已連結服務的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | **type** 屬性必須設為 **AzureSqlDatabase**。 | yes |
-| connectionString | 針對 **connectionString** 屬性指定連線到 Azure SQL Database 執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼/服務主體金鑰放在 Azure Key Vault 中，而且，如果這是 SQL 驗證，則會從連接字串中提取 `password` 組態。 請參閱表格下方的 JSON 範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文深入了解詳細資料。 | yes |
+| type | **type** 屬性必須設為 **AzureSqlDatabase**。 | 是 |
+| connectionString | 針對 **connectionString** 屬性指定連線到 Azure SQL Database 執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼/服務主體金鑰放在 Azure Key Vault 中，而且，如果這是 SQL 驗證，則會從連接字串中提取 `password` 組態。 請參閱表格下方的 JSON 範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文深入了解詳細資料。 | 是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
 | tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
@@ -178,21 +178,21 @@ ms.locfileid: "55663022"
 
 ### <a name="managed-identity"></a> Azure 資源的受控識別驗證
 
-資料處理站可與 [Azure 資源的受控識別](data-factory-service-identity.md)相關聯，後者表示特定的資料處理站。 您可以使用此服務識別來進行 Azure SQL Database 驗證。 指定的處理站可以使用此身分識別來存取資料庫，並從中來回複製資料。
+資料處理站可與 [Azure 資源的受控識別](data-factory-service-identity.md)相關聯，後者表示特定的資料處理站。 您可以使用這個受管理的身分識別的 Azure SQL Database 驗證。 指定的處理站可以使用此身分識別來存取資料庫，並從中來回複製資料。
 
-若要使用 MSI 型 Azure AD 應用程式權杖驗證，請遵循下列步驟：
+若要使用受控身分識別驗證，請遵循下列步驟：
 
-1. **在 Azure AD 中建立群組。** 讓處理站 MSI 成為群組成員。
+1. **在 Azure AD 中建立群組。** 讓受管理的身分識別群組的成員。
     
-    1. 從 Azure 入口網站尋找資料處理站服務識別。 移至資料處理站的 [屬性]。 複製 SERVICE IDENTITY ID。
+   1. 尋找從 Azure 入口網站的 data factory 受控身分識別。 移至資料處理站的 [屬性]。 複製 SERVICE IDENTITY ID。
     
-    1. 安裝 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 模組。 使用 `Connect-AzureAD` 命令登入。 執行下列命令來建立群組，並將資料處理站 MSI 新增為成員。
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
-    ```
+   1. 安裝 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 模組。 使用 `Connect-AzureAD` 命令登入。 執行下列命令來建立群組，並將受管理的身分識別新增為成員。
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
     
-1. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您已對具有 MSI 的群組授與系統管理員角色，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
+1. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
 
 1. 為 Azure AD 群組**[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**。 以至少具有 ALTER ANY USER 權限的 Azure AD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料庫。 執行下列 T-SQL： 
     
@@ -208,7 +208,7 @@ ms.locfileid: "55663022"
 
 1. 在 Azure Data Factory 中，**設定 Azure SQL Database 連結服務**。
 
-#### <a name="linked-service-example-that-uses-msi-authentication"></a>使用 MSI 驗證的連結服務範例
+**範例：**
 
 ```json
 {
@@ -235,9 +235,9 @@ ms.locfileid: "55663022"
 
 若要從 Azure SQL Database 來回複製資料，請將資料集的 **type** 屬性設定為 **AzureSqlTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 **type** 屬性必須設定為 **AzureSqlTable**。 | yes |
+| type | 資料集的 **type** 屬性必須設定為 **AzureSqlTable**。 | 是 |
 | tableName | Azure SQL Database 執行個體中連結服務所參考的資料表或檢視的名稱。 | 否 (來源)；是 (接收) |
 
 #### <a name="dataset-properties-example"></a>資料集屬性範例
@@ -267,9 +267,9 @@ ms.locfileid: "55663022"
 
 若要從 Azure SQL Database 複製資料，請將複製活動來源中的 **type** 屬性設定為 **SqlSource**。 複製活動的 [來源] 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 **type**屬性必須設定為 **SqlSource**。 | yes |
+| type | 複製活動來源的 **type**屬性必須設定為 **SqlSource**。 | 是 |
 | SqlReaderQuery | 使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. | 否 |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 | 否 |
 | storedProcedureParameters | 預存程序的參數。<br/>允許的值為名稱或值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
@@ -370,9 +370,9 @@ GO
 
 若要將資料複製到 Azure SQL Database，請將複製活動接收中的 **type** 屬性設定為 **SqlSink**。 複製活動的 [接收] 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動接收的 **type** 屬性必須設定為：**SqlSink**。 | yes |
+| type | 複製活動接收的 **type** 屬性必須設定為：**SqlSink**。 | 是 |
 | writeBatchSize | 當緩衝區大小達到 **writeBatchSize** 時，將資料插入 SQL 資料表中。<br/> 允許的值為**整數** (資料列數目)。 | 沒有。 預設值為 10000。 |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/> 允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否 |
 | preCopyScript | 指定一個 SQL 查詢，供「複製活動」在將資料寫入 Azure SQL Database 之前執行。 每一複製回合只會叫用此查詢一次。 使用此屬性來清除預先載入的資料。 | 否 |
@@ -582,7 +582,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -592,14 +592,11 @@ END
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL,
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 預存程序功能使用 [資料表值參數](https://msdn.microsoft.com/library/bb675163.aspx)。
-
->[!NOTE]
->如果透過叫用預存程序來寫入 Money/Smallmoney 資料類型，值可能會四捨五入。 在 TVP 中將對應的資料類型指定為十進位而不是 Money/Smallmoney，以降低風險。 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Azure SQL Database 的資料類型對應
 

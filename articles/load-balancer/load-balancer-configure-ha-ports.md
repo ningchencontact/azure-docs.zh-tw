@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: d4464f6188efb479f21a23bf936a8222061d9987
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244132"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593398"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>設定內部負載平衡器的高可用性連接埠
 
@@ -38,9 +38,9 @@ ms.locfileid: "54244132"
 
 ![高可用性連接埠範例部署](./media/load-balancer-configure-ha-ports/haports.png)
 
-
-
 ## <a name="configure-high-availability-ports"></a>設定高可用性連接埠
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 若要設定高可用性連接埠，請在後端集區中設定具有 NVA 的內部負載平衡器。 設定對應的負載平衡器健全狀況探查設定，以偵測高可用性連接埠的 NVA 健全狀況和負載平衡器規則。 [開始使用](load-balancer-get-started-ilb-arm-portal.md)中會說明一般負載平衡器的相關組態。 本文主要在說明高可用性連接埠組態。
 
@@ -51,7 +51,6 @@ ms.locfileid: "54244132"
 若要使用 Azure 入口網站來設定高可用性連接埠，請選取 [HA 連接埠] 核取方塊。 選取此選項時，系統會自動填入相關的連接埠和通訊協定組態。 
 
 ![透過 Azure 入口網站的高可用性連接埠設定](./media/load-balancer-configure-ha-ports/haports-portal.png)
-
 
 ### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>透過 Resource Manager 範本設定高可用性連接埠負載平衡器規則
 
@@ -91,7 +90,7 @@ ms.locfileid: "54244132"
 在使用 PowerShell 建立內部負載平衡器時，透過下列命令來建立高可用性連接埠負載平衡器規則：
 
 ```powershell
-lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
+lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>使用 Azure CLI 設定高可用性連接埠負載平衡器規則

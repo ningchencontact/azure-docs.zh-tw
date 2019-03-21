@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0c7f248023a97bdad09c2c51e9e9a28073def086
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300120"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674577"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>使用 Application Insights 深入診斷 Web 應用程式
 ## <a name="why-do-i-need-application-insights"></a>我為什麼需要 Application Insights 呢？
@@ -166,7 +166,7 @@ Visual Studio 和 Eclipse 提供工具，可為您正在開發的專案設定正
 ## <a name="next-steps"></a>後續步驟
 開始使用 Application Insights 很簡單。 主要選項包括：
 
-* 檢測已在執行的 Web 應用程式。 這可為您提供所有內建的效能遙測。 其適用於 [Java](../../azure-monitor/app/java-live.md) 和 [IIS 伺服器](../../azure-monitor/app/monitor-performance-live-website-now.md)，以及 [Azure App Service](../../azure-monitor/app/app-insights-overview.md)。
+* [IIS 伺服器](../../azure-monitor/app/monitor-performance-live-website-now.md)，以及[Azure App Service](../../azure-monitor/app/app-insights-overview.md)。
 * 在開發期間檢測您的專案。 您可以針對 [ASP.NET](../../azure-monitor/app/asp-net.md) 或 [Java](../../azure-monitor/app/java-get-started.md) 應用程式，以及 [Node.js](../../azure-monitor/app/nodejs.md) 和許多[其他類型](../../azure-monitor/app/platforms.md)執行此動作。 
 * 藉由新增簡短的程式碼片段來檢測 [任何網頁](../../azure-monitor/app/javascript.md) 。
 

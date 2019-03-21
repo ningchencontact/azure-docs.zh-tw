@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 972a538fab8a2aa84f6a12df48422abb40baac82
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 3b596e5bad8202d88ea06c7eee114bec1063a35f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58052076"
 ---
-# <a name="enabling-azure-ultra-ssd"></a>啟用 Azure Ultra SSD
+# <a name="enabling-azure-ultra-ssds"></a>啟用 Azure 的強力 Ssd
 
 Azure Ultra SSD 可為 Azure IaaS VM 提供高輸送量、高 IOPS 以及一致的低延遲磁碟儲存體。 這個新的供應項目可提供絕佳的效能，同時保有我們現有磁碟供應項目的相同可用性層級。 Ultra SSD 的其他優點包括能夠以動態方式變更磁碟的效能和您的工作負載，而不需要重新啟動虛擬機器。 Ultra SSD 適用於資料密集的工作負載 (例如 SAP Hana)、最上層資料庫，以及高交易量的工作負載。
 
@@ -29,7 +29,7 @@ CLI：`az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 
 回應將會類似於下面的形式，其中 X 是要用於在美國東部 2 中部署的區域。 X 可能是 1、2 或 3。
 
-|ResourceType  |Name  |位置  |區域  |限制  |功能  |值  |
+|ResourceType  |名稱  |位置  |區域  |限制  |功能  |值  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

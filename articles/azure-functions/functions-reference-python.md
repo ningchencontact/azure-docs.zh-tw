@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 8fa093d629eb7c655ea277b1d57f35193394f722
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304361"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729996"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -109,7 +109,7 @@ Python 函式專案的資料夾結構看起來如下：
 from ..SharedCode import myFirstHelperFunction
 ```
 
-在函式執行階段時使用的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須使用 Azure Functions Core Tools [註冊繫結擴充功能](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。 
+在函式執行階段時使用的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須使用 Azure Functions Core Tools [註冊繫結擴充功能](./functions-bindings-register.md#local-development-azure-functions-core-tools)。 
 
 將 Functions 專案部署到 Azure 中的功能應用程式時，FunctionApp 資料夾的整個內容應包含在套件中，但不應包含資料夾本身。
 
@@ -211,7 +211,7 @@ def main(req):
 
 其他的記錄方法可讓您在不同追蹤層級寫入主控台記錄中︰
 
-| 方法                 | 說明                                |
+| 方法                 | 描述                                |
 | ---------------------- | ------------------------------------------ |
 | logging.**critical(_message_)**   | 在根記錄器上寫入層級為 CRITICAL (重大) 的訊息。  |
 | logging.**error(_message_)**   | 在根記錄器上寫入層級為 ERROR (錯誤) 的訊息。    |

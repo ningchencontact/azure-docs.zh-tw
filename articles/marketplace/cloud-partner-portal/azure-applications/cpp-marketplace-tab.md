@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74b21a9dd8faa8eb35aa8a2ef738bd6303e4cdd7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 1203f33458c83bbde7a263022b78563bad183143
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195492"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870732"
 ---
 # <a name="azure-application-marketplace-tab"></a>Azure 應用程式 Marketplace 索引標籤
 
@@ -38,11 +38,11 @@ ms.locfileid: "53195492"
 |        標題            |        供應項目的標題。 此標題會在 Marketplace 中醒目顯示。 長度上限是 50 個字元。           |
 |         總結           |        供應項目的簡短摘要。 長度上限是 100 個字元。           |
 |         完整摘要           |        供應項目的完整摘要 (雖然可能與摘要相同)。 長度上限是 256 個字元。           |
-|       說明            |         供應項目的說明。 長度上限是 3000 個字元。 允許簡單的 HTML 格式，包括 &lt;p&gt;、&lt;em&gt;、&lt;ul&gt;、&lt;li&gt;&lt;ol&gt; 和標題標記。           |
+|       描述            |         供應項目的說明。 長度上限是 3000 個字元。 允許簡單的 HTML 格式，包括 &lt;p&gt;、&lt;em&gt;、&lt;ul&gt;、&lt;li&gt;&lt;ol&gt; 和標題標記。           |
 |        行銷識別碼            |         與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。 為您的服務選擇簡短、易讀的行銷識別碼。 這將用於此供應項目的市集 URL。 例如，如果您的發行者識別碼為 "contoso"，而行銷識別碼是 "sampleApp"，則 Azure Marketplace 中供應項目的 URL 會是 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp          |
 |        預覽訂用帳戶識別碼            |         可新增從 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入允許清單的訂閱帳戶，待供應項目發佈後可供預覽時，即能在供應項目上線前先行存取。          |
 |         實用連結           |        您可以為供應項目使用者提供各種資源的連結，例如支援、文件、論壇等。請務必將至少一個連結新增至您的文件。            |
-|         建議的類別 (最多 5 個)           |         可挑選最多五個類別。 選取的類別係用來將您提供的供應項目對應至 Azure Marketplace 和 Azure 入口網站中提供的產品類別。 這些類別會顯示在瀏覽頁面和您的產品詳細資料頁面上。          |
+|         建議的類別 (最多 5 個)           |         可挑選最多五個類別， 選取的類別係用來將您提供的供應項目對應至 Azure Marketplace 和 Azure 入口網站中提供的產品類別。 這些類別會顯示在瀏覽頁面和您的產品詳細資料頁面上。          |
 
 ## <a name="marketing-artifacts"></a>行銷成品
 
@@ -66,7 +66,7 @@ ms.locfileid: "53195492"
 
 下一個螢幕擷取畫面會顯示 Marketplace 搜尋結果的範例。
 
-![Marketplace 供應項目搜尋結果 ](./media/azureapp-marketplace-example-browse.png)
+![Marketplace 供應項目搜尋結果](./media/azureapp-marketplace-example-browse.png)
 
 下圖顯示當客戶按一下搜尋結果中的供應項目圖格後，供應項目在 Marketplace 中的顯示方式。
 

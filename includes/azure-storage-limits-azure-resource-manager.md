@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a76e91eee14c8c1feca8178fec461cf71989d8a3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 092b5696b97b73344a01af8103b24a01010f7a55
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46299100"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553460"
 ---
-只有在將 Azure Resource Manager 搭配 Azure 儲存體使用來執行管理作業時，才會套用下列限制。
+只有在您使用 Azure 儲存體使用 Azure Resource Manager 執行管理作業時，才會適用下列限制。
 
 | 資源 | 預設限制 |
 | --- | --- |

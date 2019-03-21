@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075629"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731084"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace ‎商業交易功能和考量
 
@@ -165,7 +165,7 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 
 例如，如果客戶使用信用卡購買：
 
-|說明    |    日期  |
+|描述    |    日期  |
 |----------|----------|
 |訂單期間   | 2018 年 8 月 15 日 - 2018 年 8 月 30 日 |
 |期間結束 (月)   | 2018 年 8 月 30 日 |
@@ -179,16 +179,16 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 
 如果客戶使用 Enterprise 合約購買：
 
-| 說明 |    日期  |
+| 描述 |    日期  |
 |----------|----------|
 |訂單期間 | 2018 年 8 月 15 日 - 2018 年 8 月 30 日 |
 |期間結束 (季) | 2018 年 9 月 30 日 |
 |計費日期 | 2018 年 10 月 15 日 |
 |委付期間 (僅信用卡，30 天) | n/a |
 |收帳期間開始 | 2018 年 10 月 15 日 |
-|收帳期間結束 (最大值，90 天) | 2018 年 1 月 15 日 |
+|收帳期間結束 (最大值，90 天) | 2019 年 1 月 15日 |
 |客戶付款日期 | 2018 年 12 月 30 日 |
-|付款計算日期 (每月第 15 日) | 2018 年 1 月 15 日 |
+|付款計算日期 (每月第 15 日) | 2019 年 1 月 15日 |
 |付款日期 | 2019 年 2 月 15 日 |
 
 **免費點數與金錢履約承諾** 
@@ -226,7 +226,7 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 
 * 交易發行選項需要開發人員中心和 Microsoft 帳戶，不論該供應項目的定價模型為何。
 * 開發人員中心帳戶持有 Microsoft 代表發行者向客戶收費及付款給發行者所需的所有相關財務詳細資料。
-* 雖然您可以在兩個帳戶都使用相同的組織或 Microsoft 登入詳細資料，但開發人員中心帳戶與 Cloud Publisher 入口網站帳戶是分開的。 若要使用交易發行選項，發行者比需完成開發人員中心帳戶註冊程序，才能註冊存取 Cloud Partner 入口網站。
+* 雖然您可能會跨這兩個帳戶使用的相同組織或 Microsoft 登入詳細資料，開發人員中心是從 Cloud Partner 入口網站的帳戶不同的帳戶。 若要使用交易發行選項，發行者比需完成開發人員中心帳戶註冊程序，才能註冊存取 Cloud Partner 入口網站。
 
 如需有關設定這些帳戶的詳細資訊，請參閱[成為雲端市集發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。
 

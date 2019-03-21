@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure IoT 中樞 (Node) 排定作業 | Microsoft Docs
 description: 如何排定 Azure IoT 中樞作業在多個裝置上叫用直接方法。 您可以使用適用於 Node.js 的 Azure IoT SDK，實作模擬裝置應用程式和服務應用程式來執行作業。
-author: juanjperez
-manager: cberlin
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: juanpere
-ms.openlocfilehash: a0614b5a1eadafe78537a4793d2dc0a866337487
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 5f0198581c83522f42a6742a0578adfd6c0cb781
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118875"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535728"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>排定及廣播作業 (Node)
 
@@ -22,7 +22,7 @@ ms.locfileid: "54118875"
 
 Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立作業來排定和更新數百萬個裝置，並追蹤作業。  作業可用於下列動作：
 
-* 更新所需屬性
+* 更新所需属性
 * 更新標籤
 * 叫用直接方法
 
@@ -75,7 +75,7 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. 使用文字編輯器，在 [simDevice] 資料夾中建立新的 **simDevice.js** 檔案。
-4. 在 **simDevice.js** 檔案的開頭新增下列 'require' 陳述式：
+4. 在 **simDevice.js** 文件的开头添加以下“require”语句：
    
     ```
     'use strict';
@@ -89,7 +89,7 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. 新增下列函式以處理 **lockDoor** 方法。
+6. 添加以下函数以处理 **lockDoor** 方法。
    
     ```
     var onLockDoor = function(request, response) {
@@ -240,12 +240,12 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
         }
     });
     ```
-9. 儲存並關閉 **scheduleJobService.js** 檔案。
+9. 保存并关闭 **scheduleJobService.js** 文件。
 
 ## <a name="run-the-applications"></a>執行應用程式
 現在您已經準備好執行應用程式。
 
-1. 在命令提示字元中，於 **simDevice** 資料夾中執行下列命令來開始接聽重新啟動直接方法。
+1. 在 simDevice 文件夹的命令提示符处，运行以下命令以开始侦听重启直接方法。
    
     ```
     node simDevice.js
@@ -255,7 +255,7 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     ```
     node scheduleJobService.js
     ```
-3. 您會在主控台中看到直接方法的裝置回應。
+3. 可以在控制台中看到设备对直接方法的响应。
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已使用作業來排定裝置的直接方法，以及更新裝置對應項 (twin) 的屬性。
@@ -273,4 +273,4 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 [lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
