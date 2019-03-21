@@ -1,6 +1,6 @@
 ---
 title: Web 分析 | Microsoft Docs
-description: .
+description: 上也提供本文中使用的原始碼。
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 20a4e24800b2fa05990d294cb374841c50c4f79b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 89cc8c4bffe910de0861d7f44925a10df3811fdb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097469"
 ---
 <a name="web-analytics"></a>Web 分析
 =============
@@ -49,7 +49,7 @@ ms.locfileid: "48805524"
 
 例如，您可以使用：<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-2. (進階)：在 URL 中使用我們其中一個支援的一般行銷活動識別碼。 我們想要能適應您需要使用的額外 ref 標記，因此我們支援自動識別這些額外標記的慣例：
+1. （進階）：使用我們支援的通用的活動識別碼的其中一個 URL。 我們想要能適應您需要使用的額外 ref 標記，因此我們支援自動識別這些額外標記的慣例：
     
     1. **utm\_campaign**
     2. **utm\_source**
