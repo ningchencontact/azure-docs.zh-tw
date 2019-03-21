@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819438"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997803"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>疑難排解應用程式閘道中閘道不正確的錯誤
 
 了解使用應用程式閘道時如何針對收到的閘道不正確 (502) 錯誤進行疑難排解。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>概觀
 
@@ -50,21 +52,21 @@ ms.locfileid: "55819438"
 * 檢查與應用程式閘道子網路相關聯的 UDR。 確定 UDR 沒有讓流量離開後端子網路 - 例如，檢查到達網路虛擬設備的路由，或透過 ExpressRoute/VPN 公告至應用程式閘道的預設路由。
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * 檢查有效的 NSG 和後端虛擬機器的路由
 
 ```powershell
-Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
 * 檢查 VNet 中存在自訂 DNS。 您可以在輸出中查看 VNet 屬性的詳細資料來檢查 DNS。
 
 ```json
-Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
 DhcpOptions            : {
                            "DnsServers": [
                              "x.x.x.x"
@@ -79,10 +81,10 @@ DhcpOptions            : {
 
 502 錯誤也可以是預設健全狀態探查無法連線到後端 VM 的常用指標。 佈建應用程式閘道執行個體時，它會使用 BackendHttpSetting 的屬性，自動將預設的健全狀況探查設定到每個 BackendAddressPool 。 設定此探查時不需任何使用者輸入。 具體而言，設定負載平衡規則時，會在 BackendHttpSetting 和 BackendAddressPool 之間建立關聯。 預設探查是針對這其中的每一個關聯所設定，而應用程式閘道會在 BackendHttpSetting 項目中指定的連接埠上，將定期的健全狀況檢查連線初始到 BackendAddressPool 中的每一個執行個體。 下表列出與預設健全狀況探查相關聯的值。
 
-| 探查屬性 | 值 | 說明 |
+| 探查屬性 | 值 | 描述 |
 | --- | --- | --- |
-| 探查 URL |http://127.0.0.1/ |URL 路徑 |
-| 間隔 |30 |探查間隔 (秒) |
+| 探测 URL |`http://127.0.0.1/` |URL 路徑 |
+| 时间间隔 |30 |探查間隔 (秒) |
 | 逾時 |30 |探查逾時 (秒) |
 | 狀況不良臨界值 |3 |探查重試計數。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
@@ -90,7 +92,7 @@ DhcpOptions            : {
 
 * 確定預設網站已設定且正於 127.0.0.1 上進行接聽。
 * 如果 BackendHttpSetting 指定了 80 以外的連接埠，則應將預設網站設定為在該連接埠上進行接聽。
-* 對 http://127.0.0.1:port 的呼叫應該會傳回 HTTP 結果碼 200。 這應該會在 30 秒逾時期間內傳回。
+* 對 `http://127.0.0.1:port` 的呼叫應該會傳回 HTTP 結果碼 200。 這應該會在 30 秒逾時期間內傳回。
 * 確定設定的連接埠已開啟，而且沒有任何防火牆或 Azure 網路安全性群組會在所設定的連接埠上封鎖連入或連出流量。
 * 如果Azure 傳統 VM 或雲端服務會與 FQDN 或公用 IP 搭配使用，請確認對應的 [端點](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) 已開啟。
 * 如果 VM 是透過 Azure Resource Manager 所設定且位於應用程式閘道部署所在的 VNet 外部，就必須將 [網路安全性群組](../virtual-network/security-overview.md) 設定為允許在所需的連接埠上進行存取。
@@ -101,24 +103,24 @@ DhcpOptions            : {
 
 自訂的健全狀況探查能夠對於預設探查行為提供更多彈性。 使用自訂探查時，使用者可以設定探查間隔、要測試的 URL 和路徑，以及在將後端集區執行個體標示為狀況不良前，可接受的失敗回應次數。 已新增下列其他屬性。
 
-| 探查屬性 | 說明 |
+| 探测属性 | 描述 |
 | --- | --- |
-| Name |探查的名稱。 此名稱用來在後端 HTTP 設定中指出探查。 |
-| 通訊協定 |用來傳送探查的通訊協定。 探查會使用後端 HTTP 設定中定義的通訊協定 |
-| Host |用來傳送探查的主機名稱。 只有當應用程式閘道上設定多站台時適用。 這與 VM 主機名稱不同。 |
+| 名稱 |探查的名稱。 此名稱用來在後端 HTTP 設定中指出探查。 |
+| 通訊協定 |用于发送探测的协议。 探查會使用後端 HTTP 設定中定義的通訊協定 |
+| Host |用來傳送探查的主機名稱。 只有當應用程式閘道上設定多站台時適用。 这与 VM 主机名不同。 |
 | Path |探查的相對路徑。 有效路徑的開頭為 '/'。 探查會傳送到 \<通訊協定\>://\<主機\>:\<連接埠\>\<路徑\> |
 | 間隔 |探查間隔 (秒)。 這是兩個連續探查之間的時間間隔。 |
 | 逾時 |探查逾時 (秒)。 如果在這個逾時期間內未收到有效的回應，則會將探查標示為失敗。 |
-| 狀況不良臨界值 |探查重試計數。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
+| 狀況不良臨界值 |探测重试计数。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
 ### <a name="solution"></a>解決方法
 
 確認已按照上述資料表正確設定 [自訂健全狀態探查]。 除了上述的疑難排解步驟，也請確定下列各項：
 
 * 確定已根據 [指南](application-gateway-create-probe-ps.md)正確指定探查。
-* 如果已將應用程式閘道設定為單一站台，根據預設，除非已在自訂探查中加以設定，否則應將主機名稱指定為 '127.0.0.1'。
+* 如果應用程式閘道設定為單一站台時，依預設，主控件名稱應該指定為`127.0.0.1`，除非否則在自訂探查設定。
 * 確定對 http://\<主機\>:\<連接埠\>\<路徑\> 的呼叫會傳回 HTTP 結果碼 200。
-* 確定 Interval、Time-out 和 UnhealtyThreshold 皆在可接受的範圍內。
+* 确保 Interval、Time-out 和 UnhealtyThreshold 都在可接受的范围内。
 * 若使用 HTTPS 探查，請在後端伺服器本身設定後援憑證，以確定後端伺服器不會要求您提供 SNI。
 
 ## <a name="request-time-out"></a>要求逾時
@@ -132,7 +134,7 @@ DhcpOptions            : {
 應用程式閘道允許使用者透過 BackendHttpSetting 設定此組態，接著可將之套用到其他集區。 不同的後端集區可以有不同的 BackendHttpSetting，因此可設定不同的要求逾時。
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>空白的 BackendAddressPool
@@ -146,10 +148,10 @@ DhcpOptions            : {
 確定後端位址集區不是空白的。 這可透過 PowerShell、CLI 或入口網站來完成。
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
-前述 Cmdlet 的輸出應包含非空白的後端位址集區。 下列範例會傳回兩個針對後端 VM 使用 FQDN 或 IP 位址設定的集區。 BackendAddressPool 的佈建狀態必須是 'Succeeded'。
+前述 Cmdlet 的輸出應包含非空白的後端位址集區。 下列範例會傳回兩個針對後端 VM 使用 FQDN 或 IP 位址設定的集區。 BackendAddressPool 的预配状态必须是“Succeeded”。
 
 BackendAddressPoolsText：
 

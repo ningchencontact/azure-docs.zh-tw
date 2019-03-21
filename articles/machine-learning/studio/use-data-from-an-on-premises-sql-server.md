@@ -5,23 +5,23 @@ description: 使用來自內部部署 SQL Server 資料庫的資料，利用 Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 61feb1365a5007a55d18f0f4366bd5c69148e88d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 9590728cec663b36c889dc26a6216c3d474244e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888343"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>使用內部部署 SQL Server 資料庫，利用 Azure Machine Learning Studio 執行分析
 
-使用內部部署資料的企業通常會想要針對他們的機器學習服務工作負載來利用雲端的範圍和靈活度。 但是他們又不想因為將內部部署資料移至雲端而中斷目前的商務程序和工作流程。 Azure Machine Learning 現在支援從內部部署 SQL Server 資料庫讀取資料，然後利用此資料，針對某個模型進行訓練與評分。 您不再需要手動複製和同步處理雲端與內部部署伺服器之間的資料。 相反地，Azure Machine Learning Studio 中的 **匯入資料** 模組現在可以直接從您的內部部署 SQL Server 資料庫讀取，以進行您的訓練和評分作業。
+使用內部部署資料的企業通常會想要針對他們的機器學習服務工作負載來利用雲端的範圍和靈活度。 但是他們又不想因為將內部部署資料移至雲端而中斷目前的商務程序和工作流程。 Azure Machine Learning Studio 現在支援從內部部署 SQL Server 資料庫讀取資料，然後定型和計分具有這項資料的模型。 您不再需要手動複製和同步處理雲端與內部部署伺服器之間的資料。 相反地，Azure Machine Learning Studio 中的 **匯入資料** 模組現在可以直接從您的內部部署 SQL Server 資料庫讀取，以進行您的訓練和評分作業。
 
-此文章提供如何將內部部署 SQL Server 資料輸入至 Azure Machine Learning Studio 的概觀。 它假設您已熟悉像是工作區、模組、資料集、實驗等 Azure Machine Learning 概念。
+此文章提供如何將內部部署 SQL Server 資料輸入至 Azure Machine Learning Studio 的概觀。 它假設您已熟悉像是工作區、 模組、 資料集、 實驗的 Studio 概念*等*。
 
 > [!NOTE]
 > 此功能不適用於免費的工作區。 如需機器學習服務定價和層級的詳細資訊，請參閱 [Azure 機器學習服務定價](https://azure.microsoft.com/pricing/details/machine-learning/)。
@@ -33,7 +33,7 @@ ms.locfileid: "55511151"
 
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>安裝 Data Factory 自我裝載整合執行階段
-若要在 Azure Machine Learning 中存取 SQL Server ，您必須下載並安裝 Data Factory 自我裝載整合執行階段，原名為資料管理閘道。 當您在 Machine Learning Studio 中設定連線時，會有機會使用 [下載並註冊資料閘道] 對話方塊來下載並安裝整合執行階段 (IR)，如下所述。
+若要存取 Azure Machine Learning Studio 中的內部部署 SQL Server 資料庫，您需要下載並安裝 Data Factory 自我裝載 Integration Runtime，先前稱為 「 資料管理閘道。 當您在 Machine Learning Studio 中設定連線時，會有機會使用 [下載並註冊資料閘道] 對話方塊來下載並安裝整合執行階段 (IR)，如下所述。
 
 
 您也可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載及執行 MSI 安裝程式套件，藉此提前安裝 IR。MSI 也可用來將現有的 IR 升級到最新版本，並保留所有設定。
@@ -51,21 +51,21 @@ Data Factory 自我裝載整合執行階段的必要條件如下：
 * 一部電腦上只能安裝一個 IR 執行個體。
 * 您可以在多個內部部署資料來源使用單一 IR。
 * 您可以將不同電腦上的多個 IR 連線到同一個內部部署資料來源。
-* 您一次只能為一個工作區設定一個 IR。 目前，IR 無法在工作區之間共用。
-* 您可以為單一工作區設定多個 IR。 例如，您可能想要使用一個 IR，在開發期間連線到您的測試資料來源，並在準備運作之際使用生產 IR。
+* 您可以設定只有一個工作區 IRs 一次。 目前，IR 無法在工作區之間共用。
+* 您可以為單一工作區設定多個 IR。 比方說，您可能要使用連線到您的測試資料來源在開發和生產 IR 期間當您準備好要操作的 IR。
 * IR 不一定要在與資料來源相同的電腦上。 但是，愈接近資料來源，可縮短閘道連線到資料來源的時間。 建議在不同的電腦上安裝 IR 及裝載內部部署資料來源，這樣閘道和資料來源才不會爭搶資源。
-* 如果您已在電腦上安裝用於 Power BI 或 Azure Data Factory 案例的 IR，請於另一部電腦上安裝另一個用於 Azure Machine Learning 的 IR。
+* 如果您已經有 Power BI 或 Azure Data Factory 的情況下在電腦上安裝 IR，安裝 Azure Machine Learning Studio 的個別的 IR，另一部電腦上。
 
   > [!NOTE]
   > 您無法在同一部電腦上執行 Data Factory 自我裝載整合執行階段和 Power BI Gateway。
   >
   >
-* 即使您對其他資料使用 Azure ExpressRoute，還是需要對 Azure Machine Learning 使用 Data Factory 自我裝載整合執行階段。 即使使用 ExpressRoute，您也應該將資料來源視為內部部署資料來源 (亦即在防火牆後面)。 使用 Data Factory 自我裝載整合執行階段建立 Machine Learning 與資料來源之間的連線。
+* 您必須使用適用於 Azure Machine Learning Studio 的 Data Factory 的自我裝載 Integration Runtime，即使您使用 Azure ExpressRoute 的其他資料。 即使使用 ExpressRoute，您也應該將資料來源視為內部部署資料來源 (亦即在防火牆後面)。 使用 Data Factory 自我裝載整合執行階段建立 Machine Learning 與資料來源之間的連線。
 
 您可以在 [Data Factory 中的整合執行階段](../../data-factory/concepts-integration-runtime.md)一文中，找到安裝必要條件、安裝步驟和疑難排解秘訣的詳細資訊。
 
 ## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>將內部部署 SQL Server 資料庫的資料輸入至 Azure Machine Learning
-在本逐步解說中，您會在 Azure Machine Learning 工作區中建立 Azure Data Factory 整合執行階段、加以設定，然後讀取來自內部部署 SQL Server 資料庫的資料。
+在本逐步解說中，您會在 Azure Machine Learning 工作區中設定 Azure Data Factory Integration Runtime、 加以設定，然後從內部部署 SQL Server 資料庫讀取資料。
 
 > [!TIP]
 > 開始之前，請先針對 `studio.azureml.net` 停用瀏覽器的快顯封鎖程式。 如果您使用 Google Chrome 瀏覽器，請下載並安裝數個可在 Google Chrome 線上應用程式商店 [Click Once 應用程式擴充功能](https://chrome.google.com/webstore/search/clickonce?_category=extensions)上取得的外掛程式之一。
@@ -115,17 +115,17 @@ Data Factory 自我裝載整合執行階段的必要條件如下：
 
     ![啟用詳細資訊記錄](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
-如此即可完成 Azure Machine Learning 中的閘道設定程序。
+如此即完成閘道設定程序，在 Azure Machine Learning Studio。
 您現在可以開始使用內部部署資料。
 
-您可以在 Studio 中針對每個工作區建立和設定多個閘道器。 例如，您可能想要有一個可在開發期間連接到測試資料來源的閘道器，以及另一個適用於生產資料來源的閘道器。 根據貴公司的環境而定，Azure Machine Learning 可讓您彈性地設定多個閘道器。 目前您無法在工作區之間共用一個閘道器，而且單一電腦上只能安裝一個閘道器。 如需詳細資訊，請參閱[利用資料管理閘道在內部部署來源和雲端之間移動資料](../../data-factory/tutorial-hybrid-copy-portal.md)。
+您可以在 Studio 中針對每個工作區建立和設定多個閘道器。 例如，您可能想要有一個可在開發期間連接到測試資料來源的閘道器，以及另一個適用於生產資料來源的閘道器。 Azure Machine Learning Studio 可讓您彈性地設定多個閘道器取決於您公司的環境而定。 目前您無法在工作區之間共用一個閘道器，而且單一電腦上只能安裝一個閘道器。 如需詳細資訊，請參閱[利用資料管理閘道在內部部署來源和雲端之間移動資料](../../data-factory/tutorial-hybrid-copy-portal.md)。
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>步驟 2：使用閘道以讀取來自內部部署資料來源的資料
 設定閘道之後，您可以將 **匯入資料** 模組新增到會輸入來自內部部署 SQL Server 資料庫之資料的實驗。
 
 1. 在 Machine Learning Studio 中，選取 [實驗] 索引標籤，並按一下左下角的 [+新增]，然後選取 [空白實驗] \(或從數個可用的範例實驗中選取其中一個)。
 2. 找出 **匯入模型** 模組，並將它拖曳到實驗畫布。
-3. 按一下畫布下方的 [另存新檔]  。 輸入「Azure Machine Learning 內部部署 SQL Server 教學課程」做為實驗名稱，選取工作區，然後按一下 [確定]  核取記號。
+3. 按一下畫布下方的 [另存新檔]  。 輸入 「 Azure 機器學習 Studio 在內部部署 SQL Server 教學課程 」 做為實驗名稱，選取工作區，然後按一下**確定**核取記號。
 
    ![以新名稱儲存實驗](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
 4. 按一下 [匯入資料] 模組來選取它，並在畫布右邊的 [屬性] 窗格中，然後選取 [資料來源] 下拉式清單中的 [內部部署 SQL Database]。
@@ -137,7 +137,7 @@ Data Factory 自我裝載整合執行階段的必要條件如下：
 
    ![輸入資料庫認證](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
-   「需要值」訊息會變更為「已設定值」並具有綠色核取記號。 除非資料庫資訊或密碼變更，否則您只需輸入認證一次。 Azure Machine Learning 會使用您在安裝閘道器來加密雲端中的認證時所提供的憑證。 Azure 永遠不會在沒有加密的情況下儲存內部部署認證。
+   「需要值」訊息會變更為「已設定值」並具有綠色核取記號。 除非資料庫資訊或密碼變更，否則您只需輸入認證一次。 Azure Machine Learning Studio 會使用您安裝閘道器，來加密雲端中的認證時所提供的憑證。 Azure 永遠不會在沒有加密的情況下儲存內部部署認證。
 
    ![匯入資料模組屬性](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. 按一下 [執行]  來執行實驗。

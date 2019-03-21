@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092186"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>資料管理閘道 - 高可用性和延展性 (預覽)
 > [!NOTE]
@@ -29,8 +29,8 @@ ms.locfileid: "54016762"
 
 > [!NOTE]
 > 本文假設您已熟悉 Integration Runtime (即先前的「資料管理閘道」) 的基本概念。 如果您並不熟悉，請參閱[資料管理閘道](data-factory-data-management-gateway.md)。
-
->**資料管理閘道版本 2.12.xxxx.x 和更新版本正式支援此預覽功能**。 請確定您使用版本 2.12.xxxx.x 或更新版本。 在[此處](https://www.microsoft.com/download/details.aspx?id=39717)下載最新版本的資料管理閘道。
+> 
+> **資料管理閘道版本 2.12.xxxx.x 和更新版本正式支援此預覽功能**。 請確定您使用版本 2.12.xxxx.x 或更新版本。 在[此處](https://www.microsoft.com/download/details.aspx?id=39717)下載最新版本的資料管理閘道。
 
 ## <a name="overview"></a>概觀
 您可以從入口網站，將安裝在多個內部部署機器上的資料管理閘道關聯到單一邏輯閘道。 這些機器稱為**節點**。 您最多可以將**四個節點**關聯到一個邏輯閘道。 讓邏輯閘道擁有多個節點 (安裝了閘道的內部部署機器) 的好處如下：  
@@ -163,8 +163,8 @@ ms.locfileid: "54016762"
 
 - 憑證必須是受信任的 X509 v3 公開憑證。 建議您使用公開 (第三方) 憑證授權單位 (CA) 所發出的憑證。
 - 每個整合執行階段節點皆必須信任此憑證，以及執行認證管理員應用程式的用戶端電腦。 
-> [!NOTE]
-> 從複製精靈/Azure 入口網站安全地設定認證時，會使用認證管理員應用程式。 此外亦可以從與內部部署/私人資料存放區位於相同網路的所有電腦上，啟動此應用程式。
+  > [!NOTE]
+  > 從複製精靈/Azure 入口網站安全地設定認證時，會使用認證管理員應用程式。 此外亦可以從與內部部署/私人資料存放區位於相同網路的所有電腦上，啟動此應用程式。
 - 支援萬用字元憑證。 若您的 FQDN 名稱為 **node1.domain.contoso.com**，則您可使用 ***.domain.contoso.com** 做為憑證的主體名稱。
 - 由於系統僅會使用主體別名的最後一個項目，其他所有項目則會因目前的限制而遭到忽略，因此不建議使用 SAN 憑證。 例如 若您具有 SAN 憑證，且其 SAN 為 **node1.domain.contoso.com** 和 **node2.domain.contoso.com**，則您僅可在 FQDN 為 **node2.domain.contoso.com** 的電腦上使用此憑證。
 - 支援 Windows Server 2012 R2 所支援的任何 SSL 憑證金鑰大小。
@@ -184,9 +184,9 @@ ms.locfileid: "54016762"
 
 您可以在 [閘道] 頁面啟用 [進階設定] 以查看進階的計量，例如**網路** (輸入/輸出)、**角色和認證狀態** (有助於偵錯閘道問題) 和**並行作業** (執行中/限制) (可在效能微調期間據以修改/變更)。 下表說明 [閘道節點] 清單中的資料行：  
 
-監視屬性 | 說明
+監視屬性 | 描述
 :------------------ | :---------- 
-Name | 邏輯閘道和閘道相關聯節點的名稱。  
+名稱 | 邏輯閘道和閘道相關聯節點的名稱。  
 狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/受限制/等等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。 
 版本 | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。 
 可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010230"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
@@ -25,7 +25,7 @@ SQL Database 彈性集區是簡單、符合成本效益的解決方案，可用�
 
 ## <a name="what-are-sql-elastic-pools"></a>SQL 彈性集區是什麼
 
-SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應用程式。 常見的應用程式模式是為每個客戶佈建單一資料庫。 但是不同的客戶經常會有不同且無法預測的使用模式，而且很難預測每個個別資料庫使用者的資源需求。 您通常有兩個選項：
+SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應用程式。 常見的應用程式模式是為每個客戶佈建單一資料庫。 但不同的客户通常拥有不同和不可预测的使用模式，很难预测每位数据库用户的资源需求。 您通常有兩個選項：
 
 - 根據尖峰使用量額外佈建資源並額外付款，或是
 - 少量佈建來節省成本，但會降低尖峰期間的效能和客戶滿意度。
@@ -51,13 +51,13 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 您可以加入集區的資料庫愈多，可獲得的節約就愈高。 根據您的應用程式使用量模式，可能會發現與使用兩個 S3 資料庫一樣少的節約。
 
-下列各節會協助您了解如何評估您特定的資料庫集合是否可以因為位於集區而受益。 範例會使用標準集區，但是相同的原則也適用於基本和進階的集區。
+下列各節會協助您了解如何評估您特定的資料庫集合是否可以因為位於集區而受益。 这些示例使用标准池，但同样的原理也适用于基本和高级池。
 
 ### <a name="assessing-database-utilization-patterns"></a>評估資料庫使用量模式
 
 下圖顯示資料庫的範例，該資料庫花費太多時間閒置，但也定期因活動達到尖峰。 這是適合集區的使用量模式：
 
-   ![適合某個集區的單一資料庫](./media/sql-database-elastic-pool/one-database.png)
+   ![适用于池的单一数据库](./media/sql-database-elastic-pool/one-database.png)
 
 針對上述的五分鐘期間，DB1 尖峰最高達 90 個 DTU，但其整體平均使用量小於 5 個 DTU。 需要 S3 計算大小，才能在單一資料庫中執行此工作負載，但這會在活動較少的期間保留大多數的資源未使用。
 
@@ -74,7 +74,7 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 由於以下原因，此範例很理想：
 
 - 每一資料庫之間的尖峰使用量和平均使用量有相當大的差異。
-- 每個資料庫的尖峰使用量會在不同時間點發生。
+- 每个数据库的高峰使用量在不同时间点发生。
 - eDTU 會在許多資料庫之間共用。
 
 集區的價格是集區 eDTU 的函式。 雖然集區的 eDTU 單價較單一資料庫的 DTU 單價高 1.5 倍，但是**集區 eDTU 可由多個資料庫共用，而需要的 eDTU 總數會比較少**。 價格方面和 eDTU 共用的這些差異是集區可以提供價格節約潛力的基礎。
@@ -121,7 +121,7 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
    <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
 
    對於以虛擬核心為基礎的購買模型：最大值(<*DB 總數* X *每個 DB 的平均 vCore 使用量*>，<br>  
-   <*並行尖峰 DB 的數目* X *每個 DB 的尖峰虛擬核心使用量*)
+   <*并发高峰数据库的数目* X *每一数据库的高峰 vCore 使用率*)
 
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。
 3. 針對以 DTU 為基礎的購買模型，採用步驟 1 和步驟 2 中較大的 eDTU 估計值。 針對以虛擬核心為基礎的購買模型，採用步驟 1 中的虛擬核心估計值。
@@ -200,6 +200,20 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 您也可以選取更多計量，以在此資料庫資料表中並列檢視，進而取得更完整的資料庫效能檢視。
 
 如需詳細資訊，請參閱[在 Azure 入口網站中建立 SQL Database 警示](sql-database-insights-alerts-portal.md)。
+
+## <a name="customer-case-studies"></a>客戶案例研究
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  SnelStart 搭配 Azure SQL Database 來快速擴充其商務服務，速率為每月 1,000 個新 Azure SQL Database 彈性集區。
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco 使用 Azure SQL Database 為快速佈建和調整服務在雲端中的租用戶的數千個彈性集區。
+
+- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+
+  Daxko/CSI 使用 Azure SQL database 彈性集區，來加速其開發週期及提升其客戶服務和效能。
 
 ## <a name="next-steps"></a>後續步驟
 

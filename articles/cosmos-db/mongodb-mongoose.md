@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105942"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
 
@@ -49,15 +49,15 @@ Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以�
 
 1. 將新檔案加入到資料夾，並將它命名為 ```index.js```。
 1. 使用其中一種 ```npm install``` 選項安裝必要的套件：
-    * Mongoose：```npm install mongoose@5 --save```
+   * Mongoose：```npm install mongoose@5 --save```
 
-    > [!Note]
-    > 下方的 Mongoose 連線範例是以 Mongoose 5+ 為基礎，與舊版不同。
+     > [!Note]
+     > 下方的 Mongoose 連線範例是以 Mongoose 5+ 為基礎，與舊版不同。
     
-    * Dotenv (如果您想要從 .env 檔案載入您的密碼)：```npm install dotenv --save```
+   * Dotenv (如果您想要從 .env 檔案載入您的密碼)：```npm install dotenv --save```
 
-    >[!Note]
-    > ```--save``` 旗標會將相依性加入到 package.json 檔案。
+     >[!Note]
+     > ```--save``` 旗標會將相依性加入到 package.json 檔案。
 
 1. 匯入您 index.js 檔案中的相依性。
     ```JavaScript
@@ -161,29 +161,29 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
     ```
 
 1. 現在，讓我們來建立另一個結構描述和物件。 這次，我們針對家庭成員可能感興趣的 'Vacation Destinations' 建立結構描述和物件。
-    1. 和上次一樣，我們來建立配置
-    ```JavaScript
-    const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
-        name: String,
-        country: String
-    }));
-    ```
+   1. 和上次一樣，我們來建立配置
+      ```JavaScript
+      const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
+       name: String,
+       country: String
+      }));
+      ```
 
-    1. 建立範例物件 (您可以將多個物件加入到此結構描述) 並將它儲存。
-    ```JavaScript
-    const vacaySpot = new VacationDestinations({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. 建立範例物件 (您可以將多個物件加入到此結構描述) 並將它儲存。
+      ```JavaScript
+      const vacaySpot = new VacationDestinations({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacaySpot.save((err, saveVacay) => {
-        console.log(JSON.stringify(saveVacay));
-    });
-    ```
+      vacaySpot.save((err, saveVacay) => {
+       console.log(JSON.stringify(saveVacay));
+      });
+      ```
 
 1. 現在，移至 Azure 入口網站，您會發現 Cosmos DB 中建立了兩個集合。
 
-    ![Node.js 教學課程 - Azure 入口網站的螢幕擷取畫面，其中顯示 Azure Cosmos DB 帳戶，並反白顯示多個集合名稱 - 節點資料庫][multiple-coll]
+    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了多个集合名称 - Node 数据库][multiple-coll]
 
 1. 最後，讓我們從 Cosmos DB 讀取資料。 由於我們使用的是預設的 Mongoose 作業模型，讀取作業會和 Mongoose 的其他讀取作業相同。
 
@@ -251,44 +251,44 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
     ```
 
 1. 最後，讓我們來建立模型物件，並將它儲存。
-    1. 讓我們將物件加入到 'Family' 模型。
-    ```JavaScript
-    const family_common = new Family_common({
-        lastName: "Volum",
-        parents: [
-            { firstName: "Thomas" },
-            { firstName: "Mary Kay" }
-        ],
-        children: [
-            { firstName: "Ryan", gender: "male", grade: 8 },
-            { firstName: "Patrick", gender: "male", grade: 7 }
-        ],
-        pets: [
-            { givenName: "Blackie" }
-        ],
-        address: { country: "USA", state: "WA", city: "Seattle" }
-    });
+   1. 讓我們將物件加入到 'Family' 模型。
+      ```JavaScript
+      const family_common = new Family_common({
+       lastName: "Volum",
+       parents: [
+           { firstName: "Thomas" },
+           { firstName: "Mary Kay" }
+       ],
+       children: [
+           { firstName: "Ryan", gender: "male", grade: 8 },
+           { firstName: "Patrick", gender: "male", grade: 7 }
+       ],
+       pets: [
+           { givenName: "Blackie" }
+       ],
+       address: { country: "USA", state: "WA", city: "Seattle" }
+      });
 
-    family_common.save((err, saveFamily) => {
-        console.log("Saved: " + JSON.stringify(saveFamily));
-    });
-    ```
+      family_common.save((err, saveFamily) => {
+       console.log("Saved: " + JSON.stringify(saveFamily));
+      });
+      ```
 
-    1. 接下來，我們將物件加入到 'VacationDestinations' 模型，並將它儲存。
-    ```JavaScript
-    const vacay_common = new Vacation_common({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. 接下來，我們將物件加入到 'VacationDestinations' 模型，並將它儲存。
+      ```JavaScript
+      const vacay_common = new Vacation_common({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacay_common.save((err, saveVacay) => {
-        console.log("Saved: " + JSON.stringify(saveVacay));
-    });
-    ```
+      vacay_common.save((err, saveVacay) => {
+       console.log("Saved: " + JSON.stringify(saveVacay));
+      });
+      ```
 
 1. 現在，如果您返回 Azure 入口網站，您會發現您只有一個稱為 ```alldata``` 的集合，其中含有 'Family' 和 'VacationDestinations' 資料。
 
-    ![Node.js 教學課程 - Azure 入口網站的螢幕擷取畫面，其中顯示 Azure Cosmos DB 帳戶，並反白顯示集合名稱 - 節點資料庫][alldata]
+    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了集合名称 - Node 数据库][alldata]
 
 1. 此外，請注意，每個物件有另一個稱為 ```__type``` 的屬性，可協助您區分兩個不同的物件模型。
 

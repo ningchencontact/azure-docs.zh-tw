@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896223"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 的持續整合與持續部署
 
@@ -47,7 +47,7 @@ ms.locfileid: "54886759"
 >
 >如需詳細資訊，請參閱[建立建置管線](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline) \(英文\)。
 
-1. 登入您的 Azure DevOps 組織 (**https://dev.azure.com/{your organization}/**) 並開啟包含您 IoT Edge 解決方案存放庫的專案。
+1. 登入您 Azure DevOps 的組織 (**https:\//dev.azure.com/{your 組織} /**)，然後開啟包含您的 IoT Edge 解決方案存放庫的專案。
 
    針對本文，我們建立了名為 **IoTEdgeRepo** 的存放庫。 該存放庫包含 **IoTEdgeSolution**，其中包含名為 **filtermodule** 的模組的程式碼。 
 
@@ -69,13 +69,13 @@ ms.locfileid: "54886759"
 
 4. 建立管線之後，系統會將您引導至管線編輯器。 在管線描述中，根據目標平台選擇正確的代理程式集區： 
     
-    * 如果您想要在 amd64 平台中建置適用於 Linux 容器的模組，請選擇 [裝載的 Ubuntu 1604]
+   * 如果您想要在 amd64 平台中建置適用於 Linux 容器的模組，請選擇 [裝載的 Ubuntu 1604]
 
-    * 如果您想要在 amd64 平台中建置適用於 Windows 1809 容器的模組，您必須[在 Windows 上設定自我裝載的代理程式](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts) \(英文\)。
+   * 如果您想要在 amd64 平台中建置適用於 Windows 1809 容器的模組，您必須[在 Windows 上設定自我裝載的代理程式](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts) \(英文\)。
 
-    * 如果您想要在 arm32v7 平台中建置適用於 Linux 容器的模組，您必須[在 Linux 上設定自我裝載的代理程式](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/) \(英文\)。
+   * 如果您想要在 arm32v7 平台中建置適用於 Linux 容器的模組，您必須[在 Linux 上設定自我裝載的代理程式](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/) \(英文\)。
     
-    ![設定組建代理程式集區](./media/how-to-ci-cd/configure-env.png)
+     ![設定組建代理程式集區](./media/how-to-ci-cd/configure-env.png)
 
 5. 您的管線已預先設定名為**代理程式作業 1** 的作業。 選取加號 (**+**) 以將三個工作新增到作業中：[Azure IoT Edge] 兩次，[發行組建成品] 一次。 (將滑鼠暫留在每個工作的名稱上以顯示 [新增] 按鈕)。
 
@@ -158,11 +158,11 @@ ms.locfileid: "54886759"
 
 10. 選取新的 [Azure IoT Edge] 工作，並使用下列值對其進行設定：
 
-   * **顯示名稱**：[動作] 欄位變更時，會自動更新顯示名稱。 
-   * **動作**：使用下拉式清單來選取 [部署到 IoT Edge 裝置]。 變更動作值時，系統也會更新工作顯示名稱以使其相符。
-   * **Azure 訂用帳戶**：選取包含 IoT 中樞的訂用帳戶。
-   * **IoT 中樞名稱**：選取您的 IoT 中樞。 
-   * **選擇單一/多個裝置**：選擇要將發行管線部署到單一裝置或多個裝置。 
+    * **顯示名稱**：[動作] 欄位變更時，會自動更新顯示名稱。 
+    * **動作**：使用下拉式清單來選取 [部署到 IoT Edge 裝置]。 變更動作值時，系統也會更新工作顯示名稱以使其相符。
+    * **Azure 訂用帳戶**：選取包含 IoT 中樞的訂用帳戶。
+    * **IoT 中樞名稱**：選取您的 IoT 中樞。 
+    * **選擇單一/多個裝置**：選擇要將發行管線部署到單一裝置或多個裝置。 
       * 如果部署到單一裝置，請輸入 **IoT Edge 裝置識別碼**。 
       * 如果要部署到多個裝置，請指定裝置**目標條件**。 目標條件會在 IoT 中樞內篩選出符合的一組 Edge 裝置。 如果您想使用裝置標記作為條件，您必須使用 IoT 中樞裝置對應項更新對應的裝置標記。 在進階設定中更新 [IoT Edge 部署識別碼] 和 [IoT Edge 部署優先順序]。 如需為多個裝置建立部署的詳細資訊，請參閱[了解 IoT Edge 自動部署](module-deployment-monitoring.md)。
 

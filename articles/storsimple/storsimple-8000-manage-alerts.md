@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: e86b6af562208e51e36b4679fd088ea399ce70b8
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27745773"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838709"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>使用 StorSimple 裝置管理員服務來檢視和管理 StorSimple 警示
 
@@ -56,7 +56,7 @@ StorSimple 裝置會產生警示以回應各種不同的狀況。 以下是最�
 > [!NOTE]
 > 您可以對每一裝置輸入最多 20 個電子郵件地址。
 
-啟用裝置的電子郵件通知之後，每當發生重大警示時，通知清單的成員將會收到電子郵件訊息。 訊息將會從 *storsimple-alerts-noreply@mail.windowsazure.com* 送出，並說明警示狀況。 收件者可以按一下 [取消訂閱]，將自己從電子郵件通知清單中移除。
+啟用裝置的電子郵件通知之後，每當發生重大警示時，通知清單的成員將會收到電子郵件訊息。 會將訊息傳送*storsimple-警示-noreply\@mail.windowsazure.com* ，並將說明警示的條件。 收件者可以按一下 [取消訂閱]，將自己從電子郵件通知清單中移除。
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>啟用裝置的警示電子郵件通知
 1. 移至您的 StorSimple 裝置管理員服務。 從裝置清單中，選取並按一下您想要設定的裝置。
@@ -68,7 +68,7 @@ StorSimple 裝置會產生警示以回應各種不同的狀況。 以下是最�
    
    1. 在 [傳送電子郵件通知] 欄位中，選取 [是]。
    2. 若要讓服務管理員和所有共同管理員收到警示通知，請在 [電子郵件服務管理員] 欄位中選取 [是]。
-   3. 在 [其他電子郵件收件者]  欄位中，輸入應該收到警示通知的其他所有收件者的電子郵件地址。 以 *someone@somewhere.com* 格式輸入名稱。使用分號來分隔電子郵件地址。 您可以對每一裝置設定最多 20 個電子郵件地址。 
+   3. 在 [其他電子郵件收件者]  欄位中，輸入應該收到警示通知的其他所有收件者的電子郵件地址。 輸入名稱，格式*有人\@somewhere.com*。 使用分號來分隔電子郵件地址。 您可以對每一裝置設定最多 20 個電子郵件地址。 
       
 3. 若要傳送測試電子郵件通知，請按一下 [傳送測試電子郵件]。 StorSimple 裝置管理員服務在轉寄測試通知時會顯示狀態訊息。
 
@@ -142,11 +142,11 @@ StorSimple 裝置管理員服務的摘要刀鋒視窗，可讓您快速概覽裝
 
 如果 StorSimple 生產裝置的雲端連線失敗，視您的裝置狀態，可能會發生下列狀況：
 
-* **裝置上的本機資料**：不會中斷，將繼續提供讀取。 不過，當未完成的 IO 數量增加並超過限制時，讀取可能就會失敗。
+* **在您的裝置上的本機資料**:段時間，會有任何中斷，並讀取將會繼續提供服務。 不過，當未完成的 IO 數量增加並超過限制時，讀取可能就會失敗。
 
     視裝置上的資料量，雲端連線中斷後的數小時內仍會持續寫入。 寫入速度會逐漸緩慢，最終會於雲端連線中斷數小時後失敗。 (裝置上有即將推送至雲端之資料的暫存儲存體。 傳送資料時，這個區域會排清。 如果連線失敗，此儲存區域中的資料不會推送到雲端，而且 IO 會失敗。)
-* **雲端中的資料**：大部份的雲端連線錯誤會傳回錯誤。 只要連線還原時，IO 就會繼續進行，使用者無需自行連線磁碟區。 但在罕見情況下，有可能會需要使用者介入，透過 Azure 入口網站連線磁碟區。
-* **進行中的雲端快照**：會在 4、5 個小時內多次重新嘗試作業，若連線未還原，雲端快照將會失敗。
+* **在雲端中的資料**:對於大部分的雲端連線錯誤，會傳回錯誤。 只要連線還原時，IO 就會繼續進行，使用者無需自行連線磁碟區。 但在罕見情況下，有可能會需要使用者介入，透過 Azure 入口網站連線磁碟區。
+* **進行中的雲端快照集的**:4-5 小時內多次重試此作業，如果連線未還原，雲端快照集將會失敗。
 
 ### <a name="cluster-alerts"></a>叢集警示
 
@@ -202,13 +202,14 @@ StorSimple 裝置管理員服務的摘要刀鋒視窗，可讓您快速概覽裝
 | 無法啟動 StorSimple 服務。 |資料路徑錯誤 |如果問題持續發生，請連絡 Microsoft 支援服務。 |
 | 偵測到 'Data0' 的 IP 位址重複。 | |系統已偵測到 IP 位址 '10.0.0.1' 衝突。 在裝置上的網路資源 'Data0' *<device1>* 已離線。 確定此網路中的其他任何實體並未使用此 IP 位址。 若要疑難排解網路問題，請移至 [Get-NetAdapter Cmdlet 疑難排解](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)。 請連絡網路系統管理員協助解決此問題。 如果問題持續發生，請連絡 Microsoft 支援服務。 |
 | 'Data0' 的 IPv4 (或 IPv6) 位址已離線。 | |網路資源 'Data0' 與 IP 位址 '10.0.0.1'。 裝置 *<device1>* 上的首碼長度 '22' 處於離線狀態。 請確定此介面所連接的交換器連接埠運作正常。 若要疑難排解網路問題，請移至 [Get-NetAdapter Cmdlet 疑難排解](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)。 |
-| 無法連線到驗證服務。 |資料路徑錯誤 |無法連線到用來驗證的 URL。 請確定您的防火牆規則有包含為 StorSimple 裝置指定的 URL 模式。 如需有關 Azure 入口網站中 URL 模式的詳細資訊，請移至 https://aka.ms/ss-8000-network-reqs。 如果使用 Azure Government 雲端，請移至 https://aka.ms/ss8000-gov-network-reqs 中的 URL 模式。|
+| 無法連線到驗證服務。 |資料路徑錯誤 |無法連線到用來驗證的 URL。 請確定您的防火牆規則有包含為 StorSimple 裝置指定的 URL 模式。 如需有關在 Azure 入口網站的 URL 模式的詳細資訊，請移至 https://aka.ms/ss-8000-network-reqs。 如果使用 Azure Government 雲端，請移至中的 URL 模式 https://aka.ms/ss8000-gov-network-reqs。|
 
 ### <a name="performance-alerts"></a>效能警示
 
-| 警示文字 | Event | 詳細資訊 / 建議的動作 |
-|:--- |:--- |:--- |
-| 裝置負載超過 <閾值>。 |比預期的回應時間慢。 |您的裝置報告使用率處於輸入/輸出負荷過重的情況。 這可能會造成您的裝置無法如預期般正常運作。 檢閱您已指派給裝置的工作負載，並判斷是否有任何可移至其他裝置或已不再需要的工作負載。| 無法啟動 StorSimple 服務。 |資料路徑錯誤 |如果問題持續發生，請連絡 Microsoft 支援服務。 |和目前的狀態，請前往[使用 StorSimple 裝置管理員服務來監視您的裝置](storsimple-8000-monitor-device.md) |
+| 警示文字 | Event | 詳細資訊 / 建議的動作 | |
+|:--- |:--- |:--- | --- |
+| 裝置負載超過 <閾值>。 |比預期的回應時間慢。 |您的裝置報告使用率處於輸入/輸出負荷過重的情況。 這可能會造成您的裝置無法如預期般正常運作。 檢閱您已指派給裝置的工作負載，並判斷是否有任何可移至其他裝置或已不再需要的工作負載。|
+| 無法啟動 StorSimple 服務。 |資料路徑錯誤 |如果問題持續發生，請連絡 Microsoft 支援服務。 |
 
 ### <a name="security-alerts"></a>安全性警示
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3d13082e3c076061b8d343827266ec04ae80646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ac11244b87c87285722b4922da69530fab98c299
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180682"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117603"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>設定從 Azure AD 到受控網域的限域同步處理
 此文章說明如何設定只將特定使用者帳戶從 Azure AD 目錄同步至 Azure AD Domain Services 受控網域。
@@ -39,12 +39,10 @@ ms.locfileid: "55180682"
 
 > [!WARNING]
 > **變更同步處理範圍會導致您的受控網域進行重新同步處理。**
->
- * 當您變更受控網域的同步處理範圍時，會進行完整重新同步處理。
- * 受控網域中不再需要的物件會被刪除。 系統會在受控網域中建立新物件。
- * 依據受控網域及 Azure AD 目錄中的物件 (使用者、群組及群組成員資格) 數目而定，重新同步處理可能需要相當長的時間才能完成。 針對有數百個物件的大型目錄，重新同步處理可能需要幾天的時間。
->
->
+> 
+>  * 當您變更受控網域的同步處理範圍時，會進行完整重新同步處理。
+>  * 受控網域中不再需要的物件會被刪除。 系統會在受控網域中建立新物件。
+>  * 依據受控網域及 Azure AD 目錄中的物件 (使用者、群組及群組成員資格) 數目而定，重新同步處理可能需要相當長的時間才能完成。 針對有數百個物件的大型目錄，重新同步處理可能需要幾天的時間。
 
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>使用 Azure 入口網站，建立新的受控網域並啟用群組型限域同步處理
@@ -58,46 +56,46 @@ ms.locfileid: "55180682"
 請完成下列步驟來設定對受控網域的群組型限域同步處理：
 
 1. 完成下列工作：
-  * [工作 1：安裝必要的 PowerShell 模組](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules)。
-  * [工作 2：在 Azure AD 目錄中建立必要的服務主體](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory)。
-  * [工作 3：建立和設定 'AAD DC Administrators' 群組](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group)。
-  * [工作 4：註冊 Azure AD Domain Services 資源提供者](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider)。
-  * [工作 5：建立資源群組](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group)。
-  * [工作 6：建立和設定虛擬網路](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network)。
+   * [工作 1：安裝必要的 PowerShell 模組](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules)。
+   * [工作 2：在 Azure AD 目錄中建立必要的服務主體](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory)。
+   * [工作 3：建立和設定 'AAD DC Administrators' 群組](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group)。
+   * [工作 4：註冊 Azure AD Domain Services 資源提供者](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider)。
+   * [工作 5：建立資源群組](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group)。
+   * [工作 6：建立和設定虛擬網路](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network)。
 
 2. 選取您想要同步的群組，並提供您想要同步至受控網域之群組的顯示名稱。
 
 3. 將[下一節中的指令碼](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1)儲存至名為 ```Select-GroupsToSync.ps1``` 的檔案中。 執行類似下方的指令碼：
 
-  ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-  ```
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
 
-  > [!WARNING]
-  > **請務必包含 'AAD DC Administrators' 群組。**
-  >
-  > 您必須將 'AAD DC Administrators' 群組包含在為限域同步處理設定的群組清單中。 如果未包含此群組，受控網域將無法供使用。
-  >
+   > [!WARNING]
+   > **請務必包含 'AAD DC Administrators' 群組。**
+   >
+   > 您必須將 'AAD DC Administrators' 群組包含在為限域同步處理設定的群組清單中。 如果未包含此群組，受控網域將無法供使用。
+   >
 
 4. 現在，建立受控網域，並為受控網域啟用群組型限域同步處理。 請在 ```Properties``` 參數中包含 ```"filteredSync" = "Enabled"``` 屬性。 例如，查看下列複製自[工作 7：佈建 Azure AD Domain Services 受控網域](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain)的指令碼片段。
 
-  ```powershell
-  $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-  $ManagedDomainName = "contoso100.com"
-  $ResourceGroupName = "ContosoAaddsRg"
-  $VnetName = "DomainServicesVNet_WUS"
-  $AzureLocation = "westus"
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso100.com"
+   $ResourceGroupName = "ContosoAaddsRg"
+   $VnetName = "DomainServicesVNet_WUS"
+   $AzureLocation = "westus"
 
-  # Enable Azure AD Domain Services for the directory.
-  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
-  ```
+   -ApiVersion 2017-06-01 -Force -Verbose
+   ```
 
-  > [!TIP]
-  > 請務必將 ```"filteredSync" = "Enabled"``` 包含在 ```-Properties``` 參數中，如此才能為受控網域啟用限域同步處理。
+   > [!TIP]
+   > 請務必將 ```"filteredSync" = "Enabled"``` 包含在 ```-Properties``` 參數中，如此才能為受控網域啟用限域同步處理。
 
 
 ## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>用以選取要同步至受控網域之群組的指令碼 (Select-GroupsToSync.ps1)

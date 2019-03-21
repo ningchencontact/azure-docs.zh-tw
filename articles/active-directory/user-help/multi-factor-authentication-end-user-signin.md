@@ -1,7 +1,7 @@
 ---
-title: 使用雙步驟驗證的 Azure MFA 登入 | Microsoft Docs
+title: Azure MFA 登入使用雙步驟驗證-Azure Active Directory |Microsoft Docs
 description: 本頁面將指引您移至何處才能看到 Azure MFA 可用的各種登入方法。
-keywords: 使用者驗證, 登入經驗, 使用行動電話登入, 使用辦公室電話登入
+keywords: 用户身份验证, 登录体验, 使用手机登录, 使用办公电话登录
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2545e85ff466ed7455161eb725b824da465457bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840865"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 的登入體驗
 > [!NOTE]
@@ -32,7 +33,7 @@ ms.locfileid: "56177295"
 | --- |
 | [透過電話撥打我的行動或辦公室電話](#signing-in-with-a-phone-call) |
 | [傳送簡訊到我的行動電話號碼](#signing-in-with-a-text-message)
-| 從 Microsoft Authenticator 應用程式使用通知 |
+| [從 Microsoft 驗證器應用程式使用通知](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
 | 從 Microsoft Authenticator 應用程式使用驗證碼 |
 | [使用替代方法，因為現在無法使用我慣用的方法](#signing-in-with-an-alternate-method) |
 
@@ -57,19 +58,19 @@ ms.locfileid: "56177295"
 1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。
 2. Microsoft 會將通知傳送到您裝置上的 Microsoft 驗證器應用程式。
 
-  ![Microsoft 傳送通知](./media/multi-factor-authentication-end-user-signin/notify.png)
+   ![Microsoft 傳送通知](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. 在電話上開啟通知，然後選取 [驗證] 鍵。 如果貴公司要求 PIN，在此處輸入。
-4. 您現在應已登入。
+4. 现在，应该已登录。
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>使用驗證碼登入 Microsoft 驗證器應用程式
 
 如果您使用 Microsoft Authenticator 應用程式取得驗證碼，則當您開啟應用程式時，會在您的帳戶名稱下面看到一個數字。 這個數字每 30 秒會變更一次，所以您不會使用相同的數字兩次。 當系統要求您輸入驗證碼時，開啟應用程式並使用當下所顯示的任何數字。
 
-1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。
+1. 使用用户名和密码登录到 Office 365 等应用程序或服务。
 2. Microsoft 提示您輸入驗證碼。
 
-  ![輸入驗證碼](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![輸入驗證碼](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. 在電話上開啟 Microsoft 驗證器應用程式，並在登入的方塊中輸入驗證碼。
 
@@ -80,12 +81,11 @@ ms.locfileid: "56177295"
 2. 選取 [使用不同的驗證選項]。 根據您已設定的驗證選項數量而定，您會看到不同的驗證選項。
 3. 選擇替代方法並且登入。
 
-  ![使用替代方法](./media/multi-factor-authentication-end-user-signin/alt.png)
+   ![使用替代方法](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>後續步驟
+- 如果您碰到雙步驟驗證登入的問題，可從[使用 Azure Multi-Factor Authentication 時碰到困難](multi-factor-authentication-end-user-troubleshoot.md)獲得詳細資訊。
 
-如果您碰到雙步驟驗證登入的問題，可從[使用 Azure Multi-Factor Authentication 時碰到困難](multi-factor-authentication-end-user-troubleshoot.md)獲得詳細資訊。
+- 了解如何[管理雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)。
 
-了解如何[管理雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)。
-
-了解如何[開始使用 Microsoft 驗證器應用程式](user-help-auth-app-download-install.md)，如此一來，因此您可以使用通知登入，而不是經由文字訊息和來電。
+- 了解如何[開始使用 Microsoft 驗證器應用程式](user-help-auth-app-download-install.md)，如此一來，因此您可以使用通知登入，而不是經由文字訊息和來電。

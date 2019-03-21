@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 9137e52af16f63efe7f0b8169f2693a354564968
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: HT
+ms.openlocfilehash: c83326212dc84348a04d54f04348a6c4c7699bde
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36264433"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875884"
 ---
 # <a name="storsimple-solution-support"></a>StorSimple 解決方案支援
 
@@ -42,7 +42,7 @@ Microsoft 為 StorSimple 企業儲存區客戶提供具彈性之支援選項。 
 | Azure 入口網站票證提交                                                                          | ✓                                                                               | ✓                                                                              |
 | 線上支援入口網站存取                                                                            | ✓                                                                               | ✓                                                                              |
 | 警示佈建和管理                                                                       | ✓                                                                               | ✓                                                                              |
-| 技術支援中心初始回應時間全天候支援票證提交 <br> 根據嚴重性的初始回應時間 <sup>2 | 嚴重性 A：2 小時內 <br> 嚴重性 B：4 小時內 <br> 嚴重性 C：8 小時內 | 嚴重性 A：60 分鐘內 <br> 嚴重性 B：2 小時內 <br> 嚴重性 C：4 小時內 |
+| 技術支援中心初始回應時間全天候支援票證提交 <br> 根據嚴重性的初始回應時間 <sup>2 | 嚴重性 a:2 小時內 <br> 嚴重性 b:4 小時內 <br> 嚴重性 c:在 8 小時內 | 嚴重性 a:60 分鐘內 <br> 嚴重性 b:2 小時內 <br> 嚴重性 c:4 小時內 |
 | 電話支援 (回撥電話)                                                                               | ✓                                                                               | ✓                                                                              |
 | 進階組件更換 (僅限 StorSimple 8000 系列) <sup>3</sup>                                              | 下一個工作天 <sup>4                                                              | 4 小時內                                                                 |
 | 現場服務工程師 (僅限 StorSimple 8000 系列) <sup>3</sup>                                         | 尚未提供                                                                   | 4 小時內                                                                 |
@@ -60,13 +60,13 @@ Microsoft 為 StorSimple 企業儲存區客戶提供具彈性之支援選項。 
 
 <sup>2</sup> 嚴重性定義如下： 
 
-* 嚴重性 A：遭受重大損失或服務效能降低
+* 嚴重性 a:重大損失或服務降級情形
 
 
-* 嚴重性 B：遭受中度損失或效能降低，但仍可透過受損的方式繼續作業
+* 嚴重性 b:遭受中度損失或效能降低，但工作可以繼續蒙受
 
 
-* 嚴重性 C：能以稍微阻礙或不阻礙系統功能的方式繼續運作
+* 嚴重性 c:可以正常運作，以稍微阻礙或不阻礙系統功能
 
     如果客戶無法提供適當的資源或回應，導致 Microsoft 無法持續進行問題排除工作，Microsoft 可能就會降低嚴重性 A 案例的嚴重性層級。 根據嚴重性 A 之全天候英文支援的預期回應時間、嚴重性 B 和 C 的當地營業時間。 
 
@@ -81,7 +81,7 @@ Microsoft 為 StorSimple 企業儲存區客戶提供具彈性之支援選項。 
 如果您的支援合約已過期，請注意，根據支援合約過期的時間長短，續訂處理完成後最多可能需要三週才能交付組件，因為合約的當地庫存地點不會 為您的設備備妥更換組件，直到處理您的合約後才會著手作業。
 
 ## <a name="local-language-support"></a>當地語言支援
-除了英文之外，下列語言會在當地營業時間提供當地語言支援：日文、韓文、台語，以及繁體中文。
+除了英文以外，當地語言支援是在營業時間提供下列語言版本：日文、 韓文、 台灣，及繁體中文。
 
 ## <a name="support-scope"></a>支援範圍 
 所有支援層級均提供帳單及訂用帳戶管理相關的問題支援服務。 客戶若想取得 StorSimple 支援，必須主動註冊 StorSimple 標準版或進階版支援方案。 StorSimple 支援小組將負責解決影響 StorSimple 解決方案的所有問題。 客戶若想取得與 StorSimple 沒有直接關係的 Azure 相關問題支援，需註冊適當的 Azure 支援方案。 請參閱[此處](https://azure.microsoft.com/support/plans/)了解詳細資訊。 支援小組根據 Azure 支援的客戶權利，將非 StorSimple 支援案例提交給 Azure 團隊進行後續追蹤。 
@@ -95,7 +95,7 @@ Microsoft 為 StorSimple 企業儲存區客戶提供具彈性之支援選項。 
  
 <sup>1 </sup> 如果客戶無法提供適當的資源或回應，導致 Microsoft 無法持續進行問題排除工作，Microsoft 可能會降低嚴重性 A 案例的嚴重性層級。
 
-<sup>2</sup> 預期的回應時間根據如下：嚴重性 A 提供全年無休的英文服務，嚴重性 B 和 C 則會在當地營業時間提供英文服務；其他語言會在當地營業時間提供服務，提供語言包括日文、台語、繁體中文及韓文。
+<sup>2</sup>全年無休 24x7 支援以英文針對嚴重性 A 和當地營業時間內嚴重性 B 和 C 中，以預期的回應時間和當地上班時間支援其餘的當地語言：日文、 繁體中文、 繁體中文及韓文。
 
 ## <a name="cancellation-policy"></a>取消原則
 若顧客想獲得 StorSimple 支援，必須購買該訂閱期間的標準版或進階版支援方案。 如果取消，顧客將不會獲得依比例計算的退款。 StorSimple 支援方案已在 EA 週年提供適用的折扣。 不過，Microsoft 無法在沒有有效支援合約的情況下，向 StorSimple 客戶提供支援。
@@ -119,7 +119,7 @@ StorSimple 8000 系列儲存體陣列支援是根據 StorSimple 陣列的購買�
 
 
 
-*<text> * 進階版涵蓋範圍並非在所有地區皆適用。購買 StorSimple 進階版支援之前，請先透過 SSSupOps@microsoft.com 連絡 Microsoft 以了解地理涵蓋範圍。*
+*<text> * 進階版涵蓋範圍並非在所有地區皆適用。請連絡 Microsoft: SSSupOps\@microsoft.com 網站的地理涵蓋範圍，再決定購買 StorSimple 進階版支援。*
 
 ** *StorSimple 設備必須部署在 Premier 支援所涵蓋的客戶所在地區，以便有資格免費升級至進階版 StorSimple 支援。*
 

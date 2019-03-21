@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e9cd97bc226ec69441b933a9f7bf3caec17f1478
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>教學課程：Azure Active Directory 與 RingCentral 的整合
 
@@ -127,6 +127,7 @@ ms.locfileid: "56173295"
     ![映像](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
     d. 在 [登入 URL] 文字方塊中，鍵入 URL：
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -137,9 +138,10 @@ ms.locfileid: "56173295"
     > [!NOTE]
     > 您會在 RingCentral SSO 設定頁面上取得**服務提供者中繼資料檔案**，本教學課程稍後會予以說明。
 
-6. 如果您沒有**服務提供者中繼資料檔案**，請執行下列步驟：
+6. 如果您尚未**服務提供者中繼資料檔案**，執行下列步驟：
 
     a. 在 [登入 URL] 文字方塊中，鍵入 URL：
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -148,12 +150,14 @@ ms.locfileid: "56173295"
     | `https://service.ringcentral.eu` |
 
     b. 在 [識別碼] 文字方塊中輸入 URL：
+
     | |
     |--|
     |  `https://sso.ringcentral.com` |
     | `https://ssoeuro.ringcentral.com` |
 
     c. 在 [回覆 URL] 文字方塊中輸入 URL：
+    
     | |
     |--|
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -191,7 +195,7 @@ ms.locfileid: "56173295"
 
     d. 按一下 [檔案] 。
 
-    e. 從 [步驟 2] 按一下 [下載] 以下載**服務提供者中繼資料檔案**，並在 Azure 入口網站中，上傳至 [基本 SAML 設定] 區段，以自動填入 [識別碼] 及 [回覆 URL] 值。
+    e. 從**步驟 2**按一下 **下載**下載**服務提供者中繼資料檔案**並將它上傳**基本 SAML 組態**區段自動填入**識別碼**並**回覆 URL**在 Azure 入口網站中的值。
 
     ![映像](./media/ringcentral-tutorial/ringcentral6.png) 
 
@@ -223,7 +227,7 @@ ms.locfileid: "56173295"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

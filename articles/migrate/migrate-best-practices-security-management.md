@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011094"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>保護及管理已移轉到 Azure 之工作負載的最佳做法
 
@@ -267,7 +267,7 @@ Azure 提供數個能提供進階安全性選項的其他安全性功能。 這�
 
 - [了解](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)標記和標記的限制。
 - [檢閱](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) PowerShell 和 CLI 範例來設定標記，然後將標記從資源群組套用到其資源。
-- [閱讀](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) \(英文\) Azure 標記最佳做法。
+- [閱讀](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) \(英文\) Azure 標記最佳做法。
 
 
 ## <a name="best-practice-implement-blueprints"></a>最佳做法：實作藍圖
@@ -588,7 +588,7 @@ Azure 資源會產生相當多的記錄計量和遙測資料。
 
 - 根據預設，大部分的資源類型都沒有啟用診斷記錄。
 - 透過在資源上啟用診斷記錄，您可以查詢記錄資料，並根據它建置警示和劇本。
-- 當您啟用診斷記錄時，每個資源都會有特定的類別集合。 您可以選取一或多個記錄類別，以及記錄資料的儲存位置。 記錄可以被傳送至儲存體帳戶、事件中樞或 Log Analytics。 
+- 當您啟用診斷記錄時，每個資源都會有特定的類別集合。 您可以選取一或多個記錄類別，以及記錄資料的儲存位置。 儲存體帳戶、 事件中樞或 Azure 監視器記錄檔，就可以傳送記錄檔。 
 
 
 ![診斷記錄](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Azure 入口網站是網頁型的統一主控台，可讓您建置、管理及�
 Azure 在 Azure 自動化中具有變更追蹤解決方案：
 
 - 這個解決方案會追蹤對 Windows 與 Linux 軟體和檔案、Windows 登錄機碼、Windows 服務以及 Linux 精靈所做的變更。
-- 在被監視伺服器上所做的變更會被傳送至雲端的 Log Analytics 服務以進行處理。
+- 在受監視的伺服器上的變更會傳送至 Azure 監視器服務在雲端中處理。
 - 會將邏輯套用至接收的資料，且雲端服務會記錄資料。
 - 在 [變更追蹤] 儀表板上，您可以輕鬆地看到在您的伺服器基礎結構中所做的變更。
 

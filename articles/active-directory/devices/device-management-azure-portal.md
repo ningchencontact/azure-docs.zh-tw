@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e245bb55747b9415c16386cff48e5ac758f529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177881"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163529"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>如何使用 Azure 入口網站來管理裝置
 
@@ -152,7 +152,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 **備註：**
 
 - 您必須是 Azure AD 中的全域管理員，才能啟用/停用裝置。 
-- 停用裝置會讓裝置無法向 Azure AD 成功驗證，因而使裝置無法存取裝置 CA 所保護或使用 WH4B 認證保護的 Azure AD 資源。 
+- 停用裝置，可防止裝置已成功向 Azure AD 中，藉此防止裝置存取您裝置 CA 所保護的 Azure AD 資源，或使用 WH4B 認證。 
 
 
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: d13e0ea365b25bc17ff2d23dfaf86bc057774744
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415488"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996314"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>下載可供進行 S2S VPN 連線的 VPN 裝置設定指令碼
 
@@ -53,7 +53,7 @@ ms.locfileid: "56415488"
 
 在建立連線資源後，請遵循下列指示以下載 VPN 裝置設定指令碼：
 
-1. 透過瀏覽器瀏覽至 [Azure 入口網站](http://portal.azure.com)，並視需要使用您的 Azure 帳戶登入
+1. 透過瀏覽器瀏覽至 [Azure 入口網站](https://portal.azure.com)，並視需要使用您的 Azure 帳戶登入
 2. 移至您建立的連線資源。 您可以藉由按一下 [所有服務]，然後按一下 [網路] 和 [連線]，以尋找所有連線資源的清單。
 
     ![連線清單](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)

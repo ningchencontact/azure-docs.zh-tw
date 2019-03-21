@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 02/08/2019
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 34a6676444c4723f64264e41cb0e3c4842486bf6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2d55af3e9ed3ad64f9ba7726799b31acb6b48580
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003086"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884467"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 傳遞點播內容入門  
 
@@ -32,24 +32,24 @@ ms.locfileid: "56003086"
 需要有下列項目，才能完成教學課程：
 
 * 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* 媒體服務帳戶。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
+* 一个媒体服务帐户。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * .NET Framework 4.0 或更新版本。
 * Visual Studio。
 
 本教學課程內容包括以下工作：
 
-1. 啟動串流端點 (使用 Azure 入口網站)。
+1. 启动流式处理终结点（使用 Azure 门户）。
 2. 建立和設定 Visual Studio 專案。
 3. 連線到媒體服務帳戶。
 2. 上傳視訊檔案。
-3. 將來源檔案編碼為一組自適性 MP4 檔案。
+3. 将源文件编码为一组自适应比特率 MP4 文件。
 4. 發佈資產並取得串流和漸進式下載 URL。  
 5. 播放您的內容。
 
 ## <a name="overview"></a>概觀
 本教學課程會逐步完成使用 Azure Media Services (AMS) SDK for .NET 實作點播視訊 (VoD) 內容傳遞應用程式。
 
-教學課程中介紹基本的媒體服務工作流程，以及媒體服務開發最常用的程式設計物件和必要工作。 完成本教學課程時，您將能夠串流或漸進式下載您已上傳、編碼和下載的範例媒體檔案。
+教學課程中介紹基本的媒體服務工作流程，以及媒體服務開發最常用的程式設計物件和必要工作。 完成本教程后，就可以流式传输或渐进下载已上传、编码和下载的示例媒体文件。
 
 ### <a name="ams-model"></a>AMS 模型
 
@@ -59,9 +59,9 @@ ms.locfileid: "56003086"
 
 <a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-您可以[在此](https://media.windows.net/API/$metadata?api-version=2.15)檢視整個模型。  
+可在 [此处](https://media.windows.net/API/$metadata?api-version=2.15)查看完整模型。  
 
-## <a name="start-streaming-endpoints-using-the-azure-portal"></a>使用 Azure 入口網站開始串流端點
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>使用 Azure 门户启动流式处理终结点
 
 使用 Azure 媒體服務時，其中一個最常見的案例是透過自適性串流提供影片。 媒體服務提供動態封裝，這讓您以媒體服務即時支援的串流格式 (MPEG DASH、HLS、Smooth Streaming) 提供自適性 MP4 編碼內容，而不必儲存這些串流格式個別的預先封裝版本。
 
@@ -72,7 +72,7 @@ ms.locfileid: "56003086"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在 [設定] 視窗中，按一下 [串流端點]。
-3. 按一下預設串流端點。
+3. 单击默认的流式处理终结点。
 
     [預設串流端點詳細資料] 視窗隨即出現。
 
@@ -82,7 +82,7 @@ ms.locfileid: "56003086"
 ## <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
 1. 設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)所述。 
-2. 建立新的資料夾 (資料夾可在本機磁碟機上任意處)，並複製您想要編碼和串流處理或漸進式下載的 .mp4 檔案。 在此範例中，使用 "C:\VideoFiles" 路徑。
+2. 建立新的資料夾 (資料夾可在本機磁碟機上任意處)，並複製您想要編碼和串流處理或漸進式下載的 .mp4 檔案。 在此示例中，使用了“C:\VideoFiles”路径。
 
 ## <a name="connect-to-the-media-services-account"></a>連線到媒體服務帳戶
 
@@ -152,7 +152,7 @@ ms.locfileid: "56003086"
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>建立新資產並上傳視訊檔案
 
-在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。 **資產**實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式輔助字幕檔案 (以及這些檔案的相關中繼資料)。上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。 資產中的檔案稱為 **資產檔案**。
+在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。 **資產**實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式輔助字幕檔案 (以及這些檔案的相關中繼資料)。上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。 资产中的文件称为 **资产文件**。
 
 下面所定義的 **UploadFile** 方法會呼叫 **CreateFromFile** (定義於 .NET SDK 延伸模組中)。 **CreateFromFile** 會建立要在其中上傳指定來源檔案的新資產。
 
@@ -162,13 +162,13 @@ ms.locfileid: "56003086"
   如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。
 * **StorageEncrypted** - 請使用此選項來利用進階加密標準 (AES) 256 位元加密，對您的純文字內容進行本機加密，然後會將它上傳到已靜止加密儲存的 Azure 儲存體。 以儲存體加密保護的資產會自動解除加密並在編碼前放置在加密的檔案系統中，並且會在上傳為新輸出資產之前選擇性地重新編碼。 儲存體加密的主要使用案例是讓您可以使用強式加密來保護磁碟中靜止的高品質輸入媒體檔。
 * **CommonEncryptionProtected** - 如果您要上傳已經使用一般加密或 PlayReady DRM (例如使用 PlayReady DRM 保護的 Smooth Streaming) 加密及保護的內容，請使用這個選項。
-* **EnvelopeEncryptionProtected** – 如果您要上傳使用 AES 加密的 HLS，請使用這個選項。 請注意，檔案必須已由 Transform Manager 編碼和加密。
+* **EnvelopeEncryptionProtected** – 如果您要上傳使用 AES 加密的 HLS，請使用這個選項。 请注意，Transform Manager 必须已对文件进行编码和加密。
 
 **CreateFromFile** 方法也可讓您指定回呼，以報告檔案的上傳進度。
 
 在下列範例中，我們將資產選項指定為 **None** 。
 
-將下列方法新增至 Program 類別。
+将以下方法添加到 Program 类。
 
 ```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -194,7 +194,7 @@ ms.locfileid: "56003086"
 
 若要利用動態封裝功能，您必須將您的夾層 (來源) 檔編碼或轉換為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案。  
 
-下列程式碼顯示如何提交編碼工作。 此工作包含一項作業，指定使用 **媒體編碼器標準**，將夾層檔轉碼為一組調適性位元速率 MP4。 此程式碼會提交工作，並等到工作完成。
+下列程式碼顯示如何提交編碼工作。 此工作包含一項作業，指定使用 **媒體編碼器標準**，將夾層檔轉碼為一組調適性位元速率 MP4。 代码会提交作业，并等待作业完成。
 
 工作完成之後，就可以串流處理資產，或漸進式下載轉碼後所建立的 MP4 檔案。
 
@@ -371,7 +371,7 @@ MPEG DASH
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-若要串流處理視訊，請將您的 URL 貼在 [Azure 媒體服務播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)的 [URL] 文字方塊中。
+若要串流處理視訊，請將您的 URL 貼在 [Azure 媒體服務播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)的 [URL] 文字方塊中。
 
 若要測試漸進式下載，請將 URL 貼入瀏覽器 (例如，Internet Explorer、Chrome 或 Safari)。
 
@@ -397,5 +397,5 @@ MPEG DASH
 
 
 <!-- URLs. -->
-[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-[Portal]: http://portal.azure.com/
+[Web Platform Installer]: https://go.microsoft.com/fwlink/?linkid=255386
+[Portal]: https://portal.azure.com/

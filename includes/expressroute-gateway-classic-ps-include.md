@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2457ef2843b0d16359b7e47fc54c58e2ef5e6034
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429929"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116105"
 ---
 > [!NOTE]
 > 這些範例不會套用到 S2S/ExpressRoute 並存組態。
@@ -28,8 +28,8 @@ ms.locfileid: "53429929"
 1. 使用[網路組態檔](../articles/virtual-network/virtual-networks-using-network-configuration-file.md)一文中的步驟，下載網路組態檔。 使用文字編輯器開啟檔案。
 2. 將區域網路站台新增至檔案中。 您可以使用任何有效的位址前置詞。 您可以為 VPN 閘道新增任何有效的 IP 位址。 本區段中的位址值並非用於 ExpressRoute 作業，但對檔案驗證而言是必要的值。 在範例中，"branch1" 是站台的名稱。 您可以使用不同的名稱，但務必使用與檔案中 [Gateway] 區段中相同的值。
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -38,15 +38,15 @@ ms.locfileid: "53429929"
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. 請瀏覽至 VirtualNetworkSites 並修改欄位。
 
-  * 確認您的虛擬網路是否有閘道子網路存在。 如果不存在，可以現在新增子網路。 名稱必須是 "GatewaySubnet"。
-  * 確認檔案的「Gateway」區段是否存在。 如果不存在，請新增。 將虛擬網路與區域網路站點 (代表您正在連線的網路) 建立關聯時，會需要用到。
-  * 確認 connection type = Dedicated。 ExpressRoute 連線需要如此。
+   * 確認您的虛擬網路是否有閘道子網路存在。 如果不存在，可以現在新增子網路。 名稱必須是 "GatewaySubnet"。
+   * 確認檔案的「Gateway」區段是否存在。 如果不存在，請新增。 將虛擬網路與區域網路站點 (代表您正在連線的網路) 建立關聯時，會需要用到。
+   * 確認 connection type = Dedicated。 ExpressRoute 連線需要如此。
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -69,9 +69,9 @@ ms.locfileid: "53429929"
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. 請儲存檔案，並將檔案上傳到 Azure。
 
 ### <a name="create-the-gateway"></a>建立閘道
@@ -84,7 +84,7 @@ New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayType DynamicRouting -Gatewa
 
 ## <a name="verify-the-gateway-was-created"></a>確認已建立閘道
 
-使用下列命令，確認已建立閘道。 這個命令也會擷取閘道器識別碼，您在其他作業會需要它。
+使用以下命令来验证是否已创建网关。 這個命令也會擷取閘道器識別碼，您在其他作業會需要它。
 
 ```powershell
 Get-AzureVNetGateway

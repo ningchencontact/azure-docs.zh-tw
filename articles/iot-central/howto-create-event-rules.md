@@ -3,17 +3,17 @@ title: 在 Azure IoT Central 應用程式中建立和管理事件規則 | Micros
 description: Azure IoT Central 事件規則可讓您近乎即時地監視裝置，以及在觸發規則時自動叫用動作，例如傳送電子郵件。
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af85ff8272853be82bae5c79622295fddfc60ade
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: f350d0ae6602fb393da3ddc350f33ec89e86078e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081435"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立事件規則並設定通知
 
@@ -27,29 +27,21 @@ ms.locfileid: "53337269"
 
 若要建立事件規則，裝置範本必須至少定義一個事件量測。 此範例使用會報告風扇馬達錯誤事件的冷飲販賣機裝置。 此規則會監視裝置所報告的事件，並在每次報告事件時傳送電子郵件。
 
-1. 使用 Device Explorer，瀏覽至您要對其新增規則的裝置範本。
-
-1. 在選取的範本下，按一下現有裝置。 
-
-    >[!TIP] 
-    >如果範本沒有任何裝置，則先新增裝置。
+1. 使用**裝置範本**頁面上，瀏覽至您新增的規則的裝置範本。
 
 1. 如果您尚未建立任何規則，您會看到下列畫面：
 
     ![還沒有規則](media/howto-create-event-rules/Rules_Landing_Page.png)
 
+1. 在 **規則**索引標籤上，選取 **+ 新規則**若要查看您可以建立的規則的類型。
 
-1. 在 [規則] 索引標籤上，依序按一下 [編輯範本] 和 [+ 新增規則]，以查看您可以建立的規則類型。
-
-
-1. 按一下 [事件] 圖格，以建立事件監視規則。
+1. 選擇**事件**圖格，以建立監視規則的事件。
 
     ![規則類型](media/howto-create-event-rules/Rule_Types.png)
 
-    
 1. 輸入名稱來協助您識別此裝置範本中的規則。
 
-1. 若要立即為透過此範本所建立的所有裝置啟用規則，請切換 [為此範本的所有裝置啟用規則]。
+1. 若要立即啟用此範本所建立的所有裝置的規則，請切換**此範本的所有裝置的啟用規則**。
 
     ![規則詳細資訊](media/howto-create-event-rules/Rule_Detail.png)
 
@@ -63,26 +55,25 @@ ms.locfileid: "53337269"
 
 1. 從量測下拉式清單中選擇想要監視的事件。 此範例選取了**風扇馬達錯誤**事件。
 
-   ![條件](media/howto-create-event-rules/Condition_Filled_Out.png) 
-
+   ![條件](media/howto-create-event-rules/Condition_Filled_Out.png)
 
 1. (選擇性) 您也可以將 [計數] 設定為 [彙總]，並提供對應的閾值。
 
-    - 如果沒有彙總，規則會在每個事件資料點符合條件時觸發。 比方說，如果您設定的規則條件是在發生「風扇馬達錯誤」事件時觸發，則規則會在裝置報告該事件時近乎即時地觸發。
-    - 如果使用「計數」作為彙總函式，則必須提供**閾值**，以及評估條件的**彙總時間範圍**。 在此案例中，事件計數已彙總，因此只有當彙總的事件計數符合閾值時，才會觸發規則。
- 
-    比方說，如果您想要在 5 分鐘內發生三個以上的裝置事件時發出警示，請在選取事件後，將彙總函式設定為 [計數]，將運算子設定為 [大於]，以及將 [閾值] 設定為 3。 將 [彙總期間] 設定為 [5 分鐘]。 如果裝置在 5 分鐘內傳送三個以上的事件時，規則就會觸發。 規則評估頻率與**彙總時間範圍**相同，這表示，在此範例中，此規則會每隔 5 分鐘評估一次。 
+   - 如果沒有彙總，規則會在每個事件資料點符合條件時觸發。 例如，如果您設定規則的條件時觸發**風扇馬達錯誤**接著此規則會觸發幾乎在當裝置報告該事件，就會發生事件。
+   - 如果使用「計數」作為彙總函式，則必須提供**閾值**，以及評估條件的**彙總時間範圍**。 在此情況下，彙總的事件計數，此規則會觸發，只有當彙總的事件計數符合臨界值。
 
-    ![新增事件條件](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+     比方說，如果您想要在 5 分鐘內發生三個以上的裝置事件時發出警示，請在選取事件後，將彙總函式設定為 [計數]，將運算子設定為 [大於]，以及將 [閾值] 設定為 3。 將 [彙總期間] 設定為 [5 分鐘]。 如果裝置在 5 分鐘內傳送三個以上的事件時，規則就會觸發。 規則評估頻率與**彙總時間範圍**相同，這表示，在此範例中，此規則會每隔 5 分鐘評估一次。
 
-    >[!NOTE] 
-    >您可以在**條件**下新增多個事件量測。 若指定多個條件，就必須符合所有條件才會觸發規則。 每個條件都會透過 'AND' 子句隱含地加入。 使用彙總時，必須彙總每個量測。
+     ![新增事件條件](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+
+     >[!NOTE]
+     >您可以在**條件**下新增多個事件量測。 若指定多個條件，就必須符合所有條件才會觸發規則。 取得隱含 'AND' 子句所加入每個條件。 使用彙總時，必須彙總每個量測。
 
 ### <a name="configure-actions"></a>設定動作
 
 本節示範如何設定要在引發規則時採取的動作。 當規則中指定的所有條件都評估為 True 時，即會叫用動作。
 
-1. 選擇 [動作] 旁的 [+]。 在此，您會看到可用動作的清單。 
+1. 選擇 [動作] 旁的 [+]。 在此，您會看到可用動作的清單。
 
     ![新增動作](media/howto-create-event-rules/Add_Action.png)
 
@@ -94,8 +85,6 @@ ms.locfileid: "53337269"
    ![設定動作](media/howto-create-event-rules/Configure_Action.png)
 
 1. 若要儲存規則，請選擇 [儲存]。 幾分鐘內，規則就會生效，並開始監視傳送至應用程式的事件。 當規則中指定的條件相符時，規則就會觸發所設定的電子郵件動作。
-
-1. 選擇 [完成] 以結束 [編輯範本] 模式。
 
 您可以將其他動作新增至規則，例如 Microsoft Flow 和 Webhook。 您可以針對每個規則最多新增 5 個動作。
 

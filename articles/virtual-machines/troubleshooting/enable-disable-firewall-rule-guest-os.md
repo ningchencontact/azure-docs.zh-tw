@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "52319057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853064"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>啟用或停用 Azure VM 客體 OS 上的防火牆規則
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>啟用或停用 Azure VM 客體 OS 上的防火牆規則
 
 本文針對您懷疑客體作業系統防火牆篩選虛擬機器 (VM) 之部分流量的情況，提供進行疑難排解的參考資訊。 這可能很有用，原因如下：
 
@@ -107,7 +107,7 @@ ms.locfileid: "52319057"
     
         然後，在字串中，將 **Active=FALSE** 變更為 **Active=TRUE**：
 
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 |動作 = 允許 |作用中 = TRUE |Dir = In |通訊協定 = 6 |設定檔 = Domain |設定檔 = 私密金鑰 |設定檔 = 公用 |LPort = 3389 |App=%SystemRoot%\system32\svchost.exe|Svc = termservice |名稱 =\@還可使用 FirewallAPI.dll，-28775 |Desc =\@還可使用 FirewallAPI.dll，-28756 |EmbedCtxt =\@還可使用 FirewallAPI.dll，-28752 |**
     
     * 若要停用規則，請開啟下列登錄值：
     
@@ -115,7 +115,7 @@ ms.locfileid: "52319057"
 
         然後，將 **Active =TRUE** 變更為 **Active=FALSE**：
         
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 |動作 = 允許 |作用中 = FALSE |Dir = In |通訊協定 = 6 |設定檔 = Domain |設定檔 = 私密金鑰 |設定檔 = 公用 |LPort = 3389 |App=%SystemRoot%\system32\svchost.exe|Svc = termservice |名稱 =\@還可使用 FirewallAPI.dll，-28775 |Desc =\@還可使用 FirewallAPI.dll，-28756 |EmbedCtxt =\@還可使用 FirewallAPI.dll，-28752 |**
 
 3.  重新啟動虛擬機器以套用變更。
 
@@ -154,7 +154,7 @@ ms.locfileid: "52319057"
         
         然後，將 **Active=FALSE** 變更為 **Active=True**。
         
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 |動作 = 允許 |作用中 = TRUE |Dir = In |通訊協定 = 6 |設定檔 = Domain |設定檔 = 私密金鑰 |設定檔 = 公用 |LPort = 3389 |App=%SystemRoot%\system32\svchost.exe|Svc = termservice |名稱 =\@還可使用 FirewallAPI.dll，-28775 |Desc =\@還可使用 FirewallAPI.dll，-28756 |EmbedCtxt =\@還可使用 FirewallAPI.dll，-28752 |**
 
     3.  若要停用規則，請開啟下列登錄機碼：
 
@@ -162,7 +162,7 @@ ms.locfileid: "52319057"
 
         然後，將 **Active=True** 變更為 **Active=FALSE**。
         
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 |動作 = 允許 |作用中 = FALSE |Dir = In |通訊協定 = 6 |設定檔 = Domain |設定檔 = 私密金鑰 |設定檔 = 公用 |LPort = 3389 |App=%SystemRoot%\system32\svchost.exe|Svc = termservice |名稱 =\@還可使用 FirewallAPI.dll，-28775 |Desc =\@還可使用 FirewallAPI.dll，-28756 |EmbedCtxt =\@還可使用 FirewallAPI.dll，-28752 |**
 
 9.  反白  **BROKENSYSTEM**，然後從功能表選取 [ **檔案**]  >  [**上傳 Hive**] 。
 

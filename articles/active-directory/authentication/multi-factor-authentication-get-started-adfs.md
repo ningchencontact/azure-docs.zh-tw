@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c47b45db95d428e9817220099368c14a31b4a528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ab1f54ee8c3ebb5ae41d28b70f1cffcb244af39f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075998"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>開始使用 Azure Multi-Factor Authentication Server 和 Active Directory Federation Services
 
-<center>![雲端](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+<center>
+
+![雲端](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 如果組織已使用 AD FS 讓內部部署 Active Directory 與 Azure Active Directory 同盟，就會有兩個使用 Azure Multi-Factor Authentication 的選項。
 
@@ -30,7 +32,7 @@ ms.locfileid: "56192093"
 下表摘要說明保護使用 Azure Multi-Factor Authentication 和 AD FS 兩者保護資源的驗證體驗
 
 | 驗證體驗 - 瀏覽器型應用程式 | 驗證體驗 - 非瀏覽器型應用程式 |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | 使用 Azure Multi-Factor Authentication 保護 Azure AD 資源 |<li>第一個驗證步驟是使用 AD FS 在內部部署執行。</li> <li>第二個步驟是使用雲端驗證執行的電話式方法。</li> |
 | 使用 Active Directory Federation Services 保護 Azure AD 資源 |<li>第一個驗證步驟是使用 AD FS 在內部部署執行。</li><li>第二個步驟是使用宣告以在內部部署執行。</li> |
 

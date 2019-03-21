@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 713905ac0c6dcd53f468fe7e9af7c565ee38ac66
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009425"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 簡介
 
@@ -27,7 +27,7 @@ Data Lake Storage Gen2 的基礎部分是新增至 Blob 儲存體的[階層命�
 
 以往雲端式分析必須在效能、管理及安全性方面妥協。 Data Lake Storage Gen2 透過下列方式解決這些方面的問題：
 
--   **效能**經過最佳化，因為您不需要複製或轉換資料作為分析的先決條件。 階層命名空間大幅提高目錄管理作業的效能，從而提高整體作業效能。
+-   **效能**經過最佳化，因為您不需要複製或轉換資料作為分析的必要條件。 階層命名空間大幅提高目錄管理作業的效能，從而提高整體作業效能。
 
 -   **管理**更容易，因為您可以透過目錄和子目錄整理和操作檔案。
 
@@ -37,7 +37,7 @@ Data Lake Storage Gen2 的基礎部分是新增至 Blob 儲存體的[階層命�
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake Storage Gen2 的主要功能
 
--   **Hadoop 相容存取**：Data Lake Storage Gen2 可讓您管理及存取資料，就如同使用 [Hadoop 分散式檔案系統 (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一樣。 全新 [ABFS 驅動程式](data-lake-storage-abfs-driver.md)可在所有 Apache Hadoop 環境中使用，包括 [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*、*[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index) 和 [SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/)，以存取儲存在 Data Lake Storage Gen2 中的資料。
+-   **Hadoop 相容存取**：Data Lake Storage Gen2 可讓您管理及存取資料，就如同使用 [Hadoop 分散式檔案系統 (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一樣。 全新 [ABFS 驅動程式](data-lake-storage-abfs-driver.md)可在所有 Apache Hadoop 環境中使用，包括 [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*、*[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index) 和 [SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/)，以存取儲存在 Data Lake Storage Gen2 中的資料。
 
 -   **POSIX 權限的超集合**：Data Lake Gen2 的安全性模型可支援 ACL 和 POSIX 權限，以及一些 Data Lake Storage Gen2 特有的額外細微性。 這些設定可透過儲存體總管或 Hive 和 Spark 這類架構來配置。
 
@@ -55,7 +55,7 @@ Data Lake Storage Gen2 的基礎部分是新增至 Blob 儲存體的[階層命�
 
 此外，例如[階層式命名空間](data-lake-storage-namespace.md)等功能可大幅提升許多分析作業的整體效能。 效能提升即表示處理數量相同的資料時，所需的計算能力較少，因此可降低端對端分析工作的擁有權總成本 (TCO)。
 
-### <a name="one-service-multiple-concepts"></a>一個服務，多個概念
+### <a name="one-service-multiple-concepts"></a>一項服務，多個概念
 
 Data Lake Storage Gen2 是巨量資料分析的額外功能，建置在 Azure Blob 儲存體的基礎之上。 雖然利用現有的 Blobs 平台元件來建立及操作 Data Lake 進行分析有許多優點，但是它會導致用許多概念描述相同、共用的事項。
 

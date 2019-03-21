@@ -8,16 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: spelluru
-ms.openlocfilehash: ac43b85858451149ceabf87c77b42d40fbd4eac4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: ad9c2d492f70a697ef0e7dc3b7ed03b9938f2468
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181685"
 ---
 # <a name="query-event-grid-subscriptions"></a>查詢 Event Grid 訂用帳戶 
 
 本文章說明如何列出您的 Azure 訂用帳戶中的 Event Grid 訂用帳戶。 查詢現有的 Event Grid 訂用帳戶時，請務必瞭解不同類型的訂用帳戶。 您可根據您想要取得的訂用帳戶類型來提供不同的參數。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="resource-groups-and-azure-subscriptions"></a>資源群組和 Azure 訂用帳戶
 
@@ -35,8 +37,8 @@ az eventgrid event-subscription list
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-Set-AzureRmContext -Subscription "My Azure Subscription"
-Get-AzureRmEventGridSubscription
+Set-AzContext -Subscription "My Azure Subscription"
+Get-AzEventGridSubscription
 ```
 
 若要取得 Azure 訂用帳戶的 Event Grid 訂用帳戶，請提供 **Microsoft.Resources.Subscriptions** 主題類型。
@@ -50,7 +52,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subs
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
 ```
 
 若要取得 Azure 訂用帳戶內所有資源群組的 Event Grid 訂用帳戶，請提供 **Microsoft.Resources.ResourceGroups** 主題類型。
@@ -64,7 +66,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Reso
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
 ```
 
 若要取得指定資源群組的 Event Grid 訂用帳戶，請提供資源群組的名稱作為參數。
@@ -78,7 +80,7 @@ az eventgrid event-subscription list --resource-group myResourceGroup
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -ResourceGroupName myResourceGroup
+Get-AzEventGridSubscription -ResourceGroupName myResourceGroup
 ```
 
 ## <a name="custom-topics-and-azure-resources"></a>自訂主題和 Azure 資源
@@ -96,7 +98,7 @@ az eventgrid event-subscription list --location westus2
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -Location westus2
+Get-AzEventGridSubscription -Location westus2
 ```
 
 若要取得某個位置中自訂主題的訂用帳戶，請提供位置和 **Microsoft.EventGrid.Topics** 主題類型。
@@ -110,7 +112,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.EventGrid.Topi
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
 ```
 
 若要取得某個位置中儲存體帳戶的訂用帳戶，請提供位置和 **Microsoft.Storage.StorageAccounts** 主題類型。
@@ -124,7 +126,7 @@ az eventgrid event-subscription list --topic-type "Microsoft.Storage.StorageAcco
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
 ```
 
 若要取得自訂主題的 Event Grid 訂用帳戶，請提供自訂主題名稱及其資源群組名稱。
@@ -138,7 +140,7 @@ az eventgrid event-subscription list --topic-name myCustomTopic --resource-group
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
+Get-AzEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
 ```
 
 若要取得特定資源的 Event Grid 訂用帳戶，請提供資源識別碼。
@@ -153,8 +155,8 @@ az eventgrid event-subscription list --resource-id $resourceid
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-$resourceid = (Get-AzureRmResource -Name mystorage -ResourceGroupName myResourceGroup).ResourceId
-Get-AzureRmEventGridSubscription -ResourceId $resourceid
+$resourceid = (Get-AzResource -Name mystorage -ResourceGroupName myResourceGroup).ResourceId
+Get-AzEventGridSubscription -ResourceId $resourceid
 ```
 
 ## <a name="next-steps"></a>後續步驟

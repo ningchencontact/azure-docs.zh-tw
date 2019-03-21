@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c9c788ef5d358152b595cde673930949d013c281
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d4d2bc3292926144f13508780885e082f2b1fdc3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451252"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57866304"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>探索 Team Data Science Process 中的資料
 
@@ -24,7 +24,7 @@ ms.locfileid: "55451252"
 
 下列文章說明如何在 Data Science Process 中三個常用的不同儲存體環境中探索資料：
 
-* 使用 [Pandas](http://pandas.pydata.org/) Python 套件，探索 [Azure Blob 容器](explore-data-blob.md)資料。
+* 使用 [Pandas](https://pandas.pydata.org/) Python 套件，探索 [Azure Blob 容器](explore-data-blob.md)資料。
 * 使用 SQL 及使用 Python 這類程式設計語言，探索 [SQL Server](explore-data-sql-server.md) 資料。
 * 使用 Hive 查詢來探索 [Hive 資料表](explore-data-hive-tables.md)資料。
 

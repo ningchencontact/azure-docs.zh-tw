@@ -4,7 +4,7 @@ description: 包含檔案
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: d7b78519f1e81fed1f74b6f3a2fd2720cd28cce4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: a9aeb2f45ec8c882c47425879ab6ef726ca94060
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842911"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203299"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>設定您的 Web 伺服器或專案
 
@@ -38,7 +38,7 @@ ms.locfileid: "48842911"
 
 ## <a name="create-your-project"></a>建立專案
 
-> ### <a name="option-1-node-other-web-servers"></a>選項 1：Node/其他網頁伺服器
+> ### <a name="option-1-node-other-web-servers"></a>選項 1：節點 / 其他網頁伺服器
 > 請確定您已安裝 [Node.js](https://nodejs.org/en/download/)，然後遵循下列步驟執行：
 > - 建立資料夾來裝載您的應用程式。
 
@@ -46,33 +46,33 @@ ms.locfileid: "48842911"
 
 > ### <a name="option-2-visual-studio"></a>選項 2：Visual Studio
 > 如果您使用 Visual Studio 並建立新的專案，請遵循下列步驟來建立新的 Visual Studio 解決方案：
-> 1.    在 Visual Studio 中：[檔案] > [新增] > [專案]
+> 1.    在 Visual Studio 中：**檔案 > 新增 > 專案**
 > 2.    在 [Visual C#\Web] 底下，選取 [ASP.NET Web 應用程式 (.NET Framework)]
 > 3.    輸入應用程式的名稱並選取 [確定]
 > 4.    在 [新增 ASP.NET Web 應用程式] 底下，選取 [空白]
 
 
 ## <a name="create-your-single-page-applications-ui"></a>建立單一頁面應用程式的 UI
-1.  為您的 JavaScript SPA 建立 `index.html` 檔案。 如果您使用 Visual Studio，請選取專案 (專案根資料夾)，以滑鼠右鍵按一下並選取：[新增] > [新增項目] >[HTML 頁面]，然後將它命名為 index.html。
+1. 為您的 JavaScript SPA 建立 `index.html` 檔案。 如果您使用 Visual Studio，選取專案 （專案根資料夾），以滑鼠右鍵按一下並選取：**新增 > 新增項目 > HTML 網頁**並將它命名為 index.html。
 
-2.  將下列程式碼新增至您的頁面：
-```html
-<!DOCTYPE html>
-<html>
-<head>
-        <title>Quickstart for MSAL JS</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</head>
-<body>
-        <h2>Welcome to MSAL.js Quickstart</h2><br/>
-        <h4 id="WelcomeMessage"></h4>
-        <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
-        <pre id="json"></pre>
-        <script>
-            //JS code
-        </script>
-</body>
-</html>
-```
+2. 將下列程式碼新增至您的頁面：
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title>Quickstart for MSAL JS</title>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   </head>
+   <body>
+       <h2>Welcome to MSAL.js Quickstart</h2><br/>
+       <h4 id="WelcomeMessage"></h4>
+       <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
+       <pre id="json"></pre>
+       <script>
+           //JS code
+       </script>
+   </body>
+   </html>
+   ```

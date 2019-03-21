@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 03/01/2019
 ms.author: haroldw
-ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 826085df8d928cab0a05527be8c464af5f4e9180
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002508"
 ---
 # <a name="openshift-in-azure"></a>Azure 中的 OpenShift
 
@@ -46,11 +46,11 @@ OpenShift 包含容器協調流程與管理的 Kubernetes。 它新增以開發�
 
 「容器平台」是由 Red Hat 提供及支援、符合企業需求的[商業版](https://www.openshift.com)。 使用這個版本，客戶要購買 OpenShift 容器平台的必要權利，並負責安裝與管理整個基礎結構。
 
-因為客戶「擁有」整個平台，因此他們可以將其安裝在內部部署資料中心或公用雲端 (如 Azure、AWS、Google)。
+因為客戶 「 擁有 」 整個平台，他們可以在內部部署資料中心，或安裝在公用雲端 （例如 Azure)。
 
 ## <a name="openshift-on-azure"></a>OpenShift On Azure
 
-OpenShift On Azure 是在 Azure 中執行的 OpenShift 完全受控供應項目。 這項服務是由 Microsoft 與 Red Hat 共同管理和支援。 叢集將會部署到客戶的 Azure 訂用帳戶中。 此服務目前為個人預覽版，已排定 CY2019 年第一季末公開上市。 有意參與私人預覽的客戶，請填寫[提名表單](http://aka.ms/openshiftazureinterest)。  我們將隨著供應項目愈來愈接近公開上市提供更多資訊。
+OpenShift On Azure 是在 Azure 中執行的 OpenShift 完全受控供應項目。 這項服務是由 Microsoft 與 Red Hat 共同管理和支援。 叢集將會部署到客戶的 Azure 訂用帳戶中。 此服務目前為個人預覽版，已排定 CY2019 年第一季末公開上市。 有意參與私人預覽的客戶，請填寫[提名表單](https://aka.ms/openshiftazureinterest)。  我們將隨著供應項目愈來愈接近公開上市提供更多資訊。
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (先前稱為 OpenShift Origin)
 
@@ -58,7 +58,7 @@ OKD 是由社群支援的 OpenShift [開放原始碼](https://www.okd.io/)上游
 
 ## <a name="openshift-dedicated"></a>OpenShift 專用
 
-「專用」是使用 OpenShift 容器平台並由 Red Hat 管理的*單一租用戶* OpenShift。 Red Hat 會管理所有的基礎結構 (VM、OpenShift 叢集、網路、儲存體等)。 叢集由一位客戶所特有，並在公用雲端 (如 AWS 或 Google) 中執行。 初始叢集包含四個應用程式節點，且所有成本會每年先付款。
+「專用」是使用 OpenShift 容器平台並由 Red Hat 管理的*單一租用戶* OpenShift。 Red Hat 會管理所有的基礎結構 (VM、OpenShift 叢集、網路、儲存體等)。 叢集是一位客戶所特有，並在公用雲端 （例如 Azure) 中執行。 初始叢集包含四個應用程式節點，且所有成本會每年先付款。
 
 ## <a name="openshift-online"></a>OpenShift 線上
 

@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78fc7441b109c87f1ab9ff5b56ed8e055c152d10
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 83c071629ba18ab9f40ecec3b2e09290f57ad2fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996559"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 應用程式常見問題集
 
@@ -27,6 +27,7 @@ ms.locfileid: "56456056"
 Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式，當您使用 Azure Multi-Factor Authentication 時，建議使用此應用程式。 Microsoft Authenticator 應用程式適用於 [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) 和 [IOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
+
 |問題|解決方法|
 |--------|--------|
 |Authenticator 會為我儲存何種資料，而我該如何刪除它？|Microsoft Authenticator 應用程式會收集三種類型的資訊：<ul><li>您新增帳戶時提供的帳戶資訊。 這項資料可以藉由移除帳戶來移除。</li><li>診斷記錄資料，在您透過應用程式的 [說明] 功能表，選擇**傳送記錄**給 Microsoft 之前，此資料只會存在應用程式中。 這些記錄檔包含個人資料，像是電子郵件地址 (例如alain@contoso.com)、伺服器/IP 位址和裝置資料 (例如裝置名稱和作業系統版本)，以及僅限有助於應用程式問題移難排解所需資訊的個人資料。 您可以隨時在應用程式中檢視這些記錄檔，以查看所收集的資訊。 如果您傳送記錄檔，驗證應用程式的工程師就可以使用此資訊來對客戶回報問題進行疑難排解。</li><li>非個人的可識別使用資料，例如「已啟動的新增帳戶流程/已成功新增的帳戶」或「已核准的通知」。 這項資料是我們的工程決策中不可或缺的一部分，可協助我們判斷哪些功能對您而言很重要，以及要透過應用程式更新形式來改善的地方。 身為應用程式使用者的您，可以在第一次啟動應用程式時看到此資料收集的通知，而系統也會讓您知道可以在應用程式的 [設定] 頁面上關閉此設定。 您可以隨時啟用或停用此設定。</li></ul>|
@@ -40,7 +41,7 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 |通知適用於非 Microsoft 帳戶嗎|不適用，通知只適用於 Microsoft 帳戶與 Azure Active Directory 帳戶。 如果您的公司或學校使用 Azure AD 帳戶，他們可能會關閉此功能。|
 |我取得新的裝置或已從備份還原我的裝置。 我要如何重新設定 Microsoft Authenticator 應用程式中的帳戶？|如果您是執行已開啟 [iCloud 備份] 的 iOS 裝置，並已在舊裝置上建立帳戶備份；您可以使用該備份在新裝置上復原您的帳戶認證。 如需詳細資訊，請參閱[使用 Microsoft Authenticator 應用程式來備份和復原帳戶認證](user-help-auth-app-backup-recovery.md)一文。|
 |我遺失了我的裝置，或已移動至新的裝置。 如何確定通知不會繼續傳送到舊裝置？|將 Microsoft Authenticator 應用程式新增至新的裝置並不會自動移除舊裝置上的應用程式。 縱使從舊裝置上刪除應用程式也不能完全刪除。 您必須從舊裝置中刪除應用程式，並告訴 Microsoft 或您的組織捨棄舊裝置，然後從您的帳戶中將裝置取消註冊。<ul><li>**從使用個人 Microsoft 帳戶的裝置中移除應用程式。** 移至您[帳戶安全性](https://account.microsoft.com/security) 頁面上的雙步驟驗證區域，然後選擇關閉舊裝置的驗證。</li><li>**從使用公司或學校 Microsoft 帳戶的裝置中移除應用程式。** 移至 [MyApps](https://myapps.microsoft.com/) 頁面上的雙步驟驗證區域，或移至組織的自訂入口網站，然後選擇關閉舊裝置的驗證。</li></ul>|
-|如何從應用程式移除帳戶？|<ul><li>**iOS。** 從主畫面中選取功能表按鈕，然後選取 [編輯帳戶]。 點選帳戶名稱旁邊的紅色圖示，然後點選 [移除帳戶]。</li><li>**Android。** 從主畫面中選取功能表按鈕，然後選取 [編輯帳戶]。 點選帳戶名稱旁邊的 [X]。</li></ul>如果已向您的組織註冊您的裝置，您可能需要完成額外的步驟才能移除您的帳戶。 在這些裝置上，Microsoft Authenticator 應用程式會自動註冊為裝置系統管理員。 如果您想要完全解除安裝應用程式，則需要先在應用程式設定中取消註冊應用程式。|
+|如何從應用程式移除帳戶？|<ul><li>**iOS。** 從主畫面中選取功能表按鈕，然後選取 [編輯帳戶]。 點選帳戶名稱旁邊的紅色圖示，然後點選 [移除帳戶]。</li><li>**Android。** 從主畫面中選取功能表按鈕，然後選取 [編輯帳戶]。 點選帳戶名稱旁邊的 [X]。</li></ul>如果已向您的組織註冊您的裝置，您可能需要完成額外的步驟才能移除您的帳戶。 在这些设备上，以设备管理员自动注册了 Microsoft Authenticator 应用。 如果您想要完全解除安裝應用程式，則需要先在應用程式設定中取消註冊應用程式。|
 |為什麼應用程式要求這麼多權限？|以下是可要求的完整權限清單，以及權限在應用程式中的使用方式。 您看到的特定權限取決於您擁有的電話類型。<ul><li>**相機。** 當您新增公司、學校或非 Microsoft 帳戶時，可用來掃描 QR 代碼。</li><li>**連絡人和手機。** 當您使用個人 Microsoft 帳戶登入時，可藉由尋找手機上的現有帳戶，使用此項目來簡化程序。</li><li>**SMS。** 用來確定您的電話號碼符合記錄上的號碼。 當您第一次使用個人 Microsoft 帳戶登入時。 我們會將簡訊傳送到先前下載應用程式的手機，其中會包含 6-8 個數字的驗證碼。 我們會在簡訊中找到這個驗證碼，而不是要求您找到它，並將它輸入應用程式中。</li><li>**透過其他應用程式進行。** 用來驗證您身分識別的通知也會顯示在任何其他可能正在執行的應用程式上。</li><li>**從網際網路接收資料。** 需要有此權限，才能傳送通知。</li><li>**防止手機進入休眠。** 如果您向組織註冊裝置，則組織可以在您的手機上變更這個原則。</li><li>**控制震動。** 您可以選擇是否要在收到驗證身分識別的通知時震動。</li><li>**使用指紋硬體。** 驗證身分識別時，部分公司和學校帳戶需要額外的 PIN。 為了簡化此程序，我們可讓您使用指紋，而不是輸入 PIN。</li><li> **檢視網路連線。** 當您新增 Microsoft 帳戶時，應用程式需要網路/網際網路連線。</li><li>**讀取儲存體的內容**。 只有在您透過應用程式設定回報技術問題時，才會使用這個權限。 會收集您儲存體中的部分資訊來診斷問題。</li><li>**完整的網路存取權。** 需要有此權限，才能傳送驗證您身分識別的通知。</li><li>**在啟動時執行。** 如果您重新啟動手機，此權限可確保您會繼續收到驗證身分識別的通知。</li></ul>|
 |為什麼 Microsoft Authenticator 應用程式可讓您不需解除鎖定裝置就能核准要求？|您不需解除鎖定裝置來核准驗證要求，因為您只需要證明您帶著您的電話。 雙步驟驗證需要證明兩件事 - 一件是您知道的，另一件則是您擁有的。 您知道的就是密碼。 您擁有的則是您的電話 (使用 Microsoft Authenticator 應用程式設定，並註冊為 MFA 證明)。因此，擁有電話及核准要求符合用於驗證第二要素的準則。|
 |為什麼當我在 Apple Watch 上開啟 Microsoft Authenticator 應用程式時，不會顯示我的所有帳戶？|Microsoft Authenticator 應用程式只支援使用 Microsoft 個人或是學校或公司帳戶搭配 Apple Watch 附屬應用程式上的推播通知。 針對您的其他帳戶 (例如 Google 或 Facebook)，您必須在手機上開啟驗證器應用程式來檢視您的驗證碼。|
@@ -49,13 +50,15 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 |為什麼適用於 Apple Watch 的 Microsoft Authenticator 隨附應用程式不會在我的 Watch 上進行同步處理或顯示呢？|如果應用程式未出現在您的 Watch 上，請嘗試下列動作： <ol><li>確定您的 Watch 正在執行 watchOS 4.0 或更新版本。</li><li>再次同步處理您的 Watch。</li></ol>|
 |我的 Apple Watch 附屬應用程式當機。 可以將我的當機記錄傳送給您，讓您可以進行調查嗎？ |首先，必須確定您已選擇要與我們共用您的分析。 如果您是 TestFlight 使用者，則您已經註冊。 否則，您可以移至 [設定] > [隱私權] > [分析]，然後同時選取 [共用 iPhone 與 Watch 分析] 和 [與應用程式開發人員共用] 選項。<br><br>註冊之後，您可以嘗試重現當機狀況，如此一來，您的當機記錄就會自動傳送給我們以利調查。 不過，如果您無法重現當機狀況，您可以手動複製記錄檔並將它們傳送給我們。<ol><li>在手機上開啟 Watch 應用程式、移至 [設定] > [一般]，然後按一下 [複製 Watch 分析]。</li><li>在 [設定] > [隱私權] > [分析] > [分析資料] 下方尋找對應的當機，然後手動複製整個文字。</li><li>在手機上開啟 Microsoft Authenticator 應用程式，將複製的文字貼到 [傳送記錄] 頁面上的 [與應用程式開發人員共用] 文字方塊中。</li></ol>|
 |什麼是應用程式鎖定功能，其如何協助提升我使用裝置時的安全性？|若要讓單次密碼、應用程式資訊和應用程式設定更加安全，您可以在 Microsoft Authenticator 應用程式中開啟應用程式鎖定功能。 從 Microsoft Authenticator 應用程式的 [設定] 畫面開啟 [應用程式鎖定]，代表系統會在您每次開啟 Microsoft Authenticator 應用程式時，要求您使用 PIN 碼或生物特徵辨識進行驗證。 這項功能可提供額外的保護，您在 Microsoft Authenticator 應用程式中核准通知的方式並不會改變。<br><br>**注意**<br>如果您在不到 30 秒內返回在 Android 裝置上執行的 Microsoft Authenticator 應用程式，系統不會再次提示您進行驗證。|
-|為什麼我會收到關於帳戶活動的通知？|為了讓您更了解個人 Microsoft 帳戶的現況，我們會將活動通知傳送至您的 Microsoft Authenticator 應用程式。 這些通知會發生變更後立即顯示，以利確保您的安全性。 我們之前透過電子郵件和簡訊傳送這些通知，而現在已擴充為包括應用程式。 如需這些活動通知的詳細資訊，請參閱[若您的帳戶出現異常登入，將會如何](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)。 若要變更接收通知的位置，請登入 https://account.live.com/SecurityNotifications/Update。|
+|為什麼我會收到關於帳戶活動的通知？|為了讓您更了解個人 Microsoft 帳戶的現況，我們會將活動通知傳送至您的 Microsoft Authenticator 應用程式。 這些通知會發生變更後立即顯示，以利確保您的安全性。 我們之前透過電子郵件和簡訊傳送這些通知，而現在已擴充為包括應用程式。 如需這些活動通知的詳細資訊，請參閱[若您的帳戶出現異常登入，將會如何](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)。 若要變更接收通知的位置，請登入 https://account.live.com/SecurityNotifications/Update。
 
 
 ## <a name="next-steps"></a>後續步驟
 
+- 如果您遇到您個人的 Microsoft 帳戶取得您的驗證碼的問題，請參閱**驗證程式碼問題疑難排解**一節[Microsoft 帳戶安全性資訊和驗證程式碼](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes)文章。
+
 -   如果您需要雙步驟驗證的詳細資訊，請參閱[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)
 
--   如果您想要關於安全性資訊的詳細資訊，請參閱[管理安全性資訊](security-info-manage-settings.md)
+-   如果您想要的安全性資訊的詳細資訊，請參閱[安全性資訊 （預覽） 概觀](user-help-security-info-overview.md)
 
 - 如果您無法在此處找到解答，我們希望能夠聆聽您的意見。 請移至 [Microsoft Authenticator 應用程式論壇 (英文)](https://social.technet.microsoft.com/Forums/en-us/home?forum=MicrosoftAuthenticatorApp) 張貼您的問題並從社群取得協助，或在此頁面上留下您的意見。

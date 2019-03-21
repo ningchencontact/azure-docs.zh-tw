@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2e72d669abcc784fe8159fd4c54bd074dc60299c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 55e46e058bddca717929df61b2bc766b89e0f885
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122753"
 ---
 ![獨立雲端服務中的虛擬機器](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
@@ -25,29 +25,29 @@ ms.locfileid: "50227217"
 1. 在 [Azure 入口網站](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)中建立虛擬網路並指定「傳統部署」。
 2. 為部署一組建立雲端服務，以反映可用性設定組和負載平衡的設計。 在 Azure 入口網站中，針對每個雲端服務，按一下 [建立資源] > [計算] > [雲端服務]。
 
-  當您填寫雲端服務詳細資料時，請選擇搭配虛擬網路使用的相同「資源群組」。
+   當您填寫雲端服務詳細資料時，請選擇搭配虛擬網路使用的相同「資源群組」。
 
 3. 若要建立每個新的虛擬機器，請按一下 [建立資源] > [計算]，然後從 [精選 App] 中選取適當的 VM 映像。
 
-  在 VM 的 [基本概念] 刀鋒視窗中，選擇搭配虛擬網路使用的相同「資源群組」。
+   在 VM 的 [基本概念] 刀鋒視窗中，選擇搭配虛擬網路使用的相同「資源群組」。
 
-  ![使用 VNet 時的 VM 基本概念刀鋒視窗](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+   ![使用 VNet 時的 VM 基本概念刀鋒視窗](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
 
 4. 當您填寫 VM 的 [設定] 時，為 VM 選擇正確的「雲端服務」和「虛擬網路」。
 
-  Azure 會根據您選取的項目來選取其他項目。
+   Azure 會根據您選取的項目來選取其他項目。
 
-  ![使用 VNet 時的 VM 設定刀鋒視窗](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+   ![使用 VNet 時的 VM 設定刀鋒視窗](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
 
-## <a name="connect-vms-in-a-standalone-cloud-service"></a>連接獨立雲端服務中的 VM
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>连接独立云服务中的 VM
 若要在獨立雲端服務中連接虛擬機器：
 
 1. 在 [Azure 入口網站](http://portal.azure.com)中建立雲端服務。 按一下 [新增] > [計算] > [雲端服務]。 或者，當您建立第一部虛擬機器時，您可以為您的部署建立雲端服務。
 2. 當您建立虛擬機器時，請選擇搭配雲端服務使用的相同資源群組。
 
-  ![將虛擬機器加入至現有的雲端服務。](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+   ![將虛擬機器加入至現有的雲端服務。](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
 
-3.  當您填寫 VM 詳細資料時，請選擇在第一個步驟中建立的雲端服務名稱。
+3. 當您填寫 VM 詳細資料時，請選擇在第一個步驟中建立的雲端服務名稱。
 
-  ![選取虛擬機器的雲端服務](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
+   ![選取虛擬機器的雲端服務](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9bb6491565f685e8ca3d7a6271747a5df3629e81
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 9ff6388c72c631dad870a4f52f86749bfd744d85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269071"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085611"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>使用 Azure Resource Manager 來檢視部署作業
 
@@ -30,12 +30,12 @@ ms.locfileid: "56269071"
 
 ## <a name="portal"></a>入口網站
 
-若要查看部署作業，請使用下列步驟 ︰
+若要查看部署操作，请使用以下步骤 ：
 
 1. 針對部署所含的資源群組，請注意最後一個部署的狀態。 您可以選取此狀態，以取得更多詳細資料。
    
-    ![deployment status](./media/resource-manager-deployment-operations/deployment-status.png)
-2. 您會看到最近的部署歷程記錄。 選取失敗的部署。
+    ![部署状态](./media/resource-manager-deployment-operations/deployment-status.png)
+2. 您會看到最近的部署歷程記錄。 选择失败的部署。
    
     ![deployment status](./media/resource-manager-deployment-operations/select-deployment.png)
 3. 選取連結以查看部署失敗的原因描述。 在下圖中，DNS 記錄不是唯一的。  
@@ -58,118 +58,118 @@ ms.locfileid: "56269071"
 ## <a name="powershell"></a>PowerShell
 1. 若要取得部署的整體狀態，請使用 **Get-AzResourceGroupDeployment** 命令。 
 
-  ```powershell
-  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
-  ```
+   ```powershell
+   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
+   ```
 
    或者，您也可以篩選結果，只找出失敗的部署。
 
-  ```powershell
-  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
-  ```
+   ```powershell
+   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+   ```
    
 2. 若要取得相互關連識別碼，請使用：
 
-  ```powershell
-  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
-  ```
+   ```powershell
+   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+   ```
 
 3. 每個部署都包括多個作業。 每個作業皆代表部署程序中的一個步驟。 若要探索部署有何問題，您通常需要查看有關部署作業的詳細資訊。 您可以利用 **Get-AzResourceGroupDeploymentOperation** 查看作業的狀態。
 
-  ```powershell 
-  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
-  ```
+   ```powershell 
+   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+   ```
 
     以下列格式傳回多項作業︰
 
-  ```powershell
-  Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
-  OperationId    : A3EB2DA598E0A780
-  Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
+   ```powershell
+   Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
+   OperationId    : A3EB2DA598E0A780
+   Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
                    duration=PT23.0227078S; trackingId=11d376e8-5d6d-4da8-847e-6f23c6443fbf;
                    serviceRequestId=0196828d-8559-4bf6-b6b8-8b9057cb0e23; statusCode=OK; targetResource=}
-  PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
+   PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
-  ```
+   ```
 
 4. 若要取得有關失敗作業的詳細資訊，請擷取具有 [失敗]  狀態的作業屬性。
 
-  ```powershell
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
-  ```
+   ```powershell
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+   ```
    
     這會以下列格式傳回所有失敗的作業︰
 
-  ```powershell
-  provisioningOperation : Create
-  provisioningState     : Failed
-  timestamp             : 2016-06-14T21:54:55.1468068Z
-  duration              : PT3.1449887S
-  trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
-  serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
-  statusCode            : BadRequest
-  statusMessage         : @{error=}
-  targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
+   ```powershell
+   provisioningOperation : Create
+   provisioningState     : Failed
+   timestamp             : 2016-06-14T21:54:55.1468068Z
+   duration              : PT3.1449887S
+   trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
+   serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
+   statusCode            : BadRequest
+   statusMessage         : @{error=}
+   targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
                           Microsoft.Network/publicIPAddresses/myPublicIP;
                           resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
-  ```
+   ```
 
     請記下此作業的 serviceRequestId 和 trackingId。 與技術支援人員合作來排解部署問題時，serviceRequestId 會相當有用。 您將在下一個步驟中運用 trackingId 將重點放在特定的作業。
 5. 若要取得特定失敗作業的狀態訊息，請使用下列命令︰
 
-  ```powershell
-  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
-  ```
+   ```powershell
+   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+   ```
 
-    它會傳回：
+    返回：
 
-  ```powershell
-  code           message                                                                        details
-  ----           -------                                                                        -------
-  DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
-  ```
+   ```powershell
+   code           message                                                                        details
+   ----           -------                                                                        -------
+   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
+   ```
 6. Azure 中的每個部署作業包含要求和回應內容。 要求內容是部署期間您傳送至 Azure 的內容 (例如，建立 VM、作業系統磁碟和其他資源)。 回應內容是 Azure 從您的部署要求傳送回來的內容。 部署期間，您可以使用 **DeploymentDebugLogLevel** 參數來指定要求和/或回應會保留在記錄檔中。 
 
-  您會使用下列 PowerShell 命令從記錄檔取得該資訊，並將它儲存在本機︰
+   您會使用下列 PowerShell 命令從記錄檔取得該資訊，並將它儲存在本機︰
 
-  ```powershell
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+   ```powershell
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
-  ```
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+   ```
 
 ## <a name="azure-cli"></a>Azure CLI
 
 1. 利用 **azure group deployment show** 命令取得部署的整體狀態。
 
-  ```azurecli
-  az group deployment show -g ExampleGroup -n ExampleDeployment
-  ```
+   ```azurecli
+   az group deployment show -g ExampleGroup -n ExampleDeployment
+   ```
   
 2. 其中一個傳回的值是 **correlationId**。 此值可用來追蹤相關的事件，並且在與技術支援人員合作來排解部署問題時會相當有用。
 
-  ```azurecli
-  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
-  ```
+   ```azurecli
+   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
+   ```
 
 3. 若要查看某個部署的作業，請使用：
 
-  ```azurecli
-  az group deployment operation list -g ExampleGroup -n ExampleDeployment
-  ```
+   ```azurecli
+   az group deployment operation list -g ExampleGroup -n ExampleDeployment
+   ```
 
 ## <a name="rest"></a>REST
 
-1. 利用 [取得範本部署的相關資訊](https://docs.microsoft.com/rest/api/resources/deployments) 作業，來取得部署相關資訊。
+1. 使用 [获取有关模板部署的信息](https://docs.microsoft.com/rest/api/resources/deployments) 操作来获取有关部署的信息。
 
-  ```http
-  GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
-  ```
+   ```http
+   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
+   ```
 
     在回應中，請特別注意 **provisioningState**、**correlationId** 和 **error** 元素。 **correlationId** 可用來追蹤相關的事件，並且在與技術支援人員合作來排解部署問題時會相當有用。
 
-  ```json
-  { 
+   ```json
+   { 
     ...
     "properties": {
       "provisioningState":"Failed",
@@ -180,19 +180,19 @@ ms.locfileid: "56269071"
         "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
       }  
     }
-  }
-  ```
+   }
+   ```
 
 2. 使用[列出所有範本部署作業](https://docs.microsoft.com/rest/api/resources/deployments) \(英文\) ，來取得部署的相關資訊。 
 
-  ```http
-  GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
-  ```
+   ```http
+   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
+   ```
    
     回應會根據您在部署期間於 **debugSetting** 屬性中指定的內容，來包含要求和 (或) 回應資訊。
 
-  ```json
-  {
+   ```json
+   {
     ...
     "properties": 
     {
@@ -213,12 +213,12 @@ ms.locfileid: "56269071"
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
 
 ## <a name="next-steps"></a>後續步驟
-* 如需解決特定部署錯誤的說明，請參閱 [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
+* 如需帮助解决特定部署错误，请参阅[解决使用 Azure Resource Manager 将资源部署到 Azure 时的常见错误](resource-manager-common-deployment-errors.md)。
 * 若要了解如何使用活動記錄來監視其他類型的動作，請參閱[檢視活動記錄以管理 Azure 資源](resource-group-audit.md)。
-* 若要在執行之前驗證您的部署，請參閱 [使用 Azure Resource Manager 範本部署資源群組](resource-group-template-deploy.md)。
+* 若要在执行部署之前验证部署，请参阅[使用 Azure Resource Manager 模板部署资源组](resource-group-template-deploy.md)。
 

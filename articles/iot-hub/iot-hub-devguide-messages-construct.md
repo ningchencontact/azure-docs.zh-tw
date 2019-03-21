@@ -1,6 +1,6 @@
 ---
 title: 了解 Azure IoT 中樞訊息格式 | Microsoft Docs
-description: 開發人員指南 - 說明 IoT 中樞訊息的格式和預期內容。
+description: 開發人員指南-說明的格式和預期的 IoT 中樞訊息的內容。
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 164f3b8ef42d07606d98d200fa9bebcd0add3d38
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 08eb7171249c42348877afedc80c6c6338265422
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319569"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861720"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -31,7 +31,7 @@ IoT 中樞訊息包含：
 
 * 不透明的二進位主體。
 
-在您使用 HTTPS 通訊協定傳送裝置到雲端或雲端到裝置的訊息時，屬性名稱和值只能包含 ASCII 英數字元以及 `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`。
+上述屬性名稱和值只能包含 ASCII 英數字元，而且 ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` 在您使用 HTTPS 通訊協定傳送裝置到雲端或雲端到裝置的訊息時也是如此。
 
 IoT 中樞的裝置對雲端傳訊具有下列特性：
 
@@ -47,7 +47,7 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 
 下表列出 IoT 中樞訊息中的系統屬性集合。
 
-| 屬性 | 說明 | 是否可設定使用者？ |
+| 屬性 | 描述 | 是否可設定使用者？ |
 | --- | --- | --- |
 | message-id |使用者可設定的訊息識別碼，用於「要求-回覆」模式。 格式：區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和 `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`。 | 是 |
 | sequence-number |IoT 中樞指派給每則雲端到裝置訊息的數字 (對每個裝置佇列而言都是唯一的)。 | [否] 表示 C2D 訊息；[是] 表示其他。 |
@@ -56,8 +56,7 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 | iothub-enqueuedtime |IoT 中樞收到[雲端到裝置](iot-hub-devguide-c2d-guidance.md)訊息的日期和時間。 | [否] 表示 C2D 訊息；[是] 表示其他。 |
 | correlation-id |回應訊息中的字串屬性，通常包含採用「要求-回覆」模式之要求的 MessageId。 | 是 |
 | user-id |用來指定訊息來源的識別碼。 當 IoT 中樞產生訊息時，它會設定為 `{iot hub name}`。 | 否 |
-| iothub-ack |意見反應訊息產生器。 這個屬性是在雲端到裝置訊息中使用，可要求 IoT 中樞因為裝置取用訊息而產生意見反應訊息。 可能的值︰**none** (預設值)︰不會產生任何意見反應訊息；**positive**︰如果訊息已完成，則會收到意見反應訊息；**negative**︰如果訊息未由裝置完成就到期 (或已達到最大傳遞計數) 則會收到意見反應訊息；或者 **full**︰positive 和 negative。 
-<!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | 是 |
+| iothub-ack |意見反應訊息產生器。 這個屬性是在雲端到裝置訊息中使用，可要求 IoT 中樞因為裝置取用訊息而產生意見反應訊息。 可能的值︰**none** (預設值)︰不會產生任何意見反應訊息；**positive**︰如果訊息已完成，則會收到意見反應訊息；**negative**︰如果訊息未由裝置完成就到期 (或已達到最大傳遞計數) 則會收到意見反應訊息；或者 **full**︰positive 和 negative。 <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | 是 |
 | iothub-connection-device-id |由 IoT 中樞在裝置到雲端訊息上設定的識別碼。 它包含傳送訊息之裝置的 **deviceId** 。 | [否] 表示 D2C 訊息；[是] 表示其他。 |
 | iothub-connection-auth-generation-id |由 IoT 中樞在裝置到雲端訊息上設定的識別碼。 它包含傳送訊息之裝置的 **generationId** (依據 [裝置身分識別屬性](iot-hub-devguide-identity-registry.md#device-identity-properties))。 | [否] 表示 D2C 訊息；[是] 表示其他。 |
 | iothub-connection-auth-method |由 IoT 中樞在裝置到雲端訊息上設定的驗證方法。 這個屬性包含用來驗證傳送訊息之裝置的驗證方法的相關資訊。 <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | [否] 表示 D2C 訊息；[是] 表示其他。 |

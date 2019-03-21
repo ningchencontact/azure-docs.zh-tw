@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 84c37927eda65be71eb837aef2cb4968a121ee29
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426888"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010556"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>如何在 Azure 上的 Java 應用程式中使用 Twilio 撥打電話
 下列範例將說明如何從 Azure 代管的網頁上使用 Twilio 撥打電話。 產生的應用程式會提示使用者提供電話值，如下列螢幕擷取畫面所示。
@@ -162,7 +162,7 @@ ms.locfileid: "52426888"
     </body>
     </html>
 
-除了撥打電話以外，makecall.jsp 也會顯示 Twilio 端點、API 版本和通話狀態。 下列螢幕擷取畫面顯示其範例：
+除了撥打電話以外，makecall.jsp 也會顯示 Twilio 端點、API 版本和通話狀態。 舉例來說，下列螢幕擷取畫面：
 
 ![Azure Call Response Using Twilio and Java][twilio_java_response]
 
@@ -173,7 +173,7 @@ ms.locfileid: "52426888"
 2. 修改 **startup.cmd** ，以將 TwilioCloud WAR 解壓縮。
 3. 針對計算模擬器編譯您的應用程式。
 4. 在計算模擬器中開始進行部署。
-5. 開啟瀏覽器並執行 **http://localhost:8080/TwilioCloud/callform.jsp**。
+5. 開啟瀏覽器，並執行`http://localhost:8080/TwilioCloud/callform.jsp`。
 6. 輸入表單中的值，按一下 [Make this call] ，然後在 makecall.jsp 中檢視結果。
 
 當您做好部署至 Azure 的準備後，您可以針對雲端環境重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp (請將 *your_hosted_name* 取代為您的值)。
@@ -188,7 +188,7 @@ ms.locfileid: "52426888"
 
 如需 Twilio 的其他資訊，請參閱 [https://www.twilio.com/docs][twilio_docs]。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [如何在 Java 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_java]
 * [新增憑證至 Java CA 憑證存放區][add_ca_cert]
 

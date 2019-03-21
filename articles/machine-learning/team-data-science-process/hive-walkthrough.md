@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108716"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881141"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
-在此逐步解說中，我們在端對端案例中使用 [Team Data Science Process (TDSP)](overview.md)。 我們使用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)，以對 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。 若要處理二元和多元分類和迴歸預測工作，我們使用 Azure Machine Learning 建置資料的模型。 
+在此逐步解說中，我們在端對端案例中使用 [Team Data Science Process (TDSP)](overview.md)。 我們使用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)，以對 [NYC 計程車車程](https://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。 若要處理二元和多元分類和迴歸預測工作，我們使用 Azure Machine Learning 建置資料的模型。 
 
 如需示範如何處理較大資料集的逐步解說，請參閱 [Team Data Science Process - 在 1 TB 的資料集上使用 Azure HDInsight Hadoop 叢集](hive-criteo-walkthrough.md)。
 
@@ -84,7 +84,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 > 
 > 
 
-若要從 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集的公用位置將該資料集複製到您的電腦，請使用[將資料移進和移出 Azure Blob 儲存體](move-azure-blob.md)中所述的任何一種方法。
+若要從 [NYC 計程車車程](https://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集的公用位置將該資料集複製到您的電腦，請使用[將資料移進和移出 Azure Blob 儲存體](move-azure-blob.md)中所述的任何一種方法。
 
 我們在這裡說明如何使用 AzCopy 來傳輸含有資料的檔案。 若要下載並安裝 AzCopy，請遵循[開始使用 AzCopy 命令列公用程式](../../storage/common/storage-use-azcopy.md)的指示。
 
@@ -516,7 +516,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
 您可能想知道兩個位置之間的直線距離，與計程車實際的車程距離之間是否有差異。 如果乘客認為駕駛刻意繞遠路時，他們可能比較不會給小費。
 
-為了查看兩個經度-緯度點 (「大圓」距離) 之間的實際車程距離與 [Haversine 距離](http://en.wikipedia.org/wiki/Haversine_formula)的比較，您可以使用 Hive 中的可用三角函數：
+為了查看兩個經度-緯度點 (「大圓」距離) 之間的實際車程距離與 [Haversine 距離](https://en.wikipedia.org/wiki/Haversine_formula)的比較，您可以使用 Hive 中的可用三角函數：
 
     set R=3959;
     set pi=radians(180);
@@ -822,8 +822,8 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 此範例逐步解說及其隨附的指令碼是在 MIT 授權下由 Microsoft 所共用。 如需詳細資料，請查看 GitHub 上範例程式碼目錄中的 **LICENSE.txt** 檔案。
 
 ## <a name="references"></a>參考
-•    [Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) \(英文\)  
-•    [FOILing NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Andrés Monroy NYC 計程車車程下載頁面](https://www.andresmh.com/nyctaxitrips/) \(英文\)  
+•    [FOILing NYC 的計程車車程資料 (作者為 Chris Whong)](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
