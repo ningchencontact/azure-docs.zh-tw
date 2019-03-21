@@ -5,22 +5,22 @@ description: 任何專案底下的 [模型] 索引標籤都會顯示每個模型
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: d82d41a254164c635f4488db63766b39d922f002
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 13f3d88ad69d2acc64b9a6469415eceaf22fa491
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219103"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764383"
 ---
 # <a name="view-model-details"></a>檢視模型詳細資料
 
 專案底下的 [模型] 索引標籤會顯示該專案中的所有模型。 針對該專案定型的所有模型，都會列在此索引標籤中。
 
-在專案中的每個模型會顯示下列的模型詳細資料。
+每個模型專案中，會顯示這些詳細資料。
 
 1.  模型名稱：顯示指定模型的模型名稱。
 

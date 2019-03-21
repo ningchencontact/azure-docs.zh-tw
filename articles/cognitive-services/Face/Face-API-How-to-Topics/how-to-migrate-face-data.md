@@ -6,16 +6,16 @@ services: cognitive-services
 author: lewlu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 5eb198ecf76556e632c5f42bc22362b2f20f8916
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55771602"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448776"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>將您的臉部資料移轉至其他臉部訂用帳戶
 
@@ -83,7 +83,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>擷取快照集識別碼
 
-建立快照集的方法是非同步的，因此您需要等它完成 (您無法取消快照集作業)。 在此程式碼中，`WaitForOperation` 方法會監視非同步呼叫 (每 100ms 檢查一次狀態)。 作業完成後，您將能夠擷取作業識別碼。 您可以藉由剖析 `OperationLocation` 欄位來取得。 
+採取方法快照集是非同步的因此您必須等候其完成 （快照集無法取消作業）。 在此程式碼中，`WaitForOperation` 方法會監視非同步呼叫 (每 100ms 檢查一次狀態)。 作業完成後，您將能夠擷取作業識別碼。 您可以藉由剖析 `OperationLocation` 欄位來取得。 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);

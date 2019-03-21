@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: b35d3d22ce154420c9099143894688389e8af420
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
-ms.translationtype: HT
+ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58078035"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259749"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure 儲存體分析計量 （傳統）
 
@@ -23,10 +23,10 @@ ms.locfileid: "58078035"
 
 > [!NOTE]
 > 儲存體分析度量可供使用 Blob、 佇列、 資料表和檔案服務。
-> 儲存體分析度量現在是傳統的計量。 Microsoft 建議您使用[Azure 監視器中的儲存體計量](/azure/storage/common/storage-metrics-in-azure-monitor.md)而不是儲存體分析度量。
+> 儲存體分析度量現在是傳統的計量。 Microsoft 建議您使用[Azure 監視器中的儲存體計量](storage-metrics-in-azure-monitor.md)而不是儲存體分析度量。
 
 ## <a name="transaction-metrics"></a>交易度量  
- 系統會以每小時或每分鐘的時間間隔，為每個儲存體服務和要求的 API 作業記錄完善的資料集，其中包括輸入流量/輸出流量、可用性、錯誤，以及已分類的要求百分比。 您可以在 [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema.md) 主題中查看完整的交易詳細資料清單。  
+ 系統會以每小時或每分鐘的時間間隔，為每個儲存體服務和要求的 API 作業記錄完善的資料集，其中包括輸入流量/輸出流量、可用性、錯誤，以及已分類的要求百分比。 您可以在 [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema) 主題中查看完整的交易詳細資料清單。  
 
  記錄的交易資料屬於兩個層級 - 服務層級和 API 作業層級。 在服務層級，系統每小時都會將彙總所有要求的 API 作業的統計資料寫入資料表實體，即使未對該服務提出任何要求也一樣。 在 API 操作级别，仅当在该小时内请求操作时才将统计信息写入实体。  
 
@@ -45,7 +45,7 @@ ms.locfileid: "58078035"
 - **ContainerCount**：儲存體帳戶之 Blob 服務中的 blob 容器數目。  
 - **ObjectCount**：認可及未認可區塊或分頁 blob 儲存體帳戶之 Blob 服務中的數字。  
 
-  如需容量度量的詳細資訊，請參閱 [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)。  
+  如需容量度量的詳細資訊，請參閱 [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema)。  
 
 ## <a name="how-metrics-are-stored"></a>度量的儲存方式  
 
@@ -123,7 +123,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 如需使用.NET 語言來設定儲存體度量的詳細資訊，請參閱[適用於.NET 的儲存體用戶端程式庫](https://msdn.microsoft.com/library/azure/mt347887.aspx)。  
 
-如需設定儲存體度量，使用 REST API 的一般資訊，請參閱 <<c0> [ 啟用及設定儲存體分析](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics.md)。  
+如需設定儲存體度量，使用 REST API 的一般資訊，請參閱 <<c0> [ 啟用及設定儲存體分析](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)。  
 
 ##  <a name="viewing-storage-metrics"></a>檢視儲存體度量  
 在您設定儲存體分析計量監視您的儲存體帳戶後，儲存體分析會將計量記錄在您儲存體帳戶中一組已知資料表中。 您可以在 [Azure 入口網站](https://portal.azure.com)中將圖表設定為檢視每小時計量：
@@ -144,7 +144,7 @@ queueClient.SetServiceProperties(serviceProperties);
 |每分鐘度量|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|只可使用 PowerShell 或以程式設計的方式。<br /><br /> 檔案服務的計量是從版本 2015年-04-05。|  
 |Capacity|$MetricsCapacityBlob|僅限 blob 服務。|  
 
-您可以在 [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)上找到這些資料表之結構描述的完整詳細資料。 下列資料列範例只會顯示可用的資料行子集，但可說明儲存體度量儲存這些度量資訊之方式的一些重要功能：  
+您可以在 [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema)上找到這些資料表之結構描述的完整詳細資料。 下列資料列範例只會顯示可用的資料行子集，但可說明儲存體度量儲存這些度量資訊之方式的一些重要功能：  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
@@ -227,6 +227,6 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 
 ## <a name="next-steps"></a>後續步驟
 * [如何監視儲存體帳戶](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)   
-* [儲存體分析記錄作業和狀態訊息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)   
+* [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [儲存體分析記錄作業和狀態訊息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
 * [儲存體分析記錄](storage-analytics-logging.md)

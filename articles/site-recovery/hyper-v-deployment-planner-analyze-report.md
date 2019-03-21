@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 6065d83cf74b6bb7c3d80d4e452df8377dc9823e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732648"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286494"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>分析 Azure Site Recovery 部署規劃工具報告
 本文討論 Azure Site Recovery 部署規劃工具針對 Hyper-V 到 Azure 的案例產生的 Excel 報告所包含的工作表。
@@ -275,7 +275,7 @@ Site Recovery 部署規劃工具所產生的 Excel 報告會在「不相容的 V
 ---|---|---|---
 標準儲存體 | 8 KB | 每一 VM 2 MB/s | 每一 VM 168 GB
 進階儲存體 | 8 KB  | 每一 VM 5 MB/s | 每一 VM 421 GB
-進階儲存體 | 16 KB 或更高| 每一 VM 10 MB/s | 每一 VM 842 GB
+進階儲存體 | 16 KB 或更高| 20 MB/秒 | 每個 VM 的 1684 GB
 
 這些限制是採用 30% I/O 重疊時的平均數字。 Site Recovery 能夠處理更高的輸送量 (以重疊比為基礎)、較大的寫入大小和實際工作負載 I/O 行為。 先前數字採用大約五分鐘的典型積壓。 也就是說，資料上傳之後，便會進行處理並在五分鐘內建立復原點。
 

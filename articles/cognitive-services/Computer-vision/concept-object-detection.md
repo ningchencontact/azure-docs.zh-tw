@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ee85e6bd171fc9415e5c7606d6e18a7a22fa6570
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cc5b40b6a800ff185c6c52652435b558fabe091f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866911"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57873881"
 ---
 # <a name="object-detection"></a>物件偵測
 
-物件偵測與[標記功能](concept-tagging-images.md)類似，但 API 會傳回每個所找到物件的週框方塊座標 (以像素為單位)。 例如，如果影像包含狗、貓或人物，「偵測」作業就會列出這些物件及其在影像中的座標。 您可以使用此功能來處理影像中物件間的關聯性。 此功能也可讓您判斷影像中是否有多個相同標記的執行個體。
+物件偵測與[標記功能](concept-tagging-images.md)類似，但 API 會傳回每個所找到物件的週框方塊座標 (以像素為單位)。 例如，如果影像包含狗、貓或人物，「偵測」作業就會列出這些物件及其在影像中的座標。 您可以使用此功能來處理影像中物件間的關聯性。 它也可讓您判斷是否有多個執行個體的映像中相同的標籤。
 
-偵測 API 會根據在影像中識別到的物件或生物來套用標記。 請注意，用於標記的分類法和用於物件偵測的分類法之間沒有正式關聯性。 就概念而言，偵測 API 只會尋找物件和生物，而標記 API 也可以包含與環境相關的字詞，例如「室內」，但這無法使用週框方塊來加以當地語系化。
+偵測 API 會根據在影像中識別到的物件或生物來套用標記。 到目前為止，沒有型式之間關聯性標記的分類法和物件偵測分類法。 就概念而言，偵測 API 只會尋找物件和即時項目，而標記 API 也可以包含等"室內"，無法使用週框方塊當地語系化的內容相關詞彙。
 
 ## <a name="object-detection-example"></a>物件偵測範例
 
@@ -89,13 +89,15 @@ ms.locfileid: "55866911"
 
 ## <a name="limitations"></a>限制
 
-請務必注意物件偵測功能的限制，以避免或降低誤判 (遺失物件) 和限制細節的影響。
-* 通常不會偵測到太小的物件 (低於影像的 5%)。
-* 通常不會偵測到排列過於緊密的物件 (例如堆疊的盤子)。
+請務必請注意物件偵測的限制，因此您可以避免或減輕誤否定 （遺失物件） 和限制的詳細資料的效果。
+
+* 如果它們小 （低於 5%的映像），通常會不偵測物件。
+* 物件通常不會偵測到如果其密切合作排列 （堆疊的盤子，例如）。
 * 無法依品牌或產品名稱區分物件 (例如貨架上有不同種類的汽水)。 不過，您可以使用[品牌偵測](concept-brand-detection.md)功能，從影像中取得品牌資訊。
 
 ## <a name="use-the-api"></a>使用 API
-物件偵測功能是[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 的一部分。 您可以透過原生 SDK 或 REST 呼叫來呼叫此 API。 您取得完整的 JSON 回應時，只需要對於 `"objects"` 一節的內容剖析字串。
+
+物件偵測功能是[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 的一部分。 您可以透過原生 SDK 或 REST 呼叫來呼叫此 API。 當您取得完整的 JSON 回應時，將內容的字串剖析`"objects"`一節。
 
 * [快速入門：分析影像 (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [快速入門：分析影像 (REST API)](./quickstarts/csharp-analyze.md)

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310206"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104415"
 ---
 # <a name="how-to-improve-your-classifier"></a>如何改善分類器
 
@@ -39,7 +39,7 @@ ms.locfileid: "56310206"
 
 ## <a name="data-quantity"></a>資料品質
 
-定型影像數目是最重要的因素。 建議您一開始每個標籤至少使用 50 個影像。 使用較少影像，過度學習的風險比較高，雖然您的效能數字可能暗示品質良好，但您的模型可能在與真實世界的資料奮戰。 
+定型影像數目是最重要的因素。 我們建議使用每個標籤至少 50 個映像做為起點。 使用較少影像，過度學習的風險比較高，雖然您的效能數字可能暗示品質良好，但您的模型可能在與真實世界的資料奮戰。 
 
 ## <a name="data-balance"></a>資料平衡
 
@@ -102,4 +102,4 @@ ms.locfileid: "56310206"
 在本指南中，您已了解數種讓自訂影像分類模型更加精確的技術。 接下來，了解如何藉由將影像送出到預測 API，以程式設計方式測試它們。
 
 > [!div class="nextstepaction"]
-[使用預測 API](use-prediction-api.md)
+> [使用預測 API](use-prediction-api.md)

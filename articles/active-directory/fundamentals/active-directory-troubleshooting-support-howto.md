@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181787"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285089"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>尋求 Azure Active Directory 方面的協助及開立支援票證
 Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售前、帳單和訂用帳戶支援。 Microsoft Azure 付費訂用帳戶與試用訂用帳戶則提供線上和電話支援 。 電話支援和線上帳單支援已推出其他語言版本。 
@@ -31,7 +31,7 @@ Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售�
 
 * 如需 IT 專業人員和開發人員所適用的操作說明資訊或程式碼範例等內容，請參閱 [docs.microsoft.com 上的技術文件](https://docs.microsoft.com/azure/active-directory/)。
 
-* [Microsoft 技術社群](https://techcommunity.microsoft.com/) 是我們的 IT 專業合作夥伴與客戶共同作業、共用及學習的場所。 [Microsoft 技術社群資訊中心](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center)則用於公告、部落格文章、與專家之間的「問我任何東西」(AMA) 互動等等。 您也可以[加入社群以提交意見](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities)。
+* [Microsoft 技術社群](https://techcommunity.microsoft.com/)是我們 IT 專業合作夥伴與客戶共同作業、 分享及學習的位置。 [Microsoft 技術社群資訊中心](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center)用於公告、 部落格文章、 與專家，提出-我任何東西 (AMA) 互動等等。 您也可以[加入社群以提交意見](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities)。
 
 
 ## <a name="open-a-support-ticket"></a>開啟支援票證
@@ -64,8 +64,7 @@ Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售�
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>如何在 Microsoft 365 系統管理中心中，開啟 Azure ad 的支援票證
 
 > [!NOTE]
-> Azure ad 中的支援[Microsoft 365 系統管理中心](https://admin.microsoft.com)提供僅限系統管理員。
-> 
+> Azure ad 中的支援[Microsoft 365 系統管理中心](https://admin.microsoft.com)提供僅限系統管理員。 
 
 1. 登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)有 Enterprise Mobility + Security (EMS) 授權的帳戶。
 

@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10346ea0aa292be33f820bd4e92434e2c58a89ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194303"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286851"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 入口網站指派或移除授權
 許多 Azure Active Directory (Azure AD) 服務會要求您啟用 Azure AD 產品，以及授權該產品的每個使用者或群組 (和相關聯的成員)。 只有擁有有效授權的使用者才能存取和使用授權 Azure AD 服務。
@@ -47,7 +47,7 @@ Azure AD 產品有數個可用版本。
 
     [授權] 頁面隨即顯示。
 
-    ![授權頁面上顯示已購買的產品及已指派的授權數目](media/license-users-groups/license-details-blade.png)
+    ![授權 頁面上，以購買的產品和指派的授權數目](media/license-users-groups/license-details-blade.png)
     
 3. 選取 [已購買產品] 連結，即可檢視 [產品] 頁面，並查看每個特定產品版本的 [已指派]、[可用] 和 [即將過期] 詳細資訊。
 
@@ -76,7 +76,7 @@ Azure AD 產品有數個可用版本。
 
 4. 選取 [指派] 選項，確認已開啟適當的授權選項，然後選取 [確定]。
 
-    ![授權選項頁面顯示適用於此版本的所有選項](media/license-users-groups/license-option-blade-assignments.png)
+    ![授權選項的頁面上，使用適用於此版本的所有選項](media/license-users-groups/license-option-blade-assignments.png)
 
     [指派授權] 頁面隨即更新，顯示已選取一名使用者且已設定指派。
 
@@ -102,7 +102,7 @@ Azure AD 產品有數個可用版本。
 
 4. 選取 [指派] 選項，確認已開啟適當的授權選項，然後選取 [確定]。
 
-    ![授權選項頁面顯示適用於此版本的所有選項](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![授權選項的頁面上，使用適用於此版本的所有選項](media/license-users-groups/license-option-blade-group-assignments.png)
 
     [指派授權] 頁面隨即更新，顯示已選取一名使用者且已設定指派。
 
@@ -112,7 +112,6 @@ Azure AD 產品有數個可用版本。
 5. 選取 [指派]。
 
     系統會將群組新增至授權群組清單中，且所有成員均擁有隨附 Azure AD 服務的存取權。
-
 
 ## <a name="remove-a-license"></a>移除授權
 您可以從 [授權] 頁面移除使用者或群組的授權。

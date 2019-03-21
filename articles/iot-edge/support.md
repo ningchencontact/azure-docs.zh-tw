@@ -4,17 +4,17 @@ description: 了解哪些作業系統可以執行 Azure IoT Edge 精靈和執行
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d8059ac4965ce5582b899ebc0d765e00ae9deb35
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5bc133e81f9917aafb406a6bfb27922cdba48ef5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892791"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190000"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支援的系統
 
@@ -31,65 +31,78 @@ Azure IoT Edge 需要容器引擎來啟動模組，因為它們是實作為容�
 
 <br>
 <center>
-![Moby 作為容器執行階段](./media/support/only-moby-for-production.png)
+
+![為容器執行階段的白鯨](./media/support/only-moby-for-production.png)
 </center>
 
 ## <a name="operating-systems"></a>作業系統
-Azure IoT Edge 可以在能夠執行容器的大部分作業系統上執行，不過每個作業系統受支援的程度不盡相同。 以下將作業系統分組為各種階層，代表使用者可預期的支援程度。
-* 第 1 層系統可以認定為正式支援。 這表示 Microsoft：
+大多數容器; 可執行的作業系統上執行的 azure IoT Edge不過，所有這些系統不同樣支援。 以下將作業系統分組為各種階層，代表使用者可預期的支援程度。
+* 第 1 層系統可以認定為正式支援。 適用於第 1 層系統，Microsoft:
     * 在自動化的測試中有此作業系統
     * 有為它們提供安裝套件
-* 第 2 層系統可以認定為與 Azure IoT Edge 相容，並且可以相對輕鬆地使用。 這表示：
-    * Microsoft 已在平台上完成臨機操作測試，或者知道合作夥伴已在平台上成功執行過 Azure IoT Edge
+* 第 2 層系統可以認定為與 Azure IoT Edge 相容，並且可以相對輕鬆地使用。 適用於第 2 層系統：
+    * Microsoft 平台上的臨機操作測試完成或知道的夥伴，成功執行平台上的 Azure IoT Edge
     * 其他平台的安裝套件或許能在這些平台上運作
     
-主機 OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 換句話說，您只能在 Linux 上使用 Linux 容器和在 Windows 上使用 Windows 容器。 使用 Windows 時，只支援處理程序隔離容器，不支援 Hyper-V 隔離容器。  
+主機 OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 換句話說，您只能在 Linux 上使用 Linux 容器和在 Windows 上使用 Windows 容器。 使用 Windows，唯一支援的隔離的容器的程序時不 HYPER-V 隔離容器。  
 
 <br>
 <center>
-![主機 OS 符合客體 OS](./media/support/edge-on-device.png)
+
+![主機作業系統符合客體 OS](./media/support/edge-on-device.png)
 </center>
 
 ### <a name="tier-1"></a>第 1 層
 正式推出
+
 | 作業系統 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Raspbian-stretch | 否 | yes|
-| Ubuntu Server 16.04 | yes | 否 |
-| Ubuntu Server 18.04 | yes | 否 |
+| Raspbian-stretch | 否 | 是|
+| Ubuntu Server 16.04 | 是 | 否 |
+| Ubuntu Server 18.04 | 是 | 否 |
 
 公開預覽版
+
 | 作業系統 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core 組建 17763 | yes | 否 |
-| Windows 10 IoT 企業版組建 17763 | yes | 否 |
-| Windows Server 2019 | yes | 否 |
+| Windows 10 IoT 核心版，建置 17763 | 是 | 否 |
+| Windows 10 IoT 企業版，建置 17763 | 是 | 否 |
+| Windows Server 2019 | 是 | 否 |
 
-上述 Windows OS 是在 Windows 執行 Windows 容器之裝置的需求。 這是唯一支援的生產環境設定。 適用於 Windows 的 Azure IoT Edge 安裝程式套件可讓您在 Windows 上使用 Linux 容器，但僅適用於開發及測試。 生產環境不支援在 Windows 上使用 Linux 容器的設定。 任何版本的 Windows 10 組建 14393 或更新版本和 Windows Server 2016 或更新版本，都可以用於此開發案例。
+以上所列之 Windows 作業系統是在 Windows 執行 Windows 容器的裝置的需求。 此設定是唯一支援的組態用於生產環境。 Windows 的 Azure IoT Edge 安裝套件可讓使用 Windows; 上的 Linux 容器不過，這項設定適用於開發和僅限測試。 生產環境不支援在 Windows 上使用 Linux 容器的設定。 任何版本的 Windows 10 組建 14393 或更新版本和 Windows Server 2016 或更新版本，都可以用於此開發案例。
 
 ### <a name="tier-2"></a>第 2 層
 
 | 作業系統 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| CentOS 7.5 | yes | yes |
-| Debian 8 | yes | yes |
-| Debian 9 | yes | yes |
-| RHEL 7.5 | yes | yes |
-| Ubuntu 18.04 | yes | yes |
-| Ubuntu 16.04 | yes | yes |
-| Wind River 8 | yes | 否 |
-| Yocto | yes | 否 |
+| CentOS 7.5 | 是 | 是 |
+| Debian 8 | 是 | 是 |
+| Debian 9 | 是 | 是 |
+| RHEL 7.5 | 是 | 是 |
+| Ubuntu 18.04 | 是 | 是 |
+| Ubuntu 16.04 | 是 | 是 |
+| Wind River 8 | 是 | 否 |
+| Yocto | 是 | 否 |
 
 
 ## <a name="virtual-machines"></a>虛擬機器
-Azure IoT Edge 可以在虛擬機器中執行。 當客戶想要使用邊緣智慧增強現有基礎結構時，通常會採用此方法。 主機 VM OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 當 Azure IoT Edge 直接在裝置上執行時，這會是相同的需求。 Azure IoT Edge 與基礎虛擬化技術無關，且可在 Hyper-V 和 vSphere 等平台所提供的 VM 中運作。
+Azure IoT Edge 可以在虛擬機器中執行。 使用虛擬機器為 IoT Edge 裝置時，一般客戶想要運用邊緣智慧強化現有的基礎結構。 主機 VM OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 Azure IoT Edge 裝置上直接執行時，這項需求是與相同。 Azure IoT Edge 與基礎虛擬化技術無關，且可在 Hyper-V 和 vSphere 等平台所提供的 VM 中運作。
 
 <br>
 <center>
-![VM 中的 Azure IoT Edge](./media/support/edge-on-vm.png)
+
+![在 VM 中的 azure IoT Edge](./media/support/edge-on-vm.png)
 </center>
 
 ## <a name="minimum-system-requirements"></a>最低系統需求
-Azure IoT Edge 在小如 Raspberry Pi3 至伺服器等級的硬體上都能順利執行。 針對您的案例選擇正確的硬體會與您要執行的工作負載高度相關。 決定最終的裝置可能很複雜，不過您可以在傳統膝上型電腦或桌上型電腦上輕鬆開始建立原型解決方案。
+Azure IoT Edge 在小如 Raspberry Pi3 至伺服器等級的硬體上都能順利執行。 選擇正確的硬體，您的案例取決於您想要執行的工作負載。 決定最終的裝置可能很複雜，不過您可以在傳統膝上型電腦或桌上型電腦上輕鬆開始建立原型解決方案。
 
-在建立原型的同時進行體驗，有助於指引您選擇最終裝置。 您應該考慮的問題包括：您的工作負載包含多少模組、您模組的容器共用多少層、您的模組以哪個程式設計語言撰寫、您的模組會處理多少資料、您的模組是否需要任何加速其工作負載的特殊硬體、您解決方案所期望的效能特性為何、您的硬體預算為何？
+在建立原型的同時進行體驗，有助於指引您選擇最終裝置。 您應該考慮的問題包括： 
+
+* 您的工作負載中，有多少個模組？
+* 您的模組容器共用多少層級？
+* 在何種語言寫入您的模組？ 
+* 資料量將您的模組會處理？
+* 您的模組，以加速其工作負載需要任何特殊的硬體嗎？
+* 您的解決方案所需的效能特性有哪些？
+* 您的硬體預算是什麼？

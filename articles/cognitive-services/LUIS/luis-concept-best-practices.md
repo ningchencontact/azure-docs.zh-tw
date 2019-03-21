@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428902"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984198"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>使用認知服務建置語言理解應用程式的最佳做法
 使用應用程式撰寫程序來建置您的 LUIS 應用程式。 
@@ -78,7 +78,9 @@ ms.locfileid: "56428902"
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>請務必在稍後的反覆項目中新增片語清單和模式
 
-最佳做法是在您的應用程式進行測試之前，請勿套用這些做法。 您應該先了解應用程式的運作方式，然後再新增片語清單和模式。 一旦您了解應用程式缺乏上述功能時的運作方式之後，新增每個適用於您應用程式的功能。 您不需要在每次[反覆運算](luis-concept-app-iteration.md)時新增這些功能，也不需要為每個版本變更功能。 
+最佳做法是在您的應用程式進行測試之前，請勿套用這些做法。 您應該了解應用程式新增片語清單和模式，因為這些功能會比範例談話較重的加權，而且會扭曲信心之前的行為。 
+
+一旦您了解應用程式缺乏上述功能時的運作方式之後，新增每個適用於您應用程式的功能。 您不需要在每次[反覆運算](luis-concept-app-iteration.md)時新增這些功能，也不需要為每個版本變更功能。 
 
 在您的模型設計一開始新增它們並無任何壞處，但是，透過表達測試模型之後，則可更輕鬆地查看每個功能變更結果的方式。 
 

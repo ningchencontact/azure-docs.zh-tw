@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b72966ebc73953e6a89ca1bb2fd4f7ce15f70fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4cca65e2be44d2c846cd4034f0a9d7e8c7d9af28
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111373"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260038"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>使用 Application Insights Profiler 來分析 Azure 虛擬機器或虛擬機器擴展集上所執行的 Web 應用程式
 
@@ -59,7 +59,7 @@ ms.locfileid: "58111373"
 
    套用修改通常會牽涉到完整範本部署或透過 PowerShell Cmdlet 或 Visual Studio 的雲端服務型發佈。  
 
-   下列 PowerShell 命令是只會觸及 Azure 診斷擴充功能之現有虛擬機器的替代方法。 先前所述的 ProfilerSink 加入 Get AzVMDiagnosticsExtension 命令中，所傳回的設定，再傳遞給組 AzVMDiagnosticsExtension 命令的 更新的組態。
+   下列 PowerShell 命令會觸及 Azure 診斷擴充功能的現有虛擬機器的替代方法。 新增先前所述的 ProfilerSink Get AzVMDiagnosticsExtension 命令所傳回的設定。 然後傳遞給組 AzVMDiagnosticsExtension 命令的已更新的組態。
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -85,6 +85,30 @@ ms.locfileid: "58111373"
 
 1. 部署應用程式。
 
+## <a name="set-profiler-sink-using-azure-resource-explorer"></a>設定 Profiler 接收使用 Azure 資源總管
+我們還沒有從入口網站中設定 Application Insights Profiler 接收的方法。 而不是使用 powershell，如上面所述，您可以使用 Azure 資源總管設定的接收。 但是請注意，如果您重新部署 VM，接收將會遺失。 您將需要更新部署的 VM，以保留此設定時，您使用的設定。
+
+1. 檢查安裝的 Windows Azure 診斷擴充功能時，藉由檢視您的虛擬機器安裝的擴充功能。  
+
+    ![檢查是否已安裝 WAD 延伸模組][wadextension]
+
+1. 尋找您的 VM 中的 VM 診斷擴充功能。 展開您的資源群組、 Microsoft.Compute virtualMachines、 虛擬機器名稱和延伸模組。  
+
+    ![瀏覽至 Azure 資源總管 中的 WAD 設定][azureresourceexplorer]
+
+1. 在 WadCfg SinksConfig 節點中新增 Application Insights Profiler 接收。 如果您還沒有 SinksConfig 區段，您可能需要新增一個。 請務必在您的設定中指定適當的 Application Insights iKey。 您必須切換為讀取/寫入的總管模式，在右上角，然後按 的藍色的 編輯 按鈕。
+
+    ![新增 Application Insights Profiler 接收][resourceexplorersinksconfig]
+
+1. 當您完成編輯組態中，按下 'Put'。 如果成功 put，綠色的核取記號會出現在畫面中間。
+
+    ![傳送 put 的要求，以套用變更][resourceexplorerput]
+
+
+
+
+
+
 ## <a name="can-profiler-run-on-on-premises-servers"></a>是否可在內部部署伺服器上執行 Profiler？
 我們沒有計畫針對內部部署伺服器支援 Applciation Insights Profiler。
 
@@ -93,3 +117,8 @@ ms.locfileid: "58111373"
 - 產生應用程式的流量 (例如，啟動[可用性測試](monitor-web-app-availability.md))。 然後，等待 10 到 15 分鐘，讓追蹤開始傳送到 Application Insights 執行個體。
 - 請參閱 Azure 入口網站中的 [Profiler 追蹤](profiler-overview.md?toc=/azure/azure-monitor/toc.json)。
 - 如需 Profiler 問題的疑難排解說明，請參閱 [Profiler 疑難排解](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)。
+
+[azureresourceexplorer]: ./media/profiler-vm/azure-resource-explorer.png
+[resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
+[resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
+[wadextension]: ./media/profiler-vm/wad-extension.png

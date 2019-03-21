@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: f21d92dabfcfbe51cf8135388a1ab489c20593a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880920"
 ---
 # <a name="azure-networking"></a>Azure 網路
 
@@ -36,9 +36,9 @@ Azure 提供各種不同的網路功能，它們可以合併或分開使用。 �
 
 ## <a name="Connectivity"></a>Azure 資源之間的連線
 
-Azure 資源 (例如虛擬機器、雲端服務、 虛擬機器擴展集和 Azure App Service Environment) 可透過 Azure 虛擬網路 (VNet) 和彼此進行私下通訊。 VNet 是專屬於您[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json)的 Azure 雲端邏輯隔離。 您可以在每個 Azure 訂用帳戶和 Azure [區域](https://azure.microsoft.com/regions)內實作多個 VNet。 每個 VNet 會與其他 VNet 隔離。 對於每個 VNet，您可以︰
+Azure 資源 (例如虛擬機器、雲端服務、 虛擬機器擴展集和 Azure App Service Environment) 可透過 Azure 虛擬網路 (VNet) 和彼此進行私下通訊。 VNet 是專屬於您[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json)的 Azure 雲端邏輯隔離。 您可以在每個 Azure 訂用帳戶和 Azure [區域](https://azure.microsoft.com/regions)內實作多個 VNet。 每個 VNet 會與其他 VNet 隔離。 对于每个 VNet，可执行以下操作：
 
-- 使用公用和私人 (RFC 1918) 位址指定自訂私人 IP 位址空間。 Azure 會從您指派的位址空間，將私人 IP 位址指派給連線至 VNet 的資源。
+- 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 會從您指派的位址空間，將私人 IP 位址指派給連線至 VNet 的資源。
 - 將 VNet 分成一或多個子網路，並將 VNet 位址空間的一部分配置給每個子網路。
 - 使用 Azure 提供的名稱解析，或指定自有的 DNS 伺服器以供連線至 VNet 的資源使用。
 
@@ -77,7 +77,7 @@ Azure 資源 (例如虛擬機器、雲端服務、 虛擬機器擴展集和 Azur
 
 ![ExpressRoute](./media/networking-overview/expressroute.png)
 
-您的網路與 Azure 之間會透過 ExpressRoute 合作夥伴建立此類型的連線。 此連線是私人連線。 流量不會周遊網際網路。 ExpressRoute 連線的延遲無法預期，因為流量不會周遊網際網路。 ExpressRoute 可以結合站對站連線。
+您的網路與 Azure 之間會透過 ExpressRoute 合作夥伴建立此類型的連線。 此連線是私人連線。 流量不会遍历 Internet。 ExpressRoute 連線的延遲無法預期，因為流量不會周遊網際網路。 ExpressRoute 可以結合站對站連線。
 
 若要深入了解所有先前的連線選項，請閱讀[連線拓撲圖](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 
@@ -136,7 +136,7 @@ Azure 預設會建立路由表，讓連線至任何 VNet 中任何子網路的�
 
 Azure 提供下列工具來監視和管理網路功能︰
 - **活動記錄：** 所有 Azure 資源都有提供作業發生、作業狀態和起始作業者的活動記錄。 若要深入了解活動記錄，請閱讀[活動記錄概觀](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
-- **診斷記錄：** 網路資源會定期和自發地建立事件，並記錄到 Azure 儲存體帳戶、傳送到 Azure 事件中樞或 Azure Log Analytics。 診斷記錄可讓您深入了解資源的健全狀況。 負載平衡器 (網際網路對向)、網路安全性群組、路由和應用程式閘道均提供診斷記錄。 若要深入了解診斷記錄，請閱讀[診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
+- **診斷記錄：** 建立網路資源並登入 Azure 儲存體帳戶，或傳送到 Azure 事件中樞、 Azure 監視器記錄檔定期和自發地事件。 診斷記錄可讓您深入了解資源的健全狀況。 負載平衡器 (網際網路對向)、網路安全性群組、路由和應用程式閘道均提供診斷記錄。 若要深入了解診斷記錄，請閱讀[診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **度量：** 計量是在一段時間內所收集到關於資源的效能測量數據和計數器。 計量可用來根據臨界值觸發警示。 目前有針對應用程式閘道的計量。 若要深入了解計量，請閱讀[計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **疑難排解：** 在 Azure 入口網站中，可直接存取疑難排解資訊。 此資訊有助於診斷和下列網路資源有關的常見問題：ExpressRoute、VPN 閘道、應用程式閘道、網路安全性記錄、路由、DNS、負載平衡器和流量管理員。
 - **角色型存取控制 (RBAC)：** 使用角色型存取控制 (RBAC)，控制誰可以建立和管理網路資源。 若要深入了解 RBAC，請閱讀[開始使用 RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 一文。 
@@ -149,7 +149,7 @@ Azure 提供下列工具來監視和管理網路功能︰
 
 您可以使用下列任一項工具來部署和設定 Azure 網路資源︰
 
-- **Azure 入口網站：** 在瀏覽器中執行的圖形化使用者介面。 開啟 [Azure 入口網站](http://portal.azure.com)。
+- **Azure 入口網站：** 在瀏覽器中執行的圖形化使用者介面。 開啟 [Azure 入口網站](https://portal.azure.com)。
 - **Azure PowerShell：** 從 Windows 電腦管理 Azure 的命令列工具。 若要深入了解 Azure PowerShell，請閱讀 [Azure PowerShell 概觀](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **Azure 命令列介面 (CLI)：** 從 Linux、macOS 或 Windows 電腦管理 Azure 的命令列工具。 若要深入了解 Azure CLI，請閱讀 [Azure CLI 概觀](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **Azure Resource Manager 範本：** 定義 Azure 解決方案之基礎結構和組態的檔案 (JSON 格式)。 透過範本，您可以在整個生命週期中重複部署方案，並確信您的資源會以一致的狀態部署。 若要深入了解製作範本，請閱讀[建立範本的最佳做法](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。 您可以使用 Azure 入口網站、CLI 或 PowerShell 來部署範本。 若要立即開始使用範本，請部署 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=network)程式庫中的其中一個預先設定範本。 

@@ -1,7 +1,7 @@
 ---
 title: v1 至 v2 API 移轉
 titleSuffix: Azure Cognitive Services
-description: 第 1 版的端點和編寫 API 會被取代。 使用本指南可了解如何遷移到第 2 版的端點和編寫 API。
+description: 第 1 版端點和撰寫語言了解 Api 已被取代。 使用本指南可了解如何遷移到第 2 版的端點和編寫 API。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: dfd30ce148002e32986c58aff607e182033e02b3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859863"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087919"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 應用程式 API v1 至 v2 的移轉指南
 第 1 版的[端點](https://aka.ms/v1-endpoint-api-docs)和[編寫](https://aka.ms/v1-authoring-api-docs) API 會被取代。 使用本指南可了解如何移轉到第 2 版的[端點](https://aka.ms/luis-endpoint-apis)和[編寫](https://aka.ms/luis-authoring-apis) API。 
 
 ## <a name="new-azure-regions"></a>新的 Azure 區域
-LUIS 針對 LUIS API 提供新的[區域](https://aka.ms/LUIS-regions)。 LUIS 針對區域群組提供不同的網站。 編寫應用程式的區域必須與您預期查詢的區域相同。 應用程式不會自動移轉區域。 您要從一個區域匯出應用程式，然後匯入至另一個區域，才能在新的區域中使用。
+LUIS 針對 LUIS API 提供新的[區域](https://aka.ms/LUIS-regions)。 LUIS 會提供不同的入口網站的地區群組。 編寫應用程式的區域必須與您預期查詢的區域相同。 應用程式不會自動移轉區域。 您要從一個區域匯出應用程式，然後匯入至另一個區域，才能在新的區域中使用。
 
 ## <a name="authoring-route-changes"></a>編寫路由變更
 編寫 API 路由從使用 **prog** 路由變更為使用 **api** 路由。
@@ -35,7 +35,7 @@ LUIS 針對 LUIS API 提供新的[區域](https://aka.ms/LUIS-regions)。 LUIS �
 
 
 ## <a name="endpoint-route-changes"></a>端點路由變更
-端點 API 有新的查詢字串參數，以及不同的回應。 如果 verbose 旗標為 true，除了 topScoringIntent 之外，在名為 intents 的陣列中還會傳回所有意圖 (不論分數為何)。
+端點 API 擁有新的查詢字串參數，以及不同的回應。 如果 verbose 旗標為 true，除了 topScoringIntent 之外，在名為 intents 的陣列中還會傳回所有意圖 (不論分數為何)。
 
 | version | GET 路由 |
 |--|--|

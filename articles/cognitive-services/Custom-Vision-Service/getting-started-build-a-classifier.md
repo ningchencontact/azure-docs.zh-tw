@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445452"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088004"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>如何使用自訂視覺建置分類器
 
@@ -100,7 +100,7 @@ ms.locfileid: "56445452"
 
 > [!NOTE]
 > 自訂視覺服務支援某些自動處理負片的功能。 例如，如果您正在建置葡萄與香蕉的分類器，並送出了一隻鞋子的影像進行預測，則分類器應該會針對葡萄與香蕉，將該影像評分為接近 0%。
-
+> 
 > 反過來說，如果負類影像只是用來定型之影像的變化，由於相似度極高，模型很可能會將負類影像分類為標記的類別。 例如，如果有一個柳橙與葡萄柚分類器，但您饋送小柑橘的影像，它可能會將小柑橘評分為柳橙，因為小柑橘有許多和柳橙類似的特徵。 如果是這類負類影像，建議您另外建立一或多個額外標記 (例如「其他」)，並在定型期間以此標記來標示負類影像，使模型能更適當區分這些類別。
 
 ## <a name="train-the-classifier"></a>為分類器定型

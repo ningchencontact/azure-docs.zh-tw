@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 14fdde7c38f29b7d9383911992f2bafb7d726d82
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5e61d346aab55f9b3c6dd136d3255f2afe0b8534
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871484"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850882"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>以 .NET 開始使用 Azure 佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -29,7 +29,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 **預估完成時間：** 45 分鐘
 
-**先決條件：**
+**必要條件：**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [適用於 .NET 的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -42,7 +42,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 [!INCLUDE [storage-development-environment-include](../../../includes/storage-development-environment-include.md)]
 
-### <a name="add-using-directives"></a>新增 using 指示詞
+### <a name="add-using-directives"></a>添加 using 指令
 將下列 `using` 指示詞新增至 `Program.cs` 檔案的開頭處：
 
 ```csharp
@@ -93,7 +93,7 @@ queue.CreateIfNotExists();
 ```
 
 ## <a name="insert-a-message-into-a-queue"></a>將訊息插入佇列
-若要將訊息插入現有佇列，請先建立新的 **CloudQueueMessage**。 接著，呼叫 **AddMessage** 方法。 您可以從字串 (採用 UTF-8 格式) 或**位元組**陣列建立 **CloudQueueMessage**。 以下是建立佇列 (如果佇列不存在) 並插入訊息 'Hello, World' 的程式碼：
+要将消息插入现有队列，请先创建一个新的 **CloudQueueMessage**。 接著，呼叫 **AddMessage** 方法。 您可以從字串 (採用 UTF-8 格式) 或**位元組**陣列建立 **CloudQueueMessage**。 以下是建立佇列 (如果佇列不存在) 並插入訊息 'Hello, World' 的程式碼：
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -136,7 +136,7 @@ Console.WriteLine(peekedMessage.AsString);
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>變更佇列訊息的內容
-您可以在佇列中就地變更訊息內容。 如果訊息代表工作作業，則您可以使用此功能來更新工作作業的狀態。 下列程式碼將使用新的內容更新佇列訊息，並將可見度逾時設定延長 60 秒。 這可儲存與訊息相關的工作狀態，並提供用戶端多一分鐘的時間繼續處理訊息。 您可以使用此技巧來追蹤佇列訊息上的多步驟工作流程，如果因為硬體或軟體故障而導致某個處理步驟失敗，將無需從頭開始。 通常，您也會保留重試計數，如果訊息重試超過 *n* 次，您會將它刪除。 這麼做可防止每次處理時便觸發應用程式錯誤的訊息。
+您可以在佇列中就地變更訊息內容。 如果消息表示工作任务，可使用此功能来更新该工作任务的状态。 下列程式碼將使用新的內容更新佇列訊息，並將可見度逾時設定延長 60 秒。 這可儲存與訊息相關的工作狀態，並提供用戶端多一分鐘的時間繼續處理訊息。 您可以使用此技巧來追蹤佇列訊息上的多步驟工作流程，如果因為硬體或軟體故障而導致某個處理步驟失敗，將無需從頭開始。 通常，您也會保留重試計數，如果訊息重試超過 *n* 次，您會將它刪除。 這麼做可防止每次處理時便觸發應用程式錯誤的訊息。
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -230,7 +230,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 }
 ```
 
-## <a name="get-the-queue-length"></a>取得佇列長度
+## <a name="get-the-queue-length"></a>获取队列长度
 您可以取得佇列中的估計訊息數目。 **FetchAttributes** 方法會要求佇列服務擷取佇列屬性，其中包含訊息計數。 **ApproximateMessageCount** 屬性會傳回 **FetchAttributes** 方法所擷取的最後一個值，而無需呼叫佇列服務。
 
 ```csharp
@@ -277,18 +277,18 @@ queue.Delete();
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
 * 如需可用 API 的完整詳細資訊，請檢視佇列服務參考文件：
-  * [Storage Client Library for .NET 參考資料](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  * [REST API 參考資料](https://msdn.microsoft.com/library/azure/dd179355)
+  * [.NET 存储客户端库参考](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [REST API 参考](https://msdn.microsoft.com/library/azure/dd179355)
 * 了解如何使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)，來簡化您撰寫以使用 Azure 儲存體的程式碼。
 * 如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
   * [以 .NET 開始使用 Azure 表格儲存體](../../cosmos-db/table-storage-how-to-use-dotnet.md) 以儲存結構化資料。
   * [以 .NET 開始使用 Azure Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md) 以儲存非結構化資料。
-  * [使用 .NET (C#) 連接到 SQL Database ](../../sql-database/sql-database-connect-query-dotnet-core.md) 以儲存關聯式資料。
+  * [使用.NET (C#) 连接到 SQL 数据库](../../sql-database/sql-database-connect-query-dotnet-core.md)，存储关系数据。
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
+[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
+[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
+[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
+[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2

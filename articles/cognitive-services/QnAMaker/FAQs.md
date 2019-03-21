@@ -1,26 +1,26 @@
 ---
 title: 常見問題集 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker 服務相關常見問題的策畫清單可協助您更快速地採用服務，並獲得更好的結果。
+description: 最常見問題的解答，QnA Maker 服務有關的策劃的清單將協助您更快速且更好的結果，採用的服務。
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6399fe3e53a572c8aea6b804c0e82ffed41cab77
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5b4c9e24bdcb6aaf4efde24d747e77d6014b2539
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873949"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439463"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>QnA Maker 的常見問題集
 
-QnA Maker 服務相關常見問題的策畫清單可協助您更快速地採用服務，並獲得更好的結果。
+最常見問題的解答，QnA Maker 服務有關的策劃的清單將協助您更快速且更好的結果，採用的服務。
 
 ## <a name="manage-the-knowledge-base"></a>管理知識庫
 

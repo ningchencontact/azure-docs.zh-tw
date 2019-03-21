@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997901"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736544"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理員管理幾個金鑰之間的端點配額
 Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。 
@@ -25,20 +25,22 @@ Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一�
 
 本文說明如何使用 Azure [流量管理員][traffic-manager-marketing]管理這些金鑰之間的流量。 您必須有已定型和發佈的 LUIS 應用程式。 如果還沒有，請遵循預先建置的領域[快速入門](luis-get-started-create-app.md)。 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>在 Azure 入口網站中連線到 PowerShell
 在 [Azure][azure-portal] 入口網站中，開啟 PowerShell 視窗。 PowerShell 視窗的圖示是上方導覽列中的 **>_**。 從入口網站使用 PowerShell，可以取得最新的 PowerShell 版本，而且您會經過驗證。 入口網站中的 PowerShell 需要 [Azure 儲存體](https://azure.microsoft.com/services/storage/)帳戶。 
 
 ![Azure 入口網站中開啟 Powershell 視窗的螢幕擷取畫面](./media/traffic-manager/azure-portal-powershell.png)
 
-以下各節使用[流量管理員 PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/?view=azurermps-6.2.0#traffic_manager)。
+以下各節使用[流量管理員 PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.trafficmanager/#traffic_manager)。
 
 ## <a name="create-azure-resource-group-with-powershell"></a>使用 PowerShell 建立 Azure 資源群組
 建立 Azure 資源之前，請先建立要包含所有資源的資源群組。 將資源群組命名為 `luis-traffic-manager`，並使用 `West US` 的區域。 資源群組的區域會儲存與群組相關的中繼資料。 如果您的資源在另一個區域中，這樣不會降低資源的速度。 
 
-使用 **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)** Cmdlet 建立資源群組：
+建立資源群組**[新增 AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)**  cmdlet:
 
 ```powerShell
-New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
+New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
 ## <a name="create-luis-keys-to-increase-total-endpoint-quota"></a>建立 LUIS 金鑰以增加端點總配額
@@ -66,12 +68,12 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>使用 PowerShell 建立美國東部流量管理員設定檔
 若要建立美國東部流量管理員設定檔，有幾個步驟：建立設定檔、新增端點和設定端點。 流量管理員設定檔可以有多個端點，但是每個端點都有相同的驗證路徑。 東部和西部訂用帳戶的 LUIS 端點 URL 會因為區域和端點金鑰而不同，因此每個 LUIS 端點在設定檔中都必須是單一端點。 
 
-1. 使用 **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** Cmdlet 建立設定檔
+1. 建立設定檔**[新增 AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)**  cmdlet
 
     使用下列 Cmdlet 建立設定檔。 請務必變更 `appIdLuis` 和 `subscriptionKeyLuis`。 subscriptionKey 適用於美國東部 LUIS 金鑰。 如果路徑不正確 (包括 LUIS 應用程式識別碼和端點金鑰)，流量管理員輪詢會是 `degraded` 的狀態，因為流量管理員無法成功要求 LUIS 端點。 確定 `q` 的值是 `traffic-manager-east`，以便您可以在 LUIS 端點記錄中看到這個值。
 
     ```powerShell
-    $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
+    $eastprofile = New-AzTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
     下表說明 Cmdlet 中的每個變數：
@@ -88,10 +90,10 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
     
     成功的要求沒有回應。
 
-2. 使用 **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)** Cmdlet 新增美國東部端點
+2. 新增端點美國東部**[新增 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)**  cmdlet
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
+    Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     下表說明 Cmdlet 中的每個變數：
 
@@ -123,10 +125,10 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. 使用 **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** Cmdlet 設定美國東部端點
+3. 設定端點美國東部**[組 AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)**  cmdlet
 
     ```powerShell
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
+    Set-AzTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
     成功的回應會與步驟 2 的回應相同。
@@ -134,12 +136,12 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ### <a name="create-the-west-us-traffic-manager-profile-with-powershell"></a>使用 PowerShell 建立美國西部流量管理員設定檔
 若要建立美國西部流量管理員設定檔，請依照相同步驟：建立設定檔、新增端點和設定端點。
 
-1. 使用 **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** Cmdlet 建立設定檔
+1. 建立設定檔**[新增 AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**  cmdlet
 
     使用下列 Cmdlet 建立設定檔。 請務必變更 `appIdLuis` 和 `subscriptionKeyLuis`。 subscriptionKey 適用於美國東部 LUIS 金鑰。 如果路徑不正確 (包括 LUIS 應用程式識別碼和端點金鑰)，流量管理員輪詢會是 `degraded` 的狀態，因為流量管理員無法成功要求 LUIS 端點。 確定 `q` 的值是 `traffic-manager-west`，以便您可以在 LUIS 端點記錄中看到這個值。
 
     ```powerShell
-    $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
+    $westprofile = New-AzTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
     下表說明 Cmdlet 中的每個變數：
@@ -156,10 +158,10 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
     
     成功的要求沒有回應。
 
-2. 使用 **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** Cmdlet 新增美國西部端點
+2. 新增美國西部端點**[新增 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**  cmdlet
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
+    Add-AzTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
     下表說明 Cmdlet 中的每個變數：
@@ -192,10 +194,10 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. 使用 **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** Cmdlet 設定美國西部端點
+3. 美國西部端點，以設定**[組 AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**  cmdlet
 
     ```powerShell
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
+    Set-AzTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
     成功的回應會與步驟 2 的回應相同。
@@ -203,10 +205,10 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ### <a name="create-parent-traffic-manager-profile"></a>建立父系流量管理員設定檔
 建立父系流量管理員設定檔，並將兩個子系流量管理員設定檔連結到父系。
 
-1. 使用 **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** Cmdlet 建立父系設定檔
+1. 建立父設定檔**[新增 AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**  cmdlet
 
     ```powerShell
-    $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
+    $parentprofile = New-AzTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
     下表說明 Cmdlet 中的每個變數：
@@ -223,10 +225,10 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     成功的要求沒有回應。
 
-2. 使用 **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** 和 **NestedEndpoints** 類型，將美國東部子系設定檔新增至父系
+2. 將美國東部子設定檔新增至父**[新增 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** 並**NestedEndpoints**類型
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
+    Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
     下表說明 Cmdlet 中的每個變數：
@@ -235,7 +237,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
     |--|--|--|
     |-EndpointName|child-endpoint-useast|東部設定檔|
     |-TrafficManagerProfile|$parentprofile|要將此端點指派至的設定檔|
-    |-Type|NestedEndpoints|如需詳細資訊，請參閱 [Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)。 |
+    |-Type|NestedEndpoints|如需詳細資訊，請參閱 <<c0> [ 新增 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
     |-TargetResourceId|$eastprofile.Id|子系設定檔的識別碼|
     |-EndpointStatus|已啟用|新增至父系之後的端點狀態|
     |-EndpointLocation|"eastus"|資源的 [Azure 區域名稱](https://azure.microsoft.com/global-infrastructure/regions/)|
@@ -260,10 +262,10 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
     Endpoints                        : {child-endpoint-useast}
     ```
 
-3. 使用 **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** Cmdlet 和 **NestedEndpoints** 類型，將美國西部子系設定檔新增至父系
+3. 美國西部子設定檔加入父**[新增 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**  cmdlet 與**NestedEndpoints**類型
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
+    Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
     下表說明 Cmdlet 中的每個變數：
@@ -272,7 +274,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
     |--|--|--|
     |-EndpointName|child-endpoint-uswest|西部設定檔|
     |-TrafficManagerProfile|$parentprofile|要將此端點指派至的設定檔|
-    |-Type|NestedEndpoints|如需詳細資訊，請參閱 [Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)。 |
+    |-Type|NestedEndpoints|如需詳細資訊，請參閱 <<c0> [ 新增 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
     |-TargetResourceId|$westprofile.Id|子系設定檔的識別碼|
     |-EndpointStatus|已啟用|新增至父系之後的端點狀態|
     |-EndpointLocation|"westus"|資源的 [Azure 區域名稱](https://azure.microsoft.com/global-infrastructure/regions/)|
@@ -297,21 +299,21 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. 使用 **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** Cmdlet 設定端點 
+4. 設定端點**[組 AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**  cmdlet 
 
     ```powerShell
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
+    Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
     成功的回應會與步驟 3 的回應相同。
 
 ### <a name="powershell-variables"></a>PowerShell 變數
-在先前各節中，我們建立了三個 PowerShell 變數：`$eastprofile`、`$westprofile`、`$parentprofile`。 這些變數會一直用到流量管理員設定的最後。 如果您選擇不建立變數、忘記建立，或者 PowerShell 視窗逾時，則可以使用 PowerShell Cmdlet **[Get-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** 再次取得設定檔，並將它指派給變數。 
+在先前各節中，我們建立了三個 PowerShell 變數：`$eastprofile`、`$westprofile`、`$parentprofile`。 這些變數會一直用到流量管理員設定的最後。 如果您選擇不建立變數，或忘了，或您的 PowerShell 視窗逾時，您可以使用 PowerShell cmdlet  **[Get AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**，以取得設定檔一次，並將它指派給變數。 
 
 針對您需要的三個設定檔，將角括弧 `<>` 中的項目取代為正確值。 
 
 ```powerShell
-$<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
+$<variable-name> = Get-AzTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
 ## <a name="verify-traffic-manager-works"></a>確認流量管理員可運作

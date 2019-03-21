@@ -3,7 +3,7 @@ title: Azure Cloud Shell 限制 | Microsoft Docs
 description: Azure Cloud Shell 限制的概觀
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: juluk
-ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: 8fd88221818d28c227c33719c03e522e815a408b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563876"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245738"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 限制
 
@@ -45,7 +45,7 @@ Cloud Shell 支援最新版的 Microsoft Edge、Microsoft Internet Explorer、Go
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>針對指定的使用者，只能有一個殼層作用中
 
-使用者一次只能啟動一種類型的 Shell：**Bash** 或 **PowerShell**。 不過，您可能一次會執行多個 Bash 或 PowerShell 執行個體。 在 Bash 或 PowerShell 之間交換會讓 Cloud Shell 重新啟動，這樣會終止現有工作階段。
+使用者一次只能啟動一種類型的 Shell：**Bash** 或 **PowerShell**。 不過，您可能一次會執行多個 Bash 或 PowerShell 執行個體。 Bash 或 PowerShell 之間交換所使用的功能表會導致 Cloud Shell 重新啟動，會終止現有的工作階段。 或者，輸入可以執行 PowerShell 內的 bash `bash`，您可以輸入並執行 PowerShell 內 bash `pwsh`。
 
 ### <a name="usage-limits"></a>使用限制
 
@@ -57,9 +57,9 @@ Cloud Shell 主要用於互動式的使用案例。 因此，任何長時間執�
 
 權限設定為沒有 sudo 存取權的一般使用者。 不會保存 `$Home` 目錄之外的任何安裝。
 
-### <a name="editing-bashrc"></a>編輯 .bashrc
+### <a name="editing-bashrc-or-profile"></a>編輯.bashrc 或 $PROFILE
 
-編輯 .bashrc 時請小心，這麼做可能會導致 Cloud Shell 發生未預期的錯誤。
+編輯.bashrc 或 PowerShell 的 $PROFILE 檔案，這種方式可以在 Cloud Shell 中造成未預期的錯誤時，需要注意。
 
 ## <a name="powershell-limitations"></a>PowerShell 限制
 
@@ -73,23 +73,15 @@ Cloud Shell 主要用於互動式的使用案例。 因此，任何長時間執�
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>從 Azure 磁碟機建立時的預設檔案位置：
 
-使用 PowerShell Cmdlet 時，使用者無法在 Azure 磁碟機底下建立檔案。 當使用者使用其他工具 (例如 vim 或 nano) 來建立新檔案時，檔案預設會儲存至 `$HOME` 資料夾。 
+使用 PowerShell cmdlet，使用者可以建立在 azure 的檔案： 磁碟機。 當使用者使用其他工具 (例如 vim 或 nano) 來建立新檔案時，檔案預設會儲存至 `$HOME` 資料夾。 
 
 ### <a name="gui-applications-are-not-supported"></a>不支援 GUI 應用程式
 
-如果使用者執行的命令會建立 Windows 對話方塊，例如 `Connect-AzureAD`、`Connect-AzureRmAccount` 或 `Connect-AzAccount`，其將會看到如下錯誤訊息：`Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`。
-
-### <a name="tab-completion-crashes-psreadline"></a>Tab 鍵自動完成導致 PSReadline 當機
-
-如果使用者將 PSReadline 中的 EditMode 設定為 Emacs，並且嘗試透過 Tab 鍵自動完成來顯示所有可能的值，但視窗尺寸過小而無法顯示所有可能值，PSReadline 就會當機。
+如果使用者執行命令會建立 Windows 對話方塊中，會看到錯誤訊息這類： `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`。
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>顯示進度列之後出現過大間距
 
 當使用者在 `Azure:` 磁碟機中執行顯示進度列的動作 (如 Tab 鍵自動完成) 時，可能會因為資料指標設定錯誤，導致先前進度列的所在位置出現間隔。
-
-### <a name="random-characters-appear-inline"></a>隨機出現內嵌字元
-
-資料指標位置序列程式碼 (如 `5;13R`)，可能會出現在使用者輸入的內容中。  可以手動移除這些字元。
 
 ## <a name="next-steps"></a>後續步驟
 

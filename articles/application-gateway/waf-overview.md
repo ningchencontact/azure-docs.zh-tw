@@ -4,14 +4,15 @@ description: 本文提供適用於應用程式閘道的 Web 應用程式防火�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
-ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 914583747d4e0e045d5023d9072451983037e57f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454254"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790352"
 ---
 # <a name="web-application-firewall-waf"></a>Web 應用程式防火牆 (WAF)
 
@@ -27,7 +28,7 @@ WAF 會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:O
 
 應用程式閘道可做為應用程式傳遞控制器 (ADC) 來運作，並提供 SSL 終止、Cookie 型工作階段同質、循環配置資源負載分配、內容型路由，以及裝載多個網站和安全性增強功能的能力。
 
-應用程式閘道提供的安全性增強功能包括 SSL 原則管理和端對端 SSL 支援。 直接整合到 ADC 供應項目的 WAF (Web 應用程式防火牆) 現已增強應用程式安全性。 這可讓您輕鬆地設定要管理的中央位置，並保護 Web 應用程式來對抗常見的 Web 弱點。
+應用程式閘道提供的安全性增強功能包括 SSL 原則管理和端對端 SSL 支援。 直接整合到 ADC 供應項目的 WAF (Web 應用程式防火牆) 現已增強應用程式安全性。 这提供了易于配置的中央位置，可用于管理和保护 Web 应用程序，使其免受常见 Web 漏洞的威胁。
 
 ## <a name="benefits"></a>優點
 
@@ -58,19 +59,8 @@ WAF 會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:O
 - 防範 HTTP 通訊協定異常 (例如遺漏主機使用者代理程式和接受標頭)
 - 防範 Bot、編目程式和掃描器
 - 偵測一般應用程式錯誤組態 (例如 Apache、IIS 等)
-
-### <a name="public-preview-features"></a>公開預覽功能
-
-目前的 WAF 公開預覽版本 SKU 包含下列功能：
-
-- **要求大小限制** - Web 應用程式可讓使用者設定介於上下限範圍之間的要求大小限制。
-- **排除清單** - WAF 排除清單可讓使用者略過 WAF 評估的特定要求屬性。 常見範例是用於驗證或密碼欄位的 Active Directory 插入式權杖。
-
-如需 WAF 公開預覽版的詳細資訊，請參閱 [Web 應用程式防火牆要求大小限制與排除清單 (公開預覽)](application-gateway-waf-configuration.md)。
-
-
-
-
+- 请求大小限制 - Web 应用程序防火墙允许用户在下限和上限内配置请求大小限制。
+- 排除列表 - WAF 排除列表允许用户忽略 WAF 评估中的某些请求属性。 常見範例是用於驗證或密碼欄位的 Active Directory 插入式權杖。
 
 ### <a name="core-rule-sets"></a>核心規則集
 
@@ -88,12 +78,11 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 
 如需更詳細的規則清單及其保護功能，請參閱[核心規則集](#core-rule-sets)。
 
-
 #### <a name="owasp30"></a>OWASP_3.0
 
 所提供的 3.0 核心規則集有 13 個規則群組，如下表所示。 每個規則群組包含多個規則 (可加以停用)。
 
-|RuleGroup|說明|
+|RuleGroup|描述|
 |---|---|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|包含規則，可鎖定方法 (PUT、PPATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| 包含規則，可防禦連接埠和環境掃描器。|
@@ -111,7 +100,7 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 
 所提供的 2.2.9 核心規則集有 10 個規則群組，如下表所示。 每個規則群組包含多個規則 (可加以停用)。
 
-|RuleGroup|說明|
+|RuleGroup|描述|
 |---|---|
 |**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|包含規則，可防範通訊協定違規 (無效的字元，使用 GET 搭配要求本文等等)|
 |**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|包含規則，可防範不正確的標頭資訊。|
@@ -131,6 +120,16 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 * **偵測模式** – 當設定為在偵測模式中執行時，應用程式閘道 WAF 會監視所有威脅警示，並將其記錄到記錄檔。 應使用 [診斷] 區段開啟應用程式閘道的記錄診斷。 您也必須確保已選取並開啟 WAF 記錄檔。 在偵測模式執行的 Web 應用程式防火牆不會封鎖連入要求。
 * **防止模式** – 當設定為在防止模式中執行時，應用程式閘道會主動封鎖其規則偵測到的入侵和攻擊。 攻擊者會收到 403 未經授權存取例外狀況，且連線會終止。 防止模式會繼續將這類攻擊記錄在 WAF 記錄檔中。
 
+### <a name="anomaly-scoring-mode"></a>异常评分模式 
+ 
+OWASP 使用两种模式来确定是否阻止流量： 传统模式和异常评分模式。 在传统模式下，将独立评估与任何规则匹配的流量，无论是否也匹配其他规则。 尽管这种模式更易于理解，但它存在一种限制：不知道特定的请求激发的多少个规则。 针对这种局限，我们引入了异常评分模式，它已成为 OWASP 3.x 中的默认模式。 
+
+在异常评分模式下，上一部分所述的某个规则与流量匹配这一事实并不直接意味着将要阻止该流量（假设防火墙处于“阻止”模式）。 规则采用特定的严重性（严重、错误、警告和通知），并根据该严重性增大调用异常评分的请求的数值。 例如，一个匹配的“警告”规则的评分值为 3，而一个匹配的“严重”规则的评分值为 5。 
+
+异常评分有一个设置为 5 的阈值，低于该阈值的流量不会删除。 这意味着，单个匹配的“严重”规则就足以让处于“阻止”模式的 Azure WAF 阻止请求（因为根据上一段落所述，“关键”规则会将异常评分增加 5）。 但是，一个“警告”级别的匹配规则只会将异常评分增加 3。 由于 3 仍低于阈值 5，因此不会阻止流量，即使 WAF 处于“阻止”模式。 
+
+请注意，当 WAF 规则与流量匹配时记录的消息会包含值为“Blocked”的 action_s 字段，但这不一定意味着真正阻止了流量。 若要真正阻止流量，异常评分必须至少达到 5。  
+
 ### <a name="application-gateway-waf-reports"></a>WAF 監視
 
 監視您應用程式閘道的健康狀態非常重要。 透過記錄並與 Azure 監視器、Azure 資訊安全中心和 Azure 監視器記錄整合，以監視 Web 應用程式防火牆及其保護之應用程式的健康狀態。
@@ -149,7 +148,7 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 
 #### <a name="logging"></a>記錄
 
-應用程式閘道 WAF 提供其偵測到之每個威脅的詳細報告。 記錄會與 Azure 診斷記錄整合，而且警示會以 JSON 格式來記錄。 這些記錄可以與 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)整合。
+应用程序网关 WAF 提供有关检测到的每个威胁的详细报告。 記錄會與 Azure 診斷記錄整合，而且警示會以 JSON 格式來記錄。 這些記錄可以與 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)整合。
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 
@@ -185,7 +184,7 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 
 只有在新的 WAF SKU 之下才能使用 Web 應用程式防火牆。 此 SKU 只適用於 Azure Resource Manager 佈建模型，而不適用於傳統部署模型。 此外，WAF SKU 僅以中型和大型應用程式閘道執行個體大小提供。 應用程式閘道的所有限制也適用於 WAF SKU。
 
-價格是以每小時的閘道器執行個體費用和資料處理費用為基礎。 WAF SKU 的每小時閘道價格不同於標準 SKU 費用，您可在[應用程式閘道價格詳細資料](https://azure.microsoft.com/pricing/details/application-gateway/)找到。 資料處理費用維持不變。 不會依照每個規則或規則群組計算費用。 您可以保護相同 Web 應用程式防火牆後面的多個 Web 應用程式，因此支援多個應用程式不需額外付費。
+定价基于每小时网关实例费和数据处理费。 WAF SKU 的每小時閘道價格不同於標準 SKU 費用，您可在[應用程式閘道價格詳細資料](https://azure.microsoft.com/pricing/details/application-gateway/)找到。 資料處理費用維持不變。 不會依照每個規則或規則群組計算費用。 您可以保護相同 Web 應用程式防火牆後面的多個 Web 應用程式，因此支援多個應用程式不需額外付費。
 
 ## <a name="next-steps"></a>後續步驟
 

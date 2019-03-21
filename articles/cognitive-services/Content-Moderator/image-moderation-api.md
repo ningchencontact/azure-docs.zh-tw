@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1dba848be0c24ef26dcefd23d4fc3f7201420449
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 17e4d576d4c524321fd19c589868a323f97c48a1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079705"
 ---
 # <a name="learn-image-moderation-concepts"></a>了解影像仲裁概念
 
@@ -35,12 +35,11 @@ ms.locfileid: "55873507"
       ],
 
 > [!NOTE]
-
+> 
 > - `isImageAdultClassified` 代表可能有在特定情況下被視為明顯色情或成人內容的影像存在。
 > - `isImageRacyClassified` 代表可能有在特定情況下被視為具性暗示或成人內容的影像存在。
 > - 分數介於 0 與 1 之間。 分數越高，模型預測為適用該類別的可能性就越高。 此預覽版功能倚賴統計模型，而不是手動編碼的結果。 建議您使用自己的內容進行測試，以判斷每個類別如何符合您的需求。
 > - 布林值會是 true 或 false，視內部分數閾值而定。 客戶應該評估是要使用此值，還是根據其內容原則決定自訂閾值。
->
 
 ## <a name="detecting-text-with-optical-character-recognition-ocr"></a>使用光學字元辨識 (OCR) 偵測文字
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2cc5384fe039e757b33802075d0e550b369477f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: c6d6e380cded18a089f624f90d998477a89293be
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874961"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259036"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>備份復原服務保存庫中的 Azure VM
 
@@ -112,7 +112,7 @@ ms.locfileid: "57874961"
 4. 定義 Proxy 設定。
    - 在 Linux 機器上：
      - 將以下這一行新增至 **/etc/environment** 檔案：
-       - **http_proxy=<http://proxy> IP address:proxy port**
+       - **http_proxy = http: \/ /proxy IP 位址： proxy 連接埠**
      - 將以下幾行新增至 **/etc/waagent.conf** 檔案：
          - **HttpProxy.Host=proxy IP address**
          - **HttpProxy.Port=proxy port**

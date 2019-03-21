@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734652"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295380"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>設定自動化機器學習實驗
 
@@ -111,7 +111,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 `get_data` 指令碼可傳回：
 
-Key | 類型 |    互斥項目 | 說明
+Key | 類型 |    互斥項目 | 描述
 ---|---|---|---
 X | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |  所有要用於訓練的特徵
 y | Pandas 資料框架或 Numpy 陣列 |   標籤   | 要用於訓練的標籤資料。 就分類而言，應為整數的陣列。
@@ -285,7 +285,7 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="classification-metrics"></a>分類計量
 在每次反覆運算分類工作時會儲存下列計量。
 
-|主要計量|說明|計算|額外的參數
+|主要計量|描述|計算|額外的參數
 --|--|--|--|
 AUC_Macro| AUC 是「接收者作業特性曲線」下方的面積。 Macro 是每個類別 AUC 的算術平均值。  | [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC 是「接收者作業特性曲線」下方的面積。 Micro 是透過將每個類別的真肯定和誤判結合在一起全域計算而得| [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -311,7 +311,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 ### <a name="regression-and-forecasting-metrics"></a>迴歸和預測計量
 下列計量儲存在迴歸或預測工作的每個反覆項目中。
 
-|主要計量|說明|計算|額外的參數
+|主要計量|描述|計算|額外的參數
 --|--|--|--|
 explained_variance|Explained variance 是所給予資料集其變化的數學模型帳戶的比例。 它是原始資料其變異數中減少至錯誤變異數的百分比。 當錯誤的平均值為 0 時，它會等於 Explained variance。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
 r2_score|R2 是與輸出平均值的基線模型相比的確定係數，或平方誤差減少的百分比。 當錯誤的平均值為 0 時，它會等於 Explained variance。|[計算](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|
@@ -396,4 +396,4 @@ RunDetails(local_run).show()
 
 深入了解[模型部署的方式和位置](how-to-deploy-and-where.md)。
 
-深入了解[如何使用自動化機器學習訓練分類模型](tutorial-auto-train-models.md)或[如何使用自動化機器學習對遠端資源進行訓練](how-to-auto-train-remote.md)。
+深入了解[如何使用自動化 machine learning 迴歸模型定型](tutorial-auto-train-models.md)或是[如何定型使用自動存取遠端資源上的機器學習服務](how-to-auto-train-remote.md)。

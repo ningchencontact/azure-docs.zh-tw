@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: 信賴分數表示解答對給定的使用者查詢而言的切合程度。
 services: cognitive-services
 author: tulasim88
-manager: pchoudh
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245128"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403731"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
@@ -72,9 +72,9 @@ ms.locfileid: "56245128"
 
 
 ## <a name="no-match-found"></a>未找到相符項目
-順位排定程式找不到適當的相符項目時，會傳回 0.0 的信賴分數或「無」，而且預設回應是「在資料庫中找不到適當的相符項目」。 在呼叫端點的聊天機器人和應用程式的程式碼中，您可以覆寫這個預設回應。 或者，您也可以在 Azure 中設定覆寫回應，這會變更特定 QnA Maker 服務中部署的所有知識庫預設值。
+順位排定程式找不到適當的相符項目時，會傳回 0.0 的信賴分數或「無」，而且預設回應是「在資料庫中找不到適當的相符項目」。 您可以覆寫這[預設回應](#change-default-answer)bot 或應用程式程式碼呼叫的端點。 或者，您也可以在 Azure 中設定覆寫回應，這會變更特定 QnA Maker 服務中部署的所有知識庫預設值。
 
-### <a name="change-default-answer"></a>變更預設答案
+## <a name="change-default-answer"></a>變更預設答案
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)，並瀏覽到代表您建立的 QnA Maker 服務之用的資源群組。
 
@@ -94,5 +94,4 @@ ms.locfileid: "56245128"
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
 > [支援的資料來源](./data-sources-supported.md)
-## <a name="see-also"></a>另請參閱 
-[QnA Maker 概觀](../Overview/overview.md)
+

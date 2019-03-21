@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: fe0e325543d245e4415fea925fcdade32eb00614
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570499"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259919"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>管理 Azure 地圖服務中的驗證
 
@@ -32,7 +32,7 @@ ms.locfileid: "57570499"
 
 建立 Azure 地圖服務帳戶之後，您必須建立 Azure AD 租用戶與 Azure 地圖服務資源之間的連結。
 
-1. 請移至 Azure AD 刀鋒視窗，並建立應用程式註冊。 提供註冊所需的名稱。 在 **登入 URL**方塊中，提供首頁上的 web 應用程式 / API (比方說， https://localhost/)。 如果您已註冊的應用程式，請移至步驟 2。
+1. 請移至 Azure AD 刀鋒視窗，並建立應用程式註冊。 提供註冊所需的名稱。 在 **登入 URL**方塊中，提供首頁上的 web 應用程式 / API (例如 https:\//localhost/)。 如果您已註冊的應用程式，請移至步驟 2。
 
     ![應用程式註冊](./media/how-to-manage-authentication/app-registration.png)
 

@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.openlocfilehash: cbe7b0e243f34d9b48e837c1211b5a186946f69f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/18/2019
+ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903703"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294497"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性層級
 
-依賴複寫來取到高可用性或低延遲性或兩者的分散式資料庫，可在讀取一致性與可用性、延遲性及輸送量之間進行基本權衡取捨。 大部分的商用分散式資料庫都會要求開發人員在兩個極端的一致性模型之間進行選擇：強式一致性和最終一致性。  [線性化能力](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)或強式一致性模型是資料可程式性的黃金標準。 但它需要付出高延遲 (穩定狀態下) 和降低可用性 (失敗時) 的高昂代價。 相反地，最終一致性提供更高的可用性和更佳的效能，但很難為應用程式進行程式設計。 
+依賴複寫來取到高可用性或低延遲性或兩者的分散式資料庫，可在讀取一致性與可用性、延遲性及輸送量之間進行基本權衡取捨。 大部分盡一切商業上可用的分散式的資料庫要求兩個極端的一致性模型之間做選擇的開發人員：*強*一致性並*最終*一致性。  [線性化能力](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)或強式一致性模型是資料可程式性的黃金標準。 但是，它將新增價格為高延遲 （穩定狀態下），並降低可用性 （期間失敗）。 相反地，最終一致性提供更高的可用性和更佳的效能，但很難將應用程式。 
 
-Azure Cosmos DB 可提供資料一致性的選擇頻譜，而不是兩個極端的選擇。 強式一致性和最終一致性是兩個極端，而在此頻譜中有許多一致性選擇。 開發人員可利用這些選項，在高可用性或效能方面做出精確的選擇和更細微的權衡取捨。 
+Azure Cosmos DB 可提供資料一致性的選擇頻譜，而不是兩個極端的選擇。 強式一致性和最終一致性是在極端情況下，結尾，但有許多的一致性選項，以及頻譜。 開發人員可以使用這些選項進行精確的選項和細微的取捨，相對於高可用性和效能。 
 
-透過 Azure Cosmos DB，一致性頻譜有五個定義完善的一致性模型可供開發人員選擇。 從最強到最弱，這些模型分別是強式、限定過期、工作階段、一致前置詞和最終。 這些都是定義完善且直覺式的模型。 它們可用於特定的實際案例。 每個模型都提供[可用性和效能權衡取捨](consistency-levels-tradeoffs.md)，並且由全方位 SLA 所支援。 下圖以頻譜顯示不同的一致性層級。
+透過 Azure Cosmos DB，一致性頻譜有五個定義完善的一致性模型可供開發人員選擇。 從最強到更寬鬆，這些模型包括*強*，*限定過期*，*工作階段*，*一致前置詞*，以及*最終*一致性。 模型會定義完善且直覺化，並可用於特定的真實世界案例。 每個模型會提供[可用性與效能權衡取捨](consistency-levels-tradeoffs.md)並受 Sla 支援。 下圖顯示不同的一致性層級為範圍。
 
 ![以頻譜形式顯示的一致性](./media/consistency-levels/five-consistency-levels.png)
 
-一致性層級與區域無關。 您 Azure Cosmos 帳戶的一致性層級保證會套用至所有讀取作業，並且與下列項目皆無關：處理讀取或寫入項目的位置、與您 Azure Cosmos 帳戶相關聯的區域數，或您的帳戶設定為單一或多個寫入區域。
+一致性層級是區域無從驗證，而且保證無論從中提供讀取和寫入，您的 Azure Cosmos 帳戶相關聯的區域數目的區域的所有作業，或是否使用單一設定您的帳戶或多個的寫入區域。
 
 ## <a name="scope-of-the-read-consistency"></a>讀取一致性的範圍
 

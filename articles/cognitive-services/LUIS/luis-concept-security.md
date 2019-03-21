@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: ac4095d19904db10d4d60364dd2c739e8105c171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863614"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089840"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>撰寫和端點的使用者存取權
 撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。 就公用應用程式而言，端點存取權適用於擁有自己 LUIS 帳戶且擁有公用應用程式識別碼的所有使用者。 
@@ -53,7 +53,7 @@ ms.locfileid: "55863614"
 私人應用程式的端點僅供下列金鑰使用：
 
 |金鑰和使用者|說明|
-|--|--|--|
+|--|--|
 |擁有者的撰寫金鑰| 最多 1000 次端點叫用|
 |共同作業者的撰寫金鑰| 最多 1000 次端點叫用|
 |由作者或共同作業者指派給 LUIS 的任何金鑰|以金鑰使用量為基礎|

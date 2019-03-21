@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8f57310cf4dbc2a27761fc44cfde6c8fd2791a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 03174e6336589f8aa49a7fc7197da1301ff54400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005534"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009773"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何更新 Azure 自動化中的 Azure PowerShell 模組
 
@@ -41,7 +41,7 @@ ms.locfileid: "56005534"
 
 * 如果您以原始名稱 `Update-AutomationAzureModulesForAccount` 匯入此 Runbook，它將會覆寫具有此名稱的內部 Runbook。 因此，在按下 [更新 Azure 模組] 按鈕，或是直接透過此自動化帳戶的 Azure Resource Manager API 叫用此 Runbook 時，系統將會執行匯入的 Runbook。
 
-* 目前只支援 `Azure` 和 `AzureRM.*` 模組。 尚未支援新的 [Azure PowerShell Az 模組](/powershell/azure/new-azureps-module-az)。
+* 此 runbook 支援僅更新**Azure**並**AzureRm**目前模組。 [Azure PowerShell Az 模組](/powershell/azure/new-azureps-module-az)支援在自動化帳戶中，但不能更新此 runbook。
 
 * 請避免在包含 Az 模組的自動化帳戶上啟動此 Runbook。
 
@@ -58,32 +58,36 @@ ms.locfileid: "56005534"
 
 1. 在自動化帳戶的 [模組] 頁面中，有一個稱為**更新 Azure 模組**的選項。 它一律為啟用狀態。<br><br> ![[模組] 頁面中的 [更新 Azure 模組] 選項](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-  > [!NOTE]
-  > 更新 Azure 模組之前，建議您先在測試用的自動化帳戶中進行更新，確保現有指令碼會如預期般運作後，再更新 Azure 模組。
-  >
-  > [更新 Azure 模組] 按鈕功能僅適用於公用雲端。 不適用於[主權區域](https://azure.microsoft.com/global-infrastructure/)。 請使用 **Update-AutomationAzureModulesForAccount** Runbook 來更新 Azure 模組。 您可以從[更新 Azure 模組 Runbook 存放庫](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) \(英文\) 下載它。 若要深入了解使用開放原始碼 Runbook，請參閱[搭配開放原始碼 Runbook 更新 Azure 模組](#open-source)。
+   > [!NOTE]
+   > 更新 Azure 模組之前，建議您先在測試用的自動化帳戶中進行更新，確保現有指令碼會如預期般運作後，再更新 Azure 模組。
+   >
+   > [更新 Azure 模組] 按鈕功能僅適用於公用雲端。 不適用於[主權區域](https://azure.microsoft.com/global-infrastructure/)。 請使用 **Update-AutomationAzureModulesForAccount** Runbook 來更新 Azure 模組。 您可以從[更新 Azure 模組 Runbook 存放庫](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) \(英文\) 下載它。 若要深入了解使用開放原始碼 Runbook，請參閱[搭配開放原始碼 Runbook 更新 Azure 模組](#open-source)。
 
 2. 按一下 [更新 Azure 模組]，則會顯示確認通知，詢問您是否要繼續。<br><br> ![更新 Azure 模組通知](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
 3. 按一下 [是] 就會開始模組更新程序。 更新程序大約需要 15-20 分鐘來更新下列模組︰
 
-  * Azure
-  * Azure.Storage
-  * AzureRm.Automation
-  * AzureRm.Compute
-  * AzureRm.Profile
-  * AzureRm.Resources
-  * AzureRm.Sql
-  * AzureRm.Storage
+   * Azure
+   * Azure.Storage
+   * AzureRm.Automation
+   * AzureRm.Compute
+   * AzureRm.Profile
+   * AzureRm.Resources
+   * AzureRm.Sql
+   * AzureRm.Storage
 
-    如果模組已是最新狀態，此程序在幾秒鐘內便會完成。 當更新流程完成之後，您就會收到通知。<br><br> ![更新 Azure 模組更新狀態](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+     如果模組已是最新狀態，此程序在幾秒鐘內便會完成。 當更新流程完成之後，您就會收到通知。<br><br> ![更新 Azure 模組更新狀態](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
-    Azure 自動化中不支援 .NET Core 的 AzureRm 模組 (AzureRm.*.Core)，因此無法匯入。
+     Azure 自動化中不支援 .NET Core 的 AzureRm 模組 (AzureRm.*.Core)，因此無法匯入。
 
 > [!NOTE]
 > 執行新的排程工作時，Azure 自動化會使用自動化帳戶中的最新模組。  
 
 如果您在 Runbook 中使用來自這些 Azure PowerShell 模組的 Cmdlet，則您會想要每隔大約一個月執行一次此更新程序，以確保您擁有最新模組。 Azure 自動化會在更新模組時，使用 `AzureRunAsConnection` 連線來驗證。 如果服務主體已過期或不再存在於訂用帳戶層級，模組更新將會失敗。
+
+## <a name="known-issues"></a>已知問題
+
+沒有更新 AzureRM 模組，從 0 開始的數值名稱的資源群組中的自動化帳戶中的已知的問題。 若要更新 Azure 模組在您的自動化帳戶中，它必須是英數字元名稱的資源群組中。 從 0 開始的數值名稱的資源群組就無法在這個階段中更新 AzureRM 模組。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -6,16 +6,17 @@ author: ajlam
 ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.openlocfilehash: 99039c4d6abb8a839886e9d623e92c9fb2c41787
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: 2852cab05fab8e15b7e60a22f54cc866d2f0f178
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353323"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295397"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>什麼是 Azure Database for MySQL？
-適用於 MySQL 的 Azure 資料庫是 Microsoft 雲端中以 [MySQL Community Edition](https://www.mysql.com/products/community/) 資料庫引擎 5.6 和 5.7 版為基礎的關聯式資料庫服務。 Azure Database for MySQL 提供：
+
+適用於 MySQL 的 azure 資料庫是在 Microsoft 雲端為基礎的關聯式資料庫服務[MySQL Community Edition](https://www.mysql.com/products/community/) （可用 GPLv2 license） 資料庫引擎、 5.6 和 5.7 版。 Azure Database for MySQL 提供：
 
 - 內建高可用性但沒有任何額外成本。
 - 可預測的效能，使用預付型方案計價方式。
@@ -29,14 +30,16 @@ ms.locfileid: "54353323"
 ![Azure Database for MySQL 概念圖](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
 本文介紹 Azure Database for MySQL 在效能、延展性和管理能力方面的核心概念和功能，並提供連結讓您進一步了解詳細資料。 請參閱下列快速入門，以便開始使用產品：
+
 - [使用 Azure 入口網站建立適用於 MySQL 的 Azure 資料庫伺服器](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 如需一組 Azure CLI 範例，請參閱︰
+
 - [Azure Database for MySQL 的 Azuer CLI 範例](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>在幾秒之內即可調整效能和規模
-「適用於 MySQL 的 Azure 資料庫」服務提供了多個服務層：「基本」、「一般用途」及「記憶體最佳化」。 每個服務層提供不同的效能和功能，以支援輕量到重量級的資料庫工作負載。 您可以在小型資料庫中建置第一個應用程式，一個月只需少許花費，然後調整規模以滿足解決方案的需求。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求。 您只需支付您所需的資源費用。 如需詳細資訊，請參閱 [定價層](concepts-service-tiers.md)。
+「適用於 MySQL 的 Azure 資料庫」服務提供了多個服務層：“基本”、“常规用途”和“内存优化”。 每個服務層提供不同的效能和功能，以支援輕量到重量級的資料庫工作負載。 您可以在小型資料庫中建置第一個應用程式，一個月只需少許花費，然後調整規模以滿足解決方案的需求。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求。 您只需支付您所需的資源費用。 如需詳細資訊，請參閱 [定價層](concepts-service-tiers.md)。
 
 ## <a name="monitoring-and-alerting"></a>監視和警示
 如何決定何時應增加或減少？ 您可以使用內建的效能監視和警示功能，加上以虛擬核心為基礎的效能分級。 透過這些工具，您可以根據目前或計畫中的效能需求，快速評估相應增加或減少虛擬核心的影響。 如需詳細資訊，請參閱[警示](howto-alert-on-metric.md)。
@@ -55,12 +58,14 @@ Azure 資料庫服務一向重視資料安全性，Azure Database for MySQL 以�
 若您對適用於 MySQL 的 Azure 資料庫有任何疑問或需要建議，請傳送電子郵件給適用於 MySQL 的 Azure 資料庫小組 ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com))。 請注意，這不是技術支援的別名。
 
 此外，請根據您的情況考量下列連絡要點：
+
 - 若要連絡 Azure 支援，[請從 Azure 入口網站提出票證](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 - 若要修正您的帳戶問題，請在 Azure 入口網站中提出[支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 - 若要提供意見反應或要求新功能，請透過 [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql) 建立項目。
 
 ## <a name="next-steps"></a>後續步驟
 您現已閱讀 Azure Database for MySQL 簡介並回答了「什麼是 Azure Database for MySQL？」問題，您就可以：
+
 - 查看定價頁面的成本比較和計算機。 [定價](https://azure.microsoft.com/pricing/details/mysql/)
 - 從建立您的第一部伺服器開始。 [使用 Azure 入口網站建立適用於 MySQL 的 Azure 資料庫伺服器](quickstart-create-mysql-server-database-using-azure-portal.md)
 - 使用您慣用的語言建置您的第一個應用程式：[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002352"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892654"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -100,7 +100,7 @@ Azure 媒體服務的 SLA 涵蓋影片索引器，並可以在 [SLA](https://azu
 
 ### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Microsoft 對於我那些已經編製索引和/或由影片索引器儲存的視訊和音訊檔案，以及所擷取的中繼資料和見解有哪些存取權？
 
-根據 [Azure 線上服務條款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) \(英文\) (OST)，您完全擁有自己的內容，且 Microsoft 僅會根據 OST 和 Microsoft 隱私權聲明存取您的內容，以及影片索引器從您內容中擷取的中繼資料和見解。
+根據 [Azure 線上服務條款](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) \(英文\) (OST)，您完全擁有自己的內容，且 Microsoft 僅會根據 OST 和 Microsoft 隱私權聲明存取您的內容，以及影片索引器從您內容中擷取的中繼資料和見解。
 
 ### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>我在自己的影片索引子帳戶中建置的自訂模型是否可供其他帳戶使用？
 
@@ -158,6 +158,10 @@ Azure 媒體服務的 SLA 涵蓋影片索引器，並可以在 [SLA](https://azu
 
 影片索引器會使用簡單的預付型方案定價模型，其以您編製索引之內容輸入的持續時間為基礎。 對於編碼、資料流、儲存體、網路使用量和媒體保留單元，可能須支付額外的費用。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/)頁面。
 
+### <a name="when-am-i-billed-for-using-video-indexer"></a>何時我的付費使用影片索引器？
+
+傳送時要編製索引的影片，使用者會定義為音訊分析或兩者的影片分析編製索引。 這會決定其 Sku 會收費。 如果在處理期間沒有嚴重層級錯誤，則會傳回錯誤碼，做為回應。 在此情況下，不會計費。  我們的程式碼中的錯誤可能因嚴重的錯誤或內部的相依性服務中的嚴重失敗。 錯誤的識別碼或深入解析擷取之類的錯誤不會視為嚴重，並將回應傳回。 在任何情況下會傳回有效 （非錯誤代碼） 回應，其中會計費。
+ 
 ### <a name="does-video-indexer-offer-a-free-trial"></a>影片索引器是否提供免費試用版？
 
 是，影片索引器提供免費試用，其能提供完整的服務和 API 功能。 Web 型介面使用者可以享有 600 分鐘的視訊配額，而 API 使用者則能享有 2,400 分鐘的配額。 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/07/2019
 ms.author: diberry
-ms.openlocfilehash: 093c60287b16073a6c04e824dc439f5dc069ec96
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863664"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765165"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>撰寫和發佈區域及相關聯的金鑰
 
@@ -95,6 +95,9 @@ LUIS 目前有 2 個端點：一個用於撰寫，一個用於文字分析。
 |appID|URL 路由中使用的 LUIS 應用程式識別碼，於應用程式儀表板上找到|
 |q|用戶端應用程式 (例如聊天機器人) 所傳來的語句文字|
 
+## <a name="failover-regions"></a>容錯移轉區域
+
+每個區域有容錯移轉至次要區域。 容錯移轉的移轉，在歐洲和澳洲的歐洲失敗在澳洲。
 
 ## <a name="next-steps"></a>後續步驟
 

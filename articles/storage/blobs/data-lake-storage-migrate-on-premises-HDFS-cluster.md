@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0a658d47f850537f18c976ab0933105b57692673
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344213"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258525"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>使用 Azure 資料箱來將資料從內部部署 HDFS 存放區移轉到 Azure 儲存體
 
@@ -59,7 +59,7 @@ ms.locfileid: "57344213"
 
 2. 在存取儲存體帳戶和上傳 [資料] 對話方塊中，複製**Blob 服務端點**並**儲存體帳戶金鑰**。 從 blob 服務端點中，省略`https://`和結尾的斜線。
 
-    在此案例中，端點是： `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`。 您將使用的 URI 主機部分是： `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`。 如需範例，請參閱如何[連接到 REST over http](/azure/databox/data-box-deploy-copy-data-via-rest.md)。 
+    在此案例中，端點是： `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`。 您將使用的 URI 主機部分是： `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`。 如需範例，請參閱如何[連接到 REST over http](/azure/databox/data-box-deploy-copy-data-via-rest)。 
 
      ![「 存取儲存體帳戶和將資料上傳 」 對話方塊](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 

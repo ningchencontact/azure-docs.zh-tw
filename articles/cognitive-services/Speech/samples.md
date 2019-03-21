@@ -10,17 +10,18 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a1ebb1d818c0085a1741245ed236cf511b1db768
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 4db95bdc5e83badef0170bfb3b1c52bb8610c655
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218048"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669868"
 ---
 # <a name="bing-speech-client-samples"></a>Bing 語音用戶端範例
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
- 
+
 「Bing 語音」提供端對端範例以說明不同的使用案例，例如命令辨識、連續辨識與意圖偵測。 GitHub 上提供所有範例，並可透過下列連結來下載：每個存放庫中的 README.md 及[用戶端程式庫](GetStarted/GetStartedClientLibraries.md)頁面皆提供有關如何建置及執行範例的詳細資料。
 
 - [REST API 範例](https://github.com/Azure-Samples/SpeechToText-REST) \(英文\)

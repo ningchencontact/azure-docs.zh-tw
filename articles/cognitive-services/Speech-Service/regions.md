@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/14/2019
-ms.author: mahilleb
+ms.date: 03/12/2019
+ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: c9e72ea2762af0d9a4c47ca5b23fe4bdbe53b968
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 1be51c4f5aede58a975dc9441b3bec7a83f7becd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447543"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900908"
 ---
 # <a name="speech-service-supported-regions"></a>語音服務支援的區域
 
@@ -38,11 +38,19 @@ ms.locfileid: "56447543"
  美國西部 2 | `westus2` | https://westus2.cris.ai
  美國東部 | `eastus` | https://eastus.cris.ai
  美國東部 2 | `eastus2` | https://eastus2.cris.ai
+ 美國中部 | ' centralus' | https://centralus.cris.ai
+ 美國中北部 | ' northcentralus' | https://northcentralus.cris.ai
+ 美國中南部 | ' southcentralus' | https://southcentralus.cris.ai
  東亞 | `eastasia` | https://eastasia.cris.ai
  東南亞 | `southeastasia` | https://southeastasia.cris.ai
+ 日本東部 | `japaneast` | https://japaneast.cris.ai
+ 南韓中部 | `koreacentral` | https://koreacentral.cris.ai
+ 澳洲東部 | `australiaeast` | https://australiaeast.cris.ai
+ 加拿大中部 | `canadacentral` | https://canadacentral.cris.ai
  北歐 | `northeurope` | https://northeurope.cris.ai
  西歐 | `westeurope` | https://westeurope.cris.ai
-
+ 英國南部 | `uksouth` | https://uksouth.cris.ai
+ 法國中部 | `francecentral` | https://francecentral.cris.ai
 
 ### <a name="intent-recognition"></a>意圖辨識
 

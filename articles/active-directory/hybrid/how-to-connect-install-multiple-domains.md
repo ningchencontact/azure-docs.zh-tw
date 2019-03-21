@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00cde6f9d17eb44fefae10d8694a89abf51540a5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098673"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>與 Azure AD 同盟的多網域支援
 下列文件提供與 Office 365 或 Azure AD 網域同盟時，如何使用多個頂層網域和子網域的指引。
@@ -69,7 +69,7 @@ ms.locfileid: "56182048"
 
 因此在 Azure AD 或 Office 365 驗證期間，系統會以使用者權杖的 IssuerUri 項目來尋找 Azure AD 中的網域。  如果找不到相符項目，驗證將會失敗。
 
-例如，如果使用者的 UPN 是 bsimon@bmcontoso.com，AD FS 所簽發之權杖中的 IssuerUri 元素將會被設定為 http://bmcontoso.com/adfs/services/trust。 此元素將會符合 Azure AD 設定，而驗證將會成功。
+例如，如果使用者的 UPN 是 bsimon@bmcontoso.com，AD FS 所簽發之權杖中的 IssuerUri 元素將會被設定為 <http://bmcontoso.com/adfs/services/trust>。 此元素將會符合 Azure AD 設定，而驗證將會成功。
 
 以下是實作此邏輯的自訂宣告規則：
 
@@ -121,7 +121,7 @@ ms.locfileid: "56182048"
 1. 從桌面或 [開始] 功能表啟動 Azure AD Connect
 2. 選擇 [新增其他 Azure AD 網域] ![新增其他 Azure AD 網域](./media/how-to-connect-install-multiple-domains/add1.png)
 3. 輸入您的 Azure AD 和 Active Directory 認證
-4. 選取要設定同盟的第二個網域。
+4. 选择要配置联合的第二个域。
    ![新增其他 Azure AD 網域](./media/how-to-connect-install-multiple-domains/add2.png)
 5. 按一下 [安裝]
 
@@ -154,7 +154,7 @@ ms.locfileid: "56182048"
 1. 開啟 [AD FS 管理]
 2. 以滑鼠右鍵按一下 Microsoft Online RP 信任，然後選擇 [編輯宣告規則]
 3. 選取第三個宣告規則並取代![編輯宣告](./media/how-to-connect-install-multiple-domains/sub1.png)
-4. 取代目前的宣告︰
+4. 替换当前声明：
 
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
 
@@ -164,7 +164,7 @@ ms.locfileid: "56182048"
 
     ![取代宣告](./media/how-to-connect-install-multiple-domains/sub2.png)
 
-5. 按一下 [確定]。  按一下 [套用]。  按一下 [確定]。  關閉 [AD FS 管理]。
+5. 按一下 [確定]。  单击“应用”。  按一下 [確定]。  關閉 [AD FS 管理]。
 
 ## <a name="next-steps"></a>後續步驟
 安裝了 Azure AD Connect 之後，您可以 [驗證安裝和指派授權](how-to-connect-post-installation.md)。

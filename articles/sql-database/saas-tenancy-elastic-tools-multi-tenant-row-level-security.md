@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 24375ca3fec50c1a9e194918ac4f824ab6fa81be
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568255"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314954"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>使用彈性資料庫工具和資料列層級安全性的多租用戶應用程式
 
@@ -42,20 +42,20 @@ ms.locfileid: "55568255"
 - 使用 Visual Studio (2012 或更新版本)
 - 建立三個 Azure SQL 資料庫
 - 下載範例專案：[Elastic DB Tools for Azure SQL - Multi-Tenant Shards](https://go.microsoft.com/?linkid=9888163) (Azure SQL 的彈性資料庫工具：多租用戶分區)
-  - 在 **Program.cs** 開頭填寫您的資料庫資訊 
+  - 在 **Program.cs** 開頭填寫您的資料庫資訊
 
-此專案會新增對多租用戶分區資料庫的支援，藉此擴充 [Azure SQL 的彈性資料庫工具：Entity Framework 整合](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 中所述的項目。 專案會建置用於建立部落格和貼文的簡易主控台應用程式。 專案包含四個租用戶，再加上兩個多租用戶分區資料庫。 上圖說明此組態。 
+此專案會新增對多租用戶分區資料庫的支援，藉此擴充 [Azure SQL 的彈性資料庫工具：Entity Framework 整合](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 中所述的項目。 專案會建置用於建立部落格和貼文的簡易主控台應用程式。 專案包含四個租用戶，再加上兩個多租用戶分區資料庫。 上圖說明此組態。
 
-建置並執行應用程式。 這會執行彈性資料庫工具的分區對應管理員啟動程序，並執行下列測試： 
+建置並執行應用程式。 這會執行彈性資料庫工具的分區對應管理員啟動程序，並執行下列測試：
 
 1. 使用 Entity Framework 和 LINQ，建立新的部落格，然後顯示每個租用戶的所有部落格
 2. 使用 ADO.NET SqlClient，顯示某個租用戶的所有部落格
-3. 嘗試插入錯誤的租用戶部落格，以確認是否擲回錯誤  
+3. 嘗試插入錯誤的租用戶部落格，以確認是否擲回錯誤
 
-請注意，因為分區資料庫中尚未啟用 RLS，所以這些測試都會顯現出一個問題：租用戶能夠查看不屬於自己的部落格，且應用程式無法阻止插入錯誤的租用戶部落格。 本文的其餘部分會說明，如何藉由 RLS 強制執行租用戶隔離來解決這些問題。 有兩個步驟： 
+請注意，因為分區資料庫中尚未啟用 RLS，所以這些測試都會顯現出一個問題：租用戶能夠查看不屬於自己的部落格，且應用程式無法阻止插入錯誤的租用戶部落格。 本文的其餘部分會說明，如何藉由 RLS 強制執行租用戶隔離來解決這些問題。 有兩個步驟：
 
-1. **應用程式層**：將應用程式程式碼修改成一律會在連線開啟後，於 SESSION\_CONTEXT 中設定目前的 TenantId。 範例專案已透過此方式設定 TenantId。 
-2. **資料層**：在每個分區資料庫中建立 RLS 安全性原則，以根據儲存在 SESSION\_CONTEXT 中的 TenantId 來篩選資料列。 為每個分區資料庫建立原則，否則不會篩選多租用戶分區中的資料列。 
+1. **應用程式層**：將應用程式程式碼修改成一律會在連線開啟後，於 SESSION\_CONTEXT 中設定目前的 TenantId。 範例專案已透過此方式設定 TenantId。
+2. **資料層**：在每個分區資料庫中建立 RLS 安全性原則，以根據儲存在 SESSION\_CONTEXT 中的 TenantId 來篩選資料列。 為每個分區資料庫建立原則，否則不會篩選多租用戶分區中的資料列。
 
 ## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1.應用程式層：設定 SESSION\_CONTEXT 中的 TenantId
 
@@ -65,14 +65,14 @@ SESSION\_CONTEXT 的替代方式是使用 [CONTEXT\_INFO](https://docs.microsoft
 
 ### <a name="entity-framework"></a>Entity Framework
 
-對於使用 Entity Framework 的應用程式，最簡單的方法是在[使用 EF DbContext 的資料相依路由](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)一文中所述的 ElasticScaleContext 覆寫中設定 SESSION\_CONTEXT。 建立並執行 SqlCommand，以將 SESSION\_CONTEXT 中的 TenantId 設為連線的指定 shardingKey。 然後傳回透過資料依存路由代理的連線。 如此一來，您只需要撰寫程式碼一次，就能設定 SESSION\_CONTEXT。 
+對於使用 Entity Framework 的應用程式，最簡單的方法是在[使用 EF DbContext 的資料相依路由](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)一文中所述的 ElasticScaleContext 覆寫中設定 SESSION\_CONTEXT。 建立並執行 SqlCommand，以將 SESSION\_CONTEXT 中的 TenantId 設為連線的指定 shardingKey。 然後傳回透過資料依存路由代理的連線。 如此一來，您只需要撰寫程式碼一次，就能設定 SESSION\_CONTEXT。
 
 ```csharp
-// ElasticScaleContext.cs 
+// ElasticScaleContext.cs
 // Constructor for data-dependent routing.
 // This call opens a validated connection that is routed to the
 // proper shard by the shard map manager.
-// Note that the base class constructor call fails for an open connection 
+// Note that the base class constructor call fails for an open connection
 // if migrations need to be done and SQL credentials are used.
 // This is the reason for the separation of constructors.
 // ...
@@ -119,30 +119,30 @@ public static SqlConnection OpenDDRConnection(
         }
         throw;
     }
-} 
-// ... 
+}
+// ...
 ```
 
-現在，每次叫用 ElasticScaleContext 時，就會自動使用指定的 TenantId 來設定 SESSION\_CONTEXT： 
+現在，每次叫用 ElasticScaleContext 時，就會自動使用指定的 TenantId 來設定 SESSION\_CONTEXT：
 
 ```csharp
-// Program.cs 
-SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
-{   
+// Program.cs
+SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
+{
     using (var db = new ElasticScaleContext<int>(
-        sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
-    {     
+        sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
+    {
         var query = from b in db.Blogs
                     orderby b.Name
                     select b;
 
-        Console.WriteLine("All blogs for TenantId {0}:", tenantId);     
-        foreach (var item in query)     
-        {       
-            Console.WriteLine(item.Name);     
-        }   
-    } 
-}); 
+        Console.WriteLine("All blogs for TenantId {0}:", tenantId);
+        foreach (var item in query)
+        {
+            Console.WriteLine(item.Name);
+        }
+    }
+});
 ```
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
@@ -217,7 +217,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>建立安全性原則來篩選每個租用戶可以存取的資料列
 
-現在應用程式會在查詢之前，使用目前的 TenantId 來設定 SESSION\_CONTEXT，RLS 安全性原則可篩選查詢並排除具有不同 TenantId 的資料列。  
+現在應用程式會在查詢之前，使用目前的 TenantId 來設定 SESSION\_CONTEXT，RLS 安全性原則可篩選查詢並排除具有不同 TenantId 的資料列。
 
 RLS 已實作於 Transact-SQL 中。 使用者定義的函式會定義存取邏輯，而安全性原則會將此函式繫結至任意數目的資料表。 針對此專案：
 
@@ -226,7 +226,7 @@ RLS 已實作於 Transact-SQL 中。 使用者定義的函式會定義存取邏�
 
 2. FILTER 述詞讓符合 TenantId 篩選條件的資料列能夠通過 SELECT、UPDATE 和 DELETE 查詢。
     - BLOCK 述詞會防止系統在被篩選條件篩選掉的資料列上執行 INSERT 或 UPDATE 操作。
-    - 如果尚未設定 SESSION\_CONTEXT，則函式會傳回 NULL，而且看不見或無法插入任何資料列。 
+    - 如果尚未設定 SESSION\_CONTEXT，則函式會傳回 NULL，而且看不見或無法插入任何資料列。
 
 若要為所有分區啟用 RLS，請使用 Visual Studio (SSDT)、SSMS 或專案中包含的 PowerShell 指令碼來執行下列 T-SQL。 或者，如果您是使用[彈性資料庫工作](sql-database-elastic-jobs-overview.md)，則可以將此 T-SQL 在所有分區上的執行自動化。
 
@@ -234,8 +234,8 @@ RLS 已實作於 Transact-SQL 中。 使用者定義的函式會定義存取邏�
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
 GO
 
-CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)     
-    RETURNS TABLE     
+CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)
+    RETURNS TABLE
     WITH SCHEMABINDING
 AS
     RETURN SELECT 1 AS fn_accessResult
@@ -250,55 +250,55 @@ CREATE SECURITY POLICY rls.tenantAccessPolicy
     ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
     ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts;
-GO 
+GO
 ```
 
 > [!TIP]
-> 在複雜的專案中，您可能需要將述詞新增到數百個資料表，這麼做很費時。 協助程式預存程序可以自動產生安全性原則，並為結構描述中的所有資料表加入述詞。 如需詳細資訊，請參閱部落格文章[將資料列層級安全性套用至所有資料表 - 協助程式指令碼 (部落格)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script) \(英文\)。
+> 在複雜的專案中，您可能需要將述詞新增到數百個資料表，這麼做很費時。 協助程式預存程序可以自動產生安全性原則，並為結構描述中的所有資料表加入述詞。 如需詳細資訊，請參閱部落格文章[將資料列層級安全性套用至所有資料表 - 協助程式指令碼 (部落格)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script) \(英文\)。
 
 現在，如果您再次執行範例應用程式，租用戶只會看到屬於自己的資料列。 此外，應用程式無法插入目前沒有連線到分區資料庫的租用戶所屬的資料列。 此外，應用程式無法更新它可以看到之任何資料列中的 TenantId。 如果應用程式嘗試執行任一作業，就會引發 DbUpdateException。
 
 如果您是在之後加入新的資料表，請變更 (ALTER) 安全性原則，並在新的資料表上加入 FILTER 和 BLOCK 述詞。
 
 ```sql
-ALTER SECURITY POLICY rls.tenantAccessPolicy     
+ALTER SECURITY POLICY rls.tenantAccessPolicy
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
     ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable;
-GO 
+GO
 ```
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>加入預設條件約束來為插入自動填入 TenantId
 
-您可以在每個資料表上放置預設條件約束，以在插入資料列時，以 SESSION\_CONTEXT 中目前儲存的值自動填入 TenantId。 範例如下。 
+您可以在每個資料表上放置預設條件約束，以在插入資料列時，以 SESSION\_CONTEXT 中目前儲存的值自動填入 TenantId。 範例如下。
 
 ```sql
 -- Create default constraints to auto-populate TenantId with the
 -- value of SESSION_CONTEXT for inserts.
-ALTER TABLE Blogs     
-    ADD CONSTRAINT df_TenantId_Blogs      
+ALTER TABLE Blogs
+    ADD CONSTRAINT df_TenantId_Blogs
     DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId;
 GO
 
-ALTER TABLE Posts     
-    ADD CONSTRAINT df_TenantId_Posts      
+ALTER TABLE Posts
+    ADD CONSTRAINT df_TenantId_Posts
     DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId;
-GO 
+GO
 ```
 
-現在應用程式不需要在插入資料列時指定 TenantId： 
+現在應用程式不需要在插入資料列時指定 TenantId：
 
 ```csharp
-SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
-{   
+SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
+{
     using (var db = new ElasticScaleContext<int>(
         sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
     {
         // The default constraint sets TenantId automatically!
         var blog = new Blog { Name = name };
-        db.Blogs.Add(blog);     
-        db.SaveChanges();   
-    } 
-}); 
+        db.Blogs.Add(blog);
+        db.SaveChanges();
+    }
+});
 ```
 
 > [!NOTE]
@@ -317,12 +317,12 @@ CREATE FUNCTION rls.fn_tenantAccessPredicateWithSuperUser(@TenantId int)
     RETURNS TABLE
     WITH SCHEMABINDING
 AS
-    RETURN SELECT 1 AS fn_accessResult 
-        WHERE 
+    RETURN SELECT 1 AS fn_accessResult
+        WHERE
         (
             DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- Replace 'dbo'.
             AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
-        ) 
+        )
         OR
         (
             DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('superuser')
@@ -342,11 +342,11 @@ GO
 ### <a name="maintenance"></a>維護 
 
 - **新增分區**：執行 T-SQL 指令碼來啟用所有新分區上的 RLS，否則系統不會篩選這些分區的查詢。
-- **新增資料表**：在每次建立新資料表時，將 FILTER 和 BLOCK 述詞新增至所有分區上的安全性原則。 否則，系統不會篩選針對新資料表的查詢。 如[自動將資料列層級安全性套用至新建立的資料表 (部落格)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx) \(英文\) 中所述，此新增動作可以使用 DDL 觸發程序來自動執行。
+- **新增資料表**：在每次建立新資料表時，將 FILTER 和 BLOCK 述詞新增至所有分區上的安全性原則。 否則，系統不會篩選針對新資料表的查詢。 如[自動將資料列層級安全性套用至新建立的資料表 (部落格)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx) \(英文\) 中所述，此新增動作可以使用 DDL 觸發程序來自動執行。
 
 ## <a name="summary"></a>摘要
 
-您可以將彈性資料庫工具與資料列層級安全性搭配使用，以支援多租用戶和單一租用戶的分區，藉此向外延展應用程式的資料層。 多租用戶分區可以用來更有效率地儲存資料。 當大量租用戶只有少量資料列的資料時，此效率特別顯著。 單一租用戶分區可支援效能和隔離需求更嚴格的進階租用戶。  如需詳細資訊，請參閱[資料列層級安全性參考資料][rls]。
+您可以將彈性資料庫工具與資料列層級安全性搭配使用，以支援多租用戶和單一租用戶的分區，藉此向外延展應用程式的資料層。 多租用戶分區可以用來更有效率地儲存資料。 當大量租用戶只有少量資料列的資料時，此效率特別顯著。 單一租用戶分區可支援效能和隔離需求更嚴格的進階租用戶。 如需詳細資訊，請參閱[資料列層級安全性參考資料][rls]。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -360,10 +360,8 @@ GO
 
 如有問題，您可以在 [SQL Database 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) 上連絡我們。 在 [SQL Database 意見反應論壇](https://feedback.azure.com/forums/217321-sql-database/) \(英文\) 中提出功能要求。
 
-
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 [rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
 [s-d-elastic-database-client-library]: sql-database-elastic-database-client-library.md
-

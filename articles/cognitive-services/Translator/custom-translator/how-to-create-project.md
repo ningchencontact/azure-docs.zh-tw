@@ -5,22 +5,22 @@ description: 如何在自訂翻譯工具中建立專案？
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 2e49a8c40396b03c231fa7fd484331b0e28d4cf6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218099"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762699"
 ---
 # <a name="create-a-project"></a>建立專案
 
-專案是模型、文件和測試的容器。 每個專案都會自動包含上傳到該工作區且具有正確語言組的所有文件。 
+專案是模型、文件和測試的容器。 每個專案都會自動包含上傳到該工作區且具有正確語言組的所有文件。
 
-建立專案是建置模型的首要步驟。 
+建立專案是建置模型的首要步驟。
 
 ## <a name="create-a-project"></a>建立專案：
 

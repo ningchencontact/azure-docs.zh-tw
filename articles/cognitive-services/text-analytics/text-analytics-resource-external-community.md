@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 751b8b72683d9c7e779191511cb2824d34997c32
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: b46acb2f0fe04c37e73a69a09ee6ede9110864ca
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244310"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543537"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>文字分析認知服務的外部和社群內容
 
@@ -47,7 +47,7 @@ ms.locfileid: "56244310"
 
 您正在尋找未涵蓋功能或使用案例的相關資訊嗎？ 請考慮在 [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics) 上要求或對它投票。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
  [StackOverflow：Azure 文字分析 API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow：Azure 認知服務](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow：Azure 認知服務](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

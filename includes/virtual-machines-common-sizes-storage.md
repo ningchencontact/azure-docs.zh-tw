@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dbbfea183454b1068558111bf62b45f5fa6415cc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: e05281b2279f5d40f8a3ba4ed3f49a38e5abf0ee
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333822"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261480"
 ---
 儲存體最佳化 VM 大小提供高磁碟輸送量和 IO，適用於巨量資料、SQL、NoSQL 資料庫、資料倉儲及大型交易資料庫。  範例包括 Cassandra、MongoDB、Cloudera 及 Redis。 本文提供有關每個最佳化大小的 vCPU、資料磁碟和 NIC 數量，以及本機儲存體輸送量和網路頻寬的資訊。
 
@@ -31,13 +31,13 @@ ACU：150-175
 
 進階儲存體快取：不支援
 
-| 大小          | vCPU | 記憶體 (GiB) | 暫存磁碟<sup>1</sup> (GiB) | NVMe 磁碟<sup>2</sup> | NVMe 磁碟輸送量<sup>3</sup> (讀取 IOPS / MBps) | 主機快取大小<sup>4</sup> | 資料磁碟數上限 | 最大 NIC/預期的網路頻寬 (Mbps) | 
+| 大小          | vCPU | 記憶體 (GiB) | 暫存磁碟<sup>1</sup> (GiB) | NVMe 磁碟<sup>2</sup> | NVMe 磁碟輸送量<sup>3</sup> (讀取 IOPS / MBps) | 最大取消快取的資料磁碟輸送量 (IOPs/MBps)<sup>4</sup> | 資料磁碟數上限 | 最大 NIC/預期的網路頻寬 (Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1.92 TB  | 340,000 / 2,000 | N/A | 16 | 2 / 3,200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1.92 TB  | 680,000 / 4,500 | N/A | 32 | 4 / 6,400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1.92 TB  | 1.4M / 9,000    | N/A | 32 | 8 / 12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1.92 TB  | 2.7M / 18,000   | N/A | 32 | 8 / 25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10 x 1.92 TB   | 3.4M / 22,000   | N/A | 32 | 8 / 32,000 |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
+| Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
+| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1.92 TB  | 1.5M / 8,000    | 32,000/640 | 32 | 8 / 12,800 | 
+| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1.92 TB  | 2.9M / 16,000   | 64,000/1,280 | 32 | 8 / 25,600 |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10 x 1.92 TB   | 3.8M / 20,000   | 80,000/1,400 | 32 | 8 / 32,000 |
  
 <sup>1</sup> Lsv2 系列 VM 具有一個適用於 OS 分頁檔使用的標準 SCSI 型暫存資源磁碟 (在 Windows 上為 D:，在 Linux 上為 /dev/sdb)。 此磁碟針對每 8 個 vCPU 提供 80 GiB 的儲存體、4,000 IOPS 及 80 MBps 傳輸率 (例如 Standard_L80s_v2 提供 40,000 IOPS 和 800 MBPS 的 800 GiB)。 這可確保 NVMe 磁碟機可完全專供應用程式使用。 此磁碟為暫時磁碟，所有資料在停止/解除配置時都會遺失。
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097804"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008900"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>在 Azure 監視器中具有動態閾值的計量警示 (公開預覽)
 
@@ -79,7 +79,11 @@ ms.locfileid: "55097804"
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>會有多少資料用來預覽並計算閾值？
 
-圖表中顯示的閾值在計量的警示規則建立前是根據歷史資料的最後 10 天而計算的。在警示規則建立後，動態閾值會取得其他可用的歷史資料，並且根據新資料持續學習，讓閾值更準確。
+出現在圖表中之前的計量建立警示規則, 的臨界值會計算夠歷程記錄資料來計算小時或每日季節性模式 （10 天）。 按下 '顯示每週 pattern' 上將會取得足夠的歷史資料來計算每週季節性模式 （28 天）。 一旦建立警示規則時，動態臨界值將使用所需的所有歷程記錄資料，而且將持續學習和精英根據新資料進行更精確的臨界值。
+
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>觸發警示時，不需要多少資料？
+
+動態臨界值需要至少三天的資料，以確保正確的臨界值觸發警示之前。
 
 ## <a name="dynamic-thresholds-best-practices"></a>動態閾值最佳做法
 

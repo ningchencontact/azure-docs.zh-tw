@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001955"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310177"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -23,7 +23,7 @@ ms.locfileid: "56001955"
 * **租用戶記錄** - 這些記錄來自租用戶層級服務，這些服務存在於 Azure 訂用帳戶外部，例如 Azure Active Directory 記錄。
 * **資源記錄** - 這些記錄來自 Azure 服務，可部署 Azure 訂用帳戶內的資源，例如網路安全性群組或儲存體帳戶。
 
-    ![資源診斷記錄與其他類型的記錄 ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![資源診斷記錄與其他類型的記錄](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 這些記錄的內容會依 Azure 服務和資源類型而有所不同。 例如，網路安全性群組規則計數器和 Key Vault 稽核是兩種診斷記錄的類型。
 
@@ -113,12 +113,14 @@ ms.locfileid: "56001955"
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>透過 PowerShell 啟用資源診斷記錄的收集
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 若要透過 Azure PowerShell 啟用資源診斷記錄的收集，請使用下列命令：
 
 若要啟用儲存體帳戶中診斷記錄的儲存體，請使用下列命令：
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 儲存體帳戶識別碼是您要傳送記錄之目標儲存體帳戶的資源識別碼。
@@ -126,7 +128,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [y
 若要將診斷記錄串流至事件中樞，請使用下列命令：
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 服務匯流排規則識別碼是此格式的字串︰`{Service Bus resource ID}/authorizationrules/{key name}`。
@@ -134,13 +136,13 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [y
 若要將診斷記錄傳送到 Log Analytics 工作區，請使用下列命令：
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 您可以使用下列命令取得 Log Analytics 工作區的資源識別碼：
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 您可以結合這些參數讓多個輸出選項。
@@ -223,7 +225,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 您可能必須按一下 [所有服務] 才能找到 [監視器] 區段。
 
-您可以在此檢視和篩選所有支援診斷設定的資源，以查看它們是否已啟用診斷。 您也可以向下切入，以查看資源上是否設定了多個設定，並確認資料將流向哪個儲存體帳戶、事件中樞命名空間及/或 Log Analytics 工作區。
+您可以在此檢視和篩選所有支援診斷設定的資源，以查看它們是否已啟用診斷。 您也可以向下切入，以查看資源上是否設定了多項設定，並確認資料將流向哪個儲存體帳戶、事件中樞命名空間及/或 Log Analytics 工作區。
 
 ![入口網站中的診斷記錄結果](./media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

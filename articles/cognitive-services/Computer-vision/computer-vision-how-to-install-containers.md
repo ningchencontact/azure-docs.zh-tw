@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2a786d383d103f9b45ea7b13de24b8de9c9e9f5e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445367"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293385"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>安裝及執行辨識文字容器
 
@@ -30,7 +30,7 @@ ms.locfileid: "56445367"
 
 使用辨識文字容器之前，您必須符合下列必要條件：
 
-|必要|目的|
+|必要項|目的|
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
@@ -50,14 +50,14 @@ ms.locfileid: "56445367"
 
 下表說明每個「辨識文字」容器的最低和建議的 CPU 核心與記憶體配置。
 
-| 容器 | 最小值 | 建議 |
-|-----------|---------|-------------|
-|辨識文字|1 核心，8 GB 記憶體，0.5 TPS|2 核心，8 GB 記憶體，1 TPS|
+| 容器 | 最小值 | 建議 |TPS<br>（最小值、 最大值）|
+|-----------|---------|-------------|--|
+|辨識文字|1 核心，8 GB 記憶體，0.5 TPS|2 核心，8 GB 記憶體，1 TPS|0.5, 1|
 
-每個核心必須至少 2.6 GHz 或更快。
+* 每個核心必須至少 2.6 GHz 或更快。
+* TP-每秒交易數
 
 核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>使用 `docker pull` 取得容器映像
 
@@ -116,11 +116,14 @@ ApiKey={BILLING_KEY}
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing)。
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 
 
-針對容器 API 請使用主機 https://localhost:5000。
+針對容器 API 請使用主機 `https://localhost:5000`。
 
 ### <a name="asynchronous-text-recognition"></a>非同步文字辨識
 

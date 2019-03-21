@@ -5,16 +5,16 @@ description: 如何在自訂翻譯工具中管理設定、建立工作區、共�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227075"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766796"
 ---
 # <a name="how-to-manage-settings"></a>如何管理設定
 
@@ -45,7 +45,7 @@ ms.locfileid: "55227075"
     ![如何新增訂用帳戶金鑰](media/how-to/how-to-add-subscription-key.png)
 
 3. 在對話方塊中輸入翻譯工具訂用帳戶的金鑰，然後按一下 [新增] 按鈕。
- 
+
     ![如何新增訂用帳戶金鑰](media/how-to/how-to-add-subscription-key-dialog.png)
 4.  新增金鑰之後，您可以隨時修改或刪除金鑰。
 
@@ -53,29 +53,29 @@ ms.locfileid: "55227075"
 
 ## <a name="manage-your-workspace"></a>管理您的工作區
 
-工作區是用來撰寫和建置自訂翻譯系統的工作區域。 工作區可包含多個專案、模型和文件。 
+工作區是用來撰寫和建置自訂翻譯系統的工作區域。 工作區可包含多個專案、模型和文件。
 
-如果您工作的不同部分需要與不同的人員共用，建立多個工作區可能有所幫助。 
+如果您工作的不同部分需要與不同的人員共用，建立多個工作區可能有所幫助。
 
 ## <a name="create-a-new-workspace"></a>建立新的工作區
 
 1.  瀏覽至工作區的 [設定] 頁面。
 2.  按一下 [建立新的工作區] 區段中的 [新增工作區] 按鈕。
-    
+
     ![建立新的工作區](media/how-to/create-new-workspace.png)
 
 4.  在對話方塊中，輸入新工作區的名稱。
 5.  按一下 [建立]。
-    
+
     ![建立新的工作區對話方塊](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>共用您的工作區
 
-在「自訂翻譯工具」中，如果您工作的不同部分需要與不同的人員共用，您可以與他人共用您的工作區。 
+在「自訂翻譯工具」中，如果您工作的不同部分需要與不同的人員共用，您可以與他人共用您的工作區。
 
 1.  瀏覽至工作區的 [設定] 頁面。
 2.  按一下 [共用設定] 區段中的 [共用] 按鈕。
-    
+
     ![共用工作區](media/how-to/share-workspace.png)
 
 3.  在對話方塊中，輸入可共用此工作區的電子郵件地址清單 (以逗點分隔)。 請確實以人員用來登入自訂翻譯工具的電子郵件地址作為您的共用對象。 然後，選取共用權限的適當層級。
@@ -85,7 +85,7 @@ ms.locfileid: "55227075"
 
 ## <a name="sharing-permissions"></a>共用權限
 
-1.  **讀取者：** 工作區中的讀取者將可檢視工作區中的所有資訊。 
+1.  **讀取者：** 工作區中的讀取者將可檢視工作區中的所有資訊。
 
 2.  **編輯者：** 工作區中的編輯者將可新增文件、訓練模型，以及刪除文件和專案。 他們可以新增訂用帳戶金鑰，但無法修改工作區的共用對象、刪除工作區或變更工作區名稱。
 

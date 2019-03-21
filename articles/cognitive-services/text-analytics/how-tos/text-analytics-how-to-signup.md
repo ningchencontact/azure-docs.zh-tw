@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 355a144597ce384725d92e64d4a5e4909b18c3d7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246097"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449950"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>如何註冊文字分析 API
 
@@ -25,7 +25,7 @@ ms.locfileid: "56246097"
 
 + 建立[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)，並選擇**文字分析 API**。 金鑰會在註冊時產生。
 
-文字分析有提供免費層供您探索及評估，並提供可計費層供生產工作負載使用。 您可以在每個訂用帳戶中擁有多個註冊：一個免費、一個付費，依此類推。 如果要求的數量增加，您可以切換到提供更多交易的層級。
+文字分析有提供免費層供您探索及評估，並提供可計費層供生產工作負載使用。 您可以在每個訂用帳戶中的多個註冊： 一個免費、 付費，其中，依此類推。 如果要求的數量增加，您可以切換到提供更多交易的層級。
 
 預覽或免費層的服務沒有服務等級協定。 如需詳細資訊，請參閱[認知服務的 SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)
 
@@ -52,7 +52,7 @@ ms.locfileid: "56246097"
 ### <a name="what-constitutes-a-transaction-in-the-text-analytics-api"></a>文字分析 API 的交易組成要素是什麼？
 文件的任何註解都會計為一筆交易。 批次評分呼叫也會列入該筆交易中需要評分的文件數考量。 例如，如果以單一 API 呼叫傳送 1,000 份文件進行情感分析，則會計為 1,000 筆交易。
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>請參閱 
 
  [文字分析概觀](../overview.md)  
  [常見問題集 (FAQ)](../text-analytics-resource-faq.md)

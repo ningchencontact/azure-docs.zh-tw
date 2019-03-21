@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835515"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259579"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -109,7 +109,7 @@ CSR 只是文字檔。 不必從最終會使用憑證的電腦建立它。 雖
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>「適用於 MachineKey 的 Microsoft Azure 服務管理」憑證的用途為何？
 
-此憑證用來加密 Azure Web 角色上的電腦金鑰。 若要進一步了解，請參閱此諮詢[https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731]。
+此憑證用來加密 Azure Web 角色上的電腦金鑰。 若要進一步了解，請參閱[本次](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)。
 
 如需詳細資訊，請參閱下列文章：
 - [如何設定和執行雲端服務的啟動工作](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

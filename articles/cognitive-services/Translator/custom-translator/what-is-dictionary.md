@@ -5,24 +5,24 @@ description: 字典是已對齊的文件，可指定您想要 Microsoft Translat
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: bfefb1fe44959bc7e5186a0f14813f41256cf2d5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212404"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775436"
 ---
 # <a name="what-is-a-dictionary"></a>什麼是字典？
 
 字典是已對齊的一組文件，用來指定片語或句子及其對應之翻譯的清單。 在定型中使用字典，當您想要 Microsoft Translator 一律翻譯原始片語或句子的任何實例時，就會使用您在字典中提供的翻譯。 字典有時稱為字彙或詞彙。 您可以將字典視為針對您所列出的所有字詞，強制執行「複製並取代」。
 
-字典僅適用於語言組中有完整支援之 Microsoft 類神經機器翻譯 (NMT) 系統作為後盾的專案。 如需完整的語言清單，請參閱 http://www.aka.ms/translatorlanguages。
+字典僅適用於語言組中有完整支援之 Microsoft 類神經機器翻譯 (NMT) 系統作為後盾的專案。 [檢視完整的語言清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)。
 
-## <a name="phrase-dictionary"></a>片語字典 
+## <a name="phrase-dictionary"></a>片語字典
 當您在定型模型中包含片語字典，則其中所列的任何單字或片語都會以您指定的方式翻譯。 句子的其餘部分會如往常般翻譯。 您可以使用片語字典來指定不應翻譯的片語，方法是在字典中的原始和目標檔案內提供相同的未翻譯片語。
 
 ## <a name="sentence-dictionary"></a>句子字典
@@ -36,9 +36,9 @@ ms.locfileid: "55212404"
 
 ## <a name="recommendations"></a>建議
 
-- 字典不是用來代替定型模型定型資料。  字典基本上會尋找並取代單字或句子。  比起使用字典，讓系統以完整句子的方式從定型材料學習是較佳的選擇。 
+- 字典不是用來代替定型模型定型資料。  字典基本上會尋找並取代單字或句子。  比起使用字典，讓系統以完整句子的方式從定型材料學習是較佳的選擇。
 - 您應該謹慎使用片語字典。 當句子中的片語被取代時，會遺失該句子內的上下文，或限制句子其餘部分的翻譯。 結果會導致即使句子中的片語或單字將依據片語字典翻譯，但句子整體的翻譯品質通常會受到影響。
-- 片語字典非常適合用於複合名詞，例如產品名稱 (“Microsoft SQL Server”)、專有名稱 (「漢堡市」)，或是產品功能 (「樞紐分析表」)。 它並不適合用於動詞或形容詞，因為這些內容通常會受到原始語言或目標語言的高度影響。 請避免對複合名詞以外的任何內容使用片語字典項目。 
+- 片語字典非常適合用於複合名詞，例如產品名稱 (“Microsoft SQL Server”)、專有名稱 (「漢堡市」)，或是產品功能 (「樞紐分析表」)。 它並不適合用於動詞或形容詞，因為這些內容通常會受到原始語言或目標語言的高度影響。 請避免對複合名詞以外的任何內容使用片語字典項目。
 - 當您使用字典時，翻譯中提供的大小寫和標點符號會影響目標檔案中提供的大小寫和標點符號。 在字典檔案中嘗試找出輸入句子和原始句子間的相符項目時，會忽略大小寫和標點符號。 例如，假設我們定型了某個英文翻譯成西班牙文的系統，其中使用的字典在原始檔案中指定 “City of Hamburg”，並在目標檔案中指定 “Ciudad de hamburg”。 如果要求的句子翻譯包含片語 “city of Hamburg”，則 “city of Hamburg” 符合字典檔案中的項目 “City of Hamburg”，並且會在最終翻譯中對應至 “Ciudad de hamburg”。
 - 如果單字在字典檔案中出現一次以上，系統將一律使用最後提供的項目。 您的字典不應包含相同單字的多個翻譯。
 

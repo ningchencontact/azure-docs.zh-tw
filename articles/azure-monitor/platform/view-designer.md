@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887894"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286562"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>使用 Azure 監視器中的檢視表設計工具建立自訂檢視
 透過 Azure 監視器中檢視表設計工具，您可以建立各種不同的自訂檢視，在 Azure 入口網站中，可協助您以視覺化方式檢視您的 Log Analytics 工作區中的資料。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
@@ -43,6 +43,9 @@ ms.locfileid: "56887894"
 | 圖格 | 會顯示在您的 Azure 監視器**概觀**頁面。 每個圖格會顯示它所呈現自訂檢視的視覺化摘要。 每個圖格類型提供記錄的不同的視覺效果。 您可以選取圖格來顯示自訂檢視。 |
 | 自訂檢視 | 當您選取圖格時顯示。 每個檢視包含一或多個視覺效果組件。 |
 | 視覺效果組件 | 呈現根據一或多個 Log Analytics 工作區中的資料視覺效果[記錄查詢](../log-query/log-query-overview.md)。 大部分組件包含標頭 (提供高階的視覺效果)，以及清單 (顯示前幾名搜尋結果)。 每個組件類型提供 Log Analytics 工作區中不同記錄的視覺效果。 您選取要執行記錄查詢，以提供詳細的記錄之組件中的項目。 |
+
+## <a name="required-permissions"></a>所需的權限
+您至少需要[參與者層級權限](manage-access.md#manage-accounts-and-users)Log Analytics 工作區，來建立或修改檢視。 如果您沒有此權限，[檢視表設計工具] 選項不會顯示在功能表中。
 
 
 ## <a name="work-with-an-existing-view"></a>使用現有的檢視

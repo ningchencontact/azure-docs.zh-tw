@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 5c5a42908198b3a8f473efbe4f54bc481e250efa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875989"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431983"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>語音轉換文字常見問題集
 
@@ -63,7 +63,7 @@ ms.locfileid: "55875989"
 
 **答**：部署「不會」自動更新。
 
-如果您已使用基準 V1.0 調整並部署模型，該部署會維持原狀。 客戶可以解除已部署的模型，重新調整使用較新版本的基準，並重新部署。
+如果您已使用基準 V1.0 調整並部署模型，該部署會維持原狀。 客戶可以解除委任已部署的模型、 重新調整 使用較新版本的基準，然後重新部署。
 
 **問：如果我需要針對已部署模型使用的並行處理比入口網站所提供的還高，該怎麼辦？**
 

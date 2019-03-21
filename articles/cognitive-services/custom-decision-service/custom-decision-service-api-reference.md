@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 2feaa6fa87b6e788683ad543bfb7780b0e517506
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867336"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552056"
 ---
 # <a name="api"></a>API
 
@@ -44,7 +44,7 @@ Azure 自訂決策服務提供每個決策所需的兩個 API：[排名 API](#ra
 > 必須在排名 API 呼叫前定義回呼函數。
 
 > [!TIP]
-> 若要改善延遲，請透過 HTTP 而不是 HTTPS 公開排名 API，如 `http://ds.microsoft.com/api/v2/<appId>/rank/*` 中所示。
+> 若要改善延遲，請透過 HTTP 而不是 HTTPS 公開排名 API，如 `https://ds.microsoft.com/api/v2/<appId>/rank/*` 中所示。
 > 不過，若透過 HTTPS 提供首頁，則必須使用 HTTPS 端點。
 
 不使用參數時，來自排名 API 的 HTTP 回應會是 JSONP 格式字串：

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001797"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>將 Windows VM 從 Amazon Web Services (AWS) 移至 Azure 虛擬機器
 
@@ -38,15 +38,15 @@ ms.locfileid: "50094421"
     * 使用 Sysprep 將虛擬機器一般化。  
 
  
-- **特製化 VHD** - 特製化的 VHD 會從原始的 VM 維護使用者帳戶、應用程式和其他狀態資料。 如果您想要使用 VHD 現狀建立新的 VM，請確定完成下列步驟。  
+- **专用 VHD** - 专用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 如果您想要使用 VHD 現狀建立新的 VM，請確定完成下列步驟。  
     * [準備要上傳至 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md). **不要**使用 Sysprep 一般化 VM。 
     * 移除任何 VM 上 (也就是 VMware 工具) 已安裝的來賓虛擬化工具和代理程式。 
-    * 確認已透過 DHCP 設定 VM 提取其 IP 位址和 DNS 設定。 這可確保伺服器在啟動時取得 VNet 內的 IP 位址。  
+    * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 這可確保伺服器在啟動時取得 VNet 內的 IP 位址。  
 
 
 ## <a name="export-and-download-the-vhd"></a>匯出和下載 VHD 
 
-將 EC2 執行個體匯出至 Amazon S3 貯體中的 VHD。 請依照 Amazon 文件文章[使用虛擬機器匯入/匯出將執行個體匯出為虛擬機器](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html)中的步驟，並執行 [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 命令，將 EC2 執行個體匯出到 VHD 檔案。 
+將 EC2 執行個體匯出至 Amazon S3 貯體中的 VHD。 請依照 Amazon 文件文章[使用虛擬機器匯入/匯出將執行個體匯出為虛擬機器](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html)中的步驟，並執行 [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 命令，將 EC2 執行個體匯出到 VHD 檔案。 
 
 已匯出的 VHD 檔案會儲存在您指定的 Amazon S3 貯體中。 匯出 VHD 的基本語法如下，只要以您的資訊取代 <brackets> 中的預留位置文字。
 
@@ -55,7 +55,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-匯出 VHD 後，請依照[如何從 S3 貯體下載物件？](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html)中的指示，從 S3 貯體下載 VHD 檔案。 
+匯出 VHD 後，請依照[如何從 S3 貯體下載物件？](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html)中的指示，從 S3 貯體下載 VHD 檔案。 
 
 > [!IMPORTANT]
 > AWS 會酌收下載 VHD 的資料傳輸費用。 如需詳細資訊，請參閱 [Amazon S3 價格](https://aws.amazon.com/s3/pricing/)。

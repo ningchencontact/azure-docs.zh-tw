@@ -1,5 +1,5 @@
 ---
-title: Azure AD 密碼保護預覽中的監視和記錄
+title: 監視和登入 Azure AD 密碼保護
 description: 了解 Azure AD 密碼保護的監視和記錄
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451481"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293714"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>預覽：Azure AD 密碼保護的監視和記錄
-
-|     |
-| --- |
-| Azure AD 密碼保護是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 密碼保護的監視和記錄
 
 部署 Azure AD 密碼保護之後，監視和報告即為必要工作。 本文將深入探討以協助您了解各種監視技術，包括每個服務要將資訊記錄於何處，以及如何報告 Azure AD 密碼保護的使用情形。
 
-# <a name="dc-agent-event-logging"></a>DC 代理程式事件記錄
+## <a name="dc-agent-event-logging"></a>DC 代理程式事件記錄
 
 在每個網域控制站上，DC 代理程式服務軟體會將每個個別密碼驗證作業的結果 (及其他狀態) 寫入至本機事件記錄檔：
 

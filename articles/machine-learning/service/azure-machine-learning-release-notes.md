@@ -6,23 +6,78 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: hning86
-ms.author: haining
-ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.author: larryfr
+author: Blackmist
+ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 2a2817501628d55d7ccc84979700ea53e4114eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860630"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
 本文章會說明 Azure Machine Learning 服務的版本。  如需每個 SDK 的完整說明，請瀏覽參考文件以瞭解：
 + Azure Machine Learning 的 [**主要 SDK for Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-03-11"></a>2019-03-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning SDK for Python v1.0.18
+
+ + **變更**
+   + Azureml tensorboard 封裝會取代 azureml-contrib-tensorboard。
+   + 此版本中您可以在您的受控的計算叢集 (amlcompute)，設定使用者帳戶建立它時。 這可以由只在佈建組態傳遞這些屬性。 您可以找到更多詳細資料，在[SDK 參考文件](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-)。
+
+### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning 資料準備 SDK v1.0.17
+
++ **新功能**
+  + 現在支援加入兩個數值的資料行，來產生結果的資料行，使用運算式語言。
+
++ **Bug 修正和增強功能**
+  + 改善的文件和 random_split 的參數檢查。
+  
+## <a name="2019-02-27"></a>2019-02-27
+
+### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning 資料準備 SDK v1.0.16
+
++ **Bug 修正**
+  + 修正服務主體驗證問題所造成的 API 變更。
+
+## <a name="2019-02-25"></a>2019-02-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning SDK for Python v1.0.17
+
++ **新功能**
+
+  + Azure Machine Learning 現在提供熱門 DNN 架構 Chainer 一流的支援。 使用[ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)類別的使用者可以輕鬆地訓練並部署 Chainer 模型。
+    + 了解如何[ChainerMN 以執行分散式的訓練](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
+    + 了解如何[執行超參數微調與使用 HyperDrive Chainer](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
+  + Azure 機器學習服務管線新增資料存放區修改為基礎的管線執行的能力觸發程序。 管線[排程 notebook](https://aka.ms/pl-schedule)會更新，以展示此功能。
+
++ **Bug 修正和增強功能**
+  + 我們新增了支援 Azure 機器學習服務管線將 source_directory_data_store 屬性設定為 「 所需的資料存放區 （例如 blob 儲存體） 上[RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py)的值提供給[PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)。 依預設步驟使用 Azure 檔案存放區支援資料存放區，可能會遇到大量的步驟會同時執行時的節流問題。
+
+### <a name="azure-portal"></a>Azure 入口網站
+
++ **新功能**
+  + 新的拖曳和卸除資料表報表編輯器的體驗。 使用者可以將資料行從井拖曳到資料表區域會顯示資料表的預覽。 可以重新排列資料行。
+  + 新的記錄檔檢視器
+  + 嘗試執行、 計算、 模型、 映像和部署，從 [活動] 索引標籤的連結
+
+### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning 資料準備 SDK v1.0.15
+
++ **新功能**
+  + 資料準備目前支援從資料流程寫入檔案資料流。 也提供可操作檔案資料流名稱，以建立新的檔案名稱的功能。
+    + 操作說明指南：[使用與檔案資料流 notebook](https://aka.ms/aml-data-prep-file-stream-nb)
+
++ **Bug 修正和增強功能**
+  + 改善的 T-digest 對大型資料集的效能。
+  + 資料準備現在支援從資料路徑的讀取資料。
+  + 一種熱門編碼現在適用於布林值和數值資料行。
+  + 其他其他的 bug 修正。
 
 ## <a name="2019-02-11"></a>2019-02-11
 
@@ -85,7 +140,7 @@ ms.locfileid: "56446761"
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning Data Prep SDK v1.0.7
 
 + **新功能**
-  + 資料存放區改善 (記載於[資料存放區操作指南](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+  + 資料存放區改善 (記載於[資料存放區操作指南](https://aka.ms/aml-data-prep-datastore-nb))
     + 已新增以相應增加方式從中讀取和寫入至 Azure 檔案共用和 ADLS 資料存放區的功能。
     + 使用資料存放區時，Data Prep 現在支援使用服務主體驗證，而非互動式驗證。
     + 已新增 wasb 和 wasbs url 的支援。

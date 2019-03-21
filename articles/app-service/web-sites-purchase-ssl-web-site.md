@@ -4,7 +4,7 @@ description: 了解如何購買 App Service 憑證並將它繫結至您的 App S
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: cfowler
+manager: jpconnoc
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446744"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216572"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>購買及設定 Azure App Service 的 SSL 憑證
 
@@ -47,14 +47,14 @@ ms.locfileid: "56446744"
 
 使用下表來協助您設定憑證。 完成後，按一下 [建立]。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |-|-|
-| Name | App Service 憑證的易記名稱。 |
+| 名稱 | App Service 憑證的易記名稱。 |
 | 裸網域主機名稱 | 如果您在這裡指定根網域，就會取得憑證以「同時」保護根網域和 `www` 子網域。 若只要保護所有子網域，請在這裡指定子網域的完整網域名稱 (例如 `mysubdomain.contoso.com`)。 |
 | 訂用帳戶 | 裝載 Web 應用程式的資料中心。 |
 | 資源群組 | 包含憑證的資源群組。 您可以使用新的資源群組，或為您的 App Service 應用程式選取相同的資源群組。 |
 | 憑證 SKU | 決定要建立的憑證類型：標準憑證或[萬用字元憑證](https://wikipedia.org/wiki/Wildcard_certificate)。 |
-| 法律條款 | 按一下以確認您同意法律條款。 |
+| 法律條款 | 按一下以確認您同意法律條款。 從 GoDaddy 取得憑證。 |
 
 ## <a name="store-in-azure-key-vault"></a>儲存在 Azure Key Vault 中
 
@@ -68,9 +68,9 @@ ms.locfileid: "56446744"
 
 在 [Key Vault 狀態] 頁面中，按一下 [Key Vault 存放庫] 來建立新的保存庫或選擇現有的保存庫。 如果您選擇建立新的保存庫，請使用下表來協助您設定保存庫並按一下 [建立]。 了解如何在相同訂用帳戶和資源群組中建立新的 Key Vault。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |-|-|
-| Name | 包含英數字元和虛線的唯一名稱。 |
+| 名稱 | 包含英數字元和虛線的唯一名稱。 |
 | 資源群組 | 建議選取相同的資源群組作為您的 App Service 憑證。 |
 | 位置 | 選取與 App Service 應用程式相同的位置。 |
 | 定價層 | 如需詳細資訊，請參閱 [Azure Key Vault 定價詳細資料](https://azure.microsoft.com/pricing/details/key-vault/)。 |
@@ -111,38 +111,45 @@ ms.locfileid: "56446744"
 
 使用下表來協助您在 [SSL 繫結] 對話方塊中設定繫結，然後按一下 [新增繫結]。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |-|-|
 | 主機名稱 | 要新增 SSL 繫結的網域名稱。 |
 | 私人憑證指紋 | 要繫結的憑證。 |
-| SSL 類型 | <ul><li>**SNI SSL** - 可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多數現代化的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI (可在[伺服器名稱指示](https://wikipedia.org/wiki/Server_Name_Indication)找到更完整的瀏覽器支援資訊)。</li><li>**以 IP 為基礎的 SSL**：可能只會新增一個以 IP 為基礎的 SSL 繫結。 此選項只允許一個 SSL 憑證保護專用的公用 IP 位址。 設定繫結之後，請依照[為 IP SSL 重新對應 A 記錄](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)中的步驟執行。 </li></ul> |
+| SSL 類型 | <ul><li>**SNI SSL** - 可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多数新式浏览器（包括 Internet Explorer、Chrome、Firefox 和 Opera）都支持 SNI（可以在[服务器名称指示](https://wikipedia.org/wiki/Server_Name_Indication)中了解更全面的浏览器支持信息）。</li><li>**以 IP 為基礎的 SSL**：可能只會新增一個以 IP 為基礎的 SSL 繫結。 此選項只允許一個 SSL 憑證保護專用的公用 IP 位址。 設定繫結之後，請依照[為 IP SSL 重新對應 A 記錄](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)中的步驟執行。 </li></ul> |
 
 ## <a name="verify-https-access"></a>驗證 HTTPS 存取
 
 使用 `HTTPS://<domain_name>` 而非 `HTTP://<domain_name>` 來造訪您的應用程式，確認已正確設定憑證。
 
-## <a name="rekey-and-sync-certificate"></a>重設金鑰和同步處理憑證
+## <a name="rekey-certificate"></a>重設憑證的金鑰
 
-如果您需要重設憑證金鑰，請選取 [App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)頁面中的憑證，然後從左側導覽中選取 [重設金鑰和同步處理] 選項。
+如果您認為您的憑證的私用金鑰受到危害，您可以重設您的憑證。 選取中的憑證[App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)頁面，然後選取**重設金鑰和同步處理**從左側導覽。
 
-按一下 [重設金鑰] 按鈕來啟動處理序。 此程序需要 1 - 10 分鐘才能完成。
+按一下 **重設**啟動程序。 此程序需要 1 - 10 分鐘才能完成。
 
 ![插入重設 SSL 金鑰的影像](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 重設憑證的金鑰，會以憑證授權單位發行的新憑證變更憑證。
 
+重設金鑰作業完成後，按一下**同步**。同步處理作業會自動更新 App Service 中的憑證的主機名稱繫結，而不會造成任何停機時間，以您的應用程式。
+
+> [!NOTE]
+> 如果您不按一下**同步**，App Service 會自動同步您的憑證在 48 小時內。
+
 ## <a name="renew-certificate"></a>更新憑證
 
-若要隨時開啟憑證的自動更新，請選取 [App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)頁面中的憑證，然後按一下左側導覽中的 [自動更新設定]。 
+若要隨時開啟憑證的自動更新，請選取 [App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)頁面中的憑證，然後按一下左側導覽中的 [自動更新設定]。
 
 選取 [開啟]，然後按一下 [儲存]。 如果您已經開啟自動更新，憑證可以在過期前的 60 天開始自動更新。
 
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![自動更新憑證](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 若要改為手動更新憑證，請按一下 [手動更新]。 您可以在過期前的 60 天要求手動更新憑證。
 
+更新作業完成後，按一下**同步**。同步處理作業會自動更新 App Service 中的憑證的主機名稱繫結，而不會造成任何停機時間，以您的應用程式。
+
 > [!NOTE]
-> 不論是手動更新還是自動更新，更新的憑證都不會自動繫結至您的應用程式。 若要將它繫結至您的應用程式，請參閱[更新憑證](./app-service-web-tutorial-custom-ssl.md#renew-certificates)。 
+> 如果您不按一下**同步**，App Service 會自動同步您的憑證在 48 小時內。
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 

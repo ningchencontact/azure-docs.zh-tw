@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 5c51fe4e3d8b432e80a2d437c299b33af557d936
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862738"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立、編輯或擴充邏輯應用程式定義的 JSON
 
@@ -191,7 +191,7 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
+        "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
       }
     }
   },
@@ -202,7 +202,7 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
 下列步驟說明此範例從內部到外部處理這個字串的方式：
 
 ```
-"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
+"uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
 1. 取得公司名稱的 [`length()`](../logic-apps/logic-apps-workflow-definition-language.md)，以便取得字元總數。
@@ -244,7 +244,7 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
     },
     "destinationMap": {
       "defaultValue": {
-        "science": "http://www.nasa.gov",
+        "science": "https://www.nasa.gov",
         "microsoft": "https://www.microsoft.com/en-us/default.aspx",
         "google": "https://www.google.com",
         "robots": "https://en.wikipedia.org/wiki/Robot",
@@ -264,7 +264,7 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+        "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=https://feeds.wired.com/wired/index"
       }
     },
     "forEachArticle": {
@@ -341,7 +341,7 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "http://www.example.com/?id=@{parameters('order').id}"
+        "uri": "https://www.example.com/?id=@{parameters('order').id}"
       }
     },
     "ifTimingWarning": {
@@ -352,7 +352,7 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
           "type": "Http",
           "inputs": {
             "method": "GET",
-            "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+            "uri": "https://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
           }
         }
       },

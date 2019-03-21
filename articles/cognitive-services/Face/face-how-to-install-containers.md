@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099083"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295415"
 ---
-# <a name="install-and-run-containers"></a>安裝及執行容器
+# <a name="install-and-run-face-containers"></a>安裝並執行臉部的容器
 
 臉部會針對 Docker 提供名為「臉部」的標準化 Linux 容器，其能偵測影像中的人臉並識別其特性，包括臉部特徵點 (例如鼻子和眼睛)、性別、年齡及其他機器預測的臉部容貌。 除了偵測以外，臉部也可以使用信賴分數檢查相同或不同影像中的兩張臉是否相同，或將臉部向資料庫進行比對，看看是否有樣貌相似或相同的臉部。 它也能夠使用共同視覺特徵，將相似臉部分組。
 
@@ -28,7 +28,7 @@ ms.locfileid: "56099083"
 
 您必須符合下列必要條件，才能使用臉部 API 容器：
 
-|必要|目的|
+|必要項|目的|
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
@@ -48,11 +48,12 @@ ms.locfileid: "56099083"
 
 下表說明每個臉部 API 容器的最低和建議的 CPU 核心與記憶體配置。
 
-| 容器 | 最小值 | 建議 |
-|-----------|---------|-------------|
-|臉部 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |
+| 容器 | 最小值 | 建議 | TPS<br>（最小值、 最大值）|
+|-----------|---------|-------------|--|
+|臉部 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |10, 20|
 
-每個核心必須至少 2.6 GHz 或更快。
+* 每個核心必須至少 2.6 GHz 或更快。
+* TP-每秒交易數
 
 核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
 
@@ -110,11 +111,14 @@ ApiKey={BILLING_KEY}
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing)。
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 
 
-針對容器 API 請使用主機 https://localhost:5000。
+針對容器 API 請使用主機 `https://localhost:5000`。
 
 ## <a name="stop-the-container"></a>停止容器
 

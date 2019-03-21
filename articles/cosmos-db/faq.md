@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7e1c6d771e2452e99b47c256c99e25e281b9a3aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849222"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259902"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>關於 Azure Cosmos DB 內不同 API 的常見問題集
 
@@ -159,7 +159,7 @@ GitHub 上提供 SQL API [.NET](sql-api-dotnet-samples.md)、[Java](https://gith
 
 ### <a name="how-do-i-create-a-database"></a>我如何建立資料庫？
 
-您可以使用 [Azure 入口網站](https://portal.azure.com) (如[新增集合](create-sql-api-dotnet.md#create-collection)所述)、其中一個 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [REST API](/rest/api/cosmos-db/) 來建立資料庫。
+您可以使用 [Azure 入口網站](https://portal.azure.com) (如[新增集合](create-sql-api-dotnet.md#create-collection-database)所述)、其中一個 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [REST API](/rest/api/cosmos-db/) 來建立資料庫。
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>我如何設定使用者和權限？
 
@@ -257,7 +257,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 * 目前不支援 CORS
 * 在 Azure 資料表儲存體中的資料表名稱不區分大小寫，但它們位於 Azure Cosmos DB 資料表 API
 * 部分 Azure Cosmos DB 用於編碼資訊 (例如二進位欄位) 的內部格式，目前不如預期地有效率。 因此這會對資料大小造成非預期的限制。 例如，目前無法使用資料表實體的完整 1 Meg 來儲存二進位資料，因為編碼方式增加了資料的大小。
-* 目前不支援實體屬性名稱 'Id'
+* 實體屬性名稱 'ID' 目前不支援
 * TableQuery TakeCount 不限於 1000
 
 就 REST API 來說，Azure Cosmos DB 資料表 API 並不支援某些端點/查詢選項：

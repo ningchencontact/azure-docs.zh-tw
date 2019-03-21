@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 8e8a4cabd948783278981c61fa718e51b679ad72
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 65518e7515f9e233b12ae5406819c91e8e3f2a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014160"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453162"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>在 Azure Data Factory 中加密內部部署資料存放區的認證
 您可以在含自我裝載整合執行階段的電腦上加密和儲存內部部署資料存放區的認證 (含敏感性資訊的連結服務)。 
 
-您會將具有認證的 JSON 定義檔傳遞至 <br/>[**New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) Cmdlet 可使用加密認證來產生輸出 JSON 定義檔。 然後，使用更新的 JSON 定義來建立連結服務。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+您會將具有認證的 JSON 定義檔傳遞至 <br/>[**新 AzDataFactoryV2LinkedServiceEncryptedCredential** ](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet 來產生輸出 JSON 定義檔與加密認證。 然後，使用更新的 JSON 定義來建立連結服務。
 
 ## <a name="author-sql-server-linked-service"></a>編寫 SQL Server 連結服務
 在任何資料夾中，使用下列內容建立名為 **SqlServerLinkedService.json** 的 JSON 檔案：  
@@ -49,17 +51,17 @@ ms.locfileid: "54014160"
 ```
 
 ## <a name="encrypt-credentials"></a>加密認證
-若要將內部部署自我裝載整合執行階段之 JSON 承載中的敏感性資料加密，請執行 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**，並傳入 JSON 承載。 這個 Cmdlet 確保使用 DPAPI 來加密認證，並將其本機儲存在自我裝載整合執行階段節點上。 輸出承載可以重新導向至另一個包含加密認證的 JSON 檔案 (在此案例中，是 'encryptedLinkedService.json')。
+若要加密內部部署自我裝載的整合執行階段之 JSON 承載中的敏感性資料，請執行**新增 AzDataFactoryV2LinkedServiceEncryptedCredential**，並傳入 JSON 承載。 這個 Cmdlet 確保使用 DPAPI 來加密認證，並將其本機儲存在自我裝載整合執行階段節點上。 輸出承載可以重新導向至另一個包含加密認證的 JSON 檔案 (在此案例中，是 'encryptedLinkedService.json')。
 
 ```powershell
-New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
 ```
 
 ## <a name="use-the-json-with-encrypted-credentials"></a>搭配使用 JSON 與加密認證
 現在，使用包含加密認證之前一個命令的輸出 JSON 檔案來設定 **SqlServerLinkedService**。
 
 ```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
+Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
 ## <a name="next-steps"></a>後續步驟

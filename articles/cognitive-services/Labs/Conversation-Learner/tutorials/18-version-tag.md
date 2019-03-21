@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99b4712373423d30dc83408cc80eccc93b342c10
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55205995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086304"
 ---
 # <a name="how-to-use-version-tagging"></a>如何使用版本標記
 
@@ -67,9 +67,9 @@ ms.locfileid: "55205995"
 
 現在，我們要將其標記為模型的「第 1 版」。
 
-4. 在左面板中按一下 [設定]，然後按一下 ![](../media/tutorial18_version_tags.PNG) [版本標記] 圖示，以顯示您應點按的 `New Tag` 按鈕。
+1. 在左面板中按一下 [設定]，然後按一下 ![](../media/tutorial18_version_tags.PNG) [版本標記] 圖示，以顯示您應點按的 `New Tag` 按鈕。
     - 將其命名為「第 1 版」
-4. 在 [即時標記] 下拉式清單中，選取 [第 1 版]。  
+1. 在 [即時標記] 下拉式清單中，選取 [第 1 版]。  
     - 現在，使用此聊天機器人的通道將會使用模型的「第 1 版」。
     - 這個「第 1 版」模型的實體、動作和訓練對話無法再進行變更。
     - 如果您選取 [第 1 版] 作為 [編輯標記]，您將只能檢視模型，而無法加以編輯。

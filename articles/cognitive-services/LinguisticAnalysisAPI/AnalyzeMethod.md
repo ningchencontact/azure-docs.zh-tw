@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861675"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431133"
 ---
 # <a name="analyze-method"></a>分析方法
 
@@ -24,7 +24,7 @@ ms.locfileid: "55861675"
 > 語言分析預覽已在 2018 年 8 月 9 日解除委任。 我們建議使用 [Azure Machine Learning 文字分析模組](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)來進行文字處理和分析。
 
 **分析** REST API 可用來分析指定的自然語言輸入。
-分析時可能涉及只尋找該輸入內的[句子和 Token](Sentences-and-Tokens.md)、尋找[詞性標記](POS-tagging.md)，或尋找[組成單位樹狀結構](Constituency-Parsing.md)。
+可能會牽涉到只尋找[句子和語彙基元](Sentences-and-Tokens.md)中，輸入，尋找[一部分的語音標記](POS-tagging.md)，或尋找[顧客群樹狀](Constituency-Parsing.md)。
 您可以挑選相關分析器來指定您想要的結果。
 若要列出所有可用的分析器，請參閱**[分析器](AnalyzersMethod.md)**。
 
@@ -38,11 +38,11 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>要求參數
 
-Name | 類型 | 必要 | 說明
+名稱 | 類型 | 必要項 | 描述
 -----|-------|----------|------------
-**language**    | 字串 | yes | 要用於分析的雙字母 ISO 語言代碼。 例如，英文是 "en"。
-**analyzerIds** | 字串的清單 | yes | 要套用的分析器 GUID 清單。 如需詳細資訊，請參閱分析器文件。
-**text**        | 字串 | yes | 要分析的原始輸入。 這可能是簡短字串 (例如，字組或片語)、完整句子，或完整的段落或語篇。
+**language**    | 字串 | 是 | 要用於分析的雙字母 ISO 語言代碼。 例如，英文是 "en"。
+**analyzerIds** | 字串的清單 | 是 | 要套用的分析器 GUID 清單。 如需詳細資訊，請參閱分析器文件。
+**text**        | 字串 | 是 | 要分析的原始輸入。 這可能是簡短字串 (例如，字組或片語)、完整句子，或完整的段落或語篇。
 
 ## <a name="response-json"></a>回應 (JSON)
 
@@ -50,7 +50,7 @@ Name | 類型 | 必要 | 說明
 
 結果外觀如下：
 
-Name | 類型 | 說明
+名稱 | 類型 | 描述
 -----|------|--------------
 analyzerId | 字串 | 所指定分析器的 GUID
 結果 | 物件 | 分析器結果
@@ -59,7 +59,7 @@ analyzerId | 字串 | 所指定分析器的 GUID
 
 ### <a name="tokens-response-json"></a>Tokens 回應 (JSON)
 
-Name | 類型 | 說明
+名稱 | 類型 | 描述
 -----|------|-------------
 結果 | 句子物件的清單 | 在文字中識別的句子界限 |
 result[x].Offset | int | 每個句子的起始字元位移 |

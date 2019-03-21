@@ -1,5 +1,5 @@
 ---
-title: Azure 服務匯流排診斷記錄 | Microsoft Docs
+title: Azure 服务总线诊断日志 | Microsoft 文档
 description: 了解如何為 Azure 中的「服務匯流排」設定診斷記錄。
 keywords: ''
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6ac36fed8f9d3220e6caf6eba94a62d1ec8372c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846654"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216334"
 ---
 # <a name="service-bus-diagnostic-logs"></a>服務匯流排診斷記錄
 
@@ -46,7 +46,7 @@ ms.locfileid: "54846654"
 
     ![變更診斷記錄狀態](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  設定您想要的封存目標，例如儲存體帳戶、事件中樞或 Azure Log Analytics。
+5.  設定的封存目標，您想要的選項;例如，儲存體帳戶、 事件中樞或 Azure 監視器記錄。
 
 6.  儲存新的診斷設定。
 
@@ -64,12 +64,12 @@ ms.locfileid: "54846654"
 
 作業記錄 JSON 字串包括下表所列的元素：
 
-Name | 說明
+名稱 | 描述
 ------- | -------
 ActivityId | 用於追蹤的內部識別碼
-EventName | 作業名稱           
+EventName | 操作名称           
 ResourceId | Azure Resource Manager 資源識別碼
-SubscriptionId | 訂用帳戶識別碼
+SubscriptionId | 订阅 ID
 EventTimeString | 作業時間
 EventProperties | 作業屬性
 狀態 | 作業狀態

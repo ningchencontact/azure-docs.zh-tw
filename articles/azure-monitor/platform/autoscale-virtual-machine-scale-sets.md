@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 23618b545814e89a7343d2db4664405855051c1b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415437"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080772"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>針對 VM 擴展集使用 Resource Manager 範本的進階自動調整設定
 您可以根據效能標準臨界值、循環排程或特定日期，針對虛擬機器擴展集進行相應縮小和放大。 您也可以針對調整動作設定電子郵件和 webhook 通知。 本逐步解說會示範在 VM 擴展集上使用 Resource Manager 範本設定所有這些物件。
@@ -35,7 +35,7 @@ ms.locfileid: "56415437"
 
 3. 您現在可以根據排程或特定需求新增更多設定檔和規則。 我們會建立具有三個設定檔的自動調整設定。 若要了解自動調整中的設定檔和規則，請檢閱[自動調整最佳做法](autoscale-best-practices.md)。  
 
-    | 設定檔與規則 | 說明 |
+    | 設定檔與規則 | 描述 |
     |--- | --- |
     | **設定檔** |**以效能/計量為基礎** |
     | 規則 |服務匯流排佇列訊息計數 > x |
@@ -47,20 +47,20 @@ ms.locfileid: "56415437"
 
 4. 以下是我們用於此逐步解說的虛構調整案例。
 
-    * **以負載為基礎** - 我想要根據裝載於擴展集的應用程式的負載來相應放大或縮小。*
-    * **訊息佇列大小** - 我使用服務匯流排佇列來存放傳入應用程式的訊息。 \*我使用佇列的訊息計數和 CPU% 來設定預設設定檔，以在訊息計數或 CPU 達到臨界值時觸發調整動作。
-    * **每週和每日時間** - 我想要一個以每週一次「當天時間」為基礎的設定檔，稱為「工作日早上時間」。 \*根據歷史資料，我明白這段期間應該要有特定數量的 VM 執行個體來處理應用程式的負載。
-    * **特殊日期** - 我已新增「產品發行日」設定檔。 \*我會預先針對特定日期作出計畫，好讓應用程式可以準備好處理因應行銷公告，或是當我們將新產品置入應用程式時所導致的負載。
-    * *最後兩個設定檔也可以具有以其他效能標準為基礎的規則。在此案例中，我決定不那麼做，而是依賴以預設效能標準為基礎的規則。針對週期性和日期式設定檔的規則為選擇性。*
+   * **以負載為基礎** - 我想要根據裝載於擴展集的應用程式的負載來相應放大或縮小。*
+   * **訊息佇列大小** - 我使用服務匯流排佇列來存放傳入應用程式的訊息。 \*我使用佇列的訊息計數和 CPU% 來設定預設設定檔，以在訊息計數或 CPU 達到臨界值時觸發調整動作。
+   * **每週和每日時間** - 我想要一個以每週一次「當天時間」為基礎的設定檔，稱為「工作日早上時間」。 \*根據歷史資料，我明白這段期間應該要有特定數量的 VM 執行個體來處理應用程式的負載。
+   * **特殊日期** - 我已新增「產品發行日」設定檔。 \*我會預先針對特定日期作出計畫，好讓應用程式可以準備好處理因應行銷公告，或是當我們將新產品置入應用程式時所導致的負載。
+   * *最後兩個設定檔也可以具有以其他效能標準為基礎的規則。在此案例中，我決定不那麼做，而是依賴以預設效能標準為基礎的規則。針對週期性和日期式設定檔的規則為選擇性。*
 
-    自動調整引擎針對設定檔和規則的優先順序，也已在[自動調整最佳做法](autoscale-best-practices.md)一文中說明。
-    如需自動調整的常見計量清單，請參閱[自動調整的常用計量](autoscale-common-metrics.md)
+     自動調整引擎針對設定檔和規則的優先順序，也已在[自動調整最佳做法](autoscale-best-practices.md)一文中說明。
+     如需自動調整的常見計量清單，請參閱[自動調整的常用計量](autoscale-common-metrics.md)
 
 5. 請確定您已處於資源總管的**讀寫**模式
 
     ![Autoscalewad, default autoscale setting, 自動調整, 預設自動調整設定](media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
-6. 按一下 [編輯]。 使用下列組態**取代**自動調整設定中的 'profiles' 元素：
+6. 单击“编辑”。 使用下列組態**取代**自動調整設定中的 'profiles' 元素：
 
     ![設定檔](media/autoscale-virtual-machine-scale-sets/profiles.png)
 

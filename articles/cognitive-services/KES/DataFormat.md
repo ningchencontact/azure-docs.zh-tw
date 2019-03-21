@@ -10,17 +10,17 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f17bc3c0588476fdc4f8414fb020b16718bf1d90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bba257c61509d862bb3161625750f05a86af8770
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854790"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532162"
 ---
 # <a name="data-format"></a>資料格式
 
 資料檔案會描述要編製索引的物件清單。
-檔案中的每一行都會以 [JSON 格式](http://json.org/)搭配 UTF-8 編碼方式，指定物件的屬性值。
+檔案中的每一行都會以 [JSON 格式](https://json.org/)搭配 UTF-8 編碼方式，指定物件的屬性值。
 除了[結構描述](SchemaFormat.md)中所定義的屬性之外，每個物件都具有選擇性 "logprob" 屬性，而該屬性可指定物件之間的相對對數機率。
 當服務傳回物件以便降低機率時，我們可以使用 "logprob" 來表示相符物件的傳回順序。
 假設 0 和 1 之間的概率為 p，相對應的對數概率可計算為 log(p)，其中 log() 是自然對數函式。

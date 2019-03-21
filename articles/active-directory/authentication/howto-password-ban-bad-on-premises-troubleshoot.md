@@ -1,6 +1,6 @@
 ---
-title: Azure AD 密碼保護預覽中的疑難排解
-description: 了解 Azure AD 密碼保護預覽中常見的疑難排解
+title: 疑難排解在 Azure AD 密碼保護
+description: 了解 Azure AD 密碼保護常見的疑難排解
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006946"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285695"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>預覽：Azure AD 密碼保護的疑難排解
-
-|     |
-| --- |
-| Azure AD 密碼保護是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 密碼保護的疑難排解
 
 部署 Azure AD 密碼保護之後，可能需要進行疑難排解。 本文將深入說明以協助您了解一些常見的疑難排解步驟。
 
@@ -101,7 +96,7 @@ KDS 服務無法啟動的最常見根本原因是 Active Directory 網域控制�
 
 ## <a name="removal"></a>移除
 
-如果決定要解除安裝公用預覽版軟體，並從網域和樹系清除所有相關的狀態，您可以使用下列步驟來完成這項工作：
+如果它決定要解除安裝 Azure AD 密碼防護軟體且已清除所有相關的狀態從 網域和樹系，就可以使用下列步驟來完成這項工作：
 
 > [!IMPORTANT]
 > 這些步驟務必要依序執行。 如果有任何 Proxy 服務的執行個體仍繼續執行，它將會定期重新建立其 serviceConnectionPoint 物件。 如果有任何 DC 代理程式服務的執行個體仍繼續執行，它將會定期重新建立其 serviceConnectionPoint 物件與 sysvol 狀態。
@@ -120,7 +115,7 @@ KDS 服務無法啟動的最常見根本原因是 Active Directory 網域控制�
 
    透過 `Get-ADObject` 命令找到的產生物件隨後可使用管線傳送到 `Remove-ADObject`，或以手動方式刪除。
 
-4. 手動移除在每個網域命名內容中所有的 DC 代理程式連接點。 樹系中的每個網域控制站可能各有一個此類物件，視先前部署公用預覽版軟體的範圍而定。 您可以使用下列 Active Directory PowerShell 命令來找出該物件的位置：
+4. 手動移除在每個網域命名內容中所有的 DC 代理程式連接點。 可能有其中一個這些物件每個網域控制站的樹系，取決於軟體已廣。 您可以使用下列 Active Directory PowerShell 命令來找出該物件的位置：
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

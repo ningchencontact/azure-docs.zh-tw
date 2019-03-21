@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873967"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534798"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立認知服務帳戶
 
@@ -35,7 +35,7 @@ ms.locfileid: "55873967"
 
 ### <a name="single-service-subscription"></a>單一服務訂用帳戶
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)，然後按一下 [+ 建立資源]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [+ 建立資源]。
 
     ![選取認知服務 API](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "55873967"
 
 ### <a name="multi-service-subscription"></a>多服務訂用帳戶
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)，然後按一下 [+ 建立資源]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [+ 建立資源]。
 
     ![選取認知服務 API](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
@@ -97,7 +97,7 @@ ms.locfileid: "55873967"
 > [!div class="nextstepaction"]
 > [驗證 Azure 認知服務要求](authentication.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [快速入門：從影像擷取手寫文字](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
 * [教學課程：建立應用程式來偵測並框出影像中的臉部](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)

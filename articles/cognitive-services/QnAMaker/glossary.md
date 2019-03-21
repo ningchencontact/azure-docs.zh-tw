@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871008"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649436"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>QnA Maker 知識庫和服務的字彙
 
@@ -42,4 +42,4 @@ ms.locfileid: "55871008"
 回應是根據最符合特定使用者查詢的回應從知識庫擷取的答案。
 
 ## <a name="confidence-score"></a>信賴分數
-回應的信賴分數是介於 0 和 100 之間的數值，100 代表使用者查詢與知識庫中的問題之間的完全查詢相符，而且提供的回應對於特定的使用者查詢是正確適當的回應。 答案一般是按照信賴分數排序，而且信賴分數較高的答案會成為預設回應。
+回應的信賴分數是介於 0 和 100 之間的數值，100 代表使用者查詢與知識庫中的問題之間的完全查詢相符，而且提供的回應對於特定的使用者查詢是正確適當的回應。 答案通常排序次序的信賴分數，則具有較高的信心分數擔任[預設回應](concepts/confidence-score.md#change-default-answer)。

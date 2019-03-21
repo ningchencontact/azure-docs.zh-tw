@@ -10,19 +10,19 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8544d63f38f88a0e623dff343bf8b5133931b70b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 07550ed9c78aa584e55403d225eef4bcff33b057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228299"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167417"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用多重值實體
 本教學課程說明實體的「多重值」屬性。
 
 ## <a name="video"></a>影片
 
-[![多值實體教學課程預覽](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
+[![多重值實體教學課程的預覽](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人
@@ -36,65 +36,65 @@ ms.locfileid: "55228299"
 
 ## <a name="steps"></a>步驟
 
+在 Web UI 中的首頁開始。
+
 ### <a name="create-the-model"></a>建立模型
 
-1. 在 Web UI 中，按一下 [新增模型]。
-2. 在 [名稱] 欄位中輸入 "MultiValueEntities"，並按 Enter 鍵。
-3. 按一下 [建立] 按鈕。
+1. 選取 **新的模型**。
+2. 請輸入**MultiValueEntities** for**名稱**。
+3. 選取 [建立] 。
 
 ### <a name="entity-creation"></a>建立實體
 
-1. 在左面板中按一下 [實體]，然後按 [新增實體] 按鈕。
-2. 選取 [自訂定型] 作為 [實體類型]。
-3. 輸入 "toppings" (配料) 作為 [實體名稱]。
-4. 勾選 [多重值] 核取方塊。
-    - 多重值實體會在實體中累積一或多個值。
-5. 勾選 [Negatable] 核取方塊。
-    - "Negatable" 屬性已於另一個教學課程中說明。
-6. 按一下 [建立] 按鈕。
+1. 選取 **實體**在左窗格中，然後**新實體**。
+2. 選取 **自訂訓練**for**實體類型**。
+3. 請輸入**配料**for**實體名稱**。
+4. 請檢查**多重值**啟用實體累積一或多個值。
+5. 請檢查**Negatable**。
+6. 選取 [建立] 。
 
-![](../media/tutorial6_entities.PNG)
+![](../media/T07_entity_create.png)
 
 ### <a name="create-the-first-action"></a>建立第一個動作
 
-1. 在左面板中按一下 [動作]，然後按 [新增動作] 按鈕。
-2. 在 [聊天機器人的回應...] 欄位中，輸入「以下是您的配料：$toppings」
-    - 前置的貨幣符號表示實體參考
-3. 按一下 [建立] 按鈕。
+1. 選取 **動作**在左窗格中，然後**新動作**。
+2. 請輸入**以下是您的配料： $toppings**如**機器人的回應...**.前置的錢幣符號表示實體參考。
+3. 選取 [建立] 。
+
+![](../media/T07_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>建立第二個動作
 
-1. 在左面板中按一下 [動作]，然後按 [新增動作] 按鈕。
-2. 在 [聊天機器人的回應...] 欄位中，輸入「您想要哪些配料？」
-3. 在 [不合格的實體] 欄位中，輸入 "toppings" (配料)。
-4. 按一下 [建立] 按鈕。
+1. 選取 **動作**在左窗格中，然後**新動作**。
+2. 輸入**哪些配料？** 如**機器人的回應...**.
+3. 請輸入**配料**for **Disqualifying 享有**。
+4. 選取 [建立] 。
 
 現在您有兩個動作。
 
-![](../media/tutorial6_actions.PNG)
+![](../media/T07_action_create_2.png)
 
 ### <a name="train-the-model"></a>訓練模型
 
-1. 在左面板中按一下 [訓練對話]，然後按 [新增訓練對話] 按鈕。
-2. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "hi" (您好)。
-3. 按一下 [評分動作] 按鈕。
-4. 選取回應：「您想要哪些配料？」
-    - 百分位數為 100%，因為唯一的有效動作以條件約束為基礎。
-5. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "cheese and mushrooms" (起司和蘑菇)
-6. 按一下 [起司]，並選擇標籤 [+配料]
-7. 按一下 [蘑菇]，並選擇標籤 [+配料]
-8. 按一下 [評分動作] 按鈕。
-9. 選取回應：「以下是您的配料：$toppings」
-10. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "add pepper" (加辣椒)
-11. 按一下 [辣椒]，並選擇標籤 [+配料]
-12. 按一下 [評分動作] 按鈕。
-13. 選取回應：「以下是您的配料：$toppings」
-14. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "remove cheese" (移除起司)
-15. 按一下 [起司]，並選擇標籤 [-配料]
-16. 按一下 [評分動作] 按鈕。
-17. 選取回應：「以下是您的配料：$toppings」
+1. 選取 **定型對話方塊**在左窗格中，然後**新的訓練對話方塊**。
+2. 請輸入**大家好**針對使用者的 utterance 左側的對談 面板中。
+3. 選取 **評分動作**。
+4. 選取 **哪些配料？** 從動作清單。 百分位數做為依據的條件約束的唯一有效動作為 100%。
+5. 請輸入**起司和蘑菇**針對使用者的 utterance 左側的對談 面板中。
+6. 反白顯示**起司**然後選取 **+ 配料**。
+7. 反白顯示**蘑菇**然後選取 **+ 配料**。
+8. 選取 **評分動作**。
+9. 選取 **以下是您的配料： $toppings**從動作清單。
+10. 請輸入**新增披**的使用者在左邊的對談 面板的 下一步 utterance。
+11. 反白顯示**披**然後選取 **+ 配料**。
+12. 選取 **評分動作**。
+13. 選取 **以下是您的配料： $toppings**從動作清單。
+14. 請輸入**移除起司**的使用者在左邊的對談 面板的第三個 utterance。
+15. 反白顯示**起司**然後選取 **-配料**。
+16. 選取 **評分動作**。
+17. 選取 **以下是您的配料： $toppings**從動作清單。
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T07_training.png)
 
 ## <a name="next-steps"></a>後續步驟
 

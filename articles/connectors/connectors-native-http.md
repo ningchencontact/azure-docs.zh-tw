@@ -11,12 +11,12 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1c30f77c061ec25c88186caee3f60e65f3afb3de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232863"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442200"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>使用 Azure Logic Apps 來呼叫 HTTP 或 HTTPS 端點
 
@@ -46,7 +46,7 @@ ms.locfileid: "50232863"
 
    ![選取 HTTP 觸發程序](./media/connectors-native-http/select-http-trigger.png)
 
-1. 提供您想要包含在目標端點呼叫中的 [HTTP 觸發程序參數和值](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)。 設定您想要觸發程序檢查目標端點的頻率週期。
+1. 提供您想要包含在目標端點呼叫中的 [HTTP 觸發程序參數和值](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)。 設定循環觸發程序的頻率，以檢查目標端點。
 
    ![輸入 HTTP 觸發程序參數](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "50232863"
 
 1. 完成後，請確保已儲存邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。 
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 若要設定驗證，請在動作或觸發程序內選擇 [顯示進階選項]。 如需 HTTP 觸發程序和動作可用驗證類型的詳細資訊，請參閱[觸發程序和動作類型參考](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)。
 

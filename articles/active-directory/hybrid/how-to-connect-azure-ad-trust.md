@@ -18,12 +18,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a45d776ea241e04aacf39e45f7bf6d2cc58c689
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172160"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446634"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>使用 Azure AD Connect 管理與 Azure AD 的 AD FS 信任
 
@@ -39,7 +39,7 @@ Azure AD Connect 可以管理內部部署 Active Directory Federation Service (A
 
 Azure AD Connect **只**會管理與 Azure AD 信任相關的設定。 Azure AD Connect 不會在 AD FS 中修改有關其他信賴憑證者信任的任何設定。 下表指出由 Azure AD Connect 所控制的設定。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 | :--- | :--- |
 | 權杖簽署憑證 | Azure AD Connect 可以用來重設並重新建立與 Azure AD 的信任。 Azure AD Connect 會針對 AD FS 進行權杖簽署憑證的單次立即變換，並更新 Azure AD 網域同盟設定。|
 | 權杖簽署演算法 | Microsoft 建議使用 SHA-256 作為權杖簽署演算法。 Azure AD Connect 可以偵測是否將權杖簽署演算法設定為比 SHA-256 更不安全的值。 它將在下一個可能的設定作業中將設定更新為 SHA-256。 必須更新其他信賴憑證者信任，才能使用新的權杖簽署憑證。 |
@@ -77,7 +77,7 @@ Azure AD Connect 不會在設定流程期間更新 Azure AD 信任的所有設�
 
 Azure AD Connect 確保一律會使用一組正確的建議宣告規則來設定 Azure AD 信任。 Microsoft 建議使用 Azure AD Connect 來管理您的 Azure AD 信任。 本節會列出發行轉換規則集及其描述。
 
-| 規則名稱 | 說明 |
+| 規則名稱 | 描述 |
 | --- | --- |
 | 發行 UPN | 此規則會針對 userprincipalname 從同步處理設定中設定的屬性，查詢 userprincipalname 的值。|
 | 針對自訂的 ImmutableId 宣告，查詢 objectguid 和 msdsconsistencyguid | 此規則會在管線中，針對 objectguid 和 msdsconsistencyguid 值 (如果有的話) 新增暫存值 |
@@ -105,7 +105,7 @@ Azure AD Connect 確保一律會使用一組正確的建議宣告規則來設定
 
 每次更新 Azure AD 信任設定時，Azure AD Connect 1.1.873.0 版或更新版本就會建立 Azure AD 信任設定的備份。 在 **%ProgramData%\AADConnect\ADFS** 上備份 Azure AD 信任設定。 檔案名稱格式如下：AadTrust-&lt;date&gt;-&lt;time&gt;.txt，例如，AadTrust-20180710-150216.txt
 
-![Azure AD 信任範例備份的螢幕擷取畫面](./media/how-to-connect-azure-ad-trust/backup.png)
+![範例的螢幕擷取畫面備份的 Azure AD 信任](./media/how-to-connect-azure-ad-trust/backup.png)
 
 您可以使用下列建議步驟來還原發行轉換規則
 
