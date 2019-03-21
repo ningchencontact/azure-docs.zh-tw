@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe9a10c85efa2f52a04f5c2fab87421a08f0a16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118437"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 同步：設定 Office 365 資源的慣用資料位置
 本主題的目的在於逐步解說如何在 Azure Active Directory (Azure AD) Connect 同步處理中設定慣用資料位置的屬性。當某人在 Office 365 中使用多地理位置功能時，您可使用這個屬性來指定使用者 Office 365 資料的地理位置。 (「區域」與「地區」這兩個詞可交換使用。)
@@ -126,11 +126,11 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | Name | 提供名稱 | 例如，“In from AD – User preferredDataLocation” |
-    | 說明 | *提供自訂描述* |  |
+    | 名稱 | 提供名稱 | 例如，“In from AD – User preferredDataLocation” |
+    | 描述 | *提供自訂描述* |  |
     | 連線系統 | 挑選內部部署 Active Directory 連接器 |  |
     | 連線系統物件類型 | **使用者** |  |
-    | Metaverse 物件類型 | **人員** |  |
+    | Metaverse 对象类型 | **人員** |  |
     | 連結類型 | **Join** |  |
     | 優先順序 | 選擇 1–99 之間的數字 | 1–99 已保留供自訂同步處理規則使用。 請勿挑選已由其他同步處理規則使用的值。 |
 
@@ -139,7 +139,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 流程類型 | 目標屬性 | 來源 | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
-    |直接 | preferredDataLocation | 挑選來源屬性 | 未核取 | 更新 |
+    |直接 | preferredDataLocation | 挑選來源屬性 | 未选中 | 更新 |
 
 7. 若要建立輸入規則，請選取 [新增]。
 
@@ -155,19 +155,19 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | ----- | ------ | --- |
-    | Name | 提供名稱 | 例如，“Out to Azure AD – User preferredDataLocation” |
-    | 說明 | 提供描述 ||
+    | 名稱 | 提供名稱 | 例如，“Out to Azure AD – User preferredDataLocation” |
+    | 描述 | 提供描述 ||
     | 連線系統 | 選取 Azure AD 連接器 ||
     | 連線系統物件類型 | **使用者** ||
-    | Metaverse 物件類型 | **人員** ||
+    | Metaverse 对象类型 | **人員** ||
     | 連結類型 | **Join** ||
     | 優先順序 | 選擇 1–99 之間的數字 | 1–99 已保留供自訂同步處理規則使用。 請勿挑選已由其他同步處理規則使用的值。 |
 
 5. 移至 [範圍篩選器] 索引標籤，並使用兩個子句來新增單一範圍篩選器群組：
 
-    | 屬性 | 運算子 | 值 |
+    | 屬性 | 运算符 | 值 |
     | --- | --- | --- |
-    | sourceObjectType | EQUAL | 使用者 |
+    | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
 
     範圍篩選器會決定此輸出同步處理規則要套用至哪個 Azure AD 物件。 在此範例中，我們會使用來自 “Out to AD – User Identity” OOB (現成可用) 同步處理規則的同一個範圍篩選器。 它可避免同步處理規則套用到並非從內部部署 Active Directory 同步過來的**使用者**物件。 您可能需要根據 Azure AD Connect 部署來調整範圍篩選器。
@@ -192,8 +192,8 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
    3. 在對話方塊中選取 [完整匯入]，然後選取 [確定]。
    4. 請等候作業完成。
 
-    > [!NOTE]
-    > 如果所匯入屬性的清單中已包含來源屬性，您可以略過內部部署 Active Directory 連接器上的完整匯入。 換句話說，您不必在本文稍早的步驟 2 中進行任何變更。
+      > [!NOTE]
+      > 如果所匯入屬性的清單中已包含來源屬性，您可以略過內部部署 Active Directory 連接器上的完整匯入。 換句話說，您不必在本文稍早的步驟 2 中進行任何變更。
 
 2. 在 Azure AD 連接器上執行 [完整匯入]：
 

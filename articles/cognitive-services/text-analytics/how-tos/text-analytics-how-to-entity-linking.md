@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b2330d322c6939ba6d9581c125c512fcea9f924b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 78cc200a7bbaa2673cf6fea71d9be123fc96a75f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242742"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258066"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>如何在文字分析 (預覽) 中使用具名實體辨識
 
@@ -23,7 +23,7 @@ ms.locfileid: "56242742"
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>實體連結和具名實體辨識
 
-文字分析的 `entities` 端點同時支援具名實體辨識和實體連結。
+文本分析的 `entities` 终结点支持命名实体识别 (NER) 和实体链接。
 
 ### <a name="entity-linking"></a>實體連結
 連結實體可識別及區分文字中找到的實體身分識別 (例如，判斷 "Mars" 是用來指星體或指羅馬的戰神)。 此程序需具備可讓辨識項目與之連結的知識庫 - `entities` 端點文字分析即是使用維基百科作為知識庫。
@@ -62,8 +62,9 @@ ms.locfileid: "56242742"
 | DateTime      | Duration      | "1 minute and 45 seconds"   | 
 | DateTime      | 設定           | "every Tuesday"     | 
 | DateTime      | TimeZone      |    | 
-| URL           | N/A\*         | "http://www.bing.com"    |
+| URL           | N/A\*         | "https:\//www.bing.com"    |
 | 電子郵件         | N/A\*         | "support@contoso.com" |
+
 \* 依輸入和擷取的實體而定，某些實體可能會省略 `SubType`。
 
 
@@ -74,7 +75,7 @@ ms.locfileid: "56242742"
 
 如需目前支援的語言，請參閱[這份清單](../text-analytics-supported-languages.md)。
 
-文件大小必須少於 5,000 個字元，而且您最多可以針對每個集合擁有 1,000 個項目 (識別碼)。 集合會在要求本文中提交。 下列範例是您可能會提交至實體連結末端的內容說明。
+文件大小必須少於 5,120 個字元，而且您最多可以針對每個集合擁有 1,000 個項目 (識別碼)。 集合會在要求本文中提交。 下列範例是您可能會提交至實體連結末端的內容說明。
 
 ```
 {"documents": [{"id": "1",
@@ -284,7 +285,7 @@ ms.locfileid: "56242742"
 + 使用對您訂用帳戶有效的個人化[存取金鑰和端點](text-analytics-how-to-access-key.md)，將要求 POST 到 `/entities` 端點。
 + 由連結實體 (包含每個文件識別碼的信賴分數、位移和網頁連結) 組成的回應輸出可用於任何應用程式
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>請參閱 
 
  [文字分析概觀](../overview.md)  
  [常見問題集 (FAQ)](../text-analytics-resource-faq.md)</br>

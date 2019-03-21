@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185f4ad83d083ab1a15208361ee7b44e118c68e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168301"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286206"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>什麼是 Azure Active Directory 架構？
 Azure Active Directory (Azure AD) 可讓您安全地管理您使用者的 Azure 服務和資源存取權。 Azure AD 隨附一套完整的身分識別管理功能。 如需 Azure AD 功能的詳細資訊，請參閱[什麼是 Azure Active Directory？](active-directory-whatis.md)
@@ -39,7 +39,7 @@ Azure AD 分佈各地的架構結合廣泛監視、自動化重設路徑、容�
 
 資料層有數個可提供讀寫功能的前端服務。 下圖顯示單一目錄分割區的元件如何在分佈各地的資料中心內傳遞。 
 
-  ![單一目錄分割](./media/active-directory-architecture/active-directory-architecture.png)
+  ![單一目錄分割圖表](./media/active-directory-architecture/active-directory-architecture.png)
 
 Azure AD 架構的元件包括主要複本和次要複本。
 

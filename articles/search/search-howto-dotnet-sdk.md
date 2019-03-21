@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 6f263511a7d1df4af82a690c1d6b04fecd2a8a91
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634536"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286307"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>如何從 .NET 應用程式使用 Azure 搜尋服務
 本文會逐步指引您學會如何使用 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)。 您可以透過 .NET SDK，利用 Azure 搜尋服務在應用程式中實作豐富的搜尋經驗。
@@ -27,9 +27,9 @@ SDK 包含數個用戶端程式庫，可讓您管理索引、資料來源、索�
 
 SDK 中還有其他 NuGet 套件：
  
-  - `Microsoft.Azure.Search.Data`：如果您正在開發使用 Azure 搜尋服務的 .NET 應用程式，而且只需要查詢或更新索引中的文件，則請使用此套件。 如果您也需要建立或更新索引、同義字地圖或其他服務層級資源，請改用 `Microsoft.Azure.Search` 套件。
-  - `Microsoft.Azure.Search.Service`：如果您正在開發 .NET 自動化來管理 Azure 搜尋服務的索引、同義字地圖、索引子、資料來源或其他服務層級資源，請使用此套件。 如果您只需要查詢或更新索引中的文件，請改用 `Microsoft.Azure.Search.Data` 套件。 如果您需要 Azure 搜尋服務的所有功能，請改用 `Microsoft.Azure.Search` 套件。
-  - `Microsoft.Azure.Search.Common`：Azure 搜尋服務 .NET 程式庫所需的常用類型。 您不需要在應用程式中直接使用此套件；此套件乃是做為相依性之用。
+  - `Microsoft.Azure.Search.Data`:如果您正在開發使用 Azure 搜尋服務的 .NET 應用程式，而且只需要查詢或更新索引中的文件，則請使用此套件。 如果您也需要建立或更新索引、同義字地圖或其他服務層級資源，請改用 `Microsoft.Azure.Search` 套件。
+  - `Microsoft.Azure.Search.Service`:如果您正在開發 .NET 自動化來管理 Azure 搜尋服務的索引、同義字地圖、索引子、資料來源或其他服務層級資源，請使用此套件。 如果您只需要查詢或更新索引中的文件，請改用 `Microsoft.Azure.Search.Data` 套件。 如果您需要 Azure 搜尋服務的所有功能，請改用 `Microsoft.Azure.Search` 套件。
+  - `Microsoft.Azure.Search.Common`:Azure 搜尋服務 .NET 程式庫所需的常用類型。 您不需要在應用程式中直接使用此套件；此套件乃是做為相依性之用。
 
 各種用戶端程式庫會定義類別，例如 `Index`、`Field` 及 `Document`，以及定義作業，例如 `SearchServiceClient` 和 `SearchIndexClient` 類別上的 `Indexes.Create` 和 `Documents.Search`。 這些類別可編成以下命名空間：
 
@@ -59,7 +59,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.5.2 (含) 以上版本，
 * 透過文件填入索引
 * 使用全文檢索搜尋和篩選來搜尋文件
 
-這些情節的說明都隨附範例程式碼， 歡迎在您的應用程式中使用這些程式碼片段。
+下列範例程式碼說明每一種。 歡迎在您的應用程式中使用這些程式碼片段。
 
 ### <a name="overview"></a>概觀
 我們將探索的範例應用程式，會建立名為 "hotels" 的新索引，並透過一些文件填入索引，然後執行一些搜尋查詢。 以下是主要程式，該程式顯示了整體流程：
@@ -202,7 +202,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 接著，我們要進一步了解 `Main`所呼叫的每個方法。
 
 ### <a name="creating-an-index"></a>建立索引
-建立 `SearchServiceClient`後，`Main` 會接著刪除 "hotels" 索引 (如果已經存在)。 刪除方法如下：
+在建立後`SearchServiceClient`，`Main`刪除"hotels"索引，如果已經存在。 刪除方法如下：
 
 ```csharp
 private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
@@ -330,6 +330,8 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 
 最後，`UploadDocuments` 方法會延遲兩秒。 您的 Azure 搜尋服務中會發生非同步索引編製，因此範例應用程式必須稍待一會，才能確定文件已準備好可供搜尋。 通常只有在示範、測試和範例應用程式中，才需要這類延遲。
 
+<a name="how-dotnet-handles-documents"></a>
+
 #### <a name="how-the-net-sdk-handles-documents"></a>.NET SDK 如何處理文件
 您可能想知道 Azure 搜尋服務 .NET SDK 如何能夠將使用者定義的類別執行個體 (例如 `Hotel` 上傳至索引。 為了回答這問題，我們來看一下 `Hotel` 類別：
 
@@ -394,9 +396,9 @@ public partial class Hotel
 > 
 > 
 
-第二個要注意的是裝飾每個公用屬性 (property) 的屬性 (attribute)，例如 `IsFilterable`、`IsSearchable`、`Key` 和 `Analyzer`。 這些屬性直接對應至 [Azure 搜尋服務索引的對應屬性](https://docs.microsoft.com/rest/api/searchservice/create-index#request)。 `FieldBuilder` 類別會使用這些屬性來建構索引的欄位定義。
+第二個要注意的是裝飾每個公用屬性的屬性 (例如`IsFilterable`， `IsSearchable`， `Key`，和`Analyzer`)。 這些屬性直接對應至 [Azure 搜尋服務索引的對應屬性](https://docs.microsoft.com/rest/api/searchservice/create-index#request)。 `FieldBuilder` 類別會使用這些屬性來建構索引的欄位定義。
 
-第三個要注意的是，`Hotel` 類別為公用屬性的資料類型。 這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。 例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。 `bool?` 與 `Edm.Boolean`、`DateTimeOffset?` 與 `Edm.DateTimeOffset` 等，它們之間也有類似的類型對應。類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [Azure 搜尋服務 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get)。 `FieldBuilder` 類別會為您處理這項對應，但它仍有助您了解您需要對任何序列化問題進行疑難排解的情況。
+第三個要注意的是`Hotel`類別是資料類型的公用屬性。 這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。 例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。 `bool?` 與 `Edm.Boolean`、`DateTimeOffset?` 與 `Edm.DateTimeOffset` 等，它們之間也有類似的類型對應。類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [Azure 搜尋服務 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get)。 `FieldBuilder` 類別會為您處理這項對應，但它仍有助您了解您需要對任何序列化問題進行疑難排解的情況。
 
 這讓使用您的類別做為文件可雙向有效；您也可以擷取搜尋結果，然後讓 SDK 將結果自動還原序列化為您選擇的類型，我們會在下一節中看到這部分。
 
@@ -585,7 +587,7 @@ WriteDocuments(results);
 
     ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 
-此步驟已完成本教學課程，但別就此結束。 **後續步驟** 會提供可深入了解 Azure 搜尋服務的其他資源。
+此步驟已完成本教學課程，但別就此結束。 * * 下一個步驟會提供額外的資源，以深入了解 Azure 搜尋服務。
 
 ## <a name="next-steps"></a>後續步驟
 * 瀏覽 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 及 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 參考文章。

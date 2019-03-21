@@ -5,17 +5,17 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 03/19/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 6de5fefa3d70c1daecf00909d3ce44d4a4d8561c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: e078f838620f633743b27d26ba1218e753ff690e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543558"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259817"
 ---
-# <a name="expressroute-faq"></a>ExpressRoute 常見問題集
+# <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
 ## <a name="what-is-expressroute"></a>什麼是 ExpressRoute？
 
@@ -85,7 +85,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>**不支援下列服務**：
     * CDN
     * 多因素驗證
-    * 流量管理員
+    * 流量管理器
 
 ## <a name="data-and-connections"></a>資料與連線
 
@@ -164,7 +164,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 是。 您在標準 ExpressRoute 線路上最多可以有 10 個虛擬網路，而在[進階 ExpressRoute 電路](#expressroute-premium)上最多可以有 100 個虛擬網路。 
 
-### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>我有多個含有虛擬網路的 Azure 訂用帳戶。 我可以將各個訂用帳戶的虛擬網路連線到單一 ExpressRoute 電路嗎？
+### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>我有多个包含虚拟网络的 Azure 订阅。 我可以將各個訂用帳戶的虛擬網路連線到單一 ExpressRoute 電路嗎？
 
 是。 您可以使用單一 ExpressRoute 線路，在與線路相同的訂用帳戶或不同訂用帳戶中，最多連結 10 個虛擬網路。 您可透過啟用 ExpressRoute 進階功能來提高此限制。
 
@@ -343,10 +343,10 @@ ExpressRoute Premium 是下列功能的集合：
 
 * 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連，不會公告任何首碼，直到路由篩選連結至線路為止。 根據預設，您不會看見任何首碼。
 
-## <a name="expressRouteDirect"></a>ExpressRoute Direct (預覽)
+## <a name="expressRouteDirect"></a>ExpressRoute Direct
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
-## <a name="globalreach"></a>Global Reach (預覽)
+## <a name="globalreach"></a>遍及全球的觸角
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

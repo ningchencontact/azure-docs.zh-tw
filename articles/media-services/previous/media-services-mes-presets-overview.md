@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d32397773a5ede4ddc2a27c367f2750078e28c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 50c52369a5a957a4dd6279cac5079e2dea023106
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998094"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260021"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>媒體編碼器標準 (MES) 的範例預設
 
@@ -36,7 +36,7 @@ ms.locfileid: "55998094"
  
 ## <a name="available-presets"></a>可用的預設： 
 
- [H264 多重位元速率 1080p 音訊 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) 會產生一組 8 個對齊 GOP 的 MP4 檔案 (範圍從 6000 kbps 到 400 kbps) 和 AAC 5.1 音訊。  
+ [H264 多比特率 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) 生成一组 8 GOP 对齐的 MP4 文件（范围从 6000 kbps 到 400 kbps）和 AAC 5.1 音频。  
   
  [H264 多重位元速率 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md) 會產生一組 8 個對齊 GOP 的 MP4 檔案 (範圍從 6000 kbps 到 400 kbps) 和立體聲 AAC 音訊。  
   
@@ -66,7 +66,7 @@ ms.locfileid: "55998094"
   
  [H264 單一位元速率 4K 音訊 5.1](media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md) 會產生位元速率為 18000 kbps 的單一 MP4 檔案，而且是 AAC 5.1 音訊。  
   
- [H264 單一位元速率 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md) 會產生位元速率為 18000 kbps 的單一 MP4 檔案，而且是立體聲 AAC 音訊。  
+ [H264 单比特率 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md) 生成比特率为 18000 kbps 的单个 MP4 文件和立体声 AAC 音频。  
   
  [H264 單一位元速率 4x3 SD 音訊 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md) 會產生位元速率為 1800 kbps 的單一 MP4 檔案，而且是 AAC 5.1 音訊。  
   

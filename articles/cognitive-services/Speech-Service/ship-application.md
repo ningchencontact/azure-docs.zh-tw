@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445112"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962021"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -39,11 +39,13 @@ ms.locfileid: "56445112"
 
 在與您的應用程式相同的目錄中，可以部署必要的語音 SDK 檔案。 如此一來，您的應用程式就可以直接存取程式庫。 確定您選取與您的應用程式相符的正確版本 (Win32/x64)。
 
-| Name | 函式
+| 名稱 | 函式
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | 核心 SDK (原生和受控部署所需)
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | 受控部署所需
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 受控部署所需
+
+>[!NOTE]
+> 從版本 1.3.0 開始檔案`Microsoft.CognitiveServices.Speech.csharp.bindings.dll`（隨附於之前的版本），則不需要再。 功能現已整合在 SDK 的核心。
 
 ## <a name="linux"></a> Linux
 

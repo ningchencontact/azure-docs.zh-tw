@@ -10,21 +10,21 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 69fbcad92d31744cae798b7ff376e77f655f6440
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877553"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123414"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>如何使用 Collaborative Translation Framework (CTF) 報告
 
 > [!NOTE]
 > 此方法已被取代。 Translator Text API V3.0 中不提供此功能。
-
+> 
 > 先前在 Translator Text API V2.0 中提供的 Collaborative Translations Framework (CTF) 自 2018 年 2 月 1 日起已被取代。 AddTranslation 和 AddTranslationArray 函式可讓使用者透過 Collaborative Translation Framework 啟用校正功能。 在 2018 年 1 月 31 日之後，這兩個函式便不接受新的句子提交，而使用者則會收到錯誤訊息。 這些函式已被淘汰，而不會被取代。
-
->Translator Hub API 中有提供類似的功能，可讓您使用自己的術語和樣式來建置自訂翻譯系統，然後可以在 Translator Text API 中使用「分類 ID」來叫用它。 Translator Hub：[https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API：[https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> 
+> Translator Hub API 中有提供類似的功能，可讓您使用自己的術語和樣式來建置自訂翻譯系統，然後可以在 Translator Text API 中使用「分類 ID」來叫用它。 Translator Hub：[https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API：[https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 「Collaborative Translation Framework (CTF) 報告 API」會傳回統計資料和 CTF 存放區中的實際內容。 此 API 與 GetTranslations() 方法不同，因為它：
 * 只會從您的帳戶 (appId 或 Azure Marketplace 帳戶) 傳回翻譯後的內容及其總計數。
@@ -32,11 +32,11 @@ ms.locfileid: "55877553"
 * 不會傳回自動翻譯 (機器翻譯)。
 
 ## <a name="endpoint"></a>端點
-「CTF 報告 API」的端點是 http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
+「CTF 報告 API」的端點是 https://api.microsofttranslator.com/v2/beta/ctfreporting.svc
 
 
 ## <a name="methods"></a>方法
-| Name |    說明|
+| 名稱 |    描述|
 |:---|:---|
 | GetUserTranslationCounts 方法 | 取得使用者所建立的翻譯計數。 |
 | GetUserTranslations 方法 | 擷取使用者所建立的翻譯。 |
@@ -56,25 +56,25 @@ ms.locfileid: "55877553"
 **語法**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslationCount[]GetUserTranslationCounts(
-           string appId,
-           string uriPrefix,
-           string from,
-           string to,
-           int? minRating,
-           int? maxRating,
-           string user,
-           string category
-           DateTime? minDateUtc,
-           DateTime? maxDateUtc,
-           int? skip,
-           int? take);
-```
+> ```cs
+> UserTranslationCount[]GetUserTranslationCounts(
+>            string appId,
+>            string uriPrefix,
+>            string from,
+>            string to,
+>            int? minRating,
+>            int? maxRating,
+>            string user,
+>            string category
+>            DateTime? minDateUtc,
+>            DateTime? maxDateUtc,
+>            int? skip,
+>            int? take);
+> ```
 
 **參數**
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 |:---|:---|
 | appId | **必要** 如果使用 Authorization 標頭，請將 appid 欄位保留空白，否則請指定一個包含 "Bearer" + " " + 存取權杖的字串。|
 | uriPrefix | **選擇性** 一個包含翻譯 URI 前置詞的字串。|
@@ -96,9 +96,9 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 結果集會包含 **UserTranslationCount** 的陣列。 每個 UserTranslationCount 都有下列元素：
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 |:---|:---|
-| Count| 所擷取的結果數目|
+| 計數| 所擷取的結果數目|
 | 從 | 來源語言|
 | Rating| 提交者在 AddTranslation() 方法呼叫中套用的評分|
 | 至| 目標語言|
@@ -127,25 +127,25 @@ UserTranslationCount[]GetUserTranslationCounts(
 **語法**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslation[] GetUserTranslations (
-            string appId,
-            string uriPrefix,
-            string from,
-            string to,
-            int? minRating,
-            int? maxRating,
-            string user,
-            string category
-            DateTime? minDateUtc,
-            DateTime? maxDateUtc,
-            int? skip,
-            int? take);
-```
+> ```cs
+> UserTranslation[] GetUserTranslations (
+>             string appId,
+>             string uriPrefix,
+>             string from,
+>             string to,
+>             int? minRating,
+>             int? maxRating,
+>             string user,
+>             string category
+>             DateTime? minDateUtc,
+>             DateTime? maxDateUtc,
+>             int? skip,
+>             int? take);
+> ```
 
 **參數**
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 |:---|:---|
 | appId | **必要** 如果使用 Authorization 標頭，請將 appid 欄位保留空白，否則請指定一個包含 "Bearer" + " " + 存取權杖的字串。|
 | uriPrefix| **選擇性** 一個包含翻譯 URI 前置詞的字串。|
@@ -167,7 +167,7 @@ UserTranslation[] GetUserTranslations (
 
 結果集會包含 **UserTranslation** 的陣列。 每個 UserTranslation 都有下列元素：
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 |:---|:---|
 | CreatedDateUtc| 使用 AddTranslation() 之項目的建立日期|
 | 從| 來源語言|

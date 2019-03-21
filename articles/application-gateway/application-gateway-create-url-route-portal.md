@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993204"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259256"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -34,6 +34,8 @@ ms.locfileid: "52993204"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>登入 Azure
 
 在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站
@@ -46,20 +48,20 @@ ms.locfileid: "52993204"
 2. 在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
 3. 針對應用程式閘道輸入這些值：
 
-    - myAppGateway - 作為應用程式閘道的名稱。
-    - myResourceGroupAG - 作為新資源群組。
+   - myAppGateway - 作為應用程式閘道的名稱。
+   - myResourceGroupAG - 作為新資源群組。
 
-    ![建立新的應用程式閘道](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
+     ![建立新的應用程式閘道](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
 4. 接受其他設定的預設值，然後按一下 [確定]。
 5. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
 
-    - myVNet - 作為虛擬網路的名稱。
-    - 10.0.0.0/16 - 作為虛擬網路位址空間。
-    - myAGSubnet - 作為子網路名稱。
-    - 10.0.0.0/24 - 作為子網路位址空間。
+   - myVNet - 作為虛擬網路的名稱。
+   - 10.0.0.0/16 - 作為虛擬網路位址空間。
+   - myAGSubnet - 作為子網路名稱。
+   - 10.0.0.0/24 - 作為子網路位址空間。
 
-    ![建立虛擬網路](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![建立虛擬網路](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. 按一下 [確定] 以建立虛擬網路和子網路。
 7. 依序按一下 [選擇公用 IP 位址]、[新建]，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress。 接受其他設定的預設值，然後按一下 [確定]。
@@ -104,7 +106,7 @@ ms.locfileid: "52993204"
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ ms.locfileid: "52993204"
       -Settings $publicSettings
     ```
 
-3. 再多建立兩個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 myVM2 和 myVM3 作為名稱，及作為 Set-AzureRmVMExtension 中的 VMName 值。
+3. 再多建立兩個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 在 Set-AzVMExtension 中输入 *myVM2* 和 *myVM3* 作为名称，并输入 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 
@@ -154,7 +156,7 @@ ms.locfileid: "52993204"
 
     ![記錄應用程式閘道公用 IP 位址](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如， http:// http://40.121.222.19。
+2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，http:\//40.121.222.19。
 
     ![在應用程式閘道中測試基底 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fea950e2c13d9b5ce0c3619990961e611edd6626
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 78dc759632c4fc3116a59ea1e5bc0b93200bca45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168182"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用 Negatable 實體
 
@@ -31,69 +31,68 @@ ms.locfileid: "55207372"
     npm run tutorial-general
 
 ## <a name="details"></a>詳細資料
-實體的 "Negatable" 屬性可讓您標記實體的一般 (正面) 和負面執行個體、正面和負面模型進行教導，以及清除現有實體的值。 設定了 "Negatable" 屬性的實體，對話學習模組中稱為 Negatable 實體。
+實體的 「 Negatable"屬性可讓您標記這兩個標準模式 （正） 和負之實體執行個體，請教導正數和負數的模型為基礎並清除現有的實體的值。 設定了 "Negatable" 屬性的實體，對話學習模組中稱為 Negatable 實體。
 
 ## <a name="steps"></a>步驟
 
+在 Web UI 中的首頁開始。
+
 ### <a name="create-the-model"></a>建立模型
 
-1. 在 Web UI 中，按一下 [新增模型]。
-2. 在 [名稱] 欄位中輸入 "NegatableEntity"，並按 Enter 鍵。
-3. 按一下 [建立] 按鈕。
+1. 選取 **新的模型**。
+2. 請輸入**NegatableEntity** for**名稱**。
+3. 選取 [建立] 。
 
 ### <a name="entity-creation"></a>建立實體
 
-1. 在左面板中按一下 [實體]，然後按 [新增實體] 按鈕。
-2. 選取 [自訂] 作為 [實體類型]。
-3. 輸入 "name" (名稱) 作為 [實體名稱]。
-4. 勾選 [Negatable] 核取方塊。
-    - 勾選此屬性可讓使用者提供實體值，或指出某個項目*不是*實體值。 在後者的情況下，結果將是刪除相符的實體值。
-5. 按一下 [建立] 按鈕。
+1. 選取 **實體**在左窗格中，然後**新實體**。
+2. 選取 **自訂訓練**for**實體類型**。
+3. 請輸入**名稱**for**實體名稱**。
+4. 請檢查**Negatable**若要讓使用者提供實體的值，或者，假設有*不*實體值以便刪除相符的實體值。
+5. 選取 [建立] 。
 
-![](../media/tutorial5_entities.PNG)
+![](../media/T06_entity_create.png)
 
 ### <a name="create-the-first-action"></a>建立第一個動作
 
-1. 在左面板中按一下 [動作]，然後按 [新增動作] 按鈕。
-2. 在 [聊天機器人的回應...] 欄位中，輸入 "I don't know your name" (我不知道您的名字)。
-3. 在 [不合格的實體] 欄位中，輸入 "name" (名稱)。
-4. 按一下 [建立] 按鈕。
+1. 選取 **動作**在左窗格中，然後**新動作**。
+2. 輸入**我不知道您的名稱。** 針對**機器人的回應...**.
+3. 請輸入**名稱**for **Disqualifying 享有**。
+4. 選取 [建立] 。
+
+![](../media/T06_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>建立第二個動作
 
-1. 在左面板中按一下 [動作]，然後按 [新增動作] 按鈕。
-2. 在 [聊天機器人的回應...] 欄位中，輸入 "I know your name. It is $name" (我知道您的名字。您叫做 $name)。
-3. 按一下 [建立] 按鈕。
+1. 選取 **動作**在左窗格中，然後**新動作**。
+2. 輸入**我知道您的名稱。它是 $name。** 針對**機器人的回應...**.
+3. 選取 [建立] 。
 
 > [!NOTE]
-> 回應中的參考已將「名稱」實體自動新增為「必要實體」。
+> **名稱**實體已自動加入做**所需的實體**回應 [utterance] 中的參考。
 
 現在您有兩個動作。
 
-![](../media/tutorial5_actions.PNG)
+![](../media/T06_action_create_2.png)
 
 ### <a name="train-the-model"></a>訓練模型
 
-1. 在左面板中按一下 [訓練對話]，然後按 [新增訓練對話] 按鈕。
-2. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "hello" (您好)。
-3. 按一下 [評分動作] 按鈕。
-4. 選取回應：「我不知道您的名字」。
-    - 百分位數為 100%，因為唯一的有效動作以條件約束為基礎。
-5. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "My name is Frank" (我的名字是 Frank)
-6. 選取 [Frank]，並選擇標籤 [+名字]
-    - 「名稱」實體有兩個執行個體：「+名字」和「-名字」。  (+) 加號會新增或覆寫值。 (-) 減號會移除值。
-7. 按一下 [評分動作] 按鈕。
-    - 「名稱」實體此時會在模型的記憶體中定義為 "Frank"，因此「我知道您的名字。 您叫做 $name」動作是可用的動作。
-8. 選取回應：「我知道您的名字。 您叫做 $name」。
-9. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "My name is not Frank" (我的名字不是 Frank)。
-10. 選取 [Frank]，並選擇標籤 [-名字]
-    - 我們將選取 [-名字] 以清除實體目前的值。
-11. 按一下 [評分動作] 按鈕。
-12. 選取回應：「我不知道您的名字」。
-13. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "My name is Susan" (我的名字是 Susan)。
-14. 選取 [Susan]，並選擇標籤 [+名字]
+1. 選取 **定型對話方塊**在左窗格中，然後**新的訓練對話方塊**。
+2. 請輸入**hello**針對使用者的 utterance 左側的對談 面板中。
+3. 選取 **評分動作**。
+4. 選取**我不知道您的名稱。** 從 [動作] 清單中。 百分位數做為依據的條件約束的唯一有效動作為 100%。
+5. 請輸入**我的名字是 Frank**針對使用者的 utterance 左側的對談 面板中。
+6. 反白顯示**Frank**然後選取 **+ 名稱**。 Negatable 實體具有兩個執行個體: （+） 再加上新增或覆寫值;（-） 負移除的值。
+7. 選取 **評分動作**。 **名稱**實體現在指**Frank**模型在記憶體中，因此**我知道您的名稱。它是 $name**就可以使用動作。
+8. 選取**我知道您的名稱。它是 $name。** 從 [動作] 清單中。
+9. 輸入**我的名字不是 Frank。** 針對使用者的 utterance 左側的對談 面板中。
+10. 反白顯示**Frank**然後選取 **-名稱**清除從該值**名稱**實體。
+11. 選取 **評分動作**。
+12. 選取**我不知道您的名稱。** 從 [動作] 清單中。
+13. 輸入**我的名字是 Susan。** 針對使用者的第三個 utterance 左側的對談 面板中。
+14. 反白顯示**Susan**然後 **+ 名稱** 
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T06_training.png)
 
 ## <a name="next-steps"></a>後續步驟
 

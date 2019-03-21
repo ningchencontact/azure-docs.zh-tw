@@ -8,15 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 03/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316910"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286596"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>針對 Azure 搜尋服務建立及管理 API 金鑰
 
@@ -32,7 +31,7 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 
 存取搜尋服務的金鑰有兩種類型：管理 (讀寫) 和查詢 (唯讀)。
 
-|Key|說明|限制|  
+|Key|描述|限制|  
 |---------|-----------------|------------|  
 |Admin|授與所有作業的完整權限，包括能夠管理服務、建立和刪除索引、索引子及資料來源。<br /><br /> 當服務建立時，在入口網站中會產生兩個系統管理金鑰 (稱為「主要」和「次要」金鑰)，而且您可以視需要個別重新產生這些金鑰。 擁有兩個金鑰可讓您在變換一個金鑰時，使用第二個金鑰來繼續存取服務。<br /><br /> 指定管理金鑰時，只能在 HTTP 要求標頭中指定。 您無法將管理 API 金鑰放在 URL 中。|每個服務的上限為 2 個|  
 |查詢|授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。<br /><br /> 查詢金鑰是視需要建立的。 您可以在入口網站中手動建立這些金鑰，或是透過[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) \(英文\) 以程式設計方式建立這些金鑰。<br /><br /> 您可以在 HTTP 要求標頭中指定查詢金鑰，以進行查詢、建議或查閱作業。 或者，您也可以在 URL 上將查詢金鑰當作參數來傳遞。 視您用戶端應用程式制定要求的方式而定，將金鑰當作查詢參數來傳遞可能會較為簡單：<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|每個服務 50 個|  
@@ -42,19 +41,35 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 > [!NOTE]  
 >  在要求 URI 中傳遞敏感性資料 (例如 `api-key`) 被視為不佳的安全性做法。 基於這個理由，「Azure 搜尋服務」在查詢字串中只接受以查詢金鑰作為 `api-key` ，而且除非您應該公開提供索引內容，否則應避免採用此做法。 一般規則是建議將 `api-key` 當作要求標頭來傳遞。  
 
-## <a name="find-api-keys-for-your-service"></a>尋找您的服務 API 金鑰
+## <a name="find-existing-keys"></a>找到現有的金鑰
 
 您可以在入口網站中或透過[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) \(英文\) 取得存取金鑰。 如需詳細資訊，請參閱[管理和查詢 API 金鑰](search-security-api-keys.md)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 列出您訂用帳戶的[搜尋服務](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。
-3. 選取服務，然後在服務頁面上尋找 [設定] >[金鑰]，以檢視管理和查詢金鑰。
+3. 選取服務，然後在 概觀 頁面中，按一下 **設定** >**金鑰**檢視管理和查詢金鑰。
 
-![入口網站頁面 > [設定] > [金鑰] 區段](media/search-security-overview/settings-keys.png)
+   ![入口網站頁面 > [設定] > [金鑰] 區段](media/search-security-overview/settings-keys.png)
+
+## <a name="create-query-keys"></a>建立查詢金鑰
+
+查詢金鑰用於索引內的文件的唯讀存取。 限制存取和用戶端應用程式中的作業務必保護您的服務上的搜尋資產。 一律針對源自於用戶端應用程式的任何查詢中使用查詢金鑰，而不是系統管理金鑰。
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 列出您訂用帳戶的[搜尋服務](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。
+3. 選取服務，然後在 概觀 頁面中，按一下 **設定** >**金鑰**。
+4. 按一下 **管理查詢金鑰**。
+5. 使用已為您的服務，產生的查詢或建立最多可到 50 個新的查詢金鑰。 未命名的預設查詢金鑰，但可以命名為其他的查詢金鑰的管理性。
+
+   ![建立或使用查詢金鑰](media/search-security-overview/create-query-key.png) 
+
+
+> [!Note]
+> 顯示查詢金鑰使用方法的程式碼範例可在[查詢中的 Azure 搜尋服務索引C# ](search-query-dotnet.md)。
 
 ## <a name="regenerate-admin-keys"></a>重新產生系統管理金鑰
 
-針對每個服務，會建立兩個系統管理金鑰，讓您可以變換主要金鑰，使用次要金鑰繼續存取。
+兩個管理員金鑰會針對每個服務，以便您可以旋轉主索引鍵，以繼續存取使用次要金鑰。
 
 如果您同時重新產生主要和次要金鑰，使用任一金鑰來存取服務作業的任何應用程式將無法再存取服務。
 
@@ -73,7 +88,7 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 > [!Note]
 > 針對搜尋結果的身分識別型存取，您可以建立安全性篩選，依身分識別修剪結果、移除要求者不應具備存取權的文件。 如需詳細資訊，請參閱[安全性篩選](search-security-trimming-for-azure-search.md)和[使用 Active Directory 保護安全](search-security-trimming-for-azure-search-with-aad.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [Azure 搜尋服務中的角色型存取控制](search-security-rbac.md)
 + [使用 Powershell 管理](search-manage-powershell.md) 

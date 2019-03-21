@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300256"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003588"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -118,9 +118,7 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 如果您與其他專案共用程式碼，請務必移除您的檢測金鑰。
 
 ## <a name="is-the-data-encrypted"></a>資料是否會加密？
-目前不在伺服器內。
-
-所有資料在資料中心之間移動時會予以加密。
+所有資料都會進行待用加密，並為它之間移動資料中心。
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>將資料從我的應用程式傳輸到 Application Insights 伺服器時是否進行加密？
 是，我們使用 https，將資料從幾乎所有 SDK (包括網頁伺服器、裝置和 HTTPS 網頁) 傳送至入口網站。 唯一的例外是從純 HTTP 網頁傳送的資料。
@@ -158,12 +156,12 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 
 - 從組態檔中移除 ServerTelemetryChannel
 - 將下列程式碼片段新增至您的設定：
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### <a name="netcore"></a>NetCore
 
@@ -208,7 +206,7 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 | Windows Server 2012 - 2016 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 和 Windows Server 2008 R2 SP1 | 支援，但預設為不啟用。 | 請參閱[傳輸層安全性 (TLS) 登錄設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)頁面，了解詳細的啟用方式。  |
 | Windows Server 2008 SP2 | TLS 1.2 支援需要更新。 | 請在 Windows Server 2008 SP2 中參閱[新增 TLS 1.2 支援的更新](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)。 |
-|Windows Vista |  不支援。 | N/A
+|Windows Vista | 不支援。 | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>請檢查您 Linux 發行版本所執行的 OpenSSL 版本
 
@@ -239,6 +237,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 不同的平台會有不同的 SDK，而且有數個可安裝的元件。 (請參閱 [Application Insights - 概觀][start])。每個元件都會傳送不同的資料。
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>不同情況下所傳送資料的類別
+
 | 您的動作 | 收集的資料類別 (請參閱下一個資料表) |
 | --- | --- |
 | [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>Requests<br/>**例外狀況**<br/>工作階段<br/>users |
@@ -254,6 +253,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 如需[適用於其他平台的 SDK][platforms]，請參閱其文件。
 
 #### <a name="the-classes-of-collected-data"></a>所收集資料的類別
+
 | 收集的資料類別 | 包含 (不是詳盡的清單) |
 | --- | --- |
 | **屬性** |**任何資料 - 取決於您的程式碼** |

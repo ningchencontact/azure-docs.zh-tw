@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 03/03/2019
 ms.author: aahi
-ms.openlocfilehash: 540c8c19d1c5ab371588b8a2092b72187382488f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bf15ed704de305353d1ec141df6deb9d29b47f75
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874357"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339329"
 ---
 # <a name="autosuggest-bing-search-terms-in-your-application"></a>在您的應用程式中自動建議 Bing 搜尋字詞
 
@@ -41,6 +41,6 @@ ms.locfileid: "55874357"
 
 * 檢閱範例 [Bing Web 搜尋 API 回應](search-responses.md)。  
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
 
 * [Bing Web 搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

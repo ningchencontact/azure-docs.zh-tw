@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fbe865a5d9ef6c44b80c811a023c86f6446c3bb8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233875"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084127"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>設定託管的 UI 體驗
 
@@ -43,10 +43,10 @@ Bing 自訂搜尋會提供一個託管 UI，您可輕鬆地將它以 JavaScript 
     
 5. 選取色彩佈景主題。 按一下 [自訂佈景主題]，即可自訂符合您應用程式的色彩。 若要變更色彩，請輸入色彩的 RGB HEX 值 (例如 `#366eb8`)，或按一下色彩預覽。
 
-  您可以在入口網站的右側預覽您的變更。 按一下 [重設為預設]，您的變更就會還原為所選佈景主題的預設色彩。
+   您可以在入口網站的右側預覽您的變更。 按一下 [重設為預設]，您的變更就會還原為所選佈景主題的預設色彩。
 
-  > [!NOTE]
-  > 選擇色彩時，請考慮可存取性。
+   > [!NOTE]
+   > 選擇色彩時，請考慮可存取性。
 
 6. 在 [其他組態] 下方，為您的應用程式提供適當的值。 這些設定是選用的。 若要檢視套用或移除這些設定的效果，請查看右側的預覽窗格。 可用的組態選項包括：  
 

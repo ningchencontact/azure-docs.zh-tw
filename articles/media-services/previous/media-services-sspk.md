@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: xpouyat
-ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 505def9cde7cddf2ddcc23408fa3159de886167a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000068"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294564"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licensing Microsoft® Smooth Streaming Client Porting Kit 
 ## <a name="overview"></a>概觀
@@ -29,7 +29,7 @@ Microsoft Smooth Streaming Client Porting Kit (簡稱**SSPK** ) 是最佳化的 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>說明
+## <a name="description"></a>描述
 SSPK 是根據可提供絕佳商業價值的條款授權。 SSPK 授權提供給業界：
 
 * Smooth Streaming Porting Kit 的 C++ 原始碼 
@@ -125,8 +125,9 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* Filmflex Movies Limited
+* FilmFlex 影片限制
 * Fluendo S.A.
+* FUNAI ELECTRIC CO.，LTD.
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
@@ -144,7 +145,7 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
-* 致振企業股份有限公司
+* Skardin Industrial Corp.
 * Sky Deutschland Fernsehen GmbH & Co. KG
 * SmarDTV S.A.
 * SoftAtHome
@@ -158,7 +159,6 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
-
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

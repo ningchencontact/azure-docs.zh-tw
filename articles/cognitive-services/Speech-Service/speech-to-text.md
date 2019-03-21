@@ -1,68 +1,113 @@
 ---
-title: 關於語音轉換文字 - 語音服務
+title: 語音轉換文字與 Azure 的語音服務
 titleSuffix: Azure Cognitive Services
-description: 語音轉換文字 API 可將音訊資料流轉譯成可供應用程式顯示或當作輸入來處理的文字。 此服務可透過 SDK 和 RESTful 端點來存取。
+description: 語音轉換文字從 Azure 語音服務，也就是語音轉換文字，啟用即時轉譯的音訊資料流為可使用您的應用程式、 工具或裝置，文字會顯示，，並採取動作做為命令的輸入。 這項服務具備相同，Microsoft 會使用 Cortana 和 Office 產品的完美搭配的轉譯和文字轉換語音辨識技術。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5012245a79295f1e05079f6c0a368ac832b8974a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978573"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224434"
 ---
-# <a name="about-the-speech-to-text-api"></a>關於語音轉換文字 API
+# <a name="what-is-speech-to-text"></a>什麼是語音轉換文字？
 
-**語音轉換文字** API 將音訊資料流「謄寫」成文字，而您的應用程式可以向使用者顯示該文字或當作命令輸入處理。 API 可以和 SDK 用戶端程式庫 (適用於支援的平台和語言) 或 REST API 搭配使用。
+語音轉換文字從 Azure 語音服務，也就是語音轉換文字，啟用即時轉譯的音訊資料流為可使用您的應用程式、 工具或裝置，文字會顯示，，並採取動作做為命令的輸入。 這項服務具備相同，Microsoft 會使用 Cortana 和 Office 產品的完美搭配的轉譯和文字轉換語音辨識技術。  如需可用的語音轉換文字語言的完整清單，請參閱 <<c0> [ 支援的語言](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text)。
 
-**語音轉換文字** API 提供以下功能：
+根據預設，語音轉換文字服務會使用通用的語言模型。 使用 Microsoft 所擁有的資料定型此模型，而且是已部署的雲端。 它是適合交談和語音輸入案例。 如果您使用語音轉換文字辨識及獨特的環境中的文字記錄，您可以建立並定型自訂的原音、 語言和發音模型位址環境的噪音或業界特定詞彙。 
 
-- Microsoft 的進階語音辨識技術 - Cortana、Office 和其他 Microsoft 產品都使用此技術。
+您可以輕鬆地擷取從麥克風的音訊、 讀取從資料流中，或從儲存體與 Speech SDK 和 REST Api 存取音訊檔案。 語音 SDK 支援語音辨識 WAV/PCM 16 位元、 16 kHz、 單一通道音訊。 使用可支援額外的音訊格式[語音轉換文字 REST 端點](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats)或[batch 轉譯服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)。
 
-- 即時連續辨識。 **語音轉換文字**可讓使用者將音訊即時謄寫成文字。 它也支援接收已經進行辨識之單字的中繼結果。 服務會自動辨識語音的結尾。 使用者也可以選擇其他格式設定選項，包括轉換成大寫和標點符號、粗話遮罩，以及反向文字正規化。
+## <a name="core-features"></a>核心功能
 
-- 結果會同時以「語彙」和「顯示」形式傳回 (針對「語彙」結果，請參閱範例或 API 中的 DetailedSpeechRecognitionResult)。
+以下是功能可透過語音 SDK 和 REST Api:
 
-- 支援許多語言和方言。 如需每個辨識模式中支援語言的完整清單，請參閱[支援的語言](language-support.md#speech-to-text)。
+| 使用案例 | SDK | REST |
+|----------|-----|------|
+| Ip-pbx 簡短的表達方式 (< 15 秒)。 僅支援最終轉譯結果。 | 是 | 是 |
+| 連續的 long 談話和串流音訊轉譯項目 (> 15 秒)。 支援中期與最終轉譯結果。 | 是 | 否 |
+| 是衍生自與辨識結果的意圖[LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)。 | 是 | 否\* |
+| 以非同步方式的批次音訊檔轉譯項的目。 | 否 | 是\** |
+| 建立和管理語音模型。 | 否 | 是\** |
+| 建立和管理自訂模型部署。 | 否 | 是\** |
+| 建立精確度測試以測量基準模型，與自訂模型的精確度。 | 否 | 是\** |
+| 管理訂用帳戶。 | 否 | 是\** |
 
-- 自訂的語言和原音模型，可讓您針對使用者的專業領域詞彙、說話環境以及說話方式，量身訂做您的應用程式。
+\* *您可以使用個別的 LUIS 訂用帳戶來衍伸出 LUIS 意圖和實體。與此訂用帳戶，可以為您呼叫 LUIS SDK，並將其提供實體和意圖結果中。若使用 REST API，您可以自行呼叫 LUIS，以使用您的 LUIS 訂用帳戶來衍伸出意圖和實體。*
 
-- 自然語言理解。 透過整合 [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS)，您可以從語音衍伸出意圖和實體。 使用者不必知道您應用程式的詞彙，但他們可以使用自己的話描述他們想要什麼。
+\** *這些服務可使用 cris.ai 端點。請參閱[Swagger 參考](https://westus.cris.ai/swagger/ui/index)。*
 
-- 如果您在語音設定物件 (SpeechConfig.OutputFormat 屬性) 上指定詳細輸出，服務就會傳回信賴分數。 接著，您可以針對結果使用 Best() 方法，或直接從服務所傳回的 JSON 取得分數 (例如 result.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult))。
+## <a name="get-started-with-speech-to-text"></a>開始使用語音轉換文字
 
-## <a name="api-capabilities"></a>API 功能
+我們提供最受歡迎的程式設計語言，設計目的是要您在 10 分鐘內執行程式碼的每個快速入門。 此資料表包括依語言的語音 SDK 快速入門的完整清單。
 
-**語音轉換文字** API 的某些功能 (特別是關於自訂的部分) 可透過 REST 取得。 下表摘要說明存取 API 的每個方法的功能。 如需完整的功能清單和 API 詳細資料，請參閱 [Swagger 參考](https://westus.cris.ai/swagger/ui/index) \(英文\)。
+| 快速入門 | 平台 | API 參考資料 |
+|------------|----------|---------------|
+| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#.NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) |  Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) |  Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows、Linux | [Browse](https://aka.ms/csspeech/javaref) |
+| [Javascript 中，瀏覽器](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser、Windows、Linux、macOS | [Browse](https://aka.ms/AA434tv) |
+| [Javascript、 Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows、Linux、macOS | [Browse](https://aka.ms/AA434tv) |
+| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows、Linux、macOS | [Browse](https://aka.ms/AA434tr)  |
 
-| 使用案例 | REST | SDK |
-|-----|-----|-----|----|
-| 謄寫簡短的語句，如命令 (長度小於 15 秒)；沒有過渡結果 | yes | yes |
-| 謄寫較長的語句 (大於 15 秒) | 否 | yes |
-| 謄寫含選擇性過渡結果的串流音訊 | 否 | yes |
-| 透過 LUIS 了解說話者的意圖 | 否\* | yes |
-| 建立正確性測試 | yes | 否 |
-| 上傳資料集供模型調整使用 | yes | 否 |
-| 建立及管理語音模型 | yes | 否 |
-| 建立及管理模型部署 | yes | 否 |
-| 管理訂用帳戶 | yes | 否 |
-| 建立及管理模型部署 | yes | 否 |
-| 建立及管理模型部署 | yes | 否 |
+如果您想要使用語音轉換文字 REST 服務，請參閱[REST Api](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)。
+
+## <a name="tutorials-and-sample-code"></a>教學課程和範例程式碼
+
+您已經有機會使用語音服務後，請嘗試我們的教學課程將教導您如何辨識意圖從語音使用語音 SDK 和 LUIS。
+
+* [教學課程：識別從語音 SDK 與 LUIS，語音意圖C#](how-to-recognize-intents-from-speech-csharp.md)
+
+使用 GitHub 上適用於語音 SDK 的範例程式碼。 這些範例涵蓋常見的案例，例如讀取音訊檔案或資料流，連續和一次性辨識及使用自訂的模型。
+
+* [語音轉換文字範例 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Batch 轉譯範例 (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+
+## <a name="customization"></a>自訂
+
+除了使用語音服務的通用模型，您可以建立體驗的特定自訂的原音、 語言和發音模型。 以下是自訂選項的清單：
+
+| 模型 | 描述 |
+|-------|-------------|
+| [原音模型](how-to-customize-acoustic-models.md) | 建立自訂的原音模型是有幫助，如果您的應用程式、 工具或裝置中使用特定的環境中，例如在車上或特定的記錄條件的處理站。 例如，帶有口音的語音、特定背景雜音或使用特定麥克風來錄音。 |
+| [語言模型](how-to-customize-language-model.md) | 建立自訂語言模型，以改善的業界特定詞彙及文法檢查，例如醫療術語中或 IT 專業術語轉譯項目。 |
+| [發音模型](how-to-customize-pronunciation.md) | 透過自訂發音模型，您可以定義的注音標示的表單和顯示的單字或詞彙。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 - 簡單的 .txt 檔。 |
 
 > [!NOTE]
-> REST API 會實作節流，該節流會將 API 要求限制為每 5 秒 25 個。 訊息標頭會通知限制
+> 語言/地區而異的自訂選項 (請參閱[支援的語言](supported-languages.md))。
 
-\* *您可以使用個別的 LUIS 訂用帳戶來衍伸出 LUIS 意圖和實體。使用此訂用帳戶，SDK 可以為您呼叫 LUIS，並提供實體和意圖結果以及語音謄寫。若使用 REST API，您可以自行呼叫 LUIS，以使用您的 LUIS 訂用帳戶來衍伸出意圖和實體。*
+## <a name="migration-guides"></a>移轉指南
+
+> [!WARNING]
+> Bing 語音晚會於 2019 年 10 月 15 日。
+
+如果您的應用程式、 工具或產品正在使用自訂語音的 Bing 語音 Api，我們建立了指南，以協助您移轉至語音服務。
+
+* [從 Bing 語音移轉至語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
+* [從客製化語音移轉至語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+
+## <a name="reference-docs"></a>參考文件
+
+* [語音 SDK](speech-sdk-reference.md)
+* [語音裝置 SDK](speech-devices-sdk.md)
+* [REST API：語音轉換文字](rest-speech-to-text.md)
+* [REST API：Text-to-speech](rest-text-to-speech.md)
+* [REST API：Batch 轉譯和自訂](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
-* [快速入門：如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md)
-* [了解如何以 C# 從語音辨識意圖](how-to-recognize-intents-from-speech-csharp.md)
+* [免費取得語音服務訂用帳戶金鑰](get-started.md)
+* [取得語音 SDK](speech-sdk.md)
