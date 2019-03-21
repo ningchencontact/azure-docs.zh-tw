@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342672"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103718"
 ---
 # <a name="try-speech-services-for-free"></a>免費試用語音服務
 
@@ -87,19 +87,19 @@ ms.locfileid: "56342672"
 
 1. 在 [建立] 底下輸入：
 
-    * 新資源的名稱。 此名稱可協助您區分相同服務的多個訂用帳戶。
-    * 選擇與新資源相關聯的 Azure 訂用帳戶來決定費用的計費方式。
-    * 選擇將使用此資源的區域。 目前，語音服務適用於東亞、北歐和美國西部區域。
-    * 選擇免費或付費的定價層。 如需每一層的定價和使用量配額完整資訊，請按一下 [檢視完整定價詳細資料]。
-    * 為此語音訂用帳戶建立新的資源群組，或將該訂用帳戶指派給現有的資源群組。 資源群組可協助組織各種 Azure 訂用帳戶。
-    * 為了方便未來存取您的訂用帳戶，請選取 [釘選到儀表板] 核取方塊。
-    * 選取 [建立]。
+   * 新資源的名稱。 此名稱可協助您區分相同服務的多個訂用帳戶。
+   * 選擇與新資源相關聯的 Azure 訂用帳戶來決定費用的計費方式。
+   * 選擇將使用此資源的區域。 目前，語音服務適用於東亞、北歐和美國西部區域。
+   * 選擇免費或付費的定價層。 如需每一層的定價和使用量配額完整資訊，請按一下 [檢視完整定價詳細資料]。
+   * 為此語音訂用帳戶建立新的資源群組，或將該訂用帳戶指派給現有的資源群組。 資源群組可協助組織各種 Azure 訂用帳戶。
+   * 為了方便未來存取您的訂用帳戶，請選取 [釘選到儀表板] 核取方塊。
+   * 選取 [建立]。
 
-    ![選取 [建立] 按鈕](media/index/try-speech-api-create-speech4.png)
+     ![選取 [建立] 按鈕](media/index/try-speech-api-create-speech4.png)
 
-    建立和部署新的語音資源可能需要一些時間。 選取 [快速入門] 可查看新資源的相關資訊。
+     建立和部署新的語音資源可能需要一些時間。 選取 [快速入門] 可查看新資源的相關資訊。
 
-    ![快速入門面板](media/index/try-speech-api-create-speech5.png)
+     ![快速入門面板](media/index/try-speech-api-create-speech5.png)
 
 1. 在 [快速入門] 的步驟 1 底下按一下 [金鑰] 連結，以顯示您的訂用帳戶金鑰。 每個訂用帳戶都有兩個金鑰，您可以在應用程式中使用任一個金鑰。 選取每個金鑰旁邊的按鈕，將它複製到剪貼簿，以便貼到您的程式碼中。
 

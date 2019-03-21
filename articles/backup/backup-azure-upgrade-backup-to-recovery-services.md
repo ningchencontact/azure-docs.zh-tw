@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313355"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530751"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>將備份保存庫升級至復原服務保存庫
 
@@ -23,9 +23,9 @@ ms.locfileid: "56313355"
 - 從經過改良和簡化的入口網站管理備份項目。
 - 新功能只適用於復原服務保存庫。
 
-## <a name="impact-to-operations-during-upgrade"></a>升級期間對作業的影響
+## <a name="impact-to-operations-during-upgrade"></a>升级过程中对操作的影响
 
-將備份保存庫升級至復原服務保存庫時，您的資料平面作業不會受到影響。 所有備份作業都會照常繼續進行，且任何使用中的還原作業都會繼續而不受中斷。 升級期間，管理作業會發生短暫的停機時間，且您無法保護新的項目或建立臨機操作備份作業。 升級期間不會執行 IaaS VM 的還原作業。 保存庫升級需要一小時才能完成。 在完成後，復原服務保存庫會取代備份保存庫。
+將備份保存庫升級至復原服務保存庫時，您的資料平面作業不會受到影響。 所有備份作業都會照常繼續進行，且任何使用中的還原作業都會繼續而不受中斷。 升級期間，管理作業會發生短暫的停機時間，且您無法保護新的項目或建立臨機操作備份作業。 升级期间，对 IaaS VM 执行的还原作业不会运行。 保管库升级在不到一小时之内即可完成。 在完成後，復原服務保存庫會取代備份保存庫。
 
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>升級之後對自動化及工具的變更
 
@@ -45,13 +45,13 @@ ms.locfileid: "56313355"
 
 您可以使用 PowerShell 指令碼，將備份保存庫升級至復原服務保存庫。 檢查您擁有觸發保存庫升級所需的 PowerShell 元件。 備份保存庫的 PowerShell 指令碼不適用於復原服務保存庫。 準備好您的環境來升級保存庫︰
 
-1. 安裝或將 [Windows Management Framework (WMF) 升級至第 5 版](https://www.microsoft.com/download/details.aspx?id=50395)或以上版本。
+1. 安装或升级到 [Windows Management Framework (WMF) 版本 5](https://www.microsoft.com/download/details.aspx?id=50395) 或更高版本。
 2. [安裝 Azure PowerShell MSI](https://github.com/Azure/azure-powershell/releases/download/v3.8.0-April2017/azure-powershell.3.8.0.msi)。
 3. 下載 [PowerShell 指令碼](https://aka.ms/vaultupgradescript2)來升級您的保存庫。
 
 ### <a name="run-the-powershell-script"></a>執行 PowerShell 指令碼
 
-使用下列指令碼來升級您的保存庫。 下列範例指令碼具有參數的說明。
+使用下列指令碼來升級您的保存庫。 以下示例脚本包含参数说明。
 
 RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
@@ -80,9 +80,9 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 ### <a name="pre-requisites-checking"></a>必要條件檢查
 一旦您輸入 Azure 認證後，Azure 就會檢查您的環境是否符合下列必要條件︰
 
-- **代理程式最低版本** - 將備份保存庫升級至復原服務保存庫需要至少 2.0.9083.0 版的 MARS 代理程式。 如果您的項目所登錄之備份保存庫是包含 2.0.9083.0 版以前的代理程式，必要條件檢查就會失敗。 如果必要條件檢查失敗，請更新代理程式，然後嘗試再次升級保存庫。 您可以從 [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe) 下載最新版本的代理程式。
+- **代理程式最低版本** - 將備份保存庫升級至復原服務保存庫需要至少 2.0.9083.0 版的 MARS 代理程式。 如果您的項目所登錄之備份保存庫是包含 2.0.9083.0 版以前的代理程式，必要條件檢查就會失敗。 如果必要條件檢查失敗，請更新代理程式，然後嘗試再次升級保存庫。 您可以從 [https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe) 下載最新版本的代理程式。
 - **持續的設定作業**︰如果有人要設定的是已設定為要升級之備份保存庫的作業，或是要將項目進行登錄，必要條件檢查就會失敗。 完成設定或完成登錄項目，然後再開始進行保存庫升級程序。
-- **以儲存體為基礎的計費模型**︰復原服務保存庫支援以執行個體為基礎的計費模型。 如果您執行的保存庫升級是在使用以儲存體為基礎之計費模型的備份保存庫上，系統會提示您升級計費模型以及保存庫。 否則，您可以先更新計費模型，然後再執行保存庫升級。
+- **以儲存體為基礎的計費模型**︰復原服務保存庫支援以執行個體為基礎的計費模型。 如果您執行的保存庫升級是在使用以儲存體為基礎之計費模型的備份保存庫上，系統會提示您升級計費模型以及保存庫。 否则，可以先更新计费模型，再运行保管库升级。
 - 識別復原服務保存庫的資源群組。 若要充分利用 Resource Manager 部署功能，您必須將復原服務保存庫放入資源群組。 如果您不知道要使用哪一個資源群組，請提供名稱，升級程序就會為您建立資源群組。 升級程序也會將保存庫與新的資源群組建立關聯。
 
 升級程序完成檢查必要條件後，程序會提示您開始進行保存庫升級。 在確認之後，升級程序通常需要大約 15 至 20 分鐘的時間才能完成，視您保存庫的大小而定。 如果您的是大型保存庫，升級可能需要長達 90 分鐘。
@@ -150,5 +150,5 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 ## <a name="next-steps"></a>後續步驟
 使用下列文章︰</br>
 [備份 IaaS VM](backup-azure-arm-vms-prepare.md)</br>
-[備份 Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)</br>
-[備份 Windows Server](backup-configure-vault.md).
+[备份 Azure 备份服务器](backup-azure-microsoft-azure-backup.md)</br>
+[备份 Windows Server](backup-configure-vault.md)。

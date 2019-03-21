@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
-ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571922"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56753808"
 ---
 某些 Bing 回應會包含 Bing 所提供的縮圖影像 URL。 您可能會調整縮圖影像的大小並加以裁剪。 
 
@@ -17,11 +17,11 @@ ms.locfileid: "51571922"
 > 請確定縮圖的大小和裁剪可提供搜尋案例並採用第三方權利，如「Bing 搜尋 API 使用和顯示需求」中所要求。
 
 
-若要調整影像大小，在縮圖的 URL 中包含 w (寬度) 和 h (高度) 查詢參數。 指定寬度和高度 (以像素為單位)。 例如︰  
+若要調整影像大小，包含 w （寬度） 查詢參數，h （高度） 查詢參數，或兩者的縮圖 URL 中。 指定寬度和高度 (以像素為單位)。 例如︰  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-如果您調整影像大小，其外觀比例維持不變。 若要維持外觀比例，填白可能會新增至影像的邊界。 例如，如果您將 480x359 影像的大小調整為 200x200 但不裁剪，則全寬度可包含影像，但高度包含 25 個像素的影像頂端和底部填白。 除了左邊界和右邊界包含填白以外，如果影像為 359x480，情況也是如此。 如果您裁剪影像，則不會新增填白。  
+如果您指定寬度或只有高度的查詢參數，Bing 就會維持影像的外觀比例。 如果您指定寬度和高度，而且您不會維持影像的原始外觀比例，Bing 就會加入白色的邊框距離至影像的框線。 例如，如果您將 480x359 影像的大小調整為 200x200 但不裁剪，則全寬度可包含影像，但高度包含 25 個像素的影像頂端和底部填白。 除了左邊界和右邊界包含填白以外，如果影像為 359x480，情況也是如此。 如果您裁剪影像，則不會新增填白。  
 
  
 下圖顯示縮圖影像的原始大小 (480x300)。  

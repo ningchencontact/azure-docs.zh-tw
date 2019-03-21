@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 990e6b4d869df030bfddfeb2d60f0ca0e23ea8ca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902258"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260225"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制
 
@@ -149,7 +149,7 @@ ms.locfileid: "57902258"
 |並行登入數上限|200|400|600|800|1000|1200|
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|
 |複本數目|4|4|4|4|4|4|
-|多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|多重 AZ|是|是|是|是|是|是|
 |讀取向外延展|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
@@ -173,7 +173,7 @@ ms.locfileid: "57902258"
 |最大並行登入 （要求）|1400|1600|1800|2000|3200|4800|
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|
 |複本數目|4|4|4|4|4|4|
-|多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|多重 AZ|是|是|是|是|是|是|
 |讀取向外延展|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
@@ -198,7 +198,7 @@ ms.locfileid: "57902258"
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|30000|
 |複本數目|4|4|4|4|4|4|4|
 |多重 AZ|是|是|是|是|是|是|是|
-|讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|讀取向外延展|是|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>業務關鍵服務層：第 5 代計算平台 (第 2 部分)
@@ -222,7 +222,7 @@ ms.locfileid: "57902258"
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|30000|
 |複本數目|4|4|4|4|4|4|4|
 |多重 AZ|是|是|是|是|是|是|是|
-|讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|讀取向外延展|是|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
 ## <a name="hyperscale-service-tier-preview"></a>超大規模服務層 (預覽)

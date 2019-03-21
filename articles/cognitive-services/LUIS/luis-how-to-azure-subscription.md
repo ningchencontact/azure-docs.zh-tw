@@ -9,43 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd05e2dd5b55dd590af24f0757229bead041b6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859108"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781692"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>使用您的訂用帳戶金鑰搭配 LUIS 應用程式
 
-您不需要建立訂用帳戶金鑰，即可免費使用您的前 1000 個端點查詢。 開始使用這些端點查詢後，請在 [Azure 入口網站](http://portal.azure.com)中建立 Azure 資源，然後將該資源指派給在 [LUIS 入口網站](https://www.luis.ai)中的 LUIS 應用程式。
+您不需要建立訂用帳戶金鑰，即可免費使用您的前 1000 個端點查詢。 開始使用這些端點查詢後，請在 [Azure 入口網站](https://portal.azure.com)中建立 Azure 資源，然後將該資源指派給在 [LUIS 入口網站](https://www.luis.ai)中的 LUIS 應用程式。
 
 如果您收到 HTTP 403 或 429 格式的_超出配額_錯誤，則需要建立金鑰，並將其指派給您的應用程式。 
 
 僅針對測試和原型，使用免費 (F0) 層。 針對生產系統，使用[付費](https://aka.ms/luis-price-tier)層。 請勿在生產環境中對端點查詢使用[撰寫金鑰](luis-concept-keys.md#authoring-key)。
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>在 Azure 入口網站中，建立 Language Understanding 端點金鑰
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>在 Azure 入口網站中建立預測端點執行階段資源
 
-此程序會建立 **Language Understanding** 資源。 如果您想要可跨認知服務使用的資源，請建立多合一金鑰**[認知服務](../cognitive-services-apis-create-account.md)**，而非 Language Understanding 資源。 
-
-此金鑰僅適用於端點預測查詢。 請勿將此金鑰用於模型或應用程式的變更。 
-
-1. 登入 **[Azure 入口網站](https://ms.portal.azure.com/)**。 
-1. 選取左上方面板中的綠色 **+** 號，並在市集中搜尋 `Language Understanding`，然後選取 [Language Understandin] 並遵循**建立體驗**來建立 LUIS 訂用帳戶。 
-
-    ![Azure 搜尋服務](./media/luis-azure-subscription/azure-search.png) 
-
-1. 使用包括帳戶名稱、定價層等設定來設定訂用帳戶。 
-
-    ![Azure API 選擇](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. 建立 Language Understanding 資源後，您就可以檢視在 [資源管理] -> [金鑰] 中產生的存取金鑰。 下一節將說明如何將這個新資源連線至 LUIS 入口網站中的 LUIS 應用程式。 您需要步驟 3 中的 LUIS 資源名稱。
-
-    ![Azure 金鑰](./media/luis-azure-subscription/azure-keys.png)
+深入了解[建置的應用程式](get-started-portal-build-app.md)快速入門。
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,23 +49,7 @@ ms.locfileid: "55859108"
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>將資源金鑰指派給 LUIS 入口網站中的 LUIS 應用程式
 
-1. 登入 LUIS 入口網站，選擇要新增新金鑰的應用程式，然後選取右上方功能表中的 [管理]，再選取 [金鑰和端點]。
-
-    [ ![金鑰和端點頁面](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. 若要新增 LUIS，請選取 [指派資源 +]。
-
-    ![將資源指派給應用程式](./media/luis-manage-keys/assign-key.png)
-
-1. 在與您用來登入 LUIS 網站的電子郵件地址相關聯的對話方塊中選取租用戶。  
-
-1. 選擇與您要新增的 Azure 資源相關聯的 [訂用帳戶名稱]。
-
-1. 選取 [LUIS 資源名稱]。 
-
-1. 選取 [指派資源]。 
-
-1. 在資料表中尋找新的資料列並複製端點 URL。 以正確方式建構，可對 LUIS 端點提出 HTTP GET 要求進行預測。 
+深入了解[部署](get-started-portal-deploy-app.md)快速入門。
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

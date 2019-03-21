@@ -4,16 +4,16 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/02/2019
-ms.openlocfilehash: c4d6cfe983016c59ad5606591dba4a75c3e9899d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 04b7031382d7ed611822a3dd721dfa09f01bce74
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53977330"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741246"
 ---
 `Eula` 設定可指出您已接受容器的授權。 您必須為此組態設定指定值，且該值必須設定為 `accept`。
 
-|必要| Name | 資料類型 | 說明 |
+|必要項| 名稱 | 資料類型 | 描述 |
 |--|------|-----------|-------------|
 |是| `Eula` | 字串 | 接受授權<br><br>範例：<br>`Eula=accept` |
 

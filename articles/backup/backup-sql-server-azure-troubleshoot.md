@@ -6,22 +6,22 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428614"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286007"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>針對 Azure 上的 SQL Server 備份進行疑難排解
 
 本文針對保護 Azure 上的 SQL Server VM (預覽) 提供疑難排解資訊。
 
-## <a name="public-preview-limitations"></a>公開預覽限制
+## <a name="feature-consideration-and-limitations"></a>功能考量和限制
 
-若要檢視公開預覽限制，請參閱[在 Azure 中備份 SQL Server 資料庫](backup-azure-sql-database.md#preview-limitations)一文。
+若要檢視的功能考量，請參閱本文中，[關於 SQL Server 中備份 Azure Vm 中的](backup-azure-sql-database.md#feature-consideration-and-limitations)。
 
 ## <a name="sql-server-permissions"></a>SQL Server 權限
 
@@ -35,9 +35,9 @@ ms.locfileid: "56428614"
 
 ### <a name="backup-type-unsupported"></a>不支援的備份類型
 
-| 嚴重性 | 說明 | 可能的原因 | 建議的動作 |
+| 嚴重性 | 描述 | 可能的原因 | 建議的動作 |
 |---|---|---|---|
-| 警告 | 此資料庫目前的設定不支援相關聯的原則中出現的的特定種類備份類型。 | <li>**Master DB**：只能對 master 資料庫執行完整資料庫備份作業；不可能執行**差異**備份或交易**記錄**備份。 </li> <li>**簡單復原模式**中的任何資料庫不允許交易**記錄**進行備份。</li> | 修改資料庫設定，使其支援原則中的所有備份類型。 或者，變更目前的原則，僅納入支援的備份類型。 否則，在排定備份期間將略過不支援的備份類型，或臨機操作備份的備份作業將會失敗。
+| 警告 | 此資料庫目前的設定不支援相關聯的原則中出現的的特定種類備份類型。 | <li>**Master DB**：只有完整資料庫備份作業可對 master 資料庫中;既不**差異**備份或交易**記錄**的備份。 </li> <li>**簡單復原模式**中的任何資料庫不允許交易**記錄**進行備份。</li> | 修改資料庫設定，使其支援原則中的所有備份類型。 或者，變更目前的原則，僅納入支援的備份類型。 否則，排定的備份期間將略過不支援的備份類型或臨機操作備份的備份作業將會失敗。
 
 
 ## <a name="backup-failures"></a>備份失敗
@@ -61,7 +61,7 @@ ms.locfileid: "56428614"
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 記錄鏈結中斷。 | 資料庫或 VM 使用其他備份解決方案來備份，而讓記錄鏈結截斷。|<ul><li>檢查是否有其他備份解決方案或指令碼正在使用中。 如果有，請停止其他備份解決方案。 </li><li>如果該備份屬於臨機操作記錄備份，請觸發完整備份來啟動新的記錄鏈結。 若為已排程的記錄備份，因為 Azure 備份服務會自動觸發完整備份進而修正此問題，所以不需要採取任何動作。</li>|
+| 記錄鏈結中斷。 | 資料庫或 VM 使用其他備份解決方案來備份，而讓記錄鏈結截斷。|<ul><li>檢查是否有其他備份解決方案或指令碼正在使用中。 如果有，請停止其他備份解決方案。 </li><li>如果備份是臨機操作的記錄備份，請觸發完整備份，才能開始新的記錄鏈結。 若為已排程的記錄備份，因為 Azure 備份服務會自動觸發完整備份進而修正此問題，所以不需要採取任何動作。</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -73,14 +73,14 @@ ms.locfileid: "56428614"
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 此資料來源的第一個完整備份遺失。 | 資料庫的完整備份遺失。 完整備份是記錄和差異備份的母體，因此必須先擷取完整備份才能觸發差異或記錄備份。 | 觸發臨機操作完整備份。   |
+| 此資料來源的第一個完整備份遺失。 | 資料庫的完整備份遺失。 完整備份是記錄和差異備份的母體，因此必須先擷取完整備份才能觸發差異或記錄備份。 | 觸發臨機操作的完整備份。   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
 | 資料來源的交易記錄已滿，所以無法擷取備份。 | 資料庫的交易記錄空間已滿。 | 若要修正這個問題，請參閱 [SQL 文件](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error)。 |
-| 此 SQL 資料庫不支援所要求的備份類型。 | Always On AG 次要複本不支援完整和差異備份。 | <ul><li>如果您已觸發臨機操作備份，則請觸發主要節點上的備份。</li><li>如果是透過原則來排程備份的話，請確定主要節點已註冊。 若要註冊節點，請[遵循步驟來探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)。</li></ul> |
+| 此 SQL 資料庫不支援所要求的備份類型。 | Always On AG 次要複本不支援完整和差異備份。 | <ul><li>如果您觸發臨機操作備份時，觸發程序的主要節點上的備份。</li><li>如果是透過原則來排程備份的話，請確定主要節點已註冊。 若要註冊節點，請[遵循步驟來探索 SQL Server 資料庫](backup-sql-server-database-azure-vms.md#discover-sql-server-databases)。</li></ul> |
 
 ## <a name="restore-failures"></a>還原失敗
 
@@ -136,6 +136,35 @@ ms.locfileid: "56428614"
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
 | 自動保護用途可能已移除或不再有效。 | 您對於 SQL 執行個體啟用自動保護時，**設定備份**作業便會執行該執行個體中的所有資料庫。 如果您停用自動保護，而工作正在執行，則**進行中**工作會取消，並出現此錯誤碼。 | 再次啟用自動保護可保護其他所有的資料庫。 |
+
+## <a name="re-registration-failures"></a>重新註冊失敗
+
+檢查是否有一或多個[徵狀](#symptoms)觸發重新註冊作業之前。
+
+### <a name="symptoms"></a>徵兆
+
+* 所有的作業，例如備份、 還原及設定備份的 VM 使用的其中一個下列的錯誤代碼上失敗：**WorkloadExtensionNotReachable**， **UserErrorWorkloadExtensionNotInstalled**， **WorkloadExtensionNotPresent**， **WorkloadExtensionDidntDequeueMsg**
+* **備份狀態**項目會顯示備份**無法連線到**。 雖然您必須排除所有其他原因，可能也會導致相同的狀態：
+
+  * 因為缺少權限，才能執行備份的相關的作業，在 VM 上  
+  * VM 已關閉導致無法進行備份
+  * 網路問題  
+
+    ![重新註冊 VM](./media/backup-azure-sql-database/re-register-vm.png)
+
+* 如果 alwayson 可用性群組，備份會開始失敗之後變更備份喜好設定，或發生容錯移轉
+
+### <a name="causes"></a>原因
+這些徵兆可能會因為一或多個原因如下：
+
+  * 延伸模組已被刪除，或從入口網站解除安裝 
+  * 延伸模組已從解除安裝**控制台中**下方的 vm**解除安裝或變更程式**UI
+  * VM 已在使用就地磁碟還原的時間還原
+  * 長導致過期延伸模組組態，它已關閉 VM
+  * 已刪除 VM 和具有相同名稱和相同的資源群組，為已刪除的 VM 中建立另一個 VM
+  * 其中一個 AG 節點未收到完整的備份設定，這可能是在可用性群組註冊至保存庫時，或新增新的節點取得  <br>
+    在上述案例中，建議您使用觸發重新註冊在 VM 上的作業。 這個選項才可透過 PowerShell，並即將推出在 Azure 入口網站中。
+
 
 ## <a name="next-steps"></a>後續步驟
 

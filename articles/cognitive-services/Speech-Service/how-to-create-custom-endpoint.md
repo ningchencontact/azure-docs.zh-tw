@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 上的語音服務來建立自訂語音端點 | Microsoft Docs
-description: 了解如何使用認知服務中的語音服務來建立自訂的語音轉文字端點。
+title: 使用 Azure 上的語音服務建立客製化語音端點 |Microsoft Docs
+description: 了解如何建立使用 Azure 語音服務的自訂語音轉換文字端點。
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,19 +9,19 @@ ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220233"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862993"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>建立自訂的語音轉文字端點
 
-在您建立自訂原音模型或語言模型之後，您可以將這些模型部署至自訂的語音轉文字端點。 
+在您建立自訂原音模型或語言模型之後，您可以將這些模型部署至自訂的語音轉文字端點。
 
 ## <a name="create-an-endpoint"></a>建立端點
-若要建立新的自訂端點，請在頁面頂端的 [自訂語音] 功能表上選取 [端點]。 這個動作會帶您前往 [端點] 頁面，內含目前自訂端點的資料表。 如果您尚未建立任何端點，此資料表會是空白的。 資料表標題會反映目前的地區設定。 
+若要建立新的自訂端點，請在頁面頂端的 [自訂語音] 功能表上選取 [端點]。 這個動作會帶您前往 [端點] 頁面，內含目前自訂端點的資料表。 如果您尚未建立任何端點，此資料表會是空白的。 資料表標題會反映目前的地區設定。
 
 若要建立不同語言的部署，請選取 [變更地區設定]。 如需支援語言的詳細資訊。
 

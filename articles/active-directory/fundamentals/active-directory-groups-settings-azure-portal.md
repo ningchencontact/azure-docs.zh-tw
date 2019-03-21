@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5802634fe070f5d71fae01706c3cb4e83e04a72e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192059"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285627"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>使用 Azure Active Directory 來編輯群組資訊
 
@@ -39,7 +39,7 @@ ms.locfileid: "56192059"
 
 4. 選取 [MDM 原則 - 西部] 群組，然後從 [管理] 區域選取 [屬性] 。
 
-    ![[群組概觀] 頁面顯示數目和成員，以及反白的 [成員] 選項](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![群組成員的選項和反白顯示的資訊與 [概觀] 頁面](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. 視需要更新 [一般設定] 資訊，包括：
 

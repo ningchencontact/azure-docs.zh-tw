@@ -10,18 +10,20 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112308"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
 在您[建立和執行邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)之後，即可檢查其執行歷程記錄、觸發程式歷程記錄、狀態和效能。 針對即時事件監視和更豐富的偵錯，設定邏輯應用程式的[診斷記錄](#azure-diagnostics)。 因此，您可以[尋找並檢視事件](#find-events)，例如觸發程序事件、執行事件和動作事件。 您也可以[搭配使用此診斷資料與其他服務](#extend-diagnostic-data)，例如 Azure 儲存體和 Azure 事件中樞。 
 
 若要取得失敗或其他可能問題的通知，請設定[警示](#add-azure-alerts)。 例如，您可以建立警示來偵測「一小時有五個以上的執行失敗時」。 您也可以使用 [Azure 診斷事件設定和內容](#diagnostic-event-properties)，透過程式設計方式設定監視、追蹤和記錄。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>檢視邏輯應用程式的執行和觸發程序歷程記錄
 
@@ -72,13 +74,13 @@ ms.locfileid: "53543851"
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>開啟邏輯應用程式的診斷記錄
 
-如需使用執行階段詳細資料和事件進行更豐富的偵錯，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 設定診斷記錄。 Log Analytics 是 Azure 中的一項服務，可監視雲端和內部部署環境，協助您維護其可用性和效能。 
+進行更豐富偵錯與執行階段詳細資料和事件，您可以設定診斷記錄[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 Azure 監視器是監視您的雲端和內部部署環境，協助您維護其可用性和效能的 Azure 中的服務。 
 
 開始之前，您需要有 Log Analytics 工作區。 了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取邏輯應用程式。 
 
-2. 在邏輯應用程式刀鋒視窗功能表上，於 [監視] 下選擇 [診斷] > [診斷設定]。
+2. 在邏輯應用程式刀鋒視窗功能表中，在**監視**，選擇**診斷** > **診斷設定**。
 
    ![移至 [監視]、[診斷]、[診斷設定]](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -91,8 +93,8 @@ ms.locfileid: "53543851"
    1. 選取 [傳送至 Log Analytics]。 
    2. 在 [Log Analytics] 下，選擇 [設定]。 
    3. 在 [OMS 工作區] 下，選取要用於記錄的工作區。
-   > [!NOTE]
-   > OMS 工作區現在稱為 Log Analytics 工作區。
+      > [!NOTE]
+      > OMS 工作區現在稱為 Log Analytics 工作區。
    4. 在 [記錄] 下，選取 [WorkflowRuntime] 分類。
    5. 選擇計量間隔。
    6. 完成之後，請選擇 [儲存]。
@@ -125,7 +127,7 @@ ms.locfileid: "53543851"
 
    ![輸入搜尋字串](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   深入了解[如何在 Log Analytics 中尋找資料](../log-analytics/log-analytics-log-searches.md)。
+   深入了解[如何在 Azure 監視器記錄檔中尋找資料](../log-analytics/log-analytics-log-searches.md)。
 
 5. 在結果頁面上，於左列中選擇您想要檢視的時間範圍。
 若要新增篩選來調整您的查詢，請選擇 [+新增]。
@@ -153,7 +155,7 @@ ms.locfileid: "53543851"
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>延伸搭配使用診斷資料與其他服務的方式和位置
 
-使用 Azure Log Analytics，即可延伸如何搭配使用邏輯應用程式的診斷資料與其他 Azure services，例如： 
+Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程式的診斷資料的其他 Azure 服務，例如： 
 
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -176,7 +178,7 @@ ms.locfileid: "53543851"
 
 若要監視邏輯應用程式的特定計量或已超過閾值，請設定 [Azure 中的警示](../azure-monitor/platform/alerts-overview.md)。 了解 [Azure 中的計量](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。 
 
-若要在不使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 的情況下設定警示，請遵循下列步驟。 如需更進階的警示準則和動作，也請[設定 Log Analytics](#azure-diagnostics)。
+若要設定警示，而不需要[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)，請遵循下列步驟。 針對更進階的警示準則和動作[設定 Azure 監視器記錄](#azure-diagnostics)太。
 
 1. 在邏輯應用程式刀鋒視窗功能表上，於 [監視] 下選擇 [診斷] > [警示規則] > [新增警示]，如下所示：
 
@@ -245,9 +247,9 @@ ms.locfileid: "53543851"
 }
 ```
 
-* `clientTrackingId`：如果未提供，Azure 會自動產生這個識別碼，並相互關聯邏輯應用程式執行之間的事件，包括從邏輯應用程式呼叫的任何巢狀工作流程。 您可以使用觸發程序要求中的自訂識別碼值來傳遞 `x-ms-client-tracking-id` 標頭，以從觸發程序手動指定此識別碼。 您可以使用要求觸發程序、HTTP 觸發程序或 Webhook 觸發程序。
+* `clientTrackingId`:如果未提供，Azure 會自動產生這個識別碼，並相互關聯邏輯應用程式執行之間的事件，包括從邏輯應用程式呼叫的任何巢狀工作流程。 您可以使用觸發程序要求中的自訂識別碼值來傳遞 `x-ms-client-tracking-id` 標頭，以從觸發程序手動指定此識別碼。 您可以使用要求觸發程序、HTTP 觸發程序或 Webhook 觸發程序。
 
-* `trackedProperties`：若要追蹤診斷資料中的輸入或輸出，您可以將追蹤的屬性新增至邏輯應用程式 JSON 定義中的動作。 追蹤的屬性只能追蹤單一動作的輸入和輸出，但您可以使用事件的 `correlation` 屬性來跨執行中的動作進行相互關聯。
+* `trackedProperties`:若要追蹤診斷資料中的輸入或輸出，您可以將追蹤的屬性新增至邏輯應用程式 JSON 定義中的動作。 追蹤的屬性只能追蹤單一動作的輸入和輸出，但您可以使用事件的 `correlation` 屬性來跨執行中的動作進行相互關聯。
 
   若要追蹤一或多個屬性，請將您想要的 `trackedProperties` 區段和屬性新增至動作定義。 例如，假設您想要追蹤遙測中「訂單識別碼」這類資料：
 

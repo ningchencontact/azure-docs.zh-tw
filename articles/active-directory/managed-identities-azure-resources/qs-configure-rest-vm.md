@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3933f10a777a1aa10a4e04f8901e7fd1af5c48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 778897e1a146abd0655d76ef157f64522681cb0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889670"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>使用 REST API 呼叫在 Azure VM 上設定 Azure 資源受控識別
 
@@ -63,7 +63,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  擷取持有人存取權杖，在下一個步驟中，會使用此權杖搭配搭配系統指派的受控識別，在授權標頭中建立虛擬機器。
+3. 擷取持有人存取權杖，在下一個步驟中，會使用此權杖搭配搭配系統指派的受控識別，在授權標頭中建立虛擬機器。
 
    ```azurecli-interactive
    az account get-access-token
@@ -80,7 +80,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
    
    **要求標頭**
-   |要求標頭  |說明  |
+   
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -168,7 +169,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **要求標頭**
-   |要求標頭  |說明  |
+
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -200,7 +202,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -235,10 +237,11 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
    **要求本文**
 
    ```JSON
@@ -277,7 +280,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -314,7 +317,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  擷取持有人存取權杖，在下一個步驟中，會使用此權杖搭配搭配系統指派的受控識別，在授權標頭中建立虛擬機器。
+3. 擷取持有人存取權杖，在下一個步驟中，會使用此權杖搭配搭配系統指派的受控識別，在授權標頭中建立虛擬機器。
 
    ```azurecli-interactive
    az account get-access-token
@@ -336,7 +339,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -417,7 +420,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -507,11 +510,12 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **要求標頭**
-   |要求標頭  |說明  |
+
+   |要求標頭  |描述  |
    |---------|---------|
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。
 
-    如有任何使用者或系統指派的受控識別是指派給回應中 `identity` 值識別的虛擬機器，請跳至步驟 5，此步驟將說明如何在 VM 上新增使用者指派的受控識別時，同時保留系統指派的受控識別。
+    如果您有任何使用者或指派給 VM，如中所識別的系統指派給受控身分識別`identity`值在回應中，請跳至步驟 5，示範如何在加入使用者指派的受控身分識別時保留系統指派的受控身分識別您的 VM。
 
 4. 若沒有任何使用者指派的受控識別指派給您的虛擬機器，請使用下列 CURL 命令呼叫 Azure Resource Manager REST 端點，將第一個使用者指派的受控識別指派給虛擬機器。
 
@@ -528,7 +532,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
@@ -560,7 +564,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -596,7 +600,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -635,7 +639,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -675,7 +679,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
 
    **要求標頭**
-   |要求標頭  |說明  |
+
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。
@@ -698,7 +703,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -730,7 +735,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |說明  |
+   |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -760,7 +765,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **要求標頭**
 
-|要求標頭  |說明  |
+|要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
 |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
@@ -787,7 +792,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **要求標頭**
 
-|要求標頭  |說明  |
+|要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
 |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。| 

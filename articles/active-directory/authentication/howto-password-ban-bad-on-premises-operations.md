@@ -1,6 +1,6 @@
 ---
-title: Azure AD 密碼保護預覽作業和報告
-description: Azure AD 密碼保護預覽部署後作業和報告
+title: Azure AD 密碼保護的作業和報告
+description: Azure AD 密碼保護後的部署作業和報告
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fda79f16560a5c96e1283f4d9d9f14dbe503d61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175236"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285797"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>預覽：Azure AD 密碼保護作業程序
-
-|     |
-| --- |
-| Azure AD 密碼保護是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD 密碼保護作業程序
 
 完成在內部部署環境[安裝 Azure AD 密碼保護](howto-password-ban-bad-on-premises-deploy.md)後，您必須在 Azure 入口網站中設定一些項目。
 
@@ -33,7 +28,7 @@ ms.locfileid: "56175236"
 
 ## <a name="enable-password-protection"></a>啟用密碼保護
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 [Azure Active Directory]、[驗證方法] 和 [密碼保護 (預覽)]。
+1. 登入[Azure 入口網站](https://portal.azure.com)並瀏覽至**Azure Active Directory**，**驗證方法**，然後**密碼保護**。
 1. 將 [啟用 Windows Server Active Directory 上的密碼保護] 設定為 [是]
 1. 如[部署指南](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)所述，建議您一開始就將 [模式] 設定為 [稽核]
    * 對功能感到滿意後，您可以將 [模式] 切換為 [已強制]

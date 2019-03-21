@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 01/29/2019
+ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 81b2db2da7c1efe0d09c065270c3493f297e49ad
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55235960"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305211"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>什麼是 ExpressRoute Global Reach？
 
@@ -49,7 +49,7 @@ ExpressRoute 可從內部部署網路連線到 Microsoft 雲端服務。 Express
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>在啟用 ExpressRoute Global Reach 之後，我可以預期的內部部署網路間網路輸送量為何？
 
-由 ExpressRoute Global Reach 所啟用的內部部署網路間網路輸送量，是以兩個 ExpressRoute 線路中的較小者為上限。
+由 ExpressRoute Global Reach 所啟用的內部部署網路間網路輸送量，是以兩個 ExpressRoute 線路中的較小者為上限。 內部部署至 Azure 流量和內部部署至內部部署流量共用相同的電路，並受限於相同的頻寬上限。 
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>使用 ExpressRoute Global Reach 時，可通告的路由數目和我可收到的路由數目有何限制？
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 12/05/2017
+ms.date: 03/04/2019
 ms.author: v-gedod
-ms.openlocfilehash: b997db319677f6904db7e2fdee4ef0c6bf76a180
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d01f863f0c42754e2dcc36f6cab1bed1f3dc3b6c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859363"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337799"
 ---
 # <a name="custom-search"></a>自訂搜尋
 Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋經驗。 您的使用者會看到針對他們感興趣的內容量身訂做的搜尋結果，而不需要逐頁查看包含不相關內容的搜尋結果。

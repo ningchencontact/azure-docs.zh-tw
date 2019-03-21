@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9a819f94ae0cc90d86fdbdf4c9201f1d5a2df6ee
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170491"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>如何在對話學習模組模型中記錄對話
 
@@ -55,6 +55,8 @@ ms.locfileid: "55213339"
 9. 選取回應：「奧斯丁可能是晴天」。
 10. 按一下 [另存為訓練對話] 按鈕。
     - 訓練會立即展開
+
+![](../media/T11_logdialog.png)
 
 最後要請您注意， 您可以根據商務需求，在 [設定] 中取消勾選 [記錄對話]，以關閉對話記錄功能。
 

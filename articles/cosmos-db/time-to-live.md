@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461163"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549182"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中的存留時間 
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 可讓您利用「存留時間」或 TTL，在一段時間後自
 
    - 如果存在且值設為某個數字 ("n")，則項目會在其上次修改時間後的 "n" 秒過期。
 
-2. **項目的存留時間** (使用 `TimeToLive` 設定)：
+2. **項目的存留時間** (使用 `ttl` 設定)：
 
    - 僅在父容器有 `DefaultTimeToLive` 且未設定為 DefaultTTL 時，才適用此屬性。
 
@@ -48,6 +48,6 @@ Azure Cosmos DB 可讓您利用「存留時間」或 TTL，在一段時間後自
 
 ## <a name="next-steps"></a>後續步驟
 
-在下列文章中了解如何設定存留時間：
+通过以下文章了解如何配置生存时间：
 
 * [如何設定存留時間](how-to-time-to-live.md)

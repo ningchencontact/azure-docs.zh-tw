@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977095"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294139"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安裝並執行文字分析容器
 
@@ -26,13 +26,13 @@ ms.locfileid: "55977095"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要執行任一文字分析容器，您必須具備下列項目：
+若要執行任一文字分析的容器，您必須使用主機電腦和容器環境。
 
 ## <a name="preparation"></a>準備工作
 
 使用文字分析容器之前，您必須符合下列必要條件：
 
-|必要|目的|
+|必要項|目的|
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
@@ -46,11 +46,14 @@ ms.locfileid: "55977095"
 
 下表說明針對每個文字分析容器配置的最低和建議 CPU 核心 (至少 2.6 GHz 或更快的版本) 與記憶體 (以 GB 為單位)。
 
-| 容器 | 最小值 | 建議 |
-|-----------|---------|-------------|
-|關鍵片語擷取 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |
-|語言偵測 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |
-|情感分析 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |
+| 容器 | 最小值 | 建議 | TPS<br>（最小值、 最大值）|
+|-----------|---------|-------------|--|
+|關鍵片語擷取 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |15, 30|
+|語言偵測 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |15, 30|
+|情感分析 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |15, 30|
+
+* 每個核心必須至少 2.6 GHz 或更快。
+* TP-每秒交易數
 
 核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
 
@@ -64,7 +67,7 @@ ms.locfileid: "55977095"
 |語言偵測 | `mcr.microsoft.com/azure-cognitive-services/language` |
 |情感分析 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-使用 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 命令從 Microsoft Container Registry 下載容器映像。
+使用[ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/)命令，以從 Microsoft Container Registry 中下載容器映像。
 
 如需文字分析提供之標籤的完整說明，請參閱下列 Docker Hub 上的容器：
 
@@ -134,11 +137,13 @@ ApiKey={BILLING_KEY}
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing)。
 
+[!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 
 
-針對容器 API 請使用主機 https://localhost:5000。
+針對容器 API 請使用主機 `https://localhost:5000`。
 
 ## <a name="stop-the-container"></a>停止容器
 

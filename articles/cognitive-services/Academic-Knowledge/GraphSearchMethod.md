@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864463"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57977406"
 ---
 # <a name="graph-search-method"></a>圖表搜尋方法
 
@@ -29,9 +29,10 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>要求參數  
-Name     | 值 | 必要？  | 說明
+
+名稱     | 值 | 必要？  | 描述
 -----------|-----------|---------|--------
-**mode**       | 文字字串 | yes | 想要使用的模型名稱。 值為 *json* 或 *lambda*。
+**mode**       | 文字字串 | 是 | 想要使用的模型名稱。 值為 *json* 或 *lambda*。
 
 必須透過 HTTP POST 要求呼叫圖表搜尋方法。 POST 要求應包含內容類型標頭：**application/json**。
 
@@ -45,8 +46,10 @@ Name     | 值 | 必要？  | 說明
 對於 lambda 搜尋，POST 本文是純文字字串。 POST 本文是 LIKQ lambda 查詢字串，這是單一的 C# 陳述式 (請參閱適用於 lambda 搜尋的[查詢字串規格](LambdaSearchSyntax.md))。 
 
 <br>
+
 ## <a name="response-json"></a>回應 (JSON)
-Name | 說明
+
+名稱 | 描述
 -------|-----   
 **results** | 一個陣列，內含 0 或多個符合查詢運算式的實體。 每個實體都包含要求的屬性值。 如果已成功處理要求，就會呈現這個欄位。
 **error** | HTTP 狀態碼。 如果要求失敗，就會呈現此欄位。
@@ -55,6 +58,7 @@ Name | 說明
 如果無法在 _800 毫秒_內查詢處理，則會傳回_逾時_錯誤。 
 
 <br>
+
 #### <a name="example"></a>範例：
 
 ##### <a name="json-search"></a>JSON 搜尋

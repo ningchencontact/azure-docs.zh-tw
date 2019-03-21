@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991723"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109285"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(已淘汰) 透過 Marathon REST API 的 DC/OS 容器管理
 
@@ -124,8 +124,6 @@ Nginx 伺服器的輸出大致如下：
 
 > [!NOTE]
 > URI 是 http://localhost/marathon/v2/apps/ 後接要調整的應用程式的識別碼。 如果您是使用這裡提供的 Nginx 範例，則 URI 會是 http://localhost/marathon/v2/apps/nginx。
-> 
-> 
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -183,14 +181,12 @@ Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentTy
 
 > [!NOTE]
 > URI 是 http://localhost/marathon/v2/apps/ 後接要調整的應用程式的識別碼。 如果您是使用這裡提供的 Nginx 範例，則 URI 會是 http://localhost/marathon/v2/apps/nginx。
-> 
-> 
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* [深入了解 Mesos HTTP 端點](http://mesos.apache.org/documentation/latest/endpoints/)
+* [深入了解 Mesos HTTP 端點](https://mesos.apache.org/documentation/latest/endpoints/)
 * [深入了解 Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: e35e669c4abc4815b932e09d369af28e42617e8c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052505"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535672"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>將 IoT DevKit AZ3166 連線至 Azure IoT 中樞
 
@@ -88,10 +88,10 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 
 ![Wi-Fi 名稱和 IP 位址](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ip.jpg)
 
-> [!NOTE] 
-> 圖中顯示的 IP 位址未必會符合 DevKit 畫面上所指派和顯示的實際 IP 位址。 這是正常現象，因為 Wi-Fi 會使用 DHCP 來動態指派 IP。
+> [!NOTE]
+> 您必須使用 IoT DevKit 的 2.4 GHz 網路。 IoT DevKit 上的 WiFi 模組不相容使用 5 GHz 網路。 如需更多詳細資料，請參閱[常見問題集](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration)。
 
-設定好 Wi-Fi 後，即使將裝置的接線拔除，該裝置上仍會留有用於該連線的認證。 例如，如果您設定 DevKit 來使用家中的 Wi-Fi，然後將 DevKit 帶到辦公室，您將必須重新設定 AP 模式 (從＜進入 AP 模式＞一節的步驟開始)，才能將 DevKit 連線到辦公室 Wi-Fi。 
+設定好 Wi-Fi 後，即使將裝置的接線拔除，該裝置上仍會留有用於該連線的認證。 例如，如果您設定 DevKit 來使用家中的 Wi-Fi，然後將 DevKit 帶到辦公室，您將必須重新設定 AP 模式 (從＜進入 AP 模式＞一節的步驟開始)，才能將 DevKit 連線到辦公室 Wi-Fi。
 
 ## <a name="start-using-the-devkit"></a>開始使用 DevKit
 
@@ -175,9 +175,9 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 
 ### <a name="install-st-link-drivers"></a>安裝 ST-Link 驅動程式
 
-[ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html) 是 IoT DevKit 用來與開發電腦進行通訊的 USB 介面。 遵循 OS 特有步驟，以允許電腦存取您的裝置。
+[ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) 是 IoT DevKit 用來與開發電腦進行通訊的 USB 介面。 您需要將它安裝在 Windows 啟用 flash deivce 編譯程式碼到 DevKit。 遵循 OS 特有步驟，以允許電腦存取您的裝置。
 
-* **Windows**：從 [STMicroelectronics 網站](http://www.st.com/en/development-tools/stsw-link009.html)下載並安裝 USB 驅動程式。
+* **Windows**：從 [STMicroelectronics 網站](https://www.st.com/en/development-tools/stsw-link009.html)下載並安裝 USB 驅動程式。
 * **macOS**：macOS 不需要任何驅動程式。
 * **Ubuntu**：在終端機中執行下列程式碼並登出後再登入，以讓群組變更生效：
     ```bash

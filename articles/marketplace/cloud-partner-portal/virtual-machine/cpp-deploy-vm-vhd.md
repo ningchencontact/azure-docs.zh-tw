@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106044"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>從您的 VHD 部署 VM
 
@@ -51,13 +51,13 @@ ms.locfileid: "54434167"
 
 VM 部署完成後，您便可準備開始[認證您的 VM 映像](./cpp-certify-vm.md)。
 
-2.  按一下 [新增] 並搜尋**範本部署**，然後選取 [在編輯器中建置自己的範本]。  <br/>
-  ![在 Microsoft Azure 入口網站建置 VHD 部署範本](./media/publishvm_021.png)
+1. 按一下 [新增] 並搜尋**範本部署**，然後選取 [在編輯器中建置自己的範本]。  <br/>
+   ![在 Microsoft Azure 入口網站建置 VHD 部署範本](./media/publishvm_021.png)
 
-3. 複製並將此 [JSON 範本](./cpp-deploy-json-template.md)貼上至編輯器，然後按一下 [儲存]。 <br/>
-  ![將 VHD 部署範本儲存於 Microsoft Azure 入口網站](./media/publishvm_022.png)
+1. 複製並將此 [JSON 範本](./cpp-deploy-json-template.md)貼上至編輯器，然後按一下 [儲存]。 <br/>
+   ![將 VHD 部署範本儲存於 Microsoft Azure 入口網站](./media/publishvm_022.png)
 
-4. 為顯示的**自訂部署**屬性頁面提供參數值。
+1. 為顯示的**自訂部署**屬性頁面提供參數值。
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
@@ -79,7 +79,7 @@ VM 部署完成後，您便可準備開始[認證您的 VM 映像](./cpp-certify
    | VHD URL                     | 完整的 OS 磁碟 VHD URL                                                     |
    |  |  |
             
-5. 在您提供這些數值後，請按一下 [採購]。 
+1. 在您提供這些數值後，請按一下 [採購]。 
 
 Azure 會開始部署： 它會建立新的 VM，附上指定的非受控 VHD，存放於指定的儲存體帳戶路徑中。  您可以在 Microsoft Azure 入口網站中按一下左側的 [虛擬機器] 來追蹤進度。  建立 VM 後，狀態會從`Starting`變更為`Running`。 
 

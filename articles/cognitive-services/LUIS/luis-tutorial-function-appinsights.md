@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c9a772af79cba8b5bfb592eaf03efa37520d5e48
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870600"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098758"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>將 LUIS 結果新增至 Application Insights 和 Azure 函式
 本教學課程將 LUIS 要求和回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 在您擁有該資料之後，即可使用 Kusto 語言或 PowerBi 查詢它，以即時分析、彙總以及報告意圖和語句實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
@@ -26,9 +26,9 @@ ms.locfileid: "55870600"
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-* 將 Application Insights 程式庫新增至 Web 應用程式 Bot
-* 將 LUIS 查詢結果擷取並傳送至 Application Insights
-* 查詢 Application Insights 中的最高意圖、分數和語句
+> * 將 Application Insights 程式庫新增至 Web 應用程式 Bot
+> * 將 LUIS 查詢結果擷取並傳送至 Application Insights
+> * 查詢 Application Insights 中的最高意圖、分數和語句
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -51,11 +51,11 @@ ms.locfileid: "55870600"
 
 1. 在 Azure 入口網站中，於 Web 應用程式 Bot 服務中，選取 [Bot Management] \(Bot 管理\) 區段下方的 [建置]。 
 
-    ![在 Azure 入口網站中，於 Web 應用程式 Bot 服務中，選取 [Bot 管理] 區段下方的 [建置]。 ](./media/luis-tutorial-appinsights/build.png)
+    ![在 Azure 入口網站中，於 Web 應用程式 Bot 服務中，選取 [Bot 管理] 區段下方的 [建置]。](./media/luis-tutorial-appinsights/build.png)
 
 2. 新的瀏覽器索引標籤與 App Service 編輯器隨即開啟。 選取頂端列中的應用程式名稱，然後選取 [Open Kudu Console] \(開啟 Kudu 主控台\)。 
 
-    ![選取頂端列中的應用程式名稱，然後選取 [Open Kudu Console] \(開啟 Kudu 主控台\)。 ](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![選取頂端列中的應用程式名稱，然後選取 [Open Kudu Console] \(開啟 Kudu 主控台\)。](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. 在主控台中，輸入下列命令以安裝 Application Insights 和 Underscore 套件：
 

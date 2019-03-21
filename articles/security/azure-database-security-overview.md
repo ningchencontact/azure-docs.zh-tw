@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116315"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860511"
 ---
 # <a name="azure-database-security-overview"></a>Azure 資料庫安全性概觀
 
@@ -50,7 +50,7 @@ SQL Database 透過提供加密來協助您保護資料：
 如需其他的資料加密方式，請考慮：
 
 -   [儲存格層級加密](https://msdn.microsoft.com/library/ms179331.aspx) ，可利用不同的加密金鑰來加密特定的資料行或甚至是資料儲存格。
--   [在 Azure VM 中使用 Azure Key Vault 搭配 SQL Server](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx) \(英文\)，但前提是您需要硬體安全模組或集中管理您的加密金鑰階層。
+-   [在 Azure VM 中使用 Azure Key Vault 搭配 SQL Server](https://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx) \(英文\)，但前提是您需要硬體安全模組或集中管理您的加密金鑰階層。
 
 ### <a name="encryption-in-motion"></a>移動中加密
 

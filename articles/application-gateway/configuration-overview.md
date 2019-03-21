@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223524"
+ms.locfileid: "58285833"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定概觀
 
@@ -33,7 +33,9 @@ ms.locfileid: "58223524"
 
 #### <a name="size-of-the-subnet"></a>子網路的大小
 
-V1 的 SKU，如果應用程式閘道會取用一個私人 IP 位址，每個執行個體，再加上另一個私人 IP 位址如果的私人前端 IP 組態設定。 此外，Azure 會保留每個子網路中的前四個和最後一個 IP 位址，以供內部使用。 例如，如果應用程式閘道已設定為三個執行個體且沒有私人前端 IP，則需要 /29 子網路大小或更大。 在本案例中，應用程式閘道會使用 3 個 IP 位址。 如果您有三個執行個體和一個用於私人前端 IP 組態的 IP 位址，則需要 /28 子網路大小或更大，因為四個 IP 位址是必要的。
+應用程式閘道會針對每個執行個體取用一個私人 IP 位址，如果已設定私人前端 IP 組態，則會再取用另一個私人 IP 位址。 此外，Azure 會保留每個子網路中的前四個和最後一個 IP 位址，以供內部使用。 比方說，如果應用程式閘道三個執行個體與不含私人前端 IP 設定，然後至少八個 IP 位址必須在子網路： 用於內部用途的五個 IP 位址和應用程式閘道的三個執行個體的三個 IP 位址。 因此，在此情況下使用/29 子網路大小或更新版本需要。 如果您有三個執行個體，而且 IP 位址的私人前端 IP 組態，則九個 IP 位址將會需要應用程式閘道的三個執行個體的三個 IP 位址一個 IP 位址的私人前端 IP 和五個 IP 位址內部使用。 因此，以此案例而言是/28 子網路大小或更新版本需要。
+
+最佳做法是，使用至少/28 子網路大小。 這可讓您 11 可用的位址。 如果您的應用程式的負載需要超過 10 個執行個體，您應該考慮/27 或/26 子網路大小。
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>支援的應用程式閘道子網路上的網路安全性群組
 
@@ -41,7 +43,7 @@ V1 的 SKU，如果應用程式閘道會取用一個私人 IP 位址，每個執
 
 - 必須針對應用程式閘道 v1 SKU 之連接埠 65503-65534 和 v2 SKU 之連接埠 65200 - 65535 上的傳入流量，設定例外。 Azure 基礎結構通訊需要此連接埠範圍。 它們受到 Azure 憑證的保護 (鎖定)。 若沒有適當的憑證，外部實體 (包括這些閘道的客戶) 將無法對這些端點起始任何變更。
 
-- 無法封鎖輸出網際網路連線。
+- 無法封鎖輸出網際網路連線。 NSG 中的默认出站规则已经允许 Internet 连接。 建议不要删除默认的出站规则，且不要创建其他拒绝出站 Internet 连接的出站规则。
 
 - 必須允許來自 AzureLoadBalancer 標籤的流量。
 
@@ -57,11 +59,12 @@ V1 的 SKU，如果應用程式閘道會取用一個私人 IP 位址，每個執
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>使用者定義的路由應用程式閘道子網路支援
 
-V1 SKU，如果使用者定義路由 (Udr) 都支援應用程式閘道子網路，只要它們不會改變的端對端要求/回應通訊。
-
-例如，您可以在應用程式閘道子網路中設定 UDR，使其指向防火牆設備以進行封包檢查，但您必須確定封包在經過檢查後可送達預定目的地。 若未這麼做，可能會導致不正確的健康情況探查或流量路由行為。 這包括學習到的路由，或是 ExpressRoute 或 VPN 閘道在虛擬網路中傳播的預設 0.0.0.0/0 路由。
+V1 SKU，如果使用者定義路由 (Udr) 都支援應用程式閘道子網路，只要它們不會改變的端對端要求/回應通訊。 例如，您可以在應用程式閘道子網路中設定 UDR，使其指向防火牆設備以進行封包檢查，但您必須確定封包在經過檢查後可送達預定目的地。 若未這麼做，可能會導致不正確的健康情況探查或流量路由行為。 這包括學習到的路由，或是 ExpressRoute 或 VPN 閘道在虛擬網路中傳播的預設 0.0.0.0/0 路由。
 
 如果 v2 SKU，應用程式閘道子網路的 Udr 不支援。 如需詳細資訊，請參閱[自動調整規模和區域備援應用程式閘道 (公開預覽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations)。
+
+> [!NOTE]
+> 使用應用程式閘道子網路的 Udr 會導致中的健全狀況狀態[後端健康情況檢視](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health)顯示為**未知**和 failue 的新一代應用程式閘道記錄檔也會產生與計量。 它會建議您不要使用 Udr 應用程式閘道子網路上要能夠檢視後端健康狀態、 記錄和計量。
 
 ## <a name="frontend-ip"></a>前端 IP
 
@@ -87,10 +90,11 @@ V1 SKU，如果使用者定義路由 (Udr) 都支援應用程式閘道子網路�
 
 - 如果您要在相同的應用程式閘道執行個體上設定一個以上的 web 應用程式或多個相同的父系網域的子網域，然後選擇 多站台接聽程式。 多站台接聽程式，您將此外要輸入主機名稱。 這是因為應用程式閘道會依賴 HTTP 1.1 主機標頭來裝載多個網站上的相同公用 IP 位址和連接埠。
 
-> [!NOTE]
-> V1 的 Sku，如果接聽程式會處理它們顯示的順序。 因此，如果基本接聽程式符合傳入的要求，就會先處理它。 因此，多站台接聽程式應該設定基本接聽程式，以確保流量會路由至正確的後端之前。
->
-> V2 Sku，如果基本接聽程式之前處理多站台接聽程式。
+#### <a name="order-of-processing-listeners"></a>處理接聽程式的順序
+
+V1 的 Sku，如果接聽程式會處理它們顯示的順序。 因此，如果基本接聽程式符合傳入的要求，就會先處理它。 因此，多站台接聽程式應該設定基本接聽程式，以確保流量會路由至正確的後端之前。
+
+V2 Sku，如果基本接聽程式之前處理多站台接聽程式。
 
 ### <a name="frontend-ip"></a>前端 IP
 
@@ -110,9 +114,9 @@ V1 SKU，如果使用者定義路由 (Udr) 都支援應用程式閘道子網路�
 
   若要設定 Secure Sockets Layer (SSL) 終止和端對端 SSL 加密，可以加入至接聽程式，以便在啟用 衍生依據 SSL 通訊協定規格的對稱金鑰的應用程式閘道需要憑證。 對稱金鑰則用來加密和解密流量傳送至閘道中。 閘道憑證必須採用「個人資訊交換」(PFX) 格式。 此檔案格式可允許將私密金鑰匯出，而應用程式閘道需要這個匯出的金鑰來執行流量的加密和解密。 
 
-#### <a name="supported-certs"></a>支援的憑證
+#### <a name="supported-certificates"></a>支援的憑證
 
-支援自我簽署的憑證，CA 憑證、 萬用字元憑證和 EV 憑證。
+請參閱[支援 SSL 終止憑證](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination)。
 
 ### <a name="additional-protocol-support"></a>其他通訊協定支援
 
@@ -160,11 +164,11 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 - 選擇路徑為基礎接聽程式如果您想要路由傳送要求以特定的後端集區的特定 URL 路徑。 路径模式仅应用到 URL 的路径，而不应用到该 URL 的查询参数。
 
 
-> [!NOTE]
->
-> V1 Sku 時的連入要求的模式比對是路徑型規則的 URL 路徑對應中會列出路徑的順序處理。 基於這個理由，如果要求符合 URL 路徑對應中的兩個或多個路徑中的模式，然後為列出的路徑第一次將會比對，並要求會轉送至後端與該路徑相關聯。
->
-> 發生 v2 Sku，完全符合會保存於 URL 路徑對應中會列出的路徑順序較高的優先順序。 針對該理由，如果要求符合兩個或多個路徑中的模式，則要求會轉送至後端相關聯，完全符合要求的路徑。 如果連入要求中的路徑完全符合 URL 路徑對應中的任何路徑，然後比對的連入要求的模式會處理這些路徑列示在 路徑型規則的 URL 路徑對應中的順序。
+#### <a name="order-of-processing-rules"></a>處理規則的順序
+
+V1 Sku 時的連入要求的模式比對是路徑型規則的 URL 路徑對應中會列出路徑的順序處理。 基於這個理由，如果要求符合 URL 路徑對應中的兩個或多個路徑中的模式，然後為列出的路徑第一次將會比對，並要求會轉送至後端與該路徑相關聯。
+
+發生 v2 Sku，完全符合會保存於 URL 路徑對應中會列出的路徑順序較高的優先順序。 針對該理由，如果要求符合兩個或多個路徑中的模式，則要求會轉送至後端相關聯，完全符合要求的路徑。 如果連入要求中的路徑完全符合 URL 路徑對應中的任何路徑，然後比對的連入要求的模式會處理這些路徑列示在 路徑型規則的 URL 路徑對應中的順序。
 
 ### <a name="associated-listener"></a>相關聯的接聽程式
 
@@ -186,7 +190,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 - #### <a name="redirection-type"></a>重新導向類型
 
-  選擇所需的重新導向的型別：永久暫存找到，或請參閱其他。
+  選擇所需的重新導向的型別：Permanent(301)、 Temporary(307)、 Found(302) 或，請參閱 other(303)。
 
 - #### <a name="redirection-target"></a>重新導向目標
 

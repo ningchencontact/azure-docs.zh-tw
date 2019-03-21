@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: e6ab51d568c950ca7fd503150557df288d84174f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0d6813c11b5b9ed4aef666f5eb3dc75d8c9de770
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867727"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593417"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>新增意圖以判斷語句的使用者用意
 
@@ -50,21 +50,14 @@ ms.locfileid: "55867727"
 
 在頂端導覽列中，選取 [定型]。 預測差異現在已消失。
 
+> [!Note]
+> 當紅線的單字或片語中範例 [utterance] 底下[實體預測誤差](luis-how-to-add-example-utterances.md#entity-status-predictions)發生。 您需要修正它。 
+
 ## <a name="add-a-custom-entity"></a>新增自訂實體
 
 語句新增至意圖後，您可以從語句中選取文字來建立自訂實體。 自訂實體是標記文字以供擷取及正確意圖的方法。 
 
-1. 在語句中選取字組 `Seattle`。 文字周圍會加上方括號，且隨即出現下拉式功能表。 
-
-    ![意圖詳細資料頁面 (建立自訂實體) 的螢幕擷取畫面](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    此範例會選取單一字組來標示為實體。 您可以將單一字組和片語標示為實體。
-
-1. 在功能表的頂端文字方塊中，輸入 `Location`，然後選取 [建立新的實體]。 
-
-    ![意圖詳細資料頁面 (建立自訂實體名稱) 的螢幕擷取畫面](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. 在實體建立的 [您要建立哪種類型的實體?] 快顯視窗中，驗證**實體名稱**為 [位置]，而**實體類型**為 [簡單]。 選取 [完成] 。
+請參閱[將實體新增至 [utterance]](luis-how-to-add-example-utterances.md)若要深入了。
 
 ## <a name="entity-prediction-discrepancy-errors"></a>意圖預測差異錯誤 
 
@@ -80,7 +73,7 @@ ms.locfileid: "55867727"
 
 ## <a name="using-the-contextual-toolbar"></a>使用內容相關的工具列
 
-若已選取清單中的一或多個範例語句，核取語句左邊的方塊，語句清單上方的工具列即可讓您執行下列動作：
+在清單中，核取方塊左邊的 [utterance] 中，選取一或多個範例談話時 [utterance] 清單上方的工具列可讓您執行下列動作：
 
 * 重新指派意圖：將語句移至不同的意圖
 * 刪除語句

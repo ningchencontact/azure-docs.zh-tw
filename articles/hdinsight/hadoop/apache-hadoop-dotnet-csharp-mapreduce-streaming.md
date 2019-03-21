@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 09b652b236e1fbe68d93298f0f8793854e411aad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342918"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095665"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Apache Hadoop 上的 MapReduce 串流使用 C#
 
@@ -45,13 +45,13 @@ __以 Linux 為基礎的 HDInsight__ 叢集會使用 [Mono (https://mono-project
 
 ## <a name="prerequisites"></a>必要條件
 
-* 熟悉如何撰寫和建置以 .NET Framework 4.5 為目標的 C# 程式碼。 本文件中的步驟使用 Visual Studio 2017。
+* 熟悉编写和生成面向 .NET Framework 4.5 的 C# 代码。 本文档中的各个步骤都使用 Visual Studio 2017。
 
 * 將 .exe 檔案上傳至叢集的方式。 本文件中的步驟使用 Data Lake Tools for Visual Studio 將檔案上傳至叢集的主要儲存體。
 
 * Azure PowerShell 或 SSH 用戶端。
 
-* HDInsight 叢集上的 Hadoop。 如需有關建立叢集的詳細資訊，請參閱[建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
+* HDInsight 叢集上的 Hadoop。 有关创建群集的详细信息，请参阅[创建 HDInsight 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="create-the-mapper"></a>建立對應工具
 
@@ -88,7 +88,7 @@ namespace mapper
 }
 ```
 
-建立應用程式之後，建置它以在專案目錄中產生 `/bin/Debug/mapper.exe` 檔案。
+创建该应用程序后，生成它以在项目目录中生成 `/bin/Debug/mapper.exe` 文件。
 
 ## <a name="create-the-reducer"></a>建立歸納器
 
@@ -161,13 +161,13 @@ namespace reducer
 
 5. 若要上傳 .exe 檔案，請使用下列其中一種方法：
 
-    * 如果使用 __Azure 儲存體帳戶__，請按一下上傳圖示，然後瀏覽至 **mapper** 專案的 **bin\debug** 資料夾。 最後，選取 **mapper.exe** 檔案，然後按一下 [確定]。
+   * 如果使用 __Azure 儲存體帳戶__，請按一下上傳圖示，然後瀏覽至 **mapper** 專案的 **bin\debug** 資料夾。 最後，選取 **mapper.exe** 檔案，然後按一下 [確定]。
 
-        ![上傳圖示](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+       ![上傳圖示](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]。 最後，選取 **mapper.exe** 檔案，然後按一下 [開啟]。
+   * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]。 最後，選取 **mapper.exe** 檔案，然後按一下 [開啟]。
 
-    __mapper.exe__ 上傳完成後，請針對 __reducer.exe__ 檔案重複上傳程序。
+     __mapper.exe__ 上傳完成後，請針對 __reducer.exe__ 檔案重複上傳程序。
 
 ## <a name="run-a-job-using-an-ssh-session"></a>執行工作︰使用 SSH 工作階段
 
@@ -175,32 +175,32 @@ namespace reducer
 
 2. 使用下列其中一個命令來啟動 MapReduce 作業：
 
-    * 如果使用 __Data Lake Storage Gen2__ 作為預設儲存體：
+   * 如果使用 __Data Lake Storage Gen2__ 作為預設儲存體：
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    * 如果使用 __Data Lake Storage Gen1__ 作為預設儲存體：
+   * 如果使用 __Data Lake Storage Gen1__ 作為預設儲存體：
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
     
-    * 如果使用 __Azure 儲存體__作為預設儲存體：
+   * 如果使用 __Azure 儲存體__作為預設儲存體：
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    下列清單描述每個參數的用途︰
+     下列清單描述每個參數的用途︰
 
-    * `hadoop-streaming.jar`：包含串流處理 MapReduce 功能的 jar 檔案。
-    * `-files`：將 `mapper.exe` 和 `reducer.exe` 檔案加入至此作業。 每個檔案前面的 `abfs:///`、`adl:///` 或 `wasb:///` 都是叢集預設儲存體的根目錄路徑。
-    * `-mapper`：指定哪個檔案實作對應工具。
-    * `-reducer`：指定哪個檔案實作歸納器。
-    * `-input`：輸入資料。
-    * `-output`：輸出目錄。
+   * `hadoop-streaming.jar`:包含串流處理 MapReduce 功能的 jar 檔案。
+   * `-files`:將 `mapper.exe` 和 `reducer.exe` 檔案加入至此作業。 每個檔案前面的 `abfs:///`、`adl:///` 或 `wasb:///` 都是叢集預設儲存體的根目錄路徑。
+   * `-mapper`:指定哪個檔案實作對應工具。
+   * `-reducer`:指定哪個檔案實作歸納器。
+   * `-input`:輸入資料。
+   * `-output`:輸出目錄。
 
 3. 在 MapReduce 作業完成後，使用下列命令來檢視結果：
 

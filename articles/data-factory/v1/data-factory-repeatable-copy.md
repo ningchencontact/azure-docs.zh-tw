@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b15dcd9ae5f2f1668db3925b659625497eca491f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 20c916275acd6bb79675c592711b17b277c9fc78
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079753"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294088"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory 中的可重複複製
 
@@ -114,7 +114,7 @@ Azure Data Factory 會基於可重複性目的使用此資料行，且在過程�
 1. 在目的地 SQL 資料表中定義一個「二進位 (32)」類型的資料行。 此資料行不應該有任何條件約束。 讓我們針對此範例將這個資料行命名為 AdfSliceIdentifier。
 
 
-來源資料表：
+    來源資料表：
 
     ```sql
     CREATE TABLE [dbo].[Student](
@@ -123,7 +123,7 @@ Azure Data Factory 會基於可重複性目的使用此資料行，且在過程�
     )
     ```
 
-目的地資料表： 
+    目的地資料表： 
 
     ```sql
     CREATE TABLE [dbo].[Student](

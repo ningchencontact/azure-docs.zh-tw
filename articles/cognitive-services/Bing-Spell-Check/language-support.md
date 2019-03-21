@@ -3,19 +3,19 @@ title: 語言支援 - Bing 拼字檢查 API
 titleSuffix: Azure Cognitive Services
 description: Bing 拼字檢查 API 支援的自然語言清單。
 services: cognitive-services
-author: noellelacharite
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: conceptual
-ms.date: 09/25/2018
-ms.author: nolachar
-ms.openlocfilehash: 00636c991a3872c4a310d74a74a5ca8be9ec8964
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: 16efb97569aabbea28065b03e9944d6881c39eee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869206"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886820"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Bing 拼字檢查 API 支援的語言和區域
 
@@ -66,7 +66,7 @@ Bing 拼字檢查 API 支援這些語言 (僅限 `spell` 模式)。
 | 瑞典文     | `sv`          |
 | 土耳其文     | `tr`          |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [認知服務文件頁面](https://docs.microsoft.com/azure/cognitive-services/)
 - [認知服務產品頁面](https://azure.microsoft.com/services/cognitive-services/)

@@ -1,26 +1,26 @@
 ---
 title: 發佈知識庫
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: 發佈您的知識庫是讓知識庫成為問題回答端點的最後一個步驟。 您發佈知識庫時，知識庫的 QnA 內容會從測試索引移到 Azure 搜尋服務中的生產索引。
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: 發行您的知識庫，QnA Maker API 服務是將您的知識庫做為問題回答端點提供的最後一個步驟。 您發佈知識庫時，知識庫的 QnA 內容會從測試索引移到 Azure 搜尋服務中的生產索引。
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 585e5f8f955a405b08bef42588ab5caff71c7bba
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c65654e7d6b2e66a07116ea9555ed316ace88912
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865908"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091948"
 ---
-# <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>使用 QnA Maker 入口網站發佈知識庫
+# <a name="publish-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>發佈知識庫使用 QnA Maker API 服務入口網站
 
-發佈知識庫是讓知識庫成為用戶端應用程式問題回答端點的最後一個步驟。 
+發行您的知識庫，QnA Maker API 服務是將您的知識庫做為問題回答端點提供的最後一個步驟。 
 
 發佈知識庫時，知識庫的問題與答案內容會從測試索引移到 Azure 搜尋服務中的生產索引。
 

@@ -10,18 +10,19 @@ ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873037"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673690"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>翻譯工具語音 API 支援的語言
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-語音翻譯支援以下語言。 如果語音翻譯兩種語言都支援，則可以使用語音轉換語音或語音轉換文字。 如果語音翻譯不支援目標語言，則只能使用語音轉換文字翻譯。 
+語音翻譯支援以下語言。 如果語音翻譯兩種語言都支援，則可以使用語音轉換語音或語音轉換文字。 如果語音翻譯不支援目標語言，則只能使用語音轉換文字翻譯。
 
 | 語音語言    |
 |:----------- |
@@ -34,9 +35,9 @@ ms.locfileid: "55873037"
 | 日文      |
 | 葡萄牙文 (巴西)     |
 | 俄文      |
-| 西班牙文      | 
+| 西班牙文      |
 
-翻譯工具語音 API 支援以下語言作為語音轉換文字翻譯的目標語言。 
+翻譯工具語音 API 支援以下語言作為語音轉換文字翻譯的目標語言。
 
 | 文字語言    | 語言代碼 |
 |:----------- |:-------------:|
@@ -47,7 +48,7 @@ ms.locfileid: "55873037"
 | 保加利亞文      | `bg`          |
 | 粵語 (繁體中文)      | `yue`          |
 | 卡達隆尼亞文      | `ca`          |
-| 簡體中文      | `zh-Hans`          | 
+| 簡體中文      | `zh-Hans`          |
 | 繁體中文      | `zh-Hant`          |
 | 克羅埃西亞文      | `hr`          |
 | 捷克文      | `cs`          |
@@ -116,4 +117,4 @@ ms.locfileid: "55873037"
 
 如需快速一覽所有語言，Microsoft Translator 網站顯示了翻譯工具文字與語音 API 支援的所有語言。 這份清單不含開發人員特定資訊，例如語言代碼。
 
-[查看語言清單](https://www.microsoft.com/translator/languages.aspx) \(英文\) 
+[查看語言清單](https://www.microsoft.com/translator/languages.aspx) \(英文\)

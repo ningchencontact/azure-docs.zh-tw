@@ -5,17 +5,17 @@ description: 如何在「適用於初學者的資料科學」影片 4 中，建�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 6adcf59053186c961a115164baac1f0af631ff4a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: dfac085727ee86be018cfee1e15c3ee51b221763
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456838"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819866"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>利用簡單模型預測答案
 ## <a name="video-4-data-science-for-beginners-series"></a>影片 4：適用於初學者的資料科學系列
@@ -128,4 +128,4 @@ ms.locfileid: "56456838"
 
 ## <a name="next-steps"></a>後續步驟
 * [嘗試使用 Machine Learning Studio 進行您的第一個資料科學實驗](create-experiment.md)
-* [在 Microsoft Azure 上取得 Machine Learning 簡介](what-is-machine-learning.md)
+* [在 Microsoft Azure 上取得 Machine Learning 簡介](/azure/machine-learning/preview/overview-what-is-azure-ml)

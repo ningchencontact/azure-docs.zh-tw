@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 17dd2a8cf58066fda7f82ba53b048df8e9b89da8
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228567"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285238"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>使用 X.509 憑證保護 Windows 上的獨立叢集
 本文說明如何保護獨立 Windows 叢集的不同節點之間的通訊。 此外，也會說明如何藉由使用 X.509 憑證，驗證連線到此叢集的用戶端。 驗證可確保只有已獲授權的使用者可以存取叢集和已部署的應用程式，以及執行管理工作。 憑證安全性應在叢集建立之時先在叢集上啟用。  
@@ -175,7 +175,7 @@ ms.locfileid: "51228567"
         "storeType": "FileShare",
         "IsEncrypted": "false",
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
-        }
+        },
         "security": {
             "metadata": "The Credential type X509 indicates this cluster is secured by using X509 certificates. The thumbprint format is d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
             "ClusterCredentialType": "X509",
@@ -261,7 +261,7 @@ ms.locfileid: "51228567"
 
 若是用於測試的叢集，您可以選擇使用自我簽署憑證。
 
-## <a name="optional-create-a-self-signed-certificate"></a>選擇性：建立自我簽署憑證
+## <a name="optional-create-a-self-signed-certificate"></a>選用：建立自我簽署憑證
 若要建立可以正確保護的自我簽署憑證，其中一個做法是使用 C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure 目錄下 Service Fabric SDK 資料夾中的 CertSetup.ps1 指令碼。 編輯此檔案來變更憑證的預設名稱  (尋找值 CN=ServiceFabricDevClusterCert)。執行此指令碼為 `.\CertSetup.ps1 -Install`。
 
 現在將憑證匯出至 .pfx 檔並設定保護密碼。 首先取得憑證的指紋。 

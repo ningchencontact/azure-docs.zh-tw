@@ -7,16 +7,16 @@ author: tulasim88
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: qna-maker`
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 930d2d7279f23974e937fd0d858891d0bcaa1291
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095206"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>教學課程：使用 Azure Bot 服務 v3 建立 QnA Bot
 
@@ -90,12 +90,12 @@ Bot 會以「請在應用程式設定中設定 QnAKnowledgebaseId 和 QnASubscri
 
 1. 在 QnA Maker 入口網站中，從知識庫的 [設定] 索引標籤取得知識庫識別碼、主機 url 和端點金鑰。
 
-    - 登入 [QnA Maker](https://qnamaker.ai)
-    - 移至您的知識庫
-    - 選取 [設定] 索引標籤
-    - [發佈] 您的知識庫 (如果尚未這麼做)
+   - 登入 [QnA Maker](https://qnamaker.ai)
+   - 移至您的知識庫
+   - 選取 [設定] 索引標籤
+   - [發佈] 您的知識庫 (如果尚未這麼做)
 
-    ![QnA Maker 值](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+     ![QnA Maker 值](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## <a name="test-the-bot"></a>測試 Bot
 
@@ -120,7 +120,7 @@ QnA Bot 會從知識庫找出解答。
 > [!div class="nextstepaction"]
 > [概念：知識庫](../concepts/knowledge-base.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [管理您的知識庫](https://qnamaker.ai)
 - [在不同的頻道啟用您的 Bot](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

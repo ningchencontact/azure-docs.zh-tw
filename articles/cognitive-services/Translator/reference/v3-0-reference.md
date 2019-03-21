@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 767021772fc86013cd8192216eb03840f1160807
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0260ecbf23e0240b836f6d6004959a9604085fc1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878692"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194957"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -41,7 +41,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 它們目�
 
 若要強制讓特定資料中心來處理要求，請將 API 要求中的全域端點變更為所需的區域端點：
 
-|說明|區域|基底 URL|
+|描述|區域|基底 URL|
 |:--|:--|:--|
 |Azure|全域|  api.cognitive.microsofttranslator.com|
 |Azure|北美洲|   api-nam.cognitive.microsofttranslator.com|
@@ -51,15 +51,15 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 它們目�
 
 ## <a name="authentication"></a>Authentication
 
-訂閱 Translator Text API 或 Microsoft 認知服務中的[全方位認知服務](https://azure.microsoft.com/pricing/details/cognitive-services/)，並使用您的訂用帳戶金鑰 (可在 Azure 入口網站中取得) 來進行驗證。 
+訂閱至 Translator Text API 或[認知服務的多重服務](https://azure.microsoft.com/pricing/details/cognitive-services/)在 Microsoft 認知服務，並驗證您的訂用帳戶金鑰 （適用於 Azure 入口網站） 的使用。 
 
 有三個標頭可供用來驗證您的訂用帳戶。 下表提供其各自的使用方式說明：
 
-|headers|說明|
+|headers|描述|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
 |Authorization|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶。<br/>此值是持有人權杖：`Bearer <token>`。|
-|Ocp-Apim-Subscription-Region|如果您要傳遞全方位祕密金鑰，請搭配使用認知服務全方位訂用帳戶。<br/>此值是全方位訂用帳戶的區域。 未使用全方位訂用帳戶時，此值是選擇性的。|
+|Ocp-Apim-Subscription-Region|*如果您要傳遞多服務的祕密金鑰，請使用與認知服務多服務訂用帳戶。*<br/>值為多服務的訂用帳戶的區域。 不使用多服務的訂用帳戶時，這個值是選擇性的。|
 
 ###  <a name="secret-key"></a>祕密金鑰
 第一個選項是使用 `Ocp-Apim-Subscription-Key` 標頭來進行驗證。 只需在要求中新增 `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` 標頭即可。
@@ -89,29 +89,30 @@ Authorization: Bearer <Base64-access_token>
 
 驗證權杖的有效時間為 10 分鐘。 對翻譯工具 API 執行多次呼叫時，應重複使用權杖。 不過，如果您的程式會在超過一段時間後才對翻譯工具 API 提出要求，則您的程式必須以固定間隔 (例如每 8 分鐘) 要求新存取權杖。
 
-### <a name="all-in-one-subscription"></a>全方位訂用帳戶
+### <a name="multi-service-subscription"></a>多服務訂用帳戶
 
-最後一個驗證選項是使用認知服務的全方位訂用帳戶。 這可讓您使用單一祕密金鑰來驗證多個服務的要求。 
+最後一個驗證選項是使用認知服務的多重服務訂用帳戶。 這可讓您使用單一祕密金鑰來驗證多個服務的要求。 
 
-當您使用全方位祕密金鑰時，您必須在要求中包含兩個驗證標頭。 第一個標頭傳遞祕密金鑰，第二個標頭指定與訂用帳戶相關聯的區域。 
-* `Ocp-Api-Subscription-Key`
+當您使用多服務的祕密金鑰時，您必須在您的要求包含兩個驗證標頭。 第一個標頭傳遞祕密金鑰，第二個標頭指定與訂用帳戶相關聯的區域。 
+* `Ocp-Apim-Subscription-Key`
 * `Ocp-Apim-Subscription-Region`
+
+需要多服務的文字 API 訂用帳戶的區域。 選取的區域是使用多服務的訂用帳戶金鑰時，您可以使用文字翻譯的唯一地區，而且必須是您選取多服務透過 Azure 入口網站訂用帳戶註冊時的相同區域。
+
+可用區域包括 `australiaeast`、`brazilsouth`、`canadacentral`、`centralindia`、`centraluseuap`、`eastasia`、`eastus`、`eastus2`、`japaneast`、`northeurope`、`southcentralus`、`southeastasia`、`uksouth`、`westcentralus`、`westeurope`、`westus` 和 `westus2`。
 
 如果您在查詢字串中使用參數 `Subscription-Key` 傳遞祕密金鑰，則必須使用查詢參數 `Subscription-Region` 來指定區域。
 
 如果您使用持有人權杖，則必須從區域端點取得權杖：`https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`。
 
-可用區域包括 `australiaeast`、`brazilsouth`、`canadacentral`、`centralindia`、`centraluseuap`、`eastasia`、`eastus`、`eastus2`、`japaneast`、`northeurope`、`southcentralus`、`southeastasia`、`uksouth`、`westcentralus`、`westeurope`、`westus` 和 `westus2`。
-
-全方位 Text API 訂用帳戶必須有區域。
 
 ## <a name="errors"></a>Errors
 
 標準錯誤回應是名稱/值組為 `error` 的 JSON 物件。 此值也可以是具有下列屬性的 JSON 物件：
 
-  * `code`：伺服器定義的錯誤碼。
+  * `code`:伺服器定義的錯誤碼。
 
-  * `message`：以人類可閱讀形式表示錯誤的字串。
+  * `message`:以人類可閱讀形式表示錯誤的字串。
 
 例如，持有免費試用訂用帳戶的客戶會在免費配額用完時，收到下列錯誤：
 
@@ -125,7 +126,7 @@ Authorization: Bearer <Base64-access_token>
 ```
 錯誤碼是 6 位數的數字，其中結合了 3 位數的 HTTP 狀態碼，後面接著將錯誤進一步分類的 3 位數數字。 常見的錯誤碼包括：
 
-| 代碼 | 說明 |
+| 代碼 | 描述 |
 |:----|:-----|
 | 400000| 其中一個要求輸入無效。|
 | 400001| "scope" 參數無效。|

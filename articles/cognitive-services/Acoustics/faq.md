@@ -1,5 +1,5 @@
 ---
-title: 關於 Project Acoustics 的常見問題集
+title: 專案樂器常見問題集
 titlesuffix: Azure Cognitive Services
 description: 本頁面提供 Project Acoustics 相關常見問題的解答，其中包括下載指示和製作流程。
 services: cognitive-services
@@ -7,25 +7,29 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: conceptual
+ms.topic: resources
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 12dda5d7af1236ec2d7eddbe025b8fdba47d7bca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881069"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58138043"
 ---
-# <a name="frequently-asked-questions"></a>常見問題集
+# <a name="project-acoustics-frequently-asked-questions"></a>專案樂器常見問題集
 
 ## <a name="what-is-project-acoustics"></a>何謂 Project Acoustics？
 
-Project Acoustics Unity 外掛程式是一個聲場系統，會計算執行階段前的聲波行為，類似於靜態光照。 雲端可執行繁重的波動物理學計算，因此執行階段 CPU 成本很低。  
+外掛程式的專案樂器套件是一種樂器系統會計算在執行階段，類似於靜態光源之前音波行為。 雲端可執行繁重的波動物理學計算，因此執行階段 CPU 成本很低。  
 
 ## <a name="where-can-i-download-the-plugin"></a>我可以從哪裡下載外掛程式？
 
-如果您想要評估聲場外掛程式，請在[這裡](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)註冊以加入「設計人員預覽」。
+您可以下載從專案樂器[專案樂器 Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=57346)。
+
+## <a name="does-project-acoustics-support-x-platform"></a>支援專案樂器<x>平台？
+
+根據客戶需求的發展專案樂器平台支援。 請與我們連絡上[專案樂器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)詢問其他平台的支援。
 
 ## <a name="is-azure-used-at-runtime"></a>在執行階段是否會使用 Azure？
 
@@ -45,17 +49,17 @@ Project Acoustics Unity 外掛程式是一個聲場系統，會計算執行階�
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>什麼是執行階段查閱資料表？
 
-ACE 檔案是一個眾多來源與聆聽者位置之配對間的聲場參數資料表。
+ACE 檔案包含是柔和式參數之間多個來源和接聽程式位置的配對，以及用於參數內插補點 voxelized 場景幾何的資料表。
  
-## <a name="can-it-handle-moving-sources"></a>它是否可以處理移動中的來源？
+## <a name="can-project-acoustics-handle-moving-sources"></a>專案樂器可以處理移動的來源？
 
-是，**Microsoft Acoustics** Unity 空間定位器外掛程式會針對與目前來源和聆聽者位置相關的每個音訊處理刻度，諮詢查閱資料表。 空間定位器的 DSP 會順暢地更新每個刻度上的聲場處理參數。
+是，專案樂器會查閱查閱資料表，並更新每個刻度，音訊 DSP，因此它可以處理移動來源與接聽程式。
  
-## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>它是否可以處理動態幾何？ 關閉中的門？ 被吹走的牆面？
+## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>專案樂器可以處理動態幾何？ 關閉中的門？ 被吹走的牆面？
 
-沒有。 聲場參數是根據遊戲關卡的靜態狀態預先計算的。 建議您讓門幾何維持沒有聲場，然後使用已確立的技術，根據可破壞和可移動之遊戲物件的狀態套用額外的遮蔽。
+沒有。 聲場參數是根據遊戲關卡的靜態狀態預先計算的。 離開樂器，超出的媒體櫃門幾何，然後將套用其他阻擋易損壞的狀態為基礎的建議，並使用可移動的遊戲物件建立技術。
  
-## <a name="does-it-handle-materials"></a>它是否會處理材質？
+## <a name="does-project-acoustics-use-acoustic-materials"></a>專案樂器是否使用原音資料？
 
 是。 它會從您關卡中的實體材質名稱挑選材質來決定吸收性。
  
@@ -65,12 +69,12 @@ ACE 檔案是一個眾多來源與聆聽者位置之配對間的聲場參數資�
  
 ## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>為什麼要在雲端進行那麼多的計算？ 它能為我提供什麼？
 
-Project Acoustics 會將每個架構層面納入考量，即使針對極複雜的虛擬環境，也能提供既準確又可靠的聲場參數。 它無須任何手動工作，即可提供平滑的遮蔽/障礙，且無須繪製音量，即可提供動態的殘響變化。 所有這些都可在執行階段減輕 CPU 的負擔。
+Project Acoustics 會將每個架構層面納入考量，即使針對極複雜的虛擬環境，也能提供既準確又可靠的聲場參數。 它提供順暢的阻擋物和障礙物的繪圖的磁碟區的動態殘響器變化而不需要手動工作。 所有這些都可在執行階段減輕 CPU 的負擔。
 
 ## <a name="what-exactly-happens-during-baking"></a>進行「製作」時，實際會發生什麼事？
 
-系統會考量可能的玩家位置，以產生一組間距一致的「探查」範例位置。 關卡的製作會由每個探查的獨立工作所組成：系統會考量一個以探查為中心的立體「模擬區域」，然後在該區域內以最高可達 25 公分的解析度進行詳細的波動模擬。
+製作所組成的中心位於每個接聽程式探查 cuboid 模擬區域的原音 wave 模擬。
 
 ## <a name="next-steps"></a>後續步驟
-* 探索[範例場景](sample-walkthrough.md)
+* 請嘗試[專案樂器 Unity 範例內容](unity-quickstart.md)或[Unreal 範例內容](unreal-quickstart.md)
 

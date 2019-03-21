@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: f9020cd6d35c59e9293e6e8a96b09319f9f8bb00
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225669"
+ms.locfileid: "58284573"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>在 Azure VM 備份執行的 SQL Server 資料庫的相關常見問題集
 
@@ -66,7 +66,7 @@ Azure 備份復原服務保存庫可以偵測並保護與保存庫位於相同�
 **備份作業**功能表只會顯示 ad 臨機操作備份工作。 用於排程工作[使用 Azure 監視器監視](backup-azure-monitoring-use-azuremonitor.md)。
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>未來的資料庫會自動加入以進行備份嗎？
-是，您可以達到這項功能 [自動保護](backup-azure-sql-database.md#enable-auto-protection)。  
+是，您可以達到這項功能 [自動保護](backup-sql-server-database-azure-vms.md#enable-auto-protection)。  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>如果我從 autoprotected 執行個體刪除資料庫，備份會發生什麼事？
 如果從 autoprotected 執行個體卸除資料庫，還是嘗試資料庫備份。 這表示已刪除的資料庫會開始顯示在為狀況不良**備份項目**和仍會受到保護。
@@ -84,7 +84,7 @@ Azure 備份復原服務保存庫可以偵測並保護與保存庫位於相同�
 您可以選取資料庫，它現在已重新命名，並在其上設定保護。 如果執行個體上啟用自動保護時，重新命名的資料庫將會自動偵測及保護中。
 
 ##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>為什麼看不到 autoprotected 執行個體加入的資料庫？
-資料庫，您[autoprotected 執行個體新增](backup-azure-sql-database.md#enable-auto-protection)可能會立即出現在受保護的項目底下。 這是因為探索通常每隔 8 小時才會執行一次。 不過，您可以探索並立即保護新的資料庫，如果您選取手動執行探索**復原的資料庫使用**，如下圖所示。
+資料庫，您[autoprotected 執行個體新增](backup-sql-server-database-azure-vms.md#enable-auto-protection)可能會立即出現在受保護的項目底下。 這是因為探索通常每隔 8 小時才會執行一次。 不過，您可以探索並立即保護新的資料庫，如果您選取手動執行探索**復原的資料庫使用**，如下圖所示。
 
   ![手動探索新加入的資料庫](./media/backup-azure-sql-database/view-newly-added-database.png)
 

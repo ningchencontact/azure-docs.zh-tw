@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816201"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670410"
 ---
 # <a name="basic-concepts"></a>基本概念
 
@@ -80,10 +81,10 @@ Microsoft 語音辨識服務為開發人員提供兩種可將語音新增到應�
 
 | 使用案例 | [REST APIs](GetStarted/GetStartedREST.md) | [用戶端程式庫](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| 轉換簡短的語音，例如命令 (音訊長度 < 15 秒)，但不提供中期結果 | yes | yes |
-| 轉換長音訊 (> 15 秒) | 否 | yes |
-| 串流音訊並提供所需的中期結果 | 否 | yes |
-| 使用 LUIS 來理解從音訊轉換的文字 | 否 | yes |
+| 轉換簡短的語音，例如命令 (音訊長度 < 15 秒)，但不提供中期結果 | 是 | 是 |
+| 轉換長音訊 (> 15 秒) | 否 | 是 |
+| 串流音訊並提供所需的中期結果 | 否 | 是 |
+| 使用 LUIS 來理解從音訊轉換的文字 | 否 | 是 |
 
  如果您的語言或平台還沒有 SDK，您可以根據[通訊協定文件](API-Reference-REST/websocketprotocol.md)建立您自己的實作。
 
@@ -159,7 +160,7 @@ https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservic
 
 - `RecognitionStatus` 會指定辨識的狀態。 下表提供可能的值。
 
-| 狀態 | 說明 |
+| 狀態 | 描述 |
 | ------------- | ---------------- |
 | 成功 | 辨識成功則會出現 DisplayText 欄位 |
 | NoMatch | 音訊串流中偵測到語音，但目標語言中沒有符合的字組。 請參閱 [NoMatch 辨識狀態(#nomatch-recognition-status) 以取得詳細資訊  |
@@ -189,7 +190,7 @@ Microsoft 語音服務可以在轉譯回應中傳回各種酬載格式。 所有
 
 您可以藉由指定 `format` URL 查詢參數來控制片語結果的格式。 根據預設，服務會傳回 `simple` 結果。
 
-| 格式 | 說明 |
+| 格式 | 描述 |
 |-----|-----|
 | `simple` | 簡化的片語結果，其中包含辨識狀態和以顯示形式表示的已辨識文字。 |
 | `detailed` | 片語結果的辨識狀態和 N 最佳 (N-best) 清單，其中每個片語結果都包含全部四種辨識形式和信賴分數。 |
@@ -198,7 +199,7 @@ Microsoft 語音服務可以在轉譯回應中傳回各種酬載格式。 所有
 
 ### <a name="n-best-values"></a>N 最佳值
 
-無論是人類或機器的接聽者，都無法確定能「完全無誤」地聽到說話內容。 接聽者只可以對特定的語句解譯提供「可能性」。 
+無論是人類或機器的接聽者，都無法確定能「完全無誤」地聽到說話內容。 接聽者只可以對特定的語句解譯提供「可能性」。
 
 在一般情況下，如果對經常互動的對象說話，會有較高機率可辨識出說出的文字。 機器類型的語音接聽工具會盡量達到類似的精確度，而且，如果在適當的條件下，[這些接聽工具可達到人類的水準](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v)。
 
@@ -306,9 +307,9 @@ Microsoft 語音服務可以在轉譯回應中傳回各種酬載格式。 所有
 
 Microsoft 語音服務能辨識所有形式的人類話語，包括人們分類為「不雅內容」的字組和片語。 您可以使用 profanity 查詢參數來控制服務處理不雅內容的方式。 根據預設，服務會遮罩 speech.phrase 結果中的不雅內容，而且不會傳回包含不雅內容的 speech.hypothesis 訊息。
 
-| Profanity 值 | 說明 |
+| Profanity 值 | 描述 |
 | - | - |
-| `masked` | 以星號遮罩不雅內容。 這是預設行為。 | 
+| `masked` | 以星號遮罩不雅內容。 這是預設行為。 |
 | `removed` | 從所有結果中移除不雅內容。 |
 | `raw` | 辨識不雅內容並在所有結果中傳回。 |
 
@@ -322,7 +323,7 @@ Microsoft 語音服務能辨識所有形式的人類話語，包括人們分類�
 
 #### <a name="profanity-only-utterances"></a>只有不雅內容的語句
 
-在應用程式已設定服務來移除不雅內容時，使用者可能「只」說了不雅內容。 在這種情況下，如果辨識模式為「聽寫」或「交談」，服務就不會傳回 speech.result。 如果辨識模式為「互動」，則服務會傳回狀態碼為 NoMatch 的 speech.result。 
+在應用程式已設定服務來移除不雅內容時，使用者可能「只」說了不雅內容。 在這種情況下，如果辨識模式為「聽寫」或「交談」，服務就不會傳回 speech.result。 如果辨識模式為「互動」，則服務會傳回狀態碼為 NoMatch 的 speech.result。
 
 ### <a name="profanity-value-raw"></a>Profanity 的 `Raw` 值
 

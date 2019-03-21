@@ -1,7 +1,7 @@
 ---
 title: 新增實體
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 在 Language Understanding (LUIS) 應用程式中新增實體 (您應用程式定義域中的關鍵資料)。
+description: 建立實體來擷取使用者談話，Language Understanding (LUIS) 應用程式中的索引鍵的資料。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d98896ab86c1dbbc988d44e3c8cf6545ba5d5d3c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859788"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106928"
 ---
 # <a name="create-entities-without-utterances"></a>建立不含語句的實體
 
-實體代表語句中您想要擷取的單字或片語。 一個語句可以包含許多實體，也可以完全不包含實體。 一個實體代表一個類別，其中包含相似物件 (地點、物件、人員、事件或概念) 的集合。 實體描述與意圖有關的資訊，有時是您應用程式執行其工作的必備要素。 
-
-您可以在建立意圖之前建立實體，或分開建立。
+實體代表語句中您想要擷取的單字或片語。 一個實體代表一個類別，其中包含相似物件 (地點、物件、人員、事件或概念) 的集合。 實體描述與意圖有關的資訊，有時是您應用程式執行其工作的必備要素。 當您新增到意圖或相隔 utterance 從 （之前或之後） 時，您可以建立實體 utterance 加入意圖。
 
 您可以在 LUIS 應用程式中，透過 [實體] 頁面上的 [實體清單] 來新增、編輯或刪除實體。 LUIS 提供兩種主要類型的實體：[預先建置的實體](luis-reference-prebuilt-entities.md)，以及您自己的[自訂實體](luis-concept-entity-types.md#types-of-entities)。
 
-建立實體後，即可從 [意圖] 詳細資料頁面中意圖的範例語句中標記該實體。 
+一旦建立機器學習的實體，您需要標示該實體中的所有 「 意圖 」 的所有範例 utterance 中。
 
-## <a name="add-prebuilt-entity"></a>新增預先建置的實體
+<a name="add-prebuilt-entity"></a>
+
+## <a name="add-a-prebuilt-entity-to-your-app"></a>將預先建置的實體新增至您的應用程式
 
 新增到應用程式的常見預先建置實體為 *number* 和 *datetimeV2*。 
 
@@ -40,7 +40,9 @@ ms.locfileid: "55859788"
 
     ![[新增預先建置的實體] 對話方塊的螢幕擷取畫面](./media/add-entities/list-of-prebuilt-entities.png)
 
-## <a name="add-simple-entities"></a>新增簡單實體
+<a name="add-simple-entities"></a>
+
+## <a name="add-simple-entities-for-single-concepts"></a>新增為單一概念的簡易實體
 
 簡單實體能描述單一概念。 使用下列程序來建立實體，以擷取公司部門名稱，例如「人力資源」或「營運」。   
 
@@ -52,7 +54,9 @@ ms.locfileid: "55859788"
 
     [片語清單](luis-concept-feature.md)常被用來提升簡單實體的訊號。
 
-## <a name="add-regular-expression-entities"></a>新增規則運算式實體
+<a name="add-regular-expression-entities"></a>
+
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>新增為高度結構化概念的規則運算式實體
 
 規則運算式實體可根據您提供的規則運算式，用來從語句中提取出資料。 
 
@@ -60,7 +64,7 @@ ms.locfileid: "55859788"
 
 1. 在快顯對話方塊中，於 [實體名稱] 方塊中輸入 `Human resources form name`、從 [實體類型] 清單中選取 [規則運算式]、輸入規則運算式 `hrf-[0-9]{6}`，然後選取 [完成]。 
 
-    此規則運算式常值字元 `hrf-`，其後 6 位數表示人力資源表單的表單號碼。
+    這個規則運算式比對常值字元`hrf-`，然後 6 位數來表示表單的數字人力資源表單。
 
 ## <a name="add-hierarchical-entities"></a>新增階層式實體
 
@@ -85,7 +89,9 @@ ms.locfileid: "55859788"
 
     建立此實體後，請移至具有範例語句 (含有此實體) 的所有意圖。 選取範例語句中的文字並將此文字標示為實體。 
 
-## <a name="add-composite-entities"></a>新增複合實體
+<a name="add-composite-entities"></a>
+
+## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>加入複合實體分組為父子式關聯性
 
 您可藉由建立複合實體，以定義不同實體類型之間的關聯性。 在下列範例中，實體包含規則運算式，以及預先建置的實體名稱。  
 
@@ -107,7 +113,9 @@ ms.locfileid: "55859788"
 
 1. 選取 [完成] 。
 
-## <a name="add-patternany-entities"></a>新增 pattern.any 實體
+<a name="add-pattern-any-entities"></a>
+
+## <a name="add-patternany-entities-to-capture-free-form-entities"></a>加入 Pattern.any 實體擷取自由格式的實體
 
 [Pattern.any](luis-concept-entity-types.md) 實體只有在[模式](luis-how-to-model-intent-pattern.md)中有效，在意圖中無效。 這類型的實體可協助 LUIS 尋找變動長度與文字選項的實體結尾。 由於此實體會在模式中使用，因此，LUIS 就能得知實體結尾是在語句範本中的何處。
 
@@ -123,7 +131,9 @@ ms.locfileid: "55859788"
 
     如果您發現模式在包含 Pattern.any 時所擷取的實體不正確，請使用[明確清單](luis-concept-patterns.md#explicit-lists)來更正此問題。 
 
-## <a name="add-a-role-to-pattern-based-entity"></a>將角色新增到以模式為基礎的實體
+<a name="add-a-role-to-pattern-based-entity"></a>
+
+## <a name="add-a-role-to-distinguish-different-contexts"></a>新增角色，以區分不同的內容
 
 角色是以內容為基礎之實體的具名子類型。 它相當於[階層式](#add-hierarchical-entities)實體，但角色只適用於[模式](luis-how-to-model-intent-pattern.md)。 
 
@@ -141,7 +151,9 @@ ms.locfileid: "55859788"
 
     ![將 Origin 角色新增到 Location 實體的螢幕擷取畫面](./media/add-entities/roles-enter-role-name-text.png)
 
-## <a name="add-list-entities"></a>新增清單實體
+<a name="add-list-entities"></a>
+
+## <a name="add-list-entities-for-exact-matches"></a>完全相符項目加入清單的實體
 
 清單實體代表一組固定且封閉的相關字組。 
 
@@ -184,12 +196,15 @@ ms.locfileid: "55859788"
     ]  
     ```
 
+<a name="change-entity-type"></a>
 
-## <a name="change-entity-type"></a>變更實體類型
+## <a name="do-not-change-entity-type"></a>不會變更實體類型
 
 LUIS 不允許您變更實體的類型，因為它不知道要新增或移除哪些項目來建構該實體。 若要變更類型，更好的方式是使用稍微不同的名稱來建立正確類型的新實體。 一旦建立實體之後，在每個語句中，移除已加上標籤的舊實體名稱，並新增新的實體名稱。 為所有語句加上標籤之後，刪除舊實體。 
 
-## <a name="create-a-pattern-from-an-utterance"></a>從語句建立模式
+<a name="create-a-pattern-from-an-utterance"></a>
+
+## <a name="create-a-pattern-from-an-example-utterance"></a>從範例 [utterance] 建立模式
 
 請參閱[在意圖或實體頁面上從現有的語句新增模式](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page)。
 

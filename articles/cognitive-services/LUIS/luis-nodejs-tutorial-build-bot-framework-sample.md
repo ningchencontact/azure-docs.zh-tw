@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 62a3169257001f64e3103cc079e544449ac59663
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328379"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087103"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Node.js 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 
@@ -45,16 +45,16 @@ Bot 會回應來自 LUIS 應用程式中 HomeAutomation 定義域的意圖。 �
     ![選取 Web 應用程式 Bot 來開始資源建立程序](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
 3. 在 [Bot 服務] 刀鋒視窗中提供必要資訊，然後選取 [建立]。 這會建立 Bot 服務和 LUIS 應用程式，並將其部署到 Azure。 如果您想要使用[語音促發](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，請先檢閱[區域需求](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)，再建立您的 Bot。 
-    * 將 [應用程式名稱] 設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * 選取訂用帳戶、[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)、App Service 方案，以及[位置](https://azure.microsoft.com/regions/)。
-    * 針對 [Bot 範本]，請選取：
-        * **SDK v3**
-        * **Node.js**
-        * **語言理解**
-    * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域][LUIS]。
-    * 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
+   * 將 [應用程式名稱] 設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * 選取訂用帳戶、[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)、App Service 方案，以及[位置](https://azure.microsoft.com/regions/)。
+   * 針對 [Bot 範本]，請選取：
+       * **SDK v3**
+       * **Node.js**
+       * **語言理解**
+   * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域][LUIS]。
+   * 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
 
-    ![Bot 服務刀鋒視窗](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+     ![Bot 服務刀鋒視窗](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
 4. 確認已部署 Bot 服務。
@@ -247,7 +247,8 @@ bot.dialog('TurnOff',
 
 ## <a name="next-steps"></a>後續步驟
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> 您可以嘗試將其他意圖 (例如 Help、Cancel 及 Greeting) 新增至 LUIS 應用程式。 然後為新意圖新增對話方塊，並使用 Bot 來測試它們。 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
+您可以嘗試其他用途，例如說明、 Cancel 和問候語，加入 LUIS 應用程式。 然後為新意圖新增對話方塊，並使用 Bot 來測試它們。 
 
 <!-- 
 > [!NOTE] 

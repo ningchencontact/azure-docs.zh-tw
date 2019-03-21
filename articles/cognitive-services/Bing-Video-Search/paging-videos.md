@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: d75a71fe5ba5a275aa8703bc59398cc8a7a5a622
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867132"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101307"
 ---
 # <a name="paging-through-video-search-results"></a>逐頁瀏覽影片搜尋結果
 
@@ -42,7 +42,7 @@ Bing 影片搜尋 API 會傳回其針對您的查詢所找到所有搜尋結果�
 若要逐頁瀏覽可用的影片，請在傳送要求時使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) 查詢參數。  
   
 
-|參數  |說明  |
+|參數  |描述  |
 |---------|---------|
 |`count`     | 指定要在回應中傳回的結果數目。 您可能在回應中要求的結果數目上限為 100。 預設值為 10。 傳遞的實際數目可能小於所要求的數目。        |
 |`offset`     | 指定要略過的結果數目。 `offset` 是以零為起始，而且應該小於 (`totalEstimatedMatches` - `count`)。          |
@@ -77,4 +77,4 @@ Host: api.cognitive.microsoft.com
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-[取得影片深入解析](video-insights.md)
+> [取得影片深入解析](video-insights.md)

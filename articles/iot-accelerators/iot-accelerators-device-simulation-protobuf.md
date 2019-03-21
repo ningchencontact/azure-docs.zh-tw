@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 9657cda8b0f3a19d02ebf1907116235b88f4cb82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111509"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258818"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>使用 Protocol Buffers 將遙測資料序列化
 
@@ -40,7 +40,7 @@ Protocol Buffers (Protobuf) 是結構化資料的二進位序列化格式。 Pr
 * .NET Core。 您可以下載[適用於 Mac、Linux 和 Windows 的 .NET Code](https://www.microsoft.com/net/download)。
 * Postman。 您可以下載[適用於 Mac、Windows 或 Linux 的 Postman](https://www.getpostman.com/apps)。
 * [部署至 Azure 訂用帳戶的 IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 您需要 IoT 中樞的連接字串才能完成本指南中的步驟。 您可以從 Azure 入口網站取得連接字串。
-* [部署到 Azure 訂用帳戶的 Cosmos DB 資料庫](../cosmos-db/create-sql-api-dotnet.md#create-a-database-account)，其必須使用 SQL API，並已針對[強式一致性](../cosmos-db/manage-account.md)進行設定。 您需要 Cosmos DB 資料庫的連接字串才能完成本指南中的步驟。 您可以從 Azure 入口網站取得連接字串。
+* [部署到 Azure 訂用帳戶的 Cosmos DB 資料庫](../cosmos-db/create-sql-api-dotnet.md#create-account)，其必須使用 SQL API，並已針對[強式一致性](../cosmos-db/manage-account.md)進行設定。 您需要 Cosmos DB 資料庫的連接字串才能完成本指南中的步驟。 您可以從 Azure 入口網站取得連接字串。
 * [部署到 Azure 訂用帳戶的 Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。 您需要儲存體帳戶的連接字串才能完成本指南中的步驟。 您可以從 Azure 入口網站取得連接字串。
 
 ## <a name="prepare-your-development-environment"></a>準備您的開發環境

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699137"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443465"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 安全性與合規性藍圖 - 適用於 UK OFFICIAL 的三層式 IaaS Web 應用程式
 
@@ -25,7 +25,7 @@ ms.locfileid: "55699137"
 
  NCSC 建議客戶使用他們的雲端安全性原則來評估服務的安全性屬性，並協助了解客戶與供應商之間的責任分工。 我們已針對每個原則提供相關資訊，以協助您了解責任的劃分方式。
 
- Microsoft 技術白皮書[使用 Microsoft Azure 對於英國雲端的 14 個安全性控制措施](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) \(英文\) 支援此架構和對應的 Azure Resource Manager 範本。 本白皮書記載 Azure 服務符合 UK NCSC 的 14 個雲端安全性原則的方式，藉以讓組織能夠快速地符合在 Microsoft Azure 雲端上於全球及英國使用雲端式服務所衍生的合規性義務。
+ Microsoft 技術白皮書[使用 Microsoft Azure 對於英國雲端的 14 個安全性控制措施](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) \(英文\) 支援此架構和對應的 Azure Resource Manager 範本。 本白皮書記載 Azure 服務符合 UK NCSC 14 雲端安全性準則，因此可讓組織快速追蹤能夠符合其全球及英國使用雲端式服務在 Microsoft Azure 上的合規性義務雲端。
 
  此範本會針對工作負載部署基礎結構。 必須安裝並設定應用程式程式碼及支援的商務層和資料層的軟體。 詳細的部署指示可於[這裡](https://aka.ms/ukwebappblueprintrepo) \(英文\) 取得。
 
@@ -176,7 +176,7 @@ ms.locfileid: "55699137"
 
 **防火牆記錄**：應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄檔可供已啟用 WAF 的應用程式閘道資源使用。
 
-**記錄封存**：可針對封存及定義的保留期間需求，設定記錄資料儲存體以寫入集中式 Azure 儲存體帳戶。 可以使用 Azure Log Analytics 或透過協力廠商 SIEM 系統來處理記錄。
+**記錄封存**：記錄檔資料儲存體可以設定要寫入到集中式的 Azure 儲存體帳戶進行封存及定義的保留期限。 使用 Azure 監視器記錄檔就可以處理記錄檔或協力廠商 SIEM 系統。
 
 ### <a name="identity"></a>身分識別
 
@@ -208,7 +208,7 @@ ms.locfileid: "55699137"
 
 **存取控制限制**：使用[角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) 來透過[自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)管理應用程式中的資源。RBAC 可以用來限制 DevOps 可於每個層級上執行的作業。 授與權限時，請使用[最小權限的原則](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)。 記錄所有的系統管理作業並定期執行稽核，以確保所有設定變更都是經過規劃的。
 
-**網際網路存取**：此參考架構會運用 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)作為網際網路面向閘道和負載平衡器。 作為 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)的替代項目，有些客戶可能也會考慮使用協力廠商網路虛擬裝置來取得額外的網路安全性層。
+**網際網路存取**：此參考架構會運用[Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)作為網際網路面向閘道和負載平衡器。 作為 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)的替代項目，有些客戶可能也會考慮使用協力廠商網路虛擬裝置來取得額外的網路安全性層。
 
 **Azure 資訊安全中心**：[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)可供集中檢視訂用帳戶中資源的安全性狀態，並提供有助於預防資源遭到入侵的相關建議。 它也可以用來啟用更細微的原則。 例如，可將原則套用到特定的資源群組，來使企業能夠調整針對風險的作法。 建議客戶在其 Azure 訂用帳戶中啟用 Azure 資訊安全中心。
 
@@ -226,7 +226,7 @@ Crown Commercial Service (一所致力於改善政府相關商業和採購活動
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
-部署使用者可以用兩種方法來部署此藍圖自動化。 第一種方法會使用 PowerShell 指令碼，而第二種方法會利用 Azure 入口網站來部署參考架構。 詳細的部署指示可於[這裡](https://aka.ms/ukofficial-iaaswa-repo) \(英文\) 取得。
+部署使用者可以用兩種方法來部署此藍圖自動化。 第一種方法會使用 PowerShell 指令碼，而第二個方法會利用 Azure 入口網站來部署參考架構。 詳細的部署指示可於[這裡](https://aka.ms/ukofficial-iaaswa-repo) \(英文\) 取得。
 
 ## <a name="disclaimer"></a>免責聲明
 

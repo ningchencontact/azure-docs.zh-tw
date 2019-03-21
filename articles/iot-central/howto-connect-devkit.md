@@ -3,17 +3,17 @@ title: 將 DevKit 裝置連線到 Azure IoT 中心應用程式 | Microsoft Docs
 description: 如何以裝置開發人員身分，將 MXChip IoT DevKit 裝置連線到 Azure IoT 中心應用程式。
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/16/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198723"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113192"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -26,10 +26,9 @@ ms.locfileid: "54198723"
 1. Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
 1. DevKit 裝置。 若要購買 DevKit 裝置，請造訪 [MXChip IoT DevKit](http://mxchip.com/az3166)。
 
+## <a name="sample-devkits-application"></a>範例 Devkits 應用程式
 
-## <a name="sample-devkits-application"></a>**範例 Devkits** 應用程式
-
-從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **MXChip** 裝置範本： 
+從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **MXChip** 裝置範本：
 
 - 包含裝置**溼度**、**溫度**、**壓力**、**磁強計** (沿著 X、Y、Z 軸測量)、**加速計** (沿著 X、Y、Z 軸測量) 和**陀螺儀** (沿著 X、Y、Z 軸測量) 等測量值的遙測。
 - 包含**裝置狀態**範例度量的狀態。
@@ -37,37 +36,32 @@ ms.locfileid: "54198723"
 - 顯示**電壓**、**電流**、**風扇速度**和 **IR** 切換等設定。
 - 屬性包含裝置屬性**印模編號**和**裝置位置**，這是位置屬性，也可在**製造地點**雲端屬性中找到。 
 
-
-如需組態的完整詳細資料，請參閱 [MXChip 裝置範本詳細資料](howto-connect-devkit.md#mxchip-device-template-details)
+如需組態的完整詳細資料，請參閱 [MXChip 裝置範本詳細資料](#mxchip-device-template-details)
 
 
 ## <a name="add-a-real-device"></a>新增真實裝置
 
 在 Azure IoT Central 應用程式中，從 **MXChip** 裝置範本新增真實裝置，並記下裝置連線詳細資料 ([範圍識別碼]、[裝置識別碼] 和 [主要金鑰])。
 
-1. 從 Device Explorer 中新增 [真實裝置]，按一下 [+ 新增] > [實際] 以新增實際裝置。
-    * 輸入裝置識別碼**<span style="color:Red"> (應為小寫)</span>**，或使用建議的裝置識別碼。
-    * 輸入裝置名稱，或使用建議的名稱
-    
-    ![新增裝置](media/concepts-connectivity/add-device.png)
+1. 新增**真實裝置**從 [Device Explorer 中，選取 **+ 新增] > 實際**將實際的裝置。
 
+   * 輸入裝置識別碼**<span style="color:Red"> (應為小寫)</span>**，或使用建議的裝置識別碼。
+   * 輸入裝置名稱，或使用建議的名稱
 
-1. 取得所新增裝置的連線詳細資料 (例如**範圍識別碼、裝置識別碼和主要金鑰**)，方法是按一下裝置頁面上的 [連線]。
- 
-    ![連線詳細資料](media/concepts-connectivity/device-connect.PNG)
+     ![新增裝置](media/howto-connect-devkit/add-device.png)
 
-3. 請務必儲存這些詳細資料，因為在準備 DevKit 裝置時會暫時中斷與網際網路的連線。 
+1. 取得連線詳細資料，例如**領域識別碼、 裝置識別碼和主要金鑰**新增的裝置，選取**Connect** [裝置] 頁面上。
 
+    ![連線詳細資料](media/howto-connect-devkit/device-connect.png)
+
+1. 請務必儲存這些詳細資料，因為在準備 DevKit 裝置時會暫時中斷與網際網路的連線。
 
 ### <a name="prepare-the-devkit-device"></a>準備 DevKit 裝置
 
 > [!NOTE]
 > 如果您先前已經使用裝置並且已儲存 WiFi 認證，但是想要將裝置重新設定為使用不同的 WiFi 網路、連接字串或遙測度量，請同時按面板上的 **A** 和 **B** 按鈕。 如果沒有作用，請按 [重設] 按鈕，然後再試一次。
 
-
-
-#### <a name="to-prepare-the-devkit-device"></a>若要準備 DevKit 裝置：
-
+#### <a name="to-prepare-the-devkit-device"></a>準備 DevKit 裝置
 
 1. 從 GitHub 上的[版本](https://aka.ms/iotcentral-docs-MXChip-releases)頁面下載適用於 MXChip 的最新預先建置 Azure IoT 中心韌體。
 1. 使用 USB 纜線將 DevKit 裝置連接到開發電腦。 在 Windows 中，檔案總管視窗會在對應到 DevKit 裝置上儲存體的磁碟機上開啟。 例如，此磁碟機可能會稱為 **AZ3166 (D:)**。
@@ -78,12 +72,12 @@ ms.locfileid: "54198723"
     ```
     Connect HotSpot:
     AZ3166_??????
-    go-> 192.168.0.1 
+    go-> 192.168.0.1
     PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > 如果畫面顯示任何其他項目，請重設裝置，並同時按下裝置上的 **A** 和 **B** 按鈕重新啟動裝置。 
+    > 如果畫面顯示任何其他項目，請重設裝置，並同時按下裝置上的 **A** 和 **B** 按鈕重新啟動裝置。
 
 1. 裝置現在處於存取點 (AP) 模式。 您可以從您的電腦或行動裝置連線到此 WiFi 存取點。
 
@@ -178,7 +172,7 @@ git clone https://github.com/Azure/iot-central-firmware
 
 如需如何修改、建置範例程式碼以及將其上傳到裝置的相關資訊，請參閱 `AZ3166` 資料夾中的 **readme.md** 檔案。
 
-## <a name="mxchip-device-template-details"></a>MXChip 裝置範本詳細資料 
+## <a name="mxchip-device-template-details"></a>MXChip 裝置範本詳細資料
 
 從範例 Devkits 應用程式範本建立的應用程式包含具有下列特性的 MXChip 裝置範本：
 
@@ -203,12 +197,12 @@ git clone https://github.com/Azure/iot-central-firmware
 
 
 #### <a name="states"></a>狀態 
-| Name          | 顯示名稱   | 正常 | 警告 | 危險 | 
+| 名稱          | 顯示名稱   | 正常 | 警告 | 危險 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
 
 #### <a name="events"></a>活動 
-| Name             | 顯示名稱      | 
+| 名稱             | 顯示名稱      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 按下按鈕 B  | 
 

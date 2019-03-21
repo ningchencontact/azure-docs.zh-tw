@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6444d2ab5265fffd4e3c956a2eec29437911b0e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 73f962cc8e0d4605c0c5f0bace79553033ebe082
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110897"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本進行編輯和測試而不影響預備或生產應用程式
 
@@ -39,7 +39,7 @@ ms.locfileid: "55876703"
      > [!NOTE]
      > 版本識別碼只能包含字元、數字或 '.'，且長度不能超過 10 個字元。
  
- 隨即會建立具有指定名稱的新版本，並會設定為使用中版本。
+   隨即會建立具有指定名稱的新版本，並會設定為使用中版本。
 
 ## <a name="set-active-version"></a>設定使用中版本
 

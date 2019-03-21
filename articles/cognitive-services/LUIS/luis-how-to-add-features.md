@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: f3376b8077302eb6bd9a96710f92d692b641cac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866775"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874880"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>使用片語清單來提升字組清單訊號
 
@@ -44,7 +44,7 @@ LUIS 讓每個應用程式最多有 10 個片語清單。
 
 5. 如果已新增的片語清單值是可交換使用的替代項，請按一下 [這些值是可交換的]。
 
-    ![片語清單建議值 - 選取 [可交換的] 方塊 ](./media/luis-add-features/interchangeable.png)
+    ![片語清單建議值 - 選取 [可交換的] 方塊](./media/luis-add-features/interchangeable.png)
 
 6. 按一下 [檔案] 。 "Cities" 片語清單會新增到 [片語清單] 頁面。
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136339"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287089"
 ---
 # <a name="data-import-overview---azure-search"></a>資料匯入概觀-Azure 搜尋服務
 
@@ -40,18 +40,25 @@ ms.locfileid: "58136339"
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>索引編製動作： 上傳、 合併、 uploadOrMerge，刪除
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>索引編製動作： 上傳、 合併、 mergeOrUpload，刪除
 
-使用 REST API 時，您會發行具有 JSON 要求主體的 HTTP POST 要求到 Azure 搜尋服務索引的端點 URL。 HTTP 要求主體中的 JSON 物件會包含名為 "value" 的單一 JSON 陣列，陣列中則有代表想要新增至索引、更新或刪除之文件的 JSON 物件。
+您可以控制每個文件為基礎的索引編製動作的類型指定文件是否應上傳中完整、 合併與現有的文件內容，或已刪除。
 
-"value" 陣列中的每個 JSON 物件代表要編製索引的文件。 每個物件包含文件的索引鍵，並指定所需的索引編製動作 （上傳、 合併、 刪除）。 依據您在以下動作中所做的選擇，每個文件內只需包含某些欄位：
+在 REST API 中，具有 JSON 要求主體向 Azure 搜尋服務索引的端點 URL 發出 HTTP POST 要求。 "Value"陣列中的每個 JSON 物件會包含文件的索引鍵，並指定索引編製動作新增、 更新、 或刪除文件內容。 如需程式碼範例，請參閱 <<c0> [ 載入文件](search-create-index-rest-api.md#load-documents)。
+
+在.NET SDK 中，將資料封裝成`IndexBatch`物件。 `IndexBatch`封裝的集合`IndexAction`物件，其中每一個包含文件，並且告知 Azure 搜尋服務文件上執行哪些動作的屬性。 如需程式碼範例，請參閱 <<c0> [ 建構 IndexBatch](search-import-data-dotnet.md#construct-indexbatch)。
+
 
 | @search.action | 描述 | 每個文件的必要欄位 | 注意 |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |`upload` 動作類似「upsert」，如果是新文件，就會插入該文件，如果文件已經存在，就會更新/取代它。 |索引鍵以及其他任何您想要定義的欄位 |在更新/取代現有文件時，要求中未指定的欄位會將其欄位設定為 `null`。 即使先前已將欄位設定為非 null 值也是一樣。 |
-| `merge` |使用指定的欄位更新現有文件。 如果文件不存在於索引中，合併就會失敗。 |索引鍵以及其他任何您想要定義的欄位 |您在合併中指定的任何欄位將取代文件中現有的欄位。 這包括類型 `Collection(Edm.String)`的欄位。 例如，如果文件包含欄位 `tags` 且值為 `["budget"]`，而您使用值 `["economy", "pool"]` 針對 `tags` 執行合併，則 `tags` 欄位最後的值會是 `["economy", "pool"]`。 而不會是 `["budget", "economy", "pool"]`。 |
+| `merge` |使用指定的欄位更新現有文件。 如果文件不存在於索引中，合併就會失敗。 |索引鍵以及其他任何您想要定義的欄位 |您在合併中指定的任何欄位將取代文件中現有的欄位。 在.NET SDK 中，這包括類型的欄位`DataType.Collection(DataType.String)`。 在 REST API 中，這包括類型的欄位`Collection(Edm.String)`。 例如，如果文件包含欄位 `tags` 且值為 `["budget"]`，而您使用值 `["economy", "pool"]` 針對 `tags` 執行合併，則 `tags` 欄位最後的值會是 `["economy", "pool"]`。 而不會是 `["budget", "economy", "pool"]`。 |
 | `mergeOrUpload` |如果含有指定索引鍵的文件已經存在於索引中，則此動作的行為會類似 `merge`。 如果文件不存在，其行為會類似新文件的 `upload` 。 |索引鍵以及其他任何您想要定義的欄位 |- |
 | `delete` |從索引中移除指定的文件。 |僅索引鍵 |您指定的所有欄位 (索引鍵欄位除外) 都將被忽略。 如果您想要從文件中移除個別欄位，請改用 `merge` ，而且只需明確地將該欄位設為 null。 |
+
+## <a name="decide-which-indexing-action-to-use"></a>決定要使用的索引編製動作
+若要匯入資料使用.NET SDK、 （上傳、 合併、 刪除和 mergeOrUpload）。 依據您在以下動作中所做的選擇，每個文件內只需包含某些欄位：
+
 
 ### <a name="formulate-your-query"></a>編寫查詢
 有兩種方式可以 [使用 REST API 搜尋索引](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。 其中一種方式是發出 HTTP POST 要求，並將查詢參數定義在要求主體的 JSON 物件中。 另一種方式是發出 HTTP GET 要求，並將查詢參數定義在要求 URL 中。 在查詢參數的大小方面，POST 比 GET 擁有[更寬鬆的限制](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。 因此，除非您的情況特殊導致使用 GET 會比較方便，否則建議您使用 POST。

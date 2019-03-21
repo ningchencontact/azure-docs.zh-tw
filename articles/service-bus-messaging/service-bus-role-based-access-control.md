@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: a4d1c143b7d3277715386b43511ac908a36f85f0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844852"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844996"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
@@ -57,7 +57,7 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 若要能夠執行應用程式範例，請先讓其在 Azure AD 中進行註冊，並核准同意提示以便允許應用程式代表其存取 Azure 服務匯流排。
 
-由於應用程式範例是一個主控台應用程式，您必須註冊原生應用程式，並將 **Microsoft.ServiceBus** 的 API 權限新增至「所需的權限」集合。 原生應用程式也需要 Azure AD 中的 **redirect-URI** 以作為識別碼；此 URI 不必是網路目的地。 在此範例中使用 `http://servicebus.microsoft.com`，因為程式碼範例已使用該 URI。
+由於應用程式範例是一個主控台應用程式，您必須註冊原生應用程式，並將 **Microsoft.ServiceBus** 的 API 權限新增至「所需的權限」集合。 原生應用程式也需要 Azure AD 中的 **redirect-URI** 以作為識別碼；此 URI 不必是網路目的地。 在此範例中使用 `https://servicebus.microsoft.com`，因為程式碼範例已使用該 URI。
 
 [這個教學課程](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)會有詳細註冊步驟的說明。 請遵循這些步驟來註冊**原生**應用程式，然後遵循更新指示將 **Microsoft.ServiceBus** API 新增至所需的權限。 在遵循這些步驟時，請記下 **TenantId** 和 **ApplicationId**，因為您需要有這些值才能執行應用程式。
 
@@ -65,11 +65,11 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 若要能夠執行範例，您必須先編輯 App.config 檔案，然後根據您的案例設定下列值：
 
-- `tenantId`：設定為 **TenantId** 值。
-- `clientId`：設定為 **ApplicationId** 值。
-- `clientSecret`：如果您要使用用戶端密碼來登入，請在 Azure AD 中建立該用戶端密碼。 另外，請使用 Web 應用程式或 API 而非使用原生應用程式。 還有，請將應用程式新增到您先前所建立之命名空間中的 [存取控制 (IAM)] 底下。
-- `serviceBusNamespaceFQDN`：設定為新建立之服務匯流排命名空間的完整 DNS 名稱；例如 `example.servicebus.windows.net`。
-- `queueName`：設定為您所建立之佇列的名稱。
+- `tenantId`:設定為 **TenantId** 值。
+- `clientId`:設定為 **ApplicationId** 值。
+- `clientSecret`:如果您要使用用戶端密碼來登入，請在 Azure AD 中建立該用戶端密碼。 另外，請使用 Web 應用程式或 API 而非使用原生應用程式。 還有，請將應用程式新增到您先前所建立之命名空間中的 [存取控制 (IAM)] 底下。
+- `serviceBusNamespaceFQDN`:設定為新建立之服務匯流排命名空間的完整 DNS 名稱；例如 `example.servicebus.windows.net`。
+- `queueName`:設定為您所建立之佇列的名稱。
 - 您在前面步驟的應用程式中所指定的重新導向 URI。
 
 當您執行主控台應用程式時，系統會提示您選取案例；請藉由輸入其號碼並按 ENTER 鍵來按一下 [互動使用者登入]。 應用程式隨即會顯示登入視窗，要求您同意存取服務匯流排，然後使用該服務並利用登入身分識別來執行傳送/接收案例。

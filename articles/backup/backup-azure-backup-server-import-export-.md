@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818552"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094968"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>適用於 DPM 和 Azure 備份伺服器的離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 Azure 備份會壓縮初始備份。 透過離線植入程序，Azure 備份可以使用磁碟將壓縮後的初始備份資料離線上傳至 Azure。
@@ -55,7 +55,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 * 在您從中下載發佈設定檔案的訂用帳戶中，已建立採用「傳統」部署模型的「Azure 儲存體」帳戶，如下所示： 
 
- ![建立傳統儲存體帳戶](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![建立傳統儲存體帳戶](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * 已建立具有足夠磁碟空間來存放初始複本的內部或外部暫存位置 (可能是網路共用或電腦上任何額外的磁碟機)。 例如：若您正在嘗試備份 500 GB 的檔案伺服器，請確定預備區域至少有 500 GB 的空間  (由於壓縮的關係，實際使用量會較少)。
 * 針對將送到 Azure 的磁碟，確保僅使用 2.5 英吋的 SSD，或是 2.5 英吋或 3.5 英吋的 SATA II/III 內部硬碟。 您可以使用高達 10 TB 的硬碟。 檢查 [Azure 匯入/匯出服務文件](../storage/common/storage-import-export-requirements.md#supported-hardware)以取得服務所支援的最新磁碟機組合。
@@ -74,12 +74,12 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
     輸入的說明如下：
 
-    * **暫存位置**：寫入初始備份副本的暫時儲存位置。 暫存位置可能位於網路共用或本機電腦上。 如果複本電腦和來源電腦不同，則建議您指定預備位置的完整網路路徑。
-    * **Azure 匯入作業名稱**：Azure 匯入服務和 Azure 備份在追蹤磁碟上傳送至 Azure 之資料的傳輸活動時所使用的唯一名稱。
-    * **Azure 發行設定**：提供發佈設定檔案的本機路徑。
-    * **Azure 訂用帳戶識別碼**：您從中下載「Azure 發佈設定」檔案之訂用帳戶的 Azure 訂用帳戶 ID。 
-    * **Azure 儲存體帳戶**：與「Azure 發佈設定」檔案關聯之 Azure 訂用帳戶中的儲存體帳戶名稱。
-    * **Azure 儲存體容器**：Azure 儲存體帳戶中備份資料的匯入目的地儲存體 Blob 名稱。
+   * **暫存位置**：寫入初始備份副本的暫時儲存位置。 暫存位置可能位於網路共用或本機電腦上。 如果複本電腦和來源電腦不同，則建議您指定預備位置的完整網路路徑。
+   * **Azure 匯入作業名稱**：Azure 匯入服務和 Azure 備份在追蹤磁碟上傳送至 Azure 之資料的傳輸活動時所使用的唯一名稱。
+   * **Azure 發行設定**：提供發佈設定檔案的本機路徑。
+   * **Azure 訂用帳戶識別碼**：您從中下載「Azure 發佈設定」檔案之訂用帳戶的 Azure 訂用帳戶 ID。 
+   * **Azure 儲存體帳戶**：與「Azure 發佈設定」檔案關聯之 Azure 訂用帳戶中的儲存體帳戶名稱。
+   * **Azure 儲存體容器**：Azure 儲存體帳戶中備份資料的匯入目的地儲存體 Blob 名稱。
 
      請儲存您所提供的「暫存位置」和「Azure 匯入作業名稱」 ，因為這是準備磁碟時所需的資訊。  
      
@@ -102,23 +102,23 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 1. 移至該目錄，然後將 [AzureOfflineBackupDiskPrep] 目錄複製到已連接要準備之 SATA 磁碟機的複本電腦。 確認下列與複本電腦有關的事項：
 
-    * 複本電腦可使用在 **起始離線備份** 工作流程中所提供的相同網路路徑，存取離線植入工作流程的預備位置。
-    * 已在複本電腦上啟用 BitLocker。
-    * 複本電腦可以存取 Azure 入口網站。
+   * 複本電腦可使用在 **起始離線備份** 工作流程中所提供的相同網路路徑，存取離線植入工作流程的預備位置。
+   * 已在複本電腦上啟用 BitLocker。
+   * 複本電腦可以存取 Azure 入口網站。
 
-    必要時，複本電腦可以與來源電腦相同。 
+     必要時，複本電腦可以與來源電腦相同。 
     
-    > [!IMPORTANT] 
-    > 如果來源電腦是虛擬機器，則必須使用不同的實體伺服器或用戶端電腦作為複本電腦。
+     > [!IMPORTANT] 
+     > 如果來源電腦是虛擬機器，則必須使用不同的實體伺服器或用戶端電腦作為複本電腦。
     
     
 2. 在複本電腦上以 *AzureOfflineBackupDiskPrep* 公用程式目錄作為目前的目錄來開啟已提高權限的命令提示字元，然後執行下列命令：
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | 參數 | 說明 |
+    | 參數 | 描述 |
     | --- | --- |
-    | s:&lt;*預備位置路徑*&gt; |強制性輸入內容，用來提供在 **起始離線備份** 工作流程中所輸入的預備位置路徑。 |
+    | s:&lt;*預備位置路徑*&gt; |必需的输入，用于提供在 **启动脱机备份** 工作流中所输入的暂存位置路径。 |
     | p:&lt;*PublishSettingsFile 的路徑*&gt; |選擇性輸入內容，用來提供在**起始離線備份**工作流程中所輸入的 **Azure 發佈設定**檔案路徑。 |
 
     > [!NOTE]
@@ -157,7 +157,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
    
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | 參數 | 說明 |
+    | 參數 | 描述 |
     | --- | --- |
     | u: | 必要輸入項目，用來更新 Azure 匯入工作的寄送詳細資料 |
     | s:&lt;*預備位置路徑*&gt; | 命令不是在來源電腦上執行時，必須輸入。 用來提供在**起始離線備份**工作流程中所輸入的暫存位置路徑。 |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e1bc40f10547eb6c79a41cab8a3ac5fd2f500415
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0155a601a0b1e1ed0a89773540d48ff79c38be73
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874069"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726289"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>電腦視覺 API 常見問題集
 
@@ -55,7 +55,7 @@ ms.locfileid: "55874069"
 
 -----
 
-**問：***手寫辨識支援哪些語言？*
+**問題**：*手寫辨識支援哪些語言？*
 
 **答**：目前僅支援英文。
 

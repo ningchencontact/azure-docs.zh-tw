@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 77fa369a3085a3d11d5bf03406b4ddb885a24009
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041150"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847394"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 狀態管理
 Reliable Actors 是可封裝邏輯和狀態的單一執行緒物件。 由於動作項目會在 Reliable Services 上執行，因此，它們可以利用相同的持續性和複寫機制，以可靠的方式維護狀態。 如此一來，動作項目就不會在失敗之後、在記憶體回收之後重新啟動，或者因為資源平衡和升級的緣故而在叢集中的節點之間移動時，遺失它們的狀態。
@@ -29,9 +29,9 @@ Reliable Actors 是可封裝邏輯和狀態的單一執行緒物件。 由於動
 
 即使動作項目會被視為具狀態，但並不表示它們必須以可靠的方式儲存狀態。 動作項目可以根據其資料儲存體需求來選擇狀態持續性和複寫的層級︰
 
-* **保存的狀態**︰狀態會保存於磁碟，並複寫至 3 個以上的複本。 保存的狀態是最持久的狀態儲存選項，可透過完整的叢集中斷來保存狀態。
-* **變動性狀態**︰狀態會複寫至 3 個以上的複本，而且只會保存於記憶體中。 變動性狀態可針對節點失敗和動作項目失敗，以及在升級和資源平衡期間提供恢復能力。 不過，狀態不會保存到磁碟。 因此，如果同時遺失所有複本，狀態也會遺失。
-* **沒有保存的狀態**：狀態並未複寫或寫入至磁碟，僅用於不需要確實維護狀態的動作項目。
+* **保存的狀態**:狀態會保存於磁碟，並複寫到三個或多個複本。 保存的狀態是最持久的狀態儲存選項，可透過完整的叢集中斷來保存狀態。
+* **變動性狀態**:狀態會複寫到三個或多個複本，而且只會保存在記憶體中。 變動性狀態可針對節點失敗和動作項目失敗，以及在升級和資源平衡期間提供恢復能力。 不過，狀態不會保存到磁碟。 因此，如果同時遺失所有複本，狀態也會遺失。
+* **沒有保存的狀態**:狀態並未複寫或寫入至磁碟，只用於不需要以可靠方式維護狀態的動作項目。
 
 每個層級的持續性只是您服務的不同「狀態供應器」和「複寫」組態。 是否要將狀態寫入磁碟取決於「狀態供應器」(Reliable Service 中儲存狀態的元件)。 複寫取決於要使用多少個複本來部署服務。 就如同 Reliable Services，您可以輕鬆地手動設定狀態供應器和複本計數。 動作項目架構提供屬性，在動作項目上使用時，會自動選取預設的狀態供應器，並自動產生複本計數的設定，以達到這三個持續性設定的其中一個。 衍生的類別不會繼承 StatePersistence 屬性，每個 Actor 類型必須提供其 StatePersistence 層級。
 
@@ -81,12 +81,12 @@ class MyActorImpl extends FabricActor implements MyActor
 此設定會使用僅在記憶體中的狀態供應器，並將複本計數設定為 1。
 
 ### <a name="defaults-and-generated-settings"></a>預設值和產生的設定
-您使用 `StatePersistence` 屬性時，在動作項目服務啟動時，會在執行階段自動為您選取狀態供應器。 不過，複本計數是在編譯時期由 Visual Studio 動作項目建置工具所設定。 建置工具會在 ApplicationManifest.xml 中自動為動作項目服務產生「預設服務」。 參數是針對「複本集大小下限」和「目標複本集大小」建立。
+您使用 `StatePersistence` 屬性時，在動作項目服務啟動時，會在執行階段自動為您選取狀態供應器。 不過，複本計數是在編譯時期由 Visual Studio 動作項目建置工具所設定。 建置工具會在 ApplicationManifest.xml 中自動為動作項目服務產生「預設服務」。 参数是针对**副本集大小下限**和**目标副本集大小**创建的。
 
 您可以手動變更這些參數。 不過，每當 `StatePersistence` 屬性變更時，參數會設定為所選 `StatePersistence` 屬性的預設複本集大小值，並覆寫所有舊值。 換句話說，您在 ServiceManifest.xml 中設定的值將*只*會在您變更 `StatePersistence` 屬性值時，於建置階段覆寫。
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />
@@ -114,16 +114,16 @@ class MyActorImpl extends FabricActor implements MyActor
 
 如需管理動作項目狀態的範例，請參閱[存取、儲存和移除 Reliable Actors](service-fabric-reliable-actors-access-save-remove-state.md) (英文)。
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 以下是管理動作項目狀態的一些建議做法和疑難排解祕訣。
 
 ### <a name="make-the-actor-state-as-granular-as-possible"></a>儘可能細分動作項目狀態
 這對於應用程式的效能和資源使用量而言很重要。 當動作項目的「具名狀態」有任何寫入/更新時，對應至該「具名狀態」的整個值會序列化，並透過網路傳送到次要複本。  次要複本會將它寫入至本機磁碟，並回覆回到主要複本。 當主要複本收到來自次要複本仲裁的通知時，它會將狀態寫入到其本機磁碟。 例如，假設此值是有 20 個成員且大小為 1 MB 的類別。 即使您只修改其中一個大小為 1 KB 的類別成員，您最終會在序列化和網路及磁碟寫入上付出整個 1 MB 的代價。 同樣地，如果此值為集合 (例如清單、陣列或字典)，即使您只修改它的其中一個成員，您仍需付出完整集合的成本。 動作項目類別的 StateManager 介面就像字典。 您一律應在此字典上建立資料結構的模型，以代表動作項目的狀態。
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>正確管理動作項目的生命週期
-您應該有關於管理動作項目服務的每個資料分割中狀態大小的清除原則。 動作項目服務應該有固定的動作項目數目，且儘可能重複使用它們。 如果您持續建立新的動作項目，則必須在它們完成其工作後將其刪除。 動作項目架構會儲存有關每個現有動作項目的一些中繼資料。 刪除動作項目的所有狀態，並不會移除有關該動作項目的中繼資料。 您必須刪除動作項目 (請參閱[刪除動作項目及其狀態](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state))，以移除儲存在系統中有關它的所有資訊。 作為額外檢查，您應該偶爾查詢動作項目服務 (請參閱[列舉動作項目](service-fabric-reliable-actors-enumerate.md))，以確保動作項目數目在預期的範圍內。
+您應該有關於管理動作項目服務的每個資料分割中狀態大小的清除原則。 動作項目服務應該有固定的動作項目數目，且儘可能重複使用它們。 如果您持續建立新的動作項目，則必須在它們完成其工作後加以刪除。 動作項目架構會儲存有關每個現有動作項目的一些中繼資料。 刪除動作項目的所有狀態，並不會移除有關該動作項目的中繼資料。 您必須刪除動作項目 (請參閱[刪除動作項目及其狀態](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state))，以移除儲存在系統中有關它的所有資訊。 作為額外檢查，您應該偶爾查詢動作項目服務 (請參閱[列舉動作項目](service-fabric-reliable-actors-enumerate.md))，以確保動作項目數目在預期的範圍內。
  
-如果您看到動作項目服務的資料庫檔案大小增加超過預期的大小，請確定您依照上述的指導方針執行。 如果您依照這些指導方針執行，但仍有資料庫檔案大小問題，您應該[開啟支援票證](service-fabric-support.md)，向產品小組尋求協助。
+如果您看到動作項目服務的資料庫檔案大小增加超過預期的大小，請確定您遵循上述的指導方針。 如果您遵循這些指導方針，但仍有資料庫檔案大小問題，您應該[開啟支援票證](service-fabric-support.md)，向產品小組尋求協助。
 
 ## <a name="next-steps"></a>後續步驟
 

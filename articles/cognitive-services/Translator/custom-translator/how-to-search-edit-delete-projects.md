@@ -5,16 +5,16 @@ description: 自訂翻譯工具可讓您以不同方式有效率地管理專案�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 922f64f3e9588b3bfcfeedf7602df781c8ee6172
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: a4277e8bbd130588e343019a8b02221593efad52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226599"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772631"
 ---
 # <a name="search-edit-and-delete-projects"></a>搜尋、編輯和刪除專案
 
@@ -39,7 +39,7 @@ ms.locfileid: "55226599"
 
 ## <a name="edit-a-project"></a>編輯專案
 
-自訂翻譯工具可讓您編輯專案的名稱和描述。 其他專案中繼資料 (例如類別、來源、目標語言) 是無法編輯的。 下列步驟說明如何編輯專案。
+自訂轉譯器可讓您編輯的名稱和描述的專案。 其他專案中繼資料，例如類別、 原始碼語言和目標的語言沒有可用的編輯。 下列步驟說明如何編輯專案。
 
 1.  按一下您將滑鼠停留在專案上方時出現的鉛筆圖示。
 

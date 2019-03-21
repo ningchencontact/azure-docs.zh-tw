@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270363"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874897"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -40,7 +40,7 @@ Azure 監視器所收集的所有資料均符合下列兩個基本類型之一�
 
 ![度量](media/overview/metrics.png)
 
-可以使用[查詢](log-query/log-query-overview.md)分析 Azure 監視器收集的記錄資料，以快速擷取、彙總和分析收集的資料。  您可以在 Azure 入口網站中使用 [Log Analytics](log-query/portals.md)來建立和測試查詢，然後使用這些工具直接分析資料，或儲存查詢以便搭配[視覺效果](visualizations.md)或[警示規則](platform/alerts-overview.md)使用。
+可以使用[查詢](log-query/log-query-overview.md)分析 Azure 監視器收集的記錄資料，以快速擷取、彙總和分析收集的資料。  您可以建立和測試使用的查詢[Log Analytics](log-query/portals.md)在 Azure 入口網站，然後將直接使用這些工具分析資料，或儲存查詢搭配[視覺效果](visualizations.md)或[警示規則](platform/alerts-overview.md)。
 
 Azure 監視器使用 Azure 資料總管使用的 [Kusto 查詢語言](/azure/kusto/query/)版本，適合用於簡單的記錄查詢，但也包含進階的功能，例如彙總、聯結和智慧分析。 您可以使用[多個課程](log-query/get-started-queries.md)，快速了解查詢語言。  我們會為已經熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的使用者提供特別指引。
 
@@ -130,14 +130,12 @@ Azure 監視器中的警示規則會使用[動作群組](platform/action-groups.
 您通常需要整合 Azure 監視器與其他系統，以及建置自訂解決方案來使用您的監視資料。 其他 Azure 服務會與 Azure 監視器搭配運作來提供這項整合。
 
 ### <a name="event-hub"></a>事件中樞
-[Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs)是一個串流平台和事件擷取服務，可使用任何即時分析提供者或批次/儲存配接器來轉換和儲存資料。 使用事件中樞[將來自 Azure 監視器的記錄資料串流處理](platform/stream-monitoring-data-event-hubs.md)至夥伴 SIEM 和監視工具。
+[Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs)是一個串流平台和事件擷取服務，可使用任何即時分析提供者或批次/儲存配接器來轉換和儲存資料。 使用事件中樞[Azure 監視資料串流](platform/stream-monitoring-data-event-hubs.md)與交易夥伴 SIEM 和監視工具。
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) 是一項服務，可讓您使用可與不同系統和服務整合的工作流程，自動執行工作和商務程序。 可用於讀取和寫入 Azure 監視器中計量和記錄的活動，可讓您建置可與其他各種系統整合的工作流程。
 
-![邏輯應用程式](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 除了存取所產生的警示，還有多個 API 可供讀取和寫入 Azure 監視器中的計量和記錄。 您也可以設定和擷取警示。 這可為您提供基本上無限制的可能性，來建置可與 Azure 監視器整合的自訂解決方案。

@@ -3,7 +3,7 @@ title: 升級為 Azure 資訊安全中心標準層以增強安全性 | Microsoft
 description: 這篇文章提供 Azure 資訊安全中心的價格資訊。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2018
-ms.author: rkarlin
-ms.openlocfilehash: bde2ebf2f69de1826e21435b5551e3c3412109d2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 03/17/2019
+ms.author: monhaber
+ms.openlocfilehash: 5f49de453f9cd694598918500a8ac0221937bdb1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110212"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201682"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>升級為 Azure 資訊安全中心標準層以增強安全性
 Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護，保護 Azure、內部部署和其他雲端中執行的工作負載。 其提供了針對混合式雲端工作負載的可見性和控制能力、可降低威脅曝露度的主動防禦措施、還有智慧型偵測可幫助您跟上網路攻擊快速發展的腳步。
@@ -28,7 +28,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 資訊安全中心提供兩個層級：
 
 - 所有 Azure 訂用帳戶都會自動啟用**免費**層，並提供安全性原則、持續的安全性評估，以及可操作的安全性建議，以幫助您保護 Azure 資源。
-- **標準**層將免費層的功能擴展到在私人雲端和其他公用雲端中執行的工作負載，為您的混合式雲端工作負載提供統一的安全性管理和威脅防護。 標準層也加入了進階威脅偵測功能，可使用內建的行為分析和機器學習來識別攻擊和零時差惡意探索、存取和應用程式控制，以減少曝露在網路攻擊和惡意軟體之下的程度等。 您可以免費試用標準層。 資訊安全中心標準支援 Azure 資源，包括 VM、App Service 及 SQL 伺服器等。 如果您有 Azure 資訊安全中心標準，則可以根據資源類型選擇退出支援。 
+- **標準**層將免費層的功能擴展到在私人雲端和其他公用雲端中執行的工作負載，為您的混合式雲端工作負載提供統一的安全性管理和威脅防護。 標準層也加入了進階威脅偵測功能，可使用內建的行為分析和機器學習來識別攻擊和零時差惡意探索、存取和應用程式控制，以減少曝露在網路攻擊和惡意軟體之下的程度等。 您可以免費試用的標準層。 資訊安全中心標準支援 Azure 資源，包括 Vm，VM 擴展集，App Service、 SQL 伺服器和儲存體帳戶。 如果您有 Azure 資訊安全中心標準，則可以根據資源類型選擇退出支援。 
 
 
 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。

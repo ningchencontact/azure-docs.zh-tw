@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471193"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217864"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>多租用戶 SaaS 資料庫租用模式
 
@@ -99,7 +99,7 @@ ms.locfileid: "55471193"
 
 ![每一租用戶一個資料庫的多租用戶應用程式設計 (使用彈性集區)。][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database 會提供設定、監視和管理共用所需的工具。  透過 Log Analytics，可在 Azure 入口網站中取得集區層級和資料庫層級的效能計量。  計量可供深入了解彙總與租用戶特有的效能。  個別的資料庫可以在集區之間移動，以將保留的資源提供給特定租用戶。  這些工具可讓您以符合成本效益的方式確保良好效能。
+Azure SQL Database 會提供設定、監視和管理共用所需的工具。  這兩個集區層級和資料庫層級的效能計量可在 Azure 入口網站中，並透過 Azure 監視器記錄檔。  計量可供深入了解彙總與租用戶特有的效能。  個別的資料庫可以在集區之間移動，以將保留的資源提供給特定租用戶。  這些工具可讓您以符合成本效益的方式確保良好效能。
 
 #### <a name="operations-scale-for-database-per-tenant"></a>每一租用戶一個資料庫的作業規模
 

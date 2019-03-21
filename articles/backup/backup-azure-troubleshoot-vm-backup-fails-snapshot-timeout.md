@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890850"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286426"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -102,19 +102,12 @@ ms.locfileid: "57890850"
 **原因 5：備份服務因資源群組鎖定而沒有刪除舊還原點的權限** <br>
 **原因 6：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - Azure 備份目前不支援容量大於 1023 GB 的磁碟
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize-目前的 Azure 備份不支援大於 4095 GB 的磁碟大小
 
 **錯誤碼**：UserErrorUnsupportedDiskSize <br>
-**錯誤訊息**：Azure 備份目前不支援容量大於 1023 GB 的磁碟 <br>
+**錯誤訊息**：目前 Azure 備份不支援大於 4095 GB 的磁碟大小 <br>
 
-備份磁碟大小超過 1023GB 的 VM 時，備份作業可能會失敗，因為您的保存庫並未升級到「立即還原」。 升級至「立即還原」將提供最高 4TB 支援，請參閱這篇[文章](backup-instant-restore-capability.md#upgrading-to-instant-restore)。 在您升級之後，最多將需要兩小時的時間，訂用帳戶才能使用此功能。 請提供足夠的緩衝，然後才重試此作業。  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - 目前 Azure 備份不支援標準 SSD 磁碟
-
-**錯誤碼**：UserErrorStandardSSDNotSupported <br>
-**錯誤訊息**：目前 Azure 備份不支援標準 SSD 磁碟 <br>
-
-目前 Azure 備份只針對升級至[立即還原](backup-instant-restore-capability.md)的保存庫支援標準 SSD 磁碟。
+備份的磁碟大小超過 4095 GB 的 VM 時，您的備份作業可能會失敗。 即將推出大型磁碟支援。  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中
 
@@ -200,7 +193,7 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 | 原因 | 解決方法 |
 | --- | --- |
 | 因為遠端桌面通訊協定 (RDP) 中的 VM 關機，而導致報告的 VM 狀態不正確。 | 如果您關閉 RDP 中的 VM，請檢查入口網站，以判斷 VM 狀態是否正確。 如果不正確，可使用 VM 儀表板上的 [關閉] 選項來關閉入口網站中的 VM。 |
-| VM 無法從 DHCP 取得主機或網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果 VM 無法從 DHCP 回應 245 取得主機或網狀架構位址，則無法下載或執行任何延伸模組。 如果您需要靜態私人 IP，則應透過 **Azure 入口網站**或 **PowerShell** 加以設定，並確定已啟用 VM 內的 DHCP 選項。 [了解更多](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何設定靜態 IP 位址使用 PowerShell。
+| VM 無法從 DHCP 取得主機或網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果 VM 無法從 DHCP 回應 245 取得主機或網狀架構位址，則無法下載或執行任何延伸模組。 如果您需要靜態的私人 ip 位址，您應該設定透過**Azure 入口網站**或是**PowerShell** ，並確定已啟用 VM 內的 [DHCP] 選項。 [了解更多](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何設定靜態 IP 位址使用 PowerShell。
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>備份擴充功能無法更新或載入
 如果無法載入延伸模組，備份就會因為無法取得快照集而失敗。

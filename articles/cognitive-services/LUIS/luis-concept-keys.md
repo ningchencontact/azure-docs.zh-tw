@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1898d6e5119d3cbc2061aff8d4a7e673abd83198
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097452"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998753"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS 中的撰寫與查詢預測端點金鑰
 LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)。 當您建立 LUIS 帳戶時，系統會自動為您建立撰寫金鑰。 當您已做好發佈 LUIS 應用程式的準備時，必須[建立端點金鑰](luis-how-to-azure-subscription.md)、[將它指派](luis-how-to-azure-subscription.md)給 LUIS 應用程式，然後[將它與端點查詢搭配使用](#use-endpoint-key-in-query)。 
@@ -60,7 +60,7 @@ LUIS 端點接受兩種樣式的查詢，兩者都使用端點金鑰，但使用
 
 |指令動詞|範例 URL 和金鑰位置|
 |--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`subscription-key` 的查詢字串值<br><br>將 `subscription-key` 的端點查詢值從撰寫 (入門) 金鑰變更為新的端點金鑰，以便使用 LUIS 端點金鑰配額率。 如果您建立金鑰並指派金鑰，但沒有變更 subscription-key 的端點查詢值，便不會使用端點金鑰配額。|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`subscription-key` 的查詢字串值<br><br>將 `subscription-key` 的端點查詢值從撰寫 (入門) 金鑰變更為新的端點金鑰，以便使用 LUIS 端點金鑰配額率。 如果您建立金鑰並指派金鑰，但沒有變更 `subscription-key` 的端點查詢值，便不會使用端點金鑰配額。|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> `Ocp-Apim-Subscription-Key` 的標頭值<br><br>將 `Ocp-Apim-Subscription-Key` 的端點查詢值從撰寫 (入門) 金鑰變更為新的端點金鑰，以便使用 LUIS 端點金鑰配額率。 如果您建立金鑰並指派金鑰，但沒有變更 `Ocp-Apim-Subscription-Key` 的端點查詢值，便不會使用端點金鑰配額。|
 
 先前 URL 中使用的應用程式識別碼 `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是適用於[互動式示範](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)的公用 IoT 應用程式。 

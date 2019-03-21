@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183742"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294887"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -149,7 +149,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ## <a name="download-sign-in-activities"></a>下載登入活動
 
-如果您想要在 Azure 入口網站以外使用登入活動資料，您可以[下載登入資料](quickstart-download-sign-in-report.md)。 按一下 **下載**可讓您建立 CSV 或 JSCON 檔案的最新的 250,000 記錄的選項。  
+如果您想要在 Azure 入口網站以外使用登入活動資料，您可以[下載登入資料](quickstart-download-sign-in-report.md)。 按一下 **下載**可讓您建立 CSV 或 JSON 檔案的最新的 250,000 記錄選項。  
 
 ![下載](./media/concept-sign-ins/71.png "下載")
 
@@ -168,7 +168,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>身分識別安全性保護中的使用者登入資料
 
-[身分識別安全性保護] 概觀頁面中的使用者登入圖，會顯示在指定的時間週期中所有使用者的每週登入彙總。 時間週期的預設值是 30 天。
+使用者登入圖中的**身分識別安全性保護**概觀頁面會顯示在指定的時段內的所有使用者的登入的每週彙總。 時間週期的預設值是 30 天。
 
 ![登入活動](./media/concept-sign-ins/06.png "登入活動")
 
@@ -214,7 +214,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ![登入活動](./media/concept-sign-ins/10.png "登入活動")
 
-應用程式使用圖會顯示在指定的時間週期中排名前 3 個應用程式的每週登入彙總。 時間週期的預設值是 30 天。
+應用程式使用量圖形每週彙總為在指定的時段內前 3 個應用程式的登入。 時間週期的預設值是 30 天。
 
 ![登入活動](./media/concept-sign-ins/47.png "登入活動")
 

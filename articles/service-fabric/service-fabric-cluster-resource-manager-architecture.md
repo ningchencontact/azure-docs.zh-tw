@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 48da92be0eef1154b490fb4829363598d6d66569
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 82183cefc11a1f3c39fadd639c988d8bf83fc109
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116585"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>叢集資源管理員架構概觀
 Service Fabric 叢集資源管理員是在叢集中執行的中央服務。 它會管理叢集中服務的所需狀態，特別是關於資源耗用和任何放置規則。 
@@ -51,14 +51,16 @@ Service Fabric 叢集資源管理員是在叢集中執行的中央服務。 它�
 讓我們看看下圖︰
 
 <center>
+
 ![資源平衡器架構][Image1]
 </center>
 
 執行階段可能發生許多變化。 例如，假設某些服務耗用的資源數量改變、某些服務失敗，以及某些節點加入和離開叢集。 節點上的所有變更會彙總，並定期傳送到叢集資源管理員服務 (1，2)，它們會在其中再次彙總、分析及儲存。 每隔幾秒鐘，服務就會查看變更，並判斷是否需要採取任何動作 (3)。 例如，它可能會注意到某些空的節點已新增至叢集。 如此一來，它會決定要將某些服務移至這些節點。 叢集資源管理員可能也會注意到特定節點是超載的，或者某些服務已失敗或刪除，而在別處釋放資源。
 
-讓我們看看以下圖表，並看看接下來會發生什麼情況。 假設叢集資源管理員判斷需要變更。 它會與其他系統服務 (尤其是容錯移轉管理員) 進行協調，以進行必要的變更。 接著將必要的命令傳送至適當的節點 (4)。 例如，假設資源管理員注意到節點 5 已超載，因此決定要將服務 B 從節點 5 移至節點 4。 重新設定 (5) 結束時，叢集看起來像這樣︰
+讓我們看看以下圖表，並看看接下來會發生什麼情況。 假设群集 Resource Manager 确定需要更改。 它与其他系统服务（尤其是故障转移管理器）进行协调，进行必要的更改。 接著將必要的命令傳送至適當的節點 (4)。 例如，假設資源管理員注意到節點 5 已超載，因此決定要將服務 B 從節點 5 移至節點 4。 重新設定 (5) 結束時，叢集看起來像這樣︰
 
 <center>
+
 ![資源平衡器架構][Image2]
 </center>
 

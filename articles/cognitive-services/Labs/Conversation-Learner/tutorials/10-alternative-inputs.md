@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c60dc2ca93547b93ce2ee457393570479069c899
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 10335f9c74b9033b303c960a77af136cc80d75bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216263"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094359"
 ---
 # <a name="how-to-use-alternative-inputs"></a>如何使用替代輸入
 
@@ -48,6 +48,8 @@ ms.locfileid: "55216263"
 3. 輸入 "city" (城市) 作為 [實體名稱]。
 4. 按一下 [建立] 按鈕。
 
+![](../media/T10_actions.png)
+
 現在，我們將建立三個動作。
 
 ### <a name="create-the-first-action"></a>建立第一個動作
@@ -58,11 +60,15 @@ ms.locfileid: "55216263"
 4. 在 [不合格的實體] 欄位中，輸入 "city" (城市)。
 5. 按一下 [建立] 按鈕。
 
+![](../media/T10_action_create_1.png)
+
 ### <a name="create-the-second-action"></a>建立第二個動作
 
 1. 在左面板中按一下 [動作]，然後按 [新增動作] 按鈕。
 2. 在 [聊天機器人的回應...] 欄位中，輸入 "The weather in $city is probably sunny" ($city 可能是晴天)。
 3. 按一下 [建立] 按鈕。
+
+![](../media/T10_action_create_2.png)
 
 ### <a name="create-the-third-action"></a>建立第三個動作
 
@@ -71,7 +77,11 @@ ms.locfileid: "55216263"
 3. 在 [不合格的實體] 欄位中，輸入 "city" (城市)。
 4. 按一下 [建立] 按鈕。
 
+![](../media/T10_action_create_3.png)
+
 您現在有三個動作。
+
+![](../media/T10_actions.png)
 
 ### <a name="train-the-model"></a>訓練模型
 
@@ -82,7 +92,9 @@ ms.locfileid: "55216263"
 5. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "Denver" (丹佛)
 6. 按一下 [評分動作] 按鈕。
 7. 選取回應：「丹佛可能是晴天」。
-8. 按一下 [儲存] 按鈕。
+8. 按一下 [提交變更] 按鈕。
+
+![](../media/T10_training_1.png)
 
 我們將建立另一個訓練對話以進一步訓練模型。
 
@@ -96,7 +108,9 @@ ms.locfileid: "55216263"
 6. 按一下 [西雅圖]，然後在實體清單中按一下 [城市]。
 7. 按一下 [評分動作] 按鈕。
 8. 選取回應：「西雅圖可能是晴天」。
-9. 按一下 [儲存] 按鈕。
+9. 按一下 [提交變更] 按鈕。
+
+![](../media/T10_training_2.png)
 
 ### <a name="third-model-train-dialog-using-alternative-input"></a>使用替代輸入的第三個模型訓練對話
 
@@ -106,27 +120,29 @@ ms.locfileid: "55216263"
     - 模型並不確定最佳選項，因此將依預設選擇最高的百分位數。
 4. 按一下 [放棄教學] 按鈕，然後按 [確認] 按鈕。
 
-![](../media/tutorial8_closescores.png)
+![](../media/T10_training_3.png)
 
 我們將使用替代輸入進一步調整系統。 您可以在教學期間或是稍後新增替代輸入。
 
-5. 在左面板上按一下 [訓練對話]，然後在訓練對話的清單中 選取 [您該怎麼辦？]。
-6. 在聊天面板中按一下 [您該怎麼辦？] 語句。
-7. 在 [新增替代輸入...] 欄位中輸入"help" (協助)，並按 Enter 鍵。
-8. 按一下 [儲存變更] 按鈕。
+1. 在左面板上按一下 [訓練對話]，然後在訓練對話的清單中 選取 [您該怎麼辦？]。
+1. 在聊天面板中按一下 [您該怎麼辦？] 語句。
+1. 在 [新增替代輸入...] 欄位中輸入"help" (協助)，並按 Enter 鍵。
+1. 按一下 [儲存變更] 按鈕。
 
-![](../media/tutorial8_helpalternates.png)
+![](../media/T10_training_4.png)
 
 我們將新增另一個替代輸入來處理休士頓。
 
-9. 在聊天面板中按一下 [西雅圖的天氣如何？] 語句。
-10. 在 [新增替代輸入...] 欄位中輸入"forecast for Houston" (休士頓預報)，並按 Enter 鍵。
-    - 錯誤訊息會反白指出替代輸入必須在語意上相同，並且包含與原始語句相同的實體，而不只是相同的實體值。 必須要有相同的實體存在。
-11. 按一下 [休士頓]，並從實體清單中選取 [城市]。
-12. 在 [新增替代輸入...] 欄位中輸入"forecast for Seattle" (西雅圖預報)，並按 Enter 鍵。
-13. 按一下 [西雅圖]，並從實體清單中選取 [城市]。
-14. 按一下 [儲存變更] 按鈕。
-15. 按一下 [儲存編輯] 按鈕。
+1. 在聊天面板中按一下 [西雅圖的天氣如何？] 語句。
+1. 在 [新增替代輸入...] 欄位中輸入"forecast for Houston" (休士頓預報)，並按 Enter 鍵。
+   - 錯誤訊息會反白指出替代輸入必須在語意上相同，並且包含與原始語句相同的實體，而不只是相同的實體值。 必須要有相同的實體存在。
+1. 按一下 [休士頓]，並從實體清單中選取 [城市]。
+1. 在 [新增替代輸入...] 欄位中輸入"forecast for Seattle" (西雅圖預報)，並按 Enter 鍵。
+1. 按一下 [西雅圖]，並從實體清單中選取 [城市]。
+1. 按一下 [儲存變更] 按鈕。
+1. 按一下 [儲存編輯] 按鈕。
+
+![](../media/T10_training_5.png)
 
 ### <a name="testing-the-model"></a>測試模型
 
@@ -134,7 +150,7 @@ ms.locfileid: "55216263"
 2. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "help me" (協助我)
 3. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "forecast for Denver" (丹佛預報)
 
-![](../media/tutorial8_altcities.png)
+![](../media/T10_logdialog.png)
 
 ## <a name="next-steps"></a>後續步驟
 

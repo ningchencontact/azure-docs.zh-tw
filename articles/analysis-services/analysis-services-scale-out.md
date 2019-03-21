@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eae1569cf6f7ada89f64b96fe81b154b84932a12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182841"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293901"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -46,6 +46,8 @@ ms.locfileid: "58182841"
 * 即使在查詢集區中都沒有複本時，才允許同步處理。 如果您從零到一或多個複本，以新的資料從主要伺服器上的處理作業相應放大，第一次執行與查詢集區中的任何複本的同步處理，然後向外延展。同步處理之前向外擴充，可避免備援序列化的新加入的複本。
 
 * 從主要伺服器中刪除的模型資料庫，它不會不會自動取得從刪除查詢集區中的複本。 您必須執行的複本共用的 blob 儲存體位置中移除該資料庫的檔案/秒，然後刪除查詢集區中複本的模型資料庫的同步處理作業。
+
+* 重新命名時的主要伺服器上的資料庫，但沒有額外的步驟，必須確保資料庫正確同步處理至任何複本。 在重新命名之後, 執行 同步處理指定`-Database`使用舊的資料庫名稱的參數。 這項同步處理將移除任何複本的資料庫與舊名稱的檔案。 然後執行 另一個同步處理指定`-Database`與新的資料庫名稱的參數。 第二個同步處理會將新命名的資料庫複製到第二組的檔案，並會產生任何複本。 無法使用入口網站中的同步處理模型命令執行這些同步處理。
 
 ### <a name="separate-processing-from-query-pool"></a>與查詢集區分開處理
 

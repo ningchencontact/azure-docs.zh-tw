@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: e0c1ec55a7f21ad223629d6d478cbd97c7974abb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237972"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448878"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>從入口網站呼叫 Bing 自訂搜尋執行個體
 
@@ -31,7 +31,7 @@ ms.locfileid: "56237972"
 一些重要參數如下：
 
 
-|參數  |說明  |
+|參數  |描述  |
 |---------|---------|
 |查詢     | 要搜尋的搜尋字詞。 僅適用於網頁、影像、影片與自動建議端點 |
 |自訂組態識別碼 | 所選取自訂搜尋執行個體的組態識別碼。 這是唯讀欄位。 |
@@ -40,11 +40,11 @@ ms.locfileid: "56237972"
 
 按一下 [其他參數] 會顯示下列參數：  
 
-|參數  |說明  |
+|參數  |描述  |
 |---------|---------|
 |安全搜尋     | 用來篩選成人內容網頁的篩選條件。 僅適用於網頁、影像、影片與裝載 UI 端點。        |
 |使用者介面語言    | 用於使用者介面字串的語言。 例如，若您在裝載 UI 中啟用影像與影片， [影像] 與 [影片] 索引標籤會使用指定的語言。        |
-|Count     | 回應中傳回的搜尋結果數目。 僅適用於網頁、影像與影片端點。         |
+|計數     | 回應中傳回的搜尋結果數目。 僅適用於網頁、影像與影片端點。         |
 |Offset    | 傳回結果之前要跳過的搜尋結果數目。 僅適用於網頁、影像與影片端點。        |
     
 指定所有必要選項之後，請按一下 [呼叫] 在右窗格中檢視 JSON 回應。 如果您選取裝載 UI 端點，可以從底部窗格測試搜尋體驗。

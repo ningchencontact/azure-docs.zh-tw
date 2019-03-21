@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 512956d2de0f9a838cc6378345a334e489d1d120
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c80b007c3c9c1a35540e690554603a5ae8f16d62
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306862"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284624"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>在 Azure IoT Central 中使用 Webhook 觸發 Azure Functions
 
 *本主題適用於建置員和系統管理員。*
 
-使用 Azure Functions，在自 IoT Central 規則輸出的 Webhook 上執行無伺服器程式碼。 您不需要佈建 VM 或發佈 Web 應用程式，就能使用 Azure Functions，但您可以改為以無伺服器的方式執行此程式碼。 您可以使用 Azure Functions 先轉換 Webhook 承載，再將之傳送到其最終目的地，例如 SQL 資料庫或事件方格。
+使用 Azure Functions，在自 IoT Central 規則輸出的 Webhook 上執行無伺服器程式碼。 您不需要佈建 VM 或發佈的 web 應用程式，以使用 Azure Functions，但相反地，您也可以執行此無伺服器程式碼。 您可以使用 Azure Functions 先轉換 Webhook 承載，再將之傳送到其最終目的地，例如 SQL 資料庫或事件方格。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,11 +31,11 @@ ms.locfileid: "57306862"
 
     ![在 Azure 入口網站中建立新的函式應用程式](media/howto-trigger-azure-functions/createfunction.png)
 
-2. 展開函式應用程式，然後選取 **+ 按鈕**旁邊函式。 如果這個函式是您函式應用程式中的第一個函式，請選取 [自訂函式]。 這會顯示一組完整的函式範本。
+2. 展開函式應用程式，然後選取 **+ 按鈕**旁邊函式。 如果此函式是第一個函式應用程式中的，選取**在入口網站**做為開發環境並選取**繼續**。
 
     ![在函式應用程式中選擇自訂函式](media/howto-trigger-azure-functions/customfunction.png)
 
-3. 在 [搜尋] 欄位中，輸入 **"generic"**，然後選擇您需要的泛型 Webhook 觸發程序範本語言。 本主題是使用 C# 函式。 
+3. 選擇**Webhook + API**範本，然後選取**建立**。 本主題使用的.NET 型 Azure 函式。
 
     ![選取泛型 Webhook 觸發程序](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 

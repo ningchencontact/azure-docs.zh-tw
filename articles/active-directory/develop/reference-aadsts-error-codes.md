@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452006"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295448"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>驗證與授權錯誤碼
 
@@ -30,6 +30,8 @@ ms.locfileid: "57452006"
 
 > [!NOTE]
 > 此資訊為初步資訊，隨時可能變更。 有任何疑問或找不到您要尋找的內容嗎？ 建立 GitHub 問題，或參閱[適用於開發人員的支援和協助選項](active-directory-develop-help-support.md)，了解您可以取得協助和支援的其他方法。
+>
+> 這份文件會提供開發人員和系統管理員指南，但永遠不應由用戶端本身。 錯誤代碼會有可能隨時變更，以提供更細微的錯誤訊息，為了協助開發人員建置其應用程式時。 依存於文字或錯誤代碼的應用程式將會中斷一段時間。  
 
 ## <a name="aadsts-error-codes"></a>AADSTS 錯誤碼
 

@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226038"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673159"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>快速入門：以適用於 .NET Windows 的 C&#35; 開始使用 Bing 語音辨識服務程式庫
 
@@ -88,10 +89,10 @@ Speech API 使用下列轉碼器來支援音訊/WAV：
 
 若要建立 SpeechClient，您必須先建立 Preferences 物件。 Preferences 物件是一組參數，用來設定語音服務的行為。 它是由下列欄位所組成的：
 
-* `SpeechLanguage`：傳送給語音服務之音訊的地區設定。
-* `ServiceUri`：用來呼叫語音服務的端點。
-* `AuthorizationProvider`：用來擷取權杖以存取語音服務的 IAuthorizationProvider 實作。 雖然此範例提供「認知服務」授權提供者，但強烈建議您建立自己的實作來處理權杖快取。
-* `EnableAudioBuffering`：進階選項。 請參閱[連線管理](#connection-management)。
+* `SpeechLanguage`:傳送給語音服務之音訊的地區設定。
+* `ServiceUri`:用來呼叫語音服務的端點。
+* `AuthorizationProvider`:用來擷取權杖以存取語音服務的 IAuthorizationProvider 實作。 雖然此範例提供「認知服務」授權提供者，但強烈建議您建立自己的實作來處理權杖快取。
+* `EnableAudioBuffering`:進階選項。 請參閱[連線管理](#connection-management)。
 
 ### <a name="speech-input"></a>語音輸入
 
@@ -119,7 +120,7 @@ SpeechInput 物件是由兩個欄位所組成的：
 
 每當「語音服務」預測您可能說的語句時，甚至是在您說完話 (如果使用 `MicrophoneRecognitionClient`) 或完成資料傳送 (如果使用 `DataRecognitionClient`) 之前，都會呼叫此事件。 您可以使用 `SpeechClient.SubscribeToPartialResult()` 來訂閱此事件。 或是使用一般事件訂閱方法 `SpeechClient.SubscribeTo<RecognitionPartialResult>()`。
 
-**傳回格式** | 說明 |
+**傳回格式** | 描述 |
 ------|------
 **LexicalForm** | 應用程式如果需要原始、未經處理的語言辨識結果，便最適合使用此形式。
 **DisplayText** | 所辨識的片語會套用反向文字正規化、轉換成大寫、標點符號及粗話遮罩。 粗話在第一個字元之後會以星號遮罩，例如 "d***." 應用程式如果會向使用者顯示語音辨識結果，便最適合使用此形式。
@@ -130,7 +131,7 @@ SpeechInput 物件是由兩個欄位所組成的：
 #### <a name="result-event"></a>結果事件
 當您說完話 (在 `ShortPhrase` 模式下) 時，便會呼叫此事件。 系統會提供您前 N 名最佳結果選項。 在 `LongDictation` 模式下，可以根據伺服器指出句子暫停的位置，多次呼叫此事件。 您可以使用 `SpeechClient.SubscribeToRecognitionResult()` 來訂閱此事件。 或是使用一般事件訂閱方法 `SpeechClient.SubscribeTo<RecognitionResult>()`。
 
-**傳回格式** | 說明 |
+**傳回格式** | 描述 |
 ------|------|
 **RecognitionStatus** | 與辨識產生方式相關的狀態。 例如，是因辨識成功而產生，還是因取消連線而產生等等。
 **Phrases** | 一組具有辨識信賴度的前 N 名最佳辨識片語。
@@ -151,7 +152,7 @@ SpeechInput 物件是由兩個欄位所組成的：
 ---what's the weather like  
 ---***** Phrase Recognition Status = [Success]   
 ***What's the weather like? (Confidence:High)  
-What's the weather like? (Confidence:High) 
+What's the weather like? (Confidence:High)
 ```
 
 ## <a name="connection-management"></a>連線管理

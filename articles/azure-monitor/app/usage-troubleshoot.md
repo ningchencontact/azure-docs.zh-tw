@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7c903390af54d1771bce1b6aff96e9bb54397189
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045143"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258766"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>針對 Application Insights 中的使用者行為分析工具進行疑難排解
 您有關於 [Application Insights 中的使用者行為分析工具](usage-overview.md)：[使用者、工作階段、事件](usage-segmentation.md)、[漏斗圖](usage-funnels.md)、[使用者流程](usage-flows.md)[保留期](usage-retention.md)或世代的問題嗎？ 以下是一些解答。
@@ -39,7 +39,7 @@ Application Insights 中的所有遙測事件都有[匿名使用者識別碼](..
 ## <a name="naming-events"></a>命名事件
 **我的應用程式有數千種不同的網頁檢視和自訂事件名稱。我很難辨別這些項目，且使用者行為分析工具經常沒有回應。如何修正這些命名問題？**
 
-整個使用者行為分析工具都會使用網頁檢視和自訂事件名稱。 若要獲得這些工具的價值，就必須適當地為這些事件命名。 命名目標是既不要讓名稱太少、太過於普遍 (例如「已按下的按鈕」)，也不要讓名稱太多、太過於獨特 (例如「在 http://www.contoso.com/index 上按下的編輯按鈕」)。
+整個使用者行為分析工具都會使用網頁檢視和自訂事件名稱。 若要獲得這些工具的價值，就必須適當地為這些事件命名。 目標是之間取得平衡擁有太少、 太過於名稱 （"按下按鈕 」），並擁有太多、 太過於獨特的名稱 ("在 http 上，按一下 [編輯] 按鈕：\//www.contoso.com/index")。
 
 若要對應用程式所傳送的網頁檢視和自訂事件名稱進行任何變更，您必須變更應用程式的原始程式碼，然後重新部署。 **Application Insights 中的所有遙測資料都會儲存 90 天，且無法加以刪除**，因此您對事件名稱所進行的變更需要 90 天才會完整顯示。 進行名稱變更之後的 90 天內，遙測中的事件名稱會新舊並陳，因此請據以調整查詢，並告知您的小組。
 

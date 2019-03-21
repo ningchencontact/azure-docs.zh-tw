@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 44efe3482e9e1657125cc28441819ea173c982ab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae31aa19e5905ccafcd0161ea362cc68234f8295
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861939"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294738"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -127,6 +127,8 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+如需詳細資訊，請參閱 < [Azure SDK for Go](https://docs.microsoft.com/go/azure/)。
+
 ## <a name="use-terraform"></a>使用 Terraform
 
 Terraform 的支援是透過 Azure 提供者的 1.21.0 版本： [ https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019 ](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019)。  這項支援適用於所有部署 Terraform，透過其解決方案的合作夥伴，以及部署與計量付費 Azure 提供者的所有資源 (1.21.0 版本或更新版本)。

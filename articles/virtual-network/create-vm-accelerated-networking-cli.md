@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765733"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213291"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>使用加速網路建立 Linux 虛擬機器
 
@@ -55,7 +55,7 @@ ms.locfileid: "55765733"
 ### <a name="supported-vm-instances"></a>支援的 VM 執行個體
 大多數一般用途和具有 2 個以上 vCPU 的計算最佳化執行個體大小，皆支援加速網路。  這些支援的系列為：D/DSv2 和 F/Fs
 
-在支援超執行緒的執行個體中，加速網路可在具有 4 個以上 vCPU 的 VM 執行個體上進行支援作業。 支援的系列為：D/DSv3、E/ESv3、Fsv2 和 Ms/Mms。
+在支援超執行緒的執行個體中，加速網路可在具有 4 個以上 vCPU 的 VM 執行個體上進行支援作業。 支援的系列為：D/Dsv3、 E/Esv3、 Fsv2、 Lsv2、 Ms/Mms 和 Ms/Mmsv2。
 
 如需 VM 執行個體的詳細資訊，請參閱 [Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -71,9 +71,14 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 虛擬機器 (傳統) 無法透過加速網路部署。
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>建立使用 Azure 加速網路的 Linux VM
+## <a name="portal-creation"></a>建立入口網站
+雖然本文提供使用 Azure CLI 來建立具有加速網路之虛擬機器的步驟，但您也可以[使用 Azure 入口網站來建立具有加速網路的虛擬機器](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 在中建立虛擬機器，在入口網站時**建立虛擬機器**刀鋒視窗中，選擇**網路** 索引標籤。在此索引標籤中，沒有適合**加速網路**。  如果您已選擇[支援的作業系統](#supported-operating-systems)並[VM 大小](#supported-vm-instances)，此選項便會自動填入為 [開啟]。  如果沒有，則會填入加速網路的 「 關閉 」 選項，並授與使用者為什麼它不會啟用的原因。   
 
-雖然本文提供使用 Azure CLI 來建立具有加速網路之虛擬機器的步驟，但您也可以[使用 Azure 入口網站來建立具有加速網路的虛擬機器](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 在入口網站中建立虛擬機器時，請在 [設定] 下的 [加速的網路] 底下，選取 [已啟用]。 除非您已選取[支援的作業系統](#supported-operating-systems)和 [VM 大小](#supported-vm-instances)，否則啟用加速網路的選項不會出現在入口網站中。 建立虛擬機器之後，您必須完成[確認加速網路已確實啟用](#confirm-that-accelerated-networking-is-enabled)中的指示動作。
+* *附註：* 可以透過入口網站中啟用僅支援的作業系統。  如果您使用自訂映像，而且您的映像支援加速網路，請建立您的 VM 使用 CLI 或 Powershell。 
 
+建立虛擬機器之後，您可以確認加速網路中的指示會啟用[確認已啟用加速的網路](#confirm-that-accelerated-networking-is-enabled)。
+
+## <a name="cli-creation"></a>CLI 建立
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
 請安裝最新的 [Azure CLI](/cli/azure/install-azure-cli)，並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myNic* 和 *myVm*。

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 5a9684605de9af1cd9006810d595ae846db01661
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976241"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531947"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>在 Grafana 中從 Azure 資料總管將資料視覺化
 
@@ -23,7 +23,7 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
 若要完成本操作說明，您需要下列項目：
 
-* 適用於您作業系統的 [Grafana 5.3.0 版或更新版本](http://docs.grafana.org/installation/)
+* 適用於您作業系統的 [Grafana 5.3.0 版或更新版本](https://docs.grafana.org/installation/)
 
 * 適用於 Grafana 的 [Azure 資料總管外掛程式](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation)
 
@@ -205,7 +205,7 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
     ![已完成的圖表](media/grafana/finished-graph.png)
 
-1. 在最上層功能表中，選取儲存圖示： ![[儲存] 圖示](media/grafana/save-icon.png).
+1. 在最上層功能表中，選取儲存圖示： ![[儲存] 圖示](media/grafana/save-icon.png)上也提供本文中使用的原始碼。
 
 ## <a name="next-steps"></a>後續步驟
 

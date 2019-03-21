@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d620701bc8590bee746be35f69b0da890c359601
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092373"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>教學課程：設定 Samanage 來自動佈建使用者
 
@@ -108,9 +108,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 5. 在 [管理員認證] 區段下，輸入 Samanage 帳戶的 [管理員使用者名稱] 和 [管理員密碼]。 這些值的範例如下：
 
-    *   在 [管理員使用者名稱] 欄位中，填入 Samanage 租用戶管理員帳戶的使用者名稱。 範例： admin@contoso.com.
+   * 在 [管理員使用者名稱] 欄位中，填入 Samanage 租用戶管理員帳戶的使用者名稱。 範例： admin@contoso.com.
 
-    *   在 [管理員密碼] 欄位中，填入與管理員使用者名稱相對應的系統管理員帳戶密碼。
+   * 在 [管理員密碼] 欄位中，填入與管理員使用者名稱相對應的系統管理員帳戶密碼。
 
 6. 如步驟 5 所示填入欄位後，按一下 [測試連線] 以確認 Azure AD 可連線至 Samanage。 如果連線失敗，請確定您的 Samanage 帳戶具有管理員權限，然後再試一次。
 

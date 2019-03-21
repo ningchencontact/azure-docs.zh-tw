@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792776"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076797"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用擴充的 Apache Spark 記錄伺服器對 Apache Spark 應用程式進行偵錯和診斷
 
@@ -106,11 +106,11 @@ ms.locfileid: "53792776"
 
 + 按一下 [播放] 按鈕可播放作業，而按一下 [停止] 按鈕可隨時停止。 播放時，工作會以不同色彩來顯示，以表示不同狀態：
 
-    + 綠色表示成功：作業已成功完成。
-    + 橘色表示重試：失敗但不會影響作業最終結果的工作執行個體。 這些工作有之後可能會成功的重複或重試執行個體。
-    + 藍色表示執行中：工作正在執行中。
-    + 白色表示等候中或已略過：工作正在等候執行，或已略過該階段。
-    + 紅色表示失敗：工作失敗。
+  + 綠色表示成功：作業已成功完成。
+  + 橘色表示重試：失敗但不會影響作業最終結果的工作執行個體。 這些工作有之後可能會成功的重複或重試執行個體。
+  + 藍色表示執行中：工作正在執行中。
+  + 白色表示等候中或已略過：工作正在等候執行，或已略過該階段。
+  + 紅色表示失敗：工作失敗。
 
     ![正在執行的圖表色彩範例](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ ms.locfileid: "53792776"
     ![圖表工具提示](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + 在 [作業圖表] 索引標籤中，若階段有符合以下條件的工作，將會顯示工具提示與小圖示：
-    + 資料扭曲：資料讀取大小 > 此階段中所有工作的平均資料讀取大小 * 2，且資料讀取大小 > 10 MB。
-    + 時間扭曲：執行時間 > 此階段所含所有工作的平均執行時間 * 2，且執行時間 > 2 分鐘。
+  + 資料扭曲：資料讀取大小 > 此階段中所有工作的平均資料讀取大小 * 2，且資料讀取大小 > 10 MB。
+  + 時間扭曲：執行時間 > 此階段所含所有工作的平均執行時間 * 2，且執行時間 > 2 分鐘。
 
     ![圖表扭曲圖示](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + 作業圖表節點會顯示每個階段的下列資訊：
-    + 識別碼。
-    + 名稱或描述。
-    + 工作總數。
-    + 讀取的資料：輸入大小和隨機讀取大小的總和。
-    + 寫入的資料：輸出大小和隨機寫入大小的總和。
-    + 執行時間：第一次嘗試開始時和最後一次嘗試完成時之間的時間。
-    + 資料列計數：輸入記錄、輸出記錄、隨機讀取記錄和隨機寫入記錄的總和。
-    + 進度。
+  + 識別碼。
+  + 名稱或描述。
+  + 工作總數。
+  + 讀取的資料：輸入大小和隨機讀取大小的總和。
+  + 寫入的資料：輸出大小和隨機寫入大小的總和。
+  + 執行時間：第一次嘗試開始時和最後一次嘗試完成時之間的時間。
+  + 資料列計數：輸入記錄、輸出記錄、隨機讀取記錄和隨機寫入記錄的總和。
+  + 進度。
 
     > [!NOTE]  
     > 根據預設，作業圖表節點會顯示每個階段 (不包括階段執行時間) 最後一次嘗試時的資訊 ，但是播放期間的圖表節點會顯示每一次嘗試的資訊。
@@ -312,10 +312,10 @@ ms.locfileid: "53792776"
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + 核取 [標頭] 和 [背景工作角色]。
-    + **參數**：設定 Bash 使用量後方的參數。
+   + 核取 [標頭] 和 [背景工作角色]。
+   + **參數**：設定 Bash 使用量後方的參數。
 
-    ![上傳記錄或升級 hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![上傳記錄或升級 hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>已知問題

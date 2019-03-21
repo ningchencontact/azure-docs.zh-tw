@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16caf8b6fd48b5dca676b1c8ee046ad01264ca03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211422"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294501"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>組織中的使用者如何將來賓使用者邀請到應用程式
 
@@ -36,15 +37,15 @@ ms.locfileid: "56211422"
 1. 移至 `https://myapps.microsoft.com` 來開啟您的存取面板。
 2. 指向應用程式、選取省略符號 (**...**)，然後選取 [管理應用程式]。
  
-   ![存取面板的管理應用程式](media/add-users-iw/access-panel-manage-app.png)
+   ![顯示 Salesforce 應用程式的管理應用程式子功能表的螢幕擷取畫面](media/add-users-iw/access-panel-manage-app.png)
  
 3. 在使用者清單的最上方，選取 [+]。
    
-   ![存取面板 - 新增使用者](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![顯示的加號來新增成員至應用程式螢幕擷取畫面](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. 在 [新增成員] 搜尋方塊中，輸入來賓使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。
    
-   ![存取面板 - 邀請](media/add-users-iw/access-panel-invitation.png)
+   ![顯示 加入螢幕擷取畫面新增來賓成員視窗](media/add-users-iw/access-panel-invitation.png)
    
 5. 選取 [新增]，將邀請傳送給來賓使用者。 在傳送邀請之後，系統就會自動將使用者帳戶以來賓身分新增至目錄。
 
@@ -55,19 +56,19 @@ ms.locfileid: "56211422"
 2. 移至 `https://myapps.microsoft.com` 來開啟您的存取面板。
 3. 選取 [群組] 應用程式。
    
-   ![存取面板 - 群組應用程式](media/add-users-iw/access-panel-groups.png)
+   ![存取面板中顯示的群組應用程式螢幕擷取畫面](media/add-users-iw/access-panel-groups.png)
    
 4. 在 [我擁有的群組] 底下，選取有權存取您想要共用之應用程式的群組。
    
-   ![存取面板 - 我擁有的群組](media/add-users-iw/access-panel-groups-i-own.png)
+   ![螢幕擷取畫面顯示如何選取下 我擁有的群組的群組](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. 在群組成員清單的最上方，選取 [+]。
    
-   ![存取面板 - 群組 - 新增成員](media/add-users-iw/access-panel-groups-add-member.png)
+   ![顯示的加號來新增成員至群組螢幕擷取畫面](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. 在 [新增成員] 搜尋方塊中，輸入來賓使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。
    
-   ![存取面板 - 群組 - 邀請](media/add-users-iw/access-panel-invitation.png)
+   ![顯示 加入螢幕擷取畫面新增來賓成員視窗](media/add-users-iw/access-panel-invitation.png)
    
 7. 選取 [新增] 即可自動傳送邀請給來賓使用者。 在傳送邀請之後，系統就會自動將使用者帳戶以來賓身分新增至目錄。
 

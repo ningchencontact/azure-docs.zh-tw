@@ -2,24 +2,24 @@
 title: 改善資料行存放區索引效能 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 減少記憶體需求或增加可用的記憶體，以最大化壓縮到每個資料列群組之資料行存放區索引的資料列數目。
 services: sql-data-warehouse
-author: ckarst
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/18/2019
+ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189558"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化資料行存放區的資料列群組品質
 
-資料列群組品質取決於資料列群組中的資料列數目。 減少記憶體需求或增加可用的記憶體，以最大化壓縮到每個資料列群組之資料行存放區索引的資料列數目。  使用這些方法來改善壓縮率和查詢資料行存放區索引的效能。
+資料列群組品質取決於資料列群組中的資料列數目。 增加可用的記憶體可以最大化壓縮到每個資料列群組的資料行存放區索引的資料列數目。  使用這些方法來改善壓縮率和查詢資料行存放區索引的效能。
 
 ## <a name="why-the-rowgroup-size-matters"></a>為什麼資料列群組很重要
 因為資料行存放區索引會藉由掃描個別資料列群組的資料行區段來掃描資料表，最大化每個資料列群組的資料列數目可以提升查詢效能。 當資料列群組會有大量的資料列時，可改善資料壓縮，這表示從磁碟讀取的資料比較少。
@@ -35,11 +35,11 @@ ms.locfileid: "55463356"
 
 當記憶體不足，無法將至少 10,000 個資料列壓縮到每個資料列群組時，SQL 資料倉儲會產生錯誤。
 
-如需有關大量載入的詳細資訊，請參閱[大量載入叢集資料行存放區索引](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index)。
+如需有關大量載入的詳細資訊，請參閱[大量載入叢集資料行存放區索引](https://msdn.microsoft.com/library/dn935008.aspx#Bulk )。
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>如何監視資料列群組品質
 
-有一個 DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) 會公開一些實用資訊，例如資料列群組中的資料列數目，以及如果發生修剪，則修剪原因為何。 您可以建立下列檢視，並將其作為查詢這個 DMV 以取得有關資料列群組修剪資訊的便利方法。
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)包含檢視定義比對到 SQL 資料倉儲的 SQL DB)，公開一些實用資訊例如在資料列群組] 和 [如果那里已修剪原因中的資料列數目。 您可以建立下列檢視，並將其作為查詢這個 DMV 以取得有關資料列群組修剪資訊的便利方法。
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -137,14 +137,6 @@ DWU 大小和使用者資源類別會共同判斷有多少記憶體可供使用�
 
 - 若要增加 DWU，請參閱[如何調整效能？](quickstart-scale-compute-portal.md)
 - 若要變更查詢的資源類別，請參閱[變更使用者資源類別的範例](resource-classes-for-workload-management.md#change-a-users-resource-class)。
-
-例如，在 DWU 100 上，smallrc 資源類別中的使用者每個散發可以使用 100 MB 的記憶體。 如需詳細資訊，請參閱 [SQL 資料倉儲中的並行存取](resource-classes-for-workload-management.md)。
-
-假設您決定您需要 700 MB 的記憶體，以取得高品質的資料列群組大小。 下列範例會示範如何使用足夠的記憶體執行載入查詢。
-
-- 使用 DWU 1000 和 mediumrc，記憶體授權為 800 MB
-- 使用 DWU 600 和 largerc，記憶體授權為 800 MB。
-
 
 ## <a name="next-steps"></a>後續步驟
 

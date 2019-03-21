@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: afa927009e684fa7f8c6217c91dcb589b331b5f5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224168"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58163781"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>如何新增預先定型的實體
 本教學課程說明如何將預先定型的實體新增至對話學習模組模型。
@@ -35,50 +35,49 @@ ms.locfileid: "55224168"
 
 ## <a name="steps"></a>步驟
 
+在 Web UI 中的首頁開始。
+
 ### <a name="create-the-model"></a>建立模型
 
-1. 在 Web UI 中，按一下 [新增模型]。
-2. 在 [名稱] 欄位中輸入 "PretrainedEntities"，並按 Enter 鍵。
-3. 按一下 [建立] 按鈕。
+1. 選取 **新的模型**。
+2. 請輸入**PretrainedEntities** for**名稱**。
+3. 選取 [建立] 。
 
 ### <a name="entity-creation"></a>建立實體
 
-1. 在左面板中按一下 [實體]，然後按 [新增實體] 按鈕。
-2. 選取 [預先定型/datetimeV2] 作為 [實體類型]。
-3. 勾選 [多重值] 核取方塊。
-    - 多重值實體會在實體中累積一或多個值。
-    - 預先定型的實體會停用 Negatable 屬性。
-4. 按一下 [建立] 按鈕。
+1. 選取 **實體**在左窗格中，然後**新實體**。
+2. 選取 **前 Trained/datetimeV2** for**實體類型**。
+3. 請檢查**多重值**啟用實體累積一或多個值。 請注意，無法 negatable Pre-Trained 實體。
+4. 選取 [建立] 。
 
-![](../media/tutorial7_entities_a.PNG)
+![](../media/T08_entity_create.png)
 
-### <a name="create-the-first-action"></a>建立第一個動作
+1. 選取 **動作**在左窗格中，然後**新動作**。
+2. 請輸入**的日期是 $builtin-datetimev2**如**機器人的回應...**.
+3. 選取 [建立] 。
 
-1. 在左面板中按一下 [動作]，然後按 [新增動作] 按鈕。
-2. 在 [聊天機器人的回應...] 欄位中，輸入 "The date is $builtin-datetimev2" (日期是 $builtin-datetimev2)
-3. 按一下 [建立] 按鈕。
-
-![](../media/tutorial7_actions_a.PNG)
+![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>建立第二個動作
 
-1. 在左面板中按一下 [動作]，然後按 [新增動作] 按鈕。
-2. 在 [聊天機器人的回應...] 欄位中，輸入 "What's the date?" (日期為何？)
-    - 預先定型的實體不可以是必要實體，因為依預設對所有使用者語句都會辨識這些實體。
-3. 在 [不合格的實體] 欄位中，輸入 "builtin-datetimev2"。
-4. 按一下 [建立] 按鈕。
+1. 選取 **動作**在左窗格中，然後**新動作**。
+2. 請輸入**什麼是日期？** 如**機器人的回應...**.預先定型的實體不能**所需的實體**因為預設會針對所有的發音都辨識。
+3. 請輸入**builtin datetimev2** for **Disqualifying 享有**。
+4. 選取 [建立] 。
 
-![](../media/tutorial7_actions2_a.PNG)
+![](../media/T08_action_create_2.png)
 
 ### <a name="train-the-model"></a>訓練模型
 
-1. 在左面板中按一下 [訓練對話]，然後按 [新增訓練對話] 按鈕。
-2. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "hello" (您好)。
-3. 按一下 [評分動作] 按鈕。
-4. 選取回應：「日期為何？」
-5. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "today" (今天)
-    - LUIS 中預先定型的模型會自動辨識今天的語句。
+1. 選取 **定型對話方塊**在左窗格中，然後**新的訓練對話方塊**。
+2. 請輸入**hello**針對使用者的 utterance 左側的對談 面板中。
+3. 選取 **評分動作**。
+4. 選取 **什麼是日期？** 從動作清單
+5. 請輸入**今天**針對使用者的 utterance 左側的對談 面板中。
+    - **今天**LUIS 上預先定型的模型會自動辨識 [utterance]。
     - 將滑鼠停留預先定型的實體值上方，會顯示 LUIS 所提供的其他資料。
+
+![](../media/T08_training.png)
 
 ## <a name="next-steps"></a>後續步驟
 

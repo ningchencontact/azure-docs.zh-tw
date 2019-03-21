@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 21294f61c77f0267601c5d0fc1fc9dcf213008e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186968"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258815"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>將 Operations Manager 連接到 Log Analytics
 若要維護 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) 中的現有投資，並使用 Log Analytics 的延伸功能，您可以整合 Operations Manager 與 Log Analytics 工作區。 這可讓您利用 Log Analytics 的機會，同時繼續使用 Operations Manager：
@@ -132,7 +132,7 @@ ms.locfileid: "53186968"
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
 1. 展開 Operations Management Suite，然後按一下 [連接] 。
 1. 在 [OMS 連線] 檢視中，按一下 [設定 Proxy 伺服器] 。
-1. 在 [Operations Management Suite 精靈:Proxy 伺服器] 頁面上，選取 [使用 Proxy 伺服器來存取 Operations Management Suite]，然後輸入具有連接埠號碼的 URL (例如， http://corpproxy:80)，然後按一下 [完成]。
+1. 在 Operations Management Suite 精靈:**Proxy 伺服器**頁面上，選取**使用 proxy 伺服器來存取 Operations Management Suite**，然後輸入具有連接埠號碼的 URL，例如 http:\//corpproxy:80，然後按一下**完成**。
 
 如果 Proxy 伺服器需要驗證，請執行下列步驟來設定認證和設定，這些需要傳播到管理群組中向 Log Analytics 回報的受控電腦。
 

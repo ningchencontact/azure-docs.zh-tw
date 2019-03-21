@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2625b4807d98359b3534b8406182cd7bed194746
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 45baf915ffbc2723d3ed5b4c4dcd96b583a12802
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882398"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122398"
 ---
 # <a name="translator-text-api-30-languages"></a>翻譯工具文字 API 3.0：Languages
 
@@ -34,7 +34,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">查詢參數</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>api-version</td>
     <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
@@ -49,7 +49,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>Accept-Language</td>
     <td>*選擇性要求標頭*。<br/>用於使用者介面字串的語言。 回應中的某些欄位是語言名稱或區域名稱。 您可以使用此參數來定義傳回這些名稱的語言。 提供語式正確的的 BCP 47 語言標記即可指定語言。 舉例而言，值 `fr` 可要求傳回法文名稱，使用值 `zh-Hant` 則可要求繁體中文的名稱。<br/>未指定目標語言或無法進行當地語系化時，會提供英文名稱。
@@ -97,11 +97,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `translation` 屬性的值是 (金鑰、值) 組的字典。 每個金鑰均為 BCP 47 語言標記。 金鑰可識別文字翻譯的目標語言或來源語言。 與金鑰相關聯的值是 JSON 物件，其屬性描述了該語言：
 
-  * `name`：顯示 `Accept-Language` 標頭所要求的地區設定語言名稱。
+  * `name`:顯示 `Accept-Language` 標頭所要求的地區設定語言名稱。
 
-  * `nativeName`：以該語言的原文顯示語言名稱。
+  * `nativeName`:以該語言的原文顯示語言名稱。
 
-  * `dir`：文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
+  * `dir`:文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
 
   範例如下：
           
@@ -123,21 +123,21 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `transliteration` 屬性的值是 (金鑰、值) 組的字典。 每個金鑰均為 BCP 47 語言標記。 金鑰可識別出能在字集間轉換的文字的語言。 與金鑰相關聯的值是 JSON 物件，其屬性描述了該語言及其支援的字集：
 
-  * `name`：顯示 `Accept-Language` 標頭所要求的地區設定語言名稱。
+  * `name`:顯示 `Accept-Language` 標頭所要求的地區設定語言名稱。
 
-  * `nativeName`：以該語言的原文顯示語言名稱。
+  * `nativeName`:以該語言的原文顯示語言名稱。
 
-  * `scripts`：要轉換的字集清單。 `scripts` 清單的每個元素均有屬性：
+  * `scripts`:要轉換的字集清單。 `scripts` 清單的每個元素均有屬性：
 
-    * `code`：識別字集的代碼。
+    * `code`:識別字集的代碼。
 
-    * `name`：顯示 `Accept-Language` 標頭所要求的地區設定字集名稱。
+    * `name`:顯示 `Accept-Language` 標頭所要求的地區設定字集名稱。
 
-    * `nativeName`：以該語言的原文顯示語言名稱。
+    * `nativeName`:以該語言的原文顯示語言名稱。
 
-    * `dir`：文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
+    * `dir`:文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
 
-    * `toScripts`：可用於轉換文字的目標字集清單。 `toScripts` 清單的每個元素均有 `code`、`name`、`nativeName` 和 `dir` 屬性，如先前所述。
+    * `toScripts`:可用於轉換文字的目標字集清單。 `toScripts` 清單的每個元素均有 `code`、`name`、`nativeName` 和 `dir` 屬性，如先前所述。
 
   範例如下：
 
@@ -188,21 +188,21 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `dictionary` 屬性的值是 (金鑰、值) 組的字典。 每個金鑰均為 BCP 47 語言標記。 此金鑰可識別出可提供替代翻譯和反向翻譯的語言。 此值為 JSON 物件，描述了可用翻譯的來源語言和目標語言：
 
-  * `name`：顯示 `Accept-Language` 標頭所要求的地區設定來源語言名稱。
+  * `name`:顯示 `Accept-Language` 標頭所要求的地區設定來源語言名稱。
 
-  * `nativeName`：以該語言的原文顯示語言名稱。
+  * `nativeName`:以該語言的原文顯示語言名稱。
 
-  * `dir`：文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
+  * `dir`:文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
 
-  * `translations`：具有替代翻譯的語言清單，以及以來源語言表示的查詢範例。 `translations` 清單的每個元素均有屬性：
+  * `translations`:具有替代翻譯的語言清單，以及以來源語言表示的查詢範例。 `translations` 清單的每個元素均有屬性：
 
-    * `name`：顯示 `Accept-Language` 標頭所要求的地區設定目標語言名稱。
+    * `name`:顯示 `Accept-Language` 標頭所要求的地區設定目標語言名稱。
 
-    * `nativeName`：以目標語言的原文顯示目標語言名稱。
+    * `nativeName`:以目標語言的原文顯示目標語言名稱。
 
-    * `dir`：文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
+    * `dir`:文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
     
-    * `code`：識別目標語言的語言代碼。
+    * `code`:識別目標語言的語言代碼。
 
   範例如下：
 
@@ -230,7 +230,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>ETag</td>
     <td>所要求之支援語言群組的實體標記目前的值。 為了使後續要求更有效率，用戶端可以在 `If-None-Match` 標頭欄位中傳送 `ETag` 值。
@@ -248,7 +248,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">狀態碼</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>200</td>
     <td>成功。</td>

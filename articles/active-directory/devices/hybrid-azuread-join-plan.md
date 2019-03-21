@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: de80825ccdd331f57dcd31d307196dc0b45b9cc9
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234097"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294581"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>作法：規劃混合式 Azure Active Directory Join 實作
 
@@ -41,6 +41,8 @@ ms.locfileid: "56234097"
 
 本文假設您熟悉 [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)。
 
+>[!NOTE]
+>  需要的最低網域功能和樹系功能等級為 Windows 10 的混合式 Azure AD join 是 Windows Server 2008 R2。 在較低版本上，使用者可能不會收到主要重新整理權杖期間因為 LSA 問題的 Windows 登入 
 
 ## <a name="plan-your-implementation"></a>計劃您的實作
 
@@ -92,7 +94,7 @@ ms.locfileid: "56234097"
 
 如果您的環境是由單一樹系組成，而該樹系已將身分識別資料同步處理到多個 Azure AD 租用戶，您就無法使用混合式 Azure AD Join。
 
-如果您使用的是系統準備工具 (Sysprep)，請確定您用來建立映像的 Windows 安裝尚未針對混合式 Azure AD Join 進行設定。
+如果您依賴系統準備工具 (Sysprep)，請確定映像建立的 Windows 10 1803年的安裝，或先前尚未設定的混合式 Azure AD join。
 
 如果您依賴虛擬機器 (VM) 快照集來建立其他 VM，請確定您使用的 VM 快照集尚未針對混合式 Azure AD Join 進行設定。
 
@@ -114,8 +116,10 @@ ms.locfileid: "56234097"
 
 如果您已加入網域的 Windows 10 裝置已向租用戶[註冊 Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices)，我們強烈建議您先移除該狀態，再啟用混合式 Azure AD Join。 自 Windows 10 1809 版起，我們已進行下列變更以避免這種雙重狀態： 
  - 在裝置加入混合式 Azure AD 之後，就會自動移除任何現有的 Azure AD 註冊狀態。 
- - 您可以加入下列登錄機碼，以防止已加入網域的裝置註冊 Azure AD - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
+ - 您可以防止您加入的網域的裝置 Azure AD 註冊加入此登錄機碼-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin，「 BlockAADWorkplaceJoin"= dword: 00000001。
+ - 這項變更現在可供 Windows 10 1803年發行 KB4489894。
 
+混合式 Azure AD join 時，不支援 FIPS 相容的 Tpm。 如果您的裝置有 FIPS 相容的 Tpm，您必須進行混合式 Azure AD 聯結之前，先停用它們。 Microsoft 不提供任何工具對 Tpm 中停用 FIPS 模式，因為它是取決於 TPM 製造商。 請如需支援，連絡您的硬體 OEM。
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>檢閱如何控制裝置的混合式 Azure AD Join
 
@@ -159,7 +163,7 @@ ms.locfileid: "56234097"
  
 下表提供有關在 Windows 10 混合式 Azure AD Join 中支援這些內部部署 AD UPN 的詳細資料
 
-|內部部署 AD UPN 的類型|網域類型|Windows 10 版本|說明|
+|內部部署 AD UPN 的類型|網域類型|Windows 10 版本|描述|
 |-----|-----|-----|-----|
 |路由式|同盟 |自 1703 版起|正式推出|
 |路由式|受控|自 1709 版起|目前處於個人預覽狀態。 不支援 Azure AD SSPR |

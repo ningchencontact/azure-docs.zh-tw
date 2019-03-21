@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: af85600593e725f1d90d5fbb3aae2aab6dd3f367
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 658f38e32c2680e7c538147154a004359e431027
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114445"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246741"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure 資訊安全中心疑難排解指南
 本指南適用於組織目前採用 Azure 資訊安全中心，且需要針對資訊安全中心相關問題進行疑難排解的資訊技術 (IT) 專業人員、資訊安全性分析師和雲端系統管理員。
@@ -40,7 +40,7 @@ ms.locfileid: "56114445"
 稽核記錄檔包含在您的資源上執行的所有寫入作業 (PUT、POST、DELETE)，但不包含讀取作業 (GET)。
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analytics 服務所使用的相同代理程式) 從 Azure 虛擬機器收集安全性資料。 啟用資料收集且代理程式已正確安裝在目標電腦之後，以下處理序應在執行中︰
+資訊安全中心使用 Microsoft Monitoring Agent – 這是從您的 Azure 虛擬機器收集安全性資料的 Azure 監視器服務所使用的相同代理程式。 啟用資料收集且代理程式已正確安裝在目標電腦之後，以下處理序應在執行中︰
 
 * HealthService.exe
 
@@ -67,7 +67,7 @@ ms.locfileid: "56114445"
 ## 監視代理程式健康情況問題<a name="mon-agent"></a>
 [監視狀態] 可定義資訊安全中心無法成功監視為了自動佈建而初始化之 VM 和電腦的原因。 下表顯示 [監視狀態] 值、描述和解決步驟。
 
-| 監視狀態 | 說明 | 解決步驟 |
+| 監視狀態 | 描述 | 解決步驟 |
 |---|---|---|
 | 擱置代理程式安裝 | Microsoft Monitoring Agent 安裝仍在執行中。  安裝作業可能需要多達數小時的時間。 | 等到自動安裝完成為止。 |
 | 電源為關閉狀態 | VM 已停止。  Microsoft Monitoring Agent 只能安裝於執行中的 VM。 | 重新啟動 VM。 |
@@ -91,10 +91,10 @@ ms.locfileid: "56114445"
 
 | 代理程式資源 | 連接埠 | 略過 HTTPS 檢查 |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | yes |
-| *.oms.opinsights.azure.com | 443 | yes |
-| *.blob.core.windows.net | 443 | yes |
-| *.azure-automation.net | 443 | yes |
+| *.ods.opinsights.azure.com | 443 | 是 |
+| *.oms.opinsights.azure.com | 443 | 是 |
+| *.blob.core.windows.net | 443 | 是 |
+| *.azure-automation.net | 443 | 是 |
 
 如果您遇到代理程式的登入問題，請務必閱讀[如何針對 Operations Management Suite 登入問題進行疑難排解](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)一文。
 
@@ -123,7 +123,7 @@ ms.locfileid: "56114445"
 ![Microsoft 支援服務](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 在本文件中，您已了解如何在「Azure 資訊安全中心」設定安全性原則。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md) — 了解如何規劃及了解採用 Azure 資訊安全中心的設計考量。

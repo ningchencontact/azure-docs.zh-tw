@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.subservice: files
-ms.openlocfilehash: ee6f2c46bf8faa04cbb16f463d12991ee83d8603
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a0937de97d858084433f969f1f6d4bdb2ae9e3fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457696"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893555"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -34,12 +34,12 @@ ms.locfileid: "55457696"
 > 由於 Azure 檔案服務可透過 SMB 存取，因此您可以使用標準 C++ I/O 類別和函式撰寫簡單的應用程式，以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 C++ SDK 的應用程式，其會使用 [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) 與 Azure 檔案服務通訊。
 
 ## <a name="create-a-c-application"></a>建立 C++ 應用程式
-若要建置範例，您必須安裝適用於 C++ 的 Azure 儲存體用戶端程式庫 2.4.0。 您也應該建立 Azure 儲存體帳戶。
+若要建置範例，您必須安裝適用於 C++ 的 Azure 儲存體用戶端程式庫 2.4.0。 此外，应该已经创建了一个 Azure 存储帐户。
 
 若要安裝適用於 C++ 的 Azure 儲存體用戶端 2.4.0，您可以使用下列其中一個方法：
 
 * **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。
-* **Windows：** 在 Visual Studio 中，按一下 [工具]&gt;[NuGet 套件管理員]&gt;[套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
+* **Windows：** 在 Visual Studio 中，按一下 [工具]&gt;[NuGet 套件管理員]&gt;[套件管理員主控台]。 在 [NuGet 套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
   
 ```
 Install-Package wastorage
@@ -58,7 +58,7 @@ Install-Package wastorage
 
 ```cpp
 // Define the connection-string with your values.
-const utility::string_t 
+const utility::string_t
 storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
@@ -66,8 +66,8 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 您可以使用 **cloud_storage_account** 類別來代表儲存體帳戶資訊。 若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 **parse** 方法。
 
 ```cpp
-// Retrieve storage account from connection string.    
-azure::storage::cloud_storage_account storage_account = 
+// Retrieve storage account from connection string.
+azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
@@ -76,7 +76,7 @@ Azure 檔案共用中的所有檔案和目錄都位於名為 **Share** 的容器
 
 ```cpp
 // Create the Azure Files client.
-azure::storage::cloud_file_client file_client = 
+azure::storage::cloud_file_client file_client =
   storage_account.create_cloud_file_client();
 ```
 
@@ -84,26 +84,26 @@ azure::storage::cloud_file_client file_client =
 
 ```cpp
 // Get a reference to the file share
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 ```
 
 若要建立共用，請使用 **cloud_file_share** 物件的 **create_if_not_exists** 方法。
 
 ```cpp
-if (share.create_if_not_exists()) {    
-    std::wcout << U("New share created") << std::endl;    
+if (share.create_if_not_exists()) {
+    std::wcout << U("New share created") << std::endl;
 }
 ```
 
 目前，**共用**會將參考保留至名為 **my-sample-share** 的共用。
 
 ## <a name="delete-an-azure-file-share"></a>刪除 Azure 檔案共用
-刪除共用可以藉由在 cloud_file_share 物件上呼叫 **delete_if_exists** 方法來完成。 以下是執行該作業的範例程式碼。
+刪除共用可以藉由在 cloud_file_share 物件上呼叫 **delete_if_exists** 方法來完成。 以下是具有此类功能的示例代码。
 
 ```cpp
 // Get a reference to the share.
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
 // delete the share if exists
@@ -121,7 +121,7 @@ azure::storage::cloud_file_directory directory = share.get_directory_reference(_
 directory.create_if_not_exists();
 
 // Create a subdirectory.
-azure::storage::cloud_file_directory subdirectory = 
+azure::storage::cloud_file_directory subdirectory =
   directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
 subdirectory.create_if_not_exists();
 ```
@@ -131,11 +131,11 @@ subdirectory.create_if_not_exists();
 
 ```cpp
 // Get a reference to the share.
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
 // Get a reference to the directory.
-azure::storage::cloud_file_directory directory = 
+azure::storage::cloud_file_directory directory =
   share.get_directory_reference(_XPLATSTR("my-sample-directory"));
 
 // Get a reference to the subdirectory you want to delete.
@@ -155,7 +155,7 @@ directory.delete_directory_if_exists();
 
 ```cpp
 //Get a reference to the root directory for the share.
-azure::storage::cloud_file_directory root_dir = 
+azure::storage::cloud_file_directory root_dir =
   share.get_root_directory_reference();
 
 // Output URI of each item.
@@ -170,7 +170,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
     else if (it->is_file())
     {
         ucout << "File: " << it->as_file().uri().primary_uri().to_string() << std::endl;
-    }        
+    }
 }
 ```
 
@@ -188,38 +188,38 @@ azure::storage::cloud_file_directory root_dir = share.get_root_directory_referen
 
 ```cpp
 // Upload a file from a stream.
-concurrency::streams::istream input_stream = 
+concurrency::streams::istream input_stream =
   concurrency::streams::file_stream<uint8_t>::open_istream(_XPLATSTR("DataFile.txt")).get();
 
-azure::storage::cloud_file file1 = 
+azure::storage::cloud_file file1 =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
 file1.upload_from_stream(input_stream);
 
 // Upload some files from text.
-azure::storage::cloud_file file2 = 
+azure::storage::cloud_file file2 =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
 file2.upload_text(_XPLATSTR("more text"));
 
 // Upload a file from a file.
-azure::storage::cloud_file file4 = 
+azure::storage::cloud_file file4 =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
-file4.upload_from_file(_XPLATSTR("DataFile.txt"));    
+file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
-## <a name="download-a-file"></a>下載檔案
+## <a name="download-a-file"></a>下载文件
 若要下載檔案，請先擷取檔案參考，然後呼叫 **download_to_stream** 方法將檔案內容傳輸到您可接著保留在本機檔案的串流物件。 或者，您可以使用 **download_to_file** 方法，將檔案內容下載到本機檔案。 您可以使用 **download_text** 方法，將檔案內容當成文字字串下載。
 
 下列範例使用 **download_to_stream** 和 **download_text** 方法，示範如何下載前幾節中所建立的檔案。
 
 ```cpp
 // Download as text
-azure::storage::cloud_file text_file = 
+azure::storage::cloud_file text_file =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
 utility::string_t text = text_file.download_text();
 ucout << "File Text: " << text << std::endl;
 
 // Download as a stream.
-azure::storage::cloud_file stream_file = 
+azure::storage::cloud_file stream_file =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
 
 concurrency::streams::container_buffer<std::vector<uint8_t>> buffer;
@@ -235,14 +235,14 @@ outfile.close();
 另一個常見的 Azure 檔案服務作業是刪除檔案。 下列程式碼會刪除名為 my-sample-file-3 且儲存在根目錄底下的檔案。
 
 ```cpp
-// Get a reference to the root directory for the share.    
-azure::storage::cloud_file_share share = 
+// Get a reference to the root directory for the share.
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
-azure::storage::cloud_file_directory root_dir = 
+azure::storage::cloud_file_directory root_dir =
   share.get_root_directory_reference();
 
-azure::storage::cloud_file file = 
+azure::storage::cloud_file file =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
 
 file.delete_file_if_exists();
@@ -257,15 +257,15 @@ file.delete_file_if_exists();
 
 ```cpp
 // Parse the connection string for the storage account.
-azure::storage::cloud_storage_account storage_account = 
+azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 // Create the file client.
-azure::storage::cloud_file_client file_client = 
+azure::storage::cloud_file_client file_client =
   storage_account.create_cloud_file_client();
 
 // Get a reference to the share.
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 if (share.exists())
 {
@@ -279,21 +279,21 @@ if (share.exists())
 }
 ```
 
-## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>產生檔案或檔案共用的共用存取簽章
+## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>为文件或文件共享生成共享访问签名
 您可以為檔案共用或個別檔案產生共用存取簽章 (SAS)。 您也可以在檔案共用上建立共用存取原則，以管理共用存取簽章。 建議您建立共用存取原則，因為如果必須洩漏 SAS，它提供了一種撤銷 SAS 的方式。
 
 下列範例會在共用上建立共用存取原則，然後使用該原則為共用中檔案上的 SAS 提供條件約束。
 
 ```cpp
 // Parse the connection string for the storage account.
-azure::storage::cloud_storage_account storage_account = 
+azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 // Create the file client and get a reference to the share
-azure::storage::cloud_file_client file_client = 
+azure::storage::cloud_file_client file_client =
   storage_account.create_cloud_file_client();
 
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
 if (share.exists())
@@ -301,18 +301,18 @@ if (share.exists())
     // Create and assign a policy
     utility::string_t policy_name = _XPLATSTR("sampleSharePolicy");
 
-    azure::storage::file_shared_access_policy sharedPolicy = 
+    azure::storage::file_shared_access_policy sharedPolicy =
       azure::storage::file_shared_access_policy();
 
     //set permissions to expire in 90 minutes
-    sharedPolicy.set_expiry(utility::datetime::utc_now() + 
+    sharedPolicy.set_expiry(utility::datetime::utc_now() +
        utility::datetime::from_minutes(90));
 
     //give read and write permissions
     sharedPolicy.set_permissions(azure::storage::file_shared_access_policy::permissions::write | azure::storage::file_shared_access_policy::permissions::read);
 
     //set permissions for the share
-    azure::storage::file_share_permissions permissions;    
+    azure::storage::file_share_permissions permissions;
 
     //retrieve the current list of shared access policies
     azure::storage::shared_access_policies<azure::storage::file_shared_access_policy> policies;
@@ -325,23 +325,23 @@ if (share.exists())
     share.upload_permissions(permissions);
 
     //Retrieve the root directory and file references
-    azure::storage::cloud_file_directory root_dir = 
+    azure::storage::cloud_file_directory root_dir =
         share.get_root_directory_reference();
-    azure::storage::cloud_file file = 
+    azure::storage::cloud_file file =
       root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
 
-    // Generate a SAS for a file in the share 
-    //  and associate this access policy with it.        
+    // Generate a SAS for a file in the share
+    //  and associate this access policy with it.
     utility::string_t sas_token = file.get_shared_access_signature(sharedPolicy);
 
-    // Create a new CloudFile object from the SAS, and write some text to the file.        
+    // Create a new CloudFile object from the SAS, and write some text to the file.
     azure::storage::cloud_file file_with_sas(azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()));
-    utility::string_t text = _XPLATSTR("My sample content");        
-    file_with_sas.upload_text(text);        
+    utility::string_t text = _XPLATSTR("My sample content");
+    file_with_sas.upload_text(text);
 
     //Download and print URL with SAS.
-    utility::string_t downloaded_text = file_with_sas.download_text();        
-    ucout << downloaded_text << std::endl;        
+    utility::string_t downloaded_text = file_with_sas.download_text();
+    ucout << downloaded_text << std::endl;
     ucout << azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()).to_string() << std::endl;
 
 }
@@ -352,4 +352,4 @@ if (share.exists())
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [C++ 中的 Azure 儲存體檔案服務範例](https://github.com/Azure-Samples/storage-file-cpp-getting-started) \(英文\)
 * [Azure 儲存體總管](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure 存储文档](https://azure.microsoft.com/documentation/services/storage/)

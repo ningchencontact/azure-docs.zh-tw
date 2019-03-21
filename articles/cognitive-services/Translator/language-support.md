@@ -7,19 +7,19 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: reference
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: d0ab683ac59c17cbae1e0947cd2acd785b0365d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884966"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241562"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
-翻譯工具文字 API 支援以下語言的文字轉文字翻譯。 類神經機器翻譯 (NMT) 是高品質 AI 技術支援機器翻譯的新標準，在具備類神經系統時，若使用翻譯工具文字 API 第 3 版，該新標準將為預設值。 
+翻譯工具文字 API 支援以下語言的文字轉文字翻譯。 類神經機器翻譯 (NMT) 是高品質 AI 技術支援機器翻譯的新標準，在具備類神經系統時，若使用翻譯工具文字 API 第 3 版，該新標準將為預設值。
 
 [深入了解機器翻譯的運作方式](https://www.microsoft.com/translator/mt.aspx)
 
@@ -33,7 +33,7 @@ ms.locfileid: "55884966"
 * 類神經預設值：類神經是預設翻譯系統。 使用 `category=smt` 參數存取搭配 Microsoft Translator Hub 使用的統計系統。
 * 僅限類神經：僅可使用類神經翻譯。
 
-**V3 Translator API** V3 Translator API 預設為類神經架構，而統計系統僅適用於沒有類神經系統存在時。 「自訂翻譯」只能搭配類神經語言使用。 
+**V3 Translator API** V3 Translator API 預設為類神經架構，而統計系統僅適用於沒有類神經系統存在時。 「自訂翻譯」只能搭配類神經語言使用。 [檢視自訂轉譯器中目前可用的語言](#customization)。
 
 |語言|  語言代碼|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
@@ -268,7 +268,7 @@ ms.locfileid: "55884966"
 
 ## <a name="customization"></a>自訂
 
-下列語言都可供使用[自訂翻譯](http://aka.ms/CustomTranslator)來進行自訂。
+下列語言版本可供自訂英文使用來回[自訂轉譯器](http://aka.ms/CustomTranslator)。
 
 | 語言    | 語言代碼 |
 |:----------- |:-------------:|

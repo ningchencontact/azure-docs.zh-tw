@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862007"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295278"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM 適用的 Azure 磁碟加密
 
@@ -81,6 +81,7 @@ Microsoft Azure 致力於確保您的資料隱私權和資料主權。 Azure 可
 * 基本層 IaaS VM。
 * 在 Linux IaaS VM 的 OS 磁碟機上停用加密。
 * 在已加密 Linux IaaS VM 之 OS 磁碟機的情況下，於資料磁碟機上停用加密。
+* Linux 虛擬機器擴展的 OS 磁碟機加密設定。
 * 使用傳統 VM 建立方法來建立的 IaaS VM。
 * 在 Linux IaaS VM 上啟用客戶自訂映像加密。
 * 與您的內部部署金鑰管理系統整合。

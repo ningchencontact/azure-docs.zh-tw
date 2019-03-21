@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c3b595e9c4d4b98814d1b68adede97204bf3eb96
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ddc055be45eae923be31d7d11621c9427660bf74
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422723"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818301"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>整合 System Center Configuration Manager 與更新管理
 
@@ -26,7 +26,7 @@ ms.locfileid: "54422723"
 
 * 您必須已將[更新管理解決方案](automation-update-management.md)加入至您的自動化帳戶。
 * 目前由 System Center Configuration Manager 環境所管理的 Windows 伺服器，也需要向也已啟用更新管理解決方案的 Log Analytics 工作區報告。
-* System Center Configuration Manager 目前分支，1606 版和更高版本已啟用此功能。 若要將 Configuration Manager 中央管理網站或獨立主要站台整合與 Log Analytics 整合並匯入集合，請檢閱[將 Configuration Manager 連線至 Log Analytics](../azure-monitor/platform/collect-sccm.md)。  
+* System Center Configuration Manager 目前分支，1606 版和更高版本已啟用此功能。 若要整合 Azure 監視器記錄檔中的 Configuration Manager 管理中心網站或獨立主要站台，並將集合匯入，請檢閱[將 Configuration Manager 連線至 Azure 監視器記錄](../azure-monitor/platform/collect-sccm.md)。  
 * Windows 代理程式如果未從 Configuration Manager 收到任何安全性更新，則必須設定為可與 Windows Server Update Services (WSUS) 伺服器通訊，或必須能夠存取 Microsoft Update。   
 
 您使用現有的 Configuration Manager 環境管理裝載在 Azure IaaS 中用戶端的方式，主要取決於在 Azure 資料中心與您的基礎結構之間具有的連線。 此連線會影響您可能需要對 Configuration Manager 基礎結構進行的任何設計變更，與支援這些必要變更的相關成本。 若要了解繼續之前需要評估哪些規劃考，請檢閱 [Azure 上的 Configuration Manager - 常見問題集](/sccm/core/understand/configuration-manager-on-azure#networking)。

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/04/2018
+ms.date: 02/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3bdc3a91e87f1bbd06ef0181d0042ee618f519c9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4e1dbf408565e78547928047ae2ce2d37ad1a022
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861437"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105119"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>QnA Maker 支援的語言與區域
 
@@ -47,7 +47,7 @@ QnA Maker 會在建立期間自動偵測知識庫的語言，並據以設定分�
 |支援的語言|
 |-----|
 |阿拉伯文|
-|亞美尼亞文|，
+|亞美尼亞文|
 孟加拉文|
 |巴斯克文|
 |保加利亞文|

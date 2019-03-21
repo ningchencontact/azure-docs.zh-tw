@@ -1,6 +1,6 @@
 ---
-title: Azure AD 密碼保護預覽
-description: 禁止使用 Azure AD 密碼保護預覽的內部部署 Active Directory 中的弱式密碼
+title: Azure AD 密碼保護
+description: 禁止使用 Azure AD 密碼保護的內部部署 Active Directory 中的弱式密碼
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fdf308ff6178dcb51ec73e46d43b853f62e7777
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840948"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284863"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>預覽：強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
 
-|     |
-| --- |
-| Azure Active Directory (Azure AD) 密碼保護和自訂的禁用的密碼清單是 Azure AD 的公開預覽功能。 如需預覽版的詳細資訊，請參閱[補充使用條款的 Microsoft Azure 預覽版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。|
-|     |
-
-Azure AD 密碼保護會處於公開預覽狀態，可增強組織中的密碼原則中的新功能。 在內部部署密碼保護，會使用這兩個的全域和自訂禁用密碼清單儲存在 Azure AD。 它會執行相同檢查內部部署為 Azure AD 的雲端架構的變更。
+Azure AD 密碼保護是一項功能，可增強組織中的密碼原則。 在內部部署密碼保護，會使用這兩個的全域和自訂禁用密碼清單儲存在 Azure AD。 它會執行相同檢查內部部署為 Azure AD 的雲端架構的變更。
 
 ## <a name="design-principles"></a>設計原則
 
@@ -62,7 +57,7 @@ DC 代理程式服務從 Azure AD 收到新的密碼原則之後，服務會將�
 
 此 DC 代理程式服務一律會要求在服務啟動新的原則。 DC 代理程式服務啟動之後，它會檢查每小時的目前在本機上可用的原則存在時間。 如果原則超過一小時，DC 代理程式要求新的原則從 Azure AD 中，如先前所述。 如果目前的原則不超過一小時時，DC 代理程式會繼續使用該原則。
 
-下載 Azure AD 密碼保護的密碼原則之後，每當該原則就會是特定租用戶。 換句話說，密碼原則一律是 Microsoft 全域的禁用密碼清單和每一租用戶自訂的禁用密碼清單的組合。
+下載 Azure AD 密碼保護的密碼原則之後，每當該原則是特定租用戶。 換句話說，密碼原則一律是 Microsoft 全域的禁用密碼清單和每一租用戶自訂的禁用密碼清單的組合。
 
 DC 代理程式會透過 TCP 通訊透過 RPC proxy 服務。 Proxy 服務會接聽動態或靜態 RPC 連接埠，視設定而定，這些呼叫。
 

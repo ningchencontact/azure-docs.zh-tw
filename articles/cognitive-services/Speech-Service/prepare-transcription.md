@@ -1,7 +1,7 @@
 ---
-title: 語音服務訓練的轉譯指導方針
+title: 轉譯的指導方針訓練語音服務模型
 titleSuffix: Azure Cognitive Services
-description: 了解如何準備文字，針對語音服務自訂原音和語言模型以及語音字型。
+description: 了解如何準備自訂語音服務的原音和語言模型和語音的文字。
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0d7508ed9cf1807fa05c57a1d60c804af7d2244f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897209"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>使用語音服務的轉譯指導方針
 
 若要自訂 [語音轉換文字] 或 [文字轉換語音]，您必須提供文字以及語音。 每一行文字都會對應至單一語句。 文字應該盡可能完全符合語音。 此文字稱為「文字記錄」，您必須以特定格式建立它。
 
-語音服務會將輸入正規化，以保持文字一致。 
+語音服務標準化保持一致的文字輸入。
 
 本文說明兩種類型的正規化。 各種語言的指導方針稍有不同。
 
@@ -39,7 +39,7 @@ ms.locfileid: "55857170"
 
 ### <a name="text-normalization-rules-for-english"></a>適用於英文的文字正規化規則
 
-語音服務會執行下列正規化規則：
+語音服務執行下列的正規化規則：
 
 * 對於所有文字使用小寫字母
 * 移除文字內部單引號以外的所有標點符號
@@ -64,7 +64,7 @@ ms.locfileid: "55857170"
 * 非標準數值字串 (例如一些日期或會計表單) 應該以字組寫出。
 * 含非字母字元或混合英數字字元的字組應該轉譯如發音。
 * 保留發音為字組不變的縮寫 (例如，"radar"、"laser"、"RAM" 或 "NATO")。
-* 寫出發音如同個別字母的縮寫，並以空格分隔字母 (例如，"IBM"、"CPU"、"FBI"、"TBD" 或 "NaN")。 
+* 寫出發音如同個別字母的縮寫，並以空格分隔字母 (例如，"IBM"、"CPU"、"FBI"、"TBD" 或 "NaN")。
 
 這裡有一些範例：
 
@@ -83,7 +83,7 @@ ms.locfileid: "55857170"
 
 ## <a name="chinese-zh-cn"></a>中文 (zh-cn)
 
-上傳到「自訂語音服務」的文字資料應使用 UTF-8 編碼搭配位元組順序標記。 檔案應該以每行一個語句撰寫。
+文字資料上傳至自訂語音服務應該使用 utf-8 編碼方式和位元組順序標記。 檔案應該以每行一個語句撰寫。
 
 請避免使用半形標點符號字元。 在文字處理程式中準備資料，或是從網頁抓取資料時，可能會不小心包含這些字元。 請以適當的全形替代字元取代這些字元。 例如︰
 
@@ -94,7 +94,7 @@ ms.locfileid: "55857170"
 
 ### <a name="text-normalization-rules-for-chinese"></a>適用於中文的文字正規化規則
 
-語音服務會執行下列正規化規則：
+語音服務執行下列的正規化規則：
 
 * 移除所有標點符號
 * 將數字擴充成口語形式
@@ -134,7 +134,7 @@ ms.locfileid: "55857170"
 
 ### <a name="text-normalization-rules-for-german"></a>適用於德文的文字正規化規則
 
-語音服務會執行下列正規化規則：
+語音服務執行下列的正規化規則：
 
 * 對於所有文字使用小寫字母
 * 移除所有標點符號，包括各種類型的引號 (可接受 "ttest"、'test'、"test„ 和 «test»)
@@ -162,10 +162,10 @@ ms.locfileid: "55857170"
 
 這裡有一些範例：
 
-| 原始文字 | 在使用者的正規化之後 | 在系統的正規化之後
+| 原始文字 | 在使用者的正規化之後 | 在系統的正規化之後 |
 |--------  | ----- | -------- |
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>後續步驟
