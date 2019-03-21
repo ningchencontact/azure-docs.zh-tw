@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051847"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898851"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows 上節點應用程式的最佳作法和疑難排解指南
 
@@ -90,7 +90,7 @@ IIS 的預設行為是在排清之前或直到回應結束時 (取決於何者�
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-以分號分隔的檔案清單，系統會監看其變更。 任何檔案變更都會導致應用程式回收。 每個項目都包含選擇性目錄名稱，以及相對於主要應用程式進入點所在目錄的必要檔案名稱。 只有檔案名稱部分可以使用萬用字元。 預設值為 `*.js;web.config`
+以分號分隔的檔案清單，系統會監看其變更。 任何檔案變更都會導致應用程式回收。 每個項目都包含選擇性目錄名稱，以及相對於主要應用程式進入點所在目錄的必要檔案名稱。 只有檔案名稱部分可以使用萬用字元。 預設值為 `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -118,7 +118,7 @@ IIS 的預設行為是在排清之前或直到回應結束時 (取決於何者�
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (請勿在實際生產網站上啟用)
 
-此設定會控制偵錯功能。 Iisnode 會與節點偵測器整合。 藉由啟用此設定，即可啟用節點應用程式的偵錯功能。 啟用此設定後，iisnode 會在對節點應用程式進行第一個偵錯要求時，在 'debuggerVirtualDir' 目錄中建立節點偵測器檔案。 您可以將要求傳送至 http://yoursite/server.js/debug，以載入節點偵測器。 您可以使用 'debuggerPathSegment' 設定來控制偵錯 URL 區段。 根據預設，debuggerPathSegment=’debug’。 例如您可以將 `debuggerPathSegment` 設定為 GUID，讓其他人更難以發現。
+此設定會控制偵錯功能。 Iisnode 會與節點偵測器整合。 藉由啟用此設定，即可啟用節點應用程式的偵錯功能。 啟用此設定後，iisnode 會在對節點應用程式進行第一個偵錯要求時，在 'debuggerVirtualDir' 目錄中建立節點偵測器檔案。 您可以將要求傳送至 `http://yoursite/server.js/debug`，以載入節點偵測器。 您可以使用 'debuggerPathSegment' 設定來控制偵錯 URL 區段。 根據預設，debuggerPathSegment=’debug’。 例如您可以將 `debuggerPathSegment` 設定為 GUID，讓其他人更難以發現。
 
 請閱讀[在 Windows 上對 node.js 應用程式進行偵錯](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)，以取得有關偵錯的詳細資料。
 
@@ -133,7 +133,7 @@ agentkeepalive 模組可確保通訊端會在您的 Azure webapp VM 上重複使
 範例 [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) 設定：
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -155,9 +155,9 @@ var keepaliveAgent = new Agent({
 例如，假設您擁有想要剖析的 hello world 應用程式，如下所示︰
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-移至偵錯主控台網站 https://yoursite.scm.azurewebsites.net/DebugConsole
+移至偵錯主控台網站 `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 進入 site/wwwroot 目錄。 您會看到如下列範例所示的命令提示字元：
 
@@ -185,12 +185,12 @@ http.createServer(function (req, res) {
 現在，編輯 server.js 以剖析您的應用程式。
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

@@ -1,6 +1,6 @@
 ---
-title: 如何管理 Azure Active Directory 中的應用程式密碼 | Microsoft Docs
-description: 本頁面將協助使用者了解什麼是應用程式密碼，以及它們在雙步驟驗證方面的用途。
+title: 如何管理應用程式密碼]-[Azure Active Directory |Microsoft Docs
+description: 深入了解應用程式密碼，以及什麼是用於關於雙步驟驗證。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,13 +12,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdcd078714d8311cf59471492187314183de28b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187299"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177393"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>管理適用於雙步驟驗證的應用程式密碼
 
@@ -88,7 +89,7 @@ ms.locfileid: "56187299"
 
 1. 登入您的公司或學校帳戶。
 
-2. 前往 https://portal.office.com、選取 [Office 365 入口網站] 頁面右上角的 [設定] 圖示，然後展開 [其他安全性驗證]。
+2. 移至[ https://portal.office.com ](https://portal.office.com)，選取**設定**從右上角的圖示**Office 365 入口網站**頁面，然後再展開**額外的安全性驗證**。
 
     ![顯示已展開 [其他安全性驗證] 區域的 Office 入口網站](media/security-info/security-info-o365password.png)
 
@@ -104,7 +105,7 @@ ms.locfileid: "56187299"
 
 1. 登入您的公司或學校帳戶。
 
-2. 前往 https://portal.office.com、選取 [Office 365 入口網站] 頁面右上角的 [設定] 圖示，然後選取 [其他安全性驗證]。
+2. 移至[ https://portal.office.com ](https://portal.office.com)，選取**設定**從右上角的圖示**Office 365 入口網站**頁面，然後再選取**額外的安全性驗證**。
 
 3. 選取**建立和管理應用程式密碼**的文字來開啟 [應用程式密碼] 頁面。
 

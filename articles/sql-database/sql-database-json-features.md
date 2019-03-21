@@ -12,15 +12,15 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 7e688abbe1b8188cb85e5762086009522b5b7d39
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995490"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的 JSON 功能
-Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](http://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。 Azure SQL 資料庫中可用的 JSON 案例如下：
+Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](https://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。 Azure SQL 資料庫中可用的 JSON 案例如下：
 - 使用 `FOR JSON` 子句[以 JSON 格式將關聯式資料格式化](#formatting-relational-data-in-json-format)。
 - [使用 JSON 資料](#working-with-json-data)
 - 使用 JSON 純量函式[查詢 JSON 資料](#querying-json-data)。
@@ -142,7 +142,7 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-JSON_VALUE 函數會從儲存在 Data 資料行的 JSON 文字中擷取值。 此函數會使用類似 JavaScript 的路徑來參考所要擷取的 JSON 文字中的值。 所擷取的值可以在 SQL 查詢的任何部分中使用。
+JSON_VALUE 函數會從儲存在 Data 資料行的 JSON 文字中擷取值。 此函数使用类似于 JavaScript 的路径来引用要提取的 JSON 文本中的值。 所擷取的值可以在 SQL 查詢的任何部分中使用。
 
 JSON_QUERY 函數類似於 JSON_VALUE。 與 JSON_VALUE 不同，此函數會擷取複雜的子物件，例如置於 JSON 文字中的陣列或物件。
 
@@ -190,7 +190,7 @@ END
 ## <a name="next-steps"></a>後續步驟
 若要了解如何將 JSON 整合到您的應用程式中，請參閱下列資源︰
 
-* [TechNet 部落格](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+* [TechNet 部落格](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [MSDN 文件](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Channel 9 影片](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 

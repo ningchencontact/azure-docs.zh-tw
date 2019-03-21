@@ -10,15 +10,15 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818034"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776303"
 ---
 # <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
 Azure 轉送服務可讓您在公用雲端中安全地公開公司網路中所執行的服務。 您不需要開啟防火牆上的連線，也不需要對公司網路基礎結構進行侵入式變更，就能做到這一點。 
@@ -61,7 +61,7 @@ WCF 轉送適用於完整的 .NET Framework 和 WCF。 您可以在內部部署�
 ## <a name="hybrid-connections-vs-wcf-relay"></a>混合式連線與WCF 轉送
 混合式連線和 WCF 轉送都能夠對存在於網路內的資產進行安全的連線。 視您的特定需求使用其中一項功能，詳述於下表︰
 
-|  | WCF 轉送 | 混合式連線 |
+|  | WCF 轉送 | 混合连接 |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
@@ -82,7 +82,7 @@ WCF 轉送適用於完整的 .NET Framework 和 WCF。 您可以在內部部署�
 5. 閘道會將連線要求轉送給閘道存放區中提及的正確閘道。 
 6. 閘道會將要求傳送給接聽方用戶端，讓它對最接近傳送方用戶端的閘道節點建立暫時通道。 
 7. 接聽方用戶端會建立暫時通道，並傳送回應給最接近傳送方用戶端的閘道。 現在，用戶端之間已透過閘道建立連線，用戶端可以開始互相交換訊息。 
-8. 閘道會將來自接聽方用戶端的任何訊息轉送至傳送方用戶端。 
+8. 閘道會接聽用戶端從任何訊息轉送傳送用戶端。 
 9. 閘道會將來自傳送方用戶端的任何訊息轉送至接聽方用戶端。  
 
 ## <a name="next-steps"></a>後續步驟

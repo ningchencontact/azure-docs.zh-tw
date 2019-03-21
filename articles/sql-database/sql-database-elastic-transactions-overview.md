@@ -1,5 +1,5 @@
 ---
-title: 跨雲端資料庫的分散式交易
+title: 跨云数据库的分布式事务
 description: Azure SQL Database 的彈性資料庫交易概觀
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae9f4d1ebcb84748b665579104f63dab3ee6f076
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463866"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901911"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨雲端資料庫的分散式交易
 
@@ -27,7 +27,7 @@ Azure SQL Database (SQL DB) 的彈性資料庫交易可讓您在 SQL DB 中跨�
 
   ![Azure SQL Database 的分散式交易 - 使用彈性資料庫交易 ][1]
 
-## <a name="common-scenarios"></a>常見案例
+## <a name="common-scenarios"></a>常见方案
 
 SQL DB 的彈性資料庫交易可讓應用程式對數個不同 SQL Database 中儲存的資料進行不可部分完成的變更。 預覽版著重於 C# 和 .NET 的用戶端開發經驗。 未來預計加入使用 T-SQL 的伺服器端經驗。  
 彈性資料庫交易以下列案例為目標：
@@ -73,7 +73,7 @@ SQL DB 的彈性資料庫交易可讓應用程式對數個不同 SQL Database �
 
 ### <a name="sharded-database-applications"></a>分區化資料庫應用程式
 
-SQL DB 的彈性資料庫交易也支援協調分散式交易，您需要使用彈性資料庫用戶端程式庫的 OpenConnectionForKey 方法，開啟相應放大資料層的連接。 假設變更跨數個不同分區化索引鍵值，而您需要保證交易一致性。 連接到裝載不同分區化索引鍵值的分區時，由 OpenConnectionForKey 代理連接。 在一般情況下可連接到不同分區，以確保交易保證需要分散式交易。 下列程式碼範例說明此方法。 其中假設使用一個稱為 shardmap 的變數，代表來自彈性資料庫用戶端程式庫的分區對應：
+SQL DB 的彈性資料庫交易也支援協調分散式交易，您需要使用彈性資料庫用戶端程式庫的 OpenConnectionForKey 方法，開啟相應放大資料層的連接。 假設變更跨數個不同分區化索引鍵值，而您需要保證交易一致性。 連接到裝載不同分區化索引鍵值的分區時，由 OpenConnectionForKey 代理連接。 在一般情況下可連接到不同分區，以確保交易保證需要分散式交易。 以下代码示例演示了此方法。 其中假設使用一個稱為 shardmap 的變數，代表來自彈性資料庫用戶端程式庫的分區對應：
 
     using (var scope = new TransactionScope())
     {
@@ -126,13 +126,17 @@ Azure 會提供數個供應項目，以裝載 .NET 應用程式。 如需不同�
 
 ## <a name="transactions-across-multiple-servers"></a>跨多部伺服器的交易
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+
 在 Azure SQL Database 中，支援跨越不同 SQL Database 伺服器的彈性資料庫交易。 當交易跨越 SQL Database 伺服器的界限時，參與的伺服器首先必須進入一個相互通訊關聯性。 一旦建立通訊關聯性之後，任一部伺服器中的任何資料庫都可以和另一部伺服器中的資料庫一起參與彈性交易。 對於跨越兩部以上 SQL Database 伺服器的交易，任何一組 SQL Database 伺服器都必須先具備通訊關聯性。
 
 使用下列 PowerShell Cmdlet 管理跨伺服器的通訊關聯性，以進行彈性資料庫交易：
 
-* **New-AzureRmSqlServerCommunicationLink**：使用這個 Cmdlet 建立 Azure SQL Database 中兩部 SQL Database 伺服器之間的新通訊關聯性。 此關聯性是對稱的，也就是說，這兩部伺服器彼此都可以起始交易。
-* **Get-AzureRmSqlServerCommunicationLink**：使用這個 Cmdlet 擷取現有的通訊關聯性及其屬性。
-* **Remove-AzureRmSqlServerCommunicationLink**：使用這個 Cmdlet 移除現有的通訊關聯性。 
+* **New-AzSqlServerCommunicationLink**:使用這個 Cmdlet 建立 Azure SQL Database 中兩部 SQL Database 伺服器之間的新通訊關聯性。 此關聯性是對稱的，也就是說，這兩部伺服器彼此都可以起始交易。
+* **Get-AzSqlServerCommunicationLink**:使用這個 Cmdlet 擷取現有的通訊關聯性及其屬性。
+* **Remove-AzSqlServerCommunicationLink**:使用這個 Cmdlet 移除現有的通訊關聯性。 
 
 ## <a name="monitoring-transaction-status"></a>監視交易狀態
 

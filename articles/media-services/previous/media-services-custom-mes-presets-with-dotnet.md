@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7c362cb366c0f34fa34189cf6b1ca702e513bb25
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c64a3455e1189b83558707a96dc80b88dc242b48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000126"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181651"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>自訂媒體編碼器標準預設  
 
@@ -110,7 +110,7 @@ ms.locfileid: "56000126"
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>使用媒體服務 .NET SDK 進行編碼
+## <a id="encoding_with_dotnet"></a>使用媒体服务 .NET SDK 进行编码
 
 下列程式碼範例使用媒體服務 .NET SDK 執行下列工作：
 
@@ -122,7 +122,7 @@ ms.locfileid: "56000126"
         string configuration = File.ReadAllText(fileName);  
 
 - 將編碼工作新增至作業。 
-- 指定要編碼的輸入資產。
+- 指定要编码的输入资产。
 - 建立包含已編碼資產的輸出資產。
 - 加入事件處理常式來檢查工作進度。
 - 提交作業。
@@ -267,6 +267,6 @@ namespace CustomizeMESPresests
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [媒體服務編碼概觀](media-services-encode-asset.md)
 

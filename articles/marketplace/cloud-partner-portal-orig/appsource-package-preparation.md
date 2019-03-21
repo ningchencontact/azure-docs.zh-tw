@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0b24c5d2f174c9a656e81d0c85e12b589d7d7799
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837026"
 ---
 # <a name="appsource-package-preparation"></a>AppSource 套件準備
 
@@ -39,8 +39,8 @@ Package Deployer 的套件是 AppSource 套件的一部分。
 
 若要建立 Package Deployer 的套件，請使用下列指示：[https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx)。 完成時，您的套件將包含下列資產：
 
-1. 套件資料夾：包含所有的解決方案、組態資料、一般檔案，以及您套件的內容。 _注意：在接下來的範例中，我們假設套件資料夾名為 "PkgFolder"_
-2. dll：包含套件自訂程式碼的組件。 _注意：在接下來的範例中，我們假設此檔案名為 "MicrosoftSample.dll"。_
+1. 套件資料夾：包含所有的解決方案、組態資料、一般檔案，以及您套件的內容。 _注意：在接下來的範例假設套件資料夾名為"PkgFolder 」_
+2. dll:組件包含自訂程式碼，為您的封裝。 _注意：在接下來的範例假設這個檔案稱為 「 MicrosoftSample.dll。 」_
 
 現在，您需要建立一個名為 "**Content_Types.xml**" 的檔案。此檔案將列出所有屬於您套件的資產擴充功能。 以下是檔案的範例程式碼。
 
@@ -71,11 +71,11 @@ Package Deployer 的套件是 AppSource 套件的一部分。
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. 選取資料夾中的所有項目，以滑鼠右鍵按一下，然後選擇 [傳送到壓縮 (zip) 資料夾]
+1. 選取資料夾中的所有項目，以滑鼠右鍵按一下，然後選擇 [傳送到壓縮 (zip) 資料夾]
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. 將名稱變更為 package.zip
+1. 將名稱變更為 package.zip
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -97,7 +97,7 @@ AppSource 套件需要一些額外的檔案。
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>
@@ -117,13 +117,13 @@ AppSource 套件需要一些額外的檔案。
 |SolutionAnchorName |Package Deployer 中用於解決方案資產顯示名稱和描述的解決方案 zip 檔案名稱。|
 | StartDate| 這是方案套件提供使用的日期。 格式為 MM/DD/YYYY|
 |EndDate|這是方案套件將停止使用的日期。 格式為 MM/DD/YYYY |
-|SupportedCountries |這是應該會看到此套件的國家/地區的逗號分隔清單。 請連絡線上服務，以取得一份所有目前的國家/地區代碼的清單。 在撰寫本文時，清單是：AE、AL、AM、AO、AR、AT、AU、AZ、BA、BB、BD、BE、BG、BH、BM、BN、BO、BR、BY、CA、CH、CI、CL、CM、CO、CR、CV、CW、CY、CZ、DE、DK、DO、DZ、EC、EE、EG、ES、FI、FR、GB、GE、GH、GR、GT、HK、HN、HR、HU、ID、IE、IL、IN、IQ、IS、IT、JM、JO、JP、KE、KG、KN、KR、KW、KY、KZ、LB、LK、LT、LU、LV、LY、MA、MC、MD、ME、MK、MN、MO、MT、MU、MX、MY、NG、NI、NL、NO、NZ、OM、PA、PE、PH、PK、PL、PR、PS、PT、PY、QA、RO、RS、RU、RW、SA、SE、SG、SI、SK、SN、SV、TH、TM、TN、TR、TT、TW、UA、US、UY、UZ、VE、VI、VN、ZA、ZW |
+|SupportedCountries |這是應該會看到此套件的國家/地區的逗號分隔清單。 請連絡線上服務，以取得一份所有目前的國家/地區代碼的清單。 同時，本文撰寫清單為：AE，AL，AM，AO，AR、 AT、 AU，AZ、 BA、 BB、 BD，是，BG、 BH、 BM、 BN、 BO、 巴西、 依 CA，CH，CI，CL，CM，CO、 CR、 CV，CW，CY、 CS-CZ、 DE、 DK、 執行、 DZ、 EC、 EE，例如，ES、 WI-FI、 FR、 GB、 GE、 GH、 GR、 GT、 香港特別行政區HN、 HR、 HU、 識別碼、 IE、 IL、 IN、 IQ，是，它、 JM，JO、 JP、 KE、 KG、 KN、 韓國、 千瓦，KY、 KZ、 LB、 LK、 L、 LU、 LV、 LY 拼湊的麻薩諸塞州、 MC，MD、 我、 MK，MN，MO，MT、 MU、 MX，我，NG，NI、 NL、 否、 紐西蘭、 OM、 PA、 PE、 PHPK、 PL、 提取要求、 PS、 PT、 PY、 QA、 RO、 RS、 RU、 RW、 SA、 SE、 SG、 SI，SK、 SN、 SV、 TH、 TM，TN、 TR、 TT、 TW、 UA、 美國、 UY、 UZ、 VE、 VI、 VN、 A-ZA、 ZW |
 |LearnMoreLink | 此套件的詳細資訊頁面 URL。 |
 |Locales|針對您要在慣用方案 UX 中支援之每種 UX 語言的此節點的執行個體。 此節點包含描述每種語言之地區設定、標誌和字詞的子系|
 |地區設定：PackageLocale.Code|此節點之語言的 LCID。 範例：美式英文為 1033|
 |地區設定：PackageLocale.IsDefault|指出這是預設語言。 如果客戶選擇的 UX 語言無法使用，則將其用作回復語言。|
 |地區設定：標誌|這是您想要針對此套件使用的標誌。 圖示的大小為 32x32。 允許的格式有 PNG 和 JPG|
-|地區設定：字詞：PackageTerm.File|這是包含您的授權條款的 HTML 文件的檔案名稱。|
+|地區設定： 條款：PackageTerm.File|這是包含您的授權條款的 HTML 文件的檔案名稱。|
 
 這是標誌顯示的位置：
 

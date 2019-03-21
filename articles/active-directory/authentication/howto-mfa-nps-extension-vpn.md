@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe77602d138224c848cc915bbba5a7084c29650
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170052"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117875"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -30,20 +30,20 @@ Azure 的網路原則伺服器 (NPS) 擴充功能可讓組織使用以雲端為�
 
 * 指派管理和控制網路要求的中央位置，以指定：
 
-    * 誰可以連線 
+  * 誰可以連線 
     
-    * 一天當中允許連線的時間 
+  * 一天當中允許連線的時間 
     
-    * 連線的持續時間
+  * 連線的持續時間
     
-    * 用戶端連線必須使用的安全性層級
+  * 用戶端連線必須使用的安全性層級
 
     在每個 VPN 或遠端桌面閘道伺服器位於中央位置後，再為它們指定原則。 系統會使用 RADIUS 通訊協定來提供集中式的驗證、授權和計量 (AAA)。 
 
 * 建立並強制執行網路存取保護 (NAP) 用戶端健康原則，以判斷要讓裝置不受限制還是受限制地存取網路資源。
 
 * 提供強制驗證和授權的方法，以供存取具有 802.1x 功能的無線存取點及乙太網路交換器。   
-如需詳細資訊，請參閱[網路原則伺服器](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)。 
+  如需詳細資訊，請參閱[網路原則伺服器](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)。 
 
 為了加強安全性並提供高水準的合規性，組織可以整合 NPS 與 Azure Multi-Factor Authentication 來確保使用雙步驟驗證的使用者能夠連線到 VPN 伺服器上的虛擬連接埠。 使用者若要獲得存取權，就必須提供其使用者名稱和密碼的組合以及使用者所掌握的其他資訊。 這項資訊必須是受信任且無法輕易複製的。 可以是行動電話號碼、有線電話號碼或行動裝置上的應用程式。
 

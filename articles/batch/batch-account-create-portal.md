@@ -11,16 +11,16 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf47e3b48f1047af88a19c59459c19c078f71a63
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984470"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773719"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 入口網站建立 Batch 帳戶
 
@@ -44,7 +44,7 @@ ms.locfileid: "56984470"
 
     a. 訂用帳戶：要在其中建立 Batch 帳戶的訂用帳戶。 如果您只有一個訂用帳戶，則預設會選取此項目。
 
-    b. **資源群組**：為新的 Batch 帳戶選取一個現有的資源群組，或視需要建立一個新的資源群組。
+    b. **资源组**：為新的 Batch 帳戶選取一個現有的資源群組，或視需要建立一個新的資源群組。
 
     c. **帳戶名稱**：您選擇的名稱在建立帳戶的 Azure 區域內必須是唯一的 (請參閱下面的「位置」)。 帳戶名稱只能包含小寫字元或數字，且長度必須為 3-24 個字元。
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: anshan
 ms.custom: include file
-ms.openlocfilehash: fb45ea02f365cf4e7b394e249f9b91a784e5469f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: c9daa86bf36b260001d9969385b9e8a98a8ac0cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125039"
 ---
 ## <a name="grant-data-access"></a>授與資料存取
 
@@ -33,12 +33,12 @@ ms.locfileid: "46369860"
     ![管理 Time Series Insights 來源 - 新增](media/iot-tsi-data-access/getstarted-grant-data-access2.png)
 
 6. 選取 [選取角色]。 為使用者選擇適當的存取角色：
-    - 如果您要允許使用者變更參考資料，並與其他環境使用者共用已儲存的查詢和觀點，請選取 [參與者]。 
-    - 否則選取 [讀取者]，允許使用者查詢環境中的資料並且在環境中儲存個人 (非共用) 查詢。
+   - 如果您要允許使用者變更參考資料，並與其他環境使用者共用已儲存的查詢和觀點，請選取 [參與者]。 
+   - 否則選取 [讀取者]，允許使用者查詢環境中的資料並且在環境中儲存個人 (非共用) 查詢。
 
-    選取 [確定] 以確認角色選擇。
+     選取 [確定] 以確認角色選擇。
 
-    ![管理 Time Series Insights 來源 - 選取使用者](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
+     ![管理 Time Series Insights 來源 - 選取使用者](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
 
 7. 在 [選取使用者角色] 頁面中選取 [確定]。
 

@@ -3,7 +3,7 @@ title: 使用 EventFlow 的 Azure Service Fabric 事件彙總 | Microsoft Docs
 description: 深入了解使用 EventFlow 的彙總及收集事件，監視和診斷 Azure Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 829d1ffd1ef75d18f0d87a127c43666703e8a756
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: eee5e71863f9a9195dc1f6f711cbacbc95ab84f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497361"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246758"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 的事件彙總與集合
 
@@ -138,7 +138,7 @@ namespace Stateless1
 }
 ```
 
-當作 `ServiceFabricDiagnosticsPipelineFactory` 之 `CreatePipeline` 方法的參數來傳遞的名稱是「健康情況實體」的名稱，此實體代表 EventFlow 記錄檔收集管線。 當 EventFlow 發生錯誤並透過 Service Fabric 健康情況子系統回報錯誤時，就會使用此名稱。
+作为 `ServiceFabricDiagnosticsPipelineFactory` 中 `CreatePipeline` 方法的参数传递的名称是表示 EventFlow 日志收集管道的运行状况实体的名称。 當 EventFlow 發生錯誤並透過 Service Fabric 健康情況子系統回報錯誤時，就會使用此名稱。
 
 ### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>在 eventFlowConfig 中使用 Service Fabric 設定和應用程式參數
 
@@ -150,12 +150,12 @@ servicefabric:/<section-name>/<setting-name>
 
 `<section-name>` 是Service Fabric 組態區段的名稱，`<setting-name>` 是提供設定 EventFlow 設定所用值的組態設定。 若要深入了解如何作業，請移至 [Service Fabric 設定和應用程式參數的支援](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters)。
 
-## <a name="verification"></a>驗證
+## <a name="verification"></a>验证
 
 啟動您的服務並觀察 Visual Studio 中的 [偵錯] 輸出視窗。 啟動服務之後，您應該會開始看到服務在向您設定的輸出傳送記錄。 瀏覽至您的事件分析和視覺化平台，確認記錄檔已開始顯示 (可能需要幾分鐘的時間)。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 Application Insights 進行事件分析和視覺效果](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [使用 Log Analytics 進行事件分析和視覺效果](service-fabric-diagnostics-event-analysis-oms.md)
+* [事件分析和視覺效果，與 Azure 監視器記錄檔](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow 文件](https://github.com/Azure/diagnostics-eventflow)

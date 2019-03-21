@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999295"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996706"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -30,6 +30,8 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 - 偵測並調查的不必要的使用者行為，並可以針對貴組織的需求進行自訂。
 - 示範稽核與合規性。 例如，您可以監視機密檔案的檔案存取作業，以協助進行稽核與合規性流程。
 - 針對組織的 Office 365 活動資料使用[記錄查詢](../log-query/log-query-overview.md)，執行作業疑難排解。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 安裝和設定此解決方案之前必須先具備下列項目。
@@ -69,7 +71,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 1. 按一下 [新增應用程式註冊]。
 
     ![新增應用程式註冊](media/solution-office-365/add-app-registration.png)
-1. 輸入應用程式**名稱**和**登入 URL**。  名稱應具有描述性。  使用 _http://localhost_ 作為 URL，並保留 [Web 應用程式/API] 作為 [應用程式類型]
+1. 輸入應用程式**名稱**和**登入 URL**。  名稱應具有描述性。  使用`http://localhost`的 URL，並保留_Web 應用程式 / API_如**應用程式類型**
     
     ![建立應用程式](media/solution-office-365/create-application.png)
 1. 按一下 [建立] 並驗證應用程式資訊。
@@ -89,11 +91,11 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     ![選取 API](media/solution-office-365/select-api.png)
 
 1. 在 [選取權限] 下，為 [應用程式權限] 和 [委派的權限] 選取下列選項：
-    - 讀取您組織的服務健康情況資訊
-    - 讀取您組織的活動資料
-    - 讀取您組織的活動報告
+   - 讀取您組織的服務健康情況資訊
+   - 讀取您組織的活動資料
+   - 讀取您組織的活動報告
 
-    ![選取 API](media/solution-office-365/select-permissions.png)
+     ![選取 API](media/solution-office-365/select-permissions.png)
 
 1. 按一下 [選取]，然後按一下 [完成]。
 1. 按一下 [授與權限]，然後在出現驗證要求時，按一下 [是]。
@@ -123,10 +125,10 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
     
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $WorkspaceLocation= $Workspace.Location
     $WorkspaceLocation
     
@@ -190,11 +192,11 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     $OfficeClientSecret =[uri]::EscapeDataString($OfficeClientSecret)
@@ -365,12 +367,12 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 如果提供了無效參數值，您可能會看到下列錯誤。
 
 ```
-Select-AzureRmSubscription : Please provide a valid tenant or a valid subscription.
+Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
-+ ... cription = (Select-AzureRmSubscription -SubscriptionId $($Subscriptio ...
++ ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureRmContext], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzureRMContextCommand
+    + CategoryInfo          : CloseError: (:) [Set-AzContext], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzContextCommand
 
 ```
 
@@ -390,11 +392,11 @@ At line:12 char:18
     
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -494,7 +496,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 此儀表板包含下表中的資料行。 每個資料行依計數列出前十個警示，這幾個警示符合該資料行中指定範圍和時間範圍的準則。 您可以按一下資料行底部的 [查看全部]，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
-| 欄 | 說明 |
+| 欄 | 描述 |
 |:--|:--|
 | 作業 | 提供所有受監視 Office 365 訂閱中之作用中使用者的相關資訊。 您也可以查看一段時間內發生的活動數。
 | Exchange | 顯示 Exchange Server 活動細目，例如 Add-Mailbox 權限或 Set-Mailbox。 |
@@ -511,7 +513,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="common-properties"></a>通用屬性
 以下是所有 Office 365 記錄通用的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 類型 | *OfficeActivity* |
 | ClientIP | 記錄活動時所使用之裝置的 IP 位址。 IP 位址會以 IPv4 或 IPv6 位址格式顯示。 |
@@ -528,7 +530,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 基底
 以下是所有 Azure Active Directory 記錄通用的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -539,7 +541,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="azure-active-directory-account-logon"></a>Azure Active Directory 帳戶登入
 這些記錄會在 Active Directory 使用者嘗試登入時建立。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
@@ -552,7 +554,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="azure-active-directory"></a>Azure Active Directory
 這些記錄會在針對 Azure Active Directory 物件進行變更或新增時建立。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -569,7 +571,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="data-center-security"></a>資料中心安全性
 這些記錄是從資料中心安全性稽核資料所建立。  
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | EffectiveOrganization | 提高權限/Cmdlet 的目標租用戶名稱。 |
 | ElevationApprovedTime | 核准提高權限時的時間戳記。 |
@@ -584,7 +586,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="exchange-admin"></a>Exchange 管理員
 這些記錄會在對 Exchange 設定做出變更時建立。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -598,7 +600,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="exchange-mailbox"></a>Exchange 信箱
 這些記錄會在針對 Exchange 信箱做出變更或新增時建立。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -620,7 +622,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="exchange-mailbox-audit"></a>Exchange 信箱稽核
 這些記錄會在建立信箱稽核項目時建立。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -634,7 +636,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="exchange-mailbox-audit-group"></a>Exchange 信箱稽核群組
 這些記錄會在針對 Exchange 群組做出變更或新增時建立。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -652,7 +654,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="sharepoint-base"></a>SharePoint 基底
 這些是所有 SharePoint 記錄通用的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -668,7 +670,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="sharepoint-schema"></a>SharePoint 結構描述
 這些記錄會在針對 SharePoint 做出設定變更時建立。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -680,7 +682,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ### <a name="sharepoint-file-operations"></a>SharePoint 檔案作業
 這些記錄是為了回應 SharePoint 中的檔案作業而建立。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -700,10 +702,10 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 ## <a name="sample-log-searches"></a>記錄搜尋範例
 下表提供此方案所收集之更新記錄的記錄搜尋範例。
 
-| 查詢 | 說明 |
+| 查詢 | 描述 |
 | --- | --- |
 |Office 365 訂閱上所有作業的計數 |OfficeActivity &#124; summarize count() by Operation |
-|SharePoint 網站的使用情況|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl | sort by Count asc|
+|SharePoint 網站的使用情況|OfficeActivity&#124;其中 OfficeWorkload = ~ [sharepoint]&#124;彙總 count （） by SiteUrl\|依計數遞增排序|
 |依使用者類型分類的檔案存取作業|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |使用特定關鍵字進行搜尋|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |監視 Exchange 上的外部動作|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

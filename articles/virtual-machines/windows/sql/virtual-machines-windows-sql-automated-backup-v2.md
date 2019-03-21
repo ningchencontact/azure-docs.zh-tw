@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984302"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780009"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure 虛擬機器的自動備份 v2 (Resource Manager)
 
@@ -32,8 +32,8 @@ ms.locfileid: "55984302"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>先決條件
-若要使用「自動備份 v2」，請檢閱下列先決條件：
+## <a name="prerequisites"></a>必要條件
+若要使用「自動備份 v2」，請檢閱下列必要條件：
 
 **作業系統**：
 
@@ -52,27 +52,27 @@ ms.locfileid: "55984302"
 
 - 目標資料庫必須使用完整復原模型。 如需有關完整復原模型對備份之影響的詳細資訊，請參閱[在完整復原模式下備份](https://technet.microsoft.com/library/ms190217.aspx)。
 - 系統資料庫不一定要使用完整復原模型。 不過，如果您要求針對 Model 或 MSDB 進行記錄備份，就必須使用完整復原模型。
-- 目標資料庫必須位於預設的 SQL Server 執行個體上。 「SQL Server IaaS 擴充功能」並不支援具名執行個體。
+- 目標資料庫必須是其中一個預設 SQL Server 執行個體上，或[正確安裝](virtual-machines-windows-sql-server-iaas-faq.md#administration)具名執行個體。 
 
 > [!NOTE]
-> 「自動備份」依存於「SQL Server IaaS 代理程式擴充功能」。 目前的 SQL 虛擬機器資源庫映像預設會新增此擴充。 如需詳細資訊，請參閱 [SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)。
+> 「自動備份」依存於「SQL Server IaaS 代理程式擴充功能」。 目前的 SQL 虛擬機器資源庫映像預設會新增這項擴充。 如需詳細資訊，請參閱 [SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)。
 
 ## <a name="settings"></a>設定
 下表說明可以為「自動備份 v2」設定的選項。 實際的設定步驟會依據您是使用 Azure 入口網站或 Azure Windows PowerShell 命令而有所不同。
 
 ### <a name="basic-settings"></a>基本設定
 
-| 設定 | 範圍 (預設值) | 說明 |
+| 設定 | 範圍 (預設值) | 描述 |
 | --- | --- | --- |
 | **自動備份** | 啟用/停用 (已停用) | 針對執行 SQL Server 2016/2017 Developer、Standard 或 Enterprise 的 Azure VM，啟用或停用自動備份。 |
 | **保留期限** | 1-30 天 (30 天) | 保留備份的天數。 |
-| **儲存體帳戶** | Azure 儲存體帳戶 | 將自動備份檔案儲存在 Blob 儲存體中時，所使用的 Azure 儲存體帳戶。 這個位置會建立一個容器來儲存所有備份檔案。 備份檔案命名慣例包括日期、時間和資料庫 GUID。 |
-| **加密** |啟用/停用 (已停用) | 啟用或停用加密。 啟用加密時，用來還原備份的憑證會放在指定的儲存體帳戶中。 它會使用相同的 **automaticbackup** 容器與相同的命名慣例。 如果密碼變更，就會以該密碼產生新的憑證，但是舊的憑證還是會保留，以還原先前的備份。 |
-| **密碼** |密碼文字 | 加密金鑰的密碼。 唯有啟用加密時，才需要此密碼。 若要還原加密的備份，您必須要有建立備份時所使用的正確密碼和相關憑證。 |
+| **存储帐户** | Azure 儲存體帳戶 | 將自動備份檔案儲存在 Blob 儲存體中時，所使用的 Azure 儲存體帳戶。 在此位置创建容器，用于存储所有备份文件。 備份檔案命名慣例包括日期、時間和資料庫 GUID。 |
+| **加密** |启用/禁用（已禁用） | 啟用或停用加密。 啟用加密時，用來還原備份的憑證會放在指定的儲存體帳戶中。 它會使用相同的 **automaticbackup** 容器與相同的命名慣例。 如果密碼變更，就會以該密碼產生新的憑證，但是舊的憑證還是會保留，以還原先前的備份。 |
+| **密码** |密碼文字 | 加密金鑰的密碼。 唯有啟用加密時，才需要此密碼。 若要還原加密的備份，您必須要有建立備份時所使用的正確密碼和相關憑證。 |
 
 ### <a name="advanced-settings"></a>進階設定
 
-| 設定 | 範圍 (預設值) | 說明 |
+| 設定 | 範圍 (預設值) | 描述 |
 | --- | --- | --- |
 | **系統資料庫備份** | 啟用/停用 (已停用) | 當啟用時，此功能會一併備份系統資料庫：Master、MSDB 及 Model。 針對 MSDB 和 Model 資料庫，如果您想要進行記錄備份，請確認它們處於完整復原模式。 針對 Master 是一律不進行記錄備份。 而針對 TempDB 則不進行任何備份。 |
 | **備份排程** | 手動/自動化 (自動化) | 預設會根據記錄的成長情況自動決定備份排程。 手動備份排程可讓使用者指定備份的時間範圍。 在此情況下，只會以指定的頻率且在特定一天的指定時間範圍期間進行備份。 |
@@ -169,7 +169,7 @@ $resourcegroupname = "resourcegroupname"
 
 如果已安裝「SQL Server IaaS 代理程式」擴充功能，您應該會看到它以 “SqlIaaSAgent” 或 “SQLIaaSExtension” 的形式列出。 該擴充功能的 **ProvisioningState** 應該也顯示為 “Succeeded”。 
 
-如果未安裝或無法佈建該擴充功能，您可以使用下列命令來安裝它。 除了 VM 名稱和資源群組之外，您還必須指定 VM 所在的區域 (**$region**)。
+如果未安裝或無法佈建該擴充功能，您可以使用下列命令來安裝它。 除了 VM 名称和资源组以外，还必须指定 VM 所在的区域 (**$region**)。
 
 ```powershell
 $region = “EASTUS2”
@@ -202,7 +202,7 @@ FullBackupWindowHours       : 2
 LogBackupFrequency          : 60
 ```
 
-如果您的輸出顯示 **Enable** 是設定為 **False**，您就必須啟用自動備份。 好消息是，啟用和設定「自動備份」的方式是相同的。 如需此資訊，請參閱下一節。
+如果您的輸出顯示 **Enable** 是設定為 **False**，您就必須啟用自動備份。 好消息是，啟用和設定「自動備份」的方式是相同的。 如需這項資訊，請參閱下一節。
 
 > [!NOTE] 
 > 如果您在進行變更後立即檢查設定，可能會得到舊的組態值。 只要等幾分鐘後再重新檢查設定，即可確定已套用您的變更。

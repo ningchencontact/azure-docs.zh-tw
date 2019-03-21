@@ -1,30 +1,30 @@
 ---
-title: Azure IoT 中樞作業監視 | Microsoft Docs
+title: Azure IoT 中樞作業監視 （已過時） |Microsoft Docs
 description: 如何使用 Azure IoT 中樞作業監視來即時監視 IoT 中樞上的作業狀態。
 author: nberdy
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
-ms.translationtype: HT
+ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186191"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791574"
 ---
-# <a name="iot-hub-operations-monitoring"></a>IoT 中樞作業監視
+# <a name="iot-hub-operations-monitoring-deprecated"></a>IoT 中樞作業監視 （已過時）
 
 IoT 中樞的作業監視可讓您即時監視其 IoT 中樞上的作業狀態。 IoT 中樞可追蹤橫跨數個作業類別的事件。 您可以選擇將一或多個類別的事件傳送至 IoT 中樞的端點進行處理。 您可以監視資料中是否有錯誤，或根據資料模式設定更複雜的處理行為。
 
 >[!NOTE]
->IoT 中樞作業監視已被取代，將於 2019 年 3 月 10 日自 IoT 中樞移除。 如需監視 IoT 中樞的作業及健康情況，請參閱[監視 Azure IoT 中樞的健康情況並快速診斷問題][lnk-monitor]。 如需有關淘汰時間表的詳細資訊，請參閱[使用 Azure 監視器和 Azure 資源健康狀態來監視您的 Azure IoT 解決方案][lnk-blog-announcement]。
+>IoT 中樞**作業監視已被取代，已經移除了於 2019 年 3 月 10 日的 IoT 中樞**。 如需監視 IoT 中樞的作業及健康情況，請參閱[監視 Azure IoT 中樞的健康情況並快速診斷問題][lnk-monitor]。 如需有關淘汰時間表的詳細資訊，請參閱[使用 Azure 監視器和 Azure 資源健康狀態來監視您的 Azure IoT 解決方案][lnk-blog-announcement]。
 
 IoT 中樞會監視六個類別的事件：
 
-* 裝置身分識別作業
+* 设备标识操作
 * 裝置遙測
 * 雲端到裝置的訊息
 * 連線
@@ -47,7 +47,7 @@ IoT 中樞會監視六個類別的事件：
     ![在 IoT 中樞上設定作業監視][2]
 
 > [!NOTE]
-> [連線] 類別若選取 [Verbose] 監視，會導致 IoT 中樞產生額外的診斷訊息。 對於所有其他類別，[Verbose] 設定會變更 IoT 中樞在每個錯誤訊息中包含的資訊量。
+> 为“连接”类别选择“详细”监视会导致 IoT 中心生成额外的诊断消息。 對於所有其他類別，[Verbose] 設定會變更 IoT 中樞在每個錯誤訊息中包含的資訊量。
 
 ## <a name="event-categories-and-how-to-use-them"></a>事件類別和其使用方式
 
@@ -146,7 +146,7 @@ IoT 中樞會監視六個類別的事件：
 
 * SAS URI 所發生的錯誤，例如當它在裝置通知中樞已完成上傳之前就到期時。
 * 裝置所報告的失敗上傳。
-* IoT 中樞通知訊息建立期間在儲存體中找不到檔案時所發生的錯誤。
+* 创建 IoT 中心通知消息期间在存储中找不到文件时发生的错误。
 
 此類別無法捕捉直接發生在裝置將檔案上傳到儲存體時的錯誤。
 
@@ -185,26 +185,6 @@ IoT 中樞會監視六個類別的事件：
     "details": "ExternalEndpointDisabled"
 }
 ```
-
-## <a name="view-events"></a>檢視事件
-
-您可以使用 *iothub-explorer* 工具來快速測試 IoT 中樞正在產生監視事件。 若要安裝此工具，請參閱 [iothub-explorer][lnk-iothub-explorer] GitHub 儲存機制中的指示。
-
-1. 請確定入口網站中的 [連線] 監視類別設定為 [詳細資訊]。
-
-1. 在命令提示字元中，執行下列命令來從監視端點讀取︰
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. 在另一個命令提示字元中，執行下列命令，以模擬傳送裝置至雲端訊息的裝置︰
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. 第一個命令提示字元會將監視的事件顯示為連線至您的 IoT 中樞的模擬裝置。
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>連線至監視端點
 
@@ -303,5 +283,4 @@ class Program
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

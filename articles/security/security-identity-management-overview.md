@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
-Customer intent: As a IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: b58cbcdccced3952c3171daa14f80986e473c5dd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
+ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111487"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898494"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
 
@@ -67,7 +67,7 @@ Azure AD 將內部部署的 Active Directory 環境延伸到雲端，讓使用�
 
 ## <a name="reverse-proxy"></a>反向 proxy
 
-Azure AD 應用程式 Proxy 可讓您在私人網路內發佈內部部署應用程式 (例如 [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) 網站、[Outlook Web 應用程式](https://technet.microsoft.com/library/jj657718.aspx)和 [IIS](http://www.iis.net/) 型應用程式)，並提供網路外部使用者的安全存取。 應用程式 Proxy 不僅針對多種內部部署 Web 應用程式提供遠端存取與 SSO，同時還提供 Azure AD 支援的數千個 SaaS 應用程式。 員工可以從家裡使用自己的裝置登入您的應用程式，還可透過這個雲端 Proxy 進行驗證。
+Azure AD 應用程式 Proxy 可讓您在私人網路內發佈內部部署應用程式 (例如 [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) 網站、[Outlook Web 應用程式](https://technet.microsoft.com/library/jj657718.aspx)和 [IIS](https://www.iis.net/) 型應用程式)，並提供網路外部使用者的安全存取。 應用程式 Proxy 不僅針對多種內部部署 Web 應用程式提供遠端存取與 SSO，同時還提供 Azure AD 支援的數千個 SaaS 應用程式。 員工可以從家裡使用自己的裝置登入您的應用程式，還可透過這個雲端 Proxy 進行驗證。
 
 深入了解：
 

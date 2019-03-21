@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: bcda6ac723101d6a907a10c5163ae1baf0ad2214
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884166"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted：保護機密資料，並將加密金鑰儲存在 Azure Key Vault 中
 
@@ -37,13 +37,18 @@ ms.locfileid: "56110161"
 * 建立可插入、選取及顯示加密資料行資料的應用程式。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+
 針對本教學課程，您將需要：
 
 * Azure 帳戶和訂用帳戶。 如果您沒有帳戶，請註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 13.0.700.242 版或更新版本。
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 或更新版本 (於用戶端電腦上)。
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)。
-* [Azure PowerShell](/powershell/azure/overview) 1.0 或更新版本。 請輸入 **(Get-Module azure -ListAvailable).Version** 來查看您正在執行的 PowerShell 版本。
+* [Azure PowerShell](/powershell/azure/overview)(英文)。
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>讓用戶端應用程式能夠存取 SQL Database 服務
 您必須讓用戶端應用程式能夠存取 SQL Database 服務，方法是設定 Azure Active Directory (AAD) 應用程式，並複製驗證應用程式所需的「應用程式識別碼」和「金鑰」。
@@ -65,15 +70,15 @@ ms.locfileid: "56110161"
     $vaultName = 'AeKeyVault'
 
 
-    Connect-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
-    Set-AzureRmContext -SubscriptionId $subscriptionId
+    Connect-AzAccount
+    $subscriptionId = (Get-AzSubscription -SubscriptionName $subscriptionName).Id
+    Set-AzContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
+    Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 ```
 
 
@@ -88,7 +93,7 @@ ms.locfileid: "56110161"
 在本教學課程稍後，您將會需要連接字串，因此在建立資料庫之後，請瀏覽至新的 Clinic 資料庫並複製連接字串。 您可以隨時取得連接字串，但在 Azure 入口網站中很容易就可以複製它。
 
 1. 移至 [SQL Database]  >  [Clinic]  >  [顯示資料庫連接字串]。
-2. 複製 **ADO.NET**的連接字串。
+2. 复制 **ADO.NET** 的连接字符串。
    
     ![複製連接字串](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
 
@@ -96,7 +101,7 @@ ms.locfileid: "56110161"
 開啟 SSMS 並連接到包含實務課程資料庫的伺服器。
 
 1. 開啟 SSMS。 (移至 [連接]  >  [資料庫引擎] 以開啟 [連接到伺服器] 視窗 (如果此視窗未開啟))。
-2. 輸入您的伺服器名稱和認證。 可以在 SQL 資料庫刀鋒視窗上找到此伺服器名稱和稍早複製的連接字串。 輸入完整的伺服器名稱，包括 *database.windows.net*。
+2. 输入服务器名称和凭据。 可以在 SQL 資料庫刀鋒視窗上找到此伺服器名稱和稍早複製的連接字串。 輸入完整的伺服器名稱，包括 *database.windows.net*。
    
     ![複製連接字串](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
 
@@ -140,7 +145,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 
 請加密每個病患的 **SSN** 和 **BirthDate** 資訊。 SSN 資料行將使用決定性加密，這可支援等式查閱、聯結及群組依據。 BirthDate 資料行將使用不支援操作的隨機加密。
 
-將 SSN 資料行的 [加密類型] 設定為 [決定性]，並將 BirthDate 資料行設定為 [隨機化]。 按 [下一步] 。
+將 SSN 資料行的 [加密類型] 設定為 [決定性]，並將 BirthDate 資料行設定為 [隨機化]。 单击“下一步”。
 
 ![加密資料行](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -151,7 +156,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 
 1. 選取 [Azure 金鑰保存庫] 。
 2. 從下拉式清單中選取想要的金鑰保存庫。
-3. 按 [下一步] 。
+3. 单击“下一步”。
 
 ![主要金鑰組態](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
@@ -164,11 +169,11 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 ![總結](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>確認精靈的動作
-完成精靈步驟之後，您的資料庫便已完成「一律加密」設定。 精靈已執行下列動作：
+完成精靈步驟之後，您的資料庫便已完成「一律加密」設定。 该向导执行以下操作：
 
 * 建立資料行主要金鑰 (CMK) 並將它儲存在「Azure 金鑰保存庫」中。
 * 建立資料行加密金鑰 (CMK) 並將它儲存在「Azure 金鑰保存庫」中。
-* 設定選取的資料行以進行加密。 Patients 資料表目前沒有任何資料，但在所選資料行中的所有現有資料現在都已加密。
+* 設定選取的資料行以進行加密。 “患者”表目前尚无数据，但所选列中的任何现有数据都会进行加密。
 
 您可以確認 SSMS 中是否已建立金鑰，方法是展開 [Clinic]  >  [安全性]  >  [一律加密的金鑰]。
 
@@ -205,7 +210,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
     Column Encryption Setting=Enabled
 
 
-### <a name="enable-always-encrypted-with-sqlconnectionstringbuilder"></a>使用 SqlConnectionStringBuilder 來啟用一律加密
+### <a name="enable-always-encrypted-with-sqlconnectionstringbuilder"></a>通过 SqlConnectionStringBuilder 启用始终加密
 下列程式碼示範如何將 [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) 設定為 [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx) 來啟用「一律加密」。
 
 ```CS
@@ -218,7 +223,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
        SqlConnectionColumnEncryptionSetting.Enabled;
 ```
 
-## <a name="register-the-azure-key-vault-provider"></a>註冊 Azure 金鑰保存庫提供者
+## <a name="register-the-azure-key-vault-provider"></a>注册 Azure 密钥保管库提供程序
 下列程式碼示範如何使用 ADO.NET 驅動程式來註冊「Azure 金鑰保存庫」提供者。
 
 ```C#
@@ -606,7 +611,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 
    ![新的主控台應用程式](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-若要使用 SSMS 來存取純文字資料，您必須先確定使用者有 Azure Key Vault 的適當權限：*get*、*unwrapKey* 與 *verify*。 如需詳細資訊，請參閱[建立和儲存資料行主要金鑰 (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017)。
+若要使用 SSMS 來存取純文字資料，您必須先確定使用者有 Azure Key Vault 的適當權限：*get*、*unwrapKey* 與 *verify*。 如需詳細資訊，請參閱[建立和儲存資料行主要金鑰 (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted)。
 
 接著，在連線時加入 *Column Encryption Setting=enabled* 參數。
 

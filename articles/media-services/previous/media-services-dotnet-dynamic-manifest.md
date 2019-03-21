@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 5988ad92c9395332163182cb6995781d08bd5957
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 47566b8ca9682d411f576929531d50ef7a1ae279
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180971"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>使用媒體服務 .NET SDK 建立篩選器 
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.locfileid: "56236901"
 
 請注意，如果您更新篩選器，則資料流端點最多需要 2 分鐘的時間來重新整理規則。 如果內容是使用此篩選器提供的 (並快取在 Proxy 與 CDN 快取中)，則更新此篩選器會造成播放程式失敗。 更新篩選器後一律清除快取。 如果這個選項無法執行，請考慮使用不同的篩選器。 
 
-## <a name="types-used-to-create-filters"></a>用於建立篩選器的類型
+## <a name="types-used-to-create-filters"></a>用于创建筛选器的类型
 建立篩選器時會使用下列類型： 
 
 * **IStreamingFilter**。  此類型是基於下列的 REST API [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
@@ -134,6 +134,6 @@ ms.locfileid: "56236901"
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [動態資訊清單概觀](media-services-dynamic-manifest-overview.md)
 

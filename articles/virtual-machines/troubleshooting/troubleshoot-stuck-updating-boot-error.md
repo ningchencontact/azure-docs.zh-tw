@@ -3,7 +3,7 @@ title: Azure VM 啟動程序停滯於 Windows Update | Microsoft Docs
 description: 了解如何在 Azure VM 的啟動程序停滯於 Windows Update 時進行疑難排解。
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 7c516781f7d0c80dc7185585a29278820ab9a46e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063655"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777561"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 啟動程序停滯於 Windows Update
 
 本文將協助您解決虛擬機器 (VM) 在啟動期間停滯於 Windows Update 階段的問題。 
 
 > [!NOTE] 
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[资源管理器部署模型和经典部署模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
 
- ## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵狀
 
  Windows 虛擬機器未啟動。 當您查看[開機診斷](../troubleshooting/boot-diagnostics.md)視窗中的螢幕擷取畫面時，您發現啟動作業停滯於更新程序中。 下列範例顯示您可能收到的訊息：
 

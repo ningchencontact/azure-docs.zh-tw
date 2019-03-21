@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ef81e0c4d04d57edbffa16b817b34af5f3bf8c26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dff6d07f4df1da3de083934e0d8240beb957292e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995624"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883588"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>使用 Azure AD 驗證搭配 REST 存取媒體服務 API
 
@@ -58,10 +58,10 @@ ms.locfileid: "55995624"
 
 若要存取 Media Services API，您必須收集下列資料點。
 
-|設定|範例|說明|
+|設定|範例|描述|
 |---|-------|-----|
-|Azure Active Directory 租用戶網域|microsoft.onmicrosoft.com|Azure AD 即 Secure Token Service (STS) 端點會透過以下格式建立： https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD 會核發存取資源所需的 JWT (存取權杖)。|
-|REST API 端點|https://amshelloworld.restv2.westus.media.azure.net/api/|您的應用程式中發出之所有媒體服務 REST API 呼叫，都是針對此端點。|
+|Azure Active Directory 租用戶網域|microsoft.onmicrosoft.com|Azure AD 即 Secure Token Service (STS) 端點會透過以下格式建立：<https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD 會核發存取資源所需的 JWT (存取權杖)。|
+|REST API 端點|<https://amshelloworld.restv2.westus.media.azure.net/api/>|您的應用程式中發出之所有媒體服務 REST API 呼叫，都是針對此端點。|
 |用戶端識別碼 (應用程式識別碼)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 應用程式 (用戶端) 識別碼。 需要用戶端識別碼，才能取得存取權杖。 |
 |用戶端密碼|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 應用程式金鑰 (用戶端秘密)。 需要用戶端秘密，才能取得存取權杖。|
 
@@ -69,7 +69,7 @@ ms.locfileid: "55995624"
 
 若要取得資訊，請遵循下列步驟：
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至您的 AMS 執行個體。
 3. 選取 **API 存取**。
 4. 按一下 [使用服務主體連線到 Azure 媒體服務 API]。
@@ -83,33 +83,33 @@ ms.locfileid: "55995624"
 
     如果您需要建立新的 AD 應用程式，請依照下列步驟操作：
     
-    1. 按下 [新建]。
-    2. 輸入名稱。
-    3. 再按一次 [新建]。
-    4. 按下 [儲存] 。
+   1. 按下 [新建]。
+   2. 輸入名稱。
+   3. 再按一次 [新建]。
+   4. 按下 [儲存] 。
 
-    ![API 存取](./media/connect-with-rest/new-app.png)
+      ![API 存取](./media/connect-with-rest/new-app.png)
 
-    新的應用程式會顯示在頁面上。
+      新的應用程式會顯示在頁面上。
 
 6. 取得**用戶端識別碼** (應用程式識別碼)。
     
-    1. 選取應用程式。
-    2. 從右側視窗取得**用戶端識別碼**。 
+   1. 選取應用程式。
+   2. 從右側視窗取得**用戶端識別碼**。 
 
-    ![API 存取](./media/connect-with-rest/existing-client-id.png)
+      ![API 存取](./media/connect-with-rest/existing-client-id.png)
 
-7.  取得應用程式的**金鑰** (用戶端秘密)。 
+7. 取得應用程式的**金鑰** (用戶端秘密)。 
 
-    1. 按一下 [管理應用程式] 按鈕 (請注意，用戶端識別碼資訊位於**應用程式識別碼**底下)。 
-    2. 按 [金鑰]。
+   1. 按一下 [管理應用程式] 按鈕 (請注意，用戶端識別碼資訊位於**應用程式識別碼**底下)。 
+   2. 按 [金鑰]。
     
-        ![API 存取](./media/connect-with-rest/manage-app.png)
-    3. 產生應用程式金鑰 (用戶端秘密)，方法是填入 **DESCRIPTION** 和 **EXPIRES**，然後按 [儲存]。
+       ![API 存取](./media/connect-with-rest/manage-app.png)
+   3. 產生應用程式金鑰 (用戶端秘密)，方法是填入 **DESCRIPTION** 和 **EXPIRES**，然後按 [儲存]。
     
-        一旦按下 [儲存] 按鈕後，隨即出現金鑰值。 離開刀鋒視窗之前，請複製金鑰值。
+       一旦按下 [儲存] 按鈕後，隨即出現金鑰值。 離開刀鋒視窗之前，請複製金鑰值。
 
-    ![API 存取](./media/connect-with-rest/connect-with-rest03.png)
+   ![API 存取](./media/connect-with-rest/connect-with-rest03.png)
 
 您可以將 AD 連線參數的值新增至您的 web.config 或 app.config 檔案，以便稍後在您的程式碼中使用。
 

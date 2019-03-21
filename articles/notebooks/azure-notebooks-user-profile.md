@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 4186abd215509e0ae9ced50340fb1f3d3b5f9676
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854156"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765912"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>您 Azure Notebooks 的設定檔和使用者識別碼
 
@@ -28,11 +28,11 @@ ms.locfileid: "54854156"
 
 您的使用者識別碼會包含在您用來共用專案和 Notebook 的 URL 中。 下列清單將說明不同的 URL 模式：
 
-- `https://notebooks.azure.com/<user_id>`：您的設定檔頁面。
-- `https://notebooks.azure.com/<user_id>/projects`：您的專案。 您會看到所有專案；其他使用者只會看到您的公用專案。
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>`：專案檔。
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`：特定專案的複製品。
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`：特定 Notebook 或檔案的 HTML 預覽。
+- `https://notebooks.azure.com/<user_id>`:您的設定檔頁面。
+- `https://notebooks.azure.com/<user_id>/projects`:您的專案。 您會看到所有專案；其他使用者只會看到您的公用專案。
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`:專案檔。
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`:特定專案的複製品。
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`:特定 Notebook 或檔案的 HTML 預覽。
 
 ## <a name="your-user-id"></a>您的使用者識別碼
 
@@ -46,7 +46,7 @@ ms.locfileid: "54854156"
 
 您也可以隨時在設定檔頁面上變更使用者識別碼。
 
-使用者識別碼必須由至少四個字母、數字和連字號組成。 不允許使用任何其他字元，且使用者識別碼不得以連字號開始或結尾，或是連續使用多個連字號。
+使用者識別碼必須介於 4 到 16 個字母、 數字和連字號組成。 不允許使用任何其他字元，且使用者識別碼不得以連字號開始或結尾，或是連續使用多個連字號。 因為 Azure Notebooks 的所有帳戶使用者識別碼是唯一的您可能會看到訊息，「 使用者識別碼已經在使用中 」。 （訊息也會顯示如果您嘗試使用 Microsoft 商標做為使用者識別碼。）在這些情況下，選擇不同的使用者識別碼。
 
 > [!Important]
 > 變更您的識別碼後，您已使用先前的識別碼共用的任何 URL 就會失效。 您可以將識別碼重新變更為原先的識別碼，以重新驗證連結。 但在此同時，可能會有其他使用者宣告未使用的識別碼。

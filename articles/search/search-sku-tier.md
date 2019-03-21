@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467436"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762920"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
@@ -32,30 +32,57 @@ ms.locfileid: "55467436"
 > 功能同位的例外狀況是[索引子](search-indexer-overview.md)，它們並不適用於 S3HD。
 >
 
-在層中，您可以[調整複本和分割區的資源](search-capacity-planning.md)以進行效能調整。 您可能從每個層中的兩或三個開始，然後可以暫時提高運算能力以應對繁重的索引工作負載。 調整層中資源層級的能力增加了彈性，但也使分析稍微變得複雜。 您可能需要嘗試實驗以查看具有較高資源/副本的較低層級，是否提供比具有較低資源的較高層級較佳的值和效能。 若要深入了解容量會進行調整的時機和原因，請參閱[效能和最佳化考量](search-performance-optimization.md)。
+您可以在階層內[調整複本和分割區的資源](search-capacity-planning.md)來增加或減少小數位數。 您可以開始使用其中一個或兩種程式，並暫時提高您的編製索引工作負載過重的運算能力。 調整層中資源層級的能力增加了彈性，但也使分析稍微變得複雜。 您可能需要嘗試實驗以查看具有較高資源/副本的較低層級，是否提供比具有較低資源的較高層級較佳的值和效能。 若要深入了解容量會進行調整的時機和原因，請參閱[效能和最佳化考量](search-performance-optimization.md)。
 
-<!---
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
---->
+## <a name="tiers-for-azure-search"></a>適用於 Azure 搜尋服務層
+
+下表列出可用的層。 包含其他層資訊來源[定價頁面](https://azure.microsoft.com/pricing/details/search/)，[服務和資料限制](search-limits-quotas-capacity.md)，及入口網站的頁面上，當佈建服務。
+
+|層 | Capacity |
+|-----|-------------|
+|免費 | 與其他訂閱者共用。 非可調整性限制為 3 個索引和 50 MB 儲存空間。 |
+|基本 | 對於規模較小的生產工作負載專用的計算資源。 一個 2 GB 的磁碟分割和最多三個複本。 |
+|標準 1 (S1) | 從 S1 在專用的機器，具有更多儲存體和處理容量，每個層級備份。 資料分割大小為 25 GB/分割區 （最多 300 GB 的文件每個服務） 適用於 S1。 |
+|標準 2 (S2) | 類似至 S1，但有 100 GB/分割區 （最多 1.2 TB 文件每個服務） |
+|標準 3 (S3) | 200 GB/分割區 （最多 2.4 TB 文件每個服務）。 |
+|標準 3 高密度 (S3-HD) | 是高密度*主控模式*適用於 S3。 基礎硬體被適合大量的較小的索引，適用於多租用戶的案例。 S3 HD 有相同的每個單位費用，因為 S3，但硬體最適合用於快速檔案讀取大量的較小型索引上。|
+
 
 ## <a name="how-billing-works"></a>計費的運作方式
 
-在 Azure 搜尋服務中，當您在入口網站裡建立搜尋資源時有四種方式會產生成本：
+在 Azure 搜尋服務中，有三種方式產生成本，在 Azure 搜尋中，而且有固定且可變的元件。 本節輪流探討每個計費的元件。
 
-* 新增用於一般編製索引和查詢工作的複本和分割區。 您會使用這兩者，但您可以選擇其他資源層級並付費來增加其中之一或兩者以增加容量。 
-* 編製索引期間的資料輸出費用。 從 Azure SQL Database 或 Cosmos DB 資料來源提取資料時，您會在帳單中看到那些資源的交易費用。
-* 僅針對[認知搜尋](cognitive-search-concept-intro.md)，在文件萃取期間的影像擷取，會根據從文件擷取的影像數目計費。 文字擷取目前是免費的。
-* 僅針對[認知搜尋](cognitive-search-concept-intro.md)，以[內建認知技能](cognitive-search-predefined-skills.md)為基礎的擴充會按照認知服務資源進行計費。 擴充的計費費率如同您直接使用認知服務執行工作。
+### <a name="1-core-service-costs-fixed-and-variable"></a>1.核心服務成本 （固定且可變）
+
+服務本身，最小的費用是依第一個搜尋單位 （1 個複本 x 1 磁碟分割），以及此數量是服務的存留期的常數，因為服務不能執行任何小於此組態。 
+
+在下列螢幕擷取畫面中，每個單位定價指定 Free、 Basic 和 S1 （S2 和 S3 不會顯示）。 如果您建立基本的服務或標準服務，您每月的成本會平均所顯示的值*價格-1*並*價格 2*分別。 單位成本往每個層級因為計算能力和儲存體容量大於在每個連續的階層。
+
+![每單位定價](./media/search-sku-tier/per-unit-pricing.png "每單位價格")
+
+額外的複本和分割區是初始的免費的附加元件。 搜尋服務需要複本和分割區，因此最小的組態，每一個。 超過最小值，您新增複本和分割區獨立。 比方說，您可以新增只能 「 複本 」 或 「 只有資料分割。 
+
+額外的複本和分割區收費依據[公式](#search-units)。 成本不是線性 （加倍容量多個雙精度浮點數的成本）。 如需公式的運作方式的範例，請參閱[「 如何配置複本和分割區 」](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+
+### <a name="2-data-egress-charges-during-indexing"></a>2.編製索引期間的資料輸出費用
+
+從 Azure SQL Database 或 Cosmos DB 資料來源提取資料時，您會在帳單中看到那些資源的交易費用。 這些費用不是 Azure 搜尋服務的計量，但它們會提因為如果您使用索引子，從 Azure SQL Database 或 Azure Cosmos DB 中提取資料，您會看到該費用在帳單中。
+
+### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3.AI 豐富的編製索引使用認知服務
+
+僅針對[認知搜尋](cognitive-search-concept-intro.md)，在文件萃取期間的影像擷取，會根據從文件擷取的影像數目計費。 文字擷取目前是免費的。 其他類根據[內建認知技能](cognitive-search-predefined-skills.md)收費認知服務資源。 擴充的計費費率如同您直接使用認知服務執行工作。
 
 如果您不是使用[認知服務](cognitive-search-concept-intro.md)或 [Azure 搜尋服務索引子](search-indexer-overview.md)，您的成本只會與使用中的複本和分割區相關聯，用於一般編製索引和查詢工作負載。
 
-### <a name="billing-for-general-purpose-indexing-and-queries"></a>一般用途編製索引和查詢的計費
+<a name="search-units"></a>
+
+### <a name="billing-based-on-search-units"></a>搜尋單位計費
 
 針對 Azure 搜尋服務作業，所需了解的最重要計費概念是「搜尋單位」(SU)。 因為 Azure 搜尋服務需要複本和分割區才能編製索引和查詢，因此僅依據其中之一來計費沒有意義。 相反地，會將兩者合併來計費。 
 
 SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
-每個服務都以一個 SU (一個複本乘以一個分割區) 作為最小值。 任何服務的最大值均為 36 個 SU，其可透過多種方式達成：6 個資料分割 x 6 複本，或 3 個分割區 x 12 個複本等等。 使用少於總容量的情況很常見。 例如，3 個複本，3 個分割區，以 9 個 SU 計費。 
+每個服務都以一個 SU (一個複本乘以一個分割區) 作為最小值。 任何服務的最大值均為 36 個 SU，其可透過多種方式達成：6 個資料分割 x 6 複本，或 3 個分割區 x 12 個複本等等。 使用少於總容量的情況很常見。 例如，3 個複本，3 個分割區，以 9 個 SU 計費。 您可以檢閱[此圖表](search-capacity-planning.md#chart)若要查看一眼的有效組合。
 
 計費的費率是**每小時每 SU**，而且每個定價層會有漸進式較高的費率。 較高層級具有更大型且更快速的分割區，從而有助於該層級整體較高的每小時費率。 如需每一層的費率，請參閱 [定價詳細資料](https://azure.microsoft.com/pricing/details/search/)。 
 
@@ -175,7 +202,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 **服務等級協定**
 
-**免費**層和預覽功能並未隨附[服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。 在所有可計費層中，SLA 會在您為您的服務佈建足夠的備援性時生效。 查詢 (讀取) SLA 時需要兩個 (含) 以上的複本。 查詢和檢索 (讀寫) SLA 時需要三個 (含) 以上的複本。 分割區數目不是 SLA 考量。 
+**免費**層和預覽功能並未隨附[服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。 在所有可計費層中，SLA 會在您為您的服務佈建足夠的備援性時生效。 查询（读取）SLA 需要两个或多个副本。 查詢和檢索 (讀寫) SLA 時需要三個 (含) 以上的複本。 分割區數目不是 SLA 考量。 
 
 ## <a name="tips-for-tier-evaluation"></a>定價層評估秘訣
 

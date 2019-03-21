@@ -9,18 +9,18 @@ manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869807"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立基本負載平衡器
 
@@ -28,7 +28,7 @@ ms.locfileid: "56986323"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
-若要進行本快速入門中的工作，請登入 [Azure 入口網站](http://portal.azure.com)。
+若要進行本快速入門中的工作，請登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="create-a-basic-load-balancer"></a>建立基本負載平衡器
 
@@ -41,7 +41,7 @@ ms.locfileid: "56986323"
     | ---                     | ---                                                |
     | 訂用帳戶               | 選取您的訂用帳戶。    |    
     | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupLB*。|
-    | Name                   | *myLoadBalancer*                                   |
+    | 名稱                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]。                                        |
     | 類型          | 選取 [公用]。                                        |
     | SKU           | 選取 [基本]。                          |
@@ -113,7 +113,7 @@ ms.locfileid: "56986323"
    - **來源**：選取 [服務標記]。  
    - **來源服務標記**：選取 [網際網路]。 
    - **目的地連接埠範圍**：輸入 80。
-   - **通訊協定**：選取 [TCP]。 
+   - **通訊協定**：選取 **TCP**。 
    - **動作**：選取 [允許]。  
    - **優先順序**：輸入 100。 
    - **名稱**：輸入 MyHTTPRule。 
@@ -207,7 +207,7 @@ ms.locfileid: "56986323"
    
 1. 選取 [確定] 。
    
-  ![新增負載平衡器規則](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![新增負載平衡器規則](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>測試負載平衡器
 
@@ -259,6 +259,7 @@ ms.locfileid: "56986323"
 
 ![IIS 網頁伺服器](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+若要查看負載平衡器如何將流量分散於執行您應用程式的這三部 VM，您可以強制重新整理您的 Web 瀏覽器。
 ## <a name="clean-up-resources"></a>清除資源
 
 當您不再需要時，若要刪除負載平衡器和所有相關的資源，請開啟 **MyResourceGroupLB** 資源群組並選取 [刪除資源群組]。

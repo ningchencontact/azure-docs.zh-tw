@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b5f2bee7ab0277b94da699be486594a602b94a29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835742"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Linux CentOS 資料科學虛擬機器
 
@@ -104,7 +104,7 @@ Linux 資料科學虛擬機器可以大幅減輕這樣的負擔。 使用它可�
 佈建大約 10-20 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>如何存取 Linux 資料科學虛擬機器
-建立 VM 之後，您就可以使用 SSH 登入。 針對文字殼層介面，使用您在步驟 3 的 **基本** 區段中建立的帳戶認證。 在 Windows 上，您可以下載 SSH 用戶端工具，例如 [Putty](http://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。
+建立 VM 之後，您就可以使用 SSH 登入。 針對文字殼層介面，使用您在步驟 3 的 **基本** 區段中建立的帳戶認證。 在 Windows 上，您可以下載 SSH 用戶端工具，例如 [Putty](https://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。
 
 > [!NOTE]
 > 在測試中，X2Go 用戶端的效能明顯優於 X11 轉寄。 我們建議您使用 X2Go 用戶端作為圖形化桌面介面。
@@ -114,7 +114,7 @@ Linux 資料科學虛擬機器可以大幅減輕這樣的負擔。 使用它可�
 ## <a name="installing-and-configuring-x2go-client"></a>安裝和設定 X2Go 用戶端
 Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若要連接到 Linux VM 圖形化桌面，請在用戶端上進行下列動作：
 
-1. 從 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
+1. 從 [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
 1. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
    * **[工作階段] 索引標籤**：
      * **主機**：「Linux 資料科學 VM」的主機名稱或 IP 位址。
@@ -132,7 +132,7 @@ R 是其中一種最受歡迎的資料分析和機器學習語言。 如果您�
 
 若要啟動 R 主控台，您只需在殼層中輸入 **R**。 這會帶您前往互動式環境。 若要開發 R 程式，您通常會使用編輯器 (例如 Emacs、vi 或 gedit)，然後在 R 內執行指令碼。使用 RStudio，您就會有完整的圖形化 IDE 環境來開發 R 程式。
 
-如果您想要的話，另外也會有 R 指令碼讓您安裝 [前 20 名 R 封裝](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) 。 當您位於 R 互動式介面 (在殼層中輸入 **R** (如上所述)，即可進入) 時，就可以執行這個指令碼。  
+如果您想要的話，另外也會有 R 指令碼讓您安裝 [前 20 名 R 封裝](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) 。 當您位於 R 互動式介面 (在殼層中輸入 **R** (如上所述)，即可進入) 時，就可以執行這個指令碼。  
 
 ### <a name="python"></a>Python
 為了能夠使用 Python 進行開發，我們已安裝了 Anaconda Python 散佈 2.7 與 3.5。 這個散發套件包含基本的 Python 以及大約 300 個最受歡迎的數學運算、工程設計和資料分析封裝。 您可以使用預設的文字編輯器。 此外，您也可以使用 Spyder，這是與 Anaconda Python 散發套件配套的 Python IDE。 Spyder 需要圖形化桌面或 X11 轉寄。 圖形化桌面中提供了 Spyder 的捷徑。
@@ -198,12 +198,12 @@ Apache Spark 的獨立執行個體已預先安裝在 Linux DSVM，可協助您�
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-您可以在不需要它們時停止 Hadoop 相關服務，方法是執行 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` 示範如何在遠端 Spark 內容中開發和測試 MRS (這是 DSVM 上的獨立 Spark 執行個體) 的範例，以及 `/dsvm/samples/MRS` 目錄中的可用項目。 
+您可以停止 Hadoop 相關服務，當您不需要它們執行```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```範例，示範如何在開發和測試 MRS （這是 DSVM 上的獨立 Spark 執行個體） 的遠端 Spark 內容會提供，而且可在`/dsvm/samples/MRS`目錄。 
 
 ### <a name="ides-and-editors"></a>IDE 和編輯器
 您可以選擇數個程式碼編輯器。 這包括 vi/VIM、Emacs、gEdit、PyCharm、RStudio、Eclipse 和 IntelliJ。 gEdit、Eclipse、IntelliJ、RStudio 和 PyCharm 是圖形化編輯器，您需要登入圖形化桌面才能使用它們。 這些編輯器有桌面和應用程式功能表的捷徑可以啟動它們。
 
-**VIM** 和 **Emacs** 是文字型編輯器。 在 Emacs 上，我們已安裝稱為 Emacs Speaks Statistics (ESS) 的附加元件封裝，它可以方便於在 Emacs 編輯器中使用 R。 如需詳細資訊，請參閱 [ESS](http://ess.r-project.org/)。
+**VIM** 和 **Emacs** 是文字型編輯器。 在 Emacs 上，我們已安裝稱為 Emacs Speaks Statistics (ESS) 的附加元件封裝，它可以方便於在 Emacs 編輯器中使用 R。 如需詳細資訊，請參閱 [ESS](https://ess.r-project.org/)。
 
 **Eclipse** 是可延伸的 IDE 開放原始碼，可支援多種語言。 Java 開發人員版本是安裝在 VM 上的執行個體。 有提供幾種熱門語言的外掛程式，您可以安裝它們以擴充環境。 我們也在 Eclipse 中安裝了一個外掛程式，稱為 **Azure Toolkit for Eclipse**。 它可讓您使用支援如 Java 等語言的 Eclipse 開發環境，建立、開發、測試和部署 Azure 應用程式。 另外還有 **Azure SDK for Java** ，它可讓您從 Java 環境中存取不同的 Azure 服務。 適用於 Eclipse 的 Azure 工具組的詳細資訊位於 [適用於 Eclipse 的 Azure 工具組](../../azure-toolkit-for-eclipse.md)。
 
@@ -377,5 +377,5 @@ Rattle (**R** **A**nalytical **T**ool **T**o **L**earn **E**asily) 會使用 GUI
 * [Data science on the Linux Data Science Virtual Machine (Linux 資料科學虛擬機器上的資料科學)](linux-dsvm-walkthrough.md) 逐步解說會示範如何使用此處佈建的 Linux 資料科學 VM 來執行數個常見的資料科學工作。 
 * 試試本文中所述的工具，在資料科學 VM 上探索各種資料科學工具。 您也可以在虛擬機器內的殼層上執行 *dsvm-more-info* ，以獲得關於 VM 上所安裝工具的基本簡介和詳細資訊的指標。  
 * 了解如何使用 [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)，以系統化方式建置端對端分析方案。
-* 請造訪 [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) ，以取得使用 Cortana Analytics Suite 的機器學習和資料分析範例。
+* 請造訪 [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com) ，以取得使用 Cortana Analytics Suite 的機器學習和資料分析範例。
 
